@@ -2,14 +2,14 @@ Return-Path: <SRS0=LL44=PU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3943CC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Nov 2021 01:57:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C93DAC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Nov 2021 02:00:58 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F317660F24
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Nov 2021 01:57:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F317660F24
+	by mail.kernel.org (Postfix) with ESMTPS id 85C0E60F24
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Nov 2021 02:00:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 85C0E60F24
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,95 +18,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c31XiJXvsXwDF3fZP8BIjZXw/u7kxjN7A3vegmgyVnc=; b=4Aae96aPgrh+s5
-	b2Jse546vpoT1ynXltsPrkTPEajpioDBAcTI/yoYVaThq3RUHJ3yGfO+ufzxE64DdTMNIXVXN7+eI
-	ENbCvJeQn6195c25/X7oOnNRHkQw852ErpoZZXToau1N6dA+iYQJEK3Yfl+PdiG8rEmRNtofyV49G
-	5dtoU3+GkH2bUHa+bXeO6TMzmCQaxUt7G2LYItM12VBzIKc6988k5s7XUprvxZgY1meOrxfKgoDTS
-	DMCpooTHNfSgIKrJx4u/LRuVbGkhahm/oya5SkWqvs/wQMGpg6L97tS1CVuFeWdSPTdTfHw2SJfxe
-	4gA6OQs/xi/LUi4+Y+VA==;
+	List-Owner; bh=0JmnwqJ+QWQemgWgX0DmACAhPnu52BiQQ8K7Laycsxo=; b=tM81TWhC1plRB6
+	YSG3mKSJFCwNo3wxT7xD6W31TNS2zfnfk1SskjVg9Pu/U+Sq5RVRtkr0U67YIp6JAGO+9J1igUXbT
+	yTEYuyrPc/4WEj48HrKQQgwg+9Fw0tw4pXY/+f7YLCnzj1poTZ7L4d4S7NMpMZPQSdVkY5gqweAwq
+	pIni1/mzusHW9OUUYwQ2gNq75Uo2ja8omy1smQ9nQhp/I25quKsmiNki6La3Gbx/AK3682QdI0RvT
+	hHwEeb3h/Q2TUNrRDnArCczneE1Fc7iy7lQPSBv84RVRM1s1y9a8wJP+/D4YWjyJ2ibp+dpbDA12E
+	7tGMpooEn28dxrM5PZmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mhMZs-00F46N-Hq; Mon, 01 Nov 2021 01:57:36 +0000
+	id 1mhMcy-00F4Nx-1I; Mon, 01 Nov 2021 02:00:48 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mhMZo-00F45d-Lz; Mon, 01 Nov 2021 01:57:34 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 52825610CA;
- Mon,  1 Nov 2021 01:57:32 +0000 (UTC)
+ id 1mhMcu-00F4ND-VN
+ for linux-riscv@lists.infradead.org; Mon, 01 Nov 2021 02:00:46 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 67BBB6108C
+ for <linux-riscv@lists.infradead.org>; Mon,  1 Nov 2021 02:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1635731852;
- bh=fuaUan8WpsO3AU0Pd876OqdiQB5S59Rz/RFmfxHCqFo=;
+ s=k20201202; t=1635732044;
+ bh=shDWMdR5V2gSq0ntHDz1VoZ/I3FO9yU751bkzZSy4uU=;
  h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=WTZ2r/aqsZBJ/SEMp/W5aRRvu0wWWG+qZmM8hZPwjrObwwMpW1TgXwf1zWnw0Qa9i
- Zv/YGYWGYxl7myNvWxfw0CIgJUc9b2/XePq2AH0H37XLuqx44GHHVjgkb3ys6UwuYH
- QFUJSlyCI2x3AldpppHi6cKlbUrpf5epTIwYkQ0LyIddZNVrNNmKUj9pq1nkh3vhav
- ePFznWLS5KXHwuBhRZexeraVkFwzXRLP/38HX/OFwy/5mrR8Hs9LdC9PbwjoOwqbNV
- ADgrJu7beLvyyJTcpsvn3lAsea5miSCymSsM2dL/H4uMyDHc1oqmdVcUWCHL7cYIF+
- w+SQ6/88DMfNA==
-Received: by mail-yb1-f177.google.com with SMTP id s186so16729513yba.12;
- Sun, 31 Oct 2021 18:57:32 -0700 (PDT)
-X-Gm-Message-State: AOAM5324pq6vbD8kzUj7BBT7iRXDBoApbT8ZShO8Ru0q9zh/+NbCpb3p
- IeRQy1B+ZBU3IyetPzebx2LeGwIUC9ObgcWS5l8=
-X-Google-Smtp-Source: ABdhPJwLzr48xvkbPUYNSwW4wG4jcRHULAsaxHDgvLOaeOhiDi1MY+7mZCeP1WaifSe+QfUYgjKQrdu4XIYT2pTMgvI=
-X-Received: by 2002:ab0:6883:: with SMTP id t3mr16913634uar.66.1635731841194; 
- Sun, 31 Oct 2021 18:57:21 -0700 (PDT)
+ b=r/KJGLPJ/bEKLNfFgjopwlGfCSOs1ce1OalxGSb3AD/wINtuVf/u73DIHpJgoIlAs
+ VIpku2Ri8Z81ZDsz9LFS0mxrON1qiVXH5H6eLf2w4OVSx/WVgdDurGlLE/rz+4GpM2
+ LCAbNowRHhDCBxDgrRweDqoF9zEJKlD6LT9liIzyW87HbcUOEHB8EUbkD7U8V69SML
+ rTA1L594a7qguNKO0Wx4H9JFjOrfhvedsPywO0kMXomRUxvN6ZoyWYhB4u9t0EI2Em
+ aDCE9yTJ+uObRgxUvX777AYl3Mt4i2zZ+TOr/3nTiNkexoscnH+lHdBzDCw5GAw4I9
+ j5qncXHFNt/zw==
+Received: by mail-ua1-f53.google.com with SMTP id f4so29215091uad.4
+ for <linux-riscv@lists.infradead.org>; Sun, 31 Oct 2021 19:00:44 -0700 (PDT)
+X-Gm-Message-State: AOAM532XJ1UaGQPSjaT4EEsQSjrmTIbaYLTODGzYpCx3CLTo0BpkUeez
+ yzWY0435EEtgSNCHYsvhgC9JNiPviixBTx/nBW8=
+X-Google-Smtp-Source: ABdhPJzFRI/HrKf9T9tRooHhLIs67Rp+m6dvFEoAhFZMESmvoDaPLjdwFFWHOWJhZAPLQ8OQKNSWFvLZZ9pCmvBE+yw=
+X-Received: by 2002:a67:ca1c:: with SMTP id z28mr26599957vsk.11.1635732043483; 
+ Sun, 31 Oct 2021 19:00:43 -0700 (PDT)
 MIME-Version: 1.0
-References: <20211027211715.12671-1-digetx@gmail.com>
- <20211027211715.12671-13-digetx@gmail.com>
-In-Reply-To: <20211027211715.12671-13-digetx@gmail.com>
+References: <20211024013303.3499461-1-guoren@kernel.org>
+ <20211024013303.3499461-4-guoren@kernel.org>
+ <87a6ixbcse.wl-maz@kernel.org>
+ <20211028135523.5cf4b66b@redslave.neermore.group>
+In-Reply-To: <20211028135523.5cf4b66b@redslave.neermore.group>
 From: Guo Ren <guoren@kernel.org>
-Date: Mon, 1 Nov 2021 09:57:10 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTT+EsLt+pnYyTw_B0C8isho=E4tfOWROe9h-GZpYjET=w@mail.gmail.com>
-Message-ID: <CAJF2gTT+EsLt+pnYyTw_B0C8isho=E4tfOWROe9h-GZpYjET=w@mail.gmail.com>
-Subject: Re: [PATCH v2 12/45] csky: Use do_kernel_power_off()
-To: Dmitry Osipenko <digetx@gmail.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, 
- Lee Jones <lee.jones@linaro.org>, "Rafael J . Wysocki" <rafael@kernel.org>, 
- Mark Brown <broonie@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
- Guenter Roeck <linux@roeck-us.net>, Russell King <linux@armlinux.org.uk>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Ulf Hansson <ulf.hansson@linaro.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Geert Uytterhoeven <geert@linux-m68k.org>, Greg Ungerer <gerg@linux-m68k.org>, 
- Joshua Thompson <funaho@jurai.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>, 
- Vincent Chen <deanbo422@gmail.com>, 
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
- Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, 
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
- "H. Peter Anvin" <hpa@zytor.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- Juergen Gross <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>,
- Len Brown <lenb@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
- Linus Walleij <linus.walleij@linaro.org>, Chen-Yu Tsai <wens@csie.org>, 
- =?UTF-8?Q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
- Tony Lindgren <tony@atomide.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Vladimir Zapolskiy <vz@mleia.com>, 
- Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
- Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
- Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>,
- Pavel Machek <pavel@ucw.cz>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-csky@vger.kernel.org, 
- linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org, 
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, linux-riscv <linux-riscv@lists.infradead.org>, 
- linux-sh@vger.kernel.org, xen-devel@lists.xenproject.org, 
- linux-acpi@vger.kernel.org, linux-omap@vger.kernel.org, 
- openbmc@lists.ozlabs.org, linux-tegra@vger.kernel.org, 
- linux-pm@vger.kernel.org
+Date: Mon, 1 Nov 2021 10:00:32 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRcVNLxns42u6GK3qhGKoqLb-10H=b2BDGWwuDRi_MPQw@mail.gmail.com>
+Message-ID: <CAJF2gTRcVNLxns42u6GK3qhGKoqLb-10H=b2BDGWwuDRi_MPQw@mail.gmail.com>
+Subject: Re: [PATCH V5 3/3] irqchip/sifive-plic: Fixup thead, c900-plic
+ request_threaded_irq with ONESHOT
+To: Nikita Shubin <nikita.shubin@maquefel.me>
+Cc: Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, 
+ Atish Patra <atish.patra@wdc.com>, Thomas Gleixner <tglx@linutronix.de>, 
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Rob Herring <robh@kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211031_185732_768242_3F73EF36 
-X-CRM114-Status: GOOD (  20.07  )
+X-CRM114-CacheID: sfid-20211031_190045_076460_685CD009 
+X-CRM114-Status: GOOD (  32.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,46 +90,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Only for this patch, Acked-by: Guo Ren <guoren@kernel.org>
+Thx Nikita,
 
-On Thu, Oct 28, 2021 at 5:18 AM Dmitry Osipenko <digetx@gmail.com> wrote:
+I would fixup that globally in the plic in next version of patch.
+
+On Thu, Oct 28, 2021 at 7:01 PM Nikita Shubin <nikita.shubin@maquefel.me> wrote:
 >
-> Kernel now supports chained power-off handlers. Use do_kernel_power_off()
-> that invokes chained power-off handlers. It also invokes legacy
-> pm_power_off() for now, which will be removed once all drivers will
-> be converted to the new power-off API.
+> Hello Marc and Guo Ren!
 >
-> Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
+> On Mon, 25 Oct 2021 11:48:33 +0100
+> Marc Zyngier <maz@kernel.org> wrote:
+>
+> > On Sun, 24 Oct 2021 02:33:03 +0100,
+> > guoren@kernel.org wrote:
+> > >
+> > > From: Guo Ren <guoren@linux.alibaba.com>
+> > >
+> > > When using "devm_request_threaded_irq(,,,,IRQF_ONESHOT,,)" in the
+> > > driver, only the first interrupt could be handled, and continue irq
+> > > is blocked by hw. Because the thead,c900-plic couldn't complete
+> > > masked irq source which has been disabled in enable register. Add
+> > > thead_plic_chip which fix up c906-plic irq source completion
+> > > problem by unmask/mask wrapper.
+> > >
+> > > Here is the description of Interrupt Completion in PLIC spec [1]:
+> > >
+> > > The PLIC signals it has completed executing an interrupt handler by
+> > > writing the interrupt ID it received from the claim to the
+> > > claim/complete register. The PLIC does not check whether the
+> > > completion ID is the same as the last claim ID for that target. If
+> > > the completion ID does not match an interrupt source that is
+> > > currently enabled for the target, the ^^ ^^^^^^^^^ ^^^^^^^
+> > > completion is silently ignored.
+> >
+> > Given this bit of the spec...
+> >
+> > > +static void plic_thead_irq_eoi(struct irq_data *d)
+> > > +{
+> > > +   struct plic_handler *handler =
+> > > this_cpu_ptr(&plic_handlers); +
+> > > +   if (irqd_irq_masked(d)) {
+> > > +           plic_irq_unmask(d);
+> > > +           writel(d->hwirq, handler->hart_base +
+> > > CONTEXT_CLAIM);
+> > > +           plic_irq_mask(d);
+> > > +   } else {
+> > > +           writel(d->hwirq, handler->hart_base +
+> > > CONTEXT_CLAIM);
+> > > +   }
+> > > +}
+> > > +
+> >
+> > ... it isn't obvious to me why this cannot happen on an SiFive PLIC.
+>
+> This indeed happens with SiFive PLIC. I am currently tinkering with
+> da9063 RTC on SiFive Unmatched, and ALARM irq fires only once. However
+> with changes proposed by Guo Ren in plic_thead_irq_eoi, everything
+> begins to work fine.
+>
+> May be these change should be propagated to plic_irq_eoi instead of
+> making a new function ?
+>
+> >
+> > And it isn't only for threaded interrupts in oneshot mode. Any driver
+> > can mask an interrupt from its handler after having set the
+> > IRQ_DISABLE_UNLAZY flag, and the interrupt would need the exact same
+> > treatment.
+> >
+> >       M.
+> >
+>
 > ---
->  arch/csky/kernel/power.c | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/csky/kernel/power.c b/arch/csky/kernel/power.c
-> index 923ee4e381b8..86ee202906f8 100644
-> --- a/arch/csky/kernel/power.c
-> +++ b/arch/csky/kernel/power.c
-> @@ -9,16 +9,14 @@ EXPORT_SYMBOL(pm_power_off);
->  void machine_power_off(void)
+> diff --git a/drivers/irqchip/irq-sifive-plic.c
+> b/drivers/irqchip/irq-sifive-plic.c index cf74cfa82045..259065d271ef
+> 100644 --- a/drivers/irqchip/irq-sifive-plic.c
+> +++ b/drivers/irqchip/irq-sifive-plic.c
+> @@ -163,7 +163,13 @@ static void plic_irq_eoi(struct irq_data *d)
 >  {
->         local_irq_disable();
-> -       if (pm_power_off)
-> -               pm_power_off();
-> +       do_kernel_power_off();
->         asm volatile ("bkpt");
+>         struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+>
+> -       writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+> +       if (irqd_irq_masked(d)) {
+> +               plic_irq_unmask(d);
+> +               writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+> +               plic_irq_mask(d);
+> +       } else {
+> +               writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+> +       }
 >  }
 >
->  void machine_halt(void)
->  {
->         local_irq_disable();
-> -       if (pm_power_off)
-> -               pm_power_off();
-> +       do_kernel_power_off();
->         asm volatile ("bkpt");
->  }
->
-> --
-> 2.33.1
->
+>  static struct irq_chip plic_chip = {
+
 
 
 -- 
