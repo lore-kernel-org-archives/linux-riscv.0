@@ -2,108 +2,79 @@ Return-Path: <SRS0=LL44=PU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 236DCC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Nov 2021 17:42:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 90ED7C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Nov 2021 21:16:16 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D26AF60EB8
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Nov 2021 17:42:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D26AF60EB8
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id 4EA4760184
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Nov 2021 21:16:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4EA4760184
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=xmission.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I4iKMz8LMkuVeUn9hzEY+3Lyg3mWvdnjhIjXA5pkaPY=; b=EJKSEjOHMz/Xa+
-	KG4SS8D17ZRwUJhYkGvQp/R+qpJndFFjAtnk3YDAGnJf37hAfSYU9df1pWOZbIN+GHknPB+ZXulSm
-	D9zSadZs9YkKpCtIK87ixTx6GpIXUpDEZHa8QbvCSrimXNcB4fuBNQW7goEIl8/oIIftlcwZFlEMV
-	p9Typ8aWKEYvlVFTs/k6V67qpfWbckLrlbs0L4Uz0cUF37YAJWRK/f/MN6pqZ6qYCAFXyUDDQYjk2
-	ImVWAkahCKKLYxl/CBHxmp5t2nuqabf1BqSqUWRLVX5iEAt+PKzjEQVDpgEG8cdpNcfNJjD3vJAGO
-	Jo3w6ODzUwq4e4GVeq9A==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:MIME-Version:Message-ID:
+	In-Reply-To:Date:References:Cc:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=ZS7/A0wAMFXaODl0De3iob7zYQi+WuspcilvTFpT/yA=; b=mINETpOXiGrd3qcDoOFUDbFen7
+	PCaEz7mHAQkaUGOftkIxq4DQnTHP0L6jKtRdLskfTZazE32/2OVhqesVEMNDrOW8WHWfHlaZSjjQW
+	q0FWyPO//SEALeCz0sw2ekWCZ2F9Pd+ta1fpePuX7GupUftE6k3e4poxaUl541WnJoWDeSLGqnXDV
+	4HPUoYgC2kh7TGCT3GZx1f7GP1BQGXsFR0GB32J24mkpq0kVcdRUi6yd4sqLue0g28tS4tFDvT0A5
+	Z0VQn6u0W/QhzXXrFdeh4hnfGf8EMl9YvykMX3DScXpTxt5rlw0qZVN9J6BrHA22qhhE302E7dnk7
+	CZGeOe6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mhbJe-00Gvi4-SM; Mon, 01 Nov 2021 17:41:50 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1mheev-00HKwo-C2; Mon, 01 Nov 2021 21:16:01 +0000
+Received: from out01.mta.xmission.com ([166.70.13.231])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mhbJR-00GveA-S3
- for linux-riscv@lists.infradead.org; Mon, 01 Nov 2021 17:41:39 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id
- o10-20020a17090a3d4a00b001a6555878a8so5057908pjf.1
- for <linux-riscv@lists.infradead.org>; Mon, 01 Nov 2021 10:41:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=rtTqRA7823rLhhDHR/FeABtCXlD+vQwUZXFhSKbl7nw=;
- b=otcBvN/3IcuDrr15J0K5CvKDj9ic0jccTokbwB/sVPFst2f0LLD/XC7PPmPO9eJXRu
- P2OBNUe1RlpO0zOo26l/3DPAdKxfcfvQY3tyTT+VRt2u50F02VgF8OTA49ToznF2ILGt
- Yy6m85iKMGx1XCrOjugojlIHRrq3kXSGg8wFybO1VALqYGLus50IE17TDpBh8OqfqKK1
- AAKVEsJcdEBK8202Jfb1yydMhJbNy9mJ8dChJ1pRBEEAKk0vwWevUCT/VxYAjLKOhhmx
- ip94OeR4ZQJbCq2qfgBZUaSsgLQoBT6PDF+7fUOqfu8QIWy5qh2RFzJV0Hmhvl6+AMgp
- M0Sw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=rtTqRA7823rLhhDHR/FeABtCXlD+vQwUZXFhSKbl7nw=;
- b=BDkDYeHyFOsyPy/hUQbyUQDBIKeOyfTMxK2pNxl1JiQeltoDrp//8ApTdpUagTEDUI
- xPGwI/8PHfHO9+3OBBq0u5X94SwRtvByPua0tttD/PHURmDdyg3qYQIxsDFhiKR27Ov/
- WaIBnvWuzHuIv7vuDuEYDtZOrsFjp7CoNcd9VFZhkQcJokB3jKgyihqZmClTTIyQxyK1
- 1aPoiN+3CRX65UV2boKdYw52gcgqwI+Zly8chJxdE8ReyqOBnFRP3zWKRdQ1X7lyaxGe
- uWVAc4sp+VncS3OjKLjVF5wxvsa8q9GCjzJWFozkoeExBEMynDOQg1YTpoBDZJoJ2bf0
- D/eg==
-X-Gm-Message-State: AOAM530gssJgc2HQfUCJpoCyYTpF8Uc1qCLQ3QBfKLZBHJt54IRTASuH
- KUZOte3d3opLYWiuXuJNMZgQwQ==
-X-Google-Smtp-Source: ABdhPJyQ2rd8AtzfLKSk7pcRIWMkAF0QH30KhY5NHLgIkgccLRDTnxh33KsvfNWVKvhaR3vGZrvloQ==
-X-Received: by 2002:a17:90b:3ec6:: with SMTP id
- rm6mr365778pjb.27.1635788493615; 
- Mon, 01 Nov 2021 10:41:33 -0700 (PDT)
-Received: from google.com (157.214.185.35.bc.googleusercontent.com.
- [35.185.214.157])
- by smtp.gmail.com with ESMTPSA id cv1sm86275pjb.48.2021.11.01.10.41.32
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 01 Nov 2021 10:41:33 -0700 (PDT)
-Date: Mon, 1 Nov 2021 17:41:29 +0000
-From: Sean Christopherson <seanjc@google.com>
-To: Maxim Levitsky <mlevitsk@redhat.com>
-Cc: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
- Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
- Paul Mackerras <paulus@ozlabs.org>, Anup Patel <anup.patel@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>,
- James Morse <james.morse@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Atish Patra <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
- Cornelia Huck <cohuck@redhat.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
- Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
- linux-mips@vger.kernel.org, kvm@vger.kernel.org,
- kvm-ppc@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- David Matlack <dmatlack@google.com>, Oliver Upton <oupton@google.com>,
- Jing Zhang <jingzhangos@google.com>
-Subject: Re: [PATCH v2 26/43] KVM: VMX: Read Posted Interrupt "control"
- exactly once per loop iteration
-Message-ID: <YYAmyUZhmcSntUza@google.com>
-References: <20211009021236.4122790-1-seanjc@google.com>
- <20211009021236.4122790-27-seanjc@google.com>
- <b078cce30f86672d7d8f8eaa0adc47d24def24e2.camel@redhat.com>
- <YXrH/ZZBOHrWHz4j@google.com>
- <20a17d75855dfb9bd496466fcd9f14baab0b2bda.camel@redhat.com>
+ id 1mheer-00HKve-IN; Mon, 01 Nov 2021 21:15:58 +0000
+Received: from in02.mta.xmission.com ([166.70.13.52]:35836)
+ by out01.mta.xmission.com with esmtps (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
+ (envelope-from <ebiederm@xmission.com>)
+ id 1mheek-007Fck-MN; Mon, 01 Nov 2021 15:15:50 -0600
+Received: from ip68-227-160-95.om.om.cox.net ([68.227.160.95]:34714
+ helo=email.xmission.com)
+ by in02.mta.xmission.com with esmtpsa (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
+ (envelope-from <ebiederm@xmission.com>)
+ id 1mheej-00B5mV-HN; Mon, 01 Nov 2021 15:15:50 -0600
+From: ebiederm@xmission.com (Eric W. Biederman)
+To: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
+Cc: Liao Chang <liaochang1@huawei.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Nick Kossifidis <mick@ics.forth.gr>,
+ jszhang@kernel.org, guoren@linux.alibaba.com,
+ Pekka Enberg <penberg@kernel.org>, sunnanyong@huawei.com,
+ wangkefeng.wang@huawei.com, changbin.du@intel.com, Alex Ghiti <alex@ghiti.fr>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ LKML <linux-kernel@vger.kernel.org>, kexec@lists.infradead.org
+References: <20211030031832.165457-1-liaochang1@huawei.com>
+ <20211030031832.165457-3-liaochang1@huawei.com>
+ <87ee83goju.fsf@disp2133>
+ <CAJ+HfNjaBQrBtOuMvTccbb2K-Ua=T1eZk0+70hp0_aOAc83A-Q@mail.gmail.com>
+Date: Mon, 01 Nov 2021 16:15:42 -0500
+In-Reply-To: <CAJ+HfNjaBQrBtOuMvTccbb2K-Ua=T1eZk0+70hp0_aOAc83A-Q@mail.gmail.com>
+ (=?utf-8?Q?=22Bj=C3=B6rn_T=C3=B6pel=22's?= message of "Sun, 31 Oct 2021
+ 12:14:33 +0100")
+Message-ID: <87a6inbmrl.fsf@disp2133>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1 (gnu/linux)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20a17d75855dfb9bd496466fcd9f14baab0b2bda.camel@redhat.com>
+X-XM-SPF: eid=1mheej-00B5mV-HN; ; ; mid=<87a6inbmrl.fsf@disp2133>; ; ;
+ hst=in02.mta.xmission.com; ; ; ip=68.227.160.95; ; ; frm=ebiederm@xmission.com;
+ ; ; spf=neutral
+X-XM-AID: U2FsdGVkX18DBOf1ufm8A1FhY1m4kqu+CrD7jATo5Fs=
+X-SA-Exim-Connect-IP: 68.227.160.95
+X-SA-Exim-Mail-From: ebiederm@xmission.com
+Subject: Re: [PATCH 2/3] RISC-V: use memcpy for kexec_file mode
+X-SA-Exim-Version: 4.2.1 (built Sat, 08 Feb 2020 21:53:50 +0000)
+X-SA-Exim-Scanned: Yes (on in02.mta.xmission.com)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211101_104137_924314_50279C03 
-X-CRM114-Status: GOOD (  27.83  )
+X-CRM114-CacheID: sfid-20211101_141557_635858_2256E89C 
+X-CRM114-Status: GOOD (  22.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,65 +86,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 01, 2021, Maxim Levitsky wrote:
-> On Thu, 2021-10-28 at 15:55 +0000, Sean Christopherson wrote:
-> > On Thu, Oct 28, 2021, Maxim Levitsky wrote:
-> > > On Fri, 2021-10-08 at 19:12 -0700, Sean Christopherson wrote:
-> > > I wish there was a way to mark fields in a struct, as requiring 'READ_ONCE' on them
-> > > so that compiler would complain if this isn't done, or automatically use 'READ_ONCE'
-> > > logic.
-> > 
-> > Hmm, I think you could make an argument that ON and thus the whole "control"
-> > word should be volatile.  AFAICT, tagging just "on" as volatile actually works.
-> > There's even in a clause in Documentation/process/volatile-considered-harmful.rst
-> > that calls this out as a (potentially) legitimate use case.
-> > 
-> >   - Pointers to data structures in coherent memory which might be modified
-> >     by I/O devices can, sometimes, legitimately be volatile.
-> > 
-> > That said, I think I actually prefer forcing the use of READ_ONCE.  The descriptor
-> > requires more protections than what volatile provides, namely that all writes need
-> > to be atomic.  So given that volatile alone isn't sufficient, I'd prefer to have
-> > the code itself be more self-documenting.
-> 
-> I took a look at how READ_ONCE/WRITE_ONCE is implemented and indeed they use volatile
-> (the comment above __READ_ONCE is worth gold...), so there is a bit of contradiction:
-> 
-> volatile-considered-harmful.rst states not to mark struct members volatile since
-> you usually need more that than (very true often) and yet, I also heard that
-> READ_ONCE/WRITE_ONCE is very encouraged to be used to fields that are used in lockless
-> algorithms, even when not strictly needed,
-> so why not to just mark the field and then use it normally? I guess that
-> explicit READ_ONCE/WRITE_ONCE is much more readable/visible that a volatile
-> in some header file.
-
-Are you asking about this PI field in particular, or for any field in general?
-
-In this particular case, visibility and documentation is really the only difference,
-functionally the result is the same.  But that's also very much related to why this
-case gets the exception listed above.  The "use it normally" part is also why I
-don't want to tag the field volatile since writing the field absolutely cannot be
-done "normally", it must be done atomically, and volatile doesn't capture that
-detail.
-
-If you're asking about fields in general, the "volatile is harmful" guideline is
-to deter usage of volatile for cases where the field/variable in question is not
-intrinsically volatile.  As the docs call out, using volatile in those cases often
-leads to worse code generation because the compiler is disallowed from optimizing
-accesses that are protected through other mechanisms.
-
-A good example in x86 KVM is the READ_ONCE(sp->unsync) in mmu_try_to_unsync_pages() to
-force the compiler to emit a load of sp->unsync after acquiring mmu_unsync_pages_lock.
-Tagging "unsync" as volatile is unnecessary since the vast majority of its usage is
-protected by holding a spinlock for write, and would prevent optimizing references in
-kvm_mmu_get_page() and other flows that are protected by mmu_lock in the legacy MMU.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QmrDtnJuIFTDtnBlbCA8Ympvcm4udG9wZWxAZ21haWwuY29tPiB3cml0ZXM6Cgo+IE9uIFNhdCwg
+MzAgT2N0IDIwMjEgYXQgMDU6NTEsIEVyaWMgVy4gQmllZGVybWFuIDxlYmllZGVybUB4bWlzc2lv
+bi5jb20+IHdyb3RlOgo+Pgo+PiBMaWFvIENoYW5nIDxsaWFvY2hhbmcxQGh1YXdlaS5jb20+IHdy
+aXRlczoKPj4KPj4gPiBUaGUgcG9pbnRlciB0byBidWZmZXIgbG9hZGluZyBrZXJuZWwgYmluYXJp
+ZXMgaXMgaW4ga2VybmVsIHNwYWNlIGZvcgo+PiA+IGtleGVjX2ZpbCBtb2RlLCBXaGVuIGNvcHlf
+ZnJvbV91c2VyIGNvcGllcyBkYXRhIGZyb20gcG9pbnRlciB0byBhIGJsb2NrCj4+ID4gb2YgbWVt
+b3J5LCBpdCBjaGVja2VzIHRoYXQgdGhlIHBvaW50ZXIgaXMgaW4gdGhlIHVzZXIgc3BhY2UgcmFu
+Z2UsIG9uCj4+ID4gUklTQ1YtViB0aGF0IGlzOgo+PiA+Cj4+ID4gc3RhdGljIGlubGluZSBib29s
+IF9fYWNjZXNzX29rKHVuc2lnbmVkIGxvbmcgYWRkciwgdW5zaWduZWQgbG9uZyBzaXplKQo+PiA+
+IHsKPj4gPiAgICAgICByZXR1cm4gc2l6ZSA8PSBUQVNLX1NJWkUgJiYgYWRkciA8PSBUQVNLX1NJ
+WkUgLSBzaXplOwo+PiA+IH0KPj4gPgo+PiA+IGFuZCBUQVNLX1NJWkUgaXMgMHg0MDAwMDAwMDAw
+IGZvciA2NC1iaXRzLCB3aGljaCBub3cgY2F1c2VzCj4+ID4gY29weV9mcm9tX3VzZXIgdG8gcmVq
+ZWN0IHRoZSBhY2Nlc3Mgb2YgdGhlIGZpZWxkICdidWYnIG9mIHN0cnVjdAo+PiA+IGtleGVjX3Nl
+Z21lbnQgdGhhdCBpcyBpbiByYW5nZSBbQ09ORklHX1BBR0VfT0ZGU0VUIC0gVk1BTExPQ19TSVpF
+LAo+PiA+IENPTkZJR19QQUdFX09GRlNFVCksIGlzIGludmFsaWQgdXNlciBzcGFjZSBwb2ludGVy
+Lgo+PiA+Cj4+ID4gVGhpcyBwYXRjaCBmaXhlcyB0aGlzIGlzc3VlIGJ5IHNraXBwaW5nIGFjY2Vz
+c19vaygpLCB1c2UgbWVtcGN5KCkgaW5zdGVhZC4KPj4KPj4gSSBhbSBhIGJpdCBjb25mdXNlZC4K
+Pj4KPj4gV2h5IGlzIG1hY2hpbmVfa2V4ZWMgZXZlciBjYWxsaW5nIGNvcHlfZnJvbV91c2VyPyAg
+VGhhdCBzZWVtcyB3cm9uZyBpbgo+PiBhbGwgY2FzZXMuCj4+Cj4KPiBJdCdzIG5vdCBtYWNoaW5l
+X2tleGVjIC0tIGl0J3MgbWFjaGluZV9rZXhlY19wcmVwYXJlLCB3aGljaCBwdWxscyBvdXQKPiB0
+aGUgRkRUIGZyb20gdGhlIGltYWdlLiBJdCBsb29rcyBsaWtlIE1JUFMgZG9lcyBpdCBzaW1pbGFy
+bHkuCj4KPiAoQ2F2ZWF0OiBJIG1pZ2h0IGJlIGNvbmZ1c2VkIGFzIHdlbGwhIDstKSkKClRydWUg
+aXQgaXMgbWFjaGluZV9rZXhlY19wcmVwYXJlLiAgQnV0IHN0aWxsLiAgY29weV9mcm9tX3VzZXIg
+ZG9lcyBub3QKYmVsb25nIGluIHRoZXJlLiAgSXQgaXMgbm90IHBhc3NlZCBhIHVzZXJzcGFjZSBw
+b2ludGVyLgoKVGhpcyBsb29rcyBtb3JlIGxpa2UgYSBjYXNlIGZvciBrbWFwIHRvIHJlYWQgYSB0
+YWJsZSBmcm9tIHRoZSBmaXJtd2FyZS4KCkV2ZW4gaWYgaXQgc29tZW9uZSBtYWRlIHNlbnNlIGl0
+IGRlZmluaXRlbHkgZG9lcyBub3QgbWFrZSBzZW5zZSB0bwptYWtlIGl0IGEgY29uZGl0aW9uYWwg
+Y29weV9mcm9tX3VzZXIuICBUaGF0IHdheSBsaWVzIG1hZG5lc3MuCgpUaGUgZW50aXJlIGNoYW5n
+ZSBpcyBhIHNtZWxsIHRoYXQgdGhlcmUgaXMgc29tZSBhYnN0cmFjdGlvbiB0aGF0IGlzCmdvaW5n
+IHdyb25nLCBhbmQgdGhhdCBhYnN0cmFjdGlvbiBuZWVkcyB0byBnZXQgZml4ZWQuCgpFcmljCgoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
