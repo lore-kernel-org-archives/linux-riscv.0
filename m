@@ -2,14 +2,14 @@ Return-Path: <SRS0=IZ/x=PV=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A99C0C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Nov 2021 16:12:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E7FDBC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Nov 2021 16:12:31 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 76A056023D
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Nov 2021 16:12:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 76A056023D
+	by mail.kernel.org (Postfix) with ESMTPS id ACD9960720
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Nov 2021 16:12:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org ACD9960720
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,56 +18,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UAxxVEuevzh/YQYMurQ6df6hh4Bb/lUsl0QYa94ZqoM=; b=twSOrD3ARJkLU4
-	4lcv22x9UIKvZbMnNErmDNCVfe7je6hzi62wUDH7uQtNu48Y6o0OmD1hhDcGaCNYTLkvIZ5Qcksag
-	Wl2T8sqv7KskfRJ9QqYisUNFgg31RhbGShwi2wwImqrzp+bTKgy7pYhlHXeg+P95SFCFijV6/Lcg2
-	2gsop2qCSQ7hwL+jgRcBemomV515+cekQNw3nptJ25bP7DdlRcaBWoZAwMPg7W1UkJFiNqolRsx92
-	TTTTSNg7fAiiKiAgsqzxFPjrIB2ZbTvz1yba3L+7BAj52WS7ribZ+Z3cg6gXDWlnrpGu0jXFH4MfH
-	319VXnc5HmiKgKupizig==;
+	List-Owner; bh=6nas8HQ4gSS7pmMomZ3v27fBIwTd25hUPPqah7863NE=; b=YCrn1xtrbdHosR
+	KNWWnuUhvm8Ds1CUWdAG7iCPcNdS5SgR85FeKb9/bY700vEAMY+eoiQaAyHdV1rp2GF27u5aVZ5hx
+	5ISVjYzB8FDbNzcu8iTVoQn8eKGtAeUFTINAr66Nz1+sON8fw6tKtLKMMWuLiH7QN8WLfdz+ndMHG
+	ptokaJ1A3vK9VYZoKkdKBtoDZ6tg36jXL9UyioUO4kKfAoLe8NTJeL2kD0EGfPEwoyg+vLw5wAZFI
+	vvdtzfWvhbS+37nn8gW1q3KH7Yn6zFEiwO9jkVye727r90Vb2vhRCJlM16vl3do5uAmNPM9n2wtfh
+	SSoBdYzzLdp7sGCafTdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mhwOb-002Fjm-MC; Tue, 02 Nov 2021 16:12:21 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1mhwOe-002FmB-V4; Tue, 02 Nov 2021 16:12:25 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mhwOE-002FRR-01
- for linux-riscv@lists.infradead.org; Tue, 02 Nov 2021 16:12:01 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id f4so19676552edx.12
- for <linux-riscv@lists.infradead.org>; Tue, 02 Nov 2021 09:11:56 -0700 (PDT)
+ id 1mhwOI-002FU9-DH
+ for linux-riscv@lists.infradead.org; Tue, 02 Nov 2021 16:12:04 +0000
+Received: by mail-ed1-x530.google.com with SMTP id ee33so6921074edb.8
+ for <linux-riscv@lists.infradead.org>; Tue, 02 Nov 2021 09:12:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=MUwYI107nD3ahUnS5RFoH2XlAzYK4JUiuVrGlcFgk/M=;
- b=l34c6GEycSECNhNd9miPpn6/qNLT8ESj81fcf9Pv28CTgXuWV2oyDvGlQ2EujTJtk5
- 8ey8SqNHIqlWRZpFyw1O9NMfN3ISMNPSvXeD3oxYyYgnNW4eJp1BAeQ0AUkKDgIFhLWg
- hWamxaXsY0OoUmCwhLD+8rBlt+zWPsZeLsYf2ngJHRp0cfUWSKQysF5X/CrOktSNyRzi
- SfqdznJpTh+x8ZdUihUXlidSnBs8rGFDCJP019fPT/CR/aMh+gFhX0RsOjLPupL+PTfk
- n445pawcg3frreNyFMYDL4Er5NI85pK/RI7bFy80koNAd3QEww9biV1H/+VRpVBy4t3o
- 8t3Q==
+ bh=eHCI686gjSJsab96Fo5WOZPxSVWOqbq/RnmnVZ54ba4=;
+ b=S/Ydv+5jq4tYcIY71gkFsWDKAb6C/px4BwdDMqCQehNtlSgm4LRUv3DO2PhXaqHo2s
+ xNKoQ5Jgv7AxBTFLV9x9zOBM6mHv0KahJv762y9jRHZdgsUIOAFfax3oXepSfbLjttYk
+ sIT8pd8rUrw//rwFCRXSOiLgAcvunznJU3Z4U3iLKZzHt34QpxbWjcTA2/ra067m8RGa
+ LAvFBPJtDnQw4T2LNhd9VdrBMt9Gzkva3lpSsn3QWSpTwUWxKpHy3KKy3yRh/V5yEWcu
+ StNE7Z4Z4CH+r5CRI0P3ld22LhjLc+Eb/Tx+G6EMls7KDnX2HjItU8bijb8KaP2IPQ1v
+ Uj5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:sender:from:to:cc:subject:date:message-id
  :in-reply-to:references:mime-version:content-transfer-encoding;
- bh=MUwYI107nD3ahUnS5RFoH2XlAzYK4JUiuVrGlcFgk/M=;
- b=aT9EXeAXbyQ8M4bkTVAogfkWFTXhhcKjz/tfMujBR5gGz7cDU18AniDa/2Vj62s8tV
- eapv438gNCWZeE6XMdDiZLlxe8FjetqBZ1xYyBy8eOD1MCKZ0mN7f237x6EnPnFvz+MJ
- Bc/FDH2lfA7V4138wsqQNgCdSMyQLj97B70rVlT3XKyM8DiDdT6TILmd++zJ2+V85i0X
- PoZDa1u3pKgefSwxh4IHbxaJdeDUdzEwFNh2Fk60dieN+1FqADiceVL+MxAvOqyxTLVb
- FsH0xULM9zgDwK4hpQfiHvIxGEaEs2ZZmbjjXkYscvfuUtHHwRHaIO9iDWnNugC/pgGk
- jfFA==
-X-Gm-Message-State: AOAM5321IOKvZZM4YgGSdPdiTq0RdxDpLey+nDOER9bs6FiqwyJHcWFF
- CCRamHZLKKEbWS1NUw91Ph1ESOGaHMuqbA==
-X-Google-Smtp-Source: ABdhPJyGo9o7IINDunG1WZxKMVCWyqBFOWkEZiF0BG6aYTmuKLRdEZX0Yg0umw/qwzGBtHEBBIIiFg==
-X-Received: by 2002:aa7:c053:: with SMTP id k19mr51196877edo.293.1635869515281; 
- Tue, 02 Nov 2021 09:11:55 -0700 (PDT)
+ bh=eHCI686gjSJsab96Fo5WOZPxSVWOqbq/RnmnVZ54ba4=;
+ b=vnecIQHowSUlxCdMJn9E1dozGmd0jil0iGK+Wa/EXIw9KS0SsRXXRl2qgqWMPE3tOq
+ +Sm2PIwkZzacU7Uv647/miRt5hdVjRHVG/cBchdRMzVQ6unVsfWKtKdX99FRozAkqpz1
+ ToQjXPot7KQHeaRFCK3x3+A3WA3NB4ytr5lrRYiO/XheOaNgNNg66VEHfnl2iOGDmikB
+ JlHJUUe9XmJVAm0iW9GQ+CN8g/abyzuu5/COTpFtA3NWHyrR9B5/rcbyj3twDvkOAOWJ
+ uYRsxTkVaK5zfJV/htTxnss6WucSzdeT325+KPf4aFHCJ1b5BlQZg7DzHLcKVSGMTqJg
+ L9KQ==
+X-Gm-Message-State: AOAM530OzJrOA6qgZg4nZ5GCLOpxVYESn+jRh8w4t8CSntYvM/KwoV2+
+ lgRg3OOBFzTLYvEDRW5fQO+cOn4ySMTNDw==
+X-Google-Smtp-Source: ABdhPJzfyIygZJqJN0nX06ULwcmKtkLiAl33+CDkhUVQ4jiD/liCqFRBmbUEp9ZWyi4MYjL8p5ul6A==
+X-Received: by 2002:a50:c449:: with SMTP id w9mr52042874edf.299.1635869520581; 
+ Tue, 02 Nov 2021 09:12:00 -0700 (PDT)
 Received: from stitch.. (80.71.140.73.ipv4.parknet.dk. [80.71.140.73])
- by smtp.gmail.com with ESMTPSA id c7sm8451374ejd.91.2021.11.02.09.11.54
+ by smtp.gmail.com with ESMTPSA id c7sm8451374ejd.91.2021.11.02.09.11.59
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 02 Nov 2021 09:11:54 -0700 (PDT)
+ Tue, 02 Nov 2021 09:11:59 -0700 (PDT)
 From: Emil Renner Berthing <kernel@esmil.dk>
 To: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
  linux-serial@vger.kernel.org
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+Cc: Emil Renner Berthing <kernel@esmil.dk>,
  Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
  Michael Turquette <mturquette@baylibre.com>,
@@ -80,20 +80,22 @@ Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
  Jiri Slaby <jirislaby@kernel.org>,
  Maximilian Luz <luzmaximilian@gmail.com>,
  Sagar Kadam <sagar.kadam@sifive.com>, Drew Fustini <drew@beagleboard.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
  Michael Zhu <michael.zhu@starfivetech.com>,
  Fu Wei <tekkamanninja@gmail.com>, Anup Patel <anup.patel@wdc.com>,
  Atish Patra <atish.patra@wdc.com>, Matteo Croce <mcroce@microsoft.com>,
- linux-kernel@vger.kernel.org, Emil Renner Berthing <kernel@esmil.dk>
-Subject: [PATCH v3 06/16] clk: starfive: Add JH7100 clock generator driver
-Date: Tue,  2 Nov 2021 17:11:15 +0100
-Message-Id: <20211102161125.1144023-7-kernel@esmil.dk>
+ linux-kernel@vger.kernel.org
+Subject: [PATCH v3 10/16] dt-bindings: pinctrl: Add StarFive pinctrl
+ definitions
+Date: Tue,  2 Nov 2021 17:11:19 +0100
+Message-Id: <20211102161125.1144023-11-kernel@esmil.dk>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211102161125.1144023-1-kernel@esmil.dk>
 References: <20211102161125.1144023-1-kernel@esmil.dk>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211102_091158_112638_1D2AFDCD 
-X-CRM114-Status: GOOD (  19.51  )
+X-CRM114-CacheID: sfid-20211102_091202_514054_7D4EB81B 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,786 +112,296 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Geert Uytterhoeven <geert@linux-m68k.org>
+Add definitons for pins and GPIO input, output and output enable
+signals on the StarFive JH7100 SoC.
 
-Add a driver for the StarFive JH7100 clock generator.
-
-Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
-Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
 Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 ---
- MAINTAINERS                                |   7 +
- drivers/clk/Kconfig                        |   1 +
- drivers/clk/Makefile                       |   1 +
- drivers/clk/starfive/Kconfig               |   9 +
- drivers/clk/starfive/Makefile              |   3 +
- drivers/clk/starfive/clk-starfive-jh7100.c | 689 +++++++++++++++++++++
- 6 files changed, 710 insertions(+)
- create mode 100644 drivers/clk/starfive/Kconfig
- create mode 100644 drivers/clk/starfive/Makefile
- create mode 100644 drivers/clk/starfive/clk-starfive-jh7100.c
+ .../dt-bindings/pinctrl/pinctrl-starfive.h    | 275 ++++++++++++++++++
+ 1 file changed, 275 insertions(+)
+ create mode 100644 include/dt-bindings/pinctrl/pinctrl-starfive.h
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 3b79fd441dde..ed49827dfb29 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -17859,6 +17859,13 @@ M:	Ion Badulescu <ionut@badula.org>
- S:	Odd Fixes
- F:	drivers/net/ethernet/adaptec/starfire*
- 
-+STARFIVE JH7100 CLOCK DRIVER
-+M:	Emil Renner Berthing <kernel@esmil.dk>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/clock/starfive,jh7100-clkgen.yaml
-+F:	drivers/clk/starfive/clk-starfive-jh7100.c
-+F:	include/dt-bindings/clock/starfive-jh7100.h
-+
- STATIC BRANCH/CALL
- M:	Peter Zijlstra <peterz@infradead.org>
- M:	Josh Poimboeuf <jpoimboe@redhat.com>
-diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
-index c5b3dc97396a..c91931c94888 100644
---- a/drivers/clk/Kconfig
-+++ b/drivers/clk/Kconfig
-@@ -412,6 +412,7 @@ source "drivers/clk/samsung/Kconfig"
- source "drivers/clk/sifive/Kconfig"
- source "drivers/clk/socfpga/Kconfig"
- source "drivers/clk/sprd/Kconfig"
-+source "drivers/clk/starfive/Kconfig"
- source "drivers/clk/sunxi/Kconfig"
- source "drivers/clk/sunxi-ng/Kconfig"
- source "drivers/clk/tegra/Kconfig"
-diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-index e42312121e51..a9bb2478fbdd 100644
---- a/drivers/clk/Makefile
-+++ b/drivers/clk/Makefile
-@@ -109,6 +109,7 @@ obj-y					+= socfpga/
- obj-$(CONFIG_PLAT_SPEAR)		+= spear/
- obj-y					+= sprd/
- obj-$(CONFIG_ARCH_STI)			+= st/
-+obj-$(CONFIG_SOC_STARFIVE)		+= starfive/
- obj-$(CONFIG_ARCH_SUNXI)		+= sunxi/
- obj-$(CONFIG_SUNXI_CCU)			+= sunxi-ng/
- obj-$(CONFIG_ARCH_TEGRA)		+= tegra/
-diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
+diff --git a/include/dt-bindings/pinctrl/pinctrl-starfive.h b/include/dt-bindings/pinctrl/pinctrl-starfive.h
 new file mode 100644
-index 000000000000..c0fa9d5e641f
+index 000000000000..de4f75c2c9e8
 --- /dev/null
-+++ b/drivers/clk/starfive/Kconfig
-@@ -0,0 +1,9 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+config CLK_STARFIVE_JH7100
-+	bool "StarFive JH7100 clock support"
-+	depends on SOC_STARFIVE || COMPILE_TEST
-+	default SOC_STARFIVE
-+	help
-+	  Say yes here to support the clock controller on the StarFive JH7100
-+	  SoC.
-diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
-new file mode 100644
-index 000000000000..09759cc73530
---- /dev/null
-+++ b/drivers/clk/starfive/Makefile
-@@ -0,0 +1,3 @@
-+# SPDX-License-Identifier: GPL-2.0
-+# StarFive Clock
-+obj-$(CONFIG_CLK_STARFIVE_JH7100)	+= clk-starfive-jh7100.o
-diff --git a/drivers/clk/starfive/clk-starfive-jh7100.c b/drivers/clk/starfive/clk-starfive-jh7100.c
-new file mode 100644
-index 000000000000..f3d430d8c2a8
---- /dev/null
-+++ b/drivers/clk/starfive/clk-starfive-jh7100.c
-@@ -0,0 +1,689 @@
-+// SPDX-License-Identifier: GPL-2.0
++++ b/include/dt-bindings/pinctrl/pinctrl-starfive.h
+@@ -0,0 +1,275 @@
++/* SPDX-License-Identifier: GPL-2.0 OR MIT */
 +/*
-+ * StarFive JH7100 Clock Generator Driver
-+ *
-+ * Copyright 2021 Ahmad Fatoum, Pengutronix
-+ * Copyright (C) 2021 Glider bv
 + * Copyright (C) 2021 Emil Renner Berthing <kernel@esmil.dk>
 + */
 +
-+#include <linux/bits.h>
-+#include <linux/clk-provider.h>
-+#include <linux/debugfs.h>
-+#include <linux/device.h>
-+#include <linux/init.h>
-+#include <linux/io.h>
-+#include <linux/kernel.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+
-+#include <dt-bindings/clock/starfive-jh7100.h>
-+
-+/* external clocks */
-+#define JH7100_CLK_OSC_SYS		(JH7100_CLK_END + 0)
-+#define JH7100_CLK_OSC_AUD		(JH7100_CLK_END + 1)
-+#define JH7100_CLK_GMAC_RMII_REF	(JH7100_CLK_END + 2)
-+#define JH7100_CLK_GMAC_GR_MII_RX	(JH7100_CLK_END + 3)
-+
-+/* register fields */
-+#define JH7100_CLK_ENABLE	BIT(31)
-+#define JH7100_CLK_INVERT	BIT(30)
-+#define JH7100_CLK_MUX_MASK	GENMASK(27, 24)
-+#define JH7100_CLK_MUX_SHIFT	24
-+#define JH7100_CLK_DIV_MASK	GENMASK(23, 0)
-+
-+/* clock data */
-+#define JH7100_GATE(_idx, _name, _flags, _parent) [_idx] = {		\
-+	.name = _name,							\
-+	.flags = CLK_SET_RATE_PARENT | (_flags),			\
-+	.max = JH7100_CLK_ENABLE,					\
-+	.parents = { [0] = _parent },					\
-+}
-+
-+#define JH7100__DIV(_idx, _name, _max, _parent) [_idx] = {		\
-+	.name = _name,							\
-+	.flags = 0,							\
-+	.max = _max,							\
-+	.parents = { [0] = _parent },					\
-+}
-+
-+#define JH7100_GDIV(_idx, _name, _flags, _max, _parent) [_idx] = {	\
-+	.name = _name,							\
-+	.flags = _flags,						\
-+	.max = JH7100_CLK_ENABLE | (_max),				\
-+	.parents = { [0] = _parent },					\
-+}
-+
-+#define JH7100__MUX(_idx, _name, _nparents, ...) [_idx] = {		\
-+	.name = _name,							\
-+	.flags = 0,							\
-+	.max = ((_nparents) - 1) << JH7100_CLK_MUX_SHIFT,		\
-+	.parents = { __VA_ARGS__ },					\
-+}
-+
-+#define JH7100_GMUX(_idx, _name, _flags, _nparents, ...) [_idx] = {	\
-+	.name = _name,							\
-+	.flags = _flags,						\
-+	.max = JH7100_CLK_ENABLE |					\
-+		(((_nparents) - 1) << JH7100_CLK_MUX_SHIFT),		\
-+	.parents = { __VA_ARGS__ },					\
-+}
-+
-+#define JH7100__INV(_idx, _name, _parent) [_idx] = {			\
-+	.name = _name,							\
-+	.flags = CLK_SET_RATE_PARENT,					\
-+	.max = JH7100_CLK_INVERT,					\
-+	.parents = { [0] = _parent },					\
-+}
-+
-+static const struct {
-+	const char *name;
-+	unsigned long flags;
-+	u32 max;
-+	u8 parents[4];
-+} jh7100_clk_data[] __initconst = {
-+	JH7100__MUX(JH7100_CLK_CPUNDBUS_ROOT, "cpundbus_root", 4,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_PLL0_OUT,
-+		    JH7100_CLK_PLL1_OUT,
-+		    JH7100_CLK_PLL2_OUT),
-+	JH7100__MUX(JH7100_CLK_DLA_ROOT, "dla_root", 3,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_PLL1_OUT,
-+		    JH7100_CLK_PLL2_OUT),
-+	JH7100__MUX(JH7100_CLK_DSP_ROOT, "dsp_root", 4,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_PLL0_OUT,
-+		    JH7100_CLK_PLL1_OUT,
-+		    JH7100_CLK_PLL2_OUT),
-+	JH7100__MUX(JH7100_CLK_GMACUSB_ROOT, "gmacusb_root", 3,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_PLL0_OUT,
-+		    JH7100_CLK_PLL2_OUT),
-+	JH7100__MUX(JH7100_CLK_PERH0_ROOT, "perh0_root", 2,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_PLL0_OUT),
-+	JH7100__MUX(JH7100_CLK_PERH1_ROOT, "perh1_root", 2,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_PLL2_OUT),
-+	JH7100__MUX(JH7100_CLK_VIN_ROOT, "vin_root", 3,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_PLL1_OUT,
-+		    JH7100_CLK_PLL2_OUT),
-+	JH7100__MUX(JH7100_CLK_VOUT_ROOT, "vout_root", 3,
-+		    JH7100_CLK_OSC_AUD,
-+		    JH7100_CLK_PLL0_OUT,
-+		    JH7100_CLK_PLL2_OUT),
-+	JH7100_GDIV(JH7100_CLK_AUDIO_ROOT, "audio_root", 0, 8, JH7100_CLK_PLL0_OUT),
-+	JH7100__MUX(JH7100_CLK_CDECHIFI4_ROOT, "cdechifi4_root", 3,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_PLL1_OUT,
-+		    JH7100_CLK_PLL2_OUT),
-+	JH7100__MUX(JH7100_CLK_CDEC_ROOT, "cdec_root", 3,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_PLL0_OUT,
-+		    JH7100_CLK_PLL1_OUT),
-+	JH7100__MUX(JH7100_CLK_VOUTBUS_ROOT, "voutbus_root", 3,
-+		    JH7100_CLK_OSC_AUD,
-+		    JH7100_CLK_PLL0_OUT,
-+		    JH7100_CLK_PLL2_OUT),
-+	JH7100__DIV(JH7100_CLK_CPUNBUS_ROOT_DIV, "cpunbus_root_div", 2, JH7100_CLK_CPUNDBUS_ROOT),
-+	JH7100__DIV(JH7100_CLK_DSP_ROOT_DIV, "dsp_root_div", 4, JH7100_CLK_DSP_ROOT),
-+	JH7100__DIV(JH7100_CLK_PERH0_SRC, "perh0_src", 4, JH7100_CLK_PERH0_ROOT),
-+	JH7100__DIV(JH7100_CLK_PERH1_SRC, "perh1_src", 4, JH7100_CLK_PERH1_ROOT),
-+	JH7100_GDIV(JH7100_CLK_PLL0_TESTOUT, "pll0_testout", 0, 31, JH7100_CLK_PERH0_SRC),
-+	JH7100_GDIV(JH7100_CLK_PLL1_TESTOUT, "pll1_testout", 0, 31, JH7100_CLK_DLA_ROOT),
-+	JH7100_GDIV(JH7100_CLK_PLL2_TESTOUT, "pll2_testout", 0, 31, JH7100_CLK_PERH1_SRC),
-+	JH7100__MUX(JH7100_CLK_PLL2_REF, "pll2_refclk", 2,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_OSC_AUD),
-+	JH7100__DIV(JH7100_CLK_CPU_CORE, "cpu_core", 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	JH7100__DIV(JH7100_CLK_CPU_AXI, "cpu_axi", 8, JH7100_CLK_CPU_CORE),
-+	JH7100__DIV(JH7100_CLK_AHB_BUS, "ahb_bus", 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	JH7100__DIV(JH7100_CLK_APB1_BUS, "apb1_bus", 8, JH7100_CLK_AHB_BUS),
-+	JH7100__DIV(JH7100_CLK_APB2_BUS, "apb2_bus", 8, JH7100_CLK_AHB_BUS),
-+	JH7100_GATE(JH7100_CLK_DOM3AHB_BUS, "dom3ahb_bus", CLK_IS_CRITICAL, JH7100_CLK_AHB_BUS),
-+	JH7100_GATE(JH7100_CLK_DOM7AHB_BUS, "dom7ahb_bus", CLK_IS_CRITICAL, JH7100_CLK_AHB_BUS),
-+	JH7100_GATE(JH7100_CLK_U74_CORE0, "u74_core0", CLK_IS_CRITICAL, JH7100_CLK_CPU_CORE),
-+	JH7100_GDIV(JH7100_CLK_U74_CORE1, "u74_core1", CLK_IS_CRITICAL, 8, JH7100_CLK_CPU_CORE),
-+	JH7100_GATE(JH7100_CLK_U74_AXI, "u74_axi", CLK_IS_CRITICAL, JH7100_CLK_CPU_AXI),
-+	JH7100_GATE(JH7100_CLK_U74RTC_TOGGLE, "u74rtc_toggle", CLK_IS_CRITICAL, JH7100_CLK_OSC_SYS),
-+	JH7100_GATE(JH7100_CLK_SGDMA2P_AXI, "sgdma2p_axi", 0, JH7100_CLK_CPU_AXI),
-+	JH7100_GATE(JH7100_CLK_DMA2PNOC_AXI, "dma2pnoc_axi", 0, JH7100_CLK_CPU_AXI),
-+	JH7100_GATE(JH7100_CLK_SGDMA2P_AHB, "sgdma2p_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100__DIV(JH7100_CLK_DLA_BUS, "dla_bus", 4, JH7100_CLK_DLA_ROOT),
-+	JH7100_GATE(JH7100_CLK_DLA_AXI, "dla_axi", 0, JH7100_CLK_DLA_BUS),
-+	JH7100_GATE(JH7100_CLK_DLANOC_AXI, "dlanoc_axi", 0, JH7100_CLK_DLA_BUS),
-+	JH7100_GATE(JH7100_CLK_DLA_APB, "dla_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_VP6_CORE, "vp6_core", 0, 4, JH7100_CLK_DSP_ROOT_DIV),
-+	JH7100__DIV(JH7100_CLK_VP6BUS_SRC, "vp6bus_src", 4, JH7100_CLK_DSP_ROOT),
-+	JH7100_GDIV(JH7100_CLK_VP6_AXI, "vp6_axi", 0, 4, JH7100_CLK_VP6BUS_SRC),
-+	JH7100__DIV(JH7100_CLK_VCDECBUS_SRC, "vcdecbus_src", 4, JH7100_CLK_CDECHIFI4_ROOT),
-+	JH7100__DIV(JH7100_CLK_VDEC_BUS, "vdec_bus", 8, JH7100_CLK_VCDECBUS_SRC),
-+	JH7100_GATE(JH7100_CLK_VDEC_AXI, "vdec_axi", 0, JH7100_CLK_VDEC_BUS),
-+	JH7100_GATE(JH7100_CLK_VDECBRG_MAIN, "vdecbrg_mainclk", 0, JH7100_CLK_VDEC_BUS),
-+	JH7100_GDIV(JH7100_CLK_VDEC_BCLK, "vdec_bclk", 0, 8, JH7100_CLK_VCDECBUS_SRC),
-+	JH7100_GDIV(JH7100_CLK_VDEC_CCLK, "vdec_cclk", 0, 8, JH7100_CLK_CDEC_ROOT),
-+	JH7100_GATE(JH7100_CLK_VDEC_APB, "vdec_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_JPEG_AXI, "jpeg_axi", 0, 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	JH7100_GDIV(JH7100_CLK_JPEG_CCLK, "jpeg_cclk", 0, 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	JH7100_GATE(JH7100_CLK_JPEG_APB, "jpeg_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_GC300_2X, "gc300_2x", 0, 8, JH7100_CLK_CDECHIFI4_ROOT),
-+	JH7100_GATE(JH7100_CLK_GC300_AHB, "gc300_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100__DIV(JH7100_CLK_JPCGC300_AXIBUS, "jpcgc300_axibus", 8, JH7100_CLK_VCDECBUS_SRC),
-+	JH7100_GATE(JH7100_CLK_GC300_AXI, "gc300_axi", 0, JH7100_CLK_JPCGC300_AXIBUS),
-+	JH7100_GATE(JH7100_CLK_JPCGC300_MAIN, "jpcgc300_mainclk", 0, JH7100_CLK_JPCGC300_AXIBUS),
-+	JH7100__DIV(JH7100_CLK_VENC_BUS, "venc_bus", 8, JH7100_CLK_VCDECBUS_SRC),
-+	JH7100_GATE(JH7100_CLK_VENC_AXI, "venc_axi", 0, JH7100_CLK_VENC_BUS),
-+	JH7100_GATE(JH7100_CLK_VENCBRG_MAIN, "vencbrg_mainclk", 0, JH7100_CLK_VENC_BUS),
-+	JH7100_GDIV(JH7100_CLK_VENC_BCLK, "venc_bclk", 0, 8, JH7100_CLK_VCDECBUS_SRC),
-+	JH7100_GDIV(JH7100_CLK_VENC_CCLK, "venc_cclk", 0, 8, JH7100_CLK_CDEC_ROOT),
-+	JH7100_GATE(JH7100_CLK_VENC_APB, "venc_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_DDRPLL_DIV2, "ddrpll_div2", CLK_IS_CRITICAL, 2, JH7100_CLK_PLL1_OUT),
-+	JH7100_GDIV(JH7100_CLK_DDRPLL_DIV4, "ddrpll_div4", CLK_IS_CRITICAL, 2, JH7100_CLK_DDRPLL_DIV2),
-+	JH7100_GDIV(JH7100_CLK_DDRPLL_DIV8, "ddrpll_div8", CLK_IS_CRITICAL, 2, JH7100_CLK_DDRPLL_DIV4),
-+	JH7100_GDIV(JH7100_CLK_DDROSC_DIV2, "ddrosc_div2", CLK_IS_CRITICAL, 2, JH7100_CLK_OSC_SYS),
-+	JH7100_GMUX(JH7100_CLK_DDRC0, "ddrc0", CLK_IS_CRITICAL, 4,
-+		    JH7100_CLK_DDROSC_DIV2,
-+		    JH7100_CLK_DDRPLL_DIV2,
-+		    JH7100_CLK_DDRPLL_DIV4,
-+		    JH7100_CLK_DDRPLL_DIV8),
-+	JH7100_GMUX(JH7100_CLK_DDRC1, "ddrc1", CLK_IS_CRITICAL, 4,
-+		    JH7100_CLK_DDROSC_DIV2,
-+		    JH7100_CLK_DDRPLL_DIV2,
-+		    JH7100_CLK_DDRPLL_DIV4,
-+		    JH7100_CLK_DDRPLL_DIV8),
-+	JH7100_GATE(JH7100_CLK_DDRPHY_APB, "ddrphy_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100__DIV(JH7100_CLK_NOC_ROB, "noc_rob", 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	JH7100__DIV(JH7100_CLK_NOC_COG, "noc_cog", 8, JH7100_CLK_DLA_ROOT),
-+	JH7100_GATE(JH7100_CLK_NNE_AHB, "nne_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100__DIV(JH7100_CLK_NNEBUS_SRC1, "nnebus_src1", 4, JH7100_CLK_DSP_ROOT),
-+	JH7100__MUX(JH7100_CLK_NNE_BUS, "nne_bus", 2,
-+		    JH7100_CLK_CPU_AXI,
-+		    JH7100_CLK_NNEBUS_SRC1),
-+	JH7100_GATE(JH7100_CLK_NNE_AXI, "nne_axi", 0, JH7100_CLK_NNE_BUS),
-+	JH7100_GATE(JH7100_CLK_NNENOC_AXI, "nnenoc_axi", 0, JH7100_CLK_NNE_BUS),
-+	JH7100_GATE(JH7100_CLK_DLASLV_AXI, "dlaslv_axi", 0, JH7100_CLK_NNE_BUS),
-+	JH7100_GATE(JH7100_CLK_DSPX2C_AXI, "dspx2c_axi", CLK_IS_CRITICAL, JH7100_CLK_NNE_BUS),
-+	JH7100__DIV(JH7100_CLK_HIFI4_SRC, "hifi4_src", 4, JH7100_CLK_CDECHIFI4_ROOT),
-+	JH7100__DIV(JH7100_CLK_HIFI4_COREFREE, "hifi4_corefree", 8, JH7100_CLK_HIFI4_SRC),
-+	JH7100_GATE(JH7100_CLK_HIFI4_CORE, "hifi4_core", 0, JH7100_CLK_HIFI4_COREFREE),
-+	JH7100__DIV(JH7100_CLK_HIFI4_BUS, "hifi4_bus", 8, JH7100_CLK_HIFI4_COREFREE),
-+	JH7100_GATE(JH7100_CLK_HIFI4_AXI, "hifi4_axi", 0, JH7100_CLK_HIFI4_BUS),
-+	JH7100_GATE(JH7100_CLK_HIFI4NOC_AXI, "hifi4noc_axi", 0, JH7100_CLK_HIFI4_BUS),
-+	JH7100__DIV(JH7100_CLK_SGDMA1P_BUS, "sgdma1p_bus", 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	JH7100_GATE(JH7100_CLK_SGDMA1P_AXI, "sgdma1p_axi", 0, JH7100_CLK_SGDMA1P_BUS),
-+	JH7100_GATE(JH7100_CLK_DMA1P_AXI, "dma1p_axi", 0, JH7100_CLK_SGDMA1P_BUS),
-+	JH7100_GDIV(JH7100_CLK_X2C_AXI, "x2c_axi", CLK_IS_CRITICAL, 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	JH7100__DIV(JH7100_CLK_USB_BUS, "usb_bus", 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	JH7100_GATE(JH7100_CLK_USB_AXI, "usb_axi", 0, JH7100_CLK_USB_BUS),
-+	JH7100_GATE(JH7100_CLK_USBNOC_AXI, "usbnoc_axi", 0, JH7100_CLK_USB_BUS),
-+	JH7100__DIV(JH7100_CLK_USBPHY_ROOTDIV, "usbphy_rootdiv", 4, JH7100_CLK_GMACUSB_ROOT),
-+	JH7100_GDIV(JH7100_CLK_USBPHY_125M, "usbphy_125m", 0, 8, JH7100_CLK_USBPHY_ROOTDIV),
-+	JH7100_GDIV(JH7100_CLK_USBPHY_PLLDIV25M, "usbphy_plldiv25m", 0, 32, JH7100_CLK_USBPHY_ROOTDIV),
-+	JH7100__MUX(JH7100_CLK_USBPHY_25M, "usbphy_25m", 2,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_USBPHY_PLLDIV25M),
-+	JH7100__DIV(JH7100_CLK_AUDIO_DIV, "audio_div", 131072, JH7100_CLK_AUDIO_ROOT),
-+	JH7100_GATE(JH7100_CLK_AUDIO_SRC, "audio_src", 0, JH7100_CLK_AUDIO_DIV),
-+	JH7100_GATE(JH7100_CLK_AUDIO_12288, "audio_12288", 0, JH7100_CLK_OSC_AUD),
-+	JH7100_GDIV(JH7100_CLK_VIN_SRC, "vin_src", 0, 4, JH7100_CLK_VIN_ROOT),
-+	JH7100__DIV(JH7100_CLK_ISP0_BUS, "isp0_bus", 8, JH7100_CLK_VIN_SRC),
-+	JH7100_GATE(JH7100_CLK_ISP0_AXI, "isp0_axi", 0, JH7100_CLK_ISP0_BUS),
-+	JH7100_GATE(JH7100_CLK_ISP0NOC_AXI, "isp0noc_axi", 0, JH7100_CLK_ISP0_BUS),
-+	JH7100_GATE(JH7100_CLK_ISPSLV_AXI, "ispslv_axi", 0, JH7100_CLK_ISP0_BUS),
-+	JH7100__DIV(JH7100_CLK_ISP1_BUS, "isp1_bus", 8, JH7100_CLK_VIN_SRC),
-+	JH7100_GATE(JH7100_CLK_ISP1_AXI, "isp1_axi", 0, JH7100_CLK_ISP1_BUS),
-+	JH7100_GATE(JH7100_CLK_ISP1NOC_AXI, "isp1noc_axi", 0, JH7100_CLK_ISP1_BUS),
-+	JH7100__DIV(JH7100_CLK_VIN_BUS, "vin_bus", 8, JH7100_CLK_VIN_SRC),
-+	JH7100_GATE(JH7100_CLK_VIN_AXI, "vin_axi", 0, JH7100_CLK_VIN_BUS),
-+	JH7100_GATE(JH7100_CLK_VINNOC_AXI, "vinnoc_axi", 0, JH7100_CLK_VIN_BUS),
-+	JH7100_GDIV(JH7100_CLK_VOUT_SRC, "vout_src", 0, 4, JH7100_CLK_VOUT_ROOT),
-+	JH7100__DIV(JH7100_CLK_DISPBUS_SRC, "dispbus_src", 4, JH7100_CLK_VOUTBUS_ROOT),
-+	JH7100__DIV(JH7100_CLK_DISP_BUS, "disp_bus", 4, JH7100_CLK_DISPBUS_SRC),
-+	JH7100_GATE(JH7100_CLK_DISP_AXI, "disp_axi", 0, JH7100_CLK_DISP_BUS),
-+	JH7100_GATE(JH7100_CLK_DISPNOC_AXI, "dispnoc_axi", 0, JH7100_CLK_DISP_BUS),
-+	JH7100_GATE(JH7100_CLK_SDIO0_AHB, "sdio0_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100_GDIV(JH7100_CLK_SDIO0_CCLKINT, "sdio0_cclkint", 0, 24, JH7100_CLK_PERH0_SRC),
-+	JH7100__INV(JH7100_CLK_SDIO0_CCLKINT_INV, "sdio0_cclkint_inv", JH7100_CLK_SDIO0_CCLKINT),
-+	JH7100_GATE(JH7100_CLK_SDIO1_AHB, "sdio1_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100_GDIV(JH7100_CLK_SDIO1_CCLKINT, "sdio1_cclkint", 0, 24, JH7100_CLK_PERH1_SRC),
-+	JH7100__INV(JH7100_CLK_SDIO1_CCLKINT_INV, "sdio1_cclkint_inv", JH7100_CLK_SDIO1_CCLKINT),
-+	JH7100_GATE(JH7100_CLK_GMAC_AHB, "gmac_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100__DIV(JH7100_CLK_GMAC_ROOT_DIV, "gmac_root_div", 8, JH7100_CLK_GMACUSB_ROOT),
-+	JH7100_GDIV(JH7100_CLK_GMAC_PTP_REF, "gmac_ptp_refclk", 0, 31, JH7100_CLK_GMAC_ROOT_DIV),
-+	JH7100_GDIV(JH7100_CLK_GMAC_GTX, "gmac_gtxclk", 0, 255, JH7100_CLK_GMAC_ROOT_DIV),
-+	JH7100_GDIV(JH7100_CLK_GMAC_RMII_TX, "gmac_rmii_txclk", 0, 8, JH7100_CLK_GMAC_RMII_REF),
-+	JH7100_GDIV(JH7100_CLK_GMAC_RMII_RX, "gmac_rmii_rxclk", 0, 8, JH7100_CLK_GMAC_RMII_REF),
-+	JH7100__MUX(JH7100_CLK_GMAC_TX, "gmac_tx", 3,
-+		    JH7100_CLK_GMAC_GTX,
-+		    JH7100_CLK_GMAC_TX_INV,
-+		    JH7100_CLK_GMAC_RMII_TX),
-+	JH7100__INV(JH7100_CLK_GMAC_TX_INV, "gmac_tx_inv", JH7100_CLK_GMAC_TX),
-+	JH7100__MUX(JH7100_CLK_GMAC_RX_PRE, "gmac_rx_pre", 2,
-+		    JH7100_CLK_GMAC_GR_MII_RX,
-+		    JH7100_CLK_GMAC_RMII_RX),
-+	JH7100__INV(JH7100_CLK_GMAC_RX_INV, "gmac_rx_inv", JH7100_CLK_GMAC_RX_PRE),
-+	JH7100_GATE(JH7100_CLK_GMAC_RMII, "gmac_rmii", 0, JH7100_CLK_GMAC_RMII_REF),
-+	JH7100_GDIV(JH7100_CLK_GMAC_TOPHYREF, "gmac_tophyref", 0, 127, JH7100_CLK_GMAC_ROOT_DIV),
-+	JH7100_GATE(JH7100_CLK_SPI2AHB_AHB, "spi2ahb_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100_GDIV(JH7100_CLK_SPI2AHB_CORE, "spi2ahb_core", 0, 31, JH7100_CLK_PERH0_SRC),
-+	JH7100_GATE(JH7100_CLK_EZMASTER_AHB, "ezmaster_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100_GATE(JH7100_CLK_E24_AHB, "e24_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100_GATE(JH7100_CLK_E24RTC_TOGGLE, "e24rtc_toggle", 0, JH7100_CLK_OSC_SYS),
-+	JH7100_GATE(JH7100_CLK_QSPI_AHB, "qspi_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100_GATE(JH7100_CLK_QSPI_APB, "qspi_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_QSPI_REF, "qspi_refclk", 0, 31, JH7100_CLK_PERH0_SRC),
-+	JH7100_GATE(JH7100_CLK_SEC_AHB, "sec_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100_GATE(JH7100_CLK_AES, "aes_clk", 0, JH7100_CLK_SEC_AHB),
-+	JH7100_GATE(JH7100_CLK_SHA, "sha_clk", 0, JH7100_CLK_SEC_AHB),
-+	JH7100_GATE(JH7100_CLK_PKA, "pka_clk", 0, JH7100_CLK_SEC_AHB),
-+	JH7100_GATE(JH7100_CLK_TRNG_APB, "trng_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GATE(JH7100_CLK_OTP_APB, "otp_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GATE(JH7100_CLK_UART0_APB, "uart0_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_UART0_CORE, "uart0_core", 0, 63, JH7100_CLK_PERH1_SRC),
-+	JH7100_GATE(JH7100_CLK_UART1_APB, "uart1_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_UART1_CORE, "uart1_core", 0, 63, JH7100_CLK_PERH1_SRC),
-+	JH7100_GATE(JH7100_CLK_SPI0_APB, "spi0_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_SPI0_CORE, "spi0_core", 0, 63, JH7100_CLK_PERH1_SRC),
-+	JH7100_GATE(JH7100_CLK_SPI1_APB, "spi1_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_SPI1_CORE, "spi1_core", 0, 63, JH7100_CLK_PERH1_SRC),
-+	JH7100_GATE(JH7100_CLK_I2C0_APB, "i2c0_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_I2C0_CORE, "i2c0_core", 0, 63, JH7100_CLK_PERH1_SRC),
-+	JH7100_GATE(JH7100_CLK_I2C1_APB, "i2c1_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_I2C1_CORE, "i2c1_core", 0, 63, JH7100_CLK_PERH1_SRC),
-+	JH7100_GATE(JH7100_CLK_GPIO_APB, "gpio_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GATE(JH7100_CLK_UART2_APB, "uart2_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GDIV(JH7100_CLK_UART2_CORE, "uart2_core", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GATE(JH7100_CLK_UART3_APB, "uart3_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GDIV(JH7100_CLK_UART3_CORE, "uart3_core", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GATE(JH7100_CLK_SPI2_APB, "spi2_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GDIV(JH7100_CLK_SPI2_CORE, "spi2_core", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GATE(JH7100_CLK_SPI3_APB, "spi3_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GDIV(JH7100_CLK_SPI3_CORE, "spi3_core", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GATE(JH7100_CLK_I2C2_APB, "i2c2_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GDIV(JH7100_CLK_I2C2_CORE, "i2c2_core", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GATE(JH7100_CLK_I2C3_APB, "i2c3_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GDIV(JH7100_CLK_I2C3_CORE, "i2c3_core", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GATE(JH7100_CLK_WDTIMER_APB, "wdtimer_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GDIV(JH7100_CLK_WDT_CORE, "wdt_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GDIV(JH7100_CLK_TIMER0_CORE, "timer0_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GDIV(JH7100_CLK_TIMER1_CORE, "timer1_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GDIV(JH7100_CLK_TIMER2_CORE, "timer2_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GDIV(JH7100_CLK_TIMER3_CORE, "timer3_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GDIV(JH7100_CLK_TIMER4_CORE, "timer4_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GDIV(JH7100_CLK_TIMER5_CORE, "timer5_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GDIV(JH7100_CLK_TIMER6_CORE, "timer6_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GATE(JH7100_CLK_VP6INTC_APB, "vp6intc_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GATE(JH7100_CLK_PWM_APB, "pwm_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GATE(JH7100_CLK_MSI_APB, "msi_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GATE(JH7100_CLK_TEMP_APB, "temp_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GDIV(JH7100_CLK_TEMP_SENSE, "temp_sense", 0, 31, JH7100_CLK_OSC_SYS),
-+	JH7100_GATE(JH7100_CLK_SYSERR_APB, "syserr_apb", 0, JH7100_CLK_APB2_BUS),
-+};
-+
-+struct jh7100_clk {
-+	struct clk_hw hw;
-+	unsigned int idx;
-+	unsigned int max_div;
-+};
-+
-+struct clk_starfive_jh7100_priv {
-+	/* protect clk enable and set rate/parent from happening at the same time */
-+	spinlock_t rmw_lock;
-+	struct device *dev;
-+	void __iomem *base;
-+	struct clk_hw *pll[3];
-+	struct jh7100_clk reg[JH7100_CLK_PLL0_OUT];
-+};
-+
-+static struct jh7100_clk *jh7100_clk_from(struct clk_hw *hw)
-+{
-+	return container_of(hw, struct jh7100_clk, hw);
-+}
-+
-+static struct clk_starfive_jh7100_priv *jh7100_priv_from(struct jh7100_clk *clk)
-+{
-+	return container_of(clk, struct clk_starfive_jh7100_priv, reg[clk->idx]);
-+}
-+
-+static u32 jh7100_clk_reg_get(struct jh7100_clk *clk)
-+{
-+	struct clk_starfive_jh7100_priv *priv = jh7100_priv_from(clk);
-+	void __iomem *reg = priv->base + 4 * clk->idx;
-+
-+	return readl_relaxed(reg);
-+}
-+
-+static void jh7100_clk_reg_rmw(struct jh7100_clk *clk, u32 mask, u32 value)
-+{
-+	struct clk_starfive_jh7100_priv *priv = jh7100_priv_from(clk);
-+	void __iomem *reg = priv->base + 4 * clk->idx;
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(&priv->rmw_lock, flags);
-+	value |= readl_relaxed(reg) & ~mask;
-+	writel_relaxed(value, reg);
-+	spin_unlock_irqrestore(&priv->rmw_lock, flags);
-+}
-+
-+static int jh7100_clk_enable(struct clk_hw *hw)
-+{
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+
-+	jh7100_clk_reg_rmw(clk, JH7100_CLK_ENABLE, JH7100_CLK_ENABLE);
-+	return 0;
-+}
-+
-+static void jh7100_clk_disable(struct clk_hw *hw)
-+{
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+
-+	jh7100_clk_reg_rmw(clk, JH7100_CLK_ENABLE, 0);
-+}
-+
-+static int jh7100_clk_is_enabled(struct clk_hw *hw)
-+{
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+
-+	return !!(jh7100_clk_reg_get(clk) & JH7100_CLK_ENABLE);
-+}
-+
-+static unsigned long jh7100_clk_recalc_rate(struct clk_hw *hw,
-+					    unsigned long parent_rate)
-+{
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+	u32 div = jh7100_clk_reg_get(clk) & JH7100_CLK_DIV_MASK;
-+
-+	return div ? parent_rate / div : 0;
-+}
-+
-+static unsigned long jh7100_clk_bestdiv(struct jh7100_clk *clk,
-+					unsigned long rate, unsigned long parent)
-+{
-+	unsigned long max = clk->max_div;
-+	unsigned long div = DIV_ROUND_UP(parent, rate);
-+
-+	return min(div, max);
-+}
-+
-+static int jh7100_clk_determine_rate(struct clk_hw *hw,
-+				     struct clk_rate_request *req)
-+{
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+	unsigned long parent = req->best_parent_rate;
-+	unsigned long rate = clamp(req->rate, req->min_rate, req->max_rate);
-+	unsigned long div = jh7100_clk_bestdiv(clk, rate, parent);
-+	unsigned long result = parent / div;
-+
-+	/*
-+	 * we want the result clamped by min_rate and max_rate if possible:
-+	 * case 1: div hits the max divider value, which means it's less than
-+	 * parent / rate, so the result is greater than rate and min_rate in
-+	 * particular. we can't do anything about result > max_rate because the
-+	 * divider doesn't go any further.
-+	 * case 2: div = DIV_ROUND_UP(parent, rate) which means the result is
-+	 * always lower or equal to rate and max_rate. however the result may
-+	 * turn out lower than min_rate, but then the next higher rate is fine:
-+	 *   div - 1 = ceil(parent / rate) - 1 < parent / rate
-+	 * and thus
-+	 *   min_rate <= rate < parent / (div - 1)
-+	 */
-+	if (result < req->min_rate && div > 1)
-+		result = parent / (div - 1);
-+
-+	req->rate = result;
-+	return 0;
-+}
-+
-+static int jh7100_clk_set_rate(struct clk_hw *hw,
-+			       unsigned long rate,
-+			       unsigned long parent_rate)
-+{
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+	unsigned long div = jh7100_clk_bestdiv(clk, rate, parent_rate);
-+
-+	jh7100_clk_reg_rmw(clk, JH7100_CLK_DIV_MASK, div);
-+	return 0;
-+}
-+
-+static u8 jh7100_clk_get_parent(struct clk_hw *hw)
-+{
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+	u32 value = jh7100_clk_reg_get(clk);
-+
-+	return (value & JH7100_CLK_MUX_MASK) >> JH7100_CLK_MUX_SHIFT;
-+}
-+
-+static int jh7100_clk_set_parent(struct clk_hw *hw, u8 index)
-+{
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+	u32 value = (u32)index << JH7100_CLK_MUX_SHIFT;
-+
-+	jh7100_clk_reg_rmw(clk, JH7100_CLK_MUX_MASK, value);
-+	return 0;
-+}
-+
-+static int jh7100_clk_mux_determine_rate(struct clk_hw *hw,
-+					 struct clk_rate_request *req)
-+{
-+	return clk_mux_determine_rate_flags(hw, req, 0);
-+}
-+
-+static int jh7100_clk_get_phase(struct clk_hw *hw)
-+{
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+	u32 value = jh7100_clk_reg_get(clk);
-+
-+	return (value & JH7100_CLK_INVERT) ? 180 : 0;
-+}
-+
-+static int jh7100_clk_set_phase(struct clk_hw *hw, int degrees)
-+{
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+	u32 value;
-+
-+	if (degrees == 0)
-+		value = 0;
-+	else if (degrees == 180)
-+		value = JH7100_CLK_INVERT;
-+	else
-+		return -EINVAL;
-+
-+	jh7100_clk_reg_rmw(clk, JH7100_CLK_INVERT, value);
-+	return 0;
-+}
-+
-+#ifdef CONFIG_DEBUG_FS
-+static void jh7100_clk_debug_init(struct clk_hw *hw, struct dentry *dentry)
-+{
-+	static const struct debugfs_reg32 jh7100_clk_reg = {
-+		.name = "CTRL",
-+		.offset = 0,
-+	};
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+	struct clk_starfive_jh7100_priv *priv = jh7100_priv_from(clk);
-+	struct debugfs_regset32 *regset;
-+
-+	regset = devm_kzalloc(priv->dev, sizeof(*regset), GFP_KERNEL);
-+	if (!regset)
-+		return;
-+
-+	regset->regs = &jh7100_clk_reg;
-+	regset->nregs = 1;
-+	regset->base = priv->base + 4 * clk->idx;
-+
-+	debugfs_create_regset32("registers", 0400, dentry, regset);
-+}
-+#else
-+#define jh7100_clk_debug_init NULL
-+#endif
-+
-+static const struct clk_ops jh7100_clk_gate_ops = {
-+	.enable = jh7100_clk_enable,
-+	.disable = jh7100_clk_disable,
-+	.is_enabled = jh7100_clk_is_enabled,
-+	.debug_init = jh7100_clk_debug_init,
-+};
-+
-+static const struct clk_ops jh7100_clk_div_ops = {
-+	.recalc_rate = jh7100_clk_recalc_rate,
-+	.determine_rate = jh7100_clk_determine_rate,
-+	.set_rate = jh7100_clk_set_rate,
-+	.debug_init = jh7100_clk_debug_init,
-+};
-+
-+static const struct clk_ops jh7100_clk_gdiv_ops = {
-+	.enable = jh7100_clk_enable,
-+	.disable = jh7100_clk_disable,
-+	.is_enabled = jh7100_clk_is_enabled,
-+	.recalc_rate = jh7100_clk_recalc_rate,
-+	.determine_rate = jh7100_clk_determine_rate,
-+	.set_rate = jh7100_clk_set_rate,
-+	.debug_init = jh7100_clk_debug_init,
-+};
-+
-+static const struct clk_ops jh7100_clk_mux_ops = {
-+	.get_parent = jh7100_clk_get_parent,
-+	.set_parent = jh7100_clk_set_parent,
-+	.determine_rate = jh7100_clk_mux_determine_rate,
-+	.debug_init = jh7100_clk_debug_init,
-+};
-+
-+static const struct clk_ops jh7100_clk_gmux_ops = {
-+	.enable = jh7100_clk_enable,
-+	.disable = jh7100_clk_disable,
-+	.is_enabled = jh7100_clk_is_enabled,
-+	.get_parent = jh7100_clk_get_parent,
-+	.set_parent = jh7100_clk_set_parent,
-+	.determine_rate = jh7100_clk_mux_determine_rate,
-+	.debug_init = jh7100_clk_debug_init,
-+};
-+
-+static const struct clk_ops jh7100_clk_inv_ops = {
-+	.get_phase = jh7100_clk_get_phase,
-+	.set_phase = jh7100_clk_set_phase,
-+	.debug_init = jh7100_clk_debug_init,
-+};
-+
-+static const struct clk_ops *__init jh7100_clk_ops(u32 max)
-+{
-+	if (max & JH7100_CLK_DIV_MASK) {
-+		if (max & JH7100_CLK_ENABLE)
-+			return &jh7100_clk_gdiv_ops;
-+		return &jh7100_clk_div_ops;
-+	}
-+
-+	if (max & JH7100_CLK_MUX_MASK) {
-+		if (max & JH7100_CLK_ENABLE)
-+			return &jh7100_clk_gmux_ops;
-+		return &jh7100_clk_mux_ops;
-+	}
-+
-+	if (max & JH7100_CLK_ENABLE)
-+		return &jh7100_clk_gate_ops;
-+
-+	return &jh7100_clk_inv_ops;
-+}
-+
-+static struct clk_hw *clk_starfive_jh7100_get(struct of_phandle_args *clkspec, void *data)
-+{
-+	struct clk_starfive_jh7100_priv *priv = data;
-+	unsigned int idx = clkspec->args[0];
-+
-+	if (idx < JH7100_CLK_PLL0_OUT)
-+		return &priv->reg[idx].hw;
-+
-+	if (idx < JH7100_CLK_END)
-+		return priv->pll[idx - JH7100_CLK_PLL0_OUT];
-+
-+	return ERR_PTR(-EINVAL);
-+}
-+
-+static int __init clk_starfive_jh7100_probe(struct platform_device *pdev)
-+{
-+	struct clk_starfive_jh7100_priv *priv;
-+	unsigned int idx;
-+	int ret;
-+
-+	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	spin_lock_init(&priv->rmw_lock);
-+	priv->dev = &pdev->dev;
-+	priv->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(priv->base))
-+		return PTR_ERR(priv->base);
-+
-+	priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "pll0_out",
-+							 "osc_sys", 0, 40, 1);
-+	if (IS_ERR(priv->pll[0]))
-+		return PTR_ERR(priv->pll[0]);
-+
-+	priv->pll[1] = devm_clk_hw_register_fixed_factor(priv->dev, "pll1_out",
-+							 "osc_sys", 0, 64, 1);
-+	if (IS_ERR(priv->pll[1]))
-+		return PTR_ERR(priv->pll[1]);
-+
-+	priv->pll[2] = devm_clk_hw_register_fixed_factor(priv->dev, "pll2_out",
-+							 "pll2_refclk", 0, 55, 1);
-+	if (IS_ERR(priv->pll[2]))
-+		return PTR_ERR(priv->pll[2]);
-+
-+	for (idx = 0; idx < JH7100_CLK_PLL0_OUT; idx++) {
-+		u32 max = jh7100_clk_data[idx].max;
-+		struct clk_parent_data parents[4] = {};
-+		struct clk_init_data init = {
-+			.name = jh7100_clk_data[idx].name,
-+			.ops = jh7100_clk_ops(max),
-+			.parent_data = parents,
-+			.num_parents = ((max & JH7100_CLK_MUX_MASK) >> JH7100_CLK_MUX_SHIFT) + 1,
-+			.flags = jh7100_clk_data[idx].flags,
-+		};
-+		struct jh7100_clk *clk = &priv->reg[idx];
-+		unsigned int i;
-+
-+		for (i = 0; i < init.num_parents; i++) {
-+			unsigned int pidx = jh7100_clk_data[idx].parents[i];
-+
-+			if (pidx < JH7100_CLK_PLL0_OUT)
-+				parents[i].hw = &priv->reg[pidx].hw;
-+			else if (pidx < JH7100_CLK_END)
-+				parents[i].hw = priv->pll[pidx - JH7100_CLK_PLL0_OUT];
-+			else if (pidx == JH7100_CLK_OSC_SYS)
-+				parents[i].fw_name = "osc_sys";
-+			else if (pidx == JH7100_CLK_OSC_AUD)
-+				parents[i].fw_name = "osc_aud";
-+			else if (pidx == JH7100_CLK_GMAC_RMII_REF)
-+				parents[i].fw_name = "gmac_rmii_ref";
-+			else if (pidx == JH7100_CLK_GMAC_GR_MII_RX)
-+				parents[i].fw_name = "gmac_gr_mii_rxclk";
-+		}
-+
-+		clk->hw.init = &init;
-+		clk->idx = idx;
-+		clk->max_div = max & JH7100_CLK_DIV_MASK;
-+
-+		ret = devm_clk_hw_register(priv->dev, &clk->hw);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return devm_of_clk_add_hw_provider(priv->dev, clk_starfive_jh7100_get, priv);
-+}
-+
-+static const struct of_device_id clk_starfive_jh7100_match[] = {
-+	{ .compatible = "starfive,jh7100-clkgen" },
-+	{ /* sentinel */ }
-+};
-+
-+static struct platform_driver clk_starfive_jh7100_driver = {
-+	.driver = {
-+		.name = "clk-starfive-jh7100",
-+		.of_match_table = clk_starfive_jh7100_match,
-+		.suppress_bind_attrs = true,
-+	},
-+};
-+builtin_platform_driver_probe(clk_starfive_jh7100_driver, clk_starfive_jh7100_probe);
++#ifndef __DT_BINDINGS_PINCTRL_STARFIVE_H__
++#define __DT_BINDINGS_PINCTRL_STARFIVE_H__
++
++#define PAD_GPIO_OFFSET		0
++#define PAD_FUNC_SHARE_OFFSET	64
++#define PAD_GPIO(x)		(PAD_GPIO_OFFSET + (x))
++#define PAD_FUNC_SHARE(x)	(PAD_FUNC_SHARE_OFFSET + (x))
++
++/*
++ * GPIOMUX bits:
++ *  | 31 - 24 | 23 - 16 | 15 - 8 |     7    |     6    |  5 - 0  |
++ *  |  dout   |  doen   |  din   | dout rev | doen rev | gpio nr |
++ *
++ * dout:     output signal
++ * doen:     output enable signal
++ * din:      optional input signal, 0xff = none
++ * dout rev: output signal reverse bit
++ * doen rev: output enable signal reverse bit
++ * gpio nr:  gpio number, 0 - 63
++ */
++#define GPIOMUX(n, dout, doen, din) ( \
++		(((dout) & 0x80000000) >> (31 - 7)) | (((dout) & 0xff) << 24) | \
++		(((doen) & 0x80000000) >> (31 - 6)) | (((doen) & 0xff) << 16) | \
++		(((din) & 0xff) << 8) | \
++		((n) & 0x3f))
++
++#define GPO_REVERSE				0x80000000
++
++#define GPO_LOW					0
++#define GPO_HIGH				1
++#define GPO_ENABLE				0
++#define GPO_DISABLE				1
++#define GPO_CLK_GMAC_PAPHYREF			2
++#define GPO_JTAG_TDO				3
++#define GPO_JTAG_TDO_OEN			4
++#define GPO_DMIC_CLK_OUT			5
++#define GPO_DSP_JTDOEN_PAD			6
++#define GPO_DSP_JTDO_PAD			7
++#define GPO_I2C0_PAD_SCK_OE			8
++#define GPO_I2C0_PAD_SCK_OEN			(GPO_I2C0_PAD_SCK_OE | GPO_REVERSE)
++#define GPO_I2C0_PAD_SDA_OE			9
++#define GPO_I2C0_PAD_SDA_OEN			(GPO_I2C0_PAD_SDA_OE | GPO_REVERSE)
++#define GPO_I2C1_PAD_SCK_OE			10
++#define GPO_I2C1_PAD_SCK_OEN			(GPO_I2C1_PAD_SCK_OE | GPO_REVERSE)
++#define GPO_I2C1_PAD_SDA_OE			11
++#define GPO_I2C1_PAD_SDA_OEN			(GPO_I2C1_PAD_SDA_OE | GPO_REVERSE)
++#define GPO_I2C2_PAD_SCK_OE			12
++#define GPO_I2C2_PAD_SCK_OEN			(GPO_I2C2_PAD_SCK_OE | GPO_REVERSE)
++#define GPO_I2C2_PAD_SDA_OE			13
++#define GPO_I2C2_PAD_SDA_OEN			(GPO_I2C2_PAD_SDA_OE | GPO_REVERSE)
++#define GPO_I2C3_PAD_SCK_OE			14
++#define GPO_I2C3_PAD_SCK_OEN			(GPO_I2C3_PAD_SCK_OE | GPO_REVERSE)
++#define GPO_I2C3_PAD_SDA_OE			15
++#define GPO_I2C3_PAD_SDA_OEN			(GPO_I2C3_PAD_SDA_OE | GPO_REVERSE)
++#define GPO_I2SRX_BCLK_OUT			16
++#define GPO_I2SRX_BCLK_OUT_OEN			17
++#define GPO_I2SRX_LRCK_OUT			18
++#define GPO_I2SRX_LRCK_OUT_OEN			19
++#define GPO_I2SRX_MCLK_OUT			20
++#define GPO_I2STX_BCLK_OUT			21
++#define GPO_I2STX_BCLK_OUT_OEN			22
++#define GPO_I2STX_LRCK_OUT			23
++#define GPO_I2STX_LRCK_OUT_OEN			24
++#define GPO_I2STX_MCLK_OUT			25
++#define GPO_I2STX_SDOUT0			26
++#define GPO_I2STX_SDOUT1			27
++#define GPO_LCD_PAD_CSM_N			28
++#define GPO_PWM_PAD_OE_N_BIT0			29
++#define GPO_PWM_PAD_OE_N_BIT1			30
++#define GPO_PWM_PAD_OE_N_BIT2			31
++#define GPO_PWM_PAD_OE_N_BIT3			32
++#define GPO_PWM_PAD_OE_N_BIT4			33
++#define GPO_PWM_PAD_OE_N_BIT5			34
++#define GPO_PWM_PAD_OE_N_BIT6			35
++#define GPO_PWM_PAD_OE_N_BIT7			36
++#define GPO_PWM_PAD_OUT_BIT0			37
++#define GPO_PWM_PAD_OUT_BIT1			38
++#define GPO_PWM_PAD_OUT_BIT2			39
++#define GPO_PWM_PAD_OUT_BIT3			40
++#define GPO_PWM_PAD_OUT_BIT4			41
++#define GPO_PWM_PAD_OUT_BIT5			42
++#define GPO_PWM_PAD_OUT_BIT6			43
++#define GPO_PWM_PAD_OUT_BIT7			44
++#define GPO_PWMDAC_LEFT_OUT			45
++#define GPO_PWMDAC_RIGHT_OUT			46
++#define GPO_QSPI_CSN1_OUT			47
++#define GPO_QSPI_CSN2_OUT			48
++#define GPO_QSPI_CSN3_OUT			49
++#define GPO_REGISTER23_SCFG_CMSENSOR_RST0	50
++#define GPO_REGISTER23_SCFG_CMSENSOR_RST1	51
++#define GPO_REGISTER32_SCFG_GMAC_PHY_RSTN	52
++#define GPO_SDIO0_PAD_CARD_POWER_EN		53
++#define GPO_SDIO0_PAD_CCLK_OUT			54
++#define GPO_SDIO0_PAD_CCMD_OE			55
++#define GPO_SDIO0_PAD_CCMD_OEN			(GPO_SDIO0_PAD_CCMD_OE | GPO_REVERSE)
++#define GPO_SDIO0_PAD_CCMD_OUT			56
++#define GPO_SDIO0_PAD_CDATA_OE_BIT0		57
++#define GPO_SDIO0_PAD_CDATA_OEN_BIT0		(GPO_SDIO0_PAD_CDATA_OE_BIT0 | GPO_REVERSE)
++#define GPO_SDIO0_PAD_CDATA_OE_BIT1		58
++#define GPO_SDIO0_PAD_CDATA_OEN_BIT1		(GPO_SDIO0_PAD_CDATA_OE_BIT1 | GPO_REVERSE)
++#define GPO_SDIO0_PAD_CDATA_OE_BIT2		59
++#define GPO_SDIO0_PAD_CDATA_OEN_BIT2		(GPO_SDIO0_PAD_CDATA_OE_BIT2 | GPO_REVERSE)
++#define GPO_SDIO0_PAD_CDATA_OE_BIT3		60
++#define GPO_SDIO0_PAD_CDATA_OEN_BIT3		(GPO_SDIO0_PAD_CDATA_OE_BIT3 | GPO_REVERSE)
++#define GPO_SDIO0_PAD_CDATA_OE_BIT4		61
++#define GPO_SDIO0_PAD_CDATA_OEN_BIT4		(GPO_SDIO0_PAD_CDATA_OE_BIT4 | GPO_REVERSE)
++#define GPO_SDIO0_PAD_CDATA_OE_BIT5		62
++#define GPO_SDIO0_PAD_CDATA_OEN_BIT5		(GPO_SDIO0_PAD_CDATA_OE_BIT5 | GPO_REVERSE)
++#define GPO_SDIO0_PAD_CDATA_OE_BIT6		63
++#define GPO_SDIO0_PAD_CDATA_OEN_BIT6		(GPO_SDIO0_PAD_CDATA_OE_BIT6 | GPO_REVERSE)
++#define GPO_SDIO0_PAD_CDATA_OE_BIT7		64
++#define GPO_SDIO0_PAD_CDATA_OEN_BIT7		(GPO_SDIO0_PAD_CDATA_OE_BIT7 | GPO_REVERSE)
++#define GPO_SDIO0_PAD_CDATA_OUT_BIT0		65
++#define GPO_SDIO0_PAD_CDATA_OUT_BIT1		66
++#define GPO_SDIO0_PAD_CDATA_OUT_BIT2		67
++#define GPO_SDIO0_PAD_CDATA_OUT_BIT3		68
++#define GPO_SDIO0_PAD_CDATA_OUT_BIT4		69
++#define GPO_SDIO0_PAD_CDATA_OUT_BIT5		70
++#define GPO_SDIO0_PAD_CDATA_OUT_BIT6		71
++#define GPO_SDIO0_PAD_CDATA_OUT_BIT7		72
++#define GPO_SDIO0_PAD_RST_N			73
++#define GPO_SDIO1_PAD_CARD_POWER_EN		74
++#define GPO_SDIO1_PAD_CCLK_OUT			75
++#define GPO_SDIO1_PAD_CCMD_OE			76
++#define GPO_SDIO1_PAD_CCMD_OEN			(GPO_SDIO1_PAD_CCMD_OE | GPO_REVERSE)
++#define GPO_SDIO1_PAD_CCMD_OUT			77
++#define GPO_SDIO1_PAD_CDATA_OE_BIT0		78
++#define GPO_SDIO1_PAD_CDATA_OEN_BIT0		(GPO_SDIO1_PAD_CDATA_OE_BIT0 | GPO_REVERSE)
++#define GPO_SDIO1_PAD_CDATA_OE_BIT1		79
++#define GPO_SDIO1_PAD_CDATA_OEN_BIT1		(GPO_SDIO1_PAD_CDATA_OE_BIT1 | GPO_REVERSE)
++#define GPO_SDIO1_PAD_CDATA_OE_BIT2		80
++#define GPO_SDIO1_PAD_CDATA_OEN_BIT2		(GPO_SDIO1_PAD_CDATA_OE_BIT2 | GPO_REVERSE)
++#define GPO_SDIO1_PAD_CDATA_OE_BIT3		81
++#define GPO_SDIO1_PAD_CDATA_OEN_BIT3		(GPO_SDIO1_PAD_CDATA_OE_BIT3 | GPO_REVERSE)
++#define GPO_SDIO1_PAD_CDATA_OE_BIT4		82
++#define GPO_SDIO1_PAD_CDATA_OEN_BIT4		(GPO_SDIO1_PAD_CDATA_OE_BIT4 | GPO_REVERSE)
++#define GPO_SDIO1_PAD_CDATA_OE_BIT5		83
++#define GPO_SDIO1_PAD_CDATA_OEN_BIT5		(GPO_SDIO1_PAD_CDATA_OE_BIT5 | GPO_REVERSE)
++#define GPO_SDIO1_PAD_CDATA_OE_BIT6		84
++#define GPO_SDIO1_PAD_CDATA_OEN_BIT6		(GPO_SDIO1_PAD_CDATA_OE_BIT6 | GPO_REVERSE)
++#define GPO_SDIO1_PAD_CDATA_OE_BIT7		85
++#define GPO_SDIO1_PAD_CDATA_OEN_BIT7		(GPO_SDIO1_PAD_CDATA_OE_BIT7 | GPO_REVERSE)
++#define GPO_SDIO1_PAD_CDATA_OUT_BIT0		86
++#define GPO_SDIO1_PAD_CDATA_OUT_BIT1		87
++#define GPO_SDIO1_PAD_CDATA_OUT_BIT2		88
++#define GPO_SDIO1_PAD_CDATA_OUT_BIT3		89
++#define GPO_SDIO1_PAD_CDATA_OUT_BIT4		90
++#define GPO_SDIO1_PAD_CDATA_OUT_BIT5		91
++#define GPO_SDIO1_PAD_CDATA_OUT_BIT6		92
++#define GPO_SDIO1_PAD_CDATA_OUT_BIT7		93
++#define GPO_SDIO1_PAD_RST_N			94
++#define GPO_SPDIF_TX_SDOUT			95
++#define GPO_SPDIF_TX_SDOUT_OEN			96
++#define GPO_SPI0_PAD_OE_N			97
++#define GPO_SPI0_PAD_SCK_OUT			98
++#define GPO_SPI0_PAD_SS_0_N			99
++#define GPO_SPI0_PAD_SS_1_N			100
++#define GPO_SPI0_PAD_TXD			101
++#define GPO_SPI1_PAD_OE_N			102
++#define GPO_SPI1_PAD_SCK_OUT			103
++#define GPO_SPI1_PAD_SS_0_N			104
++#define GPO_SPI1_PAD_SS_1_N			105
++#define GPO_SPI1_PAD_TXD			106
++#define GPO_SPI2_PAD_OE_N			107
++#define GPO_SPI2_PAD_SCK_OUT			108
++#define GPO_SPI2_PAD_SS_0_N			109
++#define GPO_SPI2_PAD_SS_1_N			110
++#define GPO_SPI2_PAD_TXD			111
++#define GPO_SPI2AHB_PAD_OE_N_BIT0		112
++#define GPO_SPI2AHB_PAD_OE_N_BIT1		113
++#define GPO_SPI2AHB_PAD_OE_N_BIT2		114
++#define GPO_SPI2AHB_PAD_OE_N_BIT3		115
++#define GPO_SPI2AHB_PAD_TXD_BIT0		116
++#define GPO_SPI2AHB_PAD_TXD_BIT1		117
++#define GPO_SPI2AHB_PAD_TXD_BIT2		118
++#define GPO_SPI2AHB_PAD_TXD_BIT3		119
++#define GPO_SPI3_PAD_OE_N			120
++#define GPO_SPI3_PAD_SCK_OUT			121
++#define GPO_SPI3_PAD_SS_0_N			122
++#define GPO_SPI3_PAD_SS_1_N			123
++#define GPO_SPI3_PAD_TXD			124
++#define GPO_UART0_PAD_DTRN			125
++#define GPO_UART0_PAD_RTSN			126
++#define GPO_UART0_PAD_SOUT			127
++#define GPO_UART1_PAD_SOUT			128
++#define GPO_UART2_PAD_DTR_N			129
++#define GPO_UART2_PAD_RTS_N			130
++#define GPO_UART2_PAD_SOUT			131
++#define GPO_UART3_PAD_SOUT			132
++#define GPO_USB_DRV_BUS				133
++
++#define GPI_CPU_JTAG_TCK			0
++#define GPI_CPU_JTAG_TDI			1
++#define GPI_CPU_JTAG_TMS			2
++#define GPI_CPU_JTAG_TRST			3
++#define GPI_DMIC_SDIN_BIT0			4
++#define GPI_DMIC_SDIN_BIT1			5
++#define GPI_DSP_JTCK_PAD			6
++#define GPI_DSP_JTDI_PAD			7
++#define GPI_DSP_JTMS_PAD			8
++#define GPI_DSP_TRST_PAD			9
++#define GPI_I2C0_PAD_SCK_IN			10
++#define GPI_I2C0_PAD_SDA_IN			11
++#define GPI_I2C1_PAD_SCK_IN			12
++#define GPI_I2C1_PAD_SDA_IN			13
++#define GPI_I2C2_PAD_SCK_IN			14
++#define GPI_I2C2_PAD_SDA_IN			15
++#define GPI_I2C3_PAD_SCK_IN			16
++#define GPI_I2C3_PAD_SDA_IN			17
++#define GPI_I2SRX_BCLK_IN			18
++#define GPI_I2SRX_LRCK_IN			19
++#define GPI_I2SRX_SDIN_BIT0			20
++#define GPI_I2SRX_SDIN_BIT1			21
++#define GPI_I2SRX_SDIN_BIT2			22
++#define GPI_I2STX_BCLK_IN			23
++#define GPI_I2STX_LRCK_IN			24
++#define GPI_SDIO0_PAD_CARD_DETECT_N		25
++#define GPI_SDIO0_PAD_CARD_WRITE_PRT		26
++#define GPI_SDIO0_PAD_CCMD_IN			27
++#define GPI_SDIO0_PAD_CDATA_IN_BIT0		28
++#define GPI_SDIO0_PAD_CDATA_IN_BIT1		29
++#define GPI_SDIO0_PAD_CDATA_IN_BIT2		30
++#define GPI_SDIO0_PAD_CDATA_IN_BIT3		31
++#define GPI_SDIO0_PAD_CDATA_IN_BIT4		32
++#define GPI_SDIO0_PAD_CDATA_IN_BIT5		33
++#define GPI_SDIO0_PAD_CDATA_IN_BIT6		34
++#define GPI_SDIO0_PAD_CDATA_IN_BIT7		35
++#define GPI_SDIO1_PAD_CARD_DETECT_N		36
++#define GPI_SDIO1_PAD_CARD_WRITE_PRT		37
++#define GPI_SDIO1_PAD_CCMD_IN			38
++#define GPI_SDIO1_PAD_CDATA_IN_BIT0		39
++#define GPI_SDIO1_PAD_CDATA_IN_BIT1		40
++#define GPI_SDIO1_PAD_CDATA_IN_BIT2		41
++#define GPI_SDIO1_PAD_CDATA_IN_BIT3		42
++#define GPI_SDIO1_PAD_CDATA_IN_BIT4		43
++#define GPI_SDIO1_PAD_CDATA_IN_BIT5		44
++#define GPI_SDIO1_PAD_CDATA_IN_BIT6		45
++#define GPI_SDIO1_PAD_CDATA_IN_BIT7		46
++#define GPI_SPDIF_RX_SDIN			47
++#define GPI_SPI0_PAD_RXD			48
++#define GPI_SPI0_PAD_SS_IN_N			49
++#define GPI_SPI1_PAD_RXD			50
++#define GPI_SPI1_PAD_SS_IN_N			51
++#define GPI_SPI2_PAD_RXD			52
++#define GPI_SPI2_PAD_SS_IN_N			53
++#define GPI_SPI2AHB_PAD_RXD_BIT0		54
++#define GPI_SPI2AHB_PAD_RXD_BIT1		55
++#define GPI_SPI2AHB_PAD_RXD_BIT2		56
++#define GPI_SPI2AHB_PAD_RXD_BIT3		57
++#define GPI_SPI2AHB_PAD_SS_N			58
++#define GPI_SPI2AHB_SLV_SCLKIN			59
++#define GPI_SPI3_PAD_RXD			60
++#define GPI_SPI3_PAD_SS_IN_N			61
++#define GPI_UART0_PAD_CTSN			62
++#define GPI_UART0_PAD_DCDN			63
++#define GPI_UART0_PAD_DSRN			64
++#define GPI_UART0_PAD_RIN			65
++#define GPI_UART0_PAD_SIN			66
++#define GPI_UART1_PAD_SIN			67
++#define GPI_UART2_PAD_CTS_N			68
++#define GPI_UART2_PAD_DCD_N			69
++#define GPI_UART2_PAD_DSR_N			70
++#define GPI_UART2_PAD_RI_N			71
++#define GPI_UART2_PAD_SIN			72
++#define GPI_UART3_PAD_SIN			73
++#define GPI_USB_OVER_CURRENT			74
++
++#define GPI_NONE				0xff
++
++#endif /* __DT_BINDINGS_PINCTRL_STARFIVE_H__ */
 -- 
 2.33.1
 
