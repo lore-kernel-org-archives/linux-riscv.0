@@ -2,15 +2,15 @@ Return-Path: <SRS0=IZ/x=PV=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D3C37C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Nov 2021 20:56:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E6538C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Nov 2021 21:17:30 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 90EC060E9B
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Nov 2021 20:56:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 90EC060E9B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id A296760D07
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Nov 2021 21:17:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A296760D07
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -18,62 +18,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cX4U0qm2zkSF9hz91cVUeBcKsXuLw9zDfF5LtXsL4uM=; b=fc6WgoNdHdYHQD
-	h2z/xv88kh2Fbz2c5mMrUwUVaMmClsT4xftknaz/dHHfP+Xtc2rdV4/MDiLfZ/SDh0k7PbU9DDxcp
-	RbrELsAcHpN6Iu4R5lG4iM14fs2tFdzCQ5t00r+QNorS0SNrlm2SpCiMKX5PbGdupyI25cBevezlU
-	RKfA+BiSZNp+HxpkvfU9jPOSbfTkFKTsQnz8QNsO5cW70J4+RNY9DKIkL0jVwpVZRkTI64ydgvR+r
-	F4UexdGkQuIPNi6bn5TA6XCc0RVTxYNF0adqIZ8lKXlFSPB/PzYnBO/iuxg1z+v3zLAS9J5+oxYZ4
-	FzDuEdyZrUvMcR1biyyQ==;
+	List-Owner; bh=t3O0RMkb3yWyeBT+f0/mFHFEBR8l2vi42ilR/eknHa0=; b=02GC9x/CcwstFQ
+	sOz0TovF2RMH4F4egvyRMqBDhhzqucenADugK589yWifuK4bqw2Dtp97WGbTdCq87qERRy34jGLis
+	XCutBpMNdjhdyrdPEo8a7qoDU1Rha3I/itH/lum7Ohp0ourLB80GvljlfaxXNUimb4POprDoZKU5r
+	sgncgO5zXzWuHtJO26K7gPCsGRyq4GPR8F2WvsIesgI2eLhWUAYpUGK56+V10D9+zC35wNtwe7gYX
+	2eaElzpVJmdf7D4pmLE1fA3S1eU/pa1VB3nmW31RWRwGJ1bs1aM56kKGoPZUqtvUlrI821Cqv/lnA
+	S5WzQNTIC0AkUQQIWqIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mi0pK-002zTt-2l; Tue, 02 Nov 2021 20:56:14 +0000
-Received: from mail-io1-xd31.google.com ([2607:f8b0:4864:20::d31])
+	id 1mi19j-0031DG-II; Tue, 02 Nov 2021 21:17:19 +0000
+Received: from mail-pl1-f178.google.com ([209.85.214.178])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mi0pH-002zTD-5i
- for linux-riscv@lists.infradead.org; Tue, 02 Nov 2021 20:56:12 +0000
-Received: by mail-io1-xd31.google.com with SMTP id b203so304142iof.1
- for <linux-riscv@lists.infradead.org>; Tue, 02 Nov 2021 13:56:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=5qpSO8WUXhUCrAbZgUnrOJ4l2/cOqHIYTb/IBBg9XxU=;
- b=dYUO/tLaVyPYDeinS3Bci5Y1zgmTYCUUBGwfkUhxhDm6S9KkOcjK8bQl8oEHcC2+ZX
- ET9FkdT7791SO9/NU5VVw7pDfz5Py4ns2fGH+RQKLK4WXEpiLrDGZQbUag5qOjeVJKdY
- +pIl+QoR4ENH464VRVxn01fSLd736ql860MiHqgRzfncsvfHfzNu1+XYXeBycbs4XZfz
- G0Wy2ujTD540hiNf7cB8mwTGkmyEvPXrx8rfK7DEWnDaLkER/vtNYV9X6SzvBm8uVl5E
- BswK0OIp3Q7KrKTqFH6gjVo3aeGhuDeVApKzvZsbq8E7fMjDoAE4DPYmAF5NXblXxw6r
- HCww==
+ id 1mi19g-0031CP-CA
+ for linux-riscv@lists.infradead.org; Tue, 02 Nov 2021 21:17:18 +0000
+Received: by mail-pl1-f178.google.com with SMTP id b13so870469plg.2
+ for <linux-riscv@lists.infradead.org>; Tue, 02 Nov 2021 14:17:16 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=5qpSO8WUXhUCrAbZgUnrOJ4l2/cOqHIYTb/IBBg9XxU=;
- b=4mI1fWysu6on8yiE2UvGFvSBWqLp5bIazHGxlJQ1/2JS+6wmLv55xg5MbzpeF90tqx
- B+O3n4oMd9g1wiXGnUDXQ8ZQXUAcazCtzrcXmsqJFwxtkCWUl9rrDgRcapk0sn+WYqHH
- /Cv0k6NKzMeg5b34XYqwiEm0ZwfzDy4HxrCmJ7ry0bTm/DCns+UKyC8fxrvzlgT9ixrB
- t/ay14+mj/oL0doOvuq+Ur/s76IQNsBLIP5lUYgKq3VL+sq9z1xZdDdXy/xGMog9U8lT
- 9gGbYZ10y+MfUyClqOszKrdl8TkKUM0Pmt5pXZqlMYlUxLQe/qDd9kvphhguQm2o6bpn
- JJpw==
-X-Gm-Message-State: AOAM530BHO9flk6YZGYJSgbfyYFud4W5fPHQveXuAGlWz8sntQVO2Ozj
- LUkXU7yWtI8htp5+POzqQXYMfZjeF5S0/kEfSCw=
-X-Google-Smtp-Source: ABdhPJygmuBb5+o5lPg7eND5Rtx8YFYElghK2rfOTJ0tMJEFEttP6v8+0uhDe+ZA+pt6kb9Y/WP9MaRcaSIw1/qaGCU=
-X-Received: by 2002:a02:6064:: with SMTP id d36mr29827629jaf.80.1635886568112; 
- Tue, 02 Nov 2021 13:56:08 -0700 (PDT)
+ bh=q3y5UxeQSpLyKQPZY321rv/0ZITkGbCXJhzW/7YHXdo=;
+ b=2wTykBRWqYU9REo0mfVzPZY13PzGfFAq7x4apCX2SJvH73F+mU+/TM0ghInG7w1Cuw
+ ICSOt6Gu0B4NAfjucxeMx63txcNYlz+b0VjR6k3qQjSmAeGGH9r+FTO+ZjT6Qf8a95LM
+ 2b1sSG+G/YzwXYb2gI15+j5fp/gZUQ8XGWumMlUkzG8kCdVqLRholbKR9DgsfpeSMsg+
+ x2FisE1f6VUoEbJNaKvnrzrlwhIpPzoZnYgtNyHu8QaELMWRUNFcgTJPv8AEScFRybVG
+ K0Z69v0wUR5fDKsbOfW185gvG0lY+O4VfGp0oIxPmIgl9oi1+PrIoePDbMhaSEJj81ne
+ 5uxw==
+X-Gm-Message-State: AOAM530zxVqrpk+JjOtP72kPC2O9WpOmlOkl28U1fTPLY9597VejoGLC
+ fod3stl/ExtcqdioGWB8MU4pBLSOmsNULpxJCwU=
+X-Google-Smtp-Source: ABdhPJz8vya8Pc9vfyjBBnOdrocjtFOk+W75BUtZYClkn8GG2bJFYZJzRCxnG9uqRIRWqGnV1fANTmhWO6L01upvC1k=
+X-Received: by 2002:a17:90a:5b0c:: with SMTP id
+ o12mr9978948pji.194.1635887835692; 
+ Tue, 02 Nov 2021 14:17:15 -0700 (PDT)
 MIME-Version: 1.0
 References: <20211102161125.1144023-1-kernel@esmil.dk>
  <20211102161125.1144023-10-kernel@esmil.dk>
  <CAHp75Ve-P8DR00mtRP_NkrXgB4nsZ+qBkgBen94iTcPqxQYUOg@mail.gmail.com>
  <CANBLGcyb=TAP0h2WuxBAjRvpN9n7Dt1Hvh5yE8NMOwm3ixZWuA@mail.gmail.com>
-In-Reply-To: <CANBLGcyb=TAP0h2WuxBAjRvpN9n7Dt1Hvh5yE8NMOwm3ixZWuA@mail.gmail.com>
-From: Yury Norov <yury.norov@gmail.com>
-Date: Tue, 2 Nov 2021 13:55:53 -0700
-Message-ID: <CAAH8bW-J6Ai+KZFkZ4ELOzD-u7BceZrBqwnCuPH6F-fNQNm3XQ@mail.gmail.com>
+ <CAHp75Vcg3En=xH+kz0GgAMGUoo5FABo2HwGoHd=7QgGVrYkYXg@mail.gmail.com>
+In-Reply-To: <CAHp75Vcg3En=xH+kz0GgAMGUoo5FABo2HwGoHd=7QgGVrYkYXg@mail.gmail.com>
+From: Emil Renner Berthing <kernel@esmil.dk>
+Date: Tue, 2 Nov 2021 22:17:04 +0100
+Message-ID: <CANBLGczrGwexRGvGxa9C+yzaSHZF_d5+AaebeLUX5BXFxipr=A@mail.gmail.com>
 Subject: Re: [PATCH v3 09/16] reset: starfive-jh7100: Add StarFive JH7100
  reset driver
-To: Emil Renner Berthing <kernel@esmil.dk>
-Cc: Andy Shevchenko <andy.shevchenko@gmail.com>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- devicetree <devicetree@vger.kernel.org>, 
- linux-clk <linux-clk@vger.kernel.org>, 
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: Yury Norov <yury.norov@gmail.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ devicetree <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>,
  "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
  "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
  Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -93,8 +85,8 @@ Cc: Andy Shevchenko <andy.shevchenko@gmail.com>,
  Matteo Croce <mcroce@microsoft.com>, 
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211102_135611_261725_886935D1 
-X-CRM114-Status: GOOD (  35.45  )
+X-CRM114-CacheID: sfid-20211102_141716_442733_64F2A8DF 
+X-CRM114-Status: GOOD (  34.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,124 +103,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 2, 2021 at 12:59 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+On Tue, 2 Nov 2021 at 21:14, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
+> On Tue, Nov 2, 2021 at 9:59 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+> > On Tue, 2 Nov 2021 at 20:43, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
+> > > On Tue, Nov 2, 2021 at 6:50 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
 >
-> On Tue, 2 Nov 2021 at 20:43, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
-> > +Cc: Yury (bitmap expert)
-> >
-> > On Tue, Nov 2, 2021 at 6:50 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+> ...
+>
+> > > > +/*
+> > > > + * the registers work like a 32bit bitmap, so writing a 1 to the m'th bit of
+> > > > + * the n'th ASSERT register asserts line 32n + m, and writing a 0 deasserts the
+> > > > + * same line.
+> > > > + * most reset lines have their status inverted so a 0 in the STATUS register
+> > > > + * means the line is asserted and a 1 means it's deasserted. a few lines don't
+> > > > + * though, so store the expected value of the status registers when all lines
+> > > > + * are asserted.
+> > > > + */
 > > >
-> > > Add a driver for the StarFive JH7100 reset controller.
+> > > Besides missing capitalization,
 > >
-> > ...
-> >
-> > > +#define BIT_MASK32(x) BIT((x) % 32)
-> >
-> > Possible namespace collision.
-> >
-> > ...
-> >
-> > > +/*
-> > > + * the registers work like a 32bit bitmap, so writing a 1 to the m'th bit of
-> > > + * the n'th ASSERT register asserts line 32n + m, and writing a 0 deasserts the
-> > > + * same line.
-
-We don't have 32-bit bitmaps. Bitmaps are always arrays of unsigned longs. On a
-64-bit system this '32-bit bitmap' may be broken due to endianness issues.
-
-> > > + * most reset lines have their status inverted so a 0 in the STATUS register
-> > > + * means the line is asserted and a 1 means it's deasserted. a few lines don't
-> > > + * though, so store the expected value of the status registers when all lines
-> > > + * are asserted.
-> > > + */
-> >
-> > Besides missing capitalization,
+> > I'm confused. it was you who wanted all comments to capitalized the same..
 >
-> I'm confused. it was you who wanted all comments to capitalized the same..
-> 64bi
-> if it sounds like bitmap, use bitmap.
-> > I have checked DT definitions and it seems you don't even need the
-> > BIT_MASK() macro,
+> Yes and there are two types of the comments, one-liners and
+> multi-line. In multi-line you usually use proper English grammar,
+> where capitalization means what it means. For the one-liners just
+> choose either small letters or capital letters to start them with.
+
+That sounds reasonable, it was just that you complained about
+inconsistent comments in the pinctrl driver that follows the above.
+
+> > if it sounds like bitmap, use bitmap.
+> > > I have checked DT definitions and it seems you don't even need the
+> > > BIT_MASK() macro,
+> > >
+> > > > +static const u32 jh7100_reset_asserted[4] = {
+> > > > +       /* STATUS0 register */
+> > > > +       BIT_MASK32(JH7100_RST_U74) |
+> > > > +       BIT_MASK32(JH7100_RST_VP6_DRESET) |
+> > > > +       BIT_MASK32(JH7100_RST_VP6_BRESET),
+> > > > +       /* STATUS1 register */
+> > > > +       BIT_MASK32(JH7100_RST_HIFI4_DRESET) |
+> > > > +       BIT_MASK32(JH7100_RST_HIFI4_BRESET),
+> > > > +       /* STATUS2 register */
+> > > > +       BIT_MASK32(JH7100_RST_E24),
+> > > > +       /* STATUS3 register */
+> > > > +       0,
+> > > > +};
+> > >
+> > > Yury, do we have any clever (clean) way to initialize a bitmap with
+> > > particular bits so that it will be a constant from the beginning? If
+> > > no, any suggestion what we can provide to such users?
 > >
-> > > +static const u32 jh7100_reset_asserted[4] = {
-> > > +       /* STATUS0 register */
-> > > +       BIT_MASK32(JH7100_RST_U74) |
-
-I think we have no BIT_MASK32() for a good reason. Natural alignment is
-always preferable.
-
-> > > +       BIT_MASK32(JH7100_RST_VP6_DRESET) |
-> > > +       BIT_MASK32(JH7100_RST_VP6_BRESET),
-> > > +       /* STATUS1 register */
-> > > +       BIT_MASK32(JH7100_RST_HIFI4_DRESET) |
-> > > +       BIT_MASK32(JH7100_RST_HIFI4_BRESET),
-> > > +       /* STATUS2 register */
-> > > +       BIT_MASK32(JH7100_RST_E24),
-> > > +       /* STATUS3 register */
-> > > +       0,
-> > > +};
-> >
-> > Yury, do we have any clever (clean) way to initialize a bitmap with
-> > particular bits so that it will be a constant from the beginning? If
-> > no, any suggestion what we can provide to such users?
-
-If you want your array to be a true bitmap, ie, all bitmap functions should
-work with it correctly, you'd initialize it like this:
-
-static const unsigned long jh7100_reset_asserted[] = {
-        BITMAP_FROM_U64(BIT_MASK(JH7100_RST_VP6_DRESET) |
-                          BIT_MASK(JH7100_RST_VP6_BRESET) |
-                          BIT_MASK(JH7100_RST_HIFI4_DRESET) |
-                          BIT_MASK(JH7100_RST_HIFI4_BRESET)),
-        BITMAP_FROM_U64(BIT_MASK(JH7100_RST_E24)),
-}
-
-Look at lib/test_bitmap.c for example, and comment to BITMAP_FROM_U64()
-for internal details.
-
-On the other hand, if you hardware has tricky requirements for bit
-positions, and they should depend on endianness and/or size of
-long in a way not compatible with bitmaps, you probably know better
-how to handle this. Just don't refer to your structure as a bitmap.
-
-Thanks,
-Yury
-
-> The problem is, that even if we could initialize this without the
-> monstrosity in our last conversation a 64bit bitmap would still
-> produce worse code. As it is now it's simply a 32bit load and mask
-> with index and mask already calculated for the registers. In the
-> status callback the mask can even be folded into the register read
-> mask. With a 64bit bitmap you'd need to calculate new 64bit index and
-> masks, and then conditionally shift the bits into position.
+> > The problem is, that even if we could initialize this without the
+> > monstrosity in our last conversation a 64bit bitmap would still
+> > produce worse code. As it is now it's simply a 32bit load and mask
+> > with index and mask already calculated for the registers. In the
+> > status callback the mask can even be folded into the register read
+> > mask. With a 64bit bitmap you'd need to calculate new 64bit index and
+> > masks, and then conditionally shift the bits into position.
 >
-> If this reflection of the 32bit registers bothers you that much we
-> could alternatively do
+> Why? You may use 8 byte IO (writeq() / readq() or their relaxed versions), no?
 >
-> static bool jh7100_reset_inverted(unsigned int idx)
-> {
->   switch (idx) {
->   case JH7100_RST_U74:
->   case JH7100_RST_VP6_DRESET:
->   ..
->     return false;
->   }
->   return true;
-> }
+> ...
 >
-> It'd still produce worse code, but at least it would be readable.
+> > If this reflection of the 32bit registers bothers you that much
 >
-> /Emil
->
-> > ...
-> >
-> > > +       dev_dbg(rcdev->dev, "reset(%lu)\n", id);
-> >
-> > These debug messages are useless since one should use ftrace facility instead,
-> >
-> > --
-> > With Best Regards,
-> > Andy Shevchenko
+> What bothers me is hidden endianess issues (yeah, here it might be
+> theoretical, but consider that somebody will look at your code and use
+> it as the best example ever).
+
+Wouldn't endian issues be a reason to make sure we read 32bit
+registers with 32bit reads? Or do you expect a hypothetical big-endian
+StarFive SoC to also change the order of the registers?
 
 _______________________________________________
 linux-riscv mailing list
