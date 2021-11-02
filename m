@@ -2,69 +2,85 @@ Return-Path: <SRS0=IZ/x=PV=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6F31AC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Nov 2021 14:41:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 66DF7C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Nov 2021 15:45:38 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 326B86109D
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Nov 2021 14:41:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 326B86109D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id 2C4C360F5A
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Nov 2021 15:45:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2C4C360F5A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=m/3r0GhNjxgTrz6vlubXZ0JJXA50gvVGX1NOEHFROXg=; b=sfgU9K+gfLz43I
-	DQVg0PIH0UsO5BPnaJEnK5fqySV4v+zXuM1peMqMXwFZCF2D4eunHydcvgYhzSs8hdSG6mILvM8Bj
-	oVPBEel//wcezvdp2tHp8WhF7pqtYhZsBQRWFpLsa3DAef6azY4bqmMlPgwgZ7nFC3cGb+aZYU9sQ
-	rSBPPC2uZSryZuBHHwzsmdwDDL4CqVKuIBcQ02ropfTc/W+q/4wECF5TPM3jGyBEswJ+QCbzaPe7j
-	TA3Wjj5x2Gvuy9kZqlEgIGAzFoZ/8EIuKB5TZc+jjl+AL4tOD+ZF+jcDhk+RQRu1Pw6E686FeXatL
-	xaBsVVdkTS/N5X0/QDZQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vOZrrfUB5FIr5Y2en6ZIie49iKdSIdTk7QRItQpN04g=; b=Uzkn5OUSXHhTS9
+	e5PKitv8nbnLLJBuO5A0wmWGUvS9RpKtPgbL6jJmJLvINcD47EieRN98p/0uDOkWB1x/1jVD2pnW7
+	ETCDfBXPR/C7rkqx4enRgcR/Neiq7cbW9agb0oz/i4yha0VrhRPA4PbzS/kOx4Uwi3jdkXhj/5Ktd
+	gWBhQOzUGKERif/zAiNh0TzZ6snHCQmBuftyR7Tu+nPX0bX9hzc5dP+s8OMmGO4IhSS6WqCOTfYf5
+	MxQj8FdgTi87rSSci1RC1CfdnF1q1DwRIf85ez420IBAhD+ljefA8UygPVTBLQuFRbNBpSIcHGG4+
+	GSatJtYwFduZcxkWKQFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mhuyd-001xvM-Me; Tue, 02 Nov 2021 14:41:27 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1mhvya-002Av5-QP; Tue, 02 Nov 2021 15:45:28 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mhuya-001xtQ-3T
- for linux-riscv@lists.infradead.org; Tue, 02 Nov 2021 14:41:26 +0000
-Received: from dggemv711-chm.china.huawei.com (unknown [172.30.72.55])
- by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4HkCHx5rkPz900w;
- Tue,  2 Nov 2021 22:40:45 +0800 (CST)
-Received: from kwepemm600017.china.huawei.com (7.193.23.234) by
- dggemv711-chm.china.huawei.com (10.1.198.66) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.15; Tue, 2 Nov 2021 22:40:54 +0800
-Received: from localhost.localdomain (10.175.112.125) by
- kwepemm600017.china.huawei.com (7.193.23.234) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.15; Tue, 2 Nov 2021 22:40:52 +0800
-From: Tong Tiangen <tongtiangen@huawei.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Palmer Dabbelt <palmerdabbelt@google.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
- <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
- <kafai@fb.com>, Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, 
- John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
- <bjorn.topel@gmail.com>
-CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <netdev@vger.kernel.org>, <bpf@vger.kernel.org>, Tong Tiangen
- <tongtiangen@huawei.com>
-Subject: [PATCH bpf-next] riscv, bpf: fix some compiler error
-Date: Tue, 2 Nov 2021 14:56:42 +0000
-Message-ID: <20211102145642.724820-1-tongtiangen@huawei.com>
-X-Mailer: git-send-email 2.25.1
+ id 1mhvyX-002AtK-EY
+ for linux-riscv@lists.infradead.org; Tue, 02 Nov 2021 15:45:27 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 133so6771418wme.0
+ for <linux-riscv@lists.infradead.org>; Tue, 02 Nov 2021 08:45:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=oIykopvcWEmxVEkfNC3dgfAMuhJk89I9yxZdFrfrLyY=;
+ b=NXwFLg3whNd+9Nkioovkzccugez6vLSyVeaz69yv0iI5DOvqAMuZCSP9hMD6h2nfES
+ HPBxphhkGTHJxUKAED7L+nz4JnTpuFpHC88feWNsztuGjud5NdCc5PngvHdUhJkC+gms
+ bBm72Jb0sp8hxtV5OttEq6BWZTzkux5i0jxaTZknB4yNttAe971OdzxOSqAvX1ZJaS59
+ NREcJfVNjGf8RtuNF/RrCXB03KJZ4PtK3cqTtv3MQ6KZgz8o3WPJhmPuDUNOC8d4Qc3A
+ SyGme9gy2AqqIwYH2qexyLHWLRXzEXYurvchicvoMOGQ+U6Ifec11/QCxIxpxtlaL5Pp
+ taaw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=oIykopvcWEmxVEkfNC3dgfAMuhJk89I9yxZdFrfrLyY=;
+ b=Q6p31QdD6RAcI30WapSAAoTrlA32aw2XOp0kS3yOhU7CY9rIWG7fiec67vpcoySzF3
+ yd0IC5QXwreP+aZS3H5RM6kBXPb7rsocay4/Fxs5/SRQJS7+PRGd7NkCNTGouwKxCGvi
+ xtjbbhvSnhPIglPGWCIHMVRYHIkOpfRkjGZPOxublp+I6SYUZMSj224JPiZ5IK8p1ocR
+ Gkrx6EBelGKhPa+iMSxDbYYUAdr2xmmeabQJhLWd4wQwhmadyPVdo1DTc8E2INBsjoLl
+ HTf5r93BBd07ppZbXzHg30ls1i6MQJXiaOykMAEPTJI2B4J72LsUa5D5rskmq4cYZKhp
+ 7zDg==
+X-Gm-Message-State: AOAM533FgWlELJEgdxcoJCDLXYdrCYN+xe99Qd3x2OGSBHbcmXdqTaE9
+ 3451ErvcKF43K6W3it98+mCnDQSCHyewaJHr4wY=
+X-Google-Smtp-Source: ABdhPJxAxEXiUc4bHDnuL0cSFIkXN1ocKgHMUC217BwCqZkTrK6N7aYrgCy28CWNVRnHAMN0n/S0eZaVCql16BNd/E8=
+X-Received: by 2002:a1c:740e:: with SMTP id p14mr7923263wmc.109.1635867923171; 
+ Tue, 02 Nov 2021 08:45:23 -0700 (PDT)
 MIME-Version: 1.0
-X-Originating-IP: [10.175.112.125]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- kwepemm600017.china.huawei.com (7.193.23.234)
-X-CFilter-Loop: Reflected
+References: <20211102145642.724820-1-tongtiangen@huawei.com>
+In-Reply-To: <20211102145642.724820-1-tongtiangen@huawei.com>
+From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
+Date: Tue, 2 Nov 2021 16:45:11 +0100
+Message-ID: <CAJ+HfNg1Ki=1Zc+ThW-ynvtDo5=fNAUK-XV08-icz-nY9CNoUQ@mail.gmail.com>
+Subject: Re: [PATCH bpf-next] riscv, bpf: fix some compiler error
+To: Tong Tiangen <tongtiangen@huawei.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Palmer Dabbelt <palmerdabbelt@google.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+ Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>,
+ Song Liu <songliubraving@fb.com>, 
+ Yonghong Song <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>,
+ KP Singh <kpsingh@kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ LKML <linux-kernel@vger.kernel.org>, 
+ Netdev <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211102_074124_864635_34450E09 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20211102_084525_538086_D4260F3F 
+X-CRM114-Status: GOOD (  33.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,156 +92,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch fix two compile errors:
-1. when CONFIG_BPF_JIT and CONFIG_ARCH_32I is open, There is the following
-compiler error:
-  error: undefined symbol: rv_bpf_fixup_exception
-
-2. when CONFIG_BPF_JIT and CONFIG_ARCH_64I is open, There is the following
-compiler error (W=1):
-  error: no previous prototype for 'rv_bpf_fixup_exception'
-
-In this patch, asm/extable.h is introduced,  the rv_bpf_fixup_exception
-function declaration is added to this file. in addition, the definition of
-exception_table_entry is moved from asm-generic/extable.h to this file.
-
-Fixes: 252c765bd764 ("riscv, bpf: Add BPF exception tables")
-Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
----
- arch/riscv/include/asm/Kbuild    |  1 -
- arch/riscv/include/asm/extable.h | 49 ++++++++++++++++++++++++++++++++
- arch/riscv/include/asm/uaccess.h | 13 ---------
- arch/riscv/mm/extable.c          |  8 +-----
- 4 files changed, 50 insertions(+), 21 deletions(-)
- create mode 100644 arch/riscv/include/asm/extable.h
-
-diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
-index 445ccc97305a..57b86fd9916c 100644
---- a/arch/riscv/include/asm/Kbuild
-+++ b/arch/riscv/include/asm/Kbuild
-@@ -1,6 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
- generic-y += early_ioremap.h
--generic-y += extable.h
- generic-y += flat.h
- generic-y += kvm_para.h
- generic-y += user.h
-diff --git a/arch/riscv/include/asm/extable.h b/arch/riscv/include/asm/extable.h
-new file mode 100644
-index 000000000000..aa0332b053fb
---- /dev/null
-+++ b/arch/riscv/include/asm/extable.h
-@@ -0,0 +1,49 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_EXTABLE_H
-+#define __ASM_EXTABLE_H
-+
-+/*
-+ * The exception table consists of pairs of addresses: the first is the
-+ * address of an instruction that is allowed to fault, and the second is
-+ * the address at which the program should continue.  No registers are
-+ * modified, so it is entirely up to the continuation code to figure out
-+ * what to do.
-+ *
-+ * All the routines below use bits of fixup code that are out of line
-+ * with the main instruction path.  This means when everything is well,
-+ * we don't even have to jump over them.  Further, they do not intrude
-+ * on our cache or tlb entries.
-+ */
-+struct exception_table_entry {
-+	unsigned long insn, fixup;
-+};
-+
-+struct pt_regs;
-+int fixup_exception(struct pt_regs *regs);
-+
-+#if defined(CONFIG_MMU)
-+static inline bool rv_in_bpf_jit(struct pt_regs *regs)
-+{
-+	if (!IS_ENABLED(CONFIG_BPF_JIT) || !IS_ENABLED(CONFIG_64BIT))
-+		return false;
-+
-+	return regs->epc >= BPF_JIT_REGION_START && regs->epc < BPF_JIT_REGION_END;
-+}
-+#else
-+static inline bool rv_in_bpf_jit(struct pt_regs *regs)
-+{
-+	return false;
-+}
-+#endif
-+
-+#if defined(CONFIG_BPF_JIT) && defined(CONFIG_64BIT)
-+int rv_bpf_fixup_exception(const struct exception_table_entry *ex, struct pt_regs *regs);
-+#else
-+static inline int rv_bpf_fixup_exception(const struct exception_table_entry *ex,
-+					 struct pt_regs *regs)
-+{
-+	return 0;
-+}
-+#endif
-+
-+#endif
-diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-index f314ff44c48d..96ea91dc0e9c 100644
---- a/arch/riscv/include/asm/uaccess.h
-+++ b/arch/riscv/include/asm/uaccess.h
-@@ -56,19 +56,6 @@ static inline int __access_ok(unsigned long addr, unsigned long size)
- 	return size <= TASK_SIZE && addr <= TASK_SIZE - size;
- }
- 
--/*
-- * The exception table consists of pairs of addresses: the first is the
-- * address of an instruction that is allowed to fault, and the second is
-- * the address at which the program should continue.  No registers are
-- * modified, so it is entirely up to the continuation code to figure out
-- * what to do.
-- *
-- * All the routines below use bits of fixup code that are out of line
-- * with the main instruction path.  This means when everything is well,
-- * we don't even have to jump over them.  Further, they do not intrude
-- * on our cache or tlb entries.
-- */
--
- #define __LSW	0
- #define __MSW	1
- 
-diff --git a/arch/riscv/mm/extable.c b/arch/riscv/mm/extable.c
-index 18bf338303b6..264f465db5bb 100644
---- a/arch/riscv/mm/extable.c
-+++ b/arch/riscv/mm/extable.c
-@@ -11,10 +11,6 @@
- #include <linux/module.h>
- #include <linux/uaccess.h>
- 
--#ifdef CONFIG_BPF_JIT
--int rv_bpf_fixup_exception(const struct exception_table_entry *ex, struct pt_regs *regs);
--#endif
--
- int fixup_exception(struct pt_regs *regs)
- {
- 	const struct exception_table_entry *fixup;
-@@ -23,10 +19,8 @@ int fixup_exception(struct pt_regs *regs)
- 	if (!fixup)
- 		return 0;
- 
--#ifdef CONFIG_BPF_JIT
--	if (regs->epc >= BPF_JIT_REGION_START && regs->epc < BPF_JIT_REGION_END)
-+	if (rv_in_bpf_jit(regs))
- 		return rv_bpf_fixup_exception(fixup, regs);
--#endif
- 
- 	regs->epc = fixup->fixup;
- 	return 1;
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCAyIE5vdiAyMDIxIGF0IDE1OjQwLCBUb25nIFRpYW5nZW4gPHRvbmd0aWFuZ2VuQGh1
+YXdlaS5jb20+IHdyb3RlOgo+Cj4gVGhpcyBwYXRjaCBmaXggdHdvIGNvbXBpbGUgZXJyb3JzOgo+
+IDEuIHdoZW4gQ09ORklHX0JQRl9KSVQgYW5kIENPTkZJR19BUkNIXzMySSBpcyBvcGVuLCBUaGVy
+ZSBpcyB0aGUgZm9sbG93aW5nCj4gY29tcGlsZXIgZXJyb3I6Cj4gICBlcnJvcjogdW5kZWZpbmVk
+IHN5bWJvbDogcnZfYnBmX2ZpeHVwX2V4Y2VwdGlvbgo+CgpHb29kIGNhdGNoIGZvciB0aGUgUlYz
+MiEKCj4gMi4gd2hlbiBDT05GSUdfQlBGX0pJVCBhbmQgQ09ORklHX0FSQ0hfNjRJIGlzIG9wZW4s
+IFRoZXJlIGlzIHRoZSBmb2xsb3dpbmcKPiBjb21waWxlciBlcnJvciAoVz0xKToKPiAgIGVycm9y
+OiBubyBwcmV2aW91cyBwcm90b3R5cGUgZm9yICdydl9icGZfZml4dXBfZXhjZXB0aW9uJwo+Cj4g
+SW4gdGhpcyBwYXRjaCwgYXNtL2V4dGFibGUuaCBpcyBpbnRyb2R1Y2VkLCAgdGhlIHJ2X2JwZl9m
+aXh1cF9leGNlcHRpb24KPiBmdW5jdGlvbiBkZWNsYXJhdGlvbiBpcyBhZGRlZCB0byB0aGlzIGZp
+bGUuIGluIGFkZGl0aW9uLCB0aGUgZGVmaW5pdGlvbiBvZgo+IGV4Y2VwdGlvbl90YWJsZV9lbnRy
+eSBpcyBtb3ZlZCBmcm9tIGFzbS1nZW5lcmljL2V4dGFibGUuaCB0byB0aGlzIGZpbGUuCj4KClRo
+aXMgaXMgd2F5IHRvbyBjb21wbGljYXRlZC4gTW9yZSBiZWxvdy4KCj4gRml4ZXM6IDI1MmM3NjVi
+ZDc2NCAoInJpc2N2LCBicGY6IEFkZCBCUEYgZXhjZXB0aW9uIHRhYmxlcyIpCj4gU2lnbmVkLW9m
+Zi1ieTogVG9uZyBUaWFuZ2VuIDx0b25ndGlhbmdlbkBodWF3ZWkuY29tPgo+IC0tLQo+ICBhcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL0tidWlsZCAgICB8ICAxIC0KPiAgYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS9leHRhYmxlLmggfCA0OSArKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+ICBh
+cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3VhY2Nlc3MuaCB8IDEzIC0tLS0tLS0tLQo+ICBhcmNoL3Jp
+c2N2L21tL2V4dGFibGUuYyAgICAgICAgICB8ICA4ICstLS0tLQo+ICA0IGZpbGVzIGNoYW5nZWQs
+IDUwIGluc2VydGlvbnMoKyksIDIxIGRlbGV0aW9ucygtKQo+ICBjcmVhdGUgbW9kZSAxMDA2NDQg
+YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9leHRhYmxlLmgKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL0tidWlsZCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vS2J1aWxkCj4g
+aW5kZXggNDQ1Y2NjOTczMDVhLi41N2I4NmZkOTkxNmMgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNj
+di9pbmNsdWRlL2FzbS9LYnVpbGQKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL0tidWls
+ZAo+IEBAIC0xLDYgKzEsNSBAQAo+ICAjIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4w
+Cj4gIGdlbmVyaWMteSArPSBlYXJseV9pb3JlbWFwLmgKPiAtZ2VuZXJpYy15ICs9IGV4dGFibGUu
+aAo+ICBnZW5lcmljLXkgKz0gZmxhdC5oCj4gIGdlbmVyaWMteSArPSBrdm1fcGFyYS5oCj4gIGdl
+bmVyaWMteSArPSB1c2VyLmgKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9l
+eHRhYmxlLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2V4dGFibGUuaAo+IG5ldyBmaWxlIG1v
+ZGUgMTAwNjQ0Cj4gaW5kZXggMDAwMDAwMDAwMDAwLi5hYTAzMzJiMDUzZmIKPiAtLS0gL2Rldi9u
+dWxsCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9leHRhYmxlLmgKPiBAQCAtMCwwICsx
+LDQ5IEBACj4gKy8qIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wICovCj4gKyNpZm5k
+ZWYgX19BU01fRVhUQUJMRV9ICj4gKyNkZWZpbmUgX19BU01fRVhUQUJMRV9ICj4gKwo+ICsvKgo+
+ICsgKiBUaGUgZXhjZXB0aW9uIHRhYmxlIGNvbnNpc3RzIG9mIHBhaXJzIG9mIGFkZHJlc3Nlczog
+dGhlIGZpcnN0IGlzIHRoZQo+ICsgKiBhZGRyZXNzIG9mIGFuIGluc3RydWN0aW9uIHRoYXQgaXMg
+YWxsb3dlZCB0byBmYXVsdCwgYW5kIHRoZSBzZWNvbmQgaXMKPiArICogdGhlIGFkZHJlc3MgYXQg
+d2hpY2ggdGhlIHByb2dyYW0gc2hvdWxkIGNvbnRpbnVlLiAgTm8gcmVnaXN0ZXJzIGFyZQo+ICsg
+KiBtb2RpZmllZCwgc28gaXQgaXMgZW50aXJlbHkgdXAgdG8gdGhlIGNvbnRpbnVhdGlvbiBjb2Rl
+IHRvIGZpZ3VyZSBvdXQKPiArICogd2hhdCB0byBkby4KPiArICoKPiArICogQWxsIHRoZSByb3V0
+aW5lcyBiZWxvdyB1c2UgYml0cyBvZiBmaXh1cCBjb2RlIHRoYXQgYXJlIG91dCBvZiBsaW5lCj4g
+KyAqIHdpdGggdGhlIG1haW4gaW5zdHJ1Y3Rpb24gcGF0aC4gIFRoaXMgbWVhbnMgd2hlbiBldmVy
+eXRoaW5nIGlzIHdlbGwsCj4gKyAqIHdlIGRvbid0IGV2ZW4gaGF2ZSB0byBqdW1wIG92ZXIgdGhl
+bS4gIEZ1cnRoZXIsIHRoZXkgZG8gbm90IGludHJ1ZGUKPiArICogb24gb3VyIGNhY2hlIG9yIHRs
+YiBlbnRyaWVzLgo+ICsgKi8KPiArc3RydWN0IGV4Y2VwdGlvbl90YWJsZV9lbnRyeSB7Cj4gKyAg
+ICAgICB1bnNpZ25lZCBsb25nIGluc24sIGZpeHVwOwo+ICt9Owo+ICsKPiArc3RydWN0IHB0X3Jl
+Z3M7Cj4gK2ludCBmaXh1cF9leGNlcHRpb24oc3RydWN0IHB0X3JlZ3MgKnJlZ3MpOwo+ICsKPiAr
+I2lmIGRlZmluZWQoQ09ORklHX01NVSkKPiArc3RhdGljIGlubGluZSBib29sIHJ2X2luX2JwZl9q
+aXQoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCj4gK3sKPiArICAgICAgIGlmICghSVNfRU5BQkxFRChD
+T05GSUdfQlBGX0pJVCkgfHwgIUlTX0VOQUJMRUQoQ09ORklHXzY0QklUKSkKPiArICAgICAgICAg
+ICAgICAgcmV0dXJuIGZhbHNlOwo+ICsKPiArICAgICAgIHJldHVybiByZWdzLT5lcGMgPj0gQlBG
+X0pJVF9SRUdJT05fU1RBUlQgJiYgcmVncy0+ZXBjIDwgQlBGX0pJVF9SRUdJT05fRU5EOwo+ICt9
+Cj4gKyNlbHNlCj4gK3N0YXRpYyBpbmxpbmUgYm9vbCBydl9pbl9icGZfaml0KHN0cnVjdCBwdF9y
+ZWdzICpyZWdzKQo+ICt7Cj4gKyAgICAgICByZXR1cm4gZmFsc2U7Cj4gK30KPiArI2VuZGlmCj4g
+Kwo+ICsjaWYgZGVmaW5lZChDT05GSUdfQlBGX0pJVCkgJiYgZGVmaW5lZChDT05GSUdfNjRCSVQp
+Cj4gK2ludCBydl9icGZfZml4dXBfZXhjZXB0aW9uKGNvbnN0IHN0cnVjdCBleGNlcHRpb25fdGFi
+bGVfZW50cnkgKmV4LCBzdHJ1Y3QgcHRfcmVncyAqcmVncyk7Cj4gKyNlbHNlCj4gK3N0YXRpYyBp
+bmxpbmUgaW50IHJ2X2JwZl9maXh1cF9leGNlcHRpb24oY29uc3Qgc3RydWN0IGV4Y2VwdGlvbl90
+YWJsZV9lbnRyeSAqZXgsCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICBzdHJ1Y3QgcHRfcmVncyAqcmVncykKPiArewo+ICsgICAgICAgcmV0dXJuIDA7Cj4gK30KPiAr
+I2VuZGlmCj4gKwo+ICsjZW5kaWYKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
+bS91YWNjZXNzLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3VhY2Nlc3MuaAo+IGluZGV4IGYz
+MTRmZjQ0YzQ4ZC4uOTZlYTkxZGMwZTljIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVk
+ZS9hc20vdWFjY2Vzcy5oCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS91YWNjZXNzLmgK
+PiBAQCAtNTYsMTkgKzU2LDYgQEAgc3RhdGljIGlubGluZSBpbnQgX19hY2Nlc3Nfb2sodW5zaWdu
+ZWQgbG9uZyBhZGRyLCB1bnNpZ25lZCBsb25nIHNpemUpCj4gICAgICAgICByZXR1cm4gc2l6ZSA8
+PSBUQVNLX1NJWkUgJiYgYWRkciA8PSBUQVNLX1NJWkUgLSBzaXplOwo+ICB9Cj4KPiAtLyoKPiAt
+ICogVGhlIGV4Y2VwdGlvbiB0YWJsZSBjb25zaXN0cyBvZiBwYWlycyBvZiBhZGRyZXNzZXM6IHRo
+ZSBmaXJzdCBpcyB0aGUKPiAtICogYWRkcmVzcyBvZiBhbiBpbnN0cnVjdGlvbiB0aGF0IGlzIGFs
+bG93ZWQgdG8gZmF1bHQsIGFuZCB0aGUgc2Vjb25kIGlzCj4gLSAqIHRoZSBhZGRyZXNzIGF0IHdo
+aWNoIHRoZSBwcm9ncmFtIHNob3VsZCBjb250aW51ZS4gIE5vIHJlZ2lzdGVycyBhcmUKPiAtICog
+bW9kaWZpZWQsIHNvIGl0IGlzIGVudGlyZWx5IHVwIHRvIHRoZSBjb250aW51YXRpb24gY29kZSB0
+byBmaWd1cmUgb3V0Cj4gLSAqIHdoYXQgdG8gZG8uCj4gLSAqCj4gLSAqIEFsbCB0aGUgcm91dGlu
+ZXMgYmVsb3cgdXNlIGJpdHMgb2YgZml4dXAgY29kZSB0aGF0IGFyZSBvdXQgb2YgbGluZQo+IC0g
+KiB3aXRoIHRoZSBtYWluIGluc3RydWN0aW9uIHBhdGguICBUaGlzIG1lYW5zIHdoZW4gZXZlcnl0
+aGluZyBpcyB3ZWxsLAo+IC0gKiB3ZSBkb24ndCBldmVuIGhhdmUgdG8ganVtcCBvdmVyIHRoZW0u
+ICBGdXJ0aGVyLCB0aGV5IGRvIG5vdCBpbnRydWRlCj4gLSAqIG9uIG91ciBjYWNoZSBvciB0bGIg
+ZW50cmllcy4KPiAtICovCj4gLQo+ICAjZGVmaW5lIF9fTFNXICAwCj4gICNkZWZpbmUgX19NU1cg
+IDEKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L21tL2V4dGFibGUuYyBiL2FyY2gvcmlzY3Yv
+bW0vZXh0YWJsZS5jCj4gaW5kZXggMThiZjMzODMwM2I2Li4yNjRmNDY1ZGI1YmIgMTAwNjQ0Cj4g
+LS0tIGEvYXJjaC9yaXNjdi9tbS9leHRhYmxlLmMKPiArKysgYi9hcmNoL3Jpc2N2L21tL2V4dGFi
+bGUuYwo+IEBAIC0xMSwxMCArMTEsNiBAQAo+ICAjaW5jbHVkZSA8bGludXgvbW9kdWxlLmg+Cj4g
+ICNpbmNsdWRlIDxsaW51eC91YWNjZXNzLmg+Cj4KPiAtI2lmZGVmIENPTkZJR19CUEZfSklUCj4g
+LWludCBydl9icGZfZml4dXBfZXhjZXB0aW9uKGNvbnN0IHN0cnVjdCBleGNlcHRpb25fdGFibGVf
+ZW50cnkgKmV4LCBzdHJ1Y3QgcHRfcmVncyAqcmVncyk7Cj4gLSNlbmRpZgo+IC0KPiAgaW50IGZp
+eHVwX2V4Y2VwdGlvbihzdHJ1Y3QgcHRfcmVncyAqcmVncykKPiAgewo+ICAgICAgICAgY29uc3Qg
+c3RydWN0IGV4Y2VwdGlvbl90YWJsZV9lbnRyeSAqZml4dXA7Cj4gQEAgLTIzLDEwICsxOSw4IEBA
+IGludCBmaXh1cF9leGNlcHRpb24oc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCj4gICAgICAgICBpZiAo
+IWZpeHVwKQo+ICAgICAgICAgICAgICAgICByZXR1cm4gMDsKPgo+IC0jaWZkZWYgQ09ORklHX0JQ
+Rl9KSVQKPiAtICAgICAgIGlmIChyZWdzLT5lcGMgPj0gQlBGX0pJVF9SRUdJT05fU1RBUlQgJiYg
+cmVncy0+ZXBjIDwgQlBGX0pJVF9SRUdJT05fRU5EKQo+ICsgICAgICAgaWYgKHJ2X2luX2JwZl9q
+aXQocmVncykpCj4gICAgICAgICAgICAgICAgIHJldHVybiBydl9icGZfZml4dXBfZXhjZXB0aW9u
+KGZpeHVwLCByZWdzKTsKPiAtI2VuZGlmCj4KClRoZSBvbmx5IGNoYW5nZXMgdGhhdCBhcmUgbmVl
+ZGVkIGFyZToKMS4gU2ltcGx5IGdhdGUgd2l0aCBDT05GSUdfQlBGX0pJVCAmJiBDT05GSUdfQVJD
+SF9SVjY0SSwgaW5zdGVhZCBvZiBvZgpDT05GSUdfQlBGX0pJVAoKMi4gRm9yd2FyZCBkZWNsYXJh
+dGlvbiBvZiB0aGUgcnZfYnBmX2ZpeHVwX2V4Y2VwdGlvbigpIGluIGJwZl9qaXRfY29tcDY0LmMu
+CgoKQmrDtnJuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
