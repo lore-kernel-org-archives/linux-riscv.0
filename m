@@ -2,15 +2,15 @@ Return-Path: <SRS0=IZ/x=PV=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EF23EC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Nov 2021 19:59:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1751AC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Nov 2021 20:03:11 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8F81360F70
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Nov 2021 19:59:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8F81360F70
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
+	by mail.kernel.org (Postfix) with ESMTPS id C1E7B60551
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Nov 2021 20:03:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C1E7B60551
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -18,51 +18,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4rqdo3cB0eCtn8rnARodrc+9Q9NWsbQOSWYkCnwGZ6g=; b=w2xflJ9MoxaeWk
-	cV/nGuBh9PROkU7KHpWF8Nvqiok3JqH1KBnE0vqEr2swoErNWeyROCBN6+1+yiDGgzsWllFlDZYqa
-	FjK1UC8lN7wZzLY+5QyP+LVjlBJa/nvEfW6oCGww+gctxX3DSw0w5nMkoxlSe9CrO0DhPUKXFqqWL
-	gKIqR7S9suYWynhU3KDEjh9aOf9Y1JThGC9hBGy9ZNyRr999vBtx3S04pcP4tOIxNI8CtSmnsa2PK
-	uvsiw7nPvRoXsfygaU39rpAkX0JmcsMP5nVGVvolXcl1kfPVLSK1CV4HwFC+Aj3/ytuCK9NOJ9O4/
-	ar9lQz+OV9yjKW4PKe7A==;
+	List-Owner; bh=w0qUkGr3WOwQjBsiVIPuK3+dhmPC2m2J/L2UXdYbHXo=; b=r8D53OIAK1tLCH
+	gBgXKM9ooHmo3JjIjixGK/i73+C2r3mFWVP3d5nSa8ck4oUAJWE48yuQQ/vvdwJDJc1/xx3c6XmZT
+	kry8IjAbEaByiFOjoN+rpb88EkpSRFojisgzVYFprFbbZQtP/p+sW97omE24ENuKP5KEJXO/qdf+R
+	pjJMgFTMHR6J2DHx/xbJEg029G8d42eEVzodPuVWcDVOu+GR7SqBBN1MoDBcoWMS5yNI/B+V2mskS
+	f4EcCm6CNXULq5IuC9A1EEt+1vlareTBJIrYogKr2Dj73L+w7+cjQAOtzMG/JkWW1t9mLbrXNFikK
+	4wN5vr6WVBpd5MviOf9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mhzw8-002rgF-EJ; Tue, 02 Nov 2021 19:59:12 +0000
-Received: from mail-pl1-f179.google.com ([209.85.214.179])
+	id 1mhzzo-002s7d-8j; Tue, 02 Nov 2021 20:03:00 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mhzw5-002rfk-EP
- for linux-riscv@lists.infradead.org; Tue, 02 Nov 2021 19:59:11 +0000
-Received: by mail-pl1-f179.google.com with SMTP id t11so477949plq.11
- for <linux-riscv@lists.infradead.org>; Tue, 02 Nov 2021 12:59:08 -0700 (PDT)
+ id 1mhzzl-002s6a-DX
+ for linux-riscv@lists.infradead.org; Tue, 02 Nov 2021 20:02:59 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id w15so1467567edc.9
+ for <linux-riscv@lists.infradead.org>; Tue, 02 Nov 2021 13:02:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=4JOy2KvbxYD38ikOI7qR7VbaAXGVgm1esl1DyzO8Sgw=;
+ b=me7FKbRZkHm/ayWnwtwMa9g+TjLkhOHnSSKF9P4tRJDRWaW8OUULBmN+f63QGZq+Wt
+ 5S+eYM+dHCO+26Ubq0qqu4plmHLG8EnlHcDUBBeayViJrXbezbRhibbh34Y988KKXO1r
+ wJAqLsn3XOoY4YtdWb3zzYmOAYIvcPiI+JSPJ2VUm3BPgPGpdjSSkvyRgfCCiHreaSqy
+ +7iEltj2CcEdYX53vp84HqSEz/sKpX/3qsPkoLLnIcjrHEUDtzgImwePytRVTaW3hNSf
+ i7oX54Rxyr3m+OdhJlmVDnoWTpktUwSpHQ6rG0JlNc53VH7+YhD0xHaRFmfwVVkIdVwH
+ SEhw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=RkF10ejv+ZfbbBVLr9JViJZH+YXp2/4h2Ubp9f1gi2c=;
- b=yNsS+urBjRkFby/zNUNQakcYqDfbL4Qb1Srdnij4Uqdse5J1PuKWaVwy5pOwQHhS7R
- pqucaZuYAskvLDAiMKT2yr3FgztLmvsDfj+hosMd7VpIBrJvE7fbQ1CNFltUWfTAgCNk
- 8z43yLpO+UhocqksiXXxgZGCysEN1QhAd6OOsdI7rH+VEFR9evNQmNtMCpa7UML7/zfB
- e/mviE4ZGN20B3JDfSmJOm/XMX9VP3uR+uhI1d+7LrHL68QTef7k7ZIryubQMijgRFPE
- vdtieISY36wKYFOlxSeFECdeBAfg6bWiiHbnDIq7YSGLq4a1s3x6f95f4pCnmIzmB5eR
- bkQA==
-X-Gm-Message-State: AOAM531Tj3JZf/9/lCc+xPxsjGu7mUqSvn2b/gsblf8paVMLvU7OBbHA
- OxpGnFbGSDfLje463VRGwe1CrH88keH9CnZ0lJk=
-X-Google-Smtp-Source: ABdhPJzAfyeKaGl5VCZ/L0KzMJgJN7/MZZr3d178DvhBBn4vWjScd0QbjXhDeG6xtMzYne48NrYC54CQIPNWsHmSO+U=
-X-Received: by 2002:a17:903:11c5:b0:13f:ef40:e319 with SMTP id
- q5-20020a17090311c500b0013fef40e319mr33828546plh.33.1635883148168; Tue, 02
- Nov 2021 12:59:08 -0700 (PDT)
+ bh=4JOy2KvbxYD38ikOI7qR7VbaAXGVgm1esl1DyzO8Sgw=;
+ b=bOrDmD7/Jdh/Kp0ZB2mE/6SOGAlE3TnNpoSs2ezZN4OqvgSld2yzT2hs9FbUXrD3zs
+ Wpf2ERIo5kNIpo5AtMZX/GPfPqXpPkHpJT3kHQ/tzr7vgAgWFnAawGUClIGflcpamX5b
+ Mw6d7DFMH4JCjQd6i6rqlOeA1j8BPgIKvt+ZTkbi6Z22jmOnSDQt5OuD6TposA1WNqL7
+ mPEYA0oPSMk2M8ilrKHh0fzRpLSLMuM7vfM32ukWoUTLqXEbsWtLo2yA6Gi1ehGE10O8
+ pcmEB1tFcXcdwfhTHYDT0RDgkmlr4OMLKpN/w09KEdiiodAUKRl2OWIEh1p7vcfAP0iJ
+ wuBg==
+X-Gm-Message-State: AOAM533y77HJrDOAzrqR2xMgUCJT7JOjzrCiPkjgB8IsdkYWTjywX1XW
+ GHBHLPB3QDH9XHKc6jMI2vXkMpWkjqdvOjacn7o=
+X-Google-Smtp-Source: ABdhPJwjbJymvrQg7/GMcQpyR3RkMc82Ibyg7WIrLLSEblkmtRuOLYWOWUg151dY2z0V1Aq556PvbGa+JP+7P4ITGyM=
+X-Received: by 2002:a17:907:7601:: with SMTP id
+ jx1mr48108442ejc.69.1635883375499; 
+ Tue, 02 Nov 2021 13:02:55 -0700 (PDT)
 MIME-Version: 1.0
 References: <20211102161125.1144023-1-kernel@esmil.dk>
- <20211102161125.1144023-10-kernel@esmil.dk>
- <CAHp75Ve-P8DR00mtRP_NkrXgB4nsZ+qBkgBen94iTcPqxQYUOg@mail.gmail.com>
-In-Reply-To: <CAHp75Ve-P8DR00mtRP_NkrXgB4nsZ+qBkgBen94iTcPqxQYUOg@mail.gmail.com>
-From: Emil Renner Berthing <kernel@esmil.dk>
-Date: Tue, 2 Nov 2021 20:58:57 +0100
-Message-ID: <CANBLGcyb=TAP0h2WuxBAjRvpN9n7Dt1Hvh5yE8NMOwm3ixZWuA@mail.gmail.com>
-Subject: Re: [PATCH v3 09/16] reset: starfive-jh7100: Add StarFive JH7100
- reset driver
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: Yury Norov <yury.norov@gmail.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
+ <20211102161125.1144023-13-kernel@esmil.dk>
+In-Reply-To: <20211102161125.1144023-13-kernel@esmil.dk>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Tue, 2 Nov 2021 22:02:06 +0200
+Message-ID: <CAHp75VdmnnrisuP00W0KYta0KgmC+fu3WMxm959dt5X1kpiKTw@mail.gmail.com>
+Subject: Re: [PATCH v3 12/16] pinctrl: starfive: Add pinctrl driver for
+ StarFive SoCs
+To: Emil Renner Berthing <kernel@esmil.dk>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
  devicetree <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>,
  "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
  "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
@@ -81,10 +88,11 @@ Cc: Yury Norov <yury.norov@gmail.com>,
  Michael Zhu <michael.zhu@starfivetech.com>, Fu Wei <tekkamanninja@gmail.com>, 
  Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
  Matteo Croce <mcroce@microsoft.com>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Huan Feng <huan.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211102_125909_526216_C8C54DBA 
-X-CRM114-Status: GOOD (  26.05  )
+X-CRM114-CacheID: sfid-20211102_130257_498124_585E12E5 
+X-CRM114-Status: GOOD (  35.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,92 +109,304 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2 Nov 2021 at 20:43, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
-> +Cc: Yury (bitmap expert)
+On Tue, Nov 2, 2021 at 6:50 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
 >
-> On Tue, Nov 2, 2021 at 6:50 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
-> >
-> > Add a driver for the StarFive JH7100 reset controller.
+> Add a combined pinctrl and GPIO driver for the JH7100 RISC-V SoC by
+> StarFive Ltd. This is a test chip for their upcoming JH7110 SoC, which
+> is said to feature only minor changes to these pinctrl/GPIO parts.
 >
-> ...
+> For each "GPIO" there are two registers for configuring the output and
+> output enable signals which may come from other peripherals. Among these
+> are two special signals that are constant 0 and constant 1 respectively.
+> Controlling the GPIOs from software is done by choosing one of these
+> signals. In other words the same registers are used for both pin muxing
+> and controlling the GPIOs, which makes it easier to combine the pinctrl
+> and GPIO driver in one.
 >
-> > +#define BIT_MASK32(x) BIT((x) % 32)
->
-> Possible namespace collision.
->
-> ...
->
-> > +/*
-> > + * the registers work like a 32bit bitmap, so writing a 1 to the m'th bit of
-> > + * the n'th ASSERT register asserts line 32n + m, and writing a 0 deasserts the
-> > + * same line.
-> > + * most reset lines have their status inverted so a 0 in the STATUS register
-> > + * means the line is asserted and a 1 means it's deasserted. a few lines don't
-> > + * though, so store the expected value of the status registers when all lines
-> > + * are asserted.
-> > + */
->
-> Besides missing capitalization,
+> I wrote the pinconf and pinmux parts, but the GPIO part of the code is
+> based on the GPIO driver in the vendor tree written by Huan Feng with
+> cleanups and fixes by Drew and me.
 
-I'm confused. it was you who wanted all comments to capitalized the same..
-64bi
-if it sounds like bitmap, use bitmap.
-> I have checked DT definitions and it seems you don't even need the
-> BIT_MASK() macro,
->
-> > +static const u32 jh7100_reset_asserted[4] = {
-> > +       /* STATUS0 register */
-> > +       BIT_MASK32(JH7100_RST_U74) |
-> > +       BIT_MASK32(JH7100_RST_VP6_DRESET) |
-> > +       BIT_MASK32(JH7100_RST_VP6_BRESET),
-> > +       /* STATUS1 register */
-> > +       BIT_MASK32(JH7100_RST_HIFI4_DRESET) |
-> > +       BIT_MASK32(JH7100_RST_HIFI4_BRESET),
-> > +       /* STATUS2 register */
-> > +       BIT_MASK32(JH7100_RST_E24),
-> > +       /* STATUS3 register */
-> > +       0,
-> > +};
->
-> Yury, do we have any clever (clean) way to initialize a bitmap with
-> particular bits so that it will be a constant from the beginning? If
-> no, any suggestion what we can provide to such users?
+...
 
-The problem is, that even if we could initialize this without the
-monstrosity in our last conversation a 64bit bitmap would still
-produce worse code. As it is now it's simply a 32bit load and mask
-with index and mask already calculated for the registers. In the
-status callback the mask can even be folded into the register read
-mask. With a 64bit bitmap you'd need to calculate new 64bit index and
-masks, and then conditionally shift the bits into position.
+> +       depends on OF
 
-If this reflection of the 32bit registers bothers you that much we
-could alternatively do
+So this descreases test coverage.
+Linus, can we provide a necessary stub so we may drop this dependency?
 
-static bool jh7100_reset_inverted(unsigned int idx)
-{
-  switch (idx) {
-  case JH7100_RST_U74:
-  case JH7100_RST_VP6_DRESET:
-  ..
-    return false;
-  }
-  return true;
-}
+...
 
-It'd still produce worse code, but at least it would be readable.
+> +static inline struct device *starfive_dev(const struct starfive_pinctrl *sfp)
+> +{
+> +       return sfp->gc.parent;
+> +}
+> +
 
-/Emil
+This seems useless helper. You may do what it's doing just in place.
+It will save 5 LOCs.
 
-> ...
->
-> > +       dev_dbg(rcdev->dev, "reset(%lu)\n", id);
->
-> These debug messages are useless since one should use ftrace facility instead,
->
-> --
-> With Best Regards,
-> Andy Shevchenko
+...
+
+> +static void starfive_pin_dbg_show(struct pinctrl_dev *pctldev,
+> +                                 struct seq_file *s,
+> +                                 unsigned int pin)
+> +{
+> +       struct starfive_pinctrl *sfp = pinctrl_dev_get_drvdata(pctldev);
+> +       unsigned int gpio = starfive_pin_to_gpio(sfp, pin);
+> +       void __iomem *reg;
+> +       u32 dout, doen;
+
+> +       if (gpio >= NR_GPIOS)
+> +               return;
+
+Dead code?
+
+> +       reg = sfp->base + GPON_DOUT_CFG + 8 * gpio;
+> +       dout = readl_relaxed(reg + 0x000);
+> +       doen = readl_relaxed(reg + 0x004);
+> +
+> +       seq_printf(s, "dout=%lu%s doen=%lu%s",
+> +                  dout & GENMASK(7, 0), (dout & BIT(31)) ? "r" : "",
+> +                  doen & GENMASK(7, 0), (doen & BIT(31)) ? "r" : "");
+> +}
+
+...
+
+> +       struct starfive_pinctrl *sfp = pinctrl_dev_get_drvdata(pctldev);
+> +       struct device *dev = starfive_dev(sfp);
+> +       const char **pgnames;
+> +       struct pinctrl_map *map;
+> +       struct device_node *child;
+> +       const char *grpname;
+> +       int *pins;
+> +       u32 *pinmux;
+
+Reversed xmas tree order?
+
+> +       int nmaps;
+> +       int ngroups;
+> +       int ret;
+
+...
+
+> +static int starfive_pinconf_group_set(struct pinctrl_dev *pctldev,
+> +                                     unsigned int gsel,
+> +                                     unsigned long *configs,
+> +                                     unsigned int num_configs)
+> +{
+> +       struct starfive_pinctrl *sfp = pinctrl_dev_get_drvdata(pctldev);
+> +       const struct group_desc *group;
+> +       u16 mask, value;
+> +       int i;
+> +
+> +       group = pinctrl_generic_get_group(pctldev, gsel);
+> +       if (!group)
+> +               return -EINVAL;
+> +
+> +       mask = 0;
+> +       value = 0;
+> +       for (i = 0; i < num_configs; i++) {
+> +               int param = pinconf_to_config_param(configs[i]);
+> +               u32 arg = pinconf_to_config_argument(configs[i]);
+> +
+> +               switch (param) {
+> +               case PIN_CONFIG_BIAS_DISABLE:
+> +                       mask |= PAD_BIAS_MASK;
+> +                       value = (value & ~PAD_BIAS_MASK) | PAD_BIAS_DISABLE;
+> +                       break;
+> +               case PIN_CONFIG_BIAS_PULL_DOWN:
+> +                       if (arg == 0)
+> +                               return -ENOTSUPP;
+> +                       mask |= PAD_BIAS_MASK;
+> +                       value = (value & ~PAD_BIAS_MASK) | PAD_BIAS_PULL_DOWN;
+> +                       break;
+> +               case PIN_CONFIG_BIAS_PULL_UP:
+> +                       if (arg == 0)
+> +                               return -ENOTSUPP;
+> +                       mask |= PAD_BIAS_MASK;
+> +                       value = value & ~PAD_BIAS_MASK;
+> +                       break;
+> +               case PIN_CONFIG_DRIVE_STRENGTH:
+> +                       mask |= PAD_DRIVE_STRENGTH_MASK;
+> +                       value = (value & ~PAD_DRIVE_STRENGTH_MASK) |
+> +                               starfive_drive_strength_from_max_mA(arg);
+> +                       break;
+> +               case PIN_CONFIG_INPUT_ENABLE:
+> +                       mask |= PAD_INPUT_ENABLE;
+> +                       if (arg)
+> +                               value |= PAD_INPUT_ENABLE;
+> +                       else
+> +                               value &= ~PAD_INPUT_ENABLE;
+> +                       break;
+> +               case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
+> +                       mask |= PAD_INPUT_SCHMITT_ENABLE;
+> +                       if (arg)
+> +                               value |= PAD_INPUT_SCHMITT_ENABLE;
+> +                       else
+> +                               value &= ~PAD_INPUT_SCHMITT_ENABLE;
+> +                       break;
+> +               case PIN_CONFIG_SLEW_RATE:
+> +                       mask |= PAD_SLEW_RATE_MASK;
+> +                       value = (value & ~PAD_SLEW_RATE_MASK) |
+> +                               ((arg << PAD_SLEW_RATE_POS) & PAD_SLEW_RATE_MASK);
+> +                       break;
+> +               case PIN_CONFIG_STARFIVE_STRONG_PULL_UP:
+> +                       if (arg) {
+> +                               mask |= PAD_BIAS_MASK;
+> +                               value = (value & ~PAD_BIAS_MASK) |
+> +                                       PAD_BIAS_STRONG_PULL_UP;
+> +                       } else {
+> +                               mask |= PAD_BIAS_STRONG_PULL_UP;
+> +                               value = value & ~PAD_BIAS_STRONG_PULL_UP;
+> +                       }
+> +                       break;
+> +               default:
+> +                       return -ENOTSUPP;
+> +               }
+> +       }
+> +
+> +       for (i = 0; i < group->num_pins; i++)
+> +               starfive_padctl_rmw(sfp, group->pins[i], mask, value);
+> +
+> +       return 0;
+> +}
+
+...
+
+> +static int starfive_gpio_get_direction(struct gpio_chip *gc, unsigned int gpio)
+> +{
+> +       struct starfive_pinctrl *sfp = container_of(gc, struct starfive_pinctrl, gc);
+> +       void __iomem *doen = sfp->base + GPON_DOEN_CFG + 8 * gpio;
+> +
+> +       /* return GPIO_LINE_DIRECTION_OUT (0) only if doen == GPO_ENABLE (0) */
+> +       return readl_relaxed(doen) != GPO_ENABLE;
+
+I believe the idea was to return the predefined values for the direction.
+
+> +}
+
+...
+
+> +static int starfive_irq_set_type(struct irq_data *d, unsigned int trigger)
+> +{
+> +       struct starfive_pinctrl *sfp = starfive_from_irq_data(d);
+> +       irq_hw_number_t gpio = irqd_to_hwirq(d);
+> +       void __iomem *base = sfp->base + 4 * (gpio / 32);
+> +       u32 mask = BIT(gpio % 32);
+> +       u32 irq_type, edge_both, polarity;
+> +       unsigned long flags;
+> +
+> +       if (trigger & IRQ_TYPE_EDGE_BOTH)
+> +               irq_set_handler_locked(d, handle_edge_irq);
+> +       else if (trigger & IRQ_TYPE_LEVEL_MASK)
+> +               irq_set_handler_locked(d, handle_level_irq);
+
+Usually we don't assign this twice, so it should be after the switch.
+
+> +       switch (trigger) {
+> +       case IRQ_TYPE_EDGE_RISING:
+> +               irq_type  = mask; /* 1: edge triggered */
+> +               edge_both = 0;    /* 0: single edge */
+> +               polarity  = mask; /* 1: rising edge */
+> +               break;
+> +       case IRQ_TYPE_EDGE_FALLING:
+> +               irq_type  = mask; /* 1: edge triggered */
+> +               edge_both = 0;    /* 0: single edge */
+> +               polarity  = 0;    /* 0: falling edge */
+> +               break;
+> +       case IRQ_TYPE_EDGE_BOTH:
+> +               irq_type  = mask; /* 1: edge triggered */
+> +               edge_both = mask; /* 1: both edges */
+> +               polarity  = 0;    /* 0: ignored */
+> +               break;
+> +       case IRQ_TYPE_LEVEL_HIGH:
+> +               irq_type  = 0;    /* 0: level triggered */
+> +               edge_both = 0;    /* 0: ignored */
+> +               polarity  = mask; /* 1: high level */
+> +               break;
+> +       case IRQ_TYPE_LEVEL_LOW:
+> +               irq_type  = 0;    /* 0: level triggered */
+> +               edge_both = 0;    /* 0: ignored */
+> +               polarity  = 0;    /* 0: low level */
+> +               break;
+> +       default:
+
+> +               irq_set_handler_locked(d, handle_bad_irq);
+
+Why? You have it already in ->probe(), what's the point?
+
+> +               return -EINVAL;
+> +       }
+> +
+> +       raw_spin_lock_irqsave(&sfp->lock, flags);
+> +       irq_type |= readl_relaxed(base + GPIOIS) & ~mask;
+> +       writel_relaxed(irq_type, base + GPIOIS);
+> +       edge_both |= readl_relaxed(base + GPIOIBE) & ~mask;
+> +       writel_relaxed(edge_both, base + GPIOIBE);
+> +       polarity |= readl_relaxed(base + GPIOIEV) & ~mask;
+> +       writel_relaxed(polarity, base + GPIOIEV);
+> +       raw_spin_unlock_irqrestore(&sfp->lock, flags);
+> +       return 0;
+> +}
+
+...
+
+> +       ret = reset_control_deassert(rst);
+> +       if (ret)
+> +               return dev_err_probe(dev, ret, "could not deassert resetd\n");
+
+> +       ret = devm_pinctrl_register_and_init(dev, &starfive_desc, sfp, &sfp->pctl);
+> +       if (ret)
+
+I don't see who will assert reset here.
+
+> +               return dev_err_probe(dev, ret, "could not register pinctrl driver\n");
+
+...
+
+> +       switch (value) {
+> +       case 0:
+> +               sfp->gpios.pin_base = PAD_INVALID_GPIO;
+> +               goto done;
+> +       case 1:
+> +               sfp->gpios.pin_base = PAD_GPIO(0);
+> +               break;
+> +       case 2:
+> +               sfp->gpios.pin_base = PAD_FUNC_SHARE(72);
+> +               break;
+> +       case 3:
+> +               sfp->gpios.pin_base = PAD_FUNC_SHARE(70);
+> +               break;
+> +       case 4: case 5: case 6:
+> +               sfp->gpios.pin_base = PAD_FUNC_SHARE(0);
+> +               break;
+> +       default:
+
+Ditto.
+
+> +               return dev_err_probe(dev, -EINVAL, "invalid signal group %u\n", value);
+> +       }
+
+...
+
+> +       ret = devm_gpiochip_add_data(dev, &sfp->gc, sfp);
+> +       if (ret)
+
+Ditto.
+
+> +               return dev_err_probe(dev, ret, "could not register gpiochip\n");
+> +
+> +done:
+> +       return pinctrl_enable(sfp->pctl);
+
+Ditto.
+
+And better to use label name like following
+out_pinctrl_enable:
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 _______________________________________________
 linux-riscv mailing list
