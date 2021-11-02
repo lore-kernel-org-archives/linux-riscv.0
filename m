@@ -2,14 +2,14 @@ Return-Path: <SRS0=IZ/x=PV=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7B7C1C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Nov 2021 20:08:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C3135C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Nov 2021 20:14:50 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 383A360720
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Nov 2021 20:08:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 383A360720
+	by mail.kernel.org (Postfix) with ESMTPS id 8693660D42
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Nov 2021 20:14:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8693660D42
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,59 +18,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DaTi/C4A6V4xEHADbVoaTXNV7KlI9XasfF7Ki89Mpb0=; b=1gMbf8gv+iC/Zw
-	LMFIoN1h96dsWzmc3nDGlX/EVxG1cZEOemLjXY9WQc+4FF0eKONmBDhHORsD9JxrFTrkJu3C2ZMpX
-	zU6NI9JcgRYS1VcSVYc67C6UyqXJfCXCiAtyiJWUBw/DG0uA62imqYrFOkMlsTVLozIPHsr+T0bjW
-	MMNxaEBaas4LgjxLnelrh66L+9NNELfpXv4D48nk0RrbR8Hw2C5nTr5lj1ThKGaXOsJRfpU4oVorc
-	n951XC/T0M1JW9YFMNKPXt0A5pQKNRHBiUmiNVKAfn5Uxfuh8L9JtHu6wGHooDhOs46UvMWibndp9
-	3DOmNMD4+JsYHwLhdu8w==;
+	List-Owner; bh=hw5ryLE5koJKefq+mx2AD5lK4VWIK60N1KBDaHgn9AA=; b=NME1C7UmEgVYmO
+	AuntuDl6PJqc+xq6sjS3lOgGRP3oOEw4BnG0pRJkSuFwOr/stOiVKfeEI2Kdj5hXtDGwmsuKcTMgZ
+	B/A1rze2CVfawgrU6aPBO6uNQvG5HxMtyYELO2ryJ+Vc0GIBIHx6fwda8xDWmunSWoLF1kLiAraXi
+	CNu3wxjRn19c6o3mt2yq0vdo4jWj8d4M09dDP4L2Z/WVM3YfwuO/QUcvDrOd06FA0OCTotypXqgHo
+	yg1px+LBs2zW86ZmvJfUe1/jFVBdVQZXzWbWgmsXt8B0iyLekplW2/jNXptZg7mEvZnL3ttqb2AfB
+	wGC5tyPyZBo5KEBU8wog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mi04y-002t5Z-VT; Tue, 02 Nov 2021 20:08:21 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1mi0B4-002tzQ-Od; Tue, 02 Nov 2021 20:14:38 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mi04w-002t3y-3g
- for linux-riscv@lists.infradead.org; Tue, 02 Nov 2021 20:08:19 +0000
-Received: by mail-ed1-x529.google.com with SMTP id g10so1661443edj.1
- for <linux-riscv@lists.infradead.org>; Tue, 02 Nov 2021 13:08:17 -0700 (PDT)
+ id 1mi0B1-002txS-Qb
+ for linux-riscv@lists.infradead.org; Tue, 02 Nov 2021 20:14:37 +0000
+Received: by mail-ed1-x535.google.com with SMTP id w15so1558562edc.9
+ for <linux-riscv@lists.infradead.org>; Tue, 02 Nov 2021 13:14:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=ob+aAAsnJvY/so9O4S728AW2SLVYJnzjDGvzTWGx1F8=;
- b=YfWubnYBo8tPkcp/NoWphnxsoI0SM7757XkLqDiWoOWFvtEUHtUA/3iGSZFtVSAXJK
- U7wQyuSpXEi8YPYvVjbsNMyxpxsibH5bl7gP4un4Ma7OsdG9VyuFTgWsR2EMMx3/84Pt
- f264w4Ams8/Aq3+Zlfztc31hgrQ0TlFcvkAjY6uYC+kzXniThvBS1YwlCVW6mmuP1IG9
- EF+vw4WFOzA9PZ1xACySTdnm90aURqtvG9oSEzajKQKjk0r0qiyEX2qZ5W/zGJXPwJQQ
- w+B4pmUYJCGkkNcbYDMOuU8TN3I7J42xjyGvJGJPOXw+9W//0WbIc4cNbupYZyda9+TI
- XEyQ==
+ :cc; bh=DJFLiSk1bohG9mZsoNQbF3XHvwqAij8WqFoJj28EDDg=;
+ b=iw12nbBwkXxBlIs9kJ77ChJtoTgBhLkikKNBw3ydVms2/+zd4Rpc52iHmLdyamERzo
+ mbXMcNtz6C5TdJ31/yl+gsPUEkLWbNC4pXy3I4EE6NDc1Rc/8EDg1uqzxyWGiVCeJXs5
+ IbTqvxDb4B1i3gnMMB3swodD7uXYz1YQsXMT2OBct0RMtcaikrhbeSbgR54o1eDNU2kX
+ TdQlDpUbA7N2Efiqtwg2fOqZCZcCE/h3MIBzhuF7FN9wAH4UDXijEqmIPpM4HOs3A9XI
+ iXkqdoACQpq+rM9mg9wIKuJ/bZQkTW9DJxMLWDEt/i2JoSRWEmF/aO6wt5n4oGz6ALpn
+ 3RLw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=ob+aAAsnJvY/so9O4S728AW2SLVYJnzjDGvzTWGx1F8=;
- b=5+lAS1Ua3zaBQU+YSggiD7lBg4UnONmLpB6NZ4Cd+GHqH6WzaoWrjm75T3W92GE/7E
- eHneva2vU5XbtBzazwPnKxAGU3nUTkLVXThyiHQidRFUgIL08/iGSJ+9qCkxYlklhJaG
- /VAKSVPJ3gt234vcobmFl7m+V2fsheVH+lzSwJC8EnNawEdHJQnUfKux/eS8bEZ85z6e
- 3KkuzZdj6dHhK9FQC+3G9rNyhIt0tXVp3zP/a9LFW3q7iMuaJ5F5TqvFFVIHqaM5RWLb
- ECB/8fU18pY22kKMrwvV80sZzxmWDF4T60UCaXmuQjWzVAG13oZByJ0j4b+IBkv3jFis
- 61ww==
-X-Gm-Message-State: AOAM531nkW4UOc9lFWQVz3MPhr/Rkvlob9NX7Y/B4Q2sxGAjkeTdA8LQ
- jSvXXA6ZX/du1XdQ80ta44fndCIidJBShnnYvtc=
-X-Google-Smtp-Source: ABdhPJw5iTrK423ECEm/XcyMbYGdWGhn+ReKSJ1f4ncBZTxkWvudYTd3g2Ba8tgP+Bouv9tQnfgHqJdUB8NEHv4b0xE=
-X-Received: by 2002:a17:906:9f21:: with SMTP id
- fy33mr47921381ejc.567.1635883696196; 
- Tue, 02 Nov 2021 13:08:16 -0700 (PDT)
+ bh=DJFLiSk1bohG9mZsoNQbF3XHvwqAij8WqFoJj28EDDg=;
+ b=7tgDhwBufZT7gakLPAIa2iVE33v42XnmqFbUdQualzvj/9mvyQ6IvrPF5rS6GYNIRh
+ B9UodeTwXT0wHa6RpcOTJFJHuDRnXDALeWpTDCeAtOk16V2R77Ow6ERzVFXCUd+x5VXd
+ 3mX5Ofdzv5uQnYDPX+jXgBsWL37J2AI+QviRHnGGRPC5X1Ii06tJ5js1LDylZ/7GyOOq
+ lvImWbX4Dkvkvs4mpFbSvTxRDRvkvkZJqySZehuixBmqzvDo0Wwt0z8JLe9JgnlJh+Sa
+ 1VVlagxw+Nl3w2+dmMMPdKwHgn69PVg2H4l4HAI9wAVUw20tPz+Pn2yLoCU3SBV5B2Gp
+ vh+A==
+X-Gm-Message-State: AOAM531nGRhCn1pZCkOQfLvmUwoZdyweaVRHj6XNzh5rfaFaH8oTqmnM
+ 6qzxoakTMzSpkPetVC6E24q5J6L2buQIVr2a22U=
+X-Google-Smtp-Source: ABdhPJzCiSq8SUDEahY4JFXuCz6004Aep8GBG6mt9apB6pPfKprIfm9TWaTyyDtYdSgHzOyPQ2onwZ5CPNZ7cVRpjJc=
+X-Received: by 2002:a17:907:7601:: with SMTP id
+ jx1mr48190395ejc.69.1635884072980; 
+ Tue, 02 Nov 2021 13:14:32 -0700 (PDT)
 MIME-Version: 1.0
 References: <20211102161125.1144023-1-kernel@esmil.dk>
- <20211102161125.1144023-13-kernel@esmil.dk>
- <CAHp75VdmnnrisuP00W0KYta0KgmC+fu3WMxm959dt5X1kpiKTw@mail.gmail.com>
-In-Reply-To: <CAHp75VdmnnrisuP00W0KYta0KgmC+fu3WMxm959dt5X1kpiKTw@mail.gmail.com>
+ <20211102161125.1144023-10-kernel@esmil.dk>
+ <CAHp75Ve-P8DR00mtRP_NkrXgB4nsZ+qBkgBen94iTcPqxQYUOg@mail.gmail.com>
+ <CANBLGcyb=TAP0h2WuxBAjRvpN9n7Dt1Hvh5yE8NMOwm3ixZWuA@mail.gmail.com>
+In-Reply-To: <CANBLGcyb=TAP0h2WuxBAjRvpN9n7Dt1Hvh5yE8NMOwm3ixZWuA@mail.gmail.com>
 From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Tue, 2 Nov 2021 22:07:26 +0200
-Message-ID: <CAHp75VcuGdaq_TjjRS0S8R5y-nryLABZSp7ehrXz-fUS2W3vfA@mail.gmail.com>
-Subject: Re: [PATCH v3 12/16] pinctrl: starfive: Add pinctrl driver for
- StarFive SoCs
+Date: Tue, 2 Nov 2021 22:13:44 +0200
+Message-ID: <CAHp75Vcg3En=xH+kz0GgAMGUoo5FABo2HwGoHd=7QgGVrYkYXg@mail.gmail.com>
+Subject: Re: [PATCH v3 09/16] reset: starfive-jh7100: Add StarFive JH7100
+ reset driver
 To: Emil Renner Berthing <kernel@esmil.dk>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
+Cc: Yury Norov <yury.norov@gmail.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
  devicetree <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>,
  "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
  "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
@@ -89,11 +91,10 @@ Cc: linux-riscv <linux-riscv@lists.infradead.org>,
  Michael Zhu <michael.zhu@starfivetech.com>, Fu Wei <tekkamanninja@gmail.com>, 
  Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
  Matteo Croce <mcroce@microsoft.com>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Huan Feng <huan.feng@starfivetech.com>
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211102_130818_198561_CE8C02D8 
-X-CRM114-Status: GOOD (  22.36  )
+X-CRM114-CacheID: sfid-20211102_131435_930278_CC2AFEAA 
+X-CRM114-Status: GOOD (  29.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,103 +111,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 2, 2021 at 10:02 PM Andy Shevchenko
-<andy.shevchenko@gmail.com> wrote:
-> On Tue, Nov 2, 2021 at 6:50 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+On Tue, Nov 2, 2021 at 9:59 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+> On Tue, 2 Nov 2021 at 20:43, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
+> > On Tue, Nov 2, 2021 at 6:50 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
 
 ...
 
-> > +static int starfive_pinconf_group_set(struct pinctrl_dev *pctldev,
-> > +                                     unsigned int gsel,
-> > +                                     unsigned long *configs,
-> > +                                     unsigned int num_configs)
-> > +{
-> > +       struct starfive_pinctrl *sfp = pinctrl_dev_get_drvdata(pctldev);
-> > +       const struct group_desc *group;
-> > +       u16 mask, value;
-> > +       int i;
-> > +
-> > +       group = pinctrl_generic_get_group(pctldev, gsel);
-> > +       if (!group)
-> > +               return -EINVAL;
-> > +
-> > +       mask = 0;
-> > +       value = 0;
-> > +       for (i = 0; i < num_configs; i++) {
-> > +               int param = pinconf_to_config_param(configs[i]);
-> > +               u32 arg = pinconf_to_config_argument(configs[i]);
-> > +
-> > +               switch (param) {
-> > +               case PIN_CONFIG_BIAS_DISABLE:
-> > +                       mask |= PAD_BIAS_MASK;
-> > +                       value = (value & ~PAD_BIAS_MASK) | PAD_BIAS_DISABLE;
-> > +                       break;
-> > +               case PIN_CONFIG_BIAS_PULL_DOWN:
-> > +                       if (arg == 0)
-> > +                               return -ENOTSUPP;
-> > +                       mask |= PAD_BIAS_MASK;
-> > +                       value = (value & ~PAD_BIAS_MASK) | PAD_BIAS_PULL_DOWN;
-> > +                       break;
-> > +               case PIN_CONFIG_BIAS_PULL_UP:
-> > +                       if (arg == 0)
-> > +                               return -ENOTSUPP;
-> > +                       mask |= PAD_BIAS_MASK;
-> > +                       value = value & ~PAD_BIAS_MASK;
-> > +                       break;
-> > +               case PIN_CONFIG_DRIVE_STRENGTH:
-> > +                       mask |= PAD_DRIVE_STRENGTH_MASK;
-> > +                       value = (value & ~PAD_DRIVE_STRENGTH_MASK) |
-> > +                               starfive_drive_strength_from_max_mA(arg);
-> > +                       break;
-> > +               case PIN_CONFIG_INPUT_ENABLE:
-> > +                       mask |= PAD_INPUT_ENABLE;
-> > +                       if (arg)
-> > +                               value |= PAD_INPUT_ENABLE;
-> > +                       else
-> > +                               value &= ~PAD_INPUT_ENABLE;
-> > +                       break;
-> > +               case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
-> > +                       mask |= PAD_INPUT_SCHMITT_ENABLE;
-> > +                       if (arg)
-> > +                               value |= PAD_INPUT_SCHMITT_ENABLE;
-> > +                       else
-> > +                               value &= ~PAD_INPUT_SCHMITT_ENABLE;
-> > +                       break;
-> > +               case PIN_CONFIG_SLEW_RATE:
-> > +                       mask |= PAD_SLEW_RATE_MASK;
-> > +                       value = (value & ~PAD_SLEW_RATE_MASK) |
-> > +                               ((arg << PAD_SLEW_RATE_POS) & PAD_SLEW_RATE_MASK);
-> > +                       break;
-> > +               case PIN_CONFIG_STARFIVE_STRONG_PULL_UP:
-> > +                       if (arg) {
-> > +                               mask |= PAD_BIAS_MASK;
-> > +                               value = (value & ~PAD_BIAS_MASK) |
-> > +                                       PAD_BIAS_STRONG_PULL_UP;
-> > +                       } else {
-> > +                               mask |= PAD_BIAS_STRONG_PULL_UP;
-> > +                               value = value & ~PAD_BIAS_STRONG_PULL_UP;
-> > +                       }
-> > +                       break;
-> > +               default:
-> > +                       return -ENOTSUPP;
-> > +               }
-> > +       }
-> > +
-> > +       for (i = 0; i < group->num_pins; i++)
-> > +               starfive_padctl_rmw(sfp, group->pins[i], mask, value);
-> > +
-> > +       return 0;
-> > +}
+> > > +/*
+> > > + * the registers work like a 32bit bitmap, so writing a 1 to the m'th bit of
+> > > + * the n'th ASSERT register asserts line 32n + m, and writing a 0 deasserts the
+> > > + * same line.
+> > > + * most reset lines have their status inverted so a 0 in the STATUS register
+> > > + * means the line is asserted and a 1 means it's deasserted. a few lines don't
+> > > + * though, so store the expected value of the status registers when all lines
+> > > + * are asserted.
+> > > + */
+> >
+> > Besides missing capitalization,
+>
+> I'm confused. it was you who wanted all comments to capitalized the same..
 
-Linus any comments on this code (sorry if I missed your reply)? The
-idea behind above is to skip all settings from the same category and
-apply only the last one, e.g. if we have "bias set to X", ..., "bias
-disable", ..., "bias set to Y", the hardware will see only the last
-operation, i.e. "bias set to Y". I think it may not be the best
-approach (theoretically?) since the hardware definitely may behave
-differently on the other side in case of such series of the
-configurations (yes, I have seen some interesting implementations of
-the touchpad / touchscreen GPIOs that may be affected).
+Yes and there are two types of the comments, one-liners and
+multi-line. In multi-line you usually use proper English grammar,
+where capitalization means what it means. For the one-liners just
+choose either small letters or capital letters to start them with.
+
+> 64bi
+
+Something is missing here.
+
+> if it sounds like bitmap, use bitmap.
+> > I have checked DT definitions and it seems you don't even need the
+> > BIT_MASK() macro,
+> >
+> > > +static const u32 jh7100_reset_asserted[4] = {
+> > > +       /* STATUS0 register */
+> > > +       BIT_MASK32(JH7100_RST_U74) |
+> > > +       BIT_MASK32(JH7100_RST_VP6_DRESET) |
+> > > +       BIT_MASK32(JH7100_RST_VP6_BRESET),
+> > > +       /* STATUS1 register */
+> > > +       BIT_MASK32(JH7100_RST_HIFI4_DRESET) |
+> > > +       BIT_MASK32(JH7100_RST_HIFI4_BRESET),
+> > > +       /* STATUS2 register */
+> > > +       BIT_MASK32(JH7100_RST_E24),
+> > > +       /* STATUS3 register */
+> > > +       0,
+> > > +};
+> >
+> > Yury, do we have any clever (clean) way to initialize a bitmap with
+> > particular bits so that it will be a constant from the beginning? If
+> > no, any suggestion what we can provide to such users?
+>
+> The problem is, that even if we could initialize this without the
+> monstrosity in our last conversation a 64bit bitmap would still
+> produce worse code. As it is now it's simply a 32bit load and mask
+> with index and mask already calculated for the registers. In the
+> status callback the mask can even be folded into the register read
+> mask. With a 64bit bitmap you'd need to calculate new 64bit index and
+> masks, and then conditionally shift the bits into position.
+
+Why? You may use 8 byte IO (writeq() / readq() or their relaxed versions), no?
+
+...
+
+> If this reflection of the 32bit registers bothers you that much
+
+What bothers me is hidden endianess issues (yeah, here it might be
+theoretical, but consider that somebody will look at your code and use
+it as the best example ever).
 
 -- 
 With Best Regards,
