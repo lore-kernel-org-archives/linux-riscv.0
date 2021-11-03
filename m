@@ -2,99 +2,73 @@ Return-Path: <SRS0=1+LQ=PW=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DC733C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Nov 2021 09:13:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DEF8BC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Nov 2021 11:55:48 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A5D6D61073
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Nov 2021 09:13:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A5D6D61073
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 92E9460F5A
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Nov 2021 11:55:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 92E9460F5A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fqgAZP+Ou2Klj+vDqAflGebyXtAMioYnqTzOTPcYrz4=; b=SfYVcPhelG75Cl
-	KJvJffbWBAtF3vNesGws3h+VMug3bFtxeVEzkffhU35opDfSZyqw4L5tYbO96Ed9RvtgWcjID9XoE
-	rAhzeH8WQjECiLFxz2nhXLQ94ri08FK6Bqs38lT/cE8EcMrCfU5h9VoL9whDh0vx/Ugb6KQMLnoBH
-	b34xf2DsgHs+uICXLfR6HZW/9pnLyqEY8GiYWn6H96tDfB1TU9a3whWDPOcbYGKeP7IFREbaB+2/1
-	hHGf4+9p1bxr1RLIKkEgpBHjr+40woIbYcJGGNqDWO9JyQR+W14jQgK3B/3yLR649319jYnzSwWih
-	ZOuZ6BCyNqHzRv6uvrIA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=4/s5UwNBFR0c7cz0IqIG2gmWBZJq8/G4qvKS3pakwvc=; b=O1oODdnfSQxmDR
+	0boXrd2ddoH6UcMDkQ7BJsPdLK6KGjpZP1CYQzXhlf/ehlDrqVfVkypXeRLWVnemfjo4RhnNU4850
+	IVY6V00GvzTtYYKYlq1TjsUZtck+SbfXrOEFf57KdVZ1flHCoHLCZpJ3ph1H8A6WS3o8pMKZO7QRV
+	E78IJyBbs/0H9xWtDgGNE+kxaWHtgQ8yXez1JBJRWSRRLPydvTdBFIlevo6W0WzoUO201pzRtrVl6
+	NVxr98Frvz1YF0HmdY7DF/AK4fvfjtnGRQLWeTIOGUdT1sUn8OSHucV+SbpcE56NwrUfUcJgDM79K
+	Guo+AQd2D6qH7zCe+FzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1miCKQ-004gK0-3L; Wed, 03 Nov 2021 09:13:06 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1miErb-0051gK-Ud; Wed, 03 Nov 2021 11:55:31 +0000
+Received: from mail-lj1-f176.google.com ([209.85.208.176])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1miCKN-004gIM-5g
- for linux-riscv@lists.infradead.org; Wed, 03 Nov 2021 09:13:04 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id f4so6597229edx.12
- for <linux-riscv@lists.infradead.org>; Wed, 03 Nov 2021 02:13:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=xKAL9xp/+xMBb6SWWdbM18jjZhDpz2vLJFJj9z7WZW0=;
- b=VhiZ4M005IQJVGme3IaI5C/e6/VHSTZ8OeA37oUhiPODQeRbZoBlkbOIt5dnzjkDP2
- czOsVsaV0BcyFBGY5nAO0Ew8HOjcDbJ+dR0GK0Toncies9mF66baSnNp1HEESaeENdYm
- kULAuvWCQmNHaimi1v+rmU5MSaqzxoPSSOcgII1Qv88sl8yH+NlRItTwPrPZI46ELr16
- +v3Qvt0C4gxXRtKO69r6aZlTi5ln6jnv4aFlRmfo5LyNlr+RsWy6fxLT+MXBREXzWTmW
- uuMZVQ5Kdnpuci8unVq50JyTTClXZFszh7yjqvafDmNja5cg4YWeaUKjlZLuUqkYcfTX
- 23qw==
+ id 1miErY-0051eb-V7
+ for linux-riscv@lists.infradead.org; Wed, 03 Nov 2021 11:55:30 +0000
+Received: by mail-lj1-f176.google.com with SMTP id h11so3379523ljk.1
+ for <linux-riscv@lists.infradead.org>; Wed, 03 Nov 2021 04:55:28 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=xKAL9xp/+xMBb6SWWdbM18jjZhDpz2vLJFJj9z7WZW0=;
- b=Oeln+iDXT7AqVqIaZ3kuhrldFzCZOX1Emt8JQAnYquuwALgDqC8+BZkkgJwH2skxrJ
- sLE8f4MI1Nt5n/G7A2kWo+bjQTfE7h1xODkOdzRCk+40OvgCHEpxZcYVciVlYkH/2M2A
- 5TQwufQPzu+Iiz2sUg/3JALW6MSPcmiuOKKUXe2HFFm6FEPHGeRPYEbjJ08X3coRMnaX
- p4JwED5G0EQr83q/Wj4fRevwSAQ4DSS/14foN4G9Fov/bXfPPyqBUlByEUuMXyZU0rjT
- ifVMjTFfaAGa7VWe6v++f5dvsE/4Wsiiw1o2zdJ+FUz35aaUKCVQL5WKmos7PL2rjuDW
- t3TQ==
-X-Gm-Message-State: AOAM533zMHVG1IF0K9q9Eke3acylw/9/ywggP/MXl2DWCEd1o9VrQCsA
- CkQL9lkU4oCzrvgd2jPs1FOVGys9rHReJbyr/OI=
-X-Google-Smtp-Source: ABdhPJw3gEKvcXzWscXHSKOeQHEdUeowhKhWDUie0k1xHof3mJ6WZb1bBy0j4iaHfePYZ1ng5He8bLypLuGuXbzyj0A=
-X-Received: by 2002:a17:907:7601:: with SMTP id
- jx1mr52699100ejc.69.1635930780351; 
- Wed, 03 Nov 2021 02:13:00 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=11mAUeEzHYo4WofQQnhX6tKzbvv6UrSSLpN/q7XHPV4=;
+ b=XFEc9HEMtERewRMJYAbzLCF8rZP65T6MvWsOvKxd70qnqn1a/OSwdZTthpDvw2obW2
+ tU8kZRgzZiRc6RY/cO+bi6qK2w7sTA1/IHYwAjQhQ6rkCnP7lG+ru0s83ZV9HCN9OyIg
+ h9iBTKTXwvKs4XECl2fHD/khsTV6Rc/Ru/VRK5bru3j4K6SgZn6rbVXeoh71BGMrerIz
+ mO58TYODVZKsjdhDuPcuFQvpgEXs1NvDIRhh9uaGHakR+PnKxACbxwvLQGB60UvlWDGh
+ FLF+L768CQ6pVh/+xnrPVILT/StpYesFeM8IkF1aVvvspH2GtSIMJb9fw8TVMurfl8Tm
+ 6/tA==
+X-Gm-Message-State: AOAM5338kU7VPvLTQbKo65Fy9gLZTHwiDYkRHzsq7WkN/RTvnSuWP1wD
+ QpNLwunNT+3z8zpD371M6mw=
+X-Google-Smtp-Source: ABdhPJyPei1aKTKE69u+FCwdajtiXEz9jxZBU//xdhQs7vcHoF3KS+mS4SShXAwvvND1vpqm4oTlug==
+X-Received: by 2002:a05:651c:2cf:: with SMTP id
+ f15mr19032566ljo.170.1635940526852; 
+ Wed, 03 Nov 2021 04:55:26 -0700 (PDT)
+Received: from kladdkakan.. (c213-102-90-208.bredband.tele2.se.
+ [213.102.90.208])
+ by smtp.gmail.com with ESMTPSA id g18sm161890lfv.25.2021.11.03.04.55.25
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 03 Nov 2021 04:55:25 -0700 (PDT)
+From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
+To: ast@kernel.org, daniel@iogearbox.net, netdev@vger.kernel.org,
+ bpf@vger.kernel.org, tongtiangen@huawei.com
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+ luke.r.nels@gmail.com, xi.wang@gmail.com, linux-riscv@lists.infradead.org
+Subject: [PATCH bpf-next] riscv, bpf: Fix RV32 broken build,
+ and silence RV64 warning
+Date: Wed,  3 Nov 2021 12:54:53 +0100
+Message-Id: <20211103115453.397209-1-bjorn@kernel.org>
+X-Mailer: git-send-email 2.32.0
 MIME-Version: 1.0
-References: <20211102161125.1144023-1-kernel@esmil.dk>
- <20211102161125.1144023-13-kernel@esmil.dk>
- <CAHp75VdmnnrisuP00W0KYta0KgmC+fu3WMxm959dt5X1kpiKTw@mail.gmail.com>
- <CANBLGczn8+po09wF_uEvvU8tLCn0ahY+Gkj9JJLxOcj1LC1aLA@mail.gmail.com>
-In-Reply-To: <CANBLGczn8+po09wF_uEvvU8tLCn0ahY+Gkj9JJLxOcj1LC1aLA@mail.gmail.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Wed, 3 Nov 2021 11:12:24 +0200
-Message-ID: <CAHp75VetDHt9G+PT77_py8N4Z06j7oytnXgQq8zss_xZBBeEng@mail.gmail.com>
-Subject: Re: [PATCH v3 12/16] pinctrl: starfive: Add pinctrl driver for
- StarFive SoCs
-To: Emil Renner Berthing <kernel@esmil.dk>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
- devicetree <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
- "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>,
- Linus Walleij <linus.walleij@linaro.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Jiri Slaby <jirislaby@kernel.org>, 
- Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
- Drew Fustini <drew@beagleboard.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Michael Zhu <michael.zhu@starfivetech.com>, Fu Wei <tekkamanninja@gmail.com>, 
- Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
- Matteo Croce <mcroce@microsoft.com>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Huan Feng <huan.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211103_021303_257493_82801551 
-X-CRM114-Status: GOOD (  37.61  )
+X-CRM114-CacheID: sfid-20211103_045529_027287_B59375C3 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,124 +80,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 2, 2021 at 10:35 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
->
-> On Tue, 2 Nov 2021 at 21:02, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
-> > On Tue, Nov 2, 2021 at 6:50 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
-
-...
-
-> > > +static inline struct device *starfive_dev(const struct starfive_pinctrl *sfp)
-> > > +{
-> > > +       return sfp->gc.parent;
-> > > +}
-> > > +
-> >
-> > This seems useless helper. You may do what it's doing just in place.
-> > It will save 5 LOCs.
->
-> I don't mind removing it, I just think it's easier to read when we're
-> explicit that all we want is a dev pointer, and we don't suddenly need
-> to know the parent of the gpio chip in all the pinmux/pinconf
-> callbacks.
-
-I don't really see the gain of it.
-
-...
-
-> > > +static int starfive_gpio_get_direction(struct gpio_chip *gc, unsigned int gpio)
-> > > +{
-> > > +       struct starfive_pinctrl *sfp = container_of(gc, struct starfive_pinctrl, gc);
-> > > +       void __iomem *doen = sfp->base + GPON_DOEN_CFG + 8 * gpio;
-> > > +
-> > > +       /* return GPIO_LINE_DIRECTION_OUT (0) only if doen == GPO_ENABLE (0) */
-> > > +       return readl_relaxed(doen) != GPO_ENABLE;
-> >
-> > I believe the idea was to return the predefined values for the direction.
->
-> You mean this?
->   return readl_relaxed(doen) == GPO_ENABLE ? GPIO_LINE_DIRECTION_OUT :
-> GPIO_LINE_DIRECTION_IN;
-
-For example, or with if (...) return _OUT; return _IN;'
-
-> > > +}
-
-...
-
-> > > +       if (trigger & IRQ_TYPE_EDGE_BOTH)
-> > > +               irq_set_handler_locked(d, handle_edge_irq);
-> > > +       else if (trigger & IRQ_TYPE_LEVEL_MASK)
-> > > +               irq_set_handler_locked(d, handle_level_irq);
-> >
-> > Usually we don't assign this twice, so it should be after the switch.
-> >
-> > > +       switch (trigger) {
-
-> > > +       default:
-> >
-> > > +               irq_set_handler_locked(d, handle_bad_irq);
-> >
-> > Why? You have it already in ->probe(), what's the point?
->
-> So last time you asked about this, I explained a situation where
-> userspace first grabs a GPIO, set the interrupt to edge triggered, and
-> then later loads a driver that requests an unsupported IRQ type.
-
-I didn't get this scenario. Is it real?
-
-> Then
-> I'd like to set the handler back to handle_bad_irq so we don't get
-> weird interrupts, but maybe now you know a reason why that doesn't
-> matter or can't happen?
-
-In ->probe() you set _default_ handler to bad(), what do you mean by
-'set the handler back to bad()'? How is it otherwise if you free an
-interrupt?
-
-So, please elaborate with call traces what the scenario / use case you
-are talking about. If it's true what you are saying, we have a
-situation (plenty of GPIO drivers don't do what you are suggesting
-here).
-
-> > > +               return -EINVAL;
-> > > +       }
-
-...
-
-> > > +       ret = reset_control_deassert(rst);
-> > > +       if (ret)
-> > > +               return dev_err_probe(dev, ret, "could not deassert resetd\n");
-> >
-> > > +       ret = devm_pinctrl_register_and_init(dev, &starfive_desc, sfp, &sfp->pctl);
-> > > +       if (ret)
-> >
-> > I don't see who will assert reset here.
->
-> No, so originally this driver would first assert and then deassert
-> reset. I decided against that because in all likelyhood earlier boot
-> stages would have set pinmux up for a serial port, and we don't want
-> to interrupt the serial debug output. The only reason I make sure the
-> reset line is deasserted is in case someone makes a really minimal
-> bootloader that just does the absolute minimal to load a Linux kernel
-> and doesn't even log any anything.
->
-> By the same token we also don't want to assert reset on error in case
-> it resets pin muxing for the the serial line that was supposed to log
-> the error.
-
-Perhaps comment in the code explaining this?
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Q29tbWl0IDI1MmM3NjViZDc2NCAoInJpc2N2LCBicGY6IEFkZCBCUEYgZXhjZXB0aW9uIHRhYmxl
+cyIpIG9ubHkKYWRkcmVzc2VkIFJWNjQsIGFuZCBicm9rZSB0aGUgUlYzMiBidWlsZCBbMV0uIEZp
+eCBieSBnYXRpbmcgdGhlIGV4Y2VwdGlvbgp0YWJsZXMgY29kZSB3aXRoIENPTkZJR19BUkNIX1JW
+NjRJLgoKRnVydGhlciwgc2lsZW5jZSBhICItV21pc3NpbmctcHJvdG90eXBlcyIgd2FybmluZyBb
+Ml0gaW4gdGhlIFJWNjQgQlBGCkpJVC4KClsxXSBodHRwczovL2xvcmUua2VybmVsLm9yZy9sbHZt
+LzIwMjExMTAyMDYxMC45b3k5UnIwRy1sa3BAaW50ZWwuY29tLwpbMl0gaHR0cHM6Ly9sb3JlLmtl
+cm5lbC5vcmcvbGx2bS8yMDIxMTAyOTAzMzQuMnpkTXlScTQtbGtwQGludGVsLmNvbS8KCkZpeGVz
+OiAyNTJjNzY1YmQ3NjQgKCJyaXNjdiwgYnBmOiBBZGQgQlBGIGV4Y2VwdGlvbiB0YWJsZXMiKQpT
+aWduZWQtb2ZmLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkBrZXJuZWwub3JnPgotLS0KVG9uZy9E
+YW5pZWw6IFRoZSBSVjMyIGJ1aWxkIGhhcyBiZWVuIGJyb2tlbiBzaW5jZSBUaHVyc2RheS4gSSds
+bCB0cnkKdG8gZmFzdC10cmFjayBhIGJpdCwgYW5kIGNvbW1pdCBhIHF1aWNrLWZpeCBmb3IgaXQu
+IEhvcGUgdGhhdCdzIE9LCndpdGggeW91LCBUb25nIQoKSSd2ZSB2ZXJpZmllZCB0aGUgYnVpbGQg
+b24gbXkgbWFjaGluZSB1c2luZyByaXNjdjMyIEdDQyA5LjMuMCBhbmQKcmlzY3Y2NCBHQ0MgMTEu
+Mi4wLgoKCkJqw7ZybgotLS0KYXJjaC9yaXNjdi9tbS9leHRhYmxlLmMgICAgICAgICB8IDQgKyst
+LQogYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYyB8IDIgKysKIDIgZmlsZXMgY2hhbmdl
+ZCwgNCBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlz
+Y3YvbW0vZXh0YWJsZS5jIGIvYXJjaC9yaXNjdi9tbS9leHRhYmxlLmMKaW5kZXggMThiZjMzODMw
+M2I2Li5kZGI3ZDNiOTllODkgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvbW0vZXh0YWJsZS5jCisr
+KyBiL2FyY2gvcmlzY3YvbW0vZXh0YWJsZS5jCkBAIC0xMSw3ICsxMSw3IEBACiAjaW5jbHVkZSA8
+bGludXgvbW9kdWxlLmg+CiAjaW5jbHVkZSA8bGludXgvdWFjY2Vzcy5oPgogCi0jaWZkZWYgQ09O
+RklHX0JQRl9KSVQKKyNpZiBkZWZpbmVkKENPTkZJR19CUEZfSklUKSAmJiBkZWZpbmVkKENPTkZJ
+R19BUkNIX1JWNjRJKQogaW50IHJ2X2JwZl9maXh1cF9leGNlcHRpb24oY29uc3Qgc3RydWN0IGV4
+Y2VwdGlvbl90YWJsZV9lbnRyeSAqZXgsIHN0cnVjdCBwdF9yZWdzICpyZWdzKTsKICNlbmRpZgog
+CkBAIC0yMyw3ICsyMyw3IEBAIGludCBmaXh1cF9leGNlcHRpb24oc3RydWN0IHB0X3JlZ3MgKnJl
+Z3MpCiAJaWYgKCFmaXh1cCkKIAkJcmV0dXJuIDA7CiAKLSNpZmRlZiBDT05GSUdfQlBGX0pJVAor
+I2lmIGRlZmluZWQoQ09ORklHX0JQRl9KSVQpICYmIGRlZmluZWQoQ09ORklHX0FSQ0hfUlY2NEkp
+CiAJaWYgKHJlZ3MtPmVwYyA+PSBCUEZfSklUX1JFR0lPTl9TVEFSVCAmJiByZWdzLT5lcGMgPCBC
+UEZfSklUX1JFR0lPTl9FTkQpCiAJCXJldHVybiBydl9icGZfZml4dXBfZXhjZXB0aW9uKGZpeHVw
+LCByZWdzKTsKICNlbmRpZgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21w
+NjQuYyBiL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0LmMKaW5kZXggMmNhMzQ1YzdiMGJm
+Li5mMmE3NzljN2UyMjUgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0
+LmMKKysrIGIvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYwpAQCAtNDU5LDYgKzQ1OSw4
+IEBAIHN0YXRpYyBpbnQgZW1pdF9jYWxsKGJvb2wgZml4ZWQsIHU2NCBhZGRyLCBzdHJ1Y3QgcnZf
+aml0X2NvbnRleHQgKmN0eCkKICNkZWZpbmUgQlBGX0ZJWFVQX09GRlNFVF9NQVNLICAgR0VOTUFT
+SygyNiwgMCkKICNkZWZpbmUgQlBGX0ZJWFVQX1JFR19NQVNLICAgICAgR0VOTUFTSygzMSwgMjcp
+CiAKK2ludCBydl9icGZfZml4dXBfZXhjZXB0aW9uKGNvbnN0IHN0cnVjdCBleGNlcHRpb25fdGFi
+bGVfZW50cnkgKmV4LAorCQkJCXN0cnVjdCBwdF9yZWdzICpyZWdzKTsKIGludCBydl9icGZfZml4
+dXBfZXhjZXB0aW9uKGNvbnN0IHN0cnVjdCBleGNlcHRpb25fdGFibGVfZW50cnkgKmV4LAogCQkJ
+CXN0cnVjdCBwdF9yZWdzICpyZWdzKQogewoKYmFzZS1jb21taXQ6IGNjMDM1NmQ2YTAyZTA2NDM4
+N2MxNmE4M2NiOTZmZTQzZWYzMzE4MWUKLS0gCjIuMzIuMAoKCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
