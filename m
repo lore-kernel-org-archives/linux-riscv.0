@@ -2,14 +2,14 @@ Return-Path: <SRS0=1+LQ=PW=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 01160C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Nov 2021 07:41:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DC733C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Nov 2021 09:13:17 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B738A610FC
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Nov 2021 07:41:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B738A610FC
+	by mail.kernel.org (Postfix) with ESMTPS id A5D6D61073
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Nov 2021 09:13:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A5D6D61073
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,74 +18,83 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9N924l+2SoDy/V5z0EnHP8OPJo7I02/IHly1Z3lkUq8=; b=CGzSdxEdkLIh+M
-	B9gXHr+EJF9HMtFrjBtgKm1fWX5ZV7ku19/Xqtc+Bv3mpCdfizoWpPxQ1DL5kn0LCwKcvIsXQNe2q
-	Rw1I+f/NVvQe+kMZKz7itp+RTRjaYceCrXv9K/ZzlYZLr8uH+d6wl4hEielYk3ekgugiRk5Awuts2
-	J8ujdtgj3RfH8s8uKZuwHPenxSgEi2myZy5lKZJ4yTUjJVxmLXzW11xurK4OhHd/0KbB/sS/CwDzE
-	7gGX/nPDb8aZBSIZy5xXHrAaNop2bPAAq4DPp+W8caeYndIPAVYSmTKR3M/3jXFVyl/Zio2KVm4zl
-	yQrSlYaYapBGCjt6cKgA==;
+	List-Owner; bh=fqgAZP+Ou2Klj+vDqAflGebyXtAMioYnqTzOTPcYrz4=; b=SfYVcPhelG75Cl
+	KJvJffbWBAtF3vNesGws3h+VMug3bFtxeVEzkffhU35opDfSZyqw4L5tYbO96Ed9RvtgWcjID9XoE
+	rAhzeH8WQjECiLFxz2nhXLQ94ri08FK6Bqs38lT/cE8EcMrCfU5h9VoL9whDh0vx/Ugb6KQMLnoBH
+	b34xf2DsgHs+uICXLfR6HZW/9pnLyqEY8GiYWn6H96tDfB1TU9a3whWDPOcbYGKeP7IFREbaB+2/1
+	hHGf4+9p1bxr1RLIKkEgpBHjr+40woIbYcJGGNqDWO9JyQR+W14jQgK3B/3yLR649319jYnzSwWih
+	ZOuZ6BCyNqHzRv6uvrIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1miAta-004Qew-4m; Wed, 03 Nov 2021 07:41:18 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1miCKQ-004gK0-3L; Wed, 03 Nov 2021 09:13:06 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1miAtW-004Qdu-Hp
- for linux-riscv@lists.infradead.org; Wed, 03 Nov 2021 07:41:15 +0000
-Received: by mail-wr1-x433.google.com with SMTP id o14so2081899wra.12
- for <linux-riscv@lists.infradead.org>; Wed, 03 Nov 2021 00:41:13 -0700 (PDT)
+ id 1miCKN-004gIM-5g
+ for linux-riscv@lists.infradead.org; Wed, 03 Nov 2021 09:13:04 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id f4so6597229edx.12
+ for <linux-riscv@lists.infradead.org>; Wed, 03 Nov 2021 02:13:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=rEUk3hjZbgaNLemqWe9Q44RKe4LYiJjMpeJVdUSL6cI=;
- b=SzSEr4GzUIi1n53esxrhyzEL+hnpq51VXmuNzoRbJng2jp0GsMOv6J6G+0AUT7sKib
- WaR12lSVZFAI5pPfRFm9i0NG3DAZEN4srkUw67DLwYHYnhu3wUCn780FuNIYfO0LzT40
- 1Nj9cfpioDcXN/7KmFeruIRM9XUofAP7KZhnQMRuqUkJhuz49XhNdRrR2FIzrb8Ah5f0
- xSfFjOU9PBmgkriGn55A5Q6gxEwiETQJqtV1yx7WGqGX849wiHMl3lVPW3SrzN3LFSmT
- tBrMKwDkH4oSdrSOYaHSJLP2+zRMOnlibiAZVi1+gMlRLxYDs5zu6QQoVEsDBOje/AjA
- dS4g==
+ :cc; bh=xKAL9xp/+xMBb6SWWdbM18jjZhDpz2vLJFJj9z7WZW0=;
+ b=VhiZ4M005IQJVGme3IaI5C/e6/VHSTZ8OeA37oUhiPODQeRbZoBlkbOIt5dnzjkDP2
+ czOsVsaV0BcyFBGY5nAO0Ew8HOjcDbJ+dR0GK0Toncies9mF66baSnNp1HEESaeENdYm
+ kULAuvWCQmNHaimi1v+rmU5MSaqzxoPSSOcgII1Qv88sl8yH+NlRItTwPrPZI46ELr16
+ +v3Qvt0C4gxXRtKO69r6aZlTi5ln6jnv4aFlRmfo5LyNlr+RsWy6fxLT+MXBREXzWTmW
+ uuMZVQ5Kdnpuci8unVq50JyTTClXZFszh7yjqvafDmNja5cg4YWeaUKjlZLuUqkYcfTX
+ 23qw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=rEUk3hjZbgaNLemqWe9Q44RKe4LYiJjMpeJVdUSL6cI=;
- b=yfbUTeJzRrc9srGYUQ/+hjVV2p5ph5k/bn0ObybY71GTjFigOZQ68rPNOpi7ME1QOD
- l+wPvEgV2P5+gwQ4ZkLjFAVHeckLbE7XUf8EeutzISquGNMMwkTKhzoZQ1UP+10e9XgE
- 7gNfAY+QODnPwkPbi33vPf8Y7PZME/c5PuuBQKxOgZO0o6tk3vng0cs4LO3YlzO8ytJB
- GTAJbd6RPVIaCa1gqpB7s9ge3haW9mKaY979eqDmc+r5HjDCyWXQO8l2PmsGD7eTTWyc
- w3MGkWMaX21WiWa4iFExfRHQ3tQt4CZHud+tE5gTGdJcJzI9iVTYMnNTyaqg/C+Lo1mo
- RPrw==
-X-Gm-Message-State: AOAM530kAEmjOc2ox7NrzAsTl0AOt8Lk2Xf/x3+6k8mANgp+qTCxWw9M
- rByWACArdCIO+G5SA5KUAn/OD9xd+DBCISdBcjI=
-X-Google-Smtp-Source: ABdhPJyzngaH7X863kxwlhmnQIi8Eo36rd8szhefxmDQ/tTo5iBVuHnTW5qLSd4+auf3a1fe/uazHgl4Ex4uDlBMxLU=
-X-Received: by 2002:a05:6000:12d2:: with SMTP id
- l18mr42076950wrx.289.1635925272752; 
- Wed, 03 Nov 2021 00:41:12 -0700 (PDT)
+ :message-id:subject:to:cc;
+ bh=xKAL9xp/+xMBb6SWWdbM18jjZhDpz2vLJFJj9z7WZW0=;
+ b=Oeln+iDXT7AqVqIaZ3kuhrldFzCZOX1Emt8JQAnYquuwALgDqC8+BZkkgJwH2skxrJ
+ sLE8f4MI1Nt5n/G7A2kWo+bjQTfE7h1xODkOdzRCk+40OvgCHEpxZcYVciVlYkH/2M2A
+ 5TQwufQPzu+Iiz2sUg/3JALW6MSPcmiuOKKUXe2HFFm6FEPHGeRPYEbjJ08X3coRMnaX
+ p4JwED5G0EQr83q/Wj4fRevwSAQ4DSS/14foN4G9Fov/bXfPPyqBUlByEUuMXyZU0rjT
+ ifVMjTFfaAGa7VWe6v++f5dvsE/4Wsiiw1o2zdJ+FUz35aaUKCVQL5WKmos7PL2rjuDW
+ t3TQ==
+X-Gm-Message-State: AOAM533zMHVG1IF0K9q9Eke3acylw/9/ywggP/MXl2DWCEd1o9VrQCsA
+ CkQL9lkU4oCzrvgd2jPs1FOVGys9rHReJbyr/OI=
+X-Google-Smtp-Source: ABdhPJw3gEKvcXzWscXHSKOeQHEdUeowhKhWDUie0k1xHof3mJ6WZb1bBy0j4iaHfePYZ1ng5He8bLypLuGuXbzyj0A=
+X-Received: by 2002:a17:907:7601:: with SMTP id
+ jx1mr52699100ejc.69.1635930780351; 
+ Wed, 03 Nov 2021 02:13:00 -0700 (PDT)
 MIME-Version: 1.0
-References: <20211102145642.724820-1-tongtiangen@huawei.com>
- <CAJ+HfNg1Ki=1Zc+ThW-ynvtDo5=fNAUK-XV08-icz-nY9CNoUQ@mail.gmail.com>
- <448599f5-e773-6ab5-bdaf-289f583edf01@huawei.com>
- <CAJ+HfNj_p36trWFzdyxVVgykrPVq=OvKcYq61w2QyKsHwa0gDw@mail.gmail.com>
- <f3ed7e48-c565-9147-eca0-6298a36b3d61@huawei.com>
-In-Reply-To: <f3ed7e48-c565-9147-eca0-6298a36b3d61@huawei.com>
-From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
-Date: Wed, 3 Nov 2021 08:41:01 +0100
-Message-ID: <CAJ+HfNgze3=heV-ehvagHQFc5w6ymZ7XQMfKPzeWBo1M82+E-Q@mail.gmail.com>
-Subject: Re: [PATCH bpf-next] riscv, bpf: fix some compiler error
-To: tongtiangen <tongtiangen@huawei.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+References: <20211102161125.1144023-1-kernel@esmil.dk>
+ <20211102161125.1144023-13-kernel@esmil.dk>
+ <CAHp75VdmnnrisuP00W0KYta0KgmC+fu3WMxm959dt5X1kpiKTw@mail.gmail.com>
+ <CANBLGczn8+po09wF_uEvvU8tLCn0ahY+Gkj9JJLxOcj1LC1aLA@mail.gmail.com>
+In-Reply-To: <CANBLGczn8+po09wF_uEvvU8tLCn0ahY+Gkj9JJLxOcj1LC1aLA@mail.gmail.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Wed, 3 Nov 2021 11:12:24 +0200
+Message-ID: <CAHp75VetDHt9G+PT77_py8N4Z06j7oytnXgQq8zss_xZBBeEng@mail.gmail.com>
+Subject: Re: [PATCH v3 12/16] pinctrl: starfive: Add pinctrl driver for
+ StarFive SoCs
+To: Emil Renner Berthing <kernel@esmil.dk>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
+ devicetree <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+ "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
  Palmer Dabbelt <palmer@dabbelt.com>, 
- Palmer Dabbelt <palmerdabbelt@google.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>,
- Song Liu <songliubraving@fb.com>, 
- Yonghong Song <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>,
- KP Singh <kpsingh@kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- LKML <linux-kernel@vger.kernel.org>, 
- Netdev <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Drew Fustini <drew@beagleboard.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Michael Zhu <michael.zhu@starfivetech.com>, Fu Wei <tekkamanninja@gmail.com>, 
+ Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
+ Matteo Croce <mcroce@microsoft.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Huan Feng <huan.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211103_004114_651898_D46F3129 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20211103_021303_257493_82801551 
+X-CRM114-Status: GOOD (  37.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,30 +106,124 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAzIE5vdiAyMDIxIGF0IDA4OjI2LCB0b25ndGlhbmdlbiA8dG9uZ3RpYW5nZW5AaHVh
-d2VpLmNvbT4gd3JvdGU6Cj4KClsuLi5dCgo+Cj4gQWRkaW5nIGEgZnVuY3Rpb24gZGVjbGFyYXRp
-b24gaW4gYnBmX2ppdF9jb21wNjQuYyBmaWxlIGNhbm5vdCBmaXggdGhpcyBjb21waWxlciBlcnJv
-cjoKPgoKQUZBSUssIHRoZXJlIGFyZSB0d28gaXNzdWVzOgoKMS4gaHR0cHM6Ly9sb3JlLmtlcm5l
-bC5vcmcvbGx2bS8yMDIxMTAyOTAzMzQuMnpkTXlScTQtbGtwQGludGVsLmNvbS8KMi4gaHR0cHM6
-Ly9sb3JlLmtlcm5lbC5vcmcvbGx2bS8yMDIxMTEwMjA2MTAuOW95OVJyMEctbGtwQGludGVsLmNv
-bS8KCjEgaXMgYSB3YXJuaW5nIHdoZW4gVz0xIGlzIGVuYWJsZWQgKG1pc3NpbmcgcHJvdG90eXBl
-IGZyb20gLVdtaXNzaW5nLXByb3RvdHlwZXMpCjIgaXMgYW4gZXJyb3IsIHNpbmNlIHRoZSBmdW5j
-dGlvbiBpcyBub3QgZGVmaW5lZCB3aGVuIGJ1aWxkaW5nIENPTkZJR19BUkNIX1JWMzJJCgpZb3Ug
-YXJlIHRyeWluZyB0byBhZGRyZXNzIGJvdGggaXNzdWVzIGluIHRoaXMgcGF0Y2guCgo+IC4uLi4K
-PiB3aGVuIENPTkZJR19CUEZfSklUIGFuZCBDT05GSUdfQVJDSF82NEkgaXMgb3BlbiwgVGhlcmUg
-aXMgdGhlIGZvbGxvd2luZyBjb21waWxlciBlcnJvciAoVz0xKToKPiAgICBlcnJvcjogbm8gcHJl
-dmlvdXMgcHJvdG90eXBlIGZvciAncnZfYnBmX2ZpeHVwX2V4Y2VwdGlvbicKPiAuLi4uCj4KPiBU
-byBmaXggdGhpcyBjb21waWxlciBlcnJvciwgeW91IG5lZWQgdG8gbWFrZSBhIGRlY2xhcmF0aW9u
-IGluIGEgaGVhZGVyIGZpbGUsIHdoaWNoIGlzIGFsc28KPiB0aGUgcmVhc29uIGZvciBpbnRyb2R1
-Y2luZyBleHRhYmxlLmguCj4KCk5vLCB5b3UgZG9uJ3QgbmVlZCB0aGUgaGVhZGVyIGZpbGUuIFRo
-ZSBmb3J3YXJkIGRlY2xhcmF0aW9uIGlzCnN1ZmZpY2llbnQgdG8gZ2V0IHJpZCBvZiB0aGUgd2Fy
-bmluZywgYW5kIHRoZSBhZGRpbmcgQ09ORklHX0FSQ0hfUlY2NEkKZml4ZXMgdGhlIFJWMzJJIGJ1
-aWxkLgoKCkJqw7ZybgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+On Tue, Nov 2, 2021 at 10:35 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+>
+> On Tue, 2 Nov 2021 at 21:02, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
+> > On Tue, Nov 2, 2021 at 6:50 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+
+...
+
+> > > +static inline struct device *starfive_dev(const struct starfive_pinctrl *sfp)
+> > > +{
+> > > +       return sfp->gc.parent;
+> > > +}
+> > > +
+> >
+> > This seems useless helper. You may do what it's doing just in place.
+> > It will save 5 LOCs.
+>
+> I don't mind removing it, I just think it's easier to read when we're
+> explicit that all we want is a dev pointer, and we don't suddenly need
+> to know the parent of the gpio chip in all the pinmux/pinconf
+> callbacks.
+
+I don't really see the gain of it.
+
+...
+
+> > > +static int starfive_gpio_get_direction(struct gpio_chip *gc, unsigned int gpio)
+> > > +{
+> > > +       struct starfive_pinctrl *sfp = container_of(gc, struct starfive_pinctrl, gc);
+> > > +       void __iomem *doen = sfp->base + GPON_DOEN_CFG + 8 * gpio;
+> > > +
+> > > +       /* return GPIO_LINE_DIRECTION_OUT (0) only if doen == GPO_ENABLE (0) */
+> > > +       return readl_relaxed(doen) != GPO_ENABLE;
+> >
+> > I believe the idea was to return the predefined values for the direction.
+>
+> You mean this?
+>   return readl_relaxed(doen) == GPO_ENABLE ? GPIO_LINE_DIRECTION_OUT :
+> GPIO_LINE_DIRECTION_IN;
+
+For example, or with if (...) return _OUT; return _IN;'
+
+> > > +}
+
+...
+
+> > > +       if (trigger & IRQ_TYPE_EDGE_BOTH)
+> > > +               irq_set_handler_locked(d, handle_edge_irq);
+> > > +       else if (trigger & IRQ_TYPE_LEVEL_MASK)
+> > > +               irq_set_handler_locked(d, handle_level_irq);
+> >
+> > Usually we don't assign this twice, so it should be after the switch.
+> >
+> > > +       switch (trigger) {
+
+> > > +       default:
+> >
+> > > +               irq_set_handler_locked(d, handle_bad_irq);
+> >
+> > Why? You have it already in ->probe(), what's the point?
+>
+> So last time you asked about this, I explained a situation where
+> userspace first grabs a GPIO, set the interrupt to edge triggered, and
+> then later loads a driver that requests an unsupported IRQ type.
+
+I didn't get this scenario. Is it real?
+
+> Then
+> I'd like to set the handler back to handle_bad_irq so we don't get
+> weird interrupts, but maybe now you know a reason why that doesn't
+> matter or can't happen?
+
+In ->probe() you set _default_ handler to bad(), what do you mean by
+'set the handler back to bad()'? How is it otherwise if you free an
+interrupt?
+
+So, please elaborate with call traces what the scenario / use case you
+are talking about. If it's true what you are saying, we have a
+situation (plenty of GPIO drivers don't do what you are suggesting
+here).
+
+> > > +               return -EINVAL;
+> > > +       }
+
+...
+
+> > > +       ret = reset_control_deassert(rst);
+> > > +       if (ret)
+> > > +               return dev_err_probe(dev, ret, "could not deassert resetd\n");
+> >
+> > > +       ret = devm_pinctrl_register_and_init(dev, &starfive_desc, sfp, &sfp->pctl);
+> > > +       if (ret)
+> >
+> > I don't see who will assert reset here.
+>
+> No, so originally this driver would first assert and then deassert
+> reset. I decided against that because in all likelyhood earlier boot
+> stages would have set pinmux up for a serial port, and we don't want
+> to interrupt the serial debug output. The only reason I make sure the
+> reset line is deasserted is in case someone makes a really minimal
+> bootloader that just does the absolute minimal to load a Linux kernel
+> and doesn't even log any anything.
+>
+> By the same token we also don't want to assert reset on error in case
+> it resets pin muxing for the the serial line that was supposed to log
+> the error.
+
+Perhaps comment in the code explaining this?
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
