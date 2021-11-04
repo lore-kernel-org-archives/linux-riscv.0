@@ -1,95 +1,94 @@
-Return-Path: <SRS0=1+LQ=PW=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=Owia=PX=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1D3E6C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Nov 2021 20:57:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 13763C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 00:26:29 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D6FEB61157
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Nov 2021 20:57:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D6FEB61157
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id C13E8611CA
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 00:26:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C13E8611CA
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8FmJFRKY5y6XH6KrLe4x+okRy8sT2Xtls1X2j/Loq10=; b=M99MiYUxRxAVMh
-	RBTGZ7UZUpLfWexEOdaQC8sRAzdGro9o7qz/2nHXoRFDkNCNlcoKPjOMcJzQSRs4pMFUl1bz/FAjX
-	wliY4F1sy2NXufE4vm2wGWopuxIo88xips6GbATV3J7zaKfylHNTi+oqAHSd7NAhY1g1WX8Iplqax
-	KzvXjEN8DFMx3SReS4T9xIZu8m+T0bjDx176o5PSETSPlt+alNPJH4LgD1tm1L6vyhuoW79XcLcZN
-	+m84vv/Tyb62dVxJrUOo4CDDxK+Nn4tPB0+Uq3LrOFArwhK/4kGBjmKcSDl0dcpDvt8LFszSkvvK8
-	g3Z6km3fsdlGgQI+LMtg==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:
+	Mime-Version:Message-Id:Date:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=Z0dU822y9mi2KrLnSTwDdE7S1lj+wGsfpJEcbDe+W7k=; b=mGD
+	Ma1PN4IDjWMZOecZSGSFy87fi035gRrWnSyAEJ/ci9LZmSpqagr8UBZjpV1hYEGGuZp81pgZclT2w
+	/Qa+9RwJrmtqou8gAPVsNa8IWLMJP/engLIUXyT+8nfqT41Az53k4wHV0PgjOmyuqyf6ovempIYir
+	6AFoI9qh+3ra9nm70IoUAnuxRCDij0hZsUrtCfu/NG1jPWFGl3OqMWLKtSvqJUVNyvdN6mRU5nhO8
+	gNn5K5kVYnrTpy3NzKzJjNRBi16dSg/hocPBpYa3Srs6Xev2DX8R2G5LwKvbnebeqBr7zST1dDCcB
+	+u32BhPbZQoxTwCvXMjurYPHdLcgxFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1miNK0-006ZB2-6M; Wed, 03 Nov 2021 20:57:24 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1miQaD-007Ciq-AM; Thu, 04 Nov 2021 00:26:21 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1miNJh-006Yzf-QI; Wed, 03 Nov 2021 20:57:07 +0000
-Received: by mail-pg1-x534.google.com with SMTP id r28so3482015pga.0;
- Wed, 03 Nov 2021 13:57:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=3I3GDUkaGwLHa10nEoqvJAYrCDoo3HMaHtuk4YmB1ZA=;
- b=ST+g5g6mKtOu4lDsLRBGfBa6q77DZQIvFWS/O1J1HWsE8WTQi8UeHdyn6yZ2ogH9r1
- Y2JQ+vHab1n03klB9eOmLtW4CqvoLNJgnW7orP1Ec37UJIocjqnFNrJek4TarXsVB+mx
- bEHz3vLQrY7XKdW//deFLwoARvAP7zkHrL2a8yCFcrudqfzYBgZUsmhV+zgJO5hxah6Y
- jVdgHqsFUAMVIuMLYz7nwykpMBq4EG0az7SFDO3MaOskQMRw3MA9pqyaKboHqlzuVXWZ
- IyRJGkjC7Dk7O+uYtDrAE8U11plF86HAGhOZafSNF8fzgyJTeiHIRY+LwYu7OBCnxUaO
- 0/Jw==
+ id 1miQZr-007CV4-VS
+ for linux-riscv@lists.infradead.org; Thu, 04 Nov 2021 00:26:04 +0000
+Received: by mail-pf1-x449.google.com with SMTP id
+ v62-20020a627a41000000b00492638b8ebfso2134280pfc.10
+ for <linux-riscv@lists.infradead.org>; Wed, 03 Nov 2021 17:25:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=reply-to:date:message-id:mime-version:subject:from:to:cc;
+ bh=ANJRuFa6/N/mrCRTja+awZQkxH6czfCyQf64cMZwz24=;
+ b=WcXudEzcD22tH+HPG355uae4O/TbLzq7rMXZkNlJ48SpnvVzn/SR3sHk8XQtIKtfFy
+ 48xyMqlSGgw1oTNAo0R/J1vgWG1e93UerRyqKUD5Qa2c4/ULYf5WGk93DChSYqJ9agNH
+ Fa9nJgKDtBpUeiYCj9euvUxsBrArkkfyhnSH1PJXr2Gl/88Cl0a4CGn9Y4iADsm2poc/
+ 3MOL6YBHtOByIy6pf9yCo8zV4vME+dV5MfimvChSWTjN9iYTgoDtkS3nqw29fVsbEqKV
+ PJA6Jv6ck5l08RPLmQ8vK5IF61aQorHOz4MISeHyAQxK20Y0bx5AN/DrWmyFqvqM0FL4
+ ZOMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=3I3GDUkaGwLHa10nEoqvJAYrCDoo3HMaHtuk4YmB1ZA=;
- b=G3cAMNIcsOuwJdG3b5vyMqw1qZuQDZ47Xb1mLFA4O8JhmFn9UQoY1u7t5ZZopvxGiW
- 7LEnFdDuY+vUPhO1yo83jw8E7WgrwdPSLcg5rVq380tue3kIjuQ4Qzb5DlZy7FKGJV+g
- PM1fWQDmiBa0a7jwcii9+LVfgFGctLRtwQOixpVTjVcznAYzichHvRgTCwjO2H1Jdky9
- ZdTKS5aOWV0WePTKQ9Wp31EjZUtn3fZvDb9ELhVGGor3TQxeaDulRD/Ns8P+DCUbNYHQ
- xMh66w97ENU7oDxiNQ9vA4u/7xB/wDO2X75ZmvmSei79KkZdxm1ZfjRdVYFgqf84jgLN
- BPyw==
-X-Gm-Message-State: AOAM5325AEgFxm8qkV76wuothyFq6ZOubfWeiEwb6C6DrBpBMbXUbBO1
- tQk0MxmBlYXapJCbdmTC6uU=
-X-Google-Smtp-Source: ABdhPJy0DIfhXrrOqTdDnu15e0UDgTYMs4vaJZyOe9nwd+8rbGkjwTSzOrCXDsxyhFpO8mBXiGAAEw==
-X-Received: by 2002:a63:7803:: with SMTP id t3mr34798749pgc.167.1635973024305; 
- Wed, 03 Nov 2021 13:57:04 -0700 (PDT)
-Received: from fainelli-desktop.igp.broadcom.net ([192.19.223.252])
- by smtp.gmail.com with ESMTPSA id g16sm3453385pfj.5.2021.11.03.13.57.02
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 03 Nov 2021 13:57:03 -0700 (PDT)
-From: Florian Fainelli <f.fainelli@gmail.com>
-To: linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Sasha Levin <sashal@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Stefan Agner <stefan@agner.ch>, Mike Rapoport <rppt@linux.ibm.com>,
- Florian Fainelli <f.fainelli@gmail.com>,
- Vineet Gupta <vgupta@synopsys.com>, Russell King <linux@armlinux.org.uk>,
- Ralf Baechle <ralf@linux-mips.org>, Paul Burton <paul.burton@mips.com>,
- James Hogan <jhogan@kernel.org>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-snps-arc@lists.infradead.org (open list:SYNOPSYS ARC ARCHITECTURE),
- linux-arm-kernel@lists.infradead.org (moderated list:ARM PORT),
- linux-mips@linux-mips.org (open list:MIPS),
- linuxppc-dev@lists.ozlabs.org (open list:LINUX FOR POWERPC (32-BIT AND
- 64-BIT)), linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE),
- linux-arch@vger.kernel.org (open list:GENERIC INCLUDE/ASM HEADER FILES)
-Subject: [PATCH stable 4.19 1/1] arch: pgtable: define
- MAX_POSSIBLE_PHYSMEM_BITS where needed
-Date: Wed,  3 Nov 2021 13:56:56 -0700
-Message-Id: <20211103205656.374678-1-f.fainelli@gmail.com>
-X-Mailer: git-send-email 2.25.1
-MIME-Version: 1.0
+ h=x-gm-message-state:reply-to:date:message-id:mime-version:subject
+ :from:to:cc;
+ bh=ANJRuFa6/N/mrCRTja+awZQkxH6czfCyQf64cMZwz24=;
+ b=hXCk/vSDpyewLXvz1pQMZmT9pxDJkKHj1jGvhVw0Uj7LwHb2Pe570kacGh02nDm11q
+ MkzKraP23xoYVoev7r8JPc8Mn6QXe8BUqBW9JJjgZs+CEOimKVZ5qbUBeX6djxaskGV1
+ UWxNd9PEvz2PxtDAEjhPhdjMDMSKGJTn67mWHt+ghuUs1HylT8a9M760LgklUZrp5XV3
+ ABMUoW49FfD/2vmQYuAw2R8Zlh4h+Cf6W96WIHjDTFNpv2n/jNjwKvCyldptIgHxCBeX
+ OHHMpAwz2v6DXEZ0DJSsqOq17IXb5sNkTM3qosGhgHmYa6o6v9UEygp6XAZ1NHPWmWAK
+ 0IMQ==
+X-Gm-Message-State: AOAM530sR4SRfW4S+/kBcg3beINTtJhXHXySs4KxN+sXkUW5ud5jvPDr
+ Q+byaxpg5iFtpvnX9BRlxsDX3wFvkYk=
+X-Google-Smtp-Source: ABdhPJzlsKffFyG0Dw31UftnkkBVRPshFrq8ZrwsZvAX9gzLEmIDzXxmuc9EMVEJieZwGIMkD2hcP4GKkP4=
+X-Received: from seanjc.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:3e5])
+ (user=seanjc job=sendgmr) by 2002:a17:90a:5285:: with SMTP id
+ w5mr261213pjh.1.1635985558096; Wed, 03 Nov 2021 17:25:58 -0700 (PDT)
+Date: Thu,  4 Nov 2021 00:25:01 +0000
+Message-Id: <20211104002531.1176691-1-seanjc@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.33.1.1089.g2158813163f-goog
+Subject: [PATCH v5.5 00/30] KVM: Scalable memslots implementation
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
+ Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
+ Paul Mackerras <paulus@ozlabs.org>, 
+ Anup Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>
+Cc: James Morse <james.morse@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Atish Patra <atish.patra@wdc.com>, 
+ David Hildenbrand <david@redhat.com>, Cornelia Huck <cohuck@redhat.com>, 
+ Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ Sean Christopherson <seanjc@google.com>, 
+ Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>, 
+ Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>, 
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu, 
+ linux-mips@vger.kernel.org, kvm@vger.kernel.org, kvm-ppc@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Ben Gardon <bgardon@google.com>, 
+ "Maciej S . Szmigiero" <maciej.szmigiero@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211103_135705_887436_83FCC5E9 
-X-CRM114-Status: GOOD (  22.98  )
+X-CRM114-CacheID: sfid-20211103_172600_047245_A468476F 
+X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,210 +100,147 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+This series is an iteration of Maciej's scalable memslots work.  It
+addresses most, but not all, of my feedback from v5, hence the "5.5"
+moniker.  Specifically, I did not touch the iteration over gfn and hva
+ranges as I would likely do more harm than good, especially in the gfn
+iterator.
 
-[ Upstream commit cef397038167ac15d085914493d6c86385773709 ]
+The core functionality of the series is unchanged from v5 (or at least,
+it should be).  Patches "Resolve memslot ID via a hash table" and "Keep
+memslots in tree-based structures" are heavily reworked (the latter in
+particular) to provide better continuity between patches and to avoid
+the swap() logic when working with the "inactive" set of memslots.  But
+again, the changes are intended to be purely cosmetic.
 
-Stefan Agner reported a bug when using zsram on 32-bit Arm machines
-with RAM above the 4GB address boundary:
+Paolo, ideally I'd like get to patch 03 (and therefore patch 02) into 5.16.
+The patch technically breaks backwards compatibility with 32-bit KVM, but
+I'm quite confident none of the existing 32-bit architectures can possibly
+work.  RISC-V is the one exception where it's not obvious that creating
+more guest memslot pages than can fit in an unsigned long won't fall on its
+face.  Since RISC-V is new in 5.16, I'd like to get that change in before
+RISC-V can gain any users doing bizarre things.
 
-  Unable to handle kernel NULL pointer dereference at virtual address 00000000
-  pgd = a27bd01c
-  [00000000] *pgd=236a0003, *pmd=1ffa64003
-  Internal error: Oops: 207 [#1] SMP ARM
-  Modules linked in: mdio_bcm_unimac(+) brcmfmac cfg80211 brcmutil raspberrypi_hwmon hci_uart crc32_arm_ce bcm2711_thermal phy_generic genet
-  CPU: 0 PID: 123 Comm: mkfs.ext4 Not tainted 5.9.6 #1
-  Hardware name: BCM2711
-  PC is at zs_map_object+0x94/0x338
-  LR is at zram_bvec_rw.constprop.0+0x330/0xa64
-  pc : [<c0602b38>]    lr : [<c0bda6a0>]    psr: 60000013
-  sp : e376bbe0  ip : 00000000  fp : c1e2921c
-  r10: 00000002  r9 : c1dda730  r8 : 00000000
-  r7 : e8ff7a00  r6 : 00000000  r5 : 02f9ffa0  r4 : e3710000
-  r3 : 000fdffe  r2 : c1e0ce80  r1 : ebf979a0  r0 : 00000000
-  Flags: nZCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment user
-  Control: 30c5383d  Table: 235c2a80  DAC: fffffffd
-  Process mkfs.ext4 (pid: 123, stack limit = 0x495a22e6)
-  Stack: (0xe376bbe0 to 0xe376c000)
+s390 folks, please look closely at patch 11, "KVM: s390: Use "new" memslot
+instead of userspace memory region".  There's a subtle/weird functional
+change in there that I can't imagine would negatively affect userspace,
+but the end result is odd nonetheless.
 
-As it turns out, zsram needs to know the maximum memory size, which
-is defined in MAX_PHYSMEM_BITS when CONFIG_SPARSEMEM is set, or in
-MAX_POSSIBLE_PHYSMEM_BITS on the x86 architecture.
+Claudio, I dropped your R-b from "KVM: Integrate gfn_to_memslot_approx()
+into search_memslots()" because I changed the code enough to break the s390
+build at least once :-)
 
-The same problem will be hit on all 32-bit architectures that have a
-physical address space larger than 4GB and happen to not enable sparsemem
-and include asm/sparsemem.h from asm/pgtable.h.
+Patches 01 and 02 are bug fixes.
 
-After the initial discussion, I suggested just always defining
-MAX_POSSIBLE_PHYSMEM_BITS whenever CONFIG_PHYS_ADDR_T_64BIT is
-set, or provoking a build error otherwise. This addresses all
-configurations that can currently have this runtime bug, but
-leaves all other configurations unchanged.
+Patch 03 is fix of sorts to require that the total number of pages across
+all memslots fit in an unsigned long.  The existing 32-bit KVM
+architectures don't correctly handle this case, and fixing those issues
+would quite gross and a waste of time.
 
-I looked up the possible number of bits in source code and
-datasheets, here is what I found:
+Patches 04-18 are cleanups throughout common KVM and all architectures
+to fix some warts in the memslot APIs that allow for a cleaner (IMO)
+of the tree-based memslots code.  They also prep for more improvements
+that are realized in the final patch.
 
- - on ARC, CONFIG_ARC_HAS_PAE40 controls whether 32 or 40 bits are used
- - on ARM, CONFIG_LPAE enables 40 bit addressing, without it we never
-   support more than 32 bits, even though supersections in theory allow
-   up to 40 bits as well.
- - on MIPS, some MIPS32r1 or later chips support 36 bits, and MIPS32r5
-   XPA supports up to 60 bits in theory, but 40 bits are more than
-   anyone will ever ship
- - On PowerPC, there are three different implementations of 36 bit
-   addressing, but 32-bit is used without CONFIG_PTE_64BIT
- - On RISC-V, the normal page table format can support 34 bit
-   addressing. There is no highmem support on RISC-V, so anything
-   above 2GB is unused, but it might be useful to eventually support
-   CONFIG_ZRAM for high pages.
+Patches 19-28 are the core of Maciej's scalable memslots work.
 
-Fixes: 61989a80fb3a ("staging: zsmalloc: zsmalloc memory allocation library")
-Fixes: 02390b87a945 ("mm/zsmalloc: Prepare to variable MAX_PHYSMEM_BITS")
-Acked-by: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-Reviewed-by: Stefan Agner <stefan@agner.ch>
-Tested-by: Stefan Agner <stefan@agner.ch>
-Acked-by: Mike Rapoport <rppt@linux.ibm.com>
-Link: https://lore.kernel.org/linux-mm/bdfa44bf1c570b05d6c70898e2bbb0acf234ecdf.1604762181.git.stefan@agner.ch/
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
-[florian: patch arch/powerpc/include/asm/pte-common.h for 4.19.y]
-Signed-off-by: Florian Fainelli <f.fainelli@gmail.com>
----
- arch/arc/include/asm/pgtable.h        |  2 ++
- arch/arm/include/asm/pgtable-2level.h |  2 ++
- arch/arm/include/asm/pgtable-3level.h |  2 ++
- arch/mips/include/asm/pgtable-32.h    |  3 +++
- arch/powerpc/include/asm/pte-common.h |  2 ++
- arch/riscv/include/asm/pgtable-32.h   |  2 ++
- include/asm-generic/pgtable.h         | 13 +++++++++++++
- 7 files changed, 26 insertions(+)
+Patches 29-30 take advantage of the tree-based memslots to avoid creating
+a dummy "new" memslot on the stack, which simplifies the MOVE case and
+aligns it with the other three memslot update cases.
 
-diff --git a/arch/arc/include/asm/pgtable.h b/arch/arc/include/asm/pgtable.h
-index cf4be70d5892..f231963b4011 100644
---- a/arch/arc/include/asm/pgtable.h
-+++ b/arch/arc/include/asm/pgtable.h
-@@ -138,8 +138,10 @@
+v5.5
+  * Add all the pre- and post-work cleanups.
+  * Rebase to kvm/queue, commit 0d7d84498fb4 ("KVM: x86: SGX must...")
+  * Name innermost helper ____gfn_to_memslot() instead of ...approx. [Sean]
+  * Rework hash list patch and all subsequent tree modifications to use
+    common kvm_memslot_replace() helper. [Sean]
+  * Rework tree-based approach to avoid swap() by always pulling the
+    invalid memslot tree on-demand, and by relying on precise variables
+    names and comments (for the invidual memslot pointers).
+
+v5:
+  * https://lkml.kernel.org/r/cover.1632171478.git.maciej.szmigiero@oracle.com
+  * Rebase onto v5.15-rc2 (torvalds/master),
+  * Fix 64-bit division of n_memslots_pages for 32-bit KVM,
+  * Collect Claudio's Reviewed-by tags for some of the patches.
+
+Early history can be found in the above lore link.
  
- #ifdef CONFIG_ARC_HAS_PAE40
- #define PTE_BITS_NON_RWX_IN_PD1	(0xff00000000 | PAGE_MASK | _PAGE_CACHEABLE)
-+#define MAX_POSSIBLE_PHYSMEM_BITS 40
- #else
- #define PTE_BITS_NON_RWX_IN_PD1	(PAGE_MASK | _PAGE_CACHEABLE)
-+#define MAX_POSSIBLE_PHYSMEM_BITS 32
- #endif
- 
- /**************************************************************************
-diff --git a/arch/arm/include/asm/pgtable-2level.h b/arch/arm/include/asm/pgtable-2level.h
-index 12659ce5c1f3..90bf19d99378 100644
---- a/arch/arm/include/asm/pgtable-2level.h
-+++ b/arch/arm/include/asm/pgtable-2level.h
-@@ -78,6 +78,8 @@
- #define PTE_HWTABLE_OFF		(PTE_HWTABLE_PTRS * sizeof(pte_t))
- #define PTE_HWTABLE_SIZE	(PTRS_PER_PTE * sizeof(u32))
- 
-+#define MAX_POSSIBLE_PHYSMEM_BITS	32
-+
- /*
-  * PMD_SHIFT determines the size of the area a second-level page table can map
-  * PGDIR_SHIFT determines what a third-level page table entry can map
-diff --git a/arch/arm/include/asm/pgtable-3level.h b/arch/arm/include/asm/pgtable-3level.h
-index 6d50a11d7793..7ba08dd650e3 100644
---- a/arch/arm/include/asm/pgtable-3level.h
-+++ b/arch/arm/include/asm/pgtable-3level.h
-@@ -37,6 +37,8 @@
- #define PTE_HWTABLE_OFF		(0)
- #define PTE_HWTABLE_SIZE	(PTRS_PER_PTE * sizeof(u64))
- 
-+#define MAX_POSSIBLE_PHYSMEM_BITS 40
-+
- /*
-  * PGDIR_SHIFT determines the size a top-level page table entry can map.
-  */
-diff --git a/arch/mips/include/asm/pgtable-32.h b/arch/mips/include/asm/pgtable-32.h
-index 74afe8c76bdd..215fb48f644b 100644
---- a/arch/mips/include/asm/pgtable-32.h
-+++ b/arch/mips/include/asm/pgtable-32.h
-@@ -111,6 +111,7 @@ static inline void pmd_clear(pmd_t *pmdp)
- 
- #if defined(CONFIG_XPA)
- 
-+#define MAX_POSSIBLE_PHYSMEM_BITS 40
- #define pte_pfn(x)		(((unsigned long)((x).pte_high >> _PFN_SHIFT)) | (unsigned long)((x).pte_low << _PAGE_PRESENT_SHIFT))
- static inline pte_t
- pfn_pte(unsigned long pfn, pgprot_t prot)
-@@ -126,6 +127,7 @@ pfn_pte(unsigned long pfn, pgprot_t prot)
- 
- #elif defined(CONFIG_PHYS_ADDR_T_64BIT) && defined(CONFIG_CPU_MIPS32)
- 
-+#define MAX_POSSIBLE_PHYSMEM_BITS 36
- #define pte_pfn(x)		((unsigned long)((x).pte_high >> 6))
- 
- static inline pte_t pfn_pte(unsigned long pfn, pgprot_t prot)
-@@ -140,6 +142,7 @@ static inline pte_t pfn_pte(unsigned long pfn, pgprot_t prot)
- 
- #else
- 
-+#define MAX_POSSIBLE_PHYSMEM_BITS 32
- #ifdef CONFIG_CPU_VR41XX
- #define pte_pfn(x)		((unsigned long)((x).pte >> (PAGE_SHIFT + 2)))
- #define pfn_pte(pfn, prot)	__pte(((pfn) << (PAGE_SHIFT + 2)) | pgprot_val(prot))
-diff --git a/arch/powerpc/include/asm/pte-common.h b/arch/powerpc/include/asm/pte-common.h
-index bef56141a549..f740f67ebf98 100644
---- a/arch/powerpc/include/asm/pte-common.h
-+++ b/arch/powerpc/include/asm/pte-common.h
-@@ -110,8 +110,10 @@ static inline bool pte_user(pte_t pte)
-  */
- #if defined(CONFIG_PPC32) && defined(CONFIG_PTE_64BIT)
- #define PTE_RPN_MASK	(~((1ULL<<PTE_RPN_SHIFT)-1))
-+#define MAX_POSSIBLE_PHYSMEM_BITS 36
- #else
- #define PTE_RPN_MASK	(~((1UL<<PTE_RPN_SHIFT)-1))
-+#define MAX_POSSIBLE_PHYSMEM_BITS 32
- #endif
- 
- /* _PAGE_CHG_MASK masks of bits that are to be preserved across
-diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
-index d61974b74182..5cfe5a131867 100644
---- a/arch/riscv/include/asm/pgtable-32.h
-+++ b/arch/riscv/include/asm/pgtable-32.h
-@@ -22,4 +22,6 @@
- #define PGDIR_SIZE      (_AC(1, UL) << PGDIR_SHIFT)
- #define PGDIR_MASK      (~(PGDIR_SIZE - 1))
- 
-+#define MAX_POSSIBLE_PHYSMEM_BITS 34
-+
- #endif /* _ASM_RISCV_PGTABLE_32_H */
-diff --git a/include/asm-generic/pgtable.h b/include/asm-generic/pgtable.h
-index 5901b0005929..1544331bec27 100644
---- a/include/asm-generic/pgtable.h
-+++ b/include/asm-generic/pgtable.h
-@@ -1115,6 +1115,19 @@ static inline bool arch_has_pfn_modify_check(void)
- 
- #endif /* !__ASSEMBLY__ */
- 
-+#if !defined(MAX_POSSIBLE_PHYSMEM_BITS) && !defined(CONFIG_64BIT)
-+#ifdef CONFIG_PHYS_ADDR_T_64BIT
-+/*
-+ * ZSMALLOC needs to know the highest PFN on 32-bit architectures
-+ * with physical address space extension, but falls back to
-+ * BITS_PER_LONG otherwise.
-+ */
-+#error Missing MAX_POSSIBLE_PHYSMEM_BITS definition
-+#else
-+#define MAX_POSSIBLE_PHYSMEM_BITS 32
-+#endif
-+#endif
-+
- #ifndef has_transparent_hugepage
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
- #define has_transparent_hugepage() 1
+Maciej S. Szmigiero (10):
+  KVM: Resync only arch fields when slots_arch_lock gets reacquired
+  KVM: x86: Use nr_memslot_pages to avoid traversing the memslots array
+  KVM: Integrate gfn_to_memslot_approx() into search_memslots()
+  KVM: Move WARN on invalid memslot index to update_memslots()
+  KVM: Resolve memslot ID via a hash table instead of via a static array
+  KVM: Use interval tree to do fast hva lookup in memslots
+  KVM: s390: Introduce kvm_s390_get_gfn_end()
+  KVM: Keep memslots in tree-based structures instead of array-based
+    ones
+  KVM: Optimize gfn lookup in kvm_zap_gfn_range()
+  KVM: Optimize overlapping memslots check
+
+Sean Christopherson (20):
+  KVM: Ensure local memslot copies operate on up-to-date arch-specific
+    data
+  KVM: Disallow user memslot with size that exceeds "unsigned long"
+  KVM: Require total number of memslot pages to fit in an unsigned long
+  KVM: Open code kvm_delete_memslot() into its only caller
+  KVM: Use "new" memslot's address space ID instead of dedicated param
+  KVM: Let/force architectures to deal with arch specific memslot data
+  KVM: arm64: Use "new" memslot instead of userspace memory region
+  KVM: MIPS: Drop pr_debug from memslot commit to avoid using "mem"
+  KVM: PPC: Avoid referencing userspace memory region in memslot updates
+  KVM: s390: Use "new" memslot instead of userspace memory region
+  KVM: x86: Use "new" memslot instead of userspace memory region
+  KVM: RISC-V: Use "new" memslot instead of userspace memory region
+  KVM: Stop passing kvm_userspace_memory_region to arch memslot hooks
+  KVM: Use prepare/commit hooks to handle generic memslot metadata
+    updates
+  KVM: x86: Don't assume old/new memslots are non-NULL at memslot commit
+  KVM: s390: Skip gfn/size sanity checks on memslot DELETE or FLAGS_ONLY
+  KVM: Don't make a full copy of the old memslot in
+    __kvm_set_memory_region()
+  KVM: x86: Don't call kvm_mmu_change_mmu_pages() if the count hasn't
+    changed
+  KVM: Wait 'til the bitter end to initialize the "new" memslot
+  KVM: Dynamically allocate "new" memslots from the get-go
+
+ arch/arm64/kvm/Kconfig              |   1 +
+ arch/arm64/kvm/mmu.c                |  27 +-
+ arch/mips/kvm/Kconfig               |   1 +
+ arch/mips/kvm/mips.c                |   9 +-
+ arch/powerpc/include/asm/kvm_ppc.h  |  18 +-
+ arch/powerpc/kvm/Kconfig            |   1 +
+ arch/powerpc/kvm/book3s.c           |  14 +-
+ arch/powerpc/kvm/book3s_64_mmu_hv.c |   4 +-
+ arch/powerpc/kvm/book3s_hv.c        |  28 +-
+ arch/powerpc/kvm/book3s_hv_nested.c |   4 +-
+ arch/powerpc/kvm/book3s_hv_uvmem.c  |  14 +-
+ arch/powerpc/kvm/book3s_pr.c        |  17 +-
+ arch/powerpc/kvm/booke.c            |   7 +-
+ arch/powerpc/kvm/powerpc.c          |   9 +-
+ arch/riscv/kvm/mmu.c                |  34 +-
+ arch/s390/kvm/Kconfig               |   1 +
+ arch/s390/kvm/kvm-s390.c            |  98 ++--
+ arch/s390/kvm/kvm-s390.h            |  14 +
+ arch/s390/kvm/pv.c                  |   4 +-
+ arch/x86/include/asm/kvm_host.h     |   1 -
+ arch/x86/kvm/Kconfig                |   1 +
+ arch/x86/kvm/debugfs.c              |   6 +-
+ arch/x86/kvm/mmu/mmu.c              |  39 +-
+ arch/x86/kvm/x86.c                  |  42 +-
+ include/linux/kvm_host.h            | 240 +++++---
+ virt/kvm/kvm_main.c                 | 868 ++++++++++++++++------------
+ 26 files changed, 855 insertions(+), 647 deletions(-)
+
 -- 
-2.25.1
+2.33.1.1089.g2158813163f-goog
 
 
 _______________________________________________
