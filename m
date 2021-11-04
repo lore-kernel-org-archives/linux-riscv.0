@@ -2,14 +2,14 @@ Return-Path: <SRS0=Owia=PX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 40B45C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 00:27:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B171BC433FE
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 00:27:32 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0546560230
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 00:27:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0546560230
+	by mail.kernel.org (Postfix) with ESMTPS id 74B1560230
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 00:27:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 74B1560230
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,59 +18,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:References
 	:Mime-Version:Message-Id:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pzQCdfRfE22qyoaVL/eSKzxayMm820rTc6PCgW7ac9Q=; b=onAEXXOnJN5NCW
-	u1orLkTqaP5UDDmsi6oKdo6jMsn70uk26T4iqrBU8AUo3biVVlmGUF3lAKGGQeto1DgTehqXQXlM8
-	7njO/FHZp3yyQAMZ13S4GF1JQ/cb+9Er6shkBka9L8VA640goOz+mNxhvaAdigOaEBJaRS9ysMgf4
-	dSjqUZDy4DngKsHj+7rJm6pZjDgaWesFtETDtDVp0BZu2CEjJaycSnC6F3e+dScG6YCeZltcN9KEB
-	Fed6xvND2lkd9SxPfP/U4bR4mUxUDi9zJZpAk94RpEZVhaDx8DqdIBMF8iQ4KNUFMr9aBsqtNFXED
-	A+ECfOCRdoC4bDwVMRDw==;
+	List-Owner; bh=afV6/gHvwmVkq9sTnj+fIOfSln4X7Ef5YQdkQgoKe7s=; b=eLbDIEOZfqYL+2
+	OPz5X4a171idwuspFVUTGf2r+gExV7b4V1T238HBn68aeP6C0+mkPg38PJbcHFcapqcL6lc1HeIGb
+	lobcRNgUBuWqozON9Lc+z0ICHKHTjhnmm9t2CYLdQSIaVKrisQxP8aIARvlcAJeHxp1gx2W+YDRlg
+	LUTSAYuwGRYepUf871VcA7Y3gdof/vj+X4xps09EZHDYUc6QaLSyBHr/ppsOf2Q0j3Gl+ITTc2sfu
+	ig7pcBXVTVnLJ9w2dMZr5r1YPQ34QfscJstKxIX2noRPjhcVAC9coYLMELYuTNcP01B9x821gxrMs
+	Q2Fsh8CupQFtclPdxQ2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1miQat-007D95-EN; Thu, 04 Nov 2021 00:27:03 +0000
+	id 1miQbE-007DK9-E4; Thu, 04 Nov 2021 00:27:24 +0000
 Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1miQZu-007CWa-QS
- for linux-riscv@lists.infradead.org; Thu, 04 Nov 2021 00:26:05 +0000
+ id 1miQZw-007CXk-Eg
+ for linux-riscv@lists.infradead.org; Thu, 04 Nov 2021 00:26:07 +0000
 Received: by mail-pg1-x549.google.com with SMTP id
- c2-20020a63d5020000b029023ae853b72cso2357574pgg.18
- for <linux-riscv@lists.infradead.org>; Wed, 03 Nov 2021 17:26:02 -0700 (PDT)
+ 76-20020a63054f000000b002c9284978aaso2389169pgf.10
+ for <linux-riscv@lists.infradead.org>; Wed, 03 Nov 2021 17:26:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
  h=reply-to:date:in-reply-to:message-id:mime-version:references
  :subject:from:to:cc;
- bh=YU3JQHoEXhNYeqTaFGElIxIrX+lTdkV7tmvn1pNhx20=;
- b=nzIiCi8a3FdUTPNh7ytN/z1OZHuDUfxPkVLwkX7a0tH3K3c1YU/GUrVbVsUKogWulg
- 8TV0o+lCCtBLbDlyn4CdD1ZyDyGmDuKpEashuorjvvAytB9Fha6Xh4GdoRmbK2lCIj46
- yaw8bm9yIsgJfAeOZzVP5kZxJzf5HvyCshSjBFStaw+bzKBcK6bPZX6ZcbGAXqRyq2X0
- r24cJ2J/KvfMuDyi9skDCmfAMeR4jILYlAAhpoLRq8XhdUkbVLo1pJ78Onj43zLqECqm
- BUFjMpHQOpmAXdYIVQtZSEVPXFkfrUmNQanymXLbwXrV/MiRmrChRqGkV2fOUirqVkRC
- KbPg==
+ bh=uUiF2cCeyvLcomA71gNb8UtnumiDOcYwDfMiXjWen6E=;
+ b=oTQ7zxZOtJdIWwrRYuqPf1zjANoRXpGs4d18yx/1uFcULOqfGSPv/eGnnTHt2OaFXl
+ Fw2Ja9jpx42JTWA+4xQHXaSDJzaLjB39qn72mpFaq/+8Pgyy1WE+Sui5ukzf7K0T1tch
+ WQUzSIOcUqQ4RYGuYqINyp9t2Du3YpUpxuubgXkNzI9EfzqleZjWAUTMgOc4YeGCZQie
+ KXx3n4rodQ4x96mmNgtB9r6T1WA9dTicsSrUIx+if+mPJuWUWAF+djp3CD78xEHLczgf
+ /8ph947YIr/9EVIDN0A2sn1MabQLXDCtd3nrNdsi57mxIxM3VfxgHreQqgiovSN/aw02
+ N1Uw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:reply-to:date:in-reply-to:message-id
  :mime-version:references:subject:from:to:cc;
- bh=YU3JQHoEXhNYeqTaFGElIxIrX+lTdkV7tmvn1pNhx20=;
- b=7BB7HyvT26YtVUc6vWhywZtkladcebafRONu0AT2J/YOLfl4N7OQ/jchF5jlJPN/L3
- NK9BEaTz7Pl1oFmUvfv2N6SwnyyS0FPwmyRFOhZHxqDuQanXiEAvC+za975bw1d3/QO6
- Og/3XHDGqXAL+tc8hd6f13lc1Y18wR7eGgM/42csyT7FnQ3r4PmIEshPjGawKusVDdkR
- +8TvXZRVeNsN014eMoUUzNbSylPTON0dfwyDziP5SJ3ZCYB7IXVo/enbXcBo3YxFR0HZ
- Ft364aTLgY01OzdVK+WfsEICF06FUG9i9hnj5ku6m4eLmWbqbrV3cUxafggsybStgGiF
- JK+g==
-X-Gm-Message-State: AOAM531TFMedqpUtxxl4zASo/3/p0Iyx2js5Z5wzafrAjG7J0uKLwKVt
- J87ZfNMFNy0mYDMI32AHwlPxyRLJp3s=
-X-Google-Smtp-Source: ABdhPJweDq2zn2AkOEc4n/Ejh97liBXXjVYy6U4pABPdgYlHkkJl2at3TcV1J/XikSLWHiPxtEuWDooqyFQ=
+ bh=uUiF2cCeyvLcomA71gNb8UtnumiDOcYwDfMiXjWen6E=;
+ b=yuXnBPvqpplheWiHgS2pGp4YMcNDtpwzCYfy4rXOyvoJZ/HqG+ISX+3fp2p3vhKVJK
+ a3VBhImRCNGJtVLScuFCDhAQyHGy2znEl+0Lk6WiaQXFmx54ho2FWLX7kj0O97rDPcmo
+ Q0wjURSjGD3tTDzQ00UqJGs2GqH0gBp3EbwZnvORnfwnF1GfsIlInq6wBvxeuiGD+vQ2
+ 4MmX66fYBA6j0AaZvqKiz4fIZw2ug74AiOKTudv81xZ/D5M00fdtnOwcoCm6/1HkJy3L
+ v+N5oJAxoiVW6xb+INm/7Jtal8DgDi4nqLua/Zrax92TinGc0l4IwaHh+KIveZmawx/w
+ TTXQ==
+X-Gm-Message-State: AOAM531A643BrSkMzogCKmEZ4r0Zlp/jI6SGuZFZ+QMLBu16CumT/0Sv
+ +/+chBKhDM6xItyYKTkQO/CyzZpEhAw=
+X-Google-Smtp-Source: ABdhPJzS1sKm1vihVbRPixin8ADPxwIwiRu+sSSO0iFE9jTmdDmiJb4scGZK4H9WqPr37m1ISOQPandeoog=
 X-Received: from seanjc.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:3e5])
- (user=seanjc job=sendgmr) by 2002:a05:6a00:16c6:b029:32d:e190:9dd0
- with SMTP
- id l6-20020a056a0016c6b029032de1909dd0mr48630576pfc.70.1635985561569; Wed, 03
- Nov 2021 17:26:01 -0700 (PDT)
-Date: Thu,  4 Nov 2021 00:25:03 +0000
+ (user=seanjc job=sendgmr) by 2002:a05:6a00:2181:b0:44c:f4bc:2f74
+ with SMTP id
+ h1-20020a056a00218100b0044cf4bc2f74mr47622932pfi.68.1635985562987; Wed, 03
+ Nov 2021 17:26:02 -0700 (PDT)
+Date: Thu,  4 Nov 2021 00:25:04 +0000
 In-Reply-To: <20211104002531.1176691-1-seanjc@google.com>
-Message-Id: <20211104002531.1176691-3-seanjc@google.com>
+Message-Id: <20211104002531.1176691-4-seanjc@google.com>
 Mime-Version: 1.0
 References: <20211104002531.1176691-1-seanjc@google.com>
 X-Mailer: git-send-email 2.33.1.1089.g2158813163f-goog
-Subject: [PATCH v5.5 02/30] KVM: Disallow user memslot with size that exceeds
- "unsigned long"
+Subject: [PATCH v5.5 03/30] KVM: Require total number of memslot pages to fit
+ in an unsigned long
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
  Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
@@ -93,8 +93,8 @@ Cc: James Morse <james.morse@arm.com>,
  linux-kernel@vger.kernel.org, Ben Gardon <bgardon@google.com>, 
  "Maciej S . Szmigiero" <maciej.szmigiero@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211103_172602_890531_157EC517 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20211103_172604_520258_4781E3CF 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,38 +112,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Reject userspace memslots whose size exceeds the storage capacity of an
-"unsigned long".  KVM's uAPI takes the size as u64 to support large slots
-on 64-bit hosts, but does not account for the size being truncated on
-32-bit hosts in various flows.  The access_ok() check on the userspace
-virtual address in particular casts the size to "unsigned long" and will
-check the wrong number of bytes.
+Explicitly disallow creating more memslot pages than can fit in an
+unsigned long, KVM doesn't correctly handle a total number of memslot
+pages that doesn't fit in an unsigned long and remedying that would be a
+waste of time.
 
-KVM doesn't actually support slots whose size doesn't fit in an "unsigned
-long", e.g. KVM's internal kvm_memory_slot.npages is an "unsigned long",
-not a "u64", and misc arch specific code follows that behavior.
+For a 64-bit kernel, this is a nop as memslots are not allowed to overlap
+in the gfn address space.
 
-Fixes: fa3d315a4ce2 ("KVM: Validate userspace_addr of memslot when registered")
-Cc: stable@vger.kernel.org
+With a 32-bit kernel, userspace can at most address 3gb of virtual memory,
+whereas wrapping the total number of pages would require 4tb+ of guest
+physical memory.  Even with x86's second address space for SMM, userspace
+would need to alias all of guest memory more than one _thousand_ times.
+And on older x86 hardware with MAXPHYADDR < 43, the guest couldn't
+actually access any of those aliases even if userspace lied about
+guest.MAXPHYADDR.
+
+On 390 and arm64, this is a nop as they don't support 32-bit hosts.
+
+On x86, practically speaking this is simply acknowledging reality as the
+existing kvm_mmu_calculate_default_mmu_pages() assumes the total number
+of pages fits in an "unsigned long".
+
+On PPC, this is likely a nop as every flavor of PPC KVM assumes gfns (and
+gpas!) fit in unsigned long.  arch/powerpc/kvm/book3s_32_mmu_host.c goes
+a step further and fails the build if CONFIG_PTE_64BIT=y, which
+presumably means that it does't support 64-bit physical addresses.
+
+On MIPS, this is also likely a nop as the core MMU helpers assume gpas
+fit in unsigned long, e.g. see kvm_mips_##name##_pte.
+
+And finally, RISC-V is a "don't care" as it doesn't exist in any release,
+i.e. there is no established ABI to break.
+
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- virt/kvm/kvm_main.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ include/linux/kvm_host.h |  1 +
+ virt/kvm/kvm_main.c      | 19 +++++++++++++++++++
+ 2 files changed, 20 insertions(+)
 
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 60a35d9fe259..d8e92d4a78d8 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -551,6 +551,7 @@ struct kvm {
+ 	 */
+ 	struct mutex slots_arch_lock;
+ 	struct mm_struct *mm; /* userspace tied to this vm */
++	unsigned long nr_memslot_pages;
+ 	struct kvm_memslots __rcu *memslots[KVM_ADDRESS_SPACE_NUM];
+ 	struct kvm_vcpu *vcpus[KVM_MAX_VCPUS];
+ 
 diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 99e69375c4c9..83287730389f 100644
+index 83287730389f..264c4b16520b 100644
 --- a/virt/kvm/kvm_main.c
 +++ b/virt/kvm/kvm_main.c
-@@ -1689,7 +1689,8 @@ int __kvm_set_memory_region(struct kvm *kvm,
- 	id = (u16)mem->slot;
+@@ -1623,6 +1623,15 @@ static int kvm_set_memslot(struct kvm *kvm,
+ 	update_memslots(slots, new, change);
+ 	slots = install_new_memslots(kvm, as_id, slots);
  
- 	/* General sanity checks */
--	if (mem->memory_size & (PAGE_SIZE - 1))
-+	if ((mem->memory_size & (PAGE_SIZE - 1)) ||
-+	    (mem->memory_size != (unsigned long)mem->memory_size))
++	/*
++	 * Update the total number of memslot pages before calling the arch
++	 * hook so that architectures can consume the result directly.
++	 */
++	if (change == KVM_MR_DELETE)
++		kvm->nr_memslot_pages -= old.npages;
++	else if (change == KVM_MR_CREATE)
++		kvm->nr_memslot_pages += new->npages;
++
+ 	kvm_arch_commit_memory_region(kvm, mem, &old, new, change);
+ 
+ 	/* Free the old memslot's metadata.  Note, this is the full copy!!! */
+@@ -1653,6 +1662,9 @@ static int kvm_delete_memslot(struct kvm *kvm,
+ 	if (!old->npages)
  		return -EINVAL;
- 	if (mem->guest_phys_addr & (PAGE_SIZE - 1))
- 		return -EINVAL;
+ 
++	if (WARN_ON_ONCE(kvm->nr_memslot_pages < old->npages))
++		return -EIO;
++
+ 	memset(&new, 0, sizeof(new));
+ 	new.id = old->id;
+ 	/*
+@@ -1736,6 +1748,13 @@ int __kvm_set_memory_region(struct kvm *kvm,
+ 	if (!old.npages) {
+ 		change = KVM_MR_CREATE;
+ 		new.dirty_bitmap = NULL;
++
++		/*
++		 * To simplify KVM internals, the total number of pages across
++		 * all memslots must fit in an unsigned long.
++		 */
++		if ((kvm->nr_memslot_pages + new.npages) < kvm->nr_memslot_pages)
++			return -EINVAL;
+ 	} else { /* Modify an existing slot. */
+ 		if ((new.userspace_addr != old.userspace_addr) ||
+ 		    (new.npages != old.npages) ||
 -- 
 2.33.1.1089.g2158813163f-goog
 
