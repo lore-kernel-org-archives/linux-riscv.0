@@ -2,86 +2,72 @@ Return-Path: <SRS0=Owia=PX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DAD44C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 16:41:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A5FF8C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 18:47:12 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AB06661213
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 16:41:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org AB06661213
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id 7011E60ED5
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 18:47:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7011E60ED5
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:References
-	:Mime-Version:Message-Id:In-Reply-To:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UTBzlPcPoRb1DXanwX3rhxg6TpOSjACRYcDYMU/2QHI=; b=d+y1P7QXo+UXSY
-	XKvXq1cz0cWh86ZV9XyoV3KbDUefEdGXGCeOj0li4rLiTKTqV1VpSy5BXslQP3lq9V39wAgDBTzT8
-	PKkpLWaA0EJkzNk/SwCHhU/vRkvrRQ66oXRwX4MaIaO4VRRoXkWyBc9q52UJj2k4vJBLbDhBP/U91
-	8+rzvaO7F5ZVCayM+phzUjDSJx42xLRXvbVYcQ8Ioild/4vN3tmL7EWja3FP+GyuV0kVAL80Dwd/u
-	oAlshGrN9upZOZv5HEKxAwTogjohuEdRZcba/yqaJU+8qfEP0x0RJpjo0maFSeFxZFje+ShgreG3L
-	lRGRrpuGaU+ymWnqXqjQ==;
+	List-Owner; bh=fLFa+2BeJRFFI8Wwh7PQ4WSMW3S9hswTrlbi0NCczOQ=; b=R370QvHj25oKdf
+	gqym1qtZWWrA5DoaGyznFhyKa9AZ96J/NsP9BxKx8TtIbFzGpOZpvnmLUvLDE8/MRUUOO2fzKz7xz
+	8P2VEmm0OQVMN/kt1sF7DpYEuWd1qlJqWFoZ2K7GFwL5xU2WK6yS2Vgw9mcqqBHpX4K8lqBvjGJBU
+	i/yLGermiDJrRGc1ek9BBx3c7tSaL+HYFS+RET/mB9XhajlZHDz/PTzWbNqwqbaiZyI8emGChJriu
+	fRMXMeqQnpfP0ieBbzklPa73thBaMc1jIJgg0LJl+6TtYQ9faZt0claaOTcQcjjUvfO+KE4wzgMT+
+	fUE+ozq6+Q+d2ooldFQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mifnn-009VpO-Sd; Thu, 04 Nov 2021 16:41:23 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1mihlG-009ol8-SN; Thu, 04 Nov 2021 18:46:54 +0000
+Received: from mail-ot1-f52.google.com ([209.85.210.52])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mifnj-009Vlt-GK
- for linux-riscv@lists.infradead.org; Thu, 04 Nov 2021 16:41:21 +0000
-Received: by mail-pf1-x449.google.com with SMTP id
- m26-20020a62a21a000000b0041361973ba7so4204866pff.15
- for <linux-riscv@lists.infradead.org>; Thu, 04 Nov 2021 09:41:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=reply-to:date:in-reply-to:message-id:mime-version:references
- :subject:from:to:cc;
- bh=BLpO0fOkHXhU49HszP9J7IBUy0ZTyjUC3dOvZNy0mdE=;
- b=TCwN7LDAPJdrI3JQ0PhC2yCcI5yLMhPl7ApX+9DhRmXyfPHERawX2DwxsXfzQpe9j7
- aiStPhF6p6Nc0rQj0cQ6Mr+Q2jbguwuqGoltihH6LYnjeNZb1UignEIOlPkm8hFbdlgN
- yVynl+h5lLQhr4jXpCj1CaYf7Rkv4LndwkROKDmusS+uaL/A6tmofBzuYAEpvgY3MF+w
- 6pOCDVv8jBPc3PnWz2YdpXTN+WHrksH3DawZW7qu7EHw0YH3LzXmKSA2r4O46Hfslcwg
- adnajvryDs/Nm5UcX0GdIbmqjM7LYEUxG51G5Dy6nlYavqc2vn+hQO5BP+l8Bw+wIvLC
- LD2w==
+ id 1mihl3-009ohx-OR; Thu, 04 Nov 2021 18:46:43 +0000
+Received: by mail-ot1-f52.google.com with SMTP id
+ q33-20020a056830442100b0055abeab1e9aso9570200otv.7; 
+ Thu, 04 Nov 2021 11:46:40 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:reply-to:date:in-reply-to:message-id
- :mime-version:references:subject:from:to:cc;
- bh=BLpO0fOkHXhU49HszP9J7IBUy0ZTyjUC3dOvZNy0mdE=;
- b=IlE3OMFlr1ztCFHUB6LBCeeSLISbDtv8FyVYV6d6LDUp0t4NzBI7Z7e2bMy/jC7afw
- J9Xp4fSnzKp4dk+mNyOq0VrQ4gY9CiDcteu+XCwREzObxym7CXV8yZyC8+poI0qybul6
- P/t73WNWlR4rH7+Q5tT4ZauvwjpPsPpGeeKXXUe6Ym7wc4IgnHvymOKOQpcAK0HZXks8
- Iv/+73S180OGT+PeCNly0b6HiQc90liGu+DO6PHib9Fl0K4wCjlaUqcQEe0/dfPM4CxY
- lXVALe4ARIMLnBVcUOWwsQJ6nPX7/+MQlYoC4lvG4Rl0x6HElUEeO/dHIaknXZJe0Xrb
- jgnQ==
-X-Gm-Message-State: AOAM531Hm5+oA2yqKj5v0huNBwdHE3p+vKYH41aPtqT1NW6nUBrt4Y6Y
- Yq1tvZjOgYdxG9PMnBxsSeyJyALsm+s=
-X-Google-Smtp-Source: ABdhPJxBUNyqMmxEzIJpo0JuZDNZmWIY5euPfVSkwAjseNfVPNvFjkbOibNRD+fI58d1ZSdMDQWSia9J8WI=
-X-Received: from seanjc.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:3e5])
- (user=seanjc job=sendgmr) by 2002:a17:902:a50b:b0:141:dc7b:b2dc
- with SMTP id
- s11-20020a170902a50b00b00141dc7bb2dcmr29202914plq.4.1636044076879; Thu, 04
- Nov 2021 09:41:16 -0700 (PDT)
-Date: Thu,  4 Nov 2021 16:41:06 +0000
-In-Reply-To: <20211104164107.1291793-1-seanjc@google.com>
-Message-Id: <20211104164107.1291793-2-seanjc@google.com>
-Mime-Version: 1.0
-References: <20211104164107.1291793-1-seanjc@google.com>
-X-Mailer: git-send-email 2.34.0.rc0.344.g81b53c2807-goog
-Subject: [PATCH 1/2] KVM: RISC-V: Unmap stage2 mapping when deleting/moving a
- memslot
-From: Sean Christopherson <seanjc@google.com>
-To: Anup Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Atish Patra <atish.patra@wdc.com>, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Sean Christopherson <seanjc@google.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=DibJrm4A9ig/vBo1EjDioFiIQk3mKd4WJjbVURulMb4=;
+ b=EtEAMOx5lAjtvS5ZQdi9OLEJAANZXmrkSC2muxOTHgu/mvaSnbAxX+373NQCadX4ov
+ pVR0P9UzeuGD5WWcCHFu/CQVIcK8k58rCEslnNBpqOHk6ehM9YAgoIJ+iFXZhbz5leFE
+ w27TBw2TenmsU6MOj4NCRwfXXsgZqoc007393UAgZBwsB4Xxw9TPGssAphZhDj7vE8L2
+ gj0zlJphkWQ079MHXrjoN3dP4Mh4xeLhtQj4/4cFnqGjwkB7e+LolbMIq05P4Uwzymi7
+ FUa2NipdMZTXOTJiwJ4LWNstVV/MNXUN2FGLF9LkziNFMo79DZOWV1Jx+Y/VqfaPahNR
+ b7Eg==
+X-Gm-Message-State: AOAM530000RrxqujTXIDz3zS99YGSR+pzmrGMWYidgHa33fJX89ArRK9
+ CVw/wyW9i8ofLjwkN9xVVpcBkPOGl4FkQwzf4eo=
+X-Google-Smtp-Source: ABdhPJwQnNjp3uYgBocO01tJttUYZD/1g6MMnI1UZa5kkK2HlPf3uKpAJyavXP4I/0VCGiDu5nLKWC0dOwvQGzLN8DY=
+X-Received: by 2002:a9d:a64:: with SMTP id 91mr33119161otg.198.1636051600270; 
+ Thu, 04 Nov 2021 11:46:40 -0700 (PDT)
+MIME-Version: 1.0
+References: <20211029123855.80344-1-ulf.hansson@linaro.org>
+In-Reply-To: <20211029123855.80344-1-ulf.hansson@linaro.org>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Thu, 4 Nov 2021 19:46:29 +0100
+Message-ID: <CAJZ5v0gMNP_MLCJiZq8FCCOXxh+V31gTCx5OCNpP-__9Pq0_uA@mail.gmail.com>
+Subject: Re: [PATCH v2] PM: sleep: Fix runtime PM based cpuidle support
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
+ "Rafael J . Wysocki" <rjw@rjwysocki.net>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Linux PM <linux-pm@vger.kernel.org>,
+ Maulik Shah <mkshah@codeaurora.org>, Anup Patel <anup.patel@wdc.com>, 
+ Len Brown <len.brown@intel.com>, Bjorn Andersson <bjorn.andersson@linaro.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ linux-riscv@lists.infradead.org, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211104_094119_552569_9429A33C 
-X-CRM114-Status: UNSURE (   7.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211104_114641_817465_EA39CF2B 
+X-CRM114-Status: GOOD (  22.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,42 +79,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Unmap stage2 page tables when a memslot is being deleted or moved.  It's
-the architectures' responsibility to ensure existing mappings are removed
-when kvm_arch_flush_shadow_memslot() returns.
+On Fri, Oct 29, 2021 at 2:39 PM Ulf Hansson <ulf.hansson@linaro.org> wrote:
+>
+> In the cpuidle-psci case, runtime PM in combination with the generic PM
+> domain (genpd), may be used when entering/exiting a shared idlestate. More
+> precisely, genpd relies on runtime PM to be enabled for the attached device
+> (in this case it belongs to a CPU), to properly manage the reference
+> counting of its PM domain.
+>
+> This works fine most of the time, but during system suspend in
+> dpm_suspend_late(), the PM core disables runtime PM for all devices. Beyond
+> this point, calls to pm_runtime_get_sync() to runtime resume a device may
+> fail and therefore it could also mess up the reference counting in genpd.
+>
+> To fix this problem, let's call wake_up_all_idle_cpus() in
+> dpm_suspend_late(), prior to disabling runtime PM. In this way a device
+> that belongs to a CPU, becomes runtime resumed through cpuidle-psci and
+> stays like that, because the runtime PM usage count has been bumped in
+> device_prepare().
+>
+> Diagnosed-by: Maulik Shah <mkshah@codeaurora.org>
+> Suggested-by: Rafael J. Wysocki <rafael@kernel.org>
+> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+> ---
+>
+> Changes in v2:
+>         - Moved away from using cpuidle_pause|resume() to solve the problem, but
+>         instead just waking up idle CPUs is suffient, due to other recent merged
+>         changes.
+>
+> ---
+>  drivers/base/power/main.c | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/drivers/base/power/main.c b/drivers/base/power/main.c
+> index ac4dde8fdb8b..2fb08d4f1aca 100644
+> --- a/drivers/base/power/main.c
+> +++ b/drivers/base/power/main.c
+> @@ -1463,6 +1463,7 @@ int dpm_suspend_late(pm_message_t state)
+>         int error = 0;
+>
+>         trace_suspend_resume(TPS("dpm_suspend_late"), state.event, true);
+> +       wake_up_all_idle_cpus();
+>         mutex_lock(&dpm_list_mtx);
+>         pm_transition = state;
+>         async_error = 0;
+> --
 
-Fixes: 99cdc6c18c2d ("RISC-V: Add initial skeletal KVM support")
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- arch/riscv/kvm/mmu.c | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index d81bae8eb55e..fc058ff5f4b6 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -453,6 +453,12 @@ void kvm_arch_flush_shadow_all(struct kvm *kvm)
- void kvm_arch_flush_shadow_memslot(struct kvm *kvm,
- 				   struct kvm_memory_slot *slot)
- {
-+	gpa_t gpa = slot->base_gfn << PAGE_SHIFT;
-+	phys_addr_t size = slot->npages << PAGE_SHIFT;
-+
-+	spin_lock(&kvm->mmu_lock);
-+	stage2_unmap_range(kvm, gpa, size, false);
-+	spin_unlock(&kvm->mmu_lock);
- }
- 
- void kvm_arch_commit_memory_region(struct kvm *kvm,
--- 
-2.34.0.rc0.344.g81b53c2807-goog
-
+Applied as 5.16-rc material, thanks!
 
 _______________________________________________
 linux-riscv mailing list
