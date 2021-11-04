@@ -2,99 +2,73 @@ Return-Path: <SRS0=Owia=PX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4D124C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 01:00:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A5D98C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 08:36:03 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0E07B61051
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 01:00:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0E07B61051
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id 671A4611C3
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 08:36:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 671A4611C3
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linuxfoundation.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:References
-	:Mime-Version:Message-Id:In-Reply-To:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cVEFmgk7erPIj9yPnpQHpDeUkgFAX/9FlIp01LM0itM=; b=apJUabZH0ujm9m
-	rErMY7UZeoUUhpXBcjMS0nYuNGJoO51oBYKsT9UIm//SD2RYYRWVFpi/8Q/lD643XW4iTe9Hr6kyj
-	wNFYcM4/R8eRr5WsPJNkrXtqPwX8bsmkl0yYTN+yYzQbx3X7VdCa8tqZqXMpoTDauSTF0S47v09Fd
-	8CKDHfSU99bt3euLaCll5P8hLeuaWlXnkOvkSHBM1E/9YrwUFiraiZINaBnm0rWYcs5iyPq3BkbjS
-	I25yvfnDOphuSJmlHW0Ycw2KEWEDZWMW0z8BuIpNE83mF1fzJYIILK4GB9DOpCfU0OqpPvBGiQDzS
-	HPWJo79HwS18O9GMg1Ug==;
+	List-Owner; bh=9MsuZHLWrJ3iJUygDUbgvKx0KJMKn71+BuMiVKDW8qc=; b=ysEF4BQ/+o7xPk
+	OfSep1QkXCjWqWf+or1sJ6iY8on0zEEtKL++/kJsOzBcdMXR2Mi/sdGlroBfT/kncTEwrB1PcoQAM
+	HkGGPhaER6PaYZCp/v+a8vOASk9k40NP5u//Zl2cBwEIka5a/MFJbQEFkAPQq5J3GPuzD7BIQzs5D
+	hDO4pAYQpwZVKsmcqhOZ5Rp6qK4IF+M/xpDTjT8ethRAPtxhk2PwtN2JFA1fxl1lE4bbvw8o1kAL5
+	W/tYKCIDTaOka+T4RoZOW9a7nIIHqcsRiP832V4yrwpRBtZjvSAg48c6OCnbEf3hZXFP2zXMb+vGJ
+	zoHBCRQQBBya1kkLuKMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1miR6t-007QId-SL; Thu, 04 Nov 2021 01:00:07 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1miYDq-008JJz-Nv; Thu, 04 Nov 2021 08:35:46 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1miQah-007D4s-N6
- for linux-riscv@lists.infradead.org; Thu, 04 Nov 2021 00:27:00 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id
- v18-20020a170902e8d200b00141df2da949so1936372plg.10
- for <linux-riscv@lists.infradead.org>; Wed, 03 Nov 2021 17:26:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=reply-to:date:in-reply-to:message-id:mime-version:references
- :subject:from:to:cc;
- bh=3Oix+myx2pXtaS6qqrhKXXYNSd1duRmSeNBjYBf01G8=;
- b=T7Li7ANfcPjBCbj9+DKfUi7E9HMHRR8t88UjyTqohCm/C++BNDUxZXBn8j2DcZEMpA
- mGH99sOh4E8WZVeHdeK5wa0d8OLkGRmOX4YXznGdWL6AB9m9J3jtSowWUg1EyEutLwr5
- fkW1iLLRMw7OXqnk0p24PkMbV7hX3G2oA1DSKGJbgsR2aHpCbSNVMPsjMTDk/W+ZDEp/
- b64dLnClxvtc2rQaa2CAN6FFezvBplkeeQHRAO6rLRDw6CPgh8y6I646/QDdI6sBQQy5
- uSFKdlP01SbOENjWGmAGklxMJ4DGwF5mxZUiawv9p04MF/m4dQOPwzlzNNQs9/4alG9t
- x1FA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:reply-to:date:in-reply-to:message-id
- :mime-version:references:subject:from:to:cc;
- bh=3Oix+myx2pXtaS6qqrhKXXYNSd1duRmSeNBjYBf01G8=;
- b=LHngJfcCD0NCCYp90wDdgfV84TrCzo+0q8xo9romRlgTx96+4DRlCW3amJUJAPxL07
- Vj9y/v0UzGIaHNTOnxweJ+XVuoICxFKIEJZKiksKwTNAx7IDF8pidf1Kp+jo5KmN5m2i
- 3InuOmEIuFRSXqNB0ERAtccnzP+ex22av8SkAQ4vOanbKoPMzNhfJk98fwbNZnwJIvQu
- sUnB40vaZPLIo2LSnLdbX0y/h+A+1IkiRuK1G2uOmixSknxXDPeQ0pcAe1avNhRxSwAb
- aCxM7QML3ekygBXSCDev4ny6PkTLSA8ks2F0XVYuIPZi2733Yo+jQAKEBrTX8uBSJHmP
- WcQg==
-X-Gm-Message-State: AOAM533kOLVrhuWaqNl/0/kRwIUB6rx5ovkz1YDYq+N/glfNi6hoA2mv
- FhbjRKKAHNPxOy/wzdlqnLvteNMb5jc=
-X-Google-Smtp-Source: ABdhPJxLsPJIYgU5iZvZVjIfCmGT4IcCcexgXJGOXXxz+DqiMhdzOwQbPPyTYzjNKnPa760AvzYmQj7kGXY=
-X-Received: from seanjc.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:3e5])
- (user=seanjc job=sendgmr) by 2002:a05:6a00:114c:b0:47b:b98b:2210
- with SMTP id
- b12-20020a056a00114c00b0047bb98b2210mr48415016pfm.75.1635985610490; Wed, 03
- Nov 2021 17:26:50 -0700 (PDT)
-Date: Thu,  4 Nov 2021 00:25:31 +0000
-In-Reply-To: <20211104002531.1176691-1-seanjc@google.com>
-Message-Id: <20211104002531.1176691-31-seanjc@google.com>
-Mime-Version: 1.0
-References: <20211104002531.1176691-1-seanjc@google.com>
-X-Mailer: git-send-email 2.33.1.1089.g2158813163f-goog
-Subject: [PATCH v5.5 30/30] KVM: Dynamically allocate "new" memslots from the
- get-go
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
- Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
- Paul Mackerras <paulus@ozlabs.org>, 
- Anup Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: James Morse <james.morse@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, Atish Patra <atish.patra@wdc.com>, 
- David Hildenbrand <david@redhat.com>, Cornelia Huck <cohuck@redhat.com>, 
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Sean Christopherson <seanjc@google.com>, 
- Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>, 
- Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>, 
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu, 
- linux-mips@vger.kernel.org, kvm@vger.kernel.org, kvm-ppc@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Ben Gardon <bgardon@google.com>, 
- "Maciej S . Szmigiero" <maciej.szmigiero@oracle.com>
+ id 1miYDH-008J2d-Os; Thu, 04 Nov 2021 08:35:13 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id C5E7D611CB;
+ Thu,  4 Nov 2021 08:35:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+ s=korg; t=1636014911;
+ bh=+UAkRrFFch22X7642iIOQo7roal4lSmXVN1jw2B0LFA=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=nlKmrxIcvLo9iKreFITSTsmfNMw9MhZtS/doOEhrynLCh+2S37qiw+DIAvBohsiA+
+ eWJypCbEbb1MKAJ062CqvAWWAw/SGjKjXif9Za0uKL+p+mAMraHDbqkH1tiHqTniG6
+ Tcr4xm5h6661oLizgg1SS8L7eNRaE0rEvJUwERwE=
+Date: Thu, 4 Nov 2021 09:34:58 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Florian Fainelli <f.fainelli@gmail.com>
+Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ Sasha Levin <sashal@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Stefan Agner <stefan@agner.ch>, Mike Rapoport <rppt@linux.ibm.com>,
+ Vineet Gupta <vgupta@synopsys.com>, Russell King <linux@armlinux.org.uk>,
+ Ralf Baechle <ralf@linux-mips.org>,
+ Paul Burton <paul.burton@mips.com>, James Hogan <jhogan@kernel.org>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ Palmer Dabbelt <palmer@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "open list:SYNOPSYS ARC ARCHITECTURE" <linux-snps-arc@lists.infradead.org>,
+ "moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>,
+ "open list:MIPS" <linux-mips@linux-mips.org>,
+ "open list:LINUX FOR POWERPC (32-BIT AND 64-BIT)"
+ <linuxppc-dev@lists.ozlabs.org>, 
+ "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+ "open list:GENERIC INCLUDE/ASM HEADER FILES" <linux-arch@vger.kernel.org>
+Subject: Re: [PATCH stable 4.19 1/1] arch: pgtable: define
+ MAX_POSSIBLE_PHYSMEM_BITS where needed
+Message-ID: <YYObMlXLFi7pAJ83@kroah.com>
+References: <20211103205656.374678-1-f.fainelli@gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20211103205656.374678-1-f.fainelli@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211103_172651_841879_F7A63B2B 
-X-CRM114-Status: GOOD (  31.70  )
+X-CRM114-CacheID: sfid-20211104_013511_888421_9BA34A70 
+X-CRM114-Status: GOOD (  26.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,345 +80,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Allocate the "new" memslot for !DELETE memslot updates straight away
-instead of filling an intermediate on-stack object and forcing
-kvm_set_memslot() to juggle the allocation and do weird things like reuse
-the old memslot object in MOVE.
+On Wed, Nov 03, 2021 at 01:56:56PM -0700, Florian Fainelli wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> [ Upstream commit cef397038167ac15d085914493d6c86385773709 ]
+> 
+> Stefan Agner reported a bug when using zsram on 32-bit Arm machines
+> with RAM above the 4GB address boundary:
+> 
+>   Unable to handle kernel NULL pointer dereference at virtual address 00000000
+>   pgd = a27bd01c
+>   [00000000] *pgd=236a0003, *pmd=1ffa64003
+>   Internal error: Oops: 207 [#1] SMP ARM
+>   Modules linked in: mdio_bcm_unimac(+) brcmfmac cfg80211 brcmutil raspberrypi_hwmon hci_uart crc32_arm_ce bcm2711_thermal phy_generic genet
+>   CPU: 0 PID: 123 Comm: mkfs.ext4 Not tainted 5.9.6 #1
+>   Hardware name: BCM2711
+>   PC is at zs_map_object+0x94/0x338
+>   LR is at zram_bvec_rw.constprop.0+0x330/0xa64
+>   pc : [<c0602b38>]    lr : [<c0bda6a0>]    psr: 60000013
+>   sp : e376bbe0  ip : 00000000  fp : c1e2921c
+>   r10: 00000002  r9 : c1dda730  r8 : 00000000
+>   r7 : e8ff7a00  r6 : 00000000  r5 : 02f9ffa0  r4 : e3710000
+>   r3 : 000fdffe  r2 : c1e0ce80  r1 : ebf979a0  r0 : 00000000
+>   Flags: nZCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment user
+>   Control: 30c5383d  Table: 235c2a80  DAC: fffffffd
+>   Process mkfs.ext4 (pid: 123, stack limit = 0x495a22e6)
+>   Stack: (0xe376bbe0 to 0xe376c000)
+> 
+> As it turns out, zsram needs to know the maximum memory size, which
+> is defined in MAX_PHYSMEM_BITS when CONFIG_SPARSEMEM is set, or in
+> MAX_POSSIBLE_PHYSMEM_BITS on the x86 architecture.
+> 
+> The same problem will be hit on all 32-bit architectures that have a
+> physical address space larger than 4GB and happen to not enable sparsemem
+> and include asm/sparsemem.h from asm/pgtable.h.
+> 
+> After the initial discussion, I suggested just always defining
+> MAX_POSSIBLE_PHYSMEM_BITS whenever CONFIG_PHYS_ADDR_T_64BIT is
+> set, or provoking a build error otherwise. This addresses all
+> configurations that can currently have this runtime bug, but
+> leaves all other configurations unchanged.
+> 
+> I looked up the possible number of bits in source code and
+> datasheets, here is what I found:
+> 
+>  - on ARC, CONFIG_ARC_HAS_PAE40 controls whether 32 or 40 bits are used
+>  - on ARM, CONFIG_LPAE enables 40 bit addressing, without it we never
+>    support more than 32 bits, even though supersections in theory allow
+>    up to 40 bits as well.
+>  - on MIPS, some MIPS32r1 or later chips support 36 bits, and MIPS32r5
+>    XPA supports up to 60 bits in theory, but 40 bits are more than
+>    anyone will ever ship
+>  - On PowerPC, there are three different implementations of 36 bit
+>    addressing, but 32-bit is used without CONFIG_PTE_64BIT
+>  - On RISC-V, the normal page table format can support 34 bit
+>    addressing. There is no highmem support on RISC-V, so anything
+>    above 2GB is unused, but it might be useful to eventually support
+>    CONFIG_ZRAM for high pages.
+> 
+> Fixes: 61989a80fb3a ("staging: zsmalloc: zsmalloc memory allocation library")
+> Fixes: 02390b87a945 ("mm/zsmalloc: Prepare to variable MAX_PHYSMEM_BITS")
+> Acked-by: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+> Reviewed-by: Stefan Agner <stefan@agner.ch>
+> Tested-by: Stefan Agner <stefan@agner.ch>
+> Acked-by: Mike Rapoport <rppt@linux.ibm.com>
+> Link: https://lore.kernel.org/linux-mm/bdfa44bf1c570b05d6c70898e2bbb0acf234ecdf.1604762181.git.stefan@agner.ch/
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> Signed-off-by: Sasha Levin <sashal@kernel.org>
+> [florian: patch arch/powerpc/include/asm/pte-common.h for 4.19.y]
+> Signed-off-by: Florian Fainelli <f.fainelli@gmail.com>
 
-In the MOVE case, this results in an "extra" memslot allocation due to
-allocating both the "new" slot and the "invalid" slot, but that's a
-temporary and not-huge allocation, and MOVE is a relatively rare memslot
-operation.
+All now queued up, thanks.
 
-Regarding MOVE, drop the open-coded management of the gfn tree with a
-call to kvm_replace_memslot(), which already handles the case where
-new->base_gfn != old->base_gfn.  This is made possible by virtue of not
-having to copy the "new" memslot data after erasing the old memslot from
-the gfn tree.  Using kvm_replace_memslot(), and more specifically not
-reusing the old memslot, means the MOVE case now does hva tree and hash
-list updates, but that's a small price to pay for simplifying the code
-and making MOVE align with all the other flavors of updates.  The "extra"
-updates are firmly in the noise from a performance perspective, e.g. the
-"move (in)active area" selfttests show a (very, very) slight improvement.
-
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- virt/kvm/kvm_main.c | 178 +++++++++++++++++++-------------------------
- 1 file changed, 77 insertions(+), 101 deletions(-)
-
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 5cc0b50faa8c..b413082c081d 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -1488,23 +1488,25 @@ static int kvm_prepare_memory_region(struct kvm *kvm,
- 	 * new and KVM isn't using a ring buffer, allocate and initialize a
- 	 * new bitmap.
- 	 */
--	if (!(new->flags & KVM_MEM_LOG_DIRTY_PAGES))
--		new->dirty_bitmap = NULL;
--	else if (old->dirty_bitmap)
--		new->dirty_bitmap = old->dirty_bitmap;
--	else if (!kvm->dirty_ring_size) {
--		r = kvm_alloc_dirty_bitmap(new);
--		if (r)
--			return r;
-+	if (change != KVM_MR_DELETE) {
-+		if (!(new->flags & KVM_MEM_LOG_DIRTY_PAGES))
-+			new->dirty_bitmap = NULL;
-+		else if (old && old->dirty_bitmap)
-+			new->dirty_bitmap = old->dirty_bitmap;
-+		else if (!kvm->dirty_ring_size) {
-+			r = kvm_alloc_dirty_bitmap(new);
-+			if (r)
-+				return r;
- 
--		if (kvm_dirty_log_manual_protect_and_init_set(kvm))
--			bitmap_set(new->dirty_bitmap, 0, new->npages);
-+			if (kvm_dirty_log_manual_protect_and_init_set(kvm))
-+				bitmap_set(new->dirty_bitmap, 0, new->npages);
-+		}
- 	}
- 
- 	r = kvm_arch_prepare_memory_region(kvm, old, new, change);
- 
- 	/* Free the bitmap on failure if it was allocated above. */
--	if (r && new->dirty_bitmap && !old->dirty_bitmap)
-+	if (r && new && new->dirty_bitmap && old && !old->dirty_bitmap)
- 		kvm_destroy_dirty_bitmap(new);
- 
- 	return r;
-@@ -1591,16 +1593,16 @@ static void kvm_copy_memslot(struct kvm_memory_slot *dest,
- 
- static void kvm_invalidate_memslot(struct kvm *kvm,
- 				   struct kvm_memory_slot *old,
--				   struct kvm_memory_slot *working_slot)
-+				   struct kvm_memory_slot *invalid_slot)
- {
- 	/*
- 	 * Mark the current slot INVALID.  As with all memslot modifications,
- 	 * this must be done on an unreachable slot to avoid modifying the
- 	 * current slot in the active tree.
- 	 */
--	kvm_copy_memslot(working_slot, old);
--	working_slot->flags |= KVM_MEMSLOT_INVALID;
--	kvm_replace_memslot(kvm, old, working_slot);
-+	kvm_copy_memslot(invalid_slot, old);
-+	invalid_slot->flags |= KVM_MEMSLOT_INVALID;
-+	kvm_replace_memslot(kvm, old, invalid_slot);
- 
- 	/*
- 	 * Activate the slot that is now marked INVALID, but don't propagate
-@@ -1627,20 +1629,15 @@ static void kvm_invalidate_memslot(struct kvm *kvm,
- 	 * above.  Writers are required to retrieve memslots *after* acquiring
- 	 * slots_arch_lock, thus the active slot's data is guaranteed to be fresh.
- 	 */
--	old->arch = working_slot->arch;
-+	old->arch = invalid_slot->arch;
- }
- 
- static void kvm_create_memslot(struct kvm *kvm,
--			       const struct kvm_memory_slot *new,
--			       struct kvm_memory_slot *working)
-+			       struct kvm_memory_slot *new)
- {
--	/*
--	 * Add the new memslot to the inactive set as a copy of the
--	 * new memslot data provided by userspace.
--	 */
--	kvm_copy_memslot(working, new);
--	kvm_replace_memslot(kvm, NULL, working);
--	kvm_activate_memslot(kvm, NULL, working);
-+	/* Add the new memslot to the inactive set and activate. */
-+	kvm_replace_memslot(kvm, NULL, new);
-+	kvm_activate_memslot(kvm, NULL, new);
- }
- 
- static void kvm_delete_memslot(struct kvm *kvm,
-@@ -1649,65 +1646,36 @@ static void kvm_delete_memslot(struct kvm *kvm,
- {
- 	/*
- 	 * Remove the old memslot (in the inactive memslots) by passing NULL as
--	 * the "new" slot.
-+	 * the "new" slot, and for the invalid version in the active slots.
- 	 */
- 	kvm_replace_memslot(kvm, old, NULL);
--
--	/* And do the same for the invalid version in the active slot. */
- 	kvm_activate_memslot(kvm, invalid_slot, NULL);
--
--	/* Free the invalid slot, the caller will clean up the old slot. */
--	kfree(invalid_slot);
- }
- 
--static struct kvm_memory_slot *kvm_move_memslot(struct kvm *kvm,
--						struct kvm_memory_slot *old,
--						const struct kvm_memory_slot *new,
--						struct kvm_memory_slot *invalid_slot)
-+static void kvm_move_memslot(struct kvm *kvm,
-+			     struct kvm_memory_slot *old,
-+			     struct kvm_memory_slot *new,
-+			     struct kvm_memory_slot *invalid_slot)
- {
--	struct kvm_memslots *slots = kvm_get_inactive_memslots(kvm, old->as_id);
--
- 	/*
--	 * The memslot's gfn is changing, remove it from the inactive tree, it
--	 * will be re-added with its updated gfn. Because its range is
--	 * changing, an in-place replace is not possible.
-+	 * Replace the old memslot in the inactive slots, and then swap slots
-+	 * and replace the current INVALID with the new as well.
- 	 */
--	kvm_erase_gfn_node(slots, old);
--
--	/*
--	 * The old slot is now fully disconnected, reuse its memory for the
--	 * persistent copy of "new".
--	 */
--	kvm_copy_memslot(old, new);
--
--	/* Re-add to the gfn tree with the updated gfn */
--	kvm_insert_gfn_node(slots, old);
--
--	/* Replace the current INVALID slot with the updated memslot. */
--	kvm_activate_memslot(kvm, invalid_slot, old);
--
--	/*
--	 * Clear the INVALID flag so that the invalid_slot is now a perfect
--	 * copy of the old slot.  Return it for cleanup in the caller.
--	 */
--	WARN_ON_ONCE(!(invalid_slot->flags & KVM_MEMSLOT_INVALID));
--	invalid_slot->flags &= ~KVM_MEMSLOT_INVALID;
--	return invalid_slot;
-+	kvm_replace_memslot(kvm, old, new);
-+	kvm_activate_memslot(kvm, invalid_slot, new);
- }
- 
- static void kvm_update_flags_memslot(struct kvm *kvm,
- 				     struct kvm_memory_slot *old,
--				     const struct kvm_memory_slot *new,
--				     struct kvm_memory_slot *working_slot)
-+				     struct kvm_memory_slot *new)
- {
- 	/*
- 	 * Similar to the MOVE case, but the slot doesn't need to be zapped as
- 	 * an intermediate step. Instead, the old memslot is simply replaced
- 	 * with a new, updated copy in both memslot sets.
- 	 */
--	kvm_copy_memslot(working_slot, new);
--	kvm_replace_memslot(kvm, old, working_slot);
--	kvm_activate_memslot(kvm, old, working_slot);
-+	kvm_replace_memslot(kvm, old, new);
-+	kvm_activate_memslot(kvm, old, new);
- }
- 
- static int kvm_set_memslot(struct kvm *kvm,
-@@ -1715,19 +1683,9 @@ static int kvm_set_memslot(struct kvm *kvm,
- 			   struct kvm_memory_slot *new,
- 			   enum kvm_mr_change change)
- {
--	struct kvm_memory_slot *working;
-+	struct kvm_memory_slot *invalid_slot;
- 	int r;
- 
--	/*
--	 * Modifications are done on an unreachable slot.  Any changes are then
--	 * (eventually) propagated to both the active and inactive slots.  This
--	 * allocation would ideally be on-demand (in helpers), but is done here
--	 * to avoid having to handle failure after kvm_prepare_memory_region().
--	 */
--	working = kzalloc(sizeof(*working), GFP_KERNEL_ACCOUNT);
--	if (!working)
--		return -ENOMEM;
--
- 	/*
- 	 * Released in kvm_swap_active_memslots.
- 	 *
-@@ -1752,9 +1710,19 @@ static int kvm_set_memslot(struct kvm *kvm,
- 	 * (and without a lock), a window would exist between effecting the
- 	 * delete/move and committing the changes in arch code where KVM or a
- 	 * guest could access a non-existent memslot.
-+	 *
-+	 * Modifications are done on a temporary, unreachable slot.  The old
-+	 * slot needs to be preserved in case a later step fails and the
-+	 * invalidation needs to be reverted.
- 	 */
--	if (change == KVM_MR_DELETE || change == KVM_MR_MOVE)
--		kvm_invalidate_memslot(kvm, old, working);
-+	if (change == KVM_MR_DELETE || change == KVM_MR_MOVE) {
-+		invalid_slot = kzalloc(sizeof(*invalid_slot), GFP_KERNEL_ACCOUNT);
-+		if (!invalid_slot) {
-+			mutex_unlock(&kvm->slots_arch_lock);
-+			return -ENOMEM;
-+		}
-+		kvm_invalidate_memslot(kvm, old, invalid_slot);
-+	}
- 
- 	r = kvm_prepare_memory_region(kvm, old, new, change);
- 	if (r) {
-@@ -1764,11 +1732,12 @@ static int kvm_set_memslot(struct kvm *kvm,
- 		 * in the inactive slots.  Changing the active memslots also
- 		 * release slots_arch_lock.
- 		 */
--		if (change == KVM_MR_DELETE || change == KVM_MR_MOVE)
--			kvm_activate_memslot(kvm, working, old);
--		else
-+		if (change == KVM_MR_DELETE || change == KVM_MR_MOVE) {
-+			kvm_activate_memslot(kvm, invalid_slot, old);
-+			kfree(invalid_slot);
-+		} else {
- 			mutex_unlock(&kvm->slots_arch_lock);
--		kfree(working);
-+		}
- 		return r;
- 	}
- 
-@@ -1780,16 +1749,20 @@ static int kvm_set_memslot(struct kvm *kvm,
- 	 * old slot is detached but otherwise preserved.
- 	 */
- 	if (change == KVM_MR_CREATE)
--		kvm_create_memslot(kvm, new, working);
-+		kvm_create_memslot(kvm, new);
- 	else if (change == KVM_MR_DELETE)
--		kvm_delete_memslot(kvm, old, working);
-+		kvm_delete_memslot(kvm, old, invalid_slot);
- 	else if (change == KVM_MR_MOVE)
--		old = kvm_move_memslot(kvm, old, new, working);
-+		kvm_move_memslot(kvm, old, new, invalid_slot);
- 	else if (change == KVM_MR_FLAGS_ONLY)
--		kvm_update_flags_memslot(kvm, old, new, working);
-+		kvm_update_flags_memslot(kvm, old, new);
- 	else
- 		BUG();
- 
-+	/* Free the temporary INVALID slot used for DELETE and MOVE. */
-+	if (change == KVM_MR_DELETE || change == KVM_MR_MOVE)
-+		kfree(invalid_slot);
-+
- 	/*
- 	 * No need to refresh new->arch, changes after dropping slots_arch_lock
- 	 * will directly hit the final, active memsot.  Architectures are
-@@ -1834,8 +1807,7 @@ static bool kvm_check_memslot_overlap(struct kvm_memslots *slots, int id,
- int __kvm_set_memory_region(struct kvm *kvm,
- 			    const struct kvm_userspace_memory_region *mem)
- {
--	struct kvm_memory_slot *old;
--	struct kvm_memory_slot new;
-+	struct kvm_memory_slot *old, *new;
- 	struct kvm_memslots *slots;
- 	enum kvm_mr_change change;
- 	unsigned long npages;
-@@ -1884,11 +1856,7 @@ int __kvm_set_memory_region(struct kvm *kvm,
- 		if (WARN_ON_ONCE(kvm->nr_memslot_pages < old->npages))
- 			return -EIO;
- 
--		memset(&new, 0, sizeof(new));
--		new.id = id;
--		new.as_id = as_id;
--
--		return kvm_set_memslot(kvm, old, &new, KVM_MR_DELETE);
-+		return kvm_set_memslot(kvm, old, NULL, KVM_MR_DELETE);
- 	}
- 
- 	base_gfn = (mem->guest_phys_addr >> PAGE_SHIFT);
-@@ -1921,14 +1889,22 @@ int __kvm_set_memory_region(struct kvm *kvm,
- 	    kvm_check_memslot_overlap(slots, id, base_gfn, base_gfn + npages))
- 		return -EEXIST;
- 
--	new.as_id = as_id;
--	new.id = id;
--	new.base_gfn = base_gfn;
--	new.npages = npages;
--	new.flags = mem->flags;
--	new.userspace_addr = mem->userspace_addr;
-+	/* Allocate a slot that will persist in the memslot. */
-+	new = kzalloc(sizeof(*new), GFP_KERNEL_ACCOUNT);
-+	if (!new)
-+		return -ENOMEM;
- 
--	return kvm_set_memslot(kvm, old, &new, change);
-+	new->as_id = as_id;
-+	new->id = id;
-+	new->base_gfn = base_gfn;
-+	new->npages = npages;
-+	new->flags = mem->flags;
-+	new->userspace_addr = mem->userspace_addr;
-+
-+	r = kvm_set_memslot(kvm, old, new, change);
-+	if (r)
-+		kfree(new);
-+	return r;
- }
- EXPORT_SYMBOL_GPL(__kvm_set_memory_region);
- 
--- 
-2.33.1.1089.g2158813163f-goog
-
+greg k-h
 
 _______________________________________________
 linux-riscv mailing list
