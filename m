@@ -2,14 +2,14 @@ Return-Path: <SRS0=Owia=PX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 02379C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 00:41:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A2D4DC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 00:43:24 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B4A0861058
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 00:41:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B4A0861058
+	by mail.kernel.org (Postfix) with ESMTPS id 648D760231
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 00:43:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 648D760231
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,59 +18,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:References
 	:Mime-Version:Message-Id:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OcydA+5V8wAwCOefgxbhOxEVU6+bTNj5bvY3tC7bhhA=; b=bCVvQH6rV/6v1R
-	1L00PkprQDweZrxoXUTX9sBpExdkTeWHBzqHRgUY/GbljL/xwgDsjoWXF4d417CusMlfr/f2KowKV
-	K5MELua653ofGjknBHx/dQzHJsMY8DNgAjquEfyjbQLTLhG+iyhWtzpBaHa18swFmmHe29oo33/dJ
-	ElYHAMpwWsZ6iCWYF+LKK1X3JRFMhKwNKI8T30GrcDS8fEGXWUyvYs7AZpM+YgKNgjDAzllTJubKV
-	1iEov1pm5UBQrQdkvjfEAONM4X6JA4ehLnZCwyq48kVhRdTL16lovTk9MYj3uCrd778Djr5cmvUNO
-	1sHcdPpTO2icU930xTMA==;
+	List-Owner; bh=i122cHey9WtC4wrTnoLOlg03SP84lAzyJnjCB+TzwGY=; b=RxgG4j/yE/bvr8
+	xVknesDa1p/3F5qfzRP5YoZ+SZNYmJIVB7G+rlgCjidKcLll9SOOm0xg6F+4tgwEwHmQDq0aJ+sfH
+	3VN8zBwxU2Y/KuXxQeGKpAT3mep8LMFP+AuQCYMqM2b7Dm/kM1E4B1w6ffhY09WGm9ZiDKMa2n1kN
+	tUdJW+IoIH80T2xrdMNKTKq+jeMC6eOOh24NeGtm2LbLnIi6tnpcDRK8nIkgOsGa1XN24jpp7tcQP
+	eUCIHagcD4tyjRJoYXKoZc3Qknz36LqYPWcPwoHI4tdFeVAJP+LNiuCOqZqTiiKcJJtN7T510nwYm
+	i17qEKR9FkOun/DOCrSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1miQou-007JW2-W3; Thu, 04 Nov 2021 00:41:33 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1miQqZ-007K9k-9W; Thu, 04 Nov 2021 00:43:15 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1miQaJ-007Cn0-QG
- for linux-riscv@lists.infradead.org; Thu, 04 Nov 2021 00:26:31 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id
- n9-20020a170902968900b0013f23b51142so1946735plp.8
- for <linux-riscv@lists.infradead.org>; Wed, 03 Nov 2021 17:26:26 -0700 (PDT)
+ id 1miQaM-007CpS-SE
+ for linux-riscv@lists.infradead.org; Thu, 04 Nov 2021 00:26:33 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id
+ g18-20020a631112000000b00299f5f53824so2417184pgl.2
+ for <linux-riscv@lists.infradead.org>; Wed, 03 Nov 2021 17:26:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
  h=reply-to:date:in-reply-to:message-id:mime-version:references
  :subject:from:to:cc;
- bh=Rh/p9dCBzSE6gfhoLM6qA42nAbGkMHfvz+ihOHus8Bw=;
- b=a0LysDSixF+SvGFoYJAn+9lReuNdeuojzCYwE/5S80HnosejUJ/GB5lSTi0I0B6etw
- PCesr77PK5UoG4qbBnDDmbOplfKjJvN0RSVwwsJ9A6TMfI9nydou7MxD9T7lOeaglEHG
- XNiJ9e6EtswDVfj8NbPNGs3K4UVClUfWt61l+WfszqPbkc9k/eRztWPGJiIa05+786xW
- gJ3qi2D5CO9qdvRG06/gp2Sn2Z2tyJIgyiWYmMzoSHEsDwT7XcmXrmm49tOMjj1utuxC
- 5Wr/o1J29XTmPql9v7HTGvlM7g8HATHgYxp+e4CAJr75tfOZ82uzZSP74HenxJ6CsJu8
- wJFQ==
+ bh=gefeXeMu+9xCn+OiiZbsmvywIWNyuYY1aczHxfS7F84=;
+ b=q1wAaFzQivbUaLWNpD28vIW6ok97J24IWOZtjc0+hsnIoFnhMyUWsnSfQKoqN3maJ3
+ KBdBMOyYnFaTKZvkOTgijuDb8a1y6dTYyIvATTjrk50gQdXgdq0sK8P9D8VXqeBwIchM
+ S4752LKzCwKCElggFGcp/0gCfncZSwTidehk3QlNJHjH4YdWFX4NP2+qFH0XmXIojpE7
+ shl+78ytzLoTN1+DNy2u1aXGBjCw+SMXFRKxDeT2bHggWBTmy7o/SubcktQSj4/PZQou
+ hwUcODvMGvNUFZIWK9EWYU9o0oSTlOaqrHSlqsc6GHFHSECGSUQyaSoW+8/pBlFiy+YJ
+ LVDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:reply-to:date:in-reply-to:message-id
  :mime-version:references:subject:from:to:cc;
- bh=Rh/p9dCBzSE6gfhoLM6qA42nAbGkMHfvz+ihOHus8Bw=;
- b=yh/xUTosIQe4sGxNSYfN1xM8WIm5tsEP5CzmE+ZrRmTGDTy0UN08qp4TGakXYbcGpI
- MhBo0M/6Z693HcmJ0Qwj1Fr5KTlbYsJL7xBju0TTiwYpKFeOn6rQSqUo32sCKpVJqi1+
- g7AVhe8IbpaN9Dg3giO1jTJ6tnS9oXpObehj3qraLssd10gCik9TUxhaMWW+qmUKIoyu
- dx6AtdzrK1+ellRLvmtLA2gRzZHlO1CBgUShqdZFp4psnI5875kvB4jertFBzbkabHZy
- FNvDABDZILdXJbjZpUJnMX8nlgejjIKSidhAe8wEVDxr686h//qx6RMQ9JU/W/nmda5t
- PlAQ==
-X-Gm-Message-State: AOAM531moxNtIT5tmLxhDL5TcybGKYUwV7QZk6ZjZ3aj277MSj0yEfgS
- mqOiLCjWqIGbNZPP5Jq4aC4j+nMiPgU=
-X-Google-Smtp-Source: ABdhPJyOWq98exFdSMvxgt0VGjIuS13MnOJ47QLgbIC6Hkpi6D0S+Boi55mGWksr+QgQdfajOLURjR0xq4c=
+ bh=gefeXeMu+9xCn+OiiZbsmvywIWNyuYY1aczHxfS7F84=;
+ b=NSgA8Cd4Wy4LNDc1m4dZD0aEgsxzg3PFyzxjTBj1LWmaa4iBx1yqgRbdIXcUYYCf3i
+ RNs3meqfkhrA2ed2LAmrae+xWjDPiOzHxDj0k32qinmHCuZe119or04bQwFEfsRpTqkd
+ bBOTydd8ebPwdbJCBVfn9/ROdyRtACQu2i75zU4NMHAChWtk6UBZ6eiw3UG97AnVGLFe
+ Lc5PGRx6UmiDA6Jfc+UV4dRzhyOErUhSOHJ1VeenKoy46qHZ/FdT3hUJfsHAx8Czo7WJ
+ H2gugNcKZR2q+pXnKWj0WVbwhLC/2KT1i/iRPtxyP3FdaQiUKZP54xEUPE/QhT+e9vuY
+ BNdg==
+X-Gm-Message-State: AOAM5321mZ3a0FSRVJ7J/qMUaVkemaDo2CDHzbaC17YksXsuaI6yPJpe
+ 6cxPUym5FtIDmTfn661YCCzwEce/xjs=
+X-Google-Smtp-Source: ABdhPJwuRHtV9T3+KFXWyLxF72TgsEexvxCX5VCcTZ2sr7WXwUborCujSIBbaHyiH9gR1LJWc7GYuxnx26s=
 X-Received: from seanjc.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:3e5])
- (user=seanjc job=sendgmr) by 2002:a17:902:e8d1:b0:141:de15:f596
- with SMTP id
- v17-20020a170902e8d100b00141de15f596mr25033911plg.67.1635985585858; Wed, 03
- Nov 2021 17:26:25 -0700 (PDT)
-Date: Thu,  4 Nov 2021 00:25:17 +0000
+ (user=seanjc job=sendgmr) by 2002:a63:740e:: with SMTP id
+ p14mr35995604pgc.329.1635985589285; 
+ Wed, 03 Nov 2021 17:26:29 -0700 (PDT)
+Date: Thu,  4 Nov 2021 00:25:19 +0000
 In-Reply-To: <20211104002531.1176691-1-seanjc@google.com>
-Message-Id: <20211104002531.1176691-17-seanjc@google.com>
+Message-Id: <20211104002531.1176691-19-seanjc@google.com>
 Mime-Version: 1.0
 References: <20211104002531.1176691-1-seanjc@google.com>
 X-Mailer: git-send-email 2.33.1.1089.g2158813163f-goog
-Subject: [PATCH v5.5 16/30] KVM: x86: Don't assume old/new memslots are
- non-NULL at memslot commit
+Subject: [PATCH v5.5 18/30] KVM: Don't make a full copy of the old memslot in
+ __kvm_set_memory_region()
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
  Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
@@ -93,8 +92,8 @@ Cc: James Morse <james.morse@arm.com>,
  linux-kernel@vger.kernel.org, Ben Gardon <bgardon@google.com>, 
  "Maciej S . Szmigiero" <maciej.szmigiero@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211103_172627_899335_B5999CD8 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20211103_172630_993333_5F3193E3 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,57 +111,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Play nice with a NULL @old or @new when handling memslot updates so that
-common KVM can pass NULL for one or the other in CREATE and DELETE cases
-instead of having to synthesize a dummy memslot.
+Stop making a full copy of the old memslot in __kvm_set_memory_region()
+now that metadata updates are handled by kvm_set_memslot(), i.e. now that
+the old memslot's dirty bitmap doesn't need to be referenced after the
+memslot and its pointer is modified/invalidated by kvm_set_memslot().
 
 No functional change intended.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/x86.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+ virt/kvm/kvm_main.c | 35 +++++++++++++----------------------
+ 1 file changed, 13 insertions(+), 22 deletions(-)
 
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index 80e726f73dd7..80183f7eadeb 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -11762,13 +11762,15 @@ static void kvm_mmu_slot_apply_flags(struct kvm *kvm,
- 				     const struct kvm_memory_slot *new,
- 				     enum kvm_mr_change change)
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 6c7bbc452dae..bbaa01afac43 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -1715,8 +1715,8 @@ static int kvm_set_memslot(struct kvm *kvm,
+ int __kvm_set_memory_region(struct kvm *kvm,
+ 			    const struct kvm_userspace_memory_region *mem)
  {
--	bool log_dirty_pages = new->flags & KVM_MEM_LOG_DIRTY_PAGES;
-+	u32 old_flags = old ? old->flags : 0;
-+	u32 new_flags = new ? new->flags : 0;
-+	bool log_dirty_pages = new_flags & KVM_MEM_LOG_DIRTY_PAGES;
+-	struct kvm_memory_slot old, new;
+-	struct kvm_memory_slot *tmp;
++	struct kvm_memory_slot *old, *tmp;
++	struct kvm_memory_slot new;
+ 	enum kvm_mr_change change;
+ 	int as_id, id;
+ 	int r;
+@@ -1746,25 +1746,16 @@ int __kvm_set_memory_region(struct kvm *kvm,
+ 		return -EINVAL;
  
  	/*
- 	 * Update CPU dirty logging if dirty logging is being toggled.  This
- 	 * applies to all operations.
+-	 * Make a full copy of the old memslot, the pointer will become stale
+-	 * when the memslots are re-sorted by update_memslots(), and the old
+-	 * memslot needs to be referenced after calling update_memslots(), e.g.
+-	 * to free its resources and for arch specific behavior.
++	 * Note, the old memslot (and the pointer itself!) may be invalidated
++	 * and/or destroyed by kvm_set_memslot().
  	 */
--	if ((old->flags ^ new->flags) & KVM_MEM_LOG_DIRTY_PAGES)
-+	if ((old_flags ^ new_flags) & KVM_MEM_LOG_DIRTY_PAGES)
- 		kvm_mmu_update_cpu_dirty_logging(kvm, log_dirty_pages);
+-	tmp = id_to_memslot(__kvm_memslots(kvm, as_id), id);
+-	if (tmp) {
+-		old = *tmp;
+-		tmp = NULL;
+-	} else {
+-		memset(&old, 0, sizeof(old));
+-		old.id = id;
+-	}
++	old = id_to_memslot(__kvm_memslots(kvm, as_id), id);
  
- 	/*
-@@ -11786,7 +11788,7 @@ static void kvm_mmu_slot_apply_flags(struct kvm *kvm,
- 	 * MOVE/DELETE: The old mappings will already have been cleaned up by
- 	 *		kvm_arch_flush_shadow_memslot().
- 	 */
--	if ((change != KVM_MR_FLAGS_ONLY) || (new->flags & KVM_MEM_READONLY))
-+	if ((change != KVM_MR_FLAGS_ONLY) || (new_flags & KVM_MEM_READONLY))
- 		return;
+ 	if (!mem->memory_size) {
+-		if (!old.npages)
++		if (!old || !old->npages)
+ 			return -EINVAL;
  
- 	/*
-@@ -11794,7 +11796,7 @@ static void kvm_mmu_slot_apply_flags(struct kvm *kvm,
- 	 * other flag is LOG_DIRTY_PAGES, i.e. something is wrong if dirty
- 	 * logging isn't being toggled on or off.
- 	 */
--	if (WARN_ON_ONCE(!((old->flags ^ new->flags) & KVM_MEM_LOG_DIRTY_PAGES)))
-+	if (WARN_ON_ONCE(!((old_flags ^ new_flags) & KVM_MEM_LOG_DIRTY_PAGES)))
- 		return;
+-		if (WARN_ON_ONCE(kvm->nr_memslot_pages < old.npages))
++		if (WARN_ON_ONCE(kvm->nr_memslot_pages < old->npages))
+ 			return -EIO;
  
- 	if (!log_dirty_pages) {
+ 		memset(&new, 0, sizeof(new));
+@@ -1784,7 +1775,7 @@ int __kvm_set_memory_region(struct kvm *kvm,
+ 	if (new.npages > KVM_MEM_MAX_NR_PAGES)
+ 		return -EINVAL;
+ 
+-	if (!old.npages) {
++	if (!old || !old->npages) {
+ 		change = KVM_MR_CREATE;
+ 
+ 		/*
+@@ -1794,14 +1785,14 @@ int __kvm_set_memory_region(struct kvm *kvm,
+ 		if ((kvm->nr_memslot_pages + new.npages) < kvm->nr_memslot_pages)
+ 			return -EINVAL;
+ 	} else { /* Modify an existing slot. */
+-		if ((new.userspace_addr != old.userspace_addr) ||
+-		    (new.npages != old.npages) ||
+-		    ((new.flags ^ old.flags) & KVM_MEM_READONLY))
++		if ((new.userspace_addr != old->userspace_addr) ||
++		    (new.npages != old->npages) ||
++		    ((new.flags ^ old->flags) & KVM_MEM_READONLY))
+ 			return -EINVAL;
+ 
+-		if (new.base_gfn != old.base_gfn)
++		if (new.base_gfn != old->base_gfn)
+ 			change = KVM_MR_MOVE;
+-		else if (new.flags != old.flags)
++		else if (new.flags != old->flags)
+ 			change = KVM_MR_FLAGS_ONLY;
+ 		else /* Nothing to change. */
+ 			return 0;
 -- 
 2.33.1.1089.g2158813163f-goog
 
