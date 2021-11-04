@@ -2,14 +2,14 @@ Return-Path: <SRS0=Owia=PX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 92A48C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 01:00:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4D124C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 01:00:15 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4C29261051
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 01:00:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4C29261051
+	by mail.kernel.org (Postfix) with ESMTPS id 0E07B61051
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 01:00:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0E07B61051
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,59 +18,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:References
 	:Mime-Version:Message-Id:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=84U/YnGO4sLqIBNEhDOVz8KNfzEmZHgAl2M49k8nG/U=; b=lxTtVbB2qyZdIu
-	I9IV3sa1pICWreWYyJVHAJ0VnZHJzVbqkRPWzRBOKQ3C++5v7IZhazGg6Vd7FQ+iKnS72D+0Hw/+0
-	8LDtOdJPX1fsmtv3FXV8ZTYLhwAOWAil5E8g+nMWJnjvHy3MlBk0MGmhaw7KdGJHtfm3bNDNUJrKd
-	rz54Yh5mB9S6do0+rnjlBk+6j1vAkQii0zGJYC+0ESpkDio+mhjG3fCD+7U8hNOTGw51I+q3/L9l3
-	ltosqGg0x3HTjDm405V0GIz52LIkRw+N21NjAJR/Fq7Dvc58B8wNlfTA6nmDHUTLnaObtd+5l/O3Y
-	mLj+njhkR1KXuwGp2VoQ==;
+	List-Owner; bh=cVEFmgk7erPIj9yPnpQHpDeUkgFAX/9FlIp01LM0itM=; b=apJUabZH0ujm9m
+	rErMY7UZeoUUhpXBcjMS0nYuNGJoO51oBYKsT9UIm//SD2RYYRWVFpi/8Q/lD643XW4iTe9Hr6kyj
+	wNFYcM4/R8eRr5WsPJNkrXtqPwX8bsmkl0yYTN+yYzQbx3X7VdCa8tqZqXMpoTDauSTF0S47v09Fd
+	8CKDHfSU99bt3euLaCll5P8hLeuaWlXnkOvkSHBM1E/9YrwUFiraiZINaBnm0rWYcs5iyPq3BkbjS
+	I25yvfnDOphuSJmlHW0Ycw2KEWEDZWMW0z8BuIpNE83mF1fzJYIILK4GB9DOpCfU0OqpPvBGiQDzS
+	HPWJo79HwS18O9GMg1Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1miR6n-007QET-1Z; Thu, 04 Nov 2021 01:00:01 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1miR6t-007QId-SL; Thu, 04 Nov 2021 01:00:07 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1miQag-007D3r-Gz
- for linux-riscv@lists.infradead.org; Thu, 04 Nov 2021 00:26:58 +0000
-Received: by mail-pf1-x449.google.com with SMTP id
- x25-20020aa79199000000b0044caf0d1ba8so2367060pfa.1
- for <linux-riscv@lists.infradead.org>; Wed, 03 Nov 2021 17:26:49 -0700 (PDT)
+ id 1miQah-007D4s-N6
+ for linux-riscv@lists.infradead.org; Thu, 04 Nov 2021 00:27:00 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id
+ v18-20020a170902e8d200b00141df2da949so1936372plg.10
+ for <linux-riscv@lists.infradead.org>; Wed, 03 Nov 2021 17:26:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
  h=reply-to:date:in-reply-to:message-id:mime-version:references
  :subject:from:to:cc;
- bh=cwptNtKIDGBxPZN/2DV/RXa3ZTx9EN7Ut32v7IxrbNY=;
- b=kp5W0d4ZKAqTQCeZRqX3O+a/DAfCjKvi3mu4Tg7fQ3jvfDHMY9wuQ5slcGHjKHrpuA
- O41kLcfJOvm1lVdKYW85uy2oNREGu2MSv7jrDheS1753o05M2Y57yo4STeIs65Q2EHGK
- B5up0zB0VZ6L8ytxDvtb0VGTD9hy1sbsnk0DAyC3cwRi4JiDc+TXwSManxsjb2qDyn2O
- OiXBUS1i7vJaF7j3il7TVpDWNEF8CLeaquv4Bhyqc0YSiiB0sbOWzXDrq3GuqvjBYdoT
- il3fanhD0s/lcfunhrA5jBW1o7Wn+UmL0jWWhjPVM5Fv3i3nvUx16q/ebHR7bCXwY+na
- ZUjw==
+ bh=3Oix+myx2pXtaS6qqrhKXXYNSd1duRmSeNBjYBf01G8=;
+ b=T7Li7ANfcPjBCbj9+DKfUi7E9HMHRR8t88UjyTqohCm/C++BNDUxZXBn8j2DcZEMpA
+ mGH99sOh4E8WZVeHdeK5wa0d8OLkGRmOX4YXznGdWL6AB9m9J3jtSowWUg1EyEutLwr5
+ fkW1iLLRMw7OXqnk0p24PkMbV7hX3G2oA1DSKGJbgsR2aHpCbSNVMPsjMTDk/W+ZDEp/
+ b64dLnClxvtc2rQaa2CAN6FFezvBplkeeQHRAO6rLRDw6CPgh8y6I646/QDdI6sBQQy5
+ uSFKdlP01SbOENjWGmAGklxMJ4DGwF5mxZUiawv9p04MF/m4dQOPwzlzNNQs9/4alG9t
+ x1FA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:reply-to:date:in-reply-to:message-id
  :mime-version:references:subject:from:to:cc;
- bh=cwptNtKIDGBxPZN/2DV/RXa3ZTx9EN7Ut32v7IxrbNY=;
- b=WCg9eUQrmA4r4hLHL9SzMyjdLHwnIKLVVrwaPeB1LA/ZmQEBEnRNa7Efo8JL07G1uP
- sJR/suu/vkvIDX4CscQh5rMMUSz9Opw7P8I+toFbG2AiA+TB5luGOw5CX8TInO66lt4N
- XgY0GT+nWj53nxMi5QJhKOfBiedBjj4+wddTqWnHgY8FVHuOEStYcuBu5yiZ7zAY48lY
- LGCMgzW3o/ev65knym4CJkv1AIijRKpTS170JDdalPcFQDg6NMnmx4b6AwtmiGmoqeZ3
- knWfPDD5q6RcESDIZq/Xt7ePCJdyj66av0izPrG1H2lW5OMQNuR/dZiwQA47FyS4aOPn
- mP3g==
-X-Gm-Message-State: AOAM533YPRsFApUIqLlK+evDh/H+ZbEvsECd1S2Zf9S33Y2qzjjPAWSA
- CVuNtAAvMZbYmbvNJ0IGN78ESjb8pTU=
-X-Google-Smtp-Source: ABdhPJwR0Cgz5rdM3APhtKmfNq/3RdcWCCfmBz9ZLpAOZgawdF+Lq6eMD3AhC92nfdAaylW7AAzDiY84qhk=
+ bh=3Oix+myx2pXtaS6qqrhKXXYNSd1duRmSeNBjYBf01G8=;
+ b=LHngJfcCD0NCCYp90wDdgfV84TrCzo+0q8xo9romRlgTx96+4DRlCW3amJUJAPxL07
+ Vj9y/v0UzGIaHNTOnxweJ+XVuoICxFKIEJZKiksKwTNAx7IDF8pidf1Kp+jo5KmN5m2i
+ 3InuOmEIuFRSXqNB0ERAtccnzP+ex22av8SkAQ4vOanbKoPMzNhfJk98fwbNZnwJIvQu
+ sUnB40vaZPLIo2LSnLdbX0y/h+A+1IkiRuK1G2uOmixSknxXDPeQ0pcAe1avNhRxSwAb
+ aCxM7QML3ekygBXSCDev4ny6PkTLSA8ks2F0XVYuIPZi2733Yo+jQAKEBrTX8uBSJHmP
+ WcQg==
+X-Gm-Message-State: AOAM533kOLVrhuWaqNl/0/kRwIUB6rx5ovkz1YDYq+N/glfNi6hoA2mv
+ FhbjRKKAHNPxOy/wzdlqnLvteNMb5jc=
+X-Google-Smtp-Source: ABdhPJxLsPJIYgU5iZvZVjIfCmGT4IcCcexgXJGOXXxz+DqiMhdzOwQbPPyTYzjNKnPa760AvzYmQj7kGXY=
 X-Received: from seanjc.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:3e5])
- (user=seanjc job=sendgmr) by 2002:a05:6a00:1709:b0:481:203:d3bd
+ (user=seanjc job=sendgmr) by 2002:a05:6a00:114c:b0:47b:b98b:2210
  with SMTP id
- h9-20020a056a00170900b004810203d3bdmr28140075pfc.58.1635985608753; Wed, 03
- Nov 2021 17:26:48 -0700 (PDT)
-Date: Thu,  4 Nov 2021 00:25:30 +0000
+ b12-20020a056a00114c00b0047bb98b2210mr48415016pfm.75.1635985610490; Wed, 03
+ Nov 2021 17:26:50 -0700 (PDT)
+Date: Thu,  4 Nov 2021 00:25:31 +0000
 In-Reply-To: <20211104002531.1176691-1-seanjc@google.com>
-Message-Id: <20211104002531.1176691-30-seanjc@google.com>
+Message-Id: <20211104002531.1176691-31-seanjc@google.com>
 Mime-Version: 1.0
 References: <20211104002531.1176691-1-seanjc@google.com>
 X-Mailer: git-send-email 2.33.1.1089.g2158813163f-goog
-Subject: [PATCH v5.5 29/30] KVM: Wait 'til the bitter end to initialize the
- "new" memslot
+Subject: [PATCH v5.5 30/30] KVM: Dynamically allocate "new" memslots from the
+ get-go
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
  Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
@@ -93,8 +93,8 @@ Cc: James Morse <james.morse@arm.com>,
  linux-kernel@vger.kernel.org, Ben Gardon <bgardon@google.com>, 
  "Maciej S . Szmigiero" <maciej.szmigiero@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211103_172650_606067_E1375C5D 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20211103_172651_841879_F7A63B2B 
+X-CRM114-Status: GOOD (  31.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,101 +112,336 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Initialize the "new" memslot in the !DELETE path only after the various
-sanity checks have passed.  This will allow a future commit to allocate
-@new dynamically without having to copy a memslot, and without having to
-deal with freeing @new in error paths and in the "nothing to change" path
-that's hiding in the sanity checks.
+Allocate the "new" memslot for !DELETE memslot updates straight away
+instead of filling an intermediate on-stack object and forcing
+kvm_set_memslot() to juggle the allocation and do weird things like reuse
+the old memslot object in MOVE.
 
-No functional change intended.
+In the MOVE case, this results in an "extra" memslot allocation due to
+allocating both the "new" slot and the "invalid" slot, but that's a
+temporary and not-huge allocation, and MOVE is a relatively rare memslot
+operation.
+
+Regarding MOVE, drop the open-coded management of the gfn tree with a
+call to kvm_replace_memslot(), which already handles the case where
+new->base_gfn != old->base_gfn.  This is made possible by virtue of not
+having to copy the "new" memslot data after erasing the old memslot from
+the gfn tree.  Using kvm_replace_memslot(), and more specifically not
+reusing the old memslot, means the MOVE case now does hva tree and hash
+list updates, but that's a small price to pay for simplifying the code
+and making MOVE align with all the other flavors of updates.  The "extra"
+updates are firmly in the noise from a performance perspective, e.g. the
+"move (in)active area" selfttests show a (very, very) slight improvement.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- virt/kvm/kvm_main.c | 37 ++++++++++++++++++++-----------------
- 1 file changed, 20 insertions(+), 17 deletions(-)
+ virt/kvm/kvm_main.c | 178 +++++++++++++++++++-------------------------
+ 1 file changed, 77 insertions(+), 101 deletions(-)
 
 diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index d22e40225703..5cc0b50faa8c 100644
+index 5cc0b50faa8c..b413082c081d 100644
 --- a/virt/kvm/kvm_main.c
 +++ b/virt/kvm/kvm_main.c
-@@ -1838,6 +1838,8 @@ int __kvm_set_memory_region(struct kvm *kvm,
- 	struct kvm_memory_slot new;
- 	struct kvm_memslots *slots;
- 	enum kvm_mr_change change;
-+	unsigned long npages;
-+	gfn_t base_gfn;
- 	int as_id, id;
+@@ -1488,23 +1488,25 @@ static int kvm_prepare_memory_region(struct kvm *kvm,
+ 	 * new and KVM isn't using a ring buffer, allocate and initialize a
+ 	 * new bitmap.
+ 	 */
+-	if (!(new->flags & KVM_MEM_LOG_DIRTY_PAGES))
+-		new->dirty_bitmap = NULL;
+-	else if (old->dirty_bitmap)
+-		new->dirty_bitmap = old->dirty_bitmap;
+-	else if (!kvm->dirty_ring_size) {
+-		r = kvm_alloc_dirty_bitmap(new);
+-		if (r)
+-			return r;
++	if (change != KVM_MR_DELETE) {
++		if (!(new->flags & KVM_MEM_LOG_DIRTY_PAGES))
++			new->dirty_bitmap = NULL;
++		else if (old && old->dirty_bitmap)
++			new->dirty_bitmap = old->dirty_bitmap;
++		else if (!kvm->dirty_ring_size) {
++			r = kvm_alloc_dirty_bitmap(new);
++			if (r)
++				return r;
+ 
+-		if (kvm_dirty_log_manual_protect_and_init_set(kvm))
+-			bitmap_set(new->dirty_bitmap, 0, new->npages);
++			if (kvm_dirty_log_manual_protect_and_init_set(kvm))
++				bitmap_set(new->dirty_bitmap, 0, new->npages);
++		}
+ 	}
+ 
+ 	r = kvm_arch_prepare_memory_region(kvm, old, new, change);
+ 
+ 	/* Free the bitmap on failure if it was allocated above. */
+-	if (r && new->dirty_bitmap && !old->dirty_bitmap)
++	if (r && new && new->dirty_bitmap && old && !old->dirty_bitmap)
+ 		kvm_destroy_dirty_bitmap(new);
+ 
+ 	return r;
+@@ -1591,16 +1593,16 @@ static void kvm_copy_memslot(struct kvm_memory_slot *dest,
+ 
+ static void kvm_invalidate_memslot(struct kvm *kvm,
+ 				   struct kvm_memory_slot *old,
+-				   struct kvm_memory_slot *working_slot)
++				   struct kvm_memory_slot *invalid_slot)
+ {
+ 	/*
+ 	 * Mark the current slot INVALID.  As with all memslot modifications,
+ 	 * this must be done on an unreachable slot to avoid modifying the
+ 	 * current slot in the active tree.
+ 	 */
+-	kvm_copy_memslot(working_slot, old);
+-	working_slot->flags |= KVM_MEMSLOT_INVALID;
+-	kvm_replace_memslot(kvm, old, working_slot);
++	kvm_copy_memslot(invalid_slot, old);
++	invalid_slot->flags |= KVM_MEMSLOT_INVALID;
++	kvm_replace_memslot(kvm, old, invalid_slot);
+ 
+ 	/*
+ 	 * Activate the slot that is now marked INVALID, but don't propagate
+@@ -1627,20 +1629,15 @@ static void kvm_invalidate_memslot(struct kvm *kvm,
+ 	 * above.  Writers are required to retrieve memslots *after* acquiring
+ 	 * slots_arch_lock, thus the active slot's data is guaranteed to be fresh.
+ 	 */
+-	old->arch = working_slot->arch;
++	old->arch = invalid_slot->arch;
+ }
+ 
+ static void kvm_create_memslot(struct kvm *kvm,
+-			       const struct kvm_memory_slot *new,
+-			       struct kvm_memory_slot *working)
++			       struct kvm_memory_slot *new)
+ {
+-	/*
+-	 * Add the new memslot to the inactive set as a copy of the
+-	 * new memslot data provided by userspace.
+-	 */
+-	kvm_copy_memslot(working, new);
+-	kvm_replace_memslot(kvm, NULL, working);
+-	kvm_activate_memslot(kvm, NULL, working);
++	/* Add the new memslot to the inactive set and activate. */
++	kvm_replace_memslot(kvm, NULL, new);
++	kvm_activate_memslot(kvm, NULL, new);
+ }
+ 
+ static void kvm_delete_memslot(struct kvm *kvm,
+@@ -1649,65 +1646,36 @@ static void kvm_delete_memslot(struct kvm *kvm,
+ {
+ 	/*
+ 	 * Remove the old memslot (in the inactive memslots) by passing NULL as
+-	 * the "new" slot.
++	 * the "new" slot, and for the invalid version in the active slots.
+ 	 */
+ 	kvm_replace_memslot(kvm, old, NULL);
+-
+-	/* And do the same for the invalid version in the active slot. */
+ 	kvm_activate_memslot(kvm, invalid_slot, NULL);
+-
+-	/* Free the invalid slot, the caller will clean up the old slot. */
+-	kfree(invalid_slot);
+ }
+ 
+-static struct kvm_memory_slot *kvm_move_memslot(struct kvm *kvm,
+-						struct kvm_memory_slot *old,
+-						const struct kvm_memory_slot *new,
+-						struct kvm_memory_slot *invalid_slot)
++static void kvm_move_memslot(struct kvm *kvm,
++			     struct kvm_memory_slot *old,
++			     struct kvm_memory_slot *new,
++			     struct kvm_memory_slot *invalid_slot)
+ {
+-	struct kvm_memslots *slots = kvm_get_inactive_memslots(kvm, old->as_id);
+-
+ 	/*
+-	 * The memslot's gfn is changing, remove it from the inactive tree, it
+-	 * will be re-added with its updated gfn. Because its range is
+-	 * changing, an in-place replace is not possible.
++	 * Replace the old memslot in the inactive slots, and then swap slots
++	 * and replace the current INVALID with the new as well.
+ 	 */
+-	kvm_erase_gfn_node(slots, old);
+-
+-	/*
+-	 * The old slot is now fully disconnected, reuse its memory for the
+-	 * persistent copy of "new".
+-	 */
+-	kvm_copy_memslot(old, new);
+-
+-	/* Re-add to the gfn tree with the updated gfn */
+-	kvm_insert_gfn_node(slots, old);
+-
+-	/* Replace the current INVALID slot with the updated memslot. */
+-	kvm_activate_memslot(kvm, invalid_slot, old);
+-
+-	/*
+-	 * Clear the INVALID flag so that the invalid_slot is now a perfect
+-	 * copy of the old slot.  Return it for cleanup in the caller.
+-	 */
+-	WARN_ON_ONCE(!(invalid_slot->flags & KVM_MEMSLOT_INVALID));
+-	invalid_slot->flags &= ~KVM_MEMSLOT_INVALID;
+-	return invalid_slot;
++	kvm_replace_memslot(kvm, old, new);
++	kvm_activate_memslot(kvm, invalid_slot, new);
+ }
+ 
+ static void kvm_update_flags_memslot(struct kvm *kvm,
+ 				     struct kvm_memory_slot *old,
+-				     const struct kvm_memory_slot *new,
+-				     struct kvm_memory_slot *working_slot)
++				     struct kvm_memory_slot *new)
+ {
+ 	/*
+ 	 * Similar to the MOVE case, but the slot doesn't need to be zapped as
+ 	 * an intermediate step. Instead, the old memslot is simply replaced
+ 	 * with a new, updated copy in both memslot sets.
+ 	 */
+-	kvm_copy_memslot(working_slot, new);
+-	kvm_replace_memslot(kvm, old, working_slot);
+-	kvm_activate_memslot(kvm, old, working_slot);
++	kvm_replace_memslot(kvm, old, new);
++	kvm_activate_memslot(kvm, old, new);
+ }
+ 
+ static int kvm_set_memslot(struct kvm *kvm,
+@@ -1715,19 +1683,9 @@ static int kvm_set_memslot(struct kvm *kvm,
+ 			   struct kvm_memory_slot *new,
+ 			   enum kvm_mr_change change)
+ {
+-	struct kvm_memory_slot *working;
++	struct kvm_memory_slot *invalid_slot;
  	int r;
  
-@@ -1864,6 +1866,8 @@ int __kvm_set_memory_region(struct kvm *kvm,
- 		return -EINVAL;
- 	if (mem->guest_phys_addr + mem->memory_size < mem->guest_phys_addr)
- 		return -EINVAL;
-+	if ((mem->memory_size >> PAGE_SHIFT) > KVM_MEM_MAX_NR_PAGES)
-+		return -EINVAL;
+-	/*
+-	 * Modifications are done on an unreachable slot.  Any changes are then
+-	 * (eventually) propagated to both the active and inactive slots.  This
+-	 * allocation would ideally be on-demand (in helpers), but is done here
+-	 * to avoid having to handle failure after kvm_prepare_memory_region().
+-	 */
+-	working = kzalloc(sizeof(*working), GFP_KERNEL_ACCOUNT);
+-	if (!working)
+-		return -ENOMEM;
+-
+ 	/*
+ 	 * Released in kvm_swap_active_memslots.
+ 	 *
+@@ -1752,9 +1710,19 @@ static int kvm_set_memslot(struct kvm *kvm,
+ 	 * (and without a lock), a window would exist between effecting the
+ 	 * delete/move and committing the changes in arch code where KVM or a
+ 	 * guest could access a non-existent memslot.
++	 *
++	 * Modifications are done on a temporary, unreachable slot.  The old
++	 * slot needs to be preserved in case a later step fails and the
++	 * invalidation needs to be reverted.
+ 	 */
+-	if (change == KVM_MR_DELETE || change == KVM_MR_MOVE)
+-		kvm_invalidate_memslot(kvm, old, working);
++	if (change == KVM_MR_DELETE || change == KVM_MR_MOVE) {
++		invalid_slot = kzalloc(sizeof(*invalid_slot), GFP_KERNEL_ACCOUNT);
++		if (!invalid_slot) {
++			mutex_unlock(&kvm->slots_arch_lock);
++			return -ENOMEM;
++		}
++		kvm_invalidate_memslot(kvm, old, invalid_slot);
++	}
  
- 	slots = __kvm_memslots(kvm, as_id);
- 
-@@ -1887,15 +1891,8 @@ int __kvm_set_memory_region(struct kvm *kvm,
- 		return kvm_set_memslot(kvm, old, &new, KVM_MR_DELETE);
+ 	r = kvm_prepare_memory_region(kvm, old, new, change);
+ 	if (r) {
+@@ -1764,11 +1732,12 @@ static int kvm_set_memslot(struct kvm *kvm,
+ 		 * in the inactive slots.  Changing the active memslots also
+ 		 * release slots_arch_lock.
+ 		 */
+-		if (change == KVM_MR_DELETE || change == KVM_MR_MOVE)
+-			kvm_activate_memslot(kvm, working, old);
+-		else
++		if (change == KVM_MR_DELETE || change == KVM_MR_MOVE) {
++			kvm_activate_memslot(kvm, invalid_slot, old);
++			kfree(invalid_slot);
++		} else {
+ 			mutex_unlock(&kvm->slots_arch_lock);
+-		kfree(working);
++		}
+ 		return r;
  	}
+ 
+@@ -1780,16 +1749,20 @@ static int kvm_set_memslot(struct kvm *kvm,
+ 	 * old slot is detached but otherwise preserved.
+ 	 */
+ 	if (change == KVM_MR_CREATE)
+-		kvm_create_memslot(kvm, new, working);
++		kvm_create_memslot(kvm, new);
+ 	else if (change == KVM_MR_DELETE)
+-		kvm_delete_memslot(kvm, old, working);
++		kvm_delete_memslot(kvm, old, invalid_slot);
+ 	else if (change == KVM_MR_MOVE)
+-		old = kvm_move_memslot(kvm, old, new, working);
++		kvm_move_memslot(kvm, old, new, invalid_slot);
+ 	else if (change == KVM_MR_FLAGS_ONLY)
+-		kvm_update_flags_memslot(kvm, old, new, working);
++		kvm_update_flags_memslot(kvm, old, new);
+ 	else
+ 		BUG();
+ 
++	/* Free the temporary INVALID slot used for DELETE and MOVE. */
++	if (change == KVM_MR_DELETE || change == KVM_MR_MOVE)
++		kfree(invalid_slot);
++
+ 	/*
+ 	 * No need to refresh new->arch, changes after dropping slots_arch_lock
+ 	 * will directly hit the final, active memsot.  Architectures are
+@@ -1834,8 +1807,7 @@ static bool kvm_check_memslot_overlap(struct kvm_memslots *slots, int id,
+ int __kvm_set_memory_region(struct kvm *kvm,
+ 			    const struct kvm_userspace_memory_region *mem)
+ {
+-	struct kvm_memory_slot *old;
+-	struct kvm_memory_slot new;
++	struct kvm_memory_slot *old, *new;
+ 	struct kvm_memslots *slots;
+ 	enum kvm_mr_change change;
+ 	unsigned long npages;
+@@ -1884,11 +1856,7 @@ int __kvm_set_memory_region(struct kvm *kvm,
+ 		if (WARN_ON_ONCE(kvm->nr_memslot_pages < old->npages))
+ 			return -EIO;
+ 
+-		memset(&new, 0, sizeof(new));
+-		new.id = id;
+-		new.as_id = as_id;
+-
+-		return kvm_set_memslot(kvm, old, &new, KVM_MR_DELETE);
++		return kvm_set_memslot(kvm, old, NULL, KVM_MR_DELETE);
+ 	}
+ 
+ 	base_gfn = (mem->guest_phys_addr >> PAGE_SHIFT);
+@@ -1921,14 +1889,22 @@ int __kvm_set_memory_region(struct kvm *kvm,
+ 	    kvm_check_memslot_overlap(slots, id, base_gfn, base_gfn + npages))
+ 		return -EEXIST;
  
 -	new.as_id = as_id;
 -	new.id = id;
--	new.base_gfn = mem->guest_phys_addr >> PAGE_SHIFT;
--	new.npages = mem->memory_size >> PAGE_SHIFT;
+-	new.base_gfn = base_gfn;
+-	new.npages = npages;
 -	new.flags = mem->flags;
 -	new.userspace_addr = mem->userspace_addr;
--
--	if (new.npages > KVM_MEM_MAX_NR_PAGES)
--		return -EINVAL;
-+	base_gfn = (mem->guest_phys_addr >> PAGE_SHIFT);
-+	npages = (mem->memory_size >> PAGE_SHIFT);
++	/* Allocate a slot that will persist in the memslot. */
++	new = kzalloc(sizeof(*new), GFP_KERNEL_ACCOUNT);
++	if (!new)
++		return -ENOMEM;
  
- 	if (!old || !old->npages) {
- 		change = KVM_MR_CREATE;
-@@ -1904,27 +1901,33 @@ int __kvm_set_memory_region(struct kvm *kvm,
- 		 * To simplify KVM internals, the total number of pages across
- 		 * all memslots must fit in an unsigned long.
- 		 */
--		if ((kvm->nr_memslot_pages + new.npages) < kvm->nr_memslot_pages)
-+		if ((kvm->nr_memslot_pages + npages) < kvm->nr_memslot_pages)
- 			return -EINVAL;
- 	} else { /* Modify an existing slot. */
--		if ((new.userspace_addr != old->userspace_addr) ||
--		    (new.npages != old->npages) ||
--		    ((new.flags ^ old->flags) & KVM_MEM_READONLY))
-+		if ((mem->userspace_addr != old->userspace_addr) ||
-+		    (npages != old->npages) ||
-+		    ((mem->flags ^ old->flags) & KVM_MEM_READONLY))
- 			return -EINVAL;
- 
--		if (new.base_gfn != old->base_gfn)
-+		if (base_gfn != old->base_gfn)
- 			change = KVM_MR_MOVE;
--		else if (new.flags != old->flags)
-+		else if (mem->flags != old->flags)
- 			change = KVM_MR_FLAGS_ONLY;
- 		else /* Nothing to change. */
- 			return 0;
- 	}
- 
- 	if ((change == KVM_MR_CREATE || change == KVM_MR_MOVE) &&
--	    kvm_check_memslot_overlap(slots, id, new.base_gfn,
--				      new.base_gfn + new.npages))
-+	    kvm_check_memslot_overlap(slots, id, base_gfn, base_gfn + npages))
- 		return -EEXIST;
- 
-+	new.as_id = as_id;
-+	new.id = id;
-+	new.base_gfn = base_gfn;
-+	new.npages = npages;
-+	new.flags = mem->flags;
-+	new.userspace_addr = mem->userspace_addr;
+-	return kvm_set_memslot(kvm, old, &new, change);
++	new->as_id = as_id;
++	new->id = id;
++	new->base_gfn = base_gfn;
++	new->npages = npages;
++	new->flags = mem->flags;
++	new->userspace_addr = mem->userspace_addr;
 +
- 	return kvm_set_memslot(kvm, old, &new, change);
++	r = kvm_set_memslot(kvm, old, new, change);
++	if (r)
++		kfree(new);
++	return r;
  }
  EXPORT_SYMBOL_GPL(__kvm_set_memory_region);
+ 
 -- 
 2.33.1.1089.g2158813163f-goog
 
