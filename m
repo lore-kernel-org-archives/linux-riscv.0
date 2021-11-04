@@ -2,92 +2,109 @@ Return-Path: <SRS0=Owia=PX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4D945C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 12:16:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id ACCE6C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 14:19:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0EA5661183
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 12:16:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0EA5661183
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
+	by mail.kernel.org (Postfix) with ESMTPS id 6AC1C610FD
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 14:19:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6AC1C610FD
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AkbCoFBFyDf6sWAN9lx5l5cPPESj790XF2iwZh13kao=; b=Vnuagfe6eZlHiv
-	tyt9yYOP7ZwM4fMpLsc1+p2yDK5oSHm165+ibLc9UUgqa1X2hoRPoGhWlc6OO8cxBtzFuvJlCX/6f
-	g8dTQ/OAJwrKWZLZGhhqB6r/X1fFAbDCHUMsDB/CQcU1we/O8RgFDPg+HfGk54n9BWxhmhtHsrN35
-	BsYDqT5JudqTTCllQEh3giJc/zXy7hnPZH8L9eDGovmMdWOTXdaQPPUbKbGl78iTAvTdq1gBi/N0f
-	KgDtS7o/FG5M3CgwXyHjvy67D+MYrdcNeVdDE4NXSIbka6+Ucx/UomA1qbq1O4somqh8i8ipCss1C
-	kX8G4x7CZfiVYQ9x+BgA==;
+	List-Owner; bh=j3/2Ons7WJxIdc64nIP5rRQ3gFphD6thm94LFrRmWwY=; b=P9xSLz/dYcY2E5
+	e5P8XHw4JqUMp7fPm4zeRPlHYa14MXPbrTG93DDigJwM22W8enAWueg2Goe62NiRLy8A5PxblBZbw
+	Q7lFsaMgFFLsn39X/dKG8iWZPEveXlju/eLn+DwCuo8jx7aWlC3GSqmr4HMpVv5HrgeGv5Zlh6ZbJ
+	J570WBjqu1TJdf1JMgXPnxVFwItVc7WceC1EyQJWTypmCeLOWrXbfW4Ds6xFnTXEeqw251BU1scgF
+	D+zlZvI4ZcPzVUfBmIHl6dpIAp6Pr3Jyu0GXa56kOcemx8h+Y+A6E85p08hDm+SDcyBMavl5Xxl09
+	eVOz5I56GWkO3KgbjhYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mibez-008pvb-6a; Thu, 04 Nov 2021 12:16:01 +0000
-Received: from mail-pg1-f181.google.com ([209.85.215.181])
+	id 1midZq-0095t8-VV; Thu, 04 Nov 2021 14:18:50 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mibew-008ptX-Ad
- for linux-riscv@lists.infradead.org; Thu, 04 Nov 2021 12:16:00 +0000
-Received: by mail-pg1-f181.google.com with SMTP id p8so3913988pgh.11
- for <linux-riscv@lists.infradead.org>; Thu, 04 Nov 2021 05:15:57 -0700 (PDT)
+ id 1midZd-0095qg-IE
+ for linux-riscv@lists.infradead.org; Thu, 04 Nov 2021 14:18:39 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id n85so1500582pfd.10
+ for <linux-riscv@lists.infradead.org>; Thu, 04 Nov 2021 07:18:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=GgU1oUsck/kv7V8rA9YPXtLGsU5UGF/lzeg6fggjKVY=;
+ b=RTR1r+Ui0w7nUSHbbKl234uth/uzF1T7qF0sliOvvfsRTTb+Ux1LBt/ffQdTAY+/ec
+ E1O0cYaxUcP9JJO91gsHWRMciPl/F1cyjYk822jBCR9TBPiuByHH3wQyg8CO0RsG69s3
+ xxzxbxhqtVhFtR1IL3PwpUwYtMOSHDPFnwjUBiz3EACBzoEuXHLTOpHAkW6OfrqPvopQ
+ XlcXyGEUw7b6wzkLr4K8OvDzbhOksbBNbi3EmpkiMJmFBXoGv87f+9auU+g0UJJslfkq
+ YHd6yOra6jxs1gpwYkmD3+RM+zmhPNdO2qhY5Blp/Ql4/z42+YEAbgjAkELLYFLa2Wdb
+ 1tBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=BbQxkXh1kRX5txg91IzBReR7Etxrh9MaaIL5VubC4mA=;
- b=wcOhSy8b5XJ+rPIjyyHmQP3LMmgHiBtoPUQe3IelMroOiAJcXLzVwNDKJjMhm/9g1x
- L6Tq8euzxLyXa+PHAb1tTkmFQOXwLaHw1QZNp8xvKmgn9e7WlpxdpnL6eRitIeRfFGF+
- 11oZjLP7pqj9U1tST7V/D+K6W4cUrx2VmJCKb+1/7rcP7KmlYQte5aHBWifEVtECojTd
- 5hL/M6ASbPv6mf6uBCeUVDoDhgYwNWHaooOQFS7fmVKefBvvCFEDEomdGKeDZgijDxD0
- VOoQvxsrAZqJ6D8pb1q42U9WdUmd71ob6K6d5uxfDt0CY1Q8Rrorgsw+dVDpHxVPHroo
- Vgpw==
-X-Gm-Message-State: AOAM5328/IgzSeYmJoqyp5/Ay8y4ibOFty0gmk9sJBArMQrvWS9dGEO8
- ttmotCbMBWzxB5iH97kOiaMD729bKgCrZeTwgV0=
-X-Google-Smtp-Source: ABdhPJyU1eOL96q9aeg27rCGRB1DzlV/CdmoIQADJWmiDt4mzuQNX51WDsHXaA6t5irbMhhl52dNgltzzdGXVDztegg=
-X-Received: by 2002:a05:6a00:1354:b0:494:5227:42c7 with SMTP id
- k20-20020a056a00135400b00494522742c7mr5310054pfu.53.1636028156990; Thu, 04
- Nov 2021 05:15:56 -0700 (PDT)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=GgU1oUsck/kv7V8rA9YPXtLGsU5UGF/lzeg6fggjKVY=;
+ b=QOr0wmUWCdkj6hp4AvBqin4IsVaOg7RlN5XdupO82td1WJ7y9yNtalhUGQYi/ILYlm
+ yqLY5V2g/5wrsiGb+JvHtr6IFD3nV+3kCRJyh8Lf3x1wva2z9d1buPHptzNR3Ibh5B5I
+ Tu3gxAsFJo7/JG+6CG3NV2+wVNF6iuO2kTwmlC4kgv9zR2xf7udOIcakmaMQqkMagqB1
+ vZVOfamIvey9914xiKAAd1auhE8MPlov4ZzNYAkwtGR5VGAUFLUh9vVHcIZXWgU+XZsy
+ QyCXNKDhoWEkvcNT+0Q+Tbt98Samv/24OPu6nRTLprE5deWw3Fe3rp142XdH62jAriu8
+ hodw==
+X-Gm-Message-State: AOAM531zZPqzAPPuYHi6CJPPgVtQ9iyKwq4pO3f8jBx+l9evwLqvbmNR
+ R+hy3JJfe8M+M7lgD5lIZRAEOg==
+X-Google-Smtp-Source: ABdhPJxdt1yraCn5ATAvpc1jCPrfM/2fIu0pWDknNbK+x2XDbxsbKhM1gzBOeaAuduFP4pk+NDgWGQ==
+X-Received: by 2002:a65:5b01:: with SMTP id y1mr22260090pgq.451.1636035510920; 
+ Thu, 04 Nov 2021 07:18:30 -0700 (PDT)
+Received: from google.com (157.214.185.35.bc.googleusercontent.com.
+ [35.185.214.157])
+ by smtp.gmail.com with ESMTPSA id c9sm4061004pgq.58.2021.11.04.07.18.30
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 04 Nov 2021 07:18:30 -0700 (PDT)
+Date: Thu, 4 Nov 2021 14:18:26 +0000
+From: Sean Christopherson <seanjc@google.com>
+To: Like Xu <like.xu.linux@gmail.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>,
+ Paolo Bonzini <pbonzini@redhat.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
+ Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kvmarm@lists.cs.columbia.edu, linux-csky@vger.kernel.org,
+ linux-riscv@lists.infradead.org, kvm@vger.kernel.org,
+ xen-devel@lists.xenproject.org,
+ Artem Kashkanov <artem.kashkanov@intel.com>,
+ Zhu Lingshan <lingshan.zhu@intel.com>,
+ Juergen Gross <jgross@suse.com>, Ingo Molnar <mingo@redhat.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Vincent Chen <deanbo422@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Greentime Hu <green.hu@gmail.com>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+ Marc Zyngier <maz@kernel.org>, Nick Hu <nickhu@andestech.com>,
+ Guo Ren <guoren@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>
+Subject: Re: [PATCH v3 01/16] perf: Ensure perf_guest_cbs aren't reloaded
+ between !NULL check and deref
+Message-ID: <YYPrst2CUBXLYc9h@google.com>
+References: <20210922000533.713300-1-seanjc@google.com>
+ <20210922000533.713300-2-seanjc@google.com>
+ <77e3a76a-016b-8945-a1d5-aae4075e2147@gmail.com>
 MIME-Version: 1.0
-References: <20211102161125.1144023-1-kernel@esmil.dk>
- <20211102161125.1144023-10-kernel@esmil.dk>
- <CAHp75Ve-P8DR00mtRP_NkrXgB4nsZ+qBkgBen94iTcPqxQYUOg@mail.gmail.com>
- <CANBLGcyb=TAP0h2WuxBAjRvpN9n7Dt1Hvh5yE8NMOwm3ixZWuA@mail.gmail.com>
- <CAHp75Vcg3En=xH+kz0GgAMGUoo5FABo2HwGoHd=7QgGVrYkYXg@mail.gmail.com>
- <CANBLGczrGwexRGvGxa9C+yzaSHZF_d5+AaebeLUX5BXFxipr=A@mail.gmail.com>
-In-Reply-To: <CANBLGczrGwexRGvGxa9C+yzaSHZF_d5+AaebeLUX5BXFxipr=A@mail.gmail.com>
-From: Emil Renner Berthing <kernel@esmil.dk>
-Date: Thu, 4 Nov 2021 13:15:46 +0100
-Message-ID: <CANBLGcztx0DL=U06QPJ5XT4ra=kx2QAZxxP=0bjfgQ0skhv3Bg@mail.gmail.com>
-Subject: Re: [PATCH v3 09/16] reset: starfive-jh7100: Add StarFive JH7100
- reset driver
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: Yury Norov <yury.norov@gmail.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- devicetree <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
- "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>,
- Linus Walleij <linus.walleij@linaro.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Jiri Slaby <jirislaby@kernel.org>, 
- Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
- Drew Fustini <drew@beagleboard.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Michael Zhu <michael.zhu@starfivetech.com>, Fu Wei <tekkamanninja@gmail.com>, 
- Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
- Matteo Croce <mcroce@microsoft.com>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Content-Disposition: inline
+In-Reply-To: <77e3a76a-016b-8945-a1d5-aae4075e2147@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211104_051558_402348_0FC35B82 
-X-CRM114-Status: GOOD (  38.10  )
+X-CRM114-CacheID: sfid-20211104_071837_636362_BABA754F 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,87 +121,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2 Nov 2021 at 22:17, Emil Renner Berthing <kernel@esmil.dk> wrote:
-> On Tue, 2 Nov 2021 at 21:14, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
-> > On Tue, Nov 2, 2021 at 9:59 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
-> > > On Tue, 2 Nov 2021 at 20:43, Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
-> > > > On Tue, Nov 2, 2021 at 6:50 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
-> >
-> > ...
-> >
-> > > > > +/*
-> > > > > + * the registers work like a 32bit bitmap, so writing a 1 to the m'th bit of
-> > > > > + * the n'th ASSERT register asserts line 32n + m, and writing a 0 deasserts the
-> > > > > + * same line.
-> > > > > + * most reset lines have their status inverted so a 0 in the STATUS register
-> > > > > + * means the line is asserted and a 1 means it's deasserted. a few lines don't
-> > > > > + * though, so store the expected value of the status registers when all lines
-> > > > > + * are asserted.
-> > > > > + */
-> > > >
-> > > > Besides missing capitalization,
-> > >
-> > > I'm confused. it was you who wanted all comments to capitalized the same..
-> >
-> > Yes and there are two types of the comments, one-liners and
-> > multi-line. In multi-line you usually use proper English grammar,
-> > where capitalization means what it means. For the one-liners just
-> > choose either small letters or capital letters to start them with.
->
-> That sounds reasonable, it was just that you complained about
-> inconsistent comments in the pinctrl driver that follows the above.
->
-> > > if it sounds like bitmap, use bitmap.
-> > > > I have checked DT definitions and it seems you don't even need the
-> > > > BIT_MASK() macro,
-> > > >
-> > > > > +static const u32 jh7100_reset_asserted[4] = {
-> > > > > +       /* STATUS0 register */
-> > > > > +       BIT_MASK32(JH7100_RST_U74) |
-> > > > > +       BIT_MASK32(JH7100_RST_VP6_DRESET) |
-> > > > > +       BIT_MASK32(JH7100_RST_VP6_BRESET),
-> > > > > +       /* STATUS1 register */
-> > > > > +       BIT_MASK32(JH7100_RST_HIFI4_DRESET) |
-> > > > > +       BIT_MASK32(JH7100_RST_HIFI4_BRESET),
-> > > > > +       /* STATUS2 register */
-> > > > > +       BIT_MASK32(JH7100_RST_E24),
-> > > > > +       /* STATUS3 register */
-> > > > > +       0,
-> > > > > +};
-> > > >
-> > > > Yury, do we have any clever (clean) way to initialize a bitmap with
-> > > > particular bits so that it will be a constant from the beginning? If
-> > > > no, any suggestion what we can provide to such users?
-> > >
-> > > The problem is, that even if we could initialize this without the
-> > > monstrosity in our last conversation a 64bit bitmap would still
-> > > produce worse code. As it is now it's simply a 32bit load and mask
-> > > with index and mask already calculated for the registers. In the
-> > > status callback the mask can even be folded into the register read
-> > > mask. With a 64bit bitmap you'd need to calculate new 64bit index and
-> > > masks, and then conditionally shift the bits into position.
-> >
-> > Why? You may use 8 byte IO (writeq() / readq() or their relaxed versions), no?
-> >
-> > > If this reflection of the 32bit registers bothers you that much
-> >
-> > What bothers me is hidden endianess issues (yeah, here it might be
-> > theoretical, but consider that somebody will look at your code and use
-> > it as the best example ever).
->
-> Wouldn't endian issues be a reason to make sure we read 32bit
-> registers with 32bit reads? Or do you expect a hypothetical big-endian
-> StarFive SoC to also change the order of the registers?
+On Thu, Nov 04, 2021, Like Xu wrote:
+> On 22/9/2021 8:05 am, Sean Christopherson wrote:
+> > diff --git a/kernel/events/core.c b/kernel/events/core.c
+> > index 464917096e73..80ff050a7b55 100644
+> > --- a/kernel/events/core.c
+> > +++ b/kernel/events/core.c
+> > @@ -6491,14 +6491,21 @@ struct perf_guest_info_callbacks *perf_guest_cbs;
+> >   int perf_register_guest_info_callbacks(struct perf_guest_info_callbacks *cbs)
+> >   {
+> > -	perf_guest_cbs = cbs;
+> > +	if (WARN_ON_ONCE(perf_guest_cbs))
+> > +		return -EBUSY;
+> > +
+> > +	WRITE_ONCE(perf_guest_cbs, cbs);
+> 
+> So per Paolo's comment [1], does it help to use
+> 	smp_store_release(perf_guest_cbs, cbs)
+> or
+> 	rcu_assign_pointer(perf_guest_cbs, cbs)
+> here?
 
-Hi Andy.
+Heh, if by "help" you mean "required to prevent bad things on weakly ordered
+architectures", then yes, it helps :-)  If I'm interpeting Paolo's suggestion
+correctly, he's pointing out that oustanding stores to the function pointers in
+@cbs need to complete before assigning a non-NULL pointer to perf_guest_cbs,
+otherwise a perf event handler may see a valid pointer with half-baked callbacks.
 
-I'd really like to understand your reasoning here. As far as I can
-tell reading 2 adjacent 32bit registers with a 64bit read as you're
-proposing is exactly what would cause endian issues. Eg. on little
-endian you'd get reg0 | reg1 << 32 whereas on big-endian you'd get
-reg0 << 32 | reg1.
+I think smp_store_release() with a comment would be appropriate, assuming my
+above interpretation is correct.
 
-/Emil
+> [1] https://lore.kernel.org/kvm/37afc465-c12f-01b9-f3b6-c2573e112d76@redhat.com/
+> 
+> >   	return 0;
+> >   }
+> >   EXPORT_SYMBOL_GPL(perf_register_guest_info_callbacks);
+> >   int perf_unregister_guest_info_callbacks(struct perf_guest_info_callbacks *cbs)
+> >   {
+> > -	perf_guest_cbs = NULL;
+> > +	if (WARN_ON_ONCE(perf_guest_cbs != cbs))
+> > +		return -EINVAL;
+> > +
+> > +	WRITE_ONCE(perf_guest_cbs, NULL);
+> > +	synchronize_rcu();
+> >   	return 0;
+> >   }
+> >   EXPORT_SYMBOL_GPL(perf_unregister_guest_info_callbacks);
+> > 
 
 _______________________________________________
 linux-riscv mailing list
