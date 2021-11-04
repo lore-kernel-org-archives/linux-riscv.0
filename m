@@ -2,14 +2,14 @@ Return-Path: <SRS0=Owia=PX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 972ACC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 00:57:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A463AC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 00:57:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 584DD60F9D
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 00:57:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 584DD60F9D
+	by mail.kernel.org (Postfix) with ESMTPS id 6A23260249
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Nov 2021 00:57:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6A23260249
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,58 +18,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:References
 	:Mime-Version:Message-Id:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8ZCq3vq4q9rhTfrgdDsG++5ed4pAkIuIYEGqAzzE3j4=; b=AYdMOHQJPwrmnP
-	mxCRI1+ddGtAJu32q4lI2xlb8t3Bqp7qX5/6jV2ngC9J7EpEq3YCFC2u1vNKJxGo/FQxXv3CGyCtF
-	9nXaeK2PfVijkgkhXyu7Egjway1C6Slw8eeXKNeOYhzIAMJRrYyYWZrv5E9h+/Tznoy4jA1RRtGe2
-	NZ1jJ+IxkoB7rurujcASLp13HDqR4wpzf4/VQhvEry3rkwNMIgHCr4GW6nYjgQ93H0Iu99pE5JQbf
-	iYTSOunQ9SqoN8wNiGn1Kv8NU69mYLfNBcQ4dFNlNbtqKvM9U4ABYRD3e+Opi3zvqrau94v4etsff
-	RINJfAuIgQLN1+60hE3g==;
+	List-Owner; bh=LV+s45qGLA9LEkkzt7GdRGvL541ULZ620Yw+k6lioCA=; b=UCel599vBuIFxw
+	u33V0WwQuHXvWaigCD2hueD6nqs1sQ5JzXj9dnGA3t/Ompf9iayHhsDHH0qp2f4LVJsTZR+We+pVo
+	uAlKLKgmmQnBo6BFgwTeplSCgrogDGc8yINptIN0AMZ/zL6Db2J/rmbZ1Dv+x61MPMubxDpKLG51P
+	WrI9gSuM3MlNR4leoqrrPGa88S68aB/kWfyV2ERcZcKeuZt5c6UwUiEfEcugSMbqhY3C6XQE4tTz9
+	8/48e1qqAzeWtAMuENa76qYujqJu+KDM2ZIuNEtzrVSAttgV7HMAfwUK8FRqoTpHDzbH60qmdcZ+z
+	b6Jbw9sU4jVJlyb91ftA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1miR3d-007OzG-Ud; Thu, 04 Nov 2021 00:56:46 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1miR3n-007P2W-4n; Thu, 04 Nov 2021 00:56:55 +0000
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1miQad-007D1J-4e
- for linux-riscv@lists.infradead.org; Thu, 04 Nov 2021 00:26:53 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id
- z4-20020a634c04000000b00299bdd9abdbso2367895pga.13
- for <linux-riscv@lists.infradead.org>; Wed, 03 Nov 2021 17:26:45 -0700 (PDT)
+ id 1miQae-007D2X-Qx
+ for linux-riscv@lists.infradead.org; Thu, 04 Nov 2021 00:26:56 +0000
+Received: by mail-pg1-x549.google.com with SMTP id
+ i25-20020a631319000000b002cce0a43e94so2444932pgl.0
+ for <linux-riscv@lists.infradead.org>; Wed, 03 Nov 2021 17:26:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
  h=reply-to:date:in-reply-to:message-id:mime-version:references
  :subject:from:to:cc;
- bh=WFKHlikOkpZJpdiLsH4aJihxblDmBHivJrGM8NlUt9c=;
- b=CRXCwBEqUdB8xBBWvbn9rvEyj5xPoJz0Yiq4O9bYP8Cnw9QN2e+/rU9Z5zno6u5DVK
- hNycH7Nu/XPtuVsGfPUbSSTGueoe3SJ6D/+uQvX8yXVdBR6JZwONNcY2XuE+tNblfPrg
- DzYe3VWSE9iz+kLrReWCKtPXc8mvDFxOyEZwsrJmqEqT2dddKgFB7DSFo4206QBqUe3l
- k94nG8IGw8Qk397gTW+mXweZuq2D9/OlhQu3qaAukGk74Ifow4G0x6SSEWRb7kyDOXHM
- mtFt8FUjKSwLn45cNEc6CmGXWE+Jks8EonoUKThzOIBSyaz6+hVlcyMpoJKcO82sckqF
- 5Fzw==
+ bh=eDJLgTwa4Mq+pfIoYabE+ramu2f6Q5nSW9TL6LbQQsI=;
+ b=AwZyd1OGNd2jGC9KPlXvy0oV+JkIiHs9n78p1LAJEXYu3abpzCJ4C2qjD9WEdimC8h
+ /U06PEKK8296gAr9y+mGJ7YU/AYB7mMLshQmjbfJT2JjYIs1QGfBkPinN0rTDsM0mJ8v
+ y1VXf6q7OT9SnMxtkJVPvG6qnljmv27pg/hk28jYo+otmvhiKA+XTi2uKknvqQboocCi
+ bNfT4/DvRM5KrXSU8LLRMexndgtLytkukMKS+6YJqn2ZlSHrKvNjmLuH6tB44y+OnCgy
+ GssafhzFt1xigLvtK4LdQ29M/UL2+eLN8sYzUERpdj2aCM8q7wJx2XZ+IzRmu3TIf4VS
+ eNLw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:reply-to:date:in-reply-to:message-id
  :mime-version:references:subject:from:to:cc;
- bh=WFKHlikOkpZJpdiLsH4aJihxblDmBHivJrGM8NlUt9c=;
- b=GYwbpcUQeeynJ5vaOvPefwRJ3TIhfo42coplKl3wwePJTWjc5JiEyfnafOOHIUz202
- uQhYwW4/Z8Th7igdg1tNFZZadpcLQONHUPHdbZ9QPt679Iabk9vph7ON6B4YNH5eLhKL
- vdm3UpdgzjlamLwAgzfeO8P7R3LczstQ+9IgnxymXks6MrlxsPz1jEfwjRjLLxwIHaq2
- n4lohygo0By0JhB0D5rAGdwijgagjatlts4S3b5YwVPBwgoQvoLgeeJ5lpeX03jmOUJZ
- bRnZ82WCxn46YhP3B3fj6zhVnyJGQDH4n0lKhpzBl94EMsh+QJWMIFNsAvtyCZThJXj0
- S59A==
-X-Gm-Message-State: AOAM532eOpgI9elVfMADcwjaxRz8V9YX1o1xABWP69a2gT3I0Sq4lM3H
- rfGj+fO405u741ckNhlaIhhVVd83m/k=
-X-Google-Smtp-Source: ABdhPJxoDZvqdkusy2MitxT+1dAwOu5YXFxH0crl6GBFlwKLx55yi8xQIaLV4Wu5oujGScgLca++ESEBh4I=
+ bh=eDJLgTwa4Mq+pfIoYabE+ramu2f6Q5nSW9TL6LbQQsI=;
+ b=yaEs9OCJSYBnjR5ypWwElppvLWpVJ5DJFaU62PuCb8WEk2SmzO3Nrnd9jVnWQjZW+j
+ g5DbS3tK98bJZTd+HhlvIi82XJcrSHUE9ml/5aA8tRAf6Bxx79yNKvofFdzwqNd3d9kX
+ aY33mI8/FlL3XC04SsOkQcWdZX4kyLwfiLaZtI+txLIXh+FK4NETl80T+vP2UarRmxI6
+ eog/DfQPfcb5qcEK2nPxQLqyQO5erwYvTuaI26a5aHznQHXXYJNm7TPMMEVnww2tbnpX
+ tcEq0L5yond491+A43iZ3pyXzVPJV3jR5NJb7dD34G7Fd0fjrNwpGjQlnRvkNF1R5kj5
+ VDcA==
+X-Gm-Message-State: AOAM533Y6QoqEcMz3R0Q2lqXGsNDRFNYjk8zqsSmFgolWnnOs9XycgFE
+ o1GHcdiy3DKaJXPToYXDIxF/DlsqeDE=
+X-Google-Smtp-Source: ABdhPJyj4rUoqs2915nhSyoqX9YGWRaiikX568lnB/vn8bpIGUoxqu2M9ISziOOEMnXgiMyENpFmkaA/Mco=
 X-Received: from seanjc.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:3e5])
- (user=seanjc job=sendgmr) by 2002:a05:6a00:1994:b0:47e:64e5:a1b3
+ (user=seanjc job=sendgmr) by 2002:a17:902:ab50:b0:13f:4c70:9322
  with SMTP id
- d20-20020a056a00199400b0047e64e5a1b3mr42939171pfl.64.1635985605387; Wed, 03
- Nov 2021 17:26:45 -0700 (PDT)
-Date: Thu,  4 Nov 2021 00:25:28 +0000
+ ij16-20020a170902ab5000b0013f4c709322mr41332797plb.89.1635985607093; Wed, 03
+ Nov 2021 17:26:47 -0700 (PDT)
+Date: Thu,  4 Nov 2021 00:25:29 +0000
 In-Reply-To: <20211104002531.1176691-1-seanjc@google.com>
-Message-Id: <20211104002531.1176691-28-seanjc@google.com>
+Message-Id: <20211104002531.1176691-29-seanjc@google.com>
 Mime-Version: 1.0
 References: <20211104002531.1176691-1-seanjc@google.com>
 X-Mailer: git-send-email 2.33.1.1089.g2158813163f-goog
-Subject: [PATCH v5.5 27/30] KVM: Optimize gfn lookup in kvm_zap_gfn_range()
+Subject: [PATCH v5.5 28/30] KVM: Optimize overlapping memslots check
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
  Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
@@ -92,8 +92,8 @@ Cc: James Morse <james.morse@arm.com>,
  linux-kernel@vger.kernel.org, Ben Gardon <bgardon@google.com>, 
  "Maciej S . Szmigiero" <maciej.szmigiero@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211103_172647_229380_DBA54631 
-X-CRM114-Status: GOOD (  16.29  )
+X-CRM114-CacheID: sfid-20211103_172648_902212_A459F379 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,135 +113,99 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Maciej S. Szmigiero <maciej.szmigiero@oracle.com>
 
-Introduce a memslots gfn upper bound operation and use it to optimize
-kvm_zap_gfn_range().
-This way this handler can do a quick lookup for intersecting gfns and won't
-have to do a linear scan of the whole memslot set.
+Do a quick lookup for possibly overlapping gfns when creating or moving
+a memslot instead of performing a linear scan of the whole memslot set.
 
 Signed-off-by: Maciej S. Szmigiero <maciej.szmigiero@oracle.com>
-Not-signed-off-by: Sean Christopherson <seanjc@google.com>
+[sean: tweaked params to avoid churn in future cleanup]
+Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/mmu/mmu.c   | 11 +++++--
- include/linux/kvm_host.h | 69 ++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 78 insertions(+), 2 deletions(-)
+ virt/kvm/kvm_main.c | 46 +++++++++++++++++++++++++++++++--------------
+ 1 file changed, 32 insertions(+), 14 deletions(-)
 
-diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-index 09ff0ccaa203..14e41278c069 100644
---- a/arch/x86/kvm/mmu/mmu.c
-+++ b/arch/x86/kvm/mmu/mmu.c
-@@ -5714,16 +5714,20 @@ static bool __kvm_zap_rmaps(struct kvm *kvm, gfn_t gfn_start, gfn_t gfn_end)
- {
- 	const struct kvm_memory_slot *memslot;
- 	struct kvm_memslots *slots;
-+	struct rb_node *node;
- 	bool flush = false;
- 	gfn_t start, end;
--	int i, bkt;
-+	int i, idx;
- 
- 	if (!kvm_memslots_have_rmaps(kvm))
- 		return flush;
- 
- 	for (i = 0; i < KVM_ADDRESS_SPACE_NUM; i++) {
- 		slots = __kvm_memslots(kvm, i);
--		kvm_for_each_memslot(memslot, bkt, slots) {
-+		idx = slots->node_idx;
-+
-+		kvm_for_each_memslot_in_gfn_range(node, slots, gfn_start, gfn_end) {
-+			memslot = container_of(node, struct kvm_memory_slot, gfn_node[idx]);
- 			start = max(gfn_start, memslot->base_gfn);
- 			end = min(gfn_end, memslot->base_gfn + memslot->npages);
- 			if (start >= end)
-@@ -5747,6 +5751,9 @@ void kvm_zap_gfn_range(struct kvm *kvm, gfn_t gfn_start, gfn_t gfn_end)
- 	bool flush;
- 	int i;
- 
-+	if (WARN_ON_ONCE(gfn_end <= gfn_start))
-+		return;
-+
- 	write_lock(&kvm->mmu_lock);
- 
- 	kvm_inc_notifier_count(kvm, gfn_start, gfn_end);
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 6888f3c2e04b..810a5b958697 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -832,6 +832,75 @@ struct kvm_memory_slot *id_to_memslot(struct kvm_memslots *slots, int id)
- 	return NULL;
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index d095e01838bf..d22e40225703 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -1800,6 +1800,29 @@ static int kvm_set_memslot(struct kvm *kvm,
+ 	return 0;
  }
  
-+static inline
-+struct rb_node *kvm_memslots_gfn_upper_bound(struct kvm_memslots *slots, gfn_t gfn)
++static bool kvm_check_memslot_overlap(struct kvm_memslots *slots, int id,
++				      gfn_t start, gfn_t end)
 +{
 +	int idx = slots->node_idx;
-+	struct rb_node *node, *result = NULL;
-+
-+	for (node = slots->gfn_tree.rb_node; node; ) {
-+		struct kvm_memory_slot *slot;
-+
-+		slot = container_of(node, struct kvm_memory_slot, gfn_node[idx]);
-+		if (gfn < slot->base_gfn) {
-+			result = node;
-+			node = node->rb_left;
-+		} else
-+			node = node->rb_right;
-+	}
-+
-+	return result;
-+}
-+
-+static inline
-+struct rb_node *kvm_for_each_in_gfn_first(struct kvm_memslots *slots, gfn_t start)
-+{
 +	struct rb_node *node;
 +
-+	/*
-+	 * Find the slot with the lowest gfn that can possibly intersect with
-+	 * the range, so we'll ideally have slot start <= range start
-+	 */
-+	node = kvm_memslots_gfn_upper_bound(slots, start);
-+	if (node) {
-+		struct rb_node *pnode;
++	kvm_for_each_memslot_in_gfn_range(node, slots, start, end) {
++		struct kvm_memory_slot *cslot;
++		gfn_t cend;
 +
-+		/*
-+		 * A NULL previous node means that the very first slot
-+		 * already has a higher start gfn.
-+		 * In this case slot start > range start.
-+		 */
-+		pnode = rb_prev(node);
-+		if (pnode)
-+			node = pnode;
-+	} else {
-+		/* a NULL node below means no slots */
-+		node = rb_last(&slots->gfn_tree);
++		cslot = container_of(node, struct kvm_memory_slot, gfn_node[idx]);
++		cend = cslot->base_gfn + cslot->npages;
++		if (cslot->id == id)
++			continue;
++
++		/* kvm_for_each_in_gfn_no_more() guarantees that cslot->base_gfn < nend */
++		if (cend > start)
++			return true;
 +	}
 +
-+	return node;
++	return false;
 +}
-+
-+static inline
-+bool kvm_for_each_in_gfn_no_more(struct kvm_memslots *slots, struct rb_node *node, gfn_t end)
-+{
-+	struct kvm_memory_slot *memslot;
-+
-+	memslot = container_of(node, struct kvm_memory_slot, gfn_node[slots->node_idx]);
-+
-+	/*
-+	 * If this slot starts beyond or at the end of the range so does
-+	 * every next one
-+	 */
-+	return memslot->base_gfn >= end;
-+}
-+
-+/* Iterate over each memslot *possibly* intersecting [start, end) range */
-+#define kvm_for_each_memslot_in_gfn_range(node, slots, start, end)	\
-+	for (node = kvm_for_each_in_gfn_first(slots, start);		\
-+	     node && !kvm_for_each_in_gfn_no_more(slots, node, end);	\
-+	     node = rb_next(node))					\
 +
  /*
-  * KVM_SET_USER_MEMORY_REGION ioctl allows the following operations:
-  * - create a new memory slot
+  * Allocate some memory and give it an address in the guest physical address
+  * space.
+@@ -1811,8 +1834,9 @@ static int kvm_set_memslot(struct kvm *kvm,
+ int __kvm_set_memory_region(struct kvm *kvm,
+ 			    const struct kvm_userspace_memory_region *mem)
+ {
+-	struct kvm_memory_slot *old, *tmp;
++	struct kvm_memory_slot *old;
+ 	struct kvm_memory_slot new;
++	struct kvm_memslots *slots;
+ 	enum kvm_mr_change change;
+ 	int as_id, id;
+ 	int r;
+@@ -1841,11 +1865,13 @@ int __kvm_set_memory_region(struct kvm *kvm,
+ 	if (mem->guest_phys_addr + mem->memory_size < mem->guest_phys_addr)
+ 		return -EINVAL;
+ 
++	slots = __kvm_memslots(kvm, as_id);
++
+ 	/*
+ 	 * Note, the old memslot (and the pointer itself!) may be invalidated
+ 	 * and/or destroyed by kvm_set_memslot().
+ 	 */
+-	old = id_to_memslot(__kvm_memslots(kvm, as_id), id);
++	old = id_to_memslot(slots, id);
+ 
+ 	if (!mem->memory_size) {
+ 		if (!old || !old->npages)
+@@ -1894,18 +1920,10 @@ int __kvm_set_memory_region(struct kvm *kvm,
+ 			return 0;
+ 	}
+ 
+-	if ((change == KVM_MR_CREATE) || (change == KVM_MR_MOVE)) {
+-		int bkt;
+-
+-		/* Check for overlaps */
+-		kvm_for_each_memslot(tmp, bkt, __kvm_memslots(kvm, as_id)) {
+-			if (tmp->id == id)
+-				continue;
+-			if (!((new.base_gfn + new.npages <= tmp->base_gfn) ||
+-			      (new.base_gfn >= tmp->base_gfn + tmp->npages)))
+-				return -EEXIST;
+-		}
+-	}
++	if ((change == KVM_MR_CREATE || change == KVM_MR_MOVE) &&
++	    kvm_check_memslot_overlap(slots, id, new.base_gfn,
++				      new.base_gfn + new.npages))
++		return -EEXIST;
+ 
+ 	return kvm_set_memslot(kvm, old, &new, change);
+ }
 -- 
 2.33.1.1089.g2158813163f-goog
 
