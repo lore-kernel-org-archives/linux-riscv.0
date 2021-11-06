@@ -2,81 +2,125 @@ Return-Path: <SRS0=YRhX=PZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C2D62C433EF
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Nov 2021 18:07:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9E081C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Nov 2021 20:56:53 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7D8B660E8B
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Nov 2021 18:07:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7D8B660E8B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id D9E45610FD
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Nov 2021 20:56:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D9E45610FD
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmx.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1P90HsWixtgR6ignxB7ZYnAQBmxyiY+OHxERZlPKIc8=; b=mlbsGNXqo9nbtF
-	S9c9ntEb3E7AaJTqHFx2LHFRAn3dY3Lwq/D2px8lQ4SQcR4VJcMVp6W9ukvHX6tAnCyy1RiWoy6eu
-	wq6F2uauBgL0TeRm4G3KYUEsO/L7zs0jqzSp8vc8WRD16al5qccqa+a1toH0rtLuhUv5F4C3nN+Di
-	PDbAMuhKkTI/WlWB/hjJJFmrD/1foIgDsZ9yxj2YqTofkyjDgIQfUKT3JznpQ5L3FbHOABgk5n2Lr
-	mmrMI4tpRmh77g+DiYLt9TeJbhn/F7RF1aSDDnC/I8QRT1gsUn8jXqIIdSdT06igKx7S57oYfIz3C
-	q9NfycSIGImgO3YkliKg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wet1JC1yqJA2XP1LRA5ZEbyX4VvPzliQ1qAJzY4nOIk=; b=Kg0W6iU1BzQy/gCdjjRJs66UJy
+	lomHwdNPuCEyA8BWS1v/vLSjamqRguL0095dr/GO2ps0r5PlgbwSFEymok5WaiL0AIDQu3gvT1/U/
+	7d3BcLv0Q352IiTQ7iLAefXmiG9zAR0LtQ3j2hqdFQVxKSXr78oMHUBPO1mEu06TlnRWQAZzDpy7X
+	HQ2KH5QTbmhKGS+e/Nw2UhqM7A3g/IDkLcTvyxTeCnZtLq+AZyBYJcpovDN1WQxPONs9hU/BE9nMe
+	esk8N3jaF5oYEzt8X408jPWvFUQAk0NO9+x/XSDb7k6RC2PdSci0Xyp7pJEFzPj3GaInt8YRn5xvF
+	2lrt2Y+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mjQ6H-00DU2Z-Ch; Sat, 06 Nov 2021 18:07:33 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1mjSjv-00Dk3N-2t; Sat, 06 Nov 2021 20:56:39 +0000
+Received: from mout.gmx.net ([212.227.17.20])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mjQ3h-00DTMP-Ok
- for linux-riscv@lists.infradead.org; Sat, 06 Nov 2021 18:04:55 +0000
-Received: by mail-lf1-x136.google.com with SMTP id bi35so25723858lfb.9
- for <linux-riscv@lists.infradead.org>; Sat, 06 Nov 2021 11:04:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=f31WRtxRAaJ1ReHamccwuYw+KLj+c2LCAREJ/bMMV3c=;
- b=wVf6Mdvfbfy0yyKVtJHy/4iYqp5dIVOo2qoWCmcFQtgMiH/3/R11fcbR8fVyHf9ULK
- LFjkHWCwbH+UjVtZOB7ILZc7NSGCobw0HEnrp7pRXRpkoQYhSQ6bnNat6e5m1ZZUrBxM
- Fay/r9bYykJC/OpZGjwlX8XieYgZ2Jd2/8YDf8X3nT4r0Ht8HqQAGJwW+8AzrcqLtcNc
- 7Efc7T9cO52SWaYRHpk9VoZKUVd+dTz2Xhx3XtLYKe9c9olJZd75ycov8kISJkaOy5Pd
- nEua5M0ov4f4KVG9S7P8N0LISg5CCt/YXD4ockptHfcDQaLjzPWS01MhpsPVHD01mD1A
- o6FA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=f31WRtxRAaJ1ReHamccwuYw+KLj+c2LCAREJ/bMMV3c=;
- b=ZVjrP5jb9stJ1YIgaEIRjI0kBkxzS2Ruy3Ve6/9aRUb0wf6vBzSZr4rI/5+ETcQv/n
- xnKgVyg102/QtyujUdiPEzPI3VQe4xc+4719rCObLDCyL7F2D1Ak3yilE/vNXR5M6NEY
- AbjufX7dtHNo8H7MeU3sTmPW2mkdZ2KIx5oExLaF3gQv5pHPB548wVDTBBfDvYTV4BGS
- g6vMmca4Qgo4BIJMpw1CR9NMqoNQTBA3bX6wvqs7ACOiALCgsCjO7F0TXiiGrUtLYMhA
- huLWBpqSR8utn6OyVswUnEXuW8H/KFkvxhfjN8Fr2flZInuoXWb2p1j1aXIrPFtbEIWA
- 7iaQ==
-X-Gm-Message-State: AOAM53110q59LwTJxuoMF+LQUgLo7KfNsZTVfMen09dRl1SwaxUnqH71
- wWDGy4OO7eTEN6+VLjKwNBF+uIj3acUsgyKPVk4Uj8SJA/s=
-X-Google-Smtp-Source: ABdhPJwj0bSJpCKsFAQNW7l21NJ6PZn1RoeYyJeAZJHt0df9t5osbpRnqm83k2dhkDYTZTvXrYYXbxl/6UtX2NUWa/k=
-X-Received: by 2002:a5d:4846:: with SMTP id n6mr36037840wrs.249.1636206336953; 
- Sat, 06 Nov 2021 06:45:36 -0700 (PDT)
+ id 1mjSjr-00Dk2z-4N; Sat, 06 Nov 2021 20:56:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1636232056;
+ bh=Mwd00qb2ZiJx72AR8VOZy+k9pKeasCOoFRxt9I1uV2U=;
+ h=X-UI-Sender-Class:Date:From:To:Cc:Subject:References:In-Reply-To;
+ b=C0sCrT8yqXlZxZN/D8t3r5AoxwhULAsJ8jy0NerNyYtNdbWgnqBYX9Y6CiU9MHxYu
+ zquWuU6nUJY+jyfB4yNiyLcx1VtjpHa5bjIspLTdTbHxN0xolbUGlTJ6HhUeKdKZyT
+ nslIEB0sT9+3bcpa5ZRh7JRv4jOvvxznOxhoRVuE=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from longitude ([87.79.195.52]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MOA3F-1n7sEw3p2f-00OWCa; Sat, 06
+ Nov 2021 21:54:16 +0100
+Date: Sat, 6 Nov 2021 21:54:06 +0100
+From: Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>
+To: Dmitry Osipenko <digetx@gmail.com>
+Cc: Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Lee Jones <lee.jones@linaro.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Guenter Roeck <linux@roeck-us.net>, Russell King <linux@armlinux.org.uk>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Greg Ungerer <gerg@linux-m68k.org>, Joshua Thompson <funaho@jurai.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
+ Vincent Chen <deanbo422@gmail.com>, Helge Deller <deller@gmx.de>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Rich Felker <dalias@libc.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+ Juergen Gross <jgross@suse.com>,
+ Stefano Stabellini <sstabellini@kernel.org>, Len Brown <lenb@kernel.org>,
+ Santosh Shilimkar <ssantosh@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>,
+ Tony Lindgren <tony@atomide.com>, Liam Girdwood <lgirdwood@gmail.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Vladimir Zapolskiy <vz@mleia.com>,
+ Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>,
+ Tali Perry <tali.perry1@gmail.com>,
+ Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
+ Benjamin Fair <benjaminfair@google.com>,
+ Pavel Machek <pavel@ucw.cz>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, xen-devel@lists.xenproject.org,
+ linux-acpi@vger.kernel.org, linux-omap@vger.kernel.org,
+ openbmc@lists.ozlabs.org, linux-tegra@vger.kernel.org,
+ linux-pm@vger.kernel.org
+Subject: Re: [PATCH v2 27/45] mfd: ntxec: Use devm_register_power_handler()
+Message-ID: <YYbqlmOM95q7Hbjo@latitude>
+References: <20211027211715.12671-1-digetx@gmail.com>
+ <20211027211715.12671-28-digetx@gmail.com>
 MIME-Version: 1.0
-References: <20211105094748.3894453-1-guoren@kernel.org>
-In-Reply-To: <20211105094748.3894453-1-guoren@kernel.org>
-From: Anup Patel <anup@brainfault.org>
-Date: Sat, 6 Nov 2021 19:15:25 +0530
-Message-ID: <CAAhSdy1vyCQdv_gNaNSzU79PC4giCAig6hzgD9JXSXs6+gfFPA@mail.gmail.com>
-Subject: Re: [PATCH V7] irqchip/sifive-plic: Fixup EOI failed when masked
-To: Guo Ren <guoren@kernel.org>
-Cc: Atish Patra <atish.patra@wdc.com>, Marc Zyngier <maz@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Guo Ren <guoren@linux.alibaba.com>, 
- Vincent Pelletier <plr.vincent@gmail.com>,
- Nikita Shubin <nikita.shubin@maquefel.me>, stable@vger.kernel.org
+In-Reply-To: <20211027211715.12671-28-digetx@gmail.com>
+X-Provags-ID: V03:K1:SVFlmtuvvynO7MrtDzObaEyN/WaPcv8tOsGAlIRvdbuKBKDAEQ/
+ nVePqR5eYOMd9xdpGO5unEqHbls4MbMcwDHHiD/2xW054xRTDPzVuInIGVNwfhVnOpuaRe4
+ ac8qzmvsisWAHTSwATyyh2lQM4j3GTT+YgfTlnX+xnTkWWDcDQ1QJM/FLNOUp2gu+vKNebi
+ 4PIdlh56euOWziRZzNIlQ==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:u5Fne7zv3PE=:dNBEMEjx9T9adiFRODtMYS
+ bP1c0hzh59ZKklI1R2cCTJxmTQB45y+QzZX2y0PFbg7yQDeDmSxw52obaEhQa1OdTD86QHXVu
+ bbxucMZOIMSbjbLPCif24qpNcHVpf4XClB+BVAEEUwNoQd2u+UA3qLozpzzQZNC8E146erRcl
+ EAKHMtg1jl5nUIbs95J8LLOgltdAEihA4JrPrtzt7z304ULnl8JDCKZ1GtxLnSmRKL2GPNjji
+ BW4Wh4ednr1BPkh3V5pGtcs7sYJeT+fCg9+1Ao3TSUyI/IMvOamAK8fVGMSOSa8NHso9PeZQG
+ p+/g7H+fY7krRTHyMZXbNHeGC6zFFjT+rzUWo+KzQQxtKMn72KqFsaG2rKGpecWbyuM0yrSA3
+ xhBNrwHcineUl3uAIRxEl8UFkkXss6eAsh3Q7PLKHNXtaR46/z4OumfDtDC9mwHJVuXp9n3KM
+ M7BF+sRUvasT/1Hjw3WGpiUE/z6upYRlSC4e82UllEXyFN6W5gyX4r9kjFZV6JMJQR4UbuEW1
+ 4g31iHAtTXNZxCvREA7FhQCKM9rtiy8KysUGnceOt3v+aXNzH7SzuQRyJ9+2MgAUQhI7LT2+v
+ VClVfxb0rprv/xqBe8DR8WZ7vcK3mCHHlNMCIkYs+6FCITYMw1DHU+CCMKRJej3SCQwR1LGqj
+ hUPkhNKbB6PRt/vk+6c77kVWLHqNnHOCN73BdRo6Txp4mZxNOEbbazHi+tZW5jEpWLgiTWfNM
+ nvxwa10sJSG8hWu5gGN/aF40RAay1aoGu/k5TA+el84toB3VY6ini0lBJUlrb8M4zbzR9pa9/
+ Pm44sh1ruNP7AzMnsBiAzzZX6lqJDAsa+TO5YVhuM9bbKS9hD1KoschPm0B4aJf++t2+ahC/M
+ b/QH4Oe5cluIsKILSHGZSoRrX9sqCtW26taTpZQSEsbNePGKbzsw8Oa3lejuRZ+LJbcUK2xLt
+ ttQpHqsFbUZlBFAYwpFpRbcNm/+LQLWVCLIU9Rk9O9c0hSOeoGw2PLPC+aL/hsmQVrqlLI/F5
+ NAfMG2YBy//Wmh7LL2E3535/ea8r6g8I6Rr7Y4YuBRiuLWpoBhkDI8ZJxuoe0BuQmictlfruZ
+ QdH3qyP8a6Ex3I=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211106_110453_910310_5FD4A266 
-X-CRM114-Status: GOOD (  27.40  )
+X-CRM114-CacheID: sfid-20211106_135635_561908_E38017B6 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,113 +132,164 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4215339978226779893=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 5, 2021 at 3:18 PM <guoren@kernel.org> wrote:
->
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> When using "devm_request_threaded_irq(,,,,IRQF_ONESHOT,,)" in the driver,
-> only the first interrupt could be handled, and continue irq is blocked by
-> hw. Because the riscv plic couldn't complete masked irq source which has
-> been disabled in enable register. The bug was firstly reported in [1].
->
-> Here is the description of Interrupt Completion in PLIC spec [2]:
->
-> The PLIC signals it has completed executing an interrupt handler by
-> writing the interrupt ID it received from the claim to the claim/complete
-> register. The PLIC does not check whether the completion ID is the same
-> as the last claim ID for that target. If the completion ID does not match
-> an interrupt source that is currently enabled for the target, the
->                          ^^ ^^^^^^^^^ ^^^^^^^
-> completion is silently ignored.
->
-> [1] http://lists.infradead.org/pipermail/linux-riscv/2021-July/007441.html
-> [2] https://github.com/riscv/riscv-plic-spec/blob/8bc15a35d07c9edf7b5d23fec9728302595ffc4d/riscv-plic.adoc
->
-> Fixes: bb0fed1c60cc ("irqchip/sifive-plic: Switch to fasteoi flow")
-> Reported-by: Vincent Pelletier <plr.vincent@gmail.com>
-> Tested-by: Nikita Shubin <nikita.shubin@maquefel.me>
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 
-Looks good to me.
+--===============4215339978226779893==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="EIEte5+tjVxDHmE6"
+Content-Disposition: inline
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
 
-Regards,
-Anup
+--EIEte5+tjVxDHmE6
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> Cc: stable@vger.kernel.org
-> Cc: Anup Patel <anup@brainfault.org>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Atish Patra <atish.patra@wdc.com>
-> Cc: Nikita Shubin <nikita.shubin@maquefel.me>
-> Cc: incent Pelletier <plr.vincent@gmail.com>
->
+Hi,
+
+On Thu, Oct 28, 2021 at 12:16:57AM +0300, Dmitry Osipenko wrote:
+> Use devm_register_power_handler() that replaces global pm_power_off
+> variable and allows to register multiple power-off handlers. It also
+> provides restart-handler support, i.e. all in one API.
+>=20
+> Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
 > ---
->
-> Changes since V7:
->  - Add Fixes tag
->  - Add Tested-by
->  - Add Cc stable
->
-> Changes since V6:
->  - Propagate to plic_irq_eoi for all riscv,plic by Nikita Shubin
->  - Remove thead related codes
->
-> Changes since V5:
->  - Move back to mask/unmask
->  - Fixup the problem in eoi callback
->  - Remove allwinner,sun20i-d1 IRQCHIP_DECLARE
->  - Rewrite comment log
->
-> Changes since V4:
->  - Update comment by Anup
->
-> Changes since V3:
->  - Rename "c9xx" to "c900"
->  - Add sifive_plic_chip and thead_plic_chip for difference
->
-> Changes since V2:
->  - Add a separate compatible string "thead,c9xx-plic"
->  - set irq_mask/unmask of "plic_chip" to NULL and point
->    irq_enable/disable of "plic_chip" to plic_irq_mask/unmask
->  - Add a detailed comment block in plic_init() about the
->    differences in Claim/Completion process of RISC-V PLIC and C9xx
->    PLIC.
-> ---
->  drivers/irqchip/irq-sifive-plic.c | 8 +++++++-
->  1 file changed, 7 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-> index cf74cfa82045..259065d271ef 100644
-> --- a/drivers/irqchip/irq-sifive-plic.c
-> +++ b/drivers/irqchip/irq-sifive-plic.c
-> @@ -163,7 +163,13 @@ static void plic_irq_eoi(struct irq_data *d)
->  {
->         struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
->
-> -       writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
-> +       if (irqd_irq_masked(d)) {
-> +               plic_irq_unmask(d);
-> +               writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
-> +               plic_irq_mask(d);
-> +       } else {
-> +               writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
-> +       }
->  }
->
->  static struct irq_chip plic_chip = {
-> --
-> 2.25.1
->
+
+When I boot with (most of) this patchset applied, I get the warning at
+kernel/reboot.c:187:
+
+	/*
+	 * Handler must have unique priority. Otherwise call order is
+	 * determined by registration order, which is unreliable.
+	 */
+	WARN_ON(!atomic_notifier_has_unique_priority(&restart_handler_list, nb));
+
+As the NTXEC driver doesn't specify a priority, I think this is an issue
+to be fixed elsewhere.
+
+Other than that, it works and looks good, as far as I can tell.
+
+
+For this patch:
+
+Reviewed-by: Jonathan Neusch=C3=A4fer <j.neuschaefer@gmx.net>
+Tested-by: Jonathan Neusch=C3=A4fer <j.neuschaefer@gmx.net>
+
+
+Best regards,
+Jonathan
+---
+
+Full Oops log:
+
+[    3.523294] ------------[ cut here ]------------
+[    3.528193] WARNING: CPU: 0 PID: 1 at kernel/reboot.c:187 register_resta=
+rt_handler+0x4c/0x58
+[    3.536975] Modules linked in:
+[    3.540312] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 5.15.0-00021-gcb24=
+c628b307 #622
+[    3.548214] Hardware name: Freescale i.MX50 (Device Tree Support)
+[    3.554357] [<c0111540>] (unwind_backtrace) from [<c010cdd0>] (show_stac=
+k+0x10/0x14)
+[    3.562183] [<c010cdd0>] (show_stack) from [<c0bf240c>] (dump_stack_lvl+=
+0x58/0x70)
+[    3.569824] [<c0bf240c>] (dump_stack_lvl) from [<c0127604>] (__warn+0xd4=
+/0x154)
+[    3.577191] [<c0127604>] (__warn) from [<c0bec844>] (warn_slowpath_fmt+0=
+x74/0xa8)
+[    3.584727] [<c0bec844>] (warn_slowpath_fmt) from [<c01593c8>] (register=
+_restart_handler+0x4c/0x58)
+[    3.593823] [<c01593c8>] (register_restart_handler) from [<c08676c8>] (_=
+_watchdog_register_device+0x13c/0x27c)
+[    3.603889] [<c08676c8>] (__watchdog_register_device) from [<c0867868>] =
+(watchdog_register_device+0x60/0xb4)
+[    3.613764] [<c0867868>] (watchdog_register_device) from [<c08678f8>] (d=
+evm_watchdog_register_device+0x3c/0x84)
+[    3.623898] [<c08678f8>] (devm_watchdog_register_device) from [<c1146454=
+>] (imx2_wdt_probe+0x254/0x2ac)
+[    3.633346] [<c1146454>] (imx2_wdt_probe) from [<c06feb74>] (platform_pr=
+obe+0x58/0xb8)
+[    3.641314] [<c06feb74>] (platform_probe) from [<c06fb2f8>] (call_driver=
+_probe+0x24/0x108)
+[    3.649636] [<c06fb2f8>] (call_driver_probe) from [<c06fbe08>] (really_p=
+robe.part.0+0xa8/0x358)
+[    3.658384] [<c06fbe08>] (really_probe.part.0) from [<c06fc1c4>] (__driv=
+er_probe_device+0x94/0x208)
+[    3.667470] [<c06fc1c4>] (__driver_probe_device) from [<c06fc368>] (driv=
+er_probe_device+0x30/0xc8)
+[    3.676468] [<c06fc368>] (driver_probe_device) from [<c06fcb0c>] (__driv=
+er_attach+0xe0/0x1c4)
+[    3.685032] [<c06fcb0c>] (__driver_attach) from [<c06f9a20>] (bus_for_ea=
+ch_dev+0x74/0xc0)
+[    3.693253] [<c06f9a20>] (bus_for_each_dev) from [<c06faeb8>] (bus_add_d=
+river+0x100/0x208)
+[    3.701563] [<c06faeb8>] (bus_add_driver) from [<c06fd8a0>] (driver_regi=
+ster+0x88/0x118)
+[    3.709696] [<c06fd8a0>] (driver_register) from [<c06fe920>] (__platform=
+_driver_probe+0x44/0xdc)
+[    3.718522] [<c06fe920>] (__platform_driver_probe) from [<c01022ac>] (do=
+_one_initcall+0x78/0x388)
+[    3.727444] [<c01022ac>] (do_one_initcall) from [<c1101708>] (do_initcal=
+ls+0xcc/0x110)
+[    3.735413] [<c1101708>] (do_initcalls) from [<c110198c>] (kernel_init_f=
+reeable+0x1ec/0x250)
+[    3.743896] [<c110198c>] (kernel_init_freeable) from [<c0bfe724>] (kerne=
+l_init+0x10/0x128)
+[    3.752224] [<c0bfe724>] (kernel_init) from [<c010011c>] (ret_from_fork+=
+0x14/0x38)
+[    3.759844] Exception stack(0xc40adfb0 to 0xc40adff8)
+[    3.764933] dfa0:                                     00000000 00000000 =
+00000000 00000000
+[    3.773143] dfc0: 00000000 00000000 00000000 00000000 00000000 00000000 =
+00000000 00000000
+[    3.781351] dfe0: 00000000 00000000 00000000 00000000 00000013 00000000
+[    3.788347] irq event stamp: 143613
+[    3.792102] hardirqs last  enabled at (143623): [<c01a3ebc>] __up_consol=
+e_sem+0x50/0x60
+[    3.800397] hardirqs last disabled at (143632): [<c01a3ea8>] __up_consol=
+e_sem+0x3c/0x60
+[    3.808491] softirqs last  enabled at (143612): [<c0101518>] __do_softir=
+q+0x2f8/0x5b0
+[    3.816591] softirqs last disabled at (143603): [<c01307dc>] __irq_exit_=
+rcu+0x160/0x1d8
+[    3.825014] ---[ end trace 7f6709d2c89774b4 ]---
+
+--EIEte5+tjVxDHmE6
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEvHAHGBBjQPVy+qvDCDBEmo7zX9sFAmGG624ACgkQCDBEmo7z
+X9s6ChAAk6BAeo5fWoSSZHjjpn6ATqjK8ym6Qwe2EuauLkxbrtHK3OsbljBzCdtj
+p4LUnHOvUjWpnlBRfbbZSXKo5B0LxFtUhe/Cz9IDICft4K2DmOExc+xY9zQNcjMO
+rNIxDh4Q8qUdWv4c4B3p812s36yVKoaAGT6XHR9ISWOWmTWq/SNXiFetn9KdMaRs
+INw4aNL0grB717V8ucg5RtEOcrLEHRPf6Rv0b6yhfRdBQGx5XCatsdkofBcM9Rlr
+ECVr+SDk6hoMvPgqbnK3hh1fU0MGiDoyHN/+PhdW5k71EoqynneLlz1xhU4P1TAQ
+4leH70X0lvTJSlpZ+dWkgVGkGzE8LtrjCwhCzZvf+UKqhKf4VWp9LInkiRU2mEaN
+ZGeaNLEL/oEE2nHZuWuW8imYr/WoYQKyZX+rG/g+aViMxom4/RC/IF5GFWxInCgi
+IBVFSiKxJOwKvKHZrsiJsk+zqcmb1TRObyYd0ecsOPD413IWwnFIl6502QRQolJH
+UvdIANNtt2/XORmBBNNGCQtZJ82srfxBpn9jzBtCZu03m4RymWvURbqbIx7mAiz0
+6nj5cArubiCB8WOnOcCmsgHzLZDzN2SAy5UFxsELy67LUXWjsGMG++sHbkDuaiji
+/h71rvx5wmakG7quyBIQDCUtxgSMJL73yZA4N8UsQABCsmnNXgE=
+=jBJI
+-----END PGP SIGNATURE-----
+
+--EIEte5+tjVxDHmE6--
+
+
+--===============4215339978226779893==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4215339978226779893==--
+
