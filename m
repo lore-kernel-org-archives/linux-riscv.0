@@ -2,14 +2,14 @@ Return-Path: <SRS0=VhLN=P2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B5207C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Nov 2021 07:13:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 02B9AC433EF
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Nov 2021 07:23:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 43F266137D
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Nov 2021 07:13:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 43F266137D
+	by mail.kernel.org (Postfix) with ESMTPS id B51766137D
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Nov 2021 07:23:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B51766137D
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,74 +18,74 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/bBjCf6JLa7B6K8NwDicFGHnEym7ysKxrz6xfMB3eds=; b=CeUVOo2erttD5h
-	Lkps49IAvNF9cXkc49zCnvH7g1VhvDPQBj3hrUXqWPwkqn/9DJhNMksb9WlSnn45iHt357LNQSttc
-	VRzCJWm/gB24hC27LnP5fnvLNqyx/rgQvhtN2gajHNImRVwmbFk5mfFvACOZP6QbqnUF2KkYepoc6
-	zgNnY786PO5UGSdSyBghRsuo78vO/sCuYZvQr3Zgb6qCXu21y5MmYRzZnI3NkUdwEalqfo5/0SKAZ
-	GYglOhQl76PVaj1nRZ0ryKR22jXGlVq9e05y+CKKvtxIpfIrBea0+7m89gPGbK85AbaCoSyaCqPTn
-	qG/SFU7BEhz3rfQqhuBg==;
+	List-Owner; bh=lh3R4gQlHrzw2CicjyAubyDtd+3PeCz34VZTi97D+sY=; b=fdqxTUcNq7XVTY
+	YqDfOTRz1j5AeTLm0vncWpogdFveE1u7rc0dRp09d/J63lHmRV4YTr1h3XPhFTtZmMapCkMK4oI6t
+	mT/kFbrZv6SsshnzBcsgbgQ3cmhuqHp4xUUwRGAPXpPcBYVoQOtLpzFsa8stG2qSCTRRvtlqDARyM
+	dJVH6tBZmJdxSx5qCr22706jk63OR38DN380qc+NLHlQPHZcwZb3ABpuOrVoTRzNmGqOac3pH+xzW
+	OitwNCNPC2FfAyukklO9htrKI3YduN/8UXOTWsU1u8LVYPWoHEucKRMrVOUo0iutXA6bX2HuCYcGl
+	5lblzxCie3t/YTcnq4vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mjcMY-00E2yV-KJ; Sun, 07 Nov 2021 07:13:10 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
+	id 1mjcWR-00E3xK-QJ; Sun, 07 Nov 2021 07:23:23 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mjcMV-00E2xS-Kq
- for linux-riscv@lists.infradead.org; Sun, 07 Nov 2021 07:13:09 +0000
+ id 1mjcWO-00E3wD-Mv
+ for linux-riscv@lists.infradead.org; Sun, 07 Nov 2021 07:23:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1636269186;
+ s=mimecast20190719; t=1636269799;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
  in-reply-to:in-reply-to:references:references;
- bh=vDFK4DQn9aozfzSTpRLPEP7Y2pv1h7xDJpMzzU0xL2E=;
- b=TgQu85TFFcI1GYi145daH/C24VV6KH51tbJ4QSk824iIOVVM3z/FOFqhelYBShnnQgeIB2
- zzEkIEF4M5Mgwur5NeYfG/TkxkGHk8D1cKzbpnVwCpJb5yaas4sDiecXROJ6njB6NcpMvp
- X+x7PE1UPvUrLjphlckC5ppW9GrvyZI=
-Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com
- [209.85.208.69]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-539-7MCVQAGKNfi2M6IQ8GEQzQ-1; Sun, 07 Nov 2021 02:13:04 -0500
-X-MC-Unique: 7MCVQAGKNfi2M6IQ8GEQzQ-1
-Received: by mail-ed1-f69.google.com with SMTP id
- w12-20020a056402268c00b003e2ab5a3370so12367840edd.0
- for <linux-riscv@lists.infradead.org>; Sun, 07 Nov 2021 00:13:03 -0700 (PDT)
+ bh=3RtXOitkDbgmdNskpNGQcKeBZZxTugWOTNvXI1LA5eE=;
+ b=bCXM91lgm+h6yR6tpMtGZMCen0v/YbezVFCs0Ebnh/WM0A/VOSZ2kRsy0YV3EcQkb1hlTv
+ 9rQaracggPqr2N2PrTP/ClDo8iNxkgJ5B/NANTLIcZZrye72IGdbZleM1O7R1Yg2Sk9xLH
+ X4lj2ZdcX6ExuPWo2jpZ/GO59VXAsXA=
+Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com
+ [209.85.208.70]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-216-7AGIw5JoP4mqKDY0fvEYhA-1; Sun, 07 Nov 2021 02:23:16 -0500
+X-MC-Unique: 7AGIw5JoP4mqKDY0fvEYhA-1
+Received: by mail-ed1-f70.google.com with SMTP id
+ i22-20020a05640242d600b003e28aecc0afso12352453edc.1
+ for <linux-riscv@lists.infradead.org>; Sun, 07 Nov 2021 00:23:16 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=vDFK4DQn9aozfzSTpRLPEP7Y2pv1h7xDJpMzzU0xL2E=;
- b=Ou1DsUZ0ae999OZlNoO+gZ1BayIVAVBCeWvGUxba3JetdJMqtFrM1Zk09mKbpFL/uC
- geJ1e3DODHNqiJ1FpwabdaMEbmfTCuEOcLj1lyBd6nYQ1qIdAq7p0jxpB5zWGlLfblet
- Ba6MHm4+oDwPvBOTb+o/YG+SlpM6w/7DfDz8tVvRbecj+QO1EYSttAuH/b6yy5co7+6P
- MZOirbb8QVKeCr3oRFQ3rcTYYzLrauLFia2sxU74gGmKlN4cGZf1tj+GZ8Z1WAFO230c
- uHSLy9Z0Dpzm/2otfv+HeODmVAfU7FLui0DVxKsHgxQq3Jl/othRNRk/gIxXfV1yGUYf
- 4W5A==
-X-Gm-Message-State: AOAM533G2bLtD8qjKwgJjZCpyBbLwuftA+G3RSsYBU3bi1S4KLumWhgq
- phhK9LgvDPfTW4/bSfBIoUt7Oal+f8qSfaMMqiJL3Xd0mhPmcw1veEhctCGsM48lyStGKriO0z1
- KFktRWBL8+ImsJ/D59weWbZi8UiuOuLnb/d4O0t11X5br
-X-Received: by 2002:a05:6402:50ce:: with SMTP id
- h14mr56552170edb.228.1636269182855; 
- Sun, 07 Nov 2021 00:13:02 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJy0RnDZMu6KOmWFnlJgGjwa6lcFRu6lQ1A/f5D/m43sCA5y6L7mOgJfGHJgDdZWFeczlvmbPOV4l6ovhsCleG0=
-X-Received: by 2002:a05:6402:50ce:: with SMTP id
- h14mr56552126edb.228.1636269182667; 
- Sun, 07 Nov 2021 00:13:02 -0700 (PDT)
+ :message-id:subject:to:cc;
+ bh=3RtXOitkDbgmdNskpNGQcKeBZZxTugWOTNvXI1LA5eE=;
+ b=YjsRza0RnUg7Zi1Z8mUW5Adk6j9LlviKArCJRUwNMNEF+aABNGdvesn8qUEtmp2nly
+ 5JBGeVs+aAKoE5Ip41q2h73eoaPWLkuH8VQ8BBPqsEvKCSBkiaLjtE47pjsLUY7hSH1p
+ 8mvhOFdJJrax79cw9HTSxm04Ogb2m/VAmJ5bUKnefRHtffEepW7iWxs5Fc7997hYeX0f
+ wWTrXD1z9lEdYfsh6Q3KEEe4s+Wtlr+AG06dMCK2rJJjNksaV8JUt3+JqOs1sWb8IodU
+ zI/bVnpWrVNvEYiCrfacLoxmAAGHO2Dt9kWv6hVq/rhWjaNyVm4N7jexSFrsd9kwo8TR
+ iPFQ==
+X-Gm-Message-State: AOAM530pICPMBQSdNLdICFwQvOd7IHjn1woRLK+UHCZ2gkcUOw87/JRn
+ tIT3aZ/Hm6CzjcwBW+NQM3FBz6lFS+d5MHKUK5bm3JELLJni/6q+rqU2S2idNjMlU7yINACPjKL
+ pawRD+O4rT9wIKW9WWJxzhPslwpeeGDW6sBBcI4lSQ3nd
+X-Received: by 2002:a17:906:38db:: with SMTP id
+ r27mr85071574ejd.338.1636269795647; 
+ Sun, 07 Nov 2021 00:23:15 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzc1hDrt/xpwiHiY5HIv5cMTET4wPhXlkE0U9ViPpgyODZ9hbdRxlZZsANe0jpLXhSz8/oNdv2YoMc9tNBgi2M=
+X-Received: by 2002:a17:906:38db:: with SMTP id
+ r27mr85071546ejd.338.1636269795503; 
+ Sun, 07 Nov 2021 00:23:15 -0700 (PDT)
 MIME-Version: 1.0
 References: <20211025040607.92786-1-wefu@redhat.com>
- <mhng-ac32ff92-86cb-4377-ba63-de1856e84fb1@palmerdabbelt-glaptop>
- <CAJF2gTT90V6gQw12XZEXB1TJXb5QNdXM6qcfXh1yzWzDPExgPQ@mail.gmail.com>
- <20211102055857.GB26925@lst.de>
- <CAJF2gTSfp+JZ4YxiynVA4KO0Z4PwJ4_uF8UO3Tx3mDOHPnFTeQ@mail.gmail.com>
-In-Reply-To: <CAJF2gTSfp+JZ4YxiynVA4KO0Z4PwJ4_uF8UO3Tx3mDOHPnFTeQ@mail.gmail.com>
+ <20211025040607.92786-3-wefu@redhat.com>
+ <YXZU/3/YmRGFrOXK@infradead.org>
+ <CA+YCwKkX64A8p9vfLJHC3+LqOWyDg99eDBR0mjfB=H45BOyJLQ@mail.gmail.com>
+ <20211102060734.GB27015@lst.de>
+In-Reply-To: <20211102060734.GB27015@lst.de>
 From: Wei Fu <wefu@redhat.com>
-Date: Sun, 7 Nov 2021 15:12:51 +0800
-Message-ID: <CA+YCwK=vMtKC0DrhSJ7apgZ4s4_8fzGoRxY2mKEjjyJZjNW2QQ@mail.gmail.com>
-Subject: Re: [RESEND PATCH V3 0/2] riscv: add RISC-V Svpbmt Standard Extension
- supports
-To: Guo Ren <guoren@kernel.org>
-Cc: Christoph Hellwig <hch@lst.de>, Palmer Dabbelt <palmerdabbelt@google.com>, 
- Anup Patel <Anup.Patel@wdc.com>, Atish Patra <Atish.Patra@wdc.com>, 
+Date: Sun, 7 Nov 2021 15:23:00 +0800
+Message-ID: <CA+YCwKntSMv56zFP9wzysbQAWixDGA1R4Nyrmhc4Tn=_Byc+TQ@mail.gmail.com>
+Subject: Re: [RESEND PATCH V3 2/2] riscv: add RISC-V Svpbmt extension supports
+To: Christoph Hellwig <hch@lst.de>
+Cc: Christoph Hellwig <hch@infradead.org>, Anup Patel <anup.patel@wdc.com>, 
+ Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmerdabbelt@google.com>, 
+ Guo Ren <guoren@kernel.org>,
  =?UTF-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>, 
- Philipp Tomsich <philipp.tomsich@vrull.eu>, liush <liush@allwinnertech.com>, 
+ Philipp Tomsich <philipp.tomsich@vrull.eu>,
+ Liu Shaohua <liush@allwinnertech.com>, 
  =?UTF-8?B?V2VpIFd1ICjlkLTkvJ8p?= <lazyparser@gmail.com>, 
  Drew Fustini <drew@beagleboard.org>,
  linux-riscv <linux-riscv@lists.infradead.org>, 
@@ -98,7 +98,7 @@ Cc: Christoph Hellwig <hch@lst.de>, Palmer Dabbelt <palmerdabbelt@google.com>,
  Daniel Lustig <dlustig@nvidia.com>, Greg Favor <gfavor@ventanamicro.com>, 
  Andrea Mondelli <andrea.mondelli@huawei.com>,
  Jonathan Behrens <behrensj@mit.edu>, 
- "Xinhaoqu (Freddie)" <xinhaoqu@huawei.com>, Bill Huffman <huffman@cadence.com>,
+ Xinhaoqu <xinhaoqu@huawei.com>, Bill Huffman <huffman@cadence.com>, 
  Nick Kossifidis <mick@ics.forth.gr>, Allen Baum <allen.baum@esperantotech.com>,
  Josh Scheid <jscheid@ventanamicro.com>, Richard Trauben <rtrauben@gmail.com>
 Authentication-Results: relay.mimecast.com;
@@ -106,8 +106,8 @@ Authentication-Results: relay.mimecast.com;
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211107_001307_804424_892F8562 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20211107_002320_831769_132E2346 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,24 +119,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SEkgR3Vv77yMIENocmlzdG9waCwKClRoYW5rcyBmb3IgeW91ciBzdWdnZXN0aW9uLgoKT24gVHVl
-LCBOb3YgMiwgMjAyMSBhdCA0OjUxIFBNIEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPiB3cm90
-ZToKPgo+IFRoeCBDaHJpc3RvcGgsCj4KPiBPbiBUdWUsIE5vdiAyLCAyMDIxIGF0IDE6NTkgUE0g
-Q2hyaXN0b3BoIEhlbGx3aWcgPGhjaEBsc3QuZGU+IHdyb3RlOgo+ID4KPiA+IE9uIFR1ZSwgTm92
-IDAyLCAyMDIxIGF0IDEwOjA3OjU4QU0gKzA4MDAsIEd1byBSZW4gd3JvdGU6Cj4gPiA+Cj4gPiA+
-IFRvIHNlcGFyYXRlIE1NVSAmIG5vLU1NVSBjbGVhcmx5LCBJIHN1Z2dlc3QgZnV3ZWkgYWRkCj4g
-PiA+ICNpZiBkZWZpbmVkKENPTkZJR182NEJJVCkgJiYgZGVmaW5lZChDT05GSUdfTU1VKQo+ID4K
-PiA+IEFjdHVhbGx5IC0gZm9yIGRvY3VtZW50YXRpb24gcHVycG9zZXMgYSBuZXcgQ09ORklHX1JJ
-U0NWX1NWUEJNVCB0aGF0Cj4gPiBkZXBlbmRzIG9uIDY0QklUICYmIE1NVSB3b3VsZCBwcm9iYWJs
-eSBtdWNoIGJldHRlciBhcyBpdCBjbGVhcmx5Cj4gPiBkb2N1bWVudHMgdGhlIGludGVudCBoZXJl
-Lgo+IE9rYXkKCkhvdyBhYm91dAoKY29uZmlnIFJJU0NWX1NWUEJNVApib29sCmRlcGVuZHMgb24g
-NjRCSVQgJiYgTU1VCmRlZmF1bHQgeQoKCj4KPgo+IC0tCj4gQmVzdCBSZWdhcmRzCj4gIEd1byBS
-ZW4KPgo+IE1MOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1jc2t5Lwo+CgoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Chistoph,
+
+On Tue, Nov 2, 2021 at 2:07 PM Christoph Hellwig <hch@lst.de> wrote:
+>
+> On Mon, Oct 25, 2021 at 06:55:09PM +0800, Wei Fu wrote:
+> > How about this macro:
+> > #define _SVPBMT_PMA         0x0UL
+> > #define _SVPBMT_NC         BIT(61)
+> > #define _SVPBMT_IO         BIT(62)
+> > #define _SVPBMT_MASK         GENMASK(62, 61)
+>
+> Personally I find these macros highly confusing.
+>
+> #define _SVPBMT_PMA     0UL
+> #define _SVPBMT_NC      (1UL << 61)
+> #define _SVPBMT_IO      (1UL << 62).
+> #define _SVPBMT_MASK    (_SVPBMT_NC  | _SVPBMT_IO)
+>
+> is much eaier to follow.  Note that we can probably just drop
+> _SVPBMT_PMA entirely to make this even more readable.
+
+sure, I can do this , thanks
+
+>
+> > > Also why not use the standard names for these _PAGE bits used by
+> > > most other architectures?
+> >
+> > Which names are you suggesting? Would you mind providing an example ?
+> > _PAGE_BIT_   for _PAGE_KERNEL_ ??
+>
+> Use _PAGE_NOCACHE for _SVPBMT_NC, and _PAGE_IO for _SVPBMT_IO.
+
+OK, Sure , will do
+
+Great thanks
+
+>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
