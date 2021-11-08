@@ -2,90 +2,96 @@ Return-Path: <SRS0=u9qy=P3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5F8F2C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 09:17:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B2051C433FE
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 09:25:06 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2DE60610E9
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 09:17:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2DE60610E9
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 601B261265
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 09:25:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 601B261265
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zN/yQ+KiyIht7EzN+eXCr7v7AW8HED6/RMxSdS8Rfp4=; b=ZNyxWTzfT15f2W
-	05EQcdUck6wkwDasYmAPlGGNy8Dvk79vyWWx/8HW8pgu8MGT/AM/Mo1z6Q/wYXjibVo7J8v5TDW3A
-	+/DiuuteHkg2TwAycqRXXOYAQEBd1fh9QAtnU37Cu7Pigb7e/q4vb4rcRbmNVCYXTVrT72dgtOYBC
-	VxdY2qxjaJQPjcaepS3BJSQzt5fnz7/BnQ/o9DTcYlD5HENi9cS2Jml+nTrhafgRM8NHykiModk08
-	/e5Z1o4DNrwgaAyBLlWJ6nlmgPM+ZZMg+uJ/8uxoW+URBwYXCVwpHrLsneYOv88jWEJTES1y42bAd
-	d2ksJzVlxYF6Jlmt4zcQ==;
+	List-Owner; bh=juYaJOq42MoMlTmiX8TfC98SRLb1JXOqySKoaAIWeHU=; b=GmvHER+olnEKGv
+	Ok9VTwX0zXHgR0Nj6JnLxGdjbTlS2HGM6GJkBJS1c4ElvG9+Yr4AKZlXHVt297t/tXqtuZkLP+37o
+	tPVdi+I5h68xuxBq8bMn3ZXTQmOGURj76TNCn0bYBz1wHYoKp46kP0OAH3U4ii0MeQL8l9SVGZZMJ
+	uD8b3vfE7I+HAKtDO6PuZfssEqB3sFlB9o0Plxv+DYFoW+bpTJtFl1tiTM+5XegWAO7k6NDP8rTw5
+	4dSKSzRhbIaocobPBxcVCmpFpOZodTCja0j03gR+LrITkchEzdDbRSu7YcH5ir5HloXXDLpebUlrn
+	n671hqGppl8jbn0APldg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mk0mX-00Fqd3-Qj; Mon, 08 Nov 2021 09:17:37 +0000
-Received: from mga14.intel.com ([192.55.52.115])
+	id 1mk0td-00Fr7O-L2; Mon, 08 Nov 2021 09:24:57 +0000
+Received: from mail-ua1-f42.google.com ([209.85.222.42])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mk0mV-00FqcJ-9I
- for linux-riscv@lists.infradead.org; Mon, 08 Nov 2021 09:17:36 +0000
-X-IronPort-AV: E=McAfee;i="6200,9189,10161"; a="232440929"
-X-IronPort-AV: E=Sophos;i="5.87,218,1631602800"; d="scan'208";a="232440929"
-Received: from fmsmga008.fm.intel.com ([10.253.24.58])
- by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 08 Nov 2021 01:17:28 -0800
-X-IronPort-AV: E=Sophos;i="5.87,218,1631602800"; d="scan'208";a="544398855"
-Received: from smile.fi.intel.com ([10.237.72.184])
- by fmsmga008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 08 Nov 2021 01:17:21 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.95)
- (envelope-from <andy.shevchenko@gmail.com>) id 1mk0m3-004cLP-Ea;
- Mon, 08 Nov 2021 11:17:07 +0200
-Date: Mon, 8 Nov 2021 11:17:07 +0200
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-To: Emil Renner Berthing <kernel@esmil.dk>
-Cc: Yury Norov <yury.norov@gmail.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- devicetree <devicetree@vger.kernel.org>,
- linux-clk <linux-clk@vger.kernel.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Linus Walleij <linus.walleij@linaro.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Jiri Slaby <jirislaby@kernel.org>,
- Maximilian Luz <luzmaximilian@gmail.com>,
- Sagar Kadam <sagar.kadam@sifive.com>, Drew Fustini <drew@beagleboard.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Michael Zhu <michael.zhu@starfivetech.com>,
- Fu Wei <tekkamanninja@gmail.com>, Anup Patel <anup.patel@wdc.com>,
- Atish Patra <atish.patra@wdc.com>, Matteo Croce <mcroce@microsoft.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3 09/16] reset: starfive-jh7100: Add StarFive JH7100
- reset driver
-Message-ID: <YYjrE/+1wxgGEAKJ@smile.fi.intel.com>
-References: <20211102161125.1144023-1-kernel@esmil.dk>
- <20211102161125.1144023-10-kernel@esmil.dk>
- <CAHp75Ve-P8DR00mtRP_NkrXgB4nsZ+qBkgBen94iTcPqxQYUOg@mail.gmail.com>
- <CANBLGcyb=TAP0h2WuxBAjRvpN9n7Dt1Hvh5yE8NMOwm3ixZWuA@mail.gmail.com>
- <CAHp75Vcg3En=xH+kz0GgAMGUoo5FABo2HwGoHd=7QgGVrYkYXg@mail.gmail.com>
- <CANBLGczrGwexRGvGxa9C+yzaSHZF_d5+AaebeLUX5BXFxipr=A@mail.gmail.com>
- <CANBLGcztx0DL=U06QPJ5XT4ra=kx2QAZxxP=0bjfgQ0skhv3Bg@mail.gmail.com>
+ id 1mk0tb-00Fr6G-0B
+ for linux-riscv@lists.infradead.org; Mon, 08 Nov 2021 09:24:56 +0000
+Received: by mail-ua1-f42.google.com with SMTP id v3so30088548uam.10
+ for <linux-riscv@lists.infradead.org>; Mon, 08 Nov 2021 01:24:54 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=8AsDmIULodpRjro1Z9iu2vYvGZdr5FGncs23xMPcSjY=;
+ b=eAVSmtrG1Y1B5BuWq3LD+GorAvYdJMmiZLM62NckIULzrBncKNoKcfUhbmc+ETSFnx
+ f8syNuZjNVIX41OvARhlCrTcBDHJhknamLONIfpb/f42Dkj6bOrV84luq0AreasM8xJW
+ Penp5fiHaGdG+ug1/LEM0UrENdFAKjlpj2mjLSkeSbe/mr8fKm82mOtKuOH5Ku1Q0it1
+ PLcOoqf1W1/gLSr0RD5Vye6vGVJ8DbKd+XX2q+qm6NaMjUzHCThORZ+lp6/XiP3SDGAh
+ RyBS9bMK9nVu50C99IHtjAzCRoQqSYRWhjonu5f93CSDMLXp2I+aoeua6u3ZEc8RncjL
+ vhrg==
+X-Gm-Message-State: AOAM5300D5NI4vO2gIWZP8BGSITgW28KiudlhaVYZ3j4C/kIau8WDgjX
+ f0KNLv4gMzewgtqK0ap23PhhqnsrZlGUgg==
+X-Google-Smtp-Source: ABdhPJyPmHImMlF/Qeb73MpqlN7b/ZOZVj2y8ZnKVTGi0ZcNY+HzngrwHzvmYFaGmkAxJqKdIz1PXw==
+X-Received: by 2002:a67:e90d:: with SMTP id c13mr30969113vso.12.1636363493517; 
+ Mon, 08 Nov 2021 01:24:53 -0800 (PST)
+Received: from mail-ua1-f44.google.com (mail-ua1-f44.google.com.
+ [209.85.222.44])
+ by smtp.gmail.com with ESMTPSA id bk3sm339907vkb.33.2021.11.08.01.24.52
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Mon, 08 Nov 2021 01:24:53 -0800 (PST)
+Received: by mail-ua1-f44.google.com with SMTP id e2so30119509uax.7
+ for <linux-riscv@lists.infradead.org>; Mon, 08 Nov 2021 01:24:52 -0800 (PST)
+X-Received: by 2002:a9f:2584:: with SMTP id 4mr90719408uaf.114.1636363492461; 
+ Mon, 08 Nov 2021 01:24:52 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CANBLGcztx0DL=U06QPJ5XT4ra=kx2QAZxxP=0bjfgQ0skhv3Bg@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+References: <20211102161125.1144023-1-kernel@esmil.dk>
+ <20211102161125.1144023-2-kernel@esmil.dk>
+In-Reply-To: <20211102161125.1144023-2-kernel@esmil.dk>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 8 Nov 2021 10:24:40 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUG2qGcAvr2sQPBtgQhZhYPhtveoW+mhkTeaowdKisFYQ@mail.gmail.com>
+Message-ID: <CAMuHMdUG2qGcAvr2sQPBtgQhZhYPhtveoW+mhkTeaowdKisFYQ@mail.gmail.com>
+Subject: Re: [PATCH v3 01/16] RISC-V: Add StarFive SoC Kconfig option
+To: Emil Renner Berthing <kernel@esmil.dk>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>, 
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+ "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Drew Fustini <drew@beagleboard.org>, Michael Zhu <michael.zhu@starfivetech.com>,
+ Fu Wei <tekkamanninja@gmail.com>, Anup Patel <anup.patel@wdc.com>, 
+ Atish Patra <atish.patra@wdc.com>, Matteo Croce <mcroce@microsoft.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211108_011735_366945_1B7EF99D 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20211108_012455_065411_7A7B1625 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,36 +108,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 04, 2021 at 01:15:46PM +0100, Emil Renner Berthing wrote:
-> On Tue, 2 Nov 2021 at 22:17, Emil Renner Berthing <kernel@esmil.dk> wrote:
+On Tue, Nov 2, 2021 at 5:11 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+> Add StarFive Kconfig option to select SoC specific and common drivers
+> required for these SoCs. Select subsystems required to boot so the
+> required drivers gets enabled by default.
+>
+> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 
-...
+Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
 
-> I'd really like to understand your reasoning here. As far as I can
-> tell reading 2 adjacent 32bit registers with a 64bit read as you're
-> proposing is exactly what would cause endian issues. Eg. on little
-> endian you'd get reg0 | reg1 << 32 whereas on big-endian you'd get
-> reg0 << 32 | reg1.
+Gr{oetje,eeting}s,
 
-Nope, it won't. The endianess is a property of both CPU and device.
+                        Geert
 
-The I/O accessors, such as readl()/writel() and iowrtieXX()/ioreadXX()
-are _always_ LE.
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-So, writeq() will properly put bits to their places in case device is LE.
-And most devices are LE (or should be). Of course there are cases, but then
-you have to specify them explicitly.
-
-My motive here is simple as that the device is definitely a set of a few
-128-bit bitmaps (in registers) and using bitmap _is_ representing hardware
-in the kernel. Using something else will deviate from that (maybe not too
-far, but still...).
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
