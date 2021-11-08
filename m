@@ -2,14 +2,14 @@ Return-Path: <SRS0=u9qy=P3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 24D4FC31D68
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 00:48:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0603CC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 00:48:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D2E3A61251
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 00:48:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D2E3A61251
+	by mail.kernel.org (Postfix) with ESMTPS id C1CAA60F4A
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 00:48:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C1CAA60F4A
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,52 +18,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Hsi3X0kGch2TOuUHse03YLIoID270LsKQEIrvojPk+A=; b=pqWHLtmBehSir2
-	ycdoSyHd2zJM6IKapOTO5mNTfProxCuW3IIhDeAjq9oUYwSpO/qi49NJpMhFwjPW2IUQzyaY5oTTe
-	oESqMSqhee7FfHjqulfaLYMldNtzEAjNVOUoFZfmL+bFOXmCMzOvQ3dzwBxfqxgKxvTOTODjjH57F
-	G2aIiI7qSQKMrC0ywv8lBN+eD11q9DhsRz42YMrjk8kZFVKx5gHi5zZB4oxKO4o2lCDmap3cboh/D
-	4+y/5WibIWlB4ZAe73L3h7c7RdYWVhiznGVz78TLNQ9Fuc9NYxyT4LoXE8w0iKLAmap4knjNjEjWQ
-	S+6wCLK1xGS36o+W3g+Q==;
+	List-Owner; bh=ntzpkMCxzM8BcJT+V9cTdrpx5nfUW0SpTLn4ZhKI1jE=; b=FSfEI40GMldLPX
+	SMcgkCTqIOJxII1mgahTJo2Eb+fjTREupxJ83qqAxO3OGlL1yKpMEPfVBEQ8OwrzDWs5iLLT2Oa3/
+	uAWA+G33W38vEeQakuleJ9Ps2YLxX3DDFCB5hxhUiT+A9X5BmLj5cMntf58PZbT8Mnjp/Mh1cTmPb
+	Cw3GTcqjORYdfZs1moRJFEZw7bbp+dod7I2Zx/Vtu3euqaf8zcsxtMLeS35N6+Oyd/vECxluhtseS
+	3cXh0deLrEh8cegEYtJhwaItSvxWapEc2rWF9eGSrYmQE0zHkdgrsJDaBFJz4kRQS1DE3J0dt5oP3
+	YV6jrqm6zgPXeXNxbhAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mjspU-00F7Uq-4V; Mon, 08 Nov 2021 00:48:08 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1mjspY-00F7Yg-D4; Mon, 08 Nov 2021 00:48:12 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mjspJ-00F7Mi-SN; Mon, 08 Nov 2021 00:47:59 +0000
-Received: by mail-lf1-x133.google.com with SMTP id bu18so32609182lfb.0;
- Sun, 07 Nov 2021 16:47:57 -0800 (PST)
+ id 1mjspL-00F7O8-Mi; Mon, 08 Nov 2021 00:48:01 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 207so7999409ljf.10;
+ Sun, 07 Nov 2021 16:47:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=xS83fHvJX20ICn8zHYRDKvqQ1GY72vd2riIHxwkjweU=;
- b=KpydubZgLJ3vuCT00hrCdbf3OtAnjru1YwdDJxo9+hC27tQN3Q4KiomzYSDJMCZXbA
- EhaYZwalwwy91+aZLY1TS0S40bR84eElruKYesdGlVKFC/aUwPezwIPn/067lWyDW0+Z
- x4XmqT3PESi2/Nn4WIINCY94V/zeTchenrXpu2fqnWvEylnT7LN71F2WHWj7NjlVp0tD
- ugoKO0gc6fQ1WUgdslo/PfvFMxmzh/vxeeDZA6/emihAeEIqzA/7Lk07cW3q8vRXpO5g
- t/bVMWqe23nOV5HEFivxqx8tKkAzcIdw5EiLLiV/QpkyUezErBQd+Ycn225L15v7txub
- fGhA==
+ bh=idp+KUM0Lads56hMjVdKoUEucrYOLC8M0llXkHYfiR0=;
+ b=MSIokg9fBl5wCKU+YCh/ZsTnRbPxtyYkn0IXkmz1QgysWSCzedTHzXunmbe5h3S6bm
+ UnVL+wV6mqmFlzA/9Cm1DjvGCGyG1UlF0UpjGzAyekOseWLiiFHuU/rzzoJCNBaI+Ut+
+ tXv3jqiyClz8c/yGI+0sql8rliP5FMVBt2m13PFdeI0ncEKECxTJKTD2uIvZxfhnpZtc
+ pTtiL6yFqIiWFaztPJXKxizN2sS1pJLHyx55ZI+6yNFLo/Lx5fkTcHCO0Wef47K1i5ee
+ hCd51zpj+5nuMAdYUzdECYDopq77neBqCsiLrTGv9/feFU5+CZJd4t4x88wQvcjrAxlc
+ 1+wg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=xS83fHvJX20ICn8zHYRDKvqQ1GY72vd2riIHxwkjweU=;
- b=FRIsI6uxq6EkPa82iQ+c34bNb/TQNJTTpCu0LoTb9Xii/p9D1LuNHy1UXpWndxQHBH
- ASaQ3tBLC2q2oaOp7RFAqGOrhfQzK+y0wlRT8CPzgAKo6A2Aq6FkVrHMKeY/09VSvI4Q
- 2dFwDUeiEHbywH/7fhRukjwjNY8nOxqLcY3qLuLwtPQJfUlwCuLygIbS/EP7pkaSdrL9
- hsh+YnaIHnku5LEVVJjc8wiUrsTZCzX7iKeAyj9U59WWkaiKoZ8vs3KNrji1CZCpHETr
- I9LRv5gtYny7/YKxwWsq8kh/f5Lj4oaIcF7YZnru+T35SyNSGcvnnRq9yEoUuwxD+1rk
- PYFQ==
-X-Gm-Message-State: AOAM5336AJT8LruTo0kIh23N7SPx8fs6JSx38z5OdOSpAwrgbq5XzNuQ
- 51XWuQb+UdvsT8AtJU7zIqY=
-X-Google-Smtp-Source: ABdhPJxCboLcXN9lEOmhNp5QiL1yAnh5Fr04KXxv3nzMPaKilPbSu8P/FkJk3gpH04kDYFe9UJDOXg==
-X-Received: by 2002:a05:6512:1323:: with SMTP id
- x35mr74261803lfu.613.1636332476232; 
- Sun, 07 Nov 2021 16:47:56 -0800 (PST)
+ bh=idp+KUM0Lads56hMjVdKoUEucrYOLC8M0llXkHYfiR0=;
+ b=7lFJ6YtAeKWXdlXG/uHOffIthxyAJMeznd0to9v4Ormz7594bGwCIpot9+WoQIvTwL
+ XdeQQ3vD5pkJxhaQg5s02wzpZER+3uYM35V9Mpc4tjOqyDixi9ic6FbqwOoPWRxMODDg
+ doS05uyzFSjIqbk9/qO5pU/ElDcCHAhwbrn+5OAhoKSvGqRxt8z7wp8hB0qwx/WRqF+l
+ zPKqRkk7yJ/dIUL/l+sDvld48mbQz6LpzpitH7Z/XnJAyWKjK3Rx80iyHSAh6jSrKzzD
+ tB9+P21BWxzw+Nwoy4JNSnRj8LvllmldQLQB8sXy7xnMSL3xwiwercAxdxis9Okne2DL
+ xjMw==
+X-Gm-Message-State: AOAM5327/BoSUZ35KHxe+KHst51IWNqzLeMueSqdFQmdzXpVaDM9Ettw
+ +z+tnjmuJwrPG75wpj74w3A=
+X-Google-Smtp-Source: ABdhPJxSy/O3ZKQtb6VfZ0yaPaYZOmyzwu5OdP3V3ve+XGbVnBVt+toWzoBqdj+8FoRHXqlPFKwvJw==
+X-Received: by 2002:a2e:b88f:: with SMTP id r15mr57944203ljp.309.1636332477998; 
+ Sun, 07 Nov 2021 16:47:57 -0800 (PST)
 Received: from localhost.localdomain (79-139-188-96.dynamic.spd-mgts.ru.
  [79.139.188.96])
- by smtp.gmail.com with ESMTPSA id p17sm1625266lfu.209.2021.11.07.16.47.54
+ by smtp.gmail.com with ESMTPSA id p17sm1625266lfu.209.2021.11.07.16.47.56
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 07 Nov 2021 16:47:55 -0800 (PST)
+ Sun, 07 Nov 2021 16:47:57 -0800 (PST)
 From: Dmitry Osipenko <digetx@gmail.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>,
@@ -104,17 +103,16 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
  xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: [PATCH v3 05/25] reboot: Warn if restart handler has duplicated
- priority
-Date: Mon,  8 Nov 2021 03:45:04 +0300
-Message-Id: <20211108004524.29465-6-digetx@gmail.com>
+Subject: [PATCH v3 06/25] reboot: Warn if unregister_restart_handler() fails
+Date: Mon,  8 Nov 2021 03:45:05 +0300
+Message-Id: <20211108004524.29465-7-digetx@gmail.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211108004524.29465-1-digetx@gmail.com>
 References: <20211108004524.29465-1-digetx@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211107_164757_950919_EC6D906A 
-X-CRM114-Status: GOOD (  15.20  )
+X-CRM114-CacheID: sfid-20211107_164759_785018_5517B482 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,40 +129,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add sanity check which ensures that there are no two restart handlers
-registered with the same priority. Normally it's a direct sign of a
-problem if two handlers use the same priority.
+Emit warning if unregister_restart_handler() fails since it never should
+fail. This will ease further API development by catching mistakes early.
 
 Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
 ---
- kernel/reboot.c | 15 ++++++++++++++-
- 1 file changed, 14 insertions(+), 1 deletion(-)
+ kernel/reboot.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/kernel/reboot.c b/kernel/reboot.c
-index 6bcc5d6a6572..e6659ae329f1 100644
+index e6659ae329f1..f0e7b9c13f6b 100644
 --- a/kernel/reboot.c
 +++ b/kernel/reboot.c
-@@ -182,7 +182,20 @@ static ATOMIC_NOTIFIER_HEAD(restart_handler_list);
+@@ -210,7 +210,7 @@ EXPORT_SYMBOL(register_restart_handler);
   */
- int register_restart_handler(struct notifier_block *nb)
+ int unregister_restart_handler(struct notifier_block *nb)
  {
--	return atomic_notifier_chain_register(&restart_handler_list, nb);
-+	int ret;
-+
-+	ret = atomic_notifier_chain_register(&restart_handler_list, nb);
-+	if (ret)
-+		return ret;
-+
-+	/*
-+	 * Handler must have unique priority. Otherwise call order is
-+	 * determined by registration order, which is unreliable.
-+	 */
-+	WARN(!atomic_notifier_has_unique_priority(&restart_handler_list, nb),
-+	     "restart handler must have unique priority\n");
-+
-+	return 0;
+-	return atomic_notifier_chain_unregister(&restart_handler_list, nb);
++	return WARN_ON(atomic_notifier_chain_unregister(&restart_handler_list, nb));
  }
- EXPORT_SYMBOL(register_restart_handler);
+ EXPORT_SYMBOL(unregister_restart_handler);
  
 -- 
 2.33.1
