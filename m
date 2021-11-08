@@ -2,14 +2,14 @@ Return-Path: <SRS0=u9qy=P3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5CFFFC4321E
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 00:48:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 24D4FC31D68
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 00:48:16 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2639361251
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 00:48:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2639361251
+	by mail.kernel.org (Postfix) with ESMTPS id D2E3A61251
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 00:48:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D2E3A61251
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,51 +18,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WQronLoMW3l4BhAtl7R8hMr3d1gKNvxiNjf2/7TR1VY=; b=X3y9+dsgMgJVJ3
-	6wj22MGjyC60olFCH09WktYyxyQThFvKKHdM3AFqma/vtBSungSPWmBmq8vQL2HEU9RGca2OqQRDG
-	Sx+4/xjhjBrLc3vtiF6WjwZLjnwoE9Y0WV7nEzSbNzM/uoChVYrmh/B6EKoBAy/C1o68OqsIWfoLn
-	t5QCME071hrU+TPLYZ33fIYfW9Y4oWhrBcpczPtfsA5tdO+jOdbhVZ/s4nwydngx7KdNWhhW6yvNI
-	HZRCRgzTQeBAdN3Nbw2x31clJCV9mV+Pa012ki0EAPsXvtFMOZ4vDmDNW/5LaxhjC8eGhiIRzjihG
-	j4PA4HVUOCMXQDUQlQ6w==;
+	List-Owner; bh=Hsi3X0kGch2TOuUHse03YLIoID270LsKQEIrvojPk+A=; b=pqWHLtmBehSir2
+	ycdoSyHd2zJM6IKapOTO5mNTfProxCuW3IIhDeAjq9oUYwSpO/qi49NJpMhFwjPW2IUQzyaY5oTTe
+	oESqMSqhee7FfHjqulfaLYMldNtzEAjNVOUoFZfmL+bFOXmCMzOvQ3dzwBxfqxgKxvTOTODjjH57F
+	G2aIiI7qSQKMrC0ywv8lBN+eD11q9DhsRz42YMrjk8kZFVKx5gHi5zZB4oxKO4o2lCDmap3cboh/D
+	4+y/5WibIWlB4ZAe73L3h7c7RdYWVhiznGVz78TLNQ9Fuc9NYxyT4LoXE8w0iKLAmap4knjNjEjWQ
+	S+6wCLK1xGS36o+W3g+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mjspI-00F7MR-HT; Mon, 08 Nov 2021 00:47:56 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1mjspU-00F7Uq-4V; Mon, 08 Nov 2021 00:48:08 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mjspE-00F7J9-Fz; Mon, 08 Nov 2021 00:47:53 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id y26so32418221lfa.11;
- Sun, 07 Nov 2021 16:47:50 -0800 (PST)
+ id 1mjspJ-00F7Mi-SN; Mon, 08 Nov 2021 00:47:59 +0000
+Received: by mail-lf1-x133.google.com with SMTP id bu18so32609182lfb.0;
+ Sun, 07 Nov 2021 16:47:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=wTvK5kO0FUcGnxCyVmK+GKrZNfPhZFNt57h0QWat/qo=;
- b=aCN9ngxNlSuTINh4RCPQ4NiaJQfaWgqOf+aRAmJkkpUuhaTskk16d6mLEB53d+EwRg
- 2s7t+J4Bd+TYq/EXsMdm4K86cRKj3NZi6nWiQF6aQbgCPpCuvbwpFq4sXJn2XPr4GSG2
- Th3D5kSFp+oiICqSjiRaQ6JEqqHbq6GvlbMsD1k+WxWsk9ox4vhFrqiSSZariEfpk3/K
- NKYoWyNV67g+VntDwz5qg08D9ob5s1g4zeH1HG0CZIBJriUNPt7qdO5WhWhekDmPVGMJ
- IDvotTuyzH4cPVwERohWZwkZ/fa6HSeGhOA4LV/VuKel+YQjioIfxOgQanwFcDxsyY3E
- OrAQ==
+ bh=xS83fHvJX20ICn8zHYRDKvqQ1GY72vd2riIHxwkjweU=;
+ b=KpydubZgLJ3vuCT00hrCdbf3OtAnjru1YwdDJxo9+hC27tQN3Q4KiomzYSDJMCZXbA
+ EhaYZwalwwy91+aZLY1TS0S40bR84eElruKYesdGlVKFC/aUwPezwIPn/067lWyDW0+Z
+ x4XmqT3PESi2/Nn4WIINCY94V/zeTchenrXpu2fqnWvEylnT7LN71F2WHWj7NjlVp0tD
+ ugoKO0gc6fQ1WUgdslo/PfvFMxmzh/vxeeDZA6/emihAeEIqzA/7Lk07cW3q8vRXpO5g
+ t/bVMWqe23nOV5HEFivxqx8tKkAzcIdw5EiLLiV/QpkyUezErBQd+Ycn225L15v7txub
+ fGhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=wTvK5kO0FUcGnxCyVmK+GKrZNfPhZFNt57h0QWat/qo=;
- b=lFzPwpNnII+PY/EOdwziJoysItvoL4wnYR98DAa9TyhSpf1++opZMW7eUt7RHB6cUv
- A2jyGpzlL86geEkebKE/gx23kI1+f5PJMGAQPptMVz0rRbXvdC9gMkaNV28jdEy23zne
- zwyySRHFtMx9RVJ+iHjeaNm2hWYp5C9KJccu5qql17zfYod0k8ggW+RQH3nW0f/J+zwL
- tAg34IOf2uo1y8tJpAk+kJyn7bmhie3ShZ9WOFnEWNgzUc3fcUShz9jsYuFRE/zbz1OT
- q2VHK279wBv8jJZvnSL4IkmSJOHTHwd9LQ0LStsaoeU8ca4X8TUqCi3/c2LSqkFNye0R
- +JbA==
-X-Gm-Message-State: AOAM532JrOsvDj+lErgjzvqQAPaa3CPtmrbBthqET5SHZkEI2G9xOVpo
- LLxTG3OUNP8XXJQxCx9DEgo=
-X-Google-Smtp-Source: ABdhPJzV8tM9jJ+YM8h9UIDCNNzE6Z7H4gJwzI4RlG1cQ6QRWjIBy7LL+ION1D+Mvhxd950s2BQwnw==
-X-Received: by 2002:ac2:424e:: with SMTP id m14mr51529749lfl.176.1636332469060; 
- Sun, 07 Nov 2021 16:47:49 -0800 (PST)
+ bh=xS83fHvJX20ICn8zHYRDKvqQ1GY72vd2riIHxwkjweU=;
+ b=FRIsI6uxq6EkPa82iQ+c34bNb/TQNJTTpCu0LoTb9Xii/p9D1LuNHy1UXpWndxQHBH
+ ASaQ3tBLC2q2oaOp7RFAqGOrhfQzK+y0wlRT8CPzgAKo6A2Aq6FkVrHMKeY/09VSvI4Q
+ 2dFwDUeiEHbywH/7fhRukjwjNY8nOxqLcY3qLuLwtPQJfUlwCuLygIbS/EP7pkaSdrL9
+ hsh+YnaIHnku5LEVVJjc8wiUrsTZCzX7iKeAyj9U59WWkaiKoZ8vs3KNrji1CZCpHETr
+ I9LRv5gtYny7/YKxwWsq8kh/f5Lj4oaIcF7YZnru+T35SyNSGcvnnRq9yEoUuwxD+1rk
+ PYFQ==
+X-Gm-Message-State: AOAM5336AJT8LruTo0kIh23N7SPx8fs6JSx38z5OdOSpAwrgbq5XzNuQ
+ 51XWuQb+UdvsT8AtJU7zIqY=
+X-Google-Smtp-Source: ABdhPJxCboLcXN9lEOmhNp5QiL1yAnh5Fr04KXxv3nzMPaKilPbSu8P/FkJk3gpH04kDYFe9UJDOXg==
+X-Received: by 2002:a05:6512:1323:: with SMTP id
+ x35mr74261803lfu.613.1636332476232; 
+ Sun, 07 Nov 2021 16:47:56 -0800 (PST)
 Received: from localhost.localdomain (79-139-188-96.dynamic.spd-mgts.ru.
  [79.139.188.96])
- by smtp.gmail.com with ESMTPSA id p17sm1625266lfu.209.2021.11.07.16.47.47
+ by smtp.gmail.com with ESMTPSA id p17sm1625266lfu.209.2021.11.07.16.47.54
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 07 Nov 2021 16:47:48 -0800 (PST)
+ Sun, 07 Nov 2021 16:47:55 -0800 (PST)
 From: Dmitry Osipenko <digetx@gmail.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>,
@@ -103,17 +104,17 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
  xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: [PATCH v3 01/25] notifier: Remove extern annotation from function
- prototypes
-Date: Mon,  8 Nov 2021 03:45:00 +0300
-Message-Id: <20211108004524.29465-2-digetx@gmail.com>
+Subject: [PATCH v3 05/25] reboot: Warn if restart handler has duplicated
+ priority
+Date: Mon,  8 Nov 2021 03:45:04 +0300
+Message-Id: <20211108004524.29465-6-digetx@gmail.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211108004524.29465-1-digetx@gmail.com>
 References: <20211108004524.29465-1-digetx@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211107_164752_576480_6EFCCE51 
-X-CRM114-Status: GOOD (  13.15  )
+X-CRM114-CacheID: sfid-20211107_164757_950919_EC6D906A 
+X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,78 +131,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There is no need to annotate function prototypes with 'extern', it makes
-code less readable. Remove unnecessary annotations from <notifier.h>.
+Add sanity check which ensures that there are no two restart handlers
+registered with the same priority. Normally it's a direct sign of a
+problem if two handlers use the same priority.
 
 Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
 ---
- include/linux/notifier.h | 30 +++++++++++++++---------------
- 1 file changed, 15 insertions(+), 15 deletions(-)
+ kernel/reboot.c | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
 
-diff --git a/include/linux/notifier.h b/include/linux/notifier.h
-index 87069b8459af..4b80a815b666 100644
---- a/include/linux/notifier.h
-+++ b/include/linux/notifier.h
-@@ -90,7 +90,7 @@ struct srcu_notifier_head {
- 	} while (0)
+diff --git a/kernel/reboot.c b/kernel/reboot.c
+index 6bcc5d6a6572..e6659ae329f1 100644
+--- a/kernel/reboot.c
++++ b/kernel/reboot.c
+@@ -182,7 +182,20 @@ static ATOMIC_NOTIFIER_HEAD(restart_handler_list);
+  */
+ int register_restart_handler(struct notifier_block *nb)
+ {
+-	return atomic_notifier_chain_register(&restart_handler_list, nb);
++	int ret;
++
++	ret = atomic_notifier_chain_register(&restart_handler_list, nb);
++	if (ret)
++		return ret;
++
++	/*
++	 * Handler must have unique priority. Otherwise call order is
++	 * determined by registration order, which is unreliable.
++	 */
++	WARN(!atomic_notifier_has_unique_priority(&restart_handler_list, nb),
++	     "restart handler must have unique priority\n");
++
++	return 0;
+ }
+ EXPORT_SYMBOL(register_restart_handler);
  
- /* srcu_notifier_heads must be cleaned up dynamically */
--extern void srcu_init_notifier_head(struct srcu_notifier_head *nh);
-+void srcu_init_notifier_head(struct srcu_notifier_head *nh);
- #define srcu_cleanup_notifier_head(name)	\
- 		cleanup_srcu_struct(&(name)->srcu);
- 
-@@ -141,36 +141,36 @@ extern void srcu_init_notifier_head(struct srcu_notifier_head *nh);
- 
- #ifdef __KERNEL__
- 
--extern int atomic_notifier_chain_register(struct atomic_notifier_head *nh,
-+int atomic_notifier_chain_register(struct atomic_notifier_head *nh,
- 		struct notifier_block *nb);
--extern int blocking_notifier_chain_register(struct blocking_notifier_head *nh,
-+int blocking_notifier_chain_register(struct blocking_notifier_head *nh,
- 		struct notifier_block *nb);
--extern int raw_notifier_chain_register(struct raw_notifier_head *nh,
-+int raw_notifier_chain_register(struct raw_notifier_head *nh,
- 		struct notifier_block *nb);
--extern int srcu_notifier_chain_register(struct srcu_notifier_head *nh,
-+int srcu_notifier_chain_register(struct srcu_notifier_head *nh,
- 		struct notifier_block *nb);
- 
--extern int atomic_notifier_chain_unregister(struct atomic_notifier_head *nh,
-+int atomic_notifier_chain_unregister(struct atomic_notifier_head *nh,
- 		struct notifier_block *nb);
--extern int blocking_notifier_chain_unregister(struct blocking_notifier_head *nh,
-+int blocking_notifier_chain_unregister(struct blocking_notifier_head *nh,
- 		struct notifier_block *nb);
--extern int raw_notifier_chain_unregister(struct raw_notifier_head *nh,
-+int raw_notifier_chain_unregister(struct raw_notifier_head *nh,
- 		struct notifier_block *nb);
--extern int srcu_notifier_chain_unregister(struct srcu_notifier_head *nh,
-+int srcu_notifier_chain_unregister(struct srcu_notifier_head *nh,
- 		struct notifier_block *nb);
- 
--extern int atomic_notifier_call_chain(struct atomic_notifier_head *nh,
-+int atomic_notifier_call_chain(struct atomic_notifier_head *nh,
- 		unsigned long val, void *v);
--extern int blocking_notifier_call_chain(struct blocking_notifier_head *nh,
-+int blocking_notifier_call_chain(struct blocking_notifier_head *nh,
- 		unsigned long val, void *v);
--extern int raw_notifier_call_chain(struct raw_notifier_head *nh,
-+int raw_notifier_call_chain(struct raw_notifier_head *nh,
- 		unsigned long val, void *v);
--extern int srcu_notifier_call_chain(struct srcu_notifier_head *nh,
-+int srcu_notifier_call_chain(struct srcu_notifier_head *nh,
- 		unsigned long val, void *v);
- 
--extern int blocking_notifier_call_chain_robust(struct blocking_notifier_head *nh,
-+int blocking_notifier_call_chain_robust(struct blocking_notifier_head *nh,
- 		unsigned long val_up, unsigned long val_down, void *v);
--extern int raw_notifier_call_chain_robust(struct raw_notifier_head *nh,
-+int raw_notifier_call_chain_robust(struct raw_notifier_head *nh,
- 		unsigned long val_up, unsigned long val_down, void *v);
- 
- #define NOTIFY_DONE		0x0000		/* Don't care */
 -- 
 2.33.1
 
