@@ -2,14 +2,14 @@ Return-Path: <SRS0=u9qy=P3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E43CEC4167B
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 00:49:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B05D0C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 00:49:32 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id ABFC660F4A
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 00:49:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org ABFC660F4A
+	by mail.kernel.org (Postfix) with ESMTPS id 7AA3160C4D
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 00:49:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7AA3160C4D
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,52 +18,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qMt9kKXpJuI7tqoXmgauYNUD8MsObjZU60THDC8kFp8=; b=vKee07WFL2MdUg
-	B0E5NXWcaSEuD5ffvY8vFBqMEz+01SCq3AisdkuYGM+7fjkKlzloLrJFg/XO3SdsiYJkFUxN+P3io
-	zdhyhTHKZDr+qRYbi9em8e6ci/muxl1wnA4qrLl759ckuJGKRxWgsNevCcQhZankh7g7NWrpxGh/f
-	g4hjypNTpQTF2/5XQHQJ4QoKlpXDaVzlf+VD83YpF1NVEIWpoCWhtQK5IVmf1SM95y2K/pnqU+faK
-	C1Npz+/FWaG0Rmc2VKykVJLw3rjEd8+WqbUhrTWIJiDYsevFBLFkLSPCBfDU9/jGxccJEx1R13tEU
-	cUa2xgBTHVqNQB8pk6oQ==;
+	List-Owner; bh=Dg3a3o5uBoibDGg1NXmhn0EqAW2L8TsfzntmQhB8Y+I=; b=f432tJMWVm4ogH
+	V3vmunvkn5Q4IA82No+XWn4w2AfWTurjBSxQ5YVAgYa6qB/muYl7RCR6fqnW+AJcrAO/YG7A6Vmpz
+	fzx1EDYJlKgcNbvBge7q/YnS5U6zTbnDO7BPajkA2L/YlUzUeiMHd+nCRzL3ju/OtFKr5N3bP+1xH
+	GOevA8sQZ8tfxdO+r5+R6gFydqfrjVFVQFyAzYkwDlbyIfldFcp4QXTWEHHoidgZTsWs9nyVES0c7
+	mDFqepu+k11OaCT8qWmcTWQNPuBM1LsIRFFqyBHyYOysCzLlRbZYbkQz8h7MI2ouOJZ+dto+yEDg8
+	X/+7x43oSDbrAMpQiXyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mjsqb-00F8RQ-At; Mon, 08 Nov 2021 00:49:17 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1mjsqi-00F8X9-8w; Mon, 08 Nov 2021 00:49:24 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mjspd-00F7cT-IT; Mon, 08 Nov 2021 00:48:18 +0000
-Received: by mail-lf1-x135.google.com with SMTP id o18so32429823lfu.13;
- Sun, 07 Nov 2021 16:48:17 -0800 (PST)
+ id 1mjspf-00F7eC-Aw; Mon, 08 Nov 2021 00:48:20 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id y26so32419845lfa.11;
+ Sun, 07 Nov 2021 16:48:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=0HObz0L7jYC33/Dxy7x3kt14KoppaRcQ+sU+HcRStgU=;
- b=ZVNAr1U4ql3QetoKQdPWWOYdxSBB0k5djEWleeY+9VSLcYiHnCSkCkIaOl4kqaHShO
- oab4Tmm3bwD0P0vkAzDwXd33MBPBcdebn4RnRlv1JfpXW5azFQJ8VDNmkiaenWK08EOn
- RwVRxb2a8jq1Me5zajmOOnqUKWN+NVp3gIC4vDQvl7X+QS/9Q/6G8PsCj7pFygNZ42G6
- 2+Tzi7ka9eoxAdQUiRD+NnUxxBwExid0v7AfOqmbTtknjCEBmTA6xGh62w38gQj+fJ/p
- jOjBMtv9YA3dt8WYnPd7X0Be6DYsLDDoWJqswRWvH4kz+YPHCvK+UcFcEoVWh55qLPDl
- ATPQ==
+ bh=jIixMSKlDuHM/ROsyXYWDI0GhGtBfDPAGuo/NFEP3H8=;
+ b=hSCECj6oief95mUKAFt1aYs1z2BhI3PyCJpHbMUlNZ/M49sY1G7gzTeEyttE60gMak
+ BF+5uDSKoSn4CaOELlWWJK6Z03Rk6y4HTwrmSVMcH4REAv0cUqJCMn3qEJCUcKMx0Yg2
+ hZUAWfnWhmv0u8d55RvvttbeCJzqzTllkqZ8sZrYO0dyywzXm1H9T9B85gH//tK7VGaP
+ LSTKHt3pU1K6UjbgljgztfzIXizYQhXuqyNy4a5wOAJ6zgoCDgTzWA5VXtRTbqr75uP5
+ JNN1xexiLEoZfDmssN9kF5V9y9vHzkvg7OruyPjb23gGAachOOiZE7sCXiHSj3rLrdzh
+ uUnA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=0HObz0L7jYC33/Dxy7x3kt14KoppaRcQ+sU+HcRStgU=;
- b=2guQ3Xvo61LQ0VIpz7CBdsWdoW/ch/BC8oGHiKNepxAUTjkcSAe/yaR2jcYXGTebO2
- iRz4FRXggvlAAN64lA5cOwTghZZIvBS7kBf+pM03yZxhqdAyBXTU5R3Ig3qKJsF3zbbE
- lf+hJpMXwEIc27/4yEqkCLAMKU7Ti3k7hYtyuLGuj6qI7j3x2SQ/TtWRyLZlSyfWrNdH
- Ec1wQ91lVDuhfv0+5loSZAX5YVJgHvOC7MxRlVo0GiL8Y/O6BggY5oiL/ZJ1TVjLoVPF
- 5fV0ww5fksowgTHJiJz+4SqwP+42295qJ0bOM8u9ziQ7loDUfQ3uvh5qvetfSVlu7fiX
- c+Ew==
-X-Gm-Message-State: AOAM532xwoKssAh2hQSN7BXUYOluTDqOf8db3AiP6iIy2bq2fXNJyuEs
- Kn30xhf1tXbTo09+IlNc5H0=
-X-Google-Smtp-Source: ABdhPJxGJgazXdUgtKIBvIIz/6GDfezGKbWWr8YH8P5/vbQu6B1dGA0GfveTE6FMi6W4ZN9EO5qX9g==
-X-Received: by 2002:a05:6512:402a:: with SMTP id
- br42mr25576250lfb.530.1636332495851; 
- Sun, 07 Nov 2021 16:48:15 -0800 (PST)
+ bh=jIixMSKlDuHM/ROsyXYWDI0GhGtBfDPAGuo/NFEP3H8=;
+ b=8A0JImPflwrgkN0c9cXp56RyfjOd56celYYqCG8d/WfgZXMibyE1Fy7rfjMCH8pAkY
+ xtcn3IkyrwNRjVQgjmACmmOTwBsfVtVx6RLnmHd+Leh5e1VjWHcpxuCbmRav4epZMWZT
+ sUglciQHi+akEbixbjjUC+OSxoP9e2i2nDEVDTCx43wk22yDQrAEDpBK7dax+cLVvvmF
+ V09ZP85Sbvx7m1iO3EDTEKk5pb8pFGyyKAllMDj0BDJdd0ipz41xW0aH2sGqK9J1c+CA
+ c9Ym6FMVZpAPocEXK44ZQnpSFqkdEArLC50mHrLRCWeJF0hLeYQCcEyii0BmvVyjH6BO
+ WEhA==
+X-Gm-Message-State: AOAM533280q19u+bbvvxsK3QbN8vVnyIs4H6LBwa9K5wXCcCEtnK1srw
+ rBaczE4FpBxwNwxAk+SOYjk=
+X-Google-Smtp-Source: ABdhPJzYDrvoemDzHy5lRXulk7VBYq7aeBqM7UdlzGSCmj4dbWeKpvaVLmRfE93Wr+MuGPe+b8E4Uw==
+X-Received: by 2002:ac2:4e13:: with SMTP id e19mr3337438lfr.561.1636332497640; 
+ Sun, 07 Nov 2021 16:48:17 -0800 (PST)
 Received: from localhost.localdomain (79-139-188-96.dynamic.spd-mgts.ru.
  [79.139.188.96])
- by smtp.gmail.com with ESMTPSA id p17sm1625266lfu.209.2021.11.07.16.48.14
+ by smtp.gmail.com with ESMTPSA id p17sm1625266lfu.209.2021.11.07.16.48.15
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 07 Nov 2021 16:48:15 -0800 (PST)
+ Sun, 07 Nov 2021 16:48:17 -0800 (PST)
 From: Dmitry Osipenko <digetx@gmail.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>,
@@ -104,16 +103,16 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
  xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: [PATCH v3 16/25] x86: Use do_kernel_power_off()
-Date: Mon,  8 Nov 2021 03:45:15 +0300
-Message-Id: <20211108004524.29465-17-digetx@gmail.com>
+Subject: [PATCH v3 17/25] ia64: Use do_kernel_power_off()
+Date: Mon,  8 Nov 2021 03:45:16 +0300
+Message-Id: <20211108004524.29465-18-digetx@gmail.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211108004524.29465-1-digetx@gmail.com>
 References: <20211108004524.29465-1-digetx@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211107_164817_648629_9A9678DC 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20211107_164819_447326_46CED6EB 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,26 +136,31 @@ be converted to the new power-off API.
 
 Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
 ---
- arch/x86/kernel/reboot.c | 4 ++--
+ arch/ia64/kernel/process.c | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/x86/kernel/reboot.c b/arch/x86/kernel/reboot.c
-index 0a40df66a40d..cd7d9416d81a 100644
---- a/arch/x86/kernel/reboot.c
-+++ b/arch/x86/kernel/reboot.c
-@@ -747,10 +747,10 @@ static void native_machine_halt(void)
- 
- static void native_machine_power_off(void)
+diff --git a/arch/ia64/kernel/process.c b/arch/ia64/kernel/process.c
+index 834df24a88f1..cee4d7db2143 100644
+--- a/arch/ia64/kernel/process.c
++++ b/arch/ia64/kernel/process.c
+@@ -19,6 +19,7 @@
+ #include <linux/module.h>
+ #include <linux/notifier.h>
+ #include <linux/personality.h>
++#include <linux/reboot.h>
+ #include <linux/sched.h>
+ #include <linux/sched/debug.h>
+ #include <linux/sched/hotplug.h>
+@@ -599,8 +600,7 @@ machine_halt (void)
+ void
+ machine_power_off (void)
  {
--	if (pm_power_off) {
-+	if (kernel_can_power_off()) {
- 		if (!reboot_force)
- 			machine_shutdown();
+-	if (pm_power_off)
 -		pm_power_off();
-+		do_kernel_power_off();
- 	}
- 	/* A fallback in case there is no PM info available */
- 	tboot_shutdown(TB_SHUTDOWN_HALT);
++	do_kernel_power_off();
+ 	machine_halt();
+ }
+ 
 -- 
 2.33.1
 
