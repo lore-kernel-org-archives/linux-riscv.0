@@ -2,64 +2,64 @@ Return-Path: <SRS0=u9qy=P3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A496FC43217
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 15:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1DEA7C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 15:06:41 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6168E6115A
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 15:06:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6168E6115A
+	by mail.kernel.org (Postfix) with ESMTPS id D7D296115A
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 15:06:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org D7D296115A
 Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=microchip.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=7j1M2waO3HJ5IwpDVpZz63+t283Q9+Pvpm+ej0p27TU=; b=IkYzuzS7ZxWB6+
-	2EhTzsKsWcmRg7ECTt2kRU3JwASqvxiTHUc1R8QINi4RA4KEGCOoyNjzV6au4UWogd2Ms3JAj2cSj
-	dMjdfXZ0NHWfrIkiqcv31tB3i+Rk7K5Y2KXb2DX1BKXA63LOOPYRjCb9g4fy11l7dvwbJ8ETum/c6
-	ELK1qPqopDmiv3H4G3yiOaNPKedxdYN09HqZXzMPUSE7EBIoeR9/mNarSuKSjbm8Ynb83zg7yh/HH
-	EQ0n762AofqbF6QQ6TxT4SBvNJY7ST+hk6VijPtyBtoEf05i0BjhC+EHzqGs2uu9ai905qwrN1wVI
-	NNuG4mg1zBBfpJTcLItw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=quWM0mKe0SSvhgTa33HALEtv/LL6rm5TgQ5AWqQQipU=; b=QIF0uQctHOw93A
+	epR01UDaCN+HT2M3cpjS2qmwmRtUktWhmzufhN2/q6NjdWQA34qoRWgDARNod+AyrbhKtPdl/pzYB
+	EBe9gMKR7GXKoLpA5tK7ncSIDfhAAhyjozo8NswsIvbsVnJ7CfnWtKfAJaGOpnS7BMD0Kl3U4JPtw
+	+FL4EAl31P88JQ1qzL2+fm8RdtejMaHb9ssyNQ/ishBm5O53xL40/sarkGuZbI0nZCgZvWKLmObq6
+	qKyhz42i665R8sCNOfIeZAY7XRQmpHYB2L2SVHiFvBm8lS7BSRozPkzpljexluBXC90X7VACLjk08
+	5h+mJ9mArpYTG74ehWlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mk6E8-00Gm5K-M0; Mon, 08 Nov 2021 15:06:28 +0000
+	id 1mk6ED-00Gm7b-H7; Mon, 08 Nov 2021 15:06:33 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mk6E5-00Gm4X-NR
- for linux-riscv@lists.infradead.org; Mon, 08 Nov 2021 15:06:27 +0000
+ id 1mk6EB-00Gm6L-NY
+ for linux-riscv@lists.infradead.org; Mon, 08 Nov 2021 15:06:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1636383985; x=1667919985;
- h=from:to:cc:subject:date:message-id:mime-version:
- content-transfer-encoding;
- bh=8SrEU9XI/OEo5uTJNfmiDpAr5AwL1FBJ0ig/W9RdeJY=;
- b=jvBylVaWryTEzA5/Su4vr75ZCqMADTZDojzx8vX8BjFUXQUgU1kW2Eji
- Bb3D4KHSR/QvKomKNAZMx0iOG8KufIFNAb0MuIBxEgutrFEDn88l/U/pX
- TNobvP1BXnHwS5lrErCbsAY8TOuv+RNxU3ly+fGWcGtjN9uqTtwXRANa1
- kQL0YkHok0BOjx3duy5jdLeZfZ65wNF3h3sORfAF7+93Eqm5w4wY6K3Uj
- EYOmiuL8XaLl0rT7wLVA9jgqTHHDoX9Q9LZ3joI8g8GvRVzOrbTSduYru
- P3z2OAUbH3f4o7h6xsHbFsVuS0KSaCWdhKFGLeoHR4BGpAfW+0rkcNHyM w==;
-IronPort-SDR: rKaUUnhxQEuffL258X7HEch2+KTgcTsz45WpCwjQFqdvi8jf1EDK/efkqY6IZ8ZUpCzJsKfE4K
- fgxIdeqoyQBgLCKd+c5YqltwAtfrElduaVhZivZVIyZNykcinto/2oJdjfbZVi8qpomr8qiY+5
- xvIo0j6fITV7ox+ZkTGm3VHcDlg3p/F8tKywsi/ROTKcRlaZHem9FmP1RYErwPj0c0fq/yJExn
- Ge+EtfgudJp/+8PUoXcjGOeNR++YFCHA8AGfjsFN/WY8+sr7YVPwvi8LXrQVx/OEJV9KmkbI0f
- 1vRBKjAwQ16j2JOLIbTgLjaZ
-X-IronPort-AV: E=Sophos;i="5.87,218,1631602800"; d="scan'208";a="135847455"
+ t=1636383991; x=1667919991;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=7TY70StaNQYPEo0JEGXnyDaaE5FyFeTJVVklhVpDOHY=;
+ b=lgUQBoOQUks1+prlWNgwNnYy4deDNQinwI6ZnzLJzwhxTEBp9He8pir6
+ K/FurHtRtVLmtPqAqAWjFpIAuRYoipBaE0kkxvTLq7Ev4S1Ue9kz+TmlD
+ QD2+dnfQsdG7V2gX4rtpfg1JksKZhPWTeI5Fgf6SUshNnEi1uYl709ucG
+ 8l+2tU0mpu5cu2GffZ0opft4/m2zuyUPcDl2lfDeZvNxBXGel7dni+P/s
+ SMQ06b8P0QrYuLAOTRdQdDV7OWK5RXsEsA/VhQ9gIbzung4Etpg2Sw8bs
+ I+AofXhy0TdKY7cvcHHcvVYfteK8/WUaN5gTGvCnKF1HcuJO7S23qWzj0 g==;
+IronPort-SDR: Ntpp7n7MAYiBTQIALHMCUvFJeiU9D0S3cSUihj8H2Sa1PKofHXa5Gm6uzyYdUBtTVmZMiTI+Sm
+ vRDvfd1ceVeyhMLRROFAT+SbZ16pWvUkc/6oIoCs9eQjuUWH5X2drqxkHzS6kVLG6ohPaRsNSw
+ NVJc/UVeOeX3slZ4M2Dn3UhYi4z7ff4vWlQeU+CvEYtEU63f5CDX3kUZi2ib0F77+olpUP7SzH
+ Ympz8b39z6uxj37N56/MHAj3IfQLiUDBbdaUkAC8pnGE2EaUvJz88DKXK/+WPwpvYko+phXh7C
+ xL3ENJMyKEdgW2jyYgfUm/mn
+X-IronPort-AV: E=Sophos;i="5.87,218,1631602800"; d="scan'208";a="75727030"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
- by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 08 Nov 2021 08:06:22 -0700
+ by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 08 Nov 2021 08:06:30 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2176.14; Mon, 8 Nov 2021 08:06:19 -0700
+ 15.1.2176.14; Mon, 8 Nov 2021 08:06:25 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
  (10.10.85.151) with Microsoft SMTP Server id 15.1.2176.14 via
- Frontend Transport; Mon, 8 Nov 2021 08:06:15 -0700
+ Frontend Transport; Mon, 8 Nov 2021 08:06:20 -0700
 From: <conor.dooley@microchip.com>
 To: <linus.walleij@linaro.org>, <bgolaszewski@baylibre.com>,
  <robh+dt@kernel.org>, <jassisinghbrar@gmail.com>, <paul.walmsley@sifive.com>, 
@@ -75,14 +75,17 @@ To: <linus.walleij@linaro.org>, <bgolaszewski@baylibre.com>,
  <linux-usb@vger.kernel.org>
 CC: <krzysztof.kozlowski@canonical.com>, <geert@linux-m68k.org>,
  <bin.meng@windriver.com>
-Subject: [PATCH 00/13]Update the icicle kit device tree
-Date: Mon, 8 Nov 2021 15:05:41 +0000
-Message-ID: <20211108150554.4457-1-conor.dooley@microchip.com>
+Subject: [PATCH 01/13] dt-bindings: interrupt-controller: create a header for
+ RISC-V interrupts
+Date: Mon, 8 Nov 2021 15:05:42 +0000
+Message-ID: <20211108150554.4457-2-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.33.1
+In-Reply-To: <20211108150554.4457-1-conor.dooley@microchip.com>
+References: <20211108150554.4457-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211108_070625_873644_E94F9E24 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20211108_070631_861369_3DDCF2E0 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,71 +102,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+From: Ivan Griffin <ivan.griffin@microchip.com>
 
-This series updates the microchip icicle kit device tree by adding a host
-of peripherals, and some updates to the memory map. In addition, the device
-tree has been split into a third part, which contains "soft" peripherals 
-that are in the fpga fabric.
+Provide named identifiers for device tree for RISC-V interrupts.
 
-Several of the entries are for peripherals that have not get had their drivers
-upstreamed, so in those cases the dt bindings are included where appropriate
-in order to avoid as many "DT compatible string <x> appears un-documented" 
-errors as possible.
+Licensed under GPL and MIT, as this file may be useful to any OS that
+uses device tree.
 
-Depends on mpfs clock driver series [1] to provide:
-dt-bindings/clock/microchip,mpfs-clock.h
-and on the other changes to the icicle/mpfs device tree
-that are already in linux/riscv/for-next.
-
-[1] https://lore.kernel.org/linux-clk/20210818141102.36655-2-daire.mcnamara@microchip.com/
-
-Conor Dooley (11):
-  dt-bindings: soc/microchip: update sys ctrlr compat string
-  dt-bindings: riscv: update microchip polarfire binds
-  dt-bindings: i2c: add bindings for microchip mpfs i2c
-  dt-bindings: rng: add bindings for microchip mpfs rng
-  dt-bindings: rtc: add bindings for microchip mpfs rtc
-  dt-bindings: soc/microchip: add bindings for mpfs system services
-  dt-bindings: gpio: add bindings for microchip mpfs gpio
-  dt-bindings: spi: add bindings for microchip mpfs spi
-  dt-bindings: usb: add bindings for microchip mpfs musb
-  riscv: icicle-kit: update microchip icicle kit device tree
-  MAINTAINERS: update riscv/microchip entry
-
-Ivan Griffin (2):
-  dt-bindings: interrupt-controller: add defines for riscv-hart
-  dt-bindings: interrupt-controller: add defines for mpfs-plic
-
- .../bindings/gpio/microchip,mpfs-gpio.yaml    | 108 ++++++
- .../bindings/i2c/microchip,mpfs-i2c.yaml      |  74 ++++
- .../microchip,polarfire-soc-mailbox.yaml      |   4 +-
- .../devicetree/bindings/riscv/microchip.yaml  |   1 +
- .../bindings/rng/microchip,mpfs-rng.yaml      |  31 ++
- .../bindings/rtc/microchip,mfps-rtc.yaml      |  61 ++++
- .../microchip,mpfs-generic-service.yaml       |  31 ++
- ...icrochip,polarfire-soc-sys-controller.yaml |   4 +-
- .../bindings/spi/microchip,mpfs-spi.yaml      |  72 ++++
- .../bindings/usb/microchip,mpfs-usb-host.yaml |  70 ++++
- MAINTAINERS                                   |   2 +
- .../dts/microchip/microchip-mpfs-fabric.dtsi  |  21 ++
- .../microchip/microchip-mpfs-icicle-kit.dts   | 159 +++++++--
- .../boot/dts/microchip/microchip-mpfs.dtsi    | 333 ++++++++++++++----
- drivers/mailbox/mailbox-mpfs.c                |   1 +
- .../microchip,mpfs-plic.h                     | 199 +++++++++++
- .../interrupt-controller/riscv-hart.h         |  19 +
- 17 files changed, 1103 insertions(+), 87 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
- create mode 100644 Documentation/devicetree/bindings/i2c/microchip,mpfs-i2c.yaml
- create mode 100644 Documentation/devicetree/bindings/rng/microchip,mpfs-rng.yaml
- create mode 100644 Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
- create mode 100644 Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-generic-service.yaml
- create mode 100644 Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml
- create mode 100644 Documentation/devicetree/bindings/usb/microchip,mpfs-usb-host.yaml
- create mode 100644 arch/riscv/boot/dts/microchip/microchip-mpfs-fabric.dtsi
- create mode 100644 include/dt-bindings/interrupt-controller/microchip,mpfs-plic.h
+Signed-off-by: Ivan Griffin <ivan.griffin@microchip.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ .../interrupt-controller/riscv-hart.h         | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
  create mode 100644 include/dt-bindings/interrupt-controller/riscv-hart.h
 
+diff --git a/include/dt-bindings/interrupt-controller/riscv-hart.h b/include/dt-bindings/interrupt-controller/riscv-hart.h
+new file mode 100644
+index 000000000000..e1c32f6090ac
+--- /dev/null
++++ b/include/dt-bindings/interrupt-controller/riscv-hart.h
+@@ -0,0 +1,19 @@
++/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
++/*
++ * Copyright (C) 2021 Microchip Technology Inc.  All rights reserved.
++ */
++
++#ifndef _DT_BINDINGS_INTERRUPT_CONTROLLER_RISCV_HART_H
++#define _DT_BINDINGS_INTERRUPT_CONTROLLER_RISCV_HART_H
++
++#define HART_INT_U_SOFT   0
++#define HART_INT_S_SOFT   1
++#define HART_INT_M_SOFT   3
++#define HART_INT_U_TIMER  4
++#define HART_INT_S_TIMER  5
++#define HART_INT_M_TIMER  7
++#define HART_INT_U_EXT    8
++#define HART_INT_S_EXT    9
++#define HART_INT_M_EXT    11
++
++#endif /* _DT_BINDINGS_INTERRUPT_CONTROLLER_RISCV_HART_H */
 -- 
 2.33.1
 
