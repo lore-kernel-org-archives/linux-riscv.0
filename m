@@ -2,14 +2,14 @@ Return-Path: <SRS0=u9qy=P3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7C308C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 14:17:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 473A4C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 14:20:19 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3F42861076
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 14:17:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3F42861076
+	by mail.kernel.org (Postfix) with ESMTPS id E8C61610A8
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 14:20:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E8C61610A8
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=foss.st.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,65 +18,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a6cwcuq9ZAY/jLTwbXtSrnJO1qu0bWPYpG5qQKCsAMk=; b=P4ycq86PgEpc39
-	siujFg/Dvq64XGX4ycnZM4skOfbfHLR6AMWxLTSdJRm1LjinwXrApMIuggjJhCglt2I6YjC0gAeZY
-	UQEYkxpF3M5JfjYi+L9tavpi+sqI6tdMkshiISVF5beK/mlUIlHS/YDmZK2phai4mwuVrx5UQxEQQ
-	4My2W4IopsytpjN3G67v3Kbc9rJk+sAoHTxedgg28f0gsw07gxYoSWyV9FEClIH5i6LhYndwRksxA
-	U4XrDuSpRuawcaATUdEuw+CyDetEeutRRBgvMO0VygDVYWUTki1QiHlf3sJQVP7XSgrzuAYnrFK2Z
-	c9NCH2dDRBAkE2cCS/Nw==;
+	List-Owner; bh=a6cwcuq9ZAY/jLTwbXtSrnJO1qu0bWPYpG5qQKCsAMk=; b=0Bb1eg9bMIpDiU
+	DCWOs+i3Lvddan0IaqcNyfzrsZVpYybdF90QvZoArU4I18VhWAf9xSh0+qmavSkGROijNJ3BUiRJU
+	1zezF372fLKpXBLtKepSUOkaGuYiDISueixWtuuqaVtL/1PgSocdhH6xP4OSL2mjLQdrfzMvYxVDl
+	gz/ksMeOll9BcdYNTzMWpknorsrM6zYgjtGEBjyhtIJsY7GcsDM2ONOQmNSNNAGaG9epDdmjRRAS1
+	3h3xrn8bym0KqffY5GXqLNPp1FsPr4zgY0X1Me5SAGOyR9J8H65XFKEbZR7acA479S9lwfTd26VAQ
+	1IXOGPvTaXRHEzIHwDuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mk5S9-00Gbm1-OW; Mon, 08 Nov 2021 14:16:53 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1mk5VK-00Gd1d-Ti; Mon, 08 Nov 2021 14:20:10 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93]
+ helo=mx07-00178001.pphosted.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mk5Rw-00Gbfo-Q4
- for linux-riscv@lists.infradead.org; Mon, 08 Nov 2021 14:16:42 +0000
-Received: from pps.filterd (m0046668.ppops.net [127.0.0.1])
- by mx07-00178001.pphosted.com (8.16.1.2/8.16.1.2) with ESMTP id 1A8DQ0aC021026
- for <linux-riscv@lists.infradead.org>; Mon, 8 Nov 2021 15:16:35 +0100
+ id 1mk5V5-00GcsV-54
+ for linux-riscv@lists.infradead.org; Mon, 08 Nov 2021 14:19:56 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+ by mx07-00178001.pphosted.com (8.16.1.2/8.16.1.2) with ESMTP id 1A8DUup0020873;
+ Mon, 8 Nov 2021 15:19:46 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
  h=from : to : cc :
  subject : date : message-id : in-reply-to : references : mime-version :
  content-type; s=selector1;
  bh=G71bZgL+omdARXJsxJ7Rn9d3usObUVkXEy7Tf8cjO4k=;
- b=kxOhd4g56BgxzvisXWf7NZfeVLzDgyoAJeQOdV+pXWMn7VZluq+jeJIzCMeOobu1PhQU
- lex0yIn3fISpGLDQKYRt+HTlWHQeiSC9DZ2mk3X4r3tLPDOUSW5M4fd64WN5000SEBVK
- 2rHA4Fim/J2GZN0sdRRcEKC2SnI00lC6MfnhjeGv0n3r71vswWTHf5W8yPZZoN4TvT2P
- ioAZHbnWylOkbNDAXUqO0070elboW+N497DH7CEvS2njLrSQAuGpGd5RhDjHSAhyLtpG
- Ff8BwfHrNy+fvocuECj6vs2gQLXXa/M+e5mckYWIFPs+ZmXYQNoq8cWsZNEOMYBE6QQH Dg== 
+ b=5K2huwqPDwy2LZNhtAoEFB2zaBXiQ38cIPNfVdvLwIVn2UpG2ct0+R64UGwqNd7VsFlv
+ occ+KpwG3CeCyhoBVVkXtLFI9mZOSmanTucBqH1RmMKg2uwRzoSYxwDBrdTgsDi2aCpB
+ UtDyHoFUxGfL4BzyuVZYF2h5FsIP1yR32unjMWN9wp8hx+r3rRmXZrXfml7mF/i9TESP
+ yRuWo3vD15QyNiS3OKgpttyfKGa0bkQBXvbmXG8WeASMHr88df87zc3j2IVQq6RpsAbm
+ hpULU1Yjottctl92m47EWk0hWo2qyVHV/ZpFBOaamyeUOcFyepw2U8NMVbfPO6GES4Bh zg== 
 Received: from beta.dmz-eu.st.com (beta.dmz-eu.st.com [164.129.1.35])
- by mx07-00178001.pphosted.com (PPS) with ESMTPS id 3c709q29h8-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
- for <linux-riscv@lists.infradead.org>; Mon, 08 Nov 2021 15:16:35 +0100
+ by mx07-00178001.pphosted.com (PPS) with ESMTPS id 3c74uk8b9k-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Mon, 08 Nov 2021 15:19:46 +0100
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
- by beta.dmz-eu.st.com (STMicroelectronics) with ESMTP id 40AB510002A
- for <linux-riscv@lists.infradead.org>; Mon,  8 Nov 2021 15:16:35 +0100 (CET)
+ by beta.dmz-eu.st.com (STMicroelectronics) with ESMTP id EA4ED100038;
+ Mon,  8 Nov 2021 15:19:45 +0100 (CET)
 Received: from Webmail-eu.st.com (sfhdag2node2.st.com [10.75.127.5])
- by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E1D0722F7DA
- for <linux-riscv@lists.infradead.org>; Mon,  8 Nov 2021 15:16:31 +0100 (CET)
-Received: from localhost (10.75.127.51) by SFHDAG2NODE2.st.com (10.75.127.5)
- with Microsoft SMTP Server (TLS) id 15.0.1497.18; Mon, 8 Nov 2021 15:16:31
+ by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E3E4E21BF6B;
+ Mon,  8 Nov 2021 15:19:45 +0100 (CET)
+Received: from localhost (10.75.127.48) by SFHDAG2NODE2.st.com (10.75.127.5)
+ with Microsoft SMTP Server (TLS) id 15.0.1497.18; Mon, 8 Nov 2021 15:19:45
  +0100
 From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-To: <arnaud.pouliquen@foss.st.com>
-CC: <linux-riscv@lists.infradead.org>
+To: Bjorn Andersson <bjorn.andersson@linaro.org>, Ohad Ben-Cohen
+ <ohad@wizery.com>, Mathieu Poirier <mathieu.poirier@linaro.org>
+CC: <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-stm32@st-md-mailman.stormreply.com>, <julien.massot@iot.bzh>,
+ <arnaud.pouliquen@foss.st.com>, <linux-riscv@lists.infradead.org>
 Subject: [PATCH v7 05/12] RISCV: configs: Configs that had RPMSG_CHAR now gets
  RPMSG_CTRL
-Date: Mon, 8 Nov 2021 15:15:46 +0100
-Message-ID: <20211108141553.12708-6-arnaud.pouliquen@foss.st.com>
+Date: Mon, 8 Nov 2021 15:19:30 +0100
+Message-ID: <20211108141937.13016-6-arnaud.pouliquen@foss.st.com>
 X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20211108141553.12708-1-arnaud.pouliquen@foss.st.com>
-References: <20211108141553.12708-1-arnaud.pouliquen@foss.st.com>
+In-Reply-To: <20211108141937.13016-1-arnaud.pouliquen@foss.st.com>
+References: <20211108141937.13016-1-arnaud.pouliquen@foss.st.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.75.127.51]
-X-ClientProxiedBy: SFHDAG2NODE1.st.com (10.75.127.4) To SFHDAG2NODE2.st.com
+X-Originating-IP: [10.75.127.48]
+X-ClientProxiedBy: SFHDAG2NODE3.st.com (10.75.127.6) To SFHDAG2NODE2.st.com
  (10.75.127.5)
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.205,Aquarius:18.0.790,Hydra:6.0.425,FMLib:17.0.607.475
  definitions=2021-11-08_05,2021-11-08_01,2020-04-07_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211108_061641_246140_C1F73054 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20211108_061955_525742_FA470965 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
