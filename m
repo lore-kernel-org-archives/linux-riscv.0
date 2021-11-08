@@ -2,131 +2,81 @@ Return-Path: <SRS0=u9qy=P3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B80E5C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 11:36:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7C308C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 14:17:03 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 83CC360F14
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 11:36:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 83CC360F14
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 3F42861076
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 14:17:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3F42861076
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=foss.st.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=+cHS/mrLs7MVlkD80jeYF0xDDnIvXzZSTb03SZDaJh4=; b=vzdEg/ldA0Cq6kyWZcualNKSwY
-	mmX7exh6Wl54KJJu+fxgs3Ad7+T3FRH+/8rZqjjKys0K5+OOEyibSHKro4i6JW+/sdj2er6cAvb7m
-	csuKZTYAfH3TB66H6HEzdkeo1pjuTc4io6Y+BMjhhC13iNrH1qoY5/onUglaNd7pi8SdiVAe0Deoj
-	61vzIjIfS42uZnXb14DiHARAF+VEK5UQuctdXBRuVOZD//esSAjEWxyCR5vI9QSjMDO+c6uvOTv2m
-	oOMJDMGtwUrLo/2g4MG9b8lZ5cZqximfQv3qQHiYHZb4QhWFSYlMDhmkO/MrWLrv9OX7viN8YpMyP
-	u4eVS3Gw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=a6cwcuq9ZAY/jLTwbXtSrnJO1qu0bWPYpG5qQKCsAMk=; b=P4ycq86PgEpc39
+	siujFg/Dvq64XGX4ycnZM4skOfbfHLR6AMWxLTSdJRm1LjinwXrApMIuggjJhCglt2I6YjC0gAeZY
+	UQEYkxpF3M5JfjYi+L9tavpi+sqI6tdMkshiISVF5beK/mlUIlHS/YDmZK2phai4mwuVrx5UQxEQQ
+	4My2W4IopsytpjN3G67v3Kbc9rJk+sAoHTxedgg28f0gsw07gxYoSWyV9FEClIH5i6LhYndwRksxA
+	U4XrDuSpRuawcaATUdEuw+CyDetEeutRRBgvMO0VygDVYWUTki1QiHlf3sJQVP7XSgrzuAYnrFK2Z
+	c9NCH2dDRBAkE2cCS/Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mk2xF-00GJFd-8p; Mon, 08 Nov 2021 11:36:49 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
+	id 1mk5S9-00Gbm1-OW; Mon, 08 Nov 2021 14:16:53 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mk2xC-00GJEZ-73; Mon, 08 Nov 2021 11:36:47 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id i26so28878225ljg.7;
- Mon, 08 Nov 2021 03:36:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=subject:to:cc:references:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=X+QlLlo/0/3EVdBxA2kw9RSD+7dI68j0akmWtlfHVoc=;
- b=aZVzW8uInA8LU/x+WSDcs8GL423pa/2TbHlNFMZCd9U6UTTINhRxHwWgMG+VIGRFXX
- YHsHS1Zp8SLg7g0I8x9US08hxM80ZghlJabXZBFwbjt/NZTi8D93A6u3DdWQsriGAEMv
- bFmB7LTf3DQwVbSm6WogHRt9oYdTZJJwV6Cdja/STeDW7/10QbzkyuPD5z+/FAuGPwej
- XDOG6vFO/moWThDJAR559rbcfRfK+AgOLrilun42rQLGkujwn1pckpcm4TgSB3WIb1LP
- WWP0u+S7lmnv27N0vKhUH9Av/RJV5C0NJsxi8Lo9cU/Zh/pB4HH/qd8XqYWZNDXsqTHX
- YlNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:subject:to:cc:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=X+QlLlo/0/3EVdBxA2kw9RSD+7dI68j0akmWtlfHVoc=;
- b=Qsmx77f94ks+wIA7atjf9q5FmrinhkEoiQt7qb0z94E9MHceBwmeqMgoIwWylqtxbB
- HDY5Ey+LU9GB9YOH9gQJlRnfvdVSZ8z87DYtbezNJtbdgGLpZWPuZEssiUhOjm6e/peu
- Za3MlKilPdDsJ0usVF8rO5ISAj9xts+3rHsaVHzCiiEroVzLy4bRx0UPV1UYQhLHVEiX
- vNq0WtT6Mfc9lsoo51HsJjo08EcEtfC3gt6EpZkbY0DkPVd5y++1PnMYnn5MGTCrqnP6
- KPitw34avm2VmUVKvPMhCfxSgeMwKNz4Rjy2TEz6iE55vHdlb5bGU9pm5IKyQCH3TR+5
- NeMg==
-X-Gm-Message-State: AOAM532qfseTrSK7F3Rd+B5VKAz6lVrimpE3rR8ouYgxb2N1Alt+NL7P
- X/wsD6e1sdg3FQEgNcqSNzw=
-X-Google-Smtp-Source: ABdhPJzzWZ+q13ptoCU5JHKLBozyl2qyG0di7fj7GC0x6tQVXWEZ5utjk3vHuuOVClKYY3WCOwTKiw==
-X-Received: by 2002:a2e:bd88:: with SMTP id o8mr69963654ljq.197.1636371404363; 
- Mon, 08 Nov 2021 03:36:44 -0800 (PST)
-Received: from [192.168.2.145] (79-139-188-96.dynamic.spd-mgts.ru.
- [79.139.188.96])
- by smtp.googlemail.com with ESMTPSA id q6sm1523591ljh.1.2021.11.08.03.36.42
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 08 Nov 2021 03:36:44 -0800 (PST)
-Subject: Re: [PATCH v2 27/45] mfd: ntxec: Use devm_register_power_handler()
-To: =?UTF-8?Q?Jonathan_Neusch=c3=a4fer?= <j.neuschaefer@gmx.net>
-Cc: Guenter Roeck <linux@roeck-us.net>,
- Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, Lee Jones <lee.jones@linaro.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Mark Brown <broonie@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Russell King <linux@armlinux.org.uk>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Ulf Hansson <ulf.hansson@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Guo Ren <guoren@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Greg Ungerer <gerg@linux-m68k.org>, Joshua Thompson <funaho@jurai.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
- Vincent Chen <deanbo422@gmail.com>, Helge Deller <deller@gmx.de>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Juergen Gross
- <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>,
- Len Brown <lenb@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Linus Walleij <linus.walleij@linaro.org>, Chen-Yu Tsai <wens@csie.org>,
- Tony Lindgren <tony@atomide.com>, Liam Girdwood <lgirdwood@gmail.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Vladimir Zapolskiy <vz@mleia.com>,
- Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>,
- Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>,
- Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>,
- Pavel Machek <pavel@ucw.cz>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-sh@vger.kernel.org, xen-devel@lists.xenproject.org,
- linux-acpi@vger.kernel.org, linux-omap@vger.kernel.org,
- openbmc@lists.ozlabs.org, linux-tegra@vger.kernel.org,
- linux-pm@vger.kernel.org
-References: <20211027211715.12671-1-digetx@gmail.com>
- <20211027211715.12671-28-digetx@gmail.com> <YYbqlmOM95q7Hbjo@latitude>
- <be0c74c6-05a9-cad5-c285-6626d05f8860@gmail.com>
- <9a22c22d-94b1-f519-27a2-ae0b8bbf6e99@roeck-us.net>
- <658cf796-e3b1-f816-1e15-9e9e08b8ade0@gmail.com>
- <5a17fee3-4214-c2b9-abc1-ab9d6071591b@roeck-us.net>
- <c0b52994-51f5-806b-b07e-3e70d8217ffc@gmail.com> <YYkIeBSCFka9yrqC@latitude>
-From: Dmitry Osipenko <digetx@gmail.com>
-Message-ID: <04103df3-1ef4-b560-a5cb-fa51737d28ad@gmail.com>
-Date: Mon, 8 Nov 2021 14:36:42 +0300
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.14.0
+ id 1mk5Rw-00Gbfo-Q4
+ for linux-riscv@lists.infradead.org; Mon, 08 Nov 2021 14:16:42 +0000
+Received: from pps.filterd (m0046668.ppops.net [127.0.0.1])
+ by mx07-00178001.pphosted.com (8.16.1.2/8.16.1.2) with ESMTP id 1A8DQ0aC021026
+ for <linux-riscv@lists.infradead.org>; Mon, 8 Nov 2021 15:16:35 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ h=from : to : cc :
+ subject : date : message-id : in-reply-to : references : mime-version :
+ content-type; s=selector1;
+ bh=G71bZgL+omdARXJsxJ7Rn9d3usObUVkXEy7Tf8cjO4k=;
+ b=kxOhd4g56BgxzvisXWf7NZfeVLzDgyoAJeQOdV+pXWMn7VZluq+jeJIzCMeOobu1PhQU
+ lex0yIn3fISpGLDQKYRt+HTlWHQeiSC9DZ2mk3X4r3tLPDOUSW5M4fd64WN5000SEBVK
+ 2rHA4Fim/J2GZN0sdRRcEKC2SnI00lC6MfnhjeGv0n3r71vswWTHf5W8yPZZoN4TvT2P
+ ioAZHbnWylOkbNDAXUqO0070elboW+N497DH7CEvS2njLrSQAuGpGd5RhDjHSAhyLtpG
+ Ff8BwfHrNy+fvocuECj6vs2gQLXXa/M+e5mckYWIFPs+ZmXYQNoq8cWsZNEOMYBE6QQH Dg== 
+Received: from beta.dmz-eu.st.com (beta.dmz-eu.st.com [164.129.1.35])
+ by mx07-00178001.pphosted.com (PPS) with ESMTPS id 3c709q29h8-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+ for <linux-riscv@lists.infradead.org>; Mon, 08 Nov 2021 15:16:35 +0100
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+ by beta.dmz-eu.st.com (STMicroelectronics) with ESMTP id 40AB510002A
+ for <linux-riscv@lists.infradead.org>; Mon,  8 Nov 2021 15:16:35 +0100 (CET)
+Received: from Webmail-eu.st.com (sfhdag2node2.st.com [10.75.127.5])
+ by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E1D0722F7DA
+ for <linux-riscv@lists.infradead.org>; Mon,  8 Nov 2021 15:16:31 +0100 (CET)
+Received: from localhost (10.75.127.51) by SFHDAG2NODE2.st.com (10.75.127.5)
+ with Microsoft SMTP Server (TLS) id 15.0.1497.18; Mon, 8 Nov 2021 15:16:31
+ +0100
+From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+To: <arnaud.pouliquen@foss.st.com>
+CC: <linux-riscv@lists.infradead.org>
+Subject: [PATCH v7 05/12] RISCV: configs: Configs that had RPMSG_CHAR now gets
+ RPMSG_CTRL
+Date: Mon, 8 Nov 2021 15:15:46 +0100
+Message-ID: <20211108141553.12708-6-arnaud.pouliquen@foss.st.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20211108141553.12708-1-arnaud.pouliquen@foss.st.com>
+References: <20211108141553.12708-1-arnaud.pouliquen@foss.st.com>
 MIME-Version: 1.0
-In-Reply-To: <YYkIeBSCFka9yrqC@latitude>
-Content-Language: en-US
+X-Originating-IP: [10.75.127.51]
+X-ClientProxiedBy: SFHDAG2NODE1.st.com (10.75.127.4) To SFHDAG2NODE2.st.com
+ (10.75.127.5)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.205,Aquarius:18.0.790,Hydra:6.0.425,FMLib:17.0.607.475
+ definitions=2021-11-08_05,2021-11-08_01,2020-04-07_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211108_033646_288158_E31B1B57 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20211108_061641_246140_C1F73054 
+X-CRM114-Status: GOOD (  14.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,21 +88,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-MDguMTEuMjAyMSAxNDoyMiwgSm9uYXRoYW4gTmV1c2Now6RmZXIg0L/QuNGI0LXRgjoKPiBPbiBT
-dW4sIE5vdiAwNywgMjAyMSBhdCAwODo0MjozM1BNICswMzAwLCBEbWl0cnkgT3NpcGVua28gd3Jv
-dGU6Cj4gWy4uLl0KPj4gRUMgZHJpdmVycyB0ZW5kIHRvIHVzZSBoaWdoZXIgcHJpb3JpdHkgaW4g
-Z2VuZXJhbC4gSm9uYXRoYW4sIGNvdWxkIHlvdQo+PiBwbGVhc2UgY29uZmlybSB0aGF0IE5UWEVD
-IGRyaXZlciBpcyBhIG1vcmUgcHJlZmVyYWJsZSByZXN0YXJ0IG1ldGhvZAo+PiB0aGFuIHRoZSB3
-YXRjaGRvZz8KPiAKPiBZZXMuIFRoZSBvcmlnaW5hbCBmaXJtd2FyZSB1c2VzIHRoZSBOVFhFQyB0
-byByZXN0YXJ0LCBhbmQgaXQgd29ya3Mgd2VsbCwKPiBzbyBJIGRvIHRoaW5rIGl0J3MgcHJlZmVy
-YWJsZS4KClRoYW5rIHlvdSwgdGhlbiBJJ2xsIHVwZGF0ZSB0aGUgTlRYRUMgcGF0Y2ggbGlrZSB0
-aGlzOgoKaHR0cHM6Ly9naXRodWIuY29tL2dyYXRlLWRyaXZlci9saW51eC9jb21taXQvMjJkYTNk
-OTFmMTczNGQ5YTBlZDAzNjIyMGFkNGVhMjg0NjVhZjk4OAoKCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+In the patch "rpmsg: Move the rpmsg control device from rpmsg_char
+to rpmsg_ctrl", we split the rpmsg_char driver in two.
+By default give everyone who had the old driver enabled the rpmsg_ctrl
+driver too.
+
+Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+cc: linux-riscv@lists.infradead.org
+
+---
+ arch/riscv/configs/defconfig      | 1 +
+ arch/riscv/configs/rv32_defconfig | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index 4ebc80315f01..96344d7d4e3f 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -96,6 +96,7 @@ CONFIG_VIRTIO_BALLOON=y
+ CONFIG_VIRTIO_INPUT=y
+ CONFIG_VIRTIO_MMIO=y
+ CONFIG_RPMSG_CHAR=y
++CONFIG_RPMSG_CTRL=y
+ CONFIG_RPMSG_VIRTIO=y
+ CONFIG_EXT4_FS=y
+ CONFIG_EXT4_FS_POSIX_ACL=y
+diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
+index 434ef5b64599..99eabad7ca0f 100644
+--- a/arch/riscv/configs/rv32_defconfig
++++ b/arch/riscv/configs/rv32_defconfig
+@@ -89,6 +89,7 @@ CONFIG_VIRTIO_BALLOON=y
+ CONFIG_VIRTIO_INPUT=y
+ CONFIG_VIRTIO_MMIO=y
+ CONFIG_RPMSG_CHAR=y
++CONFIG_RPMSG_CTRL=y
+ CONFIG_RPMSG_VIRTIO=y
+ CONFIG_EXT4_FS=y
+ CONFIG_EXT4_FS_POSIX_ACL=y
+-- 
+2.17.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
