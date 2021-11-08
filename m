@@ -2,108 +2,70 @@ Return-Path: <SRS0=u9qy=P3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DC718C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 21:40:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A685DC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 21:47:05 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A1E3561159
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 21:40:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A1E3561159
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
+	by mail.kernel.org (Postfix) with ESMTPS id 75017610E9
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 21:47:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 75017610E9
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=aurel32.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=biYP5Z1XnVgMDRvpMs+x9PsuEIeL8K5IhDylC1YDs08=; b=hCXSeIZxBU6VaR
-	2Wnk90ywEBCKlN6+spqIP4bC4bJsNIXsDy+K1nwpApJbQEyzYojfCzKTqBYyRQkPkIcevDFp0NWr6
-	fsWg9XSnUYYjd4PeFJAA3ssY1N9SUd5NHYhoYDKvCBPIu4kQq9mPjgekFKcL0geHW+FTSvzhad79U
-	Rk2DEA7W8xaTV9PBG7ZtJIa9+R4w/1M5UnBkGyY2FBIvJztOKGb7/XGJIzEXDlXXeQxygq4QHrPm5
-	ULkuBHaie56GJO6jZ/hJTeQbmzLoDE6gEHVTCikN2ZoAZtk00RnWGpqlaho0sYrJiLv2hj2imTdcF
-	ckEvRmdMnx2rbkTAMJlA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SzXv3DsJivL09XeV26JNw1tdAxYVvnxvYjOXw9Z6Hv4=; b=ugVRNPIj5qd2rH
+	1Bu7nVvBMjDTonlmAHuKV8OzhAwQOsFtB3twFYNdp0N5i1pnTFauX42UUsjr7Fq538L4UKum5u7JN
+	cUyABjy2pbTfP55pB00mVJQP782twc0C0yzhOUUMg/DM+7C21aXJLzRHgbu5vfQa2iJN4efZIKBLq
+	1WgDDCnk5PVFkNvuo3KPHZ13g/35REAh7ckzo+mrHoLbrLUW7MTjAAjbdw8Bs66cMBrdma1to9E9a
+	YZa0N/ko0ffEfTqBeN2LaV9OH/Es3l/nnQmoD5UqHtcgYxYw5tsZaql6QiK50FRyYDzhQJfthsqry
+	VRkdilAADDl/P1GsmfXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mkCNI-00HW8m-Ik; Mon, 08 Nov 2021 21:40:20 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1mkCTg-00HWfF-Rv; Mon, 08 Nov 2021 21:46:56 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mkCNF-00HW81-Jl
- for linux-riscv@lists.infradead.org; Mon, 08 Nov 2021 21:40:19 +0000
-Received: from mail-lf1-f70.google.com (mail-lf1-f70.google.com
- [209.85.167.70])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id AEBDB3F1C6
- for <linux-riscv@lists.infradead.org>; Mon,  8 Nov 2021 21:40:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1636407615;
- bh=xMlhz60Y7Re9w6VZ4mCdMM9k1oT7By2/e2a+Ful96Aw=;
- h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
- In-Reply-To:Content-Type;
- b=Cw9hrTQ1a+rGSjBzygkb1SCOuG11ula+F4jiTytQ7sYVe5i/by0pMxkJVTyew54ik
- ZaQhKyCLLYHw5ih1rgyxu90rFvqA+sonFrGLxQ3PeXcuS6RxH/24vJwAHKsHqSC1S1
- xsAozsFZQr3oOHnC3+ATycz+NUJEe2KeB99iT8Vts3RdAiLHah3dpJqDqi3DtGu6vI
- dCD4HpGABkhfvweG5lqaLpFIUNykd/XLND4tIoI8fqlT/tfEuyKADHkvYbJzrQHSCU
- aS4EaC/uK2+tgUEmXufYPqcBtoR1pBDRuWF+cZ+7vLqu1O0eh/AMF/Cp5LAkXH2KDF
- Xp7YR5RHs4IgA==
-Received: by mail-lf1-f70.google.com with SMTP id
- x7-20020a056512130700b003fd1a7424a8so6993699lfu.5
- for <linux-riscv@lists.infradead.org>; Mon, 08 Nov 2021 13:40:15 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:cc:references:from:in-reply-to
- :content-transfer-encoding;
- bh=xMlhz60Y7Re9w6VZ4mCdMM9k1oT7By2/e2a+Ful96Aw=;
- b=8BOphcdDf6Vc8KCnTv9rNeUEIwfJuNDjKyR5c+C5LEQWUn0pJWFpD1nr1Nnqbl/S94
- ZnrRp3tzu1LU7bpMreQiT6JxGyHAoS1z0+2/jGDmTu0EO3fZp21iMLok6zfxYnPUTcDr
- pZC4Z27dbuZny9oqzF2cD0HqTUWP8JTwCNnrCtiFFyGtODn+eizyWGg2zO2odV02/3Dc
- aEGiVwHqHJh2/Mc/TnALq1nMqXL8TsIWZF0K7m7Be0p+5wrqpXlfcNVugwNk0mDTzBtU
- lk2EJ7Ka4vaXE0h36/rNJ0dbGzB8yDxJTZDQ5/O9JTtV0end84AFcdp0qapGsIs0LOMZ
- 9skQ==
-X-Gm-Message-State: AOAM530zBHRM83YPVIBe1va13jFN8EVsyechxLq8Fogci+gVmHKvfeD5
- HvUFg0IOTOKt+eXRJLugvJ2OWnP3wL5s+W1QNxjBWhxkXxObfQJSoNHwhggZIV4Tb/oglbCnzNv
- IOUzDcrdGuHZ/fPp8QFh9qn8tGFgYai3OT3MN2MfGERZwww==
-X-Received: by 2002:ac2:4bc2:: with SMTP id o2mr2168836lfq.307.1636407614500; 
- Mon, 08 Nov 2021 13:40:14 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJym1HJFJOCiKpshotep+fEMHGVvuCHCUht7Znnr1Fptl/CMGw7zMKN16qBDQpX9jY7h2z+d7w==
-X-Received: by 2002:ac2:4bc2:: with SMTP id o2mr2168813lfq.307.1636407614293; 
- Mon, 08 Nov 2021 13:40:14 -0800 (PST)
-Received: from [192.168.3.67] (89-77-68-124.dynamic.chello.pl. [89.77.68.124])
- by smtp.gmail.com with ESMTPSA id
- h18sm295563ljh.133.2021.11.08.13.40.12
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 08 Nov 2021 13:40:13 -0800 (PST)
-Message-ID: <01fdf2cf-26ae-b062-178b-4b9a23cd5803@canonical.com>
-Date: Mon, 8 Nov 2021 22:40:12 +0100
+ id 1mkCTd-00HWds-PS
+ for linux-riscv@lists.infradead.org; Mon, 08 Nov 2021 21:46:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+ ; s=202004.hall;
+ h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:
+ Subject:Cc:To:From:Content-Type:From:Reply-To:Subject:Content-ID:
+ Content-Description:In-Reply-To:References:X-Debbugs-Cc;
+ bh=N66F6Wqb9JBCWGaFILjT7qMKPk0Bi6BRFQXkrAP8YSU=; b=dwCrZp+TvheeFG0rOfKtj6Cgrj
+ mpJOjbGl+DQxUnvjcW7D64bmBs7HfRok5/F0nnH+61uSek1zYGJzOUtA35/5zQSqMrwo2+x0zE8I6
+ kBa4xQwRpWUdlqUxlhsNxt1M81AgQhbCcNM4anrMu7xZLn32L4XiH1hwB6XH1icPEZUgLKvMYtmVu
+ qcVEH8tpQEk+PPvJqj3OLgdSfrear1yeN8TetRZYtyGW24zgS3wcP0E66HsLGIOGingiXAaeUNkXW
+ ySi3Z+nukH43ot6dubY++UEXguubrlxjjtfaj7u3wNGCKVVO9RVJVgfRwHuilxK/bMjh1KpeZjNr+
+ Nz/RfbQQ==;
+Received: from [2a01:e34:ec5d:a741:8a4c:7c4e:dc4c:1787] (helo=ohm.rr44.fr)
+ by hall.aurel32.net with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <aurelien@aurel32.net>)
+ id 1mkCTT-0001NP-9d; Mon, 08 Nov 2021 22:46:43 +0100
+Received: from aurel32 by ohm.rr44.fr with local (Exim 4.94.2)
+ (envelope-from <aurelien@aurel32.net>)
+ id 1mkCTS-007GI8-IX; Mon, 08 Nov 2021 22:46:42 +0100
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: linux-kernel@vger.kernel.org
+Cc: Aurelien Jarno <aurelien@aurel32.net>, Rob Herring <robh+dt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE
+ BINDINGS), linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE)
+Subject: [PATCH] riscv: dts: enable more DA9063 functions for the SiFive
+ HiFive Unmatched
+Date: Mon,  8 Nov 2021 22:46:29 +0100
+Message-Id: <20211108214629.1730870-1-aurelien@aurel32.net>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.2.1
-Subject: Re: [PATCH 12/13] riscv: icicle-kit: update microchip icicle kit
- device tree
-Content-Language: en-US
-To: conor.dooley@microchip.com, linus.walleij@linaro.org,
- bgolaszewski@baylibre.com, robh+dt@kernel.org, jassisinghbrar@gmail.com,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- a.zummo@towertech.it, alexandre.belloni@bootlin.com, broonie@kernel.org,
- gregkh@linuxfoundation.org, lewis.hanly@microchip.com,
- daire.mcnamara@microchip.com, atish.patra@wdc.com,
- ivan.griffin@microchip.com, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-i2c@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-crypto@vger.kernel.org, linux-rtc@vger.kernel.org,
- linux-spi@vger.kernel.org, linux-usb@vger.kernel.org
-Cc: geert@linux-m68k.org, bin.meng@windriver.com
-References: <20211108150554.4457-1-conor.dooley@microchip.com>
- <20211108150554.4457-13-conor.dooley@microchip.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-In-Reply-To: <20211108150554.4457-13-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211108_134017_897992_FE2B4CEC 
-X-CRM114-Status: GOOD (  25.51  )
+X-CRM114-CacheID: sfid-20211108_134653_847660_D3B23CBE 
+X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,233 +82,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 08/11/2021 16:05, conor.dooley@microchip.com wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Update the device tree for the icicle kit by splitting it into a third part,
-> which contains peripherals in the fpga fabric, add new peripherals
-> (spi, qspi, gpio, rtc, pcie, system services, i2c), update parts of the memory
-> map which have been changed.
+The DA9063 PMIC found on the SiFive HiFive Unmatched also provides an
+RTC, a watchdog and the power button input.
 
-This should be multiple commits because you mix up refactoring (split)
-and adding new features. The patch is really, really difficult to
-review. I gave up in the middle.
+Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+---
+ arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  .../dts/microchip/microchip-mpfs-fabric.dtsi  |  21 ++
->  .../microchip/microchip-mpfs-icicle-kit.dts   | 159 +++++++--
->  .../boot/dts/microchip/microchip-mpfs.dtsi    | 333 ++++++++++++++----
->  3 files changed, 428 insertions(+), 85 deletions(-)
->  create mode 100644 arch/riscv/boot/dts/microchip/microchip-mpfs-fabric.dtsi
-> 
-> diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs-fabric.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs-fabric.dtsi
-> new file mode 100644
-> index 000000000000..8fa3356494f1
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs-fabric.dtsi
-> @@ -0,0 +1,21 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/* Copyright (c) 2020-2021 Microchip Technology Inc */
-> +
-> +/ {
-> +	fpgadma: fpgadma@60020000 {
-> +		compatible = "microchip,mpfs-fpga-dma-uio";
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +		reg = <0x0 0x60020000 0x0 0x1000>;
-> +		interrupt-parent = <&plic>;
-> +		interrupts = <PLIC_INT_FABRIC_F2H_2>;
-> +		status = "okay";
-> +	};
-> +
-> +	fpgalsram: fpga_lsram@61000000 {
+diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+index 2e4ea84f27e7..c357b48582f7 100644
+--- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
++++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+@@ -70,6 +70,10 @@ pmic@58 {
+ 		interrupts = <1 IRQ_TYPE_LEVEL_LOW>;
+ 		interrupt-controller;
+ 
++		onkey {
++			compatible = "dlg,da9063-onkey";
++		};
++
+ 		regulators {
+ 			vdd_bcore1: bcore1 {
+ 				regulator-min-microvolt = <900000>;
+@@ -205,6 +209,14 @@ vdd_ldo11: ldo11 {
+ 				regulator-always-on;
+ 			};
+ 		};
++
++		rtc {
++			compatible = "dlg,da9063-rtc";
++		};
++
++		wdt {
++			compatible = "dlg,da9063-watchdog";
++		};
+ 	};
+ };
+ 
+-- 
+2.30.2
 
-Node names go with hyphen, but actually you should not need it, because
-the name should be generic, e.g. "uio".
-
-However there is no such compatible and checkpatch should complain about it.
-
-> +		compatible = "generic-uio";
-> +		reg = <0x0 0x61000000 0x0 0x0001000
-> +			0x14 0x00000000 0x0 0x00010000>;
-> +		status = "okay";
-> +	};
-> +};
-> diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
-> index fc1e5869df1b..4212129fcdf1 100644
-> --- a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
-> +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
-> @@ -1,5 +1,5 @@
->  // SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> -/* Copyright (c) 2020 Microchip Technology Inc */
-> +/* Copyright (c) 2020-2021 Microchip Technology Inc */
->  
->  /dts-v1/;
->  
-> @@ -13,72 +13,187 @@ / {
->  	compatible = "microchip,mpfs-icicle-kit", "microchip,mpfs";
->  
->  	aliases {
-> -		ethernet0 = &emac1;
-> -		serial0 = &serial0;
-> -		serial1 = &serial1;
-> -		serial2 = &serial2;
-> -		serial3 = &serial3;> +		mmuart0 = &mmuart0;
-> +		mmuart1 = &mmuart1;
-> +		mmuart2 = &mmuart2;
-> +		mmuart3 = &mmuart3;
-> +		mmuart4 = &mmuart4;
-
-Why? Commit msg does not explain it.
-
->  	};
->  
->  	chosen {
-> -		stdout-path = "serial0:115200n8";
-> +		stdout-path = "mmuart1:115200n8";
->  	};
->  
->  	cpus {
->  		timebase-frequency = <RTCCLK_FREQ>;
->  	};
->  
-> -	memory@80000000 {
-> +	ddrc_cache_lo: memory@80000000 {
->  		device_type = "memory";
-> -		reg = <0x0 0x80000000 0x0 0x40000000>;
-> -		clocks = <&clkcfg 26>;
-> +		reg = <0x0 0x80000000 0x0 0x2e000000>;
-> +		clocks = <&clkcfg CLK_DDRC>;
-> +		status = "okay";
-> +	};
-> +
-> +	ddrc_cache_hi: memory@1000000000 {
-> +		device_type = "memory";
-> +		reg = <0x10 0x0 0x0 0x40000000>;
-> +		clocks = <&clkcfg CLK_DDRC>;
-> +		status = "okay";
->  	};
->  };
->  
-> -&serial0 {
-> +&mmuart1 {
->  	status = "okay";
->  };
->  
-> -&serial1 {
-> +&mmuart2 {
->  	status = "okay";
->  };
->  
-> -&serial2 {
-> +&mmuart3 {
->  	status = "okay";
->  };
->  
-> -&serial3 {
-> +&mmuart4 {
->  	status = "okay";
->  };
->  
->  &mmc {
->  	status = "okay";
-> -
->  	bus-width = <4>;
->  	disable-wp;
->  	cap-sd-highspeed;
-> +	cap-mmc-highspeed;
->  	card-detect-delay = <200>;
-> +	mmc-ddr-1_8v;
-> +	mmc-hs200-1_8v;
->  	sd-uhs-sdr12;
->  	sd-uhs-sdr25;
->  	sd-uhs-sdr50;
->  	sd-uhs-sdr104;
->  };
->  
-> -&emac0 {
-> +&spi0 {
-> +	status = "okay";
-> +	spidev@0 {
-> +		compatible = "spidev";
-
-1. There is no such compatible,
-2. You should have big fat warning when booting, so such DT cannot be
-accepted.
-
-> +		reg = <0>; /* CS 0 */
-> +		spi-max-frequency = <10000000>;
-> +		status = "okay";
-> +	};
-> +};
-> +
-> +&spi1 {
-> +	status = "okay";
-> +};
-> +
-> +&qspi {
-> +	status = "okay";
-> +};
-> +
-> +&i2c0 {
-> +	status = "okay";
-> +};
-> +
-> +&i2c1 {
-> +	status = "okay";
-> +	pac193x: pac193x@10 {
-
-Generic node name. Looks like compatible is not documented, so first
-bindings.
-
-
-> +		compatible = "microchip,pac1934";
-> +		reg = <0x10>;
-> +		samp-rate = <64>;
-> +		status = "okay";
-> +		ch0: channel0 {
-> +			uohms-shunt-res = <10000>;
-> +			rail-name = "VDDREG";
-> +			channel_enabled;
-> +		};
-> +		ch1: channel1 {
-> +			uohms-shunt-res = <10000>;
-> +			rail-name = "VDDA25";
-> +			channel_enabled;
-> +		};
-> +		ch2: channel2 {
-> +			uohms-shunt-res = <10000>;
-> +			rail-name = "VDD25";
-> +			channel_enabled;
-> +		};
-> +		ch3: channel3 {
-> +			uohms-shunt-res = <10000>;
-> +			rail-name = "VDDA_REG";
-> +			channel_enabled;
-> +		};
-> +	};
-> +};
-> +
-> +&mac0 {
-> +	status = "okay";
->  	phy-mode = "sgmii";
->  	phy-handle = <&phy0>;
-> -	phy0: ethernet-phy@8 {
-> -		reg = <8>;
-> -		ti,fifo-depth = <0x01>;
-> -	};
->  };
->  
-> -&emac1 {
-> +&mac1 {
-
-I gave up here, it's not easy to find what is effect of refactoring,
-what is a new node.
-
-Best regards,
-Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
