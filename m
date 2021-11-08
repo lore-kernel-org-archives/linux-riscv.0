@@ -2,67 +2,67 @@ Return-Path: <SRS0=u9qy=P3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AB16AC4332F
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8391AC433F5
 	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 00:48:07 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4E13261872
+	by mail.kernel.org (Postfix) with ESMTPS id 455A461251
 	for <linux-riscv@archiver.kernel.org>; Mon,  8 Nov 2021 00:48:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4E13261872
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 455A461251
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2VgxqmWaNZspIKTFBYstXuxZMrC/ep199Q2bekArv48=; b=iWBbuiQysHLy85
-	fuXVergBfEqEq+VvzoMdQmR3T6lxWC9ghy0AE7/5coOc8LRG6GAri5LrZ65+ns///ueV/RDUGggWc
-	jd6YI0VdS3u1UpHXz71qvXkRzR1BHA+IYPggf0Jw43zViVkPeksZocdKCMza4tdQkfIaq03NRQPOs
-	lo8NsTHpiXZrYacqgepB5Orx50AAZO0Xc/B9f9evnKRLHypO4KSIqCH8hTwt1EgRta62dkwDBFFKi
-	o0f58BPPGSKtW1XUrWbB6yJu8OPQPehq2Unvlzkg8RPIOFFP/6IzXRoX9VWwx4OjTMgiIiESW0UC9
-	PpopOh2VGqCvVrT9N6kA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MqqeeWmaNmgZrvgyD+St5b18CBj7pBYwNDQAopzuU0U=; b=I7hc3zuuHcB0J7
+	V8JrlXfpCQcBpmXQl6EsM3ibpOZQmJ6pbRb1GE6lrsyFX/8aAUlKS22s1ftpct6IaPv8/B7SW0JJz
+	nNK4U/EdbhXEc+oY0bZwUNy2dXkjb6tQZERCYP368gAmav7PcJU5z0zVkWT9Kysq8RDbmz2U+E8HW
+	j6u1ZRIR0k58A1rok2jeVP8eI9BD7Wp/pS/eiK4zYVUFq+x7d48nHX7Tv6oCboKCWJv+5Tf7xqEZO
+	tgtFoyu4M+l36d/pOqXK5op/Tva3mu7kIafSHf6M+JpIThRujtqMAqJo/kzmzU9bRGOeVmjTXV4Xq
+	AxgvPscfXztwi0+aWftg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mjspL-00F7OT-3z; Mon, 08 Nov 2021 00:47:59 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1mjspG-00F7Kw-B1; Mon, 08 Nov 2021 00:47:54 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mjspG-00F7JR-74; Mon, 08 Nov 2021 00:47:55 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id s24so26178329lji.12;
- Sun, 07 Nov 2021 16:47:52 -0800 (PST)
+ id 1mjspB-00F7J8-Pt; Mon, 08 Nov 2021 00:47:51 +0000
+Received: by mail-lj1-x235.google.com with SMTP id e11so6948802ljo.13;
+ Sun, 07 Nov 2021 16:47:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=6FNFlMpNjS/DNcuPrR0BFjK6OkkBLQhzqGXiB9qxwwI=;
- b=ap3A83fg5fKkLgYcPLGj4ujgDQbjKUnCHl1tJwJk0YYfyEiGzkqPECTzKOM1YfoD1L
- 7Tv1IQL0qy27hRaO+2V8mMNwuPhmt0RnGYTpIVZHvmMlW0N/ak+ket1f1gl2JZ7gk9d3
- fAQNCztH/PN7x2xYeGLPMEE2nD1cIjm0qVz550BDVg6mI6jct3ZSJyVKmro1IFNn1yWr
- IPyHSXGPZHiix8heM9Rffd6oJdFFpg7+1b1krhUZivdkkY35o0on0Qdc3YJ5KDtW0+lB
- QH16yrcERPBYXXBZaoG/Grh/x98enYzxE1lM3ST5QIPReMfvmXUk1iBZ/CuGE0IZaTFO
- vjnA==
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=+AnGTim9m4rf1XLwn/ELN0sZCzuOcJdLe86U7paP+yQ=;
+ b=ni13262nQh3GX0h+BPQyrs85JRUzaWz8PTTW1ehXiMuJGu1Ze+O6oA+cTLQeD5Hu4S
+ aIUejstQov0r9q7FmiaLuF+gYTZL3eYolS1kQprSozhbudB00Wpmvyv/Ibx+kYr/f2ol
+ fpa+emXtKS+ULegWlJMkpBsUqNU+LUnr8b2Ielf6GYvhamqJqJ4iU+26oqIvJYLhTmiz
+ 7/d5EU2cOI+EmtDwT6uDZVFvp+RGANCxJ+fUlUfDE+cPDc1mzk9RG3KztMGzfZYfJS0H
+ L2NeIRkXoa3/MmqxU00dVJoI3pTMIH9pcEYdrlibnl51ATyPLSbW9nEf5TJH1P9UDiFh
+ SjJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=6FNFlMpNjS/DNcuPrR0BFjK6OkkBLQhzqGXiB9qxwwI=;
- b=VH4xLg4bErEGxplOrjYJdYwm5HFboa9a6ojpX2yEhZDMdqZqSY3F8m/d/hA+2vZ82F
- gz0ywG0PvMtigmqCU24kG0XXQaJCGWWekLKBPEEJNmvhARnjfuNyoeEoWe/bBPWjxzHG
- aLci/mDkKlt+9HJF+MzUXeMCOAaBwgnCHN/XGQxBNfB1tbF1pwQa4dKwM3izYoyOvmbB
- GKwsbV2yE8Y8CY0vM66EUVWuwcF44TAPzufADYElMpD95kfC44Y13aoQ92Hs5pyHse7N
- F4tNbHyfdUvr83D95R2gu+Plw1xBD+TgA3z8FfnMnI+pjhSrgeP6mQcql5OWerFJ09Gh
- uecQ==
-X-Gm-Message-State: AOAM531Owj9jnd+H3/8Xx7B4RA9j8GsRbePRMGk4wjNtqezb+uDIcLbH
- YQS10+/NMNlq0SBxWguKzJQ=
-X-Google-Smtp-Source: ABdhPJyrOsT2LfeoRDePz9gvXDRZ9T+n52FCNueqjAZN/qgGSzpYZGgdBodfU1+UMWgFhWWsCOX6NQ==
-X-Received: by 2002:a2e:8799:: with SMTP id n25mr26944321lji.377.1636332470861; 
- Sun, 07 Nov 2021 16:47:50 -0800 (PST)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=+AnGTim9m4rf1XLwn/ELN0sZCzuOcJdLe86U7paP+yQ=;
+ b=RPp0JsnmYGQ6zbmKE75Q1CdT0RJ7iaahBscL9m0rU88qZPrBYQbacFW2CNJ1FAZgtG
+ bP687XBRX6zbZ2Vnt//8fU9JmKBbOFfAaCt2MYbOvZpUOuoeYB7TIPk/JgK6EALm+W7w
+ LQ2bKB/uILps8fw5x8MOIQwd/l7H8m9VPnjrEht/y5vabKPCZaZ5yC1cP0mUryRC/r9K
+ ctApV8sxh+1fWd0o4LWUmsJfeg8/jh6zPCKM/Admt1fOqoy1MAlx9Z4gYjI1wkClg9dT
+ dOPeMNrPeNMicF+8WdJhq7/zBZGEJuV0o6i7tCKbIgt51qVbKXk/gtZZ6lvI7mDT8/Af
+ 8v6A==
+X-Gm-Message-State: AOAM533bIaaWUz5w+Rnf7u0fVzl+H6+Np2CpY8HrJfdgjETqPUzpCJm0
+ 0wPgtR5QcLt59Zud/STRl4g=
+X-Google-Smtp-Source: ABdhPJygsbd62AYwVWr/FbjY9E+4XNsUMriRPDZTTc6CoomG/9GH2yuj3/kx3X6KSzqjBHkqxGUtsg==
+X-Received: by 2002:a2e:391b:: with SMTP id g27mr79531744lja.126.1636332467262; 
+ Sun, 07 Nov 2021 16:47:47 -0800 (PST)
 Received: from localhost.localdomain (79-139-188-96.dynamic.spd-mgts.ru.
  [79.139.188.96])
- by smtp.gmail.com with ESMTPSA id p17sm1625266lfu.209.2021.11.07.16.47.49
+ by smtp.gmail.com with ESMTPSA id p17sm1625266lfu.209.2021.11.07.16.47.45
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 07 Nov 2021 16:47:50 -0800 (PST)
+ Sun, 07 Nov 2021 16:47:46 -0800 (PST)
 From: Dmitry Osipenko <digetx@gmail.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>,
@@ -103,16 +103,14 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
  xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: [PATCH v3 02/25] notifier: Add blocking_notifier_call_chain_is_empty()
-Date: Mon,  8 Nov 2021 03:45:01 +0300
-Message-Id: <20211108004524.29465-3-digetx@gmail.com>
+Subject: [PATCH v3 00/25] Introduce power-off+restart call chain API
+Date: Mon,  8 Nov 2021 03:44:59 +0300
+Message-Id: <20211108004524.29465-1-digetx@gmail.com>
 X-Mailer: git-send-email 2.33.1
-In-Reply-To: <20211108004524.29465-1-digetx@gmail.com>
-References: <20211108004524.29465-1-digetx@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211107_164754_309094_CB959477 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20211107_164749_937030_8608BCAA 
+X-CRM114-Status: GOOD (  22.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,53 +127,180 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add blocking_notifier_call_chain_is_empty() that returns true if call
-chain is empty.
+Problem
+-------
 
-Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
----
- include/linux/notifier.h |  2 ++
- kernel/notifier.c        | 14 ++++++++++++++
- 2 files changed, 16 insertions(+)
+SoC devices require power-off call chaining functionality from kernel.
+We have a widely used restart chaining provided by restart notifier API,
+but nothing for power-off.
 
-diff --git a/include/linux/notifier.h b/include/linux/notifier.h
-index 4b80a815b666..924c9d7c8e73 100644
---- a/include/linux/notifier.h
-+++ b/include/linux/notifier.h
-@@ -173,6 +173,8 @@ int blocking_notifier_call_chain_robust(struct blocking_notifier_head *nh,
- int raw_notifier_call_chain_robust(struct raw_notifier_head *nh,
- 		unsigned long val_up, unsigned long val_down, void *v);
- 
-+bool blocking_notifier_call_chain_is_empty(struct blocking_notifier_head *nh);
-+
- #define NOTIFY_DONE		0x0000		/* Don't care */
- #define NOTIFY_OK		0x0001		/* Suits me */
- #define NOTIFY_STOP_MASK	0x8000		/* Don't call further */
-diff --git a/kernel/notifier.c b/kernel/notifier.c
-index b8251dc0bc0f..b20cb7b9b1f0 100644
---- a/kernel/notifier.c
-+++ b/kernel/notifier.c
-@@ -322,6 +322,20 @@ int blocking_notifier_call_chain(struct blocking_notifier_head *nh,
- }
- EXPORT_SYMBOL_GPL(blocking_notifier_call_chain);
- 
-+/**
-+ *	blocking_notifier_call_chain_is_empty - Check whether notifier chain is empty
-+ *	@nh: Pointer to head of the blocking notifier chain
-+ *
-+ *	Checks whether notifier chain is empty.
-+ *
-+ *	Returns true is notifier chain is empty, false otherwise.
-+ */
-+bool blocking_notifier_call_chain_is_empty(struct blocking_notifier_head *nh)
-+{
-+	return !rcu_access_pointer(nh->head);
-+}
-+EXPORT_SYMBOL_GPL(blocking_notifier_call_chain_is_empty);
-+
- /*
-  *	Raw notifier chain routines.  There is no protection;
-  *	the caller must provide it.  Use at your own risk!
+Solution
+--------
+
+Introduce new API that provides both restart and power-off call chains.
+
+Why combine restart with power-off? Because drivers often do both.
+More practical to have API that provides both under the same roof.
+
+The new API is designed with simplicity and extensibility in mind.
+It's built upon the existing restart and reboot APIs. The simplicity
+is in new helper functions that are convenient for drivers. The
+extensibility is in the design that doesn't hardcode callback
+arguments, making easy to add new parameters and remove old.
+
+This is a third attempt to introduce the new API. First was made by
+Guenter Roeck back in 2014, second was made by Thierry Reding in 2017.
+In fact the work didn't stop and recently arm_pm_restart() was removed
+from v5.14 kernel, which was a part of preparatory work started by
+Guenter Roeck. I took into account experience and ideas from the
+previous attempts, extended and polished them.
+
+Adoption plan
+-------------
+
+This patchset introduces the new API. It also converts multiple drivers
+and arch code to the new API to demonstrate how it all looks in practice.
+
+The plan is:
+
+1. Merge new API (patches 1-8). This API will co-exist with the old APIs.
+
+2. Convert arch code to do_kernel_power_off() (patches 9-21).
+
+3. Convert drivers and platform code to the new API.
+
+4. Remove obsolete pm_power_off and pm_power_off_prepare variables.
+
+5. Make restart-notifier API private to kernel/reboot.c once no users left.
+
+It's fully implemented here:
+
+[1] https://github.com/grate-driver/linux/commits/sys-off-handler
+
+For now I'm sending only the first 25 base patches out of ~180. It's
+preferable to squash 1-2, partially 3 and 4 points of the plan into a
+single patchset to ease and speed up applying of the rest of the patches.
+Majority of drivers and platform patches depend on the base, hence they
+will come later (and per subsystem), once base will land.
+
+All [1] patches are compile-tested. Tegra and x86 ACPI patches are tested
+on hardware. The remaining should be covered by unit tests (unpublished).
+
+Results
+-------
+
+1. Devices can be powered off properly.
+
+2. Global variables are removed from drivers.
+
+3. Global pm_power_off and pm_power_off_prepare callback variables are
+removed once all users are converted to the new API. The latter callback
+is removed by patch #25 of this series.
+
+4. Ambiguous call chain ordering is prohibited. See patch #5 which adds
+verification of restart handlers priorities, ensuring that they are unique.
+
+Changelog:
+
+v3: - Renamed power_handler to sys_off_handler as was suggested by
+      Rafael Wysocki.
+
+    - Improved doc-comments as was suggested by Rafael Wysocki. Added more
+      doc-comments.
+
+    - Implemented full set of 180 patches which convert whole kernel in
+      accordance to the plan, see link [1] above. Slightly adjusted API to
+      better suit for the remaining converted drivers.
+
+      * Added unregister_sys_off_handler() that is handy for a couple old
+        platform drivers.
+
+      * Dropped devm_register_trivial_restart_handler(), 'simple' variant
+        is enough to have.
+
+    - Improved "Add atomic/blocking_notifier_has_unique_priority()" patch,
+      as was suggested by Andy Shevchenko. Also replaced down_write() with
+      down_read() and factored out common notifier_has_unique_priority().
+
+    - Added stop_chain field to struct restart_data and reboot_prep_data
+      after discovering couple drivers wanting that feature.
+
+    - Added acks that were given to v2.
+
+v2: - Replaced standalone power-off call chain demo-API with the combined
+      power-off+restart API because this is what drivers want. It's a more
+      comprehensive solution.
+
+    - Converted multiple drivers and arch code to the new API. Suggested by
+      Andy Shevchenko. I skimmed through the rest of drivers, verifying that
+      new API suits them. The rest of the drivers will be converted once we
+      will settle on the new API, otherwise will be too many patches here.
+
+    - v2 API doesn't expose notifier to users and require handlers to
+      have unique priority. Suggested by Guenter Roeck.
+
+    - v2 API has power-off chaining disabled by default and require
+      drivers to explicitly opt-in to the chaining. This preserves old
+      behaviour for existing drivers once they are converted to the new
+      API.
+
+Dmitry Osipenko (25):
+  notifier: Remove extern annotation from function prototypes
+  notifier: Add blocking_notifier_call_chain_is_empty()
+  notifier: Add atomic/blocking_notifier_has_unique_priority()
+  reboot: Correct typo in a comment
+  reboot: Warn if restart handler has duplicated priority
+  reboot: Warn if unregister_restart_handler() fails
+  reboot: Remove extern annotation from function prototypes
+  kernel: Add combined power-off+restart handler call chain API
+  ARM: Use do_kernel_power_off()
+  csky: Use do_kernel_power_off()
+  riscv: Use do_kernel_power_off()
+  arm64: Use do_kernel_power_off()
+  parisc: Use do_kernel_power_off()
+  xen/x86: Use do_kernel_power_off()
+  sh: Use do_kernel_power_off()
+  x86: Use do_kernel_power_off()
+  ia64: Use do_kernel_power_off()
+  mips: Use do_kernel_power_off()
+  nds32: Use do_kernel_power_off()
+  powerpc: Use do_kernel_power_off()
+  m68k: Switch to new sys-off handler API
+  memory: emif: Use kernel_can_power_off()
+  ACPI: power: Switch to sys-off handler API
+  regulator: pfuze100: Use devm_register_sys_off_handler()
+  reboot: Remove pm_power_off_prepare()
+
+ arch/arm/kernel/reboot.c               |   4 +-
+ arch/arm64/kernel/process.c            |   3 +-
+ arch/csky/kernel/power.c               |   6 +-
+ arch/ia64/kernel/process.c             |   4 +-
+ arch/m68k/emu/natfeat.c                |   3 +-
+ arch/m68k/include/asm/machdep.h        |   1 -
+ arch/m68k/kernel/process.c             |   5 +-
+ arch/m68k/kernel/setup_mm.c            |   1 -
+ arch/m68k/kernel/setup_no.c            |   1 -
+ arch/m68k/mac/config.c                 |   4 +-
+ arch/mips/kernel/reset.c               |   3 +-
+ arch/nds32/kernel/process.c            |   3 +-
+ arch/parisc/kernel/process.c           |   4 +-
+ arch/powerpc/kernel/setup-common.c     |   4 +-
+ arch/powerpc/xmon/xmon.c               |   3 +-
+ arch/riscv/kernel/reset.c              |  12 +-
+ arch/sh/kernel/reboot.c                |   3 +-
+ arch/x86/kernel/reboot.c               |   4 +-
+ arch/x86/xen/enlighten_pv.c            |   4 +-
+ drivers/acpi/sleep.c                   |  25 +-
+ drivers/memory/emif.c                  |   2 +-
+ drivers/regulator/pfuze100-regulator.c |  38 +-
+ include/linux/notifier.h               |  37 +-
+ include/linux/pm.h                     |   1 -
+ include/linux/reboot.h                 | 305 ++++++++++++--
+ kernel/notifier.c                      |  83 ++++
+ kernel/power/hibernate.c               |   2 +-
+ kernel/reboot.c                        | 556 ++++++++++++++++++++++++-
+ 28 files changed, 985 insertions(+), 136 deletions(-)
+
 -- 
 2.33.1
 
