@@ -2,15 +2,15 @@ Return-Path: <SRS0=OElg=P4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 45948C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Nov 2021 09:20:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 912E6C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Nov 2021 09:22:51 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C0DF061175
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Nov 2021 09:20:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C0DF061175
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	by mail.kernel.org (Postfix) with ESMTPS id 5040761104
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Nov 2021 09:22:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5040761104
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -18,84 +18,76 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KX2rn5GL3huZnNtjEUJFPWZDB+cHDRsUPGvnvdg3qek=; b=c/yYgL9rn3RGFO
-	79LYCL/XUZFr0uCF6PsuCh5WS5AOQc1c0CoNnkoSfHqIz2ick3IDL42rsUK5CAo7ogBMcCT6iy5V7
-	ELH+ChBIWuInWfr7O2BnvLzKVAx9rvLfMWvIDDGxLorjLdMlPeiSNHGG+dLSz8eXEkK43h8wJ5BJ8
-	UYWfy+blNbvLB6NdBOLBuJK5mlabz+Jg9SyE4PbnlVzAlVEKgW8P7Vc6dig0Oaz8wm2BQQ4W+VOHK
-	n08CfqJysNXWQALJOOqkOvtZJBWUQfPv7cXXZmUPoUVS4r1xtNdMnpnuZAMKYzdN5qhj71PEsGGDG
-	umdaDN91CeYu/nKUCSLA==;
+	List-Owner; bh=QgAifdoSZACgkYymmFPZiI1JFhhWvGRSC+Hd+o8NKxc=; b=NC7TGVByCzWR52
+	cuDzDjOAwJ0z7nwgQifPMV/1ulPJ1/JJLN6PoWBGIbSnVROtLE+WPKv+MU9J4wQLPhuHXnW7kGPc3
+	9vvppeh9AL39/G9WqJAzD3+VZWoZiG+sYHQntOsXhjtvRJq3fgxc6teRA3cYqqKBkl32MRDYln+Nd
+	5iJZDyNcJCEY7TG1+FFNvYEU7gFb9e1JWNSuutnsaDwB4eLnJ1a9eakU08Aat6kZD0V6KZizaGuGC
+	HeJnKmYZ+EiHeqnjzaXIoRbTenuI524anLwdtxZ2C3UAMlniBlqyyV0kXG2QWZhlf4BNOs579O2//
+	X44pv26LDGJvCg50EuUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mkNIu-001C2J-55; Tue, 09 Nov 2021 09:20:32 +0000
-Received: from mail-oo1-f48.google.com ([209.85.161.48])
+	id 1mkNKy-001CsX-7e; Tue, 09 Nov 2021 09:22:40 +0000
+Received: from mail-pl1-f177.google.com ([209.85.214.177])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mkNAM-0018yI-Na
- for linux-riscv@lists.infradead.org; Tue, 09 Nov 2021 09:11:44 +0000
-Received: by mail-oo1-f48.google.com with SMTP id
- q39-20020a4a962a000000b002b8bb100791so6788414ooi.0
- for <linux-riscv@lists.infradead.org>; Tue, 09 Nov 2021 01:11:41 -0800 (PST)
+ id 1mkNJv-001CPR-1N
+ for linux-riscv@lists.infradead.org; Tue, 09 Nov 2021 09:21:37 +0000
+Received: by mail-pl1-f177.google.com with SMTP id b13so19854176plg.2
+ for <linux-riscv@lists.infradead.org>; Tue, 09 Nov 2021 01:21:34 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=DlQKg1S95wm9Dg4YX5cgg1S1wN6XXJ3v2NlE44jQYRE=;
- b=Q5DgmBI0FULnR7a/9/6TvEsqvBLLdRqEtfRlbgia0SLMumjkRAY550IltYgThER1zv
- ICxn6rfDwmnv7q4yDbw1VHOh8ybiM/eMNqydv01judQZPI/gnusUmD9yWh+JoaWi4Au5
- HWqEjBsN01S0QUciIFGmiRqeahdNk3BBP8hNvM6bXRMQ3rxHC2x1rzoiPdSSKTJ/qaV0
- mQO0ruLsC7DdoF5mjpavCHEiu2OFUOZSG5qwrjiwO6f5ZVqHlPFDHaJvN8iIs/xiezwl
- +PZd5KSx8dgCoz/qW1mToJvTOCXUY9U5uVQGb0F3ua/vbkXndCcrPNw2GMsLIG7FuoxQ
- qjgQ==
-X-Gm-Message-State: AOAM530AKCyXrXECNTxyruGXqtriJVS1RBQ6CNqvBQbUQYpqetPWfDGr
- K94x9/5E8FQVdWyFdHEjMTl7/tkFDrnRVeI3
-X-Google-Smtp-Source: ABdhPJx1ObmHzU2+jjNiEVAmd6xPg4N/KJSXiNy7uH+PPKcEOPBtGif+QkYbvJWha8Ko1FmoKMuXXA==
-X-Received: by 2002:a4a:e544:: with SMTP id s4mr3012441oot.0.1636449101048;
- Tue, 09 Nov 2021 01:11:41 -0800 (PST)
-Received: from mail-ot1-f44.google.com (mail-ot1-f44.google.com.
- [209.85.210.44])
- by smtp.gmail.com with ESMTPSA id bh12sm3763943oib.25.2021.11.09.01.11.40
- for <linux-riscv@lists.infradead.org>
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 09 Nov 2021 01:11:40 -0800 (PST)
-Received: by mail-ot1-f44.google.com with SMTP id
- w6-20020a9d77c6000000b0055e804fa524so1534128otl.3
- for <linux-riscv@lists.infradead.org>; Tue, 09 Nov 2021 01:11:40 -0800 (PST)
-X-Received: by 2002:ab0:5552:: with SMTP id u18mr7818542uaa.78.1636448702466; 
- Tue, 09 Nov 2021 01:05:02 -0800 (PST)
+ bh=vCxzbvDJEmmS0S1dn6IErGyixaEwc//p9ymy/wdvxtw=;
+ b=m0fWHeyvSJ96K12quzE2ZMCterc3MI1GM+46LIlKrL2w2gRV6zMTxYtIGLd8mxbEu4
+ WSA8Kax6A7QLJ98w56SdOSzYEdTiHMC0csxJsy3haVk6KQAE5HSJ1RU1iEdRVNU9Gv0g
+ 9BrZo0v+YySLGL2fr3+4vnm+zs6Mtpz2ndY8Ev1pGk2k23sJffWfce0Py6W29pHr3fEI
+ wLVu4cPqT+UU40nJW/leFmd/UDw5nI65/o17TXTPUJFZCSz935LuqeZ0szTo9QqR3a3V
+ +NcI/p3nskuVU31u5cil6KAtPUuApEa/A5J3OecwEiF/5S16BpjaxUmCL1zN7qeiy46L
+ n+0Q==
+X-Gm-Message-State: AOAM533fzdYtcbLNnorOLshppL1Qp1s8/EfY9UI3d56VnGTT6kror7Gx
+ ABb1ll3iIuQFHGwICNgY+Hi0AqRNIzqeA0K9MtY=
+X-Google-Smtp-Source: ABdhPJxeU3ygXo8r/E5kP4Zn/e69OhIOKZcjPawrK0dUmlnrErW2Q4cDHdP743SYHawatA0U/RlEabrMniGDI/paKZs=
+X-Received: by 2002:a17:903:11c5:b0:13f:ef40:e319 with SMTP id
+ q5-20020a17090311c500b0013fef40e319mr5828558plh.33.1636449693539; Tue, 09 Nov
+ 2021 01:21:33 -0800 (PST)
 MIME-Version: 1.0
-References: <20211108150554.4457-1-conor.dooley@microchip.com>
- <20211108150554.4457-13-conor.dooley@microchip.com>
-In-Reply-To: <20211108150554.4457-13-conor.dooley@microchip.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 9 Nov 2021 10:04:51 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWEhJj0Cqt3sgGvgZe7JSFqBmTgtZRkom30NKqEW27NvQ@mail.gmail.com>
-Message-ID: <CAMuHMdWEhJj0Cqt3sgGvgZe7JSFqBmTgtZRkom30NKqEW27NvQ@mail.gmail.com>
-Subject: Re: [PATCH 12/13] riscv: icicle-kit: update microchip icicle kit
- device tree
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <bgolaszewski@baylibre.com>,
- Rob Herring <robh+dt@kernel.org>, 
- Jassi Brar <jassisinghbrar@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alessandro Zummo <a.zummo@towertech.it>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Mark Brown <broonie@kernel.org>, Greg KH <gregkh@linuxfoundation.org>, 
- Lewis Hanly <lewis.hanly@microchip.com>, daire.mcnamara@microchip.com, 
- Atish Patra <atish.patra@wdc.com>, ivan.griffin@microchip.com, 
+References: <20211102161125.1144023-1-kernel@esmil.dk>
+ <20211102161125.1144023-13-kernel@esmil.dk>
+ <CAHp75VdmnnrisuP00W0KYta0KgmC+fu3WMxm959dt5X1kpiKTw@mail.gmail.com>
+ <CAHp75VcuGdaq_TjjRS0S8R5y-nryLABZSp7ehrXz-fUS2W3vfA@mail.gmail.com>
+ <CACRpkdYe-tW2K2eOQa+FYb-ZXzrA95+pPc6kkLB8ZJLAT8G_eA@mail.gmail.com>
+In-Reply-To: <CACRpkdYe-tW2K2eOQa+FYb-ZXzrA95+pPc6kkLB8ZJLAT8G_eA@mail.gmail.com>
+From: Emil Renner Berthing <kernel@esmil.dk>
+Date: Tue, 9 Nov 2021 10:21:22 +0100
+Message-ID: <CANBLGcyo3YjygkjDmdjt4C_H=MZdHQwqumsxnatuObeP2LADAg@mail.gmail.com>
+Subject: Re: [PATCH v3 12/16] pinctrl: starfive: Add pinctrl driver for
+ StarFive SoCs
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Andy Shevchenko <andy.shevchenko@gmail.com>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ devicetree <devicetree@vger.kernel.org>, 
+ linux-clk <linux-clk@vger.kernel.org>, 
  "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, 
+ "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Drew Fustini <drew@beagleboard.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Michael Zhu <michael.zhu@starfivetech.com>, Fu Wei <tekkamanninja@gmail.com>, 
+ Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
+ Matteo Croce <mcroce@microsoft.com>, 
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Linux I2C <linux-i2c@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
- linux-rtc@vger.kernel.org, 
- linux-spi <linux-spi@vger.kernel.org>, USB list <linux-usb@vger.kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Bin Meng <bin.meng@windriver.com>
+ Huan Feng <huan.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211109_011142_822348_570CDE63 
-X-CRM114-Status: GOOD (  23.60  )
+X-CRM114-CacheID: sfid-20211109_012135_124959_5E652905 
+X-CRM114-Status: GOOD (  31.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,365 +104,126 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
-
-On Mon, Nov 8, 2021 at 4:07 PM <conor.dooley@microchip.com> wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+On Tue, 9 Nov 2021 at 02:01, Linus Walleij <linus.walleij@linaro.org> wrote:
 >
-> Update the device tree for the icicle kit by splitting it into a third part,
-> which contains peripherals in the fpga fabric, add new peripherals
-> (spi, qspi, gpio, rtc, pcie, system services, i2c), update parts of the memory
-> map which have been changed.
+> On Tue, Nov 2, 2021 at 9:08 PM Andy Shevchenko
+> <andy.shevchenko@gmail.com> wrote:
+> (...)
+> > > On Tue, Nov 2, 2021 at 6:50 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+> >
+> > ...
+> >
+> > > > +static int starfive_pinconf_group_set(struct pinctrl_dev *pctldev,
+> > > > +                                     unsigned int gsel,
+> > > > +                                     unsigned long *configs,
+> > > > +                                     unsigned int num_configs)
+> > > > +{
+> > > > +       struct starfive_pinctrl *sfp = pinctrl_dev_get_drvdata(pctldev);
+> > > > +       const struct group_desc *group;
+> > > > +       u16 mask, value;
+> > > > +       int i;
+> > > > +
+> > > > +       group = pinctrl_generic_get_group(pctldev, gsel);
+> > > > +       if (!group)
+> > > > +               return -EINVAL;
+> > > > +
+> > > > +       mask = 0;
+> > > > +       value = 0;
+> > > > +       for (i = 0; i < num_configs; i++) {
+> > > > +               int param = pinconf_to_config_param(configs[i]);
+> > > > +               u32 arg = pinconf_to_config_argument(configs[i]);
+> > > > +
+> > > > +               switch (param) {
+> > > > +               case PIN_CONFIG_BIAS_DISABLE:
+> > > > +                       mask |= PAD_BIAS_MASK;
+> > > > +                       value = (value & ~PAD_BIAS_MASK) | PAD_BIAS_DISABLE;
+> > > > +                       break;
+> > > > +               case PIN_CONFIG_BIAS_PULL_DOWN:
+> > > > +                       if (arg == 0)
+> > > > +                               return -ENOTSUPP;
+> > > > +                       mask |= PAD_BIAS_MASK;
+> > > > +                       value = (value & ~PAD_BIAS_MASK) | PAD_BIAS_PULL_DOWN;
+> > > > +                       break;
+> > > > +               case PIN_CONFIG_BIAS_PULL_UP:
+> > > > +                       if (arg == 0)
+> > > > +                               return -ENOTSUPP;
+> > > > +                       mask |= PAD_BIAS_MASK;
+> > > > +                       value = value & ~PAD_BIAS_MASK;
+> > > > +                       break;
+> > > > +               case PIN_CONFIG_DRIVE_STRENGTH:
+> > > > +                       mask |= PAD_DRIVE_STRENGTH_MASK;
+> > > > +                       value = (value & ~PAD_DRIVE_STRENGTH_MASK) |
+> > > > +                               starfive_drive_strength_from_max_mA(arg);
+> > > > +                       break;
+> > > > +               case PIN_CONFIG_INPUT_ENABLE:
+> > > > +                       mask |= PAD_INPUT_ENABLE;
+> > > > +                       if (arg)
+> > > > +                               value |= PAD_INPUT_ENABLE;
+> > > > +                       else
+> > > > +                               value &= ~PAD_INPUT_ENABLE;
+> > > > +                       break;
+> > > > +               case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
+> > > > +                       mask |= PAD_INPUT_SCHMITT_ENABLE;
+> > > > +                       if (arg)
+> > > > +                               value |= PAD_INPUT_SCHMITT_ENABLE;
+> > > > +                       else
+> > > > +                               value &= ~PAD_INPUT_SCHMITT_ENABLE;
+> > > > +                       break;
+> > > > +               case PIN_CONFIG_SLEW_RATE:
+> > > > +                       mask |= PAD_SLEW_RATE_MASK;
+> > > > +                       value = (value & ~PAD_SLEW_RATE_MASK) |
+> > > > +                               ((arg << PAD_SLEW_RATE_POS) & PAD_SLEW_RATE_MASK);
+> > > > +                       break;
+> > > > +               case PIN_CONFIG_STARFIVE_STRONG_PULL_UP:
+> > > > +                       if (arg) {
+> > > > +                               mask |= PAD_BIAS_MASK;
+> > > > +                               value = (value & ~PAD_BIAS_MASK) |
+> > > > +                                       PAD_BIAS_STRONG_PULL_UP;
+> > > > +                       } else {
+> > > > +                               mask |= PAD_BIAS_STRONG_PULL_UP;
+> > > > +                               value = value & ~PAD_BIAS_STRONG_PULL_UP;
+> > > > +                       }
+> > > > +                       break;
+> > > > +               default:
+> > > > +                       return -ENOTSUPP;
+> > > > +               }
+> > > > +       }
+> > > > +
+> > > > +       for (i = 0; i < group->num_pins; i++)
+> > > > +               starfive_padctl_rmw(sfp, group->pins[i], mask, value);
+> > > > +
+> > > > +       return 0;
+> > > > +}
+> >
+> > Linus any comments on this code (sorry if I missed your reply)? The
+> > idea behind above is to skip all settings from the same category and
+> > apply only the last one, e.g. if we have "bias set to X", ..., "bias
+> > disable", ..., "bias set to Y", the hardware will see only the last
+> > operation, i.e. "bias set to Y". I think it may not be the best
+> > approach (theoretically?) since the hardware definitely may behave
+> > differently on the other side in case of such series of the
+> > configurations (yes, I have seen some interesting implementations of
+> > the touchpad / touchscreen GPIOs that may be affected).
 >
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks for your patch!
-
-Please split it into logical separated parts.
-
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs-fabric.dtsi
-> @@ -0,0 +1,21 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/* Copyright (c) 2020-2021 Microchip Technology Inc */
-> +
-> +/ {
-> +       fpgadma: fpgadma@60020000 {
-> +               compatible = "microchip,mpfs-fpga-dma-uio";
-> +               #address-cells = <1>;
-> +               #size-cells = <0>;
-> +               reg = <0x0 0x60020000 0x0 0x1000>;
-> +               interrupt-parent = <&plic>;
-> +               interrupts = <PLIC_INT_FABRIC_F2H_2>;
-> +               status = "okay";
-> +       };
-> +
-> +       fpgalsram: fpga_lsram@61000000 {
-> +               compatible = "generic-uio";
-> +               reg = <0x0 0x61000000 0x0 0x0001000
-> +                       0x14 0x00000000 0x0 0x00010000>;
-
-Please group by angular brackets, to increase readability, and support
-automatic validation:
-
-<0x0 0x61000000 0x0 0x0001000>, <0x14 0x00000000 0x0 0x00010000>
-
-> +               status = "okay";
-> +       };
-
-Do we really want UIO nodes in upstream DT?
-
-> +};
-> diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
-> index fc1e5869df1b..4212129fcdf1 100644
-> --- a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
-> +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
-> @@ -1,5 +1,5 @@
->  // SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> -/* Copyright (c) 2020 Microchip Technology Inc */
-> +/* Copyright (c) 2020-2021 Microchip Technology Inc */
+> That sounds weird. I think we need to look at how other drivers
+> deal with this.
 >
->  /dts-v1/;
->
-> @@ -13,72 +13,187 @@ / {
->         compatible = "microchip,mpfs-icicle-kit", "microchip,mpfs";
->
->         aliases {
-> -               ethernet0 = &emac1;
-> -               serial0 = &serial0;
-> -               serial1 = &serial1;
-> -               serial2 = &serial2;
-> -               serial3 = &serial3;
-> +               mmuart0 = &mmuart0;
-> +               mmuart1 = &mmuart1;
-> +               mmuart2 = &mmuart2;
-> +               mmuart3 = &mmuart3;
-> +               mmuart4 = &mmuart4;
+> To me it seems more natural that
+> starfive_padctl_rmw(sfp, group->pins[i], mask, value);
+> would get called at the end of each iteration of the
+> for (i = 0; i < num_configs; i++) loop.
 
-Why? SerialN is the standard alias name.
+That would work, but when the loop is done the end result would be
+exactly the same. The only difference is that the above would rapidly
+"blink" the different states during the loop until it arrives at the
+result. This would certainly be different, but it can never be the
+intended behaviour and only a side-effect on how the pinctrl framework
+works. The order the different states are blinked depends entirely on
+how the pinctrl framework parses the device tree. I still think it
+would be more natural to cleanly go to the end result without this
+blinking.
 
->         };
-
->
-> -&emac0 {
-> +&spi0 {
-> +       status = "okay";
-> +       spidev@0 {
-> +               compatible = "spidev";
-
-Please don't use "spidev", but a proper compatible value describing
-what is really connected.  If you want to use it with spidev (which
-is software policy, not hardware description), add that compatible
-value to drivers/spi/spidev.c:spidev_dt_ids[], or use driver_override
-in sysfs at runtime.
-
-> +               reg = <0>; /* CS 0 */
-> +               spi-max-frequency = <10000000>;
-> +               status = "okay";
-> +       };
-> +};
-> +
-> +&spi1 {
-> +       status = "okay";
-
-No slave devices specified?
-
-> +};
-> +
-> +&qspi {
-> +       status = "okay";
-> +};
-> +
-> +&i2c0 {
-> +       status = "okay";
-> +};
-> +
-> +&i2c1 {
-> +       status = "okay";
-> +       pac193x: pac193x@10 {
-
-adc@, I guess?
-
-> +               compatible = "microchip,pac1934";
-> +               reg = <0x10>;
-> +               samp-rate = <64>;
-> +               status = "okay";
-> +               ch0: channel0 {
-> +                       uohms-shunt-res = <10000>;
-> +                       rail-name = "VDDREG";
-> +                       channel_enabled;
-> +               };
-> +               ch1: channel1 {
-> +                       uohms-shunt-res = <10000>;
-> +                       rail-name = "VDDA25";
-> +                       channel_enabled;
-> +               };
-> +               ch2: channel2 {
-> +                       uohms-shunt-res = <10000>;
-> +                       rail-name = "VDD25";
-> +                       channel_enabled;
-> +               };
-> +               ch3: channel3 {
-> +                       uohms-shunt-res = <10000>;
-> +                       rail-name = "VDDA_REG";
-> +                       channel_enabled;
-> +               };
-> +       };
-> +};
-
-> +&gpio2 {
-> +       interrupts = <PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT
-> +               PLIC_INT_GPIO2_NON_DIRECT>;
-
-Why override interrupts in the board .dts file?
-Doesn't this belong in the SoC .dtsi file?
-Please group using angular brackets.
-
-> --- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
-> +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
-
-> @@ -145,49 +149,55 @@ cpu4_intc: interrupt-controller {
->         soc {
->                 #address-cells = <2>;
->                 #size-cells = <2>;
-> -               compatible = "simple-bus";
-> +               compatible = "microchip,mpfs-soc", "simple-bus";
->                 ranges;
->
-> -               cache-controller@2010000 {
-> +               cctrllr: cache-controller@2010000 {
->                         compatible = "sifive,fu540-c000-ccache", "cache";
-> +                       reg = <0x0 0x2010000 0x0 0x1000>;
-> +                       interrupt-parent = <&plic>;
-> +                       interrupts = <PLIC_INT_L2_METADATA_CORR
-> +                               PLIC_INT_L2_METADAT_UNCORR
-> +                               PLIC_INT_L2_DATA_CORR>;
-
-Please group using angular brackets.
-
->                         cache-block-size = <64>;
->                         cache-level = <2>;
->                         cache-sets = <1024>;
->                         cache-size = <2097152>;
->                         cache-unified;
-> -                       interrupt-parent = <&plic>;
-> -                       interrupts = <1 2 3>;
-> -                       reg = <0x0 0x2010000 0x0 0x1000>;
->                 };
->
-> -               clint@2000000 {
-> +               clint: clint@2000000 {
->                         compatible = "sifive,fu540-c000-clint", "sifive,clint0";
->                         reg = <0x0 0x2000000 0x0 0xC000>;
-> -                       interrupts-extended = <&cpu0_intc 3 &cpu0_intc 7
-> -                                               &cpu1_intc 3 &cpu1_intc 7
-> -                                               &cpu2_intc 3 &cpu2_intc 7
-> -                                               &cpu3_intc 3 &cpu3_intc 7
-> -                                               &cpu4_intc 3 &cpu4_intc 7>;
-> +                       interrupts-extended =
-> +                                       <&cpu0_intc HART_INT_M_SOFT &cpu0_intc HART_INT_M_TIMER
-> +                                        &cpu1_intc HART_INT_M_SOFT &cpu1_intc HART_INT_M_TIMER
-> +                                        &cpu2_intc HART_INT_M_SOFT &cpu2_intc HART_INT_M_TIMER
-> +                                        &cpu3_intc HART_INT_M_SOFT &cpu3_intc HART_INT_M_TIMER
-> +                                        &cpu4_intc HART_INT_M_SOFT &cpu4_intc HART_INT_M_TIMER>;
-
-Please group using angular brackets.
-
->                 };
->
->                 plic: interrupt-controller@c000000 {
-> -                       #interrupt-cells = <1>;
-> -                       compatible = "sifive,fu540-c000-plic", "sifive,plic-1.0.0";
-> +                       compatible = "sifive,plic-1.0.0";
-
-Why drop the first one again?
-
->                         reg = <0x0 0xc000000 0x0 0x4000000>;
-> +                       #interrupt-cells = <1>;
->                         riscv,ndev = <186>;
->                         interrupt-controller;
-> -                       interrupts-extended = <&cpu0_intc 11
-> -                                       &cpu1_intc 11 &cpu1_intc 9
-> -                                       &cpu2_intc 11 &cpu2_intc 9
-> -                                       &cpu3_intc 11 &cpu3_intc 9
-> -                                       &cpu4_intc 11 &cpu4_intc 9>;
-> +                       interrupts-extended = <&cpu0_intc HART_INT_M_EXT
-> +                                       &cpu1_intc HART_INT_M_EXT &cpu1_intc HART_INT_S_EXT
-> +                                       &cpu2_intc HART_INT_M_EXT &cpu2_intc HART_INT_S_EXT
-> +                                       &cpu3_intc HART_INT_M_EXT &cpu3_intc HART_INT_S_EXT
-> +                                       &cpu4_intc HART_INT_M_EXT &cpu4_intc HART_INT_S_EXT>;
->                 };
->
-> -               dma@3000000 {
-> -                       compatible = "sifive,fu540-c000-pdma";
-> +               pdma: pdma@3000000 {
-> +                       compatible = "microchip,mpfs-pdma-uio";
->                         reg = <0x0 0x3000000 0x0 0x8000>;
->                         interrupt-parent = <&plic>;
-> -                       interrupts = <23 24 25 26 27 28 29 30>;
-> +                       interrupts = <PLIC_INT_DMA_CH0_DONE PLIC_INT_DMA_CH0_ERR
-> +                               PLIC_INT_DMA_CH1_DONE PLIC_INT_DMA_CH1_ERR
-> +                               PLIC_INT_DMA_CH2_DONE PLIC_INT_DMA_CH2_ERR
-> +                               PLIC_INT_DMA_CH3_DONE PLIC_INT_DMA_CH3_ERR>;
-
-Please group using angular brackets.
-
->                         #dma-cells = <1>;
->                 };
->
-> @@ -205,7 +215,7 @@ clkcfg: clkcfg@20002000 {
->                         clocks = <&refclk>;
->                         #clock-cells = <1>;
->                         clock-output-names = "cpu", "axi", "ahb", "envm",       /* 0-3   */
-> -                                "mac0", "mac1", "mmc", "timer",                /* 4-7   */
-> +                               "mac0", "mac1", "mmc", "timer",                 /* 4-7   */
->                                 "mmuart0", "mmuart1", "mmuart2", "mmuart3",     /* 8-11  */
->                                 "mmuart4", "spi0", "spi1", "i2c0",              /* 12-15 */
->                                 "i2c1", "can0", "can1", "usb",                  /* 16-19 */
-
-No need for clock-output-names at all.
-
->
-> -               emac1: ethernet@20112000 {
-> +               mac0: ethernet@20110000 {
->                         compatible = "cdns,macb";
-> -                       reg = <0x0 0x20112000 0x0 0x2000>;
-> +                       #address-cells = <1>;
-> +                       #size-cells = <0>;
-> +                       reg = <0x0 0x20110000 0x0 0x2000>;
-> +                       clocks = <&clkcfg CLK_MAC0>, <&clkcfg CLK_AHB>;
-> +                       clock-names = "pclk", "hclk";
->                         interrupt-parent = <&plic>;
-> -                       interrupts = <70 71 72 73>;
-> -                       local-mac-address = [00 00 00 00 00 00];
-> -                       clocks = <&clkcfg 5>, <&clkcfg 2>;
-> +                       interrupts = <PLIC_INT_MAC0_INT
-> +                               PLIC_INT_MAC0_QUEUE1
-> +                               PLIC_INT_MAC0_QUEUE2
-> +                               PLIC_INT_MAC0_QUEUE3
-> +                               PLIC_INT_MAC0_EMAC
-> +                               PLIC_INT_MAC0_MMSL>;
-
-Please group using angular brackets.
-
-> +                       mac-address = [56 34 12 00 FC 01];
-
-Please drop this.
-
->                         status = "disabled";
-> +               };
->
-> +               rtc: rtc@20124000 {
-> +                       compatible = "microchip,mpfs-rtc";
->                         #address-cells = <1>;
->                         #size-cells = <0>;
-> +                       reg = <0x0 0x20124000 0x0 0x1000>;
-> +                       clocks = <&clkcfg CLK_RTC>;
-> +                       clock-names = "rtc";
-> +                       interrupt-parent = <&plic>;
-> +                       interrupts = <PLIC_INT_RTC_WAKEUP PLIC_INT_RTC_MATCH>;
-
-Please group using angular brackets.
-
-> +                       status = "disabled";
->                 };
->
-> +               usb: usb@20201000 {
-> +                       compatible = "microchip,mpfs-usb-host";
-> +                       reg = <0x0 0x20201000 0x0 0x1000>;
-> +                       reg-names = "mc","control";
-> +                       clocks = <&clkcfg CLK_USB>;
-> +                       interrupt-parent = <&plic>;
-> +                       interrupts = <PLIC_INT_USB_DMA PLIC_INT_USB_MC>;
-
-Please group using angular brackets.
-
-> +                       interrupt-names = "dma","mc";
-> +                       dr_mode = "host";
-> +                       status = "disabled";
-> +               };
-> +
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+/Emil
 
 _______________________________________________
 linux-riscv mailing list
