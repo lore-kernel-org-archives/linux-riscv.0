@@ -2,191 +2,110 @@ Return-Path: <SRS0=OElg=P4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A7EE6C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Nov 2021 12:16:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 884DFC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Nov 2021 12:54:42 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 788E960F9B
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Nov 2021 12:16:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 788E960F9B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=microchip.com
+	by mail.kernel.org (Postfix) with ESMTPS id 516036109F
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Nov 2021 12:54:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 516036109F
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k17sDwgb24NQ2kMJfAYleCyO8v+tc8PIUmpby2ZSNKU=; b=w7kXc+62qflmOt
-	v35OS6Atq4OCWHjglo85KztSKz6Q+A6dT9OBgi3BuWn3xCVPuRg/wEWWYhg3vGfO+tWDb4+wBwb5U
-	8T1UTmF3l+QFhvP2MAk3eSXnJcE9gZvLYvYu1gW9+Is3sIwg/RNMa76PFcwmQujFw3BF6nMjEChtD
-	A/p9wJa+92S1JW8ZMaecJMtOPtzh360HUXEPP7nKVQ6lNO5CxCoNkNZojarXi1AeXDTGtwagQqrQO
-	JRRsJmi4EWPl/abJePjuSQsaY9Pe+fNgCPMP6tWeqyUhiO534lwiTqGRru5u5qO3eaDP6h6xiUNGO
-	i/mKBFckvj2uPo22CLgA==;
+	List-Owner; bh=xx+50Hj9iiNWoE71poMafqDWZcvCmB85ltm/KOmwo1I=; b=r72TcdBHcLrE3D
+	MCTtiVpslhEcHF1VaCR8y0exuI3XaRVNzcznsniiHgKiRTxWORAFn189QE4JmMq3HFqzcOAj1vqyP
+	tSprmQumLyxh7GDp1RIogG/lpWbqFmb2ZoPXjSDudrTP77Doaz2bpxmY3/MVoD4klERZ1ENnQ5Id0
+	SL3pUHhhb/6zg1uRRvfYrGaa6NUVhSns9XTmdAk8dvMfdp7uwrieFp/SlT0l8RIElIl7DtjP3Xf+R
+	OFjPeLEqJqa+qOn2FAooOSJ9FFfK7mmHwYJ+UUEgBGVFfPHsMdygoQ9XqkR8cpoP0WoaDm/ASQsjU
+	ZqWJTS0Vvb/MM7K4Ax6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mkQ3F-001yTQ-1d; Tue, 09 Nov 2021 12:16:33 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1mkQe1-00291L-Tp; Tue, 09 Nov 2021 12:54:34 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mkQ3C-001yRz-EQ
- for linux-riscv@lists.infradead.org; Tue, 09 Nov 2021 12:16:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1636460190; x=1667996190;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-id:content-transfer-encoding: mime-version;
- bh=O9+OkIueXuV/KVCm0IDXqxj6EIhXpDEJBW7hxzKh6Xc=;
- b=HUfGvgy53YeuRQg3Boj11YJHZ86/ASBGUhBprS5WZQqfr4/8coDKaZnR
- HkGIfswq6abXEuwNOBjSiYxP5HH8ijULjz7mdIha44+EN45MgeYojVtd5
- fjHYmB6q/V0nUhftPXrksZdLigoCt9SwEXZL08ifuxQ2rHHIH8HABo5Nz
- 6zdltRYoM+GlwSmCFGKFnqJwcoO9aV720PrCykirk+oah5MqD471A2E+p
- QXXPLApfYNU/6M2jHzftkbhvpkFZNYnybmTh0ji7BhZvSWNLav8z5XZd5
- v9nHp/41yeBwi/SLWmtqA4D000ASpFBbl1uafZCiWLb/kaz8OPNlIWCuX g==;
-IronPort-SDR: KK8VBqqbYRpMc7dlLbwNUuQNlLniRu9bmxyRBAttviEYy0TzRV+4hhh13/Ts+acLoatxqukbjX
- gBEICZO4z8f8lzkTgyN1MJvYP8wafMj4/yehuO/00YsO8XPKP2svsyPA9s/PMxFABF/RclJbkJ
- An1z8tpVqUqGOHzFLQCw8uxBMR9kaDBRQJQFf2g0A4Qnk5UzuADZrRXz+i56xc6lydMfNwXr83
- nU8mGI1hMf/yLXq77mj/pKRC6OEM5tPb6KZAB5mMhek/uolmpqNmdWFV2zL+QP5GzC6SqkFkn7
- 0beGBhXJGBAffR3RQP5V9mtN
-X-IronPort-AV: E=Sophos;i="5.87,220,1631602800"; d="scan'208";a="75846124"
-Received: from smtpout.microchip.com (HELO email.microchip.com)
- ([198.175.253.82])
- by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 09 Nov 2021 05:16:28 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2176.14; Tue, 9 Nov 2021 05:16:28 -0700
-Received: from NAM11-CO1-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.71) with Microsoft SMTP Server
- (version=TLS1_2, 
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2176.14 via Frontend
- Transport; Tue, 9 Nov 2021 05:16:28 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=LOoUOKUlQnWDS0h46or9EV/njKTlXQVFWj8xWQ/tcjNz5MtLkXMtnjQzF7ejxL4ytmEQg5mSPp2adA26gx1cPM9LVfEWdimJzFzPeQzudI/C0N8/vKtXdAzpeQo4XzKWwBLiCGxbhvHla+zoHAQO3wQCwyvg3f02f8GxLW0jpXpLwTLenUWQ6sNHMHAjw55ipKAPaxSLImLIHJ3LylDNdAxB5oB/piCgaZwC+IrQBTXNx/dVqIb9vaXwqTAARG2jIXVr77Zha2Cot29VfvIVqIcCNw5NCWmlVorFDBGV+iDUmtPlrJHJr566TAVk6xebz/uQQY7eyzHKGr2cWR0X6g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=O9+OkIueXuV/KVCm0IDXqxj6EIhXpDEJBW7hxzKh6Xc=;
- b=A43idctClQfl2DxrEYJ4uRuSRDQz1vq25CqhIAzTDLA1tZSewiQoVylrcTYn1d1mKYL4+kGG7FY9fhpHh1XW5UzskqHMjBkDwWOQkgy5KBZT/QfKsvpr+XokGOUJDnC5rG597ut+dlT4JwiBFEdcsiDMhKNhTE7BMOJAYFTay7bxmItsnB16vPbMDJ8SqY9nn7+ybdfjweSUcDjdzJs7YUznf6R7Z9rpaQKDj5n1Fyz9xl05Krc0OP8RI2l4Y6ZWn+oKTtq/nrVHFVZ0f7IYsAul8RSWzf4b6AzujBEPKjunHoxPj+j7mVDqJvARN/c0KBiS5x9j1Krhodui3+twMQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=O9+OkIueXuV/KVCm0IDXqxj6EIhXpDEJBW7hxzKh6Xc=;
- b=GvEoBwMVAlVV48/r6d/3qh5H1M/CRijUyyp2/A/+nlnoJqIFv5qTFNwQtdzSK1jI0gPwHJ2wzX17rmyHsjWZcMHYWwkH6EFkMbY7I9bpd/NoNmlFY9vhCi+1W6Swod27zBVGzzM7ybuU/OoYxKCLo3hymDUJHC5pavJQT020aSE=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:95::7)
- by MWHPR11MB1277.namprd11.prod.outlook.com (2603:10b6:300:29::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4669.13; Tue, 9 Nov
- 2021 12:16:22 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::ccb6:6f5a:9841:266d]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::ccb6:6f5a:9841:266d%8]) with mapi id 15.20.4690.015; Tue, 9 Nov 2021
- 12:16:22 +0000
-From: <Conor.Dooley@microchip.com>
-To: <robh@kernel.org>
-CC: <robh+dt@kernel.org>, <gregkh@linuxfoundation.org>,
- <linus.walleij@linaro.org>, <linux-riscv@lists.infradead.org>,
- <aou@eecs.berkeley.edu>, <paul.walmsley@sifive.com>,
- <linux-usb@vger.kernel.org>, <Daire.McNamara@microchip.com>,
- <linux-spi@vger.kernel.org>, <geert@linux-m68k.org>,
- <devicetree@vger.kernel.org>, <linux-rtc@vger.kernel.org>,
- <linux-gpio@vger.kernel.org>, <broonie@kernel.org>, <palmer@dabbelt.com>,
- <bgolaszewski@baylibre.com>, <jassisinghbrar@gmail.com>,
- <linux-crypto@vger.kernel.org>, <Ivan.Griffin@microchip.com>,
- <atish.patra@wdc.com>, <Lewis.Hanly@microchip.com>, <bin.meng@windriver.com>, 
- <alexandre.belloni@bootlin.com>, <krzysztof.kozlowski@canonical.com>,
- <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <a.zummo@towertech.it>
+ id 1mkQcy-0028Em-D6
+ for linux-riscv@lists.infradead.org; Tue, 09 Nov 2021 12:53:30 +0000
+Received: from mail-lf1-f71.google.com (mail-lf1-f71.google.com
+ [209.85.167.71])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 33A0A3F19A
+ for <linux-riscv@lists.infradead.org>; Tue,  9 Nov 2021 12:53:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1636462402;
+ bh=j5tko5riuXms3JFEWKNcXt/poyacQNf52vuml9R0vAg=;
+ h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
+ In-Reply-To:Content-Type;
+ b=O6JRxo6dBfipYpSvNoaIBYoID05hGx/gA56XQjZu117joPlyBzp5Vu2sXlJ0cceEi
+ fktSajCu5Ww16aIOG+znuHeN+v0MUuPSTYCabBhGWkiUCioAbbSpX2vg8OW9rzlekg
+ xjwXavLG4UtOx6XWLWnraAwj380xpCtSMXztdseZeE9YIBODrAJunBtQmKX7RGk2O2
+ XloIMvpF7/RjXUHaXon0Ts66rGe5KJ4YNuqojoY72ihZSq+iLjIdt5Bf6t2B+Wu0pC
+ vVFNdk40XnbFWbEXJH+/O2M9JfSWfKxmf6i/0t9ELfTzv/a55XkKNHQX3yTvr1oKH4
+ qe2nXvYCGgY5A==
+Received: by mail-lf1-f71.google.com with SMTP id
+ bq29-20020a056512151d00b003ffce2467adso7995295lfb.3
+ for <linux-riscv@lists.infradead.org>; Tue, 09 Nov 2021 04:53:22 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+ :content-language:to:cc:references:from:in-reply-to
+ :content-transfer-encoding;
+ bh=j5tko5riuXms3JFEWKNcXt/poyacQNf52vuml9R0vAg=;
+ b=j1APEddxRWivPyiHx8e9m6DwJ/ckslmllOwM0/Nh7zSq8v7rHDE91hjOvUP5oQXg0x
+ yJMzwQjUn1ilk1E5xAaTfA38ej42PthqvDAngjyjLiuud8OwCv+0LVQfx4y3FYDK+W5R
+ gVSCCXIp4LFOL1jqPqIWpoIvGuGTdFvPcIso1r9OXgomFDBh3dg1j7+nicP5SzUdD9EA
+ TxvJuBkv1c278u07QcWWUhr0nIYpdDiMhhBQ/oh8EMuhlKsnwMw0g0JP0gvGufP7EBgP
+ QNtXyl0Ek35OypwTPAZuTZZu7mYu7gnGnytITILQi0Hx/oUyEELS0xtH5RtIGT81yxi4
+ CiEg==
+X-Gm-Message-State: AOAM533/BKhRe/pNwmIOjrDCtObmOJD9qjXF1Nus0k6IQFZgyDaje9fw
+ NdumT6alRSc/pizohRp/86oFQqayZzKO7pkjDnCecfswEPY/RtLFB7gZpjj9gsT+t/dDD930US8
+ EdZnGFSSRwXv4c8ITU4OPRuQ1zaQQmkFtEvRHQhsW/fXC/Q==
+X-Received: by 2002:a19:9148:: with SMTP id y8mr6510847lfj.512.1636462401700; 
+ Tue, 09 Nov 2021 04:53:21 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxj8OuRHAShyPuiff/xoQ2+ShAhXkJXJ57MKAdkVyp0FJ2HQRhii/EaQs7fi9Q9gr6wclBnKQ==
+X-Received: by 2002:a19:9148:: with SMTP id y8mr6510816lfj.512.1636462401453; 
+ Tue, 09 Nov 2021 04:53:21 -0800 (PST)
+Received: from [192.168.3.67] (89-77-68-124.dynamic.chello.pl. [89.77.68.124])
+ by smtp.gmail.com with ESMTPSA id
+ i6sm2136859lfr.163.2021.11.09.04.53.19
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Tue, 09 Nov 2021 04:53:20 -0800 (PST)
+Message-ID: <0d996393-20b9-4f16-cbd0-c9bff2b54112@canonical.com>
+Date: Tue, 9 Nov 2021 13:53:18 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.2.1
 Subject: Re: [PATCH 10/13] dt-bindings: spi: add bindings for microchip mpfs
  spi
-Thread-Topic: [PATCH 10/13] dt-bindings: spi: add bindings for microchip mpfs
- spi
-Thread-Index: AQHX1LJfUqgSbOdkdUS8ce/NVnrEbqv6lPOAgACJDYA=
-Date: Tue, 9 Nov 2021 12:16:21 +0000
-Message-ID: <96005893-8819-1d76-6dea-7d173655258f@microchip.com>
+Content-Language: en-US
+To: Conor.Dooley@microchip.com, robh@kernel.org
+Cc: robh+dt@kernel.org, gregkh@linuxfoundation.org, linus.walleij@linaro.org, 
+ linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
+ paul.walmsley@sifive.com, linux-usb@vger.kernel.org,
+ Daire.McNamara@microchip.com, linux-spi@vger.kernel.org,
+ geert@linux-m68k.org, devicetree@vger.kernel.org, linux-rtc@vger.kernel.org,
+ linux-gpio@vger.kernel.org, broonie@kernel.org, palmer@dabbelt.com,
+ bgolaszewski@baylibre.com, jassisinghbrar@gmail.com,
+ linux-crypto@vger.kernel.org, Ivan.Griffin@microchip.com,
+ atish.patra@wdc.com, Lewis.Hanly@microchip.com, bin.meng@windriver.com,
+ alexandre.belloni@bootlin.com, linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org, a.zummo@towertech.it
 References: <20211108150554.4457-1-conor.dooley@microchip.com>
  <20211108150554.4457-11-conor.dooley@microchip.com>
  <1636430789.935637.743042.nullmailer@robh.at.kernel.org>
-In-Reply-To: <1636430789.935637.743042.nullmailer@robh.at.kernel.org>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.13.0
-authentication-results: kernel.org; dkim=none (message not signed)
- header.d=none;kernel.org; dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 5d0d0e0c-51f6-45fe-e98c-08d9a37abe22
-x-ms-traffictypediagnostic: MWHPR11MB1277:
-x-microsoft-antispam-prvs: <MWHPR11MB1277C6AE60D91B2BC5F965B998929@MWHPR11MB1277.namprd11.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:9508;
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: 2jC3fK/A5sRp7uhdBpQcLl+izV884y3YkyorNOm8V10qARTbK+kDnqBULHKMKMoxOYVSC2EFIiCej+pdbU88QOCHM32IrqPH+9LPhEmYLqgod19p4EgKznCt385QfWR3v0seN0t7d9gqRr9sCzoPDaV1v86QDW94pZZA4mxB6m835qwNvThA9/RxFcF83Thiyie2fa1fMGHCqkK4Sq3uxACsDtr7ZMP1f1L9N9wjW+HJfXqc4CbtuCH+89nhniIOZ/K6Iuh+JcIXVAKgk1kUDeEBETL8LRiU+HtvwaS+w13Ab7TohUwHuU52t20VeFoZ2E9t149iAdqjfZkaZnhhSBnfbgf+zXoBK7H+zEbW/QfR1h6xMwaVdrR/aABjeAIkWfd9fDFDDNdIRhzBHt8mQXtG2CaNA5VjIVnkAg5hz+oCqYhE47od3v2AK9EfC4mdDvHtaPtTvY6DOME20bTd+TUeVhbs6k+ZDLcpN9QgPVoQK/M4W7r+84ylH/cwnyhVp/RtHY6x6xfYsS/Mk4DYyNeCr2WH7xBWw0AQbEGvamQfnw+lq3Go6RLwwx+s0ZJD79f5e8RNlvpvMj53m630zFfB3NDhLyBoS21wLnzITRA2XkqxCu2BttlI4fluXUBPvYu/duRsF+x3W/LzTzxp44WHNaVxewrAjLZCoaWKfM8KrpLljqtLXl1fI7vrUQLo3lPri4FWZ7JGz+Egz/dOMs6FjnX2scEFe193s4sqncnxd5ODrVDbijcW0YTiAj3slvT5ZuzxXVbYQjHa8lVCaXAF/qAXYXoMT+ylS+Kc6hsMTkMm+QiwWefg5Uhj7qPajOxIrYlT1DYxF+UZsByDoFE98BOZErIi0bZARmfgufU=
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:CO1PR11MB5154.namprd11.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(366004)(38070700005)(83380400001)(8936002)(66556008)(66446008)(71200400001)(5660300002)(54906003)(26005)(6512007)(8676002)(76116006)(91956017)(31686004)(186003)(6916009)(122000001)(508600001)(2616005)(36756003)(86362001)(38100700002)(31696002)(53546011)(966005)(4326008)(6506007)(6486002)(7416002)(2906002)(64756008)(316002)(66476007)(66946007)(45980500001)(43740500002);
- DIR:OUT; SFP:1101; 
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?QmpIajM3MXlQY1pvOUI1a3hxU0F2SmRoVEJFQjlDSlpPcCsrWi9VZXFST3ds?=
- =?utf-8?B?TG1IemFXaERtVGUyV05iU2c2eUhDd3RKV1hSci9YcVdjY2R5bXB1cjBNbWNy?=
- =?utf-8?B?a0JMS2dkQ1ZDaS90WW5pQm5Eb2RmZGtlbDVicUV6d2pjQitSS3Zyd2J0eUFK?=
- =?utf-8?B?OUtmaE9Uc1I2VExNYklabGgxRjgyUmhqNHpDeVhnYlpwZGM3eG1JUjhINVJW?=
- =?utf-8?B?T1kyRmVPT0dnZitKVmI3bWJKaFhkc3NJOWFpS1RjT2hrS2g3SWVjOGl1dmho?=
- =?utf-8?B?RXpEcVhhSUVGakh4dURKUmVoRHBPUHhDOXNyeDl3WHAxZ2JoWDdEMndGSG8w?=
- =?utf-8?B?UVNtTTNhS0F3R3RVcnNOVTNPYm9nc3N1RWVtNmI3NFVoa0doaWVNTnpINk9q?=
- =?utf-8?B?VThQZzJFZXRST0dXN0RkOFdkYUxHckR0RXVPMGM0Z2tTa2pRaW5mQlZqbmlw?=
- =?utf-8?B?K3FVQ3J2NktqbFVEV1o0QzNXa1FPZEJDeldkbDdDSnJSZG1nL0J3Z3dKamlB?=
- =?utf-8?B?Y1BFcm9BeDErTkcvbzZNZFBlQ2tuWkEyei81b2NYWTI1bU90alFKOXNrU0Qw?=
- =?utf-8?B?UVZCb1lXMVZRUWFVQVpIeUpzSzhlQmVwUitsa3ZSbW01c1czVFdldFRBYnBs?=
- =?utf-8?B?dVlPQ2lQeUlVSjJyQThLNzYwOGVFSGNaYUVwMkVwbnN6LzZwTkZ2M3VqV01V?=
- =?utf-8?B?aitvazhIVDJhYmd4MCtrbllOcmJiMTE5NWprK1E3TEgySGVOT0ZOMHNSa2ZY?=
- =?utf-8?B?UjhpVWZja3JzTlVUVk1Kakk4N1d5WDAzNDNRZnNDSjJCODVoUUhLUlhjbXFO?=
- =?utf-8?B?SmJ1aDZPV25rckM0bEhwZG95R1NnUEhhMUp0ZG1SSzBuL05oeUJ1c1crZFF4?=
- =?utf-8?B?amxNakIzVTlBZjhHWDhvb0ZrRmRheHJNMEIrVDNrNk54OENYcEZWS1hLQmgw?=
- =?utf-8?B?eHJwcGZrVXByU3Rsckd4d3djZ0RweWFiYno3ZUpZSjN1Zkp6bWZ0RDBWdGR3?=
- =?utf-8?B?dVNtZWNWcTdQR01OMGJPUlR0UExqS0FrL2RBQ2lyOW9IS0gxOEpPZE1kcGZz?=
- =?utf-8?B?THY3U3ZFWnl4NzRSNU9ucVZQUzJ1THpQbTNzRHhwU0k1RDUwZXBWTTh0YnV5?=
- =?utf-8?B?ZnZhbEFQcWUrVWRvckhPQmVnK3l2OGxiWEZ0UHA2OHBKODBjcDd0dGNQZzVl?=
- =?utf-8?B?YXpuZmhoNk1XWTVjcWRKenZxTmY0V0o1VVhRZDNPQ1VnazNJa1BRWkliY1Qr?=
- =?utf-8?B?NDk3OEF1RTJxYVdFbTVqenVMSklIVUV1NzFYTFNJaVpNMTd2Z3Fia3NseVdv?=
- =?utf-8?B?L0oxS29wM1R1S1NBdUxJdHZXQ1RPNnBTemVNOVcxQnB6M1RmL1dpQ2xqeSsw?=
- =?utf-8?B?cDJ1cU5XWWdNT1FIOTR6RU5SUlFLcXZ4bnd1czFHOUhOcEJqUGdCRGlGUmc3?=
- =?utf-8?B?VTF2YVNkZUpzMDVjZGNOdUpZWVFLQXVKYXJMR01DWkczWG1vUmdWOWx0SER4?=
- =?utf-8?B?ZG5ESE90U09YK0p1K0djKzdQZ1hYSmJtME5CRDlkOFcvN0Q1cUZBWXA1ZUc4?=
- =?utf-8?B?OFdCNEdURHpybUxlOXBDbnB4R1pXaDZaSTlFVjNOMVBMRmlsQmxmS1pNN1o1?=
- =?utf-8?B?OFBkRk9pb2dhMEFYbmJMaURDSmFnVHluUzJ0SXN6akp6S0VBOXlObzRpVVg0?=
- =?utf-8?B?YWUwaHg4bjdiT2k1Rks0YlpxTVhObnQzTmthcEVQR2c2K09TVzB4UmFjMktX?=
- =?utf-8?B?bzVDa1JmNGRFK1Z2cTl5YWF0aU5CMVlLRjhVMjFRbDFrdVhkSisyR2FnY3gw?=
- =?utf-8?B?Uko1MU13RHJZUFBTVmh1OFlxSnRlaE5PbHhjcEJqWi9HV0hOb2FZNzhJRXpt?=
- =?utf-8?B?cFZmRUlzNVpyYjVVY0dOTUZpQTI2S3ByVDhKUmJQVXU2cHo4ZzlIY3BJUDNI?=
- =?utf-8?B?WE1JMmxmdFBIdm1rOHRRYmE3KzFzMThSMExUY3kxZFBWeHk3U2RTUkkwaXIr?=
- =?utf-8?B?QUdxWHdObWJJWHQ4V3lOMXE5WG1mQlhMcW1pWGtnOTZhNnlma1NLYUYzc3RN?=
- =?utf-8?B?T0ZzcTRJYXR2c3RRUTVaeElLaVM1c2RtSWhuVUphSFRENS9tRGhnaWdBbE1G?=
- =?utf-8?B?N1VUODlhWUdIc3Q1V2IvRVYxcmI2dTR4TEJpd29Lcm1BUm1MRmNnSWtGYkEy?=
- =?utf-8?B?MlZHekUvKzdCQWZlWmVINU15ampVR0tZR21teUtyZEVXK3ZrbnB3S0hTZE1L?=
- =?utf-8?B?bHlwNHZwL0ZMYjVlYzJzR2dsQlNRPT0=?=
-Content-ID: <015E1806D01EA94FB7FDBF6DF471AE55@namprd11.prod.outlook.com>
-MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5d0d0e0c-51f6-45fe-e98c-08d9a37abe22
-X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Nov 2021 12:16:21.9419 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: DObmkzGm1DDKoOeXdwxAYjX8dqV5Sq/TW/rYCOpn+mLXD7ZRGVghCCQt+dLOyBRK7AOHcmNY688R4zJ3p7uV3KhKZhuaoMnFBZe65FvQIoc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MWHPR11MB1277
+ <96005893-8819-1d76-6dea-7d173655258f@microchip.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+In-Reply-To: <96005893-8819-1d76-6dea-7d173655258f@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211109_041630_658501_2A8C69FC 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20211109_045328_758760_C92533EC 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -203,54 +122,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 09/11/2021 04:06, Rob Herring wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> 
-> On Mon, 08 Nov 2021 15:05:51 +0000, conor.dooley@microchip.com wrote:
->> From: Conor Dooley <conor.dooley@microchip.com>
+On 09/11/2021 13:16, Conor.Dooley@microchip.com wrote:
+> On 09/11/2021 04:06, Rob Herring wrote:
+>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
 >>
->> Add device tree bindings for the {q,}spi controller on
->> the Microchip PolarFire SoC.
+>> On Mon, 08 Nov 2021 15:05:51 +0000, conor.dooley@microchip.com wrote:
+>>> From: Conor Dooley <conor.dooley@microchip.com>
+>>>
+>>> Add device tree bindings for the {q,}spi controller on
+>>> the Microchip PolarFire SoC.
+>>>
+>>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+>>> ---
+>>>   .../bindings/spi/microchip,mpfs-spi.yaml      | 72 +++++++++++++++++++
+>>>   1 file changed, 72 insertions(+)
+>>>   create mode 100644 Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml
+>>>
 >>
->> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
->> ---
->>   .../bindings/spi/microchip,mpfs-spi.yaml      | 72 +++++++++++++++++++
->>   1 file changed, 72 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml
+>> My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+>> on your patch (DT_CHECKER_FLAGS is new in v5.13):
 >>
-> 
-> My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
-> on your patch (DT_CHECKER_FLAGS is new in v5.13):
-> 
-> yamllint warnings/errors:
-> 
-> dtschema/dtc warnings/errors:
-> Documentation/devicetree/bindings/spi/microchip,mpfs-spi.example.dts:19:18: fatal error: dt-bindings/clock/microchip,mpfs-clock.h: No such file or directory
->     19 |         #include "dt-bindings/clock/microchip,mpfs-clock.h"
-Rob,
-Should I drop the header from the example or is there a way for me 
-specify the dependent patch to pass this check?
->        |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> compilation terminated.
-> make[1]: *** [scripts/Makefile.lib:385: Documentation/devicetree/bindings/spi/microchip,mpfs-spi.example.dt.yaml] Error 1
-> make[1]: *** Waiting for unfinished jobs....
-> make: *** [Makefile:1441: dt_binding_check] Error 2
-> 
-> doc reference errors (make refcheckdocs):
-> 
-> See https://patchwork.ozlabs.org/patch/1552385
-> 
-> This check can fail if there are any dependencies. The base for a patch
-> series is generally the most recent rc1.
-> 
-> If you already ran 'make dt_binding_check' and didn't see the above
-> error(s), then make sure 'yamllint' is installed and dt-schema is up to
-> date:
-> 
-> pip3 install dtschema --upgrade
-> 
-> Please check and re-submit.
-> 
+>> yamllint warnings/errors:
+>>
+>> dtschema/dtc warnings/errors:
+>> Documentation/devicetree/bindings/spi/microchip,mpfs-spi.example.dts:19:18: fatal error: dt-bindings/clock/microchip,mpfs-clock.h: No such file or directory
+>>     19 |         #include "dt-bindings/clock/microchip,mpfs-clock.h"
+> Rob,
+> Should I drop the header from the example or is there a way for me 
+> specify the dependent patch to pass this check?
+
+The error has to be fixed, although not necessarily by dropping the
+header, but by posting it. How this can pass on your system? There is no
+such file added in this patchset.
+
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
