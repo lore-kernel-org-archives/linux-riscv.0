@@ -2,14 +2,14 @@ Return-Path: <SRS0=OElg=P4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 05ACBC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Nov 2021 04:06:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D44E2C43217
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Nov 2021 04:06:56 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BEF3C61130
+	by mail.kernel.org (Postfix) with ESMTPS id 9A6A46128B
 	for <linux-riscv@archiver.kernel.org>; Tue,  9 Nov 2021 04:06:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org BEF3C61130
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9A6A46128B
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,69 +18,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:
 	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HeJqK2mZlLaLABcz72VLks1uBhyVKF07UzooVUGn2dw=; b=lNbqFmICOWHixm
-	AcAc+k37n6zFU9z42bIJYRT7MVbo32x2VDPaWJObPCDNJMMAOtPUPWb8iMfyzxhLjubLT7JB5e2u3
-	0Nm1++fe2VzgVM3g3T0cqKHTZjzbaykN4cUN5qt15rdna4gT3TWJhcG3WzrOcQKXHciLSy4vLEPAR
-	I9Gy1XzLJXbIzxd1t9h6MvijZocPtx475B2YZuSly2NWOvj/6GDI4Z8Q6cZVWl9nqhG3jE+3oAT2g
-	BbJulY+JFngiGmqQK9zxvlYGMm/51CcGcepnFHctn33GBMQOEVRcedaZjsxOhPyeZ1G1u5akpTMK/
-	gY1CI9KZTY5eMBgBF1Kw==;
+	List-Owner; bh=SiPtUHl90tIN8IsnFE8yhCqAE6juq9GV1ntR36sjcvw=; b=Yt7hPKinrP4rgf
+	yS/ScHHi9xUTL0X12FHTjL9j/RxAhhTZiqOb4Jh32KwQfdSoCB1ssN0Hn8nFFQFhgOiDiVgiXq6h7
+	zUTRRWu0dDCBxITta1UBBbvHo+ZbuWA/odAgbp6bLiVlNVIAj+Di/kHB/N2gY6hkFTh+jTM7DgdPR
+	v/NuosqGO8FLLOpsUECLWsocPXUw7g2Q2dEp1x3Eb4reyWcWiwlOtdFnmrUAN3Cgb9Jaj26+Po17t
+	0zRIBiO7WqCuKk3YPVSEkXD+EnuSqSExrwrw6KQZ5LGkggaGrhFL8yI6CIrcxC5JHRr757HTh8HVW
+	bBNgM8x/gXqmcZcjuBHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mkIPG-000dhj-Ay; Tue, 09 Nov 2021 04:06:46 +0000
-Received: from mail-ot1-f46.google.com ([209.85.210.46])
+	id 1mkIPE-000dhH-MS; Tue, 09 Nov 2021 04:06:44 +0000
+Received: from mail-ot1-f51.google.com ([209.85.210.51])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mkIP9-000de6-Px
- for linux-riscv@lists.infradead.org; Tue, 09 Nov 2021 04:06:42 +0000
-Received: by mail-ot1-f46.google.com with SMTP id
- w6-20020a9d77c6000000b0055e804fa524so593183otl.3
- for <linux-riscv@lists.infradead.org>; Mon, 08 Nov 2021 20:06:34 -0800 (PST)
+ id 1mkIP9-000dec-Oc
+ for linux-riscv@lists.infradead.org; Tue, 09 Nov 2021 04:06:41 +0000
+Received: by mail-ot1-f51.google.com with SMTP id
+ h16-20020a9d7990000000b0055c7ae44dd2so12958890otm.10
+ for <linux-riscv@lists.infradead.org>; Mon, 08 Nov 2021 20:06:38 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:in-reply-to:references:subject:date
  :message-id;
- bh=sKmNlZSZoAElUfGTKNnaMRLkfv9QOdA2lm06+/ZjStw=;
- b=imsN23YRw7+xwSI2hV6GAJVMh43g2FbsQc2q/kcouat7yInl/pzeT7nDpjXbZMDPPC
- kJoLnm5roeN16FAFAxconBAbrTaOnBRqk4AL/unUI4CMjROHbuJXIgD/b+PkhCP6iD9C
- RA+3sARuLrwLSx1SLbCh4eks17HGHZGRAWA9QZKeHZbcIYdnNzazUCLTv42Nm1JATOx2
- oeMWQPrGP4X2G+/eyLIsTIXXefzg3GcAvAIFwkdedV139a6/sBElcQFfvUNPqUkNAdYr
- jgQWAAng8fmquQ7Zzxhzit7fRQtIFW6oMcW+wSo37t7Tl6eIphmtGLlXYgc6N3TZWEEN
- twlA==
-X-Gm-Message-State: AOAM533Cx2G8BnHOhDS+6PHqsO/N3Gt539t2ofPbqeZ7rMz17Ol5N7En
- gd2FtWsKHUFfCYMZVmo5rg==
-X-Google-Smtp-Source: ABdhPJzGMR43jH1r8YoLKO/8WbqHBDKP5KH+Ll0UQu7GMVsnGMEYVBXzIyfexWPbGzgJb90Jc9Q4Fw==
-X-Received: by 2002:a05:6830:1314:: with SMTP id
- p20mr3292768otq.381.1636430793961; 
- Mon, 08 Nov 2021 20:06:33 -0800 (PST)
+ bh=srBAEqiQv7t2TUoCMiKomnj9CXcpM/RXP2/IhsCEUt4=;
+ b=uMjmnleF0RjkObF3bD6z0r7DYRii+ov5r8yq6FIAJYPUpWYPrvfnre93yhPEgG8bUi
+ rD1fokvaAVBBFG1ke5iLYgZX4EEK9D5Y1pWD4hue1FvI0clrgZBB4oPehsxcEJ34tATr
+ li7he7nl2GDmWXcY/xHo5/C6kWrCE8CU9aXnqI2iyZK0n6zUbrqsJCWBatZNOt2yFEvn
+ lIPNNkeqOpACictiJQyc0VyuguHZ0anRrjFBG89iqJs+w5O9+WBg3XWAfok1gXgl2avS
+ XS/JO7wP0tcRTNhL3dkb6p8LChFa05uRyXuTnrgy0sHKMYnkfdxo3KpNKhDEWBM55KLk
+ HiiQ==
+X-Gm-Message-State: AOAM533qg79ycIxsWM6W0yOd3Ii0fuBxs87Xq55eznBhI8j8CYZML5iN
+ KegdTqbpTUbSl142p7/Hiw==
+X-Google-Smtp-Source: ABdhPJxAD8OzRK/Sli7Q+xp3mQUCmoiHP7RN7OOEEvobUZ0MlWRieiCoDJdFa0SI20BV1G+hYm0D6w==
+X-Received: by 2002:a9d:76d1:: with SMTP id p17mr3474638otl.328.1636430798093; 
+ Mon, 08 Nov 2021 20:06:38 -0800 (PST)
 Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
  [66.90.148.213])
- by smtp.gmail.com with ESMTPSA id p133sm6807792oia.11.2021.11.08.20.06.32
+ by smtp.gmail.com with ESMTPSA id q81sm6985766oib.47.2021.11.08.20.06.36
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 08 Nov 2021 20:06:33 -0800 (PST)
-Received: (nullmailer pid 743041 invoked by uid 1000);
+ Mon, 08 Nov 2021 20:06:37 -0800 (PST)
+Received: (nullmailer pid 743039 invoked by uid 1000);
  Tue, 09 Nov 2021 04:06:29 -0000
 From: Rob Herring <robh@kernel.org>
 To: conor.dooley@microchip.com
-Cc: aou@eecs.berkeley.edu, krzysztof.kozlowski@canonical.com,
- robh+dt@kernel.org, a.zummo@towertech.it, palmer@dabbelt.com,
- paul.walmsley@sifive.com, jassisinghbrar@gmail.com, bgolaszewski@baylibre.com,
- devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-i2c@vger.kernel.org, broonie@kernel.org, ivan.griffin@microchip.com,
- alexandre.belloni@bootlin.com, geert@linux-m68k.org, lewis.hanly@microchip.com,
- linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
- atish.patra@wdc.com, linux-usb@vger.kernel.org, bin.meng@windriver.com,
- linux-rtc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linus.walleij@linaro.org, gregkh@linuxfoundation.org,
- daire.mcnamara@microchip.com, linux-spi@vger.kernel.org
-In-Reply-To: <20211108150554.4457-10-conor.dooley@microchip.com>
+Cc: linux-spi@vger.kernel.org, linus.walleij@linaro.org,
+ lewis.hanly@microchip.com, ivan.griffin@microchip.com,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-crypto@vger.kernel.org, paul.walmsley@sifive.com, broonie@kernel.org,
+ robh+dt@kernel.org, atish.patra@wdc.com, linux-kernel@vger.kernel.org,
+ daire.mcnamara@microchip.com, alexandre.belloni@bootlin.com,
+ krzysztof.kozlowski@canonical.com, bin.meng@windriver.com,
+ linux-gpio@vger.kernel.org, bgolaszewski@baylibre.com, a.zummo@towertech.it,
+ aou@eecs.berkeley.edu, palmer@dabbelt.com, geert@linux-m68k.org,
+ linux-usb@vger.kernel.org, gregkh@linuxfoundation.org,
+ jassisinghbrar@gmail.com, linux-rtc@vger.kernel.org, linux-i2c@vger.kernel.org
+In-Reply-To: <20211108150554.4457-8-conor.dooley@microchip.com>
 References: <20211108150554.4457-1-conor.dooley@microchip.com>
- <20211108150554.4457-10-conor.dooley@microchip.com>
-Subject: Re: [PATCH 09/13] dt-bindings: gpio: add bindings for microchip mpfs
- gpio
+ <20211108150554.4457-8-conor.dooley@microchip.com>
+Subject: Re: [PATCH 07/13] dt-bindings: rtc: add bindings for microchip mpfs
+ rtc
 Date: Mon, 08 Nov 2021 22:06:29 -0600
-Message-Id: <1636430789.924306.743040.nullmailer@robh.at.kernel.org>
+Message-Id: <1636430789.913081.743038.nullmailer@robh.at.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211108_200639_877899_5CB472BE 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20211108_200639_842508_6A763FC2 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,17 +97,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 08 Nov 2021 15:05:50 +0000, conor.dooley@microchip.com wrote:
+On Mon, 08 Nov 2021 15:05:48 +0000, conor.dooley@microchip.com wrote:
 > From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> Add device tree bindings for the gpio controller on
+> Add device tree bindings for the real time clock on
 > the Microchip PolarFire SoC.
 > 
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
 > ---
->  .../bindings/gpio/microchip,mpfs-gpio.yaml    | 108 ++++++++++++++++++
->  1 file changed, 108 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
+>  .../bindings/rtc/microchip,mfps-rtc.yaml      | 61 +++++++++++++++++++
+>  1 file changed, 61 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
 > 
 
 My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
@@ -117,17 +117,17 @@ on your patch (DT_CHECKER_FLAGS is new in v5.13):
 yamllint warnings/errors:
 
 dtschema/dtc warnings/errors:
-Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.example.dts:19:18: fatal error: dt-bindings/clock/microchip,mpfs-clock.h: No such file or directory
-   19 |         #include "dt-bindings/clock/microchip,mpfs-clock.h"
+Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.example.dts:19:18: fatal error: dt-bindings/clock/microchip,mpfs-clock.h: No such file or directory
+   19 |         #include <dt-bindings/clock/microchip,mpfs-clock.h>
       |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 compilation terminated.
-make[1]: *** [scripts/Makefile.lib:385: Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.example.dt.yaml] Error 1
+make[1]: *** [scripts/Makefile.lib:385: Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.example.dt.yaml] Error 1
 make[1]: *** Waiting for unfinished jobs....
 make: *** [Makefile:1441: dt_binding_check] Error 2
 
 doc reference errors (make refcheckdocs):
 
-See https://patchwork.ozlabs.org/patch/1552384
+See https://patchwork.ozlabs.org/patch/1552374
 
 This check can fail if there are any dependencies. The base for a patch
 series is generally the most recent rc1.
