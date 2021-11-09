@@ -2,14 +2,14 @@ Return-Path: <SRS0=OElg=P4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BCFCEC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Nov 2021 08:46:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5007AC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Nov 2021 08:48:55 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8418C61057
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Nov 2021 08:46:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8418C61057
+	by mail.kernel.org (Postfix) with ESMTPS id 0FDFA6117A
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Nov 2021 08:48:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0FDFA6117A
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,57 +18,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BQTbWXk577LGuVbagnTtlx0swDmC9Q7fxs30EoAebl4=; b=XRMHlF05kfIaQ3
-	VZWWs03n3OIxyzGfIt+vBsUhqcO/phfH7YH6jlga/ILWOjlJLs2gmn2tCs+zOUPGvIluIjkdS4GQY
-	tcwx4sx9Hmx8iUFUGhcnor6xAu4cZqG/KhVtPRKWrUemVThH56l2L0MIFnquAgjdpws71Pr+2L/ZB
-	6DsQhcdIFEaIQPokxkBQd8XoZsUC/5Nd8OpGthbiQT6uG/AuttLRWh359iEphrOVDExUU+LlFiDw3
-	FK0ZPM5FfXhl3S23DEe4cY72j/p0HPdTPyl9n2T/ZBALpgua7ywBkS5pI7tiRTW//62dqnCOk79Lt
-	uZeiP+/RCcOxugsazO8Q==;
+	List-Owner; bh=6bfWAuseERl0T+uqoaIq5GOh/yshBdYi9XVdfnF4eTk=; b=lt7X3MtYwCWclZ
+	e3RwUL4uTeqhHui1bkTzhNswxLTMw1/EO3NyQRIi3vdCgLjJJpRaFf+lbxQ0rnOgmMaTCrAwRFZDX
+	eQs3Ue5/PQUP0dGMfRDuQosTahTOXEm8ZR0P+ZaxtPlhpKq1clYYsCYDddykVscGbYmn1s/JedvQz
+	SL1eQhxGpPb3IduGiRCjozabm1oJV8+yKt0T7olAqhQohEsVFwb+10DutBZcb1KUGIr6k0uYOxeSG
+	Tt3XjW2+x0hwLtE4bu01D/+k+CS8FHqONINdtJB1dnKe38yC4hN2kkxdiiBeSLvSAZKPaAKmueTjm
+	ju267nz+pSO/yiSJQ6Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mkMlX-0014oi-75; Tue, 09 Nov 2021 08:46:03 +0000
-Received: from mail-ua1-f45.google.com ([209.85.222.45])
+	id 1mkMoA-0015XL-Mk; Tue, 09 Nov 2021 08:48:46 +0000
+Received: from mail-ua1-f54.google.com ([209.85.222.54])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mkMlS-0014nK-LY
- for linux-riscv@lists.infradead.org; Tue, 09 Nov 2021 08:46:00 +0000
-Received: by mail-ua1-f45.google.com with SMTP id p37so35921891uae.8
- for <linux-riscv@lists.infradead.org>; Tue, 09 Nov 2021 00:45:58 -0800 (PST)
+ id 1mkMo6-0015Vy-Pn
+ for linux-riscv@lists.infradead.org; Tue, 09 Nov 2021 08:48:44 +0000
+Received: by mail-ua1-f54.google.com with SMTP id p37so35934557uae.8
+ for <linux-riscv@lists.infradead.org>; Tue, 09 Nov 2021 00:48:42 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=cBujI6LULAaiAY45bOf/1wEBrbff5jn8VFxrA8Nj2gY=;
- b=Vk8RMnEA6lLq3qszvjkcdjVJXRt4uRjlXwLK8ttxBp7BzBR+UnyURncaTJGWLl9IR0
- OLwOf5GF1xMEvs+xULX3/LDb8IQQQDvmDLs8ZtYJu9PTxISCKd8fdL8Qk75jC3VmQTHB
- s+P6urGxpSMX2MgTo53XdnsyGkmQ9SmPwv3luqKwb9T+Yx9PWY3uikLd28pagfYiQUtl
- GmKYT8CHm0T0ChJyjbo70t3byx9iNI2c6SjII2iVy/+eQcrITcN6ENohXARAdB5VeKiN
- xUYFFNEAqGA7qrmF2e78Pn1XuoKANvDPIX26V2d/FQvY3MFgwCj0voGigrI1g29AV+Bg
- QG/w==
-X-Gm-Message-State: AOAM530Lau3ioZUvjxkqUv48pHbYgW38JTGLSB2tB0eW09PDDBqGKIvK
- K40QYUcwmvh0BmEN1IBPQlsMPW+/tTEAsEzI
-X-Google-Smtp-Source: ABdhPJx1RL4n0ASyzQwnGbhkCoqIFYm9zvuabgRjTz6WbNXbMwlRHWRjYOO7a2oH/4DXf2ZfKBtuCw==
-X-Received: by 2002:ab0:7041:: with SMTP id v1mr7815327ual.95.1636447557533;
- Tue, 09 Nov 2021 00:45:57 -0800 (PST)
-Received: from mail-ua1-f50.google.com (mail-ua1-f50.google.com.
- [209.85.222.50])
- by smtp.gmail.com with ESMTPSA id y28sm1662378vkl.22.2021.11.09.00.45.56
+ bh=WBDXAvrVMOF74SvlOY510+Wn6BscpCQ4WL2UuaAH35U=;
+ b=0aMn4R8+OVeRwXa2lz3pbb3D5dquLXj3P0i9NAv/Iwz7uimLkTzPZhq7VU8gcqo5aW
+ pbbKowFlKlmeuS0eSIwSdt4QoBzlC/mABHm8Dauj+LklW9wrAAU9B56/Mr/WQyvaaxcd
+ 8r2vw/QK03f13pcQ5wGgAG0Wcx1dXz8PLYaoa7pRBM7/YbUDKeWtmgI+Xz8SF9HDJ/+j
+ uEvnKSIRCAUSj6uZh0bP0CPDJkiT2+T0oNHVHNXIUh3nraNbqbnaJUkQK65viRuMclch
+ mkF2tmZCsEk2F8TmQG9mH86Gk78ecnp57HFcvBV4s86J1pp7KchTYYQO8i+Qm0PYvanx
+ MUeA==
+X-Gm-Message-State: AOAM531C/2+x3TeO8yUOcCjHbS4GhESIz3E+3UUVvR4R5/BTiZYo+lPx
+ JTXFmWqJNMXd5t5zBFBfodIFi/wlhahnJ5qP
+X-Google-Smtp-Source: ABdhPJzoMeC9sqVWR6wbw5kfM4OiIJnObswErWIKf06pJ3qBGpX4S0lbqbJhdWiZC+bovX3mdJKoVQ==
+X-Received: by 2002:a67:c90a:: with SMTP id w10mr9787020vsk.56.1636447721751; 
+ Tue, 09 Nov 2021 00:48:41 -0800 (PST)
+Received: from mail-ua1-f51.google.com (mail-ua1-f51.google.com.
+ [209.85.222.51])
+ by smtp.gmail.com with ESMTPSA id bj50sm688734vkb.7.2021.11.09.00.48.40
  for <linux-riscv@lists.infradead.org>
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 09 Nov 2021 00:45:56 -0800 (PST)
-Received: by mail-ua1-f50.google.com with SMTP id az37so37074598uab.13
- for <linux-riscv@lists.infradead.org>; Tue, 09 Nov 2021 00:45:56 -0800 (PST)
-X-Received: by 2002:a9f:2c98:: with SMTP id w24mr7784643uaj.89.1636447556112; 
- Tue, 09 Nov 2021 00:45:56 -0800 (PST)
+ Tue, 09 Nov 2021 00:48:41 -0800 (PST)
+Received: by mail-ua1-f51.google.com with SMTP id b3so37147259uam.1
+ for <linux-riscv@lists.infradead.org>; Tue, 09 Nov 2021 00:48:40 -0800 (PST)
+X-Received: by 2002:a67:c38f:: with SMTP id s15mr9690352vsj.50.1636447720630; 
+ Tue, 09 Nov 2021 00:48:40 -0800 (PST)
 MIME-Version: 1.0
 References: <20211108150554.4457-1-conor.dooley@microchip.com>
- <20211108150554.4457-11-conor.dooley@microchip.com>
-In-Reply-To: <20211108150554.4457-11-conor.dooley@microchip.com>
+ <20211108150554.4457-12-conor.dooley@microchip.com>
+In-Reply-To: <20211108150554.4457-12-conor.dooley@microchip.com>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 9 Nov 2021 09:45:44 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWQxz5eprDuqJcsXcp+cKPwxoV=+if_qvS9ah5qBO-shA@mail.gmail.com>
-Message-ID: <CAMuHMdWQxz5eprDuqJcsXcp+cKPwxoV=+if_qvS9ah5qBO-shA@mail.gmail.com>
-Subject: Re: [PATCH 10/13] dt-bindings: spi: add bindings for microchip mpfs
- spi
+Date: Tue, 9 Nov 2021 09:48:29 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVtVTEEhjUr7jj4tBoahPTXAYu9uSKVpr54mCeZx_ktqQ@mail.gmail.com>
+Message-ID: <CAMuHMdVtVTEEhjUr7jj4tBoahPTXAYu9uSKVpr54mCeZx_ktqQ@mail.gmail.com>
+Subject: Re: [PATCH 11/13] dt-bindings: usb: add bindings for microchip mpfs
+ musb
 To: Conor Dooley <conor.dooley@microchip.com>
 Cc: Linus Walleij <linus.walleij@linaro.org>, 
  Bartosz Golaszewski <bgolaszewski@baylibre.com>,
@@ -92,8 +92,8 @@ Cc: Linus Walleij <linus.walleij@linaro.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
  Bin Meng <bin.meng@windriver.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211109_004558_759593_5719D831 
-X-CRM114-Status: GOOD (  24.47  )
+X-CRM114-CacheID: sfid-20211109_004842_878453_77637352 
+X-CRM114-Status: GOOD (  25.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,7 +115,7 @@ Hi Conor,
 On Mon, Nov 8, 2021 at 4:07 PM <conor.dooley@microchip.com> wrote:
 > From: Conor Dooley <conor.dooley@microchip.com>
 >
-> Add device tree bindings for the {q,}spi controller on
+> Add device tree bindings for the usb controller on
 > the Microchip PolarFire SoC.
 >
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
@@ -123,35 +123,62 @@ On Mon, Nov 8, 2021 at 4:07 PM <conor.dooley@microchip.com> wrote:
 Thanks for your patch!
 
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml
-> @@ -0,0 +1,72 @@
+> +++ b/Documentation/devicetree/bindings/usb/microchip,mpfs-usb-host.yaml
+> @@ -0,0 +1,70 @@
 > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 > +%YAML 1.2
 > +---
-> +$id: http://devicetree.org/schemas/spi/microchip,mpfs-spi.yaml#
+> +$id: http://devicetree.org/schemas/usb/microchip,mpfs-usb-host.yaml#
 > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: Microchip MPFS {Q,}SPI Controller Device Tree Bindings
+> +title: Microchip MPFS USB Controller Device Tree Bindings
 > +
 > +maintainers:
 > +  - Conor Dooley <conor.dooley@microchip.com>
 > +
 > +description: |
-> +  This {Q,}SPI controller is found on the Microchip PolarFire SoC.
-> +
-> +allOf:
-> +  - $ref: "spi-controller.yaml#"
+> +  This USB controller is found on the Microchip PolarFire SoC.
 > +
 > +properties:
 > +  compatible:
 > +    enum:
-> +      - microchip,mpfs-spi
-> +      - microsemi,ms-pf-mss-spi
-> +      - microchip,mpfs-qspi
-> +      - microsemi,ms-pf-mss-qspi
+> +      - microchip,mpfs-usb-host
 
-Same comment as before: what are the ms-pf-mss entries?
+"microchip-mpfs-usb", given the dr_mode property below indicates this
+controller is not limited to host mode?
 
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  interrupt-names:
+> +    minItems: 2
+> +    items:
+> +      - const: dma
+> +      - const: mc
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  dr_mode:
+> +    enum:
+> +      - host
+> +      - otg
+> +      - peripheral
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - interrupt-names
+> +  - clocks
+> +  - dr_mode
+> +
+> +additionalProperties: false
+> +
 > +examples:
 > +  - |
 > +    #include "dt-bindings/clock/microchip,mpfs-clock.h"
@@ -162,23 +189,29 @@ Same comment as before: what are the ms-pf-mss entries?
 
 Please drop these two...
 
-> +      spi0: spi@20108000 {
-> +        compatible = "microchip,mpfs-spi";
-> +        reg = <0x0 0x20108000 0x0 0x1000>;
+> +      usb: usb@20201000 {
+> +        compatible = "microchip,mpfs-usb-host";
+> +        reg = <0x0 0x20201000 0x0 0x1000>;
 
 ... and the zeros here.
 
-> +        clocks = <&clkcfg CLK_SPI0>;
+> +        clocks = <&clkcfg CLK_USB>;
 > +        interrupt-parent = <&plic>;
-> +        interrupts = <PLIC_INT_SPI0>;
-> +        spi-max-frequency = <25000000>;
-> +        num-cs = <8>;
+> +        interrupts = <PLIC_INT_USB_DMA PLIC_INT_USB_MC>;
+
+Please group by angular brackets:
+
+<PLIC_INT_USB_DMA>, <PLIC_INT_USB_MC>.
+
+> +        interrupt-names = "dma","mc";
+> +        dr_mode = "host";
 > +        status = "disabled";
 
 Please drop this.
 
 > +      };
 > +    };
+> +
 > +...
 
 Gr{oetje,eeting}s,
