@@ -2,58 +2,135 @@ Return-Path: <SRS0=I72s=P5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 16858C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Nov 2021 10:38:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0726DC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Nov 2021 10:46:13 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A7C836112F
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Nov 2021 10:38:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org A7C836112F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=codethink.co.uk
+	by mail.kernel.org (Postfix) with ESMTPS id C948C61168
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Nov 2021 10:46:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C948C61168
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmx.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cV+MwK9G9/Y0jfQAroCN78qjr6jE+ycqOtm00W4ugcQ=; b=w7rRGB088i95ttpGWxzuNtzIs+
-	8sWQ+zQWPNn8PY+nGG4+8G6lfRu7shcLuxegr/e7+yBsZLt28lv09ZsG+MxBvNsvOMrb80Q5YXo3S
-	FOestaP3lzXLUgJmF0DtmhU7jm9rb2iD529UJXaSfBhdsDdOB0Ob/5W2meA8cA2LXOC1AsxM0BWFX
-	hwxeBIe9IyuGKna2mGm9yghAUnR4jYB3E0r4JEUFEDLpOBiqSgB3lRgJo4MFKPGmEx4ZfNnTagb6f
-	U9/0dhonH90/LeEEXAHqNcsGB6mbWNM8i+xS9+ZXxCCFhC7Hhw9sC1Sjr4HQlAkQ0WEKfmvOeSDKk
-	hcjGZVgQ==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QaQtQrzzubbvFVk74d7+S4OTvEguu87nmoagYraZMhM=; b=byiVowA8VxtIMP4C2HSFW4OP1Y
+	LguIEcW9wSO434nn3vHCcx1bzw5Ac6WETs6N4N/e8je0TyTE/yKlLwbJp863ukzq3vR3jSFJN7wOy
+	TVGAE4fsz3RfQ925eUcmAf3Nj5L8+dKIj8pc0UtQU/9jUCw/js+ttAcSrwxvTYm5JfNwCf+SzB9Sf
+	K6TIRqDKuLkRAWjUB22xawb3ylS8g3jMKw3ycZ2G7Qj8fKC3aQUoYIVghSrricvtNT0SeLwIPb427
+	yqA4eDl+JAG/mhxUCS2oJsIOXss5cKw3bTupcff/UJw38X3TNbIIkVuUxgAPYwSdjoNDLyZ2VCQv7
+	6ipwj+RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mkkzz-0059s0-Ew; Wed, 10 Nov 2021 10:38:35 +0000
-Received: from imap3.hz.codethink.co.uk ([176.9.8.87])
+	id 1mkl7F-005Afz-AU; Wed, 10 Nov 2021 10:46:05 +0000
+Received: from mout.gmx.net ([212.227.15.18])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mkkzw-0059qU-3H
- for linux-riscv@lists.infradead.org; Wed, 10 Nov 2021 10:38:33 +0000
-Received: from cpc152649-stkp13-2-0-cust121.10-2.cable.virginm.net
- ([86.15.83.122] helo=[192.168.0.21])
- by imap3.hz.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
- id 1mkkzl-0007o9-D5; Wed, 10 Nov 2021 10:38:21 +0000
-Subject: Re: [PATCH v9 16/17] riscv: Fix an illegal instruction exception when
- accessing vlenb without enable vector first
-To: Greentime Hu <greentime.hu@sifive.com>, palmer@dabbelt.com,
- paul.walmsley@sifive.com, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu
-References: <cover.1636362169.git.greentime.hu@sifive.com>
- <3c0297d8335e4cac54a4397c880092c1c983e04e.1636362169.git.greentime.hu@sifive.com>
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-Message-ID: <2d08f105-64fd-a43a-1dea-24870ff7c5b0@codethink.co.uk>
-Date: Wed, 10 Nov 2021 10:38:20 +0000
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.14.0
+ id 1mkl78-005Adv-Ps; Wed, 10 Nov 2021 10:46:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1636541050;
+ bh=h45DiQjGY0Dfm8CE9cn4qF+342ykeQ4Uk5C/gkooaIw=;
+ h=X-UI-Sender-Class:Date:From:To:Cc:Subject:References:In-Reply-To;
+ b=kmUfRHIzmoViydSucYTxEQG1FNJ8CWRzX0F3WYOX1d2VD3eujCwT6kC0uAXqWmZLt
+ eMJ+M/8iTWkQKI5o+Bspt5/1og5A5qZCqV0IRSD+beJIRF0/33jVnOkUer8fEeU46q
+ NY7uVn1Yx5reMWfFjuhrJ2jc6HS5QmKSQvralaIo=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from longitude ([5.146.194.160]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MYeQr-1nEmW91Bsx-00Vcng; Wed, 10
+ Nov 2021 11:44:10 +0100
+Date: Wed, 10 Nov 2021 11:43:55 +0100
+From: Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>
+To: Dmitry Osipenko <digetx@gmail.com>
+Cc: Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>,
+ Guenter Roeck <linux@roeck-us.net>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Lee Jones <lee.jones@linaro.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Greg Ungerer <gerg@linux-m68k.org>, Joshua Thompson <funaho@jurai.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
+ Vincent Chen <deanbo422@gmail.com>, Helge Deller <deller@gmx.de>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Rich Felker <dalias@libc.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+ Juergen Gross <jgross@suse.com>,
+ Stefano Stabellini <sstabellini@kernel.org>, Len Brown <lenb@kernel.org>,
+ Santosh Shilimkar <ssantosh@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Chen-Yu Tsai <wens@csie.org>, Tony Lindgren <tony@atomide.com>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Vladimir Zapolskiy <vz@mleia.com>,
+ Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>,
+ Tali Perry <tali.perry1@gmail.com>,
+ Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
+ Benjamin Fair <benjaminfair@google.com>,
+ Pavel Machek <pavel@ucw.cz>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, xen-devel@lists.xenproject.org,
+ linux-acpi@vger.kernel.org, linux-omap@vger.kernel.org,
+ openbmc@lists.ozlabs.org, linux-tegra@vger.kernel.org,
+ linux-pm@vger.kernel.org
+Subject: Re: [PATCH v2 27/45] mfd: ntxec: Use devm_register_power_handler()
+Message-ID: <YYuia9KFdi+ETT+I@latitude>
+References: <20211027211715.12671-1-digetx@gmail.com>
+ <20211027211715.12671-28-digetx@gmail.com>
+ <YYbqlmOM95q7Hbjo@latitude>
+ <be0c74c6-05a9-cad5-c285-6626d05f8860@gmail.com>
+ <9a22c22d-94b1-f519-27a2-ae0b8bbf6e99@roeck-us.net>
+ <658cf796-e3b1-f816-1e15-9e9e08b8ade0@gmail.com>
+ <5a17fee3-4214-c2b9-abc1-ab9d6071591b@roeck-us.net>
+ <c0b52994-51f5-806b-b07e-3e70d8217ffc@gmail.com>
+ <YYkIeBSCFka9yrqC@latitude>
+ <04103df3-1ef4-b560-a5cb-fa51737d28ad@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <3c0297d8335e4cac54a4397c880092c1c983e04e.1636362169.git.greentime.hu@sifive.com>
-Content-Language: en-GB
+In-Reply-To: <04103df3-1ef4-b560-a5cb-fa51737d28ad@gmail.com>
+X-Provags-ID: V03:K1:Jd3HsvpIvSkd1z9MZ8A+M8pmRMEjtJGTIH5/rKKzl1zv92guAhj
+ 9dWDOhUd2UJZ9MerqFJu2sL0Vqy01eD3StlZDn4FJIminWyxKafYCrFSKtByuDa87GeS9OR
+ qeoUp0E4UiW3sjAndGidVfCkZjgUQcURUuhYsgKl5H5XKG1g/BTOt0/CSBYYpcJ5Udag/gd
+ 3wpmaE1MgAr/8Zxl8PaIg==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:9zHz1F4x458=:7Vp+bYm0dzpDVbvG6/Jg2u
+ qI4IrtGWKiV/jMQFkG7dyJBbQvpEWwPJ76d/zJSyX1M1lKNm0KMizgdWYVXyIW/XoqBwKPv1D
+ 53+DzXdLuVgOm0wkoIG2GeQ/nb/c84AhvSEAoevpHCl6VEXR6fOvbN82cXa7985eDdl8UKM+O
+ 4h3Is/MA4WoDtRBZ1OqiFsYx8FLL1RBd0E7FqR319PSJ/bJwJAdPbaC1JvQk6kHH3/NBFt26i
+ Q3DgkmG6muY/n8xv9b9V7t/ZWlppYtelF1o5MvHu2J00j2PbYSZX9eozu/Doat8V94rSWUKYb
+ 8pSdnLPUWq70O5KtVp9tTAFvyw/H1FShEa0gt9n4kbbOSofwKtWPp3w6ndwZn0vqQiMqSpx5F
+ pW+VpkbxvWsOFEWJJsTGH2eqGFH7HNRknQZl+87wW5wtL7KvGgF3QsbsIAWrKtzB9X/8WrLGE
+ Q2bThe7j50/eherGVoafg+OX1FpxcH8SkWxWRwHOYPY6MAcfWvoCbb0Lrq1TuMCEIR21SYzz/
+ nKcIQ2MIMbO6pJev1gnsMMspAiK9v/yDDf2YfwA5W5cMnog6ZH1EP7GjRP+V1L4WGIVmIYWjZ
+ cHGTxKjNY18j227bPzrRrZw1mR3FZxmby4QNq9M2UubsB6oeBGdjh2aJPUPJBCfs/+3a18KA+
+ xA6FQOnu4L1XhctfO1s8iX0YD6ideSBMb0KHUFr1N0LQgA0QEITEwNFtzGkPBB/gQ91Mtb/BO
+ /mpnNG0EzJaO/w5CiG92jdML3JVtyvpMLyLhPWE0HyQ2mtmYYeRjCDxP5oDHzH4e/JAELuTV1
+ U+KgtcC4SdatS1E3xSGfYaEWJnZD3guRw2ZDMVMPz1QzGYvBbk1uTXDDTpqBpiWB9POVDvyMU
+ RZN7S/dzQnujlcpYxqJMiIBsYFZJI3saxm1eCZh79EkYKtr+yxECJAHRe1ooDxlvmf+PdmvFz
+ teW5eV+FQ6Z8TxYl0+/Pxm1aaTMg360Uf5O3Yxxq+6pW+Cr9pdW+jbwf3FWQ4Opb03KxmWDUJ
+ J/4DosOxyxjcCBCxt9avnDv6aic7H0cD/lL1HPIA+I+KJ0H2Wh10gm+vMHpsdMkzEHCpK13Dh
+ +VtVl/6MSAYdCs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211110_023832_194725_62F206A5 
-X-CRM114-Status: GOOD (  20.57  )
+X-CRM114-CacheID: sfid-20211110_024559_186125_C6FAC5C2 
+X-CRM114-Status: GOOD (  22.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,98 +142,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============5109120972388368819=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 09/11/2021 09:48, Greentime Hu wrote:
-> It triggered an illegal instruction exception when accessing vlenb CSR
-> without enable vector first. To fix this issue, we should enable vector
-> before using it and disable vector after using it.
-> 
-> Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> ---
->   arch/riscv/include/asm/vector.h        | 2 ++
->   arch/riscv/kernel/cpufeature.c         | 2 ++
->   arch/riscv/kernel/kernel_mode_vector.c | 6 ++++--
->   3 files changed, 8 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-> index 5d7f14453f68..ca063c8f47f2 100644
-> --- a/arch/riscv/include/asm/vector.h
-> +++ b/arch/riscv/include/asm/vector.h
-> @@ -8,6 +8,8 @@
->   
->   #include <linux/types.h>
->   
-> +void rvv_enable(void);
-> +void rvv_disable(void);
->   void kernel_rvv_begin(void);
->   void kernel_rvv_end(void);
->   
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 8e7557980faf..0139ec20adce 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -159,7 +159,9 @@ void __init riscv_fill_hwcap(void)
->   	if (elf_hwcap & COMPAT_HWCAP_ISA_V) {
->   		static_branch_enable(&cpu_hwcap_vector);
->   		/* There are 32 vector registers with vlenb length. */
-> +		rvv_enable();
->   		riscv_vsize = csr_read(CSR_VLENB) * 32;
-> +		rvv_disable();
->   	}
->   #endif
 
-Would it be better to enable this here, and then restore the original
-state instead of calling rvv_disable? If it was enabled then maybe
-something else is going to rely on that state?
-
-Maybe something like:
-
-		prev = rvv_enable()
-		riscv_vsize = csr_read(CSR_VLENB) * 32;
-		rvv_restore(prev);
+--===============5109120972388368819==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="2Vc8voT8F+nWl+5t"
+Content-Disposition: inline
 
 
->   }
-> diff --git a/arch/riscv/kernel/kernel_mode_vector.c b/arch/riscv/kernel/kernel_mode_vector.c
-> index 8d2e53ea25c1..1ecb6ec5c56d 100644
-> --- a/arch/riscv/kernel/kernel_mode_vector.c
-> +++ b/arch/riscv/kernel/kernel_mode_vector.c
-> @@ -71,15 +71,17 @@ static void put_cpu_vector_context(void)
->   	preempt_enable();
->   }
->   
-> -static void rvv_enable(void)
-> +void rvv_enable(void)
->   {
->   	csr_set(CSR_STATUS, SR_VS);
->   }
-> +EXPORT_SYMBOL(rvv_enable);
->   
-> -static void rvv_disable(void)
-> +void rvv_disable(void)
->   {
->   	csr_clear(CSR_STATUS, SR_VS);
->   }
-> +EXPORT_SYMBOL(rvv_disable);
->   
->   /*
->    * kernel_rvv_begin(): obtain the CPU vector registers for use by the calling
-> 
+--2Vc8voT8F+nWl+5t
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Nov 08, 2021 at 02:36:42PM +0300, Dmitry Osipenko wrote:
+> 08.11.2021 14:22, Jonathan Neusch=C3=A4fer =D0=BF=D0=B8=D1=88=D0=B5=D1=82:
+> > On Sun, Nov 07, 2021 at 08:42:33PM +0300, Dmitry Osipenko wrote:
+> > [...]
+> >> EC drivers tend to use higher priority in general. Jonathan, could you
+> >> please confirm that NTXEC driver is a more preferable restart method
+> >> than the watchdog?
+> >=20
+> > Yes. The original firmware uses the NTXEC to restart, and it works well,
+> > so I do think it's preferable.
+>=20
+> Thank you, then I'll update the NTXEC patch like this:
+>=20
+> https://github.com/grate-driver/linux/commit/22da3d91f1734d9a0ed036220ad4=
+ea28465af988
+
+I tested again, but sys_off_handler_reboot called a bogus pointer
+(probably reboot_prepare_cb). I think it was left uninitialized in
+ntxec_probe, which uses devm_kmalloc. I guess we could switch it to
+devm_kzalloc:
+
+diff --git a/drivers/mfd/ntxec.c b/drivers/mfd/ntxec.c
+index 1f55dfce14308..30364beb4b1d0 100644
+--- a/drivers/mfd/ntxec.c
++++ b/drivers/mfd/ntxec.c
+@@ -144,7 +144,7 @@ static int ntxec_probe(struct i2c_client *client)
+ 	const struct mfd_cell *subdevs;
+ 	size_t n_subdevs;
+=20
+-	ec =3D devm_kmalloc(&client->dev, sizeof(*ec), GFP_KERNEL);
++	ec =3D devm_kzalloc(&client->dev, sizeof(*ec), GFP_KERNEL);
+ 	if (!ec)
+ 		return -ENOMEM;
+=20
 
 
--- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
+With that done, it works flawlessly.
 
-https://www.codethink.co.uk/privacy.html
+
+Thanks,
+Jonathan
+
+--2Vc8voT8F+nWl+5t
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEvHAHGBBjQPVy+qvDCDBEmo7zX9sFAmGLoj4ACgkQCDBEmo7z
+X9tbGw/9GW9TBNeJDqVwinH41nEM2TsnygEKpr7D3uPWXiWIIh7wxva0XnLkeDOr
+YZUOSFjLglCoW9n8UjIgpmScFQ9OY5em2dY9iSOPk55FYy/kkD1LKXl8Qbto3Xjr
+XRwv4EDIxlfO2uvjXgc07E2zGjiZdqaFwcIiMz1l8Rns6jC+AbzO0KFcoffXXKCg
+oCDi/e1hnVfze/XGWTTSXbofwfAKHJPVE11uF8lK2Uqv0THOAbvpIQdZiQPaNuVe
+bZuJ1p6wMxzjc6HiB8C6aJ0sy5Po98ZKWTAvvqFXBitgvOx0VCgKfJfqS+06qxiA
+gYnxdQAIJjcwrBJYfpry4rg9nBYvH7Jao/uKYoXSm73mtXdEqG4oIQIZ0eC7jS/d
+dRGjzR5mrhaA3G8mWMssxg6RX1EGpYBimy7XGpgml/bIXrEjGYZi3FaGZSnk9UTd
+oAutr3b9I43OZFYo/gRKjQmEl9C1Ru/ZsmKDin75X8hfCzrFOoAUCLQ7X/tbbPoF
+As6x8TUBJY8Zd9xBW2i/4sm+ZPAuMG5TMzzpRj/DEs2RN5UouXycBqzTFNleFYYf
+LuwPDYZYSqe75uXgu0K0weup8tULnVfBuvOJDR5yMF7tf90iNku7JIcIXjtKglWH
+EA0twe/kQWknjeUcmaR65U1v+cf8ekV6V8TVrEKb4cCEYf3HPBw=
+=z+7h
+-----END PGP SIGNATURE-----
+
+--2Vc8voT8F+nWl+5t--
+
+
+--===============5109120972388368819==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5109120972388368819==--
+
