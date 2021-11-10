@@ -2,135 +2,123 @@ Return-Path: <SRS0=I72s=P5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0726DC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Nov 2021 10:46:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E468DC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Nov 2021 11:08:15 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C948C61168
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Nov 2021 10:46:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org C948C61168
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmx.net
+	by mail.kernel.org (Postfix) with ESMTPS id 8990261205
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Nov 2021 11:08:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8990261205
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QaQtQrzzubbvFVk74d7+S4OTvEguu87nmoagYraZMhM=; b=byiVowA8VxtIMP4C2HSFW4OP1Y
-	LguIEcW9wSO434nn3vHCcx1bzw5Ac6WETs6N4N/e8je0TyTE/yKlLwbJp863ukzq3vR3jSFJN7wOy
-	TVGAE4fsz3RfQ925eUcmAf3Nj5L8+dKIj8pc0UtQU/9jUCw/js+ttAcSrwxvTYm5JfNwCf+SzB9Sf
-	K6TIRqDKuLkRAWjUB22xawb3ylS8g3jMKw3ycZ2G7Qj8fKC3aQUoYIVghSrricvtNT0SeLwIPb427
-	yqA4eDl+JAG/mhxUCS2oJsIOXss5cKw3bTupcff/UJw38X3TNbIIkVuUxgAPYwSdjoNDLyZ2VCQv7
-	6ipwj+RA==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=tyO9Ukz4LIaYX/WWX9ow15UkBxnzrk/TXQvN4TmghCM=; b=0VxS8/kEjy/2QO
+	dYUuBrIVF6FuY/BJabH1h/uP1qQN1ILRaTW4sEdMh9isX7nSnjJ6+EPQqhmwIpCia/8vi1kelZHD6
+	CZH9eGjcTcT7oOMWsic2hZh01MhcLVFBSV9lkKpeWHQmTED+HOXKqvlmuGZDWpU6pl7veCFSU847V
+	dwqbMuThZJv/hSLELTaXln2YTgsQfoYWyEnDsrlQPR4lwnrPrLNWR1VO/TIYcYCqHIlvLVBSP2YbA
+	4wKdP9mB3lgFcWsyIy8hM6Il9ecA467NB0i14r0Nix9i09ndYCMxlaX/9oaziVZPtVt5YuEB6J9vm
+	pQudPHDT05RdY55d07aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mkl7F-005Afz-AU; Wed, 10 Nov 2021 10:46:05 +0000
-Received: from mout.gmx.net ([212.227.15.18])
+	id 1mklSZ-005FaP-3m; Wed, 10 Nov 2021 11:08:07 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mkl78-005Adv-Ps; Wed, 10 Nov 2021 10:46:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1636541050;
- bh=h45DiQjGY0Dfm8CE9cn4qF+342ykeQ4Uk5C/gkooaIw=;
- h=X-UI-Sender-Class:Date:From:To:Cc:Subject:References:In-Reply-To;
- b=kmUfRHIzmoViydSucYTxEQG1FNJ8CWRzX0F3WYOX1d2VD3eujCwT6kC0uAXqWmZLt
- eMJ+M/8iTWkQKI5o+Bspt5/1og5A5qZCqV0IRSD+beJIRF0/33jVnOkUer8fEeU46q
- NY7uVn1Yx5reMWfFjuhrJ2jc6HS5QmKSQvralaIo=
-X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from longitude ([5.146.194.160]) by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MYeQr-1nEmW91Bsx-00Vcng; Wed, 10
- Nov 2021 11:44:10 +0100
-Date: Wed, 10 Nov 2021 11:43:55 +0100
-From: Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>
-To: Dmitry Osipenko <digetx@gmail.com>
-Cc: Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>,
- Guenter Roeck <linux@roeck-us.net>,
- Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, Lee Jones <lee.jones@linaro.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Mark Brown <broonie@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Russell King <linux@armlinux.org.uk>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Ulf Hansson <ulf.hansson@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Greg Ungerer <gerg@linux-m68k.org>, Joshua Thompson <funaho@jurai.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
- Vincent Chen <deanbo422@gmail.com>, Helge Deller <deller@gmx.de>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Yoshinori Sato <ysato@users.sourceforge.jp>,
- Rich Felker <dalias@libc.org>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- Juergen Gross <jgross@suse.com>,
- Stefano Stabellini <sstabellini@kernel.org>, Len Brown <lenb@kernel.org>,
- Santosh Shilimkar <ssantosh@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- Chen-Yu Tsai <wens@csie.org>, Tony Lindgren <tony@atomide.com>,
- Liam Girdwood <lgirdwood@gmail.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Vladimir Zapolskiy <vz@mleia.com>,
- Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>,
- Tali Perry <tali.perry1@gmail.com>,
- Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
- Benjamin Fair <benjaminfair@google.com>,
- Pavel Machek <pavel@ucw.cz>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-sh@vger.kernel.org, xen-devel@lists.xenproject.org,
- linux-acpi@vger.kernel.org, linux-omap@vger.kernel.org,
- openbmc@lists.ozlabs.org, linux-tegra@vger.kernel.org,
- linux-pm@vger.kernel.org
-Subject: Re: [PATCH v2 27/45] mfd: ntxec: Use devm_register_power_handler()
-Message-ID: <YYuia9KFdi+ETT+I@latitude>
-References: <20211027211715.12671-1-digetx@gmail.com>
- <20211027211715.12671-28-digetx@gmail.com>
- <YYbqlmOM95q7Hbjo@latitude>
- <be0c74c6-05a9-cad5-c285-6626d05f8860@gmail.com>
- <9a22c22d-94b1-f519-27a2-ae0b8bbf6e99@roeck-us.net>
- <658cf796-e3b1-f816-1e15-9e9e08b8ade0@gmail.com>
- <5a17fee3-4214-c2b9-abc1-ab9d6071591b@roeck-us.net>
- <c0b52994-51f5-806b-b07e-3e70d8217ffc@gmail.com>
- <YYkIeBSCFka9yrqC@latitude>
- <04103df3-1ef4-b560-a5cb-fa51737d28ad@gmail.com>
+ id 1mklSW-005FZ0-4R
+ for linux-riscv@lists.infradead.org; Wed, 10 Nov 2021 11:08:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1636542481;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=48dRn8RRnq7Fx6Bqaf9CAoNN40en8LqbHxW41Xnziw0=;
+ b=dpWL7meooMgtBAmdDfRcE8M23Cvi9RojMiz0s6vfwne6xMgsHhy5yvRUBJSzSbnpT+vZE7
+ UtCi2D18EuXvv1RNmj8iYDIBbQ1c3dwPweBTrUq4Kyiep81DMsIqjoi0EQBaFMqGXHjyw5
+ 9ddfqP0gd5Ejvqk0mMic57gjbIsJyWo=
+Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com
+ [209.85.208.71]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-396-uD92VhVXMb-eOZH00ntJww-1; Wed, 10 Nov 2021 06:08:00 -0500
+X-MC-Unique: uD92VhVXMb-eOZH00ntJww-1
+Received: by mail-ed1-f71.google.com with SMTP id
+ w12-20020a056402268c00b003e2ab5a3370so2069588edd.0
+ for <linux-riscv@lists.infradead.org>; Wed, 10 Nov 2021 03:08:00 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+ :content-language:to:cc:references:from:in-reply-to
+ :content-transfer-encoding;
+ bh=48dRn8RRnq7Fx6Bqaf9CAoNN40en8LqbHxW41Xnziw0=;
+ b=X5rWlBov+uGFDt4IJXjNjtO4sdc6t2KRf+vvkhlYVftxd9nDTumy5Mnq5sqGtBbG2F
+ xTjs88w3sJD0OG6AQNQ0MDwbR9zLx0hofk8OuBOef/jRyMGF6QFo0+vFC9wRSAxJNfak
+ UAbX8wQFbhHzb4t7V8DR0K5dpiOiPdCoBO2g1AK8P0ZT8TzyWX4RrdB5nJnMoeAV7aSr
+ WlBt1TfDMOv5WJ1tIhTlhLvUqW6jSu90+uPtDEYYBOJWPF0NV2hAR7JB7PfmQbqobIHS
+ qcFYGb5Q20TUBErMt/KK4cIic3DUl8twZPkBTmXF/zTKHtjSws6XKEKSqoTtwdIIQadC
+ U3aw==
+X-Gm-Message-State: AOAM530mrACqMCQAE9XfxiF6U4n9hjjThDKtcigYizuFurP9F0vOgAdy
+ iI49dF2V8Xf9lUxE3dgKKLyLIECT/pZiwghyPA1vKxTtG7mepYWaintPu2ZYIBBuuQhxrwHG7ec
+ hLpKGHQrTk1935iJAqmrnSkpiU0QH
+X-Received: by 2002:a17:907:86a6:: with SMTP id
+ qa38mr18779911ejc.286.1636542479505; 
+ Wed, 10 Nov 2021 03:07:59 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxIY9E3GGXDTMKNhG94s7x2qpu4nLPlWqmcyoHulhCMNs+PGo9+5ZlP1mG10EA68G9ox4DyaA==
+X-Received: by 2002:a17:907:86a6:: with SMTP id
+ qa38mr18779839ejc.286.1636542479231; 
+ Wed, 10 Nov 2021 03:07:59 -0800 (PST)
+Received: from ?IPV6:2001:b07:6468:f312:63a7:c72e:ea0e:6045?
+ ([2001:b07:6468:f312:63a7:c72e:ea0e:6045])
+ by smtp.gmail.com with ESMTPSA id g21sm9257171edb.89.2021.11.10.03.07.55
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Wed, 10 Nov 2021 03:07:58 -0800 (PST)
+Message-ID: <f86fe9cb-bf4b-1c10-e0da-276fbb3f62ee@redhat.com>
+Date: Wed, 10 Nov 2021 12:07:54 +0100
 MIME-Version: 1.0
-In-Reply-To: <04103df3-1ef4-b560-a5cb-fa51737d28ad@gmail.com>
-X-Provags-ID: V03:K1:Jd3HsvpIvSkd1z9MZ8A+M8pmRMEjtJGTIH5/rKKzl1zv92guAhj
- 9dWDOhUd2UJZ9MerqFJu2sL0Vqy01eD3StlZDn4FJIminWyxKafYCrFSKtByuDa87GeS9OR
- qeoUp0E4UiW3sjAndGidVfCkZjgUQcURUuhYsgKl5H5XKG1g/BTOt0/CSBYYpcJ5Udag/gd
- 3wpmaE1MgAr/8Zxl8PaIg==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:9zHz1F4x458=:7Vp+bYm0dzpDVbvG6/Jg2u
- qI4IrtGWKiV/jMQFkG7dyJBbQvpEWwPJ76d/zJSyX1M1lKNm0KMizgdWYVXyIW/XoqBwKPv1D
- 53+DzXdLuVgOm0wkoIG2GeQ/nb/c84AhvSEAoevpHCl6VEXR6fOvbN82cXa7985eDdl8UKM+O
- 4h3Is/MA4WoDtRBZ1OqiFsYx8FLL1RBd0E7FqR319PSJ/bJwJAdPbaC1JvQk6kHH3/NBFt26i
- Q3DgkmG6muY/n8xv9b9V7t/ZWlppYtelF1o5MvHu2J00j2PbYSZX9eozu/Doat8V94rSWUKYb
- 8pSdnLPUWq70O5KtVp9tTAFvyw/H1FShEa0gt9n4kbbOSofwKtWPp3w6ndwZn0vqQiMqSpx5F
- pW+VpkbxvWsOFEWJJsTGH2eqGFH7HNRknQZl+87wW5wtL7KvGgF3QsbsIAWrKtzB9X/8WrLGE
- Q2bThe7j50/eherGVoafg+OX1FpxcH8SkWxWRwHOYPY6MAcfWvoCbb0Lrq1TuMCEIR21SYzz/
- nKcIQ2MIMbO6pJev1gnsMMspAiK9v/yDDf2YfwA5W5cMnog6ZH1EP7GjRP+V1L4WGIVmIYWjZ
- cHGTxKjNY18j227bPzrRrZw1mR3FZxmby4QNq9M2UubsB6oeBGdjh2aJPUPJBCfs/+3a18KA+
- xA6FQOnu4L1XhctfO1s8iX0YD6ideSBMb0KHUFr1N0LQgA0QEITEwNFtzGkPBB/gQ91Mtb/BO
- /mpnNG0EzJaO/w5CiG92jdML3JVtyvpMLyLhPWE0HyQ2mtmYYeRjCDxP5oDHzH4e/JAELuTV1
- U+KgtcC4SdatS1E3xSGfYaEWJnZD3guRw2ZDMVMPz1QzGYvBbk1uTXDDTpqBpiWB9POVDvyMU
- RZN7S/dzQnujlcpYxqJMiIBsYFZJI3saxm1eCZh79EkYKtr+yxECJAHRe1ooDxlvmf+PdmvFz
- teW5eV+FQ6Z8TxYl0+/Pxm1aaTMg360Uf5O3Yxxq+6pW+Cr9pdW+jbwf3FWQ4Opb03KxmWDUJ
- J/4DosOxyxjcCBCxt9avnDv6aic7H0cD/lL1HPIA+I+KJ0H2Wh10gm+vMHpsdMkzEHCpK13Dh
- +VtVl/6MSAYdCs=
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.2.0
+Subject: Re: [PATCH v3 01/16] perf: Ensure perf_guest_cbs aren't reloaded
+ between !NULL check and deref
+To: Sean Christopherson <seanjc@google.com>, Like Xu <like.xu.linux@gmail.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
+ Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kvmarm@lists.cs.columbia.edu,
+ linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
+ kvm@vger.kernel.org, xen-devel@lists.xenproject.org,
+ Artem Kashkanov <artem.kashkanov@intel.com>,
+ Zhu Lingshan <lingshan.zhu@intel.com>, Juergen Gross <jgross@suse.com>,
+ Ingo Molnar <mingo@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Vincent Chen <deanbo422@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Greentime Hu <green.hu@gmail.com>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Marc Zyngier <maz@kernel.org>,
+ Nick Hu <nickhu@andestech.com>, Guo Ren <guoren@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>
+References: <20210922000533.713300-1-seanjc@google.com>
+ <20210922000533.713300-2-seanjc@google.com>
+ <77e3a76a-016b-8945-a1d5-aae4075e2147@gmail.com>
+ <YYPrst2CUBXLYc9h@google.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+In-Reply-To: <YYPrst2CUBXLYc9h@google.com>
+Authentication-Results: relay.mimecast.com;
+ auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=pbonzini@redhat.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211110_024559_186125_C6FAC5C2 
-X-CRM114-Status: GOOD (  22.56  )
+X-CRM114-CacheID: sfid-20211110_030804_309810_FA18997A 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,97 +130,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5109120972388368819=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 11/4/21 15:18, Sean Christopherson wrote:
+> If I'm interpeting Paolo's suggestion
+> correctly, he's pointing out that oustanding stores to the function pointers in
+> @cbs need to complete before assigning a non-NULL pointer to perf_guest_cbs,
+> otherwise a perf event handler may see a valid pointer with half-baked callbacks.
+> 
+> I think smp_store_release() with a comment would be appropriate, assuming my
+> above interpretation is correct.
+> 
 
---===============5109120972388368819==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="2Vc8voT8F+nWl+5t"
-Content-Disposition: inline
+Yes, exactly.  It should even be rcu_assign_pointer(), matching the 
+synchronize_rcu() in patch 1 (and the change can be done in patch 1, too).
 
+Paolo
 
---2Vc8voT8F+nWl+5t
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Nov 08, 2021 at 02:36:42PM +0300, Dmitry Osipenko wrote:
-> 08.11.2021 14:22, Jonathan Neusch=C3=A4fer =D0=BF=D0=B8=D1=88=D0=B5=D1=82:
-> > On Sun, Nov 07, 2021 at 08:42:33PM +0300, Dmitry Osipenko wrote:
-> > [...]
-> >> EC drivers tend to use higher priority in general. Jonathan, could you
-> >> please confirm that NTXEC driver is a more preferable restart method
-> >> than the watchdog?
-> >=20
-> > Yes. The original firmware uses the NTXEC to restart, and it works well,
-> > so I do think it's preferable.
->=20
-> Thank you, then I'll update the NTXEC patch like this:
->=20
-> https://github.com/grate-driver/linux/commit/22da3d91f1734d9a0ed036220ad4=
-ea28465af988
-
-I tested again, but sys_off_handler_reboot called a bogus pointer
-(probably reboot_prepare_cb). I think it was left uninitialized in
-ntxec_probe, which uses devm_kmalloc. I guess we could switch it to
-devm_kzalloc:
-
-diff --git a/drivers/mfd/ntxec.c b/drivers/mfd/ntxec.c
-index 1f55dfce14308..30364beb4b1d0 100644
---- a/drivers/mfd/ntxec.c
-+++ b/drivers/mfd/ntxec.c
-@@ -144,7 +144,7 @@ static int ntxec_probe(struct i2c_client *client)
- 	const struct mfd_cell *subdevs;
- 	size_t n_subdevs;
-=20
--	ec =3D devm_kmalloc(&client->dev, sizeof(*ec), GFP_KERNEL);
-+	ec =3D devm_kzalloc(&client->dev, sizeof(*ec), GFP_KERNEL);
- 	if (!ec)
- 		return -ENOMEM;
-=20
-
-
-With that done, it works flawlessly.
-
-
-Thanks,
-Jonathan
-
---2Vc8voT8F+nWl+5t
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEvHAHGBBjQPVy+qvDCDBEmo7zX9sFAmGLoj4ACgkQCDBEmo7z
-X9tbGw/9GW9TBNeJDqVwinH41nEM2TsnygEKpr7D3uPWXiWIIh7wxva0XnLkeDOr
-YZUOSFjLglCoW9n8UjIgpmScFQ9OY5em2dY9iSOPk55FYy/kkD1LKXl8Qbto3Xjr
-XRwv4EDIxlfO2uvjXgc07E2zGjiZdqaFwcIiMz1l8Rns6jC+AbzO0KFcoffXXKCg
-oCDi/e1hnVfze/XGWTTSXbofwfAKHJPVE11uF8lK2Uqv0THOAbvpIQdZiQPaNuVe
-bZuJ1p6wMxzjc6HiB8C6aJ0sy5Po98ZKWTAvvqFXBitgvOx0VCgKfJfqS+06qxiA
-gYnxdQAIJjcwrBJYfpry4rg9nBYvH7Jao/uKYoXSm73mtXdEqG4oIQIZ0eC7jS/d
-dRGjzR5mrhaA3G8mWMssxg6RX1EGpYBimy7XGpgml/bIXrEjGYZi3FaGZSnk9UTd
-oAutr3b9I43OZFYo/gRKjQmEl9C1Ru/ZsmKDin75X8hfCzrFOoAUCLQ7X/tbbPoF
-As6x8TUBJY8Zd9xBW2i/4sm+ZPAuMG5TMzzpRj/DEs2RN5UouXycBqzTFNleFYYf
-LuwPDYZYSqe75uXgu0K0weup8tULnVfBuvOJDR5yMF7tf90iNku7JIcIXjtKglWH
-EA0twe/kQWknjeUcmaR65U1v+cf8ekV6V8TVrEKb4cCEYf3HPBw=
-=z+7h
------END PGP SIGNATURE-----
-
---2Vc8voT8F+nWl+5t--
-
-
---===============5109120972388368819==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5109120972388368819==--
-
