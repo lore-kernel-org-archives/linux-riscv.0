@@ -2,14 +2,14 @@ Return-Path: <SRS0=2pxE=P6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 85FC3C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 02:18:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 21458C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 02:21:29 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4758061215
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 02:18:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 4758061215
+	by mail.kernel.org (Postfix) with ESMTPS id E5FA161215
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 02:21:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E5FA161215
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,59 +18,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:References
 	:Mime-Version:Message-Id:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EhAVCGzIEC0akE5d1FcB15wzjqD9HminM77bNjmqjeQ=; b=OP7df4hxU0Knor
-	39fLGm6me45GZq/HEG6iMJ+yfhGrjlngSjDAPYbhwsaNZnuwLs63Td4uKHSoxSXnTMMdycB67rIRD
-	Qkan1VRm6w+c7EU8UceZRjaqlpGHCvMcyAZGDQKmI/SO7o87o+tXt+6993KUCUp1IIg8VjG5xZNI+
-	Hk4DVDHsOGBqu1G1YsUHZ5i9OpIWMVKqGmRqGRmigMleA0VwfG7i1rA3FNop4sXi21/EyCoEJy/rK
-	0lp4S+cvRwx3b5faq/vZCb5P2kbJXgFEVd5PUxbOJmxybIxH8ZIMaKiPGEnJUehqJRHqIrWrXyA7y
-	iVNBabzp2uo1mdg+6ypw==;
+	List-Owner; bh=993ZDaumrDyR3byIn0sDBEtYzNnSjVIMEMBmlcjFbcY=; b=eJayPSCfUggNRr
+	WH2xgdop0SCuwgZDUNK/sYOt4I/dO+EdpnX8GdVP2LZREgAxr09wKuLee7Pta7W87VXBZQbgPlRsl
+	7T009ohmVmjByd9/LalboNt9OclC5QEowIBJC143tCiyTba9A8HuAdy7jRVcSd/Afhp23WE3u0aWc
+	aWsHtFfGT46FVsYjKuEXSUkrzSXf33jDtNirvK4q6JMThxwPs+6+WXoN1NrRGqBQMRyIcvd4mitT/
+	3g2A6VpbdWR8LprBzv4pkTcqsz3/4kWgdfo+9TLe1GuId3p7CTKvNnFbqi6GEZQwlDKz35oF8ZaVI
+	nfeNFCI2HOqsq8QOXoZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mkzfp-006pFy-Tw; Thu, 11 Nov 2021 02:18:46 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1mkziL-006q82-G9; Thu, 11 Nov 2021 02:21:21 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mkzVT-006kcQ-1b
- for linux-riscv@lists.infradead.org; Thu, 11 Nov 2021 02:08:08 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id
- f206-20020a6238d7000000b004a02dd7156bso1478083pfa.5
- for <linux-riscv@lists.infradead.org>; Wed, 10 Nov 2021 18:08:02 -0800 (PST)
+ id 1mkzVV-006kdc-C4
+ for linux-riscv@lists.infradead.org; Thu, 11 Nov 2021 02:08:10 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id
+ mv1-20020a17090b198100b001a67d5901d2so2244958pjb.7
+ for <linux-riscv@lists.infradead.org>; Wed, 10 Nov 2021 18:08:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
  h=reply-to:date:in-reply-to:message-id:mime-version:references
  :subject:from:to:cc;
- bh=fHeYagzJUlx8WvSWOWzAacKfteJvqH26iwX6/BL5oRM=;
- b=I1iMFlsTKJ7I9ZBlooH8LUuysl6kvigdxx570TJkSRxR5Epl554X0SupugqMgxooRa
- Js7Gd3LnB4f/Od2LdYQfjJvJrd7Jj5SR+bgYd/KsVTHaX78qwBxLzlhPNrgrGQW9HBZM
- Gf+2IkKjJau7mgLZiDcv4KWoS8FOEgdksbSmIKXguTp9uiLzYV0qE4TCK48GTJ0xK34S
- pPAdtQowal2kVffJJ8FkMF2ePQNvYgo/wLvddDptRGq7iTfLonp7DuFAyOF+gUabTETs
- Um+LI0mma5pdcsVh0PUQ0Cq0ms/rh1QbrsfaYQV7RfZ7Xi1vwzyVVaWe1zMfes0/v0pu
- VVEw==
+ bh=mw+8kRBMaigpdPoQg441qk6T9IEU8krLENLSjCCr4zw=;
+ b=SrMofVJY/GjIpbuhbq5Q0NchE90Iee1Zg/DXzrBAL+84O+9mkb6Cvy4kbuTgC9NQoK
+ tBqW8VuJ90++OLutVCiS1ya3l32W+JKb2BOUzxT4CfsJTbL/puTXQsav1euvT3+gukG2
+ yS7t4ZuH8QzI7fhcSd7lINxxYvVsKg3i3FXbG+Q8gteNmUbpj11OvRbe8kbh++awXIwA
+ lQ4l1HocfEVizMh2041kgc72dvgbUqXNAgsThfb0ZWYRAHAJLmF2dzBFcQYmNC3B4SgG
+ os87bSDOwQmR/d7G3NMYHAuPjpmsSI+LJUHPF3mp7ZDo3cMuuRvUGMBLZ8TO5A0n/acG
+ yo8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:reply-to:date:in-reply-to:message-id
  :mime-version:references:subject:from:to:cc;
- bh=fHeYagzJUlx8WvSWOWzAacKfteJvqH26iwX6/BL5oRM=;
- b=behGbJwC7YxIc+SbGnvHaXFh3UyGU77wKR+Ed92EGgYZZ2o8i0Xf6QWVnp66QZLhgE
- hrkDq2oVAFItPkAFedq6dsdvih8sqxXJACz/i91c+Mll6ZGQB31/Cm6usC1RcB92AjIx
- /03mwFc1VTM4NTQyqYSE5PmCcT/BwxytClKtwEXMn2mFTJ7Qy1+B0/aXUXy7b9fROMnq
- lJa1q0vRyAsNWsvbRHOoKgmD6svkkGDgKo9NzfvOut/kXl5wmFLJHvaMkpD7QdTXrSHc
- wduJDj4xiiukoZZq6fxCD+RkTH3wF5mr+/FUD6tPzfTYhH4db0gF9dsVO1Xe5Y3mc9rb
- pKSw==
-X-Gm-Message-State: AOAM53374cGp7IPYdGNfhS7o+UPNOlWFwgoX0OqRdZ4xgeoYVizpZ0AW
- ZKIf489FWMM6OP3UOw0WQlHoYeE2P94=
-X-Google-Smtp-Source: ABdhPJwlj+RL95wDPLaJIcjI0VzoyEr26DB5cELwjkd8PtU9zdr9HE6g2qmDfqx1IbL5j6HU26ZztAJb2Z8=
+ bh=mw+8kRBMaigpdPoQg441qk6T9IEU8krLENLSjCCr4zw=;
+ b=uic0iQIsH7SyRlWS81Csj4vvI9dvDc7C1UnJRZtzFHodPfejn3qOTuoC1XKbJ9ANSO
+ TVDMD4E6xuZah2abzhEu97M64ZrJAbVAASH6FfZsF8MoCgNDMGxzB8JkQqHSHdGogcyT
+ 2e7CMtG+rhUoPuImEIQDTz5koPQDClK5ez1nMV+hp3wYJ0+rbscms319zVkJtugRu+7I
+ 0Jq5z2GtFRL59SoK/gs/oMk1yeeWyFfM0Q8COaC7yDu38+ATNEgftaAaR2OfoSRm+q/c
+ GLilHd7EpMa3YaqgbFemddAo9aYFg66JfDFU1xHnHaM8Sr2i9VRMU8R6by7kXlg34nHr
+ ++iw==
+X-Gm-Message-State: AOAM531TgyMvYiHhbG4AlpyVwgAokl/25lUL4jp7w4ZepigbFRgeiy54
+ NvmOI8oYjv+mVB+vIHXKT23ZJzpAb4k=
+X-Google-Smtp-Source: ABdhPJz67wmixiDyySBDTYDOJ0Ka4b7LxO+H1fUSrGnT0BW1K6fuhepd8JhPlaHMI6pEBAJMacMWw56NTRg=
 X-Received: from seanjc.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:3e5])
- (user=seanjc job=sendgmr) by 2002:aa7:808e:0:b0:493:f071:274f with
- SMTP id
- v14-20020aa7808e000000b00493f071274fmr3568138pff.37.1636596481978; Wed, 10
- Nov 2021 18:08:01 -0800 (PST)
-Date: Thu, 11 Nov 2021 02:07:34 +0000
+ (user=seanjc job=sendgmr) by 2002:a17:902:e789:b0:140:801:1262
+ with SMTP id
+ cp9-20020a170902e78900b0014008011262mr4254554plb.42.1636596483663; Wed, 10
+ Nov 2021 18:08:03 -0800 (PST)
+Date: Thu, 11 Nov 2021 02:07:35 +0000
 In-Reply-To: <20211111020738.2512932-1-seanjc@google.com>
-Message-Id: <20211111020738.2512932-14-seanjc@google.com>
+Message-Id: <20211111020738.2512932-15-seanjc@google.com>
 Mime-Version: 1.0
 References: <20211111020738.2512932-1-seanjc@google.com>
 X-Mailer: git-send-email 2.34.0.rc0.344.g81b53c2807-goog
-Subject: [PATCH v4 13/17] KVM: x86: Move Intel Processor Trace interrupt
- handler to vmx.c
+Subject: [PATCH v4 14/17] KVM: arm64: Convert to the generic perf callbacks
 From: Sean Christopherson <seanjc@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
  Arnaldo Carvalho de Melo <acme@kernel.org>, Will Deacon <will@kernel.org>,
@@ -101,8 +100,8 @@ Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
  Like Xu <like.xu.linux@gmail.com>, Like Xu <like.xu@linux.intel.com>, 
  Zhu Lingshan <lingshan.zhu@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211110_180803_165137_E1312E15 
-X-CRM114-Status: GOOD (  17.99  )
+X-CRM114-CacheID: sfid-20211110_180805_452572_76D08C5D 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,122 +119,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that all state needed for VMX's PT interrupt handler is exposed to
-vmx.c (specifically the currently running vCPU), move the handler into
-vmx.c where it belongs.
+Drop arm64's version of the callbacks in favor of the callbacks provided
+by generic KVM, which are semantically identical.
 
+Reviewed-by: Marc Zyngier <maz@kernel.org>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/include/asm/kvm_host.h |  2 +-
- arch/x86/kvm/vmx/vmx.c          | 22 +++++++++++++++++++++-
- arch/x86/kvm/x86.c              | 20 +-------------------
- 3 files changed, 23 insertions(+), 21 deletions(-)
+ arch/arm64/kvm/perf.c | 34 ++--------------------------------
+ 1 file changed, 2 insertions(+), 32 deletions(-)
 
-diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
-index ec16f645cb8c..621bedff0aa5 100644
---- a/arch/x86/include/asm/kvm_host.h
-+++ b/arch/x86/include/asm/kvm_host.h
-@@ -1515,7 +1515,7 @@ struct kvm_x86_init_ops {
- 	int (*disabled_by_bios)(void);
- 	int (*check_processor_compatibility)(void);
- 	int (*hardware_setup)(void);
--	bool (*intel_pt_intr_in_guest)(void);
-+	unsigned int (*handle_intel_pt_intr)(void);
+diff --git a/arch/arm64/kvm/perf.c b/arch/arm64/kvm/perf.c
+index dfa9bce8559e..374c496a3f1d 100644
+--- a/arch/arm64/kvm/perf.c
++++ b/arch/arm64/kvm/perf.c
+@@ -13,42 +13,12 @@
  
- 	struct kvm_x86_ops *runtime_ops;
- };
-diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-index 36098eb9a7f9..7cb7f261f7dc 100644
---- a/arch/x86/kvm/vmx/vmx.c
-+++ b/arch/x86/kvm/vmx/vmx.c
-@@ -7708,6 +7708,20 @@ static struct kvm_x86_ops vmx_x86_ops __initdata = {
- 	.vcpu_deliver_sipi_vector = kvm_vcpu_deliver_sipi_vector,
- };
+ DEFINE_STATIC_KEY_FALSE(kvm_arm_pmu_available);
  
-+static unsigned int vmx_handle_intel_pt_intr(void)
-+{
-+	struct kvm_vcpu *vcpu = kvm_get_running_vcpu();
-+
-+	/* '0' on failure so that the !PT case can use a RET0 static call. */
-+	if (!kvm_arch_pmi_in_guest(vcpu))
-+		return 0;
-+
-+	kvm_make_request(KVM_REQ_PMI, vcpu);
-+	__set_bit(MSR_CORE_PERF_GLOBAL_OVF_CTRL_TRACE_TOPA_PMI_BIT,
-+		  (unsigned long *)&vcpu->arch.pmu.global_status);
-+	return 1;
-+}
-+
- static __init void vmx_setup_user_return_msrs(void)
- {
- 
-@@ -7734,6 +7748,8 @@ static __init void vmx_setup_user_return_msrs(void)
- 		kvm_add_user_return_msr(vmx_uret_msrs_list[i]);
- }
- 
-+static struct kvm_x86_init_ops vmx_init_ops __initdata;
-+
- static __init int hardware_setup(void)
- {
- 	unsigned long host_bndcfgs;
-@@ -7892,6 +7908,10 @@ static __init int hardware_setup(void)
- 		return -EINVAL;
- 	if (!enable_ept || !cpu_has_vmx_intel_pt())
- 		pt_mode = PT_MODE_SYSTEM;
-+	if (pt_mode == PT_MODE_HOST_GUEST)
-+		vmx_init_ops.handle_intel_pt_intr = vmx_handle_intel_pt_intr;
-+	else
-+		vmx_init_ops.handle_intel_pt_intr = NULL;
- 
- 	setup_default_sgx_lepubkeyhash();
- 
-@@ -7920,7 +7940,7 @@ static struct kvm_x86_init_ops vmx_init_ops __initdata = {
- 	.disabled_by_bios = vmx_disabled_by_bios,
- 	.check_processor_compatibility = vmx_check_processor_compat,
- 	.hardware_setup = hardware_setup,
--	.intel_pt_intr_in_guest = vmx_pt_mode_is_host_guest,
-+	.handle_intel_pt_intr = NULL,
- 
- 	.runtime_ops = &vmx_x86_ops,
- };
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index bafd2e78ad04..a4d25d0587e6 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -8410,20 +8410,6 @@ static void kvm_timer_init(void)
- 			  kvmclock_cpu_online, kvmclock_cpu_down_prep);
- }
- 
--static unsigned int kvm_handle_intel_pt_intr(void)
+-static unsigned int kvm_guest_state(void)
+-{
+-	struct kvm_vcpu *vcpu = kvm_get_running_vcpu();
+-	unsigned int state;
+-
+-	if (!vcpu)
+-		return 0;
+-
+-	state = PERF_GUEST_ACTIVE;
+-	if (!vcpu_mode_priv(vcpu))
+-		state |= PERF_GUEST_USER;
+-
+-	return state;
+-}
+-
+-static unsigned long kvm_get_guest_ip(void)
 -{
 -	struct kvm_vcpu *vcpu = kvm_get_running_vcpu();
 -
--	/* '0' on failure so that the !PT case can use a RET0 static call. */
--	if (!kvm_arch_pmi_in_guest(vcpu))
+-	if (WARN_ON_ONCE(!vcpu))
 -		return 0;
 -
--	kvm_make_request(KVM_REQ_PMI, vcpu);
--	__set_bit(MSR_CORE_PERF_GLOBAL_OVF_CTRL_TRACE_TOPA_PMI_BIT,
--			(unsigned long *)&vcpu->arch.pmu.global_status);
--	return 1;
+-	return *vcpu_pc(vcpu);
 -}
 -
- #ifdef CONFIG_X86_64
- static void pvclock_gtod_update_fn(struct work_struct *work)
+-static struct perf_guest_info_callbacks kvm_guest_cbs = {
+-	.state		= kvm_guest_state,
+-	.get_ip		= kvm_get_guest_ip,
+-};
+-
+ void kvm_perf_init(void)
  {
-@@ -11116,11 +11102,7 @@ int kvm_arch_hardware_setup(void *opaque)
- 	memcpy(&kvm_x86_ops, ops->runtime_ops, sizeof(kvm_x86_ops));
- 	kvm_ops_static_call_update();
+-	perf_register_guest_info_callbacks(&kvm_guest_cbs);
++	kvm_register_perf_callbacks(NULL);
+ }
  
--	/* Temporary ugliness. */
--	if (ops->intel_pt_intr_in_guest && ops->intel_pt_intr_in_guest())
--		kvm_register_perf_callbacks(kvm_handle_intel_pt_intr);
--	else
--		kvm_register_perf_callbacks(NULL);
-+	kvm_register_perf_callbacks(ops->handle_intel_pt_intr);
- 
- 	if (!kvm_cpu_cap_has(X86_FEATURE_XSAVES))
- 		supported_xss = 0;
+ void kvm_perf_teardown(void)
+ {
+-	perf_unregister_guest_info_callbacks(&kvm_guest_cbs);
++	kvm_unregister_perf_callbacks();
+ }
 -- 
 2.34.0.rc0.344.g81b53c2807-goog
 
