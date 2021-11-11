@@ -2,14 +2,14 @@ Return-Path: <SRS0=2pxE=P6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7FC1DC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 21:49:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 85150C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 21:50:04 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2F6B96124C
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 21:49:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2F6B96124C
+	by mail.kernel.org (Postfix) with ESMTPS id 560C26124D
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 21:50:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 560C26124D
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,32 +18,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kzV/040nklASTvSdlPGerqTrMNSBqvOo0Y1gMvBDfjg=; b=DoH/lvbuml376W
-	dmn9VvMzx5ypW88IeJR5gk/vbg9/i5O0WcQxp7N0qMcrNE9AKavJ4xAFVSbGSoqhl1dr9Ps9uYJau
-	ti75iIr8yXrhG9glnPSgAIAC87P/1r4Kaipt+rWiMj4kKdF1cVBm3UL4nOtlF+SfpWy/3oMlaa6c3
-	nhFppsdWG4XfUOXTY8JrpaMF3hqk1r4uz+L80QstXIrBqNqwmjieAnIyyVTTXk4QGRgvqidTyjL6K
-	PJ8PrRxEMEMdHQqWx4vnFUp2NpS6zQoyVtC0u1D+ME/52pHtf0WS7SVCkVpzZTnOwR8+82iD/p4+s
-	UwCWGUVRGBg6AjzpktGw==;
+	List-Owner; bh=OQ9DK+o3pUXZo5HkxAL4NNKCHxYwmy9LtQSwPDGbURk=; b=pZ8/rv0ZcRbeGw
+	1yp5sPeantSSezOJeFIDMXkVYYsBmC9SbNHhimoncTXcP1hJRAbLZxzjQy710P7RFT7GTeKw7dBko
+	joKaL4RSpMdG7GssEADUbK3LdCNrNIfytkyWJVO1lOSpfqsl/33c/edGBnWILxwBTBvDD729wDv61
+	ZXgmmfazVaWST2ir1/ZCbC46Dx9jD3B4HlJwTGdZ5tqX4E9rK0XRp+IOb8jHmiDQBkIFzOGg9066+
+	O3Hsdc/OcYFPOpjOruXdLcdRiotGUUQ2jBrofmnkpHxF4C1Rl/RaxydApoDpRAtKhV8BM2CJJqsEw
+	66wGTe3Ezz1/Xsq6wQkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mlHwo-008nVC-Ij; Thu, 11 Nov 2021 21:49:30 +0000
+	id 1mlHxE-008neT-9e; Thu, 11 Nov 2021 21:49:56 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mlHwa-008nSF-GB; Thu, 11 Nov 2021 21:49:17 +0000
+ id 1mlHwx-008nXM-4u; Thu, 11 Nov 2021 21:49:42 +0000
 Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
  [51.254.78.96])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id EE03B61211;
- Thu, 11 Nov 2021 21:49:15 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id AE6CE6124C;
+ Thu, 11 Nov 2021 21:49:38 +0000 (UTC)
 Received: from sofa.misterjones.org ([185.219.108.64]
  helo=wait-a-minute.misterjones.org)
  by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
  (envelope-from <maz@kernel.org>)
- id 1mlHwX-004u5l-Kw; Thu, 11 Nov 2021 21:49:13 +0000
-Date: Thu, 11 Nov 2021 21:49:12 +0000
-Message-ID: <87k0hee52f.wl-maz@kernel.org>
+ id 1mlHwp-004u6W-9n; Thu, 11 Nov 2021 21:49:31 +0000
+Date: Thu, 11 Nov 2021 21:49:30 +0000
+Message-ID: <87ilwye51x.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Sean Christopherson <seanjc@google.com>
 Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
@@ -75,11 +75,11 @@ Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
  Artem Kashkanov <artem.kashkanov@intel.com>,
  Like Xu <like.xu.linux@gmail.com>, Like Xu <like.xu@linux.intel.com>,
  Zhu Lingshan <lingshan.zhu@intel.com>
-Subject: Re: [PATCH v4 15/17] KVM: arm64: Hide kvm_arm_pmu_available behind
- CONFIG_HW_PERF_EVENTS=y
-In-Reply-To: <20211111020738.2512932-16-seanjc@google.com>
+Subject: Re: [PATCH v4 16/17] KVM: arm64: Drop perf.c and fold its tiny bits
+ of code into arm.c
+In-Reply-To: <20211111020738.2512932-17-seanjc@google.com>
 References: <20211111020738.2512932-1-seanjc@google.com>
- <20211111020738.2512932-16-seanjc@google.com>
+ <20211111020738.2512932-17-seanjc@google.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
  (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -106,8 +106,8 @@ X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
  SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211111_134916_602905_D82E0CA8 
-X-CRM114-Status: GOOD (  15.70  )
+X-CRM114-CacheID: sfid-20211111_134939_310929_96971D90 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,13 +124,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 11 Nov 2021 02:07:36 +0000,
+On Thu, 11 Nov 2021 02:07:37 +0000,
 Sean Christopherson <seanjc@google.com> wrote:
 > 
-> Move the definition of kvm_arm_pmu_available to pmu-emul.c and, out of
-> "necessity", hide it behind CONFIG_HW_PERF_EVENTS.  Provide a stub for
-> the key's wrapper, kvm_arm_support_pmu_v3().  Moving the key's definition
-> out of perf.c will allow a future commit to delete perf.c entirely.
+> Call KVM's (un)register perf callbacks helpers directly from arm.c and
+> delete perf.c
+> 
+> No functional change intended.
 > 
 > Signed-off-by: Sean Christopherson <seanjc@google.com>
 
