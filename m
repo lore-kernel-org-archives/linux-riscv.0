@@ -2,14 +2,14 @@ Return-Path: <SRS0=2pxE=P6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 79F93C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 02:23:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 60275C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 02:24:49 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 44DDE61076
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 02:23:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 44DDE61076
+	by mail.kernel.org (Postfix) with ESMTPS id 286BC61152
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 02:24:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 286BC61152
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,59 +18,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:References
 	:Mime-Version:Message-Id:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7CuTYjmxPLEzevB1IAFDhWCfOi8BpHbIxXrEqr+tcOQ=; b=Dm+Da5uW0kpwq3
-	3vGNqzI3t8eNGsxZoGEVcD/yXf8BC0YF2cLvmGz06KlE9q7wxRuyjuA+u2ecUu50f2KddssM03Nqe
-	/0Im230gfhTIxHVn+lrsZ9i5SWUd13bAbUyEKWPRplWpAAcQOBKDISWC5R/yIDNLN9mfPu8F4tTeT
-	A7MJztHq8Pislrsd2vwpEUVsAcjkFSTNFlE2qiEXq/Lu05i+VqogrNBZEP5hSIteFeLhOlGWDL2K0
-	+2OkEsYZ0uen+hCJO2q4CZYDob5I5CQytlY7EC55DDyWc9Gngu21ByLu8xHnNxBMR7OC+6VkK/XgW
-	fLHUymLhaO9OYPk36/3Q==;
+	List-Owner; bh=vpSzNrBKDZm4eohoyAW2Z/SDypLx7mvOaaMVKqVM/8s=; b=GQSlxc+29YsuLj
+	nb86GUtf/Kq1edSqcwRZOVSJKPkeKyykbmVavDUWLipnlGPfDFygjz0pR68HjtD35TU25WjMs2VhE
+	UgiLJDtckcUVHnXw99ph7OPt+DVJrE4xsh+AnW1FAQZmInO0r+ELrjS6vQH1A/m9apPW7aWdvqpYI
+	fqdbCFhN9xTScbViHmeaQt21UIBMisH8yaqYCyyEcE+8rnS7JIFJ3i2plSKKcANePCDLAgUpKGf1C
+	QVYafSlomWsqffYwoR5PVJLF5dLo6oZ6ljy8cdLOhTqaGR9/y+9eMz5+w/RzEACVDzgd9PT/JIlYQ
+	bHmfHU2NW2EpAzi5AypA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mkzjt-006qdg-0k; Thu, 11 Nov 2021 02:22:57 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1mkzlY-006rCR-AB; Thu, 11 Nov 2021 02:24:40 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mkzVY-006kgl-0v
- for linux-riscv@lists.infradead.org; Thu, 11 Nov 2021 02:08:12 +0000
-Received: by mail-pf1-x449.google.com with SMTP id
- z187-20020a6233c4000000b0047c2090f1abso2998892pfz.23
- for <linux-riscv@lists.infradead.org>; Wed, 10 Nov 2021 18:08:07 -0800 (PST)
+ id 1mkzVa-006khz-7g
+ for linux-riscv@lists.infradead.org; Thu, 11 Nov 2021 02:08:13 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id
+ bf17-20020a17090b0b1100b001a634dbd737so2245369pjb.9
+ for <linux-riscv@lists.infradead.org>; Wed, 10 Nov 2021 18:08:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
  h=reply-to:date:in-reply-to:message-id:mime-version:references
  :subject:from:to:cc;
- bh=4wLzPjAo6SC+6dg2XS8LE13lS3wGpQbHkLiaUdVh1zk=;
- b=MuegJeAyDDNZ2tSTgnRGgC7IKnaetIrZypWHgoI7HXfYfypgKJOXeWWLy35dN1C9Kq
- TYdkeXtBhBOimwcZ3top4kHa71CLV6qdvRNUhm81hZ5K3i6YVl/7AXor+8dNYxvAPJer
- ZwGoTfRUt1iBgIiACbYvtCaYyKTtXhPXR+X+RVc6NhZKJJXGXYjtiG/SPUOKx15Mns+w
- h7LMujRE3QFVnTWofLpidFxhxt+qp0BXQN3PgH1ZjZAnDhIuNVlz9u1BvqFo2bLBUTc6
- Fb2NGscm3LpQizlsfcqGjFJsDCfeEgXwB7noSeS86XmgLfWQWeulkCp9qWhLyPOP5PC4
- rOAQ==
+ bh=OsKSO91+IQOd1IkS1z06+WXQrIrb9btCelj8IT/rfjk=;
+ b=UjO1QsSOEJxaGsYGL3Apu9warF+RLCb7N0O8lrT4uA7hcwAOXn0B9aIpQDfjrTQVV9
+ GpUiUx0P3EvrUcerrFYJ43Q90SJS/Gs68/jHuhbKg4LsEjNWoUkdOiAjjqiiHSBSgjMG
+ R7y7UnI6YE9rNtmXbNbVt3sbKA6jvhnnGELbGyK4SRL2xwd9sX+q3f8jF57/MEhgUPD+
+ t/+a9Sg8Ta3/1ptTGbTPekcMLXxNe7dS033Slo6cfYWGcnVi+krIVbSkYZwCP0WX4pZh
+ GTnRwbyA69uU8U608boW9DzCYJ+6PE43F4bM/b41jK5pMY5lvLJwB8NslG8L5Jh5BxcV
+ /FSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:reply-to:date:in-reply-to:message-id
  :mime-version:references:subject:from:to:cc;
- bh=4wLzPjAo6SC+6dg2XS8LE13lS3wGpQbHkLiaUdVh1zk=;
- b=DPIOyWXGhjkcYR9qCK7+QiPncteuDSR+/gW5XWLi7LtfIvuB7CcdKod8AitmU9TLOf
- r2eOc8MLB0/yCbRN9kaF7aHoVLLa5CgGTWzXz+AJJufNGXQA5KFnGD1IZMI82Dmnn+tt
- PI/DYSXbhynOj4q0bSWaVVG06qMcoiwvQ7NwXhuo832WF+zqVdJYCSTsnGwHR9rJjvl1
- A025pAqoMLq2BXl6F/U0pXl4gZ9szyVtTZU9Z2PNoolVOj5OnolRXKGp59WNpMHst3PO
- ym+Y72mwNkK/sqZQ2tOtR+f960nAktV52mkYTMQBlqCaGD290NQF+yDNg5NWOtRDvUX5
- ak8w==
-X-Gm-Message-State: AOAM533cj1ebMr2aNBAdP6CnKdxCdygdP5pb8rmWrpeiq4SEVMrEs2tL
- x/2A48eLQ5sXH1X3NYVfzkkK+3Vqxh0=
-X-Google-Smtp-Source: ABdhPJzOf3D2n0+h+qFn/cUAHxeQwCrLXPititoZgPJ6cdaqRRoa4xxgHhA3Yjjnbd9PcZR94r6p632KxHo=
+ bh=OsKSO91+IQOd1IkS1z06+WXQrIrb9btCelj8IT/rfjk=;
+ b=llkNzmdi3Er+oVS3FXH087rdcshrOQEJL0o/2J+TxgYcdNgiCtSUmQr3CUWFDBopeO
+ I5UdWh7U20Gks8dTA7IRH/oRQJzaKVzPrPLOPSVw+pPFZIgCFoAYadctZsSF3yKtsoeh
+ 14XWSZEkd4dtI2Jcnc0Vixb3tKN9CrtBYOeuG+EB4KM7ovu/AJT98Iy3mLLr2Jd+KKX3
+ rIMGzJKUo7tv/a9Z5cY43oTpRt6aIYf39iijvoF4p3uBqbsdldUdKTVCUCmT7ERzXpgw
+ 2j1Zknuk9xjC+0EjDU/EqwQ+zWy3lluqDhlpt7m1Z9Zr0R9nFLcGr9yoNewwHbV03npD
+ ndNA==
+X-Gm-Message-State: AOAM531jApenbyghCsbzJ1cSSzfDTqvWwgwlbSU2yFb2E/jzRE4Srnl3
+ Gaovu89IkpmMvTKHOnr2y2ea0A4b9qQ=
+X-Google-Smtp-Source: ABdhPJyHlT5oqharcB3QQjRQ4qoO/10ujhci23RJu5uAP9JkYDshL4v2uHHALGrgFqagvzcYI5ZLh/T3x7g=
 X-Received: from seanjc.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:3e5])
- (user=seanjc job=sendgmr) by 2002:a62:16c7:0:b0:49f:a6cc:c77d with
- SMTP id
- 190-20020a6216c7000000b0049fa6ccc77dmr3410123pfw.23.1636596486947; Wed, 10
- Nov 2021 18:08:06 -0800 (PST)
-Date: Thu, 11 Nov 2021 02:07:37 +0000
+ (user=seanjc job=sendgmr) by 2002:a17:90a:1950:: with SMTP id
+ 16mr4223713pjh.126.1636596488573; Wed, 10 Nov 2021 18:08:08 -0800 (PST)
+Date: Thu, 11 Nov 2021 02:07:38 +0000
 In-Reply-To: <20211111020738.2512932-1-seanjc@google.com>
-Message-Id: <20211111020738.2512932-17-seanjc@google.com>
+Message-Id: <20211111020738.2512932-18-seanjc@google.com>
 Mime-Version: 1.0
 References: <20211111020738.2512932-1-seanjc@google.com>
 X-Mailer: git-send-email 2.34.0.rc0.344.g81b53c2807-goog
-Subject: [PATCH v4 16/17] KVM: arm64: Drop perf.c and fold its tiny bits of
- code into arm.c
+Subject: [PATCH v4 17/17] perf: Drop guest callback (un)register stubs
 From: Sean Christopherson <seanjc@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
  Arnaldo Carvalho de Melo <acme@kernel.org>, Will Deacon <will@kernel.org>,
@@ -101,8 +98,9 @@ Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
  Like Xu <like.xu.linux@gmail.com>, Like Xu <like.xu@linux.intel.com>, 
  Zhu Lingshan <lingshan.zhu@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211110_180808_109611_AAA06C9D 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20211110_180810_324145_63F354BC 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,98 +118,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Call KVM's (un)register perf callbacks helpers directly from arm.c and
-delete perf.c
+Drop perf's stubs for (un)registering guest callbacks now that KVM
+registration of callbacks is hidden behind GUEST_PERF_EVENTS=y.  The only
+other user is x86 XEN_PV, and x86 unconditionally selects PERF_EVENTS.
 
 No functional change intended.
 
+Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/arm64/include/asm/kvm_host.h |  3 ---
- arch/arm64/kvm/Makefile           |  2 +-
- arch/arm64/kvm/arm.c              |  5 +++--
- arch/arm64/kvm/perf.c             | 22 ----------------------
- 4 files changed, 4 insertions(+), 28 deletions(-)
- delete mode 100644 arch/arm64/kvm/perf.c
+ include/linux/perf_event.h | 5 -----
+ 1 file changed, 5 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 72e2afe6e8e3..824040b174ab 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -675,9 +675,6 @@ unsigned long kvm_mmio_read_buf(const void *buf, unsigned int len);
- int kvm_handle_mmio_return(struct kvm_vcpu *vcpu);
- int io_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa);
+diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+index 0ac7d867ca0c..7b7525e9155f 100644
+--- a/include/linux/perf_event.h
++++ b/include/linux/perf_event.h
+@@ -1511,11 +1511,6 @@ perf_sw_event(u32 event_id, u64 nr, struct pt_regs *regs, u64 addr)	{ }
+ static inline void
+ perf_bp_event(struct perf_event *event, void *data)			{ }
  
--void kvm_perf_init(void);
--void kvm_perf_teardown(void);
+-static inline void perf_register_guest_info_callbacks
+-(struct perf_guest_info_callbacks *cbs)					{ }
+-static inline void perf_unregister_guest_info_callbacks
+-(struct perf_guest_info_callbacks *cbs)					{ }
 -
- /*
-  * Returns true if a Performance Monitoring Interrupt (PMI), a.k.a. perf event,
-  * arrived in guest context.  For arm64, any event that arrives while a vCPU is
-diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-index 989bb5dad2c8..0bcc378b7961 100644
---- a/arch/arm64/kvm/Makefile
-+++ b/arch/arm64/kvm/Makefile
-@@ -12,7 +12,7 @@ obj-$(CONFIG_KVM) += hyp/
+ static inline void perf_event_mmap(struct vm_area_struct *vma)		{ }
  
- kvm-y := $(KVM)/kvm_main.o $(KVM)/coalesced_mmio.o $(KVM)/eventfd.o \
- 	 $(KVM)/vfio.o $(KVM)/irqchip.o $(KVM)/binary_stats.o \
--	 arm.o mmu.o mmio.o psci.o perf.o hypercalls.o pvtime.o \
-+	 arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
- 	 inject_fault.o va_layout.o handle_exit.o \
- 	 guest.o debug.o reset.o sys_regs.o \
- 	 vgic-sys-reg-v3.o fpsimd.o pmu.o \
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 93c952375f3b..8d18a64a72f1 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1776,7 +1776,8 @@ static int init_subsystems(void)
- 	if (err)
- 		goto out;
- 
--	kvm_perf_init();
-+	kvm_register_perf_callbacks(NULL);
-+
- 	kvm_sys_reg_table_init();
- 
- out:
-@@ -2164,7 +2165,7 @@ int kvm_arch_init(void *opaque)
- /* NOP: Compiling as a module not supported */
- void kvm_arch_exit(void)
- {
--	kvm_perf_teardown();
-+	kvm_unregister_perf_callbacks();
- }
- 
- static int __init early_kvm_mode_cfg(char *arg)
-diff --git a/arch/arm64/kvm/perf.c b/arch/arm64/kvm/perf.c
-deleted file mode 100644
-index 52cfab253c65..000000000000
---- a/arch/arm64/kvm/perf.c
-+++ /dev/null
-@@ -1,22 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/*
-- * Based on the x86 implementation.
-- *
-- * Copyright (C) 2012 ARM Ltd.
-- * Author: Marc Zyngier <marc.zyngier@arm.com>
-- */
--
--#include <linux/perf_event.h>
--#include <linux/kvm_host.h>
--
--#include <asm/kvm_emulate.h>
--
--void kvm_perf_init(void)
--{
--	kvm_register_perf_callbacks(NULL);
--}
--
--void kvm_perf_teardown(void)
--{
--	kvm_unregister_perf_callbacks();
--}
+ typedef int (perf_ksymbol_get_name_f)(char *name, int name_len, void *data);
 -- 
 2.34.0.rc0.344.g81b53c2807-goog
 
