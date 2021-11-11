@@ -2,88 +2,97 @@ Return-Path: <SRS0=2pxE=P6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 35E94C43217
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 08:13:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BC328C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 10:48:38 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 029FE6109D
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 08:13:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 029FE6109D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 51F0A61002
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 10:48:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 51F0A61002
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y+f8WhiFLlgj46hsB3PadMKe8jSfmazFHXe0ePudOqk=; b=ou3hTwtJ1fhYxB
-	tPyDkzIjXdLahVJzbfcqJfKV2F144S50HkodAYLxWhpOHsZx/54jNOa422t3qaQ+4gF4KUiK3WpPO
-	NL7/eFsKIJ7aTU+JYCGYC3IklIJ6gcQ7GJZLnckOjkq/ck57SbCRNE/0wWHhWfn0CpgQTJYGL38zW
-	B65MFV53yzF+uVrgfNfWBfwHOvscGIW1CIU+wYc6wurnauTZK38YUJ3bkWEp2hIGsk1mYW06eMkAQ
-	xLrK7MuFCJQ8LzweHA2ET/BLzGgfR+qrEI9X+4zuazAWOHnmEUay0+4fhszxwm+8lYLCvKrotn72Y
-	HrJ5RZCxtE9PkoZ4jpDQ==;
+	List-Owner; bh=i9fB9TDERrk0ByT+9FGt2Mm6smFFHhJpoyMUwIXuiSY=; b=VTLy1wn382tr+C
+	zW49QPPJK+T5o2T7KXbdsWRIjb+ibSwMrlnoOtd9mXbJ0wYzIHO/DuVaS0CCr0NjYJi8QLO53zHtr
+	N8WRBr6lFUd6uvsX5A6nL7fKq/wC2vOZIMbIefzKotDD7LwZaqVhls/OdYWbpHwsZDanj4O8Iejs3
+	co2EOy8IssaS/s90aJFiORA+5QIWMIEgVw5hiemq+AgN9TVdQCKvpoIdy7dihxF8lszUQ/HveEn7M
+	nC3kYA8hBAAE+G6QPbhw9ki1ZpiBEj10igWWsS6YiQkVxBWBdU6/1abJlmSCXT9HBOe+y7IwIiQIs
+	gQXp0hbKoiorfTtRN58g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ml5Cq-007TxL-DL; Thu, 11 Nov 2021 08:13:12 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1ml7d7-007ib2-BF; Thu, 11 Nov 2021 10:48:29 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ml5Cn-007TwY-A6
- for linux-riscv@lists.infradead.org; Thu, 11 Nov 2021 08:13:10 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id
- t5-20020a17090a4e4500b001a0a284fcc2so4022553pjl.2
- for <linux-riscv@lists.infradead.org>; Thu, 11 Nov 2021 00:13:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=message-id:date:mime-version:user-agent:subject:content-language:to
- :references:from:in-reply-to:content-transfer-encoding;
- bh=kLaJsuTpaA6GbzdzOlqPA5jPocR/+5/lqXTo7jiLw+0=;
- b=o7bFLqdkHyIiRXgV5aj8kVoIEhvrVp4fOTxjP2K3O4Vn9ijpUB8aSfsrbSQfdeVu1V
- WO8KuPSLIfrM+/yhGNd1nDuOSQzkOMEjwnLcmi79NcVyPP//g+CRK47GsdT+OSbtIg8x
- r+RPoP5P1xHeYJW2h6XcuLCkjYRCDR2yW+qnbmsVp1/JuaxeoWveAwf3GTxCL1GhjgLl
- VV+t+GaqFjDfzR81lyTEjOEEOj54t3mrWItY7CFu2nWZqVHUQQzfHhBbgOWjFrWSU5Ab
- D0ovgHMWeKuO7LwgeLcfI4QiAg74W5rtvk9Un6zexZgiW9d7UwO2/GODkg0JXA3Fltzw
- FTeA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:references:from:in-reply-to
- :content-transfer-encoding;
- bh=kLaJsuTpaA6GbzdzOlqPA5jPocR/+5/lqXTo7jiLw+0=;
- b=R7Mlj1JnzyE+r97rTdKoqB2RDWtr1kq62729OBxNR3CZfvmRJrduHCP7vXWWy2HGOM
- ARBR9wfwGpSEzcD6jD97kSQk+LHTAmQ5OPwoaO7tBabTtKAAckDxavq688AZH/BVpJnJ
- yCNnr+/HD0C1Z4WBV/pkULjExLePrsRYYUOO6KTh3tlL0MHx7qPkOtjOCbUO2IA5HKf4
- mpfuV0XLleCfRqIIkR1zrGJYoQD3qhP6L5EP0xtiqoAKfQ4qqg8995etMoNBKqHHNace
- ZGLWS2vDr2+8bZUWOAlPc8qgM9k7mzA2sGGYP8M94HEZ6J0K4Sb6LyWdT0qNV4eAlpoU
- WfbQ==
-X-Gm-Message-State: AOAM533Z1zKzV0YG9ZcNFQEPcQysMkbiQwKHqehTSxlV2LiIwFaYK3KX
- GMFlpL7PbC0c8kKj8J+lBVE=
-X-Google-Smtp-Source: ABdhPJySLKMKCrEWqEdAc0zqnwqogKMEhup18KbnmcPbOhSOn0qy9qkvP2D4yL126UA7R6AQGktc4w==
-X-Received: by 2002:a17:902:c713:b0:141:bc54:f32c with SMTP id
- p19-20020a170902c71300b00141bc54f32cmr5807716plp.82.1636618388359; 
- Thu, 11 Nov 2021 00:13:08 -0800 (PST)
-Received: from [192.168.1.153] (M106072041033.v4.enabler.ne.jp. [106.72.41.33])
- by smtp.gmail.com with ESMTPSA id me7sm8998550pjb.9.2021.11.11.00.13.06
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Thu, 11 Nov 2021 00:13:08 -0800 (PST)
-Message-ID: <747e611a-2225-0685-b1e6-8b45ef45042d@gmail.com>
-Date: Thu, 11 Nov 2021 17:13:04 +0900
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.3.0
-Subject: [PATCH v2 1/1] riscv: __asm_copy_to-from_user: Improve using word
- copy, if size is < 9*SZREG
-Content-Language: en-US
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+ id 1ml7cw-007iad-0r; Thu, 11 Nov 2021 10:48:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=Lk4G/R3I07fhmcAqeSUqtCqNDck8UECisYgW0RP2fZk=; b=AET3uxMt3hHFzdG81TShZLlRhA
+ lnzx4x2xkBejjcu8i+MuOlBWGAq82yBnQhP9jNhSKqzutZkvoPrE+DaFRBQ2JOb4j5DojW+YmB1TQ
+ EZfc3k1Z3m4KXMajFbDtwS9023NbK50LztQbXevsdQvS6AOv4JY3DBFmFrzKqXOH+RV3M0pyTvPbI
+ 9sn7wEgLyUpWZTEsemou0MiLDGDeur8Ama9taCLIXAaN6Ru7/xY5zsA5qZdI+ad11Hfx7npvyG54r
+ SstAvX6uYL3TOGkFqkoXYIn4TKwOJvn7Eki+iTRy2VOK059F6VHaZNIoBBTll1KF9xSh0wvNlGSuH
+ NL6Mf2Yg==;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100]
+ helo=noisy.programming.kicks-ass.net)
+ by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1ml7ce-002eyR-My; Thu, 11 Nov 2021 10:48:01 +0000
+Received: from hirez.programming.kicks-ass.net
+ (hirez.programming.kicks-ass.net [192.168.1.225])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits))
+ (Client did not present a certificate)
+ by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id CB96930001B;
+ Thu, 11 Nov 2021 11:47:57 +0100 (CET)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+ id 950042D1ADCA5; Thu, 11 Nov 2021 11:47:57 +0100 (CET)
+Date: Thu, 11 Nov 2021 11:47:57 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Sean Christopherson <seanjc@google.com>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Russell King <linux@armlinux.org.uk>, Marc Zyngier <maz@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Guo Ren <guoren@kernel.org>, Nick Hu <nickhu@andestech.com>,
+ Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <6ebbb5e0-c2bc-89ce-2cb8-4f537c5aea13@gmail.com>
-From: Akira Tsukamoto <akira.tsukamoto@gmail.com>
-In-Reply-To: <6ebbb5e0-c2bc-89ce-2cb8-4f537c5aea13@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211111_001309_402700_D9E02EB5 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+ Thomas Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+ Juergen Gross <jgross@suse.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ "H. Peter Anvin" <hpa@zytor.com>, Vitaly Kuznetsov <vkuznets@redhat.com>,
+ Wanpeng Li <wanpengli@tencent.com>,
+ Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
+ linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
+ kvm@vger.kernel.org, xen-devel@lists.xenproject.org,
+ Artem Kashkanov <artem.kashkanov@intel.com>,
+ Like Xu <like.xu.linux@gmail.com>, Like Xu <like.xu@linux.intel.com>,
+ Zhu Lingshan <lingshan.zhu@intel.com>
+Subject: Re: [PATCH v4 01/17] perf: Protect perf_guest_cbs with RCU
+Message-ID: <YYz03fcDRV9NZnyA@hirez.programming.kicks-ass.net>
+References: <20211111020738.2512932-1-seanjc@google.com>
+ <20211111020738.2512932-2-seanjc@google.com>
+ <d784dc27-72d0-d64f-e1f4-a2b9a5f86dd4@redhat.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <d784dc27-72d0-d64f-e1f4-a2b9a5f86dd4@redhat.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,95 +109,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Nov 11, 2021 at 08:26:58AM +0100, Paolo Bonzini wrote:
+> On 11/11/21 03:07, Sean Christopherson wrote:
 
-Reduce the number of slow byte_copy being used.
+> >   EXPORT_SYMBOL_GPL(perf_register_guest_info_callbacks);
+> >   int perf_unregister_guest_info_callbacks(struct perf_guest_info_callbacks *cbs)
+> >   {
+> > -	perf_guest_cbs = NULL;
+> > +	if (WARN_ON_ONCE(rcu_access_pointer(perf_guest_cbs) != cbs))
+> > +		return -EINVAL;
+> > +
+> > +	rcu_assign_pointer(perf_guest_cbs, NULL);
+> > +	synchronize_rcu();
+> This technically could be RCU_INIT_POINTER but it's not worth a respin.
+> There are dozens of other occurrences, and if somebody wanted they
+> could use Coccinelle to fix all of them.
 
-Currently byte_copy is used for all the cases when the size is smaller than
-9*SZREG. When the size is in between 2*SZREG to 9*SZREG, use faster
-unrolled word_copy.
+I've been pushing the other way, trying to get rid of RCU_INIT_POINTER()
+since rcu_assign_pointer(, NULL) actualy DTRT per __builtin_constant_p()
+etc.
 
-Signed-off-by: Akira Tsukamoto <akira.tsukamoto@gmail.com>
----
- arch/riscv/lib/uaccess.S | 46 ++++++++++++++++++++++++++++++++++++----
- 1 file changed, 42 insertions(+), 4 deletions(-)
-
-diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
-index 63bc691cff91..50013479cb86 100644
---- a/arch/riscv/lib/uaccess.S
-+++ b/arch/riscv/lib/uaccess.S
-@@ -34,8 +34,10 @@ ENTRY(__asm_copy_from_user)
- 	/*
- 	 * Use byte copy only if too small.
- 	 * SZREG holds 4 for RV32 and 8 for RV64
-+	 * a3 - 2*SZREG is minimum size for word_copy
-+	 *      1*SZREG for aligning dst + 1*SZREG for word_copy
- 	 */
--	li	a3, 9*SZREG /* size must be larger than size in word_copy */
-+	li	a3, 2*SZREG
- 	bltu	a2, a3, .Lbyte_copy_tail
- 
- 	/*
-@@ -66,9 +68,40 @@ ENTRY(__asm_copy_from_user)
- 	andi	a3, a1, SZREG-1
- 	bnez	a3, .Lshift_copy
- 
-+.Lcheck_size_bulk:
-+	/*
-+	 * Evaluate the size if possible to use unrolled.
-+	 * The word_copy_unlrolled requires larger than 8*SZREG
-+	 */
-+	li	a3, 8*SZREG
-+	add	a4, a0, a3
-+	bltu	a4, t0, .Lword_copy_unlrolled
-+
- .Lword_copy:
--        /*
--	 * Both src and dst are aligned, unrolled word copy
-+	/*
-+	 * Both src and dst are aligned
-+	 * Not unrolled word copy with every 1*SZREG iteration
-+	 *
-+	 * a0 - start of aligned dst
-+	 * a1 - start of aligned src
-+	 * t0 - end of aligned dst
-+	 */
-+	bgeu	a0, t0, .Lbyte_copy_tail /* check if end of copy */
-+	addi	t0, t0, -(SZREG) /* not to over run */
-+1:
-+	fixup REG_L   a5, 0(a1)
-+	addi	a1, a1, SZREG
-+	fixup REG_S   a5, 0(a0)
-+	addi	a0, a0, SZREG
-+	bltu	a0, t0, 1b
-+
-+	addi	t0, t0, SZREG /* revert to original value */
-+	j	.Lbyte_copy_tail
-+
-+.Lword_copy_unlrolled:
-+	/*
-+	 * Both src and dst are aligned
-+	 * Unrolled word copy with every 8*SZREG iteration
- 	 *
- 	 * a0 - start of aligned dst
- 	 * a1 - start of aligned src
-@@ -97,7 +130,12 @@ ENTRY(__asm_copy_from_user)
- 	bltu	a0, t0, 2b
- 
- 	addi	t0, t0, 8*SZREG /* revert to original value */
--	j	.Lbyte_copy_tail
-+
-+	/*
-+	 * Remaining might large enough for word_copy to reduce slow byte
-+	 * copy
-+	 */
-+	j	.Lcheck_size_bulk
- 
- .Lshift_copy:
- 
--- 
-2.17.1
-
-
+There's a very few sites where we use RCU_INIT_POINTER() with a !NULL
+argument, and those are 'special'.
 
 _______________________________________________
 linux-riscv mailing list
