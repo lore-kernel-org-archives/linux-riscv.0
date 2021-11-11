@@ -2,14 +2,14 @@ Return-Path: <SRS0=2pxE=P6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 21458C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 02:21:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 702AAC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 02:22:54 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E5FA161215
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 02:21:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E5FA161215
+	by mail.kernel.org (Postfix) with ESMTPS id 36DAE61152
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 02:22:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 36DAE61152
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,58 +18,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:References
 	:Mime-Version:Message-Id:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=993ZDaumrDyR3byIn0sDBEtYzNnSjVIMEMBmlcjFbcY=; b=eJayPSCfUggNRr
-	WH2xgdop0SCuwgZDUNK/sYOt4I/dO+EdpnX8GdVP2LZREgAxr09wKuLee7Pta7W87VXBZQbgPlRsl
-	7T009ohmVmjByd9/LalboNt9OclC5QEowIBJC143tCiyTba9A8HuAdy7jRVcSd/Afhp23WE3u0aWc
-	aWsHtFfGT46FVsYjKuEXSUkrzSXf33jDtNirvK4q6JMThxwPs+6+WXoN1NrRGqBQMRyIcvd4mitT/
-	3g2A6VpbdWR8LprBzv4pkTcqsz3/4kWgdfo+9TLe1GuId3p7CTKvNnFbqi6GEZQwlDKz35oF8ZaVI
-	nfeNFCI2HOqsq8QOXoZQ==;
+	List-Owner; bh=i9OckG3t5NsnJWiAxE3R2St8MRRNSiyigrUNqIBkBek=; b=EHLP5CZUWi7/F6
+	q4VFPSaRz2zSVeljjSduBioewQeqS7K2cgO/0GKMLyZW2NIX3GFh44W9fUtLRAjFdqxnIa+T5LgXb
+	ChZooa7BijkmQlWXfd5XhuCWezKZFWNxFHlqkQ1yPK2CcaYOv7Iasy1Y0iMIvnooKwPbsFhRd0o/D
+	CPdXO6GATJnW0k/NyLTlnNgBHXy3YSqbRmvyxH2Frz+9Dl1adE8fcITaE2bVqNUHBC0FomPGF93v1
+	bZt+vk3oYfo87agyr+aQqb3uAl11aX8l08AYL0f3ZrXu3oz6EjwJBraDtDaiMwSkkQWSFDyE5C54z
+	9Ef2LNW5ZWKMCEhMxXiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mkziL-006q82-G9; Thu, 11 Nov 2021 02:21:21 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1mkzjh-006qa9-Iq; Thu, 11 Nov 2021 02:22:45 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mkzVV-006kdc-C4
- for linux-riscv@lists.infradead.org; Thu, 11 Nov 2021 02:08:10 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id
- mv1-20020a17090b198100b001a67d5901d2so2244958pjb.7
- for <linux-riscv@lists.infradead.org>; Wed, 10 Nov 2021 18:08:04 -0800 (PST)
+ id 1mkzVW-006kfG-PM
+ for linux-riscv@lists.infradead.org; Thu, 11 Nov 2021 02:08:11 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id
+ q29-20020a631f5d000000b002dfcc4e0201so603715pgm.3
+ for <linux-riscv@lists.infradead.org>; Wed, 10 Nov 2021 18:08:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
  h=reply-to:date:in-reply-to:message-id:mime-version:references
  :subject:from:to:cc;
- bh=mw+8kRBMaigpdPoQg441qk6T9IEU8krLENLSjCCr4zw=;
- b=SrMofVJY/GjIpbuhbq5Q0NchE90Iee1Zg/DXzrBAL+84O+9mkb6Cvy4kbuTgC9NQoK
- tBqW8VuJ90++OLutVCiS1ya3l32W+JKb2BOUzxT4CfsJTbL/puTXQsav1euvT3+gukG2
- yS7t4ZuH8QzI7fhcSd7lINxxYvVsKg3i3FXbG+Q8gteNmUbpj11OvRbe8kbh++awXIwA
- lQ4l1HocfEVizMh2041kgc72dvgbUqXNAgsThfb0ZWYRAHAJLmF2dzBFcQYmNC3B4SgG
- os87bSDOwQmR/d7G3NMYHAuPjpmsSI+LJUHPF3mp7ZDo3cMuuRvUGMBLZ8TO5A0n/acG
- yo8w==
+ bh=/YIqAIDcHFuwAQfZoGFGpCQkR+bed1xlNZgqyVQf28E=;
+ b=e7isaWxZT/WwPXJW8Qx7YWkAPbx8+WwYXnyULWOmnQdcxssVcaIQUjV7l9ocfrzj/1
+ z1dBSLWak0xiQCBEw4pQBZlvDqmdEqTRJUP+Z40PCX/NEachrYFN0ukP1ZGzNNDz6hC8
+ ypXPhlkEqsMB53P1s/G0Q8Dg2n01FI0WXWYQbrYIvGu6VNt899fuhgkx/Wx+L0fumdK0
+ DgUKSgQ9NGEeMAWRcQat/qxuE6PEmuWNOgqyoFgMMRQ8e+j8axNSLg3wwL/mVfqWCfju
+ QtZrvT4+EtSeFefALo6da9zs6M611OWSowxrRuYjpqYPmBtDlX0Y/PjaKJe2gSlYH6Gm
+ X8tw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:reply-to:date:in-reply-to:message-id
  :mime-version:references:subject:from:to:cc;
- bh=mw+8kRBMaigpdPoQg441qk6T9IEU8krLENLSjCCr4zw=;
- b=uic0iQIsH7SyRlWS81Csj4vvI9dvDc7C1UnJRZtzFHodPfejn3qOTuoC1XKbJ9ANSO
- TVDMD4E6xuZah2abzhEu97M64ZrJAbVAASH6FfZsF8MoCgNDMGxzB8JkQqHSHdGogcyT
- 2e7CMtG+rhUoPuImEIQDTz5koPQDClK5ez1nMV+hp3wYJ0+rbscms319zVkJtugRu+7I
- 0Jq5z2GtFRL59SoK/gs/oMk1yeeWyFfM0Q8COaC7yDu38+ATNEgftaAaR2OfoSRm+q/c
- GLilHd7EpMa3YaqgbFemddAo9aYFg66JfDFU1xHnHaM8Sr2i9VRMU8R6by7kXlg34nHr
- ++iw==
-X-Gm-Message-State: AOAM531TgyMvYiHhbG4AlpyVwgAokl/25lUL4jp7w4ZepigbFRgeiy54
- NvmOI8oYjv+mVB+vIHXKT23ZJzpAb4k=
-X-Google-Smtp-Source: ABdhPJz67wmixiDyySBDTYDOJ0Ka4b7LxO+H1fUSrGnT0BW1K6fuhepd8JhPlaHMI6pEBAJMacMWw56NTRg=
+ bh=/YIqAIDcHFuwAQfZoGFGpCQkR+bed1xlNZgqyVQf28E=;
+ b=4E/BtouNjXTXCDjr0HOesU2j5k+QdsTjDW7vhWeH5hixDnhjPqKf0h/qJyWzcUCQTF
+ VNaJg1oMibYlStRsEc0pQE3uINvlPJxlb6a+0aTgcH50Fpk8hpe2z8rVOFXutemqkVc8
+ hfHG3lBcOeedKnKbq6EfbekFoUlrHqOU+Ks96bcSlGUrw1bL4PCtsAIhIzrZcSzXQl9O
+ mFgRegtGt6b8vGpnjQGlDJgW37rkYAxX186p69GycBXy5cg1ULqEGyjYw/jhvcOB7my9
+ iFtbB04tXE69/zuweuHorf/KRMkakNxobqAo0/vIk4DoZkVHBEbJRwZaZtU8vZztCW/W
+ oYdg==
+X-Gm-Message-State: AOAM5327+niNq3o4tbV3QoCRqqjrfuXjNhZ2ONupts3C6Aq+y8k074RE
+ K7wjsVAVIEgpwH/x7c5Bgz7HwJiYG/8=
+X-Google-Smtp-Source: ABdhPJzNTXRg0manAu6ukUacQ/aIuXahOUAgZ+nsuAEIEEiY7jrc1n1CQ1z/uBehVd+2Ly8STcnpos0K1ss=
 X-Received: from seanjc.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:3e5])
- (user=seanjc job=sendgmr) by 2002:a17:902:e789:b0:140:801:1262
+ (user=seanjc job=sendgmr) by 2002:a17:902:e88a:b0:141:dfde:eed7
  with SMTP id
- cp9-20020a170902e78900b0014008011262mr4254554plb.42.1636596483663; Wed, 10
- Nov 2021 18:08:03 -0800 (PST)
-Date: Thu, 11 Nov 2021 02:07:35 +0000
+ w10-20020a170902e88a00b00141dfdeeed7mr4246270plg.17.1636596485366; Wed, 10
+ Nov 2021 18:08:05 -0800 (PST)
+Date: Thu, 11 Nov 2021 02:07:36 +0000
 In-Reply-To: <20211111020738.2512932-1-seanjc@google.com>
-Message-Id: <20211111020738.2512932-15-seanjc@google.com>
+Message-Id: <20211111020738.2512932-16-seanjc@google.com>
 Mime-Version: 1.0
 References: <20211111020738.2512932-1-seanjc@google.com>
 X-Mailer: git-send-email 2.34.0.rc0.344.g81b53c2807-goog
-Subject: [PATCH v4 14/17] KVM: arm64: Convert to the generic perf callbacks
+Subject: [PATCH v4 15/17] KVM: arm64: Hide kvm_arm_pmu_available behind
+ CONFIG_HW_PERF_EVENTS=y
 From: Sean Christopherson <seanjc@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
  Arnaldo Carvalho de Melo <acme@kernel.org>, Will Deacon <will@kernel.org>,
@@ -100,8 +101,8 @@ Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
  Like Xu <like.xu.linux@gmail.com>, Like Xu <like.xu@linux.intel.com>, 
  Zhu Lingshan <lingshan.zhu@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211110_180805_452572_76D08C5D 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20211110_180806_870900_DB4B408C 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,64 +120,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Drop arm64's version of the callbacks in favor of the callbacks provided
-by generic KVM, which are semantically identical.
+Move the definition of kvm_arm_pmu_available to pmu-emul.c and, out of
+"necessity", hide it behind CONFIG_HW_PERF_EVENTS.  Provide a stub for
+the key's wrapper, kvm_arm_support_pmu_v3().  Moving the key's definition
+out of perf.c will allow a future commit to delete perf.c entirely.
 
-Reviewed-by: Marc Zyngier <maz@kernel.org>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/arm64/kvm/perf.c | 34 ++--------------------------------
- 1 file changed, 2 insertions(+), 32 deletions(-)
+ arch/arm64/kernel/image-vars.h |  2 ++
+ arch/arm64/kvm/perf.c          |  2 --
+ arch/arm64/kvm/pmu-emul.c      |  2 ++
+ include/kvm/arm_pmu.h          | 19 ++++++++++++-------
+ 4 files changed, 16 insertions(+), 9 deletions(-)
 
+diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
+index c96a9a0043bf..7eaf1f7c4168 100644
+--- a/arch/arm64/kernel/image-vars.h
++++ b/arch/arm64/kernel/image-vars.h
+@@ -102,7 +102,9 @@ KVM_NVHE_ALIAS(__stop___kvm_ex_table);
+ KVM_NVHE_ALIAS(kvm_arm_hyp_percpu_base);
+ 
+ /* PMU available static key */
++#ifdef CONFIG_HW_PERF_EVENTS
+ KVM_NVHE_ALIAS(kvm_arm_pmu_available);
++#endif
+ 
+ /* Position-independent library routines */
+ KVM_NVHE_ALIAS_HYP(clear_page, __pi_clear_page);
 diff --git a/arch/arm64/kvm/perf.c b/arch/arm64/kvm/perf.c
-index dfa9bce8559e..374c496a3f1d 100644
+index 374c496a3f1d..52cfab253c65 100644
 --- a/arch/arm64/kvm/perf.c
 +++ b/arch/arm64/kvm/perf.c
-@@ -13,42 +13,12 @@
+@@ -11,8 +11,6 @@
  
- DEFINE_STATIC_KEY_FALSE(kvm_arm_pmu_available);
+ #include <asm/kvm_emulate.h>
  
--static unsigned int kvm_guest_state(void)
--{
--	struct kvm_vcpu *vcpu = kvm_get_running_vcpu();
--	unsigned int state;
--
--	if (!vcpu)
--		return 0;
--
--	state = PERF_GUEST_ACTIVE;
--	if (!vcpu_mode_priv(vcpu))
--		state |= PERF_GUEST_USER;
--
--	return state;
--}
--
--static unsigned long kvm_get_guest_ip(void)
--{
--	struct kvm_vcpu *vcpu = kvm_get_running_vcpu();
--
--	if (WARN_ON_ONCE(!vcpu))
--		return 0;
--
--	return *vcpu_pc(vcpu);
--}
--
--static struct perf_guest_info_callbacks kvm_guest_cbs = {
--	.state		= kvm_guest_state,
--	.get_ip		= kvm_get_guest_ip,
--};
+-DEFINE_STATIC_KEY_FALSE(kvm_arm_pmu_available);
 -
  void kvm_perf_init(void)
  {
--	perf_register_guest_info_callbacks(&kvm_guest_cbs);
-+	kvm_register_perf_callbacks(NULL);
- }
+ 	kvm_register_perf_callbacks(NULL);
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index a5e4bbf5e68f..3308ceefa129 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -14,6 +14,8 @@
+ #include <kvm/arm_pmu.h>
+ #include <kvm/arm_vgic.h>
  
- void kvm_perf_teardown(void)
- {
--	perf_unregister_guest_info_callbacks(&kvm_guest_cbs);
-+	kvm_unregister_perf_callbacks();
- }
++DEFINE_STATIC_KEY_FALSE(kvm_arm_pmu_available);
++
+ static void kvm_pmu_create_perf_event(struct kvm_vcpu *vcpu, u64 select_idx);
+ static void kvm_pmu_update_pmc_chained(struct kvm_vcpu *vcpu, u64 select_idx);
+ static void kvm_pmu_stop_counter(struct kvm_vcpu *vcpu, struct kvm_pmc *pmc);
+diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
+index 90f21898aad8..f9ed4c171d7b 100644
+--- a/include/kvm/arm_pmu.h
++++ b/include/kvm/arm_pmu.h
+@@ -13,13 +13,6 @@
+ #define ARMV8_PMU_CYCLE_IDX		(ARMV8_PMU_MAX_COUNTERS - 1)
+ #define ARMV8_PMU_MAX_COUNTER_PAIRS	((ARMV8_PMU_MAX_COUNTERS + 1) >> 1)
+ 
+-DECLARE_STATIC_KEY_FALSE(kvm_arm_pmu_available);
+-
+-static __always_inline bool kvm_arm_support_pmu_v3(void)
+-{
+-	return static_branch_likely(&kvm_arm_pmu_available);
+-}
+-
+ #ifdef CONFIG_HW_PERF_EVENTS
+ 
+ struct kvm_pmc {
+@@ -36,6 +29,13 @@ struct kvm_pmu {
+ 	struct irq_work overflow_work;
+ };
+ 
++DECLARE_STATIC_KEY_FALSE(kvm_arm_pmu_available);
++
++static __always_inline bool kvm_arm_support_pmu_v3(void)
++{
++	return static_branch_likely(&kvm_arm_pmu_available);
++}
++
+ #define kvm_arm_pmu_irq_initialized(v)	((v)->arch.pmu.irq_num >= VGIC_NR_SGIS)
+ u64 kvm_pmu_get_counter_value(struct kvm_vcpu *vcpu, u64 select_idx);
+ void kvm_pmu_set_counter_value(struct kvm_vcpu *vcpu, u64 select_idx, u64 val);
+@@ -65,6 +65,11 @@ int kvm_arm_pmu_v3_enable(struct kvm_vcpu *vcpu);
+ struct kvm_pmu {
+ };
+ 
++static inline bool kvm_arm_support_pmu_v3(void)
++{
++	return false;
++}
++
+ #define kvm_arm_pmu_irq_initialized(v)	(false)
+ static inline u64 kvm_pmu_get_counter_value(struct kvm_vcpu *vcpu,
+ 					    u64 select_idx)
 -- 
 2.34.0.rc0.344.g81b53c2807-goog
 
