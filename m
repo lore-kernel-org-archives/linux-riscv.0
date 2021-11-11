@@ -1,89 +1,112 @@
-Return-Path: <SRS0=I72s=P5=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=2pxE=P6=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9095AC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Nov 2021 20:25:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 87944C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 00:40:28 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 578D16113D
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Nov 2021 20:25:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 578D16113D
+	by mail.kernel.org (Postfix) with ESMTPS id 3C8166135E
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Nov 2021 00:40:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3C8166135E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jTn+shwj4sLxdNHZxNsHxytoj8vICzUo3RRvJmmOwbU=; b=ZFxClELvMJAc8N
-	VU4Qt4eyhDzQaHDwD8J5a3ET4mt7MnwO5AWloQr6C7jGBeWC02WqwseF/Jzz2S1SZxzbUBuRUFTpS
-	c16yDeQSs82NoZTgSZ0Onvmp+ZccisctabBcL6zjhLxWHdUcmvFoW4oC1boA6+n0y/xF9s9pNJ3Vj
-	N63U9ErgMjfnd4g3W9ejlEB82wehi4eHRDomgHElBovrCTg6AFECg2McrASSHARyEHfEdwNNnD4/8
-	yGLe3e/HQXINSNCJS0EhEq37f+4EtJXixQ+loQvP1Len93K6s6NXf+fSPAe7hcPJa25JzDUNdBy0T
-	sAq495VqFDb95cKG8HTw==;
+	List-Owner; bh=5Zr/MbLzDximLwjvHTbCUICxHYUUO2fVmxYHovRbncQ=; b=e4kRmbuBM6d/hB
+	FsScwI/OoqGzm+3JgxYJlgixsZ8oyBcGBIHTrEwLrZcXUXe65EdVlK0JCFMFi8A7F4Zofyp53rk1L
+	nYCa2kHlrDt2SSsdOPJkp8sAsE6TuMI0i1cHazhoVxySEevqcdrScTPhWYaH+t1n4tSuDI9UXdKhb
+	IyhqaKKPlojFaqumYC1rkc9cWoP++aWmVooccQqkdFEn5SqYZFgFESzvThOwYYBSgp+HzBenHQQrc
+	htu3XdZF7n6EG96MCak4hkKlu+dhNaov6KQze+/+Ne30n1nHsDyUiNTyMNmLlENpPvzJVMETnlEhs
+	XI/kENHhUcOFzGKz7wSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mku9p-006KgN-AV; Wed, 10 Nov 2021 20:25:21 +0000
-Received: from mail-yb1-xb31.google.com ([2607:f8b0:4864:20::b31])
+	id 1mky8R-006gFW-LE; Thu, 11 Nov 2021 00:40:11 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mku9m-006Keu-BY
- for linux-riscv@lists.infradead.org; Wed, 10 Nov 2021 20:25:20 +0000
-Received: by mail-yb1-xb31.google.com with SMTP id y68so4234434ybe.1
- for <linux-riscv@lists.infradead.org>; Wed, 10 Nov 2021 12:25:14 -0800 (PST)
+ id 1mky8E-006gD2-B1
+ for linux-riscv@lists.infradead.org; Thu, 11 Nov 2021 00:39:59 +0000
+Received: by mail-pg1-x531.google.com with SMTP id p8so3652257pgh.11
+ for <linux-riscv@lists.infradead.org>; Wed, 10 Nov 2021 16:39:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=9MsVmtL6rQ21ppCeVmSbqNc8w+cgDqx9cYxOXHOd3hQ=;
- b=Nx0R0kPmYT0RAUPs/9cUc8r5DhZ5eCgF/GhHPkmrq0AjhpuNlrIs5xodOz4TnhIZjB
- fHl+6TOjvN71xUpz7me2X6bvXWLt3tYeDXcrM2fXuxJaIBCKLH8xIuM9uYCEdzgxLqF0
- xJFWNCItkA8VIWU7fwCe0DSR/Ff7N3A1QMjn5isQ9vyx0YYj3419zF3DoCAqwUxV97Gi
- 0Lw+/408g3nuiFYDDCTUuHLcFjgmd0Vzf8VvotaVIr7vDjSjNJpleklWJ5Owku775I1+
- 6RJ3uJxMeDFICw4UluYwxiunYqp0KyfDfApMfGTDgpWHdKMtK6EMJ2rtp+3RvWJRHS8C
- yMLQ==
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=GCvgNnriUarmCbicpFHHYqZw6hipmqUHqLUNYcuQ5mQ=;
+ b=C/MSXc16d+vnyvPXnpHvWobOFVkGiZtvk8Fqn9KlAR5wdGaXHNSYYEqouCychGdG8p
+ 5qAR+o3QR3qaB0TDQ3yAC+dSCwOdKvfiEZ3Kln4q4atLvJqPKPRHW1o5zq6Ns5xwkOtC
+ ik1lkhQwf39tyN70E9VZseTQvLWw0Txmbjd6Pu8ATSLAClCUTw6YIKKav5QdSu46fQ/5
+ +e5c/wEbKgc1jOnG5VvHUJ9ey6iGYkWAk7F4ceZqKKEK8rilWv0ZFkZJXl5cjnWfQIx8
+ 55tsEZ8ESYtzoMLt6c2A3hOaXpTct4C6eIipQoqRcDMTUY4c5FxHvAnMIbgpRMgbfXry
+ LjOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=9MsVmtL6rQ21ppCeVmSbqNc8w+cgDqx9cYxOXHOd3hQ=;
- b=BgdK1KEPvaTgTtOmqNobCYheCrqnzM/TuU/QAbXGKhRUXUnkGNtzDHJXXaJBQiS/cl
- msIUprKhvJNlZ1rOndyYFRV7tiSSlRZj3PaArxC7qHHeJqhhFYMaPXBS+/wrjQCPTadG
- t4mUQxl1WZUlV5/dagwFrCfKDjVe1oqvXdXK9c64icwhd2lKtlmBen5PIxoiihJRsRfK
- AsvCK7ypoE/a/bG7FDT2S0MOZX9TKq4ZNVzjWtXXjD9vo5uVJ9PidQX+3p0sM4TvFcGB
- FYBJKZWW0lXrmxkaJlaspHk2NarXnOJXaGoOtPQcJhu1B1fcGgckGmbIiNxjnWuXVJ5l
- IS4g==
-X-Gm-Message-State: AOAM530yOyGo8nIYKF/dOblo0AAKZgQ5PjmrUyC2IzjMhQXatE98S2u9
- SYXYBm87MJPuSQgTMw6RU9p83hSwSsxpDkW2pSnbvA==
-X-Google-Smtp-Source: ABdhPJzTB2HdW9kNEWQKLkVV2D/GmP/7qDj1t0y0gDUIQ99xFssRgIxp1ltw+jM0J9UdVJI0n+qauooHMeqe50NfaXs=
-X-Received: by 2002:a5b:d0e:: with SMTP id y14mr2098148ybp.23.1636575914070;
- Wed, 10 Nov 2021 12:25:14 -0800 (PST)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=GCvgNnriUarmCbicpFHHYqZw6hipmqUHqLUNYcuQ5mQ=;
+ b=1iyoKUfz4A881JcPUmp0bLJ+HvLlLXiEGUEuwcCdeaDTFp070u1zkUjcE5AGk1K9xq
+ EOMRwnO8PBOwcYFn0KtZG8LzQg746R9PPkGJ4WLfaatRnSaPnZ0vlHfS7QpoW5zs0v7l
+ aQr2MVxzlIMBRUBTvUssHZxTW8oT67P3eN0qT9JBsjgGYEUNAwk6dAh93k1RYpfKrnMH
+ NYc6cYDjDnuiMND7/97w8QhO7IfgQr4S0XqlvqzNt5gGKnZJBtsFb13iqaEq/w8QCcBQ
+ F8djy+EXBNtrE/oBOLpLSmEa1hU9UQExGv5F8enIwwNwfAK9YU9m0STXhV98qR/mncTg
+ VQDg==
+X-Gm-Message-State: AOAM533bqAMFXkR3KpAPPlzOl+FkkbB5rFqMeVE0JY0BQ0rKiRZFwoqU
+ GjqBDv5OE1m4ScgIdjslYJVnxg==
+X-Google-Smtp-Source: ABdhPJyzWkgci9VXixrCRz+lgwFJsP+1qd2jH9xIE5pUKSl6Qej6NdegD7xki773sUR8p4Puao3+lQ==
+X-Received: by 2002:a63:6302:: with SMTP id x2mr1983608pgb.5.1636591196936;
+ Wed, 10 Nov 2021 16:39:56 -0800 (PST)
+Received: from google.com (157.214.185.35.bc.googleusercontent.com.
+ [35.185.214.157])
+ by smtp.gmail.com with ESMTPSA id h194sm750078pfe.156.2021.11.10.16.39.56
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 10 Nov 2021 16:39:56 -0800 (PST)
+Date: Thu, 11 Nov 2021 00:39:52 +0000
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Like Xu <like.xu.linux@gmail.com>, Peter Zijlstra <peterz@infradead.org>,
+ Will Deacon <will@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
+ Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kvmarm@lists.cs.columbia.edu, linux-csky@vger.kernel.org,
+ linux-riscv@lists.infradead.org, kvm@vger.kernel.org,
+ xen-devel@lists.xenproject.org,
+ Artem Kashkanov <artem.kashkanov@intel.com>,
+ Zhu Lingshan <lingshan.zhu@intel.com>,
+ Juergen Gross <jgross@suse.com>, Ingo Molnar <mingo@redhat.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Vincent Chen <deanbo422@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Greentime Hu <green.hu@gmail.com>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+ Marc Zyngier <maz@kernel.org>, Nick Hu <nickhu@andestech.com>,
+ Guo Ren <guoren@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>
+Subject: Re: [PATCH v3 01/16] perf: Ensure perf_guest_cbs aren't reloaded
+ between !NULL check and deref
+Message-ID: <YYxmWGB6IUwEu4VZ@google.com>
+References: <20210922000533.713300-1-seanjc@google.com>
+ <20210922000533.713300-2-seanjc@google.com>
+ <77e3a76a-016b-8945-a1d5-aae4075e2147@gmail.com>
+ <YYPrst2CUBXLYc9h@google.com>
+ <f86fe9cb-bf4b-1c10-e0da-276fbb3f62ee@redhat.com>
 MIME-Version: 1.0
-References: <20210929000735.585237-1-saravanak@google.com>
- <20210929000735.585237-2-saravanak@google.com>
- <YYu4EglV7SBZU2Iy@ryzen>
-In-Reply-To: <YYu4EglV7SBZU2Iy@ryzen>
-From: Saravana Kannan <saravanak@google.com>
-Date: Wed, 10 Nov 2021 12:24:38 -0800
-Message-ID: <CAGETcx_m3f5JgrKQXZ5DUxDkpGhAau9G8uYm8a0iQ8JbcD0Rtg@mail.gmail.com>
-Subject: Re: [PATCH v4 1/2] drivers: bus: simple-pm-bus: Add support for
- probing simple bus only devices
-To: Abel Vesa <abelvesa@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>,
- Neil Armstrong <narmstrong@baylibre.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, 
- Tony Lindgren <tony@atomide.com>, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Damien Le Moal <damien.lemoal@wdc.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, 
- Rob Herring <robh+dt@kernel.org>, kernel-team@android.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-oxnas@groups.io, linux-renesas-soc@vger.kernel.org, 
- linux-omap@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <f86fe9cb-bf4b-1c10-e0da-276fbb3f62ee@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211110_122518_438468_61730826 
-X-CRM114-Status: GOOD (  45.38  )
+X-CRM114-CacheID: sfid-20211110_163958_432310_D66BA77F 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,132 +123,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 10, 2021 at 4:16 AM Abel Vesa <abelvesa@kernel.org> wrote:
->
-> On 21-09-28 17:07:33, Saravana Kannan wrote:
-> > fw_devlink could end up creating device links for bus only devices.
-> > However, bus only devices don't get probed and can block probe() or
-> > sync_state() [1] call backs of other devices. To avoid this, probe these
-> > devices using the simple-pm-bus driver.
-> >
-> > However, there are instances of devices that are not simple buses (they get
-> > probed by their specific drivers) that also list the "simple-bus" (or other
-> > bus only compatible strings) in their compatible property to automatically
-> > populate their child devices. We still want these devices to get probed by
-> > their specific drivers. So, we make sure this driver only probes devices
-> > that are only buses.
-> >
-> > [1] - https://lore.kernel.org/lkml/CAPDyKFo9Bxremkb1dDrr4OcXSpE0keVze94Cm=zrkOVxHHxBmQ@mail.gmail.com/
-> > Fixes: c442a0d18744 ("driver core: Set fw_devlink to "permissive" behavior by default")
-> > Signed-off-by: Saravana Kannan <saravanak@google.com>
-> > Tested-by: Saravana Kannan <saravanak@google.com>
-> > Tested-by: Ulf Hansson <ulf.hansson@linaro.org>
-> > ---
-> >  drivers/bus/simple-pm-bus.c | 42 ++++++++++++++++++++++++++++++++++---
-> >  1 file changed, 39 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/drivers/bus/simple-pm-bus.c b/drivers/bus/simple-pm-bus.c
-> > index 01a3d0cd08ed..6b8d6257ed8a 100644
-> > --- a/drivers/bus/simple-pm-bus.c
-> > +++ b/drivers/bus/simple-pm-bus.c
-> > @@ -13,11 +13,36 @@
-> >  #include <linux/platform_device.h>
-> >  #include <linux/pm_runtime.h>
-> >
-> > -
-> >  static int simple_pm_bus_probe(struct platform_device *pdev)
-> >  {
-> > -     const struct of_dev_auxdata *lookup = dev_get_platdata(&pdev->dev);
-> > -     struct device_node *np = pdev->dev.of_node;
-> > +     const struct device *dev = &pdev->dev;
-> > +     const struct of_dev_auxdata *lookup = dev_get_platdata(dev);
-> > +     struct device_node *np = dev->of_node;
-> > +     const struct of_device_id *match;
-> > +
-> > +     /*
-> > +      * Allow user to use driver_override to bind this driver to a
-> > +      * transparent bus device which has a different compatible string
-> > +      * that's not listed in simple_pm_bus_of_match. We don't want to do any
-> > +      * of the simple-pm-bus tasks for these devices, so return early.
-> > +      */
-> > +     if (pdev->driver_override)
-> > +             return 0;
-> > +
-> > +     match = of_match_device(dev->driver->of_match_table, dev);
-> > +     /*
-> > +      * These are transparent bus devices (not simple-pm-bus matches) that
-> > +      * have their child nodes populated automatically.  So, don't need to
-> > +      * do anything more. We only match with the device if this driver is
-> > +      * the most specific match because we don't want to incorrectly bind to
-> > +      * a device that has a more specific driver.
-> > +      */
-> > +     if (match && match->data) {
-> > +             if (of_property_match_string(np, "compatible", match->compatible) == 0)
-> > +                     return 0;
-> > +             else
-> > +                     return -ENODEV;
-> > +     }
->
-> This change is breaking the expected behavior for the already existent
-> simple-bus nodes. All the simple-bus compatibles should be replaced now
-> to simple-pm-bus. In my case, on some i.MX8 platforms, without the
-> devlink, the devices suspend sequence changes (and even breaks).
->
-> To avoid breaking the already existent simple-bus nodes, maybe the logic
-> should've been reversed: keep the simple-bus as is and add another
-> compatible, IDK, something like simple-trasnparent-bus, or something.
+On Wed, Nov 10, 2021, Paolo Bonzini wrote:
+> On 11/4/21 15:18, Sean Christopherson wrote:
+> > If I'm interpeting Paolo's suggestion
+> > correctly, he's pointing out that oustanding stores to the function pointers in
+> > @cbs need to complete before assigning a non-NULL pointer to perf_guest_cbs,
+> > otherwise a perf event handler may see a valid pointer with half-baked callbacks.
+> > 
+> > I think smp_store_release() with a comment would be appropriate, assuming my
+> > above interpretation is correct.
+> > 
+> 
+> Yes, exactly.  It should even be rcu_assign_pointer(), matching the
+> synchronize_rcu()
 
-The intent of this change IS to affect existing simple-bus nodes (but
-not in the way it's affecting you). But if it's breaking stuff, we
-obviously need to fix it.
+And perf_guest_cbs should be tagged __rcu and accessed accordingly.  Which is
+effectively what this version (poorly) implemented with a homebrewed mix of
+{READ,WRITE}_ONCE, lockdep(), and synchronize_rcu().
 
-I have a hunch on what's going on in your case, but can you point me
-to the specific simple-bus node that's getting affected? I'm expecting
-it to be a simple-bus node that gets added AFTER this driver is
-registered at device_initcall (module_init gets converted to
-device_initcall).
+> in patch 1 (and the change can be done in patch 1, too).
 
-Also, can you try this hack patch to see if it helps your case?
-https://lore.kernel.org/lkml/CAGETcx9U130Oq-umrvXME4JhEpO0Wadoki3kNxx=0-YvTR6PtQ@mail.gmail.com/
-
-I have some thoughts on how I could fix this, but I need to think
-about a few cases.
-
--Saravana
-
->
-> >
-> >       dev_dbg(&pdev->dev, "%s\n", __func__);
-> >
-> > @@ -31,14 +56,25 @@ static int simple_pm_bus_probe(struct platform_device *pdev)
-> >
-> >  static int simple_pm_bus_remove(struct platform_device *pdev)
-> >  {
-> > +     const void *data = of_device_get_match_data(&pdev->dev);
-> > +
-> > +     if (pdev->driver_override || data)
-> > +             return 0;
-> > +
-> >       dev_dbg(&pdev->dev, "%s\n", __func__);
-> >
-> >       pm_runtime_disable(&pdev->dev);
-> >       return 0;
-> >  }
-> >
-> > +#define ONLY_BUS     ((void *) 1) /* Match if the device is only a bus. */
-> > +
-> >  static const struct of_device_id simple_pm_bus_of_match[] = {
-> >       { .compatible = "simple-pm-bus", },
-> > +     { .compatible = "simple-bus",   .data = ONLY_BUS },
-> > +     { .compatible = "simple-mfd",   .data = ONLY_BUS },
-> > +     { .compatible = "isa",          .data = ONLY_BUS },
-> > +     { .compatible = "arm,amba-bus", .data = ONLY_BUS },
-> >       { /* sentinel */ }
-> >  };
-> >  MODULE_DEVICE_TABLE(of, simple_pm_bus_of_match);
-> > --
-> > 2.33.0.685.g46640cef36-goog
-> >
+Ya, the change needs to go into patch 1.
 
 _______________________________________________
 linux-riscv mailing list
