@@ -2,14 +2,14 @@ Return-Path: <SRS0=QS6p=P7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B3302C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Nov 2021 19:39:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 33831C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Nov 2021 19:40:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7606360F45
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Nov 2021 19:39:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7606360F45
+	by mail.kernel.org (Postfix) with ESMTPS id F38DF60F45
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Nov 2021 19:40:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F38DF60F45
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,76 +18,79 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P8RGi3A5Mnc6Rx4T3lkWpygo4mf/t0UKLmIU4QxAlog=; b=WIVgunC50XNR93
-	e4+i0xXvI2CMwkueHxcJ+72nGbKrJDks6g7HxiNV2dBKXBiDJAW56RseYbuD151o65mEPNqVr7y8v
-	cK34jG4jPlDw53KX0x+sNlJG/GHHRKbg0DhDK8c33CgnogCZPvuV+/68wIy4/r4bVMaslyqivFdPw
-	ZPE3NoGxl21PApl3hOMFdyJzC3/CptKR1sfElhSOeF59ypeEb0ICstwVUlBY6NTE2JS9Ke4M+kMD0
-	tO6mYyeHxrBcXD52P3uHn5A69VzO1KWRJolO59vxkAkIpAxtjHuJELk6LJnAMdR11SPAePJvRYGMy
-	ZWNGZPLQ0glFTRqjHcAQ==;
+	List-Owner; bh=6qr79hqTbngDaTeBcLlGpYqzrqAOjf7e7mdNu/LqDG0=; b=0xVBCSUj5+6NRd
+	cx6alatajcmBVkbNvrenkvvzmCEOtZ9jCH0wrj01vBuebargMID8XnTxyqu3+O59vg4/iRC4FViWR
+	VX6MwbKmFdFd0FmzUaGQJtkAiyozmLwgvfnIDLs9AAax15SDF9iUlm8GZPAfHQGMKd3Jn529xZxo9
+	tki1zPsbVyzK/DZ61/PdZqJ/H3VIauEOGK3wU1ft0rd0s0D+V9vlAPBAErjxs1LNdJAx6M/S8xJIh
+	dL53LhNkBefup4XwvwcugkLy1qWp7dPk7q3ptaR7ZqFWxCVGhcxFmhu5LKQo5WNwhJxEpBh1z8d6H
+	hwnWk0Dj68klaNlQMOTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mlcOZ-00BU6Z-8i; Fri, 12 Nov 2021 19:39:31 +0000
-Received: from mail-oi1-f175.google.com ([209.85.167.175])
+	id 1mlcPU-00BUEw-1M; Fri, 12 Nov 2021 19:40:28 +0000
+Received: from mail-oi1-f178.google.com ([209.85.167.178])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mlcOW-00BU6B-Fu
- for linux-riscv@lists.infradead.org; Fri, 12 Nov 2021 19:39:29 +0000
-Received: by mail-oi1-f175.google.com with SMTP id 7so9660902oip.12
- for <linux-riscv@lists.infradead.org>; Fri, 12 Nov 2021 11:39:28 -0800 (PST)
+ id 1mlcPS-00BUEQ-33
+ for linux-riscv@lists.infradead.org; Fri, 12 Nov 2021 19:40:27 +0000
+Received: by mail-oi1-f178.google.com with SMTP id q124so19827603oig.3
+ for <linux-riscv@lists.infradead.org>; Fri, 12 Nov 2021 11:40:26 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to;
- bh=HjdsaSpAmewvozo7q/CGdIoUTCTor2nmJMCGv/Gt4Yk=;
- b=6lm5bbiatMZXxwJn1R+nbENnULeiW3TgW2InxI0SLHCZIn/d1nMI6fLuHtyXYbzo5M
- xBq2Q+FJ+z6axEVHSbk4QMXMxtOysvSEK27jPusy1yvYWLX2QY+gdwMtXqNDCWcs+53s
- 1NLpgFjmNThTEQVxcLpuBT046oiP3t4B35FGkxl3KOonLV+riQecKMRl7mgIn0yQ07Y+
- 7lSjVtlnBfo+m2kuAqyyRnO3TSjNrxA5mrE0E162HaMb4yq5aDIhMJ22qobDaMLXJFzV
- ElZ+VM3LO4xFKF2+1cNDYXavg5iDrQez9OZbb5gAKiYCYhSxzbH6ExFaINIpJj1UsfC0
- Fziw==
-X-Gm-Message-State: AOAM533ZN5+U4sX0CCUgZ/cQSAR8qvGTNTel1RxeIcqVs2OL+bkhfb6n
- sibWC39BCWiJxI4gDRtpCQ==
-X-Google-Smtp-Source: ABdhPJzS4fugKbkP1CBDpp1RTVDCjfbOlPki/eQgoV/X4tVZGm+outEJC2MgziwERrcTwP0OXE6Dvg==
-X-Received: by 2002:a05:6808:f01:: with SMTP id
- m1mr1962790oiw.166.1636745967654; 
- Fri, 12 Nov 2021 11:39:27 -0800 (PST)
+ bh=PHvtxKeuvizrVKUChLMEYf9ttqvWEszonrMmIlnzH2Y=;
+ b=G4Rl5VkVFuuR1el2t38nfF1M3H7dMmT3bCGEm3aIsFf0wIyChrgRfv2HO3cTOlU2tO
+ 1Y50i99lUuApHi8sxb84k6x4g9NkIKVgwDf7iBUsw+fVeWloYyIfnPrptHua/HIor4U0
+ Ir0wofxSJ0TQu0FmcRVSyhIqkPEYJP5DViAGYGsj2q0D5Berx++M8Um5lbcBy4nufw0q
+ Wo40KrjaI1b2P9Pf0L8B28RRwn/QtukIvZBUWpUq10/l7epPYeEKh9lbmF4WJDCTrP26
+ KDQTppi9Qhwmue76ZN1H5modrqAvHZBpQI5W/I4mYHmN290NwJDLvAoVxg0e33MFXVL2
+ /50g==
+X-Gm-Message-State: AOAM530V7cP3vTDWxzUZGMynEYPDfWXeXUcM1vu/m9eGyoP+dyX4KUmZ
+ Obu29vho8pyJ9GjySMslDA==
+X-Google-Smtp-Source: ABdhPJw0+YSksiYxgL3Bv+l4s6GecHQ17lz/teo2mb5Gzal8ZpdWy0P/wXLGm3MESOF9KB7+mjHEcA==
+X-Received: by 2002:aca:bb45:: with SMTP id l66mr15340831oif.51.1636746025478; 
+ Fri, 12 Nov 2021 11:40:25 -0800 (PST)
 Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
  [66.90.148.213])
- by smtp.gmail.com with ESMTPSA id t12sm1240395oor.21.2021.11.12.11.39.26
+ by smtp.gmail.com with ESMTPSA id g26sm1431948ots.25.2021.11.12.11.40.24
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 12 Nov 2021 11:39:27 -0800 (PST)
-Received: (nullmailer pid 3240277 invoked by uid 1000);
- Fri, 12 Nov 2021 19:39:25 -0000
-Date: Fri, 12 Nov 2021 13:39:25 -0600
+ Fri, 12 Nov 2021 11:40:24 -0800 (PST)
+Received: (nullmailer pid 3241611 invoked by uid 1000);
+ Fri, 12 Nov 2021 19:40:23 -0000
+Date: Fri, 12 Nov 2021 13:40:23 -0600
 From: Rob Herring <robh@kernel.org>
 To: Emil Renner Berthing <kernel@esmil.dk>
-Cc: linux-kernel@vger.kernel.org, Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Geert Uytterhoeven <geert@linux-m68k.org>, Marc Zyngier <maz@kernel.org>, 
- Matteo Croce <mcroce@microsoft.com>, linux-gpio@vger.kernel.org, 
- devicetree@vger.kernel.org, Atish Patra <atish.patra@wdc.com>, 
- Stephen Boyd <sboyd@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Drew Fustini <drew@beagleboard.org>, Fu Wei <tekkamanninja@gmail.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org, 
- Sagar Kadam <sagar.kadam@sifive.com>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- Michael Zhu <michael.zhu@starfivetech.com>, Rob Herring <robh+dt@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Jiri Slaby <jirislaby@kernel.org>,
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  linux-serial@vger.kernel.org, 
- Anup Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- linux-riscv@lists.infradead.org, Maximilian Luz <luzmaximilian@gmail.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Linus Walleij <linus.walleij@linaro.org>, 
- Michael Turquette <mturquette@baylibre.com>
-Subject: Re: [PATCH v3 08/16] dt-bindings: reset: Add Starfive JH7100 reset
- bindings
-Message-ID: <YY7C7R/vER5FrtVg@robh.at.kernel.org>
+ Anup Patel <anup.patel@wdc.com>, Maximilian Luz <luzmaximilian@gmail.com>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Atish Patra <atish.patra@wdc.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Marc Zyngier <maz@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ linux-clk@vger.kernel.org, 
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-gpio@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Michael Zhu <michael.zhu@starfivetech.com>, 
+ Matteo Croce <mcroce@microsoft.com>, devicetree@vger.kernel.org, 
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Sagar Kadam <sagar.kadam@sifive.com>, 
+ Jiri Slaby <jirislaby@kernel.org>, Fu Wei <tekkamanninja@gmail.com>, 
+ Michael Turquette <mturquette@baylibre.com>,
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Drew Fustini <drew@beagleboard.org>, linux-riscv@lists.infradead.org, 
+ Rob Herring <robh+dt@kernel.org>
+Subject: Re: [PATCH v3 10/16] dt-bindings: pinctrl: Add StarFive pinctrl
+ definitions
+Message-ID: <YY7DJ0awxzvBH6zm@robh.at.kernel.org>
 References: <20211102161125.1144023-1-kernel@esmil.dk>
- <20211102161125.1144023-9-kernel@esmil.dk>
+ <20211102161125.1144023-11-kernel@esmil.dk>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20211102161125.1144023-9-kernel@esmil.dk>
+In-Reply-To: <20211102161125.1144023-11-kernel@esmil.dk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211112_113928_556202_3B25DA6B 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20211112_114026_150282_3EC1075B 
+X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,18 +107,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 02 Nov 2021 17:11:17 +0100, Emil Renner Berthing wrote:
-> Add bindings for the reset controller on the JH7100 RISC-V SoC by
-> StarFive Ltd. This is a test chip for their upcoming JH7110 SoC.
+On Tue, 02 Nov 2021 17:11:19 +0100, Emil Renner Berthing wrote:
+> Add definitons for pins and GPIO input, output and output enable
+> signals on the StarFive JH7100 SoC.
 > 
 > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 > ---
->  .../bindings/reset/starfive,jh7100-reset.yaml | 38 +++++++++++++++++++
->  1 file changed, 38 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
+>  .../dt-bindings/pinctrl/pinctrl-starfive.h    | 275 ++++++++++++++++++
+>  1 file changed, 275 insertions(+)
+>  create mode 100644 include/dt-bindings/pinctrl/pinctrl-starfive.h
 > 
 
-Reviewed-by: Rob Herring <robh@kernel.org>
+Acked-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
