@@ -2,104 +2,126 @@ Return-Path: <SRS0=QS6p=P7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B4A01C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Nov 2021 01:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 595A6C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Nov 2021 07:56:06 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 707696124C
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Nov 2021 01:33:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 707696124C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id 1074260FE7
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Nov 2021 07:56:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 1074260FE7
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C0eVPrqtJhzbWXCakaOeD/2MPN7Jn3WhHNpDI6hX5nc=; b=Qof0d00TSK49EE
-	tZ2UKie1q+Q3G3POh5w5WNxF4S/SMXiUjfqh3oTRLTOak13ttteB38ttEVzyY2+NOiHKiMkGtGrEB
-	qtbxy4o46GeYo7JBpzelWJCAvvXbG7Rs7e2Tr959IYhY97/4m2PkwIBHf4LeLnHbHgUPSOiqH6yHy
-	WIF1sniZyS0HbKnti++l+EZHLd5NEbM/2TwxoueQufb3/1Ag8i2O3ykn0qv+wFon2phtJ426vxJvE
-	lFXnUi4eV7FO6UlbcqnSWFu8FxFuiLFzA+yEzgc3ThaBqO2ZRSgTDmUDjLzXp3zv864dBbOWDQrNl
-	aLYxgzaYakORBWvfE7ig==;
+	List-Owner; bh=ddsHN8uGDuL/wn8OQx4oSHxdl8AvFYyBR5HxBEXUXCs=; b=lcX0a+f2fBG2kA
+	FRtwTgu8keiOi8Pk3IdgejoN7xgRNCFNb9ttwWffG9v6OZQgbG/Gp+YT3HSYHXox44BGR637fRbru
+	kf1ur1MZDLVqKWMSGmi6g4ebqT57ZxeTCxtAmKqDPbkprAoz8bg6RpmfNnlyGW4IVpN12gUP4JGEc
+	UxpBljSrVp6X3QcgKKx77aKkLoP5hWN8VgmRmlPYXKjlleXXbQDWFHvKZgz3DR3kgnHbPz+0H8atS
+	qzEemiTPF9FGW2dY1r8/iwUeQJMitZ8/iNZyxO0eireQf27MoORujMAE2FGAuU6Zdpe1w/+oLD2YK
+	JflTQQQrjHsaXZCw92ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mlLQw-009BLQ-9w; Fri, 12 Nov 2021 01:32:50 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1mlRPd-009dKV-DH; Fri, 12 Nov 2021 07:55:53 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mlLQt-009BKU-3H
- for linux-riscv@lists.infradead.org; Fri, 12 Nov 2021 01:32:48 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id p18so7116839plf.13
- for <linux-riscv@lists.infradead.org>; Thu, 11 Nov 2021 17:32:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=AL90QSnlPxXv5tLufZ1zlq7KjJ0D5BExWrjps1t+29s=;
- b=bxpxOXkH1/gRoN3q2sIlqLWqnDgG6G2HCxNOF6DiM0eebPtdUrVaLZdwTKm30XXIKf
- pciYCCAraDj6+N5ub88aiEU9Sqc+gEEP0tH18UnSplfqeJqpp5zQ3lSTaSygRoGg4fg+
- tll+ejzFsotRKGLbtXHvALciCIt5yeW9ml8k89oDq6DTTLGsUACfArDWOsNIoY0iXp96
- kikQ0fngC+TPH3Kllv27OAwe5xRNf7EWJvcamUReZttXO7TYV+21eZVF7m1gQCC7oZ3B
- biwzTph5R1rTPbnijCWDmekT3qmBDk8AlH8GBjflmk5suuX4JZkxLi8aoALrZ9ZHJtW7
- R2tg==
+ id 1mlRPR-009dI9-1q
+ for linux-riscv@lists.infradead.org; Fri, 12 Nov 2021 07:55:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1636703740;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=lF7lzRoeZrlEIt3gHEFyVsRoWpbej1ntDFwYNAiQdJI=;
+ b=idJU5KzXqQnzThBVK1r8v2xTTYjlvHqFV4WeJikBoUTfau774u9MhOp87uNWVEU5QBN8jy
+ dM+kZBY3rRqNAt5Ay4ARUDnHqtcVTozodtUuighFESarf0v3XFx9ScFUyBx0Dquax9+Qm1
+ Kevo+XJMoBHrTAgjMUT8TeDMfoepxmE=
+Received: from mail-ed1-f72.google.com (mail-ed1-f72.google.com
+ [209.85.208.72]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-32-6eylRC9sPea5bHbprWhagw-1; Fri, 12 Nov 2021 02:55:38 -0500
+X-MC-Unique: 6eylRC9sPea5bHbprWhagw-1
+Received: by mail-ed1-f72.google.com with SMTP id
+ y12-20020a056402270c00b003e28de6e995so7543855edd.11
+ for <linux-riscv@lists.infradead.org>; Thu, 11 Nov 2021 23:55:38 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=AL90QSnlPxXv5tLufZ1zlq7KjJ0D5BExWrjps1t+29s=;
- b=cxkrCoM5GvfLkCm3Fc4wx/MlCmGYBmu54VmdgkKo8VIF4n/tqdBVM1aMBrFJLvO0Pz
- NR9pAYP/50rRTeLHOpPrr3Dv6MZxug2L7kT5g94HDusveIoms6rRo7T1MhR6eY84DXCP
- vin3NhcdEW6x4YQzGkWbnqkx5ytc1KwpZHMbop8+nUcmkkCYbPsDQukQYO47Ffixlby0
- oY1UxJ+M3W896zyWY5CPyILHaBup93RjxI+iOoPYYm8Tp4fhQJRKsirmVNMkHbmIto7B
- Mm2zzrQjtQpf91VYHwfAymKbckvTQs0flEI5qxMFFw4EVWkx4wmC0yHwAV79HhNp9bRZ
- +2Og==
-X-Gm-Message-State: AOAM533CT71Jpexj/b0a3ynxDcZbz1fLJW3JPa38U4OKP8WyGlbJE1pf
- e7YzQkM5wWbm6dtniiIaoqijiA==
-X-Google-Smtp-Source: ABdhPJy7r4nQtcrRS0vLIHiQ7JwTdkVyJqAYi43992L2uT2O4NHn7Evm+9JHhEIz/lSq4u0UiWyh1A==
-X-Received: by 2002:a17:90a:17a5:: with SMTP id
- q34mr31238939pja.122.1636680766291; 
- Thu, 11 Nov 2021 17:32:46 -0800 (PST)
-Received: from google.com (157.214.185.35.bc.googleusercontent.com.
- [35.185.214.157])
- by smtp.gmail.com with ESMTPSA id p23sm9227849pjg.55.2021.11.11.17.32.45
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 11 Nov 2021 17:32:45 -0800 (PST)
-Date: Fri, 12 Nov 2021 01:32:41 +0000
-From: Sean Christopherson <seanjc@google.com>
-To: "Maciej S. Szmigiero" <maciej.szmigiero@oracle.com>
-Cc: James Morse <james.morse@arm.com>,
+ h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+ :content-language:to:cc:references:from:in-reply-to
+ :content-transfer-encoding;
+ bh=lF7lzRoeZrlEIt3gHEFyVsRoWpbej1ntDFwYNAiQdJI=;
+ b=k0yMEfumpHJYoURMJOyWsO91Y/u3djExIvM/RyHUE8yxeSTxmq1ypya2GQnLScgqbg
+ OmPw3C8LLBWqmEPhRBufTCjKEP0EJVSCIOYzeJkML6R+I8be76tk1xEdyaGLDtlwUF6j
+ 6ZKkl34xFAWZEoZxoufWw0OFWk6JgpLPYE3jU4Sn8HcmU49yOejkGZnq1xVoqQQf1cUn
+ xFm6nwvpWsfDaSq+/fRHXfDc8FkYgIJh2OG/dHyMhg+GH+OK45hRJv/jGsMJqPz/ArcR
+ W85P2/wC6ZJI5ECaaJq43sclXs4gwNva+VkLbtn0lv9fL7zJHL5UmIvNAE6wORX+LJix
+ mLLw==
+X-Gm-Message-State: AOAM530H92dXCOA53zMM6fXV9N94Hmcvlb/e6MqEoXruuQMkkpchE76N
+ dg69/MwpsUJEoqjrKhc5bSYvu6QbUVqru12/ENyRZSmWzrPttqDeTGn+BZfjIhziIpMn+TGQnqW
+ 607kyibBGapKoeJDZisQXudmsU7YC
+X-Received: by 2002:a17:907:6e10:: with SMTP id
+ sd16mr17768012ejc.158.1636703737498; 
+ Thu, 11 Nov 2021 23:55:37 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJzVTSyaI9bwf+cK3HRTYkkEGrfXsl4Cvt+Fkmz/7JDyaorMKEA4Mec75P9Nt6V8a8edl3Ld8g==
+X-Received: by 2002:a17:907:6e10:: with SMTP id
+ sd16mr17767982ejc.158.1636703737318; 
+ Thu, 11 Nov 2021 23:55:37 -0800 (PST)
+Received: from ?IPV6:2001:b07:6468:f312:5e2c:eb9a:a8b6:fd3e?
+ ([2001:b07:6468:f312:5e2c:eb9a:a8b6:fd3e])
+ by smtp.gmail.com with ESMTPSA id n1sm2700678edf.45.2021.11.11.23.55.32
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Thu, 11 Nov 2021 23:55:36 -0800 (PST)
+Message-ID: <016d5b91-6910-2aca-0db1-a65079449454@redhat.com>
+Date: Fri, 12 Nov 2021 08:55:31 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.2.0
+Subject: Re: [PATCH v4 01/17] perf: Protect perf_guest_cbs with RCU
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Sean Christopherson <seanjc@google.com>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Russell King <linux@armlinux.org.uk>,
+ Marc Zyngier <maz@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Guo Ren <guoren@kernel.org>, Nick Hu <nickhu@andestech.com>,
+ Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Juergen Gross
+ <jgross@suse.com>, Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
+ James Morse <james.morse@arm.com>,
  Alexandru Elisei <alexandru.elisei@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Atish Patra <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
- Cornelia Huck <cohuck@redhat.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, "H. Peter Anvin" <hpa@zytor.com>,
  Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
  Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
- linux-mips@vger.kernel.org, kvm@vger.kernel.org,
- kvm-ppc@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Ben Gardon <bgardon@google.com>,
- Huacai Chen <chenhuacai@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
- Paul Mackerras <paulus@ozlabs.org>, Anup Patel <anup.patel@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>
-Subject: Re: [PATCH v5.5 30/30] KVM: Dynamically allocate "new" memslots from
- the get-go
-Message-ID: <YY3EOeHVvgOKHNnt@google.com>
-References: <20211104002531.1176691-1-seanjc@google.com>
- <20211104002531.1176691-31-seanjc@google.com>
- <fee75f86-26b0-2dbe-770a-8ecf5cc9e178@oracle.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <fee75f86-26b0-2dbe-770a-8ecf5cc9e178@oracle.com>
+ linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
+ kvm@vger.kernel.org, xen-devel@lists.xenproject.org,
+ Artem Kashkanov <artem.kashkanov@intel.com>,
+ Like Xu <like.xu.linux@gmail.com>, Like Xu <like.xu@linux.intel.com>,
+ Zhu Lingshan <lingshan.zhu@intel.com>
+References: <20211111020738.2512932-1-seanjc@google.com>
+ <20211111020738.2512932-2-seanjc@google.com>
+ <d784dc27-72d0-d64f-e1f4-a2b9a5f86dd4@redhat.com>
+ <YYz03fcDRV9NZnyA@hirez.programming.kicks-ass.net>
+From: Paolo Bonzini <pbonzini@redhat.com>
+In-Reply-To: <YYz03fcDRV9NZnyA@hirez.programming.kicks-ass.net>
+Authentication-Results: relay.mimecast.com;
+ auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=pbonzini@redhat.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211111_173247_191857_CA08215F 
-X-CRM114-Status: GOOD (  29.16  )
+X-CRM114-CacheID: sfid-20211111_235541_179341_734CBEE9 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,74 +133,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 12, 2021, Maciej S. Szmigiero wrote:
-> On 04.11.2021 01:25, Sean Christopherson wrote:
-> > Allocate the "new" memslot for !DELETE memslot updates straight away
-> > instead of filling an intermediate on-stack object and forcing
-> > kvm_set_memslot() to juggle the allocation and do weird things like reuse
-> > the old memslot object in MOVE.
-> > 
-> > In the MOVE case, this results in an "extra" memslot allocation due to
-> > allocating both the "new" slot and the "invalid" slot, but that's a
-> > temporary and not-huge allocation, and MOVE is a relatively rare memslot
-> > operation.
-> > 
-> > Regarding MOVE, drop the open-coded management of the gfn tree with a
-> > call to kvm_replace_memslot(), which already handles the case where
-> > new->base_gfn != old->base_gfn.  This is made possible by virtue of not
-> > having to copy the "new" memslot data after erasing the old memslot from
-> > the gfn tree.  Using kvm_replace_memslot(), and more specifically not
-> > reusing the old memslot, means the MOVE case now does hva tree and hash
-> > list updates, but that's a small price to pay for simplifying the code
-> > and making MOVE align with all the other flavors of updates.  The "extra"
-> > updates are firmly in the noise from a performance perspective, e.g. the
-> > "move (in)active area" selfttests show a (very, very) slight improvement.
-> > 
-> > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> 
-> Reviewed-by: Maciej S. Szmigiero <maciej.szmigiero@oracle.com>
-> 
-> For a new patch set version when the "main" commit is rewritten anyway
-> (I mean the one titled "Keep memslots in tree-based structures instead of
-> array-based ones") it makes sense to integrate changes like these into
-> such modified main commit.
-> 
-> This way a full algorithm / logic check for all the supported memslot
-> operations needs to be done only once instead of having to be done
-> multiple times for all these intermediate forms of the code (as this is
-> a quite time-consuming job to do properly).
-> 
-> I think it only makes sense to separate non-functional changes (like
-> renaming of variables, comment rewording, open-coding a helper, etc.)
-> into their own patches for ease of reviewing.
+On 11/11/21 11:47, Peter Zijlstra wrote:
+>> This technically could be RCU_INIT_POINTER but it's not worth a respin.
+>> There are dozens of other occurrences, and if somebody wanted they
+>> could use Coccinelle to fix all of them.
+> I've been pushing the other way, trying to get rid of RCU_INIT_POINTER()
+> since rcu_assign_pointer(, NULL) actualy DTRT per __builtin_constant_p()
+> etc.
 
-I agree that validating intermediate stages is time-consuming and can be
-frustrating, but that doesn't diminish the value of intermediate patches.  I do
-tend to lean too far towards slicing and dicing, but I am quite confident that
-I've come out ahead in terms of time spent validating smaller patches versus
-time saved because bisection could pinpoint the exact problem.
+Oh, that's pretty cool to know, thanks!
 
-E.g. in this patch, arch code can now see a NULL @new.  That's _supposed_ to be a
-non-functional change, but it would be all too easy to have missed a path in the
-prep work where an arch accesses @new without first checking it for NULL (or DELETE).
-If such a bug were to escape review, then bisection would point at this patch, not
-the mega patch that completely reworked the core memslots behavior.
+Paolo
 
-And IIRC, I actually botched the prior "bitter end" patch and initially missed a
-new.npages => npages conversion.  Again, no functional change _intended_, but one
-of the main reasons for doing small(er) intermediate patches is precisely so that
-any unintended behavior stands out and is easier to debug/triage.
-
-> Or if the main commit was unchanged from the last reviewed version so
-> actual changes in the new version will stand out.
+> There's a very few sites where we use RCU_INIT_POINTER() with a !NULL
+> argument, and those are 'special'.
 > 
-> Thanks,
-> Maciej
+
 
 _______________________________________________
 linux-riscv mailing list
