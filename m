@@ -2,82 +2,92 @@ Return-Path: <SRS0=QS6p=P7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C8648C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Nov 2021 17:42:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B3302C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Nov 2021 19:39:42 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8555860E8F
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Nov 2021 17:42:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 8555860E8F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 7606360F45
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Nov 2021 19:39:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7606360F45
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=FEGuJhxO5wBz5QS7tsXF1nhxGJsTqFGz4W71PWMMQI8=; b=WMnoKSMXUG7kFT6UwMJh3i4dhG
-	VorvGcjhI5rFRD+kybxm+F2FilNdWqwIyuf+TXTOKrlkE285D5kf1XxCZ+OBnZG2Z20OecSuJeJ32
-	bPi18+w/VAqDC6fGwo/xhJpxF8151DpQdocnMwU8KZ7M390HN70M4Rfy3Sd56lUNFP2D+6t6V7td9
-	GhNFd1+ugz5cLOysKef6VRwnu1M4bPiCpcgcRtusBvZ8CUZf9hV8gz7+Lp81KBBbPh5Hjnke8C41T
-	NaTIBX8oRExJFDw6/27w3HKIhst0DNPGWks2Uf4Yhdt/A0+Pmo3e2eSwbTF1K+vKDVLwPOxvY8FSm
-	YvzhwIsw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=P8RGi3A5Mnc6Rx4T3lkWpygo4mf/t0UKLmIU4QxAlog=; b=WIVgunC50XNR93
+	e4+i0xXvI2CMwkueHxcJ+72nGbKrJDks6g7HxiNV2dBKXBiDJAW56RseYbuD151o65mEPNqVr7y8v
+	cK34jG4jPlDw53KX0x+sNlJG/GHHRKbg0DhDK8c33CgnogCZPvuV+/68wIy4/r4bVMaslyqivFdPw
+	ZPE3NoGxl21PApl3hOMFdyJzC3/CptKR1sfElhSOeF59ypeEb0ICstwVUlBY6NTE2JS9Ke4M+kMD0
+	tO6mYyeHxrBcXD52P3uHn5A69VzO1KWRJolO59vxkAkIpAxtjHuJELk6LJnAMdR11SPAePJvRYGMy
+	ZWNGZPLQ0glFTRqjHcAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mlaYz-00BKwV-P1; Fri, 12 Nov 2021 17:42:09 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1mlcOZ-00BU6Z-8i; Fri, 12 Nov 2021 19:39:31 +0000
+Received: from mail-oi1-f175.google.com ([209.85.167.175])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mlaYw-00BKvI-AK
- for linux-riscv@lists.infradead.org; Fri, 12 Nov 2021 17:42:08 +0000
-Received: by mail-pl1-x632.google.com with SMTP id k4so8953511plx.8
- for <linux-riscv@lists.infradead.org>; Fri, 12 Nov 2021 09:42:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=5zpnUZR87InWsjVK87Ebfvs79sDxPj/XEBkb6Bvf2bw=;
- b=P+aw25rpbJvxIbeKltgszkAIjKBgGEene0chJtO7iz7mUKCwFQ9QRv6bil7KCZ2a9T
- XH2iSp92ZmjLV4CvlknKWkT+3ymp4C2pz4H9HF0EJfYvsqNOSmfyfGmIvSNwg8me2nG5
- dAu734huBp7OYFbQ0K+dzzSYrkGrjni6uolq7lpoKSkZE3RZl9vlOLNgoLNJBQV0J2TP
- NLR/sf2vC9cH7X6XtF8hS+SVSzLw5NRLzDcwABzpYq2PU5382UMnZYvIMSWlImmaTdjG
- a4slaQbzYyhsMY0ZGizIhfMAGA4tY3+3j/nv+JASm09IKh9v/1TGAQO0otZuif/GEzxs
- ZxkQ==
+ id 1mlcOW-00BU6B-Fu
+ for linux-riscv@lists.infradead.org; Fri, 12 Nov 2021 19:39:29 +0000
+Received: by mail-oi1-f175.google.com with SMTP id 7so9660902oip.12
+ for <linux-riscv@lists.infradead.org>; Fri, 12 Nov 2021 11:39:28 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=5zpnUZR87InWsjVK87Ebfvs79sDxPj/XEBkb6Bvf2bw=;
- b=ZTUS041tcjArrYZbRCpdJagv4BVCNEr3hHNgRIpCQb6lJH055EcCN/kU+HsjAT2dY1
- MmYbQ2ExaeEDVGGQf3qBZcvWeRpTcBpguISn4SwTAFBXpMq42k/pfRtRlSM0pr6aelWM
- +fOEbbqa2bhX9PcRnFm2NhI3sdkWalPgNEZEoBq1zSu0Bdr0sGVgi4TNSbc6GuYkBc8W
- YHT9NSOLL/0ojEg5daBBS1o2koWRsH/Vu102LwvT/UTPSBh6hIbgIHQeJz6fBdb0O3rb
- rqtuFOn2j+XUw+3BRyDROnBtcXrNLBju+43gHNDjf59YLPX4yqoHEd6YOar5ynmEdA44
- 1ltg==
-X-Gm-Message-State: AOAM5333JNWxQvOFHjA0v3e/WX1xEwjjDcSgMDnGpJT0WlRR3DxhtSuZ
- DzYo1T5WMobIP6FQNLKGh68pVA==
-X-Google-Smtp-Source: ABdhPJxenXaWigePtVWDZEW8cgEyTL1slKGAUYg1vDts7g4InymcxQ87PqpbtmErNKJDYxOc2toEOQ==
-X-Received: by 2002:a17:90a:db81:: with SMTP id
- h1mr39219875pjv.46.1636738924217; 
- Fri, 12 Nov 2021 09:42:04 -0800 (PST)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id i10sm7327858pfe.180.2021.11.12.09.42.03
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=HjdsaSpAmewvozo7q/CGdIoUTCTor2nmJMCGv/Gt4Yk=;
+ b=6lm5bbiatMZXxwJn1R+nbENnULeiW3TgW2InxI0SLHCZIn/d1nMI6fLuHtyXYbzo5M
+ xBq2Q+FJ+z6axEVHSbk4QMXMxtOysvSEK27jPusy1yvYWLX2QY+gdwMtXqNDCWcs+53s
+ 1NLpgFjmNThTEQVxcLpuBT046oiP3t4B35FGkxl3KOonLV+riQecKMRl7mgIn0yQ07Y+
+ 7lSjVtlnBfo+m2kuAqyyRnO3TSjNrxA5mrE0E162HaMb4yq5aDIhMJ22qobDaMLXJFzV
+ ElZ+VM3LO4xFKF2+1cNDYXavg5iDrQez9OZbb5gAKiYCYhSxzbH6ExFaINIpJj1UsfC0
+ Fziw==
+X-Gm-Message-State: AOAM533ZN5+U4sX0CCUgZ/cQSAR8qvGTNTel1RxeIcqVs2OL+bkhfb6n
+ sibWC39BCWiJxI4gDRtpCQ==
+X-Google-Smtp-Source: ABdhPJzS4fugKbkP1CBDpp1RTVDCjfbOlPki/eQgoV/X4tVZGm+outEJC2MgziwERrcTwP0OXE6Dvg==
+X-Received: by 2002:a05:6808:f01:: with SMTP id
+ m1mr1962790oiw.166.1636745967654; 
+ Fri, 12 Nov 2021 11:39:27 -0800 (PST)
+Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
+ [66.90.148.213])
+ by smtp.gmail.com with ESMTPSA id t12sm1240395oor.21.2021.11.12.11.39.26
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 12 Nov 2021 09:42:03 -0800 (PST)
-Date: Fri, 12 Nov 2021 09:42:03 -0800 (PST)
-X-Google-Original-Date: Fri, 12 Nov 2021 09:42:02 PST (-0800)
-Subject: Re: [GIT PULL] RISC-V Patches for the 5.16 Merge Window, Part 1
-In-Reply-To: <mhng-109b0503-bc7c-4da8-8621-28aec8d9df59@palmer-ri-x1c9>
-CC: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-33397cc1-0e32-4947-983a-0cf6e63dcb94@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+ Fri, 12 Nov 2021 11:39:27 -0800 (PST)
+Received: (nullmailer pid 3240277 invoked by uid 1000);
+ Fri, 12 Nov 2021 19:39:25 -0000
+Date: Fri, 12 Nov 2021 13:39:25 -0600
+From: Rob Herring <robh@kernel.org>
+To: Emil Renner Berthing <kernel@esmil.dk>
+Cc: linux-kernel@vger.kernel.org, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, Marc Zyngier <maz@kernel.org>, 
+ Matteo Croce <mcroce@microsoft.com>, linux-gpio@vger.kernel.org, 
+ devicetree@vger.kernel.org, Atish Patra <atish.patra@wdc.com>, 
+ Stephen Boyd <sboyd@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Drew Fustini <drew@beagleboard.org>, Fu Wei <tekkamanninja@gmail.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org, 
+ Sagar Kadam <sagar.kadam@sifive.com>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ Michael Zhu <michael.zhu@starfivetech.com>, Rob Herring <robh+dt@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Jiri Slaby <jirislaby@kernel.org>,
+ linux-serial@vger.kernel.org, 
+ Anup Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ linux-riscv@lists.infradead.org, Maximilian Luz <luzmaximilian@gmail.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Linus Walleij <linus.walleij@linaro.org>, 
+ Michael Turquette <mturquette@baylibre.com>
+Subject: Re: [PATCH v3 08/16] dt-bindings: reset: Add Starfive JH7100 reset
+ bindings
+Message-ID: <YY7C7R/vER5FrtVg@robh.at.kernel.org>
+References: <20211102161125.1144023-1-kernel@esmil.dk>
+ <20211102161125.1144023-9-kernel@esmil.dk>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20211102161125.1144023-9-kernel@esmil.dk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211112_094206_387039_8E1875D7 
-X-CRM114-Status: GOOD (  22.95  )
+X-CRM114-CacheID: sfid-20211112_113928_556202_3B25DA6B 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,145 +99,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Nov 2021 09:32:15 PST (-0800), Palmer Dabbelt wrote:
-> The following changes since commit 3f2401f47d29d669e2cb137709d10dd4c156a02f:
->
->   RISC-V: Add hypervisor extension related CSR defines (2021-10-04 04:54:55 -0400)
->
-> are available in the Git repository at:
->
->   git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.16-mw1
->
-> for you to fetch changes up to ffa7a9141bb70702744a312f904b190ca064bdd7:
->
->   riscv: defconfig: enable DRM_NOUVEAU (2021-10-27 14:36:09 -0700)
->
-> ----------------------------------------------------------------
-> RISC-V Patches for the 5.16 Merge Window, Part 1
->
-> * Support for time namespaces in the VDSO, along with some associated
->   cleanups.
-> * Support for building rv32 randconfigs.
-> * Improvements to the XIP port that allow larger kernels to function
-> * Various device tree cleanups for both the SiFive and Microchip boards
-> * A handful of defconfig updates, including enabling Nouveau.
->
-> There are also various small cleanups.
+On Tue, 02 Nov 2021 17:11:17 +0100, Emil Renner Berthing wrote:
+> Add bindings for the reset controller on the JH7100 RISC-V SoC by
+> StarFive Ltd. This is a test chip for their upcoming JH7110 SoC.
+> 
+> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> ---
+>  .../bindings/reset/starfive,jh7100-reset.yaml | 38 +++++++++++++++++++
+>  1 file changed, 38 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
+> 
 
-I forgot to send along my conflict resolutions:
-
-    diff --cc arch/riscv/Kconfig
-    index dcd7afcd98ef,a34c531be4e7..821252b65f89
-    --- a/arch/riscv/Kconfig
-    +++ b/arch/riscv/Kconfig
-    @@@ -62,8 -62,6 +62,7 @@@ config RISC
-      	select GENERIC_SCHED_CLOCK
-      	select GENERIC_SMP_IDLE_THREAD
-      	select GENERIC_TIME_VSYSCALL if MMU && 64BIT
-     +	select GENERIC_VDSO_TIME_NS if HAVE_GENERIC_VDSO
-    - 	select HANDLE_DOMAIN_IRQ
-      	select HAVE_ARCH_AUDITSYSCALL
-      	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL
-      	select HAVE_ARCH_JUMP_LABEL_RELATIVE if !XIP_KERNEL
-    diff --cc arch/riscv/Makefile
-    index 9247407b95d6,7f19b784e649..5927c94302b8
-    --- a/arch/riscv/Makefile
-    +++ b/arch/riscv/Makefile
-    @@@ -137,16 -136,3 +136,13 @@@ zinstall: install-image = Image.g
-      install zinstall:
-      	$(CONFIG_SHELL) $(srctree)/$(boot)/install.sh $(KERNELRELEASE) \
-      	$(boot)/$(install-image) System.map "$(INSTALL_PATH)"
-     +
-    - archclean:
-    - 	$(Q)$(MAKE) $(clean)=$(boot)
-    -
-     +PHONY += rv32_randconfig
-     +rv32_randconfig:
-     +	$(Q)$(MAKE) KCONFIG_ALLCONFIG=$(srctree)/arch/riscv/configs/32-bit.config \
-     +		-f $(srctree)/Makefile randconfig
-     +
-     +PHONY += rv64_randconfig
-     +rv64_randconfig:
-     +	$(Q)$(MAKE) KCONFIG_ALLCONFIG=$(srctree)/arch/riscv/configs/64-bit.config \
-     +		-f $(srctree)/Makefile randconfig
-    
-Sorry if anything else went off the rails, being on the new computer has 
-be a bit off kilter.  I think I got all my PGP stuff sorted out 
-yesterday.
-
->
-> ----------------------------------------------------------------
-> Dimitri John Ledkov (1):
->       riscv: set default pm_power_off to NULL
->
-> Heinrich Schuchardt (1):
->       riscv: defconfig: enable DRM_NOUVEAU
->
-> Kefeng Wang (1):
->       riscv/vdso: Drop unneeded part due to merge issue
->
-> Krzysztof Kozlowski (11):
->       dt-bindings: mmc: cdns: document Microchip MPFS MMC/SDHCI controller
->       riscv: dts: microchip: drop duplicated nodes
->       riscv: dts: microchip: fix board compatible
->       riscv: dts: microchip: drop duplicated MMC/SDHC node
->       riscv: dts: microchip: drop unused pinctrl-names
->       riscv: dts: microchip: use vendor compatible for Cadence SD4HC
->       riscv: dts: sifive: use only generic JEDEC SPI NOR flash compatible
->       riscv: dts: sifive: fix Unleashed board compatible
->       riscv: dts: sifive: drop duplicated nodes and properties in sifive
->       riscv: dts: microchip: add missing compatibles for clint and plic
->       riscv: dts: sifive: add missing compatible for plic
->
-> Palmer Dabbelt (3):
->       Merge remote-tracking branch 'palmer/riscv-vdso-cleanup' into for-next
->       Merge tag 'for-riscv' of https://git.kernel.org/pub/scm/virt/kvm/kvm.git into for-next
->       Merge tag 'riscv-sifive-dt-5.16' of git://gitolite.kernel.org/pub/scm/linux/kernel/git/krzk/linux into for-next
->
-> Randy Dunlap (1):
->       riscv: add rv32 and rv64 randconfig build targets
->
-> Tong Tiangen (1):
->       riscv/vdso: Add support for time namespaces
->
-> Vineet Gupta (1):
->       riscv: mm: don't advertise 1 num_asid for 0 asid bits
->
-> Vitaly Wool (1):
->       riscv: remove .text section size limitation for XIP
->
->  .../devicetree/bindings/mmc/cdns,sdhci.yaml        |   1 +
->  arch/riscv/Kconfig                                 |   1 +
->  arch/riscv/Makefile                                |  10 +
->  .../dts/microchip/microchip-mpfs-icicle-kit.dts    |  18 +-
->  arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi  |  40 +---
->  arch/riscv/boot/dts/sifive/fu540-c000.dtsi         |   2 +-
->  .../riscv/boot/dts/sifive/hifive-unleashed-a00.dts |  10 +-
->  .../riscv/boot/dts/sifive/hifive-unmatched-a00.dts |   7 +-
->  arch/riscv/configs/32-bit.config                   |   2 +
->  arch/riscv/configs/64-bit.config                   |   2 +
->  arch/riscv/configs/defconfig                       |   7 +-
->  arch/riscv/include/asm/page.h                      |   2 +
->  arch/riscv/include/asm/pgtable.h                   |   6 +-
->  arch/riscv/include/asm/syscall.h                   |   1 +
->  arch/riscv/include/asm/vdso.h                      |  13 +-
->  arch/riscv/include/asm/vdso/gettimeofday.h         |   7 +
->  arch/riscv/kernel/head.S                           |  12 +
->  arch/riscv/kernel/reset.c                          |  12 +-
->  arch/riscv/kernel/syscall_table.c                  |   1 -
->  arch/riscv/kernel/vdso.c                           | 261 +++++++++++++++++----
->  arch/riscv/kernel/vdso/vdso.lds.S                  |   6 +-
->  arch/riscv/kernel/vmlinux-xip.lds.S                |  10 +-
->  arch/riscv/mm/context.c                            |   8 +-
->  arch/riscv/mm/init.c                               |   7 +-
->  24 files changed, 311 insertions(+), 135 deletions(-)
->  create mode 100644 arch/riscv/configs/32-bit.config
->  create mode 100644 arch/riscv/configs/64-bit.config
+Reviewed-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
