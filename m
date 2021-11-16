@@ -2,14 +2,14 @@ Return-Path: <SRS0=z0LS=QD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8DFABC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 15:02:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4F46EC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 15:02:39 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 57F056103B
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 15:02:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 57F056103B
+	by mail.kernel.org (Postfix) with ESMTPS id 0E2456103B
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 15:02:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 0E2456103B
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,52 +18,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EKm/UKr4AA9LkOsiu6ejo+YQFIhzBl/lpgX1GRVjUQ8=; b=5B/izy41o7Bbs6
-	/bNX6Xt+a0AtzxeqR/Ya7R/X6LJS4ehrZFeOTF/cLTKdZ8x9LFjlu0nfB15hwyMmmZ6zXTJzaiNSg
-	w0zPcoyZ2o4GFxQSpEbxqiYdR55KSwHPIxyBmOhYwrdeoiSv9/ie9vKja9L72nj1S/au5S4Akzf6Q
-	/GQu8/Ni8ZysqKbznznrKKmgC27ofgo5P+/6z96S2uMVmO1V4f//7GagCMcClZ11qXdiM5aHcsZgW
-	AT2mTNmtgcI0Kd3UznFpB08VbFYMeo40retntvqBpF3BWBfmpig8TN8X+HInbwMqNSLD3EHB1YOsg
-	tUs+KCQ6lvCstuTn8Zgg==;
+	List-Owner; bh=9fiivmEnp2N4xaMNaqWg9+g3GGRxazZVMYJ7AoNWpZc=; b=Rdbadcgi9XjZ0/
+	Xa3eUjSqGVztgnAjZPbXfdu0qut8pJ47zubAiG5jU+ruTCKLD33b0Zv8FNDU4DjT7BX0H20tKHV29
+	MEvaQORfEtT9jiBh6pKDwbs6k8C1Uvk9+0vph6nFFdaBfIs3KCT7/qtPpgl9nLPPTH8Vmyv6EoxwF
+	s0ENoISX2RtTaEkVsCKtTYTySqYElmrJaUWqnE+zZnuz2gic5fG0zpJv3KRIj7SeLo+WC9GNmd05W
+	duObP6R6QZasaI9osKqGogCeKhQaDq3b5rRDvLnICTy/chZXdlQGkoEtPMsVKdG8jUFd9avijpwlf
+	wnsnlFgP2Mn61OPrubmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mmzyZ-0023wO-Ud; Tue, 16 Nov 2021 15:02:23 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1mmzye-00240J-96; Tue, 16 Nov 2021 15:02:28 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mmzyQ-0023nx-WB
- for linux-riscv@lists.infradead.org; Tue, 16 Nov 2021 15:02:17 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id y13so14181614edd.13
- for <linux-riscv@lists.infradead.org>; Tue, 16 Nov 2021 07:02:14 -0800 (PST)
+ id 1mmzyW-0023tN-HG
+ for linux-riscv@lists.infradead.org; Tue, 16 Nov 2021 15:02:21 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id b15so88869961edd.7
+ for <linux-riscv@lists.infradead.org>; Tue, 16 Nov 2021 07:02:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=0AKL74zqYsY1Xh0L4c9t7o2jZWeUd2oAKR4GJeoSdb4=;
- b=GjJ57E0OM3cIbmfsn+dK5MkT/ppVpmqAW5QnkdHjYfvTNzZAGi5ZqsT6IF1Bo6LDlP
- /ZzbLfkzzYLvUpCEZU/XGe+NwI2P8LWPZoZeGAapZ6s/zbtS9+qzNR/g2XQr2sPpN9gb
- 9r1T9YgCtdt4vGoeCiDC8CmOmyQrenpuYBV4L7ViS+8rk4rKjxhh10qudPoRDvcURooa
- 5W43UMHZBB3dfuFtrKAemcUbaVCrYLn0baZCdop+QTdRK4Pmo1zO+nwreIziqZo1iF9+
- +WXn+RGgTzlzVgnDy+DM7bICf0cXu41UXI2Mc0RGKio07VPKDLQx262CaK700NIk7b4U
- VZAw==
+ bh=eESfjL+iaVjt21sHtGEVPwxEB8OqLbpv+keCGxcdIyU=;
+ b=GBo/tWD7/VC+DrNkyc+CGG7YNagc8t/FoORpQFKPHdPt0IV9Gx9y/PiZNrnUmDm5DC
+ UZf06nG/gksTBavr4RbBiaK2NIIK59KlsVpy2t8CtygTzkbOnYeKkmskFq74hRdJDPLJ
+ +OyK04RpIBUFrRiywEIh3s0gISQspVWuNN+I9YLGbOJ7/n4MprXmsJbNK+tzAMigYc0M
+ DPnw1/fyPEKpBX/4iJ6hfH38jqAV8DvZiov8hHt8Ey9Kij0VBSapj3CgPhyswAYM0+58
+ q4nq5XxKRORgwMw4hkuqr5IMxU+Enm39ADFfTtBSD9efiwxOWpTvyNyZC112irpFSpRN
+ Zj5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:sender:from:to:cc:subject:date:message-id
  :in-reply-to:references:mime-version:content-transfer-encoding;
- bh=0AKL74zqYsY1Xh0L4c9t7o2jZWeUd2oAKR4GJeoSdb4=;
- b=VF9dH9UHaDtZL+FLhZktsc/VWAMe8RezCckkJqci9oSpMmh9AJaSD/oU2r77LndjQ8
- KyJKaTIixcF6yFblQrwO5B61mrhDJKg2kvF1FiwwibyxNh+Py/4gT1vYWaf2AFghzQNU
- wYJRhTvVkvihMMB2FWeqktv1pYuPo0YXnBDzUQwgsfDbFbJ104xvrzZDaB9E80gB8Kqo
- EzkYyxbDDzP7oZScZxWYCAQ/kDcey9jK3VfXFSrUojJn7uFrvCqa3m38sYJfYV7IZXfq
- Eci1lfhb1BFWGOQYIDMtNCgky408Ovl8SoGC1UlOHhEfJk4SA39iuH+T5uOtAqpwBmja
- +9fg==
-X-Gm-Message-State: AOAM531mQhtP8qgwMgUyup52NNjcm5gABKIaP93m/PT/23aYkARPhvY7
- lnZwlHf1/zxYpR4+knCocikh/MqivGulnw==
-X-Google-Smtp-Source: ABdhPJwKQSCvmIj8MeQotQqx8NJXEsahqGC2oYQqvxwpKdqNrn6sZVi9Nj5G4aycU9OTpps5nG47eg==
-X-Received: by 2002:a05:6402:51c6:: with SMTP id
- r6mr10870346edd.365.1637074928493; 
- Tue, 16 Nov 2021 07:02:08 -0800 (PST)
+ bh=eESfjL+iaVjt21sHtGEVPwxEB8OqLbpv+keCGxcdIyU=;
+ b=VLEn6/YUY/ifkRzFr4Cp9ia8mqhnCv+evwt+FQIcUHX+lemIvpHLWvTzC1b0C/nGQm
+ a/O0NRGk2X00TNwX7EXRf2wnX+8AncZQAVxRInAJCvacgDSZqgmJ9hXMMsy5OTV+lXAe
+ lKG+5jzfK0gZwbi0TxUA1ozKtOVmtApC5tITZEVDioEjvmOSvK/QW/hoos4TxZwBUgFM
+ 2bZSdOCkkgExXSZIJyXwsUT+2WW/6arLkM90O5YvymHDJOPjHtUpPl6PtB8HfqFSr35B
+ pSqyvHxPkShw1xRli1HkbDA9NVYwDt8iah2Cnwg2wem8iOJyypcDwPYqNBuvtYG3k7YP
+ Zp9A==
+X-Gm-Message-State: AOAM530aUeabtnVv/LmCEhDI0KoPCE2H6BmWP+Cldijx4zHN2a9wkfmi
+ WdQMkPG94CauLaqstRPsFjhmfATbcybCNw==
+X-Google-Smtp-Source: ABdhPJzbcNiVffclTcRpaBO52GwEoEn2jk4MljQAy87jtPBHusK3NacuiHaKOoX55v9hJnHjiyoKsw==
+X-Received: by 2002:a17:907:3da6:: with SMTP id
+ he38mr10456201ejc.151.1637074937635; 
+ Tue, 16 Nov 2021 07:02:17 -0800 (PST)
 Received: from stitch.. ([2a02:aa7:4600:b4ae:a375:e7a0:9eaf:8d7b])
- by smtp.gmail.com with ESMTPSA id u16sm9414311edr.43.2021.11.16.07.02.05
+ by smtp.gmail.com with ESMTPSA id u16sm9414311edr.43.2021.11.16.07.02.14
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 16 Nov 2021 07:02:08 -0800 (PST)
+ Tue, 16 Nov 2021 07:02:17 -0800 (PST)
 From: Emil Renner Berthing <kernel@esmil.dk>
 To: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
@@ -87,17 +87,18 @@ Cc: Emil Renner Berthing <kernel@esmil.dk>,
  Atish Patra <atish.patra@wdc.com>, Matteo Croce <mcroce@microsoft.com>,
  Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org,
  Rob Herring <robh@kernel.org>
-Subject: [PATCH v4 10/16] dt-bindings: pinctrl: Add StarFive pinctrl
- definitions
-Date: Tue, 16 Nov 2021 16:01:13 +0100
-Message-Id: <20211116150119.2171-11-kernel@esmil.dk>
+Subject: [PATCH v4 13/16] dt-bindings: serial: snps-dw-apb-uart: Add JH7100
+ uarts
+Date: Tue, 16 Nov 2021 16:01:16 +0100
+Message-Id: <20211116150119.2171-14-kernel@esmil.dk>
 X-Mailer: git-send-email 2.34.0
 In-Reply-To: <20211116150119.2171-1-kernel@esmil.dk>
 References: <20211116150119.2171-1-kernel@esmil.dk>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211116_070215_082079_5511D6D8 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20211116_070220_625908_3FEA9869 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,297 +115,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add definitons for pins and GPIO input, output and output enable
-signals on the StarFive JH7100 SoC.
+Add compatibles for the StarFive JH7100 uarts.
 
 Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
 Acked-by: Rob Herring <robh@kernel.org>
 ---
- .../dt-bindings/pinctrl/pinctrl-starfive.h    | 275 ++++++++++++++++++
- 1 file changed, 275 insertions(+)
- create mode 100644 include/dt-bindings/pinctrl/pinctrl-starfive.h
+ .../devicetree/bindings/serial/snps-dw-apb-uart.yaml         | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/include/dt-bindings/pinctrl/pinctrl-starfive.h b/include/dt-bindings/pinctrl/pinctrl-starfive.h
-new file mode 100644
-index 000000000000..de4f75c2c9e8
---- /dev/null
-+++ b/include/dt-bindings/pinctrl/pinctrl-starfive.h
-@@ -0,0 +1,275 @@
-+/* SPDX-License-Identifier: GPL-2.0 OR MIT */
-+/*
-+ * Copyright (C) 2021 Emil Renner Berthing <kernel@esmil.dk>
-+ */
-+
-+#ifndef __DT_BINDINGS_PINCTRL_STARFIVE_H__
-+#define __DT_BINDINGS_PINCTRL_STARFIVE_H__
-+
-+#define PAD_GPIO_OFFSET		0
-+#define PAD_FUNC_SHARE_OFFSET	64
-+#define PAD_GPIO(x)		(PAD_GPIO_OFFSET + (x))
-+#define PAD_FUNC_SHARE(x)	(PAD_FUNC_SHARE_OFFSET + (x))
-+
-+/*
-+ * GPIOMUX bits:
-+ *  | 31 - 24 | 23 - 16 | 15 - 8 |     7    |     6    |  5 - 0  |
-+ *  |  dout   |  doen   |  din   | dout rev | doen rev | gpio nr |
-+ *
-+ * dout:     output signal
-+ * doen:     output enable signal
-+ * din:      optional input signal, 0xff = none
-+ * dout rev: output signal reverse bit
-+ * doen rev: output enable signal reverse bit
-+ * gpio nr:  gpio number, 0 - 63
-+ */
-+#define GPIOMUX(n, dout, doen, din) ( \
-+		(((dout) & 0x80000000) >> (31 - 7)) | (((dout) & 0xff) << 24) | \
-+		(((doen) & 0x80000000) >> (31 - 6)) | (((doen) & 0xff) << 16) | \
-+		(((din) & 0xff) << 8) | \
-+		((n) & 0x3f))
-+
-+#define GPO_REVERSE				0x80000000
-+
-+#define GPO_LOW					0
-+#define GPO_HIGH				1
-+#define GPO_ENABLE				0
-+#define GPO_DISABLE				1
-+#define GPO_CLK_GMAC_PAPHYREF			2
-+#define GPO_JTAG_TDO				3
-+#define GPO_JTAG_TDO_OEN			4
-+#define GPO_DMIC_CLK_OUT			5
-+#define GPO_DSP_JTDOEN_PAD			6
-+#define GPO_DSP_JTDO_PAD			7
-+#define GPO_I2C0_PAD_SCK_OE			8
-+#define GPO_I2C0_PAD_SCK_OEN			(GPO_I2C0_PAD_SCK_OE | GPO_REVERSE)
-+#define GPO_I2C0_PAD_SDA_OE			9
-+#define GPO_I2C0_PAD_SDA_OEN			(GPO_I2C0_PAD_SDA_OE | GPO_REVERSE)
-+#define GPO_I2C1_PAD_SCK_OE			10
-+#define GPO_I2C1_PAD_SCK_OEN			(GPO_I2C1_PAD_SCK_OE | GPO_REVERSE)
-+#define GPO_I2C1_PAD_SDA_OE			11
-+#define GPO_I2C1_PAD_SDA_OEN			(GPO_I2C1_PAD_SDA_OE | GPO_REVERSE)
-+#define GPO_I2C2_PAD_SCK_OE			12
-+#define GPO_I2C2_PAD_SCK_OEN			(GPO_I2C2_PAD_SCK_OE | GPO_REVERSE)
-+#define GPO_I2C2_PAD_SDA_OE			13
-+#define GPO_I2C2_PAD_SDA_OEN			(GPO_I2C2_PAD_SDA_OE | GPO_REVERSE)
-+#define GPO_I2C3_PAD_SCK_OE			14
-+#define GPO_I2C3_PAD_SCK_OEN			(GPO_I2C3_PAD_SCK_OE | GPO_REVERSE)
-+#define GPO_I2C3_PAD_SDA_OE			15
-+#define GPO_I2C3_PAD_SDA_OEN			(GPO_I2C3_PAD_SDA_OE | GPO_REVERSE)
-+#define GPO_I2SRX_BCLK_OUT			16
-+#define GPO_I2SRX_BCLK_OUT_OEN			17
-+#define GPO_I2SRX_LRCK_OUT			18
-+#define GPO_I2SRX_LRCK_OUT_OEN			19
-+#define GPO_I2SRX_MCLK_OUT			20
-+#define GPO_I2STX_BCLK_OUT			21
-+#define GPO_I2STX_BCLK_OUT_OEN			22
-+#define GPO_I2STX_LRCK_OUT			23
-+#define GPO_I2STX_LRCK_OUT_OEN			24
-+#define GPO_I2STX_MCLK_OUT			25
-+#define GPO_I2STX_SDOUT0			26
-+#define GPO_I2STX_SDOUT1			27
-+#define GPO_LCD_PAD_CSM_N			28
-+#define GPO_PWM_PAD_OE_N_BIT0			29
-+#define GPO_PWM_PAD_OE_N_BIT1			30
-+#define GPO_PWM_PAD_OE_N_BIT2			31
-+#define GPO_PWM_PAD_OE_N_BIT3			32
-+#define GPO_PWM_PAD_OE_N_BIT4			33
-+#define GPO_PWM_PAD_OE_N_BIT5			34
-+#define GPO_PWM_PAD_OE_N_BIT6			35
-+#define GPO_PWM_PAD_OE_N_BIT7			36
-+#define GPO_PWM_PAD_OUT_BIT0			37
-+#define GPO_PWM_PAD_OUT_BIT1			38
-+#define GPO_PWM_PAD_OUT_BIT2			39
-+#define GPO_PWM_PAD_OUT_BIT3			40
-+#define GPO_PWM_PAD_OUT_BIT4			41
-+#define GPO_PWM_PAD_OUT_BIT5			42
-+#define GPO_PWM_PAD_OUT_BIT6			43
-+#define GPO_PWM_PAD_OUT_BIT7			44
-+#define GPO_PWMDAC_LEFT_OUT			45
-+#define GPO_PWMDAC_RIGHT_OUT			46
-+#define GPO_QSPI_CSN1_OUT			47
-+#define GPO_QSPI_CSN2_OUT			48
-+#define GPO_QSPI_CSN3_OUT			49
-+#define GPO_REGISTER23_SCFG_CMSENSOR_RST0	50
-+#define GPO_REGISTER23_SCFG_CMSENSOR_RST1	51
-+#define GPO_REGISTER32_SCFG_GMAC_PHY_RSTN	52
-+#define GPO_SDIO0_PAD_CARD_POWER_EN		53
-+#define GPO_SDIO0_PAD_CCLK_OUT			54
-+#define GPO_SDIO0_PAD_CCMD_OE			55
-+#define GPO_SDIO0_PAD_CCMD_OEN			(GPO_SDIO0_PAD_CCMD_OE | GPO_REVERSE)
-+#define GPO_SDIO0_PAD_CCMD_OUT			56
-+#define GPO_SDIO0_PAD_CDATA_OE_BIT0		57
-+#define GPO_SDIO0_PAD_CDATA_OEN_BIT0		(GPO_SDIO0_PAD_CDATA_OE_BIT0 | GPO_REVERSE)
-+#define GPO_SDIO0_PAD_CDATA_OE_BIT1		58
-+#define GPO_SDIO0_PAD_CDATA_OEN_BIT1		(GPO_SDIO0_PAD_CDATA_OE_BIT1 | GPO_REVERSE)
-+#define GPO_SDIO0_PAD_CDATA_OE_BIT2		59
-+#define GPO_SDIO0_PAD_CDATA_OEN_BIT2		(GPO_SDIO0_PAD_CDATA_OE_BIT2 | GPO_REVERSE)
-+#define GPO_SDIO0_PAD_CDATA_OE_BIT3		60
-+#define GPO_SDIO0_PAD_CDATA_OEN_BIT3		(GPO_SDIO0_PAD_CDATA_OE_BIT3 | GPO_REVERSE)
-+#define GPO_SDIO0_PAD_CDATA_OE_BIT4		61
-+#define GPO_SDIO0_PAD_CDATA_OEN_BIT4		(GPO_SDIO0_PAD_CDATA_OE_BIT4 | GPO_REVERSE)
-+#define GPO_SDIO0_PAD_CDATA_OE_BIT5		62
-+#define GPO_SDIO0_PAD_CDATA_OEN_BIT5		(GPO_SDIO0_PAD_CDATA_OE_BIT5 | GPO_REVERSE)
-+#define GPO_SDIO0_PAD_CDATA_OE_BIT6		63
-+#define GPO_SDIO0_PAD_CDATA_OEN_BIT6		(GPO_SDIO0_PAD_CDATA_OE_BIT6 | GPO_REVERSE)
-+#define GPO_SDIO0_PAD_CDATA_OE_BIT7		64
-+#define GPO_SDIO0_PAD_CDATA_OEN_BIT7		(GPO_SDIO0_PAD_CDATA_OE_BIT7 | GPO_REVERSE)
-+#define GPO_SDIO0_PAD_CDATA_OUT_BIT0		65
-+#define GPO_SDIO0_PAD_CDATA_OUT_BIT1		66
-+#define GPO_SDIO0_PAD_CDATA_OUT_BIT2		67
-+#define GPO_SDIO0_PAD_CDATA_OUT_BIT3		68
-+#define GPO_SDIO0_PAD_CDATA_OUT_BIT4		69
-+#define GPO_SDIO0_PAD_CDATA_OUT_BIT5		70
-+#define GPO_SDIO0_PAD_CDATA_OUT_BIT6		71
-+#define GPO_SDIO0_PAD_CDATA_OUT_BIT7		72
-+#define GPO_SDIO0_PAD_RST_N			73
-+#define GPO_SDIO1_PAD_CARD_POWER_EN		74
-+#define GPO_SDIO1_PAD_CCLK_OUT			75
-+#define GPO_SDIO1_PAD_CCMD_OE			76
-+#define GPO_SDIO1_PAD_CCMD_OEN			(GPO_SDIO1_PAD_CCMD_OE | GPO_REVERSE)
-+#define GPO_SDIO1_PAD_CCMD_OUT			77
-+#define GPO_SDIO1_PAD_CDATA_OE_BIT0		78
-+#define GPO_SDIO1_PAD_CDATA_OEN_BIT0		(GPO_SDIO1_PAD_CDATA_OE_BIT0 | GPO_REVERSE)
-+#define GPO_SDIO1_PAD_CDATA_OE_BIT1		79
-+#define GPO_SDIO1_PAD_CDATA_OEN_BIT1		(GPO_SDIO1_PAD_CDATA_OE_BIT1 | GPO_REVERSE)
-+#define GPO_SDIO1_PAD_CDATA_OE_BIT2		80
-+#define GPO_SDIO1_PAD_CDATA_OEN_BIT2		(GPO_SDIO1_PAD_CDATA_OE_BIT2 | GPO_REVERSE)
-+#define GPO_SDIO1_PAD_CDATA_OE_BIT3		81
-+#define GPO_SDIO1_PAD_CDATA_OEN_BIT3		(GPO_SDIO1_PAD_CDATA_OE_BIT3 | GPO_REVERSE)
-+#define GPO_SDIO1_PAD_CDATA_OE_BIT4		82
-+#define GPO_SDIO1_PAD_CDATA_OEN_BIT4		(GPO_SDIO1_PAD_CDATA_OE_BIT4 | GPO_REVERSE)
-+#define GPO_SDIO1_PAD_CDATA_OE_BIT5		83
-+#define GPO_SDIO1_PAD_CDATA_OEN_BIT5		(GPO_SDIO1_PAD_CDATA_OE_BIT5 | GPO_REVERSE)
-+#define GPO_SDIO1_PAD_CDATA_OE_BIT6		84
-+#define GPO_SDIO1_PAD_CDATA_OEN_BIT6		(GPO_SDIO1_PAD_CDATA_OE_BIT6 | GPO_REVERSE)
-+#define GPO_SDIO1_PAD_CDATA_OE_BIT7		85
-+#define GPO_SDIO1_PAD_CDATA_OEN_BIT7		(GPO_SDIO1_PAD_CDATA_OE_BIT7 | GPO_REVERSE)
-+#define GPO_SDIO1_PAD_CDATA_OUT_BIT0		86
-+#define GPO_SDIO1_PAD_CDATA_OUT_BIT1		87
-+#define GPO_SDIO1_PAD_CDATA_OUT_BIT2		88
-+#define GPO_SDIO1_PAD_CDATA_OUT_BIT3		89
-+#define GPO_SDIO1_PAD_CDATA_OUT_BIT4		90
-+#define GPO_SDIO1_PAD_CDATA_OUT_BIT5		91
-+#define GPO_SDIO1_PAD_CDATA_OUT_BIT6		92
-+#define GPO_SDIO1_PAD_CDATA_OUT_BIT7		93
-+#define GPO_SDIO1_PAD_RST_N			94
-+#define GPO_SPDIF_TX_SDOUT			95
-+#define GPO_SPDIF_TX_SDOUT_OEN			96
-+#define GPO_SPI0_PAD_OE_N			97
-+#define GPO_SPI0_PAD_SCK_OUT			98
-+#define GPO_SPI0_PAD_SS_0_N			99
-+#define GPO_SPI0_PAD_SS_1_N			100
-+#define GPO_SPI0_PAD_TXD			101
-+#define GPO_SPI1_PAD_OE_N			102
-+#define GPO_SPI1_PAD_SCK_OUT			103
-+#define GPO_SPI1_PAD_SS_0_N			104
-+#define GPO_SPI1_PAD_SS_1_N			105
-+#define GPO_SPI1_PAD_TXD			106
-+#define GPO_SPI2_PAD_OE_N			107
-+#define GPO_SPI2_PAD_SCK_OUT			108
-+#define GPO_SPI2_PAD_SS_0_N			109
-+#define GPO_SPI2_PAD_SS_1_N			110
-+#define GPO_SPI2_PAD_TXD			111
-+#define GPO_SPI2AHB_PAD_OE_N_BIT0		112
-+#define GPO_SPI2AHB_PAD_OE_N_BIT1		113
-+#define GPO_SPI2AHB_PAD_OE_N_BIT2		114
-+#define GPO_SPI2AHB_PAD_OE_N_BIT3		115
-+#define GPO_SPI2AHB_PAD_TXD_BIT0		116
-+#define GPO_SPI2AHB_PAD_TXD_BIT1		117
-+#define GPO_SPI2AHB_PAD_TXD_BIT2		118
-+#define GPO_SPI2AHB_PAD_TXD_BIT3		119
-+#define GPO_SPI3_PAD_OE_N			120
-+#define GPO_SPI3_PAD_SCK_OUT			121
-+#define GPO_SPI3_PAD_SS_0_N			122
-+#define GPO_SPI3_PAD_SS_1_N			123
-+#define GPO_SPI3_PAD_TXD			124
-+#define GPO_UART0_PAD_DTRN			125
-+#define GPO_UART0_PAD_RTSN			126
-+#define GPO_UART0_PAD_SOUT			127
-+#define GPO_UART1_PAD_SOUT			128
-+#define GPO_UART2_PAD_DTR_N			129
-+#define GPO_UART2_PAD_RTS_N			130
-+#define GPO_UART2_PAD_SOUT			131
-+#define GPO_UART3_PAD_SOUT			132
-+#define GPO_USB_DRV_BUS				133
-+
-+#define GPI_CPU_JTAG_TCK			0
-+#define GPI_CPU_JTAG_TDI			1
-+#define GPI_CPU_JTAG_TMS			2
-+#define GPI_CPU_JTAG_TRST			3
-+#define GPI_DMIC_SDIN_BIT0			4
-+#define GPI_DMIC_SDIN_BIT1			5
-+#define GPI_DSP_JTCK_PAD			6
-+#define GPI_DSP_JTDI_PAD			7
-+#define GPI_DSP_JTMS_PAD			8
-+#define GPI_DSP_TRST_PAD			9
-+#define GPI_I2C0_PAD_SCK_IN			10
-+#define GPI_I2C0_PAD_SDA_IN			11
-+#define GPI_I2C1_PAD_SCK_IN			12
-+#define GPI_I2C1_PAD_SDA_IN			13
-+#define GPI_I2C2_PAD_SCK_IN			14
-+#define GPI_I2C2_PAD_SDA_IN			15
-+#define GPI_I2C3_PAD_SCK_IN			16
-+#define GPI_I2C3_PAD_SDA_IN			17
-+#define GPI_I2SRX_BCLK_IN			18
-+#define GPI_I2SRX_LRCK_IN			19
-+#define GPI_I2SRX_SDIN_BIT0			20
-+#define GPI_I2SRX_SDIN_BIT1			21
-+#define GPI_I2SRX_SDIN_BIT2			22
-+#define GPI_I2STX_BCLK_IN			23
-+#define GPI_I2STX_LRCK_IN			24
-+#define GPI_SDIO0_PAD_CARD_DETECT_N		25
-+#define GPI_SDIO0_PAD_CARD_WRITE_PRT		26
-+#define GPI_SDIO0_PAD_CCMD_IN			27
-+#define GPI_SDIO0_PAD_CDATA_IN_BIT0		28
-+#define GPI_SDIO0_PAD_CDATA_IN_BIT1		29
-+#define GPI_SDIO0_PAD_CDATA_IN_BIT2		30
-+#define GPI_SDIO0_PAD_CDATA_IN_BIT3		31
-+#define GPI_SDIO0_PAD_CDATA_IN_BIT4		32
-+#define GPI_SDIO0_PAD_CDATA_IN_BIT5		33
-+#define GPI_SDIO0_PAD_CDATA_IN_BIT6		34
-+#define GPI_SDIO0_PAD_CDATA_IN_BIT7		35
-+#define GPI_SDIO1_PAD_CARD_DETECT_N		36
-+#define GPI_SDIO1_PAD_CARD_WRITE_PRT		37
-+#define GPI_SDIO1_PAD_CCMD_IN			38
-+#define GPI_SDIO1_PAD_CDATA_IN_BIT0		39
-+#define GPI_SDIO1_PAD_CDATA_IN_BIT1		40
-+#define GPI_SDIO1_PAD_CDATA_IN_BIT2		41
-+#define GPI_SDIO1_PAD_CDATA_IN_BIT3		42
-+#define GPI_SDIO1_PAD_CDATA_IN_BIT4		43
-+#define GPI_SDIO1_PAD_CDATA_IN_BIT5		44
-+#define GPI_SDIO1_PAD_CDATA_IN_BIT6		45
-+#define GPI_SDIO1_PAD_CDATA_IN_BIT7		46
-+#define GPI_SPDIF_RX_SDIN			47
-+#define GPI_SPI0_PAD_RXD			48
-+#define GPI_SPI0_PAD_SS_IN_N			49
-+#define GPI_SPI1_PAD_RXD			50
-+#define GPI_SPI1_PAD_SS_IN_N			51
-+#define GPI_SPI2_PAD_RXD			52
-+#define GPI_SPI2_PAD_SS_IN_N			53
-+#define GPI_SPI2AHB_PAD_RXD_BIT0		54
-+#define GPI_SPI2AHB_PAD_RXD_BIT1		55
-+#define GPI_SPI2AHB_PAD_RXD_BIT2		56
-+#define GPI_SPI2AHB_PAD_RXD_BIT3		57
-+#define GPI_SPI2AHB_PAD_SS_N			58
-+#define GPI_SPI2AHB_SLV_SCLKIN			59
-+#define GPI_SPI3_PAD_RXD			60
-+#define GPI_SPI3_PAD_SS_IN_N			61
-+#define GPI_UART0_PAD_CTSN			62
-+#define GPI_UART0_PAD_DCDN			63
-+#define GPI_UART0_PAD_DSRN			64
-+#define GPI_UART0_PAD_RIN			65
-+#define GPI_UART0_PAD_SIN			66
-+#define GPI_UART1_PAD_SIN			67
-+#define GPI_UART2_PAD_CTS_N			68
-+#define GPI_UART2_PAD_DCD_N			69
-+#define GPI_UART2_PAD_DSR_N			70
-+#define GPI_UART2_PAD_RI_N			71
-+#define GPI_UART2_PAD_SIN			72
-+#define GPI_UART3_PAD_SIN			73
-+#define GPI_USB_OVER_CURRENT			74
-+
-+#define GPI_NONE				0xff
-+
-+#endif /* __DT_BINDINGS_PINCTRL_STARFIVE_H__ */
+diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
+index b49fda5e608f..12137fe80acf 100644
+--- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
++++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
+@@ -40,6 +40,11 @@ properties:
+               - brcm,bcm11351-dw-apb-uart
+               - brcm,bcm21664-dw-apb-uart
+           - const: snps,dw-apb-uart
++      - items:
++          - enum:
++              - starfive,jh7100-hsuart
++              - starfive,jh7100-uart
++          - const: snps,dw-apb-uart
+       - const: snps,dw-apb-uart
+ 
+   reg:
 -- 
 2.33.1
 
