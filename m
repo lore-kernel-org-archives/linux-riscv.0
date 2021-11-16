@@ -2,149 +2,77 @@ Return-Path: <SRS0=z0LS=QD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 66425C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 15:12:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 341D1C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 15:48:48 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 277CC61BFE
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 15:12:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 277CC61BFE
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=nxp.com
+	by mail.kernel.org (Postfix) with ESMTPS id CE37F6128A
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 15:48:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org CE37F6128A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=tecnico.ulisboa.pt
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Zm2nt0DLxNM7ASeIQrNX2xpeeyHf7koQdY5QBlJKvb0=; b=IriifsMKKU2Y9p
-	5NX4lw2VKtzksSs25CxzMBWbhgTIiH60Pa16k/lVinMLgpPjwGkVgvMGMVI11qaM1HAIYh11VfTVB
-	ZI3roEKcNV6p5rJcZR5AX1lYIp7CysuMqgBpKVP2cmKlwrIBbqtjetg3rbompWp5BAyeZ1JfBtWXU
-	Oh6qg6K1tmL2feotX6eS0mtVn6jejLo00FSxBt/9xNzXLk6g1bhnWOUPNAGBpRml01BZ/fqjGbD0U
-	g1V4rmAElAAIpbRc68pYgADiF+BBn9yMrtENb6lLZmWxImNrcbsoyn2XJU5WF5Tgzck/peTOqUOV6
-	J8HRT/TQcN+7cjBDq01w==;
+	List-Owner; bh=olr/0rH1Cvq4ocOpSX96nNk5gt3CUr7ATkmklQYKsKs=; b=hYz2bZu7p8NrUX
+	373pG4iwpkhOtzucvYCXxiU6zjckfnjBEY/IRsy8KUs/NeFXMQjU9lA+m9/wTpzgCCa8bOE/uRgPt
+	P8aG2WCGlZri7MLg3IdvaPm7hoLGY5jtT2/K+woK2NUfnhrCMnuMDgYldGJ84by1/i6ukxO/EaL6v
+	p7korZUn1vgrx9VMfF0Erc/I4w8GPHRopGUGBrXCV5RIRoT/T2kKRUBogczXlR/JUI+VU+YlPgOLI
+	m+0Hgecvcll9dWsTA2Yk70xAnIIcMzipMHrak8iQRG3FjuV0/G/PSCHE1zbT9Nipbm3S/maM+aPlI
+	ipSuWEb+CwVVBjHB9nBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mn07n-0026kp-9m; Tue, 16 Nov 2021 15:11:55 +0000
-Received: from mail-eopbgr00061.outbound.protection.outlook.com ([40.107.0.61]
- helo=EUR02-AM5-obe.outbound.protection.outlook.com)
+	id 1mn0hN-002BjF-Ae; Tue, 16 Nov 2021 15:48:41 +0000
+Received: from smtp1.tecnico.ulisboa.pt ([193.136.128.21])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mn07Y-0026iW-J7; Tue, 16 Nov 2021 15:11:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=XCxw4/FQ+jqYjdWk6S5bjO4ANuzWExZdhJzeL90SrPnRAGmBx5B60mOUxkw2sVlfFBZw/nEQiwUF4Ble+PSP7OwWxqoGvDUe+yNG8tY3+OEau8TsMYC2xD0nKPLqGeECPUc4hrKBPFSYbMBCiHfYW5FaEgWjthpRlUGVnybWvgHe5jUDpq/G5SL7c4wXYWXGUt4+Ug6WoCLMzqaVEvgKQP4v9rfRDJg08R7bUPW9dIMX5eTJk4kFp8AYZd3/98Lusm8kssjNUqahuduU2W5MoqrHEGulGwsoqouqM/zdkBauccNsdFsEmYAel9OAzUPfFcWuJapfoFyflzBge1pj5g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Oq7791NpKf481DHXXIDn4VCj+OpHzaSrtQ5uu+cjR/4=;
- b=VcxAjTCXIAUtjMPsglazjRAkUsXTIl1YKILCtZo/gx8mFsENxqEgwhpTY1skZTme4SaTq2Hpr1LZUpTH4KyvsG/CBJu+JpgOH+dBDtG/2bkQ73CfTTUJaeoXlcMqETqBT83qSGfiURaCFlqLUL22qJwTbXkJcQN6honPxbnQ9vT4KuWXkDwTuvAG6EMzqQnc+YCsH1gDhCTNIsDNqr48jxAYVJ9zQxLPNpImBP6wOEuOwjyH9cKYgKS7IszzqZ7rZIpOviPHOtQAoPZaUzEBLTzBF6uMUukN2qhcpq4CsjAL2Vvj7KdVtVHRrWIoNgotxV2Z2+IURanUHOoYh4r0fg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector2; 
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Oq7791NpKf481DHXXIDn4VCj+OpHzaSrtQ5uu+cjR/4=;
- b=Jq/ZpKJPWwncoV0ZnCZBdNyOm90LmhB7YWuRBxRENo0cFpbJpO+Ygto33dyQvQ3bAvVI0o19mkBpSYfFOTNq/HYGHOVF8yHjKSxHot8d31uE8XJHtVS2Kq+dpqbXcLJFjo5sHTED5SA7eHBbmvtAx6NeJl8Wt05LhuwPc14l8b0=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI1PR04MB4688.eurprd04.prod.outlook.com (2603:10a6:803:6a::30)
- by VE1PR04MB6640.eurprd04.prod.outlook.com (2603:10a6:803:122::32)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4690.26; Tue, 16 Nov
- 2021 15:11:36 +0000
-Received: from VI1PR04MB4688.eurprd04.prod.outlook.com
- ([fe80::d0eb:49aa:2a9:9fc4]) by VI1PR04MB4688.eurprd04.prod.outlook.com
- ([fe80::d0eb:49aa:2a9:9fc4%4]) with mapi id 15.20.4690.027; Tue, 16 Nov 2021
- 15:11:36 +0000
-Date: Tue, 16 Nov 2021 17:11:33 +0200
-From: Abel Vesa <abel.vesa@nxp.com>
-To: Saravana Kannan <saravanak@google.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Neil Armstrong <narmstrong@baylibre.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, Tony Lindgren <tony@atomide.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Damien Le Moal <damien.lemoal@wdc.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ulf Hansson <ulf.hansson@linaro.org>,
- Rob Herring <robh+dt@kernel.org>, kernel-team@android.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-oxnas@groups.io, linux-renesas-soc@vger.kernel.org,
- linux-omap@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 1/2] drivers: bus: simple-pm-bus: Add support for
- probing simple bus only devices
-Message-ID: <YZPKJWtd2VqvufFe@ryzen>
-References: <20210929000735.585237-1-saravanak@google.com>
- <20210929000735.585237-2-saravanak@google.com>
- <YYu4EglV7SBZU2Iy@ryzen>
- <CAGETcx_m3f5JgrKQXZ5DUxDkpGhAau9G8uYm8a0iQ8JbcD0Rtg@mail.gmail.com>
- <CAGETcx_a-d7qQNi3sUce3AzbPcvGJK5JSuiiHm4h4e_q-MT7Dg@mail.gmail.com>
- <YZO5L7BJuLi5YjWr@ryzen>
-Content-Disposition: inline
-In-Reply-To: <YZO5L7BJuLi5YjWr@ryzen>
-X-ClientProxiedBy: VI1PR07CA0214.eurprd07.prod.outlook.com
- (2603:10a6:802:58::17) To VI1PR04MB4688.eurprd04.prod.outlook.com
- (2603:10a6:803:6a::30)
+ id 1mn0hI-002Ben-2h
+ for linux-riscv@lists.infradead.org; Tue, 16 Nov 2021 15:48:38 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+ by smtp1.tecnico.ulisboa.pt (Postfix) with ESMTP id 05B776005C2B;
+ Tue, 16 Nov 2021 15:48:18 +0000 (WET)
+X-Virus-Scanned: by amavisd-new-2.11.0 (20160426) (Debian) at
+ tecnico.ulisboa.pt
+Received: from smtp1.tecnico.ulisboa.pt ([127.0.0.1])
+ by localhost (smtp1.tecnico.ulisboa.pt [127.0.0.1]) (amavisd-new, port 10025)
+ with LMTP id 7suzIrNTA-lf; Tue, 16 Nov 2021 15:48:14 +0000 (WET)
+Received: from mail2.tecnico.ulisboa.pt (mail2.ist.utl.pt
+ [IPv6:2001:690:2100:1::4750:b5b4])
+ by smtp1.tecnico.ulisboa.pt (Postfix) with ESMTPS id 873936005C2C;
+ Tue, 16 Nov 2021 15:48:14 +0000 (WET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=tecnico.ulisboa.pt;
+ s=mail; t=1637077694;
+ bh=EsbqsfDwR3GCr6eujE8yzM6eJnlvI/PG3VO6iR63Ji8=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References;
+ b=EFSRGDrk0Lji+eHSFF6QjNgniPFr1qyHOC2TC4bSZ+Pv4PfSL9DFeoWRnc7fxXrtV
+ ZoLgfHbyNx2/Iymj19NLbgs31gu4UgJ2I4JczCeASMbtW9e3N+OmhkY6a/cv6jwSyE
+ 8+tasQSJ8uiky5a5SThGqu+0uKZeTDloQ4U8AKq8=
+Received: from joaomariovmubuntu.Home (unknown
+ [IPv6:2001:8a0:fa2d:4500:215:5dff:fe40:101])
+ (Authenticated sender: ist181713)
+ by mail2.tecnico.ulisboa.pt (Postfix) with ESMTPSA id 59F7B56007D;
+ Tue, 16 Nov 2021 15:48:14 +0000 (WET)
+From: =?UTF-8?q?Jo=C3=A3o=20M=C3=A1rio=20Domingos?=
+ <joao.mario@tecnico.ulisboa.pt>
+To: palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	aou@eecs.berkeley.edu
+Cc: atish.patra@wdc.com, anup.patel@wdc.com, linux-riscv@lists.infradead.org,
+ nikita.shubin@maquefel.me, joao.mario@tecnico.ulisboa.pt
+Subject: [PATCH v2 1/4] RISC-V: Create unique identification for SoC PMU
+Date: Tue, 16 Nov 2021 15:48:09 +0000
+Message-Id: <20211116154812.17008-2-joao.mario@tecnico.ulisboa.pt>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20211116154812.17008-1-joao.mario@tecnico.ulisboa.pt>
+References: <20211109102555.16381-1-joao.mario@tecnico.ulisboa.pt>
+ <20211116154812.17008-1-joao.mario@tecnico.ulisboa.pt>
 MIME-Version: 1.0
-Received: from ryzen (5.12.226.136) by VI1PR07CA0214.eurprd07.prod.outlook.com
- (2603:10a6:802:58::17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4713.17 via Frontend
- Transport; Tue, 16 Nov 2021 15:11:35 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 39e91164-0610-4554-9d2c-08d9a91361cb
-X-MS-TrafficTypeDiagnostic: VE1PR04MB6640:
-X-Microsoft-Antispam-PRVS: <VE1PR04MB664095A60C5BB6EFC74A9EF0F6999@VE1PR04MB6640.eurprd04.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:7691;
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: Ry19zhwTvC9rgr5e8cGK+hGa/HiYsMLs97xETSuW4/9UsSz20EtPlL9j+Z7L3o1pc/UQzArNLkSN0p1GM1LRoSPgmZ3UUjGgGdY/o0MAmqnip5mN3tvd0Ms5zz0Bd1IsaX3DivkEYJiU9IbB801wfamuwiGmDHxZR6PwK3gBuWH/MJgW7B733gFYDERoNRak5byw5sXvdgcuHxWOopGvv/QqBZRPJ7HomG2nN3uK7CkgsUetu72msVH/EuHK74ReaFwYq5imNx8hbgeCPU09kuEHD9SZZZw2HtrYYnhp3gI6uw9X262jaZgdg6R97ALMVc3cv30voqHRHYSNppZuXR3/ekvuXV1ZMMzErrHqpJmxVOMlqyJ3Ii7bJinyn7bcPETcbpXChW3jy03B3k7ULgKa5TSMY05DalO1q/hQsV9lUnB5gG/79Z3iNjfKSJN9NsfJ3roRga8wDSCRecHeLglYp1VmoR1ARlwfpd7Hrrda0kcZ1Cj+R6HTfTWsfwy0bNOyFARGemAxfitwyPV36C5HyNiIa0KMUs6mUTdBJ/gaiT4CQV5RgRLSaGHKlBhCq2Lrtk+/jj7tx26ehCNlwNnq00c8GOrF3mcYto/yeN2RdbRflA9vq1VeF4ZbbQ79WIjb9TScx+/nMpzS4iJk/LliJtQ3EVESxoJSxL+G56yg8DMXsX4EHfgnpXApPLuc6fAYFtQtVNvnWZh15pgi5IUDpzIlmsBpFqeAQxFcnyjevy+lYw7ho6ixAfAqtAWRMjs/tjr73NcTp8V+L4dF23BTU/L06tleQCm27G+Tfg1cCTZbyaOo8L3yp2JQcIj58oqn0mJCFOfEnD0lBydz6Q==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:VI1PR04MB4688.eurprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(366004)(26005)(38100700002)(55016002)(86362001)(45080400002)(9686003)(38350700002)(8676002)(8936002)(186003)(7416002)(956004)(508600001)(53546011)(2906002)(4326008)(83380400001)(5660300002)(66476007)(66946007)(54906003)(66556008)(33716001)(52116002)(44832011)(316002)(6916009)(9576002)(6496006)(966005);
- DIR:OUT; SFP:1101; 
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?TgvtXc7ifeF9qpxFowyDqzWOWG49Px3hmo9fzZZNDJ6AB7REelFIqGQoJDbT?=
- =?us-ascii?Q?EoXIs/t/YY9wBJjmT7vL/FCiJdm2pkms3xTYGnSiV3t6h/vSoGJKIHH6c7/g?=
- =?us-ascii?Q?IYsZIfuh/eWQEgGvFsFJmJ4G2jg+m/gMLE75CWRsvI1AnxCTsSR9YpL81hSr?=
- =?us-ascii?Q?0VPSJ+46T/LlW97sC0XYiKvpXWD7x5dRgpIFFRgviomkoaTNQlspVfkj12RN?=
- =?us-ascii?Q?IWIHH6W5idCfRtVrhdM8+zOhOAudvBQ0TreikdF39z6+f8pezv06RvYTASys?=
- =?us-ascii?Q?MznjvYCzLEvwRrEMaSVueBp6+wo+7zLkhL50cRW9360XUSaF5ztDjDicAURE?=
- =?us-ascii?Q?1zuPhA7IG60i7WO/U3BSlUkUuoEYX/zL9WlGxKBdHHSkdkcVFBAVK4rxwruJ?=
- =?us-ascii?Q?WzmDJjb6HxiPhTEoXwUjmTdx9PhtaMRr+Xg1+KGkS8AcCgaenSCLjTxz1zIG?=
- =?us-ascii?Q?pbI9xob1WElZluwSe9FOZ+2VuSz93UKh6HA2/Fw13bs2aJd+W2OEIz8vbCUt?=
- =?us-ascii?Q?Y674ObPb3PTLvCbl5E1pA5BCSdEX5daV4VFgMp11hKvG4y0mwuXi1FwwT1Et?=
- =?us-ascii?Q?HmwEIcZJe1uWay4ostGqqH35kK1L/LPgR1M/6kKWr5aU7cfnm8+OYrUWKNBS?=
- =?us-ascii?Q?B3IeMeixNDaiu9Ye5n2AUWOWY762m/2Y3pW9rHDHQtQeDNYgIw3zkmfSLVoH?=
- =?us-ascii?Q?SSCbhM5prWzGsh1nLZTlTVtL2cIuIcaRlEHxFScwNQmz0vVUshBDCOtiQY1P?=
- =?us-ascii?Q?RwVLXxnJNzGrk8+2ivKkWJVX0xAm1zo1A08/KDL9UUoyaszZCueBvXt0p6f/?=
- =?us-ascii?Q?rRMjFI2L92tKcGY5i9tNLXyeuDUF+MJeUqYIPzZO/vYuebThiqingqB2iPFc?=
- =?us-ascii?Q?/QEjKp+c03keYM/Jun6GM8f9crcOQIYYD1dOHQzYBg0ayUZiT0HOdGxg8m0u?=
- =?us-ascii?Q?QtnTDC5ttbbKYW7aiFeTqnOh/MSG9hAJS4lPB4Po+0Ubs/u4nS1kNPqqkVvA?=
- =?us-ascii?Q?DBBRY6NrakFMnqW34CWncPPFh5qDymh6d3nA29yZyJSfsvL70x528cxN09pY?=
- =?us-ascii?Q?cWKwV2qdBY3F9Y1tCfEduJuU7rljLdxfZwy82d3vMefSIvjOy8XDu5lAO8r8?=
- =?us-ascii?Q?6jwCi7DyDj8kDNNa/op7Yn9MTGQwkXN+kdcBFp3+SwX7NIb6Y7dVVktz0lm0?=
- =?us-ascii?Q?ET3FpmcwFJbB118xZhHc/z3lLG8ILif02A+4pSyCy6m/QKio8PBu9mSpD8Cw?=
- =?us-ascii?Q?CeDd0Qm4H1C9KAL+7V+AJu/iJndjTEarASgGL3EWtYGhfSwYjdNVRRWfIAmT?=
- =?us-ascii?Q?xZA9ZeFsfHoak2B+GOAPwKMFQBKwHfgsBLk9OM0/DM0UuatqZoGHbNWHFm+3?=
- =?us-ascii?Q?zq/IqwXodQfgV2zH00l7KpNUbFb0ESKeUcFs6x1/49L4L5OZgTLntMDDaIfI?=
- =?us-ascii?Q?uW4fTT+BByu3KCO+brfTmDbdqn4oM09qfc96mSD89yq2vDLnN6/xXx+J/xKz?=
- =?us-ascii?Q?cFtOOHYyY7uPbUe/kFod19gI9vwUtlMSJp8viqCkRn7tCRz7jtdaetGXjiVi?=
- =?us-ascii?Q?1GRMmFn1XmfA75GZw8M0MoZck9LdypgQychaCnEjl2GHldtj7YMoJgSPWCxF?=
- =?us-ascii?Q?OGeXKP9jpf+X6Pd/me8BacQ=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 39e91164-0610-4554-9d2c-08d9a91361cb
-X-MS-Exchange-CrossTenant-AuthSource: VI1PR04MB4688.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Nov 2021 15:11:36.2291 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Lw9sxWsXoNwqUJ++8hhR/vK/xjTkY+/EACsJNKn61cRPs4Zid6PpjqbXhRgmJ/PhcS++jlXUhyaDNnAqw1vp0Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB6640
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211116_071140_886790_B2E87555 
-X-CRM114-Status: GOOD (  60.22  )
+X-CRM114-CacheID: sfid-20211116_074836_461724_1F00B84F 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,207 +84,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 21-11-16 15:59:11, Abel Vesa wrote:
-> On 21-11-15 12:17:46, Saravana Kannan wrote:
-> > On Wed, Nov 10, 2021 at 12:24 PM Saravana Kannan <saravanak@google.com> wrote:
-> > >
-> > > On Wed, Nov 10, 2021 at 4:16 AM Abel Vesa <abelvesa@kernel.org> wrote:
-> > > >
-> > > > On 21-09-28 17:07:33, Saravana Kannan wrote:
-> > > > > fw_devlink could end up creating device links for bus only devices.
-> > > > > However, bus only devices don't get probed and can block probe() or
-> > > > > sync_state() [1] call backs of other devices. To avoid this, probe these
-> > > > > devices using the simple-pm-bus driver.
-> > > > >
-> > > > > However, there are instances of devices that are not simple buses (they get
-> > > > > probed by their specific drivers) that also list the "simple-bus" (or other
-> > > > > bus only compatible strings) in their compatible property to automatically
-> > > > > populate their child devices. We still want these devices to get probed by
-> > > > > their specific drivers. So, we make sure this driver only probes devices
-> > > > > that are only buses.
-> > > > >
-> > > > > [1] - https://lore.kernel.org/lkml/CAPDyKFo9Bxremkb1dDrr4OcXSpE0keVze94Cm=zrkOVxHHxBmQ@mail.gmail.com/
-> > > > > Fixes: c442a0d18744 ("driver core: Set fw_devlink to "permissive" behavior by default")
-> > > > > Signed-off-by: Saravana Kannan <saravanak@google.com>
-> > > > > Tested-by: Saravana Kannan <saravanak@google.com>
-> > > > > Tested-by: Ulf Hansson <ulf.hansson@linaro.org>
-> > > > > ---
-> > > > >  drivers/bus/simple-pm-bus.c | 42 ++++++++++++++++++++++++++++++++++---
-> > > > >  1 file changed, 39 insertions(+), 3 deletions(-)
-> > > > >
-> > > > > diff --git a/drivers/bus/simple-pm-bus.c b/drivers/bus/simple-pm-bus.c
-> > > > > index 01a3d0cd08ed..6b8d6257ed8a 100644
-> > > > > --- a/drivers/bus/simple-pm-bus.c
-> > > > > +++ b/drivers/bus/simple-pm-bus.c
-> > > > > @@ -13,11 +13,36 @@
-> > > > >  #include <linux/platform_device.h>
-> > > > >  #include <linux/pm_runtime.h>
-> > > > >
-> > > > > -
-> > > > >  static int simple_pm_bus_probe(struct platform_device *pdev)
-> > > > >  {
-> > > > > -     const struct of_dev_auxdata *lookup = dev_get_platdata(&pdev->dev);
-> > > > > -     struct device_node *np = pdev->dev.of_node;
-> > > > > +     const struct device *dev = &pdev->dev;
-> > > > > +     const struct of_dev_auxdata *lookup = dev_get_platdata(dev);
-> > > > > +     struct device_node *np = dev->of_node;
-> > > > > +     const struct of_device_id *match;
-> > > > > +
-> > > > > +     /*
-> > > > > +      * Allow user to use driver_override to bind this driver to a
-> > > > > +      * transparent bus device which has a different compatible string
-> > > > > +      * that's not listed in simple_pm_bus_of_match. We don't want to do any
-> > > > > +      * of the simple-pm-bus tasks for these devices, so return early.
-> > > > > +      */
-> > > > > +     if (pdev->driver_override)
-> > > > > +             return 0;
-> > > > > +
-> > > > > +     match = of_match_device(dev->driver->of_match_table, dev);
-> > > > > +     /*
-> > > > > +      * These are transparent bus devices (not simple-pm-bus matches) that
-> > > > > +      * have their child nodes populated automatically.  So, don't need to
-> > > > > +      * do anything more. We only match with the device if this driver is
-> > > > > +      * the most specific match because we don't want to incorrectly bind to
-> > > > > +      * a device that has a more specific driver.
-> > > > > +      */
-> > > > > +     if (match && match->data) {
-> > > > > +             if (of_property_match_string(np, "compatible", match->compatible) == 0)
-> > > > > +                     return 0;
-> > > > > +             else
-> > > > > +                     return -ENODEV;
-> > > > > +     }
-> > > >
-> > > > This change is breaking the expected behavior for the already existent
-> > > > simple-bus nodes. All the simple-bus compatibles should be replaced now
-> > > > to simple-pm-bus. In my case, on some i.MX8 platforms, without the
-> > > > devlink, the devices suspend sequence changes (and even breaks).
-> > > >
-> > > > To avoid breaking the already existent simple-bus nodes, maybe the logic
-> > > > should've been reversed: keep the simple-bus as is and add another
-> > > > compatible, IDK, something like simple-trasnparent-bus, or something.
-> > >
-> > > The intent of this change IS to affect existing simple-bus nodes (but
-> > > not in the way it's affecting you). But if it's breaking stuff, we
-> > > obviously need to fix it.
-> > >
-> > > I have a hunch on what's going on in your case, but can you point me
-> > > to the specific simple-bus node that's getting affected? I'm expecting
-> > > it to be a simple-bus node that gets added AFTER this driver is
-> > > registered at device_initcall (module_init gets converted to
-> > > device_initcall).
-> > >
-> 
-> Well, for now, I can't pinpoint exactly one specific dts node.
-> My usecase is a little bit more complicated since it's only happening
-> in conjunction with a local change in the imx-mu-irq driver
-> in our local tree. Basically, the local change is forcing a suspend abort by
-> calling pm_system_wake if there is an irq from SCU triggered after the
-> suspend noirq imx-mu-irq driver callback has been called.
-> If we replace all the simple-bus with simple-pm-bus, everything works
-> fine. 
-> 
-> > > Also, can you try this hack patch to see if it helps your case?
-> > > https://lore.kernel.org/lkml/CAGETcx9U130Oq-umrvXME4JhEpO0Wadoki3kNxx=0-YvTR6PtQ@mail.gmail.com/
-> > >
-> 
-> Nope, it doesn't work with this patch either.
-> 
-> And the funny thing is, even if I add the pm_runtime_enable to your patch
-> like this:
-> 
-> diff --git a/drivers/bus/simple-pm-bus.c b/drivers/bus/simple-pm-bus.c
-> index 6b8d6257ed8a..a13324fd700b 100644
-> --- a/drivers/bus/simple-pm-bus.c
-> +++ b/drivers/bus/simple-pm-bus.c
-> @@ -38,9 +38,11 @@ static int simple_pm_bus_probe(struct platform_device *pdev)
->          * a device that has a more specific driver.
->          */
->         if (match && match->data) {
-> -               if (of_property_match_string(np, "compatible", match->compatible) == 0)
-> +               if (of_property_match_string(np, "compatible", match->compatible) == 0) {
-> +                       pm_runtime_enable(&pdev->dev);
-> +                       of_platform_populate(np, NULL, lookup, &pdev->dev);
->                         return 0;
-> -               else
-> +               } else
->                         return -ENODEV;
->         }
-> 
-> I get the following warning:
-> 
-> [    1.009392] ------------[ cut here ]------------
-> [    1.013681] Enabling runtime PM for inactive device (bus@5d000000) with active children
-> [    1.021721] WARNING: CPU: 3 PID: 1 at drivers/base/power/runtime.c:1439 pm_runtime_enable+0xc0/0x100
-> [    1.030794] Modules linked in:                                              
-> [    1.033837] CPU: 3 PID: 1 Comm: swapper/0 Not tainted 5.15.0-04906-gc0a8c67532b6-dirty #226
-> [    1.042175] Hardware name: Freescale i.MX8QXP MEK (DT)
-> [    1.047302] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> [    1.054248] pc : pm_runtime_enable+0xc0/0x100
-> [    1.058594] lr : pm_runtime_enable+0xc0/0x100
-> [    1.062938] sp : ffff800011e4bb60                                           
-> [    1.066237] x29: ffff800011e4bb60 x28: 0000000000000000 x27: ffff8000119204d0
-> [    1.073361] x26: ffff8000119c1060 x25: ffff8000119c1078 x24: ffff80001190f0a0
-> [    1.080484] x23: 0000000000000000 x22: 0000000000000000 x21: ffff0008006a00f4
-> [    1.087608] x20: 0000000000000000 x19: ffff0008006a0010 x18: 0000000000000030
-> [    1.094732] x17: 6974636120687469 x16: 7720293030303030 x15: 3064354073756228
-> [    1.101856] x14: 2065636976656420 x13: ffff800011c21dc0 x12: 0000000000000246
-> [    1.108981] x11: 00000000000000c2 x10: ffff800011c79dc0 x9 : 00000000fffff000
-> [    1.116103] x8 : ffff800011c21dc0 x7 : ffff800011c79dc0 x6 : 0000000000000000
-> [    1.123227] x5 : 000000000000bff4 x4 : 0000000000000000 x3 : 00000000ffffefff
-> [    1.130351] x2 : ffff800011c21d30 x1 : 6bf7c63081c63600 x0 : 0000000000000000
-> [    1.137478] Call trace:                                                     
-> [    1.139910]  pm_runtime_enable+0xc0/0x100
-> [    1.143903]  simple_pm_bus_probe+0x80/0xf0
-> [    1.147986]  platform_probe+0x6c/0xe0
-> [    1.151637]  really_probe.part.0+0x9c/0x310
-> [    1.155805]  __driver_probe_device+0x98/0x144
-> [    1.160149]  driver_probe_device+0xc8/0x15c
-> [    1.164319]  __driver_attach+0xfc/0x190
-> [    1.168141]  bus_for_each_dev+0x70/0xc0
-> [    1.171964]  driver_attach+0x28/0x3c                                        
-> [    1.175526]  bus_add_driver+0x108/0x1f0
-> [    1.179348]  driver_register+0x7c/0x130
-> [    1.183173]  __platform_driver_register+0x2c/0x40
-> [    1.187862]  simple_pm_bus_driver_init+0x20/0x2c
-> [    1.192466]  do_one_initcall+0x54/0x1bc
-> [    1.196289]  kernel_init_freeable+0x210/0x294
-> [    1.200633]  kernel_init+0x28/0x130                                         
-> [    1.204110]  ret_from_fork+0x10/0x20                                        
-> [    1.207678] ---[ end trace 719a02e69bfeb03f ]---
-> 
-> though it should be behaving exactly like in the case of simple-pm-bus.
-> 
-> Maybe I'm missing something here.
-> 
-> I'll keep digging.
-> 
-
-One more thing.
-
-So basically, your already upstream patch removes the devlinks for all the simple-bus
-nodes.
-
-By adding your hack patch, it also removes devlinks between subnodes of the simple-bus
-node.
-
-> > > I have some thoughts on how I could fix this, but I need to think
-> > > about a few cases.
-> > 
-> > Hi Abel,
-> > 
-> > Friendly reminder.
-> > 
-> 
-> Sorry for the late reply.
-> 
-> > -Saravana
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhlIFNCSSBQTVUgcGxhdGZvcm0gZHJpdmVyIGRpZCBub3QgcHJvdmlkZSBhbnkgaWRlbnRpZmlj
+YXRpb24gZm9yCnBlcmYgZXZlbnRzIG1hdGNoaW5nLiBUaGlzIHBhdGNoIGludHJvZHVjZXMgYSBu
+ZXcgc3lzZnMgZmlsZSBpbnNpZGUgdGhlCnBsYXRmb3JtIGRldmljZSAoc29jOnBtdS9pZCkgZm9y
+IHBtdSBpZGVudGlmaWNhdGlvbi4KClRoZSBpZGVudGlmaWNhdGlvbiBpcyBhIDY0LWJpdCB2YWx1
+ZSBnZW5lcmF0ZWQgYXM6Cls2My0zMl06IG12ZW5kb3JpZDsKWzMxXTogbWFyY2hpZFtNU0JdOwpb
+MzAtMTZdOiBtYXJjaGlkWzE1LTBdOwpbMTUtMF06IG1pbXBpZFsxNU1TQnNdOwoKVGhlIENTUnMg
+YXJlIGRldGFpbGVkIGluIHRoZSBSSVNDLVYgcHJpdmlsZWdlZCBzcGVjIFsxXS4KVGhlIG1hcmNo
+aWQgaXMgc3BsaXQgaW4gTVNCICsgMTVMU0JzLCBkdWUgdG8gdGhlIE1TQiBiZWluZyB1c2VkIGZv
+cgpvcGVuLXNvdXJjZSBhcmNoaXRlY3R1cmUgaWRlbnRpZmljYXRpb24uCgpbMV0gaHR0cHM6Ly9n
+aXRodWIuY29tL3Jpc2N2L3Jpc2N2LWlzYS1tYW51YWwKClNpZ25lZC1vZmYtYnk6IEpvw6NvIE3D
+oXJpbyBEb21pbmdvcyA8am9hby5tYXJpb0B0ZWNuaWNvLnVsaXNib2EucHQ+Ci0tLQogYXJjaC9y
+aXNjdi9rZXJuZWwvc2JpLmMgICAgICB8ICAzICsrKwogZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9z
+YmkuYyB8IDQ3ICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwogMiBmaWxlcyBj
+aGFuZ2VkLCA1MCBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwv
+c2JpLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zYmkuYwppbmRleCA3NDAyYTQxN2YzOGUuLjRlNGY1
+NjcxYjg2NCAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvc2JpLmMKKysrIGIvYXJjaC9y
+aXNjdi9rZXJuZWwvc2JpLmMKQEAgLTU1MSwxNiArNTUxLDE5IEBAIGxvbmcgc2JpX2dldF9tdmVu
+ZG9yaWQodm9pZCkKIHsKIAlyZXR1cm4gX19zYmlfYmFzZV9lY2FsbChTQklfRVhUX0JBU0VfR0VU
+X01WRU5ET1JJRCk7CiB9CitFWFBPUlRfU1lNQk9MKHNiaV9nZXRfbXZlbmRvcmlkKTsKIAogbG9u
+ZyBzYmlfZ2V0X21hcmNoaWQodm9pZCkKIHsKIAlyZXR1cm4gX19zYmlfYmFzZV9lY2FsbChTQklf
+RVhUX0JBU0VfR0VUX01BUkNISUQpOwogfQorRVhQT1JUX1NZTUJPTChzYmlfZ2V0X21hcmNoaWQp
+OwogCiBsb25nIHNiaV9nZXRfbWltcGlkKHZvaWQpCiB7CiAJcmV0dXJuIF9fc2JpX2Jhc2VfZWNh
+bGwoU0JJX0VYVF9CQVNFX0dFVF9NSU1QSUQpOwogfQorRVhQT1JUX1NZTUJPTChzYmlfZ2V0X21p
+bXBpZCk7CiAKIHN0YXRpYyB2b2lkIHNiaV9zZW5kX2NwdW1hc2tfaXBpKGNvbnN0IHN0cnVjdCBj
+cHVtYXNrICp0YXJnZXQpCiB7CmRpZmYgLS1naXQgYS9kcml2ZXJzL3BlcmYvcmlzY3ZfcG11X3Ni
+aS5jIGIvZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9zYmkuYwppbmRleCA3YTY4ZGZhODlmNmYuLmE2
+OTI1MWVjN2EzZSAxMDA2NDQKLS0tIGEvZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9zYmkuYworKysg
+Yi9kcml2ZXJzL3BlcmYvcmlzY3ZfcG11X3NiaS5jCkBAIC02NDIsNiArNjQyLDQ2IEBAIHN0YXRp
+YyBpbnQgcG11X3NiaV9zZXR1cF9pcnFzKHN0cnVjdCByaXNjdl9wbXUgKnBtdSwgc3RydWN0IHBs
+YXRmb3JtX2RldmljZSAqcGRlCiAJcmV0dXJuIDA7CiB9CiAKK3N0YXRpYyB1aW50NjRfdCBwbXVf
+c2JpX2dldF9wbXVfaWQodm9pZCkKK3sKKwl1bmlvbiBzYmlfcG11X2lkIHsKKwkJdWludDY0X3Qg
+dmFsdWU7CisJCXN0cnVjdCB7CisJCQl1aW50MTZfdCBpbXA6MTY7CisJCQl1aW50MTZfdCBhcmNo
+OjE2OworCQkJdWludDMyX3QgdmVuZG9yOjMyOworCQl9OworCX0gcG11aWQ7CisKKwlwbXVpZC52
+YWx1ZSA9IDA7CisJcG11aWQudmVuZG9yID0gKHVpbnQzMl90KSBzYmlfZ2V0X212ZW5kb3JpZCgp
+OworCXBtdWlkLmFyY2ggPSAoc2JpX2dldF9tYXJjaGlkKCkgPj4gKDYzIC0gMTUpICYgKDEgPDwg
+MTUpKSB8IChzYmlfZ2V0X21hcmNoaWQoKSAmIDB4N0ZGRik7CisJcG11aWQuaW1wID0gKHNiaV9n
+ZXRfbWltcGlkKCkgPj4gMTYpOworCisJcmV0dXJuIHBtdWlkLnZhbHVlOworfQorCitzdGF0aWMg
+c3NpemVfdCBwbXVfc2JpX2lkX3Nob3coc3RydWN0IGRldmljZSAqZGV2LAorCQlzdHJ1Y3QgZGV2
+aWNlX2F0dHJpYnV0ZSAqYXR0ciwgY2hhciAqYnVmKQoreworCWludCBsZW47CisKKwlsZW4gPSBz
+cHJpbnRmKGJ1ZiwgIjB4JWxseFxuIiwgcG11X3NiaV9nZXRfcG11X2lkKCkpOworCWlmIChsZW4g
+PD0gMCkKKwkJZGV2X2VycihkZXYsICJteWRydjogSW52YWxpZCBzcHJpbnRmIGxlbjogJWRuIiwg
+bGVuKTsKKworCXJldHVybiBsZW47Cit9CisKK3N0YXRpYyBERVZJQ0VfQVRUUihpZCwgU19JUlVH
+TyB8IFNfSVdVU1IsIHBtdV9zYmlfaWRfc2hvdywgMCk7CisKK3N0YXRpYyBzdHJ1Y3QgYXR0cmli
+dXRlICpwbXVfc2JpX2F0dHJzW10gPSB7CisJJmRldl9hdHRyX2lkLmF0dHIsCisJTlVMTAorfTsK
+KworQVRUUklCVVRFX0dST1VQUyhwbXVfc2JpKTsKKwogc3RhdGljIGludCBwbXVfc2JpX2Rldmlj
+ZV9wcm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KQogewogCXN0cnVjdCByaXNjdl9w
+bXUgKnBtdSA9IE5VTEw7CkBAIC02ODAsNiArNzIwLDEzIEBAIHN0YXRpYyBpbnQgcG11X3NiaV9k
+ZXZpY2VfcHJvYmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikKIAlwbXUtPmN0cl9jbGVh
+cl9pZHggPSBwbXVfc2JpX2N0cl9jbGVhcl9pZHg7CiAJcG11LT5jdHJfcmVhZCA9IHBtdV9zYmlf
+Y3RyX3JlYWQ7CiAKKwlyZXQgPSBzeXNmc19jcmVhdGVfZ3JvdXAoJnBkZXYtPmRldi5rb2JqLCAm
+cG11X3NiaV9ncm91cCk7CisJaWYgKHJldCkgeworCQlkZXZfZXJyKCZwZGV2LT5kZXYsICJzeXNm
+cyBjcmVhdGlvbiBmYWlsZWRcbiIpOworCQlyZXR1cm4gcmV0OworCX0KKwlwZGV2LT5kZXYuZ3Jv
+dXBzID0gcG11X3NiaV9ncm91cHM7CisKIAlyZXQgPSBjcHVocF9zdGF0ZV9hZGRfaW5zdGFuY2Uo
+Q1BVSFBfQVBfUEVSRl9SSVNDVl9TVEFSVElORywgJnBtdS0+bm9kZSk7CiAJaWYgKHJldCkKIAkJ
+cmV0dXJuIHJldDsKLS0gCjIuMTcuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
