@@ -2,14 +2,14 @@ Return-Path: <SRS0=z0LS=QD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 35495C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 15:01:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B0E3EC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 15:01:56 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F420E63214
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 15:01:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F420E63214
+	by mail.kernel.org (Postfix) with ESMTPS id 7C38263214
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 15:01:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7C38263214
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,52 +18,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oGIWpxPxn4uy+9/yPAqkd3Jkrk+J9s+gtDo9Mxi8XvI=; b=NsdfGPTFXxO+/h
-	k4JDaAZ0JdWj7rWa9ddc2piubQvdBTtP21QYZI0orW8EMKfLO7GIGjpZQFs/UfO6KdUq4OTyAsts+
-	1u++yvhyr4f/+1NW3EkM4c9zaa5J4pL9GMgmoiAVWAikum85bFyLgL+Dx2SNhbxuKy0IkQtAR7LgQ
-	zwQy5lwJpp2VQE0uLjKhE9QM5nz/Zf+lElM0Zip1WEfRAff6iArVULWYhGdZohONWHeSEPAv+f4Qm
-	9Lz/MZQFhr9GkO+EXUt5XsSqr3VLnt0EYxGeV6URfKQv7h+8dSVZClrve9Y67DNoACBDlhSWz7aBO
-	vDTPC7zbITbbOM/EIshA==;
+	List-Owner; bh=jEe1opLAZk6ZirB344pk4FNXrrPCN+ARnKWHqpfmNN8=; b=ONFO+MXEhv4XVR
+	q5HV70UTdSyMXjNBxoH6vC/5JCOfMNO99EaTuHgdDU6DhPXWiItAUU6CRHfHpCdb6eiY0NlSU3W69
+	6UieSMiGQubyaeqlWiMAHv0ipDLRm6CY+vAbba1tPeewr4956WyXHUllz9XktNaGisRZa1fAqxSjJ
+	R++fMW4SUdudGSq1+3YGL2O0emsbRPNCJM+5rcRQal7VkawGm/uPqQGXxGM+GWRtv1yU+B+nhVC9R
+	MTRLgN8i0yqJE/vvTeJz4ib0eBg6y+5RALY0NlBEVegTgJjXjeOylnheheR5aYC3rbOoSXgw1lfRg
+	jDkcyPhefaVRpk+K6/uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mmzxz-0023Yj-TQ; Tue, 16 Nov 2021 15:01:47 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1mmzxx-0023Y5-5s; Tue, 16 Nov 2021 15:01:45 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mmzxw-0023XV-V7
- for linux-riscv@lists.infradead.org; Tue, 16 Nov 2021 15:01:46 +0000
-Received: by mail-ed1-x532.google.com with SMTP id t5so3600209edd.0
- for <linux-riscv@lists.infradead.org>; Tue, 16 Nov 2021 07:01:44 -0800 (PST)
+ id 1mmzxu-0023Ww-OD
+ for linux-riscv@lists.infradead.org; Tue, 16 Nov 2021 15:01:43 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id r11so25340092edd.9
+ for <linux-riscv@lists.infradead.org>; Tue, 16 Nov 2021 07:01:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=CMB5icMsNI9B+HlHvOZ/rsWpb2j9DPNZlwQY5zjCx08=;
- b=n9SeuxOXS3gI4AQNwEJV1oIlLn5uP2F8o0UII9zWz5LDEqfCBTVOn5m70Mjt/FVI59
- NlUSesXzufLGX5fWoa+TgTya1q+4LjU6VPDpsAw0EnjHO+T//9b7jFAAy/R2M44bvdSM
- /am+b4XYKGSR0upcBwY/+6B57gNRwBZLkSuwge5PfotKg2jCNV1Fn8NHXtSv1TiqE8+o
- Tpq5viWNUvtmDM38/cUZlU7JuC7brgk5Q8zU1SEgGlYEoPU6VeSGc0oHIwipiUo3FzhD
- VyYO+yu5eavWgkSgjERs/6VKy4B+1nQgq572MKwS+vwfS2dknwB9OssFIvAa40H2x8rT
- 2WCA==
+ bh=oPNzD5bnl2PSjk+0YD7yG3K2QwDiM6PZuu4dMQq39/o=;
+ b=cnr4Q5xPkbuPm3TLXjaJ2pjkvnzKkt4NU88x+/c491rS++FKb3RZqLNVQvu9n/yjV3
+ VK7ZtdcidYz39YXHe0ocRxUBjD0lICRI7sxrE812hF0ClH70z0z8ykOKGYwIXab4aze5
+ o1pMSu2zgPs49PISgb1lSONbbu1Xdpyc9GRhpt1VYBWmNIpHXwIBdSjWuulEIxIdAvnl
+ nC3mmLl8+1ShbIvWw72ZcCsnqEq5WEqK/+wr4sTsw895EkLFqdTZGG2ygm0D94ofWEmj
+ XVfERyEpa2EyfXw8bCxEm+hEYdusum2J8aqoba234GJkRn+U7N7BRX9II7ny0zk75MHW
+ uNtg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:sender:from:to:cc:subject:date:message-id
  :in-reply-to:references:mime-version:content-transfer-encoding;
- bh=CMB5icMsNI9B+HlHvOZ/rsWpb2j9DPNZlwQY5zjCx08=;
- b=oYB2swSt+cio6ygnyn6YEctkVZlvPwDt1DeiTdoF45EaDXaGPw9kIySXSGsHx20iZ1
- vub37zwEaND+m/274JJb1l6f3mkAFskL+ThmxcrVSYbcj+IjqZhLJvIUP5plXBOCCCD6
- adin2w9iLWGwKXfIutVH0Oz3uJNJYd25QOw1CFB2jv0RnFpXqA25hYmQqCuNf36FqqWr
- dpic2ggiFc+TuqPGwXKCr3g3LrnoRMEo2MPfvEB1nzSBP9/S3MH7Xn/WJusmOz/M1M5z
- nZzda6v/YKXuxE/6Z4VauYjHbHu0o42X6tmOw9QNT3wnAYknW9m9cXxIyWMspzBC9k9i
- mn8A==
-X-Gm-Message-State: AOAM532XhVk48xJfJQh1qXx1BdsTqdZMeY7ZWEeMPDP0zIsTNNqq71T4
- zCzlIFaGebPiCn+hYCFLZsfKgodRj48LZg==
-X-Google-Smtp-Source: ABdhPJw+EQ13uDQl3bfi5CHEZDvZZHxGJHUGTdHoXtISUwk6v3kE2Bnu1lG3gg+1Uy+IoWc3a0Y7dQ==
-X-Received: by 2002:a17:907:a088:: with SMTP id
- hu8mr11082855ejc.234.1637074902328; 
- Tue, 16 Nov 2021 07:01:42 -0800 (PST)
+ bh=oPNzD5bnl2PSjk+0YD7yG3K2QwDiM6PZuu4dMQq39/o=;
+ b=ZgysCY3BKGa9R5PIJnmTSMn8v3KkZaDKBet10E9JzavDHH/A2eKQ7upJE3nwmRV0qn
+ jEYsUAVCfn/M9xqrrkVnjN4f4Hd4wBSSzRrvOK+5cPgpL5seWFB/cMttskEqJRx/WQ/h
+ 7Vjv9rsjpr6EVYkA4oBHABlB1yWnQTjXmbcTZIEpFe3jhh7MwStuNLAqMzG4mPoJCUou
+ f6wOuOb+y99WcSvjlBo820kSKPB2AugoGWrKMvJulTzM6Vsh6yn+iQ2ybabws9+Uv1uV
+ bsPW3m1BImCp1j5n/Wyi1jjWQK1L0Tj3F7HGw1z8C9AAqZ0qg89ZrdO8Wf3OaZwIC9/M
+ TzuQ==
+X-Gm-Message-State: AOAM533NHi2tP4yz7XHKeAG+inXSHa5TJ7yqs5oliFAnTU1xb+T9BLB/
+ B3hMIFPiSA11NqM1iBudjuIF6QByu/KM0Q==
+X-Google-Smtp-Source: ABdhPJx8vnoNqgZ/tAcT6WqmQrmmONNtGYsmXPHCLuY8u/9mSGV/N1UqNxsymAeGHieq0Ft7UMkVDQ==
+X-Received: by 2002:a05:6402:27d3:: with SMTP id
+ c19mr4587398ede.390.1637074899238; 
+ Tue, 16 Nov 2021 07:01:39 -0800 (PST)
 Received: from stitch.. ([2a02:aa7:4600:b4ae:a375:e7a0:9eaf:8d7b])
- by smtp.gmail.com with ESMTPSA id u16sm9414311edr.43.2021.11.16.07.01.39
+ by smtp.gmail.com with ESMTPSA id u16sm9414311edr.43.2021.11.16.07.01.36
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 16 Nov 2021 07:01:41 -0800 (PST)
+ Tue, 16 Nov 2021 07:01:38 -0800 (PST)
 From: Emil Renner Berthing <kernel@esmil.dk>
 To: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
@@ -85,19 +85,17 @@ Cc: Emil Renner Berthing <kernel@esmil.dk>,
  Michael Zhu <michael.zhu@starfivetech.com>,
  Fu Wei <tekkamanninja@gmail.com>, Anup Patel <anup.patel@wdc.com>,
  Atish Patra <atish.patra@wdc.com>, Matteo Croce <mcroce@microsoft.com>,
- Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org,
- Rob Herring <robh@kernel.org>
-Subject: [PATCH v4 02/16] dt-bindings: timer: Add StarFive JH7100 clint
-Date: Tue, 16 Nov 2021 16:01:05 +0100
-Message-Id: <20211116150119.2171-3-kernel@esmil.dk>
+ Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org
+Subject: [PATCH v4 01/16] RISC-V: Add StarFive SoC Kconfig option
+Date: Tue, 16 Nov 2021 16:01:04 +0100
+Message-Id: <20211116150119.2171-2-kernel@esmil.dk>
 X-Mailer: git-send-email 2.34.0
 In-Reply-To: <20211116150119.2171-1-kernel@esmil.dk>
 References: <20211116150119.2171-1-kernel@esmil.dk>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211116_070145_032654_F1B13D93 
-X-CRM114-Status: UNSURE (   9.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211116_070142_811297_C6EBC5B9 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,27 +112,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add compatible string for the StarFive JH7100 clint.
+Add StarFive Kconfig option to select SoC specific and common drivers
+required for these SoCs. Select subsystems required to boot so the
+required drivers gets enabled by default.
 
 Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
-Acked-by: Rob Herring <robh@kernel.org>
 ---
- Documentation/devicetree/bindings/timer/sifive,clint.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/Kconfig.socs | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-index a35952f48742..8d5f4687add9 100644
---- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-+++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-@@ -25,6 +25,7 @@ properties:
-     items:
-       - enum:
-           - sifive,fu540-c000-clint
-+          - starfive,jh7100-clint
-           - canaan,k210-clint
-       - const: sifive,clint0
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 30676ebb16eb..6ec44a22278a 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -19,6 +19,14 @@ config SOC_SIFIVE
+ 	help
+ 	  This enables support for SiFive SoC platform hardware.
  
++config SOC_STARFIVE
++	bool "StarFive SoCs"
++	select PINCTRL
++	select RESET_CONTROLLER
++	select SIFIVE_PLIC
++	help
++	  This enables support for StarFive SoC platform hardware.
++
+ config SOC_VIRT
+ 	bool "QEMU Virt Machine"
+ 	select CLINT_TIMER if RISCV_M_MODE
 -- 
 2.33.1
 
