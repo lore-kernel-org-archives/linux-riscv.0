@@ -2,60 +2,58 @@ Return-Path: <SRS0=z0LS=QD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 00D3FC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 08:46:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 31C7DC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 09:39:24 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B91B061B4C
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 08:46:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B91B061B4C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=bizjoindeal.pl
+	by mail.kernel.org (Postfix) with ESMTPS id AD57B61A38
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 09:39:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org AD57B61A38
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sntech.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=NQsqD51j01HVpIF2s2zeiseJCcAb3ZJq0Ka19OflCQs=; b=0J4Yw0mm/vSyd7
-	U2JevczP2y/JjydhgVzZtz9f/eEVT2c0FPGY5j24NRGU8I7BSFvaaoufu7sGGDYlmKyMDMKTCW05M
-	DU0GorqEdbasGW7/tCsDTxZmAhsIGLPqP7LN3J0GxpKvA3fNcOUeFVX60rbC7VbrUjOH6bNitFjgq
-	aZmStaY2A+zA5adsyys0mk4aVoV99cIJ6CoIECs7eZZjaH6QiESdE2SaOXutnov+VcuHXI/SlaeKe
-	0a8DtvRzU+ovT+bhJU8Q2huNwK7uDmChnjwqKUAwn17G1Ab+i+bn7fEdVf84afFulV3bT3Q3e1y9s
-	lK7NwBdZP54ZNwfYeSPw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=22NtxqkDHDY214M597G+QdroCYM0JOaKUe7a9wPYMBE=; b=EZPoRXrAM8yW46
+	/qXnlw3mhWOLfFI6uoTO22hRxLRS2PERToKNv41lLleuD2/nCelMufyznLMWRVbi4sHP29Ed6ETTO
+	k9DkPh8d2zfw1v7SeJtL2D6txX7hUEiG0fSDQ/fpYAKbbyXHQkXN1akyRnXTRqKDPLf1wl6OZPjOC
+	NLw7I+4WNTBBMrTOEmS+Ik5pdhvMiPhV/AGQeN7jpER4Ds/2T0Zgh/qSGu6chBOnj6T5CmXfoDrCN
+	gaOKOZ5/QcLhIFXCVcG138rbPQWOl9vHhXhQ2SZ2t+VUlGg6me2hiIfH47DCt5N0jW/NkcnEdcjRW
+	uKwt6b5jPGTvfFFgcNsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mmu6y-000muY-8V; Tue, 16 Nov 2021 08:46:40 +0000
-Received: from mail.bizjoindeal.pl ([80.211.97.164])
+	id 1mmuvs-000z9N-7A; Tue, 16 Nov 2021 09:39:16 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mmu6w-000msx-46
- for linux-riscv@lists.infradead.org; Tue, 16 Nov 2021 08:46:39 +0000
-Received: by mail.bizjoindeal.pl (Postfix, from userid 1001)
- id AD8EAA285D; Tue, 16 Nov 2021 08:46:29 +0000 (GMT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=bizjoindeal.pl;
- s=mail; t=1637052396;
- bh=JZuQ1fK7zFtz2oeUB7Xfid9vb7kUywdmDd2OluR8ywA=;
- h=Date:From:To:Subject:From;
- b=ErzDvcfVbrjIUJFawKwKTV2VI3M850Dzp++Tm4PzYXmfz4RnSrhck8A5N4BRmU3Uj
- kTzrNz4/XSmPUZ5DqL6BqwsVyFVRN7F3RzgL1XGdk86/vGlZkrxpnDM9L9cVc7Kpm+
- di5/R5vgbOR3FrM9385twaXqlBHHOyaOd+UiHEFbfDnz2j7zNDK98lnJ4kdn45KkiH
- 0P2PKSMsFCZA2EDDL8WpxZgnKTShq9GkBHMPjPIQZqCm8bXu/e9sF7qA9DpZKrApC1
- SF/PnqYyCOakr6AVh44fl+99qPPcuA61Cr0JNt6jtt0rp0xpOOWAHHQd+hTCaTr8JV
- yR1fj/cOYdsXw==
-Received: by mail.bizjoindeal.pl for <linux-riscv@lists.infradead.org>;
- Tue, 16 Nov 2021 08:46:10 GMT
-Message-ID: <20211116074500-0.1.60.f0ek.0.gnnug4i8dg@bizjoindeal.pl>
-Date: Tue, 16 Nov 2021 08:46:10 GMT
-From: "Dorian Kwiatkowski" <dorian.kwiatkowski@bizjoindeal.pl>
-To: <linux-riscv@lists.infradead.org>
-Subject: Fotowoltaika dla firm
-X-Mailer: mail.bizjoindeal.pl
+ id 1mmuvo-000z6e-Va
+ for linux-riscv@lists.infradead.org; Tue, 16 Nov 2021 09:39:14 +0000
+Received: from ip5f5a6e92.dynamic.kabel-deutschland.de ([95.90.110.146]
+ helo=diego.localnet)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1mmuvh-00039f-KB; Tue, 16 Nov 2021 10:39:05 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Qiu Wenbo <qiuwenbo@kylinos.com.cn>, Yash Shah <yash.shah@sifive.com>,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ David Abdurachmanov <david.abdurachmanov@sifive.com>
+Cc: Vincent Pelletier <plr.vincent@gmail.com>
+Subject: Re: [PATCH] riscv: dts: sifive unmatched: Name gpio lines.
+Date: Tue, 16 Nov 2021 10:39:04 +0100
+Message-ID: <11612716.TMCrJ2abzX@diego>
+In-Reply-To: <f6512cc50dc31a086e00ed59c63ea60d8c148fc4.1637023980.git.plr.vincent@gmail.com>
+References: <f6512cc50dc31a086e00ed59c63ea60d8c148fc4.1637023980.git.plr.vincent@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211116_004638_333053_C172417F 
-X-CRM114-Status: UNSURE (   1.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211116_013913_066367_941E1D12 
+X-CRM114-Status: GOOD (  17.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,18 +65,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RHppZcWEIGRvYnJ5LAoKa29udGFrdHVqxJkgc2nEmSB6IFBhxYRzdHdlbSwgcG9uaWV3YcW8IGRv
-c3RyemVnYW0gbW/FvGxpd2/Fm8SHIHJlZHVrY2ppIG9wxYJhdCB6YSBwcsSFZC4KCk9kcG93aWVk
-bmlvIGRvYnJhbmEgaW5zdGFsYWNqYSBmb3Rvd29sdGFpY3puYSB0byByb3p3acSFemFuaWUsIGt0
-w7NyZSBwb3p3YWxhIHd5Z2VuZXJvd2HEhyBzcG9yZSBvc3pjesSZZG5vxZtjaSB3IHNrYWxpIHJv
-a3UuCgpDaGNpYcWCYnltIHBvcm96bWF3aWHEhyB6IFBhxYRzdHdlbSBvIHRlZ28gdHlwdSByb3p3
-acSFemFuaXUsIGEgdGFrxbxlIHByemVkc3Rhd2nEhyB3c3TEmXBuZSBrYWxrdWxhY2plLgoKQ3p5
-IHPEhSBQYcWEc3R3byB6YWludGVyZXNvd2FuaT8KClBvemRyYXdpYW0sCkRvcmlhbiBLd2lhdGtv
-d3NraQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Vincent,
+
+Am Dienstag, 16. November 2021, 01:52:56 CET schrieb Vincent Pelletier:
+> Follow the pin descriptions given in the version 3 of the board schematics.
+> 
+> Signed-off-by: Vincent Pelletier <plr.vincent@gmail.com>
+
+when sending a patch series with "git format-patch -6" and friends will
+automcatically generate x/y additions like "[PATCH 1/6]" and so on.
+
+Please try to keep them around when sending, as automated tools for patch
+handling like "b4", stumble when they encounter a patch series without them.
+
+In this case a
+
+	b4 am f6512cc50dc31a086e00ed59c63ea60d8c148fc4.1637023980.git.plr.vincent@gmail.com
+
+[first patch in the series]
+will actually only retrieve the last patch
+
+	"[PATCH] riscv: dts: sifive unmatched: Link the tmp451 with its power supply."
+
+as it thinks it's a new version of the first one.
+
+
+Thanks
+Heiko
+
+> ---
+>  arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> index 4f66919215f6..305a086e5207 100644
+> --- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> +++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> @@ -245,4 +245,8 @@ &pwm1 {
+>  
+>  &gpio {
+>  	status = "okay";
+> +	gpio-line-names = "J29.1", "PMICNTB", "PMICSHDN", "J8.1", "J8.3",
+> +		"PCIe_PWREN", "THERM", "UBRDG_RSTN", "PCIe_PERSTN",
+> +		"ULPI_RSTN", "J8.2", "UHUB_RSTN", "GEMGXL_RST", "J8.4",
+> +		"EN_VDD_SD", "SD_CD";
+>  };
+> 
+
+
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
