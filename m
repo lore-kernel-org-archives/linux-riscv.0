@@ -2,65 +2,59 @@ Return-Path: <SRS0=z0LS=QD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D63D0C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 08:30:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 00D3FC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 08:46:49 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E66AE613D0
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 08:30:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E66AE613D0
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=smail.nju.edu.cn
+	by mail.kernel.org (Postfix) with ESMTPS id B91B061B4C
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 08:46:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B91B061B4C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=bizjoindeal.pl
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=S+e/n2d4k0vz9NBCqmp3MScnH+N8jaryIVCgKQARabs=; b=vjvSBsWGXIo3R3
-	SfWLhG6eRoPkwfH82hDYwA77u59W9LXBdUMYmdeiUNkJh9a2AJ2xjcWkZLBzp6VXkf5gRwnZYZ+Fv
-	6oW05+szoVPlMs0qAi6x61WDzg3vLZwJs0MbJGUgt12B7dHPRphIijFqAM2MpNLl1rkuzEL9EaO7J
-	Jp+RwpdLdpFUA53VyHTNvhrcPjWeNNqBQ1B3SYkAfcqMk7FeoPKibA2rX0Gp3VsvxWeBzwDVRbgRB
-	ay80bur42XDGBumIHvQymZD+nIzooiAeN+hy8ESsWjc9e9zHQzdKAZrchH7CniVFZurPiUQQ5aVsJ
-	ApgPDQegk+8iUS6VvwGA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NQsqD51j01HVpIF2s2zeiseJCcAb3ZJq0Ka19OflCQs=; b=0J4Yw0mm/vSyd7
+	U2JevczP2y/JjydhgVzZtz9f/eEVT2c0FPGY5j24NRGU8I7BSFvaaoufu7sGGDYlmKyMDMKTCW05M
+	DU0GorqEdbasGW7/tCsDTxZmAhsIGLPqP7LN3J0GxpKvA3fNcOUeFVX60rbC7VbrUjOH6bNitFjgq
+	aZmStaY2A+zA5adsyys0mk4aVoV99cIJ6CoIECs7eZZjaH6QiESdE2SaOXutnov+VcuHXI/SlaeKe
+	0a8DtvRzU+ovT+bhJU8Q2huNwK7uDmChnjwqKUAwn17G1Ab+i+bn7fEdVf84afFulV3bT3Q3e1y9s
+	lK7NwBdZP54ZNwfYeSPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mmtr4-000jED-3y; Tue, 16 Nov 2021 08:30:14 +0000
-Received: from smtpbg476.qq.com ([59.36.132.85] helo=qq.com)
+	id 1mmu6y-000muY-8V; Tue, 16 Nov 2021 08:46:40 +0000
+Received: from mail.bizjoindeal.pl ([80.211.97.164])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mmtqy-000j3W-HC
- for linux-riscv@lists.infradead.org; Tue, 16 Nov 2021 08:30:12 +0000
-X-QQ-mid: bizesmtp50t1637051384tfqas7we
-Received: from pcl66.. (unknown [218.17.115.213])
- by esmtp6.qq.com (ESMTP) with 
- id ; Tue, 16 Nov 2021 16:29:35 +0800 (CST)
-X-QQ-SSF: 01400000002000F0O000000D0000000
-X-QQ-FEAT: HEz0dkdU2P7e7x/qI53ZB25Rr7JcMk37Nf931KEIz8JTt0m9F+fH8TXmyusDB
- 3PDVyrF2bd4HByaOR6X7vmCgB9fib0dwOdIbenEQbIEGptJSB4CkID+CcVIQxb5hE86uNLs
- lXPH9gQ59SnsVP6csFU4Es7UiGl2954eevV7qED4jjNnY/pzQV/9QHThHDzJU8q9MHokuWf
- gSfMAfGcpsHVfZ7EYjgBAocJ0UrHICSlr2M1CL+dR7ePMkNo0KQ+XcaLSSTp2tt/Qi1RuJs
- SZ6SmQP7qZzYPFzI5ccuUqSvEOv+pM5jgLoY9j3mH+jX0Xe4C1bl7QIMMmRfrxAPonO8e17
- UU+r88nxi5pYpW95XHAlutknFg3qo1zHQmkue/s
-X-QQ-GoodBg: 2
-From: Chen Lu <181250012@smail.nju.edu.cn>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: nickhu@andestech.com, nylon7@andestech.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- yuzihao@ict.ac.cn, Chen Lu <181250012@smail.nju.edu.cn>
-Subject: [PATCH] riscv: fix misaligned memory access in memmove
-Date: Tue, 16 Nov 2021 16:29:35 +0800
-Message-Id: <20211116082935.3343692-1-181250012@smail.nju.edu.cn>
-X-Mailer: git-send-email 2.30.2
+ id 1mmu6w-000msx-46
+ for linux-riscv@lists.infradead.org; Tue, 16 Nov 2021 08:46:39 +0000
+Received: by mail.bizjoindeal.pl (Postfix, from userid 1001)
+ id AD8EAA285D; Tue, 16 Nov 2021 08:46:29 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=bizjoindeal.pl;
+ s=mail; t=1637052396;
+ bh=JZuQ1fK7zFtz2oeUB7Xfid9vb7kUywdmDd2OluR8ywA=;
+ h=Date:From:To:Subject:From;
+ b=ErzDvcfVbrjIUJFawKwKTV2VI3M850Dzp++Tm4PzYXmfz4RnSrhck8A5N4BRmU3Uj
+ kTzrNz4/XSmPUZ5DqL6BqwsVyFVRN7F3RzgL1XGdk86/vGlZkrxpnDM9L9cVc7Kpm+
+ di5/R5vgbOR3FrM9385twaXqlBHHOyaOd+UiHEFbfDnz2j7zNDK98lnJ4kdn45KkiH
+ 0P2PKSMsFCZA2EDDL8WpxZgnKTShq9GkBHMPjPIQZqCm8bXu/e9sF7qA9DpZKrApC1
+ SF/PnqYyCOakr6AVh44fl+99qPPcuA61Cr0JNt6jtt0rp0xpOOWAHHQd+hTCaTr8JV
+ yR1fj/cOYdsXw==
+Received: by mail.bizjoindeal.pl for <linux-riscv@lists.infradead.org>;
+ Tue, 16 Nov 2021 08:46:10 GMT
+Message-ID: <20211116074500-0.1.60.f0ek.0.gnnug4i8dg@bizjoindeal.pl>
+Date: Tue, 16 Nov 2021 08:46:10 GMT
+From: "Dorian Kwiatkowski" <dorian.kwiatkowski@bizjoindeal.pl>
+To: <linux-riscv@lists.infradead.org>
+Subject: Fotowoltaika dla firm
+X-Mailer: mail.bizjoindeal.pl
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:smail.nju.edu.cn:qybgforeign:qybgforeign7
-X-QQ-Bgrelay: 1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211116_003008_948860_2845FC36 
-X-CRM114-Status: UNSURE (   6.43  )
+X-CRM114-CacheID: sfid-20211116_004638_333053_C172417F 
+X-CRM114-Status: UNSURE (   1.37  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,132 +67,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Fixes: 04091d6c0535("riscv: provide memmove implementation")
-
-Signed-off-by: Chen Lu <181250012@smail.nju.edu.cn>
----
- arch/riscv/lib/memmove.S | 89 +++++++++++++++++++---------------------
- 1 file changed, 42 insertions(+), 47 deletions(-)
-
-diff --git a/arch/riscv/lib/memmove.S b/arch/riscv/lib/memmove.S
-index 07d1d2152ba5..8029bc6caeb8 100644
---- a/arch/riscv/lib/memmove.S
-+++ b/arch/riscv/lib/memmove.S
-@@ -5,60 +5,55 @@
- 
- ENTRY(__memmove)
- WEAK(memmove)
--        move    t0, a0
--        move    t1, a1
-+        bltu    a0, a1, __memcpy
- 
--        beq     a0, a1, exit_memcpy
--        beqz    a2, exit_memcpy
--        srli    t2, a2, 0x2
--
--        slt     t3, a0, a1
--        beqz    t3, do_reverse
--
--        andi    a2, a2, 0x3
--        li      t4, 1
--        beqz    t2, byte_copy
-+        add     t1, a1, a2
-+        bleu    t1, a0, __memcpy
- 
--word_copy:
--        lw      t3, 0(a1)
--        addi    t2, t2, -1
--        addi    a1, a1, 4
--        sw      t3, 0(a0)
--        addi    a0, a0, 4
--        bnez    t2, word_copy
-+        beq     a0, a1, exit_memcpy
-         beqz    a2, exit_memcpy
--        j       byte_copy
--
--do_reverse:
--        add     a0, a0, a2
--        add     a1, a1, a2
--        andi    a2, a2, 0x3
--        li      t4, -1
--        beqz    t2, reverse_byte_copy
- 
--reverse_word_copy:
--        addi    a1, a1, -4
--        addi    t2, t2, -1
--        lw      t3, 0(a1)
--        addi    a0, a0, -4
--        sw      t3, 0(a0)
--        bnez    t2, reverse_word_copy
-+        /* reverse src and dst */
-+        add     t0, a0, a2
-+        /* check low-order bits match */
-+        andi    a3, t0, SZREG-1
-+        andi    a4, t1, SZREG-1
-+        bne     a3, a4, copy_tail_loop
-+        beqz    a4, copy_body
-+
-+copy_head:
-+        /* head misalignment */
-+        addi    t1, t1, -1
-+        lb      t3, 0(t1)
-+        addi    t0, t0, -1
-+        addi    a4, a4, -1
-+        sb      t3, 0(t0)
-+        bnez    a4, copy_head
-+        sub     a2, a2, a3
-+
-+copy_body:
-+        andi    a4, a2, ~(SZREG-1)
-+        andi    a2, a2, (SZREG-1)
-+        beqz    a4, copy_tail
-+copy_body_loop:
-+        addi    t1, t1, -SZREG
-+        REG_L   t3, 0(t1)
-+        addi    t0, t0, -SZREG
-+        addi    a4, a4, -SZREG
-+        REG_S   t3, 0(t0)
-+        bnez    a4, copy_body_loop
-+
-+copy_tail:
-+        /* tail misalignment */
-         beqz    a2, exit_memcpy
--
--reverse_byte_copy:
--        addi    a0, a0, -1
--        addi    a1, a1, -1
--
--byte_copy:
--        lb      t3, 0(a1)
-+copy_tail_loop:
-+        addi    t1, t1, -1
-+        lb      t3, 0(t1)
-+        addi    t0, t0, -1
-         addi    a2, a2, -1
--        sb      t3, 0(a0)
--        add     a1, a1, t4
--        add     a0, a0, t4
--        bnez    a2, byte_copy
-+        sb      t3, 0(t0)
-+        bnez    a2, copy_tail_loop
- 
- exit_memcpy:
--        move a0, t0
--        move a1, t1
-         ret
- END(__memmove)
--- 
-2.30.2
-
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RHppZcWEIGRvYnJ5LAoKa29udGFrdHVqxJkgc2nEmSB6IFBhxYRzdHdlbSwgcG9uaWV3YcW8IGRv
+c3RyemVnYW0gbW/FvGxpd2/Fm8SHIHJlZHVrY2ppIG9wxYJhdCB6YSBwcsSFZC4KCk9kcG93aWVk
+bmlvIGRvYnJhbmEgaW5zdGFsYWNqYSBmb3Rvd29sdGFpY3puYSB0byByb3p3acSFemFuaWUsIGt0
+w7NyZSBwb3p3YWxhIHd5Z2VuZXJvd2HEhyBzcG9yZSBvc3pjesSZZG5vxZtjaSB3IHNrYWxpIHJv
+a3UuCgpDaGNpYcWCYnltIHBvcm96bWF3aWHEhyB6IFBhxYRzdHdlbSBvIHRlZ28gdHlwdSByb3p3
+acSFemFuaXUsIGEgdGFrxbxlIHByemVkc3Rhd2nEhyB3c3TEmXBuZSBrYWxrdWxhY2plLgoKQ3p5
+IHPEhSBQYcWEc3R3byB6YWludGVyZXNvd2FuaT8KClBvemRyYXdpYW0sCkRvcmlhbiBLd2lhdGtv
+d3NraQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
