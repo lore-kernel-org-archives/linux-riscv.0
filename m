@@ -2,14 +2,14 @@ Return-Path: <SRS0=z0LS=QD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7BD99C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 15:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 79588C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 15:02:03 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3EE5361C4F
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 15:02:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3EE5361C4F
+	by mail.kernel.org (Postfix) with ESMTPS id 3F83363217
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 15:02:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 3F83363217
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,57 +18,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cBFCyAmrcm2wkJlVKC5u4aPcOJ5QlPm29vzO5qdAGQY=; b=WK05ppSZbbV3d7
-	4GcI3jKzDm/tjiRYxIkOiouB+gu0uk+7f7NBh/fC0M3dOcN/brHaTvTkpdZ9dG2iOeCe9TD5iYP+X
-	aMHcqh5L6ffZHPKav5E7b7YEKN8OJrgkAxPtHgkI+N3cNemueK/muk7sFEAGFBArhn2phEsGz9nOT
-	Wxho39gf7D5tevhrjbSDHhwuevsbvEa2FO2EdCwm/CsVIf0A7z6UGbuhdSifkfcobLwtG9UzgY0qj
-	xQ1HvJ50fygPuCY+yTcggT5oU0URE8nwzw/T01PFONfi0ZNk5OhUq0S3aOxb/YEMhQi/ylY0vniI4
-	XT9oaLQix/ENALT5jkeA==;
+	List-Owner; bh=f46jUubqbIZsdELqJEq9A1RJYsBKOx490QUAtEKkUgI=; b=Lo+/BgTbfIuRkQ
+	bWJ60H3tk2jdbSvX9vSh3CgvOQFy6O8I04cH5/56VdV0M1UUMVBgP23IqJxGX5dpqiDR8Sbu2Nvo2
+	ktFMFYO7qB3PtE4j0daGMZ9oVyShLj9tul6kVaJUjF1IzC9NzLX9QqY17yf90t+NgFddKHAraMlLn
+	fOMUh9jBfiEvXm6eK3jyz3zK1VQFT1FweKmzNl3jP7ylYHu8oyEVQVnDAaIgs6bPuYcpHheOMLg2V
+	588M1myxDvmIc2I2v5CRl29rKjWQEvPxZT4if86zoB8L4OFbNfx4VglHxpunmk+pYM7W12V2ALjEq
+	gGIxKyaqH6CAJxZqV7hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mmzy5-0023b0-P4; Tue, 16 Nov 2021 15:01:53 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1mmzy8-0023cm-09; Tue, 16 Nov 2021 15:01:56 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mmzy3-0023ZF-5q
- for linux-riscv@lists.infradead.org; Tue, 16 Nov 2021 15:01:52 +0000
-Received: by mail-ed1-x534.google.com with SMTP id w1so23098095edc.6
+ id 1mmzy3-0023ZP-M4
+ for linux-riscv@lists.infradead.org; Tue, 16 Nov 2021 15:01:53 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id t5so3602245edd.0
  for <linux-riscv@lists.infradead.org>; Tue, 16 Nov 2021 07:01:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=JB6hpmX7hgdEksB90s0jcnSr+ju9+L9HjspXKT59qjU=;
- b=HE5ENt6vaiQfV4MNlDbaLaszGg3cLQ7pGZh6F6y7/YJ/u84MxEjir45qlyLH69uRsd
- 28JPFOlEHaHzPVxRf+ViBuzn4l5/0PMefkaqtK/WELIJORG2O7e7eVagA1TB1qttH/H4
- G5JMSFLU+SYxN7pqFrYVK56L56jQZzPgWgTZdTp/omZCBftO1WGTxX7TKhrRuPchFCPo
- bXYZtk86HDldg9u+DrTx3IMgG5oUBoBr0dHf9P7ZGIc5wUNCvJUp+UwQJDQTbzBejxox
- bl10fnpqlykxFr+UVbQjiSjaFqIsLAk4MS4l25ExbgCt5oRDBnwBJwooHD51HJ2WHtGa
- MxFg==
+ bh=l4A0QwuDXkWlHocxWGY/LKp7oE6NH5fpBzhs7/voy7Q=;
+ b=ovBZ9RMncX3kit8IgWo6jmq7h/8kEh5f/XaA/Rb/491JNCUsTMwRpE+9mimbzllP+7
+ aXsY1fkxeO0rRnGI4jfPQa5ETzZQMeLMq1Avs3Ecp1TGiDMIMkvacLsG9uW3AptbDkJq
+ kU6sozB4wprjttjs9O12re0d8oCFHqtlDj7UUpdLKkesLGNUyC6mFYnjKuXUjzZTV4Vk
+ J75K6TyyS6suz9JcatNXAOU62sP5eCSbb38L8viwMkuWH6CevBjkR8ahsYT9sTejh0NZ
+ bshV9A0Ck3pjOCkPjNmOzISw+BC5V0Ig8ON4s5z4++6+ImsURYmfl+KXXq0zVx1wC2w8
+ Rvbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:sender:from:to:cc:subject:date:message-id
  :in-reply-to:references:mime-version:content-transfer-encoding;
- bh=JB6hpmX7hgdEksB90s0jcnSr+ju9+L9HjspXKT59qjU=;
- b=NXhHFlrYDuYTzoMZwZm5DnII5PTpxFDqNpNh6P2VuxZ6YqIqvR1HmE+EJ6yKv0JkTJ
- rx8aFLernwZTnWycYJfaJi/Hrnp1iTGhZtb+4DjRL1FyuTkTGbp/zVI6IOPJGmoKnUS/
- eoGQA6gk8Hlq4o3rA/r5/UNCtixNXO3Ky/0UdLuyaedC+2vcmbJi68VrimPbKty/PiCz
- yYxoz7N7MfuDJZF4strG4P4FhBK1iwgjEEEezCRVBf/fHj/I9gysnR6PoJiLwLfyG7rS
- SyGqIkq79KlQplDCMPGvtCmVJRy9rfeDJCRUupqvRS2ufOMje4VgaFgX+NuSwhN1AQbg
- YaWg==
-X-Gm-Message-State: AOAM530gkfCoJIlTi2qYo2sU25CvXcQx7rn4+jqH7KsQWyzNCgk/z2JO
- +Cl5/cC5pZX4km66iA4Oo+CrQxLdJFfQug==
-X-Google-Smtp-Source: ABdhPJx9yGvuPxfqElzl/dVvZFeP+txYs/F8wxyuWuezuC7HWxLcpZVsOpao0yAXkkShuW3qXAIveA==
-X-Received: by 2002:a05:6402:350a:: with SMTP id
- b10mr11228785edd.184.1637074905967; 
- Tue, 16 Nov 2021 07:01:45 -0800 (PST)
+ bh=l4A0QwuDXkWlHocxWGY/LKp7oE6NH5fpBzhs7/voy7Q=;
+ b=Wo+pYMh2iaS6IoKJYEmxtJVKHSqf0xVVBXvfJ93zlggW8q5q2/MROu7yn84XuU03JE
+ QXqbTT3mzoXCOlbYNG/QEMwHbWAnoYq1Tn72CT/bRALhQeIQp8nojH28+CGy+NprQdDM
+ 4VNt6tlikQ4HT2JJTZ8lK7B5NJjzT2saa81OSBUTcIl6GQj1vcvy73O9hRA7clIry8ie
+ C17mVvb32k7KohGAC+1S/1VVgaoaWQ4//LrkpNujK+qdXN6nM0lvLa59tuKpc+VwmwmW
+ YOXrCF7HxZMS2eMmHfMa8JRLbU4h83vc0sSSrjiiJ+7rZKIBq9eaAkyw1HJYQixzk2vb
+ IgMA==
+X-Gm-Message-State: AOAM533PHuZYbikTq+Wusv3JpJ3wG8n9/YyWN/NBjiiXZmLyEXK8Q3Ni
+ kq2PMvz/Gdr7IoI2l/L2WUhKKF79IAy9eQ==
+X-Google-Smtp-Source: ABdhPJwuwARuXZlx24qiZ4QjT5Gt3QsbqyYmRh+LA17OOaxyWz/avf4FqZH/kpjzEYPRDqdVGgUT8g==
+X-Received: by 2002:a17:906:9b88:: with SMTP id
+ dd8mr11011493ejc.467.1637074909058; 
+ Tue, 16 Nov 2021 07:01:49 -0800 (PST)
 Received: from stitch.. ([2a02:aa7:4600:b4ae:a375:e7a0:9eaf:8d7b])
- by smtp.gmail.com with ESMTPSA id u16sm9414311edr.43.2021.11.16.07.01.42
+ by smtp.gmail.com with ESMTPSA id u16sm9414311edr.43.2021.11.16.07.01.46
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 16 Nov 2021 07:01:45 -0800 (PST)
+ Tue, 16 Nov 2021 07:01:48 -0800 (PST)
 From: Emil Renner Berthing <kernel@esmil.dk>
 To: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
  linux-serial@vger.kernel.org
-Cc: Emil Renner Berthing <kernel@esmil.dk>,
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
  Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
  Michael Turquette <mturquette@baylibre.com>,
@@ -81,24 +81,22 @@ Cc: Emil Renner Berthing <kernel@esmil.dk>,
  Jiri Slaby <jirislaby@kernel.org>,
  Maximilian Luz <luzmaximilian@gmail.com>,
  Sagar Kadam <sagar.kadam@sifive.com>, Drew Fustini <drew@beagleboard.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
  Michael Zhu <michael.zhu@starfivetech.com>,
  Fu Wei <tekkamanninja@gmail.com>, Anup Patel <anup.patel@wdc.com>,
  Atish Patra <atish.patra@wdc.com>, Matteo Croce <mcroce@microsoft.com>,
  Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org,
- Rob Herring <robh@kernel.org>
-Subject: [PATCH v4 03/16] dt-bindings: interrupt-controller: Add StarFive
- JH7100 plic
-Date: Tue, 16 Nov 2021 16:01:06 +0100
-Message-Id: <20211116150119.2171-4-kernel@esmil.dk>
+ Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>
+Subject: [PATCH v4 04/16] dt-bindings: clock: starfive: Add JH7100 clock
+ definitions
+Date: Tue, 16 Nov 2021 16:01:07 +0100
+Message-Id: <20211116150119.2171-5-kernel@esmil.dk>
 X-Mailer: git-send-email 2.34.0
 In-Reply-To: <20211116150119.2171-1-kernel@esmil.dk>
 References: <20211116150119.2171-1-kernel@esmil.dk>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211116_070151_257121_9972251B 
-X-CRM114-Status: UNSURE (   9.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211116_070151_753719_7D07AE2C 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,27 +113,229 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add compatible string for StarFive JH7100 plic.
+From: Geert Uytterhoeven <geert@linux-m68k.org>
 
+Add all clock outputs for the StarFive JH7100 clock generator.
+
+Based on work by Ahmad Fatoum for Barebox, with "JH7100_" prefixes added
+to all definitions.
+
+Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
 Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
 Acked-by: Rob Herring <robh@kernel.org>
 ---
- .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml         | 1 +
- 1 file changed, 1 insertion(+)
+ include/dt-bindings/clock/starfive-jh7100.h | 202 ++++++++++++++++++++
+ 1 file changed, 202 insertions(+)
+ create mode 100644 include/dt-bindings/clock/starfive-jh7100.h
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-index 08d5a57ce00f..28b6b17fe4b2 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-@@ -45,6 +45,7 @@ properties:
-     items:
-       - enum:
-           - sifive,fu540-c000-plic
-+          - starfive,jh7100-plic
-           - canaan,k210-plic
-       - const: sifive,plic-1.0.0
- 
+diff --git a/include/dt-bindings/clock/starfive-jh7100.h b/include/dt-bindings/clock/starfive-jh7100.h
+new file mode 100644
+index 000000000000..aa0863b9728d
+--- /dev/null
++++ b/include/dt-bindings/clock/starfive-jh7100.h
+@@ -0,0 +1,202 @@
++/* SPDX-License-Identifier: GPL-2.0 OR MIT */
++/*
++ * Copyright (C) 2021 Ahmad Fatoum, Pengutronix
++ */
++
++#ifndef __DT_BINDINGS_CLOCK_STARFIVE_JH7100_H__
++#define __DT_BINDINGS_CLOCK_STARFIVE_JH7100_H__
++
++#define JH7100_CLK_CPUNDBUS_ROOT	0
++#define JH7100_CLK_DLA_ROOT		1
++#define JH7100_CLK_DSP_ROOT		2
++#define JH7100_CLK_GMACUSB_ROOT		3
++#define JH7100_CLK_PERH0_ROOT		4
++#define JH7100_CLK_PERH1_ROOT		5
++#define JH7100_CLK_VIN_ROOT		6
++#define JH7100_CLK_VOUT_ROOT		7
++#define JH7100_CLK_AUDIO_ROOT		8
++#define JH7100_CLK_CDECHIFI4_ROOT	9
++#define JH7100_CLK_CDEC_ROOT		10
++#define JH7100_CLK_VOUTBUS_ROOT		11
++#define JH7100_CLK_CPUNBUS_ROOT_DIV	12
++#define JH7100_CLK_DSP_ROOT_DIV		13
++#define JH7100_CLK_PERH0_SRC		14
++#define JH7100_CLK_PERH1_SRC		15
++#define JH7100_CLK_PLL0_TESTOUT		16
++#define JH7100_CLK_PLL1_TESTOUT		17
++#define JH7100_CLK_PLL2_TESTOUT		18
++#define JH7100_CLK_PLL2_REF		19
++#define JH7100_CLK_CPU_CORE		20
++#define JH7100_CLK_CPU_AXI		21
++#define JH7100_CLK_AHB_BUS		22
++#define JH7100_CLK_APB1_BUS		23
++#define JH7100_CLK_APB2_BUS		24
++#define JH7100_CLK_DOM3AHB_BUS		25
++#define JH7100_CLK_DOM7AHB_BUS		26
++#define JH7100_CLK_U74_CORE0		27
++#define JH7100_CLK_U74_CORE1		28
++#define JH7100_CLK_U74_AXI		29
++#define JH7100_CLK_U74RTC_TOGGLE	30
++#define JH7100_CLK_SGDMA2P_AXI		31
++#define JH7100_CLK_DMA2PNOC_AXI		32
++#define JH7100_CLK_SGDMA2P_AHB		33
++#define JH7100_CLK_DLA_BUS		34
++#define JH7100_CLK_DLA_AXI		35
++#define JH7100_CLK_DLANOC_AXI		36
++#define JH7100_CLK_DLA_APB		37
++#define JH7100_CLK_VP6_CORE		38
++#define JH7100_CLK_VP6BUS_SRC		39
++#define JH7100_CLK_VP6_AXI		40
++#define JH7100_CLK_VCDECBUS_SRC		41
++#define JH7100_CLK_VDEC_BUS		42
++#define JH7100_CLK_VDEC_AXI		43
++#define JH7100_CLK_VDECBRG_MAIN		44
++#define JH7100_CLK_VDEC_BCLK		45
++#define JH7100_CLK_VDEC_CCLK		46
++#define JH7100_CLK_VDEC_APB		47
++#define JH7100_CLK_JPEG_AXI		48
++#define JH7100_CLK_JPEG_CCLK		49
++#define JH7100_CLK_JPEG_APB		50
++#define JH7100_CLK_GC300_2X		51
++#define JH7100_CLK_GC300_AHB		52
++#define JH7100_CLK_JPCGC300_AXIBUS	53
++#define JH7100_CLK_GC300_AXI		54
++#define JH7100_CLK_JPCGC300_MAIN	55
++#define JH7100_CLK_VENC_BUS		56
++#define JH7100_CLK_VENC_AXI		57
++#define JH7100_CLK_VENCBRG_MAIN		58
++#define JH7100_CLK_VENC_BCLK		59
++#define JH7100_CLK_VENC_CCLK		60
++#define JH7100_CLK_VENC_APB		61
++#define JH7100_CLK_DDRPLL_DIV2		62
++#define JH7100_CLK_DDRPLL_DIV4		63
++#define JH7100_CLK_DDRPLL_DIV8		64
++#define JH7100_CLK_DDROSC_DIV2		65
++#define JH7100_CLK_DDRC0		66
++#define JH7100_CLK_DDRC1		67
++#define JH7100_CLK_DDRPHY_APB		68
++#define JH7100_CLK_NOC_ROB		69
++#define JH7100_CLK_NOC_COG		70
++#define JH7100_CLK_NNE_AHB		71
++#define JH7100_CLK_NNEBUS_SRC1		72
++#define JH7100_CLK_NNE_BUS		73
++#define JH7100_CLK_NNE_AXI		74
++#define JH7100_CLK_NNENOC_AXI		75
++#define JH7100_CLK_DLASLV_AXI		76
++#define JH7100_CLK_DSPX2C_AXI		77
++#define JH7100_CLK_HIFI4_SRC		78
++#define JH7100_CLK_HIFI4_COREFREE	79
++#define JH7100_CLK_HIFI4_CORE		80
++#define JH7100_CLK_HIFI4_BUS		81
++#define JH7100_CLK_HIFI4_AXI		82
++#define JH7100_CLK_HIFI4NOC_AXI		83
++#define JH7100_CLK_SGDMA1P_BUS		84
++#define JH7100_CLK_SGDMA1P_AXI		85
++#define JH7100_CLK_DMA1P_AXI		86
++#define JH7100_CLK_X2C_AXI		87
++#define JH7100_CLK_USB_BUS		88
++#define JH7100_CLK_USB_AXI		89
++#define JH7100_CLK_USBNOC_AXI		90
++#define JH7100_CLK_USBPHY_ROOTDIV	91
++#define JH7100_CLK_USBPHY_125M		92
++#define JH7100_CLK_USBPHY_PLLDIV25M	93
++#define JH7100_CLK_USBPHY_25M		94
++#define JH7100_CLK_AUDIO_DIV		95
++#define JH7100_CLK_AUDIO_SRC		96
++#define JH7100_CLK_AUDIO_12288		97
++#define JH7100_CLK_VIN_SRC		98
++#define JH7100_CLK_ISP0_BUS		99
++#define JH7100_CLK_ISP0_AXI		100
++#define JH7100_CLK_ISP0NOC_AXI		101
++#define JH7100_CLK_ISPSLV_AXI		102
++#define JH7100_CLK_ISP1_BUS		103
++#define JH7100_CLK_ISP1_AXI		104
++#define JH7100_CLK_ISP1NOC_AXI		105
++#define JH7100_CLK_VIN_BUS		106
++#define JH7100_CLK_VIN_AXI		107
++#define JH7100_CLK_VINNOC_AXI		108
++#define JH7100_CLK_VOUT_SRC		109
++#define JH7100_CLK_DISPBUS_SRC		110
++#define JH7100_CLK_DISP_BUS		111
++#define JH7100_CLK_DISP_AXI		112
++#define JH7100_CLK_DISPNOC_AXI		113
++#define JH7100_CLK_SDIO0_AHB		114
++#define JH7100_CLK_SDIO0_CCLKINT	115
++#define JH7100_CLK_SDIO0_CCLKINT_INV	116
++#define JH7100_CLK_SDIO1_AHB		117
++#define JH7100_CLK_SDIO1_CCLKINT	118
++#define JH7100_CLK_SDIO1_CCLKINT_INV	119
++#define JH7100_CLK_GMAC_AHB		120
++#define JH7100_CLK_GMAC_ROOT_DIV	121
++#define JH7100_CLK_GMAC_PTP_REF		122
++#define JH7100_CLK_GMAC_GTX		123
++#define JH7100_CLK_GMAC_RMII_TX		124
++#define JH7100_CLK_GMAC_RMII_RX		125
++#define JH7100_CLK_GMAC_TX		126
++#define JH7100_CLK_GMAC_TX_INV		127
++#define JH7100_CLK_GMAC_RX_PRE		128
++#define JH7100_CLK_GMAC_RX_INV		129
++#define JH7100_CLK_GMAC_RMII		130
++#define JH7100_CLK_GMAC_TOPHYREF	131
++#define JH7100_CLK_SPI2AHB_AHB		132
++#define JH7100_CLK_SPI2AHB_CORE		133
++#define JH7100_CLK_EZMASTER_AHB		134
++#define JH7100_CLK_E24_AHB		135
++#define JH7100_CLK_E24RTC_TOGGLE	136
++#define JH7100_CLK_QSPI_AHB		137
++#define JH7100_CLK_QSPI_APB		138
++#define JH7100_CLK_QSPI_REF		139
++#define JH7100_CLK_SEC_AHB		140
++#define JH7100_CLK_AES			141
++#define JH7100_CLK_SHA			142
++#define JH7100_CLK_PKA			143
++#define JH7100_CLK_TRNG_APB		144
++#define JH7100_CLK_OTP_APB		145
++#define JH7100_CLK_UART0_APB		146
++#define JH7100_CLK_UART0_CORE		147
++#define JH7100_CLK_UART1_APB		148
++#define JH7100_CLK_UART1_CORE		149
++#define JH7100_CLK_SPI0_APB		150
++#define JH7100_CLK_SPI0_CORE		151
++#define JH7100_CLK_SPI1_APB		152
++#define JH7100_CLK_SPI1_CORE		153
++#define JH7100_CLK_I2C0_APB		154
++#define JH7100_CLK_I2C0_CORE		155
++#define JH7100_CLK_I2C1_APB		156
++#define JH7100_CLK_I2C1_CORE		157
++#define JH7100_CLK_GPIO_APB		158
++#define JH7100_CLK_UART2_APB		159
++#define JH7100_CLK_UART2_CORE		160
++#define JH7100_CLK_UART3_APB		161
++#define JH7100_CLK_UART3_CORE		162
++#define JH7100_CLK_SPI2_APB		163
++#define JH7100_CLK_SPI2_CORE		164
++#define JH7100_CLK_SPI3_APB		165
++#define JH7100_CLK_SPI3_CORE		166
++#define JH7100_CLK_I2C2_APB		167
++#define JH7100_CLK_I2C2_CORE		168
++#define JH7100_CLK_I2C3_APB		169
++#define JH7100_CLK_I2C3_CORE		170
++#define JH7100_CLK_WDTIMER_APB		171
++#define JH7100_CLK_WDT_CORE		172
++#define JH7100_CLK_TIMER0_CORE		173
++#define JH7100_CLK_TIMER1_CORE		174
++#define JH7100_CLK_TIMER2_CORE		175
++#define JH7100_CLK_TIMER3_CORE		176
++#define JH7100_CLK_TIMER4_CORE		177
++#define JH7100_CLK_TIMER5_CORE		178
++#define JH7100_CLK_TIMER6_CORE		179
++#define JH7100_CLK_VP6INTC_APB		180
++#define JH7100_CLK_PWM_APB		181
++#define JH7100_CLK_MSI_APB		182
++#define JH7100_CLK_TEMP_APB		183
++#define JH7100_CLK_TEMP_SENSE		184
++#define JH7100_CLK_SYSERR_APB		185
++
++#define JH7100_CLK_PLL0_OUT		186
++#define JH7100_CLK_PLL1_OUT		187
++#define JH7100_CLK_PLL2_OUT		188
++
++#define JH7100_CLK_END			189
++
++#endif /* __DT_BINDINGS_CLOCK_STARFIVE_JH7100_H__ */
 -- 
 2.33.1
 
