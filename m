@@ -2,14 +2,14 @@ Return-Path: <SRS0=z0LS=QD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A6A7FC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 15:02:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AD953C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 15:02:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6E3B863217
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 15:02:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 6E3B863217
+	by mail.kernel.org (Postfix) with ESMTPS id 75CBF6103B
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 15:02:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 75CBF6103B
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,57 +18,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=76z/V0WyFXaFM5P+r75/OsNEFhWNIHccPInyhxh3VX4=; b=Pb31qSmW5SI1yT
-	CIDPYT5f/6Fw2skDRg7AyQ+rI16INzoOGu/tNJwHSsptljdLm9zTNBwKZFmvkjIX7JT5v9L6P42fT
-	1R+h/6YoKkzqgHFDt7yTYoJMb40WlYscGaHx+BP3zJ0mlMo5xpa1dPnvRfssfquK0vd6sPrVOqBZd
-	XdNFEwIPNcVxQMFYl2KHZ82aJOChfb8KwOLGlyFrDHMOlSRQ5/p8QNqRiKelMLN1DJ78vg6eC7y2d
-	ZQw3GYywg3+O924RVL6jTwhH94/8vKg+/Se3dp3zv1JViq5G6FkNzdirOChfkzd5zaPuNxZbTtGd+
-	pZPjDHiGUTDhlbTUNL8Q==;
+	List-Owner; bh=NttJQz7wVc9Eqj2Hj/GpITmLJZdPtFr+SCaWmYE33ag=; b=jCSVSlRG1ZWtql
+	JF8fZ7QeTm6bOmM1RGSf2ei7JaXa5XyEBDiHGCCocY59eeec+Ts2X7q3vaC6g+oB8rDtX/SykdrqA
+	kaLcWxkCiS7B0AwVrmGgARxT0yMhyA/mC3VxY4wl+3aWR1wrI13MrCjloC9wUhZ47kHh9E2DzMDbc
+	D55R72luhKA4tBHhOYFL98wGRbvOq5y0PxnRS6iEGRD0S0PtoBNyR7J0P8T+qvW/zmLOeHCoEdjU6
+	soic7F+YII33TT6UhIkQp40besbg35M0joXGstx8D7ceeT4EFTEf3D15rChSOtS69gj4LCdvTh/7R
+	KbHp1boNVCjXmVhFmTQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mmzyJ-0023jx-OT; Tue, 16 Nov 2021 15:02:07 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1mmzyP-0023nU-76; Tue, 16 Nov 2021 15:02:13 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mmzyE-0023fc-BP
- for linux-riscv@lists.infradead.org; Tue, 16 Nov 2021 15:02:05 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id y13so14178773edd.13
- for <linux-riscv@lists.infradead.org>; Tue, 16 Nov 2021 07:02:01 -0800 (PST)
+ id 1mmzyJ-0023je-OZ
+ for linux-riscv@lists.infradead.org; Tue, 16 Nov 2021 15:02:09 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id w1so89356146edd.10
+ for <linux-riscv@lists.infradead.org>; Tue, 16 Nov 2021 07:02:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=7VFNunNLIvUOdxzVir+hO6r2dRETD+zXBZCYLystb1o=;
- b=NgiU7eXsfa08zLbhOgV5ZkBrGZF+Nm4nIf2MArwwMSJ6SZS8imF/7djpMyNzPvX6sr
- nd27u3OlWW1lw3IPtn8PNsFxdPOCw9Un3kW+DpRuQXJ/MvcTi6wVskjx+dgAKreoWtBk
- PbBkNJ3uK2HyhAqqvZB7HJodWlECF5HuORrXhwmtM9mDVSSvGfjALz8Z4xPeZvvRKrGf
- 85CA7dxZA8iBk0ciB/AwqQ3j7DgtJqMDnzfuCw0tQR9LljIeGvQMyZKGQpBnU+1mClgu
- 800E3rliMxsMu9DZtxlYzk3RtgTuZBHpHyHT+ZnE9SDGhNE7fhmwzabJCfDw8lwR/k5b
- kI3g==
+ bh=z7q9kjgU4apoJNx9NYf75zxgec/3s4E6uLQBrTLyLzs=;
+ b=iILgXq0ykBCyWw6O6HtzgcJyPv0/7ndHg2iKse8V+CIJrZbRn+uqB0Z/juTizdODgu
+ ceHZBAr+mhsglBa4wbPe4owrK4PHODnJBCMRmr7K8wIBMtBpUh1gJjbBhJWfftXB9qgB
+ O7FIfyN0rXofK1szOSCK+FWnngu/B4rxBse5Wi5aHTH7VOnyWDHm4n3Lxz0SGJCXHXw6
+ CBP6LFFPPRjiL5S3G20Qwprt0+4nkw3DBEjclkJbP9yg6c5W99oGXpZm9nXadH3nk+vT
+ 6I/gc65Lfn6Y879rqyJbY5Wv80Aggu5GBegNlPogGwC2V73Af79y3cqPdgqGku1PdOVp
+ Rynw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:sender:from:to:cc:subject:date:message-id
  :in-reply-to:references:mime-version:content-transfer-encoding;
- bh=7VFNunNLIvUOdxzVir+hO6r2dRETD+zXBZCYLystb1o=;
- b=h+2CwEdDJlHbcHb2n1QLM+eDXHf9yCxbVOizFYxmRsaSsqsSBgj/rWxfERuEDY6Rzb
- paBtQELd/I0klUqJRgnJuXvd1diEs1yxC4NAsovosN11VdpqWsReuHzxCcLJ+WjyVLTC
- qrXDNWQahKhJPpocg/Qe1a5M9i9w91a4N4hKhlSDGHoUt9nkjDQDW1mE0P569XsR0KWn
- Q9MyGeZ9PzS78dUaFQYfGYE5zOKNhIewHaiTT0xKb/eCgfUXjqv4QrSGhvXu6EkdvWPl
- Z9deHeTN0koHlZ9I/tH3hNgpnCTlMeMS6JFEmazDnQFCTlMTS3KOgTUe+MiIqZfN9SPT
- IuVw==
-X-Gm-Message-State: AOAM533QpJSNeTCu96ZOpeE76C3pfh3LEMuwLmHsKzk9d4JyGq6qQImB
- TnHGW82p7AiS8yv5+XDM95hqSaFYWlcx/w==
-X-Google-Smtp-Source: ABdhPJzgtrIoI+uSowQaXUFqpXWFxa2LDbwkH/55YIJUeuESeSlQiCExQfx/WwRMuPlJM2+Y9q8hSg==
-X-Received: by 2002:a17:906:4d4a:: with SMTP id
- b10mr11319948ejv.89.1637074916326; 
- Tue, 16 Nov 2021 07:01:56 -0800 (PST)
+ bh=z7q9kjgU4apoJNx9NYf75zxgec/3s4E6uLQBrTLyLzs=;
+ b=XETOlApRLM++QvidL68n4DKJQa2m6Fqdesk9PiKrSFOG8lrpLSMZmeu4ihFQrWq1Ho
+ WgmvgNwamhFKKUZKHMoJqgGyGiRYx4cZ96Uu3HLLO119DW/+Wsjr58WKcZMjzddm64BK
+ GUZgfTg4YsgsQw5zipk511nPEvFUMmE12D7x+R0QTa1ds3Q3VrZgnN3oQc6OGNgHDnJy
+ ZCx6P9l1Kwx26dT/epq8yCZ+o7aVFqcK0IJuOLEg6+BrUwUHn1jYw0GlyFyonwYoBB8c
+ VCuQJOWrigXbx/+RAqmnxFjm/0dFVuJrIQMBkRF/H1bgHvK9UUE4QYGwnWwa7AX54efq
+ Wbrw==
+X-Gm-Message-State: AOAM533U0VFeDnBNwHGZ8K73flpx6XTOFvkdHGRgqggwJFhcxA/xSiG+
+ htj4TsU8bB7I+eWYyYgC8rAVhFKwr4dPTw==
+X-Google-Smtp-Source: ABdhPJwLVqog85g6Xljx0tX4M4hE141xm8Ratka1leyBjPOX5Naey5ML8c1kZUhInQIHHSH7JU5pdw==
+X-Received: by 2002:a05:6402:1911:: with SMTP id
+ e17mr10876856edz.43.1637074925620; 
+ Tue, 16 Nov 2021 07:02:05 -0800 (PST)
 Received: from stitch.. ([2a02:aa7:4600:b4ae:a375:e7a0:9eaf:8d7b])
- by smtp.gmail.com with ESMTPSA id u16sm9414311edr.43.2021.11.16.07.01.52
+ by smtp.gmail.com with ESMTPSA id u16sm9414311edr.43.2021.11.16.07.02.02
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 16 Nov 2021 07:01:55 -0800 (PST)
+ Tue, 16 Nov 2021 07:02:05 -0800 (PST)
 From: Emil Renner Berthing <kernel@esmil.dk>
 To: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
  linux-serial@vger.kernel.org
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+Cc: Emil Renner Berthing <kernel@esmil.dk>,
  Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
  Michael Turquette <mturquette@baylibre.com>,
@@ -81,22 +81,22 @@ Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
  Jiri Slaby <jirislaby@kernel.org>,
  Maximilian Luz <luzmaximilian@gmail.com>,
  Sagar Kadam <sagar.kadam@sifive.com>, Drew Fustini <drew@beagleboard.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
  Michael Zhu <michael.zhu@starfivetech.com>,
  Fu Wei <tekkamanninja@gmail.com>, Anup Patel <anup.patel@wdc.com>,
  Atish Patra <atish.patra@wdc.com>, Matteo Croce <mcroce@microsoft.com>,
- Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org,
- Emil Renner Berthing <kernel@esmil.dk>,
- Andy Shevchenko <andy.shevchenko@gmail.com>
-Subject: [PATCH v4 06/16] clk: starfive: Add JH7100 clock generator driver
-Date: Tue, 16 Nov 2021 16:01:09 +0100
-Message-Id: <20211116150119.2171-7-kernel@esmil.dk>
+ Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org
+Subject: [PATCH v4 09/16] reset: starfive-jh7100: Add StarFive JH7100 reset
+ driver
+Date: Tue, 16 Nov 2021 16:01:12 +0100
+Message-Id: <20211116150119.2171-10-kernel@esmil.dk>
 X-Mailer: git-send-email 2.34.0
 In-Reply-To: <20211116150119.2171-1-kernel@esmil.dk>
 References: <20211116150119.2171-1-kernel@esmil.dk>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211116_070202_477869_AE54FFE8 
-X-CRM114-Status: GOOD (  18.85  )
+X-CRM114-CacheID: sfid-20211116_070207_859579_D705864A 
+X-CRM114-Status: GOOD (  27.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,787 +113,247 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Geert Uytterhoeven <geert@linux-m68k.org>
+Add a driver for the StarFive JH7100 reset controller.
 
-Add a driver for the StarFive JH7100 clock generator.
-
-Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
-Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
 Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-Reviewed-by: Andy Shevchenko <andy.shevchenko@gmail.com>
 ---
- MAINTAINERS                                |   7 +
- drivers/clk/Kconfig                        |   1 +
- drivers/clk/Makefile                       |   1 +
- drivers/clk/starfive/Kconfig               |   9 +
- drivers/clk/starfive/Makefile              |   3 +
- drivers/clk/starfive/clk-starfive-jh7100.c | 689 +++++++++++++++++++++
- 6 files changed, 710 insertions(+)
- create mode 100644 drivers/clk/starfive/Kconfig
- create mode 100644 drivers/clk/starfive/Makefile
- create mode 100644 drivers/clk/starfive/clk-starfive-jh7100.c
+ MAINTAINERS                           |   7 +
+ drivers/reset/Kconfig                 |   7 +
+ drivers/reset/Makefile                |   1 +
+ drivers/reset/reset-starfive-jh7100.c | 176 ++++++++++++++++++++++++++
+ 4 files changed, 191 insertions(+)
+ create mode 100644 drivers/reset/reset-starfive-jh7100.c
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 7a2345ce8521..2548ef1f8246 100644
+index 2548ef1f8246..1152f5d94690 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -18130,6 +18130,13 @@ M:	Ion Badulescu <ionut@badula.org>
- S:	Odd Fixes
- F:	drivers/net/ethernet/adaptec/starfire*
+@@ -18137,6 +18137,13 @@ F:	Documentation/devicetree/bindings/clock/starfive,jh7100-clkgen.yaml
+ F:	drivers/clk/starfive/clk-starfive-jh7100.c
+ F:	include/dt-bindings/clock/starfive-jh7100.h
  
-+STARFIVE JH7100 CLOCK DRIVER
++STARFIVE JH7100 RESET CONTROLLER DRIVER
 +M:	Emil Renner Berthing <kernel@esmil.dk>
 +S:	Maintained
-+F:	Documentation/devicetree/bindings/clock/starfive,jh7100-clkgen.yaml
-+F:	drivers/clk/starfive/clk-starfive-jh7100.c
-+F:	include/dt-bindings/clock/starfive-jh7100.h
++F:	Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
++F:	drivers/reset/reset-starfive-jh7100.c
++F:	include/dt-bindings/reset/starfive-jh7100.h
 +
  STATIC BRANCH/CALL
  M:	Peter Zijlstra <peterz@infradead.org>
  M:	Josh Poimboeuf <jpoimboe@redhat.com>
-diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
-index c5b3dc97396a..c91931c94888 100644
---- a/drivers/clk/Kconfig
-+++ b/drivers/clk/Kconfig
-@@ -412,6 +412,7 @@ source "drivers/clk/samsung/Kconfig"
- source "drivers/clk/sifive/Kconfig"
- source "drivers/clk/socfpga/Kconfig"
- source "drivers/clk/sprd/Kconfig"
-+source "drivers/clk/starfive/Kconfig"
- source "drivers/clk/sunxi/Kconfig"
- source "drivers/clk/sunxi-ng/Kconfig"
- source "drivers/clk/tegra/Kconfig"
-diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-index e42312121e51..a9bb2478fbdd 100644
---- a/drivers/clk/Makefile
-+++ b/drivers/clk/Makefile
-@@ -109,6 +109,7 @@ obj-y					+= socfpga/
- obj-$(CONFIG_PLAT_SPEAR)		+= spear/
- obj-y					+= sprd/
- obj-$(CONFIG_ARCH_STI)			+= st/
-+obj-$(CONFIG_SOC_STARFIVE)		+= starfive/
- obj-$(CONFIG_ARCH_SUNXI)		+= sunxi/
- obj-$(CONFIG_SUNXI_CCU)			+= sunxi-ng/
- obj-$(CONFIG_ARCH_TEGRA)		+= tegra/
-diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
-new file mode 100644
-index 000000000000..c0fa9d5e641f
---- /dev/null
-+++ b/drivers/clk/starfive/Kconfig
-@@ -0,0 +1,9 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+config CLK_STARFIVE_JH7100
-+	bool "StarFive JH7100 clock support"
+diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
+index 85024eb1d2ea..6f8ba0ddc05f 100644
+--- a/drivers/reset/Kconfig
++++ b/drivers/reset/Kconfig
+@@ -224,6 +224,13 @@ config RESET_SOCFPGA
+ 	  This enables the reset driver for the SoCFPGA ARMv7 platforms. This
+ 	  driver gets initialized early during platform init calls.
+ 
++config RESET_STARFIVE_JH7100
++	bool "StarFive JH7100 Reset Driver"
 +	depends on SOC_STARFIVE || COMPILE_TEST
 +	default SOC_STARFIVE
 +	help
-+	  Say yes here to support the clock controller on the StarFive JH7100
-+	  SoC.
-diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
++	  This enables the reset controller driver for the StarFive JH7100 SoC.
++
+ config RESET_SUNXI
+ 	bool "Allwinner SoCs Reset Driver" if COMPILE_TEST && !ARCH_SUNXI
+ 	default ARCH_SUNXI
+diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
+index 21d46d8869ff..bd0a97be18b5 100644
+--- a/drivers/reset/Makefile
++++ b/drivers/reset/Makefile
+@@ -29,6 +29,7 @@ obj-$(CONFIG_RESET_RZG2L_USBPHY_CTRL) += reset-rzg2l-usbphy-ctrl.o
+ obj-$(CONFIG_RESET_SCMI) += reset-scmi.o
+ obj-$(CONFIG_RESET_SIMPLE) += reset-simple.o
+ obj-$(CONFIG_RESET_SOCFPGA) += reset-socfpga.o
++obj-$(CONFIG_RESET_STARFIVE_JH7100) += reset-starfive-jh7100.o
+ obj-$(CONFIG_RESET_SUNXI) += reset-sunxi.o
+ obj-$(CONFIG_RESET_TI_SCI) += reset-ti-sci.o
+ obj-$(CONFIG_RESET_TI_SYSCON) += reset-ti-syscon.o
+diff --git a/drivers/reset/reset-starfive-jh7100.c b/drivers/reset/reset-starfive-jh7100.c
 new file mode 100644
-index 000000000000..09759cc73530
+index 000000000000..2f7615cbf1dc
 --- /dev/null
-+++ b/drivers/clk/starfive/Makefile
-@@ -0,0 +1,3 @@
-+# SPDX-License-Identifier: GPL-2.0
-+# StarFive Clock
-+obj-$(CONFIG_CLK_STARFIVE_JH7100)	+= clk-starfive-jh7100.o
-diff --git a/drivers/clk/starfive/clk-starfive-jh7100.c b/drivers/clk/starfive/clk-starfive-jh7100.c
-new file mode 100644
-index 000000000000..f3d430d8c2a8
---- /dev/null
-+++ b/drivers/clk/starfive/clk-starfive-jh7100.c
-@@ -0,0 +1,689 @@
-+// SPDX-License-Identifier: GPL-2.0
++++ b/drivers/reset/reset-starfive-jh7100.c
+@@ -0,0 +1,176 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
-+ * StarFive JH7100 Clock Generator Driver
++ * Reset driver for the StarFive JH7100 SoC
 + *
-+ * Copyright 2021 Ahmad Fatoum, Pengutronix
-+ * Copyright (C) 2021 Glider bv
 + * Copyright (C) 2021 Emil Renner Berthing <kernel@esmil.dk>
 + */
 +
-+#include <linux/bits.h>
-+#include <linux/clk-provider.h>
-+#include <linux/debugfs.h>
-+#include <linux/device.h>
-+#include <linux/init.h>
++#include <linux/bitmap.h>
 +#include <linux/io.h>
-+#include <linux/kernel.h>
++#include <linux/iopoll.h>
 +#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
 +#include <linux/platform_device.h>
++#include <linux/reset-controller.h>
++#include <linux/spinlock.h>
 +
-+#include <dt-bindings/clock/starfive-jh7100.h>
++#include <dt-bindings/reset/starfive-jh7100.h>
 +
-+/* external clocks */
-+#define JH7100_CLK_OSC_SYS		(JH7100_CLK_END + 0)
-+#define JH7100_CLK_OSC_AUD		(JH7100_CLK_END + 1)
-+#define JH7100_CLK_GMAC_RMII_REF	(JH7100_CLK_END + 2)
-+#define JH7100_CLK_GMAC_GR_MII_RX	(JH7100_CLK_END + 3)
++/* register offsets */
++#define JH7100_RESET_ASSERT0	0x00
++#define JH7100_RESET_ASSERT1	0x04
++#define JH7100_RESET_ASSERT2	0x08
++#define JH7100_RESET_ASSERT3	0x0c
++#define JH7100_RESET_STATUS0	0x10
++#define JH7100_RESET_STATUS1	0x14
++#define JH7100_RESET_STATUS2	0x18
++#define JH7100_RESET_STATUS3	0x1c
 +
-+/* register fields */
-+#define JH7100_CLK_ENABLE	BIT(31)
-+#define JH7100_CLK_INVERT	BIT(30)
-+#define JH7100_CLK_MUX_MASK	GENMASK(27, 24)
-+#define JH7100_CLK_MUX_SHIFT	24
-+#define JH7100_CLK_DIV_MASK	GENMASK(23, 0)
-+
-+/* clock data */
-+#define JH7100_GATE(_idx, _name, _flags, _parent) [_idx] = {		\
-+	.name = _name,							\
-+	.flags = CLK_SET_RATE_PARENT | (_flags),			\
-+	.max = JH7100_CLK_ENABLE,					\
-+	.parents = { [0] = _parent },					\
-+}
-+
-+#define JH7100__DIV(_idx, _name, _max, _parent) [_idx] = {		\
-+	.name = _name,							\
-+	.flags = 0,							\
-+	.max = _max,							\
-+	.parents = { [0] = _parent },					\
-+}
-+
-+#define JH7100_GDIV(_idx, _name, _flags, _max, _parent) [_idx] = {	\
-+	.name = _name,							\
-+	.flags = _flags,						\
-+	.max = JH7100_CLK_ENABLE | (_max),				\
-+	.parents = { [0] = _parent },					\
-+}
-+
-+#define JH7100__MUX(_idx, _name, _nparents, ...) [_idx] = {		\
-+	.name = _name,							\
-+	.flags = 0,							\
-+	.max = ((_nparents) - 1) << JH7100_CLK_MUX_SHIFT,		\
-+	.parents = { __VA_ARGS__ },					\
-+}
-+
-+#define JH7100_GMUX(_idx, _name, _flags, _nparents, ...) [_idx] = {	\
-+	.name = _name,							\
-+	.flags = _flags,						\
-+	.max = JH7100_CLK_ENABLE |					\
-+		(((_nparents) - 1) << JH7100_CLK_MUX_SHIFT),		\
-+	.parents = { __VA_ARGS__ },					\
-+}
-+
-+#define JH7100__INV(_idx, _name, _parent) [_idx] = {			\
-+	.name = _name,							\
-+	.flags = CLK_SET_RATE_PARENT,					\
-+	.max = JH7100_CLK_INVERT,					\
-+	.parents = { [0] = _parent },					\
-+}
-+
-+static const struct {
-+	const char *name;
-+	unsigned long flags;
-+	u32 max;
-+	u8 parents[4];
-+} jh7100_clk_data[] __initconst = {
-+	JH7100__MUX(JH7100_CLK_CPUNDBUS_ROOT, "cpundbus_root", 4,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_PLL0_OUT,
-+		    JH7100_CLK_PLL1_OUT,
-+		    JH7100_CLK_PLL2_OUT),
-+	JH7100__MUX(JH7100_CLK_DLA_ROOT, "dla_root", 3,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_PLL1_OUT,
-+		    JH7100_CLK_PLL2_OUT),
-+	JH7100__MUX(JH7100_CLK_DSP_ROOT, "dsp_root", 4,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_PLL0_OUT,
-+		    JH7100_CLK_PLL1_OUT,
-+		    JH7100_CLK_PLL2_OUT),
-+	JH7100__MUX(JH7100_CLK_GMACUSB_ROOT, "gmacusb_root", 3,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_PLL0_OUT,
-+		    JH7100_CLK_PLL2_OUT),
-+	JH7100__MUX(JH7100_CLK_PERH0_ROOT, "perh0_root", 2,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_PLL0_OUT),
-+	JH7100__MUX(JH7100_CLK_PERH1_ROOT, "perh1_root", 2,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_PLL2_OUT),
-+	JH7100__MUX(JH7100_CLK_VIN_ROOT, "vin_root", 3,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_PLL1_OUT,
-+		    JH7100_CLK_PLL2_OUT),
-+	JH7100__MUX(JH7100_CLK_VOUT_ROOT, "vout_root", 3,
-+		    JH7100_CLK_OSC_AUD,
-+		    JH7100_CLK_PLL0_OUT,
-+		    JH7100_CLK_PLL2_OUT),
-+	JH7100_GDIV(JH7100_CLK_AUDIO_ROOT, "audio_root", 0, 8, JH7100_CLK_PLL0_OUT),
-+	JH7100__MUX(JH7100_CLK_CDECHIFI4_ROOT, "cdechifi4_root", 3,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_PLL1_OUT,
-+		    JH7100_CLK_PLL2_OUT),
-+	JH7100__MUX(JH7100_CLK_CDEC_ROOT, "cdec_root", 3,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_PLL0_OUT,
-+		    JH7100_CLK_PLL1_OUT),
-+	JH7100__MUX(JH7100_CLK_VOUTBUS_ROOT, "voutbus_root", 3,
-+		    JH7100_CLK_OSC_AUD,
-+		    JH7100_CLK_PLL0_OUT,
-+		    JH7100_CLK_PLL2_OUT),
-+	JH7100__DIV(JH7100_CLK_CPUNBUS_ROOT_DIV, "cpunbus_root_div", 2, JH7100_CLK_CPUNDBUS_ROOT),
-+	JH7100__DIV(JH7100_CLK_DSP_ROOT_DIV, "dsp_root_div", 4, JH7100_CLK_DSP_ROOT),
-+	JH7100__DIV(JH7100_CLK_PERH0_SRC, "perh0_src", 4, JH7100_CLK_PERH0_ROOT),
-+	JH7100__DIV(JH7100_CLK_PERH1_SRC, "perh1_src", 4, JH7100_CLK_PERH1_ROOT),
-+	JH7100_GDIV(JH7100_CLK_PLL0_TESTOUT, "pll0_testout", 0, 31, JH7100_CLK_PERH0_SRC),
-+	JH7100_GDIV(JH7100_CLK_PLL1_TESTOUT, "pll1_testout", 0, 31, JH7100_CLK_DLA_ROOT),
-+	JH7100_GDIV(JH7100_CLK_PLL2_TESTOUT, "pll2_testout", 0, 31, JH7100_CLK_PERH1_SRC),
-+	JH7100__MUX(JH7100_CLK_PLL2_REF, "pll2_refclk", 2,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_OSC_AUD),
-+	JH7100__DIV(JH7100_CLK_CPU_CORE, "cpu_core", 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	JH7100__DIV(JH7100_CLK_CPU_AXI, "cpu_axi", 8, JH7100_CLK_CPU_CORE),
-+	JH7100__DIV(JH7100_CLK_AHB_BUS, "ahb_bus", 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	JH7100__DIV(JH7100_CLK_APB1_BUS, "apb1_bus", 8, JH7100_CLK_AHB_BUS),
-+	JH7100__DIV(JH7100_CLK_APB2_BUS, "apb2_bus", 8, JH7100_CLK_AHB_BUS),
-+	JH7100_GATE(JH7100_CLK_DOM3AHB_BUS, "dom3ahb_bus", CLK_IS_CRITICAL, JH7100_CLK_AHB_BUS),
-+	JH7100_GATE(JH7100_CLK_DOM7AHB_BUS, "dom7ahb_bus", CLK_IS_CRITICAL, JH7100_CLK_AHB_BUS),
-+	JH7100_GATE(JH7100_CLK_U74_CORE0, "u74_core0", CLK_IS_CRITICAL, JH7100_CLK_CPU_CORE),
-+	JH7100_GDIV(JH7100_CLK_U74_CORE1, "u74_core1", CLK_IS_CRITICAL, 8, JH7100_CLK_CPU_CORE),
-+	JH7100_GATE(JH7100_CLK_U74_AXI, "u74_axi", CLK_IS_CRITICAL, JH7100_CLK_CPU_AXI),
-+	JH7100_GATE(JH7100_CLK_U74RTC_TOGGLE, "u74rtc_toggle", CLK_IS_CRITICAL, JH7100_CLK_OSC_SYS),
-+	JH7100_GATE(JH7100_CLK_SGDMA2P_AXI, "sgdma2p_axi", 0, JH7100_CLK_CPU_AXI),
-+	JH7100_GATE(JH7100_CLK_DMA2PNOC_AXI, "dma2pnoc_axi", 0, JH7100_CLK_CPU_AXI),
-+	JH7100_GATE(JH7100_CLK_SGDMA2P_AHB, "sgdma2p_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100__DIV(JH7100_CLK_DLA_BUS, "dla_bus", 4, JH7100_CLK_DLA_ROOT),
-+	JH7100_GATE(JH7100_CLK_DLA_AXI, "dla_axi", 0, JH7100_CLK_DLA_BUS),
-+	JH7100_GATE(JH7100_CLK_DLANOC_AXI, "dlanoc_axi", 0, JH7100_CLK_DLA_BUS),
-+	JH7100_GATE(JH7100_CLK_DLA_APB, "dla_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_VP6_CORE, "vp6_core", 0, 4, JH7100_CLK_DSP_ROOT_DIV),
-+	JH7100__DIV(JH7100_CLK_VP6BUS_SRC, "vp6bus_src", 4, JH7100_CLK_DSP_ROOT),
-+	JH7100_GDIV(JH7100_CLK_VP6_AXI, "vp6_axi", 0, 4, JH7100_CLK_VP6BUS_SRC),
-+	JH7100__DIV(JH7100_CLK_VCDECBUS_SRC, "vcdecbus_src", 4, JH7100_CLK_CDECHIFI4_ROOT),
-+	JH7100__DIV(JH7100_CLK_VDEC_BUS, "vdec_bus", 8, JH7100_CLK_VCDECBUS_SRC),
-+	JH7100_GATE(JH7100_CLK_VDEC_AXI, "vdec_axi", 0, JH7100_CLK_VDEC_BUS),
-+	JH7100_GATE(JH7100_CLK_VDECBRG_MAIN, "vdecbrg_mainclk", 0, JH7100_CLK_VDEC_BUS),
-+	JH7100_GDIV(JH7100_CLK_VDEC_BCLK, "vdec_bclk", 0, 8, JH7100_CLK_VCDECBUS_SRC),
-+	JH7100_GDIV(JH7100_CLK_VDEC_CCLK, "vdec_cclk", 0, 8, JH7100_CLK_CDEC_ROOT),
-+	JH7100_GATE(JH7100_CLK_VDEC_APB, "vdec_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_JPEG_AXI, "jpeg_axi", 0, 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	JH7100_GDIV(JH7100_CLK_JPEG_CCLK, "jpeg_cclk", 0, 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	JH7100_GATE(JH7100_CLK_JPEG_APB, "jpeg_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_GC300_2X, "gc300_2x", 0, 8, JH7100_CLK_CDECHIFI4_ROOT),
-+	JH7100_GATE(JH7100_CLK_GC300_AHB, "gc300_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100__DIV(JH7100_CLK_JPCGC300_AXIBUS, "jpcgc300_axibus", 8, JH7100_CLK_VCDECBUS_SRC),
-+	JH7100_GATE(JH7100_CLK_GC300_AXI, "gc300_axi", 0, JH7100_CLK_JPCGC300_AXIBUS),
-+	JH7100_GATE(JH7100_CLK_JPCGC300_MAIN, "jpcgc300_mainclk", 0, JH7100_CLK_JPCGC300_AXIBUS),
-+	JH7100__DIV(JH7100_CLK_VENC_BUS, "venc_bus", 8, JH7100_CLK_VCDECBUS_SRC),
-+	JH7100_GATE(JH7100_CLK_VENC_AXI, "venc_axi", 0, JH7100_CLK_VENC_BUS),
-+	JH7100_GATE(JH7100_CLK_VENCBRG_MAIN, "vencbrg_mainclk", 0, JH7100_CLK_VENC_BUS),
-+	JH7100_GDIV(JH7100_CLK_VENC_BCLK, "venc_bclk", 0, 8, JH7100_CLK_VCDECBUS_SRC),
-+	JH7100_GDIV(JH7100_CLK_VENC_CCLK, "venc_cclk", 0, 8, JH7100_CLK_CDEC_ROOT),
-+	JH7100_GATE(JH7100_CLK_VENC_APB, "venc_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_DDRPLL_DIV2, "ddrpll_div2", CLK_IS_CRITICAL, 2, JH7100_CLK_PLL1_OUT),
-+	JH7100_GDIV(JH7100_CLK_DDRPLL_DIV4, "ddrpll_div4", CLK_IS_CRITICAL, 2, JH7100_CLK_DDRPLL_DIV2),
-+	JH7100_GDIV(JH7100_CLK_DDRPLL_DIV8, "ddrpll_div8", CLK_IS_CRITICAL, 2, JH7100_CLK_DDRPLL_DIV4),
-+	JH7100_GDIV(JH7100_CLK_DDROSC_DIV2, "ddrosc_div2", CLK_IS_CRITICAL, 2, JH7100_CLK_OSC_SYS),
-+	JH7100_GMUX(JH7100_CLK_DDRC0, "ddrc0", CLK_IS_CRITICAL, 4,
-+		    JH7100_CLK_DDROSC_DIV2,
-+		    JH7100_CLK_DDRPLL_DIV2,
-+		    JH7100_CLK_DDRPLL_DIV4,
-+		    JH7100_CLK_DDRPLL_DIV8),
-+	JH7100_GMUX(JH7100_CLK_DDRC1, "ddrc1", CLK_IS_CRITICAL, 4,
-+		    JH7100_CLK_DDROSC_DIV2,
-+		    JH7100_CLK_DDRPLL_DIV2,
-+		    JH7100_CLK_DDRPLL_DIV4,
-+		    JH7100_CLK_DDRPLL_DIV8),
-+	JH7100_GATE(JH7100_CLK_DDRPHY_APB, "ddrphy_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100__DIV(JH7100_CLK_NOC_ROB, "noc_rob", 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	JH7100__DIV(JH7100_CLK_NOC_COG, "noc_cog", 8, JH7100_CLK_DLA_ROOT),
-+	JH7100_GATE(JH7100_CLK_NNE_AHB, "nne_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100__DIV(JH7100_CLK_NNEBUS_SRC1, "nnebus_src1", 4, JH7100_CLK_DSP_ROOT),
-+	JH7100__MUX(JH7100_CLK_NNE_BUS, "nne_bus", 2,
-+		    JH7100_CLK_CPU_AXI,
-+		    JH7100_CLK_NNEBUS_SRC1),
-+	JH7100_GATE(JH7100_CLK_NNE_AXI, "nne_axi", 0, JH7100_CLK_NNE_BUS),
-+	JH7100_GATE(JH7100_CLK_NNENOC_AXI, "nnenoc_axi", 0, JH7100_CLK_NNE_BUS),
-+	JH7100_GATE(JH7100_CLK_DLASLV_AXI, "dlaslv_axi", 0, JH7100_CLK_NNE_BUS),
-+	JH7100_GATE(JH7100_CLK_DSPX2C_AXI, "dspx2c_axi", CLK_IS_CRITICAL, JH7100_CLK_NNE_BUS),
-+	JH7100__DIV(JH7100_CLK_HIFI4_SRC, "hifi4_src", 4, JH7100_CLK_CDECHIFI4_ROOT),
-+	JH7100__DIV(JH7100_CLK_HIFI4_COREFREE, "hifi4_corefree", 8, JH7100_CLK_HIFI4_SRC),
-+	JH7100_GATE(JH7100_CLK_HIFI4_CORE, "hifi4_core", 0, JH7100_CLK_HIFI4_COREFREE),
-+	JH7100__DIV(JH7100_CLK_HIFI4_BUS, "hifi4_bus", 8, JH7100_CLK_HIFI4_COREFREE),
-+	JH7100_GATE(JH7100_CLK_HIFI4_AXI, "hifi4_axi", 0, JH7100_CLK_HIFI4_BUS),
-+	JH7100_GATE(JH7100_CLK_HIFI4NOC_AXI, "hifi4noc_axi", 0, JH7100_CLK_HIFI4_BUS),
-+	JH7100__DIV(JH7100_CLK_SGDMA1P_BUS, "sgdma1p_bus", 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	JH7100_GATE(JH7100_CLK_SGDMA1P_AXI, "sgdma1p_axi", 0, JH7100_CLK_SGDMA1P_BUS),
-+	JH7100_GATE(JH7100_CLK_DMA1P_AXI, "dma1p_axi", 0, JH7100_CLK_SGDMA1P_BUS),
-+	JH7100_GDIV(JH7100_CLK_X2C_AXI, "x2c_axi", CLK_IS_CRITICAL, 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	JH7100__DIV(JH7100_CLK_USB_BUS, "usb_bus", 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	JH7100_GATE(JH7100_CLK_USB_AXI, "usb_axi", 0, JH7100_CLK_USB_BUS),
-+	JH7100_GATE(JH7100_CLK_USBNOC_AXI, "usbnoc_axi", 0, JH7100_CLK_USB_BUS),
-+	JH7100__DIV(JH7100_CLK_USBPHY_ROOTDIV, "usbphy_rootdiv", 4, JH7100_CLK_GMACUSB_ROOT),
-+	JH7100_GDIV(JH7100_CLK_USBPHY_125M, "usbphy_125m", 0, 8, JH7100_CLK_USBPHY_ROOTDIV),
-+	JH7100_GDIV(JH7100_CLK_USBPHY_PLLDIV25M, "usbphy_plldiv25m", 0, 32, JH7100_CLK_USBPHY_ROOTDIV),
-+	JH7100__MUX(JH7100_CLK_USBPHY_25M, "usbphy_25m", 2,
-+		    JH7100_CLK_OSC_SYS,
-+		    JH7100_CLK_USBPHY_PLLDIV25M),
-+	JH7100__DIV(JH7100_CLK_AUDIO_DIV, "audio_div", 131072, JH7100_CLK_AUDIO_ROOT),
-+	JH7100_GATE(JH7100_CLK_AUDIO_SRC, "audio_src", 0, JH7100_CLK_AUDIO_DIV),
-+	JH7100_GATE(JH7100_CLK_AUDIO_12288, "audio_12288", 0, JH7100_CLK_OSC_AUD),
-+	JH7100_GDIV(JH7100_CLK_VIN_SRC, "vin_src", 0, 4, JH7100_CLK_VIN_ROOT),
-+	JH7100__DIV(JH7100_CLK_ISP0_BUS, "isp0_bus", 8, JH7100_CLK_VIN_SRC),
-+	JH7100_GATE(JH7100_CLK_ISP0_AXI, "isp0_axi", 0, JH7100_CLK_ISP0_BUS),
-+	JH7100_GATE(JH7100_CLK_ISP0NOC_AXI, "isp0noc_axi", 0, JH7100_CLK_ISP0_BUS),
-+	JH7100_GATE(JH7100_CLK_ISPSLV_AXI, "ispslv_axi", 0, JH7100_CLK_ISP0_BUS),
-+	JH7100__DIV(JH7100_CLK_ISP1_BUS, "isp1_bus", 8, JH7100_CLK_VIN_SRC),
-+	JH7100_GATE(JH7100_CLK_ISP1_AXI, "isp1_axi", 0, JH7100_CLK_ISP1_BUS),
-+	JH7100_GATE(JH7100_CLK_ISP1NOC_AXI, "isp1noc_axi", 0, JH7100_CLK_ISP1_BUS),
-+	JH7100__DIV(JH7100_CLK_VIN_BUS, "vin_bus", 8, JH7100_CLK_VIN_SRC),
-+	JH7100_GATE(JH7100_CLK_VIN_AXI, "vin_axi", 0, JH7100_CLK_VIN_BUS),
-+	JH7100_GATE(JH7100_CLK_VINNOC_AXI, "vinnoc_axi", 0, JH7100_CLK_VIN_BUS),
-+	JH7100_GDIV(JH7100_CLK_VOUT_SRC, "vout_src", 0, 4, JH7100_CLK_VOUT_ROOT),
-+	JH7100__DIV(JH7100_CLK_DISPBUS_SRC, "dispbus_src", 4, JH7100_CLK_VOUTBUS_ROOT),
-+	JH7100__DIV(JH7100_CLK_DISP_BUS, "disp_bus", 4, JH7100_CLK_DISPBUS_SRC),
-+	JH7100_GATE(JH7100_CLK_DISP_AXI, "disp_axi", 0, JH7100_CLK_DISP_BUS),
-+	JH7100_GATE(JH7100_CLK_DISPNOC_AXI, "dispnoc_axi", 0, JH7100_CLK_DISP_BUS),
-+	JH7100_GATE(JH7100_CLK_SDIO0_AHB, "sdio0_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100_GDIV(JH7100_CLK_SDIO0_CCLKINT, "sdio0_cclkint", 0, 24, JH7100_CLK_PERH0_SRC),
-+	JH7100__INV(JH7100_CLK_SDIO0_CCLKINT_INV, "sdio0_cclkint_inv", JH7100_CLK_SDIO0_CCLKINT),
-+	JH7100_GATE(JH7100_CLK_SDIO1_AHB, "sdio1_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100_GDIV(JH7100_CLK_SDIO1_CCLKINT, "sdio1_cclkint", 0, 24, JH7100_CLK_PERH1_SRC),
-+	JH7100__INV(JH7100_CLK_SDIO1_CCLKINT_INV, "sdio1_cclkint_inv", JH7100_CLK_SDIO1_CCLKINT),
-+	JH7100_GATE(JH7100_CLK_GMAC_AHB, "gmac_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100__DIV(JH7100_CLK_GMAC_ROOT_DIV, "gmac_root_div", 8, JH7100_CLK_GMACUSB_ROOT),
-+	JH7100_GDIV(JH7100_CLK_GMAC_PTP_REF, "gmac_ptp_refclk", 0, 31, JH7100_CLK_GMAC_ROOT_DIV),
-+	JH7100_GDIV(JH7100_CLK_GMAC_GTX, "gmac_gtxclk", 0, 255, JH7100_CLK_GMAC_ROOT_DIV),
-+	JH7100_GDIV(JH7100_CLK_GMAC_RMII_TX, "gmac_rmii_txclk", 0, 8, JH7100_CLK_GMAC_RMII_REF),
-+	JH7100_GDIV(JH7100_CLK_GMAC_RMII_RX, "gmac_rmii_rxclk", 0, 8, JH7100_CLK_GMAC_RMII_REF),
-+	JH7100__MUX(JH7100_CLK_GMAC_TX, "gmac_tx", 3,
-+		    JH7100_CLK_GMAC_GTX,
-+		    JH7100_CLK_GMAC_TX_INV,
-+		    JH7100_CLK_GMAC_RMII_TX),
-+	JH7100__INV(JH7100_CLK_GMAC_TX_INV, "gmac_tx_inv", JH7100_CLK_GMAC_TX),
-+	JH7100__MUX(JH7100_CLK_GMAC_RX_PRE, "gmac_rx_pre", 2,
-+		    JH7100_CLK_GMAC_GR_MII_RX,
-+		    JH7100_CLK_GMAC_RMII_RX),
-+	JH7100__INV(JH7100_CLK_GMAC_RX_INV, "gmac_rx_inv", JH7100_CLK_GMAC_RX_PRE),
-+	JH7100_GATE(JH7100_CLK_GMAC_RMII, "gmac_rmii", 0, JH7100_CLK_GMAC_RMII_REF),
-+	JH7100_GDIV(JH7100_CLK_GMAC_TOPHYREF, "gmac_tophyref", 0, 127, JH7100_CLK_GMAC_ROOT_DIV),
-+	JH7100_GATE(JH7100_CLK_SPI2AHB_AHB, "spi2ahb_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100_GDIV(JH7100_CLK_SPI2AHB_CORE, "spi2ahb_core", 0, 31, JH7100_CLK_PERH0_SRC),
-+	JH7100_GATE(JH7100_CLK_EZMASTER_AHB, "ezmaster_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100_GATE(JH7100_CLK_E24_AHB, "e24_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100_GATE(JH7100_CLK_E24RTC_TOGGLE, "e24rtc_toggle", 0, JH7100_CLK_OSC_SYS),
-+	JH7100_GATE(JH7100_CLK_QSPI_AHB, "qspi_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100_GATE(JH7100_CLK_QSPI_APB, "qspi_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_QSPI_REF, "qspi_refclk", 0, 31, JH7100_CLK_PERH0_SRC),
-+	JH7100_GATE(JH7100_CLK_SEC_AHB, "sec_ahb", 0, JH7100_CLK_AHB_BUS),
-+	JH7100_GATE(JH7100_CLK_AES, "aes_clk", 0, JH7100_CLK_SEC_AHB),
-+	JH7100_GATE(JH7100_CLK_SHA, "sha_clk", 0, JH7100_CLK_SEC_AHB),
-+	JH7100_GATE(JH7100_CLK_PKA, "pka_clk", 0, JH7100_CLK_SEC_AHB),
-+	JH7100_GATE(JH7100_CLK_TRNG_APB, "trng_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GATE(JH7100_CLK_OTP_APB, "otp_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GATE(JH7100_CLK_UART0_APB, "uart0_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_UART0_CORE, "uart0_core", 0, 63, JH7100_CLK_PERH1_SRC),
-+	JH7100_GATE(JH7100_CLK_UART1_APB, "uart1_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_UART1_CORE, "uart1_core", 0, 63, JH7100_CLK_PERH1_SRC),
-+	JH7100_GATE(JH7100_CLK_SPI0_APB, "spi0_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_SPI0_CORE, "spi0_core", 0, 63, JH7100_CLK_PERH1_SRC),
-+	JH7100_GATE(JH7100_CLK_SPI1_APB, "spi1_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_SPI1_CORE, "spi1_core", 0, 63, JH7100_CLK_PERH1_SRC),
-+	JH7100_GATE(JH7100_CLK_I2C0_APB, "i2c0_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_I2C0_CORE, "i2c0_core", 0, 63, JH7100_CLK_PERH1_SRC),
-+	JH7100_GATE(JH7100_CLK_I2C1_APB, "i2c1_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GDIV(JH7100_CLK_I2C1_CORE, "i2c1_core", 0, 63, JH7100_CLK_PERH1_SRC),
-+	JH7100_GATE(JH7100_CLK_GPIO_APB, "gpio_apb", 0, JH7100_CLK_APB1_BUS),
-+	JH7100_GATE(JH7100_CLK_UART2_APB, "uart2_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GDIV(JH7100_CLK_UART2_CORE, "uart2_core", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GATE(JH7100_CLK_UART3_APB, "uart3_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GDIV(JH7100_CLK_UART3_CORE, "uart3_core", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GATE(JH7100_CLK_SPI2_APB, "spi2_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GDIV(JH7100_CLK_SPI2_CORE, "spi2_core", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GATE(JH7100_CLK_SPI3_APB, "spi3_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GDIV(JH7100_CLK_SPI3_CORE, "spi3_core", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GATE(JH7100_CLK_I2C2_APB, "i2c2_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GDIV(JH7100_CLK_I2C2_CORE, "i2c2_core", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GATE(JH7100_CLK_I2C3_APB, "i2c3_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GDIV(JH7100_CLK_I2C3_CORE, "i2c3_core", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GATE(JH7100_CLK_WDTIMER_APB, "wdtimer_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GDIV(JH7100_CLK_WDT_CORE, "wdt_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GDIV(JH7100_CLK_TIMER0_CORE, "timer0_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GDIV(JH7100_CLK_TIMER1_CORE, "timer1_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GDIV(JH7100_CLK_TIMER2_CORE, "timer2_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GDIV(JH7100_CLK_TIMER3_CORE, "timer3_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GDIV(JH7100_CLK_TIMER4_CORE, "timer4_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GDIV(JH7100_CLK_TIMER5_CORE, "timer5_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GDIV(JH7100_CLK_TIMER6_CORE, "timer6_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	JH7100_GATE(JH7100_CLK_VP6INTC_APB, "vp6intc_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GATE(JH7100_CLK_PWM_APB, "pwm_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GATE(JH7100_CLK_MSI_APB, "msi_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GATE(JH7100_CLK_TEMP_APB, "temp_apb", 0, JH7100_CLK_APB2_BUS),
-+	JH7100_GDIV(JH7100_CLK_TEMP_SENSE, "temp_sense", 0, 31, JH7100_CLK_OSC_SYS),
-+	JH7100_GATE(JH7100_CLK_SYSERR_APB, "syserr_apb", 0, JH7100_CLK_APB2_BUS),
-+};
-+
-+struct jh7100_clk {
-+	struct clk_hw hw;
-+	unsigned int idx;
-+	unsigned int max_div;
-+};
-+
-+struct clk_starfive_jh7100_priv {
-+	/* protect clk enable and set rate/parent from happening at the same time */
-+	spinlock_t rmw_lock;
-+	struct device *dev;
-+	void __iomem *base;
-+	struct clk_hw *pll[3];
-+	struct jh7100_clk reg[JH7100_CLK_PLL0_OUT];
-+};
-+
-+static struct jh7100_clk *jh7100_clk_from(struct clk_hw *hw)
-+{
-+	return container_of(hw, struct jh7100_clk, hw);
-+}
-+
-+static struct clk_starfive_jh7100_priv *jh7100_priv_from(struct jh7100_clk *clk)
-+{
-+	return container_of(clk, struct clk_starfive_jh7100_priv, reg[clk->idx]);
-+}
-+
-+static u32 jh7100_clk_reg_get(struct jh7100_clk *clk)
-+{
-+	struct clk_starfive_jh7100_priv *priv = jh7100_priv_from(clk);
-+	void __iomem *reg = priv->base + 4 * clk->idx;
-+
-+	return readl_relaxed(reg);
-+}
-+
-+static void jh7100_clk_reg_rmw(struct jh7100_clk *clk, u32 mask, u32 value)
-+{
-+	struct clk_starfive_jh7100_priv *priv = jh7100_priv_from(clk);
-+	void __iomem *reg = priv->base + 4 * clk->idx;
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(&priv->rmw_lock, flags);
-+	value |= readl_relaxed(reg) & ~mask;
-+	writel_relaxed(value, reg);
-+	spin_unlock_irqrestore(&priv->rmw_lock, flags);
-+}
-+
-+static int jh7100_clk_enable(struct clk_hw *hw)
-+{
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+
-+	jh7100_clk_reg_rmw(clk, JH7100_CLK_ENABLE, JH7100_CLK_ENABLE);
-+	return 0;
-+}
-+
-+static void jh7100_clk_disable(struct clk_hw *hw)
-+{
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+
-+	jh7100_clk_reg_rmw(clk, JH7100_CLK_ENABLE, 0);
-+}
-+
-+static int jh7100_clk_is_enabled(struct clk_hw *hw)
-+{
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+
-+	return !!(jh7100_clk_reg_get(clk) & JH7100_CLK_ENABLE);
-+}
-+
-+static unsigned long jh7100_clk_recalc_rate(struct clk_hw *hw,
-+					    unsigned long parent_rate)
-+{
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+	u32 div = jh7100_clk_reg_get(clk) & JH7100_CLK_DIV_MASK;
-+
-+	return div ? parent_rate / div : 0;
-+}
-+
-+static unsigned long jh7100_clk_bestdiv(struct jh7100_clk *clk,
-+					unsigned long rate, unsigned long parent)
-+{
-+	unsigned long max = clk->max_div;
-+	unsigned long div = DIV_ROUND_UP(parent, rate);
-+
-+	return min(div, max);
-+}
-+
-+static int jh7100_clk_determine_rate(struct clk_hw *hw,
-+				     struct clk_rate_request *req)
-+{
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+	unsigned long parent = req->best_parent_rate;
-+	unsigned long rate = clamp(req->rate, req->min_rate, req->max_rate);
-+	unsigned long div = jh7100_clk_bestdiv(clk, rate, parent);
-+	unsigned long result = parent / div;
-+
-+	/*
-+	 * we want the result clamped by min_rate and max_rate if possible:
-+	 * case 1: div hits the max divider value, which means it's less than
-+	 * parent / rate, so the result is greater than rate and min_rate in
-+	 * particular. we can't do anything about result > max_rate because the
-+	 * divider doesn't go any further.
-+	 * case 2: div = DIV_ROUND_UP(parent, rate) which means the result is
-+	 * always lower or equal to rate and max_rate. however the result may
-+	 * turn out lower than min_rate, but then the next higher rate is fine:
-+	 *   div - 1 = ceil(parent / rate) - 1 < parent / rate
-+	 * and thus
-+	 *   min_rate <= rate < parent / (div - 1)
-+	 */
-+	if (result < req->min_rate && div > 1)
-+		result = parent / (div - 1);
-+
-+	req->rate = result;
-+	return 0;
-+}
-+
-+static int jh7100_clk_set_rate(struct clk_hw *hw,
-+			       unsigned long rate,
-+			       unsigned long parent_rate)
-+{
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+	unsigned long div = jh7100_clk_bestdiv(clk, rate, parent_rate);
-+
-+	jh7100_clk_reg_rmw(clk, JH7100_CLK_DIV_MASK, div);
-+	return 0;
-+}
-+
-+static u8 jh7100_clk_get_parent(struct clk_hw *hw)
-+{
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+	u32 value = jh7100_clk_reg_get(clk);
-+
-+	return (value & JH7100_CLK_MUX_MASK) >> JH7100_CLK_MUX_SHIFT;
-+}
-+
-+static int jh7100_clk_set_parent(struct clk_hw *hw, u8 index)
-+{
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+	u32 value = (u32)index << JH7100_CLK_MUX_SHIFT;
-+
-+	jh7100_clk_reg_rmw(clk, JH7100_CLK_MUX_MASK, value);
-+	return 0;
-+}
-+
-+static int jh7100_clk_mux_determine_rate(struct clk_hw *hw,
-+					 struct clk_rate_request *req)
-+{
-+	return clk_mux_determine_rate_flags(hw, req, 0);
-+}
-+
-+static int jh7100_clk_get_phase(struct clk_hw *hw)
-+{
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+	u32 value = jh7100_clk_reg_get(clk);
-+
-+	return (value & JH7100_CLK_INVERT) ? 180 : 0;
-+}
-+
-+static int jh7100_clk_set_phase(struct clk_hw *hw, int degrees)
-+{
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+	u32 value;
-+
-+	if (degrees == 0)
-+		value = 0;
-+	else if (degrees == 180)
-+		value = JH7100_CLK_INVERT;
-+	else
-+		return -EINVAL;
-+
-+	jh7100_clk_reg_rmw(clk, JH7100_CLK_INVERT, value);
-+	return 0;
-+}
-+
-+#ifdef CONFIG_DEBUG_FS
-+static void jh7100_clk_debug_init(struct clk_hw *hw, struct dentry *dentry)
-+{
-+	static const struct debugfs_reg32 jh7100_clk_reg = {
-+		.name = "CTRL",
-+		.offset = 0,
-+	};
-+	struct jh7100_clk *clk = jh7100_clk_from(hw);
-+	struct clk_starfive_jh7100_priv *priv = jh7100_priv_from(clk);
-+	struct debugfs_regset32 *regset;
-+
-+	regset = devm_kzalloc(priv->dev, sizeof(*regset), GFP_KERNEL);
-+	if (!regset)
-+		return;
-+
-+	regset->regs = &jh7100_clk_reg;
-+	regset->nregs = 1;
-+	regset->base = priv->base + 4 * clk->idx;
-+
-+	debugfs_create_regset32("registers", 0400, dentry, regset);
-+}
++#if BITS_PER_LONG == 64
++#define jh7100_reset_read	readq
++#define jh7100_reset_write	writeq
 +#else
-+#define jh7100_clk_debug_init NULL
++#define jh7100_reset_read	readl
++#define jh7100_reset_write	writel
 +#endif
 +
-+static const struct clk_ops jh7100_clk_gate_ops = {
-+	.enable = jh7100_clk_enable,
-+	.disable = jh7100_clk_disable,
-+	.is_enabled = jh7100_clk_is_enabled,
-+	.debug_init = jh7100_clk_debug_init,
++/*
++ * Writing a 1 to the n'th bit of the m'th ASSERT register asserts
++ * line 32m + n, and writing a 0 deasserts the same line.
++ * Most reset lines have their status inverted so a 0 bit in the STATUS
++ * register means the line is asserted and a 1 means it's deasserted. A few
++ * lines don't though, so store the expected value of the status registers when
++ * all lines are asserted.
++ */
++static const DECLARE_BITMAP(jh7100_reset_asserted, 4 * 32) = {
++	BITMAP_FROM_U64(BIT_ULL_MASK(JH7100_RST_U74) |
++			BIT_ULL_MASK(JH7100_RST_VP6_DRESET) |
++			BIT_ULL_MASK(JH7100_RST_VP6_BRESET) |
++			BIT_ULL_MASK(JH7100_RST_HIFI4_DRESET) |
++			BIT_ULL_MASK(JH7100_RST_HIFI4_BRESET)),
++	BITMAP_FROM_U64(BIT_ULL_MASK(JH7100_RST_E24)),
 +};
 +
-+static const struct clk_ops jh7100_clk_div_ops = {
-+	.recalc_rate = jh7100_clk_recalc_rate,
-+	.determine_rate = jh7100_clk_determine_rate,
-+	.set_rate = jh7100_clk_set_rate,
-+	.debug_init = jh7100_clk_debug_init,
++struct jh7100_reset {
++	struct reset_controller_dev rcdev;
++	/* protect registers against concurrent read-modify-write */
++	spinlock_t lock;
++	void __iomem *base;
 +};
 +
-+static const struct clk_ops jh7100_clk_gdiv_ops = {
-+	.enable = jh7100_clk_enable,
-+	.disable = jh7100_clk_disable,
-+	.is_enabled = jh7100_clk_is_enabled,
-+	.recalc_rate = jh7100_clk_recalc_rate,
-+	.determine_rate = jh7100_clk_determine_rate,
-+	.set_rate = jh7100_clk_set_rate,
-+	.debug_init = jh7100_clk_debug_init,
-+};
-+
-+static const struct clk_ops jh7100_clk_mux_ops = {
-+	.get_parent = jh7100_clk_get_parent,
-+	.set_parent = jh7100_clk_set_parent,
-+	.determine_rate = jh7100_clk_mux_determine_rate,
-+	.debug_init = jh7100_clk_debug_init,
-+};
-+
-+static const struct clk_ops jh7100_clk_gmux_ops = {
-+	.enable = jh7100_clk_enable,
-+	.disable = jh7100_clk_disable,
-+	.is_enabled = jh7100_clk_is_enabled,
-+	.get_parent = jh7100_clk_get_parent,
-+	.set_parent = jh7100_clk_set_parent,
-+	.determine_rate = jh7100_clk_mux_determine_rate,
-+	.debug_init = jh7100_clk_debug_init,
-+};
-+
-+static const struct clk_ops jh7100_clk_inv_ops = {
-+	.get_phase = jh7100_clk_get_phase,
-+	.set_phase = jh7100_clk_set_phase,
-+	.debug_init = jh7100_clk_debug_init,
-+};
-+
-+static const struct clk_ops *__init jh7100_clk_ops(u32 max)
++static inline struct jh7100_reset *
++jh7100_reset_from(struct reset_controller_dev *rcdev)
 +{
-+	if (max & JH7100_CLK_DIV_MASK) {
-+		if (max & JH7100_CLK_ENABLE)
-+			return &jh7100_clk_gdiv_ops;
-+		return &jh7100_clk_div_ops;
-+	}
-+
-+	if (max & JH7100_CLK_MUX_MASK) {
-+		if (max & JH7100_CLK_ENABLE)
-+			return &jh7100_clk_gmux_ops;
-+		return &jh7100_clk_mux_ops;
-+	}
-+
-+	if (max & JH7100_CLK_ENABLE)
-+		return &jh7100_clk_gate_ops;
-+
-+	return &jh7100_clk_inv_ops;
++	return container_of(rcdev, struct jh7100_reset, rcdev);
 +}
 +
-+static struct clk_hw *clk_starfive_jh7100_get(struct of_phandle_args *clkspec, void *data)
++static int jh7100_reset_update(struct reset_controller_dev *rcdev,
++			       unsigned long id, bool assert)
 +{
-+	struct clk_starfive_jh7100_priv *priv = data;
-+	unsigned int idx = clkspec->args[0];
-+
-+	if (idx < JH7100_CLK_PLL0_OUT)
-+		return &priv->reg[idx].hw;
-+
-+	if (idx < JH7100_CLK_END)
-+		return priv->pll[idx - JH7100_CLK_PLL0_OUT];
-+
-+	return ERR_PTR(-EINVAL);
-+}
-+
-+static int __init clk_starfive_jh7100_probe(struct platform_device *pdev)
-+{
-+	struct clk_starfive_jh7100_priv *priv;
-+	unsigned int idx;
++	struct jh7100_reset *data = jh7100_reset_from(rcdev);
++	unsigned long offset = id / BITS_PER_LONG;
++	void __iomem *reg_assert = data->base + JH7100_RESET_ASSERT0 + offset * sizeof(long);
++	void __iomem *reg_status = data->base + JH7100_RESET_STATUS0 + offset * sizeof(long);
++	unsigned long mask = BIT_MASK(id);
++	unsigned long done = jh7100_reset_asserted[offset] & mask;
++	unsigned long value;
++	unsigned long flags;
 +	int ret;
 +
-+	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
++	if (!assert)
++		done ^= mask;
 +
-+	spin_lock_init(&priv->rmw_lock);
-+	priv->dev = &pdev->dev;
-+	priv->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(priv->base))
-+		return PTR_ERR(priv->base);
++	spin_lock_irqsave(&data->lock, flags);
 +
-+	priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "pll0_out",
-+							 "osc_sys", 0, 40, 1);
-+	if (IS_ERR(priv->pll[0]))
-+		return PTR_ERR(priv->pll[0]);
++	value = jh7100_reset_read(reg_assert);
++	if (assert)
++		value |= mask;
++	else
++		value &= ~mask;
++	jh7100_reset_write(value, reg_assert);
 +
-+	priv->pll[1] = devm_clk_hw_register_fixed_factor(priv->dev, "pll1_out",
-+							 "osc_sys", 0, 64, 1);
-+	if (IS_ERR(priv->pll[1]))
-+		return PTR_ERR(priv->pll[1]);
++	/* if the associated clock is gated, deasserting might otherwise hang forever */
++	ret = readx_poll_timeout_atomic(jh7100_reset_read, reg_status, value,
++				        (value & mask) == done, 0, 1000);
 +
-+	priv->pll[2] = devm_clk_hw_register_fixed_factor(priv->dev, "pll2_out",
-+							 "pll2_refclk", 0, 55, 1);
-+	if (IS_ERR(priv->pll[2]))
-+		return PTR_ERR(priv->pll[2]);
-+
-+	for (idx = 0; idx < JH7100_CLK_PLL0_OUT; idx++) {
-+		u32 max = jh7100_clk_data[idx].max;
-+		struct clk_parent_data parents[4] = {};
-+		struct clk_init_data init = {
-+			.name = jh7100_clk_data[idx].name,
-+			.ops = jh7100_clk_ops(max),
-+			.parent_data = parents,
-+			.num_parents = ((max & JH7100_CLK_MUX_MASK) >> JH7100_CLK_MUX_SHIFT) + 1,
-+			.flags = jh7100_clk_data[idx].flags,
-+		};
-+		struct jh7100_clk *clk = &priv->reg[idx];
-+		unsigned int i;
-+
-+		for (i = 0; i < init.num_parents; i++) {
-+			unsigned int pidx = jh7100_clk_data[idx].parents[i];
-+
-+			if (pidx < JH7100_CLK_PLL0_OUT)
-+				parents[i].hw = &priv->reg[pidx].hw;
-+			else if (pidx < JH7100_CLK_END)
-+				parents[i].hw = priv->pll[pidx - JH7100_CLK_PLL0_OUT];
-+			else if (pidx == JH7100_CLK_OSC_SYS)
-+				parents[i].fw_name = "osc_sys";
-+			else if (pidx == JH7100_CLK_OSC_AUD)
-+				parents[i].fw_name = "osc_aud";
-+			else if (pidx == JH7100_CLK_GMAC_RMII_REF)
-+				parents[i].fw_name = "gmac_rmii_ref";
-+			else if (pidx == JH7100_CLK_GMAC_GR_MII_RX)
-+				parents[i].fw_name = "gmac_gr_mii_rxclk";
-+		}
-+
-+		clk->hw.init = &init;
-+		clk->idx = idx;
-+		clk->max_div = max & JH7100_CLK_DIV_MASK;
-+
-+		ret = devm_clk_hw_register(priv->dev, &clk->hw);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return devm_of_clk_add_hw_provider(priv->dev, clk_starfive_jh7100_get, priv);
++	spin_unlock_irqrestore(&data->lock, flags);
++	return ret;
 +}
 +
-+static const struct of_device_id clk_starfive_jh7100_match[] = {
-+	{ .compatible = "starfive,jh7100-clkgen" },
++static int jh7100_reset_assert(struct reset_controller_dev *rcdev,
++			       unsigned long id)
++{
++	return jh7100_reset_update(rcdev, id, true);
++}
++
++static int jh7100_reset_deassert(struct reset_controller_dev *rcdev,
++				 unsigned long id)
++{
++	return jh7100_reset_update(rcdev, id, false);
++}
++
++static int jh7100_reset_reset(struct reset_controller_dev *rcdev,
++			      unsigned long id)
++{
++	int ret;
++
++	ret = jh7100_reset_assert(rcdev, id);
++	if (ret)
++		return ret;
++
++	return jh7100_reset_deassert(rcdev, id);
++}
++
++static int jh7100_reset_status(struct reset_controller_dev *rcdev,
++			       unsigned long id)
++{
++	struct jh7100_reset *data = jh7100_reset_from(rcdev);
++	unsigned long offset = id / BITS_PER_LONG;
++	void __iomem *reg_status = data->base + JH7100_RESET_STATUS0 + offset * sizeof(long);
++	unsigned long value = jh7100_reset_read(reg_status);
++	unsigned long mask = BIT_MASK(id);
++
++	return !((value ^ jh7100_reset_asserted[offset]) & mask);
++}
++
++static const struct reset_control_ops jh7100_reset_ops = {
++	.assert		= jh7100_reset_assert,
++	.deassert	= jh7100_reset_deassert,
++	.reset		= jh7100_reset_reset,
++	.status		= jh7100_reset_status,
++};
++
++static int __init jh7100_reset_probe(struct platform_device *pdev)
++{
++	struct jh7100_reset *data;
++
++	data = devm_kzalloc(&pdev->dev, sizeof(*data), GFP_KERNEL);
++	if (!data)
++		return -ENOMEM;
++
++	data->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(data->base))
++		return PTR_ERR(data->base);
++
++	data->rcdev.ops = &jh7100_reset_ops;
++	data->rcdev.owner = THIS_MODULE;
++	data->rcdev.nr_resets = JH7100_RSTN_END;
++	data->rcdev.dev = &pdev->dev;
++	data->rcdev.of_node = pdev->dev.of_node;
++	spin_lock_init(&data->lock);
++
++	return devm_reset_controller_register(&pdev->dev, &data->rcdev);
++}
++
++static const struct of_device_id jh7100_reset_dt_ids[] = {
++	{ .compatible = "starfive,jh7100-reset" },
 +	{ /* sentinel */ }
 +};
 +
-+static struct platform_driver clk_starfive_jh7100_driver = {
++static struct platform_driver jh7100_reset_driver = {
 +	.driver = {
-+		.name = "clk-starfive-jh7100",
-+		.of_match_table = clk_starfive_jh7100_match,
++		.name = "jh7100-reset",
++		.of_match_table = jh7100_reset_dt_ids,
 +		.suppress_bind_attrs = true,
 +	},
 +};
-+builtin_platform_driver_probe(clk_starfive_jh7100_driver, clk_starfive_jh7100_probe);
++builtin_platform_driver_probe(jh7100_reset_driver, jh7100_reset_probe);
 -- 
 2.33.1
 
