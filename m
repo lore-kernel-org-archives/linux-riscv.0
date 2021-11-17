@@ -1,91 +1,88 @@
-Return-Path: <SRS0=z0LS=QD=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=ZoRk=QE=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C4DB7C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 23:58:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 600B6C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Nov 2021 05:19:38 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 988DA61BFE
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Nov 2021 23:58:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 988DA61BFE
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 2697861A09
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Nov 2021 05:19:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2697861A09
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XMWdR1kggry6/rGCjxpsDP7ZApPXHukAolH3hOYBo/4=; b=H3rE8aRTYtllnb
-	QLRTqnxiz+n/5tm2pC9nz00dawaS3JxlPClHvpIRA3IFRuC9gpeb2RksPwK16DKASZpcYOj0w31Th
-	9hGnPul4G4rZ95aUy/H03RZSpomZkx+o1tl1mSY7Bpb8ZYwDT67Wdz6KNe0TjF6+w6hjFtPyEsIzL
-	OF+amouB66oU5uxeqiivgiGxUai2jpKdoPRp0KOB3etAlx/xHBG9+JZZwCH0AP/d150DRz2ZTw86o
-	YuaSsFYPn9XBQuNiNjefd4xxB0GOVmvIgTSKxez1CoyJjVStmJ6qYRZAvN8cEShLF2oU2XL4jmGJ0
-	7owIMYJqGgqOj8cLcN9g==;
+	List-Owner; bh=LMqmsthikqcjljy2Lcfc7dCgR1KgXahVr0ctcpMVTuo=; b=i3TYdcrth9SvuU
+	3kP4qBr9aTZfrWAremlwlWKP5kNLEdbTxNWa2LCzrHnmOPzI1D8E2ApnSGKlafP3iHwv+YpGsVfOi
+	E6c7vsAaQBlkwwt0+ZSm2RHwccEhd/RMh8Wi8m7fpyTlGoFIed7ufJnDb8eXfzFFd8QL3danuxeFc
+	kFJnkc9TqKWwIF/RffA/q9vj2o0aFyNNDLG/IUuj0OqPpZFlv4i8F1qu78dO9E1S53XjxyQl5XMts
+	rvSUNuJ3HQunyP9REFFF8jYS8x2KXU4vdxcpb8AGnitc5sagl9y1R2LT1tzJIBtjJxPq5crCEKIMQ
+	IqGFudocE8NYSKyFzIKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mn8Ku-00303j-OS; Tue, 16 Nov 2021 23:58:00 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1mnDLx-003LNp-AS; Wed, 17 Nov 2021 05:19:25 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mn8Kk-002zxV-3Y
- for linux-riscv@lists.infradead.org; Tue, 16 Nov 2021 23:57:51 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id n8so586231plf.4
- for <linux-riscv@lists.infradead.org>; Tue, 16 Nov 2021 15:57:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=from:to:subject:date:message-id:in-reply-to:references:mime-version
- :content-transfer-encoding;
- bh=XUCrKyTLcq/1tv958Xe+OYnTiafzr/ke4k2ZCljxbxE=;
- b=nIpoNX2NFe0P9pQwXDCPeRm7vuJlB0nJcfZGCWg42MzZqovIesWtQ2HMg35EiIpmZD
- kaKzT90w3R1traHXPurRgUxZQ4FLu30B+9MxDP6ENK3DsZz9YqTT//JJy0ggQieIZo/n
- F2OZjlTfT1aLHOxFEsPNtsQYViAK/J+GIyGHPhM8XOoVmL58cApR8HpP1EJpma/OLOZA
- AIxoZ4vW42h6Rrj38Dl2ZgNonjWd7+d1InLkC+4ploUfnEr2gZYjQZq+/QNdr2Cgwipq
- pjX6mnFVphxCCiCjwU166lLUXMLXqMFDRCf94+OiB40ZxV8n3nOx0Qbd8Ek2AqaAcpSh
- 39AA==
+ id 1mnDLu-003LML-K4
+ for linux-riscv@lists.infradead.org; Wed, 17 Nov 2021 05:19:24 +0000
+Received: by mail-wr1-x433.google.com with SMTP id d5so2187303wrc.1
+ for <linux-riscv@lists.infradead.org>; Tue, 16 Nov 2021 21:19:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=1d/5wtm71BxoVBGiN8Ljzm4+t2qVpUjd2wk4O1QdlZM=;
+ b=is70FHBLk+aTfX+yq501gaOQXJHxBX/bHha7TNgjAQrDphwxIgoK4Bc53VhkfQwYL+
+ ZW/d5b0vzyJ+IYLi0KnBNKGiCkB+36HIxZxwDFwRymp7y5EVdQ5Bo9owDCoRM5110bvV
+ a2kExAtzJgPUaW5Xr91KxEHQaCuMFLRgSDwZ5gksGWkPIVY3swFg4wzEoYy86SWG9cUY
+ zigjkTuLzGpEnGojvRm07sdTY2gueOOqQTBQ/5az7MVXSJnPoChlFYrpXUXcdW50jWnv
+ GOiZP6C86ssD9cXEXbcJELdOxbP0xPNUNDDxYKIHBxducQO05aPHmcXYkwLw62Jz3yoe
+ PAgQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=XUCrKyTLcq/1tv958Xe+OYnTiafzr/ke4k2ZCljxbxE=;
- b=ZkpTTnorkf60qbrT4o6vxfq1kJa+pC7YpaNRsZ8zuNhhe1gueQ70F3057uyhadx4lr
- SKHRIcRUO7xYffPUNHrpfUg2dT1ZrrJw33byVj/3LdNsKEwXqKaZO84kgPLJDM8jfZ3l
- KW1q8cuV/80GKaDJsXZKJP/vIfWjmrY6yDy2e3ORZ95zJNXnSIh/8NW1HZ7FxlW5elbf
- dpo0tkMKFF6Eb2gn9fLbMqmmcTTAgxqlxCz96pnq+GqG+BTYZd/HgkNJ9ZcKnlhW4sDZ
- KAgqx7KNLFGonvOirbJwR2IgfMsxVZEIZJOwp1YdMlyIJ4cnvlqneALKPpxPDsdc4Beh
- nG7g==
-X-Gm-Message-State: AOAM5337o88lmmm52hpzrYt0ExlO8mU0PEkaERNhND3yuWjxYBSjBC++
- 9dxEOHgUwvbZqyPvfooKr0k=
-X-Google-Smtp-Source: ABdhPJx7fvb5KT8Ue/UY6J2drUV3efeEbreHjWeTUERxIw+NKwH4x5GtwUctcnthxHO8ryXG9HbvKw==
-X-Received: by 2002:a17:90a:ec05:: with SMTP id
- l5mr3976311pjy.68.1637107069377; 
- Tue, 16 Nov 2021 15:57:49 -0800 (PST)
-Received: from localhost.lan ([2400:4070:175b:7500::7a7])
- by smtp.gmail.com with ESMTPSA id c17sm2327457pgw.83.2021.11.16.15.57.48
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 16 Nov 2021 15:57:49 -0800 (PST)
-Received: from x2.lan (localhost [127.0.0.1])
- by localhost.lan (Postfix) with ESMTPSA id CB78990095A;
- Tue, 16 Nov 2021 23:57:44 +0000 (GMT)
-From: Vincent Pelletier <plr.vincent@gmail.com>
-To: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Qiu Wenbo <qiuwenbo@kylinos.com.cn>, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- David Abdurachmanov <david.abdurachmanov@sifive.com>
-Subject: [PATCH v2 6/6] riscv: dts: sifive unmatched: Link the tmp451 with its
- power supply
-Date: Tue, 16 Nov 2021 23:57:42 +0000
-Message-Id: <147b278488cb66e6024fa648deacc2601e1dcbd2.1637107062.git.plr.vincent@gmail.com>
-X-Mailer: git-send-email 2.33.1
-In-Reply-To: <bb7e8e36425a2c243cfbf03a23af525499268822.1637107062.git.plr.vincent@gmail.com>
-References: <bb7e8e36425a2c243cfbf03a23af525499268822.1637107062.git.plr.vincent@gmail.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=1d/5wtm71BxoVBGiN8Ljzm4+t2qVpUjd2wk4O1QdlZM=;
+ b=UzvdzaDZmi5i92aVni0Y2Qem9mtnDIN//mqKaW22yY8e2nCpPCB2uAnYTYjVCDu5W/
+ TJIsXk1NtLEICiNQPsSRO3kjZO6Czo8UriGVgzSkYXFg8D9pi1H1XiSHsfq9KmuOwucy
+ CVAKsGxJFDahZ/SgX1jbt//bakiEuOqthFB53/xgd2Q8j26qacYdBq3O20xwB4t6gmi+
+ Okh6WVV4AxTWp+1TOn6HdsBiYh2fqMMaAv4DsXf1ZtR3VcTvqC1A6jFAsfzERHR26Koe
+ CtgrMTQ0GhSNNuR8Nbu1/9Zs58lX3Q6ZNXkJZFklTh46f7FeADb7JHxMWF1apSORM6ND
+ bT1w==
+X-Gm-Message-State: AOAM530MAzM06uT3JVMiSvOEAJUxNubIaB8uQRl8vwMxrXofCjhZGXxW
+ Bu1bdFsO60x8HWIC2dUToDlHhsIzveD1dbq4FqfAHA==
+X-Google-Smtp-Source: ABdhPJyX4D/T4vRXx/HipXx4SprKAXckD0tm/8XOGI5AS8e44ypJEyDGyO3Mwf5JU3a7gaQ2ZR/pHy5q3RZ5nBLhh9A=
+X-Received: by 2002:a5d:4846:: with SMTP id n6mr15955941wrs.249.1637126360414; 
+ Tue, 16 Nov 2021 21:19:20 -0800 (PST)
 MIME-Version: 1.0
+References: <cover.1637064577.git.mchehab+huawei@kernel.org>
+ <32b3693314f3914f10a42dea97ad6e06292fcd4a.1637064577.git.mchehab+huawei@kernel.org>
+ <34e691ec-a58d-c86b-a2ef-6fa4f0385b69@redhat.com>
+ <CAAhSdy0JRTwmr+EdSEr3ng1gfDpqnF7m3ejC2AydjAgu0mEQLw@mail.gmail.com>
+ <8a762a6b-4ad8-211f-f350-ba65f8e77b64@redhat.com>
+In-Reply-To: <8a762a6b-4ad8-211f-f350-ba65f8e77b64@redhat.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 17 Nov 2021 10:49:08 +0530
+Message-ID: <CAAhSdy1ZijNE-JDj62KU1GbNjxu4UQQbpuz4P0wK+1orOyBMKA@mail.gmail.com>
+Subject: Re: [PATCH 3/4] Documentation: update vcpu-requests.rst reference
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
+ Linux Doc Mailing List <linux-doc@vger.kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup.patel@wdc.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ kvm-riscv@lists.infradead.org, KVM General <kvm@vger.kernel.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Atish Patra <atishp@atishpatra.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211116_155750_172211_3E9B4FB6 
-X-CRM114-Status: UNSURE (   9.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211116_211922_684512_F41223B7 
+X-CRM114-Status: GOOD (  17.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,36 +99,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Fixes the following probe warning:
-  lm90 0-004c: Looking up vcc-supply from device tree
-  lm90 0-004c: Looking up vcc-supply property in node /soc/i2c@10030000/temperature-sensor@4c failed
-  lm90 0-004c: supply vcc not found, using dummy regulator
+On Tue, Nov 16, 2021 at 11:35 PM Paolo Bonzini <pbonzini@redhat.com> wrote:
+>
+> On 11/16/21 15:01, Anup Patel wrote:
+> > On Tue, Nov 16, 2021 at 6:24 PM Paolo Bonzini <pbonzini@redhat.com> wrote:
+> >>
+> >> On 11/16/21 13:11, Mauro Carvalho Chehab wrote:
+> >>> Changeset 2f5947dfcaec ("Documentation: move Documentation/virtual to Documentation/virt")
+> >>> renamed: Documentation/virtual/kvm/vcpu-requests.rst
+> >>> to: Documentation/virt/kvm/vcpu-requests.rst.
+> >>>
+> >>> Update its cross-reference accordingly.
+> >>>
+> >>> Fixes: 2f5947dfcaec ("Documentation: move Documentation/virtual to Documentation/virt")
+> >>> Reviewed-by: Anup Patel <anup.patel@wdc.com>
+> >>> Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+> >>> ---
+> >>>
+> >>> To mailbombing on a large number of people, only mailing lists were C/C on the cover.
+> >>> See [PATCH 0/4] at: https://lore.kernel.org/all/cover.1637064577.git.mchehab+huawei@kernel.org/
+> >>>
+> >>>    arch/riscv/kvm/vcpu.c | 2 +-
+> >>>    1 file changed, 1 insertion(+), 1 deletion(-)
+> >>>
+> >>> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+> >>> index e3d3aed46184..fb84619df012 100644
+> >>> --- a/arch/riscv/kvm/vcpu.c
+> >>> +++ b/arch/riscv/kvm/vcpu.c
+> >>> @@ -740,7 +740,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+> >>>                 * Ensure we set mode to IN_GUEST_MODE after we disable
+> >>>                 * interrupts and before the final VCPU requests check.
+> >>>                 * See the comment in kvm_vcpu_exiting_guest_mode() and
+> >>> -              * Documentation/virtual/kvm/vcpu-requests.rst
+> >>> +              * Documentation/virt/kvm/vcpu-requests.rst
+> >>>                 */
+> >>>                vcpu->mode = IN_GUEST_MODE;
+> >>>
+> >>>
+> >>
+> >> Acked-by: Paolo Bonzini <pbonzini@redhat.com>
+> >
+> > Thanks Paolo, let me know if you want me to include this patch
+> > as part of the fixes I have collected.
+>
+> I think Mauro will handle it, but you can pick it as well.
 
-Signed-off-by: Vincent Pelletier <plr.vincent@gmail.com>
+Okay, I will let Mauro handle it.
 
---
-Changes since v1:
-- Remove trailing "." on subject line.
-- Added a commit description.
----
- arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 1 +
- 1 file changed, 1 insertion(+)
+Thanks,
+Anup
 
-diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-index 1abad0eec02e..1a952dec74bb 100644
---- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-+++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-@@ -59,6 +59,7 @@ regulator@1e {
- 	temperature-sensor@4c {
- 		compatible = "ti,tmp451";
- 		reg = <0x4c>;
-+		vcc-supply = <&vdd_bpro>;
- 		interrupt-parent = <&gpio>;
- 		interrupts = <6 IRQ_TYPE_LEVEL_LOW>;
- 	};
--- 
-2.33.1
-
+>
+> Paolo
+>
 
 _______________________________________________
 linux-riscv mailing list
