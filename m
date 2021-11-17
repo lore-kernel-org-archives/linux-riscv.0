@@ -2,151 +2,81 @@ Return-Path: <SRS0=ZoRk=QE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 34CDBC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Nov 2021 08:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 21DDEC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Nov 2021 08:49:47 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E9D5B61B08
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Nov 2021 08:47:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E9D5B61B08
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id DB1AD60EBD
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Nov 2021 08:49:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org DB1AD60EBD
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=nQgEt1/ZI/xP/Gi4HI3Ni3qzTfFw9S50BnL4WQo5jXA=; b=IH++b2P2kpqRMD
-	IH8cWZ4jOSwzrWpEj/RKfHLNIR+Ll9cnTay9yfMC24YkIEfV8oxp5QYZPDeMMosogxa0z7ToHqlNi
-	j+fktlqYjyGBQYvybMor0ZFt2soIQwLhI4BuTzjKP7RIfRRZ8wurdM3cK+iFCBXUxh5bUdYGkKped
-	B7nwbWrxvmMh2cNpGuyslBfkSdys8JXCuQzFXgrq1WhYvRrNckHCk8pLFRQXQUATk7GSPa73cBGyJ
-	AybQ+cwn/uUhPcLYDi/5+R3ZCOTiSkW13lvY7Q0wV048IxdNUUmUL/y1IXwB2HbEzfgMm8wgUQJq5
-	GGdoNN9UdS47U7M/2OCA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jlubvwUoXMyJpZH5hu4OjGcOOwab3Ad9lA12QWdetyE=; b=IOPJSQCh287HWb
+	CkcegTrfhBHFoFwuLFlTmpxJ7twTRJoohtP1c2dY0qVQxOARral119vykFCpODUzAuT+a2z4PpI0a
+	wltrbAx9oH/HiTYPAVabls7Woc0k0rujRavHDhPt4+gP7Ufaqu95VfEmhnGOuR6ZTxZyrNe4a8xqh
+	KoMP/D1ElEtCAVCJumxq3PPqbMQTOnCFc06d6+FzEp3ACZe4lbOZqFYrvQ02dnNEg/lnLW7Zs9WWe
+	bNSP45l7FILUMPwntKZZZ6Mw+sAriBu8jB9/hVHAipXICMOth0mnKs3JNYzye7UBvbZYGUoj+0oiz
+	1s7wu4/UJg0HRp+gTlLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mnGbQ-0040OA-2O; Wed, 17 Nov 2021 08:47:36 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1mnGdO-0040k6-84; Wed, 17 Nov 2021 08:49:38 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mnGbN-0040N4-BV; Wed, 17 Nov 2021 08:47:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1637138851; x=1668674851;
- h=from:to:cc:subject:date:message-id:
- content-transfer-encoding:mime-version;
- bh=aZh9fFsa2mfcH22mbWSuLyxyWpXwpU8CmFDH04oJKpg=;
- b=Wu3EMawr32PKL02xsYIQLKhlHnHPxynoAjBWNoapMa7LBlZXI7Wro6wT
- DDEWdmKx8n2tbQe81qQ+8z0pJPnWn+QQV3sRw4b1/pZbeuOWbgY1pvnFA
- sva9rNXohmpCLdaABUAnTe37jI/fO/9l7UTlypkra6KBVGP1zfCfwuUDR
- 8HuZTcU+mkiG+Q0w6jXQIi7n0FOy99tKtgPdoJkhzI2WA3xr/nautdtM8
- 8fayXxpSgfvnK0N5lQYGM8lINUx7br6rX5l0aRlVQEk3vsh1oIAUgobqm
- wf5IR4IydZ8w8vKsw91l5qq7XSFR8hxBiLy2dy97DFMVTDCOYc7sHX9nh A==;
-X-IronPort-AV: E=Sophos;i="5.87,241,1631548800"; d="scan'208";a="185829410"
-Received: from mail-dm6nam12lp2173.outbound.protection.outlook.com (HELO
- NAM12-DM6-obe.outbound.protection.outlook.com) ([104.47.59.173])
- by ob1.hgst.iphmx.com with ESMTP; 17 Nov 2021 16:47:28 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=PMjQ0ase5Jgb1pnAydeQJKQUAepLqcZolkUGh44qy/u4ZVK8xdonvScZgwiImNPyKlORFDNcwm1wisjzlp5an3c62/KGD3d+EpxAe/UfLNWG5KLclDGEZ5tiG1ziW2GeXzQodtopuDvKQgVlBE1e0YrDo0EC3wxVzCCT6o6K9wtg7SzvR4V6/BnSSKdmy+6+Kdc57BTYKQ5n6LKpdxr3aeOWcwZRYImswB+wnkbrAptONv14xOWTb65b4WxrDFYCcLWsZz0I8/u9/1/1thJuoUA5zQOF2dPIiFkXNf5XNCyYYjTJ+uNEM/T0Gatf8Sx8UK0st7JFw9hY2rGqDUCNxQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IBnc32dtzYj7KqKTtv2MuHKCw85e21JaDE8+y5qmHaA=;
- b=KpHFVKM9anmJXd2To85NW+pWl2kgiN37GFY/qVWj1RSaqkerCGm5sL2NlNqTSUO4vAkMikU2zun2h0ByPWx1eASFqTu5DUekBHegkybVQ+Uj9X08y8Oh1KYYPITNgdlARcbp3Rx4BwhP65CGSjcuPxq6gnVLMHNyuWTVsZdIQV5AP2zLJorEajJn2Qn+2CCLkpo1u7EVbE4tEbOwKZ+ahEfoc/nnH8kG7nM/ZvbY4j8DvMmtweNMd5ZE8YdhArb0PB4+hw6ZiAYVxNlROHIgm/R+SYTw98luzp3pfS60lhr+6GLFz4gnsZZoJ7mLc1c4GqpjKwsz9nkEHDFYv5CGaw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
+ id 1mnGdL-0040ih-OV
+ for linux-riscv@lists.infradead.org; Wed, 17 Nov 2021 08:49:36 +0000
+Received: by mail-wr1-x436.google.com with SMTP id d24so3204723wra.0
+ for <linux-riscv@lists.infradead.org>; Wed, 17 Nov 2021 00:49:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IBnc32dtzYj7KqKTtv2MuHKCw85e21JaDE8+y5qmHaA=;
- b=aHCaely7Cl+LMiigh5IHvnLo/rv1pyqEg5+GuBCjRK9wdwFbty8rdLfbUw1CAmTU3IiAtSpxZtIMkQ9wyVY9+MKx75Nz3RkmXsDvWbIL3ZUN/cYeNlZmB4wufNkZbXUiqrj3mtFtVzyDqiWmGAeM+qhcljH85UYgLlfC8Ep46F0=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=wdc.com;
-Received: from CO6PR04MB7812.namprd04.prod.outlook.com (2603:10b6:303:138::6)
- by CO6PR04MB7875.namprd04.prod.outlook.com (2603:10b6:303:13c::18)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4690.27; Wed, 17 Nov
- 2021 08:47:29 +0000
-Received: from CO6PR04MB7812.namprd04.prod.outlook.com
- ([fe80::8100:4308:5b21:8d97]) by CO6PR04MB7812.namprd04.prod.outlook.com
- ([fe80::8100:4308:5b21:8d97%8]) with mapi id 15.20.4713.019; Wed, 17 Nov 2021
- 08:47:28 +0000
-From: Anup Patel <anup.patel@wdc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atishp@atishpatra.org>,
- Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Anup Patel <anup.patel@wdc.com>
-Subject: [PATCH v2] RISC-V: Enable KVM in RV64 and RV32 defconfigs as a module
-Date: Wed, 17 Nov 2021 14:17:05 +0530
-Message-Id: <20211117084705.687762-1-anup.patel@wdc.com>
-X-Mailer: git-send-email 2.25.1
-X-ClientProxiedBy: MA1PR01CA0150.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:71::20) To CO6PR04MB7812.namprd04.prod.outlook.com
- (2603:10b6:303:138::6)
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=B7IPC7bC9AT8/D6fv37MaKPiWkigtWHGnCaDAdR23ks=;
+ b=hr4Fk8sFDF5tNoJTaSITi0W06sn1vv3dLU2DPO5fkfTKyBCQmGQMCPwnEJLd447s4D
+ /u2JAf8Wh5O2yyhZP75ZiMcjXIZN5AUnPGNYv12RZwVWLvdzsrBmoG8HFaTpHblvz3Cd
+ GkxydX4K4zTJepGsnr721QACfbOk7bZv4XRSAq6Y/Agsz+B9YLIC/+hrhgGzhDleh44m
+ SMJ9OrjL+buwd5wjKSYBaTs6+wR/fYsmq5AK5UkDCRdiCaKK++SiYZtl+Sp6NG8zruad
+ UMhR+Ps9znscTWYK9qSV7l5DZuZWYxc8M+fcQJWDQwFbIKvYjTZzGVXGYHWqi3oSH0eb
+ lTkQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=B7IPC7bC9AT8/D6fv37MaKPiWkigtWHGnCaDAdR23ks=;
+ b=qLtWM376bvDeJRU0oUhjMKANflTNE1J4iNq02Ks6ynIaOquoEcNTGn72mY1IJPRwpT
+ K6g/6fomewJuOAJL40RiDzWGHf8+iLtV84yg5TMcEgL9UvW/PY5IZv9koVpAhDcX+Ad4
+ 6+7nlNTvlEHHVsiV09ZLeZaHzdPWledLMTVJx5dfOmXUkEt0EBpmmIq6gEzL6wDvn6ZK
+ u2If0b7w66M8W7Vx32JehSkFQh9YMZh/krLpJczEiYFCTFB78q7Ysf5kVI9sRYEJyTE0
+ cJMMNiAVfXGEtNFFewn+Xorm96XTb0Fb4ttDvPnQk7xyUSH791NoM7N3+FijcAMjUClP
+ EdaA==
+X-Gm-Message-State: AOAM533GCpWf3Ct7/0PoPMJ7MRCBrTvDdiMAQDMnLyEpzo8zw5C2SAex
+ nNDQR+6xAksy+qE/JFzTyBWjNHGYpAtpixV8q/DpbSOaJG3+On4t
+X-Google-Smtp-Source: ABdhPJyULSq3RsjoXSpZlMHvAUGqp8FyT72f4rtpMXvyJSvuccvxb9bbZU1AiHFvqU7V9KJiog1NXIx2vH1S+mg6+HU=
+X-Received: by 2002:a5d:628f:: with SMTP id k15mr18297636wru.363.1637138971386; 
+ Wed, 17 Nov 2021 00:49:31 -0800 (PST)
 MIME-Version: 1.0
-Received: from wdc.com (122.179.27.5) by
- MA1PR01CA0150.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:71::20) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.4713.19 via Frontend Transport; Wed, 17 Nov 2021 08:47:25 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 3ff535cc-91a2-410a-b5eb-08d9a9a6e2ab
-X-MS-TrafficTypeDiagnostic: CO6PR04MB7875:
-X-Microsoft-Antispam-PRVS: <CO6PR04MB78750744E48B7C56B20EF4E28D9A9@CO6PR04MB7875.namprd04.prod.outlook.com>
-WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:3173;
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: yEP/NKUbdkLz0qGJgimaPOYSJr4x1Bqp+1s5AXDnvVQqZ3XL2KIf1osSUg3yih5g410/PkaZ7pgds9xi6JQ9x990uylvAUWwM9jAP0cSiZMN2AJPZ8P/rgsWRkk5J2uULL4BGi6L4WHd5fHTLaCp6sbnAJ9innhhpVpuCpPcvUQJ7TT4xHZ+AbQDeGCqQrz8KDcz6ssda5W0pcdO/RYhWtX5BZ9Stk4Nw7Ef+fK78+cosXcZQsqCaKa1g+UfCja0EzOopGLVfQ0BNooIJcRkgH/p+llblNTuwWN/RFDDTH/4IaOehsWODTBjBWH72xbsUulPGo48pxXrecLtX/tRcGKsBle6HYoR4Y+Qiow1QWYfqeYVKnllzuDc1Mv+9THOk3xaEYGFVnxYLpMNnZjrqkhv20ZEgghXcSqodW6aThFHnG2A8DBlAe4zjnRCHW8CwASxJKa/EKfas4+Efe/0bmoHdazaKqPwhRugM6AgAn9wgN4HmCS4pfJti0jh43f05gKeLW9D4Cf9uAv76mkP32I71Qb25SlH6ojmroMTrhEm6YGHlUGto/MVAfskrJU2eF7z0NRpxdSaN9oHf1ua6Hvd0TYKhVYDtjEN/EIlPtPj0tgiZGeAcz3eaK978Rey3YVNqxsE0M3OTsFNStC8uxDcVJ7aZkD1Ng0LkoccYuCyw7e4z09l6nalB98+a8B02LG65eYooNmo3qHq3+8mhA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:CO6PR04MB7812.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(366004)(66556008)(7416002)(66476007)(86362001)(6666004)(2906002)(8886007)(36756003)(26005)(4326008)(66946007)(1076003)(82960400001)(110136005)(55016002)(54906003)(508600001)(52116002)(8936002)(316002)(38350700002)(7696005)(44832011)(186003)(5660300002)(2616005)(956004)(8676002)(38100700002);
- DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/t2Eze3e5LdRa0Ae7B2X/IREVb2oN7ZF3FyWtmfKasM2qW48hD57YyKJXglk?=
- =?us-ascii?Q?EQKlNy2WoXGDY7JmHNP1hG5BsOO6KsNtXUVM2md6lnn6WIlSqgZmjXnbtEzY?=
- =?us-ascii?Q?sIxvoAhfhWFnFj9GHJf1GmBkcmBQmZXESoZO4cY/tKDSTIdnXVmxX74ybb4+?=
- =?us-ascii?Q?I9U8DLEthFKdCBJbTVZu0nI7/gPMwPe1aqzErq3/6EnZK8V2EKfb8wRvQFJf?=
- =?us-ascii?Q?eNxwDkhjIucAlQaO3K6nqc5QJfgD0jf+uOYdhXaZPuyZKQo7RrzFBzT8JcY0?=
- =?us-ascii?Q?59TRjrIbkmZR74BnCImUgAHDiOCLyljoacZluZPCTE+4hm8j2FhOewR6Trzt?=
- =?us-ascii?Q?5uspIXXigYTOKVL+FQoYqvFeBpC+cP90DLS+YdKWGKgPBvTQL/HPv3LJURiZ?=
- =?us-ascii?Q?Y8E3P1b1i/GH0NEbl6RU2Bo+vKTVjHtNnWtPN33S8vRZ0CoeKVNE9HvOEYr+?=
- =?us-ascii?Q?2OJudin9hvS+i58z+jm9z2A1E1SBnb1JdPU3rKX2tj/E+TB7lqXKtSNDsdtd?=
- =?us-ascii?Q?mrmeySf4yVFTsK5kPWs5BJCy0YaupUbD5hNAURlEiAxs+hn2BhEq1vlwEMA0?=
- =?us-ascii?Q?DsYIikckIHg0OFOw21tQpitWuiVrqI0n/4/HIHuI21RI51z940AiexVl5NvI?=
- =?us-ascii?Q?HxNG/nrNSduFvMSVE/1Wgdy8NVZee+Va8pyBUUiX48QYTlsTwQgc3XLCF2e0?=
- =?us-ascii?Q?svNmcz0MkuQYcyF2prII4VMGH1LhOMjwKymbOg8kcrfvTFsE6TkXhrzZAmpw?=
- =?us-ascii?Q?kHvxQz0IgOiUKtjhkl5TpvktE3/HJWu6VslFajaxtf6QGyf0yM7myXxWcFxd?=
- =?us-ascii?Q?0nDkSzG5RVrPYp3nulM5+keIbGPLEoB9bt40jjVV1F1a6xSQHsIOTkyF+yxU?=
- =?us-ascii?Q?iEgwWEOGROa4Dnh/cMQmAWcri+XXFVCCt8jZ1zU6q9OAYeSadg3KCntgDrA8?=
- =?us-ascii?Q?MCu9bTLl1wJCJlxxkKGEWeXkxkc0RtSJ2Hp+J7vxtWCQXXaxThGl4d1ZKRjA?=
- =?us-ascii?Q?Tu9OUnSKv6N71dk7T2n7lrJa6gN0lzzAcwhvaEA2cR7BjDWp2V1A6EUNaC0a?=
- =?us-ascii?Q?qADMhjS8O4d3LdQ0TAI6t6PQ7it7PPu1ztfaog89WHOUtUaE2uQUR6B35lXh?=
- =?us-ascii?Q?ONoVJwIowUub5I+vFhddInW1J4k0LEf4barHXFoX/lOwlIYTivCYkFyAwVCK?=
- =?us-ascii?Q?0DSyFKpH+0+uoZMMkWGbK2A9TrLKVQ1eWb+0H2gZhW7U0+yV8n9Fk6KVYoin?=
- =?us-ascii?Q?pADECBziQtBwRZSkkRlEcDqqafdH7HOA8XbP1Mws1pY7IXpxC1SWZ87BZZ6Q?=
- =?us-ascii?Q?Xg2fl+np0YaMA+WDc/tZyKiGLB0r1Efj3SNRs4ffve+YTjc2CG4bjZ/xlehk?=
- =?us-ascii?Q?XMCNfgpkKAW0/ephm62jHq5hIM007fyY0sqO3m6Qe0esY2S8r9Nm2otAFw+H?=
- =?us-ascii?Q?1vXw2UawlOsFlAP2JCNJXXdcgZQwOcNzh3Xsl0KjVCxuSe+SZyIOa3fcFm3n?=
- =?us-ascii?Q?0o5vn6wemvwHWsZ/fMHrIaf5UvEnTDDAGQqXtv4pvOfdFDkGvhseyVY7CU5x?=
- =?us-ascii?Q?46BL8IaVWM9IwE6YpCfuIJ7leg60O+yVolxkulnUJHPxwj3tH+uKfhNXEqdR?=
- =?us-ascii?Q?FXvkeH3WSJV1L2cKN2z3Qj0=3D?=
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3ff535cc-91a2-410a-b5eb-08d9a9a6e2ab
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR04MB7812.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2021 08:47:28.8318 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4fHyOWLt1W4PAfC6zkEdzCislSEBwS7BCosV+Jh4wQRVgDwerUNTV0/wT9jpIN9UI3MBtVykwOHJNnwplb1v/Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR04MB7875
+References: <20211117084705.687762-1-anup.patel@wdc.com>
+In-Reply-To: <20211117084705.687762-1-anup.patel@wdc.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 17 Nov 2021 14:19:19 +0530
+Message-ID: <CAAhSdy0z=QGDVnnfsg2hYANv-=8ooCWrnRtjut88exioAvcZYA@mail.gmail.com>
+Subject: Re: [PATCH v2] RISC-V: Enable KVM in RV64 and RV32 defconfigs as a
+ module
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atishp@atishpatra.org>, 
+ KVM General <kvm@vger.kernel.org>, kvm-riscv@lists.infradead.org, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Anup Patel <anup.patel@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211117_004733_550923_5ACA7BD2 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20211117_004935_808690_01030B98 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,49 +93,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Let's enable KVM RISC-V in RV64 and RV32 defconfigs as module
-so that it always built along with the default kernel image.
+Hi Palmer,
 
-Signed-off-by: Anup Patel <anup.patel@wdc.com>
----
-Changes since v1:
- - Rebased on Linux-5.16-rc1
- - Removed unwanted stuff from defconfig PATCH1
- - Dropped PATCH2 and PATCH3 since these are already merged via KVM tree
----
- arch/riscv/configs/defconfig      | 2 ++
- arch/riscv/configs/rv32_defconfig | 2 ++
- 2 files changed, 4 insertions(+)
+On Wed, Nov 17, 2021 at 2:17 PM Anup Patel <anup.patel@wdc.com> wrote:
+>
+> Let's enable KVM RISC-V in RV64 and RV32 defconfigs as module
+> so that it always built along with the default kernel image.
+>
+> Signed-off-by: Anup Patel <anup.patel@wdc.com>
+> ---
+> Changes since v1:
+>  - Rebased on Linux-5.16-rc1
+>  - Removed unwanted stuff from defconfig PATCH1
+>  - Dropped PATCH2 and PATCH3 since these are already merged via KVM tree
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index c252fd5706d2..ef473e2f503b 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -19,6 +19,8 @@ CONFIG_SOC_VIRT=y
- CONFIG_SOC_MICROCHIP_POLARFIRE=y
- CONFIG_SMP=y
- CONFIG_HOTPLUG_CPU=y
-+CONFIG_VIRTUALIZATION=y
-+CONFIG_KVM=m
- CONFIG_JUMP_LABEL=y
- CONFIG_MODULES=y
- CONFIG_MODULE_UNLOAD=y
-diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-index 434ef5b64599..6e9f12ff968a 100644
---- a/arch/riscv/configs/rv32_defconfig
-+++ b/arch/riscv/configs/rv32_defconfig
-@@ -19,6 +19,8 @@ CONFIG_SOC_VIRT=y
- CONFIG_ARCH_RV32I=y
- CONFIG_SMP=y
- CONFIG_HOTPLUG_CPU=y
-+CONFIG_VIRTUALIZATION=y
-+CONFIG_KVM=m
- CONFIG_JUMP_LABEL=y
- CONFIG_MODULES=y
- CONFIG_MODULE_UNLOAD=y
--- 
-2.25.1
+Like you suggested, I have removed unwanted stuff from
+defconfig PATCH.
 
+Can you consider this patch for Linux-5.16-rcX ?
+
+Regards,
+Anup
+
+> ---
+>  arch/riscv/configs/defconfig      | 2 ++
+>  arch/riscv/configs/rv32_defconfig | 2 ++
+>  2 files changed, 4 insertions(+)
+>
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index c252fd5706d2..ef473e2f503b 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -19,6 +19,8 @@ CONFIG_SOC_VIRT=y
+>  CONFIG_SOC_MICROCHIP_POLARFIRE=y
+>  CONFIG_SMP=y
+>  CONFIG_HOTPLUG_CPU=y
+> +CONFIG_VIRTUALIZATION=y
+> +CONFIG_KVM=m
+>  CONFIG_JUMP_LABEL=y
+>  CONFIG_MODULES=y
+>  CONFIG_MODULE_UNLOAD=y
+> diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
+> index 434ef5b64599..6e9f12ff968a 100644
+> --- a/arch/riscv/configs/rv32_defconfig
+> +++ b/arch/riscv/configs/rv32_defconfig
+> @@ -19,6 +19,8 @@ CONFIG_SOC_VIRT=y
+>  CONFIG_ARCH_RV32I=y
+>  CONFIG_SMP=y
+>  CONFIG_HOTPLUG_CPU=y
+> +CONFIG_VIRTUALIZATION=y
+> +CONFIG_KVM=m
+>  CONFIG_JUMP_LABEL=y
+>  CONFIG_MODULES=y
+>  CONFIG_MODULE_UNLOAD=y
+> --
+> 2.25.1
+>
 
 _______________________________________________
 linux-riscv mailing list
