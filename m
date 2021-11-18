@@ -2,90 +2,88 @@ Return-Path: <SRS0=Kh2H=QF=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3EFEEC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Nov 2021 08:40:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3464CC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Nov 2021 11:35:25 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F062261AA9
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Nov 2021 08:40:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org F062261AA9
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=rivosinc.com
+	by mail.kernel.org (Postfix) with ESMTPS id E1A0B61B7D
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Nov 2021 11:35:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E1A0B61B7D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oTAFVbJfBzrY4aapj9h4XG4cqnUvX9zKBpMtxspIOtA=; b=4EeKitqGZtqlmR
-	U5cT29q3zHkcOw+kP1jXFejL+8sSPA7T9ZkusTsADPTF0osQGZh/e3KDXQHQTe13x79Of0MK9O//3
-	GdcNPjAKJb6/JZEsS5wy1Bwn5Sf5jo3FwZB5QRM9SOhPyMAt3h5mY4AUOuFMNVZa9DGKZbYAZ96Eq
-	/J/M+CCD8zmE5OPJVvOlH3TZL5VLd+hPoBMFzPjFvqvL827uSNknQ9T/IygVK5f6NYjVMzYFPI7Oe
-	X3BbkHMbKjpRtR13/dKl/vB/Zj/yINc1VgiO9/byDVZyKtCh5C/n5YoHOtRb1Fy6tXw+3Kp6HbhQ0
-	5KnN+lhNv2cnM/VDIezw==;
+	List-Owner; bh=GSVmysBak6EeBPzdRpsKltYPJATZy4k7EkY86OdvMpw=; b=yv/jcTAxi44SJf
+	nq1MOcVmDG9ut82W766wrBV5AbFmZv5HuH9jsAYCB1prRkuhPMu8INEscX1SB6YL7W4sLqm7xJ92H
+	tNcogiR43pL4aTEvOke8CFn7aDyxwEWDQT++lY/+ZNIXXygIkmrojlHLY+aCPoyvY76qMtxpJ+8hI
+	VEzq6Hs/jcQpkBb3ZH9BKYJAMuHflKXc8pz1L/0TMjvE9UusIATjHJQ7xToCxRBcHOmNaWFiX/wAn
+	O4Hr5K9okE+KoldDCSNv0KYeKE4+B7cyT6ujdfEWsMZTbB9EXbYip+MjrcV0lY9h4IMZit/jtDwK+
+	PYM1OSz2JdrQuJrnMiQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mncy2-007DtW-8v; Thu, 18 Nov 2021 08:40:26 +0000
-Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mncxp-007DmK-Jm
- for linux-riscv@lists.infradead.org; Thu, 18 Nov 2021 08:40:15 +0000
-Received: by mail-ot1-x335.google.com with SMTP id
- x19-20020a9d7053000000b0055c8b39420bso9745502otj.1
- for <linux-riscv@lists.infradead.org>; Thu, 18 Nov 2021 00:40:12 -0800 (PST)
+	id 1mnfh9-007bTw-Gq; Thu, 18 Nov 2021 11:35:11 +0000
+Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mnfh2-007bRO-3K
+ for linux-riscv@lists.infradead.org; Thu, 18 Nov 2021 11:35:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=89xr5l4aQSea0c59k4jjlx2ck4kW898rOwi+JsY0e98=;
- b=BGslt7yqfKOdo8PN4IVyYrjn8e35WOb2IMOH931zccIX8h0NyJQ/YxtoJbs6iFpi7Z
- QdLk/QYvOBvh7SDzgSBrVhAUeVdsKrrcQ920LEGxXxz1bMm6TmT9hdr5BRUG68RpB6Sr
- I4ORsLO9k0jEo+A/SWvG1fYUrSajIf+lEYPEFvXi6Ii7QVa4gPSFx8PFiiOw0nvrhqWw
- 05oYUTQnl+NlGCxwkYyJbC9mOtChywZriz95wIRH81zn/hhJpNgQLadahNxLWaMvQzSh
- jPOGxi2ceAA9W6rd/+33yYZQ7XttHOUK8J3LwVIRbSXFHTNeJLQ2GF2Oe/n0yJeiC7fJ
- aSMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=89xr5l4aQSea0c59k4jjlx2ck4kW898rOwi+JsY0e98=;
- b=xPfVPzHDJcUr1IIsBpEel9uY7XcvWOVJtFi0iCp6vJMeZFlpFJKiVHswvqQzfihDD7
- evlHC9pnKKUj2oXY8ccNJmzwx1vlKIY5qQl8rNp1b7yBBN3rG/BHvLnA1BQUK9B93rnn
- Sv/t69jFzJJ88jvbGbIH+LYuT6nSUGQU/BDVROFsLxtt/uhGZfRae6TU0X8nmA+DYhyY
- T+PCtsDARQQ4L0+PnS+vGyxaHcnnzcsyjm3PDhHES73q0jaTMwk+/lSuGMYq/i+Ii4eP
- FhVZJ+CbAZQ3G4xDqTkyH3ujYuNo4zOgF1nEkTzEIKcMLzxYZIEQmseYz9Y5FCMO6YZW
- 124Q==
-X-Gm-Message-State: AOAM532UmsM8LKZMFlW6l1lTRVprXq/kd4/qUD6i2kiaEyetRqmb6UGM
- gVRgxxlatt1KVmuCinLPOUBqiQ==
-X-Google-Smtp-Source: ABdhPJzhsuyHIaz9OwhKmOdqpaM2QJ42EF/gciwTjJTdDhkx6KTgmhdTunV1g+b77eh91Weg0MM42A==
-X-Received: by 2002:a05:6830:1da:: with SMTP id
- r26mr19675998ota.73.1637224812342; 
- Thu, 18 Nov 2021 00:40:12 -0800 (PST)
-Received: from fedora.. (99-13-229-45.lightspeed.snjsca.sbcglobal.net.
- [99.13.229.45])
- by smtp.gmail.com with ESMTPSA id p14sm422100oov.0.2021.11.18.00.40.10
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 18 Nov 2021 00:40:12 -0800 (PST)
-From: Atish Patra <atishp@rivosinc.com>
-To: linux-kernel@vger.kernel.org
-Cc: Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>,
- Atish Patra <atishp@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heinrich Schuchardt <xypron.glpk@gmx.de>,
- Kefeng Wang <wangkefeng.wang@huawei.com>, kvm-riscv@lists.infradead.org,
- kvm@vger.kernel.org, linux-riscv@lists.infradead.org,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>
-Subject: [PATCH v5 5/5] RISC-V: KVM: Add SBI HSM extension in KVM
-Date: Thu, 18 Nov 2021 00:39:12 -0800
-Message-Id: <20211118083912.981995-6-atishp@rivosinc.com>
-X-Mailer: git-send-email 2.33.1
-In-Reply-To: <20211118083912.981995-1-atishp@rivosinc.com>
-References: <20211118083912.981995-1-atishp@rivosinc.com>
+ d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+ Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; bh=MImYhdH7KtmtmyNxgxMYJv9ChC/U1LJ+nA
+ F+ThMzzTs=; b=n1GqrCTk3CkgO6L1OgzelvSCXh7SJgeUdXDFMvaERgQdMUohGK
+ ykyJ/f8D+L+F8ujbZwYqht/dH9hCAR/RBlTvuoGTGjCFCtymoOHJ10MiuPbm5TIR
+ z+4+gk//4bcXcZsAGi7w2bb4NZplSB4a9FDoNTqB7cRChkUV7vnx+/HsQ=
+Received: from xhacker (unknown [101.86.18.22])
+ by newmailweb.ustc.edu.cn (Coremail) with SMTP id
+ LkAmygAHD99XOpZhwZ1cAQ--.27562S4; 
+ Thu, 18 Nov 2021 19:34:51 +0800 (CST)
+Date: Thu, 18 Nov 2021 19:22:27 +0800
+From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "=?UTF-8?B?Qmo=?=
+ =?UTF-8?B?w7ZybiBUw7ZwZWw=?=" <bjorn@kernel.org>, Alexei Starovoitov
+ <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko
+ <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>, Song Liu
+ <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, John Fastabend
+ <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Masahiro Yamada
+ <masahiroy@kernel.org>, Michal Marek <michal.lkml@markovi.net>, Nick
+ Desaulniers <ndesaulniers@google.com>
+Cc: Kefeng Wang <wangkefeng.wang@huawei.com>, Tong Tiangen
+ <tongtiangen@huawei.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org, bpf@vger.kernel.org,
+ linux-kbuild@vger.kernel.org
+Subject: [PATCH 02/12] riscv: consolidate __ex_table construction
+Message-ID: <20211118192227.6e03909b@xhacker>
+In-Reply-To: <20211118192130.48b8f04c@xhacker>
+References: <20211118192130.48b8f04c@xhacker>
 MIME-Version: 1.0
+X-CM-TRANSID: LkAmygAHD99XOpZhwZ1cAQ--.27562S4
+X-Coremail-Antispam: 1UD129KBjvJXoWxury3tF4DZw4kKF1xJrW7XFb_yoW5urWDpw
+ sFkrZ3KrZ8KF1xCFn7tFs7ur40ga1DGwnIy3sxWryv9r4qy3W0kF4vkr97W3ykJa13ZFyI
+ gw18Krn5Jr4I9rUanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUBmb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
+ 8067AKxVWUXwA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF
+ 64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0cI8IcV
+ CY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv
+ 6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c
+ 02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE
+ 4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l42xK82
+ IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC2
+ 0s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMI
+ IF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4UJVWxJr1l
+ IxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4
+ A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjxUzDGOUUUUU
+X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211118_004013_741452_CAEB0951 
-X-CRM114-Status: GOOD (  22.21  )
+X-CRM114-CacheID: sfid-20211118_033504_850169_77878CC7 
+X-CRM114-Status: UNSURE (   6.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,240 +100,122 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Atish Patra <atish.patra@wdc.com>
+From: Jisheng Zhang <jszhang@kernel.org>
 
-SBI HSM extension allows OS to start/stop harts any time. It also allows
-ordered booting of harts instead of random booting.
+Consolidate all the __ex_table constuction code with a _ASM_EXTABLE
+helper.
 
-Implement SBI HSM exntesion and designate the vcpu 0 as the boot vcpu id.
-All other non-zero non-booting vcpus should be brought up by the OS
-implementing HSM extension. If the guest OS doesn't implement HSM
-extension, only single vcpu will be available to OS.
+There should be no functional change as a result of this patch.
 
-Reviewed-by: Anup Patel <anup.patel@wdc.com>
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Reviewed-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 ---
- arch/riscv/include/asm/sbi.h  |   1 +
- arch/riscv/kvm/Makefile       |   1 +
- arch/riscv/kvm/vcpu.c         |  23 ++++++++
- arch/riscv/kvm/vcpu_sbi.c     |   4 ++
- arch/riscv/kvm/vcpu_sbi_hsm.c | 105 ++++++++++++++++++++++++++++++++++
- 5 files changed, 134 insertions(+)
- create mode 100644 arch/riscv/kvm/vcpu_sbi_hsm.c
+ arch/riscv/include/asm/futex.h   | 12 +++---------
+ arch/riscv/include/asm/uaccess.h | 30 ++++++++++++------------------
+ 2 files changed, 15 insertions(+), 27 deletions(-)
 
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 4f9370b6032e..79af25c45c8d 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -90,6 +90,7 @@ enum sbi_hsm_hart_status {
- #define SBI_ERR_INVALID_PARAM	-3
- #define SBI_ERR_DENIED		-4
- #define SBI_ERR_INVALID_ADDRESS	-5
-+#define SBI_ERR_ALREADY_AVAILABLE -6
+diff --git a/arch/riscv/include/asm/futex.h b/arch/riscv/include/asm/futex.h
+index 1b00badb9f87..3191574e135c 100644
+--- a/arch/riscv/include/asm/futex.h
++++ b/arch/riscv/include/asm/futex.h
+@@ -30,10 +30,7 @@
+ 	"3:	li %[r],%[e]				\n"	\
+ 	"	jump 2b,%[t]				\n"	\
+ 	"	.previous				\n"	\
+-	"	.section __ex_table,\"a\"		\n"	\
+-	"	.balign " RISCV_SZPTR "			\n"	\
+-	"	" RISCV_PTR " 1b, 3b			\n"	\
+-	"	.previous				\n"	\
++		_ASM_EXTABLE(1b, 3b)				\
+ 	: [r] "+r" (ret), [ov] "=&r" (oldval),			\
+ 	  [u] "+m" (*uaddr), [t] "=&r" (tmp)			\
+ 	: [op] "Jr" (oparg), [e] "i" (-EFAULT)			\
+@@ -103,11 +100,8 @@ futex_atomic_cmpxchg_inatomic(u32 *uval, u32 __user *uaddr,
+ 	"4:	li %[r],%[e]				\n"
+ 	"	jump 3b,%[t]				\n"
+ 	"	.previous				\n"
+-	"	.section __ex_table,\"a\"		\n"
+-	"	.balign " RISCV_SZPTR "			\n"
+-	"	" RISCV_PTR " 1b, 4b			\n"
+-	"	" RISCV_PTR " 2b, 4b			\n"
+-	"	.previous				\n"
++		_ASM_EXTABLE(1b, 4b)			\
++		_ASM_EXTABLE(2b, 4b)			\
+ 	: [r] "+r" (ret), [v] "=&r" (val), [u] "+m" (*uaddr), [t] "=&r" (tmp)
+ 	: [ov] "Jr" (oldval), [nv] "Jr" (newval), [e] "i" (-EFAULT)
+ 	: "memory");
+diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
+index 9f9219545e59..714cd311d9f1 100644
+--- a/arch/riscv/include/asm/uaccess.h
++++ b/arch/riscv/include/asm/uaccess.h
+@@ -10,6 +10,12 @@
  
- extern unsigned long sbi_spec_version;
- struct sbiret {
-diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
-index 4757ae158bf3..aaf181a3d74b 100644
---- a/arch/riscv/kvm/Makefile
-+++ b/arch/riscv/kvm/Makefile
-@@ -26,4 +26,5 @@ kvm-y += vcpu_sbi.o
- kvm-$(CONFIG_RISCV_SBI_V01) += vcpu_sbi_v01.o
- kvm-y += vcpu_sbi_base.o
- kvm-y += vcpu_sbi_replace.o
-+kvm-y += vcpu_sbi_hsm.o
- kvm-y += vcpu_timer.o
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index e3d3aed46184..50158867406d 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -53,6 +53,17 @@ static void kvm_riscv_reset_vcpu(struct kvm_vcpu *vcpu)
- 	struct kvm_vcpu_csr *reset_csr = &vcpu->arch.guest_reset_csr;
- 	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
- 	struct kvm_cpu_context *reset_cntx = &vcpu->arch.guest_reset_context;
-+	bool loaded;
-+
-+	/**
-+	 * The preemption should be disabled here because it races with
-+	 * kvm_sched_out/kvm_sched_in(called from preempt notifiers) which
-+	 * also calls vcpu_load/put.
-+	 */
-+	get_cpu();
-+	loaded = (vcpu->cpu != -1);
-+	if (loaded)
-+		kvm_arch_vcpu_put(vcpu);
+ #include <asm/pgtable.h>		/* for TASK_SIZE */
  
- 	memcpy(csr, reset_csr, sizeof(*csr));
- 
-@@ -64,6 +75,11 @@ static void kvm_riscv_reset_vcpu(struct kvm_vcpu *vcpu)
- 
- 	WRITE_ONCE(vcpu->arch.irqs_pending, 0);
- 	WRITE_ONCE(vcpu->arch.irqs_pending_mask, 0);
++#define _ASM_EXTABLE(from, to)						\
++	"	.pushsection	__ex_table, \"a\"\n"			\
++	"	.balign "	RISCV_SZPTR "	 \n"			\
++	"	" RISCV_PTR	"(" #from "), (" #to ")\n"		\
++	"	.popsection\n"
 +
-+	/* Reset the guest CSRs for hotplug usecase */
-+	if (loaded)
-+		kvm_arch_vcpu_load(vcpu, smp_processor_id());
-+	put_cpu();
- }
- 
- int kvm_arch_vcpu_precreate(struct kvm *kvm, unsigned int id)
-@@ -100,6 +116,13 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
- 
- void kvm_arch_vcpu_postcreate(struct kvm_vcpu *vcpu)
- {
-+	/**
-+	 * vcpu with id 0 is the designated boot cpu.
-+	 * Keep all vcpus with non-zero cpu id in power-off state so that they
-+	 * can brought to online using SBI HSM extension.
-+	 */
-+	if (vcpu->vcpu_idx != 0)
-+		kvm_riscv_vcpu_power_off(vcpu);
- }
- 
- void kvm_arch_vcpu_destroy(struct kvm_vcpu *vcpu)
-diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
-index cf284e080f3e..f62d25bc9733 100644
---- a/arch/riscv/kvm/vcpu_sbi.c
-+++ b/arch/riscv/kvm/vcpu_sbi.c
-@@ -25,6 +25,8 @@ static int kvm_linux_err_map_sbi(int err)
- 		return SBI_ERR_INVALID_ADDRESS;
- 	case -EOPNOTSUPP:
- 		return SBI_ERR_NOT_SUPPORTED;
-+	case -EALREADY:
-+		return SBI_ERR_ALREADY_AVAILABLE;
- 	default:
- 		return SBI_ERR_FAILURE;
- 	};
-@@ -43,6 +45,7 @@ extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_base;
- extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_time;
- extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_ipi;
- extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_rfence;
-+extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_hsm;
- 
- static const struct kvm_vcpu_sbi_extension *sbi_ext[] = {
- 	&vcpu_sbi_ext_v01,
-@@ -50,6 +53,7 @@ static const struct kvm_vcpu_sbi_extension *sbi_ext[] = {
- 	&vcpu_sbi_ext_time,
- 	&vcpu_sbi_ext_ipi,
- 	&vcpu_sbi_ext_rfence,
-+	&vcpu_sbi_ext_hsm,
- };
- 
- void kvm_riscv_vcpu_sbi_forward(struct kvm_vcpu *vcpu, struct kvm_run *run)
-diff --git a/arch/riscv/kvm/vcpu_sbi_hsm.c b/arch/riscv/kvm/vcpu_sbi_hsm.c
-new file mode 100644
-index 000000000000..2e383687fa48
---- /dev/null
-+++ b/arch/riscv/kvm/vcpu_sbi_hsm.c
-@@ -0,0 +1,105 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2021 Western Digital Corporation or its affiliates.
-+ *
-+ * Authors:
-+ *     Atish Patra <atish.patra@wdc.com>
-+ */
-+
-+#include <linux/errno.h>
-+#include <linux/err.h>
-+#include <linux/kvm_host.h>
-+#include <asm/csr.h>
-+#include <asm/sbi.h>
-+#include <asm/kvm_vcpu_sbi.h>
-+
-+static int kvm_sbi_hsm_vcpu_start(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_cpu_context *reset_cntx;
-+	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
-+	struct kvm_vcpu *target_vcpu;
-+	unsigned long target_vcpuid = cp->a0;
-+
-+	target_vcpu = kvm_get_vcpu_by_id(vcpu->kvm, target_vcpuid);
-+	if (!target_vcpu)
-+		return -EINVAL;
-+	if (!target_vcpu->arch.power_off)
-+		return -EALREADY;
-+
-+	reset_cntx = &target_vcpu->arch.guest_reset_context;
-+	/* start address */
-+	reset_cntx->sepc = cp->a1;
-+	/* target vcpu id to start */
-+	reset_cntx->a0 = target_vcpuid;
-+	/* private data passed from kernel */
-+	reset_cntx->a1 = cp->a2;
-+	kvm_make_request(KVM_REQ_VCPU_RESET, target_vcpu);
-+
-+	kvm_riscv_vcpu_power_on(target_vcpu);
-+
-+	return 0;
-+}
-+
-+static int kvm_sbi_hsm_vcpu_stop(struct kvm_vcpu *vcpu)
-+{
-+	if (vcpu->arch.power_off)
-+		return -EINVAL;
-+
-+	kvm_riscv_vcpu_power_off(vcpu);
-+
-+	return 0;
-+}
-+
-+static int kvm_sbi_hsm_vcpu_get_status(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
-+	unsigned long target_vcpuid = cp->a0;
-+	struct kvm_vcpu *target_vcpu;
-+
-+	target_vcpu = kvm_get_vcpu_by_id(vcpu->kvm, target_vcpuid);
-+	if (!target_vcpu)
-+		return -EINVAL;
-+	if (!target_vcpu->arch.power_off)
-+		return SBI_HSM_HART_STATUS_STARTED;
-+	else
-+		return SBI_HSM_HART_STATUS_STOPPED;
-+}
-+
-+static int kvm_sbi_ext_hsm_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
-+				   unsigned long *out_val,
-+				   struct kvm_cpu_trap *utrap,
-+				   bool *exit)
-+{
-+	int ret = 0;
-+	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
-+	struct kvm *kvm = vcpu->kvm;
-+	unsigned long funcid = cp->a6;
-+
-+	switch (funcid) {
-+	case SBI_EXT_HSM_HART_START:
-+		mutex_lock(&kvm->lock);
-+		ret = kvm_sbi_hsm_vcpu_start(vcpu);
-+		mutex_unlock(&kvm->lock);
-+		break;
-+	case SBI_EXT_HSM_HART_STOP:
-+		ret = kvm_sbi_hsm_vcpu_stop(vcpu);
-+		break;
-+	case SBI_EXT_HSM_HART_STATUS:
-+		ret = kvm_sbi_hsm_vcpu_get_status(vcpu);
-+		if (ret >= 0) {
-+			*out_val = ret;
-+			ret = 0;
-+		}
-+		break;
-+	default:
-+		ret = -EOPNOTSUPP;
-+	}
-+
-+	return ret;
-+}
-+
-+const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_hsm = {
-+	.extid_start = SBI_EXT_HSM,
-+	.extid_end = SBI_EXT_HSM,
-+	.handler = kvm_sbi_ext_hsm_handler,
-+};
+ /*
+  * User space memory access functions
+  */
+@@ -93,10 +99,7 @@ do {								\
+ 		"	li %1, 0\n"				\
+ 		"	jump 2b, %2\n"				\
+ 		"	.previous\n"				\
+-		"	.section __ex_table,\"a\"\n"		\
+-		"	.balign " RISCV_SZPTR "\n"			\
+-		"	" RISCV_PTR " 1b, 3b\n"			\
+-		"	.previous"				\
++			_ASM_EXTABLE(1b, 3b)			\
+ 		: "+r" (err), "=&r" (__x), "=r" (__tmp)		\
+ 		: "m" (*(ptr)), "i" (-EFAULT));			\
+ 	(x) = __x;						\
+@@ -125,11 +128,8 @@ do {								\
+ 		"	li %2, 0\n"				\
+ 		"	jump 3b, %3\n"				\
+ 		"	.previous\n"				\
+-		"	.section __ex_table,\"a\"\n"		\
+-		"	.balign " RISCV_SZPTR "\n"			\
+-		"	" RISCV_PTR " 1b, 4b\n"			\
+-		"	" RISCV_PTR " 2b, 4b\n"			\
+-		"	.previous"				\
++			_ASM_EXTABLE(1b, 4b)			\
++			_ASM_EXTABLE(2b, 4b)			\
+ 		: "+r" (err), "=&r" (__lo), "=r" (__hi),	\
+ 			"=r" (__tmp)				\
+ 		: "m" (__ptr[__LSW]), "m" (__ptr[__MSW]),	\
+@@ -233,10 +233,7 @@ do {								\
+ 		"	li %0, %4\n"				\
+ 		"	jump 2b, %1\n"				\
+ 		"	.previous\n"				\
+-		"	.section __ex_table,\"a\"\n"		\
+-		"	.balign " RISCV_SZPTR "\n"			\
+-		"	" RISCV_PTR " 1b, 3b\n"			\
+-		"	.previous"				\
++			_ASM_EXTABLE(1b, 3b)			\
+ 		: "+r" (err), "=r" (__tmp), "=m" (*(ptr))	\
+ 		: "rJ" (__x), "i" (-EFAULT));			\
+ } while (0)
+@@ -262,11 +259,8 @@ do {								\
+ 		"	li %0, %6\n"				\
+ 		"	jump 3b, %1\n"				\
+ 		"	.previous\n"				\
+-		"	.section __ex_table,\"a\"\n"		\
+-		"	.balign " RISCV_SZPTR "\n"			\
+-		"	" RISCV_PTR " 1b, 4b\n"			\
+-		"	" RISCV_PTR " 2b, 4b\n"			\
+-		"	.previous"				\
++			_ASM_EXTABLE(1b, 4b)			\
++			_ASM_EXTABLE(2b, 4b)			\
+ 		: "+r" (err), "=r" (__tmp),			\
+ 			"=m" (__ptr[__LSW]),			\
+ 			"=m" (__ptr[__MSW])			\
 -- 
-2.33.1
+2.33.0
+
 
 
 _______________________________________________
