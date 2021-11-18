@@ -2,15 +2,15 @@ Return-Path: <SRS0=Kh2H=QF=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 16A69C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Nov 2021 15:22:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5E1C8C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Nov 2021 18:23:07 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DA19D6126A
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Nov 2021 15:22:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org DA19D6126A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=arm.com
+	by mail.kernel.org (Postfix) with ESMTPS id 2BC3761AA2
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Nov 2021 18:23:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 2BC3761AA2
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -18,55 +18,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3vukcFVF5je4Ink4GA5OlBr+H/7BMFcC2Ngp5DxqF8M=; b=IOxJWA/9l0jgUn
-	U9hYhSGm6OHKMqKMSmlODB0C8cwPaHVcSBWFOeTqwEVc7TBSuWh16U4ISh4oYuIawGA3KLTCc4Rq9
-	RS9yUd6298fFlf/kR08xGTyBSymSPKFeS1WzSN9O0ru8idIolDsYfTEAmz9+oPD4PGHnSz95WzAKT
-	LSr2kBpznnlLULZMuAVAsyJse64I1CirhhShc0smbBnuEVOD6q35KUnLeUXAbhEpBI0vZ+s5V0hfk
-	JCc804eDI/D/DNklIhsVPWQRpJlRl+tRXZZ8ASFCIgPaB3Z9zgCmK3Uoi98Joimoj9uleo+RMib77
-	wke095iUd1As1GC1Dfcw==;
+	List-Owner; bh=C8wyC5Cn0GoX0ByloQfYZuO8humEW8J2ORFJ7PjQz4s=; b=GRgnfFHOFlP+wH
+	QWtyOtQv5JYYOxgLR5chJjmFsEpB9tohmOYPt2Vcen8Or90vyu3U7cy853Ds1NqY0A2W5lVV4W9yv
+	CU4IE95JK/hshmxXnvhT+yVadxt84zbsal1OSHep/PsuyCI5s+2EGCnAMHPWNXDHGc65hDVZbaXYL
+	FjDWuOAOoA5zt6hcoo+wCwCxeES7/sOPz8CZAsllGkwRQ9MoJR0uIr+SJcLvetrul44eTuQgjgK3S
+	a+GQ3wqO/fkF2z/FCUFD47yPErsr+B+95v3BqQOZCBMA+ImVLSH2cJ2oH0aH+mOyqlUvFGBoorIGn
+	7ma5bYLidf0jJgQVb+dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mnjEm-008Fww-Ht; Thu, 18 Nov 2021 15:22:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mnjEj-008FuV-Ua
- for linux-riscv@lists.infradead.org; Thu, 18 Nov 2021 15:22:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0DA69D6E;
- Thu, 18 Nov 2021 07:22:00 -0800 (PST)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com
- [10.121.207.14])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 76CBE3F766;
- Thu, 18 Nov 2021 07:21:57 -0800 (PST)
-Date: Thu, 18 Nov 2021 15:21:55 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>,
- Thomas Gleixner <tglx@linutronix.de>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>,
- Andrii Nakryiko <andrii@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
- Masahiro Yamada <masahiroy@kernel.org>,
- Michal Marek <michal.lkml@markovi.net>,
- Nick Desaulniers <ndesaulniers@google.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>,
- Tong Tiangen <tongtiangen@huawei.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, bpf@vger.kernel.org, linux-kbuild@vger.kernel.org
-Subject: Re: [PATCH 09/12] riscv: extable: add `type` and `data` fields
-Message-ID: <20211118152155.GB9977@lakrids.cambridge.arm.com>
-References: <20211118192130.48b8f04c@xhacker> <20211118192605.57e06d6b@xhacker>
- <20211118193332.79799a9c@xhacker>
+	id 1mnm3l-008XrN-3A; Thu, 18 Nov 2021 18:22:57 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mnm3i-008XpO-Vz
+ for linux-riscv@lists.infradead.org; Thu, 18 Nov 2021 18:22:56 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 28so6134292pgq.8
+ for <linux-riscv@lists.infradead.org>; Thu, 18 Nov 2021 10:22:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=RxXagynv4ZtTxwDXTPjZYaISy3py26voDBtBw3aaQgQ=;
+ b=OBlnJC4k1myvVeYu1NZFyNQ7qs/DclyrajXgQLwlwDdvyrZ1+s9GpJL+W34aT1uHku
+ J9wZKd+02F7Er09DCXIA4DItiSZshXGnoeLLFc0LEv1itHvrGlrNwc86GwZ+//C5msRa
+ QQXoaNdT+OSK2tLxMzOUcYsIV1YXz0/Nmu3cNVd2SO5kWEG6YrMHl8I0nbd9mg3BjspR
+ NIo0GdtkntdAdN9EIj31GsTeZ5hB8HliqHEFc0AJ0e/ZfzHWSdsq8Gh9tPPV2zL4ofso
+ VSK22FsK0SEiEcRe50ecyel1PB1xFbX31kTsaXpkN/sYQYsin8zVD07JdS1VXFcMUG7O
+ t9SA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=RxXagynv4ZtTxwDXTPjZYaISy3py26voDBtBw3aaQgQ=;
+ b=mQILG0HK2EXnzXP6fy+CqYR5/1rzwrYT3UT0vPcvvXzeO4ZCe4EgrCSCFNJ9bO889L
+ 6XOTshN9fyR+R/VHVoiuRpFAf3f83cUYp1IZrhHXPysefMalmrjHgdWpFB8eZQwlxpHz
+ F+aLiJGwEowZsWGjnjwmaKzeDnS+x672PLqhAVnP/0l7d7/X+Bka4dFVVooeOE8VSluo
+ 8j8vqJbb2LRnCCp/C6cWEaVl3YLRgpbrFktO/2v+u37cMs7TxRoUwK/m5PVf4usvNVpJ
+ lvbFlbBn0mgHc2WfYQORvjuK4QA73/tJWv1U4zMe3QGE2jyBQjzY5OevHMIUeoF6+JZm
+ rt6w==
+X-Gm-Message-State: AOAM532wBtlUHjnDBDvivQ3OjCfY9jtp0puXqhpOrryNH2M2JCAQJDWf
+ r/hQLbFSYlowhO7yTeRBJjlUxw==
+X-Google-Smtp-Source: ABdhPJyTh37LpHwXrN+6deoifsV0BNizkbqHIu8tIW6La8IWWgSK2j8DxntCks4HzMc3Ez+BucvBTw==
+X-Received: by 2002:a63:6945:: with SMTP id e66mr12760455pgc.9.1637259768283; 
+ Thu, 18 Nov 2021 10:22:48 -0800 (PST)
+Received: from google.com (157.214.185.35.bc.googleusercontent.com.
+ [35.185.214.157])
+ by smtp.gmail.com with ESMTPSA id i68sm264849pfc.158.2021.11.18.10.22.47
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 18 Nov 2021 10:22:47 -0800 (PST)
+Date: Thu, 18 Nov 2021 18:22:44 +0000
+From: Sean Christopherson <seanjc@google.com>
+To: Atish Patra <atishp@atishpatra.org>
+Cc: linux-kernel@vger.kernel.org, anup.patel@wdc.com, kvm@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] MAINTAINERS: Update Atish's email address
+Message-ID: <YZaZ9KxEz+GVjH7q@google.com>
+References: <20211118060501.932993-1-atishp@atishpatra.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20211118193332.79799a9c@xhacker>
-User-Agent: Mutt/1.11.1+11 (2f07cb52) (2018-12-01)
+In-Reply-To: <20211118060501.932993-1-atishp@atishpatra.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211118_072206_063646_BA2DCC9C 
-X-CRM114-Status: GOOD (  19.23  )
+X-CRM114-CacheID: sfid-20211118_102255_050239_B7A519AB 
+X-CRM114-Status: GOOD (  13.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,54 +94,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 18, 2021 at 07:42:49PM +0800, Jisheng Zhang wrote:
-> On Thu, 18 Nov 2021 19:26:05 +0800 Jisheng Zhang wrote:
+On Wed, Nov 17, 2021, Atish Patra wrote:
+> I no longer employed by western digital. Update my email address to
+> personal one.
 > 
-> > From: Jisheng Zhang <jszhang@kernel.org>
-> > 
-> > This is a riscv port of commit d6e2cc564775("arm64: extable: add `type`
-> > and `data` fields").
-> > 
-> > We will add specialized handlers for fixups, the `type` field is for
-> > fixup handler type, the `data` field is used to pass specific data to
-> > each handler, for example register numbers.
-> > 
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-
-> > diff --git a/scripts/sorttable.c b/scripts/sorttable.c
-> > index 0c031e47a419..5b5472b543f5 100644
-> > --- a/scripts/sorttable.c
-> > +++ b/scripts/sorttable.c
-> > @@ -376,9 +376,11 @@ static int do_file(char const *const fname, void *addr)
-> >  	case EM_PARISC:
-> >  	case EM_PPC:
-> >  	case EM_PPC64:
-> > -	case EM_RISCV:
-> >  		custom_sort = sort_relative_table;
-> >  		break;
-> > +	case EM_RISCV:
-> > +		custom_sort = arm64_sort_relative_table;
+> Signed-off-by: Atish Patra <atishp@atishpatra.org>
+> ---
+>  MAINTAINERS | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> Hi Mark, Thomas,
-> 
-> x86 and arm64 version of sort_relative_table routine are the same, I want to
-> unify them, and then use the common function for riscv, but I'm not sure
-> which name is better. Could you please suggest?
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 7a2345ce8521..b22af4edcd08 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -10434,7 +10434,7 @@ F:	arch/powerpc/kvm/
+>  
+>  KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)
+>  M:	Anup Patel <anup.patel@wdc.com>
+> -R:	Atish Patra <atish.patra@wdc.com>
+> +R:	Atish Patra <atishp@atishpatra.org>
+>  L:	kvm@vger.kernel.org
+>  L:	kvm-riscv@lists.infradead.org
+>  L:	linux-riscv@lists.infradead.org
+> -- 
 
-I sent a patch last week which unifies them as
-sort_relative_table_with_data():
-
-  https://lore.kernel.org/linux-arm-kernel/20211108114220.32796-1-mark.rutland@arm.com/
-
-Thomas, are you happy with that patch?
-
-With your ack it could go via the riscv tree for v5.17 as a preparatory
-cleanup in this series.
-
-Maybe we could get it in as a cleanup for v5.16-rc{2,3} ?
-
-Thanks,
-Mark.
+Please add an entry in .mailmap as well.
 
 _______________________________________________
 linux-riscv mailing list
