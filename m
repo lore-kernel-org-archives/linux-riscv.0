@@ -2,103 +2,92 @@ Return-Path: <SRS0=Kh2H=QF=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 14971C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Nov 2021 13:45:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5EB15C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Nov 2021 13:45:57 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B73FB619E1
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Nov 2021 13:45:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org B73FB619E1
+	by mail.kernel.org (Postfix) with ESMTPS id 232AB61502
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Nov 2021 13:45:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 232AB61502
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=canonical.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q43rEdG0illKAvbWbytpzoJQo6L3rmKXFsdpyLnZDPA=; b=Yio9bzY7aEWPps
-	USuFZifHOpa5Hhxk8dDb8FqtK3AezSaB7Wp9AJdK+9RQAbK+snpIck50he6JeQU709ULTf/UrMkVh
-	MLmRpp47qZrRy6BXZ+fw++qxqSw8Db+lDn+NHW8X7ydB6oWZR1Y1/zcM5mHa9eMW4HG7td0s51nP6
-	QeVeuDtMpb3NQTpaPL21sVNcf84kmIUzrJXcgkxpXnaCw0in95Czq42P0JF++2IoCo+VRwp7SKU3J
-	DfDiU27sYlaOraCZNd+NmK4ZpDdqelqsAh8mcRfWLOWdqKFbelSXtnGtMH4IQoRYliF4SBOLXganO
-	Vx59jzyScltBRgf4l/CA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kFbITOUZr6XILO+scNbd+9y9iz36wQ/wnljsf0iNTFo=; b=yJ1bQdMmNOvoXd
+	kiDD5QGpe0q4TEd9/2FYH++ZNEbcrkUdw2NowLF6T9B836FCJNo1KMjOrDcqkH9VwMTCafxwJgpBa
+	lYNIhD0lGEBUt8pg8uYjXeLn249Cha19vmivE8qn1EfsxNcxRHH8sc0ze0n1FmyXYyoJ6gW8R2m1L
+	0UVa+HLe8fni56Xd3GgbWOYdGy2vbTjh5/V4SfJ+lBoUDb43otBtBX7ylulySxlVgrBG0V943c2a0
+	YBtyuWE1laGfXKtW4zqmsmGreA8b9Mwc38/PVgvR8tKQvUZKoBMWcgOEP5HFN7jge7ByhkfOCL2pE
+	IRhLAa0TNlZvRFrXtFiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mnhiz-007wqt-Jk; Thu, 18 Nov 2021 13:45:13 +0000
+	id 1mnhjY-007wwK-Bp; Thu, 18 Nov 2021 13:45:48 +0000
 Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mnhiw-007wq9-Sx
- for linux-riscv@lists.infradead.org; Thu, 18 Nov 2021 13:45:12 +0000
-Received: from mail-lf1-f72.google.com (mail-lf1-f72.google.com
- [209.85.167.72])
+ id 1mnhjV-007wvG-N7
+ for linux-riscv@lists.infradead.org; Thu, 18 Nov 2021 13:45:47 +0000
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 5C66940A06
- for <linux-riscv@lists.infradead.org>; Thu, 18 Nov 2021 13:45:02 +0000 (UTC)
+ by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 041723F197
+ for <linux-riscv@lists.infradead.org>; Thu, 18 Nov 2021 13:45:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1637243102;
- bh=SkABN7FSLVoCTXNwtMsVpF/6O00jmyQ1cjla8kqAH/Q=;
- h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
- In-Reply-To:Content-Type;
- b=KoftSMOs/QchUQlDFTsKKZPtDqCF8Lpe1bpjJoMrthOiN2761cAwDXdW/D/hmKBvM
- LNFr7pwthbxuR+XVbHZmLwQEArDir5vrspXcXERV99LEKoLAeVCdostQUG07YIovcZ
- O22soMee830Q8hqdhX+ZwhZGAM3/v33f4fHNIheJWldrg6EW6JL93sJY1zCFKtz/xs
- OJovGuN896GTquJfMi+dtSgWb7+mdLbkPvQM5SrgNkcUugOg9TJSLS4xrvbOYDckMG
- XR9p/78Ugi9aVH0KjkPBAdG7CJ2mUDGIhBwgcWdNANOReesxGgdnEmxgu++aMNbDId
- wkZv+fZgUL+JA==
-Received: by mail-lf1-f72.google.com with SMTP id
- b23-20020a0565120b9700b00403a044bfcdso4053634lfv.13
- for <linux-riscv@lists.infradead.org>; Thu, 18 Nov 2021 05:45:02 -0800 (PST)
+ s=20210705; t=1637243143;
+ bh=E5afg8WmlGtk4nlRrcUCYbfcd8G0y9QjJNdLIwaQXOs=;
+ h=From:To:Cc:Subject:Date:Message-Id:MIME-Version;
+ b=QoHd4VKUQPXrhO7GBo8HJuFBacp3o9uvzS+UJbAY4Xj9lrthlOzxiTze0YD9Sfc0k
+ SRcfJpx0e+zfdUvf3E3qB6i8iW5G9Qfe3rV/NoGCvzQFbjq5BXf3VRFmLc2D9vW27a
+ WRYTYoqbXQFMXUdNTox0JvB62fIvbif3ujPfQfaEQJwCUSu6qMXeJN5BI7Mp6C3bFA
+ O2SE3LmaQ+1bo1Op+YLWFWkNPhf0Hkld45TelXFl/bm7uglIt5ArvXIiWMSPX+9AaD
+ nhWqJG+RedYLua1S53zAW7vGUgjX2XWjEPYARzEu8EneOFsg5uoMwlD7CVx9CA7UtQ
+ s64MZXjbaY9jA==
+Received: by mail-wm1-f72.google.com with SMTP id
+ ay34-20020a05600c1e2200b00337fd217772so3139691wmb.4
+ for <linux-riscv@lists.infradead.org>; Thu, 18 Nov 2021 05:45:43 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:cc:references:from:in-reply-to
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
  :content-transfer-encoding;
- bh=SkABN7FSLVoCTXNwtMsVpF/6O00jmyQ1cjla8kqAH/Q=;
- b=6TZeC/RoToZvQx6yvg34N4jok/gfmzCTT5tmoj6IAeGk8LRY5NFQ+6jP4WN1WEkvGf
- 2xW80KQAHQ83CcrRrZam8Aq5ZJEi9jbz2C4puWRwzvUPL6pcNLktqzudHKoPzgHZOsYT
- I+NHWi2kvlUpn1mpWRnXgdWrezDpYp9+unF5SBhTy0m0XRhQHyJ9YdvYjbuqOoOqVH6K
- bSO4wWWUURgT7iIVFs4xQK2jl9+tvXwgjWvMoNCWM163P8TpuRzXYJMaDLSDfouPjM8v
- AttESKh1bACaMEeg/zIs9Zmex+lC0UVKQNu8NmOdrHdO9m+UMsDAL4e5rF0hhSYBtzEG
- 0RFw==
-X-Gm-Message-State: AOAM533SkMBChr8KdBk2fc+UMSG4Ful7gOAewGcGtN2WIa4gxfmK/WyK
- ZZxEi0gfCJp2TNH1y2KO8D2mxK7PvtNReA8O6cvuhYLmLfQd2Qd95jbMGl0Cb2o6O3lN1YW8md+
- Wt7Oopcg6Bix3TEAG1kLZJ7ClNPkkWVRUZIOqYnH1wj4/4w==
-X-Received: by 2002:a2e:5852:: with SMTP id x18mr16682695ljd.184.1637243101046; 
- Thu, 18 Nov 2021 05:45:01 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJyxp+b3XRdQRVsPuseT9rrdDR4Py0VnFvJx/IzhVQvRG8lUQZ8e6YNXcADek8vpy+yLeVubtg==
-X-Received: by 2002:a2e:5852:: with SMTP id x18mr16682670ljd.184.1637243100797; 
- Thu, 18 Nov 2021 05:45:00 -0800 (PST)
-Received: from [192.168.3.67] (89-77-68-124.dynamic.chello.pl. [89.77.68.124])
- by smtp.gmail.com with ESMTPSA id
- e3sm316851lfc.259.2021.11.18.05.44.59
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Thu, 18 Nov 2021 05:45:00 -0800 (PST)
-Message-ID: <d368dd0e-b883-26a1-7f2f-47f21c5f9763@canonical.com>
-Date: Thu, 18 Nov 2021 14:44:59 +0100
+ bh=E5afg8WmlGtk4nlRrcUCYbfcd8G0y9QjJNdLIwaQXOs=;
+ b=rJm31HV7BUpCn0r7Fukalwt1YzTraAKUJCCGyjgjqz9SnhCo/6jLWXNOov8DVBedmN
+ q6iTTcJ8hDlYuJjy5c/iYqSzBmBgfGyM216hxr2NHGO9hm6dUWZ85kp0yvUTWmh5D3Hj
+ Z540QQgIj+YPiELvBOW1mPCE5aC5g94AJhPARW3w01fsI0D1DtbTDcgn+B9rGJ1AOPsk
+ bRF0aN+YBE4P1ISXR1rHMsToeB404CxNa0221wTBUTeVI/5vfRGa0anhj6KgcN8yKuwj
+ 2ertdnKcF9YVj30bE6mp/z43kiNRlnI4Nd2sYS6hM1dhfaOL1oXYOaKnjfMfv7eOk2bJ
+ lCZA==
+X-Gm-Message-State: AOAM531ql4SubIKBzx0W6GpwboNaH2YZxD6z3qWWFkceFJv/Gs4ya4wN
+ sJJ/8HhwwZBOEBEaMuCxy7sGM2F1EYPkSBWWx0chgLtv93a8iz7/tOjo6/Ob10hA/Yogv4qS7TX
+ zfaLQjn+c+RhQUxz+sp6HoJnOQTRP3MOQjlxl6JL6ZXwcpA==
+X-Received: by 2002:a5d:64cd:: with SMTP id f13mr31013731wri.382.1637243142157; 
+ Thu, 18 Nov 2021 05:45:42 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxrUjKxkyIXJibXWfGPfPjjB4sv+qvr6o+Qli9e3LePqiDavDp4jzO0IjGcGoUVGkj+CxhYIw==
+X-Received: by 2002:a5d:64cd:: with SMTP id f13mr31013696wri.382.1637243141978; 
+ Thu, 18 Nov 2021 05:45:41 -0800 (PST)
+Received: from alex.. (11.169.185.81.rev.sfr.net. [81.185.169.11])
+ by smtp.gmail.com with ESMTPSA id t8sm3087064wrv.30.2021.11.18.05.45.41
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 18 Nov 2021 05:45:41 -0800 (PST)
+From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Subject: [PATCH] riscv: Make vmalloc/vmemmap end equal to the start of the
+ next region
+Date: Thu, 18 Nov 2021 14:45:39 +0100
+Message-Id: <20211118134539.137212-1-alexandre.ghiti@canonical.com>
+X-Mailer: git-send-email 2.32.0
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.2.1
-Subject: Re: [PATCH v2 1/6] riscv: dts: sifive unmatched: Name gpio lines
-Content-Language: en-US
-To: Vincent Pelletier <plr.vincent@gmail.com>
-Cc: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Qiu Wenbo <qiuwenbo@kylinos.com.cn>,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- David Abdurachmanov <david.abdurachmanov@sifive.com>
-References: <bb7e8e36425a2c243cfbf03a23af525499268822.1637107062.git.plr.vincent@gmail.com>
- <1444ff08-24a6-afbe-1512-9ea24ad5b32d@canonical.com>
- <20211118003418.2edd1913@gmail.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-In-Reply-To: <20211118003418.2edd1913@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211118_054511_132585_F7963176 
-X-CRM114-Status: GOOD (  19.12  )
+X-CRM114-CacheID: sfid-20211118_054545_934537_14CE721B 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,55 +104,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 18/11/2021 01:34, Vincent Pelletier wrote:
-> On Wed, 17 Nov 2021 10:28:59 +0100, Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com> wrote:
->> On 17/11/2021 00:57, Vincent Pelletier wrote:
->>> Follow the pin descriptions given in the version 3 of the board schematics.
->>>
->>> Signed-off-by: Vincent Pelletier <plr.vincent@gmail.com>
->>>
->>> --
->>> Changes since v1:
->>> - Remove trailing "." on subject line.
->>> ---  
->>
->> This is not a correct changelog placement - you have to use '---' just
->> like git uses it. Just test it yourself and you will see the problem.
-> 
-> Indeed, thanks for catching this.
-> 
-> Is there a recommended way for managing these not-for-commit-message
-> chunks automatically ?
-> I obviously compose them by hand so far, and put them in my local git
-> working copy commit messages, but I would be happier if I did not have
-> to make (bad) decisions on such mechanical detail.
+We used to define VMALLOC_END equal to the start of the next region
+*minus one* which is inconsistent with the use of this define in the
+core code (for example, see the definitions of VMALLOC_TOTAL and
+is_vmalloc_addr).
 
-There is an idea of git notes (wasn't really efficient) or git branch
-description for cover letter (--cover-from-description, didn't try yet).
+And then make the definition of VMEMMAP_END consistent with VMALLOC_END
+and all other regions actually.
 
-> 
-> On a related topic, is there a way to automate "git send-email"
-> recipient list using get_maintainer.pl (plus some more magic lines,
-> for example to exclude bouncing addresses) ?
+Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+---
+ arch/riscv/include/asm/pgtable.h | 4 ++--
+ arch/riscv/mm/fault.c            | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-There are few different options, so depends what do you want, e.g.:
-git send-email --cc-cmd "scripts/get_maintainer.pl --no-git --no-roles
---no-rolestats" --to linux-kernel@vger.kernel.org 0*
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index d34f3a7a9701..5155048274c2 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -25,7 +25,7 @@
+ #endif
+ 
+ #define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
+-#define VMALLOC_END      (PAGE_OFFSET - 1)
++#define VMALLOC_END      PAGE_OFFSET
+ #define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
+ 
+ #define BPF_JIT_REGION_SIZE	(SZ_128M)
+@@ -53,7 +53,7 @@
+ #define VMEMMAP_SHIFT \
+ 	(CONFIG_VA_BITS - PAGE_SHIFT - 1 + STRUCT_PAGE_MAX_SHIFT)
+ #define VMEMMAP_SIZE	BIT(VMEMMAP_SHIFT)
+-#define VMEMMAP_END	(VMALLOC_START - 1)
++#define VMEMMAP_END	VMALLOC_START
+ #define VMEMMAP_START	(VMALLOC_START - VMEMMAP_SIZE)
+ 
+ /*
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index aa08dd2f8fae..41ae0aa8f2b8 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -235,7 +235,7 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
+ 	 * only copy the information from the master page table,
+ 	 * nothing more.
+ 	 */
+-	if (unlikely((addr >= VMALLOC_START) && (addr <= VMALLOC_END))) {
++	if (unlikely((addr >= VMALLOC_START) && (addr < VMALLOC_END))) {
+ 		vmalloc_fault(regs, code, addr);
+ 		return;
+ 	}
+-- 
+2.32.0
 
-However above does not take care about cover-letter.
-
-> 
-> While process/submitting-patches.rst describes what the result should
-> look like, it feels to me that it (or another related file) could be
-> more directive on what commands/workflows help to get such result, for
-> casual contributors like myself. Have I missed such documentation ?
-
-Not sure. Anyway just look at the lists at lore.kernel.org how other
-people are doing it.
-
-
-Best regards,
-Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
