@@ -2,14 +2,14 @@ Return-Path: <SRS0=Kh2H=QF=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8CDD8C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Nov 2021 07:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6814AC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Nov 2021 07:54:25 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5F9DE61875
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Nov 2021 07:53:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5F9DE61875
+	by mail.kernel.org (Postfix) with ESMTPS id 295C561B1E
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Nov 2021 07:54:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 295C561B1E
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,61 +18,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lLqBsNY8btG7oaGY9jj61pOf3Ha1jUL0FVvQhXhIrbI=; b=Wa41Lsyb83UygX
-	22HQuOJYbkcE1XU/Rp7m+Ks8CrFHf7pf04fZhFptHdeaPzIgvG2LE5VdE6X5nfz+4Ptn7mYNZMT7v
-	IlWMCyySU9+s4h1qc/k0yYmBjcsdgSt86EZ7QWav34ra/Hya3xmHipsne8HtxXdoP6QC0jFHNONvR
-	NUQM90Fq/7eO/I2mNfUt/wxhQ4bQWu49Zkz7DQU6avpexyJac+K5wHU2DTwkl6B5FtRbYP3yfVbzy
-	5ovfYis4Gx8ZMN5hRL0EODDw/sirop22ctUYh/BDEBE6Exp4pnGk8zuaI21cJ/qW5qEpJqtnXhFCy
-	IK/75ocWkfAThGx0mk1g==;
+	List-Owner; bh=K98r3xpIFOq5SBy7x/7/SEWvqnpxT3/v45yLvAEGyW4=; b=wqk4snzHZWStDF
+	oYefNfGB7ap54AII4PE9QcJcf9ge23DS7/g675L9PgQyBVTah7jkP1z4hAk1ddf8QOmPsNyc/6JnJ
+	Sa2tDvsz3ZtFQ+ekKqzNfvDXyoz1MiQqq2+D3CSgd4ah4rmwLvhFfKlB3rzSLrDCSd5LLmy9wwz/T
+	ZbkdLeaTprl5thezXZIITf9iMozC3dnGgK+Ca0LvdQUoUddBrgsi3qv6+y0OB6EMlZgX1gETQSJmk
+	ThdXAXVpcwNR/KM9YTkxHitrnkgV3F8CYHkmgGJz1w1uwTPXBvzRrr0bdgoyvM1c8Txu+sY3ewtwY
+	oY6L+JuW5P0Cu6moWXIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mncEg-0078lW-Fc; Thu, 18 Nov 2021 07:53:34 +0000
+	id 1mncFJ-0078sU-G2; Thu, 18 Nov 2021 07:54:13 +0000
 Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mncEe-0078kn-Am
- for linux-riscv@lists.infradead.org; Thu, 18 Nov 2021 07:53:33 +0000
-Received: by mail-yb1-xb32.google.com with SMTP id e71so15456028ybh.10
- for <linux-riscv@lists.infradead.org>; Wed, 17 Nov 2021 23:53:31 -0800 (PST)
+ id 1mncFG-0078rf-VY
+ for linux-riscv@lists.infradead.org; Thu, 18 Nov 2021 07:54:12 +0000
+Received: by mail-yb1-xb32.google.com with SMTP id u60so15461411ybi.9
+ for <linux-riscv@lists.infradead.org>; Wed, 17 Nov 2021 23:54:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=atishpatra.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=TDKkX88+RykK6wFZB2EhLlhOTISSe/7PLhp9ZnITJ4w=;
- b=GBPf3ujyvv0e/Ary9Bbgc77cgsmIbFvTE/JT0m3GhcdkloU/Wx58qnaZxMsMdDo/j5
- zULXuXv7FVQ+wyLH2mAwWPKqFg8oyOivakS302gBbrEjwB91SfYILsj1VGIzHtsF95mv
- V1hHkbRcGqxcjOiKYGOlDUQC+HYO+mI0kqlHM=
+ :cc; bh=tUx9UjZoKSPnqR6g70X7U+S/RFB8dii6mOvb2a9mdkw=;
+ b=QdZaVueVf1RI9KAn4GY3zFdazR/X2OmjOrNG3c+p4FkxC1hxvkGmqLSDC5JnkUzGoR
+ bJIjgd1N331cufVv26TCQHZiyG8JwYR9tD/2vG9Fp3EtD9lnL7PBKozHyQn83bYGZRnF
+ urnmL7ipfX/FGNoOKIm2xoNfRfCgyS6fcKrQ0=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=TDKkX88+RykK6wFZB2EhLlhOTISSe/7PLhp9ZnITJ4w=;
- b=o65XJUHdMcnhCki8ObyzcCd1ZI+zx38c7Apa3a2ycG9OBPK55hDDWF7R9KfirGcQvM
- PJsWwySi5aPKgUhH8eDTMV1Ii8O+rx77IX8/cmVmNsbF5yFJTOgQ+kNFvcZWlqFGNFXA
- 2SuCOggshawGQTIwxU+d2+zC2gBV1QtOZa94/dXw/jVmfpQdhtwbVe8OkWI6HIh0uTSj
- pbOnY59HcOXawZ4R7OmEA9ijY8DXBiIFvE7zMLdo8qlzBS2JjeCNN8EloraoBYixs9Et
- 8WJgX+qvK4xGTCDtUYqHsnwOzqMGhJFXg2mIC1RyTGjC8Xpgz7dgZJ4cauEMzt3IVFd8
- Vhtw==
-X-Gm-Message-State: AOAM532LKGfS6PesKiMKmLrMHY0dwaFnzxbjdcNM5uMJMWB1vpWrAF7q
- CK8X1vL+s9zGrCpOlueXMxHyOILO1+Wlq1EEK5Sq
-X-Google-Smtp-Source: ABdhPJxYS+1xnfc4pBR9/P4FZ+QxojJsLGzE4XFFT6z5qm2enZAwYkcIxqwk5PMY7nbGklDq2K2ZjW8EyyQ8O/QyOTo=
-X-Received: by 2002:a25:5f4c:: with SMTP id h12mr25017780ybm.169.1637222010841; 
- Wed, 17 Nov 2021 23:53:30 -0800 (PST)
+ bh=tUx9UjZoKSPnqR6g70X7U+S/RFB8dii6mOvb2a9mdkw=;
+ b=2aw19XwI847lc+USdugZ+THZTwer5GY3qHwfTje7vd8Epr917lRivHd8msExC/kZLS
+ ztJNbomhigHq67bJ5czDyAR/bgQ8gl4JkhUBckwjGpxSI5IQi13tYaJNmOuWzd1DxOpk
+ DkmP/QtjuwTtyax8GJ0kEIIgckZgayj06+IOQsvIoIevlidkI4HgPSLGdZuvUl1EG95E
+ 5mh1YK4b1ZUxO5vf0cuCDkEGT6EBz0QwYEaK7AmFumtd7CjAd1j31VQRrW65WErpSbft
+ QCrEd2u8CwuVRfRUM6kYzmCcVoTzOjj9MrQ2bCdxC3c9iuSN6euX0soKio53oUk7/wI8
+ ImPQ==
+X-Gm-Message-State: AOAM531rX8fU9jVSU7+WwwkhloRpCC1rgUUluTFmOUkAbh9/QLXHRz3Q
+ /cFoRkXVToftiMcihRzpC4bdRjEXkAbAHjBE0+1O
+X-Google-Smtp-Source: ABdhPJztIGeM2yO42tHG/OmNK597LLtMYpZrWrT/uiP9eI1nHBWCBrDBBYc830E4jWNuw8OZfj6oG/jQLdidDgSgfko=
+X-Received: by 2002:a25:b005:: with SMTP id q5mr24987464ybf.35.1637222050369; 
+ Wed, 17 Nov 2021 23:54:10 -0800 (PST)
 MIME-Version: 1.0
-References: <20211117060241.611391-1-anup.patel@wdc.com>
-In-Reply-To: <20211117060241.611391-1-anup.patel@wdc.com>
+References: <20211117084705.687762-1-anup.patel@wdc.com>
+In-Reply-To: <20211117084705.687762-1-anup.patel@wdc.com>
 From: Atish Patra <atishp@atishpatra.org>
-Date: Wed, 17 Nov 2021 23:53:20 -0800
-Message-ID: <CAOnJCU+KZn2JnZg-FZcJ7PXRpGo5SyOmdUYFeJgBenPO9xxE1w@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: KVM: Fix incorrect KVM_MAX_VCPUS value
+Date: Wed, 17 Nov 2021 23:53:59 -0800
+Message-ID: <CAOnJCULQJj0ZyyF+Q1cogXsC9GDQKLTms8vHvNNpj4aHntmx6w@mail.gmail.com>
+Subject: Re: [PATCH v2] RISC-V: Enable KVM in RV64 and RV32 defconfigs as a
+ module
 To: Anup Patel <anup.patel@wdc.com>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, 
- Paolo Bonzini <pbonzini@redhat.com>, Anup Patel <anup@brainfault.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>, 
+ Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
  kvm-riscv@lists.infradead.org, 
- kvm@vger.kernel.org, linux-riscv <linux-riscv@lists.infradead.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
  "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211117_235332_461772_B29C1010 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20211117_235411_043183_F52BF384 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,46 +91,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 16, 2021 at 10:03 PM Anup Patel <anup.patel@wdc.com> wrote:
+On Wed, Nov 17, 2021 at 12:47 AM Anup Patel <anup.patel@wdc.com> wrote:
 >
-> The KVM_MAX_VCPUS value is supposed to be aligned with number of
-> VMID bits in the hgatp CSR but the current KVM_MAX_VCPUS value
-> is aligned with number of ASID bits in the satp CSR.
+> Let's enable KVM RISC-V in RV64 and RV32 defconfigs as module
+> so that it always built along with the default kernel image.
 >
-> Fixes: 99cdc6c18c2d ("RISC-V: Add initial skeletal KVM support")
 > Signed-off-by: Anup Patel <anup.patel@wdc.com>
 > ---
->  arch/riscv/include/asm/kvm_host.h | 8 +++-----
->  1 file changed, 3 insertions(+), 5 deletions(-)
+> Changes since v1:
+>  - Rebased on Linux-5.16-rc1
+>  - Removed unwanted stuff from defconfig PATCH1
+>  - Dropped PATCH2 and PATCH3 since these are already merged via KVM tree
+> ---
+>  arch/riscv/configs/defconfig      | 2 ++
+>  arch/riscv/configs/rv32_defconfig | 2 ++
+>  2 files changed, 4 insertions(+)
 >
-> diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-> index 25ba21f98504..2639b9ee48f9 100644
-> --- a/arch/riscv/include/asm/kvm_host.h
-> +++ b/arch/riscv/include/asm/kvm_host.h
-> @@ -12,14 +12,12 @@
->  #include <linux/types.h>
->  #include <linux/kvm.h>
->  #include <linux/kvm_types.h>
-> +#include <asm/csr.h>
->  #include <asm/kvm_vcpu_fp.h>
->  #include <asm/kvm_vcpu_timer.h>
->
-> -#ifdef CONFIG_64BIT
-> -#define KVM_MAX_VCPUS                  (1U << 16)
-> -#else
-> -#define KVM_MAX_VCPUS                  (1U << 9)
-> -#endif
-> +#define KVM_MAX_VCPUS                  \
-> +       ((HGATP_VMID_MASK >> HGATP_VMID_SHIFT) + 1)
->
->  #define KVM_HALT_POLL_NS_DEFAULT       500000
->
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index c252fd5706d2..ef473e2f503b 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -19,6 +19,8 @@ CONFIG_SOC_VIRT=y
+>  CONFIG_SOC_MICROCHIP_POLARFIRE=y
+>  CONFIG_SMP=y
+>  CONFIG_HOTPLUG_CPU=y
+> +CONFIG_VIRTUALIZATION=y
+> +CONFIG_KVM=m
+>  CONFIG_JUMP_LABEL=y
+>  CONFIG_MODULES=y
+>  CONFIG_MODULE_UNLOAD=y
+> diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
+> index 434ef5b64599..6e9f12ff968a 100644
+> --- a/arch/riscv/configs/rv32_defconfig
+> +++ b/arch/riscv/configs/rv32_defconfig
+> @@ -19,6 +19,8 @@ CONFIG_SOC_VIRT=y
+>  CONFIG_ARCH_RV32I=y
+>  CONFIG_SMP=y
+>  CONFIG_HOTPLUG_CPU=y
+> +CONFIG_VIRTUALIZATION=y
+> +CONFIG_KVM=m
+>  CONFIG_JUMP_LABEL=y
+>  CONFIG_MODULES=y
+>  CONFIG_MODULE_UNLOAD=y
 > --
 > 2.25.1
 >
 
-
 Reviewed-by: Atish Patra <atishp@rivosinc.com>
+
 
 -- 
 Regards,
