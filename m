@@ -2,14 +2,14 @@ Return-Path: <SRS0=zkJ7=QG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 273DCC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 16:45:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7DE93C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 16:45:55 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E707961545
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 16:45:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E707961545
+	by mail.kernel.org (Postfix) with ESMTPS id 48B5D61AF0
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 16:45:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 48B5D61AF0
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=rivosinc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,57 +18,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
 	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+fiQ2QeiNPWdcANgyMavBCD31ygnkGfSFktx/AT2amw=; b=J0NYdx27LTkQOV
-	IF1eOo69XWiCPOFu8qeHH+37/X0CFsE1EwaaBiw8nxpd0SJ1iJhRPyhLU6JJQLtMvG/3QzRAfuzoe
-	2uLggISRr7JhnRA2zAOID3bU4nWEjqI4mho+XZJJHfOzNqtlcBU5cI5qjoOzgq8+nBMlXQlmZem60
-	wbm3qzQJJRKglCNgU8tSfydaJy5KJCT6cVa7J4Cqs1PdCc29qaL7UOAALLXqF7HveoawiTeNTwtwS
-	f69f3fS51+hPxiOAH4QXoWKaVXNVhYIvCmvG/LeGTVxgi0RrfebiOG+/L5JbcYH0nphqvmTWYROlz
-	7vABn4Q9puAPGhp0zJiw==;
+	List-Owner; bh=Fs3FHIUjjcAdnGCHDA0Efh36uSAcqSdJ6W7oVCiWBaQ=; b=Po/n9Gcp1hXk3S
+	2TYb+bzk3ZyHeDzI5yhb1+rGNkGDIdINZzEkv35qEE5LfZAz1unUboFlxwWL/xosjw1XfJdTObP+D
+	3/FV6KBlcCIGTH8Gr3F+yV1cTOxW38NHqNiFFjX60LhwjwIyy/07Jb3o/q3yjoOW7p1oakH5vnPmn
+	staHn/QgWa9b6+Yzl7pUNFxxMQIRvU1EB40Ys98F3HbWySOoZPq1VwKVXBA6mFXOiSTNKFdAiuKJW
+	r/En33kjE9x5fYH4uR/kxXRwyEuhNpoiJHaQnId5YQLAWFKvtNjZU4b4MRDhqhS3OF5mkF0cs5+qG
+	DFMfc7CXp5W6D9tb6KMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mo717-00B6CN-CA; Fri, 19 Nov 2021 16:45:37 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1mo71H-00B6HY-CE; Fri, 19 Nov 2021 16:45:47 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mo70b-00B5nj-VS
+ id 1mo70c-00B5ov-6S
  for linux-riscv@lists.infradead.org; Fri, 19 Nov 2021 16:45:07 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 28so9103414pgq.8
- for <linux-riscv@lists.infradead.org>; Fri, 19 Nov 2021 08:45:04 -0800 (PST)
+Received: by mail-pj1-x102e.google.com with SMTP id
+ w33-20020a17090a6ba400b001a722a06212so9253319pjj.0
+ for <linux-riscv@lists.infradead.org>; Fri, 19 Nov 2021 08:45:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
  h=subject:date:message-id:in-reply-to:references:mime-version
  :content-transfer-encoding:cc:from:to;
- bh=ivqtHuQQy+Ti1nGZM78VH3NnxqlTHSj7efazweFJjBg=;
- b=xCJz84KUacA0+N0Ca6TRoBqmuuLTgLoHxBPbMdmvVVYr2Z4lQ6x7ziqa7G8DjcIsXB
- 35wAgPJ+2MeGBdtBQtGakgnIhw+JBChvxlxedWkQmm5vhkm/oVEJm3gH6VvZEWF1V5hi
- 7HOYHSf2NMWSnt5Y0MdH4A3TOPJZXzcx8fjmth/fkMEoz+jfsCvusR8n3HgeTurfWkf/
- AI9y4j9vwb7624GPrW/ggtfsZqjDohsws3KxSHl9ZX0n7vdy6YLvAfwjX/Ao9if16p29
- QiYcsLjQX0GaC8/7rBPfudJ64y2lrnenoJZyvxBek8mTcC9DRWsMj2HKcFGnA8l6j3A6
- xHxw==
+ bh=XVDzNl5P4QbzIYx/RkvDJ3xwFO1wfoLlk0Fo30BJPkI=;
+ b=w+LQmyRAZkZrbqIBM7nvAvs3Z346eAzu5bMdTRDbICl47c4BayUT7sbCU4Yg29klim
+ BCC4W7GlnS4obt7mvj8XjZzdTaf9Z5w6Z1uOvmL59OIEZi14lM1xg9ATgRwjCpWwbWHe
+ CtxBpQAQoGnbC8lzvvzxLfBvwrg7q4//8zuJHf12qb5i4Ftr+LdBR9x5gDOmmoyMh/QZ
+ bADwvbynDYnGLkrHkhyx+saSAJSm2EXXzHR9gUhBkCfs4mpLQz7YJukFHy5Y98mhbp1v
+ 4sRN+kkGfbi8BUIlX2dyei7SCPwIbHZvB2dYGf+DjRfCTQ8TNPrxv4ivECdPGzA1Hc6J
+ k4MQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding:cc:from:to;
- bh=ivqtHuQQy+Ti1nGZM78VH3NnxqlTHSj7efazweFJjBg=;
- b=BFDY+qvgWBDk5Pq5hLJvmBiJrpYNQG3GGTBpheYQt+sRgaTkdcEKvunqs5GRRKbZa0
- neM2jgZ7PJ5dTM8rMXJ6wgnQ1apSLNsPw/Hr1LqT0Ju2CQ87u0CPZqQ+qU3P5hcUtdDj
- bN70ruUVKd6oM4GeYx4C0gKAxRXS7Mch9r+3zIPxGUXcPLsYZDOvhspyTaizYhNPrtPT
- oTUCKwn560Gq90L8hgR6LM/AQBuI/RaiCipIM8u8IwZ8gpkF2vtkQx1fGhmXlRQJA0Nc
- cDPLc976ETlh1Vl7fkqHpK3jiC2h+LVutJKLOrua9J6GYwvacq4o7yPIE63myfRdjNob
- bmvQ==
-X-Gm-Message-State: AOAM530IS4L2317BMbvvK4OBNovZeRRd7jDqG0Vsso1TtnsnYb/ar4IH
- GjuLcw6zYaDZwzQRuLZ4I110tg==
-X-Google-Smtp-Source: ABdhPJyHrtCKVEz3g1W4YC/nDDEb0i8GXYsPXYbT0SIo742e2HT/EXNSMRC4MWwkFtknpt95l9iQMQ==
-X-Received: by 2002:a05:6a00:1399:b0:49f:ae7d:cda6 with SMTP id
- t25-20020a056a00139900b0049fae7dcda6mr24039382pfg.10.1637340303855; 
- Fri, 19 Nov 2021 08:45:03 -0800 (PST)
+ bh=XVDzNl5P4QbzIYx/RkvDJ3xwFO1wfoLlk0Fo30BJPkI=;
+ b=Hsc7O+1wdQAe9Fo4YPGntuJ/jE2g2J4bBFjD+DJSCzU5tyHvoKMgqSrlSa8baiBO2R
+ 6TQb5u7hD3nqdPgXzARxMGJKyg0QW87fhqYd455M15cYBu9D+BKcurr7cSZNoPVYZSG1
+ lO53epTXSUjvJegvg0qrPM9++ibWDT+8R1bCmwqvXpSbELmqWuxwKx8mWJUUetu4xw2g
+ gr3xhCZXLOO2J2LsoxkyTqgTzJt/2bmbyrBVSxstxmAxavUAybkvPQpFAYh4RJmUlQRD
+ WHB803HXpfpO73qo3zBYw7uMPnOpgx6JhVgXOUWqsCTHhxptiTlwhnvpb4bqfhzl+IYY
+ mjpw==
+X-Gm-Message-State: AOAM531uhx0FAFlvsXpPpmwQpRKYJYYwDnrhvUcyl2Tj44Df3vGr1muz
+ Y7LJomTvnlGTfAyFY/HakgtfSQ==
+X-Google-Smtp-Source: ABdhPJyy4gAQ08NUgm/LC6JyiF7yQwuEfYBbqCDVVXx/a5iu9/1PwjiKlJJUKsSFiz3Yuh66waG5qg==
+X-Received: by 2002:a17:902:9692:b0:143:d9ad:d151 with SMTP id
+ n18-20020a170902969200b00143d9add151mr30611268plp.40.1637340304995; 
+ Fri, 19 Nov 2021 08:45:04 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id h25sm207718pgm.33.2021.11.19.08.45.03
+ by smtp.gmail.com with ESMTPSA id y18sm216925pgh.18.2021.11.19.08.45.04
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 19 Nov 2021 08:45:03 -0800 (PST)
-Subject: [PATCH 10/12] RISC-V: defconfigs: Remove redundant CONFIG_POWER_RESET
-Date: Fri, 19 Nov 2021 08:44:11 -0800
-Message-Id: <20211119164413.29052-11-palmer@rivosinc.com>
+ Fri, 19 Nov 2021 08:45:04 -0800 (PST)
+Subject: [PATCH 11/12] RISC-V: defconfigs: Remove redundant CONFIG_EFI=y
+Date: Fri, 19 Nov 2021 08:44:12 -0800
+Message-Id: <20211119164413.29052-12-palmer@rivosinc.com>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20211119164413.29052-1-palmer@rivosinc.com>
 References: <20211119164413.29052-1-palmer@rivosinc.com>
@@ -84,8 +85,8 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 From: Palmer Dabbelt <palmer@rivosinc.com>
 To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211119_084506_064492_FA450D35 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20211119_084506_301190_535C4F46 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,42 +105,24 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Palmer Dabbelt <palmer@rivosinc.com>
 
-As of ab7fbad0c7d7 ("riscv: Fix unmet direct dependencies built based on
-SOC_VIRT") we select CONFIG_POWER_RESET=y along with CONFIG_SOC_VIRT,
-which is already in defconfig.  This make setting CONFIG_POWER_RESET in
-the defconfigs redundant, so remove it to remain consistent with
-savedefconfig.
+We've always had CONFIG_EFI as "def_bool y" so this has always been
+redundant.  It's removed by savedefconfig, so drop it to keep things
+clean.
 
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- arch/riscv/configs/defconfig      | 1 -
- arch/riscv/configs/rv32_defconfig | 1 -
- 2 files changed, 2 deletions(-)
+ arch/riscv/configs/defconfig | 1 -
+ 1 file changed, 1 deletion(-)
 
 diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index ec9540392df7..a72dbd74b93d 100644
+index a72dbd74b93d..f120fcc43d0a 100644
 --- a/arch/riscv/configs/defconfig
 +++ b/arch/riscv/configs/defconfig
-@@ -74,7 +74,6 @@ CONFIG_SPI_SIFIVE=y
- # CONFIG_PTP_1588_CLOCK is not set
- CONFIG_GPIOLIB=y
- CONFIG_GPIO_SIFIVE=y
--CONFIG_POWER_RESET=y
- CONFIG_DRM=m
- CONFIG_DRM_RADEON=m
- CONFIG_DRM_NOUVEAU=m
-diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-index 1f6808aa1261..8b56a7f1eb06 100644
---- a/arch/riscv/configs/rv32_defconfig
-+++ b/arch/riscv/configs/rv32_defconfig
-@@ -70,7 +70,6 @@ CONFIG_HW_RANDOM_VIRTIO=y
- CONFIG_SPI=y
- CONFIG_SPI_SIFIVE=y
- # CONFIG_PTP_1588_CLOCK is not set
--CONFIG_POWER_RESET=y
- CONFIG_DRM=y
- CONFIG_DRM_RADEON=y
- CONFIG_DRM_VIRTIO_GPU=y
+@@ -143,4 +143,3 @@ CONFIG_RCU_EQS_DEBUG=y
+ # CONFIG_FTRACE is not set
+ # CONFIG_RUNTIME_TESTING_MENU is not set
+ CONFIG_MEMTEST=y
+-CONFIG_EFI=y
 -- 
 2.32.0
 
