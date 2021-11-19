@@ -2,14 +2,14 @@ Return-Path: <SRS0=zkJ7=QG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AE6EBC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 16:45:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8061BC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 16:45:17 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7E4C161B30
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 16:45:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 7E4C161B30
+	by mail.kernel.org (Postfix) with ESMTPS id 5219661B1E
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 16:45:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5219661B1E
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=rivosinc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,58 +18,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
 	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jYquakTnae7uTbLtcOCS+qsCuqGPqwEyibsfVF8Wqco=; b=4TCtVO0TysEXig
-	0ctJMdl34hGvD1DX8koJr6Dw0SLHTH4tP+jUNnTlMIG//fA8iem96kL461GEhN+iRl7rWXILEA36g
-	oBAJhWBwZdkG0W3vaFu/cOCSDv3yPYggHT6u82sor2r4FJ35vDMBGKb8AhYX7S4QPyRbHfjm+7TsU
-	TO5ygJvxLtrqjHGzM++g70wEwbMlSb8AIkmUPtPDo4jCt7Lg/EVQlEjVtD/KxZFagaQqF3AMBO5Qu
-	4Pv4Dqb917vAK33n2aBU1Z5oTI7ohfAs84q/74xVZaSg/9bYM3xyRB/BWiHKPcmKjJakzqjOfjzNq
-	lfp17O4IOXfRLkH5c3aA==;
+	List-Owner; bh=io8zA4R6mtgliJfIUb9puu9J75/HA6iqW7qhyf+io/k=; b=YuaIbnPIunYFEK
+	qyruVTwcUjMvkJJTifn2BdpZ3Dtjf4cK8jqG6yoL0jEWfyuiFS+A90YNSRo8hh6AcbXka2NP/pimi
+	ofcgC0NyWSynibBVAzcLRcKXanY6dAGo54DIcNx+M12yg7XZxWVpBFhjhQAWJ9UdeNdiyZExMmtu/
+	fYjjV8Ga7pWcQKpJGQSPCytrU1Aw0tfBSuv3zhje/QI/A4H75NU/HhGAoY5qSLg4n6Yx8sQj/XgLa
+	AbejXAhksjmvyaf4IQa7Hf8qC2ja22ZyPfQK+MF2HyhUU4pCd/3j+TVIuZZGqcnKMOENUcmYMpfTJ
+	fWqwLlcfuuRNu1lCvUqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mo70a-00B5nt-Mx; Fri, 19 Nov 2021 16:45:04 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1mo70f-00B5sM-PH; Fri, 19 Nov 2021 16:45:09 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mo70T-00B5hm-On
- for linux-riscv@lists.infradead.org; Fri, 19 Nov 2021 16:44:59 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id
- j6-20020a17090a588600b001a78a5ce46aso11459130pji.0
- for <linux-riscv@lists.infradead.org>; Fri, 19 Nov 2021 08:44:57 -0800 (PST)
+ id 1mo70U-00B5ic-Tk
+ for linux-riscv@lists.infradead.org; Fri, 19 Nov 2021 16:45:00 +0000
+Received: by mail-pg1-x532.google.com with SMTP id q12so9117997pgh.5
+ for <linux-riscv@lists.infradead.org>; Fri, 19 Nov 2021 08:44:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
  h=subject:date:message-id:in-reply-to:references:mime-version
  :content-transfer-encoding:cc:from:to;
- bh=X7kafgaMfQc5QAZ1oOLiQg/P0i4Kp4ckcP/YfJYFTgA=;
- b=nqSaQrxphluRvJfW72RovSHjHtv8hv1h1+zSS81MpD1MYhlSOYBK+5Q/aIYVqEk4d6
- 9DaJwNs/jGtkecf3luGhmnf+/kDtBimhaW5DR4T3WuH9x2N2Qj9ipbOFvRQ6tU5sf4iq
- y0dsnBCZv0zE/kKDMZAsOz+BWLfgbxrkAlL3/v25A393xwzOGYChL6HLnQt4U64crR1l
- RER3VW50FXIv0Rv6F8QZXySxr/nwvfWR+TbkaGbW1LzOtQ3k++ExpjSrAdVRR0mBHdI7
- QWtC0UU3J+i6bqNIFnWDvA9c+aJXJHXH9sbFykfYUhSmRNwp2QuYzM/tD1cRyU3ODHoH
- N4DA==
+ bh=WImAJJVVV8ZgGF59Y6Sx47rmH1oD9rXqn7A8Z+idAIs=;
+ b=wlYyLzgts1gwjmOaIa5kyKYhHq15ZIXkOGQsAjLIKlvBtlnvrAwHzTuQyksqdfQwNL
+ aRlJ67mEDDghlu72xwYXPl/dhhlmKjB9kmaJydHAPyTT2celbRdIEAVMfekKPlwpsYr4
+ pzk90gBJxvkEDcJGYKyPFe2llZ4U964sWAAH48R6hq+vw3I7YzRbCfNETFBw/yLfcT2+
+ +MUGajcOcuZEwoVTLtmIskt9GboqyJJyJk4Ig+AJiJQIfmB/IZqLzy6+8jzDmWOqpLQQ
+ F5sjy05+XE1+xXFiN/ktINtBXmDo5JyWADkGH9VHFPUdRFWkHjKx+oxFgsfJGOv6Lbs6
+ Wm8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding:cc:from:to;
- bh=X7kafgaMfQc5QAZ1oOLiQg/P0i4Kp4ckcP/YfJYFTgA=;
- b=44yKi+Q4rA+QT5iw8J+QokcNKxxLJAeVVYYI2ZqmGSdwaQN5TgSAvdfbgbKI2u6zp1
- dGLmM86dExpXQEvrFIrDFR7jVT9C2czQbPLr9WYJtABIVpP+hKC9fhl8ELZJ/wSAhkEo
- efWKJBZU7qmr3L9NiHLF947UZPGGyMOsn3qOyZYXSZXRI9UQN7ZEyH/ZMovtEO6zxuPl
- nyJG0A12tiajUgGeTiTeSkQzkebMQpzVqYKZykDGHbIWIrISEoU3bodCcEVZJvYldh2H
- 5sUxp2lxubdvlnvw2ze2MtQgJFviTKnPHuimXrLOxh8gMtrws5m2dE1VV7jQ43/tlvAd
- ocmw==
-X-Gm-Message-State: AOAM531jcJgfWC052o3eBUKN65husF0twpDtwpnXmvfAoIjG5As/NuaU
- 7FFe/ar5O7LshfbsnhR85+rH7A==
-X-Google-Smtp-Source: ABdhPJxpsWopDuK5MHxRdfVLXuUpMWPCM6xPemZUxztvFdN1CMDp0pkjul40RUcUgoBTLG7+Ba2VIg==
-X-Received: by 2002:a17:902:d505:b0:142:175d:1d4 with SMTP id
- b5-20020a170902d50500b00142175d01d4mr78063536plg.50.1637340296664; 
- Fri, 19 Nov 2021 08:44:56 -0800 (PST)
+ bh=WImAJJVVV8ZgGF59Y6Sx47rmH1oD9rXqn7A8Z+idAIs=;
+ b=alI19QvHYNDvN4wZZy+wekxOBC4ap+kjau9QXTDWF8pL7N/fQ1+owLPgani3Gtwbac
+ QvCR292/TaDcquJ+aHOqvV+sOfzGBb3qhGOZhyyGE/S6C3xAN7QTYCG4raTD7KroNq0w
+ zP0chGacRhZH6YminEBNxEZ/ivWIy10MHjWSpfVcHyEVN8LZk5WVjDxN/v5+XazDwB2e
+ 23pCQu4zPol+L6ONxm+8sQ2R5LCXdbjTTNaH2TJBdT5l7sgCxPIg6gUC4xaip/a4qeHr
+ rFBytyLygMvz8yGWVTgzQmkkBgaQJr9YPjljkgcNuYKx7iEE16etJdw8eOMNKH+gXsaX
+ Z11A==
+X-Gm-Message-State: AOAM532xWvab7wUMUnadHdP9OjvjTZmCnqpXczSGmGkr5T07olKjb7cO
+ TH0NjM+bt2L25LEpLBivc3Rxxw==
+X-Google-Smtp-Source: ABdhPJzt2WvKizh2kBYa7g3K+Fk3f7u7YeoZpgNqJX9bVrif3hlfLVR3zLqx59eLwQFyQFhFeWlYsA==
+X-Received: by 2002:a05:6a00:99b:b0:49f:eab4:4e7e with SMTP id
+ u27-20020a056a00099b00b0049feab44e7emr24191675pfg.63.1637340297859; 
+ Fri, 19 Nov 2021 08:44:57 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id c4sm213874pfl.53.2021.11.19.08.44.55
+ by smtp.gmail.com with ESMTPSA id e10sm187273pfv.140.2021.11.19.08.44.57
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 19 Nov 2021 08:44:56 -0800 (PST)
-Subject: [PATCH 04/12] RISC-V: defconfigs: Sort CONFIG_SYSFS_SYSCALL
-Date: Fri, 19 Nov 2021 08:44:05 -0800
-Message-Id: <20211119164413.29052-5-palmer@rivosinc.com>
+ Fri, 19 Nov 2021 08:44:57 -0800 (PST)
+Subject: [PATCH 05/12] RISC-V: defconfigs: Sort CONFIG_SOC_POLARFIRE
+Date: Fri, 19 Nov 2021 08:44:06 -0800
+Message-Id: <20211119164413.29052-6-palmer@rivosinc.com>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20211119164413.29052-1-palmer@rivosinc.com>
 References: <20211119164413.29052-1-palmer@rivosinc.com>
@@ -85,8 +84,8 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 From: Palmer Dabbelt <palmer@rivosinc.com>
 To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211119_084457_847075_975B4612 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20211119_084458_984628_1CD97E77 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,49 +105,28 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 From: Palmer Dabbelt <palmer@rivosinc.com>
 
 This should have no functional change, it just sorts
-CONFIG_SYSFS_SYSCALL the same way savedefconfig does.
+CONFIG_SOC_POLARFIRE the same way savedefconfig does.
 
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- arch/riscv/configs/defconfig      | 2 +-
- arch/riscv/configs/rv32_defconfig | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ arch/riscv/configs/defconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index a6cb99cf4d3c..96c2a3615bcd 100644
+index 96c2a3615bcd..0f4fe5790fb5 100644
 --- a/arch/riscv/configs/defconfig
 +++ b/arch/riscv/configs/defconfig
-@@ -14,6 +14,7 @@ CONFIG_USER_NS=y
- CONFIG_CHECKPOINT_RESTORE=y
+@@ -15,9 +15,9 @@ CONFIG_CHECKPOINT_RESTORE=y
  CONFIG_BLK_DEV_INITRD=y
  CONFIG_EXPERT=y
-+# CONFIG_SYSFS_SYSCALL is not set
+ # CONFIG_SYSFS_SYSCALL is not set
++CONFIG_SOC_MICROCHIP_POLARFIRE=y
  CONFIG_SOC_SIFIVE=y
  CONFIG_SOC_VIRT=y
- CONFIG_SOC_MICROCHIP_POLARFIRE=y
-@@ -143,5 +144,4 @@ CONFIG_RCU_EQS_DEBUG=y
- # CONFIG_FTRACE is not set
- # CONFIG_RUNTIME_TESTING_MENU is not set
- CONFIG_MEMTEST=y
--# CONFIG_SYSFS_SYSCALL is not set
- CONFIG_EFI=y
-diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-index 8a57c940d5ef..1f6808aa1261 100644
---- a/arch/riscv/configs/rv32_defconfig
-+++ b/arch/riscv/configs/rv32_defconfig
-@@ -14,6 +14,7 @@ CONFIG_USER_NS=y
- CONFIG_CHECKPOINT_RESTORE=y
- CONFIG_BLK_DEV_INITRD=y
- CONFIG_EXPERT=y
-+# CONFIG_SYSFS_SYSCALL is not set
- CONFIG_SOC_SIFIVE=y
- CONFIG_SOC_VIRT=y
- CONFIG_ARCH_RV32I=y
-@@ -133,4 +134,3 @@ CONFIG_RCU_EQS_DEBUG=y
- # CONFIG_FTRACE is not set
- # CONFIG_RUNTIME_TESTING_MENU is not set
- CONFIG_MEMTEST=y
--# CONFIG_SYSFS_SYSCALL is not set
+-CONFIG_SOC_MICROCHIP_POLARFIRE=y
+ CONFIG_SMP=y
+ CONFIG_HOTPLUG_CPU=y
+ CONFIG_VIRTUALIZATION=y
 -- 
 2.32.0
 
