@@ -2,139 +2,81 @@ Return-Path: <SRS0=zkJ7=QG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 760CAC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 10:30:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 34087C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 12:21:28 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 32068610A1
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 10:30:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 32068610A1
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id E858261A89
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 12:21:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org E858261A89
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YhGg4BrAIl4awkqIJ1E9H3W3CXzD1DrkS8eaWn1f8qE=; b=RdbxWpIpuMW7R9
-	krhjncvqARF09PzQhHTfHGZ6+scBcADQfNhdxqe+oOLE0O/UkWQ/1mOboTa66uiwPk7oNrvT/h4vP
-	I65FqJAjAzLYsDYMb0SK1Y8OtqdSNOhBMZZfl3KGg6vbZ1KTq1LxIgEHvOWWVowiLBNOqxcWQwH72
-	AesOY7iJaooKjdL3+MciV6SY5HOKZJscKEQA6edDpO647Bf0VOEpDvP0OtXfCkUf2aNkG7NIJlcZD
-	vtPkgYcaNDjZANH8rxQcBNdrWvReuh9x/jbuA8+1EdZQWM6g7Z6uH1zoY2VRKLEaHwE4F8ETbs22V
-	H62DeOGaXAQI5PsjeNnw==;
+	List-Owner; bh=cCtVLWwo8rvOBhc1nJ5T9a+NoTtrSWdq2hxR7xPDm5s=; b=wkQQsr/dKegg7F
+	oCOTZZOTWYRTZbENQj+kyIuWfADBa3O+ypoEnBCeAoXeONwZSb+xH3YHzMD22ChbtVqHNCg7kwRSL
+	O9M2TLR7yOr95yaXAY8i4KVSkOsJdxxbEF75zVY0VHWNXa+iqjSVpPK6HySGyfYgvNtSXUSsv3ZTV
+	ihRhpK0EUf9UicbFBR12UcOVSgF22rhj9Tpip6aNO2zd/12pACxM59m1yCNEwY5K8HmDXKX7oYrKY
+	0CJAhaM8xFusq7DA2ILXTHAZuqQtXVAbUknbeEYj+JZqj7u6EF9lzzhBIHiINCfBxtYztt2paeB0G
+	JMST6jixQ2Ks3kJdfoYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mo19v-00A7bJ-Ov; Fri, 19 Nov 2021 10:30:19 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1mo2tH-00AN7Q-4f; Fri, 19 Nov 2021 12:21:15 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mo19r-00A7Zb-FH; Fri, 19 Nov 2021 10:30:18 +0000
-Received: by mail-pl1-x633.google.com with SMTP id u17so7796623plg.9;
- Fri, 19 Nov 2021 02:30:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=mI6KtEpWF619oecwW9ziIW9hw+HsMKzn28OULpWVurc=;
- b=KPFYp17Oy/uF3pbSIvlZbA7tgtmLiBC3HIruVIaKeBTx1ALHk1wBHI9RWH4Y/TRiM2
- hAq35CyJOhqjAvnIz+XnfBNiKxqvsUzF8MUMqrbb+qoLapa3GCOHgXxaI6x9Km0AlL0K
- 2wG7B8CCYpBSr+ZNFswMkvUZagoAlzcdTSS//NHNiGf8CdixgEqb6uKPGS2QpTEgcUAp
- yArb+GP+Q+XhbKyaqKWupK7SJqNy6AAI7qZH/W5TKcSo7ZV4POw8PNPyAsvkQzKhD740
- EiMIWTjA0fXMyULJynwnTQN6Kgk/iWbRQ1iPpWyGjz39JFmP0lOhp61wqe2NJVi1cPEy
- 0utQ==
+ id 1mo2tD-00AN65-Rj
+ for linux-riscv@lists.infradead.org; Fri, 19 Nov 2021 12:21:13 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id u1so17814001wru.13
+ for <linux-riscv@lists.infradead.org>; Fri, 19 Nov 2021 04:21:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=Ij7er2470Y2wPBGgkUoSGjBv9MApKpAoPSAbl3vcFGM=;
+ b=JiC1txByfspEffoX8zfmeVfIBE3jhZB/PZ7F1nQhhz92MRm9YRHfoBGSDJGiQTIpOo
+ jVaBi+Bw46dyRupANHaLOawHjD3Wn+t0zHAQh1QQfh+/47uRjDQCgvLuwKlf8jV46Rc4
+ 6jXA2isUv3fxDFTbjHzl1QySpWmSzD0fdCdun4lLxz7kI/YGr81zF+wV7+C0weYrtLjz
+ WWBuZoiAaWCGdK9QFghF9gvtPce1anQ5oos66FK+0eVDq63Rs03vdjESnkn8jdiFmxNS
+ kdbgCM9EWxfBP7LOefkd02EyRq2q1BMkATbyKXdfw/I9J5sKjQ3z42IC8KfTApRmAmcJ
+ GLsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=mI6KtEpWF619oecwW9ziIW9hw+HsMKzn28OULpWVurc=;
- b=VgiYUepknX64A7hrwPKi+76RfciKvetKOYzYPkX4EP2bEBnBnlMSL4IE79/1dulnah
- tkJjnigtIIn3dLGDe+EgnENfZoXqiS7QTJ7TBVhK59SEmdOCwQOhniHQgLdkTw/A0WiE
- LFH7EJyarJNT3WjQW3hDjWtSM0B1GzXHjcX9Gg7Hh7hBRTq7ov7O/OaeEQBBAyrABosu
- OF0dzR7+q5XB+sgvBoftqRVnHEr4cOrl4WChcNTT0foOYz2GnrW8fiL2fOqgOvT2FRGJ
- QWhrqPXd25lkv8yUW5K0pVWIJmFXV02Ps6hQIdBmUjXG8CYpVzbSzBVG6FyolEqc2Mp4
- AV0A==
-X-Gm-Message-State: AOAM530PTKkHiiOAUDwTW3KBZlfyQTVGCvGsIt2vPTIE96oPn1u3v9Ko
- rFG9fSjeltcmgDuovjH5Kt0=
-X-Google-Smtp-Source: ABdhPJwCL45zphX6sAUQpCTH2XR0MI6TO3LxQucz8xUZnsL94laUGiXdLG1KlgE2xhwPB5DYkk54PQ==
-X-Received: by 2002:a17:902:bc85:b0:143:954e:8548 with SMTP id
- bb5-20020a170902bc8500b00143954e8548mr73204786plb.82.1637317814262; 
- Fri, 19 Nov 2021 02:30:14 -0800 (PST)
-Received: from localhost ([103.99.179.247])
- by smtp.gmail.com with ESMTPSA id u22sm2537834pfk.148.2021.11.19.02.30.13
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 19 Nov 2021 02:30:14 -0800 (PST)
-Date: Fri, 19 Nov 2021 18:30:09 +0800
-From: Calvin Zhang <calvinzhang.cool@gmail.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Calvin Zhang <calvinzhang.cool@gmail.com>,
- Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
- Yoshinori Sato <ysato@users.sourceforge.jp>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
- Vincent Chen <deanbo422@gmail.com>,
- Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Stafford Horne <shorne@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Rich Felker <dalias@libc.org>,
- Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
- Rob Herring <robh+dt@kernel.org>, Frank Rowand <frowand.list@gmail.com>,
- Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@redhat.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>,
- Vladimir Isaev <isaev@synopsys.com>, Arnd Bergmann <arnd@arndb.de>,
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- Guenter Roeck <linux@roeck-us.net>, Marc Zyngier <maz@kernel.org>,
- David Brazdil <dbrazdil@google.com>, Mark Rutland <mark.rutland@arm.com>,
- Andrey Konovalov <andreyknvl@gmail.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Souptick Joarder <jrdr.linux@gmail.com>,
- Jinyang He <hejinyang@loongson.cn>,
- Mauri Sandberg <sandberg@mailfence.com>,
- Tiezhu Yang <yangtiezhu@loongson.cn>,
- Serge Semin <Sergey.Semin@baikalelectronics.ru>,
- Alexander Sverdlin <alexander.sverdlin@nokia.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Randy Dunlap <rdunlap@infradead.org>,
- Ley Foon Tan <ley.foon.tan@intel.com>,
- Andreas Oetken <andreas.oetken@siemens.com>,
- Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
- Christophe Leroy <christophe.leroy@c-s.fr>,
- Ganesh Goudar <ganeshgr@linux.ibm.com>,
- Markus Elfring <elfring@users.sourceforge.net>,
- "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
- Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>,
- Nick Kossifidis <mick@ics.forth.gr>, Alexandre Ghiti <alex@ghiti.fr>,
- Vitaly Wool <vitaly.wool@konsulko.com>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Lee Jones <lee.jones@linaro.org>,
- Guo Ren <guoren@linux.alibaba.com>, Rob Herring <robh@kernel.org>,
- Zhang Yunkai <zhang.yunkai@zte.com.cn>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- uclinux-h8-devel@lists.sourceforge.jp, linux-mips@vger.kernel.org,
- openrisc@lists.librecores.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
- linux-xtensa@linux-xtensa.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 2/2] of: reserved_mem: Remove reserved regions count
- restriction
-Message-ID: <YZd8sc6E0bgNA9ag@debian>
-References: <20211119075844.2902592-1-calvinzhang.cool@gmail.com>
- <20211119075844.2902592-3-calvinzhang.cool@gmail.com>
- <YZd0uEWNH6Def3+8@smile.fi.intel.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=Ij7er2470Y2wPBGgkUoSGjBv9MApKpAoPSAbl3vcFGM=;
+ b=Zl6zFyfzV9i+DZI1DwFcuAY5URYIdx6+BKhHfFWTQmdWvoWhxz8R5BXYNt8S4YLj/1
+ T9ovyIhV3qpMyqwpuPXVIXkAQBX7fKa/8lHNoU4U804KbgytdohV2bbWE7N8JYZ5E/ME
+ VC7QGkep4Ogm/JPHz/mTXGTtDaar2ps2nk92ul1qN6PMm3/2T1I93isRgranKMQBZSKN
+ 83b9E09KuGOPk8BQftqakvVrmbgCooHbj8/tYAfd0tciuTAasGcKSdDYo89jbYfrkET8
+ NaJDSTlHodWS89tD8HZc63/m7yeydA3yZBpZ9aG+uEufZb5P8C4tvZFpBiCXd4k/QYEp
+ AvIw==
+X-Gm-Message-State: AOAM5334q2XrX1bHYubQehYaIHZ1bRMJKssxnxXaOGX9MPLZB3wkLUR9
+ 5rYJ8P6D8MU7xAYIGTd6YHwtOmibKvZt4OxFTc53Ig==
+X-Google-Smtp-Source: ABdhPJwpDih1Nz/ks8ZhQSJ1ATWfx3j/ZKzyQDFL08MT6G9WVQEczM3Z4uSFbhMCXYw9f5AP4oVpWgv71qyALRREcfA=
+X-Received: by 2002:a05:6000:1a45:: with SMTP id
+ t5mr6835921wry.306.1637324469654; 
+ Fri, 19 Nov 2021 04:21:09 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <YZd0uEWNH6Def3+8@smile.fi.intel.com>
+References: <20211117060241.611391-1-anup.patel@wdc.com>
+ <CAOnJCU+KZn2JnZg-FZcJ7PXRpGo5SyOmdUYFeJgBenPO9xxE1w@mail.gmail.com>
+In-Reply-To: <CAOnJCU+KZn2JnZg-FZcJ7PXRpGo5SyOmdUYFeJgBenPO9xxE1w@mail.gmail.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 19 Nov 2021 17:50:58 +0530
+Message-ID: <CAAhSdy0jaPPBNkXkt5-jj+LWCm+XiC0G2udK2C7n1f2TqBPCmg@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: KVM: Fix incorrect KVM_MAX_VCPUS value
+To: Atish Patra <atishp@atishpatra.org>
+Cc: Anup Patel <anup.patel@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+ kvm-riscv@lists.infradead.org, KVM General <kvm@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211119_023015_530090_D1B4B650 
-X-CRM114-Status: GOOD (  14.91  )
+X-CRM114-CacheID: sfid-20211119_042111_993418_3BFF8CE5 
+X-CRM114-Status: GOOD (  17.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,43 +93,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 19, 2021 at 11:56:08AM +0200, Andy Shevchenko wrote:
->On Fri, Nov 19, 2021 at 03:58:19PM +0800, Calvin Zhang wrote:
->> Change to allocate reserved_mems dynamically. Static reserved regions
->> must be reserved before any memblock allocations. The reserved_mems
->> array couldn't be allocated until memblock and linear mapping are ready.
->> 
->> So move the allocation and initialization of records and reserved memory
->> from early_init_fdt_scan_reserved_mem() to of_reserved_mem_init().
+On Thu, Nov 18, 2021 at 1:23 PM Atish Patra <atishp@atishpatra.org> wrote:
 >
->>  arch/arc/mm/init.c                 |  3 ++
->>  arch/arm/kernel/setup.c            |  2 +
->>  arch/arm64/kernel/setup.c          |  3 ++
->>  arch/csky/kernel/setup.c           |  3 ++
->>  arch/h8300/kernel/setup.c          |  2 +
->>  arch/mips/kernel/setup.c           |  3 ++
->>  arch/nds32/kernel/setup.c          |  3 ++
->>  arch/nios2/kernel/setup.c          |  2 +
->>  arch/openrisc/kernel/setup.c       |  3 ++
->>  arch/powerpc/kernel/setup-common.c |  3 ++
->>  arch/riscv/kernel/setup.c          |  2 +
->>  arch/sh/kernel/setup.c             |  3 ++
->>  arch/xtensa/kernel/setup.c         |  2 +
+> On Tue, Nov 16, 2021 at 10:03 PM Anup Patel <anup.patel@wdc.com> wrote:
+> >
+> > The KVM_MAX_VCPUS value is supposed to be aligned with number of
+> > VMID bits in the hgatp CSR but the current KVM_MAX_VCPUS value
+> > is aligned with number of ASID bits in the satp CSR.
+> >
+> > Fixes: 99cdc6c18c2d ("RISC-V: Add initial skeletal KVM support")
+> > Signed-off-by: Anup Patel <anup.patel@wdc.com>
+> > ---
+> >  arch/riscv/include/asm/kvm_host.h | 8 +++-----
+> >  1 file changed, 3 insertions(+), 5 deletions(-)
+> >
+> > diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+> > index 25ba21f98504..2639b9ee48f9 100644
+> > --- a/arch/riscv/include/asm/kvm_host.h
+> > +++ b/arch/riscv/include/asm/kvm_host.h
+> > @@ -12,14 +12,12 @@
+> >  #include <linux/types.h>
+> >  #include <linux/kvm.h>
+> >  #include <linux/kvm_types.h>
+> > +#include <asm/csr.h>
+> >  #include <asm/kvm_vcpu_fp.h>
+> >  #include <asm/kvm_vcpu_timer.h>
+> >
+> > -#ifdef CONFIG_64BIT
+> > -#define KVM_MAX_VCPUS                  (1U << 16)
+> > -#else
+> > -#define KVM_MAX_VCPUS                  (1U << 9)
+> > -#endif
+> > +#define KVM_MAX_VCPUS                  \
+> > +       ((HGATP_VMID_MASK >> HGATP_VMID_SHIFT) + 1)
+> >
+> >  #define KVM_HALT_POLL_NS_DEFAULT       500000
+> >
+> > --
+> > 2.25.1
+> >
 >
->Isn't x86 missed? Is it on purpose?
->Would be nice to have this in the commit message or fixed accordingly.
-AFAIK, x86 doesn't reserve memory through "/reserved-memory" node until now.
-Actually, I got the arch list from callers of
-early_init_fdt_scan_reserved_mem().
 >
->-- 
->With Best Regards,
->Andy Shevchenko
->
->
->
+> Reviewed-by: Atish Patra <atishp@rivosinc.com>
+
+I have queued this patch for fixes.
+
 Thanks,
-Calvin
+Anup
+
+>
+> --
+> Regards,
+> Atish
 
 _______________________________________________
 linux-riscv mailing list
