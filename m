@@ -2,14 +2,14 @@ Return-Path: <SRS0=zkJ7=QG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7DE93C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 16:45:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CDA60C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 16:46:00 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 48B5D61AF0
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 16:45:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 48B5D61AF0
+	by mail.kernel.org (Postfix) with ESMTPS id 9BB1661545
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 16:46:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9BB1661545
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=rivosinc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,58 +18,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
 	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Fs3FHIUjjcAdnGCHDA0Efh36uSAcqSdJ6W7oVCiWBaQ=; b=Po/n9Gcp1hXk3S
-	2TYb+bzk3ZyHeDzI5yhb1+rGNkGDIdINZzEkv35qEE5LfZAz1unUboFlxwWL/xosjw1XfJdTObP+D
-	3/FV6KBlcCIGTH8Gr3F+yV1cTOxW38NHqNiFFjX60LhwjwIyy/07Jb3o/q3yjoOW7p1oakH5vnPmn
-	staHn/QgWa9b6+Yzl7pUNFxxMQIRvU1EB40Ys98F3HbWySOoZPq1VwKVXBA6mFXOiSTNKFdAiuKJW
-	r/En33kjE9x5fYH4uR/kxXRwyEuhNpoiJHaQnId5YQLAWFKvtNjZU4b4MRDhqhS3OF5mkF0cs5+qG
-	DFMfc7CXp5W6D9tb6KMg==;
+	List-Owner; bh=SLt3/wKsK9PQnj7OqMRRExqgo9emYkjqLKoPMckJgWQ=; b=KWxHfS7Vtu3mvA
+	jVr91NkvCGj+f41P3afvYpe8vljl82FByt+6S2/3q2H3OkTpP70X8UqgdtAERbm4IkE/rV6dng5Cn
+	5EsOkPY2ho3vc8RdUhSmgKGCvH9X3d9VW3E0bZltISSDY0Ha4n8OkQSrirXm14HNHwSLFmrI5+t8I
+	xiXEeh21+Zd0NM6bUjk94r/FlLojkDNAYFK+bVdt/fnPmJt9zm833fWewuO2hxWBXqTR0O+iVxeUO
+	5/OPTE34pePCvhlBkVNYWrDGAnHFlHkUW98Q1v6DY66zN3JWMQGBm1EkphY0SXtaqtHH9GsVCx921
+	2dSRuDwG6WyXq72woL0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mo71H-00B6HY-CE; Fri, 19 Nov 2021 16:45:47 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1mo71O-00B6Lk-0A; Fri, 19 Nov 2021 16:45:54 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mo70c-00B5ov-6S
- for linux-riscv@lists.infradead.org; Fri, 19 Nov 2021 16:45:07 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id
- w33-20020a17090a6ba400b001a722a06212so9253319pjj.0
- for <linux-riscv@lists.infradead.org>; Fri, 19 Nov 2021 08:45:05 -0800 (PST)
+ id 1mo70d-00B5q1-Gz
+ for linux-riscv@lists.infradead.org; Fri, 19 Nov 2021 16:45:08 +0000
+Received: by mail-pl1-x633.google.com with SMTP id u17so8550360plg.9
+ for <linux-riscv@lists.infradead.org>; Fri, 19 Nov 2021 08:45:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
  h=subject:date:message-id:in-reply-to:references:mime-version
  :content-transfer-encoding:cc:from:to;
- bh=XVDzNl5P4QbzIYx/RkvDJ3xwFO1wfoLlk0Fo30BJPkI=;
- b=w+LQmyRAZkZrbqIBM7nvAvs3Z346eAzu5bMdTRDbICl47c4BayUT7sbCU4Yg29klim
- BCC4W7GlnS4obt7mvj8XjZzdTaf9Z5w6Z1uOvmL59OIEZi14lM1xg9ATgRwjCpWwbWHe
- CtxBpQAQoGnbC8lzvvzxLfBvwrg7q4//8zuJHf12qb5i4Ftr+LdBR9x5gDOmmoyMh/QZ
- bADwvbynDYnGLkrHkhyx+saSAJSm2EXXzHR9gUhBkCfs4mpLQz7YJukFHy5Y98mhbp1v
- 4sRN+kkGfbi8BUIlX2dyei7SCPwIbHZvB2dYGf+DjRfCTQ8TNPrxv4ivECdPGzA1Hc6J
- k4MQ==
+ bh=QtaSSFMsqBIq8kJ2oNDlofo69jd6X8iaroIn8+5/lTM=;
+ b=IpNlfu3x0dU6brOg5DNWCgBZ6IQQvWYdhM0507AuWCbi2OXvgJ3/FNqMM/cgIPwYqC
+ MC5RSEA3OoF0pz0467PG4AvRFBcCz+AfZuKl3gC3+52fehypa/gySy93x3sSwKL3P1SM
+ m6OB9PKLClcwxhyx/B8EhF66k6eMBvuT2/CDn+292P+PIb39RItlSffZFrwKopBmN8ac
+ xVnkdNZHzLpUkTxVwXtcF1y/GUhptW5XXy1Qo0ZhMedSilzdRH5ItRsNg2rZZcKbuIEo
+ ZsIk147WLEe2Jx93JwVbMu5ovSKypy38Oq4ywlZY7PbdlYWAj1Xv8FbAV62hCHYKpz6n
+ pVBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding:cc:from:to;
- bh=XVDzNl5P4QbzIYx/RkvDJ3xwFO1wfoLlk0Fo30BJPkI=;
- b=Hsc7O+1wdQAe9Fo4YPGntuJ/jE2g2J4bBFjD+DJSCzU5tyHvoKMgqSrlSa8baiBO2R
- 6TQb5u7hD3nqdPgXzARxMGJKyg0QW87fhqYd455M15cYBu9D+BKcurr7cSZNoPVYZSG1
- lO53epTXSUjvJegvg0qrPM9++ibWDT+8R1bCmwqvXpSbELmqWuxwKx8mWJUUetu4xw2g
- gr3xhCZXLOO2J2LsoxkyTqgTzJt/2bmbyrBVSxstxmAxavUAybkvPQpFAYh4RJmUlQRD
- WHB803HXpfpO73qo3zBYw7uMPnOpgx6JhVgXOUWqsCTHhxptiTlwhnvpb4bqfhzl+IYY
- mjpw==
-X-Gm-Message-State: AOAM531uhx0FAFlvsXpPpmwQpRKYJYYwDnrhvUcyl2Tj44Df3vGr1muz
- Y7LJomTvnlGTfAyFY/HakgtfSQ==
-X-Google-Smtp-Source: ABdhPJyy4gAQ08NUgm/LC6JyiF7yQwuEfYBbqCDVVXx/a5iu9/1PwjiKlJJUKsSFiz3Yuh66waG5qg==
-X-Received: by 2002:a17:902:9692:b0:143:d9ad:d151 with SMTP id
- n18-20020a170902969200b00143d9add151mr30611268plp.40.1637340304995; 
- Fri, 19 Nov 2021 08:45:04 -0800 (PST)
+ bh=QtaSSFMsqBIq8kJ2oNDlofo69jd6X8iaroIn8+5/lTM=;
+ b=ZRJqD5jIHSB6fnkf0zsv0W68HOkbObLMfq+4oB26eJ68UgCDVesKUa9EW7xI+wAuvx
+ UKyfACei3KqTmoB04wP7Csn7u5ET9g0Lj8b8Ieo3VTNrRLnRH0W4DatypIbQY5M/pl6u
+ 3EsEArSEamPKw5bBknDFXxbXy861ZknNYRyIjLzxs/qy6lJC1e8pVS+U6+t7ewnIOtt0
+ uYD5wCQyLFmtxu/wEshTGixH6ft8zK3lPvUTXpFJEuqNkjA83+fdD7C1d5tUnjeRCgFQ
+ 8mz2D2Yqop/F26RMMIU0HwVIqXNBO/Fc2WgcK84rCGcS0Ah9jlZNClvh/pWE7djCSMTB
+ pxCw==
+X-Gm-Message-State: AOAM531DT9zVqNZgzbTolkWcIGBMs2zoJ/GpNYnTpxIEvTS3aOILfWEu
+ 3A9LSDRNkwkrWKCOaPewN25F3A==
+X-Google-Smtp-Source: ABdhPJzam1HD0HGxNuDaeb2MJR9obhPXVMPUr0q5Y+mqSw/25JXA74d7shGTzIeWWNsFCvvqqEwzBQ==
+X-Received: by 2002:a17:902:d2c1:b0:141:f710:922 with SMTP id
+ n1-20020a170902d2c100b00141f7100922mr42315105plc.7.1637340306392; 
+ Fri, 19 Nov 2021 08:45:06 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id y18sm216925pgh.18.2021.11.19.08.45.04
+ by smtp.gmail.com with ESMTPSA id c2sm193607pfv.112.2021.11.19.08.45.05
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 19 Nov 2021 08:45:04 -0800 (PST)
-Subject: [PATCH 11/12] RISC-V: defconfigs: Remove redundant CONFIG_EFI=y
-Date: Fri, 19 Nov 2021 08:44:12 -0800
-Message-Id: <20211119164413.29052-12-palmer@rivosinc.com>
+ Fri, 19 Nov 2021 08:45:05 -0800 (PST)
+Subject: [PATCH 12/12] RISC-V: defconfigs: Remove redundant K210 DT source
+Date: Fri, 19 Nov 2021 08:44:13 -0800
+Message-Id: <20211119164413.29052-13-palmer@rivosinc.com>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20211119164413.29052-1-palmer@rivosinc.com>
 References: <20211119164413.29052-1-palmer@rivosinc.com>
@@ -85,8 +84,9 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 From: Palmer Dabbelt <palmer@rivosinc.com>
 To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211119_084506_301190_535C4F46 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20211119_084507_637424_D38E1128 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,24 +105,40 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Palmer Dabbelt <palmer@rivosinc.com>
 
-We've always had CONFIG_EFI as "def_bool y" so this has always been
-redundant.  It's removed by savedefconfig, so drop it to keep things
-clean.
+The "k210_generic" DT has been the default in Kconfig since 7d96729a9e7
+("riscv: Update Canaan Kendryte K210 device tree"), so drop it from the
+defconfigs to avoid diff with savedefconfig.
 
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- arch/riscv/configs/defconfig | 1 -
- 1 file changed, 1 deletion(-)
+ arch/riscv/configs/nommu_k210_defconfig        | 1 -
+ arch/riscv/configs/nommu_k210_sdcard_defconfig | 1 -
+ 2 files changed, 2 deletions(-)
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index a72dbd74b93d..f120fcc43d0a 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -143,4 +143,3 @@ CONFIG_RCU_EQS_DEBUG=y
- # CONFIG_FTRACE is not set
- # CONFIG_RUNTIME_TESTING_MENU is not set
- CONFIG_MEMTEST=y
--CONFIG_EFI=y
+diff --git a/arch/riscv/configs/nommu_k210_defconfig b/arch/riscv/configs/nommu_k210_defconfig
+index 89ab76349ea8..e8ceab678e8b 100644
+--- a/arch/riscv/configs/nommu_k210_defconfig
++++ b/arch/riscv/configs/nommu_k210_defconfig
+@@ -29,7 +29,6 @@ CONFIG_EMBEDDED=y
+ CONFIG_SLOB=y
+ # CONFIG_MMU is not set
+ CONFIG_SOC_CANAAN=y
+-CONFIG_SOC_CANAAN_K210_DTB_SOURCE="k210_generic"
+ CONFIG_MAXPHYSMEM_2GB=y
+ CONFIG_SMP=y
+ CONFIG_NR_CPUS=2
+diff --git a/arch/riscv/configs/nommu_k210_sdcard_defconfig b/arch/riscv/configs/nommu_k210_sdcard_defconfig
+index 84b87f8bfc8f..46aa3879f19c 100644
+--- a/arch/riscv/configs/nommu_k210_sdcard_defconfig
++++ b/arch/riscv/configs/nommu_k210_sdcard_defconfig
+@@ -21,7 +21,6 @@ CONFIG_EMBEDDED=y
+ CONFIG_SLOB=y
+ # CONFIG_MMU is not set
+ CONFIG_SOC_CANAAN=y
+-CONFIG_SOC_CANAAN_K210_DTB_SOURCE="k210_generic"
+ CONFIG_MAXPHYSMEM_2GB=y
+ CONFIG_SMP=y
+ CONFIG_NR_CPUS=2
 -- 
 2.32.0
 
