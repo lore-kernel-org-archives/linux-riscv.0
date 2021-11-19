@@ -2,14 +2,14 @@ Return-Path: <SRS0=zkJ7=QG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 99F4AC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 16:45:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5AB30C433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 16:45:01 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 67AB161B30
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 16:45:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 67AB161B30
+	by mail.kernel.org (Postfix) with ESMTPS id 24F0B61B43
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 16:45:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 24F0B61B43
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=rivosinc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -18,56 +18,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
 	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oCLKKWGZBZMg7K5pAAE1KSyYLY5XlmogIaSkMlXXeJE=; b=z2GH4znOrKoYLM
-	uAgf+REoM0qXAaiXD7M1x7erN4r2/K2vN+uUohOK18tCUsRvA6eg5fpJXXiacVLkhJ4zTLAd6Vx4P
-	r4HYJaG3kRZjgDIITM1PgOsthxeePyqXqejoM3NJ6m5K9i7HkrRN3CrBPgd2tbbABrp2Lw70NZg7y
-	Sj1o4iTa3FV2kp+XvPy7TLqBpifh0q1O4sT5aR64U6fiwMUcW0ZCPV1soTMXDCwE8iI5hV2e+73fL
-	IhjXEtzw9lQb60DpNfda2C18HRxOY8MVFyqY558kWNVuZbKjLwJW0MdHrhReKNBeYJGic71QkeQfp
-	rW8OD7riZm3LoigLzhNw==;
+	List-Owner; bh=zq+fBMM2N/5IPc4zhYF/wDg07wxJtJxqeU9nT/Sejek=; b=HvQux4eBtIoFph
+	OttdYnRumfqU7VJ+gssQOzM9tHGTaezuzjSdIIS5O229N8c8XdqtJwjJA823p7/pDfh35UxrmEHd7
+	Yx0tl1+v2VAcuZcEyQFlXpQKg2jHQwx4wfyb+QYHhqL/zY1R5GL6XhotdI0uXORGAyaRyiHbUcoJT
+	9V9gXWCGfne6i0NYBqjbFSgSJt7XqRqdsFBb+fF5GmvLVXrx+2yfqQoHUxhPKCEeqXAh3lBx0SRCJ
+	Ci9BL//hGGI2H+KZtu77d8tBp9/IF+E2QwbI23wa85zXBiaSb+V8CxndYBosHCKroN0804RTVINXp
+	+8YsDRPLWyqBaVIuB3jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mo70N-00B5eu-Sb; Fri, 19 Nov 2021 16:44:51 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1mo70Q-00B5fj-3I; Fri, 19 Nov 2021 16:44:54 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mo70H-00B5be-4j
- for linux-riscv@lists.infradead.org; Fri, 19 Nov 2021 16:44:50 +0000
-Received: by mail-pf1-x435.google.com with SMTP id x5so9882335pfr.0
- for <linux-riscv@lists.infradead.org>; Fri, 19 Nov 2021 08:44:44 -0800 (PST)
+ id 1mo70L-00B5dd-Nv
+ for linux-riscv@lists.infradead.org; Fri, 19 Nov 2021 16:44:51 +0000
+Received: by mail-pg1-x535.google.com with SMTP id g28so9132955pgg.3
+ for <linux-riscv@lists.infradead.org>; Fri, 19 Nov 2021 08:44:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
  h=subject:date:message-id:in-reply-to:references:mime-version
  :content-transfer-encoding:cc:from:to;
- bh=5ChM9rojwfVZwb854uhoQhujli+NJle96xwmBErH+IU=;
- b=DaCfNGu+rNT7plyiOhA2fSQzYoF3ErJeSq6lLAt9u7p5aRck5wu/2q8lyTSKC9FwL7
- 8mt3lmeZ6OpVHgLgtMAyDz44a78JkOoCWTRVB65syJhyKhGddI9tWRbuaIqKuryMM0cZ
- qpq20nC50jElNtQrUfuJwwqeLesDO6dbKe1Tk0VUFmW5xpDzSVEDztR9ZFBBxGRk+1sN
- hCav4BtrNRiyAnus7AcC4kWfXf+7Fo34FkZdSuFFCy1/QvGiXIm54hcm8YKlUrHoMpWH
- fO8FTlpHAJZMFYf3dPqlwJFPtUlHBygsGhK2YhmcMHN6plY73ISQXSDvOHtdnu2inQoR
- dLRQ==
+ bh=SB6EgCTuUg8MJlUo+ml24NJI9nw+lDZjDHqU1EIISBQ=;
+ b=xZBTX2fkClhsrAhAhHvzzo3gipmQJBe9KDtvFo2Al+JGruCpMlsfpmz+hHWMrOvMfv
+ /CN0knlgAf9BQT/GfzTUnEpeNc+zQn6thds6pyjL/qxPhfTGCWm1TajlN3mY/hMKq3G1
+ gbZy/bTOStCDE4xY7mN8NfhIwa49nLhVohe5Dtu56Y8EzjxkOus4igegCZM+ePXheS0U
+ Y98Lac6ygTleo0oICOyMK/h8hDT5ayBcO5YwLn8al7NrFJQgymrth90UFq4ug6FB7HrZ
+ Tk1G/fjf6w+EAGKJo1wChfVJcHIW/wTXacZUSPEScWlYuXufKzgXSx8NWcGvMGxfggsE
+ uhJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding:cc:from:to;
- bh=5ChM9rojwfVZwb854uhoQhujli+NJle96xwmBErH+IU=;
- b=pDGyDEVUacORiUaIc2N+cfNSiZsney7KksKlEXLBvimHh1q+xqMDQ6uFE0qNqpuw5V
- ynXSr5HwPuRSkjf/MzuuCiEgeLQUHZXaqHPrQGrrz8sXHG6cc4IJSBKwdVaA+ce0xdGX
- mRnXkfQvOGjCRpGcSq7Utn6u9gcnHv/FYLgAKy0zFZUBzjSrt0w4PUCBt4L1i8MowQMq
- Z4SAk0RxL1+c8JEPZF2ch4EsUwyfhyqPG1YY4BJQRaK0ZuicVfeg8TP0lCZRN7eN7KzB
- Fiklnr76AY9jmqDgjJgoPMXnjmAqMzjpsbx9XtubkfOmypEKOuZ3VDXb6T99QCltPZbX
- b2VQ==
-X-Gm-Message-State: AOAM531XvcyPTuwmRGBi0hw15WzgoxcdpoillD+Ou7SoyIgLYkMKe6bz
- ycqOB/My0io8gRTTO6pxeiZerUDhPKb99ogk
-X-Google-Smtp-Source: ABdhPJyf466y1OSj6NIxhcvh6K8TQYHu4W9tg//KV4Y0C3o/44ZnxTLiwoKCUqKKG8aX01yCdYyQZw==
-X-Received: by 2002:a63:ce54:: with SMTP id r20mr18197963pgi.95.1637340284094; 
- Fri, 19 Nov 2021 08:44:44 -0800 (PST)
+ bh=SB6EgCTuUg8MJlUo+ml24NJI9nw+lDZjDHqU1EIISBQ=;
+ b=5x27Bf1sjMmAlgVIU5x2KdMXnMXZf/8aFp0WnpaScfG+/6GUQX/3c1WQz3hlMfg0A1
+ LWunW3tWlob0Q+ozbriJd8iTpyCovQwUoOsNh1+DKWxdren91Y/2I7hNAd+aO7LlwrKE
+ dBFne7AFw7OqJVXeE+98ejyCKNO+bwYjdyU0OF4hqwhLGOU4hCDrsSy2M/nd/tRv6r66
+ iHInesGsoo0JBZc8LeJdV2aRwyV2wTF/tdAUT1sDhdNl41sem6e020NNS//l6w42/UOt
+ FCTy38tVuEorl8zw0XYCQanejBaCZ9ibBmvlt0C315RgcpWVOjGAZBJGKfHwrFo+D3V7
+ 883Q==
+X-Gm-Message-State: AOAM530SMJQ616kLnLoNGEJfnCJxpc7va7Hb8FMv+Jr52Y4mkYg4LzfW
+ fCKMkr63A47AfS2Odj6eTMQ4Aw==
+X-Google-Smtp-Source: ABdhPJzh8J4KCx4EO8kuEnK1oVC5fTwdJ/I9PGqYQcKUN1CBeBpJvZzXndIvprNjCMgwhkZQgvDsMA==
+X-Received: by 2002:aa7:9af6:0:b0:4a2:fa4a:714c with SMTP id
+ y22-20020aa79af6000000b004a2fa4a714cmr23848682pfp.40.1637340285451; 
+ Fri, 19 Nov 2021 08:44:45 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id i76sm194874pgd.69.2021.11.19.08.44.43
+ by smtp.gmail.com with ESMTPSA id v10sm195914pfu.123.2021.11.19.08.44.44
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 19 Nov 2021 08:44:43 -0800 (PST)
-Subject: [PATCH 01/12] RISC-V: defconfigs: Set CONFIG_FB=y, for FB console
-Date: Fri, 19 Nov 2021 08:44:02 -0800
-Message-Id: <20211119164413.29052-2-palmer@rivosinc.com>
+ Fri, 19 Nov 2021 08:44:44 -0800 (PST)
+Subject: [PATCH 02/12] RISC-V: MAXPHYSMEM_2GB doesn't depend on CMODEL_MEDLOW
+Date: Fri, 19 Nov 2021 08:44:03 -0800
+Message-Id: <20211119164413.29052-3-palmer@rivosinc.com>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20211119164413.29052-1-palmer@rivosinc.com>
 References: <20211119164413.29052-1-palmer@rivosinc.com>
@@ -83,8 +84,8 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 From: Palmer Dabbelt <palmer@rivosinc.com>
 To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211119_084445_230447_A2D6ABC1 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20211119_084449_805378_717AE60D 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,43 +104,40 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Palmer Dabbelt <palmer@rivosinc.com>
 
-We have CONFIG_FRAMEBUFFER_CONSOLE=y in the defconfigs, but that depends
-on CONFIG_FB so it's not actually getting set.  I'm assuming most users
-on real systems want a framebuffer console, so this enables CONFIG_FB to
-allow that to take effect.
+For non-relocatable kernels we need to be able to link the kernel at
+approximately PAGE_OFFSET, thus requiring medany (as medlow requires the
+code to be linked within 2GiB of 0).  The inverse doesn't apply, though:
+since medany code can be linked anywhere it's fine to link it close to
+0, so we can support the smaller memory config.
 
-Fixes: 33c57c0d3c67 ("RISC-V: Add a basic defconfig")
+Fixes: de5f4b8f634b ("RISC-V: Define MAXPHYSMEM_1GB only for RV32")
 Cc: stable@vger.kernel.org
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
----
- arch/riscv/configs/defconfig      | 1 +
- arch/riscv/configs/rv32_defconfig | 1 +
- 2 files changed, 2 insertions(+)
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index ef473e2f503b..11de2ab9ed6e 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -78,6 +78,7 @@ CONFIG_DRM=m
- CONFIG_DRM_RADEON=m
- CONFIG_DRM_NOUVEAU=m
- CONFIG_DRM_VIRTIO_GPU=m
-+CONFIG_FB=y
- CONFIG_FRAMEBUFFER_CONSOLE=y
- CONFIG_USB=y
- CONFIG_USB_XHCI_HCD=y
-diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-index 6e9f12ff968a..05b6f17adbc1 100644
---- a/arch/riscv/configs/rv32_defconfig
-+++ b/arch/riscv/configs/rv32_defconfig
-@@ -73,6 +73,7 @@ CONFIG_POWER_RESET=y
- CONFIG_DRM=y
- CONFIG_DRM_RADEON=y
- CONFIG_DRM_VIRTIO_GPU=y
-+CONFIG_FB=y
- CONFIG_FRAMEBUFFER_CONSOLE=y
- CONFIG_USB=y
- CONFIG_USB_XHCI_HCD=y
+---
+
+I found this when going through the savedefconfig diffs for the K210
+defconfigs.  I'm not entirely sure they're doing the right thing here
+(they should probably be setting CMODEL_LOW to take advantage of the
+better code generation), but I don't have any way to test those
+platforms so I don't want to change too much.
+---
+ arch/riscv/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 821252b65f89..61f64512dcde 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -280,7 +280,7 @@ choice
+ 		depends on 32BIT
+ 		bool "1GiB"
+ 	config MAXPHYSMEM_2GB
+-		depends on 64BIT && CMODEL_MEDLOW
++		depends on 64BIT
+ 		bool "2GiB"
+ 	config MAXPHYSMEM_128GB
+ 		depends on 64BIT && CMODEL_MEDANY
 -- 
 2.32.0
 
