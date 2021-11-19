@@ -2,90 +2,67 @@ Return-Path: <SRS0=zkJ7=QG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CDA60C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 16:46:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A8262C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 19:46:42 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9BB1661545
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 16:46:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 9BB1661545
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=rivosinc.com
+	by mail.kernel.org (Postfix) with ESMTPS id 5775161B6F
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 19:46:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.kernel.org 5775161B6F
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
-	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SLt3/wKsK9PQnj7OqMRRExqgo9emYkjqLKoPMckJgWQ=; b=KWxHfS7Vtu3mvA
-	jVr91NkvCGj+f41P3afvYpe8vljl82FByt+6S2/3q2H3OkTpP70X8UqgdtAERbm4IkE/rV6dng5Cn
-	5EsOkPY2ho3vc8RdUhSmgKGCvH9X3d9VW3E0bZltISSDY0Ha4n8OkQSrirXm14HNHwSLFmrI5+t8I
-	xiXEeh21+Zd0NM6bUjk94r/FlLojkDNAYFK+bVdt/fnPmJt9zm833fWewuO2hxWBXqTR0O+iVxeUO
-	5/OPTE34pePCvhlBkVNYWrDGAnHFlHkUW98Q1v6DY66zN3JWMQGBm1EkphY0SXtaqtHH9GsVCx921
-	2dSRuDwG6WyXq72woL0g==;
+	List-Owner; bh=lYPLcft5lrixwqYQucAgGGm/G0T81IEnyZkBowyBoxM=; b=ADw8WFga+y6PI9
+	d0QUO+LvJhc3k7Oip7Tj25P68GAN4kEpekZwYvMSR1TdXQZljuyMAWi3d3GNQazZY14eF7EYG8UhP
+	H6g2LniCff840K0QhtV052LjG8TFuKBAzRDz+jnF/dZKPj107UUxKR0VOdQQyiCoJoh9cShNTErSr
+	Y8+4I7q0Q2iXk+WK3Q2MJR/yV9Qldw+67OX5XcLY1bMQdsGok3zw2YK5oZHwTk+bjniO5jJZUscjW
+	sxkG9/eJlj6RRlPdkS2Ga4mdvAZBsY7GWNO0u4/AvUvsKpGEKgmuKriG0UmUHCK089K0uaXKnoLw7
+	4AJuyFm5gMqeQWv8DoCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mo71O-00B6Lk-0A; Fri, 19 Nov 2021 16:45:54 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1mo9pw-00BUcQ-RT; Fri, 19 Nov 2021 19:46:16 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mo70d-00B5q1-Gz
- for linux-riscv@lists.infradead.org; Fri, 19 Nov 2021 16:45:08 +0000
-Received: by mail-pl1-x633.google.com with SMTP id u17so8550360plg.9
- for <linux-riscv@lists.infradead.org>; Fri, 19 Nov 2021 08:45:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
- h=subject:date:message-id:in-reply-to:references:mime-version
- :content-transfer-encoding:cc:from:to;
- bh=QtaSSFMsqBIq8kJ2oNDlofo69jd6X8iaroIn8+5/lTM=;
- b=IpNlfu3x0dU6brOg5DNWCgBZ6IQQvWYdhM0507AuWCbi2OXvgJ3/FNqMM/cgIPwYqC
- MC5RSEA3OoF0pz0467PG4AvRFBcCz+AfZuKl3gC3+52fehypa/gySy93x3sSwKL3P1SM
- m6OB9PKLClcwxhyx/B8EhF66k6eMBvuT2/CDn+292P+PIb39RItlSffZFrwKopBmN8ac
- xVnkdNZHzLpUkTxVwXtcF1y/GUhptW5XXy1Qo0ZhMedSilzdRH5ItRsNg2rZZcKbuIEo
- ZsIk147WLEe2Jx93JwVbMu5ovSKypy38Oq4ywlZY7PbdlYWAj1Xv8FbAV62hCHYKpz6n
- pVBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding:cc:from:to;
- bh=QtaSSFMsqBIq8kJ2oNDlofo69jd6X8iaroIn8+5/lTM=;
- b=ZRJqD5jIHSB6fnkf0zsv0W68HOkbObLMfq+4oB26eJ68UgCDVesKUa9EW7xI+wAuvx
- UKyfACei3KqTmoB04wP7Csn7u5ET9g0Lj8b8Ieo3VTNrRLnRH0W4DatypIbQY5M/pl6u
- 3EsEArSEamPKw5bBknDFXxbXy861ZknNYRyIjLzxs/qy6lJC1e8pVS+U6+t7ewnIOtt0
- uYD5wCQyLFmtxu/wEshTGixH6ft8zK3lPvUTXpFJEuqNkjA83+fdD7C1d5tUnjeRCgFQ
- 8mz2D2Yqop/F26RMMIU0HwVIqXNBO/Fc2WgcK84rCGcS0Ah9jlZNClvh/pWE7djCSMTB
- pxCw==
-X-Gm-Message-State: AOAM531DT9zVqNZgzbTolkWcIGBMs2zoJ/GpNYnTpxIEvTS3aOILfWEu
- 3A9LSDRNkwkrWKCOaPewN25F3A==
-X-Google-Smtp-Source: ABdhPJzam1HD0HGxNuDaeb2MJR9obhPXVMPUr0q5Y+mqSw/25JXA74d7shGTzIeWWNsFCvvqqEwzBQ==
-X-Received: by 2002:a17:902:d2c1:b0:141:f710:922 with SMTP id
- n1-20020a170902d2c100b00141f7100922mr42315105plc.7.1637340306392; 
- Fri, 19 Nov 2021 08:45:06 -0800 (PST)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id c2sm193607pfv.112.2021.11.19.08.45.05
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 19 Nov 2021 08:45:05 -0800 (PST)
-Subject: [PATCH 12/12] RISC-V: defconfigs: Remove redundant K210 DT source
-Date: Fri, 19 Nov 2021 08:44:13 -0800
-Message-Id: <20211119164413.29052-13-palmer@rivosinc.com>
-X-Mailer: git-send-email 2.32.0
-In-Reply-To: <20211119164413.29052-1-palmer@rivosinc.com>
-References: <20211119164413.29052-1-palmer@rivosinc.com>
-MIME-Version: 1.0
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- aou@eecs.berkeley.edu, anup.patel@wdc.com, heinrich.schuchardt@canonical.com,
- atish.patra@wdc.com, 
- bin.meng@windriver.com, sagar.kadam@sifive.com, damien.lemoal@wdc.com,
- axboe@kernel.dk, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Palmer Dabbelt <palmer@rivosinc.com>
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: linux-riscv@lists.infradead.org
+ id 1mo9pu-00BUc8-1W
+ for linux-riscv@lists.infradead.org; Fri, 19 Nov 2021 19:46:15 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPS id 6F14B61AF0;
+ Fri, 19 Nov 2021 19:46:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1637351173;
+ bh=BAPSiMNf24oxFkbo20Vax0yqWQI23M7l8iPHUj2eZGE=;
+ h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+ b=tDOW7zZN8PmiCe5cG620D2bsCBmgRi3AokGIp6kXul9p0Xk5oxdfYugn8lxL1qUVZ
+ nOa3l2p1SfwvwXOKf8Bohy82l2QAIfbeZUB2bZeEnBHAgdfv56zbrDRCAqUX405MuY
+ ediD1B+9rXHuXA5UGtA2Azp68O93hEmMeYjZIXKkhsEJcDYS1eqNdkzZK4o0SFv8in
+ ybJkIBAPPUw+I3Lp2n3I2HjIIAmaa5CaT5QtqFCNEWSVgMEhhqZh1y7K+fBtF/AI2d
+ zwi43NVAyCaHrIB+9+siPu9/WR8ooraOQ6OFEHrmbDZ+gfy4gOChC6jNWBw1YunvrG
+ 73bKXdXbL7cnw==
+Subject: Re: [GIT PULL] RISC-V Fixes for 5.16-rc2
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-fbf2cd0e-320d-4e42-a2f2-d5343d0a58b0@palmer-ri-x1c9>
+References: <mhng-fbf2cd0e-320d-4e42-a2f2-d5343d0a58b0@palmer-ri-x1c9>
+X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
+X-PR-Tracked-Message-Id: <mhng-fbf2cd0e-320d-4e42-a2f2-d5343d0a58b0@palmer-ri-x1c9>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
+ tags/riscv-for-linus-5.16-rc2
+X-PR-Tracked-Commit-Id: 5a19c7e06236a9c55dfc001bb4d1a8f1950d23e7
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 9539ba4308ad5bdca6cb41c7b73cbb9f796dcdd7
+Message-Id: <163735117332.2946.15185064032950139254.pr-tracker-bot@kernel.org>
+Date: Fri, 19 Nov 2021 19:46:13 +0000
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211119_084507_637424_D38E1128 
-X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-CacheID: sfid-20211119_114614_123942_A30F3180 
+X-CRM114-Status: UNSURE (   2.64  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,50 +75,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Palmer Dabbelt <palmer@rivosinc.com>
+The pull request you sent on Fri, 19 Nov 2021 08:18:46 -0800 (PST):
 
-The "k210_generic" DT has been the default in Kconfig since 7d96729a9e7
-("riscv: Update Canaan Kendryte K210 device tree"), so drop it from the
-defconfigs to avoid diff with savedefconfig.
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.16-rc2
 
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
----
- arch/riscv/configs/nommu_k210_defconfig        | 1 -
- arch/riscv/configs/nommu_k210_sdcard_defconfig | 1 -
- 2 files changed, 2 deletions(-)
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/9539ba4308ad5bdca6cb41c7b73cbb9f796dcdd7
 
-diff --git a/arch/riscv/configs/nommu_k210_defconfig b/arch/riscv/configs/nommu_k210_defconfig
-index 89ab76349ea8..e8ceab678e8b 100644
---- a/arch/riscv/configs/nommu_k210_defconfig
-+++ b/arch/riscv/configs/nommu_k210_defconfig
-@@ -29,7 +29,6 @@ CONFIG_EMBEDDED=y
- CONFIG_SLOB=y
- # CONFIG_MMU is not set
- CONFIG_SOC_CANAAN=y
--CONFIG_SOC_CANAAN_K210_DTB_SOURCE="k210_generic"
- CONFIG_MAXPHYSMEM_2GB=y
- CONFIG_SMP=y
- CONFIG_NR_CPUS=2
-diff --git a/arch/riscv/configs/nommu_k210_sdcard_defconfig b/arch/riscv/configs/nommu_k210_sdcard_defconfig
-index 84b87f8bfc8f..46aa3879f19c 100644
---- a/arch/riscv/configs/nommu_k210_sdcard_defconfig
-+++ b/arch/riscv/configs/nommu_k210_sdcard_defconfig
-@@ -21,7 +21,6 @@ CONFIG_EMBEDDED=y
- CONFIG_SLOB=y
- # CONFIG_MMU is not set
- CONFIG_SOC_CANAAN=y
--CONFIG_SOC_CANAAN_K210_DTB_SOURCE="k210_generic"
- CONFIG_MAXPHYSMEM_2GB=y
- CONFIG_SMP=y
- CONFIG_NR_CPUS=2
+Thank you!
+
 -- 
-2.32.0
-
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
