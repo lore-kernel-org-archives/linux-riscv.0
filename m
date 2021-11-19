@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16E7BC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 22:56:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53427C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Nov 2021 22:56:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eev1lEMrVnHIrOBD5Uq7HM/IAPaDcaJb71Xd8j5WrXI=; b=uWCJ7GM52brGq9
-	Z0e+Mpnlfe0UDCsedlbBNe/fhbTF5sG7pGwdxNoarvs/i0/pwG6y9IqmfXRTSafsqhNGa+Yxu5vgY
-	dnE0u/rQgU0wOcrhH4r2cuBykynuBgwwzHU0Ps2GwGweoPUAfA0R9cVvMWg5hIkOoA6pFxQEgELqr
-	gkRNi5amDqoLKw/kkVb4uYdKo75Fac8a/TxpDgp4Ny/lJDNRVk135/sGBN6M3tkhgFZbKbKIQxsW0
-	HoPWf0KoCuDchqYhkTRmSOEubn+SDW7LZHQa1kHMG7NNeVhfK1dJOotu90tsLkYS+jcVb+UR36E/9
-	cQRXWfbX05AGKs0GNB/w==;
+	List-Owner; bh=vDC4sodXJtj1MpmjbGLi+hImkQEqgi1jpqj/16k/U54=; b=bcazO6wtFW60vr
+	zfqoCr1K1vK8sNjVKCOFfsGjzwt8TvOWk/mlGpXvEcI9am4DbQVWsyWJq8KXnpDmGr0b1dS2lLUtf
+	ZCU1LrUblrl7GVOzSV+qB+1gouUgvF6IUw8zIv3Xtz5UeuDhmdkKue4hw0xFEBZMIGV4UjqI0s27O
+	NvzPHADni9u5hsfYprajePWigy3t/rzZjMm3oWdknIOehj60SHk4eSjgFo0xrrz9Be2PVNWGMyOp+
+	7swECDE8fqJynkEf1ToJzkEllgHgWPnm5FbJDI/Gv83kLtB41xlJeRAv9xnyYVzn+4FFjdvfKb98d
+	JXyqDp3GgXf+idh0kkJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1moCnh-00BkNn-Qy; Fri, 19 Nov 2021 22:56:09 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1moCnk-00BkPN-2s; Fri, 19 Nov 2021 22:56:12 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1moCnW-00BkGF-TC
+ id 1moCnW-00BkGN-Po
  for linux-riscv@lists.infradead.org; Fri, 19 Nov 2021 22:56:01 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id
- nh10-20020a17090b364a00b001a69adad5ebso9999023pjb.2
- for <linux-riscv@lists.infradead.org>; Fri, 19 Nov 2021 14:55:57 -0800 (PST)
+Received: by mail-pj1-x1031.google.com with SMTP id
+ np6-20020a17090b4c4600b001a90b011e06so9959577pjb.5
+ for <linux-riscv@lists.infradead.org>; Fri, 19 Nov 2021 14:55:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=from:to:subject:date:message-id:in-reply-to:references:mime-version
  :content-transfer-encoding;
- bh=3C4LuMh2VIE+wfKLtAY46glakCgCNvxeiTkI8GKqos4=;
- b=R+ZIw1XKRLZ9ySesQABrbTWa4gMlZwrFq+FIouSxHvqdXBsAwtrFP+20qRmNwSFRvc
- DASSwnuV+c32ig0DWg0QuxGajbinT4SwAe6f8klUqA4v4AURwQHOi40D1/L+8HVnMUrH
- 0FVznStLfU4IUALgW01U346ZlgwER3uex4ce43vmToFZBFIr9qE4L2+QNwShn/lcCPf/
- R10lNKpqsqe5QPjR8fdIgq+5KDcEVR6c9GSbBX0CP30YVyBpuJjdXf2LN2ruIhLO+UzE
- ZjtUCWmEU3SDnJs0YztmLQd868/zlWs0x82wvtShX9ZP4x8ZqmIdtyuRdkCc8PTtGmny
- lljg==
+ bh=go7zSbrsyOXEBuyqNxrQ/6jUwWHjYoKG+LWKw1i+E6U=;
+ b=HvySC0K0umDm1DXDhvxM0rFxkVZQ3r6tKjYqA4AODO+c/I+dNu/ylBZ6HhsfUQ8skI
+ 6l+8+9Dbun5XLdwj3hllMbiHGv27VixY8RArOWhg9s9hR668K3J7MOwb0xxFHGvaVuEC
+ saWIgChXSoFBSIT7pKfZQr5wuxwsgwrd2JE6SVsEYAcIiY3QkKimO3Vq8/gj3+RA4aje
+ iBb3uXUBtzN0sMOFSPojLFinT0BxZfLZnpq5o7PpJlQksbQ5nt+G7VLdmffGkYPaHZh/
+ r71f8v786+EBD1JfUD4BzoWwooi43CgJZqvdffINn9wonbjrYDgpZ4QR7nFsOiDlYTpP
+ 7Ylw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=3C4LuMh2VIE+wfKLtAY46glakCgCNvxeiTkI8GKqos4=;
- b=YbcX4WrEAg4n9PWr9kabkIKEct/WHti+7259H3aYRWCiiNKnuqjzJk/qkbGkEXOU5t
- ADpt4ceYbK7B4SIJV9uGQYWgJTv0F2FRqLUSjwoTUUH1mSU/M7ffz2GKiBvqkiygR6Uc
- 3D3qhwN0lxChpy7LcG5PB4B9YEY2o/JKtO8xoPgHVbt24YHxWQgSxLXbiEu2AmiT50/c
- dMxMBm8EJBnKUypGKJUEw5hjKD19XNelkbS+CfJC4p4QyFng4Ywwk2zy52YLPww40t+Z
- 1c0RhfUJLo2ErBKxsaQ5PXgUvP/F+HnTEOO6/4EgIfvsfpDdSY8COqmnqa1QqPYRw2mK
- tnJA==
-X-Gm-Message-State: AOAM530lqEOmrQ3Psfkdcwph4uS+9d1YWtYbGNuoy1+PO6RfwktldJdo
- 6W8odnvVVszJVW5jEOCRAxU=
-X-Google-Smtp-Source: ABdhPJwY8Ho1qj5lw0Ln31TtjBdyghc07ysy3t1VPuYmJWU2d5GkuGWEIMcZg5LZFL6DFOjcVGO/Dg==
-X-Received: by 2002:a17:903:1247:b0:143:b9b9:52a2 with SMTP id
- u7-20020a170903124700b00143b9b952a2mr65752312plh.35.1637362557406; 
+ bh=go7zSbrsyOXEBuyqNxrQ/6jUwWHjYoKG+LWKw1i+E6U=;
+ b=p6vRDxnSg4zpajwgvAjl57osvsAWmzgqwIPXcKem5zYTVizrGQ+C0S25Ts37KTmPPq
+ 3r/6PLpVktwa9X9OKYxRfc9eWDmOUlqpADk1ocVifo/BPighSCUELdD21JMeywAejKXs
+ ic9/WnnH5WEtF0yimaDGSN5P3Y+0LkbRg08tlgXOyiWi4aWYxEgJcMefb+Duuzm2sYMP
+ QiUhk4Fa53NUPJtbR0ukHabbk/IERI4NeaRN+p/6mtWRfoSBcEia3fMjLHT4EHH7NCfc
+ TbmX/04zfxeI0YE2oCcUUNXAJpm0/+5jZCkQK6OtRuOFTJb/MAbsj03QQXa55fuwapO5
+ IISA==
+X-Gm-Message-State: AOAM531GLMrVSLymw/vgaYrdmaP7uPSiHBmJ5txI22+LkFnqzb8iiMV6
+ QCOm+v9Hu2yYTpYYO1y2WEE=
+X-Google-Smtp-Source: ABdhPJzfOFU+bbHnZYLAdodVh2WkXT0FYb8ZQD/CVcLrJQd+C6mRVwmI8oPDelKD809eFdbkLowMjQ==
+X-Received: by 2002:a17:90b:1c87:: with SMTP id
+ oo7mr4046103pjb.159.1637362557779; 
  Fri, 19 Nov 2021 14:55:57 -0800 (PST)
 Received: from localhost.lan (p4857108-ipngn27301marunouchi.tokyo.ocn.ne.jp.
  [114.164.215.108])
- by smtp.gmail.com with ESMTPSA id me7sm13446042pjb.9.2021.11.19.14.55.56
+ by smtp.gmail.com with ESMTPSA id ep15sm8713349pjb.3.2021.11.19.14.55.56
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 19 Nov 2021 14:55:56 -0800 (PST)
+ Fri, 19 Nov 2021 14:55:57 -0800 (PST)
 Received: from x2.lan (localhost [127.0.0.1])
- by localhost.lan (Postfix) with ESMTPSA id 38B68900957;
+ by localhost.lan (Postfix) with ESMTPSA id 488B8900959;
  Fri, 19 Nov 2021 22:55:55 +0000 (GMT)
 From: Vincent Pelletier <plr.vincent@gmail.com>
 To: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
@@ -70,17 +70,17 @@ To: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
  Qiu Wenbo <qiuwenbo@kylinos.com.cn>, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  David Abdurachmanov <david.abdurachmanov@sifive.com>
-Subject: [PATCH v3 3/6] riscv: dts: sifive unmatched: Expose the PMIC
- sub-functions
-Date: Fri, 19 Nov 2021 22:55:39 +0000
-Message-Id: <d309ed6c649eb6b8b0e5e06b016a3eacbe845159.1637362542.git.plr.vincent@gmail.com>
+Subject: [PATCH v3 5/6] riscv: dts: sifive unmatched: Fix regulator for board
+ rev3
+Date: Fri, 19 Nov 2021 22:55:41 +0000
+Message-Id: <537742e7af4a21baf79429469ba7c30947ddca7a.1637362542.git.plr.vincent@gmail.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <378c64fb868b595430b0068a9af10fdbeceb8e12.1637362542.git.plr.vincent@gmail.com>
 References: <378c64fb868b595430b0068a9af10fdbeceb8e12.1637362542.git.plr.vincent@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211119_145558_990656_1C2FE57C 
-X-CRM114-Status: GOOD (  10.45  )
+X-CRM114-CacheID: sfid-20211119_145558_897259_95125DAA 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,8 +97,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-These sub-functions are available in the chip revision on this board, so
-expose them.
+The existing values are rejected by the da9063 regulator driver, as they
+are unachievable with the declared chip setup (non-merged vcore and bmem
+are unable to provide the declared curent).
+
+Fix voltages to match rev3 schematics, which also matches their boot-up
+configuration within the chip's available precision.
+Declare bcore1/bcore2 and bmem/bio as merged.
+Set ldo09 and ldo10 as always-on as their consumers are not declared but
+exist.
+Drop ldo current limits as there is no current limit feature for these
+regulators in the DA9063. Fixes warnings like:
+  DA9063_LDO3: Operation of current configuration missing
 
 Signed-off-by: Vincent Pelletier <plr.vincent@gmail.com>
 
@@ -108,32 +118,172 @@ Changes since v2:
 Changes since v1:
 - Remove trailing "." on subject line.
 ---
- arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ .../boot/dts/sifive/hifive-unmatched-a00.dts  | 84 ++++++-------------
+ 1 file changed, 24 insertions(+), 60 deletions(-)
 
 diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-index cf8937708829..270360b258b7 100644
+index 6e7775fdae32..1abad0eec02e 100644
 --- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
 +++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-@@ -75,6 +75,18 @@ pmic@58 {
- 		interrupts = <1 IRQ_TYPE_LEVEL_LOW>;
- 		interrupt-controller;
+@@ -93,47 +93,31 @@ wdt {
+ 		};
  
-+		onkey {
-+			compatible = "dlg,da9063-onkey";
-+		};
-+
-+		rtc {
-+			compatible = "dlg,da9063-rtc";
-+		};
-+
-+		wdt {
-+			compatible = "dlg,da9063-watchdog";
-+		};
-+
  		regulators {
- 			vdd_bcore1: bcore1 {
- 				regulator-min-microvolt = <900000>;
+-			vdd_bcore1: bcore1 {
+-				regulator-min-microvolt = <900000>;
+-				regulator-max-microvolt = <900000>;
+-				regulator-min-microamp = <5000000>;
+-				regulator-max-microamp = <5000000>;
+-				regulator-always-on;
+-			};
+-
+-			vdd_bcore2: bcore2 {
+-				regulator-min-microvolt = <900000>;
+-				regulator-max-microvolt = <900000>;
+-				regulator-min-microamp = <5000000>;
+-				regulator-max-microamp = <5000000>;
++			vdd_bcore: bcores-merged {
++				regulator-min-microvolt = <1050000>;
++				regulator-max-microvolt = <1050000>;
++				regulator-min-microamp = <4800000>;
++				regulator-max-microamp = <4800000>;
+ 				regulator-always-on;
+ 			};
+ 
+ 			vdd_bpro: bpro {
+ 				regulator-min-microvolt = <1800000>;
+ 				regulator-max-microvolt = <1800000>;
+-				regulator-min-microamp = <2500000>;
+-				regulator-max-microamp = <2500000>;
++				regulator-min-microamp = <2400000>;
++				regulator-max-microamp = <2400000>;
+ 				regulator-always-on;
+ 			};
+ 
+ 			vdd_bperi: bperi {
+-				regulator-min-microvolt = <1050000>;
+-				regulator-max-microvolt = <1050000>;
++				regulator-min-microvolt = <1060000>;
++				regulator-max-microvolt = <1060000>;
+ 				regulator-min-microamp = <1500000>;
+ 				regulator-max-microamp = <1500000>;
+ 				regulator-always-on;
+ 			};
+ 
+-			vdd_bmem: bmem {
+-				regulator-min-microvolt = <1200000>;
+-				regulator-max-microvolt = <1200000>;
+-				regulator-min-microamp = <3000000>;
+-				regulator-max-microamp = <3000000>;
+-				regulator-always-on;
+-			};
+-
+-			vdd_bio: bio {
++			vdd_bmem_bio: bmem-bio-merged {
+ 				regulator-min-microvolt = <1200000>;
+ 				regulator-max-microvolt = <1200000>;
+ 				regulator-min-microamp = <3000000>;
+@@ -144,86 +128,66 @@ vdd_bio: bio {
+ 			vdd_ldo1: ldo1 {
+ 				regulator-min-microvolt = <1800000>;
+ 				regulator-max-microvolt = <1800000>;
+-				regulator-min-microamp = <100000>;
+-				regulator-max-microamp = <100000>;
+ 				regulator-always-on;
+ 			};
+ 
+ 			vdd_ldo2: ldo2 {
+ 				regulator-min-microvolt = <1800000>;
+ 				regulator-max-microvolt = <1800000>;
+-				regulator-min-microamp = <200000>;
+-				regulator-max-microamp = <200000>;
+ 				regulator-always-on;
+ 			};
+ 
+ 			vdd_ldo3: ldo3 {
+-				regulator-min-microvolt = <1800000>;
+-				regulator-max-microvolt = <1800000>;
+-				regulator-min-microamp = <200000>;
+-				regulator-max-microamp = <200000>;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
+ 				regulator-always-on;
+ 			};
+ 
+ 			vdd_ldo4: ldo4 {
+-				regulator-min-microvolt = <1800000>;
+-				regulator-max-microvolt = <1800000>;
+-				regulator-min-microamp = <200000>;
+-				regulator-max-microamp = <200000>;
++				regulator-min-microvolt = <2500000>;
++				regulator-max-microvolt = <2500000>;
+ 				regulator-always-on;
+ 			};
+ 
+ 			vdd_ldo5: ldo5 {
+-				regulator-min-microvolt = <1800000>;
+-				regulator-max-microvolt = <1800000>;
+-				regulator-min-microamp = <100000>;
+-				regulator-max-microamp = <100000>;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
+ 				regulator-always-on;
+ 			};
+ 
+ 			vdd_ldo6: ldo6 {
+-				regulator-min-microvolt = <3300000>;
+-				regulator-max-microvolt = <3300000>;
+-				regulator-min-microamp = <200000>;
+-				regulator-max-microamp = <200000>;
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
+ 				regulator-always-on;
+ 			};
+ 
+ 			vdd_ldo7: ldo7 {
+-				regulator-min-microvolt = <1800000>;
+-				regulator-max-microvolt = <1800000>;
+-				regulator-min-microamp = <200000>;
+-				regulator-max-microamp = <200000>;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
+ 				regulator-always-on;
+ 			};
+ 
+ 			vdd_ldo8: ldo8 {
+-				regulator-min-microvolt = <1800000>;
+-				regulator-max-microvolt = <1800000>;
+-				regulator-min-microamp = <200000>;
+-				regulator-max-microamp = <200000>;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
+ 				regulator-always-on;
+ 			};
+ 
+ 			vdd_ld09: ldo9 {
+ 				regulator-min-microvolt = <1050000>;
+ 				regulator-max-microvolt = <1050000>;
+-				regulator-min-microamp = <200000>;
+-				regulator-max-microamp = <200000>;
++				regulator-always-on;
+ 			};
+ 
+ 			vdd_ldo10: ldo10 {
+ 				regulator-min-microvolt = <1000000>;
+ 				regulator-max-microvolt = <1000000>;
+-				regulator-min-microamp = <300000>;
+-				regulator-max-microamp = <300000>;
++				regulator-always-on;
+ 			};
+ 
+ 			vdd_ldo11: ldo11 {
+ 				regulator-min-microvolt = <2500000>;
+ 				regulator-max-microvolt = <2500000>;
+-				regulator-min-microamp = <300000>;
+-				regulator-max-microamp = <300000>;
+ 				regulator-always-on;
+ 			};
+ 		};
 -- 
 2.33.1
 
