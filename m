@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB5AC433F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Nov 2021 03:58:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07272C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Nov 2021 03:59:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OxfY7BK2IPsi/A404Is826AZXI311H3vlYrE3YyRMpA=; b=Uteq+f7Higb8yG
-	XSSU9178NO58cxXT42ZmW/cGB38TwdFuXisF8d+Hgdg6jgbLuV0jB8C+cCZEPNWYayeyYbuyZ55og
-	qNC+LaKafrSKJnlS/u2iqqo6n8WHsN0MNXuygTBUZvsLwMkGHeOxzcr6YFuKzBv/3X4VWI19fFyag
-	n9Yh/itOwBm/lpBFSk5veGaVwhV5rrzRXEdHY1QlK7tM/6g+gydzuIhbMpvEtofSX7/zfWBNaobol
-	5U87i007k2y6EgIJUcpI0SnBaS8nFRkVKcaOQhxiEaw4qA/6olCa+X6UdONjoYA+5OnrwJdd4SqyJ
-	TsY+53zvZwV/Ey9OrDjg==;
+	List-Owner; bh=2jzHZZjWQyNxpHrcsfFPXRnRtN5BXI807TfuDXZwuSU=; b=QZL9bHrUHOygmw
+	ejm5nlWw2ic64K5FK12Ee2o2bqievMLbwfW4tlk2+yM/lRwS3I19PMaRUEuqA00K1UxxFIeh8O1Gc
+	g1wj3153YZVF5sU/IvFiUM0AycTBm9xp+Iz/vRJFYzcyRnTJzQLANqgcGQrPyZ0/EDu2kqcY1nLl1
+	KnB2zjmRP+RELuBEIMhiaWfVCb4MTfEVc8mSsibHIsI6kkuI/PIvfKryDIkOlwM1U7PY8jCuk4t7f
+	fHKXO5ecGylEhojbZdv3qp7IDHcbAv1gq7iHZ9AAdGjLZwHMfSGcv9Xs9l+HHKyUA8c340+QrM5YK
+	fphofTxZR34HiI6AdIQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1moHWD-00Bzok-Kx; Sat, 20 Nov 2021 03:58:25 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1moHWu-00Bzya-8k; Sat, 20 Nov 2021 03:59:08 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1moHWA-00Bzng-AL
- for linux-riscv@lists.infradead.org; Sat, 20 Nov 2021 03:58:23 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id t30so21407197wra.10
- for <linux-riscv@lists.infradead.org>; Fri, 19 Nov 2021 19:58:21 -0800 (PST)
+ id 1moHWk-00BzvN-Lg
+ for linux-riscv@lists.infradead.org; Sat, 20 Nov 2021 03:58:59 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id
+ d72-20020a1c1d4b000000b00331140f3dc8so8963170wmd.1
+ for <linux-riscv@lists.infradead.org>; Fri, 19 Nov 2021 19:58:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20210112.gappssmtp.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=k2CjoMsxBptXVqkDa29fYtIMwwlgdoCQU4ETPJxBOQ8=;
- b=EhjqRL/Z4pOX+J811Y+x6gcbH7pV9cQJosEHhcTLiQ8rexN1ajlRPoJoyIr/dwbIJC
- 7MYQVzWG8XuY/mcMHREuB9s36SOreVe8G4NfHUKz0ChpPWhUABvb23kh9dBqZHJ0RIpK
- hRFVUGXQ3ZeSCUS5YD6jV3efnsb2lcfO7GRok5FVKGBgWYz9ucsvDBH55XxtJzn/Ge4L
- rHxArTMMLhYF2nsWLagRH7L/2ME08CJZTMuYvVAZGA6tCp9BDdt+TXtFwW94ARDQuHmK
- sGyiIJX5klNEISw5aGszx81lylTc9nA56c/rE1RmYJYNgXxMjUiNnP7seCTWs7Ru0FOn
- Kr2A==
+ :cc; bh=DZYiApMduuSUSVo0a5ZI0oTWJ8xtKLdFelQTyemXbbQ=;
+ b=5c6GORhf+WRLkc/gfr4y8e7I7nMGDHfnIYlS2jTIE8hbYuu7+jRGuXTpGHtjDS4aii
+ O4vjrKpTO9e8YaO3rR/ezslgjA3pEoTswecPQOWSi4fMFVmREEon8nJJrJt31EqGAfZz
+ SGZfMzbvui2C+03yudQ3ZhRqoi7C+9PqAFC2Asu6OrN7UYdyoBEncqC8iZ4qaCS836sm
+ WBfWk5nDr0jUvCano/3mlwxu7fOksfi2aNi7lbql+r4xcVFBipz6yDWQLj3LSSrgcfH0
+ C35zlAApYcaWCKS4xBN9bCpVyAJl0T9ZrV5eMhNXAq8adL5jHNhQjSKxYf4v7jiidzqF
+ TPBg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=k2CjoMsxBptXVqkDa29fYtIMwwlgdoCQU4ETPJxBOQ8=;
- b=tXSr9T2nNLbf0HQsMyitOTnvcZDjFOSm2cFo12jeLS5rs1zO1wix+p399bnXemy8++
- n40TXSi+PAiU2xALcXbkOPlv0WPLE6zUtN/gJxzTkN7AoNi3h6n4xA9kBSsUuHtRlzPc
- WM8T6qJchMN8N3JWCiLIEMdmnx9E9m6YPtiSFnDbTmEEHJzUGG2IG65f/OkUlrYG0bwk
- vubKToelNPNTU//LlAPkfWNkbIPcX2QJDTMGvt2IrrYk8tjCHc9vxqSwW4ufOPeYixrM
- fX+SNFXfnr2ATSkV5dlSk/Ap8c+5MMff+wqNFU/PdjgllTsBUNB2Lie3A/8Rf4NJEOpN
- PzwQ==
-X-Gm-Message-State: AOAM531jC73Er9ss3AKnx5lE+CBcoRX69z8As6cF1G6gZFrSqXXjf+5P
- R9wuxghE5oPdMa2EtnNNBE+TKN+Z9VMX/w15CBI9AQ==
-X-Google-Smtp-Source: ABdhPJwGvccO8ogaudOrnhnsD+gIPWIGY/81C3RezCTNz+iSgUGzBBaViIBhkvwypBJ+MIZDrneEzGUnme2SftJo9y8=
-X-Received: by 2002:a5d:4846:: with SMTP id n6mr13626836wrs.249.1637380700802; 
- Fri, 19 Nov 2021 19:58:20 -0800 (PST)
+ bh=DZYiApMduuSUSVo0a5ZI0oTWJ8xtKLdFelQTyemXbbQ=;
+ b=YKL7lIAvWcCoVhab+cIhQl39OpVGOV/pmlr+N+9N1N8tEsh54tHTmRmKIR9P8zsrhn
+ /nW95pF99HO/I/G2uO1RzohmKMjbWbcx5Cvmv8zmQodCXkJtGeC0UsJsOPNv91F0n0M6
+ JslIeHNLZ+4uj/C28wGMXsmEVVlG2TU/dC33bN8VgZNrxsG49szTJpUbzZc7YkWx2AFf
+ slpKYK7pO1EWX5c9FuSDF7HySHXNV6K5maQqTJj9L9i2QqfjuukPLZDr70TwErVIexVQ
+ x3/MsxE1Og778O45aCUyZL3EjqSwPW6zT3n+cSzj1R+5sKxgc9fGedKuYbwe99KvLIg2
+ v1Zg==
+X-Gm-Message-State: AOAM532YDejFZq2z+e4DEZdHF0lIv8mLtpGvFmFaW+RV9bVtohQUz2Zg
+ mcW1ouh9KdRL1+w6SB7Rt9pS8kkDIum2GuC/T4zn+g==
+X-Google-Smtp-Source: ABdhPJyDN2ljnvSNv27TGYtAXhgwHlWULEDydkRR1sAalj1nRiTC2Oq+RxdD2dlTq1ZgCWiqzJ0zDASWV0+gp++akbQ=
+X-Received: by 2002:a1c:20cc:: with SMTP id g195mr6455534wmg.137.1637380737029; 
+ Fri, 19 Nov 2021 19:58:57 -0800 (PST)
 MIME-Version: 1.0
 References: <20211119164413.29052-1-palmer@rivosinc.com>
- <20211119164413.29052-4-palmer@rivosinc.com>
-In-Reply-To: <20211119164413.29052-4-palmer@rivosinc.com>
+ <20211119164413.29052-5-palmer@rivosinc.com>
+In-Reply-To: <20211119164413.29052-5-palmer@rivosinc.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Sat, 20 Nov 2021 09:28:09 +0530
-Message-ID: <CAAhSdy2qswfrbb0LMNxq-U29og9OQRwRyMBH+KaGPgFdDQEgEg@mail.gmail.com>
-Subject: Re: [PATCH 03/12] RISC-V: defconfigs: Sort CONFIG_BPF_SYSCALL
+Date: Sat, 20 Nov 2021 09:28:45 +0530
+Message-ID: <CAAhSdy1Yx0NzqCzyHeGfa_be+w0xZLMotp7n9+nq415_u+v_FA@mail.gmail.com>
+Subject: Re: [PATCH 04/12] RISC-V: defconfigs: Sort CONFIG_SYSFS_SYSCALL
 To: Palmer Dabbelt <palmer@rivosinc.com>
 Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
  Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup.patel@wdc.com>, 
  Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
- Bin Meng <bin.meng@windriver.com>, 
- Sagar Shrikant Kadam <sagar.kadam@sifive.com>,
+ Atish Patra <atish.patra@wdc.com>, Bin Meng <bin.meng@windriver.com>,
+ Sagar Shrikant Kadam <sagar.kadam@sifive.com>, 
  Damien Le Moal <damien.lemoal@wdc.com>, axboe@kernel.dk, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <atishp@atishpatra.org>
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211119_195822_389047_41B8A6F0 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20211119_195858_747806_6699EC23 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,12 +90,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 19, 2021 at 10:14 PM Palmer Dabbelt <palmer@rivosinc.com> wrote:
+On Fri, Nov 19, 2021 at 10:15 PM Palmer Dabbelt <palmer@rivosinc.com> wrote:
 >
 > From: Palmer Dabbelt <palmer@rivosinc.com>
 >
-> This should have no functional change, it just sorts CONFIG_BPF_SYSCALL
-> the same way savedefconfig does.
+> This should have no functional change, it just sorts
+> CONFIG_SYSFS_SYSCALL the same way savedefconfig does.
 >
 > Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 
@@ -112,45 +112,40 @@ Anup
 >  2 files changed, 2 insertions(+), 2 deletions(-)
 >
 > diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> index 11de2ab9ed6e..a6cb99cf4d3c 100644
+> index a6cb99cf4d3c..96c2a3615bcd 100644
 > --- a/arch/riscv/configs/defconfig
 > +++ b/arch/riscv/configs/defconfig
-> @@ -2,6 +2,7 @@ CONFIG_SYSVIPC=y
->  CONFIG_POSIX_MQUEUE=y
->  CONFIG_NO_HZ_IDLE=y
->  CONFIG_HIGH_RES_TIMERS=y
-> +CONFIG_BPF_SYSCALL=y
->  CONFIG_IKCONFIG=y
->  CONFIG_IKCONFIG_PROC=y
->  CONFIG_CGROUPS=y
-> @@ -13,7 +14,6 @@ CONFIG_USER_NS=y
+> @@ -14,6 +14,7 @@ CONFIG_USER_NS=y
 >  CONFIG_CHECKPOINT_RESTORE=y
 >  CONFIG_BLK_DEV_INITRD=y
 >  CONFIG_EXPERT=y
-> -CONFIG_BPF_SYSCALL=y
+> +# CONFIG_SYSFS_SYSCALL is not set
 >  CONFIG_SOC_SIFIVE=y
 >  CONFIG_SOC_VIRT=y
 >  CONFIG_SOC_MICROCHIP_POLARFIRE=y
+> @@ -143,5 +144,4 @@ CONFIG_RCU_EQS_DEBUG=y
+>  # CONFIG_FTRACE is not set
+>  # CONFIG_RUNTIME_TESTING_MENU is not set
+>  CONFIG_MEMTEST=y
+> -# CONFIG_SYSFS_SYSCALL is not set
+>  CONFIG_EFI=y
 > diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-> index 05b6f17adbc1..8a57c940d5ef 100644
+> index 8a57c940d5ef..1f6808aa1261 100644
 > --- a/arch/riscv/configs/rv32_defconfig
 > +++ b/arch/riscv/configs/rv32_defconfig
-> @@ -2,6 +2,7 @@ CONFIG_SYSVIPC=y
->  CONFIG_POSIX_MQUEUE=y
->  CONFIG_NO_HZ_IDLE=y
->  CONFIG_HIGH_RES_TIMERS=y
-> +CONFIG_BPF_SYSCALL=y
->  CONFIG_IKCONFIG=y
->  CONFIG_IKCONFIG_PROC=y
->  CONFIG_CGROUPS=y
-> @@ -13,7 +14,6 @@ CONFIG_USER_NS=y
+> @@ -14,6 +14,7 @@ CONFIG_USER_NS=y
 >  CONFIG_CHECKPOINT_RESTORE=y
 >  CONFIG_BLK_DEV_INITRD=y
 >  CONFIG_EXPERT=y
-> -CONFIG_BPF_SYSCALL=y
+> +# CONFIG_SYSFS_SYSCALL is not set
 >  CONFIG_SOC_SIFIVE=y
 >  CONFIG_SOC_VIRT=y
 >  CONFIG_ARCH_RV32I=y
+> @@ -133,4 +134,3 @@ CONFIG_RCU_EQS_DEBUG=y
+>  # CONFIG_FTRACE is not set
+>  # CONFIG_RUNTIME_TESTING_MENU is not set
+>  CONFIG_MEMTEST=y
+> -# CONFIG_SYSFS_SYSCALL is not set
 > --
 > 2.32.0
 >
