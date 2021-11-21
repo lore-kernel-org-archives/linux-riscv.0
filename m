@@ -4,74 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB49C433F5
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Nov 2021 23:19:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0884AC433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Nov 2021 23:35:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s+f3O/uPFQ5RH2f7PDa6qfy1iWk4DoKMpGNXG+9FKs0=; b=tJYX4kMjILcUE9
-	CIPvcZkz9UDDjqG6igwkiJXjXLnUpfhYEPr95l2nPJPNgrQR9LCYvHYbgehhQpeZBgO154xFLHcQg
-	24QGo77toB8YMt1GasI9v6wpaOMUV+FhiyIk5D0hCMoRoNbHYSCYwHWv+MultVyy/nl+QMpMz/SSS
-	RdbzbWmyWBGaJEgEXmJdq82m1p+xrsDauA3q5WqCjKAnMNigF/3EbU41w6OPDYN0hqZDYij/jsUBW
-	RDDJCoKajRxhAP2E6/zke7OQkqJcP0yqCQaLYTqppjJMupyrh58VCnYHW2TN24aOwDrWpGDsS7Y9o
-	8rSfieYzOO5ZnegnVZDA==;
+	List-Owner; bh=i7CrhQgOjlMATbFRD5ksFjXVsmRRMxOoBhA33PQUAHc=; b=opHMl6hAfC9cPN
+	HrXALlQp6iM57zZcuen7KYeBdLFgAimN7tXbruI0IyEHA4dXAlpRmC2KmxFEfOE6Bq50yKBz/NJXE
+	w/PNszHkezKqvccxS/0v0mezX5pgup7g9DyKrrS6/JyfO4oOGHYTASrwWp8CUKYVPqmG/JLEytc5x
+	B4SC27Yrt0I7NSxxbOgmVoiAoB8ZZXEAEWXxcQFC5SDlbULL+TKwYfg4mCo+UZezpNa1+j3Ab+Yrw
+	Hj3HvGyzVK/RJuPAKHsOCKzmxnNyg5HJIu2MRDJjhREjHhtBhcxLwRg2zZWjHpz8TW8H44VdcveHZ
+	gpW7ry60I33QCTMLIOJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mow7V-00ESfS-4S; Sun, 21 Nov 2021 23:19:37 +0000
-Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
+	id 1mowN4-00EWWy-CB; Sun, 21 Nov 2021 23:35:42 +0000
+Received: from mail-ot1-x32c.google.com ([2607:f8b0:4864:20::32c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mow7S-00ESdy-KO
- for linux-riscv@lists.infradead.org; Sun, 21 Nov 2021 23:19:36 +0000
-Received: by mail-ot1-x32f.google.com with SMTP id
- o15-20020a9d410f000000b0055c942cc7a0so26107060ote.8
- for <linux-riscv@lists.infradead.org>; Sun, 21 Nov 2021 15:19:34 -0800 (PST)
+ id 1mowN1-00EWVq-3x
+ for linux-riscv@lists.infradead.org; Sun, 21 Nov 2021 23:35:40 +0000
+Received: by mail-ot1-x32c.google.com with SMTP id
+ v15-20020a9d604f000000b0056cdb373b82so26148295otj.7
+ for <linux-riscv@lists.infradead.org>; Sun, 21 Nov 2021 15:35:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=niG4LhykdMe2sCgAWkzlpTzAknhhfhfFKN7/kHVLdb8=;
- b=wcakSBzJXl9BZALRNXqLiyhsCB+m6PdHwbi8HzqWYQSDqzOUzvEqpnvo21ThgDfiUG
- YeyUYuOqKliWaPSXP/3LV4nTzhJ67sErjZ9XmD8vEyQ0pDW321Hx2roOzp9DvJ0BEA7J
- 2IWUMeWBcGigOgZN2CdXyeomJHmgrZ/hwlM+gUea3h48Ioa5ZpPo0L3VUny+fxgUQ0ks
- /ZLvb22GhtsiEvG5gQXnXcMFBm5AfOhDm+50f7dWkr6nQIM/zeugbt4FCtIx6kcdwEIS
- IWPVkQyjCfhxRQIYm1R2CrQsPeeRMtMsD9QvTBmJ8X3sG9ojs8/p/EM1lQ+VBLpDkc4q
- TKDw==
+ :cc; bh=BaBwOZhHd4DxX6OyrXmhy1nl2ZJax3QUSfV+91vGF7M=;
+ b=K+j7e9qBhUAibBOZEuR3+OvgRRz5+9kXuJpfy7hOrCUUI5mVAVvfPjVaSaQWagEtmD
+ VaQjSDZvZCKKfl/PaO0UdwCeIlqMJ7eJooO6eT7GjoXW1uvDDryVqntBnxqhbhpAdjE3
+ CmxKLcWB9dGg5+uW12IGRoofHXHVRV9TegwAW6qUaX/HiDYCvGQYSP2/TGLWo1eJk41q
+ HLONx6bHVQumcQ5Vy4Z+6fD/ZgNYF7VwvELj9YticGsmN4Q2lcnFiWT5fPI5W1ugXnAY
+ wRaew207TxZ9kuepimcJjzsp7th6vntEkiki7IDzihCyEVwhCSWDlcpKyzXN5bcdu5J+
+ tDSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=niG4LhykdMe2sCgAWkzlpTzAknhhfhfFKN7/kHVLdb8=;
- b=iSkqQIL653Gg/G6syxtDuJcavK4glIG5Ndxn9QQ2lsynsAKlKfUFcexUIygmIGUyg1
- KAPvoEqchPZXjg9S4bdJlgseJ3txskuumjr5j4+X59LkGpNMBnXTyYG8xd8kSMQLkKUd
- gL9HiGHqQ6/Hm26Kjd+rn68nyZHeSCNj9q8fDln4N1whSfQP+f/7X38fnBxFpSafKez4
- U//DWyJCyC8kuO+uXIjTeSEJ2bVoTdFwc6vuYfgKsY1xOBIPwpQWGidt9tOXB87tUqNv
- gm6cQwNN+rON+uBBsyZYB5rnqQNZNsjbz9IOeaTr8RpilbjEp3ZVff6+S3ByYAWyMj/B
- BtGg==
-X-Gm-Message-State: AOAM5307RGcGvujfKwEbU9rjO80RY+6oN8aEjh4ZnG4IsLUKIZBzqhm1
- yDRhFUIlsssE93YbkUq2P/DjKFY3jXUburZySlkmMg==
-X-Google-Smtp-Source: ABdhPJyVdtjQUoLHr9GMlVhAVr/1N/sztecCcTj39EJlBe5nSjbyIi50Oo/ofoA+ROJrbzFktx9bDGshBDQgVsRlEgw=
-X-Received: by 2002:a9d:ed6:: with SMTP id 80mr20546619otj.35.1637536773648;
- Sun, 21 Nov 2021 15:19:33 -0800 (PST)
+ bh=BaBwOZhHd4DxX6OyrXmhy1nl2ZJax3QUSfV+91vGF7M=;
+ b=4iN24GyNTURtg8bfqzJZXfBTXkH49o+U6H7waLp+MQIfz6l/3VGbLAS80kvuOBhfbc
+ tLd2U4JPgjtgf388maIgwCdsFsqsAXSjp/LYsbERZ9gDSexFN6nrtT31wU7B0Mr6AzHM
+ QU8WCprNudBPWtwP2yiOBdnhzqYKav4snfjUR5r2FkjsFfQwV5ue+qwKaH6jOEA1ZcAL
+ mJyIUBlZWZt9uPWV6lf41c+Zd/RLQDHVsVAddvbuBmD/prgRbzmP4Jjg4DTVnCEJVt1f
+ MIGSfUukpF78stcgtm9wAmL2tz8MoWVrgIaoHda7q/sG9MXejL8m+enmOGJTOE2rYrbl
+ cR4Q==
+X-Gm-Message-State: AOAM531/1ZL0g2Iq/AoFdS5+ksOd8gpdswd5eHTY4QEXec4G7bbgCEyX
+ tyotu0FV4FhOLQzar+V/244oltm5llxI45TofvhOHw==
+X-Google-Smtp-Source: ABdhPJxP1hm4dAk3hP5iwxGTmVS5kCY5d1BVX1iWfJPo1f0KYbx3q9C2qhLGJ7JQjety/S6BZHEqWcsnr8krInQwy+4=
+X-Received: by 2002:a9d:a42:: with SMTP id 60mr21475101otg.179.1637537737964; 
+ Sun, 21 Nov 2021 15:35:37 -0800 (PST)
 MIME-Version: 1.0
-References: <20211102161125.1144023-1-kernel@esmil.dk>
- <20211102161125.1144023-12-kernel@esmil.dk>
- <CACRpkdb0CrJ_uTbtfg-xGq8uu0AKoqfAB03mF2CA_G8ys_8Lzg@mail.gmail.com>
- <CANBLGcwvGptHxP5+JQEQV1Y7G=dNTt86QuVgfUuvQDDBfNrzOA@mail.gmail.com>
-In-Reply-To: <CANBLGcwvGptHxP5+JQEQV1Y7G=dNTt86QuVgfUuvQDDBfNrzOA@mail.gmail.com>
+References: <20211116150119.2171-1-kernel@esmil.dk>
+ <20211116150119.2171-13-kernel@esmil.dk>
+In-Reply-To: <20211116150119.2171-13-kernel@esmil.dk>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 22 Nov 2021 00:19:22 +0100
-Message-ID: <CACRpkdbsP1zibFvg2yL67ndQJ1MxBRmH5j+cZ-giZkmrnGROdw@mail.gmail.com>
-Subject: Re: [PATCH v3 11/16] dt-bindings: pinctrl: Add StarFive JH7100
- bindings
+Date: Mon, 22 Nov 2021 00:35:26 +0100
+Message-ID: <CACRpkdbsRg3KB=xvhUPF3gVjE92pTwsbV+1SOJ=DXSE7c9VNHw@mail.gmail.com>
+Subject: Re: [PATCH v4 12/16] pinctrl: starfive: Add pinctrl driver for
+ StarFive SoCs
 To: Emil Renner Berthing <kernel@esmil.dk>
-Cc: Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>, 
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
- "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ linux-serial@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, 
  Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
  Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
@@ -84,11 +78,11 @@ Cc: Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
  Drew Fustini <drew@beagleboard.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
  Michael Zhu <michael.zhu@starfivetech.com>, Fu Wei <tekkamanninja@gmail.com>, 
  Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
- Matteo Croce <mcroce@microsoft.com>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, soc@kernel.org
+ Matteo Croce <mcroce@microsoft.com>, Arnd Bergmann <arnd@arndb.de>,
+ linux-kernel@vger.kernel.org, Huan Feng <huan.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211121_151934_696147_636BF8F0 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20211121_153539_203615_1730939C 
+X-CRM114-Status: GOOD (  16.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,20 +99,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 12, 2021 at 12:04 AM Emil Renner Berthing <kernel@esmil.dk> wrote:
-> On Tue, 9 Nov 2021 at 01:46, Linus Walleij <linus.walleij@linaro.org> wrote:
+On Tue, Nov 16, 2021 at 4:02 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
 
-> > As it appears to have some cross dependencies I assume
-> > it will be merged through the SoC tree?
+> Add a combined pinctrl and GPIO driver for the JH7100 RISC-V SoC by
+> StarFive Ltd. This is a test chip for their upcoming JH7110 SoC, which
+> is said to feature only minor changes to these pinctrl/GPIO parts.
 >
-> I don't know. I've never tried this before, so whatever is easiest I
-> guess. Do I do anything special other than cc'ing soc@kernel.org for
-> v4 to make that happen?
+> For each "GPIO" there are two registers for configuring the output and
+> output enable signals which may come from other peripherals. Among these
+> are two special signals that are constant 0 and constant 1 respectively.
+> Controlling the GPIOs from software is done by choosing one of these
+> signals. In other words the same registers are used for both pin muxing
+> and controlling the GPIOs, which makes it easier to combine the pinctrl
+> and GPIO driver in one.
+>
+> I wrote the pinconf and pinmux parts, but the GPIO part of the code is
+> based on the GPIO driver in the vendor tree written by Huan Feng with
+> cleanups and fixes by Drew and me.
+>
+> Datasheet: https://github.com/starfive-tech/JH7100_Docs/blob/main/JH7100%20Data%20Sheet%20V01.01.04-EN%20(4-21-2021).pdf
+> Co-developed-by: Huan Feng <huan.feng@starfivetech.com>
+> Signed-off-by: Huan Feng <huan.feng@starfivetech.com>
+> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> Co-developed-by: Drew Fustini <drew@beagleboard.org>
+> Signed-off-by: Drew Fustini <drew@beagleboard.org>
 
-You create a pull request with git request-pull and sent it to
-soc@vger.kernel.org and linux-arm-kernel on Cc that should
-work fine and it appears here:
-https://patchwork.kernel.org/project/linux-soc/list/
+Overall there is nothing wrong with this, and it is in nice shape.
+Let's merge it:
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
 Yours,
 Linus Walleij
