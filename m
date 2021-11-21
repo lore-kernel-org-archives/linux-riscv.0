@@ -4,64 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C5FCC433F5
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Nov 2021 09:26:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABDF4C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Nov 2021 17:23:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iigYbtQFMbrfY/l5hU+hiJPeM7tnixczGnwNKcTtoNA=; b=OezMprc6tAruXq
-	i+waPtSstVTDzg2jtlJtCgsb+7um0eIN6Yfm1H74njiYbk3Zhox9IG632WH+yU+6MQv2CmBNiQ4pp
-	HgRRsWcYn/Ndla+F6lUiUq7yvOYSYKCLyHSwGNitf+1dJx+8j7Q5UipvEnnSwiX0ciNaezrSPGbhn
-	LaW4xbsO0lOqeKzvkOmjEramE+nDhxhuWW7anYjU07jVmvyzSzpBSbiZz+U3U7nzLko3z2dtdTMk7
-	aeRINw9N+IWy8GHvnECvimmU/7PIPayyI3AAaVOXvvw4VC8tpQ1gnDbxtsMCOUpiKCoaCtKtHqwEX
-	YlPGXZL0rjaA4DBXbOAA==;
+	List-Owner; bh=GHQ2klkeG3aaG4m2tna539ysVrgRfpg766HpT6Eh7t4=; b=4RrrBKxDEj5I8f
+	wmB44VROrLb0kcJnhnVMgH6YOiCnFI/e5g6eY2l0ec5GgsMYCpyXJqIhcF+2RGPumY65/L8ZH8nxw
+	iFirXmgHHhg1X1Hdal4riRoOCye9W/Iq6A1ru+umRJ5RJqVR+kIBL6KBrC3RfObHzqy90baMoiSbm
+	BDOJbbFKotCE8/NltmzXp6u+HxsmtYggCMgjG5oyiFBnWZwVYwE0JRt4bOxLAKRjQFNFVzs32etFW
+	7ZaMG+aNYlJggxgIs49QERuO770gTL2lzHwEoncMqT2hOGAvvTQyhHEND7fm3MsXmE8jfetR9hnq2
+	Ke6gyQGqUE/WPmYEUXlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1moj7C-00DQER-Io; Sun, 21 Nov 2021 09:26:26 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+	id 1moqZ6-00E336-Pu; Sun, 21 Nov 2021 17:23:44 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1moj62-00DPie-8b; Sun, 21 Nov 2021 09:25:17 +0000
-Received: from dggpemm500020.china.huawei.com (unknown [172.30.72.55])
- by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4HxlL81cp5z1DJ4B;
- Sun, 21 Nov 2021 17:22:40 +0800 (CST)
-Received: from dggpemm500001.china.huawei.com (7.185.36.107) by
- dggpemm500020.china.huawei.com (7.185.36.49) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.20; Sun, 21 Nov 2021 17:25:08 +0800
-Received: from localhost.localdomain.localdomain (10.175.113.25) by
- dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.20; Sun, 21 Nov 2021 17:25:07 +0800
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-To: <dennis@kernel.org>, <akpm@linux-foundation.org>,
- <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>
-CC: <tj@kernel.org>, <gregkh@linuxfoundation.org>, <cl@linux.com>,
- <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
- <mpe@ellerman.id.au>, <benh@kernel.crashing.org>, <paulus@samba.org>,
- <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
- <davem@davemloft.net>, <tglx@linutronix.de>, <mingo@redhat.com>,
- <bp@alien8.de>, <dave.hansen@linux.intel.com>, <hpa@zytor.com>,
- <linux-arm-kernel@lists.infradead.org>, <linux-ia64@vger.kernel.org>,
- <linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
- <linux-riscv@lists.infradead.org>, <sparclinux@vger.kernel.org>,
- <x86@kernel.org>, Kefeng Wang <wangkefeng.wang@huawei.com>
-Subject: [PATCH RFC 3/4] mm: percpu: Add generic pcpu_fc_alloc/free funciton
-Date: Sun, 21 Nov 2021 17:35:56 +0800
-Message-ID: <20211121093557.139034-4-wangkefeng.wang@huawei.com>
-X-Mailer: git-send-email 2.26.2
-In-Reply-To: <20211121093557.139034-1-wangkefeng.wang@huawei.com>
-References: <20211121093557.139034-1-wangkefeng.wang@huawei.com>
+ id 1moqZ4-00E32K-67
+ for linux-riscv@lists.infradead.org; Sun, 21 Nov 2021 17:23:43 +0000
+Received: from mail-lf1-f69.google.com (mail-lf1-f69.google.com
+ [209.85.167.69])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 9053C3F0EA
+ for <linux-riscv@lists.infradead.org>; Sun, 21 Nov 2021 17:23:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1637515420;
+ bh=8EKhvAzuNETIXPZvBdvtzzbJxkmJKv3T8xcGJE2o9zc=;
+ h=Message-ID:Date:MIME-Version:Subject:To:References:From:
+ In-Reply-To:Content-Type;
+ b=Vcq5ocBFePw1joK3tninNkDLh7L4qkTioKUzYWhvcBRKQhTSqwFc5KUbYrbMtdjVa
+ 8Ba58iEGUsziz6d2KxMiE9yLepucEtumHSTopd+Ex9mZrgf0j7QfdugLLCEthnTODh
+ mhNhNq6EyZnlx+PqXn7Vfq2XZjOmBP9STfssmPVkMiaJn+SfGc8PHmkNkJTdS4zUgE
+ osy00h2UR+g2YgVeUInvGr0auuzd+lRyZhQ8h0VpA8TajFIbOsw+az+6I9OoRIy/BL
+ rleVXLjXQ0REQPkEI1qPDtj1OwvgiibBhjuyqDjU/oAdfg5giVHZWljX58ykSxAFGP
+ /9f0bq+eTzSIQ==
+Received: by mail-lf1-f69.google.com with SMTP id
+ c14-20020a056512104e00b004036d17f91bso10361385lfb.17
+ for <linux-riscv@lists.infradead.org>; Sun, 21 Nov 2021 09:23:40 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+ :content-language:to:references:from:in-reply-to
+ :content-transfer-encoding;
+ bh=8EKhvAzuNETIXPZvBdvtzzbJxkmJKv3T8xcGJE2o9zc=;
+ b=Fu44pQMZjODSCWqbJSf6FlpZvH3QWxqsjRxiV32B6UzwPF63teXBxjSSQHw42IcABq
+ B/Rz3YzU3uyMBzxMCrYI/5TT/UpGZ6WoCaM34HqQN2/8n/BhqRw+LUww+xA9pFaZOuck
+ P1fyJYyNiVhfCVMn53OhIjHBGkgcSGYkNUYvWEPQRGu/+kbf6sI1grW2WxH6rfH+Pj9d
+ 7Cr6JGFu/ghflwxVUiPcPgZ7C8F0HwN9UwERjymYMN4TqIs0po5HeeeEgDNNsEjetC9C
+ RTnP9IwMuGjXM1aRNfq8C55C3OxSuMGRQcVCsZ6bPeckgYX9scyMtam04rHbGHOe+cdm
+ jtbg==
+X-Gm-Message-State: AOAM5313YAkR22ef/K0HOmdPRX4415wCJsuTx73Vr95NpZcgASQzS3iI
+ +/4mvkbBeWSPhe0iC9J+mDTfnxKcvB+lxKEuJ/cx1tHBxDptW7jL59mklDKZnyJsXXJOsaOrGMT
+ Y8GYi09sfnxDN3Zy4k0bv/ssTcYYuEpuXP53VA9PcRGocUQ==
+X-Received: by 2002:a05:6512:104f:: with SMTP id
+ c15mr51372078lfb.256.1637515419964; 
+ Sun, 21 Nov 2021 09:23:39 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJx1jPqSJFTGZGAENICSqrdk2/BOSkXQMTiiA8ICivNbDKs03/7WG+pTjnVWK2WHcqcaxqwhpA==
+X-Received: by 2002:a05:6512:104f:: with SMTP id
+ c15mr51372056lfb.256.1637515419800; 
+ Sun, 21 Nov 2021 09:23:39 -0800 (PST)
+Received: from [192.168.3.67] (89-77-68-124.dynamic.chello.pl. [89.77.68.124])
+ by smtp.gmail.com with ESMTPSA id
+ u23sm701037lfo.35.2021.11.21.09.23.37
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Sun, 21 Nov 2021 09:23:38 -0800 (PST)
+Message-ID: <a6111407-c0a4-0c35-dc26-f30022df775b@canonical.com>
+Date: Sun, 21 Nov 2021 18:23:37 +0100
 MIME-Version: 1.0
-X-Originating-IP: [10.175.113.25]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- dggpemm500001.china.huawei.com (7.185.36.107)
-X-CFilter-Loop: Reflected
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.2.1
+Subject: Re: [PATCH v3 2/6] riscv: dts: sifive unmatched: Expose the board ID
+ eeprom
+Content-Language: en-US
+To: Vincent Pelletier <plr.vincent@gmail.com>,
+ Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Qiu Wenbo <qiuwenbo@kylinos.com.cn>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ David Abdurachmanov <david.abdurachmanov@sifive.com>
+References: <378c64fb868b595430b0068a9af10fdbeceb8e12.1637362542.git.plr.vincent@gmail.com>
+ <589539cd08e35c35b269a769caeac40b85ffd01c.1637362542.git.plr.vincent@gmail.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+In-Reply-To: <589539cd08e35c35b269a769caeac40b85ffd01c.1637362542.git.plr.vincent@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211121_012514_731614_E2CF5734 
-X-CRM114-Status: GOOD (  19.20  )
+X-CRM114-CacheID: sfid-20211121_092342_400958_A56BEB0C 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,537 +110,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With previous patch, we could add a generic pcpu first chunk
-allocation and free function to cleanup the duplicated definations
-on each architecture.
+On 19/11/2021 23:55, Vincent Pelletier wrote:
+> Mark it as read-only as it is factory-programmed with identifying
+> information, and no executable nor configuration:
+> - eth MAC address
+> - board model (PCB version, BoM version)
+> - board serial number
+> Accidental modification would cause misidentification which could brick
+> the board, so marking read-only seem like both a safe and non-constraining
+> choice.
+> 
+> Signed-off-by: Vincent Pelletier <plr.vincent@gmail.com>
+> 
+> ---
+> Changes since v2:
+> - Fix end-of-commit-message separator so change lists do not end up in them.
+> Changes since v1:
+> - Remove trailing "." on subject line.
+> ---
+>  arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+> 
 
-Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
----
- arch/mips/mm/init.c            | 16 +--------
- arch/powerpc/kernel/setup_64.c | 51 ++------------------------
- arch/sparc/kernel/smp_64.c     | 50 +-------------------------
- arch/x86/kernel/setup_percpu.c | 59 +-----------------------------
- drivers/base/arch_numa.c       | 19 +---------
- include/linux/percpu.h         |  9 +----
- mm/percpu.c                    | 66 ++++++++++++++++++----------------
- 7 files changed, 42 insertions(+), 228 deletions(-)
 
-diff --git a/arch/mips/mm/init.c b/arch/mips/mm/init.c
-index ebbf6923532c..5a8002839550 100644
---- a/arch/mips/mm/init.c
-+++ b/arch/mips/mm/init.c
-@@ -524,19 +524,6 @@ static int __init pcpu_cpu_to_node(int cpu)
- 	return cpu_to_node(cpu);
- }
- 
--static void * __init pcpu_fc_alloc(unsigned int cpu, size_t size, size_t align,
--				   pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn)
--{
--	return memblock_alloc_try_nid(size, align, __pa(MAX_DMA_ADDRESS),
--				      MEMBLOCK_ALLOC_ACCESSIBLE,
--				      cpu_to_nd_fun(cpu));
--}
--
--static void __init pcpu_fc_free(void *ptr, size_t size)
--{
--	memblock_free(ptr, size);
--}
--
- void __init setup_per_cpu_areas(void)
- {
- 	unsigned long delta;
-@@ -550,8 +537,7 @@ void __init setup_per_cpu_areas(void)
- 	rc = pcpu_embed_first_chunk(PERCPU_MODULE_RESERVE,
- 				    PERCPU_DYNAMIC_RESERVE, PAGE_SIZE,
- 				    pcpu_cpu_distance,
--				    pcpu_cpu_to_node,
--				    pcpu_fc_alloc, pcpu_fc_free);
-+				    pcpu_cpu_to_node);
- 	if (rc < 0)
- 		panic("Failed to initialize percpu areas.");
- 
-diff --git a/arch/powerpc/kernel/setup_64.c b/arch/powerpc/kernel/setup_64.c
-index 9a5609c821df..364b1567f822 100644
---- a/arch/powerpc/kernel/setup_64.c
-+++ b/arch/powerpc/kernel/setup_64.c
-@@ -777,50 +777,6 @@ static __init int pcpu_cpu_to_node(int cpu)
- 	return IS_ENABLED(CONFIG_NUMA) ? early_cpu_to_node(cpu) : NUMA_NO_NODE;
- }
- 
--/**
-- * pcpu_alloc_bootmem - NUMA friendly alloc_bootmem wrapper for percpu
-- * @cpu: cpu to allocate for
-- * @size: size allocation in bytes
-- * @align: alignment
-- *
-- * Allocate @size bytes aligned at @align for cpu @cpu.  This wrapper
-- * does the right thing for NUMA regardless of the current
-- * configuration.
-- *
-- * RETURNS:
-- * Pointer to the allocated area on success, NULL on failure.
-- */
--static void * __init pcpu_alloc_bootmem(unsigned int cpu, size_t size, size_t align,
--					pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn)
--{
--	const unsigned long goal = __pa(MAX_DMA_ADDRESS);
--#ifdef CONFIG_NUMA
--	int node = cpu_to_nd_fun(cpu);
--	void *ptr;
--
--	if (!node_online(node) || !NODE_DATA(node)) {
--		ptr = memblock_alloc_from(size, align, goal);
--		pr_info("cpu %d has no node %d or node-local memory\n",
--			cpu, node);
--		pr_debug("per cpu data for cpu%d %lu bytes at %016lx\n",
--			 cpu, size, __pa(ptr));
--	} else {
--		ptr = memblock_alloc_try_nid(size, align, goal,
--					     MEMBLOCK_ALLOC_ACCESSIBLE, node);
--		pr_debug("per cpu data for cpu%d %lu bytes on node%d at "
--			 "%016lx\n", cpu, size, node, __pa(ptr));
--	}
--	return ptr;
--#else
--	return memblock_alloc_from(size, align, goal);
--#endif
--}
--
--static void __init pcpu_free_bootmem(void *ptr, size_t size)
--{
--	memblock_free(ptr, size);
--}
--
- static int pcpu_cpu_distance(unsigned int from, unsigned int to)
- {
- 	if (early_cpu_to_node(from) == early_cpu_to_node(to))
-@@ -897,8 +853,7 @@ void __init setup_per_cpu_areas(void)
- 
- 	if (pcpu_chosen_fc != PCPU_FC_PAGE) {
- 		rc = pcpu_embed_first_chunk(0, dyn_size, atom_size, pcpu_cpu_distance,
--					    pcpu_cpu_to_node,
--					    pcpu_alloc_bootmem, pcpu_free_bootmem);
-+					    pcpu_cpu_to_node);
- 		if (rc)
- 			pr_warn("PERCPU: %s allocator failed (%d), "
- 				"falling back to page size\n",
-@@ -906,9 +861,7 @@ void __init setup_per_cpu_areas(void)
- 	}
- 
- 	if (rc < 0)
--		rc = pcpu_page_first_chunk(0, pcpu_alloc_bootmem, pcpu_free_bootmem,
--					   pcpu_cpu_to_node,
--					   pcpu_populate_pte);
-+		rc = pcpu_page_first_chunk(0, pcpu_cpu_to_node, pcpu_populate_pte);
- 	if (rc < 0)
- 		panic("cannot initialize percpu area (err=%d)", rc);
- 
-diff --git a/arch/sparc/kernel/smp_64.c b/arch/sparc/kernel/smp_64.c
-index 026aa3ccbc30..198dadddb75d 100644
---- a/arch/sparc/kernel/smp_64.c
-+++ b/arch/sparc/kernel/smp_64.c
-@@ -1526,50 +1526,6 @@ void smp_send_stop(void)
- 		smp_call_function(stop_this_cpu, NULL, 0);
- }
- 
--/**
-- * pcpu_alloc_bootmem - NUMA friendly alloc_bootmem wrapper for percpu
-- * @cpu: cpu to allocate for
-- * @size: size allocation in bytes
-- * @align: alignment
-- *
-- * Allocate @size bytes aligned at @align for cpu @cpu.  This wrapper
-- * does the right thing for NUMA regardless of the current
-- * configuration.
-- *
-- * RETURNS:
-- * Pointer to the allocated area on success, NULL on failure.
-- */
--static void * __init pcpu_alloc_bootmem(unsigned int cpu, size_t size, size_t align,
--					pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn)
--{
--	const unsigned long goal = __pa(MAX_DMA_ADDRESS);
--#ifdef CONFIG_NUMA
--	int node = cpu_to_nd_fn(cpu);
--	void *ptr;
--
--	if (!node_online(node) || !NODE_DATA(node)) {
--		ptr = memblock_alloc_from(size, align, goal);
--		pr_info("cpu %d has no node %d or node-local memory\n",
--			cpu, node);
--		pr_debug("per cpu data for cpu%d %lu bytes at %016lx\n",
--			 cpu, size, __pa(ptr));
--	} else {
--		ptr = memblock_alloc_try_nid(size, align, goal,
--					     MEMBLOCK_ALLOC_ACCESSIBLE, node);
--		pr_debug("per cpu data for cpu%d %lu bytes on node%d at "
--			 "%016lx\n", cpu, size, node, __pa(ptr));
--	}
--	return ptr;
--#else
--	return memblock_alloc_from(size, align, goal);
--#endif
--}
--
--static void __init pcpu_free_bootmem(void *ptr, size_t size)
--{
--	memblock_free(ptr, size);
--}
--
- static int __init pcpu_cpu_distance(unsigned int from, unsigned int to)
- {
- 	if (cpu_to_node(from) == cpu_to_node(to))
-@@ -1641,9 +1597,7 @@ void __init setup_per_cpu_areas(void)
- 		rc = pcpu_embed_first_chunk(PERCPU_MODULE_RESERVE,
- 					    PERCPU_DYNAMIC_RESERVE, 4 << 20,
- 					    pcpu_cpu_distance,
--					    cpu_to_node,
--					    pcpu_alloc_bootmem,
--					    pcpu_free_bootmem);
-+					    cpu_to_node);
- 		if (rc)
- 			pr_warn("PERCPU: %s allocator failed (%d), "
- 				"falling back to page size\n",
-@@ -1651,8 +1605,6 @@ void __init setup_per_cpu_areas(void)
- 	}
- 	if (rc < 0)
- 		rc = pcpu_page_first_chunk(PERCPU_MODULE_RESERVE,
--					   pcpu_alloc_bootmem,
--					   pcpu_free_bootmem,
- 					   cpu_to_node,
- 					   pcpu_populate_pte);
- 	if (rc < 0)
-diff --git a/arch/x86/kernel/setup_percpu.c b/arch/x86/kernel/setup_percpu.c
-index bba4fa174a16..cd672bd46241 100644
---- a/arch/x86/kernel/setup_percpu.c
-+++ b/arch/x86/kernel/setup_percpu.c
-@@ -84,61 +84,6 @@ static bool __init pcpu_need_numa(void)
- }
- #endif
- 
--/**
-- * pcpu_alloc_bootmem - NUMA friendly alloc_bootmem wrapper for percpu
-- * @cpu: cpu to allocate for
-- * @size: size allocation in bytes
-- * @align: alignment
-- *
-- * Allocate @size bytes aligned at @align for cpu @cpu.  This wrapper
-- * does the right thing for NUMA regardless of the current
-- * configuration.
-- *
-- * RETURNS:
-- * Pointer to the allocated area on success, NULL on failure.
-- */
--static void * __init pcpu_alloc_bootmem(unsigned int cpu, unsigned long size, unsigned long align,
--					pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn)
--{
--	const unsigned long goal = __pa(MAX_DMA_ADDRESS);
--#ifdef CONFIG_NUMA
--	int node = cpu_to_nd_fn(cpu);
--	void *ptr;
--
--	if (!node_online(node) || !NODE_DATA(node)) {
--		ptr = memblock_alloc_from(size, align, goal);
--		pr_info("cpu %d has no node %d or node-local memory\n",
--			cpu, node);
--		pr_debug("per cpu data for cpu%d %lu bytes at %016lx\n",
--			 cpu, size, __pa(ptr));
--	} else {
--		ptr = memblock_alloc_try_nid(size, align, goal,
--					     MEMBLOCK_ALLOC_ACCESSIBLE,
--					     node);
--
--		pr_debug("per cpu data for cpu%d %lu bytes on node%d at %016lx\n",
--			 cpu, size, node, __pa(ptr));
--	}
--	return ptr;
--#else
--	return memblock_alloc_from(size, align, goal);
--#endif
--}
--
--/*
-- * Helpers for first chunk memory allocation
-- */
--static void * __init pcpu_fc_alloc(unsigned int cpu, size_t size, size_t align,
--				   pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn)
--{
--	return pcpu_alloc_bootmem(cpu, size, align, cpu_to_nd_fn);
--}
--
--static void __init pcpu_fc_free(void *ptr, size_t size)
--{
--	memblock_free(ptr, size);
--}
--
- static int __init pcpu_cpu_distance(unsigned int from, unsigned int to)
- {
- #ifdef CONFIG_NUMA
-@@ -211,15 +156,13 @@ void __init setup_per_cpu_areas(void)
- 		rc = pcpu_embed_first_chunk(PERCPU_FIRST_CHUNK_RESERVE,
- 					    dyn_size, atom_size,
- 					    pcpu_cpu_distance,
--					    pcpu_cpu_to_node,
--					    pcpu_fc_alloc, pcpu_fc_free);
-+					    pcpu_cpu_to_node);
- 		if (rc < 0)
- 			pr_warn("%s allocator failed (%d), falling back to page size\n",
- 				pcpu_fc_names[pcpu_chosen_fc], rc);
- 	}
- 	if (rc < 0)
- 		rc = pcpu_page_first_chunk(PERCPU_FIRST_CHUNK_RESERVE,
--					   pcpu_fc_alloc, pcpu_fc_free,
- 					   pcpu_cpu_to_node,
- 					   pcpup_populate_pte);
- 	if (rc < 0)
-diff --git a/drivers/base/arch_numa.c b/drivers/base/arch_numa.c
-index 273543d9ff85..23a10cc36165 100644
---- a/drivers/base/arch_numa.c
-+++ b/drivers/base/arch_numa.c
-@@ -155,20 +155,6 @@ static int __init pcpu_cpu_distance(unsigned int from, unsigned int to)
- 	return node_distance(early_cpu_to_node(from), early_cpu_to_node(to));
- }
- 
--static void * __init pcpu_fc_alloc(unsigned int cpu, size_t size, size_t align,
--				   pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn)
--{
--	int nid = cpu_to_nd_fn(cpu);
--
--	return  memblock_alloc_try_nid(size, align,
--			__pa(MAX_DMA_ADDRESS), MEMBLOCK_ALLOC_ACCESSIBLE, nid);
--}
--
--static void __init pcpu_fc_free(void *ptr, size_t size)
--{
--	memblock_free(ptr, size);
--}
--
- #ifdef CONFIG_NEED_PER_CPU_PAGE_FIRST_CHUNK
- static void __init pcpu_populate_pte(unsigned long addr)
- {
-@@ -229,8 +215,7 @@ void __init setup_per_cpu_areas(void)
- 		rc = pcpu_embed_first_chunk(PERCPU_MODULE_RESERVE,
- 					    PERCPU_DYNAMIC_RESERVE, PAGE_SIZE,
- 					    pcpu_cpu_distance,
--					    early_cpu_to_node,
--					    pcpu_fc_alloc, pcpu_fc_free);
-+					    early_cpu_to_node);
- #ifdef CONFIG_NEED_PER_CPU_PAGE_FIRST_CHUNK
- 		if (rc < 0)
- 			pr_warn("PERCPU: %s allocator failed (%d), falling back to page size\n",
-@@ -241,8 +226,6 @@ void __init setup_per_cpu_areas(void)
- #ifdef CONFIG_NEED_PER_CPU_PAGE_FIRST_CHUNK
- 	if (rc < 0)
- 		rc = pcpu_page_first_chunk(PERCPU_MODULE_RESERVE,
--					   pcpu_fc_alloc,
--					   pcpu_fc_free,
- 					   early_cpu_to_node,
- 					   pcpu_populate_pte);
- #endif
-diff --git a/include/linux/percpu.h b/include/linux/percpu.h
-index 41bb54715b0c..d73c97ef4ff4 100644
---- a/include/linux/percpu.h
-+++ b/include/linux/percpu.h
-@@ -95,9 +95,6 @@ extern const char * const pcpu_fc_names[PCPU_FC_NR];
- extern enum pcpu_fc pcpu_chosen_fc;
- 
- typedef int (pcpu_fc_cpu_to_node_fn_t)(int cpu);
--typedef void * (*pcpu_fc_alloc_fn_t)(unsigned int cpu, size_t size, size_t align,
--				     pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn);
--typedef void (*pcpu_fc_free_fn_t)(void *ptr, size_t size);
- typedef void (*pcpu_fc_populate_pte_fn_t)(unsigned long addr);
- typedef int (pcpu_fc_cpu_distance_fn_t)(unsigned int from, unsigned int to);
- 
-@@ -112,15 +109,11 @@ extern void __init pcpu_setup_first_chunk(const struct pcpu_alloc_info *ai,
- extern int __init pcpu_embed_first_chunk(size_t reserved_size, size_t dyn_size,
- 				size_t atom_size,
- 				pcpu_fc_cpu_distance_fn_t cpu_distance_fn,
--				pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn,
--				pcpu_fc_alloc_fn_t alloc_fn,
--				pcpu_fc_free_fn_t free_fn);
-+				pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn);
- #endif
- 
- #ifdef CONFIG_NEED_PER_CPU_PAGE_FIRST_CHUNK
- extern int __init pcpu_page_first_chunk(size_t reserved_size,
--				pcpu_fc_alloc_fn_t alloc_fn,
--				pcpu_fc_free_fn_t free_fn,
- 				pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn,
- 				pcpu_fc_populate_pte_fn_t populate_pte_fn);
- #endif
-diff --git a/mm/percpu.c b/mm/percpu.c
-index 3f6cf1ff0be2..efaa1cbaf73d 100644
---- a/mm/percpu.c
-+++ b/mm/percpu.c
-@@ -2992,6 +2992,30 @@ static struct pcpu_alloc_info * __init __flatten pcpu_build_alloc_info(
- 
- 	return ai;
- }
-+
-+static void * __init pcpu_fc_alloc(unsigned int cpu, size_t size, size_t align,
-+				   pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn)
-+{
-+	const unsigned long goal = __pa(MAX_DMA_ADDRESS);
-+	int node = NUMA_NO_NODE;
-+	void *ptr;
-+
-+	if (cpu_to_nd_fn)
-+		node = cpu_to_nd_fn(cpu);
-+
-+	if (node == NUMA_NO_NODE || !node_online(node) || !NODE_DATA(node)) {
-+		ptr = memblock_alloc_from(size, align, goal);
-+	} else {
-+		ptr = memblock_alloc_try_nid(size, align, goal,
-+					     MEMBLOCK_ALLOC_ACCESSIBLE, node);
-+	}
-+	return ptr;
-+}
-+
-+static void __init pcpu_fc_free(void *ptr, size_t size)
-+{
-+	memblock_free(ptr, size);
-+}
- #endif /* BUILD_EMBED_FIRST_CHUNK || BUILD_PAGE_FIRST_CHUNK */
- 
- #if defined(BUILD_EMBED_FIRST_CHUNK)
-@@ -3002,14 +3026,12 @@ static struct pcpu_alloc_info * __init __flatten pcpu_build_alloc_info(
-  * @atom_size: allocation atom size
-  * @cpu_distance_fn: callback to determine distance between cpus, optional
-  * @cpu_to_nd_fn: callback to convert cpu to it's node, optional
-- * @alloc_fn: function to allocate percpu page
-- * @free_fn: function to free percpu page
-  *
-  * This is a helper to ease setting up embedded first percpu chunk and
-  * can be called where pcpu_setup_first_chunk() is expected.
-  *
-  * If this function is used to setup the first chunk, it is allocated
-- * by calling @alloc_fn and used as-is without being mapped into
-+ * by calling pcpu_fc_alloc and used as-is without being mapped into
-  * vmalloc area.  Allocations are always whole multiples of @atom_size
-  * aligned to @atom_size.
-  *
-@@ -3023,7 +3045,7 @@ static struct pcpu_alloc_info * __init __flatten pcpu_build_alloc_info(
-  * @dyn_size specifies the minimum dynamic area size.
-  *
-  * If the needed size is smaller than the minimum or specified unit
-- * size, the leftover is returned using @free_fn.
-+ * size, the leftover is returned using pcpu_fc_free.
-  *
-  * RETURNS:
-  * 0 on success, -errno on failure.
-@@ -3031,9 +3053,7 @@ static struct pcpu_alloc_info * __init __flatten pcpu_build_alloc_info(
- int __init pcpu_embed_first_chunk(size_t reserved_size, size_t dyn_size,
- 				  size_t atom_size,
- 				  pcpu_fc_cpu_distance_fn_t cpu_distance_fn,
--				  pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn,
--				  pcpu_fc_alloc_fn_t alloc_fn,
--				  pcpu_fc_free_fn_t free_fn)
-+				  pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn)
- {
- 	void *base = (void *)ULONG_MAX;
- 	void **areas = NULL;
-@@ -3068,7 +3088,7 @@ int __init pcpu_embed_first_chunk(size_t reserved_size, size_t dyn_size,
- 		BUG_ON(cpu == NR_CPUS);
- 
- 		/* allocate space for the whole group */
--		ptr = alloc_fn(cpu, gi->nr_units * ai->unit_size, atom_size, cpu_to_nd_fn);
-+		ptr = pcpu_fc_alloc(cpu, gi->nr_units * ai->unit_size, atom_size, cpu_to_nd_fn);
- 		if (!ptr) {
- 			rc = -ENOMEM;
- 			goto out_free_areas;
-@@ -3107,12 +3127,12 @@ int __init pcpu_embed_first_chunk(size_t reserved_size, size_t dyn_size,
- 		for (i = 0; i < gi->nr_units; i++, ptr += ai->unit_size) {
- 			if (gi->cpu_map[i] == NR_CPUS) {
- 				/* unused unit, free whole */
--				free_fn(ptr, ai->unit_size);
-+				pcpu_fc_free(ptr, ai->unit_size);
- 				continue;
- 			}
- 			/* copy and return the unused part */
- 			memcpy(ptr, __per_cpu_load, ai->static_size);
--			free_fn(ptr + size_sum, ai->unit_size - size_sum);
-+			pcpu_fc_free(ptr + size_sum, ai->unit_size - size_sum);
- 		}
- 	}
- 
-@@ -3131,7 +3151,7 @@ int __init pcpu_embed_first_chunk(size_t reserved_size, size_t dyn_size,
- out_free_areas:
- 	for (group = 0; group < ai->nr_groups; group++)
- 		if (areas[group])
--			free_fn(areas[group],
-+			pcpu_fc_free(areas[group],
- 				ai->groups[group].nr_units * ai->unit_size);
- out_free:
- 	pcpu_free_alloc_info(ai);
-@@ -3145,8 +3165,6 @@ int __init pcpu_embed_first_chunk(size_t reserved_size, size_t dyn_size,
- /**
-  * pcpu_page_first_chunk - map the first chunk using PAGE_SIZE pages
-  * @reserved_size: the size of reserved percpu area in bytes
-- * @alloc_fn: function to allocate percpu page, always called with PAGE_SIZE
-- * @free_fn: function to free percpu page, always called with PAGE_SIZE
-  * @cpu_to_nd_fn: callback to convert cpu to it's node, optional
-  * @populate_pte_fn: function to populate pte
-  *
-@@ -3160,8 +3178,6 @@ int __init pcpu_embed_first_chunk(size_t reserved_size, size_t dyn_size,
-  * 0 on success, -errno on failure.
-  */
- int __init pcpu_page_first_chunk(size_t reserved_size,
--				 pcpu_fc_alloc_fn_t alloc_fn,
--				 pcpu_fc_free_fn_t free_fn,
- 				 pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn,
- 				 pcpu_fc_populate_pte_fn_t populate_pte_fn)
- {
-@@ -3205,7 +3221,7 @@ int __init pcpu_page_first_chunk(size_t reserved_size,
- 		for (i = 0; i < unit_pages; i++) {
- 			void *ptr;
- 
--			ptr = alloc_fn(cpu, PAGE_SIZE, PAGE_SIZE, cpu_to_nd_fn);
-+			ptr = pcpu_fc_alloc(cpu, PAGE_SIZE, PAGE_SIZE, cpu_to_nd_fn);
- 			if (!ptr) {
- 				pr_warn("failed to allocate %s page for cpu%u\n",
- 						psize_str, cpu);
-@@ -3257,7 +3273,7 @@ int __init pcpu_page_first_chunk(size_t reserved_size,
- 
- enomem:
- 	while (--j >= 0)
--		free_fn(page_address(pages[j]), PAGE_SIZE);
-+		pcpu_fc_free(page_address(pages[j]), PAGE_SIZE);
- 	rc = -ENOMEM;
- out_free_ar:
- 	memblock_free(pages, pages_size);
-@@ -3282,17 +3298,6 @@ int __init pcpu_page_first_chunk(size_t reserved_size,
- unsigned long __per_cpu_offset[NR_CPUS] __read_mostly;
- EXPORT_SYMBOL(__per_cpu_offset);
- 
--static void * __init pcpu_dfl_fc_alloc(unsigned int cpu, size_t size, size_t align,
--				       pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn)
--{
--	return  memblock_alloc_from(size, align, __pa(MAX_DMA_ADDRESS));
--}
--
--static void __init pcpu_dfl_fc_free(void *ptr, size_t size)
--{
--	memblock_free(ptr, size);
--}
--
- void __init setup_per_cpu_areas(void)
- {
- 	unsigned long delta;
-@@ -3303,9 +3308,8 @@ void __init setup_per_cpu_areas(void)
- 	 * Always reserve area for module percpu variables.  That's
- 	 * what the legacy allocator did.
- 	 */
--	rc = pcpu_embed_first_chunk(PERCPU_MODULE_RESERVE,
--				    PERCPU_DYNAMIC_RESERVE, PAGE_SIZE, NULL, NULL,
--				    pcpu_dfl_fc_alloc, pcpu_dfl_fc_free);
-+	rc = pcpu_embed_first_chunk(PERCPU_MODULE_RESERVE, PERCPU_DYNAMIC_RESERVE,
-+				    PAGE_SIZE, NULL, NULL);
- 	if (rc < 0)
- 		panic("Failed to initialize percpu areas.");
- 
--- 
-2.26.2
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 
+
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
