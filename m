@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82163C433F5
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Nov 2021 09:25:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 654FCC433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Nov 2021 09:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SKIyC9X8aD4H8jE8s1cvjuAbryQ8PpbSUYOl/vNBmqc=; b=QsBWJdUAkBKmKG
-	tIP4O0Ugl9GxIByLmS2ifm8xFh8LGfGn2zIgiqb+E9z8OnitZLA4cocaEsNhKIPt6E6WOicgIeRjr
-	YCgIgmAkGfsducfaCzwfcH4NLy1zIdJ0NVxNz2AGvmnhdr57/ocsUp9Pad94C0OTfetxQz73Yq6fE
-	hGWgfoIgXUxkK5SyfenpZgLI4f+Tlo9t4/eEOISvsueBblvM9Tcv5N3bG4U+KyT3P5VBxx9dm4yoJ
-	0RqJAOaDyHRownkwPzfvMf4uoIDOTvHAvw/jMjBmCOgde87BluhRH3arBTQ5ejL7recD+hHrpGy1j
-	vy2EB3EnrKtSDFvRCSqw==;
+	List-Owner; bh=cv5pA76g2gjtalTzUH7xQYRDz/lOCVJstx9UCuVf6VA=; b=SMeq/x4qzANp47
+	I4VhK6bibE0GDRp1otlcKltPr5XqSvzq/YdiiYalfj+wzKgITxfPDd/xbEhtw2WpS73gHmW9BoYg0
+	T9D/Jm7qy6cZ4P1Mn+bzm19I2a9nYTYms3rK+2Qwz8nH2kY822Scq4Yg2D+G1vvk3eAyEYXwRxRK6
+	ys5+RXcAY4f5rs917EjXnrNUwu35mjn2ufPPdcvYSuj6fJHNJ2Qci2NPZT9L75HGVj4B9s7XVm/pa
+	4IcbBE9Bxoj0RDyf1Af2nW5xcjqnxA+G7Ma6XjWjfpTuhFGhUQ8FkpYv428/joxbAjeDJS4SHtD5/
+	MEUlUoc93HbpRZmdnk3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1moj6e-00DPvs-BY; Sun, 21 Nov 2021 09:25:52 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+	id 1moj6t-00DQ32-20; Sun, 21 Nov 2021 09:26:07 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1moj61-00DPiX-Kn; Sun, 21 Nov 2021 09:25:16 +0000
-Received: from dggpemm500021.china.huawei.com (unknown [172.30.72.57])
- by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4HxlL54wMbz1DHyG;
- Sun, 21 Nov 2021 17:22:37 +0800 (CST)
+ id 1moj61-00DPil-Mg; Sun, 21 Nov 2021 09:25:16 +0000
+Received: from dggpemm500023.china.huawei.com (unknown [172.30.72.54])
+ by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4HxlHH4bhmzcbDr;
+ Sun, 21 Nov 2021 17:20:11 +0800 (CST)
 Received: from dggpemm500001.china.huawei.com (7.185.36.107) by
- dggpemm500021.china.huawei.com (7.185.36.109) with Microsoft SMTP Server
+ dggpemm500023.china.huawei.com (7.185.36.83) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.20; Sun, 21 Nov 2021 17:25:05 +0800
+ 15.1.2308.20; Sun, 21 Nov 2021 17:25:09 +0800
 Received: from localhost.localdomain.localdomain (10.175.113.25) by
  dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.20; Sun, 21 Nov 2021 17:25:04 +0800
+ 15.1.2308.20; Sun, 21 Nov 2021 17:25:08 +0800
 From: Kefeng Wang <wangkefeng.wang@huawei.com>
 To: <dennis@kernel.org>, <akpm@linux-foundation.org>,
  <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>
@@ -48,9 +48,9 @@ CC: <tj@kernel.org>, <gregkh@linuxfoundation.org>, <cl@linux.com>,
  <linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
  <linux-riscv@lists.infradead.org>, <sparclinux@vger.kernel.org>,
  <x86@kernel.org>, Kefeng Wang <wangkefeng.wang@huawei.com>
-Subject: [PATCH RFC 1/4] mm: percpu: Generalize percpu related config
-Date: Sun, 21 Nov 2021 17:35:54 +0800
-Message-ID: <20211121093557.139034-2-wangkefeng.wang@huawei.com>
+Subject: [PATCH RFC 4/4] mm: percpu: Add generic pcpu_populate_pte() function
+Date: Sun, 21 Nov 2021 17:35:57 +0800
+Message-ID: <20211121093557.139034-5-wangkefeng.wang@huawei.com>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20211121093557.139034-1-wangkefeng.wang@huawei.com>
 References: <20211121093557.139034-1-wangkefeng.wang@huawei.com>
@@ -60,8 +60,8 @@ X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
  dggpemm500001.china.huawei.com (7.185.36.107)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211121_012514_063809_01866F9D 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20211121_012514_115164_3F3AC609 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,325 +78,389 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The HAVE_SETUP_PER_CPU_AREA/NEED_PER_CPU_EMBED_FIRST_CHUNK/
-NEED_PER_CPU_PAGE_FIRST_CHUNK/USE_PERCPU_NUMA_NODE_ID configs,
-which has duplicate definitions on platforms that subscribe it.
-
-Move them into mm, drop these redundant definitions and instead
-just select it on applicable platforms.
+When NEED_PER_CPU_PAGE_FIRST_CHUNK enabled, we need a function to
+populate pte, add a generic pcpu populate pte function and switch
+to use it.
 
 Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 ---
- arch/arm64/Kconfig   | 20 ++++----------------
- arch/ia64/Kconfig    |  9 ++-------
- arch/mips/Kconfig    | 10 ++--------
- arch/powerpc/Kconfig | 17 ++++-------------
- arch/riscv/Kconfig   | 10 ++--------
- arch/sparc/Kconfig   | 12 +++---------
- arch/x86/Kconfig     | 17 ++++-------------
- mm/Kconfig           | 12 ++++++++++++
- 8 files changed, 33 insertions(+), 74 deletions(-)
+ arch/powerpc/kernel/setup_64.c | 47 +--------------------
+ arch/sparc/kernel/smp_64.c     | 57 +------------------------
+ arch/x86/kernel/setup_percpu.c |  5 +--
+ drivers/base/arch_numa.c       | 51 +---------------------
+ include/linux/percpu.h         |  5 +--
+ mm/percpu.c                    | 77 +++++++++++++++++++++++++++++++---
+ 6 files changed, 79 insertions(+), 163 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index c4207cf9bb17..4ff73299f8a9 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1135,6 +1135,10 @@ config NUMA
- 	select GENERIC_ARCH_NUMA
- 	select ACPI_NUMA if ACPI
- 	select OF_NUMA
-+	select HAVE_SETUP_PER_CPU_AREA
-+	select NEED_PER_CPU_EMBED_FIRST_CHUNK
-+	select NEED_PER_CPU_PAGE_FIRST_CHUNK
-+	select USE_PERCPU_NUMA_NODE_ID
- 	help
- 	  Enable NUMA (Non-Uniform Memory Access) support.
+diff --git a/arch/powerpc/kernel/setup_64.c b/arch/powerpc/kernel/setup_64.c
+index 364b1567f822..1a17828af77f 100644
+--- a/arch/powerpc/kernel/setup_64.c
++++ b/arch/powerpc/kernel/setup_64.c
+@@ -788,51 +788,6 @@ static int pcpu_cpu_distance(unsigned int from, unsigned int to)
+ unsigned long __per_cpu_offset[NR_CPUS] __read_mostly;
+ EXPORT_SYMBOL(__per_cpu_offset);
  
-@@ -1151,22 +1155,6 @@ config NODES_SHIFT
- 	  Specify the maximum number of NUMA Nodes available on the target
- 	  system.  Increases memory reserved to accommodate various tables.
+-static void __init pcpu_populate_pte(unsigned long addr)
+-{
+-	pgd_t *pgd = pgd_offset_k(addr);
+-	p4d_t *p4d;
+-	pud_t *pud;
+-	pmd_t *pmd;
+-
+-	p4d = p4d_offset(pgd, addr);
+-	if (p4d_none(*p4d)) {
+-		pud_t *new;
+-
+-		new = memblock_alloc(PUD_TABLE_SIZE, PUD_TABLE_SIZE);
+-		if (!new)
+-			goto err_alloc;
+-		p4d_populate(&init_mm, p4d, new);
+-	}
+-
+-	pud = pud_offset(p4d, addr);
+-	if (pud_none(*pud)) {
+-		pmd_t *new;
+-
+-		new = memblock_alloc(PMD_TABLE_SIZE, PMD_TABLE_SIZE);
+-		if (!new)
+-			goto err_alloc;
+-		pud_populate(&init_mm, pud, new);
+-	}
+-
+-	pmd = pmd_offset(pud, addr);
+-	if (!pmd_present(*pmd)) {
+-		pte_t *new;
+-
+-		new = memblock_alloc(PTE_TABLE_SIZE, PTE_TABLE_SIZE);
+-		if (!new)
+-			goto err_alloc;
+-		pmd_populate_kernel(&init_mm, pmd, new);
+-	}
+-
+-	return;
+-
+-err_alloc:
+-	panic("%s: Failed to allocate %lu bytes align=%lx from=%lx\n",
+-	      __func__, PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
+-}
+-
+-
+ void __init setup_per_cpu_areas(void)
+ {
+ 	const size_t dyn_size = PERCPU_MODULE_RESERVE + PERCPU_DYNAMIC_RESERVE;
+@@ -861,7 +816,7 @@ void __init setup_per_cpu_areas(void)
+ 	}
  
--config USE_PERCPU_NUMA_NODE_ID
--	def_bool y
--	depends on NUMA
--
--config HAVE_SETUP_PER_CPU_AREA
--	def_bool y
--	depends on NUMA
--
--config NEED_PER_CPU_EMBED_FIRST_CHUNK
--	def_bool y
--	depends on NUMA
--
--config NEED_PER_CPU_PAGE_FIRST_CHUNK
--	def_bool y
--	depends on NUMA
--
- source "kernel/Kconfig.hz"
+ 	if (rc < 0)
+-		rc = pcpu_page_first_chunk(0, pcpu_cpu_to_node, pcpu_populate_pte);
++		rc = pcpu_page_first_chunk(0, pcpu_cpu_to_node);
+ 	if (rc < 0)
+ 		panic("cannot initialize percpu area (err=%d)", rc);
  
- config ARCH_SPARSEMEM_ENABLE
-diff --git a/arch/ia64/Kconfig b/arch/ia64/Kconfig
-index 1e33666fa679..703952819e10 100644
---- a/arch/ia64/Kconfig
-+++ b/arch/ia64/Kconfig
-@@ -32,6 +32,7 @@ config IA64
- 	select HAVE_FTRACE_MCOUNT_RECORD
- 	select HAVE_DYNAMIC_FTRACE if (!ITANIUM)
- 	select HAVE_FUNCTION_TRACER
-+	select HAVE_SETUP_PER_CPU_AREA
- 	select TTY
- 	select HAVE_ARCH_TRACEHOOK
- 	select HAVE_VIRT_CPU_ACCOUNTING
-@@ -88,9 +89,6 @@ config GENERIC_CALIBRATE_DELAY
- 	bool
- 	default y
+diff --git a/arch/sparc/kernel/smp_64.c b/arch/sparc/kernel/smp_64.c
+index 198dadddb75d..00dffe2d834b 100644
+--- a/arch/sparc/kernel/smp_64.c
++++ b/arch/sparc/kernel/smp_64.c
+@@ -1534,59 +1534,6 @@ static int __init pcpu_cpu_distance(unsigned int from, unsigned int to)
+ 		return REMOTE_DISTANCE;
+ }
  
--config HAVE_SETUP_PER_CPU_AREA
--	def_bool y
+-static void __init pcpu_populate_pte(unsigned long addr)
+-{
+-	pgd_t *pgd = pgd_offset_k(addr);
+-	p4d_t *p4d;
+-	pud_t *pud;
+-	pmd_t *pmd;
 -
- config DMI
- 	bool
- 	default y
-@@ -292,6 +290,7 @@ config NUMA
- 	bool "NUMA support"
- 	depends on !FLATMEM
- 	select SMP
-+	select USE_PERCPU_NUMA_NODE_ID
- 	help
- 	  Say Y to compile the kernel to support NUMA (Non-Uniform Memory
- 	  Access).  This option is for configuring high-end multiprocessor
-@@ -311,10 +310,6 @@ config HAVE_ARCH_NODEDATA_EXTENSION
- 	def_bool y
- 	depends on NUMA
+-	if (pgd_none(*pgd)) {
+-		pud_t *new;
+-
+-		new = memblock_alloc_from(PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
+-		if (!new)
+-			goto err_alloc;
+-		pgd_populate(&init_mm, pgd, new);
+-	}
+-
+-	p4d = p4d_offset(pgd, addr);
+-	if (p4d_none(*p4d)) {
+-		pud_t *new;
+-
+-		new = memblock_alloc_from(PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
+-		if (!new)
+-			goto err_alloc;
+-		p4d_populate(&init_mm, p4d, new);
+-	}
+-
+-	pud = pud_offset(p4d, addr);
+-	if (pud_none(*pud)) {
+-		pmd_t *new;
+-
+-		new = memblock_alloc_from(PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
+-		if (!new)
+-			goto err_alloc;
+-		pud_populate(&init_mm, pud, new);
+-	}
+-
+-	pmd = pmd_offset(pud, addr);
+-	if (!pmd_present(*pmd)) {
+-		pte_t *new;
+-
+-		new = memblock_alloc_from(PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
+-		if (!new)
+-			goto err_alloc;
+-		pmd_populate_kernel(&init_mm, pmd, new);
+-	}
+-
+-	return;
+-
+-err_alloc:
+-	panic("%s: Failed to allocate %lu bytes align=%lx from=%lx\n",
+-	      __func__, PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
+-}
+-
+ void __init setup_per_cpu_areas(void)
+ {
+ 	unsigned long delta;
+@@ -1604,9 +1551,7 @@ void __init setup_per_cpu_areas(void)
+ 				pcpu_fc_names[pcpu_chosen_fc], rc);
+ 	}
+ 	if (rc < 0)
+-		rc = pcpu_page_first_chunk(PERCPU_MODULE_RESERVE,
+-					   cpu_to_node,
+-					   pcpu_populate_pte);
++		rc = pcpu_page_first_chunk(PERCPU_MODULE_RESERVE, cpu_to_node);
+ 	if (rc < 0)
+ 		panic("cannot initialize percpu area (err=%d)", rc);
  
--config USE_PERCPU_NUMA_NODE_ID
--	def_bool y
--	depends on NUMA
--
- config HAVE_MEMORYLESS_NODES
- 	def_bool NUMA
+diff --git a/arch/x86/kernel/setup_percpu.c b/arch/x86/kernel/setup_percpu.c
+index cd672bd46241..4eadbe45078e 100644
+--- a/arch/x86/kernel/setup_percpu.c
++++ b/arch/x86/kernel/setup_percpu.c
+@@ -101,7 +101,7 @@ static int __init pcpu_cpu_to_node(int cpu)
+ 	return IS_ENABLED(CONFIG_NUMA) ? early_cpu_to_node(cpu) : NUMA_NO_NODE;
+ }
  
-diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-index de60ad190057..c106a2080877 100644
---- a/arch/mips/Kconfig
-+++ b/arch/mips/Kconfig
-@@ -2666,6 +2666,8 @@ config NUMA
- 	bool "NUMA Support"
- 	depends on SYS_SUPPORTS_NUMA
- 	select SMP
-+	select HAVE_SETUP_PER_CPU_AREA
-+	select NEED_PER_CPU_EMBED_FIRST_CHUNK
- 	help
- 	  Say Y to compile the kernel to support NUMA (Non-Uniform Memory
- 	  Access).  This option improves performance on systems with more
-@@ -2676,14 +2678,6 @@ config NUMA
- config SYS_SUPPORTS_NUMA
- 	bool
+-static void __init pcpup_populate_pte(unsigned long addr)
++void __init pcpu_populate_pte(unsigned long addr)
+ {
+ 	populate_extra_pte(addr);
+ }
+@@ -163,8 +163,7 @@ void __init setup_per_cpu_areas(void)
+ 	}
+ 	if (rc < 0)
+ 		rc = pcpu_page_first_chunk(PERCPU_FIRST_CHUNK_RESERVE,
+-					   pcpu_cpu_to_node,
+-					   pcpup_populate_pte);
++					   pcpu_cpu_to_node);
+ 	if (rc < 0)
+ 		panic("cannot initialize percpu area (err=%d)", rc);
  
--config HAVE_SETUP_PER_CPU_AREA
--	def_bool y
--	depends on NUMA
--
--config NEED_PER_CPU_EMBED_FIRST_CHUNK
--	def_bool y
--	depends on NUMA
--
- config RELOCATABLE
- 	bool "Relocatable kernel"
- 	depends on SYS_SUPPORTS_RELOCATABLE
-diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-index dea74d7717c0..8badd39854a0 100644
---- a/arch/powerpc/Kconfig
-+++ b/arch/powerpc/Kconfig
-@@ -55,15 +55,6 @@ config ARCH_MMAP_RND_COMPAT_BITS_MIN
- 	default 9 if PPC_16K_PAGES	#  9 = 23 (8MB) - 14 (16K)
- 	default 11			# 11 = 23 (8MB) - 12 (4K)
+diff --git a/drivers/base/arch_numa.c b/drivers/base/arch_numa.c
+index 23a10cc36165..eaa31e567d1e 100644
+--- a/drivers/base/arch_numa.c
++++ b/drivers/base/arch_numa.c
+@@ -14,7 +14,6 @@
+ #include <linux/of.h>
  
--config HAVE_SETUP_PER_CPU_AREA
--	def_bool PPC64
--
--config NEED_PER_CPU_EMBED_FIRST_CHUNK
--	def_bool y if PPC64
--
--config NEED_PER_CPU_PAGE_FIRST_CHUNK
--	def_bool y if PPC64
--
- config NR_IRQS
- 	int "Number of virtual interrupt numbers"
- 	range 32 1048576
-@@ -240,6 +231,7 @@ config PPC
- 	select HAVE_REGS_AND_STACK_ACCESS_API
- 	select HAVE_RELIABLE_STACKTRACE
- 	select HAVE_RSEQ
-+	select HAVE_SETUP_PER_CPU_AREA		if PPC64
- 	select HAVE_SOFTIRQ_ON_OWN_STACK
- 	select HAVE_STACKPROTECTOR		if PPC32 && $(cc-option,-mstack-protector-guard=tls -mstack-protector-guard-reg=r2)
- 	select HAVE_STACKPROTECTOR		if PPC64 && $(cc-option,-mstack-protector-guard=tls -mstack-protector-guard-reg=r13)
-@@ -254,6 +246,8 @@ config PPC
- 	select MMU_GATHER_RCU_TABLE_FREE
- 	select MODULES_USE_ELF_RELA
- 	select NEED_DMA_MAP_STATE		if PPC64 || NOT_COHERENT_CACHE
-+	select NEED_PER_CPU_EMBED_FIRST_CHUNK	if PPC64
-+	select NEED_PER_CPU_PAGE_FIRST_CHUNK	if PPC64
- 	select NEED_SG_DMA_LENGTH
- 	select OF
- 	select OF_DMA_DEFAULT_COHERENT		if !NOT_COHERENT_CACHE
-@@ -659,6 +653,7 @@ config NUMA
- 	bool "NUMA Memory Allocation and Scheduler Support"
- 	depends on PPC64 && SMP
- 	default y if PPC_PSERIES || PPC_POWERNV
-+	select USE_PERCPU_NUMA_NODE_ID
- 	help
- 	  Enable NUMA (Non-Uniform Memory Access) support.
+ #include <asm/sections.h>
+-#include <asm/pgalloc.h>
  
-@@ -672,10 +667,6 @@ config NODES_SHIFT
- 	default "4"
- 	depends on NUMA
+ struct pglist_data *node_data[MAX_NUMNODES] __read_mostly;
+ EXPORT_SYMBOL(node_data);
+@@ -155,52 +154,6 @@ static int __init pcpu_cpu_distance(unsigned int from, unsigned int to)
+ 	return node_distance(early_cpu_to_node(from), early_cpu_to_node(to));
+ }
  
--config USE_PERCPU_NUMA_NODE_ID
--	def_bool y
--	depends on NUMA
+-#ifdef CONFIG_NEED_PER_CPU_PAGE_FIRST_CHUNK
+-static void __init pcpu_populate_pte(unsigned long addr)
+-{
+-	pgd_t *pgd = pgd_offset_k(addr);
+-	p4d_t *p4d;
+-	pud_t *pud;
+-	pmd_t *pmd;
 -
- config HAVE_MEMORYLESS_NODES
- 	def_bool y
- 	depends on NUMA
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 821252b65f89..bf66bcbc5a39 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -334,6 +334,8 @@ config NUMA
- 	select GENERIC_ARCH_NUMA
- 	select OF_NUMA
- 	select ARCH_SUPPORTS_NUMA_BALANCING
-+	select USE_PERCPU_NUMA_NODE_ID
-+	select NEED_PER_CPU_EMBED_FIRST_CHUNK
- 	help
- 	  Enable NUMA (Non-Uniform Memory Access) support.
- 
-@@ -349,14 +351,6 @@ config NODES_SHIFT
- 	  Specify the maximum number of NUMA Nodes available on the target
- 	  system.  Increases memory reserved to accommodate various tables.
- 
--config USE_PERCPU_NUMA_NODE_ID
--	def_bool y
--	depends on NUMA
+-	p4d = p4d_offset(pgd, addr);
+-	if (p4d_none(*p4d)) {
+-		pud_t *new;
 -
--config NEED_PER_CPU_EMBED_FIRST_CHUNK
--	def_bool y
--	depends on NUMA
+-		new = memblock_alloc(PAGE_SIZE, PAGE_SIZE);
+-		if (!new)
+-			goto err_alloc;
+-		p4d_populate(&init_mm, p4d, new);
+-	}
 -
- config RISCV_ISA_C
- 	bool "Emit compressed instructions when building Linux"
- 	default y
-diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
-index 66fc08646be5..a6765e0fe6a8 100644
---- a/arch/sparc/Kconfig
-+++ b/arch/sparc/Kconfig
-@@ -97,6 +97,9 @@ config SPARC64
- 	select PCI_DOMAINS if PCI
- 	select ARCH_HAS_GIGANTIC_PAGE
- 	select HAVE_SOFTIRQ_ON_OWN_STACK
-+	select HAVE_SETUP_PER_CPU_AREA
-+	select NEED_PER_CPU_EMBED_FIRST_CHUNK
-+	select NEED_PER_CPU_PAGE_FIRST_CHUUNK
- 
- config ARCH_PROC_KCORE_TEXT
- 	def_bool y
-@@ -123,15 +126,6 @@ config AUDIT_ARCH
- 	bool
- 	default y
- 
--config HAVE_SETUP_PER_CPU_AREA
--	def_bool y if SPARC64
+-	pud = pud_offset(p4d, addr);
+-	if (pud_none(*pud)) {
+-		pmd_t *new;
 -
--config NEED_PER_CPU_EMBED_FIRST_CHUNK
--	def_bool y if SPARC64
+-		new = memblock_alloc(PAGE_SIZE, PAGE_SIZE);
+-		if (!new)
+-			goto err_alloc;
+-		pud_populate(&init_mm, pud, new);
+-	}
 -
--config NEED_PER_CPU_PAGE_FIRST_CHUNK
--	def_bool y if SPARC64
+-	pmd = pmd_offset(pud, addr);
+-	if (!pmd_present(*pmd)) {
+-		pte_t *new;
 -
- config MMU
- 	bool
- 	default y
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 7399327d1eff..ca120a1f5857 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -239,6 +239,7 @@ config X86
- 	select HAVE_REGS_AND_STACK_ACCESS_API
- 	select HAVE_RELIABLE_STACKTRACE		if X86_64 && (UNWINDER_FRAME_POINTER || UNWINDER_ORC) && STACK_VALIDATION
- 	select HAVE_FUNCTION_ARG_ACCESS_API
-+	select HAVE_SETUP_PER_CPU_AREA
- 	select HAVE_SOFTIRQ_ON_OWN_STACK
- 	select HAVE_STACKPROTECTOR		if CC_HAS_SANE_STACKPROTECTOR
- 	select HAVE_STACK_VALIDATION		if X86_64
-@@ -252,6 +253,8 @@ config X86
- 	select HAVE_GENERIC_VDSO
- 	select HOTPLUG_SMT			if SMP
- 	select IRQ_FORCED_THREADING
-+	select NEED_PER_CPU_EMBED_FIRST_CHUNK
-+	select NEED_PER_CPU_PAGE_FIRST_CHUNK
- 	select NEED_SG_DMA_LENGTH
- 	select PCI_DOMAINS			if PCI
- 	select PCI_LOCKLESS_CONFIG		if PCI
-@@ -331,15 +334,6 @@ config ARCH_HAS_CPU_RELAX
- config ARCH_HAS_FILTER_PGPROT
- 	def_bool y
- 
--config HAVE_SETUP_PER_CPU_AREA
--	def_bool y
+-		new = memblock_alloc(PAGE_SIZE, PAGE_SIZE);
+-		if (!new)
+-			goto err_alloc;
+-		pmd_populate_kernel(&init_mm, pmd, new);
+-	}
 -
--config NEED_PER_CPU_EMBED_FIRST_CHUNK
--	def_bool y
+-	return;
 -
--config NEED_PER_CPU_PAGE_FIRST_CHUNK
--	def_bool y
+-err_alloc:
+-	panic("%s: Failed to allocate %lu bytes align=%lx from=%lx\n",
+-	      __func__, PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
+-}
+-#endif
 -
- config ARCH_HIBERNATION_POSSIBLE
- 	def_bool y
+ void __init setup_per_cpu_areas(void)
+ {
+ 	unsigned long delta;
+@@ -225,9 +178,7 @@ void __init setup_per_cpu_areas(void)
  
-@@ -1557,6 +1551,7 @@ config NUMA
- 	depends on SMP
- 	depends on X86_64 || (X86_32 && HIGHMEM64G && X86_BIGSMP)
- 	default y if X86_BIGSMP
-+	select USE_PERCPU_NUMA_NODE_ID
- 	help
- 	  Enable NUMA (Non-Uniform Memory Access) support.
+ #ifdef CONFIG_NEED_PER_CPU_PAGE_FIRST_CHUNK
+ 	if (rc < 0)
+-		rc = pcpu_page_first_chunk(PERCPU_MODULE_RESERVE,
+-					   early_cpu_to_node,
+-					   pcpu_populate_pte);
++		rc = pcpu_page_first_chunk(PERCPU_MODULE_RESERVE, early_cpu_to_node);
+ #endif
+ 	if (rc < 0)
+ 		panic("Failed to initialize percpu areas (err=%d).", rc);
+diff --git a/include/linux/percpu.h b/include/linux/percpu.h
+index d73c97ef4ff4..f1ec5ad1351c 100644
+--- a/include/linux/percpu.h
++++ b/include/linux/percpu.h
+@@ -95,7 +95,6 @@ extern const char * const pcpu_fc_names[PCPU_FC_NR];
+ extern enum pcpu_fc pcpu_chosen_fc;
  
-@@ -2430,10 +2425,6 @@ config ARCH_HAS_ADD_PAGES
- config ARCH_MHP_MEMMAP_ON_MEMORY_ENABLE
- 	def_bool y
+ typedef int (pcpu_fc_cpu_to_node_fn_t)(int cpu);
+-typedef void (*pcpu_fc_populate_pte_fn_t)(unsigned long addr);
+ typedef int (pcpu_fc_cpu_distance_fn_t)(unsigned int from, unsigned int to);
  
--config USE_PERCPU_NUMA_NODE_ID
--	def_bool y
--	depends on NUMA
--
- menu "Power management and ACPI options"
+ extern struct pcpu_alloc_info * __init pcpu_alloc_alloc_info(int nr_groups,
+@@ -113,9 +112,9 @@ extern int __init pcpu_embed_first_chunk(size_t reserved_size, size_t dyn_size,
+ #endif
  
- config ARCH_HIBERNATION_HEADER
-diff --git a/mm/Kconfig b/mm/Kconfig
-index 28edafc820ad..6bc5d780c51b 100644
---- a/mm/Kconfig
-+++ b/mm/Kconfig
-@@ -432,6 +432,18 @@ config NEED_PER_CPU_KM
- 	bool
- 	default y
+ #ifdef CONFIG_NEED_PER_CPU_PAGE_FIRST_CHUNK
++void __init pcpu_populate_pte(unsigned long addr);
+ extern int __init pcpu_page_first_chunk(size_t reserved_size,
+-				pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn,
+-				pcpu_fc_populate_pte_fn_t populate_pte_fn);
++				pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn);
+ #endif
  
-+config NEED_PER_CPU_EMBED_FIRST_CHUNK
-+	bool
+ extern void __percpu *__alloc_reserved_percpu(size_t size, size_t align) __alloc_size(1);
+diff --git a/mm/percpu.c b/mm/percpu.c
+index efaa1cbaf73d..d907daed04eb 100644
+--- a/mm/percpu.c
++++ b/mm/percpu.c
+@@ -3162,11 +3162,80 @@ int __init pcpu_embed_first_chunk(size_t reserved_size, size_t dyn_size,
+ #endif /* BUILD_EMBED_FIRST_CHUNK */
+ 
+ #ifdef BUILD_PAGE_FIRST_CHUNK
++#include <asm/pgalloc.h>
 +
-+config NEED_PER_CPU_PAGE_FIRST_CHUNK
-+	bool
++#ifndef P4D_TABLE_SIZE
++#define P4D_TABLE_SIZE PAGE_SIZE
++#endif
 +
-+config USE_PERCPU_NUMA_NODE_ID
-+	bool
++#ifndef PUD_TABLE_SIZE
++#define PUD_TABLE_SIZE PAGE_SIZE
++#endif
 +
-+config HAVE_SETUP_PER_CPU_AREA
-+	bool
++#ifndef PMD_TABLE_SIZE
++#define PMD_TABLE_SIZE PAGE_SIZE
++#endif
 +
- config CLEANCACHE
- 	bool "Enable cleancache driver to cache clean pages if tmem is present"
- 	help
++#ifndef PTE_TABLE_SIZE
++#define PTE_TABLE_SIZE PAGE_SIZE
++#endif
++void __init __weak pcpu_populate_pte(unsigned long addr)
++{
++	pgd_t *pgd = pgd_offset_k(addr);
++	p4d_t *p4d;
++	pud_t *pud;
++	pmd_t *pmd;
++
++	if (pgd_none(*pgd)) {
++		p4d_t *new;
++
++		new = memblock_alloc_from(P4D_TABLE_SIZE, P4D_TABLE_SIZE, PAGE_SIZE);
++		if (!new)
++			goto err_alloc;
++		pgd_populate(&init_mm, pgd, new);
++	}
++
++	p4d = p4d_offset(pgd, addr);
++	if (p4d_none(*p4d)) {
++		pud_t *new;
++
++		new = memblock_alloc_from(PUD_TABLE_SIZE, PUD_TABLE_SIZE, PAGE_SIZE);
++		if (!new)
++			goto err_alloc;
++		p4d_populate(&init_mm, p4d, new);
++	}
++
++	pud = pud_offset(p4d, addr);
++	if (pud_none(*pud)) {
++		pmd_t *new;
++
++		new = memblock_alloc_from(PMD_TABLE_SIZE, PMD_TABLE_SIZE, PAGE_SIZE);
++		if (!new)
++			goto err_alloc;
++		pud_populate(&init_mm, pud, new);
++	}
++
++	pmd = pmd_offset(pud, addr);
++	if (!pmd_present(*pmd)) {
++		pte_t *new;
++
++		new = memblock_alloc_from(PTE_TABLE_SIZE, PTE_TABLE_SIZE, PAGE_SIZE);
++		if (!new)
++			goto err_alloc;
++		pmd_populate_kernel(&init_mm, pmd, new);
++	}
++
++	return;
++
++err_alloc:
++	panic("%s: Failed to allocate %lu bytes align=%lx from=%lx\n",
++	      __func__, PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
++}
++
+ /**
+  * pcpu_page_first_chunk - map the first chunk using PAGE_SIZE pages
+  * @reserved_size: the size of reserved percpu area in bytes
+  * @cpu_to_nd_fn: callback to convert cpu to it's node, optional
+- * @populate_pte_fn: function to populate pte
+  *
+  * This is a helper to ease setting up page-remapped first percpu
+  * chunk and can be called where pcpu_setup_first_chunk() is expected.
+@@ -3177,9 +3246,7 @@ int __init pcpu_embed_first_chunk(size_t reserved_size, size_t dyn_size,
+  * RETURNS:
+  * 0 on success, -errno on failure.
+  */
+-int __init pcpu_page_first_chunk(size_t reserved_size,
+-				 pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn,
+-				 pcpu_fc_populate_pte_fn_t populate_pte_fn)
++int __init pcpu_page_first_chunk(size_t reserved_size, pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn)
+ {
+ 	static struct vm_struct vm;
+ 	struct pcpu_alloc_info *ai;
+@@ -3243,7 +3310,7 @@ int __init pcpu_page_first_chunk(size_t reserved_size,
+ 			(unsigned long)vm.addr + unit * ai->unit_size;
+ 
+ 		for (i = 0; i < unit_pages; i++)
+-			populate_pte_fn(unit_addr + (i << PAGE_SHIFT));
++			pcpu_populate_pte(unit_addr + (i << PAGE_SHIFT));
+ 
+ 		/* pte already populated, the following shouldn't fail */
+ 		rc = __pcpu_map_pages(unit_addr, &pages[unit * unit_pages],
 -- 
 2.26.2
 
