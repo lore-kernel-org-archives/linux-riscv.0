@@ -4,96 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C035C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Nov 2021 17:25:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB49C433F5
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Nov 2021 23:19:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MJ6NHqgqViwFYMGA5Ns0XFVpzirvnEc45/gZuv0Jzn4=; b=0U1OMYt8H+JsuY
-	+G9LA3N7D9PX1p78yxk0GlONbjdqoyTBv9AB8p/66UhPF11SZiWV/WzCQFRskFYbApYoTreLGS5dD
-	giBPIPHFUEYw2sWZx3nsFv5vIV91H617WEYboTDXzb6GOf2SqozwEfEXXkAlQrPO6VUtFdyX0gNTD
-	MbUQeGqonYwMDNys3Vqo6OeJpnU1VYZ2IDFyIrDTvaVY3uM1QWP6PuVcbzmgDgqYtY6Oz7um2IK15
-	z+Xkyov9jFWx+ZiFFTQAmtikSadpbycB3scZGANSVknXU5lzcAJ4H9iJfyeUpSB6rBN4Sg59u+aau
-	N0HWqTRMEa14gWc/3WYw==;
+	List-Owner; bh=s+f3O/uPFQ5RH2f7PDa6qfy1iWk4DoKMpGNXG+9FKs0=; b=tJYX4kMjILcUE9
+	CIPvcZkz9UDDjqG6igwkiJXjXLnUpfhYEPr95l2nPJPNgrQR9LCYvHYbgehhQpeZBgO154xFLHcQg
+	24QGo77toB8YMt1GasI9v6wpaOMUV+FhiyIk5D0hCMoRoNbHYSCYwHWv+MultVyy/nl+QMpMz/SSS
+	RdbzbWmyWBGaJEgEXmJdq82m1p+xrsDauA3q5WqCjKAnMNigF/3EbU41w6OPDYN0hqZDYij/jsUBW
+	RDDJCoKajRxhAP2E6/zke7OQkqJcP0yqCQaLYTqppjJMupyrh58VCnYHW2TN24aOwDrWpGDsS7Y9o
+	8rSfieYzOO5ZnegnVZDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1moqaS-00E3Ga-JT; Sun, 21 Nov 2021 17:25:08 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1mow7V-00ESfS-4S; Sun, 21 Nov 2021 23:19:37 +0000
+Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1moqaP-00E3G3-Ua
- for linux-riscv@lists.infradead.org; Sun, 21 Nov 2021 17:25:07 +0000
-Received: from mail-lf1-f70.google.com (mail-lf1-f70.google.com
- [209.85.167.70])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id ADF793F1A9
- for <linux-riscv@lists.infradead.org>; Sun, 21 Nov 2021 17:25:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1637515504;
- bh=kZq5pPsma0owINBv5hr75ENNQJHBAu3bptY+ZTWWILM=;
- h=Message-ID:Date:MIME-Version:Subject:To:References:From:
- In-Reply-To:Content-Type;
- b=DkrOKqkCgqPe8G+3/RueiefdRcI3DazxJIdMq9Mzp/gnG6pYn/Jw5yaKlgkhaGPoh
- uwJEa9BCnP2x3W2QBGk/nq9mmpnZe5vvmehA9J2hAK36kCAAwt8C4SthKLO2BjKjR0
- KDWCZV5yDZyVH0dqiQKGLkvc+Bbn7TGaRAa5sKkI2vPTwDPkQVaVENV8jofE4TPevE
- bw8aOKSIhBmsztKfdJi5Q1eNcPtGuLtsR4D5gL82c482qUELrTOBx7SlZEOIrjlLzu
- yolUTEtOaW3yLFLNt8TD23yxNb118EL1LH39Eucj5wXL9aJi6ufBe30SZODQmu/EJb
- Tg2wr0JVurdmg==
-Received: by mail-lf1-f70.google.com with SMTP id
- s18-20020ac25c52000000b004016bab6a12so10355865lfp.21
- for <linux-riscv@lists.infradead.org>; Sun, 21 Nov 2021 09:25:04 -0800 (PST)
+ id 1mow7S-00ESdy-KO
+ for linux-riscv@lists.infradead.org; Sun, 21 Nov 2021 23:19:36 +0000
+Received: by mail-ot1-x32f.google.com with SMTP id
+ o15-20020a9d410f000000b0055c942cc7a0so26107060ote.8
+ for <linux-riscv@lists.infradead.org>; Sun, 21 Nov 2021 15:19:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=niG4LhykdMe2sCgAWkzlpTzAknhhfhfFKN7/kHVLdb8=;
+ b=wcakSBzJXl9BZALRNXqLiyhsCB+m6PdHwbi8HzqWYQSDqzOUzvEqpnvo21ThgDfiUG
+ YeyUYuOqKliWaPSXP/3LV4nTzhJ67sErjZ9XmD8vEyQ0pDW321Hx2roOzp9DvJ0BEA7J
+ 2IWUMeWBcGigOgZN2CdXyeomJHmgrZ/hwlM+gUea3h48Ioa5ZpPo0L3VUny+fxgUQ0ks
+ /ZLvb22GhtsiEvG5gQXnXcMFBm5AfOhDm+50f7dWkr6nQIM/zeugbt4FCtIx6kcdwEIS
+ IWPVkQyjCfhxRQIYm1R2CrQsPeeRMtMsD9QvTBmJ8X3sG9ojs8/p/EM1lQ+VBLpDkc4q
+ TKDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:references:from:in-reply-to
- :content-transfer-encoding;
- bh=kZq5pPsma0owINBv5hr75ENNQJHBAu3bptY+ZTWWILM=;
- b=qlf9BOhbcUB+HVNNu+2HmsZVbf6E3ICYZ3oLQDSDki069YWojiyzij7p8vh3NiomJp
- kEvron4joOXH03hpLIvrOjOTNLoNYcuZJBQ+zqHYfbeLmo54oJEEnEGgAKT2Sb55d8yy
- 14l1QbUlYrayW5cD0rJAI0QmWU0uYZr0GV+6cmQYs7WzJC1322UJ+MKCqvbYiQek5cca
- ewKJjkKjLAa1TY0jMxnusy69mZ7cj1sPturwK/o6rR8bIhf+XGCjdwEPId0FpHWHCjOK
- hN1oe+qWGNFR6V28nMqnIqkNyNVByg+ARNI6Lg5OSjbjijINoVRSTVo1cNMoA8usfWVw
- JflA==
-X-Gm-Message-State: AOAM533bzckkBEW7l4nhiFRm6a6L1PS9ha4NH/RYvwwQGgrID4h05/wF
- +YcwRFTzYURZHPnMSWq6NA5roJmXMP0Yu+0WeX6sCZRErHhGvrp+K7WDE544ljYTnvfzlMXi+ls
- hsIhE6YRvEcPOoqsOIa6adXKh9YEVirHLD+wFye6PapcOyA==
-X-Received: by 2002:a05:651c:1548:: with SMTP id
- y8mr45618960ljp.458.1637515502995; 
- Sun, 21 Nov 2021 09:25:02 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJx2f8OnhQj9sQ62rbV2mdM7eBIr9lOMtV63HTcWuDmQo4H5u0BxfwIDpl7Rc0NkZyH5hM5VIw==
-X-Received: by 2002:a05:651c:1548:: with SMTP id
- y8mr45618947ljp.458.1637515502822; 
- Sun, 21 Nov 2021 09:25:02 -0800 (PST)
-Received: from [192.168.3.67] (89-77-68-124.dynamic.chello.pl. [89.77.68.124])
- by smtp.gmail.com with ESMTPSA id
- c1sm633211ljr.111.2021.11.21.09.25.01
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Sun, 21 Nov 2021 09:25:02 -0800 (PST)
-Message-ID: <3b627657-b2ed-13bd-f97e-363cc734da00@canonical.com>
-Date: Sun, 21 Nov 2021 18:25:01 +0100
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=niG4LhykdMe2sCgAWkzlpTzAknhhfhfFKN7/kHVLdb8=;
+ b=iSkqQIL653Gg/G6syxtDuJcavK4glIG5Ndxn9QQ2lsynsAKlKfUFcexUIygmIGUyg1
+ KAPvoEqchPZXjg9S4bdJlgseJ3txskuumjr5j4+X59LkGpNMBnXTyYG8xd8kSMQLkKUd
+ gL9HiGHqQ6/Hm26Kjd+rn68nyZHeSCNj9q8fDln4N1whSfQP+f/7X38fnBxFpSafKez4
+ U//DWyJCyC8kuO+uXIjTeSEJ2bVoTdFwc6vuYfgKsY1xOBIPwpQWGidt9tOXB87tUqNv
+ gm6cQwNN+rON+uBBsyZYB5rnqQNZNsjbz9IOeaTr8RpilbjEp3ZVff6+S3ByYAWyMj/B
+ BtGg==
+X-Gm-Message-State: AOAM5307RGcGvujfKwEbU9rjO80RY+6oN8aEjh4ZnG4IsLUKIZBzqhm1
+ yDRhFUIlsssE93YbkUq2P/DjKFY3jXUburZySlkmMg==
+X-Google-Smtp-Source: ABdhPJyVdtjQUoLHr9GMlVhAVr/1N/sztecCcTj39EJlBe5nSjbyIi50Oo/ofoA+ROJrbzFktx9bDGshBDQgVsRlEgw=
+X-Received: by 2002:a9d:ed6:: with SMTP id 80mr20546619otj.35.1637536773648;
+ Sun, 21 Nov 2021 15:19:33 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.2.1
-Subject: Re: [PATCH v3 6/6] riscv: dts: sifive unmatched: Link the tmp451 with
- its power supply
-Content-Language: en-US
-To: Vincent Pelletier <plr.vincent@gmail.com>,
- Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Qiu Wenbo <qiuwenbo@kylinos.com.cn>, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- David Abdurachmanov <david.abdurachmanov@sifive.com>
-References: <378c64fb868b595430b0068a9af10fdbeceb8e12.1637362542.git.plr.vincent@gmail.com>
- <ab42d60d325249d805d99db1c3981dd1fe9422eb.1637362542.git.plr.vincent@gmail.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-In-Reply-To: <ab42d60d325249d805d99db1c3981dd1fe9422eb.1637362542.git.plr.vincent@gmail.com>
+References: <20211102161125.1144023-1-kernel@esmil.dk>
+ <20211102161125.1144023-12-kernel@esmil.dk>
+ <CACRpkdb0CrJ_uTbtfg-xGq8uu0AKoqfAB03mF2CA_G8ys_8Lzg@mail.gmail.com>
+ <CANBLGcwvGptHxP5+JQEQV1Y7G=dNTt86QuVgfUuvQDDBfNrzOA@mail.gmail.com>
+In-Reply-To: <CANBLGcwvGptHxP5+JQEQV1Y7G=dNTt86QuVgfUuvQDDBfNrzOA@mail.gmail.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Mon, 22 Nov 2021 00:19:22 +0100
+Message-ID: <CACRpkdbsP1zibFvg2yL67ndQJ1MxBRmH5j+cZ-giZkmrnGROdw@mail.gmail.com>
+Subject: Re: [PATCH v3 11/16] dt-bindings: pinctrl: Add StarFive JH7100
+ bindings
+To: Emil Renner Berthing <kernel@esmil.dk>
+Cc: Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>, 
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+ "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Drew Fustini <drew@beagleboard.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Michael Zhu <michael.zhu@starfivetech.com>, Fu Wei <tekkamanninja@gmail.com>, 
+ Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>, 
+ Matteo Croce <mcroce@microsoft.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, soc@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211121_092506_151651_809850F5 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20211121_151934_696147_636BF8F0 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,31 +105,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 19/11/2021 23:55, Vincent Pelletier wrote:
-> Fixes the following probe warning:
->   lm90 0-004c: Looking up vcc-supply from device tree
->   lm90 0-004c: Looking up vcc-supply property in node /soc/i2c@10030000/temperature-sensor@4c failed
->   lm90 0-004c: supply vcc not found, using dummy regulator
-> 
-> Signed-off-by: Vincent Pelletier <plr.vincent@gmail.com>
-> 
-> ---
-> Changes since v2:
-> - Fix end-of-commit-message separator so change lists do not end up in them.
-> Changes since v1:
-> - Remove trailing "." on subject line.
-> - Added a commit description.
-> ---
->  arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 1 +
->  1 file changed, 1 insertion(+)
-> 
+On Fri, Nov 12, 2021 at 12:04 AM Emil Renner Berthing <kernel@esmil.dk> wrote:
+> On Tue, 9 Nov 2021 at 01:46, Linus Walleij <linus.walleij@linaro.org> wrote:
 
+> > As it appears to have some cross dependencies I assume
+> > it will be merged through the SoC tree?
+>
+> I don't know. I've never tried this before, so whatever is easiest I
+> guess. Do I do anything special other than cc'ing soc@kernel.org for
+> v4 to make that happen?
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+You create a pull request with git request-pull and sent it to
+soc@vger.kernel.org and linux-arm-kernel on Cc that should
+work fine and it appears here:
+https://patchwork.kernel.org/project/linux-soc/list/
 
-
-Best regards,
-Krzysztof
+Yours,
+Linus Walleij
 
 _______________________________________________
 linux-riscv mailing list
