@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D723FC433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Nov 2021 17:24:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C035C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Nov 2021 17:25:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JioqIaKRYPCO9KuthdgvvW4jhWfTaSTeWG0oNREO5P4=; b=eDjnLA6HKxBAOI
-	o/2pzJLcw4w7XwqomPBOInLDLYFWeixvezS8UCRYslb5DfnJW9ZP9+lODCxOp2Vrt/YlSoOaoTCn7
-	961zQ81qfOOk6SdJkzQ9cn66nAYAxAZjXBQ8tUGdSbJAvG9SPbT8T/P901pdcG69ITJ2OrVSbyCGI
-	4OsnNRNQl/tOEbhs39sOibP7iOUPdGbMa3FqYrzHueZCnRTYnW8dJESSbIvFCFrfG8ELskGbPFPPK
-	Qi5VedUf4y/P41gkZywgooG8fFo53QtPZudF2U6MPSMwu+BqLLZqyPYAzN0++gdTY+uLh5wLSBGfb
-	BEjdAHtLRNieVbRyCwFw==;
+	List-Owner; bh=MJ6NHqgqViwFYMGA5Ns0XFVpzirvnEc45/gZuv0Jzn4=; b=0U1OMYt8H+JsuY
+	+G9LA3N7D9PX1p78yxk0GlONbjdqoyTBv9AB8p/66UhPF11SZiWV/WzCQFRskFYbApYoTreLGS5dD
+	giBPIPHFUEYw2sWZx3nsFv5vIV91H617WEYboTDXzb6GOf2SqozwEfEXXkAlQrPO6VUtFdyX0gNTD
+	MbUQeGqonYwMDNys3Vqo6OeJpnU1VYZ2IDFyIrDTvaVY3uM1QWP6PuVcbzmgDgqYtY6Oz7um2IK15
+	z+Xkyov9jFWx+ZiFFTQAmtikSadpbycB3scZGANSVknXU5lzcAJ4H9iJfyeUpSB6rBN4Sg59u+aau
+	N0HWqTRMEa14gWc/3WYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1moqZd-00E37X-Ko; Sun, 21 Nov 2021 17:24:17 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1moqaS-00E3Ga-JT; Sun, 21 Nov 2021 17:25:08 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1moqZa-00E36T-Rz
- for linux-riscv@lists.infradead.org; Sun, 21 Nov 2021 17:24:16 +0000
-Received: from mail-lf1-f71.google.com (mail-lf1-f71.google.com
- [209.85.167.71])
+ id 1moqaP-00E3G3-Ua
+ for linux-riscv@lists.infradead.org; Sun, 21 Nov 2021 17:25:07 +0000
+Received: from mail-lf1-f70.google.com (mail-lf1-f70.google.com
+ [209.85.167.70])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 0A7AC3F1B0
- for <linux-riscv@lists.infradead.org>; Sun, 21 Nov 2021 17:24:12 +0000 (UTC)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id ADF793F1A9
+ for <linux-riscv@lists.infradead.org>; Sun, 21 Nov 2021 17:25:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1637515452;
- bh=C44TFo8JxPdM2eUinnKvaXNLXVNdYVKAzbpzrRKKHKk=;
+ s=20210705; t=1637515504;
+ bh=kZq5pPsma0owINBv5hr75ENNQJHBAu3bptY+ZTWWILM=;
  h=Message-ID:Date:MIME-Version:Subject:To:References:From:
  In-Reply-To:Content-Type;
- b=HJBXJGOYH42swqS8g/mg3NpapHt+iltD2TouSRbfbMDPUC++JZT6VEkGLdr7NDUkl
- VDRZM1oA19uQoyx/Mu0GOWfGSdJaLvpwVmEJzdp6yodNQXWH9LO7b3fqHEaAjknfSj
- r4MlUXzIO85jlyjaZ/45ujGbdYWanNS9VHzBqdhn2eHsYxMGeLmOg7Adsih8Z4WKIE
- KYQGVXuyYFzvher9qkSDX6lpBrZBnr3EA1cUQSVSJtQzstFTc1Dr0q0oIMnciv9X/6
- /Vy1R3fa0Bmen5T8xX0xhjSzfcnYn+pAIm5QJ60ZKGrlGlhbEFW6DQpqrZFp3ybp0F
- n3D9GPSwMu2wg==
-Received: by mail-lf1-f71.google.com with SMTP id
- k5-20020a05651210c500b0040934a07fbdso10354689lfg.22
- for <linux-riscv@lists.infradead.org>; Sun, 21 Nov 2021 09:24:12 -0800 (PST)
+ b=DkrOKqkCgqPe8G+3/RueiefdRcI3DazxJIdMq9Mzp/gnG6pYn/Jw5yaKlgkhaGPoh
+ uwJEa9BCnP2x3W2QBGk/nq9mmpnZe5vvmehA9J2hAK36kCAAwt8C4SthKLO2BjKjR0
+ KDWCZV5yDZyVH0dqiQKGLkvc+Bbn7TGaRAa5sKkI2vPTwDPkQVaVENV8jofE4TPevE
+ bw8aOKSIhBmsztKfdJi5Q1eNcPtGuLtsR4D5gL82c482qUELrTOBx7SlZEOIrjlLzu
+ yolUTEtOaW3yLFLNt8TD23yxNb118EL1LH39Eucj5wXL9aJi6ufBe30SZODQmu/EJb
+ Tg2wr0JVurdmg==
+Received: by mail-lf1-f70.google.com with SMTP id
+ s18-20020ac25c52000000b004016bab6a12so10355865lfp.21
+ for <linux-riscv@lists.infradead.org>; Sun, 21 Nov 2021 09:25:04 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
  :content-language:to:references:from:in-reply-to
  :content-transfer-encoding;
- bh=C44TFo8JxPdM2eUinnKvaXNLXVNdYVKAzbpzrRKKHKk=;
- b=GH07WdQ7eQEyybLoPmrab+IHa0TH3F44uoM0kx6djHqNlyfa3RIdZknv2jAU+DR8fX
- QrRG4MPN/abt8R8YRTRtvNSuW2Y2bkZFcnRdgVy8kq7wvQI3rYL3B1232hzI8OPuKtNc
- lxRO6D04f/s7i1XwVOnMSfI2d772S7R6hwaKRXHyfxD+Vz6q1whJnGef8s3JP6ZotVi6
- 2z2n8q+tGAhHbrOJGrt6If4m73v2laTw7R88NpzmNp5+5TALS0SfZxH52btJyW3au/hs
- 7zBQTnkPJJzmyoHIyRobJevAePUrWxg0WgnvbYApM7ozjvjxclkFA/aAavC0XHkTkcLM
- R8IA==
-X-Gm-Message-State: AOAM532led9ubrN6BHs5e/dA1vFiA6K++7ncXWz7ujaoATu7zEGFUo+O
- 3+hs2yYnxcxE12G1Bno2BNFOPZab88yFxKV0Ezi/BgauX7TowbVE603pdkI1Mpv/hZa7OL4wYc/
- yT0EIw0E6V5KO0Bj99deVSX/KS+CobK4O1ILpIYS63AmMoA==
-X-Received: by 2002:a05:6512:150c:: with SMTP id
- bq12mr47862935lfb.628.1637515451553; 
- Sun, 21 Nov 2021 09:24:11 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJxA3eYwToqKzDYJiKtG9lz9teUUb/nMfDtS5bw4e8HgOIZIKfqUi4kB+gaSTJrYMCLvpv+HRg==
-X-Received: by 2002:a05:6512:150c:: with SMTP id
- bq12mr47862915lfb.628.1637515451408; 
- Sun, 21 Nov 2021 09:24:11 -0800 (PST)
+ bh=kZq5pPsma0owINBv5hr75ENNQJHBAu3bptY+ZTWWILM=;
+ b=qlf9BOhbcUB+HVNNu+2HmsZVbf6E3ICYZ3oLQDSDki069YWojiyzij7p8vh3NiomJp
+ kEvron4joOXH03hpLIvrOjOTNLoNYcuZJBQ+zqHYfbeLmo54oJEEnEGgAKT2Sb55d8yy
+ 14l1QbUlYrayW5cD0rJAI0QmWU0uYZr0GV+6cmQYs7WzJC1322UJ+MKCqvbYiQek5cca
+ ewKJjkKjLAa1TY0jMxnusy69mZ7cj1sPturwK/o6rR8bIhf+XGCjdwEPId0FpHWHCjOK
+ hN1oe+qWGNFR6V28nMqnIqkNyNVByg+ARNI6Lg5OSjbjijINoVRSTVo1cNMoA8usfWVw
+ JflA==
+X-Gm-Message-State: AOAM533bzckkBEW7l4nhiFRm6a6L1PS9ha4NH/RYvwwQGgrID4h05/wF
+ +YcwRFTzYURZHPnMSWq6NA5roJmXMP0Yu+0WeX6sCZRErHhGvrp+K7WDE544ljYTnvfzlMXi+ls
+ hsIhE6YRvEcPOoqsOIa6adXKh9YEVirHLD+wFye6PapcOyA==
+X-Received: by 2002:a05:651c:1548:: with SMTP id
+ y8mr45618960ljp.458.1637515502995; 
+ Sun, 21 Nov 2021 09:25:02 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJx2f8OnhQj9sQ62rbV2mdM7eBIr9lOMtV63HTcWuDmQo4H5u0BxfwIDpl7Rc0NkZyH5hM5VIw==
+X-Received: by 2002:a05:651c:1548:: with SMTP id
+ y8mr45618947ljp.458.1637515502822; 
+ Sun, 21 Nov 2021 09:25:02 -0800 (PST)
 Received: from [192.168.3.67] (89-77-68-124.dynamic.chello.pl. [89.77.68.124])
  by smtp.gmail.com with ESMTPSA id
- o22sm699541lfu.274.2021.11.21.09.24.09
+ c1sm633211ljr.111.2021.11.21.09.25.01
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Sun, 21 Nov 2021 09:24:10 -0800 (PST)
-Message-ID: <d1bbf5a0-7120-4991-0bb6-7094e238c2a3@canonical.com>
-Date: Sun, 21 Nov 2021 18:24:09 +0100
+ Sun, 21 Nov 2021 09:25:02 -0800 (PST)
+Message-ID: <3b627657-b2ed-13bd-f97e-363cc734da00@canonical.com>
+Date: Sun, 21 Nov 2021 18:25:01 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.2.1
-Subject: Re: [PATCH v3 4/6] riscv: dts: sifive unmatched: Expose the FU740
- core supply regulator
+Subject: Re: [PATCH v3 6/6] riscv: dts: sifive unmatched: Link the tmp451 with
+ its power supply
 Content-Language: en-US
 To: Vincent Pelletier <plr.vincent@gmail.com>,
  Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
@@ -88,12 +88,12 @@ To: Vincent Pelletier <plr.vincent@gmail.com>,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  David Abdurachmanov <david.abdurachmanov@sifive.com>
 References: <378c64fb868b595430b0068a9af10fdbeceb8e12.1637362542.git.plr.vincent@gmail.com>
- <5ab111e71e88d545d7f03233f10b6d84ef3d6c21.1637362542.git.plr.vincent@gmail.com>
+ <ab42d60d325249d805d99db1c3981dd1fe9422eb.1637362542.git.plr.vincent@gmail.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-In-Reply-To: <5ab111e71e88d545d7f03233f10b6d84ef3d6c21.1637362542.git.plr.vincent@gmail.com>
+In-Reply-To: <ab42d60d325249d805d99db1c3981dd1fe9422eb.1637362542.git.plr.vincent@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211121_092415_061755_D5AA9236 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20211121_092506_151651_809850F5 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,29 +105,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTkvMTEvMjAyMSAyMzo1NSwgVmluY2VudCBQZWxsZXRpZXIgd3JvdGU6Cj4gUHJvdmlkZXMg
-bW9uaXRvcmluZyBvZiBjb3JlIHZvbHRhZ2UgYW5kIGN1cnJlbnQ6Cj4gdHBzNTQ0YjIwLWkyYy0w
-LTFlCj4gQWRhcHRlcjogaTJjLW9jb3Jlcwo+IHZvdXQxOiAgICAgICA5MDYuMDAgbVYKPiB0ZW1w
-MTogICAgICAgIC00MC4wwrBDICAoaGlnaCA9ICsxMjUuMMKwQywgY3JpdCA9ICsxNTAuMMKwQykK
-PiBpb3V0MTogICAgICAgICA1LjA2IEEgIChtYXggPSArMjAuMDAgQSwgY3JpdCBtYXggPSArMjYu
-MDAgQSkKPiAKPiBTaWduZWQtb2ZmLWJ5OiBWaW5jZW50IFBlbGxldGllciA8cGxyLnZpbmNlbnRA
-Z21haWwuY29tPgo+IAo+IC0tLQo+IE5vdGU6IGNoZWNrcGF0Y2gucGwgY29tcGxhaW5zIGFib3V0
-IHVuZG9jdW1lbnRlZCBkZXZpY2V0cmVlIGJpbmRpbmcsCj4gd2hpY2ggaXMgZml4ZWQgYnk6Cj4g
-ICBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1kZXZpY2V0cmVlLzIwMjExMTE2MTEwMjA3
-LjY4NDk0LTEta3J6eXN6dG9mLmtvemxvd3NraUBjYW5vbmljYWwuY29tL1QvI3UKPiAKPiBDaGFu
-Z2VzIHNpbmNlIHYyOgo+IC0gRml4IGVuZC1vZi1jb21taXQtbWVzc2FnZSBzZXBhcmF0b3Igc28g
-Y2hhbmdlIGxpc3RzIGRvIG5vdCBlbmQgdXAgaW4gdGhlbS4KPiBDaGFuZ2VzIHNpbmNlIHYxOgo+
-IC0gQWRkZWQgbWlzc2luZyAidGksIiBwcmVmaXggaW4gY29tcGF0aWJsZSBzdHJpbmcuCj4gLSBS
-ZW1vdmUgdHJhaWxpbmcgIi4iIG9uIHN1YmplY3QgbGluZS4KPiAtIFJlbmFtZSB0cmVlIG5vZGUu
-Cj4gLS0tCj4gIGFyY2gvcmlzY3YvYm9vdC9kdHMvc2lmaXZlL2hpZml2ZS11bm1hdGNoZWQtYTAw
-LmR0cyB8IDUgKysrKysKPiAgMSBmaWxlIGNoYW5nZWQsIDUgaW5zZXJ0aW9ucygrKQo+IAoKClJl
-dmlld2VkLWJ5OiBLcnp5c3p0b2YgS296bG93c2tpIDxrcnp5c3p0b2Yua296bG93c2tpQGNhbm9u
-aWNhbC5jb20+CgoKQmVzdCByZWdhcmRzLApLcnp5c3p0b2YKCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 19/11/2021 23:55, Vincent Pelletier wrote:
+> Fixes the following probe warning:
+>   lm90 0-004c: Looking up vcc-supply from device tree
+>   lm90 0-004c: Looking up vcc-supply property in node /soc/i2c@10030000/temperature-sensor@4c failed
+>   lm90 0-004c: supply vcc not found, using dummy regulator
+> 
+> Signed-off-by: Vincent Pelletier <plr.vincent@gmail.com>
+> 
+> ---
+> Changes since v2:
+> - Fix end-of-commit-message separator so change lists do not end up in them.
+> Changes since v1:
+> - Remove trailing "." on subject line.
+> - Added a commit description.
+> ---
+>  arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+
+
+Best regards,
+Krzysztof
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
