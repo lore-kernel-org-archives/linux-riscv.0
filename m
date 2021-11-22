@@ -4,74 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A1B7C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Nov 2021 21:18:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7BA4C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Nov 2021 23:29:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=evoXn64g4cRmPboFtevTwxBe7Y4kbx3IH/opav+CLRI=; b=QVA4XgkJXAAnEC
-	ptjawz2fWySpZPsEt0N/iPGNG2BfpS4ZEV+/C6hiTBrPEuTT2Uh9KwHFE2bj5V7TeM9c73fy/F78v
-	UKOkM3pepEMwWzqCkjnv/css0dgn/fPLItNtSb3nMozydAh5IAhq8jFHOxPNVVRiYtH1cDpmrGlXs
-	EXueu9CzVOZcjIi+/CbfpAxvOD0PLGV67TrLJ4COJmbUEWloVA1KCSgV/rwdwdKDPLz0a2x7SIsf1
-	qar1DgiyxCoYnl/P8yExgfPc++MQKma0qyw14sg0MFf9cYjusI+dmYGE8cXEjpgfDCFttO2U9lJzL
-	PsuHRm19L7nHGNtVIkJg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=aaPVaEGx8/sEHO3Z6EKdVARDuXoO5LT/uM8sy4glRs8=; b=4Jvz4ZoSr+hsqm
+	CHPiVIoCOEWFjnrTAS/+wWlBRL9C6LgAixDsgMGFjjAI1V9drAzXCJXpHyDxYOMOENALBXbF4QoDm
+	9exz0CZdvIGMnF1zJMvRmmnF6+k9OzMKr+5xaTyqoDlba2IE8xJRL89FVdmJ8N5S0CUv6Vs6ad7Sf
+	aQybB47OA5MCYkmVmz9d37TH/GG+7BLEV8kNGG5Oc8+Ro5NJZFwsmtmwRkguGArDm2c5zovHfyMAm
+	Y15LDVTWVCWRv8sUalyk8haJXH/Ez9kRsxKpEp3hHIrj+Y1adI1NsZwME5PB1qmeLEI/Vb10+GKNp
+	IV9xZ8ajXwxTfSfcT5uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mpGhG-0001hw-5C; Mon, 22 Nov 2021 21:17:54 +0000
-Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
+	id 1mpIk0-000RNh-U0; Mon, 22 Nov 2021 23:28:52 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mpGhC-0001gv-Gi
- for linux-riscv@lists.infradead.org; Mon, 22 Nov 2021 21:17:52 +0000
-Received: by mail-yb1-xb2d.google.com with SMTP id f186so16751436ybg.2
- for <linux-riscv@lists.infradead.org>; Mon, 22 Nov 2021 13:17:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=2Crv3qtr49xQXpH30hYWKyZw4szYmnKcEZtA/vof6c4=;
- b=SPCFhFHVKw+XiRSxHm/RKpX30JCqDDy+3hfay7Ndt+asXANtMzJoECbz/0v7I/75wR
- L65N3Gzh96b7KB0hNit8B9SX9euLTIXTuAKTkEthkZFFeSNtexhIiO+QW1goECct5xwC
- NSSqWizS1tmcDpA8u7TfmXhw1ne/xbiXbWO5Y=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=2Crv3qtr49xQXpH30hYWKyZw4szYmnKcEZtA/vof6c4=;
- b=y/xDfOpSpYyA+8pJiNoIPQz4eGNfaa5+bNn3VV9CLjtZibMklFo5DhWa4Xd1bO08tM
- UY0jjrjm7JCipz+6QkglJ8PoUCzQwd2vHh4Ks6/KVtAaXV2vu6QJaNsTv8GQUpz9o7Tk
- Qq78pl7nmnWih1B5DTmT/smE9aPMD152lYsWvAxw5IVbFLqd1aMMzkiXAY+6sgsPuu9b
- 1jOvhKpPDyoHu7YwME0eFz5TG9Ppbd/mICC2ith9BeGdIBZbB1ElbvTRV/9EIQ6MOnV/
- eeY7173SFJw3zsJOX1KtGc4XO0kKNKroc41PoCRFLC129X75KYsstCBzsCNSEgv+7AO1
- /woQ==
-X-Gm-Message-State: AOAM533p06tlIRpluXT8s0w475Flk+ciLmjyq128pPuQD8aZrLrJDwSA
- LPpYa59QdEFpYGeHIBVyo2R6sc+dxjmOivjddQ9w
-X-Google-Smtp-Source: ABdhPJxgB2O7NZPufvyqJqu+gxUB6EFYRXDqzZ8dOqmMetFqgIubv6Uqfb9sfsMEaMpbIiN8D4W7THrzF3ioCw9A37E=
-X-Received: by 2002:a5b:98e:: with SMTP id c14mr90711ybq.458.1637615864314;
- Mon, 22 Nov 2021 13:17:44 -0800 (PST)
+ id 1mpIeK-000OlZ-H9
+ for linux-riscv@lists.infradead.org; Mon, 22 Nov 2021 23:23:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1637623380; x=1669159380;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=YQ/XAKWYAeapcTzZkPgcULpc8rtRC5bV6gTHpBAfk4o=;
+ b=SMjIVtZPHWumz8bsBxPvBR41t7pVI3hUqXT5VnZskzSg0f+LlHc8t3jJ
+ XGwGL+Ebmszy+iwtyCkQxeRTQKYfcfrH5L3HhX3/hKOLtlfymEKpKfp29
+ fJ9kG+y/svtQ1rghzJM6/uLt0e4ZASROl89YJz6AUj5JpNm9fETdYTItr
+ GVx1U64Nk2AIau/pnltdVOitkLbECtzgL3TxLQth4aCgJ+iNzHVIA4gtt
+ Jmdrwahu6wH5kRaGr+L2TU+b8vKSq4bHz5L2x9S+4Xa6McOKh5J1DjC2q
+ Mq1fefTAKcFb74kbGbdoUAc/gBOgVp+Nl6xpwctXWi472tgCzFv7kChfL A==;
+X-IronPort-AV: E=Sophos;i="5.87,255,1631548800"; d="scan'208";a="186361689"
+Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 23 Nov 2021 07:22:58 +0800
+IronPort-SDR: IugWb8KxKwo/tBYnEOluIVFd5x2Ty8D2Oxg0MMUug7StsoyXrUU5yXhq7iTQX+1P/QUxNjOWsL
+ 0uxUxWt1BddAn/0peEy6ZwJmJCtKY07xSQZ6YzZUhQvh22+WGsj0XZxH2da6evHS5cKmCw0JP9
+ pEx9bMDu91WjRjp32d8oyxkJJElVAwH6MRDn+/oQy628VgH0mGg/lKTpOJu3j3KXJOmKymaDW7
+ seUW/pe7OBFPEH+ar4ajw3yfg5h9BmpzUwU6r4rOnSNxj60KlUuIJlgRtlyF0qORB5/O+65mB4
+ wZDmSpjNHkfusX97SrQeG8ov
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 22 Nov 2021 14:57:53 -0800
+IronPort-SDR: NbmLZR0Ywzl2C9oNK+eoFI0nrOstZsJDiyeKf4HCnzWwbv4i8eYlVyaBntVsEymeYlUWTn6/JZ
+ vnG2CTa4nKU3gN4KLsLHeFWdUiumr82W2TDgsF1mQeAtlxDBUxDbEedmaFVyeEbCgU/u/Tu36o
+ vCsbWUgqfOnulJlj8HF8XlVAXuG28IUWN4Bs+xE2UtxQbYHecV4PAfIMWktNFKWVx8eTNJ8uDQ
+ J0gzPC8FMbW3jMxCRa9PJPIyMyHQWnloizZoUTW6t3GS5LW6p2HKB9mMwPQ1VaLEmfDysQh20q
+ WLM=
+WDCIronportException: Internal
+Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
+ by uls-op-cesaip02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 22 Nov 2021 15:22:59 -0800
+Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4HyjxF2k7Tz1RtW1
+ for <linux-riscv@lists.infradead.org>; Mon, 22 Nov 2021 15:22:57 -0800 (PST)
+Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
+ reason="pass (just generated, assumed good)"
+ header.d=opensource.wdc.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
+ opensource.wdc.com; h=content-transfer-encoding:mime-version
+ :x-mailer:message-id:date:subject:to:from; s=dkim; t=1637623376;
+ x=1640215377; bh=YQ/XAKWYAeapcTzZkPgcULpc8rtRC5bV6gTHpBAfk4o=; b=
+ uXuB4eILMIMxwqKN5uy0RnqMStAIUYqYfAhMgkwBD9YGxxZ41LQRHYE/MKtMi3uL
+ a3m1GSKUR8wRfYAWzJ18ZiuEMysESzsZr0kvc/BPrUfQgmKs6/UI7asqjytSLPfm
+ W1YLwL1qOwxKS57KooHddtSC0+d7+4KI6rsxFCwqBGLbUm/Nu0dB9uRZDI054q6f
+ 2zq99/11ZNtQD+uLgT8TdRfxHZeim7kyhqDPVWIkvuoB1/RtFmW1t4y2qBz2zXXc
+ MXHVL3wH2P17Pgw9F3CBLLQNS7cqIOK7oJZjAiduPrmj1HEwg2LPgqwBRT+sxIiG
+ 5hGpZGBvxikJjTYwNUyijQ==
+X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
+Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
+ by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new,
+ port 10026)
+ with ESMTP id vhZAH_EIVjBw for <linux-riscv@lists.infradead.org>;
+ Mon, 22 Nov 2021 15:22:56 -0800 (PST)
+Received: from toolbox.alistair23.me (unknown [10.225.165.60])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4Hyjwz2rT7z1RtVl;
+ Mon, 22 Nov 2021 15:22:42 -0800 (PST)
+From: Alistair Francis <alistair.francis@opensource.wdc.com>
+To: linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: mark.rutland@arm.com, atish.patra@wdc.com,
+ alexander.shishkin@linux.intel.com, peterz@infradead.org,
+ tglx@linutronix.de, namhyung@kernel.org, dave@stgolabs.net, arnd@arndb.de,
+ linux-kernel@vger.kernel.org, jolsa@redhat.com, acme@kernel.org,
+ alistair23@gmail.com, dvhart@infradead.org, mingo@redhat.com,
+ Alistair Francis <alistair.francis@wdc.com>
+Subject: [PATCH v6 1/2] selftests: futex: Call the futex syscall from a
+ function
+Date: Tue, 23 Nov 2021 09:22:35 +1000
+Message-Id: <20211122232236.119533-1-alistair.francis@opensource.wdc.com>
+X-Mailer: git-send-email 2.31.1
 MIME-Version: 1.0
-References: <20211109102555.16381-1-joao.mario@tecnico.ulisboa.pt>
- <20211116154812.17008-1-joao.mario@tecnico.ulisboa.pt>
- <20211117152523.66f4ee8e@redslave.neermore.group>
- <CAOnJCULUmmtr=n3yB2e1x_DtyRGTZxVLW-OZOy2aWHS=nOK2gw@mail.gmail.com>
- <20211122145751.GA10739@joaomariovmubuntu>
- <7803EDC9-1B22-4D56-9112-2F7896342446@jrtc27.com>
-In-Reply-To: <7803EDC9-1B22-4D56-9112-2F7896342446@jrtc27.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Mon, 22 Nov 2021 13:17:33 -0800
-Message-ID: <CAOnJCU+5=mMrjQMwyf5aOwbXEtNeFE=LVQpVJsc56fZ59PZwDA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/4] Introduce pmu-events support for HiFive Unmatched
-To: Jessica Clarke <jrtc27@jrtc27.com>
-Cc: =?UTF-8?B?Sm/Do28gTcOhcmlvIERvbWluZ29z?= <joao.mario@tecnico.ulisboa.pt>, 
- Nikita Shubin <nikita.shubin@maquefel.me>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Anup Patel <anup.patel@wdc.com>, linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211122_131750_663340_6383C216 
-X-CRM114-Status: GOOD (  31.10  )
+X-CRM114-CacheID: sfid-20211122_152300_731628_8F820B51 
+X-CRM114-Status: GOOD (  16.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,132 +112,191 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBOb3YgMjIsIDIwMjEgYXQgODoyNiBBTSBKZXNzaWNhIENsYXJrZSA8anJ0YzI3QGpy
-dGMyNy5jb20+IHdyb3RlOgo+Cj4gT24gMjIgTm92IDIwMjEsIGF0IDE0OjU3LCBKb8OjbyBNw6Fy
-aW8gRG9taW5nb3MgPGpvYW8ubWFyaW9AdGVjbmljby51bGlzYm9hLnB0PiB3cm90ZToKPiA+IE9u
-IFRodSwgTm92IDE4LCAyMDIxIGF0IDEyOjAwOjA5QU0gLTA4MDAsIEF0aXNoIFBhdHJhIHdyb3Rl
-Ogo+ID4+IE9uIFdlZCwgTm92IDE3LCAyMDIxIGF0IDQ6MjUgQU0gTmlraXRhIFNodWJpbiA8bmlr
-aXRhLnNodWJpbkBtYXF1ZWZlbC5tZT4gd3JvdGU6Cj4gPj4+Cj4gPj4+IE9uIFR1ZSwgMTYgTm92
-IDIwMjEgMTU6NDg6MDggKzAwMDAKPiA+Pj4gSm/Do28gTcOhcmlvIERvbWluZ29zIDxqb2FvLm1h
-cmlvQHRlY25pY28udWxpc2JvYS5wdD4gd3JvdGU6Cj4gPj4+Cj4gPj4+IEhlbGxvIE1hcmlvIQo+
-ID4+Pgo+ID4+PiBUaGFuayB5b3UgZm9yIHlvdXIgcGF0Y2ggc2VyaWVzLgo+ID4+Pgo+ID4+PiBJ
-IGhhdmUgcmVwcm9kdWNlZCB5b3VyIHRlc3Qgd2l0aCBzb21lIHUtYm9vdCBkdHMgdGlua2VyaW5n
-LCBhbmQgZ290Cj4gPj4+IHNpbWlsYXIgcmVzdWx0cy4KPiA+Pj4KPiA+Pj4gSG93ZXZlciwKPiA+
-Pj4KPiA+Pj4+Cj4gPj4+PiBbMV0gaHR0cHM6Ly9naXRodWIuY29tL2F0aXNocDA0L29wZW5zYmkv
-dHJlZS9wbXVfc3Njb2ZwbWZfdjIKPiA+Pj4KPiA+Pj4gT3BlblNCSSBzc2NvZnBtZiBoYXMgYmVl
-biBtZXJnZWQuCj4gPj4+Cj4gPj4+PiBbMl0gaHR0cHM6Ly9naXRodWIuY29tL2F0aXNocDA0L3Ut
-Ym9vdC90cmVlL2hpZml2ZV91bm1hdGNoZWRfZHRfcG11Cj4gPj4+PiBbNV0KPiA+Pj4+IGh0dHBz
-Oi8vZ2l0aHViLmNvbS9hdGlzaHAwNC91LWJvb3QvYmxvYi9oaWZpdmVfdW5tYXRjaGVkX2R0X3Bt
-dS9hcmNoL3Jpc2N2L2R0cy9mdTc0MC1jMDAwLmR0c2kKPiA+Pj4KPiA+Pj4gSXMgbWlzc2luZyB0
-aGUgYWRhcHRhdGlvbiBmb3IgT3BlblNCSSBiaXRtYXAgcGF0Y2ggZm9yCj4gPj4+ICJyYXctZXZl
-bnQtdG8tbWhwbWNvdW50ZXJzIi4KPiA+Pgo+ID4+IE15IHBhdGNoIHdhcyBqdXN0IGFuIGV4YW1w
-bGUgYW5kIHByZWRhdGVzIGJlZm9yZSB0aGUgYml0bWFwIHBhdGNoCj4gPj4gcG9zdGVkIGJ5IFZp
-bmNlbnQuCj4gPj4gSSB3aWxsIHVwZGF0ZSB0aGUgVS1ib290IHBhdGNoIGFsb25nIHdpdGggdGhl
-IG5leHQga2VybmVsIHZlcnNpb24uCj4gPj4KPiA+Pj4KPiA+Pj4+IFszXSBodHRwczovL2dpdGh1
-Yi5jb20vYXRpc2hwMDQvbGludXgvdHJlZS9yaXNjdl9wbXVfdjQKPiA+Pj4KPiA+Pj4gVGhlIGxp
-bmsgaXMgYnJva2VuLgo+ID4+Pgo+ID4+Cj4gPj4gU29ycnkuIFRoaXMgc2hvdWxkIGJlCj4gPj4g
-aHR0cHM6Ly9naXRodWIuY29tL2F0aXNocDA0L2xpbnV4L3RyZWUvc2JpX3BtdV92NAo+ID4+Cj4g
-Pj4+PiBbNF0KPiA+Pj4+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL3BpcGVybWFpbC9saW51
-eC1yaXNjdi8yMDIxLU9jdG9iZXIvMDA5NDA4Lmh0bWwKPiA+Pj4KPiA+Pj4+IFs2XQo+ID4+Pj4g
-aHR0cHM6Ly9wYXRjaHdvcmsub3psYWJzLm9yZy9wcm9qZWN0L29wZW5zYmkvcGF0Y2gvMjAyMTEx
-MDUwMTMzMDEuMjc2NTYtMS12aW5jZW50LmNoZW5Ac2lmaXZlLmNvbS8KPiA+Pj4+Cj4gPj4+Cj4g
-Pj4+IFRoZXJlIGlzIGEgdmVyc2lvbiAyIHN1Ym1pdHRlZCwgYW5kIGl0IHdvbid0IGFwcGx5IGFz
-IHJlcXVpcmUgcmViYXNpbmcKPiA+Pj4gYW5kIHNvbWUgcmVuYW1pbmcuCj4gPj4+Cj4gPj4+IFBs
-ZWFzZSBzaGFyZSB5b3VyIHUtYm9vdCBkdHMgY2hhbmdlcyAtIHRoZXkgc2hvdWxkIGJlIHNtYWxs
-IGFuZCBwcm92aWRlCj4gPj4+IGEgY29tbW9uIGJhc2UgZm9yIHRoaXMgc2VyaWVzLgo+ID4+Pgo+
-ID4+Cj4gPj4gWWVzLiBUaGF0IHdvdWxkIGJlIHJlYWxseSBoZWxwZnVsIHRvIGhhdmUgYSBEVCBw
-YXRoIHdpdGggYWxsIHRoZQo+ID4+IGVudHJpZXMgZm9yIGVhc2llciB0ZXN0aW5nLgo+ID4+Cj4g
-Pj4KPiA+Cj4gPiBBcyB0aGUgY2hhbmdlcyB0byB0aGUgVS1Cb290IGFyZSBzaG9ydCBJJ20gaW5j
-bHVkaW5nIHRoZW0gaGVyZSwgcGxlYXNlIHRlbGwgbWUgaWYgSQo+ID4gc2hvdWxkIGluY2x1ZGUg
-dGhlbSBpbiBvdGhlciB3YXkuIEkgbWVyZ2VkIG15IGNoYW5nZXMgd2l0aCBBdGlzaCdzIG93bgo+
-ID4gcGF0Y2ggdG8gc2ltcGxpZnkgdGhlIHByb2Nlc3MuCj4gPgo+ID4gZGlmZiAtdSBiL2FyY2gv
-cmlzY3YvZHRzL2Z1NzQwLWMwMDAuZHRzaSBiL2FyY2gvcmlzY3YvZHRzL2Z1NzQwLWMwMDAuZHRz
-aQo+ID4gLS0tIGIvYXJjaC9yaXNjdi9kdHMvZnU3NDAtYzAwMC5kdHNpCj4gPiArKysgYi9hcmNo
-L3Jpc2N2L2R0cy9mdTc0MC1jMDAwLmR0c2kKPiA+IEBAIC0xNDEsNiArMTQxLDQ5IEBACj4gPiAg
-ICAgICAgICAgICAgICAjc2l6ZS1jZWxscyA9IDwyPjsKPiA+ICAgICAgICAgICAgICAgIGNvbXBh
-dGlibGUgPSAic2lmaXZlLGZ1NzQwLWMwMDAiLCAic2lmaXZlLGZ1NzQwIiwgInNpbXBsZS1idXMi
-Owo+ID4gICAgICAgICAgICAgICAgcmFuZ2VzOwo+ID4gKyAgICAgICAgICAgICAgIHBtdSB7Cj4g
-PiArICAgICAgICAgICAgICAgICAgICAgICBjb21wYXRpYmxlID0gInJpc2N2LHBtdSI7Cj4gPiAr
-ICAgICAgICAgICAgICAgICAgICAgICBwbXUscmF3LWV2ZW50LXRvLW1ocG1jb3VudGVycyA9IDww
-eDAwMDAwMDAwIDB4MDAwMDAxMDAgMHgxOAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAweDAwMDAwMDAwIDB4MDAwMDAyMDAgMHgxOAo+
-ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAweDAwMDAwMDAwIDB4MDAwMDA0MDAgMHgxOAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAweDAwMDAwMDAwIDB4MDAwMDA4MDAgMHgx
-OAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAweDAwMDAwMDAwIDB4MDAwMDEwMDAgMHgxOAo+ID4gKyAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAweDAwMDAwMDAwIDB4MDAwMDIwMDAg
-MHgxOAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAweDAwMDAwMDAwIDB4MDAwMDQwMDAgMHgxOAo+ID4gKyAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAweDAwMDAwMDAwIDB4MDAwMDgw
-MDAgMHgxOAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAweDAwMDAwMDAwIDB4MDAwMTAwMDAgMHgxOAo+ID4gKyAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAweDAwMDAwMDAwIDB4MDAw
-MjAwMDAgMHgxOAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAweDAwMDAwMDAwIDB4MDAwNDAwMDAgMHgxOAo+ID4gKyAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAweDAwMDAwMDAwIDB4
-MDAwODAwMDAgMHgxOAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAweDAwMDAwMDAwIDB4MDAxMDAwMDAgMHgxOAo+ID4gKyAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAweDAwMDAwMDAw
-IDB4MDAyMDAwMDAgMHgxOAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAweDAwMDAwMDAwIDB4MDA0MDAwMDAgMHgxOAo+ID4gKyAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAweDAwMDAw
-MDAwIDB4MDA4MDAwMDAgMHgxOAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAweDAwMDAwMDAwIDB4MDEwMDAwMDAgMHgxOAo+ID4gKyAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAweDAw
-MDAwMDAwIDB4MDIwMDAwMDAgMHgxOAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAweDAwMDAwMDAwIDB4MDAwMDAxMDEgMHgxOAo+ID4g
-KyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAw
-eDAwMDAwMDAwIDB4MDAwMDAyMDEgMHgxOAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAweDAwMDAwMDAwIDB4MDAwMDA0MDEgMHgxOAo+
-ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAweDAwMDAwMDAwIDB4MDAwMDA4MDEgMHgxOAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAweDAwMDAwMDAwIDB4MDAwMDEwMDEgMHgx
-OAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAweDAwMDAwMDAwIDB4MDAwMDIwMDEgMHgxOAo+ID4gKyAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAweDAwMDAwMDAwIDB4MDAwMDQwMDEg
-MHgxOAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAweDAwMDAwMDAwIDB4MDAwMDgwMDEgMHgxOAo+ID4gKyAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAweDAwMDAwMDAwIDB4MDAwMTAw
-MDEgMHgxOAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAweDAwMDAwMDAwIDB4MDAwMjAwMDEgMHgxOAo+ID4gKyAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAweDAwMDAwMDAwIDB4MDAw
-NDAwMDEgMHgxOAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAweDAwMDAwMDAwIDB4MDAwMDAxMDIgMHgxOAo+ID4gKyAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAweDAwMDAwMDAwIDB4
-MDAwMDAyMDIgMHgxOAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAweDAwMDAwMDAwIDB4MDAwMDA0MDIgMHgxOAo+ID4gKyAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAweDAwMDAwMDAw
-IDB4MDAwMDA4MDIgMHgxOAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAweDAwMDAwMDAwIDB4MDAwMDEwMDIgMHgxOAo+ID4gKyAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAweDAwMDAw
-MDAwIDB4MDAwMDIwMDIgMHgxOD47Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICBwbXUsZXZl
-bnQtdG8tbWhwbWNvdW50ZXJzID0gPDB4MDUgMHgwNiAweDE4Cj4gPiArICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDB4MTAwMDkgMHgxMDAwOSAweDE4
-PjsKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIHBtdSxldmVudC10by1taHBtZXZlbnQgPSA8
-MHgwNSAweDAwMDAwMDAwIDB4NDAwMAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAweDA2IDB4MDAwMDAwMDAgMHg0MDAxCj4gPiArICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDB4MTAwMDggMHgwMDAwMDAw
-MCAweDEwMj47Cj4gPiArICAgICAgICAgICAgICAgfTsKPiA+ICAgICAgICAgICAgICAgIHBsaWMw
-OiBpbnRlcnJ1cHQtY29udHJvbGxlckBjMDAwMDAwIHsKPiA+ICAgICAgICAgICAgICAgICAgICAg
-ICAgI2ludGVycnVwdC1jZWxscyA9IDwxPjsKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgY29t
-cGF0aWJsZSA9ICJzaWZpdmUscGxpYy0xLjAuMOKAnTsKPgo+IEkgc3RpbGwgaGlnaGx5IGRpc2Fn
-cmVlIHdpdGggdGhpcy4gVGhlIHByZXNlbmNlIG9mIHRoZSBTQkkgUE1VCj4gZXh0ZW5zaW9uIGlz
-IGEgcHJvcGVydHkgb2YgdGhlIGZpcm13YXJlLCBub3QgdGhlIFNvQywgc28gaXQgaGFzIG5vCj4g
-cGxhY2UgaW4gL3NvYy4gTW9yZW92ZXIgaXRzIGV4aXN0ZW5jZSBjYW4gYmUgcHJvYmVkIHZpYSB0
-aGUKPiBzYmlfcHJvYmVfZXh0ZW5zaW9uIFNCSSBjYWxsLiBJdCBpcyBhbHJlYWR5IGRpc2NvdmVy
-YWJsZS4KPgo+IFNlZSBteSByZXNwb25zZXMgdG8gQXRpc2jigJlzIHBhdGNoZXMgZm9yIG1vcmUg
-ZGV0YWlscy4KSGkgSmVzc2ljYSwKSSBhbSB3b3JraW5nIG9uIHJldmlzaW5nIHRoZSBQTVUgc2Vy
-aWVzIGJhc2VkIG9uIHlvdXIgZmVlZGJhY2suClRoZSBkaWZmIHByb3Bvc2VkIGhlcmUgd2lsbCBn
-byBpbnRvIHRoZSBkZXZpY2UgdHJlZSBpbiBVLUJvb3QgbWVhbnQgdG8gYmUgdXNlZApmb3IgZmly
-bXdhcmUuIEZpcm13YXJlIHNob3VsZCByZW1vdmUgdGhlc2UgRFQgcHJvcGVydGllcyBiZWZvcmUK
-anVtcGluZyB0byB0aGUgTGludXgga2VybmVsCkN1cnJlbnRseSBPcGVuU0JJIGRvZXMgdGhpcyBh
-cyB3ZWxsLgoKCj4gSmVzcwo+CgoKLS0gClJlZ2FyZHMsCkF0aXNoCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Alistair Francis <alistair.francis@wdc.com>
+
+Call the futex syscall from a function
+
+In preparation for a more complex futex() function let's convert the
+current macro into two functions. We need two functions to avoid
+compiler failures as the macro is overloaded.
+
+This will allow us to include pre-processor conditionals in the futex
+syscall functions.
+
+Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
+---
+ .../selftests/futex/include/futextest.h       | 59 +++++++++++--------
+ 1 file changed, 34 insertions(+), 25 deletions(-)
+
+diff --git a/tools/testing/selftests/futex/include/futextest.h b/tools/testing/selftests/futex/include/futextest.h
+index ddbcfc9b7bac..c786fffecb8a 100644
+--- a/tools/testing/selftests/futex/include/futextest.h
++++ b/tools/testing/selftests/futex/include/futextest.h
+@@ -48,7 +48,7 @@ typedef volatile u_int32_t futex_t;
+ #endif
+ 
+ /**
+- * futex() - SYS_futex syscall wrapper
++ * futex_syscall() - SYS_futex syscall wrapper
+  * @uaddr:	address of first futex
+  * @op:		futex op code
+  * @val:	typically expected value of uaddr, but varies by op
+@@ -58,17 +58,26 @@ typedef volatile u_int32_t futex_t;
+  * @val3:	varies by op
+  * @opflags:	flags to be bitwise OR'd with op, such as FUTEX_PRIVATE_FLAG
+  *
+- * futex() is used by all the following futex op wrappers. It can also be
++ * futex_syscall() is used by all the following futex op wrappers. It can also be
+  * used for misuse and abuse testing. Generally, the specific op wrappers
+- * should be used instead. It is a macro instead of an static inline function as
+- * some of the types over overloaded (timeout is used for nr_requeue for
+- * example).
++ * should be used instead.
+  *
+  * These argument descriptions are the defaults for all
+  * like-named arguments in the following wrappers except where noted below.
+  */
+-#define futex(uaddr, op, val, timeout, uaddr2, val3, opflags) \
+-	syscall(SYS_futex, uaddr, op | opflags, val, timeout, uaddr2, val3)
++static inline int
++futex_syscall(volatile u_int32_t *uaddr, int op, u_int32_t val, struct timespec *timeout,
++	      volatile u_int32_t *uaddr2, int val3, int opflags)
++{
++	return syscall(SYS_futex, uaddr, op | opflags, val, timeout, uaddr2, val3);
++}
++
++static inline int
++futex_syscall_nr_requeue(volatile u_int32_t *uaddr, int op, u_int32_t val, int nr_requeue,
++			 volatile u_int32_t *uaddr2, int val3, int opflags)
++{
++	return syscall(SYS_futex, uaddr, op | opflags, val, nr_requeue, uaddr2, val3);
++}
+ 
+ /**
+  * futex_wait() - block on uaddr with optional timeout
+@@ -77,7 +86,7 @@ typedef volatile u_int32_t futex_t;
+ static inline int
+ futex_wait(futex_t *uaddr, futex_t val, struct timespec *timeout, int opflags)
+ {
+-	return futex(uaddr, FUTEX_WAIT, val, timeout, NULL, 0, opflags);
++	return futex_syscall(uaddr, FUTEX_WAIT, val, timeout, NULL, 0, opflags);
+ }
+ 
+ /**
+@@ -87,7 +96,7 @@ futex_wait(futex_t *uaddr, futex_t val, struct timespec *timeout, int opflags)
+ static inline int
+ futex_wake(futex_t *uaddr, int nr_wake, int opflags)
+ {
+-	return futex(uaddr, FUTEX_WAKE, nr_wake, NULL, NULL, 0, opflags);
++	return futex_syscall(uaddr, FUTEX_WAKE, nr_wake, NULL, NULL, 0, opflags);
+ }
+ 
+ /**
+@@ -98,8 +107,8 @@ static inline int
+ futex_wait_bitset(futex_t *uaddr, futex_t val, struct timespec *timeout,
+ 		  u_int32_t bitset, int opflags)
+ {
+-	return futex(uaddr, FUTEX_WAIT_BITSET, val, timeout, NULL, bitset,
+-		     opflags);
++	return futex_syscall(uaddr, FUTEX_WAIT_BITSET, val, timeout, NULL, bitset,
++			     opflags);
+ }
+ 
+ /**
+@@ -109,8 +118,8 @@ futex_wait_bitset(futex_t *uaddr, futex_t val, struct timespec *timeout,
+ static inline int
+ futex_wake_bitset(futex_t *uaddr, int nr_wake, u_int32_t bitset, int opflags)
+ {
+-	return futex(uaddr, FUTEX_WAKE_BITSET, nr_wake, NULL, NULL, bitset,
+-		     opflags);
++	return futex_syscall(uaddr, FUTEX_WAKE_BITSET, nr_wake, NULL, NULL, bitset,
++			     opflags);
+ }
+ 
+ /**
+@@ -121,7 +130,7 @@ static inline int
+ futex_lock_pi(futex_t *uaddr, struct timespec *timeout, int detect,
+ 	      int opflags)
+ {
+-	return futex(uaddr, FUTEX_LOCK_PI, detect, timeout, NULL, 0, opflags);
++	return futex_syscall(uaddr, FUTEX_LOCK_PI, detect, timeout, NULL, 0, opflags);
+ }
+ 
+ /**
+@@ -130,7 +139,7 @@ futex_lock_pi(futex_t *uaddr, struct timespec *timeout, int detect,
+ static inline int
+ futex_unlock_pi(futex_t *uaddr, int opflags)
+ {
+-	return futex(uaddr, FUTEX_UNLOCK_PI, 0, NULL, NULL, 0, opflags);
++	return futex_syscall(uaddr, FUTEX_UNLOCK_PI, 0, NULL, NULL, 0, opflags);
+ }
+ 
+ /**
+@@ -140,8 +149,8 @@ static inline int
+ futex_wake_op(futex_t *uaddr, futex_t *uaddr2, int nr_wake, int nr_wake2,
+ 	      int wake_op, int opflags)
+ {
+-	return futex(uaddr, FUTEX_WAKE_OP, nr_wake, nr_wake2, uaddr2, wake_op,
+-		     opflags);
++	return futex_syscall_nr_requeue(uaddr, FUTEX_WAKE_OP, nr_wake, nr_wake2, uaddr2, wake_op,
++					opflags);
+ }
+ 
+ /**
+@@ -156,8 +165,8 @@ static inline int
+ futex_requeue(futex_t *uaddr, futex_t *uaddr2, int nr_wake, int nr_requeue,
+ 	      int opflags)
+ {
+-	return futex(uaddr, FUTEX_REQUEUE, nr_wake, nr_requeue, uaddr2, 0,
+-		     opflags);
++	return futex_syscall_nr_requeue(uaddr, FUTEX_REQUEUE, nr_wake, nr_requeue, uaddr2, 0,
++					opflags);
+ }
+ 
+ /**
+@@ -169,8 +178,8 @@ static inline int
+ futex_cmp_requeue(futex_t *uaddr, futex_t val, futex_t *uaddr2, int nr_wake,
+ 		  int nr_requeue, int opflags)
+ {
+-	return futex(uaddr, FUTEX_CMP_REQUEUE, nr_wake, nr_requeue, uaddr2,
+-		     val, opflags);
++	return futex_syscall_nr_requeue(uaddr, FUTEX_CMP_REQUEUE, nr_wake, nr_requeue, uaddr2,
++					val, opflags);
+ }
+ 
+ /**
+@@ -185,8 +194,8 @@ static inline int
+ futex_wait_requeue_pi(futex_t *uaddr, futex_t val, futex_t *uaddr2,
+ 		      struct timespec *timeout, int opflags)
+ {
+-	return futex(uaddr, FUTEX_WAIT_REQUEUE_PI, val, timeout, uaddr2, 0,
+-		     opflags);
++	return futex_syscall(uaddr, FUTEX_WAIT_REQUEUE_PI, val, timeout, uaddr2, 0,
++			     opflags);
+ }
+ 
+ /**
+@@ -200,8 +209,8 @@ static inline int
+ futex_cmp_requeue_pi(futex_t *uaddr, futex_t val, futex_t *uaddr2, int nr_wake,
+ 		     int nr_requeue, int opflags)
+ {
+-	return futex(uaddr, FUTEX_CMP_REQUEUE_PI, nr_wake, nr_requeue, uaddr2,
+-		     val, opflags);
++	return futex_syscall_nr_requeue(uaddr, FUTEX_CMP_REQUEUE_PI, nr_wake, nr_requeue, uaddr2,
++					val, opflags);
+ }
+ 
+ /**
+-- 
+2.31.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
