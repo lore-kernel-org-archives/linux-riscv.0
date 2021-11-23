@@ -4,73 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03BBBC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Nov 2021 20:01:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1A03C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Nov 2021 21:51:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cyzzpGJnpm3NVOsAUbLEFukngloO90knR1XcKh0Ooyc=; b=O+RwEFKQUXDlOs
-	GY5FPqiChQbvL+ykmUTdX386r2dlkcebJcXeDZmUK1+efvfYekyqBboRBClrfhtJ2OvQjHaxtloly
-	gGalKMIusfmGDLwVI+XsTNKa9WKZbdnnKCxsnMlE6GrThCuUODg0/ASK9GC4PryUM9DctfmXYfp/m
-	W9BK+yeqOc1vRosc1PgytP5V7O8Rw7iWWsqFSFjwDj0RsLnkLolj5u1w2K+gV8F4kBkZllkGQeGly
-	dIVXviMQAu7DArkScZY1QVxO80MbLwJA4+ka3oNF7OdQgKlwEgWqFzIpooAev2IxFRep8V8RaYD4L
-	FS60nfjEIudDY89VyIKQ==;
+	List-Owner; bh=jycfXKYqGdt5QukbnJ4OkVi6K3SgvZLBpx/Mdn7J/V8=; b=VDW8+L333x96f+
+	K158fdybux6TXTcbtzKSYzR3vfeIERIAN+OWC1n53iS5EkUpm89l04gqOVUZp7pPrQ59h+WnMyXsH
+	tdkNOmKPpFs6wT1h8lRd+BARmvjh1L4AAStih74H+Edni3ybtZRMmPOJmNdLhZRWKvpodfjlcSFpI
+	U8PStabyKQ30klGDRkQ0GNp2RZQmeuIoMowJgkKlOkiCGSEQ8SB6pnwz0W7K1AbPM4VUigGZAzRyw
+	suGiq817E31nLH27zTT4vLrsVtXgDvMaIbA/8iwAQriWns90nJlFp46SdtxPZ7GCm2mZ3/tNGUGbP
+	Pxtj6Hg9gJCvQp12tSJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mpbz8-003OUO-68; Tue, 23 Nov 2021 20:01:46 +0000
-Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
+	id 1mpdgv-003Y3F-R9; Tue, 23 Nov 2021 21:51:05 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mpbz4-003OT0-Nj
- for linux-riscv@lists.infradead.org; Tue, 23 Nov 2021 20:01:44 +0000
-Received: by mail-yb1-xb2a.google.com with SMTP id v64so647669ybi.5
- for <linux-riscv@lists.infradead.org>; Tue, 23 Nov 2021 12:01:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=t/v+kSxz1eiji85Dg0icG/ia7nsKdb5UQNgj4yu1XbA=;
- b=IwRqsQL5HJZ2NNAgvFIi1eoEuWD9tyK9eiN7sz6ZqH03QgbCLrTVI5ymeaYArtG3rQ
- Y6yudwUhG/R2NCwwz3YKxhz7q/2T+Vbe0HqrQpzUKdTBIWvkTcl/GTNfZkdudMkdxRli
- EMoiBdEhsZYYwQAByJnvzZQHmWqqoANt2vLLQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=t/v+kSxz1eiji85Dg0icG/ia7nsKdb5UQNgj4yu1XbA=;
- b=dWXw+bbhs/vP3dnoLvSN+aW5OlfQiuCl/n5sxl18SqQ55z0GVtKmzAptMXKos042+h
- v6DjIVN5SNVcPKiRJQyAjt8wJvuLgx5oItk56rj5fx47WKCvRt4XNwpBZJzQ7SAjOLNK
- OdJxKPvWjf5MpJ9lnDHBG5lXnjBGb9mPsMcPnQpZ1qHiWCYLppNIiVtwr41dlMFeyjfd
- e7HFNXHWRAqXvMyne7il5U7gUYqhulgTuJJ0mjCXe+9FQqISyxF3AZo/QQDeqpjP9l8t
- mnKOVq6bsOPeSmFkIyj5vtbRSxXzUBz+WME24fs7JzDzy//aH5tVOgtmKV6cikqIXw+9
- NgZQ==
-X-Gm-Message-State: AOAM530d+jlg52lTic5ahnhLaJbDFkIqeF2wZ+Kh0nIijx4cE8FUKfbj
- jYWUVWbFtI3NqSYuxIgH7vYYu6C24pQuTVoZ5kvx
-X-Google-Smtp-Source: ABdhPJxwy2lpaMGVdBaEtmzNC/OVDfQyJQupRowAmg8DGXxghxRN8N4XPTU8UHC6petkfR4neTSFZGp5e6jxHqNyij8=
-X-Received: by 2002:a25:73d0:: with SMTP id o199mr8906443ybc.87.1637697700555; 
- Tue, 23 Nov 2021 12:01:40 -0800 (PST)
-MIME-Version: 1.0
-References: <20211123015717.542631-1-guoren@kernel.org>
- <1913356.JkcO0Xq8vV@diego>
-In-Reply-To: <1913356.JkcO0Xq8vV@diego>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 23 Nov 2021 12:01:29 -0800
-Message-ID: <CAOnJCU+-WCHA9vgrbcMFsLMaimwJNEXOpqMLS_0Gq_JRM5QNWQ@mail.gmail.com>
+ id 1mpdgt-003Y2U-6G
+ for linux-riscv@lists.infradead.org; Tue, 23 Nov 2021 21:51:04 +0000
+Received: from ip5f5b2004.dynamic.kabel-deutschland.de ([95.91.32.4]
+ helo=diego.localnet)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1mpdgn-0002Tt-AM; Tue, 23 Nov 2021 22:50:57 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Atish Patra <atishp@atishpatra.org>
+Cc: Guo Ren <guoren@kernel.org>, Anup Patel <anup@brainfault.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, atishp@rivosinc.com,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Linux Doc Mailing List <linux-doc@vger.kernel.org>,
+ Guo Ren <guoren@linux.alibaba.com>, Philipp Tomsich <philipp.tomsich@vrull.eu>
 Subject: Re: [RFC PATCH 0/3] riscv: Add riscv.fwsz kernel parameter to save
  memory
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: Guo Ren <guoren@kernel.org>, Anup Patel <anup@brainfault.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, atishp@rivosinc.com, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
- Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- Guo Ren <guoren@linux.alibaba.com>, 
- Philipp Tomsich <philipp.tomsich@vrull.eu>
+Date: Tue, 23 Nov 2021 22:50:56 +0100
+Message-ID: <1780573.2WWZn4uiS5@diego>
+In-Reply-To: <CAOnJCU+-WCHA9vgrbcMFsLMaimwJNEXOpqMLS_0Gq_JRM5QNWQ@mail.gmail.com>
+References: <20211123015717.542631-1-guoren@kernel.org>
+ <1913356.JkcO0Xq8vV@diego>
+ <CAOnJCU+-WCHA9vgrbcMFsLMaimwJNEXOpqMLS_0Gq_JRM5QNWQ@mail.gmail.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211123_120142_904259_4F965751 
-X-CRM114-Status: GOOD (  26.02  )
+X-CRM114-CacheID: sfid-20211123_135103_257276_7286506D 
+X-CRM114-Status: GOOD (  34.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,71 +61,128 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBOb3YgMjMsIDIwMjEgYXQgMTE6MzMgQU0gSGVpa28gU3TDvGJuZXIgPGhlaWtvQHNu
-dGVjaC5kZT4gd3JvdGU6Cj4KPiBIaSBHdW8sCj4KPiBBbSBEaWVuc3RhZywgMjMuIE5vdmVtYmVy
-IDIwMjEsIDAyOjU3OjE0IENFVCBzY2hyaWViIGd1b3JlbkBrZXJuZWwub3JnOgo+ID4gRnJvbTog
-R3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+ID4KPiA+IFRoZSBmaXJtd2FyZSBv
-ZiByaXNjdiAoc3VjaCBhcyBvcGVuc2JpKSBvY2N1cHkgMk1CKDY0Yml0KSAvCj4gPiA0TUIoMzJi
-aXQpIGluIExpbnV4LiBJdCdzIHZlcnkgd2FzdGVmdWwgdG8gc21hbGwgbWVtb3J5IGZvb3Rwcmlu
-dAo+ID4gc29jIGNoaXAgc3VjaCBhcyBBbGx3aW5uZXIgRDFzL0YxMzMuIFRoZSBrZXJuZWwgcGFy
-YW1ldGVyIGdpdmVzIGEKPiA+IGNoYW5jZSB0byB1c2VycyB0byBzZXQgdGhlIHByb3BlciBzaXpl
-IG9mIHRoZSBmaXJtd2FyZSBhbmQgZ2V0Cj4gPiBtb3JlIHRoYW4gMS41TUIgb2YgbWVtb3J5Lgo+
-Cj4gaXMgdGhpcyBrZXJuZWwgcGFyYW1ldGVyIGFwcHJvYWNoIGEgcmVzdWx0IG9mIHRoZSBULUhl
-YWQgSWNlLVNvQwo+IGN1cnJlbnRseSBsb2FkaW5nIGl0cyBvcGVuU0JJIGZyb20gaW5zaWRlIHRo
-ZSBtYWluIHUtYm9vdCB2aWEgZXh0ZnMtbG9hZCwKPiBkaXJlY3RseSBiZWZvcmUgdGhlIGtlcm5l
-bCBpdHNlbGYgWzBdID8KCkxvb2tpbmcgYXQgdGhlIGRlZmNvbmZpZ1sxXSwgaXQgbWF5IGJlIFUt
-Qm9vdCBTUEwgbm90IFUtQm9vdCBwcm9wZXIuIEkKbWF5IGJlIGxvb2tpbmcgYXQgdGhlIHdyb25n
-IGNvbmZpZyB0aG91Z2guCklmIFUtQm9vdCBTUEwgaXMgYWN0dWFsbHkgdXNlZCwgeW91IGRvbid0
-IGV2ZW4gbmVlZCB0byBtYW51YWxseSBsb2FkCk9wZW5TQkkgImZ3X2p1bXAiIGJpbmFyeS4KCkFz
-IEhlaWtvIHBvaW50ZWQsIHlvdSBzaG91bGQganVzdCBmb2xsb3cgaG93IFUtQm9vdCBTUEwgd29y
-a3Mgb24KaGlmaXZlIHVubWF0Y2hlZCAoY3JlYXRpbmcgdGhlIEZJVCBpbWFnZSkKVGhlIHN0YW5k
-YXJkIFUtQm9vdCBTUEwgdXNlcyB3aXRoIGZ3X2R5bmFtaWMgd2hpY2ggcHJvdmlkZXMgYWxsIHRo
-ZQpmbGV4aWJpbGl0eSB5b3Ugd2FudC4KClsxXSBodHRwczovL2dpdGh1Yi5jb20vVC1oZWFkLVNl
-bWkvdS1ib290L2Jsb2IvbWFpbi9jb25maWdzL2ljZV9ldmJfYzkxMF9kZWZjb25maWcKPgo+IEJl
-Y2F1c2UgdGhhdCBhcHByb2FjaCBpbiBnZW5lcmFsIGxvb2tzIG5vdCBpZGVhbC4KPgo+IE5vcm1h
-bGx5IHlvdSB3YW50IHRoZSBtYWluIHUtYm9vdCBhbHJlYWR5IHJ1bm5pbmcgd2l0aCBsZXNzIHBy
-aXZpbGVnZXMKPiBzbyBmaXJtd2FyZSBsaWtlIG9wZW5TQkkgc2hvdWxkJ3ZlIGJlZW4gYWxyZWFk
-eSBsb2FkZWQgYmVmb3JlIHRoYXQuCj4gRXZlbiBtb3JlIHRydWUgd2hlbiB5b3UncmUgZW1wbG95
-aW5nIG1ldGhvZHMgdG8gcHJvdGVjdCBtZW1vcnkgcmVnaW9ucwo+IGZyb20gbGVzcyBwcml2aWxl
-Z2VkIGFjY2Vzcy4KPgo+IEEgbG90IG9mIHNvY3Mgc2V0IHUtYm9vdCBhcyBvcGVuc2JpIHBheWxv
-YWQsIGJ1dCBmb3IgdGhlIGV4YW1wbGUgdGhlIEQxCj4gbWFpbmxpbmUgYXBwcm9hY2ggdXNlcyB0
-aGUgQWxsd2lubmVyIFRPQzEgaW1hZ2UgZm9ybWF0IHRvIGxvYWQgYm90aAo+IG9wZW5zYmkgYW5k
-IHRoZSBtYWluIHVib290IGludG8gbWVtb3J5IGZyb20gaXRzIDFzdCBzdGFnZSBsb2FkZXIuCj4K
-Pgo+IE9mIGNvdXJzZSB0aGUgYmVzdCB3YXkgd291bGQgYmUgdG8ganVzdCBtaW1pYyB3aGF0IGEg
-bnVtYmVyIG9mCj4gYXJtNjQgYW5kIGFsc28gcmlzY3Ygc29jcyBkbyBhbmQgdXNlIGFscmVhZHkg
-ZXhpc3RpbmcgdS1ib290IHV0aWxpdGllcy4KPgo+IFUtQm9vdCBjYW4gY3JlYXRlIGEgRklUIGlt
-YWdlIGNvbnRhaW5pbmcgYm90aCBtYWluIHUtYm9vdCwgZHRiIGFuZAo+IGZpcm13YXJlIGltYWdl
-cyB0aGF0IGFsbCBnZXQgbG9hZGVkIGZyb20gU1BMIGFuZCBwbGFjZWQgYXQgdGhlIGNvcnJlY3QK
-PiBhZGRyZXNzZXMgYmVmb3JlIGhhdmluZyB0aGUgU1BMIGp1bXAgaW50byBvcGVuc2JpIGFuZCBm
-cm9tIHRoZXJlCj4gaW50byB1LWJvb3QgWzFdIC4KPgo+IEFuZCBhcyBBbnVwIHdhcyB3cml0aW5n
-LCByZXNlcnZlZC1tZW1vcnkgc2hvdWxkIHRoZW4gYmUgdGhlIHdheQo+IHRvIGdvIHRvIHRlbGwg
-dGhlIGtlcm5lbCB3aGF0IHJlZ2lvbnMgdG8gb21pdC4KPgo+IEFuZCBtYWlubGluZSB1LWJvb3Qg
-aGFzIGFscmVhZHkgdGhlIG1lYW5zIHRvIGV2ZW4gdGFrZSB0aGUgcmVzZXJ2ZWQtbWVtb3J5Cj4g
-ZnJvbSB0aGUgZGV2aWNldHJlZSB1c2VkIGJ5IG9wZW5zYmkgYW5kIGNvcHkgaXQgdG8gYSBuZXcg
-ZGV2aWNldHJlZSwKPiBpZiB0aGUgc2Vjb25kIG9uZSBpcyBkaWZmZXJlbnQuCj4KPgo+IEhlaWtv
-Cj4KPgo+IFswXSBodHRwczovL2dpdGh1Yi5jb20vVC1oZWFkLVNlbWkvdS1ib290L2Jsb2IvbWFp
-bi9pbmNsdWRlL2NvbmZpZ3MvaWNlLWM5MTAuaCNMNDYKPiBbMV0gc2VlIHNwbF9pbnZva2Vfb3Bl
-bnNiaSgpIGluIGNvbW1vbi9zcGwvc3BsX29wZW5zYmkuYwo+IFsyXSBzZWUgcmlzY3ZfYm9hcmRf
-cmVzZXJ2ZWRfbWVtX2ZpeHVwKCkgaW4gYXJjaC9yaXNjdi9saWIvZmR0X2ZpeHVwLmMKPgo+ID4K
-PiA+IEd1byBSZW4gKDMpOgo+ID4gICByaXNjdjogUmVtb3ZlIDJNQiBvZmZzZXQgaW4gdGhlIG1t
-IGxheW91dAo+ID4gICByaXNjdjogQWRkIGVhcmx5X3BhcmFtIHRvIGRlY3JlYXNlIGZpcm13YXJl
-IHJlZ2lvbgo+ID4gICByaXNjdjogQWRkIHJpc2N2LmZ3c3oga2VybmVsIHBhcmFtZXRlcgo+ID4K
-PiA+ICAuLi4vYWRtaW4tZ3VpZGUva2VybmVsLXBhcmFtZXRlcnMudHh0ICAgICAgICAgfCAgMyAr
-KysKPiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BhZ2UuaCAgICAgICAgICAgICAgICAgfCAg
-OCArKysrKysrCj4gPiAgYXJjaC9yaXNjdi9rZXJuZWwvaGVhZC5TICAgICAgICAgICAgICAgICAg
-ICAgIHwgMTAgKysrLS0tLS0KPiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC92bWxpbnV4Lmxkcy5TICAg
-ICAgICAgICAgICAgfCAgNSArKy0tCj4gPiAgYXJjaC9yaXNjdi9tbS9pbml0LmMgICAgICAgICAg
-ICAgICAgICAgICAgICAgIHwgMjMgKysrKysrKysrKysrKysrKy0tLQo+ID4gIDUgZmlsZXMgY2hh
-bmdlZCwgMzYgaW5zZXJ0aW9ucygrKSwgMTMgZGVsZXRpb25zKC0pCj4gPgo+ID4KPgo+Cj4KPgo+
-Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4g
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoK
-CgotLSAKUmVnYXJkcywKQXRpc2gKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+Am Dienstag, 23. November 2021, 21:01:29 CET schrieb Atish Patra:
+> On Tue, Nov 23, 2021 at 11:33 AM Heiko St=FCbner <heiko@sntech.de> wrote:
+> >
+> > Hi Guo,
+> >
+> > Am Dienstag, 23. November 2021, 02:57:14 CET schrieb guoren@kernel.org:
+> > > From: Guo Ren <guoren@linux.alibaba.com>
+> > >
+> > > The firmware of riscv (such as opensbi) occupy 2MB(64bit) /
+> > > 4MB(32bit) in Linux. It's very wasteful to small memory footprint
+> > > soc chip such as Allwinner D1s/F133. The kernel parameter gives a
+> > > chance to users to set the proper size of the firmware and get
+> > > more than 1.5MB of memory.
+> >
+> > is this kernel parameter approach a result of the T-Head Ice-SoC
+> > currently loading its openSBI from inside the main u-boot via extfs-loa=
+d,
+> > directly before the kernel itself [0] ?
+> =
+
+> Looking at the defconfig[1], it may be U-Boot SPL not U-Boot proper. I
+> may be looking at the wrong config though.
+
+It is actually uboot-spl + uboot proper (aka the standard spl loads u-boot
+way) which is the reason I pointed to using the existing u-boot facilities =
+:-)
+
+
+
+> If U-Boot SPL is actually used, you don't even need to manually load
+> OpenSBI "fw_jump" binary.
+> =
+
+> As Heiko pointed, you should just follow how U-Boot SPL works on
+> hifive unmatched (creating the FIT image)
+> The standard U-Boot SPL uses with fw_dynamic which provides all the
+> flexibility you want.
+> =
+
+> [1] https://github.com/T-head-Semi/u-boot/blob/main/configs/ice_evb_c910_=
+defconfig
+> >
+> > Because that approach in general looks not ideal.
+> >
+> > Normally you want the main u-boot already running with less privileges
+> > so firmware like openSBI should've been already loaded before that.
+> > Even more true when you're employing methods to protect memory regions
+> > from less privileged access.
+> >
+> > A lot of socs set u-boot as opensbi payload, but for the example the D1
+> > mainline approach uses the Allwinner TOC1 image format to load both
+> > opensbi and the main uboot into memory from its 1st stage loader.
+> >
+> >
+> > Of course the best way would be to just mimic what a number of
+> > arm64 and also riscv socs do and use already existing u-boot utilities.
+> >
+> > U-Boot can create a FIT image containing both main u-boot, dtb and
+> > firmware images that all get loaded from SPL and placed at the correct
+> > addresses before having the SPL jump into opensbi and from there
+> > into u-boot [1] .
+> >
+> > And as Anup was writing, reserved-memory should then be the way
+> > to go to tell the kernel what regions to omit.
+> >
+> > And mainline u-boot has already the means to even take the reserved-mem=
+ory
+> > from the devicetree used by opensbi and copy it to a new devicetree,
+> > if the second one is different.
+> >
+> >
+> > Heiko
+> >
+> >
+> > [0] https://github.com/T-head-Semi/u-boot/blob/main/include/configs/ice=
+-c910.h#L46
+> > [1] see spl_invoke_opensbi() in common/spl/spl_opensbi.c
+> > [2] see riscv_board_reserved_mem_fixup() in arch/riscv/lib/fdt_fixup.c
+> >
+> > >
+> > > Guo Ren (3):
+> > >   riscv: Remove 2MB offset in the mm layout
+> > >   riscv: Add early_param to decrease firmware region
+> > >   riscv: Add riscv.fwsz kernel parameter
+> > >
+> > >  .../admin-guide/kernel-parameters.txt         |  3 +++
+> > >  arch/riscv/include/asm/page.h                 |  8 +++++++
+> > >  arch/riscv/kernel/head.S                      | 10 +++-----
+> > >  arch/riscv/kernel/vmlinux.lds.S               |  5 ++--
+> > >  arch/riscv/mm/init.c                          | 23 ++++++++++++++++-=
+--
+> > >  5 files changed, 36 insertions(+), 13 deletions(-)
+> > >
+> > >
+> >
+> >
+> >
+> >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> =
+
+> =
+
+> =
+
+> =
+
+
+
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
