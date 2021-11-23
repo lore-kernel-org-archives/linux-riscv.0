@@ -4,55 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A1FDC433FE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D177C4332F
 	for <linux-riscv@archiver.kernel.org>; Tue, 23 Nov 2021 01:57:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h3Uz7JXcnAEj39p+itgVp7fXSGavDTfxQaVh6YzkRyI=; b=sTdEZJdfSvMTNm
-	6XN3Cee8RVihrLGXYUVC8OJRnLffN/YVxk1cepi3L3uPf2viTqYe85ZD9Yk8r+XHQu0qEKF7c4EGa
-	KrZcRAIF4Wf3SedKv+FQq5KbQ4A6Fii2iXauGY9lDxTBM7U6VNnnk5apGZq3+0MuezK/7Tl57rSbx
-	L/GI2bkYtFR6Y69GWyLYXNDaxdvuHZjn22GK0PZm8c/FnZa/tdNYbTCrROslMP0wnxCmczFp2TVBA
-	6kNy3Kmgs/Paj440S64UQBsPj8VeN0oIGVA+D9yv01JEOtG2yXMpQyeWl4uLnsovHmV0fDB2mkb3E
-	rlzk18cXyWKtHmIMnVsg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8WOr6JXKCJNlvtDSHBRWfaHBnC2NUmxjNuK2fpH6GiE=; b=lpXRBACbxfyee+
+	0HGfvMuLiKYphlvONOVY6X/uVdG7bzg/jMVW0SW5HoKUACbo5EHXc97SK35qURmiFN8dKI0n/08+s
+	dDbhEyem+EWOCAuus6v+M5df7m2gY+01cSAgV/RKX7RUiQQOueXJH6HDZQMLTv5wCt8mRnQUeghy8
+	PdkvhcFRTH+f8rL5c59Ci05ljplFtDMup1Q4kJpXUbKbjURJWoVOvUM8U2EOzgqeW6DQat3/B2YhH
+	fxTHS/G8s9UshaKjc7LBDgF6TIqzX4evvMqGwN4rYqrKo+7xH7fRUkWcBdXNjSyNQwPdR6dtR9OAE
+	fBh3+RynExMKyKvxGpsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mpL42-000c0Q-SM; Tue, 23 Nov 2021 01:57:42 +0000
+	id 1mpL3z-000byb-AS; Tue, 23 Nov 2021 01:57:39 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mpL3z-000byk-Np
- for linux-riscv@lists.infradead.org; Tue, 23 Nov 2021 01:57:41 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 1CCBD6109E;
- Tue, 23 Nov 2021 01:57:36 +0000 (UTC)
+ id 1mpL3w-000bxK-Oj
+ for linux-riscv@lists.infradead.org; Tue, 23 Nov 2021 01:57:37 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 899AF60F70;
+ Tue, 23 Nov 2021 01:57:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1637632659;
- bh=ZoaCHZIddZMnMBytdCkniWndd2x5DKoT53jTEzEace0=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=d2DWSzhFTZ/nRNq1/+ZNXmqr0Adm3HfxWsPsndo6EMq+kaS32yxy1SH/bIHVNy3fO
- aOdNG4Av9Z1hevUg5sx1zfWfSxYSQm0r+NPyL/jr7aadcoJ0DxeD++YhuwR7keegdf
- CE5BjmFz+i3q63wObnTfVSy1WqRH6ZfHxTq9HYRkw7sNFnY0QKPPw9cVKbSA/Odf9l
- O2F/dh2j6u2g1BHcwBajzqQ7cMpB4Qy3lSJ4+69EiY/qJ87skU8OUTHulVhP9ZxvhU
- d8PyoznPtKyMPTjU2gSbVTJgqUO2nq2jqRf64Vlb4kVkeMmkwIsLyYqoWtJLJF5BGs
- iYCAxkvNH0zoQ==
+ s=k20201202; t=1637632653;
+ bh=DiRZ07Mz/LWCX1YgwTR0bxKJ+0HA3rQ0vFZS0plyMeQ=;
+ h=From:To:Cc:Subject:Date:From;
+ b=JjyhIRa4CRbPyeqxAFKMYepicgB1u4mNGFAtvPh6M56DylmdkG5nJ1HVAIq7Tez06
+ X8RIrW5MOYPI/HNAWyVfzs0Y9pv0S7O43inZCdwzGn5zPA2rdiEFqlX1DEuLKb17oX
+ S08/2GMgJkD1exeSQbRpiSDppmFiGtGEviL5Dbb4qHRCDZpOM5gS8EipaKGjdENEhS
+ 4dhrUKAr/xw3UlRMLc/h55Y7SvFM9pBSM1LtNrGOq1Qi9mBJUhZK4OIn9WPVKJDuSi
+ nEXvMTU2at9EI2VSQ2uFzpZEsKDjp/lBF++mfPdXMsVgQGyiymXPl7+4d9TKNu5htx
+ dWiLDSWbLvsFg==
 From: guoren@kernel.org
 To: guoren@kernel.org, anup@brainfault.org, palmer@dabbelt.com,
  atishp@rivosinc.com
 Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-doc@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>,
- Anup Patel <anup.patel@wdc.com>
-Subject: [RFC PATCH 2/3] riscv: Add early_param to decrease firmware region
-Date: Tue, 23 Nov 2021 09:57:16 +0800
-Message-Id: <20211123015717.542631-3-guoren@kernel.org>
+ linux-doc@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
+Subject: [RFC PATCH 0/3] riscv: Add riscv.fwsz kernel parameter to save memory
+Date: Tue, 23 Nov 2021 09:57:14 +0800
+Message-Id: <20211123015717.542631-1-guoren@kernel.org>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20211123015717.542631-1-guoren@kernel.org>
-References: <20211123015717.542631-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211122_175739_834729_9D42813C 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20211122_175736_854789_0C1A4E19 
+X-CRM114-Status: UNSURE (   5.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,51 +69,24 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Using riscv.fw_size in cmdline to tell the kernel what the
-firmware (opensbi) size is. Then reserve the proper size of
-firmware to save memory instead of the whole 2MB. It's helpful
-to satisfy a small memory system (D1s/F133 from Allwinner).
+The firmware of riscv (such as opensbi) occupy 2MB(64bit) /
+4MB(32bit) in Linux. It's very wasteful to small memory footprint
+soc chip such as Allwinner D1s/F133. The kernel parameter gives a
+chance to users to set the proper size of the firmware and get
+more than 1.5MB of memory.
 
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Anup Patel <anup.patel@wdc.com>
-Cc: Atish Patra <atishp@rivosinc.com>
----
- arch/riscv/mm/init.c | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
+Guo Ren (3):
+  riscv: Remove 2MB offset in the mm layout
+  riscv: Add early_param to decrease firmware region
+  riscv: Add riscv.fwsz kernel parameter
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 920e78f8c3e4..f7db6d40213d 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -159,6 +159,15 @@ static int __init early_mem(char *p)
- }
- early_param("mem", early_mem);
- 
-+static phys_addr_t firmware_size __initdata;
-+static int __init early_get_firmware_size(char *arg)
-+{
-+	firmware_size = memparse(arg, &arg);
-+
-+	return 0;
-+}
-+early_param("riscv.fwsz", early_get_firmware_size);
-+
- static void __init setup_bootmem(void)
- {
- 	phys_addr_t vmlinux_end = __pa_symbol(&_end);
-@@ -224,7 +233,10 @@ static void __init setup_bootmem(void)
- 	/*
- 	 * Reserve OpenSBI region and depends on PMP to deny accesses.
- 	 */
--	memblock_reserve(__pa(PAGE_OFFSET), LOAD_OFFSET);
-+	if (firmware_size > PAGE_SIZE)
-+		memblock_reserve(__pa(PAGE_OFFSET), firmware_size);
-+	else
-+		memblock_reserve(__pa(PAGE_OFFSET), LOAD_OFFSET);
- 
- 	early_init_fdt_scan_reserved_mem();
- 	dma_contiguous_reserve(dma32_phys_limit);
+ .../admin-guide/kernel-parameters.txt         |  3 +++
+ arch/riscv/include/asm/page.h                 |  8 +++++++
+ arch/riscv/kernel/head.S                      | 10 +++-----
+ arch/riscv/kernel/vmlinux.lds.S               |  5 ++--
+ arch/riscv/mm/init.c                          | 23 ++++++++++++++++---
+ 5 files changed, 36 insertions(+), 13 deletions(-)
+
 -- 
 2.25.1
 
