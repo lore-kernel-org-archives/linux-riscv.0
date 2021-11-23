@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D5D7C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Nov 2021 03:56:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9CD6C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Nov 2021 05:15:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Sw1RIPkca7jH598KDMOWFHxMM2+7tr9scHDYu89yv9E=; b=EtjAepOv+aS8lX
-	RS0gizDnMgyVZs6CkPg6iWLO13WBcpa5l41an7jo2a/a7ECQLQnff6dT54kDJ3WOZYR4KmgWKUf+2
-	M4PKJg3gycSpYrUzSlUxZrGMMQ6Eo8Hn135ZYlBlam/xECn0HS9e+uYSygOMfMyweC/DRZC3MCeTL
-	CNc/v8Jz3/PsA2yPDUjb7xIYc2kO+jzyu32tqe0DrxTSWDnuIv/0n3TFL7uQbqOoyKiuVuiZzUTI1
-	mbU17jtUTQr5y1Xt4TI7Ke31rGRtnhf7I0a1khXedgXZ6T07cLTEh2DEtEo0hIO7eSXWYKNIsNpv3
-	J8EOJrELjtOxW6Q4nPmg==;
+	List-Owner; bh=xfG/jNUIs45NwMM/kWsG3XS6TeaBePZ+f0KvKsflG7o=; b=uT5V4+bG6bgwLN
+	1Ulb3keVDRdAoWt4WiaXlBEtEBLYkmmCPn0cX2BKY2FmS7FeFPiRNAZqrNNDpA32+q6T4hkHE83sp
+	AUQ4KlypC5ZQpUxzP8WazMw+lwN+slaKmxNluWKbmBqdkTDHeSEgFekdEjvguJlexj5GY8CssGHu+
+	ohZ+qAvcLeFNKiDjwzoClwO7da/R4UDZXH01SHV/+Qvq3nw/54+UWqhEFD42fhgUJWaHc6VqdKQ20
+	0IK9wN9H0MsAR0o5k9KCQ2gICJPKql088ryPBh1tG79G5AthHhAarX5/x6oalMCJzaoieMhWYvLBY
+	3HqBO87R+wtTRY6IduYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mpMux-000kln-88; Tue, 23 Nov 2021 03:56:27 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1mpO98-000pQj-8j; Tue, 23 Nov 2021 05:15:10 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mpMuu-000klF-KZ
- for linux-riscv@lists.infradead.org; Tue, 23 Nov 2021 03:56:26 +0000
-Received: by mail-wm1-x330.google.com with SMTP id
- ay10-20020a05600c1e0a00b0033aa12cdd33so1015100wmb.1
- for <linux-riscv@lists.infradead.org>; Mon, 22 Nov 2021 19:56:22 -0800 (PST)
+ id 1mpO94-000pPL-5E
+ for linux-riscv@lists.infradead.org; Tue, 23 Nov 2021 05:15:08 +0000
+Received: by mail-wr1-x431.google.com with SMTP id d5so36778318wrc.1
+ for <linux-riscv@lists.infradead.org>; Mon, 22 Nov 2021 21:15:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20210112.gappssmtp.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=fbYyFnbPmkgrQrlw4urINtBSHt+A48GB7ljtOsMPFgM=;
- b=Bxy7/TU9pGrA6C4yzYaDzlDtZDzXpr6L3TXKDg6avhbUj5cv8DHux/+S2RVXuQFrCi
- blQ8Ekg4K4TDAA5maRbVp+U5+C5Nq5ywcxso2mcgeK+lUu3ZhZFJroDnBKYj/Pe+35nj
- ghyqJifqWLL6F1Bq37R+R6/r0xWsiOc4dEebjp5enMWSp5t4MQqQmRH9KGNmdkeqRDj7
- r8SiF8kS5GsCDR9sjjaTwlMglcrV0Q7P5Kc4A7js1VO/BDkgm8YNWoTwbhtflT2ohsVa
- 2vjixfVQtrJvDKg8ax+LLouvcB9iOLIU+JNtskHuGU0bi+GiNww03/XVsloujTYw63wW
- aSEw==
+ :cc; bh=AKcgqbCp1Cy8+LhB8UcVKuSg60PXpWvbc4LvES8p2bA=;
+ b=2AN9JS0aowpreC6q2T8Fge+X3kNHilsb7fa6TUdJ3LyIXhRTSgkjSp8IUG9H2kd0pv
+ UHw9nRCfUSbvWNbvouRRGLtXdMw4a3wN1EH2LdLbpalvqjTw4VGQ8ObXp0MbLmzEJTj4
+ LwE3rtWx26PAtsCzU/EQ4a/fgYNfRUyzRAgI0zrYYPf2DlULBJGQtuJMzMi+Y34iihem
+ WHSkpCuzOOBSzLfe8xm+JuEic/gzpAWEvZIitjcVn+YwvwVfbS064oebvHxmLMHK1ea5
+ 7Yh30XD5d8pvP2hjBfhk+jEICbvDXHLA2b7eaCrUMHoLD9MJNYwK8RNwhDQBhaTCF0Er
+ HYoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=fbYyFnbPmkgrQrlw4urINtBSHt+A48GB7ljtOsMPFgM=;
- b=m5PiIjddDxmHVoQGbMnfbYgDTJfO76rFzKtxvfGkYXkKCIMs/4K3bPIPOMTmV2/OfR
- 3jmSveiJcirXV/jwwgAJwOlo0AAKWJ5o6XB97joi/uZdxaTFz8v4o6ibXVgtbM/Vlwwp
- avmlu7yIibJ6xzeQS36unPc5sEA3fexFOuTeWnIcmDJLLDsR88x6ksXZPdObAX7fJ/m+
- UYnY2oLd/+tmZzB3+AChARodhu8OasxbE8wQEx0CNV2CzT2HMdDdebjuPHVPuw5fjNw0
- MoZfvBmOa7Oh6T0OtWT3nyJTpiWX4yNuecpIQILgxsLO9sUVGK8nA1ARlHNp095wUo9A
- mEXA==
-X-Gm-Message-State: AOAM5338fUt9KgsRfrK34UIiAAMh5gAMoju813WRVaLLI9KkJluJ3f7L
- MEpKqjg6CSuaKW1+hQETADIV5Ty5zLedj8hOuKssgg==
-X-Google-Smtp-Source: ABdhPJxbmLSK0FMbEk6SIjAna1Y09Eya7/is9oohFf5JdZKW95Wp9FtEFCgUvS6DRHyvIQsUlU91u230P9etWrvFcZo=
-X-Received: by 2002:a7b:c017:: with SMTP id c23mr3073023wmb.137.1637639781581; 
- Mon, 22 Nov 2021 19:56:21 -0800 (PST)
+ bh=AKcgqbCp1Cy8+LhB8UcVKuSg60PXpWvbc4LvES8p2bA=;
+ b=YuxLDTya3ZG5xAaIXZ6QSaH6hJHVVNv3NRPQqG0y5mMWbCYiCHH9NJzwmjAUky6qlg
+ iDE7fDWCndJNvSehjs+QojYTiNL8itekifPizpovtrdr//+dYxXC7WZsSmCKL+9TnUz+
+ oaaO3yfI367uGbl9GeF56VAdmZwE9aRJ7JEPE/ZOeH+ODZlne1RnNIaLLcwsyqtb0gBt
+ tuEtFsAKwJMx6cVIho5FuwfXNTYkSeT1NcZINe4vEUnkPw0AAMgUtRNr9s9u/Vh8TyNX
+ It6hBOt0ombGo/7ATcsYK2g3A5ZYanxsKbZTC/z5DcxlnvKR3cS9qhJ6Dni+fTPwpBz6
+ yzjQ==
+X-Gm-Message-State: AOAM5317fkZdjXlracHR7c59Ux/cB5q2RUpEipN+uuXKrMsa2MT+rDSi
+ AdczUG32KP/yxWq48oJu6zQZHXsyTLX36Sif6dKByA==
+X-Google-Smtp-Source: ABdhPJyPRrS1gUVjPUM3cjTY6ocEx881FWgvJht67rMwgKiYeFSQ3dDOGIeK/6fA1xlnHWwgibku4Gr+E0uEbGiI7q4=
+X-Received: by 2002:a5d:4846:: with SMTP id n6mr3738714wrs.249.1637644503773; 
+ Mon, 22 Nov 2021 21:15:03 -0800 (PST)
 MIME-Version: 1.0
-References: <20211123015717.542631-1-guoren@kernel.org>
- <20211123015717.542631-2-guoren@kernel.org>
-In-Reply-To: <20211123015717.542631-2-guoren@kernel.org>
+References: <20211104164107.1291793-1-seanjc@google.com>
+ <20211104164107.1291793-3-seanjc@google.com>
+In-Reply-To: <20211104164107.1291793-3-seanjc@google.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Tue, 23 Nov 2021 09:26:10 +0530
-Message-ID: <CAAhSdy0LWyhgXetiXikCosSX4xasgROyua6XMd92dV8TiWp62w@mail.gmail.com>
-Subject: Re: [RFC PATCH 1/3] riscv: Remove 2MB offset in the mm layout
-To: Guo Ren <guoren@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, atishp@rivosinc.com, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
+Date: Tue, 23 Nov 2021 10:44:52 +0530
+Message-ID: <CAAhSdy2wxYaR92PLhP8j_kr=VDVi6WyckXAe83M4KF1Z5UJH9A@mail.gmail.com>
+Subject: Re: [PATCH 2/2] KVM: RISC-V: Use common KVM implementation of MMU
+ memory caches
+To: Sean Christopherson <seanjc@google.com>
+Cc: Anup Patel <anup.patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Atish Patra <atish.patra@wdc.com>, KVM General <kvm@vger.kernel.org>,
+ kvm-riscv@lists.infradead.org, 
  linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- Guo Ren <guoren@linux.alibaba.com>, 
- Anup Patel <anup.patel@wdc.com>, Alexandre Ghiti <alex@ghiti.fr>, 
- Alexandre Ghiti <alexandre.ghiti@canonical.com>
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211122_195624_710104_BAE7D904 
-X-CRM114-Status: GOOD (  23.59  )
+X-CRM114-CacheID: sfid-20211122_211506_314807_A6E7F1E6 
+X-CRM114-Status: GOOD (  29.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,160 +88,259 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-+Alex
-
-On Tue, Nov 23, 2021 at 7:27 AM <guoren@kernel.org> wrote:
+On Thu, Nov 4, 2021 at 10:11 PM Sean Christopherson <seanjc@google.com> wrote:
 >
-> From: Guo Ren <guoren@linux.alibaba.com>
+> Use common KVM's implementation of the MMU memory caches, which for all
+> intents and purposes is semantically identical to RISC-V's version, the
+> only difference being that the common implementation will fall back to an
+> atomic allocation if there's a KVM bug that triggers a cache underflow.
 >
-> The current RISC-V's mm layout is based on a 2MB offset and wasting
-> memory. Remove 2MB offset and map PAGE_OFFSET at start_of_DRAM.
-> Then we could reduce the memory reserved for opensbi in the next
-> patch.
+> RISC-V appears to have based its MMU code on arm64 before the conversion
+> to the common caches in commit c1a33aebe91d ("KVM: arm64: Use common KVM
+> implementation of MMU memory caches"), despite having also copy-pasted
+> the definition of KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE in kvm_types.h.
 
-The real problem is that the generic kernel marks memory before
-__pa(PAGE_OFFSET) as reserved which is evident from the boot
-print "OF: fdt: Ignoring memory range 0x80000000 - 0x80200000".
+Yes, I missed moving to common KVM memory cache APIs in the recent revisions
+of the KVM RISC-V series. Thanks for this patch.
 
-One simple way to re-claim the first 2MB of memory is by:
-1) Not placing OpenSBI firmware at start of RAM and rather
-place it towards end/middle or RAM away from kernel and initrd
-2) Load kernel at start of the RAM
+>
+> Opportunistically drop the superfluous wrapper
+> kvm_riscv_stage2_flush_cache(), whose name is very, very confusing as
+> "cache flush" in the context of MMU code almost always refers to flushing
+> hardware caches, not freeing unused software objects.
+>
+> No functional change intended.
+>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 
-The point#1 is already supported by OpenSBI firmwares using
-position independent compilation. In fact, U-Boot SPL does
-not load OpenSBI firmware at the start of RAM.
+I have queued this for 5.17.
 
-I would suggest Allwinner D1 to follow U-Boot SPL and have
-the booting stage before OpenSBI to load OpenSBI firmware
-somewhere else.
-
-Regards,
+Thanks,
 Anup
 
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Anup Patel <anup.patel@wdc.com>
-> Cc: Atish Patra <atishp@rivosinc.com>
 > ---
->  arch/riscv/include/asm/page.h   |  8 ++++++++
->  arch/riscv/kernel/head.S        | 10 +++-------
->  arch/riscv/kernel/vmlinux.lds.S |  5 ++---
->  arch/riscv/mm/init.c            | 11 ++++++++---
->  4 files changed, 21 insertions(+), 13 deletions(-)
+>  arch/riscv/include/asm/kvm_host.h  | 10 +----
+>  arch/riscv/include/asm/kvm_types.h |  2 +-
+>  arch/riscv/kvm/mmu.c               | 64 +++++-------------------------
+>  arch/riscv/kvm/vcpu.c              |  5 ++-
+>  4 files changed, 16 insertions(+), 65 deletions(-)
 >
-> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-> index b3e5ff0125fe..299147c78b4a 100644
-> --- a/arch/riscv/include/asm/page.h
-> +++ b/arch/riscv/include/asm/page.h
-> @@ -16,6 +16,14 @@
->  #define PAGE_SIZE      (_AC(1, UL) << PAGE_SHIFT)
->  #define PAGE_MASK      (~(PAGE_SIZE - 1))
+> diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+> index 25ba21f98504..37589b953bcb 100644
+> --- a/arch/riscv/include/asm/kvm_host.h
+> +++ b/arch/riscv/include/asm/kvm_host.h
+> @@ -79,13 +79,6 @@ struct kvm_sbi_context {
+>         int return_handled;
+>  };
 >
-> +#if __riscv_xlen == 64
-> +/* Image load offset(2MB) from start of RAM */
-> +#define LOAD_OFFSET    0x200000
-> +#else
-> +/* Image load offset(4MB) from start of RAM */
-> +#define LOAD_OFFSET    0x400000
-> +#endif
-> +
->  #ifdef CONFIG_64BIT
->  #define HUGE_MAX_HSTATE                2
->  #else
-> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-> index f52f01ecbeea..a6ac892d2ccf 100644
-> --- a/arch/riscv/kernel/head.S
-> +++ b/arch/riscv/kernel/head.S
-> @@ -61,13 +61,7 @@ ENTRY(_start)
->         /* Image load offset (0MB) from start of RAM for M-mode */
->         .dword 0
->  #else
-> -#if __riscv_xlen == 64
-> -       /* Image load offset(2MB) from start of RAM */
-> -       .dword 0x200000
-> -#else
-> -       /* Image load offset(4MB) from start of RAM */
-> -       .dword 0x400000
-> -#endif
-> +       .dword LOAD_OFFSET
->  #endif
->         /* Effective size of kernel image */
->         .dword _end - _start
-> @@ -94,6 +88,8 @@ relocate:
->         la a1, kernel_map
->         XIP_FIXUP_OFFSET a1
->         REG_L a1, KERNEL_MAP_VIRT_ADDR(a1)
-> +       li a2, LOAD_OFFSET
-> +       add a1, a1, a2
->         la a2, _start
->         sub a1, a1, a2
->         add ra, ra, a1
-> diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-> index 5104f3a871e3..75b7c72cd4bd 100644
-> --- a/arch/riscv/kernel/vmlinux.lds.S
-> +++ b/arch/riscv/kernel/vmlinux.lds.S
-> @@ -11,10 +11,9 @@
->  #else
+> -#define KVM_MMU_PAGE_CACHE_NR_OBJS     32
+> -
+> -struct kvm_mmu_page_cache {
+> -       int nobjs;
+> -       void *objects[KVM_MMU_PAGE_CACHE_NR_OBJS];
+> -};
+> -
+>  struct kvm_cpu_trap {
+>         unsigned long sepc;
+>         unsigned long scause;
+> @@ -195,7 +188,7 @@ struct kvm_vcpu_arch {
+>         struct kvm_sbi_context sbi_context;
 >
->  #include <asm/pgtable.h>
-> -#define LOAD_OFFSET KERNEL_LINK_ADDR
+>         /* Cache pages needed to program page tables with spinlock held */
+> -       struct kvm_mmu_page_cache mmu_page_cache;
+> +       struct kvm_mmu_memory_cache mmu_page_cache;
 >
-> -#include <asm/vmlinux.lds.h>
->  #include <asm/page.h>
-> +#include <asm/vmlinux.lds.h>
->  #include <asm/cache.h>
->  #include <asm/thread_info.h>
->  #include <asm/set_memory.h>
-> @@ -32,7 +31,7 @@ PECOFF_FILE_ALIGNMENT = 0x200;
->  SECTIONS
+>         /* VCPU power-off state */
+>         bool power_off;
+> @@ -223,7 +216,6 @@ void __kvm_riscv_hfence_gvma_all(void);
+>  int kvm_riscv_stage2_map(struct kvm_vcpu *vcpu,
+>                          struct kvm_memory_slot *memslot,
+>                          gpa_t gpa, unsigned long hva, bool is_write);
+> -void kvm_riscv_stage2_flush_cache(struct kvm_vcpu *vcpu);
+>  int kvm_riscv_stage2_alloc_pgd(struct kvm *kvm);
+>  void kvm_riscv_stage2_free_pgd(struct kvm *kvm);
+>  void kvm_riscv_stage2_update_hgatp(struct kvm_vcpu *vcpu);
+> diff --git a/arch/riscv/include/asm/kvm_types.h b/arch/riscv/include/asm/kvm_types.h
+> index e476b404eb67..e15765f98d7a 100644
+> --- a/arch/riscv/include/asm/kvm_types.h
+> +++ b/arch/riscv/include/asm/kvm_types.h
+> @@ -2,6 +2,6 @@
+>  #ifndef _ASM_RISCV_KVM_TYPES_H
+>  #define _ASM_RISCV_KVM_TYPES_H
+>
+> -#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 40
+> +#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 32
+>
+>  #endif /* _ASM_RISCV_KVM_TYPES_H */
+> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+> index fc058ff5f4b6..b8b902b08deb 100644
+> --- a/arch/riscv/kvm/mmu.c
+> +++ b/arch/riscv/kvm/mmu.c
+> @@ -83,43 +83,6 @@ static int stage2_level_to_page_size(u32 level, unsigned long *out_pgsize)
+>         return 0;
+>  }
+>
+> -static int stage2_cache_topup(struct kvm_mmu_page_cache *pcache,
+> -                             int min, int max)
+> -{
+> -       void *page;
+> -
+> -       BUG_ON(max > KVM_MMU_PAGE_CACHE_NR_OBJS);
+> -       if (pcache->nobjs >= min)
+> -               return 0;
+> -       while (pcache->nobjs < max) {
+> -               page = (void *)__get_free_page(GFP_KERNEL | __GFP_ZERO);
+> -               if (!page)
+> -                       return -ENOMEM;
+> -               pcache->objects[pcache->nobjs++] = page;
+> -       }
+> -
+> -       return 0;
+> -}
+> -
+> -static void stage2_cache_flush(struct kvm_mmu_page_cache *pcache)
+> -{
+> -       while (pcache && pcache->nobjs)
+> -               free_page((unsigned long)pcache->objects[--pcache->nobjs]);
+> -}
+> -
+> -static void *stage2_cache_alloc(struct kvm_mmu_page_cache *pcache)
+> -{
+> -       void *p;
+> -
+> -       if (!pcache)
+> -               return NULL;
+> -
+> -       BUG_ON(!pcache->nobjs);
+> -       p = pcache->objects[--pcache->nobjs];
+> -
+> -       return p;
+> -}
+> -
+>  static bool stage2_get_leaf_entry(struct kvm *kvm, gpa_t addr,
+>                                   pte_t **ptepp, u32 *ptep_level)
 >  {
->         /* Beginning of code and text segment */
-> -       . = LOAD_OFFSET;
-> +       . = LOAD_OFFSET + KERNEL_LINK_ADDR;
->         _start = .;
->         HEAD_TEXT_SECTION
->         . = ALIGN(PAGE_SIZE);
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 24b2b8044602..920e78f8c3e4 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -221,6 +221,11 @@ static void __init setup_bootmem(void)
->         if (!IS_ENABLED(CONFIG_BUILTIN_DTB))
->                 memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
+> @@ -171,7 +134,7 @@ static void stage2_remote_tlb_flush(struct kvm *kvm, u32 level, gpa_t addr)
+>  }
 >
-> +       /*
-> +        * Reserve OpenSBI region and depends on PMP to deny accesses.
-> +        */
-> +       memblock_reserve(__pa(PAGE_OFFSET), LOAD_OFFSET);
+>  static int stage2_set_pte(struct kvm *kvm, u32 level,
+> -                          struct kvm_mmu_page_cache *pcache,
+> +                          struct kvm_mmu_memory_cache *pcache,
+>                            gpa_t addr, const pte_t *new_pte)
+>  {
+>         u32 current_level = stage2_pgd_levels - 1;
+> @@ -186,7 +149,7 @@ static int stage2_set_pte(struct kvm *kvm, u32 level,
+>                         return -EEXIST;
+>
+>                 if (!pte_val(*ptep)) {
+> -                       next_ptep = stage2_cache_alloc(pcache);
+> +                       next_ptep = kvm_mmu_memory_cache_alloc(pcache);
+>                         if (!next_ptep)
+>                                 return -ENOMEM;
+>                         *ptep = pfn_pte(PFN_DOWN(__pa(next_ptep)),
+> @@ -209,7 +172,7 @@ static int stage2_set_pte(struct kvm *kvm, u32 level,
+>  }
+>
+>  static int stage2_map_page(struct kvm *kvm,
+> -                          struct kvm_mmu_page_cache *pcache,
+> +                          struct kvm_mmu_memory_cache *pcache,
+>                            gpa_t gpa, phys_addr_t hpa,
+>                            unsigned long page_size,
+>                            bool page_rdonly, bool page_exec)
+> @@ -384,7 +347,10 @@ static int stage2_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
+>         int ret = 0;
+>         unsigned long pfn;
+>         phys_addr_t addr, end;
+> -       struct kvm_mmu_page_cache pcache = { 0, };
+> +       struct kvm_mmu_memory_cache pcache;
 > +
->         early_init_fdt_scan_reserved_mem();
->         dma_contiguous_reserve(dma32_phys_limit);
->         if (IS_ENABLED(CONFIG_64BIT))
-> @@ -604,7 +609,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+> +       memset(&pcache, 0, sizeof(pcache));
+> +       pcache.gfp_zero = __GFP_ZERO;
 >
->         kernel_map.va_kernel_xip_pa_offset = kernel_map.virt_addr - kernel_map.xiprom;
->  #else
-> -       kernel_map.phys_addr = (uintptr_t)(&_start);
-> +       kernel_map.phys_addr = (uintptr_t)(&_start) - LOAD_OFFSET;
->         kernel_map.size = (uintptr_t)(&_end) - kernel_map.phys_addr;
->  #endif
->         kernel_map.va_pa_offset = PAGE_OFFSET - kernel_map.phys_addr;
-> @@ -645,8 +650,8 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->         create_pmd_mapping(trampoline_pmd, kernel_map.virt_addr,
->                            kernel_map.xiprom, PMD_SIZE, PAGE_KERNEL_EXEC);
->  #else
-> -       create_pmd_mapping(trampoline_pmd, kernel_map.virt_addr,
-> -                          kernel_map.phys_addr, PMD_SIZE, PAGE_KERNEL_EXEC);
-> +       create_pmd_mapping(trampoline_pmd, kernel_map.virt_addr + LOAD_OFFSET,
-> +                          kernel_map.phys_addr + LOAD_OFFSET, PMD_SIZE, PAGE_KERNEL_EXEC);
->  #endif
->  #else
->         /* Setup trampoline PGD */
+>         end = (gpa + size + PAGE_SIZE - 1) & PAGE_MASK;
+>         pfn = __phys_to_pfn(hpa);
+> @@ -395,9 +361,7 @@ static int stage2_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
+>                 if (!writable)
+>                         pte = pte_wrprotect(pte);
+>
+> -               ret = stage2_cache_topup(&pcache,
+> -                                        stage2_pgd_levels,
+> -                                        KVM_MMU_PAGE_CACHE_NR_OBJS);
+> +               ret = kvm_mmu_topup_memory_cache(&pcache, stage2_pgd_levels);
+>                 if (ret)
+>                         goto out;
+>
+> @@ -411,7 +375,7 @@ static int stage2_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
+>         }
+>
+>  out:
+> -       stage2_cache_flush(&pcache);
+> +       kvm_mmu_free_memory_cache(&pcache);
+>         return ret;
+>  }
+>
+> @@ -646,7 +610,7 @@ int kvm_riscv_stage2_map(struct kvm_vcpu *vcpu,
+>         gfn_t gfn = gpa >> PAGE_SHIFT;
+>         struct vm_area_struct *vma;
+>         struct kvm *kvm = vcpu->kvm;
+> -       struct kvm_mmu_page_cache *pcache = &vcpu->arch.mmu_page_cache;
+> +       struct kvm_mmu_memory_cache *pcache = &vcpu->arch.mmu_page_cache;
+>         bool logging = (memslot->dirty_bitmap &&
+>                         !(memslot->flags & KVM_MEM_READONLY)) ? true : false;
+>         unsigned long vma_pagesize, mmu_seq;
+> @@ -681,8 +645,7 @@ int kvm_riscv_stage2_map(struct kvm_vcpu *vcpu,
+>         }
+>
+>         /* We need minimum second+third level pages */
+> -       ret = stage2_cache_topup(pcache, stage2_pgd_levels,
+> -                                KVM_MMU_PAGE_CACHE_NR_OBJS);
+> +       ret = kvm_mmu_topup_memory_cache(pcache, stage2_pgd_levels);
+>         if (ret) {
+>                 kvm_err("Failed to topup stage2 cache\n");
+>                 return ret;
+> @@ -731,11 +694,6 @@ int kvm_riscv_stage2_map(struct kvm_vcpu *vcpu,
+>         return ret;
+>  }
+>
+> -void kvm_riscv_stage2_flush_cache(struct kvm_vcpu *vcpu)
+> -{
+> -       stage2_cache_flush(&vcpu->arch.mmu_page_cache);
+> -}
+> -
+>  int kvm_riscv_stage2_alloc_pgd(struct kvm *kvm)
+>  {
+>         struct page *pgd_page;
+> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+> index e3d3aed46184..a50abe400ea8 100644
+> --- a/arch/riscv/kvm/vcpu.c
+> +++ b/arch/riscv/kvm/vcpu.c
+> @@ -77,6 +77,7 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
+>
+>         /* Mark this VCPU never ran */
+>         vcpu->arch.ran_atleast_once = false;
+> +       vcpu->arch.mmu_page_cache.gfp_zero = __GFP_ZERO;
+>
+>         /* Setup ISA features available to VCPU */
+>         vcpu->arch.isa = riscv_isa_extension_base(NULL) & KVM_RISCV_ISA_ALLOWED;
+> @@ -107,8 +108,8 @@ void kvm_arch_vcpu_destroy(struct kvm_vcpu *vcpu)
+>         /* Cleanup VCPU timer */
+>         kvm_riscv_vcpu_timer_deinit(vcpu);
+>
+> -       /* Flush the pages pre-allocated for Stage2 page table mappings */
+> -       kvm_riscv_stage2_flush_cache(vcpu);
+> +       /* Free unused pages pre-allocated for Stage2 page table mappings */
+> +       kvm_mmu_free_memory_cache(&vcpu->arch.mmu_page_cache);
+>  }
+>
+>  int kvm_cpu_has_pending_timer(struct kvm_vcpu *vcpu)
 > --
-> 2.25.1
+> 2.34.0.rc0.344.g81b53c2807-goog
 >
+>
+> --
+> kvm-riscv mailing list
+> kvm-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/kvm-riscv
 
 _______________________________________________
 linux-riscv mailing list
