@@ -4,53 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F427C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Nov 2021 02:28:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADC82C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Nov 2021 02:34:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hcxNIbec+rz47meKRsi/QzotChTKheOaMyX3Xl+DheA=; b=cSHcuEoXVZ0Irb
-	Vest+Th7hIMuDXkUKCaoayWacpI9ko2uIyq+/W6Ee6kmrphKgqkJMrBZ3ZJ+hxgLnPzZPlBAI6Xbp
-	0kmL8LDle9sHbiEIfR10YwqLJKjbm/MYz5yOEnyvB1z5u3rYipEf4gp3cDg0HxGEZ8U1AtkqBv3cU
-	R+mk6cFWRcmwhUMt864gsSNMFygWtwMsjd4hv79ShBUkLdicn9NWFnLjtcIzY8cTghxkm3fWZbnBn
-	0vVnYVyUd+KAqv+1iepOJPIj5I6I4N4iSv2q7elXSwUtsIH0wXqUN3b637gpKmSD89HyzH+tQG/fN
-	Ewhtki5EE75PWNurwgPw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UwpyNLBVMPa9zvMae0l7MgrbqTq8N/LA1FZlOO1uGmc=; b=q6gPIMeDxdQTA7kKVvzP3dB/MP
+	10E5DJqvZQUyKo5b5svdZH56k+FAV+W7HrgsAcbl3o2ty5k2WJ1g2ppPkZdJ16BedA69AkahJkk9C
+	EDlK5vfKhKxbpTDz4w/RzN4rM+iVKN5fxTAFeydG8vdHEZllKMuoXHgb/w3TCG+azQFyu4REvdkBb
+	FMYTHKDPOdPm3vZKxkf//RF6fEnZoXwmuhSIP1sE+H2AZNjnYgyUngv49AsHf6A49i6ICcCAuNBn2
+	K+YwP+kV9A+Hc4tRwTr5SgjTT0MztZpKus7stMdjgFdUsLF0OxSh6vZLYcQUUu5H5pGOYM1ZkEiwq
+	jJHOGRGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mpLXS-000feb-Dl; Tue, 23 Nov 2021 02:28:06 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mpLXP-000feE-Px
- for linux-riscv@lists.infradead.org; Tue, 23 Nov 2021 02:28:04 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 9BC9560FD7;
- Tue, 23 Nov 2021 02:28:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1637634483;
- bh=tyfrpeux84ftug2ONg9ZfP/BwMlpGSVGl+i7DUhZPDY=;
- h=From:To:Cc:Subject:Date:From;
- b=LGNH61duIdHVHoGEPhi1amdYNfTiDEZRyI0RPdAVTt3G4tfnRtL9HAj0U/rFfmWwK
- J8MjSsym4aSO1Ha4PvyCMHedm/suRmTTP1H0ocKNSRrmDbhiaHIre8WER2BPYs+52Z
- asJloFmSmqcScYctnbjKoAKZS7hPo0E1AFx8iF7mlEZnzh+QiOCnSr+E8DEEhmz2Pr
- 68Ceu8x4kJXq+up1H0xSmS7qfqg9kl2PYJtMheuldLnDTrVe5z8c1qfunZMLZRI+zH
- TMq6KPQnLFbQypvwGMZLAubC+9ZiluWKAmqM8jt0q0UWiQjRjDMUbRzfa3pbPlLus5
- sga5A6ymc+02Q==
-From: guoren@kernel.org
-To: guoren@kernel.org,
-	akpm@linux-foundation.org
+	id 1mpLdh-000ftE-OI; Tue, 23 Nov 2021 02:34:33 +0000
+Received: from [2601:1c0:6280:3f0::aa0b]
+ by bombadil.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mpLdf-000fsw-Bx; Tue, 23 Nov 2021 02:34:31 +0000
+Subject: Re: [RFC PATCH 3/3] riscv: Add riscv.fwsz kernel parameter
+To: guoren@kernel.org, anup@brainfault.org, palmer@dabbelt.com,
+ atishp@rivosinc.com
 Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH] mailmap: Update email address for Guo Ren
-Date: Tue, 23 Nov 2021 10:27:41 +0800
-Message-Id: <20211123022741.545541-1-guoren@kernel.org>
-X-Mailer: git-send-email 2.25.1
+ linux-doc@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>,
+ Anup Patel <anup.patel@wdc.com>
+References: <20211123015717.542631-1-guoren@kernel.org>
+ <20211123015717.542631-4-guoren@kernel.org>
+From: Randy Dunlap <rdunlap@infradead.org>
+Message-ID: <ac5613d9-913e-ff07-5802-21e1771112f9@infradead.org>
+Date: Mon, 22 Nov 2021 18:34:30 -0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.13.0
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211122_182803_889289_C493F653 
-X-CRM114-Status: UNSURE (   6.16  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20211123015717.542631-4-guoren@kernel.org>
+Content-Language: en-US
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,37 +51,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+On 11/22/21 5:57 PM, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
+> 
+> The firmware of riscv (such as opensbi) occupy 2MB(64bit) /
+> 4MB(32bit) in Linux. It's very wasteful to small memory footprint
+> soc chip such as Allwinner D1s/F133. The kernel parameter gives a
+> chance to users to set the proper size of the firmware and get
+> more than 1.5MB of memory.
+> 
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Anup Patel <anup.patel@wdc.com>
+> Cc: Atish Patra <atishp@rivosinc.com>
+> ---
+>   Documentation/admin-guide/kernel-parameters.txt | 3 +++
+>   1 file changed, 3 insertions(+)
+> 
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> index 9725c546a0d4..ee505743c8f4 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -4964,6 +4964,9 @@
+>   			[KNL] Disable ring 3 MONITOR/MWAIT feature on supported
+>   			CPUs.
+>   
+> +	riscv.fwsz=nn[KMG]
+> +			[RISC-V] Determine firmware size to save memory
 
-The ren_guo@c-sky.com would be deprecated and use guoren@kernel.org
-as the main email address.
+Is "Determine" like "Set"?  The user is setting (telling the software)
+the firmware size?
 
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
----
- .mailmap | 2 ++
- 1 file changed, 2 insertions(+)
+"Determine" makes it sound to me like the Linux software is somehow
+helping to determine the firmware size.
 
-diff --git a/.mailmap b/.mailmap
-index 14314e3c5d5e..c709878864ad 100644
---- a/.mailmap
-+++ b/.mailmap
-@@ -123,6 +123,8 @@ Greg Kroah-Hartman <gregkh@suse.de>
- Greg Kroah-Hartman <greg@kroah.com>
- Greg Kurz <groug@kaod.org> <gkurz@linux.vnet.ibm.com>
- Gregory CLEMENT <gregory.clement@bootlin.com> <gregory.clement@free-electrons.com>
-+Guo Ren <guoren@kernel.org> <guoren@linux.alibaba.com>
-+Guo Ren <guoren@kernel.org> <ren_guo@c-sky.com>
- Gustavo Padovan <gustavo@las.ic.unicamp.br>
- Gustavo Padovan <padovan@profusion.mobi>
- Hanjun Guo <guohanjun@huawei.com> <hanjun.guo@linaro.org>
+> +
+>   	ro		[KNL] Mount root device read-only on boot
+>   
+>   	rodata=		[KNL]
+> 
+
+
 -- 
-2.25.1
-
+~Randy
 
 _______________________________________________
 linux-riscv mailing list
