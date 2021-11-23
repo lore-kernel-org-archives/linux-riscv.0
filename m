@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5277FC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Nov 2021 06:18:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB230C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Nov 2021 08:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NJJF2qz5cHmSG2jphP2zAl7EWkDmvqVLJRIldNipgug=; b=kw8et6u6+D5/TO
-	w0xz2iIzY7rd2T+As8i5JupgAQuIGZzQ2QleSRBz6A8JAaoPbQj/kfmrXLy4Of+BZb4dbGMgGAgxo
-	pFut5W9xEN9DkUlxGj+cA+riGxk9WuJKGrW8pES2dxw9ORJ+HvUej8dVgmsqVOhGOtQWrbuAuVT95
-	kf4082gKLbGTO1gVaSXPtuZvH+Fwh+1K5LXGe6dsw85HS3gxhwkuOGEX651LKkADlYU16h9WSSrnj
-	T0TE5noUWWBOYSmjKv2ASgO7hptXwBNJzeUkSnbpgg+fYS8oMmITVl/59M7XpDEdVVrlLe2z6PVd/
-	oSgyeIyj1AXtc9KdN7bQ==;
+	List-Owner; bh=VtursHJulTXMXzncZmN3mh/b7qg+9z9BEmz+iMIvleQ=; b=hl5KcJeu+dbIdO
+	s0k06BauprCMOKk6RhFRWbw7wZPDXsUl+vn8bCuupmmg+6ut6B7kgAhu0ezfa/4k2e1rwG2PUZ8Hj
+	ACs+fkLuxbJI4uBLpa+/lzUuDTd3X1ye1imClk2WKlT3uESbnG3BSDRtZdu3AuHIDaKuLw/eL+L3n
+	f3EacG2Yd7/gTQ8/9Os8mdy5gHYB6K0iKxEG20untVsZ7j+aYeNErhGIU8T3aVuVeQ5pA+BuzWaMq
+	Y/b1T/oA8tQsAzqJgthkNvuwYCQmug/rXdiQbEuDquX/jNc7x7kmzh4gto/SDKqMCWyR+ff+h91bj
+	Yv+WDc2YKOjUT9A/bSuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mpP8Y-000xEV-Nc; Tue, 23 Nov 2021 06:18:38 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1mpQyS-001EIo-0v; Tue, 23 Nov 2021 08:16:20 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mpP8V-000xE2-Ks
- for linux-riscv@lists.infradead.org; Tue, 23 Nov 2021 06:18:37 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 25CE161027
- for <linux-riscv@lists.infradead.org>; Tue, 23 Nov 2021 06:18:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1637648315;
- bh=9q5PZmYIUfd5uvRnDykQ983UxaDrFCzj6jD1Sb39JZU=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=gL4vlg1ZUU1waStVc3W5mTM5QuovyX7Imb9HG29o+WQnY4CFRmrqX+dc/KAxspfbu
- Vq6CmXkNVCtiOshmodsHTr3Si7R1RoiNGxQNkZNfeGMaHamyMKRIo8I9ty1LVzvpHE
- I0yUJED0tka8P1QGcTkCulsqTYJzNqvr0rupg6CG10ik8lXZTUyFudb8GCM9GEbT2H
- ADSaJKLJu7C0rxoENVI0BwIOL0Mr6allKQ5SjTBdPQ+gTC/Y2989lDY/Gu9X//Ug9k
- JdFfnkjyUJEvD9qrsVlrthBhyGJXDiilQCulLW3Qy7HV+oKAGPpa3kwg6JkqAEhpKu
- I38lLULc5+udw==
-Received: by mail-ua1-f50.google.com with SMTP id n6so41617792uak.1
- for <linux-riscv@lists.infradead.org>; Mon, 22 Nov 2021 22:18:35 -0800 (PST)
-X-Gm-Message-State: AOAM5305cQerWpLWaQfpb1oGYzsKBywRYj2GmU6hysJYM/IADB9/1O8U
- hbtJ7mjneKM2mw+o5/43LgaPa+aVVY6PaPZDeUM=
-X-Google-Smtp-Source: ABdhPJyacyctRuRWpwxoo6qsjZpYyyLDBa+6mAN4sNblEFUBReDr/56cV/o4cDlvDGuw9EqQgIGpApkx9inD6uye9ZQ=
-X-Received: by 2002:ab0:5b59:: with SMTP id v25mr4688469uae.57.1637648314117; 
- Mon, 22 Nov 2021 22:18:34 -0800 (PST)
+ id 1mpQlF-001AIX-MQ
+ for linux-riscv@lists.infradead.org; Tue, 23 Nov 2021 08:02:43 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id
+ c6-20020a05600c0ac600b0033c3aedd30aso811172wmr.5
+ for <linux-riscv@lists.infradead.org>; Tue, 23 Nov 2021 00:02:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=mcOThBA52zPLhCS2zPMb4qpl869iJkhdJeBDm9K1m+A=;
+ b=HqA5YbSrueDLeFJdmmk0X8ku7AbQ43ptWJKPgT+vSDnTsPNC+L235iAEGBlnOhariW
+ 69qonCe8yJCsgEHEQ7wZYB4q9Nji1BoPEEDHWBFx+/ai5VaF+xigRqUeAPvtnHiYhsm5
+ 5C0KdvNsKiNhKqtfk2Lond8uRIOShGBdpttLLFQtICb28/ZZwUlzHdY6nEqIuAI+Ml79
+ yhpbuaGM9G7/wGdjg6NtmsZW9dAO0Xj/mymubi5ADdk7z/DvRLRSgMec1j+nbPWJxzec
+ SnMokwlrpsdRHocdAU1qOO8TnO7LCH8CGWNTMlAVf/wRa3fdm5fOc37allhajf4n3ZAu
+ k/jA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=mcOThBA52zPLhCS2zPMb4qpl869iJkhdJeBDm9K1m+A=;
+ b=dgQT2ejAIWLUy/kCa1QSghIJvhLSi75AKilWVwxIpWdBwipk9ynz4wy7yRmmAY1vuq
+ 9b06gY7r7I6wcDJnbwh7psfCqrDYsecdPG5WKqbNFX+5pWg432eVYCJrP0IX0oA1DkOc
+ cADsJwB9ayp/0FChDLvbFwLyYb09pvfmHfCm8Xqi6Ez9X+xM3ZudCtW/FDIIxC8z8Vwp
+ TPGoNpaPQ5rfqOjE+v613zH5buwdITrzz9u1ZJhwn0ADkjWUuloe81/V6HNx/vqiidgd
+ UjMstyMzd3Gca7PkC+H1o5XDPXa8A/VymFympi/SxU8ubSNls0Haw3WSqhhe7rxPD/kg
+ rFwQ==
+X-Gm-Message-State: AOAM530zB7p1GuB0ZINjfE3wVlfCIoK0LxrtuN+fq0Hl/jBzRLSitzdz
+ /urBxia0oFIBMMbl6coyiFHq9Gy453sfFRtyouvVwg==
+X-Google-Smtp-Source: ABdhPJyhcMIMLuH2MyEC66R1s74CyMvA46Ejn2Gj4Vs7G6l+/+piFlUNEMq8byRwemOdCO5s06VkN1YoFdcZd0YT7eM=
+X-Received: by 2002:a1c:7201:: with SMTP id n1mr660067wmc.176.1637654559549;
+ Tue, 23 Nov 2021 00:02:39 -0800 (PST)
 MIME-Version: 1.0
-References: <20211123015717.542631-1-guoren@kernel.org>
- <20211123015717.542631-2-guoren@kernel.org>
- <CAAhSdy0LWyhgXetiXikCosSX4xasgROyua6XMd92dV8TiWp62w@mail.gmail.com>
-In-Reply-To: <CAAhSdy0LWyhgXetiXikCosSX4xasgROyua6XMd92dV8TiWp62w@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 23 Nov 2021 14:18:23 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRMBoCi--4V5+bgPopkLOF8+y7QBHjjENZDSr4cm5PNfw@mail.gmail.com>
-Message-ID: <CAJF2gTRMBoCi--4V5+bgPopkLOF8+y7QBHjjENZDSr4cm5PNfw@mail.gmail.com>
-Subject: Re: [RFC PATCH 1/3] riscv: Remove 2MB offset in the mm layout
-To: Anup Patel <anup@brainfault.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, atishp@rivosinc.com, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- Guo Ren <guoren@linux.alibaba.com>, 
- Anup Patel <anup.patel@wdc.com>, Alexandre Ghiti <alex@ghiti.fr>, 
- Alexandre Ghiti <alexandre.ghiti@canonical.com>
+References: <20211118083912.981995-1-atishp@rivosinc.com>
+ <20211118083912.981995-2-atishp@rivosinc.com>
+In-Reply-To: <20211118083912.981995-2-atishp@rivosinc.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Tue, 23 Nov 2021 13:32:28 +0530
+Message-ID: <CAAhSdy0q30ftusYnsNnXPLHjfMPahpdo6J5pY45AnK69S5bnSw@mail.gmail.com>
+Subject: Re: [PATCH v5 1/5] RISC-V: KVM: Mark the existing SBI implementation
+ as v01
+To: Atish Patra <atishp@rivosinc.com>
+Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Atish Patra <atish.patra@wdc.com>, 
+ Anup Patel <anup.patel@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Heinrich Schuchardt <xypron.glpk@gmx.de>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>, 
+ kvm-riscv@lists.infradead.org, KVM General <kvm@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211122_221835_759526_99D51700 
-X-CRM114-Status: GOOD (  30.57  )
+X-CRM114-CacheID: sfid-20211123_000241_815867_0901E4A7 
+X-CRM114-Status: GOOD (  34.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,173 +92,313 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 23, 2021 at 11:56 AM Anup Patel <anup@brainfault.org> wrote:
+On Thu, Nov 18, 2021 at 2:10 PM Atish Patra <atishp@rivosinc.com> wrote:
 >
-> +Alex
+> From: Atish Patra <atish.patra@wdc.com>
 >
-> On Tue, Nov 23, 2021 at 7:27 AM <guoren@kernel.org> wrote:
-> >
-> > From: Guo Ren <guoren@linux.alibaba.com>
-> >
-> > The current RISC-V's mm layout is based on a 2MB offset and wasting
-> > memory. Remove 2MB offset and map PAGE_OFFSET at start_of_DRAM.
-> > Then we could reduce the memory reserved for opensbi in the next
-> > patch.
+> The existing SBI specification impelementation follows v0.1
+> specification. The latest specification allows more
+> scalability and performance improvements.
 >
-> The real problem is that the generic kernel marks memory before
-> __pa(PAGE_OFFSET) as reserved which is evident from the boot
-> print "OF: fdt: Ignoring memory range 0x80000000 - 0x80200000".
+> Rename the existing implementation as v01 and provide a way to allow
+> future extensions.
 >
-> One simple way to re-claim the first 2MB of memory is by:
-> 1) Not placing OpenSBI firmware at start of RAM and rather
-> place it towards end/middle or RAM away from kernel and initrd
-> 2) Load kernel at start of the RAM
->
-> The point#1 is already supported by OpenSBI firmwares using
-> position independent compilation. In fact, U-Boot SPL does
-> not load OpenSBI firmware at the start of RAM.
-This deviates from the original intention of this patch. Some users
-have been used to 2MB/4MB LOAD_OFFSET and we also should save the
-memory of opensbi for them.
+> Reviewed-by: Anup Patel <anup.patel@wdc.com>
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
 
+I have queued this for 5.17
+
+Thanks,
+Anup
+
+> ---
+>  arch/riscv/include/asm/kvm_vcpu_sbi.h |  29 +++++
+>  arch/riscv/kvm/vcpu_sbi.c             | 149 ++++++++++++++++++++------
+>  2 files changed, 145 insertions(+), 33 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/kvm_vcpu_sbi.h
 >
-> I would suggest Allwinner D1 to follow U-Boot SPL and have
-> the booting stage before OpenSBI to load OpenSBI firmware
+> diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+> new file mode 100644
+> index 000000000000..1a4cb0db2d0b
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+> @@ -0,0 +1,29 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/**
+> + * Copyright (c) 2021 Western Digital Corporation or its affiliates.
+> + *
+> + * Authors:
+> + *     Atish Patra <atish.patra@wdc.com>
+> + */
+> +
+> +#ifndef __RISCV_KVM_VCPU_SBI_H__
+> +#define __RISCV_KVM_VCPU_SBI_H__
+> +
+> +#define KVM_SBI_VERSION_MAJOR 0
+> +#define KVM_SBI_VERSION_MINOR 2
+> +
+> +struct kvm_vcpu_sbi_extension {
+> +       unsigned long extid_start;
+> +       unsigned long extid_end;
+> +       /**
+> +        * SBI extension handler. It can be defined for a given extension or group of
+> +        * extension. But it should always return linux error codes rather than SBI
+> +        * specific error codes.
+> +        */
+> +       int (*handler)(struct kvm_vcpu *vcpu, struct kvm_run *run,
+> +                      unsigned long *out_val, struct kvm_cpu_trap *utrap,
+> +                      bool *exit);
+> +};
+> +
+> +const struct kvm_vcpu_sbi_extension *kvm_vcpu_sbi_find_ext(unsigned long extid);
+> +#endif /* __RISCV_KVM_VCPU_SBI_H__ */
+> diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
+> index eb3c045edf11..32376906ff20 100644
+> --- a/arch/riscv/kvm/vcpu_sbi.c
+> +++ b/arch/riscv/kvm/vcpu_sbi.c
+> @@ -1,5 +1,5 @@
+>  // SPDX-License-Identifier: GPL-2.0
+> -/**
+> +/*
+>   * Copyright (c) 2019 Western Digital Corporation or its affiliates.
+>   *
+>   * Authors:
+> @@ -12,9 +12,25 @@
+>  #include <asm/csr.h>
+>  #include <asm/sbi.h>
+>  #include <asm/kvm_vcpu_timer.h>
+> +#include <asm/kvm_vcpu_sbi.h>
 >
-> Regards,
-> Anup
+> -#define SBI_VERSION_MAJOR                      0
+> -#define SBI_VERSION_MINOR                      1
+> +static int kvm_linux_err_map_sbi(int err)
+> +{
+> +       switch (err) {
+> +       case 0:
+> +               return SBI_SUCCESS;
+> +       case -EPERM:
+> +               return SBI_ERR_DENIED;
+> +       case -EINVAL:
+> +               return SBI_ERR_INVALID_PARAM;
+> +       case -EFAULT:
+> +               return SBI_ERR_INVALID_ADDRESS;
+> +       case -EOPNOTSUPP:
+> +               return SBI_ERR_NOT_SUPPORTED;
+> +       default:
+> +               return SBI_ERR_FAILURE;
+> +       };
+> +}
 >
-> >
-> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> > Cc: Anup Patel <anup.patel@wdc.com>
-> > Cc: Atish Patra <atishp@rivosinc.com>
-> > ---
-> >  arch/riscv/include/asm/page.h   |  8 ++++++++
-> >  arch/riscv/kernel/head.S        | 10 +++-------
-> >  arch/riscv/kernel/vmlinux.lds.S |  5 ++---
-> >  arch/riscv/mm/init.c            | 11 ++++++++---
-> >  4 files changed, 21 insertions(+), 13 deletions(-)
-> >
-> > diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-> > index b3e5ff0125fe..299147c78b4a 100644
-> > --- a/arch/riscv/include/asm/page.h
-> > +++ b/arch/riscv/include/asm/page.h
-> > @@ -16,6 +16,14 @@
-> >  #define PAGE_SIZE      (_AC(1, UL) << PAGE_SHIFT)
-> >  #define PAGE_MASK      (~(PAGE_SIZE - 1))
-> >
-> > +#if __riscv_xlen == 64
-> > +/* Image load offset(2MB) from start of RAM */
-> > +#define LOAD_OFFSET    0x200000
-> > +#else
-> > +/* Image load offset(4MB) from start of RAM */
-> > +#define LOAD_OFFSET    0x400000
-> > +#endif
-> > +
-> >  #ifdef CONFIG_64BIT
-> >  #define HUGE_MAX_HSTATE                2
-> >  #else
-> > diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-> > index f52f01ecbeea..a6ac892d2ccf 100644
-> > --- a/arch/riscv/kernel/head.S
-> > +++ b/arch/riscv/kernel/head.S
-> > @@ -61,13 +61,7 @@ ENTRY(_start)
-> >         /* Image load offset (0MB) from start of RAM for M-mode */
-> >         .dword 0
-> >  #else
-> > -#if __riscv_xlen == 64
-> > -       /* Image load offset(2MB) from start of RAM */
-> > -       .dword 0x200000
-> > -#else
-> > -       /* Image load offset(4MB) from start of RAM */
-> > -       .dword 0x400000
-> > -#endif
-> > +       .dword LOAD_OFFSET
-> >  #endif
-> >         /* Effective size of kernel image */
-> >         .dword _end - _start
-> > @@ -94,6 +88,8 @@ relocate:
-> >         la a1, kernel_map
-> >         XIP_FIXUP_OFFSET a1
-> >         REG_L a1, KERNEL_MAP_VIRT_ADDR(a1)
-> > +       li a2, LOAD_OFFSET
-> > +       add a1, a1, a2
-> >         la a2, _start
-> >         sub a1, a1, a2
-> >         add ra, ra, a1
-> > diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-> > index 5104f3a871e3..75b7c72cd4bd 100644
-> > --- a/arch/riscv/kernel/vmlinux.lds.S
-> > +++ b/arch/riscv/kernel/vmlinux.lds.S
-> > @@ -11,10 +11,9 @@
-> >  #else
-> >
-> >  #include <asm/pgtable.h>
-> > -#define LOAD_OFFSET KERNEL_LINK_ADDR
-> >
-> > -#include <asm/vmlinux.lds.h>
-> >  #include <asm/page.h>
-> > +#include <asm/vmlinux.lds.h>
-> >  #include <asm/cache.h>
-> >  #include <asm/thread_info.h>
-> >  #include <asm/set_memory.h>
-> > @@ -32,7 +31,7 @@ PECOFF_FILE_ALIGNMENT = 0x200;
-> >  SECTIONS
-> >  {
-> >         /* Beginning of code and text segment */
-> > -       . = LOAD_OFFSET;
-> > +       . = LOAD_OFFSET + KERNEL_LINK_ADDR;
-> >         _start = .;
-> >         HEAD_TEXT_SECTION
-> >         . = ALIGN(PAGE_SIZE);
-> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > index 24b2b8044602..920e78f8c3e4 100644
-> > --- a/arch/riscv/mm/init.c
-> > +++ b/arch/riscv/mm/init.c
-> > @@ -221,6 +221,11 @@ static void __init setup_bootmem(void)
-> >         if (!IS_ENABLED(CONFIG_BUILTIN_DTB))
-> >                 memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
-> >
-> > +       /*
-> > +        * Reserve OpenSBI region and depends on PMP to deny accesses.
-> > +        */
-> > +       memblock_reserve(__pa(PAGE_OFFSET), LOAD_OFFSET);
-> > +
-> >         early_init_fdt_scan_reserved_mem();
-> >         dma_contiguous_reserve(dma32_phys_limit);
-> >         if (IS_ENABLED(CONFIG_64BIT))
-> > @@ -604,7 +609,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
-> >
-> >         kernel_map.va_kernel_xip_pa_offset = kernel_map.virt_addr - kernel_map.xiprom;
-> >  #else
-> > -       kernel_map.phys_addr = (uintptr_t)(&_start);
-> > +       kernel_map.phys_addr = (uintptr_t)(&_start) - LOAD_OFFSET;
-> >         kernel_map.size = (uintptr_t)(&_end) - kernel_map.phys_addr;
-> >  #endif
-> >         kernel_map.va_pa_offset = PAGE_OFFSET - kernel_map.phys_addr;
-> > @@ -645,8 +650,8 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
-> >         create_pmd_mapping(trampoline_pmd, kernel_map.virt_addr,
-> >                            kernel_map.xiprom, PMD_SIZE, PAGE_KERNEL_EXEC);
-> >  #else
-> > -       create_pmd_mapping(trampoline_pmd, kernel_map.virt_addr,
-> > -                          kernel_map.phys_addr, PMD_SIZE, PAGE_KERNEL_EXEC);
-> > +       create_pmd_mapping(trampoline_pmd, kernel_map.virt_addr + LOAD_OFFSET,
-> > +                          kernel_map.phys_addr + LOAD_OFFSET, PMD_SIZE, PAGE_KERNEL_EXEC);
-> >  #endif
-> >  #else
-> >         /* Setup trampoline PGD */
-> > --
-> > 2.25.1
-> >
-
-
-
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+>  static void kvm_riscv_vcpu_sbi_forward(struct kvm_vcpu *vcpu,
+>                                        struct kvm_run *run)
+> @@ -72,21 +88,19 @@ static void kvm_sbi_system_shutdown(struct kvm_vcpu *vcpu,
+>         run->exit_reason = KVM_EXIT_SYSTEM_EVENT;
+>  }
+>
+> -int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
+> +static int kvm_sbi_ext_v01_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
+> +                                     unsigned long *out_val,
+> +                                     struct kvm_cpu_trap *utrap,
+> +                                     bool *exit)
+>  {
+>         ulong hmask;
+> -       int i, ret = 1;
+> +       int i, ret = 0;
+>         u64 next_cycle;
+>         struct kvm_vcpu *rvcpu;
+> -       bool next_sepc = true;
+>         struct cpumask cm, hm;
+>         struct kvm *kvm = vcpu->kvm;
+> -       struct kvm_cpu_trap utrap = { 0 };
+>         struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
+>
+> -       if (!cp)
+> -               return -EINVAL;
+> -
+>         switch (cp->a7) {
+>         case SBI_EXT_0_1_CONSOLE_GETCHAR:
+>         case SBI_EXT_0_1_CONSOLE_PUTCHAR:
+> @@ -95,8 +109,7 @@ int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
+>                  * handled in kernel so we forward these to user-space
+>                  */
+>                 kvm_riscv_vcpu_sbi_forward(vcpu, run);
+> -               next_sepc = false;
+> -               ret = 0;
+> +               *exit = true;
+>                 break;
+>         case SBI_EXT_0_1_SET_TIMER:
+>  #if __riscv_xlen == 32
+> @@ -104,47 +117,42 @@ int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
+>  #else
+>                 next_cycle = (u64)cp->a0;
+>  #endif
+> -               kvm_riscv_vcpu_timer_next_event(vcpu, next_cycle);
+> +               ret = kvm_riscv_vcpu_timer_next_event(vcpu, next_cycle);
+>                 break;
+>         case SBI_EXT_0_1_CLEAR_IPI:
+> -               kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_VS_SOFT);
+> +               ret = kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_VS_SOFT);
+>                 break;
+>         case SBI_EXT_0_1_SEND_IPI:
+>                 if (cp->a0)
+>                         hmask = kvm_riscv_vcpu_unpriv_read(vcpu, false, cp->a0,
+> -                                                          &utrap);
+> +                                                          utrap);
+>                 else
+>                         hmask = (1UL << atomic_read(&kvm->online_vcpus)) - 1;
+> -               if (utrap.scause) {
+> -                       utrap.sepc = cp->sepc;
+> -                       kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
+> -                       next_sepc = false;
+> +               if (utrap->scause)
+>                         break;
+> -               }
+> +
+>                 for_each_set_bit(i, &hmask, BITS_PER_LONG) {
+>                         rvcpu = kvm_get_vcpu_by_id(vcpu->kvm, i);
+> -                       kvm_riscv_vcpu_set_interrupt(rvcpu, IRQ_VS_SOFT);
+> +                       ret = kvm_riscv_vcpu_set_interrupt(rvcpu, IRQ_VS_SOFT);
+> +                       if (ret < 0)
+> +                               break;
+>                 }
+>                 break;
+>         case SBI_EXT_0_1_SHUTDOWN:
+>                 kvm_sbi_system_shutdown(vcpu, run, KVM_SYSTEM_EVENT_SHUTDOWN);
+> -               next_sepc = false;
+> -               ret = 0;
+> +               *exit = true;
+>                 break;
+>         case SBI_EXT_0_1_REMOTE_FENCE_I:
+>         case SBI_EXT_0_1_REMOTE_SFENCE_VMA:
+>         case SBI_EXT_0_1_REMOTE_SFENCE_VMA_ASID:
+>                 if (cp->a0)
+>                         hmask = kvm_riscv_vcpu_unpriv_read(vcpu, false, cp->a0,
+> -                                                          &utrap);
+> +                                                          utrap);
+>                 else
+>                         hmask = (1UL << atomic_read(&kvm->online_vcpus)) - 1;
+> -               if (utrap.scause) {
+> -                       utrap.sepc = cp->sepc;
+> -                       kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
+> -                       next_sepc = false;
+> +               if (utrap->scause)
+>                         break;
+> -               }
+> +
+>                 cpumask_clear(&cm);
+>                 for_each_set_bit(i, &hmask, BITS_PER_LONG) {
+>                         rvcpu = kvm_get_vcpu_by_id(vcpu->kvm, i);
+> @@ -154,22 +162,97 @@ int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
+>                 }
+>                 riscv_cpuid_to_hartid_mask(&cm, &hm);
+>                 if (cp->a7 == SBI_EXT_0_1_REMOTE_FENCE_I)
+> -                       sbi_remote_fence_i(cpumask_bits(&hm));
+> +                       ret = sbi_remote_fence_i(cpumask_bits(&hm));
+>                 else if (cp->a7 == SBI_EXT_0_1_REMOTE_SFENCE_VMA)
+> -                       sbi_remote_hfence_vvma(cpumask_bits(&hm),
+> +                       ret = sbi_remote_hfence_vvma(cpumask_bits(&hm),
+>                                                 cp->a1, cp->a2);
+>                 else
+> -                       sbi_remote_hfence_vvma_asid(cpumask_bits(&hm),
+> +                       ret = sbi_remote_hfence_vvma_asid(cpumask_bits(&hm),
+>                                                 cp->a1, cp->a2, cp->a3);
+>                 break;
+>         default:
+> +               ret = -EINVAL;
+> +               break;
+> +       }
+> +
+> +       return ret;
+> +}
+> +
+> +const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_v01 = {
+> +       .extid_start = SBI_EXT_0_1_SET_TIMER,
+> +       .extid_end = SBI_EXT_0_1_SHUTDOWN,
+> +       .handler = kvm_sbi_ext_v01_handler,
+> +};
+> +
+> +static const struct kvm_vcpu_sbi_extension *sbi_ext[] = {
+> +       &vcpu_sbi_ext_v01,
+> +};
+> +
+> +const struct kvm_vcpu_sbi_extension *kvm_vcpu_sbi_find_ext(unsigned long extid)
+> +{
+> +       int i = 0;
+> +
+> +       for (i = 0; i < ARRAY_SIZE(sbi_ext); i++) {
+> +               if (sbi_ext[i]->extid_start <= extid &&
+> +                   sbi_ext[i]->extid_end >= extid)
+> +                       return sbi_ext[i];
+> +       }
+> +
+> +       return NULL;
+> +}
+> +
+> +int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
+> +{
+> +       int ret = 1;
+> +       bool next_sepc = true;
+> +       bool userspace_exit = false;
+> +       struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
+> +       const struct kvm_vcpu_sbi_extension *sbi_ext;
+> +       struct kvm_cpu_trap utrap = { 0 };
+> +       unsigned long out_val = 0;
+> +       bool ext_is_v01 = false;
+> +
+> +       sbi_ext = kvm_vcpu_sbi_find_ext(cp->a7);
+> +       if (sbi_ext && sbi_ext->handler) {
+> +               if (cp->a7 >= SBI_EXT_0_1_SET_TIMER &&
+> +                   cp->a7 <= SBI_EXT_0_1_SHUTDOWN)
+> +                       ext_is_v01 = true;
+> +               ret = sbi_ext->handler(vcpu, run, &out_val, &utrap, &userspace_exit);
+> +       } else {
+>                 /* Return error for unsupported SBI calls */
+>                 cp->a0 = SBI_ERR_NOT_SUPPORTED;
+> -               break;
+> +               goto ecall_done;
+> +       }
+> +
+> +       /* Handle special error cases i.e trap, exit or userspace forward */
+> +       if (utrap.scause) {
+> +               /* No need to increment sepc or exit ioctl loop */
+> +               ret = 1;
+> +               utrap.sepc = cp->sepc;
+> +               kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
+> +               next_sepc = false;
+> +               goto ecall_done;
+>         }
+>
+> +       /* Exit ioctl loop or Propagate the error code the guest */
+> +       if (userspace_exit) {
+> +               next_sepc = false;
+> +               ret = 0;
+> +       } else {
+> +               /**
+> +                * SBI extension handler always returns an Linux error code. Convert
+> +                * it to the SBI specific error code that can be propagated the SBI
+> +                * caller.
+> +                */
+> +               ret = kvm_linux_err_map_sbi(ret);
+> +               cp->a0 = ret;
+> +               ret = 1;
+> +       }
+> +ecall_done:
+>         if (next_sepc)
+>                 cp->sepc += 4;
+> +       if (!ext_is_v01)
+> +               cp->a1 = out_val;
+>
+>         return ret;
+>  }
+> --
+> 2.33.1
+>
+>
+> --
+> kvm-riscv mailing list
+> kvm-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/kvm-riscv
 
 _______________________________________________
 linux-riscv mailing list
