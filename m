@@ -4,73 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3CECC433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Nov 2021 07:56:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85384C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Nov 2021 08:15:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N/MEUlr6v2yVotW7yrblemz4LkqG+BmXJ0KK6kzr68U=; b=dOYKSVBeV2rQMd
-	HSFemX5zovLeKvFx/m0NUAbYO87m0ds9ybMFmF/xSJ+/BED1vFCSbU9reD3mbt9BhWNmNKp1vxlne
-	uGrBRQbwtlxxJaGEk0epe9xll1X7sXsrokvBhuvWwc8irkqmW1LUv9CY3yHJffgAS9dCsQeHp+3uL
-	MdBFQQ5NRFSaH5zBu5ywXWZGiXaNcXtfv+OTyIyNrv6qV5W0aYcM51Ed48VF9QKEIKYuK+gYiBByV
-	dks1TP7rigSqxHDqtmI3hKFowR54wa1W8doCI5WzyvOE0JgXsK5DOVOBwIR4cPk5SuKOUNzeNW/Ie
-	3TxxTYf3VbxjwU3IBrzA==;
+	List-Owner; bh=9wvHMbKPK0u+SgTMId3e/C2j+98MJ1F7SOCQ+SeY5PE=; b=W43jjCU+MUAIC1
+	1a8W9sd035NskuJt4s0iZMWZAK70HqXRRfDCbbOp077q2ViWyCANFj2XHG/Tx4H24yeOF69tIgoa0
+	gR81H5kck7Q6jdCMLRH9OeUpMgNoNIB3igN7oBsfyfTLynETlfgOhVo1kgSsU5HUVAEQnkuJJNwur
+	UURCQPpEDtgSnhyzXcqqIVYz2CEKc8ku6lQttzIZPnJHoPcHR8AueGYHsjvyCMaCgJpbLL7Z7iJW8
+	WDf9cQRnyct3Gkbx0g4LOu2m7iK8Sui88NtiF5k+SW3BH5FUw/HCFhyIKd/RMIn+SwtNCx5bx+uSP
+	jMiI7kZjnWiplqd7LMYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mpn8y-004Bvu-KJ; Wed, 24 Nov 2021 07:56:40 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1mpnQl-004ESD-Ck; Wed, 24 Nov 2021 08:15:03 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mpn8k-004BqO-Iz
- for linux-riscv@lists.infradead.org; Wed, 24 Nov 2021 07:56:28 +0000
-Received: by mail-wr1-x433.google.com with SMTP id u18so2549101wrg.5
- for <linux-riscv@lists.infradead.org>; Tue, 23 Nov 2021 23:56:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=VcjV0C2JAXQBDDMbeL+36DJY0eId/oRoFF8TPI/gCJ4=;
- b=vONA1Ak/5UD9tljIcxnytqMG5YKidkdZz2f3W5ZzKHTbuIByttaBV+eIc7p2lRydf/
- YJKoQqzF3ajYpF9yBD9eYQuneWienGrxoPW5+P6MN4yabn/h7mnTtgWquaITDNRI8R4H
- u0SqAqSeoqsrcAYYMu9BVVtq1JOTsb2a51bDv14M5s0238rw9P1n1ERe+Fvg4fPuVjfp
- Lecc3fyeqhMSPg8slhwX2Jn0yiXWqzuddt6/vxM3YWTlOiY211eCzQgK0xCn/Zuu51yl
- H3Zs3+BDIjy4emAs9OdZgbvx2RUwNmltWywZpMQrYILSRI+k4NR3+GbJ6VKvdZWcRObP
- UHWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=VcjV0C2JAXQBDDMbeL+36DJY0eId/oRoFF8TPI/gCJ4=;
- b=nGbU+wuLhKdf9KnDqUkQ6Bzeu6Jzh8QX7cfF/cHg9BBoo4L2TuJAAxQuPN/DHvXiLh
- Xw0LhnWQ79YMPxBF8ZaYb8Ugfr+cV8jl2/TXbMl1dxrapQeClrW6WSGjuFjtdaD7o6GI
- mY8OOWTWrHVoR1XZdgDYRHV5RDU4QM64VzJZ73msHaflXDLV8M1GUnemI4vE7qF+Oafa
- w7DKXXp9bX/W35GK9ImtxMFHH0OpVXRF9YzVwGmFVlO3f/EKWZNHlzD6Gwr6p7QdQKt7
- bSEsNdrGddeN/vCZ6i1S1aKjM/Lt78M511px4+f2QV+xIoQun11cFeFQmlK7Hb8oRNCA
- l9JA==
-X-Gm-Message-State: AOAM533Owi8nFZjbPE92s9XPtayV7YOCmJn94Vgd3nvLvqaf4p7uCSOD
- LDoPchI817rkSUvQjADp7+Fpqxs4sN76QJ/CWTZ3gw==
-X-Google-Smtp-Source: ABdhPJwClJrX6knE8UTXut3s66kbbEuDAMqdQwXZqQSH7GKDBVNtaOB2rrww6+y9qLtab1P5o7Gg1d/oHpIJdpt7us4=
-X-Received: by 2002:a05:6000:168e:: with SMTP id
- y14mr15173772wrd.331.1637740584557; 
- Tue, 23 Nov 2021 23:56:24 -0800 (PST)
+ id 1mpnQh-004EPp-Ev
+ for linux-riscv@lists.infradead.org; Wed, 24 Nov 2021 08:15:01 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 277286101D
+ for <linux-riscv@lists.infradead.org>; Wed, 24 Nov 2021 08:14:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1637741699;
+ bh=dko9EeLRbwlSDjDLJNhUXUtMjKbVVTOsFc2Z8Xm8EYM=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=oOShSW/snMf2l47amNurzb1YazgWBF0jFLhgJ9/LrMhwdOjBXln3LxBxabY5CAPz9
+ SRPlX12JfovoIk+FcWI/pmVA+LyUDo8Kq9eHTCT22QWRSJt913Ax1aZbfZBLDu0uUF
+ UeS35Cwm7GL9nG/5zST7///6DVXeY/hSI8kfAZeicsMupG8G4WVZxg0U6BpF/93511
+ 0jvpUiGDhEshMd3x/J2OWc79UfCCZmRT9IzW8Zxug4OrLyRn1dprApwBebLmns1ckJ
+ kOu9cvIr+9yQ8vRShCXoqWFy1/zJt57+8G0VK5JIyL6zI/1xlcSItfAgJWdxOHAVc+
+ VvI67ZohYk7Fw==
+Received: by mail-yb1-f173.google.com with SMTP id e136so4970789ybc.4
+ for <linux-riscv@lists.infradead.org>; Wed, 24 Nov 2021 00:14:59 -0800 (PST)
+X-Gm-Message-State: AOAM532TQ+EA/xZjGO1r7JhKxlXPec0lHbAuCfuoYX5p+xQF1018NOTE
+ N7x721/gMNjiZlvsiKWBuPktG2pMd/ZLqvo2c5A=
+X-Google-Smtp-Source: ABdhPJwkh+xkx/h2SQ1t5DS0cTDPoNSK7vXv6fwwvYjVa8G70GBlI/v3I9rjRGzuZJrw9su8IxEHobLfI7hp1UWhGUs=
+X-Received: by 2002:a25:344d:: with SMTP id b74mr14908992yba.317.1637741698268; 
+ Wed, 24 Nov 2021 00:14:58 -0800 (PST)
 MIME-Version: 1.0
-References: <20211124060521.614015-1-guoren@kernel.org>
- <CAAhSdy1CZbdAPEYxFOhrn=wUcmc9Yea0ziMUmHjaudKdH2Yw1w@mail.gmail.com>
- <CAJF2gTRAXAmo4cVSfArf=eMU9CxXZr3kjaKcQ1u8764cnL+N_Q@mail.gmail.com>
-In-Reply-To: <CAJF2gTRAXAmo4cVSfArf=eMU9CxXZr3kjaKcQ1u8764cnL+N_Q@mail.gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 24 Nov 2021 13:26:13 +0530
-Message-ID: <CAAhSdy2_Vk5nPMUOni5JctV8Jd9NYh-WK=yZPXTN_yzaNdy-4g@mail.gmail.com>
-Subject: Re: [PATCH] riscv: Fixup one-page wasting
-To: Guo Ren <guoren@kernel.org>
-Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
- Guo Ren <guoren@linux.alibaba.com>, Alexandre Ghiti <alex@ghiti.fr>, 
- Atish Patra <Atish.Patra@wdc.com>
+References: <20211120165528.197359-1-kuba@kernel.org>
+ <CAPhsuW4g1PhdczQh=iqDR_CzB=6FoM4QPF9DmknEP0hZ_Ac3TA@mail.gmail.com>
+ <d4c52f8f-7efb-3d2a-8f2e-c983cd0c8cce@arm.com>
+In-Reply-To: <d4c52f8f-7efb-3d2a-8f2e-c983cd0c8cce@arm.com>
+From: Song Liu <song@kernel.org>
+Date: Tue, 23 Nov 2021 22:14:46 -1000
+X-Gmail-Original-Message-ID: <CAPhsuW6CMBymKpOMdL-bianESBLfbKa5JwmFypKL3dx4k0rmSQ@mail.gmail.com>
+Message-ID: <CAPhsuW6CMBymKpOMdL-bianESBLfbKa5JwmFypKL3dx4k0rmSQ@mail.gmail.com>
+Subject: Re: [PATCH bpf] cacheinfo: move get_cpu_cacheinfo_id() back out
+To: James Morse <james.morse@arm.com>, Alexei Starovoitov <ast@kernel.org>, 
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>
+Cc: Jakub Kicinski <kuba@kernel.org>, fenghua.yu@intel.com,
+ reinette.chatre@intel.com, 
+ bpf <bpf@vger.kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, dave.hansen@linux.intel.com,
+ X86 ML <x86@kernel.org>, 
+ "H. Peter Anvin" <hpa@zytor.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>,
+ linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211123_235626_705156_5E1466D4 
-X-CRM114-Status: GOOD (  20.90  )
+X-CRM114-CacheID: sfid-20211124_001459_556428_72C11E44 
+X-CRM114-Status: GOOD (  25.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,80 +85,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 24, 2021 at 12:52 PM Guo Ren <guoren@kernel.org> wrote:
+On Tue, Nov 23, 2021 at 8:49 AM James Morse <james.morse@arm.com> wrote:
 >
-> On Wed, Nov 24, 2021 at 2:55 PM Anup Patel <anup@brainfault.org> wrote:
-> >
-> > On Wed, Nov 24, 2021 at 11:35 AM <guoren@kernel.org> wrote:
-> > >
-> > > From: Guo Ren <guoren@linux.alibaba.com>
-> > >
-> > > For small memory systems(Allwinner D1s/F133), one page size memory
-> > > cannot be ignored.
-> > >
-> > > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > > Cc: Alexandre Ghiti <alex@ghiti.fr>
-> > > Cc: Anup Patel <anup@brainfault.org>
-> > > Cc: Atish Patra <Atish.Patra@wdc.com>
-> >
-> > This PATCH breaks the CPU hotplug functionality.
-> >
-> > When a CPU/HART is turned off and turned on at runtime, the
-> > low-level relocate() will be called to enable MMU on the CPU
-> > being brought-up which in-turn uses trampoline_pg_dir.
-> Yeah, I forgot that.
+> Hello,
 >
-> How about removing trampoline_pg_dir totally and using
-> early_pg_dir/swapper_pg_dir for relocate directly?
+> On 23/11/2021 17:45, Song Liu wrote:
+> > On Sat, Nov 20, 2021 at 6:55 AM Jakub Kicinski <kuba@kernel.org> wrote:
+> >>
+> >> This commit more or less reverts commit 709c4362725a ("cacheinfo:
+> >> Move resctrl's get_cache_id() to the cacheinfo header file").
+> >>
+> >> There are no users of the static inline helper outside of resctrl/core.c
+> >> and cpu.h is a pretty heavy include, it pulls in device.h etc. This
+> >> trips up architectures like riscv which want to access cacheinfo
+> >> in low level headers like elf.h.
+> >>
+> >> Link: https://lore.kernel.org/all/20211120035253.72074-1-kuba@kernel.org/
+> >> Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+> >> ---
+>
+> >> x86 resctrl folks, does this look okay?
+> >>
+> >> I'd like to do some bpf header cleanups in -next which this is blocking.
+> >> How would you like to handle that? This change looks entirely harmless,
+> >> can I get an ack and take this via bpf/netdev to Linus ASAP so it
+> >> propagates to all trees?
+> >
+> > Does this patch target the bpf tree, or the bpf-next tree? If we want to unblock
+> > bpf header cleanup in -next, we can simply include it in a set for bpf-next.
+>
+>
+> Some background: this is part of the mpam tree that wires up resctrl for arm64. This patch
+> floated to the top and got merged with some cleanup as it was independent of the wider
+> resctrl changes.
+>
+> If the cpu.h include is the problem, I can't see what that is needed for. It almost
+> certainly came in with a lockdep annotation that got replaced by a comment instead.
 
-The trampoline_pg_dir is to handle the case when RAM is
-large enough such that RAM physical address range overlaps
-kernel virtual address range (i.e. VA >= PAGE_OFFSET). This
-is overlap of virtual address range and physical address range
-can be problematic for low-level code which is trying to enable
-MMU (such as the relocate() function).
+Thanks for the information.
 
-Here's a old kernel thread which tries to summarize this:
-https://lore.kernel.org/lkml/CAAhSdy3URWHVY_GPNb2yRBuctRELRtTTWPM2OpwUVSRFAyXyiA@mail.gmail.com/
+I can ack the patch for the patch itself.
 
-Regards,
-Anup
+Acked-by: Song Liu <songliubraving@fb.com>
 
->
-> >
-> > Regards,
-> > Anup
-> >
-> > > ---
-> > >  arch/riscv/mm/init.c | 2 +-
-> > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > >
-> > > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > > index 24b2b8044602..097bb3bc4020 100644
-> > > --- a/arch/riscv/mm/init.c
-> > > +++ b/arch/riscv/mm/init.c
-> > > @@ -241,9 +241,9 @@ unsigned long riscv_pfn_base __ro_after_init;
-> > >  EXPORT_SYMBOL(riscv_pfn_base);
-> > >
-> > >  pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
-> > > -pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
-> > >  static pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
-> > >
-> > > +pgd_t trampoline_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
-> > >  pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
-> > >  static pmd_t __maybe_unused early_dtb_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
-> > >
-> > > --
-> > > 2.25.1
-> > >
->
->
->
-> --
-> Best Regards
->  Guo Ren
->
-> ML: https://lore.kernel.org/linux-csky/
+But I am not sure whether we should ship it via bpf tree. It seems to
+me that the
+only reason we ship it via bpf tree is to get it to upstream ASAP?
+
+Alexei/Daniel/Andrii, what do you think about this?
+
+Thanks,
+Song
 
 _______________________________________________
 linux-riscv mailing list
