@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24316C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Nov 2021 11:10:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D34CC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Nov 2021 11:19:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EuMiH7P/cY9Wzzz5sfOLb2qSdm/lKesVr40iu9i+qPA=; b=3NAOkyrDNkhkMT
-	cz9nYuHkGBJJdm/DlmawBRqwgjRYX/byXkGjMVrrYbu/OrWztB7zQ70YrMQyTxSTmtiWO9+H+L/FY
-	AS2EpoV6Pb6+ZT66358wKVILre/Wcie3wbx9Hc6TXmrdmkyB3JN9aY8locydYNDzCHVXa2RBHGQiA
-	tSf3rSKmWPEgm9YJD4ZeqKF+prB5AGKWNP6p4CuJmM2jMY5huw7Dw5+cR1Yq7YXsPy2KVTvtlVy4z
-	qScjcPCmlW9nWYbIpp2JMcr1nykdFDgXb2Ma/fgY5oOe1M9M/2AIvcbhfF1Hjy6KPB+EAmTG56Qn6
-	foBFwWwBe874uh1godig==;
+	List-Owner; bh=/DTxxPL1K8g57fb6Wi7prYoVz4W3NGYG0NoGd6+Pa84=; b=tXinFSgPNYORhS
+	0+u8fnVpnb5Gk/YiLkWFc84LwO0sIUHgLGXtILX8kU8iYibWBYWOHOO8xg0WCpODtvl6ck6Viddos
+	2wKC5excqe6CQTCCP5g7WE8LKqs96JTnu8zOoLrcY4yG/gB/qTWNcv44Cqpwv9rCvtW75R2Vc4C62
+	/7qIwV6qYOI4qjpFkihVfUC+Nl0slWCyYmlVBkeBMUuKGmcmYLWnsCb0e7hoQmn0cf/dwlJk+fqkm
+	LMhcXlMLCGyrJgPRktl6pV9aKyRHNnoyzBn+qFN9NI6xr0FBtTc/Zdx7rRylIIQaAnVv+vi781318
+	wX08ki+pBQwCIPaq5Gbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mpq9q-004XrC-9X; Wed, 24 Nov 2021 11:09:46 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mpq9n-004XqN-Dm
- for linux-riscv@lists.infradead.org; Wed, 24 Nov 2021 11:09:45 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 039F060F5A
- for <linux-riscv@lists.infradead.org>; Wed, 24 Nov 2021 11:09:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1637752183;
- bh=41zgciMzsU/WGL2eXcT5uyWtfeDMyAoHglt43hOVqJI=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=pA2hhq5PPgSmKwsmzklBNn32NvKRBTpmFuDKfG6QrpizpjDvEPMKZ3pBEyKHW5bQJ
- wak56bGBZud3Ah5LHf9sQj1RiaDFuxXp0TWDaQezEAA6C++ufoY46PUZwibV/CiDfq
- 43G4BQ0+04l4uhg8hDVF1ZwhKkBSyZKceaESxmZ13oyRhCcsg+Rhb+iTaePQ3MY7Tp
- WFu5yMsJ1uZ2pt5H2dQQ3WRdZjwV6efdUfgIo9+KiVohS74zcnRKSKWKPLxsnBu1k/
- 6VI4rO3j5JqzQE+8dHixo4kMrWKdIhwd4Nh18bTAVhYvBe/V9jyelZP5JyTHPoX5BR
- sIUoSULPjQp+Q==
-Received: by mail-ua1-f48.google.com with SMTP id a14so4345470uak.0
- for <linux-riscv@lists.infradead.org>; Wed, 24 Nov 2021 03:09:42 -0800 (PST)
-X-Gm-Message-State: AOAM532wECYEsM5c6hAdvbaP6MZjvAZdqkQdivKSvZO95KPOIpMgB5gH
- P23h5WdRxKJVd0XtHKVA8qbmS0grcLIZZmhCh6g=
-X-Google-Smtp-Source: ABdhPJzTuyEKKKaZ2LcGqhjM3jVJYYSZT8Y1cxKh57RdT3qFf8qbVy9ISGV/+lum3/DJXr9+QBIC10/gC754IRPPCz0=
-X-Received: by 2002:a67:f415:: with SMTP id p21mr21771144vsn.50.1637752182081; 
- Wed, 24 Nov 2021 03:09:42 -0800 (PST)
+	id 1mpqJ4-004ZEQ-HV; Wed, 24 Nov 2021 11:19:18 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mpqIy-004ZC1-AM
+ for linux-riscv@lists.infradead.org; Wed, 24 Nov 2021 11:19:14 +0000
+Received: from localhost.localdomain (unknown [124.16.141.242])
+ by APP-01 (Coremail) with SMTP id qwCowAB3QCOgH55hHGFRCA--.5713S4;
+ Wed, 24 Nov 2021 19:19:04 +0800 (CST)
+From: panqinglin2020@iscas.ac.cn
+To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org
+Cc: jeff@riscv.org, xuyinan@ict.ac.cn, Qinglin Pan <panqinglin2020@iscas.ac.cn>
+Subject: [PATCH v1 2/2] Documentation, mm: Add Sv57 vm layout documentation
+Date: Wed, 24 Nov 2021 19:18:29 +0800
+Message-Id: <20211124111829.788114-3-panqinglin2020@iscas.ac.cn>
+X-Mailer: git-send-email 2.32.0
+In-Reply-To: <20211124111829.788114-1-panqinglin2020@iscas.ac.cn>
+References: <20211124111829.788114-1-panqinglin2020@iscas.ac.cn>
 MIME-Version: 1.0
-References: <20211124060521.614015-1-guoren@kernel.org>
- <CAAhSdy1CZbdAPEYxFOhrn=wUcmc9Yea0ziMUmHjaudKdH2Yw1w@mail.gmail.com>
- <CAJF2gTRAXAmo4cVSfArf=eMU9CxXZr3kjaKcQ1u8764cnL+N_Q@mail.gmail.com>
- <CAAhSdy2_Vk5nPMUOni5JctV8Jd9NYh-WK=yZPXTN_yzaNdy-4g@mail.gmail.com>
-In-Reply-To: <CAAhSdy2_Vk5nPMUOni5JctV8Jd9NYh-WK=yZPXTN_yzaNdy-4g@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Wed, 24 Nov 2021 19:09:31 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTS0GeKRRzBdbgui8BVzf4TA=FT3Q3jPZaqXx=oFzD4GRQ@mail.gmail.com>
-Message-ID: <CAJF2gTS0GeKRRzBdbgui8BVzf4TA=FT3Q3jPZaqXx=oFzD4GRQ@mail.gmail.com>
-Subject: Re: [PATCH] riscv: Fixup one-page wasting
-To: Anup Patel <anup@brainfault.org>
-Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
- Guo Ren <guoren@linux.alibaba.com>, Alexandre Ghiti <alex@ghiti.fr>, 
- Atish Patra <Atish.Patra@wdc.com>
+X-CM-TRANSID: qwCowAB3QCOgH55hHGFRCA--.5713S4
+X-Coremail-Antispam: 1UD129KBjvJXoWxXF1fuF4fAF1Dtr1fAr1DZFb_yoW5ZF43pr
+ n8JryxGr48Jry7Jw1UJr15Jr1UAr18Aa1UJr1rJr1UJryUGr1UJr1UJr15Jr1DGr15Ar17
+ Jr1DGrWUtr1UJw7anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUPq14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+ rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
+ x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+ Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l84
+ ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2vY
+ z4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c
+ 02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE
+ 4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4
+ kE6xkIj40Ew7xC0wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s02
+ 6c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF
+ 0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvE
+ c7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14
+ v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x
+ 0JUoWlkUUUUU=
+X-Originating-IP: [124.16.141.242]
+X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211124_030943_550119_DD9AC39F 
-X-CRM114-Status: GOOD (  25.31  )
+X-CRM114-CacheID: sfid-20211124_031912_822071_8FC3A306 
+X-CRM114-Status: UNSURE (   7.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,94 +79,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 24, 2021 at 3:56 PM Anup Patel <anup@brainfault.org> wrote:
->
-> On Wed, Nov 24, 2021 at 12:52 PM Guo Ren <guoren@kernel.org> wrote:
-> >
-> > On Wed, Nov 24, 2021 at 2:55 PM Anup Patel <anup@brainfault.org> wrote:
-> > >
-> > > On Wed, Nov 24, 2021 at 11:35 AM <guoren@kernel.org> wrote:
-> > > >
-> > > > From: Guo Ren <guoren@linux.alibaba.com>
-> > > >
-> > > > For small memory systems(Allwinner D1s/F133), one page size memory
-> > > > cannot be ignored.
-> > > >
-> > > > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > > > Cc: Alexandre Ghiti <alex@ghiti.fr>
-> > > > Cc: Anup Patel <anup@brainfault.org>
-> > > > Cc: Atish Patra <Atish.Patra@wdc.com>
-> > >
-> > > This PATCH breaks the CPU hotplug functionality.
-> > >
-> > > When a CPU/HART is turned off and turned on at runtime, the
-> > > low-level relocate() will be called to enable MMU on the CPU
-> > > being brought-up which in-turn uses trampoline_pg_dir.
-> > Yeah, I forgot that.
-> >
-> > How about removing trampoline_pg_dir totally and using
-> > early_pg_dir/swapper_pg_dir for relocate directly?
->
-> The trampoline_pg_dir is to handle the case when RAM is
-> large enough such that RAM physical address range overlaps
-> kernel virtual address range (i.e. VA >= PAGE_OFFSET). This
-> is overlap of virtual address range and physical address range
-> can be problematic for low-level code which is trying to enable
-> MMU (such as the relocate() function).
->
-> Here's a old kernel thread which tries to summarize this:
-> https://lore.kernel.org/lkml/CAAhSdy3URWHVY_GPNb2yRBuctRELRtTTWPM2OpwUVSRFAyXyiA@mail.gmail.com/
-Got it. Thank you so much for sharing.
+From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
 
-I would use the patch as private for F133 memory saving.
+This patch adds descriptions of Sv57 into vm-layout.rst. When using
+Sv57, the kernel will use 0xff80000000000000 as PAGE_OFFSET.
 
->
-> Regards,
-> Anup
->
-> >
-> > >
-> > > Regards,
-> > > Anup
-> > >
-> > > > ---
-> > > >  arch/riscv/mm/init.c | 2 +-
-> > > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > > >
-> > > > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > > > index 24b2b8044602..097bb3bc4020 100644
-> > > > --- a/arch/riscv/mm/init.c
-> > > > +++ b/arch/riscv/mm/init.c
-> > > > @@ -241,9 +241,9 @@ unsigned long riscv_pfn_base __ro_after_init;
-> > > >  EXPORT_SYMBOL(riscv_pfn_base);
-> > > >
-> > > >  pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
-> > > > -pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
-> > > >  static pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
-> > > >
-> > > > +pgd_t trampoline_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
-> > > >  pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
-> > > >  static pmd_t __maybe_unused early_dtb_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
-> > > >
-> > > > --
-> > > > 2.25.1
-> > > >
-> >
-> >
-> >
-> > --
-> > Best Regards
-> >  Guo Ren
-> >
-> > ML: https://lore.kernel.org/linux-csky/
+Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+---
+ Documentation/riscv/vm-layout.rst | 36 +++++++++++++++++++++++++++++++
+ 1 file changed, 36 insertions(+)
 
-
-
+diff --git a/Documentation/riscv/vm-layout.rst b/Documentation/riscv/vm-layout.rst
+index f10128e0a95f..5c115355a8f9 100644
+--- a/Documentation/riscv/vm-layout.rst
++++ b/Documentation/riscv/vm-layout.rst
+@@ -97,3 +97,39 @@ RISC-V Linux Kernel SV48
+    ffffffff00000000 |   -4    GB | ffffffff7fffffff |    2 GB | modules, BPF
+    ffffffff80000000 |   -2    GB | ffffffffffffffff |    2 GB | kernel
+   __________________|____________|__________________|_________|____________________________________________________________
++
++
++RISC-V Linux Kernel SV57
++------------------------
++
++::
++
++  ========================================================================================================================
++        Start addr    |   Offset   |     End addr     |  Size   | VM area description
++  ========================================================================================================================
++                      |            |                  |         |
++     0000000000000000 |    0       | 00ffffffffffffff |  64 PB  | user-space virtual memory, different per mm
++    __________________|____________|__________________|_________|___________________________________________________________
++                      |            |                  |         |
++     0100000000000000 |  +64    PB | feffffffffffffff | ~16M TB | ... huge, almost 64 bits wide hole of non-canonical
++                      |            |                  |         | virtual memory addresses up to the -64 PB
++                      |            |                  |         | starting offset of kernel mappings.
++    __________________|____________|__________________|_________|___________________________________________________________
++                                                                |
++                                                                | Kernel-space virtual memory, shared between all processes:
++    ____________________________________________________________|___________________________________________________________
++                      |            |                  |         |
++     ff00000000000000 |  -64    PB | ff1fffffffffffff |    8 PB | kasan
++     ff3bfffffee00000 |  -49    PB | ff3bfffffeffffff |    2 MB | fixmap
++     ff3bffffff000000 |  -49    PB | ff3bffffffffffff |   16 MB | PCI io
++     ff3c000000000000 |  -49    PB | ff3fffffffffffff |    1 PB | vmemmap
++     ff40000000000000 |  -48    PB | ff7fffffffffffff |   16 PB | vmalloc/ioremap space
++     ff80000000000000 |  -32    PB | fffffffeffffffff |   32 PB | direct mapping of all physical memory
++    __________________|____________|__________________|_________|____________________________________________________________
++                                                                |
++                                                                | Identical layout to the 39-bit one from here on:
++    ____________________________________________________________|____________________________________________________________
++                      |            |                  |         |
++     ffffffff00000000 |   -4    GB | ffffffff7fffffff |    2 GB | modules, BPF
++     ffffffff80000000 |   -2    GB | ffffffffffffffff |    2 GB | kernel
++    __________________|____________|__________________|_________|____________________________________________________________
 -- 
-Best Regards
- Guo Ren
+2.32.0
 
-ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
