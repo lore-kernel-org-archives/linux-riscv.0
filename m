@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29188C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Nov 2021 11:20:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCBF7C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Nov 2021 11:59:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/DTxxPL1K8g57fb6Wi7prYoVz4W3NGYG0NoGd6+Pa84=; b=pn4QNJ+UvrsU95
-	FuO5CERHsbJON/0dIBahfl414NvMJ7ajc6oeI3RFguAs/PUL+pNlVq6V/Nf3I0QLXBQDD9kQlzrfL
-	SNkQ4ouyTmq4H3JvX7WwBOwisV4RxAvFthyRN8JdCtdnkkV1TAq41yudagKqnIDJIgcs/Vf3MU7Zt
-	H7fcP4twTJhC4o4o+G5Ktw4gBYnA9s1GUqN2i8QweEPyEhDZbm+vzlUj5Bc9kzL/uTcbkZoTciH0a
-	mq0KlT7qBTiGU/RHUlwHD5iP2qXV46WzHHXWX44RN4G/PmGeMNnocdFbekqIuJYZs/zOiJWI16c7r
-	/s39q2VrCTh3Fut7nwgw==;
+	List-Owner; bh=V02YI+c4WP7mf7QOixM2ck5zerT+Z3AM4lwwWVvJ/y0=; b=WiXsB5I/5ihB/3
+	Fnri3A5/U9gaTqcfnZlpHLKjhyqAxpo/j+42U8oSCxdKWDTKq3iKWaC+4h8nJCDgLzC7e4GgoUWMW
+	oWtg111OzWQFjmG4YV5zu5T1c7wHGnbowriNj2g2oBg8/Zz/652CRVWuImCpnAKxP3U2jpKUwAKNS
+	KVD66lxNFbaL3FTaeO/f05O4u5Lu4LyEAv5M/JzpETGLsXMMCo+Sva+Qkgv8h8etIyj0caKhWzzXM
+	od97VQK85ltrBJ7B+00/WJC+G+G6MsARHXaTv6VFVV85VVVbhs9Y1l84PyKeIbs05VOoDU2m8H8qS
+	OhklpId3yxe04p4+Z8/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mpqKK-004ZfE-5Y; Wed, 24 Nov 2021 11:20:36 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mpqKD-004Zc4-8o
- for linux-riscv@lists.infradead.org; Wed, 24 Nov 2021 11:20:31 +0000
-Received: from localhost.localdomain (unknown [124.16.141.242])
- by APP-01 (Coremail) with SMTP id qwCowAAnL_v3H55hpmdRCA--.35989S4;
- Wed, 24 Nov 2021 19:20:25 +0800 (CST)
-From: panqinglin2020@iscas.ac.cn
-To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org
-Cc: jeff@riscv.org, xuyinan@ict.ac.cn, Qinglin Pan <panqinglin2020@iscas.ac.cn>
-Subject: [PATCH v1 2/2] Documentation, mm: Add Sv57 vm layout documentation
-Date: Wed, 24 Nov 2021 19:20:21 +0800
-Message-Id: <20211124112021.788242-3-panqinglin2020@iscas.ac.cn>
-X-Mailer: git-send-email 2.32.0
-In-Reply-To: <20211124112021.788242-1-panqinglin2020@iscas.ac.cn>
-References: <20211124112021.788242-1-panqinglin2020@iscas.ac.cn>
+	id 1mpqvW-004d8E-Te; Wed, 24 Nov 2021 11:59:02 +0000
+Received: from mail.kernel.org ([198.145.29.99])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mpqvU-004d7q-Aj
+ for linux-riscv@lists.infradead.org; Wed, 24 Nov 2021 11:59:02 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id EF32660F90
+ for <linux-riscv@lists.infradead.org>; Wed, 24 Nov 2021 11:58:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1637755140;
+ bh=MvIK4njDymo/2ZRxEewHraQypk4QKFkHR40PDGdal+Q=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=OMcviu2XqcDIA0wNOoKyNBRWOAVhZfk75/1K3vKV6KVSG4Brh1JXEwcDCRk44BgH+
+ fPBvQdp1iLEQOURCmbZAMD5j3y+WWv/v7y41X4G1OK4QKFo4EaH24rhA0xsweCPRbQ
+ mb0PQcWSrHas7qBa3ITSKWGiDiBiz/gLomKf+5zDXRiOBSrItPuAfjbNlIAsU4F56m
+ Dd/PvrIsLE1MIQIwLSBAMxXduvGANFUyb+Sf1p+Y6+yYKEwFXu0RHDyLwU7brVK44U
+ tWaDdN8p5iLm6I5XjgPlA9BR0nhYyoXQ1zZNmmx2qFaHxHG17u/JG237/6mmgg7klE
+ zmruQ0wGpAn8A==
+Received: by mail-vk1-f169.google.com with SMTP id b192so1328719vkf.3
+ for <linux-riscv@lists.infradead.org>; Wed, 24 Nov 2021 03:58:59 -0800 (PST)
+X-Gm-Message-State: AOAM530ovQuT/WrHO408powyNASYTUpnY8AjW7lSw6vAVm8eM0XGXdo4
+ GKvtt+bG9uWW5HhR8N363bR2XLeLpZcqMK6909M=
+X-Google-Smtp-Source: ABdhPJxhacpNM59NxypS0T/KAUahS5ojXmSzXoFPzoB0PdFHKTFcIj1yDMUFCrNG7hxMeznB11r7+os9Dwluu3N+zdw=
+X-Received: by 2002:a05:6122:2005:: with SMTP id
+ l5mr25744006vkd.4.1637755139010; 
+ Wed, 24 Nov 2021 03:58:59 -0800 (PST)
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowAAnL_v3H55hpmdRCA--.35989S4
-X-Coremail-Antispam: 1UD129KBjvJXoWxXF1fuF4fAF1Dtr1fAr1DZFb_yoW5ZF43pr
- n8JryxGr48Jry7Jw1UJr15Jr1UAr18Aa1UJr1rJr1UJryUGr1UJr1UJr15Jr1DGr15Ar17
- Jr1DGrWUtr1UJw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
- 9KBjDU0xBIdaVrnRJUUUQS14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
- rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
- x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
- Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l84
- ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2vY
- z4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c
- 02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE
- 4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4
- kE6xkIj40Ew7xC0wCY1x0262kKe7AKxVWUAVWUtwCY02Avz4vE14v_Gw4l42xK82IYc2Ij
- 64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x
- 8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE
- 2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42
- xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF
- 7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUjsqWDUUUU
-X-Originating-IP: [124.16.141.242]
-X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/
+References: <20211123015717.542631-1-guoren@kernel.org>
+ <20211123015717.542631-2-guoren@kernel.org>
+ <CAAhSdy0LWyhgXetiXikCosSX4xasgROyua6XMd92dV8TiWp62w@mail.gmail.com>
+ <CA+zEjCspyB49tMUkMCug+R=vhgA0NPOyo7B33rRECi6kj0txZA@mail.gmail.com>
+In-Reply-To: <CA+zEjCspyB49tMUkMCug+R=vhgA0NPOyo7B33rRECi6kj0txZA@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Wed, 24 Nov 2021 19:58:48 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTSDGD6eC6J0AmgT5HyNDUriPv9b4ZWM8us4Xs066CWk9A@mail.gmail.com>
+Message-ID: <CAJF2gTSDGD6eC6J0AmgT5HyNDUriPv9b4ZWM8us4Xs066CWk9A@mail.gmail.com>
+Subject: Re: [RFC PATCH 1/3] riscv: Remove 2MB offset in the mm layout
+To: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Cc: Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ atishp@rivosinc.com, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Linux Doc Mailing List <linux-doc@vger.kernel.org>,
+ Guo Ren <guoren@linux.alibaba.com>, 
+ Anup Patel <anup.patel@wdc.com>, Alexandre Ghiti <alex@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211124_032029_739877_41B939B1 
-X-CRM114-Status: UNSURE (   7.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211124_035900_436950_8D97A7F2 
+X-CRM114-Status: GOOD (  34.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,63 +83,192 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+On Tue, Nov 23, 2021 at 9:37 PM Alexandre Ghiti
+<alexandre.ghiti@canonical.com> wrote:
+>
+> On Tue, Nov 23, 2021 at 4:56 AM Anup Patel <anup@brainfault.org> wrote:
+> >
+> > +Alex
+> >
+> > On Tue, Nov 23, 2021 at 7:27 AM <guoren@kernel.org> wrote:
+> > >
+> > > From: Guo Ren <guoren@linux.alibaba.com>
+> > >
+> > > The current RISC-V's mm layout is based on a 2MB offset and wasting
+> > > memory. Remove 2MB offset and map PAGE_OFFSET at start_of_DRAM.
+> > > Then we could reduce the memory reserved for opensbi in the next
+> > > patch.
+> >
+> > The real problem is that the generic kernel marks memory before
+> > __pa(PAGE_OFFSET) as reserved which is evident from the boot
+> > print "OF: fdt: Ignoring memory range 0x80000000 - 0x80200000".
+>
+> Agreed, memblock 'rejects' this region because MIN_MEMBLOCK_ADDR is
+> defined as __pa(PAGE_OFFSET) which points to 0x80200000. I have a
+> patch to enable the use of hugepages for the linear mapping [1] that
+> does just that, things are not that easy since then it breaks initrd
+> initialization which is an early caller of __va, I updated this
+> patchset a few months ago, I can push that soon @Guo Ren.
+Seems your patch makes the mapping of early_pg_dir & swapper_pg_dir different.
 
-This patch adds descriptions of Sv57 into vm-layout.rst. When using
-Sv57, the kernel will use 0xff80000000000000 as PAGE_OFFSET.
+early_pg_dir: 0x80200000 -> 0xffffffe000000000
+swapper_pg_dir: 0x80000000 -> 0xffffffe000000000
 
-Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
----
- Documentation/riscv/vm-layout.rst | 36 +++++++++++++++++++++++++++++++
- 1 file changed, 36 insertions(+)
+It breaks the vmlinux.ld.S, doesn't it?
 
-diff --git a/Documentation/riscv/vm-layout.rst b/Documentation/riscv/vm-layout.rst
-index f10128e0a95f..5c115355a8f9 100644
---- a/Documentation/riscv/vm-layout.rst
-+++ b/Documentation/riscv/vm-layout.rst
-@@ -97,3 +97,39 @@ RISC-V Linux Kernel SV48
-    ffffffff00000000 |   -4    GB | ffffffff7fffffff |    2 GB | modules, BPF
-    ffffffff80000000 |   -2    GB | ffffffffffffffff |    2 GB | kernel
-   __________________|____________|__________________|_________|____________________________________________________________
-+
-+
-+RISC-V Linux Kernel SV57
-+------------------------
-+
-+::
-+
-+  ========================================================================================================================
-+        Start addr    |   Offset   |     End addr     |  Size   | VM area description
-+  ========================================================================================================================
-+                      |            |                  |         |
-+     0000000000000000 |    0       | 00ffffffffffffff |  64 PB  | user-space virtual memory, different per mm
-+    __________________|____________|__________________|_________|___________________________________________________________
-+                      |            |                  |         |
-+     0100000000000000 |  +64    PB | feffffffffffffff | ~16M TB | ... huge, almost 64 bits wide hole of non-canonical
-+                      |            |                  |         | virtual memory addresses up to the -64 PB
-+                      |            |                  |         | starting offset of kernel mappings.
-+    __________________|____________|__________________|_________|___________________________________________________________
-+                                                                |
-+                                                                | Kernel-space virtual memory, shared between all processes:
-+    ____________________________________________________________|___________________________________________________________
-+                      |            |                  |         |
-+     ff00000000000000 |  -64    PB | ff1fffffffffffff |    8 PB | kasan
-+     ff3bfffffee00000 |  -49    PB | ff3bfffffeffffff |    2 MB | fixmap
-+     ff3bffffff000000 |  -49    PB | ff3bffffffffffff |   16 MB | PCI io
-+     ff3c000000000000 |  -49    PB | ff3fffffffffffff |    1 PB | vmemmap
-+     ff40000000000000 |  -48    PB | ff7fffffffffffff |   16 PB | vmalloc/ioremap space
-+     ff80000000000000 |  -32    PB | fffffffeffffffff |   32 PB | direct mapping of all physical memory
-+    __________________|____________|__________________|_________|____________________________________________________________
-+                                                                |
-+                                                                | Identical layout to the 39-bit one from here on:
-+    ____________________________________________________________|____________________________________________________________
-+                      |            |                  |         |
-+     ffffffff00000000 |   -4    GB | ffffffff7fffffff |    2 GB | modules, BPF
-+     ffffffff80000000 |   -2    GB | ffffffffffffffff |    2 GB | kernel
-+    __________________|____________|__________________|_________|____________________________________________________________
+>
+> [1] https://lkml.org/lkml/2020/6/3/696
+>
+>
+>
+> >
+> > One simple way to re-claim the first 2MB of memory is by:
+> > 1) Not placing OpenSBI firmware at start of RAM and rather
+> > place it towards end/middle or RAM away from kernel and initrd
+> > 2) Load kernel at start of the RAM
+> >
+> > The point#1 is already supported by OpenSBI firmwares using
+> > position independent compilation. In fact, U-Boot SPL does
+> > not load OpenSBI firmware at the start of RAM.
+> >
+> > I would suggest Allwinner D1 to follow U-Boot SPL and have
+> > the booting stage before OpenSBI to load OpenSBI firmware
+> > somewhere else.
+> >
+> > Regards,
+> > Anup
+> >
+> > >
+> > > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > > Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> > > Cc: Anup Patel <anup.patel@wdc.com>
+> > > Cc: Atish Patra <atishp@rivosinc.com>
+> > > ---
+> > >  arch/riscv/include/asm/page.h   |  8 ++++++++
+> > >  arch/riscv/kernel/head.S        | 10 +++-------
+> > >  arch/riscv/kernel/vmlinux.lds.S |  5 ++---
+> > >  arch/riscv/mm/init.c            | 11 ++++++++---
+> > >  4 files changed, 21 insertions(+), 13 deletions(-)
+> > >
+> > > diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+> > > index b3e5ff0125fe..299147c78b4a 100644
+> > > --- a/arch/riscv/include/asm/page.h
+> > > +++ b/arch/riscv/include/asm/page.h
+> > > @@ -16,6 +16,14 @@
+> > >  #define PAGE_SIZE      (_AC(1, UL) << PAGE_SHIFT)
+> > >  #define PAGE_MASK      (~(PAGE_SIZE - 1))
+> > >
+> > > +#if __riscv_xlen == 64
+> > > +/* Image load offset(2MB) from start of RAM */
+> > > +#define LOAD_OFFSET    0x200000
+> > > +#else
+> > > +/* Image load offset(4MB) from start of RAM */
+> > > +#define LOAD_OFFSET    0x400000
+> > > +#endif
+> > > +
+> > >  #ifdef CONFIG_64BIT
+> > >  #define HUGE_MAX_HSTATE                2
+> > >  #else
+> > > diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+> > > index f52f01ecbeea..a6ac892d2ccf 100644
+> > > --- a/arch/riscv/kernel/head.S
+> > > +++ b/arch/riscv/kernel/head.S
+> > > @@ -61,13 +61,7 @@ ENTRY(_start)
+> > >         /* Image load offset (0MB) from start of RAM for M-mode */
+> > >         .dword 0
+> > >  #else
+> > > -#if __riscv_xlen == 64
+> > > -       /* Image load offset(2MB) from start of RAM */
+> > > -       .dword 0x200000
+> > > -#else
+> > > -       /* Image load offset(4MB) from start of RAM */
+> > > -       .dword 0x400000
+> > > -#endif
+> > > +       .dword LOAD_OFFSET
+> > >  #endif
+> > >         /* Effective size of kernel image */
+> > >         .dword _end - _start
+> > > @@ -94,6 +88,8 @@ relocate:
+> > >         la a1, kernel_map
+> > >         XIP_FIXUP_OFFSET a1
+> > >         REG_L a1, KERNEL_MAP_VIRT_ADDR(a1)
+> > > +       li a2, LOAD_OFFSET
+> > > +       add a1, a1, a2
+> > >         la a2, _start
+> > >         sub a1, a1, a2
+> > >         add ra, ra, a1
+> > > diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+> > > index 5104f3a871e3..75b7c72cd4bd 100644
+> > > --- a/arch/riscv/kernel/vmlinux.lds.S
+> > > +++ b/arch/riscv/kernel/vmlinux.lds.S
+> > > @@ -11,10 +11,9 @@
+> > >  #else
+> > >
+> > >  #include <asm/pgtable.h>
+> > > -#define LOAD_OFFSET KERNEL_LINK_ADDR
+> > >
+> > > -#include <asm/vmlinux.lds.h>
+> > >  #include <asm/page.h>
+> > > +#include <asm/vmlinux.lds.h>
+> > >  #include <asm/cache.h>
+> > >  #include <asm/thread_info.h>
+> > >  #include <asm/set_memory.h>
+> > > @@ -32,7 +31,7 @@ PECOFF_FILE_ALIGNMENT = 0x200;
+> > >  SECTIONS
+> > >  {
+> > >         /* Beginning of code and text segment */
+> > > -       . = LOAD_OFFSET;
+> > > +       . = LOAD_OFFSET + KERNEL_LINK_ADDR;
+> > >         _start = .;
+> > >         HEAD_TEXT_SECTION
+> > >         . = ALIGN(PAGE_SIZE);
+> > > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> > > index 24b2b8044602..920e78f8c3e4 100644
+> > > --- a/arch/riscv/mm/init.c
+> > > +++ b/arch/riscv/mm/init.c
+> > > @@ -221,6 +221,11 @@ static void __init setup_bootmem(void)
+> > >         if (!IS_ENABLED(CONFIG_BUILTIN_DTB))
+> > >                 memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
+> > >
+> > > +       /*
+> > > +        * Reserve OpenSBI region and depends on PMP to deny accesses.
+> > > +        */
+> > > +       memblock_reserve(__pa(PAGE_OFFSET), LOAD_OFFSET);
+> > > +
+> > >         early_init_fdt_scan_reserved_mem();
+> > >         dma_contiguous_reserve(dma32_phys_limit);
+> > >         if (IS_ENABLED(CONFIG_64BIT))
+> > > @@ -604,7 +609,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+> > >
+> > >         kernel_map.va_kernel_xip_pa_offset = kernel_map.virt_addr - kernel_map.xiprom;
+> > >  #else
+> > > -       kernel_map.phys_addr = (uintptr_t)(&_start);
+> > > +       kernel_map.phys_addr = (uintptr_t)(&_start) - LOAD_OFFSET;
+> > >         kernel_map.size = (uintptr_t)(&_end) - kernel_map.phys_addr;
+> > >  #endif
+> > >         kernel_map.va_pa_offset = PAGE_OFFSET - kernel_map.phys_addr;
+> > > @@ -645,8 +650,8 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+> > >         create_pmd_mapping(trampoline_pmd, kernel_map.virt_addr,
+> > >                            kernel_map.xiprom, PMD_SIZE, PAGE_KERNEL_EXEC);
+> > >  #else
+> > > -       create_pmd_mapping(trampoline_pmd, kernel_map.virt_addr,
+> > > -                          kernel_map.phys_addr, PMD_SIZE, PAGE_KERNEL_EXEC);
+> > > +       create_pmd_mapping(trampoline_pmd, kernel_map.virt_addr + LOAD_OFFSET,
+> > > +                          kernel_map.phys_addr + LOAD_OFFSET, PMD_SIZE, PAGE_KERNEL_EXEC);
+> > >  #endif
+> > >  #else
+> > >         /* Setup trampoline PGD */
+> > > --
+> > > 2.25.1
+> > >
+
+
+
 -- 
-2.32.0
+Best Regards
+ Guo Ren
 
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
