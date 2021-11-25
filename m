@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8217AC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Nov 2021 15:31:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10506C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Nov 2021 15:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9wISGjz+1QaDopvN//e16W/G+BBf7y5MgjVlIhiM6rU=; b=YI+tFmw6OOHKji
-	JDuL3yv0Bk4jKYQ5P7oW9iXVzQXYBjOf3UvqvxPVyxBKlvYYVkLw+qdBfUnR9C6Qi/8wS42lIyACp
-	qazA5IXoVCoF/1BAXsELLIN8qe6M7CHvVro8FQrLuaxNN8o848ceRJMHHt0pI62cZ27uk27oDxWev
-	MT22bAywu3+LFnxSpFIVIZ0M4qjRnjmiUeDSdcuttu19WW6M5/fKTwm3Zih0v+jLLODeyMKvehqH6
-	dAqN1fTJPayH3iLwc6WhroO4L4XB6qI/XHYUDD47E0rbcQ0/gVFrW1dQLTYUcvBQ6bHhDzL4PrOn2
-	XmUIC3HmsU8Dot6tDNJA==;
+	List-Owner; bh=znU3wZ216RxQUkBpHjLXchbTX9kzRVzkZBLG7WwQQ8k=; b=Fs15QT4GljZ75f
+	69xbmwH9l8gMs8ZtNNAryQkxBujzz2rK/e8MdsVoxHxXeaY2HohexCVuDLk5LUT8rNrB70UQOX/ml
+	jWKHSVA+YoQ6FBbmsirMBZsbkfSlp5UjCeKOzKjt7Jo8kdLWDlT1jxbc9hzPFUciQ8RXVka5OZsOv
+	q3YXEpQkk4EaQns8ve66X79MihNP1ordsNjofQbtyO4o1PYCifPzbRT7z2ZCwlIvD4wO7/209JlhN
+	LZVvxnIHWKOmSdQg4NeyguSic5/2VWJjEMK0zPtO/g3lovrNcfqXUWIiZfnKXZqFFGrOOHOi/Hd6Z
+	Qs1TOM3duu0i7EcVUzXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mqGiq-0081u0-QF; Thu, 25 Nov 2021 15:31:40 +0000
-Received: from andre.telenet-ops.be ([2a02:1800:120:4::f00:15])
+	id 1mqGit-0081vq-RD; Thu, 25 Nov 2021 15:31:43 +0000
+Received: from xavier.telenet-ops.be ([2a02:1800:120:4::f00:14])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mqGio-0081ro-4f
+ id 1mqGio-0081rq-4X
  for linux-riscv@lists.infradead.org; Thu, 25 Nov 2021 15:31:39 +0000
 Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed10:1511:ffa3:275:45dd])
- by andre.telenet-ops.be with bizsmtp
- id NfXZ2600k5CGg7701fXarA; Thu, 25 Nov 2021 16:31:35 +0100
+ by xavier.telenet-ops.be with bizsmtp
+ id NfXa260065CGg7701fXaAD; Thu, 25 Nov 2021 16:31:35 +0100
 Received: from rox.of.borg ([192.168.97.57])
  by ramsan.of.borg with esmtps (TLS1.3) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
  (envelope-from <geert@linux-m68k.org>)
- id 1mqGij-000DSO-D0; Thu, 25 Nov 2021 16:31:33 +0100
+ id 1mqGij-000DSP-I0; Thu, 25 Nov 2021 16:31:33 +0100
 Received: from geert by rox.of.borg with local (Exim 4.93)
  (envelope-from <geert@linux-m68k.org>)
- id 1mqGii-000gYp-JR; Thu, 25 Nov 2021 16:31:32 +0100
+ id 1mqGii-000gYw-K5; Thu, 25 Nov 2021 16:31:32 +0100
 From: Geert Uytterhoeven <geert@linux-m68k.org>
 To: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -45,16 +45,17 @@ To: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
  Conor Dooley <conor.dooley@microchip.com>
 Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  Geert Uytterhoeven <geert@linux-m68k.org>
-Subject: [PATCH 3/9] riscv: dts: microchip: mpfs: Drop empty chosen node
-Date: Thu, 25 Nov 2021 16:31:25 +0100
-Message-Id: <20211125153131.163533-4-geert@linux-m68k.org>
+Subject: [PATCH 4/9] riscv: dts: microchip: Group tuples in interrupt
+ properties
+Date: Thu, 25 Nov 2021 16:31:26 +0100
+Message-Id: <20211125153131.163533-5-geert@linux-m68k.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20211125153131.163533-1-geert@linux-m68k.org>
 References: <20211125153131.163533-1-geert@linux-m68k.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211125_073138_365974_58753AFB 
-X-CRM114-Status: UNSURE (   7.94  )
+X-CRM114-CacheID: sfid-20211125_073138_362572_06E69F47 
+X-CRM114-Status: UNSURE (   8.19  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,30 +73,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It does not make sense to have an (empty) chosen node in an SoC-specific
-.dtsi, as chosen is meant for system-specific configuration.
-It is already provided in microchip-mpfs-icicle-kit.dts anyway.
+To improve human readability and enable automatic validation, the tuples
+in the various properties containing interrupt specifiers should be
+grouped.
 
-Fixes: 0fa6107eca4186ad ("RISC-V: Initial DTS for Microchip ICICLE board")
+Fix this by grouping the tuples of "interrupts" and
+"interrupts-extended" properties using angle brackets.
+
 Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
 ---
- arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi | 3 ---
- 1 file changed, 3 deletions(-)
+ .../boot/dts/microchip/microchip-mpfs.dtsi    | 31 ++++++++++---------
+ 1 file changed, 16 insertions(+), 15 deletions(-)
 
 diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
-index c9f6d205d2ba1a5e..794da883acb19256 100644
+index 794da883acb19256..d91226bfa586cda7 100644
 --- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
 +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
-@@ -9,9 +9,6 @@ / {
- 	model = "Microchip PolarFire SoC";
- 	compatible = "microchip,mpfs";
+@@ -153,18 +153,18 @@ cache-controller@2010000 {
+ 			cache-size = <2097152>;
+ 			cache-unified;
+ 			interrupt-parent = <&plic>;
+-			interrupts = <1 2 3>;
++			interrupts = <1>, <2>, <3>;
+ 			reg = <0x0 0x2010000 0x0 0x1000>;
+ 		};
  
--	chosen {
--	};
--
- 	cpus {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
+ 		clint@2000000 {
+ 			compatible = "sifive,fu540-c000-clint", "sifive,clint0";
+ 			reg = <0x0 0x2000000 0x0 0xC000>;
+-			interrupts-extended = <&cpu0_intc 3 &cpu0_intc 7
+-						&cpu1_intc 3 &cpu1_intc 7
+-						&cpu2_intc 3 &cpu2_intc 7
+-						&cpu3_intc 3 &cpu3_intc 7
+-						&cpu4_intc 3 &cpu4_intc 7>;
++			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>,
++					      <&cpu1_intc 3>, <&cpu1_intc 7>,
++					      <&cpu2_intc 3>, <&cpu2_intc 7>,
++					      <&cpu3_intc 3>, <&cpu3_intc 7>,
++					      <&cpu4_intc 3>, <&cpu4_intc 7>;
+ 		};
+ 
+ 		plic: interrupt-controller@c000000 {
+@@ -173,18 +173,19 @@ plic: interrupt-controller@c000000 {
+ 			reg = <0x0 0xc000000 0x0 0x4000000>;
+ 			riscv,ndev = <186>;
+ 			interrupt-controller;
+-			interrupts-extended = <&cpu0_intc 11
+-					&cpu1_intc 11 &cpu1_intc 9
+-					&cpu2_intc 11 &cpu2_intc 9
+-					&cpu3_intc 11 &cpu3_intc 9
+-					&cpu4_intc 11 &cpu4_intc 9>;
++			interrupts-extended = <&cpu0_intc 11>,
++					      <&cpu1_intc 11>, <&cpu1_intc 9>,
++					      <&cpu2_intc 11>, <&cpu2_intc 9>,
++					      <&cpu3_intc 11>, <&cpu3_intc 9>,
++					      <&cpu4_intc 11>, <&cpu4_intc 9>;
+ 		};
+ 
+ 		dma@3000000 {
+ 			compatible = "sifive,fu540-c000-pdma";
+ 			reg = <0x0 0x3000000 0x0 0x8000>;
+ 			interrupt-parent = <&plic>;
+-			interrupts = <23 24 25 26 27 28 29 30>;
++			interrupts = <23>, <24>, <25>, <26>, <27>, <28>, <29>,
++				     <30>;
+ 			#dma-cells = <1>;
+ 		};
+ 
+@@ -264,7 +265,7 @@ mmc: mmc@20008000 {
+ 			compatible = "microchip,mpfs-sd4hc", "cdns,sd4hc";
+ 			reg = <0x0 0x20008000 0x0 0x1000>;
+ 			interrupt-parent = <&plic>;
+-			interrupts = <88 89>;
++			interrupts = <88>, <89>;
+ 			clocks = <&clkcfg 6>;
+ 			max-frequency = <200000000>;
+ 			status = "disabled";
+@@ -274,7 +275,7 @@ emac0: ethernet@20110000 {
+ 			compatible = "cdns,macb";
+ 			reg = <0x0 0x20110000 0x0 0x2000>;
+ 			interrupt-parent = <&plic>;
+-			interrupts = <64 65 66 67>;
++			interrupts = <64>, <65>, <66>, <67>;
+ 			local-mac-address = [00 00 00 00 00 00];
+ 			clocks = <&clkcfg 4>, <&clkcfg 2>;
+ 			clock-names = "pclk", "hclk";
+@@ -287,7 +288,7 @@ emac1: ethernet@20112000 {
+ 			compatible = "cdns,macb";
+ 			reg = <0x0 0x20112000 0x0 0x2000>;
+ 			interrupt-parent = <&plic>;
+-			interrupts = <70 71 72 73>;
++			interrupts = <70>, <71>, <72>, <73>;
+ 			local-mac-address = [00 00 00 00 00 00];
+ 			clocks = <&clkcfg 5>, <&clkcfg 2>;
+ 			status = "disabled";
 -- 
 2.25.1
 
