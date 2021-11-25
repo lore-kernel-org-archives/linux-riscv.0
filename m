@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D7C8C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Nov 2021 15:32:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC76EC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Nov 2021 15:32:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ggH+e0NIxPiIacsNKZZGzdVjLechh4BfyrFtPmo6Fo8=; b=uvi7s2yUt1GuA7
-	Ir6yk4QU5aDJt/ZNC72iBCczpy9BavCsVC5WmCcW2Lhm3zYf1XcjuzLU11ciVn8a1Wtzpz9HmQtZT
-	iY7qLLmkULLAAqLoHuTfAIex2bYFMOee+yA0V2lCGg44HZbo2uXg5e3/8/CAuqec6mX7+XfUUuhSG
-	Mjq4FokW3Nm46F6lV8URWnFiFkjVADSttR+TGXt3YLGcw/Bm3XE4mcZoj6Zqty8dsgUhkBx0dHMFV
-	7doLdX0CiDVP/bCbHsxQpBt6b+LpxM6BfnBiNK7GIfYXIuok9mwBDlkloxGX3493rrrWUazBpeFob
-	YGQMCc4LPUgX8yKi8EtA==;
+	List-Owner; bh=tPowHM+xfwa8ICr/EvGUZ6EXMmEX6avPJy2rsnrUiBw=; b=Divo8WisoNya1B
+	htYhgVUUf8Rgf67SeAuNZZ09L6kdT+r1/cnyD3MGEm7p0W/jBybs2Ho+Lz3RR4VAreSgGKD2EcLFj
+	ZO2y9ANI36VJNMfykDTC5RgTf1LsxrFv91KGWLwe3C33HiwktNySekPZjsE6d3MicX6JmTAWoUEJt
+	hx/qe+vtP5sU5Z/lcqNkLvSrfG0k/JqpdLdcaxBSEkHqxX0QX2T857LXSDnRmXmQZ3t+NC47OoUXj
+	G1XNGml2Fayba5boF6hzjaf8uXw4eMxhv+Sp09umhk++ickYnz4RoxIPZjpv/M86AHyNFa25FKJbF
+	Lf8aFNrEQ1jqD/ahsAdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mqGj6-00820q-1h; Thu, 25 Nov 2021 15:31:56 +0000
-Received: from xavier.telenet-ops.be ([2a02:1800:120:4::f00:14])
+	id 1mqGj8-00822Z-Mo; Thu, 25 Nov 2021 15:31:58 +0000
+Received: from baptiste.telenet-ops.be ([2a02:1800:120:4::f00:13])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mqGip-0081rp-F0
+ id 1mqGiq-0081ry-EO
  for linux-riscv@lists.infradead.org; Thu, 25 Nov 2021 15:31:42 +0000
 Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed10:1511:ffa3:275:45dd])
- by xavier.telenet-ops.be with bizsmtp
- id NfXa2600E5CGg7701fXaAE; Thu, 25 Nov 2021 16:31:35 +0100
+ by baptiste.telenet-ops.be with bizsmtp
+ id NfXZ2600V5CGg7701fXZr8; Thu, 25 Nov 2021 16:31:36 +0100
 Received: from rox.of.borg ([192.168.97.57])
  by ramsan.of.borg with esmtps (TLS1.3) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
  (envelope-from <geert@linux-m68k.org>)
- id 1mqGij-000DSU-OL; Thu, 25 Nov 2021 16:31:33 +0100
+ id 1mqGij-000DSN-1u; Thu, 25 Nov 2021 16:31:33 +0100
 Received: from geert by rox.of.borg with local (Exim 4.93)
  (envelope-from <geert@linux-m68k.org>)
- id 1mqGii-000gZX-O5; Thu, 25 Nov 2021 16:31:32 +0100
+ id 1mqGii-000gYj-Ig; Thu, 25 Nov 2021 16:31:32 +0100
 From: Geert Uytterhoeven <geert@linux-m68k.org>
 To: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -45,17 +45,17 @@ To: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
  Conor Dooley <conor.dooley@microchip.com>
 Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  Geert Uytterhoeven <geert@linux-m68k.org>
-Subject: [PATCH 9/9] riscv: dts: sifive: fu540-c000: Drop bogus soc node
- compatible values
-Date: Thu, 25 Nov 2021 16:31:31 +0100
-Message-Id: <20211125153131.163533-10-geert@linux-m68k.org>
+Subject: [PATCH 2/9] riscv: dts: canaan: Group tuples in interrupt properties
+Date: Thu, 25 Nov 2021 16:31:24 +0100
+Message-Id: <20211125153131.163533-3-geert@linux-m68k.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20211125153131.163533-1-geert@linux-m68k.org>
 References: <20211125153131.163533-1-geert@linux-m68k.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211125_073140_064689_AB3C05D8 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20211125_073140_662567_FCF4979F 
+X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,43 +72,94 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-"make dtbs_check":
+To improve human readability and enable automatic validation, the tuples
+in the various properties containing interrupt specifiers should be
+grouped.
 
-    arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dt.yaml: soc: $nodename:0: '/' was expected
-    	From schema: Documentation/devicetree/bindings/riscv/sifive.yaml
-    arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dt.yaml: soc: compatible: 'oneOf' conditional failed, one must be fixed:
-    	'sifive,fu540-c000' is not one of ['sifive,hifive-unleashed-a00']
-    	'sifive,fu540-c000' is not one of ['sifive,hifive-unmatched-a00']
-    	'sifive,fu540-c000' was expected
-    	'sifive,fu740-c000' was expected
-    	'sifive,fu540' was expected
-    	'sifive,fu740' was expected
-    	From schema: Documentation/devicetree/bindings/riscv/sifive.yaml
-
-This happens because the "soc" subnode declares compatibility with
-"sifive,fu540-c000" and "sifive,fu540", while these are only intended
-for the root node.
-
-Fix this by removing the bogus compatible values from the "soc" node.
+Fix this by grouping the tuples of "interrupts" and
+"interrupts-extended" properties using angle brackets.
 
 Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
 ---
- arch/riscv/boot/dts/sifive/fu540-c000.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/boot/dts/canaan/k210.dtsi | 23 ++++++++++++-----------
+ 1 file changed, 12 insertions(+), 11 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
-index e2efcf08210926f8..b1250c16816f5c9d 100644
---- a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
-+++ b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
-@@ -137,7 +137,7 @@ cpu4_intc: interrupt-controller {
- 	soc {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
--		compatible = "sifive,fu540-c000", "sifive,fu540", "simple-bus";
-+		compatible = "simple-bus";
- 		ranges;
+diff --git a/arch/riscv/boot/dts/canaan/k210.dtsi b/arch/riscv/boot/dts/canaan/k210.dtsi
+index 5e8ca8142482153b..56f57118c633b91a 100644
+--- a/arch/riscv/boot/dts/canaan/k210.dtsi
++++ b/arch/riscv/boot/dts/canaan/k210.dtsi
+@@ -103,8 +103,8 @@ rom0: nvmem@1000 {
+ 		clint0: timer@2000000 {
+ 			compatible = "canaan,k210-clint", "sifive,clint0";
+ 			reg = <0x2000000 0xC000>;
+-			interrupts-extended = <&cpu0_intc 3 &cpu0_intc 7
+-					      &cpu1_intc 3 &cpu1_intc 7>;
++			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>,
++					      <&cpu1_intc 3>, <&cpu1_intc 7>;
+ 		};
+ 
  		plic0: interrupt-controller@c000000 {
- 			#interrupt-cells = <1>;
+@@ -113,7 +113,7 @@ plic0: interrupt-controller@c000000 {
+ 			compatible = "canaan,k210-plic", "sifive,plic-1.0.0";
+ 			reg = <0xC000000 0x4000000>;
+ 			interrupt-controller;
+-			interrupts-extended = <&cpu0_intc 11 &cpu1_intc 11>;
++			interrupts-extended = <&cpu0_intc 11>, <&cpu1_intc 11>;
+ 			riscv,ndev = <65>;
+ 		};
+ 
+@@ -130,10 +130,11 @@ gpio0: gpio-controller@38001000 {
+ 			compatible = "canaan,k210-gpiohs", "sifive,gpio0";
+ 			reg = <0x38001000 0x1000>;
+ 			interrupt-controller;
+-			interrupts = <34 35 36 37 38 39 40 41
+-				      42 43 44 45 46 47 48 49
+-				      50 51 52 53 54 55 56 57
+-				      58 59 60 61 62 63 64 65>;
++			interrupts = <34>, <35>, <36>, <37>, <38>, <39>, <40>,
++				     <41>, <42>, <43>, <44>, <45>, <46>, <47>,
++				     <48>, <49>, <50>, <51>, <52>, <53>, <54>,
++				     <55>, <56>, <57>, <58>, <59>, <60>, <61>,
++				     <62>, <63>, <64>, <65>;
+ 			gpio-controller;
+ 			ngpios = <32>;
+ 		};
+@@ -141,7 +142,7 @@ gpio0: gpio-controller@38001000 {
+ 		dmac0: dma-controller@50000000 {
+ 			compatible = "snps,axi-dma-1.01a";
+ 			reg = <0x50000000 0x1000>;
+-			interrupts = <27 28 29 30 31 32>;
++			interrupts = <27>, <28>, <29>, <30>, <31>, <32>;
+ 			#dma-cells = <1>;
+ 			clocks = <&sysclk K210_CLK_DMA>, <&sysclk K210_CLK_DMA>;
+ 			clock-names = "core-clk", "cfgr-clk";
+@@ -316,7 +317,7 @@ fpioa: pinmux@502b0000 {
+ 			timer0: timer@502d0000 {
+ 				compatible = "snps,dw-apb-timer";
+ 				reg = <0x502D0000 0x100>;
+-				interrupts = <14 15>;
++				interrupts = <14>, <15>;
+ 				clocks = <&sysclk K210_CLK_TIMER0>,
+ 					 <&sysclk K210_CLK_APB0>;
+ 				clock-names = "timer", "pclk";
+@@ -326,7 +327,7 @@ timer0: timer@502d0000 {
+ 			timer1: timer@502e0000 {
+ 				compatible = "snps,dw-apb-timer";
+ 				reg = <0x502E0000 0x100>;
+-				interrupts = <16 17>;
++				interrupts = <16>, <17>;
+ 				clocks = <&sysclk K210_CLK_TIMER1>,
+ 					 <&sysclk K210_CLK_APB0>;
+ 				clock-names = "timer", "pclk";
+@@ -336,7 +337,7 @@ timer1: timer@502e0000 {
+ 			timer2: timer@502f0000 {
+ 				compatible = "snps,dw-apb-timer";
+ 				reg = <0x502F0000 0x100>;
+-				interrupts = <18 19>;
++				interrupts = <18>, <19>;
+ 				clocks = <&sysclk K210_CLK_TIMER2>,
+ 					 <&sysclk K210_CLK_APB0>;
+ 				clock-names = "timer", "pclk";
 -- 
 2.25.1
 
