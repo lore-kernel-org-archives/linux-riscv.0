@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B740C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Nov 2021 18:03:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DABAC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Nov 2021 18:03:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RYUHNNx3pdiGnxC6mfQ1ti9xPCIJhXaXMbc0lIz/LIw=; b=OxCqOYzKM2bex3
-	Hvv9a+qTVm5JfbDwk71lWr6NpPA3CLBYfahE66iQnG0z4PHjFUpfbNCa43ggrpG/IOiFWV37MR41U
-	KJv9lyA7OMsisQ2vp0zD4WWm14nmw6ToV54rS+D3JYUeHepNv960em2Y5xAw3X2n8LNSTdsxgK/UO
-	KEomoWhqjBTHRwnxcTm64sMeE7KmxjSnT1LZs1MqkAwwmURBz3kj7LsgKoSSUDsrhrQ+qVCxCK9dV
-	QngmDpWyVUxXv9cdvIrxcW8QnV0onL6i8AbUd6BFJxvHPt+6COwSNGhRAx620ESDXDOHlYPAJwePC
-	qMubREcf6luR5D+8dMJw==;
+	List-Owner; bh=dG54fxY9RthhQg8yPtOVkmPAKCNVyxFZxKX40IlnCfw=; b=OzXAB2HjEZmE0n
+	BoyIjcGY1ACQ3WrjFgqh+3/IxfKljEqqBpHXstWUkzjVlBxs0XVhxwMcVzmkYRAL4lvbR+kgr4g8Z
+	/2vFIxneq0MSPC0/vXZ6BaLXvFsgtLFd3I9tomR/hujJzbMJfN/KrE0FR2h1DwETwvwnBgoZs3Kxe
+	WtbcsEz34b3PfvB4IwKemY84Ps3cnT1ESXBrvns9yB7E6uNep3xZJFyzCse+KmefFdtZRroKwIuID
+	NaRg00zc7O6KiJirdv3Xx1OZEFiui66KvtQNp19T8FFKUtwjv19RWJsLVwl1/NxmJyWbp3e/u9s3+
+	5ftYg9YK80iIKnArsQoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mqfYv-00BOR2-Cg; Fri, 26 Nov 2021 18:03:05 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1mqfZ1-00BOVq-FP; Fri, 26 Nov 2021 18:03:11 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mqfY5-00BNjc-0n; Fri, 26 Nov 2021 18:02:14 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id u3so26099410lfl.2;
- Fri, 26 Nov 2021 10:02:12 -0800 (PST)
+ id 1mqfY7-00BNlk-Bq; Fri, 26 Nov 2021 18:02:17 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id r26so26091921lfn.8;
+ Fri, 26 Nov 2021 10:02:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=WLlXRmIj/zMVA0EiitKjc0V06oQPoMgvuV0WtFcoWEk=;
- b=dwQkjQc8XJ9Zv7re/xh1WQ2UESbNnOIjv44tV2yYkTMSfE9Pw4ixbam1sYNjgU1ziC
- YsjSnbkQEYOmSOD/fv2OcaoktyLva3BRmUT1f1EHzpHOs1H4O5FRr9HjwLwmIJ0kwol4
- En1ylnQpmG3ktfI1Fg/Q/EuJpzuzjUdYaT7dPWgdOpPbhofgmKEPmXbgYeO1l98bR8OD
- 7+AULvyVTAbuaPQqm0dZB4n1ycZXUvc6CpxX2dZaHQaHbP8ogu2BN4iuPHoYBKRTBq6b
- tgYxssEnkU5biyG5fZrNPOs0vGjei7DrFVluWj41isSbTpsczS+9OOm9yoDDpdejZQ4Y
- d6OQ==
+ bh=hKgqav8a8uS+JOYHQI8KBeK4UU43xCMXoqbNcSGFyUw=;
+ b=Po1r9nVFosID/XIv4S8lizZdxtb4AiKjgIf77Z9VdEmxeyZ4v2AKodX8o/k+Z3rD2d
+ e2PI94UHDmym38k6JGIB2xhQcbHnk++cihPLhjPUlu0ata6V7Elqqu1vX/dUvmX8vd//
+ gFGlEXk8MDQ81Mp13d+goJXAs9OHRCnyuOhZEEjTJ4y/wSzHt8J2Kug/9ssKueQtT4Bx
+ eKaeWcEuefXhfGSMQhhq6VHfHmDtX4qeoutfpXxh+4HClTuY5U63fmiF7CsLfkldK5nU
+ ruhLNjZH8cKw2EdHXxrwIzr9XSez2deXmOvWqitl0d7ezpYqqMN01hGnnX/7XN488JAq
+ 2Xpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=WLlXRmIj/zMVA0EiitKjc0V06oQPoMgvuV0WtFcoWEk=;
- b=l/5hYm76WN+B00KN1XBy+nmKsC48VLSZITO5pqUh9EoAgeIsCjkezHqkgprLBe+0wa
- Zic3eyxzUAh97AMhnQ/hOWsmWCmM+FEc+Kgj+56jTevEKhWwpUkyzXrOaQoI/3vug319
- Gt/SbhibTu2JhH4TYnIeHRb8SHtPKS0BmvFClLqS87HBuR4pscSBLpkIGo5SY9Tmh+7y
- DOKOQ9VNV86NjKZr10YwO0/Eko7bSXWkEc0v6aMeRCrDgL36ZmPP8oqpN5t2bMOYiTez
- OczYpCk61KEVHVKw66OkV7m9owISrrqL5TKJP/wLdqBGTg9E595zQWGDaj+31I+1U8zc
- qk4w==
-X-Gm-Message-State: AOAM531YErG2MgCmjvCWAGOUFOknI7Tn73YKbhH2lFBPgVUOhcY44Ezt
- DU073Mlw/UU5YJvqDbCWB3I=
-X-Google-Smtp-Source: ABdhPJxQTNSOwCEIeWTILMI5rMPmmxh09mM/FdZM/5H+6ue5hatuq9sGyT0G3QPFh5axuTAZ8BDbdg==
-X-Received: by 2002:a05:6512:3456:: with SMTP id
- j22mr31418434lfr.89.1637949730890; 
- Fri, 26 Nov 2021 10:02:10 -0800 (PST)
+ bh=hKgqav8a8uS+JOYHQI8KBeK4UU43xCMXoqbNcSGFyUw=;
+ b=D/TiWvj6ZlyWVSJNfuQiL4NzOHyHBmyKb4U/ixCecXDl4cO6yyevTy4kBF0E6HAAVw
+ Jcs0JxIxoUN6/fkBwAn7XwbOMlJvO5L727D3evfYk2UZarOLwKr2GkM5gMSGX6d6FF/O
+ QCVUJ/xoYIepCKTkGoqfUowqw1WNon0bnCO5RJohJf1TCCN7UFRiHaqjxXu80nzsp83g
+ UWLjsJMlyikPpeNbzVKrKmBdu41tVP2d4iQNJJfSsQ4ZtCdIbl4afkExIQlvyx6LTRVI
+ OAztrQ5C22tQTgTJ1X0Xkpru/XRxLzecSJGVF1Jmf0z6Getj6yP3NNwFa+s+FonWG4pV
+ ba6w==
+X-Gm-Message-State: AOAM533HwQ/AMgqHNjm+mcx9C9ni5sNMt6y2KIlzTdCYzXk2aYnK5kIO
+ +RoIojTl8AkL4Iu647Fe6O8=
+X-Google-Smtp-Source: ABdhPJyU2gXG+eVj9py9Up4KS/i8crRthe+TvBFG99PRD6Vp7wlcfVEp3e9ky90MnSLaJ58dEaRzoA==
+X-Received: by 2002:ac2:5548:: with SMTP id l8mr30765420lfk.509.1637949732941; 
+ Fri, 26 Nov 2021 10:02:12 -0800 (PST)
 Received: from localhost.localdomain (94-29-48-99.dynamic.spd-mgts.ru.
  [94.29.48.99])
- by smtp.gmail.com with ESMTPSA id i32sm553831lfv.295.2021.11.26.10.02.08
+ by smtp.gmail.com with ESMTPSA id i32sm553831lfv.295.2021.11.26.10.02.10
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 26 Nov 2021 10:02:10 -0800 (PST)
+ Fri, 26 Nov 2021 10:02:12 -0800 (PST)
 From: Dmitry Osipenko <digetx@gmail.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>,
@@ -101,16 +100,16 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
  xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: [PATCH v4 10/25] csky: Use do_kernel_power_off()
-Date: Fri, 26 Nov 2021 21:00:46 +0300
-Message-Id: <20211126180101.27818-11-digetx@gmail.com>
+Subject: [PATCH v4 11/25] riscv: Use do_kernel_power_off()
+Date: Fri, 26 Nov 2021 21:00:47 +0300
+Message-Id: <20211126180101.27818-12-digetx@gmail.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211126180101.27818-1-digetx@gmail.com>
 References: <20211126180101.27818-1-digetx@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211126_100213_103065_16626793 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20211126_100215_491917_CA2FBC3A 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,35 +131,37 @@ that invokes chained power-off handlers. It also invokes legacy
 pm_power_off() for now, which will be removed once all drivers will
 be converted to the new power-off API.
 
-Acked-by: Guo Ren <guoren@kernel.org>
+Acked-by: Palmer Dabbelt <palmer@dabbelt.com>
 Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
 ---
- arch/csky/kernel/power.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ arch/riscv/kernel/reset.c | 12 ++++--------
+ 1 file changed, 4 insertions(+), 8 deletions(-)
 
-diff --git a/arch/csky/kernel/power.c b/arch/csky/kernel/power.c
-index 923ee4e381b8..86ee202906f8 100644
---- a/arch/csky/kernel/power.c
-+++ b/arch/csky/kernel/power.c
-@@ -9,16 +9,14 @@ EXPORT_SYMBOL(pm_power_off);
- void machine_power_off(void)
- {
- 	local_irq_disable();
--	if (pm_power_off)
--		pm_power_off();
-+	do_kernel_power_off();
- 	asm volatile ("bkpt");
- }
+diff --git a/arch/riscv/kernel/reset.c b/arch/riscv/kernel/reset.c
+index 9c842c41684a..912288572226 100644
+--- a/arch/riscv/kernel/reset.c
++++ b/arch/riscv/kernel/reset.c
+@@ -23,16 +23,12 @@ void machine_restart(char *cmd)
  
  void machine_halt(void)
  {
- 	local_irq_disable();
--	if (pm_power_off)
+-	if (pm_power_off != NULL)
 -		pm_power_off();
+-	else
+-		default_power_off();
 +	do_kernel_power_off();
- 	asm volatile ("bkpt");
++	default_power_off();
  }
  
+ void machine_power_off(void)
+ {
+-	if (pm_power_off != NULL)
+-		pm_power_off();
+-	else
+-		default_power_off();
++	do_kernel_power_off();
++	default_power_off();
+ }
 -- 
 2.33.1
 
