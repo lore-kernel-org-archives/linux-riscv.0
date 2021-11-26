@@ -4,77 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE762C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Nov 2021 12:45:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5040AC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Nov 2021 15:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p2gILp/4ZxjgZLkRi6/U1TJuAokAOdQNMNGT6whqxpY=; b=P+oBM0TUkFGF3H
-	rB7HS1A0OqYt5N4YnOHm4BH9FzXpH6XxEbbL+hpdNy/QdOzmlh0doXwNZWKzKMtj//HxUk9PVr+pD
-	hC5T2rtco8W5vQyC1NXWbICQtNIg3UbHJwa7haDFT6bYrUToGmQWm1+3nAxhWvCtt76nkuawfvP9X
-	M2jw5az869KV3+/icZshR1rvVXt4Ar6r+OoiYxuNWLZoWnS22kr/+uhyX/aF0/OAZZ3k1VRNc9HLm
-	Z90p+RF4CDzVfSKzqnLYjxKF9yHmEytQ9yWrioIZSGpaS/9wvGZ4h6ctG+S6dfcbG6GHJRpTFw7oO
-	BdWs2jwc3akXTDxWQTmQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=jZp07v7L9jMJk0yNtrWyi15vccZ1fN4Rs7i4ggSEe3I=; b=vCPyyQmBkfjeXG
+	dxZssKUC+lfnOrHXcmbewmnMp3/Q/sAu9V9QIjZ0U0N98yuAFxGcQKSPRDnlQ6m/bP+k5we9Gl8T6
+	rBryhKskF65E2B/17dnfO2Kh49LQYQuf0U36sgdmMFUybIL2/BwNTNckANhoOll2+Y+TbGhGVTOBJ
+	yIDrpFEG+6qKyUy0MHFLNdqifAqILB0TCUuLPFaiLTtQwewUBkacblRx7llAGObwsg8M9Nf420S5r
+	RZRUPBmK6S/3fAAlloV6qZPQo3WLj5EIXVhVfRkxWz9Z0Bo13uF1W1KvLPS1GZcGPMj0NErE9ODI2
+	ZhetvM0oWv2DKQ23nXVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mqabe-00ARTC-LC; Fri, 26 Nov 2021 12:45:34 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1mqdLL-00AxuH-1K; Fri, 26 Nov 2021 15:40:55 +0000
+Received: from esa3.hgst.iphmx.com ([216.71.153.141])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mqaQP-00AOGd-UU
- for linux-riscv@lists.infradead.org; Fri, 26 Nov 2021 12:34:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1637930037;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=VPzVgc0AYP+sKhBkiolAFzffLls+sRar8XWgazVePtA=;
- b=WD3Mw0tTVQ5GpDSlQewA62FEaVliiY2PNT2H0bPa4QVHl1ncbBKlKbFp7qThesrEx65L4H
- VDzNVwRaj/MyBv6JGuT2+zueUEHGSKsULDlotGcz94dlTfxrlH9hsyWVLOYkHh0minnYsx
- neWiCWbReor072FA/2TLA77YMofYDyE=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-494-lecbiigyPvSggTsjaZoCPA-1; Fri, 26 Nov 2021 07:33:53 -0500
-X-MC-Unique: lecbiigyPvSggTsjaZoCPA-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com
- [10.5.11.15])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D4AAA81CCB7;
- Fri, 26 Nov 2021 12:33:51 +0000 (UTC)
-Received: from [10.39.195.16] (unknown [10.39.195.16])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 467C55D6B1;
- Fri, 26 Nov 2021 12:33:40 +0000 (UTC)
-Message-ID: <086c9553-6ba1-411b-43db-b51670798938@redhat.com>
-Date: Fri, 26 Nov 2021 13:33:39 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.2.0
-Subject: Re: [PATCH v5.5 00/30] KVM: Scalable memslots implementation
-Content-Language: en-US
-To: "Maciej S. Szmigiero" <maciej.szmigiero@oracle.com>
-Cc: Sean Christopherson <seanjc@google.com>,
- David Hildenbrand <david@redhat.com>, Cornelia Huck <cohuck@redhat.com>,
- Vitaly Kuznetsov <vkuznets@redhat.com>, Jim Mattson <jmattson@google.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
- linux-mips@vger.kernel.org, kvm@vger.kernel.org, kvm-ppc@vger.kernel.org,
+ id 1mqdLH-00AxtA-KG; Fri, 26 Nov 2021 15:40:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1637941250; x=1669477250;
+ h=from:to:cc:subject:date:message-id:
+ content-transfer-encoding:mime-version;
+ bh=i3NhJ2fRLGIPGjsyrtXQuz5j9uW840vbh1kbmsW24JQ=;
+ b=LA6AQoywz4qnA4077NawDdyBpxyBCEE3phPrBvZGDg3Rp3MXjeZ9FuCa
+ a00tJHHIq35roSekVvdcYYEoB0uzOvgD48mw8a2bfVOYo+Vb5ekz0aHDv
+ bowYNkmDlr2nrohJu/yC1v8BeBaiKm8jHTLvzGT7IBt5MNYt0zPmtQV/z
+ 4wv1kN4m2MotrzDX7JOQPYDCA1sIf6OJyG6G4rcWqQRlmP9PhzHc+SG4y
+ kOga/d37IsG5w4eQZIOc8dvxin8fPGu/gQ7UQYRCIFNiQcMmJllg6QsWD
+ JlMcQwutCtmAFipr4GSa9C+t1AhL0J5wwUbV6aqy75NCPjWf3GqgPjo+Z A==;
+X-IronPort-AV: E=Sophos;i="5.87,266,1631548800"; d="scan'208";a="191541470"
+Received: from mail-mw2nam10lp2104.outbound.protection.outlook.com (HELO
+ NAM10-MW2-obe.outbound.protection.outlook.com) ([104.47.55.104])
+ by ob1.hgst.iphmx.com with ESMTP; 26 Nov 2021 23:40:48 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=g49S6Q83MzBJ/kCUEIHCM6sTck0qiEkwr39OoBCC9YCgjfPHwvukn/TXCELDtGE8f9DvlY0O21OfI4TiACtudKAF+qIKRPB1+bTb+gVhXwY68YlgnTQ0PS0jZ9LaWoFNXKmgL+nLwe9jUujDEPBHrCDWcYRdcJ0QI06nToahR8CsWqxSbqosTUH1NWFepeRrEAOezwzkueC7i1hcthkKCyWM307VqO8bKDIzqCoGWA+Ih+lLB7Hfv6AbGqTNJ8/XWojFbV7m1Bnmx9ETOl188S3Cuw0YT8ZvzGtmSEtKlaFvlB5aI0XvuuRG7pb24XAs3BIeoVvAPhOGyBwHpE9Qzw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CCD6pjXxS6QedIGQXE1X4uQwEphdVxXSuFHg1o0SiRY=;
+ b=Ml0rY/H47pXCKb+MoLTABSaBbcOG9n7IAa2tWfARU+6aqB2u+lra5tSevwXWYdaOdwzN/WYzTZdyXLz6M3LKpKX1NVKlGoeOfMkrAFq2q5hr1WmmPg8mvvbsljExMLrBZ11ooniamkTjgYg7kA8FIBMOsu/qncC6InAIE0aeJp8TEH7+JT+tnWMgFw2YCQ9zyTYXjCYcItTPsCTAXKWJiiN0bmqSKeGnIR31hhQXIKGP9ubOUExS85sHSV6UNK+Dgn+KBzDDN5d3SzTpGMqX9K8enmW5In6QNAJYSLrxeIXlY6DqVhsK9VYg80ktcfhtvjhkfewP/RD/L5TcpRPyGg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CCD6pjXxS6QedIGQXE1X4uQwEphdVxXSuFHg1o0SiRY=;
+ b=Nu1JDiLHuQxi54iiqJV5SPMVXCo9Wr8WsXUyKTiYAZB0gD5hQ4YBp6oMcy02QPF+wKMRv9EO7qJBqk7uMzqzCRXnJT+FPEPcH+TcXfqqfNG8nmz26fd3N6+V8aQ97hdVGZXeMY6EVcDgBlcOzlOV8Co4ZczX8xc7+Kkk4cHu0+Q=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=wdc.com;
+Received: from CO6PR04MB7812.namprd04.prod.outlook.com (2603:10b6:303:138::6)
+ by CO6PR04MB8330.namprd04.prod.outlook.com (2603:10b6:303:135::22)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4734.19; Fri, 26 Nov
+ 2021 15:40:48 +0000
+Received: from CO6PR04MB7812.namprd04.prod.outlook.com
+ ([fe80::8100:4308:5b21:8d97]) by CO6PR04MB7812.namprd04.prod.outlook.com
+ ([fe80::8100:4308:5b21:8d97%9]) with mapi id 15.20.4734.023; Fri, 26 Nov 2021
+ 15:40:48 +0000
+From: Anup Patel <anup.patel@wdc.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
+ Atish Patra <atishp@atishpatra.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Ben Gardon <bgardon@google.com>
-References: <20211104002531.1176691-1-seanjc@google.com>
- <cb4f5d6e-9535-dd57-d8ee-3b593a81f3a6@oracle.com>
- <YYnNA5lZNXXdX/ig@google.com>
- <f3bc3bfc-37c3-bbfd-25b4-ef0a72e534ba@oracle.com>
- <5129f02d-7c0e-8e88-797f-95e8d968df88@oracle.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-In-Reply-To: <5129f02d-7c0e-8e88-797f-95e8d968df88@oracle.com>
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ Anup Patel <anup.patel@wdc.com>
+Subject: [PATCH 0/4] KVM RISC-V 64-bit selftests support
+Date: Fri, 26 Nov 2021 21:10:16 +0530
+Message-Id: <20211126154020.342924-1-anup.patel@wdc.com>
+X-Mailer: git-send-email 2.25.1
+X-ClientProxiedBy: MAXPR01CA0107.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a00:5d::25) To CO6PR04MB7812.namprd04.prod.outlook.com
+ (2603:10b6:303:138::6)
+MIME-Version: 1.0
+Received: from wdc.com (122.179.118.153) by
+ MAXPR01CA0107.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:5d::25) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.4734.20 via Frontend Transport; Fri, 26 Nov 2021 15:40:44 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 2e226c34-a6b4-45c3-6609-08d9b0f31e0f
+X-MS-TrafficTypeDiagnostic: CO6PR04MB8330:
+X-Microsoft-Antispam-PRVS: <CO6PR04MB8330419C20C87A3752E867968D639@CO6PR04MB8330.namprd04.prod.outlook.com>
+WDCIPOUTBOUND: EOP-TRUE
+X-MS-Oob-TLC-OOBClassifiers: OLM:8882;
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: /kqzteLRciZtzL+QPPdISBiCuLuHrpxBBmQoUwPI8CJuv5Y+vZuf3I0+xsYAHAEKVWVHYDrgzqsqAFWriFS7qFMABTPdp9cDx31vgGsoj6nOrwpQgsX3sEiqXvm7kRuznypkwsClC3ZWHYKqD1rBnUkMkCj+1yvjqymSo2adPq6azTtVGJg58SBsue/nom2fXNo+e0d5qXXGmh/R6aXso8KvggnQjE8MuCXA16uj/2dAHykgKhNwThvmwouwX17q/VbXyUz7Wlc8DEpsRu5ipeS10JUz4nPCtt192V2QEP8J9s4agprIVdBmMfbna/rUJUbZIyK/e9P6MCBSb902hjYyTsejAekU9jEFtJ+Vhd12KBcJ9yHmr0L666nWhwK+pKxmcfuti/FIislmrWkXR1ACp2Wo1fAreDitv5aExhPfmnnQ1l/gsuVVWAuHVKiXFUkPMULJBjZiNNjbgRlFRYb0/3K26psEtPnpPz/Gf30C7h7E7hGvAz9RToD9MRUHarQI4AeBjXgN1ItW+Eja5euCB5MPvo4/Q9PSWP9PZP3F3zW3zJVXTSBgN8Im44lIEdvE0zCbrUYIDP4G+S7ZWgs2Q9Dt1Z1lEowtfL+s/3zTzQjCycrkdadVzyMqufaKXN4Zh1/Rn7B+7PuR0i5e6O97qe1gIta+Ae8OOuls+6MPCcPkE/vB09p7rOWTPxDKrnK/ekvnjOlwRfnp5WXhWFQswn71P/p6+TXZQ77IGuiJAurLPY1+ngXc2s9nFVmsIFWqg2/N+KwpUkZ1Ea8I9g/ps6ZfLAI1zxiMjXSKYZ8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:CO6PR04MB7812.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(4636009)(366004)(8936002)(1076003)(54906003)(66946007)(110136005)(38350700002)(82960400001)(26005)(66556008)(186003)(44832011)(83380400001)(316002)(6666004)(86362001)(7696005)(956004)(2616005)(7416002)(52116002)(508600001)(2906002)(966005)(5660300002)(36756003)(55016003)(8886007)(38100700002)(66476007)(4326008)(8676002);
+ DIR:OUT; SFP:1102; 
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qvyLlNXO9rbz51jm1oGv9+B+hyxhaFOQgrCwe70P5uOEscBYpNvl9/PmTXBQ?=
+ =?us-ascii?Q?TJdmi/fpTfUqaGSaG7WXcizbY2j48IGg9rWaYg1rV13RNyUCQRfXH6AVbSg1?=
+ =?us-ascii?Q?1R/q7IalueBcwQcbhbgVpAWrIyUQboa4ksIGE23yTdnUfKR7P6zjrmOxifup?=
+ =?us-ascii?Q?7ZD9OScJCM1M1+6YfJi9QwRPewdLSp+ppiGw9oO2ZcM9upGTDOl+SdYV6JYl?=
+ =?us-ascii?Q?Bc89dclgeWdLgbGo7nVj4uqLkaHzco8hlosFjIw0aKThqRCEFhjl5Rm3PQKA?=
+ =?us-ascii?Q?gavTeb37Gu3Eu0WByBy75AHS9k9f416cAwHxUoE7yQI8ZEkyRjM5VZlApiuT?=
+ =?us-ascii?Q?oVTsIwu4WwM353Uui/KggCha49YtyNHXScyNqsQf6UxcZgVBwi7bREKi6vD8?=
+ =?us-ascii?Q?QdE+cStXdj1n1N+wDO8aiZSYFjXHzoDlyG3jR4qJY4SwkslzGrzMYytU5MwV?=
+ =?us-ascii?Q?sk6Z2lrpgeJ1+7iZpUCjaYm/h0aLkDjkwm/4AOgnLFJlY4QpHW5IVUYRTBYc?=
+ =?us-ascii?Q?vU+ajN1WtC+NsB5JedlmWtWMByu4ZPIspcCrJGQf5ggDnv3yum777fUE2iPI?=
+ =?us-ascii?Q?b8JnIr2mCUEFbxdFYxqeuSoY7xU+3EUejlPOJb7khkFitlZRUxLR+SnEBqsz?=
+ =?us-ascii?Q?GBHNAuUa/oED3evQvu45ZAG/tdxWsjSthz/cHeQzmppbyQUYzJK78Gigaqdb?=
+ =?us-ascii?Q?1OPG2RgTXtQvdLquAiJeNzN7NF7YJMXKiVrxTifRGK8z6vEaSHLSy1qsCUsg?=
+ =?us-ascii?Q?TMn1GtOFqZyiCdDN/jXGeK+bNmtaOFw8jgbgF3JMn+3oEFO4+rhMcO34eFDc?=
+ =?us-ascii?Q?g86RBhuLqGwwGZXfAqt8eUbKokH+GcLdH+ehfZTnYqBo5eowYoAv+f2k+1Bv?=
+ =?us-ascii?Q?B5e3+f98Bz+gvMU8VXCafL9NfoIgoUtICPAnHQ6ifdKX6MA77vDdTnfk/4Xj?=
+ =?us-ascii?Q?UwhaV74dvHJk32neCMtV1orBDNO7IPm/zoBRGfSk1JpiC00JaMzyR9WQflky?=
+ =?us-ascii?Q?/Zq6cX34gEbTnLJLnmUoiQDny/Znx3QPubDHE2AUJQ5q87UYFen08nvmU5pz?=
+ =?us-ascii?Q?gajO7544AahN8ZeAWatX7VALxUnbF+aXm8MpAZshHyhRmsZlI3EFemf2HP+p?=
+ =?us-ascii?Q?cN/tUPuHSg74SbkJoBAZoglgLYIeC92eB6v4VXHryL5JFJ6luGTdWocxczyI?=
+ =?us-ascii?Q?AI8B1cSeD4Ic0dzYP/jLJDqzDsaJiKDEG3jsF9EZPTTPoRKhFR1FgGg2aKU8?=
+ =?us-ascii?Q?NZXBeh5UzDAH/KC0gzskMQbnihyI2Dh0TcYf7tfLRNRrvbA/j4yhqkBsd6Z+?=
+ =?us-ascii?Q?QOzlzjPDSoOSJxTGJFc+4mWDjEg+RysD84YsCNlPqfnrt3WLyvu2Z9asFbmH?=
+ =?us-ascii?Q?31JEK5vkjJM61QlsZsq7idi0ZPI92KebZv0N0rReS4+TgcSTpMDbpRLkPrho?=
+ =?us-ascii?Q?Yd18EUNuvkKl0mdMiIshQW1WRqlEzCQtIKyAf3bBkaM17fYJWtqaK4t2R1gi?=
+ =?us-ascii?Q?3w7slJZkcam4g2WZi93EqJMlORNst6IZhy64CPY9RJF3s1RNhWZahjE51AJh?=
+ =?us-ascii?Q?QAtQa8ZTs35inPpxiLeaYvhQuWayDOKeRG3umTlPlf5mLodKZk2G5v5rI0rq?=
+ =?us-ascii?Q?KOfx8xm68IWXKujMsE1NTWQ=3D?=
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2e226c34-a6b4-45c3-6609-08d9b0f31e0f
+X-MS-Exchange-CrossTenant-AuthSource: CO6PR04MB7812.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2021 15:40:48.1565 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: a0/2aq8ByaX2FPbEgFcfhVJHR5PhBfApjctEXGILXtbv3PJLTGUjty31+1AE3eJwa7CW/pFRVWiYYTME+BT1fg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR04MB8330
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211126_043358_085538_77B7AA4F 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20211126_074051_781843_AAB6535D 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,25 +156,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/23/21 15:42, Maciej S. Szmigiero wrote:
-> Paolo,
-> 
-> I see that you have merged the whole series to kvm/queue, even though it
-> still needed some changes and, most importantly, a good round of testing.
-> 
-> Does this mean you want all these changes as a separate patch set on top
-> of the already-merged series?
+This series adds initial support for testing KVM RISC-V 64-bit using
+kernel selftests framework. The PATCH1 & PATCH2 of this series does
+some ground work in KVM RISC-V to implement RISC-V support in the KVM
+selftests whereas remaining patches does required changes in the KVM
+selftests.
 
-Hi Maciej,
+These patches can be found in riscv_kvm_selftests_v1 branch at:
+https://github.com/avpatel/linux.git
 
-you can squash your changes and post a v6.
+Anup Patel (4):
+  RISC-V: KVM: Forward SBI experimental and vendor extensions
+  RISC-V: KVM: Add VM capability to allow userspace get GPA size
+  KVM: selftests: Add EXTRA_CFLAGS in top-level Makefile
+  KVM: selftests: Add initial support for RISC-V 64-bit
 
-Paolo
+ arch/riscv/include/asm/kvm_host.h             |   1 +
+ arch/riscv/kvm/mmu.c                          |   5 +
+ arch/riscv/kvm/vcpu_sbi.c                     |   4 +
+ arch/riscv/kvm/vcpu_sbi_base.c                |  27 ++
+ arch/riscv/kvm/vm.c                           |   3 +
+ include/uapi/linux/kvm.h                      |   1 +
+ tools/testing/selftests/kvm/Makefile          |  14 +-
+ .../testing/selftests/kvm/include/kvm_util.h  |  10 +
+ .../selftests/kvm/include/riscv/processor.h   | 135 +++++++
+ tools/testing/selftests/kvm/lib/guest_modes.c |  10 +
+ .../selftests/kvm/lib/riscv/processor.c       | 362 ++++++++++++++++++
+ tools/testing/selftests/kvm/lib/riscv/ucall.c |  87 +++++
+ 12 files changed, 658 insertions(+), 1 deletion(-)
+ create mode 100644 tools/testing/selftests/kvm/include/riscv/processor.h
+ create mode 100644 tools/testing/selftests/kvm/lib/riscv/processor.c
+ create mode 100644 tools/testing/selftests/kvm/lib/riscv/ucall.c
+
+-- 
+2.25.1
 
 
 _______________________________________________
