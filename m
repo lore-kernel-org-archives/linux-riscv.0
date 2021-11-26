@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E773C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Nov 2021 18:02:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98050C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Nov 2021 18:03:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vSiY5kuW3m1JMJBUrbm8zMyId0URVXhsEdpXXdIK+xE=; b=gv2Yftd2UkUA9S
-	Fq2sTGXaZEDHBpoqUPctGZlxncCozKZmuyWkqxIOyAYlW/etSpwqrHTRtv+MbGZ1uJob5cFSRz+ot
-	bQJje9eWXwbaYpBzKuWIM/1eTaMp1UA30Ou+RzSJ10wt8HzIq4MKiSRyvM4tLPF/6WDBeSTnyakg2
-	l9BSZe+K7pwAPimfPii0vmUgWCdfW7NOAFEAmxesLG84Ye6a+P4wThal5N6aCS09axMVbZdN8sb88
-	pLOhlwxWMjTLKAzTX9x9YSGkZbDUpJCgxKGfa53Vkpw/yIN8T2GTCD5XEtL/405uSGOxjyEfIMgh7
-	Rg9wCyAuLDWedIWvuuOw==;
+	List-Owner; bh=x9/wZ+biVKMqkYqGban343oKDQabaU7GSXwAl0018d8=; b=ofsQHugpn+hyRp
+	X9I//0V8C98bg9OVP1MDG8fv+stZ0bdmVNao6npioLKvalt4aWWSiJEA4Rilupex46ZIiFnUQv7cA
+	xJF+QojTmAuWE5+y31hS9u9Gbrg36F25fiBbbLzrMtj91da81ezNmfnBZpupexFQQwWJI7MU8xzaK
+	8AbmWts2pMqfXge8DK56ZThhX/W3ceNABnjvrBjdyO9qb9D1fAqUQJGmkrshNYOoa/G+ZH/JKZfJe
+	rawZe9qluVeZ1bJW3W85+i22eUyq37/YVtivuKprScWYcXWvJABzcPHZ0IQl0FfHFtR1lQs9SvBF4
+	HnU343FF+v8rGLazHR7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mqfYW-00BO6C-1P; Fri, 26 Nov 2021 18:02:40 +0000
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	id 1mqfYi-00BOHE-By; Fri, 26 Nov 2021 18:02:52 +0000
+Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mqfXy-00BNfC-PK; Fri, 26 Nov 2021 18:02:08 +0000
-Received: by mail-lj1-x236.google.com with SMTP id d11so20201568ljg.8;
- Fri, 26 Nov 2021 10:02:05 -0800 (PST)
+ id 1mqfY3-00BNjL-NQ; Fri, 26 Nov 2021 18:02:13 +0000
+Received: by mail-lj1-x22a.google.com with SMTP id u22so20243828lju.7;
+ Fri, 26 Nov 2021 10:02:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=YMqE3plwxFsGF2jAAFpub/HIgtQoag7R/7s0kLQElmo=;
- b=hNDiDyK0mXFGn4DxizRDTh848JRSUoRpy2BGku+puCZb4ybkLBVQYxsigPgsX8oTYo
- 6uGIJxTr27Sr/5uMIfvDrPYcj5JZCK4JVm0hmsmagDb+4g/16Qb2Lml6lDE5kEYxSTqN
- 1cZzQ5YrCG/5jHmOAHWFPzd6RK6Nxwzyc+2hsTlnygT/PBOMYmYfgTBreyJX/cM8e8Ri
- XH/uWJcEe4LPCRWWl546Fte/fnOxNdqhmyH7lhZm2kP9gpSFr43Ku3Kops2TSD2lJLii
- 3tQMh9H3YmdwyreB+CGFvAehWfGPKgIyfGRW4a8rgOWMZfouUk4VEJQah1A9TCWCHZqH
- suDg==
+ bh=4G0wXMIRKtQjgiQjhPPTWIJTonbxBMvj833mzQfGVdU=;
+ b=Q7bS5Bcds94ZCTDJZ73tKxITpYV8Kav4ePR+HRo9YdxSWek6px4wRJdgcPmS5hk/Rr
+ VPvNAMuE26rR2wieWZvoqh2JqGKS7hi+wU3x2h17uhsQmowPgLITYDnbrjG1GwGkvefd
+ hHxk6lkApAV38Oi8vIzUQfEJ8wFoDrL8RwZq4qDk19AhYWVm238iVmmmVO7DlbUJ33tI
+ BLX+/0wZLAv6GevVfNs/5TC56F1I6JNn+sAhx6wYa6M2qI3hZxBZFaK0EH29RxIb8wYE
+ l0fPT66HRS9VmV580SbvW1FY/SVTqBcYuvfEtu2otEWz3FsM+lLxfdinbLZf9OO11+V4
+ J1yg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=YMqE3plwxFsGF2jAAFpub/HIgtQoag7R/7s0kLQElmo=;
- b=6tS6Z4zTvnKMn98lMdQ1ZYZBurs+m96aEgaHu/haKABXfGUzXf0P6C+1jQPW1suVaO
- qZA4BF/YH12XIgg/Gc2LhiAWDgrHnWe9pA6J3u+b9676MEw76b0AFlSMLhEfus9PNwCR
- B0A39b0ADD7bcKtnmxJF31bVZe02+Q5BHeAcA6o/ZXXwr/a9Cic7JHLkuarRZcx0Obu8
- EmB/HYpP7zIxzDWjm9xvsdX6OXp3+eKGiJzQEmcrcUBBrHd0RK5/EZfFUwSm4YEc+VIy
- HmOxn0NFRIS+BkX6iOdi36F31fo+PBdq5yBrFdmxIAtfK1baEdlLEwhxpv2A+9puLAyr
- F6UA==
-X-Gm-Message-State: AOAM530zAkDr/aTh7tXVdMdEaRruo/w9C8/2geiq00ZwFFd0tBQnx0gC
- UtLEQAhv4R8bAgNCuX9Xrj4=
-X-Google-Smtp-Source: ABdhPJyb8kz1UEvDCKCp+BiDo+e8J/+zE/2jFszIocFNHpuea9i2+EEWlZYq05sNitfJ0uIdOtFxwg==
-X-Received: by 2002:a05:651c:b12:: with SMTP id
- b18mr33869925ljr.306.1637949724600; 
- Fri, 26 Nov 2021 10:02:04 -0800 (PST)
+ bh=4G0wXMIRKtQjgiQjhPPTWIJTonbxBMvj833mzQfGVdU=;
+ b=qy3eE2FPB9nbsCQXcXtENZ8cUvsmHKYxcxrK1+tkBc90enqlcTe6C6a5W6Rov3s2kp
+ tm4DPBZdHZIHHMe+h4zGwpS92kzZZGaQEyQZIQSSWeGH2N7c2rmLNETSxjqw+9E4dKFJ
+ SEfFOc/XAsE7E/nsj/IppPZ514aOt59Jf3Axpemvpq67WX/GWUDs16CHBMmFto2mXC8H
+ u3dPC73h24UiEpGaieSAlqqL7qVpP9ah15oxK20yYMXnltHx1r6Hxza7Y6ZhR6RDUSh5
+ 7/r9j5WZwemiDooYbsC0mt4C1kb6cWhia9JpXHi3Wp9pLm3AWqmMKBWOtarKxOlFMCug
+ 1Lkw==
+X-Gm-Message-State: AOAM532rat8yNF5j/d/3awKaniHKi0zb+9y00mt++hGrutIjRnd0JdRX
+ GVkMs6twzrRvJcbEQ9RWgTI=
+X-Google-Smtp-Source: ABdhPJw++X7mxtdOavKH8Ip6GlDs2g7F+GbwMx/tI9yDFlFB9AlrVDhMOYYWaSu8ROQpefmcYFa9fg==
+X-Received: by 2002:a2e:858f:: with SMTP id b15mr33453590lji.177.1637949728768; 
+ Fri, 26 Nov 2021 10:02:08 -0800 (PST)
 Received: from localhost.localdomain (94-29-48-99.dynamic.spd-mgts.ru.
  [94.29.48.99])
- by smtp.gmail.com with ESMTPSA id i32sm553831lfv.295.2021.11.26.10.02.02
+ by smtp.gmail.com with ESMTPSA id i32sm553831lfv.295.2021.11.26.10.02.06
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 26 Nov 2021 10:02:04 -0800 (PST)
+ Fri, 26 Nov 2021 10:02:08 -0800 (PST)
 From: Dmitry Osipenko <digetx@gmail.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>,
@@ -101,17 +100,16 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
  xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: [PATCH v4 07/25] reboot: Remove extern annotation from function
- prototypes
-Date: Fri, 26 Nov 2021 21:00:43 +0300
-Message-Id: <20211126180101.27818-8-digetx@gmail.com>
+Subject: [PATCH v4 09/25] ARM: Use do_kernel_power_off()
+Date: Fri, 26 Nov 2021 21:00:45 +0300
+Message-Id: <20211126180101.27818-10-digetx@gmail.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211126180101.27818-1-digetx@gmail.com>
 References: <20211126180101.27818-1-digetx@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211126_100206_854596_9D96B6F2 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20211126_100211_830099_31823620 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,90 +126,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There is no need to annotate function prototypes with 'extern', it makes
-code less readable. Remove unnecessary annotations from <reboot.h>.
+Kernel now supports chained power-off handlers. Use do_kernel_power_off()
+that invokes chained power-off handlers. It also invokes legacy
+pm_power_off() for now, which will be removed once all drivers will
+be converted to the new power-off API.
 
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
 ---
- include/linux/reboot.h | 38 +++++++++++++++++++-------------------
- 1 file changed, 19 insertions(+), 19 deletions(-)
+ arch/arm/kernel/reboot.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/include/linux/reboot.h b/include/linux/reboot.h
-index 7c288013a3ca..b7fa25726323 100644
---- a/include/linux/reboot.h
-+++ b/include/linux/reboot.h
-@@ -40,36 +40,36 @@ extern int reboot_cpu;
- extern int reboot_force;
- 
- 
--extern int register_reboot_notifier(struct notifier_block *);
--extern int unregister_reboot_notifier(struct notifier_block *);
-+int register_reboot_notifier(struct notifier_block *);
-+int unregister_reboot_notifier(struct notifier_block *);
- 
--extern int devm_register_reboot_notifier(struct device *, struct notifier_block *);
-+int devm_register_reboot_notifier(struct device *, struct notifier_block *);
- 
--extern int register_restart_handler(struct notifier_block *);
--extern int unregister_restart_handler(struct notifier_block *);
--extern void do_kernel_restart(char *cmd);
-+int register_restart_handler(struct notifier_block *);
-+int unregister_restart_handler(struct notifier_block *);
-+void do_kernel_restart(char *cmd);
+diff --git a/arch/arm/kernel/reboot.c b/arch/arm/kernel/reboot.c
+index 3044fcb8d073..2cb943422554 100644
+--- a/arch/arm/kernel/reboot.c
++++ b/arch/arm/kernel/reboot.c
+@@ -116,9 +116,7 @@ void machine_power_off(void)
+ {
+ 	local_irq_disable();
+ 	smp_send_stop();
+-
+-	if (pm_power_off)
+-		pm_power_off();
++	do_kernel_power_off();
+ }
  
  /*
-  * Architecture-specific implementations of sys_reboot commands.
-  */
- 
--extern void migrate_to_reboot_cpu(void);
--extern void machine_restart(char *cmd);
--extern void machine_halt(void);
--extern void machine_power_off(void);
-+void migrate_to_reboot_cpu(void);
-+void machine_restart(char *cmd);
-+void machine_halt(void);
-+void machine_power_off(void);
- 
--extern void machine_shutdown(void);
-+void machine_shutdown(void);
- struct pt_regs;
--extern void machine_crash_shutdown(struct pt_regs *);
-+void machine_crash_shutdown(struct pt_regs *);
- 
- /*
-  * Architecture independent implementations of sys_reboot commands.
-  */
- 
--extern void kernel_restart_prepare(char *cmd);
--extern void kernel_restart(char *cmd);
--extern void kernel_halt(void);
--extern void kernel_power_off(void);
-+void kernel_restart_prepare(char *cmd);
-+void kernel_restart(char *cmd);
-+void kernel_halt(void);
-+void kernel_power_off(void);
- 
- extern int C_A_D; /* for sysctl */
- void ctrl_alt_del(void);
-@@ -77,15 +77,15 @@ void ctrl_alt_del(void);
- #define POWEROFF_CMD_PATH_LEN	256
- extern char poweroff_cmd[POWEROFF_CMD_PATH_LEN];
- 
--extern void orderly_poweroff(bool force);
--extern void orderly_reboot(void);
-+void orderly_poweroff(bool force);
-+void orderly_reboot(void);
- void hw_protection_shutdown(const char *reason, int ms_until_forced);
- 
- /*
-  * Emergency restart, callable from an interrupt handler.
-  */
- 
--extern void emergency_restart(void);
-+void emergency_restart(void);
- #include <asm/emergency-restart.h>
- 
- #endif /* _LINUX_REBOOT_H */
 -- 
 2.33.1
 
