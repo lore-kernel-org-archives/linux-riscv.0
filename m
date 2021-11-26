@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5040AC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Nov 2021 15:41:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A104C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Nov 2021 15:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=jZp07v7L9jMJk0yNtrWyi15vccZ1fN4Rs7i4ggSEe3I=; b=vCPyyQmBkfjeXG
-	dxZssKUC+lfnOrHXcmbewmnMp3/Q/sAu9V9QIjZ0U0N98yuAFxGcQKSPRDnlQ6m/bP+k5we9Gl8T6
-	rBryhKskF65E2B/17dnfO2Kh49LQYQuf0U36sgdmMFUybIL2/BwNTNckANhoOll2+Y+TbGhGVTOBJ
-	yIDrpFEG+6qKyUy0MHFLNdqifAqILB0TCUuLPFaiLTtQwewUBkacblRx7llAGObwsg8M9Nf420S5r
-	RZRUPBmK6S/3fAAlloV6qZPQo3WLj5EIXVhVfRkxWz9Z0Bo13uF1W1KvLPS1GZcGPMj0NErE9ODI2
-	ZhetvM0oWv2DKQ23nXVw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=62113YEwwQhKjhTs8uV3y4CcI3gAOh9FdZPjX1fZ+T4=; b=exCu+UzSqopPj5
+	QsPiyLZS7kjTJhAnvTJQ1BmhL4uHQbqMbtXed0304X0buRzytQ6E0KH7HZ1HU1mXJcYHClh7FX4Hu
+	hXracinle6Pb5UXTG+kSyItPcTlYYuRqTmonJ+cePqkzb2QtWRpDTnHR4nKBd/6t+EJmqQbVjEYva
+	FMbtQaMBNi9s5l4Me7Sb/bVGPljEUVuo0I/3V81iLOCVeZtY69u2QqKzvvxSNUiTDXV81Z7FoJ2W8
+	Fr2fiucio2xGWfP6avvGOz6F1U+mfoD1xktl6fmeadbiWC27YD3hLYChhJphm34FFMUieEdPkeB2l
+	D0cOhJViAaQbaxcGDwMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mqdLL-00AxuH-1K; Fri, 26 Nov 2021 15:40:55 +0000
+	id 1mqdLR-00Axw6-6e; Fri, 26 Nov 2021 15:41:01 +0000
 Received: from esa3.hgst.iphmx.com ([216.71.153.141])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mqdLH-00AxtA-KG; Fri, 26 Nov 2021 15:40:53 +0000
+ id 1mqdLO-00AxtA-EN; Fri, 26 Nov 2021 15:40:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1637941250; x=1669477250;
- h=from:to:cc:subject:date:message-id:
- content-transfer-encoding:mime-version;
- bh=i3NhJ2fRLGIPGjsyrtXQuz5j9uW840vbh1kbmsW24JQ=;
- b=LA6AQoywz4qnA4077NawDdyBpxyBCEE3phPrBvZGDg3Rp3MXjeZ9FuCa
- a00tJHHIq35roSekVvdcYYEoB0uzOvgD48mw8a2bfVOYo+Vb5ekz0aHDv
- bowYNkmDlr2nrohJu/yC1v8BeBaiKm8jHTLvzGT7IBt5MNYt0zPmtQV/z
- 4wv1kN4m2MotrzDX7JOQPYDCA1sIf6OJyG6G4rcWqQRlmP9PhzHc+SG4y
- kOga/d37IsG5w4eQZIOc8dvxin8fPGu/gQ7UQYRCIFNiQcMmJllg6QsWD
- JlMcQwutCtmAFipr4GSa9C+t1AhL0J5wwUbV6aqy75NCPjWf3GqgPjo+Z A==;
-X-IronPort-AV: E=Sophos;i="5.87,266,1631548800"; d="scan'208";a="191541470"
-Received: from mail-mw2nam10lp2104.outbound.protection.outlook.com (HELO
- NAM10-MW2-obe.outbound.protection.outlook.com) ([104.47.55.104])
- by ob1.hgst.iphmx.com with ESMTP; 26 Nov 2021 23:40:48 +0800
+ t=1637941257; x=1669477257;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:content-transfer-encoding:mime-version;
+ bh=UvMhmajLI2xKJt61vOJnJU10E+9HbwYJfu96S4+MsQA=;
+ b=CoEky+EXlBSO6nQry/+qi4P59BG0v90Co5BGWCzzhlyf/bEwJz8SBPsY
+ 9X92yU108KFeI9vFniFcgALH2VtR2jkzxjn1JhFBrs4IfNcTA7hFYwjRu
+ 9U015tmEEtc9Cr7wWRowBl/LjhssPbs6c9uMlUW0WQ0Gi1ULTQqbvdqJp
+ 5WnsLyC18doua46cm00ECxQ71XeYBvYLnOL+iONRzJm6WICShdOVL27uC
+ 8BPID67cyzsIzSUHRIcn6KAYjXkbqlCtBMqnUPwGROd/MdMSI4nSOXMyJ
+ sH+DPSp7D7e4r54M3UiFf2Aanigbc59SMVXrr5deKxB1mvFIAX76vmqk6 w==;
+X-IronPort-AV: E=Sophos;i="5.87,266,1631548800"; d="scan'208";a="191541507"
+Received: from mail-mw2nam08lp2172.outbound.protection.outlook.com (HELO
+ NAM04-MW2-obe.outbound.protection.outlook.com) ([104.47.73.172])
+ by ob1.hgst.iphmx.com with ESMTP; 26 Nov 2021 23:40:57 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=g49S6Q83MzBJ/kCUEIHCM6sTck0qiEkwr39OoBCC9YCgjfPHwvukn/TXCELDtGE8f9DvlY0O21OfI4TiACtudKAF+qIKRPB1+bTb+gVhXwY68YlgnTQ0PS0jZ9LaWoFNXKmgL+nLwe9jUujDEPBHrCDWcYRdcJ0QI06nToahR8CsWqxSbqosTUH1NWFepeRrEAOezwzkueC7i1hcthkKCyWM307VqO8bKDIzqCoGWA+Ih+lLB7Hfv6AbGqTNJ8/XWojFbV7m1Bnmx9ETOl188S3Cuw0YT8ZvzGtmSEtKlaFvlB5aI0XvuuRG7pb24XAs3BIeoVvAPhOGyBwHpE9Qzw==
+ b=n23agR7kwNMbZJFu2UYNmNRUhnR28OC2GnTmBljOd1rdO2KrdbMx7NG+rKgCzcGEnqbajSQfpMOnp8gxh04F36Nm6TK9Ma6pOj27fLmFeqPdPF+zJRj2Tx/dNj6H3BOkgHGzdP8dI5p9QfiS7fV+wLa36SBcCMK66uUX6exTvfcno1UJr1xPjpVBppj2vQXCGzWxb7Voxq2ERAVp8Ih46OOnpvGBSalW5QeOMPFfhIw3I35+zYV2nOAr4l20/MI+8sOwWsaO7G8LUWeGKIX10O8wDG60t5Wd89BjCgARMDO+4mB4CJEHuyQkGXfQZdVqdz0hGmkzVsiUwV0aoCfgVg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CCD6pjXxS6QedIGQXE1X4uQwEphdVxXSuFHg1o0SiRY=;
- b=Ml0rY/H47pXCKb+MoLTABSaBbcOG9n7IAa2tWfARU+6aqB2u+lra5tSevwXWYdaOdwzN/WYzTZdyXLz6M3LKpKX1NVKlGoeOfMkrAFq2q5hr1WmmPg8mvvbsljExMLrBZ11ooniamkTjgYg7kA8FIBMOsu/qncC6InAIE0aeJp8TEH7+JT+tnWMgFw2YCQ9zyTYXjCYcItTPsCTAXKWJiiN0bmqSKeGnIR31hhQXIKGP9ubOUExS85sHSV6UNK+Dgn+KBzDDN5d3SzTpGMqX9K8enmW5In6QNAJYSLrxeIXlY6DqVhsK9VYg80ktcfhtvjhkfewP/RD/L5TcpRPyGg==
+ bh=Kd9MbxmTph6FKRePFQlLrz8Xb9yNl9hX8XE8rQyPpO4=;
+ b=btPMDwVH18pGNK41yLkKck1BLf60s4+Pb3cmSrGa2HebNV3xZmowel12ISUmE+BAeWBy3qDO4Bsnb6vUU0qWNWk6ePFaQMqtRCkbhQ+viBCAjiMV9TJZ2f2tm8zbVtWOGwQGNaQblrIJ/nJydRLS1tqPFdquLoHZCMsv4qE0jGEgYxt7v3l7DJgQFD0Pg9kId4219S8O2Xamg+GNx6bxNZC6FVuVWD0PPvMMuclexgc+gPWBZ0K4BTJga5w9u4iXHXrlXpDbVS+WuJP7LSGO9BtaUzx7LwWeryjqmBmiTsioybkSpeBj0IMIKBwHj2/nlEKJISqfDF8D5CiLFv3rRQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
  header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CCD6pjXxS6QedIGQXE1X4uQwEphdVxXSuFHg1o0SiRY=;
- b=Nu1JDiLHuQxi54iiqJV5SPMVXCo9Wr8WsXUyKTiYAZB0gD5hQ4YBp6oMcy02QPF+wKMRv9EO7qJBqk7uMzqzCRXnJT+FPEPcH+TcXfqqfNG8nmz26fd3N6+V8aQ97hdVGZXeMY6EVcDgBlcOzlOV8Co4ZczX8xc7+Kkk4cHu0+Q=
+ bh=Kd9MbxmTph6FKRePFQlLrz8Xb9yNl9hX8XE8rQyPpO4=;
+ b=lbXdm6MVHaEgChlVm+SOm371P+IuoYUUz81XwVoxZvYmOHvlSTssUShDWa8/wS0wOQqVHcUSI8EhJKp3UVpqKqICfk43NosDYxd/VhWXLajc6Zj7DvFk6q9AgSLEEWcX5PdPEwybkUhQH5Rx9nXYSfpi//wEQZL21v80r5M7KUk=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=wdc.com;
 Received: from CO6PR04MB7812.namprd04.prod.outlook.com (2603:10b6:303:138::6)
  by CO6PR04MB8330.namprd04.prod.outlook.com (2603:10b6:303:135::22)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4734.19; Fri, 26 Nov
- 2021 15:40:48 +0000
+ 2021 15:40:57 +0000
 Received: from CO6PR04MB7812.namprd04.prod.outlook.com
  ([fe80::8100:4308:5b21:8d97]) by CO6PR04MB7812.namprd04.prod.outlook.com
  ([fe80::8100:4308:5b21:8d97%9]) with mapi id 15.20.4734.023; Fri, 26 Nov 2021
- 15:40:48 +0000
+ 15:40:57 +0000
 From: Anup Patel <anup.patel@wdc.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
  Atish Patra <atishp@atishpatra.org>
@@ -77,10 +77,13 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
  Anup Patel <anup.patel@wdc.com>
-Subject: [PATCH 0/4] KVM RISC-V 64-bit selftests support
-Date: Fri, 26 Nov 2021 21:10:16 +0530
-Message-Id: <20211126154020.342924-1-anup.patel@wdc.com>
+Subject: [PATCH 2/4] RISC-V: KVM: Add VM capability to allow userspace get GPA
+ size
+Date: Fri, 26 Nov 2021 21:10:18 +0530
+Message-Id: <20211126154020.342924-3-anup.patel@wdc.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20211126154020.342924-1-anup.patel@wdc.com>
+References: <20211126154020.342924-1-anup.patel@wdc.com>
 X-ClientProxiedBy: MAXPR01CA0107.INDPRD01.PROD.OUTLOOK.COM
  (2603:1096:a00:5d::25) To CO6PR04MB7812.namprd04.prod.outlook.com
  (2603:10b6:303:138::6)
@@ -88,63 +91,63 @@ MIME-Version: 1.0
 Received: from wdc.com (122.179.118.153) by
  MAXPR01CA0107.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:5d::25) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.4734.20 via Frontend Transport; Fri, 26 Nov 2021 15:40:44 +0000
+ 15.20.4734.20 via Frontend Transport; Fri, 26 Nov 2021 15:40:53 +0000
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 2e226c34-a6b4-45c3-6609-08d9b0f31e0f
+X-MS-Office365-Filtering-Correlation-Id: 095abe3d-d703-41dc-5f2f-08d9b0f3235a
 X-MS-TrafficTypeDiagnostic: CO6PR04MB8330:
-X-Microsoft-Antispam-PRVS: <CO6PR04MB8330419C20C87A3752E867968D639@CO6PR04MB8330.namprd04.prod.outlook.com>
+X-Microsoft-Antispam-PRVS: <CO6PR04MB83302BEEF72839B951BC768E8D639@CO6PR04MB8330.namprd04.prod.outlook.com>
 WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:8882;
+X-MS-Oob-TLC-OOBClassifiers: OLM:6430;
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: /kqzteLRciZtzL+QPPdISBiCuLuHrpxBBmQoUwPI8CJuv5Y+vZuf3I0+xsYAHAEKVWVHYDrgzqsqAFWriFS7qFMABTPdp9cDx31vgGsoj6nOrwpQgsX3sEiqXvm7kRuznypkwsClC3ZWHYKqD1rBnUkMkCj+1yvjqymSo2adPq6azTtVGJg58SBsue/nom2fXNo+e0d5qXXGmh/R6aXso8KvggnQjE8MuCXA16uj/2dAHykgKhNwThvmwouwX17q/VbXyUz7Wlc8DEpsRu5ipeS10JUz4nPCtt192V2QEP8J9s4agprIVdBmMfbna/rUJUbZIyK/e9P6MCBSb902hjYyTsejAekU9jEFtJ+Vhd12KBcJ9yHmr0L666nWhwK+pKxmcfuti/FIislmrWkXR1ACp2Wo1fAreDitv5aExhPfmnnQ1l/gsuVVWAuHVKiXFUkPMULJBjZiNNjbgRlFRYb0/3K26psEtPnpPz/Gf30C7h7E7hGvAz9RToD9MRUHarQI4AeBjXgN1ItW+Eja5euCB5MPvo4/Q9PSWP9PZP3F3zW3zJVXTSBgN8Im44lIEdvE0zCbrUYIDP4G+S7ZWgs2Q9Dt1Z1lEowtfL+s/3zTzQjCycrkdadVzyMqufaKXN4Zh1/Rn7B+7PuR0i5e6O97qe1gIta+Ae8OOuls+6MPCcPkE/vB09p7rOWTPxDKrnK/ekvnjOlwRfnp5WXhWFQswn71P/p6+TXZQ77IGuiJAurLPY1+ngXc2s9nFVmsIFWqg2/N+KwpUkZ1Ea8I9g/ps6ZfLAI1zxiMjXSKYZ8=
+X-Microsoft-Antispam-Message-Info: sQyrjq01RPcqLxDt23o1AejKQcfAdPUcSz1nBzUlqm0WCIbYDXMZ1TWsyfyPDPpjn5RTs50rN+1gCMTMOk0p6azveTKIWMoy5IgbwK7ndwnDULVaMv7iulMRhMocuCdgDoFCWfhoMxq3W+NUE0milNoQG0rbN/kgPm3gc0NKk+nORTYfsGeyl0bJStIhdX2/8UyzY3G+suLlovNv1Z9yJhECCon7VqhtnuLicwek+kBcplKnYrUq2ZRYnVMqFfohY8moTWTazA2oIlf9eQ8pqj0TbShXuECTAzkAIZUBedZV56OPIkFdrbU5XPQKr8/XKmfkyldyjloSG25GxR2voQzDVejm51lYfuxDFBqyWFqG/CUVEOeYisH75g1jMWkKMPzGve+1YuBx0DtgOdR2QEGQzG+qSB5d7rOncpICH8eYhqVKy0vR6fsTZxulaDz4oQvGofoKJ9GML2vN1Lj6v6VVoZnzjr8dS0+q1V14o3mOzxkEzjIFS7DMSUZVahHMQ3qPlY0xvswt1fIdb/S2U6/gzG5LR4VKpfA4oWOdeIFeCGH0tUjzwp0APQCdH3S9+CTxloOOg4+P4/HHCJmo9Vw5QgCjGSNWX9jB2iWlBodAjbDUO+6CES9Pl6aB9VRvVzKZzSMsBpCjUfU/iM5EZLeo3ZgHA2ezW4KZyYvQEGsNGbZV/ZK/gU4FP/wSohWuHU0/13dssamg9WZA5Pw+fg==
 X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:CO6PR04MB7812.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(366004)(8936002)(1076003)(54906003)(66946007)(110136005)(38350700002)(82960400001)(26005)(66556008)(186003)(44832011)(83380400001)(316002)(6666004)(86362001)(7696005)(956004)(2616005)(7416002)(52116002)(508600001)(2906002)(966005)(5660300002)(36756003)(55016003)(8886007)(38100700002)(66476007)(4326008)(8676002);
+ SFS:(4636009)(366004)(8936002)(1076003)(54906003)(66946007)(110136005)(38350700002)(82960400001)(26005)(66556008)(186003)(44832011)(83380400001)(316002)(6666004)(86362001)(7696005)(956004)(2616005)(7416002)(52116002)(508600001)(2906002)(5660300002)(36756003)(55016003)(8886007)(38100700002)(66476007)(4326008)(8676002);
  DIR:OUT; SFP:1102; 
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qvyLlNXO9rbz51jm1oGv9+B+hyxhaFOQgrCwe70P5uOEscBYpNvl9/PmTXBQ?=
- =?us-ascii?Q?TJdmi/fpTfUqaGSaG7WXcizbY2j48IGg9rWaYg1rV13RNyUCQRfXH6AVbSg1?=
- =?us-ascii?Q?1R/q7IalueBcwQcbhbgVpAWrIyUQboa4ksIGE23yTdnUfKR7P6zjrmOxifup?=
- =?us-ascii?Q?7ZD9OScJCM1M1+6YfJi9QwRPewdLSp+ppiGw9oO2ZcM9upGTDOl+SdYV6JYl?=
- =?us-ascii?Q?Bc89dclgeWdLgbGo7nVj4uqLkaHzco8hlosFjIw0aKThqRCEFhjl5Rm3PQKA?=
- =?us-ascii?Q?gavTeb37Gu3Eu0WByBy75AHS9k9f416cAwHxUoE7yQI8ZEkyRjM5VZlApiuT?=
- =?us-ascii?Q?oVTsIwu4WwM353Uui/KggCha49YtyNHXScyNqsQf6UxcZgVBwi7bREKi6vD8?=
- =?us-ascii?Q?QdE+cStXdj1n1N+wDO8aiZSYFjXHzoDlyG3jR4qJY4SwkslzGrzMYytU5MwV?=
- =?us-ascii?Q?sk6Z2lrpgeJ1+7iZpUCjaYm/h0aLkDjkwm/4AOgnLFJlY4QpHW5IVUYRTBYc?=
- =?us-ascii?Q?vU+ajN1WtC+NsB5JedlmWtWMByu4ZPIspcCrJGQf5ggDnv3yum777fUE2iPI?=
- =?us-ascii?Q?b8JnIr2mCUEFbxdFYxqeuSoY7xU+3EUejlPOJb7khkFitlZRUxLR+SnEBqsz?=
- =?us-ascii?Q?GBHNAuUa/oED3evQvu45ZAG/tdxWsjSthz/cHeQzmppbyQUYzJK78Gigaqdb?=
- =?us-ascii?Q?1OPG2RgTXtQvdLquAiJeNzN7NF7YJMXKiVrxTifRGK8z6vEaSHLSy1qsCUsg?=
- =?us-ascii?Q?TMn1GtOFqZyiCdDN/jXGeK+bNmtaOFw8jgbgF3JMn+3oEFO4+rhMcO34eFDc?=
- =?us-ascii?Q?g86RBhuLqGwwGZXfAqt8eUbKokH+GcLdH+ehfZTnYqBo5eowYoAv+f2k+1Bv?=
- =?us-ascii?Q?B5e3+f98Bz+gvMU8VXCafL9NfoIgoUtICPAnHQ6ifdKX6MA77vDdTnfk/4Xj?=
- =?us-ascii?Q?UwhaV74dvHJk32neCMtV1orBDNO7IPm/zoBRGfSk1JpiC00JaMzyR9WQflky?=
- =?us-ascii?Q?/Zq6cX34gEbTnLJLnmUoiQDny/Znx3QPubDHE2AUJQ5q87UYFen08nvmU5pz?=
- =?us-ascii?Q?gajO7544AahN8ZeAWatX7VALxUnbF+aXm8MpAZshHyhRmsZlI3EFemf2HP+p?=
- =?us-ascii?Q?cN/tUPuHSg74SbkJoBAZoglgLYIeC92eB6v4VXHryL5JFJ6luGTdWocxczyI?=
- =?us-ascii?Q?AI8B1cSeD4Ic0dzYP/jLJDqzDsaJiKDEG3jsF9EZPTTPoRKhFR1FgGg2aKU8?=
- =?us-ascii?Q?NZXBeh5UzDAH/KC0gzskMQbnihyI2Dh0TcYf7tfLRNRrvbA/j4yhqkBsd6Z+?=
- =?us-ascii?Q?QOzlzjPDSoOSJxTGJFc+4mWDjEg+RysD84YsCNlPqfnrt3WLyvu2Z9asFbmH?=
- =?us-ascii?Q?31JEK5vkjJM61QlsZsq7idi0ZPI92KebZv0N0rReS4+TgcSTpMDbpRLkPrho?=
- =?us-ascii?Q?Yd18EUNuvkKl0mdMiIshQW1WRqlEzCQtIKyAf3bBkaM17fYJWtqaK4t2R1gi?=
- =?us-ascii?Q?3w7slJZkcam4g2WZi93EqJMlORNst6IZhy64CPY9RJF3s1RNhWZahjE51AJh?=
- =?us-ascii?Q?QAtQa8ZTs35inPpxiLeaYvhQuWayDOKeRG3umTlPlf5mLodKZk2G5v5rI0rq?=
- =?us-ascii?Q?KOfx8xm68IWXKujMsE1NTWQ=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2iVhKPFs4g3NfSwX5xUciiTT7T8KPLb8Zo8TRPaCZ1oAuI0QKLLyiIESo/0p?=
+ =?us-ascii?Q?o01nXff0jX+eECAwyc56Jtj3AwFNeuLsGkOnGDZv4LIieNrpkUOPHZBkE402?=
+ =?us-ascii?Q?8F8LjIwzPnZ+BWGNMfi1swzU9tJdSI1vvF+XHw0FSTDe4yz9zImbQoqRFBDV?=
+ =?us-ascii?Q?ACEY6z4pS24CLICm5V9tDj0aBdsLwUZkc2w28EyrlnyQzLUfwruDxuDxDzxb?=
+ =?us-ascii?Q?ivn4dbSnxuF+P2EJXPzDl3+DjMQfuOSWQfEINNjytRSV1E7M1pth8n8WRgDQ?=
+ =?us-ascii?Q?8sp2lB6zeyK830/xR1nK5UY5fJcU9L5X7npGe4HmqDjSJsB+wsOpOjHqNTui?=
+ =?us-ascii?Q?LsaiOSfe9UMfbBcpGv29pF0ioeNEPavv+QrJ9E05uEKCcfBrV0ChJFlnKi/W?=
+ =?us-ascii?Q?qTywDY6QMOHs2nMd3CXAWejJ7e5FMBw8kk20ZokOgDHVrKH56NrHwTbFadTU?=
+ =?us-ascii?Q?yskZ8ffcziPvN2p83dj63wsq1DkF7pM7wzomx3MDrMctObwWvNlkaXb5hyb4?=
+ =?us-ascii?Q?XurKsaU/ztwuEzg66IwpidupWHOIh5mMV4KjqfBGlZVZRqJ98U3omSz2dg5M?=
+ =?us-ascii?Q?n40xxTb+qaYGOtjibPD9pUHulbCayLnuRkNijS5injTyFfzxvvjDPmVuzgtw?=
+ =?us-ascii?Q?0r5egxCvG27iHXvJBOsUJXaMO8kgFV6unRgcdUSkqoQ0C82XFh0V1r3TZPtB?=
+ =?us-ascii?Q?94/pAra+UFDTVj48/hOwZ3hJHoEwScpLkiD+yTkjY9oRbvthhDFMJBnB4DGW?=
+ =?us-ascii?Q?W1LMEaKNmE9LlaNIhLDlOYsQk7bXQeZ56dJTwTYho+yU6g/t7BMnVs2x6Cjn?=
+ =?us-ascii?Q?SXDrGJNt5MN8FXSfZQOsQD7hTaQESZbdKfafnWGKFEYhMRATSg1JQR9qzpPy?=
+ =?us-ascii?Q?5zKH/nt6Z07RnnukB8fzx1l980sLMP7Fk1M9G2Zaw27m021KjIf+wB0+9tXg?=
+ =?us-ascii?Q?SsCZfomcfRMcuxO5GVOgQFnzM7nMuM/kJ4DEN3Eqc0xpHwekcnaDsLVrdWf5?=
+ =?us-ascii?Q?ungveuvkLaKZyCfSofu7r8jbGAQ651fISP4nyOJAv79Zox1udCBYDHG1pilg?=
+ =?us-ascii?Q?0wb3BP7TIwKfFU3iQvVRGbtM6KrH/b8g9HBp9N49Ft2w50uprmLrA18IjCxJ?=
+ =?us-ascii?Q?6hYhIRbktmPYLlIhR0+VBxIuDr1VN8gAlXNwTFZ+BXjpIeKuvJLW5qOhWB/D?=
+ =?us-ascii?Q?c2+PrYfn0Ej5cK6Z/l9Hl97WShf04Y/T2HPpq+nXYIK4Z//c5R/pafjymQ3w?=
+ =?us-ascii?Q?St24cMfgY75H8HmkDthvF5pfn4tJNVLMT9vYXtrxunVeq2XyAfWza49H6Gpp?=
+ =?us-ascii?Q?A0tjd2ODd64rAq5Bmtt+vv2ymowGtm7vtblbJHdeI5+iittchwjUI6f7x29m?=
+ =?us-ascii?Q?JtFCuyoEfQUNRfJIn/zdFkP1r5daDyBq62b+LcO7zu9reYPsUbZPKE2HfLZz?=
+ =?us-ascii?Q?8g4oOyrvDMrsNCKyAdYJIxlw2C49Rh3Lc7itc6sV6q3Qskf87bHKqjen28M4?=
+ =?us-ascii?Q?havhNqxtwLS0rJKPZL3Df1aCD8d5A/VHZ4EDB4oL98+OQfghoa0QHs1x7tnA?=
+ =?us-ascii?Q?XVllWAZqygxOkCGFNxr7X0D9shXYAc4v8T1t9hCv/3MkmcsyyjtDqUS9HWeZ?=
+ =?us-ascii?Q?swZlR/64tq0p+sR4E4TPriw=3D?=
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2e226c34-a6b4-45c3-6609-08d9b0f31e0f
+X-MS-Exchange-CrossTenant-Network-Message-Id: 095abe3d-d703-41dc-5f2f-08d9b0f3235a
 X-MS-Exchange-CrossTenant-AuthSource: CO6PR04MB7812.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2021 15:40:48.1565 (UTC)
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2021 15:40:56.9677 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: a0/2aq8ByaX2FPbEgFcfhVJHR5PhBfApjctEXGILXtbv3PJLTGUjty31+1AE3eJwa7CW/pFRVWiYYTME+BT1fg==
+X-MS-Exchange-CrossTenant-UserPrincipalName: x0QGzurF1kkvDAI3JxTYM1eqRQN9S9B2+ddKcWrbd/cD0fVt+6VpHJm1BKabQ1Uya/+vr0DYY1uT+H8W9aDkGA==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR04MB8330
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211126_074051_781843_AAB6535D 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20211126_074058_520852_06A183EF 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,38 +164,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds initial support for testing KVM RISC-V 64-bit using
-kernel selftests framework. The PATCH1 & PATCH2 of this series does
-some ground work in KVM RISC-V to implement RISC-V support in the KVM
-selftests whereas remaining patches does required changes in the KVM
-selftests.
+The GPA size supported for a RISC-V Guest/VM is based on the MMU mode
+used by G-stage translation. The KVM RISC-V will detect and use the
+best possible MMU mode for the G-stage in kvm_arch_init().
 
-These patches can be found in riscv_kvm_selftests_v1 branch at:
-https://github.com/avpatel/linux.git
+We add a RISC-V specific VM capability KVM_CAP_RISCV_VM_GPA_SIZE which
+can be used by KVM userspace to get guest physical address (GPA) size
+(i.e. number of GPA bits) supported for a Guest/VM.
 
-Anup Patel (4):
-  RISC-V: KVM: Forward SBI experimental and vendor extensions
-  RISC-V: KVM: Add VM capability to allow userspace get GPA size
-  KVM: selftests: Add EXTRA_CFLAGS in top-level Makefile
-  KVM: selftests: Add initial support for RISC-V 64-bit
+Signed-off-by: Anup Patel <anup.patel@wdc.com>
+---
+ arch/riscv/include/asm/kvm_host.h | 1 +
+ arch/riscv/kvm/mmu.c              | 5 +++++
+ arch/riscv/kvm/vm.c               | 3 +++
+ include/uapi/linux/kvm.h          | 1 +
+ 4 files changed, 10 insertions(+)
 
- arch/riscv/include/asm/kvm_host.h             |   1 +
- arch/riscv/kvm/mmu.c                          |   5 +
- arch/riscv/kvm/vcpu_sbi.c                     |   4 +
- arch/riscv/kvm/vcpu_sbi_base.c                |  27 ++
- arch/riscv/kvm/vm.c                           |   3 +
- include/uapi/linux/kvm.h                      |   1 +
- tools/testing/selftests/kvm/Makefile          |  14 +-
- .../testing/selftests/kvm/include/kvm_util.h  |  10 +
- .../selftests/kvm/include/riscv/processor.h   | 135 +++++++
- tools/testing/selftests/kvm/lib/guest_modes.c |  10 +
- .../selftests/kvm/lib/riscv/processor.c       | 362 ++++++++++++++++++
- tools/testing/selftests/kvm/lib/riscv/ucall.c |  87 +++++
- 12 files changed, 658 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/kvm/include/riscv/processor.h
- create mode 100644 tools/testing/selftests/kvm/lib/riscv/processor.c
- create mode 100644 tools/testing/selftests/kvm/lib/riscv/ucall.c
-
+diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+index 37589b953bcb..ae5d238607fe 100644
+--- a/arch/riscv/include/asm/kvm_host.h
++++ b/arch/riscv/include/asm/kvm_host.h
+@@ -221,6 +221,7 @@ void kvm_riscv_stage2_free_pgd(struct kvm *kvm);
+ void kvm_riscv_stage2_update_hgatp(struct kvm_vcpu *vcpu);
+ void kvm_riscv_stage2_mode_detect(void);
+ unsigned long kvm_riscv_stage2_mode(void);
++int kvm_riscv_stage2_gpa_size(void);
+ 
+ void kvm_riscv_stage2_vmid_detect(void);
+ unsigned long kvm_riscv_stage2_vmid_bits(void);
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 9ffd0255af43..9b6d6465094f 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -760,3 +760,8 @@ unsigned long kvm_riscv_stage2_mode(void)
+ {
+ 	return stage2_mode >> HGATP_MODE_SHIFT;
+ }
++
++int kvm_riscv_stage2_gpa_size(void)
++{
++	return stage2_gpa_bits;
++}
+diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
+index fb18af34a4b5..ae97f6929897 100644
+--- a/arch/riscv/kvm/vm.c
++++ b/arch/riscv/kvm/vm.c
+@@ -82,6 +82,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+ 	case KVM_CAP_NR_MEMSLOTS:
+ 		r = KVM_USER_MEM_SLOTS;
+ 		break;
++	case KVM_CAP_RISCV_VM_GPA_SIZE:
++		r = kvm_riscv_stage2_gpa_size();
++		break;
+ 	default:
+ 		r = 0;
+ 		break;
+diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+index 1daa45268de2..dac98df3101d 100644
+--- a/include/uapi/linux/kvm.h
++++ b/include/uapi/linux/kvm.h
+@@ -1131,6 +1131,7 @@ struct kvm_ppc_resize_hpt {
+ #define KVM_CAP_EXIT_ON_EMULATION_FAILURE 204
+ #define KVM_CAP_ARM_MTE 205
+ #define KVM_CAP_VM_MOVE_ENC_CONTEXT_FROM 206
++#define KVM_CAP_RISCV_VM_GPA_SIZE 207
+ 
+ #ifdef KVM_CAP_IRQ_ROUTING
+ 
 -- 
 2.25.1
 
