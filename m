@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDDE9C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Nov 2021 09:54:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4511C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Nov 2021 09:54:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KRVa6OWufuJLLW+rn/alLJkERwly4obRdGOamUtauhA=; b=CUwkq6HtuPYTnY
-	Fxyh9Qa7zCEz+XiodLnGji9GjVXhYi2swhp0ZOl77yOtuiNmtKIQzEzxiasUqXH2LEHKmV7tCK4sa
-	izIp4KqdmJucXBDSAef5/WNfbHq2xkNIpwskexvf/ksG0OGO6DGZUbaKrVSHCqenMAyDwtHV13YYd
-	7h8nZQ6WwBUzJQLSCFF62BgQhMngmccXw+GQgidJXGC+mPo15qMbULpBq9iZZXO+AZYKJVfHCHloY
-	OKiOn1Ygcxp76QXUZCN+Hcpz4QzTkNX6gDG794Ixjq5q5fLa61HAe7kvRVM6QbHdPi56X0CEubuHt
-	XmTaSY1EEEsqoGMAumsw==;
+	List-Owner; bh=X/r9/a0u67HZ+5/J1wcGLoSECjnsHOtjnv8thba5dXk=; b=bJw3BJIQOouuU8
+	hOqK4IewBa5AzcCCncVKBR4KpV1ynAa6G6BHpPm4SQ1ZY5cDk7ug77xKVnn1L0kK+SXfWU66ly4TM
+	7ekyKN8i3qRaRAiQgOt5rc+OY1PxjdvJR1alP70vuzODsI2tBOJ9KDZBUSLRHmYGqMznNJsdXygIp
+	t9RXQ2zqNmZWPFLr43aByTbKCescSjgcom66tBtnklmdD6oJztiZtOQwcgpnF/AMYBxZuuInzv5Of
+	vMgr42yXgxn9HEDhNi7nlcfP9PpimIT9cI62d58KG9XEvInI3CYvWTe1BIalGda9a3jnWLpu2gaZr
+	nqKjXsGAIl86VPYpMpmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mqXw5-009omA-12; Fri, 26 Nov 2021 09:54:29 +0000
+	id 1mqXwC-009or1-8n; Fri, 26 Nov 2021 09:54:36 +0000
 Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mqXvP-009oLq-Ba
- for linux-riscv@lists.infradead.org; Fri, 26 Nov 2021 09:53:48 +0000
-Received: from mail-lf1-f72.google.com (mail-lf1-f72.google.com
- [209.85.167.72])
+ id 1mqXvh-009oVD-TB
+ for linux-riscv@lists.infradead.org; Fri, 26 Nov 2021 09:54:07 +0000
+Received: from mail-lf1-f71.google.com (mail-lf1-f71.google.com
+ [209.85.167.71])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 51C174001C
- for <linux-riscv@lists.infradead.org>; Fri, 26 Nov 2021 09:53:45 +0000 (UTC)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 6BD524001C
+ for <linux-riscv@lists.infradead.org>; Fri, 26 Nov 2021 09:54:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1637920425;
- bh=w0EoIKkAxcLpQhYM6DrPKSl6NdTzEKDgHyUHGj2QTug=;
+ s=20210705; t=1637920442;
+ bh=HDZVc4uA5DqONbSrrxMjgBDAsJhsJn2CNSc45+//mZs=;
  h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
  In-Reply-To:Content-Type;
- b=i+cBK1SPzLswl/lqLnSWOtufDbCpmQmBYLmg0JXfMTZGyaD8vV1lXotVhlRxymrrC
- OrXeGLKQSLdsfbmAUIg1Sp79XGwEeYAjZ/AEDThKBXdtpf3twA4pUbVkUFCd+FGCRj
- h2fBh7H7xPoRag2FQHHv8vqUgOGZbULOkVAITkMmIpNDOZ+V3h8ftyUrelBmCvLtvc
- BDve8jeP0dAFgZ2eKmwJf3PQ2+KWOiMx2ZpqMPQk+PwkajWEAeLc8OcdcseLYCKG9B
- FgisphemezeX7Tr2UzSEjKF+THSz3FojtkGCcssx780qxU5AX41sC+7lIQZtiexYJx
- JfOyyZqvgqnZg==
-Received: by mail-lf1-f72.google.com with SMTP id
- c15-20020a05651200cf00b0040524451deeso3944570lfp.20
- for <linux-riscv@lists.infradead.org>; Fri, 26 Nov 2021 01:53:45 -0800 (PST)
+ b=AvEGmz1M6WyTwryfYrR/Mv/YO00z7yrQ6av/LuasNdTL1hqrmR57ItYHlc47ymDoh
+ NyUcxiLVO1thpxH64r1GXSJAXUECtr0LQzqhVt5XtJuQnE6ueoaBbkhVYqj02j1nZz
+ Dwz4hPanQRMbcGgTf3PYvtB4I0yA68lSIqqqXkuN98lKsH163UGzBg4tTgb0c6oBGV
+ N8LiSOX1H7MG/YLu9MkFrO4r6m4XI+uijin9/nDT4eRGA4XBKSfhTsCv0PDAp3yrb/
+ PTgxwYgydktGJT64E6z+tcIUjvpfP4VWqnRpY/6MtFAATaJWekQ9vUQZE/uS1LoG7P
+ acnOcSUVL+ABw==
+Received: by mail-lf1-f71.google.com with SMTP id
+ y21-20020a056512045500b004162526955fso3977865lfk.3
+ for <linux-riscv@lists.infradead.org>; Fri, 26 Nov 2021 01:54:02 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
  :content-language:to:cc:references:from:in-reply-to
  :content-transfer-encoding;
- bh=w0EoIKkAxcLpQhYM6DrPKSl6NdTzEKDgHyUHGj2QTug=;
- b=q2yWl9LiVrWenm8i15SRAR1Vw10MT/X9PQcGYJPH3N3ze9+wqQ1bv3wNV7abEL6y47
- W0lwJ4L/FiHW5F1XtzOX6fRvK7YTId09rt4y/yNpcRVdgl1r/0yB3ImXmJRW7sAliyJg
- CKXTRz7Th616PJNvogyqoiH1Z3sE/xphlpKyS/9uqLz06nAEF8fUubcEcJiQy1tlR/IU
- +b/9Y/HoFNVP07HI40sUjOlkeqjyxcNWPIl5FC2xyXMT3xnh9+++0tb5T+4CJyDbLyAk
- +Qb1xF9de3H4BvXRyx3Ycl5y0KA97YrARjbl8XYcf7WOiuH6z/C0hhxCeFt8FIT7ECs5
- 269A==
-X-Gm-Message-State: AOAM531SpuPrCu7e1FOW4+gui6aG+9D6qlHDWUh0LP3e05twfub20nxO
- AcrvYBSnktmNtgLVCB1+zzdk+fVI5IeT34F4+nZ7F4g3ZcO9precPvbOoUmOdWWsihARu4i/ynX
- 80I9cU1y89GB+VU/WXZDnypEhXHP3rxO9BQl3lX/5D3whrw==
-X-Received: by 2002:a19:484b:: with SMTP id v72mr27586332lfa.338.1637920424831; 
- Fri, 26 Nov 2021 01:53:44 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJxCeJXwq4ItYaL/wZ9/DJC6araykCT+DROx/0u16osfb9BzE6vCtxx6cSJnlcE99nqMNt0Ewg==
-X-Received: by 2002:a19:484b:: with SMTP id v72mr27586318lfa.338.1637920424685; 
- Fri, 26 Nov 2021 01:53:44 -0800 (PST)
+ bh=HDZVc4uA5DqONbSrrxMjgBDAsJhsJn2CNSc45+//mZs=;
+ b=ugvdBuyG00mu0Jbt45Qxnn+r4v+XSLu4O2tU/1S5PHIePvtV+Tk85NrEn9f3UCN2r3
+ 6J+/5BNObkhsbIdTP+j60Pn66MSER6xtLV8qY5EKTzlk8WoW7rizj1swI/ivb/9ZwJmU
+ KhD/rVUjvtg4FChbyEPBZuhAXm+DErKjATeJTC8CE/JTIaEwCZUbasCMc4hSIcjwGBZN
+ txzkJzEAjUofGJGbMlG91/LzkhBoqq92awVLda5xC6+WTOCgFfZdpJphja9mpOViHtZT
+ dbq4XEt7NLHajesij1T28weV/u6EevBgxC8pONT0L1J2zj4+VXVIwvdWb/NjyQmBFV2u
+ Ft0w==
+X-Gm-Message-State: AOAM530wkz9cnyNyrQLKh0s+ncqu7zxpSRhMkPDggKn8g9IAwJYxwaSO
+ hFCs2xTkd2FsbEEBTJUOOHjK6AaqTUswZ8Slj5g3FfJtaddOiJdFqoZbm7O4VtM3CS+zK4hIAiI
+ w16K28+CNb6Io53rdoFW+NbYW8hnkCcUfSc65IhvL3cPYLg==
+X-Received: by 2002:a2e:b88c:: with SMTP id r12mr29240767ljp.204.1637920441894; 
+ Fri, 26 Nov 2021 01:54:01 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJw9WZsVQb6ovekXYugz3PlWjmtYmgUqfC6G5PQic4i0/9fBaW+NpvoF0J57TZIJEWIVsA18BA==
+X-Received: by 2002:a2e:b88c:: with SMTP id r12mr29240752ljp.204.1637920441750; 
+ Fri, 26 Nov 2021 01:54:01 -0800 (PST)
 Received: from [192.168.3.67] (89-77-68-124.dynamic.chello.pl. [89.77.68.124])
  by smtp.gmail.com with ESMTPSA id
- l19sm118529ljq.137.2021.11.26.01.53.43
+ u19sm458410lje.74.2021.11.26.01.54.00
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Fri, 26 Nov 2021 01:53:44 -0800 (PST)
-Message-ID: <7f00d652-3587-b77e-a92b-bf1947fd01cd@canonical.com>
-Date: Fri, 26 Nov 2021 10:53:43 +0100
+ Fri, 26 Nov 2021 01:54:01 -0800 (PST)
+Message-ID: <a30b5864-99b4-6bf8-2034-23a6de416fdf@canonical.com>
+Date: Fri, 26 Nov 2021 10:54:00 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.3.1
-Subject: Re: [PATCH 2/9] riscv: dts: canaan: Group tuples in interrupt
- properties
+Subject: Re: [PATCH 1/9] riscv: dts: canaan: Fix SPI FLASH node names
 Content-Language: en-US
 To: Geert Uytterhoeven <geert@linux-m68k.org>,
  Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
@@ -87,12 +86,12 @@ To: Geert Uytterhoeven <geert@linux-m68k.org>,
  Conor Dooley <conor.dooley@microchip.com>
 Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
 References: <20211125153131.163533-1-geert@linux-m68k.org>
- <20211125153131.163533-3-geert@linux-m68k.org>
+ <20211125153131.163533-2-geert@linux-m68k.org>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-In-Reply-To: <20211125153131.163533-3-geert@linux-m68k.org>
+In-Reply-To: <20211125153131.163533-2-geert@linux-m68k.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211126_015347_613886_073AB374 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20211126_015406_156956_57B96BE7 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,17 +109,20 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 25/11/2021 16:31, Geert Uytterhoeven wrote:
-> To improve human readability and enable automatic validation, the tuples
-> in the various properties containing interrupt specifiers should be
-> grouped.
+> "make dtbs_check":
 > 
-> Fix this by grouping the tuples of "interrupts" and
-> "interrupts-extended" properties using angle brackets.
+>     arch/riscv/boot/dts/canaan/sipeed_maix_bit.dt.yaml: spi-flash@0: $nodename:0: 'spi-flash@0' does not match '^flash(@.*)?$'
+> 	    From schema: Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
+> 
+> Fix this by renaming all SPI FLASH nodes to "flash".
 > 
 > Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
 > ---
->  arch/riscv/boot/dts/canaan/k210.dtsi | 23 ++++++++++++-----------
->  1 file changed, 12 insertions(+), 11 deletions(-)
+>  arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts  | 2 +-
+>  arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts | 2 +-
+>  arch/riscv/boot/dts/canaan/sipeed_maix_go.dts   | 2 +-
+>  arch/riscv/boot/dts/canaan/sipeed_maixduino.dts | 2 +-
+>  4 files changed, 4 insertions(+), 4 deletions(-)
 > 
 
 
