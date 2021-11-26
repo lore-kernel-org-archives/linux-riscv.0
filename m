@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C93E9C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Nov 2021 18:05:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AB67C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Nov 2021 18:05:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wNOrjdVhLKNgmEC80/W/U/+Dmai5+1GWv+UHD7YGjOY=; b=rhp1VSBx/ZnsBz
-	RXBvMHff4JDMts9MGNFmsNC++tDscYFUXcasa+lekptOsGk5S8IH1S4XvGmBa5dtH8PDSnx4ecux1
-	6FUr08qXCN/OtTpW0Jw0rqcZmhX2O8+zxbKknYRY940duQl5sqyxIad01m2Le6Hib2JB9psowD1oc
-	c0JlmjkeclOMKdLitGcrrmG7Y8NssXpkV+xhTPRc0Qbm0/tfTw8QtF76deVTmOqXgU5U+7v3Vll66
-	W6r59gIzSCVDQCoRttii+VPlUwG7ObJT6Q1VMaIlkQCwAZNQ/eLD+i+uKbTovOnScV/2T0eMD9R99
-	CxlvFti2zDW7eeJcusDw==;
+	List-Owner; bh=2ughxHXQlkbvOdMMjZc0b7oWkDdhUUulg+tB/eILHnY=; b=CGCN+dfu0wWKug
+	sikKpTAG6QS6GHesFBYUviuQmMAVdX8RxV1lBdUGRAMI4CKFFOYtL4b/Tx862recvV1SNiXHWyaen
+	xmDC9sdeROa29pq6xshnJNg3pAeW+3P3lH77fSwEmOe/+j6LsxDk7GcDTADjlf+1dzkSchX/Ipkl4
+	uFlmO6zEbAYxo8AdZe+oa1axLgIwRICKH7BJ/ejqW4KZoanZWmGvrLYwzkInK3e7cR0VAOxzguZFt
+	rHBC9AyMI+RS5+3+GQ97Pr2ImhWEih2ekaGU46X9Chlckk8bY8xLJUy081v/CiEoUHqY8121qy18H
+	ZypvnBMs4fNW8It8K56w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mqfbC-00BPqM-Tx; Fri, 26 Nov 2021 18:05:27 +0000
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	id 1mqfbX-00BPzs-Av; Fri, 26 Nov 2021 18:05:47 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mqfYW-00BO6D-Jq; Fri, 26 Nov 2021 18:02:41 +0000
-Received: by mail-lj1-x236.google.com with SMTP id t11so20240929ljh.6;
- Fri, 26 Nov 2021 10:02:40 -0800 (PST)
+ id 1mqfYX-00BO6h-Mh; Fri, 26 Nov 2021 18:02:43 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id n12so26162893lfe.1;
+ Fri, 26 Nov 2021 10:02:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=4OWbCpLiTrW70NMTPpPUNVkhVF3RKPzG5GTofMVph+0=;
- b=U69ILAbrhbxcINYnpRQtUq6JxYWnIXttphxdlME9mX9uCA1JhL5g9P+cnao4IWTUqr
- 9tPjsTZbw0wHPRnIaR2kuXc+6SuT1qdSxK1er9g80is33Nv4fNybvJeDFb+59wZ6/jA9
- lKnEss0hQGNpzJDmSzIVrPcWrzOYo8XEDeBsPuLSgtY/cdbTAUaYPsMA9QVRSCsMpWjK
- 1CeUN4i4UFobttYFMLMl85bmb+/I+XpEOavkYcgGHHLEq9EDDoV4gjylJLb2WQn+vkHq
- yNteEWHoeUyiUUjoXV7o0YPYgF/rr0dWmS9D0ywrrfynL0aziDEWAvzpSp7yO/ZE2I4q
- +yjQ==
+ bh=mfpn4GjmPLTNTnhqDUdqufcuPWBAqiXi1zu9JyEbhbk=;
+ b=hM1s4tUFR2RGbsehgNeqtlhz2+IbxDI+2lgWQ8ES3LNgRGz/xAjj/h4Ls78EguPH/x
+ sj7Z21CprUcfG5nn8EoF76kwSSviG4smz0l8jFTC5BNvXZgtHgEQdplwK2Fxu0Rqh/E1
+ V8FZwbMQTWONCOdG4xwI7vqVS53GtktaEtL51GQTXOjqVVA61Zv3O3fJazEkmisty4dp
+ 3Gk1E0pE7TsZG89FhO0GxGmj2ZIqTcqAQ5mRcksE+hdRm8RCAhjGC808RLqeD5UK/BGQ
+ 4LaXFxReB71FMum+f5Mzo+W8EYR67BV8ZDbCd6lIgSah1PfOKwknzP5/AHemBn7NftRd
+ E7+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=4OWbCpLiTrW70NMTPpPUNVkhVF3RKPzG5GTofMVph+0=;
- b=YxUxPUL0JHtAf1ch52yyhb3fi+wn/CEp/BoMifhGB2lN7OkMuXEz0DoeWoVQXhAQAx
- L5YFVQUdZ4p/91FgSL0+MjsUxRLhoMGn48qMU0/gWG1BDks04/j4aNJFpy2d5s/Qd9CJ
- Pld8CRaiG0sYQNGKPOhFYhoiybFIbgc4uces0G37AEYutewlJ/Ea7qXqTG8nbusPfjd9
- hTzqaX4Ym+pWc40sonr/4Lmeme/TAtquo5H6mmLUJMk6X8VROL3oZ9oque4WsvOa4X+8
- HWFlRGMuquB+CYe9hTTPxw0wWOyWVQMNhsvLulHfoP+obyKjzZn2CeTatjB2CKnR8BIJ
- /gxQ==
-X-Gm-Message-State: AOAM530bp9bc/xyQjE4DQPqUOl9v4Go9lhl62nozVlVwUEo1oWF//Ylf
- aP07Ov79G/KGuvKsRRwGtTo=
-X-Google-Smtp-Source: ABdhPJz1GbkyYg9nMRW5huA9uUFPfXiNfeSRqTr9xzo7mRAD3m0tvpkkS1ciqVKYkPFDmEUOR5tJqw==
-X-Received: by 2002:a2e:a58d:: with SMTP id m13mr33700861ljp.281.1637949757713; 
- Fri, 26 Nov 2021 10:02:37 -0800 (PST)
+ bh=mfpn4GjmPLTNTnhqDUdqufcuPWBAqiXi1zu9JyEbhbk=;
+ b=GokIZsNuPcJENG6Nbykh996vjIO1WCdsObZa4h99FEYE3E3g9MYbw+ePmdyI7wdgln
+ +R8fFHQtUwG/lDLogqk9WTC3rSzR/19pC5fYFtAbS1OIyMULtwImqAs1+nlPtTWIr9cg
+ T0xcHLyVoGd7I9xY1b7av5m09l67TAj83OFMinPOEr34SB0EHMQlriG35q4GeAzgBnRk
+ Z6KWb94ew6eiWydGk+rsdem8Qe9fv0Tz7PmKQo7lxUaA6EBegk7WsYauLz1U7Idiqmk9
+ OM4YRLIud1769NbNpOCwRmShokjAIxSlqCHuVaErnenZba2fDtfXtq1Egs2Gt4ZVUYFk
+ bNwg==
+X-Gm-Message-State: AOAM531rtGULRDq6T5UKB9XmmMee7ZNWRg6SBs16Vr/XVk7rmWkediWp
+ WCa1OkLRwEOF0jPhJeNFrP4=
+X-Google-Smtp-Source: ABdhPJw1NC54RekxTj6U8kHZQHuUa8jaXts7kQjnorzXxbujNyJ8o0PtYTEAbdf23H0ZlL8y0CUSiA==
+X-Received: by 2002:a05:6512:22d3:: with SMTP id
+ g19mr30076146lfu.404.1637949759926; 
+ Fri, 26 Nov 2021 10:02:39 -0800 (PST)
 Received: from localhost.localdomain (94-29-48-99.dynamic.spd-mgts.ru.
  [94.29.48.99])
- by smtp.gmail.com with ESMTPSA id i32sm553831lfv.295.2021.11.26.10.02.35
+ by smtp.gmail.com with ESMTPSA id i32sm553831lfv.295.2021.11.26.10.02.37
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 26 Nov 2021 10:02:37 -0800 (PST)
+ Fri, 26 Nov 2021 10:02:39 -0800 (PST)
 From: Dmitry Osipenko <digetx@gmail.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>,
@@ -100,16 +101,16 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
  xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: [PATCH v4 22/25] memory: emif: Use kernel_can_power_off()
-Date: Fri, 26 Nov 2021 21:00:58 +0300
-Message-Id: <20211126180101.27818-23-digetx@gmail.com>
+Subject: [PATCH v4 23/25] ACPI: power: Switch to sys-off handler API
+Date: Fri, 26 Nov 2021 21:00:59 +0300
+Message-Id: <20211126180101.27818-24-digetx@gmail.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211126180101.27818-1-digetx@gmail.com>
 References: <20211126180101.27818-1-digetx@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211126_100240_716184_ED09E049 
-X-CRM114-Status: GOOD (  15.61  )
+X-CRM114-CacheID: sfid-20211126_100241_839320_3D2A5930 
+X-CRM114-Status: GOOD (  17.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,27 +127,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Replace legacy pm_power_off with kernel_can_power_off() helper that
-is aware about chained power-off handlers.
+Switch to sys-off API that replaces legacy pm_power_off callbacks.
 
 Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
 ---
- drivers/memory/emif.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/acpi/sleep.c | 25 +++++++++++--------------
+ 1 file changed, 11 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/memory/emif.c b/drivers/memory/emif.c
-index 762d0c0f0716..cab10d5274a0 100644
---- a/drivers/memory/emif.c
-+++ b/drivers/memory/emif.c
-@@ -630,7 +630,7 @@ static irqreturn_t emif_threaded_isr(int irq, void *dev_id)
- 		dev_emerg(emif->dev, "SDRAM temperature exceeds operating limit.. Needs shut down!!!\n");
+diff --git a/drivers/acpi/sleep.c b/drivers/acpi/sleep.c
+index eaa47753b758..2e613fddd614 100644
+--- a/drivers/acpi/sleep.c
++++ b/drivers/acpi/sleep.c
+@@ -47,19 +47,11 @@ static void acpi_sleep_tts_switch(u32 acpi_state)
+ 	}
+ }
  
- 		/* If we have Power OFF ability, use it, else try restarting */
--		if (pm_power_off) {
-+		if (kernel_can_power_off()) {
- 			kernel_power_off();
- 		} else {
- 			WARN(1, "FIXME: NO pm_power_off!!! trying restart\n");
+-static int tts_notify_reboot(struct notifier_block *this,
+-			unsigned long code, void *x)
++static void tts_reboot_prepare(struct reboot_prep_data *data)
+ {
+ 	acpi_sleep_tts_switch(ACPI_STATE_S5);
+-	return NOTIFY_DONE;
+ }
+ 
+-static struct notifier_block tts_notifier = {
+-	.notifier_call	= tts_notify_reboot,
+-	.next		= NULL,
+-	.priority	= 0,
+-};
+-
+ static int acpi_sleep_prepare(u32 acpi_state)
+ {
+ #ifdef CONFIG_ACPI_SLEEP
+@@ -1020,7 +1012,7 @@ static void acpi_sleep_hibernate_setup(void)
+ static inline void acpi_sleep_hibernate_setup(void) {}
+ #endif /* !CONFIG_HIBERNATION */
+ 
+-static void acpi_power_off_prepare(void)
++static void acpi_power_off_prepare(struct power_off_prep_data *data)
+ {
+ 	/* Prepare to power off the system */
+ 	acpi_sleep_prepare(ACPI_STATE_S5);
+@@ -1028,7 +1020,7 @@ static void acpi_power_off_prepare(void)
+ 	acpi_os_wait_events_complete();
+ }
+ 
+-static void acpi_power_off(void)
++static void acpi_power_off(struct power_off_data *data)
+ {
+ 	/* acpi_sleep_prepare(ACPI_STATE_S5) should have already been called */
+ 	pr_debug("%s called\n", __func__);
+@@ -1036,6 +1028,11 @@ static void acpi_power_off(void)
+ 	acpi_enter_sleep_state(ACPI_STATE_S5);
+ }
+ 
++static struct sys_off_handler acpi_sys_off_handler = {
++	.power_off_priority = POWEROFF_PRIO_FIRMWARE,
++	.reboot_prepare_cb = tts_reboot_prepare,
++};
++
+ int __init acpi_sleep_init(void)
+ {
+ 	char supported[ACPI_S_STATE_COUNT * 3 + 1];
+@@ -1052,8 +1049,8 @@ int __init acpi_sleep_init(void)
+ 
+ 	if (acpi_sleep_state_supported(ACPI_STATE_S5)) {
+ 		sleep_states[ACPI_STATE_S5] = 1;
+-		pm_power_off_prepare = acpi_power_off_prepare;
+-		pm_power_off = acpi_power_off;
++		acpi_sys_off_handler.power_off_cb = acpi_power_off;
++		acpi_sys_off_handler.power_off_prepare_cb = acpi_power_off_prepare;
+ 	} else {
+ 		acpi_no_s5 = true;
+ 	}
+@@ -1069,6 +1066,6 @@ int __init acpi_sleep_init(void)
+ 	 * Register the tts_notifier to reboot notifier list so that the _TTS
+ 	 * object can also be evaluated when the system enters S5.
+ 	 */
+-	register_reboot_notifier(&tts_notifier);
++	register_sys_off_handler(&acpi_sys_off_handler);
+ 	return 0;
+ }
 -- 
 2.33.1
 
