@@ -4,79 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DEC9C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Nov 2021 18:19:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EB84C433F5
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Nov 2021 18:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3MIcEED6G2FO25aGUfvVuY0fAxpH1Cx9KIbaY97ejPE=; b=MK1LmDIL84YDre
-	7rrjQG6M/SQkxz3Pby74TnSnZCX9z7jKUVrCDLKnAL4i0Fb5rnPqZxKYknUz4AqGY7EXHoF8hJPFy
-	X7WDQ8T4nIVGfcfY4Dt+M13TlcFHAElRMlZPfQLzJmqEO8I04/gRaGR+2giThEmghjMyxZDhQYpHU
-	EaGDse7E/f/mXI3fojywel5dVpl+Nc3YGWoI3lxq8dFianzj7dxsGtpwmJg11O2iD9kaW871gXLIf
-	QXFpGkYt9FIRueUelgR7ZTusplrq9ycBQQVQLoR7jrLjs39cZxyIuHLn+dxu92RFM7Te3l+L3oYsv
-	M/yJjih16PH5CyxxtA2g==;
+	List-Owner; bh=/n8Fw4IyU1F5fHoWTvLyqOcZIf3XUL5VB8l7IOe2NBY=; b=C5CV94jQnZ2w+Q
+	hz+ukD2MzX3VwY4R2vsiYKbzq9vELHjWzT6fvbDFdtX/5dX1mE/bKsj5EZfkfr8RH+7xcK5TU2jKl
+	K0lM68ayWSuoZ9b1WQCRfezZRWY+z9AffqkonsA1Dlvknh29rnNPkVmdpPgMnb5yrRUtS0zQAWxXf
+	PU6Hw+BhxkzL4YuLfhQOARtyz+qnWexSOXgq5Zvq1QjmLdUhslBiahlH/2nIYRGTFhfSRHtHqvbj2
+	MX1riie4+Tgr/DNzbqtz++cM0JRpjaVNW5ArGjWjzZUQJN0exxaV4s5VfuywOQXHQ0pZunyogs9Cn
+	9bTMz02Wh+668PTKJeMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mrOlx-00GRrQ-Vp; Sun, 28 Nov 2021 18:19:34 +0000
-Received: from mail-pj1-f42.google.com ([209.85.216.42])
+	id 1mrPCw-00GU7j-4f; Sun, 28 Nov 2021 18:47:26 +0000
+Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mrOlu-00GRqN-KQ
- for linux-riscv@lists.infradead.org; Sun, 28 Nov 2021 18:19:32 +0000
-Received: by mail-pj1-f42.google.com with SMTP id
- n15-20020a17090a160f00b001a75089daa3so13572952pja.1
- for <linux-riscv@lists.infradead.org>; Sun, 28 Nov 2021 10:19:29 -0800 (PST)
+ id 1mrPCs-00GU62-K7; Sun, 28 Nov 2021 18:47:24 +0000
+Received: by mail-qv1-xf35.google.com with SMTP id i13so12286526qvm.1;
+ Sun, 28 Nov 2021 10:47:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=+5JBAVd8frUmOsccut4e882tgrn1djQ8KjHhL4/ag+E=;
+ b=oEs9cCLNoYNdz+AbfzXoumcqnU2rFCFJ5TyCH12jj8Ix0vmr0cjhof0ocW5eqSpQbo
+ mrHrVXqzVgn1iu3yISJ4wwf50y2BGwES4qCIZWk6z19v3s6rfhM8ODKHsnHGdu0xSYmn
+ zutWpoWgGKrfvlhNB+FDfgo3OCF/7V6L7yaewLYpZDm48/8KLn7Bhlr/nJjgfB4Oiw7i
+ hyEVArk/04uNSdzcAMwME+LGzw661S1XN1lrF6iOjE5r2wDmrufbwXHGBlcjc0XG2JfP
+ D0I2JqoyhsvbiLTErDYg5FY5mgjhIpdLZ1XuQkVWsomuMWeu+IFVGskruJ1MCFhjIPEq
+ wYYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=m5E/2VsB22bAL9LsiGHm8OGiUiuEPFzEndEXLPhvONc=;
- b=mg1TjhKvV3GB0FOLTsyMaveePNrrTJxxb50NVI+fWMXVDocyhGNeNH3o17bH20IhhV
- 7CIiSA6y2mXqBYXolb/xyVADp8TRPiq7IrhN3ziblDbPECDaxBm/F3F0NC231feaIdm3
- wzHzXMWc1znz60aP+R8N9p8QlrsbhvWFmQT8JTCcr8317BMehRIjumxbZ3f8z4ZJhCpF
- u9odxWxdv1TYdJlDRVhSINYBmK7ctznXpH160hGUEjBU3nBbFrpbMEJQx19q5gB7FCFk
- lCZvlpyqWQKOW2C2wBua+CUn0mSTp+sGdfWW5UEyHGL3tdpZh35mNaLGmp0ezf9C2Oi+
- WnFg==
-X-Gm-Message-State: AOAM533/3QUqCDQY2alUAngrbdS0o8ww3BDNxNYZi9S9a+azzC6bRIIa
- /AeQm/BcrT/7Ao88fyhY9dsgcU4rQ+K6C/0kZUw=
-X-Google-Smtp-Source: ABdhPJw/UaRYaYPP7u790TiVEuw+cyKoBT+gz3jjS8ginoOsoo9UsRoKWx6F0Mfo8gbL4qUKLo356lQhYmgTHirR8sQ=
-X-Received: by 2002:a17:90a:ab17:: with SMTP id
- m23mr32269991pjq.194.1638123569367; 
- Sun, 28 Nov 2021 10:19:29 -0800 (PST)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=+5JBAVd8frUmOsccut4e882tgrn1djQ8KjHhL4/ag+E=;
+ b=W+ePG4AXaCNLIJAeSkZfkFU8hlJX22GA4kJUtRD4hfo5IZA/6Ik0ga0f0KXiPKlZEw
+ PMVGWwjdP1ykXTpe7JZ36IVCUMWh/FbB5pKty+uM1fnaWdJk87GwlVj6Yd8JlvMSzH1n
+ nVC60ueI8mN5dJ1j2gWNyYJsTQu4igsfkAgHyePhMBDDEeQtS5NmpvqmOh/WBxlw2avW
+ YMg95/c6z/+/M3TrHuAthim20ONa79/S3qgtzi5exFC3TwzvK+nGLTk+r4mHm162Aaro
+ gkkjjV0eP0gE5rKkJ5kE+ayQKjYocXbSjkovs7YGGBe9Xw+F8l+Mh9svo2YlKwRkJpQf
+ rjBQ==
+X-Gm-Message-State: AOAM530PVaOxEX5S8LaNaqxQsl5E0hHjJ3iys3cpkZwgimL9rmyrFV/F
+ a9HAmMlpAq9RBHGSEHfqkSI=
+X-Google-Smtp-Source: ABdhPJy+21VmTcm+AhhPYb7MVuOfGbfxLsGp1r9C41IKKFVcOTnAXjsR8SRxKxcOFPC3Y4DL0s01XQ==
+X-Received: by 2002:a05:6214:2348:: with SMTP id
+ hu8mr12230119qvb.9.1638125241136; 
+ Sun, 28 Nov 2021 10:47:21 -0800 (PST)
+Received: from localhost ([66.216.211.25])
+ by smtp.gmail.com with ESMTPSA id e13sm7457944qte.56.2021.11.28.10.47.17
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 28 Nov 2021 10:47:20 -0800 (PST)
+Date: Sun, 28 Nov 2021 10:47:12 -0800
+From: Yury Norov <yury.norov@gmail.com>
+To: Dennis Zhou <dennis@kernel.org>
+Cc: Joe Perches <joe@perches.com>, linux-kernel@vger.kernel.org,
+ "James E.J. Bottomley" <jejb@linux.ibm.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ "Paul E. McKenney" <paulmck@kernel.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Alexey Klimov <aklimov@redhat.com>,
+ Amitkumar Karwar <amitkarwar@gmail.com>,
+ Andi Kleen <ak@linux.intel.com>, Andrew Lunn <andrew@lunn.ch>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Andy Gross <agross@kernel.org>, Andy Lutomirski <luto@kernel.org>,
+ Andy Shevchenko <andy@infradead.org>,
+ Anup Patel <anup.patel@wdc.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Christoph Hellwig <hch@lst.de>, Christoph Lameter <cl@linux.com>,
+ Daniel Vetter <daniel@ffwll.ch>, Dave Hansen <dave.hansen@linux.intel.com>,
+ David Airlie <airlied@linux.ie>, David Laight <David.Laight@aculab.com>,
+ Dinh Nguyen <dinguyen@kernel.org>, Geetha sowjanya <gakula@marvell.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Guo Ren <guoren@kernel.org>, Hans de Goede <hdegoede@redhat.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Ian Rogers <irogers@google.com>,
+ Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Jason Wessel <jason.wessel@windriver.com>,
+ Jens Axboe <axboe@fb.com>, Jiri Olsa <jolsa@redhat.com>,
+ Jonathan Cameron <jic23@kernel.org>, Juri Lelli <juri.lelli@redhat.com>,
+ Kalle Valo <kvalo@codeaurora.org>, Kees Cook <keescook@chromium.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Lee Jones <lee.jones@linaro.org>, Marc Zyngier <maz@kernel.org>,
+ Marcin Wojtas <mw@semihalf.com>, Mark Gross <markgross@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Matti Vaittinen <mazziesaccount@gmail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Mel Gorman <mgorman@suse.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Mike Marciniszyn <mike.marciniszyn@cornelisnetworks.com>,
+ Nicholas Piggin <npiggin@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Peter Zijlstra <peterz@infradead.org>, Petr Mladek <pmladek@suse.com>,
+ Randy Dunlap <rdunlap@infradead.org>,
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+ Roy Pledge <Roy.Pledge@nxp.com>, Russell King <linux@armlinux.org.uk>,
+ Saeed Mahameed <saeedm@nvidia.com>, Sagi Grimberg <sagi@grimberg.me>,
+ Sergey Senozhatsky <senozhatsky@chromium.org>,
+ Solomon Peachy <pizza@shaftnet.org>, Stephen Boyd <sboyd@kernel.org>,
+ Stephen Rothwell <sfr@canb.auug.org.au>,
+ Steven Rostedt <rostedt@goodmis.org>,
+ Subbaraya Sundeep <sbhatta@marvell.com>,
+ Sudeep Holla <sudeep.holla@arm.com>, Sunil Goutham <sgoutham@marvell.com>,
+ Tariq Toukan <tariqt@nvidia.com>, Tejun Heo <tj@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Thomas Gleixner <tglx@linutronix.de>, Ulf Hansson <ulf.hansson@linaro.org>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Vineet Gupta <vgupta@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>,
+ Vivien Didelot <vivien.didelot@gmail.com>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ bcm-kernel-feedback-list@broadcom.com, kvm@vger.kernel.org,
+ linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-crypto@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-ia64@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-mm@kvack.org, linux-perf-users@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH 7/9] lib/cpumask: add
+ num_{possible,present,active}_cpus_{eq,gt,le}
+Message-ID: <20211128184712.GA309073@lapt>
+References: <20211128035704.270739-1-yury.norov@gmail.com>
+ <20211128035704.270739-8-yury.norov@gmail.com>
+ <8f389151c39a8a5b6b31d5238cb680305225d9f2.camel@perches.com>
+ <20211128174320.GA304543@lapt> <YaPCOPqpI/oKrTXl@fedora>
 MIME-Version: 1.0
-References: <CANBLGcykFks+EF2m0bdD+j5w43Qy30LBgVnAYJWU+5-WVJH6PA@mail.gmail.com>
- <mhng-5fc3ff6b-1f6e-4efb-8578-20759733887a@palmer-ri-x1c9>
-In-Reply-To: <mhng-5fc3ff6b-1f6e-4efb-8578-20759733887a@palmer-ri-x1c9>
-From: Emil Renner Berthing <kernel@esmil.dk>
-Date: Sun, 28 Nov 2021 19:19:18 +0100
-Message-ID: <CANBLGcxdvztD+WBCA4jCBBzPRHC0v7RiVgG_p8RdVpXxCWnHig@mail.gmail.com>
-Subject: Re: [PATCH v4 00/16] Basic StarFive JH7100 RISC-V SoC support
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>, 
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
- "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Rob Herring <robh+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Marc Zyngier <maz@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Linus Walleij <linus.walleij@linaro.org>, 
- Greg KH <gregkh@linuxfoundation.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Jiri Slaby <jirislaby@kernel.org>, 
- Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
- Drew Fustini <drew@beagleboard.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Michael Zhu <michael.zhu@starfivetech.com>, Fu Wei <tekkamanninja@gmail.com>, 
- Anup Patel <anup.patel@wdc.com>, Matteo Croce <mcroce@microsoft.com>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Content-Disposition: inline
+In-Reply-To: <YaPCOPqpI/oKrTXl@fedora>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211128_101930_695130_8687F7D5 
-X-CRM114-Status: GOOD (  48.27  )
+X-CRM114-CacheID: sfid-20211128_104722_709775_80A3AF17 
+X-CRM114-Status: GOOD (  29.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,98 +152,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 27 Nov 2021 at 02:30, Palmer Dabbelt <palmer@rivosinc.com> wrote:
-> On Tue, 16 Nov 2021 09:28:41 PST (-0800), kernel@esmil.dk wrote:
-> > On Tue, 16 Nov 2021 at 17:08, Arnd Bergmann <arnd@arndb.de> wrote:
-> >> On Tue, Nov 16, 2021 at 4:01 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
-> >> >
-> >> > This series adds support for the StarFive JH7100 RISC-V SoC. The SoC has
-> >> > many devices that need non-coherent dma operations to work which isn't
-> >> > upstream yet[1], so this just adds basic support to boot up, get a
-> >> > serial console, blink an LED and reboot itself. Unlike the Allwinner D1
-> >> > this chip doesn't use any extra pagetable bits, but instead the DDR RAM
-> >> > appears twice in the memory map, with and without the cache.
-> >> >
-> >> > The JH7100 is a test chip for the upcoming JH7110 and about 300 BeagleV
-> >> > Starlight Beta boards were sent out with them as part of a now cancelled
-> >> > BeagleBoard.org project. However StarFive has produced more of the
-> >> > JH7100s and more boards will be available[2] to buy. I've seen pictures
-> >> > of the new boards now, so hopefully before the end of the year.
-> >> >
-> >> > This series is also available at
-> >> > https://github.com/esmil/linux/commits/starlight-minimal
-> >> > ..but a more complete kernel including drivers for non-coherent
-> >> > peripherals based on this series can be found at
-> >> > https://github.com/starfive-tech/linux/tree/visionfive
-> >> >
-> >> > [1]: https://lore.kernel.org/linux-riscv/20210723214031.3251801-2-atish.patra@wdc.com/
-> >> > [2]: https://www.linkedin.com/pulse/starfive-release-open-source-single-board-platform-q3-2021-starfive/
-> >>
-> >> Thanks for adding me to Cc, I've had a look at the series and didn't
-> >> see anything
-> >> wrong with it, and I'm happy to merge it through the SoC tree for the
-> >> initial support
-> >> in 5.17, provided you get an Ack from the arch/riscv maintainers for it.
-> >
-> > Cool!
-> >
-> > @Palmer, do you mind looking through this? Probably patch 1, 15 and 16
-> > are the most relevant to you.
-> >
-> >> Regarding the coherency issue, it's a bit sad to see yet another hacky
-> >> workaround
-> >> in the hardware, but as you say this is unrelated to the driver
-> >> series. I'd actually
-> >> argue that this one isn't that different from the other hack you
-> >> describe, except
-> >> this steals the pagetable bits from the address instead of the reserved flags...
-> >
-> > Yeah, it's definitely a hack, but at least it's not using bits the
-> > spec said was reserved. Hopefully the JH7110 will be fully coherent or
-> > maybe implement the new Svpbmt extension.
->
-> Sorry, this had been sitting on top of my inbox because I hadn't had a
-> chance to figure this stuff out.  Emil poked me on IRC about it, but I
-> figured I'd just write it here so everyone can see:
->
-> IMO there's a huge difference between the StarFive-flavored non-coherent
-> stuff (which relies on physical aliasing) and the T-Head-flavored stuff
-> (which uses page table bits): the PA-aliasing approach is allowed by the
-> ISA, while the page table bits aren't (they're marked as reserved).  IMO
-> we should still figure out a way to take the T-Head stuff, as it's the
-> real-ist hardware we have, but that's a whole different can of worms.
->
-> My worry with this is I've yet to actually be convinced that either of
-> these approaches work.  Specifically, neither of them prevents M-mode
-> from performing (either directly or as a side effect of something like
-> speculation) accesses that violate the attributes we're ascribing to
-> regions in Linux.  IIRC I pointed that out in the Svpmbt patch set,
-> which has exactly the same set of problems.
->
-> That said, I don't really care all that much -- having something here is
-> better than nothing, and we've always relied on the HW vendors just
-> producing HW that works when it comes to any of the IO stuff (ie, even
-> on coherent systems).  These are all drivers so it's really up to those
-> folks where the bar is, so as long as everyone's on the page about that
-> you're not going to get any objections from me so
->
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+On Sun, Nov 28, 2021 at 12:54:00PM -0500, Dennis Zhou wrote:
+> Hello,
+> 
+> On Sun, Nov 28, 2021 at 09:43:20AM -0800, Yury Norov wrote:
+> > On Sun, Nov 28, 2021 at 09:07:52AM -0800, Joe Perches wrote:
+> > > On Sat, 2021-11-27 at 19:57 -0800, Yury Norov wrote:
+> > > > Add num_{possible,present,active}_cpus_{eq,gt,le} and replace num_*_cpus()
+> > > > with one of new functions where appropriate. This allows num_*_cpus_*()
+> > > > to return earlier depending on the condition.
+> > > []
+> > > > diff --git a/arch/arc/kernel/smp.c b/arch/arc/kernel/smp.c
+> > > []
+> > > > @@ -103,7 +103,7 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
+> > > >  	 * if platform didn't set the present map already, do it now
+> > > >  	 * boot cpu is set to present already by init/main.c
+> > > >  	 */
+> > > > -	if (num_present_cpus() <= 1)
+> > > > +	if (num_present_cpus_le(2))
+> > > >  		init_cpu_present(cpu_possible_mask);
+> > > 
+> > > ?  is this supposed to be 2 or 1
+> > 
+> > X <= 1 is the equivalent of X < 2.
+> > 
+> > > > diff --git a/drivers/cpufreq/pcc-cpufreq.c b/drivers/cpufreq/pcc-cpufreq.c
+> > > []
+> > > > @@ -593,7 +593,7 @@ static int __init pcc_cpufreq_init(void)
+> > > >  		return ret;
+> > > >  	}
+> > > >  
+> > > > -	if (num_present_cpus() > 4) {
+> > > > +	if (num_present_cpus_gt(4)) {
+> > > >  		pcc_cpufreq_driver.flags |= CPUFREQ_NO_AUTO_DYNAMIC_SWITCHING;
+> > > >  		pr_err("%s: Too many CPUs, dynamic performance scaling disabled\n",
+> > > >  		       __func__);
+> > > 
+> > > It looks as if the present variants should be using the same values
+> > > so the _le test above with 1 changed to 2 looks odd.
+> >  
+> 
+> I think the confusion comes from le meaning less than rather than lt.
+> Given the general convention of: lt (<), le (<=), eg (=), ge (>=),
+> gt (>), I'd consider renaming your le to lt.
 
-Thanks! Yeah, as you say something is better than nothing. I'd think
-it's helpful to have something to build and test the non-coherent dma
-functionality on, and the nice thing about the Starfive-flavour is
-that it will actually boot into an initramfs root and have a working
-serial console even without the non-coherent dmas working.
-
-> The SOC tree works for me.  It'd be great to have a shared tag I where I
-> can pull in at least the Kconfig.socs stuff, but if that's not easy then
-> it's no big deal -- what's in flight there is pretty trivial on my end,
-> so we can just deal with the merge conflicts.
-
-I guess this is for the SoC maintainers to consider. Let me know if
-that's wrong and I need to do anything.
-
-/Emil
+Ok, makes sense. I'll rename in v2 and add <= and >= versions.
 
 _______________________________________________
 linux-riscv mailing list
