@@ -4,122 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 528A6C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Nov 2021 11:09:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70464C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Nov 2021 16:15:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:MIME-Version:In-Reply-To:
-	References:To:Subject:From:Date:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wK7qosiA2Gg0mRaEMfPOZ6f7v96tiOPHhLyuugiVb2U=; b=nG1QLX+5ksDdPI
-	hlZiOWrGDX3e+7Jnf4PKxjlXUGpGsaIGgwXOlRS+XLpF8qf4s6t79Ydu9eFpyF/kjgyhiAHQ/kgm6
-	RasTGG4HbwbRNW4OopwzgJjqwzb5XHwvmpRYcfiYNsO6o4kc3fn3Zrs+g6putv37sIeOg7+0ALXTo
-	03rQZFIzz4zfr+DeOcgu4UENoDXYhnQhphjh3/OpdqYHtFO5mnuwcbjoF25uEJ7++YSL1ulJV3oCi
-	wxrLTfpRuFEhvpC+S7VwbwwWoM6IE9a83748pqMCgaFT1hbOpsBsLrgtQHLkC90pE/sIYKpVne8oz
-	mOl/x1WmeQkD0FxYfMeA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Pr2DmNdyz1rGOtT1eHpeOxbpyo7WRKQzPvOWhlYO7ZM=; b=nzzIQxxB2dFf8z
+	nw7TMlemidSQw9OCEySZvujPvO6QeW9aSZFYapae0cOz/IMQG/IAWZzsQY7Edn0fq+t0lj1xjyaOI
+	MVWF5Q013DruLxOQbHxqXW/vatGxOxCazdbwz02nc6JRac63SbyIqKqOb8CQoxF8AE71T4l2blS3N
+	Iftk6RyTdiNsuIpBGHsr+UYtNpKfTr1nsVBv9AHjRZwf/3w3yUnSaPf4szSIwrWHomr2S/8dEexZV
+	y4J5ZVIO/yDMM/Wc33rgbTLnJcoMEcX9pHQkj4YMFiWgKufr4fGxi3lxj5eCLL3VFepUp2CRK8WNH
+	VGKtHouMFSXFqZgUJ6BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mrI3E-00FX0R-Ku; Sun, 28 Nov 2021 11:08:56 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1mrMpO-00G9YY-20; Sun, 28 Nov 2021 16:14:58 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mrI3B-00FWyh-SH; Sun, 28 Nov 2021 11:08:55 +0000
-Received: by mail-pl1-x631.google.com with SMTP id y7so9830654plp.0;
- Sun, 28 Nov 2021 03:08:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=date:from:subject:to:references:in-reply-to:mime-version:message-id
- :content-transfer-encoding;
- bh=RLGVormZNrRFWCDJ7jdRt19siDEPnOtSgoMRMWSMPpw=;
- b=JS75cm1kNmau6QTu2rqjTEH1lacCTylUddbQig/MfaOv87fU1R4ixeZwUTvWkojCLe
- FVsH5wJQluo9fnDCJtLxlNsFRugI2zkbabpCQ9VhDSP+vCMkQ9XcDyPUZsKoAN0XUVPp
- aHUTDQx+GNGjfhDN5ufjzO429xe7p71bZ6QrT/eU2apwdj3VV4bcd4Oz9OEiXGFLWmkO
- KTg66HtHflRGYT80QQO1K0h4MxrasFS2dEY2Sip94P5OybBl2LvseRqW7ZJqQswnXYN6
- Cntrs/UrWT/QrCgRauE5NdDXQthF0aHKCC9fzaz2Cb2jdPmYhTY0PX3z2F7VkaSzQTfW
- T9/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:subject:to:references:in-reply-to
- :mime-version:message-id:content-transfer-encoding;
- bh=RLGVormZNrRFWCDJ7jdRt19siDEPnOtSgoMRMWSMPpw=;
- b=O/LncbGoLpdLKlV24tj1sAFIqhDZAjT83i7gM8JiXVGcf/zkId/8TsIweGRo1wcQG5
- bUioK4N8ouXwa0LDHw1MFO//RVAMiEBovNMQ4H4CeCStQVh8TNPlZQ4YSo5fw6m+UX0d
- Hstu+5yWzjTztCP8mEdgAZnxFtzl0oX1S8v9v/H2nZ5Q2E84VWxxVEOAv2cpDIaZOmAR
- W+iGhtgeN91mZmHEhEIu2uazt8In+f4ebJR3mBCaHaUkAxfD7xG+FVlatCwiNXi5F0Wh
- QNg8Qdjd9f6WuHSlVFdpeDBb/QRC/gOiR8BlyDQnUnGLAXuDMheQC9QBM/o1B+L1dKGz
- fH0w==
-X-Gm-Message-State: AOAM530VpeLVcobu4puQTGOHUTNsLmJItcxzgjghL3p5Xf0PVbVLT3n6
- U/1HkulIebpFe7Jju5bpd1Q=
-X-Google-Smtp-Source: ABdhPJwy0Op9mcVC2NuBsFMopKknqC2dkNsLfr7KDw0piI/fX2AvzDRr44yqwWjkuQxAQyAX4DCrnA==
-X-Received: by 2002:a17:902:7fc3:b0:144:e29c:228d with SMTP id
- t3-20020a1709027fc300b00144e29c228dmr51588052plb.4.1638097728470; 
- Sun, 28 Nov 2021 03:08:48 -0800 (PST)
-Received: from localhost (115-64-213-93.static.tpgi.com.au. [115.64.213.93])
- by smtp.gmail.com with ESMTPSA id 9sm9412647pgq.57.2021.11.28.03.08.46
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 28 Nov 2021 03:08:48 -0800 (PST)
-Date: Sun, 28 Nov 2021 21:08:41 +1000
-From: Nicholas Piggin <npiggin@gmail.com>
-Subject: Re: [PATCH 0/9] lib/bitmap: optimize bitmap_weight() usage
-To: Arnaldo Carvalho de Melo <acme@kernel.org>, Andy Gross
- <agross@kernel.org>, David Airlie <airlied@linux.ie>, Alexey Klimov
- <aklimov@redhat.com>, Andi Kleen <ak@linux.intel.com>, Andrew Morton
- <akpm@linux-foundation.org>, Alexander Shishkin
- <alexander.shishkin@linux.intel.com>, Amitkumar Karwar
- <amitkarwar@gmail.com>, Andrew Lunn <andrew@lunn.ch>, Andy Shevchenko
- <andy@infradead.org>, Anup Patel <anup.patel@wdc.com>, Ard Biesheuvel
- <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Jens Axboe <axboe@fb.com>,
- bcm-kernel-feedback-list@broadcom.com, Borislav Petkov <bp@alien8.de>,
- Catalin Marinas <catalin.marinas@arm.com>, Christoph Lameter <cl@linux.com>,
- Daniel Vetter <daniel@ffwll.ch>, Dave Hansen <dave.hansen@linux.intel.com>,
- David Laight <David.Laight@ACULAB.COM>, Dennis Zhou <dennis@kernel.org>,
- Dinh Nguyen <dinguyen@kernel.org>, Geetha sowjanya <gakula@marvell.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Guo Ren <guoren@kernel.org>, Heiko Carstens
- <hca@linux.ibm.com>, Christoph Hellwig <hch@lst.de>, Hans de Goede
- <hdegoede@redhat.com>, Ian Rogers <irogers@google.com>, Jason Wessel
- <jason.wessel@windriver.com>, "James E.J. Bottomley" <jejb@linux.ibm.com>,
- Jonathan Cameron <jic23@kernel.org>, Jiri Olsa <jolsa@redhat.com>, Juri Lelli
- <juri.lelli@redhat.com>, Kees Cook <keescook@chromium.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, Jakub Kicinski
- <kuba@kernel.org>, Kalle Valo <kvalo@codeaurora.org>, kvm@vger.kernel.org,
- Lee Jones <lee.jones@linaro.org>, linux-alpha@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Russell King <linux@armlinux.org.uk>,
- linux-crypto@vger.kernel.org, linux-csky@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mm@kvack.org,
- linux-perf-users@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- Rasmus Villemoes <linux@rasmusvillemoes.dk>, linux-riscv@lists.infradead.org, 
- linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- Andy Lutomirski <luto@kernel.org>, Mark Gross <markgross@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, "Martin K. Petersen"
- <martin.petersen@oracle.com>, Marc Zyngier <maz@kernel.org>, Matti Vaittinen
- <mazziesaccount@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
- Mel Gorman <mgorman@suse.de>, Mike Marciniszyn
- <mike.marciniszyn@cornelisnetworks.com>, Ingo Molnar <mingo@redhat.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Marcin Wojtas <mw@semihalf.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, "Paul E. McKenney" <paulmck@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, Solomon Peachy <pizza@shaftnet.org>,
- Petr Mladek <pmladek@suse.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Randy Dunlap <rdunlap@infradead.org>, Steven Rostedt <rostedt@goodmis.org>,
- Roy Pledge <Roy.Pledge@nxp.com>, Saeed Mahameed <saeedm@nvidia.com>,
- Sagi Grimberg <sagi@grimberg.me>, Subbaraya Sundeep <sbhatta@marvell.com>,
- Stephen Boyd <sboyd@kernel.org>, Sergey Senozhatsky
- <senozhatsky@chromium.org>, Stephen Rothwell <sfr@canb.auug.org.au>,
- Sunil Goutham <sgoutham@marvell.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Tariq Toukan <tariqt@nvidia.com>, Thomas Gleixner <tglx@linutronix.de>,
- Tejun Heo <tj@kernel.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Ulf Hansson <ulf.hansson@linaro.org>, Vlastimil Babka <vbabka@suse.cz>,
- Vineet Gupta <vgupta@kernel.org>, Vincent Guittot
- <vincent.guittot@linaro.org>, Viresh Kumar <viresh.kumar@linaro.org>,
- Vivien Didelot <vivien.didelot@gmail.com>, Will Deacon <will@kernel.org>,
- Yury Norov <yury.norov@gmail.com>
-References: <20211128035704.270739-1-yury.norov@gmail.com>
-In-Reply-To: <20211128035704.270739-1-yury.norov@gmail.com>
+ id 1mrMpL-00G9Xl-Lh; Sun, 28 Nov 2021 16:14:56 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 9086360FE7;
+ Sun, 28 Nov 2021 16:14:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AC91C004E1;
+ Sun, 28 Nov 2021 16:14:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1638116094;
+ bh=vHDplKEDLCK/kpKCYkZg98w+XWHX6aiLaK0i/C/Hktg=;
+ h=From:To:Cc:Subject:Date:From;
+ b=Gpq7AS8WI+lWVCKh3ewefnBYpCMWnrfBjubh8AiL4nnzXPD5Dcrt7Ha3F8WVnvYc0
+ dAJ5ra6jNsGnMaWXQvOmehg6Vf/QRnFXwEVg7GG/Uu6G3DW2EJwSykdjHLs6Plg0w0
+ YoJ0bU5vsqpLF5gi4LtSb0pZa28gtuXtVpQBN+hkOdcvuX8CmpO/XAqq9EhMbzmdup
+ sS+ktGwp5qO86A3uR/eNyTDTm/6ko6fy6kCSv0c0SoG/Rv4dqvueuL1F2UP4apl3b5
+ +tJ7qLdP41CKoCukhosiZNApfNyHI7C0U+oxgmSdXZY1nmlnH8vCIC3yeFGntuuZ9r
+ 2F+8M/UTvFnOQ==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Anup Patel <anup.patel@wdc.com>, Atish Patra <atishp@atishpatra.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kvm-riscv@lists.infradead.org
+Subject: [PATCH 0/5] riscv: misc clean up
+Date: Mon, 29 Nov 2021 00:07:36 +0800
+Message-Id: <20211128160741.2122-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.34.0
 MIME-Version: 1.0
-Message-Id: <1638096766.3elxdzb8ly.astroid@bobo.none>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211128_030853_969086_59D176FD 
-X-CRM114-Status: GOOD (  14.49  )
+X-CRM114-CacheID: sfid-20211128_081455_794099_38AD06F8 
+X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,32 +72,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Excerpts from Yury Norov's message of November 28, 2021 1:56 pm:
-> In many cases people use bitmap_weight()-based functions like this:
-> 
-> 	if (num_present_cpus() > 1)
-> 		do_something();
-> 
-> This may take considerable amount of time on many-cpus machines because
-> num_present_cpus() will traverse every word of underlying cpumask
-> unconditionally.
-> 
-> We can significantly improve on it for many real cases if stop traversing
-> the mask as soon as we count present cpus to any number greater than 1:
-> 
-> 	if (num_present_cpus_gt(1))
-> 		do_something();
-> 
-> To implement this idea, the series adds bitmap_weight_{eq,gt,le}
-> functions together with corresponding wrappers in cpumask and nodemask.
+This series is a misc clean up: clean up useless LoCs, or make some
+functions static, or mark function pointer as __initdata, or remove
+one function().
 
-There would be no change to callers if you maintain counters like what
-is done for num_online_cpus() today. Maybe some fixes to arch code that
-does not use set_cpu_possible() etc APIs required, but AFAIKS it would
-be better to fix such cases anyway.
+Jisheng Zhang (5):
+  riscv: remove cpu_stop()
+  riscv: head: make secondary_start_common() static
+  riscv: kvm: make kvm_riscv_vcpu_fp_clean() static
+  riscv: errata: alternative: mark vendor_patch_func __initdata
+  riscv: head: remove useless __PAGE_ALIGNED_BSS and .balign
 
-Thanks,
-Nick
+ arch/riscv/errata/alternative.c | 3 ++-
+ arch/riscv/include/asm/smp.h    | 2 --
+ arch/riscv/kernel/cpu-hotplug.c | 8 +-------
+ arch/riscv/kernel/head.S        | 9 ++-------
+ arch/riscv/kvm/vcpu_fp.c        | 2 +-
+ 5 files changed, 6 insertions(+), 18 deletions(-)
+
+-- 
+2.34.0
+
 
 _______________________________________________
 linux-riscv mailing list
