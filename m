@@ -4,117 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57130C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Nov 2021 18:10:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DEC9C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Nov 2021 18:19:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MY290ELxfRsEzLQRrPF7NorVh69GXFjL3M7WKMoAzVg=; b=J6KCHcn4UNU4wm
-	L40C6+D6YVn0mQq0fZ0VPqJ30BvwRU+vptfYFrrEAfwnVAdjU4lfweneZf3sOEihZOOdx+M8EkdZA
-	QT8YtzF9TQNk4mXtOqSmvkXm0qRGnOrf7ThRVAizmzOvmVPYje5mvNxsQakmxZXF9Vwdl+fFPDBAF
-	YdXSC5VMMqLfDlQtzIwyI/oaEBkr62GrHP+mZ4d1UGkvbj9u9OoiJ6Qc0AIOee/+qFDYrqFL5B2NQ
-	X0J1CK80czWG+6elNqQ9VJCS85OVAi0F6Hf7ph2DxatCxkxWDitM+Skq7rwYQ36+wsbcKvT3TbXj4
-	FfknyW770gbyFfGzBM2w==;
+	List-Owner; bh=3MIcEED6G2FO25aGUfvVuY0fAxpH1Cx9KIbaY97ejPE=; b=MK1LmDIL84YDre
+	7rrjQG6M/SQkxz3Pby74TnSnZCX9z7jKUVrCDLKnAL4i0Fb5rnPqZxKYknUz4AqGY7EXHoF8hJPFy
+	X7WDQ8T4nIVGfcfY4Dt+M13TlcFHAElRMlZPfQLzJmqEO8I04/gRaGR+2giThEmghjMyxZDhQYpHU
+	EaGDse7E/f/mXI3fojywel5dVpl+Nc3YGWoI3lxq8dFianzj7dxsGtpwmJg11O2iD9kaW871gXLIf
+	QXFpGkYt9FIRueUelgR7ZTusplrq9ycBQQVQLoR7jrLjs39cZxyIuHLn+dxu92RFM7Te3l+L3oYsv
+	M/yJjih16PH5CyxxtA2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mrOdB-00GQeO-R8; Sun, 28 Nov 2021 18:10:29 +0000
-Received: from rere.qmqm.pl ([91.227.64.183])
+	id 1mrOlx-00GRrQ-Vp; Sun, 28 Nov 2021 18:19:34 +0000
+Received: from mail-pj1-f42.google.com ([209.85.216.42])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mrOd8-00GQdL-HG; Sun, 28 Nov 2021 18:10:27 +0000
-Received: from remote.user (localhost [127.0.0.1])
- by rere.qmqm.pl (Postfix) with ESMTPSA id 4J2Gjn33d2zW8;
- Sun, 28 Nov 2021 19:10:21 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=rere.qmqm.pl; s=1;
- t=1638123024; bh=JZhqOAoOJwkFLsUnNQo8o++CiFK7HEGKhePgc/FSOF4=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=BSqkw57UlW2pW1NXQ5wZ96M5n0daMnNFg3ZZGk4QpT65f28st6tvSbAjCuaDYp0Y0
- CmyX5dp3fxa/1bsCgFSoiXvYl/Ivrvk/XW5Lhr31jLklN0/6fnKbeszxM4AJMOo6b9
- hs1WVqqJVnnkAxwtLxudxAhzHN+6r0DPz2i1TcI1//mgPfBMhwBro3m3CGjmkmEKO0
- zFXYptfKQJ6Xhp//QSGLBmM8xlFJVmHJ9/rNfVpoRczyIK6/HJ5953QI6d4A5Zxyqw
- UnYVoDxFeKZcNpL0K/UJMA5pXP8gOMjtVWWYJxoXBIppSPMAs/Uq2+pv87S9vD8wOI
- LfWcTnK2w+pRg==
-X-Virus-Status: Clean
-X-Virus-Scanned: clamav-milter 0.103.3 at mail
-Date: Sun, 28 Nov 2021 19:10:20 +0100
-From: =?iso-8859-2?Q?Micha=B3_Miros=B3aw?= <mirq-linux@rere.qmqm.pl>
-To: Yury Norov <yury.norov@gmail.com>
-Cc: linux-kernel@vger.kernel.org, "James E.J. Bottomley" <jejb@linux.ibm.com>,
- "Martin K. Petersen" <martin.petersen@oracle.com>,
- "Paul E. McKenney" <paulmck@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Alexey Klimov <aklimov@redhat.com>,
- Amitkumar Karwar <amitkarwar@gmail.com>,
- Andi Kleen <ak@linux.intel.com>, Andrew Lunn <andrew@lunn.ch>,
- Andrew Morton <akpm@linux-foundation.org>,
- Andy Gross <agross@kernel.org>, Andy Lutomirski <luto@kernel.org>,
- Andy Shevchenko <andy@infradead.org>,
- Anup Patel <anup.patel@wdc.com>, Ard Biesheuvel <ardb@kernel.org>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Christoph Hellwig <hch@lst.de>, Christoph Lameter <cl@linux.com>,
- Daniel Vetter <daniel@ffwll.ch>, Dave Hansen <dave.hansen@linux.intel.com>,
- David Airlie <airlied@linux.ie>, David Laight <David.Laight@aculab.com>,
- Dennis Zhou <dennis@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>,
- Geetha sowjanya <gakula@marvell.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Guo Ren <guoren@kernel.org>, Hans de Goede <hdegoede@redhat.com>,
- Heiko Carstens <hca@linux.ibm.com>, Ian Rogers <irogers@google.com>,
- Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
- Jason Wessel <jason.wessel@windriver.com>,
- Jens Axboe <axboe@fb.com>, Jiri Olsa <jolsa@redhat.com>,
- Jonathan Cameron <jic23@kernel.org>, Juri Lelli <juri.lelli@redhat.com>,
- Kalle Valo <kvalo@codeaurora.org>, Kees Cook <keescook@chromium.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Lee Jones <lee.jones@linaro.org>, Marc Zyngier <maz@kernel.org>,
- Marcin Wojtas <mw@semihalf.com>, Mark Gross <markgross@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Matti Vaittinen <mazziesaccount@gmail.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Mel Gorman <mgorman@suse.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Mike Marciniszyn <mike.marciniszyn@cornelisnetworks.com>,
- Nicholas Piggin <npiggin@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Peter Zijlstra <peterz@infradead.org>, Petr Mladek <pmladek@suse.com>,
- Randy Dunlap <rdunlap@infradead.org>,
- Rasmus Villemoes <linux@rasmusvillemoes.dk>,
- Roy Pledge <Roy.Pledge@nxp.com>, Russell King <linux@armlinux.org.uk>,
- Saeed Mahameed <saeedm@nvidia.com>, Sagi Grimberg <sagi@grimberg.me>,
- Sergey Senozhatsky <senozhatsky@chromium.org>,
- Solomon Peachy <pizza@shaftnet.org>, Stephen Boyd <sboyd@kernel.org>,
- Stephen Rothwell <sfr@canb.auug.org.au>,
- Steven Rostedt <rostedt@goodmis.org>,
- Subbaraya Sundeep <sbhatta@marvell.com>,
- Sudeep Holla <sudeep.holla@arm.com>, Sunil Goutham <sgoutham@marvell.com>,
- Tariq Toukan <tariqt@nvidia.com>, Tejun Heo <tj@kernel.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Thomas Gleixner <tglx@linutronix.de>, Ulf Hansson <ulf.hansson@linaro.org>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Vineet Gupta <vgupta@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>,
- Vivien Didelot <vivien.didelot@gmail.com>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- bcm-kernel-feedback-list@broadcom.com, kvm@vger.kernel.org,
- linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-crypto@vger.kernel.org, linux-csky@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, linux-perf-users@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH 2/9] lib/bitmap: implement bitmap_{empty,full} with
- bitmap_weight_eq()
-Message-ID: <YaPGDOvBzhiRFcOP@qmqm.qmqm.pl>
-References: <20211128035704.270739-1-yury.norov@gmail.com>
- <20211128035704.270739-3-yury.norov@gmail.com>
+ id 1mrOlu-00GRqN-KQ
+ for linux-riscv@lists.infradead.org; Sun, 28 Nov 2021 18:19:32 +0000
+Received: by mail-pj1-f42.google.com with SMTP id
+ n15-20020a17090a160f00b001a75089daa3so13572952pja.1
+ for <linux-riscv@lists.infradead.org>; Sun, 28 Nov 2021 10:19:29 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=m5E/2VsB22bAL9LsiGHm8OGiUiuEPFzEndEXLPhvONc=;
+ b=mg1TjhKvV3GB0FOLTsyMaveePNrrTJxxb50NVI+fWMXVDocyhGNeNH3o17bH20IhhV
+ 7CIiSA6y2mXqBYXolb/xyVADp8TRPiq7IrhN3ziblDbPECDaxBm/F3F0NC231feaIdm3
+ wzHzXMWc1znz60aP+R8N9p8QlrsbhvWFmQT8JTCcr8317BMehRIjumxbZ3f8z4ZJhCpF
+ u9odxWxdv1TYdJlDRVhSINYBmK7ctznXpH160hGUEjBU3nBbFrpbMEJQx19q5gB7FCFk
+ lCZvlpyqWQKOW2C2wBua+CUn0mSTp+sGdfWW5UEyHGL3tdpZh35mNaLGmp0ezf9C2Oi+
+ WnFg==
+X-Gm-Message-State: AOAM533/3QUqCDQY2alUAngrbdS0o8ww3BDNxNYZi9S9a+azzC6bRIIa
+ /AeQm/BcrT/7Ao88fyhY9dsgcU4rQ+K6C/0kZUw=
+X-Google-Smtp-Source: ABdhPJw/UaRYaYPP7u790TiVEuw+cyKoBT+gz3jjS8ginoOsoo9UsRoKWx6F0Mfo8gbL4qUKLo356lQhYmgTHirR8sQ=
+X-Received: by 2002:a17:90a:ab17:: with SMTP id
+ m23mr32269991pjq.194.1638123569367; 
+ Sun, 28 Nov 2021 10:19:29 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20211128035704.270739-3-yury.norov@gmail.com>
+References: <CANBLGcykFks+EF2m0bdD+j5w43Qy30LBgVnAYJWU+5-WVJH6PA@mail.gmail.com>
+ <mhng-5fc3ff6b-1f6e-4efb-8578-20759733887a@palmer-ri-x1c9>
+In-Reply-To: <mhng-5fc3ff6b-1f6e-4efb-8578-20759733887a@palmer-ri-x1c9>
+From: Emil Renner Berthing <kernel@esmil.dk>
+Date: Sun, 28 Nov 2021 19:19:18 +0100
+Message-ID: <CANBLGcxdvztD+WBCA4jCBBzPRHC0v7RiVgG_p8RdVpXxCWnHig@mail.gmail.com>
+Subject: Re: [PATCH v4 00/16] Basic StarFive JH7100 RISC-V SoC support
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>, 
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+ "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Rob Herring <robh+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Marc Zyngier <maz@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Greg KH <gregkh@linuxfoundation.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Maximilian Luz <luzmaximilian@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Drew Fustini <drew@beagleboard.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Michael Zhu <michael.zhu@starfivetech.com>, Fu Wei <tekkamanninja@gmail.com>, 
+ Anup Patel <anup.patel@wdc.com>, Matteo Croce <mcroce@microsoft.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211128_101026_758953_BB4D9441 
-X-CRM114-Status: GOOD (  19.63  )
+X-CRM114-CacheID: sfid-20211128_101930_695130_8687F7D5 
+X-CRM114-Status: GOOD (  48.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,58 +88,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-2"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 27, 2021 at 07:56:57PM -0800, Yury Norov wrote:
-> Now as we have bitmap_weight_eq(), switch bitmap_full() and
-> bitmap_empty() to using it.
-> =
+On Sat, 27 Nov 2021 at 02:30, Palmer Dabbelt <palmer@rivosinc.com> wrote:
+> On Tue, 16 Nov 2021 09:28:41 PST (-0800), kernel@esmil.dk wrote:
+> > On Tue, 16 Nov 2021 at 17:08, Arnd Bergmann <arnd@arndb.de> wrote:
+> >> On Tue, Nov 16, 2021 at 4:01 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+> >> >
+> >> > This series adds support for the StarFive JH7100 RISC-V SoC. The SoC has
+> >> > many devices that need non-coherent dma operations to work which isn't
+> >> > upstream yet[1], so this just adds basic support to boot up, get a
+> >> > serial console, blink an LED and reboot itself. Unlike the Allwinner D1
+> >> > this chip doesn't use any extra pagetable bits, but instead the DDR RAM
+> >> > appears twice in the memory map, with and without the cache.
+> >> >
+> >> > The JH7100 is a test chip for the upcoming JH7110 and about 300 BeagleV
+> >> > Starlight Beta boards were sent out with them as part of a now cancelled
+> >> > BeagleBoard.org project. However StarFive has produced more of the
+> >> > JH7100s and more boards will be available[2] to buy. I've seen pictures
+> >> > of the new boards now, so hopefully before the end of the year.
+> >> >
+> >> > This series is also available at
+> >> > https://github.com/esmil/linux/commits/starlight-minimal
+> >> > ..but a more complete kernel including drivers for non-coherent
+> >> > peripherals based on this series can be found at
+> >> > https://github.com/starfive-tech/linux/tree/visionfive
+> >> >
+> >> > [1]: https://lore.kernel.org/linux-riscv/20210723214031.3251801-2-atish.patra@wdc.com/
+> >> > [2]: https://www.linkedin.com/pulse/starfive-release-open-source-single-board-platform-q3-2021-starfive/
+> >>
+> >> Thanks for adding me to Cc, I've had a look at the series and didn't
+> >> see anything
+> >> wrong with it, and I'm happy to merge it through the SoC tree for the
+> >> initial support
+> >> in 5.17, provided you get an Ack from the arch/riscv maintainers for it.
+> >
+> > Cool!
+> >
+> > @Palmer, do you mind looking through this? Probably patch 1, 15 and 16
+> > are the most relevant to you.
+> >
+> >> Regarding the coherency issue, it's a bit sad to see yet another hacky
+> >> workaround
+> >> in the hardware, but as you say this is unrelated to the driver
+> >> series. I'd actually
+> >> argue that this one isn't that different from the other hack you
+> >> describe, except
+> >> this steals the pagetable bits from the address instead of the reserved flags...
+> >
+> > Yeah, it's definitely a hack, but at least it's not using bits the
+> > spec said was reserved. Hopefully the JH7110 will be fully coherent or
+> > maybe implement the new Svpbmt extension.
+>
+> Sorry, this had been sitting on top of my inbox because I hadn't had a
+> chance to figure this stuff out.  Emil poked me on IRC about it, but I
+> figured I'd just write it here so everyone can see:
+>
+> IMO there's a huge difference between the StarFive-flavored non-coherent
+> stuff (which relies on physical aliasing) and the T-Head-flavored stuff
+> (which uses page table bits): the PA-aliasing approach is allowed by the
+> ISA, while the page table bits aren't (they're marked as reserved).  IMO
+> we should still figure out a way to take the T-Head stuff, as it's the
+> real-ist hardware we have, but that's a whole different can of worms.
+>
+> My worry with this is I've yet to actually be convinced that either of
+> these approaches work.  Specifically, neither of them prevents M-mode
+> from performing (either directly or as a side effect of something like
+> speculation) accesses that violate the attributes we're ascribing to
+> regions in Linux.  IIRC I pointed that out in the Svpmbt patch set,
+> which has exactly the same set of problems.
+>
+> That said, I don't really care all that much -- having something here is
+> better than nothing, and we've always relied on the HW vendors just
+> producing HW that works when it comes to any of the IO stuff (ie, even
+> on coherent systems).  These are all drivers so it's really up to those
+> folks where the bar is, so as long as everyone's on the page about that
+> you're not going to get any objections from me so
+>
+> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-> Signed-off-by: Yury Norov <yury.norov@gmail.com>
-> ---
->  include/linux/bitmap.h | 26 ++++++++++----------------
->  1 file changed, 10 insertions(+), 16 deletions(-)
-> =
+Thanks! Yeah, as you say something is better than nothing. I'd think
+it's helpful to have something to build and test the non-coherent dma
+functionality on, and the nice thing about the Starfive-flavour is
+that it will actually boot into an initramfs root and have a working
+serial console even without the non-coherent dmas working.
 
-> diff --git a/include/linux/bitmap.h b/include/linux/bitmap.h
-> index 996041f771c8..2d951e4dc814 100644
-> --- a/include/linux/bitmap.h
-> +++ b/include/linux/bitmap.h
-> @@ -386,22 +386,6 @@ static inline int bitmap_subset(const unsigned long =
-*src1,
->  		return __bitmap_subset(src1, src2, nbits);
->  }
->  =
+> The SOC tree works for me.  It'd be great to have a shared tag I where I
+> can pull in at least the Kconfig.socs stuff, but if that's not easy then
+> it's no big deal -- what's in flight there is pretty trivial on my end,
+> so we can just deal with the merge conflicts.
 
-> -static inline bool bitmap_empty(const unsigned long *src, unsigned nbits)
-> -{
-> -	if (small_const_nbits(nbits))
-> -		return ! (*src & BITMAP_LAST_WORD_MASK(nbits));
-> -
-> -	return find_first_bit(src, nbits) =3D=3D nbits;
-> -}
+I guess this is for the SoC maintainers to consider. Let me know if
+that's wrong and I need to do anything.
 
-Since this is supposed to be an optimization, I would go all the way and
-replace this with the trivial implementation instead:
-
-bool bitmap_empty(long *bits, size_t nbits)
-{
-	for (; nbits >=3D BITS_PER_LONG; ++bits, nbits -=3D BITS_PER_LONG)
-		if (*bits)
-			return false;
-
-	if (nbits && *bits & BITMAP_LAST_WORD_MASK(nbits))
-		return false;
-
-	return true;
-}
- =
-
-Best Regards
-Micha=B3 Miros=B3aw
+/Emil
 
 _______________________________________________
 linux-riscv mailing list
