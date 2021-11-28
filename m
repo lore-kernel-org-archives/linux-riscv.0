@@ -4,138 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EB84C433F5
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Nov 2021 18:47:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB089C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Nov 2021 20:08:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/n8Fw4IyU1F5fHoWTvLyqOcZIf3XUL5VB8l7IOe2NBY=; b=C5CV94jQnZ2w+Q
-	hz+ukD2MzX3VwY4R2vsiYKbzq9vELHjWzT6fvbDFdtX/5dX1mE/bKsj5EZfkfr8RH+7xcK5TU2jKl
-	K0lM68ayWSuoZ9b1WQCRfezZRWY+z9AffqkonsA1Dlvknh29rnNPkVmdpPgMnb5yrRUtS0zQAWxXf
-	PU6Hw+BhxkzL4YuLfhQOARtyz+qnWexSOXgq5Zvq1QjmLdUhslBiahlH/2nIYRGTFhfSRHtHqvbj2
-	MX1riie4+Tgr/DNzbqtz++cM0JRpjaVNW5ArGjWjzZUQJN0exxaV4s5VfuywOQXHQ0pZunyogs9Cn
-	9bTMz02Wh+668PTKJeMg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vjxr5IAeCS+U3Eq1qMBl3X6d9aHvLh/taimgdPiWxYE=; b=1AzXg1rUFl0HnY
+	X/HfcN4yBtf4fhlbh5dpu304UqFJpcfjzWnArP4wCXblfhbq/+/SngWejeoVRkZt6qKvYSAT9GMW6
+	woc3Z0jnhpHwwDU1HgN6VODW14gplV4DdOBpC88bgjAJxhLEoUDRXotz0WqRimS+K0Vs3kBTKQdut
+	AXoE7iYX5ich5HrIaugjxsLnIeSHxUmCnPiE/iPUqDGAo65PzaTS5WRCE8g3cxHPeJM5CpanmVUup
+	XK0OVKXEMMdbT2vp0rxRbCudNqlqyBd1Bm/qOAMZWh3xBzCGsEM0sJj26jDhCYlLVLMr9mGnXEEDo
+	rVPlkafBNsTJ8+ppxu0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mrPCw-00GU7j-4f; Sun, 28 Nov 2021 18:47:26 +0000
-Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
+	id 1mrQSj-00GbAj-2h; Sun, 28 Nov 2021 20:07:49 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mrPCs-00GU62-K7; Sun, 28 Nov 2021 18:47:24 +0000
-Received: by mail-qv1-xf35.google.com with SMTP id i13so12286526qvm.1;
- Sun, 28 Nov 2021 10:47:22 -0800 (PST)
+ id 1mrQSf-00GbAF-Mi; Sun, 28 Nov 2021 20:07:48 +0000
+Received: by mail-ed1-x533.google.com with SMTP id v1so62947491edx.2;
+ Sun, 28 Nov 2021 12:07:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=+5JBAVd8frUmOsccut4e882tgrn1djQ8KjHhL4/ag+E=;
- b=oEs9cCLNoYNdz+AbfzXoumcqnU2rFCFJ5TyCH12jj8Ix0vmr0cjhof0ocW5eqSpQbo
- mrHrVXqzVgn1iu3yISJ4wwf50y2BGwES4qCIZWk6z19v3s6rfhM8ODKHsnHGdu0xSYmn
- zutWpoWgGKrfvlhNB+FDfgo3OCF/7V6L7yaewLYpZDm48/8KLn7Bhlr/nJjgfB4Oiw7i
- hyEVArk/04uNSdzcAMwME+LGzw661S1XN1lrF6iOjE5r2wDmrufbwXHGBlcjc0XG2JfP
- D0I2JqoyhsvbiLTErDYg5FY5mgjhIpdLZ1XuQkVWsomuMWeu+IFVGskruJ1MCFhjIPEq
- wYYw==
+ h=sender:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=fjRrTFzKlcV68ouLNyGIWvuxj/K9mKGKp9Bg5eLzYB0=;
+ b=BejSQwGWOtK9gOac3oYMYTmEbQtm7nMBCCLlfhZju6MuaiIa+KwJG0YSWHIN8iQyHo
+ mJ4qUWpaniG9tmVJy35+3b8OCfBVj47GnLe08WTqqaYLzMDPqhChX0HBexfaDUbtV0Tu
+ ujeR6imJC60sdx0u0Gai2kfaR528cZ9A4uuDInfQpMDzkXUPLrzmGQ3NQu0k/1kJ642T
+ MuSCoCCeDpFAwPpUlOyS/y+g1gtnuwPcQ4PjkTn2rl/hO48ypcC7s51pV808quYBt/4X
+ 7auh8hdlABddJyw3XtkLX28fnvqENmtdVwlqjW+Nri/CClj9y0ADrFpCD3CYXlmzq8ST
+ Utvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=+5JBAVd8frUmOsccut4e882tgrn1djQ8KjHhL4/ag+E=;
- b=W+ePG4AXaCNLIJAeSkZfkFU8hlJX22GA4kJUtRD4hfo5IZA/6Ik0ga0f0KXiPKlZEw
- PMVGWwjdP1ykXTpe7JZ36IVCUMWh/FbB5pKty+uM1fnaWdJk87GwlVj6Yd8JlvMSzH1n
- nVC60ueI8mN5dJ1j2gWNyYJsTQu4igsfkAgHyePhMBDDEeQtS5NmpvqmOh/WBxlw2avW
- YMg95/c6z/+/M3TrHuAthim20ONa79/S3qgtzi5exFC3TwzvK+nGLTk+r4mHm162Aaro
- gkkjjV0eP0gE5rKkJ5kE+ayQKjYocXbSjkovs7YGGBe9Xw+F8l+Mh9svo2YlKwRkJpQf
- rjBQ==
-X-Gm-Message-State: AOAM530PVaOxEX5S8LaNaqxQsl5E0hHjJ3iys3cpkZwgimL9rmyrFV/F
- a9HAmMlpAq9RBHGSEHfqkSI=
-X-Google-Smtp-Source: ABdhPJy+21VmTcm+AhhPYb7MVuOfGbfxLsGp1r9C41IKKFVcOTnAXjsR8SRxKxcOFPC3Y4DL0s01XQ==
-X-Received: by 2002:a05:6214:2348:: with SMTP id
- hu8mr12230119qvb.9.1638125241136; 
- Sun, 28 Nov 2021 10:47:21 -0800 (PST)
-Received: from localhost ([66.216.211.25])
- by smtp.gmail.com with ESMTPSA id e13sm7457944qte.56.2021.11.28.10.47.17
+ h=x-gm-message-state:sender:from:to:cc:subject:date:message-id
+ :mime-version:content-transfer-encoding;
+ bh=fjRrTFzKlcV68ouLNyGIWvuxj/K9mKGKp9Bg5eLzYB0=;
+ b=mfo3fXCaRbGYpu7xm9K8O/QmL43yzmbK1NcjzfowlElbbDS69pdtp+QBYTVvZBfaE6
+ yUrUmo2MM+F+e078HpS3H+fptjdGGYaCfgMHdbxV4VQa8B8lsUgqPuPUWUBGE5x9oMiD
+ h/PSvkfwFSrvUWEAH64nJay50EsM/WLJI2QHEoP/Vz2sRgxMxrWhjx+1p1H4ACjqk1Bx
+ wShWMuVuSCBjiGWcQWj+QEd5d5uQIcabu5ZlFKipysv9qpZurWJTokTdomhmCnh5AlsU
+ /XzLw7nuPImF6ULir3eKrUJMiIMaS4NOAxyOwQhN0h8pvuoRAS49JEy8hVyQbVJR5DwM
+ /3aA==
+X-Gm-Message-State: AOAM530B5KKqOnLLIeJKjAVcMWkX3wfIhkYpF6+spB6iS64XP+uWfEMX
+ R1iXZVVMz0Zb9YfpnID0/gm5iC4xaXx9Bw==
+X-Google-Smtp-Source: ABdhPJy3zfX9hYwiSQ3lAsd9+vYfrkuX5dpJBriRc5e3zBw2AVEqmKUlIakYKC9VJ2uSdaPQEjuC+Q==
+X-Received: by 2002:a50:d543:: with SMTP id f3mr66823588edj.56.1638130064179; 
+ Sun, 28 Nov 2021 12:07:44 -0800 (PST)
+Received: from stitch.. (80.71.140.73.ipv4.parknet.dk. [80.71.140.73])
+ by smtp.gmail.com with ESMTPSA id c8sm7506173edu.60.2021.11.28.12.07.43
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 28 Nov 2021 10:47:20 -0800 (PST)
-Date: Sun, 28 Nov 2021 10:47:12 -0800
-From: Yury Norov <yury.norov@gmail.com>
-To: Dennis Zhou <dennis@kernel.org>
-Cc: Joe Perches <joe@perches.com>, linux-kernel@vger.kernel.org,
- "James E.J. Bottomley" <jejb@linux.ibm.com>,
- "Martin K. Petersen" <martin.petersen@oracle.com>,
- "Paul E. McKenney" <paulmck@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Alexey Klimov <aklimov@redhat.com>,
- Amitkumar Karwar <amitkarwar@gmail.com>,
- Andi Kleen <ak@linux.intel.com>, Andrew Lunn <andrew@lunn.ch>,
- Andrew Morton <akpm@linux-foundation.org>,
- Andy Gross <agross@kernel.org>, Andy Lutomirski <luto@kernel.org>,
- Andy Shevchenko <andy@infradead.org>,
- Anup Patel <anup.patel@wdc.com>, Ard Biesheuvel <ardb@kernel.org>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Christoph Hellwig <hch@lst.de>, Christoph Lameter <cl@linux.com>,
- Daniel Vetter <daniel@ffwll.ch>, Dave Hansen <dave.hansen@linux.intel.com>,
- David Airlie <airlied@linux.ie>, David Laight <David.Laight@aculab.com>,
- Dinh Nguyen <dinguyen@kernel.org>, Geetha sowjanya <gakula@marvell.com>,
+ Sun, 28 Nov 2021 12:07:43 -0800 (PST)
+From: Emil Renner Berthing <kernel@esmil.dk>
+To: soc@kernel.org
+Cc: Emil Renner Berthing <kernel@esmil.dk>, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org,
  Geert Uytterhoeven <geert@linux-m68k.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Guo Ren <guoren@kernel.org>, Hans de Goede <hdegoede@redhat.com>,
- Heiko Carstens <hca@linux.ibm.com>, Ian Rogers <irogers@google.com>,
- Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
- Jason Wessel <jason.wessel@windriver.com>,
- Jens Axboe <axboe@fb.com>, Jiri Olsa <jolsa@redhat.com>,
- Jonathan Cameron <jic23@kernel.org>, Juri Lelli <juri.lelli@redhat.com>,
- Kalle Valo <kvalo@codeaurora.org>, Kees Cook <keescook@chromium.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Lee Jones <lee.jones@linaro.org>, Marc Zyngier <maz@kernel.org>,
- Marcin Wojtas <mw@semihalf.com>, Mark Gross <markgross@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Matti Vaittinen <mazziesaccount@gmail.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Mel Gorman <mgorman@suse.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Mike Marciniszyn <mike.marciniszyn@cornelisnetworks.com>,
- Nicholas Piggin <npiggin@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Peter Zijlstra <peterz@infradead.org>, Petr Mladek <pmladek@suse.com>,
- Randy Dunlap <rdunlap@infradead.org>,
- Rasmus Villemoes <linux@rasmusvillemoes.dk>,
- Roy Pledge <Roy.Pledge@nxp.com>, Russell King <linux@armlinux.org.uk>,
- Saeed Mahameed <saeedm@nvidia.com>, Sagi Grimberg <sagi@grimberg.me>,
- Sergey Senozhatsky <senozhatsky@chromium.org>,
- Solomon Peachy <pizza@shaftnet.org>, Stephen Boyd <sboyd@kernel.org>,
- Stephen Rothwell <sfr@canb.auug.org.au>,
- Steven Rostedt <rostedt@goodmis.org>,
- Subbaraya Sundeep <sbhatta@marvell.com>,
- Sudeep Holla <sudeep.holla@arm.com>, Sunil Goutham <sgoutham@marvell.com>,
- Tariq Toukan <tariqt@nvidia.com>, Tejun Heo <tj@kernel.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Thomas Gleixner <tglx@linutronix.de>, Ulf Hansson <ulf.hansson@linaro.org>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Vineet Gupta <vgupta@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>,
- Vivien Didelot <vivien.didelot@gmail.com>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- bcm-kernel-feedback-list@broadcom.com, kvm@vger.kernel.org,
- linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-crypto@vger.kernel.org, linux-csky@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, linux-perf-users@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH 7/9] lib/cpumask: add
- num_{possible,present,active}_cpus_{eq,gt,le}
-Message-ID: <20211128184712.GA309073@lapt>
-References: <20211128035704.270739-1-yury.norov@gmail.com>
- <20211128035704.270739-8-yury.norov@gmail.com>
- <8f389151c39a8a5b6b31d5238cb680305225d9f2.camel@perches.com>
- <20211128174320.GA304543@lapt> <YaPCOPqpI/oKrTXl@fedora>
+ Michael Zhu <michael.zhu@starfivetech.com>,
+ Fu Wei <tekkamanninja@gmail.com>, Arnd Bergmann <arnd@arndb.de>
+Subject: [GIT PULL] Basic StarFive JH7100 RISC-V SoC support for 5.17
+Date: Sun, 28 Nov 2021 21:06:47 +0100
+Message-Id: <20211128200647.147058-1-kernel@esmil.dk>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <YaPCOPqpI/oKrTXl@fedora>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211128_104722_709775_80A3AF17 
-X-CRM114-Status: GOOD (  29.77  )
+X-CRM114-CacheID: sfid-20211128_120745_790606_A393C91E 
+X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,51 +87,131 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 28, 2021 at 12:54:00PM -0500, Dennis Zhou wrote:
-> Hello,
-> 
-> On Sun, Nov 28, 2021 at 09:43:20AM -0800, Yury Norov wrote:
-> > On Sun, Nov 28, 2021 at 09:07:52AM -0800, Joe Perches wrote:
-> > > On Sat, 2021-11-27 at 19:57 -0800, Yury Norov wrote:
-> > > > Add num_{possible,present,active}_cpus_{eq,gt,le} and replace num_*_cpus()
-> > > > with one of new functions where appropriate. This allows num_*_cpus_*()
-> > > > to return earlier depending on the condition.
-> > > []
-> > > > diff --git a/arch/arc/kernel/smp.c b/arch/arc/kernel/smp.c
-> > > []
-> > > > @@ -103,7 +103,7 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
-> > > >  	 * if platform didn't set the present map already, do it now
-> > > >  	 * boot cpu is set to present already by init/main.c
-> > > >  	 */
-> > > > -	if (num_present_cpus() <= 1)
-> > > > +	if (num_present_cpus_le(2))
-> > > >  		init_cpu_present(cpu_possible_mask);
-> > > 
-> > > ?  is this supposed to be 2 or 1
-> > 
-> > X <= 1 is the equivalent of X < 2.
-> > 
-> > > > diff --git a/drivers/cpufreq/pcc-cpufreq.c b/drivers/cpufreq/pcc-cpufreq.c
-> > > []
-> > > > @@ -593,7 +593,7 @@ static int __init pcc_cpufreq_init(void)
-> > > >  		return ret;
-> > > >  	}
-> > > >  
-> > > > -	if (num_present_cpus() > 4) {
-> > > > +	if (num_present_cpus_gt(4)) {
-> > > >  		pcc_cpufreq_driver.flags |= CPUFREQ_NO_AUTO_DYNAMIC_SWITCHING;
-> > > >  		pr_err("%s: Too many CPUs, dynamic performance scaling disabled\n",
-> > > >  		       __func__);
-> > > 
-> > > It looks as if the present variants should be using the same values
-> > > so the _le test above with 1 changed to 2 looks odd.
-> >  
-> 
-> I think the confusion comes from le meaning less than rather than lt.
-> Given the general convention of: lt (<), le (<=), eg (=), ge (>=),
-> gt (>), I'd consider renaming your le to lt.
+The following changes since commit fa55b7dcdc43c1aa1ba12bca9d2dd4318c2a0dbf:
 
-Ok, makes sense. I'll rename in v2 and add <= and >= versions.
+  Linux 5.16-rc1 (2021-11-14 13:56:52 -0800)
+
+are available in the Git repository at:
+
+  https://github.com/esmil/linux.git tags/for-soc
+
+for you to fetch changes up to 398d6e139782d1ce2c9822beb8effba0c9c51cc4:
+
+  RISC-V: Add BeagleV Starlight Beta device tree (2021-11-28 20:07:09 +0100)
+
+----------------------------------------------------------------
+Changes since v4:
+- The reset driver now always uses 64bit read/write on registers even on
+  32bit architectures as requested by Andy.
+
+Changes since v3:
+- The reset driver now uses 64bit read/write on the registers so we can
+  use the regular bitmap macros. Requested by Andy.
+- The pinctrl driver no longer resets the GPIO irq handler to
+  handle_bad_irq on errors, uses reverse xmas tree order where possible
+  and other nits by Andy.
+
+Changes since v2:
+- Ahmad and Geert agreed to switch the license of the clock and reset dt
+  headers to GPL-2.0 OR MIT, so that both headers and device tree files
+  can all use the same license.
+  Bindings are still GPL-2.0-only OR BSD-2-Clause as recommended.
+- Clock and reset drivers now set .suppress_bind_attrs = true and use
+  builtin_platform_driver_probe to make sure the probe function is only
+  called at init time so we can use __init and __initconst.
+- The clock driver now uses devm_clk_hw_register and .parent_data when
+  registering clocks. This way we can use the dt clock indexes rather
+  than strings for parent lists and decrease the amount of static data
+  needed considerably.
+- Various dt binding cleanups from Rob
+- Reworked description in the pinctrl dt binding.
+- Pinctrl driver now depends on CONFIG_OF again since it uses
+  pinconf_generic_parse_dt_config which is otherwise not defined.
+- Pinctrl no longer devm_kfree's data that won't be referenced
+  if dt pinconf parsing fails before registering groups and function,
+  and other nits by Andy.
+- The dw8250 quirk no longer needs a skip_clk_set_rate bit, but sets
+  port->set_termios to the function called after clk_set_rate.
+
+Changes since v1:
+- Let SOC_STARFIVE select RESET_CONTROLLER but drop SERIAL_8250_DW
+- Add missing Signed-of-by to clock dt-binding header
+- Use builtin_platform_driver macro for the clock driver, add explicit
+  comment to the determine_rate callback and other small nits from Andy
+- Use reset-controller for node names in documentation and device tree
+- Use readl_poll_timeout in reset driver to avoid hanging forever if a
+  driver leaves the associated clock gated and sort Kconfig and Makefile
+  entries properly.
+- In the pinctrl driver align register names with documentation, remove
+  invalid __init tag from probe function, use of_property_* functions to
+  parse device tree, hoist pinmux unpacking into helper function to
+  better document what's going on, bail on invalid signal group in
+  device tree and fix many other nits from Andy.
+- Refactor and rebase 8250_dw quirk on tty-next
+
+----------------------------------------------------------------
+Emil Renner Berthing (12):
+      RISC-V: Add StarFive SoC Kconfig option
+      dt-bindings: timer: Add StarFive JH7100 clint
+      dt-bindings: interrupt-controller: Add StarFive JH7100 plic
+      dt-bindings: reset: Add Starfive JH7100 reset bindings
+      reset: starfive-jh7100: Add StarFive JH7100 reset driver
+      dt-bindings: pinctrl: Add StarFive pinctrl definitions
+      dt-bindings: pinctrl: Add StarFive JH7100 bindings
+      pinctrl: starfive: Add pinctrl driver for StarFive SoCs
+      dt-bindings: serial: snps-dw-apb-uart: Add JH7100 uarts
+      serial: 8250_dw: Add StarFive JH7100 quirk
+      RISC-V: Add initial StarFive JH7100 device tree
+      RISC-V: Add BeagleV Starlight Beta device tree
+
+Geert Uytterhoeven (4):
+      dt-bindings: clock: starfive: Add JH7100 clock definitions
+      dt-bindings: clock: starfive: Add JH7100 bindings
+      clk: starfive: Add JH7100 clock generator driver
+      dt-bindings: reset: Add StarFive JH7100 reset definitions
+
+ .../bindings/clock/starfive,jh7100-clkgen.yaml     |   56 +
+ .../interrupt-controller/sifive,plic-1.0.0.yaml    |    1 +
+ .../bindings/pinctrl/starfive,jh7100-pinctrl.yaml  |  307 +++++
+ .../bindings/reset/starfive,jh7100-reset.yaml      |   38 +
+ .../bindings/serial/snps-dw-apb-uart.yaml          |    5 +
+ .../devicetree/bindings/timer/sifive,clint.yaml    |    1 +
+ MAINTAINERS                                        |   22 +
+ arch/riscv/Kconfig.socs                            |    8 +
+ arch/riscv/boot/dts/Makefile                       |    1 +
+ arch/riscv/boot/dts/starfive/Makefile              |    2 +
+ .../boot/dts/starfive/jh7100-beaglev-starlight.dts |  164 +++
+ arch/riscv/boot/dts/starfive/jh7100.dtsi           |  230 ++++
+ drivers/clk/Kconfig                                |    1 +
+ drivers/clk/Makefile                               |    1 +
+ drivers/clk/starfive/Kconfig                       |    9 +
+ drivers/clk/starfive/Makefile                      |    3 +
+ drivers/clk/starfive/clk-starfive-jh7100.c         |  689 ++++++++++
+ drivers/pinctrl/Kconfig                            |   17 +
+ drivers/pinctrl/Makefile                           |    1 +
+ drivers/pinctrl/pinctrl-starfive.c                 | 1354 ++++++++++++++++++++
+ drivers/reset/Kconfig                              |    7 +
+ drivers/reset/Makefile                             |    1 +
+ drivers/reset/reset-starfive-jh7100.c              |  172 +++
+ drivers/tty/serial/8250/8250_dw.c                  |    3 +
+ include/dt-bindings/clock/starfive-jh7100.h        |  202 +++
+ include/dt-bindings/pinctrl/pinctrl-starfive.h     |  275 ++++
+ include/dt-bindings/reset/starfive-jh7100.h        |  126 ++
+ 27 files changed, 3696 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7100-clkgen.yaml
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh7100-pinctrl.yaml
+ create mode 100644 Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
+ create mode 100644 arch/riscv/boot/dts/starfive/Makefile
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7100.dtsi
+ create mode 100644 drivers/clk/starfive/Kconfig
+ create mode 100644 drivers/clk/starfive/Makefile
+ create mode 100644 drivers/clk/starfive/clk-starfive-jh7100.c
+ create mode 100644 drivers/pinctrl/pinctrl-starfive.c
+ create mode 100644 drivers/reset/reset-starfive-jh7100.c
+ create mode 100644 include/dt-bindings/clock/starfive-jh7100.h
+ create mode 100644 include/dt-bindings/pinctrl/pinctrl-starfive.h
+ create mode 100644 include/dt-bindings/reset/starfive-jh7100.h
 
 _______________________________________________
 linux-riscv mailing list
