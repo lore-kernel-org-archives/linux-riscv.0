@@ -4,60 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE9D1C433F5
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Nov 2021 16:15:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE95C433F5
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Nov 2021 17:09:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Date:To:From:Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eVX5isduG3Zg4TjMCSbml25YyLOTjX87rIEC6gRok+k=; b=3NwmjH86qaOk3v
-	khbJfGCQgHq3vGSuFoshea47GvXehpPXj8LdphrXDsMZQkLti9ZoNeXgF95R4Iy2RXLTRGmiVFa/V
-	Kqaqv8h7xvNYkPg7BJDMOpdNwnBFGiTWh77dRuGjktp+kx7HI5FTGdCJe1IXsHnOBB1zWw1iGQBDL
-	NvxCdNk5XiBVGwwSbg486p+R06DuWb9F1J4rE9shejLoDdUO3xTcLhdsQZiItysHHJw3IC3yikwlV
-	lh4wtyCh7DFEHabsC5TPoEdmdvdjhIPB+nI9Uw/qO2XJV280EJZPSCDZNm6HcVcn3KDNV9U0zpaCY
-	eOHARZIWV5rL9RkYlWmg==;
+	List-Owner; bh=sacf8xMqaqsBTxczH/3G2xZYAwxoQaWJsGSx4VhOvr4=; b=gYpGlwCIpSTbns
+	hnRywr6ziUZ88wL47tEkllIAwWtdZdooTLMnsn3a5vdHXW2YqO5uF1cNRRyEvoA7uDuvm5zmNhhuf
+	lIbfqxIwzTPAasMkQaeL/TczYsb+T7CAgumt82DJuzyjMZQzom0FofjCso4nqY38X0H+PtdBVobaW
+	Yu/wc2gHjXjPb65LcW07aulF/9TW50t7mVb57H1ZZ+DB4YVRvJpo/10HZseSyUewW8y9KrqV6wChr
+	pU3a0X2RqXUMwvqe2lXu49l/BqdZd00i3PATtuu+IACjEOc/SzmkJXNh4dpzRvkE/yrZScNp6ll3b
+	skLP4+BfCA2T4CfzkCAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mrMpg-00G9jF-BM; Sun, 28 Nov 2021 16:15:16 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1mrNfY-00GJA4-QZ; Sun, 28 Nov 2021 17:08:52 +0000
+Received: from smtprelay0011.hostedemail.com ([216.40.44.11]
+ helo=smtprelay.hostedemail.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mrMpd-00G9fw-1l; Sun, 28 Nov 2021 16:15:14 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id BB851B80D29;
- Sun, 28 Nov 2021 16:15:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE6C0C53FCB;
- Sun, 28 Nov 2021 16:15:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1638116110;
- bh=vTJ+kJ0LGa5qNHZ7RxBihZ2BrKTUuELoQ0am/1I/pr8=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=XUD1f05OrZVzW97bOm57rVyEfy9CMsa+dt4IKu9VjDT1F5196D0uL2tpWobOF6Xiu
- scu5CWliDRO9tBEROkm5Sg9vUW60EdSVH4iKBrobqW5++i43tGryjRAAMcv8zC1Q2C
- mzzMkylnpa17YCfNMO58pMzuq5hjhvB/teHsz/dl7xXNYsRTvAAHLSyKqrO4U8vFr0
- YwcWNwpPYJIb1Bo4hOUsFHFpIu6YerwShemGLGr+LTj3W9hV/1NMxVkXbhYc5pzH3Y
- r9G94g4E6jJKG8zuQdEFp1Wt5YNvtVTidVTnHKmpX2li0TLOsqRzeRJAigG4E/XtX7
- zzoMSbWIsOYDA==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Anup Patel <anup.patel@wdc.com>, Atish Patra <atishp@atishpatra.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- kvm-riscv@lists.infradead.org
-Subject: [PATCH 5/5] riscv: head: remove useless __PAGE_ALIGNED_BSS and .balign
-Date: Mon, 29 Nov 2021 00:07:41 +0800
-Message-Id: <20211128160741.2122-6-jszhang@kernel.org>
-X-Mailer: git-send-email 2.34.0
-In-Reply-To: <20211128160741.2122-1-jszhang@kernel.org>
-References: <20211128160741.2122-1-jszhang@kernel.org>
+ id 1mrNfU-00GJ96-U5; Sun, 28 Nov 2021 17:08:50 +0000
+Received: from omf04.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
+ by smtprelay08.hostedemail.com (Postfix) with ESMTP id D5832182CED2A;
+ Sun, 28 Nov 2021 17:08:43 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: joe@perches.com) by
+ omf04.hostedemail.com (Postfix) with ESMTPA id 5EF1EA00041C; 
+ Sun, 28 Nov 2021 17:07:48 +0000 (UTC)
+Message-ID: <8f389151c39a8a5b6b31d5238cb680305225d9f2.camel@perches.com>
+Subject: Re: [PATCH 7/9] lib/cpumask: add
+ num_{possible,present,active}_cpus_{eq,gt,le}
+From: Joe Perches <joe@perches.com>
+To: Yury Norov <yury.norov@gmail.com>, linux-kernel@vger.kernel.org, "James
+ E.J. Bottomley" <jejb@linux.ibm.com>, "Martin K. Petersen"
+ <martin.petersen@oracle.com>, "Paul E. McKenney" <paulmck@kernel.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Alexander Shishkin
+ <alexander.shishkin@linux.intel.com>, Alexey Klimov <aklimov@redhat.com>,
+ Amitkumar Karwar <amitkarwar@gmail.com>, Andi Kleen <ak@linux.intel.com>,
+ Andrew Lunn <andrew@lunn.ch>, Andrew Morton <akpm@linux-foundation.org>,
+ Andy Gross <agross@kernel.org>, Andy Lutomirski <luto@kernel.org>, Andy
+ Shevchenko <andy@infradead.org>, Anup Patel <anup.patel@wdc.com>, Ard
+ Biesheuvel <ardb@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>, Catalin
+ Marinas <catalin.marinas@arm.com>, Christoph Hellwig <hch@lst.de>,
+ Christoph Lameter <cl@linux.com>, Daniel Vetter <daniel@ffwll.ch>, Dave
+ Hansen <dave.hansen@linux.intel.com>, David Airlie <airlied@linux.ie>,
+ David Laight <David.Laight@ACULAB.COM>, Dennis Zhou <dennis@kernel.org>,
+ Dinh Nguyen <dinguyen@kernel.org>, Geetha sowjanya <gakula@marvell.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Guo Ren <guoren@kernel.org>, Hans de Goede
+ <hdegoede@redhat.com>, Heiko Carstens <hca@linux.ibm.com>, Ian Rogers
+ <irogers@google.com>, Ingo Molnar <mingo@redhat.com>, Jakub Kicinski
+ <kuba@kernel.org>, Jason Wessel <jason.wessel@windriver.com>, Jens Axboe
+ <axboe@fb.com>, Jiri Olsa <jolsa@redhat.com>, Jonathan Cameron
+ <jic23@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Kalle Valo
+ <kvalo@codeaurora.org>, Kees Cook <keescook@chromium.org>, Krzysztof
+ Kozlowski <krzysztof.kozlowski@canonical.com>,  Lee Jones
+ <lee.jones@linaro.org>, Marc Zyngier <maz@kernel.org>, Marcin Wojtas
+ <mw@semihalf.com>,  Mark Gross <markgross@kernel.org>, Mark Rutland
+ <mark.rutland@arm.com>, Matti Vaittinen <mazziesaccount@gmail.com>, Mauro
+ Carvalho Chehab <mchehab@kernel.org>, Mel Gorman <mgorman@suse.de>, Michael
+ Ellerman <mpe@ellerman.id.au>, Mike Marciniszyn
+ <mike.marciniszyn@cornelisnetworks.com>, Nicholas Piggin
+ <npiggin@gmail.com>,  Palmer Dabbelt <palmer@dabbelt.com>, Peter Zijlstra
+ <peterz@infradead.org>, Petr Mladek <pmladek@suse.com>,  Randy Dunlap
+ <rdunlap@infradead.org>, Rasmus Villemoes <linux@rasmusvillemoes.dk>, Roy
+ Pledge <Roy.Pledge@nxp.com>, Russell King <linux@armlinux.org.uk>, Saeed
+ Mahameed <saeedm@nvidia.com>, Sagi Grimberg <sagi@grimberg.me>, Sergey
+ Senozhatsky <senozhatsky@chromium.org>, Solomon Peachy
+ <pizza@shaftnet.org>, Stephen Boyd <sboyd@kernel.org>, Stephen Rothwell
+ <sfr@canb.auug.org.au>, Steven Rostedt <rostedt@goodmis.org>, Subbaraya
+ Sundeep <sbhatta@marvell.com>, Sudeep Holla <sudeep.holla@arm.com>, Sunil
+ Goutham <sgoutham@marvell.com>, Tariq Toukan <tariqt@nvidia.com>, Tejun Heo
+ <tj@kernel.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Thomas
+ Gleixner <tglx@linutronix.de>, Ulf Hansson <ulf.hansson@linaro.org>,
+ Vincent Guittot <vincent.guittot@linaro.org>,  Vineet Gupta
+ <vgupta@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, Vivien Didelot
+ <vivien.didelot@gmail.com>, Vlastimil Babka <vbabka@suse.cz>, Will Deacon
+ <will@kernel.org>, bcm-kernel-feedback-list@broadcom.com,
+ kvm@vger.kernel.org,  linux-alpha@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,  linux-crypto@vger.kernel.org,
+ linux-csky@vger.kernel.org,  linux-ia64@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mm@kvack.org, 
+ linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
+ linuxppc-dev@lists.ozlabs.org
+Date: Sun, 28 Nov 2021 09:07:52 -0800
+In-Reply-To: <20211128035704.270739-8-yury.norov@gmail.com>
+References: <20211128035704.270739-1-yury.norov@gmail.com>
+ <20211128035704.270739-8-yury.norov@gmail.com>
+User-Agent: Evolution 3.40.4-1 
 MIME-Version: 1.0
+X-Stat-Signature: umd6ft7bscstit6mcsb41shstont4bff
+X-Rspamd-Server: rspamout01
+X-Rspamd-Queue-Id: 5EF1EA00041C
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Session-ID: U2FsdGVkX1+NoJl8n1YyBqeqY0nk94+uRiGfczHPVi8=
+X-HE-Tag: 1638119268-113142
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211128_081513_257550_17B925DC 
-X-CRM114-Status: UNSURE (   9.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211128_090849_140756_C3D11EA3 
+X-CRM114-Status: GOOD (  20.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,29 +120,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-After commit 83e7b8769a08 ("RISC-V: move empty_zero_page definition to
-C and export it"), the empty_zero_page has been moved outside head.S,
-the __PAGE_ALIGNED_BSS and .balign LoCs are useless, clean up them.
+On Sat, 2021-11-27 at 19:57 -0800, Yury Norov wrote:
+> Add num_{possible,present,active}_cpus_{eq,gt,le} and replace num_*_cpus()
+> with one of new functions where appropriate. This allows num_*_cpus_*()
+> to return earlier depending on the condition.
+[]
+> diff --git a/arch/arc/kernel/smp.c b/arch/arc/kernel/smp.c
+[]
+> @@ -103,7 +103,7 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
+>  	 * if platform didn't set the present map already, do it now
+>  	 * boot cpu is set to present already by init/main.c
+>  	 */
+> -	if (num_present_cpus() <= 1)
+> +	if (num_present_cpus_le(2))
+>  		init_cpu_present(cpu_possible_mask);
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
- arch/riscv/kernel/head.S | 4 ----
- 1 file changed, 4 deletions(-)
+?  is this supposed to be 2 or 1
 
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 3ce95f8783bd..c128a32c2ed3 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -447,7 +447,3 @@ ENTRY(reset_regs)
- 	ret
- END(reset_regs)
- #endif /* CONFIG_RISCV_M_MODE */
--
--__PAGE_ALIGNED_BSS
--	/* Empty zero page */
--	.balign PAGE_SIZE
--- 
-2.34.0
+> diff --git a/drivers/cpufreq/pcc-cpufreq.c b/drivers/cpufreq/pcc-cpufreq.c
+[]
+> @@ -593,7 +593,7 @@ static int __init pcc_cpufreq_init(void)
+>  		return ret;
+>  	}
+>  
+> -	if (num_present_cpus() > 4) {
+> +	if (num_present_cpus_gt(4)) {
+>  		pcc_cpufreq_driver.flags |= CPUFREQ_NO_AUTO_DYNAMIC_SWITCHING;
+>  		pr_err("%s: Too many CPUs, dynamic performance scaling disabled\n",
+>  		       __func__);
+
+It looks as if the present variants should be using the same values
+so the _le test above with 1 changed to 2 looks odd.
+
 
 
 _______________________________________________
