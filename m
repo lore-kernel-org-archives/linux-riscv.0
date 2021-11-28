@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B0BC433FE
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Nov 2021 03:57:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F159EC4332F
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Nov 2021 03:57:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dmIHkbi8LOWnTCsZsUcipY10ll3D79U4OYSMrM4BB4Y=; b=fFWTSvRCoePVZt
-	9PUXO5BcJBuwBLep9RnNk9ghdzJYFHGYHE8TH355A8axSc8wGxj7x+Mp9R7Qvui8uNvDQxeUgKfcE
-	cF8AZJ+ZT/3IWpdDiErsax+KgYMNFtssbVKu6U+VMfQ6ZPxgk15vnBeUhyD7BXZjjQV6OAV3QcKqK
-	IJc3ybhGSWP1asVlta3lTgB85Q7WCVluQeMLNn/c1xGeM5PXdq8nR3okn8v1QA4DMzNued9bOpaTk
-	TULpu0HzVJDqt5As68GGvdZNAD2dg+hRcezbC0g2kWnqCwy7nk6t9sJqNjJr0J/+O3XGYEmDJlHrQ
-	eTYrkwnwAZ5r9pu+h0Qg==;
+	List-Owner; bh=Yc56tBS2MHXrHQfkCinRrIOkblHVLV3zI6w3kCGyelQ=; b=gkMPSFp6nVExJL
+	bY2gdQhrcbiwilKpNxAUiiB47uY6b9NIDjaiDJZzGDXLaLwb6XKHrtvMJV6kg0A6l0u9bx1/YNERW
+	9J7MvFpHjURshO0sQdtOTsTO6ci4C0nSQYeR0Z1PLO9i5gULyJ4BRjWznfoN+Lj1zEx72Wxp8EIQJ
+	vn++3ySIy0ghqby79Kt3LnBrC5bbojBNW9I/TsZ46C6PsOG1Vndj/EwfIfvE80aAf2EWXqTT7HIvb
+	Impq2BsNNnOBitAyBFhRcUuisIFObLQk/6F1EoRF91Ht1/OeqSownKvQ6x+Y4EReesqYd0j0B0KEh
+	024sj7nGNaSoLtJXrxnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mrBJT-00ExUc-HG; Sun, 28 Nov 2021 03:57:15 +0000
-Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
+	id 1mrBJb-00Exbi-Nk; Sun, 28 Nov 2021 03:57:23 +0000
+Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mrBJN-00ExR6-Rq; Sun, 28 Nov 2021 03:57:11 +0000
-Received: by mail-qt1-x836.google.com with SMTP id t34so12906409qtc.7;
- Sat, 27 Nov 2021 19:57:09 -0800 (PST)
+ id 1mrBJS-00ExTw-UJ; Sun, 28 Nov 2021 03:57:17 +0000
+Received: by mail-qt1-x82d.google.com with SMTP id n15so12961694qta.0;
+ Sat, 27 Nov 2021 19:57:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=from:to:subject:date:message-id:in-reply-to:references:mime-version
  :content-transfer-encoding;
- bh=oyYw0S0uIYbzbJlT2sTRB5/AL9ZCZW5naP5e066GZEw=;
- b=pRmYH3DF71YxuUIeQtUZruUdNNbsy9VbRav7B36MJevKZvkrVj0n380VwT9ymC/6tG
- I3jRVCazSdBphHgxopQgwYWsemberSxSLLmEZ3tbZZbD8KpHpZflSpa+2S0k6f6QnB63
- LB8J/U92ggXSM5heSnBWXElO/lbm0h3GvHDm+xfKfMbvFUiCUQhf7pfNhI/oaY9IVP8w
- 7t+nf549TZ3BfT1eSpUgpkQbcUE7bqe1pWWQUMdmdt6c2ZEHLOYC5EdviqL4d6Gm0jRf
- 3M/+zB1qnWTzYKLjhE16NC3G38+E6HR1NvaA5CMDVSJ3aiJNz0XRVEXMB3VTCE4t50qm
- Oo5Q==
+ bh=H+0/mMWVLBc0wFNpOhji1TJiaceI6QMtcr7R9Q6dM20=;
+ b=lVAvJuseRVdeHTOo2Y7mk5xddpnWMThQC/FDqaOqWEil7NGqGvuTT2vTtc8JApB1On
+ rwTrnsliJwpLmiyQSM9OqqWa6EPw1ymcYojog7rfeiVURqwEdf9hS6xTZe8oDGGwHdny
+ aK1w2tg5Ekqv9iv81kAt7Npug+iyEUgf4o3nEvYzrRlhZteFt02vrviCT9i+8phbPXRu
+ JJqg4OHU+ohLAbgYCuyVHyXqucl7jQ4rcAejOtbHfC4KnrOUVWH2RMVL4Idjxyc1kFhq
+ oY2cTtJH+fz+Xupw9BJ2IoO73mMs9A7hwVo8/Z5tWCtaVDaOzAvUblIFixjHUSHPMB1Y
+ bM1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=oyYw0S0uIYbzbJlT2sTRB5/AL9ZCZW5naP5e066GZEw=;
- b=5mN7tpFD0cR1UUu9iAeebPyrrC0HfZ+nmKA7/JMd/DVKtud4zdM/SWsqQWj7T4wP10
- agRWUsh+J9AZ/FSBb/K7qzNx+Ebr66oMHsbEbAVrPfL9BDwlD9ijbARBpYcnPylMHitB
- 5O+qeFVfJvpJ+yqmolkkFFy9ptZ/smydmip5yoJSgyq/+GsI38YoYls2o5EEG8C5llUX
- K3lepuD05kV5N4Pzdp4RMeCcTr8u/H4DYMndYHchAQq4SjQoflqDZx6rRNoL5yIm3JFT
- xE6Yr/YMY83bX43rNAD51EDcqFvpLvQP54FzZ671zLL79l2lUG2Yx5//MqTWJF8kLjyK
- 4t8Q==
-X-Gm-Message-State: AOAM5328pfbz8XArMGQAmnklsoKhb1UvtjUzYbqvris0EJ0jz7XtsccY
- DqazpN5D/aDsMz4lt7c+hQA=
-X-Google-Smtp-Source: ABdhPJzCSIHK5gqoZpz/7aPIEpGhuYe/wtGfXQ5VTkZ0R5LJuGRI9ufln+7naenMGGb1nvoOREIAZQ==
-X-Received: by 2002:ac8:7fca:: with SMTP id b10mr26533825qtk.500.1638071828690; 
- Sat, 27 Nov 2021 19:57:08 -0800 (PST)
+ bh=H+0/mMWVLBc0wFNpOhji1TJiaceI6QMtcr7R9Q6dM20=;
+ b=UxFZQFNSH22DuZcb1ERBP/aFK3fTb1AGAfRY7EEFGrgHGvYecx2YsLbhxk4EzJ0H8d
+ Os3S8PtUwSO/q4hziurOTCosBfVfDQ9ssBxFQl2tJ4pkDO41GJXeCpZ/gLgOy6xv4Pxv
+ xw7MSPF8adTcgr+9SHgRQEIQ9c2ovZOh6FxRgpq9nxGrGhkBfFQxpieHQcfZXfi9hyBc
+ xsN0uqdcCQID9xpGr9ueJqf295Yydmf70u1oc5L5SBfTCXksjTJ4UCOGlasscB9SvwCS
+ F5Xf1YYmPW9SxDJWNq+Y6tEwxbsw4s9zDRxQ4SOh+7daHVSeRagPRbfAcI63CLsdQpY7
+ V6LQ==
+X-Gm-Message-State: AOAM530F4XN94v69+zHXqMFVDGx0jJ2eyfoB2fvtH/1MfjTBo0OJ32bJ
+ nfGdbZn4JtjuCBkeBmnmouk=
+X-Google-Smtp-Source: ABdhPJxea4LJk1eDxEaoDG1iOBHCw77pMtCYgY6uosHDHNbSmvvINm1RPpOzdzJJ2JvIQWTjjfP3Ig==
+X-Received: by 2002:ac8:5f0a:: with SMTP id x10mr27737478qta.607.1638071834003; 
+ Sat, 27 Nov 2021 19:57:14 -0800 (PST)
 Received: from localhost ([66.216.211.25])
- by smtp.gmail.com with ESMTPSA id v1sm6498979qtw.65.2021.11.27.19.57.08
+ by smtp.gmail.com with ESMTPSA id s2sm6331534qtw.22.2021.11.27.19.57.13
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 27 Nov 2021 19:57:08 -0800 (PST)
+ Sat, 27 Nov 2021 19:57:13 -0800 (PST)
 From: Yury Norov <yury.norov@gmail.com>
 To: linux-kernel@vger.kernel.org, Yury Norov <yury.norov@gmail.com>,
  "James E.J. Bottomley" <jejb@linux.ibm.com>,
@@ -119,16 +119,16 @@ To: linux-kernel@vger.kernel.org, Yury Norov <yury.norov@gmail.com>,
  linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org,
  linuxppc-dev@lists.ozlabs.org
-Subject: [PATCH 1/9] lib/bitmap: add bitmap_weight_{eq,gt,le}
-Date: Sat, 27 Nov 2021 19:56:56 -0800
-Message-Id: <20211128035704.270739-2-yury.norov@gmail.com>
+Subject: [PATCH 4/9] tools: sync bitmap_weight() usage with the kernel
+Date: Sat, 27 Nov 2021 19:56:59 -0800
+Message-Id: <20211128035704.270739-5-yury.norov@gmail.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20211128035704.270739-1-yury.norov@gmail.com>
 References: <20211128035704.270739-1-yury.norov@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211127_195709_929370_008404DA 
-X-CRM114-Status: GOOD (  20.67  )
+X-CRM114-CacheID: sfid-20211127_195715_057962_8C64733B 
+X-CRM114-Status: GOOD (  21.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,57 +145,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Many kernel users call bitmap_weight() to compare the result against
-some number or expression:
-	if (bitmap_weight(...) > 1)
-		do_something();
+bitmap_weight() counts all set bits in the bitmap unconditionally.
+However in some cases we can traverse a part of bitmap when we
+only need to check if number of set bits is greater, less or equal
+to some number.
 
-It works OK, but may be significantly improved for large bitmaps: if
-first few words count set bits to a number greater than given, we can
-stop counting and immediately return.
-
-The same idea would work in other direction: if we know that the number
-of set bits that we counted so far is small enough, so that it would be
-smaller than required number even if all bits of the rest of the bitmap
-are set, we can return earlier.
-
-This patch adds new bitmap_weight_{eq,gt,le} functions to allow this
-optimization, and the following patches apply them where appropriate.
+This patch adds bitmap_weight_{eq,gt,le}, reimplements bitmap_{empty,full}
+and replace bitmap_weight() where appropriate.
 
 Signed-off-by: Yury Norov <yury.norov@gmail.com>
 ---
- include/linux/bitmap.h | 33 ++++++++++++++++++++++
- lib/bitmap.c           | 63 ++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 96 insertions(+)
+ tools/include/linux/bitmap.h | 42 +++++++++++++++++++------
+ tools/lib/bitmap.c           | 60 ++++++++++++++++++++++++++++++++++++
+ tools/perf/builtin-c2c.c     |  4 +--
+ tools/perf/util/pmu.c        |  2 +-
+ 4 files changed, 96 insertions(+), 12 deletions(-)
 
-diff --git a/include/linux/bitmap.h b/include/linux/bitmap.h
-index 7dba0847510c..996041f771c8 100644
---- a/include/linux/bitmap.h
-+++ b/include/linux/bitmap.h
-@@ -51,6 +51,9 @@ struct device;
-  *  bitmap_empty(src, nbits)                    Are all bits zero in *src?
-  *  bitmap_full(src, nbits)                     Are all bits set in *src?
-  *  bitmap_weight(src, nbits)                   Hamming Weight: number set bits
-+ *  bitmap_weight_eq(src, nbits, num)           Hamming Weight is equal to num
-+ *  bitmap_weight_gt(src, nbits, num)           Hamming Weight is greater than num
-+ *  bitmap_weight_le(src, nbits, num)           Hamming Weight is less than num
-  *  bitmap_set(dst, pos, nbits)                 Set specified bit area
-  *  bitmap_clear(dst, pos, nbits)               Clear specified bit area
-  *  bitmap_find_next_zero_area(buf, len, pos, n, mask)  Find bit free area
-@@ -162,6 +165,9 @@ int __bitmap_intersects(const unsigned long *bitmap1,
- int __bitmap_subset(const unsigned long *bitmap1,
- 		    const unsigned long *bitmap2, unsigned int nbits);
- int __bitmap_weight(const unsigned long *bitmap, unsigned int nbits);
+diff --git a/tools/include/linux/bitmap.h b/tools/include/linux/bitmap.h
+index ea97804d04d4..eb2831f7e5a7 100644
+--- a/tools/include/linux/bitmap.h
++++ b/tools/include/linux/bitmap.h
+@@ -12,6 +12,9 @@
+ 	unsigned long name[BITS_TO_LONGS(bits)]
+ 
+ int __bitmap_weight(const unsigned long *bitmap, int bits);
 +bool __bitmap_weight_eq(const unsigned long *bitmap, unsigned int nbits, unsigned int num);
 +bool __bitmap_weight_gt(const unsigned long *bitmap, unsigned int nbits, unsigned int num);
 +bool __bitmap_weight_le(const unsigned long *bitmap, unsigned int nbits, unsigned int num);
- void __bitmap_set(unsigned long *map, unsigned int start, int len);
- void __bitmap_clear(unsigned long *map, unsigned int start, int len);
- 
-@@ -403,6 +409,33 @@ static __always_inline int bitmap_weight(const unsigned long *src, unsigned int
- 	return __bitmap_weight(src, nbits);
+ void __bitmap_or(unsigned long *dst, const unsigned long *bitmap1,
+ 		 const unsigned long *bitmap2, int bits);
+ int __bitmap_and(unsigned long *dst, const unsigned long *bitmap1,
+@@ -45,27 +48,48 @@ static inline void bitmap_fill(unsigned long *dst, unsigned int nbits)
+ 	dst[nlongs - 1] = BITMAP_LAST_WORD_MASK(nbits);
  }
  
+-static inline int bitmap_empty(const unsigned long *src, unsigned nbits)
++static inline int bitmap_weight(const unsigned long *src, unsigned int nbits)
+ {
+ 	if (small_const_nbits(nbits))
+-		return ! (*src & BITMAP_LAST_WORD_MASK(nbits));
++		return hweight_long(*src & BITMAP_LAST_WORD_MASK(nbits));
++	return __bitmap_weight(src, nbits);
++}
+ 
+-	return find_first_bit(src, nbits) == nbits;
 +static __always_inline bool bitmap_weight_eq(const unsigned long *src,
 +			unsigned int nbits, unsigned int num)
 +{
@@ -203,36 +196,50 @@ index 7dba0847510c..996041f771c8 100644
 +		return hweight_long(*src & BITMAP_LAST_WORD_MASK(nbits)) == num;
 +
 +	return __bitmap_weight_eq(src, nbits, num);
-+}
-+
+ }
+ 
+-static inline int bitmap_full(const unsigned long *src, unsigned int nbits)
 +static __always_inline bool bitmap_weight_gt(const unsigned long *src,
 +			unsigned int nbits, unsigned int num)
-+{
-+	if (small_const_nbits(nbits))
+ {
+ 	if (small_const_nbits(nbits))
+-		return ! (~(*src) & BITMAP_LAST_WORD_MASK(nbits));
 +		return hweight_long(*src & BITMAP_LAST_WORD_MASK(nbits)) > num;
-+
+ 
+-	return find_first_zero_bit(src, nbits) == nbits;
 +	return __bitmap_weight_gt(src, nbits, num);
-+}
-+
+ }
+ 
+-static inline int bitmap_weight(const unsigned long *src, unsigned int nbits)
 +static __always_inline bool bitmap_weight_le(const unsigned long *src,
 +			unsigned int nbits, unsigned int num)
-+{
-+	if (small_const_nbits(nbits))
+ {
+ 	if (small_const_nbits(nbits))
+-		return hweight_long(*src & BITMAP_LAST_WORD_MASK(nbits));
+-	return __bitmap_weight(src, nbits);
 +		return hweight_long(*src & BITMAP_LAST_WORD_MASK(nbits)) < num;
 +
 +	return __bitmap_weight_le(src, nbits, num);
 +}
 +
- static __always_inline void bitmap_set(unsigned long *map, unsigned int start,
- 		unsigned int nbits)
- {
-diff --git a/lib/bitmap.c b/lib/bitmap.c
-index 926408883456..72e7ab2d7bdd 100644
---- a/lib/bitmap.c
-+++ b/lib/bitmap.c
-@@ -348,6 +348,69 @@ int __bitmap_weight(const unsigned long *bitmap, unsigned int bits)
++static __always_inline bool bitmap_empty(const unsigned long *src, unsigned int nbits)
++{
++	return bitmap_weight_eq(src, nbits, 0);
++}
++
++static __always_inline bool bitmap_full(const unsigned long *src, unsigned int nbits)
++{
++	return bitmap_weight_eq(src, nbits, nbits);
  }
- EXPORT_SYMBOL(__bitmap_weight);
+ 
+ static inline void bitmap_or(unsigned long *dst, const unsigned long *src1,
+diff --git a/tools/lib/bitmap.c b/tools/lib/bitmap.c
+index db466ef7be9d..3aaf1767d237 100644
+--- a/tools/lib/bitmap.c
++++ b/tools/lib/bitmap.c
+@@ -18,6 +18,66 @@ int __bitmap_weight(const unsigned long *bitmap, int bits)
+ 	return w;
+ }
  
 +bool __bitmap_weight_eq(const unsigned long *bitmap, unsigned int bits, unsigned int num)
 +{
@@ -253,7 +260,6 @@ index 926408883456..72e7ab2d7bdd 100644
 +
 +	return w == num;
 +}
-+EXPORT_SYMBOL(__bitmap_weight_eq);
 +
 +bool __bitmap_weight_gt(const unsigned long *bitmap, unsigned int bits, unsigned int num)
 +{
@@ -274,7 +280,6 @@ index 926408883456..72e7ab2d7bdd 100644
 +
 +	return w > num;
 +}
-+EXPORT_SYMBOL(__bitmap_weight_gt);
 +
 +bool __bitmap_weight_le(const unsigned long *bitmap, unsigned int bits, unsigned int num)
 +{
@@ -295,11 +300,45 @@ index 926408883456..72e7ab2d7bdd 100644
 +
 +	return w < num;
 +}
-+EXPORT_SYMBOL(__bitmap_weight_le);
 +
- void __bitmap_set(unsigned long *map, unsigned int start, int len)
+ void __bitmap_or(unsigned long *dst, const unsigned long *bitmap1,
+ 		 const unsigned long *bitmap2, int bits)
  {
- 	unsigned long *p = map + BIT_WORD(start);
+diff --git a/tools/perf/builtin-c2c.c b/tools/perf/builtin-c2c.c
+index b5c67ef73862..51997386fb31 100644
+--- a/tools/perf/builtin-c2c.c
++++ b/tools/perf/builtin-c2c.c
+@@ -1080,7 +1080,7 @@ node_entry(struct perf_hpp_fmt *fmt __maybe_unused, struct perf_hpp *hpp,
+ 		bitmap_zero(set, c2c.cpus_cnt);
+ 		bitmap_and(set, c2c_he->cpuset, c2c.nodes[node], c2c.cpus_cnt);
+ 
+-		if (!bitmap_weight(set, c2c.cpus_cnt)) {
++		if (bitmap_empty(set, c2c.cpus_cnt)) {
+ 			if (c2c.node_info == 1) {
+ 				ret = scnprintf(hpp->buf, hpp->size, "%21s", " ");
+ 				advance_hpp(hpp, ret);
+@@ -1944,7 +1944,7 @@ static int set_nodestr(struct c2c_hist_entry *c2c_he)
+ 	if (c2c_he->nodestr)
+ 		return 0;
+ 
+-	if (bitmap_weight(c2c_he->nodeset, c2c.nodes_cnt)) {
++	if (!bitmap_empty(c2c_he->nodeset, c2c.nodes_cnt)) {
+ 		len = bitmap_scnprintf(c2c_he->nodeset, c2c.nodes_cnt,
+ 				      buf, sizeof(buf));
+ 	} else {
+diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
+index 6ae58406f4fc..015ee1321c7c 100644
+--- a/tools/perf/util/pmu.c
++++ b/tools/perf/util/pmu.c
+@@ -1314,7 +1314,7 @@ static int pmu_config_term(const char *pmu_name,
+ 	 */
+ 	if (term->type_val == PARSE_EVENTS__TERM_TYPE_NUM) {
+ 		if (term->no_value &&
+-		    bitmap_weight(format->bits, PERF_PMU_FORMAT_BITS) > 1) {
++		    bitmap_weight_gt(format->bits, PERF_PMU_FORMAT_BITS, 1)) {
+ 			if (err) {
+ 				parse_events_error__handle(err, term->err_val,
+ 					   strdup("no value assigned for term"),
 -- 
 2.25.1
 
