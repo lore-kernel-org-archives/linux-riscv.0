@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D1D4C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Nov 2021 00:29:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5A85C433F5
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Nov 2021 00:43:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dKkv3zd+MX/eS3gWpnCxRO/R2tfdmFDFK1b9aLWj8Lk=; b=mzuM4UP3bS7oe7
-	CmCQRMsqIFVZh8lQy48vfG5am67VQtQzPFIO4Hu9ihaCiSzqSjZZ+RYBKX6g6kMEyieN+dtZ7lJtJ
-	1iC2H5GnDZz70rR/7CCTzq9QiH8Ic33K7Rm9Tyte0BzciCB/BELbPhYxEnq95KBvI274YajxLmTVV
-	UklIEjsY8QYtajA3qoZyrRYxdA3/BhiSwbdAbdhCnXw0YhvmPGHToTQukJM5cFsefED2B8MttTsfL
-	KKaayiBlz6cQBtGb2pO8zY9JmZGmohyFQLEADk17BBTRyDJYaKkuZQ6Rv8O1cY3Lit6zWf+VRTXg8
-	m41bNn5LCxEE9JZPhQzQ==;
+	List-Owner; bh=WD7NATrNDigs3+otujZiOgtV1CZwOrcJzC0eT6fBbKA=; b=G3ZsFljVJ1E6BY
+	7Ii1iB0r7KNHjGZNlkEe36aBtyQmQcQr1LmL/jibMXRV2thDGh+2dOFFekxUKpvd5weTj6Ss7q3Gn
+	bI/pyWrJyc340D3CCggNtiT7kHDbvRZGifH4WHZfCPLQYF2JztuaZO69CcBRi7GYMyUa9FPy/YfsF
+	XHh/UqyPU8xJjpsnBqZ7/ujOlX2yZlfX+NzytWdGaoJkPZKrDIC0JYeLipaonUqt3U9VXaKW7T/g7
+	CpXH3dJBnCv6DLUuNUF4OBVB2HfkNilcD1HDANmn2TMVgD7OPaIfngVVQD8W/RQYjdhHEnqF0gj5S
+	3JJ3Rc0PYHyjsffHAaQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mr846-00Ehml-1e; Sun, 28 Nov 2021 00:29:10 +0000
+	id 1mr8I2-00Eifx-M0; Sun, 28 Nov 2021 00:43:34 +0000
 Received: from rere.qmqm.pl ([91.227.64.183])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mr843-00EhmG-8F; Sun, 28 Nov 2021 00:29:08 +0000
+ id 1mr8Hx-00EifC-Nt; Sun, 28 Nov 2021 00:43:31 +0000
 Received: from remote.user (localhost [127.0.0.1])
- by rere.qmqm.pl (Postfix) with ESMTPSA id 4J1q8r4xRGz9Y;
- Sun, 28 Nov 2021 01:28:44 +0100 (CET)
+ by rere.qmqm.pl (Postfix) with ESMTPSA id 4J1qTm1DhtzNL;
+ Sun, 28 Nov 2021 01:43:24 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=rere.qmqm.pl; s=1;
- t=1638059340; bh=BpCUv6sc6+ijt8bP2X1dBPBQztb08CMPEjcmSI4mWHs=;
+ t=1638060207; bh=ymi2rjesYlmYsrxY12X8vblXPJWiCK3o6T/SGnAjDZo=;
  h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=E2pJXVdwpF7xa7NgJpuaA7I4sUgCSxdIM51ma240k1OvyN0BqmbHCll/qibc7LmRW
- l2lYyRdiOG0LzZZRcQGCbOEp7l5l7FW2EF13o78tAxh2BlfQLPIqSf2RtHjwNL3AHE
- ag5QLlLhW95Kp8fH9dCV3j4Imx5XQ5T4nV1vyleMAzKz1Soq6c6OnKpJ5TdzfdwJ2G
- LnQoKtgUWmpQEblg3IMnaxzgslueaP8apjKdZ9y96JJ35QjeXKQSawNEPmoxjBztTd
- XADr6Ffb3r0e7Kv67f/UCkeky+8m4GCPkGRqXkdYh2BWzTit8bUIHp4dPNUh/LgLHY
- SH/yCd1X39o+Q==
+ b=C6SfBZOFpiANlfwmDvX4OuIMVOJSlYKPAQ7cePS7VCRqQvRDRXyoU4e1HDyFW5286
+ aMp77cXaWF2QuMJ//PO7Wx9adwPHxvzWlhsVptz1Bv8pKTYitnPzWsGYgxjQNrOvV7
+ Uk484prqIxJAORTEmmGB3fc8u4Kn87uEVHmrPcrNw+TikFuKmaRxmZpfI/D7x9DxOR
+ HEK/DHm3KCkqlnpSbmB87Uzzanvh59D/q1WHxqRBbTNokUG7ZgWXQQKaJ+DCHFVboG
+ CiQGnas3tcMmGH5URTeE0feIhbti0vtOii+M7lKOB+wnpM9RCc3cCyDZ3xGFva1jKa
+ oHCSKPMXxlqVw==
 X-Virus-Status: Clean
 X-Virus-Scanned: clamav-milter 0.103.3 at mail
-Date: Sun, 28 Nov 2021 01:28:40 +0100
+Date: Sun, 28 Nov 2021 01:43:22 +0100
 From: =?iso-8859-2?Q?Micha=B3_Miros=B3aw?= <mirq-linux@rere.qmqm.pl>
 To: Dmitry Osipenko <digetx@gmail.com>
 Cc: Thierry Reding <thierry.reding@gmail.com>,
@@ -86,17 +86,17 @@ Cc: Thierry Reding <thierry.reding@gmail.com>,
  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
  xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: Re: [PATCH v4 05/25] reboot: Warn if restart handler has duplicated
- priority
-Message-ID: <YaLNOJTM+lVq+YNS@qmqm.qmqm.pl>
+Subject: Re: [PATCH v4 08/25] kernel: Add combined power-off+restart handler
+ call chain API
+Message-ID: <YaLQqks8cB0vWp6Q@qmqm.qmqm.pl>
 References: <20211126180101.27818-1-digetx@gmail.com>
- <20211126180101.27818-6-digetx@gmail.com>
+ <20211126180101.27818-9-digetx@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20211126180101.27818-6-digetx@gmail.com>
+In-Reply-To: <20211126180101.27818-9-digetx@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211127_162907_514807_FAC78182 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20211127_164330_000221_BB3C5B2E 
+X-CRM114-Status: GOOD (  17.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,26 +113,46 @@ Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 26, 2021 at 09:00:41PM +0300, Dmitry Osipenko wrote:
-> Add sanity check which ensures that there are no two restart handlers
-> registered with the same priority. Normally it's a direct sign of a
-> problem if two handlers use the same priority.
+On Fri, Nov 26, 2021 at 09:00:44PM +0300, Dmitry Osipenko wrote:
+> SoC platforms often have multiple ways of how to perform system's
+> power-off and restart operations. Meanwhile today's kernel is limited to
+> a single option. Add combined power-off+restart handler call chain API,
+> which is inspired by the restart API. The new API provides both power-off
+> and restart functionality.
+> =
 
-The patch doesn't ensure the property that there are no duplicated-priority
-entries on the chain.
+> The old pm_power_off method will be kept around till all users are
+> converted to the new API.
+> =
 
-I'd rather see a atomic_notifier_chain_register_unique() that returns
--EBUSY or something istead of adding an entry with duplicate priority.
-That way it would need only one list traversal unless you want to
-register the duplicate anyway (then you would call the older
-atomic_notifier_chain_register() after reporting the error).
+> Current restart API will be replaced by the new unified API since
+> new API is its superset. The restart functionality of the sys-off handler
+> API is built upon the existing restart-notifier APIs.
+> =
 
-(Or you could return > 0 when a duplicate is registered in
-atomic_notifier_chain_register() if the callers are prepared
-for that. I don't really like this way, though.)
+> In order to ease conversion to the new API, convenient helpers are added
+> for the common use-cases. They will reduce amount of boilerplate code and
+> remove global variables. These helpers preserve old behaviour for cases
+> where only one power-off handler is expected, this is what all existing
+> drivers want, and thus, they could be easily converted to the new API.
+> Users of the new API should explicitly enable power-off chaining by
+> setting corresponding flag of the power_handler structure.
+[...]
+
+Hi,
+
+A general question: do we really need three distinct chains for this?
+Can't there be only one that chain of callbacks that get a stage
+(RESTART_PREPARE, RESTART, POWER_OFF_PREPARE, POWER_OFF) and can ignore
+them at will? Calling through POWER_OFF_PREPARE would also return
+whether that POWER_OFF is possible (for kernel_can_power_off()).
+
+I would also split this patch into preparation cleanups (like wrapping
+pm_power_off call with a function) and adding the notifier-based
+implementation.
 
 Best Regards
-Micha=B3 Miros=B3aw
+Micha=B3=A0Miros=B3aw
 
 _______________________________________________
 linux-riscv mailing list
