@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70464C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Nov 2021 16:15:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 986DBC433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Nov 2021 16:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Pr2DmNdyz1rGOtT1eHpeOxbpyo7WRKQzPvOWhlYO7ZM=; b=nzzIQxxB2dFf8z
-	nw7TMlemidSQw9OCEySZvujPvO6QeW9aSZFYapae0cOz/IMQG/IAWZzsQY7Edn0fq+t0lj1xjyaOI
-	MVWF5Q013DruLxOQbHxqXW/vatGxOxCazdbwz02nc6JRac63SbyIqKqOb8CQoxF8AE71T4l2blS3N
-	Iftk6RyTdiNsuIpBGHsr+UYtNpKfTr1nsVBv9AHjRZwf/3w3yUnSaPf4szSIwrWHomr2S/8dEexZV
-	y4J5ZVIO/yDMM/Wc33rgbTLnJcoMEcX9pHQkj4YMFiWgKufr4fGxi3lxj5eCLL3VFepUp2CRK8WNH
-	VGKtHouMFSXFqZgUJ6BA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZzSrbDkGHqs5wtITCwyvk6QKPFJNATTBPOdSpGoRln4=; b=wkGiv580rgLdq/
+	XFO/GTdcEWczx7WSNK/hKIQReNvPFsRe/sk+OcG+KeS/6CWrWBKOOOo7664YaWtPoiGx3hO8P+tkJ
+	s218gyDeTzvWA5n+oehXG84HHpQjWczhAh6F5vwWV0AQwwZFOMI8sBIIvj4Z7epTIOvXSYmyvNUfV
+	Mhw3bddooQyifx5UFCFYue+1iBIUcqpd7i38sNMgUdU+ubd0/2P8TrtYIDhWryHSDNtx60UI9y4Eg
+	9KiOwUPuG0Is4vaAULvOW8TdUzv9cFWiPrCgbQSVe9KwsQv7b+8y6fP8x67OTBqGMatQnLgw2BkNU
+	YtmvgecKakn3xiRMvlRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mrMpO-00G9YY-20; Sun, 28 Nov 2021 16:14:58 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1mrMpT-00G9a4-1A; Sun, 28 Nov 2021 16:15:03 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mrMpL-00G9Xl-Lh; Sun, 28 Nov 2021 16:14:56 +0000
+ id 1mrMpP-00G9Yk-RW; Sun, 28 Nov 2021 16:15:01 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 9086360FE7;
+ by ams.source.kernel.org (Postfix) with ESMTPS id 71209B80D22;
+ Sun, 28 Nov 2021 16:14:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88C4CC53FC7;
  Sun, 28 Nov 2021 16:14:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AC91C004E1;
- Sun, 28 Nov 2021 16:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1638116094;
- bh=vHDplKEDLCK/kpKCYkZg98w+XWHX6aiLaK0i/C/Hktg=;
- h=From:To:Cc:Subject:Date:From;
- b=Gpq7AS8WI+lWVCKh3ewefnBYpCMWnrfBjubh8AiL4nnzXPD5Dcrt7Ha3F8WVnvYc0
- dAJ5ra6jNsGnMaWXQvOmehg6Vf/QRnFXwEVg7GG/Uu6G3DW2EJwSykdjHLs6Plg0w0
- YoJ0bU5vsqpLF5gi4LtSb0pZa28gtuXtVpQBN+hkOdcvuX8CmpO/XAqq9EhMbzmdup
- sS+ktGwp5qO86A3uR/eNyTDTm/6ko6fy6kCSv0c0SoG/Rv4dqvueuL1F2UP4apl3b5
- +tJ7qLdP41CKoCukhosiZNApfNyHI7C0U+oxgmSdXZY1nmlnH8vCIC3yeFGntuuZ9r
- 2F+8M/UTvFnOQ==
+ s=k20201202; t=1638116097;
+ bh=EISRwtT6a67IdIj4/hZElSg1YibLzkj4w6ZbgU3blVc=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=vAH6L/KcOcN75/rLs5688vzmsPhitHpT1faPJuZHuLUaMMsET3nyJ3SkpAPdGfKHv
+ kn20n3RwRwsYxfE4VsMrnx9x47uNGpkgXIdUhkN2DgIFyI/ukTU/4/ZQHqCx8JpC8M
+ hTpM1BdAKeYzq3gISSD2PizLejukCS/lq8QPBaPbwb9G72IxaxYFD3dZSQ+8MBW5ZS
+ 1dmZugcsTLXaNULjnqNSbMiAAlURg3MPsGjmymcXj6K+TsN0U42iI9aL5QAQ7FIMss
+ QJ90YepRR704ZLiSq+XYWZv242Rbsxv0qHmBkwaZs9MEChRevZkBgPBiT3z2h/IC9c
+ RxIm4ZJMBNGrw==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Anup Patel <anup.patel@wdc.com>, Atish Patra <atishp@atishpatra.org>
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  kvm-riscv@lists.infradead.org
-Subject: [PATCH 0/5] riscv: misc clean up
-Date: Mon, 29 Nov 2021 00:07:36 +0800
-Message-Id: <20211128160741.2122-1-jszhang@kernel.org>
+Subject: [PATCH 1/5] riscv: remove cpu_stop()
+Date: Mon, 29 Nov 2021 00:07:37 +0800
+Message-Id: <20211128160741.2122-2-jszhang@kernel.org>
 X-Mailer: git-send-email 2.34.0
+In-Reply-To: <20211128160741.2122-1-jszhang@kernel.org>
+References: <20211128160741.2122-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211128_081455_794099_38AD06F8 
-X-CRM114-Status: UNSURE (   8.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211128_081500_051708_A0B4B66B 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,24 +73,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series is a misc clean up: clean up useless LoCs, or make some
-functions static, or mark function pointer as __initdata, or remove
-one function().
+Except arch_cpu_idle_dead(), no users of this function. So remove
+cpu_stop() and fold its code into arch_cpu_idle_dead().
 
-Jisheng Zhang (5):
-  riscv: remove cpu_stop()
-  riscv: head: make secondary_start_common() static
-  riscv: kvm: make kvm_riscv_vcpu_fp_clean() static
-  riscv: errata: alternative: mark vendor_patch_func __initdata
-  riscv: head: remove useless __PAGE_ALIGNED_BSS and .balign
-
- arch/riscv/errata/alternative.c | 3 ++-
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
  arch/riscv/include/asm/smp.h    | 2 --
  arch/riscv/kernel/cpu-hotplug.c | 8 +-------
- arch/riscv/kernel/head.S        | 9 ++-------
- arch/riscv/kvm/vcpu_fp.c        | 2 +-
- 5 files changed, 6 insertions(+), 18 deletions(-)
+ 2 files changed, 1 insertion(+), 9 deletions(-)
 
+diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
+index a7d2811f3536..e2b0d6c40a6c 100644
+--- a/arch/riscv/include/asm/smp.h
++++ b/arch/riscv/include/asm/smp.h
+@@ -63,8 +63,6 @@ asmlinkage void smp_callin(void);
+ #if defined CONFIG_HOTPLUG_CPU
+ int __cpu_disable(void);
+ void __cpu_die(unsigned int cpu);
+-void cpu_stop(void);
+-#else
+ #endif /* CONFIG_HOTPLUG_CPU */
+ 
+ #else
+diff --git a/arch/riscv/kernel/cpu-hotplug.c b/arch/riscv/kernel/cpu-hotplug.c
+index df84e0c13db1..be7f05b542bb 100644
+--- a/arch/riscv/kernel/cpu-hotplug.c
++++ b/arch/riscv/kernel/cpu-hotplug.c
+@@ -14,12 +14,6 @@
+ #include <asm/cpu_ops.h>
+ #include <asm/sbi.h>
+ 
+-void cpu_stop(void);
+-void arch_cpu_idle_dead(void)
+-{
+-	cpu_stop();
+-}
+-
+ bool cpu_has_hotplug(unsigned int cpu)
+ {
+ 	if (cpu_ops[cpu]->cpu_stop)
+@@ -75,7 +69,7 @@ void __cpu_die(unsigned int cpu)
+ /*
+  * Called from the idle thread for the CPU which has been shutdown.
+  */
+-void cpu_stop(void)
++void arch_cpu_idle_dead(void)
+ {
+ 	idle_task_exit();
+ 
 -- 
 2.34.0
 
