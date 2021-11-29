@@ -4,44 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64410C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Dec 2021 18:39:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75A88C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Dec 2021 18:39:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=bsoPaqbNvuKC+9godDS88lzZozdKbWBz0ysMJ4WhZk4=; b=NNPko4QbYydFQ4
-	dvqSgQzLrFUz/5PNEVmcd5I7B0kiginnL82yBzpYcF6adARxeauZZOiOkPbtFN3oPvAfpRdf3xZql
-	HgzBDtd+ijBkgwJkCTpHn5J0t4mmB4VlXmvTKTJH5YLtplI03IdIkvrMVbukA2W0xbK+w1h8aqUX9
-	twWou8GidPY7q9ZJkneyDmZB2DRfU75JQ2vDD9fQtuKc8zcK87HCI1wkUeV8T9DgSg2mZW81C58+j
-	gp0LVCnOoh6qs9QhpaBLVObcfbvSkWCnDw/1VqYtzteBUmd9xsSVaB1SONBFM1AuY4jVHedI7KTfm
-	iyU92RL/ppQtdsxNCxqg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=91WGXYg4HUULG+zEZgDfan754x/rjNTTDEXRBWoZiag=; b=bY4laH40dCsRvH
+	1u/PNK425cAQMVSY7vMx3HUGIbAfXXzLAeMxnmX7KheHEm7qEsdubQya4y+tt/5DPuSy8hV3mJKQz
+	Xlk399cuft/E6vd/8ZvVpRW/5Le80tuUrUdCaRmx/yH7cGZQQk5XWihB9OhI0xgkr+78ldEOTOWHL
+	nMsAPsFVOfgiXJP4IxReqFwrjDoth0q0Ismta3f/OmQk4swkwk8iNXO/gBZ3ir9CKZcJ8wqERj3RY
+	XnNOSP2mwHkFh6u0VnIyDTn6mee81fn8BVUUwtywM3/698r0GYz1PacmxkWEFeZOAMkF3uD6DUn6U
+	6kNJ/G28les0gQmaHOyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1msUVx-009qZZ-Nt; Wed, 01 Dec 2021 18:39:33 +0000
-Received: from rere.qmqm.pl ([91.227.64.183])
+	id 1msUW4-009qbw-5z; Wed, 01 Dec 2021 18:39:40 +0000
+Received: from mail-qv1-xf2c.google.com ([2607:f8b0:4864:20::f2c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mrOYB-00GQCG-Ax; Sun, 28 Nov 2021 18:05:20 +0000
-Received: from remote.user (localhost [127.0.0.1])
- by rere.qmqm.pl (Postfix) with ESMTPSA id 4J2Gbw0CGMzWG;
- Sun, 28 Nov 2021 19:05:15 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=rere.qmqm.pl; s=1;
- t=1638122717; bh=sEqOa0ZEPEWEUlBRSLFAiVwd6iLDymwK+DV3juGIkQI=;
- h=Date:From:To:Cc:Subject:From;
- b=XxvJmPPWazylznPkDFNVygPkohQ37AeYwywQvuepL1w31LahkAW0gP0LAhZyVJpcw
- QCkB6BljQdra5dN8zW66BSxqJNFsOQZ3SXN/IvfR7aJdEfhChJ01RFDgEXy7ZRidew
- 5AuU0watcW2VhJ8VLEKa/g48uwHd6hUjzetMQJoBwvwxwQVSA3IWggzLzC2joJiPHp
- 8JY+UhUQ+oYzz2QsWC6IREdA0RA0M1lN6rt3R0c026YIrrdzB0zCSa9TOmB+kCXZPl
- HMxpZwG7mci2iV7G+PnmCZt5b87M/uk6yQ9shXg1YFXT3Bi4Ka8VZS9Szm3f/vvMWn
- w1e6Lkbu+s3yw==
-X-Virus-Status: Clean
-X-Virus-Scanned: clamav-milter 0.103.3 at mail
-Date: Sun, 28 Nov 2021 19:05:14 +0100
-From: =?iso-8859-2?Q?Micha=B3_Miros=B3aw?= <mirq-linux@rere.qmqm.pl>
-To: Yury Norov <yury.norov@gmail.com>
-Cc: linux-kernel@vger.kernel.org, "James E.J. Bottomley" <jejb@linux.ibm.com>,
+ id 1mraJM-00HSzT-QT; Mon, 29 Nov 2021 06:38:50 +0000
+Received: by mail-qv1-xf2c.google.com with SMTP id kl8so13652826qvb.3;
+ Sun, 28 Nov 2021 22:38:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=GW7wD7qKvROu8z9xZL5o2Gh9JvMEXrXNdc/d8bAaPNs=;
+ b=Ximtyy9D6hF34jeHkx2abhxO2fEDksv5f5qJu4CbvoNWokti3yxmfDL3L7TYPRNI1N
+ nLBExnAtE1kHxfW3UuSIcTZjpfdkrYaWw77PtYlgHprrRWmhg8onSirLlPaay6tbmdGV
+ QOolCDulR6Tk/EKA2Gv8Xlb2VKcWxKtuMIpV9m8bP/Y2OIkRrwh1D8Uy/bj62ViSMN2l
+ ZvGgVYwmHud/XyWXGXVdXp5Qsb6Tf/NpieRKvdWwCGOCaqCRU7xxjxP8pUys/Y0my6pK
+ DI87mJm/+MqXPnLUnP7Gv+O+UoGKFiXftZWbYzOV5qGvrEcopuUsleS20idOc1qycgZd
+ CJ3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=GW7wD7qKvROu8z9xZL5o2Gh9JvMEXrXNdc/d8bAaPNs=;
+ b=aoYUwJ5wefmz8YA8Syk9K+kdv/Df2DHsF3PjxPSPmulXX90AH7fccCqy7CiaF4jYht
+ uu9RcNdYq0WB9pdeqydT2J3XqNa4r2Tss1AR/GCn58D1zx5sN7eD5UC8sptJYbsteZJr
+ 2kcf0oxQ1axA/72vN818lKrVxf5e5tYYvnOXR6JXwctzE49D0eHV2XremFZj0mB/by02
+ ADASTikzRyL5Bs/rY2WX6LYJmZ7hKSWpqRBlzrN7tDkGwkQYrQMZ2+WI6v4gVa0ID9LW
+ gtV8E5iILWS2ddmHrfALwueOMLG/dbmZDwyufg07kPBNIGRaFZT3TDTbVXO6iwNsCBT6
+ ROYQ==
+X-Gm-Message-State: AOAM530cWHq4CX03Co8GZwfU4Ye0UsPNo8aehjJqKT65g2e+fuBElp8d
+ UM8jAiPVVhhBrMChs+WJVnk=
+X-Google-Smtp-Source: ABdhPJwSywxmnS7RgaW8ur/GbWm8YSeTFfi4rMgLh/NdfnxtrZBeDnmatO6ciZp/cAThb6LO+btZbw==
+X-Received: by 2002:a05:6214:984:: with SMTP id
+ dt4mr30031399qvb.120.1638167922796; 
+ Sun, 28 Nov 2021 22:38:42 -0800 (PST)
+Received: from localhost ([66.216.211.25])
+ by smtp.gmail.com with ESMTPSA id h19sm8495514qth.63.2021.11.28.22.38.41
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 28 Nov 2021 22:38:42 -0800 (PST)
+Date: Sun, 28 Nov 2021 22:38:39 -0800
+From: Yury Norov <yury.norov@gmail.com>
+To: mirq-test@rere.qmqm.pl
+Cc: linux-kernel@vger.kernel.org, Yury Norov <yury.norov@gmail.com>,
+ "James E.J. Bottomley" <jejb@linux.ibm.com>,
  "Martin K. Petersen" <martin.petersen@oracle.com>,
  "Paul E. McKenney" <paulmck@kernel.org>,
  "Rafael J. Wysocki" <rafael@kernel.org>,
@@ -105,13 +125,15 @@ Cc: linux-kernel@vger.kernel.org, "James E.J. Bottomley" <jejb@linux.ibm.com>,
  linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
  linux-snps-arc@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
 Subject: Re: [PATCH 0/9] lib/bitmap: optimize bitmap_weight() usage
-Message-ID: <YaPEfZ0t9UFGwpml@qmqm.qmqm.pl>
+Message-ID: <20211129063839.GA338729@lapt>
+References: <20211128035704.270739-1-yury.norov@gmail.com>
+ <YaPEfZ0t9UFGwpml@qmqm.qmqm.pl>
 MIME-Version: 1.0
 Content-Disposition: inline
-X-Bad-Reply: 'Re:' in Subject but no References or In-Reply-To headers
+In-Reply-To: <YaPEfZ0t9UFGwpml@qmqm.qmqm.pl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211128_100519_568640_AFD59D8F 
-X-CRM114-Status: GOOD (  17.50  )
+X-CRM114-CacheID: sfid-20211128_223848_926169_6BCEDFCB 
+X-CRM114-Status: GOOD (  26.88  )
 X-Mailman-Approved-At: Wed, 01 Dec 2021 10:39:25 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,88 +146,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-2"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20211128180514.eGIVS8BO4zSnKQznid7g9kRgpYbWIwQORiO6dx9JDrA@z>
 
-On Sat, Nov 27, 2021 at 07:56:55PM -0800, Yury Norov wrote:
-> In many cases people use bitmap_weight()-based functions like this:
-> =
+On Sun, Nov 28, 2021 at 07:03:41PM +0100, mirq-test@rere.qmqm.pl wrote:
+> On Sat, Nov 27, 2021 at 07:56:55PM -0800, Yury Norov wrote:
+> > In many cases people use bitmap_weight()-based functions like this:
+> > 
+> > 	if (num_present_cpus() > 1)
+> > 		do_something();
+> > 
+> > This may take considerable amount of time on many-cpus machines because
+> > num_present_cpus() will traverse every word of underlying cpumask
+> > unconditionally.
+> > 
+> > We can significantly improve on it for many real cases if stop traversing
+> > the mask as soon as we count present cpus to any number greater than 1:
+> > 
+> > 	if (num_present_cpus_gt(1))
+> > 		do_something();
+> > 
+> > To implement this idea, the series adds bitmap_weight_{eq,gt,le}
+> > functions together with corresponding wrappers in cpumask and nodemask.
+> 
+> Having slept on it I have more structured thoughts:
+> 
+> First, I like substituting bitmap_empty/full where possible - I think
+> the change stands on its own, so could be split and sent as is.
 
-> 	if (num_present_cpus() > 1)
-> 		do_something();
-> =
+Ok, I can do it.
 
-> This may take considerable amount of time on many-cpus machines because
-> num_present_cpus() will traverse every word of underlying cpumask
-> unconditionally.
-> =
+> I don't like the proposed API very much. One problem is that it hides
+> the comparison operator and makes call sites less readable:
+> 
+> 	bitmap_weight(...) > N
+> 
+> becomes:
+> 
+> 	bitmap_weight_gt(..., N)
+> 
+> and:
+> 	bitmap_weight(...) <= N
+> 
+> becomes:
+> 
+> 	bitmap_weight_lt(..., N+1)
+> or:
+> 	!bitmap_weight_gt(..., N)
+> 
+> I'd rather see something resembling memcmp() API that's known enough
+> to be easier to grasp. For above examples:
+> 
+> 	bitmap_weight_cmp(..., N) > 0
+> 	bitmap_weight_cmp(..., N) <= 0
+> 	...
 
-> We can significantly improve on it for many real cases if stop traversing
-> the mask as soon as we count present cpus to any number greater than 1:
-> =
+bitmap_weight_cmp() cannot be efficient. Consider this example:
 
-> 	if (num_present_cpus_gt(1))
-> 		do_something();
-> =
+bitmap_weight_lt(1000 0000 0000 0000, 1) == false
+                 ^
+                 stop here
 
-> To implement this idea, the series adds bitmap_weight_{eq,gt,le}
-> functions together with corresponding wrappers in cpumask and nodemask.
+bitmap_weight_cmp(1000 0000 0000 0000, 1) == 0
+                                 ^
+                                 stop here
 
-Having slept on it I have more structured thoughts:
+I agree that '_gt' is less verbose than '>', but the advantage of 
+'_gt' over '>' is proportional to length of bitmap, and it means
+that this API should exist.
 
-First, I like substituting bitmap_empty/full where possible - I think
-the change stands on its own, so could be split and sent as is.
+> This would also make the implementation easier in not having to
+> copy and paste the code three times. Could also use a simple
+> optimization reducing code size:
 
-I don't like the proposed API very much. One problem is that it hides
-the comparison operator and makes call sites less readable:
+In the next version I'll reduce code duplication like this:
 
-	bitmap_weight(...) > N
+bool bitmap_eq(..., N);
+bool bitmap_ge(..., N);
 
-becomes:
+#define bitmap_weight_gt(..., N)  bitmap_weight_ge(..., N + 1)
+#define bitmap_weight_lt(..., N) !bitmap_weight_ge(..., N)
+#define bitmap_weight_le(..., N) !bitmap_weight_gt(..., N)
 
-	bitmap_weight_gt(..., N)
-
-and:
-	bitmap_weight(...) <=3D N
-
-becomes:
-
-	bitmap_weight_lt(..., N+1)
-or:
-	!bitmap_weight_gt(..., N)
-
-I'd rather see something resembling memcmp() API that's known enough
-to be easier to grasp. For above examples:
-
-	bitmap_weight_cmp(..., N) > 0
-	bitmap_weight_cmp(..., N) <=3D 0
-	...
-
-This would also make the implementation easier in not having to
-copy and paste the code three times. Could also use a simple
-optimization reducing code size:
-
-#include <linux/overflow.h>
-
-int bitmap_weight_cmp(long *bits, size_t nbits, size_t cmp)
-{
-	for (size_t i =3D 0; i < nbits / BITS_PER_LONG; ++i, ++bits)
-		if (check_sub_overflow(cmp, popcount(*bits), &cmp))
-			return 1;
-
-	nbits %=3D BITS_PER_LONG;
-	if (nbits && check_sub_overflow(cmp,
-			popcount(*bits & GENMASK(nbits)), &cmp))
-		return 1;
-
-	return cmp ? -1 : 0;
-}
-
-Best Regards
-Micha=B3 Miros=B3aw
+Thanks,
+Yury
 
 _______________________________________________
 linux-riscv mailing list
