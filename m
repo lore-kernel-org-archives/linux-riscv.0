@@ -4,120 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDCDFC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Nov 2021 12:04:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22CE6C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Nov 2021 12:06:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=PSUwXRLadrjM+cSb/Xr8Fk1lZdB/Ta95LWDXSHfvYeM=; b=qx3KMF2Un31IaMd4nfHg3ARwa6
-	IdeX7sSM5plIkRiF24XdSd4ITFvdwcfeB4sGnGBZMSHP3rLp2CwCCkvORSMeWnonXAITgfjWnYenB
-	ff2pOjWYyBqS/WyBHJgriJU/wpANq0afKurRREnoa3K6wQLtId90Inufzg+RdL4h/UQeO8CAdmF7L
-	g+NSYGdIsFx//eaU4OQh04roGO+SpbIRL083bbu5wsrW/Aeu68cZDNdJdZiMuMujA7Yqky+mVUWK2
-	uuQun89na6QmUxbJBs0UwdgUgDRTVuByhJKRL4lnvU2cTkRW5gi37SxBpePL40P2t8AXCBfVv4Xst
-	yKdwhf4A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/6FJb4mVXEFtSvZM6YdPYAaMdy4pgS7CRVRliUG2gIA=; b=X2tsztbFenuSLp
+	a5stM5R6kiRzMaL42o6/5fK3ym71vcu0gTJGjnUtrLWHC2f580fkt3PNfFvqAqGe/jzhlF6as4X+G
+	8pnpOnDQczZkbNzLAhSWmrUnSx/A2S4WKuYJFPTxtKed2Sp7s/KGpxLiFUXjSZm3Cfo7/ubFjbGak
+	nc46CpZVpB43u3/BguY1LXhqpDFaV3lbcx+4vxHtzsIAY7brFxb1XYvaW7DX0UQ8tC0gYkqiBJb4S
+	eSsizURm/axzAlPRwzPnwHaaf8IqcAgKD2ix20lRmS4KAu+Vbp73R+cogJ64sGmKGIiCp8Q12xhnv
+	n0eaMQI+LSpMw19rUbMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mrfOj-000cRR-94; Mon, 29 Nov 2021 12:04:41 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1mrfQe-000cgx-Nz; Mon, 29 Nov 2021 12:06:40 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mrfOg-000cQf-HJ; Mon, 29 Nov 2021 12:04:39 +0000
-Received: by mail-lf1-x132.google.com with SMTP id m27so43883424lfj.12;
- Mon, 29 Nov 2021 04:04:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=subject:to:cc:references:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=PNn5ANXHQBQImIpvHbPbNMd2Lqd15EQlJogO89cnByY=;
- b=MI4kP55/Zlm7TBL7y2OrNMI5h+lPZeZmB7t8OlZkmrVqz5nkh2/Y6HuliAe0oVs0Rk
- rFetODlieSY8yYJ/zujS836D4HMa1RwjML/CAxKtomUWXSGb1qL/KVpTn6q2+Uvz6fll
- o53AZuiQAc2GWbWiafTtGZSuw2c5mqIFJqFNiJYF9aTjEDiBqb562eel2zakvhyPlOl3
- pG/pjhw/StA1ckadkeclKZKjMkX16zdmIl6oAlX+4fS7qeRy6PONzcXzKzm9X1QdAno0
- Kkwc07Ys2BvHYPaVq37PhoNg88rbf4eu8IhUwjBo48bGGmIHfJryc8vu/Bws5bIp8Ted
- 95RQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:subject:to:cc:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=PNn5ANXHQBQImIpvHbPbNMd2Lqd15EQlJogO89cnByY=;
- b=hBkgYb5vcM4KtvRVur8EHRUthcXBFLQz0wxeAVwcQw2Fdx55b2bnI/+bKV+046ZQ7b
- Gc6xGClpSm+J1gyndlTznVI+Op6REZA9hOiag3slqZMLorwvxg+Q3s5zOw21RODcvw7V
- r/ymiDcrfqTnzPIfWli7QVTmOV4NEe87vKaVEzkcRrxop2Z9MN/z7F4ksX3BfD3YFVpj
- o82O4LcKg2bGV4X+uK6rEmHEjIzcd8Ae0XHIMkzpVBygqIe9oUxrH9/lSNynAXE/EHkT
- ilQD7wf/kRbDcuwHGDf6nLWqFqmjGr6e3wHyNys8pfmyce16yz985zwZz48eRSqK+uk0
- bS8A==
-X-Gm-Message-State: AOAM530FLW3s1A9fjBOL8sHkKpkO/6aJ/UodR/D5+nvHJsdA6LDGw0CD
- d9g2j6vGImsHrYc6kK+JIi0=
-X-Google-Smtp-Source: ABdhPJwfeiycltlybhTj7UKB2JEhJqYEuRYscpRNQomunXBGc+OXGSTBjoVVWr3Sr9Zkv1hFoSwEuA==
-X-Received: by 2002:a05:6512:e9c:: with SMTP id
- bi28mr45440847lfb.245.1638187475542; 
- Mon, 29 Nov 2021 04:04:35 -0800 (PST)
-Received: from [192.168.2.145] (94-29-46-111.dynamic.spd-mgts.ru.
- [94.29.46.111])
- by smtp.googlemail.com with ESMTPSA id g12sm1317274lfu.135.2021.11.29.04.04.33
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 29 Nov 2021 04:04:34 -0800 (PST)
-Subject: Re: [PATCH v2 28/45] mfd: rn5t618: Use devm_register_power_handler()
-To: Lee Jones <lee.jones@linaro.org>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Mark Brown <broonie@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Guenter Roeck
- <linux@roeck-us.net>, Russell King <linux@armlinux.org.uk>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Ulf Hansson <ulf.hansson@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Guo Ren <guoren@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Greg Ungerer <gerg@linux-m68k.org>, Joshua Thompson <funaho@jurai.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
- Vincent Chen <deanbo422@gmail.com>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Juergen Gross
- <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>,
- Len Brown <lenb@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Linus Walleij <linus.walleij@linaro.org>, Chen-Yu Tsai <wens@csie.org>,
- =?UTF-8?Q?Jonathan_Neusch=c3=a4fer?= <j.neuschaefer@gmx.net>,
- Tony Lindgren <tony@atomide.com>, Liam Girdwood <lgirdwood@gmail.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Vladimir Zapolskiy <vz@mleia.com>,
- Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>,
- Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>,
- Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>,
- Pavel Machek <pavel@ucw.cz>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-sh@vger.kernel.org, xen-devel@lists.xenproject.org,
- linux-acpi@vger.kernel.org, linux-omap@vger.kernel.org,
- openbmc@lists.ozlabs.org, linux-tegra@vger.kernel.org,
- linux-pm@vger.kernel.org
-References: <20211027211715.12671-1-digetx@gmail.com>
- <20211027211715.12671-29-digetx@gmail.com> <YaS/lStp2b8GhVxw@google.com>
-From: Dmitry Osipenko <digetx@gmail.com>
-Message-ID: <592f2326-b450-1db1-0d3d-804415cf5de6@gmail.com>
-Date: Mon, 29 Nov 2021 15:04:25 +0300
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.14.0
+ id 1mrfQb-000cg1-AJ
+ for linux-riscv@lists.infradead.org; Mon, 29 Nov 2021 12:06:39 +0000
+Received: from ip5f5b2004.dynamic.kabel-deutschland.de ([95.91.32.4]
+ helo=diego.localnet)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1mrfQP-0006lK-70; Mon, 29 Nov 2021 13:06:25 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: wefu@redhat.com, linux-riscv@lists.infradead.org
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ taiten.peng@canonical.com, aniket.ponkshe@canonical.com,
+ gordan.markus@canonical.com, guoren@linux.alibaba.com, arnd@arndb.de,
+ wens@csie.org, maxime@cerno.tech, dlustig@nvidia.com, gfavor@ventanamicro.com,
+ andrea.mondelli@huawei.com, behrensj@mit.edu, xinhaoqu@huawei.com,
+ huffman@cadence.com, mick@ics.forth.gr, allen.baum@esperantotech.com,
+ jscheid@ventanamicro.com, rtrauben@gmail.com, Anup Patel <anup@brainfault.org>,
+ Rob Herring <robh+dt@kernel.org>, anup.patel@wdc.com, atishp04@gmail.com,
+ palmer@dabbelt.com, guoren@kernel.org, christoph.muellner@vrull.eu,
+ philipp.tomsich@vrull.eu, hch@lst.de, liush@allwinnertech.com,
+ lazyparser@gmail.com, drew@beagleboard.org,
+ Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Subject: Re: [PATCH V4 1/2] dt-bindings: riscv: add MMU Standard Extensions
+ support for Svpbmt
+Date: Mon, 29 Nov 2021 13:06:23 +0100
+Message-ID: <9930802.MB9u6SvQ6m@diego>
+In-Reply-To: <97431cab-d67d-4bc7-e181-d64534791f03@canonical.com>
+References: <20211129014007.286478-1-wefu@redhat.com>
+ <20211129014007.286478-2-wefu@redhat.com>
+ <97431cab-d67d-4bc7-e181-d64534791f03@canonical.com>
 MIME-Version: 1.0
-In-Reply-To: <YaS/lStp2b8GhVxw@google.com>
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211129_040438_604131_E6148F69 
-X-CRM114-Status: GOOD (  17.22  )
+X-CRM114-CacheID: sfid-20211129_040637_394276_0C16E346 
+X-CRM114-Status: GOOD (  22.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,26 +67,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-MjkuMTEuMjAyMSAxNDo1NSwgTGVlIEpvbmVzINC/0LjRiNC10YI6Cj4gT24gVGh1LCAyOCBPY3Qg
-MjAyMSwgRG1pdHJ5IE9zaXBlbmtvIHdyb3RlOgo+IAo+PiBVc2UgZGV2bV9yZWdpc3Rlcl9wb3dl
-cl9oYW5kbGVyKCkgdGhhdCByZXBsYWNlcyBnbG9iYWwgcG1fcG93ZXJfb2ZmCj4+IHZhcmlhYmxl
-IGFuZCBhbGxvd3MgdG8gcmVnaXN0ZXIgbXVsdGlwbGUgcG93ZXItb2ZmIGhhbmRsZXJzLiBJdCBh
-bHNvCj4+IHByb3ZpZGVzIHJlc3RhcnQtaGFuZGxlciBzdXBwb3J0LCBpLmUuIGFsbCBpbiBvbmUg
-QVBJLgo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBEbWl0cnkgT3NpcGVua28gPGRpZ2V0eEBnbWFpbC5j
-b20+Cj4+IC0tLQo+PiAgZHJpdmVycy9tZmQvcm41dDYxOC5jIHwgNTYgKysrKysrKysrKysrKysr
-Ky0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+PiAgMSBmaWxlIGNoYW5nZWQsIDIxIGluc2Vy
-dGlvbnMoKyksIDM1IGRlbGV0aW9ucygtKQo+IAo+IEZvciBteSBvd24gcmVmZXJlbmNlIChhcHBs
-eSB0aGlzIGFzLWlzIHRvIHlvdXIgc2lnbi1vZmYgYmxvY2spOgo+IAo+ICAgQWNrZWQtZm9yLU1G
-RC1ieTogTGVlIEpvbmVzIDxsZWUuam9uZXNAbGluYXJvLm9yZz4KPiAKClRoYW5rcyB5b3UuIFRo
-aXMgYW5kIG90aGVyIGRyaXZlciBwYXRjaGVzIHdpbGwgYmUgc2xpZ2h0bHkgY2hhbmdlZApiZWNh
-dXNlIHRoZSBwb3dlci1oYW5kbGVyIHdhcyByZW5hbWVkIHRvIHN5cy1vZmYgaGFuZGxlciBzdGFy
-dGluZyB3aXRoCnRoZSB2MyBvZiB0aGlzIHNlcmllcywgYnV0IHlvdXJzIGFjayBzdGlsbCB3aWxs
-IGJlIHZhbGlkIGhlcmUuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+Am Montag, 29. November 2021, 09:54:39 CET schrieb Heinrich Schuchardt:
+> On 11/29/21 02:40, wefu@redhat.com wrote:
+> > From: Wei Fu <wefu@redhat.com>
+> > 
+> > Previous patch has added svpbmt in arch/riscv and add "riscv,svpmbt"
+> > in the DT mmu node. Update dt-bindings related property here.
+> > 
+> > Signed-off-by: Wei Fu <wefu@redhat.com>
+> > Co-developed-by: Guo Ren <guoren@kernel.org>
+> > Signed-off-by: Guo Ren <guoren@kernel.org>
+> > Cc: Anup Patel <anup@brainfault.org>
+> > Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> > Cc: Rob Herring <robh+dt@kernel.org>
+> > ---
+> >   Documentation/devicetree/bindings/riscv/cpus.yaml | 10 ++++++++++
+> >   1 file changed, 10 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > index aa5fb64d57eb..9ff9cbdd8a85 100644
+> > --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > @@ -63,6 +63,16 @@ properties:
+> >         - riscv,sv48
+> >         - riscv,none
+> >   
+> > +  mmu:
+> 
+> Shouldn't we keep the items be in alphabetic order, i.e. mmu before 
+> mmu-type?
+> 
+> > +    description:
+> > +      Describes the CPU's MMU Standard Extensions support.
+> > +      These values originate from the RISC-V Privileged
+> > +      Specification document, available from
+> > +      https://riscv.org/specifications/
+> > +    $ref: '/schemas/types.yaml#/definitions/string'
+> > +    enum:
+> > +      - riscv,svpmbt
+> 
+> The privileged specification has multiple MMU related extensions: 
+> Svnapot, Svpbmt, Svinval. Shall they all be modeled in this enum?
+
+I remember in some earlier version some way back there was the
+suggestion of using a sub-node instead and then adding boolean
+properties for the supported extensions.
+
+Aka something like
+	mmu {
+		riscv,svpbmt;	
+	};
+
+Which I guess would be a lot nicer. Also right now there is string-
+comparison done on the code side, which would look way easier
+when just looking for booleans in the dt instead.
+
+Also isn't an enum a "one-of" selection, so wouldn't work directly
+for multiple extensions?
+
+
+Heiko
+
+
+> 
+> Best regards
+> 
+> Heinrich
+> 
+> > +
+> >     riscv,isa:
+> >       description:
+> >         Identifies the specific RISC-V instruction set architecture
+> > 
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+
+
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
