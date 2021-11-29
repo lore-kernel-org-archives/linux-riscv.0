@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42539C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Nov 2021 17:54:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14A04C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Nov 2021 17:55:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=esqNsUhqT9iMQ+hpOXMdPXJYEQZ3z2BYBKnJDejQ93c=; b=BBs6obEAVVvlaG
-	eCsDbvtwpAIZwjbxZoeBDdl5Pju1Yac79KjdLN+e3/KNNWEeH+6In+ukB/yYesnt5RoUladrDqTah
-	IoTAKezBWMFL+yP6xd6V+ztpBVS20bisnuLXrn4LfZHdho1wNOdWBPbgvkhlSWobJlsJScPd9Jgcb
-	5TpHbtdfqj29zkEE5Ug7KOWeIxdm2Mq2q5oeww9qLeKhPVagaDMMYm5aJ1Je4a4Fe60SCEudYYRAk
-	3saP+e5nd6lpETHsN0FGn+p/E+LJ9l3XhUds2zZeTTZ//9mIkzh6gHOuoUDC9lBGWJwZYiFFpw/M+
-	b+uLrdg+1ILc5eoYIIhA==;
+	List-Owner; bh=N74MVcmZ9YjZU544TmfzwSRZiNe43nak6WuNP5ME93Y=; b=0RjMhK6MAGKqfX
+	FUOgC4tWqUHRyh8kQ6c7jxLNkcj4PntDhAR+8P+zkzOM87TZOvuoM94oHyfTh4k+/U+x/7kPdzLBK
+	i2w77q7XjuMfuL5bikvvLLv5qY/EDeOPB9WNPLfFHeRiOnU6uC+lK1u52221eL61II01H+n50t9vb
+	udh8CTGPyzn/GYc5qEOwFjNzjTuLkscQ/V4auuNqmUf6r38MDcGNqnV+urECm2jMJM2rNyp+CTACS
+	SO1KbexU2RIdlW9qJuP7/8M2+2rx0NVZopAHotYYVM3LXHTlANuMjcqKkVUNgoBRODDm1XGk8LZkm
+	lqErvalme+2WI+3N3XDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mrkr3-001euA-Nf; Mon, 29 Nov 2021 17:54:17 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1mrksV-001fQA-CW; Mon, 29 Nov 2021 17:55:47 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mrkqj-001enN-Jl; Mon, 29 Nov 2021 17:53:58 +0000
-Received: by mail-ed1-x533.google.com with SMTP id r11so75534086edd.9;
- Mon, 29 Nov 2021 09:53:55 -0800 (PST)
+ id 1mrks8-001fHE-6q; Mon, 29 Nov 2021 17:55:25 +0000
+Received: by mail-ed1-x536.google.com with SMTP id r25so10137810edq.7;
+ Mon, 29 Nov 2021 09:55:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=sender:message-id:date:mime-version:user-agent:subject
  :content-language:to:cc:references:from:in-reply-to
  :content-transfer-encoding;
- bh=1y5DEAA90y8cYxRCLd33wqhLVpAEzLmdNKss0/RInBo=;
- b=E58dL1Cy0ML/Fq7U+4vMD/XpyhySESNFxGtsJEr0iGA5QuLlhcOX/A4/jdDRZEzDIQ
- fPsLvJxXz3PX63V9su/FgauAMqwxco+y+olI1dCd3mpfxLlYlBPlhWOjrxeLq9guNxSM
- eEfi9IneXptokJh8diXl/ugbj5GCH/6ELhKn4aofNdddGLZ+OqUWg1z9TxLUnKXffmNg
- lUaqpY0k7AwGkJ3OL2ZtKNoHyBmTZ4KtwmtpxoPlTCt2JnQOPjXQ7vH4M7rfgBjlRgND
- uViwUXN3LorpSW+ON86lkQL5g7/VvacQD/GzeWK08eJHfKwJKQfnwt7i4lLeeVe5Mvw/
- ad3w==
+ bh=Jo8G3WIFnCXJv/Wl58UbY8LXKhGKq56nydp8ornyGvw=;
+ b=AjLExKPDvZxJIAf93isJIQG5owoNwi20rpmLOoVH2+s0ZWunJFmYMjECqAXAa31ExM
+ qP4APhy58+cgNzSgs7CZp9bi9ZLfh1Um4f0T4CPKtFMqEQtoIPcbCG5ECCW+4/RpN3qP
+ 1k3CIsFPt6dBLkWzV5yOedKG0phAVvwwuaHgAci5hCbOZz8Yy6GMFp/NPR+R+K6sin3x
+ 5VGYrAKTVs66DntrIpjFBpn/bDtGwX2tdoIaZvud6hNaP1K0MD3EhI9p5XlWWUFTNrfc
+ xT0cVpHPnGNOA0p342OPsO0F8T5HlLM3fktULYfIDujE1Zx4qHlH1POPSzpbzwUrncLW
+ GVzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:sender:message-id:date:mime-version:user-agent
  :subject:content-language:to:cc:references:from:in-reply-to
  :content-transfer-encoding;
- bh=1y5DEAA90y8cYxRCLd33wqhLVpAEzLmdNKss0/RInBo=;
- b=vfu4Cd9k4+GzLcR8vil0uS88vqzqNb0IhlbcqRNGz47rNIE+IQic4kH7Z8XFNL55XR
- 4N6y/tmeY45kJwM5gABP7zz0Hsv5V2bf1CLqkXr/cTg8Spznr7zCPBiDVfJ+uzgR94+N
- hzQSJ9OXD4RiDAvZTiEFYB9rMVPqIr1SQ55RQweT54aSYtLXxK7O10Jqs4ooAhcrLO2P
- +QGA8ZiXNzEts/i/ia2cHJK1bhsxa09VKjf58yp2CahDShNfts8eDx41OLolo7YEEo66
- rhKTiuA7zSO8bOkrb/q2gEFqMXs4d0BYh5QGK0ZhyXIKeifmpzqLvfo+LvfX3apSvXN1
- SpAQ==
-X-Gm-Message-State: AOAM533VGROaEQ3ehp7UPucbAUz4QKE47cBmvHafL0sXg4rT642dAdZN
- uNPKc2EUV76G6F81JmeRbJs=
-X-Google-Smtp-Source: ABdhPJyEFZTCnn35jIBM5GkhncH3CSPbL5gmVmWsUh9Tr+ztH5c8bc9QO9Acd3UAKwaA5P3qYhybfg==
-X-Received: by 2002:a05:6402:2744:: with SMTP id
- z4mr77472004edd.310.1638208434290; 
- Mon, 29 Nov 2021 09:53:54 -0800 (PST)
+ bh=Jo8G3WIFnCXJv/Wl58UbY8LXKhGKq56nydp8ornyGvw=;
+ b=gFrIRkZ5Hm+uqutclhyQveYkDAWyWRPXtJjoYYxaUCaW40hcGtSDZ2aCUHSLivFqPv
+ vZuosAJWfi0h6Co2TI+M1NdfCG4DrNlbxX/rZGPy7dpZnKSGRvR2rRHdtDS3QizgrgK/
+ 0rl/s+PGUFs8Wt32nThyIAdCjSHkNFAOYHamhZ1j0ZM89gK8s9bvN1HNf53cXTtkRjO/
+ OnGxnfajgS2684JtvnYhW3tt9E8wgWEB8RuyrO0QZe+KScJ5z+qSAMY1mdRjR3uYpOu3
+ tenZ+x3hRAdWFnX1N26DHPg5Ch3AH6cXF+1OrissgzGsjxC5ZVQ/FpPaOJzgcnViO0A6
+ rjEA==
+X-Gm-Message-State: AOAM533GSBIfOYfNkPuklEuyDhbjAEKIe2t0bkfY2+lVeuRNMN7DhFJf
+ aBWzd8YSkKYPvMXTX4fdqXM=
+X-Google-Smtp-Source: ABdhPJzV0Hp7Xr2kSqyy1FejCYUnhDh4xLCC02qQtKZ+cbHbGKkW71ueP1pw91X6C27D1KEW8+5Gvw==
+X-Received: by 2002:a17:907:68e:: with SMTP id
+ wn14mr62415481ejb.258.1638208522107; 
+ Mon, 29 Nov 2021 09:55:22 -0800 (PST)
 Received: from ?IPV6:2001:b07:6468:f312:5e2c:eb9a:a8b6:fd3e?
  ([2001:b07:6468:f312:5e2c:eb9a:a8b6:fd3e])
- by smtp.googlemail.com with ESMTPSA id gt18sm7974997ejc.46.2021.11.29.09.53.49
+ by smtp.googlemail.com with ESMTPSA id og38sm7559529ejc.5.2021.11.29.09.55.20
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 29 Nov 2021 09:53:53 -0800 (PST)
-Message-ID: <496c2fc6-26b0-9b5d-32f4-2f9e9dd6a064@redhat.com>
-Date: Mon, 29 Nov 2021 18:53:48 +0100
+ Mon, 29 Nov 2021 09:55:21 -0800 (PST)
+Message-ID: <ba8341d6-7ee7-1af1-1385-0a9226bbf952@redhat.com>
+Date: Mon, 29 Nov 2021 18:55:19 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.2.0
@@ -97,8 +97,8 @@ References: <20211009021236.4122790-1-seanjc@google.com>
 From: Paolo Bonzini <pbonzini@redhat.com>
 In-Reply-To: <YaUNBfJh35WXMV0M@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211129_095357_694018_D65BB557 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20211129_095524_286376_E3F62670 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,51 +116,14 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 11/29/21 18:25, Sean Christopherson wrote:
-> If a posted interrupt arrives after KVM has done its final search through the vIRR,
-> but before avic_update_iommu_vcpu_affinity() is called, the posted interrupt will
-> be set in the vIRR without triggering a host IRQ to wake the vCPU via the GA log.
+>> If I apply though only the patch series up to this patch, my fedora VM seems
+>> to work fine, but my windows VM still locks up hard when I run 'LatencyTop'
+>> in it, which doesn't happen without this patch.
 > 
-> I.e. KVM is missing an equivalent to VMX's posted interrupt check for an outstanding
-> notification after switching to the wakeup vector.
+> Buy "run 'LatencyTop' in it", do you mean running something in the Windows guest?
+> The only search results I can find for LatencyTop are Linux specific.
 
-BTW Maxim reported that it can break even without assigned devices.
-
-> For now, the least awful approach is sadly to keep the vcpu_(un)blocking() hooks.
-
-I agree that the hooks cannot be dropped but the bug is reproducible 
-with this patch, where the hooks are still there.
-
-With the hooks in place, you have:
-
-	kvm_vcpu_blocking(vcpu)
-	  avic_set_running(vcpu, false)
-	    avic_vcpu_put(vcpu)
-	      avic_update_iommu_vcpu_affinity()
-	      WRITE_ONCE(...) // clear IS_RUNNING bit
-
-	set_current_state()
-	  smp_mb()
-
-	kvm_vcpu_check_block()
-	  return kvm_arch_vcpu_runnable() || ...
-	    return kvm_vcpu_has_events() || ...
-	      return kvm_cpu_has_interrupt() || ...
-		return kvm_apic_has_interrupt() || ...
-		  return apic_has_interrupt_for_ppr()
-		    apic_find_highest_irr()
-		      scan vIRR
-
-This covers the barrier between the write of is_running and the read of 
-vIRR, and the other side should be correct as well.  in particular, 
-reads of is_running always come after an atomic write to vIRR, and hence 
-after an implicit full memory barrier.  svm_deliver_avic_intr() has an 
-smp_mb__after_atomic() after writing IRR; avic_kick_target_vcpus() even 
-has an explicit barrier in srcu_read_lock(), between the microcode's 
-write to vIRR and its own call to avic_vcpu_is_running().
-
-Still it does seem to be a race that happens when IS_RUNNING=true but 
-vcpu->mode == OUTSIDE_GUEST_MODE.  This patch makes the race easier to 
-trigger because it moves IS_RUNNING=false later.
+I think it's LatencyMon, https://www.resplendence.com/latencymon.
 
 Paolo
 
