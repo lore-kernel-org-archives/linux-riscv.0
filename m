@@ -4,58 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22CE6C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Nov 2021 12:06:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5CDFC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Nov 2021 12:19:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/6FJb4mVXEFtSvZM6YdPYAaMdy4pgS7CRVRliUG2gIA=; b=X2tsztbFenuSLp
-	a5stM5R6kiRzMaL42o6/5fK3ym71vcu0gTJGjnUtrLWHC2f580fkt3PNfFvqAqGe/jzhlF6as4X+G
-	8pnpOnDQczZkbNzLAhSWmrUnSx/A2S4WKuYJFPTxtKed2Sp7s/KGpxLiFUXjSZm3Cfo7/ubFjbGak
-	nc46CpZVpB43u3/BguY1LXhqpDFaV3lbcx+4vxHtzsIAY7brFxb1XYvaW7DX0UQ8tC0gYkqiBJb4S
-	eSsizURm/axzAlPRwzPnwHaaf8IqcAgKD2ix20lRmS4KAu+Vbp73R+cogJ64sGmKGIiCp8Q12xhnv
-	n0eaMQI+LSpMw19rUbMw==;
+	List-Owner; bh=A7O7/c2fYSVTHByLzZcFQ6+nslm1+UN1n5qFBWGP6B0=; b=1Cf3Oeva8j0A0Z
+	THHV6yf/5AW6YcPljnsU2VzVkatH/DWU5MSHGZBrv13mdD4ariT3fyHL98GUf3S1IBJxSGn+7mcDr
+	RUI0vKN7pgsg1bs4mAc8SebqdDFapBc3d+YxF5md25e6cFfQpmyjsLp5zJMXTEX/bKH09ATfgoMhi
+	AfqeQiT59MoBfRDvqQM7L5hCSdnEgH5q8Wss6DgvtaG+nl8H4sNVKK6762D8GXP35kNh7Ber1F6FK
+	zVKW5dd2r6LJYfJmeNKTD0hiT8LHqOiMVPB/UA+G/rrhidVoApV10Avq/mzG6DFY4hDyjXRE4Kmym
+	K3xWHmxux5BZXOQflEsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mrfQe-000cgx-Nz; Mon, 29 Nov 2021 12:06:40 +0000
+	id 1mrfcQ-000eud-1B; Mon, 29 Nov 2021 12:18:50 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mrfQb-000cg1-AJ
- for linux-riscv@lists.infradead.org; Mon, 29 Nov 2021 12:06:39 +0000
+ id 1mrfcN-000etJ-AQ
+ for linux-riscv@lists.infradead.org; Mon, 29 Nov 2021 12:18:48 +0000
 Received: from ip5f5b2004.dynamic.kabel-deutschland.de ([95.91.32.4]
  helo=diego.localnet)
  by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
  (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1mrfQP-0006lK-70; Mon, 29 Nov 2021 13:06:25 +0100
+ id 1mrfcH-0006se-Me; Mon, 29 Nov 2021 13:18:41 +0100
 From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: wefu@redhat.com, linux-riscv@lists.infradead.org
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- taiten.peng@canonical.com, aniket.ponkshe@canonical.com,
- gordan.markus@canonical.com, guoren@linux.alibaba.com, arnd@arndb.de,
- wens@csie.org, maxime@cerno.tech, dlustig@nvidia.com, gfavor@ventanamicro.com,
- andrea.mondelli@huawei.com, behrensj@mit.edu, xinhaoqu@huawei.com,
- huffman@cadence.com, mick@ics.forth.gr, allen.baum@esperantotech.com,
- jscheid@ventanamicro.com, rtrauben@gmail.com, Anup Patel <anup@brainfault.org>,
- Rob Herring <robh+dt@kernel.org>, anup.patel@wdc.com, atishp04@gmail.com,
- palmer@dabbelt.com, guoren@kernel.org, christoph.muellner@vrull.eu,
- philipp.tomsich@vrull.eu, hch@lst.de, liush@allwinnertech.com,
- lazyparser@gmail.com, drew@beagleboard.org,
- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Subject: Re: [PATCH V4 1/2] dt-bindings: riscv: add MMU Standard Extensions
- support for Svpbmt
-Date: Mon, 29 Nov 2021 13:06:23 +0100
-Message-ID: <9930802.MB9u6SvQ6m@diego>
-In-Reply-To: <97431cab-d67d-4bc7-e181-d64534791f03@canonical.com>
-References: <20211129014007.286478-1-wefu@redhat.com>
- <20211129014007.286478-2-wefu@redhat.com>
- <97431cab-d67d-4bc7-e181-d64534791f03@canonical.com>
+To: panqinglin2020@iscas.ac.cn, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org
+Cc: jeff@riscv.org, xuyinan@ict.ac.cn, Alexandre ghiti <alex@ghiti.fr>
+Subject: Re: [PATCH v1 1/2] riscv,
+ mm: Add Sv57 support based on Sv48 implementation
+Date: Mon, 29 Nov 2021 13:18:40 +0100
+Message-ID: <8716160.szTZlG9eok@diego>
+In-Reply-To: <cda194e5-297d-5eb2-2dc2-7ce5fdf2fd60@ghiti.fr>
+References: <20211124112021.788242-1-panqinglin2020@iscas.ac.cn>
+ <20211124112021.788242-2-panqinglin2020@iscas.ac.cn>
+ <cda194e5-297d-5eb2-2dc2-7ce5fdf2fd60@ghiti.fr>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211129_040637_394276_0C16E346 
-X-CRM114-Status: GOOD (  22.17  )
+X-CRM114-CacheID: sfid-20211129_041847_406797_E84A1561 
+X-CRM114-Status: GOOD (  19.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,87 +62,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 29. November 2021, 09:54:39 CET schrieb Heinrich Schuchardt:
-> On 11/29/21 02:40, wefu@redhat.com wrote:
-> > From: Wei Fu <wefu@redhat.com>
-> > 
-> > Previous patch has added svpbmt in arch/riscv and add "riscv,svpmbt"
-> > in the DT mmu node. Update dt-bindings related property here.
-> > 
-> > Signed-off-by: Wei Fu <wefu@redhat.com>
-> > Co-developed-by: Guo Ren <guoren@kernel.org>
-> > Signed-off-by: Guo Ren <guoren@kernel.org>
-> > Cc: Anup Patel <anup@brainfault.org>
-> > Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> > Cc: Rob Herring <robh+dt@kernel.org>
-> > ---
-> >   Documentation/devicetree/bindings/riscv/cpus.yaml | 10 ++++++++++
-> >   1 file changed, 10 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > index aa5fb64d57eb..9ff9cbdd8a85 100644
-> > --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > @@ -63,6 +63,16 @@ properties:
-> >         - riscv,sv48
-> >         - riscv,none
+Am Montag, 29. November 2021, 12:20:20 CET schrieb Alexandre ghiti:
+> Hi Qinglin,
+> 
+> On 11/24/21 12:20, panqinglin2020@iscas.ac.cn wrote:
+> > From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+> >
+> > This patch adds Sv57 implementation on the top of Alex's Sv48 patchset.
+> > The mmu configuration will be determined on runtime, according to both
+> > mmu HW support and mmu-type field in the dtb. The kernel will try to
+> > set satp mode one by one from the configuration item to Sv39 in 64bit.
+> >
+> > Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+
+> > @@ -658,18 +755,31 @@ static __init void set_satp_mode(uintptr_t dtb_pa)
+> >   				continue;
 > >   
-> > +  mmu:
-> 
-> Shouldn't we keep the items be in alphabetic order, i.e. mmu before 
-> mmu-type?
-> 
-> > +    description:
-> > +      Describes the CPU's MMU Standard Extensions support.
-> > +      These values originate from the RISC-V Privileged
-> > +      Specification document, available from
-> > +      https://riscv.org/specifications/
-> > +    $ref: '/schemas/types.yaml#/definitions/string'
-> > +    enum:
-> > +      - riscv,svpmbt
-> 
-> The privileged specification has multiple MMU related extensions: 
-> Svnapot, Svpbmt, Svinval. Shall they all be modeled in this enum?
-
-I remember in some earlier version some way back there was the
-suggestion of using a sub-node instead and then adding boolean
-properties for the supported extensions.
-
-Aka something like
-	mmu {
-		riscv,svpbmt;	
-	};
-
-Which I guess would be a lot nicer. Also right now there is string-
-comparison done on the code side, which would look way easier
-when just looking for booleans in the dt instead.
-
-Also isn't an enum a "one-of" selection, so wouldn't work directly
-for multiple extensions?
-
-
-Heiko
-
-
-> 
-> Best regards
-> 
-> Heinrich
-> 
+> >   			if (!strcmp(mmu_type, "riscv,sv39")) {
+> > +				disable_pgtable_l5();
+> >   				disable_pgtable_l4();
+> >   				return;
+> >   			}
+> >   
+> > +			if (!strcmp(mmu_type, "riscv,sv48")) {
+> > +				check_l4 = true;
+> > +			}
 > > +
-> >     riscv,isa:
-> >       description:
-> >         Identifies the specific RISC-V instruction set architecture
-> > 
 > 
 > 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
+> If sv48 is set in the device tree, why would you test if it is supported 
+> below? I would take it as is, just like for sv39, I'm not sure we want 
+> to override this silently and make a wrong device tree work.
 
-
+or alternatively the code could emit a big WARN that a mismatch was
+corrected. Getting to a point where a developer can actually see their
+mistake on a console might be helpful to people :-)
 
 
 
