@@ -4,133 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCE1EC433F5
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Nov 2021 23:36:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06AC2C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Nov 2021 00:27:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+QUUYGxNbFfkAMxnCNWlxk1j7pvrKwTbzsEgz5uJ0ds=; b=hsgKqnKWkQXtNw
-	v/4IxgFa+9Pomrp9DknqzRfQbrdWCCZVqMIS0cyoZO5+a3TmiINy83eUI5tNoPm9WjF+KOarW4cq4
-	kFFqp2+yUROt2nmKsBmA/+YLz9x9RtqW8uusa2HvKMcQqaYavAjv2RRtImb7GzYftxkNYfJF+4vn5
-	Ofl573U2UMvzm/ZJbR14KwG7Ws0++aLuIz+U1INoT6Breh6eig/36uBBON7uup3YftKfOODz/LyQs
-	Vo3WTGxtzkWoxOHboQPibsYKw6oTTChv8VBAWzM2XeZbSmKayBkwhw9gi8XPJPqzvlTiUuneLqlUX
-	tQUAO3ctc/8EeAuWoXbA==;
+	List-Owner; bh=CPNnMgx2k1+ek/CX9AstJn0Jch1Qn9wZv73OfoQEAFw=; b=N/pTJXAT9say0S
+	JaK1MmrNxsuuVFWx5IQMNwbuASSn82PH4ZJCpgS6wadcbDEmr4mUKn8sfeE4tHIrerp/fFemljQhy
+	FuyKVBU/IWJPyAqJimKz4ECfydtRqh8FENZtCH04y4iVIF/mY4ZMXHX/+tudQSjVjjnf1iOEzaYTy
+	I3vLNsr7oW5jBXLN7URAkz8xVQn43Yi3DQ4KgB1Euob0K8fPyh5Ok2lYznHvFbY8+W54laWXaaUV2
+	/uyjOF+m0LLyXlSZCKZq9jQMnZG8FF1JrJLKpaBbVy/jzRxOjh1wFafLOTLc760flfWKt/W4NlLWF
+	nlXjzapsICaIEzfO8Uxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mrTil-00Gqgz-LJ; Sun, 28 Nov 2021 23:36:35 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1mrUVZ-00GwGA-In; Mon, 29 Nov 2021 00:27:01 +0000
+Received: from rere.qmqm.pl ([91.227.64.183])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mrTih-00GqfR-2j; Sun, 28 Nov 2021 23:36:32 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id q64so20961388qkd.5;
- Sun, 28 Nov 2021 15:36:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=+pvPLMMOaG75eXeO+MYWVtFy7p98nfe1U4iD6DUFgqs=;
- b=FqHxiwrQ7QYivLGpovhQrNQCHUCj7LxMV2WH4G2Ujzkjgck5ZuLpYg6YmyS5/pcjd8
- PioI6TsqEy6uPfhoz8wEavEgHnpCryLeBpBEb8dr5G6s12WteiFVLQFxrBR47EVsTB3X
- ndIWwpq8YabRGonzz7m7f+N7UJXzBMp2vfRHxXo9M1u6ZB6qiEh6DrJAZ2z7gRkAQ5sC
- IqRPeZsbgWqH6z7gZV/iyVzYOISv9QQ48jjOTsL+5HMXkolOWVbHK0gj+h+Ra3+OPnrQ
- HZwGnjmshXRb1nFHqTfVME98Ezv2622Zg9Ol7LGc837jR3cjnZ1W8PCl/MaA7m1eTWjV
- ggTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=+pvPLMMOaG75eXeO+MYWVtFy7p98nfe1U4iD6DUFgqs=;
- b=Js4R5RhmLG0oOcaKrpqpNazYICXmZ0NRCDyJy/VsdQR5JlPmfB0E5W0w+H/pheomVq
- GITS0GahRJrGWqTcclHXhgus+YKq72ZuLy7Hvxt07Qgt0qjIPFiusUONu39LEhqKVc6O
- ITLMqi3LXm/N9e0YM5JmSKmYDx8zQ8AgL0Dsc2FtDlBkKaFLHuPsm4NmLC4wH9mGYbpC
- ySRkLf3BLqClxeS1sfCfJ+bslc6KQIUUXY1H9ctRCTfqXMtrY88RvcWlgnFWg+Oh/qPN
- p2u/sIuE64ck64GjldR+/BaHO06wY2w0BB5JKUEvaq3zSGv0h8Jc9gYUkcAPy5+PzDWm
- PJww==
-X-Gm-Message-State: AOAM531qbkncW/161iQlgQf3524EiFYhhr+o4MgKh5VR31+2plNydldC
- rw4peH0UXRopKOKxuPk4RWg=
-X-Google-Smtp-Source: ABdhPJwjz8dPYMt9os+urjypBO3KPO0n0aAUmhuhKTUddMw0/hFm/BxjybZbsejId+j0oxfauAhjwQ==
-X-Received: by 2002:a05:620a:4491:: with SMTP id
- x17mr26762094qkp.528.1638142589577; 
- Sun, 28 Nov 2021 15:36:29 -0800 (PST)
-Received: from localhost ([66.216.211.25])
- by smtp.gmail.com with ESMTPSA id h19sm8013261qth.63.2021.11.28.15.36.28
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 28 Nov 2021 15:36:28 -0800 (PST)
-Date: Sun, 28 Nov 2021 15:36:27 -0800
-From: Yury Norov <yury.norov@gmail.com>
-To: Nicholas Piggin <npiggin@gmail.com>
-Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
- Andy Gross <agross@kernel.org>, David Airlie <airlied@linux.ie>,
- Alexey Klimov <aklimov@redhat.com>, Andi Kleen <ak@linux.intel.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Amitkumar Karwar <amitkarwar@gmail.com>,
- Andrew Lunn <andrew@lunn.ch>, Andy Shevchenko <andy@infradead.org>,
- Anup Patel <anup.patel@wdc.com>, Ard Biesheuvel <ardb@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Jens Axboe <axboe@fb.com>,
- bcm-kernel-feedback-list@broadcom.com, Borislav Petkov <bp@alien8.de>,
+ id 1mrUVV-00GwEP-Ui; Mon, 29 Nov 2021 00:27:00 +0000
+Received: from remote.user (localhost [127.0.0.1])
+ by rere.qmqm.pl (Postfix) with ESMTPSA id 4J2R463HYCz9Y;
+ Mon, 29 Nov 2021 01:26:46 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=rere.qmqm.pl; s=1;
+ t=1638145614; bh=rYhG1/gOEGdeEm/s8Gt8rEBk1iF8QMIsgq7S9tytKm0=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=CbL6Dkr0hp6+eWfnOkswWvW2NOKJ79Uh6/l2ZCnK5kWTiOO50iqx187Rg4dryYZZY
+ bxYRz4m9fgWtZVh11lmgMaMMzocpKUJUWIlke/44DEMmzJJm4vDOSxFAyf1Gq25nhd
+ 1THlT17c8aj7yKXukSvNxOS2rqgVH1j/XRMa1p7Hswrcs4jJdmmxtpOwmRnm9PweUg
+ dgln8/6i94ET+XVFAx+2l6pzk4WNbL+PWxg255szxizJhOsvQ3eK1ntEQbcIyPN3HU
+ KJwCs9dJC+yqQftWDNSkBS/r4FvpiW2ousq8It65okWyLREqQTSJR+N2Sf4mDmjtBp
+ iZvEDATRHwtcA==
+X-Virus-Status: Clean
+X-Virus-Scanned: clamav-milter 0.103.3 at mail
+Date: Mon, 29 Nov 2021 01:26:42 +0100
+From: =?iso-8859-2?Q?Micha=B3_Miros=B3aw?= <mirq-linux@rere.qmqm.pl>
+To: Dmitry Osipenko <digetx@gmail.com>
+Cc: Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>,
+ Russell King <linux@armlinux.org.uk>,
  Catalin Marinas <catalin.marinas@arm.com>,
- Christoph Lameter <cl@linux.com>, Daniel Vetter <daniel@ffwll.ch>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Laight <David.Laight@ACULAB.COM>,
- Dennis Zhou <dennis@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>,
- Geetha sowjanya <gakula@marvell.com>,
+ Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
  Geert Uytterhoeven <geert@linux-m68k.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Guo Ren <guoren@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
- Christoph Hellwig <hch@lst.de>, Hans de Goede <hdegoede@redhat.com>,
- Ian Rogers <irogers@google.com>, Jason Wessel <jason.wessel@windriver.com>,
- "James E.J. Bottomley" <jejb@linux.ibm.com>,
- Jonathan Cameron <jic23@kernel.org>, Jiri Olsa <jolsa@redhat.com>,
- Juri Lelli <juri.lelli@redhat.com>, Kees Cook <keescook@chromium.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Jakub Kicinski <kuba@kernel.org>, Kalle Valo <kvalo@codeaurora.org>,
- kvm@vger.kernel.org, Lee Jones <lee.jones@linaro.org>,
- linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Russell King <linux@armlinux.org.uk>, linux-crypto@vger.kernel.org,
- linux-csky@vger.kernel.org, linux-ia64@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, linux-perf-users@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, Rasmus Villemoes <linux@rasmusvillemoes.dk>,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, Andy Lutomirski <luto@kernel.org>,
- Mark Gross <markgross@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- "Martin K. Petersen" <martin.petersen@oracle.com>,
- Marc Zyngier <maz@kernel.org>, Matti Vaittinen <mazziesaccount@gmail.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Mel Gorman <mgorman@suse.de>,
- Mike Marciniszyn <mike.marciniszyn@cornelisnetworks.com>,
- Ingo Molnar <mingo@redhat.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Marcin Wojtas <mw@semihalf.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- "Paul E. McKenney" <paulmck@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Solomon Peachy <pizza@shaftnet.org>, Petr Mladek <pmladek@suse.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Randy Dunlap <rdunlap@infradead.org>, Steven Rostedt <rostedt@goodmis.org>,
- Roy Pledge <Roy.Pledge@nxp.com>, Saeed Mahameed <saeedm@nvidia.com>,
- Sagi Grimberg <sagi@grimberg.me>, Subbaraya Sundeep <sbhatta@marvell.com>,
- Stephen Boyd <sboyd@kernel.org>,
- Sergey Senozhatsky <senozhatsky@chromium.org>,
- Stephen Rothwell <sfr@canb.auug.org.au>,
- Sunil Goutham <sgoutham@marvell.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Tariq Toukan <tariqt@nvidia.com>,
- Thomas Gleixner <tglx@linutronix.de>, Tejun Heo <tj@kernel.org>,
+ Greg Ungerer <gerg@linux-m68k.org>, Joshua Thompson <funaho@jurai.org>,
  Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Ulf Hansson <ulf.hansson@linaro.org>,
- Vlastimil Babka <vbabka@suse.cz>, Vineet Gupta <vgupta@kernel.org>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Viresh Kumar <viresh.kumar@linaro.org>,
- Vivien Didelot <vivien.didelot@gmail.com>, Will Deacon <will@kernel.org>
-Subject: Re: [PATCH 0/9] lib/bitmap: optimize bitmap_weight() usage
-Message-ID: <20211128233627.GA323159@lapt>
-References: <20211128035704.270739-1-yury.norov@gmail.com>
- <1638096766.3elxdzb8ly.astroid@bobo.none>
+ Sebastian Reichel <sre@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Greentime Hu <green.hu@gmail.com>,
+ Vincent Chen <deanbo422@gmail.com>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Rich Felker <dalias@libc.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+ Juergen Gross <jgross@suse.com>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Santosh Shilimkar <ssantosh@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, Pavel Machek <pavel@ucw.cz>,
+ Lee Jones <lee.jones@linaro.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Guenter Roeck <linux@roeck-us.net>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, alankao@andestech.com,
+ "K . C . Kuen-Chern Lin" <kclin@andestech.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-csky@vger.kernel.org, linux-ia64@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
+ xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-tegra@vger.kernel.org
+Subject: Re: [PATCH v4 05/25] reboot: Warn if restart handler has duplicated
+ priority
+Message-ID: <YaQeQgbW+CjEdsqG@qmqm.qmqm.pl>
+References: <20211126180101.27818-1-digetx@gmail.com>
+ <20211126180101.27818-6-digetx@gmail.com>
+ <YaLNOJTM+lVq+YNS@qmqm.qmqm.pl>
+ <033ddf2a-6223-1a82-ec64-30f17c891f67@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <1638096766.3elxdzb8ly.astroid@bobo.none>
+In-Reply-To: <033ddf2a-6223-1a82-ec64-30f17c891f67@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211128_153631_148408_8B33FE0E 
-X-CRM114-Status: GOOD (  19.58  )
+X-CRM114-CacheID: sfid-20211128_162658_648081_AFFC503B 
+X-CRM114-Status: GOOD (  33.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,39 +110,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 28, 2021 at 09:08:41PM +1000, Nicholas Piggin wrote:
-> Excerpts from Yury Norov's message of November 28, 2021 1:56 pm:
-> > In many cases people use bitmap_weight()-based functions like this:
-> > 
-> > 	if (num_present_cpus() > 1)
-> > 		do_something();
-> > 
-> > This may take considerable amount of time on many-cpus machines because
-> > num_present_cpus() will traverse every word of underlying cpumask
-> > unconditionally.
-> > 
-> > We can significantly improve on it for many real cases if stop traversing
-> > the mask as soon as we count present cpus to any number greater than 1:
-> > 
-> > 	if (num_present_cpus_gt(1))
-> > 		do_something();
-> > 
-> > To implement this idea, the series adds bitmap_weight_{eq,gt,le}
-> > functions together with corresponding wrappers in cpumask and nodemask.
-> 
-> There would be no change to callers if you maintain counters like what
-> is done for num_online_cpus() today. Maybe some fixes to arch code that
-> does not use set_cpu_possible() etc APIs required, but AFAIKS it would
-> be better to fix such cases anyway.
-
-Thanks, Nick. I'll try to do this.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBOb3YgMjksIDIwMjEgYXQgMTI6MDY6MTlBTSArMDMwMCwgRG1pdHJ5IE9zaXBlbmtv
+IHdyb3RlOgo+IDI4LjExLjIwMjEgMDM6MjgsIE1pY2hhxYIgTWlyb3PFgmF3INC/0LjRiNC10YI6
+Cj4gPiBPbiBGcmksIE5vdiAyNiwgMjAyMSBhdCAwOTowMDo0MVBNICswMzAwLCBEbWl0cnkgT3Np
+cGVua28gd3JvdGU6Cj4gPj4gQWRkIHNhbml0eSBjaGVjayB3aGljaCBlbnN1cmVzIHRoYXQgdGhl
+cmUgYXJlIG5vIHR3byByZXN0YXJ0IGhhbmRsZXJzCj4gPj4gcmVnaXN0ZXJlZCB3aXRoIHRoZSBz
+YW1lIHByaW9yaXR5LiBOb3JtYWxseSBpdCdzIGEgZGlyZWN0IHNpZ24gb2YgYQo+ID4+IHByb2Js
+ZW0gaWYgdHdvIGhhbmRsZXJzIHVzZSB0aGUgc2FtZSBwcmlvcml0eS4KPiA+IAo+ID4gVGhlIHBh
+dGNoIGRvZXNuJ3QgZW5zdXJlIHRoZSBwcm9wZXJ0eSB0aGF0IHRoZXJlIGFyZSBubyBkdXBsaWNh
+dGVkLXByaW9yaXR5Cj4gPiBlbnRyaWVzIG9uIHRoZSBjaGFpbi4KPiAKPiBJdCdzIG5vdCB0aGUg
+ZXhhY3QgcG9pbnQgb2YgdGhpcyBwYXRjaC4KPiAKPiA+IEknZCByYXRoZXIgc2VlIGEgYXRvbWlj
+X25vdGlmaWVyX2NoYWluX3JlZ2lzdGVyX3VuaXF1ZSgpIHRoYXQgcmV0dXJucwo+ID4gLUVCVVNZ
+IG9yIHNvbWV0aGluZyBpc3RlYWQgb2YgYWRkaW5nIGFuIGVudHJ5IHdpdGggZHVwbGljYXRlIHBy
+aW9yaXR5Lgo+ID4gVGhhdCB3YXkgaXQgd291bGQgbmVlZCBvbmx5IG9uZSBsaXN0IHRyYXZlcnNh
+bCB1bmxlc3MgeW91IHdhbnQgdG8KPiA+IHJlZ2lzdGVyIHRoZSBkdXBsaWNhdGUgYW55d2F5ICh0
+aGVuIHlvdSB3b3VsZCBjYWxsIHRoZSBvbGRlcgo+ID4gYXRvbWljX25vdGlmaWVyX2NoYWluX3Jl
+Z2lzdGVyKCkgYWZ0ZXIgcmVwb3J0aW5nIHRoZSBlcnJvcikuCj4gCj4gVGhlIHBvaW50IG9mIHRo
+aXMgcGF0Y2ggaXMgdG8gd2FybiBkZXZlbG9wZXJzIGFib3V0IHRoZSBwcm9ibGVtIHRoYXQKPiBu
+ZWVkcyB0byBiZSBmaXhlZC4gV2UgYWxyZWFkeSBoYXZlIHN1Y2ggdHJvdWJsaW5nIGRyaXZlcnMg
+aW4gbWFpbmxpbmUuCj4gCj4gSXQncyBub3QgY3JpdGljYWwgdG8gcmVnaXN0ZXIgZGlmZmVyZW50
+IGhhbmRsZXJzIHdpdGggYSBkdXBsaWNhdGVkCj4gcHJpb3JpdGllcywgYnV0IHN1Y2ggY2FzZXMg
+cmVhbGx5IG5lZWQgdG8gYmUgY29ycmVjdGVkLiBXZSBzaG91bGRuJ3QKPiBicmVhayB1c2Vycycg
+bWFjaGluZXMgZHVyaW5nIHRyYW5zaXRpb24gdG8gdGhlIG5ldyBBUEksIG1lYW53aGlsZQo+IGRl
+dmVsb3BlcnMgc2hvdWxkIHRha2UgYWN0aW9uIG9mIGZpeGluZyB0aGVpcnMgZHJpdmVycy4KPiAK
+PiA+IChPciB5b3UgY291bGQgcmV0dXJuID4gMCB3aGVuIGEgZHVwbGljYXRlIGlzIHJlZ2lzdGVy
+ZWQgaW4KPiA+IGF0b21pY19ub3RpZmllcl9jaGFpbl9yZWdpc3RlcigpIGlmIHRoZSBjYWxsZXJz
+IGFyZSBwcmVwYXJlZAo+ID4gZm9yIHRoYXQuIEkgZG9uJ3QgcmVhbGx5IGxpa2UgdGhpcyB3YXks
+IHRob3VnaC4pCj4gCj4gSSBoYWQgYSBzaW1pbGFyIHRob3VnaHQgYXQgc29tZSBwb2ludCBiZWZv
+cmUgYW5kIGRlY2lkZWQgdGhhdCBJJ20gbm90IGluCj4gZmF2b3Igb2YgdGhpcyBhcHByb2FjaC4g
+SXQncyBuaWNlciB0byBoYXZlIGEgZGVkaWNhdGVkIGZ1bmN0aW9uIHRoYXQKPiB2ZXJpZmllcyB0
+aGUgdW5pcXVlbmVzcywgSU1PLgoKSSBkb24ndCBsaWtlIHRoZSBwYXJ0IHRoYXQgaXQgdHJhdmVy
+c2VzIHRoZSBsaXN0IHNlY29uZCB0aW1lIHRvIGNoZWNrCnRoZSB1bmlxdWVuZXNzLiBCdXQgYWN0
+dWFsbHkgeW91IGNvdWxkIGF2b2lkIHRoYXQgaWYKbm90aWZpZXJfY2hhaW5fcmVnaXN0ZXIoKSB3
+b3VsZCBhbHdheXMgYWRkIGVxdWFsLXByaW9yaXR5IGVudHJpZXMgaW4KcmV2ZXJzZSBvcmRlcjoK
+CiBzdGF0aWMgaW50IG5vdGlmaWVyX2NoYWluX3JlZ2lzdGVyKHN0cnVjdCBub3RpZmllcl9ibG9j
+ayAqKm5sLAogCQlzdHJ1Y3Qgbm90aWZpZXJfYmxvY2sgKm4pCiB7CiAJd2hpbGUgKCgqbmwpICE9
+IE5VTEwpIHsKIAkJaWYgKHVubGlrZWx5KCgqbmwpID09IG4pKSB7CiAJCQlXQVJOKDEsICJkb3Vi
+bGUgcmVnaXN0ZXIgZGV0ZWN0ZWQiKTsKIAkJCXJldHVybiAwOwogCQl9Ci0JCWlmIChuLT5wcmlv
+cml0eSA+ICgqbmwpLT5wcmlvcml0eSkKKwkJaWYgKG4tPnByaW9yaXR5ID49ICgqbmwpLT5wcmlv
+cml0eSkKIAkJCWJyZWFrOwogCQlubCA9ICYoKCpubCktPm5leHQpOwogCX0KIAluLT5uZXh0ID0g
+Km5sOwogCXJjdV9hc3NpZ25fcG9pbnRlcigqbmwsIG4pOwogCXJldHVybiAwOwogfQoKVGhlbiB0
+aGUgY2hlY2sgZm9yIHVuaXF1ZW5lc3MgYWZ0ZXIgYWRkaW5nIHdvdWxkIGJlOgoKIFdBUk4obmIt
+Pm5leHQgJiYgbmItPnByaW9yaXR5ID09IG5iLT5uZXh0LT5wcmlvcml0eSk7CgpCZXN0IFJlZ2Fy
+ZHMKTWljaGHFgsKgTWlyb3PFgmF3CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
