@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8DD4C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Nov 2021 21:44:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 947C5C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Nov 2021 22:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:
-	Mime-Version:Message-Id:Date:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=QY8enAJ8M76ouR/dHhUllxnhFj7RJOWtf7+jAsoR5yI=; b=tD9
-	7FQZx8hPJ4mWF0G1dEcTrlMrDP37Z/YXqH3XTj7etrmXOKQP1YBnN7remJGyFIa6+cwJWaTumhxul
-	DI1Tlx2yhD/+43pWzso/KsrNBMvpyo7kRd+wT/vENBRDF1ylho56KxtEiejYxrLSaJMekvQld7RLV
-	yDTuL4AXO1i9aCqsnbcSd8XSa9aXGbwi9WSBsh1bLoJFg1nKGMVPiYjzsV5q54rXhmsfhRVSJBTdj
-	WB7tU5N5DIT/BkQ+qcc5gCrwjHbhdvUQRlogS04h3uItQsgCbRZA+4ZYOuB55AZZCRivbiLBedJrA
-	4sjjsX+EyafbeqyoOb5axATbC2T3ANw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9pM7mQO4hwLJ3z0VKWuaz6ciLPB0ZH3cuYS32p+HiRI=; b=Dw9SNhS89qO5s1
+	Yz1PLzXgGwTZ7injZNH5eHNYBkltTRmrmhPBAm2ha66EblfAQCYTS3qX2y851pOtnx2lOpjYuthrk
+	tQLOpVvb5BrwsHpVwgxfv443XjA8LgQOxHySwLo4OcTHJMPfr7ZtT5KZFYBU7aGgoMcq6Jm+I+bpV
+	FNlqcA2vEWZ80RzCRhKD+MRgR08t4RFLZQuzdsbYpVDnrxrvtsSeURelDXkR0iJj7XhWUlI1Eevye
+	K1/wfy+c8PaKoiaeLXtuVor67TVzGO5I9lSDMWp2cvDfD+tgOFJ8ik+sj35KS7hHTJU0/qbXB05fK
+	DCVOhP04qhOMRt6UrSTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mroRC-002oy4-A7; Mon, 29 Nov 2021 21:43:50 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1mrpGG-002uGo-BC; Mon, 29 Nov 2021 22:36:36 +0000
+Received: from mail-qk1-f179.google.com ([209.85.222.179])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mroR9-002owG-Hd
- for linux-riscv@lists.infradead.org; Mon, 29 Nov 2021 21:43:48 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id
- y5-20020a62b505000000b004a804839861so7706001pfe.7
- for <linux-riscv@lists.infradead.org>; Mon, 29 Nov 2021 13:43:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=reply-to:date:message-id:mime-version:subject:from:to:cc;
- bh=b5JgGPuCh2TG2LeGhuIYMGHt9KrJcP9PayR5x1TbleE=;
- b=NqITDenw5tWBTTe/aJQQIYNa0EDTIYcmwjphFL29klLEgI7fBVy4wkD4I7M9PbTQcy
- o7/n3j771KMetpsvOEH5OyLxO7cyVLIx9QeFZj6meeJnFZBsp4tumOmrYlajP1g4J3mJ
- ZxnYbYofpe8GFzxVrIHH5oPmRwO20oHwJgnUMHMR6fX1ViA+4zRv9mPly9pikf31wnDQ
- GK7nJsXdFFwligJAJdLd0WSkO3Bb8BGyUJSuyQVMemxFY+RlEf5nlh1c90leGkI++/63
- 65pUidHcfG8vZmSZMKN8Md3+o8NYCrVbAjTxDGAIUaZhUxLm9teuGe4lFcUJIvQri11E
- 3scQ==
+ id 1mrpG2-002uDW-8K; Mon, 29 Nov 2021 22:36:24 +0000
+Received: by mail-qk1-f179.google.com with SMTP id t6so24714756qkg.1;
+ Mon, 29 Nov 2021 14:36:19 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:reply-to:date:message-id:mime-version:subject
- :from:to:cc;
- bh=b5JgGPuCh2TG2LeGhuIYMGHt9KrJcP9PayR5x1TbleE=;
- b=wtsgJVWZiy8El141rPxtK0xODtqYbEyKjqkckhVDz4KHLKJ2CW38GnBRtmqEfS3zxP
- 3Zb19kHwkwpUW9UvpnZIENu9UEhoy2Z8Hln+RBh/Yj9+hZ+yFE7RaMac1jnr4BSLG23R
- U/dQXvT443u0OHnLn25FyRjUo9iQ1FPUPOcUjaA0diu1Rq8rZgFvhoyaZ8vOb7MT4XUT
- oMURyVPm8wvOvOmzv70sWvyePcsysuefsM/U9t7e9ds+izehATHTIwVzElohj0+4xDWB
- f8rEg3S46TOFj2Y0oNHapqO7Z6s2bbU4e8SlroQIsgVgDF7ch9aWxAXNWo8deD4OVB3k
- XiHA==
-X-Gm-Message-State: AOAM53121RZj0O6Ze/mpwd1d/HUpDebglR5g74Fpitfce/89zjUP5/Si
- o5vBS8SjALWMHXL+cE3LKvb1zDaR87g=
-X-Google-Smtp-Source: ABdhPJwPLKTWfxNp/8QG3imQd7zu+NgkwNkw0OX0ECtjDwjzBoTxcpS4Ckrk0j+awWix360nv6y/HmiBssQ=
-X-Received: from seanjc.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:3e5])
- (user=seanjc job=sendgmr) by 2002:a17:90b:3889:: with SMTP id
- mu9mr836244pjb.160.1638222224720; Mon, 29 Nov 2021 13:43:44 -0800 (PST)
-Date: Mon, 29 Nov 2021 21:43:42 +0000
-Message-Id: <20211129214342.1221766-1-seanjc@google.com>
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.34.0.rc2.393.gf8c9666880-goog
-Subject: [PATCH] RISC-V: Use common riscv_cpuid_to_hartid_mask() for both
- SMP=y and SMP=n
-From: Sean Christopherson <seanjc@google.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Adam Borowski <kilobyte@angband.pl>, Anup Patel <anup.patel@wdc.com>, 
- Sean Christopherson <seanjc@google.com>
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=oYq4GIQm8QrcJcBYcEtsoL1OUQLtI2uaYWFL3tBum1w=;
+ b=f+GGq/XbHJpIejmlLpXsMRYgYfpA16zL2WlPzZwFuYw+e2T9mDEVhIcQ/2uzeVCqZV
+ PcDwe54VNiL3YamXr+qLYHptl3VNm12DBjA/lDj2+2TjLHEMwc57d5kFCN0OmW2ZeZMZ
+ /7xo5hn7N4aKSbXb9y5wv9Gx/l5nrw62ZKL9k+CvnmCql01W8YU+fiCXqRjpYNvScY0s
+ Vv/klq4ot65LmrcpjYL0hgTAOAOCt4LASnAKHBO1li97b06cxbZZLU8zZB89ovQ3q8Uo
+ 5fkGVF/vF+FWXc5AYddvv+Xnrzp67FwjYKaUfJRxornHzB0uiD31oFkXbY7GIEU7nzQ9
+ 7FTQ==
+X-Gm-Message-State: AOAM533Cth+BmeS4nKIETfzGRPe7Y1le56FUfB2V2k0Q8ef7VIevsIgf
+ MiA34nTLaIUsr387NOWWCJw=
+X-Google-Smtp-Source: ABdhPJzJz5BEY0tJAESTBlt73gwvqVTS7JmG7hyL3hoGsSGW1neE0oIGr731XokwLH4ohx1EX356dw==
+X-Received: by 2002:a05:620a:4092:: with SMTP id
+ f18mr31107993qko.629.1638225377694; 
+ Mon, 29 Nov 2021 14:36:17 -0800 (PST)
+Received: from fedora (pool-173-68-57-129.nycmny.fios.verizon.net.
+ [173.68.57.129])
+ by smtp.gmail.com with ESMTPSA id 9sm8636358qkm.5.2021.11.29.14.36.16
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 29 Nov 2021 14:36:17 -0800 (PST)
+Date: Mon, 29 Nov 2021 17:36:15 -0500
+From: Dennis Zhou <dennis@kernel.org>
+To: Kefeng Wang <wangkefeng.wang@huawei.com>
+Cc: dennis@kernel.org, akpm@linux-foundation.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, tj@kernel.org,
+ gregkh@linuxfoundation.org, cl@linux.com, catalin.marinas@arm.com,
+ will@kernel.org, tsbogend@alpha.franken.de, mpe@ellerman.id.au,
+ benh@kernel.crashing.org, paulus@samba.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ davem@davemloft.net, tglx@linutronix.de, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
+ linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH RFC 1/4] mm: percpu: Generalize percpu related config
+Message-ID: <YaVV38QSn6LEBKH/@fedora>
+References: <20211121093557.139034-1-wangkefeng.wang@huawei.com>
+ <20211121093557.139034-2-wangkefeng.wang@huawei.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20211121093557.139034-2-wangkefeng.wang@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211129_134347_613071_17A62D2B 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20211129_143622_333706_B1EA044B 
+X-CRM114-Status: GOOD (  21.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,110 +83,344 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use what is currently the SMP=y version of riscv_cpuid_to_hartid_mask()
-for both SMP=y and SMP=n to fix a build failure with KVM=m and SMP=n due
-to boot_cpu_hartid not being exported.  This also fixes a second bug
-where the SMP=n version assumes the sole CPU in the system is in the
-incoming mask, which may not hold true in kvm_riscv_vcpu_sbi_ecall() if
-the KVM guest VM has multiple vCPUs (on a SMP=n system).
+Hello,
 
-Fixes: 1ef46c231df4 ("RISC-V: Implement new SBI v0.2 extensions")
-Reported-by: Adam Borowski <kilobyte@angband.pl>
-Cc: stable@vger.kernel.org
-Reviewed-by: Anup Patel <anup.patel@wdc.com>
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- arch/riscv/include/asm/smp.h | 10 ++--------
- arch/riscv/kernel/setup.c    | 10 ++++++++++
- arch/riscv/kernel/smp.c      | 10 ----------
- 3 files changed, 12 insertions(+), 18 deletions(-)
+On Sun, Nov 21, 2021 at 05:35:54PM +0800, Kefeng Wang wrote:
+> The HAVE_SETUP_PER_CPU_AREA/NEED_PER_CPU_EMBED_FIRST_CHUNK/
+> NEED_PER_CPU_PAGE_FIRST_CHUNK/USE_PERCPU_NUMA_NODE_ID configs,
+> which has duplicate definitions on platforms that subscribe it.
+> 
+> Move them into mm, drop these redundant definitions and instead
+> just select it on applicable platforms.
+> 
+> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+> ---
+>  arch/arm64/Kconfig   | 20 ++++----------------
+>  arch/ia64/Kconfig    |  9 ++-------
+>  arch/mips/Kconfig    | 10 ++--------
+>  arch/powerpc/Kconfig | 17 ++++-------------
+>  arch/riscv/Kconfig   | 10 ++--------
+>  arch/sparc/Kconfig   | 12 +++---------
+>  arch/x86/Kconfig     | 17 ++++-------------
+>  mm/Kconfig           | 12 ++++++++++++
+>  8 files changed, 33 insertions(+), 74 deletions(-)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index c4207cf9bb17..4ff73299f8a9 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1135,6 +1135,10 @@ config NUMA
+>  	select GENERIC_ARCH_NUMA
+>  	select ACPI_NUMA if ACPI
+>  	select OF_NUMA
+> +	select HAVE_SETUP_PER_CPU_AREA
+> +	select NEED_PER_CPU_EMBED_FIRST_CHUNK
+> +	select NEED_PER_CPU_PAGE_FIRST_CHUNK
+> +	select USE_PERCPU_NUMA_NODE_ID
+>  	help
+>  	  Enable NUMA (Non-Uniform Memory Access) support.
+>  
+> @@ -1151,22 +1155,6 @@ config NODES_SHIFT
+>  	  Specify the maximum number of NUMA Nodes available on the target
+>  	  system.  Increases memory reserved to accommodate various tables.
+>  
+> -config USE_PERCPU_NUMA_NODE_ID
+> -	def_bool y
+> -	depends on NUMA
+> -
+> -config HAVE_SETUP_PER_CPU_AREA
+> -	def_bool y
+> -	depends on NUMA
+> -
+> -config NEED_PER_CPU_EMBED_FIRST_CHUNK
+> -	def_bool y
+> -	depends on NUMA
+> -
+> -config NEED_PER_CPU_PAGE_FIRST_CHUNK
+> -	def_bool y
+> -	depends on NUMA
+> -
+>  source "kernel/Kconfig.hz"
+>  
+>  config ARCH_SPARSEMEM_ENABLE
+> diff --git a/arch/ia64/Kconfig b/arch/ia64/Kconfig
+> index 1e33666fa679..703952819e10 100644
+> --- a/arch/ia64/Kconfig
+> +++ b/arch/ia64/Kconfig
+> @@ -32,6 +32,7 @@ config IA64
+>  	select HAVE_FTRACE_MCOUNT_RECORD
+>  	select HAVE_DYNAMIC_FTRACE if (!ITANIUM)
+>  	select HAVE_FUNCTION_TRACER
+> +	select HAVE_SETUP_PER_CPU_AREA
+>  	select TTY
+>  	select HAVE_ARCH_TRACEHOOK
+>  	select HAVE_VIRT_CPU_ACCOUNTING
+> @@ -88,9 +89,6 @@ config GENERIC_CALIBRATE_DELAY
+>  	bool
+>  	default y
+>  
+> -config HAVE_SETUP_PER_CPU_AREA
+> -	def_bool y
+> -
+>  config DMI
+>  	bool
+>  	default y
+> @@ -292,6 +290,7 @@ config NUMA
+>  	bool "NUMA support"
+>  	depends on !FLATMEM
+>  	select SMP
+> +	select USE_PERCPU_NUMA_NODE_ID
+>  	help
+>  	  Say Y to compile the kernel to support NUMA (Non-Uniform Memory
+>  	  Access).  This option is for configuring high-end multiprocessor
+> @@ -311,10 +310,6 @@ config HAVE_ARCH_NODEDATA_EXTENSION
+>  	def_bool y
+>  	depends on NUMA
+>  
+> -config USE_PERCPU_NUMA_NODE_ID
+> -	def_bool y
+> -	depends on NUMA
+> -
+>  config HAVE_MEMORYLESS_NODES
+>  	def_bool NUMA
+>  
+> diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+> index de60ad190057..c106a2080877 100644
+> --- a/arch/mips/Kconfig
+> +++ b/arch/mips/Kconfig
+> @@ -2666,6 +2666,8 @@ config NUMA
+>  	bool "NUMA Support"
+>  	depends on SYS_SUPPORTS_NUMA
+>  	select SMP
+> +	select HAVE_SETUP_PER_CPU_AREA
+> +	select NEED_PER_CPU_EMBED_FIRST_CHUNK
+>  	help
+>  	  Say Y to compile the kernel to support NUMA (Non-Uniform Memory
+>  	  Access).  This option improves performance on systems with more
+> @@ -2676,14 +2678,6 @@ config NUMA
+>  config SYS_SUPPORTS_NUMA
+>  	bool
+>  
+> -config HAVE_SETUP_PER_CPU_AREA
+> -	def_bool y
+> -	depends on NUMA
+> -
+> -config NEED_PER_CPU_EMBED_FIRST_CHUNK
+> -	def_bool y
+> -	depends on NUMA
+> -
+>  config RELOCATABLE
+>  	bool "Relocatable kernel"
+>  	depends on SYS_SUPPORTS_RELOCATABLE
+> diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+> index dea74d7717c0..8badd39854a0 100644
+> --- a/arch/powerpc/Kconfig
+> +++ b/arch/powerpc/Kconfig
+> @@ -55,15 +55,6 @@ config ARCH_MMAP_RND_COMPAT_BITS_MIN
+>  	default 9 if PPC_16K_PAGES	#  9 = 23 (8MB) - 14 (16K)
+>  	default 11			# 11 = 23 (8MB) - 12 (4K)
+>  
+> -config HAVE_SETUP_PER_CPU_AREA
+> -	def_bool PPC64
+> -
+> -config NEED_PER_CPU_EMBED_FIRST_CHUNK
+> -	def_bool y if PPC64
+> -
+> -config NEED_PER_CPU_PAGE_FIRST_CHUNK
+> -	def_bool y if PPC64
+> -
+>  config NR_IRQS
+>  	int "Number of virtual interrupt numbers"
+>  	range 32 1048576
+> @@ -240,6 +231,7 @@ config PPC
+>  	select HAVE_REGS_AND_STACK_ACCESS_API
+>  	select HAVE_RELIABLE_STACKTRACE
+>  	select HAVE_RSEQ
+> +	select HAVE_SETUP_PER_CPU_AREA		if PPC64
+>  	select HAVE_SOFTIRQ_ON_OWN_STACK
+>  	select HAVE_STACKPROTECTOR		if PPC32 && $(cc-option,-mstack-protector-guard=tls -mstack-protector-guard-reg=r2)
+>  	select HAVE_STACKPROTECTOR		if PPC64 && $(cc-option,-mstack-protector-guard=tls -mstack-protector-guard-reg=r13)
+> @@ -254,6 +246,8 @@ config PPC
+>  	select MMU_GATHER_RCU_TABLE_FREE
+>  	select MODULES_USE_ELF_RELA
+>  	select NEED_DMA_MAP_STATE		if PPC64 || NOT_COHERENT_CACHE
+> +	select NEED_PER_CPU_EMBED_FIRST_CHUNK	if PPC64
+> +	select NEED_PER_CPU_PAGE_FIRST_CHUNK	if PPC64
+>  	select NEED_SG_DMA_LENGTH
+>  	select OF
+>  	select OF_DMA_DEFAULT_COHERENT		if !NOT_COHERENT_CACHE
+> @@ -659,6 +653,7 @@ config NUMA
+>  	bool "NUMA Memory Allocation and Scheduler Support"
+>  	depends on PPC64 && SMP
+>  	default y if PPC_PSERIES || PPC_POWERNV
+> +	select USE_PERCPU_NUMA_NODE_ID
+>  	help
+>  	  Enable NUMA (Non-Uniform Memory Access) support.
+>  
+> @@ -672,10 +667,6 @@ config NODES_SHIFT
+>  	default "4"
+>  	depends on NUMA
+>  
+> -config USE_PERCPU_NUMA_NODE_ID
+> -	def_bool y
+> -	depends on NUMA
+> -
+>  config HAVE_MEMORYLESS_NODES
+>  	def_bool y
+>  	depends on NUMA
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 821252b65f89..bf66bcbc5a39 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -334,6 +334,8 @@ config NUMA
+>  	select GENERIC_ARCH_NUMA
+>  	select OF_NUMA
+>  	select ARCH_SUPPORTS_NUMA_BALANCING
+> +	select USE_PERCPU_NUMA_NODE_ID
+> +	select NEED_PER_CPU_EMBED_FIRST_CHUNK
+>  	help
+>  	  Enable NUMA (Non-Uniform Memory Access) support.
+>  
+> @@ -349,14 +351,6 @@ config NODES_SHIFT
+>  	  Specify the maximum number of NUMA Nodes available on the target
+>  	  system.  Increases memory reserved to accommodate various tables.
+>  
+> -config USE_PERCPU_NUMA_NODE_ID
+> -	def_bool y
+> -	depends on NUMA
+> -
+> -config NEED_PER_CPU_EMBED_FIRST_CHUNK
+> -	def_bool y
+> -	depends on NUMA
+> -
+>  config RISCV_ISA_C
+>  	bool "Emit compressed instructions when building Linux"
+>  	default y
+> diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
+> index 66fc08646be5..a6765e0fe6a8 100644
+> --- a/arch/sparc/Kconfig
+> +++ b/arch/sparc/Kconfig
+> @@ -97,6 +97,9 @@ config SPARC64
+>  	select PCI_DOMAINS if PCI
+>  	select ARCH_HAS_GIGANTIC_PAGE
+>  	select HAVE_SOFTIRQ_ON_OWN_STACK
+> +	select HAVE_SETUP_PER_CPU_AREA
+> +	select NEED_PER_CPU_EMBED_FIRST_CHUNK
+> +	select NEED_PER_CPU_PAGE_FIRST_CHUUNK
+>  
+>  config ARCH_PROC_KCORE_TEXT
+>  	def_bool y
+> @@ -123,15 +126,6 @@ config AUDIT_ARCH
+>  	bool
+>  	default y
+>  
+> -config HAVE_SETUP_PER_CPU_AREA
+> -	def_bool y if SPARC64
+> -
+> -config NEED_PER_CPU_EMBED_FIRST_CHUNK
+> -	def_bool y if SPARC64
+> -
+> -config NEED_PER_CPU_PAGE_FIRST_CHUNK
+> -	def_bool y if SPARC64
+> -
+>  config MMU
+>  	bool
+>  	default y
+> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+> index 7399327d1eff..ca120a1f5857 100644
+> --- a/arch/x86/Kconfig
+> +++ b/arch/x86/Kconfig
+> @@ -239,6 +239,7 @@ config X86
+>  	select HAVE_REGS_AND_STACK_ACCESS_API
+>  	select HAVE_RELIABLE_STACKTRACE		if X86_64 && (UNWINDER_FRAME_POINTER || UNWINDER_ORC) && STACK_VALIDATION
+>  	select HAVE_FUNCTION_ARG_ACCESS_API
+> +	select HAVE_SETUP_PER_CPU_AREA
+>  	select HAVE_SOFTIRQ_ON_OWN_STACK
+>  	select HAVE_STACKPROTECTOR		if CC_HAS_SANE_STACKPROTECTOR
+>  	select HAVE_STACK_VALIDATION		if X86_64
+> @@ -252,6 +253,8 @@ config X86
+>  	select HAVE_GENERIC_VDSO
+>  	select HOTPLUG_SMT			if SMP
+>  	select IRQ_FORCED_THREADING
+> +	select NEED_PER_CPU_EMBED_FIRST_CHUNK
+> +	select NEED_PER_CPU_PAGE_FIRST_CHUNK
+>  	select NEED_SG_DMA_LENGTH
+>  	select PCI_DOMAINS			if PCI
+>  	select PCI_LOCKLESS_CONFIG		if PCI
+> @@ -331,15 +334,6 @@ config ARCH_HAS_CPU_RELAX
+>  config ARCH_HAS_FILTER_PGPROT
+>  	def_bool y
+>  
+> -config HAVE_SETUP_PER_CPU_AREA
+> -	def_bool y
+> -
+> -config NEED_PER_CPU_EMBED_FIRST_CHUNK
+> -	def_bool y
+> -
+> -config NEED_PER_CPU_PAGE_FIRST_CHUNK
+> -	def_bool y
+> -
+>  config ARCH_HIBERNATION_POSSIBLE
+>  	def_bool y
+>  
+> @@ -1557,6 +1551,7 @@ config NUMA
+>  	depends on SMP
+>  	depends on X86_64 || (X86_32 && HIGHMEM64G && X86_BIGSMP)
+>  	default y if X86_BIGSMP
+> +	select USE_PERCPU_NUMA_NODE_ID
+>  	help
+>  	  Enable NUMA (Non-Uniform Memory Access) support.
+>  
+> @@ -2430,10 +2425,6 @@ config ARCH_HAS_ADD_PAGES
+>  config ARCH_MHP_MEMMAP_ON_MEMORY_ENABLE
+>  	def_bool y
+>  
+> -config USE_PERCPU_NUMA_NODE_ID
+> -	def_bool y
+> -	depends on NUMA
+> -
+>  menu "Power management and ACPI options"
+>  
+>  config ARCH_HIBERNATION_HEADER
+> diff --git a/mm/Kconfig b/mm/Kconfig
+> index 28edafc820ad..6bc5d780c51b 100644
+> --- a/mm/Kconfig
+> +++ b/mm/Kconfig
+> @@ -432,6 +432,18 @@ config NEED_PER_CPU_KM
+>  	bool
+>  	default y
+>  
+> +config NEED_PER_CPU_EMBED_FIRST_CHUNK
+> +	bool
+> +
+> +config NEED_PER_CPU_PAGE_FIRST_CHUNK
+> +	bool
+> +
+> +config USE_PERCPU_NUMA_NODE_ID
+> +	bool
+> +
+> +config HAVE_SETUP_PER_CPU_AREA
+> +	bool
+> +
+>  config CLEANCACHE
+>  	bool "Enable cleancache driver to cache clean pages if tmem is present"
+>  	help
+> -- 
+> 2.26.2
+> 
 
-diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
-index a7d2811f3536..62d0e6e61da8 100644
---- a/arch/riscv/include/asm/smp.h
-+++ b/arch/riscv/include/asm/smp.h
-@@ -43,7 +43,6 @@ void arch_send_call_function_ipi_mask(struct cpumask *mask);
- void arch_send_call_function_single_ipi(int cpu);
- 
- int riscv_hartid_to_cpuid(int hartid);
--void riscv_cpuid_to_hartid_mask(const struct cpumask *in, struct cpumask *out);
- 
- /* Set custom IPI operations */
- void riscv_set_ipi_ops(const struct riscv_ipi_ops *ops);
-@@ -85,13 +84,6 @@ static inline unsigned long cpuid_to_hartid_map(int cpu)
- 	return boot_cpu_hartid;
- }
- 
--static inline void riscv_cpuid_to_hartid_mask(const struct cpumask *in,
--					      struct cpumask *out)
--{
--	cpumask_clear(out);
--	cpumask_set_cpu(boot_cpu_hartid, out);
--}
--
- static inline void riscv_set_ipi_ops(const struct riscv_ipi_ops *ops)
- {
- }
-@@ -102,6 +94,8 @@ static inline void riscv_clear_ipi(void)
- 
- #endif /* CONFIG_SMP */
- 
-+void riscv_cpuid_to_hartid_mask(const struct cpumask *in, struct cpumask *out);
-+
- #if defined(CONFIG_HOTPLUG_CPU) && (CONFIG_SMP)
- bool cpu_has_hotplug(unsigned int cpu);
- #else
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index b42bfdc67482..63241abe84eb 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -59,6 +59,16 @@ atomic_t hart_lottery __section(".sdata")
- unsigned long boot_cpu_hartid;
- static DEFINE_PER_CPU(struct cpu, cpu_devices);
- 
-+void riscv_cpuid_to_hartid_mask(const struct cpumask *in, struct cpumask *out)
-+{
-+	int cpu;
-+
-+	cpumask_clear(out);
-+	for_each_cpu(cpu, in)
-+		cpumask_set_cpu(cpuid_to_hartid_map(cpu), out);
-+}
-+EXPORT_SYMBOL_GPL(riscv_cpuid_to_hartid_mask);
-+
- /*
-  * Place kernel memory regions on the resource tree so that
-  * kexec-tools can retrieve them from /proc/iomem. While there
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index 2f6da845c9ae..b5d30ea92292 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -59,16 +59,6 @@ int riscv_hartid_to_cpuid(int hartid)
- 	return -ENOENT;
- }
- 
--void riscv_cpuid_to_hartid_mask(const struct cpumask *in, struct cpumask *out)
--{
--	int cpu;
--
--	cpumask_clear(out);
--	for_each_cpu(cpu, in)
--		cpumask_set_cpu(cpuid_to_hartid_map(cpu), out);
--}
--EXPORT_SYMBOL_GPL(riscv_cpuid_to_hartid_mask);
--
- bool arch_match_cpu_phys_id(int cpu, u64 phys_id)
- {
- 	return phys_id == cpuid_to_hartid_map(cpu);
--- 
-2.34.0.rc2.393.gf8c9666880-goog
+This makes sense and looks good. A series like this is a little tricky.
+The latter patches change the contracts so it'd be easiest to run it
+through my tree. We'd need to get explicit acks from each arch
+maintainer to make sure they're fine with this.
 
+Thanks,
+Dennis
 
 _______________________________________________
 linux-riscv mailing list
