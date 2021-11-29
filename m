@@ -4,75 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89ED4C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Nov 2021 22:50:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E042C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Nov 2021 22:55:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1ZQO//Zc37n6la/PRt9CkAiFWgJ86zDGESI6ClBS9VA=; b=Md5mTXAxOnwSP0
-	H0yo++CHuexAgD3s8qhGiVPtocKIntHBaNEOhh1mYlD+lgjc67BRkkGExObwjmC1iFSQQGcYVfqYM
-	CB0vGfWfMfw/aIR+RrCnwQPXMcEyrbsQG5a9dXM/XCpokfhqQow2+AmLaXOGLtCRCCPIeAm2ZZrDQ
-	8e+vCUDMMMKGub+F3Fqj0SBb3YdDw8+PlxTcUvm8V75TKMhj4+wkq5Cce1Z1HYKHdt3aVb9xXRYsl
-	scRWoi5BGTiXa1efdtA5CDd4jQM1rL4t+Pf8JlnHX484/7xNFlx0oqAS9pYg7mQeXGfNlwXNa7qdz
-	Y0RbmML+tDAz5eKM/hnA==;
+	List-Owner; bh=Z2KHb66nQZA48R5ZqbfWxA0BIfolQB5282vi2vBpa+Q=; b=rvotsbIELyPQBB
+	vT5BfserNJG3KZsVZeM5JIxJQ7vi2ZGHWcbZWsHFJo0s6kH+uLWmVWkcv+KEwMWrFdrqBEwQbjW0a
+	wm8WgFzBrSjACA43wWUmqn85eOMWPDlZ/ztEsxLdEwYJMknTNte+uO2IhASkJDzT5XC3qqyqvALtC
+	1BSQxP85pvfhkeBj4ipzxMkRr0ztDWmPtLFS8smnMl4UL039s5MhrTbza1KVvNGye6x3fOZwOltL1
+	65c0MGndPvyc0SvNoNr4lMgjb1YHcw9SdSy4zTWHMSPxaQLQ5atqHDdXEu+SAbRmu6FzFa8IpAIdp
+	GIRgi/lomz8qwxxVUk6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mrpTH-002xrR-F4; Mon, 29 Nov 2021 22:50:03 +0000
-Received: from mail-qt1-f176.google.com ([209.85.160.176])
+	id 1mrpYN-002znB-8u; Mon, 29 Nov 2021 22:55:19 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mrpT1-002xmj-Fp; Mon, 29 Nov 2021 22:49:49 +0000
-Received: by mail-qt1-f176.google.com with SMTP id j17so18309084qtx.2;
- Mon, 29 Nov 2021 14:49:47 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=oq7rSvRN8ZmF8826TeWA1nFVHMF74d3/NsU+2BMgrzA=;
- b=WvhZlYdJ+8VeX2crtY30iWKzRVVrm7dgy/mXtjlo2Mvmz0MW65Lg567J6eK+V3OaBk
- 3P6vb5H8vs6K2j8C5oN1bqcGeCZe3FLeaPf3XzQnxO7InFQuDMKhimFNzJCVoqPLLJav
- cPunfSzNQZ6itEUsIPdPDJz9cGBEwR30sKhA6uiGPXWhMUGZqvJ0ww5O/Xb2O7xeiXnd
- vFMZ1g1OStqiSgQJdiZa4BLby91GlpKxNaRFhFKOWDAC9KjBM4VQ82d/mBavbI/pLj65
- l7WqlMW4PJkq3kSTNZm8mD0YRUNKwHZkgKr+PXEW9Gj7TMGWOnNRSwxTF5LhGUt2ONop
- kqUw==
-X-Gm-Message-State: AOAM533wB7jRC0aTWW7IFf6i+grzJ19wY6aLR4BPOoWiHlpLcFWwugTs
- thHpzsAvoOvx1+xUya+fuCc=
-X-Google-Smtp-Source: ABdhPJxnPvgLuExnZ/ccsT7KqYyls4Id19XqxozgRZPGiHFhvLeIoUIbisNi5P/Pe4vmzv7DzMoClA==
-X-Received: by 2002:a05:622a:24c:: with SMTP id
- c12mr38014924qtx.483.1638226186251; 
- Mon, 29 Nov 2021 14:49:46 -0800 (PST)
-Received: from fedora (pool-173-68-57-129.nycmny.fios.verizon.net.
- [173.68.57.129])
- by smtp.gmail.com with ESMTPSA id r16sm9636543qkp.42.2021.11.29.14.49.45
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 29 Nov 2021 14:49:45 -0800 (PST)
-Date: Mon, 29 Nov 2021 17:49:43 -0500
-From: Dennis Zhou <dennis@kernel.org>
-To: Kefeng Wang <wangkefeng.wang@huawei.com>
-Cc: akpm@linux-foundation.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, tj@kernel.org, gregkh@linuxfoundation.org,
- cl@linux.com, catalin.marinas@arm.com, will@kernel.org,
- tsbogend@alpha.franken.de, mpe@ellerman.id.au,
- benh@kernel.crashing.org, paulus@samba.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- davem@davemloft.net, tglx@linutronix.de, mingo@redhat.com,
- bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
- linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH RFC 4/4] mm: percpu: Add generic pcpu_populate_pte()
- function
-Message-ID: <YaVZB/Lcis4iQ3RY@fedora>
-References: <20211121093557.139034-1-wangkefeng.wang@huawei.com>
- <20211121093557.139034-5-wangkefeng.wang@huawei.com>
+ id 1mrpXz-002zdl-HM
+ for linux-riscv@lists.infradead.org; Mon, 29 Nov 2021 22:54:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1638226492;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=EBs8K8t7lGxGRJRgDQFXR8lGz6ECPAkAgLHVeZTQziQ=;
+ b=ECgDp+mEoLo0m9pyXBF9PTypSDRkxkGm2YJ0zpEpsBZTo7AT/ehC5q6qyN4ekIMGDYh5sg
+ tKv4VGGDma1A1zBlLfJB2Q5b1T2huVnA5Ys9f6wg9VvpD/aA833Zjb1Jy8uCb5ElVEWh9U
+ rdVy7/BHkwdZCvovliKlOstoUy7JgIE=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-386-_y8EtH9fON-4WtdCdy8PgA-1; Mon, 29 Nov 2021 17:54:48 -0500
+X-MC-Unique: _y8EtH9fON-4WtdCdy8PgA-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
+ [10.5.11.12])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D98501B18BD1;
+ Mon, 29 Nov 2021 22:54:38 +0000 (UTC)
+Received: from starship (unknown [10.40.192.24])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id D923D78C2E;
+ Mon, 29 Nov 2021 22:53:38 +0000 (UTC)
+Message-ID: <458c0819a578ba854f00089bc312c8faa177a81a.camel@redhat.com>
+Subject: Re: [PATCH v2 11/43] KVM: Don't block+unblock when halt-polling is
+ successful
+From: Maxim Levitsky <mlevitsk@redhat.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson
+ <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
+ Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>, Paul Mackerras
+ <paulus@ozlabs.org>, Anup Patel <anup.patel@wdc.com>,  Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>,  Christian Borntraeger <borntraeger@de.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>, James Morse <james.morse@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>, Suzuki K Poulose
+ <suzuki.poulose@arm.com>, Atish Patra <atish.patra@wdc.com>, David
+ Hildenbrand <david@redhat.com>, Cornelia Huck <cohuck@redhat.com>, Claudio
+ Imbrenda <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>,
+ Wanpeng Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,
+ Joerg Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org, 
+ kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
+ kvm@vger.kernel.org,  kvm-ppc@vger.kernel.org,
+ kvm-riscv@lists.infradead.org,  linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, Oliver
+ Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>, Wei Huang
+ <wei.huang2@amd.com>
+Date: Tue, 30 Nov 2021 00:53:37 +0200
+In-Reply-To: <880a5727-69d1-72a1-b129-b053781625ad@redhat.com>
+References: <20211009021236.4122790-1-seanjc@google.com>
+ <20211009021236.4122790-12-seanjc@google.com>
+ <cceb33be9e2a6ac504bb95a7b2b8cf5fe0b1ff26.camel@redhat.com>
+ <4e883728e3e5201a94eb46b56315afca5e95ad9c.camel@redhat.com>
+ <YaUNBfJh35WXMV0M@google.com>
+ <496c2fc6-26b0-9b5d-32f4-2f9e9dd6a064@redhat.com>
+ <YaUiEquKYi5eqWC0@google.com>
+ <880a5727-69d1-72a1-b129-b053781625ad@redhat.com>
+User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20211121093557.139034-5-wangkefeng.wang@huawei.com>
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211129_144947_578744_03D2CE4B 
-X-CRM114-Status: GOOD (  29.33  )
+X-CRM114-CacheID: sfid-20211129_145455_688062_8C7FF6E3 
+X-CRM114-Status: GOOD (  27.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,411 +105,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 21, 2021 at 05:35:57PM +0800, Kefeng Wang wrote:
-> When NEED_PER_CPU_PAGE_FIRST_CHUNK enabled, we need a function to
-> populate pte, add a generic pcpu populate pte function and switch
-> to use it.
+On Mon, 2021-11-29 at 20:18 +0100, Paolo Bonzini wrote:
+> On 11/29/21 19:55, Sean Christopherson wrote:
+> > > Still it does seem to be a race that happens when IS_RUNNING=true but
+> > > vcpu->mode == OUTSIDE_GUEST_MODE.  This patch makes the race easier to
+> > > trigger because it moves IS_RUNNING=false later.
+> > 
+> > Oh!  Any chance the bug only repros with preemption enabled?  That would explain
+> > why I don't see problems, I'm pretty sure I've only run AVIC with a PREEMPT=n.
 > 
-> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
-> ---
->  arch/powerpc/kernel/setup_64.c | 47 +--------------------
->  arch/sparc/kernel/smp_64.c     | 57 +------------------------
->  arch/x86/kernel/setup_percpu.c |  5 +--
->  drivers/base/arch_numa.c       | 51 +---------------------
->  include/linux/percpu.h         |  5 +--
->  mm/percpu.c                    | 77 +++++++++++++++++++++++++++++++---
->  6 files changed, 79 insertions(+), 163 deletions(-)
+> Me too.
 > 
-> diff --git a/arch/powerpc/kernel/setup_64.c b/arch/powerpc/kernel/setup_64.c
-> index 364b1567f822..1a17828af77f 100644
-> --- a/arch/powerpc/kernel/setup_64.c
-> +++ b/arch/powerpc/kernel/setup_64.c
-> @@ -788,51 +788,6 @@ static int pcpu_cpu_distance(unsigned int from, unsigned int to)
->  unsigned long __per_cpu_offset[NR_CPUS] __read_mostly;
->  EXPORT_SYMBOL(__per_cpu_offset);
->  
-> -static void __init pcpu_populate_pte(unsigned long addr)
-> -{
-> -	pgd_t *pgd = pgd_offset_k(addr);
-> -	p4d_t *p4d;
-> -	pud_t *pud;
-> -	pmd_t *pmd;
-> -
-> -	p4d = p4d_offset(pgd, addr);
-> -	if (p4d_none(*p4d)) {
-> -		pud_t *new;
-> -
-> -		new = memblock_alloc(PUD_TABLE_SIZE, PUD_TABLE_SIZE);
-> -		if (!new)
-> -			goto err_alloc;
-> -		p4d_populate(&init_mm, p4d, new);
-> -	}
-> -
-> -	pud = pud_offset(p4d, addr);
-> -	if (pud_none(*pud)) {
-> -		pmd_t *new;
-> -
-> -		new = memblock_alloc(PMD_TABLE_SIZE, PMD_TABLE_SIZE);
-> -		if (!new)
-> -			goto err_alloc;
-> -		pud_populate(&init_mm, pud, new);
-> -	}
-> -
-> -	pmd = pmd_offset(pud, addr);
-> -	if (!pmd_present(*pmd)) {
-> -		pte_t *new;
-> -
-> -		new = memblock_alloc(PTE_TABLE_SIZE, PTE_TABLE_SIZE);
-> -		if (!new)
-> -			goto err_alloc;
-> -		pmd_populate_kernel(&init_mm, pmd, new);
-> -	}
-> -
-> -	return;
-> -
-> -err_alloc:
-> -	panic("%s: Failed to allocate %lu bytes align=%lx from=%lx\n",
-> -	      __func__, PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
-> -}
-> -
-> -
->  void __init setup_per_cpu_areas(void)
->  {
->  	const size_t dyn_size = PERCPU_MODULE_RESERVE + PERCPU_DYNAMIC_RESERVE;
-> @@ -861,7 +816,7 @@ void __init setup_per_cpu_areas(void)
->  	}
->  
->  	if (rc < 0)
-> -		rc = pcpu_page_first_chunk(0, pcpu_cpu_to_node, pcpu_populate_pte);
-> +		rc = pcpu_page_first_chunk(0, pcpu_cpu_to_node);
->  	if (rc < 0)
->  		panic("cannot initialize percpu area (err=%d)", rc);
->  
-> diff --git a/arch/sparc/kernel/smp_64.c b/arch/sparc/kernel/smp_64.c
-> index 198dadddb75d..00dffe2d834b 100644
-> --- a/arch/sparc/kernel/smp_64.c
-> +++ b/arch/sparc/kernel/smp_64.c
-> @@ -1534,59 +1534,6 @@ static int __init pcpu_cpu_distance(unsigned int from, unsigned int to)
->  		return REMOTE_DISTANCE;
->  }
->  
-> -static void __init pcpu_populate_pte(unsigned long addr)
-> -{
-> -	pgd_t *pgd = pgd_offset_k(addr);
-> -	p4d_t *p4d;
-> -	pud_t *pud;
-> -	pmd_t *pmd;
-> -
-> -	if (pgd_none(*pgd)) {
-> -		pud_t *new;
-> -
-> -		new = memblock_alloc_from(PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
-> -		if (!new)
-> -			goto err_alloc;
-> -		pgd_populate(&init_mm, pgd, new);
-> -	}
-> -
-> -	p4d = p4d_offset(pgd, addr);
-> -	if (p4d_none(*p4d)) {
-> -		pud_t *new;
-> -
-> -		new = memblock_alloc_from(PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
-> -		if (!new)
-> -			goto err_alloc;
-> -		p4d_populate(&init_mm, p4d, new);
-> -	}
-> -
-> -	pud = pud_offset(p4d, addr);
-> -	if (pud_none(*pud)) {
-> -		pmd_t *new;
-> -
-> -		new = memblock_alloc_from(PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
-> -		if (!new)
-> -			goto err_alloc;
-> -		pud_populate(&init_mm, pud, new);
-> -	}
-> -
-> -	pmd = pmd_offset(pud, addr);
-> -	if (!pmd_present(*pmd)) {
-> -		pte_t *new;
-> -
-> -		new = memblock_alloc_from(PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
-> -		if (!new)
-> -			goto err_alloc;
-> -		pmd_populate_kernel(&init_mm, pmd, new);
-> -	}
-> -
-> -	return;
-> -
-> -err_alloc:
-> -	panic("%s: Failed to allocate %lu bytes align=%lx from=%lx\n",
-> -	      __func__, PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
-> -}
-> -
->  void __init setup_per_cpu_areas(void)
->  {
->  	unsigned long delta;
-> @@ -1604,9 +1551,7 @@ void __init setup_per_cpu_areas(void)
->  				pcpu_fc_names[pcpu_chosen_fc], rc);
->  	}
->  	if (rc < 0)
-> -		rc = pcpu_page_first_chunk(PERCPU_MODULE_RESERVE,
-> -					   cpu_to_node,
-> -					   pcpu_populate_pte);
-> +		rc = pcpu_page_first_chunk(PERCPU_MODULE_RESERVE, cpu_to_node);
->  	if (rc < 0)
->  		panic("cannot initialize percpu area (err=%d)", rc);
->  
-> diff --git a/arch/x86/kernel/setup_percpu.c b/arch/x86/kernel/setup_percpu.c
-> index cd672bd46241..4eadbe45078e 100644
-> --- a/arch/x86/kernel/setup_percpu.c
-> +++ b/arch/x86/kernel/setup_percpu.c
-> @@ -101,7 +101,7 @@ static int __init pcpu_cpu_to_node(int cpu)
->  	return IS_ENABLED(CONFIG_NUMA) ? early_cpu_to_node(cpu) : NUMA_NO_NODE;
->  }
->  
-> -static void __init pcpup_populate_pte(unsigned long addr)
-> +void __init pcpu_populate_pte(unsigned long addr)
->  {
->  	populate_extra_pte(addr);
->  }
-> @@ -163,8 +163,7 @@ void __init setup_per_cpu_areas(void)
->  	}
->  	if (rc < 0)
->  		rc = pcpu_page_first_chunk(PERCPU_FIRST_CHUNK_RESERVE,
-> -					   pcpu_cpu_to_node,
-> -					   pcpup_populate_pte);
-> +					   pcpu_cpu_to_node);
-
-x86 has it's own implementation that differs for 32 bit. I'm not
-confident this is correct to drop in as a replacement for x86, so I'd
-prefer to keep populate_pte_fn() around.
-
->  	if (rc < 0)
->  		panic("cannot initialize percpu area (err=%d)", rc);
->  
-> diff --git a/drivers/base/arch_numa.c b/drivers/base/arch_numa.c
-> index 23a10cc36165..eaa31e567d1e 100644
-> --- a/drivers/base/arch_numa.c
-> +++ b/drivers/base/arch_numa.c
-> @@ -14,7 +14,6 @@
->  #include <linux/of.h>
->  
->  #include <asm/sections.h>
-> -#include <asm/pgalloc.h>
->  
->  struct pglist_data *node_data[MAX_NUMNODES] __read_mostly;
->  EXPORT_SYMBOL(node_data);
-> @@ -155,52 +154,6 @@ static int __init pcpu_cpu_distance(unsigned int from, unsigned int to)
->  	return node_distance(early_cpu_to_node(from), early_cpu_to_node(to));
->  }
->  
-> -#ifdef CONFIG_NEED_PER_CPU_PAGE_FIRST_CHUNK
-> -static void __init pcpu_populate_pte(unsigned long addr)
-> -{
-> -	pgd_t *pgd = pgd_offset_k(addr);
-> -	p4d_t *p4d;
-> -	pud_t *pud;
-> -	pmd_t *pmd;
-> -
-> -	p4d = p4d_offset(pgd, addr);
-> -	if (p4d_none(*p4d)) {
-> -		pud_t *new;
-> -
-> -		new = memblock_alloc(PAGE_SIZE, PAGE_SIZE);
-> -		if (!new)
-> -			goto err_alloc;
-> -		p4d_populate(&init_mm, p4d, new);
-> -	}
-> -
-> -	pud = pud_offset(p4d, addr);
-> -	if (pud_none(*pud)) {
-> -		pmd_t *new;
-> -
-> -		new = memblock_alloc(PAGE_SIZE, PAGE_SIZE);
-> -		if (!new)
-> -			goto err_alloc;
-> -		pud_populate(&init_mm, pud, new);
-> -	}
-> -
-> -	pmd = pmd_offset(pud, addr);
-> -	if (!pmd_present(*pmd)) {
-> -		pte_t *new;
-> -
-> -		new = memblock_alloc(PAGE_SIZE, PAGE_SIZE);
-> -		if (!new)
-> -			goto err_alloc;
-> -		pmd_populate_kernel(&init_mm, pmd, new);
-> -	}
-> -
-> -	return;
-> -
-> -err_alloc:
-> -	panic("%s: Failed to allocate %lu bytes align=%lx from=%lx\n",
-> -	      __func__, PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
-> -}
-> -#endif
-> -
->  void __init setup_per_cpu_areas(void)
->  {
->  	unsigned long delta;
-> @@ -225,9 +178,7 @@ void __init setup_per_cpu_areas(void)
->  
->  #ifdef CONFIG_NEED_PER_CPU_PAGE_FIRST_CHUNK
->  	if (rc < 0)
-> -		rc = pcpu_page_first_chunk(PERCPU_MODULE_RESERVE,
-> -					   early_cpu_to_node,
-> -					   pcpu_populate_pte);
-> +		rc = pcpu_page_first_chunk(PERCPU_MODULE_RESERVE, early_cpu_to_node);
->  #endif
->  	if (rc < 0)
->  		panic("Failed to initialize percpu areas (err=%d).", rc);
-> diff --git a/include/linux/percpu.h b/include/linux/percpu.h
-> index d73c97ef4ff4..f1ec5ad1351c 100644
-> --- a/include/linux/percpu.h
-> +++ b/include/linux/percpu.h
-> @@ -95,7 +95,6 @@ extern const char * const pcpu_fc_names[PCPU_FC_NR];
->  extern enum pcpu_fc pcpu_chosen_fc;
->  
->  typedef int (pcpu_fc_cpu_to_node_fn_t)(int cpu);
-> -typedef void (*pcpu_fc_populate_pte_fn_t)(unsigned long addr);
->  typedef int (pcpu_fc_cpu_distance_fn_t)(unsigned int from, unsigned int to);
->  
->  extern struct pcpu_alloc_info * __init pcpu_alloc_alloc_info(int nr_groups,
-> @@ -113,9 +112,9 @@ extern int __init pcpu_embed_first_chunk(size_t reserved_size, size_t dyn_size,
->  #endif
->  
->  #ifdef CONFIG_NEED_PER_CPU_PAGE_FIRST_CHUNK
-> +void __init pcpu_populate_pte(unsigned long addr);
->  extern int __init pcpu_page_first_chunk(size_t reserved_size,
-> -				pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn,
-> -				pcpu_fc_populate_pte_fn_t populate_pte_fn);
-> +				pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn);
->  #endif
->  
->  extern void __percpu *__alloc_reserved_percpu(size_t size, size_t align) __alloc_size(1);
-> diff --git a/mm/percpu.c b/mm/percpu.c
-> index efaa1cbaf73d..d907daed04eb 100644
-> --- a/mm/percpu.c
-> +++ b/mm/percpu.c
-> @@ -3162,11 +3162,80 @@ int __init pcpu_embed_first_chunk(size_t reserved_size, size_t dyn_size,
->  #endif /* BUILD_EMBED_FIRST_CHUNK */
->  
->  #ifdef BUILD_PAGE_FIRST_CHUNK
-> +#include <asm/pgalloc.h>
-> +
-> +#ifndef P4D_TABLE_SIZE
-> +#define P4D_TABLE_SIZE PAGE_SIZE
-> +#endif
-> +
-> +#ifndef PUD_TABLE_SIZE
-> +#define PUD_TABLE_SIZE PAGE_SIZE
-> +#endif
-> +
-> +#ifndef PMD_TABLE_SIZE
-> +#define PMD_TABLE_SIZE PAGE_SIZE
-> +#endif
-> +
-> +#ifndef PTE_TABLE_SIZE
-> +#define PTE_TABLE_SIZE PAGE_SIZE
-> +#endif
-> +void __init __weak pcpu_populate_pte(unsigned long addr)
-> +{
-> +	pgd_t *pgd = pgd_offset_k(addr);
-> +	p4d_t *p4d;
-> +	pud_t *pud;
-> +	pmd_t *pmd;
-> +
-> +	if (pgd_none(*pgd)) {
-> +		p4d_t *new;
-> +
-> +		new = memblock_alloc_from(P4D_TABLE_SIZE, P4D_TABLE_SIZE, PAGE_SIZE);
-
-It's unnecessary to specify a min_addr to memblock_alloc_from() as it
-won't allocate 0 anyway. So please use memblock_alloc() instead.
-
-> +		if (!new)
-> +			goto err_alloc;
-> +		pgd_populate(&init_mm, pgd, new);
-> +	}
-> +
-> +	p4d = p4d_offset(pgd, addr);
-> +	if (p4d_none(*p4d)) {
-> +		pud_t *new;
-> +
-> +		new = memblock_alloc_from(PUD_TABLE_SIZE, PUD_TABLE_SIZE, PAGE_SIZE);
-
-See above.
-
-> +		if (!new)
-> +			goto err_alloc;
-> +		p4d_populate(&init_mm, p4d, new);
-> +	}
-> +
-> +	pud = pud_offset(p4d, addr);
-> +	if (pud_none(*pud)) {
-> +		pmd_t *new;
-> +
-> +		new = memblock_alloc_from(PMD_TABLE_SIZE, PMD_TABLE_SIZE, PAGE_SIZE);
-
-See above.
-
-> +		if (!new)
-> +			goto err_alloc;
-> +		pud_populate(&init_mm, pud, new);
-> +	}
-> +
-> +	pmd = pmd_offset(pud, addr);
-> +	if (!pmd_present(*pmd)) {
-> +		pte_t *new;
-> +
-> +		new = memblock_alloc_from(PTE_TABLE_SIZE, PTE_TABLE_SIZE, PAGE_SIZE);
-
-See above.
-
-> +		if (!new)
-> +			goto err_alloc;
-> +		pmd_populate_kernel(&init_mm, pmd, new);
-> +	}
-> +
-> +	return;
-> +
-> +err_alloc:
-> +	panic("%s: Failed to allocate %lu bytes align=%lx from=%lx\n",
-> +	      __func__, PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
-> +}
-> +
->  /**
->   * pcpu_page_first_chunk - map the first chunk using PAGE_SIZE pages
->   * @reserved_size: the size of reserved percpu area in bytes
->   * @cpu_to_nd_fn: callback to convert cpu to it's node, optional
-> - * @populate_pte_fn: function to populate pte
->   *
->   * This is a helper to ease setting up page-remapped first percpu
->   * chunk and can be called where pcpu_setup_first_chunk() is expected.
-> @@ -3177,9 +3246,7 @@ int __init pcpu_embed_first_chunk(size_t reserved_size, size_t dyn_size,
->   * RETURNS:
->   * 0 on success, -errno on failure.
->   */
-> -int __init pcpu_page_first_chunk(size_t reserved_size,
-> -				 pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn,
-> -				 pcpu_fc_populate_pte_fn_t populate_pte_fn)
-> +int __init pcpu_page_first_chunk(size_t reserved_size, pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn)
->  {
->  	static struct vm_struct vm;
->  	struct pcpu_alloc_info *ai;
-> @@ -3243,7 +3310,7 @@ int __init pcpu_page_first_chunk(size_t reserved_size,
->  			(unsigned long)vm.addr + unit * ai->unit_size;
->  
->  		for (i = 0; i < unit_pages; i++)
-> -			populate_pte_fn(unit_addr + (i << PAGE_SHIFT));
-> +			pcpu_populate_pte(unit_addr + (i << PAGE_SHIFT));
->  
->  		/* pte already populated, the following shouldn't fail */
->  		rc = __pcpu_map_pages(unit_addr, &pages[unit * unit_pages],
-> -- 
-> 2.26.2
+> > svm_vcpu_{un}blocking() are called with preemption enabled, and avic_set_running()
+> > passes in vcpu->cpu.  If the vCPU is preempted and scheduled in on a different CPU,
+> > avic_vcpu_load() will overwrite the vCPU's entry with the wrong CPU info.
 > 
+> That would make a lot of sense.  avic_vcpu_load() can handle 
+> svm->avic_is_running = false, but avic_set_running still needs its body 
+> wrapped by preempt_disable/preempt_enable.
+> 
+> Fedora's kernel is CONFIG_PREEMPT_VOLUNTARY, but I know Maxim uses his 
+> own build so it would not surprise me if he used CONFIG_PREEMPT=y.
+> 
+> Paolo
+> 
+
+I will write ll the details tomorrow but I strongly suspect the CPU errata 
+https://developer.amd.com/wp-content/resources/56323-PUB_0.78.pdf
+#1235
+ 
+Basically what I see that
+ 
+1. vCPU2 disables is_running in avic physical id cache
+2. vCPU2 checks that IRR is empty and it is
+3. vCPU2 does schedule();
+ 
+and it keeps on sleeping forever. If I kick it via signal 
+(like just doing 'info registers' qemu hmp command
+or just stop/cont on the same hmp interface, the
+vCPU wakes up and notices that IRR suddenly is not empty,
+and the VM comes back to life (and then hangs after a while again
+with the same problem....).
+ 
+As far as I see in the traces, the bit in IRR came from
+another VCPU who didn't respect the ir_running bit and didn't get 
+AVIC_INCOMPLETE_IPI VMexit.
+I can't 100% prove it yet, but everything in the trace shows this.
+ 
+About the rest of the environment, currently I reproduce this in
+a VM which has no pci passed through devices at all, just AVIC.
+(I wasn't able to reproduce it before just because I forgot to
+enable AVIC in this configuration).
+ 
+So I also agree that Sean's patch is not to blame here,
+it just made the window between setting is_running and getting to sleep
+shorter and made it less likely that other vCPUs will pick up the is_running change.
+(I suspect that they pick it up on next vmrun, and otherwise the value is somehow
+cached wrongfully in them).
+ 
+A very performance killing workaround of kicking all vCPUs when one of them enters vcpu_block
+does seem to work for me but it skews all the timing off so I can't prove it.
+ 
+That is all, I will write more detailed info, including some traces I have.
+ 
+I do use windows 10 with so called LatencyMon in it, which shows overall how
+much latency hardware interrupts have, which used to be useful for me to
+ensure that my VMs are suitable for RT like latency (even before I joined RedHat,
+I tuned my VMs as much as I could to make my Rift CV1 VR headset work well which 
+needs RT like latencies.
+ 
+These days VR works fine in my VMs anyway, but I still kept this tool to keep an eye on it).
+ 
+I really need to write a kvm unit test to stress test IPIs, especially this case,
+I will do this very soon.
+ 
+ 
+Wei Huang, any info on this would be very helpful. 
+ 
+Maybe putting the avic physical table in UC memory would help? 
+Maybe ringing doorbells of all other vcpus will help them notice the change?
+
+Best regards,
+	Maxim Levitsky
+
 
 _______________________________________________
 linux-riscv mailing list
