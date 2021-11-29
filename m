@@ -4,84 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E51AC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Nov 2021 21:08:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 898E2C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Nov 2021 21:29:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=elwuVCnsf/XGXQHdR1hy5OC2C66PYCberEtugbPiJ74=; b=OTOWcxRYA4fwop
-	BCjL3CXwshHNFlbXt28TgrpTHEjv25NKTgeriu9OgnNUdr3Qp8cGPNVW8xNkp/zfynVyw6u1adm42
-	UyHDSWqzlggvSsTsyd0XLQ2RcSW2Ddbd/l+rDFJFgKjOViSk4sW+xF4bIE9ibv8OSisOZYeR1Wj+8
-	d4UyvPzM+iOV49uTFGnH4wbchbFz7OhEn1awddTaMY1HVbjI0imOaUpkCOihRiC69y66y7zpu5JQo
-	O2QmeSBejg1AKtujcCH8O1DkxMdCQ0whWogp8Zn0oB67QSvNGcEdw5YyMWXfyogl1Pqp351ahWJe+
-	XM8wziU6kM2pcGWIVRIw==;
+	List-Owner; bh=fXmyyJ1uW6i423CI2h/0SErjz01YLocJXg8y3466278=; b=nKlUm4m2IQkhOe
+	6LBXY62CqNpV+yj7oNYareGkyLnYQvKEspvo1lor2KM/Ys/WIYxl/nfFT10YFpdqI5ixcIk58u4UB
+	j5jNdEOPKv1juGetLZoMHB/2KxYbL/Y1gFrlkIvJZs4KSybTwQbFW9V4/OfcG2m1WQd5QRy0QmUF7
+	Si+lAAlQb+YF54UdXmOSqL71opZCldgpCHd+G8A9jRIkBJ2jrTIn5HE01kq6TNpqygakzSkbNNYvU
+	5eK9c7tv4eWz2fhpqhwZvw6AonKFTJBjR38JkA33EB56SAVHFuwZxFpGZLtnYe8uHVASFketpQgtb
+	kqT9prE9IfmkQ+tKa8dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mrnt0-002cGL-H4; Mon, 29 Nov 2021 21:08:30 +0000
-Received: from mail-oi1-f170.google.com ([209.85.167.170])
+	id 1mroD4-002kTn-CC; Mon, 29 Nov 2021 21:29:14 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mrmxI-002FvG-3t
- for linux-riscv@lists.infradead.org; Mon, 29 Nov 2021 20:08:53 +0000
-Received: by mail-oi1-f170.google.com with SMTP id n66so36743969oia.9
- for <linux-riscv@lists.infradead.org>; Mon, 29 Nov 2021 12:08:50 -0800 (PST)
+ id 1mro84-002iJT-UO
+ for linux-riscv@lists.infradead.org; Mon, 29 Nov 2021 21:24:12 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id np3so13686140pjb.4
+ for <linux-riscv@lists.infradead.org>; Mon, 29 Nov 2021 13:24:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=b62tn3CiLEw4TEz1WNhFNgRTXFgBiHhnJtgsgZWqss8=;
+ b=C6OGbMhG+v5XlL9yl4j0UR2cIHoafnS2LzJ3ob0t68dnLc73h2Rp5hBz4RcDZ1WEMM
+ qPCjhLDut0sn6xzdSiAFqL21usNnkq55/8aDZZ3amKK4dnT8rlxRng8o/Dtm8xTM3d/i
+ NSDiWa6yQOtH7wSniIGmsjLew/TI+U/F6DZC3+TAXr9JxFI/gDMfkcB9Yr7LHysR29vM
+ RxCKERC1fXFe7EfyyIZq7HSjBcuInc9y5S405QjQRz+aI1YOkR4GER2pJHM+ehMBmxRL
+ 9NzzJiKEklbmOsekrn21ZpN/yJKWAZ9ifUHj5n9TmqX0PPsfLyzcYhEyNeGA43BGXJpS
+ rSoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to;
- bh=Z6xdOSQsfsaoPSj9BpA6Xmod/xwiCQkOb+qTA/iCb/o=;
- b=MBqibd1/Qqki4uQgDsqyMKvXcieO5JqCr2rhGo2PeX3Rgl6lmzMxvvBB95xueRkbSm
- 7YMfYemli+lDc3jGN+g0NANlvobo3xJDO6Xl9pNZwB0hjYvPumbhTY/eIYlOO+R25nZC
- DScBOg3JWrbXut1PCEouP+MgBDzCkeE96+x+MiMWZdlK7hPhX1b6m6r7aImUnRoWQyCe
- UIjAT92AzKgr2lQhBq8LHGbqvtH2oN4WxR6H1vktV3i/wIcVtV+ojF2D/jY6x/MlZ6DQ
- DTGUwDO9WTOzSPwFKhk2cpBjlBwGKJ+uBBzyUD7J0bU/d1hVaj4AjzWG/1fOPuPsNK2j
- PV3g==
-X-Gm-Message-State: AOAM5316OOJb8KZrMlGpc0mmSAiHc4iOSP28jJ4OOWonOZwf/kDdpnw+
- Zyqr9TDJBg09bpRIg+7cJA==
-X-Google-Smtp-Source: ABdhPJy2T7U5QNpYE8mKhDs4Y0kpsY4X+RruhTn7EbB9g52UuWIuwRJoXI1gDNqGmpcZq9IEms65YQ==
-X-Received: by 2002:a05:6808:3c2:: with SMTP id
- o2mr241205oie.112.1638216529867; 
- Mon, 29 Nov 2021 12:08:49 -0800 (PST)
-Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
- [66.90.148.213])
- by smtp.gmail.com with ESMTPSA id n6sm2837920otj.78.2021.11.29.12.08.48
+ bh=b62tn3CiLEw4TEz1WNhFNgRTXFgBiHhnJtgsgZWqss8=;
+ b=SM3ChBU9yfC7OgBGd4Jh91Zn7TH5Ea3f9rbDFY1J0XX3aoDKPy72k/nmUUSDHzb0SH
+ KX2O3SAdKyHXvIxHkr48JROPZWAOJVhuxUl5SvCxaTbdUP324paVWpp1aGuEjneQQ8vO
+ u4ScmRy3QXTtkiCVfQInC6XQnPyuJUz3jO76Hzh74t7mnEK3XuV6M2k4oMehG+J31ZYk
+ qpWeF9gVk7wgg1OUNA8IJa9vu0OTDyHXABfOz6u8T3zlvPvtSsrMI1ZtaC0JWQBdaHlS
+ vIe+IDpKNiqddtQqtOZ2+STKDVp7QSdQpvDcwIsfUOkZGCCYJ+Jy/FchATgBDBYvgVsx
+ q4Wg==
+X-Gm-Message-State: AOAM530M8teixlih914wLs4cu+5XM+djI6OY1Cv3XiTIpLJKPlsP/S4E
+ SvYgPJKfm28NpLeRynWguOweSg==
+X-Google-Smtp-Source: ABdhPJz19iIGhmUOfcmwjR5DsZEZAZQyC3/Sy1xk33p927V7yWWQgBpSF7Y4Srq66XMacjv9n1Awyg==
+X-Received: by 2002:a17:90a:b382:: with SMTP id
+ e2mr680962pjr.181.1638221043538; 
+ Mon, 29 Nov 2021 13:24:03 -0800 (PST)
+Received: from google.com (157.214.185.35.bc.googleusercontent.com.
+ [35.185.214.157])
+ by smtp.gmail.com with ESMTPSA id z10sm18483644pfh.106.2021.11.29.13.24.02
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 29 Nov 2021 12:08:49 -0800 (PST)
-Received: (nullmailer pid 520021 invoked by uid 1000);
- Mon, 29 Nov 2021 20:08:47 -0000
-Date: Mon, 29 Nov 2021 14:08:47 -0600
-From: Rob Herring <robh@kernel.org>
-To: Conor.Dooley@microchip.com
-Cc: krzysztof.kozlowski@canonical.com, broonie@kernel.org,
- aou@eecs.berkeley.edu, linus.walleij@linaro.org, bgolaszewski@baylibre.com,
- palmer@dabbelt.com, paul.walmsley@sifive.com, jassisinghbrar@gmail.com,
- atish.patra@wdc.com, Daire.McNamara@microchip.com, Lewis.Hanly@microchip.com,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, geert@linux-m68k.org,
- linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-crypto@vger.kernel.org, linux-usb@vger.kernel.org,
- bin.meng@windriver.com, linux-i2c@vger.kernel.org,
- alexandre.belloni@bootlin.com, Ivan.Griffin@microchip.com,
- linux-rtc@vger.kernel.org, linux-spi@vger.kernel.org, a.zummo@towertech.it,
- gregkh@linuxfoundation.org
-Subject: Re: [PATCH 06/13] dt-bindings: rng: add bindings for microchip mpfs
- rng
-Message-ID: <YaUzT6+WvICiTk1q@robh.at.kernel.org>
-References: <20211108150554.4457-1-conor.dooley@microchip.com>
- <20211108150554.4457-7-conor.dooley@microchip.com>
- <f60cf7e0-4f67-f4b3-2596-01114cff6623@canonical.com>
- <71c6917e-1463-c708-550a-726e5fe1566d@microchip.com>
- <ca17d6ac-ef8e-b01c-3278-7cbb0d5745e3@canonical.com>
- <ea871add-bddc-c4ae-ac9d-e86b4fad5a02@microchip.com>
- <a0713a10-3409-4401-e612-0a9c06f88ea1@canonical.com>
- <9d6f2e66-860c-2b8a-0b45-7dc56dd5298f@microchip.com>
+ Mon, 29 Nov 2021 13:24:03 -0800 (PST)
+Date: Mon, 29 Nov 2021 21:23:59 +0000
+From: Sean Christopherson <seanjc@google.com>
+To: Anup Patel <Anup.Patel@wdc.com>
+Cc: Adam Borowski <kilobyte@angband.pl>, Atish Patra <atishp@atishpatra.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ "kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: Re: ERROR: modpost: "boot_cpu_hartid" [arch/riscv/kvm/kvm.ko]
+ undefined!
+Message-ID: <YaVE775RaGQJsysE@google.com>
+References: <YZvP3AuTdEdje/IY@angband.pl> <YZvipLmkQQZ3va8F@google.com>
+ <956FCFEA-AB88-495B-B4CD-F3FB410A4270@wdc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <9d6f2e66-860c-2b8a-0b45-7dc56dd5298f@microchip.com>
+In-Reply-To: <956FCFEA-AB88-495B-B4CD-F3FB410A4270@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211129_120852_211288_32AF3401 
-X-CRM114-Status: GOOD (  27.65  )
+X-CRM114-CacheID: sfid-20211129_132405_030113_E8804F4E 
+X-CRM114-Status: UNSURE (   7.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,82 +94,11 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 10, 2021 at 09:46:23AM +0000, Conor.Dooley@microchip.com wrote:
-> On 10/11/2021 07:43, Krzysztof Kozlowski wrote:
-> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> > 
-> > On 09/11/2021 14:36, Conor.Dooley@microchip.com wrote:
-> >> On 09/11/2021 12:56, Krzysztof Kozlowski wrote:
-> >>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> >>>
-> >>> On 09/11/2021 13:54, Conor.Dooley@microchip.com wrote:
-> >>>> On 08/11/2021 21:16, Krzysztof Kozlowski wrote:
-> >>>>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> >>>>>
-> >>>>> On 08/11/2021 16:05, conor.dooley@microchip.com wrote:
-> >>>>>> From: Conor Dooley <conor.dooley@microchip.com>
-> >>>>>>
-> >>>>>> Add device tree bindings for the hardware rng device accessed via
-> >>>>>> the system services on the Microchip PolarFire SoC.
-> >>>>>>
-> >>>>>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> >>>>>> ---
-> >>>>>>     .../bindings/rng/microchip,mpfs-rng.yaml      | 31 +++++++++++++++++++
-> >>>>>>     1 file changed, 31 insertions(+)
-> >>>>>>     create mode 100644 Documentation/devicetree/bindings/rng/microchip,mpfs-rng.yaml
-> >>>>>>
-> >>>>>> diff --git a/Documentation/devicetree/bindings/rng/microchip,mpfs-rng.yaml b/Documentation/devicetree/bindings/rng/microchip,mpfs-rng.yaml
-> >>>>>> new file mode 100644
-> >>>>>> index 000000000000..e8ecb3538a86
-> >>>>>> --- /dev/null
-> >>>>>> +++ b/Documentation/devicetree/bindings/rng/microchip,mpfs-rng.yaml
-> >>>>>> @@ -0,0 +1,31 @@
-> >>>>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> >>>>>> +%YAML 1.2
-> >>>>>> +---
-> >>>>>> +$id: "http://devicetree.org/schemas/rng/microchip,mpfs-rng.yaml#"
-> >>>>>> +$schema: "http://devicetree.org/meta-schemas/core.yaml#"
-> >>>>>> +
-> >>>>>> +title: Microchip MPFS random number generator
-> >>>>>> +
-> >>>>>> +maintainers:
-> >>>>>> +  - Conor Dooley <conor.dooley@microchip.com>
-> >>>>>> +
-> >>>>>> +properties:
-> >>>>>> +  compatible:
-> >>>>>> +    const: microchip,polarfire-soc-rng
-> >>>>>> +
-> >>>>>> +  syscontroller:
-> >>>>>> +    maxItems: 1
-> >>>>>> +    description: name of the system controller device node
-> >>>>>
-> >>>>> There are several issues with this:
-> >>>>> 1. You need to describe the type.
-> >>>>> 2. Description is not helpful (just copying the name of property) and
-> >>>>> actually misleading because you do not put there the name of device node.
-> >>>>> 3. What is it? Looks like syscon (or sometimes called sysreg). If yes,
-> >>>>> please use existing syscon bindings.
-> >>>> 1 & 2 - Correct, it is bad & I'll write a better description for it.
-> >>>> 3 - Its a system controller implemented as a mailbox. The syscontroller
-> >>>> is the mailbox client, which the rng and generic drivers both use.
-> >>>
-> >>> I understood that pointed device node is a mailbox, not this node. But
-> >>> here, what is it here? How do you use it here?
-> >> The system controller is the means of access to the random number
-> >> generator. The phandle to the sys controller is provided here so that
-> >> the rng driver can locate the mailbox client through which it requests
-> >> random numbers.
-> > 
-> > I am asking this to understand whether there is a generic or existing
-> > property which should be used instead.
-> > 
-> > If I understand correctly, the rng driver needs a mailbox client?
-> Correct, it needs one. Binding for that is here:
-> Documentation/devicetree/bindings/soc/microchip/microchip,polarfire-soc-sys-controller.yaml
+On Tue, Nov 23, 2021, Anup Patel wrote:
+> @Sean, can you re-send this patch to the Linux RISC-V mailing list ? It
+> seems this email did not land correctly for Atish and other folks.
 
-The rng node and others should be a child of the sys controller node.
-
-Rob
+Yep, I'll get it posted, sorry for the delay.
 
 _______________________________________________
 linux-riscv mailing list
