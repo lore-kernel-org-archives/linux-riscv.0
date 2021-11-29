@@ -4,69 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C360C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Nov 2021 03:06:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 675F8C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Nov 2021 03:40:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mfZwVXy6RbpaHDDhhXDxw54HGQ9drFVPLXfignvk2Iw=; b=c91Qj3+obOlLhI
-	N1rvOxrNZpwh6LXdxPfmozA/4bCpLczsN/G930wBhY/fPWEdOOKHZq48HIlPfokIYYKAplR6Sj84D
-	85Og6O5LC4DXFuxkVjneYSxilj/i7gf2aCyd2kc87qfSLPwEgZ7r2cMw/wxKl3S08Q6esgsPv33aP
-	tLmCzv6nPqH4+seb04CwzdiRqEU9TElBoOXtCWYxwFQfBEMpZMAZl8ump3bs1RFLN4gQNNzRxLA0X
-	yH6KAB4DF0HrJ3r7PS0OJzQjacPbvWwgXPF2QjV/KKm7bXFS9R9M9cGqA30yL2yR8rXq1yIRNTzgk
-	H9USa9QGd7conLI9z/Mw==;
+	List-Owner; bh=RHD49L2hdHFk+im5NjtTD9u+rod2bUXtCG/SjNqJWsE=; b=fvyOW5GNzWNr2M
+	X7Id3vNg507PqHLsJMeZHsJsRJZgoTvpMigVePgQzsq+uQWxcQU4tYxfBT4x/7sKdzJ96tJOur05T
+	1qNdFiDQ5imVsrirRoXv4Nwwur1pF0lQ4VQi+b2B66xED2bzGejIsiKjPlZ1vxIguKKcLQp2Faa4S
+	Gzoy0RfJlS/P2vujtJwEosavnj6iApBdbBtPAKRW6vNBNAhjwxSApaEWEkPEWB1HqXjfxN82bOUwO
+	c/ZbqKQNRZ6upzlLoa5w/KqOkzPzuHLazUgkqLbfM3hKH6ln8gmigWI9AHPfaX4VzDbd6fs2bRHX7
+	MOme7hawZP3zpQ8Tomtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mrX06-00HAVr-Be; Mon, 29 Nov 2021 03:06:42 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+	id 1mrXWX-00HC0r-NO; Mon, 29 Nov 2021 03:40:13 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mrWzs-00HAT0-CS; Mon, 29 Nov 2021 03:06:30 +0000
-Received: from dggpemm500022.china.huawei.com (unknown [172.30.72.56])
- by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4J2VYG4jL9z1DJgC;
- Mon, 29 Nov 2021 11:03:46 +0800 (CST)
-Received: from dggpemm500001.china.huawei.com (7.185.36.107) by
- dggpemm500022.china.huawei.com (7.185.36.162) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.20; Mon, 29 Nov 2021 11:06:24 +0800
-Received: from [10.174.177.243] (10.174.177.243) by
- dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id
- 15.1.2308.20; Mon, 29 Nov 2021 11:06:23 +0800
-Message-ID: <073253ba-f5c5-c64c-f8cb-6fb39f35af0e@huawei.com>
-Date: Mon, 29 Nov 2021 11:06:23 +0800
+ id 1mrXWU-00HC09-UI
+ for linux-riscv@lists.infradead.org; Mon, 29 Nov 2021 03:40:12 +0000
+Received: by mail-wr1-x429.google.com with SMTP id v11so33564990wrw.10
+ for <linux-riscv@lists.infradead.org>; Sun, 28 Nov 2021 19:40:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=MWox7pMHyR0qcRdGS+0RZRCWvfw/dHAAH8xPTK+l3bg=;
+ b=Xk+d+xhG4+Z7lzMNFQPU/ZRqqE2Q8Vku4rPID+rdJv5DwOS8XvIvjgfz0tJKLwGm+z
+ b/URVPG9yvCfoXpJxi7nBFCEITlxA3qpPxsVoilHt0IeSzbPeVBXP60Caex28GxHOb8k
+ gMT0lDAKzhCl+UL6QB8Fl4vqiR9vFAjNgvTPRM30cFs30fnxtn9EYkG3ony7zFw0w/qW
+ bFHGact0uqCGI999gHsRBLtleAlwr/xPaaa525Gizp72gEpPEfLPVbOlcb1AqpJP5etE
+ 05toy7BXQGGXMuuD/8o9onenREXFlOVqEm9oxqLNcgKouOIMYTOY84mhRH8VgUe4NHVB
+ YaAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=MWox7pMHyR0qcRdGS+0RZRCWvfw/dHAAH8xPTK+l3bg=;
+ b=kvEH118J/uw5EFLicp4zJSgD29Mmin2FkOw8N/93XDEMtm1KZkb5OLXFwKQWDjk6Rg
+ PQ1PcrWkhx/Jdcu5cBYnc7XNjuMgD8Hg1JcGaPOQu3zflmi76sV2kM1D0O0L4Ft6VSvK
+ 1wM749k9oMjRxtfvIYik0Wr3A/Vb6+vHJFZ07atExbclU4UgtybmdzffRSYF0qxE9+BX
+ +UXzSAmQphOVILzs9MiY0GkFvH6oHbfjEgQsUU5SQFzGs/KPdOJDEUw57bDoEPpYs1lC
+ 1y6q16nsHLX46OsrFmODouodcRKrqZ2y9q4ULR5EmACsJGPvniZ8qqXmCFPwTPxp7Avy
+ 8baQ==
+X-Gm-Message-State: AOAM533+viyYmNjlhnRcSjOngN3kZJLbd6xQ6PMNZPGWFBhYGECTw4FI
+ dfyMNzA0HWdkp+dwImbPEjsQ/H2q3pGgH/vwRek+ZQ==
+X-Google-Smtp-Source: ABdhPJwxTF4itSodvdNADBx2t3eVLv2fdXR7JyED2RU5O76/w+2bvnAc9HWZucJxJtZvwzvqgEAh8s66khCIOZboUzQ=
+X-Received: by 2002:a5d:4f8d:: with SMTP id d13mr29221931wru.89.1638157208592; 
+ Sun, 28 Nov 2021 19:40:08 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.2.0
-Subject: Re: [PATCH RFC 0/4] mm: percpu: Cleanup percpu first chunk funciton
-Content-Language: en-US
-To: Dennis Zhou <dennis@kernel.org>
-CC: <akpm@linux-foundation.org>, <linux-kernel@vger.kernel.org>,
- <linux-mm@kvack.org>, <tj@kernel.org>, <gregkh@linuxfoundation.org>,
- <cl@linux.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
- <tsbogend@alpha.franken.de>, <mpe@ellerman.id.au>,
- <benh@kernel.crashing.org>, <paulus@samba.org>, <paul.walmsley@sifive.com>,
- <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <davem@davemloft.net>,
- <tglx@linutronix.de>, <mingo@redhat.com>, <bp@alien8.de>,
- <dave.hansen@linux.intel.com>, <hpa@zytor.com>,
- <linux-arm-kernel@lists.infradead.org>, <linux-ia64@vger.kernel.org>,
- <linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
- <linux-riscv@lists.infradead.org>, <sparclinux@vger.kernel.org>,
- <x86@kernel.org>
-References: <20211121093557.139034-1-wangkefeng.wang@huawei.com>
- <4fecd1ac-6c0a-f0fa-1ffb-18f3f266809d@huawei.com> <YaRA6o0pHU6/206a@fedora>
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-In-Reply-To: <YaRA6o0pHU6/206a@fedora>
-X-Originating-IP: [10.174.177.243]
-X-ClientProxiedBy: dggeme710-chm.china.huawei.com (10.1.199.106) To
- dggpemm500001.china.huawei.com (7.185.36.107)
-X-CFilter-Loop: Reflected
+References: <20211126154020.342924-1-anup.patel@wdc.com>
+ <20211126154020.342924-2-anup.patel@wdc.com>
+ <558e7e30-2d87-a19c-c85c-a2993a354074@redhat.com>
+In-Reply-To: <558e7e30-2d87-a19c-c85c-a2993a354074@redhat.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 29 Nov 2021 09:09:57 +0530
+Message-ID: <CAAhSdy2mAHyA04nTOh_XM==moKv1UARpmqt2QhkQwFZo98kwtA@mail.gmail.com>
+Subject: Re: [PATCH 1/4] RISC-V: KVM: Forward SBI experimental and vendor
+ extensions
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Anup Patel <anup.patel@wdc.com>, Shuah Khan <shuah@kernel.org>, 
+ Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alistair Francis <Alistair.Francis@wdc.com>, KVM General <kvm@vger.kernel.org>,
+ kvm-riscv@lists.infradead.org, linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ linux-kselftest@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211128_190628_786003_8FF9C42E 
-X-CRM114-Status: UNSURE (   8.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211128_194010_986073_EF538B95 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,44 +85,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDIwMjEvMTEvMjkgMTA6NTQsIERlbm5pcyBaaG91IHdyb3RlOgo+IE9uIE1vbiwgTm92IDI5
-LCAyMDIxIGF0IDEwOjUxOjE4QU0gKzA4MDAsIEtlZmVuZyBXYW5nIHdyb3RlOgo+PiBIaSBEZW5u
-aXMgYW5kIGFsbCBtYWludGFpbmVycywgYW55IGNvbW1lbnRzIGFib3V0IHRoZSBjaGFuZ2VzLCBt
-YW55IHRoYW5rcy4KPj4KPj4gT24gMjAyMS8xMS8yMSAxNzozNSwgS2VmZW5nIFdhbmcgd3JvdGU6
-Cj4+PiBXaGVuIHN1cHBvcnQgcGFnZSBtYXBwaW5nIHBlcmNwdSBmaXJzdCBjaHVuayBhbGxvY2F0
-b3Igb24gYXJtNjQsIHdlCj4+PiBmb3VuZCB0aGVyZSBhcmUgbG90cyBvZiBkdXBsaWNhdGVkIGNv
-ZGVzIGluIHBlcmNwdSBlbWJlZC9wYWdlIGZpcnN0Cj4+PiBjaHVuayBhbGxvY2F0b3IuIFRoaXMg
-cGF0Y2hzZXQgaXMgYWltZWQgdG8gY2xlYW51cCB0aGVtIGFuZCBzaG91bGQKPj4+IG5vIGZ1bmNp
-dG9uIGNoYW5nZSwgb25seSB0ZXN0IG9uIGFybTY0Lgo+Pj4KPj4+IEtlZmVuZyBXYW5nICg0KToK
-Pj4+ICAgICBtbTogcGVyY3B1OiBHZW5lcmFsaXplIHBlcmNwdSByZWxhdGVkIGNvbmZpZwo+Pj4g
-ICAgIG1tOiBwZXJjcHU6IEFkZCBwY3B1X2ZjX2NwdV90b19ub2RlX2ZuX3QgdHlwZWRlZgo+Pj4g
-ICAgIG1tOiBwZXJjcHU6IEFkZCBnZW5lcmljIHBjcHVfZmNfYWxsb2MvZnJlZSBmdW5jaXRvbgo+
-Pj4gICAgIG1tOiBwZXJjcHU6IEFkZCBnZW5lcmljIHBjcHVfcG9wdWxhdGVfcHRlKCkgZnVuY3Rp
-b24KPj4+Cj4+PiAgICBhcmNoL2FybTY0L0tjb25maWcgICAgICAgICAgICAgfCAgMjAgKy0tLS0K
-Pj4+ICAgIGFyY2gvaWE2NC9LY29uZmlnICAgICAgICAgICAgICB8ICAgOSArLS0KPj4+ICAgIGFy
-Y2gvbWlwcy9LY29uZmlnICAgICAgICAgICAgICB8ICAxMCArLS0KPj4+ICAgIGFyY2gvbWlwcy9t
-bS9pbml0LmMgICAgICAgICAgICB8ICAxNCArLS0tCj4+PiAgICBhcmNoL3Bvd2VycGMvS2NvbmZp
-ZyAgICAgICAgICAgfCAgMTcgKy0tLQo+Pj4gICAgYXJjaC9wb3dlcnBjL2tlcm5lbC9zZXR1cF82
-NC5jIHwgIDkyICstLS0tLS0tLS0tLS0tLS0tLS0tLQo+Pj4gICAgYXJjaC9yaXNjdi9LY29uZmln
-ICAgICAgICAgICAgIHwgIDEwICstLQo+Pj4gICAgYXJjaC9zcGFyYy9LY29uZmlnICAgICAgICAg
-ICAgIHwgIDEyICstLQo+Pj4gICAgYXJjaC9zcGFyYy9rZXJuZWwvc21wXzY0LmMgICAgIHwgMTA1
-ICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+Pj4gICAgYXJjaC94ODYvS2NvbmZpZyAgICAgICAg
-ICAgICAgIHwgIDE3ICstLS0KPj4+ICAgIGFyY2gveDg2L2tlcm5lbC9zZXR1cF9wZXJjcHUuYyB8
-ICA2NiArKy0tLS0tLS0tLS0tLS0KPj4+ICAgIGRyaXZlcnMvYmFzZS9hcmNoX251bWEuYyAgICAg
-ICB8ICA2OCArLS0tLS0tLS0tLS0tLS0tCj4+PiAgICBpbmNsdWRlL2xpbnV4L3BlcmNwdS5oICAg
-ICAgICAgfCAgMTMgKy0tCj4+PiAgICBtbS9LY29uZmlnICAgICAgICAgICAgICAgICAgICAgfCAg
-MTIgKysrCj4+PiAgICBtbS9wZXJjcHUuYyAgICAgICAgICAgICAgICAgICAgfCAxNDMgKysrKysr
-KysrKysrKysrKysrKysrKysrKy0tLS0tLS0tCj4+PiAgICAxNSBmaWxlcyBjaGFuZ2VkLCAxNjUg
-aW5zZXJ0aW9ucygrKSwgNDQzIGRlbGV0aW9ucygtKQo+Pj4KPiBIaSBLZWZhbmcsCj4KPiBJIGFw
-b2xvZ2l6ZSBmb3IgdGhlIGRlbGF5LiBJdCdzIGEgaG9saWRheSB3ZWVrIGluIHRoZSBVUyArIEkg
-aGFkIHNvbWUKPiBwZXJzb25hbCB0aGluZ3MgY29tZSB1cCBhdCB0aGUgYmVnaW5uaW5nIG9mIGxh
-c3Qgd2Vlay4gSSdsbCBoYXZlIGl0Cj4gcmV2aWV3ZWQgYnkgdG9tb3Jyb3cuCkl0J3MgZ3JlYXQg
-dG8gaGVhciBhYm91dCB5b3VyIHJlcGx5LMKgIHRoYW5rcy4KPgo+IFRoYW5rcywKPiBEZW5uaXMK
-PiAuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Fri, Nov 26, 2021 at 9:42 PM Paolo Bonzini <pbonzini@redhat.com> wrote:
+>
+> On 11/26/21 16:40, Anup Patel wrote:
+> > +static int kvm_sbi_ext_expevend_handler(struct kvm_vcpu *vcpu,
+> > +                                     struct kvm_run *run,
+> > +                                     unsigned long *out_val,
+> > +                                     struct kvm_cpu_trap *utrap,
+> > +                                     bool *exit)
+>
+> Doesn't really matter what this is used for, it's a handler that
+> forwards.  So you can name it kvm_sbi_ext_forward_handler.
+
+Sure, I will rename this to kvm_sbi_ext_forward_handler()
+
+Regards,
+Anup
+
+>
+> Paolo
+>
+> > +{
+> > +     /*
+> > +      * Both SBI experimental and vendor extensions are
+> > +      * unconditionally forwarded to userspace.
+> > +      */
+> > +     kvm_riscv_vcpu_sbi_forward(vcpu, run);
+> > +     *exit = true;
+> > +     return 0;
+> > +}
+> > +
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
