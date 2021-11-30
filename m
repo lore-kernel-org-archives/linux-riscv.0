@@ -4,88 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9841C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Nov 2021 22:56:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1F37C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Nov 2021 00:02:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PLMgkr2bNspmUva2AIapu13bV6B1p4w+IiD9nzSO6so=; b=TB+YI5Cvzf3RoS
-	QSS/dujzwwVAvOkbrxb5lQ1jM2E6BMB4bvjuoXGt9f2y+yPyFVDUVphVcp/t8q7V75/ynXNZ4IKNC
-	jQN773Unruongivw6ub7oZk0g/yY7YBOpw7b/jEZwGyVXg66C0LXdFWhEUm0ceJp59dRs0Q1RqXG1
-	rbmuyv4hDu4cyyTJjcCkWTA6x56hf9MVuIuMpvmd548xrsD0aH2G0VmcZAnMFZdNo97epTX78+x2U
-	Rca0+hlybKuHumLMzfZ7kWpiu8LZOdw6ZUzaNfcXRDIs9wu8mdYK8xoyEUsr7xuCk61njK8pC9zlf
-	ltwEtZ0H92oBIDqSw7/w==;
+	List-Owner; bh=F9Idro1+xQG53N9A/3y5S9B3j58IaBOPfxK2U2u6poU=; b=fANPfyberwgx6q
+	D4/3evMDx2Qa4ssfGcvZ60A9EOuTf9geGobIdrnZ7xiJIMmZiVPjqAyxDinV7bImtZVue9e36puoS
+	b/11rJkpt1vZ1/r3cztT7KkkJD3tdaqut1+YGewPxOINJ0V3rc0mMvdi8R0/xsbjUClSe94kEiIfC
+	CDvD3x32EvNT2O9E/CdIsb57Jz2d5nqpo8A5zL0ZpbzyW/nyXvoU0m8Blvgg7AL2xBkF3kT22ifOk
+	6bP5bJBaE1XsJyU1L2Lbj2v9BzALAbikVstB8C2fp1gtp1Cw7IYx276hWrYmYQ81KZbZXksupZiAD
+	vjAIZyskjBTM4nmnXtLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mrpZ3-00303S-1X; Mon, 29 Nov 2021 22:56:01 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1mrqay-003AMI-0g; Tue, 30 Nov 2021 00:02:04 +0000
+Received: from mail-ot1-f48.google.com ([209.85.210.48])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mrpYj-002zvN-SP
- for linux-riscv@lists.infradead.org; Mon, 29 Nov 2021 22:55:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1638226539;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=91gZzrlhgmWTQlrjqIVKNYdue6kA0WgX9BjgXgHlzEM=;
- b=Ky/9AmthoXvdn79NQKi2zC+UMgPFhBTpMobUzPpGPu67JdN69v5wfYHWbkYf1pa51Y4iuG
- n0Qq1LgEK357ZNdaU1Z3M6rzkdQVt8nL+O35MOVQu69QC/LcKk+HiyqNAdReUP9CqCxIn4
- +egf4JldBYy8HMeTHC9a6XwO6sCoxok=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-577-axjhAptPNz-_8ATyvN31yg-1; Mon, 29 Nov 2021 17:55:36 -0500
-X-MC-Unique: axjhAptPNz-_8ATyvN31yg-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
- [10.5.11.11])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 1EB4C190B2A1;
- Mon, 29 Nov 2021 22:55:32 +0000 (UTC)
-Received: from starship (unknown [10.40.192.24])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 0EDF745D60;
- Mon, 29 Nov 2021 22:55:18 +0000 (UTC)
-Message-ID: <c04c9854be8fc9493739f17c2cbd26dd240a8465.camel@redhat.com>
-Subject: Re: [PATCH v2 11/43] KVM: Don't block+unblock when halt-polling is
- successful
-From: Maxim Levitsky <mlevitsk@redhat.com>
-To: Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson
- <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
- Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>, Paul Mackerras
- <paulus@ozlabs.org>, Anup Patel <anup.patel@wdc.com>,  Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>,  Christian Borntraeger <borntraeger@de.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>, James Morse <james.morse@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>, Suzuki K Poulose
- <suzuki.poulose@arm.com>, Atish Patra <atish.patra@wdc.com>, David
- Hildenbrand <david@redhat.com>, Cornelia Huck <cohuck@redhat.com>, Claudio
- Imbrenda <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>,
- Wanpeng Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,
- Joerg Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org, 
- kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
- kvm@vger.kernel.org,  kvm-ppc@vger.kernel.org,
- kvm-riscv@lists.infradead.org,  linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, Oliver
- Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
-Date: Tue, 30 Nov 2021 00:55:17 +0200
-In-Reply-To: <ba8341d6-7ee7-1af1-1385-0a9226bbf952@redhat.com>
-References: <20211009021236.4122790-1-seanjc@google.com>
- <20211009021236.4122790-12-seanjc@google.com>
- <cceb33be9e2a6ac504bb95a7b2b8cf5fe0b1ff26.camel@redhat.com>
- <4e883728e3e5201a94eb46b56315afca5e95ad9c.camel@redhat.com>
- <YaUNBfJh35WXMV0M@google.com>
- <ba8341d6-7ee7-1af1-1385-0a9226bbf952@redhat.com>
-User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
+ id 1mrqat-003AJG-Bu; Tue, 30 Nov 2021 00:02:02 +0000
+Received: by mail-ot1-f48.google.com with SMTP id
+ x19-20020a9d7053000000b0055c8b39420bso27844994otj.1; 
+ Mon, 29 Nov 2021 16:01:55 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=aV2EodJh346t+Wbm3YErslm1vIVsKkg3za0JyncYukQ=;
+ b=K+dX24H4FFmg70ytqb+7o/uVYw3AyW72Ys2AcSfUeZCxnUMuiw5AiJA5/p1n0vfuKR
+ rMbufpUANxX7ReWF4cMYpGPvX3Xzv5/MUK/IIaSFuO/KD+y7pfeCVAs4Ooy7EeE4kDKQ
+ jt7crYIxqfowetQB03IL6eNRMtNNJZvwnzLPGVTnIjXQXE8EWakDVlI3ECxA3OV5SBH4
+ X6LCzt+D45lqFZpzTEeuQWUij0E3pzB97eg6DjVEfCRc6k4WsJDErUjB7VDFXu9SNHSZ
+ 5CZS03ODBOdKnP+Hnl0875CDMD2Rhe1AIEC4cRoUG9CSIcucqyEGCbGJehi4i0zDYfag
+ 2DvQ==
+X-Gm-Message-State: AOAM531n7UfOca+3lPHexelbuVolel3njLVOwVWbhbow8x39cMC/6YF2
+ R3FWbIPDWJg7B7Qpu6iOIw==
+X-Google-Smtp-Source: ABdhPJxGmP7W+hR5b8+EQ325tbSTlD38AnnrDu+nyHVAQB1cJ7/x12F1fry2XTHV2cl6Sy01eQGOWA==
+X-Received: by 2002:a05:6830:4389:: with SMTP id
+ s9mr47068865otv.97.1638230514850; 
+ Mon, 29 Nov 2021 16:01:54 -0800 (PST)
+Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
+ [66.90.148.213])
+ by smtp.gmail.com with ESMTPSA id s17sm2465101ooj.42.2021.11.29.16.01.51
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 29 Nov 2021 16:01:53 -0800 (PST)
+Received: (nullmailer pid 855745 invoked by uid 1000);
+ Tue, 30 Nov 2021 00:01:51 -0000
+Date: Mon, 29 Nov 2021 18:01:50 -0600
+From: Rob Herring <robh@kernel.org>
+To: Calvin Zhang <calvinzhang.cool@gmail.com>
+Cc: Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Guo Ren <guoren@kernel.org>, Yoshinori Sato <ysato@users.sourceforge.jp>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Nick Hu <nickhu@andestech.com>,
+ Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>, 
+ Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>, 
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Stafford Horne <shorne@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
+ Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Rich Felker <dalias@libc.org>, Chris Zankel <chris@zankel.net>,
+ Max Filippov <jcmvbkbc@gmail.com>, 
+ Frank Rowand <frowand.list@gmail.com>, Mike Rapoport <rppt@kernel.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@redhat.com>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>, Vladimir Isaev <isaev@synopsys.com>, 
+ Arnd Bergmann <arnd@arndb.de>,
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Guenter Roeck <linux@roeck-us.net>, 
+ Marc Zyngier <maz@kernel.org>, David Brazdil <dbrazdil@google.com>, 
+ Mark Rutland <mark.rutland@arm.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Souptick Joarder <jrdr.linux@gmail.com>, 
+ Jinyang He <hejinyang@loongson.cn>,
+ Alexander Sverdlin <alexander.sverdlin@nokia.com>, 
+ Serge Semin <Sergey.Semin@baikalelectronics.ru>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Ley Foon Tan <ley.foon.tan@intel.com>, 
+ Andreas Oetken <andreas.oetken@siemens.com>,
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+ Christophe Leroy <christophe.leroy@c-s.fr>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Zhang Yunkai <zhang.yunkai@zte.com.cn>, 
+ Markus Elfring <elfring@users.sourceforge.net>,
+ Ganesh Goudar <ganeshgr@linux.ibm.com>, 
+ "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
+ Atish Patra <atish.patra@wdc.com>, 
+ Anup Patel <anup.patel@wdc.com>, Nick Kossifidis <mick@ics.forth.gr>,
+ Alexandre Ghiti <alex@ghiti.fr>, Vitaly Wool <vitaly.wool@konsulko.com>,
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
+ Guo Ren <guoren@linux.alibaba.com>, Tiezhu Yang <yangtiezhu@loongson.cn>, 
+ Mauri Sandberg <sandberg@mailfence.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, 
+ linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
+ uclinux-h8-devel@lists.sourceforge.jp, linux-mips@vger.kernel.org, 
+ openrisc@lists.librecores.org, linuxppc-dev@lists.ozlabs.org, 
+ linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org, 
+ linux-xtensa@linux-xtensa.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH 1/2] of: Sort reserved_mem related code
+Message-ID: <YaVp7ubpCLN1xWfF@robh.at.kernel.org>
+References: <20211119075844.2902592-1-calvinzhang.cool@gmail.com>
+ <20211119075844.2902592-2-calvinzhang.cool@gmail.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+Content-Disposition: inline
+In-Reply-To: <20211119075844.2902592-2-calvinzhang.cool@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211129_145542_086586_C91A8732 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20211129_160159_457933_D3D1D754 
+X-CRM114-Status: GOOD (  36.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,24 +131,463 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2021-11-29 at 18:55 +0100, Paolo Bonzini wrote:
-> On 11/29/21 18:25, Sean Christopherson wrote:
-> > > If I apply though only the patch series up to this patch, my fedora VM seems
-> > > to work fine, but my windows VM still locks up hard when I run 'LatencyTop'
-> > > in it, which doesn't happen without this patch.
-> > 
-> > Buy "run 'LatencyTop' in it", do you mean running something in the Windows guest?
-> > The only search results I can find for LatencyTop are Linux specific.
+On Fri, Nov 19, 2021 at 03:58:18PM +0800, Calvin Zhang wrote:
+> Move code about parsing /reserved-memory and initializing of
+> reserved_mems array to of_reserved_mem.c for better modularity.
 > 
-> I think it's LatencyMon, https://www.resplendence.com/latencymon.
+> Rename array name from reserved_mem to reserved_mems to distinguish
+> from type definition.
 > 
-> Paolo
+> Signed-off-by: Calvin Zhang <calvinzhang.cool@gmail.com>
+> ---
+>  drivers/of/fdt.c                | 108 +--------------------
+>  drivers/of/of_private.h         |  12 ++-
+>  drivers/of/of_reserved_mem.c    | 163 ++++++++++++++++++++++++++------
+>  include/linux/of_reserved_mem.h |   4 +
+>  4 files changed, 149 insertions(+), 138 deletions(-)
 > 
-Yes.
+> diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
+> index bdca35284ceb..445af4e69300 100644
+> --- a/drivers/of/fdt.c
+> +++ b/drivers/of/fdt.c
+> @@ -80,7 +80,7 @@ void __init of_fdt_limit_memory(int limit)
+>  	}
+>  }
+>  
+> -static bool of_fdt_device_is_available(const void *blob, unsigned long node)
+> +bool of_fdt_device_is_available(const void *blob, unsigned long node)
+>  {
+>  	const char *status = fdt_getprop(blob, node, "status", NULL);
+>  
+> @@ -476,7 +476,7 @@ void *initial_boot_params __ro_after_init;
+>  
+>  static u32 of_fdt_crc32;
+>  
+> -static int __init early_init_dt_reserve_memory_arch(phys_addr_t base,
+> +int __init early_init_dt_reserve_memory_arch(phys_addr_t base,
+>  					phys_addr_t size, bool nomap)
 
-Best regards,
-	Maxim Levitsky
+I think you can move this function too if you change the nomap==false 
+callers to just call memblock_reserve directly.
 
+
+>  {
+>  	if (nomap) {
+> @@ -492,108 +492,6 @@ static int __init early_init_dt_reserve_memory_arch(phys_addr_t base,
+>  	return memblock_reserve(base, size);
+>  }
+>  
+> -/*
+> - * __reserved_mem_reserve_reg() - reserve all memory described in 'reg' property
+> - */
+> -static int __init __reserved_mem_reserve_reg(unsigned long node,
+> -					     const char *uname)
+> -{
+> -	int t_len = (dt_root_addr_cells + dt_root_size_cells) * sizeof(__be32);
+> -	phys_addr_t base, size;
+> -	int len;
+> -	const __be32 *prop;
+> -	int first = 1;
+> -	bool nomap;
+> -
+> -	prop = of_get_flat_dt_prop(node, "reg", &len);
+> -	if (!prop)
+> -		return -ENOENT;
+> -
+> -	if (len && len % t_len != 0) {
+> -		pr_err("Reserved memory: invalid reg property in '%s', skipping node.\n",
+> -		       uname);
+> -		return -EINVAL;
+> -	}
+> -
+> -	nomap = of_get_flat_dt_prop(node, "no-map", NULL) != NULL;
+> -
+> -	while (len >= t_len) {
+> -		base = dt_mem_next_cell(dt_root_addr_cells, &prop);
+> -		size = dt_mem_next_cell(dt_root_size_cells, &prop);
+> -
+> -		if (size &&
+> -		    early_init_dt_reserve_memory_arch(base, size, nomap) == 0)
+> -			pr_debug("Reserved memory: reserved region for node '%s': base %pa, size %lu MiB\n",
+> -				uname, &base, (unsigned long)(size / SZ_1M));
+> -		else
+> -			pr_info("Reserved memory: failed to reserve memory for node '%s': base %pa, size %lu MiB\n",
+> -				uname, &base, (unsigned long)(size / SZ_1M));
+> -
+> -		len -= t_len;
+> -		if (first) {
+> -			fdt_reserved_mem_save_node(node, uname, base, size);
+> -			first = 0;
+> -		}
+> -	}
+> -	return 0;
+> -}
+> -
+> -/*
+> - * __reserved_mem_check_root() - check if #size-cells, #address-cells provided
+> - * in /reserved-memory matches the values supported by the current implementation,
+> - * also check if ranges property has been provided
+> - */
+> -static int __init __reserved_mem_check_root(unsigned long node)
+> -{
+> -	const __be32 *prop;
+> -
+> -	prop = of_get_flat_dt_prop(node, "#size-cells", NULL);
+> -	if (!prop || be32_to_cpup(prop) != dt_root_size_cells)
+> -		return -EINVAL;
+> -
+> -	prop = of_get_flat_dt_prop(node, "#address-cells", NULL);
+> -	if (!prop || be32_to_cpup(prop) != dt_root_addr_cells)
+> -		return -EINVAL;
+> -
+> -	prop = of_get_flat_dt_prop(node, "ranges", NULL);
+> -	if (!prop)
+> -		return -EINVAL;
+> -	return 0;
+> -}
+> -
+> -/*
+> - * fdt_scan_reserved_mem() - scan a single FDT node for reserved memory
+> - */
+> -static int __init fdt_scan_reserved_mem(void)
+> -{
+> -	int node, child;
+> -	const void *fdt = initial_boot_params;
+> -
+> -	node = fdt_path_offset(fdt, "/reserved-memory");
+> -	if (node < 0)
+> -		return -ENODEV;
+> -
+> -	if (__reserved_mem_check_root(node) != 0) {
+> -		pr_err("Reserved memory: unsupported node format, ignoring\n");
+> -		return -EINVAL;
+> -	}
+> -
+> -	fdt_for_each_subnode(child, fdt, node) {
+> -		const char *uname;
+> -		int err;
+> -
+> -		if (!of_fdt_device_is_available(fdt, child))
+> -			continue;
+> -
+> -		uname = fdt_get_name(fdt, child, NULL);
+> -
+> -		err = __reserved_mem_reserve_reg(child, uname);
+> -		if (err == -ENOENT && of_get_flat_dt_prop(child, "size", NULL))
+> -			fdt_reserved_mem_save_node(child, uname, 0, 0);
+> -	}
+> -	return 0;
+> -}
+> -
+>  /*
+>   * fdt_reserve_elfcorehdr() - reserves memory for elf core header
+>   *
+> @@ -642,7 +540,7 @@ void __init early_init_fdt_scan_reserved_mem(void)
+>  	}
+>  
+>  	fdt_scan_reserved_mem();
+> -	fdt_init_reserved_mem();
+> +	of_reserved_mem_init();
+>  	fdt_reserve_elfcorehdr();
+>  }
+>  
+> diff --git a/drivers/of/of_private.h b/drivers/of/of_private.h
+> index 9324483397f6..88b67f8ed698 100644
+> --- a/drivers/of/of_private.h
+> +++ b/drivers/of/of_private.h
+> @@ -163,8 +163,14 @@ static inline int of_dma_get_range(struct device_node *np,
+>  }
+>  #endif
+>  
+> -void fdt_init_reserved_mem(void);
+> -void fdt_reserved_mem_save_node(unsigned long node, const char *uname,
+> -			       phys_addr_t base, phys_addr_t size);
+> +bool of_fdt_device_is_available(const void *blob, unsigned long node);
+> +int early_init_dt_reserve_memory_arch(phys_addr_t base,
+> +					phys_addr_t size, bool nomap);
+> +#ifdef CONFIG_OF_RESERVED_MEM
+> +int fdt_scan_reserved_mem(void);
+> +#else
+> +static inline int fdt_scan_reserved_mem(void) { }
+> +#endif
+> +
+>  
+>  #endif /* _LINUX_OF_PRIVATE_H */
+> diff --git a/drivers/of/of_reserved_mem.c b/drivers/of/of_reserved_mem.c
+> index 9c0fb962c22b..784cfc5cd251 100644
+> --- a/drivers/of/of_reserved_mem.c
+> +++ b/drivers/of/of_reserved_mem.c
+> @@ -20,13 +20,14 @@
+>  #include <linux/of_reserved_mem.h>
+>  #include <linux/sort.h>
+>  #include <linux/slab.h>
+> +#include <linux/libfdt.h>
+>  #include <linux/memblock.h>
+>  #include <linux/kmemleak.h>
+>  
+>  #include "of_private.h"
+>  
+>  #define MAX_RESERVED_REGIONS	64
+> -static struct reserved_mem reserved_mem[MAX_RESERVED_REGIONS];
+> +static struct reserved_mem reserved_mems[MAX_RESERVED_REGIONS];
+
+Would be a bit easier to review without the rename.
+
+
+>  static int reserved_mem_count;
+>  
+>  static int __init early_init_dt_alloc_reserved_memory_arch(phys_addr_t size,
+> @@ -56,12 +57,12 @@ static int __init early_init_dt_alloc_reserved_memory_arch(phys_addr_t size,
+>  /*
+>   * fdt_reserved_mem_save_node() - save fdt node for second pass initialization
+>   */
+> -void __init fdt_reserved_mem_save_node(unsigned long node, const char *uname,
+> +static void __init fdt_reserved_mem_save_node(unsigned long node, const char *uname,
+>  				      phys_addr_t base, phys_addr_t size)
+>  {
+> -	struct reserved_mem *rmem = &reserved_mem[reserved_mem_count];
+> +	struct reserved_mem *rmem = &reserved_mems[reserved_mem_count];
+>  
+> -	if (reserved_mem_count == ARRAY_SIZE(reserved_mem)) {
+> +	if (reserved_mem_count == ARRAY_SIZE(reserved_mems)) {
+>  		pr_err("not enough space for all defined regions.\n");
+>  		return;
+>  	}
+> @@ -173,29 +174,105 @@ static const struct of_device_id __rmem_of_table_sentinel
+>  	__used __section("__reservedmem_of_table_end");
+>  
+>  /*
+> - * __reserved_mem_init_node() - call region specific reserved memory init code
+> + * __reserved_mem_check_root() - check if #size-cells, #address-cells provided
+> + * in /reserved-memory matches the values supported by the current implementation,
+> + * also check if ranges property has been provided
+>   */
+> -static int __init __reserved_mem_init_node(struct reserved_mem *rmem)
+> +static int __init __reserved_mem_check_root(unsigned long node)
+>  {
+> -	extern const struct of_device_id __reservedmem_of_table[];
+> -	const struct of_device_id *i;
+> -	int ret = -ENOENT;
+> +	const __be32 *prop;
+>  
+> -	for (i = __reservedmem_of_table; i < &__rmem_of_table_sentinel; i++) {
+> -		reservedmem_of_init_fn initfn = i->data;
+> -		const char *compat = i->compatible;
+> +	prop = of_get_flat_dt_prop(node, "#size-cells", NULL);
+> +	if (!prop || be32_to_cpup(prop) != dt_root_size_cells)
+> +		return -EINVAL;
+>  
+> -		if (!of_flat_dt_is_compatible(rmem->fdt_node, compat))
+> -			continue;
+> +	prop = of_get_flat_dt_prop(node, "#address-cells", NULL);
+> +	if (!prop || be32_to_cpup(prop) != dt_root_addr_cells)
+> +		return -EINVAL;
+>  
+> -		ret = initfn(rmem);
+> -		if (ret == 0) {
+> -			pr_info("initialized node %s, compatible id %s\n",
+> -				rmem->name, compat);
+> -			break;
+> +	prop = of_get_flat_dt_prop(node, "ranges", NULL);
+> +	if (!prop)
+> +		return -EINVAL;
+> +	return 0;
+> +}
+> +
+> +/*
+> + * __reserved_mem_reserve_reg() - reserve all memory described in 'reg' property
+> + */
+> +static int __init __reserved_mem_reserve_reg(unsigned long node,
+> +					     const char *uname)
+> +{
+> +	int t_len = (dt_root_addr_cells + dt_root_size_cells) * sizeof(__be32);
+> +	phys_addr_t base, size;
+> +	int len;
+> +	const __be32 *prop;
+> +	int first = 1;
+> +	bool nomap;
+> +
+> +	prop = of_get_flat_dt_prop(node, "reg", &len);
+> +	if (!prop)
+> +		return -ENOENT;
+> +
+> +	if (len && len % t_len != 0) {
+> +		pr_err("Reserved memory: invalid reg property in '%s', skipping node.\n",
+> +		       uname);
+> +		return -EINVAL;
+> +	}
+> +
+> +	nomap = of_get_flat_dt_prop(node, "no-map", NULL) != NULL;
+> +
+> +	while (len >= t_len) {
+> +		base = dt_mem_next_cell(dt_root_addr_cells, &prop);
+> +		size = dt_mem_next_cell(dt_root_size_cells, &prop);
+> +
+> +		if (size &&
+> +		    early_init_dt_reserve_memory_arch(base, size, nomap) == 0)
+> +			pr_debug("Reserved memory: reserved region for node '%s': base %pa, size %lu MiB\n",
+> +				uname, &base, (unsigned long)(size / SZ_1M));
+> +		else
+> +			pr_info("Reserved memory: failed to reserve memory for node '%s': base %pa, size %lu MiB\n",
+> +				uname, &base, (unsigned long)(size / SZ_1M));
+> +
+> +		len -= t_len;
+> +		if (first) {
+> +			fdt_reserved_mem_save_node(node, uname, base, size);
+> +			first = 0;
+>  		}
+>  	}
+> -	return ret;
+> +	return 0;
+> +}
+> +
+> +/*
+> + * fdt_scan_reserved_mem() - scan a single FDT node for reserved memory
+> + */
+> +int __init fdt_scan_reserved_mem(void)
+> +{
+> +	int node, child;
+> +	const void *fdt = initial_boot_params;
+> +
+> +	node = fdt_path_offset(fdt, "/reserved-memory");
+> +	if (node < 0)
+> +		return -ENODEV;
+> +
+> +	if (__reserved_mem_check_root(node) != 0) {
+> +		pr_err("Reserved memory: unsupported node format, ignoring\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	fdt_for_each_subnode(child, fdt, node) {
+> +		const char *uname;
+> +		int err;
+> +
+> +		if (!of_fdt_device_is_available(fdt, child))
+> +			continue;
+> +
+> +		uname = fdt_get_name(fdt, child, NULL);
+> +
+> +		err = __reserved_mem_reserve_reg(child, uname);
+> +		if (err == -ENOENT && of_get_flat_dt_prop(child, "size", NULL))
+> +			fdt_reserved_mem_save_node(child, uname, 0, 0);
+> +	}
+> +	return 0;
+>  }
+>  
+>  static int __init __rmem_cmp(const void *a, const void *b)
+> @@ -228,13 +305,13 @@ static void __init __rmem_check_for_overlap(void)
+>  	if (reserved_mem_count < 2)
+>  		return;
+>  
+> -	sort(reserved_mem, reserved_mem_count, sizeof(reserved_mem[0]),
+> +	sort(reserved_mems, reserved_mem_count, sizeof(reserved_mems[0]),
+>  	     __rmem_cmp, NULL);
+>  	for (i = 0; i < reserved_mem_count - 1; i++) {
+>  		struct reserved_mem *this, *next;
+>  
+> -		this = &reserved_mem[i];
+> -		next = &reserved_mem[i + 1];
+> +		this = &reserved_mems[i];
+> +		next = &reserved_mems[i + 1];
+>  
+>  		if (this->base + this->size > next->base) {
+>  			phys_addr_t this_end, next_end;
+> @@ -248,10 +325,36 @@ static void __init __rmem_check_for_overlap(void)
+>  	}
+>  }
+>  
+> +/*
+> + * __reserved_mem_init_node() - call region specific reserved memory init code
+> + */
+> +static int __init __reserved_mem_init_node(struct reserved_mem *rmem)
+> +{
+> +	extern const struct of_device_id __reservedmem_of_table[];
+> +	const struct of_device_id *i;
+> +	int ret = -ENOENT;
+> +
+> +	for (i = __reservedmem_of_table; i < &__rmem_of_table_sentinel; i++) {
+> +		reservedmem_of_init_fn initfn = i->data;
+> +		const char *compat = i->compatible;
+> +
+> +		if (!of_flat_dt_is_compatible(rmem->fdt_node, compat))
+> +			continue;
+> +
+> +		ret = initfn(rmem);
+> +		if (ret == 0) {
+> +			pr_info("initialized node %s, compatible id %s\n",
+> +				rmem->name, compat);
+> +			break;
+> +		}
+> +	}
+> +	return ret;
+> +}
+> +
+>  /**
+> - * fdt_init_reserved_mem() - allocate and init all saved reserved memory regions
+> + * of_reserved_mem_init() - allocate and init all saved reserved memory regions
+>   */
+> -void __init fdt_init_reserved_mem(void)
+> +void __init of_reserved_mem_init(void)
+>  {
+>  	int i;
+>  
+> @@ -259,7 +362,7 @@ void __init fdt_init_reserved_mem(void)
+>  	__rmem_check_for_overlap();
+>  
+>  	for (i = 0; i < reserved_mem_count; i++) {
+> -		struct reserved_mem *rmem = &reserved_mem[i];
+> +		struct reserved_mem *rmem = &reserved_mems[i];
+>  		unsigned long node = rmem->fdt_node;
+>  		int len;
+>  		const __be32 *prop;
+> @@ -299,8 +402,8 @@ static inline struct reserved_mem *__find_rmem(struct device_node *node)
+>  		return NULL;
+>  
+>  	for (i = 0; i < reserved_mem_count; i++)
+> -		if (reserved_mem[i].phandle == node->phandle)
+> -			return &reserved_mem[i];
+> +		if (reserved_mems[i].phandle == node->phandle)
+> +			return &reserved_mems[i];
+>  	return NULL;
+>  }
+>  
+> @@ -442,8 +545,8 @@ struct reserved_mem *of_reserved_mem_lookup(struct device_node *np)
+>  
+>  	name = kbasename(np->full_name);
+>  	for (i = 0; i < reserved_mem_count; i++)
+> -		if (!strcmp(reserved_mem[i].name, name))
+> -			return &reserved_mem[i];
+> +		if (!strcmp(reserved_mems[i].name, name))
+> +			return &reserved_mems[i];
+>  
+>  	return NULL;
+>  }
+> diff --git a/include/linux/of_reserved_mem.h b/include/linux/of_reserved_mem.h
+> index 4de2a24cadc9..34e134bec606 100644
+> --- a/include/linux/of_reserved_mem.h
+> +++ b/include/linux/of_reserved_mem.h
+> @@ -32,6 +32,8 @@ typedef int (*reservedmem_of_init_fn)(struct reserved_mem *rmem);
+>  #define RESERVEDMEM_OF_DECLARE(name, compat, init)			\
+>  	_OF_DECLARE(reservedmem, name, compat, init, reservedmem_of_init_fn)
+>  
+> +void of_reserved_mem_init(void);
+> +
+>  int of_reserved_mem_device_init_by_idx(struct device *dev,
+>  				       struct device_node *np, int idx);
+>  int of_reserved_mem_device_init_by_name(struct device *dev,
+> @@ -45,6 +47,8 @@ struct reserved_mem *of_reserved_mem_lookup(struct device_node *np);
+>  #define RESERVEDMEM_OF_DECLARE(name, compat, init)			\
+>  	_OF_DECLARE_STUB(reservedmem, name, compat, init, reservedmem_of_init_fn)
+>  
+> +static inline void of_reserved_mem_init(void) { }
+> +
+>  static inline int of_reserved_mem_device_init_by_idx(struct device *dev,
+>  					struct device_node *np, int idx)
+>  {
+> -- 
+> 2.30.2
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
