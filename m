@@ -4,56 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A24C8C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Nov 2021 18:46:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE22C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Nov 2021 21:08:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KpMs4N/qwBNRqQHqcl17XCedSv/70fn48K5Q5AuXFcA=; b=0t6v5J/bzkDXwx
-	j7xE4Tk3dlk5R7nQ8N0b9UwnpjwWGoSaXHfn/g6idXIbLVdosJ9qiJD/5EQANYSO0jJYTsy+jZ9Co
-	5qHTNF8pg2e3tApdrEQc0GtXPlghG9DjkCIO2PDruwWG3YdbOqR8vAvKU6xhD7sWItTRTMbeQzoGW
-	dBJW6aetBFGqRWimdwer7Xxt+fz0+EvcwgLmccr6zrBzPZ8LhoG6zF85UCUS5J3yhB9LBo/Eom48s
-	ZEBWoE/dYwOl7egZDJeGqt3/xXkkiKWnC69d3IeXWKp5nNuwnMepvtr5+jB1xaqb5mrg6dFoKy5/A
-	vV1RGZtXiZg/eW2U8Gaw==;
+	List-Owner; bh=SQtmFTMArcWqJ4TKTx2ag5ZC6kCpCQYlcECIhcj1dos=; b=M7YIKJLjMIviY6
+	F/2/d4Cl2N/o+Hb3/+uYbDCA6FioeqtJkfUTiIr9Ti7wZVLavd3clg4198yW9srkqx1qV9QnaHAFk
+	FRujNQAcKff2iGM/XDoCGEZO+GCMEdSVXjpHPbZpepo+BWC17tb7xnIcFtWfzyGPgO+JCFYFD1ZlD
+	zSM1uwy3BtemgjR+B6naxKXlsc37E7qgGUo2O/FaiQ56r2U2BRTWpt2t3Ld9TlIhXwybxjUOhP1pk
+	rt2cQJlI/XA6Wugi3Jxmj9kZcV9bQZxD7yT7t+jbvnur/Gk+1JloMYxvm+U65LC3mvkvOTX8Fp8Gy
+	Uuie0qaIM3+U2G1QCnpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ms88z-006WBl-47; Tue, 30 Nov 2021 18:46:21 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1msAMO-006ihY-91; Tue, 30 Nov 2021 21:08:20 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ms88v-006WAh-Ni
- for linux-riscv@lists.infradead.org; Tue, 30 Nov 2021 18:46:19 +0000
-Received: from ip5f5b2004.dynamic.kabel-deutschland.de ([95.91.32.4]
- helo=diego.localnet)
- by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1ms88q-0006cW-9u; Tue, 30 Nov 2021 19:46:12 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: anup.patel@wdc.com, atishp04@gmail.com, palmer@dabbelt.com,
- guoren@kernel.org, christoph.muellner@vrull.eu, philipp.tomsich@vrull.eu,
- hch@lst.de, liush@allwinnertech.com, wefu@redhat.com, lazyparser@gmail.com,
- drew@beagleboard.org, linux-riscv@lists.infradead.org
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- taiten.peng@canonical.com, aniket.ponkshe@canonical.com,
- heinrich.schuchardt@canonical.com, gordan.markus@canonical.com,
- guoren@linux.alibaba.com, arnd@arndb.de, wens@csie.org, maxime@cerno.tech,
- dlustig@nvidia.com, gfavor@ventanamicro.com, andrea.mondelli@huawei.com,
- behrensj@mit.edu, xinhaoqu@huawei.com, huffman@cadence.com, mick@ics.forth.gr,
- allen.baum@esperantotech.com, jscheid@ventanamicro.com, rtrauben@gmail.com,
- Palmer Dabbelt <palmerdabbelt@google.com>, Atish Patra <atish.patra@wdc.com>,
- wefu@redhat.com
-Subject: Re: [PATCH V4 2/2] riscv: add RISC-V Svpbmt extension supports
-Date: Tue, 30 Nov 2021 19:46:10 +0100
-Message-ID: <4669908.7LBx6Dm1N1@diego>
-In-Reply-To: <20211129014007.286478-3-wefu@redhat.com>
-References: <20211129014007.286478-1-wefu@redhat.com>
- <20211129014007.286478-3-wefu@redhat.com>
+ id 1msAMJ-006ifq-OH; Tue, 30 Nov 2021 21:08:17 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 2D78AB81C4F;
+ Tue, 30 Nov 2021 21:08:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78438C53FC7;
+ Tue, 30 Nov 2021 21:07:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1638306491;
+ bh=CGQDQlRxlHpJq0xzSuKQi7AU9OYm37j7CJ7xfuMMlQY=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=MQT0554slXBNgzV6dz6ATkc3EGBq02EcnyIjFHm4NC/TQW+Ti/5+ZwpYdUyXTQSX0
+ FP/Mg9FHX1WkJdgEmvH+Sjh6chDp0qa4rdvwceLtLU4mrx9YqTjWtdVLiOuUAqqTr9
+ JxBBF8wiCf2msoHxAESTMHrwoozuA53LUQYu0nChlx4mPkmdPvsjcuZz6ld/73Q1EP
+ 49cP1v8fZ5yU4pp+jiMhNoi6TZsD6QEaZ+s7211uBewrAF+q/t4jJF4C5l0VvizKZK
+ UqaJcABTKX49+eBLI8ebfD/p5ZMIh9Z6ly7YavV63rHaytjZkBuc5OrtUPGVxLkKwd
+ 8IDw15RIkFr7Q==
+Date: Tue, 30 Nov 2021 23:07:40 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Rob Herring <robh@kernel.org>
+Cc: Calvin Zhang <calvinzhang.cool@gmail.com>,
+ Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
+ Vincent Chen <deanbo422@gmail.com>,
+ Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Stafford Horne <shorne@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Rich Felker <dalias@libc.org>,
+ Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
+ Frank Rowand <frowand.list@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>,
+ Vladimir Isaev <isaev@synopsys.com>,
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ "Kirill A. Shutemov" <kirill.shtuemov@linux.intel.com>,
+ Guenter Roeck <linux@roeck-us.net>, Marc Zyngier <maz@kernel.org>,
+ David Brazdil <dbrazdil@google.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Souptick Joarder <jrdr.linux@gmail.com>,
+ Jinyang He <hejinyang@loongson.cn>,
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+ Serge Semin <Sergey.Semin@baikalelectronics.ru>,
+ Tiezhu Yang <yangtiezhu@loongson.cn>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Randy Dunlap <rdunlap@infradead.org>,
+ Ley Foon Tan <ley.foon.tan@intel.com>,
+ Andreas Oetken <andreas.oetken@siemens.com>,
+ Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+ Christophe Leroy <christophe.leroy@c-s.fr>,
+ Zhang Yunkai <zhang.yunkai@zte.com.cn>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Markus Elfring <elfring@users.sourceforge.net>,
+ Ganesh Goudar <ganeshgr@linux.ibm.com>,
+ "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
+ Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>,
+ Nick Kossifidis <mick@ics.forth.gr>, Alexandre Ghiti <alex@ghiti.fr>,
+ Vitaly Wool <vitaly.wool@konsulko.com>,
+ Thierry Reding <treding@nvidia.com>, Lee Jones <lee.jones@linaro.org>,
+ Guo Ren <guoren@linux.alibaba.com>,
+ Alexander Sverdlin <alexander.sverdlin@nokia.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Mauri Sandberg <sandberg@mailfence.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+ uclinux-h8-devel@lists.sourceforge.jp, linux-mips@vger.kernel.org,
+ openrisc@lists.librecores.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
+ linux-xtensa@linux-xtensa.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH 0/2] of: remove reserved regions count restriction
+Message-ID: <YaaSnJ2Meo5mEKDN@kernel.org>
+References: <20211119075844.2902592-1-calvinzhang.cool@gmail.com>
+ <YZnqo3oA7srQik4N@kernel.org> <YaVrahm+ysoQRGKe@robh.at.kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <YaVrahm+ysoQRGKe@robh.at.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211130_104617_964121_332D8684 
-X-CRM114-Status: GOOD (  39.36  )
+X-CRM114-CacheID: sfid-20211130_130816_094044_758C83C6 
+X-CRM114-Status: GOOD (  27.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,364 +130,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 29. November 2021, 02:40:07 CET schrieb wefu@redhat.com:
-> From: Wei Fu <wefu@redhat.com>
+On Mon, Nov 29, 2021 at 06:08:10PM -0600, Rob Herring wrote:
+> On Sun, Nov 21, 2021 at 08:43:47AM +0200, Mike Rapoport wrote:
+> > On Fri, Nov 19, 2021 at 03:58:17PM +0800, Calvin Zhang wrote:
+> > > The count of reserved regions in /reserved-memory was limited because
+> > > the struct reserved_mem array was defined statically. This series sorts
+> > > out reserved memory code and allocates that array from early allocator.
+> > > 
+> > > Note: reserved region with fixed location must be reserved before any
+> > > memory allocation. While struct reserved_mem array should be allocated
+> > > after allocator is activated. We make early_init_fdt_scan_reserved_mem()
+> > > do reservation only and add another call to initialize reserved memory.
+> > > So arch code have to change for it.
+> > 
+> > I think much simpler would be to use the same constant for sizing
+> > memblock.reserved and reserved_mem arrays.
 > 
-> This patch follows the standard pure RISC-V Svpbmt extension in
-> privilege spec to solve the non-coherent SOC dma synchronization
-> issues.
-> 
-> Here is the svpbmt PTE format:
-> | 63 | 62-61 | 60-8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
->   N     MT     RSW    D   A   G   U   X   W   R   V
->         ^
-> 
-> Of the Reserved bits [63:54] in a leaf PTE, the high bit is already
-> allocated (as the N bit), so bits [62:61] are used as the MT (aka
-> MemType) field. This field specifies one of three memory types that
-> are close equivalents (or equivalent in effect) to the three main x86
-> and ARMv8 memory types - as shown in the following table.
-> 
-> RISC-V
-> Encoding &
-> MemType     RISC-V Description
-> ----------  ------------------------------------------------
-> 00 - PMA    Normal Cacheable, No change to implied PMA memory type
-> 01 - NC     Non-cacheable, idempotent, weakly-ordered Main Memory
-> 10 - IO     Non-cacheable, non-idempotent, strongly-ordered I/O memory
-> 11 - Rsvd   Reserved for future standard use
-> 
-> The standard protection_map[] needn't be modified because the "PMA"
-> type keeps the highest bits zero. And the whole modification is
-> limited in the arch/riscv/* and using a global variable
-> (__svpbmt) as _PAGE_MASK/IO/NOCACHE for pgprot_noncached
-> (&writecombine) in pgtable.h. We also add _PAGE_CHG_MASK to filter
-> PFN than before.
-> 
-> Enable it in devicetree - (Add "riscv,svpbmt" in the mmu of cpu node)
->  - mmu:
->      riscv,svpmbt
-> 
-> Signed-off-by: Wei Fu <wefu@redhat.com>
-> Co-developed-by: Liu Shaohua <liush@allwinnertech.com>
-> Signed-off-by: Liu Shaohua <liush@allwinnertech.com>
-> Co-developed-by: Guo Ren <guoren@kernel.org>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-> Cc: Christoph Hellwig <hch@lst.de>
-> Cc: Anup Patel <anup.patel@wdc.com>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Atish Patra <atish.patra@wdc.com>
-> Cc: Drew Fustini <drew@beagleboard.org>
-> Cc: Wei Fu <wefu@redhat.com>
-> Cc: Wei Wu <lazyparser@gmail.com>
-> Cc: Chen-Yu Tsai <wens@csie.org>
-> Cc: Maxime Ripard <maxime@cerno.tech>
-> Cc: Daniel Lustig <dlustig@nvidia.com>
-> Cc: Greg Favor <gfavor@ventanamicro.com>
-> Cc: Andrea Mondelli <andrea.mondelli@huawei.com>
-> Cc: Jonathan Behrens <behrensj@mit.edu>
-> Cc: Xinhaoqu (Freddie) <xinhaoqu@huawei.com>
-> Cc: Bill Huffman <huffman@cadence.com>
-> Cc: Nick Kossifidis <mick@ics.forth.gr>
-> Cc: Allen Baum <allen.baum@esperantotech.com>
-> Cc: Josh Scheid <jscheid@ventanamicro.com>
-> Cc: Richard Trauben <rtrauben@gmail.com>
-> ---
->  arch/riscv/include/asm/fixmap.h       |  2 +-
->  arch/riscv/include/asm/pgtable-64.h   | 21 ++++++++++++---
->  arch/riscv/include/asm/pgtable-bits.h | 39 +++++++++++++++++++++++++--
->  arch/riscv/include/asm/pgtable.h      | 39 ++++++++++++++++++++-------
->  arch/riscv/kernel/cpufeature.c        | 35 ++++++++++++++++++++++++
->  arch/riscv/mm/init.c                  |  5 ++++
->  6 files changed, 126 insertions(+), 15 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
-> index 54cbf07fb4e9..5acd99d08e74 100644
-> --- a/arch/riscv/include/asm/fixmap.h
-> +++ b/arch/riscv/include/asm/fixmap.h
-> @@ -43,7 +43,7 @@ enum fixed_addresses {
->  	__end_of_fixed_addresses
->  };
->  
-> -#define FIXMAP_PAGE_IO		PAGE_KERNEL
-> +#define FIXMAP_PAGE_IO		PAGE_IOREMAP
->  
->  #define __early_set_fixmap	__set_fixmap
->  
-> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-> index 228261aa9628..16d251282b1d 100644
-> --- a/arch/riscv/include/asm/pgtable-64.h
-> +++ b/arch/riscv/include/asm/pgtable-64.h
-> @@ -59,14 +59,29 @@ static inline void pud_clear(pud_t *pudp)
->  	set_pud(pudp, __pud(0));
->  }
->  
-> +static inline unsigned long _chg_of_pmd(pmd_t pmd)
-> +{
-> +	return (pmd_val(pmd) & _PAGE_CHG_MASK);
-> +}
-> +
-> +static inline unsigned long _chg_of_pud(pud_t pud)
-> +{
-> +	return (pud_val(pud) & _PAGE_CHG_MASK);
-> +}
-> +
-> +static inline unsigned long _chg_of_pte(pte_t pte)
-> +{
-> +	return (pte_val(pte) & _PAGE_CHG_MASK);
-> +}
-> +
->  static inline pmd_t *pud_pgtable(pud_t pud)
->  {
-> -	return (pmd_t *)pfn_to_virt(pud_val(pud) >> _PAGE_PFN_SHIFT);
-> +	return (pmd_t *)pfn_to_virt(_chg_of_pud(pud) >> _PAGE_PFN_SHIFT);
->  }
->  
->  static inline struct page *pud_page(pud_t pud)
->  {
-> -	return pfn_to_page(pud_val(pud) >> _PAGE_PFN_SHIFT);
-> +	return pfn_to_page(_chg_of_pud(pud) >> _PAGE_PFN_SHIFT);
->  }
->  
->  static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
-> @@ -76,7 +91,7 @@ static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
->  
->  static inline unsigned long _pmd_pfn(pmd_t pmd)
->  {
-> -	return pmd_val(pmd) >> _PAGE_PFN_SHIFT;
-> +	return _chg_of_pmd(pmd) >> _PAGE_PFN_SHIFT;
->  }
->  
->  #define mk_pmd(page, prot)    pfn_pmd(page_to_pfn(page), prot)
-> diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
-> index 2ee413912926..e5b0fce4ddc5 100644
-> --- a/arch/riscv/include/asm/pgtable-bits.h
-> +++ b/arch/riscv/include/asm/pgtable-bits.h
-> @@ -7,7 +7,7 @@
->  #define _ASM_RISCV_PGTABLE_BITS_H
->  
->  /*
-> - * PTE format:
-> + * rv32 PTE format:
->   * | XLEN-1  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
->   *       PFN      reserved for SW   D   A   G   U   X   W   R   V
->   */
-> @@ -24,6 +24,40 @@
->  #define _PAGE_DIRTY     (1 << 7)    /* Set by hardware on any write */
->  #define _PAGE_SOFT      (1 << 8)    /* Reserved for software */
->  
-> +#if !defined(__ASSEMBLY__) && defined(CONFIG_64BIT)
-> +/*
-> + * rv64 PTE format:
-> + * | 63 | 62 61 | 60 54 | 53  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
-> + *   N      MT     RSV    PFN      reserved for SW   D   A   G   U   X   W   R   V
-> + * [62:61] Memory Type definitions:
-> + *  00 - PMA    Normal Cacheable, No change to implied PMA memory type
-> + *  01 - NC     Non-cacheable, idempotent, weakly-ordered Main Memory
-> + *  10 - IO     Non-cacheable, non-idempotent, strongly-ordered I/O memory
-> + *  11 - Rsvd   Reserved for future standard use
-> + */
-> +#define _SVPBMT_PMA		0UL
-> +#define _SVPBMT_NC		(1UL << 61)
-> +#define _SVPBMT_IO		(1UL << 62)
-> +#define _SVPBMT_MASK		(_SVPBMT_NC | _SVPBMT_IO)
-> +
-> +extern struct __svpbmt_struct {
-> +	unsigned long mask;
-> +	unsigned long pma;
-> +	unsigned long nocache;
-> +	unsigned long io;
-> +} __svpbmt __cacheline_aligned;
-> +
-> +#define _PAGE_MASK		__svpbmt.mask
-> +#define _PAGE_PMA		__svpbmt.pma
-> +#define _PAGE_NOCACHE		__svpbmt.nocache
-> +#define _PAGE_IO		__svpbmt.io
-> +#else
-> +#define _PAGE_MASK		0
-> +#define _PAGE_PMA		0
-> +#define _PAGE_NOCACHE		0
-> +#define _PAGE_IO		0
-> +#endif /* !__ASSEMBLY__ && CONFIG_64BIT */
-> +
->  #define _PAGE_SPECIAL   _PAGE_SOFT
->  #define _PAGE_TABLE     _PAGE_PRESENT
->  
-> @@ -38,7 +72,8 @@
->  /* Set of bits to preserve across pte_modify() */
->  #define _PAGE_CHG_MASK  (~(unsigned long)(_PAGE_PRESENT | _PAGE_READ |	\
->  					  _PAGE_WRITE | _PAGE_EXEC |	\
-> -					  _PAGE_USER | _PAGE_GLOBAL))
-> +					  _PAGE_USER | _PAGE_GLOBAL |	\
-> +					  _PAGE_MASK))
->  /*
->   * when all of R/W/X are zero, the PTE is a pointer to the next level
->   * of the page table; otherwise, it is a leaf PTE.
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index bf204e7c1f74..0f7a6541015f 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -138,7 +138,8 @@
->  				| _PAGE_PRESENT \
->  				| _PAGE_ACCESSED \
->  				| _PAGE_DIRTY \
-> -				| _PAGE_GLOBAL)
-> +				| _PAGE_GLOBAL \
-> +				| _PAGE_PMA)
->  
->  #define PAGE_KERNEL		__pgprot(_PAGE_KERNEL)
->  #define PAGE_KERNEL_READ	__pgprot(_PAGE_KERNEL & ~_PAGE_WRITE)
-> @@ -148,11 +149,9 @@
->  
->  #define PAGE_TABLE		__pgprot(_PAGE_TABLE)
->  
-> -/*
-> - * The RISC-V ISA doesn't yet specify how to query or modify PMAs, so we can't
-> - * change the properties of memory regions.
-> - */
-> -#define _PAGE_IOREMAP _PAGE_KERNEL
-> +#define _PAGE_IOREMAP	((_PAGE_KERNEL & ~_PAGE_MASK) | _PAGE_IO)
-> +
-> +#define PAGE_IOREMAP		__pgprot(_PAGE_IOREMAP)
->  
->  extern pgd_t swapper_pg_dir[];
->  
-> @@ -232,12 +231,12 @@ static inline unsigned long _pgd_pfn(pgd_t pgd)
->  
->  static inline struct page *pmd_page(pmd_t pmd)
->  {
-> -	return pfn_to_page(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
-> +	return pfn_to_page(_chg_of_pmd(pmd) >> _PAGE_PFN_SHIFT);
->  }
->  
->  static inline unsigned long pmd_page_vaddr(pmd_t pmd)
->  {
-> -	return (unsigned long)pfn_to_virt(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
-> +	return (unsigned long)pfn_to_virt(_chg_of_pmd(pmd) >> _PAGE_PFN_SHIFT);
->  }
->  
->  static inline pte_t pmd_pte(pmd_t pmd)
-> @@ -253,7 +252,7 @@ static inline pte_t pud_pte(pud_t pud)
->  /* Yields the page frame number (PFN) of a page table entry */
->  static inline unsigned long pte_pfn(pte_t pte)
->  {
-> -	return (pte_val(pte) >> _PAGE_PFN_SHIFT);
-> +	return (_chg_of_pte(pte) >> _PAGE_PFN_SHIFT);
->  }
->  
->  #define pte_page(x)     pfn_to_page(pte_pfn(x))
-> @@ -492,6 +491,28 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
->  	return ptep_test_and_clear_young(vma, address, ptep);
->  }
->  
-> +#define pgprot_noncached pgprot_noncached
-> +static inline pgprot_t pgprot_noncached(pgprot_t _prot)
-> +{
-> +	unsigned long prot = pgprot_val(_prot);
-> +
-> +	prot &= ~_PAGE_MASK;
-> +	prot |= _PAGE_IO;
-> +
-> +	return __pgprot(prot);
-> +}
-> +
-> +#define pgprot_writecombine pgprot_writecombine
-> +static inline pgprot_t pgprot_writecombine(pgprot_t _prot)
-> +{
-> +	unsigned long prot = pgprot_val(_prot);
-> +
-> +	prot &= ~_PAGE_MASK;
-> +	prot |= _PAGE_NOCACHE;
-> +
-> +	return __pgprot(prot);
-> +}
-> +
->  /*
->   * THP functions
->   */
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index d959d207a40d..fa7480cb8b87 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -8,6 +8,7 @@
->  
->  #include <linux/bitmap.h>
->  #include <linux/of.h>
-> +#include <linux/pgtable.h>
->  #include <asm/processor.h>
->  #include <asm/hwcap.h>
->  #include <asm/smp.h>
-> @@ -59,6 +60,38 @@ bool __riscv_isa_extension_available(const unsigned long *isa_bitmap, int bit)
->  }
->  EXPORT_SYMBOL_GPL(__riscv_isa_extension_available);
->  
-> +static void __init mmu_supports_svpbmt(void)
-> +{
-> +#if defined(CONFIG_MMU) && defined(CONFIG_64BIT)
-> +	struct device_node *node;
-> +	const char *str;
-> +
-> +	for_each_of_cpu_node(node) {
-> +		if (of_property_read_string(node, "mmu-type", &str))
-> +			continue;
-> +
-> +		if (!strncmp(str + 6, "none", 4))
-> +			continue;
-> +
-> +		if (of_property_read_string(node, "mmu", &str))
-> +			continue;
-> +
-> +		if (strncmp(str + 6, "svpmbt", 6))
+> Do those arrays get shrunk? Or do we waste the memory forever?
 
-same here ... check for "svpbmt" [m seems to be at the wrong position]
+Memblock arrays don't get shrunk, but they are __init unless an architecture
+chose to keep them after boot, but most architectures that use device tree
+actually keep memblock structures.
+ 
+> Maybe we can copy and shrink the initial array? Though I suspect struct 
+> reserved_mem pointers have already been given out.
 
+I'm not sure. It seems that reserved_mem pointers are given out at initcall
+time and AFAIU the reserved_mem array is created somewhere around
+setup_arch(). So maybe it's possible to copy and shrink the initial array.
+ 
+> > 
+> > If there is too much reserved regions in the device tree, reserving them in
+> > memblock will fail anyway because memblock also starts with static array
+> > for memblock.reserved, so doing one pass with memblock_reserve() and
+> > another to set up reserved_mem wouldn't help anyway.
+> > 
+> > > I'm only familiar with arm and arm64 architectures. Approvals from arch
+> > > maintainers are required. Thank you all.
 
-> +			continue;
-> +	}
-> +
-> +	__svpbmt.pma		= _SVPBMT_PMA;
-> +	__svpbmt.nocache	= _SVPBMT_NC;
-> +	__svpbmt.io		= _SVPBMT_IO;
-> +	__svpbmt.mask		= _SVPBMT_MASK;
-> +#endif
-> +}
-> +
-> +static void __init mmu_supports(void)
-> +{
-> +	mmu_supports_svpbmt();
-> +}
-> +
->  void __init riscv_fill_hwcap(void)
->  {
->  	struct device_node *node;
-> @@ -67,6 +100,8 @@ void __init riscv_fill_hwcap(void)
->  	size_t i, j, isa_len;
->  	static unsigned long isa2hwcap[256] = {0};
->  
-> +	mmu_supports();
-> +
->  	isa2hwcap['i'] = isa2hwcap['I'] = COMPAT_HWCAP_ISA_I;
->  	isa2hwcap['m'] = isa2hwcap['M'] = COMPAT_HWCAP_ISA_M;
->  	isa2hwcap['a'] = isa2hwcap['A'] = COMPAT_HWCAP_ISA_A;
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 24b2b8044602..e4e658165ee1 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -854,3 +854,8 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
->  	return vmemmap_populate_basepages(start, end, node, NULL);
->  }
->  #endif
-> +
-> +#if defined(CONFIG_64BIT)
-> +struct __svpbmt_struct __svpbmt __ro_after_init;
-> +EXPORT_SYMBOL(__svpbmt);
-> +#endif
-> 
-
-
-
-
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
