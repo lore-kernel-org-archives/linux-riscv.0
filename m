@@ -4,116 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE22C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Nov 2021 21:08:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0F55C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Nov 2021 23:01:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SQtmFTMArcWqJ4TKTx2ag5ZC6kCpCQYlcECIhcj1dos=; b=M7YIKJLjMIviY6
-	F/2/d4Cl2N/o+Hb3/+uYbDCA6FioeqtJkfUTiIr9Ti7wZVLavd3clg4198yW9srkqx1qV9QnaHAFk
-	FRujNQAcKff2iGM/XDoCGEZO+GCMEdSVXjpHPbZpepo+BWC17tb7xnIcFtWfzyGPgO+JCFYFD1ZlD
-	zSM1uwy3BtemgjR+B6naxKXlsc37E7qgGUo2O/FaiQ56r2U2BRTWpt2t3Ld9TlIhXwybxjUOhP1pk
-	rt2cQJlI/XA6Wugi3Jxmj9kZcV9bQZxD7yT7t+jbvnur/Gk+1JloMYxvm+U65LC3mvkvOTX8Fp8Gy
-	Uuie0qaIM3+U2G1QCnpQ==;
+	List-Owner; bh=pZP1gUIdqOT3AxL6PBEvk45Xgr10xANeA07JxLuY3iM=; b=hQAF8P2tgCRHfD
+	Of1PB+aif7Yf3MOnhLImtHkIItPazhINDbrt92YdsaDtQdJXDBH00Ui+uOTxm3Y7v09+sXK1CAvXQ
+	0dGz54AKQLqYxlw6kfEXSRz+LovsorFXW1/ELzceItMrNKqj/x2MnNN/b4QWzVK3kDwaHH4eWE/cU
+	2cI94vsMrk8YvCCyN1AHgbPhzv2gM1A+mzLSjaa2vKjL1uW8fRWj6AUB2gHwtCYU1ZDLItqBClNxP
+	Lgjbwt0dKmNP383sh9LCZVvNT+NVYr04drgzDBT/XtrkxqLj//JaN7fe0lMIGy974fsh600XST+uu
+	2Bw4Dj1ZUX/ZKfgchHOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1msAMO-006ihY-91; Tue, 30 Nov 2021 21:08:20 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1msC7u-00787y-Np; Tue, 30 Nov 2021 23:01:30 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1msAMJ-006ifq-OH; Tue, 30 Nov 2021 21:08:17 +0000
+ id 1msC7q-007869-Of
+ for linux-riscv@lists.infradead.org; Tue, 30 Nov 2021 23:01:28 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 2D78AB81C4F;
- Tue, 30 Nov 2021 21:08:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78438C53FC7;
- Tue, 30 Nov 2021 21:07:46 +0000 (UTC)
+ by sin.source.kernel.org (Postfix) with ESMTPS id 8EA98CE1D20
+ for <linux-riscv@lists.infradead.org>; Tue, 30 Nov 2021 23:01:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E7D9C53FD1
+ for <linux-riscv@lists.infradead.org>; Tue, 30 Nov 2021 23:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1638306491;
- bh=CGQDQlRxlHpJq0xzSuKQi7AU9OYm37j7CJ7xfuMMlQY=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=MQT0554slXBNgzV6dz6ATkc3EGBq02EcnyIjFHm4NC/TQW+Ti/5+ZwpYdUyXTQSX0
- FP/Mg9FHX1WkJdgEmvH+Sjh6chDp0qa4rdvwceLtLU4mrx9YqTjWtdVLiOuUAqqTr9
- JxBBF8wiCf2msoHxAESTMHrwoozuA53LUQYu0nChlx4mPkmdPvsjcuZz6ld/73Q1EP
- 49cP1v8fZ5yU4pp+jiMhNoi6TZsD6QEaZ+s7211uBewrAF+q/t4jJF4C5l0VvizKZK
- UqaJcABTKX49+eBLI8ebfD/p5ZMIh9Z6ly7YavV63rHaytjZkBuc5OrtUPGVxLkKwd
- 8IDw15RIkFr7Q==
-Date: Tue, 30 Nov 2021 23:07:40 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Calvin Zhang <calvinzhang.cool@gmail.com>,
- Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
- Yoshinori Sato <ysato@users.sourceforge.jp>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
- Vincent Chen <deanbo422@gmail.com>,
- Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Stafford Horne <shorne@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Rich Felker <dalias@libc.org>,
- Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
- Frank Rowand <frowand.list@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
- Kefeng Wang <wangkefeng.wang@huawei.com>,
- Vladimir Isaev <isaev@synopsys.com>,
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- "Kirill A. Shutemov" <kirill.shtuemov@linux.intel.com>,
- Guenter Roeck <linux@roeck-us.net>, Marc Zyngier <maz@kernel.org>,
- David Brazdil <dbrazdil@google.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Andrey Konovalov <andreyknvl@gmail.com>,
- Mark Rutland <mark.rutland@arm.com>,
- Souptick Joarder <jrdr.linux@gmail.com>,
- Jinyang He <hejinyang@loongson.cn>,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- Serge Semin <Sergey.Semin@baikalelectronics.ru>,
- Tiezhu Yang <yangtiezhu@loongson.cn>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Randy Dunlap <rdunlap@infradead.org>,
- Ley Foon Tan <ley.foon.tan@intel.com>,
- Andreas Oetken <andreas.oetken@siemens.com>,
- Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
- Christophe Leroy <christophe.leroy@c-s.fr>,
- Zhang Yunkai <zhang.yunkai@zte.com.cn>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Markus Elfring <elfring@users.sourceforge.net>,
- Ganesh Goudar <ganeshgr@linux.ibm.com>,
- "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
- Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>,
- Nick Kossifidis <mick@ics.forth.gr>, Alexandre Ghiti <alex@ghiti.fr>,
- Vitaly Wool <vitaly.wool@konsulko.com>,
- Thierry Reding <treding@nvidia.com>, Lee Jones <lee.jones@linaro.org>,
- Guo Ren <guoren@linux.alibaba.com>,
- Alexander Sverdlin <alexander.sverdlin@nokia.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Mauri Sandberg <sandberg@mailfence.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- uclinux-h8-devel@lists.sourceforge.jp, linux-mips@vger.kernel.org,
- openrisc@lists.librecores.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
- linux-xtensa@linux-xtensa.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 0/2] of: remove reserved regions count restriction
-Message-ID: <YaaSnJ2Meo5mEKDN@kernel.org>
-References: <20211119075844.2902592-1-calvinzhang.cool@gmail.com>
- <YZnqo3oA7srQik4N@kernel.org> <YaVrahm+ysoQRGKe@robh.at.kernel.org>
+ s=k20201202; t=1638313280;
+ bh=/XtvKBKIAZgBZpHU5l7FFP9bobAXH0K3MiMhbZFKhcQ=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=NCEJwq1PwtA2WtEEXgXy7oE5yCR4XLm7KyNx9pdJSkaA98LBgnAteKPHhmwFa9nmv
+ cyrskbRaNNTZWwwYZ3Q8dQ/V+5AwGCU8/vq3OeFNB9Xxa1MrqYdEpPR7krzwt6bPNk
+ /7v1wtzVQNkB6axchbw/auOcQAq1fiqIUfxg1Z3JHc71VFN4b36QXS/CZSmx+xmLJl
+ 4u7gDAm8yFXEzZYgoT10Xltlnl5AeHxChLM+XE5JZRnKSLsL4c+zXX8vG82KO8xixC
+ jiAcWEFc7gWX3LeZefMuQoTOT/Tyf6O02kul3zbFVaeTFbPqHtBmZXgO/O9p9DJsY6
+ zpUMRQSg2bmlw==
+Received: by mail-ed1-f54.google.com with SMTP id y13so93367548edd.13
+ for <linux-riscv@lists.infradead.org>; Tue, 30 Nov 2021 15:01:20 -0800 (PST)
+X-Gm-Message-State: AOAM531X8rUvZIN9bPpQnOHk2wiplKP5ErkgAlGKlN0jCA2nKfl3rbli
+ 5AHBj2tG6goAMoe6hg1O5skfdr71GTIhQfhAMw==
+X-Google-Smtp-Source: ABdhPJwGYPJE956LksSZBLju/I83pfHQ4ZXNie2up3wXJY0kmFL+GyQypPQQpG6PQ2wQLmlwFlJGQwnP8sUWSYsJU9s=
+X-Received: by 2002:a05:6402:440f:: with SMTP id
+ y15mr3055651eda.22.1638313278675; 
+ Tue, 30 Nov 2021 15:01:18 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <YaVrahm+ysoQRGKe@robh.at.kernel.org>
+References: <20211125152233.162868-1-geert@linux-m68k.org>
+ <161F972E-7972-4001-BE19-C88F81EF8047@jrtc27.com>
+ <CAMuHMdXpmnmAy7cvA4b9LZe1skzjyOmYgUMgY7KiLRPznSj+2Q@mail.gmail.com>
+In-Reply-To: <CAMuHMdXpmnmAy7cvA4b9LZe1skzjyOmYgUMgY7KiLRPznSj+2Q@mail.gmail.com>
+From: Rob Herring <robh+dt@kernel.org>
+Date: Tue, 30 Nov 2021 17:01:06 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqLr53hm2ai6EwxGg=nMoYqJnOkPGHXmjA1Yh31ReE_hUA@mail.gmail.com>
+Message-ID: <CAL_JsqLr53hm2ai6EwxGg=nMoYqJnOkPGHXmjA1Yh31ReE_hUA@mail.gmail.com>
+Subject: Re: [PATCH] dt-bindings: interrupt-controller: sifive, plic: Fix
+ number of interrupts
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Jessica Clarke <jrtc27@jrtc27.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Marc Zyngier <maz@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Sagar Kadam <sagar.kadam@sifive.com>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+ Michael Zhu <michael.zhu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211130_130816_094044_758C83C6 
-X-CRM114-Status: GOOD (  27.72  )
+X-CRM114-CacheID: sfid-20211130_150127_226132_E7B5C819 
+X-CRM114-Status: GOOD (  25.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,54 +84,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 29, 2021 at 06:08:10PM -0600, Rob Herring wrote:
-> On Sun, Nov 21, 2021 at 08:43:47AM +0200, Mike Rapoport wrote:
-> > On Fri, Nov 19, 2021 at 03:58:17PM +0800, Calvin Zhang wrote:
-> > > The count of reserved regions in /reserved-memory was limited because
-> > > the struct reserved_mem array was defined statically. This series sorts
-> > > out reserved memory code and allocates that array from early allocator.
-> > > 
-> > > Note: reserved region with fixed location must be reserved before any
-> > > memory allocation. While struct reserved_mem array should be allocated
-> > > after allocator is activated. We make early_init_fdt_scan_reserved_mem()
-> > > do reservation only and add another call to initialize reserved memory.
-> > > So arch code have to change for it.
-> > 
-> > I think much simpler would be to use the same constant for sizing
-> > memblock.reserved and reserved_mem arrays.
-> 
-> Do those arrays get shrunk? Or do we waste the memory forever?
-
-Memblock arrays don't get shrunk, but they are __init unless an architecture
-chose to keep them after boot, but most architectures that use device tree
-actually keep memblock structures.
- 
-> Maybe we can copy and shrink the initial array? Though I suspect struct 
-> reserved_mem pointers have already been given out.
-
-I'm not sure. It seems that reserved_mem pointers are given out at initcall
-time and AFAIU the reserved_mem array is created somewhere around
-setup_arch(). So maybe it's possible to copy and shrink the initial array.
- 
-> > 
-> > If there is too much reserved regions in the device tree, reserving them in
-> > memblock will fail anyway because memblock also starts with static array
-> > for memblock.reserved, so doing one pass with memblock_reserve() and
-> > another to set up reserved_mem wouldn't help anyway.
-> > 
-> > > I'm only familiar with arm and arm64 architectures. Approvals from arch
-> > > maintainers are required. Thank you all.
-
--- 
-Sincerely yours,
-Mike.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBOb3YgMjYsIDIwMjEgYXQgMjo1OCBBTSBHZWVydCBVeXR0ZXJob2V2ZW4gPGdlZXJ0
+QGxpbnV4LW02OGsub3JnPiB3cm90ZToKPgo+IEhpIEplc3NpY2EsCj4KPiBPbiBUaHUsIE5vdiAy
+NSwgMjAyMSBhdCA1OjA4IFBNIEplc3NpY2EgQ2xhcmtlIDxqcnRjMjdAanJ0YzI3LmNvbT4gd3Jv
+dGU6Cj4gPiBPbiAyNSBOb3YgMjAyMSwgYXQgMTU6MjIsIEdlZXJ0IFV5dHRlcmhvZXZlbiA8Z2Vl
+cnRAbGludXgtbTY4ay5vcmc+IHdyb3RlOgo+ID4gPiBUbyBpbXByb3ZlIGh1bWFuIHJlYWRhYmls
+aXR5IGFuZCBlbmFibGUgYXV0b21hdGljIHZhbGlkYXRpb24sIHRoZSB0dXBsZXMKPiA+ID4gaW4g
+ImludGVycnVwdHMtZXh0ZW5kZWQiIHByb3BlcnRpZXMgc2hvdWxkIGJlIGdyb3VwZWQgdXNpbmcg
+YW5nbGUKPiA+ID4gYnJhY2tldHMuICBBcyB0aGUgRFQgYmluZGluZ3MgbGFjayBhbiB1cHBlciBi
+b3VuZCBvbiB0aGUgbnVtYmVyIG9mCj4gPiA+IGludGVycnVwdHMsIHRodXMgYXNzdW1pbmcgb25l
+LCBwcm9wZXIgZ3JvdXBpbmcgaXMgY3VycmVudGx5IGZsYWdnZWQgYXMKPiA+ID4gYW4gZXJyb3Iu
+Cj4KPiBSb2I6IElzIHRoaXMgYSBidWcgaW4gdGhlIHRvb2xpbmcgdGhhdCBzaG91bGQgYmUgZml4
+ZWQ/CgpUaGUgZ3JvdXBpbmcgb3IgdXBwZXIgYm91bmQ/IFRoZSB0b29scyBkZWZhdWx0IHRvIG1p
+bkl0ZW1zID09Cm1heEl0ZW1zLCBzbyB5b3UgYmUgZ2V0dGluZyAnbWF4SXRlbXM6IDEnIGhlcmUu
+CgpGb3IgZ3JvdXBpbmcsIEkgcGxhbiB0byBtYWtlIHRoaXMgbm90IG1hdHRlciBmb3IgdmFsaWRh
+dGlvbi4gSSdtCndvcmtpbmcgb24gbWFraW5nIHRoZSB2YWxpZGF0aW9uIG9wZXJhdGUgb24gZHRi
+cyBhbmQgd2UgbG9zZSBhbnkKc291cmNlIGdyb3VwaW5nIHdpdGggdGhhdC4gSSdsbCBwcm9iYWJs
+eSBzd2l0Y2ggdGhlIGtlcm5lbCB0byB1c2UgZHRicwphcyB3ZWxsIGJlY2F1c2UgSSBkb24ndCB3
+YW50IHRvIG1haW50YWluIGJvdGguIFN0aWxsLCBJIHRoaW5rIHRoZQpncm91cGluZyBpcyBnb29k
+IGZyb20gYSBzb3VyY2UgY29uc2lzdGVuY3kgUE9WLgoKPiBSZWdhcmRsZXNzLCBzcGVjaWZ5aW5n
+IGEgcmVhbCB1cHBlciBsaW1pdCBpcyBhbHdheXMgYSBnb29kIGlkZWEuCgpZZXMuIEEgJ3Nob3Vs
+ZCBiZSBlbm91Z2ggZm9yIG5vdycgbGltaXQgaXMgYmV0dGVyIHRoYW4gbm9uZSBJTU8sIHRvby4K
+Cj4KPiA+ID4gRml4IHRoaXMgYnkgYWRkaW5nIHRoZSBtaXNzaW5nICJtYXhJdGVtcyIsIGxpbWl0
+aW5nIGl0IHRvIDkgaW50ZXJydXB0cwo+ID4gPiAob25lIGludGVycnVwdCBmb3IgYSBzeXN0ZW0g
+bWFuYWdlbWVudCBjb3JlLCBhbmQgdHdvIGludGVycnVwdHMgcGVyIGNvcmUKPiA+ID4gZm9yIG90
+aGVyIGNvcmVzKSwgd2hpY2ggc2hvdWxkIGJlIHN1ZmZpY2llbnQgZm9yIG5vdy4KPiA+Cj4gPiBU
+aGlzIGlzIFNpRml2ZeKAmXMgSVAsIHNvIGlzIHRoaXMgYWN0dWFsbHkgdHJ1ZT8gSSB3b3VsZCBp
+bWFnaW5lIGl04oCZcwo+ID4ganVzdCBwYXJhbWV0ZXJpc2VkIGFuZCBjb3VsZCBiZSBnZW5lcmF0
+ZWQgd2l0aCBhcyBtYW55IHRhcmdldHMgYXMgZml0Cj4gPiBpbiB0aGUgTU1JTyBzcGFjZSwgYW5k
+IHRoYXQgdGhpcyBpcyB0aHVzIGluYWNjdXJhdGUuIEJlc2lkZXMsIHN1Y2ggYQo+Cj4gWWVzLCB0
+aGlzIGlzIGltcGxlbWVudGF0aW9uLWRlZmluZWQuICBJIGp1c3QgdXNlZCB0aGUgbWF4aW11bSB2
+YWx1ZQo+IGN1cnJlbnRseSBpbiB1c2UuCj4KPiBkcml2ZXJzL2lycWNoaXAvaXJxLXNpZml2ZS1w
+bGljLmMgaGFzICNkZWZpbmUgTUFYX0NPTlRFWFRTIDE1ODcyLAo+IHdoaWNoIG1hdGNoZXMgdGhl
+IHZhbHVlIG9mIENPTlRFWFRfUEVSX0hBUlQgYW5kIHRoZSBhdmFpbGFibGUgYWRkcmVzcwo+IHNw
+YWNlIGluIHRoZSBkcml2ZXIgYW5kIGluIFsxXS4KPiBXb3VsZCB5b3UgYmUgbW9yZSBjb21mb3J0
+YWJsZSB3aXRoICJtYXhJdGVtczogMTU4NzIiPwoKQWx3YXlzIGdvb2QgdG8gaGF2ZSBhIHJlYWwg
+dmFsdWUgcmF0aGVyIHRoYW4gYW4gdW5rbm93biBpbXBsZW1lbnRhdGlvbiBsaW1pdC4KClJvYgoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
