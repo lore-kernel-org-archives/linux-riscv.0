@@ -4,55 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95EADC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Dec 2021 12:36:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36497C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Dec 2021 13:28:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h4j3LumIrBLsGMxjUgwg1Boe+48hHV/0p88HdbSDF3c=; b=sU/qPbrlMyvmAo
-	nMvgBlLeyKM3MS8m+V4t95QRsnqPMHV3oXBeYdwizaDTBoVNW4mqHDIfnk+22naMFuGx9O1jEMAJ2
-	UAt/V511kbXPDUWohzmMEECdCGTngpWqW8VZ4xSbssttIW4tvZ+yfum8/izZc1G6Ahb3tP7Ciktv9
-	NRKfJfei4i2uqZU4hzv+AdFoe8Y8VwAyX/iXGe/RhVuyHzgfqGjxcwlKi6yaWAtBKndRxotAT2gGk
-	0qpxiE223LWFiO/rD9ehODF1dE1SaUvJPEDWFZEPdcWU7Vu6MpNAq+75EEToGNnMAIVavs9J26WO7
-	pyXmIFHzkzieiQPHpjCA==;
+	List-Owner; bh=HR91SGj6coJ39KgDm9Dcw1pYlzj+ynB41GGgFlufgIA=; b=MkpnISxoMXo0Kx
+	+wALnVyaldmDef7ZJKS4Ki/MC/mhwYy1SMi3s2qyvbOt8bIz3kthnAGz3i233PTYrGUUHLdmKijHF
+	VgEStl2ta0XenQ6IJeLnW3FHCjgrQRMCXC71p2Y/BuNLgM0ht0K5ZwoSIOYX425Bg0btRwk2L4TXJ
+	DDyQAG/+09LCHRu3kmo7TPFVlsr1DYdRj15BEZtgG9IFrji8N17eeuMNYap9q0/XPpKQyf8T/DuTp
+	niYoTnqmMndeNuuGMgIUX5hwatikTubvZwP1IMp0Hnc5lndkJ+EiKPUAcR+7fw/zXcGmQjeysQ/zf
+	MJrqJ1plcEjSqkPWaoeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1msOqE-008UhX-Kj; Wed, 01 Dec 2021 12:36:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1msOog-008TsX-47; Wed, 01 Dec 2021 12:34:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CF068147A;
- Wed,  1 Dec 2021 04:34:28 -0800 (PST)
-Received: from e127744.cambridge.arm.com (e127744.cambridge.arm.com
- [10.1.32.151])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B1D543F694;
- Wed,  1 Dec 2021 04:34:25 -0800 (PST)
-From: German Gomez <german.gomez@arm.com>
-To: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- acme@kernel.org
-Cc: German Gomez <german.gomez@arm.com>, John Garry <john.garry@huawei.com>,
- Will Deacon <will@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>, Leo Yan <leo.yan@linaro.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: [PATCH v1 4/4] perf tools: Support register names from all
- architectures
-Date: Wed,  1 Dec 2021 12:33:32 +0000
-Message-Id: <20211201123334.679131-5-german.gomez@arm.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20211201123334.679131-1-german.gomez@arm.com>
-References: <20211201123334.679131-1-german.gomez@arm.com>
+	id 1msPem-008pwA-ES; Wed, 01 Dec 2021 13:28:20 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1msPei-008pvY-TZ
+ for linux-riscv@lists.infradead.org; Wed, 01 Dec 2021 13:28:19 +0000
+Received: from ip4d17a2ab.dynamic.kabel-deutschland.de ([77.23.162.171]
+ helo=diego.localnet)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1msPeY-0002eu-RQ; Wed, 01 Dec 2021 14:28:06 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Jessica Clarke <jrtc27@jrtc27.com>, Atish Patra <atishp@atishpatra.org>
+Cc: Philipp Tomsich <philipp.tomsich@vrull.eu>,
+ linux-riscv <linux-riscv@lists.infradead.org>, Wei Fu <wefu@redhat.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ taiten.peng@canonical.com, Aniket Ponkshe <aniket.ponkshe@canonical.com>,
+ Gordan Markus <gordan.markus@canonical.com>,
+ Guo Ren <guoren@linux.alibaba.com>, Arnd Bergmann <arnd@arndb.de>,
+ Chen-Yu Tsai <wens@csie.org>, Maxime Ripard <maxime@cerno.tech>,
+ Dan Lustig <dlustig@nvidia.com>, Greg Favor <gfavor@ventanamicro.com>,
+ Andrea Mondelli <andrea.mondelli@huawei.com>,
+ Jonathan Behrens <behrensj@mit.edu>, Xinhaoqu <xinhaoqu@huawei.com>,
+ Bill Huffman <huffman@cadence.com>, Nick Kossifidis <mick@ics.forth.gr>,
+ Allen Baum <allen.baum@esperantotech.com>,
+ Josh Scheid <jscheid@ventanamicro.com>, Richard Trauben <rtrauben@gmail.com>,
+ Anup Patel <anup@brainfault.org>, Rob Herring <robh+dt@kernel.org>,
+ Anup Patel <Anup.Patel@wdc.com>, atishp04@gmail.com,
+ Palmer Dabbelt <palmer@dabbelt.com>, Guo Ren <guoren@kernel.org>,
+ Christoph =?ISO-8859-1?Q?M=FCllner?= <christoph.muellner@vrull.eu>,
+ Christoph Hellwig <hch@lst.de>, liush <liush@allwinnertech.com>,
+ Wei Wu <lazyparser@gmail.com>, Drew Fustini <drew@beagleboard.org>,
+ Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Subject: Re: [PATCH V4 1/2] dt-bindings: riscv: add MMU Standard Extensions
+ support for Svpbmt
+Date: Wed, 01 Dec 2021 14:28:05 +0100
+Message-ID: <3495709.4EXlkQ93OV@diego>
+In-Reply-To: <CAOnJCUKmP6dsrV9xWC52uEaM0=fZh-FNDYyFg1VxQybpQZABMA@mail.gmail.com>
+References: <20211129014007.286478-1-wefu@redhat.com>
+ <03B8F784-4AF3-425D-99B6-F753F7970273@jrtc27.com>
+ <CAOnJCUKmP6dsrV9xWC52uEaM0=fZh-FNDYyFg1VxQybpQZABMA@mail.gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211201_043430_314002_A6E26C8B 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20211201_052817_148548_B5198E77 
+X-CRM114-Status: GOOD (  48.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,1053 +75,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When reading a perf.data file with register values, there is a mismatch
-between the names and the values of the registers because the tool is
-built using only the register names from the local architecture.
-
-Reading a perf.data file that was recorded on Arm64, gives the following
-erroneous output on an x86 machine:
-
-  # perf report -i perf_arm64.data -D
-  [...]
-  24661932634451 0x698 [0x21d0]: PERF_RECORD_SAMPLE(IP, 0x1): 43239/43239: 0xffffc5be8f100f98 period: 1 addr: 0
-  ... user regs: mask 0x1ffffffff ABI 64-bit
-  .... AX    0x0000ffffd1515817
-  .... BX    0x0000ffffd1515480
-  .... CX    0x0000aaaadabf6c80
-  .... DX    0x000000000000002e
-  .... SI    0x0000000040100401
-  .... DI    0x0040600200000080
-  .... BP    0x0000ffffd1510e10
-  .... SP    0x0000000000000000
-  .... IP    0x00000000000000dd
-  .... FLAGS 0x0000ffffd1510cd0
-  .... CS    0x0000000000000000
-  .... SS    0x0000000000000030
-  .... DS    0x0000ffffa569a208
-  .... ES    0x0000000000000000
-  .... FS    0x0000000000000000
-  .... GS    0x0000000000000000
-  .... R8    0x0000aaaad3de9650
-  .... R9    0x0000ffffa57397f0
-  .... R10   0x0000000000000001
-  .... R11   0x0000ffffa57fd000
-  .... R12   0x0000ffffd1515817
-  .... R13   0x0000ffffd1515480
-  .... R14   0x0000aaaadabf6c80
-  .... R15   0x0000000000000000
-  .... unknown 0x0000000000000001
-  .... unknown 0x0000000000000000
-  .... unknown 0x0000000000000000
-  .... unknown 0x0000000000000000
-  .... unknown 0x0000000000000000
-  .... unknown 0x0000ffffd1510d90
-  .... unknown 0x0000ffffa5739b90
-  .... unknown 0x0000ffffd1510d80
-  .... XMM0  0x0000ffffa57392c8
-   ... thread: perf-exec:43239
-   ...... dso: [kernel.kallsyms]
-
-As can be seen, the register names correspond to x86 registers, even
-though the perf.data file was recorded on an Arm64 system. After this
-patch, the output of the command displays the correct register names:
-
-  # perf report -i perf_arm64.data -D
-  [...]
-  24661932634451 0x698 [0x21d0]: PERF_RECORD_SAMPLE(IP, 0x1): 43239/43239: 0xffffc5be8f100f98 period: 1 addr: 0
-  ... user regs: mask 0x1ffffffff ABI 64-bit
-  .... x0    0x0000ffffd1515817
-  .... x1    0x0000ffffd1515480
-  .... x2    0x0000aaaadabf6c80
-  .... x3    0x000000000000002e
-  .... x4    0x0000000040100401
-  .... x5    0x0040600200000080
-  .... x6    0x0000ffffd1510e10
-  .... x7    0x0000000000000000
-  .... x8    0x00000000000000dd
-  .... x9    0x0000ffffd1510cd0
-  .... x10   0x0000000000000000
-  .... x11   0x0000000000000030
-  .... x12   0x0000ffffa569a208
-  .... x13   0x0000000000000000
-  .... x14   0x0000000000000000
-  .... x15   0x0000000000000000
-  .... x16   0x0000aaaad3de9650
-  .... x17   0x0000ffffa57397f0
-  .... x18   0x0000000000000001
-  .... x19   0x0000ffffa57fd000
-  .... x20   0x0000ffffd1515817
-  .... x21   0x0000ffffd1515480
-  .... x22   0x0000aaaadabf6c80
-  .... x23   0x0000000000000000
-  .... x24   0x0000000000000001
-  .... x25   0x0000000000000000
-  .... x26   0x0000000000000000
-  .... x27   0x0000000000000000
-  .... x28   0x0000000000000000
-  .... x29   0x0000ffffd1510d90
-  .... lr    0x0000ffffa5739b90
-  .... sp    0x0000ffffd1510d80
-  .... pc    0x0000ffffa57392c8
-   ... thread: perf-exec:43239
-   ...... dso: [kernel.kallsyms]
-
-Signed-off-by: German Gomez <german.gomez@arm.com>
----
- tools/perf/arch/arm/include/perf_regs.h       | 42 ----------
- tools/perf/arch/arm64/include/perf_regs.h     | 76 -----------------
- tools/perf/arch/csky/include/perf_regs.h      | 82 -------------------
- tools/perf/arch/mips/include/perf_regs.h      | 69 ----------------
- tools/perf/arch/powerpc/include/perf_regs.h   | 66 ---------------
- tools/perf/arch/riscv/include/perf_regs.h     | 74 -----------------
- tools/perf/arch/s390/include/perf_regs.h      | 78 ------------------
- tools/perf/arch/x86/include/perf_regs.h       | 82 -------------------
- tools/perf/builtin-script.c                   | 24 +++---
- tools/perf/util/perf_regs.h                   | 33 +++++++-
- .../scripting-engines/trace-event-python.c    | 12 +--
- tools/perf/util/session.c                     | 25 +++---
- 12 files changed, 62 insertions(+), 601 deletions(-)
-
-diff --git a/tools/perf/arch/arm/include/perf_regs.h b/tools/perf/arch/arm/include/perf_regs.h
-index 408541928..99a06550e 100644
---- a/tools/perf/arch/arm/include/perf_regs.h
-+++ b/tools/perf/arch/arm/include/perf_regs.h
-@@ -15,46 +15,4 @@ void perf_regs_load(u64 *regs);
- #define PERF_REG_IP	PERF_REG_ARM_PC
- #define PERF_REG_SP	PERF_REG_ARM_SP
- 
--static inline const char *__perf_reg_name(int id)
--{
--	switch (id) {
--	case PERF_REG_ARM_R0:
--		return "r0";
--	case PERF_REG_ARM_R1:
--		return "r1";
--	case PERF_REG_ARM_R2:
--		return "r2";
--	case PERF_REG_ARM_R3:
--		return "r3";
--	case PERF_REG_ARM_R4:
--		return "r4";
--	case PERF_REG_ARM_R5:
--		return "r5";
--	case PERF_REG_ARM_R6:
--		return "r6";
--	case PERF_REG_ARM_R7:
--		return "r7";
--	case PERF_REG_ARM_R8:
--		return "r8";
--	case PERF_REG_ARM_R9:
--		return "r9";
--	case PERF_REG_ARM_R10:
--		return "r10";
--	case PERF_REG_ARM_FP:
--		return "fp";
--	case PERF_REG_ARM_IP:
--		return "ip";
--	case PERF_REG_ARM_SP:
--		return "sp";
--	case PERF_REG_ARM_LR:
--		return "lr";
--	case PERF_REG_ARM_PC:
--		return "pc";
--	default:
--		return NULL;
--	}
--
--	return NULL;
--}
--
- #endif /* ARCH_PERF_REGS_H */
-diff --git a/tools/perf/arch/arm64/include/perf_regs.h b/tools/perf/arch/arm64/include/perf_regs.h
-index fa3e07459..c4eb1dcfa 100644
---- a/tools/perf/arch/arm64/include/perf_regs.h
-+++ b/tools/perf/arch/arm64/include/perf_regs.h
-@@ -15,80 +15,4 @@ void perf_regs_load(u64 *regs);
- #define PERF_REG_IP	PERF_REG_ARM64_PC
- #define PERF_REG_SP	PERF_REG_ARM64_SP
- 
--static inline const char *__perf_reg_name(int id)
--{
--	switch (id) {
--	case PERF_REG_ARM64_X0:
--		return "x0";
--	case PERF_REG_ARM64_X1:
--		return "x1";
--	case PERF_REG_ARM64_X2:
--		return "x2";
--	case PERF_REG_ARM64_X3:
--		return "x3";
--	case PERF_REG_ARM64_X4:
--		return "x4";
--	case PERF_REG_ARM64_X5:
--		return "x5";
--	case PERF_REG_ARM64_X6:
--		return "x6";
--	case PERF_REG_ARM64_X7:
--		return "x7";
--	case PERF_REG_ARM64_X8:
--		return "x8";
--	case PERF_REG_ARM64_X9:
--		return "x9";
--	case PERF_REG_ARM64_X10:
--		return "x10";
--	case PERF_REG_ARM64_X11:
--		return "x11";
--	case PERF_REG_ARM64_X12:
--		return "x12";
--	case PERF_REG_ARM64_X13:
--		return "x13";
--	case PERF_REG_ARM64_X14:
--		return "x14";
--	case PERF_REG_ARM64_X15:
--		return "x15";
--	case PERF_REG_ARM64_X16:
--		return "x16";
--	case PERF_REG_ARM64_X17:
--		return "x17";
--	case PERF_REG_ARM64_X18:
--		return "x18";
--	case PERF_REG_ARM64_X19:
--		return "x19";
--	case PERF_REG_ARM64_X20:
--		return "x20";
--	case PERF_REG_ARM64_X21:
--		return "x21";
--	case PERF_REG_ARM64_X22:
--		return "x22";
--	case PERF_REG_ARM64_X23:
--		return "x23";
--	case PERF_REG_ARM64_X24:
--		return "x24";
--	case PERF_REG_ARM64_X25:
--		return "x25";
--	case PERF_REG_ARM64_X26:
--		return "x26";
--	case PERF_REG_ARM64_X27:
--		return "x27";
--	case PERF_REG_ARM64_X28:
--		return "x28";
--	case PERF_REG_ARM64_X29:
--		return "x29";
--	case PERF_REG_ARM64_SP:
--		return "sp";
--	case PERF_REG_ARM64_LR:
--		return "lr";
--	case PERF_REG_ARM64_PC:
--		return "pc";
--	default:
--		return NULL;
--	}
--
--	return NULL;
--}
--
- #endif /* ARCH_PERF_REGS_H */
-diff --git a/tools/perf/arch/csky/include/perf_regs.h b/tools/perf/arch/csky/include/perf_regs.h
-index 25ac3bdcb..1afcc0e91 100644
---- a/tools/perf/arch/csky/include/perf_regs.h
-+++ b/tools/perf/arch/csky/include/perf_regs.h
-@@ -15,86 +15,4 @@
- #define PERF_REG_IP	PERF_REG_CSKY_PC
- #define PERF_REG_SP	PERF_REG_CSKY_SP
- 
--static inline const char *__perf_reg_name(int id)
--{
--	switch (id) {
--	case PERF_REG_CSKY_A0:
--		return "a0";
--	case PERF_REG_CSKY_A1:
--		return "a1";
--	case PERF_REG_CSKY_A2:
--		return "a2";
--	case PERF_REG_CSKY_A3:
--		return "a3";
--	case PERF_REG_CSKY_REGS0:
--		return "regs0";
--	case PERF_REG_CSKY_REGS1:
--		return "regs1";
--	case PERF_REG_CSKY_REGS2:
--		return "regs2";
--	case PERF_REG_CSKY_REGS3:
--		return "regs3";
--	case PERF_REG_CSKY_REGS4:
--		return "regs4";
--	case PERF_REG_CSKY_REGS5:
--		return "regs5";
--	case PERF_REG_CSKY_REGS6:
--		return "regs6";
--	case PERF_REG_CSKY_REGS7:
--		return "regs7";
--	case PERF_REG_CSKY_REGS8:
--		return "regs8";
--	case PERF_REG_CSKY_REGS9:
--		return "regs9";
--	case PERF_REG_CSKY_SP:
--		return "sp";
--	case PERF_REG_CSKY_LR:
--		return "lr";
--	case PERF_REG_CSKY_PC:
--		return "pc";
--#if defined(__CSKYABIV2__)
--	case PERF_REG_CSKY_EXREGS0:
--		return "exregs0";
--	case PERF_REG_CSKY_EXREGS1:
--		return "exregs1";
--	case PERF_REG_CSKY_EXREGS2:
--		return "exregs2";
--	case PERF_REG_CSKY_EXREGS3:
--		return "exregs3";
--	case PERF_REG_CSKY_EXREGS4:
--		return "exregs4";
--	case PERF_REG_CSKY_EXREGS5:
--		return "exregs5";
--	case PERF_REG_CSKY_EXREGS6:
--		return "exregs6";
--	case PERF_REG_CSKY_EXREGS7:
--		return "exregs7";
--	case PERF_REG_CSKY_EXREGS8:
--		return "exregs8";
--	case PERF_REG_CSKY_EXREGS9:
--		return "exregs9";
--	case PERF_REG_CSKY_EXREGS10:
--		return "exregs10";
--	case PERF_REG_CSKY_EXREGS11:
--		return "exregs11";
--	case PERF_REG_CSKY_EXREGS12:
--		return "exregs12";
--	case PERF_REG_CSKY_EXREGS13:
--		return "exregs13";
--	case PERF_REG_CSKY_EXREGS14:
--		return "exregs14";
--	case PERF_REG_CSKY_TLS:
--		return "tls";
--	case PERF_REG_CSKY_HI:
--		return "hi";
--	case PERF_REG_CSKY_LO:
--		return "lo";
--#endif
--	default:
--		return NULL;
--	}
--
--	return NULL;
--}
--
- #endif /* ARCH_PERF_REGS_H */
-diff --git a/tools/perf/arch/mips/include/perf_regs.h b/tools/perf/arch/mips/include/perf_regs.h
-index ee73b36a1..b8cd8bbb3 100644
---- a/tools/perf/arch/mips/include/perf_regs.h
-+++ b/tools/perf/arch/mips/include/perf_regs.h
-@@ -12,73 +12,4 @@
- 
- #define PERF_REGS_MASK ((1ULL << PERF_REG_MIPS_MAX) - 1)
- 
--static inline const char *__perf_reg_name(int id)
--{
--	switch (id) {
--	case PERF_REG_MIPS_PC:
--		return "PC";
--	case PERF_REG_MIPS_R1:
--		return "$1";
--	case PERF_REG_MIPS_R2:
--		return "$2";
--	case PERF_REG_MIPS_R3:
--		return "$3";
--	case PERF_REG_MIPS_R4:
--		return "$4";
--	case PERF_REG_MIPS_R5:
--		return "$5";
--	case PERF_REG_MIPS_R6:
--		return "$6";
--	case PERF_REG_MIPS_R7:
--		return "$7";
--	case PERF_REG_MIPS_R8:
--		return "$8";
--	case PERF_REG_MIPS_R9:
--		return "$9";
--	case PERF_REG_MIPS_R10:
--		return "$10";
--	case PERF_REG_MIPS_R11:
--		return "$11";
--	case PERF_REG_MIPS_R12:
--		return "$12";
--	case PERF_REG_MIPS_R13:
--		return "$13";
--	case PERF_REG_MIPS_R14:
--		return "$14";
--	case PERF_REG_MIPS_R15:
--		return "$15";
--	case PERF_REG_MIPS_R16:
--		return "$16";
--	case PERF_REG_MIPS_R17:
--		return "$17";
--	case PERF_REG_MIPS_R18:
--		return "$18";
--	case PERF_REG_MIPS_R19:
--		return "$19";
--	case PERF_REG_MIPS_R20:
--		return "$20";
--	case PERF_REG_MIPS_R21:
--		return "$21";
--	case PERF_REG_MIPS_R22:
--		return "$22";
--	case PERF_REG_MIPS_R23:
--		return "$23";
--	case PERF_REG_MIPS_R24:
--		return "$24";
--	case PERF_REG_MIPS_R25:
--		return "$25";
--	case PERF_REG_MIPS_R28:
--		return "$28";
--	case PERF_REG_MIPS_R29:
--		return "$29";
--	case PERF_REG_MIPS_R30:
--		return "$30";
--	case PERF_REG_MIPS_R31:
--		return "$31";
--	default:
--		break;
--	}
--	return NULL;
--}
--
- #endif /* ARCH_PERF_REGS_H */
-diff --git a/tools/perf/arch/powerpc/include/perf_regs.h b/tools/perf/arch/powerpc/include/perf_regs.h
-index 93339d17a..9bb17c3f3 100644
---- a/tools/perf/arch/powerpc/include/perf_regs.h
-+++ b/tools/perf/arch/powerpc/include/perf_regs.h
-@@ -19,70 +19,4 @@ void perf_regs_load(u64 *regs);
- #define PERF_REG_IP     PERF_REG_POWERPC_NIP
- #define PERF_REG_SP     PERF_REG_POWERPC_R1
- 
--static const char *reg_names[] = {
--	[PERF_REG_POWERPC_R0] = "r0",
--	[PERF_REG_POWERPC_R1] = "r1",
--	[PERF_REG_POWERPC_R2] = "r2",
--	[PERF_REG_POWERPC_R3] = "r3",
--	[PERF_REG_POWERPC_R4] = "r4",
--	[PERF_REG_POWERPC_R5] = "r5",
--	[PERF_REG_POWERPC_R6] = "r6",
--	[PERF_REG_POWERPC_R7] = "r7",
--	[PERF_REG_POWERPC_R8] = "r8",
--	[PERF_REG_POWERPC_R9] = "r9",
--	[PERF_REG_POWERPC_R10] = "r10",
--	[PERF_REG_POWERPC_R11] = "r11",
--	[PERF_REG_POWERPC_R12] = "r12",
--	[PERF_REG_POWERPC_R13] = "r13",
--	[PERF_REG_POWERPC_R14] = "r14",
--	[PERF_REG_POWERPC_R15] = "r15",
--	[PERF_REG_POWERPC_R16] = "r16",
--	[PERF_REG_POWERPC_R17] = "r17",
--	[PERF_REG_POWERPC_R18] = "r18",
--	[PERF_REG_POWERPC_R19] = "r19",
--	[PERF_REG_POWERPC_R20] = "r20",
--	[PERF_REG_POWERPC_R21] = "r21",
--	[PERF_REG_POWERPC_R22] = "r22",
--	[PERF_REG_POWERPC_R23] = "r23",
--	[PERF_REG_POWERPC_R24] = "r24",
--	[PERF_REG_POWERPC_R25] = "r25",
--	[PERF_REG_POWERPC_R26] = "r26",
--	[PERF_REG_POWERPC_R27] = "r27",
--	[PERF_REG_POWERPC_R28] = "r28",
--	[PERF_REG_POWERPC_R29] = "r29",
--	[PERF_REG_POWERPC_R30] = "r30",
--	[PERF_REG_POWERPC_R31] = "r31",
--	[PERF_REG_POWERPC_NIP] = "nip",
--	[PERF_REG_POWERPC_MSR] = "msr",
--	[PERF_REG_POWERPC_ORIG_R3] = "orig_r3",
--	[PERF_REG_POWERPC_CTR] = "ctr",
--	[PERF_REG_POWERPC_LINK] = "link",
--	[PERF_REG_POWERPC_XER] = "xer",
--	[PERF_REG_POWERPC_CCR] = "ccr",
--	[PERF_REG_POWERPC_SOFTE] = "softe",
--	[PERF_REG_POWERPC_TRAP] = "trap",
--	[PERF_REG_POWERPC_DAR] = "dar",
--	[PERF_REG_POWERPC_DSISR] = "dsisr",
--	[PERF_REG_POWERPC_SIER] = "sier",
--	[PERF_REG_POWERPC_MMCRA] = "mmcra",
--	[PERF_REG_POWERPC_MMCR0] = "mmcr0",
--	[PERF_REG_POWERPC_MMCR1] = "mmcr1",
--	[PERF_REG_POWERPC_MMCR2] = "mmcr2",
--	[PERF_REG_POWERPC_MMCR3] = "mmcr3",
--	[PERF_REG_POWERPC_SIER2] = "sier2",
--	[PERF_REG_POWERPC_SIER3] = "sier3",
--	[PERF_REG_POWERPC_PMC1] = "pmc1",
--	[PERF_REG_POWERPC_PMC2] = "pmc2",
--	[PERF_REG_POWERPC_PMC3] = "pmc3",
--	[PERF_REG_POWERPC_PMC4] = "pmc4",
--	[PERF_REG_POWERPC_PMC5] = "pmc5",
--	[PERF_REG_POWERPC_PMC6] = "pmc6",
--	[PERF_REG_POWERPC_SDAR] = "sdar",
--	[PERF_REG_POWERPC_SIAR] = "siar",
--};
--
--static inline const char *__perf_reg_name(int id)
--{
--	return reg_names[id];
--}
- #endif /* ARCH_PERF_REGS_H */
-diff --git a/tools/perf/arch/riscv/include/perf_regs.h b/tools/perf/arch/riscv/include/perf_regs.h
-index 6b02a767c..6944bf0de 100644
---- a/tools/perf/arch/riscv/include/perf_regs.h
-+++ b/tools/perf/arch/riscv/include/perf_regs.h
-@@ -19,78 +19,4 @@
- #define PERF_REG_IP	PERF_REG_RISCV_PC
- #define PERF_REG_SP	PERF_REG_RISCV_SP
- 
--static inline const char *__perf_reg_name(int id)
--{
--	switch (id) {
--	case PERF_REG_RISCV_PC:
--		return "pc";
--	case PERF_REG_RISCV_RA:
--		return "ra";
--	case PERF_REG_RISCV_SP:
--		return "sp";
--	case PERF_REG_RISCV_GP:
--		return "gp";
--	case PERF_REG_RISCV_TP:
--		return "tp";
--	case PERF_REG_RISCV_T0:
--		return "t0";
--	case PERF_REG_RISCV_T1:
--		return "t1";
--	case PERF_REG_RISCV_T2:
--		return "t2";
--	case PERF_REG_RISCV_S0:
--		return "s0";
--	case PERF_REG_RISCV_S1:
--		return "s1";
--	case PERF_REG_RISCV_A0:
--		return "a0";
--	case PERF_REG_RISCV_A1:
--		return "a1";
--	case PERF_REG_RISCV_A2:
--		return "a2";
--	case PERF_REG_RISCV_A3:
--		return "a3";
--	case PERF_REG_RISCV_A4:
--		return "a4";
--	case PERF_REG_RISCV_A5:
--		return "a5";
--	case PERF_REG_RISCV_A6:
--		return "a6";
--	case PERF_REG_RISCV_A7:
--		return "a7";
--	case PERF_REG_RISCV_S2:
--		return "s2";
--	case PERF_REG_RISCV_S3:
--		return "s3";
--	case PERF_REG_RISCV_S4:
--		return "s4";
--	case PERF_REG_RISCV_S5:
--		return "s5";
--	case PERF_REG_RISCV_S6:
--		return "s6";
--	case PERF_REG_RISCV_S7:
--		return "s7";
--	case PERF_REG_RISCV_S8:
--		return "s8";
--	case PERF_REG_RISCV_S9:
--		return "s9";
--	case PERF_REG_RISCV_S10:
--		return "s10";
--	case PERF_REG_RISCV_S11:
--		return "s11";
--	case PERF_REG_RISCV_T3:
--		return "t3";
--	case PERF_REG_RISCV_T4:
--		return "t4";
--	case PERF_REG_RISCV_T5:
--		return "t5";
--	case PERF_REG_RISCV_T6:
--		return "t6";
--	default:
--		return NULL;
--	}
--
--	return NULL;
--}
--
- #endif /* ARCH_PERF_REGS_H */
-diff --git a/tools/perf/arch/s390/include/perf_regs.h b/tools/perf/arch/s390/include/perf_regs.h
-index ce3031526..52fcc0891 100644
---- a/tools/perf/arch/s390/include/perf_regs.h
-+++ b/tools/perf/arch/s390/include/perf_regs.h
-@@ -14,82 +14,4 @@ void perf_regs_load(u64 *regs);
- #define PERF_REG_IP PERF_REG_S390_PC
- #define PERF_REG_SP PERF_REG_S390_R15
- 
--static inline const char *__perf_reg_name(int id)
--{
--	switch (id) {
--	case PERF_REG_S390_R0:
--		return "R0";
--	case PERF_REG_S390_R1:
--		return "R1";
--	case PERF_REG_S390_R2:
--		return "R2";
--	case PERF_REG_S390_R3:
--		return "R3";
--	case PERF_REG_S390_R4:
--		return "R4";
--	case PERF_REG_S390_R5:
--		return "R5";
--	case PERF_REG_S390_R6:
--		return "R6";
--	case PERF_REG_S390_R7:
--		return "R7";
--	case PERF_REG_S390_R8:
--		return "R8";
--	case PERF_REG_S390_R9:
--		return "R9";
--	case PERF_REG_S390_R10:
--		return "R10";
--	case PERF_REG_S390_R11:
--		return "R11";
--	case PERF_REG_S390_R12:
--		return "R12";
--	case PERF_REG_S390_R13:
--		return "R13";
--	case PERF_REG_S390_R14:
--		return "R14";
--	case PERF_REG_S390_R15:
--		return "R15";
--	case PERF_REG_S390_FP0:
--		return "FP0";
--	case PERF_REG_S390_FP1:
--		return "FP1";
--	case PERF_REG_S390_FP2:
--		return "FP2";
--	case PERF_REG_S390_FP3:
--		return "FP3";
--	case PERF_REG_S390_FP4:
--		return "FP4";
--	case PERF_REG_S390_FP5:
--		return "FP5";
--	case PERF_REG_S390_FP6:
--		return "FP6";
--	case PERF_REG_S390_FP7:
--		return "FP7";
--	case PERF_REG_S390_FP8:
--		return "FP8";
--	case PERF_REG_S390_FP9:
--		return "FP9";
--	case PERF_REG_S390_FP10:
--		return "FP10";
--	case PERF_REG_S390_FP11:
--		return "FP11";
--	case PERF_REG_S390_FP12:
--		return "FP12";
--	case PERF_REG_S390_FP13:
--		return "FP13";
--	case PERF_REG_S390_FP14:
--		return "FP14";
--	case PERF_REG_S390_FP15:
--		return "FP15";
--	case PERF_REG_S390_MASK:
--		return "MASK";
--	case PERF_REG_S390_PC:
--		return "PC";
--	default:
--		return NULL;
--	}
--
--	return NULL;
--}
--
- #endif /* ARCH_PERF_REGS_H */
-diff --git a/tools/perf/arch/x86/include/perf_regs.h b/tools/perf/arch/x86/include/perf_regs.h
-index cddc4cdc0..16e23b722 100644
---- a/tools/perf/arch/x86/include/perf_regs.h
-+++ b/tools/perf/arch/x86/include/perf_regs.h
-@@ -23,86 +23,4 @@ void perf_regs_load(u64 *regs);
- #define PERF_REG_IP PERF_REG_X86_IP
- #define PERF_REG_SP PERF_REG_X86_SP
- 
--static inline const char *__perf_reg_name(int id)
--{
--	switch (id) {
--	case PERF_REG_X86_AX:
--		return "AX";
--	case PERF_REG_X86_BX:
--		return "BX";
--	case PERF_REG_X86_CX:
--		return "CX";
--	case PERF_REG_X86_DX:
--		return "DX";
--	case PERF_REG_X86_SI:
--		return "SI";
--	case PERF_REG_X86_DI:
--		return "DI";
--	case PERF_REG_X86_BP:
--		return "BP";
--	case PERF_REG_X86_SP:
--		return "SP";
--	case PERF_REG_X86_IP:
--		return "IP";
--	case PERF_REG_X86_FLAGS:
--		return "FLAGS";
--	case PERF_REG_X86_CS:
--		return "CS";
--	case PERF_REG_X86_SS:
--		return "SS";
--	case PERF_REG_X86_DS:
--		return "DS";
--	case PERF_REG_X86_ES:
--		return "ES";
--	case PERF_REG_X86_FS:
--		return "FS";
--	case PERF_REG_X86_GS:
--		return "GS";
--#ifdef HAVE_ARCH_X86_64_SUPPORT
--	case PERF_REG_X86_R8:
--		return "R8";
--	case PERF_REG_X86_R9:
--		return "R9";
--	case PERF_REG_X86_R10:
--		return "R10";
--	case PERF_REG_X86_R11:
--		return "R11";
--	case PERF_REG_X86_R12:
--		return "R12";
--	case PERF_REG_X86_R13:
--		return "R13";
--	case PERF_REG_X86_R14:
--		return "R14";
--	case PERF_REG_X86_R15:
--		return "R15";
--#endif /* HAVE_ARCH_X86_64_SUPPORT */
--
--#define XMM(x) \
--	case PERF_REG_X86_XMM ## x:	\
--	case PERF_REG_X86_XMM ## x + 1:	\
--		return "XMM" #x;
--	XMM(0)
--	XMM(1)
--	XMM(2)
--	XMM(3)
--	XMM(4)
--	XMM(5)
--	XMM(6)
--	XMM(7)
--	XMM(8)
--	XMM(9)
--	XMM(10)
--	XMM(11)
--	XMM(12)
--	XMM(13)
--	XMM(14)
--	XMM(15)
--#undef XMM
--	default:
--		return NULL;
--	}
--
--	return NULL;
--}
--
- #endif /* ARCH_PERF_REGS_H */
-diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
-index 711132f0b..3da0c95c6 100644
---- a/tools/perf/builtin-script.c
-+++ b/tools/perf/builtin-script.c
-@@ -4,6 +4,7 @@
- #include "util/counts.h"
- #include "util/debug.h"
- #include "util/dso.h"
-+#include "util/env.h"
- #include <subcmd/exec-cmd.h>
- #include "util/header.h"
- #include <subcmd/parse-options.h>
-@@ -649,7 +650,7 @@ static int perf_session__check_output_opt(struct perf_session *session)
- }
- 
- static int perf_sample__fprintf_regs(struct regs_dump *regs, uint64_t mask,
--				     FILE *fp)
-+				     const char *arch, FILE *fp)
- {
- 	unsigned i = 0, r;
- 	int printed = 0;
-@@ -661,7 +662,7 @@ static int perf_sample__fprintf_regs(struct regs_dump *regs, uint64_t mask,
- 
- 	for_each_set_bit(r, (unsigned long *) &mask, sizeof(mask) * 8) {
- 		u64 val = regs->regs[i++];
--		printed += fprintf(fp, "%5s:0x%"PRIx64" ", perf_reg_name(r), val);
-+		printed += fprintf(fp, "%5s:0x%"PRIx64" ", perf_reg_name(r, arch), val);
- 	}
- 
- 	return printed;
-@@ -717,18 +718,16 @@ tod_scnprintf(struct perf_script *script, char *buf, int buflen,
- 	return buf;
- }
- 
--static int perf_sample__fprintf_iregs(struct perf_sample *sample,
--				      struct perf_event_attr *attr, FILE *fp)
-+static int perf_sample__fprintf_iregs(struct perf_sample *sample, struct perf_event_attr *attr,
-+				      const char *arch, FILE *fp)
- {
--	return perf_sample__fprintf_regs(&sample->intr_regs,
--					 attr->sample_regs_intr, fp);
-+	return perf_sample__fprintf_regs(&sample->intr_regs, attr->sample_regs_intr, arch, fp);
- }
- 
--static int perf_sample__fprintf_uregs(struct perf_sample *sample,
--				      struct perf_event_attr *attr, FILE *fp)
-+static int perf_sample__fprintf_uregs(struct perf_sample *sample, struct perf_event_attr *attr,
-+				      const char *arch, FILE *fp)
- {
--	return perf_sample__fprintf_regs(&sample->user_regs,
--					 attr->sample_regs_user, fp);
-+	return perf_sample__fprintf_regs(&sample->user_regs, attr->sample_regs_user, arch, fp);
- }
- 
- static int perf_sample__fprintf_start(struct perf_script *script,
-@@ -2000,6 +1999,7 @@ static void process_event(struct perf_script *script,
- 	struct evsel_script *es = evsel->priv;
- 	FILE *fp = es->fp;
- 	char str[PAGE_SIZE_NAME_LEN];
-+	const char *arch = perf_env__arch(machine->env);
- 
- 	if (output[type].fields == 0)
- 		return;
-@@ -2066,10 +2066,10 @@ static void process_event(struct perf_script *script,
- 	}
- 
- 	if (PRINT_FIELD(IREGS))
--		perf_sample__fprintf_iregs(sample, attr, fp);
-+		perf_sample__fprintf_iregs(sample, attr, arch, fp);
- 
- 	if (PRINT_FIELD(UREGS))
--		perf_sample__fprintf_uregs(sample, attr, fp);
-+		perf_sample__fprintf_uregs(sample, attr, arch, fp);
- 
- 	if (PRINT_FIELD(BRSTACK))
- 		perf_sample__fprintf_brstack(sample, thread, attr, fp);
-diff --git a/tools/perf/util/perf_regs.h b/tools/perf/util/perf_regs.h
-index eeac181eb..a201181fc 100644
---- a/tools/perf/util/perf_regs.h
-+++ b/tools/perf/util/perf_regs.h
-@@ -27,15 +27,42 @@ uint64_t arch__user_reg_mask(void);
- #ifdef HAVE_PERF_REGS_SUPPORT
- extern const struct sample_reg sample_reg_masks[];
- 
-+#include <string.h>
- #include <perf_regs.h>
- 
- #define DWARF_MINIMAL_REGS ((1ULL << PERF_REG_IP) | (1ULL << PERF_REG_SP))
- 
- int perf_reg_value(u64 *valp, struct regs_dump *regs, int id);
- 
--static inline const char *perf_reg_name(int id)
-+#include "perf_regs_csky.h"
-+#include "perf_regs_mips.h"
-+#include "perf_regs_powerpc.h"
-+#include "perf_regs_riscv.h"
-+#include "perf_regs_s390.h"
-+#include "perf_regs_x86.h"
-+#include "perf_regs_arm.h"
-+#include "perf_regs_arm64.h"
-+
-+static inline const char *perf_reg_name(int id, const char *arch)
- {
--	const char *reg_name = __perf_reg_name(id);
-+	const char *reg_name = NULL;
-+
-+	if (!strcmp(arch, "csky"))
-+		reg_name = __perf_reg_name_csky(id);
-+	else if (!strcmp(arch, "mips"))
-+		reg_name = __perf_reg_name_mips(id);
-+	else if (!strcmp(arch, "powerpc"))
-+		reg_name = __perf_reg_name_powerpc(id);
-+	else if (!strcmp(arch, "riscv"))
-+		reg_name = __perf_reg_name_riscv(id);
-+	else if (!strcmp(arch, "s390"))
-+		reg_name = __perf_reg_name_s390(id);
-+	else if (!strcmp(arch, "x86"))
-+		reg_name = __perf_reg_name_x86(id);
-+	else if (!strcmp(arch, "arm"))
-+		reg_name = __perf_reg_name_arm(id);
-+	else if (!strcmp(arch, "arm64"))
-+		reg_name = __perf_reg_name_arm64(id);
- 
- 	return reg_name ?: "unknown";
- }
-@@ -46,7 +73,7 @@ static inline const char *perf_reg_name(int id)
- 
- #define DWARF_MINIMAL_REGS PERF_REGS_MASK
- 
--static inline const char *perf_reg_name(int id __maybe_unused)
-+static inline const char *perf_reg_name(int id __maybe_unused, const char *arch __maybe_unused)
- {
- 	return "unknown";
- }
-diff --git a/tools/perf/util/scripting-engines/trace-event-python.c b/tools/perf/util/scripting-engines/trace-event-python.c
-index e164f8d00..373fdd798 100644
---- a/tools/perf/util/scripting-engines/trace-event-python.c
-+++ b/tools/perf/util/scripting-engines/trace-event-python.c
-@@ -36,6 +36,7 @@
- #include "../debug.h"
- #include "../dso.h"
- #include "../callchain.h"
-+#include "../env.h"
- #include "../evsel.h"
- #include "../event.h"
- #include "../thread.h"
-@@ -687,7 +688,7 @@ static void set_sample_datasrc_in_dict(PyObject *dict,
- 			_PyUnicode_FromString(decode));
- }
- 
--static void regs_map(struct regs_dump *regs, uint64_t mask, char *bf, int size)
-+static void regs_map(struct regs_dump *regs, uint64_t mask, const char *arch, char *bf, int size)
- {
- 	unsigned int i = 0, r;
- 	int printed = 0;
-@@ -702,16 +703,17 @@ static void regs_map(struct regs_dump *regs, uint64_t mask, char *bf, int size)
- 
- 		printed += scnprintf(bf + printed, size - printed,
- 				     "%5s:0x%" PRIx64 " ",
--				     perf_reg_name(r), val);
-+				     perf_reg_name(r, arch), val);
- 	}
- }
- 
- static void set_regs_in_dict(PyObject *dict,
- 			     struct perf_sample *sample,
- 			     struct evsel *evsel,
--			     struct machine *machine __maybe_unused)
-+			     struct machine *machine)
- {
- 	struct perf_event_attr *attr = &evsel->core.attr;
-+	const char *arch = perf_env__arch(machine->env);
- 
- 	/*
- 	 * Here value 28 is a constant size which can be used to print
-@@ -723,12 +725,12 @@ static void set_regs_in_dict(PyObject *dict,
- 	int size = __sw_hweight64(attr->sample_regs_intr) * 28;
- 	char bf[size];
- 
--	regs_map(&sample->intr_regs, attr->sample_regs_intr, bf, sizeof(bf));
-+	regs_map(&sample->intr_regs, attr->sample_regs_intr, arch, bf, sizeof(bf));
- 
- 	pydict_set_item_string_decref(dict, "iregs",
- 			_PyUnicode_FromString(bf));
- 
--	regs_map(&sample->user_regs, attr->sample_regs_user, bf, sizeof(bf));
-+	regs_map(&sample->user_regs, attr->sample_regs_user, arch, bf, sizeof(bf));
- 
- 	pydict_set_item_string_decref(dict, "uregs",
- 			_PyUnicode_FromString(bf));
-diff --git a/tools/perf/util/session.c b/tools/perf/util/session.c
-index d8857d1b6..e1a273048 100644
---- a/tools/perf/util/session.c
-+++ b/tools/perf/util/session.c
-@@ -15,6 +15,7 @@
- #include "map_symbol.h"
- #include "branch.h"
- #include "debug.h"
-+#include "env.h"
- #include "evlist.h"
- #include "evsel.h"
- #include "memswap.h"
-@@ -1168,7 +1169,7 @@ static void branch_stack__printf(struct perf_sample *sample, bool callstack)
- 	}
- }
- 
--static void regs_dump__printf(u64 mask, u64 *regs)
-+static void regs_dump__printf(u64 mask, u64 *regs, const char *arch)
- {
- 	unsigned rid, i = 0;
- 
-@@ -1176,7 +1177,7 @@ static void regs_dump__printf(u64 mask, u64 *regs)
- 		u64 val = regs[i++];
- 
- 		printf(".... %-5s 0x%016" PRIx64 "\n",
--		       perf_reg_name(rid), val);
-+		       perf_reg_name(rid, arch), val);
- 	}
- }
- 
-@@ -1194,7 +1195,7 @@ static inline const char *regs_dump_abi(struct regs_dump *d)
- 	return regs_abi[d->abi];
- }
- 
--static void regs__printf(const char *type, struct regs_dump *regs)
-+static void regs__printf(const char *type, struct regs_dump *regs, const char *arch)
- {
- 	u64 mask = regs->mask;
- 
-@@ -1203,23 +1204,23 @@ static void regs__printf(const char *type, struct regs_dump *regs)
- 	       mask,
- 	       regs_dump_abi(regs));
- 
--	regs_dump__printf(mask, regs->regs);
-+	regs_dump__printf(mask, regs->regs, arch);
- }
- 
--static void regs_user__printf(struct perf_sample *sample)
-+static void regs_user__printf(struct perf_sample *sample, const char *arch)
- {
- 	struct regs_dump *user_regs = &sample->user_regs;
- 
- 	if (user_regs->regs)
--		regs__printf("user", user_regs);
-+		regs__printf("user", user_regs, arch);
- }
- 
--static void regs_intr__printf(struct perf_sample *sample)
-+static void regs_intr__printf(struct perf_sample *sample, const char *arch)
- {
- 	struct regs_dump *intr_regs = &sample->intr_regs;
- 
- 	if (intr_regs->regs)
--		regs__printf("intr", intr_regs);
-+		regs__printf("intr", intr_regs, arch);
- }
- 
- static void stack_user__printf(struct stack_dump *dump)
-@@ -1304,7 +1305,7 @@ char *get_page_size_name(u64 size, char *str)
- }
- 
- static void dump_sample(struct evsel *evsel, union perf_event *event,
--			struct perf_sample *sample)
-+			struct perf_sample *sample, const char *arch)
- {
- 	u64 sample_type;
- 	char str[PAGE_SIZE_NAME_LEN];
-@@ -1325,10 +1326,10 @@ static void dump_sample(struct evsel *evsel, union perf_event *event,
- 		branch_stack__printf(sample, evsel__has_branch_callstack(evsel));
- 
- 	if (sample_type & PERF_SAMPLE_REGS_USER)
--		regs_user__printf(sample);
-+		regs_user__printf(sample, arch);
- 
- 	if (sample_type & PERF_SAMPLE_REGS_INTR)
--		regs_intr__printf(sample);
-+		regs_intr__printf(sample, arch);
- 
- 	if (sample_type & PERF_SAMPLE_STACK_USER)
- 		stack_user__printf(&sample->user_stack);
-@@ -1502,7 +1503,7 @@ static int machines__deliver_event(struct machines *machines,
- 			++evlist->stats.nr_unknown_id;
- 			return 0;
- 		}
--		dump_sample(evsel, event, sample);
-+		dump_sample(evsel, event, sample, perf_env__arch(machine->env));
- 		if (machine == NULL) {
- 			++evlist->stats.nr_unprocessable_samples;
- 			return 0;
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQXRpc2gsCgpBbSBNaXR0d29jaCwgMS4gRGV6ZW1iZXIgMjAyMSwgMDI6MjE6NDYgQ0VUIHNj
+aHJpZWIgQXRpc2ggUGF0cmE6Cj4gT24gVHVlLCBOb3YgMzAsIDIwMjEgYXQgODoxMyBBTSBKZXNz
+aWNhIENsYXJrZSA8anJ0YzI3QGpydGMyNy5jb20+IHdyb3RlOgo+ID4KPiA+IE9uIDMwIE5vdiAy
+MDIxLCBhdCAxNTowMSwgUGhpbGlwcCBUb21zaWNoIDxwaGlsaXBwLnRvbXNpY2hAdnJ1bGwuZXU+
+IHdyb3RlOgo+ID4gPgo+ID4gPiBXZSBkaWQgdG91Y2ggb24gdGhpcyBpbiBvdXIgY29vcmRpbmF0
+aW9uIGNhbGwgYSBmZXcgd2Vla3MgYWdvOiB0aGUKPiA+ID4gZ3JvdXBpbmcgdW5kZXIgbW11IGFu
+ZCB0aGUgYm9vbC1lbnRyaWVzIHdlcmUgY2hvc2VuIGJlY2F1c2Ugb2YgdGhlaXIKPiA+ID4gc2lt
+aWxhcml0eSB0byBvdGhlciBleHRlbnNpb25zIChpLmUuIGZvciBaYlthYmNzXSB0aGVyZSBjb3Vs
+ZC9zaG91bGQKPiA+ID4gYmUgYSBib29sLWVudHJ5IHVuZGVyIGVhY2ggY3B1LW5vZGUg4oCUIGZv
+ciBzb21lIFp2KiBlbnRyaWVzIGEgc3Vibm9kZQo+ID4gPiBtaWdodCBiZSBuZWVkZWQgd2l0aCBm
+dXJ0aGVyIHBhcmFtZXRlcnMpLgo+ID4gPgo+ID4gPiBUaGUgc3RyaW5nLWJhc2VkIGFwcHJvYWNo
+IChhcyBpbiB0aGUgb3JpZ2luYWxseSBwcm9wb3NlZCAibW11LXR5cGU9IikKPiA+ID4gd291bGQg
+bGlrZSBub3Qgc2NhbGUgd2l0aCB0aGUgcHJvbGlmZXJhdGlvbiBvZiBzbWFsbCAmIG1vZHVsYXIK
+PiA+ID4gZXh0ZW5zaW9ucy4KPiA+Cj4gPiBJIGRvbuKAmXQgc2VlIHdoeSB0aGUgU3YqIGV4dGVu
+c2lvbnMgbmVlZCB0byBiZSB1bmRlciBhbiBtbXUgbm9kZSB0aGVuLAo+ID4gdW5sZXNzIHRoZSBp
+bnRlbnQgaXMgdGhhdCBldmVyeSBleHRlbnNpb24gYmUgZ3JvdXBlZCB1bmRlciBhIHN1Yi1ub2Rl
+Cj4gPiAod2hpY2ggZG9lc27igJl0IHNlZW0gdmlhYmxlIGR1ZSB0byBleHRlbnNpb25zIGxpa2Ug
+WmJrKiwgdW5sZXNzIHlvdQo+ID4gZ3JvdXAgYnkgU3MsIFN2IGFuZCBaKT8KPiA+Cj4gCj4gSXQg
+c2hvdWxkbid0IGJlLiBBbGwgdGhlIElTQSBleHRlbnNpb25zIChpLmUuIHN0YW5kYXJkLCBzdXBl
+cnZpc29yICYgaHlwZXJ2aXNvcikKPiB3aXRoIHByZWZpeCBTLFosSCBzaG91bGQgYmUga2VwdCBz
+ZXBhcmF0ZSBpbiBhIHNlcGFyYXRlIG5vZGUgZm9yIGVhc3kKPiBwYXJzaW5nLgo+IAo+ICJyaXNj
+dixpc2EiIGR0IHByb3BlcnR5IHdpbGwgbm90IHNjYWxlIGF0IGFsbC4gSnVzdCBsb29rIGF0IHRo
+ZSBmZXcKPiBleHRlbnNpb25zIHRoYXQgd2VyZSByYXRpZmllZCB0aGlzIHllYXIKPiBhbmQgTGlu
+dXgga2VybmVsIG5lZWRzIHRvIHN1cHBvcnQgdGhlbS4KPiAKPiAiU3Njb2ZwbWYiLCAiU3ZwYm10
+IiwgIlppY2JvbSIKPiAKPiA+IEFsc28sIHdoYXQgaXMgZ29pbmcgdG8gaGFwcGVuIHRvIHRoZSBj
+dXJyZW50IHJpc2N2LGlzYT8gV2lsbCB0aGF0Cj4gPiBjb250aW51ZSB0byBleGlzdCBhbmQgZHVw
+bGljYXRlIHRoZSBpbmZvLCBvciB3aWxsIGtlcm5lbHMgYmUgcmVxdWlyZWQKPiA+IHRvIHJlY29u
+c3RydWN0IHRoZSBzdHJpbmcgdGhlbXNlbHZlcyBpZiB0aGV5IHdhbnQgdG8gZGlzcGxheSBpdCB0
+bwo+ID4gdXNlcnM/Cj4gPgo+IAo+IFRoaXMgaXMgbXkgcGVyc29uYWwgcHJlZmVyZW5jZToKPiBy
+aXNjdixpc2Egd2lsbCBjb250aW51ZSB0byBiYXNlIFN0YW5kYXJkIElTQSBleHRlbnNpb25zIHRo
+YXQgaGF2ZQo+IHNpbmdsZSBsZXR0ZXIgZXh0ZW5zaW9ucy4KPiAKPiBUaGlzIG5ldyBEVCBub2Rl
+IHdpbGwgZW5jb2RlIGFsbCB0aGUgbm9uLXNpbmdsZSBsZXR0ZXIgZXh0ZW5zaW9ucy4KPiBJIGFt
+IG5vdCBzdXJlIGlmIGl0IHNob3VsZCBpbmNsdWRlIHNvbWUgcHJvdmlzaW9ucyBmb3IgY3VzdG9t
+Cj4gZXh0ZW5zaW9ucyBzdGFydGluZyB3aXRoIFggYmVjYXVzZQo+IHRoYXQgd2lsbCBiZSBwbGF0
+Zm9ybSBzcGVjaWZpYy4KPiAKPiBBZ2FpbiwgdGhpcyBpcyBqdXN0IG15IHBlcnNvbmFsIHByZWZl
+cmVuY2UuIEkgd2lsbCB0cnkgdG8gc2VuZCBhIHBhdGNoCj4gc29vbiBzbyB0aGF0IHdlIGNhbiBp
+bml0aWF0ZSBhIGJyb2FkZXIKPiBkaXNjdXNzaW9uIG9mIHRoZSBzY2hlbWUgYW5kIGFncmVlL2Rp
+c2FncmVlIG9uIHNvbWV0aGluZy4KCnRoYXQgd291bGQgYmUgcmVhbGx5IGhlbHBmdWwsIGFzIGl0
+IGN1cnJlbnRseSBsb29rcyBsaWtlIHdlIGhhdmUgYSBudW1iZXIKb2YgZGlmZmVyZW50IHBvaW50
+cy1vZi12aWV3IHNvIGRpc2N1c3NpbmcgYW4gYWN0dWFsIGltcGxlbWVudGF0aW9uIHdpbGwKcHJv
+YmFibHkgbWFrZSB0aGluZ3MgYSBsb3QgZWFzaWVyIGNvbXBhcmVkIHRvIGRhbmNpbmcgYXJvdW5k
+IHRoZW9yZXRpYwpjYXNlcyA6LSkgLgoKT3V0IG9mIGN1cmlvc2l0eSwgaG93IHNvb24gaXMgInNv
+b24iID8gOi1ECgoKSGVpa28KCgo+ID4gQXMgYSBGcmVlQlNEIGRldmVsb3BlciBJ4oCZbSBvYnZp
+b3VzbHkgbm90IGEgcGFydCBvZiBtYW55IG9mIHRoZXNlCj4gPiBkaXNjdXNzaW9ucywgYnV0IHdo
+YXQgdGhlIExpbnV4IGNvbW11bml0eSBpbXBvc2VzIGFzIHRoZSBkZXZpY2UgdHJlZQo+ID4gYmlu
+ZGluZ3MgaGFzIGEgcmVhbCBpbXBhY3Qgb24gdXMuCj4gPgo+ID4gSmVzcwo+ID4KPiA+ID4gT24g
+VHVlLCAzMCBOb3YgMjAyMSBhdCAxNDo1OSwgSmVzc2ljYSBDbGFya2UgPGpydGMyN0BqcnRjMjcu
+Y29tPiB3cm90ZToKPiA+ID4+Cj4gPiA+PiBPbiAzMCBOb3YgMjAyMSwgYXQgMTM6MjcsIEhlaWtv
+IFN0w7xibmVyIDxoZWlrb0BzbnRlY2guZGU+IHdyb3RlOgo+ID4gPj4+Cj4gPiA+Pj4gSGksCj4g
+PiA+Pj4KPiA+ID4+PiBBbSBEaWVuc3RhZywgMzAuIE5vdmVtYmVyIDIwMjEsIDE0OjE3OjQxIENF
+VCBzY2hyaWViIEplc3NpY2EgQ2xhcmtlOgo+ID4gPj4+PiBPbiAzMCBOb3YgMjAyMSwgYXQgMTI6
+MDcsIEhlaWtvIFN0w7xibmVyIDxoZWlrb0BzbnRlY2guZGU+IHdyb3RlOgo+ID4gPj4+Pj4KPiA+
+ID4+Pj4+IEFtIE1vbnRhZywgMjkuIE5vdmVtYmVyIDIwMjEsIDEzOjA2OjIzIENFVCBzY2hyaWVi
+IEhlaWtvIFN0w7xibmVyOgo+ID4gPj4+Pj4+IEFtIE1vbnRhZywgMjkuIE5vdmVtYmVyIDIwMjEs
+IDA5OjU0OjM5IENFVCBzY2hyaWViIEhlaW5yaWNoIFNjaHVjaGFyZHQ6Cj4gPiA+Pj4+Pj4+IE9u
+IDExLzI5LzIxIDAyOjQwLCB3ZWZ1QHJlZGhhdC5jb20gd3JvdGU6Cj4gPiA+Pj4+Pj4+PiBGcm9t
+OiBXZWkgRnUgPHdlZnVAcmVkaGF0LmNvbT4KPiA+ID4+Pj4+Pj4+Cj4gPiA+Pj4+Pj4+PiBQcmV2
+aW91cyBwYXRjaCBoYXMgYWRkZWQgc3ZwYm10IGluIGFyY2gvcmlzY3YgYW5kIGFkZCAicmlzY3Ys
+c3ZwbWJ0Igo+ID4gPj4+Pj4+Pj4gaW4gdGhlIERUIG1tdSBub2RlLiBVcGRhdGUgZHQtYmluZGlu
+Z3MgcmVsYXRlZCBwcm9wZXJ0eSBoZXJlLgo+ID4gPj4+Pj4+Pj4KPiA+ID4+Pj4+Pj4+IFNpZ25l
+ZC1vZmYtYnk6IFdlaSBGdSA8d2VmdUByZWRoYXQuY29tPgo+ID4gPj4+Pj4+Pj4gQ28tZGV2ZWxv
+cGVkLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KPiA+ID4+Pj4+Pj4+IFNpZ25lZC1v
+ZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPgo+ID4gPj4+Pj4+Pj4gQ2M6IEFudXAg
+UGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+Cj4gPiA+Pj4+Pj4+PiBDYzogUGFsbWVyIERhYmJl
+bHQgPHBhbG1lckBkYWJiZWx0LmNvbT4KPiA+ID4+Pj4+Pj4+IENjOiBSb2IgSGVycmluZyA8cm9i
+aCtkdEBrZXJuZWwub3JnPgo+ID4gPj4+Pj4+Pj4gLS0tCj4gPiA+Pj4+Pj4+PiBEb2N1bWVudGF0
+aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcmlzY3YvY3B1cy55YW1sIHwgMTAgKysrKysrKysrKwo+
+ID4gPj4+Pj4+Pj4gMSBmaWxlIGNoYW5nZWQsIDEwIGluc2VydGlvbnMoKykKPiA+ID4+Pj4+Pj4+
+Cj4gPiA+Pj4+Pj4+PiBkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRp
+bmdzL3Jpc2N2L2NwdXMueWFtbCBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9y
+aXNjdi9jcHVzLnlhbWwKPiA+ID4+Pj4+Pj4+IGluZGV4IGFhNWZiNjRkNTdlYi4uOWZmOWNiZGQ4
+YTg1IDEwMDY0NAo+ID4gPj4+Pj4+Pj4gLS0tIGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2Jp
+bmRpbmdzL3Jpc2N2L2NwdXMueWFtbAo+ID4gPj4+Pj4+Pj4gKysrIGIvRG9jdW1lbnRhdGlvbi9k
+ZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L2NwdXMueWFtbAo+ID4gPj4+Pj4+Pj4gQEAgLTYzLDYg
+KzYzLDE2IEBAIHByb3BlcnRpZXM6Cj4gPiA+Pj4+Pj4+PiAgICAgIC0gcmlzY3Ysc3Y0OAo+ID4g
+Pj4+Pj4+Pj4gICAgICAtIHJpc2N2LG5vbmUKPiA+ID4+Pj4+Pj4+Cj4gPiA+Pj4+Pj4+PiArICBt
+bXU6Cj4gPiA+Pj4+Pj4+Cj4gPiA+Pj4+Pj4+IFNob3VsZG4ndCB3ZSBrZWVwIHRoZSBpdGVtcyBi
+ZSBpbiBhbHBoYWJldGljIG9yZGVyLCBpLmUuIG1tdSBiZWZvcmUKPiA+ID4+Pj4+Pj4gbW11LXR5
+cGU/Cj4gPiA+Pj4+Pj4+Cj4gPiA+Pj4+Pj4+PiArICAgIGRlc2NyaXB0aW9uOgo+ID4gPj4+Pj4+
+Pj4gKyAgICAgIERlc2NyaWJlcyB0aGUgQ1BVJ3MgTU1VIFN0YW5kYXJkIEV4dGVuc2lvbnMgc3Vw
+cG9ydC4KPiA+ID4+Pj4+Pj4+ICsgICAgICBUaGVzZSB2YWx1ZXMgb3JpZ2luYXRlIGZyb20gdGhl
+IFJJU0MtViBQcml2aWxlZ2VkCj4gPiA+Pj4+Pj4+PiArICAgICAgU3BlY2lmaWNhdGlvbiBkb2N1
+bWVudCwgYXZhaWxhYmxlIGZyb20KPiA+ID4+Pj4+Pj4+ICsgICAgICBodHRwczovL3Jpc2N2Lm9y
+Zy9zcGVjaWZpY2F0aW9ucy8KPiA+ID4+Pj4+Pj4+ICsgICAgJHJlZjogJy9zY2hlbWFzL3R5cGVz
+LnlhbWwjL2RlZmluaXRpb25zL3N0cmluZycKPiA+ID4+Pj4+Pj4+ICsgICAgZW51bToKPiA+ID4+
+Pj4+Pj4+ICsgICAgICAtIHJpc2N2LHN2cG1idAo+ID4gPj4+Pj4+Pgo+ID4gPj4+Pj4+PiBUaGUg
+cHJpdmlsZWdlZCBzcGVjaWZpY2F0aW9uIGhhcyBtdWx0aXBsZSBNTVUgcmVsYXRlZCBleHRlbnNp
+b25zOgo+ID4gPj4+Pj4+PiBTdm5hcG90LCBTdnBibXQsIFN2aW52YWwuIFNoYWxsIHRoZXkgYWxs
+IGJlIG1vZGVsZWQgaW4gdGhpcyBlbnVtPwo+ID4gPj4+Pj4+Cj4gPiA+Pj4+Pj4gSSByZW1lbWJl
+ciBpbiBzb21lIGVhcmxpZXIgdmVyc2lvbiBzb21lIHdheSBiYWNrIHRoZXJlIHdhcyB0aGUKPiA+
+ID4+Pj4+PiBzdWdnZXN0aW9uIG9mIHVzaW5nIGEgc3ViLW5vZGUgaW5zdGVhZCBhbmQgdGhlbiBh
+ZGRpbmcgYm9vbGVhbgo+ID4gPj4+Pj4+IHByb3BlcnRpZXMgZm9yIHRoZSBzdXBwb3J0ZWQgZXh0
+ZW5zaW9ucy4KPiA+ID4+Pj4+Pgo+ID4gPj4+Pj4+IEFrYSBzb21ldGhpbmcgbGlrZQo+ID4gPj4+
+Pj4+ICAgbW11IHsKPiA+ID4+Pj4+PiAgICAgICAgICAgcmlzY3Ysc3ZwYm10Owo+ID4gPj4+Pj4+
+ICAgfTsKPiA+ID4+Pj4+Cj4gPiA+Pj4+PiBGb3IgdGhlIHJlY29yZCwgSSdtIHRhbGtpbmcgYWJv
+dXQgdGhlIG1haWwgZnJvbSBzZXB0ZW1iZXIKPiA+ID4+Pj4+IGh0dHBzOi8vbG9yZS5rZXJuZWwu
+b3JnL2xpbnV4LXJpc2N2L0NBQWVMdFVDaGpqekcrUDh5ZzQ1R0xaTUp5NVVSMks1UlJCb0xGVlpo
+dE9hWjVwUHRFQUBtYWlsLmdtYWlsLmNvbS8KPiA+ID4+Pj4+Cj4gPiA+Pj4+PiBTbyBoYXZpbmcg
+YSBzdWItbm9kZSB3b3VsZCBtYWtlIGFkZGluZyBmdXR1cmUgZXh0ZW5zaW9ucwo+ID4gPj4+Pj4g
+d2F5IG5pY2VyLgo+ID4gPj4+Pgo+ID4gPj4+PiBTdnBibXQgaXMganVzdCBhbiBJU0EgZXh0ZW5z
+aW9uLCBhbmQgc2hvdWxkIGJlIHRyZWF0ZWQgbGlrZSBhbnkgb3RoZXIuCj4gPiA+Pj4+IExldOKA
+mXMgbm90IGludmVudCB0d28gZGlmZmVyZW50IHdheXMgb2YgcmVwcmVzZW50aW5nIHRoYXQgaW4g
+dGhlIGRldmljZQo+ID4gPj4+PiB0cmVlLgo+ID4gPj4+Cj4gPiA+Pj4gSGVpbnJpY2ggYXNrZWQg
+aG93IHRoZSBvdGhlciBleHRlbnNpb25zIHNob3VsZCBiZSBoYW5kbGVkCj4gPiA+Pj4gKFN2bmFw
+b3QsIFN2cGJtdCwgU3ZpbnZhbCksIHNvIHdoYXQgZG8geW91IHN1Z2dlc3QgdG8gZG8gd2l0aCB0
+aGVzZT8KPiA+ID4+Cj4gPiA+PiBXaGF0ZXZlciBpcyBkb25lIGZvciBaYlthYmNzXSwgWmsqLCBa
+diosIFppY2JvKiwgZXRjLiBUaGVyZSBtYXkgbm90IGJlCj4gPiA+PiBhIGNvbmNyZXRlIHBsYW4g
+Zm9yIHRoYXQgeWV0LCBidXQgdGhhdCBtZWFucyB5b3Ugc2hvdWxkIHNwZWFrIHdpdGggdGhlCj4g
+PiA+PiBwZW9wbGUgaW52b2x2ZWQgd2l0aCBzdWNoIGV4dGVuc2lvbnMgYW5kIGNvbWUgdXAgd2l0
+aCBzb21ldGhpbmcKPiA+ID4+IGFwcHJvcHJpYXRlIHRvZ2V0aGVyLgo+ID4gPj4KPiA+ID4+IEpl
+c3MKPiA+ID4+Cj4gPgo+ID4KPiA+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCj4gPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiA+IGxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKPiA+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YKPiAKPiAKPiAKPiAtLQo+IFJlZ2FyZHMsCj4gQXRpc2gK
+PiAKCgoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
