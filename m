@@ -4,103 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D570C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Dec 2021 03:04:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 225D2C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Dec 2021 03:07:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:Mime-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UIli4P/4yWfurlQm+lAOzwmYH1IGBgRUOXzMvPdtyNM=; b=dzaep83AGKfQ0Z
-	fwhtq1TdUtpbdzNcSrIFPk41DoBWOYWP2Yom0K7aOlU+hoyP6T0j/AeYaiQ5x/f5pC7flBUDG8axm
-	3KHDrd0IP+BBiOAhPdfvCjn0FA4A824SGGJlqN1FXMzsbEZb6N2tM44LDnXH44QVGsNilK4qCltyi
-	XPGvpKjj09Pa7aLuOct5txQ//Jk1tX9T39PEDbq5kljiPaw9IZqVeCXNFbyeK2uKSxSK42t/AqfeK
-	tPWXMakKcl3NMTRW55tcNWHBpI2I8ZfK0VC6UqkOi3EDlhiQ0cCtcp1MDYk2UxQ5n0bLtqOCL7Xjg
-	++g3TSgts8VGjplADKLQ==;
+	List-Owner; bh=24RWLeKPkQaE7hSZbsSMgYqONTtCTWgr/K+UeAMx8L0=; b=H3GLBg1UKoQjOb
+	Qe745vNOW3r1yuZzWY8vEq4Fqx+zZCur0tJudtQrUCLHcfpo64aK65Rl8eQMFM89CX36a3IzXQwcW
+	fUL9EsXbybVtpQrsK/olIZ/G1sn6ImmiE+3wepzRaF7PvCeNctyKN6X0O4F3B4BeuJnDGVgakMJbk
+	RqOMPnlrUh/MKbYMQB+uaQCHTlqiWCBvF/2AJrw8UtT6zui7dJa77D+IkPLrNFwiEABEsBDDoveP0
+	ZeriEtK0wIQCDThsGM82IbuGoOvwO4veyCjFGtbjsxtRXvcgdZzWs0ITZL9OpKhkjDeCJxoIiyPQu
+	99e9dSLAFiN9tuPfJcNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1msFuR-007M1n-61; Wed, 01 Dec 2021 03:03:51 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1msFxc-007MCz-7A; Wed, 01 Dec 2021 03:07:08 +0000
+Received: from mail-sender-0.a4lg.com ([2401:2500:203:30b:4000:6bfe:4757:0])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1msFuM-007M0k-Ua
- for linux-riscv@lists.infradead.org; Wed, 01 Dec 2021 03:03:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1638327825;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=Ow9EAmEpt44GACUsMoPY5MKV7X/wU8cJo9IFpu0rGu0=;
- b=UDKRexYTcc89bPkNtwJklgne+bOHsb5z4ft8vVSgnbL6PROD3a18l+WULXretPcC9wNzdu
- H30gJWd01Kh8TBBj+lVOBmgE364Vi6cpWHzIkbOtJQct4ytjHaKlf8N+ASDZ8jTA3Dgsa2
- wKizItkwy5PoRt5U7WoMKq/RqOHjMvs=
-Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com
- [209.85.208.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-257-86-Xsx-mMFOCbc2_P1OBwA-1; Tue, 30 Nov 2021 22:03:42 -0500
-X-MC-Unique: 86-Xsx-mMFOCbc2_P1OBwA-1
-Received: by mail-ed1-f69.google.com with SMTP id
- eg20-20020a056402289400b003eb56fcf6easo18734890edb.20
- for <linux-riscv@lists.infradead.org>; Tue, 30 Nov 2021 19:03:42 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=Ow9EAmEpt44GACUsMoPY5MKV7X/wU8cJo9IFpu0rGu0=;
- b=yq5PeZJZk9vxfxQlLDwgar3Lz4eo6/ZRej3GgCWDKeH18Gvzle17G+mxj3xK2poo/k
- YSRtx7+oNMBSM7rUO588vFAS0NNDpT9oGsbaElbkErT06chEG89b53CuNWzGyagxjBID
- YWxzyM/Y2kw4qKBh2bTlR6dxkg8qWSoyVpUC2wqjNlJpu2IOreLgBzLJURz6NfaXbpno
- l7gWOf7PL9DU00ln/wh53+zl+iHb+hbNy7XqIfAVMKEbbLgOI24sdqICK5Wx9lbsKR1a
- qowLuf7dtFdrB5DToWlYm5IY6s5xc3NmG5Jw0WZobHNsVfAX5+U+puA7UpnRLGlquQEj
- I1AQ==
-X-Gm-Message-State: AOAM531JS3K1XguX+3Tuauj2oSxXSYN13zkaE7p61a7ax2UVcetXnZr+
- ol+ohqahNyS34iHsVsPg45AWpWLU/rt9SR+j9JT0QNwINN3SQ6zRqKebHucnI1WcSX4Gf6WEj6t
- F242a/KmwNrZGZRNDKOSVvPnf70jGwK79LNqUaHQnZlhi
-X-Received: by 2002:a17:906:11ce:: with SMTP id
- o14mr3733138eja.457.1638327820985; 
- Tue, 30 Nov 2021 19:03:40 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJyeSqLiNgoO2EqpceUvjVVII7sT+IiNW3CWyOLBsD5iZPP9Ldfx+9k2CqAAV4GDsec6B2uEs4jVPRY7k5pHwG0=
-X-Received: by 2002:a17:906:11ce:: with SMTP id
- o14mr3733095eja.457.1638327820779; 
- Tue, 30 Nov 2021 19:03:40 -0800 (PST)
-MIME-Version: 1.0
-References: <20211129014007.286478-1-wefu@redhat.com>
- <20211129014007.286478-3-wefu@redhat.com>
- <CAJF2gTSOZfcAUed+DmfugWQ0=_nJgRdL1JzJgYdmrFoNXVWM9g@mail.gmail.com>
-In-Reply-To: <CAJF2gTSOZfcAUed+DmfugWQ0=_nJgRdL1JzJgYdmrFoNXVWM9g@mail.gmail.com>
-From: Wei Fu <wefu@redhat.com>
-Date: Wed, 1 Dec 2021 11:03:29 +0800
-Message-ID: <CA+YCwKnWPsDdROcEBXbjCe8RKQB9gsd4ynO0K4qyU8=YhYKB3A@mail.gmail.com>
-Subject: Re: [PATCH V4 2/2] riscv: add RISC-V Svpbmt extension supports
-To: Guo Ren <guoren@kernel.org>
-Cc: Anup Patel <anup.patel@wdc.com>, atishp04@gmail.com, 
- Palmer Dabbelt <palmer@dabbelt.com>,
- =?UTF-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>, 
- Philipp Tomsich <philipp.tomsich@vrull.eu>, Christoph Hellwig <hch@lst.de>,
- liush <liush@allwinnertech.com>, 
- =?UTF-8?B?V2VpIFd1ICjlkLTkvJ8p?= <lazyparser@gmail.com>, 
- Drew Fustini <drew@beagleboard.org>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- taiten.peng@canonical.com, Aniket Ponkshe <aniket.ponkshe@canonical.com>, 
- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
- Gordan Markus <gordan.markus@canonical.com>, Guo Ren <guoren@linux.alibaba.com>,
- Arnd Bergmann <arnd@arndb.de>, Chen-Yu Tsai <wens@csie.org>,
- Maxime Ripard <maxime@cerno.tech>, 
- Daniel Lustig <dlustig@nvidia.com>, Greg Favor <gfavor@ventanamicro.com>, 
+ id 1msFxX-007MCe-SP
+ for linux-riscv@lists.infradead.org; Wed, 01 Dec 2021 03:07:06 +0000
+Received: by mail-sender-0.a4lg.com (Postfix) with ESMTPSA id 62C92300089;
+ Wed,  1 Dec 2021 03:06:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=irq.a4lg.com;
+ s=2017s01; t=1638328016;
+ bh=jCn23iMIrHBoRtWjcFw98/gYkwF92XfZiHhfmSCjOoI=;
+ h=Message-ID:Date:Mime-Version:Subject:To:Cc:References:From:
+ In-Reply-To:Content-Type:Content-Transfer-Encoding;
+ b=Q4C3aVpjzLvUhcQZ0lsBqlScwT4xWJD5JPZfXmOEtqw95aLEXZhLT54jSOSxqajxK
+ XrcUmoHUNPqB8zy+nMvPcaPpUbV1zU9lCab2Xwqvvj5pIiBKXoUl7yzBSm4wIP/URQ
+ 8w8+niE3DSM0hJaa+cbWdVOL6oSBjwgd4YY/fREE=
+Message-ID: <1d035613-390c-32c2-aa92-cc0f7797488d@irq.a4lg.com>
+Date: Wed, 1 Dec 2021 12:06:53 +0900
+Mime-Version: 1.0
+Subject: Re: [PATCH V4 1/2] dt-bindings: riscv: add MMU Standard Extensions
+ support for Svpbmt
+Content-Language: en-US
+To: Atish Patra <atishp@atishpatra.org>, Jessica Clarke <jrtc27@jrtc27.com>
+Cc: Philipp Tomsich <philipp.tomsich@vrull.eu>,
+ =?UTF-8?Q?Heiko_St=c3=bcbner?= <heiko@sntech.de>,
+ linux-riscv <linux-riscv@lists.infradead.org>, Wei Fu <wefu@redhat.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ taiten.peng@canonical.com, Aniket Ponkshe <aniket.ponkshe@canonical.com>,
+ Gordan Markus <gordan.markus@canonical.com>,
+ Guo Ren <guoren@linux.alibaba.com>, Arnd Bergmann <arnd@arndb.de>,
+ Chen-Yu Tsai <wens@csie.org>, Maxime Ripard <maxime@cerno.tech>,
+ Dan Lustig <dlustig@nvidia.com>, Greg Favor <gfavor@ventanamicro.com>,
  Andrea Mondelli <andrea.mondelli@huawei.com>,
- Jonathan Behrens <behrensj@mit.edu>, 
- "Xinhaoqu (Freddie)" <xinhaoqu@huawei.com>, Bill Huffman <huffman@cadence.com>,
- Nick Kossifidis <mick@ics.forth.gr>, Allen Baum <allen.baum@esperantotech.com>,
- Josh Scheid <jscheid@ventanamicro.com>, Richard Trauben <rtrauben@gmail.com>, 
- Palmer Dabbelt <palmerdabbelt@google.com>, Atish Patra <atish.patra@wdc.com>
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=wefu@redhat.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+ Jonathan Behrens <behrensj@mit.edu>, Xinhaoqu <xinhaoqu@huawei.com>,
+ Bill Huffman <huffman@cadence.com>, Nick Kossifidis <mick@ics.forth.gr>,
+ Allen Baum <allen.baum@esperantotech.com>,
+ Josh Scheid <jscheid@ventanamicro.com>, Richard Trauben
+ <rtrauben@gmail.com>, Anup Patel <anup@brainfault.org>,
+ Rob Herring <robh+dt@kernel.org>, Anup Patel <Anup.Patel@wdc.com>,
+ atishp04@gmail.com, Palmer Dabbelt <palmer@dabbelt.com>,
+ Guo Ren <guoren@kernel.org>, =?UTF-8?Q?Christoph_M=c3=bcllner?=
+ <christoph.muellner@vrull.eu>, Christoph Hellwig <hch@lst.de>,
+ liush <liush@allwinnertech.com>, Wei Wu <lazyparser@gmail.com>,
+ Drew Fustini <drew@beagleboard.org>,
+ Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+References: <20211129014007.286478-1-wefu@redhat.com>
+ <1909580.k68io2XIxi@diego> <D7F256F9-F31F-4663-AADD-A535E159F87C@jrtc27.com>
+ <2728314.U2HhIfhhqV@diego> <C19C85E6-821B-4A87-B764-56CF4D53E7FA@jrtc27.com>
+ <CAAeLtUC0Qc6ysf31sh0dkvfJD-JsREZbyFFk=Ko0vQeBRzyjaw@mail.gmail.com>
+ <03B8F784-4AF3-425D-99B6-F753F7970273@jrtc27.com>
+ <CAOnJCUKmP6dsrV9xWC52uEaM0=fZh-FNDYyFg1VxQybpQZABMA@mail.gmail.com>
+From: Tsukasa OI <research_trasio@irq.a4lg.com>
+In-Reply-To: <CAOnJCUKmP6dsrV9xWC52uEaM0=fZh-FNDYyFg1VxQybpQZABMA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211130_190347_170915_F26BADE2 
-X-CRM114-Status: GOOD (  40.24  )
+X-CRM114-CacheID: sfid-20211130_190704_326189_0BA17F63 
+X-CRM114-Status: GOOD (  34.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,407 +86,140 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Thanks for reminding me, Guo Ren. :-)
-yes, I am working on the new version , yes, my bad, I am adding it in to my V5
-
-On Tue, Nov 30, 2021 at 6:19 PM Guo Ren <guoren@kernel.org> wrote:
->
-> Hi,
->
-> We forgot fixmap, add below into your patch.
->
-> diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
-> index 54cbf07fb4e9..899b59bdb9eb 100644
-> --- a/arch/riscv/include/asm/fixmap.h
-> +++ b/arch/riscv/include/asm/fixmap.h
-> @@ -43,8 +43,6 @@ enum fixed_addresses {
->         __end_of_fixed_addresses
->  };
->
-> -#define FIXMAP_PAGE_IO         PAGE_KERNEL
-> -
->  #define __early_set_fixmap     __set_fixmap
->
->  #define __late_set_fixmap      __set_fixmap
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index f3c9f9a1c1bb..9bb06384c57f 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -126,6 +126,8 @@
->                                 | _PAGE_SHARE \
->                                 | _PAGE_SO)
->
-> +#define PAGE_KERNEL_IO         __pgprot(_PAGE_IOREMAP)
->
-> On Mon, Nov 29, 2021 at 9:41 AM <wefu@redhat.com> wrote:
-> >
-> > From: Wei Fu <wefu@redhat.com>
-> >
-> > This patch follows the standard pure RISC-V Svpbmt extension in
-> > privilege spec to solve the non-coherent SOC dma synchronization
-> > issues.
-> >
-> > Here is the svpbmt PTE format:
-> > | 63 | 62-61 | 60-8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
-> >   N     MT     RSW    D   A   G   U   X   W   R   V
-> >         ^
-> >
-> > Of the Reserved bits [63:54] in a leaf PTE, the high bit is already
-> > allocated (as the N bit), so bits [62:61] are used as the MT (aka
-> > MemType) field. This field specifies one of three memory types that
-> > are close equivalents (or equivalent in effect) to the three main x86
-> > and ARMv8 memory types - as shown in the following table.
-> >
-> > RISC-V
-> > Encoding &
-> > MemType     RISC-V Description
-> > ----------  ------------------------------------------------
-> > 00 - PMA    Normal Cacheable, No change to implied PMA memory type
-> > 01 - NC     Non-cacheable, idempotent, weakly-ordered Main Memory
-> > 10 - IO     Non-cacheable, non-idempotent, strongly-ordered I/O memory
-> > 11 - Rsvd   Reserved for future standard use
-> >
-> > The standard protection_map[] needn't be modified because the "PMA"
-> > type keeps the highest bits zero. And the whole modification is
-> > limited in the arch/riscv/* and using a global variable
-> > (__svpbmt) as _PAGE_MASK/IO/NOCACHE for pgprot_noncached
-> > (&writecombine) in pgtable.h. We also add _PAGE_CHG_MASK to filter
-> > PFN than before.
-> >
-> > Enable it in devicetree - (Add "riscv,svpbmt" in the mmu of cpu node)
-> >  - mmu:
-> >      riscv,svpmbt
-> >
-> > Signed-off-by: Wei Fu <wefu@redhat.com>
-> > Co-developed-by: Liu Shaohua <liush@allwinnertech.com>
-> > Signed-off-by: Liu Shaohua <liush@allwinnertech.com>
-> > Co-developed-by: Guo Ren <guoren@kernel.org>
-> > Signed-off-by: Guo Ren <guoren@kernel.org>
-> > Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-> > Cc: Christoph Hellwig <hch@lst.de>
-> > Cc: Anup Patel <anup.patel@wdc.com>
-> > Cc: Arnd Bergmann <arnd@arndb.de>
-> > Cc: Atish Patra <atish.patra@wdc.com>
-> > Cc: Drew Fustini <drew@beagleboard.org>
-> > Cc: Wei Fu <wefu@redhat.com>
-> > Cc: Wei Wu <lazyparser@gmail.com>
-> > Cc: Chen-Yu Tsai <wens@csie.org>
-> > Cc: Maxime Ripard <maxime@cerno.tech>
-> > Cc: Daniel Lustig <dlustig@nvidia.com>
-> > Cc: Greg Favor <gfavor@ventanamicro.com>
-> > Cc: Andrea Mondelli <andrea.mondelli@huawei.com>
-> > Cc: Jonathan Behrens <behrensj@mit.edu>
-> > Cc: Xinhaoqu (Freddie) <xinhaoqu@huawei.com>
-> > Cc: Bill Huffman <huffman@cadence.com>
-> > Cc: Nick Kossifidis <mick@ics.forth.gr>
-> > Cc: Allen Baum <allen.baum@esperantotech.com>
-> > Cc: Josh Scheid <jscheid@ventanamicro.com>
-> > Cc: Richard Trauben <rtrauben@gmail.com>
-> > ---
-> >  arch/riscv/include/asm/fixmap.h       |  2 +-
-> >  arch/riscv/include/asm/pgtable-64.h   | 21 ++++++++++++---
-> >  arch/riscv/include/asm/pgtable-bits.h | 39 +++++++++++++++++++++++++--
-> >  arch/riscv/include/asm/pgtable.h      | 39 ++++++++++++++++++++-------
-> >  arch/riscv/kernel/cpufeature.c        | 35 ++++++++++++++++++++++++
-> >  arch/riscv/mm/init.c                  |  5 ++++
-> >  6 files changed, 126 insertions(+), 15 deletions(-)
-> >
-> > diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
-> > index 54cbf07fb4e9..5acd99d08e74 100644
-> > --- a/arch/riscv/include/asm/fixmap.h
-> > +++ b/arch/riscv/include/asm/fixmap.h
-> > @@ -43,7 +43,7 @@ enum fixed_addresses {
-> >         __end_of_fixed_addresses
-> >  };
-> >
-> > -#define FIXMAP_PAGE_IO         PAGE_KERNEL
-> > +#define FIXMAP_PAGE_IO         PAGE_IOREMAP
-> >
-> >  #define __early_set_fixmap     __set_fixmap
-> >
-> > diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-> > index 228261aa9628..16d251282b1d 100644
-> > --- a/arch/riscv/include/asm/pgtable-64.h
-> > +++ b/arch/riscv/include/asm/pgtable-64.h
-> > @@ -59,14 +59,29 @@ static inline void pud_clear(pud_t *pudp)
-> >         set_pud(pudp, __pud(0));
-> >  }
-> >
-> > +static inline unsigned long _chg_of_pmd(pmd_t pmd)
-> > +{
-> > +       return (pmd_val(pmd) & _PAGE_CHG_MASK);
-> > +}
-> > +
-> > +static inline unsigned long _chg_of_pud(pud_t pud)
-> > +{
-> > +       return (pud_val(pud) & _PAGE_CHG_MASK);
-> > +}
-> > +
-> > +static inline unsigned long _chg_of_pte(pte_t pte)
-> > +{
-> > +       return (pte_val(pte) & _PAGE_CHG_MASK);
-> > +}
-> > +
-> >  static inline pmd_t *pud_pgtable(pud_t pud)
-> >  {
-> > -       return (pmd_t *)pfn_to_virt(pud_val(pud) >> _PAGE_PFN_SHIFT);
-> > +       return (pmd_t *)pfn_to_virt(_chg_of_pud(pud) >> _PAGE_PFN_SHIFT);
-> >  }
-> >
-> >  static inline struct page *pud_page(pud_t pud)
-> >  {
-> > -       return pfn_to_page(pud_val(pud) >> _PAGE_PFN_SHIFT);
-> > +       return pfn_to_page(_chg_of_pud(pud) >> _PAGE_PFN_SHIFT);
-> >  }
-> >
-> >  static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
-> > @@ -76,7 +91,7 @@ static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
-> >
-> >  static inline unsigned long _pmd_pfn(pmd_t pmd)
-> >  {
-> > -       return pmd_val(pmd) >> _PAGE_PFN_SHIFT;
-> > +       return _chg_of_pmd(pmd) >> _PAGE_PFN_SHIFT;
-> >  }
-> >
-> >  #define mk_pmd(page, prot)    pfn_pmd(page_to_pfn(page), prot)
-> > diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
-> > index 2ee413912926..e5b0fce4ddc5 100644
-> > --- a/arch/riscv/include/asm/pgtable-bits.h
-> > +++ b/arch/riscv/include/asm/pgtable-bits.h
-> > @@ -7,7 +7,7 @@
-> >  #define _ASM_RISCV_PGTABLE_BITS_H
-> >
-> >  /*
-> > - * PTE format:
-> > + * rv32 PTE format:
-> >   * | XLEN-1  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
-> >   *       PFN      reserved for SW   D   A   G   U   X   W   R   V
-> >   */
-> > @@ -24,6 +24,40 @@
-> >  #define _PAGE_DIRTY     (1 << 7)    /* Set by hardware on any write */
-> >  #define _PAGE_SOFT      (1 << 8)    /* Reserved for software */
-> >
-> > +#if !defined(__ASSEMBLY__) && defined(CONFIG_64BIT)
-> > +/*
-> > + * rv64 PTE format:
-> > + * | 63 | 62 61 | 60 54 | 53  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
-> > + *   N      MT     RSV    PFN      reserved for SW   D   A   G   U   X   W   R   V
-> > + * [62:61] Memory Type definitions:
-> > + *  00 - PMA    Normal Cacheable, No change to implied PMA memory type
-> > + *  01 - NC     Non-cacheable, idempotent, weakly-ordered Main Memory
-> > + *  10 - IO     Non-cacheable, non-idempotent, strongly-ordered I/O memory
-> > + *  11 - Rsvd   Reserved for future standard use
-> > + */
-> > +#define _SVPBMT_PMA            0UL
-> > +#define _SVPBMT_NC             (1UL << 61)
-> > +#define _SVPBMT_IO             (1UL << 62)
-> > +#define _SVPBMT_MASK           (_SVPBMT_NC | _SVPBMT_IO)
-> > +
-> > +extern struct __svpbmt_struct {
-> > +       unsigned long mask;
-> > +       unsigned long pma;
-> > +       unsigned long nocache;
-> > +       unsigned long io;
-> > +} __svpbmt __cacheline_aligned;
-> > +
-> > +#define _PAGE_MASK             __svpbmt.mask
-> > +#define _PAGE_PMA              __svpbmt.pma
-> > +#define _PAGE_NOCACHE          __svpbmt.nocache
-> > +#define _PAGE_IO               __svpbmt.io
-> > +#else
-> > +#define _PAGE_MASK             0
-> > +#define _PAGE_PMA              0
-> > +#define _PAGE_NOCACHE          0
-> > +#define _PAGE_IO               0
-> > +#endif /* !__ASSEMBLY__ && CONFIG_64BIT */
-> > +
-> >  #define _PAGE_SPECIAL   _PAGE_SOFT
-> >  #define _PAGE_TABLE     _PAGE_PRESENT
-> >
-> > @@ -38,7 +72,8 @@
-> >  /* Set of bits to preserve across pte_modify() */
-> >  #define _PAGE_CHG_MASK  (~(unsigned long)(_PAGE_PRESENT | _PAGE_READ | \
-> >                                           _PAGE_WRITE | _PAGE_EXEC |    \
-> > -                                         _PAGE_USER | _PAGE_GLOBAL))
-> > +                                         _PAGE_USER | _PAGE_GLOBAL |   \
-> > +                                         _PAGE_MASK))
-> >  /*
-> >   * when all of R/W/X are zero, the PTE is a pointer to the next level
-> >   * of the page table; otherwise, it is a leaf PTE.
-> > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> > index bf204e7c1f74..0f7a6541015f 100644
-> > --- a/arch/riscv/include/asm/pgtable.h
-> > +++ b/arch/riscv/include/asm/pgtable.h
-> > @@ -138,7 +138,8 @@
-> >                                 | _PAGE_PRESENT \
-> >                                 | _PAGE_ACCESSED \
-> >                                 | _PAGE_DIRTY \
-> > -                               | _PAGE_GLOBAL)
-> > +                               | _PAGE_GLOBAL \
-> > +                               | _PAGE_PMA)
-> >
-> >  #define PAGE_KERNEL            __pgprot(_PAGE_KERNEL)
-> >  #define PAGE_KERNEL_READ       __pgprot(_PAGE_KERNEL & ~_PAGE_WRITE)
-> > @@ -148,11 +149,9 @@
-> >
-> >  #define PAGE_TABLE             __pgprot(_PAGE_TABLE)
-> >
-> > -/*
-> > - * The RISC-V ISA doesn't yet specify how to query or modify PMAs, so we can't
-> > - * change the properties of memory regions.
-> > - */
-> > -#define _PAGE_IOREMAP _PAGE_KERNEL
-> > +#define _PAGE_IOREMAP  ((_PAGE_KERNEL & ~_PAGE_MASK) | _PAGE_IO)
-> > +
-> > +#define PAGE_IOREMAP           __pgprot(_PAGE_IOREMAP)
-> >
-> >  extern pgd_t swapper_pg_dir[];
-> >
-> > @@ -232,12 +231,12 @@ static inline unsigned long _pgd_pfn(pgd_t pgd)
-> >
-> >  static inline struct page *pmd_page(pmd_t pmd)
-> >  {
-> > -       return pfn_to_page(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
-> > +       return pfn_to_page(_chg_of_pmd(pmd) >> _PAGE_PFN_SHIFT);
-> >  }
-> >
-> >  static inline unsigned long pmd_page_vaddr(pmd_t pmd)
-> >  {
-> > -       return (unsigned long)pfn_to_virt(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
-> > +       return (unsigned long)pfn_to_virt(_chg_of_pmd(pmd) >> _PAGE_PFN_SHIFT);
-> >  }
-> >
-> >  static inline pte_t pmd_pte(pmd_t pmd)
-> > @@ -253,7 +252,7 @@ static inline pte_t pud_pte(pud_t pud)
-> >  /* Yields the page frame number (PFN) of a page table entry */
-> >  static inline unsigned long pte_pfn(pte_t pte)
-> >  {
-> > -       return (pte_val(pte) >> _PAGE_PFN_SHIFT);
-> > +       return (_chg_of_pte(pte) >> _PAGE_PFN_SHIFT);
-> >  }
-> >
-> >  #define pte_page(x)     pfn_to_page(pte_pfn(x))
-> > @@ -492,6 +491,28 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
-> >         return ptep_test_and_clear_young(vma, address, ptep);
-> >  }
-> >
-> > +#define pgprot_noncached pgprot_noncached
-> > +static inline pgprot_t pgprot_noncached(pgprot_t _prot)
-> > +{
-> > +       unsigned long prot = pgprot_val(_prot);
-> > +
-> > +       prot &= ~_PAGE_MASK;
-> > +       prot |= _PAGE_IO;
-> > +
-> > +       return __pgprot(prot);
-> > +}
-> > +
-> > +#define pgprot_writecombine pgprot_writecombine
-> > +static inline pgprot_t pgprot_writecombine(pgprot_t _prot)
-> > +{
-> > +       unsigned long prot = pgprot_val(_prot);
-> > +
-> > +       prot &= ~_PAGE_MASK;
-> > +       prot |= _PAGE_NOCACHE;
-> > +
-> > +       return __pgprot(prot);
-> > +}
-> > +
-> >  /*
-> >   * THP functions
-> >   */
-> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> > index d959d207a40d..fa7480cb8b87 100644
-> > --- a/arch/riscv/kernel/cpufeature.c
-> > +++ b/arch/riscv/kernel/cpufeature.c
-> > @@ -8,6 +8,7 @@
-> >
-> >  #include <linux/bitmap.h>
-> >  #include <linux/of.h>
-> > +#include <linux/pgtable.h>
-> >  #include <asm/processor.h>
-> >  #include <asm/hwcap.h>
-> >  #include <asm/smp.h>
-> > @@ -59,6 +60,38 @@ bool __riscv_isa_extension_available(const unsigned long *isa_bitmap, int bit)
-> >  }
-> >  EXPORT_SYMBOL_GPL(__riscv_isa_extension_available);
-> >
-> > +static void __init mmu_supports_svpbmt(void)
-> > +{
-> > +#if defined(CONFIG_MMU) && defined(CONFIG_64BIT)
-> > +       struct device_node *node;
-> > +       const char *str;
-> > +
-> > +       for_each_of_cpu_node(node) {
-> > +               if (of_property_read_string(node, "mmu-type", &str))
-> > +                       continue;
-> > +
-> > +               if (!strncmp(str + 6, "none", 4))
-> > +                       continue;
-> > +
-> > +               if (of_property_read_string(node, "mmu", &str))
-> > +                       continue;
-> > +
-> > +               if (strncmp(str + 6, "svpmbt", 6))
-> > +                       continue;
-> > +       }
-> > +
-> > +       __svpbmt.pma            = _SVPBMT_PMA;
-> > +       __svpbmt.nocache        = _SVPBMT_NC;
-> > +       __svpbmt.io             = _SVPBMT_IO;
-> > +       __svpbmt.mask           = _SVPBMT_MASK;
-> > +#endif
-> > +}
-> > +
-> > +static void __init mmu_supports(void)
-> > +{
-> > +       mmu_supports_svpbmt();
-> > +}
-> > +
-> >  void __init riscv_fill_hwcap(void)
-> >  {
-> >         struct device_node *node;
-> > @@ -67,6 +100,8 @@ void __init riscv_fill_hwcap(void)
-> >         size_t i, j, isa_len;
-> >         static unsigned long isa2hwcap[256] = {0};
-> >
-> > +       mmu_supports();
-> > +
-> >         isa2hwcap['i'] = isa2hwcap['I'] = COMPAT_HWCAP_ISA_I;
-> >         isa2hwcap['m'] = isa2hwcap['M'] = COMPAT_HWCAP_ISA_M;
-> >         isa2hwcap['a'] = isa2hwcap['A'] = COMPAT_HWCAP_ISA_A;
-> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > index 24b2b8044602..e4e658165ee1 100644
-> > --- a/arch/riscv/mm/init.c
-> > +++ b/arch/riscv/mm/init.c
-> > @@ -854,3 +854,8 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
-> >         return vmemmap_populate_basepages(start, end, node, NULL);
-> >  }
-> >  #endif
-> > +
-> > +#if defined(CONFIG_64BIT)
-> > +struct __svpbmt_struct __svpbmt __ro_after_init;
-> > +EXPORT_SYMBOL(__svpbmt);
-> > +#endif
-> > --
-> > 2.25.4
-> >
->
->
-> --
-> Best Regards
->  Guo Ren
->
-> ML: https://lore.kernel.org/linux-csky/
->
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjAyMS8xMi8wMSAxMDoyMSwgQXRpc2ggUGF0cmEgd3JvdGU6Cj4gT24gVHVlLCBOb3YgMzAs
+IDIwMjEgYXQgODoxMyBBTSBKZXNzaWNhIENsYXJrZSA8anJ0YzI3QGpydGMyNy5jb20+IHdyb3Rl
+Ogo+Pgo+PiBPbiAzMCBOb3YgMjAyMSwgYXQgMTU6MDEsIFBoaWxpcHAgVG9tc2ljaCA8cGhpbGlw
+cC50b21zaWNoQHZydWxsLmV1PiB3cm90ZToKPj4+Cj4+PiBXZSBkaWQgdG91Y2ggb24gdGhpcyBp
+biBvdXIgY29vcmRpbmF0aW9uIGNhbGwgYSBmZXcgd2Vla3MgYWdvOiB0aGUKPj4+IGdyb3VwaW5n
+IHVuZGVyIG1tdSBhbmQgdGhlIGJvb2wtZW50cmllcyB3ZXJlIGNob3NlbiBiZWNhdXNlIG9mIHRo
+ZWlyCj4+PiBzaW1pbGFyaXR5IHRvIG90aGVyIGV4dGVuc2lvbnMgKGkuZS4gZm9yIFpiW2FiY3Nd
+IHRoZXJlIGNvdWxkL3Nob3VsZAo+Pj4gYmUgYSBib29sLWVudHJ5IHVuZGVyIGVhY2ggY3B1LW5v
+ZGUg4oCUIGZvciBzb21lIFp2KiBlbnRyaWVzIGEgc3Vibm9kZQo+Pj4gbWlnaHQgYmUgbmVlZGVk
+IHdpdGggZnVydGhlciBwYXJhbWV0ZXJzKS4KPj4+Cj4+PiBUaGUgc3RyaW5nLWJhc2VkIGFwcHJv
+YWNoIChhcyBpbiB0aGUgb3JpZ2luYWxseSBwcm9wb3NlZCAibW11LXR5cGU9IikKPj4+IHdvdWxk
+IGxpa2Ugbm90IHNjYWxlIHdpdGggdGhlIHByb2xpZmVyYXRpb24gb2Ygc21hbGwgJiBtb2R1bGFy
+Cj4+PiBleHRlbnNpb25zLgo+Pgo+PiBJIGRvbuKAmXQgc2VlIHdoeSB0aGUgU3YqIGV4dGVuc2lv
+bnMgbmVlZCB0byBiZSB1bmRlciBhbiBtbXUgbm9kZSB0aGVuLAo+PiB1bmxlc3MgdGhlIGludGVu
+dCBpcyB0aGF0IGV2ZXJ5IGV4dGVuc2lvbiBiZSBncm91cGVkIHVuZGVyIGEgc3ViLW5vZGUKPj4g
+KHdoaWNoIGRvZXNu4oCZdCBzZWVtIHZpYWJsZSBkdWUgdG8gZXh0ZW5zaW9ucyBsaWtlIFpiayos
+IHVubGVzcyB5b3UKPj4gZ3JvdXAgYnkgU3MsIFN2IGFuZCBaKT8KPj4KPiAKPiBJdCBzaG91bGRu
+J3QgYmUuIEFsbCB0aGUgSVNBIGV4dGVuc2lvbnMgKGkuZS4gc3RhbmRhcmQsIHN1cGVydmlzb3Ig
+JiBoeXBlcnZpc29yKQo+IHdpdGggcHJlZml4IFMsWixIIHNob3VsZCBiZSBrZXB0IHNlcGFyYXRl
+IGluIGEgc2VwYXJhdGUgbm9kZSBmb3IgZWFzeQo+IHBhcnNpbmcuCgoiRWFzeSBwYXJzaW5nIiBp
+cyBub3QgcXVpdGUgY29udmluY2luZy4KClRoZXJlJ3MgYSByZWFzb24gb3RoZXIgdGhhbiB0aGF0
+IEkgbWFkZSBSRkMgUEFUQ0ggdG8gcGFyc2UKbXVsdGktbGV0dGVyIGV4dGVuc2lvbnM6Cgp2MTog
+PGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL3BpcGVybWFpbC9saW51eC1yaXNjdi8yMDIxLU5v
+dmVtYmVyLzAxMDI1Mi5odG1sPgp2MjogPGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL3BpcGVy
+bWFpbC9saW51eC1yaXNjdi8yMDIxLU5vdmVtYmVyLzAxMDM1MC5odG1sPgoKKG5vdGU6IHRob3Nl
+IHBhdGNoZXMgd2lsbCBicmVhayBSSVNDLVYgS1ZNIGJlY2F1c2Ugb2YgcG9zc2libGUgSVNBCiAg
+ICAgICBNYW51YWwgaW5jb25zaXN0ZW5jeSBhbmQgZGlzY3Vzc2lvbi9yZXNvbHV0aW9uIG5lZWRl
+ZCkKCiguLi5jb250aW51ZWQgYmVsb3cuLi4pCgo+IAo+ICJyaXNjdixpc2EiIGR0IHByb3BlcnR5
+IHdpbGwgbm90IHNjYWxlIGF0IGFsbC4gSnVzdCBsb29rIGF0IHRoZSBmZXcKPiBleHRlbnNpb25z
+IHRoYXQgd2VyZSByYXRpZmllZCB0aGlzIHllYXIKPiBhbmQgTGludXgga2VybmVsIG5lZWRzIHRv
+IHN1cHBvcnQgdGhlbS4KPiAKPiAiU3Njb2ZwbWYiLCAiU3ZwYm10IiwgIlppY2JvbSIKPiAKPj4g
+QWxzbywgd2hhdCBpcyBnb2luZyB0byBoYXBwZW4gdG8gdGhlIGN1cnJlbnQgcmlzY3YsaXNhPyBX
+aWxsIHRoYXQKPj4gY29udGludWUgdG8gZXhpc3QgYW5kIGR1cGxpY2F0ZSB0aGUgaW5mbywgb3Ig
+d2lsbCBrZXJuZWxzIGJlIHJlcXVpcmVkCj4+IHRvIHJlY29uc3RydWN0IHRoZSBzdHJpbmcgdGhl
+bXNlbHZlcyBpZiB0aGV5IHdhbnQgdG8gZGlzcGxheSBpdCB0bwo+PiB1c2Vycz8KPj4KPiAKPiBU
+aGlzIGlzIG15IHBlcnNvbmFsIHByZWZlcmVuY2U6Cj4gcmlzY3YsaXNhIHdpbGwgY29udGludWUg
+dG8gYmFzZSBTdGFuZGFyZCBJU0EgZXh0ZW5zaW9ucyB0aGF0IGhhdmUKPiBzaW5nbGUgbGV0dGVy
+IGV4dGVuc2lvbnMuCj4gCj4gVGhpcyBuZXcgRFQgbm9kZSB3aWxsIGVuY29kZSBhbGwgdGhlIG5v
+bi1zaW5nbGUgbGV0dGVyIGV4dGVuc2lvbnMuCj4gSSBhbSBub3Qgc3VyZSBpZiBpdCBzaG91bGQg
+aW5jbHVkZSBzb21lIHByb3Zpc2lvbnMgZm9yIGN1c3RvbQo+IGV4dGVuc2lvbnMgc3RhcnRpbmcg
+d2l0aCBYIGJlY2F1c2UKPiB0aGF0IHdpbGwgYmUgcGxhdGZvcm0gc3BlY2lmaWMuCj4gCj4gQWdh
+aW4sIHRoaXMgaXMganVzdCBteSBwZXJzb25hbCBwcmVmZXJlbmNlLiBJIHdpbGwgdHJ5IHRvIHNl
+bmQgYSBwYXRjaAo+IHNvb24gc28gdGhhdCB3ZSBjYW4gaW5pdGlhdGUgYSBicm9hZGVyCj4gZGlz
+Y3Vzc2lvbiBvZiB0aGUgc2NoZW1lIGFuZCBhZ3JlZS9kaXNhZ3JlZSBvbiBzb21ldGhpbmcuCgpG
+b3Igc3VwZXJ2aXNvci1vbmx5IGV4dGVuc2lvbnMgbGlrZSAiU3ZwYm10IiwgbmV3IERUIG5vZGUg
+d291bGQgYmUgYQpyZWFzb25hYmxlIHNvbHV0aW9uIChhbmQgSSB3b3VsZCBub3QgZGlyZWN0bHkg
+b2JqZWN0IGFib3V0IHRoYXQgbm9kZSkuCgpIb3dldmVyLCB0aGVyZSdzIG1hbnkgbXVsdGktbGV0
+dGVyIGV4dGVuc2lvbnMgdGhhdCBhcmUgdXNlZnVsIGZvcgp1c2VyIG1vZGUuICBCZWNhdXNlICJy
+aXNjdixpc2EiIGlzIGV4cG9zZWQgdmlhIHN5c2ZzIGFuZCBwcm9jZnMKKC9wcm9jL2NwdWluZm8p
+LCBpdCBjYW4gYmUgcmVhbGx5IGhlbHBmdWwgdG8gaGF2ZSBtdWx0aS1sZXR0ZXIKZXh0ZW5zaW9u
+cy4gIEFsc28sIGN1cnJlbnQgdmVyc2lvbiBvZiBTcGlrZSwgYSBSSVNDLVYgSVNBIFNpbXVsYXRv
+cgpwdXRzIGFsbCBtdWx0aS1sZXR0ZXIgZXh0ZW5zaW9ucyBpbiAicmlzY3YsaXNhIiBhbmQgSSB0
+aG91Z2h0IHRoaXMgaXMKaW50ZW5kZWQuCgpNeSBwcmVmZXJlbmNlOgooMSkgQWxsb3cgaGF2aW5n
+IG11bHRpLWxldHRlciBleHRlbnNpb25zIGFuZCB2ZXJzaW9ucyBpbiAicmlzY3YsaXNhIgooMikg
+QWRkaW5nIG5ldyBEVCBub2RlIGZvciBzdXBlcnZpc29yLXJlbGF0ZWQgZXh0ZW5zaW9ucyB3b3Vs
+ZCBiZQogICAgcmVhc29uYWJsZSAoYnV0IEkgZG9uJ3Qgc3Ryb25nbHkgYWdyZWUvZGlzYWdyZWUp
+LgoKVGhhbmtzLApUc3VrYXNhCgo+IAo+IAo+IAo+PiBBcyBhIEZyZWVCU0QgZGV2ZWxvcGVyIEni
+gJltIG9idmlvdXNseSBub3QgYSBwYXJ0IG9mIG1hbnkgb2YgdGhlc2UKPj4gZGlzY3Vzc2lvbnMs
+IGJ1dCB3aGF0IHRoZSBMaW51eCBjb21tdW5pdHkgaW1wb3NlcyBhcyB0aGUgZGV2aWNlIHRyZWUK
+Pj4gYmluZGluZ3MgaGFzIGEgcmVhbCBpbXBhY3Qgb24gdXMuCj4+Cj4+IEplc3MKPj4KPj4+IE9u
+IFR1ZSwgMzAgTm92IDIwMjEgYXQgMTQ6NTksIEplc3NpY2EgQ2xhcmtlIDxqcnRjMjdAanJ0YzI3
+LmNvbT4gd3JvdGU6Cj4+Pj4KPj4+PiBPbiAzMCBOb3YgMjAyMSwgYXQgMTM6MjcsIEhlaWtvIFN0
+w7xibmVyIDxoZWlrb0BzbnRlY2guZGU+IHdyb3RlOgo+Pj4+Pgo+Pj4+PiBIaSwKPj4+Pj4KPj4+
+Pj4gQW0gRGllbnN0YWcsIDMwLiBOb3ZlbWJlciAyMDIxLCAxNDoxNzo0MSBDRVQgc2NocmllYiBK
+ZXNzaWNhIENsYXJrZToKPj4+Pj4+IE9uIDMwIE5vdiAyMDIxLCBhdCAxMjowNywgSGVpa28gU3TD
+vGJuZXIgPGhlaWtvQHNudGVjaC5kZT4gd3JvdGU6Cj4+Pj4+Pj4KPj4+Pj4+PiBBbSBNb250YWcs
+IDI5LiBOb3ZlbWJlciAyMDIxLCAxMzowNjoyMyBDRVQgc2NocmllYiBIZWlrbyBTdMO8Ym5lcjoK
+Pj4+Pj4+Pj4gQW0gTW9udGFnLCAyOS4gTm92ZW1iZXIgMjAyMSwgMDk6NTQ6MzkgQ0VUIHNjaHJp
+ZWIgSGVpbnJpY2ggU2NodWNoYXJkdDoKPj4+Pj4+Pj4+IE9uIDExLzI5LzIxIDAyOjQwLCB3ZWZ1
+QHJlZGhhdC5jb20gd3JvdGU6Cj4+Pj4+Pj4+Pj4gRnJvbTogV2VpIEZ1IDx3ZWZ1QHJlZGhhdC5j
+b20+Cj4+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+PiBQcmV2aW91cyBwYXRjaCBoYXMgYWRkZWQgc3ZwYm10
+IGluIGFyY2gvcmlzY3YgYW5kIGFkZCAicmlzY3Ysc3ZwbWJ0Igo+Pj4+Pj4+Pj4+IGluIHRoZSBE
+VCBtbXUgbm9kZS4gVXBkYXRlIGR0LWJpbmRpbmdzIHJlbGF0ZWQgcHJvcGVydHkgaGVyZS4KPj4+
+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4+IFNpZ25lZC1vZmYtYnk6IFdlaSBGdSA8d2VmdUByZWRoYXQuY29t
+Pgo+Pj4+Pj4+Pj4+IENvLWRldmVsb3BlZC1ieTogR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+
+Cj4+Pj4+Pj4+Pj4gU2lnbmVkLW9mZi1ieTogR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+Cj4+
+Pj4+Pj4+Pj4gQ2M6IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+Cj4+Pj4+Pj4+Pj4g
+Q2M6IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAZGFiYmVsdC5jb20+Cj4+Pj4+Pj4+Pj4gQ2M6IFJv
+YiBIZXJyaW5nIDxyb2JoK2R0QGtlcm5lbC5vcmc+Cj4+Pj4+Pj4+Pj4gLS0tCj4+Pj4+Pj4+Pj4g
+RG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L2NwdXMueWFtbCB8IDEwICsr
+KysrKysrKysKPj4+Pj4+Pj4+PiAxIGZpbGUgY2hhbmdlZCwgMTAgaW5zZXJ0aW9ucygrKQo+Pj4+
+Pj4+Pj4+Cj4+Pj4+Pj4+Pj4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9i
+aW5kaW5ncy9yaXNjdi9jcHVzLnlhbWwgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGlu
+Z3MvcmlzY3YvY3B1cy55YW1sCj4+Pj4+Pj4+Pj4gaW5kZXggYWE1ZmI2NGQ1N2ViLi45ZmY5Y2Jk
+ZDhhODUgMTAwNjQ0Cj4+Pj4+Pj4+Pj4gLS0tIGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2Jp
+bmRpbmdzL3Jpc2N2L2NwdXMueWFtbAo+Pj4+Pj4+Pj4+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2
+aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9jcHVzLnlhbWwKPj4+Pj4+Pj4+PiBAQCAtNjMsNiArNjMs
+MTYgQEAgcHJvcGVydGllczoKPj4+Pj4+Pj4+PiAgICAgIC0gcmlzY3Ysc3Y0OAo+Pj4+Pj4+Pj4+
+ICAgICAgLSByaXNjdixub25lCj4+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+PiArICBtbXU6Cj4+Pj4+Pj4+
+Pgo+Pj4+Pj4+Pj4gU2hvdWxkbid0IHdlIGtlZXAgdGhlIGl0ZW1zIGJlIGluIGFscGhhYmV0aWMg
+b3JkZXIsIGkuZS4gbW11IGJlZm9yZQo+Pj4+Pj4+Pj4gbW11LXR5cGU/Cj4+Pj4+Pj4+Pgo+Pj4+
+Pj4+Pj4+ICsgICAgZGVzY3JpcHRpb246Cj4+Pj4+Pj4+Pj4gKyAgICAgIERlc2NyaWJlcyB0aGUg
+Q1BVJ3MgTU1VIFN0YW5kYXJkIEV4dGVuc2lvbnMgc3VwcG9ydC4KPj4+Pj4+Pj4+PiArICAgICAg
+VGhlc2UgdmFsdWVzIG9yaWdpbmF0ZSBmcm9tIHRoZSBSSVNDLVYgUHJpdmlsZWdlZAo+Pj4+Pj4+
+Pj4+ICsgICAgICBTcGVjaWZpY2F0aW9uIGRvY3VtZW50LCBhdmFpbGFibGUgZnJvbQo+Pj4+Pj4+
+Pj4+ICsgICAgICBodHRwczovL3Jpc2N2Lm9yZy9zcGVjaWZpY2F0aW9ucy8KPj4+Pj4+Pj4+PiAr
+ICAgICRyZWY6ICcvc2NoZW1hcy90eXBlcy55YW1sIy9kZWZpbml0aW9ucy9zdHJpbmcnCj4+Pj4+
+Pj4+Pj4gKyAgICBlbnVtOgo+Pj4+Pj4+Pj4+ICsgICAgICAtIHJpc2N2LHN2cG1idAo+Pj4+Pj4+
+Pj4KPj4+Pj4+Pj4+IFRoZSBwcml2aWxlZ2VkIHNwZWNpZmljYXRpb24gaGFzIG11bHRpcGxlIE1N
+VSByZWxhdGVkIGV4dGVuc2lvbnM6Cj4+Pj4+Pj4+PiBTdm5hcG90LCBTdnBibXQsIFN2aW52YWwu
+IFNoYWxsIHRoZXkgYWxsIGJlIG1vZGVsZWQgaW4gdGhpcyBlbnVtPwo+Pj4+Pj4+Pgo+Pj4+Pj4+
+PiBJIHJlbWVtYmVyIGluIHNvbWUgZWFybGllciB2ZXJzaW9uIHNvbWUgd2F5IGJhY2sgdGhlcmUg
+d2FzIHRoZQo+Pj4+Pj4+PiBzdWdnZXN0aW9uIG9mIHVzaW5nIGEgc3ViLW5vZGUgaW5zdGVhZCBh
+bmQgdGhlbiBhZGRpbmcgYm9vbGVhbgo+Pj4+Pj4+PiBwcm9wZXJ0aWVzIGZvciB0aGUgc3VwcG9y
+dGVkIGV4dGVuc2lvbnMuCj4+Pj4+Pj4+Cj4+Pj4+Pj4+IEFrYSBzb21ldGhpbmcgbGlrZQo+Pj4+
+Pj4+PiAgIG1tdSB7Cj4+Pj4+Pj4+ICAgICAgICAgICByaXNjdixzdnBibXQ7Cj4+Pj4+Pj4+ICAg
+fTsKPj4+Pj4+Pgo+Pj4+Pj4+IEZvciB0aGUgcmVjb3JkLCBJJ20gdGFsa2luZyBhYm91dCB0aGUg
+bWFpbCBmcm9tIHNlcHRlbWJlcgo+Pj4+Pj4+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4
+LXJpc2N2L0NBQWVMdFVDaGpqekcrUDh5ZzQ1R0xaTUp5NVVSMks1UlJCb0xGVlpodE9hWjVwUHRF
+QUBtYWlsLmdtYWlsLmNvbS8KPj4+Pj4+Pgo+Pj4+Pj4+IFNvIGhhdmluZyBhIHN1Yi1ub2RlIHdv
+dWxkIG1ha2UgYWRkaW5nIGZ1dHVyZSBleHRlbnNpb25zCj4+Pj4+Pj4gd2F5IG5pY2VyLgo+Pj4+
+Pj4KPj4+Pj4+IFN2cGJtdCBpcyBqdXN0IGFuIElTQSBleHRlbnNpb24sIGFuZCBzaG91bGQgYmUg
+dHJlYXRlZCBsaWtlIGFueSBvdGhlci4KPj4+Pj4+IExldOKAmXMgbm90IGludmVudCB0d28gZGlm
+ZmVyZW50IHdheXMgb2YgcmVwcmVzZW50aW5nIHRoYXQgaW4gdGhlIGRldmljZQo+Pj4+Pj4gdHJl
+ZS4KPj4+Pj4KPj4+Pj4gSGVpbnJpY2ggYXNrZWQgaG93IHRoZSBvdGhlciBleHRlbnNpb25zIHNo
+b3VsZCBiZSBoYW5kbGVkCj4+Pj4+IChTdm5hcG90LCBTdnBibXQsIFN2aW52YWwpLCBzbyB3aGF0
+IGRvIHlvdSBzdWdnZXN0IHRvIGRvIHdpdGggdGhlc2U/Cj4+Pj4KPj4+PiBXaGF0ZXZlciBpcyBk
+b25lIGZvciBaYlthYmNzXSwgWmsqLCBadiosIFppY2JvKiwgZXRjLiBUaGVyZSBtYXkgbm90IGJl
+Cj4+Pj4gYSBjb25jcmV0ZSBwbGFuIGZvciB0aGF0IHlldCwgYnV0IHRoYXQgbWVhbnMgeW91IHNo
+b3VsZCBzcGVhayB3aXRoIHRoZQo+Pj4+IHBlb3BsZSBpbnZvbHZlZCB3aXRoIHN1Y2ggZXh0ZW5z
+aW9ucyBhbmQgY29tZSB1cCB3aXRoIHNvbWV0aGluZwo+Pj4+IGFwcHJvcHJpYXRlIHRvZ2V0aGVy
+Lgo+Pj4+Cj4+Pj4gSmVzcwo+Pj4+Cj4+Cj4+Cj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCj4+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+PiBsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKPiAKPiAKPiAKPiAtLQo+IFJlZ2FyZHMsCj4g
+QXRpc2gKPiAKPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+Xwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cj4gCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
