@@ -4,92 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BAEFC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Dec 2021 00:21:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7347C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Dec 2021 00:32:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hEDXSJyg00pQ/bJ+dwqTYU9Do2DRFuCNBHo0voqD5j8=; b=KVq8jYpAnAQ6L9DHHcTQkvQW/o
-	qWucv8u73SUuP7oPacDSoctJLmmJ5nN5MH8K001BxiadaR7VfI5IxzjpuodWiQCpHtWGP+q3tnqmm
-	eWIAPLVoKTLoJBA+osNMQJoD749akbchOoRRCOsAPfn4oWYOO2V04VogBGJK84uigf4G+v/eyqKWN
-	/14Db/E0AleidWwDeMB3YdsJPAhMF1zMIWkoLvIfGgHNWawqLoclEp/6q37zHvl4+pDwb0IyUWIsH
-	r8hrB0XtOSKfjGLbAAoyfmY+sxalMwiRO8xmdschdV4VEiXjNfA/goRg+XzHRwZE6P57sYFJhycpe
-	QV0AmXxw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=V9o5ifyskDsq7wQIMzCJN4+v6Gg8aQWONJKaQ5Hiako=; b=2qDxYgiJnII4p2
+	r8nW9KeoJeOehkMaXr6zKdKKU1oXW+y3pDftPQmwUp2GcBch060OBQhdzvycizNqnQTsh+239WbxN
+	5CytkLcgxDlnL0MvsZK/1TiYUzarzG7wBDIBAhiNxKy51sdSEo3SOOR3KfmuZH/wVsMgR6dt0BFad
+	eQe8RzXNovGaYgOR2B/AboQp4QjM0J2+QHSx2rGKlq+xlqLfaf9ILXc+6Za1YEaw67TdOsgdPTBcU
+	YcrZ1AX+10s8bpO4+XxWUtHd6DEwzlHNuIKnnsW050bALCNBJ6roSjLsONm1LIfABQ4wApTp0EkzW
+	C89V4D6GMSoKUtPF9iyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1msZqn-00ARHW-2S; Thu, 02 Dec 2021 00:21:25 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1msa0p-00ASJh-TE; Thu, 02 Dec 2021 00:31:47 +0000
+Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1msZqY-00ARDP-Lt
- for linux-riscv@lists.infradead.org; Thu, 02 Dec 2021 00:21:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1638404468;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=NhjUm+Uzq07hcdbPpfZp7q3IwjENAUM81hW4GGc1zR4=;
- b=KRrBMjazKSsYVAmdsa1cockyGrcdKm6LCWpqXcsED3eadSP/wD4yYGe4A/6iEMMIUTrl17
- +xXCVlFHROiWeKPmoXJacMwoBeMhkdOYqP/kTEBB6VkntdU1uPZngTvn7k5HyPLWKay7ld
- 47AAcccuFa8JzLfWWqYHf78Dohx9qFY=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-469-7M16yyPZNkOCqvz9ClWIdA-1; Wed, 01 Dec 2021 19:21:04 -0500
-X-MC-Unique: 7M16yyPZNkOCqvz9ClWIdA-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com
- [10.5.11.15])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7EC65102CC41;
- Thu,  2 Dec 2021 00:21:00 +0000 (UTC)
-Received: from starship (unknown [10.40.192.24])
- by smtp.corp.redhat.com (Postfix) with ESMTP id CBF425D6BA;
- Thu,  2 Dec 2021 00:20:46 +0000 (UTC)
-Message-ID: <32eabe7d270e5a466ba2d9345b4270b8fe27700c.camel@redhat.com>
-Subject: Re: [PATCH v2 11/43] KVM: Don't block+unblock when halt-polling is
- successful
-From: Maxim Levitsky <mlevitsk@redhat.com>
-To: Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson
- <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
- Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>, Paul Mackerras
- <paulus@ozlabs.org>, Anup Patel <anup.patel@wdc.com>,  Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>,  Christian Borntraeger <borntraeger@de.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>, James Morse <james.morse@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>, Suzuki K Poulose
- <suzuki.poulose@arm.com>, Atish Patra <atish.patra@wdc.com>, David
- Hildenbrand <david@redhat.com>, Cornelia Huck <cohuck@redhat.com>, Claudio
- Imbrenda <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>,
- Wanpeng Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,
- Joerg Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org, 
- kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
- kvm@vger.kernel.org,  kvm-ppc@vger.kernel.org,
- kvm-riscv@lists.infradead.org,  linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, Oliver
- Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>, Wei Huang
- <wei.huang2@amd.com>
-Date: Thu, 02 Dec 2021 02:20:45 +0200
-In-Reply-To: <458c0819a578ba854f00089bc312c8faa177a81a.camel@redhat.com>
-References: <20211009021236.4122790-1-seanjc@google.com>
- <20211009021236.4122790-12-seanjc@google.com>
- <cceb33be9e2a6ac504bb95a7b2b8cf5fe0b1ff26.camel@redhat.com>
- <4e883728e3e5201a94eb46b56315afca5e95ad9c.camel@redhat.com>
- <YaUNBfJh35WXMV0M@google.com>
- <496c2fc6-26b0-9b5d-32f4-2f9e9dd6a064@redhat.com>
- <YaUiEquKYi5eqWC0@google.com>
- <880a5727-69d1-72a1-b129-b053781625ad@redhat.com>
- <458c0819a578ba854f00089bc312c8faa177a81a.camel@redhat.com>
-Content-Type: multipart/mixed; boundary="=-XBtBz6EzfH3Aw3rcptLe"
-User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
+ id 1msa0m-00ASIo-JW; Thu, 02 Dec 2021 00:31:46 +0000
+Received: by mail-qv1-xf2d.google.com with SMTP id u16so23421365qvk.4;
+ Wed, 01 Dec 2021 16:31:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:content-transfer-encoding:in-reply-to;
+ bh=UYmHlVbMSQbQAn62a50WlYWlw5WYikEw/HKO8MU8o20=;
+ b=d9ufFBZIjBeCnfJhxkhOJHR4U6gA3sYY5/+OartHrmtyqhNuwpEH+tfc93YA7tEDao
+ yOKDodcNFRle3eMMLCg2FH/Tcgr7cW593yntXLl1utZLUJtVShRNQEOc9NvEo4hEL1rm
+ L2l6bxTExKPSRmbnMRKqIcZhoOpd63W1ZKagDrFCRbYIcYvSgN+CxBxrwTxGRSsHeVKf
+ UXZK5TS9EbCKBOwmJzZ51FgzKmkah4fU/bnP1hNtNTskTK6qjluwzPEk7uWUTAkKCdZ1
+ XxzA5TtEBQPg9PU9R4bStLW9Ne4zdJoIM+RpRwYI7AmQcqEYlTEIoOnEsCuvtTzXmNFj
+ 00eA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:content-transfer-encoding
+ :in-reply-to;
+ bh=UYmHlVbMSQbQAn62a50WlYWlw5WYikEw/HKO8MU8o20=;
+ b=pd1ChqY40LJyrsgGgWQ1FhhbbhYRMG756kDQL09DNwl/xsyk36pl/y58qq58zYSo07
+ tcr5Cj58zWlwHlATAYtKQ8ElSFkMx/dDno+WGHBJ3nlgRKYlLJLFCn4U5MmI/jAJo7xm
+ U0Uh+nH8V6z6RiM62KXlrtfHAtEluzhbfJzWLo6FO/ufezK8z3p0vcg3rfpjrjHw2SBw
+ qJriepRTLx7glWOXCih/m+Mfivn3b/LuKOnKNn1q67PUKszcOO5S5x6e6cA/ephJK9o7
+ b/vAD4U36VMSaRDqycpYuK8OjOcxIE3M1O9VJ3i/p5SCRRIaeyjrz9p7V99TRtWbxpe9
+ /dKg==
+X-Gm-Message-State: AOAM533jSBnyQ3FMnVhZgwCzZgV79eQS5SdJx4AynqJ7hKlRVyFWUZJi
+ cV3KGsUKR02MEvVcbH7lYhs=
+X-Google-Smtp-Source: ABdhPJwpuPpSi7n83vlL+jLX5fyPRTIJyAHbiKfUe+xvjm76YV/xzPPNg/iMW1GhI6PSi3iKc0YBEA==
+X-Received: by 2002:a05:6214:ccc:: with SMTP id 12mr9930154qvx.8.1638405102640; 
+ Wed, 01 Dec 2021 16:31:42 -0800 (PST)
+Received: from localhost ([66.216.211.25])
+ by smtp.gmail.com with ESMTPSA id l1sm690890qkp.125.2021.12.01.16.31.41
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 01 Dec 2021 16:31:42 -0800 (PST)
+Date: Wed, 1 Dec 2021 16:31:40 -0800
+From: Yury Norov <yury.norov@gmail.com>
+To: =?utf-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>
+Cc: linux-kernel@vger.kernel.org, "James E.J. Bottomley" <jejb@linux.ibm.com>,
+ "Paul E. McKenney" <paulmck@kernel.org>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Amitkumar Karwar <amitkarwar@gmail.com>,
+ Alexey Klimov <aklimov@redhat.com>, linux-alpha@vger.kernel.org,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Andy Gross <agross@kernel.org>,
+ Mike Marciniszyn <mike.marciniszyn@cornelisnetworks.com>,
+ Petr Mladek <pmladek@suse.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Andrew Lunn <andrew@lunn.ch>, Andi Kleen <ak@linux.intel.com>,
+ Tejun Heo <tj@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+ Vlastimil Babka <vbabka@suse.cz>, Anup Patel <anup.patel@wdc.com>,
+ linux-ia64@vger.kernel.org, Andy Shevchenko <andy@infradead.org>,
+ Andy Lutomirski <luto@kernel.org>,
+ Matti Vaittinen <mazziesaccount@gmail.com>,
+ Mel Gorman <mgorman@suse.de>, Christoph Hellwig <hch@lst.de>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+ Borislav Petkov <bp@alien8.de>, Arnd Bergmann <arnd@arndb.de>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Stephen Rothwell <sfr@canb.auug.org.au>,
+ David Laight <David.Laight@aculab.com>,
+ Sunil Goutham <sgoutham@marvell.com>, David Airlie <airlied@linux.ie>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Viresh Kumar <viresh.kumar@linaro.org>, Daniel Vetter <daniel@ffwll.ch>,
+ bcm-kernel-feedback-list@broadcom.com,
+ Christoph Lameter <cl@linux.com>, linux-crypto@vger.kernel.org,
+ Hans de Goede <hdegoede@redhat.com>, linux-mm@kvack.org,
+ Guo Ren <guoren@kernel.org>, linux-snps-arc@lists.infradead.org,
+ Geetha sowjanya <gakula@marvell.com>, Mark Rutland <mark.rutland@arm.com>,
+ Dinh Nguyen <dinguyen@kernel.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Dennis Zhou <dennis@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ Heiko Carstens <hca@linux.ibm.com>, Nicholas Piggin <npiggin@gmail.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Randy Dunlap <rdunlap@infradead.org>,
+ Roy Pledge <Roy.Pledge@nxp.com>, Saeed Mahameed <saeedm@nvidia.com>,
+ Jens Axboe <axboe@fb.com>, Jason Wessel <jason.wessel@windriver.com>,
+ Jakub Kicinski <kuba@kernel.org>,
+ Sergey Senozhatsky <senozhatsky@chromium.org>,
+ Ingo Molnar <mingo@redhat.com>, Stephen Boyd <sboyd@kernel.org>,
+ Ian Rogers <irogers@google.com>, Steven Rostedt <rostedt@goodmis.org>,
+ Sagi Grimberg <sagi@grimberg.me>, Sudeep Holla <sudeep.holla@arm.com>,
+ Kalle Valo <kvalo@codeaurora.org>, Tariq Toukan <tariqt@nvidia.com>,
+ Juri Lelli <juri.lelli@redhat.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Jonathan Cameron <jic23@kernel.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>, Jiri Olsa <jolsa@redhat.com>,
+ Vineet Gupta <vgupta@kernel.org>, Solomon Peachy <pizza@shaftnet.org>,
+ Vivien Didelot <vivien.didelot@gmail.com>,
+ Lee Jones <lee.jones@linaro.org>, Will Deacon <will@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ kvm@vger.kernel.org, Kees Cook <keescook@chromium.org>,
+ linux-arm-kernel@lists.infradead.org,
+ Subbaraya Sundeep <sbhatta@marvell.com>, linux-csky@vger.kernel.org,
+ Marcin Wojtas <mw@semihalf.com>, linux-mips@vger.kernel.org,
+ Marc Zyngier <maz@kernel.org>, linux-perf-users@vger.kernel.org,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ linux-s390@vger.kernel.org, Mark Gross <markgross@kernel.org>,
+ linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH 0/9] lib/bitmap: optimize bitmap_weight() usage
+Message-ID: <20211202003140.GA430494@lapt>
+References: <20211128035704.270739-1-yury.norov@gmail.com>
+ <YaPEfZ0t9UFGwpml@qmqm.qmqm.pl> <20211129063839.GA338729@lapt>
+ <3CD9ECD8-901E-497B-9AE1-0DDB02346892@rere.qmqm.pl>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+Content-Disposition: inline
+In-Reply-To: <3CD9ECD8-901E-497B-9AE1-0DDB02346892@rere.qmqm.pl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211201_162110_885286_52229857 
-X-CRM114-Status: GOOD (  62.21  )
+X-CRM114-CacheID: sfid-20211201_163144_696773_B4EC5D85 
+X-CRM114-Status: GOOD (  34.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,233 +148,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---=-XBtBz6EzfH3Aw3rcptLe
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-
-On Tue, 2021-11-30 at 00:53 +0200, Maxim Levitsky wrote:
-> On Mon, 2021-11-29 at 20:18 +0100, Paolo Bonzini wrote:
-> > On 11/29/21 19:55, Sean Christopherson wrote:
-> > > > Still it does seem to be a race that happens when IS_RUNNING=true but
-> > > > vcpu->mode == OUTSIDE_GUEST_MODE.  This patch makes the race easier to
-> > > > trigger because it moves IS_RUNNING=false later.
-> > > 
-> > > Oh!  Any chance the bug only repros with preemption enabled?  That would explain
-> > > why I don't see problems, I'm pretty sure I've only run AVIC with a PREEMPT=n.
-> > 
-> > Me too.
-> > 
-> > > svm_vcpu_{un}blocking() are called with preemption enabled, and avic_set_running()
-> > > passes in vcpu->cpu.  If the vCPU is preempted and scheduled in on a different CPU,
-> > > avic_vcpu_load() will overwrite the vCPU's entry with the wrong CPU info.
-> > 
-> > That would make a lot of sense.  avic_vcpu_load() can handle 
-> > svm->avic_is_running = false, but avic_set_running still needs its body 
-> > wrapped by preempt_disable/preempt_enable.
-> > 
-> > Fedora's kernel is CONFIG_PREEMPT_VOLUNTARY, but I know Maxim uses his 
-> > own build so it would not surprise me if he used CONFIG_PREEMPT=y.
-> > 
-> > Paolo
-> > 
-> 
-> I will write ll the details tomorrow but I strongly suspect the CPU errata 
-> https://developer.amd.com/wp-content/resources/56323-PUB_0.78.pdf
-> #1235
->  
-> Basically what I see that
->  
-> 1. vCPU2 disables is_running in avic physical id cache
-> 2. vCPU2 checks that IRR is empty and it is
-> 3. vCPU2 does schedule();
->  
-> and it keeps on sleeping forever. If I kick it via signal 
-> (like just doing 'info registers' qemu hmp command
-> or just stop/cont on the same hmp interface, the
-> vCPU wakes up and notices that IRR suddenly is not empty,
-> and the VM comes back to life (and then hangs after a while again
-> with the same problem....).
->  
-> As far as I see in the traces, the bit in IRR came from
-> another VCPU who didn't respect the ir_running bit and didn't get 
-> AVIC_INCOMPLETE_IPI VMexit.
-> I can't 100% prove it yet, but everything in the trace shows this.
->  
-> About the rest of the environment, currently I reproduce this in
-> a VM which has no pci passed through devices at all, just AVIC.
-> (I wasn't able to reproduce it before just because I forgot to
-> enable AVIC in this configuration).
->  
-> So I also agree that Sean's patch is not to blame here,
-> it just made the window between setting is_running and getting to sleep
-> shorter and made it less likely that other vCPUs will pick up the is_running change.
-> (I suspect that they pick it up on next vmrun, and otherwise the value is somehow
-> cached wrongfully in them).
->  
-> A very performance killing workaround of kicking all vCPUs when one of them enters vcpu_block
-> does seem to work for me but it skews all the timing off so I can't prove it.
->  
-> That is all, I will write more detailed info, including some traces I have.
->  
-> I do use windows 10 with so called LatencyMon in it, which shows overall how
-> much latency hardware interrupts have, which used to be useful for me to
-> ensure that my VMs are suitable for RT like latency (even before I joined RedHat,
-> I tuned my VMs as much as I could to make my Rift CV1 VR headset work well which 
-> needs RT like latencies.
->  
-> These days VR works fine in my VMs anyway, but I still kept this tool to keep an eye on it).
->  
-> I really need to write a kvm unit test to stress test IPIs, especially this case,
-> I will do this very soon.
->  
->  
-> Wei Huang, any info on this would be very helpful. 
->  
-> Maybe putting the avic physical table in UC memory would help? 
-> Maybe ringing doorbells of all other vcpus will help them notice the change?
-> 
-> Best regards,
-> 	Maxim Levitsky
-
-
-Hi!
-
-I am now almost sure that this is errata #1235.
-
-I had attached a kvm-unit-test I wrote (patch against master of https://gitlab.com/kvm-unit-tests/kvm-unit-tests.git/)
-which is able to reproduce the issue on stock 5.15.0 kernel (*no patches applied at all*) after just few seconds.
-If kvm is loaded without halt-polling (that is  halt_poll_ns=0 is used).
-
-Halt polling and/or Sean's patch are not to blame, it just changes timeing.
-With Sean's patch I don't need to disable half polling.
-
-I did find few avic inhibition bugs that this test also finds and to make it work before I fix them,
-I added a workaround to not hit them in this test.
-I'll send patches to fix those very soon.
-Note that in windows VM there were no avic inhibitions so those bugs are not relevant.
-
-Wei Huang, do you know if this issue is fixed on Zen3, and if it is fixed on some Zen2 machines?
-Any workarounds other than 'don't use avic'?
-
-Best regards,
-	Maxim Levitsky
-
-
---=-XBtBz6EzfH3Aw3rcptLe
-Content-Disposition: attachment; filename="0001-add-unit-test-for-avic-ipi.patch"
-Content-Transfer-Encoding: base64
-Content-Type: text/x-patch; name="0001-add-unit-test-for-avic-ipi.patch";
-	charset="UTF-8"
-
-RnJvbSBkYmEyOTU1NzlkMTBmZjg4YjU5NjY5N2M4NjFhN2M4M2Y1ZTlkMDEzIE1vbiBTZXAgMTcg
-MDA6MDA6MDAgMjAwMQpGcm9tOiBNYXhpbSBMZXZpdHNreSA8bWxldml0c2tAcmVkaGF0LmNvbT4K
-RGF0ZTogVHVlLCAzMCBOb3YgMjAyMSAxMzo1Njo1NyArMDIwMApTdWJqZWN0OiBbUEFUQ0hdIGFk
-ZCB1bml0IHRlc3QgZm9yIGF2aWMgaXBpCgpTaWduZWQtb2ZmLWJ5OiBNYXhpbSBMZXZpdHNreSA8
-bWxldml0c2tAcmVkaGF0LmNvbT4KLS0tCiB4ODYvTWFrZWZpbGUuY29tbW9uIHwgICAzICstCiB4
-ODYvaXBpX3N0cmVzcy5jICAgIHwgMTY5ICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
-KysrKysrKysrKysrCiB4ODYvdW5pdHRlc3RzLmNmZyAgIHwgICA1ICsrCiAzIGZpbGVzIGNoYW5n
-ZWQsIDE3NiBpbnNlcnRpb25zKCspLCAxIGRlbGV0aW9uKC0pCiBjcmVhdGUgbW9kZSAxMDA2NDQg
-eDg2L2lwaV9zdHJlc3MuYwoKZGlmZiAtLWdpdCBhL3g4Ni9NYWtlZmlsZS5jb21tb24gYi94ODYv
-TWFrZWZpbGUuY29tbW9uCmluZGV4IDQ2MWRlNTEuLjM3MmQ2ZWMgMTAwNjQ0Ci0tLSBhL3g4Ni9N
-YWtlZmlsZS5jb21tb24KKysrIGIveDg2L01ha2VmaWxlLmNvbW1vbgpAQCAtNjAsNyArNjAsOCBA
-QCB0ZXN0cy1jb21tb24gPSAkKFRFU1RfRElSKS92bWV4aXQuZmxhdCAkKFRFU1RfRElSKS90c2Mu
-ZmxhdCBcCiAgICAgICAgICAgICAgICAkKFRFU1RfRElSKS9pbml0LmZsYXQgJChURVNUX0RJUikv
-c21hcC5mbGF0IFwKICAgICAgICAgICAgICAgICQoVEVTVF9ESVIpL2h5cGVydl9zeW5pYy5mbGF0
-ICQoVEVTVF9ESVIpL2h5cGVydl9zdGltZXIuZmxhdCBcCiAgICAgICAgICAgICAgICAkKFRFU1Rf
-RElSKS9oeXBlcnZfY29ubmVjdGlvbnMuZmxhdCBcCi0gICAgICAgICAgICAgICAkKFRFU1RfRElS
-KS91bWlwLmZsYXQgJChURVNUX0RJUikvdHN4LWN0cmwuZmxhdAorICAgICAgICAgICAgICAgJChU
-RVNUX0RJUikvdW1pcC5mbGF0ICQoVEVTVF9ESVIpL3RzeC1jdHJsLmZsYXQgXAorICAgICAgICAg
-ICAgICAgJChURVNUX0RJUikvaXBpX3N0cmVzcy5mbGF0CiAKIHRlc3RfY2FzZXM6ICQodGVzdHMt
-Y29tbW9uKSAkKHRlc3RzKQogCmRpZmYgLS1naXQgYS94ODYvaXBpX3N0cmVzcy5jIGIveDg2L2lw
-aV9zdHJlc3MuYwpuZXcgZmlsZSBtb2RlIDEwMDY0NAppbmRleCAwMDAwMDAwLi41MGNiZjM5Ci0t
-LSAvZGV2L251bGwKKysrIGIveDg2L2lwaV9zdHJlc3MuYwpAQCAtMCwwICsxLDE2OSBAQAorI2lu
-Y2x1ZGUgImxpYmNmbGF0LmgiCisjaW5jbHVkZSAic21wLmgiCisjaW5jbHVkZSAiYWxsb2MuaCIK
-KyNpbmNsdWRlICJhcGljLmgiCisjaW5jbHVkZSAicHJvY2Vzc29yLmgiCisjaW5jbHVkZSAiaXNy
-LmgiCisjaW5jbHVkZSAiYXNtL2JhcnJpZXIuaCIKKyNpbmNsdWRlICJkZWxheS5oIgorI2luY2x1
-ZGUgImF0b21pYy5oIgorCitzdGF0aWMgYXRvbWljX3QgcnVubmluZ19jcHVzOworCit2b2xhdGls
-ZSB1NjQgKmlzcl9jb3VudHM7CisKK3ZvbGF0aWxlIGJvb2wgZmluaXNoX2luaXQ7CisKK3U2NCBu
-dW1fb3V0ZXJfaXRlcmF0aW9ucyA9IDU7CisjZGVmaW5lIE5VTV9JTk5FUl9JVEVSQVRJT05TIDEw
-MDAwCisjZGVmaW5lIFRPVEFMX05VTUJFUl9JVEVSQVRJT05TIChudW1fb3V0ZXJfaXRlcmF0aW9u
-cyAqIE5VTV9JTk5FUl9JVEVSQVRJT05TKQorCitzdGF0aWMgdm9pZCBpcGlfaW50ZXJydXB0X2hh
-bmRsZXIoaXNyX3JlZ3NfdCAqcikKK3sKKwlpc3JfY291bnRzW3NtcF9pZCgpXSsrOworCWVvaSgp
-OworfQorCitzdGF0aWMgIHZvaWQgd2FpdF9mb3JfaXBpKHZvbGF0aWxlIHU2NCAqY291bnQpCit7
-CisJdTY0IG9sZF9jb3VudCA9ICpjb3VudDsKKwl3aGlsZSAoMSkgeworCQlpZiAoKHJkdHNjKCkg
-Pj4gNCkgJSAxMDAwMCAhPSAwICkgeworCQkJYXNtIHZvbGF0aWxlKAorCQkJICAgIC8qIHNob3J0
-IHdpbmRvdyBmb3IgaW50ZXJydXB0cyAqLworCQkJICAgICJzdGlcbiIKKwkJCSAgICAibm9wXG4i
-CisJCQkgICAgImNsaVxuIgorCQkJKTsKKwkJCWlmIChvbGRfY291bnQgIT0gKmNvdW50KQorCQkJ
-CWJyZWFrOworCQl9CisKKwkJZWxzZSB7CisJCQlhc20gdm9sYXRpbGUoCisJCQkgICAgLyogc2hv
-cnQgd2luZG93IGZvciBpbnRlcnJ1cHRzICovCisJCQkgICAgInN0aVxuIgorCQkJICAgICJobHRc
-biIKKwkJCSAgICAiY2xpXG4iCisJCQkpOworCisJCQlpZiAob2xkX2NvdW50ICE9ICpjb3VudCkK
-KwkJCQlicmVhazsKKwkJfQorCX07Cit9CisKK3N0YXRpYyB2b2lkIHZjcHVfaW5pdCh2b2lkICpk
-YXRhKQoreworCWludCBjcHUgPSAobG9uZylkYXRhOworCisJLyogVG8gbWFrZSBpdCBlYXNpZXIg
-dG8gc2VlIGl0ZXJhdGlvbiBudW1iZXIgaW4gdGhlIHRyYWNlICovCisJaGFuZGxlX2lycSgweDQw
-LCBpcGlfaW50ZXJydXB0X2hhbmRsZXIpOworCWhhbmRsZV9pcnEoMHg1MCwgaXBpX2ludGVycnVw
-dF9oYW5kbGVyKTsKKworCWF0b21pY19pbmMoJnJ1bm5pbmdfY3B1cyk7CisKKwlpZiAoY3B1ICE9
-IDApCisJCXdoaWxlICghZmluaXNoX2luaXQpOworfQorCitzdGF0aWMgdm9pZCB2Y3B1X2NvZGUo
-dm9pZCAqZGF0YSkKK3sKKwlpbnQgbmNwdXMgPSBjcHVfY291bnQoKTsKKwlpbnQgY3B1ID0gKGxv
-bmcpZGF0YTsKKwl1NjQgaTsKKworCWFzc2VydChjcHUgIT0gMCk7CisJaWYgKGNwdSAhPSAxKQor
-CQl3YWl0X2Zvcl9pcGkoJmlzcl9jb3VudHNbY3B1XSk7CisKKwlmb3IgKGkgPSAwOyBpIDwgVE9U
-QUxfTlVNQkVSX0lURVJBVElPTlM7IGkrKykgeworCisJCXU4IHBoeXNpY2FsX2RzdCA9IGNwdSA9
-PSBuY3B1cyAtMSA/IDEgOiBjcHUgKyAxOworCisJCS8vIHNlbmQgSVBJIHRvIGEgbmV4dCB2Q1BV
-IGluIGEgY2lyY3VsYXIgZmFzaGlvbgorCQlhcGljX2ljcl93cml0ZShBUElDX0lOVF9BU1NFUlQg
-fAorCQkJCUFQSUNfREVTVF9QSFlTSUNBTCB8CisJCQkJQVBJQ19ETV9GSVhFRCB8CisJCQkJKGkg
-JSAyID8gMHg0MCA6IDB4NTApLAorCQkJCXBoeXNpY2FsX2RzdCk7CisKKwkJLy8gd2FpdCBmb3Ig
-dGhlIElQSSBpbnRlcnJ1cHQgY2hhaW4gdG8gY29tZSBiYWNrIHRvIHVzCisJCWlmIChpIDwgKFRP
-VEFMX05VTUJFUl9JVEVSQVRJT05TIC0gMSkgfHwgY3B1ID09IDEpCisJCQl3YWl0X2Zvcl9pcGko
-Jmlzcl9jb3VudHNbY3B1XSk7CisKKwkJaWYgKGNwdSA9PSAxICYmIChpICUgTlVNX0lOTkVSX0lU
-RVJBVElPTlMgPT0gMCkpCisJCQlwcmludGYoIi4iKTsKKwl9Cit9CisKKworCitpbnQgbWFpbihp
-bnQgYXJnYywgdm9pZCoqIGFyZ3YpCit7CisJaW50IGNwdSwgbmNwdXMgPSBjcHVfY291bnQoKTsK
-KworCWFzc2VydChuY3B1cyA+IDIpOworCisJaWYgKGFyZ2MgPiAxKQorCQludW1fb3V0ZXJfaXRl
-cmF0aW9ucyA9IGF0b2woYXJndlsxXSk7CisKKwlpc3JfY291bnRzID0gKHZvbGF0aWxlIHU2NCAq
-KWNhbGxvYyhuY3B1cywgc2l6ZW9mKHU2NCkpOworCisJcHJpbnRmKCJmb3VuZCAlZCBjcHVzXG4i
-LCBuY3B1cyk7CisJcHJpbnRmKCJydW5uaW5nIGZvciAlbGxkIGl0ZXJhdGlvbnNcbiIsCisJCShs
-b25nIGxvbmcgdW5zaWduZWQgaW50KVRPVEFMX05VTUJFUl9JVEVSQVRJT05TKTsKKworCS8qCisJ
-ICogRW5zdXJlIHRoYXQgd2UgZG9uJ3QgaGF2ZSBpbnRlcnJ1cHQgd2luZG93IHBlbmRpbmcKKwkg
-KiBmcm9tIFBJVCB0aW1lciB3aGljaCBpbmhpYml0cyB0aGUgQVZJQy4KKwkgKi8KKworCWZvciAo
-Y3B1ID0gMDsgY3B1IDwgbmNwdXM7ICsrY3B1KQorCQlvbl9jcHVfYXN5bmMoY3B1LCB2Y3B1X2lu
-aXQsICh2b2lkICopKGxvbmcpY3B1KTsKKworCS8qIFdvcmthcm91bmQgZm9yIGFwaWMtPmlycl9w
-ZW5kaW5nIGJ1ZyB2cyBhdmljIGluaGliaXR0aW9uOgorCSAqIEVuc3VyZSB0aGF0IGFsbCB2Q1BV
-cyBhcmUgcnVubmluZyBiZWZvcmUgdW5pbmhpYml0aW5nIHRoZSBBVklDCisJICogKi8KKworCXdo
-aWxlIChhdG9taWNfcmVhZCgmcnVubmluZ19jcHVzKSA8IG5jcHVzKQorCQlwYXVzZSgpOworCisJ
-YXNtIHZvbGF0aWxlKCJzdGk7bm9wO2NsaVxuIik7CisKKwkvKiBub3cgbGV0IGFsbCB0aGUgdkNQ
-VXMgZW5kIHRoZSBJUEkgZnVuY3Rpb24qLworCWZpbmlzaF9pbml0ID0gdHJ1ZTsKKworCXdoaWxl
-IChjcHVzX2FjdGl2ZSgpID4gMSkKKwkgICAgICBwYXVzZSgpOworCisJcHJpbnRmKCJzdGFydGlu
-ZyB0ZXN0IG9uIGFsbCBjcHVzIGJ1dCAwLi4uXG4iKTsKKworCWZvciAoY3B1ID0gbmNwdXMtMTsg
-Y3B1ID4gMDsgY3B1LS0pCisJCW9uX2NwdV9hc3luYyhjcHUsIHZjcHVfY29kZSwgKHZvaWQgKiko
-bG9uZyljcHUpOworCisJcHJpbnRmKCJ0ZXN0IHN0YXJ0ZWQsIHdhaXRpbmcgdG8gZW5kLi4uXG4i
-KTsKKworCXdoaWxlIChjcHVzX2FjdGl2ZSgpID4gMSkgeworCisJCXU2NCBpc3JfY291bnQxID0g
-aXNyX2NvdW50c1sxXTsKKworCQlkZWxheSg1VUxMKjEwMDAqMTAwMCoxMDAwKTsKKworCQlpZiAo
-aXNyX2NvdW50MSA9PSBpc3JfY291bnRzWzFdKSB7CisJCQlwcmludGYoIlxuIik7CisJCQlwcmlu
-dGYoImhhbmcgZGV0ZWN0ZWQhIVxuIik7CisJCQlicmVhazsKKwkJfQorCX0KKworCXByaW50Zigi
-XG4iKTsKKworCWZvciAoY3B1ID0gMTsgY3B1IDwgbmNwdXM7ICsrY3B1KQorCQlyZXBvcnQoaXNy
-X2NvdW50c1tjcHVdID09IFRPVEFMX05VTUJFUl9JVEVSQVRJT05TLAorCQkJCSJOdW1iZXIgb2Yg
-SVBJcyBtYXRjaCAoJWxsZCkiLAorCQkJCShsb25nIGxvbmcgdW5zaWduZWQgaW50KWlzcl9jb3Vu
-dHNbY3B1XSk7CisKKwlmcmVlKCh2b2lkKilpc3JfY291bnRzKTsKKwlyZXR1cm4gcmVwb3J0X3N1
-bW1hcnkoKTsKK30KZGlmZiAtLWdpdCBhL3g4Ni91bml0dGVzdHMuY2ZnIGIveDg2L3VuaXR0ZXN0
-cy5jZmcKaW5kZXggNjI0NDU5NS4uZmY4NjZiNCAxMDA2NDQKLS0tIGEveDg2L3VuaXR0ZXN0cy5j
-ZmcKKysrIGIveDg2L3VuaXR0ZXN0cy5jZmcKQEAgLTYxLDYgKzYxLDExIEBAIHNtcCA9IDIKIGZp
-bGUgPSBzbXB0ZXN0LmZsYXQKIHNtcCA9IDMKIAorW2lwaV9zdHJlc3NdCitmaWxlID0gaXBpX3N0
-cmVzcy5mbGF0CitleHRyYV9wYXJhbXMgPSAtY3B1IGhvc3QsLXgyYXBpYywtc3ZtLC1oeXBlcnZp
-c29yIC1nbG9iYWwga3ZtLXBpdC5sb3N0X3RpY2tfcG9saWN5PWRpc2NhcmQgLW1hY2hpbmUga2Vy
-bmVsLWlycWNoaXA9b24KK3NtcCA9IDQKKwogW3ZtZXhpdF9jcHVpZF0KIGZpbGUgPSB2bWV4aXQu
-ZmxhdAogZXh0cmFfcGFyYW1zID0gLWFwcGVuZCAnY3B1aWQnCi0tIAoyLjI2LjMKCg==
-
-
---=-XBtBz6EzfH3Aw3rcptLe
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---=-XBtBz6EzfH3Aw3rcptLe--
-
-
+T24gTW9uLCBOb3YgMjksIDIwMjEgYXQgMDQ6MzQ6MDdQTSArMDAwMCwgTWljaGHFgiBNaXJvc8WC
+YXcgd3JvdGU6Cj4gRG5pYSAyOSBsaXN0b3BhZGEgMjAyMSAwNjozODozOSBVVEMsIFl1cnkgTm9y
+b3YgPHl1cnkubm9yb3ZAZ21haWwuY29tPiBuYXBpc2HFgi9hOgo+ID5PbiBTdW4sIE5vdiAyOCwg
+MjAyMSBhdCAwNzowMzo0MVBNICswMTAwLCBtaXJxLXRlc3RAcmVyZS5xbXFtLnBsIHdyb3RlOgo+
+ID4+IE9uIFNhdCwgTm92IDI3LCAyMDIxIGF0IDA3OjU2OjU1UE0gLTA4MDAsIFl1cnkgTm9yb3Yg
+d3JvdGU6Cj4gPj4gPiBJbiBtYW55IGNhc2VzIHBlb3BsZSB1c2UgYml0bWFwX3dlaWdodCgpLWJh
+c2VkIGZ1bmN0aW9ucyBsaWtlIHRoaXM6Cj4gPj4gPiAKPiA+PiA+IAlpZiAobnVtX3ByZXNlbnRf
+Y3B1cygpID4gMSkKPiA+PiA+IAkJZG9fc29tZXRoaW5nKCk7Cj4gPj4gPiAKPiA+PiA+IFRoaXMg
+bWF5IHRha2UgY29uc2lkZXJhYmxlIGFtb3VudCBvZiB0aW1lIG9uIG1hbnktY3B1cyBtYWNoaW5l
+cyBiZWNhdXNlCj4gPj4gPiBudW1fcHJlc2VudF9jcHVzKCkgd2lsbCB0cmF2ZXJzZSBldmVyeSB3
+b3JkIG9mIHVuZGVybHlpbmcgY3B1bWFzawo+ID4+ID4gdW5jb25kaXRpb25hbGx5Lgo+ID4+ID4g
+Cj4gPj4gPiBXZSBjYW4gc2lnbmlmaWNhbnRseSBpbXByb3ZlIG9uIGl0IGZvciBtYW55IHJlYWwg
+Y2FzZXMgaWYgc3RvcCB0cmF2ZXJzaW5nCj4gPj4gPiB0aGUgbWFzayBhcyBzb29uIGFzIHdlIGNv
+dW50IHByZXNlbnQgY3B1cyB0byBhbnkgbnVtYmVyIGdyZWF0ZXIgdGhhbiAxOgo+ID4+ID4gCj4g
+Pj4gPiAJaWYgKG51bV9wcmVzZW50X2NwdXNfZ3QoMSkpCj4gPj4gPiAJCWRvX3NvbWV0aGluZygp
+Owo+ID4+ID4gCj4gPj4gPiBUbyBpbXBsZW1lbnQgdGhpcyBpZGVhLCB0aGUgc2VyaWVzIGFkZHMg
+Yml0bWFwX3dlaWdodF97ZXEsZ3QsbGV9Cj4gPj4gPiBmdW5jdGlvbnMgdG9nZXRoZXIgd2l0aCBj
+b3JyZXNwb25kaW5nIHdyYXBwZXJzIGluIGNwdW1hc2sgYW5kIG5vZGVtYXNrLgo+ID4+IAo+ID4+
+IEhhdmluZyBzbGVwdCBvbiBpdCBJIGhhdmUgbW9yZSBzdHJ1Y3R1cmVkIHRob3VnaHRzOgo+ID4+
+IAo+ID4+IEZpcnN0LCBJIGxpa2Ugc3Vic3RpdHV0aW5nIGJpdG1hcF9lbXB0eS9mdWxsIHdoZXJl
+IHBvc3NpYmxlIC0gSSB0aGluawo+ID4+IHRoZSBjaGFuZ2Ugc3RhbmRzIG9uIGl0cyBvd24sIHNv
+IGNvdWxkIGJlIHNwbGl0IGFuZCBzZW50IGFzIGlzLgo+ID4KPiA+T2ssIEkgY2FuIGRvIGl0Lgo+
+ID4KPiA+PiBJIGRvbid0IGxpa2UgdGhlIHByb3Bvc2VkIEFQSSB2ZXJ5IG11Y2guIE9uZSBwcm9i
+bGVtIGlzIHRoYXQgaXQgaGlkZXMKPiA+PiB0aGUgY29tcGFyaXNvbiBvcGVyYXRvciBhbmQgbWFr
+ZXMgY2FsbCBzaXRlcyBsZXNzIHJlYWRhYmxlOgo+ID4+IAo+ID4+IAliaXRtYXBfd2VpZ2h0KC4u
+LikgPiBOCj4gPj4gCj4gPj4gYmVjb21lczoKPiA+PiAKPiA+PiAJYml0bWFwX3dlaWdodF9ndCgu
+Li4sIE4pCj4gPj4gCj4gPj4gYW5kOgo+ID4+IAliaXRtYXBfd2VpZ2h0KC4uLikgPD0gTgo+ID4+
+IAo+ID4+IGJlY29tZXM6Cj4gPj4gCj4gPj4gCWJpdG1hcF93ZWlnaHRfbHQoLi4uLCBOKzEpCj4g
+Pj4gb3I6Cj4gPj4gCSFiaXRtYXBfd2VpZ2h0X2d0KC4uLiwgTikKPiA+PiAKPiA+PiBJJ2QgcmF0
+aGVyIHNlZSBzb21ldGhpbmcgcmVzZW1ibGluZyBtZW1jbXAoKSBBUEkgdGhhdCdzIGtub3duIGVu
+b3VnaAo+ID4+IHRvIGJlIGVhc2llciB0byBncmFzcC4gRm9yIGFib3ZlIGV4YW1wbGVzOgo+ID4+
+IAo+ID4+IAliaXRtYXBfd2VpZ2h0X2NtcCguLi4sIE4pID4gMAo+ID4+IAliaXRtYXBfd2VpZ2h0
+X2NtcCguLi4sIE4pIDw9IDAKPiA+PiAJLi4uCj4gPgo+ID5iaXRtYXBfd2VpZ2h0X2NtcCgpIGNh
+bm5vdCBiZSBlZmZpY2llbnQuIENvbnNpZGVyIHRoaXMgZXhhbXBsZToKPiA+Cj4gPmJpdG1hcF93
+ZWlnaHRfbHQoMTAwMCAwMDAwIDAwMDAgMDAwMCwgMSkgPT0gZmFsc2UKPiA+ICAgICAgICAgICAg
+ICAgICBeCj4gPiAgICAgICAgICAgICAgICAgc3RvcCBoZXJlCj4gPgo+ID5iaXRtYXBfd2VpZ2h0
+X2NtcCgxMDAwIDAwMDAgMDAwMCAwMDAwLCAxKSA9PSAwCj4gPiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIF4KPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3RvcCBo
+ZXJlCj4gPgo+ID5JIGFncmVlIHRoYXQgJ19ndCcgaXMgbGVzcyB2ZXJib3NlIHRoYW4gJz4nLCBi
+dXQgdGhlIGFkdmFudGFnZSBvZiAKPiA+J19ndCcgb3ZlciAnPicgaXMgcHJvcG9ydGlvbmFsIHRv
+IGxlbmd0aCBvZiBiaXRtYXAsIGFuZCBpdCBtZWFucwo+ID50aGF0IHRoaXMgQVBJIHNob3VsZCBl
+eGlzdC4KPiAKPiBUaGFuayB5b3UgZm9yIHRoZSBleGFtcGxlLiBJbmRlZWQsIGZvciBsZXNzLXRo
+YW4gdG8gYmUgZWZmaWNpZW50IGhlcmUgeW91IHdvdWxkIG5lZWQgdG8gcmVwbGFjZQo+ICBiaXRt
+YXBfd2VpZ2h0X2NtcCguLi4sIE4pIDwgMAo+IHdpdGgKPiAgYml0bWFwX3dlaWdodF9jbXAoLi4u
+LCBOLTEpIDw9IDAKCkluZGVlZCwgdGhhbmtzIGZvciBwb2ludGluZyB0byBpdC4KIAo+IEl0IHdv
+dWxkIHN0aWxsIGJlIG1vcmUgcmVhZGFibGUsIEkgdGhpbmsuCgpUbyBiZSBob25lc3QsIEknbSBu
+b3Qgc3VyZSB0aGF0CiAgICAgICAgYml0bWFwX3dlaWdodF9jbXAoLi4uLCBOLTEpIDw9IDAKd291
+bGQgYmUgYW4gb2J2aW91cyByZXBsYWNlbWVudCBmb3IgdGhlIG9yaWdpbmFsCiAgICAgICAgYml0
+bWFwX3dlaWdodCguLi4pIDwgTgpjb21wYXJpbmcgdG8gCiAgICAgICAgYml0bWFwX3dlaWdodF9s
+dCguLi4sIE4pCgpJIHRoaW5rIHRoZSBiZXN0IHRoaW5nIEkgY2FuIGRvIGlzIHRvIGFkZCBiaXRt
+YXBfd2VpZ2h0X2NtcCgpIGFzCnlvdSBzdWdnZXN0ZWQsIGFuZCB0dXJuIGx0IGFuZCBvdGhlcnMg
+dG8gYmUgd3JhcHBlcnMgb24gaXQuIFRoaXMKd2lsbCBsZXQgcGVvcGxlIGNob29zZSBhIGJldHRl
+ciBmdW5jdGlvbiBpbiBlYWNoIGNhc2UuCgpJIGFsc28gdGhpbmsgdGhhdCBmb3IgdjIgaXQgd291
+bGQgYmUgYmV0dGVyIHRvIGRyb3AgdGhlIGNvbnZlcnNpb24KZm9yIHNob3J0IGJpdG1hcHMsIGV4
+Y2VwdCBmb3Igc3dpdGNoaW5nIHRvIGJpdG1hcF9lbXB0eSgpLCBiZWNhdXNlCmluIHRoYXQgY2Fz
+ZSByZWFkYWJpbGl0eSB3aW5zIG92ZXIgcGVyZm9ybWFuY2U7IGlmIG5vIG9iamVjdGlvbnMuIAoK
+VGhhbmtzLApZdXJ5CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
+Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
+c2N2Cg==
