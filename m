@@ -4,71 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3E75C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Dec 2021 08:50:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 166C0C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Dec 2021 10:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3RG2tSmBApst7yeGH4kkJRSYqcYpmjWLvFaljFdUNVM=; b=JKrGkPKPXDI4am
-	ZkN3YzF/qmj0rRyty0BSmQtk3gAUqV/PS44hegZj5tOlYRGM4FUdxjnacwtxyEPa32PLNAbLmXz5H
-	dCerzadHwKzcNniAIa5CJUG9Ptq9AjqzCrsr1iKlHTjT7XpjhXQVNW+es1KWk1KR93LHVNtJ/MSJZ
-	V7xfNradPg31Bj5vinQ0pYhHzLkFO17nqzANnnK5KI16ca4pPcPGgL9jPrZWFBRibcXdTLX0fetIw
-	w+1B9orWFqVUmt2Y80OdJ6fShNaWTsHrfznqPttIKRd/XJ7tkS8zGp5gdsF2saOhp8U1FYTlDpori
-	SRwwMNHjwhjWlQ9ILxEQ==;
+	List-Owner; bh=+658xaNB9uH/wwXXhCitkhGjgEEwL6/JHtiog/EtQVE=; b=oidIJvHGLtm8gn
+	a9usLYLg/kJUQoDSROQh0hzUJo+nM17DQDnBpqAgHjo3zZXIsPo/fbpqMVDRENYgwEIIBnbJfDv9+
+	jHLBjtg79l8YC3kQGrRR9oKrVkDlU+CGzt1bQMWSF8AvSkFh2t1dVeXyJZoITr/j7SA9Ulgoj9fD8
+	3+dGk8xePCQCUcEJotY0MJaWeHJXyEOeNdOHTc/BkRs2vA6Byx/D5JR2p/udxigOevTGnlXOjOdlA
+	VL690rbCXPCsy6fk0Pv0xTFArszE0zmZDtidb5lafuIUYN2n2bM1CtCywe1/CrvxI/yGuaimHxuwP
+	UbeHOSUlSyCVZ2sngcEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mshnh-00BUE2-AW; Thu, 02 Dec 2021 08:50:45 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1msjDZ-00Bo8i-6T; Thu, 02 Dec 2021 10:21:33 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mshnd-00BUCL-Ex
- for linux-riscv@lists.infradead.org; Thu, 02 Dec 2021 08:50:44 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id
- j140-20020a1c2392000000b003399ae48f58so1706251wmj.5
- for <linux-riscv@lists.infradead.org>; Thu, 02 Dec 2021 00:50:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=es9/Tr6MB1CFpBQoW+wl/y/nUnYLARczzVgZp7MOScI=;
- b=trU/HvMQ7/qXEGbT8w2fuzq/IzVhjJo+jv5NUg97R9B4KBq+JW0d+bzZ1KJjEAK6ZM
- ax5M3PsJWAjI2vzfu2sMLO7qV3P7qSDDAnL6vv1rwo5uyk70CxUE8yApTF8fNO+oz4AY
- C23hGwNotMUxbk8vGAWP2Vt/C9uakdv/pllQwixjZ2MmtQ8tLGPkYOhcipT1zc2UZYX5
- tKBp/C1S/izliKNLO9oHECStzQONlfh5uNBKeGqQYQK18XBOfAJJfJNOo9VmEAnPE9iD
- nWHDSSVC2V9hDPoUdLi26pGumLWISp1H08yXOuPpQAu8w2W8DddVx3y/uTxUQGsBO4ZJ
- w4vQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=es9/Tr6MB1CFpBQoW+wl/y/nUnYLARczzVgZp7MOScI=;
- b=az3imEr9pZ3qH4sKZdVOC/9Sgn3vKqDshgx6W9T+iN9L8EzKp83qA9q6kSOl5GgtXC
- yuz/WzGTUiIx9K/Uim2J/H1kaeBRAXFn6GhrNh/0MvVfvJSCwCk+w0Py1qWOB6MCd98Y
- 08HV5BFj1fh2DbmV6uvFKZ2NSWP/Ebv1yQS5NqnPrnI+vsqLWW4EQHh2BmIYyWiaxl4v
- 2JPJ0059fXt/MYcmvX4VqblptsS0iAAvDMG7XA2Uib3IuJzNDJ2y+og7joewGq8hTq/E
- tR8lEKQpwMnbZtTT0dYhb7DV62j/RHCGGAy/fh4eg2A4GUXc+gGA2UOQt2yieGSUTxzc
- VkHQ==
-X-Gm-Message-State: AOAM531Y4+xWe44zE5fKdytYHWhYWRahL9nSfZx01rauZAYF1Xq4JZN9
- zhRRtq336+yNsGi7YdrL1JI5sDW0ZwJr42BWyTN9Sw==
-X-Google-Smtp-Source: ABdhPJxJlghneRv8O/VzzShZ0fGp35zLfia3JcnzpVsZAO4FM0BD2ejTpkwZZafmtDg20KSSZI+Y6E7Ul+5Cdpiffks=
-X-Received: by 2002:a7b:c256:: with SMTP id b22mr4687630wmj.176.1638435039573; 
- Thu, 02 Dec 2021 00:50:39 -0800 (PST)
+ id 1msjDK-00Bo2d-4S
+ for linux-riscv@lists.infradead.org; Thu, 02 Dec 2021 10:21:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1638440476;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=m4HlULEGQ+u/lfRbooSYsdnXMPgjmp3tTKFINSv7JFM=;
+ b=ZLORlFq2dx8J/AbUjS+HqDMeRwbXOS+3jZv9Xbb9NxXuexafY5zboJHqPUIPcne0F96r/t
+ +PJ5bwSeuKmRXxRhmm+Mq05xXmnaMFreC8Y8Hh0VLACM5s4HLN/mV3KpVDQn0yz1309B/1
+ tjw/iJLkX3DqhaJbricMKefBI86TJJ0=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-590-FTxu8o4JPGuzaC45aDiDWA-1; Thu, 02 Dec 2021 05:21:13 -0500
+X-MC-Unique: FTxu8o4JPGuzaC45aDiDWA-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com
+ [10.5.11.14])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id ABDFE81EE60;
+ Thu,  2 Dec 2021 10:21:09 +0000 (UTC)
+Received: from starship (unknown [10.40.192.24])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id D73445D9CA;
+ Thu,  2 Dec 2021 10:20:56 +0000 (UTC)
+Message-ID: <f55056c55892dd42592e5c242fa7a1561c6cee90.camel@redhat.com>
+Subject: Re: [PATCH v2 11/43] KVM: Don't block+unblock when halt-polling is
+ successful
+From: Maxim Levitsky <mlevitsk@redhat.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
+ Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>, Paul Mackerras
+ <paulus@ozlabs.org>, Anup Patel <anup.patel@wdc.com>,  Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>,  Christian Borntraeger <borntraeger@de.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>,
+ James Morse <james.morse@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Atish Patra <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
+ Cornelia Huck <cohuck@redhat.com>, Claudio Imbrenda
+ <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng
+ Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,  Joerg
+ Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.cs.columbia.edu,  linux-mips@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-ppc@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, Oliver
+ Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
+Date: Thu, 02 Dec 2021 12:20:55 +0200
+In-Reply-To: <YaUNBfJh35WXMV0M@google.com>
+References: <20211009021236.4122790-1-seanjc@google.com>
+ <20211009021236.4122790-12-seanjc@google.com>
+ <cceb33be9e2a6ac504bb95a7b2b8cf5fe0b1ff26.camel@redhat.com>
+ <4e883728e3e5201a94eb46b56315afca5e95ad9c.camel@redhat.com>
+ <YaUNBfJh35WXMV0M@google.com>
+User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
 MIME-Version: 1.0
-References: <20211126193111.559874-1-atishp@atishpatra.org>
-In-Reply-To: <20211126193111.559874-1-atishp@atishpatra.org>
-From: Anup Patel <anup@brainfault.org>
-Date: Thu, 2 Dec 2021 14:20:28 +0530
-Message-ID: <CAAhSdy0bKWCBT+b1w1Z5YO+Vq8xYgyYQoR8yvPK2SuK=VXwWXw@mail.gmail.com>
-Subject: Re: [PATCH v2] MAINTAINERS: Update Atish's email address
-To: Atish Patra <atishp@atishpatra.org>
-Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Anup Patel <anup.patel@wdc.com>, 
- KVM General <kvm@vger.kernel.org>, kvm-riscv@lists.infradead.org, 
- linux-riscv <linux-riscv@lists.infradead.org>
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211202_005041_552609_C3951C52 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20211202_022118_305416_A93D0AE1 
+X-CRM114-Status: GOOD (  36.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,62 +101,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 27, 2021 at 1:01 AM Atish Patra <atishp@atishpatra.org> wrote:
->
-> I am no longer employed by western digital. Update my email address to
-> personal one and add entries to .mailmap as well.
->
-> Signed-off-by: Atish Patra <atishp@atishpatra.org>
-> ---
->  .mailmap    | 3 +++
->  MAINTAINERS | 2 +-
->  2 files changed, 4 insertions(+), 1 deletion(-)
->
-> diff --git a/.mailmap b/.mailmap
-> index 14314e3c5d5e..5878de9783e4 100644
-> --- a/.mailmap
-> +++ b/.mailmap
-> @@ -50,6 +50,9 @@ Archit Taneja <archit@ti.com>
->  Ard Biesheuvel <ardb@kernel.org> <ard.biesheuvel@linaro.org>
->  Arnaud Patard <arnaud.patard@rtp-net.org>
->  Arnd Bergmann <arnd@arndb.de>
-> +Atish Patra <atish.patra@wdc.com>
-> +Atish Patra <atishp@atishpatra.org>
-> +Atish Patra <atishp@rivosinc.com>
+On Mon, 2021-11-29 at 17:25 +0000, Sean Christopherson wrote:
+> On Mon, Nov 29, 2021, Maxim Levitsky wrote:
+> > (This thing is that when you tell the IOMMU that a vCPU is not running,
+> > Another thing I discovered that this patch series totally breaks my VMs,
+> > without cpu_pm=on The whole series (I didn't yet bisect it) makes even my
+> > fedora32 VM be very laggy, almost unusable, and it only has one
+> > passed-through device, a nic).
+> 
+> Grrrr, the complete lack of comments in the KVM code and the separate paths for
+> VMX vs SVM when handling HLT with APICv make this all way for difficult to
+> understand than it should be.
+> 
+> The hangs are likely due to:
+> 
+>   KVM: SVM: Unconditionally mark AVIC as running on vCPU load (with APICv)
+> 
+> If a posted interrupt arrives after KVM has done its final search through the vIRR,
+> but before avic_update_iommu_vcpu_affinity() is called, the posted interrupt will
+> be set in the vIRR without triggering a host IRQ to wake the vCPU via the GA log.
+> 
+> I.e. KVM is missing an equivalent to VMX's posted interrupt check for an outstanding
+> notification after switching to the wakeup vector.
+> 
+> For now, the least awful approach is sadly to keep the vcpu_(un)blocking() hooks.
+> Unlike VMX's PI support, there's no fast check for an interrupt being posted (KVM
+> would have to rewalk the vIRR), no easy to signal the current CPU to do wakeup (I
+> don't think KVM even has access to the IRQ used by the owning IOMMU), and there's
+> no simplification of load/put code.
 
-I think you just need one-line entry to map WDC email (OLD) to
-Personal/Rivos email (NEW)
+I have an idea.
+ 
+Why do we even use/need the GA log?
+Why not, just disable the 'guest mode' in the iommu and let it sent good old normal interrupt
+when a vCPU is not running, just like we do when we inhibit the AVIC?
+ 
+GA log makes all devices that share an iommu (there are 4 iommus per package these days,
+some without useful devices) go through a single (!) msi like interrupt,
+which is even for some reason implemented by a threaded IRQ in the linux kernel.
 
-Something like:
-Atish Patra <atishp@atishpatra.org> <atish.patra@wdc.com>
+ 
+Best regards,
+	Maxim Levitsky
 
-Regards,
-Anup
+> 
+> If the scheduler were changed to support waking in the sched_out path, then I'd be
+> more inclined to handle this in avic_vcpu_put() by rewalking the vIRR one final
+> time, but for now it's not worth it.
+> 
+> > If I apply though only the patch series up to this patch, my fedora VM seems
+> > to work fine, but my windows VM still locks up hard when I run 'LatencyTop'
+> > in it, which doesn't happen without this patch.
+> 
+> Buy "run 'LatencyTop' in it", do you mean running something in the Windows guest?
+> The only search results I can find for LatencyTop are Linux specific.
+> 
+> > So far the symptoms I see is that on VCPU 0, ISR has quite high interrupt
+> > (0xe1 last time I seen it), TPR and PPR are 0xe0 (although I have seen TPR to
+> > have different values), and IRR has plenty of interrupts with lower priority.
+> > The VM seems to be stuck in this case. As if its EOI got lost or something is
+> > preventing the IRQ handler from issuing EOI.
+> >  
+> > LatencyTop does install some form of a kernel driver which likely does meddle
+> > with interrupts (maybe it sends lots of self IPIs?).
+> >  
+> > 100% reproducible as soon as I start monitoring with LatencyTop.
+> >  
+> > Without this patch it works (or if disabling halt polling),
+> 
+> Huh.  I assume everything works if you disable halt polling _without_ this patch
+> applied?
+> 
+> If so, that implies that successful halt polling without mucking with vCPU IOMMU
+> affinity is somehow problematic.  I can't think of any relevant side effects other
+> than timing.
+> 
 
->  Axel Dyks <xl@xlsigned.net>
->  Axel Lin <axel.lin@gmail.com>
->  Bart Van Assche <bvanassche@acm.org> <bart.vanassche@sandisk.com>
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 7a2345ce8521..b22af4edcd08 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -10434,7 +10434,7 @@ F:      arch/powerpc/kvm/
->
->  KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)
->  M:     Anup Patel <anup.patel@wdc.com>
-> -R:     Atish Patra <atish.patra@wdc.com>
-> +R:     Atish Patra <atishp@atishpatra.org>
->  L:     kvm@vger.kernel.org
->  L:     kvm-riscv@lists.infradead.org
->  L:     linux-riscv@lists.infradead.org
-> --
-> 2.33.1
->
->
-> --
-> kvm-riscv mailing list
-> kvm-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/kvm-riscv
+
 
 _______________________________________________
 linux-riscv mailing list
