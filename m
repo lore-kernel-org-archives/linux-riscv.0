@@ -4,87 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF4EC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Dec 2021 12:05:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7698C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Dec 2021 15:05:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e7qlfpBos72apH/JH7yqMOs1ss/vpcyww58O3A3hU14=; b=dEnxQuZYE4xCHl
-	D+O6kfuZ0Z4ol7dZ/bJ3hXDta4CaQl6f/yJB6SuTixS2D/VS2KVc1ILxc8CTHjtJc4hdGyfCI+nfm
-	pCf6js9gLjxVdDuPKu8bJCBol6SUKWQptDp8QwTDq0hLYhErZIt1C4i2hsWrcn4v9QebbkJE3SDfI
-	Og6oy8wBzpzDUR6++Oj0K75VMlFrD9wj2GWxO/3TRonPYB5O+HS5GZME1FUvpuM9YoeFtGPYU3wkw
-	XvnV492rUFGXcsxuU2WhL6/4GWHizDAdF2m1CtX2sCXDiE//aCqWA7Ko27bERj1E8CoKVeLlYiZsj
-	WLmiK1nU9ked+H8mQsSg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=DXqLYlzMdzOhSimu9A136TBspqTc2LN6GAMLtxcHI9o=; b=YFiUCvHnsTCMti
+	XRfruVMTlYHK1qtFf8cPCT+n4O13GzLKmWM4Q6j0hoveKF6SqQrlGk++srSZ4B+RYFCo9Rqtj/Nbo
+	LePKtytB8XrEqiIe5Vv3QbzwSW9QkHmZ9Cu2PMDI5zJuUapAk4T3F3czAQFdFAzik6NceHwm1vzFe
+	VHPRqkUFiUp3jrckaN0lSFL8G4tjswmjxks1tD/NrFiWqeHYfMuLI4sCy/iSx26WdbCUmEgNcuJ5w
+	i0tprnCua6fM9rMds1tr5JerxqXI2+oIe9caPGywo5VqH4Ie8yv4HK8Kj15pS1NhaA65T0Obq0ynL
+	KEkXKFyTu+DuCRKxBujg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mskpz-00C9ZL-8J; Thu, 02 Dec 2021 12:05:19 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1msneK-00Chl2-6V; Thu, 02 Dec 2021 15:05:28 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mskod-00C8uj-Dm
- for linux-riscv@lists.infradead.org; Thu, 02 Dec 2021 12:03:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1638446628;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=1MmQTgpkeNH8NgIgmQ2Fco6xIavJapp91aJzsxvOixU=;
- b=JaJ17aZSmLxVrbT8+tmvX9yyEv3hWTp+Huy2Tam6ELfoTTxgjINv6l9m6dVciBN0V5111D
- SOgy6wiD8meR86vHdaLAQ7jPFG/TSh7ET8cYze8qVmpEMhW428mSrgopiL8ERVix7N9oyh
- aO2Om+5WpqcSwhxQVbxfi5gjzw2goks=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-464-faQPh16CNsuypEtT6k4wfA-1; Thu, 02 Dec 2021 07:03:40 -0500
-X-MC-Unique: faQPh16CNsuypEtT6k4wfA-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com
- [10.5.11.13])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 93E5E81CCB6;
- Thu,  2 Dec 2021 12:03:36 +0000 (UTC)
-Received: from starship (unknown [10.40.192.24])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 551DF60622;
- Thu,  2 Dec 2021 12:02:58 +0000 (UTC)
-Message-ID: <3adb566de918fe2fcc7a8abe7dba5f2c9d292d66.camel@redhat.com>
-Subject: Re: [PATCH v2 11/43] KVM: Don't block+unblock when halt-polling is
- successful
-From: Maxim Levitsky <mlevitsk@redhat.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
- Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>, Paul Mackerras
- <paulus@ozlabs.org>, Anup Patel <anup.patel@wdc.com>,  Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>,  Christian Borntraeger <borntraeger@de.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>,
- James Morse <james.morse@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Atish Patra <atish.patra@wdc.com>, David Hildenbrand <david@redhat.com>,
- Cornelia Huck <cohuck@redhat.com>, Claudio Imbrenda
- <imbrenda@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng
- Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,  Joerg
- Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.cs.columbia.edu,  linux-mips@vger.kernel.org,
- kvm@vger.kernel.org, kvm-ppc@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, Oliver
- Upton <oupton@google.com>, Jing Zhang <jingzhangos@google.com>
-Date: Thu, 02 Dec 2021 14:02:56 +0200
-In-Reply-To: <YaUNBfJh35WXMV0M@google.com>
-References: <20211009021236.4122790-1-seanjc@google.com>
- <20211009021236.4122790-12-seanjc@google.com>
- <cceb33be9e2a6ac504bb95a7b2b8cf5fe0b1ff26.camel@redhat.com>
- <4e883728e3e5201a94eb46b56315afca5e95ad9c.camel@redhat.com>
- <YaUNBfJh35WXMV0M@google.com>
-User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
+ id 1msneF-00Chjs-CB
+ for linux-riscv@lists.infradead.org; Thu, 02 Dec 2021 15:05:26 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id z6so28175010pfe.7
+ for <linux-riscv@lists.infradead.org>; Thu, 02 Dec 2021 07:05:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ventanamicro.com; s=google;
+ h=date:from:to:cc:subject:message-id:mime-version:content-disposition;
+ bh=FMccx88RykZoULvAHDtbX2BYTCQploTSiNhL4A6PbxU=;
+ b=EDTMsPiCmkjPgfbdmz86xCC6o4S7u2/XRInDSbc11lWN3Z1WypUbfrDCWiynOY53mh
+ J9SFPTrcvaBJ80rcJh80EBBTM467lfQXI2kANFj92fX5LipR8hvM1HEbqLBtAD0BLYhk
+ +EW3mocr/Lah7OxumEfkLiBgL685nPieJmHwhxnfkrbYewQvfKjpQBX5kram4sCxufEu
+ RUe0Tika5iCRfUGaW3W5Umdp6JTeb/wSvHprg0rqPg+qnDoTIbfMTFDCBppbOBUx0iqW
+ 9alEI6nZBa02tSuMwAJAS5oBDG3R8sqoYrBHe4KbVjjiBGsfGm3NJIaXpWp+Tfj7cUY9
+ acIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:mime-version
+ :content-disposition;
+ bh=FMccx88RykZoULvAHDtbX2BYTCQploTSiNhL4A6PbxU=;
+ b=1SqseCeHTBzYpJ2MfmqMubMlEBW7irYSC0oVHOouWAyGfJ/h0i1fZ46XNWvxzEsu0A
+ 1Mdhi+wWZGtVNb/c1jIZcDdQ293EOppfpuR8wQpAr2vl2P1aFo4+yNMCMM60XCUdJmWR
+ JbdzsrVCRW6Tt/EcAs65WuJ+ZI6Za6qyQF/FsOR7ALdQ5a/zCvtYoUT/ydviuPYNZW4O
+ BAmIqHLXRXBIgZRaVpUw+nPE6652LIkTcApaqwnWRIMDJJ6mHDEzdQ7ohhMSis0fI0Tt
+ O6l36q+E5eonMNiUEBuMIIW60oMxoLYEaiOc1J/FJiv+bcplSe/PqNH4z/QhJWP4VeOw
+ Q0sw==
+X-Gm-Message-State: AOAM531kORjznYx3SF58dbNFwFajc9/w6EfJtRv2yxhRt+i4rLPj0DmI
+ ER8niCWX2E8i4yEtyDlUQ+C0ZQ==
+X-Google-Smtp-Source: ABdhPJxLJDpQ5vtfJyQ+xGg3yxHSkk9cKkitsvZUSN5t/lMXlXt+fRuZ8EkF2prkJ5Id7T58mTCA9w==
+X-Received: by 2002:a62:1c58:0:b0:49f:d674:e506 with SMTP id
+ c85-20020a621c58000000b0049fd674e506mr12793593pfc.66.1638457521629; 
+ Thu, 02 Dec 2021 07:05:21 -0800 (PST)
+Received: from sunil-ThinkPad-T490 ([49.206.3.187])
+ by smtp.gmail.com with ESMTPSA id c35sm2886930pgm.67.2021.12.02.07.05.18
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 02 Dec 2021 07:05:21 -0800 (PST)
+Date: Thu, 2 Dec 2021 20:35:15 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Atish Patra <atishp@atishpatra.org>,
+ Abner Chang <abner.chang@hpe.com>, Jessica Clarke <jrtc27@jrtc27.com>,
+ Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmer@rivosinc.com>
+Cc: sunil.vl@gmail.com, linux-riscv@lists.infradead.org
+Subject: Question regarding "boot-hartid" DT node
+Message-ID: <20211202150515.GA97518@sunil-ThinkPad-T490>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211202_040355_630302_84A4A764 
-X-CRM114-Status: GOOD (  35.10  )
+X-CRM114-CacheID: sfid-20211202_070525_199284_322F6D26 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,77 +88,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2021-11-29 at 17:25 +0000, Sean Christopherson wrote:
-> On Mon, Nov 29, 2021, Maxim Levitsky wrote:
-> > (This thing is that when you tell the IOMMU that a vCPU is not running,
-> > Another thing I discovered that this patch series totally breaks my VMs,
-> > without cpu_pm=on The whole series (I didn't yet bisect it) makes even my
-> > fedora32 VM be very laggy, almost unusable, and it only has one
-> > passed-through device, a nic).
-> 
-> Grrrr, the complete lack of comments in the KVM code and the separate paths for
-> VMX vs SVM when handling HLT with APICv make this all way for difficult to
-> understand than it should be.
-> 
-> The hangs are likely due to:
-> 
->   KVM: SVM: Unconditionally mark AVIC as running on vCPU load (with APICv)
+Hi All,
+   I am starting this thread to discuss about the "boot-hartid" DT node
+   that is being used in RISC-V Linux EFI stub.
 
-Yes, the other hang I told about which makes all my VMs very laggy, almost impossible
-to use is because of the above patch, but since I reproduced it now again without
-any passed-through device, I also blame the cpu errata on this.
+   As you know, the boot Hart ID is passed in a0 register to the kernel
+   and hence there is actually no need to pass it via DT. However, since
+   EFI stub follows EFI application calling conventions, it needs to
+   know the boot Hart ID so that it can pass it to the proper kernel via
+   a0. For this issue, the solution was to add "/chosen/boot-hartid" in
+   DT. Both EDK2 and u-boot append this node in DT.
 
-Best regards,
-	Maxim Levitsky
+   But above approach causes issue for ACPI since ACPI initialization
+   happens late in the proper kernel. Same is true even if we pass this
+   information via SMBIOS.
 
+   Do you have any suggestions what can be done in ACPI case? Can we use
+   a UEFI variable with RVI specific GUID to pass this information? This
+   will have the advantage that it can work with either DT or ACPI.
+   Also, we may not need any UEFI spec update. Do you see any issue with
+   this approach? Your inputs will be very helpful.
 
-> 
-> If a posted interrupt arrives after KVM has done its final search through the vIRR,
-> but before avic_update_iommu_vcpu_affinity() is called, the posted interrupt will
-> be set in the vIRR without triggering a host IRQ to wake the vCPU via the GA log.
-> 
-> I.e. KVM is missing an equivalent to VMX's posted interrupt check for an outstanding
-> notification after switching to the wakeup vector.
-> 
-> For now, the least awful approach is sadly to keep the vcpu_(un)blocking() hooks.
-> Unlike VMX's PI support, there's no fast check for an interrupt being posted (KVM
-> would have to rewalk the vIRR), no easy to signal the current CPU to do wakeup (I
-> don't think KVM even has access to the IRQ used by the owning IOMMU), and there's
-> no simplification of load/put code.
-> 
-> If the scheduler were changed to support waking in the sched_out path, then I'd be
-> more inclined to handle this in avic_vcpu_put() by rewalking the vIRR one final
-> time, but for now it's not worth it.
-> 
-> > If I apply though only the patch series up to this patch, my fedora VM seems
-> > to work fine, but my windows VM still locks up hard when I run 'LatencyTop'
-> > in it, which doesn't happen without this patch.
-> 
-> Buy "run 'LatencyTop' in it", do you mean running something in the Windows guest?
-> The only search results I can find for LatencyTop are Linux specific.
-> 
-> > So far the symptoms I see is that on VCPU 0, ISR has quite high interrupt
-> > (0xe1 last time I seen it), TPR and PPR are 0xe0 (although I have seen TPR to
-> > have different values), and IRR has plenty of interrupts with lower priority.
-> > The VM seems to be stuck in this case. As if its EOI got lost or something is
-> > preventing the IRQ handler from issuing EOI.
-> >  
-> > LatencyTop does install some form of a kernel driver which likely does meddle
-> > with interrupts (maybe it sends lots of self IPIs?).
-> >  
-> > 100% reproducible as soon as I start monitoring with LatencyTop.
-> >  
-> > Without this patch it works (or if disabling halt polling),
-> 
-> Huh.  I assume everything works if you disable halt polling _without_ this patch
-> applied?
-> 
-> If so, that implies that successful halt polling without mucking with vCPU IOMMU
-> affinity is somehow problematic.  I can't think of any relevant side effects other
-> than timing.
-> 
-
-
+Thanks!
+Sunil
 
 _______________________________________________
 linux-riscv mailing list
