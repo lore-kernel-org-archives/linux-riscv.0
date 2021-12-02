@@ -4,73 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2483EC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Dec 2021 19:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D79C5C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Dec 2021 21:42:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0qINJaRK9rFajQhZ0Mh7mChpcN3EX8lFsN7J5gKaLfk=; b=oeMEj5C4S1bH1M
-	vV+7/e2A06L4Jgv+ugg5Wnh+0ACi/nho69XPSUK+gf6nUCUPLVzdauZCXvKvey2RlmPC/Hr6dvZBs
-	fK3P3L1AkS7zqwxjERz/ddFkuNlrsPrdBwRBHTAtYyjsd1tcH/Si4htj06rbvCioQQyoQrUGOiERR
-	PR5FJx74Hb9SDhMDjMN5KqfqTaI2MwSnw/MG6JzVFqsRIUK1TmY42LwrllReoFCZ8CHNTc9rYfLBK
-	fC5TDhr3CryssjlulUEH/KhYA/c4XExrqI9ifePTIRuZVDN4l6vRNpTEjrWgqL7mraSVFFxCoDgZp
-	j+mp130pZQVmtCAKQ7tw==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:
+	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=F6Y9YJU2NueT5h1018V2DAe6Rzd3xJybys0UT5vMYok=; b=zT/6ZoDoj0SijA
+	xKwAf9JmoEV+qP/StfnZe8tIgQmRNlpKrAFrkeDRGMkjnyFpoDDz7caoNDkflaF2pKKXXP3NmxyN8
+	ARuwv80haysB45w3oYLrq12cv8h7MVqKH5ArTiR6OuSJKhmzm8js8f1s/3J1Ybglfl+RdEGlV6aMo
+	dvuPhuy7L7WJo+MFcS82jaOVW2ysBbOctCRMuS1cs7eDH2MeknLqwgtcpOuLu3TMDlnS4DZyvx7zS
+	LLlmlvWHt7eod/HHBBtBySPn6SgKgASgobBV1Bh7U6Kd4o1T+NNfH3w/9koeb4fx/tOyl0fCCogqs
+	qF2UNBnsufSbkrxx2uYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1msrls-00DLNM-8M; Thu, 02 Dec 2021 19:29:32 +0000
-Received: from mail-yb1-xb2b.google.com ([2607:f8b0:4864:20::b2b])
+	id 1mstqJ-00DWPa-2N; Thu, 02 Dec 2021 21:42:15 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1msrlo-00DLMz-9f
- for linux-riscv@lists.infradead.org; Thu, 02 Dec 2021 19:29:30 +0000
-Received: by mail-yb1-xb2b.google.com with SMTP id g17so2407089ybe.13
- for <linux-riscv@lists.infradead.org>; Thu, 02 Dec 2021 11:29:27 -0800 (PST)
+ id 1mstqF-00DWOo-V9
+ for linux-riscv@lists.infradead.org; Thu, 02 Dec 2021 21:42:13 +0000
+Received: by mail-pf1-x429.google.com with SMTP id 8so873939pfo.4
+ for <linux-riscv@lists.infradead.org>; Thu, 02 Dec 2021 13:42:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=EEy7xipbJzacPQs8ZhKGcg59Q2nhwepRKSE26m1CsmM=;
- b=IENGeBM8DO0yOco1IxMl7ekZd2uzkLZI9qfrldcBcBfynDoYLU2ulZBMJ/V+OCS8h7
- 8IaxIGr1wytjKaklGz4SraJ5CvJ3Z8IoAn2owb634WHwzlpMExVDueCpJOD8MEIjsrmu
- E5ziuTxF33a5OT1Sz21g/pcci7dihgcVshmtI=
+ d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id;
+ bh=z0U7sXMXxzMUq0YKyxwQpm+mPxbKf8cT9s5Pmci6eQY=;
+ b=ZuspXtWGVJDGGe9JWYuxvvDTFWIFkBZiIM39a98ZoP3vxlhoP6X2BpPBaImkSLc67j
+ 1Hfaerxw3P4CtaQ+crg4U75T8v8t6D5tIsq0LN1JS/bxcd1yBud5o8j718phmq3ramjy
+ qYp7YDWyH7m09TrMZC9HgXwfXAevv6rUZSEYViHT9mgjmEXbLAM0ErNVsDO45fixVyu9
+ uVpubcc3YDbQuzgTY0Ajg8oCQmLWcU93AVUknSK1v/QUzPAJ/1iNuBqi6fGP9MSl6vky
+ 2/k0whPWWFSJZ92b4YUwv7kp0mvd2/INHhLTjRq8wLsIC98om92Y1eW95VF57Vg8cCsK
+ VP+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=EEy7xipbJzacPQs8ZhKGcg59Q2nhwepRKSE26m1CsmM=;
- b=0tm3ZrRLC5k0SbeswABFGLkgcuGj/7z2J3rOLEuZzr/frLLezfJrcE3px3mZZAgMUj
- kgRKtPeb/tUKT+m/M4NoZ1cV5GjcwKvwVm20ndYKept91YPRbH7X3ZV0tTizrLNWOsn/
- yILWuV1xMxZlEOKMFgAEhY5rioAHrQCUnGx8jWHEhRWhePws3fgrg8k93HtelntclUFW
- oo4Kbmr0qO2eGwu/9tRzZRllgLfnEmxnbnkxsc4hJdkCWEbPLn5XWhgx4s0EVSalS9kL
- jjlalVAT3IkwmfEaxqD4N7T4BbCY19o7/m6YQvDRsN36qDsdefdxy/Ba4+C7Blfs6RaY
- ICUg==
-X-Gm-Message-State: AOAM533aDmVtBKJ3584Qh9P9Hkd/wKrlHpc+fn7j00glVwqeuVS0Ez7P
- dWLkn3ICq9TZP7NP7UMzSFQLczWDm+bKulEMybzX
-X-Google-Smtp-Source: ABdhPJyUmTlpyynmPK0edACZH8q+poUxC5HXMq0q6Mq6dMZZP5TR8YsXfoSj7Wke9qRRXsY4vEjoHFtLwKPSlImRCAU=
-X-Received: by 2002:a25:db8e:: with SMTP id
- g136mr16497771ybf.301.1638473366697; 
- Thu, 02 Dec 2021 11:29:26 -0800 (PST)
-MIME-Version: 1.0
-References: <20211202150515.GA97518@sunil-ThinkPad-T490>
- <CAMj1kXGJtMmcXLjHEG8xX0sSFNfdjj4A2_4DPcviEJ3=MARh+w@mail.gmail.com>
- <89d42547-ec36-5f84-88d1-fd65d891488c@canonical.com>
- <CAMj1kXG-VnhkECGewZPkUZLC2rb1bSDGdSpby9R=W_1d3FAsdg@mail.gmail.com>
- <6d9f131d-b3e8-18df-a9b6-6aaac881eb65@canonical.com>
-In-Reply-To: <6d9f131d-b3e8-18df-a9b6-6aaac881eb65@canonical.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Thu, 2 Dec 2021 11:29:15 -0800
-Message-ID: <CAOnJCUJfEpW6TtBPFGZ9TfNJeb9r+-L_8BddsxxejAd9Fe8VHw@mail.gmail.com>
-Subject: Re: Question regarding "boot-hartid" DT node
-To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Abner Chang <abner.chang@hpe.com>, 
- Jessica Clarke <jrtc27@jrtc27.com>, Anup Patel <anup@brainfault.org>, 
- Palmer Dabbelt <palmer@rivosinc.com>, sunil.vl@gmail.com, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Sunil V L <sunilvl@ventanamicro.com>
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id;
+ bh=z0U7sXMXxzMUq0YKyxwQpm+mPxbKf8cT9s5Pmci6eQY=;
+ b=E7ySdcdI9phxDWtk+XaQDNFllJvNB7sDYNdruhnpr6KsnEMx+2aNmP3LfVC2Dc7fcC
+ 5vA4uNw1nkUaECAUSZOHD6tR2g7QrgNweEPZIkqyZvpUsBrqiJ5xfMWdc6UkDHzHJxkR
+ D1JROtVHFbtyNXRQ3gJ+LLnDP3NCvy5QfoKNgkTxjzXR4xUyijJwaftvzXjGupHpyQTY
+ KU8gFdrybMzArotq3F4NT3fgSOWO9MZ5pv6dBu9EuDzhI9vKpjUyYAZW2XKcKmuzISto
+ Y5sHygkIG7dMSvJg+NBlplIybwaGzbvAXOAuinlsM5QxoJDLLQ2/ayLIi/Om1EzQVR7e
+ mSDg==
+X-Gm-Message-State: AOAM533EBqUpuaskG1/Fky/WCiRSatp51hQksU2XnP849DQldCoTMuQy
+ m4lRw7MTdc6ild6UpA+h3XX1fQ==
+X-Google-Smtp-Source: ABdhPJxUWsu0qmz5BcX8JlOveaV/OQsmmKH4peFVYNTsS8Dby17MNH0bj2HinBjsziaJi1FXGhVfjQ==
+X-Received: by 2002:a62:798e:0:b0:4a7:89cf:8526 with SMTP id
+ u136-20020a62798e000000b004a789cf8526mr15288855pfc.10.1638481329518; 
+ Thu, 02 Dec 2021 13:42:09 -0800 (PST)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id g22sm758662pfj.29.2021.12.02.13.42.08
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 02 Dec 2021 13:42:09 -0800 (PST)
+Date: Thu, 02 Dec 2021 13:42:09 -0800 (PST)
+X-Google-Original-Date: Thu, 02 Dec 2021 13:41:58 PST (-0800)
+Subject: Re: [PATCH v3 5/6] riscv: dts: sifive unmatched: Fix regulator for
+ board rev3
+In-Reply-To: <537742e7af4a21baf79429469ba7c30947ddca7a.1637362542.git.plr.vincent@gmail.com>
+CC: robh+dt@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ aou@eecs.berkeley.edu, krzysztof.kozlowski@canonical.com,
+ qiuwenbo@kylinos.com.cn, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, david.abdurachmanov@sifive.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: plr.vincent@gmail.com
+Message-ID: <mhng-25baa8a5-d7c1-4a37-8489-123fd12499f0@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211202_112928_432023_2E33E860 
-X-CRM114-Status: GOOD (  33.08  )
+X-CRM114-CacheID: sfid-20211202_134212_031089_62744130 
+X-CRM114-Status: GOOD (  19.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,105 +85,208 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 2, 2021 at 9:05 AM Heinrich Schuchardt
-<heinrich.schuchardt@canonical.com> wrote:
+On Fri, 19 Nov 2021 14:55:41 PST (-0800), plr.vincent@gmail.com wrote:
+> The existing values are rejected by the da9063 regulator driver, as they
+> are unachievable with the declared chip setup (non-merged vcore and bmem
+> are unable to provide the declared curent).
 >
-> On 12/2/21 17:58, Ard Biesheuvel wrote:
-> > On Thu, 2 Dec 2021 at 17:53, Heinrich Schuchardt
-> > <heinrich.schuchardt@canonical.com> wrote:
-> >>
-> >> On 12/2/21 17:20, Ard Biesheuvel wrote:
-> >>> On Thu, 2 Dec 2021 at 16:05, Sunil V L <sunilvl@ventanamicro.com> wrote:
-> >>>>
-> >>>> Hi All,
-> >>>>      I am starting this thread to discuss about the "boot-hartid" DT node
-> >>>>      that is being used in RISC-V Linux EFI stub.
-> >>>>
-> >>>>      As you know, the boot Hart ID is passed in a0 register to the kernel
-> >>>>      and hence there is actually no need to pass it via DT. However, since
-> >>>>      EFI stub follows EFI application calling conventions, it needs to
-> >>>>      know the boot Hart ID so that it can pass it to the proper kernel via
-> >>>>      a0. For this issue, the solution was to add "/chosen/boot-hartid" in
-> >>>>      DT. Both EDK2 and u-boot append this node in DT.
-> >>>>
-> >>>
-> >>> I think this was a mistake tbh
-> >>>
-> >>>>      But above approach causes issue for ACPI since ACPI initialization
-> >>>>      happens late in the proper kernel. Same is true even if we pass this
-> >>>>      information via SMBIOS.
-> >>>>
-> >>>
-> >>> It would be better to define a RISCV specific EFI protocol that the
-> >>> stub can call to discover the boot-hartid value. That wat, it can pass
-> >>> it directly, without having to rely on firmware tables.
-> >>
-> >> As discovering the current process' hartid is not a UEFI specific task
-> >> SBI would be a better fit.
-> >>
-> >
-> > I disagree. The OS<->loader firmware interface is UEFI not SBI. So if
-> > the EFI stub needs to ask the firmware which boot-hartid it should
-> > pass in A0, it should use a EFI protocol and nothing else.
-> >
-> > Whether or not the loader/firmware *implements* this EFI protocol by
-> > calling into SBI is a different matter (and likely the best choice).
-> > But that does not mean the EFI stub should make SBI calls directly.
-> >
+> Fix voltages to match rev3 schematics, which also matches their boot-up
+
+There's a few references to rev 3 here.  I'm not sure if that means we 
+should have multiple device trees -- this one seems pretty benign, but 
+some of the regulator stuff worries me there, where anything rev 3 
+specific might not be safe on other revisions.
+
+Did any previous revisions make it out of the lab?
+
+> configuration within the chip's available precision.
+> Declare bcore1/bcore2 and bmem/bio as merged.
+> Set ldo09 and ldo10 as always-on as their consumers are not declared but
+> exist.
+> Drop ldo current limits as there is no current limit feature for these
+> regulators in the DA9063. Fixes warnings like:
+>   DA9063_LDO3: Operation of current configuration missing
 >
-> The EFI stub does not need the boot-hartid. It is the main Linux kernel
-> that does. And that kernel already implements SBI calls.
+> Signed-off-by: Vincent Pelletier <plr.vincent@gmail.com>
 >
-> The main kernel could just try to read CSR mhartid which fails in S-mode
-> and the SBI could emulate it.
-
-New SBI extension should be added only if there is no other way to
-solve a generic
-problem. The boot hartid issue is very specific to efi booting only.
-Any system that doesn't require
-EFI booting won't need it. Even for EFI booting, we have other
-approaches already proposed
-to solve it. That's why, SBI extension should be the last resort
-rather than first.
-
-I think an RISC-V specific EFI protocol as suggested by Ard should
-work for all the cases.
-Is there a case where you think it may not work ? U-Boot & EDK2
-already stores the boot hartid.
-They just implement that protocol and pass the hartid to the caller.
-We do need to support it in the grub though.
-
-@Heinrich Schuchardt
-I vaguely remember you proposed something similar when we discussed
-this first during FOSDEM.
-I can't recall why it was abandoned in favor of the DT approach which
-works. But,
-it is not an ideal solution considering RISC-V ACPI support is already
-on the way.
-
-Do you have a link to the older thread where this thing was discussed ?
-
-
+> ---
+> Changes since v2:
+> - Fix end-of-commit-message separator so change lists do not end up in them.
+> Changes since v1:
+> - Remove trailing "." on subject line.
+> ---
+>  .../boot/dts/sifive/hifive-unmatched-a00.dts  | 84 ++++++-------------
+>  1 file changed, 24 insertions(+), 60 deletions(-)
 >
-> Best regards
+> diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> index 6e7775fdae32..1abad0eec02e 100644
+> --- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> +++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> @@ -93,47 +93,31 @@ wdt {
+>  		};
 >
-> Heinrich
+>  		regulators {
+> -			vdd_bcore1: bcore1 {
+> -				regulator-min-microvolt = <900000>;
+> -				regulator-max-microvolt = <900000>;
+> -				regulator-min-microamp = <5000000>;
+> -				regulator-max-microamp = <5000000>;
+> -				regulator-always-on;
+> -			};
+> -
+> -			vdd_bcore2: bcore2 {
+> -				regulator-min-microvolt = <900000>;
+> -				regulator-max-microvolt = <900000>;
+> -				regulator-min-microamp = <5000000>;
+> -				regulator-max-microamp = <5000000>;
+> +			vdd_bcore: bcores-merged {
+> +				regulator-min-microvolt = <1050000>;
+> +				regulator-max-microvolt = <1050000>;
+> +				regulator-min-microamp = <4800000>;
+> +				regulator-max-microamp = <4800000>;
+>  				regulator-always-on;
+>  			};
 >
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-
-
---
-Regards,
-Atish
+>  			vdd_bpro: bpro {
+>  				regulator-min-microvolt = <1800000>;
+>  				regulator-max-microvolt = <1800000>;
+> -				regulator-min-microamp = <2500000>;
+> -				regulator-max-microamp = <2500000>;
+> +				regulator-min-microamp = <2400000>;
+> +				regulator-max-microamp = <2400000>;
+>  				regulator-always-on;
+>  			};
+>
+>  			vdd_bperi: bperi {
+> -				regulator-min-microvolt = <1050000>;
+> -				regulator-max-microvolt = <1050000>;
+> +				regulator-min-microvolt = <1060000>;
+> +				regulator-max-microvolt = <1060000>;
+>  				regulator-min-microamp = <1500000>;
+>  				regulator-max-microamp = <1500000>;
+>  				regulator-always-on;
+>  			};
+>
+> -			vdd_bmem: bmem {
+> -				regulator-min-microvolt = <1200000>;
+> -				regulator-max-microvolt = <1200000>;
+> -				regulator-min-microamp = <3000000>;
+> -				regulator-max-microamp = <3000000>;
+> -				regulator-always-on;
+> -			};
+> -
+> -			vdd_bio: bio {
+> +			vdd_bmem_bio: bmem-bio-merged {
+>  				regulator-min-microvolt = <1200000>;
+>  				regulator-max-microvolt = <1200000>;
+>  				regulator-min-microamp = <3000000>;
+> @@ -144,86 +128,66 @@ vdd_bio: bio {
+>  			vdd_ldo1: ldo1 {
+>  				regulator-min-microvolt = <1800000>;
+>  				regulator-max-microvolt = <1800000>;
+> -				regulator-min-microamp = <100000>;
+> -				regulator-max-microamp = <100000>;
+>  				regulator-always-on;
+>  			};
+>
+>  			vdd_ldo2: ldo2 {
+>  				regulator-min-microvolt = <1800000>;
+>  				regulator-max-microvolt = <1800000>;
+> -				regulator-min-microamp = <200000>;
+> -				regulator-max-microamp = <200000>;
+>  				regulator-always-on;
+>  			};
+>
+>  			vdd_ldo3: ldo3 {
+> -				regulator-min-microvolt = <1800000>;
+> -				regulator-max-microvolt = <1800000>;
+> -				regulator-min-microamp = <200000>;
+> -				regulator-max-microamp = <200000>;
+> +				regulator-min-microvolt = <3300000>;
+> +				regulator-max-microvolt = <3300000>;
+>  				regulator-always-on;
+>  			};
+>
+>  			vdd_ldo4: ldo4 {
+> -				regulator-min-microvolt = <1800000>;
+> -				regulator-max-microvolt = <1800000>;
+> -				regulator-min-microamp = <200000>;
+> -				regulator-max-microamp = <200000>;
+> +				regulator-min-microvolt = <2500000>;
+> +				regulator-max-microvolt = <2500000>;
+>  				regulator-always-on;
+>  			};
+>
+>  			vdd_ldo5: ldo5 {
+> -				regulator-min-microvolt = <1800000>;
+> -				regulator-max-microvolt = <1800000>;
+> -				regulator-min-microamp = <100000>;
+> -				regulator-max-microamp = <100000>;
+> +				regulator-min-microvolt = <3300000>;
+> +				regulator-max-microvolt = <3300000>;
+>  				regulator-always-on;
+>  			};
+>
+>  			vdd_ldo6: ldo6 {
+> -				regulator-min-microvolt = <3300000>;
+> -				regulator-max-microvolt = <3300000>;
+> -				regulator-min-microamp = <200000>;
+> -				regulator-max-microamp = <200000>;
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+>  				regulator-always-on;
+>  			};
+>
+>  			vdd_ldo7: ldo7 {
+> -				regulator-min-microvolt = <1800000>;
+> -				regulator-max-microvolt = <1800000>;
+> -				regulator-min-microamp = <200000>;
+> -				regulator-max-microamp = <200000>;
+> +				regulator-min-microvolt = <3300000>;
+> +				regulator-max-microvolt = <3300000>;
+>  				regulator-always-on;
+>  			};
+>
+>  			vdd_ldo8: ldo8 {
+> -				regulator-min-microvolt = <1800000>;
+> -				regulator-max-microvolt = <1800000>;
+> -				regulator-min-microamp = <200000>;
+> -				regulator-max-microamp = <200000>;
+> +				regulator-min-microvolt = <3300000>;
+> +				regulator-max-microvolt = <3300000>;
+>  				regulator-always-on;
+>  			};
+>
+>  			vdd_ld09: ldo9 {
+>  				regulator-min-microvolt = <1050000>;
+>  				regulator-max-microvolt = <1050000>;
+> -				regulator-min-microamp = <200000>;
+> -				regulator-max-microamp = <200000>;
+> +				regulator-always-on;
+>  			};
+>
+>  			vdd_ldo10: ldo10 {
+>  				regulator-min-microvolt = <1000000>;
+>  				regulator-max-microvolt = <1000000>;
+> -				regulator-min-microamp = <300000>;
+> -				regulator-max-microamp = <300000>;
+> +				regulator-always-on;
+>  			};
+>
+>  			vdd_ldo11: ldo11 {
+>  				regulator-min-microvolt = <2500000>;
+>  				regulator-max-microvolt = <2500000>;
+> -				regulator-min-microamp = <300000>;
+> -				regulator-max-microamp = <300000>;
+>  				regulator-always-on;
+>  			};
+>  		};
 
 _______________________________________________
 linux-riscv mailing list
