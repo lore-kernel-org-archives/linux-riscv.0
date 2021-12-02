@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6B2AC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Dec 2021 01:41:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FCB4C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Dec 2021 01:41:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fyrMf/r2u4pzVoEulCFFNGgTnEcxmlGApGAji5atjDs=; b=WDs9bIFdOHBY9r
-	3xuZd3oddtgx/GAimlm2Jj6rIU4nppmFXp4R991D5nV/ZbKSfHbf+fOct5wlL0zgaYSl3tPgtNIcF
-	hvGBoNnqyo2B7nyNNOSPlz4mGD1BtO2FS+o0zYwBH4SzsBS0cVKJ2yHYCw9SKaje2DImdDdKQuJRY
-	p3pGW+l6xQor8dpS39IpH8GW9Cd9nG9MkL5Drlyi5kCQmr7jEJKEk4DCNOTtIbZc7T0QDC5jcFiz2
-	Q4UScZbEYNWWUAGUupvJ9v2YLNV3gIe4sDo5/N11BH5NCbvZaU7RxjKOS8V5WejEiOtlCCGa7v5i1
-	wo8ajsiWNd3PyhczCAbA==;
+	List-Owner; bh=KMyLxTu1Nuw7ROdEIuLSjm698RHE71shQpHFeNI46xo=; b=3/dCR/991P03ZJ
+	QB+Ab2AAHsSrRkdxjrjLl3s5eDeSFrmKcM0du2cNHdnK0IaaAyQdZ3oZBHvBGMY8RSCssl9Cc0Jrn
+	3tyXOUaFcyGJGbxVMmjuseoO9gTXNSUgerYl8EGsbAZb4ROAbQot03O05xK3tUXiISoU/uU83/bNq
+	PpI6pA0z1Dsbx7aIl/UGh/dHh40AZ7oXftz16OZ0aXHkkd9NEivNsCKL1f/sWqUFJloIJSgCmZAYA
+	8TrgHcx+F87v4yFExhFlxZER/5u8rdTNOzHMtIIOj49Dx3//AsbYhgs+CMf9Es2NZmOn3k4C/0bMH
+	gCsZfGMYAfgFSC4fPEYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1msb6H-00AYHg-QA; Thu, 02 Dec 2021 01:41:29 +0000
+	id 1msb6J-00AYIv-Ql; Thu, 02 Dec 2021 01:41:31 +0000
 Received: from mail-sender.a4lg.com ([153.120.152.154]
  helo=mail-sender-0.a4lg.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1msb69-00AYDr-3y
- for linux-riscv@lists.infradead.org; Thu, 02 Dec 2021 01:41:22 +0000
-Received: by mail-sender-0.a4lg.com (Postfix) with ESMTPSA id 8562430008C;
+ id 1msb69-00AYDt-3w
+ for linux-riscv@lists.infradead.org; Thu, 02 Dec 2021 01:41:23 +0000
+Received: by mail-sender-0.a4lg.com (Postfix) with ESMTPSA id D7BB330008D;
  Thu,  2 Dec 2021 01:41:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=irq.a4lg.com;
- s=2017s01; t=1638409278;
- bh=tCMBtDoyFd+IH9AraQVrUP8QPKlxc09CeUEG/VxdJsg=;
+ s=2017s01; t=1638409279;
+ bh=7m28+LuBhM5e7rQvW2rS3EYTOsKXkMFFoLQlpkav8Ys=;
  h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
  Mime-Version:Content-Transfer-Encoding;
- b=LlGb91mI06Lq9AR7g4wpjb3Izl6Iocj8RUy6u1oFe8QBTUnPBh5teKOK2bby4kFZW
- Um2ArvC3zQIqUwvC4yiWL7SUAQckPV4l0VbKnrko5XSFHgTaHnRHjPzMA18kGnk0Ia
- pGdmhrfppoa0KXsO+iTFq6qi6GyaqIbV9DojC0SI=
+ b=csuKorBnghi/vvwRM4ISSgxu8C0NU1ydC2o+xMZ+KtE2W3PSkB/pg7aAVKgm9lZ9/
+ yu51To3BARhBS/lCYlm9YkqBzUE2FQfiLBVUJoWKK+F+zBLJxXmFmM2Ct/6SoAkzEP
+ 4ZdjZbf10PtHqdYTFvNLA3E+TtT4aE2snKTNdKQY=
 From: Tsukasa OI <research_trasio@irq.a4lg.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -43,16 +43,16 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
  =?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
  Philipp Tomsich <philipp.tomsich@vrull.eu>
 Cc: Tsukasa OI <research_trasio@irq.a4lg.com>, linux-riscv@lists.infradead.org
-Subject: [RFC PATCH v3 3/4] riscv: cpufeature: Extract extension names from
- "riscv, isa"
-Date: Thu,  2 Dec 2021 10:41:12 +0900
-Message-Id: <b89e73d6a178d04e447ae9d142477731b1f8998d.1638408984.git.research_trasio@irq.a4lg.com>
+Subject: [RFC PATCH v3 4/4] riscv: cpufeature: Full parser for "riscv,
+ isa" strings
+Date: Thu,  2 Dec 2021 10:41:13 +0900
+Message-Id: <531a8daa35d206315367b2997615ee0618b319d6.1638408984.git.research_trasio@irq.a4lg.com>
 In-Reply-To: <cover.1638408984.git.research_trasio@irq.a4lg.com>
 References: <cover.1638408984.git.research_trasio@irq.a4lg.com>
 Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211201_174121_323795_F269DAA6 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20211201_174121_446940_C556A33E 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,86 +69,117 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It's possible that we only need extension names implemented but not
-version numbers.  This commit doesn't parse version numbers but does
-extract implemented extension names.
+This commit implements full parser for "riscv,isa" strings.
 
-Beware that the extension name is **not** null-terminated.
+We haven't determined how do we represent multi-letter and/or versioned
+extensions in the ISA bitmap yet.  So, this commit handles only single-
+letter extensions with no respect to version numbers (as before).
 
-Use `MATCH_EXT` macro to match extension name (the argument is
-lower-case constant string).
+Nevertheless, it can be a foundation for our future work.
+
+Note that major version of UINT_MAX represents non-versioned extension
+(in many cases, they should be handled as 1 with some exceptions).
 
 Signed-off-by: Tsukasa OI <research_trasio@irq.a4lg.com>
 ---
- arch/riscv/kernel/cpufeature.c | 35 +++++++++++++++++++++++++---------
- 1 file changed, 26 insertions(+), 9 deletions(-)
+ arch/riscv/kernel/cpufeature.c | 42 ++++++++++++++++++++++++++++++----
+ 1 file changed, 37 insertions(+), 5 deletions(-)
 
 diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index d4ff704db53b..f52e15488a70 100644
+index f52e15488a70..a462ceb959d9 100644
 --- a/arch/riscv/kernel/cpufeature.c
 +++ b/arch/riscv/kernel/cpufeature.c
-@@ -102,6 +102,7 @@ void __init riscv_fill_hwcap(void)
- #endif
+@@ -62,6 +62,22 @@ bool __riscv_isa_extension_available(const unsigned long *isa_bitmap, int bit)
+ }
+ EXPORT_SYMBOL_GPL(__riscv_isa_extension_available);
+ 
++static inline int _decimal_part_to_uint(const char *s, unsigned int *res)
++{
++	unsigned int value = 0, d;
++
++	if (!isdigit(*s))
++		return -EINVAL;
++	do {
++		d = *s - '0';
++		if (value > (UINT_MAX - d) / 10)
++			return -ERANGE;
++		value = value * 10 + d;
++	} while (isdigit(*++s));
++	*res = value;
++	return 0;
++}
++
+ void __init riscv_fill_hwcap(void)
+ {
+ 	struct device_node *node;
+@@ -103,7 +119,10 @@ void __init riscv_fill_hwcap(void)
  		for (; *isa; ++isa) {
  			const char *ext = isa++;
-+			const char *ext_end = isa;
- 			bool ext_long, ext_err = false;
+ 			const char *ext_end = isa;
+-			bool ext_long, ext_err = false;
++			unsigned int ext_major = UINT_MAX; /* default */
++			unsigned int ext_minor = 0;
++			bool ext_long, ext_vpair,
++			     ext_err = false, ext_err_ver = false;
  
  			switch (*ext) {
-@@ -111,13 +112,28 @@ void __init riscv_fill_hwcap(void)
- 				ext_long = true;
- 				/* Multi-letter extension must be delimited */
- 				for (; *isa && *isa != '_'; ++isa)
--					if (!islower(*isa) && !isdigit(*isa))
-+					if (unlikely(!islower(*isa)
-+						     && !isdigit(*isa)))
+ 			case 's':
+@@ -115,7 +134,7 @@ void __init riscv_fill_hwcap(void)
+ 					if (unlikely(!islower(*isa)
+ 						     && !isdigit(*isa)))
  						ext_err = true;
--				/* ... but must be ignored. */
-+				/* Find end of the extension name backwards */
-+				ext_end = isa;
-+				if (unlikely(ext_err))
-+					break;
-+				if (!isdigit(ext_end[-1]))
-+					break;
-+				while (isdigit(*--ext_end))
-+					;
-+				if (ext_end[0] != 'p'
-+				    || !isdigit(ext_end[-1])) {
-+					++ext_end;
-+					break;
-+				}
-+				while (isdigit(*--ext_end))
-+					;
+-				/* Find end of the extension name backwards */
++				/* Parse backwards */
+ 				ext_end = isa;
+ 				if (unlikely(ext_err))
+ 					break;
+@@ -123,13 +142,21 @@ void __init riscv_fill_hwcap(void)
+ 					break;
+ 				while (isdigit(*--ext_end))
+ 					;
+-				if (ext_end[0] != 'p'
+-				    || !isdigit(ext_end[-1])) {
++				ext_vpair = (ext_end[0] == 'p')
++					    && isdigit(ext_end[-1]);
++				if (_decimal_part_to_uint(ext_end + 1,
++							  &ext_major))
++					ext_err_ver = true;
++				if (!ext_vpair) {
+ 					++ext_end;
+ 					break;
+ 				}
++				ext_minor = ext_major;
+ 				while (isdigit(*--ext_end))
+ 					;
++				if (_decimal_part_to_uint(++ext_end, &ext_major)
++				    || ext_major == UINT_MAX)
++					ext_err_ver = true;
  				break;
  			default:
  				ext_long = false;
--				if (!islower(*ext)) {
-+				if (unlikely(!islower(*ext))) {
+@@ -137,9 +164,12 @@ void __init riscv_fill_hwcap(void)
  					ext_err = true;
  					break;
  				}
-@@ -138,14 +154,15 @@ void __init riscv_fill_hwcap(void)
- 			}
- 			if (*isa != '_')
- 				--isa;
--			/*
--			 * TODO: Full version-aware handling including
--			 * multi-letter extensions will be added in-future.
--			 */
--			if (ext_err || ext_long)
-+
-+#define MATCH_EXT(name)  (ext_end - ext == sizeof(name) - 1 \
-+			  && !memcmp(ext, name, sizeof(name) - 1))
-+			if (unlikely(ext_err))
- 				continue;
- 			this_hwcap |= isa2hwcap[(unsigned char)(*ext)];
--			this_isa |= (1UL << (*ext - 'a'));
-+			if (!ext_long)
-+				this_isa |= (1UL << (*ext - 'a'));
-+#undef MATCH_EXT
- 		}
- 
- 		/*
+-				/* Find next extension */
++				/* Parse forwards finding next extension */
+ 				if (!isdigit(*isa))
+ 					break;
++				_decimal_part_to_uint(isa, &ext_major);
++				if (ext_major == UINT_MAX)
++					ext_err_ver = true;
+ 				while (isdigit(*++isa))
+ 					;
+ 				if (*isa != 'p')
+@@ -148,6 +178,8 @@ void __init riscv_fill_hwcap(void)
+ 					--isa;
+ 					break;
+ 				}
++				if (_decimal_part_to_uint(isa, &ext_minor))
++					ext_err_ver = true;
+ 				while (isdigit(*++isa))
+ 					;
+ 				break;
 -- 
 2.32.0
 
