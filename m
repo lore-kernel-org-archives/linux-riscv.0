@@ -4,71 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C3FBC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Dec 2021 12:42:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0CDBC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Dec 2021 13:15:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LRV1up77cdaRRFjFnuKhiZKYTgBb96oK+Ze6/gsfqsk=; b=vANmLwVS8GQK5W
-	3fHN6fhNu0pMCkVPea+l1lQjgjqPjuVz5EXLPHtlDaxfdwI/QCRpMdUoCAwNFlXhxepHM5g2ICAgZ
-	Ucw6gpKLruioHtilpxXzWm66CqWjeNgNF2SHzZnwVK4wHW0UsfuGKrqudi5wusxRBbamcjuc6OP5g
-	//ri2Pz0vKiyT9ZGEG9Q2cfdsu1a42nI153H5MsdYyb4DCFriQAffgebmzBm1COgWwy+OeUrghAjK
-	A9nkKu6DdCiee4pYzDuCiIqDeJiR45YLqp/HxxAwRcTA1bSGUzqIuqp/+1mvnr27yfZkYTrBNw5Ak
-	Tf4C1WfWtFXpCnpVRHFg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bEomYUgVYK6o+UzH9v5+sesukmYYtd9Rq0LIXiRvxO0=; b=ZgbgwD8g7O4UJY
+	3L1bkpZVFKhi5aMNv8OLQAcHeILwpJru5/rBe4ye5iJqpmeIQTNlqbfJ7Jh+zpeC1Uhm+B2xuqjHX
+	v0J4/pfd8isf/Im+qDAiIgT9CiGThKPL8BAGq5M+5OffcTw3G8JaJifVVvYDkKbvTfuvrp8MFuXL9
+	TBzY6n9Zmj2oGi8cmsaoVJxilOSwFv2AWBHPRvofpqd4OJba8re6qE6VfaesXbIOBPVqkJ6WFUYZZ
+	dy5he1HLP88kNAWgjC0NIudjcWyuROorM9eKrru6/XcJp8fKYfnuJL9rSLEvdU4AMe8295egG2xB6
+	qfL3y1vpFWfH+bii3QuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mt7tI-00FmLZ-JR; Fri, 03 Dec 2021 12:42:16 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1mt8PC-00Fset-P3; Fri, 03 Dec 2021 13:15:14 +0000
+Received: from xavier.telenet-ops.be ([2a02:1800:120:4::f00:14])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mt7tF-00FmJR-Mc
- for linux-riscv@lists.infradead.org; Fri, 03 Dec 2021 12:42:15 +0000
-Received: by mail-wm1-x336.google.com with SMTP id
- g191-20020a1c9dc8000000b0032fbf912885so2111089wme.4
- for <linux-riscv@lists.infradead.org>; Fri, 03 Dec 2021 04:42:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=qVxUZTA48fwXv3Wn0ogrdcDO6KHcU9G34XXI6zScy3k=;
- b=pSqANDTUS3mKwQ6erhSvkVg4ZEzzkjyx+o3qZM3kCJr6TXy6uSTMHytzkn8bhUEvx4
- XQwRoPPkfjinuY/islUOD3oiw2SyCV3KkYZ+oHW6fvNXE/ezyPRJi5iYF2Kua5YH4t2L
- ixSc5TBrsBBPoqlTPlP1vseZmWtoHoUeMLbrkq08K9yYzmaS3H4xKb80J3g9ClxIBtFX
- WUEW8RKqBFUyPDqwP5a7t9VQt1BH2RCRpYkY5MqroIarMhYnV6Iswzx31MuIQhGYWAA6
- H9IRXX2re7Smr0pYsZ0bhFWOX7CkJ8QzQUFiHGuaoWj3hn4ftpGEv8bxV9WI+YX3vTiz
- 57EQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=qVxUZTA48fwXv3Wn0ogrdcDO6KHcU9G34XXI6zScy3k=;
- b=GNFcUk7ruPZBo+Mchc2LvxWaz5M92BuiyovkjUDG2kDTCnslzATwrrzB09j0XvtwYT
- NaR1CnNpHJejOKJWYtmjGeXo+5LG/gFrYnby65+C04yI7q3zZ2Htyy3O1O4EgiMl3FoT
- qFi6ajCq0ZZWJodaIgeFAf8v7G1xIjhMvgpJOZzgQIBj/7xGyaskdAZTSYGEY5ZpO9Gn
- zpJDrljWtunEYc6Sqj1jnmjEw2zxQAi0ssQWIuknkBenMLX/CRhjqnJbUoMT4zOVzFpR
- lCQoSrh3av94VaSC0MhfzzNhakSx73i0jAUecy4BNLEJ8qJVSOxRleFN01jdQRiF8Aoo
- FKvg==
-X-Gm-Message-State: AOAM531vIC35tPwYfGbK/bt6v62YjqaW34TMDAIWvXSSpxj2I7ph7kiS
- tSWMbGNDhHPA9M8yA435gDGxkRq9p3eFHiQpy89pMg==
-X-Google-Smtp-Source: ABdhPJy4KJ4UCDPG+oIVWlnscWS/tdV/WYUTDmpki1SQxXs5uGRrTAY9O/eZUHIboP0pxfWDG141mtM0NwWazl+Dk1A=
-X-Received: by 2002:a7b:c194:: with SMTP id y20mr15092030wmi.61.1638535331744; 
- Fri, 03 Dec 2021 04:42:11 -0800 (PST)
+ id 1mt8P9-00Fsdj-AC
+ for linux-riscv@lists.infradead.org; Fri, 03 Dec 2021 13:15:12 +0000
+Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed10:3191:9890:620a:6f4])
+ by xavier.telenet-ops.be with bizsmtp
+ id RpF62600W3eLghq01pF6sw; Fri, 03 Dec 2021 14:15:06 +0100
+Received: from rox.of.borg ([192.168.97.57])
+ by ramsan.of.borg with esmtps (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
+ (envelope-from <geert@linux-m68k.org>)
+ id 1mt8P4-002LBO-0E; Fri, 03 Dec 2021 14:15:06 +0100
+Received: from geert by rox.of.borg with local (Exim 4.93)
+ (envelope-from <geert@linux-m68k.org>)
+ id 1mt8P3-000kOE-8Y; Fri, 03 Dec 2021 14:15:05 +0100
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+To: Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Geert Uytterhoeven <geert@linux-m68k.org>
+Subject: [PATCH] riscv: dts: sifive: fu540-c000: Fix PLIC node
+Date: Fri,  3 Dec 2021 14:15:04 +0100
+Message-Id: <ac53e34cf12a24aa4fe1dc206d4e0ffce71234f9.1638537275.git.geert@linux-m68k.org>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20211202235823.1926970-1-atishp@atishpatra.org>
-In-Reply-To: <20211202235823.1926970-1-atishp@atishpatra.org>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 3 Dec 2021 18:11:59 +0530
-Message-ID: <CAAhSdy3jvmSUBjVm+YP3PBqRt50UUmq9ci68f7gZdOfXCoBQjA@mail.gmail.com>
-Subject: Re: [PATCH v3] MAINTAINERS: Update Atish's email address
-To: Atish Patra <atishp@atishpatra.org>
-Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Anup Patel <anup.patel@wdc.com>, 
- KVM General <kvm@vger.kernel.org>, kvm-riscv@lists.infradead.org, 
- linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211203_044213_833371_54A18CD4 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20211203_051511_523692_1A3D8A1A 
+X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,51 +66,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 3, 2021 at 5:29 AM Atish Patra <atishp@atishpatra.org> wrote:
->
-> I am no longer employed by western digital. Update my email address to
-> personal one and add entries to .mailmap as well.
->
-> Signed-off-by: Atish Patra <atishp@atishpatra.org>
+Fix the device node for the Platform-Level Interrupt Controller (PLIC):
+  - Add missing "#address-cells" property,
+  - Sort properties according to DT bindings.
 
-I have queued this for 5.17
+Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
+---
+ arch/riscv/boot/dts/sifive/fu540-c000.dtsi | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-Thanks,
-Anup
+diff --git a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
+index b1250c16816f5c9d..3eef52b1a59b5cb4 100644
+--- a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
++++ b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
+@@ -140,10 +140,10 @@ soc {
+ 		compatible = "simple-bus";
+ 		ranges;
+ 		plic0: interrupt-controller@c000000 {
+-			#interrupt-cells = <1>;
+ 			compatible = "sifive,fu540-c000-plic", "sifive,plic-1.0.0";
+ 			reg = <0x0 0xc000000 0x0 0x4000000>;
+-			riscv,ndev = <53>;
++			#address-cells = <0>;
++			#interrupt-cells = <1>;
+ 			interrupt-controller;
+ 			interrupts-extended =
+ 				<&cpu0_intc 0xffffffff>,
+@@ -151,6 +151,7 @@ plic0: interrupt-controller@c000000 {
+ 				<&cpu2_intc 0xffffffff>, <&cpu2_intc 9>,
+ 				<&cpu3_intc 0xffffffff>, <&cpu3_intc 9>,
+ 				<&cpu4_intc 0xffffffff>, <&cpu4_intc 9>;
++			riscv,ndev = <53>;
+ 		};
+ 		prci: clock-controller@10000000 {
+ 			compatible = "sifive,fu540-c000-prci";
+-- 
+2.25.1
 
-> ---
->  .mailmap    | 1 +
->  MAINTAINERS | 2 +-
->  2 files changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/.mailmap b/.mailmap
-> index 6277bb27b4bf..23f6b0a60adf 100644
-> --- a/.mailmap
-> +++ b/.mailmap
-> @@ -50,6 +50,7 @@ Archit Taneja <archit@ti.com>
->  Ard Biesheuvel <ardb@kernel.org> <ard.biesheuvel@linaro.org>
->  Arnaud Patard <arnaud.patard@rtp-net.org>
->  Arnd Bergmann <arnd@arndb.de>
-> +Atish Patra <atishp@atishpatra.org> <atish.patra@wdc.com> <atishp@rivosinc.com>
->  Axel Dyks <xl@xlsigned.net>
->  Axel Lin <axel.lin@gmail.com>
->  Bart Van Assche <bvanassche@acm.org> <bart.vanassche@sandisk.com>
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 5250298d2817..6c2a34da0314 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -10434,7 +10434,7 @@ F:      arch/powerpc/kvm/
->
->  KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)
->  M:     Anup Patel <anup.patel@wdc.com>
-> -R:     Atish Patra <atish.patra@wdc.com>
-> +R:     Atish Patra <atishp@atishpatra.org>
->  L:     kvm@vger.kernel.org
->  L:     kvm-riscv@lists.infradead.org
->  L:     linux-riscv@lists.infradead.org
-> --
-> 2.33.1
->
 
 _______________________________________________
 linux-riscv mailing list
