@@ -4,79 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18F18C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Dec 2021 09:59:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71457C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Dec 2021 10:16:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mrrzu66n21Z0Wy5CHF+qYlSZk1IN0rjaCSEatQ3J4Hc=; b=fyVCX35d/DuzxL
-	eM1SyWmlSWRA6tW1tEtzxliMx+6cBZJYGFAf39P29XPz7/9OBJ/z+I/NbZuP4aPhDXwS0cw7DF3BW
-	o1h0guxxQllUGFvLby1Xri5lbuHY5joo+17FVBHOZnnDwEq450JBPm3y614e5rDlmZvZ6Hu4VGJym
-	HftMnLW2idiNmGPc07JGo4+QGFhDUyrnvE3xZxAc07UwtpxQuPV6I0lhk0Y/d08zByme/O1d6gz4d
-	25iEKU1t0ugiWTTFtMoC+TGunzzwy08XSV0p4zoUfTjxt8zAHAATX6wLAEFHygd3/hbyTNe/kjr62
-	xUOI5DHeb7vagLnf/pgg==;
+	List-Owner; bh=vw5LdWVCo0f9F8ZHEpQDMs/y+fXbbqdLv8afKiFFvAs=; b=3wPTemoL6pJjCd
+	C1T4o929s4AHhIGlfCD5ni7FFmy1Yriw0hg2RK8mcLxIuWLXX/tmqcRsExx2mpxJFLB7voNOH9lEM
+	dwHJNUFHoVBwHoFAekW7vpH2wE63PHiMExNaarNLjpDTvZ+nvkQjZ/6EKnAISNo+H8CfoY+/ornI3
+	mJFPJoWrBuEee/lNmM545xJO4ZSoxdxZ+J8DX4OUEJKOd4OMaeOQUwntJFN1h8npYYVyQ/lmuuqed
+	ZUxic+HHaeLWBM1jL0TWTfnB/Ir4p3SAhxR1vksIay8C1etVzjNzdjMGNaNFhjYC/+9Ruf0DCKwnr
+	v/nNpOa/n1vG/+6MzkBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mt5M1-00F3s4-Dm; Fri, 03 Dec 2021 09:59:45 +0000
-Received: from mta-02.yadro.com ([89.207.88.252] helo=mta-01.yadro.com)
+	id 1mt5bo-00F7j9-TR; Fri, 03 Dec 2021 10:16:05 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mt5Ly-00F3rG-Hf
- for linux-riscv@lists.infradead.org; Fri, 03 Dec 2021 09:59:43 +0000
-Received: from localhost (unknown [127.0.0.1])
- by mta-01.yadro.com (Postfix) with ESMTP id 2C7264381A;
- Fri,  3 Dec 2021 09:59:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=yadro.com; h=
- content-type:content-type:content-transfer-encoding:mime-version
- :references:in-reply-to:x-mailer:message-id:date:date:subject
- :subject:from:from:received:received:received:received; s=
- mta-01; t=1638525580; x=1640339981; bh=daoEMQCmqx7bfazzx6XBjay6u
- zaErTeaplpZTWUHk3w=; b=gS9TsyFqI0qOGaHC4BFNfMDFsKs7J5jKJ1GfFUJdn
- s8Pm34GFcxdKpzR1F7f5O2gS0lmWt/BKIgz6HFMyHT38grwosJaOR1P37e651uAn
- YR3dhBkWaUKCrVvDzMQOcV9TjhLXqQ9piMvHWfGsLhQqibzSB6ckySoJHQpYXC8l
- Qc=
-X-Virus-Scanned: amavisd-new at yadro.com
-Received: from mta-01.yadro.com ([127.0.0.1])
- by localhost (mta-01.yadro.com [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id JBHw_kdhP4RA; Fri,  3 Dec 2021 12:59:40 +0300 (MSK)
-Received: from T-EXCH-01.corp.yadro.com (t-exch-01.corp.yadro.com
- [172.17.10.101])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
+ id 1mt5Z9-00F6Vi-0O
+ for linux-riscv@lists.infradead.org; Fri, 03 Dec 2021 10:13:20 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mta-01.yadro.com (Postfix) with ESMTPS id 24AC64381B;
- Fri,  3 Dec 2021 12:59:40 +0300 (MSK)
-Received: from T-Exch-05.corp.yadro.com (172.17.10.109) by
- T-EXCH-01.corp.yadro.com (172.17.10.101) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384) id
- 15.1.669.32; Fri, 3 Dec 2021 12:59:39 +0300
-Received: from rdma-x86-2.dev.yadro.com (172.17.27.112) by
- T-Exch-05.corp.yadro.com (172.17.10.109) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.792.3; 
- Fri, 3 Dec 2021 12:59:38 +0300
-From: v.v.mitrofanov <v.v.mitrofanov@yadro.com>
-To: Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- David Abdurachmanov <david.abdurachmanov@sifive.com>, Yash Shah
- <yash.shah@sifive.com>, Atish Patra <atish.patra@wdc.com>, v.v.mitrofanov
- <v.v.mitrofanov@yadro.com>, Greentime Hu <greentime.hu@sifive.com>,
- <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>
-Subject: [PATCH 1/1] riscv: dts: fu740: Add PDMA node
-Date: Fri, 3 Dec 2021 09:57:38 +0000
-Message-ID: <20211203095744.1717706-2-v.v.mitrofanov@yadro.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20211203095744.1717706-1-v.v.mitrofanov@yadro.com>
-References: <20211203095744.1717706-1-v.v.mitrofanov@yadro.com>
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 8C49A62997
+ for <linux-riscv@lists.infradead.org>; Fri,  3 Dec 2021 10:13:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFAC9C53FD1
+ for <linux-riscv@lists.infradead.org>; Fri,  3 Dec 2021 10:13:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1638526398;
+ bh=Pc0nJRgI6si+hZjh0fGbYeE5GluclV2g3VKapqsvWS8=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=UllaFlaxic/AiFD09lz+4JelcAZ3eKiKjTeoaGQOS+Zj+tAOkQK4xmU7Nw+aNga2+
+ 9nzz4s7bSmJyKvqRNcKUzeLj+FqScN7w6WblxkcZp7KUjS3mq2tDWPOryGOzqQBpIu
+ sl5GIt3Zm9OxVXB9x7g+N5u/mIyVn/baqKfDpwLzbP495PeeRKn1zHckLgK5P3UP/q
+ 7XGVF4OS7xrro1vWlwu/++EQ2OSa7QXIX6tMkJ9Ewufibsec7VDAcJICRef/xctnRE
+ j6vWr9Ic0vQXESPfLzY9us5K7Ped+yzuhWD4wZq29MxSH/5GeeS+nh7W9fjjWU8gS0
+ D2yhHyTOv7xdA==
+Received: by mail-ot1-f54.google.com with SMTP id
+ r10-20020a056830080a00b0055c8fd2cebdso2520601ots.6
+ for <linux-riscv@lists.infradead.org>; Fri, 03 Dec 2021 02:13:17 -0800 (PST)
+X-Gm-Message-State: AOAM533JsqE7DrDjSLdf4dtQoFxSKrNb0YmPmw5EFuZ7iDa9mObbolLA
+ GrLhHCXjUjJ17+CdSFopjfWBa/UhXg94EgfOTfo=
+X-Google-Smtp-Source: ABdhPJxlWYqF04MNHKY5R/3NMR0PL4F/gwjBtfyYKZsIed2ysea+Hy76lQMgQgqLA/Qrbg0or4iibFJUKfts9wRaukw=
+X-Received: by 2002:a05:6830:1445:: with SMTP id
+ w5mr15904858otp.112.1638526397177; 
+ Fri, 03 Dec 2021 02:13:17 -0800 (PST)
 MIME-Version: 1.0
-X-Originating-IP: [172.17.27.112]
-X-ClientProxiedBy: T-EXCH-01.corp.yadro.com (172.17.10.101) To
- T-Exch-05.corp.yadro.com (172.17.10.109)
+References: <20211202150515.GA97518@sunil-ThinkPad-T490>
+ <CAMj1kXGJtMmcXLjHEG8xX0sSFNfdjj4A2_4DPcviEJ3=MARh+w@mail.gmail.com>
+ <89d42547-ec36-5f84-88d1-fd65d891488c@canonical.com>
+ <CAMj1kXG-VnhkECGewZPkUZLC2rb1bSDGdSpby9R=W_1d3FAsdg@mail.gmail.com>
+ <6d9f131d-b3e8-18df-a9b6-6aaac881eb65@canonical.com>
+ <CAOnJCUJfEpW6TtBPFGZ9TfNJeb9r+-L_8BddsxxejAd9Fe8VHw@mail.gmail.com>
+In-Reply-To: <CAOnJCUJfEpW6TtBPFGZ9TfNJeb9r+-L_8BddsxxejAd9Fe8VHw@mail.gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 3 Dec 2021 11:13:06 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXHGPZBfaiMCPYt7tYe+5wt_jn78Qdih9U-XLDba5sfqtQ@mail.gmail.com>
+Message-ID: <CAMj1kXHGPZBfaiMCPYt7tYe+5wt_jn78Qdih9U-XLDba5sfqtQ@mail.gmail.com>
+Subject: Re: Question regarding "boot-hartid" DT node
+To: Atish Patra <atishp@atishpatra.org>
+Cc: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+ Abner Chang <abner.chang@hpe.com>, 
+ Jessica Clarke <jrtc27@jrtc27.com>, Anup Patel <anup@brainfault.org>, 
+ Palmer Dabbelt <palmer@rivosinc.com>, sunil.vl@gmail.com, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Sunil V L <sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211203_015942_784343_68369EAF 
-X-CRM114-Status: UNSURE (   9.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211203_021319_171798_71498141 
+X-CRM114-Status: GOOD (  43.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,36 +90,107 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-HiFive unmatched supports PDMA but is not implemented in DT.
+On Thu, 2 Dec 2021 at 20:29, Atish Patra <atishp@atishpatra.org> wrote:
+>
+> On Thu, Dec 2, 2021 at 9:05 AM Heinrich Schuchardt
+> <heinrich.schuchardt@canonical.com> wrote:
+> >
+> > On 12/2/21 17:58, Ard Biesheuvel wrote:
+> > > On Thu, 2 Dec 2021 at 17:53, Heinrich Schuchardt
+> > > <heinrich.schuchardt@canonical.com> wrote:
+> > >>
+> > >> On 12/2/21 17:20, Ard Biesheuvel wrote:
+> > >>> On Thu, 2 Dec 2021 at 16:05, Sunil V L <sunilvl@ventanamicro.com> wrote:
+> > >>>>
+> > >>>> Hi All,
+> > >>>>      I am starting this thread to discuss about the "boot-hartid" DT node
+> > >>>>      that is being used in RISC-V Linux EFI stub.
+> > >>>>
+> > >>>>      As you know, the boot Hart ID is passed in a0 register to the kernel
+> > >>>>      and hence there is actually no need to pass it via DT. However, since
+> > >>>>      EFI stub follows EFI application calling conventions, it needs to
+> > >>>>      know the boot Hart ID so that it can pass it to the proper kernel via
+> > >>>>      a0. For this issue, the solution was to add "/chosen/boot-hartid" in
+> > >>>>      DT. Both EDK2 and u-boot append this node in DT.
+> > >>>>
+> > >>>
+> > >>> I think this was a mistake tbh
+> > >>>
+> > >>>>      But above approach causes issue for ACPI since ACPI initialization
+> > >>>>      happens late in the proper kernel. Same is true even if we pass this
+> > >>>>      information via SMBIOS.
+> > >>>>
+> > >>>
+> > >>> It would be better to define a RISCV specific EFI protocol that the
+> > >>> stub can call to discover the boot-hartid value. That wat, it can pass
+> > >>> it directly, without having to rely on firmware tables.
+> > >>
+> > >> As discovering the current process' hartid is not a UEFI specific task
+> > >> SBI would be a better fit.
+> > >>
+> > >
+> > > I disagree. The OS<->loader firmware interface is UEFI not SBI. So if
+> > > the EFI stub needs to ask the firmware which boot-hartid it should
+> > > pass in A0, it should use a EFI protocol and nothing else.
+> > >
+> > > Whether or not the loader/firmware *implements* this EFI protocol by
+> > > calling into SBI is a different matter (and likely the best choice).
+> > > But that does not mean the EFI stub should make SBI calls directly.
+> > >
+> >
+> > The EFI stub does not need the boot-hartid. It is the main Linux kernel
+> > that does. And that kernel already implements SBI calls.
+> >
+> > The main kernel could just try to read CSR mhartid which fails in S-mode
+> > and the SBI could emulate it.
+>
+> New SBI extension should be added only if there is no other way to
+> solve a generic
+> problem. The boot hartid issue is very specific to efi booting only.
+> Any system that doesn't require
+> EFI booting won't need it. Even for EFI booting, we have other
+> approaches already proposed
+> to solve it. That's why, SBI extension should be the last resort
+> rather than first.
+>
+> I think an RISC-V specific EFI protocol as suggested by Ard should
+> work for all the cases.
+> Is there a case where you think it may not work ? U-Boot & EDK2
+> already stores the boot hartid.
+> They just implement that protocol and pass the hartid to the caller.
+> We do need to support it in the grub though.
+>
 
-Add the PDMA node in SiFive FU740 soc-specific DT file.
+Why would GRUB care about this? The EFI stub will call into the
+underlying firmware to invoke the protocol, GRUB is just a loader with
+a fancy menu that allows you to select which image to load, no?
 
-Signed-off-by: v.v.mitrofanov <v.v.mitrofanov@yadro.com>
----
- arch/riscv/boot/dts/sifive/fu740-c000.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/arch/riscv/boot/dts/sifive/fu740-c000.dtsi b/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
-index 64ff2e758336..833fb4f4376b 100644
---- a/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
-+++ b/arch/riscv/boot/dts/sifive/fu740-c000.dtsi
-@@ -164,6 +164,13 @@ prci: clock-controller@10000000 {
- 			#clock-cells = <1>;
- 			#reset-cells = <1>;
- 		};
-+		dma: dma@3000000 {
-+			compatible = "sifive,fu540-c000-pdma";
-+			reg = <0x0 0x3000000 0x0 0x8000>;
-+			interrupt-parent = <&plic0>;
-+			interrupts = <11 12 13 14 15 16 17 18>;
-+			#dma-cells = <1>;
-+		};
- 		uart0: serial@10010000 {
- 			compatible = "sifive,fu740-c000-uart", "sifive,uart0";
- 			reg = <0x0 0x10010000 0x0 0x1000>;
--- 
-2.30.2
-
+> @Heinrich Schuchardt
+> I vaguely remember you proposed something similar when we discussed
+> this first during FOSDEM.
+> I can't recall why it was abandoned in favor of the DT approach which
+> works. But,
+> it is not an ideal solution considering RISC-V ACPI support is already
+> on the way.
+>
+> Do you have a link to the older thread where this thing was discussed ?
+>
+>
+> >
+> > Best regards
+> >
+> > Heinrich
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+>
+>
+>
+> --
+> Regards,
+> Atish
 
 _______________________________________________
 linux-riscv mailing list
