@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFBDFC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Dec 2021 08:33:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7568DC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Dec 2021 08:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OSi+r+wBDDSHx1tdQco7/PfkTOr4cisyFgvC1saZ1LU=; b=HATPGo0Mzukzml
-	Fs0yh/SO9xvYu3rRaJuAFhjDSp0QyomINYO21nCOwk12YSBP+A+PZGyFipIHRRDlTZW7SSRTGFIQP
-	etxgByPrldzEzcUguRAsiX0HcduXQ4kcao6EvMQ/WAnwaRW2lMb8VcP80+0BiTz2QjLuIJDT7PKoE
-	gv3JchyPneJNeLlMXQ9Qd8meo+7hZMELz+pi0tU0n9F8n4FkMel0lnS6dZA6+6yxQkzFf33Q3bJwJ
-	Fj7VoFgNsbuoJCTJri5ChcD/kSGvdGAXYipdjYFqSp4joNpxX15M0jldQtE7D/ByqCLWb/kXBsi27
-	NsrMtK5WjHDolthzWapA==;
+	List-Owner; bh=plPnmfjXpustIeeRm/bvn1NKsCnYo6vz6wEt6b604to=; b=Pm4c9mX5T7nbJZ
+	qu5K1oBy+7K46e/b3ToN4lCgakFyzQeI5YWupkTKzCJnWiL2wdnKz8yS7m342+VH3hjxmju4j8ANp
+	vCbgyXdyn5zb1NyYJoFTJIaAci195EPet/bokSg41Rrn94QHbfZ0lmL+fSohG0JmzjGYH5LH5wdbU
+	igGETNAAsuk5Qcz3OhddduXz3EDPXOY3DzYP/S5BPSjJwQj+bqp2j2Wp/ftayNkR1YGRBTeFlWD3O
+	V8v76kQXtjaef7nG8F04hFEvn3d2OnWkDUqBjP6zyy47zQNMv6HUHhsGdCddO4NyrD3cYG6Yq5z0i
+	0MCc8Vzkvg5/1WsBzV5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mt40S-00Eqb7-IG; Fri, 03 Dec 2021 08:33:24 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1mt42r-00ErCC-P0; Fri, 03 Dec 2021 08:35:53 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mt40P-00EqYw-6D
- for linux-riscv@lists.infradead.org; Fri, 03 Dec 2021 08:33:23 +0000
+ id 1mt42o-00ErBH-UL
+ for linux-riscv@lists.infradead.org; Fri, 03 Dec 2021 08:35:52 +0000
 Received: (Authenticated sender: alex@ghiti.fr)
- by relay2-d.mail.gandi.net (Postfix) with ESMTPSA id 5C96B40016;
- Fri,  3 Dec 2021 08:33:13 +0000 (UTC)
-Message-ID: <3344a7ae-aaa6-2f35-09fc-60039bb8184d@ghiti.fr>
-Date: Fri, 3 Dec 2021 09:33:12 +0100
+ by relay3-d.mail.gandi.net (Postfix) with ESMTPSA id 3DE8460021;
+ Fri,  3 Dec 2021 08:35:48 +0000 (UTC)
+Message-ID: <59c8b150-3811-a057-eb73-50f14698c993@ghiti.fr>
+Date: Fri, 3 Dec 2021 09:35:47 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.2.1
@@ -45,8 +45,8 @@ References: <20211203050317.2102-1-jszhang@kernel.org>
 From: Alexandre ghiti <alex@ghiti.fr>
 In-Reply-To: <20211203050317.2102-3-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211203_003321_543674_ED3CC1CB 
-X-CRM114-Status: GOOD (  27.30  )
+X-CRM114-CacheID: sfid-20211203_003551_285859_192326AC 
+X-CRM114-Status: GOOD (  25.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,6 +136,11 @@ On 12/3/21 06:03, Jisheng Zhang wrote:
 > +			memblock_set_current_limit(max_mapped_addr - 4096);
 > +	}
 >   
+
+
+And remove the __maybe_unused used in max_mapped_addr declaration.
+
+
 >   	min_low_pfn = PFN_UP(phys_ram_base);
 >   	max_low_pfn = max_pfn = PFN_DOWN(phys_ram_end);
 > @@ -616,13 +614,12 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
@@ -151,12 +156,6 @@ On 12/3/21 06:03, Jisheng Zhang wrote:
 > -#endif
 > +	if (IS_ENABLED(CONFIG_64BIT))
 > +		BUG_ON((kernel_map.virt_addr + kernel_map.size) > ADDRESS_SPACE_END - SZ_4K);
-
-
-For this one, I think we can just get rid of the condition since this is 
-true for every kernel actually.
-
-
 >   
 >   	pt_ops.alloc_pte = alloc_pte_early;
 >   	pt_ops.get_pte_virt = get_pte_virt_early;
@@ -170,12 +169,6 @@ true for every kernel actually.
 > -#endif
 > +	if (IS_ENABLED(CONFIG_64BIT))
 > +		create_kernel_page_table(swapper_pg_dir, false);
-
-
-Wouldn't it be better to introduce a create_kernel_page_table function 
-that does nothing for !CONFIG_64BIT?
-
-
 >   
 >   	/* Clear fixmap PTE and PMD mappings */
 >   	clear_fixmap(FIX_PTE);
