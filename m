@@ -4,82 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F337C433F5
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Dec 2021 19:14:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BCC0C433F5
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Dec 2021 19:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Zf1f5IPDfGS+1rgtYfb1uk3p6xkig7X6k57cF6XEvGU=; b=ywkJOMEY4VEfBX
-	/+rmCT4AFNZv0eUXQcJQnxq/HfMFJmp4OueKw56JYv45upR4JePIqXI9sqbAnxNCImMmnY5icJvYe
-	748j9wji3u1Ceywczeyc0YGNx3AXFMvayzUzN8q6d7b+Bv3Pbhd+xxS3PbE5SWMzmLhhmLtDaPZTe
-	9QuPNMRJphYqKBpuudxJs0TXkTLdRpm8hcHfZvitAK0sq0q/cKucVQRXM7q6RGoegUPFSmRfBImlq
-	IE5QVfbTA2p7Nh/gB3LYSTerNZivnSUTmBFkfPLZv5Q+58oFBa0OO9H/P9wgBZzEQ9zqvtO5NRTeG
-	B4x9ahhhoGQnWu+LzMVA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v2kP8ctFUw77PWexNGP4atznk7P5Yh2NmXKiCQ6vqYM=; b=O7x7h+pyZrJjm3bszZXetTj+R3
+	6nopUsBY6Wsxgohq5RVV7TngQg4YMflWBuPrs8mSB4/kFMKT0RKPMGArBzYeNzN10ZZXLC2whmqmn
+	oEJxVPFPQ0cdMDqpmlD6filrDALRCktcaYCsBjScxBXUL5a53T5Y8a/Z+cef+x6fc4s9mwlfn8GsQ
+	NOAoOKrXFOhcV/QdHG1tENgQM6r8ES3ZIb3BQeD/Gc+MqjBgq/+6Byl8k8c5VT6n6qucAKE1Nlq+8
+	+xVo7W+hqDVqGFySXVm5yblFF/nSzhWlMeglSOWFSVIb9S2qzKm0siydGgpoixNSyl5VwgUjxH7Eh
+	w7AsXYDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mtaTq-000geI-I9; Sat, 04 Dec 2021 19:13:54 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1mtb6X-000hdh-5l; Sat, 04 Dec 2021 19:53:53 +0000
+Received: from mout.gmx.net ([212.227.15.15])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mtaTm-000gdw-Oy
- for linux-riscv@lists.infradead.org; Sat, 04 Dec 2021 19:13:53 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id D28C2B80D4C
- for <linux-riscv@lists.infradead.org>; Sat,  4 Dec 2021 19:13:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04BD4C341CB
- for <linux-riscv@lists.infradead.org>; Sat,  4 Dec 2021 19:13:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1638645227;
- bh=7+WZ95oEY4dJpERHi+YrHbbg39kslmbzetwhlZmGCAk=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=bI+CwwgBcdFMLLi5tuujKIp8/BiAq9JFtwIPNSUCoZakW75rBLVjU/CnSpog06BqU
- r6loVFzrbLd/KOVPx4z28/xhsa+qslOdqQdJ0IzNuhEsbyOTYkOYeloxlSIpC5xLrh
- MIkqMT4dV0US4tCGlc05XBSXw/Ht3ApMzmgPlWtHCs46kDpO5Hq7qsNTK6k46I6Xhn
- DfDgkOBax24mri4Ax+fGOTbyo6ZHMgX7BQaBvIsP5b7bzEkAhSjNmHgFmu71vHn5tX
- zd7F4Yek+YNMOQtsO/8F42ITIeUlxOnxOo1YFBxH1bFTxkvT+V5G+vmBy2mJhdvA0s
- d0WRePMNGfXpQ==
-Received: by mail-oi1-f170.google.com with SMTP id be32so12890920oib.11
- for <linux-riscv@lists.infradead.org>; Sat, 04 Dec 2021 11:13:46 -0800 (PST)
-X-Gm-Message-State: AOAM531Qy1tROUsgJTsodpwK7Bw1AyLSJU32/QvzSLoQPmMhTLT1Mo/j
- RHe17TaVf2hhIRvK5OjT3F9FzqbdTG7SYcXhsTw=
-X-Google-Smtp-Source: ABdhPJyRM4mNYrIEzdVNbcnSULR8uS3ywMjtsYMQtCVgSx5KBDZIjQsV+ZL7YqOa8zD5v05l9l0f4dA2SRs3XOLb1gk=
-X-Received: by 2002:a05:6808:1919:: with SMTP id
- bf25mr16634951oib.33.1638645226061; 
- Sat, 04 Dec 2021 11:13:46 -0800 (PST)
+ id 1mtb6U-000hdE-Ag
+ for linux-riscv@lists.infradead.org; Sat, 04 Dec 2021 19:53:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1638647625;
+ bh=PrgmBUyfxqtpVy1lwWQb2aVCmUol9Hr5FDzh3x1bgZo=;
+ h=X-UI-Sender-Class:Date:From:To:Cc:Subject:References:In-Reply-To;
+ b=YY68JzKDAR19WzIfvWgVMqf8Huj64ceX+qVriZMioYecFs6YV/1kXsDgbYI2I3GD8
+ TH9gVC1AK6Z3fHjwdVPOsiExXhbNId9sP3AUwCvx9YRqeA4RpdjGVdJWyDiPiqZPPW
+ AqrMj6OQEZPpyV8T+UKeOlbuirSqM+b9bRE5ZQks=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from longitude ([5.146.194.160]) by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MLzBj-1nAqv50woz-00Htgr; Sat, 04
+ Dec 2021 20:48:18 +0100
+Date: Sat, 4 Dec 2021 20:48:16 +0100
+From: Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>
+To: Joe Perches <joe@perches.com>
+Cc: Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>,
+ linux-kernel@vger.kernel.org,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ linux-riscv@lists.infradead.org, llvm@lists.linux.dev
+Subject: Re: [PATCH] MAINTAINERS: Sort entries using parse-maintainers.pl
+Message-ID: <YavGALvWdsW+BO9w@latitude>
+References: <20211204175255.1361385-1-j.neuschaefer@gmx.net>
+ <429227f33cf14aee6f0668a3d98aa220b54383d6.camel@perches.com>
 MIME-Version: 1.0
-References: <20211202150515.GA97518@sunil-ThinkPad-T490>
- <CAMj1kXGJtMmcXLjHEG8xX0sSFNfdjj4A2_4DPcviEJ3=MARh+w@mail.gmail.com>
- <89d42547-ec36-5f84-88d1-fd65d891488c@canonical.com>
- <CAMj1kXG-VnhkECGewZPkUZLC2rb1bSDGdSpby9R=W_1d3FAsdg@mail.gmail.com>
- <6d9f131d-b3e8-18df-a9b6-6aaac881eb65@canonical.com>
- <CAOnJCUJfEpW6TtBPFGZ9TfNJeb9r+-L_8BddsxxejAd9Fe8VHw@mail.gmail.com>
- <CAMj1kXHGPZBfaiMCPYt7tYe+5wt_jn78Qdih9U-XLDba5sfqtQ@mail.gmail.com>
- <6fccad4e-b579-25ed-6bf3-2fb2a968b243@canonical.com>
- <c758bae4-3578-f062-edfd-f5835ae525fe@gmx.de>
- <CAOnJCUJ6Aoh7881HOSifQTc61+vCTVjxnYORfWM_WGLJQCugRg@mail.gmail.com>
- <7416157e-50d1-3664-7df0-2a45e29cd8c1@canonical.com>
- <CAAhSdy1DOnEGpxPQF7juUSyBTyx9W8KsH8exTpOmTLOnNCMJqg@mail.gmail.com>
- <CAOnJCU+taK16cnfnQtk3QM3s-f4RCUTWENAPe8Nhs-8L29vKew@mail.gmail.com>
- <d7f57c7f-a02c-c245-e1ef-af30bc9f6998@canonical.com>
-In-Reply-To: <d7f57c7f-a02c-c245-e1ef-af30bc9f6998@canonical.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sat, 4 Dec 2021 20:13:35 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXHXFXSojAUz6EDeoTkqD5AxeFTffA=RyTu5JnsAsAHsfg@mail.gmail.com>
-Message-ID: <CAMj1kXHXFXSojAUz6EDeoTkqD5AxeFTffA=RyTu5JnsAsAHsfg@mail.gmail.com>
-Subject: Re: Question regarding "boot-hartid" DT node
-To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Cc: Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>, 
- Abner Chang <abner.chang@hpe.com>, Heinrich Schuchardt <xypron.glpk@gmx.de>, 
- Jessica Clarke <jrtc27@jrtc27.com>, Palmer Dabbelt <palmer@rivosinc.com>,
- sunil.vl@gmail.com, linux-riscv <linux-riscv@lists.infradead.org>,
- Sunil V L <sunilvl@ventanamicro.com>
+In-Reply-To: <429227f33cf14aee6f0668a3d98aa220b54383d6.camel@perches.com>
+X-Provags-ID: V03:K1:Mfj+DDgT2I4N38q2aei8davRHgCE1wdFIJ1g8ujVKryRuGnw1/6
+ R3Q1MR/FfJJYbiNJJjCSvuFjAhMz16vQWesCPTP5qnvjRXVSTlqpZf//kOboyarVCfJ7YoL
+ RvOwyh/7qTvtQHEc7OhPyEsPKUlb3N3S0MzYPaBmXIXjL85tN/rdL0B1bTleNuDf0KEW4Lr
+ j/gZc4WBkWHxXkuRW93Lg==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:K0JWHB2eqz4=:yq3ljFLxb5O5yxQHm42Ej3
+ sbZTi1GWX8w+wnoDjaGPUYljW4zm9Ot8+vxga4nfJA0vDS0rkAGNG2E+VYYhxfK6Oi9hmUaoU
+ LTz6ocypvE7ysU/iy5IxU80vw7hYqqDKZAzqRlxsQBxpvMNPHJfIrwCsnAOdCOogzJs97bewN
+ aXrS19/CNp4AW1xztG5FCxP8hFnxRrjBmdUG+zj4vQfsxSBCNLHOCLyd0ev25N7t3HX/Fmu4H
+ mC8cJ2pI+17Lw7OgGKWkT/Jh7ZrdZoJC4uWTP17mKNMkCyDbfZDWmwrje/ZcwUICG5rgVdlgU
+ ZBGahQOwHv4nfnuvQba0kEpXLAGgzOPp6dAhRjWuykNIYmPfv2QZpTDT0yxPRyrGLkvawKwVN
+ W9dl8ljUdojuqtib85RmEYsJ7GcOA3ITgVHmIU4PQA2zFa21t4b0WYxQw+dsPxNnnA/y3PHP9
+ EF75mCSde4W312TTAVHaCMGj2s5segj/33MlVJgjjJSw/qgMzVKwZ2oGK2FkMt/lL3SFCbw7d
+ 0/2gv/w7GsiK6b13AoDRbrhCgKBzumeGYBJjYj56IYA6u792g7UpS7NB6Jg3McSA375RmbWjW
+ OnG1bitdHR3/tHoorUifV3jfD/dDkkgg0OkssSpDCK7FNX0T+v2NtzDztejoemZb7AiJKcJ1f
+ b+e89B5/O2H21a9QCltoz6zbvNvcAFiEUTd6MXxdQgQ1CiFK6JlUJUUuRz6ODE+yD6Iha7vwm
+ EnSc0uoCuJS3aLKHwmcgVow4Elrk7VJaiRMEtwoqIv1nyP+YzSvC0QAoTYgTxJfLcaSbGoHjc
+ tCOkzaSuRD2S7ZxLSQGuPCnIsUwY6SH9bzuI4MbgNV0qciSlfr4xwui6rA9rwIdH3bG/WFitY
+ RGB1w/cIrYsNmHs67MKLUkJnom3d+4Fyo1/VZOV6/RQ3oXnJjUvF5bdYEjVALRsuCVjf5eT5j
+ VvR71qklrY5y5NBBW549MTCPd0ng5peBHgtE2LLsZhg8lo6Oq+aeo+y4WpKmFkkzafaBRLls6
+ TD+m3/Hw+wF2Vzs10ZGxnS7iD6z0gcLpS8GEzCFQ+PknD64YmWhsXuGwg1cC0bh4uDJEj2d2X
+ 3JDdnLkQlpOAIQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211204_111351_121567_9D43EBA5 
-X-CRM114-Status: GOOD (  62.55  )
+X-CRM114-CacheID: sfid-20211204_115350_685453_2E742F5F 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,234 +88,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6990687861418591562=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 4 Dec 2021 at 20:03, Heinrich Schuchardt
-<heinrich.schuchardt@canonical.com> wrote:
->
->
->
-> On 12/4/21 19:34, Atish Patra wrote:
-> > On Fri, Dec 3, 2021 at 8:24 PM Anup Patel <anup@brainfault.org> wrote:
-> >>
-> >> On Sat, Dec 4, 2021 at 7:17 AM Heinrich Schuchardt
-> >> <heinrich.schuchardt@canonical.com> wrote:
-> >>>
-> >>>
-> >>>
-> >>> On 12/4/21 01:44, Atish Patra wrote:
-> >>>> On Fri, Dec 3, 2021 at 10:45 AM Heinrich Schuchardt <xypron.glpk@gmx.de> wrote:
-> >>>>>
-> >>>>> On 12/3/21 11:53 AM, Heinrich Schuchardt wrote:
-> >>>>>> On 12/3/21 11:13, Ard Biesheuvel wrote:
-> >>>>>>> On Thu, 2 Dec 2021 at 20:29, Atish Patra <atishp@atishpatra.org> wrote:
-> >>>>>>>>
-> >>>>>>>> On Thu, Dec 2, 2021 at 9:05 AM Heinrich Schuchardt
-> >>>>>>>> <heinrich.schuchardt@canonical.com> wrote:
-> >>>>>>>>>
-> >>>>>>>>> On 12/2/21 17:58, Ard Biesheuvel wrote:
-> >>>>>>>>>> On Thu, 2 Dec 2021 at 17:53, Heinrich Schuchardt
-> >>>>>>>>>> <heinrich.schuchardt@canonical.com> wrote:
-> >>>>>>>>>>>
-> >>>>>>>>>>> On 12/2/21 17:20, Ard Biesheuvel wrote:
-> >>>>>>>>>>>> On Thu, 2 Dec 2021 at 16:05, Sunil V L <sunilvl@ventanamicro.com>
-> >>>>>>>>>>>> wrote:
-> >>>>>>>>>>>>>
-> >>>>>>>>>>>>> Hi All,
-> >>>>>>>>>>>>>         I am starting this thread to discuss about the
-> >>>>>>>>>>>>> "boot-hartid" DT node
-> >>>>>>>>>>>>>         that is being used in RISC-V Linux EFI stub.
-> >>>>>>>>>>>>>
-> >>>>>>>>>>>>>         As you know, the boot Hart ID is passed in a0 register to
-> >>>>>>>>>>>>> the kernel
-> >>>>>>>>>>>>>         and hence there is actually no need to pass it via DT.
-> >>>>>>>>>>>>> However, since
-> >>>>>>>>>>>>>         EFI stub follows EFI application calling conventions, it
-> >>>>>>>>>>>>> needs to
-> >>>>>>>>>>>>>         know the boot Hart ID so that it can pass it to the proper
-> >>>>>>>>>>>>> kernel via
-> >>>>>>>>>>>>>         a0. For this issue, the solution was to add
-> >>>>>>>>>>>>> "/chosen/boot-hartid" in
-> >>>>>>>>>>>>>         DT. Both EDK2 and u-boot append this node in DT.
-> >>>>>>>>>>>>>
-> >>>>>>>>>>>>
-> >>>>>>>>>>>> I think this was a mistake tbh
-> >>>>>>>>>>>>
-> >>>>>>>>>>>>>         But above approach causes issue for ACPI since ACPI
-> >>>>>>>>>>>>> initialization
-> >>>>>>>>>>>>>         happens late in the proper kernel. Same is true even if we
-> >>>>>>>>>>>>> pass this
-> >>>>>>>>>>>>>         information via SMBIOS.
-> >>>>>>>>>>>>>
-> >>>>>>>>>>>>
-> >>>>>>>>>>>> It would be better to define a RISCV specific EFI protocol that the
-> >>>>>>>>>>>> stub can call to discover the boot-hartid value. That wat, it can
-> >>>>>>>>>>>> pass
-> >>>>>>>>>>>> it directly, without having to rely on firmware tables.
-> >>>>>>>>>>>
-> >>>>>>>>>>> As discovering the current process' hartid is not a UEFI specific
-> >>>>>>>>>>> task
-> >>>>>>>>>>> SBI would be a better fit.
-> >>>>>>>>>>>
-> >>>>>>>>>>
-> >>>>>>>>>> I disagree. The OS<->loader firmware interface is UEFI not SBI. So if
-> >>>>>>>>>> the EFI stub needs to ask the firmware which boot-hartid it should
-> >>>>>>>>>> pass in A0, it should use a EFI protocol and nothing else.
-> >>>>>>>>>>
-> >>>>>>>>>> Whether or not the loader/firmware *implements* this EFI protocol by
-> >>>>>>>>>> calling into SBI is a different matter (and likely the best choice).
-> >>>>>>>>>> But that does not mean the EFI stub should make SBI calls directly.
-> >>>>>>>>>>
-> >>>>>>>>>
-> >>>>>>>>> The EFI stub does not need the boot-hartid. It is the main Linux kernel
-> >>>>>>>>> that does. And that kernel already implements SBI calls.
-> >>>>>>>>>
-> >>>>>>>>> The main kernel could just try to read CSR mhartid which fails in
-> >>>>>>>>> S-mode
-> >>>>>>>>> and the SBI could emulate it.
-> >>>>>>>>
-> >>>>>>>> New SBI extension should be added only if there is no other way to
-> >>>>>>>> solve a generic
-> >>>>>>
-> >>>>>> I am not sure this feature would be implemented as SBI extension or as a
-> >>>>>> CSR emulation. Cf. sbi_emulate_csr_read(). But anyway it would require
-> >>>>>> an update of the SBI specification.
-> >>>>>>
-> >>>>>>>> problem. The boot hartid issue is very specific to efi booting only.
-> >>>>>>>> Any system that doesn't require
-> >>>>>>
-> >>>>>> The boot hartid is not EFI related at all. A firmware running single
-> >>>>>> threaded does not need this information.
-> >>>>>>
-> >>>>>> Information about the boot hartid is a general OS need.
-> >>>>>>
-> >>>>>> I am wondering why S-mode software should not have a generic means to
-> >>>>>> find out on which hart it is currently running.
-> >>>>>>
-> >>>>>>>> EFI booting won't need it. Even for EFI booting, we have other
-> >>>>>>>> approaches already proposed
-> >>>>>>>> to solve it. That's why, SBI extension should be the last resort
-> >>>>>>>> rather than first.
-> >>>>>>>>
-> >>>>>>>> I think an RISC-V specific EFI protocol as suggested by Ard should
-> >>>>>>>> work for all the cases.
-> >>>>>>>> Is there a case where you think it may not work ? U-Boot & EDK2
-> >>>>>>>> already stores the boot hartid.
-> >>>>>>>> They just implement that protocol and pass the hartid to the caller.
-> >>>>>>>> We do need to support it in the grub though.
-> >>>>>>>>
-> >>>>>>>
-> >>>>>>> Why would GRUB care about this? The EFI stub will call into the
-> >>>>>>> underlying firmware to invoke the protocol, GRUB is just a loader with
-> >>>>>>> a fancy menu that allows you to select which image to load, no?
-> >>>>>>
-> >>>>>> This is a related discussion:
-> >>>>>>
-> >>>>>> https://github.com/tekkamanninja/grub/commit/be9d4f1863a1fcb1cbbd2f867309457fade8be73#commitcomment-60851029
-> >>>>>>
-> >>>>
-> >>>> Yes!! Thanks for refreshing the memory. It seems after 2 years, we are
-> >>>> still debating the same topic :).
-> >>>> Let me summarize the thread. There are multiple ways for EFI stub code
-> >>>> to retrieve the boot hartid.
-> >>>>
-> >>>> 1. EFI variables - This is what Henerich proposed last time. Ard
-> >>>> suggested that EFI configuration tables are better candidates than EFI
-> >>>> variables.
-> >>>> 2. DT modification - This was preferred over the configuration table
-> >>>> at that time given because RISC-V was DT only at that time.
-> >>>>                                    We already had all the infrastructure
-> >>>> around DT. Thus, DT seemed to be a natural choice then.
-> >>>>                                    It works now for existing setup
-> >>>> however, the DT approach will not work for systems with ACPI support.
-> >>>>                                    Adding a similar entry in ACPI tables
-> >>>> is possible but adding ACPI support in EFI stub is not trivial.
-> >>>> 3. SMBIOS - Only for platforms with SMBIOS support. SMBIOS is not
-> >>>> mandatory and adding SMBIOS support in EFI stub is not trivial.
-> >>>> 4. SBI         -  As I mentioned before, this is an EFI specific
-> >>>> problem because EFI stub doesn't know what the boot hartid is. Thus,
-> >>>> it should be solved
-> >>>>                         in an EFI specific way. An SBI extension for
-> >>>> such features may not be acceptable as the non-EFI booting method
-> >>>> works fine without the SBI extension.
-> >>>> 5. RISC-V specific EFI configuration table or protocol: Ard suggested
-> >>>> EFI configuration table last time. Earlier in this thread, EFI
-> >>>> protocol was suggested.
-> >>>>                         My personal preference has always been one of
-> >>>> these as it solves the problem for all EFI booting methods
-> >>>>                         for platforms-os
-> >>>> combination(DT/ACPI-Linux/FreeBSD) in an EFI specific way.
-> >>>>
-> >>>> @Heinrich: Do you see any issue with the EFI configuration table or
-> >>>> protocol to retrieve the boot hartid?
-> >>>
-> >>> There is nothing technical stopping us from implementing either option.
-> >>>
-> >>> We could simply reuse the EFI Device Tree Fixup Protocol
-> >>> (https://github.com/U-Boot-EFI/EFI_DT_FIXUP_PROTOCOL) implemented in
-> >>> U-Boot and already used by systemd-boot. Pass a devicetree (which may be
-> >>> empty) to the Fixup() method and it will add the /chosen node with the
-> >>> boot-hartid parameter.
-> >>>
-> >>> The EFI stub anyway creates a new device-tree to pass the memory map to
-> >>> the kernel in the ACPI case (function update_fdt()). Calling the EFI
-> >>> Device Tree Fixup Protocol could be easily added.
-> >
-> > Thanks. Yes. We can solve the current problem for EFI stub in Linux.
-> >
-> >>
-> >> Are you suggesting that DTB (skeletal or full-blown) will always be there when
-> >> booting the kernel as an EFI application ? If yes then we are
-> >> indirectly mandating
-> >> skeletal DTB for UEFI+ACPI system.
-> >
-> > Yes. EFI Stub tries to find a fdt from the command line (not a
-> > preferred method) or EFI configuration table[1]
-> > (currently used for RISC-V systems). If it can't find a device tree,
-> > it generates one [2]
-> >
-> > [1] https://elixir.bootlin.com/linux/v5.16-rc3/source/drivers/firmware/efi/libstub/efi-stub.c#L231
-> > [2] https://elixir.bootlin.com/linux/v5.16-rc3/source/drivers/firmware/efi/libstub/fdt.c#L58
-> >
-> > However, we may still need to define the RISC-V EFI protocol to
-> > support ACPI for other OS (FreeBSD) which doesn't have
-> > a stub like loader that uses DT.
-> >
-> > In that case, where should we document it ? UEFI spec or RISC-V platform spec ?
->
-> Defining EFI protocols outside the UEFI spec has precedents, e.g. the
-> EFI_TCG2_PROTOCOL is defined in a specification hosted by the Trusted
-> Computing Group.
->
 
-The 'E' in EFI means 'extensible' and the UEFI spec was never intended
-as an exhaustive reference of all imaginable protocols. It is
-perfectly fine to define your own protocols, and document them
-wherever appropriate.
+--===============6990687861418591562==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ROvq4wnVg2ILd55W"
+Content-Disposition: inline
 
-> The UEFI Forum prefers an implemention first approach. We should
-> demonstrate with a patched EDK II or U-Boot and a patched Linux that
-> what we define is working before creating a change request.
->
 
-... if needed. There is no need to incorporate this into the UEFI spec.
+--ROvq4wnVg2ILd55W
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> Let's start with a draft protocol specification on Github and then
-> develop the necessary patches.
->
+On Sat, Dec 04, 2021 at 10:20:24AM -0800, Joe Perches wrote:
+> On Sat, 2021-12-04 at 18:52 +0100, Jonathan Neusch=C3=A4fer wrote:
+> > The MAINTAINERS file got slightly out of order again, making it
+> > difficult to put new entries at the right (alphabetical) position.
+> >=20
+> > Run parse-maintainers.pl to restore the alphabetical order.
+> []
+> > Checkpatch warns about a few unordered "F:" lines within sections, but I
+> > left those alone because I wanted this patch to be as automated as poss=
+ible.
+>=20
+> The --order option does that.
+>=20
+> $ ./scripts/parse-maintainers.pl --order --output MAINTAINERS
 
-Agreed.
+Ah, good point.
 
-And to Heinrich's point regarding that there should not be a need for
-this protocol: I completely agree. The fact that passing the
-boot-hartid in a0 is part of the boot protocol is unfortunate, and
-sadly, the EFI stub needs to implement what the boot protocol
-stipulates, even though it is not a great design to begin with.
+Unfortunately, the result of parse-maintainers.pl --order currently
+produces a (small) merge conflict when merged/cherry-picked on top of
+-next, so it might be better to start without --order. (Not sure.)
+
+
+Jonathan
+
+--ROvq4wnVg2ILd55W
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEvHAHGBBjQPVy+qvDCDBEmo7zX9sFAmGrxcIACgkQCDBEmo7z
+X9tVJA//aISsE+7K0fQ3JOcW81DBxVamtjIVwDlgWZY4/GydoC2/Ixgyab2/SNX+
++sKYYtB1zlrkYtDQFG7UQ7b2dATpwntvZuLMM9j+MtZ9ZxXDmDZz52omGGlZlMIp
+XIVpoglmN9YTWOc0p2iCi2P9wMwdZSghfpjSBdzyp4iZ2OCYpI+Rzuo0Mh+sKpV2
+l5DTv8+kV9gjRgoQGNktF/grwyJZVF5tJqXex5rQg+cftse+cOi5/awVepvG6czD
+w7OrbVzbyt+/M47hI81XtnNsP3nTEXQW8fJsbEIeBpdP+OUwWtP+FI0et1Q4jnaG
+6I0+4xFZcg87jbD/2FpIuEyCvWiw1YBJ52nkfcOFTSjLkuBTdqGc+DmJbZrZEe52
+ZdSmN2l36IKA1Rw+quMe8eCNAI4eiSqtR8M+tar9ydhUxKBiCcVExpraEhXW5E4I
+jBJnzwxb3FFHopI97VhXvTTqdSxVov2cU7vDLoLdGz1LDQr8/ni6pMj8tCkLmYoj
+s3eQ5mdnb86hpObpkbRViFymzJPtxYq/pUzgz0JDubJhUjOVtvqixO+JkP2Uy1qP
+locYLqWcgHoJVXH5k9d6Sbo16FB3ZAPhDGO0mkQhVOHjr2zX/gbqIqeuXO86vSQ2
+IYDaxBZQBPLhgs5v0Na3yyFa51K9/706r+eJYCtvGPboGUwFUx4=
+=7ALR
+-----END PGP SIGNATURE-----
+
+--ROvq4wnVg2ILd55W--
+
+
+--===============6990687861418591562==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6990687861418591562==--
+
