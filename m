@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04D79C433F5
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Dec 2021 00:21:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14651C433F5
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Dec 2021 00:21:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a6U45O+MsgsWFoldrFUslkgCKj2F1Db9pfnk7tLu4p0=; b=4rwP7sAdrbs9vo
-	L0VYS6lWVX4+uyLiz0C/Ph+1SdodoCucbTc3q6hgfRblmdxH9TWDjfUK4wX70fV1Sy9U09jwTyoyJ
-	QUV4/zxeIsKoz2/To98SFeRxeGxXLAm/46F+rzGLutiJMh9NADYdGuMaG9lDY78z3ZNHX/sp4RydF
-	3XSZaY9/3VmzINo/c6RLUEgjsiFeiuyCJN+14rGaBDtRMjStDpawyFYUP/pgLFGL5wX40Tj7mTwNL
-	Gi7CkBMisbevarCxrHcQjMMaUTzXn0VifElbYrB3igW28C7hibnA3H+72cUeLbnftNM63uL/4CgB6
-	f/fypeVJFBSaLFKlYvwA==;
+	List-Owner; bh=MF8c1Tr1XRAa125DNgG9ayfuvJJR/tjpvF73NWiHPHM=; b=0aP/ycbZFk8hy8
+	dSDQimijf6Jr4kVNaxeOJY2r+pvhivzprShTq5yhPSftB/Jh6YzSBl6Bk2qCHr24CtrK/WsJEyRKm
+	+GBA8M2HwBelB1XrbbG4g7zh8clmLKa+yCI4gNui8TPxXljaYrpF/88ndJTQnzLz96tSuIHIN0i+t
+	XGmyj26ZOaZqhanSOUNZVziU9iuUV0QvULXsmOexOalQKp9rUWHR2UbEfxIiBwjCaoEV9sdOzp2Eq
+	1U8ycUBfK+puhsrI7V+GsKjWdzq3TFi5RnMnBwDVjC3zD0Kaym68Xy+fGUOtLD/wb+AjDl91IfRoj
+	VvN8ZHibfNtIMPZ2F9+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mtIo6-00HILs-3d; Sat, 04 Dec 2021 00:21:38 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1mtIoC-00HIRF-Pl; Sat, 04 Dec 2021 00:21:44 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mtInQ-00HHo5-3s
- for linux-riscv@lists.infradead.org; Sat, 04 Dec 2021 00:20:59 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id z6so3193317plk.6
- for <linux-riscv@lists.infradead.org>; Fri, 03 Dec 2021 16:20:55 -0800 (PST)
+ id 1mtInS-00HHqU-Np
+ for linux-riscv@lists.infradead.org; Sat, 04 Dec 2021 00:21:01 +0000
+Received: by mail-pg1-x531.google.com with SMTP id m15so4594203pgu.11
+ for <linux-riscv@lists.infradead.org>; Fri, 03 Dec 2021 16:20:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=atishpatra.org; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=7u6cD3eNj3Nkz8bLxeT8gXWEPzrZ4rsNyC+UwyU7rX8=;
- b=HtWNX3NIjismwcfV3/6U6eycTiG77Gg/c59ukN5EkaAmDSnfrtXmyyuQ1hXtS08qGt
- OU0IzlvEOWrW5blZbay633YznjVgLOXlswB6l17YD3XneWQQgbzwFXBRStqaQH1/ZmPM
- naNSIO6zEJIInS8dDaxkdABynCJE62dzhIUGU=
+ bh=swEa7qpsajKgCxZA2Su/bxF+YJ1+Y66ngqAKD6+8Oxg=;
+ b=SrtcEbUMfX6BFvl81Eh55+QTf17GQ6EYAeE50Tk/U6AT8/ZgolQh+RPi/9hAZWdMOo
+ u9IZmUkU6hRuKuayvzcC8h1YJsBSSJwl6gSS7F/nVt+uMToCdKO9mKy2WmL2Ybp4eLK6
+ VL7+ehzveDnbiavTshyhEPxFN2cjLDDBuLytc=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=7u6cD3eNj3Nkz8bLxeT8gXWEPzrZ4rsNyC+UwyU7rX8=;
- b=rOZ4Dq7kAH8Al6g5K1kuuvlUoilRAQM1Y3CNEVZXAvLwiuMsAqQV4oYbKkmccVdJnX
- REmF8agMk7fxAhN5B7fMLdQCXGbfRMuCl+Zp9r+u8RJ8UQWW3OPEfqmQsI27XgqHlBnM
- kLE0ro4AgKTjN8ftQonMXzQy8pTQU0YSw9TTK8mln1nNWpmagK85SugstVzxHGGD+het
- 1JBxEBA03w42N8tlITzc8Vjo8V05hvOsTj1E/LsUJY5wbS58VELAyJ5QYIvQ/8MsP379
- 0gnXtalPJKBhdNWurJRF0bGxQNpkdL+flf8InWwDnLMuGf6DG4/5dvJ/OD84vpfoBwCK
- XNbg==
-X-Gm-Message-State: AOAM5300DBUfya1VgYTQZtcjkPyvGRvdi2aM3XedNXePcj1iYeuhqQ05
- uj+HRKMsO1dOG9XiXW4rUTQJ
-X-Google-Smtp-Source: ABdhPJzKp/tA+vtP8sQx/u94F7a3amr0c187EQ3qwQTlVnU49o2PFuDEg8ylYHVWzgY7vyaJcLC54A==
-X-Received: by 2002:a17:90a:657:: with SMTP id
- q23mr17992099pje.21.1638577255185; 
- Fri, 03 Dec 2021 16:20:55 -0800 (PST)
+ bh=swEa7qpsajKgCxZA2Su/bxF+YJ1+Y66ngqAKD6+8Oxg=;
+ b=kw/Hwz1A99BDUziICb8/KvT/X6SHbeB1CqEEwEyuWrIILGN3j+zCNnC8O/+5AO/HNA
+ DZC5OvxZ6Fbi/K/APHIH6G7z0FKdoB7nxj3XH7AKngzDjqop7mMoVqkqWeJnQ6ochCUZ
+ jQH2neOhDfV2JXZ9vvhxSlr/cyZIKli0fcFgRbIt5kA4McKwJ6+OoMoiQg92wz+J3V+R
+ O0JhhcyqpOlvmQbcKFAh+JYhqn6SQdnsXyS8C0upPiv4TU9QwZBAf31Me0tXdzq9S1VN
+ +l1Whop7scLGULfykkd9+uFjcZC0wNx6eKOBAXBhnIRTUIHfSIuUUANKUulz0VDCsZ3s
+ G/tw==
+X-Gm-Message-State: AOAM530rrK51DhqPl1baRaEzMEm05u9U9v0gswybURQ2ASOzS/dmk7kL
+ NbgFt3BnyWjjnLQOD7tkegYZ
+X-Google-Smtp-Source: ABdhPJwXiSVwtEhpX0ysW2nZnO0HD4Yyb2I+Rg7C1DXlmoOIB3WGxPueCJOvkBqTsSI44xhQtL9tlg==
+X-Received: by 2002:a63:2cd1:: with SMTP id s200mr6991174pgs.489.1638577257563; 
+ Fri, 03 Dec 2021 16:20:57 -0800 (PST)
 Received: from fedora.ba.rivosinc.com
  (99-13-229-45.lightspeed.snjsca.sbcglobal.net. [99.13.229.45])
- by smtp.gmail.com with ESMTPSA id r6sm3272402pjg.21.2021.12.03.16.20.54
+ by smtp.gmail.com with ESMTPSA id r6sm3272402pjg.21.2021.12.03.16.20.56
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 03 Dec 2021 16:20:54 -0800 (PST)
+ Fri, 03 Dec 2021 16:20:57 -0800 (PST)
 From: Atish Patra <atishp@atishpatra.org>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>,
@@ -70,17 +69,16 @@ Cc: Atish Patra <atishp@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>,
  Paul Walmsley <paul.walmsley@sifive.com>,
  Pekka Enberg <penberg@kernel.org>, Vincent Chen <vincent.chen@sifive.com>,
  Vitaly Wool <vitaly.wool@konsulko.com>
-Subject: [RFC 3/6] RISC-V: Use __cpu_up_stack/task_pointer only for spinwait
- method
-Date: Fri,  3 Dec 2021 16:20:35 -0800
-Message-Id: <20211204002038.113653-4-atishp@atishpatra.org>
+Subject: [RFC 5/6] RISC-V: Move spinwait booting method to its own config
+Date: Fri,  3 Dec 2021 16:20:37 -0800
+Message-Id: <20211204002038.113653-6-atishp@atishpatra.org>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211204002038.113653-1-atishp@atishpatra.org>
 References: <20211204002038.113653-1-atishp@atishpatra.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211203_162056_302346_B3B52C86 
-X-CRM114-Status: GOOD (  18.66  )
+X-CRM114-CacheID: sfid-20211203_162058_852253_94D37318 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,152 +97,124 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Atish Patra <atishp@rivosinc.com>
 
-The __cpu_up_stack/task_pointer array is only used for spinwait method
-now. The per cpu array based lookup is also fragile for platforms with
-discontiguous/sparse hartids. The spinwait method is only used for
-M-mode Linux or older firmwares without SBI HSM extension. For general
-Linux systems, ordered booting method is preferred anyways to support
-cpu hotplug and kexec.
-
-Make sure that __cpu_up_stack/task_pointer is only used for spinwait
-method. Take this opportunity to rename it to
-__cpu_spinwait_stack/task_pointer to emphasize the purpose as well.
+The spinwait booting method should only be used for platforms with older
+firmware without SBI HSM extension or M-mode firmware because spinwait
+method can't support cpu hotplug, kexec or sparse hartid. It is better
+to move the entire spinwait implementation to its own config which can
+be disabled if required. It is enabled by default to maintain backward
+compatibility and M-mode Linux.
 
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/include/asm/cpu_ops.h     |  2 --
- arch/riscv/kernel/cpu_ops.c          | 16 ----------------
- arch/riscv/kernel/cpu_ops_spinwait.c | 27 ++++++++++++++++++++++++++-
- arch/riscv/kernel/head.S             |  4 ++--
- arch/riscv/kernel/head.h             |  4 ++--
- 5 files changed, 30 insertions(+), 23 deletions(-)
+ arch/riscv/Kconfig          | 14 ++++++++++++++
+ arch/riscv/kernel/Makefile  |  3 ++-
+ arch/riscv/kernel/cpu_ops.c |  8 ++++++++
+ arch/riscv/kernel/head.S    |  6 +++---
+ arch/riscv/kernel/head.h    |  2 ++
+ 5 files changed, 29 insertions(+), 4 deletions(-)
 
-diff --git a/arch/riscv/include/asm/cpu_ops.h b/arch/riscv/include/asm/cpu_ops.h
-index a8ec3c5c1bd2..134590f1b843 100644
---- a/arch/riscv/include/asm/cpu_ops.h
-+++ b/arch/riscv/include/asm/cpu_ops.h
-@@ -40,7 +40,5 @@ struct cpu_operations {
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 821252b65f89..4afb42d5707d 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -403,6 +403,20 @@ config RISCV_SBI_V01
+ 	  This config allows kernel to use SBI v0.1 APIs. This will be
+ 	  deprecated in future once legacy M-mode software are no longer in use.
  
- extern const struct cpu_operations *cpu_ops[NR_CPUS];
- void __init cpu_set_ops(int cpu);
--void cpu_update_secondary_bootdata(unsigned int cpuid,
--				   struct task_struct *tidle);
++config RISCV_BOOT_SPINWAIT
++	bool "Spinwait booting method"
++	depends on SMP
++	default y
++	help
++	  This enables support for booting Linux via spinwait method. In the
++	  spinwait method, all cores randomly jump to Linux. One of the core
++	  gets chosen via lottery and all other keeps spinning on a percpu
++	  variable. This method can not support cpu hotplug and sparse hartid
++	  scheme. It should be only enabled for M-mode Linux or platforms relying
++	  on older firmware without SBI HSM extension. All other platform should
++	  rely on ordered booing via SBI HSM extension which gets chosen
++          dynamically at runtime if the firmware supports it.
++
+ config KEXEC
+ 	bool "Kexec system call"
+ 	select KEXEC_CORE
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 3397ddac1a30..612556faa527 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -43,7 +43,8 @@ obj-$(CONFIG_FPU)		+= fpu.o
+ obj-$(CONFIG_SMP)		+= smpboot.o
+ obj-$(CONFIG_SMP)		+= smp.o
+ obj-$(CONFIG_SMP)		+= cpu_ops.o
+-obj-$(CONFIG_SMP)		+= cpu_ops_spinwait.o
++
++obj-$(CONFIG_RISCV_BOOT_SPINWAIT) += cpu_ops_spinwait.o
+ obj-$(CONFIG_MODULES)		+= module.o
+ obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
  
- #endif /* ifndef __ASM_CPU_OPS_H */
 diff --git a/arch/riscv/kernel/cpu_ops.c b/arch/riscv/kernel/cpu_ops.c
-index 3f5a38b03044..c1e30f403c3b 100644
+index c1e30f403c3b..170d07e57721 100644
 --- a/arch/riscv/kernel/cpu_ops.c
 +++ b/arch/riscv/kernel/cpu_ops.c
-@@ -8,31 +8,15 @@
- #include <linux/of.h>
- #include <linux/string.h>
- #include <linux/sched.h>
--#include <linux/sched/task_stack.h>
- #include <asm/cpu_ops.h>
- #include <asm/sbi.h>
- #include <asm/smp.h>
- 
+@@ -15,7 +15,15 @@
  const struct cpu_operations *cpu_ops[NR_CPUS] __ro_after_init;
  
--void *__cpu_up_stack_pointer[NR_CPUS] __section(".data");
--void *__cpu_up_task_pointer[NR_CPUS] __section(".data");
--
  extern const struct cpu_operations cpu_ops_sbi;
++#ifdef CONFIG_RISCV_BOOT_SPINWAIT
  extern const struct cpu_operations cpu_ops_spinwait;
++#else
++const struct cpu_operations cpu_ops_spinwait = {
++	.name		= "",
++	.cpu_prepare	= NULL,
++	.cpu_start	= NULL,
++};
++#endif
  
--void cpu_update_secondary_bootdata(unsigned int cpuid,
--				   struct task_struct *tidle)
--{
--	int hartid = cpuid_to_hartid_map(cpuid);
--
--	/* Make sure tidle is updated */
--	smp_mb();
--	WRITE_ONCE(__cpu_up_stack_pointer[hartid],
--		   task_stack_page(tidle) + THREAD_SIZE);
--	WRITE_ONCE(__cpu_up_task_pointer[hartid], tidle);
--}
--
  void __init cpu_set_ops(int cpuid)
  {
- #if IS_ENABLED(CONFIG_RISCV_SBI)
-diff --git a/arch/riscv/kernel/cpu_ops_spinwait.c b/arch/riscv/kernel/cpu_ops_spinwait.c
-index b2c957bb68c1..9f398eb94f7a 100644
---- a/arch/riscv/kernel/cpu_ops_spinwait.c
-+++ b/arch/riscv/kernel/cpu_ops_spinwait.c
-@@ -6,11 +6,36 @@
- #include <linux/errno.h>
- #include <linux/of.h>
- #include <linux/string.h>
-+#include <linux/sched/task_stack.h>
- #include <asm/cpu_ops.h>
- #include <asm/sbi.h>
- #include <asm/smp.h>
- 
- const struct cpu_operations cpu_ops_spinwait;
-+void *__cpu_spinwait_stack_pointer[NR_CPUS] __section(".data");
-+void *__cpu_spinwait_task_pointer[NR_CPUS] __section(".data");
-+
-+static void cpu_update_secondary_bootdata(unsigned int cpuid,
-+				   struct task_struct *tidle)
-+{
-+	int hartid = cpuid_to_hartid_map(cpuid);
-+
-+	/*
-+	 * The hartid must be less than NR_CPUS to avoid out-of-bound access
-+	 * errors for __cpu_spinwait_stack/task_pointer. That is not always possible
-+	 * for platforms with discontiguous hartid numbering scheme. That's why
-+	 * spinwait booting is not the recommended approach for any platforms
-+	 * and will be removed in future.
-+	 */
-+	if (hartid == INVALID_HARTID || hartid >= NR_CPUS)
-+		return;
-+
-+	/* Make sure tidle is updated */
-+	smp_mb();
-+	WRITE_ONCE(__cpu_spinwait_stack_pointer[hartid],
-+		   task_stack_page(tidle) + THREAD_SIZE);
-+	WRITE_ONCE(__cpu_spinwait_task_pointer[hartid], tidle);
-+}
- 
- static int spinwait_cpu_prepare(unsigned int cpuid)
- {
-@@ -28,7 +53,7 @@ static int spinwait_cpu_start(unsigned int cpuid, struct task_struct *tidle)
- 	 * selects the first cpu to boot the kernel and causes the remainder
- 	 * of the cpus to spin in a loop waiting for their stack pointer to be
- 	 * setup by that main cpu.  Writing to bootdata
--	 * (i.e __cpu_up_stack_pointer) signals to the spinning cpus that they
-+	 * (i.e __cpu_spinwait_stack_pointer) signals to the spinning cpus that they
- 	 * can continue the boot process.
- 	 */
- 	cpu_update_secondary_bootdata(cpuid, tidle);
 diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 40d4c625513c..6f8e99eac6a1 100644
+index 9f16bfe9307e..4a694e15b95b 100644
 --- a/arch/riscv/kernel/head.S
 +++ b/arch/riscv/kernel/head.S
-@@ -347,9 +347,9 @@ clear_bss_done:
- 	csrw CSR_TVEC, a3
+@@ -259,7 +259,7 @@ pmp_done:
+ 	li t0, SR_FS
+ 	csrc CSR_STATUS, t0
  
- 	slli a3, a0, LGREG
--	la a1, __cpu_up_stack_pointer
-+	la a1, __cpu_spinwait_stack_pointer
- 	XIP_FIXUP_OFFSET a1
--	la a2, __cpu_up_task_pointer
-+	la a2, __cpu_spinwait_task_pointer
- 	XIP_FIXUP_OFFSET a2
- 	add a1, a3, a1
- 	add a2, a3, a2
+-#ifdef CONFIG_SMP
++#ifdef CONFIG_RISCV_BOOT_SPINWAIT
+ 	li t0, CONFIG_NR_CPUS
+ 	blt a0, t0, .Lgood_cores
+ 	tail .Lsecondary_park
+@@ -285,7 +285,7 @@ pmp_done:
+ 	beq t0, t1, .Lsecondary_start
+ 
+ #endif /* CONFIG_XIP */
+-#endif /* CONFIG_SMP */
++#endif /* CONFIG_RISCV_BOOT_SPINWAIT */
+ 
+ #ifdef CONFIG_XIP_KERNEL
+ 	la sp, _end + THREAD_SIZE
+@@ -344,7 +344,7 @@ clear_bss_done:
+ 	call soc_early_init
+ 	tail start_kernel
+ 
+-#ifdef CONFIG_SMP
++#if defined(CONFIG_SMP) && defined(CONFIG_RISCV_BOOT_SPINWAIT)
+ .Lsecondary_start:
+ 	/* Set trap vector to spin forever to help debug */
+ 	la a3, .Lsecondary_park
 diff --git a/arch/riscv/kernel/head.h b/arch/riscv/kernel/head.h
-index aabbc3ac3e48..5393cca77790 100644
+index 5393cca77790..726731ada534 100644
 --- a/arch/riscv/kernel/head.h
 +++ b/arch/riscv/kernel/head.h
-@@ -16,7 +16,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa);
+@@ -16,7 +16,9 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa);
  asmlinkage void __init __copy_data(void);
  #endif
  
--extern void *__cpu_up_stack_pointer[];
--extern void *__cpu_up_task_pointer[];
-+extern void *__cpu_spinwait_stack_pointer[];
-+extern void *__cpu_spinwait_task_pointer[];
++#ifdef CONFIG_RISCV_BOOT_SPINWAIT
+ extern void *__cpu_spinwait_stack_pointer[];
+ extern void *__cpu_spinwait_task_pointer[];
++#endif
  
  #endif /* __ASM_HEAD_H */
 -- 
