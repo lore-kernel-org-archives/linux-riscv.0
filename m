@@ -4,102 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76C34C433EF
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Dec 2021 01:48:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06AB1C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Dec 2021 04:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BVmYKMKTwxZkP+mzKYmjZurzX9OP1WP5/KGML4vhWw0=; b=OeF5LmV7SfK6sY
-	40Q4WOeY/Myj8QkaLh7DTiQjk0naky12OXqn/X8ke23Z8m4lWR9l0EVa5aZGJKQvZ8q7jWe4eLsLg
-	9LmOBtLtMhnU+nxHHmHiV7SdNLPlq/Ueu9dL8yeXBaw39cB8lzuV8BIvAFdiWcZu3GYrVYm8LOH9j
-	YtfcaNl9dPqtvrXU5j6OWLkZHqKhj3kj/xWe7RSujdwhzeG8+UrMCsp0MyKwah3x+pqXiZdHh0UWk
-	QCOJPuAEnkGVusqhENJz7P6ZdJrlwWWnbw/Lza7/2EJn+xRwIlFeseDVVrAkEEYp9gSZr2xrRhpH5
-	zRDp8Eq9ES+4ZT6+wbAw==;
+	List-Owner; bh=FTi2iMh/IdztbWGr8MjUgNMnolud8TLMJPC5sJMqsfE=; b=AbGLBlSCq9Mmje
+	s4k8tYCWQFUTsKG2TLWYpApqxMrttGF819jbJckJQbO7NQw7yzJolzG9/iVViOeNo1qTTrj/HYt23
+	iZ64Cfw04++wbSCCqbN9rCAEAMO8WiTcmBfZMjMkGfHzXXDcgNIs80C6NqnMxvPvLPnFaTtyLd+w1
+	hNw18pVmeBYgLpgiO9C15Z1PnYDgw/9rdpmWl1w4PGqRpet/ZS9Pe6SWXJK0JuojbbHHZvWYkZZ2V
+	fIIg9p9ASZXAzDt8rRHhKdWKJqJ3MLpq63LGJqbWF2aO8c4WJF+tJPgduRBmOf7ZpmsnDKmVORYn4
+	ExXFDqTvZpx3N/S+vpZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mtK9Y-00HOke-N7; Sat, 04 Dec 2021 01:47:52 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1mtMMj-00HUDg-VO; Sat, 04 Dec 2021 04:09:38 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mtK9V-00HOjc-Jt
- for linux-riscv@lists.infradead.org; Sat, 04 Dec 2021 01:47:51 +0000
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 3E94D3F1BA
- for <linux-riscv@lists.infradead.org>; Sat,  4 Dec 2021 01:47:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1638582465;
- bh=CazNEo34UzEVreoekwSVYqsHxJj65p3DlJkHSNGX3Uc=;
- h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
- In-Reply-To:Content-Type;
- b=vD3OEe4/+NaByRABubtm3qGcLpOrhfpJ7lD5/dbJgPC4d0lKznkQzSR4lJPnsaxO2
- dzROQOJWxCWqc7xUqDrK9G+RW514KvN1DEsfUHr96tXEGHtUtFQtApKLCJlZTd5x0T
- JHOBOFwoPwQ4xo2vEHJF7LG2WRrJ5CKPiFC26QUyrDsfw8d9Q/w1QAVxuhUi4agLh5
- wK+ixscbu7FZMREJgOGH/uqkwQOCmJg+nP/6np+Pdo2aHHivzf9ogfnokDKuPVQZXZ
- 94ir9pqxn1bPaam72qUUg3Qu4ufy3Rl82U3Va8t4goCGSBQTnHbbCFD+6jwLeMI6AH
- ngJygpPr4MXBg==
-Received: by mail-wm1-f69.google.com with SMTP id
- 69-20020a1c0148000000b0033214e5b021so2427709wmb.3
- for <linux-riscv@lists.infradead.org>; Fri, 03 Dec 2021 17:47:45 -0800 (PST)
+ id 1mtMMg-00HUCW-Nt
+ for linux-riscv@lists.infradead.org; Sat, 04 Dec 2021 04:09:36 +0000
+Received: by mail-wm1-x331.google.com with SMTP id
+ o19-20020a1c7513000000b0033a93202467so3702911wmc.2
+ for <linux-riscv@lists.infradead.org>; Fri, 03 Dec 2021 20:09:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=4tpeccUSJsSvJStEMWbp4Kpifv0i5piggQ5Q0bjyTPA=;
+ b=lQqC1ucSfqkj6ErW6i6uVxmWz2Ddcj3w7qmEBbovctdRbp6rkD8Isid4VbPDf/gYRB
+ S4fALxLnn2HH2WUSaWcfzPi0Bcp1APHkcJDJQmWE9mZc0+cQiA/JFjYcw3fWKFMQm6AQ
+ kNl1YijqrzJcfR+rs72T/qAn54aVsry59XOHTvSO5fWlaBoeGC0tBvrwef0jF+nJ9wLO
+ JFmgqQKq0IGiXBVXJCvSuO53PAu+MYoVl4QbB2dzlP/QMviEzORW+TiHHpZ4riRf/Ro2
+ k5LzXNu9OT1TxUb6voyzJ4mqBSupe9ggvCUnzvNZqCvfmDqpfT5oMgAtUHbG0L2iBUWh
+ pRKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:cc:references:from:in-reply-to
- :content-transfer-encoding;
- bh=CazNEo34UzEVreoekwSVYqsHxJj65p3DlJkHSNGX3Uc=;
- b=dqcvgLz7Y+rODnzrXMpcsEQZ93SWIaw7b3K9aIrAllNIpUIfXjXad1IxqQwxDzmf9E
- Q4XlPnihRkfBKMzzhCeFItzYiBEXirwlOMDK5fCz+5mbYr8+SXRAm3Kx2siy+CV57RJs
- hUNYBnonClZRs8LDFGGBXMnL8Sc1wddf4jkuFA1PuhPY1Beo8aEiyt0MyrYMI5WF+aG5
- eLJllfu4Kh8XKYOKW35PlvlvFFxpXDbp3hOeaJjSI6KRFXiE68+YQMYDR7VT+fRARqxp
- Fop90QfLz/pJB2uNhy2gzFDzU3JjyWPI3CIxGMV6qMfd5WF8Fu8JKMn4X7s/4FE4RKU0
- 6qCQ==
-X-Gm-Message-State: AOAM5303W8I8BJIl29Ad5WJ0JYaj4GcAlno+SGjBSnn9ZIv3jkYwUP/B
- By/xIFZXgHY0tFXiRBb5OGdhZ6qXiuTpafbg1lwSRLL2lxbK+6x84IO7FpRmH1/Y86fvmKtlhHY
- wDRUX7gt33ifMTh3zGzmlafIYslRvzCIRCa2aqiaFhb9Hng==
-X-Received: by 2002:a5d:4523:: with SMTP id j3mr25693175wra.185.1638582464789; 
- Fri, 03 Dec 2021 17:47:44 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJzAAna/E3qcfwPt8WocTayajAgpperBOBFfF4i4b5Z3HaN0yvpvflGvYu/4XuPRTBgZRjQ0uw==
-X-Received: by 2002:a5d:4523:: with SMTP id j3mr25693145wra.185.1638582464536; 
- Fri, 03 Dec 2021 17:47:44 -0800 (PST)
-Received: from [192.168.123.35] (ip-88-152-144-157.hsi03.unitymediagroup.de.
- [88.152.144.157])
- by smtp.gmail.com with ESMTPSA id o9sm4109457wrs.4.2021.12.03.17.47.43
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Fri, 03 Dec 2021 17:47:44 -0800 (PST)
-Message-ID: <7416157e-50d1-3664-7df0-2a45e29cd8c1@canonical.com>
-Date: Sat, 4 Dec 2021 02:47:40 +0100
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=4tpeccUSJsSvJStEMWbp4Kpifv0i5piggQ5Q0bjyTPA=;
+ b=Y4eVqjN2yyJfpPXqSmjoTNfBFy4Nn2rbUpP5QP0+BN2Ijez3ftkAdpuzrL0VtBrK8v
+ 9wT9+vzZqLzxU1DqDxFyIGT2vfzVA+VW7iMNkVy5oALDf3wcSXVSMTtjUGiVhR56iDrQ
+ ANv2Ej0IBFhuU4Lqxw6Cqi2CPXZajEnCTXwFME/1gLkJxFpQaaWfV7JYcuRI6Gwv33rv
+ i0R7zyIblzP0/D+Fjm+6IRGoh3NMBKRFLitwIJsUm0sL4PUzEuvGy7o9IEaeeiMd+kNe
+ X9zrQjzk5K2gUgFCmGq3ZveIkVyu2pUK45SmqvP3nG4VzxzGp4dWxln6aAoR8OiDDmRz
+ lv8Q==
+X-Gm-Message-State: AOAM532p1YaLrjMn5GmHee7a1zJKDmDw4F4nURRdn5n/IGBbWSRIFqGR
+ DjyZAmKlVLPSdKyXwL3IsLT23pTxWpKs7h9IxQxfbQ==
+X-Google-Smtp-Source: ABdhPJw51KWA7sJPb31HUd4HOH4EkxzkMBiXdbkuk+r3buWjXUnh3vSsgBHiqTq5ETSkoyKshmo70CmljLiANghRt8w=
+X-Received: by 2002:a7b:c256:: with SMTP id b22mr20250612wmj.176.1638590971589; 
+ Fri, 03 Dec 2021 20:09:31 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.3.1
-Subject: Re: Question regarding "boot-hartid" DT node
-Content-Language: en-US
-To: Atish Patra <atishp@atishpatra.org>
-Cc: Abner Chang <abner.chang@hpe.com>,
- Heinrich Schuchardt <xypron.glpk@gmx.de>, Jessica Clarke
- <jrtc27@jrtc27.com>, Anup Patel <anup@brainfault.org>,
- Palmer Dabbelt <palmer@rivosinc.com>, sunil.vl@gmail.com,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Sunil V L <sunilvl@ventanamicro.com>, Ard Biesheuvel <ardb@kernel.org>
-References: <20211202150515.GA97518@sunil-ThinkPad-T490>
- <CAMj1kXGJtMmcXLjHEG8xX0sSFNfdjj4A2_4DPcviEJ3=MARh+w@mail.gmail.com>
- <89d42547-ec36-5f84-88d1-fd65d891488c@canonical.com>
- <CAMj1kXG-VnhkECGewZPkUZLC2rb1bSDGdSpby9R=W_1d3FAsdg@mail.gmail.com>
- <6d9f131d-b3e8-18df-a9b6-6aaac881eb65@canonical.com>
- <CAOnJCUJfEpW6TtBPFGZ9TfNJeb9r+-L_8BddsxxejAd9Fe8VHw@mail.gmail.com>
- <CAMj1kXHGPZBfaiMCPYt7tYe+5wt_jn78Qdih9U-XLDba5sfqtQ@mail.gmail.com>
- <6fccad4e-b579-25ed-6bf3-2fb2a968b243@canonical.com>
- <c758bae4-3578-f062-edfd-f5835ae525fe@gmx.de>
- <CAOnJCUJ6Aoh7881HOSifQTc61+vCTVjxnYORfWM_WGLJQCugRg@mail.gmail.com>
-From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-In-Reply-To: <CAOnJCUJ6Aoh7881HOSifQTc61+vCTVjxnYORfWM_WGLJQCugRg@mail.gmail.com>
+References: <20211202235823.1926970-1-atishp@atishpatra.org>
+ <f63e9f1b-4b8e-6c3e-8e21-f9a5f97ca17d@arm.com>
+In-Reply-To: <f63e9f1b-4b8e-6c3e-8e21-f9a5f97ca17d@arm.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Sat, 4 Dec 2021 09:39:20 +0530
+Message-ID: <CAAhSdy2xRwUmdi7Kc7ZokgB5W1LWKZ7YU-doHZ5dfaVKvzRdUg@mail.gmail.com>
+Subject: Re: [PATCH v3] MAINTAINERS: Update Atish's email address
+To: Steven Price <steven.price@arm.com>
+Cc: Atish Patra <atishp@atishpatra.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Anup Patel <anup.patel@wdc.com>, 
+ KVM General <kvm@vger.kernel.org>, kvm-riscv@lists.infradead.org, 
+ linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211203_174749_927163_6DB334A3 
-X-CRM114-Status: GOOD (  52.17  )
+X-CRM114-CacheID: sfid-20211203_200934_894065_0A53EE71 
+X-CRM114-Status: GOOD (  21.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,220 +82,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Dec 3, 2021 at 9:40 PM Steven Price <steven.price@arm.com> wrote:
+>
+> On 02/12/2021 23:58, Atish Patra wrote:
+> > I am no longer employed by western digital. Update my email address to
+> > personal one and add entries to .mailmap as well.
+> >
+> > Signed-off-by: Atish Patra <atishp@atishpatra.org>
+> > ---
+> >  .mailmap    | 1 +
+> >  MAINTAINERS | 2 +-
+> >  2 files changed, 2 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/.mailmap b/.mailmap
+> > index 6277bb27b4bf..23f6b0a60adf 100644
+> > --- a/.mailmap
+> > +++ b/.mailmap
+> > @@ -50,6 +50,7 @@ Archit Taneja <archit@ti.com>
+> >  Ard Biesheuvel <ardb@kernel.org> <ard.biesheuvel@linaro.org>
+> >  Arnaud Patard <arnaud.patard@rtp-net.org>
+> >  Arnd Bergmann <arnd@arndb.de>
+> > +Atish Patra <atishp@atishpatra.org> <atish.patra@wdc.com> <atishp@rivosinc.com>
+>
+> I don't think this does what you expect. You can't list more than one
+> email address to replace on the same line. You can use the command "git
+> check-mailmap" to test what happens, e.g. with this change applied:
+>
+>   $ git check-mailmap "<atishp@rivosinc.com>"
+>   <atishp@rivosinc.com>
+>   $ git check-mailmap "<atish.patra@wdc.com>"
+>   Atish Patra <atishp@atishpatra.org>
+>   $ git check-mailmap "<atishp@atishpatra.org>"
+>   <atishp@atishpatra.org>
+>
+> So only your @wdc.com address is translated. If you want to translate
+> the @rivosinc.com address as well you need a second line. As the file says:
 
+Thanks Steve for noticing this. Even, I realized this while queuing the patch.
 
-On 12/4/21 01:44, Atish Patra wrote:
-> On Fri, Dec 3, 2021 at 10:45 AM Heinrich Schuchardt <xypron.glpk@gmx.de> wrote:
->>
->> On 12/3/21 11:53 AM, Heinrich Schuchardt wrote:
->>> On 12/3/21 11:13, Ard Biesheuvel wrote:
->>>> On Thu, 2 Dec 2021 at 20:29, Atish Patra <atishp@atishpatra.org> wrote:
->>>>>
->>>>> On Thu, Dec 2, 2021 at 9:05 AM Heinrich Schuchardt
->>>>> <heinrich.schuchardt@canonical.com> wrote:
->>>>>>
->>>>>> On 12/2/21 17:58, Ard Biesheuvel wrote:
->>>>>>> On Thu, 2 Dec 2021 at 17:53, Heinrich Schuchardt
->>>>>>> <heinrich.schuchardt@canonical.com> wrote:
->>>>>>>>
->>>>>>>> On 12/2/21 17:20, Ard Biesheuvel wrote:
->>>>>>>>> On Thu, 2 Dec 2021 at 16:05, Sunil V L <sunilvl@ventanamicro.com>
->>>>>>>>> wrote:
->>>>>>>>>>
->>>>>>>>>> Hi All,
->>>>>>>>>>        I am starting this thread to discuss about the
->>>>>>>>>> "boot-hartid" DT node
->>>>>>>>>>        that is being used in RISC-V Linux EFI stub.
->>>>>>>>>>
->>>>>>>>>>        As you know, the boot Hart ID is passed in a0 register to
->>>>>>>>>> the kernel
->>>>>>>>>>        and hence there is actually no need to pass it via DT.
->>>>>>>>>> However, since
->>>>>>>>>>        EFI stub follows EFI application calling conventions, it
->>>>>>>>>> needs to
->>>>>>>>>>        know the boot Hart ID so that it can pass it to the proper
->>>>>>>>>> kernel via
->>>>>>>>>>        a0. For this issue, the solution was to add
->>>>>>>>>> "/chosen/boot-hartid" in
->>>>>>>>>>        DT. Both EDK2 and u-boot append this node in DT.
->>>>>>>>>>
->>>>>>>>>
->>>>>>>>> I think this was a mistake tbh
->>>>>>>>>
->>>>>>>>>>        But above approach causes issue for ACPI since ACPI
->>>>>>>>>> initialization
->>>>>>>>>>        happens late in the proper kernel. Same is true even if we
->>>>>>>>>> pass this
->>>>>>>>>>        information via SMBIOS.
->>>>>>>>>>
->>>>>>>>>
->>>>>>>>> It would be better to define a RISCV specific EFI protocol that the
->>>>>>>>> stub can call to discover the boot-hartid value. That wat, it can
->>>>>>>>> pass
->>>>>>>>> it directly, without having to rely on firmware tables.
->>>>>>>>
->>>>>>>> As discovering the current process' hartid is not a UEFI specific
->>>>>>>> task
->>>>>>>> SBI would be a better fit.
->>>>>>>>
->>>>>>>
->>>>>>> I disagree. The OS<->loader firmware interface is UEFI not SBI. So if
->>>>>>> the EFI stub needs to ask the firmware which boot-hartid it should
->>>>>>> pass in A0, it should use a EFI protocol and nothing else.
->>>>>>>
->>>>>>> Whether or not the loader/firmware *implements* this EFI protocol by
->>>>>>> calling into SBI is a different matter (and likely the best choice).
->>>>>>> But that does not mean the EFI stub should make SBI calls directly.
->>>>>>>
->>>>>>
->>>>>> The EFI stub does not need the boot-hartid. It is the main Linux kernel
->>>>>> that does. And that kernel already implements SBI calls.
->>>>>>
->>>>>> The main kernel could just try to read CSR mhartid which fails in
->>>>>> S-mode
->>>>>> and the SBI could emulate it.
->>>>>
->>>>> New SBI extension should be added only if there is no other way to
->>>>> solve a generic
->>>
->>> I am not sure this feature would be implemented as SBI extension or as a
->>> CSR emulation. Cf. sbi_emulate_csr_read(). But anyway it would require
->>> an update of the SBI specification.
->>>
->>>>> problem. The boot hartid issue is very specific to efi booting only.
->>>>> Any system that doesn't require
->>>
->>> The boot hartid is not EFI related at all. A firmware running single
->>> threaded does not need this information.
->>>
->>> Information about the boot hartid is a general OS need.
->>>
->>> I am wondering why S-mode software should not have a generic means to
->>> find out on which hart it is currently running.
->>>
->>>>> EFI booting won't need it. Even for EFI booting, we have other
->>>>> approaches already proposed
->>>>> to solve it. That's why, SBI extension should be the last resort
->>>>> rather than first.
->>>>>
->>>>> I think an RISC-V specific EFI protocol as suggested by Ard should
->>>>> work for all the cases.
->>>>> Is there a case where you think it may not work ? U-Boot & EDK2
->>>>> already stores the boot hartid.
->>>>> They just implement that protocol and pass the hartid to the caller.
->>>>> We do need to support it in the grub though.
->>>>>
->>>>
->>>> Why would GRUB care about this? The EFI stub will call into the
->>>> underlying firmware to invoke the protocol, GRUB is just a loader with
->>>> a fancy menu that allows you to select which image to load, no?
->>>
->>> This is a related discussion:
->>>
->>> https://github.com/tekkamanninja/grub/commit/be9d4f1863a1fcb1cbbd2f867309457fade8be73#commitcomment-60851029
->>>
-> 
-> Yes!! Thanks for refreshing the memory. It seems after 2 years, we are
-> still debating the same topic :).
-> Let me summarize the thread. There are multiple ways for EFI stub code
-> to retrieve the boot hartid.
-> 
-> 1. EFI variables - This is what Henerich proposed last time. Ard
-> suggested that EFI configuration tables are better candidates than EFI
-> variables.
-> 2. DT modification - This was preferred over the configuration table
-> at that time given because RISC-V was DT only at that time.
->                                   We already had all the infrastructure
-> around DT. Thus, DT seemed to be a natural choice then.
->                                   It works now for existing setup
-> however, the DT approach will not work for systems with ACPI support.
->                                   Adding a similar entry in ACPI tables
-> is possible but adding ACPI support in EFI stub is not trivial.
-> 3. SMBIOS - Only for platforms with SMBIOS support. SMBIOS is not
-> mandatory and adding SMBIOS support in EFI stub is not trivial.
-> 4. SBI         -  As I mentioned before, this is an EFI specific
-> problem because EFI stub doesn't know what the boot hartid is. Thus,
-> it should be solved
->                        in an EFI specific way. An SBI extension for
-> such features may not be acceptable as the non-EFI booting method
-> works fine without the SBI extension.
-> 5. RISC-V specific EFI configuration table or protocol: Ard suggested
-> EFI configuration table last time. Earlier in this thread, EFI
-> protocol was suggested.
->                        My personal preference has always been one of
-> these as it solves the problem for all EFI booting methods
->                        for platforms-os
-> combination(DT/ACPI-Linux/FreeBSD) in an EFI specific way.
-> 
-> @Heinrich: Do you see any issue with the EFI configuration table or
-> protocol to retrieve the boot hartid?
+I have removed @rivosinc.com email address from the patch in my queue. I
+believe Atish currently uses both personal and @rivosinc.com email addresses
+on LKML.
 
-There is nothing technical stopping us from implementing either option.
+Refer,
+https://github.com/kvm-riscv/linux/commit/2255b100410179bb8151e99e8396debddea0ef1d
+https://github.com/kvm-riscv/linux/commits/riscv_kvm_queue
 
-We could simply reuse the EFI Device Tree Fixup Protocol 
-(https://github.com/U-Boot-EFI/EFI_DT_FIXUP_PROTOCOL) implemented in 
-U-Boot and already used by systemd-boot. Pass a devicetree (which may be 
-empty) to the Fixup() method and it will add the /chosen node with the 
-boot-hartid parameter.
+Regards,
+Anup
 
-The EFI stub anyway creates a new device-tree to pass the memory map to 
-the kernel in the ACPI case (function update_fdt()). Calling the EFI 
-Device Tree Fixup Protocol could be easily added.
-
-Best regards
-
-Heinrich
-
-> 
-> My only concern with the RISC-V EFI protocol is that Ard suggested it
-> doesn't need a modification in UEFI spec.
-> Where should we document it in this case ? We can't document it in
-> Linux or EBBR.
-> Because, this is a protocol that server systems and other non-Linux OS
-> will also use.
-> We can define it in the RISC-V platform spec. But that's not the usual
-> place where somebody will look for the definition of such protocol.
-> 
-> Wouldn't it be better to standardize it in UEFI spec ? The UEFI spec
-> already has ARCH specific protocols/config tables.
-> 
->>>
->>> If GRUB loads a devicetree it will anyway have to call into the firmware
->>> for fixups. These will include adding the boot-hartid.
->>>
->>>>
->>>>> @Heinrich Schuchardt
->>>>> I vaguely remember you proposed something similar when we discussed
->>>>> this first during FOSDEM.
->>>>> I can't recall why it was abandoned in favor of the DT approach which
->>>>> works. But,
->>>>> it is not an ideal solution considering RISC-V ACPI support is already
->>>>> on the way.
->>>>>
->>>>> Do you have a link to the older thread where this thing was discussed ?
->>>
->>> Unfortunately I cannot find anything.
->>
->> I assume Atish referred to this thread:
->>
->> https://patchwork.ozlabs.org/project/uboot/patch/20200205055334.4072-1-xypron.glpk@gmx.de/
->>
->> Best regards
->>
->> Heinrich
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
-> 
-> 
+>
+> # For format details, see "MAPPING AUTHORS" in "man git-shortlog".
+>
+> Steve
+>
+> >  Axel Dyks <xl@xlsigned.net>
+> >  Axel Lin <axel.lin@gmail.com>
+> >  Bart Van Assche <bvanassche@acm.org> <bart.vanassche@sandisk.com>
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index 5250298d2817..6c2a34da0314 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -10434,7 +10434,7 @@ F:    arch/powerpc/kvm/
+> >
+> >  KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)
+> >  M:   Anup Patel <anup.patel@wdc.com>
+> > -R:   Atish Patra <atish.patra@wdc.com>
+> > +R:   Atish Patra <atishp@atishpatra.org>
+> >  L:   kvm@vger.kernel.org
+> >  L:   kvm-riscv@lists.infradead.org
+> >  L:   linux-riscv@lists.infradead.org
+> >
+>
 
 _______________________________________________
 linux-riscv mailing list
