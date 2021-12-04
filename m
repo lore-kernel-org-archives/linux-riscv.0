@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B220C4332F
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Dec 2021 00:21:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04D79C433F5
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Dec 2021 00:21:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4CX9venyRqy0rymfU5/p7f3MHN0S+eqw2UApdW7yKpo=; b=XxZ5lpfKX1y2ff
-	U9pfu5A/I1o4MJY5oPpO4XvwU4BfEQIdbsNCibHv+EKncxTsmcLYNc5Tig9WBVuXjcomAo8xW+A0h
-	k8mSQXZTC92BHco6uCDUnBzK9706hYj/1spzvV/q8Fu3h/DzWN+p8iOwAH9rf9Jjh1+JLSQLKRZ2f
-	9bISzLQT7HyqN17IJjLD9yVkQCW3jLn5zp9QLyq3wDBy4SpWq7tXOvRpRNBC3RH3dnb70YqWnPmyl
-	Y41gln372Cskfo99qhlJXOy9WbmuinLWA8eDrwmhcQMhgP/Az1WLB2RWup6j5zjsjm5NtlPwhaXaJ
-	iwUraGTUMZ4lQz5yr7EQ==;
+	List-Owner; bh=a6U45O+MsgsWFoldrFUslkgCKj2F1Db9pfnk7tLu4p0=; b=4rwP7sAdrbs9vo
+	L0VYS6lWVX4+uyLiz0C/Ph+1SdodoCucbTc3q6hgfRblmdxH9TWDjfUK4wX70fV1Sy9U09jwTyoyJ
+	QUV4/zxeIsKoz2/To98SFeRxeGxXLAm/46F+rzGLutiJMh9NADYdGuMaG9lDY78z3ZNHX/sp4RydF
+	3XSZaY9/3VmzINo/c6RLUEgjsiFeiuyCJN+14rGaBDtRMjStDpawyFYUP/pgLFGL5wX40Tj7mTwNL
+	Gi7CkBMisbevarCxrHcQjMMaUTzXn0VifElbYrB3igW28C7hibnA3H+72cUeLbnftNM63uL/4CgB6
+	f/fypeVJFBSaLFKlYvwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mtInw-00HIEA-Lz; Sat, 04 Dec 2021 00:21:29 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1mtIo6-00HILs-3d; Sat, 04 Dec 2021 00:21:38 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mtInR-00HHp5-24
+ id 1mtInQ-00HHo5-3s
  for linux-riscv@lists.infradead.org; Sat, 04 Dec 2021 00:20:59 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id y8so3204223plg.1
- for <linux-riscv@lists.infradead.org>; Fri, 03 Dec 2021 16:20:56 -0800 (PST)
+Received: by mail-pl1-x62f.google.com with SMTP id z6so3193317plk.6
+ for <linux-riscv@lists.infradead.org>; Fri, 03 Dec 2021 16:20:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=atishpatra.org; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=kBJUfZj1wOLSVbBSkze1u45jeYNaXdZ7voja6F8BPxk=;
- b=p2r/pP0QZDSxluIfw2jt799S/+VgyRVLdx3WV+GERapGrlIcVgOkSk0dUDwWJP9h1H
- UO6FfQ1+QKKYBZUXZPjA6pAKEuO9tOF3E2D0n6vfMYIm5drHEBhTAzhKgf4wysPdBMr+
- B/ERMzv31xD1YajQfY7wIN89kDe85NtUmBjrc=
+ bh=7u6cD3eNj3Nkz8bLxeT8gXWEPzrZ4rsNyC+UwyU7rX8=;
+ b=HtWNX3NIjismwcfV3/6U6eycTiG77Gg/c59ukN5EkaAmDSnfrtXmyyuQ1hXtS08qGt
+ OU0IzlvEOWrW5blZbay633YznjVgLOXlswB6l17YD3XneWQQgbzwFXBRStqaQH1/ZmPM
+ naNSIO6zEJIInS8dDaxkdABynCJE62dzhIUGU=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=kBJUfZj1wOLSVbBSkze1u45jeYNaXdZ7voja6F8BPxk=;
- b=P2EwC5PbtViwsJvlc2k7q7Pk+YFGQHZH5ACqFk1FtdjdyrY9ccalw5miVLupkJqBoP
- lY7TWAKFQX0Kmjd/hptvQv0PXUc4r+B9kZrTw6x3t1BjPBuOSeIKDFUG2H33VfVovr4G
- LYH7X7uwAxIfFEOzvDd2m3+2XS1EyrmldDzYnjFBQjvRZmykQlyLezbxbKv2u7UbQrdp
- 7crHYX4+ERx9uML2H94zxgvfdVBxs1X7hrIMG2snr5dzBj4awKLkggGCQmXWojzIiKge
- WBXN5/IsAFuxYptp5Dgt/of0K8r7aUrisuU7GbNNzXA87ORL22XKfdWOQRFPQz4TVfq4
- 1W6A==
-X-Gm-Message-State: AOAM533Ii08JJg6ArLW3bylQYHMYezOVo5EIkBI0ka86s+V2sn8G3xii
- 6e27RZrM2GJ3xJ28MiSzJZPA
-X-Google-Smtp-Source: ABdhPJwL2dTXRbTqrAbLQlne0B8GUO7mMgF5IuhtC50RnOgCmjq7nrz9bO1uLafGpEG2VMcuai3/jA==
-X-Received: by 2002:a17:902:d488:b0:141:f3a3:d2f4 with SMTP id
- c8-20020a170902d48800b00141f3a3d2f4mr26461980plg.86.1638577256302; 
- Fri, 03 Dec 2021 16:20:56 -0800 (PST)
+ bh=7u6cD3eNj3Nkz8bLxeT8gXWEPzrZ4rsNyC+UwyU7rX8=;
+ b=rOZ4Dq7kAH8Al6g5K1kuuvlUoilRAQM1Y3CNEVZXAvLwiuMsAqQV4oYbKkmccVdJnX
+ REmF8agMk7fxAhN5B7fMLdQCXGbfRMuCl+Zp9r+u8RJ8UQWW3OPEfqmQsI27XgqHlBnM
+ kLE0ro4AgKTjN8ftQonMXzQy8pTQU0YSw9TTK8mln1nNWpmagK85SugstVzxHGGD+het
+ 1JBxEBA03w42N8tlITzc8Vjo8V05hvOsTj1E/LsUJY5wbS58VELAyJ5QYIvQ/8MsP379
+ 0gnXtalPJKBhdNWurJRF0bGxQNpkdL+flf8InWwDnLMuGf6DG4/5dvJ/OD84vpfoBwCK
+ XNbg==
+X-Gm-Message-State: AOAM5300DBUfya1VgYTQZtcjkPyvGRvdi2aM3XedNXePcj1iYeuhqQ05
+ uj+HRKMsO1dOG9XiXW4rUTQJ
+X-Google-Smtp-Source: ABdhPJzKp/tA+vtP8sQx/u94F7a3amr0c187EQ3qwQTlVnU49o2PFuDEg8ylYHVWzgY7vyaJcLC54A==
+X-Received: by 2002:a17:90a:657:: with SMTP id
+ q23mr17992099pje.21.1638577255185; 
+ Fri, 03 Dec 2021 16:20:55 -0800 (PST)
 Received: from fedora.ba.rivosinc.com
  (99-13-229-45.lightspeed.snjsca.sbcglobal.net. [99.13.229.45])
- by smtp.gmail.com with ESMTPSA id r6sm3272402pjg.21.2021.12.03.16.20.55
+ by smtp.gmail.com with ESMTPSA id r6sm3272402pjg.21.2021.12.03.16.20.54
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 03 Dec 2021 16:20:56 -0800 (PST)
+ Fri, 03 Dec 2021 16:20:54 -0800 (PST)
 From: Atish Patra <atishp@atishpatra.org>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>,
@@ -70,17 +70,17 @@ Cc: Atish Patra <atishp@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>,
  Paul Walmsley <paul.walmsley@sifive.com>,
  Pekka Enberg <penberg@kernel.org>, Vincent Chen <vincent.chen@sifive.com>,
  Vitaly Wool <vitaly.wool@konsulko.com>
-Subject: [RFC 4/6] RISC-V: Move the entire hart selection via lottery to SMP
-Date: Fri,  3 Dec 2021 16:20:36 -0800
-Message-Id: <20211204002038.113653-5-atishp@atishpatra.org>
+Subject: [RFC 3/6] RISC-V: Use __cpu_up_stack/task_pointer only for spinwait
+ method
+Date: Fri,  3 Dec 2021 16:20:35 -0800
+Message-Id: <20211204002038.113653-4-atishp@atishpatra.org>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211204002038.113653-1-atishp@atishpatra.org>
 References: <20211204002038.113653-1-atishp@atishpatra.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211203_162057_162417_3BEEBF5F 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211203_162056_302346_B3B52C86 
+X-CRM114-Status: GOOD (  18.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,53 +99,154 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Atish Patra <atishp@rivosinc.com>
 
-The booting hart selection via lottery is only useful for SMP systems.
-Moreover, the lottery selection is only necessary for systems using
-spinwait booting method. It is better to keep the entire lottery
-selection together so that it can be disabled in future.
+The __cpu_up_stack/task_pointer array is only used for spinwait method
+now. The per cpu array based lookup is also fragile for platforms with
+discontiguous/sparse hartids. The spinwait method is only used for
+M-mode Linux or older firmwares without SBI HSM extension. For general
+Linux systems, ordered booting method is preferred anyways to support
+cpu hotplug and kexec.
 
-Move the lottery selection code to under CONFIG_SMP.
+Make sure that __cpu_up_stack/task_pointer is only used for spinwait
+method. Take this opportunity to rename it to
+__cpu_spinwait_stack/task_pointer to emphasize the purpose as well.
 
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/kernel/head.S | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ arch/riscv/include/asm/cpu_ops.h     |  2 --
+ arch/riscv/kernel/cpu_ops.c          | 16 ----------------
+ arch/riscv/kernel/cpu_ops_spinwait.c | 27 ++++++++++++++++++++++++++-
+ arch/riscv/kernel/head.S             |  4 ++--
+ arch/riscv/kernel/head.h             |  4 ++--
+ 5 files changed, 30 insertions(+), 23 deletions(-)
 
+diff --git a/arch/riscv/include/asm/cpu_ops.h b/arch/riscv/include/asm/cpu_ops.h
+index a8ec3c5c1bd2..134590f1b843 100644
+--- a/arch/riscv/include/asm/cpu_ops.h
++++ b/arch/riscv/include/asm/cpu_ops.h
+@@ -40,7 +40,5 @@ struct cpu_operations {
+ 
+ extern const struct cpu_operations *cpu_ops[NR_CPUS];
+ void __init cpu_set_ops(int cpu);
+-void cpu_update_secondary_bootdata(unsigned int cpuid,
+-				   struct task_struct *tidle);
+ 
+ #endif /* ifndef __ASM_CPU_OPS_H */
+diff --git a/arch/riscv/kernel/cpu_ops.c b/arch/riscv/kernel/cpu_ops.c
+index 3f5a38b03044..c1e30f403c3b 100644
+--- a/arch/riscv/kernel/cpu_ops.c
++++ b/arch/riscv/kernel/cpu_ops.c
+@@ -8,31 +8,15 @@
+ #include <linux/of.h>
+ #include <linux/string.h>
+ #include <linux/sched.h>
+-#include <linux/sched/task_stack.h>
+ #include <asm/cpu_ops.h>
+ #include <asm/sbi.h>
+ #include <asm/smp.h>
+ 
+ const struct cpu_operations *cpu_ops[NR_CPUS] __ro_after_init;
+ 
+-void *__cpu_up_stack_pointer[NR_CPUS] __section(".data");
+-void *__cpu_up_task_pointer[NR_CPUS] __section(".data");
+-
+ extern const struct cpu_operations cpu_ops_sbi;
+ extern const struct cpu_operations cpu_ops_spinwait;
+ 
+-void cpu_update_secondary_bootdata(unsigned int cpuid,
+-				   struct task_struct *tidle)
+-{
+-	int hartid = cpuid_to_hartid_map(cpuid);
+-
+-	/* Make sure tidle is updated */
+-	smp_mb();
+-	WRITE_ONCE(__cpu_up_stack_pointer[hartid],
+-		   task_stack_page(tidle) + THREAD_SIZE);
+-	WRITE_ONCE(__cpu_up_task_pointer[hartid], tidle);
+-}
+-
+ void __init cpu_set_ops(int cpuid)
+ {
+ #if IS_ENABLED(CONFIG_RISCV_SBI)
+diff --git a/arch/riscv/kernel/cpu_ops_spinwait.c b/arch/riscv/kernel/cpu_ops_spinwait.c
+index b2c957bb68c1..9f398eb94f7a 100644
+--- a/arch/riscv/kernel/cpu_ops_spinwait.c
++++ b/arch/riscv/kernel/cpu_ops_spinwait.c
+@@ -6,11 +6,36 @@
+ #include <linux/errno.h>
+ #include <linux/of.h>
+ #include <linux/string.h>
++#include <linux/sched/task_stack.h>
+ #include <asm/cpu_ops.h>
+ #include <asm/sbi.h>
+ #include <asm/smp.h>
+ 
+ const struct cpu_operations cpu_ops_spinwait;
++void *__cpu_spinwait_stack_pointer[NR_CPUS] __section(".data");
++void *__cpu_spinwait_task_pointer[NR_CPUS] __section(".data");
++
++static void cpu_update_secondary_bootdata(unsigned int cpuid,
++				   struct task_struct *tidle)
++{
++	int hartid = cpuid_to_hartid_map(cpuid);
++
++	/*
++	 * The hartid must be less than NR_CPUS to avoid out-of-bound access
++	 * errors for __cpu_spinwait_stack/task_pointer. That is not always possible
++	 * for platforms with discontiguous hartid numbering scheme. That's why
++	 * spinwait booting is not the recommended approach for any platforms
++	 * and will be removed in future.
++	 */
++	if (hartid == INVALID_HARTID || hartid >= NR_CPUS)
++		return;
++
++	/* Make sure tidle is updated */
++	smp_mb();
++	WRITE_ONCE(__cpu_spinwait_stack_pointer[hartid],
++		   task_stack_page(tidle) + THREAD_SIZE);
++	WRITE_ONCE(__cpu_spinwait_task_pointer[hartid], tidle);
++}
+ 
+ static int spinwait_cpu_prepare(unsigned int cpuid)
+ {
+@@ -28,7 +53,7 @@ static int spinwait_cpu_start(unsigned int cpuid, struct task_struct *tidle)
+ 	 * selects the first cpu to boot the kernel and causes the remainder
+ 	 * of the cpus to spin in a loop waiting for their stack pointer to be
+ 	 * setup by that main cpu.  Writing to bootdata
+-	 * (i.e __cpu_up_stack_pointer) signals to the spinning cpus that they
++	 * (i.e __cpu_spinwait_stack_pointer) signals to the spinning cpus that they
+ 	 * can continue the boot process.
+ 	 */
+ 	cpu_update_secondary_bootdata(cpuid, tidle);
 diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 6f8e99eac6a1..9f16bfe9307e 100644
+index 40d4c625513c..6f8e99eac6a1 100644
 --- a/arch/riscv/kernel/head.S
 +++ b/arch/riscv/kernel/head.S
-@@ -264,8 +264,8 @@ pmp_done:
- 	blt a0, t0, .Lgood_cores
- 	tail .Lsecondary_park
- .Lgood_cores:
--#endif
- 
-+	/* The lottery system is only required for spinwait booting method */
- #ifndef CONFIG_XIP_KERNEL
- 	/* Pick one hart to run the main boot sequence */
- 	la a3, hart_lottery
-@@ -284,6 +284,10 @@ pmp_done:
- 	/* first time here if hart_lottery in RAM is not set */
- 	beq t0, t1, .Lsecondary_start
- 
-+#endif /* CONFIG_XIP */
-+#endif /* CONFIG_SMP */
-+
-+#ifdef CONFIG_XIP_KERNEL
- 	la sp, _end + THREAD_SIZE
- 	XIP_FIXUP_OFFSET sp
- 	mv s0, a0
-@@ -340,8 +344,8 @@ clear_bss_done:
- 	call soc_early_init
- 	tail start_kernel
- 
--.Lsecondary_start:
- #ifdef CONFIG_SMP
-+.Lsecondary_start:
- 	/* Set trap vector to spin forever to help debug */
- 	la a3, .Lsecondary_park
+@@ -347,9 +347,9 @@ clear_bss_done:
  	csrw CSR_TVEC, a3
+ 
+ 	slli a3, a0, LGREG
+-	la a1, __cpu_up_stack_pointer
++	la a1, __cpu_spinwait_stack_pointer
+ 	XIP_FIXUP_OFFSET a1
+-	la a2, __cpu_up_task_pointer
++	la a2, __cpu_spinwait_task_pointer
+ 	XIP_FIXUP_OFFSET a2
+ 	add a1, a3, a1
+ 	add a2, a3, a2
+diff --git a/arch/riscv/kernel/head.h b/arch/riscv/kernel/head.h
+index aabbc3ac3e48..5393cca77790 100644
+--- a/arch/riscv/kernel/head.h
++++ b/arch/riscv/kernel/head.h
+@@ -16,7 +16,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa);
+ asmlinkage void __init __copy_data(void);
+ #endif
+ 
+-extern void *__cpu_up_stack_pointer[];
+-extern void *__cpu_up_task_pointer[];
++extern void *__cpu_spinwait_stack_pointer[];
++extern void *__cpu_spinwait_task_pointer[];
+ 
+ #endif /* __ASM_HEAD_H */
 -- 
 2.33.1
 
