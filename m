@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D071C433F5
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Dec 2021 13:40:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C51A5C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Dec 2021 15:54:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Zx/G0M5Poz3vDx3RWKiN9GFGfK6TzBodjDP/sctp31Q=; b=ouGcnQXx9dnni4
-	xxgpFR4pDTPexPEThfCENwsM8rb4tFIBVBzw7uqRm+o4b+YYLiJJ3Re8Y4S6GnNUlTCxopUNm53wH
-	LAKT9+p/04LnABwGe/QvE96U1ZS3SdcSuPQldJm/NiG5LC6rzWCkOLyETfxIXfy9gIQceJEEzEBP5
-	FyuTE9qQxjGtCOveUKS2GZSRvVWfR3g8M3QEIUNVOGteKkZ+HmX1sUq3/xh9+uju+3nGDxJ8Imi72
-	WHHGN6hNOiQJCzUU1VXjGaIFMGODmPcia9Sov+koNAPdenF4EO2phntqKb1sgJjFBTx6LWRr3SPZx
-	aLyy0IrgDlyscmuaeq8A==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KH2hO3MfBYO1LezcFf2OlkA+OJmc/p7R6R0kQ+e2+W4=; b=X6SK9eqGiG5tUV
+	9Vk+pwoRqIvglwLM1efw+Dev4fLvs1lZGNOlmD0MZSLEFOOH2HCkAHx0XKavJktSEt69tHm2TNTcC
+	5G+H39TQ0t6HJfOUyH58B9XLDoJETNa12kHhy44zT9EXVh/anCkaEDBaC+pNOkLfM6IXJDleaOrfM
+	JStY6SLdE1agTcwpsKk/c45VbBJn3q8c35H4GEHc6iRm24jlTcqoDzUzX7cGWgEGgMEJwuR/KXrkU
+	ae4upUlB+Z/S5ibfLMFHDwLZs08Dn4Jo8H5plBBi7C6HQQcYlJN0BQ7ZaNYibAxiKnnLj7SoNuiTi
+	9O8M5hOMg0Mp+KpTUHVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mtrkU-001UUV-NU; Sun, 05 Dec 2021 13:40:14 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1mttqQ-001gHs-T4; Sun, 05 Dec 2021 15:54:30 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mtrkQ-001UTr-Hx
- for linux-riscv@lists.infradead.org; Sun, 05 Dec 2021 13:40:12 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id x131so7605456pfc.12
- for <linux-riscv@lists.infradead.org>; Sun, 05 Dec 2021 05:40:07 -0800 (PST)
+ id 1mttqN-001gHV-OV
+ for linux-riscv@lists.infradead.org; Sun, 05 Dec 2021 15:54:30 +0000
+Received: by mail-wr1-x435.google.com with SMTP id u1so17035954wru.13
+ for <linux-riscv@lists.infradead.org>; Sun, 05 Dec 2021 07:54:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ventanamicro.com; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=/W8CA9+6/7Lz+HRtlLm8lmw8DGU+t502EhotG3BZ2x4=;
- b=k9KHGho5n6HoivwSiPA+xeMDgue+BfIVkPoMIjM3WhN2W3r10KjIlIyP9AV4hl7xZu
- WJ0FaPnhWfnr8JLZx4ACeBRbqOXSnGaub74E14qvZsW60G9bv+RIHoNdmVJR0xjwAAG6
- jeOGp8KI0Y1cm+ak55SF2EBDaHmTcWcP8qSkSBVEJ0Fu4SsofAdBiWQtvY3EDk+nkTa8
- xkYcXUnKMf2raGiXwP8ZYp5J+sMcSkBpmIAKkRKyu1bFyeUh5pbL+dRtGcwQanNxgemy
- tsD0W/AU9tJWH1+pPPjwPlpvTWVdzbmNisAsSLoTTFBpfFkR8DNZzkn1M6w5LL3QmcMR
- 4SJw==
+ d=jrtc27.com; s=gmail.jrtc27.user;
+ h=mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=2XqC/VvPx7Ncp7gcO2ffxD49w2/smxvqeUX+9P1v1BI=;
+ b=Y7y0mNGrVXztmhHmCNnnHa67nPpsmTl2UPlUyQmbW4iuuYKHh3I2HXC6FcY+Ai7ieU
+ AF56r1mPYhRHZk/LWo2sIQX65/hWVTaQqpdPngIbQaVdbKjdNgwDvgeJktdu2ZZ6Ckph
+ lAGCY0cKVG6URB1PX4kO/vfqUQDPFVfMtS3vlxntFfzsbmw554QsYtDyH/B/H5X/lmoe
+ pwLVMfaU2jdBXMt6eovHP3Qe98JR7QMLYhSrxP36JZ8Itor7MNiZ1IXTwIgGC324wUCy
+ MCoGU0KoMc1/o7ozB896bUU+qjbsY0RYjqgp11mRosjGI2l3FitIvt88O7PGb6jtB128
+ a3Lg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=/W8CA9+6/7Lz+HRtlLm8lmw8DGU+t502EhotG3BZ2x4=;
- b=e1vln7hj8ylcIvD0+exOI6giP1Jjj7FLyOIGMGeig4EWnUwyQnPV4OCFhGqlL9pzyP
- 4fZf1Y8dNsAGl9vmbxugLEKm1kHjCta8lQz/U0q8wrXrj6RKGsRklTep3qRSNMf1/HbB
- /iMf6wQmLttJnYXkqzR5E8f5PTTouNODIXxWz4SV+92dgjul9UfdUmr/NHsgkFeshUx0
- /OFe7KVZ0MogPtpCbV+ocJvsH2jWMAoqpZO5gvq37GSstsnN+k3UOla15xwXxZ4xpzwR
- tF78G22lHXEpsuAJLtpW3zyO3BT+hxAPJdHZAVoE5O5G4krYw486HwR76qhbqVOgbJ7A
- 6AKQ==
-X-Gm-Message-State: AOAM533ZHUl4nZlV8NKqBeoIPEGxEg67alqSCIsaX6y3epnN154bUZCa
- MRFwHrDLbN0LVxaycdCIluZGJ0Y+QUHiow==
-X-Google-Smtp-Source: ABdhPJyL/47ldmH641Nv401JMbwtv2hYkFkvkp6td4R1UwI55AiwBXw3RaYC1cOn4G1q04ONMEuHgg==
-X-Received: by 2002:a63:70e:: with SMTP id 14mr5267996pgh.151.1638711606575;
- Sun, 05 Dec 2021 05:40:06 -0800 (PST)
-Received: from sunil-ThinkPad-T490 ([49.206.3.187])
- by smtp.gmail.com with ESMTPSA id f19sm9267665pfv.76.2021.12.05.05.40.02
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 05 Dec 2021 05:40:06 -0800 (PST)
-Date: Sun, 5 Dec 2021 19:09:58 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Atish Patra <atishp@atishpatra.org>
-Cc: Anup Patel <anup@brainfault.org>,
+ h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=2XqC/VvPx7Ncp7gcO2ffxD49w2/smxvqeUX+9P1v1BI=;
+ b=WGXJiD50WC6xlWuCnr3OWWdfb1yhaFxz2NdqgESyTq1uv2JQ6Zj5Sv6PYNd7AxLwdg
+ 6y7LgVMKcaJ8N6O4vzUvnbIiQ1zU4zRU0Ty1kIuutHfzgONKyRQBQ5qFzzBBKKI+LEGu
+ cwz+Wycl1hnC0gdPwVTYw/dnByz7P6LCa8sQkYncpYjh9XvEDutCDjzr/xSeAi/FvXoZ
+ MFq+Cr0E9EptNC2BPHUgDgS4Ryd1+bchq8JUzk2ynxCnXzTAdpw2RdMjaPGt0EPTDxAz
+ yzWGid9LBBDlw2xDn88rznOErj8YuOoyYAJQxS0d8dgytdxhFg9rk31OcmUCJxdFN32h
+ CRew==
+X-Gm-Message-State: AOAM533bBhZkah4eiADPJWe3o2V1DoOitUdZxelzwdMYiCgHVkCxCMbJ
+ R1iW+O1lQS3cYoDSfK2fg58pKw==
+X-Google-Smtp-Source: ABdhPJxA9YreNsxFv1yseWUqTmS/DnlYaDvAMuw6Fi8v1fxGXc+sogppq7WoW2lSryyooRXkGEYEUQ==
+X-Received: by 2002:a5d:4f12:: with SMTP id c18mr35556888wru.547.1638719664692; 
+ Sun, 05 Dec 2021 07:54:24 -0800 (PST)
+Received: from smtpclient.apple (global-5-141.nat-2.net.cam.ac.uk.
+ [131.111.5.141])
+ by smtp.gmail.com with ESMTPSA id l21sm8613473wrb.38.2021.12.05.07.54.24
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Sun, 05 Dec 2021 07:54:24 -0800 (PST)
+Mime-Version: 1.0 (Mac OS X Mail 14.0 \(3654.120.0.1.13\))
+Subject: Re: Question regarding "boot-hartid" DT node
+From: Jessica Clarke <jrtc27@jrtc27.com>
+In-Reply-To: <20211205133958.GA57138@sunil-ThinkPad-T490>
+Date: Sun, 5 Dec 2021 15:54:23 +0000
+Cc: Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
  Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
  Abner Chang <abner.chang@hpe.com>,
  Heinrich Schuchardt <xypron.glpk@gmx.de>,
- Jessica Clarke <jrtc27@jrtc27.com>,
  Palmer Dabbelt <palmer@rivosinc.com>, sunil.vl@gmail.com,
  linux-riscv <linux-riscv@lists.infradead.org>,
  Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: Question regarding "boot-hartid" DT node
-Message-ID: <20211205133958.GA57138@sunil-ThinkPad-T490>
+Message-Id: <38BA3E99-2F6C-45AA-A984-A64A6CE1BACF@jrtc27.com>
 References: <CAMj1kXG-VnhkECGewZPkUZLC2rb1bSDGdSpby9R=W_1d3FAsdg@mail.gmail.com>
  <6d9f131d-b3e8-18df-a9b6-6aaac881eb65@canonical.com>
  <CAOnJCUJfEpW6TtBPFGZ9TfNJeb9r+-L_8BddsxxejAd9Fe8VHw@mail.gmail.com>
@@ -81,12 +82,12 @@ References: <CAMj1kXG-VnhkECGewZPkUZLC2rb1bSDGdSpby9R=W_1d3FAsdg@mail.gmail.com>
  <7416157e-50d1-3664-7df0-2a45e29cd8c1@canonical.com>
  <CAAhSdy1DOnEGpxPQF7juUSyBTyx9W8KsH8exTpOmTLOnNCMJqg@mail.gmail.com>
  <CAOnJCU+taK16cnfnQtk3QM3s-f4RCUTWENAPe8Nhs-8L29vKew@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAOnJCU+taK16cnfnQtk3QM3s-f4RCUTWENAPe8Nhs-8L29vKew@mail.gmail.com>
+ <20211205133958.GA57138@sunil-ThinkPad-T490>
+To: Sunil V L <sunilvl@ventanamicro.com>
+X-Mailer: Apple Mail (2.3654.120.0.1.13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211205_054010_643778_941870A7 
-X-CRM114-Status: GOOD (  77.55  )
+X-CRM114-CacheID: sfid-20211205_075427_899390_5DD6167C 
+X-CRM114-Status: GOOD (  46.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,269 +99,230 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 04, 2021 at 10:34:28AM -0800, Atish Patra wrote:
-> On Fri, Dec 3, 2021 at 8:24 PM Anup Patel <anup@brainfault.org> wrote:
-> >
-> > On Sat, Dec 4, 2021 at 7:17 AM Heinrich Schuchardt
-> > <heinrich.schuchardt@canonical.com> wrote:
-> > >
-> > >
-> > >
-> > > On 12/4/21 01:44, Atish Patra wrote:
-> > > > On Fri, Dec 3, 2021 at 10:45 AM Heinrich Schuchardt <xypron.glpk@gmx.de> wrote:
-> > > >>
-> > > >> On 12/3/21 11:53 AM, Heinrich Schuchardt wrote:
-> > > >>> On 12/3/21 11:13, Ard Biesheuvel wrote:
-> > > >>>> On Thu, 2 Dec 2021 at 20:29, Atish Patra <atishp@atishpatra.org> wrote:
-> > > >>>>>
-> > > >>>>> On Thu, Dec 2, 2021 at 9:05 AM Heinrich Schuchardt
-> > > >>>>> <heinrich.schuchardt@canonical.com> wrote:
-> > > >>>>>>
-> > > >>>>>> On 12/2/21 17:58, Ard Biesheuvel wrote:
-> > > >>>>>>> On Thu, 2 Dec 2021 at 17:53, Heinrich Schuchardt
-> > > >>>>>>> <heinrich.schuchardt@canonical.com> wrote:
-> > > >>>>>>>>
-> > > >>>>>>>> On 12/2/21 17:20, Ard Biesheuvel wrote:
-> > > >>>>>>>>> On Thu, 2 Dec 2021 at 16:05, Sunil V L <sunilvl@ventanamicro.com>
-> > > >>>>>>>>> wrote:
-> > > >>>>>>>>>>
-> > > >>>>>>>>>> Hi All,
-> > > >>>>>>>>>>        I am starting this thread to discuss about the
-> > > >>>>>>>>>> "boot-hartid" DT node
-> > > >>>>>>>>>>        that is being used in RISC-V Linux EFI stub.
-> > > >>>>>>>>>>
-> > > >>>>>>>>>>        As you know, the boot Hart ID is passed in a0 register to
-> > > >>>>>>>>>> the kernel
-> > > >>>>>>>>>>        and hence there is actually no need to pass it via DT.
-> > > >>>>>>>>>> However, since
-> > > >>>>>>>>>>        EFI stub follows EFI application calling conventions, it
-> > > >>>>>>>>>> needs to
-> > > >>>>>>>>>>        know the boot Hart ID so that it can pass it to the proper
-> > > >>>>>>>>>> kernel via
-> > > >>>>>>>>>>        a0. For this issue, the solution was to add
-> > > >>>>>>>>>> "/chosen/boot-hartid" in
-> > > >>>>>>>>>>        DT. Both EDK2 and u-boot append this node in DT.
-> > > >>>>>>>>>>
-> > > >>>>>>>>>
-> > > >>>>>>>>> I think this was a mistake tbh
-> > > >>>>>>>>>
-> > > >>>>>>>>>>        But above approach causes issue for ACPI since ACPI
-> > > >>>>>>>>>> initialization
-> > > >>>>>>>>>>        happens late in the proper kernel. Same is true even if we
-> > > >>>>>>>>>> pass this
-> > > >>>>>>>>>>        information via SMBIOS.
-> > > >>>>>>>>>>
-> > > >>>>>>>>>
-> > > >>>>>>>>> It would be better to define a RISCV specific EFI protocol that the
-> > > >>>>>>>>> stub can call to discover the boot-hartid value. That wat, it can
-> > > >>>>>>>>> pass
-> > > >>>>>>>>> it directly, without having to rely on firmware tables.
-> > > >>>>>>>>
-> > > >>>>>>>> As discovering the current process' hartid is not a UEFI specific
-> > > >>>>>>>> task
-> > > >>>>>>>> SBI would be a better fit.
-> > > >>>>>>>>
-> > > >>>>>>>
-> > > >>>>>>> I disagree. The OS<->loader firmware interface is UEFI not SBI. So if
-> > > >>>>>>> the EFI stub needs to ask the firmware which boot-hartid it should
-> > > >>>>>>> pass in A0, it should use a EFI protocol and nothing else.
-> > > >>>>>>>
-> > > >>>>>>> Whether or not the loader/firmware *implements* this EFI protocol by
-> > > >>>>>>> calling into SBI is a different matter (and likely the best choice).
-> > > >>>>>>> But that does not mean the EFI stub should make SBI calls directly.
-> > > >>>>>>>
-> > > >>>>>>
-> > > >>>>>> The EFI stub does not need the boot-hartid. It is the main Linux kernel
-> > > >>>>>> that does. And that kernel already implements SBI calls.
-> > > >>>>>>
-> > > >>>>>> The main kernel could just try to read CSR mhartid which fails in
-> > > >>>>>> S-mode
-> > > >>>>>> and the SBI could emulate it.
-> > > >>>>>
-> > > >>>>> New SBI extension should be added only if there is no other way to
-> > > >>>>> solve a generic
-> > > >>>
-> > > >>> I am not sure this feature would be implemented as SBI extension or as a
-> > > >>> CSR emulation. Cf. sbi_emulate_csr_read(). But anyway it would require
-> > > >>> an update of the SBI specification.
-> > > >>>
-> > > >>>>> problem. The boot hartid issue is very specific to efi booting only.
-> > > >>>>> Any system that doesn't require
-> > > >>>
-> > > >>> The boot hartid is not EFI related at all. A firmware running single
-> > > >>> threaded does not need this information.
-> > > >>>
-> > > >>> Information about the boot hartid is a general OS need.
-> > > >>>
-> > > >>> I am wondering why S-mode software should not have a generic means to
-> > > >>> find out on which hart it is currently running.
-> > > >>>
-> > > >>>>> EFI booting won't need it. Even for EFI booting, we have other
-> > > >>>>> approaches already proposed
-> > > >>>>> to solve it. That's why, SBI extension should be the last resort
-> > > >>>>> rather than first.
-> > > >>>>>
-> > > >>>>> I think an RISC-V specific EFI protocol as suggested by Ard should
-> > > >>>>> work for all the cases.
-> > > >>>>> Is there a case where you think it may not work ? U-Boot & EDK2
-> > > >>>>> already stores the boot hartid.
-> > > >>>>> They just implement that protocol and pass the hartid to the caller.
-> > > >>>>> We do need to support it in the grub though.
-> > > >>>>>
-> > > >>>>
-> > > >>>> Why would GRUB care about this? The EFI stub will call into the
-> > > >>>> underlying firmware to invoke the protocol, GRUB is just a loader with
-> > > >>>> a fancy menu that allows you to select which image to load, no?
-> > > >>>
-> > > >>> This is a related discussion:
-> > > >>>
-> > > >>> https://github.com/tekkamanninja/grub/commit/be9d4f1863a1fcb1cbbd2f867309457fade8be73#commitcomment-60851029
-> > > >>>
-> > > >
-> > > > Yes!! Thanks for refreshing the memory. It seems after 2 years, we are
-> > > > still debating the same topic :).
-> > > > Let me summarize the thread. There are multiple ways for EFI stub code
-> > > > to retrieve the boot hartid.
-> > > >
-> > > > 1. EFI variables - This is what Henerich proposed last time. Ard
-> > > > suggested that EFI configuration tables are better candidates than EFI
-> > > > variables.
-> > > > 2. DT modification - This was preferred over the configuration table
-> > > > at that time given because RISC-V was DT only at that time.
-> > > >                                   We already had all the infrastructure
-> > > > around DT. Thus, DT seemed to be a natural choice then.
-> > > >                                   It works now for existing setup
-> > > > however, the DT approach will not work for systems with ACPI support.
-> > > >                                   Adding a similar entry in ACPI tables
-> > > > is possible but adding ACPI support in EFI stub is not trivial.
-> > > > 3. SMBIOS - Only for platforms with SMBIOS support. SMBIOS is not
-> > > > mandatory and adding SMBIOS support in EFI stub is not trivial.
-> > > > 4. SBI         -  As I mentioned before, this is an EFI specific
-> > > > problem because EFI stub doesn't know what the boot hartid is. Thus,
-> > > > it should be solved
-> > > >                        in an EFI specific way. An SBI extension for
-> > > > such features may not be acceptable as the non-EFI booting method
-> > > > works fine without the SBI extension.
-> > > > 5. RISC-V specific EFI configuration table or protocol: Ard suggested
-> > > > EFI configuration table last time. Earlier in this thread, EFI
-> > > > protocol was suggested.
-> > > >                        My personal preference has always been one of
-> > > > these as it solves the problem for all EFI booting methods
-> > > >                        for platforms-os
-> > > > combination(DT/ACPI-Linux/FreeBSD) in an EFI specific way.
-> > > >
-> > > > @Heinrich: Do you see any issue with the EFI configuration table or
-> > > > protocol to retrieve the boot hartid?
-> > >
-> > > There is nothing technical stopping us from implementing either option.
-> > >
-> > > We could simply reuse the EFI Device Tree Fixup Protocol
-> > > (https://github.com/U-Boot-EFI/EFI_DT_FIXUP_PROTOCOL) implemented in
-> > > U-Boot and already used by systemd-boot. Pass a devicetree (which may be
-> > > empty) to the Fixup() method and it will add the /chosen node with the
-> > > boot-hartid parameter.
-> > >
-> > > The EFI stub anyway creates a new device-tree to pass the memory map to
-> > > the kernel in the ACPI case (function update_fdt()). Calling the EFI
-> > > Device Tree Fixup Protocol could be easily added.
-> 
-> Thanks. Yes. We can solve the current problem for EFI stub in Linux.
-> 
-> >
-> > Are you suggesting that DTB (skeletal or full-blown) will always be there when
-> > booting the kernel as an EFI application ? If yes then we are
-> > indirectly mandating
-> > skeletal DTB for UEFI+ACPI system.
-> 
-> Yes. EFI Stub tries to find a fdt from the command line (not a
-> preferred method) or EFI configuration table[1]
-> (currently used for RISC-V systems). If it can't find a device tree,
-> it generates one [2]
-> 
-> [1] https://elixir.bootlin.com/linux/v5.16-rc3/source/drivers/firmware/efi/libstub/efi-stub.c#L231
-> [2] https://elixir.bootlin.com/linux/v5.16-rc3/source/drivers/firmware/efi/libstub/fdt.c#L58
-> 
-> However, we may still need to define the RISC-V EFI protocol to
-> support ACPI for other OS (FreeBSD) which doesn't have
-> a stub like loader that uses DT.
-> 
-If RISC-V mandates that every OS (including FreeBSD)  should follow the
-booting protocol that a0 should be used to pass the boot hartid, then
-only Linux EFI stub becomes a special case which can reuse the existing
-DT based EFI protocol (mentioned by Heinrich), right?
-
-Thanks
-Sunil
-
-> In that case, where should we document it ? UEFI spec or RISC-V platform spec ?
-> 
-> >
-> > Regards,
-> > Anup
-> >
-> > >
-> > > Best regards
-> > >
-> > > Heinrich
-> > >
-> > > >
-> > > > My only concern with the RISC-V EFI protocol is that Ard suggested it
-> > > > doesn't need a modification in UEFI spec.
-> > > > Where should we document it in this case ? We can't document it in
-> > > > Linux or EBBR.
-> > > > Because, this is a protocol that server systems and other non-Linux OS
-> > > > will also use.
-> > > > We can define it in the RISC-V platform spec. But that's not the usual
-> > > > place where somebody will look for the definition of such protocol.
-> > > >
-> > > > Wouldn't it be better to standardize it in UEFI spec ? The UEFI spec
-> > > > already has ARCH specific protocols/config tables.
-> > > >
-> > > >>>
-> > > >>> If GRUB loads a devicetree it will anyway have to call into the firmware
-> > > >>> for fixups. These will include adding the boot-hartid.
-> > > >>>
-> > > >>>>
-> > > >>>>> @Heinrich Schuchardt
-> > > >>>>> I vaguely remember you proposed something similar when we discussed
-> > > >>>>> this first during FOSDEM.
-> > > >>>>> I can't recall why it was abandoned in favor of the DT approach which
-> > > >>>>> works. But,
-> > > >>>>> it is not an ideal solution considering RISC-V ACPI support is already
-> > > >>>>> on the way.
-> > > >>>>>
-> > > >>>>> Do you have a link to the older thread where this thing was discussed ?
-> > > >>>
-> > > >>> Unfortunately I cannot find anything.
-> > > >>
-> > > >> I assume Atish referred to this thread:
-> > > >>
-> > > >> https://patchwork.ozlabs.org/project/uboot/patch/20200205055334.4072-1-xypron.glpk@gmx.de/
-> > > >>
-> > > >> Best regards
-> > > >>
-> > > >> Heinrich
-> > > >>
-> > > >> _______________________________________________
-> > > >> linux-riscv mailing list
-> > > >> linux-riscv@lists.infradead.org
-> > > >> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> > > >
-> > > >
-> > > >
-> 
-> 
-> 
-> -- 
-> Regards,
-> Atish
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gNSBEZWMgMjAyMSwgYXQgMTM6MzksIFN1bmlsIFYgTCA8c3VuaWx2bEB2ZW50YW5hbWljcm8u
+Y29tPiB3cm90ZToKPiAKPiBPbiBTYXQsIERlYyAwNCwgMjAyMSBhdCAxMDozNDoyOEFNIC0wODAw
+LCBBdGlzaCBQYXRyYSB3cm90ZToKPj4gT24gRnJpLCBEZWMgMywgMjAyMSBhdCA4OjI0IFBNIEFu
+dXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+IHdyb3RlOgo+Pj4gCj4+PiBPbiBTYXQsIERl
+YyA0LCAyMDIxIGF0IDc6MTcgQU0gSGVpbnJpY2ggU2NodWNoYXJkdAo+Pj4gPGhlaW5yaWNoLnNj
+aHVjaGFyZHRAY2Fub25pY2FsLmNvbT4gd3JvdGU6Cj4+Pj4gCj4+Pj4gCj4+Pj4gCj4+Pj4gT24g
+MTIvNC8yMSAwMTo0NCwgQXRpc2ggUGF0cmEgd3JvdGU6Cj4+Pj4+IE9uIEZyaSwgRGVjIDMsIDIw
+MjEgYXQgMTA6NDUgQU0gSGVpbnJpY2ggU2NodWNoYXJkdCA8eHlwcm9uLmdscGtAZ214LmRlPiB3
+cm90ZToKPj4+Pj4+IAo+Pj4+Pj4gT24gMTIvMy8yMSAxMTo1MyBBTSwgSGVpbnJpY2ggU2NodWNo
+YXJkdCB3cm90ZToKPj4+Pj4+PiBPbiAxMi8zLzIxIDExOjEzLCBBcmQgQmllc2hldXZlbCB3cm90
+ZToKPj4+Pj4+Pj4gT24gVGh1LCAyIERlYyAyMDIxIGF0IDIwOjI5LCBBdGlzaCBQYXRyYSA8YXRp
+c2hwQGF0aXNocGF0cmEub3JnPiB3cm90ZToKPj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4gT24gVGh1LCBE
+ZWMgMiwgMjAyMSBhdCA5OjA1IEFNIEhlaW5yaWNoIFNjaHVjaGFyZHQKPj4+Pj4+Pj4+IDxoZWlu
+cmljaC5zY2h1Y2hhcmR0QGNhbm9uaWNhbC5jb20+IHdyb3RlOgo+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+
+Pj4+IE9uIDEyLzIvMjEgMTc6NTgsIEFyZCBCaWVzaGV1dmVsIHdyb3RlOgo+Pj4+Pj4+Pj4+PiBP
+biBUaHUsIDIgRGVjIDIwMjEgYXQgMTc6NTMsIEhlaW5yaWNoIFNjaHVjaGFyZHQKPj4+Pj4+Pj4+
+Pj4gPGhlaW5yaWNoLnNjaHVjaGFyZHRAY2Fub25pY2FsLmNvbT4gd3JvdGU6Cj4+Pj4+Pj4+Pj4+
+PiAKPj4+Pj4+Pj4+Pj4+IE9uIDEyLzIvMjEgMTc6MjAsIEFyZCBCaWVzaGV1dmVsIHdyb3RlOgo+
+Pj4+Pj4+Pj4+Pj4+IE9uIFRodSwgMiBEZWMgMjAyMSBhdCAxNjowNSwgU3VuaWwgViBMIDxzdW5p
+bHZsQHZlbnRhbmFtaWNyby5jb20+Cj4+Pj4+Pj4+Pj4+Pj4gd3JvdGU6Cj4+Pj4+Pj4+Pj4+Pj4+
+IAo+Pj4+Pj4+Pj4+Pj4+PiBIaSBBbGwsCj4+Pj4+Pj4+Pj4+Pj4+ICAgICAgIEkgYW0gc3RhcnRp
+bmcgdGhpcyB0aHJlYWQgdG8gZGlzY3VzcyBhYm91dCB0aGUKPj4+Pj4+Pj4+Pj4+Pj4gImJvb3Qt
+aGFydGlkIiBEVCBub2RlCj4+Pj4+Pj4+Pj4+Pj4+ICAgICAgIHRoYXQgaXMgYmVpbmcgdXNlZCBp
+biBSSVNDLVYgTGludXggRUZJIHN0dWIuCj4+Pj4+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4+Pj4+PiAg
+ICAgICBBcyB5b3Uga25vdywgdGhlIGJvb3QgSGFydCBJRCBpcyBwYXNzZWQgaW4gYTAgcmVnaXN0
+ZXIgdG8KPj4+Pj4+Pj4+Pj4+Pj4gdGhlIGtlcm5lbAo+Pj4+Pj4+Pj4+Pj4+PiAgICAgICBhbmQg
+aGVuY2UgdGhlcmUgaXMgYWN0dWFsbHkgbm8gbmVlZCB0byBwYXNzIGl0IHZpYSBEVC4KPj4+Pj4+
+Pj4+Pj4+Pj4gSG93ZXZlciwgc2luY2UKPj4+Pj4+Pj4+Pj4+Pj4gICAgICAgRUZJIHN0dWIgZm9s
+bG93cyBFRkkgYXBwbGljYXRpb24gY2FsbGluZyBjb252ZW50aW9ucywgaXQKPj4+Pj4+Pj4+Pj4+
+Pj4gbmVlZHMgdG8KPj4+Pj4+Pj4+Pj4+Pj4gICAgICAga25vdyB0aGUgYm9vdCBIYXJ0IElEIHNv
+IHRoYXQgaXQgY2FuIHBhc3MgaXQgdG8gdGhlIHByb3Blcgo+Pj4+Pj4+Pj4+Pj4+PiBrZXJuZWwg
+dmlhCj4+Pj4+Pj4+Pj4+Pj4+ICAgICAgIGEwLiBGb3IgdGhpcyBpc3N1ZSwgdGhlIHNvbHV0aW9u
+IHdhcyB0byBhZGQKPj4+Pj4+Pj4+Pj4+Pj4gIi9jaG9zZW4vYm9vdC1oYXJ0aWQiIGluCj4+Pj4+
+Pj4+Pj4+Pj4+ICAgICAgIERULiBCb3RoIEVESzIgYW5kIHUtYm9vdCBhcHBlbmQgdGhpcyBub2Rl
+IGluIERULgo+Pj4+Pj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+Pj4+PiBJIHRo
+aW5rIHRoaXMgd2FzIGEgbWlzdGFrZSB0YmgKPj4+Pj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+Pj4+Pj4g
+ICAgICAgQnV0IGFib3ZlIGFwcHJvYWNoIGNhdXNlcyBpc3N1ZSBmb3IgQUNQSSBzaW5jZSBBQ1BJ
+Cj4+Pj4+Pj4+Pj4+Pj4+IGluaXRpYWxpemF0aW9uCj4+Pj4+Pj4+Pj4+Pj4+ICAgICAgIGhhcHBl
+bnMgbGF0ZSBpbiB0aGUgcHJvcGVyIGtlcm5lbC4gU2FtZSBpcyB0cnVlIGV2ZW4gaWYgd2UKPj4+
+Pj4+Pj4+Pj4+Pj4gcGFzcyB0aGlzCj4+Pj4+Pj4+Pj4+Pj4+ICAgICAgIGluZm9ybWF0aW9uIHZp
+YSBTTUJJT1MuCj4+Pj4+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4+Pj4+IEl0
+IHdvdWxkIGJlIGJldHRlciB0byBkZWZpbmUgYSBSSVNDViBzcGVjaWZpYyBFRkkgcHJvdG9jb2wg
+dGhhdCB0aGUKPj4+Pj4+Pj4+Pj4+PiBzdHViIGNhbiBjYWxsIHRvIGRpc2NvdmVyIHRoZSBib290
+LWhhcnRpZCB2YWx1ZS4gVGhhdCB3YXQsIGl0IGNhbgo+Pj4+Pj4+Pj4+Pj4+IHBhc3MKPj4+Pj4+
+Pj4+Pj4+PiBpdCBkaXJlY3RseSwgd2l0aG91dCBoYXZpbmcgdG8gcmVseSBvbiBmaXJtd2FyZSB0
+YWJsZXMuCj4+Pj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+Pj4+IEFzIGRpc2NvdmVyaW5nIHRoZSBjdXJy
+ZW50IHByb2Nlc3MnIGhhcnRpZCBpcyBub3QgYSBVRUZJIHNwZWNpZmljCj4+Pj4+Pj4+Pj4+PiB0
+YXNrCj4+Pj4+Pj4+Pj4+PiBTQkkgd291bGQgYmUgYSBiZXR0ZXIgZml0Lgo+Pj4+Pj4+Pj4+Pj4g
+Cj4+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4+PiBJIGRpc2FncmVlLiBUaGUgT1M8LT5sb2FkZXIgZmly
+bXdhcmUgaW50ZXJmYWNlIGlzIFVFRkkgbm90IFNCSS4gU28gaWYKPj4+Pj4+Pj4+Pj4gdGhlIEVG
+SSBzdHViIG5lZWRzIHRvIGFzayB0aGUgZmlybXdhcmUgd2hpY2ggYm9vdC1oYXJ0aWQgaXQgc2hv
+dWxkCj4+Pj4+Pj4+Pj4+IHBhc3MgaW4gQTAsIGl0IHNob3VsZCB1c2UgYSBFRkkgcHJvdG9jb2wg
+YW5kIG5vdGhpbmcgZWxzZS4KPj4+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+Pj4+IFdoZXRoZXIgb3Igbm90
+IHRoZSBsb2FkZXIvZmlybXdhcmUgKmltcGxlbWVudHMqIHRoaXMgRUZJIHByb3RvY29sIGJ5Cj4+
+Pj4+Pj4+Pj4+IGNhbGxpbmcgaW50byBTQkkgaXMgYSBkaWZmZXJlbnQgbWF0dGVyIChhbmQgbGlr
+ZWx5IHRoZSBiZXN0IGNob2ljZSkuCj4+Pj4+Pj4+Pj4+IEJ1dCB0aGF0IGRvZXMgbm90IG1lYW4g
+dGhlIEVGSSBzdHViIHNob3VsZCBtYWtlIFNCSSBjYWxscyBkaXJlY3RseS4KPj4+Pj4+Pj4+Pj4g
+Cj4+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+Pj4gVGhlIEVGSSBzdHViIGRvZXMgbm90IG5lZWQgdGhlIGJv
+b3QtaGFydGlkLiBJdCBpcyB0aGUgbWFpbiBMaW51eCBrZXJuZWwKPj4+Pj4+Pj4+PiB0aGF0IGRv
+ZXMuIEFuZCB0aGF0IGtlcm5lbCBhbHJlYWR5IGltcGxlbWVudHMgU0JJIGNhbGxzLgo+Pj4+Pj4+
+Pj4+IAo+Pj4+Pj4+Pj4+IFRoZSBtYWluIGtlcm5lbCBjb3VsZCBqdXN0IHRyeSB0byByZWFkIENT
+UiBtaGFydGlkIHdoaWNoIGZhaWxzIGluCj4+Pj4+Pj4+Pj4gUy1tb2RlCj4+Pj4+Pj4+Pj4gYW5k
+IHRoZSBTQkkgY291bGQgZW11bGF0ZSBpdC4KPj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4gTmV3IFNCSSBl
+eHRlbnNpb24gc2hvdWxkIGJlIGFkZGVkIG9ubHkgaWYgdGhlcmUgaXMgbm8gb3RoZXIgd2F5IHRv
+Cj4+Pj4+Pj4+PiBzb2x2ZSBhIGdlbmVyaWMKPj4+Pj4+PiAKPj4+Pj4+PiBJIGFtIG5vdCBzdXJl
+IHRoaXMgZmVhdHVyZSB3b3VsZCBiZSBpbXBsZW1lbnRlZCBhcyBTQkkgZXh0ZW5zaW9uIG9yIGFz
+IGEKPj4+Pj4+PiBDU1IgZW11bGF0aW9uLiBDZi4gc2JpX2VtdWxhdGVfY3NyX3JlYWQoKS4gQnV0
+IGFueXdheSBpdCB3b3VsZCByZXF1aXJlCj4+Pj4+Pj4gYW4gdXBkYXRlIG9mIHRoZSBTQkkgc3Bl
+Y2lmaWNhdGlvbi4KPj4+Pj4+PiAKPj4+Pj4+Pj4+IHByb2JsZW0uIFRoZSBib290IGhhcnRpZCBp
+c3N1ZSBpcyB2ZXJ5IHNwZWNpZmljIHRvIGVmaSBib290aW5nIG9ubHkuCj4+Pj4+Pj4+PiBBbnkg
+c3lzdGVtIHRoYXQgZG9lc24ndCByZXF1aXJlCj4+Pj4+Pj4gCj4+Pj4+Pj4gVGhlIGJvb3QgaGFy
+dGlkIGlzIG5vdCBFRkkgcmVsYXRlZCBhdCBhbGwuIEEgZmlybXdhcmUgcnVubmluZyBzaW5nbGUK
+Pj4+Pj4+PiB0aHJlYWRlZCBkb2VzIG5vdCBuZWVkIHRoaXMgaW5mb3JtYXRpb24uCj4+Pj4+Pj4g
+Cj4+Pj4+Pj4gSW5mb3JtYXRpb24gYWJvdXQgdGhlIGJvb3QgaGFydGlkIGlzIGEgZ2VuZXJhbCBP
+UyBuZWVkLgo+Pj4+Pj4+IAo+Pj4+Pj4+IEkgYW0gd29uZGVyaW5nIHdoeSBTLW1vZGUgc29mdHdh
+cmUgc2hvdWxkIG5vdCBoYXZlIGEgZ2VuZXJpYyBtZWFucyB0bwo+Pj4+Pj4+IGZpbmQgb3V0IG9u
+IHdoaWNoIGhhcnQgaXQgaXMgY3VycmVudGx5IHJ1bm5pbmcuCj4+Pj4+Pj4gCj4+Pj4+Pj4+PiBF
+RkkgYm9vdGluZyB3b24ndCBuZWVkIGl0LiBFdmVuIGZvciBFRkkgYm9vdGluZywgd2UgaGF2ZSBv
+dGhlcgo+Pj4+Pj4+Pj4gYXBwcm9hY2hlcyBhbHJlYWR5IHByb3Bvc2VkCj4+Pj4+Pj4+PiB0byBz
+b2x2ZSBpdC4gVGhhdCdzIHdoeSwgU0JJIGV4dGVuc2lvbiBzaG91bGQgYmUgdGhlIGxhc3QgcmVz
+b3J0Cj4+Pj4+Pj4+PiByYXRoZXIgdGhhbiBmaXJzdC4KPj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4gSSB0
+aGluayBhbiBSSVNDLVYgc3BlY2lmaWMgRUZJIHByb3RvY29sIGFzIHN1Z2dlc3RlZCBieSBBcmQg
+c2hvdWxkCj4+Pj4+Pj4+PiB3b3JrIGZvciBhbGwgdGhlIGNhc2VzLgo+Pj4+Pj4+Pj4gSXMgdGhl
+cmUgYSBjYXNlIHdoZXJlIHlvdSB0aGluayBpdCBtYXkgbm90IHdvcmsgPyBVLUJvb3QgJiBFREsy
+Cj4+Pj4+Pj4+PiBhbHJlYWR5IHN0b3JlcyB0aGUgYm9vdCBoYXJ0aWQuCj4+Pj4+Pj4+PiBUaGV5
+IGp1c3QgaW1wbGVtZW50IHRoYXQgcHJvdG9jb2wgYW5kIHBhc3MgdGhlIGhhcnRpZCB0byB0aGUg
+Y2FsbGVyLgo+Pj4+Pj4+Pj4gV2UgZG8gbmVlZCB0byBzdXBwb3J0IGl0IGluIHRoZSBncnViIHRo
+b3VnaC4KPj4+Pj4+Pj4+IAo+Pj4+Pj4+PiAKPj4+Pj4+Pj4gV2h5IHdvdWxkIEdSVUIgY2FyZSBh
+Ym91dCB0aGlzPyBUaGUgRUZJIHN0dWIgd2lsbCBjYWxsIGludG8gdGhlCj4+Pj4+Pj4+IHVuZGVy
+bHlpbmcgZmlybXdhcmUgdG8gaW52b2tlIHRoZSBwcm90b2NvbCwgR1JVQiBpcyBqdXN0IGEgbG9h
+ZGVyIHdpdGgKPj4+Pj4+Pj4gYSBmYW5jeSBtZW51IHRoYXQgYWxsb3dzIHlvdSB0byBzZWxlY3Qg
+d2hpY2ggaW1hZ2UgdG8gbG9hZCwgbm8/Cj4+Pj4+Pj4gCj4+Pj4+Pj4gVGhpcyBpcyBhIHJlbGF0
+ZWQgZGlzY3Vzc2lvbjoKPj4+Pj4+PiAKPj4+Pj4+PiBodHRwczovL2dpdGh1Yi5jb20vdGVra2Ft
+YW5uaW5qYS9ncnViL2NvbW1pdC9iZTlkNGYxODYzYTFmY2IxY2JiZDJmODY3MzA5NDU3ZmFkZThi
+ZTczI2NvbW1pdGNvbW1lbnQtNjA4NTEwMjkKPj4+Pj4+PiAKPj4+Pj4gCj4+Pj4+IFllcyEhIFRo
+YW5rcyBmb3IgcmVmcmVzaGluZyB0aGUgbWVtb3J5LiBJdCBzZWVtcyBhZnRlciAyIHllYXJzLCB3
+ZSBhcmUKPj4+Pj4gc3RpbGwgZGViYXRpbmcgdGhlIHNhbWUgdG9waWMgOikuCj4+Pj4+IExldCBt
+ZSBzdW1tYXJpemUgdGhlIHRocmVhZC4gVGhlcmUgYXJlIG11bHRpcGxlIHdheXMgZm9yIEVGSSBz
+dHViIGNvZGUKPj4+Pj4gdG8gcmV0cmlldmUgdGhlIGJvb3QgaGFydGlkLgo+Pj4+PiAKPj4+Pj4g
+MS4gRUZJIHZhcmlhYmxlcyAtIFRoaXMgaXMgd2hhdCBIZW5lcmljaCBwcm9wb3NlZCBsYXN0IHRp
+bWUuIEFyZAo+Pj4+PiBzdWdnZXN0ZWQgdGhhdCBFRkkgY29uZmlndXJhdGlvbiB0YWJsZXMgYXJl
+IGJldHRlciBjYW5kaWRhdGVzIHRoYW4gRUZJCj4+Pj4+IHZhcmlhYmxlcy4KPj4+Pj4gMi4gRFQg
+bW9kaWZpY2F0aW9uIC0gVGhpcyB3YXMgcHJlZmVycmVkIG92ZXIgdGhlIGNvbmZpZ3VyYXRpb24g
+dGFibGUKPj4+Pj4gYXQgdGhhdCB0aW1lIGdpdmVuIGJlY2F1c2UgUklTQy1WIHdhcyBEVCBvbmx5
+IGF0IHRoYXQgdGltZS4KPj4+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgV2Ug
+YWxyZWFkeSBoYWQgYWxsIHRoZSBpbmZyYXN0cnVjdHVyZQo+Pj4+PiBhcm91bmQgRFQuIFRodXMs
+IERUIHNlZW1lZCB0byBiZSBhIG5hdHVyYWwgY2hvaWNlIHRoZW4uCj4+Pj4+ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIEl0IHdvcmtzIG5vdyBmb3IgZXhpc3Rpbmcgc2V0dXAKPj4+
+Pj4gaG93ZXZlciwgdGhlIERUIGFwcHJvYWNoIHdpbGwgbm90IHdvcmsgZm9yIHN5c3RlbXMgd2l0
+aCBBQ1BJIHN1cHBvcnQuCj4+Pj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEFk
+ZGluZyBhIHNpbWlsYXIgZW50cnkgaW4gQUNQSSB0YWJsZXMKPj4+Pj4gaXMgcG9zc2libGUgYnV0
+IGFkZGluZyBBQ1BJIHN1cHBvcnQgaW4gRUZJIHN0dWIgaXMgbm90IHRyaXZpYWwuCj4+Pj4+IDMu
+IFNNQklPUyAtIE9ubHkgZm9yIHBsYXRmb3JtcyB3aXRoIFNNQklPUyBzdXBwb3J0LiBTTUJJT1Mg
+aXMgbm90Cj4+Pj4+IG1hbmRhdG9yeSBhbmQgYWRkaW5nIFNNQklPUyBzdXBwb3J0IGluIEVGSSBz
+dHViIGlzIG5vdCB0cml2aWFsLgo+Pj4+PiA0LiBTQkkgICAgICAgICAtICBBcyBJIG1lbnRpb25l
+ZCBiZWZvcmUsIHRoaXMgaXMgYW4gRUZJIHNwZWNpZmljCj4+Pj4+IHByb2JsZW0gYmVjYXVzZSBF
+Rkkgc3R1YiBkb2Vzbid0IGtub3cgd2hhdCB0aGUgYm9vdCBoYXJ0aWQgaXMuIFRodXMsCj4+Pj4+
+IGl0IHNob3VsZCBiZSBzb2x2ZWQKPj4+Pj4gICAgICAgICAgICAgICAgICAgICAgIGluIGFuIEVG
+SSBzcGVjaWZpYyB3YXkuIEFuIFNCSSBleHRlbnNpb24gZm9yCj4+Pj4+IHN1Y2ggZmVhdHVyZXMg
+bWF5IG5vdCBiZSBhY2NlcHRhYmxlIGFzIHRoZSBub24tRUZJIGJvb3RpbmcgbWV0aG9kCj4+Pj4+
+IHdvcmtzIGZpbmUgd2l0aG91dCB0aGUgU0JJIGV4dGVuc2lvbi4KPj4+Pj4gNS4gUklTQy1WIHNw
+ZWNpZmljIEVGSSBjb25maWd1cmF0aW9uIHRhYmxlIG9yIHByb3RvY29sOiBBcmQgc3VnZ2VzdGVk
+Cj4+Pj4+IEVGSSBjb25maWd1cmF0aW9uIHRhYmxlIGxhc3QgdGltZS4gRWFybGllciBpbiB0aGlz
+IHRocmVhZCwgRUZJCj4+Pj4+IHByb3RvY29sIHdhcyBzdWdnZXN0ZWQuCj4+Pj4+ICAgICAgICAg
+ICAgICAgICAgICAgICBNeSBwZXJzb25hbCBwcmVmZXJlbmNlIGhhcyBhbHdheXMgYmVlbiBvbmUg
+b2YKPj4+Pj4gdGhlc2UgYXMgaXQgc29sdmVzIHRoZSBwcm9ibGVtIGZvciBhbGwgRUZJIGJvb3Rp
+bmcgbWV0aG9kcwo+Pj4+PiAgICAgICAgICAgICAgICAgICAgICAgZm9yIHBsYXRmb3Jtcy1vcwo+
+Pj4+PiBjb21iaW5hdGlvbihEVC9BQ1BJLUxpbnV4L0ZyZWVCU0QpIGluIGFuIEVGSSBzcGVjaWZp
+YyB3YXkuCj4+Pj4+IAo+Pj4+PiBASGVpbnJpY2g6IERvIHlvdSBzZWUgYW55IGlzc3VlIHdpdGgg
+dGhlIEVGSSBjb25maWd1cmF0aW9uIHRhYmxlIG9yCj4+Pj4+IHByb3RvY29sIHRvIHJldHJpZXZl
+IHRoZSBib290IGhhcnRpZD8KPj4+PiAKPj4+PiBUaGVyZSBpcyBub3RoaW5nIHRlY2huaWNhbCBz
+dG9wcGluZyB1cyBmcm9tIGltcGxlbWVudGluZyBlaXRoZXIgb3B0aW9uLgo+Pj4+IAo+Pj4+IFdl
+IGNvdWxkIHNpbXBseSByZXVzZSB0aGUgRUZJIERldmljZSBUcmVlIEZpeHVwIFByb3RvY29sCj4+
+Pj4gKGh0dHBzOi8vZ2l0aHViLmNvbS9VLUJvb3QtRUZJL0VGSV9EVF9GSVhVUF9QUk9UT0NPTCkg
+aW1wbGVtZW50ZWQgaW4KPj4+PiBVLUJvb3QgYW5kIGFscmVhZHkgdXNlZCBieSBzeXN0ZW1kLWJv
+b3QuIFBhc3MgYSBkZXZpY2V0cmVlICh3aGljaCBtYXkgYmUKPj4+PiBlbXB0eSkgdG8gdGhlIEZp
+eHVwKCkgbWV0aG9kIGFuZCBpdCB3aWxsIGFkZCB0aGUgL2Nob3NlbiBub2RlIHdpdGggdGhlCj4+
+Pj4gYm9vdC1oYXJ0aWQgcGFyYW1ldGVyLgo+Pj4+IAo+Pj4+IFRoZSBFRkkgc3R1YiBhbnl3YXkg
+Y3JlYXRlcyBhIG5ldyBkZXZpY2UtdHJlZSB0byBwYXNzIHRoZSBtZW1vcnkgbWFwIHRvCj4+Pj4g
+dGhlIGtlcm5lbCBpbiB0aGUgQUNQSSBjYXNlIChmdW5jdGlvbiB1cGRhdGVfZmR0KCkpLiBDYWxs
+aW5nIHRoZSBFRkkKPj4+PiBEZXZpY2UgVHJlZSBGaXh1cCBQcm90b2NvbCBjb3VsZCBiZSBlYXNp
+bHkgYWRkZWQuCj4+IAo+PiBUaGFua3MuIFllcy4gV2UgY2FuIHNvbHZlIHRoZSBjdXJyZW50IHBy
+b2JsZW0gZm9yIEVGSSBzdHViIGluIExpbnV4Lgo+PiAKPj4+IAo+Pj4gQXJlIHlvdSBzdWdnZXN0
+aW5nIHRoYXQgRFRCIChza2VsZXRhbCBvciBmdWxsLWJsb3duKSB3aWxsIGFsd2F5cyBiZSB0aGVy
+ZSB3aGVuCj4+PiBib290aW5nIHRoZSBrZXJuZWwgYXMgYW4gRUZJIGFwcGxpY2F0aW9uID8gSWYg
+eWVzIHRoZW4gd2UgYXJlCj4+PiBpbmRpcmVjdGx5IG1hbmRhdGluZwo+Pj4gc2tlbGV0YWwgRFRC
+IGZvciBVRUZJK0FDUEkgc3lzdGVtLgo+PiAKPj4gWWVzLiBFRkkgU3R1YiB0cmllcyB0byBmaW5k
+IGEgZmR0IGZyb20gdGhlIGNvbW1hbmQgbGluZSAobm90IGEKPj4gcHJlZmVycmVkIG1ldGhvZCkg
+b3IgRUZJIGNvbmZpZ3VyYXRpb24gdGFibGVbMV0KPj4gKGN1cnJlbnRseSB1c2VkIGZvciBSSVND
+LVYgc3lzdGVtcykuIElmIGl0IGNhbid0IGZpbmQgYSBkZXZpY2UgdHJlZSwKPj4gaXQgZ2VuZXJh
+dGVzIG9uZSBbMl0KPj4gCj4+IFsxXSBodHRwczovL2VsaXhpci5ib290bGluLmNvbS9saW51eC92
+NS4xNi1yYzMvc291cmNlL2RyaXZlcnMvZmlybXdhcmUvZWZpL2xpYnN0dWIvZWZpLXN0dWIuYyNM
+MjMxCj4+IFsyXSBodHRwczovL2VsaXhpci5ib290bGluLmNvbS9saW51eC92NS4xNi1yYzMvc291
+cmNlL2RyaXZlcnMvZmlybXdhcmUvZWZpL2xpYnN0dWIvZmR0LmMjTDU4Cj4+IAo+PiBIb3dldmVy
+LCB3ZSBtYXkgc3RpbGwgbmVlZCB0byBkZWZpbmUgdGhlIFJJU0MtViBFRkkgcHJvdG9jb2wgdG8K
+Pj4gc3VwcG9ydCBBQ1BJIGZvciBvdGhlciBPUyAoRnJlZUJTRCkgd2hpY2ggZG9lc24ndCBoYXZl
+Cj4+IGEgc3R1YiBsaWtlIGxvYWRlciB0aGF0IHVzZXMgRFQuCj4+IAo+IElmIFJJU0MtViBtYW5k
+YXRlcyB0aGF0IGV2ZXJ5IE9TIChpbmNsdWRpbmcgRnJlZUJTRCkgIHNob3VsZCBmb2xsb3cgdGhl
+Cj4gYm9vdGluZyBwcm90b2NvbCB0aGF0IGEwIHNob3VsZCBiZSB1c2VkIHRvIHBhc3MgdGhlIGJv
+b3QgaGFydGlkLCB0aGVuCj4gb25seSBMaW51eCBFRkkgc3R1YiBiZWNvbWVzIGEgc3BlY2lhbCBj
+YXNlIHdoaWNoIGNhbiByZXVzZSB0aGUgZXhpc3RpbmcKPiBEVCBiYXNlZCBFRkkgcHJvdG9jb2wg
+KG1lbnRpb25lZCBieSBIZWlucmljaCksIHJpZ2h0PwoKQWJzb2x1dGVseSBub3QuIFdoYXQgeW91
+IGFyZSBzYXlpbmcgaXMg4oCcbGV04oCZcyBmb3JiaWQgYW55b25lIGZyb20gdXNpbmcKVUVGSeKA
+nS4gVGhpcyDigJxib290aW5nIHByb3RvY29s4oCdIHRoaW5nIGlzIGEgUklTQy1WLXNwZWNpZmlj
+IGxvdy1sZXZlbAppbnRlcmZhY2UgdGhhdCBpcyBpbmNvbXBhdGlibGUgd2l0aCBVRUZJOyBpbiBp
+dCwgZXZlcnkgYXJjaGl0ZWN0dXJlLAppbmNsdWRpbmcgUklTQy1WLCBwYXNzZXMgZXhhY3RseSB0
+d28gYXJndW1lbnRzIHRvIHRoZSBhcHBsaWNhdGlvbiwgdGhlCmhhbmRsZSB0byB0aGUgaW1hZ2Ug
+YW5kIGEgcG9pbnRlciB0byB0aGUgc3lzdGVtIHRhYmxlLCBhbmQgcHV0cyB0aGUKcmV0dXJuIGFk
+ZHJlc3MgaW4gdGhlIHVzdWFsIHBsYWNlLiBMaW51eOKAmXMgRUZJIHN0dWIgaXMgbm90IHNwZWNp
+YWw7CiphbnkqIEVGSSBhcHBsaWNhdGlvbiwgYmUgaXQgeW91ciBFRkkgc3R1YiwgRnJlZUJTROKA
+mXMgYm9vdGxvYWRlciwKZ3J1Yi1lZmksIHN5c3RlbWQtYm9vdCwgT3BlbkJTROKAmXMgYm9vdGxv
+YWRlciwgSGFpa3XigJlzIGJvb3Rsb2FkZXIsCndoYXRldmVyLCBmb2xsb3dzIHRoZSBVRUZJIHNw
+ZWMgYW5kIHNvIGRvZXMgbm90LCBhbmQgbmV2ZXIgd2lsbCwgZm9sbG93CnRoZSBSSVNDLVYgYm9v
+dGluZyBwcm90b2NvbC4KCkkgd2lzaCBldmVyeW9uZSB3b3VsZCBzdG9wIHRhbGtpbmcgYWJvdXQg
+dGhpcyDigJxSSVNDLVYgYm9vdGluZwpwcm90b2NvbOKAnS4gSXTigJlzIGxvdy1sZXZlbCBmaXJt
+d2FyZSBkZXRhaWxzIHRoYXQsIGR1ZSB0byBub3QgaGF2aW5nIGEKbWF0dXJlIGZpcm13YXJlIHN0
+b3J5IGF0IHRoZSB0aW1lIE9TZXMgd2VyZSBicm91Z2h0IHVwLCBsZWFrZWQgdXAgaW50bwp0aGUg
+T1MgYm9vdGluZyBwcm9jZXNzLiBJbiBGcmVlQlNEIHRoZSBvbmx5IHRpbWUgaXQgZ2V0cyB1c2Vk
+IGlzIGlmIHRoZQprZXJuZWwgaXMgYm9vdGVkIGRpcmVjdGx5IGZyb20gQkJML09wZW5TQkk7IGlm
+IGluc3RlYWQgeW91IGJvb3QgdGhlCmJvb3Rsb2FkZXIgdmlhIFVFRkkgdGhlbiB0aGF0IGNvZGUg
+aXMgY29tcGxldGVseSBieXBhc3NlZCAoYW5kIHdlIG1ha2UKdGhlIGxlZ2FjeSBkaXJlY3QgYm9v
+dCBtZXRob2QgbG9vayBsaWtlIHRoZSBib290bG9hZGVyIG1ldGhvZCBieQpjcmVhdGluZyBhIOKA
+nGZha2XigJ0gYm9vdGxvYWRlciBtZXRhZGF0YSBhcnJheSwgcmF0aGVyIHRoYW4gdGhlIG90aGVy
+IHdheQpyb3VuZCwgd2hpY2ggd291bGQgYmUgYmFja3dhcmRzIGFuZCBzZXZlcmVseSBsaW1pdGlu
+ZykuIEl04oCZcyBub3QgYSBnb29kCnByb3RvY29sLCBPU2VzIHNob3VsZG7igJl0IGJlIHVzaW5n
+IGl0LCBhbmQgaXQgc2hvdWxkIGZhZGUgaW50byBvYnNjdXJpdHkKb3V0c2lkZSBvZiB0aGUgTS1t
+b2RlIGZpcm13YXJlPC0+Uy1tb2RlIGZpcm13YXJlIGludGVyZmFjZS4gSXTigJlzIGp1c3QKbm90
+IHJlbGV2YW50IHRvIGFuIE9TLiBXaGF0IGlzIHJlbGV2YW50IGlzIHRoYXQgdGhlcmUgaXMgY3Jp
+dGljYWwKaW5mb3JtYXRpb24gaW4gdGhlIGZpcm13YXJlIHRoYXQgdGhlIE9TIGNhbuKAmXQgZ2V0
+IGF0IGlmIGJvb3RpbmcgdmlhIHRoZQppbmR1c3RyeS1zdGFuZGFyZCBwb3J0YWJsZSByaWNoIGZp
+cm13YXJlIGludGVyZmFjZSwgYW5kIHRoYXQKaW5mb3JtYXRpb24gbmVlZHMgdG8gYmUgcHJvdmlk
+ZWQgc29tZSB3YXkgb3IgYW5vdGhlciB2aWEgYSBtZWFucwpjb21wYXRpYmxlIHdpdGggdGhlIHNw
+ZWNpZmljYXRpb24uIEkgbGlrZSB0aGUgU0JJIOKAnGdldCBjdXJyZW50IGhhcnRpZOKAnQpleHRl
+bnNpb24gYXBwcm9hY2ggYmVzdCwgaXTigJlzIHRoZSBtb3N0IGZsZXhpYmxlIGFuZCB0aGVyZeKA
+mXMgbm8gaGFybSBpbgpoYXZpbmcgaXQgZXhpc3QgaW4gYSBjcnVtbXkgbm9uLVVFRkkgc2l0dWF0
+aW9uLiBJdOKAmXMgdHJpdmlhbCB0bwppbXBsZW1lbnQsIGl04oCZcyB0cml2aWFsIHRvIHVzZSwg
+aXQgcHJvdmlkZXMgdGhlIGludGVyZmFjZSB0aGF0ICpzaG91bGQqCmhhdmUgZXhpc3RlZCBpbiB0
+aGUgSVNBIGp1c3QgbGlrZSBob3cgbXBpZHJfZWwxIGlzIGEgdGhpbmcgb24gQUFyY2g2NCwKYW5k
+IGl0IHByb3ZpZGVzIGEgd2F5IGZvciBldmVuIG5vbi1VRUZJIGNvZGUgdG8gbm90IGhhdmUgdG8g
+Y2FyZSBhYm91dAphMCBiZWluZyBoYXJ0aWQgKG91dHNpZGUgb2YgcGVyaGFwcyB0aGUgaGFydCBs
+b3R0ZXJ5IGluIHRoZSBlbnRyeSBwb2ludAppZiB5b3UgbmVlZCB0byBzdXBwb3J0IHByZS1IU00g
+U0JJcyksIGl0IGNhbiBqdXN0IHRocm93IGl0IGF3YXkgYW5kIGFzawpmb3IgaXQgbGF0ZXIgd2hl
+biBpdCBuZWVkcyBpdCwganVzdCBsaWtlIGlmIGJvb3RpbmcgdmlhIFVFRkkuIFlvdSBjb3VsZAph
+bHNvIG1ha2UgaXQgYSBVRUZJIHByb3RvY29sLCBidXQgdGhhdOKAmXMgbW9yZSBhbm5veWluZyB0
+byBkZWFsIHdpdGgsCnlvdSBub3cgaGF2ZSB0d28gZGlmZmVyZW50IHdheXMgdG8gZ2V0IHRoZSBz
+YW1lIGluZm9ybWF0aW9uIGRlcGVuZGluZwpvbiBob3cgeW91IHdlcmUgYm9vdGVkLiBZb3UgY291
+bGQgYWxzbyByZXN0cmljdCBpdCB0byBvbmx5IGJlaW5nIOKAnGdldAp0aGUgYm9vdCBoYXJ0aWTi
+gJ0sIGJ1dCB3aHksIHdoYXQgZG9lcyB0aGF0IGFjaGlldmU/IEl0IGRvZXNu4oCZdCByZWFsbHkK
+bWFrZSBpdCBhbnkgc2ltcGxlciB0byBpbXBsZW1lbnQsIGl04oCZcyBqdXN0IG1vcmUgcmVzdHJp
+Y3RpdmUgZm9yIHRoZQpzYWtlIG9mIGJlaW5nIG1pbmltYWwsIGV2ZW4gaWYgaXQgaXMgc3VmZmlj
+aWVudC4gQnV0IGF0IHRoZSBlbmQgb2YgdGhlCmRheSBhbGwgb2YgdGhlbSBkbyB3b3JrLiBTbywg
+cGxlYXNlLCBjYW4gd2Ugc3RvcCB3YXN0aW5nIG91ciBsaXZlcyBvbgp0aGlzIGFuZCBqdXN0IGRv
+ICpzb21ldGhpbmcqIHJhdGhlciB0aGFuIGdvaW5nIHJvdW5kIGFuZCByb3VuZCBpbgpjaXJjbGVz
+IGFuZCBmb3JnZXR0aW5nIGFsbCB0aGUgZGV0YWlscyBpbiB0aGUgcHJvY2Vzcz8KCkFzIGZvciB0
+aGUg4oCccHJvdmlkZSBhIGR1bW15IEZEVCB0byB0aGUgcHJvcG9zZWQgZml4dXAgcHJvdG9jb2zi
+gJ0KcHJvcG9zYWwsIG5vLCB0aGF04oCZcyBjbGVhcmx5IG5vdCBnb2luZyB0byBmbHkgd2l0aCBh
+biBBQ1BJLW9ubHkgT1MgdGhhdApkb2VzbuKAmXQgaGF2ZSwgYW5kIG5ldmVyIHdpbGwgaW5jbHVk
+ZSwgYSBkZXZpY2UgdHJlZSBwYXJzZXIuIElmIHlvdXIKQUNQSSBzeXN0ZW0gbmVlZHMgYSBkZXZp
+Y2UgdHJlZSB0aGVuIGl04oCZcyBub3QgQUNQSS1vbmx5IGFueSBtb3JlLgoKSmVzcwoKCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
+aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
+bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
