@@ -4,76 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7AD5C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Dec 2021 17:55:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CB3DC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Dec 2021 19:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CUBpyD6rLV2Y4jnZ3gj2dDmDIKDhiCqEDuZPl/Vj3TM=; b=rDuuYIKr+9COol
-	mEJFhins2by3QHa+hFoQK/rM+708iFK30Vx1BG5gHODZmjEKx572hiqCtS1p1mpvg/li7nAIdMVG+
-	STGKn+ktJQe00wNb1ePbi6cymRHQ7GzRoXTTWbeVcqjdrO/UYbbY0GwAQD3D512nAJ6HtqLm8qzQv
-	3iBMxBo+xcxnOexxuBZpjyvSEMcbsQUdiAngqbOZbUcnMTQrrT8rvpDo0fOA5ixZV6MxhJGJ8Jm14
-	oXTkMxyz8tIhMCOdjWWNDLNxYEnaz882ahDP3wpq0jzszgmRghFN62+JDEMtPqxTtYWe8yXIPts7s
-	MJKZq/ejJTbMJrzv3mTQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=klRmbnn9SsZNZYFsxxAvxvujGvJvzbDFPed2L7WH4cI=; b=pX/2tInFEJKUmv
+	ntbmhnRP/r0Gkmra4FdG8X8GabotJoDolPFxFRHVFLDw1BgPeX8MmNCLrwk86C7JFOKDE9+SvGWNg
+	jjEQkN2PfBkjjjemDUdypsL5DhfUSDmQKU2tJdox3wpSyK3JcfiO1fc1n35y53pb0g0gi/hx0wo4s
+	SsWqfWD5Hu88rIrebicQrY79SvzNTd+J6sbRAqGtSXwvxjF6Hz6/2dIgsbNvRBpaEzOUr7DKkQG0U
+	erlZNpCAuvGSAz27myH/Gt+epFtP1kECYlzKdLFpdIXMGY/aBJeuX39cQK6KlOH1v5s/pSVUf453K
+	kb4eWffNvHPWfw/vRz5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1muICe-005A0y-1O; Mon, 06 Dec 2021 17:55:04 +0000
-Received: from mail-qv1-f45.google.com ([209.85.219.45])
+	id 1muJui-005XAu-VS; Mon, 06 Dec 2021 19:44:41 +0000
+Received: from mail-ot1-f46.google.com ([209.85.210.46])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1muICb-0059zz-FW
- for linux-riscv@lists.infradead.org; Mon, 06 Dec 2021 17:55:03 +0000
-Received: by mail-qv1-f45.google.com with SMTP id g9so10659310qvd.2
- for <linux-riscv@lists.infradead.org>; Mon, 06 Dec 2021 09:55:00 -0800 (PST)
+ id 1muJuX-005X6C-Az; Mon, 06 Dec 2021 19:44:31 +0000
+Received: by mail-ot1-f46.google.com with SMTP id
+ u18-20020a9d7212000000b00560cb1dc10bso15005030otj.11; 
+ Mon, 06 Dec 2021 11:44:28 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=lSc3DRlrnM1Lcia62pQKwlk3m2k/c66XTYP+iezKl/c=;
- b=xCRn7ZU/NAA/oGkFNuXqtQKjM8pdV8K3DchGL7Lw2xTgri2NJ8YN2HhmXCBpwMolj3
- Hsw26vcb/R4m2wmGVuMPgKJ+1KmTlhhA26maH4/ALiIn7LEHIX62jVi+PsFN/aASM2Um
- t7xDnmuKjesRQVDS8PfAy2uj6zjGh+q3RRCNq9iOjKN7NFe61FSEoumKw+H6FuPt6/iE
- wzyuYGSlKm0T24jqQSktOcCe7MHOwIf9+Bh9Fxlsp0yegidUxpZuHYDpEAQKtdZl4O0H
- UobNzcJtIiNivwhqwu71c/PbnH2swApYy72DQbYbaKxqXl6fsLI+uHomLu93K+MM70L4
- X1Hw==
-X-Gm-Message-State: AOAM530q4rL29sjtijSRrqgOStM20/0s4rVl+AT5UeEoWS4ySxIS1/QW
- Dlv1gjrpoMP90T0h6Fwrl+Y=
-X-Google-Smtp-Source: ABdhPJzvI5vnLdy++JFIB6FxTHC6xz6F71P2KZQcIqIHV9LdPxJ9qr/RTVcpbXLZOZc9szAWgP7MtQ==
-X-Received: by 2002:a05:6214:27ca:: with SMTP id
- ge10mr38415135qvb.80.1638813299388; 
- Mon, 06 Dec 2021 09:54:59 -0800 (PST)
-Received: from fedora (pool-173-68-57-129.nycmny.fios.verizon.net.
- [173.68.57.129])
- by smtp.gmail.com with ESMTPSA id m9sm6753680qkn.59.2021.12.06.09.54.58
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=pOQ79x7j60T/Aoxgzg7Q/WKtgZBCeGXzkMDE3RqKJOo=;
+ b=YPLaayVpb+0Sj2ah0qkuGuHqoSDJBcvCNi92kQwSDX3aYiDh9qlx752iiIDUSn9v9O
+ yHFpRyo9ySa5Tc9g84+MBXscUXsC9Ivon53Oh5ewSbJj2tEryKWZgXPm7dvBkOmDqxLf
+ X6qUA5Kz8M6LXCnsO08U1BZcxrpv+/u/n5MI5v4cor0BFg4kBAaNMtE/W76ZW6k4SjgJ
+ S4HqKot4PlSpPSt8ouimEkwGXr2Qqa+NEUVYbTwQAYXo/x1vUFl0MsVdxEGnn/FbQO+j
+ SkXF3EXGgB8klTkdMRmYLTGumDidzo5nOTDn002qB68oIOZCIJ+fZPU9AyaLE4/PHCS1
+ tRrw==
+X-Gm-Message-State: AOAM532rHgK6Axn9qRqWPzyanKtGsPBExPlTQOD7dBkBE63iwwv+LGP4
+ aVo2/4IXikmF1joztJoNwg==
+X-Google-Smtp-Source: ABdhPJz52nzCgw/hwbjYAAgjDYBEG+KdXK5nF3jLcZY0sCOmKJpTkCzBrNtc47G1zyZLA2GWcVNmwg==
+X-Received: by 2002:a9d:77d1:: with SMTP id w17mr30919009otl.329.1638819867943; 
+ Mon, 06 Dec 2021 11:44:27 -0800 (PST)
+Received: from xps15.herring.priv (66-90-148-213.dyn.grandenetworks.net.
+ [66.90.148.213])
+ by smtp.googlemail.com with ESMTPSA id o6sm2291382oou.41.2021.12.06.11.44.26
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 06 Dec 2021 09:54:58 -0800 (PST)
-Date: Mon, 6 Dec 2021 12:54:57 -0500
-From: Dennis Zhou <dennis@kernel.org>
-To: Rich Felker <dalias@libc.org>
-Cc: Rob Landley <rob@landley.net>, Dennis Zhou <dennis@kernel.org>,
- Vladimir Murzin <vladimir.murzin@arm.com>,
- linux-arch-owner@vger.kernel.org, linux-mm@kvack.org, tj@kernel.org,
- cl@linux.com, akpm@linux-foundation.org, npiggin@gmail.com,
- hch@lst.de, arnd@arndb.de, linux-sh@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] percpu: km: ensure it is used with NOMMU (either UP or
- SMP)
-Message-ID: <Ya5OcTGfD1587C0O@fedora>
-References: <20211130172954.129587-1-vladimir.murzin@arm.com>
- <20211130172954.129587-2-vladimir.murzin@arm.com>
- <YaZiOnNd6fAnLcxz@fedora>
- <8c2b4666-cf13-3735-be1e-b8a1c71df113@arm.com>
- <YaqFyznA5hab3PUA@fedora>
- <a2473a90-bdd3-b5af-6967-73c59952b7c1@landley.net>
- <20211206162140.GJ7074@brightrain.aerifal.cx>
+ Mon, 06 Dec 2021 11:44:27 -0800 (PST)
+From: Rob Herring <robh@kernel.org>
+To: Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+ Xiaowei Song <songxiaowei@hisilicon.com>,
+ Binghui Wang <wangbinghui@hisilicon.com>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Greentime Hu <greentime.hu@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Jingoo Han <jingoohan1@gmail.com>,
+ Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
+ Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] dt-bindings: PCI: designware: Fix 'unevaluatedProperties'
+ warnings
+Date: Mon,  6 Dec 2021 13:44:25 -0600
+Message-Id: <20211206194426.2470080-1-robh@kernel.org>
+X-Mailer: git-send-email 2.32.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20211206162140.GJ7074@brightrain.aerifal.cx>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211206_095501_557318_4B442A1C 
-X-CRM114-Status: GOOD (  37.19  )
+X-CRM114-CacheID: sfid-20211206_114429_423412_D7514D9D 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,114 +87,145 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 06, 2021 at 11:21:46AM -0500, Rich Felker wrote:
-> On Mon, Dec 06, 2021 at 06:01:59AM -0600, Rob Landley wrote:
-> > On 12/3/21 3:02 PM, Dennis Zhou wrote:
-> > > On Wed, Dec 01, 2021 at 11:51:04AM +0000, Vladimir Murzin wrote:
-> > >> Hi,
-> > >> 
-> > >> On 11/30/21 5:41 PM, Dennis Zhou wrote:
-> > >> > Hello,
-> > >> > 
-> > >> > On Tue, Nov 30, 2021 at 05:29:54PM +0000, Vladimir Murzin wrote:
-> > >> >> Currently, NOMMU pull km allocator via !SMP dependency because most of
-> > >> >> them are UP, yet for SMP+NOMMU vm allocator gets pulled which:
-> > >> >>
-> > >> >> * may lead to broken build [1]
-> > >> >> * ...or not working runtime due to [2]
-> > >> >>
-> > >> >> It looks like SMP+NOMMU case was overlooked in bbddff054587 ("percpu:
-> > >> >> use percpu allocator on UP too") so restore that.
-> > >> >>
-> > >> >> [1]
-> > >> >> For ARM SMP+NOMMU (R-class cores)
-> > >> >>
-> > >> >> arm-none-linux-gnueabihf-ld: mm/percpu.o: in function `pcpu_post_unmap_tlb_flush':
-> > >> >> mm/percpu-vm.c:188: undefined reference to `flush_tlb_kernel_range'
-> > >> >>
-> > >> >> [2]
-> > >> >> static inline
-> > >> >> int vmap_pages_range_noflush(unsigned long addr, unsigned long end,
-> > >> >>                 pgprot_t prot, struct page **pages, unsigned int page_shift)
-> > >> >> {
-> > >> >>        return -EINVAL;
-> > >> >> }
-> > >> >>
-> > >> >> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> > >> >> ---
-> > >> >>  mm/Kconfig | 3 +--
-> > >> >>  1 file changed, 1 insertion(+), 2 deletions(-)
-> > >> >>
-> > >> >> diff --git a/mm/Kconfig b/mm/Kconfig
-> > >> >> index d16ba92..66331e0 100644
-> > >> >> --- a/mm/Kconfig
-> > >> >> +++ b/mm/Kconfig
-> > >> >> @@ -425,9 +425,8 @@ config THP_SWAP
-> > >> >>  # UP and nommu archs use km based percpu allocator
-> > >> >>  #
-> > >> >>  config NEED_PER_CPU_KM
-> > >> >> -	depends on !SMP
-> > >> >>  	bool
-> > >> >> -	default y
-> > >> >> +	default !SMP || !MMU
-> > >> >>  
-> > >> > 
-> > >> > Should this be `depends on !SMP || !MMU` with default yes? Because with
-> > >> > SMP && MMU, it shouldn't be an option to run with percpu-km.
-> > >> 
-> > >> IIUC these are equivalent, truth table would not change if is under "depends"
-> > >> or "default"
-> > >> 
-> > >> SMP    MMU   NEED_PER_CPU_KM
-> > >>  y      y    !y || !y => n || n => n
-> > >>  y      n    !y || !n => n || y => y
-> > >>  n      y    !n || !y => y || n => y
-> > >>  n      n    !n || !n => y || y => y
-> > >> 
-> > > 
-> > > I may be wrong, but I think this is slightly different as we're using
-> > > #ifdef / #if defined().
-> > > 
-> > >> > 
-> > >> >>  config CLEANCACHE
-> > >> >>  	bool "Enable cleancache driver to cache clean pages if tmem is present"
-> > >> >> -- 
-> > >> >> 2.7.4
-> > >> >>
-> > >> > 
-> > >> > It's interesting to me that this is all coming up at once. Earlier this
-> > >> > month I had the same conversation with people involved with sh [1].
-> > >> > 
-> > >> > [1] https://lore.kernel.org/linux-sh/YY7tp5attRyK42Zk@fedora/
-> > >> > 
-> > >> > I can pull this shortly once I see whatever happened to linux-sh.
-> > >> 
-> > >> Ahh, good to know! Adding SH folks here (start of discussion [0]). I see you came
-> > >> to the same conclusion, right? 
-> > > 
-> > > Yeah, I don't see anything else from linux-sh. So I'll go ahead and
-> > > apply this with my change if you're fine with that.
-> > 
-> > I can't test against current until I get some unrelated fixes from Rich Felker
-> > (who's been busy over the weekend), but I tested the "depends" version on 5.10
-> > and got a shell prompt on my "make ARCH=sh j2_defconfig" board.
-> > 
-> > Tested-by: Rob Landley <rob@landley.net>
-> 
-> Tested-by: Rich Felker <dalias@libc.org>
-> 
-> I've tested the version as originally posted and it works for j2 (sh2)
-> (both build and runtime checked). I'd tested the other (depends
-> version) before and I'm fine with either going upstream.
-> 
-> Rich
-> 
+With 'unevaluatedProperties' support implemented, there's a number of
+warnings from the Designware PCIe based bindings:
 
-Thank you all for testing and bearing with me. I've applied this to
-for-5.16-fixes. Will send it up later in the week.
+Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.example.dt.yaml: pcie@1ffc000: Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'device_type', 'bus-range', 'ranges', '#interrupt-cells', 'interrupt-map-mask', 'interrupt-map' were unexpected)
+Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.example.dt.yaml: pcie@1ffc000: Unevaluated properties are not allowed ('clock-names' was unexpected)
+Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.example.dt.yaml: pcie@f4000000: Unevaluated properties are not allowed ('bus-range', '#address-cells', '#size-cells', 'device_type', 'ranges', 'num-lanes', '#interrupt-cells', 'interrupts', 'interrupt-names', 'interrupt-map-mask', 'interrupt-map', 'clocks', 'clock-names' were unexpected)
+Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.example.dt.yaml: pcie@f4000000: Unevaluated properties are not allowed ('clock-names' was unexpected)
+Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.example.dt.yaml: pcie@f5000000: Unevaluated properties are not allowed ('bus-range', '#address-cells', '#size-cells', 'device_type', 'phys', 'ranges', 'num-lanes', '#interrupt-cells', 'interrupts', 'interrupt-names', 'interrupt-map-mask', 'interrupt-map', 'reset-gpios', 'pcie@0,0' were unexpected)
+Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.example.dt.yaml: pcie@f5000000: Unevaluated properties are not allowed ('phys', 'hisilicon,clken-gpios' were unexpected)
+Documentation/devicetree/bindings/pci/intel-gw-pcie.example.dt.yaml: pcie@d0e00000: Unevaluated properties are not allowed ('device_type', '#address-cells', '#size-cells', 'linux,pci-domain', 'bus-range', '#interrupt-cells', 'interrupt-map-mask', 'interrupt-map' were unexpected)
+Documentation/devicetree/bindings/pci/intel-gw-pcie.example.dt.yaml: pcie@d0e00000: Unevaluated properties are not allowed ('resets', 'phys', 'phy-names', 'reset-assert-ms' were unexpected)
+Documentation/devicetree/bindings/pci/rockchip-dw-pcie.example.dt.yaml: pcie@fe280000: Unevaluated properties are not allowed ('clock-names', 'msi-map', 'phys', 'phy-names', 'power-domains', 'resets', 'reset-names' were unexpected)
+Documentation/devicetree/bindings/pci/samsung,exynos-pcie.example.dt.yaml: pcie@15700000: Unevaluated properties are not allowed ('#address-cells', '#size-cells', '#interrupt-cells', 'device_type', 'bus-range', 'ranges', 'interrupt-map-mask', 'interrupt-map' were unexpected)
+Documentation/devicetree/bindings/pci/samsung,exynos-pcie.example.dt.yaml: pcie@15700000: Unevaluated properties are not allowed ('clock-names', 'phys', 'vdd10-supply', 'vdd18-supply' were unexpected)
+Documentation/devicetree/bindings/pci/sifive,fu740-pcie.example.dt.yaml: pcie@e00000000: Unevaluated properties are not allowed ('#address-cells', '#size-cells', '#interrupt-cells', 'device_type', 'dma-coherent', 'bus-range', 'ranges', 'interrupts', 'interrupt-parent', 'interrupt-map-mask', 'interrupt-map', 'clock-names', 'clocks' were unexpected)
+Documentation/devicetree/bindings/pci/sifive,fu740-pcie.example.dt.yaml: pcie@e00000000: Unevaluated properties are not allowed ('dma-coherent', 'clock-names', 'resets', 'pwren-gpios' were unexpected)
+Documentation/devicetree/bindings/pci/socionext,uniphier-pcie-ep.example.dt.yaml: pcie-ep@66000000: Unevaluated properties are not allowed ('clock-names', 'clocks', 'reset-names', 'resets', 'phy-names', 'phys' were unexpected)
+Documentation/devicetree/bindings/pci/toshiba,visconti-pcie.example.dt.yaml: pcie@28400000: Unevaluated properties are not allowed ('clock-names' was unexpected)
+Documentation/devicetree/bindings/pci/toshiba,visconti-pcie.example.dt.yaml: pcie@28400000: Unevaluated properties are not allowed ('device_type', 'bus-range', 'num-viewport', '#address-cells', '#size-cells', '#interrupt-cells', 'ranges', 'interrupt-names', 'interrupt-map-mask', 'interrupt-map', 'max-link-speed' were unexpected)
 
-Thanks,
-Dennis
+The main problem is that snps,dw-pcie.yaml and snps,dw-pcie-ep.yaml
+shouldn't set 'unevaluatedProperties: false'. Otherwise, bindings that
+reference them cannot add additional properties. With that addressed,
+there's a handful of other undocumented properties to add.
+
+Cc: Xiaowei Song <songxiaowei@hisilicon.com>
+Cc: Binghui Wang <wangbinghui@hisilicon.com>
+Cc: Bjorn Helgaas <bhelgaas@google.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Greentime Hu <greentime.hu@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Jingoo Han <jingoohan1@gmail.com>
+Cc: Gustavo Pimentel <gustavo.pimentel@synopsys.com>
+Cc: linux-pci@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Signed-off-by: Rob Herring <robh@kernel.org>
+---
+ .../bindings/pci/hisilicon,kirin-pcie.yaml          | 13 +++++++++++++
+ .../devicetree/bindings/pci/sifive,fu740-pcie.yaml  |  4 ++--
+ .../devicetree/bindings/pci/snps,dw-pcie-ep.yaml    |  2 +-
+ .../devicetree/bindings/pci/snps,dw-pcie.yaml       |  2 +-
+ .../bindings/pci/socionext,uniphier-pcie-ep.yaml    |  2 +-
+ 5 files changed, 18 insertions(+), 5 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.yaml b/Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.yaml
+index cbee87802559..c9f04999c9cf 100644
+--- a/Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.yaml
+@@ -37,6 +37,19 @@ properties:
+     minItems: 3
+     maxItems: 4
+ 
++  clocks: true
++
++  clock-names:
++    items:
++      - const: pcie_phy_ref
++      - const: pcie_aux
++      - const: pcie_apb_phy
++      - const: pcie_apb_sys
++      - const: pcie_aclk
++
++  phys:
++    maxItems: 1
++
+   hisilicon,clken-gpios:
+     description: |
+       Clock input enablement GPIOs from PCI devices like Ethernet, M.2 and
+diff --git a/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml b/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
+index 2b9d1d6fc661..9215c6ee24a0 100644
+--- a/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
+@@ -32,6 +32,8 @@ properties:
+       - const: config
+       - const: mgmt
+ 
++  dma-coherent: true
++
+   num-lanes:
+     const: 8
+ 
+@@ -64,7 +66,6 @@ required:
+   - interrupt-parent
+   - interrupt-map-mask
+   - interrupt-map
+-  - clock-names
+   - clocks
+   - resets
+   - pwren-gpios
+@@ -104,7 +105,6 @@ examples:
+                             <0x0 0x0 0x0 0x2 &plic0 58>,
+                             <0x0 0x0 0x0 0x3 &plic0 59>,
+                             <0x0 0x0 0x0 0x4 &plic0 60>;
+-            clock-names = "pcie_aux";
+             clocks = <&prci PRCI_CLK_PCIE_AUX>;
+             resets = <&prci 4>;
+             pwren-gpios = <&gpio 5 0>;
+diff --git a/Documentation/devicetree/bindings/pci/snps,dw-pcie-ep.yaml b/Documentation/devicetree/bindings/pci/snps,dw-pcie-ep.yaml
+index b5935b1b153f..b3b544eaf5aa 100644
+--- a/Documentation/devicetree/bindings/pci/snps,dw-pcie-ep.yaml
++++ b/Documentation/devicetree/bindings/pci/snps,dw-pcie-ep.yaml
+@@ -73,7 +73,7 @@ required:
+   - reg-names
+   - compatible
+ 
+-unevaluatedProperties: false
++additionalProperties: true
+ 
+ examples:
+   - |
+diff --git a/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml b/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
+index 9ed0dfba7f89..a5345c494744 100644
+--- a/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
+@@ -73,7 +73,7 @@ properties:
+       does not specify it, the driver autodetects it.
+     deprecated: true
+ 
+-unevaluatedProperties: false
++additionalProperties: true
+ 
+ required:
+   - reg
+diff --git a/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie-ep.yaml b/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie-ep.yaml
+index 144cbcd60a1c..179ab0858482 100644
+--- a/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie-ep.yaml
++++ b/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie-ep.yaml
+@@ -79,7 +79,7 @@ required:
+   - resets
+   - reset-names
+ 
+-additionalProperties: false
++unevaluatedProperties: false
+ 
+ examples:
+   - |
+-- 
+2.32.0
+
 
 _______________________________________________
 linux-riscv mailing list
