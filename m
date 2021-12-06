@@ -4,51 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB50AC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Dec 2021 10:53:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D362C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Dec 2021 10:54:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R5oRr1IjCBYqmPBIAXl8yhCALR6OAQz2TpTUz2L+xE0=; b=IlyyJh+MWvoa9u
-	sGYFjHIHwd+Vko1mqtzbXuUm79EcLfuFUzJmwJL3RnzYXK3RPU0tNjJjyNeHRvAoBto/AYS0DN5I0
-	K6JY/ERcDr/5wuzQMdGKN5ujlWeOp0TzAPpyvYbFkNNQj+SaGgj8DF1nEGky5IX/kqDKpH3ol2gXn
-	jCRhJF7DH0pscqWPs2PbXuu4Oh4oehojVi2MJW7xp6djh2EROsk3Bq/aUDBFHaRJdTvuc+fdW7KEp
-	Q0r6/Db23PuwXBoXVBEPFTU6f8W3jWx1suPAIL5D2ILoCArVHb8HgthEHPY70AcDwvBXPPPK75fV8
-	3UGN/n0TRHdW+6obE4bA==;
+	List-Owner; bh=jwwVsbvjPsRDA9qnfp1Ntn1GWHsLuhwdQdtBzNZrOEs=; b=K5j/pQcdwvQWB/
+	n1TLKtxnUTwL5gNnwqexbuSpQiLaHsYgaHMjvaExZH+HjwO5bPOMuLl0jC9K48eVrxQAXCZJa5V+B
+	REjoUp2NcktpZgaQscp2KkDUASLLMDlnu539Isj1WZs8FCqsju6WP4RgUpQyUg2JUsOIxRlJMIxid
+	6lPQPB3hvv9UDaFJ9IwIc4BTC0oHk9ZEzVZiglI0S8xQ/J2kLrVXOQ7tAuiClL2n/U5wNsW6CAv53
+	pmb8WpPSCYt1jU5tESwLKuJ4ID4KWMv4+nS1jj/5wcdjoEkBWc7FRWYfUCNFPf9fryfd4Qfu54ll0
+	d83z7wdeiHl6SNJ+fGMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1muBcn-003RNf-Jh; Mon, 06 Dec 2021 10:53:37 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1muBdi-003Rp4-MJ; Mon, 06 Dec 2021 10:54:34 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1muBci-003RJV-5O
- for linux-riscv@lists.infradead.org; Mon, 06 Dec 2021 10:53:35 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
- by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 00199FF80C;
- Mon,  6 Dec 2021 10:53:25 +0000 (UTC)
-Message-ID: <65904d29-aab5-ba92-c7fb-2d13e7012cb6@ghiti.fr>
-Date: Mon, 6 Dec 2021 11:53:24 +0100
+ id 1muBdd-003RmT-CE
+ for linux-riscv@lists.infradead.org; Mon, 06 Dec 2021 10:54:33 +0000
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id DB0A33F1F7
+ for <linux-riscv@lists.infradead.org>; Mon,  6 Dec 2021 10:54:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1638788066;
+ bh=RfnZLpCrESekFFsD9sFyHjy0w4Q3coXm7KE4i6fprXc=;
+ h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
+ MIME-Version;
+ b=Xn1zcUPeDid+MWExFIfofdlTJfwwaTbSW4IEquFfdxTDMB99m/U4cseEwiGo3yBES
+ OJki99ofVFjIG5PkXS94BJs6Nfa8Ru8ksMVZxyOoKt/iDfbV2pilhwjEeJuSStrUhg
+ 6+QLFTIK/Bu9t1O2purfKzNO+ibpLE7VymEi8KAFG26Ie8CmK19i8NCtcrWm0o1L4Z
+ Q5P9kA0ExFqs7cl4QPN6EPwv9x98Aos0TnA+CMAwq5hFljaGd1t7a23yPnXwDGDsnO
+ kh5TfckTYa2rXJTPOZPkxsQOgnNj08hHWNdYJrQ2Wq6L6D/1TADQ81SaHG67khxhXn
+ YkJdm1yqH7ZbA==
+Received: by mail-wm1-f70.google.com with SMTP id
+ i131-20020a1c3b89000000b00337f92384e0so7677091wma.5
+ for <linux-riscv@lists.infradead.org>; Mon, 06 Dec 2021 02:54:26 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=RfnZLpCrESekFFsD9sFyHjy0w4Q3coXm7KE4i6fprXc=;
+ b=1pJoIkdmbs6ZITk3wWY7JG/BwZda/Gn8lk4wHFsDe5+uf2hBNu7X7KIETvoQqUwpcz
+ mSQZRVSdzhH8aLo3Kyt3XJTdC4Rk+ceLENEy2bxb+C3CU4LTf2JpnVRiRXE+qrkk9M7H
+ 3TousEk3uQTBvd667bIRtd+W85niQS/b9XA0HUXD3AzDvKH6vPA96hnk6lxy0isxHZ64
+ nIfbmYFz29a4LSIJnrpmYIkkX1MSLaVtp8uuFqz4odJGg4mXSK4cWBc/H8pRMG92b7+l
+ R+ifId8TNJrZTwfKMV84ytduFGU6vz3e3eTG3iiZ0ofmYSSd2z+5+kE/aN9TI6lNHkhr
+ moVg==
+X-Gm-Message-State: AOAM533HLCsuPVjy6mJk/BbY4TOT/a1b4NP0P0dDuh43iQPUnyBS8CWl
+ XueFCpHaBraxs98pV/jgpNxUzfSlMWrIaYKyh3T3j9Y61E5cb0o38GJPFKcCVvxK+Bty8/h/osZ
+ IQdXQGzWyRWltaaaDi4n7kq7gMarPiMB4yfJDMWMR77MKWg==
+X-Received: by 2002:a05:600c:358a:: with SMTP id
+ p10mr37194112wmq.180.1638788065567; 
+ Mon, 06 Dec 2021 02:54:25 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJyIuosUnzyeNmSj0zhE+uE5ubhdB+Jty+whHapkBAyDfJVoYfMz/aHXzxujgqQtjgLYHLAg2g==
+X-Received: by 2002:a05:600c:358a:: with SMTP id
+ p10mr37194048wmq.180.1638788065074; 
+ Mon, 06 Dec 2021 02:54:25 -0800 (PST)
+Received: from localhost.localdomain (lfbn-lyo-1-470-249.w2-7.abo.wanadoo.fr.
+ [2.7.60.249])
+ by smtp.gmail.com with ESMTPSA id g18sm11144815wrv.42.2021.12.06.02.54.24
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 06 Dec 2021 02:54:24 -0800 (PST)
+From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Zong Li <zong.li@sifive.com>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <Atish.Patra@rivosinc.com>, Christoph Hellwig <hch@lst.de>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>,
+ Dmitry Vyukov <dvyukov@google.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Kees Cook <keescook@chromium.org>,
+ Guo Ren <guoren@linux.alibaba.com>,
+ Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+ Mayuresh Chitale <mchitale@ventanamicro.com>, panqinglin2020@iscas.ac.cn,
+ linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
+ linux-efi@vger.kernel.org, linux-arch@vger.kernel.org
+Cc: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Subject: [PATCH v3 07/13] riscv: Implement sv48 support
+Date: Mon,  6 Dec 2021 11:46:51 +0100
+Message-Id: <20211206104657.433304-8-alexandre.ghiti@canonical.com>
+X-Mailer: git-send-email 2.32.0
+In-Reply-To: <20211206104657.433304-1-alexandre.ghiti@canonical.com>
+References: <20211206104657.433304-1-alexandre.ghiti@canonical.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.3.1
-Subject: Re: [PATCH v1 1/2] riscv, mm: Add Sv57 support based on Sv48
- implementation
-Content-Language: en-US
-To: =?UTF-8?B?5r2Y5bqG6ZyW?= <panqinglin2020@iscas.ac.cn>,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org
-Cc: jeff@riscv.org, xuyinan@ict.ac.cn
-References: <20211124112021.788242-1-panqinglin2020@iscas.ac.cn>
- <20211124112021.788242-2-panqinglin2020@iscas.ac.cn>
- <cda194e5-297d-5eb2-2dc2-7ce5fdf2fd60@ghiti.fr>
- <20a8b851-dd47-9da3-00ea-b0e2abbe2bb9@iscas.ac.cn>
-From: Alexandre ghiti <alex@ghiti.fr>
-In-Reply-To: <20a8b851-dd47-9da3-00ea-b0e2abbe2bb9@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211206_025332_536379_415C16C8 
-X-CRM114-Status: GOOD (  42.08  )
+X-CRM114-CacheID: sfid-20211206_025429_774240_EAF1316C 
+X-CRM114-Status: GOOD (  26.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,296 +110,1015 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUWluZ2xpbiwKCk9uIDExLzMwLzIxIDA0OjExLCDmvZjluobpnJYgd3JvdGU6Cj4KPiBIaSBB
-bGV4LAo+Cj4KPiBPbiAyMDIxLzExLzI5IDE5OjIwLCBBbGV4YW5kcmUgZ2hpdGkgd3JvdGU6Cj4g
-PiBIaSBRaW5nbGluLAo+ID4KPiA+IE9uIDExLzI0LzIxIDEyOjIwLCBwYW5xaW5nbGluMjAyMEBp
-c2Nhcy5hYy5jbiB3cm90ZToKPiA+PiBGcm9tOiBRaW5nbGluIFBhbiA8cGFucWluZ2xpbjIwMjBA
-aXNjYXMuYWMuY24+Cj4gPj4KPiA+PiBUaGlzIHBhdGNoIGFkZHMgU3Y1NyBpbXBsZW1lbnRhdGlv
-biBvbiB0aGUgdG9wIG9mIEFsZXgncyBTdjQ4IAo+IHBhdGNoc2V0Lgo+ID4+IFRoZSBtbXUgY29u
-ZmlndXJhdGlvbiB3aWxsIGJlIGRldGVybWluZWQgb24gcnVudGltZSwgYWNjb3JkaW5nIHRvIGJv
-dGgKPiA+PiBtbXUgSFcgc3VwcG9ydCBhbmQgbW11LXR5cGUgZmllbGQgaW4gdGhlIGR0Yi4gVGhl
-IGtlcm5lbCB3aWxsIHRyeSB0bwo+ID4+IHNldCBzYXRwIG1vZGUgb25lIGJ5IG9uZSBmcm9tIHRo
-ZSBjb25maWd1cmF0aW9uIGl0ZW0gdG8gU3YzOSBpbiA2NGJpdC4KPiA+Pgo+ID4+IFNpZ25lZC1v
-ZmYtYnk6IFFpbmdsaW4gUGFuIDxwYW5xaW5nbGluMjAyMEBpc2Nhcy5hYy5jbj4KPiA+PiAtLS0K
-PiA+PsKgwqAgYXJjaC9yaXNjdi9LY29uZmlnwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoCB8wqDCoCA0ICstCj4gPj7CoMKgIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmjCoMKg
-wqDCoMKgwqDCoCB8wqDCoCAxICsKPiA+PsKgwqAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9maXht
-YXAuaMKgwqDCoMKgIHzCoMKgIDEgKwo+ID4+wqDCoCBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Bh
-Z2UuaMKgwqDCoMKgwqDCoCB8wqDCoCAxICsKPiA+PsKgwqAgYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9wZ2FsbG9jLmjCoMKgwqAgfMKgIDQ5ICsrKysrKysrCj4gPj7CoMKgIGFyY2gvcmlzY3YvaW5j
-bHVkZS9hc20vcGd0YWJsZS02NC5oIHwgMTAzICsrKysrKysrKysrKysrKystCj4gPj7CoMKgIGFy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS5owqDCoMKgIHzCoMKgIDQgKy0KPiA+PsKgwqAg
-YXJjaC9yaXNjdi9rZXJuZWwvY3B1LmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgwqAgNCAr
-LQo+ID4+wqDCoCBhcmNoL3Jpc2N2L21tL2luaXQuY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoCB8IDE2OSAKPiArKysrKysrKysrKysrKysrKysrKysrKysrLS0tCj4gPj7CoMKgIDkgZmls
-ZXMgY2hhbmdlZCwgMzEyIGluc2VydGlvbnMoKyksIDI0IGRlbGV0aW9ucygtKQo+ID4+Cj4gPj4g
-ZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZpZyBiL2FyY2gvcmlzY3YvS2NvbmZpZwo+ID4+
-IGluZGV4IGE0Y2FkY2Q0ZTc4NS4uYWFjMjhlOTZkMGU1IDEwMDY0NAo+ID4+IC0tLSBhL2FyY2gv
-cmlzY3YvS2NvbmZpZwo+ID4+ICsrKyBiL2FyY2gvcmlzY3YvS2NvbmZpZwo+ID4+IEBAIC0xNTEs
-NyArMTUxLDcgQEAgY29uZmlnIFBBR0VfT0ZGU0VUCj4gPj7CoMKgwqDCoMKgwqAgaGV4Cj4gPj7C
-oMKgwqDCoMKgwqAgZGVmYXVsdCAweEMwMDAwMDAwIGlmIDMyQklUCj4gPj7CoMKgwqDCoMKgwqAg
-ZGVmYXVsdCAweDgwMDAwMDAwIGlmIDY0QklUICYmICFNTVUKPiA+PiAtwqDCoMKgIGRlZmF1bHQg
-MHhmZmZmYzAwMDAwMDAwMDAwIGlmIDY0QklUCj4gPj4gK8KgwqDCoCBkZWZhdWx0IDB4ZmY4MDAw
-MDAwMDAwMDAwMCBpZiA2NEJJVAo+ID4+wqDCoMKgwqAgY29uZmlnIEFSQ0hfRkxBVE1FTV9FTkFC
-TEUKPiA+PsKgwqDCoMKgwqDCoCBkZWZfYm9vbCAhTlVNQQo+ID4+IEBAIC0xOTYsNyArMTk2LDcg
-QEAgY29uZmlnIEZJWF9FQVJMWUNPTl9NRU0KPiA+PsKgwqDCoMKgIGNvbmZpZyBQR1RBQkxFX0xF
-VkVMUwo+ID4+wqDCoMKgwqDCoMKgIGludAo+ID4+IC3CoMKgwqAgZGVmYXVsdCA0IGlmIDY0QklU
-Cj4gPj4gK8KgwqDCoCBkZWZhdWx0IDUgaWYgNjRCSVQKPiA+PsKgwqDCoMKgwqDCoCBkZWZhdWx0
-IDIKPiA+PsKgwqDCoMKgIGNvbmZpZyBMT0NLREVQX1NVUFBPUlQKPiA+PiBkaWZmIC0tZ2l0IGEv
-YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaCAKPiBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
-Y3NyLmgKPiA+PiBpbmRleCBhZTcxMTY5MmVlYzkuLjI5OWFiZGVmMGNkNiAxMDA2NDQKPiA+PiAt
-LS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5oCj4gPj4gKysrIGIvYXJjaC9yaXNjdi9p
-bmNsdWRlL2FzbS9jc3IuaAo+ID4+IEBAIC00Nyw2ICs0Nyw3IEBACj4gPj7CoMKgICNkZWZpbmUg
-U0FUUF9QUE7CoMKgwqAgX0FDKDB4MDAwMDBGRkZGRkZGRkZGRiwgVUwpCj4gPj7CoMKgICNkZWZp
-bmUgU0FUUF9NT0RFXzM5wqDCoMKgIF9BQygweDgwMDAwMDAwMDAwMDAwMDAsIFVMKQo+ID4+wqDC
-oCAjZGVmaW5lIFNBVFBfTU9ERV80OMKgwqDCoCBfQUMoMHg5MDAwMDAwMDAwMDAwMDAwLCBVTCkK
-PiA+PiArI2RlZmluZSBTQVRQX01PREVfNTfCoMKgwqAgX0FDKDB4YTAwMDAwMDAwMDAwMDAwMCwg
-VUwpCj4gPj7CoMKgICNkZWZpbmUgU0FUUF9BU0lEX0JJVFPCoMKgwqAgMTYKPiA+PsKgwqAgI2Rl
-ZmluZSBTQVRQX0FTSURfU0hJRlTCoMKgwqAgNDQKPiA+PsKgwqAgI2RlZmluZSBTQVRQX0FTSURf
-TUFTS8KgwqDCoCBfQUMoMHhGRkZGLCBVTCkKPiA+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9p
-bmNsdWRlL2FzbS9maXhtYXAuaCAKPiBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZml4bWFwLmgK
-PiA+PiBpbmRleCA1OGE3MTg1NzNhZDYuLjNjZmVjZThiNjU2OCAxMDA2NDQKPiA+PiAtLS0gYS9h
-cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2ZpeG1hcC5oCj4gPj4gKysrIGIvYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS9maXhtYXAuaAo+ID4+IEBAIC0yNSw2ICsyNSw3IEBAIGVudW0gZml4ZWRfYWRkcmVz
-c2VzIHsKPiA+PsKgwqDCoMKgwqDCoCBGSVhfUFRFLAo+ID4+wqDCoMKgwqDCoMKgIEZJWF9QTUQs
-Cj4gPj7CoMKgwqDCoMKgwqAgRklYX1BVRCwKPiA+PiArwqDCoMKgIEZJWF9QNEQsCj4gPj7CoMKg
-wqDCoMKgwqAgRklYX1RFWFRfUE9LRTEsCj4gPj7CoMKgwqDCoMKgwqAgRklYX1RFWFRfUE9LRTAs
-Cj4gPj7CoMKgwqDCoMKgwqAgRklYX0VBUkxZQ09OX01FTV9CQVNFLAo+ID4+IGRpZmYgLS1naXQg
-YS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BhZ2UuaCAKPiBiL2FyY2gvcmlzY3YvaW5jbHVkZS9h
-c20vcGFnZS5oCj4gPj4gaW5kZXggNjMzMzQ1NjhhMTBlLi40MWUwZDg4MjM0ZDUgMTAwNjQ0Cj4g
-Pj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wYWdlLmgKPiA+PiArKysgYi9hcmNoL3Jp
-c2N2L2luY2x1ZGUvYXNtL3BhZ2UuaAo+ID4+IEBAIC0zNyw2ICszNyw3IEBACj4gPj7CoMKgwqAg
-KiBCeSBkZWZhdWx0LCBDT05GSUdfUEFHRV9PRkZTRVQgdmFsdWUgY29ycmVzcG9uZHMgdG8gU1Y0
-OCAKPiBhZGRyZXNzIHNwYWNlIHNvCj4gPj7CoMKgwqAgKiBkZWZpbmUgdGhlIFBBR0VfT0ZGU0VU
-IHZhbHVlIGZvciBTVjM5Lgo+ID4+wqDCoMKgICovCj4gPj4gKyNkZWZpbmUgUEFHRV9PRkZTRVRf
-TDTCoMKgwqDCoMKgwqDCoCBfQUMoMHhmZmZmYzAwMDAwMDAwMDAwLCBVTCkKPiA+PsKgwqAgI2Rl
-ZmluZSBQQUdFX09GRlNFVF9MM8KgwqDCoMKgwqDCoMKgIF9BQygweGZmZmZmZmUwMDAwMDAwMDAs
-IFVMKQo+ID4+wqDCoCAjZWxzZQo+ID4+wqDCoCAjZGVmaW5lIFBBR0VfT0ZGU0VUwqDCoMKgwqDC
-oMKgwqAgX0FDKENPTkZJR19QQUdFX09GRlNFVCwgVUwpCj4gPj4gZGlmZiAtLWdpdCBhL2FyY2gv
-cmlzY3YvaW5jbHVkZS9hc20vcGdhbGxvYy5oIAo+IGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9w
-Z2FsbG9jLmgKPiA+PiBpbmRleCAxMTgyMzAwNGI4N2EuLjk0N2YyM2Q3YjZhZiAxMDA2NDQKPiA+
-PiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BnYWxsb2MuaAo+ID4+ICsrKyBiL2FyY2gv
-cmlzY3YvaW5jbHVkZS9hc20vcGdhbGxvYy5oCj4gPj4gQEAgLTU5LDYgKzU5LDI2IEBAIHN0YXRp
-YyBpbmxpbmUgdm9pZCBwNGRfcG9wdWxhdGVfc2FmZShzdHJ1Y3QgCj4gbW1fc3RydWN0ICptbSwg
-cDRkX3QgKnA0ZCwKPiA+PsKgwqDCoMKgwqDCoCB9Cj4gPj7CoMKgIH0KPiA+PsKgwqAgK3N0YXRp
-YyBpbmxpbmUgdm9pZCBwZ2RfcG9wdWxhdGUoc3RydWN0IG1tX3N0cnVjdCAqbW0sIHBnZF90IAo+
-ICpwZ2QsIHA0ZF90ICpwNGQpCj4gPj4gK3sKPiA+PiArwqDCoMKgIGlmIChwZ3RhYmxlX2w1X2Vu
-YWJsZWQpIHsKPiA+PiArwqDCoMKgwqDCoMKgwqAgdW5zaWduZWQgbG9uZyBwZm4gPSB2aXJ0X3Rv
-X3BmbihwNGQpOwo+ID4+ICsKPiA+PiArwqDCoMKgwqDCoMKgwqAgc2V0X3BnZChwZ2QsIF9fcGdk
-KChwZm4gPDwgX1BBR0VfUEZOX1NISUZUKSB8IF9QQUdFX1RBQkxFKSk7Cj4gPj4gK8KgwqDCoCB9
-Cj4gPj4gK30KPiA+PiArCj4gPj4gK3N0YXRpYyBpbmxpbmUgdm9pZCBwZ2RfcG9wdWxhdGVfc2Fm
-ZShzdHJ1Y3QgbW1fc3RydWN0ICptbSwgcGdkX3QgCj4gKnBnZCwKPiA+PiArwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBwNGRfdCAqcDRkKQo+ID4+ICt7Cj4gPj4gK8Kg
-wqDCoCBpZiAocGd0YWJsZV9sNV9lbmFibGVkKSB7Cj4gPj4gK8KgwqDCoMKgwqDCoMKgIHVuc2ln
-bmVkIGxvbmcgcGZuID0gdmlydF90b19wZm4ocDRkKTsKPiA+PiArCj4gPj4gK8KgwqDCoMKgwqDC
-oMKgIHNldF9wZ2Rfc2FmZShwZ2QsCj4gPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgIF9fcGdkKChwZm4gPDwgX1BBR0VfUEZOX1NISUZUKSB8IF9QQUdFX1RBQkxFKSk7Cj4gPj4g
-K8KgwqDCoCB9Cj4gPj4gK30KPiA+PiArCj4gPj7CoMKgICNkZWZpbmUgcHVkX2FsbG9jX29uZSBw
-dWRfYWxsb2Nfb25lCj4gPj7CoMKgIHN0YXRpYyBpbmxpbmUgcHVkX3QgKnB1ZF9hbGxvY19vbmUo
-c3RydWN0IG1tX3N0cnVjdCAqbW0sIHVuc2lnbmVkIAo+IGxvbmcgYWRkcikKPiA+PsKgwqAgewo+
-ID4+IEBAIC03Niw2ICs5NiwzNSBAQCBzdGF0aWMgaW5saW5lIHZvaWQgcHVkX2ZyZWUoc3RydWN0
-IG1tX3N0cnVjdCAKPiAqbW0sIHB1ZF90ICpwdWQpCj4gPj7CoMKgIH0KPiA+PsKgwqDCoMKgICNk
-ZWZpbmUgX19wdWRfZnJlZV90bGIodGxiLCBwdWQsIGFkZHIpIHB1ZF9mcmVlKCh0bGIpLT5tbSwg
-cHVkKQo+ID4+ICsKPiA+PiArI2RlZmluZSBwNGRfYWxsb2Nfb25lIHA0ZF9hbGxvY19vbmUKPiA+
-PiArc3RhdGljIGlubGluZSBwNGRfdCAqcDRkX2FsbG9jX29uZShzdHJ1Y3QgbW1fc3RydWN0ICpt
-bSwgdW5zaWduZWQgCj4gbG9uZyBhZGRyKQo+ID4+ICt7Cj4gPj4gK8KgwqDCoCBpZiAocGd0YWJs
-ZV9sNV9lbmFibGVkKSB7Cj4gPj4gK8KgwqDCoMKgwqDCoMKgIGdmcF90IGdmcCA9IEdGUF9QR1RB
-QkxFX1VTRVI7Cj4gPj4gKwo+ID4+ICvCoMKgwqDCoMKgwqDCoCBpZiAobW0gPT0gJmluaXRfbW0p
-Cj4gPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgZ2ZwID0gR0ZQX1BHVEFCTEVfS0VSTkVMOwo+
-ID4+ICvCoMKgwqDCoMKgwqDCoCByZXR1cm4gKHA0ZF90ICopZ2V0X3plcm9lZF9wYWdlKGdmcCk7
-Cj4gPj4gK8KgwqDCoCB9Cj4gPj4gKwo+ID4+ICvCoMKgwqAgcmV0dXJuIE5VTEw7Cj4gPj4gK30K
-PiA+PiArCj4gPj4gK3N0YXRpYyBpbmxpbmUgdm9pZCBfX3A0ZF9mcmVlKHN0cnVjdCBtbV9zdHJ1
-Y3QgKm1tLCBwNGRfdCAqcDRkKQo+ID4+ICt7Cj4gPj4gK8KgwqDCoCBCVUdfT04oKHVuc2lnbmVk
-IGxvbmcpcDRkICYgKFBBR0VfU0laRS0xKSk7Cj4gPj4gK8KgwqDCoCBmcmVlX3BhZ2UoKHVuc2ln
-bmVkIGxvbmcpcDRkKTsKPiA+PiArfQo+ID4+ICsKPiA+PiArI2RlZmluZSBwNGRfZnJlZSBwNGRf
-ZnJlZQo+ID4+ICtzdGF0aWMgaW5saW5lIHZvaWQgcDRkX2ZyZWUoc3RydWN0IG1tX3N0cnVjdCAq
-bW0sIHA0ZF90ICpwNGQpCj4gPj4gK3sKPiA+PiArwqDCoMKgIGlmIChwZ3RhYmxlX2w1X2VuYWJs
-ZWQpCj4gPj4gK8KgwqDCoMKgwqDCoMKgIF9fcDRkX2ZyZWUobW0sIHA0ZCk7Cj4gPj4gK30KPiA+
-PiArCj4gPj4gKyNkZWZpbmUgX19wNGRfZnJlZV90bGIodGxiLCBwNGQsIGFkZHIpIHA0ZF9mcmVl
-KCh0bGIpLT5tbSwgcDRkKQo+ID4+wqDCoCAjZW5kaWYgLyogX19QQUdFVEFCTEVfUE1EX0ZPTERF
-RCAqLwo+ID4+wqDCoMKgwqAgc3RhdGljIGlubGluZSBwZ2RfdCAqcGdkX2FsbG9jKHN0cnVjdCBt
-bV9zdHJ1Y3QgKm1tKQo+ID4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Bn
-dGFibGUtNjQuaCAKPiBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS02NC5oCj4gPj4g
-aW5kZXggYmJiZGQ2NmU1ZTJmLi5hMDEzODZkNDA5NGYgMTAwNjQ0Cj4gPj4gLS0tIGEvYXJjaC9y
-aXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLTY0LmgKPiA+PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL3BndGFibGUtNjQuaAo+ID4+IEBAIC05LDE2ICs5LDI0IEBACj4gPj7CoMKgICNpbmNs
-dWRlIDxsaW51eC9jb25zdC5oPgo+ID4+wqDCoMKgwqAgZXh0ZXJuIGJvb2wgcGd0YWJsZV9sNF9l
-bmFibGVkOwo+ID4+ICtleHRlcm4gYm9vbCBwZ3RhYmxlX2w1X2VuYWJsZWQ7Cj4gPj7CoMKgwqDC
-oCAjZGVmaW5lIFBHRElSX1NISUZUX0wzwqAgMzAKPiA+PsKgwqAgI2RlZmluZSBQR0RJUl9TSElG
-VF9MNMKgIDM5Cj4gPj4gKyNkZWZpbmUgUEdESVJfU0hJRlRfTDXCoCA0OAo+ID4+wqDCoCAjZGVm
-aW5lIFBHRElSX1NJWkVfTDPCoMKgIChfQUMoMSwgVUwpIDw8IFBHRElSX1NISUZUX0wzKQo+ID4+
-wqDCoCAtI2RlZmluZSBQR0RJUl9TSElGVMKgwqDCoMKgIChwZ3RhYmxlX2w0X2VuYWJsZWQgPyBQ
-R0RJUl9TSElGVF9MNCA6IAo+IFBHRElSX1NISUZUX0wzKQo+ID4+ICsjZGVmaW5lIFBHRElSX1NI
-SUZUwqDCoMKgwqAgKHBndGFibGVfbDVfZW5hYmxlZCA/IFBHRElSX1NISUZUX0w1IDogXAo+ID4+
-ICvCoMKgwqDCoMKgwqDCoCAocGd0YWJsZV9sNF9lbmFibGVkID8gUEdESVJfU0hJRlRfTDQgOiBQ
-R0RJUl9TSElGVF9MMykpCj4gPgo+ID4KPiA+IFRoaXMgc3ludGF4IGlzIHZlcnkgY3VtYmVyc29t
-ZSwgdGhlIGJlc3QgSSBjb3VsZCBjb21lIHVwIHdpdGggaXMgdGhlIAo+IGZvbGxvd2luZyBtYWNy
-bzoKPiA+Cj4gPiAjZGVmaW5lIHBndGFibGVfbGV2ZWwobDMsIGw0LCBsNSkgKHBndGFibGVfbDVf
-ZW5hYmxlZCA/IChsNSk6IAo+IChwZ3RhYmxlX2w0X2VuYWJsZWQgPyAobDQpOiAobDMpKQo+ID4K
-PiA+IEFuZCBJJ20gd29uZGVyaW5nIGlmIGEgc2luZ2xlIHZhcmlhYmxlIHRoYXQgY29udGFpbnMg
-dGhlIG51bWJlciBvZiAKPiBwYWdlIHRhYmxlIGxldmVscyB3b3VsZCBub3QgYmUgYmV0dGVyIGFj
-dHVhbGx5LCBhbnkgaWRlYT8KPiA+Cj4KPiBZZXMsIGl0IGlzIGEgZ29vZCBpZGVhIHRvIHVzZSBh
-IG1hY3JvIGxpa2UgcGd0YWJsZV9sZXZlbC4gQnV0IGEgCj4gdmFyaWFibGUgY29udGFpbmluZwo+
-IHRoZSBudW1iZXIgb2YgcGFnZSB0YWJsZSBsZXZlbHMgbWF5IGJlIGJldHRlci4gV2hhdCBhYm91
-dCB1c2luZyBzdWNoIAo+IHZhcmlhYmxlCj4gZm9yIGFycmF5IGluZGV4IGxpa2UgdGhpczoKPgo+
-IHN0YXRpYyBpbnQ2NF90IHBhZ2VfdGFibGVfbGV2ZWwgPSA1OyAvLyBzZXQgc3Y1NyBkZWZhdWx0
-bHkKPiAjZGVmaW5lIFBHVEFCTEVfTEVWRUxfT0ZGU0VUIDMKPiBzdGF0aWMgaW50NjRfdCBwZ2Rp
-cl9zaGlmdFszXSA9IHtQR0RJUl9TSElGVF9MMywgUEdESVJfU0hJRlRfTDQsIAo+IFBHRElSX1NI
-SUZUX0w1fTsKPiAjZGVmaW5lIFBHRElSX1NISUZUIHBnZGlyX3NoaWZ0W3BhZ2VfdGFibGVfbGV2
-ZWwgLSBQR1RBQkxFX0xFVkVMX09GRlNFVF0KCgpJIGhhdmUganVzdCB1cGRhdGVkIHRoZSBzdjQ4
-IHBhdGNoc2V0IHdpdGhvdXQgdGhpcyBzdWdnZXN0aW9uIGFzIGl0IAphbHJlYWR5IGNvbnRhaW5z
-IHNvbWUgc2lnbmlmaWNhbnQgY2hhbmdlcy4gSSdtIG5vdCBvcHBvc2VkIHRvIHlvdXIgaWRlYSwg
-CmJ1dCBJIGhhdmUgYSBwcmVmZXJlbmNlIGZvciB0aGUgbWFjcm8gYXMgaXQgZG9lcyBub3QgdXNl
-IGV4dHJhIG1lbW9yeSwgCmJ1dCBkbyBhcyB5b3Ugd2FudCBhbmQgd2UnbGwgc2VlIHdoYXQgb3Ro
-ZXJzIHRoaW5rIHRvby4KClRoYW5rcywKCkFsZXgKCgo+Cj4gPgo+ID4+Cj4gPj7CoMKgICNlbmRp
-ZiAvKiBfX1BBR0VUQUJMRV9QTURfRk9MREVEICovCj4gPj4gQEAgLTYyNyw2ICs3MTYsMTMgQEAg
-c3RhdGljIF9faW5pdCBwZ3Byb3RfdCAKPiBwZ3Byb3RfZnJvbV92YSh1aW50cHRyX3QgdmEpCj4g
-Pj7CoMKgICNlbmRpZiAvKiBDT05GSUdfU1RSSUNUX0tFUk5FTF9SV1ggKi8KPiA+PsKgwqDCoMKg
-ICNpZmRlZiBDT05GSUdfNjRCSVQKPiA+PiArc3RhdGljIHZvaWQgX19pbml0IGRpc2FibGVfcGd0
-YWJsZV9sNSh2b2lkKQo+ID4+ICt7Cj4gPj4gK8KgwqDCoCBwZ3RhYmxlX2w1X2VuYWJsZWQgPSBm
-YWxzZTsKPiA+PiArwqDCoMKgIGtlcm5lbF9tYXAucGFnZV9vZmZzZXQgPSBQQUdFX09GRlNFVF9M
-NDsKPiA+PiArwqDCoMKgIHNhdHBfbW9kZSA9IFNBVFBfTU9ERV80ODsKPiA+PiArfQo+ID4+ICsK
-PiA+PsKgwqAgc3RhdGljIHZvaWQgX19pbml0IGRpc2FibGVfcGd0YWJsZV9sNCh2b2lkKQo+ID4+
-wqDCoCB7Cj4gPj7CoMKgwqDCoMKgwqAgcGd0YWJsZV9sNF9lbmFibGVkID0gZmFsc2U7Cj4gPj4g
-QEAgLTY0Myw4ICs3MzksOSBAQCBzdGF0aWMgdm9pZCBfX2luaXQgZGlzYWJsZV9wZ3RhYmxlX2w0
-KHZvaWQpCj4gPj7CoMKgIHN0YXRpYyBfX2luaXQgdm9pZCBzZXRfc2F0cF9tb2RlKHVpbnRwdHJf
-dCBkdGJfcGEpCj4gPj7CoMKgIHsKPiA+PsKgwqDCoMKgwqDCoCB1NjQgaWRlbnRpdHlfc2F0cCwg
-aHdfc2F0cDsKPiA+PiAtwqDCoMKgIHVpbnRwdHJfdCBzZXRfc2F0cF9tb2RlX3BtZDsKPiA+PiAr
-wqDCoMKgIHVpbnRwdHJfdCBzZXRfc2F0cF9tb2RlX3BtZCA9ICgodW5zaWduZWQgbG9uZylzZXRf
-c2F0cF9tb2RlKSAmIAo+IFBNRF9NQVNLOwo+ID4+wqDCoMKgwqDCoMKgIGludCBjcHVzX25vZGU7
-Cj4gPj4gK8KgwqDCoCBib29sIGNoZWNrX2w0ID0gZmFsc2U7Cj4gPj7CoMKgwqDCoMKgwqDCoMKg
-IC8qIENoZWNrIGlmIHRoZSB1c2VyIGFza2VkIGZvciBzdjM5IGV4cGxpY2l0bHkgaW4gdGhlIAo+
-IGRldmljZSB0cmVlICovCj4gPj7CoMKgwqDCoMKgwqAgY3B1c19ub2RlID0gZmR0X3BhdGhfb2Zm
-c2V0KCh2b2lkICopZHRiX3BhLCAiL2NwdXMiKTsKPiA+PiBAQCAtNjU4LDE4ICs3NTUsMzEgQEAg
-c3RhdGljIF9faW5pdCB2b2lkIHNldF9zYXRwX21vZGUodWludHB0cl90IAo+IGR0Yl9wYSkKPiA+
-PsKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBjb250aW51ZTsKPiA+PsKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGlmICghc3RyY21wKG1tdV90eXBlLCAicmlzY3Ys
-c3YzOSIpKSB7Cj4gPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBkaXNhYmxlX3Bn
-dGFibGVfbDUoKTsKPiA+PsKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBkaXNh
-YmxlX3BndGFibGVfbDQoKTsKPiA+PsKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oCByZXR1cm47Cj4gPj7CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIH0KPiA+PsKgwqAgK8Kg
-wqDCoMKgwqDCoMKgwqDCoMKgwqAgaWYgKCFzdHJjbXAobW11X3R5cGUsICJyaXNjdixzdjQ4Iikp
-IHsKPiA+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGNoZWNrX2w0ID0gdHJ1ZTsK
-PiA+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB9Cj4gPj4gKwo+ID4KPiA+Cj4gPiBJZiBzdjQ4
-IGlzIHNldCBpbiB0aGUgZGV2aWNlIHRyZWUsIHdoeSB3b3VsZCB5b3UgdGVzdCBpZiBpdCBpcyAK
-PiBzdXBwb3J0ZWQgYmVsb3c/IEkgd291bGQgdGFrZSBpdCBhcyBpcywganVzdCBsaWtlIGZvciBz
-djM5LCBJJ20gbm90IAo+IHN1cmUgd2Ugd2FudCB0byBvdmVycmlkZSB0aGlzIHNpbGVudGx5IGFu
-ZCBtYWtlIGEgd3JvbmcgZGV2aWNlIHRyZWUgd29yay4KPiA+Cj4KPiBBY3R1YWxseSBJIHByZWZl
-ciB0byBlbWl0IGEgYmlnIFdBUk4gd2hlbiBzdjQ4IGlzIHNldCBpbiBkZXZpY2UgdHJlZQo+IGJ1
-dCB1bmF2YWlsYWJsZS4gSSB0aGluayB0aGUgZGV2aWNlIHRyZWUgZmllbGQgc2hvd3MgdGhlIHBh
-Z2UgdGFibGUgbGV2ZWwKPiB3aGljaCBkZXZlbG9wZXJzIGV4cGVjdCwgYW5kIHRoZSBrZXJuZWwg
-c2hvdWxkIHRyeSBpdCBiZXN0IHRvIGJvb3QgaXRzZWxmCj4gZXZlbiB3aGVuIHRoZSBjcHUgZG9l
-c24ndCBtZWV0IHRoYXQgZXhwZWN0YXRpb24gPyBBcyBmb3Igc3YzOSwgSSB0aGluayAKPiBhbnkK
-PiBSSVNDLVYgNjQtYml0IGRldmljZSdzIG1tdSAoaWYgZXhpc3RzKSBzaG91bGQgc3VwcG9ydCBp
-dCwgc28gd2UgZG9uJ3QgCj4gbmVlZAo+IHRvIHRlc3QgaXQKPgo+Cj4gPgo+ID4+IGJyZWFrOwo+
-ID4+wqDCoMKgwqDCoMKgwqDCoMKgwqAgfQo+ID4+wqDCoMKgwqDCoMKgIH0KPiA+PsKgwqAgLcKg
-wqDCoCBzZXRfc2F0cF9tb2RlX3BtZCA9ICgodW5zaWduZWQgbG9uZylzZXRfc2F0cF9tb2RlKSAm
-IFBNRF9NQVNLOwo+ID4+ICtyZXRyeToKPiA+PiArwqDCoMKgIGlmIChjaGVja19sNCkKPiA+PiAr
-wqDCoMKgwqDCoMKgwqAgZGlzYWJsZV9wZ3RhYmxlX2w1KCk7Cj4gPj4gKwo+ID4+wqDCoMKgwqDC
-oMKgIGNyZWF0ZV9wZ2RfbWFwcGluZyhlYXJseV9wZ19kaXIsCj4gPj4gLcKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqAgc2V0X3NhdHBfbW9kZV9wbWQsICh1aW50cHRyX3QpZWFybHlfcHVkLAo+
-ID4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHNldF9zYXRwX21vZGVfcG1kLAo+ID4+
-ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGNoZWNrX2w0ID8gKHVpbnRwdHJfdCllYXJs
-eV9wdWQgOiAKPiAodWludHB0cl90KWVhcmx5X3A0ZCwKPiA+PsKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqAgUEdESVJfU0laRSwgUEFHRV9UQUJMRSk7Cj4gPj4gK8KgwqDCoCBpZiAo
-IWNoZWNrX2w0KQo+ID4+ICvCoMKgwqDCoMKgwqDCoCBjcmVhdGVfcDRkX21hcHBpbmcoZWFybHlf
-cDRkLAo+ID4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgc2V0X3NhdHBfbW9kZV9w
-bWQsICh1aW50cHRyX3QpZWFybHlfcHVkLAo+ID4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqAgUDREX1NJWkUsIFBBR0VfVEFCTEUpOwo+ID4+wqDCoMKgwqDCoMKgIGNyZWF0ZV9wdWRf
-bWFwcGluZyhlYXJseV9wdWQsCj4gPj7CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-IHNldF9zYXRwX21vZGVfcG1kLCAodWludHB0cl90KWVhcmx5X3BtZCwKPiA+PsKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgUFVEX1NJWkUsIFBBR0VfVEFCTEUpOwo+ID4+IEBAIC02
-ODksMTAgKzc5OSwxNiBAQCBzdGF0aWMgX19pbml0IHZvaWQgc2V0X3NhdHBfbW9kZSh1aW50cHRy
-X3QgCj4gZHRiX3BhKQo+ID4+wqDCoMKgwqDCoMKgIGh3X3NhdHAgPSBjc3Jfc3dhcChDU1JfU0FU
-UCwgMFVMTCk7Cj4gPj7CoMKgwqDCoMKgwqAgbG9jYWxfZmx1c2hfdGxiX2FsbCgpOwo+ID4+wqDC
-oCAtwqDCoMKgIGlmIChod19zYXRwICE9IGlkZW50aXR5X3NhdHApCj4gPj4gK8KgwqDCoCBpZiAo
-aHdfc2F0cCAhPSBpZGVudGl0eV9zYXRwKSB7Cj4gPj4gK8KgwqDCoMKgwqDCoMKgIGlmICghY2hl
-Y2tfbDQpIHsKPiA+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBjaGVja19sNCA9IHRydWU7Cj4g
-Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgZ290byByZXRyeTsKPiA+PiArwqDCoMKgwqDCoMKg
-wqAgfQo+ID4+wqDCoMKgwqDCoMKgwqDCoMKgwqAgZGlzYWJsZV9wZ3RhYmxlX2w0KCk7Cj4gPj4g
-K8KgwqDCoCB9Cj4gPj7CoMKgwqDCoMKgwqDCoMKgIG1lbXNldChlYXJseV9wZ19kaXIsIDAsIFBB
-R0VfU0laRSk7Cj4gPj4gK8KgwqDCoCBtZW1zZXQoZWFybHlfcDRkLCAwLCBQQUdFX1NJWkUpOwo+
-ID4+wqDCoMKgwqDCoMKgIG1lbXNldChlYXJseV9wdWQsIDAsIFBBR0VfU0laRSk7Cj4gPj7CoMKg
-wqDCoMKgwqAgbWVtc2V0KGVhcmx5X3BtZCwgMCwgUEFHRV9TSVpFKTsKPiA+PsKgwqAgfQo+ID4+
-IEBAIC03NjYsNiArODgyLDEwIEBAIHN0YXRpYyB2b2lkIF9faW5pdCAKPiBjcmVhdGVfZmR0X2Vh
-cmx5X3BhZ2VfdGFibGUocGdkX3QgKnBnZGlyLCB1aW50cHRyX3QgZHRiX3BhKQo+ID4+wqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBQR0RJUl9TSVpFLAo+ID4+wqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBJU19FTkFCTEVEKENPTkZJR182NEJJVCkgPyBQQUdFX1RB
-QkxFIDogUEFHRV9LRVJORUwpOwo+ID4+wqDCoCArwqDCoMKgIGlmIChwZ3RhYmxlX2w1X2VuYWJs
-ZWQpCj4gPj4gK8KgwqDCoMKgwqDCoMKgIGNyZWF0ZV9wNGRfbWFwcGluZyhlYXJseV9kdGJfcDRk
-LCBEVEJfRUFSTFlfQkFTRV9WQSwKPiA+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgICh1aW50cHRyX3QpZWFybHlfZHRiX3B1ZCwgUDREX1NJWkUsIFBBR0VfVEFCTEUpOwo+
-ID4+ICsKPiA+PsKgwqDCoMKgwqDCoCBpZiAocGd0YWJsZV9sNF9lbmFibGVkKQo+ID4+wqDCoMKg
-wqDCoMKgwqDCoMKgwqAgY3JlYXRlX3B1ZF9tYXBwaW5nKGVhcmx5X2R0Yl9wdWQsIERUQl9FQVJM
-WV9CQVNFX1ZBLAo+ID4+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-ICh1aW50cHRyX3QpZWFybHlfZHRiX3BtZCwgUFVEX1NJWkUsIFBBR0VfVEFCTEUpOwo+ID4+IEBA
-IC04MDIsNiArOTIyLDggQEAgYXNtbGlua2FnZSB2b2lkIF9faW5pdCBzZXR1cF92bSh1aW50cHRy
-X3QgZHRiX3BhKQo+ID4+wqDCoMKgwqDCoMKgIHB0X29wcy5nZXRfcG1kX3ZpcnQgPSBnZXRfcG1k
-X3ZpcnRfZWFybHk7Cj4gPj7CoMKgwqDCoMKgwqAgcHRfb3BzLmFsbG9jX3B1ZCA9IGFsbG9jX3B1
-ZF9lYXJseTsKPiA+PsKgwqDCoMKgwqDCoCBwdF9vcHMuZ2V0X3B1ZF92aXJ0ID0gZ2V0X3B1ZF92
-aXJ0X2Vhcmx5Owo+ID4+ICvCoMKgwqAgcHRfb3BzLmFsbG9jX3A0ZCA9IGFsbG9jX3A0ZF9lYXJs
-eTsKPiA+PiArwqDCoMKgIHB0X29wcy5nZXRfcDRkX3ZpcnQgPSBnZXRfcDRkX3ZpcnRfZWFybHk7
-Cj4gPj7CoMKgICNlbmRpZgo+ID4+wqDCoMKgwqDCoMKgwqDCoCBrZXJuZWxfbWFwLnZpcnRfYWRk
-ciA9IEtFUk5FTF9MSU5LX0FERFI7Cj4gPj4gQEAgLTg1NSw2ICs5NzcsMTAgQEAgYXNtbGlua2Fn
-ZSB2b2lkIF9faW5pdCBzZXR1cF92bSh1aW50cHRyX3QgZHRiX3BhKQo+ID4+wqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBmaXhtYXBfcGdkX25leHQsIFBHRElSX1NJWkUsIFBBR0Vf
-VEFCTEUpOwo+ID4+wqDCoMKgwqAgI2lmbmRlZiBfX1BBR0VUQUJMRV9QTURfRk9MREVECj4gPj4g
-K8KgwqDCoCAvKiBTZXR1cCBmaXhtYXAgUDREIGFuZCBQVUQgKi8KPiA+PiArwqDCoMKgIGlmIChw
-Z3RhYmxlX2w1X2VuYWJsZWQpCj4gPj4gK8KgwqDCoMKgwqDCoMKgIGNyZWF0ZV9wNGRfbWFwcGlu
-ZyhmaXhtYXBfcDRkLCBGSVhBRERSX1NUQVJULAo+ID4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqAgKHVpbnRwdHJfdClmaXhtYXBfcHVkLCBQNERfU0laRSwgUEFHRV9UQUJM
-RSk7Cj4gPj7CoMKgwqDCoMKgwqAgLyogU2V0dXAgZml4bWFwIFBVRCBhbmQgUE1EICovCj4gPj7C
-oMKgwqDCoMKgwqAgaWYgKHBndGFibGVfbDRfZW5hYmxlZCkKPiA+PsKgwqDCoMKgwqDCoMKgwqDC
-oMKgIGNyZWF0ZV9wdWRfbWFwcGluZyhmaXhtYXBfcHVkLCBGSVhBRERSX1NUQVJULAo+ID4+IEBA
-IC04NjQsNiArOTkwLDkgQEAgYXNtbGlua2FnZSB2b2lkIF9faW5pdCBzZXR1cF92bSh1aW50cHRy
-X3QgZHRiX3BhKQo+ID4+wqDCoMKgwqDCoMKgIC8qIFNldHVwIHRyYW1wb2xpbmUgUEdEIGFuZCBQ
-TUQgKi8KPiA+PsKgwqDCoMKgwqDCoCBjcmVhdGVfcGdkX21hcHBpbmcodHJhbXBvbGluZV9wZ19k
-aXIsIGtlcm5lbF9tYXAudmlydF9hZGRyLAo+ID4+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoCB0cmFtcG9saW5lX3BnZF9uZXh0LCBQR0RJUl9TSVpFLCBQQUdFX1RBQkxFKTsKPiA+
-PiArwqDCoMKgIGlmIChwZ3RhYmxlX2w1X2VuYWJsZWQpCj4gPj4gK8KgwqDCoMKgwqDCoMKgIGNy
-ZWF0ZV9wNGRfbWFwcGluZyh0cmFtcG9saW5lX3A0ZCwga2VybmVsX21hcC52aXJ0X2FkZHIsCj4g
-Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAodWludHB0cl90KXRyYW1w
-b2xpbmVfcHVkLCBQNERfU0laRSwgUEFHRV9UQUJMRSk7Cj4gPj7CoMKgwqDCoMKgwqAgaWYgKHBn
-dGFibGVfbDRfZW5hYmxlZCkKPiA+PsKgwqDCoMKgwqDCoMKgwqDCoMKgIGNyZWF0ZV9wdWRfbWFw
-cGluZyh0cmFtcG9saW5lX3B1ZCwga2VybmVsX21hcC52aXJ0X2FkZHIsCj4gPj7CoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgKHVpbnRwdHJfdCl0cmFtcG9saW5lX3Bt
-ZCwgUFVEX1NJWkUsIFBBR0VfVEFCTEUpOwo+ID4+IEBAIC05MzgsNiArMTA2Nyw4IEBAIHN0YXRp
-YyB2b2lkIF9faW5pdCBzZXR1cF92bV9maW5hbCh2b2lkKQo+ID4+wqDCoMKgwqDCoMKgIHB0X29w
-cy5nZXRfcG1kX3ZpcnQgPSBnZXRfcG1kX3ZpcnRfZml4bWFwOwo+ID4+wqDCoMKgwqDCoMKgIHB0
-X29wcy5hbGxvY19wdWQgPSBhbGxvY19wdWRfZml4bWFwOwo+ID4+wqDCoMKgwqDCoMKgIHB0X29w
-cy5nZXRfcHVkX3ZpcnQgPSBnZXRfcHVkX3ZpcnRfZml4bWFwOwo+ID4+ICvCoMKgwqAgcHRfb3Bz
-LmFsbG9jX3A0ZCA9IGFsbG9jX3A0ZF9maXhtYXA7Cj4gPj4gK8KgwqDCoCBwdF9vcHMuZ2V0X3A0
-ZF92aXJ0ID0gZ2V0X3A0ZF92aXJ0X2ZpeG1hcDsKPiA+PsKgwqAgI2VuZGlmCj4gPj7CoMKgwqDC
-oMKgwqAgLyogU2V0dXAgc3dhcHBlciBQR0QgZm9yIGZpeG1hcCAqLwo+ID4+wqDCoMKgwqDCoMKg
-IGNyZWF0ZV9wZ2RfbWFwcGluZyhzd2FwcGVyX3BnX2RpciwgRklYQUREUl9TVEFSVCwKPiA+PiBA
-QCAtOTg1LDYgKzExMTYsOCBAQCBzdGF0aWMgdm9pZCBfX2luaXQgc2V0dXBfdm1fZmluYWwodm9p
-ZCkKPiA+PsKgwqDCoMKgwqDCoCBwdF9vcHMuZ2V0X3BtZF92aXJ0ID0gZ2V0X3BtZF92aXJ0X2xh
-dGU7Cj4gPj7CoMKgwqDCoMKgwqAgcHRfb3BzLmFsbG9jX3B1ZCA9IGFsbG9jX3B1ZF9sYXRlOwo+
-ID4+wqDCoMKgwqDCoMKgIHB0X29wcy5nZXRfcHVkX3ZpcnQgPSBnZXRfcHVkX3ZpcnRfbGF0ZTsK
-PiA+PiArwqDCoMKgIHB0X29wcy5hbGxvY19wNGQgPSBhbGxvY19wNGRfbGF0ZTsKPiA+PiArwqDC
-oMKgIHB0X29wcy5nZXRfcDRkX3ZpcnQgPSBnZXRfcDRkX3ZpcnRfbGF0ZTsKPiA+PsKgwqAgI2Vu
-ZGlmCj4gPj7CoMKgIH0KPiA+PsKgwqAgI2Vsc2UKPiA+Cj4gPgo+ID4gWW91IGZvcmdvdCB0byBo
-YW5kbGUga2FzYW4gaW4gdGhpcyBwYXRjaC4gQWN0dWFsbHksIEknbSB1cGRhdGluZyAKPiBrYXNh
-biBmb3IgdGhlIHN2NDggcGF0Y2hzZXQgYWZ0ZXIgY29tbWl0IDU0YzU2MzlkOGY1MCAoInJpc2N2
-OiBGaXggCj4gYXNhbi1zdGFjayBjbGFuZyBidWlsZCIpIGJyb2tlIGl0LiBJJ20gc3RydWdnbGlu
-ZyBhIGJpdCBhcyB0aGUga2FzYW4gCj4gb2Zmc2V0IHRoYXQgaXMga25vd24gYXQgY29tcGlsZSB0
-aW1lIG11c3QgYmUgdGhlIHNhbWUgZm9yIHN2MzksIHM0OCAKPiBhbmQgc3Y1Nywgc28gd2UgaGF2
-ZSB0byBtb3ZlIHRoZSBrYXNhbiByZWdpb24gbmV4dCB0byB0aGUga2VybmVsLCBidXQgCj4gdGhl
-biBpdCBpcyBub3QgYWxpZ25lZCBvbiBwZ2RpciBib3VuZGFyaWVzIGZvciBzdjQ4IGFuZCBzdjU3
-LCBzbyB0aGUgCj4gY3VycmVudCBrYXNhbiBwb3B1bGF0aW9uIGZ1bmN0aW9ucyBtdXN0IGJlIGFk
-YXB0ZWQuCj4gPgo+ID4gQW55d2F5LCBJIHdvdWxkIGFkdmlzZSB5b3UgdG8gd2FpdCBmb3IgbXkg
-dXBkYXRlZCBwYXRjaHNldCBiZWZvcmUgCj4gdGFja2xpbmcga2FzYW4gZm9yIHN2NTcuCj4KPgo+
-IFRoYW5rcyBmb3IgeW91ciBzdWdnZXN0aW9ucy4gSSB3aWxsIGhhbmRsZSBrYXNhbiBpbiBuZXh0
-IHBhdGNoc2V0IAo+IHdoaWNoIHNob3VsZAo+IGJlIGJhc2VkIG9uIHlvdXIgbmV3IHBhdGNoc2V0
-Lgo+Cj4gVGhhbmtzLAo+IFFpbmdsaW4KPgo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiBsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+By adding a new 4th level of page table, give the possibility to 64bit
+kernel to address 2^48 bytes of virtual address: in practice, that offers
+128TB of virtual address space to userspace and allows up to 64TB of
+physical memory.
+
+If the underlying hardware does not support sv48, we will automatically
+fallback to a standard 3-level page table by folding the new PUD level into
+PGDIR level. In order to detect HW capabilities at runtime, we
+use SATP feature that ignores writes with an unsupported mode.
+
+Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+---
+ arch/riscv/Kconfig                      |   4 +-
+ arch/riscv/include/asm/csr.h            |   3 +-
+ arch/riscv/include/asm/fixmap.h         |   1 +
+ arch/riscv/include/asm/kasan.h          |   6 +-
+ arch/riscv/include/asm/page.h           |  14 ++
+ arch/riscv/include/asm/pgalloc.h        |  40 +++++
+ arch/riscv/include/asm/pgtable-64.h     | 108 +++++++++++-
+ arch/riscv/include/asm/pgtable.h        |  24 ++-
+ arch/riscv/kernel/head.S                |   3 +-
+ arch/riscv/mm/context.c                 |   4 +-
+ arch/riscv/mm/init.c                    | 212 +++++++++++++++++++++---
+ arch/riscv/mm/kasan_init.c              | 137 ++++++++++++++-
+ drivers/firmware/efi/libstub/efi-stub.c |   2 +
+ 13 files changed, 514 insertions(+), 44 deletions(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index ac6c0cd9bc29..d28fe0148e13 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -150,7 +150,7 @@ config PAGE_OFFSET
+ 	hex
+ 	default 0xC0000000 if 32BIT
+ 	default 0x80000000 if 64BIT && !MMU
+-	default 0xffffffd800000000 if 64BIT
++	default 0xffffaf8000000000 if 64BIT
+ 
+ config KASAN_SHADOW_OFFSET
+ 	hex
+@@ -201,7 +201,7 @@ config FIX_EARLYCON_MEM
+ 
+ config PGTABLE_LEVELS
+ 	int
+-	default 3 if 64BIT
++	default 4 if 64BIT
+ 	default 2
+ 
+ config LOCKDEP_SUPPORT
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index 87ac65696871..3fdb971c7896 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -40,14 +40,13 @@
+ #ifndef CONFIG_64BIT
+ #define SATP_PPN	_AC(0x003FFFFF, UL)
+ #define SATP_MODE_32	_AC(0x80000000, UL)
+-#define SATP_MODE	SATP_MODE_32
+ #define SATP_ASID_BITS	9
+ #define SATP_ASID_SHIFT	22
+ #define SATP_ASID_MASK	_AC(0x1FF, UL)
+ #else
+ #define SATP_PPN	_AC(0x00000FFFFFFFFFFF, UL)
+ #define SATP_MODE_39	_AC(0x8000000000000000, UL)
+-#define SATP_MODE	SATP_MODE_39
++#define SATP_MODE_48	_AC(0x9000000000000000, UL)
+ #define SATP_ASID_BITS	16
+ #define SATP_ASID_SHIFT	44
+ #define SATP_ASID_MASK	_AC(0xFFFF, UL)
+diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
+index 54cbf07fb4e9..58a718573ad6 100644
+--- a/arch/riscv/include/asm/fixmap.h
++++ b/arch/riscv/include/asm/fixmap.h
+@@ -24,6 +24,7 @@ enum fixed_addresses {
+ 	FIX_HOLE,
+ 	FIX_PTE,
+ 	FIX_PMD,
++	FIX_PUD,
+ 	FIX_TEXT_POKE1,
+ 	FIX_TEXT_POKE0,
+ 	FIX_EARLYCON_MEM_BASE,
+diff --git a/arch/riscv/include/asm/kasan.h b/arch/riscv/include/asm/kasan.h
+index 743e6ff57996..0b85e363e778 100644
+--- a/arch/riscv/include/asm/kasan.h
++++ b/arch/riscv/include/asm/kasan.h
+@@ -28,7 +28,11 @@
+ #define KASAN_SHADOW_SCALE_SHIFT	3
+ 
+ #define KASAN_SHADOW_SIZE	(UL(1) << ((VA_BITS - 1) - KASAN_SHADOW_SCALE_SHIFT))
+-#define KASAN_SHADOW_START	(KASAN_SHADOW_END - KASAN_SHADOW_SIZE)
++/*
++ * Depending on the size of the virtual address space, the region may not be
++ * aligned on PGDIR_SIZE, so force its alignment to ease its population.
++ */
++#define KASAN_SHADOW_START	((KASAN_SHADOW_END - KASAN_SHADOW_SIZE) & PGDIR_MASK)
+ #define KASAN_SHADOW_END	MODULES_LOWEST_VADDR
+ #define KASAN_SHADOW_OFFSET	_AC(CONFIG_KASAN_SHADOW_OFFSET, UL)
+ 
+diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+index e03559f9b35e..d089fe46f7d8 100644
+--- a/arch/riscv/include/asm/page.h
++++ b/arch/riscv/include/asm/page.h
+@@ -31,7 +31,20 @@
+  * When not using MMU this corresponds to the first free page in
+  * physical memory (aligned on a page boundary).
+  */
++#ifdef CONFIG_64BIT
++#ifdef CONFIG_MMU
++#define PAGE_OFFSET		kernel_map.page_offset
++#else
++#define PAGE_OFFSET		_AC(CONFIG_PAGE_OFFSET, UL)
++#endif
++/*
++ * By default, CONFIG_PAGE_OFFSET value corresponds to SV48 address space so
++ * define the PAGE_OFFSET value for SV39.
++ */
++#define PAGE_OFFSET_L3		_AC(0xffffffd800000000, UL)
++#else
+ #define PAGE_OFFSET		_AC(CONFIG_PAGE_OFFSET, UL)
++#endif /* CONFIG_64BIT */
+ 
+ /*
+  * Half of the kernel address space (half of the entries of the page global
+@@ -90,6 +103,7 @@ extern unsigned long riscv_pfn_base;
+ #endif /* CONFIG_MMU */
+ 
+ struct kernel_mapping {
++	unsigned long page_offset;
+ 	unsigned long virt_addr;
+ 	uintptr_t phys_addr;
+ 	uintptr_t size;
+diff --git a/arch/riscv/include/asm/pgalloc.h b/arch/riscv/include/asm/pgalloc.h
+index 0af6933a7100..11823004b87a 100644
+--- a/arch/riscv/include/asm/pgalloc.h
++++ b/arch/riscv/include/asm/pgalloc.h
+@@ -11,6 +11,8 @@
+ #include <asm/tlb.h>
+ 
+ #ifdef CONFIG_MMU
++#define __HAVE_ARCH_PUD_ALLOC_ONE
++#define __HAVE_ARCH_PUD_FREE
+ #include <asm-generic/pgalloc.h>
+ 
+ static inline void pmd_populate_kernel(struct mm_struct *mm,
+@@ -36,6 +38,44 @@ static inline void pud_populate(struct mm_struct *mm, pud_t *pud, pmd_t *pmd)
+ 
+ 	set_pud(pud, __pud((pfn << _PAGE_PFN_SHIFT) | _PAGE_TABLE));
+ }
++
++static inline void p4d_populate(struct mm_struct *mm, p4d_t *p4d, pud_t *pud)
++{
++	if (pgtable_l4_enabled) {
++		unsigned long pfn = virt_to_pfn(pud);
++
++		set_p4d(p4d, __p4d((pfn << _PAGE_PFN_SHIFT) | _PAGE_TABLE));
++	}
++}
++
++static inline void p4d_populate_safe(struct mm_struct *mm, p4d_t *p4d,
++				     pud_t *pud)
++{
++	if (pgtable_l4_enabled) {
++		unsigned long pfn = virt_to_pfn(pud);
++
++		set_p4d_safe(p4d,
++			     __p4d((pfn << _PAGE_PFN_SHIFT) | _PAGE_TABLE));
++	}
++}
++
++#define pud_alloc_one pud_alloc_one
++static inline pud_t *pud_alloc_one(struct mm_struct *mm, unsigned long addr)
++{
++	if (pgtable_l4_enabled)
++		return __pud_alloc_one(mm, addr);
++
++	return NULL;
++}
++
++#define pud_free pud_free
++static inline void pud_free(struct mm_struct *mm, pud_t *pud)
++{
++	if (pgtable_l4_enabled)
++		__pud_free(mm, pud);
++}
++
++#define __pud_free_tlb(tlb, pud, addr)  pud_free((tlb)->mm, pud)
+ #endif /* __PAGETABLE_PMD_FOLDED */
+ 
+ static inline pgd_t *pgd_alloc(struct mm_struct *mm)
+diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+index 228261aa9628..bbbdd66e5e2f 100644
+--- a/arch/riscv/include/asm/pgtable-64.h
++++ b/arch/riscv/include/asm/pgtable-64.h
+@@ -8,16 +8,36 @@
+ 
+ #include <linux/const.h>
+ 
+-#define PGDIR_SHIFT     30
++extern bool pgtable_l4_enabled;
++
++#define PGDIR_SHIFT_L3  30
++#define PGDIR_SHIFT_L4  39
++#define PGDIR_SIZE_L3   (_AC(1, UL) << PGDIR_SHIFT_L3)
++
++#define PGDIR_SHIFT     (pgtable_l4_enabled ? PGDIR_SHIFT_L4 : PGDIR_SHIFT_L3)
+ /* Size of region mapped by a page global directory */
+ #define PGDIR_SIZE      (_AC(1, UL) << PGDIR_SHIFT)
+ #define PGDIR_MASK      (~(PGDIR_SIZE - 1))
+ 
++/* pud is folded into pgd in case of 3-level page table */
++#define PUD_SHIFT      30
++#define PUD_SIZE       (_AC(1, UL) << PUD_SHIFT)
++#define PUD_MASK       (~(PUD_SIZE - 1))
++
+ #define PMD_SHIFT       21
+ /* Size of region mapped by a page middle directory */
+ #define PMD_SIZE        (_AC(1, UL) << PMD_SHIFT)
+ #define PMD_MASK        (~(PMD_SIZE - 1))
+ 
++/* Page Upper Directory entry */
++typedef struct {
++	unsigned long pud;
++} pud_t;
++
++#define pud_val(x)      ((x).pud)
++#define __pud(x)        ((pud_t) { (x) })
++#define PTRS_PER_PUD    (PAGE_SIZE / sizeof(pud_t))
++
+ /* Page Middle Directory entry */
+ typedef struct {
+ 	unsigned long pmd;
+@@ -59,6 +79,16 @@ static inline void pud_clear(pud_t *pudp)
+ 	set_pud(pudp, __pud(0));
+ }
+ 
++static inline pud_t pfn_pud(unsigned long pfn, pgprot_t prot)
++{
++	return __pud((pfn << _PAGE_PFN_SHIFT) | pgprot_val(prot));
++}
++
++static inline unsigned long _pud_pfn(pud_t pud)
++{
++	return pud_val(pud) >> _PAGE_PFN_SHIFT;
++}
++
+ static inline pmd_t *pud_pgtable(pud_t pud)
+ {
+ 	return (pmd_t *)pfn_to_virt(pud_val(pud) >> _PAGE_PFN_SHIFT);
+@@ -69,6 +99,17 @@ static inline struct page *pud_page(pud_t pud)
+ 	return pfn_to_page(pud_val(pud) >> _PAGE_PFN_SHIFT);
+ }
+ 
++#define mm_pud_folded  mm_pud_folded
++static inline bool mm_pud_folded(struct mm_struct *mm)
++{
++	if (pgtable_l4_enabled)
++		return false;
++
++	return true;
++}
++
++#define pmd_index(addr) (((addr) >> PMD_SHIFT) & (PTRS_PER_PMD - 1))
++
+ static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
+ {
+ 	return __pmd((pfn << _PAGE_PFN_SHIFT) | pgprot_val(prot));
+@@ -84,4 +125,69 @@ static inline unsigned long _pmd_pfn(pmd_t pmd)
+ #define pmd_ERROR(e) \
+ 	pr_err("%s:%d: bad pmd %016lx.\n", __FILE__, __LINE__, pmd_val(e))
+ 
++#define pud_ERROR(e)   \
++	pr_err("%s:%d: bad pud %016lx.\n", __FILE__, __LINE__, pud_val(e))
++
++static inline void set_p4d(p4d_t *p4dp, p4d_t p4d)
++{
++	if (pgtable_l4_enabled)
++		*p4dp = p4d;
++	else
++		set_pud((pud_t *)p4dp, (pud_t){ p4d_val(p4d) });
++}
++
++static inline int p4d_none(p4d_t p4d)
++{
++	if (pgtable_l4_enabled)
++		return (p4d_val(p4d) == 0);
++
++	return 0;
++}
++
++static inline int p4d_present(p4d_t p4d)
++{
++	if (pgtable_l4_enabled)
++		return (p4d_val(p4d) & _PAGE_PRESENT);
++
++	return 1;
++}
++
++static inline int p4d_bad(p4d_t p4d)
++{
++	if (pgtable_l4_enabled)
++		return !p4d_present(p4d);
++
++	return 0;
++}
++
++static inline void p4d_clear(p4d_t *p4d)
++{
++	if (pgtable_l4_enabled)
++		set_p4d(p4d, __p4d(0));
++}
++
++static inline pud_t *p4d_pgtable(p4d_t p4d)
++{
++	if (pgtable_l4_enabled)
++		return (pud_t *)pfn_to_virt(p4d_val(p4d) >> _PAGE_PFN_SHIFT);
++
++	return (pud_t *)pud_pgtable((pud_t) { p4d_val(p4d) });
++}
++
++static inline struct page *p4d_page(p4d_t p4d)
++{
++	return pfn_to_page(p4d_val(p4d) >> _PAGE_PFN_SHIFT);
++}
++
++#define pud_index(addr) (((addr) >> PUD_SHIFT) & (PTRS_PER_PUD - 1))
++
++#define pud_offset pud_offset
++static inline pud_t *pud_offset(p4d_t *p4d, unsigned long address)
++{
++	if (pgtable_l4_enabled)
++		return p4d_pgtable(*p4d) + pud_index(address);
++
++	return (pud_t *)p4d;
++}
++
+ #endif /* _ASM_RISCV_PGTABLE_64_H */
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index e1a52e22ad7e..e1c74ef4ead2 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -51,7 +51,7 @@
+  * position vmemmap directly below the VMALLOC region.
+  */
+ #ifdef CONFIG_64BIT
+-#define VA_BITS		39
++#define VA_BITS		(pgtable_l4_enabled ? 48 : 39)
+ #else
+ #define VA_BITS		32
+ #endif
+@@ -90,8 +90,7 @@
+ 
+ #ifndef __ASSEMBLY__
+ 
+-/* Page Upper Directory not used in RISC-V */
+-#include <asm-generic/pgtable-nopud.h>
++#include <asm-generic/pgtable-nop4d.h>
+ #include <asm/page.h>
+ #include <asm/tlbflush.h>
+ #include <linux/mm_types.h>
+@@ -113,6 +112,17 @@
+ #define XIP_FIXUP(addr)		(addr)
+ #endif /* CONFIG_XIP_KERNEL */
+ 
++struct pt_alloc_ops {
++	pte_t *(*get_pte_virt)(phys_addr_t pa);
++	phys_addr_t (*alloc_pte)(uintptr_t va);
++#ifndef __PAGETABLE_PMD_FOLDED
++	pmd_t *(*get_pmd_virt)(phys_addr_t pa);
++	phys_addr_t (*alloc_pmd)(uintptr_t va);
++	pud_t *(*get_pud_virt)(phys_addr_t pa);
++	phys_addr_t (*alloc_pud)(uintptr_t va);
++#endif
++};
++
+ #ifdef CONFIG_MMU
+ /* Number of entries in the page global directory */
+ #define PTRS_PER_PGD    (PAGE_SIZE / sizeof(pgd_t))
+@@ -669,9 +679,11 @@ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
+  * Note that PGDIR_SIZE must evenly divide TASK_SIZE.
+  */
+ #ifdef CONFIG_64BIT
+-#define TASK_SIZE (PGDIR_SIZE * PTRS_PER_PGD / 2)
++#define TASK_SIZE      (PGDIR_SIZE * PTRS_PER_PGD / 2)
++#define TASK_SIZE_MIN  (PGDIR_SIZE_L3 * PTRS_PER_PGD / 2)
+ #else
+-#define TASK_SIZE FIXADDR_START
++#define TASK_SIZE	FIXADDR_START
++#define TASK_SIZE_MIN	TASK_SIZE
+ #endif
+ 
+ #else /* CONFIG_MMU */
+@@ -697,6 +709,8 @@ extern uintptr_t _dtb_early_pa;
+ #define dtb_early_va	_dtb_early_va
+ #define dtb_early_pa	_dtb_early_pa
+ #endif /* CONFIG_XIP_KERNEL */
++extern u64 satp_mode;
++extern bool pgtable_l4_enabled;
+ 
+ void paging_init(void);
+ void misc_mem_init(void);
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index 52c5ff9804c5..c3c0ed559770 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -95,7 +95,8 @@ relocate:
+ 
+ 	/* Compute satp for kernel page tables, but don't load it yet */
+ 	srl a2, a0, PAGE_SHIFT
+-	li a1, SATP_MODE
++	la a1, satp_mode
++	REG_L a1, 0(a1)
+ 	or a2, a2, a1
+ 
+ 	/*
+diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+index ee3459cb6750..a7246872bd30 100644
+--- a/arch/riscv/mm/context.c
++++ b/arch/riscv/mm/context.c
+@@ -192,7 +192,7 @@ static void set_mm_asid(struct mm_struct *mm, unsigned int cpu)
+ switch_mm_fast:
+ 	csr_write(CSR_SATP, virt_to_pfn(mm->pgd) |
+ 		  ((cntx & asid_mask) << SATP_ASID_SHIFT) |
+-		  SATP_MODE);
++		  satp_mode);
+ 
+ 	if (need_flush_tlb)
+ 		local_flush_tlb_all();
+@@ -201,7 +201,7 @@ static void set_mm_asid(struct mm_struct *mm, unsigned int cpu)
+ static void set_mm_noasid(struct mm_struct *mm)
+ {
+ 	/* Switch the page table and blindly nuke entire local TLB */
+-	csr_write(CSR_SATP, virt_to_pfn(mm->pgd) | SATP_MODE);
++	csr_write(CSR_SATP, virt_to_pfn(mm->pgd) | satp_mode);
+ 	local_flush_tlb_all();
+ }
+ 
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 1552226fb6bd..6a19a1b1caf8 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -37,6 +37,17 @@ EXPORT_SYMBOL(kernel_map);
+ #define kernel_map	(*(struct kernel_mapping *)XIP_FIXUP(&kernel_map))
+ #endif
+ 
++#ifdef CONFIG_64BIT
++u64 satp_mode = !IS_ENABLED(CONFIG_XIP_KERNEL) ? SATP_MODE_48 : SATP_MODE_39;
++#else
++u64 satp_mode = SATP_MODE_32;
++#endif
++EXPORT_SYMBOL(satp_mode);
++
++bool pgtable_l4_enabled = IS_ENABLED(CONFIG_64BIT) && !IS_ENABLED(CONFIG_XIP_KERNEL) ?
++				true : false;
++EXPORT_SYMBOL(pgtable_l4_enabled);
++
+ phys_addr_t phys_ram_base __ro_after_init;
+ EXPORT_SYMBOL(phys_ram_base);
+ 
+@@ -53,15 +64,6 @@ extern char _start[];
+ void *_dtb_early_va __initdata;
+ uintptr_t _dtb_early_pa __initdata;
+ 
+-struct pt_alloc_ops {
+-	pte_t *(*get_pte_virt)(phys_addr_t pa);
+-	phys_addr_t (*alloc_pte)(uintptr_t va);
+-#ifndef __PAGETABLE_PMD_FOLDED
+-	pmd_t *(*get_pmd_virt)(phys_addr_t pa);
+-	phys_addr_t (*alloc_pmd)(uintptr_t va);
+-#endif
+-};
+-
+ static phys_addr_t dma32_phys_limit __initdata;
+ 
+ static void __init zone_sizes_init(void)
+@@ -222,7 +224,7 @@ static void __init setup_bootmem(void)
+ }
+ 
+ #ifdef CONFIG_MMU
+-static struct pt_alloc_ops _pt_ops __initdata;
++struct pt_alloc_ops _pt_ops __initdata;
+ 
+ #ifdef CONFIG_XIP_KERNEL
+ #define pt_ops (*(struct pt_alloc_ops *)XIP_FIXUP(&_pt_ops))
+@@ -238,6 +240,7 @@ pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+ static pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
+ 
+ pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
++static pud_t __maybe_unused early_dtb_pud[PTRS_PER_PUD] __initdata __aligned(PAGE_SIZE);
+ static pmd_t __maybe_unused early_dtb_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
+ 
+ #ifdef CONFIG_XIP_KERNEL
+@@ -326,6 +329,16 @@ static pmd_t early_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
+ #define early_pmd      ((pmd_t *)XIP_FIXUP(early_pmd))
+ #endif /* CONFIG_XIP_KERNEL */
+ 
++static pud_t trampoline_pud[PTRS_PER_PUD] __page_aligned_bss;
++static pud_t fixmap_pud[PTRS_PER_PUD] __page_aligned_bss;
++static pud_t early_pud[PTRS_PER_PUD] __initdata __aligned(PAGE_SIZE);
++
++#ifdef CONFIG_XIP_KERNEL
++#define trampoline_pud ((pud_t *)XIP_FIXUP(trampoline_pud))
++#define fixmap_pud     ((pud_t *)XIP_FIXUP(fixmap_pud))
++#define early_pud      ((pud_t *)XIP_FIXUP(early_pud))
++#endif /* CONFIG_XIP_KERNEL */
++
+ static pmd_t *__init get_pmd_virt_early(phys_addr_t pa)
+ {
+ 	/* Before MMU is enabled */
+@@ -345,7 +358,7 @@ static pmd_t *__init get_pmd_virt_late(phys_addr_t pa)
+ 
+ static phys_addr_t __init alloc_pmd_early(uintptr_t va)
+ {
+-	BUG_ON((va - kernel_map.virt_addr) >> PGDIR_SHIFT);
++	BUG_ON((va - kernel_map.virt_addr) >> PUD_SHIFT);
+ 
+ 	return (uintptr_t)early_pmd;
+ }
+@@ -391,21 +404,97 @@ static void __init create_pmd_mapping(pmd_t *pmdp,
+ 	create_pte_mapping(ptep, va, pa, sz, prot);
+ }
+ 
+-#define pgd_next_t		pmd_t
+-#define alloc_pgd_next(__va)	pt_ops.alloc_pmd(__va)
+-#define get_pgd_next_virt(__pa)	pt_ops.get_pmd_virt(__pa)
++static pud_t *__init get_pud_virt_early(phys_addr_t pa)
++{
++	return (pud_t *)((uintptr_t)pa);
++}
++
++static pud_t *__init get_pud_virt_fixmap(phys_addr_t pa)
++{
++	clear_fixmap(FIX_PUD);
++	return (pud_t *)set_fixmap_offset(FIX_PUD, pa);
++}
++
++static pud_t *__init get_pud_virt_late(phys_addr_t pa)
++{
++	return (pud_t *)__va(pa);
++}
++
++static phys_addr_t __init alloc_pud_early(uintptr_t va)
++{
++	/* Only one PUD is available for early mapping */
++	BUG_ON((va - kernel_map.virt_addr) >> PGDIR_SHIFT);
++
++	return (uintptr_t)early_pud;
++}
++
++static phys_addr_t __init alloc_pud_fixmap(uintptr_t va)
++{
++	return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
++}
++
++static phys_addr_t alloc_pud_late(uintptr_t va)
++{
++	unsigned long vaddr;
++
++	vaddr = __get_free_page(GFP_KERNEL);
++	BUG_ON(!vaddr);
++	return __pa(vaddr);
++}
++
++static void __init create_pud_mapping(pud_t *pudp,
++				      uintptr_t va, phys_addr_t pa,
++				      phys_addr_t sz, pgprot_t prot)
++{
++	pmd_t *nextp;
++	phys_addr_t next_phys;
++	uintptr_t pud_index = pud_index(va);
++
++	if (sz == PUD_SIZE) {
++		if (pud_val(pudp[pud_index]) == 0)
++			pudp[pud_index] = pfn_pud(PFN_DOWN(pa), prot);
++		return;
++	}
++
++	if (pud_val(pudp[pud_index]) == 0) {
++		next_phys = pt_ops.alloc_pmd(va);
++		pudp[pud_index] = pfn_pud(PFN_DOWN(next_phys), PAGE_TABLE);
++		nextp = pt_ops.get_pmd_virt(next_phys);
++		memset(nextp, 0, PAGE_SIZE);
++	} else {
++		next_phys = PFN_PHYS(_pud_pfn(pudp[pud_index]));
++		nextp = pt_ops.get_pmd_virt(next_phys);
++	}
++
++	create_pmd_mapping(nextp, va, pa, sz, prot);
++}
++
++#define pgd_next_t		pud_t
++#define alloc_pgd_next(__va)	(pgtable_l4_enabled ?			\
++		pt_ops.alloc_pud(__va) : pt_ops.alloc_pmd(__va))
++#define get_pgd_next_virt(__pa)	(pgtable_l4_enabled ?			\
++		pt_ops.get_pud_virt(__pa) : (pgd_next_t *)pt_ops.get_pmd_virt(__pa))
+ #define create_pgd_next_mapping(__nextp, __va, __pa, __sz, __prot)	\
+-	create_pmd_mapping(__nextp, __va, __pa, __sz, __prot)
+-#define fixmap_pgd_next		fixmap_pmd
++				(pgtable_l4_enabled ?			\
++		create_pud_mapping(__nextp, __va, __pa, __sz, __prot) :	\
++		create_pmd_mapping((pmd_t *)__nextp, __va, __pa, __sz, __prot))
++#define fixmap_pgd_next		(pgtable_l4_enabled ?			\
++		(uintptr_t)fixmap_pud : (uintptr_t)fixmap_pmd)
++#define trampoline_pgd_next	(pgtable_l4_enabled ?			\
++		(uintptr_t)trampoline_pud : (uintptr_t)trampoline_pmd)
++#define early_dtb_pgd_next	(pgtable_l4_enabled ?			\
++		(uintptr_t)early_dtb_pud : (uintptr_t)early_dtb_pmd)
+ #else
+ #define pgd_next_t		pte_t
+ #define alloc_pgd_next(__va)	pt_ops.alloc_pte(__va)
+ #define get_pgd_next_virt(__pa)	pt_ops.get_pte_virt(__pa)
+ #define create_pgd_next_mapping(__nextp, __va, __pa, __sz, __prot)	\
+ 	create_pte_mapping(__nextp, __va, __pa, __sz, __prot)
+-#define fixmap_pgd_next		fixmap_pte
++#define fixmap_pgd_next		((uintptr_t)fixmap_pte)
++#define early_dtb_pgd_next	((uintptr_t)early_dtb_pmd)
++#define create_pud_mapping(__pmdp, __va, __pa, __sz, __prot)
+ #define create_pmd_mapping(__pmdp, __va, __pa, __sz, __prot)
+-#endif
++#endif /* __PAGETABLE_PMD_FOLDED */
+ 
+ void __init create_pgd_mapping(pgd_t *pgdp,
+ 				      uintptr_t va, phys_addr_t pa,
+@@ -493,6 +582,57 @@ static __init pgprot_t pgprot_from_va(uintptr_t va)
+ }
+ #endif /* CONFIG_STRICT_KERNEL_RWX */
+ 
++#ifdef CONFIG_64BIT
++static void __init disable_pgtable_l4(void)
++{
++	pgtable_l4_enabled = false;
++	kernel_map.page_offset = PAGE_OFFSET_L3;
++	satp_mode = SATP_MODE_39;
++}
++
++/*
++ * There is a simple way to determine if 4-level is supported by the
++ * underlying hardware: establish 1:1 mapping in 4-level page table mode
++ * then read SATP to see if the configuration was taken into account
++ * meaning sv48 is supported.
++ */
++static __init void set_satp_mode(void)
++{
++	u64 identity_satp, hw_satp;
++	uintptr_t set_satp_mode_pmd;
++
++	set_satp_mode_pmd = ((unsigned long)set_satp_mode) & PMD_MASK;
++	create_pgd_mapping(early_pg_dir,
++			   set_satp_mode_pmd, (uintptr_t)early_pud,
++			   PGDIR_SIZE, PAGE_TABLE);
++	create_pud_mapping(early_pud,
++			   set_satp_mode_pmd, (uintptr_t)early_pmd,
++			   PUD_SIZE, PAGE_TABLE);
++	/* Handle the case where set_satp_mode straddles 2 PMDs */
++	create_pmd_mapping(early_pmd,
++			   set_satp_mode_pmd, set_satp_mode_pmd,
++			   PMD_SIZE, PAGE_KERNEL_EXEC);
++	create_pmd_mapping(early_pmd,
++			   set_satp_mode_pmd + PMD_SIZE,
++			   set_satp_mode_pmd + PMD_SIZE,
++			   PMD_SIZE, PAGE_KERNEL_EXEC);
++
++	identity_satp = PFN_DOWN((uintptr_t)&early_pg_dir) | satp_mode;
++
++	local_flush_tlb_all();
++	csr_write(CSR_SATP, identity_satp);
++	hw_satp = csr_swap(CSR_SATP, 0ULL);
++	local_flush_tlb_all();
++
++	if (hw_satp != identity_satp)
++		disable_pgtable_l4();
++
++	memset(early_pg_dir, 0, PAGE_SIZE);
++	memset(early_pud, 0, PAGE_SIZE);
++	memset(early_pmd, 0, PAGE_SIZE);
++}
++#endif
++
+ /*
+  * setup_vm() is called from head.S with MMU-off.
+  *
+@@ -557,10 +697,15 @@ static void __init create_fdt_early_page_table(pgd_t *pgdir, uintptr_t dtb_pa)
+ 	uintptr_t pa = dtb_pa & ~(PMD_SIZE - 1);
+ 
+ 	create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA,
+-			   IS_ENABLED(CONFIG_64BIT) ? (uintptr_t)early_dtb_pmd : pa,
++			   IS_ENABLED(CONFIG_64BIT) ? early_dtb_pgd_next : pa,
+ 			   PGDIR_SIZE,
+ 			   IS_ENABLED(CONFIG_64BIT) ? PAGE_TABLE : PAGE_KERNEL);
+ 
++	if (pgtable_l4_enabled) {
++		create_pud_mapping(early_dtb_pud, DTB_EARLY_BASE_VA,
++				   (uintptr_t)early_dtb_pmd, PUD_SIZE, PAGE_TABLE);
++	}
++
+ 	if (IS_ENABLED(CONFIG_64BIT)) {
+ 		create_pmd_mapping(early_dtb_pmd, DTB_EARLY_BASE_VA,
+ 				   pa, PMD_SIZE, PAGE_KERNEL);
+@@ -593,6 +738,8 @@ void pt_ops_set_early(void)
+ #ifndef __PAGETABLE_PMD_FOLDED
+ 	pt_ops.alloc_pmd = alloc_pmd_early;
+ 	pt_ops.get_pmd_virt = get_pmd_virt_early;
++	pt_ops.alloc_pud = alloc_pud_early;
++	pt_ops.get_pud_virt = get_pud_virt_early;
+ #endif
+ }
+ 
+@@ -611,6 +758,8 @@ void pt_ops_set_fixmap(void)
+ #ifndef __PAGETABLE_PMD_FOLDED
+ 	pt_ops.alloc_pmd = kernel_mapping_pa_to_va((uintptr_t)alloc_pmd_fixmap);
+ 	pt_ops.get_pmd_virt = kernel_mapping_pa_to_va((uintptr_t)get_pmd_virt_fixmap);
++	pt_ops.alloc_pud = kernel_mapping_pa_to_va((uintptr_t)alloc_pud_fixmap);
++	pt_ops.get_pud_virt = kernel_mapping_pa_to_va((uintptr_t)get_pud_virt_fixmap);
+ #endif
+ }
+ 
+@@ -625,6 +774,8 @@ void pt_ops_set_late(void)
+ #ifndef __PAGETABLE_PMD_FOLDED
+ 	pt_ops.alloc_pmd = alloc_pmd_late;
+ 	pt_ops.get_pmd_virt = get_pmd_virt_late;
++	pt_ops.alloc_pud = alloc_pud_late;
++	pt_ops.get_pud_virt = get_pud_virt_late;
+ #endif
+ }
+ 
+@@ -633,6 +784,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 	pmd_t __maybe_unused fix_bmap_spmd, fix_bmap_epmd;
+ 
+ 	kernel_map.virt_addr = KERNEL_LINK_ADDR;
++	kernel_map.page_offset = _AC(CONFIG_PAGE_OFFSET, UL);
+ 
+ #ifdef CONFIG_XIP_KERNEL
+ 	kernel_map.xiprom = (uintptr_t)CONFIG_XIP_PHYS_ADDR;
+@@ -647,6 +799,11 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 	kernel_map.phys_addr = (uintptr_t)(&_start);
+ 	kernel_map.size = (uintptr_t)(&_end) - kernel_map.phys_addr;
+ #endif
++
++#if defined(CONFIG_64BIT) && !defined(CONFIG_XIP_KERNEL)
++	set_satp_mode();
++#endif
++
+ 	kernel_map.va_pa_offset = PAGE_OFFSET - kernel_map.phys_addr;
+ 	kernel_map.va_kernel_pa_offset = kernel_map.virt_addr - kernel_map.phys_addr;
+ 
+@@ -676,15 +833,21 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 
+ 	/* Setup early PGD for fixmap */
+ 	create_pgd_mapping(early_pg_dir, FIXADDR_START,
+-			   (uintptr_t)fixmap_pgd_next, PGDIR_SIZE, PAGE_TABLE);
++			   fixmap_pgd_next, PGDIR_SIZE, PAGE_TABLE);
+ 
+ #ifndef __PAGETABLE_PMD_FOLDED
+-	/* Setup fixmap PMD */
++	/* Setup fixmap PUD and PMD */
++	if (pgtable_l4_enabled)
++		create_pud_mapping(fixmap_pud, FIXADDR_START,
++				   (uintptr_t)fixmap_pmd, PUD_SIZE, PAGE_TABLE);
+ 	create_pmd_mapping(fixmap_pmd, FIXADDR_START,
+ 			   (uintptr_t)fixmap_pte, PMD_SIZE, PAGE_TABLE);
+ 	/* Setup trampoline PGD and PMD */
+ 	create_pgd_mapping(trampoline_pg_dir, kernel_map.virt_addr,
+-			   (uintptr_t)trampoline_pmd, PGDIR_SIZE, PAGE_TABLE);
++			   trampoline_pgd_next, PGDIR_SIZE, PAGE_TABLE);
++	if (pgtable_l4_enabled)
++		create_pud_mapping(trampoline_pud, kernel_map.virt_addr,
++				   (uintptr_t)trampoline_pmd, PUD_SIZE, PAGE_TABLE);
+ #ifdef CONFIG_XIP_KERNEL
+ 	create_pmd_mapping(trampoline_pmd, kernel_map.virt_addr,
+ 			   kernel_map.xiprom, PMD_SIZE, PAGE_KERNEL_EXEC);
+@@ -712,7 +875,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 	 * Bootime fixmap only can handle PMD_SIZE mapping. Thus, boot-ioremap
+ 	 * range can not span multiple pmds.
+ 	 */
+-	BUILD_BUG_ON((__fix_to_virt(FIX_BTMAP_BEGIN) >> PMD_SHIFT)
++	BUG_ON((__fix_to_virt(FIX_BTMAP_BEGIN) >> PMD_SHIFT)
+ 		     != (__fix_to_virt(FIX_BTMAP_END) >> PMD_SHIFT));
+ 
+ #ifndef __PAGETABLE_PMD_FOLDED
+@@ -783,9 +946,10 @@ static void __init setup_vm_final(void)
+ 	/* Clear fixmap PTE and PMD mappings */
+ 	clear_fixmap(FIX_PTE);
+ 	clear_fixmap(FIX_PMD);
++	clear_fixmap(FIX_PUD);
+ 
+ 	/* Move to swapper page table */
+-	csr_write(CSR_SATP, PFN_DOWN(__pa_symbol(swapper_pg_dir)) | SATP_MODE);
++	csr_write(CSR_SATP, PFN_DOWN(__pa_symbol(swapper_pg_dir)) | satp_mode);
+ 	local_flush_tlb_all();
+ 
+ 	pt_ops_set_late();
+diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
+index 1434a0225140..993f50571a3b 100644
+--- a/arch/riscv/mm/kasan_init.c
++++ b/arch/riscv/mm/kasan_init.c
+@@ -11,7 +11,29 @@
+ #include <asm/fixmap.h>
+ #include <asm/pgalloc.h>
+ 
++/*
++ * Kasan shadow region must lie at a fixed address across sv39, sv48 and sv57
++ * which is right before the kernel.
++ *
++ * For sv39, the region is aligned on PGDIR_SIZE so we only need to populate
++ * the page global directory with kasan_early_shadow_pmd.
++ *
++ * For sv48 and sv57, the region is not aligned on PGDIR_SIZE so the mapping
++ * must be divided as follows:
++ * - the first PGD entry, although incomplete, is populated with
++ *   kasan_early_shadow_pud/p4d
++ * - the PGD entries in the middle are populated with kasan_early_shadow_pud/p4d
++ * - the last PGD entry is shared with the kernel mapping so populated at the
++ *   lower levels pud/p4d
++ *
++ * In addition, when shallow populating a kasan region (for example vmalloc),
++ * this region may also not be aligned on PGDIR size, so we must go down to the
++ * pud level too.
++ */
++
+ extern pgd_t early_pg_dir[PTRS_PER_PGD];
++extern struct pt_alloc_ops _pt_ops __initdata;
++#define pt_ops	_pt_ops
+ 
+ static void __init kasan_populate_pte(pmd_t *pmd, unsigned long vaddr, unsigned long end)
+ {
+@@ -35,15 +57,19 @@ static void __init kasan_populate_pte(pmd_t *pmd, unsigned long vaddr, unsigned
+ 	set_pmd(pmd, pfn_pmd(PFN_DOWN(__pa(base_pte)), PAGE_TABLE));
+ }
+ 
+-static void __init kasan_populate_pmd(pgd_t *pgd, unsigned long vaddr, unsigned long end)
++static void __init kasan_populate_pmd(pud_t *pud, unsigned long vaddr, unsigned long end)
+ {
+ 	phys_addr_t phys_addr;
+ 	pmd_t *pmdp, *base_pmd;
+ 	unsigned long next;
+ 
+-	base_pmd = (pmd_t *)pgd_page_vaddr(*pgd);
+-	if (base_pmd == lm_alias(kasan_early_shadow_pmd))
++	if (pud_none(*pud)) {
+ 		base_pmd = memblock_alloc(PTRS_PER_PMD * sizeof(pmd_t), PAGE_SIZE);
++	} else {
++		base_pmd = (pmd_t *)pud_pgtable(*pud);
++		if (base_pmd == lm_alias(kasan_early_shadow_pmd))
++			base_pmd = memblock_alloc(PTRS_PER_PMD * sizeof(pmd_t), PAGE_SIZE);
++	}
+ 
+ 	pmdp = base_pmd + pmd_index(vaddr);
+ 
+@@ -67,9 +93,72 @@ static void __init kasan_populate_pmd(pgd_t *pgd, unsigned long vaddr, unsigned
+ 	 * it entirely, memblock could allocate a page at a physical address
+ 	 * where KASAN is not populated yet and then we'd get a page fault.
+ 	 */
+-	set_pgd(pgd, pfn_pgd(PFN_DOWN(__pa(base_pmd)), PAGE_TABLE));
++	set_pud(pud, pfn_pud(PFN_DOWN(__pa(base_pmd)), PAGE_TABLE));
++}
++
++static void __init kasan_populate_pud(pgd_t *pgd,
++				      unsigned long vaddr, unsigned long end,
++				      bool early)
++{
++	phys_addr_t phys_addr;
++	pud_t *pudp, *base_pud;
++	unsigned long next;
++
++	if (early) {
++		/*
++		 * We can't use pgd_page_vaddr here as it would return a linear
++		 * mapping address but it is not mapped yet, but when populating
++		 * early_pg_dir, we need the physical address and when populating
++		 * swapper_pg_dir, we need the kernel virtual address so use
++		 * pt_ops facility.
++		 */
++		base_pud = pt_ops.get_pud_virt(pfn_to_phys(_pgd_pfn(*pgd)));
++	} else {
++		base_pud = (pud_t *)pgd_page_vaddr(*pgd);
++		if (base_pud == lm_alias(kasan_early_shadow_pud))
++			base_pud = memblock_alloc(PTRS_PER_PUD * sizeof(pud_t), PAGE_SIZE);
++	}
++
++	pudp = base_pud + pud_index(vaddr);
++
++	do {
++		next = pud_addr_end(vaddr, end);
++
++		if (pud_none(*pudp) && IS_ALIGNED(vaddr, PUD_SIZE) && (next - vaddr) >= PUD_SIZE) {
++			if (early) {
++				phys_addr = __pa(((uintptr_t)kasan_early_shadow_pmd));
++				set_pud(pudp, pfn_pud(PFN_DOWN(phys_addr), PAGE_TABLE));
++				continue;
++			} else {
++				phys_addr = memblock_phys_alloc(PUD_SIZE, PUD_SIZE);
++				if (phys_addr) {
++					set_pud(pudp, pfn_pud(PFN_DOWN(phys_addr), PAGE_KERNEL));
++					continue;
++				}
++			}
++		}
++
++		kasan_populate_pmd(pudp, vaddr, next);
++	} while (pudp++, vaddr = next, vaddr != end);
++
++	/*
++	 * Wait for the whole PGD to be populated before setting the PGD in
++	 * the page table, otherwise, if we did set the PGD before populating
++	 * it entirely, memblock could allocate a page at a physical address
++	 * where KASAN is not populated yet and then we'd get a page fault.
++	 */
++	if (!early)
++		set_pgd(pgd, pfn_pgd(PFN_DOWN(__pa(base_pud)), PAGE_TABLE));
+ }
+ 
++#define kasan_early_shadow_pgd_next			(pgtable_l4_enabled ?	\
++				(uintptr_t)kasan_early_shadow_pud :		\
++				(uintptr_t)kasan_early_shadow_pmd)
++#define kasan_populate_pgd_next(pgdp, vaddr, next, early)			\
++		(pgtable_l4_enabled ?						\
++			kasan_populate_pud(pgdp, vaddr, next, early) :		\
++			kasan_populate_pmd((pud_t *)pgdp, vaddr, next))
++
+ static void __init kasan_populate_pgd(pgd_t *pgdp,
+ 				      unsigned long vaddr, unsigned long end,
+ 				      bool early)
+@@ -102,7 +191,7 @@ static void __init kasan_populate_pgd(pgd_t *pgdp,
+ 			}
+ 		}
+ 
+-		kasan_populate_pmd(pgdp, vaddr, next);
++		kasan_populate_pgd_next(pgdp, vaddr, next, early);
+ 	} while (pgdp++, vaddr = next, vaddr != end);
+ }
+ 
+@@ -157,18 +246,54 @@ static void __init kasan_populate(void *start, void *end)
+ 	memset(start, KASAN_SHADOW_INIT, end - start);
+ }
+ 
++static void __init kasan_shallow_populate_pud(pgd_t *pgdp,
++					      unsigned long vaddr, unsigned long end,
++					      bool kasan_populate)
++{
++	unsigned long next;
++	pud_t *pudp, *base_pud;
++	pmd_t *base_pmd;
++	bool is_kasan_pmd;
++
++	base_pud = (pud_t *)pgd_page_vaddr(*pgdp);
++	pudp = base_pud + pud_index(vaddr);
++
++	if (kasan_populate)
++		memcpy(base_pud, (void *)kasan_early_shadow_pgd_next,
++		       sizeof(pud_t) * PTRS_PER_PUD);
++
++	do {
++		next = pud_addr_end(vaddr, end);
++		is_kasan_pmd = (pud_pgtable(*pudp) == lm_alias(kasan_early_shadow_pmd));
++
++		if (is_kasan_pmd) {
++			base_pmd = memblock_alloc(PAGE_SIZE, PAGE_SIZE);
++			set_pud(pudp, pfn_pud(PFN_DOWN(__pa(base_pmd)), PAGE_TABLE));
++		}
++	} while (pudp++, vaddr = next, vaddr != end);
++}
++
+ static void __init kasan_shallow_populate_pgd(unsigned long vaddr, unsigned long end)
+ {
+ 	unsigned long next;
+ 	void *p;
+ 	pgd_t *pgd_k = pgd_offset_k(vaddr);
++	bool is_kasan_pgd_next;
+ 
+ 	do {
+ 		next = pgd_addr_end(vaddr, end);
+-		if (pgd_page_vaddr(*pgd_k) == (unsigned long)lm_alias(kasan_early_shadow_pmd)) {
++		is_kasan_pgd_next = (pgd_page_vaddr(*pgd_k) ==
++				     (unsigned long)lm_alias(kasan_early_shadow_pgd_next));
++
++		if (is_kasan_pgd_next) {
+ 			p = memblock_alloc(PAGE_SIZE, PAGE_SIZE);
+ 			set_pgd(pgd_k, pfn_pgd(PFN_DOWN(__pa(p)), PAGE_TABLE));
+ 		}
++
++		if (IS_ALIGNED(vaddr, PGDIR_SIZE) && (next - vaddr) >= PGDIR_SIZE)
++			continue;
++
++		kasan_shallow_populate_pud(pgd_k, vaddr, next, is_kasan_pgd_next);
+ 	} while (pgd_k++, vaddr = next, vaddr != end);
+ }
+ 
+diff --git a/drivers/firmware/efi/libstub/efi-stub.c b/drivers/firmware/efi/libstub/efi-stub.c
+index 26e69788f27a..b3db5d91ed38 100644
+--- a/drivers/firmware/efi/libstub/efi-stub.c
++++ b/drivers/firmware/efi/libstub/efi-stub.c
+@@ -40,6 +40,8 @@
+ 
+ #ifdef CONFIG_ARM64
+ # define EFI_RT_VIRTUAL_LIMIT	DEFAULT_MAP_WINDOW_64
++#elif defined(CONFIG_RISCV)
++# define EFI_RT_VIRTUAL_LIMIT	TASK_SIZE_MIN
+ #else
+ # define EFI_RT_VIRTUAL_LIMIT	TASK_SIZE
+ #endif
+-- 
+2.32.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
