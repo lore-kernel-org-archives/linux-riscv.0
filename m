@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F12AC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Dec 2021 10:52:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0613C43219
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Dec 2021 10:53:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JmTv7JiTQsRmSqgJ8001Rw60e3Qws48XvCmZSOAqKS8=; b=VZgk4XJcW/I7Nr
-	mizOuthxv1OKqxunPWwYW5QWokoBDLOguFx7L1XarRC7GfqMnh8QOZUhb8hth+t/UIWgp9vfLTVFE
-	TlcK74jdR/tqTc1Q6/rikE+cY9gJIFsiwLuihm6UC+t5v9uzZq7lnBgvAJSpyww13ssFqFRCgdNuh
-	1BS9wQ2Yrh0CuDB6Sy2f9S/LblUv+ByYSpLxHY1qFJcCQNvnBgSo7rRiVnDBWTKbn8QjZeln5jY/c
-	6z8eeezDqGyUbxEjMhqboNaRr04I+RqT0Dzy60/8odN2CzL6Ry59iZ/XzPt3y3IQR+Ct+L48lyNmn
-	1SRBtF7COlHJS7nhEmJQ==;
+	List-Owner; bh=LrkboLfVg1QDYRUIdsXjowwABDk32ydnz8sOIC90tsc=; b=GydmItcLdnLGtO
+	/RZd7AC8MKWPXCBEdUgbMlQn3ABo2cFxJNfJFzeTebhxL8ss+a/j3i9PJsH08fnvkfn/QyL/+VvDI
+	zg5DDfhnJi/IQ0C5Qs9jUVdPY2ujU1h/otNdEjkX8WYBKf7gfYM6gfEHDJLDb0vADbsSzi/Th1gkr
+	DL9ST5WzMyiL7YlC/ekn/QJTIzmVS571/fktUpAC0ztQSEWpk9U0/FS+DcqePWIiFhiQaoh/3qxQF
+	qLNMgO+cwDueJbgzWbYYlehlD3GmExrSm0Uk6/t6wSvd0GxwIOKd8NTKYthEuECEMd/n3hlBGKjhg
+	huralZNZnKAXmbrrU5TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1muBbj-003QsJ-9K; Mon, 06 Dec 2021 10:52:31 +0000
+	id 1muBcf-003RIg-2W; Mon, 06 Dec 2021 10:53:29 +0000
 Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1muBbc-003Qnr-FK
- for linux-riscv@lists.infradead.org; Mon, 06 Dec 2021 10:52:26 +0000
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72])
+ id 1muBcb-003RGA-Oj
+ for linux-riscv@lists.infradead.org; Mon, 06 Dec 2021 10:53:27 +0000
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 2C2673F1BD
- for <linux-riscv@lists.infradead.org>; Mon,  6 Dec 2021 10:52:23 +0000 (UTC)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 78FEF3F1F8
+ for <linux-riscv@lists.infradead.org>; Mon,  6 Dec 2021 10:53:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1638787943;
- bh=9ySCV26avDqOMq3ybehcXkQhwvvZ5wxe1+MhhnplIPU=;
+ s=20210705; t=1638788004;
+ bh=gG/WhBjtCMK9Juy/cpLoUS+Fz+e97sYPeCnLmIYCPu8=;
  h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
  MIME-Version;
- b=UYaXq9O6pwsUGZwb6iKUO+bpEpV7o9GD0YvP/WvzYl8m0qzZEq6oEkpc+oiKjZG8L
- Cz2ZAf3PublRNK9RnbvG3h1P9mB5J1Kkt38N9iSSzj7noH8hhko0AXq54BTK5+DQx6
- MiFZkiSGnqgsMzBh9PE6baSvp4ESY/KYjUqMVugYcoh8hEDJjB5tRxhHfGGjtLOlL1
- Z77STNKnYYf7IXIrBLoGOPkUEgietTQzAs3J2QZFlowQZDt1aGJfH/gTMSm1HpE3Bx
- BZAHNVacTqI94BYcijuPA7SoZUxFVKmkwwjgZulQKo/aAnXu3+3HJKKf32ZS4iojgW
- nJk4dOfu3nqZQ==
-Received: by mail-wr1-f72.google.com with SMTP id
- d7-20020a5d6447000000b00186a113463dso1894982wrw.10
- for <linux-riscv@lists.infradead.org>; Mon, 06 Dec 2021 02:52:23 -0800 (PST)
+ b=asObokCf90fsDpuNacvxsmD3GYtI4o5fXM55ZEVyMDeuG/xOqyVthKEWW5zjckipm
+ VYJDqA6wvXGUzJK+dGgGIbTOpaDdAvokMp/6BKUi/k9ZvIxgYVUoH4x+LdADG6RGRy
+ H2+irsG6iFi/NBB6pEKrq7Yw3JO5GplVLMOL9Zs9z28LYSCyB9epzyYnfTQ07KFzWP
+ KyIN6Av+rZJvXhSFao8PAKM3HLOz2mPGXvBjh+rMOzemWfrK91e71SKu7ZgpI/oHjB
+ 0OhFb2QvayQi8vbsGoUCh+7MTOW4et3CGzKEqmKWMpmZkoZpg91c2szktNZoDv87IY
+ edHfF20/x6rKA==
+Received: by mail-wm1-f71.google.com with SMTP id
+ z138-20020a1c7e90000000b003319c5f9164so7677021wmc.7
+ for <linux-riscv@lists.infradead.org>; Mon, 06 Dec 2021 02:53:24 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=9ySCV26avDqOMq3ybehcXkQhwvvZ5wxe1+MhhnplIPU=;
- b=6D+1VqFKiqSeroNaRngy40R2ccgWKaWqyDJlEn3NUiqNKTUODJOgmOSx1AukyByJBz
- NNa+WHN5JfmZa616++C07brOyQ4xRHUSJhPvnNMUpMzzhkAQEuvgWdVvpZrNfq75MoGp
- Ikb+IisDrA+ojWcqOBR5m5gToJhxs/0xPwsMSYcUjVGuwI6jHWZJJRVMhhgcdkQg3lKa
- xcYUGHA3vhbVbvlWYdHh6XKQQsdjYk2lHivjjRv/WP7T27JLivX7gTapAZUpZdbeDjcb
- ZzCsYn79PBaKrmU/5ver5eChdt3O5LQO88E/4HKiMvmHH2CK2Wx5jEVu5Td8B6RNuBaD
- 94YQ==
-X-Gm-Message-State: AOAM5302q0CJb/tQ9MlMpBtXVpAVNpiNK/8yCkvImtzcK0rSfg9qsTjp
- fY5hdZHEbfmfAH1Avm856zsUWcMb2NIn+pStOIB/Ips+p7TW+F5VkFtfevktWHbGS++A9AwHPZU
- stfYKpytH/cYT89JxObnv7W0fru2NFKiP2TsPQ/9vyO5/eA==
-X-Received: by 2002:a5d:6acc:: with SMTP id u12mr41541841wrw.628.1638787942766; 
- Mon, 06 Dec 2021 02:52:22 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJyG45T87x/hgkvmCoRGy/akWlcOnI21JXsfnjT5Dkr0Aq51ptEmkRfn19MELBpl7ATpCMOj8g==
-X-Received: by 2002:a5d:6acc:: with SMTP id u12mr41541802wrw.628.1638787942625; 
- Mon, 06 Dec 2021 02:52:22 -0800 (PST)
+ bh=gG/WhBjtCMK9Juy/cpLoUS+Fz+e97sYPeCnLmIYCPu8=;
+ b=EoWOfaXLLJdPcBE0mFiJP4O3vlPKoW1NQ9N80ZIzmFh5Tavnp9D2c8yYZ8H2WC9uLc
+ UFZF4gSHKXQqP0IjgsxXYI9Ki91eveusb30S6fB3SEwSAasEAikmFmDODfylzAW2s5OA
+ 9L1qw8lfHYMEehzWuYaZT1huGmLThI32hxmPILAT2StL+kKoH+jDWVKU+zJVCjPHseTm
+ jvSIqD10yKYRsuVOSoacP4h59N6HI9RN9YtcGmkY5E1DPtYqIoZwj/UqQLwlHFyggDOB
+ o319RL16Y4mbvfqJiHOG3qP66RG3yZBvpT4R/9Kou9Hs5q1FiYlnGvX3TGXm6H5XCMFH
+ D4OA==
+X-Gm-Message-State: AOAM531nXKywLdK/AIXU8ep1MvJ10MHnz2pA5J9yXJmNmQCffn0Cha3s
+ PRi9f1PLPMhcFexejKK9HvbiwvTZ4DXwqOTzgNCxzf5MGG3rnVYjbBI9YOyiOI/U1URyblKKFUj
+ XXXnYs6XE/w1jUHfvsbDFlnitJyJrpCgLNQ1YLUGmjXLpIA==
+X-Received: by 2002:a7b:c102:: with SMTP id w2mr37750673wmi.151.1638788003996; 
+ Mon, 06 Dec 2021 02:53:23 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxopdWj9u1iMI/f8aQI95EBYjbHFU9+o6qbVXkckCCLscAAHiW0VAZVryb3dDIQkey6IRVgJg==
+X-Received: by 2002:a7b:c102:: with SMTP id w2mr37750632wmi.151.1638788003798; 
+ Mon, 06 Dec 2021 02:53:23 -0800 (PST)
 Received: from localhost.localdomain (lfbn-lyo-1-470-249.w2-7.abo.wanadoo.fr.
  [2.7.60.249])
- by smtp.gmail.com with ESMTPSA id l2sm13828074wmq.42.2021.12.06.02.52.21
+ by smtp.gmail.com with ESMTPSA id p5sm11021231wrd.13.2021.12.06.02.53.22
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 06 Dec 2021 02:52:22 -0800 (PST)
+ Mon, 06 Dec 2021 02:53:23 -0800 (PST)
 From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
 To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -87,16 +87,17 @@ To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
  linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
  linux-efi@vger.kernel.org, linux-arch@vger.kernel.org
 Cc: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Subject: [PATCH v3 05/13] riscv: Get rid of MAXPHYSMEM configs
-Date: Mon,  6 Dec 2021 11:46:49 +0100
-Message-Id: <20211206104657.433304-6-alexandre.ghiti@canonical.com>
+Subject: [PATCH v3 06/13] asm-generic: Prepare for riscv use of pud_alloc_one
+ and pud_free
+Date: Mon,  6 Dec 2021 11:46:50 +0100
+Message-Id: <20211206104657.433304-7-alexandre.ghiti@canonical.com>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20211206104657.433304-1-alexandre.ghiti@canonical.com>
 References: <20211206104657.433304-1-alexandre.ghiti@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211206_025224_681893_A48956F3 
-X-CRM114-Status: GOOD (  14.43  )
+X-CRM114-CacheID: sfid-20211206_025325_990087_187DE724 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,101 +114,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CONFIG_MAXPHYSMEM_* were actually never used, even the nommu defconfigs
-selecting the MAXPHYSMEM_2GB had no effects on PAGE_OFFSET since it was
-preempted by !MMU case right before.
+In the following commits, riscv will almost use the generic versions of
+pud_alloc_one and pud_free but an additional check is required since those
+functions are only relevant when using at least a 4-level page table, which
+will be determined at runtime on riscv.
 
-In addition, I suspect that commit 2bfc6cd81bd1 ("riscv: Move kernel
-mapping outside of linear mapping") which moved the kernel to
-0xffffffff80000000 broke the MAXPHYSMEM_2GB config which defined
-PAGE_OFFSET at the same address.
+So move the content of those functions into other functions that riscv
+can use without duplicating code.
 
 Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
 ---
- arch/riscv/Kconfig                            | 23 ++-----------------
- arch/riscv/configs/nommu_k210_defconfig       |  1 -
- .../riscv/configs/nommu_k210_sdcard_defconfig |  1 -
- arch/riscv/configs/nommu_virt_defconfig       |  1 -
- 4 files changed, 2 insertions(+), 24 deletions(-)
+ include/asm-generic/pgalloc.h | 24 ++++++++++++++++++------
+ 1 file changed, 18 insertions(+), 6 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index c3a167eea011..ac6c0cd9bc29 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -148,10 +148,9 @@ config MMU
+diff --git a/include/asm-generic/pgalloc.h b/include/asm-generic/pgalloc.h
+index 02932efad3ab..977bea16cf1b 100644
+--- a/include/asm-generic/pgalloc.h
++++ b/include/asm-generic/pgalloc.h
+@@ -147,6 +147,15 @@ static inline void pmd_free(struct mm_struct *mm, pmd_t *pmd)
  
- config PAGE_OFFSET
- 	hex
--	default 0xC0000000 if 32BIT && MAXPHYSMEM_1GB
-+	default 0xC0000000 if 32BIT
- 	default 0x80000000 if 64BIT && !MMU
--	default 0xffffffff80000000 if 64BIT && MAXPHYSMEM_2GB
--	default 0xffffffd800000000 if 64BIT && MAXPHYSMEM_128GB
-+	default 0xffffffd800000000 if 64BIT
+ #if CONFIG_PGTABLE_LEVELS > 3
  
- config KASAN_SHADOW_OFFSET
- 	hex
-@@ -260,24 +259,6 @@ config MODULE_SECTIONS
- 	bool
- 	select HAVE_MOD_ARCH_SPECIFIC
++static inline pud_t *__pud_alloc_one(struct mm_struct *mm, unsigned long addr)
++{
++	gfp_t gfp = GFP_PGTABLE_USER;
++
++	if (mm == &init_mm)
++		gfp = GFP_PGTABLE_KERNEL;
++	return (pud_t *)get_zeroed_page(gfp);
++}
++
+ #ifndef __HAVE_ARCH_PUD_ALLOC_ONE
+ /**
+  * pud_alloc_one - allocate a page for PUD-level page table
+@@ -159,20 +168,23 @@ static inline void pmd_free(struct mm_struct *mm, pmd_t *pmd)
+  */
+ static inline pud_t *pud_alloc_one(struct mm_struct *mm, unsigned long addr)
+ {
+-	gfp_t gfp = GFP_PGTABLE_USER;
+-
+-	if (mm == &init_mm)
+-		gfp = GFP_PGTABLE_KERNEL;
+-	return (pud_t *)get_zeroed_page(gfp);
++	return __pud_alloc_one(mm, addr);
+ }
+ #endif
  
--choice
--	prompt "Maximum Physical Memory"
--	default MAXPHYSMEM_1GB if 32BIT
--	default MAXPHYSMEM_2GB if 64BIT && CMODEL_MEDLOW
--	default MAXPHYSMEM_128GB if 64BIT && CMODEL_MEDANY
--
--	config MAXPHYSMEM_1GB
--		depends on 32BIT
--		bool "1GiB"
--	config MAXPHYSMEM_2GB
--		depends on 64BIT && CMODEL_MEDLOW
--		bool "2GiB"
--	config MAXPHYSMEM_128GB
--		depends on 64BIT && CMODEL_MEDANY
--		bool "128GiB"
--endchoice
--
--
- config SMP
- 	bool "Symmetric Multi-Processing"
- 	help
-diff --git a/arch/riscv/configs/nommu_k210_defconfig b/arch/riscv/configs/nommu_k210_defconfig
-index b16a2a12c82a..dae9179984cc 100644
---- a/arch/riscv/configs/nommu_k210_defconfig
-+++ b/arch/riscv/configs/nommu_k210_defconfig
-@@ -30,7 +30,6 @@ CONFIG_SLOB=y
- # CONFIG_MMU is not set
- CONFIG_SOC_CANAAN=y
- CONFIG_SOC_CANAAN_K210_DTB_SOURCE="k210_generic"
--CONFIG_MAXPHYSMEM_2GB=y
- CONFIG_SMP=y
- CONFIG_NR_CPUS=2
- CONFIG_CMDLINE="earlycon console=ttySIF0"
-diff --git a/arch/riscv/configs/nommu_k210_sdcard_defconfig b/arch/riscv/configs/nommu_k210_sdcard_defconfig
-index 61f887f65419..03f91525a059 100644
---- a/arch/riscv/configs/nommu_k210_sdcard_defconfig
-+++ b/arch/riscv/configs/nommu_k210_sdcard_defconfig
-@@ -22,7 +22,6 @@ CONFIG_SLOB=y
- # CONFIG_MMU is not set
- CONFIG_SOC_CANAAN=y
- CONFIG_SOC_CANAAN_K210_DTB_SOURCE="k210_generic"
--CONFIG_MAXPHYSMEM_2GB=y
- CONFIG_SMP=y
- CONFIG_NR_CPUS=2
- CONFIG_CMDLINE="earlycon console=ttySIF0 rootdelay=2 root=/dev/mmcblk0p1 ro"
-diff --git a/arch/riscv/configs/nommu_virt_defconfig b/arch/riscv/configs/nommu_virt_defconfig
-index e046a0babde4..f224be697785 100644
---- a/arch/riscv/configs/nommu_virt_defconfig
-+++ b/arch/riscv/configs/nommu_virt_defconfig
-@@ -27,7 +27,6 @@ CONFIG_SLOB=y
- # CONFIG_SLAB_MERGE_DEFAULT is not set
- # CONFIG_MMU is not set
- CONFIG_SOC_VIRT=y
--CONFIG_MAXPHYSMEM_2GB=y
- CONFIG_SMP=y
- CONFIG_CMDLINE="root=/dev/vda rw earlycon=uart8250,mmio,0x10000000,115200n8 console=ttyS0"
- CONFIG_CMDLINE_FORCE=y
+-static inline void pud_free(struct mm_struct *mm, pud_t *pud)
++static inline void __pud_free(struct mm_struct *mm, pud_t *pud)
+ {
+ 	BUG_ON((unsigned long)pud & (PAGE_SIZE-1));
+ 	free_page((unsigned long)pud);
+ }
+ 
++#ifndef __HAVE_ARCH_PUD_FREE
++static inline void pud_free(struct mm_struct *mm, pud_t *pud)
++{
++	__pud_free(mm, pud);
++}
++#endif
++
+ #endif /* CONFIG_PGTABLE_LEVELS > 3 */
+ 
+ #ifndef __HAVE_ARCH_PGD_FREE
 -- 
 2.32.0
 
