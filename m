@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53A61C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Dec 2021 10:58:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A452C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Dec 2021 10:59:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yvOachjqGiqbvZcHlZ45m/DfzL4TLTIyRDRY3WeFPCM=; b=dI0nrwDOP+Q7ll
-	bggzaBSgULXiSGyfFIf/OpbDeudY22nI3cbaeDpA6ctE6snR4/Jmv7qA4JRQKmyhs76ZcgSY52CQz
-	GzuDKfGwolLqcJbkLyKTeBBHqGNZ7Eka2/lDrW+aCpGz11VuOxMjyMQua8sQ+qwRFKr2GOBmcNeHG
-	3hZbUILRebysi5LWVzp6RQjljTJRSeUf/vQRK3UgIVt4o6Otl2wEFT4+/yelkTZRA7SaPoLSUPepN
-	+o076qprQPPIbRzO8ExSx4XjJDBxvfCkESAR3SZX8/IxGHIMUv3XjnVGDfJ53BfGX+/hiD8G4a6il
-	Fte6hFNAa1MNDjgoqusQ==;
+	List-Owner; bh=QmwyAnXyO598RoLDOP278MfHfOnYclLVPvlJVTmzWRU=; b=WfU8CRRn2ZEoOf
+	g3SCUEqh8xAoAgKpVjvyLNLH4knjDVbwP1HzuivSQTLHoTlPVbKOon6kgQVgFoqtG8WqZ4jgPFpXW
+	uU22TiKDYfR4twEb9XC5X2cKeEoOeHk7eMev1UYOq0jqSFGBoWt1Ot6vVUtf5JNkWfp8RZRSov46i
+	WgCKlbQLOXZcS+IYcLdjS94aREp8v7/yY1UVmFQawsvQh7lXOkjL0EFwSaGEmcrG+arERWk27lynI
+	4yWshu2us6kZkOrkkTgWi4JpebKy171HYwIxjif3j6j5suU/0/Zmk8YHaCf5Jtx8+xJrd8fkZcRGs
+	MA88n4GquryGRsXG/E0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1muBhd-003TJP-Ex; Mon, 06 Dec 2021 10:58:37 +0000
+	id 1muBib-003Thx-DP; Mon, 06 Dec 2021 10:59:37 +0000
 Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1muBhZ-003TGy-B5
- for linux-riscv@lists.infradead.org; Mon, 06 Dec 2021 10:58:35 +0000
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69])
+ id 1muBiY-003Tew-1v
+ for linux-riscv@lists.infradead.org; Mon, 06 Dec 2021 10:59:35 +0000
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id E02583F1B2
- for <linux-riscv@lists.infradead.org>; Mon,  6 Dec 2021 10:58:31 +0000 (UTC)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 293723F1C0
+ for <linux-riscv@lists.infradead.org>; Mon,  6 Dec 2021 10:59:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1638788311;
- bh=vaFAezChlajkTZ7fI5kVmIBThbHyfEUEZ5Atc7Q1k0c=;
+ s=20210705; t=1638788372;
+ bh=Mpf1+wFXToHvdF/Ol73oVGZ3N1s6PxZDoxH3qziN9eQ=;
  h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
  MIME-Version;
- b=Jj3xp2pW1fRZUx8KDqhW4jW2QZA+5uRtR7dSuwpcPTTohZJMjHKBgIiIHRB67GUCY
- Jxej48s/iZHFIW2LUke5xPC9m2ugMLKWHIBk6B9DJoYjHR6Q7YV3FGRiq6dnXA4jj5
- ikaEFj9fO/PZgeShQQpHVk+POvt/z99tExSPwSeNmUOetPed4ay0wyDha8RdsqXU09
- ExrQYjR8dH2zM4Vb/4Yh684+HP1bCX74PEKAUaoC89gLRqeerQU69c9BuOU79mlxru
- DqOVDnRfC5frcPYeXtqEmVHHuScj3oTOqTpMP46jjhwcDgisxFAfm2u5vU9s5YTguR
- iU2ZCoRls3gUA==
-Received: by mail-wr1-f69.google.com with SMTP id
- b1-20020a5d6341000000b001901ddd352eso1913517wrw.7
- for <linux-riscv@lists.infradead.org>; Mon, 06 Dec 2021 02:58:31 -0800 (PST)
+ b=dXCclNLRRCxEQOKbjzWa2rm+ng7eVoFjD6nrXqW89zYC7fQd+Ecce6HZ7m4dGyAup
+ rpIXJ7+PsnHAhU928rPQaLz1jwIWIg8TjSIUVD9M5Satq3pEaYLt4C34oWQ2TnyMBv
+ /UE+TmTJk67k9KwHWMw4CR9u0+Gub34G5IK7V/UAorPl7onH9CtzCV1m21fmJBdtWN
+ XQMoiEql8dbgCdj7Dktx3qdQ9oNqJxxGheZxyXHLC1hTMAl0BqwPsIc58ubn5j3w6x
+ nHBBTpdBjkiznYq65VEOeIB5Y3FFTF6q89XNHvwloGt2ghxIOG9U57SW+GGeuuaZNg
+ 6cyu737DL0nVg==
+Received: by mail-wm1-f71.google.com with SMTP id
+ ay34-20020a05600c1e2200b00337fd217772so4320709wmb.4
+ for <linux-riscv@lists.infradead.org>; Mon, 06 Dec 2021 02:59:32 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=vaFAezChlajkTZ7fI5kVmIBThbHyfEUEZ5Atc7Q1k0c=;
- b=g5MLpjcmIP1iH25HXZqeHhp7aLPGNqArwOUAS2btL0NbPBOjJSRsT5plE5G6lKu6Qw
- I3qwjQJ3zfxCJgYecRMtMCdYpn1NQy2wvlpHGY1AEQmDt1NxXOTfQLiPQDfX6EwJJPSC
- uLYSBjUUJ6/yAZkpLwesLZ2qR84ObtT2fS0T6TueV5tlV4ysoWGI0v7jrLOZqEAPWRhV
- SI8VgI3gyaktpRxp4NRFobtCI0i2bXfezdXPwiElLRCCdU78RRmIVU6NwJsaRct9jYPa
- K4dTuD58BsXs5yE2P6ootkIqh63N/P8gckRD5wEKznQ5jwDt/XQsGYoZwkbI6FT82XSk
- Xx7A==
-X-Gm-Message-State: AOAM5324q09XR9/7YKzkr7f6Qp9reAujPqP9ihgfxF0hH9mwgmkvHu0E
- zmru25UaWPPx/Zm+NnlJHX5lGwsACWoXu1VuMBgi62s6cU7H6BUXqqEnTSYwjnUm4dxMQYvfTOT
- kUzSzb+Hnp2ZBvEnLc129q88bZz/yNEZXAgQZ3Gtw3209kw==
-X-Received: by 2002:a5d:4c87:: with SMTP id z7mr42470483wrs.108.1638788310552; 
- Mon, 06 Dec 2021 02:58:30 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJxTo58Hg1PMnpuTdwL1M+XagtJxq1YdEIKgI5MBOpZMxGV21fm3kTBfxG4m0nNb6mKYd2DewQ==
-X-Received: by 2002:a5d:4c87:: with SMTP id z7mr42470463wrs.108.1638788310400; 
- Mon, 06 Dec 2021 02:58:30 -0800 (PST)
+ bh=Mpf1+wFXToHvdF/Ol73oVGZ3N1s6PxZDoxH3qziN9eQ=;
+ b=ONjPtgZHSndc9gurq73av1qAC25/qQ+wotIJ8P9m6en+zOZf6D+OrGzNx7wVKxrpAS
+ 8JzknC//xXkdJODVfGXah/LvsACIbxZ8mVksHhDWP+nib+vW1gfv21VHx/OHSBft/X6O
+ aF8zmg6DuWvbMkxIjGcBwDwWE6KOTJfAF+y1qrl0wSxkTOYpQw785H3xn63uCjc0/uuk
+ NbKP1WPzvXQMEFysd0YnP7r2eHseyjSnxsuhNHcLgN6oo4LI8X6hkUm/SQhtTWqA19kv
+ YCzurDw3WgA3tbsvNX5OjSdYzxpb3aSrLrWBARkwBS8waAn3CxICorKH44/syYtP8HP9
+ 5x3g==
+X-Gm-Message-State: AOAM533FNuqJPLmZpuArN+jXahbvTcPeO6lcNwQKOqNQAQHXjIRG+5Au
+ efRv74L5fLUpsI9bbygG7bk9X7NGdbFs20EPpjy4qacSvQpNz8egLdbfiWjU7v7q0PcgOa2YNCp
+ EkB8eXahGykGGF5kraNUtICHsPeyCWrETz7pJUkNK+h5zsw==
+X-Received: by 2002:adf:c146:: with SMTP id w6mr43633014wre.541.1638788371829; 
+ Mon, 06 Dec 2021 02:59:31 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJyXPF8JNT/lii3k1vlfVVxG4fHHOfwgSDGLo6V1yi6JZC+9G72g0N+X1xsL2m+r1nRvWrUGCw==
+X-Received: by 2002:adf:c146:: with SMTP id w6mr43632986wre.541.1638788371627; 
+ Mon, 06 Dec 2021 02:59:31 -0800 (PST)
 Received: from localhost.localdomain (lfbn-lyo-1-470-249.w2-7.abo.wanadoo.fr.
  [2.7.60.249])
- by smtp.gmail.com with ESMTPSA id p27sm10378487wmi.28.2021.12.06.02.58.29
+ by smtp.gmail.com with ESMTPSA id l15sm10625964wme.47.2021.12.06.02.59.30
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 06 Dec 2021 02:58:30 -0800 (PST)
+ Mon, 06 Dec 2021 02:59:31 -0800 (PST)
 From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
 To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -87,17 +87,17 @@ To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
  linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
  linux-efi@vger.kernel.org, linux-arch@vger.kernel.org
 Cc: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Subject: [PATCH v3 11/13] Documentation: riscv: Add sv48 description to VM
- layout
-Date: Mon,  6 Dec 2021 11:46:55 +0100
-Message-Id: <20211206104657.433304-12-alexandre.ghiti@canonical.com>
+Subject: [PATCH v3 12/13] riscv: Initialize thread pointer before calling C
+ functions
+Date: Mon,  6 Dec 2021 11:46:56 +0100
+Message-Id: <20211206104657.433304-13-alexandre.ghiti@canonical.com>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20211206104657.433304-1-alexandre.ghiti@canonical.com>
 References: <20211206104657.433304-1-alexandre.ghiti@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211206_025833_570370_921151A7 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20211206_025934_281506_978E83E5 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,58 +114,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-sv48 was just introduced, so add its virtual memory layout to the
-documentation.
+Because of the stack canary feature that reads from the current task
+structure the stack canary value, the thread pointer register "tp" must
+be set before calling any C function from head.S: by chance, setup_vm
+and all the functions that it calls does not seem to be part of the
+functions where the canary check is done, but in the following commits,
+some functions will.
 
+Fixes: f2c9699f65557a31 ("riscv: Add STACKPROTECTOR supported")
 Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
 ---
- Documentation/riscv/vm-layout.rst | 36 +++++++++++++++++++++++++++++++
- 1 file changed, 36 insertions(+)
+ arch/riscv/kernel/head.S | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/riscv/vm-layout.rst b/Documentation/riscv/vm-layout.rst
-index 1bd687b97104..5b36e45fef60 100644
---- a/Documentation/riscv/vm-layout.rst
-+++ b/Documentation/riscv/vm-layout.rst
-@@ -61,3 +61,39 @@ RISC-V Linux Kernel SV39
-    ffffffff00000000 |   -4    GB | ffffffff7fffffff |    2 GB | modules, BPF
-    ffffffff80000000 |   -2    GB | ffffffffffffffff |    2 GB | kernel
-   __________________|____________|__________________|_________|____________________________________________________________
-+
-+
-+RISC-V Linux Kernel SV48
-+------------------------
-+
-+::
-+
-+ ========================================================================================================================
-+      Start addr    |   Offset   |     End addr     |  Size   | VM area description
-+ ========================================================================================================================
-+                    |            |                  |         |
-+   0000000000000000 |    0       | 00007fffffffffff |  128 TB | user-space virtual memory, different per mm
-+  __________________|____________|__________________|_________|___________________________________________________________
-+                    |            |                  |         |
-+   0000800000000000 | +128    TB | ffff7fffffffffff | ~16M TB | ... huge, almost 64 bits wide hole of non-canonical
-+                    |            |                  |         | virtual memory addresses up to the -128 TB
-+                    |            |                  |         | starting offset of kernel mappings.
-+  __________________|____________|__________________|_________|___________________________________________________________
-+                                                              |
-+                                                              | Kernel-space virtual memory, shared between all processes:
-+  ____________________________________________________________|___________________________________________________________
-+                    |            |                  |         |
-+   ffff8d7ffee00000 |  -114.5 TB | ffff8d7ffeffffff |    2 MB | fixmap
-+   ffff8d7fff000000 |  -114.5 TB | ffff8d7fffffffff |   16 MB | PCI io
-+   ffff8d8000000000 |  -114.5 TB | ffff8f7fffffffff |    2 TB | vmemmap
-+   ffff8f8000000000 |  -112.5 TB | ffffaf7fffffffff |   32 TB | vmalloc/ioremap space
-+   ffffaf8000000000 |  -80.5  TB | ffffef7fffffffff |   64 TB | direct mapping of all physical memory
-+   ffffef8000000000 |  -16.5  TB | fffffffeffffffff | 16.5 TB | kasan
-+  __________________|____________|__________________|_________|____________________________________________________________
-+                                                              |
-+                                                              | Identical layout to the 39-bit one from here on:
-+  ____________________________________________________________|____________________________________________________________
-+                    |            |                  |         |
-+   ffffffff00000000 |   -4    GB | ffffffff7fffffff |    2 GB | modules, BPF
-+   ffffffff80000000 |   -2    GB | ffffffffffffffff |    2 GB | kernel
-+  __________________|____________|__________________|_________|____________________________________________________________
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index c3c0ed559770..86f7ee3d210d 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -302,6 +302,7 @@ clear_bss_done:
+ 	REG_S a0, (a2)
+ 
+ 	/* Initialize page tables and relocate to virtual addresses */
++	la tp, init_task
+ 	la sp, init_thread_union + THREAD_SIZE
+ 	XIP_FIXUP_OFFSET sp
+ #ifdef CONFIG_BUILTIN_DTB
 -- 
 2.32.0
 
