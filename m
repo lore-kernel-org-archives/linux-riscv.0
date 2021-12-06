@@ -4,61 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F305C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Dec 2021 15:12:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3E83C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Dec 2021 15:28:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5WIstfTUXMVQ1uBCcYq0RfGDkfuHIDO48eCenIrrpIY=; b=20JnVhEXZPq1jY
-	qvAERtMuApBhC6+DLGTMVvo1vjCsvZVnrUfve25YsmPe2vMZAnM7zyEd4Z8iluQKEFtgd2A1REWSy
-	avC+SAj//y9blInWBG9pdc5JTn/R3f5U5c4dokBlNC+dqiaM5bD9S55hvo+aWV01UM9urYeWqJu+D
-	voVTMxm/6L3aC06CMbddvHaj0ERQP/MqjDfUybSW8krpf6uB0+OuEXVC136mAlTRCMM6I1WRNdqHE
-	OErgOVWFD3hapR1u41mZUOPfwvJ8xou1El6URbse16qaYsU/uGTyRc3WnE6Gb5yBjEEJSpU6fe5cT
-	7oPhM7a0PDXawE7eEfyw==;
+	List-Owner; bh=DArXrFXPzmn4Gw4UiiDOUKPLMkFO8IE6sQlpFkbSvaU=; b=kQGx4Y7mZpEQqp
+	mv7PX/reESg13daE8VLOF0jmgWkDeM1NzmkHZl5+ZpsSOLsGuRXiViEj8DFiBC9ZbHDUBoW3QgffP
+	K8FmMrBvruuVUg/Rzu9wkSb5r5hurOI/462MOfEtMnfEJ12ewZaH7Ho0zFt/731MC5KFnH2rAk8mx
+	zy9ht1WC3lBiiuzpSoDBDrBWEIekNlfffktfNeHnjytUaeovLOoWI2X21PmOoBRQK36z21a351E8D
+	f0+vJPTws/YvYNZdMRISAj0aQxzZe9PPBYtwL6erOQoXLA1BL+BgGcmm2Wsl4hn0AqswZ0OLbIbvy
+	w/w/R7IvGG7kVgLg9wQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1muFf1-004QEc-6I; Mon, 06 Dec 2021 15:12:11 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1muFud-004WZJ-GC; Mon, 06 Dec 2021 15:28:19 +0000
+Received: from mail-oi1-f177.google.com ([209.85.167.177])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1muFeA-004Pqi-US
- for linux-riscv@lists.infradead.org; Mon, 06 Dec 2021 15:11:20 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 7FFB3612D3;
- Mon,  6 Dec 2021 15:11:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 489E6C341C1;
- Mon,  6 Dec 2021 15:11:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1638803477;
- bh=cID293rOgxjQk8NRLMzApK7etdJF34/NNMH4sm9IXMs=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=fWu8/JMImZoyUJs6SiSezgHt3fJjx8j+QwkTcrH+qv5XYo1Tp1aRa2ow/SGdQ1G26
- g+jHZ/q6QQjZPvvWbCUlBXjZ60egZbb4Yb2aXl3afUegX/qC7f7FNIFkn1M+KlHgIc
- I3ATyqm/DcCf0Y7ix4xEP8RvCZ0+SC+3MEMDwau2l9wuWrnWs7onUDHOGnhwv2r3GG
- Rj4qKGwov368I4/KNuAEeMHyfT+VnoPU4BRsRNFNW4IasebXlje/xdWOCxmoBj2f0T
- oHViHwfTSQ8KbBX8LtnbRG9H5uDrsAPHaOOKTSWUsyacvfh8zX+p95RzUHd/OfcdMT
- wCZpJ3H52p7UQ==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 5/5] riscv: mm: init: try best to remove #ifdef
- CONFIG_XIP_KERNEL usage
-Date: Mon,  6 Dec 2021 23:03:53 +0800
-Message-Id: <20211206150353.731-6-jszhang@kernel.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20211206150353.731-1-jszhang@kernel.org>
-References: <20211206150353.731-1-jszhang@kernel.org>
+ id 1muFua-004WYd-RS; Mon, 06 Dec 2021 15:28:18 +0000
+Received: by mail-oi1-f177.google.com with SMTP id 7so22005831oip.12;
+ Mon, 06 Dec 2021 07:28:16 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=vmY9WY/IdHkBubH/d9+H2NnZMjAMu0umDpKHxPiSoSU=;
+ b=FnL8sKE5QcDbut6suDsSdWKxxMz8pIPvyp7jLZ7QS4xON0CzrNpE7ZXt6ctksBVLoT
+ EYlKHq/QDk26wW5ZN906mM1XnMiKy7lW7reohZ9pG9CMWefr/1vvTinKQRwoywYca4qU
+ TD9A/nW0AmgA6FT2b/n+vm66NZ2Ui9SJ4lOqAeagiH1RPD4V0ciUWrb5OvdEbvju6pKG
+ sMqdejadnxpBqgcQJejMl5RL2jwQRgXxDxrOpAMT60aWqdrccYk1QZhKaUAeDXpr0oqs
+ dQtBIatUMjGm8VnimsgbBEG+L2b93fvwZ4/ySdv8mN6Q0vOizBABWqSPmlw0jedP23/G
+ PQ7w==
+X-Gm-Message-State: AOAM533IOLyD6iGKFzT16hZlXUkKu5TLpLP4/CU6Ot7AiE+LnV5+Xmsg
+ GXlsLESuFRfPVQSkuY5a25AYInLj3Q==
+X-Google-Smtp-Source: ABdhPJyfHepTpy+8C5WIBaswVad+pb+ARigaK7+tiIrrbzB1awNCTodg/k/StbwlXs0D2pl0zwBHtg==
+X-Received: by 2002:a05:6808:218b:: with SMTP id
+ be11mr25541435oib.80.1638804495458; 
+ Mon, 06 Dec 2021 07:28:15 -0800 (PST)
+Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
+ [66.90.148.213])
+ by smtp.gmail.com with ESMTPSA id o10sm2141225oom.32.2021.12.06.07.28.14
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 06 Dec 2021 07:28:14 -0800 (PST)
+Received: (nullmailer pid 2069157 invoked by uid 1000);
+ Mon, 06 Dec 2021 15:28:13 -0000
+Date: Mon, 6 Dec 2021 09:28:13 -0600
+From: Rob Herring <robh@kernel.org>
+To: Atish Patra <atishp@atishpatra.org>
+Cc: linux-kernel@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>,
+ Anup Patel <anup.patel@wdc.com>, Greentime Hu <greentime.hu@sifive.com>,
+ Guo Ren <guoren@linux.alibaba.com>, Heinrich Schuchardt <xypron.glpk@gmx.de>,
+ Ingo Molnar <mingo@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
+ kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
+ Nanyong Sun <sunnanyong@huawei.com>, Nick Kossifidis <mick@ics.forth.gr>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Pekka Enberg <penberg@kernel.org>, Vincent Chen <vincent.chen@sifive.com>,
+ Vitaly Wool <vitaly.wool@konsulko.com>
+Subject: Re: [RFC 0/6] Sparse HART id support
+Message-ID: <Ya4sDX974/dVEOQw@robh.at.kernel.org>
+References: <20211204002038.113653-1-atishp@atishpatra.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20211204002038.113653-1-atishp@atishpatra.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211206_071119_085910_9098EF9A 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20211206_072816_916486_712DE270 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,79 +88,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, the #ifdef CONFIG_XIP_KERNEL usage can be divided into the
-following three types:
+On Fri, Dec 03, 2021 at 04:20:32PM -0800, Atish Patra wrote:
+> Currently, sparse hartid is not supported for Linux RISC-V for the following
+> reasons.
+> 1. Both spinwait and ordered booting method uses __cpu_up_stack/task_pointer
+>    which is an array size of NR_CPUs.
+> 2. During early booting, any hartid greater than NR_CPUs are not booted at all.
+> 3. riscv_cpuid_to_hartid_mask uses struct cpumask for generating hartid bitmap.
+> 4. SBI v0.2 implementation uses NR_CPUs as the maximum hartid number while
+>    generating hartmask.
+> 
+> In order to support sparse hartid, the hartid & NR_CPUS needs to be disassociated
+> which was logically incorrect anyways. NR_CPUs represent the maximum logical|
+> CPU id configured in the kernel while the hartid represent the physical hartid
+> stored in mhartid CSR defined by the privilege specification. Thus, hartid
+> can have much greater value than logical cpuid.
 
-The first one is for functions/declarations only used in XIP case.
+We already have a couple of architectures with logical to physical CPU 
+id maps. See cpu_logical_map. Can we make that common and use it here? 
+That would also possibly allow for common populating the map from DT.
 
-The second one is for XIP_FIXUP case. Something as below:
-|foo_type foo;
-|#ifdef CONFIG_XIP_KERNEL
-|#define foo    (*(foo_type *)XIP_FIXUP(&foo))
-|#endif
-
-Usually, it's better to let the foo macro sit with the foo var
-together. But if various foos are defined adjacently, we can
-save some #ifdef CONFIG_XIP_KERNEL usage by grouping them together.
-
-The third one is for different implementations for XIP, usually, this
-is a #ifdef...#else...#endif case.
-
-This patch moves the pt_ops macro to adjacent #ifdef CONFIG_XIP_KERNEL
-and group first type usage cases into one.
-
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Reviewed-by: Alexandre Ghiti <alex@ghiti.fr>
----
- arch/riscv/mm/init.c | 11 +++--------
- 1 file changed, 3 insertions(+), 8 deletions(-)
-
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 5e979fe06054..a15640eeb334 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -40,10 +40,6 @@ EXPORT_SYMBOL(kernel_map);
- phys_addr_t phys_ram_base __ro_after_init;
- EXPORT_SYMBOL(phys_ram_base);
- 
--#ifdef CONFIG_XIP_KERNEL
--extern char _xiprom[], _exiprom[], __data_loc;
--#endif
--
- unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)]
- 							__page_aligned_bss;
- EXPORT_SYMBOL(empty_zero_page);
-@@ -227,10 +223,6 @@ static void __init setup_bootmem(void)
- #ifdef CONFIG_MMU
- static struct pt_alloc_ops pt_ops __initdata;
- 
--#ifdef CONFIG_XIP_KERNEL
--#define pt_ops (*(struct pt_alloc_ops *)XIP_FIXUP(&pt_ops))
--#endif
--
- unsigned long riscv_pfn_base __ro_after_init;
- EXPORT_SYMBOL(riscv_pfn_base);
- 
-@@ -242,6 +234,7 @@ pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
- static pmd_t __maybe_unused early_dtb_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
- 
- #ifdef CONFIG_XIP_KERNEL
-+#define pt_ops			(*(struct pt_alloc_ops *)XIP_FIXUP(&pt_ops))
- #define trampoline_pg_dir      ((pgd_t *)XIP_FIXUP(trampoline_pg_dir))
- #define fixmap_pte             ((pte_t *)XIP_FIXUP(fixmap_pte))
- #define early_pg_dir           ((pgd_t *)XIP_FIXUP(early_pg_dir))
-@@ -445,6 +438,8 @@ static uintptr_t __init best_map_size(phys_addr_t base, phys_addr_t size)
- }
- 
- #ifdef CONFIG_XIP_KERNEL
-+extern char _xiprom[], _exiprom[], __data_loc;
-+
- /* called from head.S with MMU off */
- asmlinkage void __init __copy_data(void)
- {
--- 
-2.34.1
-
+Rob
 
 _______________________________________________
 linux-riscv mailing list
