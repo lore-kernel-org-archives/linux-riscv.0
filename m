@@ -4,61 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1977C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Dec 2021 16:18:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 424D3C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Dec 2021 16:20:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Message-Id:MIME-Version:References:
 	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YKIc2jQFeko/X1Z3E7x1wpnvZr3gmJQRgyssLRDVspA=; b=Z+iov2GvPEaPWP
-	3gqn0tyjD4kjuccgZlnTbojUz3g/3kjnNNQI/8mc9q2DE3B+7v4iyWXVWNXJ8FtsoRw9OmwHSRDrv
-	hyeeZFWNZ7Oot1rNG6X22fpZiMvaWg30iMrJq5ZYFDauiTdZ9I9bMvAMMQgiMJ9MhHI+P+twhSVQv
-	nIbeOhzmNxFVFcBRvBhgbdf6Z5zWUQaVEdNU0d3z0iXqsmfBurHsHOXnFsSAWOph6TS27YSoH+jGa
-	Ui9MvAzyFiNbK/h4gV/g0A7rt70c/auy539MORGicTI3QJW5W0xLR0H5/ri/gZB1svOVT1t+r8BVp
-	bSCJk3ago1NbrIVgVRdw==;
+	List-Owner; bh=YPnDskJw3MidNYCkdOb8u9d+60ZdiDCg1IMMw4HkyGU=; b=pFtBCoY1BxPted
+	2b0UnBOW2sLflQzNT4MBu4D660IUm81O9neFzF//isB7kUjg6CxT9eD7DpP5gsPe+hVYH83p52EF3
+	PbR1n2IyqtMe38uWvjNj9HRHYb6xSbG+8gYM1TA4MUwTLobiwpXtZ9pvhHwh76kXZ+3gsAC+2p2Fc
+	gemjAYbD7ds9SHKNH5vsCEuNDDfhwkGlJzkWUR9dcxcNShOzdF/TbjXYtKLMKXUL97yZ5Z/xtQ90I
+	ogkp3qMZwO37UMJ4kwkfvY7ooE5PM0ly95bzBbB8ZDk7c6DonjKRZ/N1gsvqQQPAwrfH15zzZphMW
+	Js3N8XedUlxzc3SFY9eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1muGgd-004jgs-0g; Mon, 06 Dec 2021 16:17:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1muGjF-004kdu-P3; Mon, 06 Dec 2021 16:20:37 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1muGgZ-004jeb-9M
- for linux-riscv@lists.infradead.org; Mon, 06 Dec 2021 16:17:52 +0000
+ id 1muGjC-004kcS-Ll
+ for linux-riscv@lists.infradead.org; Mon, 06 Dec 2021 16:20:36 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 6588E61383;
- Mon,  6 Dec 2021 16:17:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C772C341C1;
- Mon,  6 Dec 2021 16:17:47 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 8A254B81120;
+ Mon,  6 Dec 2021 16:20:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD0E6C341C1;
+ Mon,  6 Dec 2021 16:20:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1638807469;
- bh=FfP+RnCEexOp4vGvCs/p1dGSWLbwqJCwgkifSRtYpwY=;
+ s=k20201202; t=1638807631;
+ bh=nHfd4LeuCF/C6Shj1iP5OtMCx+jUnbWosXyDdMp0EoY=;
  h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
- b=gnuUaKasyVuNKr9sRsH18xjgWFR/GTSkm1FW6WIECtpHcTG8SA72apwS5CxUSPCNZ
- HH3izHUjaG7niz7SU6WZ7V+ZRMMCpZudXwEBY7JgF7sv2wCHOY5QeemzPYAF0LvUqH
- NzopceFPooy9YHmvrgwEHpBsNf1KeYJucgv9ci8B1JsUHOnaPtlhZSdIWQPpYSaeHX
- ZvjjxLlMuq/pKMTPnGknFqX9xBQfhva08Kczdf8yeu1bKuxFtBDNLPHJA8aU5QYRn/
- rYOkWZZG72kcL+oIcP+SiHOHhqhrAzfgXQ43MigdR/Gce9FW6uKSvggCIoAimP+14d
- q4HCKiPHdXLdg==
-Date: Tue, 7 Dec 2021 00:10:30 +0800
+ b=YONjoOnBukCbNSrNFewClrSbRWEBiW9L4Z/H9vaEkO8VulH6oDfpm+nu+1hTvg64u
+ PmHk9ino0T5DBmPYJTqkc8ddQkxW2rN9ertTH+jBvMSOrf9oO61pdFKpc6ppYz9njZ
+ QrgXdXDBLP3MLYzM6VewX8kz8t59bRPBkgHmKQ8HuWgoUN9zfXgTQKJDQDVKPj+h4/
+ rDERGUPrVFUIGy3zsd45I2BhpybrijnUPWXW2f2KgmGS8EtILNuPuRBevO/Rggby+C
+ h9JXMt9gGlyLHCjuW/PTGoYedLQz/ecNmgacdkvxhTczu5TAVmEi/5piv0frgn7Srh
+ zaVvOYKHFRtRw==
+Date: Tue, 7 Dec 2021 00:12:50 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Alexandre ghiti <alex@ghiti.fr>
+To: Alexandre Ghiti <alexandre.ghiti@canonical.com>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/5] riscv: mm: init: try best to
- IS_ENABLED(CONFIG_64BIT) instead of #ifdef
-In-Reply-To: <3344a7ae-aaa6-2f35-09fc-60039bb8184d@ghiti.fr>
-References: <20211203050317.2102-1-jszhang@kernel.org>
- <20211203050317.2102-3-jszhang@kernel.org>
- <3344a7ae-aaa6-2f35-09fc-60039bb8184d@ghiti.fr>
+Subject: Re: [PATCH] riscv: Make vmalloc/vmemmap end equal to the start of
+ the next region
+In-Reply-To: <20211118134539.137212-1-alexandre.ghiti@canonical.com>
+References: <20211118134539.137212-1-alexandre.ghiti@canonical.com>
 MIME-Version: 1.0
-Message-Id: <20211206161748.0C772C341C1@smtp.kernel.org>
+Message-Id: <20211206162029.AD0E6C341C1@smtp.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211206_081751_473027_404AD0A5 
-X-CRM114-Status: GOOD (  32.29  )
+X-CRM114-CacheID: sfid-20211206_082034_915948_1DD90202 
+X-CRM114-Status: GOOD (  18.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,139 +73,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 3 Dec 2021 09:33:12 +0100
-Alexandre ghiti <alex@ghiti.fr> wrote:
+On Thu, 18 Nov 2021 14:45:39 +0100
+Alexandre Ghiti <alexandre.ghiti@canonical.com> wrote:
 
-> On 12/3/21 06:03, Jisheng Zhang wrote:
-> > Try our best to replace the conditional compilation using
-> > "#ifdef CONFIG_64BIT" by a check for "IS_ENABLED(CONFIG_64BIT)", to
-> > simplify the code and to increase compile coverage.
-> >
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > ---
-> >   arch/riscv/mm/init.c | 38 +++++++++++++++++---------------------
-> >   1 file changed, 17 insertions(+), 21 deletions(-)
-> >
-> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > index 745f26a3b02e..bd445ac778a8 100644
-> > --- a/arch/riscv/mm/init.c
-> > +++ b/arch/riscv/mm/init.c
-> > @@ -102,10 +102,9 @@ static void __init print_vm_layout(void)
-> >   		  (unsigned long)VMALLOC_END);
-> >   	print_mlm("lowmem", (unsigned long)PAGE_OFFSET,
-> >   		  (unsigned long)high_memory);
-> > -#ifdef CONFIG_64BIT
-> > -	print_mlm("kernel", (unsigned long)KERNEL_LINK_ADDR,
-> > -		  (unsigned long)ADDRESS_SPACE_END);
-> > -#endif
-> > +	if (IS_ENABLED(CONFIG_64BIT))
-> > +		print_mlm("kernel", (unsigned long)KERNEL_LINK_ADDR,
-> > +			  (unsigned long)ADDRESS_SPACE_END);
-> >   }
-> >   #else
-> >   static void print_vm_layout(void) { }
-> > @@ -172,17 +171,16 @@ static void __init setup_bootmem(void)
-> >   
-> >   	memblock_enforce_memory_limit(memory_limit);
-> >   
-> > -	/*
-> > -	 * Reserve from the start of the kernel to the end of the kernel
-> > -	 */
-> > -#if defined(CONFIG_64BIT) && defined(CONFIG_STRICT_KERNEL_RWX)
-> >   	/*
-> >   	 * Make sure we align the reservation on PMD_SIZE since we will
-> >   	 * map the kernel in the linear mapping as read-only: we do not want
-> >   	 * any allocation to happen between _end and the next pmd aligned page.
-> >   	 */
-> > -	vmlinux_end = (vmlinux_end + PMD_SIZE - 1) & PMD_MASK;
-> > -#endif
-> > +	if (IS_ENABLED(CONFIG_64BIT) && IS_ENABLED(CONFIG_STRICT_KERNEL_RWX))
-> > +		vmlinux_end = (vmlinux_end + PMD_SIZE - 1) & PMD_MASK;
-> > +	/*
-> > +	 * Reserve from the start of the kernel to the end of the kernel
-> > +	 */
-> >   	memblock_reserve(vmlinux_start, vmlinux_end - vmlinux_start);
-> >   
-> >   
-> > @@ -190,7 +188,6 @@ static void __init setup_bootmem(void)
-> >   #ifndef CONFIG_XIP_KERNEL
-> >   	phys_ram_base = memblock_start_of_DRAM();
-> >   #endif
-> > -#ifndef CONFIG_64BIT
-> >   	/*
-> >   	 * memblock allocator is not aware of the fact that last 4K bytes of
-> >   	 * the addressable memory can not be mapped because of IS_ERR_VALUE
-> > @@ -200,10 +197,11 @@ static void __init setup_bootmem(void)
-> >   	 * address space is occupied by the kernel mapping then this check must
-> >   	 * be done as soon as the kernel mapping base address is determined.
-> >   	 */
-> > -	max_mapped_addr = __pa(~(ulong)0);
-> > -	if (max_mapped_addr == (phys_ram_end - 1))
-> > -		memblock_set_current_limit(max_mapped_addr - 4096);
-> > -#endif
-> > +	if (!IS_ENABLED(CONFIG_64BIT)) {
-> > +		max_mapped_addr = __pa(~(ulong)0);
-> > +		if (max_mapped_addr == (phys_ram_end - 1))
-> > +			memblock_set_current_limit(max_mapped_addr - 4096);
-> > +	}
-> >   
-> >   	min_low_pfn = PFN_UP(phys_ram_base);
-> >   	max_low_pfn = max_pfn = PFN_DOWN(phys_ram_end);
-> > @@ -616,13 +614,12 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
-> >   	BUG_ON((PAGE_OFFSET % PGDIR_SIZE) != 0);
-> >   	BUG_ON((kernel_map.phys_addr % PMD_SIZE) != 0);
-> >   
-> > -#ifdef CONFIG_64BIT
-> >   	/*
-> >   	 * The last 4K bytes of the addressable memory can not be mapped because
-> >   	 * of IS_ERR_VALUE macro.
-> >   	 */
-> > -	BUG_ON((kernel_map.virt_addr + kernel_map.size) > ADDRESS_SPACE_END - SZ_4K);
-> > -#endif
-> > +	if (IS_ENABLED(CONFIG_64BIT))
-> > +		BUG_ON((kernel_map.virt_addr + kernel_map.size) > ADDRESS_SPACE_END - SZ_4K);  
+> We used to define VMALLOC_END equal to the start of the next region
+> *minus one* which is inconsistent with the use of this define in the
+> core code (for example, see the definitions of VMALLOC_TOTAL and
+> is_vmalloc_addr).
 > 
+> And then make the definition of VMEMMAP_END consistent with VMALLOC_END
+> and all other regions actually.
 > 
-> For this one, I think we can just get rid of the condition since this is 
-> true for every kernel actually.
+> Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
 
-Thanks for pointing out this out. Addressed in v2
+Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
 
+> ---
+>  arch/riscv/include/asm/pgtable.h | 4 ++--
+>  arch/riscv/mm/fault.c            | 2 +-
+>  2 files changed, 3 insertions(+), 3 deletions(-)
 > 
-> 
-> >   
-> >   	pt_ops.alloc_pte = alloc_pte_early;
-> >   	pt_ops.get_pte_virt = get_pte_virt_early;
-> > @@ -735,10 +732,9 @@ static void __init setup_vm_final(void)
-> >   		}
-> >   	}
-> >   
-> > -#ifdef CONFIG_64BIT
-> >   	/* Map the kernel */
-> > -	create_kernel_page_table(swapper_pg_dir, false);
-> > -#endif
-> > +	if (IS_ENABLED(CONFIG_64BIT))
-> > +		create_kernel_page_table(swapper_pg_dir, false);  
-> 
-> 
-> Wouldn't it be better to introduce a create_kernel_page_table function 
-> that does nothing for !CONFIG_64BIT?
-> 
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index d34f3a7a9701..5155048274c2 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -25,7 +25,7 @@
+>  #endif
+>  
+>  #define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
+> -#define VMALLOC_END      (PAGE_OFFSET - 1)
+> +#define VMALLOC_END      PAGE_OFFSET
+>  #define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
+>  
+>  #define BPF_JIT_REGION_SIZE	(SZ_128M)
+> @@ -53,7 +53,7 @@
+>  #define VMEMMAP_SHIFT \
+>  	(CONFIG_VA_BITS - PAGE_SHIFT - 1 + STRUCT_PAGE_MAX_SHIFT)
+>  #define VMEMMAP_SIZE	BIT(VMEMMAP_SHIFT)
+> -#define VMEMMAP_END	(VMALLOC_START - 1)
+> +#define VMEMMAP_END	VMALLOC_START
+>  #define VMEMMAP_START	(VMALLOC_START - VMEMMAP_SIZE)
+>  
+>  /*
+> diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+> index aa08dd2f8fae..41ae0aa8f2b8 100644
+> --- a/arch/riscv/mm/fault.c
+> +++ b/arch/riscv/mm/fault.c
+> @@ -235,7 +235,7 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
+>  	 * only copy the information from the master page table,
+>  	 * nothing more.
+>  	 */
+> -	if (unlikely((addr >= VMALLOC_START) && (addr <= VMALLOC_END))) {
+> +	if (unlikely((addr >= VMALLOC_START) && (addr < VMALLOC_END))) {
+>  		vmalloc_fault(regs, code, addr);
+>  		return;
+>  	}
 
-If so, we will have something as:
-#ifdef CONFIG_64BIT
-create_kernel_page_table()
-{
-...
-}
-#else
-create_kernel_page_table() { }
-#endif
-
-Since we already have different create_kernel_page_table() version for
-XIP and !XIP, the code would be more complex.
-
-Thanks for your code review
 
 _______________________________________________
 linux-riscv mailing list
