@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F5BC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Dec 2021 16:13:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 828CDC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Dec 2021 16:14:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rzFVDwkteBKX4uWX1SBXYoQjL14KxFYRYTmxTHSpM2c=; b=wfHKpmH+TBelm6
-	8EcOzzSICiKECXm262kO3Cnb9S5StZpEpMuJcjFm499Ahrs2RR+Ty36NjxMO9Og4e3+6hSnyWT5xv
-	ASSMNALr48KT/f2EzwJwj4bUSiZKY5PFsws/xMuSFpZWg74nJTOsaLw2W0wVBmm3n9h8RU8KfSydg
-	+0KXvqBXowDwl+Saw9p9WCH8JNZ1oO+NKKONlexx9DleQgyJU/TI6eK1IIx7k8Pp9bGZcsWOH4h47
-	mgxkucqnTTyF8CBmK1QJqUStg1BXFwwAGzfyCwMSnP995HhUMNz0TyiFBMSMOKVSyPF00sTpkCT2p
-	AS8nSTQln5vPMBhMhd7Q==;
+	List-Owner; bh=xiOcKh0XM1c1JuPFy5n4dv4JglIAk58JjljY6eF6EGU=; b=iJc8cjvvVG58TK
+	e2Xy4A7JEcbhnkJLB+rQH9qklmwULFa8d/Up2LJkN9JRrvb9wz3yd+KKyLQuNmK/N3PChgfXa5P5J
+	UbvHN6iLy+SZEM4brEru6hU0mDVcL472h8RqNIxSaNYju7gFXras1f4DDCLbDYG+SME0z8l5BMlMH
+	0qzNujUrxRxt6FrWA3Ombi728e5e9U/GBgiaBArUikHjVMatUMk5Ymr4hVVRx8JSu0lZWGoJm8oz+
+	nAnuIJH364iuodsWztqnRgXsBCwkLl40aEl6cJs6m7WUSHRIZeMVfq/95R5XpQz+Sszyiq2h9GmQ6
+	1O5eRcaWq10EmInGEYUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1muGcg-004hP2-JU; Mon, 06 Dec 2021 16:13:50 +0000
+	id 1muGdH-004hph-5j; Mon, 06 Dec 2021 16:14:27 +0000
 Received: from sin.source.kernel.org ([145.40.73.55])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1muGbf-004giy-I4; Mon, 06 Dec 2021 16:12:48 +0000
+ id 1muGbj-004gkE-8w; Mon, 06 Dec 2021 16:12:52 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by sin.source.kernel.org (Postfix) with ESMTPS id D71C8CE16CC;
- Mon,  6 Dec 2021 16:12:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F174AC341C1;
- Mon,  6 Dec 2021 16:12:38 +0000 (UTC)
+ by sin.source.kernel.org (Postfix) with ESMTPS id 6E6C8CE16CA;
+ Mon,  6 Dec 2021 16:12:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9264BC341C5;
+ Mon,  6 Dec 2021 16:12:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1638807163;
- bh=4lrA7vab3IqapjTBi4sA+eK+CFU9COhOnI0b6b8qoS8=;
+ s=k20201202; t=1638807167;
+ bh=r7gcAJ+SiOVCAHRDLO1HycpA8Xew8/od/ps6s+RbLT0=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=nojnBAoYR0mRHYKp/3KVaGhmt58qmV4P0h9vURAhHbgbEO7zcXe4ur7GDw0rCgOeI
- McNXdDdSpd7iEsatyNZVqw8n5EwyKupKsmZgGDjcje28IpyJbkIlNBsu4SQfKafcF/
- 9VqU0GV14BMYQJa5PVfNPtYypBOmxWNoBxg+J80nW19lbsCIyw3EoWPWI0sagLQL8L
- rUmObWt1OLaXrw5qNdQcNyJDMOb8iODS5dY4G+iQRXa4FOwMGmYsyL+dxAH2bhZhup
- nDNjoEuuOyaWpjm6E7SAUhv2zy03XYCk94gpE7HKst3S+kzWWbyvwHbgfSJgO/rcq8
- 3br6qYWpR+s8A==
+ b=Y15auMAoKthCqJEM0wuPExbfzU75NtRn6bCJTQluZ4JnJynmw+hpz2PIXP8VjI8YT
+ 24o7fb1c4H+ncYPmF5i4yi3/ZGOsXKTJ3e9JMjVMDoVPNGp9mEO7yHQfCzqVx+bDIv
+ 0gCyTFq1txPzwYKMdMs5vtfRKyZ8cxFY8XJvpN9pwlXdDP/jXFr6pddVDZoLTqwKIr
+ apd28d09ruTtCyR3ngCTFtiYu4yI5fclaq8y5tf8huESE67r8WfJBwovHeybVjtFqz
+ a9qfiTjpdi4/cKOcgk7sYveF53Q6CHJjVBoLZlnijAeG9MIZi2nIP6kRnW6v4wOlDu
+ BVFwdMW2q3t+w==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Russell King <linux@armlinux.org.uk>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
@@ -52,17 +52,17 @@ To: Russell King <linux@armlinux.org.uk>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, kexec@lists.infradead.org,
  Alexandre ghiti <alex@ghiti.fr>
-Subject: [PATCH v2 3/5] x86/setup: use IS_ENABLED(CONFIG_KEXEC_CORE) instead
+Subject: [PATCH v2 4/5] arm64: mm: use IS_ENABLED(CONFIG_KEXEC_CORE) instead
  of #ifdef
-Date: Tue,  7 Dec 2021 00:05:12 +0800
-Message-Id: <20211206160514.2000-4-jszhang@kernel.org>
+Date: Tue,  7 Dec 2021 00:05:13 +0800
+Message-Id: <20211206160514.2000-5-jszhang@kernel.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20211206160514.2000-1-jszhang@kernel.org>
 References: <20211206160514.2000-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211206_081247_781434_D8AB0AB6 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20211206_081251_511124_982BCAC2 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,45 +84,45 @@ by a check for "IS_ENABLED(CONFIG_KEXEC_CORE)", to simplify the code
 and increase compile coverage.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 ---
- arch/x86/kernel/setup.c | 10 +++-------
- 1 file changed, 3 insertions(+), 7 deletions(-)
+ arch/arm64/mm/init.c | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
 
-diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
-index c410be738ae7..56b738c1ca33 100644
---- a/arch/x86/kernel/setup.c
-+++ b/arch/x86/kernel/setup.c
-@@ -390,8 +390,6 @@ static void __init memblock_x86_reserve_range_setup_data(void)
-  * --------- Crashkernel reservation ------------------------------
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index a8834434af99..b4b8b4dc2d31 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -64,7 +64,6 @@ EXPORT_SYMBOL(memstart_addr);
   */
+ phys_addr_t arm64_dma_phys_limit __ro_after_init;
  
 -#ifdef CONFIG_KEXEC_CORE
--
- /* 16M alignment for crash kernel regions */
- #define CRASH_ALIGN		SZ_16M
- 
-@@ -469,6 +467,9 @@ static void __init reserve_crashkernel(void)
- 	bool high = false;
+ /*
+  * reserve_crashkernel() - reserves memory for crash kernel
+  *
+@@ -78,6 +77,9 @@ static void __init reserve_crashkernel(void)
+ 	unsigned long long crash_max = arm64_dma_phys_limit;
  	int ret;
  
 +	if (!IS_ENABLED(CONFIG_KEXEC_CORE))
 +		return;
 +
- 	total_mem = memblock_phys_mem_size();
- 
- 	/* crashkernel=XM */
-@@ -534,11 +535,6 @@ static void __init reserve_crashkernel(void)
- 	crashk_res.end   = crash_base + crash_size - 1;
- 	insert_resource(&iomem_resource, &crashk_res);
+ 	ret = parse_crashkernel(boot_command_line, memblock_phys_mem_size(),
+ 				&crash_size, &crash_base);
+ 	/* no crashkernel= or invalid value specified */
+@@ -110,11 +112,6 @@ static void __init reserve_crashkernel(void)
+ 	crashk_res.start = crash_base;
+ 	crashk_res.end = crash_base + crash_size - 1;
  }
 -#else
 -static void __init reserve_crashkernel(void)
 -{
 -}
--#endif
+-#endif /* CONFIG_KEXEC_CORE */
  
- static struct resource standard_io_resources[] = {
- 	{ .name = "dma1", .start = 0x00, .end = 0x1f,
+ /*
+  * Return the maximum physical address for a zone accessible by the given bits
 -- 
 2.34.1
 
