@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A452C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Dec 2021 10:59:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9F7EC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Dec 2021 11:00:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QmwyAnXyO598RoLDOP278MfHfOnYclLVPvlJVTmzWRU=; b=WfU8CRRn2ZEoOf
-	g3SCUEqh8xAoAgKpVjvyLNLH4knjDVbwP1HzuivSQTLHoTlPVbKOon6kgQVgFoqtG8WqZ4jgPFpXW
-	uU22TiKDYfR4twEb9XC5X2cKeEoOeHk7eMev1UYOq0jqSFGBoWt1Ot6vVUtf5JNkWfp8RZRSov46i
-	WgCKlbQLOXZcS+IYcLdjS94aREp8v7/yY1UVmFQawsvQh7lXOkjL0EFwSaGEmcrG+arERWk27lynI
-	4yWshu2us6kZkOrkkTgWi4JpebKy171HYwIxjif3j6j5suU/0/Zmk8YHaCf5Jtx8+xJrd8fkZcRGs
-	MA88n4GquryGRsXG/E0A==;
+	List-Owner; bh=2GJpyP2lV3lb4TdBush+IiBRmdm1EzS+FIvnER5w7fI=; b=tc+hP7YcTlstlI
+	zR7NpBNnAp7PBorvWXB47fegEp1l3hVp0epVS1cm4QEMqTxaZQ9tS5ok9Dwc+4I6r7rgwftavXoRw
+	GMOzhJFjNVk4DCAFnBCMi+nPgEKcul7ZTP6gBt3MY8hpBNYe+yNQchflgwi/2yPLVLvKCX0FlOxr0
+	XaQ+SEgZuXRZTvqgOgd4DKQg/jwJH3dw/dL0irbhxyskDZoqGUpVPUUo05oWRzncY3gPuAgOg62ug
+	9H0LQg2lLr73Pbunrxo99+Qs46ylBqtgOROmkmpWi3NrAq/ll1oTHZx3IZ6uop+wmaIgIhSWEnNGn
+	b1rfkw50yBbd2jEqJWOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1muBib-003Thx-DP; Mon, 06 Dec 2021 10:59:37 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1muBjZ-003U2x-JI; Mon, 06 Dec 2021 11:00:37 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1muBiY-003Tew-1v
- for linux-riscv@lists.infradead.org; Mon, 06 Dec 2021 10:59:35 +0000
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71])
+ id 1muBjW-003U1m-QM
+ for linux-riscv@lists.infradead.org; Mon, 06 Dec 2021 11:00:36 +0000
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 293723F1C0
- for <linux-riscv@lists.infradead.org>; Mon,  6 Dec 2021 10:59:32 +0000 (UTC)
+ by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 67B693F316
+ for <linux-riscv@lists.infradead.org>; Mon,  6 Dec 2021 11:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1638788372;
- bh=Mpf1+wFXToHvdF/Ol73oVGZ3N1s6PxZDoxH3qziN9eQ=;
+ s=20210705; t=1638788433;
+ bh=LLLQM2eTCRvnVYbUZLcWpcb1BJMpiZdjxDv6AB/KJWI=;
  h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
  MIME-Version;
- b=dXCclNLRRCxEQOKbjzWa2rm+ng7eVoFjD6nrXqW89zYC7fQd+Ecce6HZ7m4dGyAup
- rpIXJ7+PsnHAhU928rPQaLz1jwIWIg8TjSIUVD9M5Satq3pEaYLt4C34oWQ2TnyMBv
- /UE+TmTJk67k9KwHWMw4CR9u0+Gub34G5IK7V/UAorPl7onH9CtzCV1m21fmJBdtWN
- XQMoiEql8dbgCdj7Dktx3qdQ9oNqJxxGheZxyXHLC1hTMAl0BqwPsIc58ubn5j3w6x
- nHBBTpdBjkiznYq65VEOeIB5Y3FFTF6q89XNHvwloGt2ghxIOG9U57SW+GGeuuaZNg
- 6cyu737DL0nVg==
-Received: by mail-wm1-f71.google.com with SMTP id
- ay34-20020a05600c1e2200b00337fd217772so4320709wmb.4
- for <linux-riscv@lists.infradead.org>; Mon, 06 Dec 2021 02:59:32 -0800 (PST)
+ b=ObrMo4nvIfpog97Fky/mTIVNTi4ri3K93PgtoMxqEBz6UarL/wnxaVb5Twsrd2XrD
+ dgaNd2pRFpEsuqT8eBlWTRRfPbTTkVo6S2J9cL2JZ1qSvXwU0euYYqzbFeF+yIB1Di
+ qwlcWRVeFv12hu3DGlx3EZKTPjpHp6qx1yh1NvSXk3FSDsQjYCaOyBtd1ARuBXwe2r
+ MLr33cbOx4Vk/bB0T5CGe4FObPDy9q4+X3dEJ7EzLwb+bQIxE9HSN88MfRmfEBA4iW
+ J0argwINL8HqcsOZJqcuIGBGE6OYgPMpyGjOT3KEjIdXb15AZVAeGocgqZvq+GXAln
+ yqFx4uVkeN2Ew==
+Received: by mail-wr1-f70.google.com with SMTP id
+ x17-20020a5d6511000000b0019838caab88so1907299wru.6
+ for <linux-riscv@lists.infradead.org>; Mon, 06 Dec 2021 03:00:33 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=Mpf1+wFXToHvdF/Ol73oVGZ3N1s6PxZDoxH3qziN9eQ=;
- b=ONjPtgZHSndc9gurq73av1qAC25/qQ+wotIJ8P9m6en+zOZf6D+OrGzNx7wVKxrpAS
- 8JzknC//xXkdJODVfGXah/LvsACIbxZ8mVksHhDWP+nib+vW1gfv21VHx/OHSBft/X6O
- aF8zmg6DuWvbMkxIjGcBwDwWE6KOTJfAF+y1qrl0wSxkTOYpQw785H3xn63uCjc0/uuk
- NbKP1WPzvXQMEFysd0YnP7r2eHseyjSnxsuhNHcLgN6oo4LI8X6hkUm/SQhtTWqA19kv
- YCzurDw3WgA3tbsvNX5OjSdYzxpb3aSrLrWBARkwBS8waAn3CxICorKH44/syYtP8HP9
- 5x3g==
-X-Gm-Message-State: AOAM533FNuqJPLmZpuArN+jXahbvTcPeO6lcNwQKOqNQAQHXjIRG+5Au
- efRv74L5fLUpsI9bbygG7bk9X7NGdbFs20EPpjy4qacSvQpNz8egLdbfiWjU7v7q0PcgOa2YNCp
- EkB8eXahGykGGF5kraNUtICHsPeyCWrETz7pJUkNK+h5zsw==
-X-Received: by 2002:adf:c146:: with SMTP id w6mr43633014wre.541.1638788371829; 
- Mon, 06 Dec 2021 02:59:31 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJyXPF8JNT/lii3k1vlfVVxG4fHHOfwgSDGLo6V1yi6JZC+9G72g0N+X1xsL2m+r1nRvWrUGCw==
-X-Received: by 2002:adf:c146:: with SMTP id w6mr43632986wre.541.1638788371627; 
- Mon, 06 Dec 2021 02:59:31 -0800 (PST)
+ bh=LLLQM2eTCRvnVYbUZLcWpcb1BJMpiZdjxDv6AB/KJWI=;
+ b=NvpTh1I/xsJ8OxBYMCwwj8u54UUGZ+nMPpXkHwQ/MXJudPR2mLmv/ayelIUyQVsOmx
+ xyyeQpJORMVpvDfhY+Y9H5IY3hiBz8IHP/FFlo1gm2fqc8ar4ClEgSTUALaX4Irk2IB2
+ 15uBgeogk74nL04/N8di1INKqpKmDKX0JWZ4n6HylfEKdroQXb8nFgVx2kjuU/3cp+XQ
+ OvSue3m4bPGpSpiOtqa/EjPfk4eYMIVkQhIf1GyIgTOpo3n6qJPkoRzXdf2OaFLfsP2E
+ xFO2skh7CwmP38LshlfLSBVQN1JLMSRTMfZl8AF1ipKi4mmXLI50uikLxHTffDM+ay1O
+ ElFg==
+X-Gm-Message-State: AOAM530k/Uz1LITLdSKvQuS/Kya4MPyky4/6VFSsL7vTTSQvhUS2apP/
+ DyWmOHQXEB+G/d0J1BK6NtgU3E9PVJEUYPYDEnL8jBzRAyfzW4TGFGiZ2pAoVaetZwFKRpmFA6M
+ WpMOuz/JKQzkt2Els4TRA+p/0jjHCZT2+o4W0HVwHu1PCsg==
+X-Received: by 2002:a05:6000:1a41:: with SMTP id
+ t1mr42771088wry.261.1638788433016; 
+ Mon, 06 Dec 2021 03:00:33 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJyZdYEUZOPlIAH/Cikburq8WbdJN819bb7un7RTFQfzoFZY+ymdSWm8xf6/Muh02DAod5q3Cw==
+X-Received: by 2002:a05:6000:1a41:: with SMTP id
+ t1mr42771065wry.261.1638788432820; 
+ Mon, 06 Dec 2021 03:00:32 -0800 (PST)
 Received: from localhost.localdomain (lfbn-lyo-1-470-249.w2-7.abo.wanadoo.fr.
  [2.7.60.249])
- by smtp.gmail.com with ESMTPSA id l15sm10625964wme.47.2021.12.06.02.59.30
+ by smtp.gmail.com with ESMTPSA id g198sm11262997wme.23.2021.12.06.03.00.32
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 06 Dec 2021 02:59:31 -0800 (PST)
+ Mon, 06 Dec 2021 03:00:32 -0800 (PST)
 From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
 To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -87,17 +89,17 @@ To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
  linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
  linux-efi@vger.kernel.org, linux-arch@vger.kernel.org
 Cc: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Subject: [PATCH v3 12/13] riscv: Initialize thread pointer before calling C
- functions
-Date: Mon,  6 Dec 2021 11:46:56 +0100
-Message-Id: <20211206104657.433304-13-alexandre.ghiti@canonical.com>
+Subject: [PATCH v3 13/13] riscv: Allow user to downgrade to sv39 when hw
+ supports sv48 if !KASAN
+Date: Mon,  6 Dec 2021 11:46:57 +0100
+Message-Id: <20211206104657.433304-14-alexandre.ghiti@canonical.com>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20211206104657.433304-1-alexandre.ghiti@canonical.com>
 References: <20211206104657.433304-1-alexandre.ghiti@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211206_025934_281506_978E83E5 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20211206_030035_029200_6CAF670A 
+X-CRM114-Status: GOOD (  18.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,31 +116,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Because of the stack canary feature that reads from the current task
-structure the stack canary value, the thread pointer register "tp" must
-be set before calling any C function from head.S: by chance, setup_vm
-and all the functions that it calls does not seem to be part of the
-functions where the canary check is done, but in the following commits,
-some functions will.
+This is made possible by using the mmu-type property of the cpu node of
+the device tree.
 
-Fixes: f2c9699f65557a31 ("riscv: Add STACKPROTECTOR supported")
+By default, the kernel will boot with 4-level page table if the hw supports
+it but it can be interesting for the user to select 3-level page table as
+it is less memory consuming and faster since it requires less memory
+accesses in case of a TLB miss.
+
+This functionality requires that kasan is disabled since calling the fdt
+functions that are kasan instrumented with the MMU off can't work.
+
 Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
 ---
- arch/riscv/kernel/head.S | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/mm/init.c | 32 ++++++++++++++++++++++++++++++--
+ 1 file changed, 30 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index c3c0ed559770..86f7ee3d210d 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -302,6 +302,7 @@ clear_bss_done:
- 	REG_S a0, (a2)
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 28de6ea0a720..299b5a44f902 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -633,10 +633,38 @@ static void __init disable_pgtable_l4(void)
+  * then read SATP to see if the configuration was taken into account
+  * meaning sv48 is supported.
+  */
+-static __init void set_satp_mode(void)
++static __init void set_satp_mode(uintptr_t dtb_pa)
+ {
+ 	u64 identity_satp, hw_satp;
+ 	uintptr_t set_satp_mode_pmd;
++#ifndef CONFIG_KASAN
++	/*
++	 * The below fdt functions are kasan instrumented, since at this point
++	 * there is no mapping for the kasan shadow memory, this can't be used
++	 * when kasan is enabled otherwise it traps.
++	 */
++	int cpus_node;
++
++	/* Check if the user asked for sv39 explicitly in the device tree */
++	cpus_node = fdt_path_offset((void *)dtb_pa, "/cpus");
++	if (cpus_node >= 0) {
++		int node;
++
++		fdt_for_each_subnode(node, (void *)dtb_pa, cpus_node) {
++			const char *mmu_type = fdt_getprop((void *)dtb_pa, node,
++					"mmu-type", NULL);
++			if (!mmu_type)
++				continue;
++
++			if (!strcmp(mmu_type, "riscv,sv39")) {
++				disable_pgtable_l4();
++				return;
++			}
++
++			break;
++		}
++	}
++#endif
  
- 	/* Initialize page tables and relocate to virtual addresses */
-+	la tp, init_task
- 	la sp, init_thread_union + THREAD_SIZE
- 	XIP_FIXUP_OFFSET sp
- #ifdef CONFIG_BUILTIN_DTB
+ 	set_satp_mode_pmd = ((unsigned long)set_satp_mode) & PMD_MASK;
+ 	create_pgd_mapping(early_pg_dir,
+@@ -838,7 +866,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ #endif
+ 
+ #if defined(CONFIG_64BIT) && !defined(CONFIG_XIP_KERNEL)
+-	set_satp_mode();
++	set_satp_mode(dtb_pa);
+ #endif
+ 
+ 	kernel_map.va_pa_offset = PAGE_OFFSET - kernel_map.phys_addr;
 -- 
 2.32.0
 
