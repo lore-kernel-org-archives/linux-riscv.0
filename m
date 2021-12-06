@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72104C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Dec 2021 16:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68F96C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Dec 2021 16:13:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=4BR/pYoEvIJH7ZSMa5CWfWTUQ0VldvmxFO042VvQrnU=; b=I4Nw+ki8qtlNHP
-	K3FuPvLo0X3cg2T7A/YKLmb6UjpjW+tOLG+IThplqTDSPJnMb4EjSOBvXMIMlQAJtLaDb4TxGkWQ6
-	vCMIi6Er1/FDPAjoM/wZmt9IhkMv67Ec9h73ZTp5ifE7vy49hLSEcbNx4WGAcGDvdHjkZvLUOysgb
-	vU15vobwWFy5T1kpGaheXIAReivcdSP2TT8PRu9ueFwrVeMOsdFjLMroWaUpHHZSxwFWSkDTxsCaM
-	vqMeRQ/XWMlM5gPvdPcvy3PTm44Mt03LO1BtajeXAkyQFbcqo1RC6X/vUlS3XtvguN8qldolcEHV5
-	qNk7UPOEyzI0NfK5cYUA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=O8za7EfD9PuqnZgUiX/VFLiq0ixSc0mbIvLeZB+tI00=; b=CW4aPKbqHoHfba
+	k6w1steCqIYjhlgWYgkwdEAU6vXdl1ZXrXzqqIJiso4i67MZblkn6brr3UwHvWNfqUbkBwrdW/AfJ
+	LJWJMtxJqlsGMhfvyZrSZQ2xQD3yXS2c2J5Gaxc4pBiGCaZaEiP4pBEcadi/haFAOaqHq7Dd2a6EB
+	u1Q/p3UxYKMY0toCG24ZLl6R0j4mSvtB8dZ9lCvpqixW3vwHD3NuEhxdzTHeDIRYMweI3mmgg+DoU
+	ztPhXaDtrxkUvFCGQlNeYIz37Ms/JCCU2RKdr6J/VpKu4mzXY27curC0nAZjag9v0WMcyptjRUG0k
+	1A+N9HNWXpeN487COolQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1muGbg-004gjT-2E; Mon, 06 Dec 2021 16:12:48 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1muGbv-004grV-9B; Mon, 06 Dec 2021 16:13:03 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1muGbS-004geM-1e; Mon, 06 Dec 2021 16:12:35 +0000
+ id 1muGbV-004gfY-65; Mon, 06 Dec 2021 16:12:38 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by sin.source.kernel.org (Postfix) with ESMTPS id C2C46CE1693;
- Mon,  6 Dec 2021 16:12:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85E24C341C1;
- Mon,  6 Dec 2021 16:12:24 +0000 (UTC)
+ by sin.source.kernel.org (Postfix) with ESMTPS id 5895ECE16C8;
+ Mon,  6 Dec 2021 16:12:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B956C341C5;
+ Mon,  6 Dec 2021 16:12:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1638807149;
- bh=dwbrNjZZfbu4oEgK1JyUMMblUgSIXuqfZwlfGeMoXPc=;
- h=From:To:Cc:Subject:Date:From;
- b=a9Z803W9nzZK1lISjFvZTCPzk5gyjgPf80jyDPez6w2IaEu2N5Ny5VuMEVutBTGKJ
- gALiRfbRgaEg/GwxHiVUjdD+XvupTZusEYKusCqUVKulKJ84aSvDi6QoAJF6dSDRrH
- T5igpNHJHXA93HttOAqSgGuzg9DhexvLcFSPhBmd38lf2gRszUelaAzvrZmtkA1Nzo
- Et1BonhmJCUVbZqWxl4nLVsLbXF7JY8LfMv7yg0LmcQMRsiT4Kb+SAemnLF5z1I5N1
- HbeJ874mdet+GqLXVwACn1t/JtNIXD5+3dhPT0/xHyoEz5mBV2ufkMXVFzpgVA4Ogs
- BD05a6x6djLMw==
+ s=k20201202; t=1638807153;
+ bh=Pwe0wYHKG5lxvAb6z5/hTI+22/H72lsdHUeOXryUv9w=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=HTthzCPNXZsIEG0DB5CS9wiZM+kKPI1cgbZDwA9kKTHfyUBjdHKrDbAEmobT7ni5a
+ xTnX6fk/MLonIW5znbVYv62epkKB55ZMZNvFFyi6kSxZr0I7Xytz3hjl4MtU6Xbyvp
+ xxtrwjuSuqwMs8EyXxLd60XZuGfwz1naw9L5M7eYhlz5H8xnwfjZ0iFOHYwJUuqnyb
+ +VzDdARPnLckFenOQOuw+/RKJMof/D1wBE3OTD3aHgwO56dUQV4QwMTzx2XBVPwUv6
+ 5L4nOMXBFT7QXKqK5WeBs1KEX4dCrxLYmkprqqk4aq5+OpMvF1mYasqr/ua1YA6pbK
+ RRj8yZHjFUZ3Q==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Russell King <linux@armlinux.org.uk>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
@@ -52,16 +52,17 @@ To: Russell King <linux@armlinux.org.uk>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, kexec@lists.infradead.org,
  Alexandre ghiti <alex@ghiti.fr>
-Subject: [PATCH v2 0/5] kexec: use IS_ENABLED(CONFIG_KEXEC_CORE) instead of
- #ifdef
-Date: Tue,  7 Dec 2021 00:05:09 +0800
-Message-Id: <20211206160514.2000-1-jszhang@kernel.org>
+Subject: [PATCH v2 1/5] kexec: make crashk_res,
+ crashk_low_res and crash_notes symbols always visible
+Date: Tue,  7 Dec 2021 00:05:10 +0800
+Message-Id: <20211206160514.2000-2-jszhang@kernel.org>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20211206160514.2000-1-jszhang@kernel.org>
+References: <20211206160514.2000-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211206_081234_285949_9C3986C2 
-X-CRM114-Status: UNSURE (   8.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211206_081237_414191_A352B3D1 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,33 +79,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Replace the conditional compilation using "#ifdef CONFIG_KEXEC_CORE"
-by a check for "IS_ENABLED(CONFIG_KEXEC_CORE)", to simplify the code
-and increase compile coverage.
+Make the forward declarations of crashk_res, crashk_low_res and
+crash_notes always visible. Code referring to these symbols can then
+just check for IS_ENABLED(CONFIG_KEXEC_CORE), instead of requiring
+conditional compilation using an #ifdef, thus preparing to increase
+compile coverage and simplify the code.
 
-I only modify x86, arm, arm64 and riscv, other architectures such as
-sh, powerpc and s390 are better to be kept kexec code as-is so they
-are not touched.
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ include/linux/kexec.h | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-Since v1:
- - collect Reviewed-by tag
- - fix misleading commit msg.
-
-Jisheng Zhang (5):
-  kexec: make crashk_res, crashk_low_res and crash_notes symbols always
-    visible
-  riscv: mm: init: use IS_ENABLED(CONFIG_KEXEC_CORE) instead of #ifdef
-  x86/setup: use IS_ENABLED(CONFIG_KEXEC_CORE) instead of #ifdef
-  arm64: mm: use IS_ENABLED(CONFIG_KEXEC_CORE) instead of #ifdef
-  arm: use IS_ENABLED(CONFIG_KEXEC_CORE) instead of #ifdef
-
- arch/arm/kernel/setup.c |  7 +++----
- arch/arm64/mm/init.c    |  9 +++------
- arch/riscv/mm/init.c    |  6 ++----
- arch/x86/kernel/setup.c | 10 +++-------
- include/linux/kexec.h   | 12 ++++++------
- 5 files changed, 17 insertions(+), 27 deletions(-)
-
+diff --git a/include/linux/kexec.h b/include/linux/kexec.h
+index 0c994ae37729..58d1b58a971e 100644
+--- a/include/linux/kexec.h
++++ b/include/linux/kexec.h
+@@ -20,6 +20,12 @@
+ 
+ #include <uapi/linux/kexec.h>
+ 
++/* Location of a reserved region to hold the crash kernel.
++ */
++extern struct resource crashk_res;
++extern struct resource crashk_low_res;
++extern note_buf_t __percpu *crash_notes;
++
+ #ifdef CONFIG_KEXEC_CORE
+ #include <linux/list.h>
+ #include <linux/compat.h>
+@@ -350,12 +356,6 @@ extern int kexec_load_disabled;
+ #define KEXEC_FILE_FLAGS	(KEXEC_FILE_UNLOAD | KEXEC_FILE_ON_CRASH | \
+ 				 KEXEC_FILE_NO_INITRAMFS)
+ 
+-/* Location of a reserved region to hold the crash kernel.
+- */
+-extern struct resource crashk_res;
+-extern struct resource crashk_low_res;
+-extern note_buf_t __percpu *crash_notes;
+-
+ /* flag to track if kexec reboot is in progress */
+ extern bool kexec_in_progress;
+ 
 -- 
 2.34.1
 
