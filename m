@@ -4,77 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CA13C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Dec 2021 08:09:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37338C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Dec 2021 08:16:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZW9ETNZ+LQsgklvdtF4N9u5Ffjih7d4a68/W/VxEH58=; b=DeKWnrnhvMM5bL
-	abQIolZ1Adl8DM975ZeLOED84z/CeE+GWn3cHOb+2pFVhOC5AtbtGseAoQ1LTuTQASSfoMoNH0nCf
-	6zb3o3K+Ne9urrYUgvKepC9wl5A8wvQc3PIPYQS1vkAUbtWr2tvtdPRu7a01VtzqatjQ7NklljBGv
-	7VDJFCyV8kMFHIuJLkqUGZ2VGaB0N96QhYB+psl5FwGiLEVO58KT5REKUvGR2QfhI3O8Km7vPWx4+
-	7+Yjt9SYt7dwQkbNriE4GiMJqs8Ak+VRfNndsnfEFv3sYhzr+3h67VThm/Trsl/ltvRbNaBchKheU
-	7x/Bv6Je6Xi9zHIg/IOg==;
+	List-Owner; bh=29PwfQXXex7i9abYBPKzSVPR880wgpL42ZmDhyBHKHQ=; b=jdx5741UG7L/Yw
+	luMBGwcY4zn4SFk+TbJEvxXtKH8Bi0c/NDQMmxIc392SNW00yAzUNTOy+0QEcO2ku287wHr3oCJYL
+	eEcTk0XL2FzIDtLlGeSvUTmzdujARte/1GRlqd747WPiN5MXR6LPaMdarWBY275MR4pSVxk0OQUXf
+	VpnIMl9/ebxeekG+ymVqprRmvGM+pjYfbDNj8q5NOLsaz4o2PuOqNHW02DUd1MZ/BnHGWhHhuW/5g
+	zhaKgotmras5pn5Mea+/33uvhUnlB5bjAYD4LlhflQ4LvMo9zMlDeWIhJRZAscdkh+SvZDpV9OAhU
+	ajnc3TWkxnX2F8tyY8SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1muVXY-007Okt-FS; Tue, 07 Dec 2021 08:09:32 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93]
- helo=mx07-00178001.pphosted.com)
+	id 1muVeB-007Rxu-Li; Tue, 07 Dec 2021 08:16:23 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1muVXG-007OZZ-4g
- for linux-riscv@lists.infradead.org; Tue, 07 Dec 2021 08:09:15 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
- by mx07-00178001.pphosted.com (8.16.1.2/8.16.1.2) with ESMTP id 1B749etT019774;
- Tue, 7 Dec 2021 09:08:57 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- h=from : to : cc :
- subject : date : message-id : in-reply-to : references : mime-version :
- content-type; s=selector1;
- bh=1iFAiZpj3lcqsYiUsA/qSLmnf8mKGkPBOz81mbNrNmI=;
- b=hessX9aaSNEpvixfK1yGxrYrXtzHeOAf2A5Fz/5NlyjodnwoA0fbNCAyJOcYju45b//q
- TQswnHvn7Kbi+Z20p1vTmnsggydaG+o5eSQRB7bgAmt0hut9PqkhjVeYI1iY9ebwhWEs
- mR219JcKgN9TZ4We4OeZj42/Y9ggNnbUNR0SWao32vFkM6XCgUJn/zhoadWn01J9Y7sg
- x7Lp7FIYKQ+coN8awDNcVKN9sdfZtrT5NAuN30U2SETIB0uadVb6PR95JdDaYVocvmIa
- MXC0EoeUb/t0leiSXwS3xtqA/3e/7M/CW7PFKF7KttkUVGLAxelYT50CS3gyBQwoEQkM BA== 
-Received: from beta.dmz-eu.st.com (beta.dmz-eu.st.com [164.129.1.35])
- by mx07-00178001.pphosted.com (PPS) with ESMTPS id 3csp32bc9a-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Tue, 07 Dec 2021 09:08:57 +0100
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
- by beta.dmz-eu.st.com (STMicroelectronics) with ESMTP id 033D8100038;
- Tue,  7 Dec 2021 09:08:57 +0100 (CET)
-Received: from Webmail-eu.st.com (sfhdag2node2.st.com [10.75.127.5])
- by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id F13862220B0;
- Tue,  7 Dec 2021 09:08:56 +0100 (CET)
-Received: from localhost (10.75.127.48) by SFHDAG2NODE2.st.com (10.75.127.5)
- with Microsoft SMTP Server (TLS) id 15.0.1497.26; Tue, 7 Dec 2021 09:08:56
- +0100
-From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-To: Bjorn Andersson <bjorn.andersson@linaro.org>, Mathieu Poirier
- <mathieu.poirier@linaro.org>
-CC: <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-stm32@st-md-mailman.stormreply.com>, <julien.massot@iot.bzh>,
- <arnaud.pouliquen@foss.st.com>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH v8 05/13] RISC-V: configs: Configs that had RPMSG_CHAR now get
- RPMSG_CTRL
-Date: Tue, 7 Dec 2021 09:08:35 +0100
-Message-ID: <20211207080843.21222-6-arnaud.pouliquen@foss.st.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20211207080843.21222-1-arnaud.pouliquen@foss.st.com>
-References: <20211207080843.21222-1-arnaud.pouliquen@foss.st.com>
+ id 1muVe4-007Ru6-O2
+ for linux-riscv@lists.infradead.org; Tue, 07 Dec 2021 08:16:18 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id
+ k37-20020a05600c1ca500b00330cb84834fso1104356wms.2
+ for <linux-riscv@lists.infradead.org>; Tue, 07 Dec 2021 00:16:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=wV05YmqytZZ4i77GlP1Brthyva63mRUa2qE0+W2OXv4=;
+ b=cC1Hbczjdh2dzt9ciK2qiKC3ZkYz1fGNc8p1h3oLUa2PWAkb2rVdSC0aavqJ+hIEzx
+ pcvAhgPMbMkSHKM2in+pdz8ejZ2PqF/iimPZYtPQuW4YbhrLGril86javjmtKtUImtuH
+ ZbQ9sVHkJZyetxai1yhoAKKC9qIRnccfGo4bqqCYFOUoJ0nMsc4ZaNR4ohPMMBMLYeq7
+ 5uSC9mLsvmQineh9UG21iURMUPJPQuwv8iGgoi/PBa323WyfEWbcdE7FWPdyC/L6aDau
+ PXbmlej1r2JWIDKbmZZVVFWUIEidbsWHPyibno6dYOAKDAvZ/QWNTpn80CUMKZO2uJqe
+ Q38g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=wV05YmqytZZ4i77GlP1Brthyva63mRUa2qE0+W2OXv4=;
+ b=e6itUmw7UtfxYIDbTLwXH7d0dJytVlCDWlVRHQdUTXQK75cNB8h2+Ca5UYnCWRaFw+
+ ayZeWGgDzaI025uRyc6OFFsL49NOASwtuq09ehOq8BsbTvzMshGafWBKVFilDhCCWoBc
+ uiWzbp1mIhlxgaDz5ShM7YrY4vO/AVS81sma2mjIZwkSCqSVz673DT258BiDpvubtFvH
+ P6mHjtF7Wg9pP0vnPN53Pvy2/sxlYLmtxxTj7wYEP3sGwjs2Zrl074qrpW4IFG/nYOl5
+ Pkbxd1mLlrFpd9sHrjGDix3FDLSrc9DX9HQMpkQRXer3eU6makceKWgIvOdORwtcW4py
+ B/Vg==
+X-Gm-Message-State: AOAM531qafHVL2U9wRN3mIFYVLy5OojQEKMJDVcZ1eWLWW2wEx1iTgxn
+ 5+E8QVOy5EMXrzzFo2EKwaGPDpOADsQJGiuYizDYlQ==
+X-Google-Smtp-Source: ABdhPJy/5bX081hEllcHF+ciiU1wOWxT4YMmlv0lSO4Mp0uNC6xawLDFYKeG14mC3/pJJ+ZqaKc0D9h7/Cwk8IFQCsM=
+X-Received: by 2002:a7b:c7cd:: with SMTP id z13mr5087144wmk.59.1638864974238; 
+ Tue, 07 Dec 2021 00:16:14 -0800 (PST)
 MIME-Version: 1.0
-X-Originating-IP: [10.75.127.48]
-X-ClientProxiedBy: SFHDAG2NODE3.st.com (10.75.127.6) To SFHDAG2NODE2.st.com
- (10.75.127.5)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.205,Aquarius:18.0.790,Hydra:6.0.425,FMLib:17.11.62.513
- definitions=2021-12-07_03,2021-12-06_02,2021-12-02_01
+References: <20211207080843.21222-1-arnaud.pouliquen@foss.st.com>
+ <20211207080843.21222-6-arnaud.pouliquen@foss.st.com>
+In-Reply-To: <20211207080843.21222-6-arnaud.pouliquen@foss.st.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Tue, 7 Dec 2021 13:46:03 +0530
+Message-ID: <CAAhSdy3GDArfbQgusdDg-mi1bdTfDhFMaF4qa5-KFv1regwJ-Q@mail.gmail.com>
+Subject: Re: [PATCH v8 05/13] RISC-V: configs: Configs that had RPMSG_CHAR now
+ get RPMSG_CTRL
+To: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+Cc: Bjorn Andersson <bjorn.andersson@linaro.org>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, linux-remoteproc@vger.kernel.org,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ linux-stm32@st-md-mailman.stormreply.com, 
+ julien.massot@iot.bzh, linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211207_000914_488721_71C8606D 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20211207_001616_867312_BFC2B451 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,45 +88,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In the patch "rpmsg: Move the rpmsg control device from rpmsg_char
-to rpmsg_ctrl", we split the rpmsg_char driver in two.
-By default give everyone who had the old driver enabled the rpmsg_ctrl
-driver too.
+On Tue, Dec 7, 2021 at 1:39 PM Arnaud Pouliquen
+<arnaud.pouliquen@foss.st.com> wrote:
+>
+> In the patch "rpmsg: Move the rpmsg control device from rpmsg_char
+> to rpmsg_ctrl", we split the rpmsg_char driver in two.
+> By default give everyone who had the old driver enabled the rpmsg_ctrl
+> driver too.
+>
+> Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+> cc: linux-riscv@lists.infradead.org
 
-Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-cc: linux-riscv@lists.infradead.org
----
- arch/riscv/configs/defconfig      | 1 +
- arch/riscv/configs/rv32_defconfig | 1 +
- 2 files changed, 2 insertions(+)
+Looks good to me.
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index c252fd5706d2..c0439d3ffb8c 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -97,6 +97,7 @@ CONFIG_VIRTIO_BALLOON=y
- CONFIG_VIRTIO_INPUT=y
- CONFIG_VIRTIO_MMIO=y
- CONFIG_RPMSG_CHAR=y
-+CONFIG_RPMSG_CTRL=y
- CONFIG_RPMSG_VIRTIO=y
- CONFIG_EXT4_FS=y
- CONFIG_EXT4_FS_POSIX_ACL=y
-diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-index 434ef5b64599..99eabad7ca0f 100644
---- a/arch/riscv/configs/rv32_defconfig
-+++ b/arch/riscv/configs/rv32_defconfig
-@@ -89,6 +89,7 @@ CONFIG_VIRTIO_BALLOON=y
- CONFIG_VIRTIO_INPUT=y
- CONFIG_VIRTIO_MMIO=y
- CONFIG_RPMSG_CHAR=y
-+CONFIG_RPMSG_CTRL=y
- CONFIG_RPMSG_VIRTIO=y
- CONFIG_EXT4_FS=y
- CONFIG_EXT4_FS_POSIX_ACL=y
--- 
-2.17.1
+Reviewed-by: Anup Patel <anup@brainfault.org>
 
+Regards,
+Anup
+
+> ---
+>  arch/riscv/configs/defconfig      | 1 +
+>  arch/riscv/configs/rv32_defconfig | 1 +
+>  2 files changed, 2 insertions(+)
+>
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index c252fd5706d2..c0439d3ffb8c 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -97,6 +97,7 @@ CONFIG_VIRTIO_BALLOON=y
+>  CONFIG_VIRTIO_INPUT=y
+>  CONFIG_VIRTIO_MMIO=y
+>  CONFIG_RPMSG_CHAR=y
+> +CONFIG_RPMSG_CTRL=y
+>  CONFIG_RPMSG_VIRTIO=y
+>  CONFIG_EXT4_FS=y
+>  CONFIG_EXT4_FS_POSIX_ACL=y
+> diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
+> index 434ef5b64599..99eabad7ca0f 100644
+> --- a/arch/riscv/configs/rv32_defconfig
+> +++ b/arch/riscv/configs/rv32_defconfig
+> @@ -89,6 +89,7 @@ CONFIG_VIRTIO_BALLOON=y
+>  CONFIG_VIRTIO_INPUT=y
+>  CONFIG_VIRTIO_MMIO=y
+>  CONFIG_RPMSG_CHAR=y
+> +CONFIG_RPMSG_CTRL=y
+>  CONFIG_RPMSG_VIRTIO=y
+>  CONFIG_EXT4_FS=y
+>  CONFIG_EXT4_FS_POSIX_ACL=y
+> --
+> 2.17.1
+>
 
 _______________________________________________
 linux-riscv mailing list
