@@ -4,81 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 819A6C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Dec 2021 20:37:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CA13C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Dec 2021 08:09:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zOjYWCiGhSZ4Y5nivyl8rtJy0r/hshRpSNhPYL51Ve8=; b=VTpwR6wgj3nWwx
-	rfKwBGvmuLUMhNXwpAxR+NNuIohGKaOwRdVuNtjjdOAP0K+RO/L/Z4EKpLyhHKim1o+H1vEFkseCD
-	z5Ef427aDbkkMUlfsOCwgAbub1Asl0lRUc6CA+JiZAmaF2iuYlTn08vLtmd53rjq3oOoKX96HV9MO
-	/ceIp2mTGQKtKmAS3BmXdOO0wUdsmK8HJfDHu4k7cGb+OH4jIUkFlEjpOxo3sBn5gLL3iSamVCY+B
-	3Mm8CAG9OyjHQQfSgQXFDDoh5w+Ro3mWYhaiBr81WPcM4aPR7m0ywsjrG0j9OzRX/mmxX6ZrZmmiJ
-	rU1zMb5EPiwSX420jzUA==;
+	List-Owner; bh=ZW9ETNZ+LQsgklvdtF4N9u5Ffjih7d4a68/W/VxEH58=; b=DeKWnrnhvMM5bL
+	abQIolZ1Adl8DM975ZeLOED84z/CeE+GWn3cHOb+2pFVhOC5AtbtGseAoQ1LTuTQASSfoMoNH0nCf
+	6zb3o3K+Ne9urrYUgvKepC9wl5A8wvQc3PIPYQS1vkAUbtWr2tvtdPRu7a01VtzqatjQ7NklljBGv
+	7VDJFCyV8kMFHIuJLkqUGZ2VGaB0N96QhYB+psl5FwGiLEVO58KT5REKUvGR2QfhI3O8Km7vPWx4+
+	7+Yjt9SYt7dwQkbNriE4GiMJqs8Ak+VRfNndsnfEFv3sYhzr+3h67VThm/Trsl/ltvRbNaBchKheU
+	7x/Bv6Je6Xi9zHIg/IOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1muKjz-005gFQ-L1; Mon, 06 Dec 2021 20:37:39 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1muVXY-007Okt-FS; Tue, 07 Dec 2021 08:09:32 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93]
+ helo=mx07-00178001.pphosted.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1muKjx-005gEc-3u
- for linux-riscv@lists.infradead.org; Mon, 06 Dec 2021 20:37:38 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id y12so47772155eda.12
- for <linux-riscv@lists.infradead.org>; Mon, 06 Dec 2021 12:37:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=zBLblKeg8CrULqFWVj7RAzFZmXmOvswPlK8gAVXpGvQ=;
- b=j4VEo5eVw1TtR0YsSabgZhAtbGEv6dWXafQlQs99qr1BPHoPLjjZ1fdWfnPVndnpii
- ebdq0ugWlyjmCQ4o27jqzmg/n5UUixZsG/vb4lH6DsoQoZXkAESKIwBiNjSLnAdeRtuc
- NvemIycmd820mZDlWH6BYGMkNj4KMVa78s+SbEyK/f8TVFuLi5G6WK1G9lTzPk0ZUt4U
- 4fpbHdGd7AaqHwgOIa/NsNydocrNsPaVByELqK8k71S7/mVwZK/hzVfe1zyA76WQ2DMQ
- X1Hds3ZACRDogFxy6vi3gNA3YPjFJ+dA7UzfSyGgSumgCPdexmsKJjcZhlEvxkSvCeop
- YBFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:sender:from:to:cc:subject:date:message-id
- :in-reply-to:references:mime-version:content-transfer-encoding;
- bh=zBLblKeg8CrULqFWVj7RAzFZmXmOvswPlK8gAVXpGvQ=;
- b=8OjO4Bq4ufXz+4OlsTH/Ca5eFz8/L8Tae6ya7aVmggBzT44cE5AmntX3q4Z7N6xOSg
- fObwNjiNUUsCbwKsXDWWqHmdHtCBTziP7cwy9ZCj6QRIuttRqWJ3dBKgWzcL1fzYGHbf
- GEpqoa/qX235bDtjKSXab/nbUcsTG57UG3fRWqQlvsfwGhnwkoCql/ahz971F8sCxXZz
- kRSo+PH7WCdCoUgGsG/SCElq7L+22xMm3oeL+jsD/ohI4sD1D15zyPK1pjxnA3dGzbbV
- uGyDL6Ytdl+CgvFQjHHvfKGMormdvbHGU1kYzUkJxGiA7VJDoQdEXblyiLAY3VHlunZM
- 9gdQ==
-X-Gm-Message-State: AOAM533fOsxFs8HeIN7xv1Bxo0NnkldDGrtywVkiWsgYhrDf684wh9TF
- Wrjl9HIugEaAk07RBClWH3k=
-X-Google-Smtp-Source: ABdhPJzrgo0Xi3nmEuzmb1ho2OIxbrUIKWnzhLf3x7/W+hp+MPI/n3GrzxQc508pMJcPgQlhyuhEbg==
-X-Received: by 2002:a17:906:1396:: with SMTP id
- f22mr48685989ejc.228.1638823054885; 
- Mon, 06 Dec 2021 12:37:34 -0800 (PST)
-Received: from stitch.. (80.71.140.73.ipv4.parknet.dk. [80.71.140.73])
- by smtp.gmail.com with ESMTPSA id x22sm7091350ejc.97.2021.12.06.12.37.33
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 06 Dec 2021 12:37:34 -0800 (PST)
-From: Emil Renner Berthing <kernel@esmil.dk>
-To: Ley Foon Tan <lftan.linux@gmail.com>,
- Matteo Croce <mcroce@linux.microsoft.com>
-Cc: Emil Renner Berthing <kernel@esmil.dk>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Akira Tsukamoto <akira.tsukamoto@gmail.com>,
- Drew Fustini <drew@beagleboard.org>, Bin Meng <bmeng.cn@gmail.com>,
- David Laight <David.Laight@aculab.com>, Guo Ren <guoren@kernel.org>,
- Christoph Hellwig <hch@lst.de>
-Subject: Re: [PATCH v5 3/3] riscv: optimized memset
-Date: Mon,  6 Dec 2021 21:37:03 +0100
-Message-Id: <20211206203703.67597-1-kernel@esmil.dk>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <CAFiDJ5-OJzWWR0hSZDsuAmxzxTE7cRR9Bsetpfh5vvrTxzkKPw@mail.gmail.com>
-References: <CAFiDJ5-OJzWWR0hSZDsuAmxzxTE7cRR9Bsetpfh5vvrTxzkKPw@mail.gmail.com>
+ id 1muVXG-007OZZ-4g
+ for linux-riscv@lists.infradead.org; Tue, 07 Dec 2021 08:09:15 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+ by mx07-00178001.pphosted.com (8.16.1.2/8.16.1.2) with ESMTP id 1B749etT019774;
+ Tue, 7 Dec 2021 09:08:57 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ h=from : to : cc :
+ subject : date : message-id : in-reply-to : references : mime-version :
+ content-type; s=selector1;
+ bh=1iFAiZpj3lcqsYiUsA/qSLmnf8mKGkPBOz81mbNrNmI=;
+ b=hessX9aaSNEpvixfK1yGxrYrXtzHeOAf2A5Fz/5NlyjodnwoA0fbNCAyJOcYju45b//q
+ TQswnHvn7Kbi+Z20p1vTmnsggydaG+o5eSQRB7bgAmt0hut9PqkhjVeYI1iY9ebwhWEs
+ mR219JcKgN9TZ4We4OeZj42/Y9ggNnbUNR0SWao32vFkM6XCgUJn/zhoadWn01J9Y7sg
+ x7Lp7FIYKQ+coN8awDNcVKN9sdfZtrT5NAuN30U2SETIB0uadVb6PR95JdDaYVocvmIa
+ MXC0EoeUb/t0leiSXwS3xtqA/3e/7M/CW7PFKF7KttkUVGLAxelYT50CS3gyBQwoEQkM BA== 
+Received: from beta.dmz-eu.st.com (beta.dmz-eu.st.com [164.129.1.35])
+ by mx07-00178001.pphosted.com (PPS) with ESMTPS id 3csp32bc9a-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Tue, 07 Dec 2021 09:08:57 +0100
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+ by beta.dmz-eu.st.com (STMicroelectronics) with ESMTP id 033D8100038;
+ Tue,  7 Dec 2021 09:08:57 +0100 (CET)
+Received: from Webmail-eu.st.com (sfhdag2node2.st.com [10.75.127.5])
+ by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id F13862220B0;
+ Tue,  7 Dec 2021 09:08:56 +0100 (CET)
+Received: from localhost (10.75.127.48) by SFHDAG2NODE2.st.com (10.75.127.5)
+ with Microsoft SMTP Server (TLS) id 15.0.1497.26; Tue, 7 Dec 2021 09:08:56
+ +0100
+From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+To: Bjorn Andersson <bjorn.andersson@linaro.org>, Mathieu Poirier
+ <mathieu.poirier@linaro.org>
+CC: <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-stm32@st-md-mailman.stormreply.com>, <julien.massot@iot.bzh>,
+ <arnaud.pouliquen@foss.st.com>, <linux-riscv@lists.infradead.org>
+Subject: [PATCH v8 05/13] RISC-V: configs: Configs that had RPMSG_CHAR now get
+ RPMSG_CTRL
+Date: Tue, 7 Dec 2021 09:08:35 +0100
+Message-ID: <20211207080843.21222-6-arnaud.pouliquen@foss.st.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20211207080843.21222-1-arnaud.pouliquen@foss.st.com>
+References: <20211207080843.21222-1-arnaud.pouliquen@foss.st.com>
 MIME-Version: 1.0
+X-Originating-IP: [10.75.127.48]
+X-ClientProxiedBy: SFHDAG2NODE3.st.com (10.75.127.6) To SFHDAG2NODE2.st.com
+ (10.75.127.5)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.205,Aquarius:18.0.790,Hydra:6.0.425,FMLib:17.11.62.513
+ definitions=2021-12-07_03,2021-12-06_02,2021-12-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211206_123737_180001_22D5DBFD 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20211207_000914_488721_71C8606D 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,37 +91,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Ley Foon,
+In the patch "rpmsg: Move the rpmsg control device from rpmsg_char
+to rpmsg_ctrl", we split the rpmsg_char driver in two.
+By default give everyone who had the old driver enabled the rpmsg_ctrl
+driver too.
 
-You're right it doesn't boot for me either when building with
-
-  make ARCH=riscv LLVM=1
-
-The following patch fixes it for me though. In hindsigt it's perhaps a
-bit surprising it works without -ffreestanding in GCC.
-
-/Emil
-
+Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+cc: linux-riscv@lists.infradead.org
 ---
- arch/riscv/lib/Makefile | 5 +++++
- 1 file changed, 5 insertions(+)
+ arch/riscv/configs/defconfig      | 1 +
+ arch/riscv/configs/rv32_defconfig | 1 +
+ 2 files changed, 2 insertions(+)
 
-diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index e33263cc622a..6dfa919d4cd6 100644
---- a/arch/riscv/lib/Makefile
-+++ b/arch/riscv/lib/Makefile
-@@ -4,4 +4,9 @@ lib-$(CONFIG_MMU)	+= uaccess.o
- lib-$(CONFIG_64BIT)	+= tishift.o
- lib-$(CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE) += string.o
- 
-+# string.o implements standard library functions like memset/memcpy etc.
-+# Use -ffreestanding to ensure that the compiler does not try to "optimize"
-+# them into calls to themselves.
-+CFLAGS_string.o := -ffreestanding
-+
- obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index c252fd5706d2..c0439d3ffb8c 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -97,6 +97,7 @@ CONFIG_VIRTIO_BALLOON=y
+ CONFIG_VIRTIO_INPUT=y
+ CONFIG_VIRTIO_MMIO=y
+ CONFIG_RPMSG_CHAR=y
++CONFIG_RPMSG_CTRL=y
+ CONFIG_RPMSG_VIRTIO=y
+ CONFIG_EXT4_FS=y
+ CONFIG_EXT4_FS_POSIX_ACL=y
+diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
+index 434ef5b64599..99eabad7ca0f 100644
+--- a/arch/riscv/configs/rv32_defconfig
++++ b/arch/riscv/configs/rv32_defconfig
+@@ -89,6 +89,7 @@ CONFIG_VIRTIO_BALLOON=y
+ CONFIG_VIRTIO_INPUT=y
+ CONFIG_VIRTIO_MMIO=y
+ CONFIG_RPMSG_CHAR=y
++CONFIG_RPMSG_CTRL=y
+ CONFIG_RPMSG_VIRTIO=y
+ CONFIG_EXT4_FS=y
+ CONFIG_EXT4_FS_POSIX_ACL=y
 -- 
-2.34.1
+2.17.1
 
 
 _______________________________________________
