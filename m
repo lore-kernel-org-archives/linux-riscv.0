@@ -4,74 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37338C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Dec 2021 08:16:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D83C2C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Dec 2021 18:07:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=29PwfQXXex7i9abYBPKzSVPR880wgpL42ZmDhyBHKHQ=; b=jdx5741UG7L/Yw
-	luMBGwcY4zn4SFk+TbJEvxXtKH8Bi0c/NDQMmxIc392SNW00yAzUNTOy+0QEcO2ku287wHr3oCJYL
-	eEcTk0XL2FzIDtLlGeSvUTmzdujARte/1GRlqd747WPiN5MXR6LPaMdarWBY275MR4pSVxk0OQUXf
-	VpnIMl9/ebxeekG+ymVqprRmvGM+pjYfbDNj8q5NOLsaz4o2PuOqNHW02DUd1MZ/BnHGWhHhuW/5g
-	zhaKgotmras5pn5Mea+/33uvhUnlB5bjAYD4LlhflQ4LvMo9zMlDeWIhJRZAscdkh+SvZDpV9OAhU
-	ajnc3TWkxnX2F8tyY8SA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QtguoFrboKroqI0QUB8Glaws5+6eCV7YKb1Y7hHJMg0=; b=45gdp/idr8huQA
+	mKAuJF7IpStp+bzIUz4Gd3ysvRGjel1wSgTmt63OTR6f4IuA/lajJtUULPExABawSQKNxdDJpPG8F
+	MTjMIP7a8s+HdZUJ5OsBIKNk8PA6h0/axQaxGeDy1zl1Y2lmiCWuF068TcAeIoScMnXcW2vx+t6Zd
+	7QwXwiIH4URMkDndiQqCHUSxzZggkag9VBkNtG2M1OadaKRifEa1AlkJx4oqE+jO18oH0vLlDgCMh
+	TpwhWbs+QxzMqmVUMsNZodc+UNVTgxvl1+0sptteriEVXTrPHiuTTl3LLu3/Q5UiBHPK9q5lcHhVS
+	LHZcd7IOcB8RGzfaHQSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1muVeB-007Rxu-Li; Tue, 07 Dec 2021 08:16:23 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1muVe4-007Ru6-O2
- for linux-riscv@lists.infradead.org; Tue, 07 Dec 2021 08:16:18 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id
- k37-20020a05600c1ca500b00330cb84834fso1104356wms.2
- for <linux-riscv@lists.infradead.org>; Tue, 07 Dec 2021 00:16:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=wV05YmqytZZ4i77GlP1Brthyva63mRUa2qE0+W2OXv4=;
- b=cC1Hbczjdh2dzt9ciK2qiKC3ZkYz1fGNc8p1h3oLUa2PWAkb2rVdSC0aavqJ+hIEzx
- pcvAhgPMbMkSHKM2in+pdz8ejZ2PqF/iimPZYtPQuW4YbhrLGril86javjmtKtUImtuH
- ZbQ9sVHkJZyetxai1yhoAKKC9qIRnccfGo4bqqCYFOUoJ0nMsc4ZaNR4ohPMMBMLYeq7
- 5uSC9mLsvmQineh9UG21iURMUPJPQuwv8iGgoi/PBa323WyfEWbcdE7FWPdyC/L6aDau
- PXbmlej1r2JWIDKbmZZVVFWUIEidbsWHPyibno6dYOAKDAvZ/QWNTpn80CUMKZO2uJqe
- Q38g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=wV05YmqytZZ4i77GlP1Brthyva63mRUa2qE0+W2OXv4=;
- b=e6itUmw7UtfxYIDbTLwXH7d0dJytVlCDWlVRHQdUTXQK75cNB8h2+Ca5UYnCWRaFw+
- ayZeWGgDzaI025uRyc6OFFsL49NOASwtuq09ehOq8BsbTvzMshGafWBKVFilDhCCWoBc
- uiWzbp1mIhlxgaDz5ShM7YrY4vO/AVS81sma2mjIZwkSCqSVz673DT258BiDpvubtFvH
- P6mHjtF7Wg9pP0vnPN53Pvy2/sxlYLmtxxTj7wYEP3sGwjs2Zrl074qrpW4IFG/nYOl5
- Pkbxd1mLlrFpd9sHrjGDix3FDLSrc9DX9HQMpkQRXer3eU6makceKWgIvOdORwtcW4py
- B/Vg==
-X-Gm-Message-State: AOAM531qafHVL2U9wRN3mIFYVLy5OojQEKMJDVcZ1eWLWW2wEx1iTgxn
- 5+E8QVOy5EMXrzzFo2EKwaGPDpOADsQJGiuYizDYlQ==
-X-Google-Smtp-Source: ABdhPJy/5bX081hEllcHF+ciiU1wOWxT4YMmlv0lSO4Mp0uNC6xawLDFYKeG14mC3/pJJ+ZqaKc0D9h7/Cwk8IFQCsM=
-X-Received: by 2002:a7b:c7cd:: with SMTP id z13mr5087144wmk.59.1638864974238; 
- Tue, 07 Dec 2021 00:16:14 -0800 (PST)
+	id 1muesG-009eKP-Jv; Tue, 07 Dec 2021 18:07:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mues2-009eFO-Au; Tue, 07 Dec 2021 18:07:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F3A9111FB;
+ Tue,  7 Dec 2021 10:07:15 -0800 (PST)
+Received: from e127744.cambridge.arm.com (e127744.cambridge.arm.com
+ [10.1.37.151])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7D95D3F73B;
+ Tue,  7 Dec 2021 10:07:12 -0800 (PST)
+From: German Gomez <german.gomez@arm.com>
+To: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ acme@kernel.org
+Cc: German Gomez <german.gomez@arm.com>, John Garry <john.garry@huawei.com>,
+ Will Deacon <will@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Leo Yan <leo.yan@linaro.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject: [PATCH v2 0/3] Support register names of all architectures
+Date: Tue,  7 Dec 2021 18:06:49 +0000
+Message-Id: <20211207180653.1147374-1-german.gomez@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20211207080843.21222-1-arnaud.pouliquen@foss.st.com>
- <20211207080843.21222-6-arnaud.pouliquen@foss.st.com>
-In-Reply-To: <20211207080843.21222-6-arnaud.pouliquen@foss.st.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 7 Dec 2021 13:46:03 +0530
-Message-ID: <CAAhSdy3GDArfbQgusdDg-mi1bdTfDhFMaF4qa5-KFv1regwJ-Q@mail.gmail.com>
-Subject: Re: [PATCH v8 05/13] RISC-V: configs: Configs that had RPMSG_CHAR now
- get RPMSG_CTRL
-To: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-Cc: Bjorn Andersson <bjorn.andersson@linaro.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, linux-remoteproc@vger.kernel.org,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- linux-stm32@st-md-mailman.stormreply.com, 
- julien.massot@iot.bzh, linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211207_001616_867312_BFC2B451 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20211207_100718_447650_BFCC8751 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,56 +66,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 7, 2021 at 1:39 PM Arnaud Pouliquen
-<arnaud.pouliquen@foss.st.com> wrote:
->
-> In the patch "rpmsg: Move the rpmsg control device from rpmsg_char
-> to rpmsg_ctrl", we split the rpmsg_char driver in two.
-> By default give everyone who had the old driver enabled the rpmsg_ctrl
-> driver too.
->
-> Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-> cc: linux-riscv@lists.infradead.org
+The following changeset applies some corrections to the way system
+registers are processed and presented when reading perf.data files using
+the various perf tools.
 
-Looks good to me.
+The commit message from [3/3] shows how register names aren't correctly
+presented when performing x-arch analysis of perf.data files (recording
+in one arch, then reading the file from a different arch).
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
+  - [PATCH 1/3] Fixes a potential out-of-bounds access when reading the
+    values of the registers in the perf.data file.
+  - [PATCH 2/3] Fixes an issue of ARM and ARM64 registers having the
+    same enum name.
+  - [PATCH 3/3] Refactors the function "perf_reg_name" declared in the
+   "tools/perf/util/perf_regs.h" header, in order to support every arch.
 
-Regards,
-Anup
+Thanks,
+German
 
-> ---
->  arch/riscv/configs/defconfig      | 1 +
->  arch/riscv/configs/rv32_defconfig | 1 +
->  2 files changed, 2 insertions(+)
->
-> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> index c252fd5706d2..c0439d3ffb8c 100644
-> --- a/arch/riscv/configs/defconfig
-> +++ b/arch/riscv/configs/defconfig
-> @@ -97,6 +97,7 @@ CONFIG_VIRTIO_BALLOON=y
->  CONFIG_VIRTIO_INPUT=y
->  CONFIG_VIRTIO_MMIO=y
->  CONFIG_RPMSG_CHAR=y
-> +CONFIG_RPMSG_CTRL=y
->  CONFIG_RPMSG_VIRTIO=y
->  CONFIG_EXT4_FS=y
->  CONFIG_EXT4_FS_POSIX_ACL=y
-> diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-> index 434ef5b64599..99eabad7ca0f 100644
-> --- a/arch/riscv/configs/rv32_defconfig
-> +++ b/arch/riscv/configs/rv32_defconfig
-> @@ -89,6 +89,7 @@ CONFIG_VIRTIO_BALLOON=y
->  CONFIG_VIRTIO_INPUT=y
->  CONFIG_VIRTIO_MMIO=y
->  CONFIG_RPMSG_CHAR=y
-> +CONFIG_RPMSG_CTRL=y
->  CONFIG_RPMSG_VIRTIO=y
->  CONFIG_EXT4_FS=y
->  CONFIG_EXT4_FS_POSIX_ACL=y
-> --
-> 2.17.1
->
+--
+Changes since v1
+
+  - Added "Reported-by" tags.
+  - Removed [PATCH 2/4] because it's not needed (suggested by Athira
+    Rajeev).
+  - Removed [PATCH 3/4] which created additional header files with the
+    register names of every arch.
+  - Introduced [PATCH 2/3] to deal with ARM and ARM64 registers having the
+    same enum name across "/tools/perf/".
+  - Reworked the refactor of "perf_reg_name" function (now implemented in
+    perf_regs.c, rather than in the header file) in [PATCH 3/3].
+
+German Gomez (3):
+  perf tools: Prevent out-of-bounds access to registers
+  perf tools: Rename perf_event_arm_regs for ARM64 registers
+  perf tools: Support register names from all archs
+
+ tools/perf/arch/arm/include/perf_regs.h       |  42 --
+ tools/perf/arch/arm64/include/perf_regs.h     |  78 +-
+ tools/perf/arch/csky/include/perf_regs.h      |  82 ---
+ tools/perf/arch/mips/include/perf_regs.h      |  69 --
+ tools/perf/arch/powerpc/include/perf_regs.h   |  66 --
+ tools/perf/arch/riscv/include/perf_regs.h     |  74 --
+ tools/perf/arch/s390/include/perf_regs.h      |  78 --
+ tools/perf/arch/x86/include/perf_regs.h       |  82 ---
+ tools/perf/builtin-script.c                   |  18 +-
+ tools/perf/util/event.h                       |   5 +-
+ tools/perf/util/libunwind/arm64.c             |   2 +
+ tools/perf/util/perf_regs.c                   | 671 +++++++++++++++++-
+ tools/perf/util/perf_regs.h                   |  10 +-
+ .../scripting-engines/trace-event-python.c    |  10 +-
+ tools/perf/util/session.c                     |  25 +-
+ 15 files changed, 709 insertions(+), 603 deletions(-)
+
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
