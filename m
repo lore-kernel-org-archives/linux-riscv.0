@@ -4,75 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40E4CC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Dec 2021 10:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B993CC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Dec 2021 11:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=uvCpSno5P9Tw24W8g/eo5lpY/85krqA3l8xEVZuqDV4=; b=yBali92PeGImhE
-	6ZifgvIMvQ9KGurIJTQkg3US2IpSplkmJVbt7QMAsgXdSJ7ka2dXmClzaywmbXPAm+/WuwnUZSx0e
-	sT67JfTmmqDb0C6o1NabrUDCzBFsIocenwlRQYVzH/3hElXqyeP8oxcNu0ejVqm443jI2dnmyDhz+
-	3meoDQnsIBRv3wJrm7zxVOgWX8aRy5tO0Zpas3ToGv4fTxc56AyJko8yh0EWXQRJwIHacESYJnrWA
-	nZ1NXWIQB9XKyCpDhj1ugAiMdKg9f0EtLs/BYJMccBzM4gVcqx1Setsx1WAC5Fe4edbqRxSPXk4f9
-	6SOIEVTFlrwORe9rULvA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:CC:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cgGfSGt8P0t2EpkqTUI6r1l0q4RZsuwREN6SnKpSwBA=; b=2fJBSOLKVoeEUCBw1xnxQkAKfV
+	8cm58K3zar4NwD9k7ihGpH7C7IJ8iLa+vCPf3nHrbUSRQuugxcnwFoWgC//tZtLhvxvIgg+liXd4E
+	jWXbJsezs3rdzyRKXZ6g8gDVO8Wy3KPr5fQl9Blf/W2TSM0AWDCIo/nrKbsO4AI1S2Wdo+N/g2P2Y
+	kUzg/y4lliKOueDIYfaXGX904CbC9txB54MHRCYk4l2MC4L7aLFF5jU+F3kjfuUKmu0Vwe1YqHe2a
+	/WRLjEQsa3YhRA2ZJBXTcZWj6rtoEmE4bxh5vnurfSkbbIk8y0Tl8SlrYH/KOAsEAZnn4EkUKJ8r6
+	8hHR/BVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mutqF-00C2Jd-8T; Wed, 08 Dec 2021 10:06:27 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1muvUt-00CJtX-4p; Wed, 08 Dec 2021 11:52:31 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mutqC-00C2JD-5z
- for linux-riscv@lists.infradead.org; Wed, 08 Dec 2021 10:06:25 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id
- n15-20020a17090a160f00b001a75089daa3so4014292pja.1
- for <linux-riscv@lists.infradead.org>; Wed, 08 Dec 2021 02:06:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=vLsqqIOcK3x87D0lqx5TjStNHLlKk/oR3ZFyCJp2s0U=;
- b=KZkrJZQF1iqqcIYWB/INHACwNxQlYjBuUCagjsMviC4w8dR9cDh1bmtZmWBjnMsiJZ
- rC6tn1lLx7SyHN6UgSVSOerot5qYiwA0+3tobbXRHmAM3kjP82zBDqLmSn97bY5JYfyq
- YWUTHvchOyjkgsPKBYLlLgB/W7RNxLZgGR/VIv1n9g8EFF8+1HMY+3R+/u+itWXDo7ve
- CrxrX2w8g9NyDlwFoQL9bJhANRi8fB8RMMlLB5spyxYAOkpZT1ydZ21yU+OuL+QTGFLZ
- d/X4LFPHKbKyMu01TijurTGtM03tdRjZTH8t6lduMuIAz66kHpH4iF/JvcSOvBVDcKJI
- G/sA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=vLsqqIOcK3x87D0lqx5TjStNHLlKk/oR3ZFyCJp2s0U=;
- b=gSmBfiUMk1YWTgJ0tfA1fhEH3crB15kfNov8LEWpkzsiN6GigS4jEBvJyM6OBR4QCv
- vREIgMkQk4XbVucpLqFyZPfXVBWZUZlYkDKhwFYx50F6sI+XnVSr5EgtGaFLgbROrvor
- LIVZWQTrR/riL4Q44L2MdKX/0ISVsjPn4KV23F2LZuhhE3YZ812BmaAOxp2qoBVd+esF
- u6tQxtqHklxdJLwtZ8WzDCwr+rNk/UJH2DjXN7i2J3pjlCn8gaw5TGnKm8REPwUCX/Hg
- Ei9eoyFDBUM3KtzIRxKRTem0O3qaBnZzl1sNioKNSRA5/WA6c6wX8pnDDYxTeXS4y6LM
- JHmg==
-X-Gm-Message-State: AOAM533ZuaY/fRmkMyN9kx3k3BqpV666SCLe5K/61ZDR7PhFLp7ETsqp
- ZoitChh0FUJKSCBsUslgr+yOqw==
-X-Google-Smtp-Source: ABdhPJxJM0rGENjhTjTx6Is6PlZ+znZvJakmsXjGiFUmS4EBjePVGdAA4K1S3V9+/m+9zXrnyLbsog==
-X-Received: by 2002:a17:90b:350b:: with SMTP id
- ls11mr6002127pjb.227.1638957983430; 
- Wed, 08 Dec 2021 02:06:23 -0800 (PST)
-Received: from hsinchu16.internal.sifive.com
- (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
- by smtp.gmail.com with ESMTPSA id y28sm2886312pfa.208.2021.12.08.02.06.21
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 08 Dec 2021 02:06:22 -0800 (PST)
-From: Zong Li <zong.li@sifive.com>
-To: mturquette@baylibre.com, sboyd@kernel.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, lee.jones@linaro.org, linux-clk@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Cc: Zong Li <zong.li@sifive.com>
-Subject: [PATCH v2 1/1] clk: sifive: Fix W=1 kernel build warning
-Date: Wed,  8 Dec 2021 18:06:18 +0800
-Message-Id: <7823666b57c105aee8323e6896f83f3ed249d9ee.1638957553.git.zong.li@sifive.com>
-X-Mailer: git-send-email 2.31.1
+ id 1muvUf-00CJno-CE; Wed, 08 Dec 2021 11:52:19 +0000
+Received: from fraeml742-chm.china.huawei.com (unknown [172.18.147.207])
+ by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4J8Fpd2RrCz67gtT;
+ Wed,  8 Dec 2021 19:50:17 +0800 (CST)
+Received: from lhreml724-chm.china.huawei.com (10.201.108.75) by
+ fraeml742-chm.china.huawei.com (10.206.15.223) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2308.20; Wed, 8 Dec 2021 12:52:04 +0100
+Received: from [10.47.91.245] (10.47.91.245) by lhreml724-chm.china.huawei.com
+ (10.201.108.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2308.20; Wed, 8 Dec
+ 2021 11:52:02 +0000
+Subject: Re: [PATCH v2 3/3] perf tools: Support register names from all archs
+To: German Gomez <german.gomez@arm.com>, <linux-kernel@vger.kernel.org>,
+ <linux-perf-users@vger.kernel.org>, <acme@kernel.org>
+CC: Alexandre Truong <alexandre.truong@arm.com>, Will Deacon
+ <will@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, Leo Yan
+ <leo.yan@linaro.org>, Mark Rutland <mark.rutland@arm.com>, Alexander Shishkin
+ <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@redhat.com>, "Namhyung
+ Kim" <namhyung@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-csky@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+References: <20211207180653.1147374-1-german.gomez@arm.com>
+ <20211207180653.1147374-4-german.gomez@arm.com>
+From: John Garry <john.garry@huawei.com>
+Message-ID: <90bcce69-9585-3fb4-de89-bbf2bd6def05@huawei.com>
+Date: Wed, 8 Dec 2021 11:51:43 +0000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.1
 MIME-Version: 1.0
+In-Reply-To: <20211207180653.1147374-4-german.gomez@arm.com>
+Content-Language: en-US
+X-Originating-IP: [10.47.91.245]
+X-ClientProxiedBy: lhreml724-chm.china.huawei.com (10.201.108.75) To
+ lhreml724-chm.china.huawei.com (10.201.108.75)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211208_020624_283050_3877E214 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20211208_035217_617477_F1265937 
+X-CRM114-Status: UNSURE (   7.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,78 +73,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhpcyBjb21taXQgcmV2ZXJ0cyBjb21taXQgNDg3ZGM3YmI2YTBjICgiY2xrOiBzaWZpdmU6IGZ1
-NTQwLXByY2k6CkRlY2xhcmUgc3RhdGljIGNvbnN0IHZhcmlhYmxlICdwcmNpX2Nsa19mdTU0MCcg
-d2hlcmUgaXQncyB1c2VkIikuCkZvciBmaXhpbmcgVz0xIGtlcm5lbCBidWlsZCB3YXJuaW5nKHMp
-IGFib3V0IOKAmHByY2lfY2xrX2Z1NTQw4oCZIGRlZmluZWQKYnV0IG5vdCB1c2VkIFstV3VudXNl
-ZC1jb25zdC12YXJpYWJsZT1dLCB0aGUgcHJvYmxlbSBpcyB0aGF0IHRoZSBDIGZpbGUKb2YgZnU1
-NDAgYW5kIGZ1NzQwIGRvZXNuJ3QgdXNlIHRoZXNlIHZhcmlhYmxlcywgYnV0IHRoZXkgaW5jbHVk
-ZXMgdGhlCmhlYWRlciBmaWxlcy4gV2UgY291bGQgcmVmaW5lIHRoZSBjb2RlIGJ5IG1vdmluZyB0
-aGUgZGVmaW5pdGlvbiBvZiB0aGVzZQp2YXJpYWJsZSBpbnRvIGZ1NTQwIGFuZCBmdTc0MCBpbXBs
-ZW1lbnRhdGlvbiByZXNwZWN0aXZlbHksIGluc3RlYWQgb2YKY29tbW9uIGNvcmUgY29kZSwgdGhl
-biB3ZSBjb3VsZCBzdGlsbCBzZXBhcmF0ZSB0aGUgU29Dcy1kZXBlbmRlbnQgZGF0YQppbiB0aGVp
-ciBvd24gaW1wbGVtZW50YXRpb24uCgpTaWduZWQtb2ZmLWJ5OiBab25nIExpIDx6b25nLmxpQHNp
-Zml2ZS5jb20+Ci0tLQogZHJpdmVycy9jbGsvc2lmaXZlL2Z1NTQwLXByY2kuYyAgfCAgNiArKysr
-Ky0KIGRyaXZlcnMvY2xrL3NpZml2ZS9mdTU0MC1wcmNpLmggIHwgIDYgKy0tLS0tCiBkcml2ZXJz
-L2Nsay9zaWZpdmUvZnU3NDAtcHJjaS5jICB8ICA2ICsrKysrLQogZHJpdmVycy9jbGsvc2lmaXZl
-L2Z1NzQwLXByY2kuaCAgfCAxMSArLS0tLS0tLS0tLQogZHJpdmVycy9jbGsvc2lmaXZlL3NpZml2
-ZS1wcmNpLmMgfCAgNSAtLS0tLQogNSBmaWxlcyBjaGFuZ2VkLCAxMiBpbnNlcnRpb25zKCspLCAy
-MiBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9kcml2ZXJzL2Nsay9zaWZpdmUvZnU1NDAtcHJj
-aS5jIGIvZHJpdmVycy9jbGsvc2lmaXZlL2Z1NTQwLXByY2kuYwppbmRleCAyOWJhYjkxNTAwM2Mu
-LjU1NjhiYzI2ZTM2ZiAxMDA2NDQKLS0tIGEvZHJpdmVycy9jbGsvc2lmaXZlL2Z1NTQwLXByY2ku
-YworKysgYi9kcml2ZXJzL2Nsay9zaWZpdmUvZnU1NDAtcHJjaS5jCkBAIC0yMCw3ICsyMCw2IEBA
-CiAKICNpbmNsdWRlIDxkdC1iaW5kaW5ncy9jbG9jay9zaWZpdmUtZnU1NDAtcHJjaS5oPgogCi0j
-aW5jbHVkZSAiZnU1NDAtcHJjaS5oIgogI2luY2x1ZGUgInNpZml2ZS1wcmNpLmgiCiAKIC8qIFBS
-Q0kgaW50ZWdyYXRpb24gZGF0YSBmb3IgZWFjaCBXUlBMTCBpbnN0YW5jZSAqLwpAQCAtODcsMyAr
-ODYsOCBAQCBzdHJ1Y3QgX19wcmNpX2Nsb2NrIF9fcHJjaV9pbml0X2Nsb2Nrc19mdTU0MFtdID0g
-ewogCQkub3BzID0gJnNpZml2ZV9mdTU0MF9wcmNpX3RsY2xrc2VsX2Nsa19vcHMsCiAJfSwKIH07
-CisKK3N0cnVjdCBwcmNpX2Nsa19kZXNjIHByY2lfY2xrX2Z1NTQwID0geworCS5jbGtzID0gX19w
-cmNpX2luaXRfY2xvY2tzX2Z1NTQwLAorCS5udW1fY2xrcyA9IEFSUkFZX1NJWkUoX19wcmNpX2lu
-aXRfY2xvY2tzX2Z1NTQwKSwKK307CmRpZmYgLS1naXQgYS9kcml2ZXJzL2Nsay9zaWZpdmUvZnU1
-NDAtcHJjaS5oIGIvZHJpdmVycy9jbGsvc2lmaXZlL2Z1NTQwLXByY2kuaAppbmRleCBjMjIwNjc3
-ZGMwMTAuLjkzMWQ2Y2FkOGMxYyAxMDA2NDQKLS0tIGEvZHJpdmVycy9jbGsvc2lmaXZlL2Z1NTQw
-LXByY2kuaAorKysgYi9kcml2ZXJzL2Nsay9zaWZpdmUvZnU1NDAtcHJjaS5oCkBAIC03LDEwICs3
-LDYgQEAKICNpZm5kZWYgX19TSUZJVkVfQ0xLX0ZVNTQwX1BSQ0lfSAogI2RlZmluZSBfX1NJRklW
-RV9DTEtfRlU1NDBfUFJDSV9ICiAKLSNpbmNsdWRlICJzaWZpdmUtcHJjaS5oIgotCi0jZGVmaW5l
-IE5VTV9DTE9DS19GVTU0MAk0Ci0KLWV4dGVybiBzdHJ1Y3QgX19wcmNpX2Nsb2NrIF9fcHJjaV9p
-bml0X2Nsb2Nrc19mdTU0MFtOVU1fQ0xPQ0tfRlU1NDBdOworZXh0ZXJuIHN0cnVjdCBwcmNpX2Ns
-a19kZXNjIHByY2lfY2xrX2Z1NTQwOwogCiAjZW5kaWYgLyogX19TSUZJVkVfQ0xLX0ZVNTQwX1BS
-Q0lfSCAqLwpkaWZmIC0tZ2l0IGEvZHJpdmVycy9jbGsvc2lmaXZlL2Z1NzQwLXByY2kuYyBiL2Ry
-aXZlcnMvY2xrL3NpZml2ZS9mdTc0MC1wcmNpLmMKaW5kZXggNTNmNmUwMGEwM2I5Li4wYWRlM2Rj
-ZDI0ZWQgMTAwNjQ0Ci0tLSBhL2RyaXZlcnMvY2xrL3NpZml2ZS9mdTc0MC1wcmNpLmMKKysrIGIv
-ZHJpdmVycy9jbGsvc2lmaXZlL2Z1NzQwLXByY2kuYwpAQCAtOCw3ICs4LDYgQEAKIAogI2luY2x1
-ZGUgPGR0LWJpbmRpbmdzL2Nsb2NrL3NpZml2ZS1mdTc0MC1wcmNpLmg+CiAKLSNpbmNsdWRlICJm
-dTU0MC1wcmNpLmgiCiAjaW5jbHVkZSAic2lmaXZlLXByY2kuaCIKIAogLyogUFJDSSBpbnRlZ3Jh
-dGlvbiBkYXRhIGZvciBlYWNoIFdSUExMIGluc3RhbmNlICovCkBAIC0xMzIsMyArMTMxLDggQEAg
-c3RydWN0IF9fcHJjaV9jbG9jayBfX3ByY2lfaW5pdF9jbG9ja3NfZnU3NDBbXSA9IHsKIAkJLm9w
-cyA9ICZzaWZpdmVfZnU3NDBfcHJjaV9wY2llX2F1eF9jbGtfb3BzLAogCX0sCiB9OworCitzdHJ1
-Y3QgcHJjaV9jbGtfZGVzYyBwcmNpX2Nsa19mdTc0MCA9IHsKKwkuY2xrcyA9IF9fcHJjaV9pbml0
-X2Nsb2Nrc19mdTc0MCwKKwkubnVtX2Nsa3MgPSBBUlJBWV9TSVpFKF9fcHJjaV9pbml0X2Nsb2Nr
-c19mdTc0MCksCit9OwpkaWZmIC0tZ2l0IGEvZHJpdmVycy9jbGsvc2lmaXZlL2Z1NzQwLXByY2ku
-aCBiL2RyaXZlcnMvY2xrL3NpZml2ZS9mdTc0MC1wcmNpLmgKaW5kZXggNTExYTBiZjdiYTJiLi41
-YmMwZTE4ZjA1OGMgMTAwNjQ0Ci0tLSBhL2RyaXZlcnMvY2xrL3NpZml2ZS9mdTc0MC1wcmNpLmgK
-KysrIGIvZHJpdmVycy9jbGsvc2lmaXZlL2Z1NzQwLXByY2kuaApAQCAtNywxNSArNyw2IEBACiAj
-aWZuZGVmIF9fU0lGSVZFX0NMS19GVTc0MF9QUkNJX0gKICNkZWZpbmUgX19TSUZJVkVfQ0xLX0ZV
-NzQwX1BSQ0lfSAogCi0jaW5jbHVkZSAic2lmaXZlLXByY2kuaCIKLQotI2RlZmluZSBOVU1fQ0xP
-Q0tfRlU3NDAJOQotCi1leHRlcm4gc3RydWN0IF9fcHJjaV9jbG9jayBfX3ByY2lfaW5pdF9jbG9j
-a3NfZnU3NDBbTlVNX0NMT0NLX0ZVNzQwXTsKLQotc3RhdGljIGNvbnN0IHN0cnVjdCBwcmNpX2Ns
-a19kZXNjIHByY2lfY2xrX2Z1NzQwID0gewotCS5jbGtzID0gX19wcmNpX2luaXRfY2xvY2tzX2Z1
-NzQwLAotCS5udW1fY2xrcyA9IEFSUkFZX1NJWkUoX19wcmNpX2luaXRfY2xvY2tzX2Z1NzQwKSwK
-LX07CitleHRlcm4gc3RydWN0IHByY2lfY2xrX2Rlc2MgcHJjaV9jbGtfZnU3NDA7CiAKICNlbmRp
-ZiAvKiBfX1NJRklWRV9DTEtfRlU3NDBfUFJDSV9IICovCmRpZmYgLS1naXQgYS9kcml2ZXJzL2Ns
-ay9zaWZpdmUvc2lmaXZlLXByY2kuYyBiL2RyaXZlcnMvY2xrL3NpZml2ZS9zaWZpdmUtcHJjaS5j
-CmluZGV4IDgwYTI4OGM1OWU1Ni4uOTE2ZDJmYzI4YjljIDEwMDY0NAotLS0gYS9kcml2ZXJzL2Ns
-ay9zaWZpdmUvc2lmaXZlLXByY2kuYworKysgYi9kcml2ZXJzL2Nsay9zaWZpdmUvc2lmaXZlLXBy
-Y2kuYwpAQCAtMTIsMTEgKzEyLDYgQEAKICNpbmNsdWRlICJmdTU0MC1wcmNpLmgiCiAjaW5jbHVk
-ZSAiZnU3NDAtcHJjaS5oIgogCi1zdGF0aWMgY29uc3Qgc3RydWN0IHByY2lfY2xrX2Rlc2MgcHJj
-aV9jbGtfZnU1NDAgPSB7Ci0JLmNsa3MgPSBfX3ByY2lfaW5pdF9jbG9ja3NfZnU1NDAsCi0JLm51
-bV9jbGtzID0gQVJSQVlfU0laRShfX3ByY2lfaW5pdF9jbG9ja3NfZnU1NDApLAotfTsKLQogLyoK
-ICAqIFByaXZhdGUgZnVuY3Rpb25zCiAgKi8KLS0gCjIuMzEuMQoKCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
-aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 07/12/2021 18:06, German Gomez wrote:
+>   tools/perf/arch/arm/include/perf_regs.h       |  42 --
+>   tools/perf/arch/arm64/include/perf_regs.h     |  76 --
+>   tools/perf/arch/csky/include/perf_regs.h      |  82 ---
+>   tools/perf/arch/mips/include/perf_regs.h      |  69 --
+>   tools/perf/arch/powerpc/include/perf_regs.h   |  66 --
+>   tools/perf/arch/riscv/include/perf_regs.h     |  74 --
+>   tools/perf/arch/s390/include/perf_regs.h      |  78 --
+>   tools/perf/arch/x86/include/perf_regs.h       |  82 ---
+>   tools/perf/builtin-script.c                   |  18 +-
+>   tools/perf/util/perf_regs.c                   | 666 ++++++++++++++++++
+>   tools/perf/util/perf_regs.h                   |  10 +-
+>   .../scripting-engines/trace-event-python.c    |  10 +-
+>   tools/perf/util/session.c                     |  25 +-
+>   13 files changed, 697 insertions(+), 601 deletions(-)
+
+Did you consider leaving the register structures where they are while
+renaming to include the arch name and then having as externs or similar? 
+I see an example of that idea for arm64_unwind_libunwind_ops.
+
+Cheers,
+John
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
