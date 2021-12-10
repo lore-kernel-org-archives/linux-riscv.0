@@ -4,83 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1236C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Dec 2021 14:24:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8105C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Dec 2021 15:22:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QzrDSJB7Uco09dtwa/OciVGaZYSoiUS1ECg980UuYAI=; b=WmiNHsbbYe0zMp
-	7vnMBimN4tlL1xs1T0wRa+JY+e9QdTFuIKuTqfv8qkThwy2gVmjrYTwr1nht8kCysw560VSn3GLOX
-	Qq5I5KdwU7ee06Dohtvtw7GJQIw5RZ/jrtYiOSY8VwvCgh3NSooUmqBqUQ0hTthUt9WZqNfAZBr+b
-	zwURVUT1qRFV/Af7qy3nSYMkQ8J25dLFj5H2JLr1+A1/MgtdjZ95sSN7tvPYUbACSl/p0T+Su646n
-	s6HhKE9ztZBpVPxWLw83z3ToPTYKZ2BLDso5gIGeACriVBeDM0ToeZ3p4JP4ccPNrSCRzVQU4pOkm
-	Edut0MW2NNa+FUhrvqFA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:References:Cc:To:From:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=rzG52lXNZP+Gd9H6RIQgDVRtmil3KvLX0bN5vVrBdRQ=; b=za//AbjOGLvz6FN7GZXoXPEDnp
+	N7oE3bgNcrJise/VfWrNW9PSkBSOs1JG3ALkNO+sMP/GJUrLn7X/7V+H8wJ2WCKxSKr9A1z6DZv0f
+	LVouUiYuhBg89rRgUf0kCitDdXc2kZ7U7rtc849KpJQ+0WyM8xKwrS+nj+MxOzVtZc0iYTLR8S38f
+	xAnIc+/NhoKAc9KRl8aNzQeVnMglB8qXOiEUmBN0Jf7v4I/Znm2q9VqwFeLPKoWjP5jO5gY+hObUL
+	RysCB+CGKp213jRD+ckFqaegMs4NzPdc/spkf1CfR8AG+5uFV7MhUGnZdF9fbC0wAU5N+fO51FVG9
+	c8jJ9w0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mvgog-002CGd-7V; Fri, 10 Dec 2021 14:24:06 +0000
-Received: from mout.kundenserver.de ([212.227.17.24])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mvgod-002CEh-B8
- for linux-riscv@lists.infradead.org; Fri, 10 Dec 2021 14:24:04 +0000
-Received: from mail-wr1-f51.google.com ([209.85.221.51]) by
- mrelayeu.kundenserver.de (mreue106 [213.165.67.113]) with ESMTPSA (Nemesis)
- id 1MEFCF-1mngaZ388j-00AEVU for <linux-riscv@lists.infradead.org>; Fri, 10
- Dec 2021 15:23:58 +0100
-Received: by mail-wr1-f51.google.com with SMTP id j3so15258483wrp.1
- for <linux-riscv@lists.infradead.org>; Fri, 10 Dec 2021 06:23:58 -0800 (PST)
-X-Gm-Message-State: AOAM531hZbHAd2Iq0J9qkM5/BfcIrKTuF03tuavN5Rur6v5yS5O0T+dw
- ZOuMVswEZd4I9/ijJPpbqiK+9yHCtilrDKFqTgM=
-X-Google-Smtp-Source: ABdhPJwpNfkCK35q4J84bet4qsNK0G78Iv/Ey+WuTXxUs4+UKKI6lcSJU/n3x5OpVFEpmYRVEt/ijnGMwe5NdNQgfZA=
-X-Received: by 2002:a5d:4107:: with SMTP id l7mr14337051wrp.209.1639146238200; 
- Fri, 10 Dec 2021 06:23:58 -0800 (PST)
-MIME-Version: 1.0
-References: <20211209235857.423773-1-alistair.francis@opensource.wdc.com>
- <YbNX3mRT0A9/N2il@kernel.org> <YbNZw1/cUXJ8up5b@kernel.org>
-In-Reply-To: <YbNZw1/cUXJ8up5b@kernel.org>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Fri, 10 Dec 2021 15:23:42 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a05D=fb9stZEL6rUMs7c=S6gJxN5gR7HG_i8RiXAbaB5Q@mail.gmail.com>
-Message-ID: <CAK8P3a05D=fb9stZEL6rUMs7c=S6gJxN5gR7HG_i8RiXAbaB5Q@mail.gmail.com>
-Subject: Re: [PATCH v5 1/6] perf bench futex: Add support for 32-bit systems
- with 64-bit time_t
-To: Arnaldo Carvalho de Melo <acme@kernel.org>
-Cc: Alistair Francis <alistair.francis@opensource.wdc.com>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Davidlohr Bueso <dave@stgolabs.net>, 
- Darren Hart <dvhart@infradead.org>, Arnd Bergmann <arnd@arndb.de>, 
- Alistair Francis <alistair23@gmail.com>, Namhyung Kim <namhyung@kernel.org>,
- Jiri Olsa <jolsa@redhat.com>, linux-perf-users@vger.kernel.org, 
+	id 1mvhiX-002Oo6-LI; Fri, 10 Dec 2021 15:21:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mvhi7-002Oe7-HL; Fri, 10 Dec 2021 15:21:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 07B9712FC;
+ Fri, 10 Dec 2021 07:21:21 -0800 (PST)
+Received: from [10.57.6.190] (unknown [10.57.6.190])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 15F073F5A1;
+ Fri, 10 Dec 2021 07:21:17 -0800 (PST)
+Subject: Re: [PATCH v2 3/3] perf tools: Support register names from all archs
+From: German Gomez <german.gomez@arm.com>
+To: John Garry <john.garry@huawei.com>, linux-kernel@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, acme@kernel.org
+Cc: Alexandre Truong <alexandre.truong@arm.com>, Will Deacon
+ <will@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Leo Yan <leo.yan@linaro.org>, Mark Rutland <mark.rutland@arm.com>,
  Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Mark Rutland <mark.rutland@arm.com>, 
- Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
- Thomas Gleixner <tglx@linutronix.de>,
- Alistair Francis <alistair.francis@wdc.com>, 
- Atish Patra <atish.patra@wdc.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Arnaldo Carvalho de Melo <acme@redhat.com>
-X-Provags-ID: V03:K1:755j5mpAom0XqO6NuZZZeuBd7IHZg8RVOVfGMVhRt9a06PHqtyR
- bHtyoGBinb2eCPsQiNsSqP6+z2ZtTG5O+S8i7MnMPFiiqkDPigGyyvazylWaqrbKU4ukc7H
- V1q9IiyI5SraCd4QXnZlpxEgkOEEQTi6xWXBkmh2EZaA8V92pDnLjzrKWXsckc2gDpgJxld
- fA0kER0woWPxvem/PfIuQ==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:+G5okZqV2fc=:dMeOGZ0tQGhs9D0NdJWbjX
- A0J8xWp2IxnIVcps1144qukJxZyXqiIj0OUzeNSergyAK9+RDQJBf8e6P0Rz0X/WzZiZz7iiB
- 8uRIgcZozphof+vnofzUzFWiV4qzdMIe9KPDWloksHh/haN74c2dOej1jvreaGehpuRpJvoYt
- /xjWUmHHFYLMEXWNdHtd+hsMQ2VzfK0PeKjp5MI1RF9wKlvoh5Fi7nSLb02Rbtxw0t+XXbOnF
- jwpn928CJuQvbv3oxgWK+rk63TJvDV4y5+BmzCDtFSldiceccyWiqK0sbQqkuxzWZQjhGrZnH
- ACZ8mc+rw/kmQCodFJ+43+heSeyqSNe0IvF4hhhfuqsq2KBo7wRStnQknJpvzCE8oK3DR4OuK
- gWTrbJdHYOrIwqQqeWPfDGhHiovrfVIw8j1YNExxyrr5+GHabOssu00G629yENBVd8ctVLjeA
- 32qgMPKzlTUgBIleQqDKSqzwTQjuYmAle+k0fuOvpT2SZ46vP6ILopTuZDIOLPNdRxo0Ht2q0
- jzIoHMWdbVvKJ5S8mtzuHYPuSSvxcNFXpIJU/9CQ6sjZDNZxRCvMiZHaBR7Xg9uLzdKFBrer0
- gm37JIfM12pqlEO4NkQRqQn0XMx9/pV7IVL4B8fwoRtorthx5hMkrY8jgUOiDyHvCS6a9wmyV
- IxvlqawNcDE2ZU46yuA/WzhS6QudSUOviG/3c+0Dqfd1e553eg+pWfZOgu9r641A6XUGEN4CK
- lReFMdUPM+6fbNz+m5goj3TNj+olN/Tk+oT1uS495cwRzg9g8NhCQ/goYxU+dCWuP/+5j7pGz
- lV2W2bEnnz2oPyis6yqu+yp9C44yJoGenUjlqNBNxHewcTLaAg=
+ Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20211207180653.1147374-1-german.gomez@arm.com>
+ <20211207180653.1147374-4-german.gomez@arm.com>
+ <90bcce69-9585-3fb4-de89-bbf2bd6def05@huawei.com>
+ <aee0c3b8-4d8c-6f1e-24ed-5539a7c1a7b5@arm.com>
+Message-ID: <9828a385-acde-145a-33db-76043e799344@arm.com>
+Date: Fri, 10 Dec 2021 15:21:09 +0000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.14.0
+MIME-Version: 1.0
+In-Reply-To: <aee0c3b8-4d8c-6f1e-24ed-5539a7c1a7b5@arm.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211210_062403_736677_6D065A0F 
-X-CRM114-Status: GOOD (  20.67  )
+X-CRM114-CacheID: sfid-20211210_072123_668845_8438C481 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,45 +67,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 10, 2021 at 2:44 PM Arnaldo Carvalho de Melo
-<acme@kernel.org> wrote:
-> Em Fri, Dec 10, 2021 at 10:36:30AM -0300, Arnaldo Carvalho de Melo escreveu:
-> > Em Fri, Dec 10, 2021 at 09:58:52AM +1000, Alistair Francis escreveu:
-> > > From: Alistair Francis <alistair.francis@wdc.com>
-> > >
-> > > Some 32-bit architectures (such are 32-bit RISC-V) only have a 64-bit
-> > > time_t and as such don't have the SYS_futex syscall. This patch will
-> > > allow us to use the SYS_futex_time64 syscall on those platforms.
-> > >
-> > > This also converts the futex calls to be y2038 safe (when built for a
-> > > 5.1+ kernel).
-> > >
-> > > This is a revert of commit ba4026b09d83acf56c040b6933eac7916c27e728
-> > > "Revert "perf bench futex: Add support for 32-bit systems with 64-bit time_t"".
-> > >
-> > > The original commit was reverted as including linux/time_types.h would
-> > > fail to compile on older kernels. This commit doesn't include
-> > > linux/time_types.h to avoid this issue.
-> >
-> >   10     9.99 alpine:3.12                   : FAIL gcc version 9.3.0 (Alpine 9.3.0)
-> >     In file included from bench/futex-hash.c:29:
-> >     bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
-> >        37 |  __kernel_old_time_t tv_sec;  /* seconds */
-> >           |  ^~~~~~~~~~~~~~~~~~~
-> >     In file included from bench/futex-wake.c:25:
-
-It looks like we need to add include/uapi/linux/time_types.h to
-tools/include/linux/ and update tools/include/linux/types.h
-in order to address this.
-
-         Arnd
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Ck9uIDA4LzEyLzIwMjEgMTM6NTUsIEdlcm1hbiBHb21leiB3cm90ZToKPiBIaSBKb2huLAo+Cj4g
+T24gMDgvMTIvMjAyMSAxMTo1MSwgSm9obiBHYXJyeSB3cm90ZToKPj4gT24gMDcvMTIvMjAyMSAx
+ODowNiwgR2VybWFuIEdvbWV6IHdyb3RlOgo+Pj4gwqAgdG9vbHMvcGVyZi9hcmNoL2FybS9pbmNs
+dWRlL3BlcmZfcmVncy5owqDCoMKgwqDCoMKgIHzCoCA0MiAtLQo+Pj4gwqAgdG9vbHMvcGVyZi9h
+cmNoL2FybTY0L2luY2x1ZGUvcGVyZl9yZWdzLmjCoMKgwqDCoCB8wqAgNzYgLS0KPj4+IMKgIHRv
+b2xzL3BlcmYvYXJjaC9jc2t5L2luY2x1ZGUvcGVyZl9yZWdzLmjCoMKgwqDCoMKgIHzCoCA4MiAt
+LS0KPj4+IMKgIHRvb2xzL3BlcmYvYXJjaC9taXBzL2luY2x1ZGUvcGVyZl9yZWdzLmjCoMKgwqDC
+oMKgIHzCoCA2OSAtLQo+Pj4gwqAgdG9vbHMvcGVyZi9hcmNoL3Bvd2VycGMvaW5jbHVkZS9wZXJm
+X3JlZ3MuaMKgwqAgfMKgIDY2IC0tCj4+PiDCoCB0b29scy9wZXJmL2FyY2gvcmlzY3YvaW5jbHVk
+ZS9wZXJmX3JlZ3MuaMKgwqDCoMKgIHzCoCA3NCAtLQo+Pj4gwqAgdG9vbHMvcGVyZi9hcmNoL3Mz
+OTAvaW5jbHVkZS9wZXJmX3JlZ3MuaMKgwqDCoMKgwqAgfMKgIDc4IC0tCj4+PiDCoCB0b29scy9w
+ZXJmL2FyY2gveDg2L2luY2x1ZGUvcGVyZl9yZWdzLmjCoMKgwqDCoMKgwqAgfMKgIDgyIC0tLQo+
+Pj4gwqAgdG9vbHMvcGVyZi9idWlsdGluLXNjcmlwdC5jwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIHzCoCAxOCArLQo+Pj4gwqAgdG9vbHMvcGVyZi91dGlsL3BlcmZfcmVncy5j
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwgNjY2ICsrKysrKysrKysrKysr
+KysrKwo+Pj4gwqAgdG9vbHMvcGVyZi91dGlsL3BlcmZfcmVncy5owqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgIHzCoCAxMCArLQo+Pj4gwqAgLi4uL3NjcmlwdGluZy1lbmdpbmVz
+L3RyYWNlLWV2ZW50LXB5dGhvbi5jwqDCoMKgIHzCoCAxMCArLQo+Pj4gwqAgdG9vbHMvcGVyZi91
+dGlsL3Nlc3Npb24uY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKg
+IDI1ICstCj4+PiDCoCAxMyBmaWxlcyBjaGFuZ2VkLCA2OTcgaW5zZXJ0aW9ucygrKSwgNjAxIGRl
+bGV0aW9ucygtKQo+PiBEaWQgeW91IGNvbnNpZGVyIGxlYXZpbmcgdGhlIHJlZ2lzdGVyIHN0cnVj
+dHVyZXMgd2hlcmUgdGhleSBhcmUgd2hpbGUKPj4gcmVuYW1pbmcgdG8gaW5jbHVkZSB0aGUgYXJj
+aCBuYW1lIGFuZCB0aGVuIGhhdmluZyBhcyBleHRlcm5zIG9yIHNpbWlsYXI/IEkgc2VlIGFuIGV4
+YW1wbGUgb2YgdGhhdCBpZGVhIGZvciBhcm02NF91bndpbmRfbGlidW53aW5kX29wcy4KPj4KPiBJ
+ZiBieSByZWdpc3RlciBzdHJ1Y3R1cmVzIHlvdSBhcmUgcmVmZXJyaW5nIHRvICJfX3BlcmZfcmVn
+X25hbWUoaW50KSIsIEkKPiBjYW4ndCBsZWF2ZSB0aGVtIHdoZXJlIHRoZXkgYXJlLiBPbmx5IG9u
+ZSBvZiB0aGVtIHdvdWxkIGJlIGluY2x1ZGVkIGluCj4gdGhlIGJ1aWxkLgoKSSB0aGluayBJIG5l
+ZWQgdG8gZWxhYm9yYXRlIGEgYml0IG1vcmUgb24gdGhpcyBzaW5jZSBzb21lIG9mIHRoZSBmaWxl
+cwppbnZvbHZlZCBzaGFyZSB0aGUgc2FtZSBuYW1lIGJ1dCBhcmUgc2VydmluZyBkaWZmZXJlbnQg
+cHVycG9zZXMgYW5kIGl0CmNvdWxkIGxlYWQgdG8gY29uZnVzaW9uLgoKVGhlIGxpbnV4IHJlcG8g
+aGFzICJwZXJmX3JlZ3MuaCIgZm9yIGVhY2ggYXJjaGl0ZWN0dXJlIGVudW1lcmF0aW5nIHRoZQpy
+ZWdpc3RlcnMgZnJvbSBlYWNoIGFyY2hpdGVjdHVyZS4gVGhlc2UgYXJlIHRoZSBmaWxlcyBJICNp
+bmNsdWRlJ2QgaW4KIi90b29scy9wZXJmL3V0aWwvcGVyZl9yZWdzLmMiLgoKVGhlIG90aGVyICJw
+ZXJmX3JlZ3MuaCIgYWZmZWN0ZWQgYnkgdGhpcyBwYXRjaCBhcmUgbG9jYWwgb25seSB0byBwZXJm
+LgpMaWtld2lzZSB0aGVyZSBpcyBvbmUgZmlsZSBmb3IgZWFjaCBhcmNoaXRlY3R1cmUsIGJ1dCBj
+b250cmFyeSB0byB0aGUKbGludXggb25lcywgdGhleSBhcmUgbXV0dWFsbHkgZXhjbHVzaXZlLCBz
+byBJIGNhbid0ICNpbmNsdWRlIHRoZW0gYWxsOgoKI2lmbmRlZiBBUkNIX1BFUkZfUkVHU19ICiNk
+ZWZpbmUgQVJDSF9QRVJGX1JFR1NfSAovLy4uLgojdW5kZWYgQVJDSF9QRVJGX1JFR1NfSAoKQmVm
+b3JlIHRoZSBwYXRjaCwgdGhlIGZ1bmN0aW9ucyAiX19wZXJmX3JlZ19uYW1lIiB3ZXJlIGRlY2xh
+cmVkICYKaW1wbGVtZW50ZWQgaW4gdGhlc2UgaGVhZGVycywgc28gSSBoYWQgdG8gdGFrZSB0aGVt
+IG91dC4KClRoYW5rcywKR2VybWFuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
