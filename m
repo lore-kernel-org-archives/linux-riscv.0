@@ -4,62 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD7E6C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Dec 2021 13:44:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1236C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Dec 2021 14:24:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7zcr7tmDDUHs5dWpYzNocNeaa1kf1H+WUtZRpLYM4ZE=; b=R03BQDUC9jeBnN
-	Lebno6V71I1lp5PO1NQrFcbD7cW7hde5MsF1RohOeNqQl1Z1IAwgzbUIcaOP4NLMK+uXygSjkUlov
-	V2QbgSEqS4OEe0WPHcH1+VyrQhfUvmHFkPVz/GsS56kgQkvSH7x2FMbF7rjxX7sFhVgg/GXO5K5jB
-	J+efy2+EQUg2rzo8KMQerEjnkF9s4fYGShJXjmdrZtaFvYp0vwe2uDghAsw5ONQ9AKIhcaen+xDhb
-	kHwvR4dNtYzqMco4GDhvWJkOqYM7A5CMdDFZJijOouwYTDYLhAV0mgFQonhbRN74ZTkLTQHH7t+oX
-	vB/ZkZwQuRGvoxRVGgIg==;
+	List-Owner; bh=QzrDSJB7Uco09dtwa/OciVGaZYSoiUS1ECg980UuYAI=; b=WmiNHsbbYe0zMp
+	7vnMBimN4tlL1xs1T0wRa+JY+e9QdTFuIKuTqfv8qkThwy2gVmjrYTwr1nht8kCysw560VSn3GLOX
+	Qq5I5KdwU7ee06Dohtvtw7GJQIw5RZ/jrtYiOSY8VwvCgh3NSooUmqBqUQ0hTthUt9WZqNfAZBr+b
+	zwURVUT1qRFV/Af7qy3nSYMkQ8J25dLFj5H2JLr1+A1/MgtdjZ95sSN7tvPYUbACSl/p0T+Su646n
+	s6HhKE9ztZBpVPxWLw83z3ToPTYKZ2BLDso5gIGeACriVBeDM0ToeZ3p4JP4ccPNrSCRzVQU4pOkm
+	Edut0MW2NNa+FUhrvqFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mvgCY-0024AN-P3; Fri, 10 Dec 2021 13:44:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1mvgog-002CGd-7V; Fri, 10 Dec 2021 14:24:06 +0000
+Received: from mout.kundenserver.de ([212.227.17.24])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mvgCX-0024A1-CX
- for linux-riscv@bombadil.infradead.org; Fri, 10 Dec 2021 13:44:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=XoV1Wc3Kr7Oe5vbB93BbL2QHZLuekMq2GG3FVvly/UU=; b=Fd9WeDcoV9hSc5C25iFBmh/+g0
- PcOSRF96RJkxUlYMIdQsyj+2DBqowiyRf4EIZehUJoa7X08WBCHpxkeCiH3qCM8nNwt4X5WqZYkC+
- NZD3UE9flAtFKLcBl7gdyKUUktuXkFQwI170aUl8FSXE1a+GhSG39ZPlnI4rLoG1/A+lCztQRWZdQ
- Xr3zoHVc5ZjIyZhP1UkDie9fhoRZlMjj+DUUOL15q5iZwjGunZqfMpkuTzDpBDPevfhvdYqLG56Zl
- PoEDLM0JB1+ewWLSGKMCnkzQp6J2to2Vv1Xtl70EJUndBpEu6LRMCZj7098ICLuKc6giN4arAeScL
- SL9XnJ0A==;
-Received: from [179.97.37.151] (helo=quaco.ghostprotocols.net)
- by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mvgCU-000ZNJ-Qo; Fri, 10 Dec 2021 13:44:39 +0000
-Received: by quaco.ghostprotocols.net (Postfix, from userid 1000)
- id E8F1F405D8; Fri, 10 Dec 2021 10:44:35 -0300 (-03)
-Date: Fri, 10 Dec 2021 10:44:35 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Alistair Francis <alistair.francis@opensource.wdc.com>
-Cc: linux-kernel@vger.kernel.org, dave@stgolabs.net, dvhart@infradead.org,
- arnd@arndb.de, alistair23@gmail.com, namhyung@kernel.org,
- jolsa@redhat.com, linux-perf-users@vger.kernel.org,
- alexander.shishkin@linux.intel.com, mark.rutland@arm.com,
- mingo@redhat.com, peterz@infradead.org, tglx@linutronix.de,
- Alistair Francis <alistair.francis@wdc.com>,
- Atish Patra <atish.patra@wdc.com>, linux-riscv@lists.infradead.org,
- Arnaldo Carvalho de Melo <acme@redhat.com>
+ id 1mvgod-002CEh-B8
+ for linux-riscv@lists.infradead.org; Fri, 10 Dec 2021 14:24:04 +0000
+Received: from mail-wr1-f51.google.com ([209.85.221.51]) by
+ mrelayeu.kundenserver.de (mreue106 [213.165.67.113]) with ESMTPSA (Nemesis)
+ id 1MEFCF-1mngaZ388j-00AEVU for <linux-riscv@lists.infradead.org>; Fri, 10
+ Dec 2021 15:23:58 +0100
+Received: by mail-wr1-f51.google.com with SMTP id j3so15258483wrp.1
+ for <linux-riscv@lists.infradead.org>; Fri, 10 Dec 2021 06:23:58 -0800 (PST)
+X-Gm-Message-State: AOAM531hZbHAd2Iq0J9qkM5/BfcIrKTuF03tuavN5Rur6v5yS5O0T+dw
+ ZOuMVswEZd4I9/ijJPpbqiK+9yHCtilrDKFqTgM=
+X-Google-Smtp-Source: ABdhPJwpNfkCK35q4J84bet4qsNK0G78Iv/Ey+WuTXxUs4+UKKI6lcSJU/n3x5OpVFEpmYRVEt/ijnGMwe5NdNQgfZA=
+X-Received: by 2002:a5d:4107:: with SMTP id l7mr14337051wrp.209.1639146238200; 
+ Fri, 10 Dec 2021 06:23:58 -0800 (PST)
+MIME-Version: 1.0
+References: <20211209235857.423773-1-alistair.francis@opensource.wdc.com>
+ <YbNX3mRT0A9/N2il@kernel.org> <YbNZw1/cUXJ8up5b@kernel.org>
+In-Reply-To: <YbNZw1/cUXJ8up5b@kernel.org>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Fri, 10 Dec 2021 15:23:42 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a05D=fb9stZEL6rUMs7c=S6gJxN5gR7HG_i8RiXAbaB5Q@mail.gmail.com>
+Message-ID: <CAK8P3a05D=fb9stZEL6rUMs7c=S6gJxN5gR7HG_i8RiXAbaB5Q@mail.gmail.com>
 Subject: Re: [PATCH v5 1/6] perf bench futex: Add support for 32-bit systems
  with 64-bit time_t
-Message-ID: <YbNZw1/cUXJ8up5b@kernel.org>
-References: <20211209235857.423773-1-alistair.francis@opensource.wdc.com>
- <YbNX3mRT0A9/N2il@kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <YbNX3mRT0A9/N2il@kernel.org>
-X-Url: http://acmel.wordpress.com
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: Alistair Francis <alistair.francis@opensource.wdc.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Davidlohr Bueso <dave@stgolabs.net>, 
+ Darren Hart <dvhart@infradead.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Alistair Francis <alistair23@gmail.com>, Namhyung Kim <namhyung@kernel.org>,
+ Jiri Olsa <jolsa@redhat.com>, linux-perf-users@vger.kernel.org, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Mark Rutland <mark.rutland@arm.com>, 
+ Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Thomas Gleixner <tglx@linutronix.de>,
+ Alistair Francis <alistair.francis@wdc.com>, 
+ Atish Patra <atish.patra@wdc.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Arnaldo Carvalho de Melo <acme@redhat.com>
+X-Provags-ID: V03:K1:755j5mpAom0XqO6NuZZZeuBd7IHZg8RVOVfGMVhRt9a06PHqtyR
+ bHtyoGBinb2eCPsQiNsSqP6+z2ZtTG5O+S8i7MnMPFiiqkDPigGyyvazylWaqrbKU4ukc7H
+ V1q9IiyI5SraCd4QXnZlpxEgkOEEQTi6xWXBkmh2EZaA8V92pDnLjzrKWXsckc2gDpgJxld
+ fA0kER0woWPxvem/PfIuQ==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:+G5okZqV2fc=:dMeOGZ0tQGhs9D0NdJWbjX
+ A0J8xWp2IxnIVcps1144qukJxZyXqiIj0OUzeNSergyAK9+RDQJBf8e6P0Rz0X/WzZiZz7iiB
+ 8uRIgcZozphof+vnofzUzFWiV4qzdMIe9KPDWloksHh/haN74c2dOej1jvreaGehpuRpJvoYt
+ /xjWUmHHFYLMEXWNdHtd+hsMQ2VzfK0PeKjp5MI1RF9wKlvoh5Fi7nSLb02Rbtxw0t+XXbOnF
+ jwpn928CJuQvbv3oxgWK+rk63TJvDV4y5+BmzCDtFSldiceccyWiqK0sbQqkuxzWZQjhGrZnH
+ ACZ8mc+rw/kmQCodFJ+43+heSeyqSNe0IvF4hhhfuqsq2KBo7wRStnQknJpvzCE8oK3DR4OuK
+ gWTrbJdHYOrIwqQqeWPfDGhHiovrfVIw8j1YNExxyrr5+GHabOssu00G629yENBVd8ctVLjeA
+ 32qgMPKzlTUgBIleQqDKSqzwTQjuYmAle+k0fuOvpT2SZ46vP6ILopTuZDIOLPNdRxo0Ht2q0
+ jzIoHMWdbVvKJ5S8mtzuHYPuSSvxcNFXpIJU/9CQ6sjZDNZxRCvMiZHaBR7Xg9uLzdKFBrer0
+ gm37JIfM12pqlEO4NkQRqQn0XMx9/pV7IVL4B8fwoRtorthx5hMkrY8jgUOiDyHvCS6a9wmyV
+ IxvlqawNcDE2ZU46yuA/WzhS6QudSUOviG/3c+0Dqfd1e553eg+pWfZOgu9r641A6XUGEN4CK
+ lReFMdUPM+6fbNz+m5goj3TNj+olN/Tk+oT1uS495cwRzg9g8NhCQ/goYxU+dCWuP/+5j7pGz
+ lV2W2bEnnz2oPyis6yqu+yp9C44yJoGenUjlqNBNxHewcTLaAg=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20211210_062403_736677_6D065A0F 
+X-CRM114-Status: GOOD (  20.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,101 +97,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Em Fri, Dec 10, 2021 at 10:36:30AM -0300, Arnaldo Carvalho de Melo escreveu:
-> Em Fri, Dec 10, 2021 at 09:58:52AM +1000, Alistair Francis escreveu:
-> > From: Alistair Francis <alistair.francis@wdc.com>
-> > 
-> > Some 32-bit architectures (such are 32-bit RISC-V) only have a 64-bit
-> > time_t and as such don't have the SYS_futex syscall. This patch will
-> > allow us to use the SYS_futex_time64 syscall on those platforms.
-> > 
-> > This also converts the futex calls to be y2038 safe (when built for a
-> > 5.1+ kernel).
-> > 
-> > This is a revert of commit ba4026b09d83acf56c040b6933eac7916c27e728
-> > "Revert "perf bench futex: Add support for 32-bit systems with 64-bit time_t"".
-> > 
-> > The original commit was reverted as including linux/time_types.h would
-> > fail to compile on older kernels. This commit doesn't include
-> > linux/time_types.h to avoid this issue.
-> 
->   10     9.99 alpine:3.12                   : FAIL gcc version 9.3.0 (Alpine 9.3.0)
->     In file included from bench/futex-hash.c:29:
->     bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
->        37 |  __kernel_old_time_t tv_sec;  /* seconds */
->           |  ^~~~~~~~~~~~~~~~~~~
->     In file included from bench/futex-wake.c:25:
->     bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
->        37 |  __kernel_old_time_t tv_sec;  /* seconds */
->           |  ^~~~~~~~~~~~~~~~~~~
->     make[3]: *** [/git/perf-5.16.0-rc4/tools/build/Makefile.build:139: bench] Error 2
->   11   114.27 alpine:3.13                   : Ok   gcc (Alpine 10.2.1_pre1) 10.2.1 20201203 , Alpine clang version 10.0.1
->   12   100.12 alpine:3.14                   : Ok   gcc (Alpine 10.3.1_git20210424) 10.3.1 20210424 , Alpine clang version 11.1.0
->   13   101.06 alpine:3.15                   : Ok   gcc (Alpine 10.3.1_git20211027) 10.3.1 20211027 , Alpine clang version 12.0.1
->   14   101.96 alpine:edge                   : Ok   gcc (Alpine 11.2.1_git20211128) 11.2.1 20211128 , Alpine clang version 12.0.1
->   15     6.98 alt:p8                        : FAIL gcc version 5.3.1 20151207 (ALT p8 5.3.1-alt3.M80P.1) (GCC)
->     In file included from bench/futex-hash.c:29:0:
->     bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
->       __kernel_old_time_t tv_sec;  /* seconds */
->       ^
->     In file included from bench/futex-wake.c:25:0:
->     bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
->       __kernel_old_time_t tv_sec;  /* seconds */
->       ^
->     In file included from bench/futex-wake-parallel.c:31:0:
->     bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
->       __kernel_old_time_t tv_sec;  /* seconds */
->       ^
->     make[3]: *** [bench] Error 2
->   16    73.65 alt:p9                        : Ok   x86_64-alt-linux-gcc (GCC) 8.4.1 20200305 (ALT p9 8.4.1-alt0.p9.1) , clang version 10.0.0
->   17    72.34 alt:sisyphus                  : Ok   x86_64-alt-linux-gcc (GCC) 11.2.1 20210911 (ALT Sisyphus 11.2.1-alt1) , ALT Linux Team clang version 12.0.1
->   18     7.58 amazonlinux:1                 : FAIL gcc version 7.2.1 20170915 (Red Hat 7.2.1-2) (GCC)
->     In file included from bench/futex-hash.c:29:0:
->     bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
->       __kernel_old_time_t tv_sec;  /* seconds */
->       ^~~~~~~~~~~~~~~~~~~
->     In file included from bench/futex-wake.c:25:0:
->     bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
->       __kernel_old_time_t tv_sec;  /* seconds */
->       ^~~~~~~~~~~~~~~~~~~
->     make[3]: *** [bench] Error 2
->   19     8.28 amazonlinux:2                 : FAIL gcc version 7.3.1 20180712 (Red Hat 7.3.1-13) (GCC)
->     In file included from bench/futex-hash.c:29:0:
->     bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
->       __kernel_old_time_t tv_sec;  /* seconds */
->       ^~~~~~~~~~~~~~~~~~~
->     make[3]: *** [bench] Error 2
->   20    79.16 centos:8                      : Ok   gcc (GCC) 8.4.1 20200928 (Red Hat 8.4.1-1) , clang version 11.0.1 (Red Hat 11.0.1-1.module_el8.4.0+966+2995ef20)
-> 
-> 
-> Still building on the other containers.
+On Fri, Dec 10, 2021 at 2:44 PM Arnaldo Carvalho de Melo
+<acme@kernel.org> wrote:
+> Em Fri, Dec 10, 2021 at 10:36:30AM -0300, Arnaldo Carvalho de Melo escreveu:
+> > Em Fri, Dec 10, 2021 at 09:58:52AM +1000, Alistair Francis escreveu:
+> > > From: Alistair Francis <alistair.francis@wdc.com>
+> > >
+> > > Some 32-bit architectures (such are 32-bit RISC-V) only have a 64-bit
+> > > time_t and as such don't have the SYS_futex syscall. This patch will
+> > > allow us to use the SYS_futex_time64 syscall on those platforms.
+> > >
+> > > This also converts the futex calls to be y2038 safe (when built for a
+> > > 5.1+ kernel).
+> > >
+> > > This is a revert of commit ba4026b09d83acf56c040b6933eac7916c27e728
+> > > "Revert "perf bench futex: Add support for 32-bit systems with 64-bit time_t"".
+> > >
+> > > The original commit was reverted as including linux/time_types.h would
+> > > fail to compile on older kernels. This commit doesn't include
+> > > linux/time_types.h to avoid this issue.
+> >
+> >   10     9.99 alpine:3.12                   : FAIL gcc version 9.3.0 (Alpine 9.3.0)
+> >     In file included from bench/futex-hash.c:29:
+> >     bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
+> >        37 |  __kernel_old_time_t tv_sec;  /* seconds */
+> >           |  ^~~~~~~~~~~~~~~~~~~
+> >     In file included from bench/futex-wake.c:25:
 
-Some more:
+It looks like we need to add include/uapi/linux/time_types.h to
+tools/include/linux/ and update tools/include/linux/types.h
+in order to address this.
 
-  21    94.54 centos:stream                 : Ok   gcc (GCC) 8.5.0 20210514 (Red Hat 8.5.0-3) , clang version 12.0.1 (Red Hat 12.0.1-2.module_el8.6.0+937+1cafe22c)
-  22    48.51 clearlinux:latest             : Ok   gcc (Clear Linux OS for Intel Architecture) 11.2.1 20211202 releases/gcc-11.2.0-549-g2d5be1fca0 , clang version 11.1.0
-  23     7.38 debian:9                      : FAIL gcc version 6.3.0 20170516 (Debian 6.3.0-18+deb9u1)
-    In file included from bench/futex-wake.c:25:0:
-    bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
-      __kernel_old_time_t tv_sec;  /* seconds */
-      ^~~~~~~~~~~~~~~~~~~
-    In file included from bench/futex-hash.c:29:0:
-    bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
-      __kernel_old_time_t tv_sec;  /* seconds */
-      ^~~~~~~~~~~~~~~~~~~
-    /git/perf-5.16.0-rc4/tools/build/Makefile.build:139: recipe for target 'bench' failed
-    make[3]: *** [bench] Error 2
-  24     7.08 debian:10                     : FAIL gcc version 8.3.0 (Debian 8.3.0-6)
-    In file included from bench/futex-hash.c:29:
-    bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
-      __kernel_old_time_t tv_sec;  /* seconds */
-      ^~~~~~~~~~~~~~~~~~~
-    In file included from bench/futex-wake.c:25:
-    bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
-      __kernel_old_time_t tv_sec;  /* seconds */
-      ^~~~~~~~~~~~~~~~~~~
-    make[3]: *** [/git/perf-5.16.0-rc4/tools/build/Makefile.build:139: bench] Error 2
-  25    79.95 debian:11                     : Ok   gcc (Debian 10.2.1-6) 10.2.1 20210110 , Debian clang version 11.0.1-2
+         Arnd
 
 _______________________________________________
 linux-riscv mailing list
