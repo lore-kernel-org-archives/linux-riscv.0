@@ -4,112 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7916BC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Dec 2021 09:18:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCF17C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Dec 2021 13:13:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=MegvdGR+ScxBgpGPHGOFwNy+NWWODZirvYTjV+/rejE=; b=f1xOZyMQ0cV5nfvGfxkbHtzS/z
-	9rS3HVO/GSS3dPwZdRDk3GLCKDuSEoopdYpOjmdxAdyDiLY51DLo/eKKVTQcM4iUHxstYeHlf54yn
-	81M0JRe904XXLt5p3ajeHONWjSGUYTQWqe/jd4LL0r7LJ5+9P31sHCBJED9KFrasNu1cPDkCpqepo
-	BrDBwux8W3RL9IHjZetgZXL049DZMIJ87ChD/g5m4c6Qdgfek0etACVwhqq753upYXSNDT0BKAzvA
-	VjOzk3j5hnClJUInv49+imYsBTieo5yAmqql4SLADOtNlclpfvQ93scva+NNFuGCfipvCn3jeD7bD
-	C0n5dREg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jBtZhTMUUod7znT9i7Jox9z/9DudvE8ZUbKFeyY3unk=; b=m2BFz8x00h7zgf
+	U6k1gpWvabzHUhLxvAdYWviDKTYna4ILbWu95tN2Z4LB/uPq4vZCtz+OLVAYhWYBvtsoSgEN97XA/
+	3/JiarUU0S/A5GFDdTUyTzV0umHyHrjnilHm3Jj/IOHejGdgfEgIv+eaodxnDx3dTNrhoYzLZZqDS
+	hICL+wm7WkC+2HYo5GC8i3n/18n0A1/qtBL8GrXyxKHznIe8Or8TbvMbbcOu0R39rUz/8NoRBzr5z
+	Q/zBcwTXxVipieE2Yvbj4BJipYnxNZ9ihMXNZjpHBCd47jgOpkfm03H5VO7X2U69VXqJKr/ON0YLh
+	oUrhVGLMOjLKbIQDqyiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mvc30-001JJf-Em; Fri, 10 Dec 2021 09:18:34 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1mvfhd-001uz4-RH; Fri, 10 Dec 2021 13:12:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mvc2g-001JCa-TA; Fri, 10 Dec 2021 09:18:16 +0000
-Received: from pps.filterd (m0187473.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.1.2/8.16.1.2) with SMTP id 1BA6wbUV040152; 
- Fri, 10 Dec 2021 09:18:03 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
- h=subject : to : cc :
- references : from : message-id : date : mime-version : in-reply-to :
- content-type : content-transfer-encoding; s=pp1;
- bh=sCUp2gunpgsst+Ptkr0udx0VT2ivxJ/IAL0EVGqMlw8=;
- b=P9ACkXV32i6ejvxsr8YthLLr35rCLRZ75dW5EmHut9PztuV0NMkX/sepfJFLtYltAoxq
- 9vFUq/RPXSa1zC13NpNyFBcpQCiaDhu6bGP9k7UgVrntzrRe4QSZxu5NTgKoOE/7LobR
- 0PkJoAPocNMgx+5ZBu12yP9slPjkwG5fV9FmYqbzuLkyFG1cyoBzGYlYLZhIGL6hB72H
- /WMLyBD9rX8ej2Q5GV91WVVoU+wP75svY3xW0nCK0mwzUMTzWkIb12BG2qQV0wmzIlle
- CzPyJaRSUJQ4Gqkl5/jKEGN2Nhx6YIF1RDYI2qwSVVSBgI/9kPqee5TRB+r3K7mcz4v9 pQ== 
-Received: from pps.reinject (localhost [127.0.0.1])
- by mx0a-001b2d01.pphosted.com with ESMTP id 3cv23njkee-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Fri, 10 Dec 2021 09:18:02 +0000
-Received: from m0187473.ppops.net (m0187473.ppops.net [127.0.0.1])
- by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 1BA7RgrO021771;
- Fri, 10 Dec 2021 09:18:02 GMT
-Received: from ppma03ams.nl.ibm.com (62.31.33a9.ip4.static.sl-reverse.com
- [169.51.49.98])
- by mx0a-001b2d01.pphosted.com with ESMTP id 3cv23njkdd-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Fri, 10 Dec 2021 09:18:02 +0000
-Received: from pps.filterd (ppma03ams.nl.ibm.com [127.0.0.1])
- by ppma03ams.nl.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 1BA9EC7j030790;
- Fri, 10 Dec 2021 09:17:59 GMT
-Received: from b06cxnps3074.portsmouth.uk.ibm.com
- (d06relay09.portsmouth.uk.ibm.com [9.149.109.194])
- by ppma03ams.nl.ibm.com with ESMTP id 3cqyyasbdy-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Fri, 10 Dec 2021 09:17:59 +0000
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com
- (b06wcsmtp001.portsmouth.uk.ibm.com [9.149.105.160])
- by b06cxnps3074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- 1BA9Hu8s32571702
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Fri, 10 Dec 2021 09:17:56 GMT
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id E41A9A405F;
- Fri, 10 Dec 2021 09:17:55 +0000 (GMT)
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id B24F7A4062;
- Fri, 10 Dec 2021 09:17:50 +0000 (GMT)
-Received: from li-e8dccbcc-2adc-11b2-a85c-bc1f33b9b810.ibm.com (unknown
- [9.43.86.88])
- by b06wcsmtp001.portsmouth.uk.ibm.com (Postfix) with ESMTP;
- Fri, 10 Dec 2021 09:17:50 +0000 (GMT)
-Subject: Re: [PATCH v1 1/4] perf tools: Prevent out-of-bounds access to
- registers
-To: German Gomez <german.gomez@arm.com>, linux-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org, acme@kernel.org
-Cc: John Garry <john.garry@huawei.com>, Will Deacon <will@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>,
- Leo Yan <leo.yan@linaro.org>, Mark Rutland <mark.rutland@arm.com>,
+ id 1mvfhc-001uyu-An
+ for linux-riscv@bombadil.infradead.org; Fri, 10 Dec 2021 13:12:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=5FONlJM8hw/gQTawNHcRISE0snN2sXVcBQBbOBF9P+0=; b=fq3q+OG6zqjJVCvQf7rwGpHGZS
+ lu5q7ZuIsYPxe+z70GyJ+4Oui3tNnIXZYuQaKz7nFGJ3Q5UVHdrW8eTZsdjXHI1voIaH3bN1IP+xX
+ 0IRK/+M1unoDWMKZ02zQE+DmBpU9TfawiruMiYmzN0B6r+9cuze1Gexp5r4H67ayP/WMkmHyfgCxZ
+ PZuHFyLweU4Vo0EhC86QM9sD3KDxsq+89Xxs7vmsBd47bOM2yeXGkugYuCQuI6FD/Qn0uTwAhLUhj
+ B1FuoYeg645kywiQkVs4RcQkz+kz8SdT63jpgXb2YFB8Tp+OIKf1iKAs0wFfE1ueyaBdHUDhBcHDT
+ 7Xj67dmQ==;
+Received: from [179.97.37.151] (helo=quaco.ghostprotocols.net)
+ by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mvfhZ-000ZAT-92; Fri, 10 Dec 2021 13:12:41 +0000
+Received: by quaco.ghostprotocols.net (Postfix, from userid 1000)
+ id F1419405D8; Fri, 10 Dec 2021 10:12:37 -0300 (-03)
+Date: Fri, 10 Dec 2021 10:12:37 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Alistair Francis <alistair.francis@opensource.wdc.com>,
+ Arnd Bergmann <arnd@arndb.de>, Davidlohr Bueso <dbueso@suse.de>
+Cc: linux-kernel@vger.kernel.org, dave@stgolabs.net, dvhart@infradead.org,
+ alistair23@gmail.com, Namhyung Kim <namhyung@kernel.org>,
+ Jiri Olsa <jolsa@kernel.org>, linux-perf-users@vger.kernel.org,
  Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20211201123334.679131-1-german.gomez@arm.com>
- <20211201123334.679131-2-german.gomez@arm.com>
-From: kajoljain <kjain@linux.ibm.com>
-Message-ID: <6705021e-5b02-3323-7dbc-4b774f22a435@linux.ibm.com>
-Date: Fri, 10 Dec 2021 14:47:49 +0530
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.14.0
+ Mark Rutland <mark.rutland@arm.com>, Ingo Molnar <mingo@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Alistair Francis <alistair.francis@wdc.com>,
+ Atish Patra <atish.patra@wdc.com>, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v5 1/6] perf bench futex: Add support for 32-bit systems
+ with 64-bit time_t
+Message-ID: <YbNSRcSrAaurqDEv@kernel.org>
+References: <20211209235857.423773-1-alistair.francis@opensource.wdc.com>
 MIME-Version: 1.0
-In-Reply-To: <20211201123334.679131-2-german.gomez@arm.com>
-Content-Language: en-US
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: 3VwXn0xGApwvvGnybtVArkK_c3fXbUfh
-X-Proofpoint-GUID: S8D0NhTU3ovY96fl9qCknqis3HFEGLgh
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.205,Aquarius:18.0.790,Hydra:6.0.425,FMLib:17.11.62.513
- definitions=2021-12-10_03,2021-12-08_01,2021-12-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 spamscore=0
- mlxscore=0 priorityscore=1501 phishscore=0 bulkscore=0 malwarescore=0
- impostorscore=0 clxscore=1011 mlxlogscore=999 adultscore=0
- lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2110150000 definitions=main-2112100049
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211210_011815_012576_E8EF3B4F 
-X-CRM114-Status: GOOD (  29.99  )
+Content-Disposition: inline
+In-Reply-To: <20211209235857.423773-1-alistair.francis@opensource.wdc.com>
+X-Url: http://acmel.wordpress.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,70 +77,141 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 12/1/21 6:03 PM, German Gomez wrote:
-> The size of the cache of register values is arch-dependant
-> (PERF_REGS_MAX). This has the potential of causing an out-of-bounds
-> access in the function "perf_reg_value" if the local architecture
-> contains less registers than the one the perf.data file was recorded on.
+Em Fri, Dec 10, 2021 at 09:58:52AM +1000, Alistair Francis escreveu:
+> From: Alistair Francis <alistair.francis@wdc.com>
 > 
-> Since the maximum number of registers is bound by the bitmask "u64
-> cache_mask", and the size of the cache when running under x86 systems is
-> 64 already, fix the size to 64 and add a range-check to the function
-> "perf_reg_value" to prevent out-of-bounds access.
+> Some 32-bit architectures (such are 32-bit RISC-V) only have a 64-bit
+> time_t and as such don't have the SYS_futex syscall. This patch will
+> allow us to use the SYS_futex_time64 syscall on those platforms.
 > 
+> This also converts the futex calls to be y2038 safe (when built for a
+> 5.1+ kernel).
+> 
+> This is a revert of commit ba4026b09d83acf56c040b6933eac7916c27e728
+> "Revert "perf bench futex: Add support for 32-bit systems with 64-bit time_t"".
+> 
+> The original commit was reverted as including linux/time_types.h would
+> fail to compile on older kernels. This commit doesn't include
+> linux/time_types.h to avoid this issue.
 
-Patch looks good to me.
+The reverted commit had:
 
-Reviewed-by: Kajol Jain<kjain@linux.ibm.com>
+    Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+    Acked-by: Davidlohr Bueso <dbueso@suse.de>
+
+Does that stands for this new patch?
 
 Thanks,
-Kajol Jain
 
-> Signed-off-by: German Gomez <german.gomez@arm.com>
+- Arnaldo
+ 
+> Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
+> Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+> Cc: Alistair Francis <alistair23@gmail.com>
+> Cc: Atish Patra <atish.patra@wdc.com>
+> Cc: Darren Hart <dvhart@infradead.org>
+> Cc: Davidlohr Bueso <dave@stgolabs.net>
+> Cc: Jiri Olsa <jolsa@redhat.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Namhyung Kim <namhyung@kernel.org>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: linux-riscv@lists.infradead.org
+> Cc: Arnaldo Carvalho de Melo <acme@redhat.com>
+> Reviewed-by: Arnd Bergmann <arnd@arndb.de>
 > ---
->  tools/perf/util/event.h     | 5 ++++-
->  tools/perf/util/perf_regs.c | 3 +++
->  2 files changed, 7 insertions(+), 1 deletion(-)
+>  tools/perf/bench/futex.h | 52 +++++++++++++++++++++++++++++++++++++---
+>  1 file changed, 49 insertions(+), 3 deletions(-)
 > 
-> diff --git a/tools/perf/util/event.h b/tools/perf/util/event.h
-> index 95ffed663..c59331eea 100644
-> --- a/tools/perf/util/event.h
-> +++ b/tools/perf/util/event.h
-> @@ -44,13 +44,16 @@ struct perf_event_attr;
->  /* perf sample has 16 bits size limit */
->  #define PERF_SAMPLE_MAX_SIZE (1 << 16)
+> diff --git a/tools/perf/bench/futex.h b/tools/perf/bench/futex.h
+> index ebdc2b032afc..385d2bdfaa9f 100644
+> --- a/tools/perf/bench/futex.h
+> +++ b/tools/perf/bench/futex.h
+> @@ -8,6 +8,7 @@
+>  #ifndef _FUTEX_H
+>  #define _FUTEX_H
 >  
-> +/* number of register is bound by the number of bits in regs_dump::mask (64) */
-> +#define PERF_SAMPLE_REGS_CACHE_SIZE (8 * sizeof(u64))
-> +
->  struct regs_dump {
->  	u64 abi;
->  	u64 mask;
->  	u64 *regs;
->  
->  	/* Cached values/mask filled by first register access. */
-> -	u64 cache_regs[PERF_REGS_MAX];
-> +	u64 cache_regs[PERF_SAMPLE_REGS_CACHE_SIZE];
->  	u64 cache_mask;
+> +#include <errno.h>
+>  #include <unistd.h>
+>  #include <sys/syscall.h>
+>  #include <sys/types.h>
+> @@ -28,7 +29,17 @@ struct bench_futex_parameters {
 >  };
 >  
-> diff --git a/tools/perf/util/perf_regs.c b/tools/perf/util/perf_regs.c
-> index 5ee47ae15..06a7461ba 100644
-> --- a/tools/perf/util/perf_regs.c
-> +++ b/tools/perf/util/perf_regs.c
-> @@ -25,6 +25,9 @@ int perf_reg_value(u64 *valp, struct regs_dump *regs, int id)
->  	int i, idx = 0;
->  	u64 mask = regs->mask;
->  
-> +	if ((u64)id >= PERF_SAMPLE_REGS_CACHE_SIZE)
-> +		return -EINVAL;
+>  /**
+> - * futex_syscall() - SYS_futex syscall wrapper
+> + * This is copied from linux/time_types.h.
+> + * We copy this here to avoid compilation failures when running
+> + * on systems that don't ship with linux/time_types.h.
+> + */
+> +struct __kernel_old_timespec {
+> +	__kernel_old_time_t	tv_sec;		/* seconds */
+> +	long			tv_nsec;	/* nanoseconds */
+> +};
 > +
->  	if (regs->cache_mask & (1ULL << id))
->  		goto out;
+> +/**
+> + * futex_syscall() - __NR_futex syscall wrapper
+>   * @uaddr:	address of first futex
+>   * @op:		futex op code
+>   * @val:	typically expected value of uaddr, but varies by op
+> @@ -49,14 +60,49 @@ static inline int
+>  futex_syscall(volatile u_int32_t *uaddr, int op, u_int32_t val, struct timespec *timeout,
+>  	      volatile u_int32_t *uaddr2, int val3, int opflags)
+>  {
+> -	return syscall(SYS_futex, uaddr, op | opflags, val, timeout, uaddr2, val3);
+> +#if defined(__NR_futex_time64)
+> +	if (sizeof(*timeout) != sizeof(struct __kernel_old_timespec)) {
+> +		int ret = syscall(__NR_futex_time64, uaddr, op | opflags, val, timeout,
+> +				  uaddr2, val3);
+> +	if (ret == 0 || errno != ENOSYS)
+> +		return ret;
+> +	}
+> +#endif
+> +
+> +#if defined(__NR_futex)
+> +	if (sizeof(*timeout) == sizeof(struct __kernel_old_timespec))
+> +		return syscall(__NR_futex, uaddr, op | opflags, val, timeout, uaddr2, val3);
+> +
+> +	if (timeout && timeout->tv_sec == (long)timeout->tv_sec) {
+> +		struct __kernel_old_timespec ts32;
+> +
+> +		ts32.tv_sec = (__kernel_long_t) timeout->tv_sec;
+> +		ts32.tv_nsec = (__kernel_long_t) timeout->tv_nsec;
+> +
+> +		return syscall(__NR_futex, uaddr, op | opflags, val, ts32, uaddr2, val3);
+> +	} else if (!timeout) {
+> +		return syscall(__NR_futex, uaddr, op | opflags, val, NULL, uaddr2, val3);
+> +	}
+> +#endif
+> +
+> +	errno = ENOSYS;
+> +	return -1;
+>  }
 >  
-> 
+>  static inline int
+>  futex_syscall_nr_requeue(volatile u_int32_t *uaddr, int op, u_int32_t val, int nr_requeue,
+>  			 volatile u_int32_t *uaddr2, int val3, int opflags)
+>  {
+> -	return syscall(SYS_futex, uaddr, op | opflags, val, nr_requeue, uaddr2, val3);
+> +#if defined(__NR_futex_time64)
+> +	int ret =  syscall(__NR_futex_time64, uaddr, op | opflags, val, nr_requeue,
+> +			   uaddr2, val3);
+> +	if (ret == 0 || errno != ENOSYS)
+> +		return ret;
+> +#endif
+> +
+> +#if defined(__NR_futex)
+> +	return syscall(__NR_futex, uaddr, op | opflags, val, nr_requeue, uaddr2, val3);
+> +#endif
+>  }
+>  
+>  /**
+> -- 
+> 2.31.1
+
+-- 
+
+- Arnaldo
 
 _______________________________________________
 linux-riscv mailing list
