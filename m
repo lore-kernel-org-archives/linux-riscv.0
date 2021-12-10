@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C123DC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Dec 2021 13:37:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BDC7C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Dec 2021 13:37:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=E4WnbjUxRi4nc4trb0h6zf9EDsLpyoCE8nUjCcQGpFg=; b=1LXWGw3TiCY0UO
-	s2BgbIZkfa0AGSCkH6p3nWrYy0nHOok/CldBZDSTwg6llbWnfevKLCmyixwloehRIz/AE8zke7Iwl
-	aisKT3NfY9iqQz0O00poEcwMuj6GSfsjctuwwEHrQve+3s70O12BuASDlOwqHKPg+3+ActRpYoni1
-	LRajKOR3lFQTtAO4qnm8UIF1KfKNmBuBYasXKSGf851e+o6eIbi3Wbz+VIZuuRKnBveongggGtL4Y
-	7QUPPC7jzMcaE5+HL+FAiwTeaYcxCFqGxiH2h/J4wNsfVWFGIyT+O6MEU1cPebg5O24HbzQ+ln40j
-	39Qqhz2AkWJQ0h/LORWg==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BEZXrfbHga7KzRgCCcNhjpS2xMGwSJdmW5qtZtj4nXc=; b=36UgqK+//px3A9
+	VtLkEjBN6BuMyXWY/S1aA19NKlKsi58MikvlK95er+1dIrnCiV4y5/ryg0iYk5gPf2ULmsewPIdDI
+	mp1vK+dct3N4wmSnf4nB4jPxZ7gPWLuuqpzF7fPJ/sYpTA6XrfgCYA/lIMZCIx1jqC5/NEar/hvsL
+	leF/pVhOcIVruIanqW+vgL3qtilqovOtgi6CRj5egOyi1NI/EbvcEzbV53F+ht6/+59WTXZTARL2P
+	Qeiarn7xbqv9I92GzLOPRUZITDuJ2MLWHtyzmYSgXU6rnfCMU2zVjrAXxR4gE6E4Rqlfwpp8tA6LT
+	f55kFkv7LU/0TMfaLYyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mvg54-00217I-JN; Fri, 10 Dec 2021 13:36:58 +0000
+	id 1mvg57-002193-CD; Fri, 10 Dec 2021 13:37:01 +0000
 Received: from mail.loongson.cn ([114.242.206.163] helo=loongson.cn)
  by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mvg4I-0020hx-M3; Fri, 10 Dec 2021 13:36:14 +0000
+ id 1mvg4I-0020hw-C5; Fri, 10 Dec 2021 13:36:14 +0000
 Received: from linux.localdomain (unknown [113.200.148.30])
- by mail.loongson.cn (Coremail) with SMTP id AQAAf9AxusjBV7Nh3OEFAA--.12281S2; 
- Fri, 10 Dec 2021 21:36:02 +0800 (CST)
+ by mail.loongson.cn (Coremail) with SMTP id AQAAf9AxusjBV7Nh3OEFAA--.12281S4; 
+ Fri, 10 Dec 2021 21:36:03 +0800 (CST)
 From: Tiezhu Yang <yangtiezhu@loongson.cn>
 To: Dave Young <dyoung@redhat.com>, Baoquan He <bhe@redhat.com>,
  Vivek Goyal <vgoyal@redhat.com>, Andrew Morton <akpm@linux-foundation.org>
@@ -35,32 +35,35 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org, x86@kernel.org,
  linux-fsdevel@vger.kernel.org, kexec@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Subject: [PATCH 0/2] kdump: simplify code
-Date: Fri, 10 Dec 2021 21:35:59 +0800
-Message-Id: <1639143361-17773-1-git-send-email-yangtiezhu@loongson.cn>
+Subject: [PATCH 2/2] kdump: crashdump: use copy_to() to simplify the related
+ code
+Date: Fri, 10 Dec 2021 21:36:01 +0800
+Message-Id: <1639143361-17773-3-git-send-email-yangtiezhu@loongson.cn>
 X-Mailer: git-send-email 2.1.0
-X-CM-TRANSID: AQAAf9AxusjBV7Nh3OEFAA--.12281S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrKFyDGrW7KF1UCF45GFW7Jwb_yoW3Grb_XF
- WIgas5Gry0va4FyFy7K3W3urWDJr4vvFnYvw1ktrW5ta9xJFyrJw48JF4jgrn8XrWkJrZr
- ArWDGas2vr1FqjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
- 9fnUUIcSsGvfJTRUUUbs8YjsxI4VWxJwAYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I
- 6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
- 8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0
- cI8IcVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z2
- 80aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAK
- zVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr1lOx
- 8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
- MxkIecxEwVAFwVW5GwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s
- 026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_
- Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20x
- vEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6rW3Jr0E3s1lIxAIcVC2z280
- aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43
- ZEXa7IU0nID7UUUUU==
+In-Reply-To: <1639143361-17773-1-git-send-email-yangtiezhu@loongson.cn>
+References: <1639143361-17773-1-git-send-email-yangtiezhu@loongson.cn>
+X-CM-TRANSID: AQAAf9AxusjBV7Nh3OEFAA--.12281S4
+X-Coremail-Antispam: 1UD129KBjvJXoW3XrW5CF1rtr1fXr4fJF17Awb_yoW7KF13pr
+ 1vk39ayr4Ig3Z8GasrtrnrWFW0qwn7G3W7J3yDC3WrZwnaqwnFvw1kJas2g3yjqr15KryF
+ yF95Kr4Yy3y8W3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUPab7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
+ 8067AKxVWUXwA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF
+ 64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0cI8IcV
+ CY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIE
+ c7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I
+ 8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCF
+ s4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY02
+ Avz4vE14v_Xr4l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAq
+ x4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r
+ 43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF
+ 7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxV
+ WUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU
+ yuWlDUUUU
 X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211210_053611_187036_C9DD082C 
-X-CRM114-Status: UNSURE (   3.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211210_053610_902393_C8A394E1 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,10 +81,11 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Tiezhu Yang (2):
-  kdump: vmcore: move copy_to() from vmcore.c to uaccess.h
-  kdump: crashdump: use copy_to() to simplify the related code
+Use copy_to() to simplify the related code about copy_oldmem_page()
+in arch/*/kernel/crash_dump*.c files.
 
+Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+---
  arch/arm/kernel/crash_dump.c     | 10 ++--------
  arch/arm64/kernel/crash_dump.c   | 10 ++--------
  arch/ia64/kernel/crash_dump.c    | 10 ++++------
@@ -91,10 +95,190 @@ Tiezhu Yang (2):
  arch/sh/kernel/crash_dump.c      |  9 ++-------
  arch/x86/kernel/crash_dump_32.c  |  9 ++-------
  arch/x86/kernel/crash_dump_64.c  |  9 ++-------
- fs/proc/vmcore.c                 | 14 --------------
- include/linux/uaccess.h          | 14 ++++++++++++++
- 11 files changed, 34 insertions(+), 76 deletions(-)
+ 9 files changed, 20 insertions(+), 62 deletions(-)
 
+diff --git a/arch/arm/kernel/crash_dump.c b/arch/arm/kernel/crash_dump.c
+index 53cb924..6491f1d 100644
+--- a/arch/arm/kernel/crash_dump.c
++++ b/arch/arm/kernel/crash_dump.c
+@@ -40,14 +40,8 @@ ssize_t copy_oldmem_page(unsigned long pfn, char *buf,
+ 	if (!vaddr)
+ 		return -ENOMEM;
+ 
+-	if (userbuf) {
+-		if (copy_to_user(buf, vaddr + offset, csize)) {
+-			iounmap(vaddr);
+-			return -EFAULT;
+-		}
+-	} else {
+-		memcpy(buf, vaddr + offset, csize);
+-	}
++	if (copy_to(buf, vaddr + offset, csize, userbuf))
++		csize = -EFAULT;
+ 
+ 	iounmap(vaddr);
+ 	return csize;
+diff --git a/arch/arm64/kernel/crash_dump.c b/arch/arm64/kernel/crash_dump.c
+index 58303a9..496e6a5 100644
+--- a/arch/arm64/kernel/crash_dump.c
++++ b/arch/arm64/kernel/crash_dump.c
+@@ -38,14 +38,8 @@ ssize_t copy_oldmem_page(unsigned long pfn, char *buf,
+ 	if (!vaddr)
+ 		return -ENOMEM;
+ 
+-	if (userbuf) {
+-		if (copy_to_user((char __user *)buf, vaddr + offset, csize)) {
+-			memunmap(vaddr);
+-			return -EFAULT;
+-		}
+-	} else {
+-		memcpy(buf, vaddr + offset, csize);
+-	}
++	if (copy_to(buf, vaddr + offset, csize, userbuf))
++		csize = -EFAULT;
+ 
+ 	memunmap(vaddr);
+ 
+diff --git a/arch/ia64/kernel/crash_dump.c b/arch/ia64/kernel/crash_dump.c
+index 0ed3c3d..20f4c4e 100644
+--- a/arch/ia64/kernel/crash_dump.c
++++ b/arch/ia64/kernel/crash_dump.c
+@@ -39,13 +39,11 @@ copy_oldmem_page(unsigned long pfn, char *buf,
+ 
+ 	if (!csize)
+ 		return 0;
++
+ 	vaddr = __va(pfn<<PAGE_SHIFT);
+-	if (userbuf) {
+-		if (copy_to_user(buf, (vaddr + offset), csize)) {
+-			return -EFAULT;
+-		}
+-	} else
+-		memcpy(buf, (vaddr + offset), csize);
++	if (copy_to(buf, vaddr + offset, csize, userbuf))
++		return -EFAULT;
++
+ 	return csize;
+ }
+ 
+diff --git a/arch/mips/kernel/crash_dump.c b/arch/mips/kernel/crash_dump.c
+index 2e50f551..80704dc 100644
+--- a/arch/mips/kernel/crash_dump.c
++++ b/arch/mips/kernel/crash_dump.c
+@@ -24,13 +24,8 @@ ssize_t copy_oldmem_page(unsigned long pfn, char *buf,
+ 		return 0;
+ 
+ 	vaddr = kmap_local_pfn(pfn);
+-
+-	if (!userbuf) {
+-		memcpy(buf, vaddr + offset, csize);
+-	} else {
+-		if (copy_to_user(buf, vaddr + offset, csize))
+-			csize = -EFAULT;
+-	}
++	if (copy_to(buf, vaddr + offset, csize, userbuf))
++		csize = -EFAULT;
+ 
+ 	kunmap_local(vaddr);
+ 
+diff --git a/arch/powerpc/kernel/crash_dump.c b/arch/powerpc/kernel/crash_dump.c
+index 5693e1c67..43b2658 100644
+--- a/arch/powerpc/kernel/crash_dump.c
++++ b/arch/powerpc/kernel/crash_dump.c
+@@ -71,11 +71,8 @@ void __init setup_kdump_trampoline(void)
+ static size_t copy_oldmem_vaddr(void *vaddr, char *buf, size_t csize,
+                                unsigned long offset, int userbuf)
+ {
+-	if (userbuf) {
+-		if (copy_to_user((char __user *)buf, (vaddr + offset), csize))
+-			return -EFAULT;
+-	} else
+-		memcpy(buf, (vaddr + offset), csize);
++	if (copy_to(buf, vaddr + offset, csize, userbuf))
++		return -EFAULT;
+ 
+ 	return csize;
+ }
+diff --git a/arch/riscv/kernel/crash_dump.c b/arch/riscv/kernel/crash_dump.c
+index 86cc0ad..707fbc1 100644
+--- a/arch/riscv/kernel/crash_dump.c
++++ b/arch/riscv/kernel/crash_dump.c
+@@ -33,13 +33,8 @@ ssize_t copy_oldmem_page(unsigned long pfn, char *buf,
+ 	if (!vaddr)
+ 		return -ENOMEM;
+ 
+-	if (userbuf) {
+-		if (copy_to_user((char __user *)buf, vaddr + offset, csize)) {
+-			memunmap(vaddr);
+-			return -EFAULT;
+-		}
+-	} else
+-		memcpy(buf, vaddr + offset, csize);
++	if (copy_to(buf, vaddr + offset, csize, userbuf))
++		csize = -EFAULT;
+ 
+ 	memunmap(vaddr);
+ 	return csize;
+diff --git a/arch/sh/kernel/crash_dump.c b/arch/sh/kernel/crash_dump.c
+index 5b41b59..2af9286 100644
+--- a/arch/sh/kernel/crash_dump.c
++++ b/arch/sh/kernel/crash_dump.c
+@@ -33,13 +33,8 @@ ssize_t copy_oldmem_page(unsigned long pfn, char *buf,
+ 
+ 	vaddr = ioremap(pfn << PAGE_SHIFT, PAGE_SIZE);
+ 
+-	if (userbuf) {
+-		if (copy_to_user((void __user *)buf, (vaddr + offset), csize)) {
+-			iounmap(vaddr);
+-			return -EFAULT;
+-		}
+-	} else
+-	memcpy(buf, (vaddr + offset), csize);
++	if (copy_to(buf, vaddr + offset, csize, userbuf))
++		csize = -EFAULT;
+ 
+ 	iounmap(vaddr);
+ 	return csize;
+diff --git a/arch/x86/kernel/crash_dump_32.c b/arch/x86/kernel/crash_dump_32.c
+index 5fcac46..731658b 100644
+--- a/arch/x86/kernel/crash_dump_32.c
++++ b/arch/x86/kernel/crash_dump_32.c
+@@ -54,13 +54,8 @@ ssize_t copy_oldmem_page(unsigned long pfn, char *buf, size_t csize,
+ 		return -EFAULT;
+ 
+ 	vaddr = kmap_local_pfn(pfn);
+-
+-	if (!userbuf) {
+-		memcpy(buf, vaddr + offset, csize);
+-	} else {
+-		if (copy_to_user(buf, vaddr + offset, csize))
+-			csize = -EFAULT;
+-	}
++	if (copy_to(buf, vaddr + offset, csize, userbuf))
++		csize = -EFAULT;
+ 
+ 	kunmap_local(vaddr);
+ 
+diff --git a/arch/x86/kernel/crash_dump_64.c b/arch/x86/kernel/crash_dump_64.c
+index a7f617a..8e7c192 100644
+--- a/arch/x86/kernel/crash_dump_64.c
++++ b/arch/x86/kernel/crash_dump_64.c
+@@ -29,13 +29,8 @@ static ssize_t __copy_oldmem_page(unsigned long pfn, char *buf, size_t csize,
+ 	if (!vaddr)
+ 		return -ENOMEM;
+ 
+-	if (userbuf) {
+-		if (copy_to_user((void __user *)buf, vaddr + offset, csize)) {
+-			iounmap((void __iomem *)vaddr);
+-			return -EFAULT;
+-		}
+-	} else
+-		memcpy(buf, vaddr + offset, csize);
++	if (copy_to(buf, vaddr + offset, csize, userbuf))
++		csize = -EFAULT;
+ 
+ 	set_iounmap_nonlazy();
+ 	iounmap((void __iomem *)vaddr);
 -- 
 2.1.0
 
