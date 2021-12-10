@@ -4,84 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32261C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Dec 2021 16:20:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D745EC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Dec 2021 16:59:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gqU6HugndAWeTQbQqwqLMQOV/9YyD3ZxkEpwyxHb0Wc=; b=XzgXWB63OGu5kk
-	LtDqqeZ3/8or6/hCbtjv5RvIt27eug9AzI7HtFndzkzcR+vtCrYPXblLk9KQ6XxHAyFf1/k+mR4Yy
-	doOs88II1IwsqwKyriV4jZST8Mf9IR+/N3x5Jtok4UMQZ47srj4xlDaLsoFG1U5lbIeXbR11/VRXO
-	Jdj7pjS1V4hTht88IPdUqmRobYQXRSjATSkA759FUHN4aAaJ8SZzAiOnR2R6mD8oYx7sJRasdQQo9
-	8F70Zl8ixzybYSA3RZZFKloc0KSAPUFNXHxPEXU8EIFInXCFNjgtwjQvZ3QlrRYLDjtPtemo16zaH
-	supUTqcuxO+l0Y4l6NRQ==;
+	List-Owner; bh=n5o+YysIdbTze6Wi8M1yPHAOVhLVxn7rbek07IbB0W0=; b=zVUCSTGw7S1LzN
+	18NCDftzm2pinqv6oGpk7TKgJWWltz5iqlnqldpmItdqyt8ia+JkbShlGSE5E8e2LWQKI8oHRSSxI
+	GW5k3EbsBjhk4S3FKOG5dhHkZ1kknItAm6J0rmREFSa6/XZknzfeBAA0LruNCHk0KWM2CHqVPOjAo
+	MykAKH0l9uJZn9fcwF2PCmd1Y+LnTmxM0dTNBCha13dCN7m+Y4hRyvsuBruPQ1pXSlB+ygcNtZzUe
+	tro8ZVwkL/DBZRgDF8dSXich425W6KywX583gK5Y/ctBrACLFu17y6XjLbqDcFMvIOf6HPBmFGSJ0
+	e96vDnITIgNUyMX3kAZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mvicz-002ZoY-6B; Fri, 10 Dec 2021 16:20:09 +0000
-Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
+	id 1mvjF1-002gUi-Pv; Fri, 10 Dec 2021 16:59:27 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mvicm-002ZlZ-4v; Fri, 10 Dec 2021 16:19:57 +0000
-Received: by mail-qv1-xf34.google.com with SMTP id jo22so8379396qvb.13;
- Fri, 10 Dec 2021 08:19:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=date:from:to:cc:subject:user-agent:in-reply-to:references
- :message-id:mime-version:content-transfer-encoding;
- bh=tMMxFmdx6MfMkYIe7s/tX2fGsd/7SaUGLt53xeNBSto=;
- b=jHaNUOm+bAFT/71ZTymVQb/kmN4r5rYXWFg+VqSDFuvYGhNE+xv4y1Y+bnH2sb+fhj
- NV919Z87+m+44Qr4B7KsYG4OujDtURNuCUuqHDtU3xv4d/RbPDoPsRgyllsKOLKHqNiq
- ufBBokrSbKEDD8kj0nZnTl3JaT8Nstvuxfev+U0iEv6QotJD7DRirfQMLB2KI0CvSOS/
- vDTh9L0/QWze5Aqk8HRlsWW8O5Aa5sVaj4QDc2+PH7Fk454q3wl2/k59cshgL2mBYhvR
- kWFDXIgne1fyDDwJnK4lufmM9r6u+SOrZ6Llz6vhyOOauwgoFnbav/nHigDNqgPed3l+
- sD8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:user-agent:in-reply-to
- :references:message-id:mime-version:content-transfer-encoding;
- bh=tMMxFmdx6MfMkYIe7s/tX2fGsd/7SaUGLt53xeNBSto=;
- b=wWosqx49LJ+HldJoNz9iJukLsd0ZBrtNXEcGEZxISZZusFpM7tHg/8PH03XQIbEhOL
- A3aoweIPgqE3E/efYFOFsRGvCnoBoInOmf5rHiP7D0e6OJdvedu4opEa0gPVS21jPIyL
- Umt1MEmiKfiBAPInfuEk8iJqTw8j7bUX1Lagzq7KySEUlxYhyrkD390b2CjXNr1AwTbF
- dXMbQIMtKNIltQ6hzcj8v4vWKkRrOYESBbZYiwQxvDQw1ru5gwpEOwlIu+nZV4DkQmGc
- 9KMql+t8FLWfQZiVxKyZ7FP+VBNZFdYpKLVw8Bk8VO8+QiWbmJtJEbwLoEMEwmbexy5d
- RJXA==
-X-Gm-Message-State: AOAM533+PNzfmswNCm5OskRllQWErjo1j/iylcr26Jg466Lv55z2K4q7
- V/G5pm9SG6CQYilonEwCgPk=
-X-Google-Smtp-Source: ABdhPJzdk7VpNonY+bRlvorAlgEXJPEuVKPvG89stBQW6JD1wHoFdSsWe1YbNMAuaoBBJCFP3aNM4A==
-X-Received: by 2002:a05:6214:27ee:: with SMTP id
- jt14mr25674296qvb.112.1639153193232; 
- Fri, 10 Dec 2021 08:19:53 -0800 (PST)
-Received: from [127.0.0.1] ([179.97.37.151])
- by smtp.gmail.com with ESMTPSA id t9sm1379657qkp.110.2021.12.10.08.19.51
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Fri, 10 Dec 2021 08:19:52 -0800 (PST)
-Date: Fri, 10 Dec 2021 13:19:47 -0300
-From: Arnaldo Carvalho de Melo <arnaldo.melo@gmail.com>
-To: German Gomez <german.gomez@arm.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>, kajoljain <kjain@linux.ibm.com>
-CC: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- John Garry <john.garry@huawei.com>, Will Deacon <will@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>, Leo Yan <leo.yan@linaro.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v1_1/4=5D_perf_tools=3A_Preve?=
- =?US-ASCII?Q?nt_out-of-bounds_access_to_registers?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <42c6ea29-5904-bb8b-d9c6-a0516c3a564f@arm.com>
-References: <20211201123334.679131-1-german.gomez@arm.com>
- <20211201123334.679131-2-german.gomez@arm.com>
- <6705021e-5b02-3323-7dbc-4b774f22a435@linux.ibm.com>
- <YbNYUC1poqzrWynP@kernel.org> <42c6ea29-5904-bb8b-d9c6-a0516c3a564f@arm.com>
-Message-ID: <95E7589C-3822-4F73-A0CA-42E64654E021@gmail.com>
-MIME-Version: 1.0
+ id 1mvjEi-002gMt-4W; Fri, 10 Dec 2021 16:59:09 +0000
+Received: from mail.kernel.org (unknown [198.145.29.99])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id BCDB8B827FA;
+ Fri, 10 Dec 2021 16:59:06 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 0827A60C4B;
+ Fri, 10 Dec 2021 16:59:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+ s=korg; t=1639155545;
+ bh=kRdyzfTbRlA8Q6o9ozYIflNqTTqb1/yyQ+Zhl1bc2hI=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+ b=qehFagygXXv8bbpl27U/7B/DcP1tIA/U/cWnuj39slg4mxEcbhuXFsss1NddlzBIE
+ 6PkBZYce8BgviUP9YWNtqY/WCPQTLOyw84eVboaBBjEOQla5+S27wj9ObPzqFGeOTI
+ VhCCu+m1sjz5CsY/rSDNoqZ/fnHwKR72obNaOkn8=
+Date: Fri, 10 Dec 2021 08:59:03 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Tiezhu Yang <yangtiezhu@loongson.cn>
+Cc: Dave Young <dyoung@redhat.com>, Baoquan He <bhe@redhat.com>, Vivek Goyal
+ <vgoyal@redhat.com>, linux-arm-kernel@lists.infradead.org,
+ linux-ia64@vger.kernel.org, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, x86@kernel.org, linux-fsdevel@vger.kernel.org,
+ kexec@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] kdump: vmcore: move copy_to() from vmcore.c to
+ uaccess.h
+Message-Id: <20211210085903.e7820815e738d7dc6da06050@linux-foundation.org>
+In-Reply-To: <1639143361-17773-2-git-send-email-yangtiezhu@loongson.cn>
+References: <1639143361-17773-1-git-send-email-yangtiezhu@loongson.cn>
+ <1639143361-17773-2-git-send-email-yangtiezhu@loongson.cn>
+X-Mailer: Sylpheed 3.5.1 (GTK+ 2.24.31; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211210_081956_217324_F5EF508D 
-X-CRM114-Status: GOOD (  16.66  )
+X-CRM114-CacheID: sfid-20211210_085908_382810_468633EA 
+X-CRM114-Status: GOOD (  20.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,93 +74,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, 10 Dec 2021 21:36:00 +0800 Tiezhu Yang <yangtiezhu@loongson.cn> wrote:
 
+> In arch/*/kernel/crash_dump*.c, there exist similar code about
+> copy_oldmem_page(), move copy_to() from vmcore.c to uaccess.h,
+> and then we can use copy_to() to simplify the related code.
+> 
+> ...
+>
+> --- a/fs/proc/vmcore.c
+> +++ b/fs/proc/vmcore.c
+> @@ -238,20 +238,6 @@ copy_oldmem_page_encrypted(unsigned long pfn, char *buf, size_t csize,
+>  	return copy_oldmem_page(pfn, buf, csize, offset, userbuf);
+>  }
+>  
+> -/*
+> - * Copy to either kernel or user space
+> - */
+> -static int copy_to(void *target, void *src, size_t size, int userbuf)
+> -{
+> -	if (userbuf) {
+> -		if (copy_to_user((char __user *) target, src, size))
+> -			return -EFAULT;
+> -	} else {
+> -		memcpy(target, src, size);
+> -	}
+> -	return 0;
+> -}
+> -
+>  #ifdef CONFIG_PROC_VMCORE_DEVICE_DUMP
+>  static int vmcoredd_copy_dumps(void *dst, u64 start, size_t size, int userbuf)
+>  {
+> diff --git a/include/linux/uaccess.h b/include/linux/uaccess.h
+> index ac03940..4a6c3e4 100644
+> --- a/include/linux/uaccess.h
+> +++ b/include/linux/uaccess.h
+> @@ -201,6 +201,20 @@ copy_to_user(void __user *to, const void *from, unsigned long n)
+>  	return n;
+>  }
+>  
+> +/*
+> + * Copy to either kernel or user space
+> + */
+> +static inline int copy_to(void *target, void *src, size_t size, int userbuf)
+> +{
+> +	if (userbuf) {
+> +		if (copy_to_user((char __user *) target, src, size))
+> +			return -EFAULT;
+> +	} else {
+> +		memcpy(target, src, size);
+> +	}
+> +	return 0;
+> +}
+> +
 
-On December 10, 2021 12:28:56 PM GMT-03:00, German Gomez <german.gomez@arm.com> wrote:
->
->On 10/12/2021 13:38, Arnaldo Carvalho de Melo wrote:
->> Em Fri, Dec 10, 2021 at 02:47:49PM +0530, kajoljain escreveu:
->>>
->>> On 12/1/21 6:03 PM, German Gomez wrote:
->>>> The size of the cache of register values is arch-dependant
->>>> (PERF_REGS_MAX). This has the potential of causing an out-of-bounds
->>>> access in the function "perf_reg_value" if the local architecture
->>>> contains less registers than the one the perf.data file was recorded on.
->>>>
->>>> Since the maximum number of registers is bound by the bitmask "u64
->>>> cache_mask", and the size of the cache when running under x86 systems is
->>>> 64 already, fix the size to 64 and add a range-check to the function
->>>> "perf_reg_value" to prevent out-of-bounds access.
->>>>
->>> Patch looks good to me.
->>>
->>> Reviewed-by: Kajol Jain<kjain@linux.ibm.com>
->> Thanks, applied.
->>
->> - Arnaldo
->
->Thanks Arnaldo, and the rest for the review.
->
->I did send a v2 of this patch afterwards. The only difference was to
->give credit to the reporter in the commit message with:
->
->Reported-by: Alexandre Truong <alexandre.truong@arm.com>
+Ordinarily I'd say "this is too large to be inlined".  But the function
+has only a single callsite per architecture so inlining it won't cause
+bloat at present.
 
+But hopefully copy_to() will get additional callers in the future, in
+which case it shouldn't be inlined.  So I'm thinking it would be best
+to start out with this as a regular non-inlined function, in
+lib/usercopy.c.
 
-I'll add it.
+Also, copy_to() is a very poor name for a globally-visible helper
+function.  Better would be copy_to_user_or_kernel(), although that's
+perhaps a bit long.
 
-- Arnaldo
->
->Thanks,
->German
->
->>  
->>> Thanks,
->>> Kajol Jain
->>>
->>>> Signed-off-by: German Gomez <german.gomez@arm.com>
->>>> ---
->>>>  tools/perf/util/event.h     | 5 ++++-
->>>>  tools/perf/util/perf_regs.c | 3 +++
->>>>  2 files changed, 7 insertions(+), 1 deletion(-)
->>>>
->>>> diff --git a/tools/perf/util/event.h b/tools/perf/util/event.h
->>>> index 95ffed663..c59331eea 100644
->>>> --- a/tools/perf/util/event.h
->>>> +++ b/tools/perf/util/event.h
->>>> @@ -44,13 +44,16 @@ struct perf_event_attr;
->>>>  /* perf sample has 16 bits size limit */
->>>>  #define PERF_SAMPLE_MAX_SIZE (1 << 16)
->>>>  
->>>> +/* number of register is bound by the number of bits in regs_dump::mask (64) */
->>>> +#define PERF_SAMPLE_REGS_CACHE_SIZE (8 * sizeof(u64))
->>>> +
->>>>  struct regs_dump {
->>>>  	u64 abi;
->>>>  	u64 mask;
->>>>  	u64 *regs;
->>>>  
->>>>  	/* Cached values/mask filled by first register access. */
->>>> -	u64 cache_regs[PERF_REGS_MAX];
->>>> +	u64 cache_regs[PERF_SAMPLE_REGS_CACHE_SIZE];
->>>>  	u64 cache_mask;
->>>>  };
->>>>  
->>>> diff --git a/tools/perf/util/perf_regs.c b/tools/perf/util/perf_regs.c
->>>> index 5ee47ae15..06a7461ba 100644
->>>> --- a/tools/perf/util/perf_regs.c
->>>> +++ b/tools/perf/util/perf_regs.c
->>>> @@ -25,6 +25,9 @@ int perf_reg_value(u64 *valp, struct regs_dump *regs, int id)
->>>>  	int i, idx = 0;
->>>>  	u64 mask = regs->mask;
->>>>  
->>>> +	if ((u64)id >= PERF_SAMPLE_REGS_CACHE_SIZE)
->>>> +		return -EINVAL;
->>>> +
->>>>  	if (regs->cache_mask & (1ULL << id))
->>>>  		goto out;
->>>>  
->>>>
+And the `userbuf' arg should have type bool, yes?
+
 
 _______________________________________________
 linux-riscv mailing list
