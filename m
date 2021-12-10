@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F9CBC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Dec 2021 18:09:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E24EC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Dec 2021 18:14:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uMNpkTpbK91kyOKzMY9gvA9dDHpwlN2o1LfbjJ0jAoI=; b=PXsp/JJ4iDOL7J
-	PB9HxkxdvmfW6aZna55wttQX8GFOFafn9t58gdpgv70MUpdbG5HOqQrrRVWcnwWkcLu/HahKuTp6e
-	gD/UiUZYxBL20HsrtVFjBaD6WBmlCFfrYIiM/WyH53LMQSQ/yMkgF+5psEyh1KfZMhfoGu84RQuir
-	FfJaO1FhpjCHzRjgXKe1UxtF3qXeQJ7ByPdsj7ocLB//9Q8F6caOi+HK562MPYjtaYb9IQebKpzct
-	6o2W6lEI1+UTKP5FxstmytIsSI8Z6Qh7BBkQs5n1jtKWE+8t04S1ZMkVhaKhdd/vgooFzwXQDQFse
-	Rr3KlBSbGSpN5BsW9I/A==;
+	List-Owner; bh=PzU0h5o3mcEdhsNZSZusfjhcCIliaeyWFfy0DcTVj6k=; b=d+Gp0ThvRMWpZ8
+	tZ5YVJZSVJyg5cII2H++b7gflC71LS4l3egiHRwIHlMVcToxIuKciLBffRyIFRBHInXd5iVMn8k6X
+	2uZeF40GN7741xCpr4frGOX3FsxWcPK2N2HOVJihCDhu7snVp7xt9xCT1zQE6SA3Mkie4fph0LkVf
+	MXyDVSjNydlvetCLPO413gxbt1ekCcM9dCF4LCmX5CrWutPOF9EeZWlkxPza6VBnkx2LIaZ4HjSoK
+	NLVN/OyblO3wixPQ3kCEvNkTwuItQo+3OOKtC+Ld4fqLtw+u7pRYQIseniCKuHU5GulwWC7ek/eEj
+	gDHI6YOLsjcXA0amFaxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mvkKz-0038g6-F1; Fri, 10 Dec 2021 18:09:41 +0000
-Received: from mail-oo1-f50.google.com ([209.85.161.50])
+	id 1mvkPS-003AGb-PA; Fri, 10 Dec 2021 18:14:18 +0000
+Received: from mail-ot1-f48.google.com ([209.85.210.48])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mvkKu-0038c2-TH; Fri, 10 Dec 2021 18:09:38 +0000
-Received: by mail-oo1-f50.google.com with SMTP id
- w5-20020a4a2745000000b002c2649b8d5fso2575137oow.10; 
- Fri, 10 Dec 2021 10:09:32 -0800 (PST)
+ id 1mvkPO-003AEJ-EC; Fri, 10 Dec 2021 18:14:16 +0000
+Received: by mail-ot1-f48.google.com with SMTP id
+ h19-20020a9d3e53000000b0056547b797b2so10420438otg.4; 
+ Fri, 10 Dec 2021 10:14:14 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=bnSiIIEAxVbWb5ME0b4EjQTIeMlzMMlMKVBEVEKFmvo=;
- b=nlayelVznyhV11O7mhZ1rWDd6/wAKDnSmkHbfXUhtl1DKh4zkriHM07LXQX+ZccATg
- VgvgveXYmoXOSoMYOBrJzXdZHgqfHyM/gUhhsAgNJiAkhwVsHsdp0d9qIT+e1d/oC59j
- Yvnq+LG+Dd+UXnGbKs59QNuytEnNioNt/ekmITXn9J50RwtCUWzLQqPZj5q39uWx9Ylf
- X4Y226zmSQV3TNA36BsyMLopY309hzmC7EtZ+pMC5uzVs64kXGR1wzMXvU1km/Dvs9AL
- aiL/qd6oIrZ5Ne9Aivz9HANPoldzeSD7n6gtjeDF7gB5dA3j2oiyxbkOULg0qwT3l/Dx
- KYVg==
-X-Gm-Message-State: AOAM531DjtVh09+WWfUdZyMhZX0ggLSoT9LLU9oza1pHvre6LKR/4baV
- cfEY2LcdfTIpOv+GY8FPtc8YDBUesQ7xUqJQpjM=
-X-Google-Smtp-Source: ABdhPJylQaHxxBjvxLDdejK26dmax8gF5GO2emXKWarqrtdmHFUWV4Injg4wQQswc1tWUgMSYyPwJPfech+QMe2lThI=
-X-Received: by 2002:a05:6820:388:: with SMTP id r8mr9365162ooj.0.1639159771506; 
- Fri, 10 Dec 2021 10:09:31 -0800 (PST)
+ bh=RaOuCzlDrEGoU3kCCyjiPh5ZIczFbf2cAVp5IUpr62Q=;
+ b=lW2O+4xxf0jG2RjjTBqUp3ZxOFcGBNm7kOva3N4cywY+M+yKUarBy6EpugBmToWSbE
+ dUrD5eFd8vI0MG9vMpHmKsc3txKtRx9t1v0CNiQI0Fhsbu5jFMuRTTijXQ0NaGhVM15b
+ fNI9h4BvDAgQYzSXBm9sSmWj/agneYD0pzQQavB1TvvN7L7SDmkRLySn/hLxoCTYKc4a
+ D4dBlrgOopdzrlmxCBNH4t1cV+WY6hThrvotpagZ9f8gdQ2ZlC1pSzsy0IO34bbYLPX3
+ mKJHRyvf5xm4re3BAHV4hONKc2QNHDcfMskz4UuJejsF3VIE2Kjq++fLds1JDUa5we2/
+ z81w==
+X-Gm-Message-State: AOAM530BRmJx1EuoJsBLO/JwtC7a0vZlobLbkT0C6Je8gELh+PXgx0hV
+ yR3ENaxYIcRS+UrnrW1eYI+WihBOuj8++ht1zk4=
+X-Google-Smtp-Source: ABdhPJx5VEl25dlL8StyZ7/vR+sIp4uhzbZQ+4jxftcUhgC3Wucypp0Twl9yCOfT1qw70j5+PgOSc5gj4QOVrzsPiE4=
+X-Received: by 2002:a9d:4c10:: with SMTP id l16mr12483219otf.198.1639160053505; 
+ Fri, 10 Dec 2021 10:14:13 -0800 (PST)
 MIME-Version: 1.0
 References: <20211126180101.27818-1-digetx@gmail.com>
- <20211126180101.27818-8-digetx@gmail.com>
-In-Reply-To: <20211126180101.27818-8-digetx@gmail.com>
+ <20211126180101.27818-3-digetx@gmail.com>
+In-Reply-To: <20211126180101.27818-3-digetx@gmail.com>
 From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Fri, 10 Dec 2021 19:09:20 +0100
-Message-ID: <CAJZ5v0i=zgubEtF5-Wnaqa5FMnfVUdSnEmD11-LAuYCH8ZCwrA@mail.gmail.com>
-Subject: Re: [PATCH v4 07/25] reboot: Remove extern annotation from function
- prototypes
+Date: Fri, 10 Dec 2021 19:14:02 +0100
+Message-ID: <CAJZ5v0gy5M5yYT7k5CY0JtW4MvsgKq4psBEw81UKz=pjGo0xPw@mail.gmail.com>
+Subject: Re: [PATCH v4 02/25] notifier: Add
+ blocking_notifier_call_chain_is_empty()
 To: Dmitry Osipenko <digetx@gmail.com>
 Cc: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>, 
@@ -96,8 +96,8 @@ Cc: Thierry Reding <thierry.reding@gmail.com>,
  Linux PM <linux-pm@vger.kernel.org>, 
  linux-tegra <linux-tegra@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211210_100936_990932_F37472E9 
-X-CRM114-Status: GOOD (  21.20  )
+X-CRM114-CacheID: sfid-20211210_101414_540522_40BDD28D 
+X-CRM114-Status: GOOD (  19.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,102 +114,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 26, 2021 at 7:02 PM Dmitry Osipenko <digetx@gmail.com> wrote:
+On Fri, Nov 26, 2021 at 7:01 PM Dmitry Osipenko <digetx@gmail.com> wrote:
 >
-> There is no need to annotate function prototypes with 'extern', it makes
-> code less readable. Remove unnecessary annotations from <reboot.h>.
+> Add blocking_notifier_call_chain_is_empty() that returns true if call
+> chain is empty.
 >
 > Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
-
-I'm not sure that this is really useful.
-
-Personally, I tend to respect the existing conventions like this.
-
-Surely, this change is not required for the rest of the series to work.
-
 > ---
->  include/linux/reboot.h | 38 +++++++++++++++++++-------------------
->  1 file changed, 19 insertions(+), 19 deletions(-)
+>  include/linux/notifier.h |  2 ++
+>  kernel/notifier.c        | 14 ++++++++++++++
+>  2 files changed, 16 insertions(+)
 >
-> diff --git a/include/linux/reboot.h b/include/linux/reboot.h
-> index 7c288013a3ca..b7fa25726323 100644
-> --- a/include/linux/reboot.h
-> +++ b/include/linux/reboot.h
-> @@ -40,36 +40,36 @@ extern int reboot_cpu;
->  extern int reboot_force;
+> diff --git a/include/linux/notifier.h b/include/linux/notifier.h
+> index 4b80a815b666..924c9d7c8e73 100644
+> --- a/include/linux/notifier.h
+> +++ b/include/linux/notifier.h
+> @@ -173,6 +173,8 @@ int blocking_notifier_call_chain_robust(struct blocking_notifier_head *nh,
+>  int raw_notifier_call_chain_robust(struct raw_notifier_head *nh,
+>                 unsigned long val_up, unsigned long val_down, void *v);
 >
+> +bool blocking_notifier_call_chain_is_empty(struct blocking_notifier_head *nh);
+> +
+>  #define NOTIFY_DONE            0x0000          /* Don't care */
+>  #define NOTIFY_OK              0x0001          /* Suits me */
+>  #define NOTIFY_STOP_MASK       0x8000          /* Don't call further */
+> diff --git a/kernel/notifier.c b/kernel/notifier.c
+> index b8251dc0bc0f..b20cb7b9b1f0 100644
+> --- a/kernel/notifier.c
+> +++ b/kernel/notifier.c
+> @@ -322,6 +322,20 @@ int blocking_notifier_call_chain(struct blocking_notifier_head *nh,
+>  }
+>  EXPORT_SYMBOL_GPL(blocking_notifier_call_chain);
 >
-> -extern int register_reboot_notifier(struct notifier_block *);
-> -extern int unregister_reboot_notifier(struct notifier_block *);
-> +int register_reboot_notifier(struct notifier_block *);
-> +int unregister_reboot_notifier(struct notifier_block *);
->
-> -extern int devm_register_reboot_notifier(struct device *, struct notifier_block *);
-> +int devm_register_reboot_notifier(struct device *, struct notifier_block *);
->
-> -extern int register_restart_handler(struct notifier_block *);
-> -extern int unregister_restart_handler(struct notifier_block *);
-> -extern void do_kernel_restart(char *cmd);
-> +int register_restart_handler(struct notifier_block *);
-> +int unregister_restart_handler(struct notifier_block *);
-> +void do_kernel_restart(char *cmd);
->
->  /*
->   * Architecture-specific implementations of sys_reboot commands.
->   */
->
-> -extern void migrate_to_reboot_cpu(void);
-> -extern void machine_restart(char *cmd);
-> -extern void machine_halt(void);
-> -extern void machine_power_off(void);
-> +void migrate_to_reboot_cpu(void);
-> +void machine_restart(char *cmd);
-> +void machine_halt(void);
-> +void machine_power_off(void);
->
-> -extern void machine_shutdown(void);
-> +void machine_shutdown(void);
->  struct pt_regs;
-> -extern void machine_crash_shutdown(struct pt_regs *);
-> +void machine_crash_shutdown(struct pt_regs *);
->
->  /*
->   * Architecture independent implementations of sys_reboot commands.
->   */
->
-> -extern void kernel_restart_prepare(char *cmd);
-> -extern void kernel_restart(char *cmd);
-> -extern void kernel_halt(void);
-> -extern void kernel_power_off(void);
-> +void kernel_restart_prepare(char *cmd);
-> +void kernel_restart(char *cmd);
-> +void kernel_halt(void);
-> +void kernel_power_off(void);
->
->  extern int C_A_D; /* for sysctl */
->  void ctrl_alt_del(void);
-> @@ -77,15 +77,15 @@ void ctrl_alt_del(void);
->  #define POWEROFF_CMD_PATH_LEN  256
->  extern char poweroff_cmd[POWEROFF_CMD_PATH_LEN];
->
-> -extern void orderly_poweroff(bool force);
-> -extern void orderly_reboot(void);
-> +void orderly_poweroff(bool force);
-> +void orderly_reboot(void);
->  void hw_protection_shutdown(const char *reason, int ms_until_forced);
->
->  /*
->   * Emergency restart, callable from an interrupt handler.
->   */
->
-> -extern void emergency_restart(void);
-> +void emergency_restart(void);
->  #include <asm/emergency-restart.h>
->
->  #endif /* _LINUX_REBOOT_H */
-> --
-> 2.33.1
->
+> +/**
+> + *     blocking_notifier_call_chain_is_empty - Check whether notifier chain is empty
+> + *     @nh: Pointer to head of the blocking notifier chain
+> + *
+> + *     Checks whether notifier chain is empty.
+> + *
+> + *     Returns true is notifier chain is empty, false otherwise.
+> + */
+> +bool blocking_notifier_call_chain_is_empty(struct blocking_notifier_head *nh)
+> +{
+> +       return !rcu_access_pointer(nh->head);
+> +}
+> +EXPORT_SYMBOL_GPL(blocking_notifier_call_chain_is_empty);
+
+The check is not reliable (racy) without locking, so I wouldn't export
+anything like this to modules.
+
+At least IMO it should be added along with a user.
 
 _______________________________________________
 linux-riscv mailing list
