@@ -4,60 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D745EC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Dec 2021 16:59:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F9CBC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Dec 2021 18:09:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n5o+YysIdbTze6Wi8M1yPHAOVhLVxn7rbek07IbB0W0=; b=zVUCSTGw7S1LzN
-	18NCDftzm2pinqv6oGpk7TKgJWWltz5iqlnqldpmItdqyt8ia+JkbShlGSE5E8e2LWQKI8oHRSSxI
-	GW5k3EbsBjhk4S3FKOG5dhHkZ1kknItAm6J0rmREFSa6/XZknzfeBAA0LruNCHk0KWM2CHqVPOjAo
-	MykAKH0l9uJZn9fcwF2PCmd1Y+LnTmxM0dTNBCha13dCN7m+Y4hRyvsuBruPQ1pXSlB+ygcNtZzUe
-	tro8ZVwkL/DBZRgDF8dSXich425W6KywX583gK5Y/ctBrACLFu17y6XjLbqDcFMvIOf6HPBmFGSJ0
-	e96vDnITIgNUyMX3kAZQ==;
+	List-Owner; bh=uMNpkTpbK91kyOKzMY9gvA9dDHpwlN2o1LfbjJ0jAoI=; b=PXsp/JJ4iDOL7J
+	PB9HxkxdvmfW6aZna55wttQX8GFOFafn9t58gdpgv70MUpdbG5HOqQrrRVWcnwWkcLu/HahKuTp6e
+	gD/UiUZYxBL20HsrtVFjBaD6WBmlCFfrYIiM/WyH53LMQSQ/yMkgF+5psEyh1KfZMhfoGu84RQuir
+	FfJaO1FhpjCHzRjgXKe1UxtF3qXeQJ7ByPdsj7ocLB//9Q8F6caOi+HK562MPYjtaYb9IQebKpzct
+	6o2W6lEI1+UTKP5FxstmytIsSI8Z6Qh7BBkQs5n1jtKWE+8t04S1ZMkVhaKhdd/vgooFzwXQDQFse
+	Rr3KlBSbGSpN5BsW9I/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mvjF1-002gUi-Pv; Fri, 10 Dec 2021 16:59:27 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1mvkKz-0038g6-F1; Fri, 10 Dec 2021 18:09:41 +0000
+Received: from mail-oo1-f50.google.com ([209.85.161.50])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mvjEi-002gMt-4W; Fri, 10 Dec 2021 16:59:09 +0000
-Received: from mail.kernel.org (unknown [198.145.29.99])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id BCDB8B827FA;
- Fri, 10 Dec 2021 16:59:06 +0000 (UTC)
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 0827A60C4B;
- Fri, 10 Dec 2021 16:59:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
- s=korg; t=1639155545;
- bh=kRdyzfTbRlA8Q6o9ozYIflNqTTqb1/yyQ+Zhl1bc2hI=;
- h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
- b=qehFagygXXv8bbpl27U/7B/DcP1tIA/U/cWnuj39slg4mxEcbhuXFsss1NddlzBIE
- 6PkBZYce8BgviUP9YWNtqY/WCPQTLOyw84eVboaBBjEOQla5+S27wj9ObPzqFGeOTI
- VhCCu+m1sjz5CsY/rSDNoqZ/fnHwKR72obNaOkn8=
-Date: Fri, 10 Dec 2021 08:59:03 -0800
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Tiezhu Yang <yangtiezhu@loongson.cn>
-Cc: Dave Young <dyoung@redhat.com>, Baoquan He <bhe@redhat.com>, Vivek Goyal
- <vgoyal@redhat.com>, linux-arm-kernel@lists.infradead.org,
- linux-ia64@vger.kernel.org, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-sh@vger.kernel.org, x86@kernel.org, linux-fsdevel@vger.kernel.org,
- kexec@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] kdump: vmcore: move copy_to() from vmcore.c to
- uaccess.h
-Message-Id: <20211210085903.e7820815e738d7dc6da06050@linux-foundation.org>
-In-Reply-To: <1639143361-17773-2-git-send-email-yangtiezhu@loongson.cn>
-References: <1639143361-17773-1-git-send-email-yangtiezhu@loongson.cn>
- <1639143361-17773-2-git-send-email-yangtiezhu@loongson.cn>
-X-Mailer: Sylpheed 3.5.1 (GTK+ 2.24.31; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+ id 1mvkKu-0038c2-TH; Fri, 10 Dec 2021 18:09:38 +0000
+Received: by mail-oo1-f50.google.com with SMTP id
+ w5-20020a4a2745000000b002c2649b8d5fso2575137oow.10; 
+ Fri, 10 Dec 2021 10:09:32 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=bnSiIIEAxVbWb5ME0b4EjQTIeMlzMMlMKVBEVEKFmvo=;
+ b=nlayelVznyhV11O7mhZ1rWDd6/wAKDnSmkHbfXUhtl1DKh4zkriHM07LXQX+ZccATg
+ VgvgveXYmoXOSoMYOBrJzXdZHgqfHyM/gUhhsAgNJiAkhwVsHsdp0d9qIT+e1d/oC59j
+ Yvnq+LG+Dd+UXnGbKs59QNuytEnNioNt/ekmITXn9J50RwtCUWzLQqPZj5q39uWx9Ylf
+ X4Y226zmSQV3TNA36BsyMLopY309hzmC7EtZ+pMC5uzVs64kXGR1wzMXvU1km/Dvs9AL
+ aiL/qd6oIrZ5Ne9Aivz9HANPoldzeSD7n6gtjeDF7gB5dA3j2oiyxbkOULg0qwT3l/Dx
+ KYVg==
+X-Gm-Message-State: AOAM531DjtVh09+WWfUdZyMhZX0ggLSoT9LLU9oza1pHvre6LKR/4baV
+ cfEY2LcdfTIpOv+GY8FPtc8YDBUesQ7xUqJQpjM=
+X-Google-Smtp-Source: ABdhPJylQaHxxBjvxLDdejK26dmax8gF5GO2emXKWarqrtdmHFUWV4Injg4wQQswc1tWUgMSYyPwJPfech+QMe2lThI=
+X-Received: by 2002:a05:6820:388:: with SMTP id r8mr9365162ooj.0.1639159771506; 
+ Fri, 10 Dec 2021 10:09:31 -0800 (PST)
+MIME-Version: 1.0
+References: <20211126180101.27818-1-digetx@gmail.com>
+ <20211126180101.27818-8-digetx@gmail.com>
+In-Reply-To: <20211126180101.27818-8-digetx@gmail.com>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Fri, 10 Dec 2021 19:09:20 +0100
+Message-ID: <CAJZ5v0i=zgubEtF5-Wnaqa5FMnfVUdSnEmD11-LAuYCH8ZCwrA@mail.gmail.com>
+Subject: Re: [PATCH v4 07/25] reboot: Remove extern annotation from function
+ prototypes
+To: Dmitry Osipenko <digetx@gmail.com>
+Cc: Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, 
+ Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, Greg Ungerer <gerg@linux-m68k.org>, 
+ Joshua Thompson <funaho@jurai.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Sebastian Reichel <sre@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Greentime Hu <green.hu@gmail.com>, 
+ Vincent Chen <deanbo422@gmail.com>, 
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
+ Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "the arch/x86 maintainers" <x86@kernel.org>, 
+ "H. Peter Anvin" <hpa@zytor.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+ Juergen Gross <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+ Santosh Shilimkar <ssantosh@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, Pavel Machek <pavel@ucw.cz>,
+ Lee Jones <lee.jones@linaro.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, Guenter Roeck <linux@roeck-us.net>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, 
+ alankao@andestech.com, "K . C . Kuen-Chern Lin" <kclin@andestech.com>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org, 
+ linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org, 
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, linux-riscv@lists.infradead.org, 
+ Linux-sh list <linux-sh@vger.kernel.org>, xen-devel@lists.xenproject.org, 
+ ACPI Devel Maling List <linux-acpi@vger.kernel.org>,
+ Linux PM <linux-pm@vger.kernel.org>, 
+ linux-tegra <linux-tegra@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211210_085908_382810_468633EA 
-X-CRM114-Status: GOOD (  20.21  )
+X-CRM114-CacheID: sfid-20211210_100936_990932_F37472E9 
+X-CRM114-Status: GOOD (  21.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,75 +114,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 10 Dec 2021 21:36:00 +0800 Tiezhu Yang <yangtiezhu@loongson.cn> wrote:
-
-> In arch/*/kernel/crash_dump*.c, there exist similar code about
-> copy_oldmem_page(), move copy_to() from vmcore.c to uaccess.h,
-> and then we can use copy_to() to simplify the related code.
-> 
-> ...
+On Fri, Nov 26, 2021 at 7:02 PM Dmitry Osipenko <digetx@gmail.com> wrote:
 >
-> --- a/fs/proc/vmcore.c
-> +++ b/fs/proc/vmcore.c
-> @@ -238,20 +238,6 @@ copy_oldmem_page_encrypted(unsigned long pfn, char *buf, size_t csize,
->  	return copy_oldmem_page(pfn, buf, csize, offset, userbuf);
->  }
->  
-> -/*
-> - * Copy to either kernel or user space
-> - */
-> -static int copy_to(void *target, void *src, size_t size, int userbuf)
-> -{
-> -	if (userbuf) {
-> -		if (copy_to_user((char __user *) target, src, size))
-> -			return -EFAULT;
-> -	} else {
-> -		memcpy(target, src, size);
-> -	}
-> -	return 0;
-> -}
-> -
->  #ifdef CONFIG_PROC_VMCORE_DEVICE_DUMP
->  static int vmcoredd_copy_dumps(void *dst, u64 start, size_t size, int userbuf)
->  {
-> diff --git a/include/linux/uaccess.h b/include/linux/uaccess.h
-> index ac03940..4a6c3e4 100644
-> --- a/include/linux/uaccess.h
-> +++ b/include/linux/uaccess.h
-> @@ -201,6 +201,20 @@ copy_to_user(void __user *to, const void *from, unsigned long n)
->  	return n;
->  }
->  
-> +/*
-> + * Copy to either kernel or user space
-> + */
-> +static inline int copy_to(void *target, void *src, size_t size, int userbuf)
-> +{
-> +	if (userbuf) {
-> +		if (copy_to_user((char __user *) target, src, size))
-> +			return -EFAULT;
-> +	} else {
-> +		memcpy(target, src, size);
-> +	}
-> +	return 0;
-> +}
-> +
+> There is no need to annotate function prototypes with 'extern', it makes
+> code less readable. Remove unnecessary annotations from <reboot.h>.
+>
+> Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
 
-Ordinarily I'd say "this is too large to be inlined".  But the function
-has only a single callsite per architecture so inlining it won't cause
-bloat at present.
+I'm not sure that this is really useful.
 
-But hopefully copy_to() will get additional callers in the future, in
-which case it shouldn't be inlined.  So I'm thinking it would be best
-to start out with this as a regular non-inlined function, in
-lib/usercopy.c.
+Personally, I tend to respect the existing conventions like this.
 
-Also, copy_to() is a very poor name for a globally-visible helper
-function.  Better would be copy_to_user_or_kernel(), although that's
-perhaps a bit long.
+Surely, this change is not required for the rest of the series to work.
 
-And the `userbuf' arg should have type bool, yes?
-
+> ---
+>  include/linux/reboot.h | 38 +++++++++++++++++++-------------------
+>  1 file changed, 19 insertions(+), 19 deletions(-)
+>
+> diff --git a/include/linux/reboot.h b/include/linux/reboot.h
+> index 7c288013a3ca..b7fa25726323 100644
+> --- a/include/linux/reboot.h
+> +++ b/include/linux/reboot.h
+> @@ -40,36 +40,36 @@ extern int reboot_cpu;
+>  extern int reboot_force;
+>
+>
+> -extern int register_reboot_notifier(struct notifier_block *);
+> -extern int unregister_reboot_notifier(struct notifier_block *);
+> +int register_reboot_notifier(struct notifier_block *);
+> +int unregister_reboot_notifier(struct notifier_block *);
+>
+> -extern int devm_register_reboot_notifier(struct device *, struct notifier_block *);
+> +int devm_register_reboot_notifier(struct device *, struct notifier_block *);
+>
+> -extern int register_restart_handler(struct notifier_block *);
+> -extern int unregister_restart_handler(struct notifier_block *);
+> -extern void do_kernel_restart(char *cmd);
+> +int register_restart_handler(struct notifier_block *);
+> +int unregister_restart_handler(struct notifier_block *);
+> +void do_kernel_restart(char *cmd);
+>
+>  /*
+>   * Architecture-specific implementations of sys_reboot commands.
+>   */
+>
+> -extern void migrate_to_reboot_cpu(void);
+> -extern void machine_restart(char *cmd);
+> -extern void machine_halt(void);
+> -extern void machine_power_off(void);
+> +void migrate_to_reboot_cpu(void);
+> +void machine_restart(char *cmd);
+> +void machine_halt(void);
+> +void machine_power_off(void);
+>
+> -extern void machine_shutdown(void);
+> +void machine_shutdown(void);
+>  struct pt_regs;
+> -extern void machine_crash_shutdown(struct pt_regs *);
+> +void machine_crash_shutdown(struct pt_regs *);
+>
+>  /*
+>   * Architecture independent implementations of sys_reboot commands.
+>   */
+>
+> -extern void kernel_restart_prepare(char *cmd);
+> -extern void kernel_restart(char *cmd);
+> -extern void kernel_halt(void);
+> -extern void kernel_power_off(void);
+> +void kernel_restart_prepare(char *cmd);
+> +void kernel_restart(char *cmd);
+> +void kernel_halt(void);
+> +void kernel_power_off(void);
+>
+>  extern int C_A_D; /* for sysctl */
+>  void ctrl_alt_del(void);
+> @@ -77,15 +77,15 @@ void ctrl_alt_del(void);
+>  #define POWEROFF_CMD_PATH_LEN  256
+>  extern char poweroff_cmd[POWEROFF_CMD_PATH_LEN];
+>
+> -extern void orderly_poweroff(bool force);
+> -extern void orderly_reboot(void);
+> +void orderly_poweroff(bool force);
+> +void orderly_reboot(void);
+>  void hw_protection_shutdown(const char *reason, int ms_until_forced);
+>
+>  /*
+>   * Emergency restart, callable from an interrupt handler.
+>   */
+>
+> -extern void emergency_restart(void);
+> +void emergency_restart(void);
+>  #include <asm/emergency-restart.h>
+>
+>  #endif /* _LINUX_REBOOT_H */
+> --
+> 2.33.1
+>
 
 _______________________________________________
 linux-riscv mailing list
