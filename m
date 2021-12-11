@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 369DFC433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Dec 2021 23:50:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2F26C433F5
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Dec 2021 03:33:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:Cc:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ULCOMZ4YW47k4j3alSp/m4fOPI1P1Cc6v/0NpArNNlQ=; b=3JwGv1cJF5128rI9YrGJSDow4v
-	UeBYU12gzFJjdb0ExUEer1rKdRYH3UDMx5exEECeL2BKj/lkPtuD9R+mc4Iy0Fqrz41Mpu8xjLsxh
-	PqxV0BFhUfRd44KK7p06XJ8rTDr8dl7Zt1MngzrBOJXcXvuXVjkjviIw+yWpuV6whiq9We96MsTPS
-	facGXvsJRcv4fZ+TtL6ES9PpMTV+Sb3da/Q6dMiekuds656LlS7c+VcPo4FI6qHYGC6AkpR51ke9I
-	PWse/nAhGddmbXPKX1TBttSWQze+yQgWvwq8+ocl1NaIGdrYQw5KsYPb3Sel2Y6zDq3h+cB84Q7fB
-	ZtFt1MnA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rt/HdzcxqS7OdRKolzNS1x4Rtq93Ws5ad8kqlltIwO0=; b=QtOFWkh/R7DxjO
+	kCLl9odo2zDxuwVxJCebdlg00RgYJM6CYPKw/49sRXLp0GsKCKz2ETqkJRtghwtCOV2gBTDyiwAOh
+	L/W/ZTTb4VF5PNdaKJXVIfdakX0fvq0ED7hpjyvPb6zmQYjH1bCVGKtRKa6p6wBj2/06Sl6pnsIjp
+	7XrUuFACEumyLNZ1mxrmUlT1Q+FQDqV00VBdt0QOJgGnS4e+1QArFEiF01FpOa+sugxDq3DDul/Ts
+	MWEH3SBAC16z3DHZV6ms2fJXdG3XQRL6sCvKACSy6gWQxJxArxV47psAxlmxhhwMfavcm5BDXWCuX
+	frpnLyzyakvcBtrU6BOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mvpf0-004INy-03; Fri, 10 Dec 2021 23:50:42 +0000
+	id 1mvt8b-004UQJ-Nu; Sat, 11 Dec 2021 03:33:29 +0000
 Received: from mail.loongson.cn ([114.242.206.163] helo=loongson.cn)
  by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mvpes-004IMP-O6; Fri, 10 Dec 2021 23:50:36 +0000
-Received: from [10.130.0.135] (unknown [113.200.148.30])
- by mail.loongson.cn (Coremail) with SMTP id AQAAf9AxKsjC57NhGAMGAA--.13314S3; 
- Sat, 11 Dec 2021 07:50:27 +0800 (CST)
-Subject: Re: [PATCH 1/2] kdump: vmcore: move copy_to() from vmcore.c to
- uaccess.h
-To: Andrew Morton <akpm@linux-foundation.org>
-References: <1639143361-17773-1-git-send-email-yangtiezhu@loongson.cn>
- <1639143361-17773-2-git-send-email-yangtiezhu@loongson.cn>
- <20211210085903.e7820815e738d7dc6da06050@linux-foundation.org>
-Cc: Dave Young <dyoung@redhat.com>, Baoquan He <bhe@redhat.com>,
- Vivek Goyal <vgoyal@redhat.com>, linux-arm-kernel@lists.infradead.org,
- linux-ia64@vger.kernel.org, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-sh@vger.kernel.org, x86@kernel.org, linux-fsdevel@vger.kernel.org,
- kexec@lists.infradead.org, linux-kernel@vger.kernel.org,
- Xuefeng Li <lixuefeng@loongson.cn>
+ id 1mvt8N-004UMg-51; Sat, 11 Dec 2021 03:33:17 +0000
+Received: from linux.localdomain (unknown [113.200.148.30])
+ by mail.loongson.cn (Coremail) with SMTP id AQAAf9Ax+sj1G7RhlA0GAA--.13327S2; 
+ Sat, 11 Dec 2021 11:33:09 +0800 (CST)
 From: Tiezhu Yang <yangtiezhu@loongson.cn>
-Message-ID: <249b17ea-171a-49f7-b438-488c03fa1f9b@loongson.cn>
-Date: Sat, 11 Dec 2021 07:50:26 +0800
-User-Agent: Mozilla/5.0 (X11; Linux mips64; rv:45.0) Gecko/20100101
- Thunderbird/45.4.0
-MIME-Version: 1.0
-In-Reply-To: <20211210085903.e7820815e738d7dc6da06050@linux-foundation.org>
-X-CM-TRANSID: AQAAf9AxKsjC57NhGAMGAA--.13314S3
-X-Coremail-Antispam: 1UD129KBjvJXoW7uw4fuF47Zr17JryxKry5CFg_yoW8Kryxpr
- 1UJrZIkr4IgFWUJFyqywn3X34rXw43CF1UJ393KF18A3WDXrn2vFnYvFyYgay8J3sIkF10
- ya4kXryfCr4qyrJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
- 9KBjDU0xBIdaVrnRJUUU9E14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
- rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
- 1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
- 6F4UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4UJV
+To: Dave Young <dyoung@redhat.com>, Baoquan He <bhe@redhat.com>,
+ Vivek Goyal <vgoyal@redhat.com>, Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org, x86@kernel.org,
+ linux-fsdevel@vger.kernel.org, kexec@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Xuefeng Li <lixuefeng@loongson.cn>
+Subject: [PATCH v2 0/2] kdump: simplify code
+Date: Sat, 11 Dec 2021 11:33:06 +0800
+Message-Id: <1639193588-7027-1-git-send-email-yangtiezhu@loongson.cn>
+X-Mailer: git-send-email 2.1.0
+X-CM-TRANSID: AQAAf9Ax+sj1G7RhlA0GAA--.13327S2
+X-Coremail-Antispam: 1UD129KBjvdXoWruFyrWF13KFW3ZFW3Gr18Grg_yoWDJrb_JF
+ Z7ua4rGr4IvayrtFy7K3Z3ZryDtr4vyF90v3WktrW5tasxJF1rJw4UAF4Yqrn8XFWkJrWU
+ ZrW5JFyvyr1FqjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+ 9fnUUIcSsGvfJTRUUUb38FF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+ 6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+ A2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+ Cr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4UJV
  WxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
  2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
- W8JwACjcxG0xvEwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka
- 0xkIwI1lc7I2V7IY0VAS07AlzVAYIcxG8wCY02Avz4vE14v_uwCF04k20xvY0x0EwIxGrw
- CFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE
- 14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2
- IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxK
- x2IYs7xG6rW3Jr0E3s1lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267
- AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUUubyJUUUUU==
+ W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+ Y2ka0xkIwI1lc2xSY4AK67AK6r48MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r
+ 1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CE
+ b7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0x
+ vE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_WFyUJVCq3wCI
+ 42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWI
+ evJa73UjIFyTuYvjfUnQ6pDUUUU
 X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211210_155035_146704_E234ED89 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20211210_193315_636067_3CE51665 
+X-CRM114-Status: UNSURE (   4.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,89 +72,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/11/2021 12:59 AM, Andrew Morton wrote:
-> On Fri, 10 Dec 2021 21:36:00 +0800 Tiezhu Yang <yangtiezhu@loongson.cn> wrote:
->
->> In arch/*/kernel/crash_dump*.c, there exist similar code about
->> copy_oldmem_page(), move copy_to() from vmcore.c to uaccess.h,
->> and then we can use copy_to() to simplify the related code.
->>
->> ...
->>
->> --- a/fs/proc/vmcore.c
->> +++ b/fs/proc/vmcore.c
->> @@ -238,20 +238,6 @@ copy_oldmem_page_encrypted(unsigned long pfn, char *buf, size_t csize,
->>  	return copy_oldmem_page(pfn, buf, csize, offset, userbuf);
->>  }
->>
->> -/*
->> - * Copy to either kernel or user space
->> - */
->> -static int copy_to(void *target, void *src, size_t size, int userbuf)
->> -{
->> -	if (userbuf) {
->> -		if (copy_to_user((char __user *) target, src, size))
->> -			return -EFAULT;
->> -	} else {
->> -		memcpy(target, src, size);
->> -	}
->> -	return 0;
->> -}
->> -
->>  #ifdef CONFIG_PROC_VMCORE_DEVICE_DUMP
->>  static int vmcoredd_copy_dumps(void *dst, u64 start, size_t size, int userbuf)
->>  {
->> diff --git a/include/linux/uaccess.h b/include/linux/uaccess.h
->> index ac03940..4a6c3e4 100644
->> --- a/include/linux/uaccess.h
->> +++ b/include/linux/uaccess.h
->> @@ -201,6 +201,20 @@ copy_to_user(void __user *to, const void *from, unsigned long n)
->>  	return n;
->>  }
->>
->> +/*
->> + * Copy to either kernel or user space
->> + */
->> +static inline int copy_to(void *target, void *src, size_t size, int userbuf)
->> +{
->> +	if (userbuf) {
->> +		if (copy_to_user((char __user *) target, src, size))
->> +			return -EFAULT;
->> +	} else {
->> +		memcpy(target, src, size);
->> +	}
->> +	return 0;
->> +}
->> +
->
-> Ordinarily I'd say "this is too large to be inlined".  But the function
-> has only a single callsite per architecture so inlining it won't cause
-> bloat at present.
->
-> But hopefully copy_to() will get additional callers in the future, in
-> which case it shouldn't be inlined.  So I'm thinking it would be best
-> to start out with this as a regular non-inlined function, in
-> lib/usercopy.c.
->
-> Also, copy_to() is a very poor name for a globally-visible helper
-> function.  Better would be copy_to_user_or_kernel(), although that's
-> perhaps a bit long.
->
-> And the `userbuf' arg should have type bool, yes?
->
+v2:
+  -- add copy_to_user_or_kernel() in lib/usercopy.c
+  -- define userbuf as bool type
 
-Hi Andrew,
+Tiezhu Yang (2):
+  kdump: vmcore: remove copy_to() and add copy_to_user_or_kernel()
+  kdump: crashdump: use copy_to_user_or_kernel() to simplify code
 
-Thank you very much for your reply and suggestion, I agree with you,
-I will send v2 later.
+ arch/arm/kernel/crash_dump.c     | 12 +++---------
+ arch/arm64/kernel/crash_dump.c   | 12 +++---------
+ arch/ia64/kernel/crash_dump.c    | 12 +++++-------
+ arch/mips/kernel/crash_dump.c    | 11 +++--------
+ arch/powerpc/kernel/crash_dump.c | 11 ++++-------
+ arch/riscv/kernel/crash_dump.c   | 11 +++--------
+ arch/sh/kernel/crash_dump.c      | 11 +++--------
+ arch/x86/kernel/crash_dump_32.c  | 11 +++--------
+ arch/x86/kernel/crash_dump_64.c  | 15 +++++----------
+ fs/proc/vmcore.c                 | 32 +++++++++-----------------------
+ include/linux/crash_dump.h       |  8 ++++----
+ include/linux/uaccess.h          |  1 +
+ lib/usercopy.c                   | 15 +++++++++++++++
+ 13 files changed, 61 insertions(+), 101 deletions(-)
 
-Thanks,
-Tiezhu
+-- 
+2.1.0
 
 
 _______________________________________________
