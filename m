@@ -4,62 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B70CC433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Dec 2021 11:48:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF25FC433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Dec 2021 21:04:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zSPE915eI7c2wPtQPVur9PGE5IIz5y70uSkG6ot8X+U=; b=TtUen6/Lfmjp5y
-	kZ0mh59vnI2bbQCH68xphAHE988v4kfKLVlEfUFXXH6ZQTn7dajtH3xW/ThrNuJDE5impjavzF2FV
-	hfu6MzBfyajXP8o1kmW0kYKyg45psdRjF2/vlM8mvSTsV0nt0tUIxYENLLgBbe5Er08VaUlyWvyng
-	try0VVHb91LW68vmPRln5KGqoMWEXMoAqD+NSNBgsxrM2AvXBpm4Zv9I2Z7oBPYuDUGaW4EDSKWF+
-	0RJv9j4RLbHwoZu5e1q8vb+1FTzTlrs2esXP2yPnfGKMLGyQcwe/d45E32p1W80jv+csLAl6aT978
-	6N8mhPFuhQED8Y5kfSdw==;
+	List-Owner; bh=x9/wZ+biVKMqkYqGban343oKDQabaU7GSXwAl0018d8=; b=pGiCvpOzWu3kNj
+	jvSxkcCGXKB+zSjuNyGjjiVn5+SsvtsySh+/ssGDI5O97e2S1NxCpZerFNtCJLdcUemxHeBhK5lQF
+	Wlk91OgZ/TsbsirAsh2npTYQu2MKrydKIzzjHixj4vUn8CbgrZloqGCAUt13Dvl4HYPZ2n4ja7rMR
+	drvEX3TGd8rPSDe0clXIW8/A9DzQby+hjf9ugWEi0+pKJLuoI30KrEE5KaA0CzofokPALqkwAjsRP
+	g5tItlItNzjLNhUeAqxTFEWlqsApMfqBtMhrz1rI7wPjGmNOdcPdWdm91K1QYgsxPxH0aZEfo/uhB
+	c/BRJifbipaTymwnu5Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mwNKZ-006OZc-Ed; Sun, 12 Dec 2021 11:47:51 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1mwW0b-007FzM-Bf; Sun, 12 Dec 2021 21:03:49 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mwNKN-006OWH-KW; Sun, 12 Dec 2021 11:47:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=cdIWjpexE795gzuTbGkhPUpnRr/U2TeKiWDOHNiXINU=; b=DBuAHgfzGOIMRSDJohGgbB9HgK
- ghrV2KCPdFwOYiKPJbGZmSBlu830exEyDU1H933xIMmToosr9grTCGE55WJZij6cZJgiJ1q30Hz6n
- hZ10t4g0j/sD0EiJhnKSD6jRzu1/6oOpBcVGGwdhdZP63WKKmTkX5QTrHpV8qjjFHIi/X5QMWkaoG
- kknEssmq/uipXQiDMvDkVUnKo+GmhJFGjhExQwE0EWBz9jMfQIQFxVuyBDOWKu8J+hXb6Owf3uTdh
- 8Fl4Is3Mc1bjDe5u/B8VTKoy9i1C2ETLTUE3K71/BU8t21Bssus2/nA1qsleo4QX3UFxfJvaTfFhq
- xMZgWXeA==;
-Received: from willy by casper.infradead.org with local (Exim 4.94.2 #2 (Red
- Hat Linux)) id 1mwNKJ-00Bt8s-Ff; Sun, 12 Dec 2021 11:47:35 +0000
-Date: Sun, 12 Dec 2021 11:47:35 +0000
-From: Matthew Wilcox <willy@infradead.org>
-To: David Laight <David.Laight@aculab.com>
-Cc: 'Tiezhu Yang' <yangtiezhu@loongson.cn>, Dave Young <dyoung@redhat.com>,
- Baoquan He <bhe@redhat.com>, Vivek Goyal <vgoyal@redhat.com>,
+ id 1mwW0Y-007Fxn-3C
+ for linux-riscv@lists.infradead.org; Sun, 12 Dec 2021 21:03:47 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id z7so27398499lfi.11
+ for <linux-riscv@lists.infradead.org>; Sun, 12 Dec 2021 13:03:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=4G0wXMIRKtQjgiQjhPPTWIJTonbxBMvj833mzQfGVdU=;
+ b=UmHNBT8JmdhQ5CXOuzBPrdCFUG3onvjKjyb7BVoTR6PoZ7aY9ImgmoLFJ8cX/YVLss
+ FhaRpMyx6UDbgZbpErI6LiS2MWo9dsEpm/Yn/glHgDMltg46AqIFy+ODbJy1mDGnSX6Q
+ 6hgBQWxhgUXb1w4suJJ3mGjbzzVU8sboZDIyHdE0at2JpjfcocKdBr+3u8eWls6ZdqdV
+ vZ4mrsRkvMQH9goBfcYfawa9rTT2nVXUK1e0dhFRpy7O9dgcCyJsMwyOMgChqmTkAYY8
+ lrO8FmVaBVXU/jCI9v95z8kMIgVRbHZl7Dj+Y9SNeeNladuYqhNnhCKP7pmJssTLe+hK
+ /zfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=4G0wXMIRKtQjgiQjhPPTWIJTonbxBMvj833mzQfGVdU=;
+ b=lR3q8xD0buGCHo8T6XJfHHGGkdfPDmlM//o8CsFMGEnC2jf3bkjfVYpYj3qypl3TSq
+ nuP1xJuDcDEgQFxxzgdTuy/v0XKAZT8Vv5nQViaO1kCob2YVg+ByhkLnt3EzB0PQ+/LQ
+ 6DgmlOUSleN5W+iucbnDcwOSQe2Fd2JOHo0q6XQNkrnfkPX8rUh3hRFQ3okH/Ngm22aY
+ R6eiImKdvkezqGD+b1Abvl3v9gNE6ggp2j6d0b0jpgBeXLJdUwJuBEG5LM8yYsImhSRR
+ 1ERR6SlSrQlzeQdkgo4eTsS/6/KkpgzHHbOGJIqPkVGlyTlmvjGVsqqKY1IPvY3wGYa3
+ Z3DA==
+X-Gm-Message-State: AOAM533Du4FMSSNBWfLVSKDy0kMRvaLwWHV6lpS6nkmcHN+KJsBH3PZi
+ su0NlVPUpuIdj6+BM3R2BsY=
+X-Google-Smtp-Source: ABdhPJxFbn2GY3BCcnuEIOE5ToL9Wd42NcsVPvWkJ7LxAK1mty5nUWabwI1BhIkHNdC7U+LYga5X9w==
+X-Received: by 2002:a05:6512:3f6:: with SMTP id
+ n22mr19160482lfq.501.1639343024602; 
+ Sun, 12 Dec 2021 13:03:44 -0800 (PST)
+Received: from localhost.localdomain (94-29-46-111.dynamic.spd-mgts.ru.
+ [94.29.46.111])
+ by smtp.gmail.com with ESMTPSA id y4sm1197172ljp.16.2021.12.12.13.03.42
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 12 Dec 2021 13:03:44 -0800 (PST)
+From: Dmitry Osipenko <digetx@gmail.com>
+To: Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Guo Ren <guoren@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Greg Ungerer <gerg@linux-m68k.org>, Joshua Thompson <funaho@jurai.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Sebastian Reichel <sre@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Greentime Hu <green.hu@gmail.com>,
+ Vincent Chen <deanbo422@gmail.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+ Juergen Gross <jgross@suse.com>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Santosh Shilimkar <ssantosh@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Pavel Machek <pavel@ucw.cz>, Lee Jones <lee.jones@linaro.org>,
  Andrew Morton <akpm@linux-foundation.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
- "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
- "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>,
- "x86@kernel.org" <x86@kernel.org>,
- "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
- "kexec@lists.infradead.org" <kexec@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Xuefeng Li <lixuefeng@loongson.cn>
-Subject: Re: [PATCH v2 0/2] kdump: simplify code
-Message-ID: <YbXhVxRJfjvKw++W@casper.infradead.org>
-References: <1639193588-7027-1-git-send-email-yangtiezhu@loongson.cn>
- <0c5cb37139af4f3e85cc2c5115d7d006@AcuMS.aculab.com>
+ Guenter Roeck <linux@roeck-us.net>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, alankao@andestech.com,
+ "K . C . Kuen-Chern Lin" <kclin@andestech.com>,
+ =?UTF-8?q?Micha=C5=82=20Miros=C5=82aw?= <mirq-linux@rere.qmqm.pl>
+Cc: linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, xen-devel@lists.xenproject.org,
+ linux-acpi@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-tegra@vger.kernel.org
+Subject: [PATCH v5 05/21] ARM: Use do_kernel_power_off()
+Date: Mon, 13 Dec 2021 00:02:53 +0300
+Message-Id: <20211212210309.9851-6-digetx@gmail.com>
+X-Mailer: git-send-email 2.33.1
+In-Reply-To: <20211212210309.9851-1-digetx@gmail.com>
+References: <20211212210309.9851-1-digetx@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <0c5cb37139af4f3e85cc2c5115d7d006@AcuMS.aculab.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20211212_130346_162009_075B9DB5 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,22 +129,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 11, 2021 at 05:53:46PM +0000, David Laight wrote:
-> From: Tiezhu Yang
-> > Sent: 11 December 2021 03:33
-> > 
-> > v2:
-> >   -- add copy_to_user_or_kernel() in lib/usercopy.c
-> >   -- define userbuf as bool type
-> 
-> Instead of having a flag to indicate whether the buffer is user or kernel,
-> would it be better to have two separate buffer pointers.
-> One for a user space buffer, the other for a kernel space buffer.
-> Exactly one of the buffers should always be NULL.
+Kernel now supports chained power-off handlers. Use do_kernel_power_off()
+that invokes chained power-off handlers. It also invokes legacy
+pm_power_off() for now, which will be removed once all drivers will
+be converted to the new power-off API.
 
-No.  You should be using an iov_iter instead.  See
-https://lore.kernel.org/all/Ya4bdB0UBJCZhUSo@casper.infradead.org/
-for a start on this.
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
+---
+ arch/arm/kernel/reboot.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/arch/arm/kernel/reboot.c b/arch/arm/kernel/reboot.c
+index 3044fcb8d073..2cb943422554 100644
+--- a/arch/arm/kernel/reboot.c
++++ b/arch/arm/kernel/reboot.c
+@@ -116,9 +116,7 @@ void machine_power_off(void)
+ {
+ 	local_irq_disable();
+ 	smp_send_stop();
+-
+-	if (pm_power_off)
+-		pm_power_off();
++	do_kernel_power_off();
+ }
+ 
+ /*
+-- 
+2.33.1
+
 
 _______________________________________________
 linux-riscv mailing list
