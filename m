@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E60FCC433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Dec 2021 21:05:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB089C433F5
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Dec 2021 21:05:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R5xmADLHMp+VfdXbceDRxgszwkjnaUSi9P8fE9Ko1ok=; b=eOOnN16d6w+NwF
-	tnAEWzWIJihUFuesAsNqlRXG9Zt3alGeMhsiFk5q6Vg/du8BsY5Xz/+HanbkXV/xgEoBJDQV7Uboy
-	x5mI6nLS5XN/0WfWDlkx/FkliLcOy019nXvOeIhxDJuLJVdEnsvV2S/hW3/9XMbroqZ5pwAqpRJE5
-	F73o1eFSYS0GgKiAwKRRWKiMVI0/mrBvlRTK69b9MIi+wqcCQ8FGudis39cXQJMRsijLhPGAbfLnE
-	hGU3qR4Sl/rbXqg+YGsgOPq6OVq8dXqMVqaoAy0M7k8+gAJicHzpXKRLNIhQg7bni3cacpP2xPnrO
-	cRzcMWZIyt5Jaa8WkzJg==;
+	List-Owner; bh=wNOrjdVhLKNgmEC80/W/U/+Dmai5+1GWv+UHD7YGjOY=; b=ChuygkHm2LYdJU
+	RbTlIJltseoTfuioz7UqYhByS35hc+FdN6Ws4+iIv7RoroiQsnEaUFHvfn4Zkz59gRu5KKD49ZAeC
+	Ldxb5HJ33Ws+OCLysUrzt7pxEcHQMjrgvjFs/toAckj1iHBQNTKqsgLgsrO7joB6XtBMiFpw6HB72
+	s350AE9l99A65hVxf3s5bM7VcMRvfarXvzfUYfTwYb1xKfTNyWlrJxeiaSAwx4nubNV07vCJPRrWD
+	YrYola4d7OgCcSdbBP23vLwlBOmC+43G9f3gg7pyL10FDATRkM+L/cJ7ephqas/cw8648LJdAmbrJ
+	7W0gDTKRp9dmx9JlrHFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mwW1q-007Gwk-AM; Sun, 12 Dec 2021 21:05:06 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1mwW20-007H4R-HX; Sun, 12 Dec 2021 21:05:16 +0000
+Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mwW0w-007GE8-7p
- for linux-riscv@lists.infradead.org; Sun, 12 Dec 2021 21:04:11 +0000
-Received: by mail-lj1-x234.google.com with SMTP id bn20so21108973ljb.8
- for <linux-riscv@lists.infradead.org>; Sun, 12 Dec 2021 13:04:10 -0800 (PST)
+ id 1mwW0z-007GFz-C2
+ for linux-riscv@lists.infradead.org; Sun, 12 Dec 2021 21:04:14 +0000
+Received: by mail-lj1-x230.google.com with SMTP id u22so21071405lju.7
+ for <linux-riscv@lists.infradead.org>; Sun, 12 Dec 2021 13:04:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=IgdEY3brdUGAcbkVUTuopyRaDKQjmT9IOiG4donLZPs=;
- b=pRjCeelZEbxaZGwO+A2aL0XPV/VaH02YaHpKAd9wdI9JEveM57sE60GJ6XNHSn3X7R
- 3k3prwg00aYmbn6qrs0hvCC/Qu+NXBudxBQ11zdQ8NwOHe1318/leMZcgjGjBHY51gwa
- 7soXg88k1YVhJkGc+TTtq+bVpeCDRCSSMfOlkqSinKAC0bda9LJdWsfx6/W5MHM5/jd9
- DvPUXfjXzCMkaPG3Qy81MLfolhXJsYt+NP13KnN+kkNkRrGfJb6pVBACzy9He8+wQu/l
- eGVwkctUMedEHbT7ecy6K+YGcbliElewyWmMiaaA91DPydKzN7z1nc6/16QB5Y1JZoWn
- FbWg==
+ bh=4OWbCpLiTrW70NMTPpPUNVkhVF3RKPzG5GTofMVph+0=;
+ b=KgzHDaKUCbKSzVVjVjmP8+sBh8yyTFGc8g32/L/CqZTtjWU+bl67DHnRCd096H4QyH
+ 6s4XOaSGluQwDgc+dVmKnqKu1D7kSOhEjlXrEzrtwcZ2Q6khYOCVFkcX7gyuAZCct8/o
+ GKaOjDdP1N1PLFZ+aDWpcbp7dkWsptVMtN5cNX5Hej6TAysWP7q7s3LkbwdIKifJDLbq
+ DBlq13uFhfg89fXWqsQEKQJP8QIWXrM83lSZp9pz62Oox2A9TL+0X7jecCTLs4sLY0eR
+ bZA+EOxHV1IPmvWGQHGHMNaccJSqcUQnYi94Tz8pclaCBQOzvYQS90AbFrJ5VYVBqIZo
+ 1x1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=IgdEY3brdUGAcbkVUTuopyRaDKQjmT9IOiG4donLZPs=;
- b=XzcLyOEuliApljoTn/S+fQnk+vm7YRuJJibYkh7oe4CIyL7ILfz+M/wlvWVZHnEpL7
- ym/7BA1b0THkOcrB5k5Zw6dWsw0ui5WJBG30mcBFYCpIvS6gaV2u92UcemaNNVcp+ugY
- WU4Q/HpbmAI2dnvkkJlP1+nQnOMz1Jt+lv1AJwNkU6tPoj6ZVELmdLdRwG0Z/Ap/8eEv
- jnjhqDtRnVwVSRoAlWUUK+DfKKIQj55WIPOEUHK/eaKaPMXfzlPDZqpppMedCISnuryf
- s4s/02oOSOOL34jLkx9mGwx8kHFrxZ71Y3/hvSX+9lvmxm0lagUw27SMmlVZMSmqfzF7
- jeEA==
-X-Gm-Message-State: AOAM533DWb05yTkSq5UkfKD91Yc9V+sZmyvWMQEaf9zdGefWszBFVAHF
- pdxi+0dRqeRTG7EdIspAsyM=
-X-Google-Smtp-Source: ABdhPJxNW1DwCShpX2NDWOWr5vcKraTuFYIWDWgUXB6EPWJrHuuBITafm/NNerVkSN6nEKqLT69IWQ==
-X-Received: by 2002:a05:651c:1548:: with SMTP id
- y8mr25360872ljp.458.1639343048830; 
- Sun, 12 Dec 2021 13:04:08 -0800 (PST)
+ bh=4OWbCpLiTrW70NMTPpPUNVkhVF3RKPzG5GTofMVph+0=;
+ b=rB6hYyICA9WkKZ851rIezO/KvVws/fBJqRzubdCFFhKLEFI2b/sTNCg0Eh6LQ5l0BW
+ pJu3NYIjW/86T3KCHOBGno9sArtjdomaFSBuR9YbuelSfyci6Ay6FUscLoffwsteg6Ht
+ h8SCoRyom7uLlfAolKjFjmQfkAUow0OJ750NH8UqeU1uhm+nlzkfRVUq+L4RhY49jW8C
+ /0My7NVN3Ff32g8FgNM747eUUyA8iJbz8flRlNIYfpDxoTJo8lnk7fHotIWlxMH98D6s
+ PcJZujAiFvZPTxLI0E6pPRdDOPR8y4vSp9/3Sq8EGLknjoEozarLnxOjMJupyXPfGv2/
+ iYCg==
+X-Gm-Message-State: AOAM530833BOux9TCEV3qjwHAEypdFbBzbdtgc2Cweiq+iuxCc3uYuv6
+ qtn6mns+nDjg11zFFt4WAEQ=
+X-Google-Smtp-Source: ABdhPJxwwoHkHissmQJung57FYrMejLUuN6r2Ie17E9nwn+nZNJljq8V97ncmJiBjB/DC7TeE+2SdQ==
+X-Received: by 2002:a2e:a78e:: with SMTP id c14mr26639117ljf.162.1639343050805; 
+ Sun, 12 Dec 2021 13:04:10 -0800 (PST)
 Received: from localhost.localdomain (94-29-46-111.dynamic.spd-mgts.ru.
  [94.29.46.111])
- by smtp.gmail.com with ESMTPSA id y4sm1197172ljp.16.2021.12.12.13.04.06
+ by smtp.gmail.com with ESMTPSA id y4sm1197172ljp.16.2021.12.12.13.04.08
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 12 Dec 2021 13:04:08 -0800 (PST)
+ Sun, 12 Dec 2021 13:04:10 -0800 (PST)
 From: Dmitry Osipenko <digetx@gmail.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>,
@@ -103,16 +102,16 @@ Cc: linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
  linux-sh@vger.kernel.org, xen-devel@lists.xenproject.org,
  linux-acpi@vger.kernel.org, linux-pm@vger.kernel.org,
  linux-tegra@vger.kernel.org
-Subject: [PATCH v5 17/21] nds32: Use do_kernel_power_off()
-Date: Mon, 13 Dec 2021 00:03:05 +0300
-Message-Id: <20211212210309.9851-18-digetx@gmail.com>
+Subject: [PATCH v5 18/21] memory: emif: Use kernel_can_power_off()
+Date: Mon, 13 Dec 2021 00:03:06 +0300
+Message-Id: <20211212210309.9851-19-digetx@gmail.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211212210309.9851-1-digetx@gmail.com>
 References: <20211212210309.9851-1-digetx@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211212_130410_316231_29578E9F 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20211212_130413_447737_63379887 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,30 +128,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Kernel now supports chained power-off handlers. Use do_kernel_power_off()
-that invokes chained power-off handlers. It also invokes legacy
-pm_power_off() for now, which will be removed once all drivers will
-be converted to the new power-off API.
+Replace legacy pm_power_off with kernel_can_power_off() helper that
+is aware about chained power-off handlers.
 
 Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
 ---
- arch/nds32/kernel/process.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ drivers/memory/emif.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/nds32/kernel/process.c b/arch/nds32/kernel/process.c
-index 49fab9e39cbf..0936dcd7db1b 100644
---- a/arch/nds32/kernel/process.c
-+++ b/arch/nds32/kernel/process.c
-@@ -54,8 +54,7 @@ EXPORT_SYMBOL(machine_halt);
+diff --git a/drivers/memory/emif.c b/drivers/memory/emif.c
+index 762d0c0f0716..cab10d5274a0 100644
+--- a/drivers/memory/emif.c
++++ b/drivers/memory/emif.c
+@@ -630,7 +630,7 @@ static irqreturn_t emif_threaded_isr(int irq, void *dev_id)
+ 		dev_emerg(emif->dev, "SDRAM temperature exceeds operating limit.. Needs shut down!!!\n");
  
- void machine_power_off(void)
- {
--	if (pm_power_off)
--		pm_power_off();
-+	do_kernel_power_off();
- }
- 
- EXPORT_SYMBOL(machine_power_off);
+ 		/* If we have Power OFF ability, use it, else try restarting */
+-		if (pm_power_off) {
++		if (kernel_can_power_off()) {
+ 			kernel_power_off();
+ 		} else {
+ 			WARN(1, "FIXME: NO pm_power_off!!! trying restart\n");
 -- 
 2.33.1
 
