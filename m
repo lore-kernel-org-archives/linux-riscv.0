@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72568C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Dec 2021 21:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CD29C4321E
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Dec 2021 21:04:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xfdFIg3nzRorHrpFS3kFvI5TmyzmVyx3vD+hxPkWQPg=; b=Ovy8y6CnDkeB8D
-	6HCXb8tPHt9gSg4yTU2xp3wYCQCkbPuUo9VxQ9hAD+f92eno05rJ7YPrbUuajwsWAEApb3RLsr4CO
-	Z4CQJ1LKy8MvP6SktEE/3L1drbzHchy22TMa29xdDt5ZLOiIhrTb2FqeLOjTiOVMjuP6Ex6lxIa7b
-	LqkbumcaSj9xmFVeNaQvA4HwB9YwGFpjPe62EIOc6zab9Ga4S41BlOvvjJpEYuznfnKbBFHxLvJcm
-	3fOG3RQ1jtfgR+W2VUtuQ1kYqKNI5bxGgpYdQncCowfIek/7VaMxH97VdqVo+Fp12HowEDJCdN8iV
-	fCDa3gMVhrJDmfuS7sWw==;
+	List-Owner; bh=pfrBY0gGlEJs8dzJ+bHqT1AurrBSYK9DAo0oEVzHGIY=; b=H9zEydYGNAgq3K
+	XeI8y9Y6MSxBp198JR+vtzwlwHOgxURD+oU8kA6ff7WIjnhqzE68KbqDQqV1gMMkC9oO2j76q2RtN
+	oYyNCeB+opoHc410xc9YqoQc+Y9is2ru9uyuIAspO8xEU9Pb52NpG5FmCXXU/bhMYhnKUpH3klmUy
+	cP52eI2U24eUvSSQvm/7uVzvkgqgVvFEv4+Qg31peOZWBrkdK9noMqmvfDD/jMX4mWZW4lJS0MIRn
+	UBv62jtuzayDJTS9I1T+kvKTkk9+/USwI+wyuBbZmwqKQ105FIgeRN4TVdj5G1DI6Fu1xurjpeDls
+	Asb3K0FllYh0rDLB41mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mwW0n-007G83-Jv; Sun, 12 Dec 2021 21:04:01 +0000
+	id 1mwW0t-007GBQ-JS; Sun, 12 Dec 2021 21:04:07 +0000
 Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mwW0e-007G01-2x
- for linux-riscv@lists.infradead.org; Sun, 12 Dec 2021 21:03:53 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id a37so20012799ljq.13
- for <linux-riscv@lists.infradead.org>; Sun, 12 Dec 2021 13:03:51 -0800 (PST)
+ id 1mwW0g-007G15-2I
+ for linux-riscv@lists.infradead.org; Sun, 12 Dec 2021 21:03:56 +0000
+Received: by mail-lj1-x22b.google.com with SMTP id 207so21064769ljf.10
+ for <linux-riscv@lists.infradead.org>; Sun, 12 Dec 2021 13:03:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=NEBfa1fMA+x5w4qEnSCEpCMUhXzxF+K5pq5bQ4oFCgw=;
- b=jKT5aLZfWR0wdy1ZRHa2+F5Hc16ta1np03rkr+cf27BN8zUNhbkEoAuNYpXOIawSIH
- 2XymTHuAk1C3VpWmhK4AsE1yb/G2IulrJt3rlG67Vh5DarQrO3/RvtCACcc9q/mrlMzG
- idTBdpttStFv0rFHXoDeMkKrlqiTc6LMJnuQorLtWh4hfdMc2KQqq/SPJGqZAD8cFtP7
- bU0fIoQxCEwyS17dGv1ELgqsYZc+uy4iyxYp9vTtn2S36VrT7egCJ/N2pPTJk/5GCnV0
- wCdVD2AV/3wMZeA5Ef+Z3RwjWWbr7SVUDzZ2VoU/BSE2RRwY2l531P1a/0YVFVmDZNjy
- PILQ==
+ bh=qRRUcggihxuvvuxXR8avhK/eModbACqCMIG7s3bijm0=;
+ b=cwgMkLRmIC5Jc7bTumRtZfdR/utOuYZMGz1d8ygkTHHtVzgzo42XHF3MxCIlHJHEyT
+ C7LdLWylZ0pNaMDQhDT13J5l+njgSg9TNbzeMmfiPFReiWjuLN3BPKhAAriju1eHl9cw
+ v0xZYrbokM5iV9yDxCHW4tROVpkV6lIWT7CatJGFsO5P7KMEX+3KZoYfdE3quHDnbdkY
+ jpj2wUw+3g4R/1VtteNb23NQNkNZ2V1/PAhs7heDgq209kuV3pPkDwgZ1aWLoWFqzEEX
+ OFHc08yxalGQachdnm1D3b45tSRQQlH3u/KkV4GShGX8mzd5qIB7iZpCyJ01mJBdqNcV
+ pVRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=NEBfa1fMA+x5w4qEnSCEpCMUhXzxF+K5pq5bQ4oFCgw=;
- b=bUj0pW2yEfukaX8he71rlbw0eYMMpWqwbqpem41sITnK8z+YkzVQPI93AnoaISwHxg
- RS4X88iYkU2MFO3hPcO5RMoInifrMnHppHgMogeSPmyW0IJlNAN3KmwlbQvWNOVmv4GJ
- o1a1DKIOkMICbbbNQUxOrz3vvd05o5a0OE3e+mYSv1bwQ2dzaBESDCGKGamfeUQ2ZgzL
- aeB99p4tpWUclJ4L8f1kDntDlRqXUyK2gh66cg74JPkIvYvtGmcY13uMachcU5+cfg2h
- JC6BHJL+HZiZHDn2LfZVwouUPf3OMkmoEhWHYZ+4LFBv3LHyMEYFAErBkIKCOLD9DBym
- 5n3g==
-X-Gm-Message-State: AOAM530krXY/OrD3IdiVHpT1PusjfUTdPy+rkFxjNVtz2xO/ZgOcLyc7
- K5UEUQZufQR+7+b92XkwBFk=
-X-Google-Smtp-Source: ABdhPJxgpZfqxao+vFSyfTfxI+LCB5noXzLgWBaLJYSm65bPEK2lM39NLgbcPLKrE+YWXn5oNC0cUA==
-X-Received: by 2002:a2e:a26a:: with SMTP id k10mr25711010ljm.156.1639343030651; 
- Sun, 12 Dec 2021 13:03:50 -0800 (PST)
+ bh=qRRUcggihxuvvuxXR8avhK/eModbACqCMIG7s3bijm0=;
+ b=QXj6gdaNxY+RY0Su9yWEVe6egnk65W6XKYqM0eKa0Nf4eBQQk9i09cmXmcVa6C+ChG
+ QZwcYwuomHW4ahC1TNCz8VFVvLuLSjwonA0zPeNYp35pljL1EINzxtakgTDOudX1259I
+ tC0j6mGEJMsnhj4H2WeC9F+nGQttPSkMJ7kiCXIHvIFnrNOChNeOQGsz4+L4ELW6XZti
+ cnIRq5aGJOMj95B65Z0s9617R+ZqMGbAopSIiLvBWN6DAk/Jr3be8ux33faAioVVUHHo
+ uREIFt09/arALMSEi0j6j+QPEUsipx2KOLklpCx+Js8FrVSLwx38u1rxn7ysz5hP1cog
+ 563A==
+X-Gm-Message-State: AOAM531AFv9MTwM0ktHVUdAH2AddEaFJUPVZNKBFDXpgySI6bTa2/VxP
+ xTG9rGft+jbGC4J1qAA5DAE=
+X-Google-Smtp-Source: ABdhPJwkugCxrPdxtc+DUdPqlE8VTgsZlj2PXoqJkSrC88l4/tv/AsdhkMaJuxd6V34n0G6eKbJ/hw==
+X-Received: by 2002:a05:651c:1790:: with SMTP id
+ bn16mr25960176ljb.475.1639343032645; 
+ Sun, 12 Dec 2021 13:03:52 -0800 (PST)
 Received: from localhost.localdomain (94-29-46-111.dynamic.spd-mgts.ru.
  [94.29.46.111])
- by smtp.gmail.com with ESMTPSA id y4sm1197172ljp.16.2021.12.12.13.03.48
+ by smtp.gmail.com with ESMTPSA id y4sm1197172ljp.16.2021.12.12.13.03.50
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 12 Dec 2021 13:03:50 -0800 (PST)
+ Sun, 12 Dec 2021 13:03:52 -0800 (PST)
 From: Dmitry Osipenko <digetx@gmail.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>,
@@ -102,16 +103,16 @@ Cc: linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
  linux-sh@vger.kernel.org, xen-devel@lists.xenproject.org,
  linux-acpi@vger.kernel.org, linux-pm@vger.kernel.org,
  linux-tegra@vger.kernel.org
-Subject: [PATCH v5 08/21] arm64: Use do_kernel_power_off()
-Date: Mon, 13 Dec 2021 00:02:56 +0300
-Message-Id: <20211212210309.9851-9-digetx@gmail.com>
+Subject: [PATCH v5 09/21] parisc: Use do_kernel_power_off()
+Date: Mon, 13 Dec 2021 00:02:57 +0300
+Message-Id: <20211212210309.9851-10-digetx@gmail.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211212210309.9851-1-digetx@gmail.com>
 References: <20211212210309.9851-1-digetx@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211212_130352_156227_7BCCB081 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20211212_130354_153399_9B836951 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,26 +134,34 @@ that invokes chained power-off handlers. It also invokes legacy
 pm_power_off() for now, which will be removed once all drivers will
 be converted to the new power-off API.
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Acked-by: Helge Deller <deller@gmx.de> # parisc
 Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
 ---
- arch/arm64/kernel/process.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ arch/parisc/kernel/process.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index aacf2f5559a8..f8db031afa7d 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -110,8 +110,7 @@ void machine_power_off(void)
- {
- 	local_irq_disable();
- 	smp_send_stop();
+diff --git a/arch/parisc/kernel/process.c b/arch/parisc/kernel/process.c
+index ea3d83b6fb62..928201b1f58f 100644
+--- a/arch/parisc/kernel/process.c
++++ b/arch/parisc/kernel/process.c
+@@ -26,6 +26,7 @@
+ #include <linux/module.h>
+ #include <linux/personality.h>
+ #include <linux/ptrace.h>
++#include <linux/reboot.h>
+ #include <linux/sched.h>
+ #include <linux/sched/debug.h>
+ #include <linux/sched/task.h>
+@@ -114,8 +115,7 @@ void machine_power_off(void)
+ 	pdc_chassis_send_status(PDC_CHASSIS_DIRECT_SHUTDOWN);
+ 
+ 	/* ipmi_poweroff may have been installed. */
 -	if (pm_power_off)
 -		pm_power_off();
 +	do_kernel_power_off();
- }
- 
- /*
+ 		
+ 	/* It seems we have no way to power the system off via
+ 	 * software. The user has to press the button himself. */
 -- 
 2.33.1
 
