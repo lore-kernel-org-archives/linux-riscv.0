@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E3F0C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Dec 2021 21:27:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32286C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Dec 2021 23:12:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tB37O+wP7o+TeW5aKXzqXoH6RFaomgfEVOeNQzlYNL8=; b=LvVAYxtQ0zB5Zi
-	DSmSeWtAiY8jzE6BFctEeoMsx5uhNPESI0E8G9ccld0uSppLNehm6o9KmmSSBpShYT4ZLRWBsiGf0
-	JbKES2EXukn6Qd+TaA7QVkYyNWMeAJ0v+ZEnU1vqjhiznQ9DTJpUxf+YmUQofZ+QVl1fTluhzuMde
-	b9pBcOoK3eDILqixKs63wEcZaUJAZHLhrIBJURMaExpcwiJ4twLlHPHdGatLmQ/V98vM8Kzn3UFzv
-	0kchMwUBA+OkF8F+xVDuWBOyhxTxiKsY+z7SRYnzi0mJvpVt0ifBlk7p8LoyIaEcM3axqNJP/e2RD
-	SNBgPDFvpwLXCuSYDSDg==;
+	List-Owner; bh=+PS72q4LL6d49QVz9i6KAIx6vUIFMkazOXbNKx9Zip4=; b=jGie1xZoQvTdA5
+	E18MFNKptMBjNglNiI1Cgah691vxuZ/mTGxwwiEVLfz1g7yi4P8t+M4l6BtFUghxaERlhdmZ6F5Ed
+	xWTj452PukS8y9swZGfE1wcrfoe9XpODSA4Y3KTclVyxf/yNHvDQZI9NTVjOcuJ46xO7tdPdfKkCm
+	6CG335FfBqbXDw/arZ9Ill3cJZr/Mw00vGodZQCUWcb2vCdBZKZiokt4QO9dOTzwxXmWoIGrvfhl8
+	Wg5igeStxhWBf67prydCXpZneq4vsBHnEDyEg2R7M7aWSAVwhi//5YOIXyErNpY9lKoVIeqCMh05F
+	zH8/5sERlqW5I5+cJwcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mwsrA-00BTCQ-0l; Mon, 13 Dec 2021 21:27:36 +0000
-Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
+	id 1mwuTx-00Bvtr-C8; Mon, 13 Dec 2021 23:11:45 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mwsr7-00BTBd-3h
- for linux-riscv@lists.infradead.org; Mon, 13 Dec 2021 21:27:34 +0000
-Received: by mail-yb1-xb2c.google.com with SMTP id j2so41455386ybg.9
- for <linux-riscv@lists.infradead.org>; Mon, 13 Dec 2021 13:27:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=tS/h42aoWNvC9F09YRt3IPscSl6Go2TabGZNpFMjr1Q=;
- b=SqJqF6KfjAHG+SeRMuPoCEqf0e/o/Y+PV6/bBLvnCli36DmKOoeFeyh6z46zS/SaE9
- BRRHa/3ViRSvPyYD/GxN0Ze6zMSmy0gkyS8R9ezmn/5L+88Cc8V+c2hb8Rr+y3XFKa20
- qhUqUlPVqlyvZv4YvFxzWzKGuZjj4iwQBmFoo=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=tS/h42aoWNvC9F09YRt3IPscSl6Go2TabGZNpFMjr1Q=;
- b=UPDDdRS0g1YdH8/gTPi1xoQvv1fXxd4wsCYKnQOJDE97udNh6bZaSjdEAfbu1SdzsO
- Zn9zePtOV5/36cvZ0mW7UsA9rkPSFEZOIodfckQ9edvQCJ/uPT7mfQfWtmYAEaPVUCe0
- wyiNQZW3MVuhShZ1S66iXpaEViJwOQb1OAIpKe4f5ESxyNznqVI81PHpfrhu+h4m2j9n
- MoqwD9dZ4mjfTLt3+/NxAymkvIndwonBCVc1mrvzlo04pAx3BNNnsa4hqBPv4aHP/wFG
- dZnQaCBDtWH+PS6fhBUGZj5zDH/vjnAkU+o4vjorkzlv8eMyNw/4YZI2q2noSudfWc96
- fNMQ==
-X-Gm-Message-State: AOAM533DSN28d5uVxMN+ARxQ1dDMw9aP44xW/Gs6ujZG+iqQ95DZO+ma
- mcjH7/69re44iY2Wuhw3QuRtyj2tVuA9U2++9Lxx
-X-Google-Smtp-Source: ABdhPJzslT8/6oXCsZUd9W7eJu9fAn0X/Rv9oKsdYACWvB/fLMbHtNl1F6uZ+CVQ9FJUh+Dwghg2dQVRfT2vBmV5zUg=
-X-Received: by 2002:a25:bf8d:: with SMTP id l13mr1136880ybk.713.1639430852154; 
- Mon, 13 Dec 2021 13:27:32 -0800 (PST)
+ id 1mwuTq-00Bvs3-V9; Mon, 13 Dec 2021 23:11:40 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id CBD41612B4;
+ Mon, 13 Dec 2021 23:11:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D9FDC3460F;
+ Mon, 13 Dec 2021 23:11:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1639437096;
+ bh=PEAcjN37oxZX/9iYX69bn4bF0yxfwXfCPZeIHGvag1o=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=WGgkedP1ZGyFUChVrHAG2xisYq1ae4jaEMuEDN8TPsxg4A+2nNp8IA7HpBLt4Pg/y
+ NppgwW/qXmVl/19MDI+RwV9i6+Jk/1DU3BiKT0BLrQ+Cmxl7JkRMmHWIEZ7ebVrRtJ
+ 3OOZIET6UL2kKjt5bCiTjHct1vj0O/D2kxOdtXQvrSBt83AaTZ7jSZZsDeeLajkdtF
+ hBcCoOXoc00p7c5R5B3zORKpXuI+ea5BF9SQNww8Ep+uYm170K+aLZ5zlm1WKGb4FU
+ LuVNHCTA9Z3bCb/19fFwYWLdBC+YMSU96WUoKyIlTArJo52YroV4lAnjJS6A1r9Jtg
+ 0qLPmFu2w+hIw==
+Received: by mail-ed1-f53.google.com with SMTP id x15so58170016edv.1;
+ Mon, 13 Dec 2021 15:11:36 -0800 (PST)
+X-Gm-Message-State: AOAM531nvddoSKl8r6NQXO+mdFbm0/jcwm+flxGkZNgsGRSQ+kXGFOCf
+ ohn+H7sDYwdHc3mzAwmYStQUr0vm1GlMlchiDw==
+X-Google-Smtp-Source: ABdhPJwWE2mZhgSkGIpbmG4K7J0EkVEt1f+A9VeATTghLyvHR5AeReFxWiF3WIzNM5rkdd1zS1o+iWUBbFMYvX58O/0=
+X-Received: by 2002:a17:907:94c2:: with SMTP id
+ dn2mr1439977ejc.325.1639437094406; 
+ Mon, 13 Dec 2021 15:11:34 -0800 (PST)
 MIME-Version: 1.0
 References: <20211204002038.113653-1-atishp@atishpatra.org>
  <Ya4sDX974/dVEOQw@robh.at.kernel.org>
-In-Reply-To: <Ya4sDX974/dVEOQw@robh.at.kernel.org>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Mon, 13 Dec 2021 13:27:21 -0800
-Message-ID: <CAOnJCUKcYeWaDXY6OxQPrNwKV=4t9zbpSjfQLsL70P+3GE7F7A@mail.gmail.com>
+ <CAOnJCUKcYeWaDXY6OxQPrNwKV=4t9zbpSjfQLsL70P+3GE7F7A@mail.gmail.com>
+In-Reply-To: <CAOnJCUKcYeWaDXY6OxQPrNwKV=4t9zbpSjfQLsL70P+3GE7F7A@mail.gmail.com>
+From: Rob Herring <robh@kernel.org>
+Date: Mon, 13 Dec 2021 17:11:21 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqL_DXTJMdUGVwa1T9HqzcJkae=PS12dBbhFS9A22XK6=w@mail.gmail.com>
+Message-ID: <CAL_JsqL_DXTJMdUGVwa1T9HqzcJkae=PS12dBbhFS9A22XK6=w@mail.gmail.com>
 Subject: Re: [RFC 0/6] Sparse HART id support
-To: Rob Herring <robh@kernel.org>
+To: Atish Patra <atishp@atishpatra.org>
 Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
  Alexandre Ghiti <alex@ghiti.fr>, 
  Anup Patel <anup.patel@wdc.com>, Greentime Hu <greentime.hu@sifive.com>, 
@@ -71,8 +72,8 @@ Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
  Paul Walmsley <paul.walmsley@sifive.com>, Pekka Enberg <penberg@kernel.org>, 
  Vincent Chen <vincent.chen@sifive.com>, Vitaly Wool <vitaly.wool@konsulko.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211213_132733_191683_05FA4981 
-X-CRM114-Status: GOOD (  16.98  )
+X-CRM114-CacheID: sfid-20211213_151139_145000_3FCA3FF6 
+X-CRM114-Status: GOOD (  25.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,50 +90,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 6, 2021 at 7:28 AM Rob Herring <robh@kernel.org> wrote:
+On Mon, Dec 13, 2021 at 3:27 PM Atish Patra <atishp@atishpatra.org> wrote:
 >
-> On Fri, Dec 03, 2021 at 04:20:32PM -0800, Atish Patra wrote:
-> > Currently, sparse hartid is not supported for Linux RISC-V for the following
-> > reasons.
-> > 1. Both spinwait and ordered booting method uses __cpu_up_stack/task_pointer
-> >    which is an array size of NR_CPUs.
-> > 2. During early booting, any hartid greater than NR_CPUs are not booted at all.
-> > 3. riscv_cpuid_to_hartid_mask uses struct cpumask for generating hartid bitmap.
-> > 4. SBI v0.2 implementation uses NR_CPUs as the maximum hartid number while
-> >    generating hartmask.
+> On Mon, Dec 6, 2021 at 7:28 AM Rob Herring <robh@kernel.org> wrote:
 > >
-> > In order to support sparse hartid, the hartid & NR_CPUS needs to be disassociated
-> > which was logically incorrect anyways. NR_CPUs represent the maximum logical|
-> > CPU id configured in the kernel while the hartid represent the physical hartid
-> > stored in mhartid CSR defined by the privilege specification. Thus, hartid
-> > can have much greater value than logical cpuid.
+> > On Fri, Dec 03, 2021 at 04:20:32PM -0800, Atish Patra wrote:
+> > > Currently, sparse hartid is not supported for Linux RISC-V for the following
+> > > reasons.
+> > > 1. Both spinwait and ordered booting method uses __cpu_up_stack/task_pointer
+> > >    which is an array size of NR_CPUs.
+> > > 2. During early booting, any hartid greater than NR_CPUs are not booted at all.
+> > > 3. riscv_cpuid_to_hartid_mask uses struct cpumask for generating hartid bitmap.
+> > > 4. SBI v0.2 implementation uses NR_CPUs as the maximum hartid number while
+> > >    generating hartmask.
+> > >
+> > > In order to support sparse hartid, the hartid & NR_CPUS needs to be disassociated
+> > > which was logically incorrect anyways. NR_CPUs represent the maximum logical|
+> > > CPU id configured in the kernel while the hartid represent the physical hartid
+> > > stored in mhartid CSR defined by the privilege specification. Thus, hartid
+> > > can have much greater value than logical cpuid.
+> >
+> > We already have a couple of architectures with logical to physical CPU
+> > id maps. See cpu_logical_map. Can we make that common and use it here?
 >
-> We already have a couple of architectures with logical to physical CPU
-> id maps. See cpu_logical_map. Can we make that common and use it here?
+> Yes. We can move the cpu_logical_map(which is a macro) &
+> __cpu_logical_map(actual array with NR_CPUS size)
+> to common code so that all the architecture can use it instead of
+> defining it separately.
 
-Yes. We can move the cpu_logical_map(which is a macro) &
-__cpu_logical_map(actual array with NR_CPUS size)
-to common code so that all the architecture can use it instead of
-defining it separately.
+IIRC, the macro is what varies by arch and I would move to static
+inlines rather than supporting:
 
-> That would also possibly allow for common populating the map from DT.
+cpu_logical_map(cpu) = 0xdeadbeef;
+
 >
+> > That would also possibly allow for common populating the map from DT.
+> >
+>
+> I didn't understand this part. The mapping is populated at run time
+> [1] as the boot cpu can be any hart in RISC-V.
+> That booting hart will be mapped to cpu 0. All others will be mapped
+> based on how the cpu node is laid out in the DT.
+> Do you mean we can move the 2nd part to common code as well ?
 
-I didn't understand this part. The mapping is populated at run time
-[1] as the boot cpu can be any hart in RISC-V.
-That booting hart will be mapped to cpu 0. All others will be mapped
-based on how the cpu node is laid out in the DT.
-Do you mean we can move the 2nd part to common code as well ?
+Yes, as the DT platforms just loop thru the cpu nodes and fill the
+logical map based on 'reg', I don't think that needs to be per arch
+once we have a common map. But not asking for that now.
 
-[1] RISC-V: https://elixir.bootlin.com/linux/v5.16-rc5/source/arch/riscv/kernel/smpboot.c#L102
-
-> Rob
-
-
-
--- 
-Regards,
-Atish
+Rob
 
 _______________________________________________
 linux-riscv mailing list
