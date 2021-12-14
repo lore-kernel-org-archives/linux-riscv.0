@@ -4,77 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19372C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Dec 2021 18:33:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA54BC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Dec 2021 19:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c1ENrHEIooJRWitJKe7TxI06Qjlhf/Cj2kszVz1NUC4=; b=WiVDlS/Mkcigzq
-	UO4qx2PA8iE2tuGLFhgiV5Usp+V+cpXcLKTLyIs8PbtYEFVGycXoLA/rpN1onIqTwY3WX6mIYPNTc
-	fnA0DC44v4BUVt1N82MHz2ZcsuHrkI1GVSKz6Pdd95jQ6z6ptGjjzF9qr2Les2U1Bb6mxgdCY2hkU
-	zGwHCLUJ+pWuZK4GvgymvN0FpMOmgkPTTrnxQb6wyEthZuwN61LGNvcRDGOuxKN8KL46eag9BigRD
-	D1BdcxwA16FRUar06S7mnt6AQMM+ilfeKR51ZXxNvxUd0dS1dsYAlYLBu4CAWKKgKR+ofIEe87hWf
-	5T1PdcDWM5uzii6br78w==;
+	List-Owner; bh=Unoep8TxlpsyRaYv2UP5eGGhUQo0gMRpnSCkk/V9hmE=; b=YD0w4OXWsCJfA2
+	5VBmH99GGHNt3PQR90zSN1SH7ybwOwz3MmDSO370HqBJoEWCGJIo6JZQqCqGl0RbidZt1Am2zIEzA
+	DRivCsCmpxWDVCFmjFqp0ECzT+xzoVYKDx17hQuzewIlNw02luE5RRW37h0n8miVge3GAiNCFiaaz
+	wq4qfl/aOcb7ITOiCEn9gFO9WU757XiTy3Vx4vdp0jt7akfN6DYGmyEXmqLQ7BdfB6yp2WktXUUNV
+	d40kb3vTaS0PT4YXKBTgtB8CDg5URyJX1maiK0ekwIvgzgEcKweXoLTlfradfOE/W194G+YHtXNTB
+	UJVSuCzuUllxae+1xUAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mxCbv-00FMbN-EM; Tue, 14 Dec 2021 18:33:11 +0000
-Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
+	id 1mxD5G-00FUgo-Jg; Tue, 14 Dec 2021 19:03:30 +0000
+Received: from mail-ua1-f46.google.com ([209.85.222.46])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mxCYd-00FKzs-3S
- for linux-riscv@lists.infradead.org; Tue, 14 Dec 2021 18:29:49 +0000
-Received: by mail-yb1-xb2c.google.com with SMTP id j2so48384725ybg.9
- for <linux-riscv@lists.infradead.org>; Tue, 14 Dec 2021 10:29:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=wH1I0gwexWKggIzE3NyBQkYC8jJe+1mRBY5rhUHa/IQ=;
- b=hqta8VSYOIg1QffPyNI/dWjOHMxKuOb1u3HVv7fquVg86NrdKWHNc+ammp0UDoT8j9
- 4OrMatOJHy8D0QIIxEbQ7C3GmR9nb+/9waEz+PdIn90VKMXVSzyhXhRfi2sVGhk9DTvM
- 50Ji7VNXmIcXnBPn8LSZeBjd36CfRCrsfuaIA=
+ id 1mxD52-00FUdd-Lx
+ for linux-riscv@lists.infradead.org; Tue, 14 Dec 2021 19:03:18 +0000
+Received: by mail-ua1-f46.google.com with SMTP id t13so36573956uad.9
+ for <linux-riscv@lists.infradead.org>; Tue, 14 Dec 2021 11:03:12 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=wH1I0gwexWKggIzE3NyBQkYC8jJe+1mRBY5rhUHa/IQ=;
- b=lvGWqy3Wddxg6RaFgAYddt46P8KRcHB/C/hbTc+hrox275LaUynq4mWl6CWPdwORno
- xwh6+FZvES/W2H7hUlzACUMZQtlvDO2QueijjMLJTnjR/32uDLBdTSGcLlt6PvFEGewm
- pB6masNNEJdciodm1aTkH+fasisWRzlBSWHchjMo0vSNGigJUOqIBmhbq31wa61KaVfZ
- IcDYErNBG8MzH7rnMjEkVpvsQRyYHF4B5omC9pYaz4KqYFXblyuBHs07yZ3CAhgU/z29
- tE3MJ8h9ip6//Y2pubQEu9IIhQgXhtwAyzF1Hd0AN0d4nCqsXdXGAR/qTzuBWPB9eWBf
- 40xQ==
-X-Gm-Message-State: AOAM532GhA2qZxfjq5+AzpLMMXDrp0DxsGrpC7Oi7Eu4qzQF1OsV5Icl
- gBGMJ7cUFkTcp/4nSVZhndh9VQQfsdzSdHEtqrQE
-X-Google-Smtp-Source: ABdhPJxSZMHzQbfvUR9GlYCB9bdOMQyP1fXQxW9LkoSFaF2y0YMkdCUDIJ+kt5UpJmV4z3pBZqolMTOR7JOvT8gnTis=
-X-Received: by 2002:a25:ad27:: with SMTP id y39mr780914ybi.494.1639506585459; 
- Tue, 14 Dec 2021 10:29:45 -0800 (PST)
+ bh=bQOtmTw19Qz+cRCih9T5sdKR1tGH5OnUCCIrsQi5CfA=;
+ b=Xa/4nkoL13uF+oe7NAZDF9WiRVADgNfOM0zUhMJlvm8V8EFc3A173N5w2RGZY7fhQ4
+ qET3u4LjJTHjnkkOZ6SzTMLpk8+zXdGqVP49+H8f6iPW7HNfWN5pPexNcyHwOYX3wxk9
+ PyCpucVnhA5I91Ll5fglToub4kD3DIsdhWuYk3ff/OBvSfcBhXgBKjNxnRFX+Jd104+u
+ HR50sILyBJ23KFraL8qywRQWWv/6uK8lwxuit7gj8OUs/sNi59gSi636BhhjkhuWxMXG
+ sk6BQKm4bC04dxLk3dT8DjUiK8+ZUOaC99HxXsSceEEy+KzGrTcDoLBcEOmT5jlMsaYI
+ JKlA==
+X-Gm-Message-State: AOAM533cKv2ffIqIB4+YKXKJ1JGuJYbtYmN7r3ge8ltY2KlH6VBE3REQ
+ jyCmKHXxAeQLuwM7L6//LX/bskCCL7KhLQ==
+X-Google-Smtp-Source: ABdhPJw1l4+g1JMqBej4/luYqId6dDiFKb5SsdPleQ4Q3LjIVSU6PBVMUAByyb1dd5JyfigTwqxcEQ==
+X-Received: by 2002:a67:c402:: with SMTP id c2mr811978vsk.53.1639508591690;
+ Tue, 14 Dec 2021 11:03:11 -0800 (PST)
+Received: from mail-ua1-f46.google.com (mail-ua1-f46.google.com.
+ [209.85.222.46])
+ by smtp.gmail.com with ESMTPSA id b10sm165310uad.8.2021.12.14.11.03.10
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Tue, 14 Dec 2021 11:03:10 -0800 (PST)
+Received: by mail-ua1-f46.google.com with SMTP id o1so36611759uap.4
+ for <linux-riscv@lists.infradead.org>; Tue, 14 Dec 2021 11:03:10 -0800 (PST)
+X-Received: by 2002:a05:6102:3232:: with SMTP id
+ x18mr859450vsf.38.1639508590267; 
+ Tue, 14 Dec 2021 11:03:10 -0800 (PST)
 MIME-Version: 1.0
-References: <20211025195350.242914-1-atish.patra@wdc.com>
- <20211214121412.6aa896c9@redslave.neermore.group>
-In-Reply-To: <20211214121412.6aa896c9@redslave.neermore.group>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 14 Dec 2021 10:29:34 -0800
-Message-ID: <CAOnJCULu-T2aC+TBN7maOouYGpHBePM_6i0eYot6r9yqzgwtVA@mail.gmail.com>
-Subject: Re: [v4 00/11] Improve RISC-V Perf support using SBI PMU and sscofpmf
- extension
-To: Nikita Shubin <nikita.shubin@maquefel.me>
-Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Anup Patel <anup.patel@wdc.com>, 
- David Abdurachmanov <david.abdurachmanov@sifive.com>,
- devicetree <devicetree@vger.kernel.org>, 
- Greentime Hu <greentime.hu@sifive.com>, Guo Ren <guoren@linux.alibaba.com>, 
- Heinrich Schuchardt <xypron.glpk@gmx.de>, Jonathan Corbet <corbet@lwn.net>, 
- Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- linux-perf-users@vger.kernel.org, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Nick Kossifidis <mick@ics.forth.gr>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Rob Herring <robh+dt@kernel.org>, Vincent Chen <vincent.chen@sifive.com>
+References: <20211130172954.129587-1-vladimir.murzin@arm.com>
+ <20211130172954.129587-2-vladimir.murzin@arm.com> <YaZiOnNd6fAnLcxz@fedora>
+ <8c2b4666-cf13-3735-be1e-b8a1c71df113@arm.com>
+ <CAMuHMdXA73EuFC6e-pEz1Ovc9ySNk-mt-6O0L7KbO28PvqratA@mail.gmail.com>
+ <YbjTuOhNxaPirK1L@fedora>
+In-Reply-To: <YbjTuOhNxaPirK1L@fedora>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 14 Dec 2021 20:02:58 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUaLTbS_20t7jfPkkHqYV=9JNQf-XQ80UppZcrHGOoTfA@mail.gmail.com>
+Message-ID: <CAMuHMdUaLTbS_20t7jfPkkHqYV=9JNQf-XQ80UppZcrHGOoTfA@mail.gmail.com>
+Subject: Re: [PATCH] percpu: km: ensure it is used with NOMMU (either UP or
+ SMP)
+To: Dennis Zhou <dennis@kernel.org>
+Cc: Vladimir Murzin <vladimir.murzin@arm.com>, linux-arch-owner@vger.kernel.org,
+ Linux MM <linux-mm@kvack.org>, Tejun Heo <tj@kernel.org>,
+ Christoph Lameter <cl@linux.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Christoph Hellwig <hch@lst.de>, Arnd Bergmann <arnd@arndb.de>,
+ Linux-sh list <linux-sh@vger.kernel.org>, 
+ Rich Felker <dalias@libc.org>, linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211214_102947_241948_69FF9B95 
-X-CRM114-Status: GOOD (  51.73  )
+X-CRM114-CacheID: sfid-20211214_110316_768624_C40FD1E5 
+X-CRM114-Status: GOOD (  44.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,245 +94,115 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 14, 2021 at 1:14 AM Nikita Shubin <nikita.shubin@maquefel.me> wrote:
->
-> Hello Atish!
->
-> I get linker error if CONFIG_RISCV_PMU_LEGACY is not set:
->
-> riscv64-unknown-linux-gnu-ld: drivers/perf/riscv_pmu_sbi.o: in function
-> `pmu_sbi_device_probe': linux/drivers/perf/riscv_pmu_sbi.c:688:
-> undefined reference to `riscv_pmu_legacy_init'
->
-> It looks like you need some guards or a dummy function for
-> riscv_pmu_legacy_init.
+Hi Dennis,
 
-Ahh yes. Thanks for catching that. I will fix it in the next version.
-
+On Tue, Dec 14, 2021 at 6:26 PM Dennis Zhou <dennis@kernel.org> wrote:
+> On Tue, Dec 14, 2021 at 05:29:22PM +0100, Geert Uytterhoeven wrote:
+> > On Wed, Dec 1, 2021 at 12:53 PM Vladimir Murzin <vladimir.murzin@arm.com> wrote:
+> > > On 11/30/21 5:41 PM, Dennis Zhou wrote:
+> > > > On Tue, Nov 30, 2021 at 05:29:54PM +0000, Vladimir Murzin wrote:
+> > > >> Currently, NOMMU pull km allocator via !SMP dependency because most of
+> > > >> them are UP, yet for SMP+NOMMU vm allocator gets pulled which:
+> > > >>
+> > > >> * may lead to broken build [1]
+> > > >> * ...or not working runtime due to [2]
+> > > >>
+> > > >> It looks like SMP+NOMMU case was overlooked in bbddff054587 ("percpu:
+> > > >> use percpu allocator on UP too") so restore that.
+> > > >>
+> > > >> [1]
+> > > >> For ARM SMP+NOMMU (R-class cores)
+> > > >>
+> > > >> arm-none-linux-gnueabihf-ld: mm/percpu.o: in function `pcpu_post_unmap_tlb_flush':
+> > > >> mm/percpu-vm.c:188: undefined reference to `flush_tlb_kernel_range'
+> > > >>
+> > > >> [2]
+> > > >> static inline
+> > > >> int vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+> > > >>                 pgprot_t prot, struct page **pages, unsigned int page_shift)
+> > > >> {
+> > > >>        return -EINVAL;
+> > > >> }
+> > > >>
+> > > >> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> > > >> ---
+> > > >>  mm/Kconfig | 3 +--
+> > > >>  1 file changed, 1 insertion(+), 2 deletions(-)
+> > > >>
+> > > >> diff --git a/mm/Kconfig b/mm/Kconfig
+> > > >> index d16ba92..66331e0 100644
+> > > >> --- a/mm/Kconfig
+> > > >> +++ b/mm/Kconfig
+> > > >> @@ -425,9 +425,8 @@ config THP_SWAP
+> > > >>  # UP and nommu archs use km based percpu allocator
+> > > >>  #
+> > > >>  config NEED_PER_CPU_KM
+> > > >> -    depends on !SMP
+> > > >>      bool
+> > > >> -    default y
+> > > >> +    default !SMP || !MMU
+> > > >>
+> > > >
+> > > > Should this be `depends on !SMP || !MMU` with default yes? Because with
+> > > > SMP && MMU, it shouldn't be an option to run with percpu-km.
+> > >
+> > > IIUC these are equivalent, truth table would not change if is under "depends"
+> > > or "default"
+> > >
+> > > SMP    MMU   NEED_PER_CPU_KM
+> > >  y      y    !y || !y => n || n => n
+> > >  y      n    !y || !n => n || y => y
+> > >  n      y    !n || !y => y || n => y
+> > >  n      n    !n || !n => y || y => y
+> > >
+> > > >
+> > > >>  config CLEANCACHE
+> > > >>      bool "Enable cleancache driver to cache clean pages if tmem is present"
+> > > >> --
+> > > >> 2.7.4
+> > > >>
+> > > >
+> > > > It's interesting to me that this is all coming up at once. Earlier this
+> > > > month I had the same conversation with people involved with sh [1].
+> > > >
+> > > > [1] https://lore.kernel.org/linux-sh/YY7tp5attRyK42Zk@fedora/
+> > > >
+> > > > I can pull this shortly once I see whatever happened to linux-sh.
+> > >
+> > > Ahh, good to know! Adding SH folks here (start of discussion [0]). I see you came
+> > > to the same conclusion, right?
+> > >
+> > > IIRC, RISC-V also have SMP+NOMMU, so adding them as well.
+> >
+> > I had seen the j-Core thread, but completely forgot about
+> > Canaan K210 (RV64 SMP+NOMMU).
+> >
+> > This became commit 3583521aabac76e5 ("percpu: km: ensure it is used
+> > with NOMMU (either UP or SMP)").  And now booting K210 prints:
+> >
+> >     percpu: wasting 10 pages per chunk
+> >
+> > a) Is this bad?
 >
-> On Mon, 25 Oct 2021 12:53:39 -0700
-> Atish Patra <atish.patra@wdc.com> wrote:
->
-> > This series adds improved perf support for RISC-V based system using
-> > SBI PMU extension[1] and Sscofpmf extension[2]. The SBI PMU extension
-> > allows the kernel to program the counters for different events and
-> > start/stop counters while the sscofpmf extension allows the counter
-> > overflow interrupt and privilege mode filtering. An hardware platform
-> > can leverage SBI PMU extension without the sscofpmf extension if it
-> > supports mcountinhibit and mcounteren. However, the reverse is not
-> > true. With both of these extension enabled, a platform can take
-> > advantage of all both event counting and sampling using perf tool.
-> >
-> > This series introduces a platform perf driver instead of a existing
-> > arch specific implementation. The new perf implementation has adopted
-> > a modular approach where most of the generic event handling is done
-> > in the core library while individual PMUs need to only implement
-> > necessary features specific to the PMU. This is easily extensible and
-> > any future RISC-V PMU implementation can leverage this. Currently,
-> > SBI PMU driver & legacy PMU driver are implemented as a part of this
-> > series.
-> >
-> > The legacy driver tries to reimplement the existing minimal perf
-> > under a new config to maintain backward compatibility. This
-> > implementation only allows monitoring of always running
-> > cycle/instruction counters. Moreover, they can not be started or
-> > stopped. In general, this is very limited and not very useful. That's
-> > why, I am not very keen to carry the support into the new driver.
-> > However, I don't want to break perf for any existing hardware
-> > platforms. If everybody agrees that we don't need legacy perf
-> > implementation for older implementation, I will be happy to drop
-> > PATCH 4.
-> >
-> > This series has been tested in Qemu (RV64 & RV32) and HiFive
-> > Unmatched. Qemu[5] & OpenSBI [3] patches are required to test it on
-> > Qemu and a dt patch required in U-Boot[6] for HiFive Unmatched. Qemu
-> > changes are not backward compatible. That means, you can not use perf
-> > anymore on older Qemu versions with latest OpenSBI and/or Kernel.
-> > However, newer kernel will just use legacy pmu driver if old OpenSBI
-> > is detected.
-> >
-> > The U-Boot patch is just an example that encodes few of the events
-> > defined in fu740 documentation [7] in the DT. We can update the DT to
-> > include all the events defined if required.
-> >
-> > Here is an output of perf stat/report while running perf benchmark
-> > with OpenSBI, Linux kernel and U-Boot patches applied.
-> >
-> > HiFive Unmatched:
-> > =================
-> > perf stat -e cycles -e instructions -e L1-icache-load-misses -e
-> > branches -e branch-misses \ -e r0000000000000200 -e r0000000000000400
-> > \ -e r0000000000000800 perf bench sched messaging -g 25 -l 15
-> >
-> > # Running 'sched/messaging' benchmark:
-> > # 20 sender and receiver processes per group
-> > # 25 groups == 1000 processes run
-> >
-> >      Total time: 0.826 [sec]
-> >
-> >  Performance counter stats for 'perf bench sched messaging -g 25 -l
-> > 15':
-> >
-> >         3426710073      cycles                (65.92%)
-> >         1348772808      instructions          #0.39  insn per cycle
-> > (75.44%) 0      L1-icache-load-misses (72.28%)
-> >          201133996      branches              (67.88%)
-> >           44663584      branch-misses         #22.21% of all branches
-> > (35.01%) 248194747      r0000000000000200     (41.94%) --> Integer
-> > load instruction retired 156879950      r0000000000000400
-> > (43.58%) --> Integer store instruction retired 6988678
-> > r0000000000000800     (47.91%) --> Atomic memory operation retired
-> >
-> >        1.931335000 seconds time elapsed
-> >
-> >        1.100415000 seconds user
-> >        3.755176000 seconds sys
-> >
-> >
-> > QEMU:
-> > =========
-> > Perf stat:
-> > =========
-> >
-> > [root@fedora-riscv riscv]# perf stat -e r8000000000000005 -e
-> > r8000000000000007 \ -e r8000000000000006 -e r0000000000020002 -e
-> > r0000000000020004 -e branch-misses \ -e cache-misses -e
-> > dTLB-load-misses -e dTLB-store-misses -e iTLB-load-misses \ -e cycles
-> > -e instructions perf bench sched messaging -g 15 -l 10 \ Running with
-> > 15*40 (== 600) tasks. Time: 6.578
-> >
-> >  Performance counter stats for './hackbench -pipe 15 process':
-> >
-> >              1,794      r8000000000000005      (52.59%) -->
-> > SBI_PMU_FW_SET_TIMER 2,859      r8000000000000007      (60.74%) -->
-> > SBI_PMU_FW_IPI_RECVD 4,205      r8000000000000006      (68.71%) -->
-> > SBI_PMU_FW_IPI_SENT 0      r0000000000020002      (81.69%)
-> >      <not counted>      r0000000000020004      (0.00%)
-> >      <not counted>      branch-misses          (0.00%)
-> >      <not counted>      cache-misses           (0.00%)
-> >          7,878,328      dTLB-load-misses       (15.60%)
-> >            680,270      dTLB-store-misses      (28.45%)
-> >          8,287,931      iTLB-load-misses       (39.24%)
-> >     20,008,506,675      cycles                 (48.60%)
-> >     21,484,427,932      instructions   # 1.07  insn per cycle (56.60%)
-> >
-> >        1.681344735 seconds time elapsed
-> >
-> >        0.614460000 seconds user
-> >        8.313254000 seconds sys
-> >
-> >
-> > Perf record:
-> > ============
-> > [root@fedora-riscv riscv]# perf record -e cycles -e instructions \
-> > -e dTLB-load-misses -e dTLB-store-misses -e iTLB-load-misses -c 10000
-> > \ perf bench sched messaging -g 15 -l 10
-> > # Running 'sched/messaging' benchmark:
-> > # 20 sender and receiver processes per group
-> > # 15 groups == 600 processes run
-> >
-> >      Total time: 1.261 [sec]
-> > [ perf record: Woken up 1 times to write data ]
-> > [ perf record: Captured and wrote 0.101 MB perf.data (845 samples) ]
-> >
-> > [root@fedora-riscv riscv]# perf report
-> > Available samples
-> > 407 cycles
-> >          _ 407 instructions
-> >                     _ 18 dTLB-load-misses
-> >                                _ 2 dTLB-store-misses
-> >                                           _ 11 iTLB-load-misses
-> >                                                      _
-> > [1]
-> > https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/riscv-sbi.adoc
-> > [2]
-> > https://drive.google.com/file/d/171j4jFjIkKdj5LWcExphq4xG_2sihbfd/edit
-> > [3] https://github.com/atishp04/opensbi/tree/pmu_sscofpmf_v2 [4]
-> > https://github.com/atishp04/linux/tree/riscv_pmu_v4 [5]
-> > https://github.com/atishp04/qemu/tree/riscv_pmu_v3 [6]
-> > https://github.com/atishp04/u-boot/tree/hifive_unmatched_dt_pmu [7]
-> > https://sifive.cdn.prismic.io/sifive/de1491e5-077c-461d-9605-e8a0ce57337d_fu740-c000-manual-v1p3.pdf
-> >
-> > Changes from v3->v4:
-> > 1. Do not proceed overflow handler if event doesn't set for sampling.
-> > 2. overflow status register is only read after counters are stopped.
-> > 3. Added the PMU DT node for HiFive Unmatched.
-> >
-> > Changes from v2->v3:
-> > 1. Added interrupt overflow support.
-> > 2. Cleaned up legacy driver initialization.
-> > 3. Supports perf record now.
-> > 4. Added the DT binding and maintainers file.
-> > 5. Changed cpu hotplug notifier to be multi-state.
-> > 6. OpenSBI doesn't disable cycle/instret counter during boot. Update
-> > the perf code to disable all the counter during the boot.
-> >
-> > Changes from v1->v2
-> > 1. Implemented the latest SBI PMU extension specification.
-> > 2. The core platform driver was changed to operate as a library while
-> > only sbi based PMU is built as a driver. The legacy one is just a
-> > fallback if SBI PMU extension is not available.
-> >
-> > Atish Patra (11):
-> > RISC-V: Remove the current perf implementation
-> > RISC-V: Add CSR encodings for all HPMCOUNTERS
-> > RISC-V: Add a perf core library for pmu drivers
-> > RISC-V: Add a simple platform driver for RISC-V legacy perf
-> > RISC-V: Add RISC-V SBI PMU extension definitions
-> > dt-binding: pmu: Add RISC-V PMU DT bindings
-> > RISC-V: Add perf platform driver based on SBI PMU extension
-> > RISC-V: Add interrupt support for perf
-> > Documentation: riscv: Remove the old documentation
-> > riscv: dts: fu740: Add pmu node
-> > MAINTAINERS: Add entry for RISC-V PMU drivers
-> >
-> > .../devicetree/bindings/perf/riscv,pmu.yaml   |  51 ++
-> > Documentation/riscv/pmu.rst                   | 255 ------
-> > MAINTAINERS                                   |  10 +
-> > arch/riscv/Kconfig                            |  13 -
-> > arch/riscv/boot/dts/sifive/fu740-c000.dtsi    |   3 +
-> > arch/riscv/include/asm/csr.h                  |  66 +-
-> > arch/riscv/include/asm/perf_event.h           |  72 --
-> > arch/riscv/include/asm/sbi.h                  |  97 +++
-> > arch/riscv/kernel/Makefile                    |   1 -
-> > arch/riscv/kernel/perf_event.c                | 485 ------------
-> > drivers/perf/Kconfig                          |  25 +
-> > drivers/perf/Makefile                         |   5 +
-> > drivers/perf/riscv_pmu.c                      | 331 ++++++++
-> > drivers/perf/riscv_pmu_legacy.c               | 143 ++++
-> > drivers/perf/riscv_pmu_sbi.c                  | 732 ++++++++++++++++++
-> > include/linux/cpuhotplug.h                    |   1 +
-> > include/linux/perf/riscv_pmu.h                |  69 ++
-> > 17 files changed, 1532 insertions(+), 827 deletions(-)
-> > create mode 100644
-> > Documentation/devicetree/bindings/perf/riscv,pmu.yaml delete mode
-> > 100644 Documentation/riscv/pmu.rst delete mode 100644
-> > arch/riscv/kernel/perf_event.c create mode 100644
-> > drivers/perf/riscv_pmu.c create mode 100644
-> > drivers/perf/riscv_pmu_legacy.c create mode 100644
-> > drivers/perf/riscv_pmu_sbi.c create mode 100644
-> > include/linux/perf/riscv_pmu.h
-> >
-> > --
-> > 2.31.1
-> >
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> It's not great.. Can you share the line on boot with the following
+> prefix: pcpu-alloc [1].
 
+There are no such lines.
+"make mm/percpu.i mm/percpu.s" and inspecting the generated files,
+and vmlinux, proves the code is there. But apparently it's not called.
 
+So there may be no issue on my system?
 
--- 
-Regards,
-Atish
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
