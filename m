@@ -4,65 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD82C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Dec 2021 15:41:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 277C4C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Dec 2021 16:29:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NSxWFT5JWXD3NPg4J9vYVY2cjW7DxaUwlohy442jiTY=; b=pecvm+34tOfdA5
-	UPylpwrpKm2bQcmv44cI/s6RxWOIZE0hoTfnRvioymcSl0CV5BUwVqymfvMPhnvpP5wbeUE1CVqzg
-	qzSkaO4YtiJjKmj5zGQwOpK+L607Znx1kxcUM4X3gobY6rTz7S2jE5n7KJ/slAKCdhFH6dF8PJ3a6
-	jxUphQnX7a7clmDb+qVof2VJooC8fKXBGdvJej3shFrlIbKKTqrKJGffb0WxbN5P8k2LMXRTsa7xs
-	JaJJQh1T4o+SBOe95YW4sG06Z3ePkGGKFe9Hklek9x3iXTZWAhSVQx0rs4hdibtuodfqRXBF1nK6x
-	iMUCMK+vOOoNr+L7cSXw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=XDhnI/+zR5fgJP3fGcbM3B/8shzGK/J0mNy2/mSWo/w=; b=s9xYFVenrNcZw++qPLrSLBjHlY
+	ofSAcwFX1E7xuH6AtZN/Et/RktAxea/M76ukxYqyRO0D4fjbKUNGZgJzP4d8XOeIqKbzI1qUVSsUc
+	YmfvOsgCaRmUaWCN4wHyY4PxOHPXRjf45qcdFcxSKRv4AYsKDY23qF/hxEblNHE1ZdQUGQiK4IBF3
+	/QJvkUMYzRpP5KQE5oxW2zZ7lAJMl4Yl9W+XiJD+6aq5/0rPEokeHYUkD7XHL2JIMbHth9VLs4FAa
+	9dnPnGo5YVG7OvNHbeNNp3tPqqQqciNj2fItmX+6gFgzEzHCO8Z2Mdjeqt2iZhgLE4TtLmf7/lIOM
+	l+a1I12g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mx9vQ-00EjAo-Pu; Tue, 14 Dec 2021 15:41:08 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1mxAg6-00EsJX-S8; Tue, 14 Dec 2021 16:29:22 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mx9vO-00Ej9q-3Y
- for linux-riscv@lists.infradead.org; Tue, 14 Dec 2021 15:41:07 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id C2747B81B07;
- Tue, 14 Dec 2021 15:41:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 230C9C34604;
- Tue, 14 Dec 2021 15:41:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1639496463;
- bh=i8FKSIqV2eS4/ooZi6RLJpb4SBS7G50iXyqn/X4rmJE=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=XYcMg4PyGtpbadSWa/qigudm/9GoS7I0mBQYuYwo41UHhowzQgi1ASsKvCUHGDy2Y
- 8pmW7iAznCKiuGXKXSvYhLF75OMuyZivPxnra1Fn5McTzyaP2zmbzpNW+AnhV/KdnZ
- XD0K0BVDRz2u5+hBueF7QjCahrYoBLPhz1EdtylFiAXp9FSZR4HvonxgmeQ4xVeQyd
- krXOVIcn/kO+MnsLdE6yFp96sD+9zLeiwkGjv81O6DZFYwclHAuA4MFjBs+wxDYt5p
- yc4xPu7GwmkLokjyC3/J/8CTxypeP0YhU4yLvvRg49/cwTQYaSo854/Yayb0unQjvW
- a55fXoSP9NX/g==
-Date: Tue, 14 Dec 2021 15:40:57 +0000
-From: Will Deacon <will@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Boqun Feng <boqun.feng@gmail.com>, Ingo Molnar <mingo@kernel.org>,
- Waiman Long <longman@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
- linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
- Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmerdabbelt@google.com>,
- Anup Patel <anup@brainfault.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Christoph =?iso-8859-1?Q?M=FCllner?= <christophm30@gmail.com>,
- Stafford Horne <shorne@gmail.com>
-Subject: Re: [PATCH] locking: Generic ticket lock
-Message-ID: <20211214154057.GB15416@willie-the-truck>
-References: <YXFli3mzMishRpEq@hirez.programming.kicks-ass.net>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <YXFli3mzMishRpEq@hirez.programming.kicks-ass.net>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+ id 1mxAg3-00EsH7-DR
+ for linux-riscv@lists.infradead.org; Tue, 14 Dec 2021 16:29:21 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id
+ r34-20020a17090a43a500b001b0f0837ce8so1457535pjg.2
+ for <linux-riscv@lists.infradead.org>; Tue, 14 Dec 2021 08:29:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=39DaSKbHGHl7/uZlQw9m3Qmqoy9t3ZKBAe/0qF5AL7A=;
+ b=J+SmqJeel8TNyygsI3wZ4ScOB2rLowFvDuzh7kQDx8iGeWQclt8jYJ8jZNIsLMTiH4
+ 2g+A1XFg1ewp5QmwSL+7rMhxOFKxW7ULYd/G38rooC1rMQ8sDwsEB60pyikT90T+RGyT
+ A00xWoPEJfKfLnjASoBwzvG4qxF/Qx4SSryBpZFioxJWFwEi6KNfjx2K8UBcfPiq79x4
+ jiSTaX1hfweF75J/xShF8o0erIGuMm7WxQkDXVpRgNbq+NpZhXXeS7oouFBKzsMZLxgI
+ lqJdfq9vnx8LJNivjHKEUEAADup5do3kNQIYLDuVns+6KP9tngLYZ0ZfmcO7rz5XWLXA
+ ES0A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=39DaSKbHGHl7/uZlQw9m3Qmqoy9t3ZKBAe/0qF5AL7A=;
+ b=AbteubzzY9e2DAQK4gr4tsISFb0xUEaKqhzv/i3sNeg3A4EwuPhrsqndXy5oGzrU35
+ 3NLbKUttLC4QhzetUvdEvfNixwIZeZVvqp5AH+3ZNO/P9H+BaNHMjbLRWt6NIr+O2MQU
+ dT8AlmkGaScoj2sAaNsuYs74b7ZNB2risXtbYZc74UIRkdya8sIfIWnO9I0N+qs6nur/
+ uXUe8jK/+BYhLu4D9aa1xx30alFHtPVIrpGrs8NLhW/fjCEQEfZCWIDyxqYK+M4+PZOH
+ jfNfUuIHh0QoqbgJ7JYP8skIv4puFRJ+6P1EDLsJ6UB53pgmJShT3t4sOgEaoCccmGG8
+ qLkA==
+X-Gm-Message-State: AOAM531PTNINCRNmK25fILlOZqzCtkUU7iO23NOUuJuEMh8sEM3M5X1v
+ qdK+AMMezv8y8Zr+ToB8g3og1A==
+X-Google-Smtp-Source: ABdhPJyY8ybr7iy7kIyHObng97M3Jkf17suzvWAEqcJ4Iq5MWhD+8BDF5JHxA8iMCHmYtm3YS3zvPQ==
+X-Received: by 2002:a17:902:e890:b0:148:a2e7:fb3c with SMTP id
+ w16-20020a170902e89000b00148a2e7fb3cmr63676plg.125.1639499358143; 
+ Tue, 14 Dec 2021 08:29:18 -0800 (PST)
+Received: from localhost ([12.163.77.120])
+ by smtp.gmail.com with ESMTPSA id b2sm283472pfv.198.2021.12.14.08.29.17
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 14 Dec 2021 08:29:17 -0800 (PST)
+Date: Tue, 14 Dec 2021 08:29:17 -0800 (PST)
+X-Google-Original-Date: Mon, 13 Dec 2021 18:17:35 PST (-0800)
+Subject: Re: [PATCH v9 01/17] riscv: Separate patch for cflags and aflags
+In-Reply-To: <f76b0312113bf960e114724cb578a060b3f101ab.1636362169.git.greentime.hu@sifive.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: greentime.hu@sifive.com
+Message-ID: <mhng-24dd1554-4004-4132-abde-6142a4aa19d3@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211214_074106_317879_6334863E 
-X-CRM114-Status: GOOD (  18.45  )
+X-CRM114-CacheID: sfid-20211214_082919_557583_76EAD1C4 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,51 +84,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 21, 2021 at 03:05:15PM +0200, Peter Zijlstra wrote:
-> 
-> There's currently a number of architectures that want/have graduated
-> from test-and-set locks and are looking at qspinlock.
-> 
-> *HOWEVER* qspinlock is very complicated and requires a lot of an
-> architecture to actually work correctly. Specifically it requires
-> forward progress between a fair number of atomic primitives, including
-> an xchg16 operation, which I've seen a fair number of fundamentally
-> broken implementations of in the tree (specifically for qspinlock no
-> less).
-> 
-> The benefit of qspinlock over ticket lock is also non-obvious, esp.
-> at low contention (the vast majority of cases in the kernel), and it
-> takes a fairly large number of CPUs (typically also NUMA) to make
-> qspinlock beat ticket locks.
-> 
-> Esp. things like ARM64's WFE can move the balance a lot in favour of
-> simpler locks by reducing the cacheline pressure due to waiters (see
-> their smp_cond_load_acquire() implementation for details).
-> 
-> Unless you've audited qspinlock for your architecture and found it
-> sound *and* can show actual benefit, simpler is better.
-> 
-> Therefore provide ticket locks, which depend on a single atomic
-> operation (fetch_add) while still providing fairness.
-> 
-> Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+On Tue, 09 Nov 2021 01:48:13 PST (-0800), greentime.hu@sifive.com wrote:
+> From: Guo Ren <ren_guo@c-sky.com>
+>
+> Use "subst fd" in Makefile is a hack way and it's not convenient
+> to add new ISA feature. Just separate them into riscv-march-cflags
+> and riscv-march-aflags.
+>
+> Signed-off-by: Guo Ren <ren_guo@c-sky.com>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 > ---
->  include/asm-generic/qspinlock.h         |   30 +++++++++
->  include/asm-generic/ticket_lock_types.h |   11 +++
->  include/asm-generic/ticket_lock.h       |   97 ++++++++++++++++++++++++++++++++
->  3 files changed, 138 insertions(+)
+>  arch/riscv/Makefile | 18 ++++++++++++------
+>  1 file changed, 12 insertions(+), 6 deletions(-)
+>
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index 0eb4568fbd29..37de70df4fae 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -48,12 +48,18 @@ endif
+>  endif
+>
+>  # ISA string setting
+> -riscv-march-$(CONFIG_ARCH_RV32I)	:= rv32ima
+> -riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
+> -riscv-march-$(CONFIG_FPU)		:= $(riscv-march-y)fd
+> -riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
+> -KBUILD_CFLAGS += -march=$(subst fd,,$(riscv-march-y))
+> -KBUILD_AFLAGS += -march=$(riscv-march-y)
+> +riscv-march-cflags-$(CONFIG_ARCH_RV32I)		:= rv32ima
+> +riscv-march-cflags-$(CONFIG_ARCH_RV64I)		:= rv64ima
+> +riscv-march-$(CONFIG_FPU)			:= $(riscv-march-y)fd
+> +riscv-march-cflags-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-cflags-y)c
+> +
+> +riscv-march-aflags-$(CONFIG_ARCH_RV32I)		:= rv32ima
+> +riscv-march-aflags-$(CONFIG_ARCH_RV64I)		:= rv64ima
+> +riscv-march-aflags-$(CONFIG_FPU)		:= $(riscv-march-aflags-y)fd
+> +riscv-march-aflags-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-aflags-y)c
+> +
+> +KBUILD_CFLAGS += -march=$(riscv-march-cflags-y)
+> +KBUILD_AFLAGS += -march=$(riscv-march-aflags-y)
+>
+>  KBUILD_CFLAGS += -mno-save-restore
+>  KBUILD_CFLAGS += -DCONFIG_PAGE_OFFSET=$(CONFIG_PAGE_OFFSET)
 
-Huh. I looked quite closely at this a while back but seems like I forgot to
-actually reply here. So, given that it doesn't seem to be in linux-next yet:
-
-Acked-by: Will Deacon <will@kernel.org>
-
-Will
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
 
 _______________________________________________
 linux-riscv mailing list
