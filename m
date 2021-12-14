@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F08F6C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Dec 2021 13:27:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD82C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Dec 2021 15:41:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oWqu00P1hxDYnI6fiTgpAY+9HVvxj9AGZTYLNlwV3Bo=; b=Ujb88XpKeyh/0L
-	1oktYfweQyLAypIMJfSo5dF+iWXuwEKuMS7hbTMBPCCGeeL2oU7fy4zBlpJyg0azXXH0MCozAqvUT
-	uVcrL9S9tbLkFU4FYp1D9YLx7sFb7oYZSo4ez9ITxg0aZy5NHeRnVhuu4/Mf4alqHlKS1pXMcqJz1
-	lVm7KiMwBQhe9rs5yqHzuoyGFrDb1O/d0SUEIKmhvAZNaC4jnJEA2w/x/mDGYcSgJDDGfTbe4FQkH
-	O9RPVJkVjxZX6IWDAgpmUHboE3AZJFbaxeIsfQIclVhB2GQV4r6YCs/LGDymgqoD3u7pmiYsOfyJt
-	rVQes3zuHvITeJr++NHQ==;
+	List-Owner; bh=NSxWFT5JWXD3NPg4J9vYVY2cjW7DxaUwlohy442jiTY=; b=pecvm+34tOfdA5
+	UPylpwrpKm2bQcmv44cI/s6RxWOIZE0hoTfnRvioymcSl0CV5BUwVqymfvMPhnvpP5wbeUE1CVqzg
+	qzSkaO4YtiJjKmj5zGQwOpK+L607Znx1kxcUM4X3gobY6rTz7S2jE5n7KJ/slAKCdhFH6dF8PJ3a6
+	jxUphQnX7a7clmDb+qVof2VJooC8fKXBGdvJej3shFrlIbKKTqrKJGffb0WxbN5P8k2LMXRTsa7xs
+	JaJJQh1T4o+SBOe95YW4sG06Z3ePkGGKFe9Hklek9x3iXTZWAhSVQx0rs4hdibtuodfqRXBF1nK6x
+	iMUCMK+vOOoNr+L7cSXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mx7pf-00E9mp-2D; Tue, 14 Dec 2021 13:27:03 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1mx9vQ-00EjAo-Pu; Tue, 14 Dec 2021 15:41:08 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mx7pO-00E9eI-O2; Tue, 14 Dec 2021 13:26:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=vxz07dSiazO9HmdV8Hglnktlulvl/wG755OUImbhI/U=; b=lWWkVB+rYo29XpGER/PoG08562
- HF5wzy8jTsjBDCNLiaqInGFaWWo3fQy0lKFhRFcjOztHxgwMh9JUn6MHnxZP+61FsVudowPyU3o/D
- ohwomxmnfCsluAmf59VCPxf/3SqAmXT3ZWsmGRfG90M6HUzzTP2JyrSEUnHPc6apyRap08PaqeqTu
- 4nOYVeW3vzt0ogqBoNBJ+521C+dqqubObvDi8G7aYjoElFf9JMcpADeOU+9G/xeB+0QjwlLH3O2PJ
- BT/jCMse9CFuHUzQ7nHzGPKLZvsO41jDGzp0SArqTo1ZJm4OI2644VDUErzt4LEZl8RoUNanoiVBc
- 8N8QU8XA==;
-Received: from [179.97.37.151] (helo=quaco.ghostprotocols.net)
- by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mx7pM-00Djua-AD; Tue, 14 Dec 2021 13:26:45 +0000
-Received: by quaco.ghostprotocols.net (Postfix, from userid 1000)
- id 91DEF405D8; Tue, 14 Dec 2021 10:26:40 -0300 (-03)
-Date: Tue, 14 Dec 2021 10:26:40 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Athira Rajeev <atrajeev@linux.vnet.ibm.com>
-Cc: German Gomez <german.gomez@arm.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-perf-users@vger.kernel.org,
- John Garry <john.garry@huawei.com>, Will Deacon <will@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>,
- Leo Yan <leo.yan@linaro.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 0/3] Support register names of all architectures
-Message-ID: <YbibkI8NE81Qo5q6@kernel.org>
-References: <20211207180653.1147374-1-german.gomez@arm.com>
- <EAC4AC1D-A305-42E2-B22F-8B64B0968841@linux.vnet.ibm.com>
+ id 1mx9vO-00Ej9q-3Y
+ for linux-riscv@lists.infradead.org; Tue, 14 Dec 2021 15:41:07 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id C2747B81B07;
+ Tue, 14 Dec 2021 15:41:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 230C9C34604;
+ Tue, 14 Dec 2021 15:41:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1639496463;
+ bh=i8FKSIqV2eS4/ooZi6RLJpb4SBS7G50iXyqn/X4rmJE=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=XYcMg4PyGtpbadSWa/qigudm/9GoS7I0mBQYuYwo41UHhowzQgi1ASsKvCUHGDy2Y
+ 8pmW7iAznCKiuGXKXSvYhLF75OMuyZivPxnra1Fn5McTzyaP2zmbzpNW+AnhV/KdnZ
+ XD0K0BVDRz2u5+hBueF7QjCahrYoBLPhz1EdtylFiAXp9FSZR4HvonxgmeQ4xVeQyd
+ krXOVIcn/kO+MnsLdE6yFp96sD+9zLeiwkGjv81O6DZFYwclHAuA4MFjBs+wxDYt5p
+ yc4xPu7GwmkLokjyC3/J/8CTxypeP0YhU4yLvvRg49/cwTQYaSo854/Yayb0unQjvW
+ a55fXoSP9NX/g==
+Date: Tue, 14 Dec 2021 15:40:57 +0000
+From: Will Deacon <will@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Boqun Feng <boqun.feng@gmail.com>, Ingo Molnar <mingo@kernel.org>,
+ Waiman Long <longman@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+ linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmerdabbelt@google.com>,
+ Anup Patel <anup@brainfault.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Christoph =?iso-8859-1?Q?M=FCllner?= <christophm30@gmail.com>,
+ Stafford Horne <shorne@gmail.com>
+Subject: Re: [PATCH] locking: Generic ticket lock
+Message-ID: <20211214154057.GB15416@willie-the-truck>
+References: <YXFli3mzMishRpEq@hirez.programming.kicks-ass.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <EAC4AC1D-A305-42E2-B22F-8B64B0968841@linux.vnet.ibm.com>
-X-Url: http://acmel.wordpress.com
+In-Reply-To: <YXFli3mzMishRpEq@hirez.programming.kicks-ass.net>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20211214_074106_317879_6334863E 
+X-CRM114-Status: GOOD (  18.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,80 +79,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Em Tue, Dec 14, 2021 at 02:20:26PM +0530, Athira Rajeev escreveu:
+On Thu, Oct 21, 2021 at 03:05:15PM +0200, Peter Zijlstra wrote:
 > 
+> There's currently a number of architectures that want/have graduated
+> from test-and-set locks and are looking at qspinlock.
 > 
-> > On 07-Dec-2021, at 11:36 PM, German Gomez <german.gomez@arm.com> wrote:
-> > 
-> > The following changeset applies some corrections to the way system
-> > registers are processed and presented when reading perf.data files using
-> > the various perf tools.
-> > 
-> > The commit message from [3/3] shows how register names aren't correctly
-> > presented when performing x-arch analysis of perf.data files (recording
-> > in one arch, then reading the file from a different arch).
-> > 
-> >  - [PATCH 1/3] Fixes a potential out-of-bounds access when reading the
-> >    values of the registers in the perf.data file.
-> >  - [PATCH 2/3] Fixes an issue of ARM and ARM64 registers having the
-> >    same enum name.
-> >  - [PATCH 3/3] Refactors the function "perf_reg_name" declared in the
-> >   "tools/perf/util/perf_regs.h" header, in order to support every arch.
-> > 
-> > Thanks,
-> > German
+> *HOWEVER* qspinlock is very complicated and requires a lot of an
+> architecture to actually work correctly. Specifically it requires
+> forward progress between a fair number of atomic primitives, including
+> an xchg16 operation, which I've seen a fair number of fundamentally
+> broken implementations of in the tree (specifically for qspinlock no
+> less).
 > 
-> Looks good to me. Tested this patchset in powerpc by capturing regs in powerpc and doing
-> perf report to read the data from x86.
+> The benefit of qspinlock over ticket lock is also non-obvious, esp.
+> at low contention (the vast majority of cases in the kernel), and it
+> takes a fairly large number of CPUs (typically also NUMA) to make
+> qspinlock beat ticket locks.
 > 
-> Reviewed-and-Tested-by: Athira Rajeev <atrajeev@linux.vnet.ibm.com>
+> Esp. things like ARM64's WFE can move the balance a lot in favour of
+> simpler locks by reducing the cacheline pressure due to waiters (see
+> their smp_cond_load_acquire() implementation for details).
+> 
+> Unless you've audited qspinlock for your architecture and found it
+> sound *and* can show actual benefit, simpler is better.
+> 
+> Therefore provide ticket locks, which depend on a single atomic
+> operation (fetch_add) while still providing fairness.
+> 
+> Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+> ---
+>  include/asm-generic/qspinlock.h         |   30 +++++++++
+>  include/asm-generic/ticket_lock_types.h |   11 +++
+>  include/asm-generic/ticket_lock.h       |   97 ++++++++++++++++++++++++++++++++
+>  3 files changed, 138 insertions(+)
 
-Thanks, added to the commit log message.
+Huh. I looked quite closely at this a while back but seems like I forgot to
+actually reply here. So, given that it doesn't seem to be in linux-next yet:
 
-- Arnaldo
+Acked-by: Will Deacon <will@kernel.org>
 
-> > --
-> > Changes since v1
-> > 
-> >  - Added "Reported-by" tags.
-> >  - Removed [PATCH 2/4] because it's not needed (suggested by Athira
-> >    Rajeev).
-> >  - Removed [PATCH 3/4] which created additional header files with the
-> >    register names of every arch.
-> >  - Introduced [PATCH 2/3] to deal with ARM and ARM64 registers having the
-> >    same enum name across "/tools/perf/".
-> >  - Reworked the refactor of "perf_reg_name" function (now implemented in
-> >    perf_regs.c, rather than in the header file) in [PATCH 3/3].
-> > 
-> > German Gomez (3):
-> >  perf tools: Prevent out-of-bounds access to registers
-> >  perf tools: Rename perf_event_arm_regs for ARM64 registers
-> >  perf tools: Support register names from all archs
-> > 
-> > tools/perf/arch/arm/include/perf_regs.h       |  42 --
-> > tools/perf/arch/arm64/include/perf_regs.h     |  78 +-
-> > tools/perf/arch/csky/include/perf_regs.h      |  82 ---
-> > tools/perf/arch/mips/include/perf_regs.h      |  69 --
-> > tools/perf/arch/powerpc/include/perf_regs.h   |  66 --
-> > tools/perf/arch/riscv/include/perf_regs.h     |  74 --
-> > tools/perf/arch/s390/include/perf_regs.h      |  78 --
-> > tools/perf/arch/x86/include/perf_regs.h       |  82 ---
-> > tools/perf/builtin-script.c                   |  18 +-
-> > tools/perf/util/event.h                       |   5 +-
-> > tools/perf/util/libunwind/arm64.c             |   2 +
-> > tools/perf/util/perf_regs.c                   | 671 +++++++++++++++++-
-> > tools/perf/util/perf_regs.h                   |  10 +-
-> > .../scripting-engines/trace-event-python.c    |  10 +-
-> > tools/perf/util/session.c                     |  25 +-
-> > 15 files changed, 709 insertions(+), 603 deletions(-)
-> > 
-> > -- 
-> > 2.25.1
-> > 
-
--- 
-
-- Arnaldo
+Will
 
 _______________________________________________
 linux-riscv mailing list
