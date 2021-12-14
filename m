@@ -4,70 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46A2CC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Dec 2021 21:30:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BCE6C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Dec 2021 22:17:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iPo95ZWW/QFW4FPnnZByiEvpc+/qIB6YXdh8DRgqtT0=; b=LWFAmFRb2GLQLv
-	M0tU0TXzvaP9Zc0zgUqDXN9yU2MxmiYkvF9DBbXVr+ZKWwugn9di9yr3OCG46FYKR24uF3BzF67UR
-	/ubvQ+fGu8QYUPekuLUFDoOm1Ksd1xozLUPmsyAn4XLx7xigkuEOP/UklpP+2r+JJvjl/SnNMKIEy
-	rKjxxixsjBHlmR44Y8lpbp5Q5Rwjbqg1r7RWXLRlS+7khXi4M6lrT3jpAl7ek8dmD64PrQ+xCbpVK
-	4RcOOy/hDEmAHkWm9wniqaCr+3p7c5DnV+YlkjCSoBSnEg9i6jzSSSt7rSXycI1UzB2LkDos0MFJ1
-	kkyFIx0dlLLSf1S1gaXA==;
+	List-Owner; bh=HIxwGjWC6bEvmfNKPXyvvFCpb1LgauOQJYLWugUOJ3Q=; b=LL4XRhTL70pvF9
+	npPBoM6DZtxmdfjd7xAYc/fvVTyVog10rMc4nZtKZ4WmV1L3SYVarLcp8SqRioq2FC2Y/upefPt1j
+	h+uItOM7cXHXdUpZNFbPRCDYasWyqHB9o0OF9h30ovtaOGCryzWptm08eJCpNxBpBAzctKnUqc8ZM
+	bWhA3HVKypbg84H3SUmnqDFlsXSbldK648HBHVVnzCwgenTG8JK9oZfuotrdIsBHddSG+Qg3QAy7L
+	FD3jdu5qGX0V4pPHY/n4SPPh0mLcfG/nbkZ3TJq2mt1vO5M9Eoh3Ns4NnB5O++Nr8Z+4SaYkfcj7k
+	cIXiAJ0PB+3Yads5SjIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mxFNN-00FqIX-F4; Tue, 14 Dec 2021 21:30:21 +0000
-Received: from mout.kundenserver.de ([212.227.126.133])
+	id 1mxG6f-00FvH0-32; Tue, 14 Dec 2021 22:17:09 +0000
+Received: from mail-oi1-f174.google.com ([209.85.167.174])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mxFN9-00FqGK-Gq; Tue, 14 Dec 2021 21:30:09 +0000
-Received: from mail-wr1-f46.google.com ([209.85.221.46]) by
- mrelayeu.kundenserver.de (mreue009 [213.165.67.97]) with ESMTPSA (Nemesis) id
- 1M8hMn-1msafU0JeL-004j4Q; Tue, 14 Dec 2021 22:30:05 +0100
-Received: by mail-wr1-f46.google.com with SMTP id e5so1278950wrc.5;
- Tue, 14 Dec 2021 13:30:04 -0800 (PST)
-X-Gm-Message-State: AOAM530Pcd2VvmNiPZwAdsS0tvb/shRFVPYrZW9vycLn/WfGCoesVm3o
- GL0JOsf+6NCJ8chs2wcR+rZiLwBoHI/Jo2Wgj5A=
-X-Google-Smtp-Source: ABdhPJzcegCK9YMz5uc5MEIV8QsJtofipyRKfw/xnhV/DeCAcLktjJYubEtld7Wf6tdXnIwtumoe9/2/TOT0iKczb9s=
-X-Received: by 2002:a5d:530e:: with SMTP id e14mr1617828wrv.12.1639517404563; 
- Tue, 14 Dec 2021 13:30:04 -0800 (PST)
+ id 1mxG6K-00Fv7K-O4; Tue, 14 Dec 2021 22:16:50 +0000
+Received: by mail-oi1-f174.google.com with SMTP id o4so29110740oia.10;
+ Tue, 14 Dec 2021 14:16:47 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=/P7WdlopaK3BJckMeyOdCZ27ARBVlWa5L1sm5URTLic=;
+ b=aLSWJMLTTCbBK/QDLJyT1ChbWBTZCRO4OPUy6XW1mVALrVaiskGv+nmtkj0lKYCXhQ
+ +0FVoU9F+EgTPvX3QBQqwqWRer4glLaqVX8b4yzTAy0vDlmn+fwr967tOeDcp+PzN0/S
+ eYfuX/Op0Ucnz5s85EQNJsddhneJlHHqUR6CAXj6ZVuRvpfCP/yHCb6ZABWi5JNorQTV
+ HqnmfoefS2SuoyWg/16BpTCEty880uCZesay5lq6Ax9o2HaQGN7i//N82dKGfIVXfcpq
+ RiKm984Gl2X9fNXUgwi6ucMnFZES9LVPlGL3OT7WWLUMRGVs81cD5f7EC/KzbSJ+u373
+ cFMg==
+X-Gm-Message-State: AOAM531UhM5x0EJwWbxHldLUr06bQwKq2XMkLzsuSFgrnud0QkAKi+jQ
+ tJoFPblSp0/f/U0eTf9Tvw==
+X-Google-Smtp-Source: ABdhPJwW4S9aXKgQmc4ylqmSsIukwflmXezSDLsLGo9bKW6HtV2kspuhgVhb1ZvRlT55hVXDVSM3Kw==
+X-Received: by 2002:aca:1b15:: with SMTP id b21mr35225195oib.64.1639520206668; 
+ Tue, 14 Dec 2021 14:16:46 -0800 (PST)
+Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
+ [66.90.148.213])
+ by smtp.gmail.com with ESMTPSA id g7sm40352oon.27.2021.12.14.14.16.45
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 14 Dec 2021 14:16:45 -0800 (PST)
+Received: (nullmailer pid 4053556 invoked by uid 1000);
+ Tue, 14 Dec 2021 22:16:44 -0000
+Date: Tue, 14 Dec 2021 16:16:44 -0600
+From: Rob Herring <robh@kernel.org>
+To: Rob Herring <robh@kernel.org>
+Cc: Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Jingoo Han <jingoohan1@gmail.com>,
+ devicetree@vger.kernel.org, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>, linux-pci@vger.kernel.org,
+ Bjorn Helgaas <bhelgaas@google.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
+ Binghui Wang <wangbinghui@hisilicon.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Greentime Hu <greentime.hu@sifive.com>, linux-riscv@lists.infradead.org,
+ Xiaowei Song <songxiaowei@hisilicon.com>
+Subject: Re: [PATCH] dt-bindings: PCI: designware: Fix
+ 'unevaluatedProperties' warnings
+Message-ID: <YbkXzPqy8gNwKDWR@robh.at.kernel.org>
+References: <20211206194426.2470080-1-robh@kernel.org>
 MIME-Version: 1.0
-References: <20211128200647.147058-1-kernel@esmil.dk>
-In-Reply-To: <20211128200647.147058-1-kernel@esmil.dk>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Tue, 14 Dec 2021 22:29:48 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a1NvT=f2vOvgk4HdBc48A+63B_0SBQ5AVOO6cu0MiMFiQ@mail.gmail.com>
-Message-ID: <CAK8P3a1NvT=f2vOvgk4HdBc48A+63B_0SBQ5AVOO6cu0MiMFiQ@mail.gmail.com>
-Subject: Re: [GIT PULL] Basic StarFive JH7100 RISC-V SoC support for 5.17
-To: Emil Renner Berthing <kernel@esmil.dk>
-Cc: SoC Team <soc@kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Michael Zhu <michael.zhu@starfivetech.com>, 
- Fu Wei <tekkamanninja@gmail.com>, Arnd Bergmann <arnd@arndb.de>
-X-Provags-ID: V03:K1:F8T2dN1rLs1dPUgJvLWaVnxRujoQzP3iNrj3pJVIYPE6uQPBjW+
- GuNqnhJYTgldB0xSJ9mgOhzL80vgGLG1vh1bdqkF8kX6wNehsijPTgATTiZMoyueqEwYSzd
- pMjQIywsvApJF6t8ICmdY+PmFmnJoLcBQtk2lmlgqJJOcYFj5TLgpugs+vGiZgDTHHax5da
- xpQqh67BS4067IUdLoFYQ==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:hP8CRkaRY2M=:iWfbZV+vez1usDs2CY8V7G
- LL3wQeuc+lah+WyN4mWH+Zaixtxzxq8bttc2PeVxCDz4OueRJldVI+5+3o0pOpUpzrPpDVOR0
- 9n5vL2A+IDNq+vMd+K83yqwYr6YzT4u9DFms40GkUsk8bNoBL7eGWqAPies0cmswUdmE4L8S4
- QraR2By0cPhDVaetlt7TfMm8PFwxJQ4L+nsz4m0kyqsjsIV2BXtEvL61NoxRILVPEqCINS0QL
- beIm/cRghvrkMO4YQgcGdVPEZPpX64zaBaU1ACKS/EsrkX8LNHe0pc6Vcv4D4h6z/CY16gTNW
- FwwfiQZJHdQ9II+6kyY7Zy7CueQ9GsfZNb3lPMjG9F9cmQsYX3LlgNYBHHlYbX8+0yn1/+gYK
- o82cxvdW0BLcxsKoNKAUrrM/Y0IU34B9VKgEMlnpNNqBuREb3iiK++EBQJNaw1NHRAnJJewGx
- xyO3jOv0NGe2+Y1Mi2UKkgfExsAs4aUcvgQQwPIup6tkpmbGDrtn1O4ewmkI0InXyQZvyGcyY
- 54ZBzc3JPGtDibQZQKFD0nP3a/9o4tAsGK25vX1tRfp/k34BwBNagCZ8CXQQ73icwwwELt2rL
- U/VXPOa0I5h3KjkXu0olnMSMX6JHa9jPgbKue5UXfw0P+rTCWgXfXr/Hb6HY/4Qvndu/Zs5NY
- v2D6hUJlz3prX1eoOAOOXrMkOcxOZNuueFgqZYXJkoxon3oW8jbYQM/kJME2n/u30BHzDUeWS
- ItKH+5FpN8EGcdKHkjrShBbcpj5hahevVqbcaQkBc/YLcsZUw1QTDexOn5UCIBzc5rPZBV7bM
- PMi7kn9+0JfaImyurqgk4VqhM8bLXwzZFhOF1Hq7SYdhejif6E=
+Content-Disposition: inline
+In-Reply-To: <20211206194426.2470080-1-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211214_133007_884850_E97909E9 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20211214_141648_817399_7A72A389 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,32 +89,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 28, 2021 at 9:06 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
->
-> The following changes since commit fa55b7dcdc43c1aa1ba12bca9d2dd4318c2a0dbf:
->
->   Linux 5.16-rc1 (2021-11-14 13:56:52 -0800)
->
-> are available in the Git repository at:
->
->   https://github.com/esmil/linux.git tags/for-soc
->
-> for you to fetch changes up to 398d6e139782d1ce2c9822beb8effba0c9c51cc4:
->
->   RISC-V: Add BeagleV Starlight Beta device tree (2021-11-28 20:07:09 +0100)
->
+On Mon, 06 Dec 2021 13:44:25 -0600, Rob Herring wrote:
+> With 'unevaluatedProperties' support implemented, there's a number of
+> warnings from the Designware PCIe based bindings:
+> 
+> Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.example.dt.yaml: pcie@1ffc000: Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'device_type', 'bus-range', 'ranges', '#interrupt-cells', 'interrupt-map-mask', 'interrupt-map' were unexpected)
+> Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.example.dt.yaml: pcie@1ffc000: Unevaluated properties are not allowed ('clock-names' was unexpected)
+> Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.example.dt.yaml: pcie@f4000000: Unevaluated properties are not allowed ('bus-range', '#address-cells', '#size-cells', 'device_type', 'ranges', 'num-lanes', '#interrupt-cells', 'interrupts', 'interrupt-names', 'interrupt-map-mask', 'interrupt-map', 'clocks', 'clock-names' were unexpected)
+> Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.example.dt.yaml: pcie@f4000000: Unevaluated properties are not allowed ('clock-names' was unexpected)
+> Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.example.dt.yaml: pcie@f5000000: Unevaluated properties are not allowed ('bus-range', '#address-cells', '#size-cells', 'device_type', 'phys', 'ranges', 'num-lanes', '#interrupt-cells', 'interrupts', 'interrupt-names', 'interrupt-map-mask', 'interrupt-map', 'reset-gpios', 'pcie@0,0' were unexpected)
+> Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.example.dt.yaml: pcie@f5000000: Unevaluated properties are not allowed ('phys', 'hisilicon,clken-gpios' were unexpected)
+> Documentation/devicetree/bindings/pci/intel-gw-pcie.example.dt.yaml: pcie@d0e00000: Unevaluated properties are not allowed ('device_type', '#address-cells', '#size-cells', 'linux,pci-domain', 'bus-range', '#interrupt-cells', 'interrupt-map-mask', 'interrupt-map' were unexpected)
+> Documentation/devicetree/bindings/pci/intel-gw-pcie.example.dt.yaml: pcie@d0e00000: Unevaluated properties are not allowed ('resets', 'phys', 'phy-names', 'reset-assert-ms' were unexpected)
+> Documentation/devicetree/bindings/pci/rockchip-dw-pcie.example.dt.yaml: pcie@fe280000: Unevaluated properties are not allowed ('clock-names', 'msi-map', 'phys', 'phy-names', 'power-domains', 'resets', 'reset-names' were unexpected)
+> Documentation/devicetree/bindings/pci/samsung,exynos-pcie.example.dt.yaml: pcie@15700000: Unevaluated properties are not allowed ('#address-cells', '#size-cells', '#interrupt-cells', 'device_type', 'bus-range', 'ranges', 'interrupt-map-mask', 'interrupt-map' were unexpected)
+> Documentation/devicetree/bindings/pci/samsung,exynos-pcie.example.dt.yaml: pcie@15700000: Unevaluated properties are not allowed ('clock-names', 'phys', 'vdd10-supply', 'vdd18-supply' were unexpected)
+> Documentation/devicetree/bindings/pci/sifive,fu740-pcie.example.dt.yaml: pcie@e00000000: Unevaluated properties are not allowed ('#address-cells', '#size-cells', '#interrupt-cells', 'device_type', 'dma-coherent', 'bus-range', 'ranges', 'interrupts', 'interrupt-parent', 'interrupt-map-mask', 'interrupt-map', 'clock-names', 'clocks' were unexpected)
+> Documentation/devicetree/bindings/pci/sifive,fu740-pcie.example.dt.yaml: pcie@e00000000: Unevaluated properties are not allowed ('dma-coherent', 'clock-names', 'resets', 'pwren-gpios' were unexpected)
+> Documentation/devicetree/bindings/pci/socionext,uniphier-pcie-ep.example.dt.yaml: pcie-ep@66000000: Unevaluated properties are not allowed ('clock-names', 'clocks', 'reset-names', 'resets', 'phy-names', 'phys' were unexpected)
+> Documentation/devicetree/bindings/pci/toshiba,visconti-pcie.example.dt.yaml: pcie@28400000: Unevaluated properties are not allowed ('clock-names' was unexpected)
+> Documentation/devicetree/bindings/pci/toshiba,visconti-pcie.example.dt.yaml: pcie@28400000: Unevaluated properties are not allowed ('device_type', 'bus-range', 'num-viewport', '#address-cells', '#size-cells', '#interrupt-cells', 'ranges', 'interrupt-names', 'interrupt-map-mask', 'interrupt-map', 'max-link-speed' were unexpected)
+> 
+> The main problem is that snps,dw-pcie.yaml and snps,dw-pcie-ep.yaml
+> shouldn't set 'unevaluatedProperties: false'. Otherwise, bindings that
+> reference them cannot add additional properties. With that addressed,
+> there's a handful of other undocumented properties to add.
+> 
+> Cc: Xiaowei Song <songxiaowei@hisilicon.com>
+> Cc: Binghui Wang <wangbinghui@hisilicon.com>
+> Cc: Bjorn Helgaas <bhelgaas@google.com>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Greentime Hu <greentime.hu@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Jingoo Han <jingoohan1@gmail.com>
+> Cc: Gustavo Pimentel <gustavo.pimentel@synopsys.com>
+> Cc: linux-pci@vger.kernel.org
+> Cc: linux-riscv@lists.infradead.org
+> Signed-off-by: Rob Herring <robh@kernel.org>
+> ---
+>  .../bindings/pci/hisilicon,kirin-pcie.yaml          | 13 +++++++++++++
+>  .../devicetree/bindings/pci/sifive,fu740-pcie.yaml  |  4 ++--
+>  .../devicetree/bindings/pci/snps,dw-pcie-ep.yaml    |  2 +-
+>  .../devicetree/bindings/pci/snps,dw-pcie.yaml       |  2 +-
+>  .../bindings/pci/socionext,uniphier-pcie-ep.yaml    |  2 +-
+>  5 files changed, 18 insertions(+), 5 deletions(-)
+> 
 
-Hi Emil,
-
-I just got through my backlog of pull request and got to yours. All of
-the contents look
-fine but I noticed that there is no tag description. Please sign the
-tag with a gpg
-key and add a description that explains the contents of the branch in your own
-words, the same way you write the introductory mail of a patch series. This will
-become the description of the merge commit.
-
-     Arnd
+Applied, thanks!
 
 _______________________________________________
 linux-riscv mailing list
