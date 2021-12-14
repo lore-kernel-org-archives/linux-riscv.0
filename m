@@ -4,80 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58901C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Dec 2021 10:03:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6107C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Dec 2021 10:42:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:Cc:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xFDNSqQIO4yklKZeXrDZlCR1JojzK8sglab3n3dz5vs=; b=rmWTvYAlixAez3WzT9BQXNOMv3
-	pC+frXzDKFH2YJBVnpmIChRMvci97sultib4qgBv4vAZ1wu/qk/k5k0hwNFFnrFb9ZC8jyMkSwg1k
-	t+jdtP0UOBJAjusi5WSbq0xKm4SwNVYBKyceZHRK+h6sZ+0LWLkzMU0VlkaIAIm2iAMUpLL0R/KXh
-	nn2ZR2BL4oevV/QJFL8R8kMowFglEgZK2CIefg3MSrLxSQfUoKrBYk8r8PPJKV3gbOUjbX6a3bowi
-	2puiiBRp49sz3RJJdPm3qK16kGxvsY9hl0MoyJLTsyHia35wP6rdPcnlZtl/4Y9y0DlRF1vElAI6E
-	qW1hHJww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1vntWpmtOM56BUEfVmJk83/oBtRvZchhcgjTBBtNULI=; b=iwlbnmibCmgNFK
+	YdxoJO925La3nrSdPzyVf4GTotBj11/QffLnjIGUA19zb87YMpDmgu5d8n/ipnBdYoSxyQe4+qZZ4
+	6NeesGlwu8DxYXpFZZMu8M9vcAeShwA09sgGqkvPsQ5HrvLptdN+FMHVKj4DbWlgtwcUtfGi28quW
+	jS/oghpEhqSpVKFBSOXDkfYatTdpzqPCLs6t3619GAkBfjOTs0jw8QdsrFLCg22wrPSCPHU504A4Y
+	juvHTrYzMNo1Vg6hVwGME80wxkpi+6WROfy10hnjJE/lo71tnGPEnTlxCWLFQ1gmriOGgffXK7fyT
+	/lVbniSURSModR9UwpSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mx4ei-00DPeW-LH; Tue, 14 Dec 2021 10:03:32 +0000
-Received: from mail.loongson.cn ([114.242.206.163] helo=loongson.cn)
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mx4ee-00DPdD-BN; Tue, 14 Dec 2021 10:03:30 +0000
-Received: from [10.130.0.135] (unknown [113.200.148.30])
- by mail.loongson.cn (Coremail) with SMTP id AQAAf9Dx_Nzfa7hhAZYAAA--.3224S3;
- Tue, 14 Dec 2021 18:03:13 +0800 (CST)
-Subject: Re: [PATCH v2 0/2] kdump: simplify code
-To: Matthew Wilcox <willy@infradead.org>,
- David Laight <David.Laight@aculab.com>
-References: <1639193588-7027-1-git-send-email-yangtiezhu@loongson.cn>
- <0c5cb37139af4f3e85cc2c5115d7d006@AcuMS.aculab.com>
- <YbXhVxRJfjvKw++W@casper.infradead.org>
- <b7a75ae9253445af81ff2fedd5268af4@AcuMS.aculab.com>
- <YbdcKK3Cq6ITTg/l@casper.infradead.org>
-Cc: Dave Young <dyoung@redhat.com>, Baoquan He <bhe@redhat.com>,
- Vivek Goyal <vgoyal@redhat.com>, Andrew Morton <akpm@linux-foundation.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
- "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>,
- "x86@kernel.org" <x86@kernel.org>,
- "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
- "kexec@lists.infradead.org" <kexec@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Xuefeng Li <lixuefeng@loongson.cn>,
- Christophe Leroy <christophe.leroy@csgroup.eu>
-From: Tiezhu Yang <yangtiezhu@loongson.cn>
-Message-ID: <36440c0f-8b8a-c401-684f-6f54ce9c061e@loongson.cn>
-Date: Tue, 14 Dec 2021 18:03:11 +0800
-User-Agent: Mozilla/5.0 (X11; Linux mips64; rv:45.0) Gecko/20100101
- Thunderbird/45.4.0
+	id 1mx5G1-00DUsw-BT; Tue, 14 Dec 2021 10:42:05 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mx5Fy-00DUrT-D2
+ for linux-riscv@lists.infradead.org; Tue, 14 Dec 2021 10:42:04 +0000
+Received: from p5b127e95.dip0.t-ipconnect.de ([91.18.126.149]
+ helo=phil.localnet)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1mx5Fk-0007HP-OZ; Tue, 14 Dec 2021 11:41:48 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Atish Patra <atishp@atishpatra.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Anup Patel <anup@brainfault.org>, Jisheng Zhang <jszhang@kernel.org>,
+ Christoph =?ISO-8859-1?Q?M=FCllner?= <cmuellner@linux.com>,
+ Philipp Tomsich <philipp.tomsich@vrull.eu>,
+ Nick Kossifidis <mick@ics.forth.gr>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/2] riscv: prevent null-pointer dereference with
+ sbi_remote_fence_i
+Date: Tue, 14 Dec 2021 11:41:48 +0100
+Message-ID: <3268221.GhNKjUVvqv@phil>
+In-Reply-To: <CAOnJCUJ9YBOrNEj-nxAWctGPSTj6yUVOkiwQEpFELuf8B6SqLg@mail.gmail.com>
+References: <20211213112034.2896536-1-heiko@sntech.de>
+ <CAOnJCUJ9YBOrNEj-nxAWctGPSTj6yUVOkiwQEpFELuf8B6SqLg@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <YbdcKK3Cq6ITTg/l@casper.infradead.org>
-X-CM-TRANSID: AQAAf9Dx_Nzfa7hhAZYAAA--.3224S3
-X-Coremail-Antispam: 1UD129KBjvJXoW7WF4fCF1DZFWDCw13KF18AFb_yoW8Wr18pr
- WYya42yrs7X3s8Gw4Iyr4fJ3yFqw42yFWrW3Z5Xw15Ar90qFnFvr1jyr1S9a4UWrn7Wa1x
- AFyYqr9I93WDA3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
- 9KBjDU0xBIdaVrnRJUUU9214x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
- rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
- 1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
- JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
- CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
- 2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
- W8JwACjcxG0xvEwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka
- 0xkIwI1lc7I2V7IY0VAS07AlzVAYIcxG8wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
- kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
- 67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
- CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6rWUJVWr
- Zr1UMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYx
- BIdaVFxhVjvjDU0xZFpf9x0JU6c_fUUUUU=
-X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211214_020328_810268_55E99FFE 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20211214_024202_490438_683484B8 
+X-CRM114-Status: GOOD (  40.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,55 +62,167 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/13/2021 10:43 PM, Matthew Wilcox wrote:
-> On Mon, Dec 13, 2021 at 08:30:33AM +0000, David Laight wrote:
->> From: Matthew Wilcox
->>> Sent: 12 December 2021 11:48
->>>
->>> On Sat, Dec 11, 2021 at 05:53:46PM +0000, David Laight wrote:
->>>> From: Tiezhu Yang
->>>>> Sent: 11 December 2021 03:33
->>>>>
->>>>> v2:
->>>>>   -- add copy_to_user_or_kernel() in lib/usercopy.c
->>>>>   -- define userbuf as bool type
->>>>
->>>> Instead of having a flag to indicate whether the buffer is user or kernel,
->>>> would it be better to have two separate buffer pointers.
->>>> One for a user space buffer, the other for a kernel space buffer.
->>>> Exactly one of the buffers should always be NULL.
->>>
->>> No.  You should be using an iov_iter instead.  See
->>> https://lore.kernel.org/all/Ya4bdB0UBJCZhUSo@casper.infradead.org/
->>> for a start on this.
->>
->> iov_iter gets horribly expensive...
->
-> Oh, right.  Reading the kcore is a high-performance path, my mistake.
->
+Hi Atish,
 
-Hi,
+Am Dienstag, 14. Dezember 2021, 02:51:17 CET schrieb Atish Patra:
+> On Mon, Dec 13, 2021 at 3:21 AM Heiko Stuebner <heiko@sntech.de> wrote:
+> >
+> > The callback used inside sbi_remote_fence_i is set at sbi probe time
+> > to the needed variant. Before that it is a NULL pointer.
+> >
+> > The selection between using sbi_remote_fence_i or ipi_remote_fence_i
+> > right now is solely done on the presence of the RISCV_SBI config option.
+> >
+> > On a multiplatform kernel, SBI will probably always be built in, but
+> > in the future not all machines using that kernel may have SBI
+> > on them, so in some cases this setup can lead to NULL pointer dereferences.
+> >
+> 
+> I didn't quite understand this. The only platforms without SBI are
+> M-mode Linux based platforms.
+> All other platforms will require SBI if the kernel is running on
+> supervisor mode.
 
-Thank you for your discussions.
+Ok ... but imagine a single-core board starting in S-mode.
+Not doing smp, kvm, etc.
 
-The intention of this patchset is to simplify the related code with no
-functional changes and no side effects.
+So I can very well imagine the possibility that people
+might start it without an sbi instance running ;-) .
 
-At this moment, if you are OK, I will send v3 used with inline function
-copy_to_user_or_kernel() to keep it simple, maybe other more changes can
-be done in the future if no any side effect.
 
-The v3 will contain the following three patches to make the changes
-more clear:
+> They may not need SBI IPI or SBI RFENCE extensions if an alternate
+> mechanism(ACLINT SSWI or AIA IMSIC)
+> is already available in hardware. IIRC, Anup's aclint & aia series
+> already takes care of that.
+> 
+> > Also if in future one of the flush_icache_all / flush_icache_mm functions
+> > gets called earlier in the boot process - before sbi_init - this would
+> > trigger the issue.
+> >
+> 
+> sbi_init is called before setup_smp. Do you think there is a use case where
+> flush_icache_xxx can be called before smp initialization ?
 
-kdump: vmcore: remove copy_to() and add copy_to_user_or_kernel()
-kdump: crashdump: use copy_to_user_or_kernel() to simplify code
-kdump: vmcore: crashdump: make variable type of userbuf as bool
+I ran into the issue while experimenting with doing alternatives patching
+earlier. Works fine, but the flush_icache call then runs into that null-ptr.
+
+
+Heiko
+
+
+> > To prevent this, add a default __sbi_rfence_none returning an error code
+> > and adapt the callers to check for an error from the remote fence
+> > to then fall back to the other method.
+> >
+> 
+> Having said that, it is always good to have guards to avoid NULL
+> pointer dereferences.
+> However, the commit text may be updated based on the above questions.
+> 
+> > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> > ---
+> >  arch/riscv/kernel/sbi.c    | 10 +++++++++-
+> >  arch/riscv/mm/cacheflush.c | 25 +++++++++++++++++--------
+> >  2 files changed, 26 insertions(+), 9 deletions(-)
+> >
+> > diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> > index 7402a417f38e..69d0a96b97d0 100644
+> > --- a/arch/riscv/kernel/sbi.c
+> > +++ b/arch/riscv/kernel/sbi.c
+> > @@ -14,11 +14,19 @@
+> >  unsigned long sbi_spec_version __ro_after_init = SBI_SPEC_VERSION_DEFAULT;
+> >  EXPORT_SYMBOL(sbi_spec_version);
+> >
+> > +static int __sbi_rfence_none(int fid, const unsigned long *hart_mask,
+> > +                            unsigned long start, unsigned long size,
+> > +                            unsigned long arg4, unsigned long arg5)
+> > +{
+> > +       return -EOPNOTSUPP;
+> > +}
+> > +
+> >  static void (*__sbi_set_timer)(uint64_t stime) __ro_after_init;
+> >  static int (*__sbi_send_ipi)(const unsigned long *hart_mask) __ro_after_init;
+> >  static int (*__sbi_rfence)(int fid, const unsigned long *hart_mask,
+> >                            unsigned long start, unsigned long size,
+> > -                          unsigned long arg4, unsigned long arg5) __ro_after_init;
+> > +                          unsigned long arg4, unsigned long arg5)
+> > +                          __ro_after_init = __sbi_rfence_none;
+> >
+> >  struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
+> >                         unsigned long arg1, unsigned long arg2,
+> > diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+> > index 89f81067e09e..128e23c094ea 100644
+> > --- a/arch/riscv/mm/cacheflush.c
+> > +++ b/arch/riscv/mm/cacheflush.c
+> > @@ -16,11 +16,15 @@ static void ipi_remote_fence_i(void *info)
+> >
+> >  void flush_icache_all(void)
+> >  {
+> > +       int ret = -EINVAL;
+> > +
+> >         local_flush_icache_all();
+> >
+> >         if (IS_ENABLED(CONFIG_RISCV_SBI))
+> > -               sbi_remote_fence_i(NULL);
+> > -       else
+> > +               ret = sbi_remote_fence_i(NULL);
+> > +
+> > +       /* fall back to ipi_remote_fence_i if sbi failed or not available */
+> > +       if (ret)
+> >                 on_each_cpu(ipi_remote_fence_i, NULL, 1);
+> >  }
+> >  EXPORT_SYMBOL(flush_icache_all);
+> > @@ -66,13 +70,18 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
+> >                  * with flush_icache_deferred().
+> >                  */
+> >                 smp_mb();
+> > -       } else if (IS_ENABLED(CONFIG_RISCV_SBI)) {
+> > -               cpumask_t hartid_mask;
+> > -
+> > -               riscv_cpuid_to_hartid_mask(&others, &hartid_mask);
+> > -               sbi_remote_fence_i(cpumask_bits(&hartid_mask));
+> >         } else {
+> > -               on_each_cpu_mask(&others, ipi_remote_fence_i, NULL, 1);
+> > +               int ret = -EINVAL;
+> > +
+> > +               if (IS_ENABLED(CONFIG_RISCV_SBI)) {
+> > +                       cpumask_t hartid_mask;
+> > +
+> > +                       riscv_cpuid_to_hartid_mask(&others, &hartid_mask);
+> > +                       ret = sbi_remote_fence_i(cpumask_bits(&hartid_mask));
+> 
+> This API is removed in sparse hartid series[1]. You may want to rebase
+> on top of it.
+> 
+> [1] https://patchwork.kernel.org/project/linux-riscv/list/?series=590195
+> 
+> > +               }
+> > +
+> > +               if (ret)
+> > +                       on_each_cpu_mask(&others, ipi_remote_fence_i, NULL, 1);
+> >         }
+> >
+> >         preempt_enable();
+> > --
+> > 2.30.2
+> >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+> 
+> 
+> 
+
+
+
 
 
 _______________________________________________
