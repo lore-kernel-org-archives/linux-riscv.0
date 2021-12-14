@@ -4,76 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8A22C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Dec 2021 16:30:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DB9FC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Dec 2021 16:30:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=16Mj4ecFszMraEG/Iuf26U7ovT85xSVthxyEhFoPm74=; b=kTq8rrAcHydlxE5j0gEH7Fvlhl
-	WwFXghL69SkMf9HdOeHRZXssDLY4p0GE+hJXB4yjntHp/o/gMd1t5Lj4+hAUqnKbeR6DZ8vMReziA
-	atKRVIIxqMCVF4ybuqtyZefeSMfYTC1M8nP3CjJ2H6uf7rIHOxMzhmmiEu9OKoUL0Lr3RL8u29zcp
-	ZW3oD5Ztw08RsZXDx0cbaUaKU+xhpDn4aDQXRIRMrS+p0C74RUCdmI7KgwG81uMS1jd7yiMPC/nAw
-	VS55YGPDkpA7rjYlzNo//81Ea7hZ705OH8zX7C7lJ5CAn6H+G+uDMHaRjSJZeymGj6a98vgi8SAQt
-	wxCBiN5Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fhhrHwlJfpyzNOaWprLEudaaSut68k1nR7UOhEqDA/M=; b=xtEBb3O0rufhrq
+	sCsQN89JhHG8FuoH2lE3UvelTx6HkpoylFl3wAcBW3vDYsdR+h8pl69jdE/YyzWsqjx8Ulo0uaiV2
+	33Au8xYmrJvp/f2uuTKHy6WPsulqb4fhrGJtU0uy/lfYWtptc8DaOzoDoMKRu0RnSp14pC6tx7anv
+	yuIzWLRnuEXewCrmmLuY6PtWrNJH/mfIxgjwvyM5vtERs7qmJo4ll1Fkpem+0LXuTrRjhN1jJdM+N
+	qcXrSx0qh9yDwtGsxpc+BSIAQ8kcNTFNyxX55JfvKr5G0btNYLv5wgQO7OsRx556gCDy+6mLFiAJq
+	pQQ7MityAwx552NLGzSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mxAgt-00Ess1-3U; Tue, 14 Dec 2021 16:30:11 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1mxAh0-00Esx8-JQ; Tue, 14 Dec 2021 16:30:18 +0000
+Received: from mail-ua1-f47.google.com ([209.85.222.47])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mxAgG-00EsPA-9e
- for linux-riscv@lists.infradead.org; Tue, 14 Dec 2021 16:29:33 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id
- n15-20020a17090a394f00b001b0f6d6468eso1116568pjf.3
- for <linux-riscv@lists.infradead.org>; Tue, 14 Dec 2021 08:29:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=UtzwvPGJGsxSlX5yHONhsOG3Z07A2+rV1SqqO3BO/EM=;
- b=NQSXVVpuoBWD7LQqRbZceG6VsWT9sGdtZlkIK0WEDUWkm79louNmrWzV1akuEiO9C6
- DYmhBGdiTdKCEMizjZ4l02g6uJJ6J7N+pCUb86uV039Trb6DxUEjtXgZQ/GaXYoILF/H
- WyuFcp2Pj1yecgyjU/ZdHEzsFKNB2rvJYLeD4JL2/E/u2oftX3xhqp75L2M48qe43Rvw
- PLY8ZuKFiISF8J1Z29ThfWkgHc56zgQnO16XgRd3FsQIyzK3dRDNbCtkFwfNUf5J4c+a
- IAW3735BLWBnqwmCcwS0TBXv665M2Bk/XMl7wGsoWMWhU1k17wWIog3EL+ezo7irH9an
- kEJg==
+ id 1mxAgK-00EsSo-TL
+ for linux-riscv@lists.infradead.org; Tue, 14 Dec 2021 16:29:38 +0000
+Received: by mail-ua1-f47.google.com with SMTP id 30so35765107uag.13
+ for <linux-riscv@lists.infradead.org>; Tue, 14 Dec 2021 08:29:36 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=UtzwvPGJGsxSlX5yHONhsOG3Z07A2+rV1SqqO3BO/EM=;
- b=PjQd8AW81ATDMy+gi6/9FiDuHikAAWL7aCtCbnx6Pz4N3YZg2C1TAgaAtCItgD6spR
- goLMSct4j/ecs0OtZfNYHx8T4VgUtf/hMgMnNbHb+i25R17TngeL72eDEuMxgRavea9Y
- n3hbOS346qS24V1bE4VvM0Kd3x5KKgHWoC0eCNwa3yan0Vy0uYR10Tw1QMaT+Be20vbT
- TTv/sJo6QzuDzcyCBZApfMt/rGyKT2f2yefPuNv/JB7UTJnrTl0gEEYbzAL+xgnxFkGA
- Ci2mr2Qz+P9KL0F0gvC4uGVbll0HQ/aj2Np0grM1Zo2OwhS+kEOhPV5TFelGPWNT834n
- ohrg==
-X-Gm-Message-State: AOAM530LbXaxwhFLaxSc5UqZlR1YeK6itK6kp5HumFOIvDigGb3khKpM
- OJU6zgYkRBXVK2R4HeHexrvrQg==
-X-Google-Smtp-Source: ABdhPJzZfZK8Q8jExHWiMImmlWW+dHRzTFrYTgGnuAbNJwuBTr9CHS5VVcJ0wUjgObTaDPXiKaCBhg==
-X-Received: by 2002:a17:90a:5d98:: with SMTP id
- t24mr1068496pji.109.1639499370924; 
- Tue, 14 Dec 2021 08:29:30 -0800 (PST)
-Received: from localhost ([12.163.77.120])
- by smtp.gmail.com with ESMTPSA id lb4sm3200381pjb.18.2021.12.14.08.29.30
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 14 Dec 2021 08:29:30 -0800 (PST)
-Date: Tue, 14 Dec 2021 08:29:30 -0800 (PST)
-X-Google-Original-Date: Mon, 13 Dec 2021 19:41:25 PST (-0800)
-Subject: Re: [PATCH v9 08/17] riscv: Add vector struct and assembler
- definitions
-In-Reply-To: <15d09938180ee45bc5481c4a2d41ad656ca23c82.1636362169.git.greentime.hu@sifive.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: greentime.hu@sifive.com
-Message-ID: <mhng-a7a94a37-5791-4c76-8f2d-072130d71819@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=z0xPmlhPjW3RtYDngHEC29o7z6qnlBksN4ygOpY9H1s=;
+ b=BJg/BAi/k+qNf1FsCotgx+aNHJLn1kYRTvHitykcTfXQZa4pQhPUrnA6qYCn4ZAfU4
+ PH+L3YsfOsYYj1SXpZRiWS74JHWU2RCVN/O0FM8oRorFqpJQem/yozNtZTjNYOVJJauS
+ 9/udSI4sN4rmoi1V88LXLD5mbLM9MlnD1AIyppWOxXgQol5CqV4qAxVPMVju6YiEmp8l
+ otIn2p+piQNyZpGDnip1jUexc7RzcKZfkx6JRcmAsz0NtUfHT1WfZhHjq9EP5je0+mnF
+ ujWsFEPYk+5nBWHBG5h6chC/yQ3U2MtoRLkhV03Pvu2QVb/rbUi6Rqfc4E9InqhhAPxL
+ KCnA==
+X-Gm-Message-State: AOAM532mRyrQ4JQIBl3fYSWHYwpSAsw8QiKGU+7ozqbjd4cyQbD+31BW
+ Axug0Xl3V1ZTnPVvIvyp4kcbEx901mu33Q==
+X-Google-Smtp-Source: ABdhPJwZaGPBWLiv2PzUPi8HFYS4ZIRyE/W5htBThqbiWszHLG4YuIAnNJ46yaEutZ4qZmYMt6rkkQ==
+X-Received: by 2002:a05:6102:3748:: with SMTP id
+ u8mr6078607vst.48.1639499374905; 
+ Tue, 14 Dec 2021 08:29:34 -0800 (PST)
+Received: from mail-ua1-f48.google.com (mail-ua1-f48.google.com.
+ [209.85.222.48])
+ by smtp.gmail.com with ESMTPSA id o188sm43675vko.48.2021.12.14.08.29.34
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Tue, 14 Dec 2021 08:29:34 -0800 (PST)
+Received: by mail-ua1-f48.google.com with SMTP id 30so35764977uag.13
+ for <linux-riscv@lists.infradead.org>; Tue, 14 Dec 2021 08:29:34 -0800 (PST)
+X-Received: by 2002:a05:6102:21dc:: with SMTP id
+ r28mr6178703vsg.57.1639499373849; 
+ Tue, 14 Dec 2021 08:29:33 -0800 (PST)
+MIME-Version: 1.0
+References: <20211130172954.129587-1-vladimir.murzin@arm.com>
+ <20211130172954.129587-2-vladimir.murzin@arm.com> <YaZiOnNd6fAnLcxz@fedora>
+ <8c2b4666-cf13-3735-be1e-b8a1c71df113@arm.com>
+In-Reply-To: <8c2b4666-cf13-3735-be1e-b8a1c71df113@arm.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 14 Dec 2021 17:29:22 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdXA73EuFC6e-pEz1Ovc9ySNk-mt-6O0L7KbO28PvqratA@mail.gmail.com>
+Message-ID: <CAMuHMdXA73EuFC6e-pEz1Ovc9ySNk-mt-6O0L7KbO28PvqratA@mail.gmail.com>
+Subject: Re: [PATCH] percpu: km: ensure it is used with NOMMU (either UP or
+ SMP)
+To: Vladimir Murzin <vladimir.murzin@arm.com>, Dennis Zhou <dennis@kernel.org>
+Cc: linux-arch-owner@vger.kernel.org, Linux MM <linux-mm@kvack.org>, 
+ Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@linux.com>,
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Nicholas Piggin <npiggin@gmail.com>, Christoph Hellwig <hch@lst.de>,
+ Arnd Bergmann <arnd@arndb.de>, 
+ Linux-sh list <linux-sh@vger.kernel.org>, Rich Felker <dalias@libc.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211214_082932_402014_F685728B 
-X-CRM114-Status: GOOD (  19.78  )
+X-CRM114-CacheID: sfid-20211214_082936_989689_827D1E7C 
+X-CRM114-Status: GOOD (  36.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,87 +88,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 09 Nov 2021 01:48:20 PST (-0800), greentime.hu@sifive.com wrote:
-> Add vector state context struct in struct thread and asm-offsets.c
-> definitions.
->
-> The vector registers will be saved in datap pointer of __riscv_v_state. It
-> will be dynamically allocated in kernel space. It will be put right after
-> the __riscv_v_state data structure in user space.
->
-> Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> ---
->  arch/riscv/include/asm/processor.h   |  1 +
->  arch/riscv/include/uapi/asm/ptrace.h | 11 +++++++++++
->  arch/riscv/kernel/asm-offsets.c      |  6 ++++++
->  3 files changed, 18 insertions(+)
->
-> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-> index 46b492c78cbb..a268f1382e52 100644
-> --- a/arch/riscv/include/asm/processor.h
-> +++ b/arch/riscv/include/asm/processor.h
-> @@ -35,6 +35,7 @@ struct thread_struct {
->  	unsigned long s[12];	/* s[0]: frame pointer */
->  	struct __riscv_d_ext_state fstate;
->  	unsigned long bad_cause;
-> +	struct __riscv_v_state vstate;
->  };
->
->  /* Whitelist the fstate from the task_struct for hardened usercopy */
-> diff --git a/arch/riscv/include/uapi/asm/ptrace.h b/arch/riscv/include/uapi/asm/ptrace.h
-> index 882547f6bd5c..bd3b8a710246 100644
-> --- a/arch/riscv/include/uapi/asm/ptrace.h
-> +++ b/arch/riscv/include/uapi/asm/ptrace.h
-> @@ -77,6 +77,17 @@ union __riscv_fp_state {
->  	struct __riscv_q_ext_state q;
->  };
->
-> +struct __riscv_v_state {
-> +	unsigned long vstart;
-> +	unsigned long vl;
-> +	unsigned long vtype;
-> +	unsigned long vcsr;
+Hi Vladimir and Dennis,
 
-Don't we also need vlen to adequately determine the vector state?  
-Otherwise we're going to end up dropping some state when vl isn't vlmax, 
-which IIUC isn't legal.
-
-> +	void *datap;
-> +#if __riscv_xlen == 32
-> +	__u32 __padding;
-> +#endif
-
-Why is there padding?
-
-> +};
-> +
->  #endif /* __ASSEMBLY__ */
+On Wed, Dec 1, 2021 at 12:53 PM Vladimir Murzin <vladimir.murzin@arm.com> wrote:
+> On 11/30/21 5:41 PM, Dennis Zhou wrote:
+> > On Tue, Nov 30, 2021 at 05:29:54PM +0000, Vladimir Murzin wrote:
+> >> Currently, NOMMU pull km allocator via !SMP dependency because most of
+> >> them are UP, yet for SMP+NOMMU vm allocator gets pulled which:
+> >>
+> >> * may lead to broken build [1]
+> >> * ...or not working runtime due to [2]
+> >>
+> >> It looks like SMP+NOMMU case was overlooked in bbddff054587 ("percpu:
+> >> use percpu allocator on UP too") so restore that.
+> >>
+> >> [1]
+> >> For ARM SMP+NOMMU (R-class cores)
+> >>
+> >> arm-none-linux-gnueabihf-ld: mm/percpu.o: in function `pcpu_post_unmap_tlb_flush':
+> >> mm/percpu-vm.c:188: undefined reference to `flush_tlb_kernel_range'
+> >>
+> >> [2]
+> >> static inline
+> >> int vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+> >>                 pgprot_t prot, struct page **pages, unsigned int page_shift)
+> >> {
+> >>        return -EINVAL;
+> >> }
+> >>
+> >> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> >> ---
+> >>  mm/Kconfig | 3 +--
+> >>  1 file changed, 1 insertion(+), 2 deletions(-)
+> >>
+> >> diff --git a/mm/Kconfig b/mm/Kconfig
+> >> index d16ba92..66331e0 100644
+> >> --- a/mm/Kconfig
+> >> +++ b/mm/Kconfig
+> >> @@ -425,9 +425,8 @@ config THP_SWAP
+> >>  # UP and nommu archs use km based percpu allocator
+> >>  #
+> >>  config NEED_PER_CPU_KM
+> >> -    depends on !SMP
+> >>      bool
+> >> -    default y
+> >> +    default !SMP || !MMU
+> >>
+> >
+> > Should this be `depends on !SMP || !MMU` with default yes? Because with
+> > SMP && MMU, it shouldn't be an option to run with percpu-km.
 >
->  #endif /* _UAPI_ASM_RISCV_PTRACE_H */
-> diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-> index 90f8ce64fa6f..34f43c84723a 100644
-> --- a/arch/riscv/kernel/asm-offsets.c
-> +++ b/arch/riscv/kernel/asm-offsets.c
-> @@ -72,6 +72,12 @@ void asm_offsets(void)
->  	OFFSET(TSK_STACK_CANARY, task_struct, stack_canary);
->  #endif
+> IIUC these are equivalent, truth table would not change if is under "depends"
+> or "default"
 >
-> +	OFFSET(RISCV_V_STATE_VSTART, __riscv_v_state, vstart);
-> +	OFFSET(RISCV_V_STATE_VL, __riscv_v_state, vl);
-> +	OFFSET(RISCV_V_STATE_VTYPE, __riscv_v_state, vtype);
-> +	OFFSET(RISCV_V_STATE_VCSR, __riscv_v_state, vcsr);
-> +	OFFSET(RISCV_V_STATE_DATAP, __riscv_v_state, datap);
-> +
->  	DEFINE(PT_SIZE, sizeof(struct pt_regs));
->  	OFFSET(PT_EPC, pt_regs, epc);
->  	OFFSET(PT_RA, pt_regs, ra);
+> SMP    MMU   NEED_PER_CPU_KM
+>  y      y    !y || !y => n || n => n
+>  y      n    !y || !n => n || y => y
+>  n      y    !n || !y => y || n => y
+>  n      n    !n || !n => y || y => y
+>
+> >
+> >>  config CLEANCACHE
+> >>      bool "Enable cleancache driver to cache clean pages if tmem is present"
+> >> --
+> >> 2.7.4
+> >>
+> >
+> > It's interesting to me that this is all coming up at once. Earlier this
+> > month I had the same conversation with people involved with sh [1].
+> >
+> > [1] https://lore.kernel.org/linux-sh/YY7tp5attRyK42Zk@fedora/
+> >
+> > I can pull this shortly once I see whatever happened to linux-sh.
+>
+> Ahh, good to know! Adding SH folks here (start of discussion [0]). I see you came
+> to the same conclusion, right?
+>
+> IIRC, RISC-V also have SMP+NOMMU, so adding them as well.
+
+I had seen the j-Core thread, but completely forgot about
+Canaan K210 (RV64 SMP+NOMMU).
+
+This became commit 3583521aabac76e5 ("percpu: km: ensure it is used
+with NOMMU (either UP or SMP)").  And now booting K210 prints:
+
+    percpu: wasting 10 pages per chunk
+
+a) Is this bad?
+b) What exactly was this fixing, and how would I trigger the bad case
+   on K210 before, if it was affected at all?
+
+>
+> [0] https://lore.kernel.org/linux-mm/20211130172954.129587-1-vladimir.murzin@arm.com/T/
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
