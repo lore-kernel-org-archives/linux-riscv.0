@@ -4,129 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 022BFC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Dec 2021 19:43:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6983DC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Dec 2021 20:12:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VwLqjtzLcwpgw3OZ9VN4gnYUNjpO0iH4rgiJgDZK1Ys=; b=4TS9pbSQSeQS48
-	e3nDLnQdKUbVli95ISkEcAulluschIEgio5TDzHX7QJ+K4JuTfTpouX0mxjUMocvfcFvw7K714wr6
-	wxNUY/IYYMrf+CBEhdi+ULQTHEJ4ZkNq6wWhcBxbtgO6mVefV+HDQJaewCO0sZcu5K2eDOh9ZzNmn
-	qY91Xi3jSAxn0BWB9xvlMoCO06xxKCXpZK/Y0CSmEsevRgCUQeIDAIgzLQEPmGbMHB4B7+/7MXpXK
-	9SbkiW/mPlFhtKaTo/tiVMSXh0BDM81FXcsSdsTN/hc2s9kyfEq8yQIwUnwcbVqhO47nFWG38RxR4
-	tVNSI38PLN1BhP0gK9nw==;
+	List-Owner; bh=+wSymchaEbbjDlr0dxscxI9IHWNY8ACPdvGa5VAD+8w=; b=R2HkwhD5mPgK+v
+	08dMV50GBXmBmIPzdf6AdzpSQDA1K5hc8kIgGN/EDkS4bkizIqthgKYEeVPiGpZ42v1QcBRi8FV8N
+	qfQbgdK9VuEhB3h+pPemd8LqhQdKJVbQ81ruEWXfa1BbZxlzVH17Zsi0L7Nc+PqCkb4tYDGTjxLVC
+	VPi2PmscERyibQg90Pox8FSvMBv/M8FPc6WRZlMI36geeFSrzApI1/xAHQJsmzBNtCXfEXnU+0VGE
+	M9anOuxntni+ELz3v9y7COOGlVyhxX4tN4cYR8pV6PXchmj5tZJGrpdaYdCGKurX+65CEl4Qn03ax
+	dwL9f4OGukNMfamNnHCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mxDhu-00Fdw8-93; Tue, 14 Dec 2021 19:43:26 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1mxE9w-00FitO-9U; Tue, 14 Dec 2021 20:12:24 +0000
+Received: from mail-ua1-f41.google.com ([209.85.222.41])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mxDhr-00FduS-30; Tue, 14 Dec 2021 19:43:24 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id p13so18733119pfw.2;
- Tue, 14 Dec 2021 11:43:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=LCilH12wWw0seUa3hiJyDy0VxFX2Q3bA7Y0HXIYHhF8=;
- b=mgUrMQhC4/CUdwucboxOLaDGWbb/3r/d8db3O9NgfZYUYEd6Zjz2nbba51SL7zLe8Y
- HoPx+IQ/X0fM2kJmgKk06iLEcvvTYlX2h8Als5lC5pEfulogO+sUqemRF4n6m2Eekf4w
- CtPoyJGaZ6slsRjff5y3xVucnMlyQBZjuB7TsLW/QfR5HbmU2eCSX+iDyn3uJA04puJa
- dF//PJEuj31ulpS82MggltzR4G2RUQnzjtNrp/7HOGpfHVW7cNQpoT3ypqVvpPJEUhsf
- QvGgSrM2kq5yWe5ythTOhC41utztrjpAcYlGjjw1vz9wzYdQhMtOLwSCYyXNwoJoZq7H
- sX/w==
+ id 1mxE9s-00FisP-Qm
+ for linux-riscv@lists.infradead.org; Tue, 14 Dec 2021 20:12:22 +0000
+Received: by mail-ua1-f41.google.com with SMTP id o1so36940532uap.4
+ for <linux-riscv@lists.infradead.org>; Tue, 14 Dec 2021 12:12:20 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=LCilH12wWw0seUa3hiJyDy0VxFX2Q3bA7Y0HXIYHhF8=;
- b=MbWW9kHkVZA5Oo3nBIUO5GJB7O6TkX4r7IaXSMyu2LiReWJ49b6E2k1wp0QNs8k2Ss
- Bf4YMnR7tKQKgBqAWl+rWzDImSP+r6J7qW/DVlsso/ZmuOJ3BlEUJ04nwCiMSo/IVK+o
- jCJd1dHV/CW0gGfBemyK+yE/h0rh4BaBniPzJ21g+bEJ6CIpcKLNQCe+PhKkNhfzgGmy
- v4cevCKsCnQjVTu2hghKYLCr/FHSI4JjC5NnNdstxEo8VBxYAx5rJmPWMsOueBm0R+l/
- NJSf4AcAFaNXtXeosoSqIm/HvXC6QQEQDCAm2yFgP2SIlBRmdw+vXl3G1hWXJ3fKnYVB
- Z0jQ==
-X-Gm-Message-State: AOAM533leOCLMEgQX/Zvr+CS9VVpoCg5t8GOaTmRwlupRtFFE0IyYgdZ
- XbD8jQZg6axsQWsNOdIMUrnt9rZxvGPwEyis5I0=
-X-Google-Smtp-Source: ABdhPJx1omsyXEH84uuE4kzYpPBu5v24anF9kQ0616INOFdPlqou2FDes2afxUGAuG2JNukP2+Sny94qEgWXdVVJ7J8=
-X-Received: by 2002:a63:3f4e:: with SMTP id m75mr4955451pga.587.1639511000707; 
- Tue, 14 Dec 2021 11:43:20 -0800 (PST)
+ :message-id:subject:to:cc;
+ bh=C+mb+oH7+4rpXpD/Z6lXjKtCNpCU2szRv7YE142Zc5o=;
+ b=m5U9xvWl9HwsR+mGfavKGK01tzM4oSmhUwqBFqXuS3NSqAKcgXBNGhPMM97aUPL2m8
+ c4Foay9bsbPWvlpMOKsgJwB11kIwhoCRMn1CwG+xTQUtY5Lue3W/8H3pGh1h14XuFETU
+ PMqGJCJGpP2ZVsDfPywqQvlahXBjVdnYQG6NYq1G51Br0ggfoJiPbNEoiuTGRDQhdK0a
+ xESZVwmVfxcb27RbWOFyKVoRDOvW3rW9S8Fkm1eMhy1aDnNNSaf2T9MP6QpMGHrUaZVk
+ 0Gu12RCvQKIyId2FsOlnLi8gKQrjj4YbDuSXoCk5v77x5VOQKucgAJM3jXFPj5X/9OHY
+ G8pw==
+X-Gm-Message-State: AOAM531Qm4c2Bc0AJxoqwUz8GFc/xCfzqc5a0Gj6aj6JRhuo8NdN6kBR
+ jBqsG/jJaPO6JatSc6o2DN9puxBMgwh/HA==
+X-Google-Smtp-Source: ABdhPJyT+liXKdYh6sBUzUC8th3ilsXw/NV04RudtVQhQQh/W70CGPq/9A5bNq8twajloECTrphYVA==
+X-Received: by 2002:a05:6102:c86:: with SMTP id
+ f6mr1338737vst.38.1639512739091; 
+ Tue, 14 Dec 2021 12:12:19 -0800 (PST)
+Received: from mail-ua1-f52.google.com (mail-ua1-f52.google.com.
+ [209.85.222.52])
+ by smtp.gmail.com with ESMTPSA id b10sm204990uad.8.2021.12.14.12.12.18
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Tue, 14 Dec 2021 12:12:18 -0800 (PST)
+Received: by mail-ua1-f52.google.com with SMTP id o1so36940403uap.4
+ for <linux-riscv@lists.infradead.org>; Tue, 14 Dec 2021 12:12:18 -0800 (PST)
+X-Received: by 2002:a05:6102:e10:: with SMTP id
+ o16mr1300775vst.5.1639512737845; 
+ Tue, 14 Dec 2021 12:12:17 -0800 (PST)
 MIME-Version: 1.0
-References: <20211128035704.270739-1-yury.norov@gmail.com>
- <20211128035704.270739-3-yury.norov@gmail.com>
- <YaPGDOvBzhiRFcOP@qmqm.qmqm.pl>
-In-Reply-To: <YaPGDOvBzhiRFcOP@qmqm.qmqm.pl>
-From: Yury Norov <yury.norov@gmail.com>
-Date: Tue, 14 Dec 2021 11:43:09 -0800
-Message-ID: <CAAH8bW9-dbENFUrwPUQ-uJVVX_s=PWb2zpAJ8BqkV3vJE696mA@mail.gmail.com>
-Subject: Re: [PATCH 2/9] lib/bitmap: implement bitmap_{empty,
- full} with bitmap_weight_eq()
-To: =?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>
-Cc: linux-kernel@vger.kernel.org, "James E.J. Bottomley" <jejb@linux.ibm.com>, 
- "Martin K. Petersen" <martin.petersen@oracle.com>,
- "Paul E. McKenney" <paulmck@kernel.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Alexey Klimov <aklimov@redhat.com>, Amitkumar Karwar <amitkarwar@gmail.com>, 
- Andi Kleen <ak@linux.intel.com>, Andrew Lunn <andrew@lunn.ch>, 
- Andrew Morton <akpm@linux-foundation.org>, Andy Gross <agross@kernel.org>, 
- Andy Lutomirski <luto@kernel.org>, Andy Shevchenko <andy@infradead.org>,
- Anup Patel <anup.patel@wdc.com>, 
- Ard Biesheuvel <ardb@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, 
- Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christoph Hellwig <hch@lst.de>, 
- Christoph Lameter <cl@linux.com>, Daniel Vetter <daniel@ffwll.ch>, 
- Dave Hansen <dave.hansen@linux.intel.com>, David Airlie <airlied@linux.ie>, 
- David Laight <David.Laight@aculab.com>, Dennis Zhou <dennis@kernel.org>, 
- Dinh Nguyen <dinguyen@kernel.org>, Geetha sowjanya <gakula@marvell.com>, 
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Guo Ren <guoren@kernel.org>, Hans de Goede <hdegoede@redhat.com>, 
- Heiko Carstens <hca@linux.ibm.com>, Ian Rogers <irogers@google.com>,
- Ingo Molnar <mingo@redhat.com>, 
- Jakub Kicinski <kuba@kernel.org>, Jason Wessel <jason.wessel@windriver.com>,
- Jens Axboe <axboe@fb.com>, 
- Jiri Olsa <jolsa@redhat.com>, Jonathan Cameron <jic23@kernel.org>,
- Juri Lelli <juri.lelli@redhat.com>, 
- Kalle Valo <kvalo@codeaurora.org>, Kees Cook <keescook@chromium.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Lee Jones <lee.jones@linaro.org>, 
- Marc Zyngier <maz@kernel.org>, Marcin Wojtas <mw@semihalf.com>,
- Mark Gross <markgross@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Matti Vaittinen <mazziesaccount@gmail.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Mel Gorman <mgorman@suse.de>, 
- Michael Ellerman <mpe@ellerman.id.au>, 
- Mike Marciniszyn <mike.marciniszyn@cornelisnetworks.com>,
- Nicholas Piggin <npiggin@gmail.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Peter Zijlstra <peterz@infradead.org>, 
- Petr Mladek <pmladek@suse.com>, Randy Dunlap <rdunlap@infradead.org>, 
- Rasmus Villemoes <linux@rasmusvillemoes.dk>, Roy Pledge <Roy.Pledge@nxp.com>, 
- Russell King <linux@armlinux.org.uk>, Saeed Mahameed <saeedm@nvidia.com>, 
- Sagi Grimberg <sagi@grimberg.me>, Sergey Senozhatsky <senozhatsky@chromium.org>,
- Solomon Peachy <pizza@shaftnet.org>, Stephen Boyd <sboyd@kernel.org>, 
- Stephen Rothwell <sfr@canb.auug.org.au>, Steven Rostedt <rostedt@goodmis.org>, 
- Subbaraya Sundeep <sbhatta@marvell.com>, Sudeep Holla <sudeep.holla@arm.com>, 
- Sunil Goutham <sgoutham@marvell.com>, Tariq Toukan <tariqt@nvidia.com>,
- Tejun Heo <tj@kernel.org>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Thomas Gleixner <tglx@linutronix.de>, 
- Ulf Hansson <ulf.hansson@linaro.org>,
- Vincent Guittot <vincent.guittot@linaro.org>, 
- Vineet Gupta <vgupta@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
- Vivien Didelot <vivien.didelot@gmail.com>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, 
- bcm-kernel-feedback-list@broadcom.com, kvm@vger.kernel.org, 
- linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-crypto@vger.kernel.org, linux-csky@vger.kernel.org, 
- linux-ia64@vger.kernel.org, linux-mips@vger.kernel.org, linux-mm@kvack.org, 
- linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
- linuxppc-dev@lists.ozlabs.org
+References: <20211130172954.129587-1-vladimir.murzin@arm.com>
+ <20211130172954.129587-2-vladimir.murzin@arm.com> <YaZiOnNd6fAnLcxz@fedora>
+ <8c2b4666-cf13-3735-be1e-b8a1c71df113@arm.com>
+ <CAMuHMdXA73EuFC6e-pEz1Ovc9ySNk-mt-6O0L7KbO28PvqratA@mail.gmail.com>
+ <YbjTuOhNxaPirK1L@fedora>
+ <CAMuHMdUaLTbS_20t7jfPkkHqYV=9JNQf-XQ80UppZcrHGOoTfA@mail.gmail.com>
+ <YbjuGhPTjuTCSu+m@fedora>
+In-Reply-To: <YbjuGhPTjuTCSu+m@fedora>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 14 Dec 2021 21:12:06 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdW8Besfp3Pbj1tRJ4gKKUbR59pU1ACuUNnn4RXkgVo5Qw@mail.gmail.com>
+Message-ID: <CAMuHMdW8Besfp3Pbj1tRJ4gKKUbR59pU1ACuUNnn4RXkgVo5Qw@mail.gmail.com>
+Subject: Re: [PATCH] percpu: km: ensure it is used with NOMMU (either UP or
+ SMP)
+To: Dennis Zhou <dennis@kernel.org>
+Cc: Vladimir Murzin <vladimir.murzin@arm.com>, linux-arch-owner@vger.kernel.org,
+ Linux MM <linux-mm@kvack.org>, Tejun Heo <tj@kernel.org>,
+ Christoph Lameter <cl@linux.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Christoph Hellwig <hch@lst.de>, Arnd Bergmann <arnd@arndb.de>,
+ Linux-sh list <linux-sh@vger.kernel.org>, 
+ Rich Felker <dalias@libc.org>, linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211214_114323_173059_2496CC0A 
-X-CRM114-Status: GOOD (  22.76  )
+X-CRM114-CacheID: sfid-20211214_121220_894550_DBCF4160 
+X-CRM114-Status: GOOD (  37.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,44 +92,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCBOb3YgMjgsIDIwMjEgYXQgMTA6MTAgQU0gTWljaGHFgiBNaXJvc8WCYXcKPG1pcnEt
-bGludXhAcmVyZS5xbXFtLnBsPiB3cm90ZToKPgo+IE9uIFNhdCwgTm92IDI3LCAyMDIxIGF0IDA3
-OjU2OjU3UE0gLTA4MDAsIFl1cnkgTm9yb3Ygd3JvdGU6Cj4gPiBOb3cgYXMgd2UgaGF2ZSBiaXRt
-YXBfd2VpZ2h0X2VxKCksIHN3aXRjaCBiaXRtYXBfZnVsbCgpIGFuZAo+ID4gYml0bWFwX2VtcHR5
-KCkgdG8gdXNpbmcgaXQuCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogWXVyeSBOb3JvdiA8eXVyeS5u
-b3JvdkBnbWFpbC5jb20+Cj4gPiAtLS0KPiA+ICBpbmNsdWRlL2xpbnV4L2JpdG1hcC5oIHwgMjYg
-KysrKysrKysrKy0tLS0tLS0tLS0tLS0tLS0KPiA+ICAxIGZpbGUgY2hhbmdlZCwgMTAgaW5zZXJ0
-aW9ucygrKSwgMTYgZGVsZXRpb25zKC0pCj4gPgo+ID4gZGlmZiAtLWdpdCBhL2luY2x1ZGUvbGlu
-dXgvYml0bWFwLmggYi9pbmNsdWRlL2xpbnV4L2JpdG1hcC5oCj4gPiBpbmRleCA5OTYwNDFmNzcx
-YzguLjJkOTUxZTRkYzgxNCAxMDA2NDQKPiA+IC0tLSBhL2luY2x1ZGUvbGludXgvYml0bWFwLmgK
-PiA+ICsrKyBiL2luY2x1ZGUvbGludXgvYml0bWFwLmgKPiA+IEBAIC0zODYsMjIgKzM4Niw2IEBA
-IHN0YXRpYyBpbmxpbmUgaW50IGJpdG1hcF9zdWJzZXQoY29uc3QgdW5zaWduZWQgbG9uZyAqc3Jj
-MSwKPiA+ICAgICAgICAgICAgICAgcmV0dXJuIF9fYml0bWFwX3N1YnNldChzcmMxLCBzcmMyLCBu
-Yml0cyk7Cj4gPiAgfQo+ID4KPiA+IC1zdGF0aWMgaW5saW5lIGJvb2wgYml0bWFwX2VtcHR5KGNv
-bnN0IHVuc2lnbmVkIGxvbmcgKnNyYywgdW5zaWduZWQgbmJpdHMpCj4gPiAtewo+ID4gLSAgICAg
-aWYgKHNtYWxsX2NvbnN0X25iaXRzKG5iaXRzKSkKPiA+IC0gICAgICAgICAgICAgcmV0dXJuICEg
-KCpzcmMgJiBCSVRNQVBfTEFTVF9XT1JEX01BU0sobmJpdHMpKTsKPiA+IC0KPiA+IC0gICAgIHJl
-dHVybiBmaW5kX2ZpcnN0X2JpdChzcmMsIG5iaXRzKSA9PSBuYml0czsKPiA+IC19Cj4KPiBTaW5j
-ZSB0aGlzIGlzIHN1cHBvc2VkIHRvIGJlIGFuIG9wdGltaXphdGlvbiwgSSB3b3VsZCBnbyBhbGwg
-dGhlIHdheSBhbmQKPiByZXBsYWNlIHRoaXMgd2l0aCB0aGUgdHJpdmlhbCBpbXBsZW1lbnRhdGlv
-biBpbnN0ZWFkOgo+Cj4gYm9vbCBiaXRtYXBfZW1wdHkobG9uZyAqYml0cywgc2l6ZV90IG5iaXRz
-KQo+IHsKPiAgICAgICAgIGZvciAoOyBuYml0cyA+PSBCSVRTX1BFUl9MT05HOyArK2JpdHMsIG5i
-aXRzIC09IEJJVFNfUEVSX0xPTkcpCj4gICAgICAgICAgICAgICAgIGlmICgqYml0cykKPiAgICAg
-ICAgICAgICAgICAgICAgICAgICByZXR1cm4gZmFsc2U7Cj4KPiAgICAgICAgIGlmIChuYml0cyAm
-JiAqYml0cyAmIEJJVE1BUF9MQVNUX1dPUkRfTUFTSyhuYml0cykpCj4gICAgICAgICAgICAgICAg
-IHJldHVybiBmYWxzZTsKPgo+ICAgICAgICAgcmV0dXJuIHRydWU7Cj4gfQoKVGhpcyBpcyB3aGF0
-IGN1cnJlbnQgaW1wbGVtZW50YXRpb25zIGJhc2ljYWxseSBkbywgYmFzZWQgb24gZmluZF9maXJz
-dF9iaXQoKS4KCkkgdGhpbmsgdGhhdCBmb3IgbG9uZyBiaXRtYXBzIHRoZSBtb3N0IHRpbWUgY29u
-c3VtaW5nIG9wZXJhdGlvbiBpcyBtb3ZpbmcKZGF0YSB0byBMMSwgYW5kIGZvciBzaG9ydCBiaXRt
-YXBzIHRoZSBkaWZmZXJlbmNlIGJldHdlZW4gYXBwcm9hY2hlcyBpcwpiYXJlbHkgbWVhc3VyYWJs
-ZS4KCkJ1dCBod2VnaHRfbG9uZyBvbiBlYWNoIGl0ZXJhdGlvbiBjYW4ndCBiZSBtb3JlIGVmZmVj
-dGl2ZSB0aGFuIHRoZSBjdXJyZW50CnZlcnNpb24uIFNvLCBJJ2xsIGRyb3AgdGhpcyBwYXRjaCBm
-b3IgdjIgYW5kIGtlZXAgdGhpbmdzIHVuY2hhbmdlZC4KCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Dennis,
+
+On Tue, Dec 14, 2021 at 8:18 PM Dennis Zhou <dennis@kernel.org> wrote:
+> On Tue, Dec 14, 2021 at 08:02:58PM +0100, Geert Uytterhoeven wrote:
+> > On Tue, Dec 14, 2021 at 6:26 PM Dennis Zhou <dennis@kernel.org> wrote:
+> > > On Tue, Dec 14, 2021 at 05:29:22PM +0100, Geert Uytterhoeven wrote:
+> > > > On Wed, Dec 1, 2021 at 12:53 PM Vladimir Murzin <vladimir.murzin@arm.com> wrote:
+> > > > > On 11/30/21 5:41 PM, Dennis Zhou wrote:
+> > > > > > On Tue, Nov 30, 2021 at 05:29:54PM +0000, Vladimir Murzin wrote:
+> > > > > >> Currently, NOMMU pull km allocator via !SMP dependency because most of
+> > > > > >> them are UP, yet for SMP+NOMMU vm allocator gets pulled which:
+> > > > > >>
+> > > > > >> * may lead to broken build [1]
+> > > > > >> * ...or not working runtime due to [2]
+> > > > > >>
+> > > > > >> It looks like SMP+NOMMU case was overlooked in bbddff054587 ("percpu:
+> > > > > >> use percpu allocator on UP too") so restore that.
+> > > > > >>
+> > > > > >> [1]
+> > > > > >> For ARM SMP+NOMMU (R-class cores)
+> > > > > >>
+> > > > > >> arm-none-linux-gnueabihf-ld: mm/percpu.o: in function `pcpu_post_unmap_tlb_flush':
+> > > > > >> mm/percpu-vm.c:188: undefined reference to `flush_tlb_kernel_range'
+> > > > > >>
+> > > > > >> [2]
+> > > > > >> static inline
+> > > > > >> int vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+> > > > > >>                 pgprot_t prot, struct page **pages, unsigned int page_shift)
+> > > > > >> {
+> > > > > >>        return -EINVAL;
+> > > > > >> }
+> > > > > >>
+> > > > > >> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+
+> > > > > IIRC, RISC-V also have SMP+NOMMU, so adding them as well.
+> > > >
+> > > > I had seen the j-Core thread, but completely forgot about
+> > > > Canaan K210 (RV64 SMP+NOMMU).
+> > > >
+> > > > This became commit 3583521aabac76e5 ("percpu: km: ensure it is used
+> > > > with NOMMU (either UP or SMP)").  And now booting K210 prints:
+> > > >
+> > > >     percpu: wasting 10 pages per chunk
+> > > >
+> > > > a) Is this bad?
+> > >
+> > > It's not great.. Can you share the line on boot with the following
+> > > prefix: pcpu-alloc [1].
+> >
+> > There are no such lines.
+> > "make mm/percpu.i mm/percpu.s" and inspecting the generated files,
+> > and vmlinux, proves the code is there. But apparently it's not called.
+> >
+> > So there may be no issue on my system?
+>
+> I might be missing something, but that can't be right. Percpu calls
+> pcpu_dump_alloc_info() from pcpu_setup_first_chunk() which is called by
+> both embed/page first chunk code.
+>
+> Ummm. That can't be right. Percpu call pcpu_dump_alloc_info() from
+> pcpu_setup_first_chunk() which everyone should call. On my machine:
+>
+> $ dmesg | grep "pcpu-alloc"
+> [    0.065118] pcpu-alloc: s184320 r8192 d28672 u262144 alloc=1*2097152
+
+Doh, it wasn't printed to the console, due to KERN_DEBUG. Dmesg
+does have it:
+
+<7>[    0.000000] pcpu-alloc: s15520 r0 d29536 u45056 alloc=11*4096
+<7>[    0.000000] pcpu-alloc: [0] 0 [0] 1
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
