@@ -4,54 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A897C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Dec 2021 11:08:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ACB7C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Dec 2021 11:17:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i5dco4I6kex6JPVAaL/O/39gHy11hdxmn54dJhPi5C8=; b=kEakya4tzF5CO0
-	gOvsQz5Mr1rJfrSx29odRquVIQkbZnjhk+cIt7HdKGUqGU/s+yb3f2nTnRhuFGh1snMAwMNP639HW
-	1WVJnY7Ng4rb8mFkX199d0r3aXEXdy7nGpZt5TmCixW5Ja96DR7nThb5rVZBKPd8hxM4gAZw7KHoW
-	HAEyKCBsxS0MwtGI5Nv3Sylg38b2wPRW2zBJfUDfwlVKcPNjDgqggF2qY6a3sGkjP5SCv6tiK3bgi
-	G1iFlJGVmz9U7xXTQxg3y9Q8yLB6BVm/Qo7lnl62RqAZ7icGjtvwAnVT19mxUWxuS1FztFPgWNMVl
-	C79Bw7YI7Q41hHNaDwSQ==;
+	List-Owner; bh=Zy8NWl/Fp8Mc+SfQBKL+DTWhvALLX4Gm/DwHPD8WT9Q=; b=zw0574W3r4enZ0
+	Qeo7pDvCjHnfVyhLaTIyoP4RwIlWWKylVhrpuEPbikaRuZ7MO/XKR9lQjs8QYFk/DcZyrrWqXTpSb
+	7qrgPGFCbibkJd4Z/sgO231ftDb67knE7lic8EB+3keJO9oTzS0dvzQVhPKJMeHT6Mgb+rZHgb/kT
+	nnPTAJGgn8XlMJtSdi3SnrU7OqApQgzdpfqUR4LWC+uznf/kYdDVbxbO0usNZqJosdQM1yS1rjCEc
+	ZPB0mWC0fg2AsXqZJVpousoVQyE77DreG8FixI6RDpciCTY+bUUx2gpyQ3u2a5/y4ah0CXEG6/azF
+	xPnPFlAx0KxM8QsOMaCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mx5ft-00DeFU-F2; Tue, 14 Dec 2021 11:08:49 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1mx5ny-00Dfbh-Mm; Tue, 14 Dec 2021 11:17:10 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mx5fq-00DeEV-UW
- for linux-riscv@lists.infradead.org; Tue, 14 Dec 2021 11:08:48 +0000
-Received: from p5b127e95.dip0.t-ipconnect.de ([91.18.126.149]
- helo=phil.localnet)
- by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1mx5fk-0007PU-4y; Tue, 14 Dec 2021 12:08:40 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Atish Patra <atishp@atishpatra.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Anup Patel <anup@brainfault.org>, Jisheng Zhang <jszhang@kernel.org>,
- Christoph =?ISO-8859-1?Q?M=FCllner?= <cmuellner@linux.com>,
- Philipp Tomsich <philipp.tomsich@vrull.eu>,
- Nick Kossifidis <mick@ics.forth.gr>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/2] riscv: provide default implementations for
- __sbi_set_timer and __sbi_send_ipi
-Date: Tue, 14 Dec 2021 12:08:40 +0100
-Message-ID: <1786310.KS0svrzatz@phil>
-In-Reply-To: <CAOnJCULdeHn4GmrP8PLsWS43g=HYjUwiA2txisEqgzSmuCoA7w@mail.gmail.com>
-References: <20211213112034.2896536-1-heiko@sntech.de>
- <20211213112034.2896536-2-heiko@sntech.de>
- <CAOnJCULdeHn4GmrP8PLsWS43g=HYjUwiA2txisEqgzSmuCoA7w@mail.gmail.com>
+ id 1mx5nv-00DfZs-0B
+ for linux-riscv@lists.infradead.org; Tue, 14 Dec 2021 11:17:08 +0000
+Received: by mail-pl1-x634.google.com with SMTP id n8so13317286plf.4
+ for <linux-riscv@lists.infradead.org>; Tue, 14 Dec 2021 03:17:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=QdUzozq/ia4XNyw9Pm+HSSllN+T8ynAAyub4gDqEXTw=;
+ b=FF5tC5p1JHjCujakt/eVqkNtMr03J1AZ8FOQ+ekPma2ooNlljwmVltMYe9EKxww/hX
+ zCfBSt/w75HmySey0Rz8KzE1Tg+08qJnTrh+kYOc+SGtVXDDrRuMdeIzJQHh7Bf5zkCr
+ wm6KNdFwKAij7S2PHIzNOZmfTw80UCoRl6w/bl3dqNfRx+dVBW3VOOczVzhaEWXBtBE2
+ AuEQyYdkLlw6x/Nmm5SQerxI2cH8ONofrxR6oAXxvRyRpqHYvE1Ua2Fh1N0H+6ar0tl0
+ zA613tINPbuL6xvA7vx7F1aX3HLXLy5LAptD342AfSIM4cfj1VtcYe4eQJqTDnwVr1Ba
+ WGYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=QdUzozq/ia4XNyw9Pm+HSSllN+T8ynAAyub4gDqEXTw=;
+ b=1IvIIdeMOycjLdRwN4SMgSf7zGd0EG9CFdSff7OrPAKh5IgnpegKFlM9ayiJ4zoDAb
+ AIqTW+DRu5hhU3oZQQsbu1/rXXs/Wk8uyJzWULGeEzvjXD0eLs7wJjBZvXWFRh+X5hTg
+ v1LY7U2EZFODiYkCMpSl0/rS2PuEdvwmBrOshRrTXj50a+FMtEyauVCDUkl+eJjwS3YC
+ 7GvBjSHyug5kq471HRCgPrMeCcbpaAPNw3aVcf1lR2WWEJzh2p3SkOaiVFVkcGQ1pxqR
+ 8WkO1hUuYDRQOVDxa0qZRWGZv9DIawse1UMxceNN9OCPJLoC7j/gmNxcn2AbuiN0n97H
+ 6EtQ==
+X-Gm-Message-State: AOAM530YbCZaJhLLqky5deJB3m9EPxFN915LnkG26KMGUU378vSnA9xl
+ yUGj+0C6ljqsMZF913M7m3E=
+X-Google-Smtp-Source: ABdhPJxi7Vc0gMieaSDjbfQ5fHLxKKOvYsOCvjCR8XYyECgIAJVp2lwcgY5K8ae/LxW3MUlTnu+GFQ==
+X-Received: by 2002:a17:90b:17ca:: with SMTP id
+ me10mr4777718pjb.134.1639480625025; 
+ Tue, 14 Dec 2021 03:17:05 -0800 (PST)
+Received: from localhost.lan ([2400:4070:175b:7500::7a7])
+ by smtp.gmail.com with ESMTPSA id u3sm17410146pfk.32.2021.12.14.03.17.04
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 14 Dec 2021 03:17:04 -0800 (PST)
+Received: from localhost (localhost [IPv6:::1])
+ by localhost.lan (Postfix) with ESMTPSA id ACE2C90090C;
+ Tue, 14 Dec 2021 11:17:02 +0000 (GMT)
+Date: Tue, 14 Dec 2021 11:16:59 +0000
+From: Vincent Pelletier <plr.vincent@gmail.com>
+To: Aurelien Jarno <aurelien@aurel32.net>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-kernel@vger.kernel.org,
+ robh+dt@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ aou@eecs.berkeley.edu, "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE
+ BINDINGS" <devicetree@vger.kernel.org>, "open list:RISC-V ARCHITECTURE"
+ <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH] riscv: dts: enable more DA9063 functions for the SiFive
+ HiFive Unmatched
+Message-ID: <20211214111659.29bf5ea4@gmail.com>
+In-Reply-To: <YbhqNY/w36XT5zx0@aurel32.net>
+References: <20211108214629.1730870-1-aurelien@aurel32.net>
+ <mhng-7ab80707-35c0-4123-8340-cf1feca4cca2@palmer-ri-x1c9>
+ <YbhqNY/w36XT5zx0@aurel32.net>
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211214_030847_063946_45720070 
-X-CRM114-Status: GOOD (  27.29  )
+X-CRM114-CacheID: sfid-20211214_031707_088136_D17D11D5 
+X-CRM114-Status: GOOD (  18.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,97 +97,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Atish,
-
-Am Dienstag, 14. Dezember 2021, 03:10:21 CET schrieb Atish Patra:
-> On Mon, Dec 13, 2021 at 3:21 AM Heiko Stuebner <heiko@sntech.de> wrote:
-> >
-> > The mentioned function pointers get called from different sbi functions
-> > which may get called from other areas of the kernel without fully
-> > checking if the sbi initialization was done.
+On Tue, 14 Dec 2021 10:56:05 +0100, Aurelien Jarno <aurelien@aurel32.net> wrote:
+> On 2021-12-13 18:13, Palmer Dabbelt wrote:
+> > On Mon, 08 Nov 2021 13:46:29 PST (-0800), aurelien@aurel32.net wrote:  
+> > > The DA9063 PMIC found on the SiFive HiFive Unmatched also provides an
+> > > RTC, a watchdog and the power button input.
+> > > 
+> > > Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+> > > ---
+> > >  arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 12 ++++++++++++
+> > >  1 file changed, 12 insertions(+)
+> > > 
+> > > diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> > > index 2e4ea84f27e7..c357b48582f7 100644
+> > > --- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> > > +++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> > > @@ -70,6 +70,10 @@ pmic@58 {
+> > >  		interrupts = <1 IRQ_TYPE_LEVEL_LOW>;
+> > >  		interrupt-controller;
+> > > 
+> > > +		onkey {
+> > > +			compatible = "dlg,da9063-onkey";
+> > > +		};
+> > > +
+> > >  		regulators {
+> > >  			vdd_bcore1: bcore1 {
+> > >  				regulator-min-microvolt = <900000>;
+> > > @@ -205,6 +209,14 @@ vdd_ldo11: ldo11 {
+> > >  				regulator-always-on;
+> > >  			};
+> > >  		};
+> > > +
+> > > +		rtc {
+> > > +			compatible = "dlg,da9063-rtc";
+> > > +		};
+> > > +
+> > > +		wdt {
+> > > +			compatible = "dlg,da9063-watchdog";
+> > > +		};
+> > >  	};
+> > >  };  
 > 
-> SBI initialization happens in sbi_init which is called from setup_arch.
-> setup_smp happens after that. Thus, there won't be an IPI issued
-> before SMP is set up.
+> Thanks. However, wouldn't be better to merged this patch and the whole
+> series instead:
 > 
-> For __sbi_set_timer, the first time it will be called from this path.
-> time_init->timer_probe->riscv_timer_init_dt
-> 
-> time_init is called from start_kernel after setup_arch. In fact,
-> setup_arch is called very early
-> in the start_kernel.
-> 
-> Is there any other scenario where these SBI functions can be invoked
-> before SBI is initialized ?
+> http://lists.infradead.org/pipermail/linux-riscv/2021-November/010234.html
 
-This patch is more of a second thought ;-) .
-
-I.e. I ran into the issue fixed in the first patch, and then tought it
-might be nice to also not have these other "dangling pointers" around.
-But yeah, it's not that probably that these two will get called
-accidentially.
-
-So I guess I'll let you decide on these two functions ;-) .
-
-
-Heiko
-
-
-> >
-> > So similarly to sbi_remote_fence_i, provide empty functions for them
-> > to prevent any null-pointer dereferences in the future.
-> >
-> > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-> > ---
-> >  arch/riscv/kernel/sbi.c | 12 ++++++++++--
-> >  1 file changed, 10 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-> > index 69d0a96b97d0..6a21345c6712 100644
-> > --- a/arch/riscv/kernel/sbi.c
-> > +++ b/arch/riscv/kernel/sbi.c
-> > @@ -14,6 +14,13 @@
-> >  unsigned long sbi_spec_version __ro_after_init = SBI_SPEC_VERSION_DEFAULT;
-> >  EXPORT_SYMBOL(sbi_spec_version);
-> >
-> > +static void __sbi_set_timer_none(uint64_t stime_value) {}
-> > +
-> > +static int __sbi_send_ipi_none(const unsigned long *hart_mask)
-> > +{
-> > +       return -EOPNOTSUPP;
-> > +}
-> > +
-> >  static int __sbi_rfence_none(int fid, const unsigned long *hart_mask,
-> >                              unsigned long start, unsigned long size,
-> >                              unsigned long arg4, unsigned long arg5)
-> > @@ -21,8 +28,9 @@ static int __sbi_rfence_none(int fid, const unsigned long *hart_mask,
-> >         return -EOPNOTSUPP;
-> >  }
-> >
-> > -static void (*__sbi_set_timer)(uint64_t stime) __ro_after_init;
-> > -static int (*__sbi_send_ipi)(const unsigned long *hart_mask) __ro_after_init;
-> > +static void (*__sbi_set_timer)(uint64_t stime) __ro_after_init = __sbi_set_timer_none;
-> > +static int (*__sbi_send_ipi)(const unsigned long *hart_mask)
-> > +                           __ro_after_init = __sbi_send_ipi_none;
-> >  static int (*__sbi_rfence)(int fid, const unsigned long *hart_mask,
-> >                            unsigned long start, unsigned long size,
-> >                            unsigned long arg4, unsigned long arg5)
-> > --
-> > 2.30.2
-> >
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
-> 
-> 
-> 
-
-
-
-
+My apologies about this, by the way: I had prepared that patch stack
+last summer and was witholding it until the IRQ-fires-only-once
+situation was resolved (it does affect at least the onkey subfunction,
+although in a non-obvious way when the event triggers a shutdown or a
+reboot). I did not think of checking recent submissions until it was
+too late.
+-- 
+Vincent Pelletier
+GPG fingerprint 983A E8B7 3B91 1598 7A92 3845 CAC9 3691 4257 B0C1
 
 _______________________________________________
 linux-riscv mailing list
