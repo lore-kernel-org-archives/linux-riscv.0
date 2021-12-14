@@ -4,80 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A056BC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Dec 2021 20:50:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46A2CC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Dec 2021 21:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e0I5J52aY81rHFGUYGmL8u/iq5X3MV21ag6mDYVpaBE=; b=4BRPd55/niz9dC
-	pyzJxZOlNJhBWyT10wcDhzYApIDe/n/7yz91uOtRebQiev+6vY+b638v4kjWrsTuD1t2gIoqmT+fd
-	/uyKuyW8QJfeSpW2YsAweD/5NC9OvKstUrm8SveEWgSVIKq5FBFZHKWILIVGL0NiFHISfih/7kS8m
-	/6dliQrTs7RHoocFC+Q56yfgpz/aQFhbH6d/WBMUR2vM0enm2fMuAfJV+SnJb8EC6rBtkPuMNleUw
-	EPjhC6J74Ad4kFU3/Ay5tD7hKgDRU/R9vVRJr7capFM3il+4DWIImIpPc71QYdrocY9DRd803qtjn
-	CyroSd3qpqPgBNXyiRTg==;
+	List-Owner; bh=iPo95ZWW/QFW4FPnnZByiEvpc+/qIB6YXdh8DRgqtT0=; b=LWFAmFRb2GLQLv
+	M0tU0TXzvaP9Zc0zgUqDXN9yU2MxmiYkvF9DBbXVr+ZKWwugn9di9yr3OCG46FYKR24uF3BzF67UR
+	/ubvQ+fGu8QYUPekuLUFDoOm1Ksd1xozLUPmsyAn4XLx7xigkuEOP/UklpP+2r+JJvjl/SnNMKIEy
+	rKjxxixsjBHlmR44Y8lpbp5Q5Rwjbqg1r7RWXLRlS+7khXi4M6lrT3jpAl7ek8dmD64PrQ+xCbpVK
+	4RcOOy/hDEmAHkWm9wniqaCr+3p7c5DnV+YlkjCSoBSnEg9i6jzSSSt7rSXycI1UzB2LkDos0MFJ1
+	kkyFIx0dlLLSf1S1gaXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mxEkY-00Fmj7-V5; Tue, 14 Dec 2021 20:50:14 +0000
-Received: from mail-qk1-f174.google.com ([209.85.222.174])
+	id 1mxFNN-00FqIX-F4; Tue, 14 Dec 2021 21:30:21 +0000
+Received: from mout.kundenserver.de ([212.227.126.133])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mxEkW-00Fmil-Hj
- for linux-riscv@lists.infradead.org; Tue, 14 Dec 2021 20:50:14 +0000
-Received: by mail-qk1-f174.google.com with SMTP id m186so18047487qkb.4
- for <linux-riscv@lists.infradead.org>; Tue, 14 Dec 2021 12:50:10 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=sS8ThnAfgEIagUazFBk67DrTX4ixpcz5uSXW55pov0w=;
- b=Olmsr0F32F5ufhLhT3GR7FqfmxuX7cpiO43glII5F/XbeHEFqRkWA/1D/f7rGfkAGd
- O9TQuSMXOEJ5qTseSjKMq8QNxOm4a5WCEzZI/TJGxmIV+15Ws+M2dgqPxLFBGhlzUaFZ
- albSHweP1jGcsujZsYUA2ll3xXFNuBEN9ge+YIJBtsMirG3pE2D/XIcD9ABgcqM9/s8V
- KbXnaj15y6O3zcyjEaEWYid8bOdk1Khe26B6zUJA1I8KF6XbsT+sHu3skD8gX/Km9hcs
- GdgueOBZYVnWA0OsyaOxs3Z0a+IXEYdXOygWLUQre7TK9WUH8Ld+vBF8ppsK2kpxCOQd
- 1c5Q==
-X-Gm-Message-State: AOAM533ejHM+4HXKmOPYBn2y4rcgIjMZGjO20307rlgzfM1QZBHZPNYQ
- ftE4A4t9ZYBgQD9sN2eBgj4=
-X-Google-Smtp-Source: ABdhPJwK4+ZFU7xss+xqFdXm1wARUT9REHRHqt3Km7rUsTKvt5KPRi6jXIyWGXhd+QLAvXrztvELNw==
-X-Received: by 2002:a05:620a:4489:: with SMTP id
- x9mr6247018qkp.38.1639515009734; 
- Tue, 14 Dec 2021 12:50:09 -0800 (PST)
-Received: from fedora (pool-173-68-57-129.nycmny.fios.verizon.net.
- [173.68.57.129])
- by smtp.gmail.com with ESMTPSA id d5sm808059qte.27.2021.12.14.12.50.08
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 14 Dec 2021 12:50:09 -0800 (PST)
-Date: Tue, 14 Dec 2021 15:50:07 -0500
-From: Dennis Zhou <dennis@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Vladimir Murzin <vladimir.murzin@arm.com>,
- linux-arch-owner@vger.kernel.org, Linux MM <linux-mm@kvack.org>,
- Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@linux.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Nicholas Piggin <npiggin@gmail.com>, Christoph Hellwig <hch@lst.de>,
- Arnd Bergmann <arnd@arndb.de>, Linux-sh list <linux-sh@vger.kernel.org>,
- Rich Felker <dalias@libc.org>,
- linux-riscv <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH] percpu: km: ensure it is used with NOMMU (either UP or
- SMP)
-Message-ID: <YbkDfyTbI/M6gaOw@fedora>
-References: <20211130172954.129587-1-vladimir.murzin@arm.com>
- <20211130172954.129587-2-vladimir.murzin@arm.com>
- <YaZiOnNd6fAnLcxz@fedora>
- <8c2b4666-cf13-3735-be1e-b8a1c71df113@arm.com>
- <CAMuHMdXA73EuFC6e-pEz1Ovc9ySNk-mt-6O0L7KbO28PvqratA@mail.gmail.com>
- <YbjTuOhNxaPirK1L@fedora>
- <CAMuHMdUaLTbS_20t7jfPkkHqYV=9JNQf-XQ80UppZcrHGOoTfA@mail.gmail.com>
- <YbjuGhPTjuTCSu+m@fedora>
- <CAMuHMdW8Besfp3Pbj1tRJ4gKKUbR59pU1ACuUNnn4RXkgVo5Qw@mail.gmail.com>
+ id 1mxFN9-00FqGK-Gq; Tue, 14 Dec 2021 21:30:09 +0000
+Received: from mail-wr1-f46.google.com ([209.85.221.46]) by
+ mrelayeu.kundenserver.de (mreue009 [213.165.67.97]) with ESMTPSA (Nemesis) id
+ 1M8hMn-1msafU0JeL-004j4Q; Tue, 14 Dec 2021 22:30:05 +0100
+Received: by mail-wr1-f46.google.com with SMTP id e5so1278950wrc.5;
+ Tue, 14 Dec 2021 13:30:04 -0800 (PST)
+X-Gm-Message-State: AOAM530Pcd2VvmNiPZwAdsS0tvb/shRFVPYrZW9vycLn/WfGCoesVm3o
+ GL0JOsf+6NCJ8chs2wcR+rZiLwBoHI/Jo2Wgj5A=
+X-Google-Smtp-Source: ABdhPJzcegCK9YMz5uc5MEIV8QsJtofipyRKfw/xnhV/DeCAcLktjJYubEtld7Wf6tdXnIwtumoe9/2/TOT0iKczb9s=
+X-Received: by 2002:a5d:530e:: with SMTP id e14mr1617828wrv.12.1639517404563; 
+ Tue, 14 Dec 2021 13:30:04 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAMuHMdW8Besfp3Pbj1tRJ4gKKUbR59pU1ACuUNnn4RXkgVo5Qw@mail.gmail.com>
+References: <20211128200647.147058-1-kernel@esmil.dk>
+In-Reply-To: <20211128200647.147058-1-kernel@esmil.dk>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Tue, 14 Dec 2021 22:29:48 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a1NvT=f2vOvgk4HdBc48A+63B_0SBQ5AVOO6cu0MiMFiQ@mail.gmail.com>
+Message-ID: <CAK8P3a1NvT=f2vOvgk4HdBc48A+63B_0SBQ5AVOO6cu0MiMFiQ@mail.gmail.com>
+Subject: Re: [GIT PULL] Basic StarFive JH7100 RISC-V SoC support for 5.17
+To: Emil Renner Berthing <kernel@esmil.dk>
+Cc: SoC Team <soc@kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Michael Zhu <michael.zhu@starfivetech.com>, 
+ Fu Wei <tekkamanninja@gmail.com>, Arnd Bergmann <arnd@arndb.de>
+X-Provags-ID: V03:K1:F8T2dN1rLs1dPUgJvLWaVnxRujoQzP3iNrj3pJVIYPE6uQPBjW+
+ GuNqnhJYTgldB0xSJ9mgOhzL80vgGLG1vh1bdqkF8kX6wNehsijPTgATTiZMoyueqEwYSzd
+ pMjQIywsvApJF6t8ICmdY+PmFmnJoLcBQtk2lmlgqJJOcYFj5TLgpugs+vGiZgDTHHax5da
+ xpQqh67BS4067IUdLoFYQ==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:hP8CRkaRY2M=:iWfbZV+vez1usDs2CY8V7G
+ LL3wQeuc+lah+WyN4mWH+Zaixtxzxq8bttc2PeVxCDz4OueRJldVI+5+3o0pOpUpzrPpDVOR0
+ 9n5vL2A+IDNq+vMd+K83yqwYr6YzT4u9DFms40GkUsk8bNoBL7eGWqAPies0cmswUdmE4L8S4
+ QraR2By0cPhDVaetlt7TfMm8PFwxJQ4L+nsz4m0kyqsjsIV2BXtEvL61NoxRILVPEqCINS0QL
+ beIm/cRghvrkMO4YQgcGdVPEZPpX64zaBaU1ACKS/EsrkX8LNHe0pc6Vcv4D4h6z/CY16gTNW
+ FwwfiQZJHdQ9II+6kyY7Zy7CueQ9GsfZNb3lPMjG9F9cmQsYX3LlgNYBHHlYbX8+0yn1/+gYK
+ o82cxvdW0BLcxsKoNKAUrrM/Y0IU34B9VKgEMlnpNNqBuREb3iiK++EBQJNaw1NHRAnJJewGx
+ xyO3jOv0NGe2+Y1Mi2UKkgfExsAs4aUcvgQQwPIup6tkpmbGDrtn1O4ewmkI0InXyQZvyGcyY
+ 54ZBzc3JPGtDibQZQKFD0nP3a/9o4tAsGK25vX1tRfp/k34BwBNagCZ8CXQQ73icwwwELt2rL
+ U/VXPOa0I5h3KjkXu0olnMSMX6JHa9jPgbKue5UXfw0P+rTCWgXfXr/Hb6HY/4Qvndu/Zs5NY
+ v2D6hUJlz3prX1eoOAOOXrMkOcxOZNuueFgqZYXJkoxon3oW8jbYQM/kJME2n/u30BHzDUeWS
+ ItKH+5FpN8EGcdKHkjrShBbcpj5hahevVqbcaQkBc/YLcsZUw1QTDexOn5UCIBzc5rPZBV7bM
+ PMi7kn9+0JfaImyurqgk4VqhM8bLXwzZFhOF1Hq7SYdhejif6E=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211214_125012_620276_16E05054 
-X-CRM114-Status: GOOD (  34.69  )
+X-CRM114-CacheID: sfid-20211214_133007_884850_E97909E9 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,92 +84,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 14, 2021 at 09:12:06PM +0100, Geert Uytterhoeven wrote:
-> Hi Dennis,
-> 
-> On Tue, Dec 14, 2021 at 8:18 PM Dennis Zhou <dennis@kernel.org> wrote:
-> > On Tue, Dec 14, 2021 at 08:02:58PM +0100, Geert Uytterhoeven wrote:
-> > > On Tue, Dec 14, 2021 at 6:26 PM Dennis Zhou <dennis@kernel.org> wrote:
-> > > > On Tue, Dec 14, 2021 at 05:29:22PM +0100, Geert Uytterhoeven wrote:
-> > > > > On Wed, Dec 1, 2021 at 12:53 PM Vladimir Murzin <vladimir.murzin@arm.com> wrote:
-> > > > > > On 11/30/21 5:41 PM, Dennis Zhou wrote:
-> > > > > > > On Tue, Nov 30, 2021 at 05:29:54PM +0000, Vladimir Murzin wrote:
-> > > > > > >> Currently, NOMMU pull km allocator via !SMP dependency because most of
-> > > > > > >> them are UP, yet for SMP+NOMMU vm allocator gets pulled which:
-> > > > > > >>
-> > > > > > >> * may lead to broken build [1]
-> > > > > > >> * ...or not working runtime due to [2]
-> > > > > > >>
-> > > > > > >> It looks like SMP+NOMMU case was overlooked in bbddff054587 ("percpu:
-> > > > > > >> use percpu allocator on UP too") so restore that.
-> > > > > > >>
-> > > > > > >> [1]
-> > > > > > >> For ARM SMP+NOMMU (R-class cores)
-> > > > > > >>
-> > > > > > >> arm-none-linux-gnueabihf-ld: mm/percpu.o: in function `pcpu_post_unmap_tlb_flush':
-> > > > > > >> mm/percpu-vm.c:188: undefined reference to `flush_tlb_kernel_range'
-> > > > > > >>
-> > > > > > >> [2]
-> > > > > > >> static inline
-> > > > > > >> int vmap_pages_range_noflush(unsigned long addr, unsigned long end,
-> > > > > > >>                 pgprot_t prot, struct page **pages, unsigned int page_shift)
-> > > > > > >> {
-> > > > > > >>        return -EINVAL;
-> > > > > > >> }
-> > > > > > >>
-> > > > > > >> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> 
-> > > > > > IIRC, RISC-V also have SMP+NOMMU, so adding them as well.
-> > > > >
-> > > > > I had seen the j-Core thread, but completely forgot about
-> > > > > Canaan K210 (RV64 SMP+NOMMU).
-> > > > >
-> > > > > This became commit 3583521aabac76e5 ("percpu: km: ensure it is used
-> > > > > with NOMMU (either UP or SMP)").  And now booting K210 prints:
-> > > > >
-> > > > >     percpu: wasting 10 pages per chunk
-> > > > >
-> > > > > a) Is this bad?
-> > > >
-> > > > It's not great.. Can you share the line on boot with the following
-> > > > prefix: pcpu-alloc [1].
-> > >
-> > > There are no such lines.
-> > > "make mm/percpu.i mm/percpu.s" and inspecting the generated files,
-> > > and vmlinux, proves the code is there. But apparently it's not called.
-> > >
-> > > So there may be no issue on my system?
-> >
-> > I might be missing something, but that can't be right. Percpu calls
-> > pcpu_dump_alloc_info() from pcpu_setup_first_chunk() which is called by
-> > both embed/page first chunk code.
-> >
-> > Ummm. That can't be right. Percpu call pcpu_dump_alloc_info() from
-> > pcpu_setup_first_chunk() which everyone should call. On my machine:
-> >
-> > $ dmesg | grep "pcpu-alloc"
-> > [    0.065118] pcpu-alloc: s184320 r8192 d28672 u262144 alloc=1*2097152
-> 
-> Doh, it wasn't printed to the console, due to KERN_DEBUG. Dmesg
-> does have it:
-> 
-> <7>[    0.000000] pcpu-alloc: s15520 r0 d29536 u45056 alloc=11*4096
-> <7>[    0.000000] pcpu-alloc: [0] 0 [0] 1
-> 
+On Sun, Nov 28, 2021 at 9:06 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+>
+> The following changes since commit fa55b7dcdc43c1aa1ba12bca9d2dd4318c2a0dbf:
+>
+>   Linux 5.16-rc1 (2021-11-14 13:56:52 -0800)
+>
+> are available in the Git repository at:
+>
+>   https://github.com/esmil/linux.git tags/for-soc
+>
+> for you to fetch changes up to 398d6e139782d1ce2c9822beb8effba0c9c51cc4:
+>
+>   RISC-V: Add BeagleV Starlight Beta device tree (2021-11-28 20:07:09 +0100)
+>
 
-I see, so what's happening is we're allocating 11 pages * 2, and due to
-percpu-km we round up to a contiguous 32 pages for backing pages. This
-results in the warning of wasting 10 pages. Given the size of the static
-region, I'm not too worried for now. I can't imagine the config would
-use that much percpu memory.
+Hi Emil,
 
-We can massage the discrepancy for-v5.17. Basically in percpu-km, we
-align to 4k even though our allocation gets rounded up to the next power
-of 2. I don't have a lot of bandwidth right now, but I might be able to
-think about it over the next few weeks.
+I just got through my backlog of pull request and got to yours. All of
+the contents look
+fine but I noticed that there is no tag description. Please sign the
+tag with a gpg
+key and add a description that explains the contents of the branch in your own
+words, the same way you write the introductory mail of a patch series. This will
+become the description of the merge commit.
 
-Thanks,
-Dennis
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
