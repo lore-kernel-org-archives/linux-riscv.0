@@ -4,77 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8976FC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Dec 2021 16:04:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43EE4C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Dec 2021 17:45:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fHsfK9jTPLtNoZ1yjsaAPMF/FfnEYq8zAzfRvuCAoPg=; b=qVKYEa41AryGQs
-	fEyAEaEh25AkQNRGYwEcC/MQPBtJjJTiWqhOAuGzVkFK3EvLuylZh5Ye1YMkqpXw3U4OlYl+16Vzr
-	Xax9lEiIRc8sLIUfPGGOrXO49Awq6rX1QWsKSpUN/zT6ZVp0kgESA45SgkoGvAH0w0/j/eTPdzIgN
-	6sGZ5g9L+nJOaaejePDIV9VgkNYGDrUw6Ii/tTuLRJgLEMuMrv+uWRDYHsLmv7ZJvoJNSdh86+c/q
-	VlRXGIccpC/mDQDSVn9SshlVpEZipMJXvnleM2lQgJMCsw3ATb1/BA7vGagBiH9724yUgwVE5uWWd
-	sSZCSecxsRAlgPsOZ3ng==;
+	List-Owner; bh=m3/CEUFJOW8ACr7N1qqyB6deYybCE2Sw95lmD4oN6xk=; b=3GBsBZ5vIZ4iV/
+	3Ex1K9vg9aIaDEYBbzR7Ue+1IJhl/iqwPk7AwJnol+Xg/lmiVXQoCk3YUOnFx0cu2Z5orhz5t2tV2
+	RJA7slzItRlvdQnNGpsKXzGOGTB+e6l759+1P/duDreTB5xVzz1lY0OHQom2ySjsZUHWU1rdXrfH1
+	qmqPlrbHmQfHUtBgtuSq42OyLew7iEuiciEK0esWxEt9jShN6EHOwnRghYi/+G8zVhUDHa4kxEVwt
+	LIl5ufWZaYXVAaAFtGB5tzNowBME9Bgo2J5Ymo2tTm2VIyK/EZUwPGcfYagj+HC6GVxsXGzrmtvmN
+	HnYMMNY1W29I1qIO+7TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mxWlB-001XZe-TF; Wed, 15 Dec 2021 16:04:05 +0000
-Received: from mail-yb1-xb33.google.com ([2607:f8b0:4864:20::b33])
+	id 1mxYLa-0028ll-5m; Wed, 15 Dec 2021 17:45:46 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mxWkM-001X97-0o
- for linux-riscv@lists.infradead.org; Wed, 15 Dec 2021 16:03:16 +0000
-Received: by mail-yb1-xb33.google.com with SMTP id v64so56490460ybi.5
- for <linux-riscv@lists.infradead.org>; Wed, 15 Dec 2021 08:03:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
+ id 1mxYLX-0028k2-1P; Wed, 15 Dec 2021 17:45:44 +0000
+Received: by mail-pl1-x631.google.com with SMTP id w24so4403777ply.12;
+ Wed, 15 Dec 2021 09:45:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=GiNYQTCx80RqOCWsDr0HEjJB5e/RmxK3bF/dCC29mWU=;
- b=CzrfEMlCyBNdUXTadBLO4zZaCHbDXbM0FdxnC6Ud6YNLkmLJ4//mLRolRf3zDw/O7a
- i/LCeqbAo8fZi97Gl9bSAwGR6iFuUNwaCv8BS7x9OIuU6B4LceDcTG9iUAGKgc7JgKP6
- +20R4ojbe6U4ogKZyJZ8RVIx55iS7RkyjTDwc=
+ :cc; bh=RLdWdHoT6O3wLXgWsRx2m2m62hSjV0BcJXlTjn5JUFY=;
+ b=fVGVY8wqrxR8Y9FDXFtr4SE6iyR8BVVbZ5vgJ4y8dkqTnryOyAM1f7oIOnezuj4A6J
+ xZUPr4yWMlNLYsHQ1fallxSJg8aU00+SwAnq0ijeJb6rpCasKd3VYye0HMu7Rz4Fmzli
+ VTY7ooY+g0kHA+TAUoyyLgzX0mSn9ha1KmFllLdg51BzQBC+Mgmo9+XdPBjphX6Y4e34
+ aHA3UHFWRC7Btex9u1tZiEFoYFee/G/WGm4rYd3nNUPqV0MpixQGc6Vx0PruHv6wejmQ
+ Ow0n2j4fyu9ba9vCZKTh9cTJvx1bERx0Yn7rh5DuRA2QxMZuAeUzJXU06wIQ9Mevfcss
+ WI7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=GiNYQTCx80RqOCWsDr0HEjJB5e/RmxK3bF/dCC29mWU=;
- b=swnCnqhKnli+1IWqapHlGIDqc8T5QSNRkM2ulNNFu/vZpMQHzhp63frWC+VUUuyxq/
- qJyz1uTuf19iP3qHz1mDzbJQnDt7BsIY1qe5yQZY8pO00oZMK5dl6tXHgTU6ngf9/gwX
- I8ggiekTcj+xeM/D9Rv9wE4plo4TvfukU8bAgglTCn1Rp73lQrHgQYzOYjt5hGCKPE5g
- lfZl+onRjV92EiIGU8bDsl9ESY+W409X5aAS/KgkBjIGaCu0oLPshe8J3iKKEBlg9wyf
- IW8A4QYDS/kHeyDJWyERgS2u4TctXf7s2HEIIj83I7WWtxgc0gyhHkXEga06r1m6I/tI
- J4fA==
-X-Gm-Message-State: AOAM532KlCFEqaSOKKMEygKfiLe5NkaZyKCAQb8m9BbtTAT3ZiyllGAC
- YnNlBvVETR1XzvIVjDRmHy1e1M8o6Au2gIkdHZ6m
-X-Google-Smtp-Source: ABdhPJzXQW8xMk9WFdgxeBv6U5lUUQ9SRQofE4GMEUin6G+Dxb6DFCkBbx7Zd6eNLZ/A1IORIMM+JgB8FwA7V/caBHE=
-X-Received: by 2002:a25:d157:: with SMTP id i84mr6667830ybg.703.1639584191647; 
- Wed, 15 Dec 2021 08:03:11 -0800 (PST)
+ bh=RLdWdHoT6O3wLXgWsRx2m2m62hSjV0BcJXlTjn5JUFY=;
+ b=rBbiOtPwPqqrjixFvqkwxhsHAVSG64S3q7hKwAn8B1DButi/DFX2DhlAGrr5m2SbEg
+ w/jeGcj2QHBAKr2Gb6bwQzB/9kYDh/helJvBN9goUQyyUjvwXJtMliA+XM8KCd27PkYj
+ JqpJi+vvt+Elu+ytw3LZhg2hJu1JZamXAllu8JOnXLjy7XIvRwd1A3qnEtlR8m3no3Rq
+ 9CKPXUBHzVGkUgCd2mTLX+jONivD53jB5YQnVKoRqjLOTZATphKvqTWDnJNP1w0wSZPc
+ GL5Y+4VqJIepQ269NyU56tA7bWvbzZJ2VTjZfm69Lo1LBh04VMnJ4Zd5CoiIXUwi8gKp
+ fLSw==
+X-Gm-Message-State: AOAM533TgPUkd4bxEQAnBc5QUMeE9m+tg1ToZ1xpt2vR0fJruCWdOQjf
+ 64e9CnzZUvzkThLKBtldm86NOJn2mJ4MHnZp+OE=
+X-Google-Smtp-Source: ABdhPJxIcVzS1V95pBlMUcYP2k7Lrcyzl/rBNhnf3pbvrkTovj6aQvXpyQPCUffP2FcbLTl6T7AIgJQIhLFRrE2qAuQ=
+X-Received: by 2002:a17:90a:4a06:: with SMTP id
+ e6mr968675pjh.228.1639590342342; 
+ Wed, 15 Dec 2021 09:45:42 -0800 (PST)
 MIME-Version: 1.0
-References: <20211025195350.242914-1-atish.patra@wdc.com>
- <20211025195350.242914-6-atish.patra@wdc.com>
- <20211215110214.62ca2474@redslave.neermore.group>
-In-Reply-To: <20211215110214.62ca2474@redslave.neermore.group>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Wed, 15 Dec 2021 08:03:00 -0800
-Message-ID: <CAOnJCU+XGcFtJuYu5AMG07guxoaigx=fKnmnNGrrs4AdxKRLeQ@mail.gmail.com>
-Subject: Re: [v4 05/11] RISC-V: Add RISC-V SBI PMU extension definitions
-To: Nikita Shubin <nikita.shubin@maquefel.me>
-Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+References: <20211128035704.270739-1-yury.norov@gmail.com>
+ <20211128035704.270739-3-yury.norov@gmail.com>
+ <YaPGDOvBzhiRFcOP@qmqm.qmqm.pl>
+ <CAAH8bW9-dbENFUrwPUQ-uJVVX_s=PWb2zpAJ8BqkV3vJE696mA@mail.gmail.com>
+ <0ccb827de1164b2989d652bfb6f1bbab@AcuMS.aculab.com>
+In-Reply-To: <0ccb827de1164b2989d652bfb6f1bbab@AcuMS.aculab.com>
+From: Yury Norov <yury.norov@gmail.com>
+Date: Wed, 15 Dec 2021 09:45:30 -0800
+Message-ID: <CAAH8bW-u5AsFTXUOJPRkF-6dk1LcL7PE0Tm+dUc9Ctb6JMy=tg@mail.gmail.com>
+Subject: Re: [PATCH 2/9] lib/bitmap: implement bitmap_{empty,
+ full} with bitmap_weight_eq()
+To: David Laight <David.Laight@aculab.com>
+Cc: =?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>, 
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "James E.J. Bottomley" <jejb@linux.ibm.com>, 
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ "Paul E. McKenney" <paulmck@kernel.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Alexey Klimov <aklimov@redhat.com>, Amitkumar Karwar <amitkarwar@gmail.com>, 
+ Andi Kleen <ak@linux.intel.com>, Andrew Lunn <andrew@lunn.ch>, 
+ Andrew Morton <akpm@linux-foundation.org>, Andy Gross <agross@kernel.org>, 
+ Andy Lutomirski <luto@kernel.org>, Andy Shevchenko <andy@infradead.org>,
  Anup Patel <anup.patel@wdc.com>, 
- David Abdurachmanov <david.abdurachmanov@sifive.com>,
- devicetree <devicetree@vger.kernel.org>, 
- Greentime Hu <greentime.hu@sifive.com>, Guo Ren <guoren@linux.alibaba.com>, 
- Heinrich Schuchardt <xypron.glpk@gmx.de>, Jonathan Corbet <corbet@lwn.net>, 
- Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- linux-perf-users@vger.kernel.org, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Nick Kossifidis <mick@ics.forth.gr>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Rob Herring <robh+dt@kernel.org>, Vincent Chen <vincent.chen@sifive.com>
+ Ard Biesheuvel <ardb@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, 
+ Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christoph Hellwig <hch@lst.de>, 
+ Christoph Lameter <cl@linux.com>, Daniel Vetter <daniel@ffwll.ch>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, David Airlie <airlied@linux.ie>, 
+ Dennis Zhou <dennis@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>, 
+ Geetha sowjanya <gakula@marvell.com>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Guo Ren <guoren@kernel.org>, 
+ Hans de Goede <hdegoede@redhat.com>, Heiko Carstens <hca@linux.ibm.com>,
+ Ian Rogers <irogers@google.com>, 
+ Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>, 
+ Jason Wessel <jason.wessel@windriver.com>, Jens Axboe <axboe@fb.com>,
+ Jiri Olsa <jolsa@redhat.com>, 
+ Jonathan Cameron <jic23@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, 
+ Kalle Valo <kvalo@codeaurora.org>, Kees Cook <keescook@chromium.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Lee Jones <lee.jones@linaro.org>, 
+ Marc Zyngier <maz@kernel.org>, Marcin Wojtas <mw@semihalf.com>,
+ Mark Gross <markgross@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Matti Vaittinen <mazziesaccount@gmail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Mel Gorman <mgorman@suse.de>, 
+ Michael Ellerman <mpe@ellerman.id.au>, 
+ Mike Marciniszyn <mike.marciniszyn@cornelisnetworks.com>,
+ Nicholas Piggin <npiggin@gmail.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Petr Mladek <pmladek@suse.com>, Randy Dunlap <rdunlap@infradead.org>, 
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>, Roy Pledge <Roy.Pledge@nxp.com>, 
+ Russell King <linux@armlinux.org.uk>, Saeed Mahameed <saeedm@nvidia.com>, 
+ Sagi Grimberg <sagi@grimberg.me>, Sergey Senozhatsky <senozhatsky@chromium.org>,
+ Solomon Peachy <pizza@shaftnet.org>, Stephen Boyd <sboyd@kernel.org>, 
+ Stephen Rothwell <sfr@canb.auug.org.au>, Steven Rostedt <rostedt@goodmis.org>, 
+ Subbaraya Sundeep <sbhatta@marvell.com>, Sudeep Holla <sudeep.holla@arm.com>, 
+ Sunil Goutham <sgoutham@marvell.com>, Tariq Toukan <tariqt@nvidia.com>,
+ Tejun Heo <tj@kernel.org>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ Vincent Guittot <vincent.guittot@linaro.org>, 
+ Vineet Gupta <vgupta@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
+ Vivien Didelot <vivien.didelot@gmail.com>, Vlastimil Babka <vbabka@suse.cz>,
+ Will Deacon <will@kernel.org>, "bcm-kernel-feedback-list@broadcom.com"
+ <bcm-kernel-feedback-list@broadcom.com>, 
+ "kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
+ "linux-alpha@vger.kernel.org" <linux-alpha@vger.kernel.org>, 
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+ "linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>, 
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>, 
+ "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>, 
+ "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+ "linux-mm@kvack.org" <linux-mm@kvack.org>, 
+ "linux-perf-users@vger.kernel.org" <linux-perf-users@vger.kernel.org>, 
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+ "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>, 
+ "linux-snps-arc@lists.infradead.org" <linux-snps-arc@lists.infradead.org>, 
+ "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211215_080314_190457_5DD2BD7A 
-X-CRM114-Status: GOOD (  24.04  )
+X-CRM114-CacheID: sfid-20211215_094543_122823_194E1BF1 
+X-CRM114-Status: GOOD (  19.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,175 +152,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 15, 2021 at 12:10 AM Nikita Shubin
-<nikita.shubin@maquefel.me> wrote:
+On Wed, Dec 15, 2021 at 12:41 AM David Laight <David.Laight@aculab.com> wrote:
 >
-> Hello Atish!
->
-> On Mon, 25 Oct 2021 12:53:44 -0700
-> Atish Patra <atish.patra@wdc.com> wrote:
->
-> > This patch adds all the definitions defined by the SBI PMU extension.
+> From: Yury Norov
+> > Sent: 14 December 2021 19:43
+> ...
 > >
-> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> > ---
-> >  arch/riscv/include/asm/sbi.h | 97
-> > ++++++++++++++++++++++++++++++++++++ 1 file changed, 97 insertions(+)
+> > I think that for long bitmaps the most time consuming operation is moving
+> > data to L1, and for short bitmaps the difference between approaches is
+> > barely measurable.
 > >
-> > diff --git a/arch/riscv/include/asm/sbi.h
-> > b/arch/riscv/include/asm/sbi.h index 0d42693cb65e..7a14ca06ba8f 100644
-> > --- a/arch/riscv/include/asm/sbi.h
-> > +++ b/arch/riscv/include/asm/sbi.h
-> > @@ -27,6 +27,7 @@ enum sbi_ext_id {
-> >       SBI_EXT_IPI = 0x735049,
-> >       SBI_EXT_RFENCE = 0x52464E43,
-> >       SBI_EXT_HSM = 0x48534D,
-> > +     SBI_EXT_PMU = 0x504D55,
-> >  };
-> >
-> >  enum sbi_ext_base_fid {
-> > @@ -70,6 +71,99 @@ enum sbi_hsm_hart_status {
-> >       SBI_HSM_HART_STATUS_STOP_PENDING,
-> >  };
-> >
-> > +
-> > +enum sbi_ext_pmu_fid {
-> > +     SBI_EXT_PMU_NUM_COUNTERS = 0,
-> > +     SBI_EXT_PMU_COUNTER_GET_INFO,
-> > +     SBI_EXT_PMU_COUNTER_CFG_MATCH,
-> > +     SBI_EXT_PMU_COUNTER_START,
-> > +     SBI_EXT_PMU_COUNTER_STOP,
-> > +     SBI_EXT_PMU_COUNTER_FW_READ,
-> > +};
-> > +
-> > +#define RISCV_PMU_RAW_EVENT_MASK GENMASK_ULL(55, 0)
-> > +#define RISCV_PMU_RAW_EVENT_IDX 0x20000
-> > +
-> > +/** General pmu event codes specified in SBI PMU extension */
-> > +enum sbi_pmu_hw_generic_events_t {
-> > +     SBI_PMU_HW_NO_EVENT                     = 0,
-> > +     SBI_PMU_HW_CPU_CYCLES                   = 1,
-> > +     SBI_PMU_HW_INSTRUCTIONS                 = 2,
-> > +     SBI_PMU_HW_CACHE_REFERENCES             = 3,
-> > +     SBI_PMU_HW_CACHE_MISSES                 = 4,
-> > +     SBI_PMU_HW_BRANCH_INSTRUCTIONS          = 5,
-> > +     SBI_PMU_HW_BRANCH_MISSES                = 6,
-> > +     SBI_PMU_HW_BUS_CYCLES                   = 7,
-> > +     SBI_PMU_HW_STALLED_CYCLES_FRONTEND      = 8,
-> > +     SBI_PMU_HW_STALLED_CYCLES_BACKEND       = 9,
-> > +     SBI_PMU_HW_REF_CPU_CYCLES               = 10,
-> > +
-> > +     SBI_PMU_HW_GENERAL_MAX,
-> > +};
-> > +
-> > +/**
-> > + * Special "firmware" events provided by the firmware, even if the
-> > hardware
-> > + * does not support performance events. These events are encoded as
-> > a raw
-> > + * event type in Linux kernel perf framework.
-> > + */
-> > +enum sbi_pmu_fw_generic_events_t {
-> > +     SBI_PMU_FW_MISALIGNED_LOAD      = 0,
-> > +     SBI_PMU_FW_MISALIGNED_STORE     = 1,
-> > +     SBI_PMU_FW_ACCESS_LOAD          = 2,
-> > +     SBI_PMU_FW_ACCESS_STORE         = 3,
-> > +     SBI_PMU_FW_ILLEGAL_INSN         = 4,
-> > +     SBI_PMU_FW_SET_TIMER            = 5,
-> > +     SBI_PMU_FW_IPI_SENT             = 6,
-> > +     SBI_PMU_FW_IPI_RECVD            = 7,
-> > +     SBI_PMU_FW_FENCE_I_SENT         = 8,
-> > +     SBI_PMU_FW_FENCE_I_RECVD        = 9,
-> > +     SBI_PMU_FW_SFENCE_VMA_SENT      = 10,
-> > +     SBI_PMU_FW_SFENCE_VMA_RCVD      = 11,
-> > +     SBI_PMU_FW_SFENCE_VMA_ASID_SENT = 12,
-> > +     SBI_PMU_FW_SFENCE_VMA_ASID_RCVD = 13,
-> > +
-> > +     SBI_PMU_FW_HFENCE_GVMA_SENT     = 14,
-> > +     SBI_PMU_FW_HFENCE_GVMA_RCVD     = 15,
-> > +     SBI_PMU_FW_HFENCE_GVMA_VMID_SENT = 16,
-> > +     SBI_PMU_FW_HFENCE_GVMA_VMID_RCVD = 17,
-> > +
-> > +     SBI_PMU_FW_HFENCE_VVMA_SENT     = 18,
-> > +     SBI_PMU_FW_HFENCE_VVMA_RCVD     = 19,
-> > +     SBI_PMU_FW_HFENCE_VVMA_ASID_SENT = 20,
-> > +     SBI_PMU_FW_HFENCE_VVMA_ASID_RCVD = 21,
-> > +     SBI_PMU_FW_MAX,
-> > +};
-> > +
-> > +/* SBI PMU event types */
-> > +enum sbi_pmu_event_type {
-> > +     SBI_PMU_EVENT_TYPE_HW = 0x0,
-> > +     SBI_PMU_EVENT_TYPE_CACHE = 0x1,
-> > +     SBI_PMU_EVENT_TYPE_RAW = 0x2,
-> > +     SBI_PMU_EVENT_TYPE_FW = 0xf,
-> > +};
-> > +
-> > +/* SBI PMU event types */
-> > +enum sbi_pmu_ctr_type {
-> > +     SBI_PMU_CTR_TYPE_HW = 0x0,
-> > +     SBI_PMU_CTR_TYPE_FW,
-> > +};
-> > +
-> > +/* Flags defined for config matching function */
-> > +#define SBI_PMU_CFG_FLAG_SKIP_MATCH  (1 << 0)
-> > +#define SBI_PMU_CFG_FLAG_CLEAR_VALUE (1 << 1)
-> > +#define SBI_PMU_CFG_FLAG_AUTO_START  (1 << 2)
-> > +#define SBI_PMU_CFG_FLAG_SET_MINH    (1 << 3)
-> > +#define SBI_PMU_CFG_FLAG_SET_SINH    (1 << 4)
-> > +#define SBI_PMU_CFG_FLAG_SET_UINH    (1 << 5)
-> > +#define SBI_PMU_CFG_FLAG_SET_VSINH   (1 << 6)
-> > +#define SBI_PMU_CFG_FLAG_SET_VUINH   (1 << 7)
+> > But hweght_long on each iteration can't be more effective than the current
+> > version. So, I'll drop this patch for v2 and keep things unchanged.
 >
-> It looks like you have a typo here, the defines in OpenSBI are
-> different:
->
-> #define SBI_PMU_CFG_FLAG_SET_VUINH      (1 << 3)
-> #define SBI_PMU_CFG_FLAG_SET_VSINH      (1 << 4)
-> #define SBI_PMU_CFG_FLAG_SET_UINH       (1 << 5)
-> #define SBI_PMU_CFG_FLAG_SET_SINH       (1 << 6)
-> #define SBI_PMU_CFG_FLAG_SET_MINH       (1 << 7)
->
->
+> Actually do bitmap_full/empty() calls make any sense at all?
+> The result is stale since bitmaps are designed to do locked operations.
+> If you have a lock covering the bitmap then you should be using
+> something that uses non-locked accesses.
+> Rightly or wrongly that isn't the bitmap api.
 
-Thanks for catching that. OpenSBI has the correct one as per the
-specification[1].
-I will fix it in the next version.
-
-[1] https://github.com/riscv-software-src/opensbi/blob/master/include/sbi/sbi_ecall_interface.h
-
-> > +
-> > +/* Flags defined for counter start function */
-> > +#define SBI_PMU_START_FLAG_SET_INIT_VALUE (1 << 0)
-> > +
-> > +/* Flags defined for counter stop function */
-> > +#define SBI_PMU_STOP_FLAG_RESET (1 << 0)
-> > +
-> >  #define SBI_SPEC_VERSION_DEFAULT     0x1
-> >  #define SBI_SPEC_VERSION_MAJOR_SHIFT 24
-> >  #define SBI_SPEC_VERSION_MAJOR_MASK  0x7f
-> > @@ -82,6 +176,9 @@ enum sbi_hsm_hart_status {
-> >  #define SBI_ERR_INVALID_PARAM        -3
-> >  #define SBI_ERR_DENIED               -4
-> >  #define SBI_ERR_INVALID_ADDRESS      -5
-> > +#define SBI_ERR_ALREADY_AVAILABLE -6
-> > +#define SBI_ERR_ALREADY_STARTED -7
-> > +#define SBI_ERR_ALREADY_STOPPED -8
-> >
-> >  extern unsigned long sbi_spec_version;
-> >  struct sbiret {
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-
-
--- 
-Regards,
-Atish
+Are you talking about __{set,clear}_bit()?
+include/asm-generic/bitops/non-atomic.h
 
 _______________________________________________
 linux-riscv mailing list
