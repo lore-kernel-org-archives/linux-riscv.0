@@ -4,126 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 193F4C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Dec 2021 08:41:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EA8BC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Dec 2021 11:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h0cl56o+9ycMp0j6WfoLLfIr9ouaN9qvhvC5uRcUXuw=; b=ayn3NSCcbq0jYG
-	blA+bG4P0s22/wMYDZwxncNjhbVdmj9KbFk+qiLxQxZl0ffxB7d+cj2tiWc53Oa7Oc0RCdXgE0Mgq
-	S7E4eN2ck4Ml1TLcwNvlwGEgPoPAKeO/+p+9OYVw6wnnGcvbwpRxla1r0Hr9r1BNuEK+AVMsZgjFY
-	2idQPrYAyUaAwxHUSE15BObwa/wtkuZMJJX5yS9+s1Om6Tve16auAkvuqYZuAXPKGuqimzIPR6Dgj
-	xPJ97OrsPuioc2zVRMilRSwyLc/AtUwJAzC7wdYDgr/h9fuYPzxvdHW4wYtcdt9QBMoAjTxG74AqA
-	CffD0wXBABPKm3rs7UCw==;
+	List-Owner; bh=mPBxVpjEUvyVseZ89uv7pD8AnP7hxNz/eCH4iChQt8Q=; b=g1eTf9Dxn3ehGI
+	JiAocX3aNi8iEiV9mNc+7A5aAIjaSDdt32LOHgnjIbyXzKNeTRwTWSTdgp7Ci1CWwSxRx4fhfhyk3
+	LgkeWyYgjU1uoonuBC2ijhJo8NJbXhCZfift4xr/9374CYwryAlssB7+67Ks8O+uisRsHOPeJmMzO
+	MBBluMtVWEf2LRcV2P9kRafAzKYuD5WOk6jxY1ZfUczFV2UHITypW/q6wkaTazOp0R+pnTiUNHSgE
+	8A9cm87ROxfMp5/T1Kks1A31uykw9cNYRNcb8frpxIpkvpcByofVkws6Qpa626FO0/dWMdikQIUWb
+	uyZP4m8IwIZp+6fYu14g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mxPqX-00HMgs-HC; Wed, 15 Dec 2021 08:41:09 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1mxSQO-000YhL-0L; Wed, 15 Dec 2021 11:26:20 +0000
+Received: from mail-pj1-f52.google.com ([209.85.216.52])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mxPqS-00HMdd-50
- for linux-riscv@lists.infradead.org; Wed, 15 Dec 2021 08:41:07 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-23-f8sISgTNNZG0D9h8G8bq7w-1; Wed, 15 Dec 2021 08:40:15 +0000
-X-MC-Unique: f8sISgTNNZG0D9h8G8bq7w-1
-Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
- AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
- Server (TLS) id 15.0.1497.26; Wed, 15 Dec 2021 08:40:11 +0000
-Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
- AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
- 15.00.1497.026; Wed, 15 Dec 2021 08:40:11 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Yury Norov' <yury.norov@gmail.com>, =?utf-8?B?TWljaGHFgiBNaXJvc8WCYXc=?=
- <mirq-linux@rere.qmqm.pl>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "James E.J.
- Bottomley" <jejb@linux.ibm.com>, "Martin K. Petersen"
- <martin.petersen@oracle.com>, "Paul E. McKenney" <paulmck@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Alexander Shishkin
- <alexander.shishkin@linux.intel.com>, Alexey Klimov <aklimov@redhat.com>,
- Amitkumar Karwar <amitkarwar@gmail.com>, Andi Kleen <ak@linux.intel.com>,
- Andrew Lunn <andrew@lunn.ch>, Andrew Morton <akpm@linux-foundation.org>, Andy
- Gross <agross@kernel.org>, Andy Lutomirski <luto@kernel.org>, "Andy
- Shevchenko" <andy@infradead.org>, Anup Patel <anup.patel@wdc.com>, "Ard
- Biesheuvel" <ardb@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>, "Catalin
- Marinas" <catalin.marinas@arm.com>, Christoph Hellwig <hch@lst.de>,
- "Christoph Lameter" <cl@linux.com>, Daniel Vetter <daniel@ffwll.ch>, Dave
- Hansen <dave.hansen@linux.intel.com>, David Airlie <airlied@linux.ie>, Dennis
- Zhou <dennis@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>, Geetha sowjanya
- <gakula@marvell.com>, Geert Uytterhoeven <geert@linux-m68k.org>, "Greg
- Kroah-Hartman" <gregkh@linuxfoundation.org>, Guo Ren <guoren@kernel.org>,
- Hans de Goede <hdegoede@redhat.com>, Heiko Carstens <hca@linux.ibm.com>, Ian
- Rogers <irogers@google.com>, Ingo Molnar <mingo@redhat.com>, "Jakub Kicinski"
- <kuba@kernel.org>, Jason Wessel <jason.wessel@windriver.com>, "Jens Axboe"
- <axboe@fb.com>, Jiri Olsa <jolsa@redhat.com>, Jonathan Cameron
- <jic23@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Kalle Valo
- <kvalo@codeaurora.org>, Kees Cook <keescook@chromium.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski@canonical.com>, Lee Jones
- <lee.jones@linaro.org>, Marc Zyngier <maz@kernel.org>, Marcin Wojtas
- <mw@semihalf.com>, Mark Gross <markgross@kernel.org>, Mark Rutland
- <mark.rutland@arm.com>, Matti Vaittinen <mazziesaccount@gmail.com>, "Mauro
- Carvalho Chehab" <mchehab@kernel.org>, Mel Gorman <mgorman@suse.de>, "Michael
- Ellerman" <mpe@ellerman.id.au>, Mike Marciniszyn
- <mike.marciniszyn@cornelisnetworks.com>, Nicholas Piggin <npiggin@gmail.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Peter Zijlstra <peterz@infradead.org>,
- Petr Mladek <pmladek@suse.com>, Randy Dunlap <rdunlap@infradead.org>, "Rasmus
- Villemoes" <linux@rasmusvillemoes.dk>, Roy Pledge <Roy.Pledge@nxp.com>,
- Russell King <linux@armlinux.org.uk>, Saeed Mahameed <saeedm@nvidia.com>,
- Sagi Grimberg <sagi@grimberg.me>, Sergey Senozhatsky
- <senozhatsky@chromium.org>, Solomon Peachy <pizza@shaftnet.org>, Stephen Boyd
- <sboyd@kernel.org>, Stephen Rothwell <sfr@canb.auug.org.au>, Steven Rostedt
- <rostedt@goodmis.org>, Subbaraya Sundeep <sbhatta@marvell.com>, Sudeep Holla
- <sudeep.holla@arm.com>, Sunil Goutham <sgoutham@marvell.com>, Tariq Toukan
- <tariqt@nvidia.com>, Tejun Heo <tj@kernel.org>, Thomas Bogendoerfer
- <tsbogend@alpha.franken.de>, Thomas Gleixner <tglx@linutronix.de>, "Ulf
- Hansson" <ulf.hansson@linaro.org>, Vincent Guittot
- <vincent.guittot@linaro.org>, Vineet Gupta <vgupta@kernel.org>, Viresh Kumar
- <viresh.kumar@linaro.org>, Vivien Didelot <vivien.didelot@gmail.com>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- "bcm-kernel-feedback-list@broadcom.com"
- <bcm-kernel-feedback-list@broadcom.com>, "kvm@vger.kernel.org"
- <kvm@vger.kernel.org>, "linux-alpha@vger.kernel.org"
- <linux-alpha@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-crypto@vger.kernel.org"
- <linux-crypto@vger.kernel.org>, "linux-csky@vger.kernel.org"
- <linux-csky@vger.kernel.org>, "linux-ia64@vger.kernel.org"
- <linux-ia64@vger.kernel.org>, "linux-mips@vger.kernel.org"
- <linux-mips@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "linux-perf-users@vger.kernel.org" <linux-perf-users@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
- "linux-snps-arc@lists.infradead.org" <linux-snps-arc@lists.infradead.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
-Subject: RE: [PATCH 2/9] lib/bitmap: implement bitmap_{empty,full} with
- bitmap_weight_eq()
-Thread-Topic: [PATCH 2/9] lib/bitmap: implement bitmap_{empty,full} with
- bitmap_weight_eq()
-Thread-Index: AQHX8SLbxx6fx2pSKEyBSY04FwbBf6wzO5+g
-Date: Wed, 15 Dec 2021 08:40:10 +0000
-Message-ID: <0ccb827de1164b2989d652bfb6f1bbab@AcuMS.aculab.com>
-References: <20211128035704.270739-1-yury.norov@gmail.com>
- <20211128035704.270739-3-yury.norov@gmail.com>
- <YaPGDOvBzhiRFcOP@qmqm.qmqm.pl>
- <CAAH8bW9-dbENFUrwPUQ-uJVVX_s=PWb2zpAJ8BqkV3vJE696mA@mail.gmail.com>
-In-Reply-To: <CAAH8bW9-dbENFUrwPUQ-uJVVX_s=PWb2zpAJ8BqkV3vJE696mA@mail.gmail.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+ id 1mxSPU-000Y8w-Ai; Wed, 15 Dec 2021 11:25:26 +0000
+Received: by mail-pj1-f52.google.com with SMTP id np3so17097541pjb.4;
+ Wed, 15 Dec 2021 03:25:19 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=IDgK5WljJsEE72tHFtmh4oft8f0ktjQWWP2F9+hZzz4=;
+ b=h9s7OMziLgCbHFmpGR3ypxIIlvmJAxYF1mbpQtvEak3ev8o4gRVxNhqWZfg1l+tlZU
+ 2SZxIPZql8ZLyqxRRoL9reCYsYM0dYJ7ZzqhsOGWW6K3jKfXsiWh4jS+YCkwrrhTqIap
+ AaLWe+2Pony1YMsC7eurpu3qfxXBKG7LgV09r+Z+5hGhxXQpqHzrkrnyC2XMvvogm+Kt
+ M3VmhDmXk1bLXR5FPS63ZebtiR37KL7XeAfEiXraB3B7WjIKW2qTLUc40zLfRHF2H6r+
+ fzOidWqvpuXcFcSj/8F/PDcI5/NRm94qAmKwlGGisQeDwVcfRz08sGaux3PI3CZ0BOmy
+ PMlA==
+X-Gm-Message-State: AOAM531ABrGnf24PwjwnKbb+qyTHf8F8ccpF6VI+YAwQ05YVj40sw4ko
+ kvb3odY6p1CnJclP3sLaXv7/moVl3Njfnso9TX8=
+X-Google-Smtp-Source: ABdhPJxTjHnpffSsJmC6035WY0c2cEKJBF+ezsbT8VP/RTa/MAIljU1RvMTr65MIjBK9RD0SZSLczAStlVujCTlQBMg=
+X-Received: by 2002:a17:902:7616:b0:143:a8cd:ef0 with SMTP id
+ k22-20020a170902761600b00143a8cd0ef0mr10339972pll.48.1639567518745; Wed, 15
+ Dec 2021 03:25:18 -0800 (PST)
 MIME-Version: 1.0
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=C51A453 smtp.mailfrom=david.laight@aculab.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+References: <20211128200647.147058-1-kernel@esmil.dk>
+ <CAK8P3a1NvT=f2vOvgk4HdBc48A+63B_0SBQ5AVOO6cu0MiMFiQ@mail.gmail.com>
+In-Reply-To: <CAK8P3a1NvT=f2vOvgk4HdBc48A+63B_0SBQ5AVOO6cu0MiMFiQ@mail.gmail.com>
+From: Emil Renner Berthing <kernel@esmil.dk>
+Date: Wed, 15 Dec 2021 12:25:07 +0100
+Message-ID: <CANBLGczcO298ADMjVpuB8p-yYfD7aO11A=BUYU7Ws94yksbGxw@mail.gmail.com>
+Subject: Re: [GIT PULL] Basic StarFive JH7100 RISC-V SoC support for 5.17
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: SoC Team <soc@kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Michael Zhu <michael.zhu@starfivetech.com>, 
+ Fu Wei <tekkamanninja@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211215_004104_527001_810AC5B9 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20211215_032524_413251_D36DAE3E 
+X-CRM114-Status: GOOD (  19.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,28 +76,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Yury Norov
-> Sent: 14 December 2021 19:43
-...
-> 
-> I think that for long bitmaps the most time consuming operation is moving
-> data to L1, and for short bitmaps the difference between approaches is
-> barely measurable.
-> 
-> But hweght_long on each iteration can't be more effective than the current
-> version. So, I'll drop this patch for v2 and keep things unchanged.
+Hi Arnd,
 
-Actually do bitmap_full/empty() calls make any sense at all?
-The result is stale since bitmaps are designed to do locked operations.
-If you have a lock covering the bitmap then you should be using
-something that uses non-locked accesses.
-Rightly or wrongly that isn't the bitmap api.
+On Tue, 14 Dec 2021 at 22:30, Arnd Bergmann <arnd@arndb.de> wrote:
+> On Sun, Nov 28, 2021 at 9:06 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
+> >
+> > The following changes since commit fa55b7dcdc43c1aa1ba12bca9d2dd4318c2a0dbf:
+> >
+> >   Linux 5.16-rc1 (2021-11-14 13:56:52 -0800)
+> >
+> > are available in the Git repository at:
+> >
+> >   https://github.com/esmil/linux.git tags/for-soc
+> >
+> > for you to fetch changes up to 398d6e139782d1ce2c9822beb8effba0c9c51cc4:
+> >
+> >   RISC-V: Add BeagleV Starlight Beta device tree (2021-11-28 20:07:09 +0100)
+> >
+>
+> Hi Emil,
+>
+> I just got through my backlog of pull request and got to yours. All of
+> the contents look
+> fine but I noticed that there is no tag description. Please sign the
+> tag with a gpg
+> key and add a description that explains the contents of the branch in your own
+> words, the same way you write the introductory mail of a patch series. This will
+> become the description of the merge commit.
 
-	David
+Ah, gotcha. The thing is that I don't actually have a gpg key at the
+moment. I can generate one and use that to sign it, but then it won't
+be part of the web of trust.
+Alternatively I can just send it as a series of patches with a cover
+letter like I did before. That would be a little easier for me, but
+what do you prefer?
 
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
+/Emil
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
