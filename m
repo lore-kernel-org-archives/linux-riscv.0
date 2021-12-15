@@ -4,71 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C9B7C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Dec 2021 08:09:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 193F4C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Dec 2021 08:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u18ky6dQWbnzL76goJld9EjIyErgOMuf49z9IPDDRhI=; b=LY7lcO9247CEO2
-	/4vgO0q5oCrpGB3NluCniV5ccJ1S1P+waQd0jyVS5NFJFwE9XBh2KkjVRYHDqUi4rWi++n+d2NxFs
-	EU/5w6Sz4h4jq9pVVrM9hLIU1ovLoPHR/x7C4ECqKoFB4b7FQsA5BH2ckMS4LaWw1SDaQK+6I1m0g
-	yvlM0YWLE1UEeapRHmBCwxphiVqHzyHe5loFBh8Bf5E9Qb67MbtnFHeuoJtD81UOBhr+BWNTZ7xxc
-	F+detpHX1t7UHre0PxMesPq/PGkXDTPHI0OJGHDubzQch6CGhFPCw2TuRjS839WcFa4zOi4F2LXqg
-	DiCyqud/0LyUA3rYvpwQ==;
+	List-Owner; bh=h0cl56o+9ycMp0j6WfoLLfIr9ouaN9qvhvC5uRcUXuw=; b=ayn3NSCcbq0jYG
+	blA+bG4P0s22/wMYDZwxncNjhbVdmj9KbFk+qiLxQxZl0ffxB7d+cj2tiWc53Oa7Oc0RCdXgE0Mgq
+	S7E4eN2ck4Ml1TLcwNvlwGEgPoPAKeO/+p+9OYVw6wnnGcvbwpRxla1r0Hr9r1BNuEK+AVMsZgjFY
+	2idQPrYAyUaAwxHUSE15BObwa/wtkuZMJJX5yS9+s1Om6Tve16auAkvuqYZuAXPKGuqimzIPR6Dgj
+	xPJ97OrsPuioc2zVRMilRSwyLc/AtUwJAzC7wdYDgr/h9fuYPzxvdHW4wYtcdt9QBMoAjTxG74AqA
+	CffD0wXBABPKm3rs7UCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mxPMA-00HJkv-Kl; Wed, 15 Dec 2021 08:09:46 +0000
-Received: from forward501o.mail.yandex.net ([37.140.190.203])
+	id 1mxPqX-00HMgs-HC; Wed, 15 Dec 2021 08:41:09 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mxPM7-00HJk6-3N
- for linux-riscv@lists.infradead.org; Wed, 15 Dec 2021 08:09:45 +0000
-Received: from sas1-369099ba34c4.qloud-c.yandex.net
- (sas1-369099ba34c4.qloud-c.yandex.net
- [IPv6:2a02:6b8:c14:3d96:0:640:3690:99ba])
- by forward501o.mail.yandex.net (Yandex) with ESMTP id 646B845C3FB6;
- Wed, 15 Dec 2021 11:02:18 +0300 (MSK)
-Received: from sas1-7a2c1d25dbfc.qloud-c.yandex.net
- (sas1-7a2c1d25dbfc.qloud-c.yandex.net [2a02:6b8:c08:c9f:0:640:7a2c:1d25])
- by sas1-369099ba34c4.qloud-c.yandex.net (mxback/Yandex) with ESMTP id
- PtHqElSo2Z-2HfuGowU; Wed, 15 Dec 2021 11:02:18 +0300
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maquefel.me; s=mail;
- t=1639555338; bh=bcZSGKL367ori0UFRkqTy8+oGoWm2KH6xaqkLIRJDZg=;
- h=In-Reply-To:Subject:To:From:References:Date:Message-ID:Cc;
- b=hcqh8T87JyccZqYMJrd+7jEZo5+qpM4qpRnVZFUGrDCHq/ZA/Agr0vq3N0c2NwR5L
- /pj5GAS53e5sapd9LSMTFVt2wA0HYAGJx+tNESH7z7KIgWb0yrZH0U3802B4Fk+R08
- mz7sjIDtFfSiE3CXDmVCFioR6N9Bo46XUuVefhwo=
-Authentication-Results: sas1-369099ba34c4.qloud-c.yandex.net;
- dkim=pass header.i=@maquefel.me
-Received: by sas1-7a2c1d25dbfc.qloud-c.yandex.net (smtp/Yandex) with ESMTPSA
- id 3cfgOP4KNN-2FPqUg6l; Wed, 15 Dec 2021 11:02:15 +0300
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
- (Client certificate not present)
-X-Yandex-Fwd: 2
-Date: Wed, 15 Dec 2021 11:02:14 +0300
-From: Nikita Shubin <nikita.shubin@maquefel.me>
-To: Atish Patra <atish.patra@wdc.com>
-Cc: linux-kernel@vger.kernel.org, Anup Patel <anup.patel@wdc.com>, David
- Abdurachmanov <david.abdurachmanov@sifive.com>, devicetree@vger.kernel.org,
- Greentime Hu <greentime.hu@sifive.com>, Guo Ren <guoren@linux.alibaba.com>,
- Heinrich Schuchardt <xypron.glpk@gmx.de>, Jonathan Corbet <corbet@lwn.net>,
- linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org,
- linux-riscv@lists.infradead.org, Nick Kossifidis <mick@ics.forth.gr>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, Vincent Chen
- <vincent.chen@sifive.com>
-Subject: Re: [v4 05/11] RISC-V: Add RISC-V SBI PMU extension definitions
-Message-ID: <20211215110214.62ca2474@redslave.neermore.group>
-In-Reply-To: <20211025195350.242914-6-atish.patra@wdc.com>
-References: <20211025195350.242914-1-atish.patra@wdc.com>
- <20211025195350.242914-6-atish.patra@wdc.com>
-X-Mailer: Claws Mail 3.17.7 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+ id 1mxPqS-00HMdd-50
+ for linux-riscv@lists.infradead.org; Wed, 15 Dec 2021 08:41:07 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ uk-mta-23-f8sISgTNNZG0D9h8G8bq7w-1; Wed, 15 Dec 2021 08:40:15 +0000
+X-MC-Unique: f8sISgTNNZG0D9h8G8bq7w-1
+Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
+ AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
+ Server (TLS) id 15.0.1497.26; Wed, 15 Dec 2021 08:40:11 +0000
+Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
+ AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
+ 15.00.1497.026; Wed, 15 Dec 2021 08:40:11 +0000
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Yury Norov' <yury.norov@gmail.com>, =?utf-8?B?TWljaGHFgiBNaXJvc8WCYXc=?=
+ <mirq-linux@rere.qmqm.pl>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "James E.J.
+ Bottomley" <jejb@linux.ibm.com>, "Martin K. Petersen"
+ <martin.petersen@oracle.com>, "Paul E. McKenney" <paulmck@kernel.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Alexander Shishkin
+ <alexander.shishkin@linux.intel.com>, Alexey Klimov <aklimov@redhat.com>,
+ Amitkumar Karwar <amitkarwar@gmail.com>, Andi Kleen <ak@linux.intel.com>,
+ Andrew Lunn <andrew@lunn.ch>, Andrew Morton <akpm@linux-foundation.org>, Andy
+ Gross <agross@kernel.org>, Andy Lutomirski <luto@kernel.org>, "Andy
+ Shevchenko" <andy@infradead.org>, Anup Patel <anup.patel@wdc.com>, "Ard
+ Biesheuvel" <ardb@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, Christoph Hellwig <hch@lst.de>,
+ "Christoph Lameter" <cl@linux.com>, Daniel Vetter <daniel@ffwll.ch>, Dave
+ Hansen <dave.hansen@linux.intel.com>, David Airlie <airlied@linux.ie>, Dennis
+ Zhou <dennis@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>, Geetha sowjanya
+ <gakula@marvell.com>, Geert Uytterhoeven <geert@linux-m68k.org>, "Greg
+ Kroah-Hartman" <gregkh@linuxfoundation.org>, Guo Ren <guoren@kernel.org>,
+ Hans de Goede <hdegoede@redhat.com>, Heiko Carstens <hca@linux.ibm.com>, Ian
+ Rogers <irogers@google.com>, Ingo Molnar <mingo@redhat.com>, "Jakub Kicinski"
+ <kuba@kernel.org>, Jason Wessel <jason.wessel@windriver.com>, "Jens Axboe"
+ <axboe@fb.com>, Jiri Olsa <jolsa@redhat.com>, Jonathan Cameron
+ <jic23@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Kalle Valo
+ <kvalo@codeaurora.org>, Kees Cook <keescook@chromium.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski@canonical.com>, Lee Jones
+ <lee.jones@linaro.org>, Marc Zyngier <maz@kernel.org>, Marcin Wojtas
+ <mw@semihalf.com>, Mark Gross <markgross@kernel.org>, Mark Rutland
+ <mark.rutland@arm.com>, Matti Vaittinen <mazziesaccount@gmail.com>, "Mauro
+ Carvalho Chehab" <mchehab@kernel.org>, Mel Gorman <mgorman@suse.de>, "Michael
+ Ellerman" <mpe@ellerman.id.au>, Mike Marciniszyn
+ <mike.marciniszyn@cornelisnetworks.com>, Nicholas Piggin <npiggin@gmail.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Peter Zijlstra <peterz@infradead.org>,
+ Petr Mladek <pmladek@suse.com>, Randy Dunlap <rdunlap@infradead.org>, "Rasmus
+ Villemoes" <linux@rasmusvillemoes.dk>, Roy Pledge <Roy.Pledge@nxp.com>,
+ Russell King <linux@armlinux.org.uk>, Saeed Mahameed <saeedm@nvidia.com>,
+ Sagi Grimberg <sagi@grimberg.me>, Sergey Senozhatsky
+ <senozhatsky@chromium.org>, Solomon Peachy <pizza@shaftnet.org>, Stephen Boyd
+ <sboyd@kernel.org>, Stephen Rothwell <sfr@canb.auug.org.au>, Steven Rostedt
+ <rostedt@goodmis.org>, Subbaraya Sundeep <sbhatta@marvell.com>, Sudeep Holla
+ <sudeep.holla@arm.com>, Sunil Goutham <sgoutham@marvell.com>, Tariq Toukan
+ <tariqt@nvidia.com>, Tejun Heo <tj@kernel.org>, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, Thomas Gleixner <tglx@linutronix.de>, "Ulf
+ Hansson" <ulf.hansson@linaro.org>, Vincent Guittot
+ <vincent.guittot@linaro.org>, Vineet Gupta <vgupta@kernel.org>, Viresh Kumar
+ <viresh.kumar@linaro.org>, Vivien Didelot <vivien.didelot@gmail.com>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ "bcm-kernel-feedback-list@broadcom.com"
+ <bcm-kernel-feedback-list@broadcom.com>, "kvm@vger.kernel.org"
+ <kvm@vger.kernel.org>, "linux-alpha@vger.kernel.org"
+ <linux-alpha@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-crypto@vger.kernel.org"
+ <linux-crypto@vger.kernel.org>, "linux-csky@vger.kernel.org"
+ <linux-csky@vger.kernel.org>, "linux-ia64@vger.kernel.org"
+ <linux-ia64@vger.kernel.org>, "linux-mips@vger.kernel.org"
+ <linux-mips@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
+ "linux-perf-users@vger.kernel.org" <linux-perf-users@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
+ "linux-snps-arc@lists.infradead.org" <linux-snps-arc@lists.infradead.org>,
+ "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
+Subject: RE: [PATCH 2/9] lib/bitmap: implement bitmap_{empty,full} with
+ bitmap_weight_eq()
+Thread-Topic: [PATCH 2/9] lib/bitmap: implement bitmap_{empty,full} with
+ bitmap_weight_eq()
+Thread-Index: AQHX8SLbxx6fx2pSKEyBSY04FwbBf6wzO5+g
+Date: Wed, 15 Dec 2021 08:40:10 +0000
+Message-ID: <0ccb827de1164b2989d652bfb6f1bbab@AcuMS.aculab.com>
+References: <20211128035704.270739-1-yury.norov@gmail.com>
+ <20211128035704.270739-3-yury.norov@gmail.com>
+ <YaPGDOvBzhiRFcOP@qmqm.qmqm.pl>
+ <CAAH8bW9-dbENFUrwPUQ-uJVVX_s=PWb2zpAJ8BqkV3vJE696mA@mail.gmail.com>
+In-Reply-To: <CAAH8bW9-dbENFUrwPUQ-uJVVX_s=PWb2zpAJ8BqkV3vJE696mA@mail.gmail.com>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
+Authentication-Results: relay.mimecast.com;
+ auth=pass smtp.auth=C51A453 smtp.mailfrom=david.laight@aculab.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211215_000943_518853_85B60557 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20211215_004104_527001_810AC5B9 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,155 +140,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Atish!
-
-On Mon, 25 Oct 2021 12:53:44 -0700
-Atish Patra <atish.patra@wdc.com> wrote:
-
-> This patch adds all the definitions defined by the SBI PMU extension.
+From: Yury Norov
+> Sent: 14 December 2021 19:43
+...
 > 
-> Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> ---
->  arch/riscv/include/asm/sbi.h | 97
-> ++++++++++++++++++++++++++++++++++++ 1 file changed, 97 insertions(+)
+> I think that for long bitmaps the most time consuming operation is moving
+> data to L1, and for short bitmaps the difference between approaches is
+> barely measurable.
 > 
-> diff --git a/arch/riscv/include/asm/sbi.h
-> b/arch/riscv/include/asm/sbi.h index 0d42693cb65e..7a14ca06ba8f 100644
-> --- a/arch/riscv/include/asm/sbi.h
-> +++ b/arch/riscv/include/asm/sbi.h
-> @@ -27,6 +27,7 @@ enum sbi_ext_id {
->  	SBI_EXT_IPI = 0x735049,
->  	SBI_EXT_RFENCE = 0x52464E43,
->  	SBI_EXT_HSM = 0x48534D,
-> +	SBI_EXT_PMU = 0x504D55,
->  };
->  
->  enum sbi_ext_base_fid {
-> @@ -70,6 +71,99 @@ enum sbi_hsm_hart_status {
->  	SBI_HSM_HART_STATUS_STOP_PENDING,
->  };
->  
-> +
-> +enum sbi_ext_pmu_fid {
-> +	SBI_EXT_PMU_NUM_COUNTERS = 0,
-> +	SBI_EXT_PMU_COUNTER_GET_INFO,
-> +	SBI_EXT_PMU_COUNTER_CFG_MATCH,
-> +	SBI_EXT_PMU_COUNTER_START,
-> +	SBI_EXT_PMU_COUNTER_STOP,
-> +	SBI_EXT_PMU_COUNTER_FW_READ,
-> +};
-> +
-> +#define RISCV_PMU_RAW_EVENT_MASK GENMASK_ULL(55, 0)
-> +#define RISCV_PMU_RAW_EVENT_IDX 0x20000
-> +
-> +/** General pmu event codes specified in SBI PMU extension */
-> +enum sbi_pmu_hw_generic_events_t {
-> +	SBI_PMU_HW_NO_EVENT			= 0,
-> +	SBI_PMU_HW_CPU_CYCLES			= 1,
-> +	SBI_PMU_HW_INSTRUCTIONS			= 2,
-> +	SBI_PMU_HW_CACHE_REFERENCES		= 3,
-> +	SBI_PMU_HW_CACHE_MISSES			= 4,
-> +	SBI_PMU_HW_BRANCH_INSTRUCTIONS		= 5,
-> +	SBI_PMU_HW_BRANCH_MISSES		= 6,
-> +	SBI_PMU_HW_BUS_CYCLES			= 7,
-> +	SBI_PMU_HW_STALLED_CYCLES_FRONTEND	= 8,
-> +	SBI_PMU_HW_STALLED_CYCLES_BACKEND	= 9,
-> +	SBI_PMU_HW_REF_CPU_CYCLES		= 10,
-> +
-> +	SBI_PMU_HW_GENERAL_MAX,
-> +};
-> +
-> +/**
-> + * Special "firmware" events provided by the firmware, even if the
-> hardware
-> + * does not support performance events. These events are encoded as
-> a raw
-> + * event type in Linux kernel perf framework.
-> + */
-> +enum sbi_pmu_fw_generic_events_t {
-> +	SBI_PMU_FW_MISALIGNED_LOAD	= 0,
-> +	SBI_PMU_FW_MISALIGNED_STORE	= 1,
-> +	SBI_PMU_FW_ACCESS_LOAD		= 2,
-> +	SBI_PMU_FW_ACCESS_STORE		= 3,
-> +	SBI_PMU_FW_ILLEGAL_INSN		= 4,
-> +	SBI_PMU_FW_SET_TIMER		= 5,
-> +	SBI_PMU_FW_IPI_SENT		= 6,
-> +	SBI_PMU_FW_IPI_RECVD		= 7,
-> +	SBI_PMU_FW_FENCE_I_SENT		= 8,
-> +	SBI_PMU_FW_FENCE_I_RECVD	= 9,
-> +	SBI_PMU_FW_SFENCE_VMA_SENT	= 10,
-> +	SBI_PMU_FW_SFENCE_VMA_RCVD	= 11,
-> +	SBI_PMU_FW_SFENCE_VMA_ASID_SENT	= 12,
-> +	SBI_PMU_FW_SFENCE_VMA_ASID_RCVD	= 13,
-> +
-> +	SBI_PMU_FW_HFENCE_GVMA_SENT	= 14,
-> +	SBI_PMU_FW_HFENCE_GVMA_RCVD	= 15,
-> +	SBI_PMU_FW_HFENCE_GVMA_VMID_SENT = 16,
-> +	SBI_PMU_FW_HFENCE_GVMA_VMID_RCVD = 17,
-> +
-> +	SBI_PMU_FW_HFENCE_VVMA_SENT	= 18,
-> +	SBI_PMU_FW_HFENCE_VVMA_RCVD	= 19,
-> +	SBI_PMU_FW_HFENCE_VVMA_ASID_SENT = 20,
-> +	SBI_PMU_FW_HFENCE_VVMA_ASID_RCVD = 21,
-> +	SBI_PMU_FW_MAX,
-> +};
-> +
-> +/* SBI PMU event types */
-> +enum sbi_pmu_event_type {
-> +	SBI_PMU_EVENT_TYPE_HW = 0x0,
-> +	SBI_PMU_EVENT_TYPE_CACHE = 0x1,
-> +	SBI_PMU_EVENT_TYPE_RAW = 0x2,
-> +	SBI_PMU_EVENT_TYPE_FW = 0xf,
-> +};
-> +
-> +/* SBI PMU event types */
-> +enum sbi_pmu_ctr_type {
-> +	SBI_PMU_CTR_TYPE_HW = 0x0,
-> +	SBI_PMU_CTR_TYPE_FW,
-> +};
-> +
-> +/* Flags defined for config matching function */
-> +#define SBI_PMU_CFG_FLAG_SKIP_MATCH	(1 << 0)
-> +#define SBI_PMU_CFG_FLAG_CLEAR_VALUE	(1 << 1)
-> +#define SBI_PMU_CFG_FLAG_AUTO_START	(1 << 2)
-> +#define SBI_PMU_CFG_FLAG_SET_MINH	(1 << 3)
-> +#define SBI_PMU_CFG_FLAG_SET_SINH	(1 << 4)
-> +#define SBI_PMU_CFG_FLAG_SET_UINH	(1 << 5)
-> +#define SBI_PMU_CFG_FLAG_SET_VSINH	(1 << 6)
-> +#define SBI_PMU_CFG_FLAG_SET_VUINH	(1 << 7)
+> But hweght_long on each iteration can't be more effective than the current
+> version. So, I'll drop this patch for v2 and keep things unchanged.
 
-It looks like you have a typo here, the defines in OpenSBI are
-different:
+Actually do bitmap_full/empty() calls make any sense at all?
+The result is stale since bitmaps are designed to do locked operations.
+If you have a lock covering the bitmap then you should be using
+something that uses non-locked accesses.
+Rightly or wrongly that isn't the bitmap api.
 
-#define SBI_PMU_CFG_FLAG_SET_VUINH	(1 << 3)
-#define SBI_PMU_CFG_FLAG_SET_VSINH	(1 << 4)
-#define SBI_PMU_CFG_FLAG_SET_UINH	(1 << 5)
-#define SBI_PMU_CFG_FLAG_SET_SINH	(1 << 6)
-#define SBI_PMU_CFG_FLAG_SET_MINH	(1 << 7)
+	David
 
-
-> +
-> +/* Flags defined for counter start function */
-> +#define SBI_PMU_START_FLAG_SET_INIT_VALUE (1 << 0)
-> +
-> +/* Flags defined for counter stop function */
-> +#define SBI_PMU_STOP_FLAG_RESET (1 << 0)
-> +
->  #define SBI_SPEC_VERSION_DEFAULT	0x1
->  #define SBI_SPEC_VERSION_MAJOR_SHIFT	24
->  #define SBI_SPEC_VERSION_MAJOR_MASK	0x7f
-> @@ -82,6 +176,9 @@ enum sbi_hsm_hart_status {
->  #define SBI_ERR_INVALID_PARAM	-3
->  #define SBI_ERR_DENIED		-4
->  #define SBI_ERR_INVALID_ADDRESS	-5
-> +#define SBI_ERR_ALREADY_AVAILABLE -6
-> +#define SBI_ERR_ALREADY_STARTED -7
-> +#define SBI_ERR_ALREADY_STOPPED -8
->  
->  extern unsigned long sbi_spec_version;
->  struct sbiret {
-
-
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
