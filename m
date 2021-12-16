@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86751C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Dec 2021 13:45:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CC8DC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Dec 2021 13:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pCSdX4zR9d1OXEmlvIWmYEYqfkLDKzxu+nXDnn6dJlM=; b=JQHBgioQWo/RoM
-	8hSx0gWjRATAUi3fxaCUm1YfUD9vPVDqGr5AbP/rIhwzHJrzaj2WLY9EqComrJMvYwZzdaB0kCRVE
-	+lYAdAlB1zjsmk1sArAVwa3OPkk1lB+AWdeYS/6ASk0gnS1/FBkBXfHIwcysGeEQ2a2q44DU+UZgX
-	6F4xccBAbMfbWJqOPfZuBBMD6/mEdbsHyF7VBjHNN/zseR4SFWHjwLE0EEnub2TjcOKCMCiHceKFv
-	2OhO2puwJ8u5zVHlEi6io26+Uy4A8tOh0JHZzVYg22pSu4xMeCyX5pC0Uqa5DcH9r502xa9RunbCd
-	QEvzLceWuvqn2ONqSPHg==;
+	List-Owner; bh=zYlZH1CK1G1VfhfXumQVGdWPJXxPU5MtNGr6XUiGvoI=; b=AKVzJJa9k7HNnr
+	CdJLoul0n1FER/5o106Jwv/O2ItlUAHJZTPsMRSQlYav2p2JdCO1097fm3F48b2Jp9I0lbR97MihG
+	I90mabdBvwASp3lhU+URLPulnV+93eT6Lg8NpSFz1ZR93qS5Y4LniIDlMvbzRGrBoF6zJX6Jtotgg
+	mgEz9LgZ5pme4o7liSEDgvgQ8u5YemDtfR6JmPronNqeW0MvllvD04NP0Hhjunqob6fda+7bpPbp5
+	uqUrS9ogD05ZmQW1+wYr5TTyDr1SMqLEktIT3yGmd+l/EqSTxHHDuqmD8xhzZXTYlmL30zA9Ijqxw
+	EjyfaS4u+MyL17OK8gVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mxr4O-005uYX-RE; Thu, 16 Dec 2021 13:45:16 +0000
-Received: from albert.telenet-ops.be ([2a02:1800:110:4::f00:1a])
+	id 1mxr4a-005ueg-Ea; Thu, 16 Dec 2021 13:45:28 +0000
+Received: from laurent.telenet-ops.be ([2a02:1800:110:4::f00:19])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mxqxB-005rJi-OQ
+ id 1mxqxB-005rJk-Pt
  for linux-riscv@lists.infradead.org; Thu, 16 Dec 2021 13:37:53 +0000
 Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed20:d13f:527c:5504:a743])
- by albert.telenet-ops.be with bizsmtp
- id X1dg2600T250X30061dgKF; Thu, 16 Dec 2021 14:37:42 +0100
+ by laurent.telenet-ops.be with bizsmtp
+ id X1dg2600D250X30011dgyA; Thu, 16 Dec 2021 14:37:43 +0100
 Received: from rox.of.borg ([192.168.97.57])
  by ramsan.of.borg with esmtps (TLS1.3) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
  (envelope-from <geert@linux-m68k.org>)
- id 1mxqx2-005Q95-2q; Thu, 16 Dec 2021 14:37:40 +0100
+ id 1mxqx1-005Q93-Sg; Thu, 16 Dec 2021 14:37:39 +0100
 Received: from geert by rox.of.borg with local (Exim 4.93)
  (envelope-from <geert@linux-m68k.org>)
- id 1mxqx1-009xv9-8N; Thu, 16 Dec 2021 14:37:39 +0100
+ id 1mxqx1-009xuv-6t; Thu, 16 Dec 2021 14:37:39 +0100
 From: Geert Uytterhoeven <geert@linux-m68k.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
@@ -44,16 +44,17 @@ Cc: Rob Herring <robh+dt@kernel.org>, Damien Le Moal <damien.lemoal@wdc.com>,
  Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
  Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org,
  devicetree@vger.kernel.org, Geert Uytterhoeven <geert@linux-m68k.org>
-Subject: [PATCH v2 11/11] riscv: dts: sifive: fu540-c000: Fix PLIC node
-Date: Thu, 16 Dec 2021 14:37:35 +0100
-Message-Id: <2658fb6d194ea22a8077d1475bafec43d9a39244.1639660956.git.geert@linux-m68k.org>
+Subject: [PATCH v2 09/11] riscv: dts: sifive: Group tuples in register
+ properties
+Date: Thu, 16 Dec 2021 14:37:33 +0100
+Message-Id: <405f7ebe588e269ffd428b818c0ff1f472a00ea8.1639660956.git.geert@linux-m68k.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1639660956.git.geert@linux-m68k.org>
 References: <cover.1639660956.git.geert@linux-m68k.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211216_053750_012158_FA467F9B 
-X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-CacheID: sfid-20211216_053750_145616_6B162315 
+X-CRM114-Status: UNSURE (   8.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,43 +72,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Fix the device node for the Platform-Level Interrupt Controller (PLIC):
-  - Add missing "#address-cells" property,
-  - Sort properties according to DT bindings.
+To improve human readability and enable automatic validation, the tuples
+in "reg" properties containing register blocks should be grouped using
+angle brackets.
 
 Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 ---
 v2:
-  - New.
+  - Add Reviewed-by.
 ---
- arch/riscv/boot/dts/sifive/fu540-c000.dtsi | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ arch/riscv/boot/dts/sifive/fu540-c000.dtsi | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
-index b1250c16816f5c9d..3eef52b1a59b5cb4 100644
+index 0caca0ccf6711ded..e2efcf08210926f8 100644
 --- a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
 +++ b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
-@@ -140,10 +140,10 @@ soc {
- 		compatible = "simple-bus";
- 		ranges;
- 		plic0: interrupt-controller@c000000 {
--			#interrupt-cells = <1>;
- 			compatible = "sifive,fu540-c000-plic", "sifive,plic-1.0.0";
- 			reg = <0x0 0xc000000 0x0 0x4000000>;
--			riscv,ndev = <53>;
-+			#address-cells = <0>;
-+			#interrupt-cells = <1>;
- 			interrupt-controller;
- 			interrupts-extended =
- 				<&cpu0_intc 0xffffffff>,
-@@ -151,6 +151,7 @@ plic0: interrupt-controller@c000000 {
- 				<&cpu2_intc 0xffffffff>, <&cpu2_intc 9>,
- 				<&cpu3_intc 0xffffffff>, <&cpu3_intc 9>,
- 				<&cpu4_intc 0xffffffff>, <&cpu4_intc 9>;
-+			riscv,ndev = <53>;
+@@ -196,8 +196,8 @@ i2c0: i2c@10030000 {
  		};
- 		prci: clock-controller@10000000 {
- 			compatible = "sifive,fu540-c000-prci";
+ 		qspi0: spi@10040000 {
+ 			compatible = "sifive,fu540-c000-spi", "sifive,spi0";
+-			reg = <0x0 0x10040000 0x0 0x1000
+-			       0x0 0x20000000 0x0 0x10000000>;
++			reg = <0x0 0x10040000 0x0 0x1000>,
++			      <0x0 0x20000000 0x0 0x10000000>;
+ 			interrupt-parent = <&plic0>;
+ 			interrupts = <51>;
+ 			clocks = <&prci PRCI_CLK_TLCLK>;
+@@ -207,8 +207,8 @@ qspi0: spi@10040000 {
+ 		};
+ 		qspi1: spi@10041000 {
+ 			compatible = "sifive,fu540-c000-spi", "sifive,spi0";
+-			reg = <0x0 0x10041000 0x0 0x1000
+-			       0x0 0x30000000 0x0 0x10000000>;
++			reg = <0x0 0x10041000 0x0 0x1000>,
++			      <0x0 0x30000000 0x0 0x10000000>;
+ 			interrupt-parent = <&plic0>;
+ 			interrupts = <52>;
+ 			clocks = <&prci PRCI_CLK_TLCLK>;
+@@ -230,8 +230,8 @@ eth0: ethernet@10090000 {
+ 			compatible = "sifive,fu540-c000-gem";
+ 			interrupt-parent = <&plic0>;
+ 			interrupts = <53>;
+-			reg = <0x0 0x10090000 0x0 0x2000
+-			       0x0 0x100a0000 0x0 0x1000>;
++			reg = <0x0 0x10090000 0x0 0x2000>,
++			      <0x0 0x100a0000 0x0 0x1000>;
+ 			local-mac-address = [00 00 00 00 00 00];
+ 			clock-names = "pclk", "hclk";
+ 			clocks = <&prci PRCI_CLK_GEMGXLPLL>,
 -- 
 2.25.1
 
