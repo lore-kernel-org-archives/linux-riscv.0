@@ -4,65 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 573C1C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Dec 2021 11:26:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC0CC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Dec 2021 13:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C4jJ135VK87RZxyifScsiGNSxmxWsojzFAI1G9EsTko=; b=GDpG8R6r+QcF0M
-	oLt5s/9dn1TRTO7TdVt7arlvWPqwAvCvGVCiZxwElvQdJXsPXMtqom+B6lX7UpQ7t93G/tN1cccGP
-	+7ftyCCAepRtlJq04m/XvJqMUVHLdPmixmZY7MD8Q+cobDz2YevR12/SzDBWlh+t/IiViEuMKxCox
-	J6WWMCEywotg8FexJy1Ql1xYX5sMofK+Yz2EKK/jRGQ8aP93cyQp7rQXKOLzdTadVJZBdNNa2izdE
-	N1OxMrT9rC/BViwbGvL4f9rdEJycP1IEVsj6GenvNKtnK5w4NG9qMxYk5YhyEh/zCWRVz67E202cA
-	zNropmquDya70ItFbLGw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=RYCv4zNaeo1/rAuJ/DU5ZSsZfJ3jUYgxxqQZ7C5Cklk=; b=DIQYiCGENIU0MU
+	ojkFEHrEaQn3ieBxx1OOg1xZIIC8swFiWYWFSLw9nCrb9cLtXsGwpDfYlax/Z9RzGCRFgkMmq08Ke
+	0GiN1s5/oYMOWZ99UnONhyNXxGj26wBWAx4REhZUAhBOo5x7bVECVE6/NFPX1+ngVy+BZdNns4ZUV
+	1uwjwCFpPtYZccyB62KWCI91+30ke5C3aZhnz/zEUjiJKVyTWvs+OP8/imKhK+7rIHBIy1rY/nUAj
+	e45BdxodU89MbRAzgVaDp2Brx7heWWlHxlQrgROPlIuJ5uuMrXJQzaKYT5/+Uz9yCUqpoQgTVPjRf
+	ZvUDiVdBMKWJB6YhsoMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mxotq-005Ado-5J; Thu, 16 Dec 2021 11:26:14 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1mxqWa-005erA-UT; Thu, 16 Dec 2021 13:10:21 +0000
+Received: from smtp-relay-canonical-0.canonical.com ([185.125.188.120])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mxoiE-0055LC-HK; Thu, 16 Dec 2021 11:14:17 +0000
-Received: from dggpemm500021.china.huawei.com (unknown [172.30.72.53])
- by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4JF8cP3Y8Mz91jN;
- Thu, 16 Dec 2021 19:13:25 +0800 (CST)
-Received: from dggpemm500001.china.huawei.com (7.185.36.107) by
- dggpemm500021.china.huawei.com (7.185.36.109) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.20; Thu, 16 Dec 2021 19:14:01 +0800
-Received: from localhost.localdomain.localdomain (10.175.113.25) by
- dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.20; Thu, 16 Dec 2021 19:13:59 +0800
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-To: <dennis@kernel.org>, <akpm@linux-foundation.org>,
- <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>
-CC: <tj@kernel.org>, <gregkh@linuxfoundation.org>, <cl@linux.com>,
- <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
- <mpe@ellerman.id.au>, <benh@kernel.crashing.org>, <paulus@samba.org>,
- <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
- <davem@davemloft.net>, <tglx@linutronix.de>, <mingo@redhat.com>,
- <bp@alien8.de>, <dave.hansen@linux.intel.com>, <hpa@zytor.com>,
- <linux-arm-kernel@lists.infradead.org>, <linux-ia64@vger.kernel.org>,
- <linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
- <linux-riscv@lists.infradead.org>, <sparclinux@vger.kernel.org>,
- <x86@kernel.org>, <wangkefeng.wang@huawei.com>, "Rafael J. Wysocki"
- <rafael@kernel.org>
-Subject: [PATCH 4/4] mm: percpu: Add generic pcpu_populate_pte() function
-Date: Thu, 16 Dec 2021 19:23:59 +0800
-Message-ID: <20211216112359.103822-5-wangkefeng.wang@huawei.com>
-X-Mailer: git-send-email 2.26.2
-In-Reply-To: <20211216112359.103822-1-wangkefeng.wang@huawei.com>
-References: <20211216112359.103822-1-wangkefeng.wang@huawei.com>
+ id 1mxpzC-005T1m-Th
+ for linux-riscv@lists.infradead.org; Thu, 16 Dec 2021 12:35:52 +0000
+Received: from workstation5.fritz.box
+ (ip-88-152-144-157.hsi03.unitymediagroup.de [88.152.144.157])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-canonical-0.canonical.com (Postfix) with ESMTPSA id BB6C73FFD8; 
+ Thu, 16 Dec 2021 12:35:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1639658145;
+ bh=onBIMAuw6mLm03QoeN/nW0ZWBvVmeZ7hMRD9CvUNps0=;
+ h=From:To:Cc:Subject:Date:Message-Id:MIME-Version;
+ b=OLpjXtShMiRPjeMzVNhApo+LTBy2HkwCP9A/24L1WUusYWpN0tRjlYFAtVduXnLpT
+ 1nMlwpSUl++weEhyqtNv8cEwjW3Iy2FbziViUWWCR8/4xAHfSDBWMX9zYJ4wxLX4ub
+ JJ++OBcn4MIDsC7+aaKXrp7dTdchoN7eNZ8dNZ8mqfBlPyFdlMtaF8PMXY+3Jo+8Sp
+ 3uALn1f5PslC6COrjhpPHe2l7mvYqzTODyBq2hhncoQFnT6j15//6uUM0qGUllGg81
+ 9Mb+YzvyCkStZN8GQOUhjfKgV+YkdJesGN4FCtzGPW6eRt5I0mRxpnyCfjEwg525Wp
+ 0AGR4Lz20bE2g==
+From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Subject: [PATCH 1/1] riscv: default to CONFIG_RISCV_SBI_V01=n
+Date: Thu, 16 Dec 2021 13:35:38 +0100
+Message-Id: <20211216123538.175087-1-heinrich.schuchardt@canonical.com>
+X-Mailer: git-send-email 2.32.0
 MIME-Version: 1.0
-X-Originating-IP: [10.175.113.25]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- dggpemm500001.china.huawei.com (7.185.36.107)
-X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211216_031415_112198_3B7FCD63 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20211216_043551_214071_5D182020 
+X-CRM114-Status: UNSURE (   9.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,405 +72,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With NEED_PER_CPU_PAGE_FIRST_CHUNK enabled, we need a function
-to populate pte, this patch adds a generic pcpu populate pte
-function, pcpu_populate_pte(), which is marked __weak and used
-on most architectures, but it is overridden on x86, which has
-its own implemention.
+The SBI 0.1 specification is obsolete. The current version is 0.3.
+Hence we should not rely by default on SBI 0.1 being implemented.
 
-Cc: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
-Cc: Paul Mackerras <paulus@samba.org>
-Cc: "David S. Miller" <davem@davemloft.net>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: Borislav Petkov <bp@alien8.de>
-Cc: Dave Hansen <dave.hansen@linux.intel.com>
-Cc: "H. Peter Anvin" <hpa@zytor.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Dennis Zhou <dennis@kernel.org>
-Cc: Tejun Heo <tj@kernel.org>
-Cc: Christoph Lameter <cl@linux.com>
-Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+Signed-off-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
 ---
- arch/powerpc/kernel/setup_64.c | 47 +--------------------
- arch/sparc/kernel/smp_64.c     | 56 +------------------------
- arch/x86/kernel/setup_percpu.c |  5 +--
- drivers/base/arch_numa.c       | 51 +----------------------
- include/linux/percpu.h         |  5 +--
- mm/percpu.c                    | 76 +++++++++++++++++++++++++++++++---
- 6 files changed, 78 insertions(+), 162 deletions(-)
+ arch/riscv/Kconfig | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/arch/powerpc/kernel/setup_64.c b/arch/powerpc/kernel/setup_64.c
-index a0c55c6e3023..f7cf408217c5 100644
---- a/arch/powerpc/kernel/setup_64.c
-+++ b/arch/powerpc/kernel/setup_64.c
-@@ -787,51 +787,6 @@ static __init int pcpu_cpu_to_node(int cpu)
- unsigned long __per_cpu_offset[NR_CPUS] __read_mostly;
- EXPORT_SYMBOL(__per_cpu_offset);
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 09abf62ae0ad..f177ad3bee0f 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -396,7 +396,6 @@ source "kernel/Kconfig.hz"
  
--static void __init pcpu_populate_pte(unsigned long addr)
--{
--	pgd_t *pgd = pgd_offset_k(addr);
--	p4d_t *p4d;
--	pud_t *pud;
--	pmd_t *pmd;
--
--	p4d = p4d_offset(pgd, addr);
--	if (p4d_none(*p4d)) {
--		pud_t *new;
--
--		new = memblock_alloc(PUD_TABLE_SIZE, PUD_TABLE_SIZE);
--		if (!new)
--			goto err_alloc;
--		p4d_populate(&init_mm, p4d, new);
--	}
--
--	pud = pud_offset(p4d, addr);
--	if (pud_none(*pud)) {
--		pmd_t *new;
--
--		new = memblock_alloc(PMD_TABLE_SIZE, PMD_TABLE_SIZE);
--		if (!new)
--			goto err_alloc;
--		pud_populate(&init_mm, pud, new);
--	}
--
--	pmd = pmd_offset(pud, addr);
--	if (!pmd_present(*pmd)) {
--		pte_t *new;
--
--		new = memblock_alloc(PTE_TABLE_SIZE, PTE_TABLE_SIZE);
--		if (!new)
--			goto err_alloc;
--		pmd_populate_kernel(&init_mm, pmd, new);
--	}
--
--	return;
--
--err_alloc:
--	panic("%s: Failed to allocate %lu bytes align=%lx from=%lx\n",
--	      __func__, PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
--}
--
--
- void __init setup_per_cpu_areas(void)
- {
- 	const size_t dyn_size = PERCPU_MODULE_RESERVE + PERCPU_DYNAMIC_RESERVE;
-@@ -860,7 +815,7 @@ void __init setup_per_cpu_areas(void)
- 	}
- 
- 	if (rc < 0)
--		rc = pcpu_page_first_chunk(0, pcpu_cpu_to_node, pcpu_populate_pte);
-+		rc = pcpu_page_first_chunk(0, pcpu_cpu_to_node);
- 	if (rc < 0)
- 		panic("cannot initialize percpu area (err=%d)", rc);
- 
-diff --git a/arch/sparc/kernel/smp_64.c b/arch/sparc/kernel/smp_64.c
-index ef815b3f0592..a1f78e9ddaf3 100644
---- a/arch/sparc/kernel/smp_64.c
-+++ b/arch/sparc/kernel/smp_64.c
-@@ -1539,59 +1539,6 @@ static int __init pcpu_cpu_to_node(int cpu)
- 	return cpu_to_node(cpu);
- }
- 
--static void __init pcpu_populate_pte(unsigned long addr)
--{
--	pgd_t *pgd = pgd_offset_k(addr);
--	p4d_t *p4d;
--	pud_t *pud;
--	pmd_t *pmd;
--
--	if (pgd_none(*pgd)) {
--		pud_t *new;
--
--		new = memblock_alloc_from(PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
--		if (!new)
--			goto err_alloc;
--		pgd_populate(&init_mm, pgd, new);
--	}
--
--	p4d = p4d_offset(pgd, addr);
--	if (p4d_none(*p4d)) {
--		pud_t *new;
--
--		new = memblock_alloc_from(PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
--		if (!new)
--			goto err_alloc;
--		p4d_populate(&init_mm, p4d, new);
--	}
--
--	pud = pud_offset(p4d, addr);
--	if (pud_none(*pud)) {
--		pmd_t *new;
--
--		new = memblock_alloc_from(PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
--		if (!new)
--			goto err_alloc;
--		pud_populate(&init_mm, pud, new);
--	}
--
--	pmd = pmd_offset(pud, addr);
--	if (!pmd_present(*pmd)) {
--		pte_t *new;
--
--		new = memblock_alloc_from(PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
--		if (!new)
--			goto err_alloc;
--		pmd_populate_kernel(&init_mm, pmd, new);
--	}
--
--	return;
--
--err_alloc:
--	panic("%s: Failed to allocate %lu bytes align=%lx from=%lx\n",
--	      __func__, PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
--}
--
- void __init setup_per_cpu_areas(void)
- {
- 	unsigned long delta;
-@@ -1610,8 +1557,7 @@ void __init setup_per_cpu_areas(void)
- 	}
- 	if (rc < 0)
- 		rc = pcpu_page_first_chunk(PERCPU_MODULE_RESERVE,
--					   pcpu_cpu_to_node,
--					   pcpu_populate_pte);
-+					   pcpu_cpu_to_node);
- 	if (rc < 0)
- 		panic("cannot initialize percpu area (err=%d)", rc);
- 
-diff --git a/arch/x86/kernel/setup_percpu.c b/arch/x86/kernel/setup_percpu.c
-index 15c5bf3cbe5f..49325caa7307 100644
---- a/arch/x86/kernel/setup_percpu.c
-+++ b/arch/x86/kernel/setup_percpu.c
-@@ -101,7 +101,7 @@ static int __init pcpu_cpu_to_node(int cpu)
- 	return early_cpu_to_node(cpu);
- }
- 
--static void __init pcpup_populate_pte(unsigned long addr)
-+void __init pcpu_populate_pte(unsigned long addr)
- {
- 	populate_extra_pte(addr);
- }
-@@ -163,8 +163,7 @@ void __init setup_per_cpu_areas(void)
- 	}
- 	if (rc < 0)
- 		rc = pcpu_page_first_chunk(PERCPU_FIRST_CHUNK_RESERVE,
--					   pcpu_cpu_to_node,
--					   pcpup_populate_pte);
-+					   pcpu_cpu_to_node);
- 	if (rc < 0)
- 		panic("cannot initialize percpu area (err=%d)", rc);
- 
-diff --git a/drivers/base/arch_numa.c b/drivers/base/arch_numa.c
-index 23a10cc36165..eaa31e567d1e 100644
---- a/drivers/base/arch_numa.c
-+++ b/drivers/base/arch_numa.c
-@@ -14,7 +14,6 @@
- #include <linux/of.h>
- 
- #include <asm/sections.h>
--#include <asm/pgalloc.h>
- 
- struct pglist_data *node_data[MAX_NUMNODES] __read_mostly;
- EXPORT_SYMBOL(node_data);
-@@ -155,52 +154,6 @@ static int __init pcpu_cpu_distance(unsigned int from, unsigned int to)
- 	return node_distance(early_cpu_to_node(from), early_cpu_to_node(to));
- }
- 
--#ifdef CONFIG_NEED_PER_CPU_PAGE_FIRST_CHUNK
--static void __init pcpu_populate_pte(unsigned long addr)
--{
--	pgd_t *pgd = pgd_offset_k(addr);
--	p4d_t *p4d;
--	pud_t *pud;
--	pmd_t *pmd;
--
--	p4d = p4d_offset(pgd, addr);
--	if (p4d_none(*p4d)) {
--		pud_t *new;
--
--		new = memblock_alloc(PAGE_SIZE, PAGE_SIZE);
--		if (!new)
--			goto err_alloc;
--		p4d_populate(&init_mm, p4d, new);
--	}
--
--	pud = pud_offset(p4d, addr);
--	if (pud_none(*pud)) {
--		pmd_t *new;
--
--		new = memblock_alloc(PAGE_SIZE, PAGE_SIZE);
--		if (!new)
--			goto err_alloc;
--		pud_populate(&init_mm, pud, new);
--	}
--
--	pmd = pmd_offset(pud, addr);
--	if (!pmd_present(*pmd)) {
--		pte_t *new;
--
--		new = memblock_alloc(PAGE_SIZE, PAGE_SIZE);
--		if (!new)
--			goto err_alloc;
--		pmd_populate_kernel(&init_mm, pmd, new);
--	}
--
--	return;
--
--err_alloc:
--	panic("%s: Failed to allocate %lu bytes align=%lx from=%lx\n",
--	      __func__, PAGE_SIZE, PAGE_SIZE, PAGE_SIZE);
--}
--#endif
--
- void __init setup_per_cpu_areas(void)
- {
- 	unsigned long delta;
-@@ -225,9 +178,7 @@ void __init setup_per_cpu_areas(void)
- 
- #ifdef CONFIG_NEED_PER_CPU_PAGE_FIRST_CHUNK
- 	if (rc < 0)
--		rc = pcpu_page_first_chunk(PERCPU_MODULE_RESERVE,
--					   early_cpu_to_node,
--					   pcpu_populate_pte);
-+		rc = pcpu_page_first_chunk(PERCPU_MODULE_RESERVE, early_cpu_to_node);
- #endif
- 	if (rc < 0)
- 		panic("Failed to initialize percpu areas (err=%d).", rc);
-diff --git a/include/linux/percpu.h b/include/linux/percpu.h
-index d73c97ef4ff4..f1ec5ad1351c 100644
---- a/include/linux/percpu.h
-+++ b/include/linux/percpu.h
-@@ -95,7 +95,6 @@ extern const char * const pcpu_fc_names[PCPU_FC_NR];
- extern enum pcpu_fc pcpu_chosen_fc;
- 
- typedef int (pcpu_fc_cpu_to_node_fn_t)(int cpu);
--typedef void (*pcpu_fc_populate_pte_fn_t)(unsigned long addr);
- typedef int (pcpu_fc_cpu_distance_fn_t)(unsigned int from, unsigned int to);
- 
- extern struct pcpu_alloc_info * __init pcpu_alloc_alloc_info(int nr_groups,
-@@ -113,9 +112,9 @@ extern int __init pcpu_embed_first_chunk(size_t reserved_size, size_t dyn_size,
- #endif
- 
- #ifdef CONFIG_NEED_PER_CPU_PAGE_FIRST_CHUNK
-+void __init pcpu_populate_pte(unsigned long addr);
- extern int __init pcpu_page_first_chunk(size_t reserved_size,
--				pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn,
--				pcpu_fc_populate_pte_fn_t populate_pte_fn);
-+				pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn);
- #endif
- 
- extern void __percpu *__alloc_reserved_percpu(size_t size, size_t align) __alloc_size(1);
-diff --git a/mm/percpu.c b/mm/percpu.c
-index 0f79b6d9a6d6..fc6f591cb54f 100644
---- a/mm/percpu.c
-+++ b/mm/percpu.c
-@@ -3174,11 +3174,79 @@ int __init pcpu_embed_first_chunk(size_t reserved_size, size_t dyn_size,
- #endif /* BUILD_EMBED_FIRST_CHUNK */
- 
- #ifdef BUILD_PAGE_FIRST_CHUNK
-+#include <asm/pgalloc.h>
-+
-+#ifndef P4D_TABLE_SIZE
-+#define P4D_TABLE_SIZE PAGE_SIZE
-+#endif
-+
-+#ifndef PUD_TABLE_SIZE
-+#define PUD_TABLE_SIZE PAGE_SIZE
-+#endif
-+
-+#ifndef PMD_TABLE_SIZE
-+#define PMD_TABLE_SIZE PAGE_SIZE
-+#endif
-+
-+#ifndef PTE_TABLE_SIZE
-+#define PTE_TABLE_SIZE PAGE_SIZE
-+#endif
-+void __init __weak pcpu_populate_pte(unsigned long addr)
-+{
-+	pgd_t *pgd = pgd_offset_k(addr);
-+	p4d_t *p4d;
-+	pud_t *pud;
-+	pmd_t *pmd;
-+
-+	if (pgd_none(*pgd)) {
-+		p4d_t *new;
-+
-+		new = memblock_alloc(P4D_TABLE_SIZE, P4D_TABLE_SIZE);
-+		if (!new)
-+			goto err_alloc;
-+		pgd_populate(&init_mm, pgd, new);
-+	}
-+
-+	p4d = p4d_offset(pgd, addr);
-+	if (p4d_none(*p4d)) {
-+		pud_t *new;
-+
-+		new = memblock_alloc(PUD_TABLE_SIZE, PUD_TABLE_SIZE);
-+		if (!new)
-+			goto err_alloc;
-+		p4d_populate(&init_mm, p4d, new);
-+	}
-+
-+	pud = pud_offset(p4d, addr);
-+	if (pud_none(*pud)) {
-+		pmd_t *new;
-+
-+		new = memblock_alloc(PMD_TABLE_SIZE, PMD_TABLE_SIZE);
-+		if (!new)
-+			goto err_alloc;
-+		pud_populate(&init_mm, pud, new);
-+	}
-+
-+	pmd = pmd_offset(pud, addr);
-+	if (!pmd_present(*pmd)) {
-+		pte_t *new;
-+
-+		new = memblock_alloc(PTE_TABLE_SIZE, PTE_TABLE_SIZE);
-+		if (!new)
-+			goto err_alloc;
-+		pmd_populate_kernel(&init_mm, pmd, new);
-+	}
-+
-+	return;
-+
-+err_alloc:
-+	panic("%s: Failed to allocate memory\n", __func__);
-+}
-+
- /**
-  * pcpu_page_first_chunk - map the first chunk using PAGE_SIZE pages
-  * @reserved_size: the size of reserved percpu area in bytes
-  * @cpu_to_nd_fn: callback to convert cpu to it's node, optional
-- * @populate_pte_fn: function to populate pte
-  *
-  * This is a helper to ease setting up page-remapped first percpu
-  * chunk and can be called where pcpu_setup_first_chunk() is expected.
-@@ -3189,9 +3257,7 @@ int __init pcpu_embed_first_chunk(size_t reserved_size, size_t dyn_size,
-  * RETURNS:
-  * 0 on success, -errno on failure.
-  */
--int __init pcpu_page_first_chunk(size_t reserved_size,
--				 pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn,
--				 pcpu_fc_populate_pte_fn_t populate_pte_fn)
-+int __init pcpu_page_first_chunk(size_t reserved_size, pcpu_fc_cpu_to_node_fn_t cpu_to_nd_fn)
- {
- 	static struct vm_struct vm;
- 	struct pcpu_alloc_info *ai;
-@@ -3255,7 +3321,7 @@ int __init pcpu_page_first_chunk(size_t reserved_size,
- 			(unsigned long)vm.addr + unit * ai->unit_size;
- 
- 		for (i = 0; i < unit_pages; i++)
--			populate_pte_fn(unit_addr + (i << PAGE_SHIFT));
-+			pcpu_populate_pte(unit_addr + (i << PAGE_SHIFT));
- 
- 		/* pte already populated, the following shouldn't fail */
- 		rc = __pcpu_map_pages(unit_addr, &pages[unit * unit_pages],
+ config RISCV_SBI_V01
+ 	bool "SBI v0.1 support"
+-	default y
+ 	depends on RISCV_SBI
+ 	help
+ 	  This config allows kernel to use SBI v0.1 APIs. This will be
 -- 
-2.18.0.huawei.25
+2.32.0
 
 
 _______________________________________________
