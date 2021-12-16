@@ -4,77 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86885C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Dec 2021 13:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A294C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Dec 2021 14:03:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gANEJrw5EvbN73vo3aFlyGkbtCxXAQTSkFm2pFX+dnk=; b=m0Yuo+bm5j+t5G
-	E1+UG7fCbdOd/6farVGs/I1StU8c6jyDWndusEtnCFS7LwbByKXBklfNr9T0AbOQ5bcMaW7BgSjq5
-	6E9ARydofnRvZ2ig3iixM7HdykPTBqoHIQ1dgvoeEUQ946HChNCyS3Vv5DXVfoI5xf+PvBuADq88X
-	dFDuUMlXZjr9UQpGIKD0jQvAQpWIWqTjpXfo485qRNpI0/nXc8yEe5hbyIxr+2Jdi8/TZIXyGSSuA
-	GmgU6rT19IKe+WtKfWB5nElqkSTbsRSfkNcK/dIGQckeqidl+wGHuOJJvLX3coTRdE3Zn0weAyURp
-	TidaPosuKhSxiyos+jIw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Hs9ErJigGDdePpbGpfu4qnF+jTYv/HcmCakMqevSYqc=; b=MezD2AejWtLtIH
+	viv5OdumKyzVSXoIZS/0SmN3obc+d1ADK5TgHrRxKGLF8mmJpMQCzMq/LEpUwRdqz66+SpZHmIbc6
+	o/0VQYnDC07jLZMgSwtmq3jSbA+4NkDwwBCdKQOzuoLB5LtsMSIk5/YxzzUVidYZwc4bcScMK59bc
+	3ea0SCeO62ggSynTQ7yfgucr1fB+IYA/68TvmtJEOvQJgHkDh5bnj5FuU7e2TgWhlku+amUdxtzxf
+	YOLJJnL6cnKnVr20eqq2vH+kyZfr1hi5IPLveoTSeG/Tpc/59Ki+41pah3KkYmgsJPtGLgR+IQnZh
+	IfuXeLBRQJZMsAOYB8+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mxrHX-005zzC-Cu; Thu, 16 Dec 2021 13:58:51 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1mxrLe-0061cN-7P; Thu, 16 Dec 2021 14:03:06 +0000
+Received: from mail-pf1-f179.google.com ([209.85.210.179])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mxr8e-005wbO-4R
- for linux-riscv@lists.infradead.org; Thu, 16 Dec 2021 13:49:41 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id o29so18990749wms.2
- for <linux-riscv@lists.infradead.org>; Thu, 16 Dec 2021 05:49:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=jrtc27.com; s=gmail.jrtc27.user;
- h=mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=3LQ3OmAQD9kzIVzbdsxECsWSS2pGDKwJ8pVBtgMaI2c=;
- b=miXBZ27ePAY3Phek81QCN2DvuJ95HPOphUuaLslf3DLF75CkR3Q7ETq3976wiRwWva
- s/PC2FYhV2jKtYQ5z01F0cKm9xNoHbsuHdDkYsuwA9NP1oFwmlaQMFBHvU8ry3GUIdmd
- 2PVyBo+ad7OGMzsmzV3i+6mUOAaOEG3zsMH/1M+oS3Hnv5NN7xs82E3YFP4O1dh/vmND
- 19NtpPbWqksbarXXYggzq8ip2tDL6PnU8JQoHYVQzRzeEueUjLqMCmVM5ovv7jFgEiHT
- QNQAYm74EK5rm4gNju/+/JIdoM4fbxUuVf1FEIGTMy/7Heb4hFvDr2Mpbo+7vqpIYXL1
- tCPA==
+ id 1mxrDS-005ydQ-21
+ for linux-riscv@lists.infradead.org; Thu, 16 Dec 2021 13:54:39 +0000
+Received: by mail-pf1-f179.google.com with SMTP id k26so23672178pfp.10
+ for <linux-riscv@lists.infradead.org>; Thu, 16 Dec 2021 05:54:37 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=3LQ3OmAQD9kzIVzbdsxECsWSS2pGDKwJ8pVBtgMaI2c=;
- b=lwEeJekKKC8XE/lVx4OTX4R+lkWqTmiENotSObqAxQmeVtNzL5jh4/hp4/T0o2D7kO
- vSoADEiPLUDR8BnIDKPiLqkf0kg94OrTfu1G7TWHF2GMww+5kA2IDw/rLDgLZT5M8rgO
- egJxTYjC5MFOyGuv9OMk8gH6FPVM5c0/IPyKLLZ9j61go+dRno8ojvW1oynx601BUePz
- Qw557vbJk8rN6IZDWwdsuwgAoXWPXM4B+PygbCxPYaYJ4UAl4vCu5xuJieyXeBoGbIKJ
- Qjfbfc71O8cg+alp02FscvJyjQqiL4oLnIVLezYt/KVLncOr6A2kjQ86r9EQTrcaosac
- I7TA==
-X-Gm-Message-State: AOAM531dJ9iope52P2uKW3sK6N0OC/FqubTnq1TT2PRKB/HIBem2/Wcm
- iaOIqHqtR+VUC6ZKNdJBjS4GDiWd0Ck6Zg==
-X-Google-Smtp-Source: ABdhPJzTl39YAx8e+eYpdbxrlhfmg4gpX+V0JbvxbDfgImCQ6CC4+8BmH5IcY00rEfyCQVmZ3xYvog==
-X-Received: by 2002:a1c:6a04:: with SMTP id f4mr5170891wmc.56.1639662577472;
- Thu, 16 Dec 2021 05:49:37 -0800 (PST)
-Received: from smtpclient.apple (global-5-141.nat-2.net.cam.ac.uk.
- [131.111.5.141])
- by smtp.gmail.com with ESMTPSA id t11sm4660401wrz.97.2021.12.16.05.49.36
- (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Thu, 16 Dec 2021 05:49:37 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 14.0 \(3654.120.0.1.13\))
-Subject: Re: [PATCH 1/1] riscv: default to CONFIG_RISCV_SBI_V01=n
-From: Jessica Clarke <jrtc27@jrtc27.com>
-In-Reply-To: <20211216123538.175087-1-heinrich.schuchardt@canonical.com>
-Date: Thu, 16 Dec 2021 13:49:35 +0000
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Message-Id: <BC1B38E7-1170-4C05-948A-D18E80AC49E7@jrtc27.com>
-References: <20211216123538.175087-1-heinrich.schuchardt@canonical.com>
-To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-X-Mailer: Apple Mail (2.3654.120.0.1.13)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=rzheh/b2C4XgE1n4fabpDIDD9PrwJO02lF9Zwrd8B1s=;
+ b=S7w80t+221SJOj4qdqOFDBfAgDOt1q5aQA9y7kMn4lLUonKi7WLqJ+RZFYbmMITncL
+ tLxzlTToADfxqvJe9J+3+YlMp/IoCIBI5Lk8lMXZh7sNq1joM9BXDw+6s6WBc06ad8MV
+ 2mCAaGglJYGpb+CwEBaLNwckMeBAfkp9LyJaxsv92G37OFw3qu5RxN1mDXW+r29FZxEB
+ YujIAgys98ovErzdsEkXbA3jbKZMI31M7DLkPcB810JBDk4E1v9nYL/g8jvlfHo23X6n
+ qUmnCrv9irjHo3NUCrfPiOxRCJUASdfDVf0m4+cLmflVKGCGFCvPWjkqs8K/4Ly8p4Kh
+ dCQA==
+X-Gm-Message-State: AOAM530m2BV30jldCUlhK7YnqQc4kjeEdF4sgYJwUDSJcB4NBcAQWyp5
+ 7NWyvfnjwBPMQicH72ja7s33mIczXF87Hg==
+X-Google-Smtp-Source: ABdhPJynAzXdUkc/dhQcbVF6/sQwO7YbDyyWH3ETC4YHl1rxQZYPi7nKTvOdWEMGFEfpxe1DAjeGow==
+X-Received: by 2002:a05:6a00:1392:b0:4ad:5688:3e7d with SMTP id
+ t18-20020a056a00139200b004ad56883e7dmr14141202pfg.59.1639662876982; 
+ Thu, 16 Dec 2021 05:54:36 -0800 (PST)
+Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com.
+ [209.85.216.53])
+ by smtp.gmail.com with ESMTPSA id x1sm5411130pgh.1.2021.12.16.05.54.36
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Thu, 16 Dec 2021 05:54:36 -0800 (PST)
+Received: by mail-pj1-f53.google.com with SMTP id
+ z9-20020a17090a7b8900b001b13558eadaso977919pjc.4
+ for <linux-riscv@lists.infradead.org>; Thu, 16 Dec 2021 05:54:36 -0800 (PST)
+X-Received: by 2002:a05:6122:104f:: with SMTP id
+ z15mr6137098vkn.39.1639662427136; 
+ Thu, 16 Dec 2021 05:47:07 -0800 (PST)
+MIME-Version: 1.0
+References: <cover.1639660956.git.geert@linux-m68k.org>
+ <20211208104026.421-1-biju.das.jz@bp.renesas.com>
+In-Reply-To: <20211208104026.421-1-biju.das.jz@bp.renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 16 Dec 2021 14:46:56 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdWEF8r=usQMUGdw5NMLrgthgsvAB=LVm0j_uMx-eqepow@mail.gmail.com>
+Message-ID: <CAMuHMdWEF8r=usQMUGdw5NMLrgthgsvAB=LVm0j_uMx-eqepow@mail.gmail.com>
+Subject: Re: [PATCH v3 0/3] Add Mali-G31 GPU support for RZ/G2L SoC
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, David Airlie <airlied@linux.ie>, 
+ Daniel Vetter <daniel@ffwll.ch>, Rob Herring <robh+dt@kernel.org>
+Cc: Damien Le Moal <damien.lemoal@wdc.com>,
+ Lewis Hanly <lewis.hanly@microchip.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
+ Conor Dooley <conor.dooley@microchip.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, Biju Das <biju.das.jz@bp.renesas.com>, 
+ DRI Development <dri-devel@lists.freedesktop.org>, 
+ Alyssa Rosenzweig <alyssa.rosenzweig@collabora.com>,
+ Steven Price <steven.price@arm.com>, 
+ Tomeu Vizoso <tomeu.vizoso@collabora.com>, Robin Murphy <robin.murphy@arm.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Chris Paterson <Chris.Paterson2@renesas.com>, 
+ Biju Das <biju.das@bp.renesas.com>, 
+ Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+ Linux-Renesas <linux-renesas-soc@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211216_054940_243210_B8A8CDBB 
-X-CRM114-Status: UNSURE (   6.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211216_055438_142982_BE142B2A 
+X-CRM114-Status: GOOD (  18.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,18 +99,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTYgRGVjIDIwMjEsIGF0IDEyOjM1LCBIZWlucmljaCBTY2h1Y2hhcmR0IDxoZWlucmljaC5z
-Y2h1Y2hhcmR0QGNhbm9uaWNhbC5jb20+IHdyb3RlOgo+IAo+IFRoZSBTQkkgMC4xIHNwZWNpZmlj
-YXRpb24gaXMgb2Jzb2xldGUuIFRoZSBjdXJyZW50IHZlcnNpb24gaXMgMC4zLgo+IEhlbmNlIHdl
-IHNob3VsZCBub3QgcmVseSBieSBkZWZhdWx0IG9uIFNCSSAwLjEgYmVpbmcgaW1wbGVtZW50ZWQu
-CgpJdOKAmXMgd2hhdCBCQkwgaW1wbGVtZW50cywgYW5kIHNvbWUgcGVvcGxlIGFyZSBzdGlsbCB1
-c2luZyBpdCwKZXNwZWNpYWxseSBnaXZlbiBlYXJseSBoYXJkd2FyZSBzaGlwcGVkIGJlZm9yZSBP
-cGVuU0JJIGdyZXcgaW4KcG9wdWxhcml0eS4KCkplc3MKCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Thu, Dec 16, 2021 at 2:37 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> From: Biju Das <biju.das.jz@bp.renesas.com>
+>
+> RZ/G2L SoC embeds Mali-G31 bifrost GPU.
+> This patch series aims to add support for the same
+
+Oops, please ignore this email. Sorry for the noise.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
