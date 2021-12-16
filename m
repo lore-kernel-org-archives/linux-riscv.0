@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B53BC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Dec 2021 04:36:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A776C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Dec 2021 04:36:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:To:Cc:From:Subject:
 	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mlNul5ajfD/e7Bhl2TcY3U4A2gymmRmMTa5AhMa5jjg=; b=3dG0q9ijtyonUF
-	mdHHiYS50hbCo01MuldEknP9mHkCx0JBe2txKNfhVwHCispCJkRJYOqQWj72Jpiot/bp0JdNJDAso
-	qo0MQCUU43RyWcMyAFsRUsAwFbTimaGuNXDbkBSi3gvSYbxnUT+/Sm1EjLlNVZLpwoJmexpmNaKLs
-	aPVQcyMR9TPqf3CQKJXl1+pCedu+bHD3pUQVQvyYzvvEyYBLDn40V9cFIZQQH5I6g42g8stW5GfUH
-	I8A0z7eA3BfqenY5rzbi0ccdzLC6qL39VUm+3WciKqt5fYvDyQkgHhvKtWSbaWDvlWcGfxKY0g2Z1
-	24gx3ROI4EbRov9ReKAg==;
+	List-Owner; bh=4GoDFWTHrxyh65Ews2rh3I77uI5cC9GQn8UzLHnbsfI=; b=myLbjqdXi4o3TF
+	KMC3dnDfe8T/94F3kyg2Atz21OiTyhzslZbb0WZ8S/nnQdzKlJQfElYj2b9e46ySfiaa3vVi3Nlt0
+	FnejWFR7dDhe9wXPjQjHVP4NRZkKoQxbRiqgSoDAXWB736Biet5mHrrQ2xjYd16O5wWfRWOP1fcOe
+	HJja3WhsW5/wCcK7MIr2dgvStKtGgtUJ3SkmM4oBKzNJQ2PcbfwDWT/POgUEHs+0wkq71vGLlOYWu
+	8/gDp7UaMdvIpmkSpn9UA7RDRt1BuHgAmmEfVv63720Ijdm3a8EzbGpFD+UmfMMzcBJc+BzmlLj1K
+	za3CgAglvkmLP4itLJVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mxiUi-003Y3X-SE; Thu, 16 Dec 2021 04:35:52 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1mxiV1-003Y7r-NZ; Thu, 16 Dec 2021 04:36:11 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mxiUf-003Y30-Ed
- for linux-riscv@lists.infradead.org; Thu, 16 Dec 2021 04:35:50 +0000
+ id 1mxiUy-003Y6j-Tn
+ for linux-riscv@lists.infradead.org; Thu, 16 Dec 2021 04:36:10 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 1199BB82208;
- Thu, 16 Dec 2021 04:35:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE246C36AE0;
- Thu, 16 Dec 2021 04:35:46 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 99F10B82284;
+ Thu, 16 Dec 2021 04:36:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 494C6C36AE0;
+ Thu, 16 Dec 2021 04:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1639629346;
- bh=y79COlb2nj+djtDCDbx7LTCD32j+1RJcU7XjiBJeA0s=;
+ s=k20201202; t=1639629366;
+ bh=iTPhelKYVuiYtgSv4risiaN2muO295q58+hWF8wJec8=;
  h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
- b=N0i8uGCoqxbQoYosgINaC0cXUYrJB4Hokz2ejKlsTkT9xrHTqfilzGU1jLjXx1LZ/
- Lrv2XuseLAF3xKKkP8WTLLqXALV9TfdLrZxUPSNrZt65YzGhR+4R7119jv3PCbWk33
- KvHEKaTWhmNgjpLEuaIUmIjXhCQRVyZnw5N7U4Yj10oUwnUdPNzjLCOR0z0QxGCr0h
- KeQeVsYcQDYjuGKn5Esi9fgQo17fX7UMic9YunF+4URIt/1RU1W0de3Mnj/5dyU315
- txAhsglMusOrPK1BpD8MSCRDUCOod4/xYnP8dYBuOK/bGCRKopSO+sZZrTu3zNuESd
- SZKy3vM/RP7jA==
+ b=Wg/wA9qF99lzo1Tr7OEsbGggT0XjMUaFnxz/w6bl+1AB6BGCc0ovCtfoHYPNql2eW
+ 3RgaiIOSekITC2GNEJ3POBFSwO95d4EcLFgPJ0TxFnyCxA7CG3F6y5NLWewmn3l7jk
+ +1E8iPiWotmfM3Q/3MnZ2QqiVlpzSriOTcm18JER9TZphqtjAK96qW7yQLVKXcwGiA
+ 14gKUWHA6QUleNQxD0vGcjYfZlMLRlvf4hZWWDGP9kwnAAFmDB/EP3X7+mb1/rLL63
+ rtBR9kKbJWCtytTkySBLkcrXbXmncxwfkxEEp0q29Yz3De0rMTk0fZw3YLWxQC8zFi
+ sxInC2R82o5UA==
 MIME-Version: 1.0
-In-Reply-To: <20211116150119.2171-6-kernel@esmil.dk>
+In-Reply-To: <20211116150119.2171-7-kernel@esmil.dk>
 References: <20211116150119.2171-1-kernel@esmil.dk>
- <20211116150119.2171-6-kernel@esmil.dk>
-Subject: Re: [PATCH v4 05/16] dt-bindings: clock: starfive: Add JH7100 bindings
+ <20211116150119.2171-7-kernel@esmil.dk>
+Subject: Re: [PATCH v4 06/16] clk: starfive: Add JH7100 clock generator driver
 From: Stephen Boyd <sboyd@kernel.org>
 Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
  Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
@@ -63,16 +63,16 @@ Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
  Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>,
  Matteo Croce <mcroce@microsoft.com>, Arnd Bergmann <arnd@arndb.de>,
  linux-kernel@vger.kernel.org, Emil Renner Berthing <kernel@esmil.dk>,
- Rob Herring <robh@kernel.org>
+ Andy Shevchenko <andy.shevchenko@gmail.com>
 To: Emil Renner Berthing <kernel@esmil.dk>, devicetree@vger.kernel.org,
  linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org
-Date: Wed, 15 Dec 2021 20:35:45 -0800
+Date: Wed, 15 Dec 2021 20:36:05 -0800
 User-Agent: alot/0.9.1
-Message-Id: <20211216043546.BE246C36AE0@smtp.kernel.org>
+Message-Id: <20211216043606.494C6C36AE0@smtp.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211215_203549_652247_5ED39BE8 
-X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-CacheID: sfid-20211215_203609_137500_31EF94A3 
+X-CRM114-Status: UNSURE (   9.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,15 +90,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Emil Renner Berthing (2021-11-16 07:01:08)
+Quoting Emil Renner Berthing (2021-11-16 07:01:09)
 > From: Geert Uytterhoeven <geert@linux-m68k.org>
 > 
-> Add bindings for the clock generator on the JH7100 RISC-V SoC by
-> StarFive Ltd. This is a test chip for their upcoming JH7110 SoC.
+> Add a driver for the StarFive JH7100 clock generator.
 > 
 > Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
 > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-> Reviewed-by: Rob Herring <robh@kernel.org>
+> Reviewed-by: Andy Shevchenko <andy.shevchenko@gmail.com>
 > ---
 
 Acked-by: Stephen Boyd <sboyd@kernel.org>
