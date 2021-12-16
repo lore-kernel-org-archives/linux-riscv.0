@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07CE0C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Dec 2021 13:50:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8E9BC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Dec 2021 13:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9r7tfa7ukBc+Huli7XWkrxTrBCcsuTBHXLPx8CGAv1Q=; b=cVmxAromRgQ3iO
-	TTynUHflUiDrztoqeLqDwtYOEQJI+DAyN/ngqA0YoStc+LTx3cqDj1/TRjjduClLJtX4vZ/3dgVh8
-	r5O3cS1wCkWYK+45HvkZKsfKsGN/VAqitHgq096Bc/rY+T8+ry5jXb6zhXtLqyu/zxM+DtZNl52fl
-	FpViLU4or0xRvWJJ5PmBdYjq3b6HU4lNdsEvQGHrbfqjev5fXsfW3zAWs1Xr1WSGToqjTbnS8VJHu
-	Lh0vkX4SNcQpNSXRzq1Eb94Vu6AJAwHHcZzqNoY0UGMz+0xGsMnzQ5pgDt+uNeL+ASAFolazlwN7B
-	xR8+5L+7lYRSZKjX6H9g==;
+	List-Owner; bh=IbvyV10pKqC7k0IbE324m/M/YCSVCixOM1B85gY5kfg=; b=svHNzBm1XI8AUs
+	ZaN662pkQNOibVExvaM6lzHfOEHClFJLerMMpqMzaH65lt1xAw3ocrOT/5NwoSqqtPglRCjJ13jrc
+	BIqPRuRwC5O9idsKUXNLr4cz6zrbFHyzTDKje4ILIesExDIbKAxxG1LZFAI2Czd+gujdcnAizVhlN
+	Yf9MbihwrIT5VSje6UtHBX3l5ZXEHsf56ymI/8g8b0NZJKjuUoO7nJisj7WEFeVkY/azZTKYX/AWW
+	uEYCk6sZaXKs6jbhCwpS3bD4nJiBGmQg5UbJKOBEP3nSQNlIPcjGtZ+vavKkJ11yl/H9y06pZw28Q
+	Ig0jqn8ZQKhP229wgaUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mxr8z-005wlj-GL; Thu, 16 Dec 2021 13:50:01 +0000
-Received: from baptiste.telenet-ops.be ([2a02:1800:120:4::f00:13])
+	id 1mxrAP-005xNI-2i; Thu, 16 Dec 2021 13:51:29 +0000
+Received: from andre.telenet-ops.be ([2a02:1800:120:4::f00:15])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mxr0v-005swD-EG
- for linux-riscv@lists.infradead.org; Thu, 16 Dec 2021 13:41:43 +0000
+ id 1mxr0y-005t3B-HM
+ for linux-riscv@lists.infradead.org; Thu, 16 Dec 2021 13:41:46 +0000
 Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed20:d13f:527c:5504:a743])
- by baptiste.telenet-ops.be with bizsmtp
- id X1hT2600P250X30011hTei; Thu, 16 Dec 2021 14:41:41 +0100
+ by andre.telenet-ops.be with bizsmtp
+ id X1hT2600C250X30011hTDi; Thu, 16 Dec 2021 14:41:42 +0100
 Received: from rox.of.borg ([192.168.97.57])
  by ramsan.of.borg with esmtps (TLS1.3) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
  (envelope-from <geert@linux-m68k.org>)
- id 1mxr0g-005QFf-Qb; Thu, 16 Dec 2021 14:41:26 +0100
+ id 1mxr0g-005QFg-Nr; Thu, 16 Dec 2021 14:41:26 +0100
 Received: from geert by rox.of.borg with local (Exim 4.93)
  (envelope-from <geert@linux-m68k.org>)
- id 1mxr0g-009y1j-87; Thu, 16 Dec 2021 14:41:26 +0100
+ id 1mxr0g-009y1q-9d; Thu, 16 Dec 2021 14:41:26 +0100
 From: Geert Uytterhoeven <geert@linux-m68k.org>
 To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
  Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
- Sagar Kadam <sagar.kadam@sifive.com>, David Airlie <airlied@linux.ie>,
- Daniel Vetter <daniel@ffwll.ch>
+ Sagar Kadam <sagar.kadam@sifive.com>, Richard Weinberger <richard@nod.at>,
+ Vignesh Raghavendra <vigneshr@ti.com>,
+ Tudor Ambarus <Tudor.Ambarus@microchip.com>,
+ Pratyush Yadav <p.yadav@ti.com>, Michael Walle <michael@walle.cc>,
+ linux-mtd@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, Biju Das <biju.das.jz@bp.renesas.com>,
- dri-devel@lists.freedesktop.org,
- Alyssa Rosenzweig <alyssa.rosenzweig@collabora.com>,
- Steven Price <steven.price@arm.com>, tomeu.vizoso@collabora.com,
- Robin Murphy <robin.murphy@arm.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Chris Paterson <Chris.Paterson2@renesas.com>,
- Biju Das <biju.das@bp.renesas.com>,
- Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v3 0/3] Add Mali-G31 GPU support for RZ/G2L SoC
-Date: Thu, 16 Dec 2021 14:41:23 +0100
-Message-ID: <20211208104026.421-1-biju.das.jz@bp.renesas.com>
+ linux-riscv@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>,
+ linux-renesas-soc@vger.kernel.org, Magnus Damm <magnus.damm@gmail.com>,
+ Gareth Williams <gareth.williams.jx@renesas.com>,
+ Phil Edworthy <phil.edworthy@renesas.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Milan Stevanovic <milan.stevanovic@se.com>,
+ Jimmy Lalande <jimmy.lalande@se.com>
+Subject: [PATCH v4 0/4] Renesas RZ/N1 NAND controller support
+Date: Thu, 16 Dec 2021 14:41:24 +0100
+Message-ID: <20211215154619.166360-1-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1639661878.git.geert@linux-m68k.org>
 References: <cover.1639661878.git.geert@linux-m68k.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211216_054141_654004_D4466104 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20211216_054144_742101_853B6FCF 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,123 +75,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
-Message-ID: <20211216134123.U7thGznyEiLAEB7xBSCAEc-SaO5klXSlJZkEIMo2v-I@z>
+Message-ID: <20211216134124.v5u0WNEIbb1Ki4eO0ZXEiOqFkz03EQA4VZW2_jQzWJU@z>
 
-From: Biju Das <biju.das.jz@bp.renesas.com>
-
-RZ/G2L SoC embeds Mali-G31 bifrost GPU.
-This patch series aims to add support for the same
-
-It is tested with latest drm-misc-next + mesa 21.3.0 + 
-out of tree patch for (du + DSI) + 
-platform specific mesa configuration for RZ/G2L.
-
-Tested the kmscube application.
-
-test logs:-
-root@smarc-rzg2l:~# kmscube
-Using display 0xaaaadb6e7d30 with EGL version 1.4
-===================================
-EGL information:
-  version: "1.4"
-  vendor: "Mesa Project"
-.....
-===================================
-OpenGL ES 2.x information:
-  version: "OpenGL ES 3.1 Mesa 21.3.0"
-  shading language version: "OpenGL ES GLSL ES 3.10"
-  vendor: "Panfrost"
-  renderer: "Mali-G31 (Panfrost)"
-  ....
-===================================
-^C
-
-root@smarc-rzg2l:~# cat /proc/interrupts | grep panfrost
- 82:     587287          0     GICv3 186 Level     panfrost-job
- 83:          2          0     GICv3 187 Level     panfrost-mmu
- 84:          8          0     GICv3 185 Level     panfrost-gpu
-
-root@smarc-rzg2l:~# cat /sys/class/devfreq/11840000.gpu/trans_stat
-     From  :   To
-           :  50000000  62500000 100000000 125000000 200000000 250000000 400000000 500000000   time(ms)
-*  50000000:         0         0         0         0         0         0         0         0        72
-   62500000:         0         0         0         0         0         0         0         0         0
-  100000000:         0         0         0         0         0         0         0         0         0
-  125000000:         0         0         0         0         0         0         0         1        68
-  200000000:         0         0         0         0         0         0         0         1        68
-  250000000:         1         0         0         0         0         0         0         0        84
-  400000000:         0         0         0         0         0         0         0         0         0
-  500000000:         0         0         0         1         1         1         0         0       736
-Total transition : 6
-root@smarc-rzg2l:~# kmscube
-Using display 0xaaaaf7a421b0 with EGL version 1.4
-===================================
-EGL information:
-  version: "1.4"
-  vendor: "Mesa Project"
-  .....
-===================================
-OpenGL ES 2.x information:
-  version: "OpenGL ES 3.1 Mesa 21.3.0"
-  shading language version: "OpenGL ES GLSL ES 3.10"
-  vendor: "Panfrost"
-  renderer: "Mali-G31 (Panfrost)"
-  ......
-===================================
-
-root@smarc-rzg2l:~#
-root@smarc-rzg2l:~#
-root@smarc-rzg2l:~# cat /sys/class/devfreq/11840000.gpu/trans_stat
-     From  :   To
-           :  50000000  62500000 100000000 125000000 200000000 250000000 400000000 500000000   time(ms)
-*  50000000:         0         0         0         0         0         0         0         1       144
-   62500000:         0         0         0         0         0         0         0         0         0
-  100000000:         0         0         0         0         0         0         0         9       524
-  125000000:         0         0         9         0         0         0         0         3      2544
-  200000000:         0         0         0        11         0         0         0        46      3304
-  250000000:         1         0         0         0        33         0         0         0      7496
-  400000000:         0         0         0         0        16        19         0         0      2024
-  500000000:         1         0         0         1         8        15        35         0      4032
-Total transition : 208
-
-Platform specific mesa configuration patch for RZ/G2L
----------------------
-src/gallium/targets/dri/meson.build
-+               'rcar-du_dri.so',
-src/gallium/targets/dri/target.c
-+DEFINE_LOADER_DRM_ENTRYPOINT(rcar_du)
-
-V2->V3:
- * Moved optional clock-names and reset-names to SoC-specific conditional schemas.
- * minimum number of reset for the generic GPU is set to 1.
- * Documented number of clocks, resets, interrupts and interrupt-names in RZ/G2L
-   SoC-specific conditional schemas.
- * Updated commit description for patch#3
-V1->V2:
- * Removed clock patches from this seies, as it is accepted for 5.17
- * Added Rb tag from Geert
- * Added reset-names required property for RZ/G2L and updated the board dtsi.
-
-Biju Das (3):
-  dt-bindings: gpu: mali-bifrost: Document RZ/G2L support
-  arm64: dts: renesas: r9a07g044: Add Mali-G31 GPU node
-  arm64: dts: renesas: rzg2l-smarc-som: Add vdd core regulator
-
- .../bindings/gpu/arm,mali-bifrost.yaml        | 45 ++++++++++++-
- arch/arm64/boot/dts/renesas/r9a07g044.dtsi    | 65 +++++++++++++++++++
- .../boot/dts/renesas/rzg2l-smarc-som.dtsi     | 13 ++++
- 3 files changed, 121 insertions(+), 2 deletions(-)
-
--- 
-2.17.1
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogTWlxdWVsIFJheW5hbCA8bWlxdWVsLnJheW5hbEBib290bGluLmNvbT4KCkhlbGxvLAoK
+SGVyZSBpcyBhIHNob3J0IHNlcmllcyBicmluZ2luZyBzdXBwb3J0IGZvciBSZW5lc2FzIFJaL04x
+IE5BTkQKY29udHJvbGxlci4KClRoaXMgdGltZSB0aGUgZHJpdmVyIGhhcyBiZWVuIHRlc3RlZCB3
+aXRoIGEgZnVsbHktdXBzdHJlYW0gZGV2aWNlIHRyZWUKb24gdG9wIG9mIGEgdjUuMTYtcmM0LiBU
+aGUgRFQgdXNlZCBpcyB2ZXJ5IGNsb3NlIHRvIHRoZSByOWEwNmcwMzItZGIuCgpDaGVlcnMsCk1p
+cXXDqGwKCkNoYW5nZXMgaW4gdjQ6CiogU2V0IHVuZXZhbHVhdGVkUHJvcGVydGllcyBzZXQgdG8g
+ZmFsc2UgaW4gdGhlIGJpbmRpbmdzLgoqIENoYW5nZSB0aGUgY2xvY2sgbmFtZXMgYnkgcmVtb3Zp
+bmcgdGhlIG5hbmRfIHByZWZpeCB3aGljaCBpcwogIHJlZHVuZGFudCwgZXZlbiB0aG91Z2ggdGhl
+IGNsb2NrcyBhcmUgbmFtZWQgbGlrZSB0aGlzIGluIHRoZSBzcGVjLiBUaGUKICBuYW1lIHJlbWFp
+bnMgY2xlYXIgZW5vdWdoIGFueXdheS4KCkNoYW5nZXMgaW4gdjM6CiogUmViYXNlZCBvbiB0b3Ag
+b2YgYSBmdWxseS11cHN0cmVhbSByZWNlbnQga2VybmVsLgoqIFJlbmFtZWQgdGhlIGNsb2NrcyBp
+biB0aGUgYmluZGluZ3MgYW5kIHRoZSBkcml2ZXIgdG8gbWF0Y2ggdGhlCiAgZG9jdW1lbnRhdGlv
+biAobG93ZXItY2FzZWQpOiBuYW5kX2hjbGsgJiBuYW5kX2VjbGsuCiogQWRkZWQgYSBuZXcgY29t
+bWl0IGRlc2NyaWJpbmcgdGhlIE5BTkQgY29udHJvbGxlciBpbiB0aGUgcjlhMDZnMDMyCiAgRFRT
+SS4KKiBBZGRlZCB0aGUgUmV2aWV3ZWQtYnkgYW5kIFRlc3RlZC1ieSB0YWdzIHJlY2VpdmVkLgoK
+Q2hhbmdlcyBpbiB2MjoKKiBBZGRlZCB0aGUgZmFtaWx5LXNwZWNpZmljIHJ6bjEgY29tcGF0aWJs
+ZSBhcyBzdWdnZXN0ZWQgYnkgR2VlcnQuCiAgVXBkYXRlZCB0aGUgYmluZGluZ3MsIHRoZSBiaW5k
+aW5nIGZpbGUgbmFtZSwgdGhlIGNvbXBhdGlibGUgdXNlZCBpbgogIHRoZSBkcml2ZXIsIHRoZSBN
+QUlOVEFJTkVSUyBlbnRyeSwgZXRjLgoqIEFkZGVkIGFuIEFSQ0hfUkVORVNBUyBLY29uZmlnIGRl
+cGVuZGVuY3kuCiogQ2hhbmdlZCB0aGUgdHlwZSAodG8gdW5zaWduZWQpIG9mIGEgY291cGxlIG9m
+IHZhcmlhYmxlcy4KKiBSZXR1cm5lZCBlYXJsaWVyIHdoZW4gcG9zc2libGUgdG8gcmVkdWNlIGlu
+ZGVudGF0aW9uLgoqIFVzZWQgcGxhdGZvcm1fZ2V0X2lycV9vcHRpb25hbCgpIGluc3RlYWQgb2Yg
+cGxhdGZvcm1fZ2V0X2lycSgpIHRvIGF2b2lkCiAgYSB1c2VsZXNzIHdhcm5pbmcuCiogSGFuZGxl
+ZCBwcm9iZSBkZWZlcnJhbCBjb3JyZWN0bHkuCiogQXBwbGllZCBhIG1hc3NpdmUgcy9uZmMvbmFu
+ZGMvIGFzIHN1Z2dlc3RlZCBieSBHZWVydCB0byBhdm9pZAogIGNvbmZ1c2lvbnMgd2l0aCB0aGUg
+bmVhci1maWVsZC1jb21tdW5pY2F0aW9uIGRldmljZS4KKiBNZW50aW9uZWQgRXZhdHJvbml4IGFz
+IG9yaWdpbmFsIGF1dGhvcnMgb2YgdGhlIElQIGluIHRoZSBjb21taXQgbG9nIGFuZAogIGluIHRo
+ZSBoZWFkZXIuCiogQWRkZWQgYW4gYWRkaXRpb25hbCBjaGVjayBvbiB0aGUgdmFsaWRpdHkgb2Yg
+dGhlIGNoaWxkIG5vZGVzIHJlZyBwcm9wZXJ0eS4KKiBBIGNvdXBsZSBvZiBzdHlsZSBmaXhlcy4K
+Ck1pcXVlbCBSYXluYWwgKDQpOgogIGR0LWJpbmRpbmdzOiBtdGQ6IHJ6bjE6IERlc2NyaWJlIFJl
+bmVzYXMgUlovTjEgTkFORCBjb250cm9sbGVyCiAgbXRkOiByYXduYW5kOiByem4xOiBBZGQgbmV3
+IE5BTkQgY29udHJvbGxlciBkcml2ZXIKICBNQUlOVEFJTkVSUzogQWRkIGFuIGVudHJ5IGZvciBS
+ZW5lc2FzIFJaL04xIE5BTkQgY29udHJvbGxlcgogIEFSTTogZHRzOiByOWEwNmcwMzI6IERlc2Ny
+aWJlIE5BTkQgY29udHJvbGxlcgoKIC4uLi9tdGQvcmVuZXNhcyxyem4xLW5hbmQtY29udHJvbGxl
+ci55YW1sICAgICB8ICAgNjQgKwogTUFJTlRBSU5FUlMgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIHwgICAgNyArCiBhcmNoL2FybS9ib290L2R0cy9yOWEwNmcwMzIuZHRzaSAgICAg
+ICAgICAgICAgfCAgIDEyICsKIGRyaXZlcnMvbXRkL25hbmQvcmF3L0tjb25maWcgICAgICAgICAg
+ICAgICAgICB8ICAgIDYgKwogZHJpdmVycy9tdGQvbmFuZC9yYXcvTWFrZWZpbGUgICAgICAgICAg
+ICAgICAgIHwgICAgMSArCiBkcml2ZXJzL210ZC9uYW5kL3Jhdy9yem4xLW5hbmQtY29udHJvbGxl
+ci5jICAgfCAxNDIyICsrKysrKysrKysrKysrKysrCiA2IGZpbGVzIGNoYW5nZWQsIDE1MTIgaW5z
+ZXJ0aW9ucygrKQogY3JlYXRlIG1vZGUgMTAwNjQ0IERvY3VtZW50YXRpb24vZGV2aWNldHJlZS9i
+aW5kaW5ncy9tdGQvcmVuZXNhcyxyem4xLW5hbmQtY29udHJvbGxlci55YW1sCiBjcmVhdGUgbW9k
+ZSAxMDA2NDQgZHJpdmVycy9tdGQvbmFuZC9yYXcvcnpuMS1uYW5kLWNvbnRyb2xsZXIuYwoKLS0g
+CjIuMjcuMAoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
