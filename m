@@ -4,90 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A294C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Dec 2021 14:03:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C2FAC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Dec 2021 14:05:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Hs9ErJigGDdePpbGpfu4qnF+jTYv/HcmCakMqevSYqc=; b=MezD2AejWtLtIH
-	viv5OdumKyzVSXoIZS/0SmN3obc+d1ADK5TgHrRxKGLF8mmJpMQCzMq/LEpUwRdqz66+SpZHmIbc6
-	o/0VQYnDC07jLZMgSwtmq3jSbA+4NkDwwBCdKQOzuoLB5LtsMSIk5/YxzzUVidYZwc4bcScMK59bc
-	3ea0SCeO62ggSynTQ7yfgucr1fB+IYA/68TvmtJEOvQJgHkDh5bnj5FuU7e2TgWhlku+amUdxtzxf
-	YOLJJnL6cnKnVr20eqq2vH+kyZfr1hi5IPLveoTSeG/Tpc/59Ki+41pah3KkYmgsJPtGLgR+IQnZh
-	IfuXeLBRQJZMsAOYB8+g==;
+	List-Owner; bh=zzuy9I4eiCEI3Y2rWbgrfUQuMWN2VaSjHUOPkiZ3vMY=; b=0f460j+UmH1Dax
+	xQKV7pVVf06XnkvNNRp9r4nshf7GYISdN1ROXQTlVgE53Ow+pWKBfGXMme3pHAkf4eZFpn/jVXwD7
+	tejtqBOhxHGFJXqH1hdZf6XtdS05pg2QijOZkMCG0wPLYrYCnPBhqEGD3IQWbuz41hnmtYVz93kYI
+	2CdHc7clkjxhWlm2Zg+MO3SlKCZPs2m4FfjgAdGaS+pKWRzBTqh99uJ0eExMP3C67OqWl0RkmlP4h
+	GnOd2BwYgZTYBz1XjzCWUlyGPQMjfFwTYonIIkOKpht5fFTgsq/VZAbGgcEi6QXNtYpsueR85FLRb
+	9O8JDv5UTIlhmt68ahfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mxrLe-0061cN-7P; Thu, 16 Dec 2021 14:03:06 +0000
-Received: from mail-pf1-f179.google.com ([209.85.210.179])
+	id 1mxrNa-0062CS-60; Thu, 16 Dec 2021 14:05:06 +0000
+Received: from mail-ua1-f48.google.com ([209.85.222.48])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mxrDS-005ydQ-21
- for linux-riscv@lists.infradead.org; Thu, 16 Dec 2021 13:54:39 +0000
-Received: by mail-pf1-f179.google.com with SMTP id k26so23672178pfp.10
- for <linux-riscv@lists.infradead.org>; Thu, 16 Dec 2021 05:54:37 -0800 (PST)
+ id 1mxrFU-005zMn-Fy; Thu, 16 Dec 2021 13:56:47 +0000
+Received: by mail-ua1-f48.google.com with SMTP id o1so47265567uap.4;
+ Thu, 16 Dec 2021 05:56:44 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=rzheh/b2C4XgE1n4fabpDIDD9PrwJO02lF9Zwrd8B1s=;
- b=S7w80t+221SJOj4qdqOFDBfAgDOt1q5aQA9y7kMn4lLUonKi7WLqJ+RZFYbmMITncL
- tLxzlTToADfxqvJe9J+3+YlMp/IoCIBI5Lk8lMXZh7sNq1joM9BXDw+6s6WBc06ad8MV
- 2mCAaGglJYGpb+CwEBaLNwckMeBAfkp9LyJaxsv92G37OFw3qu5RxN1mDXW+r29FZxEB
- YujIAgys98ovErzdsEkXbA3jbKZMI31M7DLkPcB810JBDk4E1v9nYL/g8jvlfHo23X6n
- qUmnCrv9irjHo3NUCrfPiOxRCJUASdfDVf0m4+cLmflVKGCGFCvPWjkqs8K/4Ly8p4Kh
- dCQA==
-X-Gm-Message-State: AOAM530m2BV30jldCUlhK7YnqQc4kjeEdF4sgYJwUDSJcB4NBcAQWyp5
- 7NWyvfnjwBPMQicH72ja7s33mIczXF87Hg==
-X-Google-Smtp-Source: ABdhPJynAzXdUkc/dhQcbVF6/sQwO7YbDyyWH3ETC4YHl1rxQZYPi7nKTvOdWEMGFEfpxe1DAjeGow==
-X-Received: by 2002:a05:6a00:1392:b0:4ad:5688:3e7d with SMTP id
- t18-20020a056a00139200b004ad56883e7dmr14141202pfg.59.1639662876982; 
- Thu, 16 Dec 2021 05:54:36 -0800 (PST)
-Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com.
- [209.85.216.53])
- by smtp.gmail.com with ESMTPSA id x1sm5411130pgh.1.2021.12.16.05.54.36
- for <linux-riscv@lists.infradead.org>
+ bh=r7QJ5cBXo5bJMtT1p7qM3PpjXsDY7rDmJRqDoolDi0U=;
+ b=ZjFvM0ABMg+aaqRZuYv0sm8YyQfgWlAs2izYHMySt5h015yQ9URS7+So9ySHpViyBf
+ Y0sjIczZzFqlkjMo6E37vs6lz7M+L8tu4VlzpxYQCpKqYE0lbEeJNO++A/ht7X8uO0YX
+ 2JQbu8s+TIKiEJLjTQZjbEBdv41Oxc7WRzBStVrdMwRL7hou0vZcdl678Q23klLKsmxe
+ 3a7P65jlAkZIG8m3snsv+WOMxrLJ+FnoSflYoDxmoWSB42pqvwf0oK+6dgsujHyP7g1X
+ TbCQ+IQh9bUwj3bDkkyZnursCWF8PAdRcHA5/fY9ZawlMxQji/j9AB6JGRiix1jUEp9q
+ JLhQ==
+X-Gm-Message-State: AOAM531kTJh0raxC8MDgF/cSJE7zo64V1+4QO/AYokXrXNrHSKCU5bpd
+ ZOk5yWDHObEr7IxTysDZc6t/DCAhj8j1hg==
+X-Google-Smtp-Source: ABdhPJzXYr6XsLsuE0lCjJP5R3S00kMwzZAJrFyVqsIlPTnlTUtcLDXsA5wGLt0aRUf36M9+5Wt3jQ==
+X-Received: by 2002:a05:6102:6c4:: with SMTP id
+ m4mr5404355vsg.20.1639663003320; 
+ Thu, 16 Dec 2021 05:56:43 -0800 (PST)
+Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com.
+ [209.85.222.45])
+ by smtp.gmail.com with ESMTPSA id 91sm1107311uac.10.2021.12.16.05.56.43
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Thu, 16 Dec 2021 05:54:36 -0800 (PST)
-Received: by mail-pj1-f53.google.com with SMTP id
- z9-20020a17090a7b8900b001b13558eadaso977919pjc.4
- for <linux-riscv@lists.infradead.org>; Thu, 16 Dec 2021 05:54:36 -0800 (PST)
-X-Received: by 2002:a05:6122:104f:: with SMTP id
- z15mr6137098vkn.39.1639662427136; 
- Thu, 16 Dec 2021 05:47:07 -0800 (PST)
+ Thu, 16 Dec 2021 05:56:43 -0800 (PST)
+Received: by mail-ua1-f45.google.com with SMTP id p2so47229052uad.11;
+ Thu, 16 Dec 2021 05:56:43 -0800 (PST)
+X-Received: by 2002:a05:6102:c89:: with SMTP id
+ f9mr5601778vst.68.1639662529143; 
+ Thu, 16 Dec 2021 05:48:49 -0800 (PST)
 MIME-Version: 1.0
-References: <cover.1639660956.git.geert@linux-m68k.org>
- <20211208104026.421-1-biju.das.jz@bp.renesas.com>
-In-Reply-To: <20211208104026.421-1-biju.das.jz@bp.renesas.com>
+References: <cover.1639662093.git.geert@linux-m68k.org>
+ <20211215154619.166360-1-miquel.raynal@bootlin.com>
+In-Reply-To: <20211215154619.166360-1-miquel.raynal@bootlin.com>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 16 Dec 2021 14:46:56 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWEF8r=usQMUGdw5NMLrgthgsvAB=LVm0j_uMx-eqepow@mail.gmail.com>
-Message-ID: <CAMuHMdWEF8r=usQMUGdw5NMLrgthgsvAB=LVm0j_uMx-eqepow@mail.gmail.com>
-Subject: Re: [PATCH v3 0/3] Add Mali-G31 GPU support for RZ/G2L SoC
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, David Airlie <airlied@linux.ie>, 
- Daniel Vetter <daniel@ffwll.ch>, Rob Herring <robh+dt@kernel.org>
-Cc: Damien Le Moal <damien.lemoal@wdc.com>,
- Lewis Hanly <lewis.hanly@microchip.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
- Conor Dooley <conor.dooley@microchip.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
+Date: Thu, 16 Dec 2021 14:48:38 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUx0=b+GFP7Qvr9=L4tnf3K-UHatgKX=92EwRu3_7Bs_w@mail.gmail.com>
+Message-ID: <CAMuHMdUx0=b+GFP7Qvr9=L4tnf3K-UHatgKX=92EwRu3_7Bs_w@mail.gmail.com>
+Subject: Re: [PATCH v4 0/4] Renesas RZ/N1 NAND controller support
+To: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup.patel@wdc.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Tudor Ambarus <Tudor.Ambarus@microchip.com>, Pratyush Yadav <p.yadav@ti.com>, 
+ Michael Walle <michael@walle.cc>,
+ MTD Maling List <linux-mtd@lists.infradead.org>
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
  "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, Biju Das <biju.das.jz@bp.renesas.com>, 
- DRI Development <dri-devel@lists.freedesktop.org>, 
- Alyssa Rosenzweig <alyssa.rosenzweig@collabora.com>,
- Steven Price <steven.price@arm.com>, 
- Tomeu Vizoso <tomeu.vizoso@collabora.com>, Robin Murphy <robin.murphy@arm.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Chris Paterson <Chris.Paterson2@renesas.com>, 
- Biju Das <biju.das@bp.renesas.com>, 
- Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>
+ <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
+ Magnus Damm <magnus.damm@gmail.com>, 
+ Gareth Williams <gareth.williams.jx@renesas.com>,
+ Phil Edworthy <phil.edworthy@renesas.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Milan Stevanovic <milan.stevanovic@se.com>, 
+ Jimmy Lalande <jimmy.lalande@se.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211216_055438_142982_BE142B2A 
-X-CRM114-Status: GOOD (  18.57  )
+X-CRM114-CacheID: sfid-20211216_055644_568984_5248A822 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,11 +100,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 16, 2021 at 2:37 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> From: Biju Das <biju.das.jz@bp.renesas.com>
+On Thu, Dec 16, 2021 at 2:44 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
 >
-> RZ/G2L SoC embeds Mali-G31 bifrost GPU.
-> This patch series aims to add support for the same
+> From: Miquel Raynal <miquel.raynal@bootlin.com>
+>
+> Hello,
+>
+> Here is a short series bringing support for Renesas RZ/N1 NAND
+> controller.
 
 Oops, please ignore this email. Sorry for the noise.
 
