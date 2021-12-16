@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43B00C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Dec 2021 13:44:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8AC6C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Dec 2021 13:44:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OwWzG45nVAsimAcEzPQEekiYewO4mbl5T0zDsaSKqB4=; b=S2t/04GKLDznZ5
-	jZOXFVVqbepn41uHGsBvScOGj5KQxrrOoYh5QeqaeaA6vWOiRcZzRIEoBd0zgoNv/2QapTgF/jb56
-	mmVAWO4swpwPhLq+aQdvZ3cHy6uxVdaSoyhdwCU/wCBSVzQ3hp5f0uzMO6QYLhvvNRuHfX8/CRKHo
-	GOzh5SPSvAOHz6Y1M7pH9WK4Mw3Hfm7tIHFVR8U/PY81aCzahlH9PmgZn/YHrHXkTgVYWWnt2hmVl
-	43f7qxXrLl1EDwl1cyu3t2dZd9z9Zd8+uyAW+YsLLWSqbIrq3K3YG7pDDqHKPIbgL+wfDH1PlANyf
-	QVqRrzLTYIQAoJjgEbPA==;
+	List-Owner; bh=zCXPNSLFyD3u2ZvYGg9hYNcjNUBzQmO5BiKDkzzRrxg=; b=PArgBI+siY06ll
+	I4x+zLOH6vim75/SlcgBXtlBik0r/JW8ZZIzCmFFUvSOKBaHSb5znROZ3642/Be4FbwELuFS0fTai
+	HhVwqR/PftMxdRL8w+PzvwbUarKKAMLCPADypaQw0YV+u5dSnPkNi+gx4TPTwfqI7KBxm1XawuGtm
+	jzB8P2fFqlIDXGMHpQ7YXPPTyQFKRBV1VhwXH5Cr4jTQIc52AL8rB/4bn3MwVpu5yYqucPg5Ep4La
+	UcUdtU8dYjfIl8eJFq4GWVincsux0RrfCm/elt0a7/XZJUuxbTOU/9o9vEd60Bkqf3LGgbT2grmcf
+	8nDykOE2K977RkmcwoWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mxr3D-005txI-IC; Thu, 16 Dec 2021 13:44:03 +0000
-Received: from michel.telenet-ops.be ([2a02:1800:110:4::f00:18])
+	id 1mxr3O-005u30-H4; Thu, 16 Dec 2021 13:44:14 +0000
+Received: from laurent.telenet-ops.be ([2a02:1800:110:4::f00:19])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mxqxB-005rJo-N4
+ id 1mxqxB-005rJm-ND
  for linux-riscv@lists.infradead.org; Thu, 16 Dec 2021 13:37:51 +0000
 Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed20:d13f:527c:5504:a743])
- by michel.telenet-ops.be with bizsmtp
- id X1dg2600T250X30061dgUc; Thu, 16 Dec 2021 14:37:42 +0100
+ by laurent.telenet-ops.be with bizsmtp
+ id X1dg26007250X30011dgy7; Thu, 16 Dec 2021 14:37:43 +0100
 Received: from rox.of.borg ([192.168.97.57])
  by ramsan.of.borg with esmtps (TLS1.3) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
  (envelope-from <geert@linux-m68k.org>)
- id 1mxqx2-005Q94-6D; Thu, 16 Dec 2021 14:37:40 +0100
+ id 1mxqx1-005Q8z-MU; Thu, 16 Dec 2021 14:37:39 +0100
 Received: from geert by rox.of.borg with local (Exim 4.93)
  (envelope-from <geert@linux-m68k.org>)
- id 1mxqx1-009xv3-7f; Thu, 16 Dec 2021 14:37:39 +0100
+ id 1mxqx1-009xuT-3d; Thu, 16 Dec 2021 14:37:39 +0100
 From: Geert Uytterhoeven <geert@linux-m68k.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
@@ -44,17 +44,16 @@ Cc: Rob Herring <robh+dt@kernel.org>, Damien Le Moal <damien.lemoal@wdc.com>,
  Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
  Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org,
  devicetree@vger.kernel.org, Geert Uytterhoeven <geert@linux-m68k.org>
-Subject: [PATCH v2 10/11] riscv: dts: sifive: fu540-c000: Drop bogus soc node
- compatible values
-Date: Thu, 16 Dec 2021 14:37:34 +0100
-Message-Id: <d91be26a619dbd0aec59b263d25b4db4205a6db7.1639660956.git.geert@linux-m68k.org>
+Subject: [PATCH v2 05/11] riscv: dts: microchip: mpfs: Fix reference clock node
+Date: Thu, 16 Dec 2021 14:37:29 +0100
+Message-Id: <1fdb9ffe223057e0140324ae020c9cc1dc90ae5c.1639660956.git.geert@linux-m68k.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1639660956.git.geert@linux-m68k.org>
 References: <cover.1639660956.git.geert@linux-m68k.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211216_053749_968739_D779BF6E 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20211216_053749_951148_5F727235 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,47 +70,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-"make dtbs_check":
+"make dtbs_check" reports:
 
-    arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dt.yaml: soc: $nodename:0: '/' was expected
-    	From schema: Documentation/devicetree/bindings/riscv/sifive.yaml
-    arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dt.yaml: soc: compatible: 'oneOf' conditional failed, one must be fixed:
-    	'sifive,fu540-c000' is not one of ['sifive,hifive-unleashed-a00']
-    	'sifive,fu540-c000' is not one of ['sifive,hifive-unmatched-a00']
-    	'sifive,fu540-c000' was expected
-    	'sifive,fu740-c000' was expected
-    	'sifive,fu540' was expected
-    	'sifive,fu740' was expected
-    	From schema: Documentation/devicetree/bindings/riscv/sifive.yaml
+    arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dt.yaml: soc: refclk: {'compatible': ['fixed-clock'], '#clock-cells': [[0]], 'clock-frequency': [[600000000]], 'clock-output-names': ['msspllclk'], 'phandle': [[7]]} should not be valid under {'type': 'object'}
+	From schema: dtschema/schemas/simple-bus.yaml
 
-This happens because the "soc" subnode declares compatibility with
-"sifive,fu540-c000" and "sifive,fu540", while these are only intended
-for the root node.
-
-Fix this by removing the bogus compatible values from the "soc" node.
+Fix this by moving the node out of the "soc" subnode.
+While at it, rename it to "msspllclk", and drop the now superfluous
+"clock-output-names" property.
+Move the actual clock-frequency value to the board DTS, since it is not
+set until bitstream programming time.
 
 Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 ---
 v2:
-  - Add Reviewed-by.
+  - Add Acked-by,
+  - Move clock-frequency to board DTS.
 ---
- arch/riscv/boot/dts/sifive/fu540-c000.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../boot/dts/microchip/microchip-mpfs-icicle-kit.dts |  4 ++++
+ arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi    | 12 +++++-------
+ 2 files changed, 9 insertions(+), 7 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
-index e2efcf08210926f8..b1250c16816f5c9d 100644
---- a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
-+++ b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
-@@ -137,7 +137,7 @@ cpu4_intc: interrupt-controller {
+diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
+index fc1e5869df1b9fc5..0c748ae1b0068df7 100644
+--- a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
++++ b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
+@@ -35,6 +35,10 @@ memory@80000000 {
+ 	};
+ };
+ 
++&refclk {
++	clock-frequency = <600000000>;
++};
++
+ &serial0 {
+ 	status = "okay";
+ };
+diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+index ee59751544a0d3bc..b372bc6459bf163a 100644
+--- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+@@ -139,6 +139,11 @@ cpu4_intc: interrupt-controller {
+ 		};
+ 	};
+ 
++	refclk: msspllclk {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++	};
++
  	soc {
  		#address-cells = <2>;
  		#size-cells = <2>;
--		compatible = "sifive,fu540-c000", "sifive,fu540", "simple-bus";
-+		compatible = "simple-bus";
- 		ranges;
- 		plic0: interrupt-controller@c000000 {
- 			#interrupt-cells = <1>;
+@@ -189,13 +194,6 @@ dma@3000000 {
+ 			#dma-cells = <1>;
+ 		};
+ 
+-		refclk: refclk {
+-			compatible = "fixed-clock";
+-			#clock-cells = <0>;
+-			clock-frequency = <600000000>;
+-			clock-output-names = "msspllclk";
+-		};
+-
+ 		clkcfg: clkcfg@20002000 {
+ 			compatible = "microchip,mpfs-clkcfg";
+ 			reg = <0x0 0x20002000 0x0 0x1000>;
 -- 
 2.25.1
 
