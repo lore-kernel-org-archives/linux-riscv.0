@@ -4,86 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66EF1C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Dec 2021 13:58:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86885C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Dec 2021 13:58:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y3N2z0Ndn0tVNk3Hxk2mJfZiyyWY0HwjCMeYGhDCzZY=; b=Cb3nCw9uf2xwX6
-	Gw0K3KJHdTrQtdV+3aIvZR1r5GycAfPpALFu7VIWAFL7yBfvvNkgYcadFtvBeaj20GUQd6537xLrP
-	e9DviDe9QhEjs9Zavb8fVuYi1sZinvgY/5V8HYKQIPYaegX5Qv5y6owL7AFwJ4wKw7ayNP3EZ5KT3
-	R4+xS17mzDGRr8Q+I1tYdqJiGhgZ1/7QoWgZzwMxf3rNg2y7Rpkp5Elh3xZSWuNxlAUp+XR7c3Z3j
-	ReoE4IUv9fH1EId7mQgXQxG7RNLOKN4DihkTm+fZPGTBrDuvIGfO/cwTyyTsF83TSC+DjtElSJ1/d
-	PCTOpJJNpPpZVc9zwPuA==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=gANEJrw5EvbN73vo3aFlyGkbtCxXAQTSkFm2pFX+dnk=; b=m0Yuo+bm5j+t5G
+	E1+UG7fCbdOd/6farVGs/I1StU8c6jyDWndusEtnCFS7LwbByKXBklfNr9T0AbOQ5bcMaW7BgSjq5
+	6E9ARydofnRvZ2ig3iixM7HdykPTBqoHIQ1dgvoeEUQ946HChNCyS3Vv5DXVfoI5xf+PvBuADq88X
+	dFDuUMlXZjr9UQpGIKD0jQvAQpWIWqTjpXfo485qRNpI0/nXc8yEe5hbyIxr+2Jdi8/TZIXyGSSuA
+	GmgU6rT19IKe+WtKfWB5nElqkSTbsRSfkNcK/dIGQckeqidl+wGHuOJJvLX3coTRdE3Zn0weAyURp
+	TidaPosuKhSxiyos+jIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mxrHG-005ztC-8m; Thu, 16 Dec 2021 13:58:34 +0000
-Received: from mail-vk1-f173.google.com ([209.85.221.173])
+	id 1mxrHX-005zzC-Cu; Thu, 16 Dec 2021 13:58:51 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mxr7V-005w3a-NB; Thu, 16 Dec 2021 13:48:31 +0000
-Received: by mail-vk1-f173.google.com with SMTP id e27so16883593vkd.4;
- Thu, 16 Dec 2021 05:48:28 -0800 (PST)
+ id 1mxr8e-005wbO-4R
+ for linux-riscv@lists.infradead.org; Thu, 16 Dec 2021 13:49:41 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id o29so18990749wms.2
+ for <linux-riscv@lists.infradead.org>; Thu, 16 Dec 2021 05:49:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=jrtc27.com; s=gmail.jrtc27.user;
+ h=mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=3LQ3OmAQD9kzIVzbdsxECsWSS2pGDKwJ8pVBtgMaI2c=;
+ b=miXBZ27ePAY3Phek81QCN2DvuJ95HPOphUuaLslf3DLF75CkR3Q7ETq3976wiRwWva
+ s/PC2FYhV2jKtYQ5z01F0cKm9xNoHbsuHdDkYsuwA9NP1oFwmlaQMFBHvU8ry3GUIdmd
+ 2PVyBo+ad7OGMzsmzV3i+6mUOAaOEG3zsMH/1M+oS3Hnv5NN7xs82E3YFP4O1dh/vmND
+ 19NtpPbWqksbarXXYggzq8ip2tDL6PnU8JQoHYVQzRzeEueUjLqMCmVM5ovv7jFgEiHT
+ QNQAYm74EK5rm4gNju/+/JIdoM4fbxUuVf1FEIGTMy/7Heb4hFvDr2Mpbo+7vqpIYXL1
+ tCPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=GwUf1MNdbmgw1pD6FZTK0J55XMOIj4oBEJuIlJQ7QX8=;
- b=0CNLybVF9/y/0blPpPt5T+53aGfAbLQpwsFSkCwKTXt9DLUjF+4uWHuxuE6Ez1A7D9
- 7Y2WUX5h/Ub+jLoy/KrcQY7lSPf9cw/C43aBGIdJaptyRjMBFvFOGX0jR4sfhZNvsk/i
- DMFovF5BzqKEgIfRJWkG7Q5I50VJstNUjdP7x2jd6Oagrm301gF0dLjMVRJm+IHbrhKE
- rCSjxOb4JTOi/cd1hgKAVThVoolelPpI2qrWacniiyCsWfl7xtJLp4UCnv0WyidEsGH8
- PK8bJHyjGziCBmeZIM0B11c++4N1gDTUty0k1HnO8fsMvsJjC0HEctUEabc501m0U5KP
- Vxyw==
-X-Gm-Message-State: AOAM5327EqJU01QaOHUz+/3gkrnWt+Swk1ICuY2FNPcDrpLbllQOt89G
- PqQOl2mcCa8XKH/tqEZmsHU4YfTsPUiv+Q==
-X-Google-Smtp-Source: ABdhPJzrjEtDBu/Ebr8HebKyZdaOhgFwlnKpXinE5gCCYbaPw88tMTQCaF0O+Z3lCgVaYg3tlj253A==
-X-Received: by 2002:a05:6122:920:: with SMTP id
- j32mr6195097vka.13.1639662507504; 
- Thu, 16 Dec 2021 05:48:27 -0800 (PST)
-Received: from mail-ua1-f44.google.com (mail-ua1-f44.google.com.
- [209.85.222.44])
- by smtp.gmail.com with ESMTPSA id o5sm1114431vsa.4.2021.12.16.05.48.26
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Thu, 16 Dec 2021 05:48:27 -0800 (PST)
-Received: by mail-ua1-f44.google.com with SMTP id n7so3236770uaq.12;
- Thu, 16 Dec 2021 05:48:26 -0800 (PST)
-X-Received: by 2002:a05:6102:3232:: with SMTP id
- x18mr5387370vsf.38.1639662506625; 
- Thu, 16 Dec 2021 05:48:26 -0800 (PST)
-MIME-Version: 1.0
-References: <cover.1639661878.git.geert@linux-m68k.org>
- <20211215154619.166360-1-miquel.raynal@bootlin.com>
-In-Reply-To: <20211215154619.166360-1-miquel.raynal@bootlin.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 16 Dec 2021 14:48:15 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXwBNm=hG7mCgnpGAHFGHEmTBM0cGoVBDiqWGq9Go5+5A@mail.gmail.com>
-Message-ID: <CAMuHMdXwBNm=hG7mCgnpGAHFGHEmTBM0cGoVBDiqWGq9Go5+5A@mail.gmail.com>
-Subject: Re: [PATCH v4 0/4] Renesas RZ/N1 NAND controller support
-To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Rob Herring <robh+dt@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Sagar Kadam <sagar.kadam@sifive.com>, Richard Weinberger <richard@nod.at>, 
- Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <Tudor.Ambarus@microchip.com>, 
- Pratyush Yadav <p.yadav@ti.com>, Michael Walle <michael@walle.cc>, 
- MTD Maling List <linux-mtd@lists.infradead.org>
-Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
- Miquel Raynal <miquel.raynal@bootlin.com>, 
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
- Magnus Damm <magnus.damm@gmail.com>, 
- Gareth Williams <gareth.williams.jx@renesas.com>,
- Phil Edworthy <phil.edworthy@renesas.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Milan Stevanovic <milan.stevanovic@se.com>, 
- Jimmy Lalande <jimmy.lalande@se.com>
+ h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=3LQ3OmAQD9kzIVzbdsxECsWSS2pGDKwJ8pVBtgMaI2c=;
+ b=lwEeJekKKC8XE/lVx4OTX4R+lkWqTmiENotSObqAxQmeVtNzL5jh4/hp4/T0o2D7kO
+ vSoADEiPLUDR8BnIDKPiLqkf0kg94OrTfu1G7TWHF2GMww+5kA2IDw/rLDgLZT5M8rgO
+ egJxTYjC5MFOyGuv9OMk8gH6FPVM5c0/IPyKLLZ9j61go+dRno8ojvW1oynx601BUePz
+ Qw557vbJk8rN6IZDWwdsuwgAoXWPXM4B+PygbCxPYaYJ4UAl4vCu5xuJieyXeBoGbIKJ
+ Qjfbfc71O8cg+alp02FscvJyjQqiL4oLnIVLezYt/KVLncOr6A2kjQ86r9EQTrcaosac
+ I7TA==
+X-Gm-Message-State: AOAM531dJ9iope52P2uKW3sK6N0OC/FqubTnq1TT2PRKB/HIBem2/Wcm
+ iaOIqHqtR+VUC6ZKNdJBjS4GDiWd0Ck6Zg==
+X-Google-Smtp-Source: ABdhPJzTl39YAx8e+eYpdbxrlhfmg4gpX+V0JbvxbDfgImCQ6CC4+8BmH5IcY00rEfyCQVmZ3xYvog==
+X-Received: by 2002:a1c:6a04:: with SMTP id f4mr5170891wmc.56.1639662577472;
+ Thu, 16 Dec 2021 05:49:37 -0800 (PST)
+Received: from smtpclient.apple (global-5-141.nat-2.net.cam.ac.uk.
+ [131.111.5.141])
+ by smtp.gmail.com with ESMTPSA id t11sm4660401wrz.97.2021.12.16.05.49.36
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Thu, 16 Dec 2021 05:49:37 -0800 (PST)
+Mime-Version: 1.0 (Mac OS X Mail 14.0 \(3654.120.0.1.13\))
+Subject: Re: [PATCH 1/1] riscv: default to CONFIG_RISCV_SBI_V01=n
+From: Jessica Clarke <jrtc27@jrtc27.com>
+In-Reply-To: <20211216123538.175087-1-heinrich.schuchardt@canonical.com>
+Date: Thu, 16 Dec 2021 13:49:35 +0000
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Message-Id: <BC1B38E7-1170-4C05-948A-D18E80AC49E7@jrtc27.com>
+References: <20211216123538.175087-1-heinrich.schuchardt@canonical.com>
+To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+X-Mailer: Apple Mail (2.3654.120.0.1.13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211216_054829_808085_FB6086FB 
-X-CRM114-Status: GOOD (  19.02  )
+X-CRM114-CacheID: sfid-20211216_054940_243210_B8A8CDBB 
+X-CRM114-Status: UNSURE (   6.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,33 +86,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 16, 2021 at 2:41 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> From: Miquel Raynal <miquel.raynal@bootlin.com>
->
-> Hello,
->
-> Here is a short series bringing support for Renesas RZ/N1 NAND
-> controller.
-
-Oops, please ignore this email. Sorry for the noise.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMTYgRGVjIDIwMjEsIGF0IDEyOjM1LCBIZWlucmljaCBTY2h1Y2hhcmR0IDxoZWlucmljaC5z
+Y2h1Y2hhcmR0QGNhbm9uaWNhbC5jb20+IHdyb3RlOgo+IAo+IFRoZSBTQkkgMC4xIHNwZWNpZmlj
+YXRpb24gaXMgb2Jzb2xldGUuIFRoZSBjdXJyZW50IHZlcnNpb24gaXMgMC4zLgo+IEhlbmNlIHdl
+IHNob3VsZCBub3QgcmVseSBieSBkZWZhdWx0IG9uIFNCSSAwLjEgYmVpbmcgaW1wbGVtZW50ZWQu
+CgpJdOKAmXMgd2hhdCBCQkwgaW1wbGVtZW50cywgYW5kIHNvbWUgcGVvcGxlIGFyZSBzdGlsbCB1
+c2luZyBpdCwKZXNwZWNpYWxseSBnaXZlbiBlYXJseSBoYXJkd2FyZSBzaGlwcGVkIGJlZm9yZSBP
+cGVuU0JJIGdyZXcgaW4KcG9wdWxhcml0eS4KCkplc3MKCgpfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
+cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
