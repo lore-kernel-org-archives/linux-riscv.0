@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E088C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 09:33:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87414C43219
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 09:33:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8DpshQonSDtltENBy0ntiwYkLhcIiVWqp9EKINvWLCc=; b=m55CBIw2Rs9dn8
-	kfdTynI3oySjvwVITfUWo4osyenVAngSfPVv6BKq84UpfUVPtnG2UMtbdFjGHaOFgIR4VTd+wYFkT
-	RPCyDnEXpOAijd6TQ5cRV4jhr3RmRfdaxftSp3gtHACEq2O4HEi+DaLyFSaRR0vf6zzHX5wCYzE2r
-	DrCwd843ZTRTNuZf0dfu+IJUf5ZH3vBZ75tyGgjtFJXUPH/cE14HWo0kV4SBTg1yRZ0bE2WlykhTR
-	+aUUXA09wLCwGd5UiLonzI/wDGJWG0bDWnybV0e2kKR4sPfe0oQUOVyeAd9UbRBhjCo9nvwgtoTgI
-	YiyiFSBJw6HwewZAcURw==;
+	List-Owner; bh=g9Wm40CQMpvNf/pjzgvgXqxTUpnIhO7CEzgByFwfjvM=; b=erxnR0WLI0pUUw
+	0tMSKhTnfhIafPKLnyFxsGdt0J3kdornWNKI8d8bFQ9zmXiFgJFDhe5CcsiH5TDUKXxgXzIbpXChx
+	MP/bBhP2bVtLYHibSgZS2SUuCiMGstI3/QM/ba+3WW/BGquweq/KT6gR7Gt7PS1mpc0fRkL/1HSEK
+	UDsa+Xml1Rx+teROqGUcdjLath4TLKL7qxcijos3+Pi3z1G/u81rWgcMPl1udVPSjVKjb+FWhHkE/
+	SNrdtR9Bcy2nakkxD040RiytZdNYgIYqytk23wfrrEE07KFXgJ8cFypQDIaqoagnuW+sCq+Di/Ik0
+	1IYtq4hKL/C3g1TIgM+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1my9c1-009BF0-SM; Fri, 17 Dec 2021 09:33:13 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1my9c6-009BIl-6C; Fri, 17 Dec 2021 09:33:18 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1my9bx-009BBd-LS
- for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 09:33:11 +0000
+ id 1my9c2-009BFa-CO
+ for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 09:33:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1639733589; x=1671269589;
+ t=1639733594; x=1671269594;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=0J8Ah0nsD5NIQDIgnipH1JHJSisXY+0QnGt27In+V4U=;
- b=Tcf1Py7/Ufa/FSaFiehFZmLjY0PCUvMQKBzHq0/WFg3Y2EU7jvlQW8nO
- 3t1DScf1MypJmMcO7DAnMf/yW9rcz/RjLiW3r52zZyjTifahymomKAixE
- ys3l4GS/cBPLyPMJH9vXntTB6XxymrTLQyjhCVzpDLgd8kWfWhEugwx9y
- C+4MyPM/toNnU6w/ij55IYddkB0o7hhafhb1EbKLmNBZpuU2vTH6MbzBL
- d+cgDj/5SJn2SwdA4+ZF9l6UMQfDpqJA96SEI2NLOrNGxKv4P0drimcbp
- 3EYkzXQuLQQQnzZKAwHbjnfSoPPg6/TQf45r/i+2CnVl6yroiwAwLsFRv g==;
-IronPort-SDR: R1meDBDdqbSOglpNdk2CmK5Ge5Gyd85c2GJVirmXzZV4ZtqbyDerB5T3+TVXmo7rPtRwNRTKA8
- LbgyQebuf+WPsSPhKvcJNKF2cZrW7/TZYobyk06yONBcT7BCkId0mX7DIn2vzCue1FsxsRaD7J
- FgIdDCstQXGTCejOzmiLLDPp0WbITzu1mtU7OdjddCCYUsNwfYJCA4XKnP54tvhFG2RfhG0L6P
- dEZa2jQUjI2/XY/P0J7TLf77by2pf4V+KHTcICE3TUK8C04EB9zmGHYd9oV9Vz1NQm/oXX59VF
- asHskPDu9na5IfqldfqLNNkK
-X-IronPort-AV: E=Sophos;i="5.88,213,1635231600"; d="scan'208";a="140110764"
+ bh=AZ9n/RyDSa/dhqvl7nTlTNh+a3wwb7PMc//RGFolf8w=;
+ b=mM0x/glgcq7Do/QyCRX16aw/R+HMD1JIQmzQ+4hMKS0XpTRUCQ4SnjkW
+ AxMgdx6hdz3hza84w9CizGKVkHDjB/eyAC/pafzT7SuKCjSRgnCg+/ELp
+ ezvRFpotVDvbuuWxVrDtTWzUhI5WUSilmQ2fHmVHSjQvowodj+KnUB+T+
+ QmOIXqB8qg050SgwAcHcMJRfkEWieq8dPPTW+WU5VkHaNFB0hZ7ppHwQ+
+ i3TITGVcOgqkRYd/rM6/w4dXv6sISd+ZwTuuLx8Hj/arHnurOBqr2rqHf
+ cXg+SLfV2iUpqTDNCwxYRdy8EzhrHC+wzuueJqmzDHXdtgPzBkr670Z1w g==;
+IronPort-SDR: URrvqfHRIKuhsX04dHO5TwmpgWvtDIMhF78YdofCTrkXAmRTVPOmQ1RmHEd5wpIimtFRad8/Me
+ uQoAlyKxdynFMA47OHC1uo3LoJpFqPy2tcj0+afKERlsVjGnbMgXYGCexsdH3BtFKvx/DzXegY
+ VFOuScWBc3AeJXLHNVNjmtbHfWCK0cvx/QO0twyAVRXyzGBk/datukPaSSkACKcoZNRiumuQcB
+ /1MbgOBrWhC+NAZxuRcCP65M9mpYxhCEn3iZBI1dPSPaJyGJ5ZVOmh4wr+cb3WTa/yaxkQQQ29
+ 58jmm0K0BLbxX/ZWbgCgcIPe
+X-IronPort-AV: E=Sophos;i="5.88,213,1635231600"; d="scan'208";a="147571047"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
- by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 17 Dec 2021 02:33:07 -0700
+ by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 17 Dec 2021 02:33:09 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Fri, 17 Dec 2021 02:33:07 -0700
+ 15.1.2375.17; Fri, 17 Dec 2021 02:33:01 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
  (10.10.85.143) with Microsoft SMTP Server id 15.1.2375.17 via
- Frontend Transport; Fri, 17 Dec 2021 02:33:02 -0700
+ Frontend Transport; Fri, 17 Dec 2021 02:32:55 -0700
 From: <conor.dooley@microchip.com>
 To: <linus.walleij@linaro.org>, <bgolaszewski@baylibre.com>,
  <robh+dt@kernel.org>, <jassisinghbrar@gmail.com>, <paul.walmsley@sifive.com>, 
@@ -70,18 +70,17 @@ CC: <krzysztof.kozlowski@canonical.com>, <geert@linux-m68k.org>,
  <bin.meng@windriver.com>, <heiko@sntech.de>, <lewis.hanly@microchip.com>,
  <conor.dooley@microchip.com>, <daire.mcnamara@microchip.com>,
  <ivan.griffin@microchip.com>, <atish.patra@wdc.com>
-Subject: [PATCH v2 09/17] dt-bindings: gpio: add bindings for microchip mpfs
- gpio
-Date: Fri, 17 Dec 2021 09:33:17 +0000
-Message-ID: <20211217093325.30612-10-conor.dooley@microchip.com>
+Subject: [PATCH v2 08/17] dt-bindings: soc/microchip: add bindings for mpfs
+ system services
+Date: Fri, 17 Dec 2021 09:33:16 +0000
+Message-ID: <20211217093325.30612-9-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211217093325.30612-1-conor.dooley@microchip.com>
 References: <20211217093325.30612-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211217_013309_816143_57179E49 
-X-CRM114-Status: UNSURE (   9.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211217_013314_495759_DE752938 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,101 +99,54 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Add device tree bindings for the gpio controller on
-the Microchip PolarFire SoC.
+Add device tree bindings for the services provided by the system
+controller directly on the Microchip PolarFire SoC.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../bindings/gpio/microchip,mpfs-gpio.yaml    | 80 +++++++++++++++++++
- 1 file changed, 80 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
+ .../microchip,mpfs-generic-service.yaml       | 33 +++++++++++++++++++
+ 1 file changed, 33 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-generic-service.yaml
 
-diff --git a/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
+diff --git a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-generic-service.yaml b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-generic-service.yaml
 new file mode 100644
-index 000000000000..aa1fbb44f9ce
+index 000000000000..d044525b3487
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
-@@ -0,0 +1,80 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++++ b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-generic-service.yaml
+@@ -0,0 +1,33 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/gpio/microchip,mpfs-gpio.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++$id: "http://devicetree.org/schemas/soc/microchip/microchip,mpfs-generic-service.yaml#"
++$schema: "http://devicetree.org/meta-schemas/core.yaml#"
 +
-+title: Microchip MPFS GPIO Controller Device Tree Bindings
++title: Microchip MPFS system services
 +
 +maintainers:
 +  - Conor Dooley <conor.dooley@microchip.com>
 +
++description: |
++  The PolarFire SoC system controller is communicated with via a mailbox.
++  This binding represents several of the functions provided by the system
++  controller which do not belong in a specific subsystem, such as reading
++  the fpga device certificate, all of which follow the same format:
++    - a command + optional payload sent to the sys controller
++    - a status + a payload returned to Linux.
++
 +properties:
 +  compatible:
-+    items:
-+      - enum:
-+          - microchip,mpfs-gpio
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    description:
-+      Interrupt mapping, one per GPIO. Maximum 32 GPIOs.
-+    minItems: 1
-+    maxItems: 32
-+
-+  interrupt-controller: true
-+
-+  clocks:
-+    maxItems: 1
-+
-+  "#gpio-cells":
-+    const: 2
-+
-+  "#interrupt-cells":
-+    const: 1
-+
-+  ngpios:
-+    description:
-+      The number of GPIOs available.
-+    minimum: 1
-+    maximum: 32
-+    default: 32
-+
-+  gpio-controller: true
++    const: microchip,mpfs-generic-service
 +
 +required:
 +  - compatible
-+  - reg
-+  - interrupts
-+  - "#interrupt-cells"
-+  - interrupt-controller
-+  - "#gpio-cells"
-+  - gpio-controller
-+  - clocks
 +
 +additionalProperties: false
 +
 +examples:
 +  - |
-+    #include "dt-bindings/clock/microchip,mpfs-clock.h"
-+    gpio2: gpio@20122000 {
-+        compatible = "microchip,mpfs-gpio";
-+        reg = <0x20122000 0x1000>;
-+        clocks = <&clkcfg CLK_GPIO2>;
-+        interrupt-parent = <&plic>;
-+        gpio-controller;
-+        #gpio-cells = <2>;
-+        interrupt-controller;
-+        #interrupt-cells = <1>;
-+        interrupts = <53>, <53>, <53>, <53>,
-+                     <53>, <53>, <53>, <53>,
-+                     <53>, <53>, <53>, <53>,
-+                     <53>, <53>, <53>, <53>,
-+                     <53>, <53>, <53>, <53>,
-+                     <53>, <53>, <53>, <53>,
-+                     <53>, <53>, <53>, <53>,
-+                     <53>, <53>, <53>, <53>;
++    sysserv: sysserv {
++        compatible = "microchip,mpfs-generic-service";
 +    };
-+...
 -- 
 2.33.1
 
