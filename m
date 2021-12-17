@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B8B7C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 09:32:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F9B8C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 09:32:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dVHzl/IUXIwU7H9m83zwOj/T6We8mHhrb2jEV5bOJnY=; b=u2QcC0fV7qqhiZ
-	ATORG5FfoEGB1tRJUvhwbGqHEG1WmRPPJ+UsCy0wFkFs5roXNXu/ToM3EO/WjZK14pJVqvDf+NMLA
-	cx1xIQs7qEkNfzUmJS4fDG8/nCWZw5f2m+pd+Jm8tsdDV5PxZ45Ddjtl/vcIbZujgYNYapBiuO0Gh
-	eUPl79oyb78ON+40KCfzippvhcMutUYMxhWuFHEVc+5leeeOCZus/nmgHRB+8vliEQeAyH5bEwn3p
-	3P8zIEJeHZQGlto7fJWLkOH2+9nG97AXcgskKzum+qSWrtvjgEHiOicV8BO6EQPXgXxjL5s/zIT2Z
-	+4WM1HbrlPKWKgH+X9sQ==;
+	List-Owner; bh=17aVe6CKfAX9swGIHai12QDJ1FAapnPQxioEDGrvdSI=; b=T3YmpENCm8JDvt
+	ErQKWjdJSEUpvhl3MFq8l/BzDbsegI9tQZBVFF5wv7guuyZHSAjaPHox5nTrtEixfJzyQQey/mDhb
+	UjYrXI3GiJfOXTT7ql5Kniz4IuERhynM18ZOMRHVGn/cx/H6Ex6or836GaxXUyU6gY8CuUI5Faykg
+	xDkDJcs0TEYYut4bk3njwppa9lmJ5QowcGiQvowiM4UubPz41u55MtMKcvFTYuZfSttaf0uKJtfH+
+	ylIMD8+fbQrztTBnmtPQ2JDhnQiW5YtolxfvoHFH8jEAAEH1jmeqE0H0nF+N3JzKJZn+e2mU2GH5I
+	iDPaV2FkfZxPvJMz2J5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1my9bJ-009Ark-GP; Fri, 17 Dec 2021 09:32:29 +0000
+	id 1my9bf-009B2H-95; Fri, 17 Dec 2021 09:32:51 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1my9bG-009Aq8-JL
- for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 09:32:27 +0000
+ id 1my9bd-009B10-4V
+ for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 09:32:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1639733546; x=1671269546;
+ t=1639733568; x=1671269568;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=+DGboTmD/BHBbd77YYjxDdqurN/h3bROxrQV18YmPqc=;
- b=mhko1fY0Ts0JYqCT1funEk38z5xbkUp1VNB4ku02nsDgorvPkCPuFdkM
- luqUhZ0FyhVs7x6yfLpVU9po1RJwbLa9AzY5rDKioLQ6/9tMKnclIWz25
- GtMNM4KKater/6WoUClNdXlD+9rLvX9jskTbDAe3Axa0PPMyDqGZlcGKZ
- jS7MuzQAPk8Aw7rk9ESsdix8jIC79P+woB+jNY7NtSX3JFAzAU5QW1FW8
- qpEfiAwbazdK67/OJSnQL/+QWmwdqNWsLnxUh3LVfmzVtJeIAqw85ni/L
- sWfdb/YxbGvKoh+1X2L1PIi/ayU0SgUh4dDsuVZriARW/rtD+5Yx0Q2HY w==;
-IronPort-SDR: qG6ew+CdqBkxok7fk/Kr//smGeP1WZUnP6rv9n4Y5jw42Y+F4pSHgscnGnnZ0hRqymcl2isCCB
- 3tV2Xk4MQcwJxUBV8LUrKlce05Un47t3riNzlMVOVTle8J1P4IAvkHyBT8xKpe6vgMwgAOyl7v
- UPXED8XNyNOPl7Jei7CeUcMMP2m2ELiAcDh40TowS8H3JkuMLdtD6tDctSHzMbgB5TCGtAKK+A
- LqzffjlfIfQ+37nm/O2WNmEpnLhacVXjM1fnPe8ikFwqjriQZJWbNrIx7dy9o5BRb9fDFLSA4J
- JyT0HevO0UE5snL6+wpL8ieJ
-X-IronPort-AV: E=Sophos;i="5.88,213,1635231600"; d="scan'208";a="142745568"
+ bh=fRK83uB7UBmgy7OppXNXdK4ZxB+gBwJv/ZT1t+O9sS0=;
+ b=F10+gqB5y2cCuZX0ukj/BHMGxzvpO2dcBz45DpmrwAC1WCBVVOWE5ojr
+ 1apoIAgVSajvXV5jshL8PE4yNHgHuNWgmZ+f08SFfAL88n/EBmPfdrwcr
+ JjC4T/kETrSUIKEaggV2GwjXnML2v+bozhs64Y7+57twZN8uyCaTLIvuU
+ /vad6ix4VKUEP2pJkO5sv8wOSo/YodtaZCsjjxyqdGc6gWCfW1W0hLYAO
+ EoMcDnnCP/Lgy+JcTqPenuDuEQtBHh4xd640RbggAAYSTFu9z2kJfPuev
+ gEIQkRHwe+/9ah0XQDIwJ8dGX2gLLJu1sLvD1f+aC0a1PGXX28pz/uJUl Q==;
+IronPort-SDR: CrKd4tOB+b68mUuQA2Zc6ZHToi/KHgvehYmiy4PX3pIT90VbOVR9DHCKvNXqJwwTSbeeBF8d9b
+ qT/hxcMZ8ru69NqKG4oYHAcbnxezkEusLPGkbJjzooonvMjQXrGRX3OBaACKbERSZt6tjFmqGT
+ CjVEPj/2sqNN0oQfkZ5tc21Z5cP8bBfVUA6+2AU70yfSMx1cbniCpQJVdr7lUxUOYa3W7OWSJU
+ ms4r0BOxTvuXf6ZAkbpL9sjKttMVqmBmBPnbJYKHwM8Hvi6WDoDyiIobtpHrLDYAvxPKHrvcbe
+ LM0m7AafWCeLwB16ghkWz/qX
+X-IronPort-AV: E=Sophos;i="5.88,213,1635231600"; d="scan'208";a="140110734"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
- by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 17 Dec 2021 02:32:25 -0700
+ by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 17 Dec 2021 02:32:46 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Fri, 17 Dec 2021 02:32:25 -0700
+ 15.1.2375.17; Fri, 17 Dec 2021 02:32:47 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
  (10.10.85.143) with Microsoft SMTP Server id 15.1.2375.17 via
- Frontend Transport; Fri, 17 Dec 2021 02:32:19 -0700
+ Frontend Transport; Fri, 17 Dec 2021 02:32:41 -0700
 From: <conor.dooley@microchip.com>
 To: <linus.walleij@linaro.org>, <bgolaszewski@baylibre.com>,
  <robh+dt@kernel.org>, <jassisinghbrar@gmail.com>, <paul.walmsley@sifive.com>, 
@@ -70,16 +70,17 @@ CC: <krzysztof.kozlowski@canonical.com>, <geert@linux-m68k.org>,
  <bin.meng@windriver.com>, <heiko@sntech.de>, <lewis.hanly@microchip.com>,
  <conor.dooley@microchip.com>, <daire.mcnamara@microchip.com>,
  <ivan.griffin@microchip.com>, <atish.patra@wdc.com>
-Subject: [PATCH v2 04/17] mailbox: change mailbox-mpfs compatible string
-Date: Fri, 17 Dec 2021 09:33:12 +0000
-Message-ID: <20211217093325.30612-5-conor.dooley@microchip.com>
+Subject: [PATCH v2 06/17] dt-bindings: rng: add bindings for microchip mpfs rng
+Date: Fri, 17 Dec 2021 09:33:14 +0000
+Message-ID: <20211217093325.30612-7-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211217093325.30612-1-conor.dooley@microchip.com>
 References: <20211217093325.30612-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211217_013226_740149_0A4721DA 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20211217_013249_271536_458E5365 
+X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,29 +99,50 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-The Polarfire SoC is currently using two different compatible string
-prefixes. Fix this by changing "polarfire-soc-*" strings to "mpfs-*" in
-its system controller in order to match the compatible string used in
-the soc binding and device tree.
+Add device tree bindings for the hardware rng device accessed via
+the system services on the Microchip PolarFire SoC.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/mailbox/mailbox-mpfs.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../bindings/rng/microchip,mpfs-rng.yaml      | 29 +++++++++++++++++++
+ 1 file changed, 29 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/rng/microchip,mpfs-rng.yaml
 
-diff --git a/drivers/mailbox/mailbox-mpfs.c b/drivers/mailbox/mailbox-mpfs.c
-index 0d6e2231a2c7..4e34854d1238 100644
---- a/drivers/mailbox/mailbox-mpfs.c
-+++ b/drivers/mailbox/mailbox-mpfs.c
-@@ -232,7 +232,7 @@ static int mpfs_mbox_probe(struct platform_device *pdev)
- }
- 
- static const struct of_device_id mpfs_mbox_of_match[] = {
--	{.compatible = "microchip,polarfire-soc-mailbox", },
-+	{.compatible = "microchip,mpfs-mailbox", },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, mpfs_mbox_of_match);
+diff --git a/Documentation/devicetree/bindings/rng/microchip,mpfs-rng.yaml b/Documentation/devicetree/bindings/rng/microchip,mpfs-rng.yaml
+new file mode 100644
+index 000000000000..32cbc37c9292
+--- /dev/null
++++ b/Documentation/devicetree/bindings/rng/microchip,mpfs-rng.yaml
+@@ -0,0 +1,29 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: "http://devicetree.org/schemas/rng/microchip,mpfs-rng.yaml#"
++$schema: "http://devicetree.org/meta-schemas/core.yaml#"
++
++title: Microchip MPFS random number generator
++
++maintainers:
++  - Conor Dooley <conor.dooley@microchip.com>
++
++description: |
++  The hardware random number generator on the Polarfire SoC is
++  accessed via the mailbox interface provided by the system controller
++
++properties:
++  compatible:
++    const: microchip,mpfs-rng
++
++required:
++  - compatible
++
++additionalProperties: false
++
++examples:
++  - |
++    hwrandom: hwrandom {
++        compatible = "microchip,mpfs-rng";
++    };
 -- 
 2.33.1
 
