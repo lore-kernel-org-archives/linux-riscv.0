@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D08AC4167D
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 09:33:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E088C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 09:33:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CnOfoECR3LlF6CaJ+70OZvxo+mos6k8csPWclpTJGXs=; b=rTbmmTbFhStcI1
-	8bggyWm1QVvX9q0/yLQXLn6CqMC5BclCVd/LR0ZVrmboUlygfZ73tq3yDizTZCIm6Db57DuEhH/pm
-	SM6wgNCmKqPhJ7TVHsWPIGMzD/gvRN9Nk0QEg8A22teWREByrA3F4foCfDOL77hJmpBG8Ud77VyMt
-	JUX7m58557VK2OHW7ua9C1lRnxJ2TpSIpqsMfCNl35Zgj2yf3bqbAhM08ergJPVGwGi4YzVMKe3wX
-	1MjvfanwKU9Lk54d/LZUNdmYcAZrGL7zg+CA4enOm0pDWATtTOTCMB0zd7sBjZXrvE7qNiMmfX+kt
-	XyI4QqA25iYwmAlxk2hg==;
+	List-Owner; bh=8DpshQonSDtltENBy0ntiwYkLhcIiVWqp9EKINvWLCc=; b=m55CBIw2Rs9dn8
+	kfdTynI3oySjvwVITfUWo4osyenVAngSfPVv6BKq84UpfUVPtnG2UMtbdFjGHaOFgIR4VTd+wYFkT
+	RPCyDnEXpOAijd6TQ5cRV4jhr3RmRfdaxftSp3gtHACEq2O4HEi+DaLyFSaRR0vf6zzHX5wCYzE2r
+	DrCwd843ZTRTNuZf0dfu+IJUf5ZH3vBZ75tyGgjtFJXUPH/cE14HWo0kV4SBTg1yRZ0bE2WlykhTR
+	+aUUXA09wLCwGd5UiLonzI/wDGJWG0bDWnybV0e2kKR4sPfe0oQUOVyeAd9UbRBhjCo9nvwgtoTgI
+	YiyiFSBJw6HwewZAcURw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1my9bx-009BBA-4P; Fri, 17 Dec 2021 09:33:09 +0000
+	id 1my9c1-009BF0-SM; Fri, 17 Dec 2021 09:33:13 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1my9bs-009B8O-WA
- for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 09:33:06 +0000
+ id 1my9bx-009BBd-LS
+ for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 09:33:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1639733585; x=1671269585;
+ t=1639733589; x=1671269589;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=gS2HEVkFP5ZT4c04g14Ry523BXpa4eJOH4ez0d0CMYg=;
- b=sMANZTmBy9d42cLfdWeS6CQAb6zG6I6s+vMLxBxdz2lav3aWnZFcLlD9
- WDDlRpsYkHj4+ddsWTO6ckPARX1YHo9g4FwyWNUy0vTGSp8btYpFzmqAn
- e3gZ/vTqHGEgDrtEryviCZ2ZuFzn2CfS7yl+M0VYKNo30L/d+puX+eUhY
- VO0t4YpqpePgherJrLiXjEsf+BwHFGINXheviwiX9dhvEKrp0iSl1jfkz
- ROCZyYMX6+SMoBQDHitXXrXQy2yiqUSTc+1tNPfTisEgRMNftCn+x4RiH
- QMxU6ACDrbSvZRev2QeJKBGVweMxOalyq0HeHQQabKRXnXXPUKMHzi6ds g==;
-IronPort-SDR: RpqDwPDYdO0XhcVYtN2cMX5kcR6mmBvXnuh+MkWOJ7snVHp8GWWgynwZ2ASVR4aMpPXVT6v6GN
- myhE6XlJRvSLmmTOpeKIqWHfdUzQ2RWKvgn7ahkXd8Rn0sEfPeg4lCV9/BH3tWmZlYhsclXEQU
- dp5EZecfYu8MOz/qF1oN7o46DtxhViDCGFZawUJJHMDMqzXRmYWaIg1fHh9TJCauoxNJQfM/34
- zzIXwwvfRPqULw0uMNSVYomrNLZIsi0jJsywpJMrQFCAD7zfpD4BIgssxMmdlInzmQDNmCUSX7
- KHq+Do9zN9H35WLG/ZqGA9YT
-X-IronPort-AV: E=Sophos;i="5.88,213,1635231600"; d="scan'208";a="142745628"
+ bh=0J8Ah0nsD5NIQDIgnipH1JHJSisXY+0QnGt27In+V4U=;
+ b=Tcf1Py7/Ufa/FSaFiehFZmLjY0PCUvMQKBzHq0/WFg3Y2EU7jvlQW8nO
+ 3t1DScf1MypJmMcO7DAnMf/yW9rcz/RjLiW3r52zZyjTifahymomKAixE
+ ys3l4GS/cBPLyPMJH9vXntTB6XxymrTLQyjhCVzpDLgd8kWfWhEugwx9y
+ C+4MyPM/toNnU6w/ij55IYddkB0o7hhafhb1EbKLmNBZpuU2vTH6MbzBL
+ d+cgDj/5SJn2SwdA4+ZF9l6UMQfDpqJA96SEI2NLOrNGxKv4P0drimcbp
+ 3EYkzXQuLQQQnzZKAwHbjnfSoPPg6/TQf45r/i+2CnVl6yroiwAwLsFRv g==;
+IronPort-SDR: R1meDBDdqbSOglpNdk2CmK5Ge5Gyd85c2GJVirmXzZV4ZtqbyDerB5T3+TVXmo7rPtRwNRTKA8
+ LbgyQebuf+WPsSPhKvcJNKF2cZrW7/TZYobyk06yONBcT7BCkId0mX7DIn2vzCue1FsxsRaD7J
+ FgIdDCstQXGTCejOzmiLLDPp0WbITzu1mtU7OdjddCCYUsNwfYJCA4XKnP54tvhFG2RfhG0L6P
+ dEZa2jQUjI2/XY/P0J7TLf77by2pf4V+KHTcICE3TUK8C04EB9zmGHYd9oV9Vz1NQm/oXX59VF
+ asHskPDu9na5IfqldfqLNNkK
+X-IronPort-AV: E=Sophos;i="5.88,213,1635231600"; d="scan'208";a="140110764"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
- by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 17 Dec 2021 02:33:03 -0700
+ by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 17 Dec 2021 02:33:07 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Fri, 17 Dec 2021 02:32:53 -0700
+ 15.1.2375.17; Fri, 17 Dec 2021 02:33:07 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
  (10.10.85.143) with Microsoft SMTP Server id 15.1.2375.17 via
- Frontend Transport; Fri, 17 Dec 2021 02:32:48 -0700
+ Frontend Transport; Fri, 17 Dec 2021 02:33:02 -0700
 From: <conor.dooley@microchip.com>
 To: <linus.walleij@linaro.org>, <bgolaszewski@baylibre.com>,
  <robh+dt@kernel.org>, <jassisinghbrar@gmail.com>, <paul.walmsley@sifive.com>, 
@@ -70,16 +70,18 @@ CC: <krzysztof.kozlowski@canonical.com>, <geert@linux-m68k.org>,
  <bin.meng@windriver.com>, <heiko@sntech.de>, <lewis.hanly@microchip.com>,
  <conor.dooley@microchip.com>, <daire.mcnamara@microchip.com>,
  <ivan.griffin@microchip.com>, <atish.patra@wdc.com>
-Subject: [PATCH v2 07/17] dt-bindings: rtc: add bindings for microchip mpfs rtc
-Date: Fri, 17 Dec 2021 09:33:15 +0000
-Message-ID: <20211217093325.30612-8-conor.dooley@microchip.com>
+Subject: [PATCH v2 09/17] dt-bindings: gpio: add bindings for microchip mpfs
+ gpio
+Date: Fri, 17 Dec 2021 09:33:17 +0000
+Message-ID: <20211217093325.30612-10-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20211217093325.30612-1-conor.dooley@microchip.com>
 References: <20211217093325.30612-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211217_013305_129250_F611E790 
-X-CRM114-Status: GOOD (  10.37  )
+X-CRM114-CacheID: sfid-20211217_013309_816143_57179E49 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,83 +100,99 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Add device tree bindings for the real time clock on
+Add device tree bindings for the gpio controller on
 the Microchip PolarFire SoC.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
 ---
- .../bindings/rtc/microchip,mfps-rtc.yaml      | 63 +++++++++++++++++++
- 1 file changed, 63 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
+ .../bindings/gpio/microchip,mpfs-gpio.yaml    | 80 +++++++++++++++++++
+ 1 file changed, 80 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
 
-diff --git a/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml b/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
+diff --git a/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
 new file mode 100644
-index 000000000000..d57460cbe5e3
+index 000000000000..aa1fbb44f9ce
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
-@@ -0,0 +1,63 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++++ b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
+@@ -0,0 +1,80 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/rtc/microchip,mfps-rtc.yaml#
-+
++$id: http://devicetree.org/schemas/gpio/microchip,mpfs-gpio.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Microchip PolarFire Soc (MPFS) RTC Device Tree Bindings
-+
-+allOf:
-+  - $ref: rtc.yaml#
++title: Microchip MPFS GPIO Controller Device Tree Bindings
 +
 +maintainers:
-+  - Daire McNamara <daire.mcnamara@microchip.com>
-+  - Lewis Hanly <lewis.hanly@microchip.com>
++  - Conor Dooley <conor.dooley@microchip.com>
 +
 +properties:
 +  compatible:
-+    enum:
-+      - microchip,mpfs-rtc
++    items:
++      - enum:
++          - microchip,mpfs-gpio
 +
 +  reg:
 +    maxItems: 1
 +
 +  interrupts:
-+    maxItems: 2
++    description:
++      Interrupt mapping, one per GPIO. Maximum 32 GPIOs.
++    minItems: 1
++    maxItems: 32
 +
-+  microchip,prescaler:
-+    description: |
-+      The prescaler divides the input frequency to create a time-based strobe (typically 1 Hz) for
-+      the calendar counter. The Alarm and Compare Registers, in conjunction with the calendar
-+      counter, facilitate time-matched events. To properly operate in Calendar or Binary mode,
-+      the 26-bit prescaler must be programmed to generate a strobe to the RTC.
-+    maxItems: 1
-+    $ref: /schemas/types.yaml#/definitions/uint32
++  interrupt-controller: true
 +
 +  clocks:
 +    maxItems: 1
 +
-+  clock-names:
-+    items:
-+      - const: rtc
++  "#gpio-cells":
++    const: 2
++
++  "#interrupt-cells":
++    const: 1
++
++  ngpios:
++    description:
++      The number of GPIOs available.
++    minimum: 1
++    maximum: 32
++    default: 32
++
++  gpio-controller: true
 +
 +required:
 +  - compatible
 +  - reg
 +  - interrupts
++  - "#interrupt-cells"
++  - interrupt-controller
++  - "#gpio-cells"
++  - gpio-controller
 +  - clocks
-+  - clock-names
 +
 +additionalProperties: false
 +
 +examples:
 +  - |
-+    #include <dt-bindings/clock/microchip,mpfs-clock.h>
-+    rtc@20124000 {
-+        compatible = "microchip,mpfs-rtc";
-+        reg = <0x20124000 0x1000>;
-+        clocks = <&clkcfg CLK_RTC>;
-+        clock-names = "rtc";
-+        interrupts = <80>, <81>;
++    #include "dt-bindings/clock/microchip,mpfs-clock.h"
++    gpio2: gpio@20122000 {
++        compatible = "microchip,mpfs-gpio";
++        reg = <0x20122000 0x1000>;
++        clocks = <&clkcfg CLK_GPIO2>;
++        interrupt-parent = <&plic>;
++        gpio-controller;
++        #gpio-cells = <2>;
++        interrupt-controller;
++        #interrupt-cells = <1>;
++        interrupts = <53>, <53>, <53>, <53>,
++                     <53>, <53>, <53>, <53>,
++                     <53>, <53>, <53>, <53>,
++                     <53>, <53>, <53>, <53>,
++                     <53>, <53>, <53>, <53>,
++                     <53>, <53>, <53>, <53>,
++                     <53>, <53>, <53>, <53>,
++                     <53>, <53>, <53>, <53>;
 +    };
 +...
 -- 
