@@ -4,84 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F8CBC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 15:08:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D53AC43217
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 15:09:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ek6G3vDVgGMFGRJdIP5XvirhtWoYb36PylQsp/c2ybA=; b=xuBXLrDZPMlK0U
-	BFUpxVJXIOD6ZE/f6EpIyVm6zp2tL1/OLBOsUBTYpj+3tZQ1RV9qOGLTEc4fcAQKep8tKfbb0+LeJ
-	eeGE9HHFpUUq8xxCB3TI8zWeMMVNFtmgNkVgtwZXpHtgho4695rb7LctbIO/W7XwyYS81/hJ3tZPm
-	aVNXXa8qFUhP5fI4k0of3tBP+P5CG9hBBuEGGVGqswx3OUo4B4oSSUOVE8cSIpRxzfXy76WKE/2Xh
-	26QdfKkgAJZHQQxeNN8Hx9JTWqs8eRF2X2jKyRLdjPod0GYf5m70oaReLrz1SqXE9Cr9ikGJpSgHP
-	zbgDvN54nW9j2A5ZzlVw==;
+	List-Owner; bh=sM1Rnk/WTtyooVUfUfwF2EvLzaUT7MFnUEHIbTI9nE4=; b=xLRSv8HOCz4o4Z
+	9VXvrZi8iJ2WQT5E+oG2yooSARICLOKLLTjsLdajyhEE9m+TLuznBXAEcFi6ykgzSon0ikd2vQcyP
+	rBVSJlg8eDRyF3twpT2ddfEtbPQnjvx7d+1wlHVUChi1yO2MQvuZrZlgYCD9o1Yt7yOlLDh4lkHV0
+	hrs5H00Q4gnIN7k9FkyQCzQJxlp4Pe8WYER2BChmHWtXSTzEr/cGQ31TVaP4UkR/z7+vv0NfGcNgP
+	sPvKvVcF+B7YpDN1fumkTIDdcv/XQl3uHRzclI3EV4sn3iLoH4SJdBG9HbCvlaCuB5RzlyAzFkf6p
+	zDbA7gTEd6L06csxtanA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1myEq4-00AoEM-Vh; Fri, 17 Dec 2021 15:08:05 +0000
+	id 1myErK-00AoYX-Fe; Fri, 17 Dec 2021 15:09:22 +0000
 Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1myEq2-00AoCS-Cb
- for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 15:08:04 +0000
-Received: from mail-lj1-f200.google.com (mail-lj1-f200.google.com
- [209.85.208.200])
+ id 1myErH-00AoWU-LX
+ for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 15:09:21 +0000
+Received: from mail-lf1-f71.google.com (mail-lf1-f71.google.com
+ [209.85.167.71])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id B0B683FFD8
- for <linux-riscv@lists.infradead.org>; Fri, 17 Dec 2021 15:08:00 +0000 (UTC)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id D65C43FFD2
+ for <linux-riscv@lists.infradead.org>; Fri, 17 Dec 2021 15:09:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1639753680;
- bh=EscRM3zeuMe4QRAvQ51JRRs9n/Wn3urOySWDrMNRXHw=;
- h=Message-ID:Date:MIME-Version:Subject:From:To:Cc:References:
+ s=20210705; t=1639753757;
+ bh=Ekcv8bNIXIYPhjro0Nb278CmOGUMMLIkTcaAs3AM2AE=;
+ h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
  In-Reply-To:Content-Type;
- b=nC1a72Ms5+ElnHuPdN2ha9ZL/KcHJN7abHUw5eGA9yHhJXSXeduX+uT0/LnauQMQR
- XRjaTBbUXi0Y/SJ23iOtKjrzxlC/ZP9G0scxhK80k3k+nL77IGB1z9u2rPvWqwySpT
- got5nni0oO8da/9WPPAx8sS+RvxtuTLOWTMkOvIw9O1sDE10XcXDBknV59gGWOLbdt
- 2+EvuyxcaG2j16KeD/HVFGHOVdOQEZfwaY9PsjT/tF94MT2z3rIncHvEFY6a31+ihm
- 2500XL0o8Lh/xcHBf0AcZU92hO8V5mpilE7Ql2BuRUVQHa1PHXc/WGl/4KSU+fAnVX
- AFhp8TjGMYrOw==
-Received: by mail-lj1-f200.google.com with SMTP id
- 83-20020a2e0556000000b00218db3260bdso779466ljf.9
- for <linux-riscv@lists.infradead.org>; Fri, 17 Dec 2021 07:08:00 -0800 (PST)
+ b=nAz0qZe2GYdB43GZi+KMhhvSomsNdNgOecJ1CmLJodtUF5/A22allmvGVCgKV3ZyS
+ gJ+waIIRFoQ3Z2Edg2XAJ/tVgHrZJxmmQgbcg7brQgPwOHUNql128O4LaXTResOOE/
+ ZsdsMCulbmJwTmkaqMoYlotJCSOYw7wRrhkoXnw20CNBh8i3lxaPKst1F17ZdN5ugb
+ 7EYrYtHAIMJ13gn5I/ubGDO4TyT2OdSvMbJ7+ijXfhrQS9NHM1FlPiDm/G/lILXkZc
+ pn6HXVJjRP9eZmgxvV1Ntmq7zQoSSyHoSoE0ncyEDZlccWsUzXoMXuztIUDTE0v7yI
+ ADbAII7ZV7m3A==
+Received: by mail-lf1-f71.google.com with SMTP id
+ s11-20020a195e0b000000b0041c0a47fb77so1000023lfb.20
+ for <linux-riscv@lists.infradead.org>; Fri, 17 Dec 2021 07:09:17 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:from:to:cc:references:in-reply-to
+ :content-language:to:cc:references:from:in-reply-to
  :content-transfer-encoding;
- bh=EscRM3zeuMe4QRAvQ51JRRs9n/Wn3urOySWDrMNRXHw=;
- b=TwRmYZ3Z/FHKt4IlTgrsRf97g/YxwOD8gly7edlkKwPnJhfc9daQuZ+mF6COe8vPXw
- Y7UZXlyzt5/uRbtsxfNxFbo7WEgSzXGphsvbOcFBFWwu5ndK7zgZE/ImJybInzbSic8l
- 6s8MY/CidhmWKwMJjyDaOICgy/XsX69WdRiM9tIdYRafdsXIe0xbmGZgFY1u9tpdMmYJ
- /WRPETAnXhjfL5Q2f8vMtYvejOFk7bzQ8g9KK5Kq7jid/IaURae6C15ZLRm0l3Q19yVh
- awIf1RzTcRD7+oomSa3a6c/LQADSEM00BNGG325aBAryLaFiu5IIEKohf4cFsLpIJOUp
- EN0A==
-X-Gm-Message-State: AOAM532jbL9LW7DXH1OafvA0sjEQizgJ4pjNUFDsK76Qpway/2CMtOVt
- PfmruSOa27J9Kb8JnfOQTdAffo74PZatCCsAT9QjerYgXzoz7PyoysfBqkay7obKm8XBtrrEHDf
- oAJyRqyUAE2fhqWtBqTXa8aI4MWF/pRJafN3ksBlMO8hKrA==
-X-Received: by 2002:a05:6512:368a:: with SMTP id
- d10mr3057520lfs.476.1639753678788; 
- Fri, 17 Dec 2021 07:07:58 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJwjit/KxYQojMyrYyqg3tppu8lupjtyMuTl3o4zZeCjXmcoayEWshoXqKAPpfREvzZOsoCa7Q==
-X-Received: by 2002:a05:6512:368a:: with SMTP id
- d10mr3057453lfs.476.1639753678217; 
- Fri, 17 Dec 2021 07:07:58 -0800 (PST)
+ bh=Ekcv8bNIXIYPhjro0Nb278CmOGUMMLIkTcaAs3AM2AE=;
+ b=jCo3MCz7h6BWogkpe97iaf1OQ24FSBWZjKJd9GdwSt30xPbVDhsXNnHU8AZ8oOyJrv
+ A4jKoJ4RRoRaHlkLsQnwHvyBJea5XqKQ//gmuwScXOmZgdu1wqwZDwIQDipG2dJ/cIVy
+ d6BJITr+S9+Xi38Si2FTvuoIM+BJAAIPZvalLQNgpjh+duuo+7TyovU9sLI+QYYlSbjA
+ kE7DmCOO2jv//s+xoSe+rnf7Bto/nM7TRUYFzkNNCPYMWFrwxaCKFTJk/MF85Dx85TEs
+ 7UAw91zNRkq3yWXkQ+Xeil8lS/IrzUiNanI+iUoQK9yXIdGnuHNFo8vSk3JfoSsjKZi9
+ rwcg==
+X-Gm-Message-State: AOAM5330fCjlCl4iyj/Qj5caiUUoW99VsD8Qqn2yLWss/85PNSsJPp79
+ Y38MBTVbJdIyJRd8qXxAnKXWPZWLZ7rGAEQoA+rbszHRxt1O87SFEI8oOooJzY+4+A5r5xgRc3k
+ cPoSC9LP5C46+hA9AkMfwUpreCQKx46Vypu45vCRlgGXnDw==
+X-Received: by 2002:a05:651c:324:: with SMTP id
+ b4mr3004609ljp.188.1639753756752; 
+ Fri, 17 Dec 2021 07:09:16 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJyHJzYnX2gs6VoqK9iRkmiSREooJ2FXXIbMDOX3XDHzAr4mBWfowLrbkwZGknR7FEjLbWDk2Q==
+X-Received: by 2002:a05:651c:324:: with SMTP id
+ b4mr3004581ljp.188.1639753756369; 
+ Fri, 17 Dec 2021 07:09:16 -0800 (PST)
 Received: from [192.168.3.67] (89-77-68-124.dynamic.chello.pl. [89.77.68.124])
  by smtp.gmail.com with ESMTPSA id
- 18sm1764464ljr.17.2021.12.17.07.07.52
+ d4sm1429654lfg.82.2021.12.17.07.09.14
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Fri, 17 Dec 2021 07:07:57 -0800 (PST)
-Message-ID: <19cbe2ba-7df5-7c7c-289f-6dc419d9f477@canonical.com>
-Date: Fri, 17 Dec 2021 16:07:51 +0100
+ Fri, 17 Dec 2021 07:09:15 -0800 (PST)
+Message-ID: <61ae4cfd-a544-96d3-d521-877b8b38b5fc@canonical.com>
+Date: Fri, 17 Dec 2021 16:09:13 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.3.1
-Subject: Re: [PATCH v2 06/17] dt-bindings: rng: add bindings for microchip
- mpfs rng
+Subject: Re: [PATCH v2 17/17] MAINTAINERS: update riscv/microchip entry
 Content-Language: en-US
-From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 To: conor.dooley@microchip.com, linus.walleij@linaro.org,
  bgolaszewski@baylibre.com, robh+dt@kernel.org, jassisinghbrar@gmail.com,
  paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
@@ -97,12 +95,12 @@ Cc: geert@linux-m68k.org, bin.meng@windriver.com, heiko@sntech.de,
  lewis.hanly@microchip.com, daire.mcnamara@microchip.com,
  ivan.griffin@microchip.com, atish.patra@wdc.com
 References: <20211217093325.30612-1-conor.dooley@microchip.com>
- <20211217093325.30612-7-conor.dooley@microchip.com>
- <e59a60d5-4397-1f7f-66ab-3dd522e166a0@canonical.com>
-In-Reply-To: <e59a60d5-4397-1f7f-66ab-3dd522e166a0@canonical.com>
+ <20211217093325.30612-18-conor.dooley@microchip.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+In-Reply-To: <20211217093325.30612-18-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211217_070802_623167_323006E1 
-X-CRM114-Status: GOOD (  16.73  )
+X-CRM114-CacheID: sfid-20211217_070919_878025_09477650 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,65 +117,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 17/12/2021 15:53, Krzysztof Kozlowski wrote:
-> On 17/12/2021 10:33, conor.dooley@microchip.com wrote:
->> From: Conor Dooley <conor.dooley@microchip.com>
->>
->> Add device tree bindings for the hardware rng device accessed via
->> the system services on the Microchip PolarFire SoC.
->>
->> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
->> ---
->>  .../bindings/rng/microchip,mpfs-rng.yaml      | 29 +++++++++++++++++++
->>  1 file changed, 29 insertions(+)
->>  create mode 100644 Documentation/devicetree/bindings/rng/microchip,mpfs-rng.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/rng/microchip,mpfs-rng.yaml b/Documentation/devicetree/bindings/rng/microchip,mpfs-rng.yaml
->> new file mode 100644
->> index 000000000000..32cbc37c9292
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/rng/microchip,mpfs-rng.yaml
->> @@ -0,0 +1,29 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: "http://devicetree.org/schemas/rng/microchip,mpfs-rng.yaml#"
->> +$schema: "http://devicetree.org/meta-schemas/core.yaml#"
->> +
->> +title: Microchip MPFS random number generator
->> +
->> +maintainers:
->> +  - Conor Dooley <conor.dooley@microchip.com>
->> +
->> +description: |
->> +  The hardware random number generator on the Polarfire SoC is
->> +  accessed via the mailbox interface provided by the system controller
->> +
->> +properties:
->> +  compatible:
->> +    const: microchip,mpfs-rng
->> +
->> +required:
->> +  - compatible
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    hwrandom: hwrandom {
+On 17/12/2021 10:33, conor.dooley@microchip.com wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> Three topics:
-> 1. Node name (as most of others are using): rng
-> 2. skip the label, not helping in example.
-> 3. This looks very simple, so I wonder if the bindings are complete. No
-> IO space/address... How is it going to be instantiated?
+> Update the RISC-V/Microchip entry by adding the microchip dts
+> directory and myself as maintainer
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  MAINTAINERS | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 7a2345ce8521..3b1d6be7bd56 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -16348,8 +16348,10 @@ K:	riscv
+>  
+>  RISC-V/MICROCHIP POLARFIRE SOC SUPPORT
+>  M:	Lewis Hanly <lewis.hanly@microchip.com>
+> +M:	Conor Dooley <conor.dooley@microchip.com>
+>  L:	linux-riscv@lists.infradead.org
+>  S:	Supported
+> +F:	arch/riscv/boot/dts/microchip/
+>  F:	drivers/mailbox/mailbox-mpfs.c
+>  F:	drivers/soc/microchip/
+>  F:	include/soc/microchip/mpfs.h
 > 
 
-OK, now I saw the usage in DTS. I have doubts this makes sense as
-separate bindings. It looks like integrated part of syscontroller, so
-maybe make it part of that binding? Or at least add ref to syscontroller
-bindings that such child is expected.
+Good to have the DTS covered, so FWIW:
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 
+You still should get Lewis' ack (unless he merges it)
 
 Best regards,
 Krzysztof
