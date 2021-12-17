@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEB98C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 12:50:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B2C5C433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 12:50:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yqb4V6Hg5QalMvL9TQr3bV2AgtBc5RoWa3Z563sejcE=; b=Cf+FX197fBvtzU
-	S4mL9TPICvNurno8ep34k/Q1Y+1NrUCrZJQB8Gqunt+hk+3HDKf9/PJztoy6mm5/erF4ZvUPQPnYi
-	5uEc1GtpPOWFmYlZca4uOZ5QE7T8gYyFWrLnSHfRKnKe9vXtJqAD78S5BAr17vwrTwSYhhtEv3f2h
-	PyvLfUVjSS1Zq6KQNRhx/sujaPwrxq4sXhidEbHoWpw/+oa3auuzArQn06ggh3KmHTzzX9Tlv7g8j
-	5dpbPZ/JWCdy5ZhZXxoBdEni4x1Vbx2aWaFTIXpqe1Pl1Zfb7wnDh66GJ0MrEzQ/w6CR10AeFFHpS
-	C5DAEJO6SU709p5UUskw==;
+	List-Owner; bh=Iub0oBbYG8SaB6i9HwOhSdCEk65w7BY387VNnZaYOn0=; b=T9cwS78200udM6
+	/HD1CnbY85SuJQn6Hl3aThzJLYie9Wb/0QSF3bUtR5nFAdsE40TZYtgjC/OLFtpOqL5SIWgnWVo2o
+	wm0ZOI9b3vfLiRwPgx1BLMqbE/jolSw4Kp10OKh4MmxX+HMnuPvUDLRcKjecJcxv2Y1IVFULrja0j
+	l88Bx8X41jOwwmso3uclYoD0yv/cDtGCmcuNoVxrnSp/Etrx9bmnYQIPOB8a2gTnuSfMPFRj3MzeT
+	SU5/SqkSEVz2f8IcIhRFc58BGQj6bZUl2GFgA1jeFfa7UK8mYrE7Ref9z5UcWdqF89yc2DktIZtkA
+	rK+9CE03vLU+mmAapnAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1myCgW-00AEQD-Eq; Fri, 17 Dec 2021 12:50:04 +0000
-Received: from michel.telenet-ops.be ([2a02:1800:110:4::f00:18])
+	id 1myCgY-00AES6-Qz; Fri, 17 Dec 2021 12:50:06 +0000
+Received: from laurent.telenet-ops.be ([2a02:1800:110:4::f00:19])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1myCgI-00AEFH-86
+ id 1myCgI-00AEEr-Aa
  for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 12:49:52 +0000
 Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed20:d13f:527c:5504:a743])
- by michel.telenet-ops.be with bizsmtp
- id XQpl2600i250X3006QplH8; Fri, 17 Dec 2021 13:49:48 +0100
+ by laurent.telenet-ops.be with bizsmtp
+ id XQpm2600E250X3001QpmGP; Fri, 17 Dec 2021 13:49:47 +0100
 Received: from rox.of.borg ([192.168.97.57])
  by ramsan.of.borg with esmtps (TLS1.3) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
  (envelope-from <geert@linux-m68k.org>)
- id 1myCgD-005YxM-7J; Fri, 17 Dec 2021 13:49:45 +0100
+ id 1myCgD-005YxP-Jz; Fri, 17 Dec 2021 13:49:45 +0100
 Received: from geert by rox.of.borg with local (Exim 4.93)
  (envelope-from <geert@linux-m68k.org>)
- id 1myCgC-00ASqq-GJ; Fri, 17 Dec 2021 13:49:44 +0100
+ id 1myCgC-00ASrB-IX; Fri, 17 Dec 2021 13:49:44 +0100
 From: Geert Uytterhoeven <geert@linux-m68k.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
@@ -43,20 +43,17 @@ Cc: Rob Herring <robh+dt@kernel.org>, Damien Le Moal <damien.lemoal@wdc.com>,
  Lewis Hanly <lewis.hanly@microchip.com>,
  Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
  Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, Geert Uytterhoeven <geert@linux-m68k.org>,
- Damien Le Moal <damien.lemoal@opensource.wdc.com>
-Subject: [PATCH v3 02/11] riscv: dts: canaan: Group tuples in interrupt
- properties
-Date: Fri, 17 Dec 2021 13:49:23 +0100
-Message-Id: <c8c58ed045a4711e043a8cb91d74be15fdf1080e.1639744905.git.geert@linux-m68k.org>
+ devicetree@vger.kernel.org, Geert Uytterhoeven <geert@linux-m68k.org>
+Subject: [PATCH v3 05/11] riscv: dts: microchip: mpfs: Fix reference clock node
+Date: Fri, 17 Dec 2021 13:49:26 +0100
+Message-Id: <f9ee13ebb1fd5a676b14cfc229a6287bd6262072.1639744905.git.geert@linux-m68k.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1639744905.git.geert@linux-m68k.org>
 References: <cover.1639744905.git.geert@linux-m68k.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211217_044950_524362_BECB9744 
-X-CRM114-Status: UNSURE (   7.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211217_044950_638386_FE086726 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,103 +70,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-To improve human readability and enable automatic validation, the tuples
-in the various properties containing interrupt specifiers should be
-grouped.
+"make dtbs_check" reports:
 
-Fix this by grouping the tuples of "interrupts" and
-"interrupts-extended" properties using angle brackets.
+    arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dt.yaml: soc: refclk: {'compatible': ['fixed-clock'], '#clock-cells': [[0]], 'clock-frequency': [[600000000]], 'clock-output-names': ['msspllclk'], 'phandle': [[7]]} should not be valid under {'type': 'object'}
+	From schema: dtschema/schemas/simple-bus.yaml
+
+Fix this by moving the node out of the "soc" subnode.
+While at it, rename it to "msspllclk", and drop the now superfluous
+"clock-output-names" property.
+Move the actual clock-frequency value to the board DTS, since it is not
+set until bitstream programming time.
 
 Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
-Reviewed-by: Damien Le Moal <damien.lemoal@opensource.wdc.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-Tested-by: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Tested-by: Conor Dooley <conor.dooley@microchip.com>
 ---
 v3:
-  - No changes,
+  - Add Reviewed-by, Tested-by,
 
 v2:
-  - Add Reviewed-by, Tested-by.
+  - Add Acked-by,
+  - Move clock-frequency to board DTS.
 ---
- arch/riscv/boot/dts/canaan/k210.dtsi | 23 ++++++++++++-----------
- 1 file changed, 12 insertions(+), 11 deletions(-)
+ .../boot/dts/microchip/microchip-mpfs-icicle-kit.dts |  4 ++++
+ arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi    | 12 +++++-------
+ 2 files changed, 9 insertions(+), 7 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/canaan/k210.dtsi b/arch/riscv/boot/dts/canaan/k210.dtsi
-index 5e8ca8142482153b..56f57118c633b91a 100644
---- a/arch/riscv/boot/dts/canaan/k210.dtsi
-+++ b/arch/riscv/boot/dts/canaan/k210.dtsi
-@@ -103,8 +103,8 @@ rom0: nvmem@1000 {
- 		clint0: timer@2000000 {
- 			compatible = "canaan,k210-clint", "sifive,clint0";
- 			reg = <0x2000000 0xC000>;
--			interrupts-extended = <&cpu0_intc 3 &cpu0_intc 7
--					      &cpu1_intc 3 &cpu1_intc 7>;
-+			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>,
-+					      <&cpu1_intc 3>, <&cpu1_intc 7>;
- 		};
+diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
+index fc1e5869df1b9fc5..0c748ae1b0068df7 100644
+--- a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
++++ b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
+@@ -35,6 +35,10 @@ memory@80000000 {
+ 	};
+ };
  
- 		plic0: interrupt-controller@c000000 {
-@@ -113,7 +113,7 @@ plic0: interrupt-controller@c000000 {
- 			compatible = "canaan,k210-plic", "sifive,plic-1.0.0";
- 			reg = <0xC000000 0x4000000>;
- 			interrupt-controller;
--			interrupts-extended = <&cpu0_intc 11 &cpu1_intc 11>;
-+			interrupts-extended = <&cpu0_intc 11>, <&cpu1_intc 11>;
- 			riscv,ndev = <65>;
++&refclk {
++	clock-frequency = <600000000>;
++};
++
+ &serial0 {
+ 	status = "okay";
+ };
+diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+index ee59751544a0d3bc..b372bc6459bf163a 100644
+--- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+@@ -139,6 +139,11 @@ cpu4_intc: interrupt-controller {
  		};
+ 	};
  
-@@ -130,10 +130,11 @@ gpio0: gpio-controller@38001000 {
- 			compatible = "canaan,k210-gpiohs", "sifive,gpio0";
- 			reg = <0x38001000 0x1000>;
- 			interrupt-controller;
--			interrupts = <34 35 36 37 38 39 40 41
--				      42 43 44 45 46 47 48 49
--				      50 51 52 53 54 55 56 57
--				      58 59 60 61 62 63 64 65>;
-+			interrupts = <34>, <35>, <36>, <37>, <38>, <39>, <40>,
-+				     <41>, <42>, <43>, <44>, <45>, <46>, <47>,
-+				     <48>, <49>, <50>, <51>, <52>, <53>, <54>,
-+				     <55>, <56>, <57>, <58>, <59>, <60>, <61>,
-+				     <62>, <63>, <64>, <65>;
- 			gpio-controller;
- 			ngpios = <32>;
- 		};
-@@ -141,7 +142,7 @@ gpio0: gpio-controller@38001000 {
- 		dmac0: dma-controller@50000000 {
- 			compatible = "snps,axi-dma-1.01a";
- 			reg = <0x50000000 0x1000>;
--			interrupts = <27 28 29 30 31 32>;
-+			interrupts = <27>, <28>, <29>, <30>, <31>, <32>;
++	refclk: msspllclk {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++	};
++
+ 	soc {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+@@ -189,13 +194,6 @@ dma@3000000 {
  			#dma-cells = <1>;
- 			clocks = <&sysclk K210_CLK_DMA>, <&sysclk K210_CLK_DMA>;
- 			clock-names = "core-clk", "cfgr-clk";
-@@ -316,7 +317,7 @@ fpioa: pinmux@502b0000 {
- 			timer0: timer@502d0000 {
- 				compatible = "snps,dw-apb-timer";
- 				reg = <0x502D0000 0x100>;
--				interrupts = <14 15>;
-+				interrupts = <14>, <15>;
- 				clocks = <&sysclk K210_CLK_TIMER0>,
- 					 <&sysclk K210_CLK_APB0>;
- 				clock-names = "timer", "pclk";
-@@ -326,7 +327,7 @@ timer0: timer@502d0000 {
- 			timer1: timer@502e0000 {
- 				compatible = "snps,dw-apb-timer";
- 				reg = <0x502E0000 0x100>;
--				interrupts = <16 17>;
-+				interrupts = <16>, <17>;
- 				clocks = <&sysclk K210_CLK_TIMER1>,
- 					 <&sysclk K210_CLK_APB0>;
- 				clock-names = "timer", "pclk";
-@@ -336,7 +337,7 @@ timer1: timer@502e0000 {
- 			timer2: timer@502f0000 {
- 				compatible = "snps,dw-apb-timer";
- 				reg = <0x502F0000 0x100>;
--				interrupts = <18 19>;
-+				interrupts = <18>, <19>;
- 				clocks = <&sysclk K210_CLK_TIMER2>,
- 					 <&sysclk K210_CLK_APB0>;
- 				clock-names = "timer", "pclk";
+ 		};
+ 
+-		refclk: refclk {
+-			compatible = "fixed-clock";
+-			#clock-cells = <0>;
+-			clock-frequency = <600000000>;
+-			clock-output-names = "msspllclk";
+-		};
+-
+ 		clkcfg: clkcfg@20002000 {
+ 			compatible = "microchip,mpfs-clkcfg";
+ 			reg = <0x0 0x20002000 0x0 0x1000>;
 -- 
 2.25.1
 
