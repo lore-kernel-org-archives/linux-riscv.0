@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E56D5C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 06:09:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C34ACC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 08:03:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p6tgKIJg3AXAkQTe0X/MkYqupve1DBeeN13fQRRtlZQ=; b=NPW/mw8jZ19SAA
-	jbHBqQlk/qY3x4ozne2NsSBz/nTdPz4nYIbH5Rm5yBoShwvczvgXik8meUrRBVhp53LzMW5ZZgLfu
-	LauURXIH78BGj+fz+7nc29UAfZhr4Qt7WFEBENbJOXdx3PiJLqj16kTXWtYezpdDgRstb4M+GcJsZ
-	JSVDpkH8xswlYlZPGQC9oo0yN2Fm10aGeDttAAeH3zYkSoy2Oydc6I3WeBtewiBsvK+nvwtRBVJcA
-	EJTBfKP/SWjHk+2B+QIcwh9CPZk+V+oZ6oVoYI92CWiZVoYvGr5Sf2e0t0l/UPwjm34UI4DDE7+ti
-	FWSlC4jOckxVl1paV3Kw==;
+	List-Owner; bh=AMnPHKtG5gF5me2Pl/AJ3jlhsuelqnORH1JUc+6knZs=; b=Dn3LXrIhvBJJqn
+	Pzkimv3DXcwUMwt5tKI1S9sC0cb86MJ5BXfrHV7HpNQ74yit/bnk1DcEebrx2CubJfNm7pd2JHT7Z
+	008kXNmG7PCnNlHG1YqlIX90zw+g0fPxAXgWgtU1WlK+5uruU9U+abF8MmfLNc/HDHGR2XDz7UIse
+	/126MnLmCdWlDwuytLjp5HPOz55niAxvp2WloADbapRqmkZzDn1VBL1GF8tmnkLSFbFbFM2HgC2Er
+	Z1B6Ti90M/o2iM5XOhtMhvkZQ0FXDB8/GxWCwpN/et5t3r222VwFrUwrRv/QJk6hFrT+dat4/409S
+	u5/w7iCTFt2/B9eYGjEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1my6Qf-008iwL-32; Fri, 17 Dec 2021 06:09:17 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1my8Cf-008xS6-GD; Fri, 17 Dec 2021 08:02:57 +0000
+Received: from mail-ua1-f47.google.com ([209.85.222.47])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1my6Qb-008iv1-V5
- for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 06:09:15 +0000
-Received: by mail-wr1-x434.google.com with SMTP id q16so1999402wrg.7
- for <linux-riscv@lists.infradead.org>; Thu, 16 Dec 2021 22:09:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=7QH2bkz/dvyar0Slq99MmeQR+6WQT9L3G9+6vCacYMo=;
- b=waZfM5crmwh+YUwgryZwAjwMKciDhj6hG65pBTNwrjBM1A46dmd2m6KpjWRAhkl7wd
- JS5DVW8eO8Uimxc6CRvZGASqDGLGtIxT4pSS0Q2yP0/cxQFGmnbL+M26OJP39exU97n0
- ETsBk5MuDSbC3hzEQ70IMoZ4xcLGze2MiNSUmzKUo7GcPuIT1FE30tKffUNi1PngZwEz
- lUWM2lZNQcNejkV4FWNaW92ubDzXPPfkhSVPEav86ScTugM5bW0DnVYgUtNU/mGHdZve
- pdei1icgv91nuiO75ZrsV1uhdHx38sMaqJ68d4EfYlXeJWiU/6kGGxyhzSsxq/sH6LyP
- ojqw==
+ id 1my8CY-008xQa-Bd
+ for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 08:02:51 +0000
+Received: by mail-ua1-f47.google.com with SMTP id 30so2770205uag.13
+ for <linux-riscv@lists.infradead.org>; Fri, 17 Dec 2021 00:02:49 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=7QH2bkz/dvyar0Slq99MmeQR+6WQT9L3G9+6vCacYMo=;
- b=VOtuZ/+Y1TLcS84nVQh1RZrjO7qy6llaoXRBrbwpCMUBBBBb7p69tO0pbpEYDI2tAq
- CkwFx508VcSJH0IOtF3BAHOcsK+Znemnt39jCzGTQzEYTzL8+Nu5bFbiHvceX1P7VWEC
- MZylqM48BkLc1cKFxk/suWZCbdlD7v/L2fmMOJ6Fp7iNOvDABlojdHc4u1sIjas884J0
- GxTZVQdsZkSVWY52H7qLmUsCcVgPXOWBGh+KIcYRikF4eH29AOB4aRxBtDnET2mRYI5e
- Nw0mJWhGoacjz4H6EBxuZ1x+S/IdV6N94UNL9P7cYXkFxPgy8OjvgtQ1Bp3l+JlR7QRu
- OYPg==
-X-Gm-Message-State: AOAM5335xTjqq6sxgV9naSRY+exezKLz7BY2YVyDgoMk6nWnZ1qFCoZF
- hQixYViSvTJpyEDUCJhySb99OG9ipGUuwPLv59rJvA==
-X-Google-Smtp-Source: ABdhPJwEquvnLOderDNKIdJ1HekDsTALy8TIENkzMKo1N7N3wuyG5X3zylXVjua0nOnoW8rY/7T9uIm++VL6JFu35Vw=
-X-Received: by 2002:a5d:56c2:: with SMTP id m2mr1095151wrw.313.1639721351448; 
- Thu, 16 Dec 2021 22:09:11 -0800 (PST)
+ bh=fx7tWOtL8mG5j0QcSY4U9yZmw2gjvIvwXDDbEmQGZfE=;
+ b=OoIga8kywuqxx5iAmnyS1BwL1yQAKQtWKsvZM8sWwOx26yRrj7S27A3E/YLSj/NE4T
+ xaXSnBmQVfd7ecDbGlBiZfE+raNVb4CTqQasZQ4Nrovkz8WSY9dCWey1zhFKXgUmhwpd
+ 6DBsX1nb8uVGCQ6hh+nwjpoKIFyWTnx7JGYnN9XPXbdldKt1H/p3Ly9mPf1bgKjBdHFE
+ fm5kyMrx09jJFOoCojkRld7N8mTTRmx9vYcNNop40z0NgDetdd/MllQvvriKagP/aAI8
+ aRwZwrhllnn0NZLQOW5+21wYkhJWnY3Xu7Pci4N0KmTO/Il7D7ASzVhU8H/hkC6HkM7L
+ 1rug==
+X-Gm-Message-State: AOAM531dWmPi9L3SLd9I4RnfmcI5vW5fe1uwiD3MYC2UqK1ePqB3L1CR
+ 7gDgDYS8lYV5TNRg+WF5ZSUDc86hzLraKg==
+X-Google-Smtp-Source: ABdhPJwp7e97ONPY1ERIudgqNU/99Sr8NgW/BW8CKjHVfpKfrUj4AOnAeWTVfUHLpUDFgN9dKs3GmQ==
+X-Received: by 2002:a67:31c9:: with SMTP id x192mr530336vsx.63.1639728168017; 
+ Fri, 17 Dec 2021 00:02:48 -0800 (PST)
+Received: from mail-ua1-f47.google.com (mail-ua1-f47.google.com.
+ [209.85.222.47])
+ by smtp.gmail.com with ESMTPSA id x9sm1866902vkn.36.2021.12.17.00.02.47
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Fri, 17 Dec 2021 00:02:47 -0800 (PST)
+Received: by mail-ua1-f47.google.com with SMTP id o1so2878194uap.4
+ for <linux-riscv@lists.infradead.org>; Fri, 17 Dec 2021 00:02:47 -0800 (PST)
+X-Received: by 2002:a05:6102:c89:: with SMTP id f9mr552893vst.68.1639728167350; 
+ Fri, 17 Dec 2021 00:02:47 -0800 (PST)
 MIME-Version: 1.0
-References: <20211129075451.418122-1-anup.patel@wdc.com>
- <20211129075451.418122-3-anup.patel@wdc.com>
- <CAOnJCU+Yft5EjgUUCi=nW79pYSGYPWB1ew5iyTjViFvGGQxQCA@mail.gmail.com>
-In-Reply-To: <CAOnJCU+Yft5EjgUUCi=nW79pYSGYPWB1ew5iyTjViFvGGQxQCA@mail.gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 17 Dec 2021 11:38:59 +0530
-Message-ID: <CAAhSdy1WXnoFw2_o+6E1zjx5bP96FeW3ijMuOp3R794Yxasskg@mail.gmail.com>
-Subject: Re: [PATCH v2 2/4] RISC-V: KVM: Add VM capability to allow userspace
- get GPA bits
-To: Atish Patra <atishp@atishpatra.org>
-Cc: Anup Patel <anup.patel@wdc.com>, Paolo Bonzini <pbonzini@redhat.com>, 
- Shuah Khan <shuah@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alistair Francis <Alistair.Francis@wdc.com>, KVM General <kvm@vger.kernel.org>,
- kvm-riscv@lists.infradead.org, linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- linux-kselftest@vger.kernel.org
+References: <cover.1639661878.git.geert@linux-m68k.org>
+ <Ybuvg3h+VLCMji4J@robh.at.kernel.org>
+In-Reply-To: <Ybuvg3h+VLCMji4J@robh.at.kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 17 Dec 2021 09:02:36 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVzknbzS6wL2=e1RGHB69fGDZM_C8R61aDz29PNmr5bAg@mail.gmail.com>
+Message-ID: <CAMuHMdVzknbzS6wL2=e1RGHB69fGDZM_C8R61aDz29PNmr5bAg@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] dt-bindings: interrupt-controller: sifive,plic:
+ Miscellaneous improvements
+To: Rob Herring <robh@kernel.org>
+Cc: Konstantin Ryabitsev <konstantin@linuxfoundation.org>,
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Marc Zyngier <maz@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211216_220914_097410_A14A1CC2 
-X-CRM114-Status: GOOD (  25.32  )
+X-CRM114-CacheID: sfid-20211217_000250_431088_779A8C28 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,99 +90,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 17, 2021 at 11:17 AM Atish Patra <atishp@atishpatra.org> wrote:
->
-> On Mon, Nov 29, 2021 at 12:10 AM Anup Patel <anup.patel@wdc.com> wrote:
-> >
-> > The number of GPA bits supported for a RISC-V Guest/VM is based on the
-> > MMU mode used by the G-stage translation. The KVM RISC-V will detect and
-> > use the best possible MMU mode for the G-stage in kvm_arch_init().
-> >
-> > We add a generic VM capability KVM_CAP_VM_GPA_BITS which can be used by
-> > the KVM userspace to get the number of GPA (guest physical address) bits
-> > supported for a Guest/VM.
-> >
-> > Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> > ---
-> >  arch/riscv/include/asm/kvm_host.h | 1 +
-> >  arch/riscv/kvm/mmu.c              | 5 +++++
-> >  arch/riscv/kvm/vm.c               | 3 +++
-> >  include/uapi/linux/kvm.h          | 1 +
-> >  4 files changed, 10 insertions(+)
-> >
-> > diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-> > index 37589b953bcb..ae5d238607fe 100644
-> > --- a/arch/riscv/include/asm/kvm_host.h
-> > +++ b/arch/riscv/include/asm/kvm_host.h
-> > @@ -221,6 +221,7 @@ void kvm_riscv_stage2_free_pgd(struct kvm *kvm);
-> >  void kvm_riscv_stage2_update_hgatp(struct kvm_vcpu *vcpu);
-> >  void kvm_riscv_stage2_mode_detect(void);
-> >  unsigned long kvm_riscv_stage2_mode(void);
-> > +int kvm_riscv_stage2_gpa_size(void);
-> >
-> >  void kvm_riscv_stage2_vmid_detect(void);
-> >  unsigned long kvm_riscv_stage2_vmid_bits(void);
-> > diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-> > index 9ffd0255af43..9b6d6465094f 100644
-> > --- a/arch/riscv/kvm/mmu.c
-> > +++ b/arch/riscv/kvm/mmu.c
-> > @@ -760,3 +760,8 @@ unsigned long kvm_riscv_stage2_mode(void)
-> >  {
-> >         return stage2_mode >> HGATP_MODE_SHIFT;
-> >  }
-> > +
-> > +int kvm_riscv_stage2_gpa_size(void)
-> > +{
-> > +       return stage2_gpa_bits;
-> > +}
->
-> The ioctl & the underlying stage2_gpa_bits has bits.
-> Maybe rename the function to kvm_riscv_stage2_gpa_bits as well ?
+Hi Rob,
 
-Okay, I will rename in the next revision.
+On Thu, Dec 16, 2021 at 10:28 PM Rob Herring <robh@kernel.org> wrote:
+> On Thu, Dec 16, 2021 at 02:41:20PM +0100, Geert Uytterhoeven wrote:
+> > This patch series contains two improvements for the SiFive PLIC DT
+> > bindings.
+>
+> Lore is thoroughly confused with this and several other series. It seems
+> to be doing subject matching and pretty loosely.
 
-Thanks,
-Anup
+My apologies, that's purely due to a silly mistake on my side.
+I sent out 3 patch series without noticing I still had two cover
+letters from previous "b4 am" sessions in my working dir, so they
+were mailed out as part of the series, too :-(
 
->
-> > diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
-> > index fb18af34a4b5..6f959639ec45 100644
-> > --- a/arch/riscv/kvm/vm.c
-> > +++ b/arch/riscv/kvm/vm.c
-> > @@ -82,6 +82,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
-> >         case KVM_CAP_NR_MEMSLOTS:
-> >                 r = KVM_USER_MEM_SLOTS;
-> >                 break;
-> > +       case KVM_CAP_VM_GPA_BITS:
-> > +               r = kvm_riscv_stage2_gpa_size();
-> > +               break;
-> >         default:
-> >                 r = 0;
-> >                 break;
-> > diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-> > index 1daa45268de2..469f05d69c8d 100644
-> > --- a/include/uapi/linux/kvm.h
-> > +++ b/include/uapi/linux/kvm.h
-> > @@ -1131,6 +1131,7 @@ struct kvm_ppc_resize_hpt {
-> >  #define KVM_CAP_EXIT_ON_EMULATION_FAILURE 204
-> >  #define KVM_CAP_ARM_MTE 205
-> >  #define KVM_CAP_VM_MOVE_ENC_CONTEXT_FROM 206
-> > +#define KVM_CAP_VM_GPA_BITS 207
-> >
-> >  #ifdef KVM_CAP_IRQ_ROUTING
-> >
-> > --
-> > 2.25.1
-> >
->
-> Other than that, it looks good to me.
->
-> Reviewed-by: Atish Patra <atishp@rivosinc.com>
->
->
-> --
-> Regards,
-> Atish
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
