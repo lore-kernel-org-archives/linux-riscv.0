@@ -4,55 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84E66C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 12:38:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37F7FC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 12:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=iqJBy8v9w9q4KZX29eFQvsyc+rSdBae8IYNkJINlfxk=; b=k+KnRPuUrvW8pY
-	VSvENX4znNcrppGQ1Ddes/D4aV7LbCS+vZZiThPnyc+gwoV5HsuZMyAY/0U5Nub8fhqqi6UOKeql2
-	g+SRVJ0U/3qhW5vETYmjS1IsdzJfSIY590Wa3vZ4ugCCoAThvhneEB/sq1ZPU/qS21IJ65y6gSozb
-	5lbAz5XcaFNrJGbotFH4ytdgFPJM+DYQHZYXBoQdTRvK5uoK4Z0uihfkKWFh+RDsP7NXICBJ7Y9Q9
-	/WbDSiX1k6FyDPopcNWK2g8rbRnFyQvDp0OaLmP09ekVPeGMUbyAfaWxAS5+oN+ZO1od7Wiz3EVLW
-	VoGp62weRLKIkAtwIsWg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=82nYwq3g2CebckG93EvcLV9bg6QXewNnf7mQ5IIHCeE=; b=tlDYXleMo1SvLq
+	fE+a6fBcGojIMKF+3UdKhBHlI3+5dTO8PEIXfXdi4QaUoFHmN35J3renosRyXpNOEmZWvdqWs9tm4
+	m39uiDXD3thDtrX/CnlnvO5sfZo24Z8zpyGG8sh47ZKMAcyWJ2mUvJsZooXjuWjSfi+rhXP2o8K0P
+	aTiQbGRlK9QdvL2taiWRje8Sid7fpllMlApT0OWdaZwfc8q97HdiQNtHHFe1k1jueAitXkGTGiJPJ
+	bl2wC/bajbpW2azzQnzEQMOLGd2s+V7qpePPng5BP5ry0H0N94iZqAZGK+9FgEYLKsA9UXXa4H7wD
+	ZWBbcJMcPxtzQbojwZFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1myCVC-00ABEN-BZ; Fri, 17 Dec 2021 12:38:22 +0000
-Received: from baptiste.telenet-ops.be ([2a02:1800:120:4::f00:13])
+	id 1myCeA-00ADfO-1k; Fri, 17 Dec 2021 12:47:38 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1myCV2-00AB75-No
- for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 12:38:14 +0000
-Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed20:d13f:527c:5504:a743])
- by baptiste.telenet-ops.be with bizsmtp
- id XQe82600Q250X3001Qe8YF; Fri, 17 Dec 2021 13:38:11 +0100
-Received: from rox.of.borg ([192.168.97.57])
- by ramsan.of.borg with esmtps (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
- (envelope-from <geert@linux-m68k.org>)
- id 1myCUy-005Yqi-AC; Fri, 17 Dec 2021 13:38:08 +0100
-Received: from geert by rox.of.borg with local (Exim 4.93)
- (envelope-from <geert@linux-m68k.org>)
- id 1myCUx-00ASTI-U6; Fri, 17 Dec 2021 13:38:07 +0100
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-To: Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup.patel@wdc.com>
-Cc: Rob Herring <robh+dt@kernel.org>, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- Geert Uytterhoeven <geert@linux-m68k.org>
-Subject: [PATCH v3 0/2] dt-bindings: timer: sifive,
- clint: Miscellaneous improvements
-Date: Fri, 17 Dec 2021 13:38:02 +0100
-Message-Id: <cover.1639744468.git.geert@linux-m68k.org>
-X-Mailer: git-send-email 2.25.1
+ id 1myCe7-00ADee-Kn
+ for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 12:47:36 +0000
+Received: by mail-wr1-x435.google.com with SMTP id s1so3869553wrg.1
+ for <linux-riscv@lists.infradead.org>; Fri, 17 Dec 2021 04:47:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=7LZ1nA4lOfecYVsrLmuy8ux7dkjFcWb7gPP3Ts+l07A=;
+ b=PuF6u5NZOxCYr++SNE2eIMZuuw+/7PM+J1oBlyRcJJb/NXnB6qUPH16jOlEG28jDo+
+ +0Cp3yo6dL3124MDrSS0JktdEwGIFYryfTgZhwnD5NLvouYUddqVGCIiN5eHnTr36bpx
+ h95GTmrA9VaU9Vj3KcWXFk9RiyVVvKa10XAlkzn7SFxluPnmH8YsfO1QcyY75ipgp+3r
+ ECNUmESCyaD1HkzuW7X7gK3s+ZAESrVqKFBMfsiIM6K0x8Q8xroOGwsO+N0xD0Aqq7GP
+ s44LbOWpPAGoHuirahK6lsMmwhN5THiPMN13DNUzHgqkCk2RZIHoEGjAQetPJGS4GsYG
+ U8Yw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=7LZ1nA4lOfecYVsrLmuy8ux7dkjFcWb7gPP3Ts+l07A=;
+ b=BYQrmG87PXZ3G/XJuQrSSsV66DosmUatfiR75abCjmXAaDcbVi5U978OOEtN7vemRY
+ FJyVmSBiGIcd28HxAN2lMxhlTQJTLrvrL7jtpaUTXPZQJRScmCOOR+w0oQb7Df49zMx5
+ 8sGeVgYhBapAdaB4s4E88klxT5mNcOZygf59gexcSilaP3mvcA/VjcUnlZy2CXechYXR
+ iFJzvBv3brKwcZSzRHAxJaH/4J4gaeVS/2wkAiHfR4uzWvAwZmjrZRY/xPYKPJEVByo8
+ fozoJjllbD/IMrMwGsUeBhTVqyxoR2U5ilEabAzkeHiHI2jp3rCXZHS+u/ltxi5zkOrD
+ CHVQ==
+X-Gm-Message-State: AOAM531zJj1SlxkrU31L2aeu3RRd3PuPNjH3/Qddq3O5x4GfNvfPnxoG
+ kNVTdmRnEhvc1NG7W6lA9PUu5k8sAPzDlu0w7RlcZQ==
+X-Google-Smtp-Source: ABdhPJzjYjt70Q7N1FbMgpg3l8n8x5MHMcym81T3FbJlsD8EVPhmffm2PND5L2lTJE72NXW2s1+mO7ue8lgFNEkcaSk=
+X-Received: by 2002:adf:eb0f:: with SMTP id s15mr2448344wrn.690.1639745253808; 
+ Fri, 17 Dec 2021 04:47:33 -0800 (PST)
 MIME-Version: 1.0
+References: <cover.1639744106.git.geert@linux-m68k.org>
+ <3af15b09a5f05d49e2d99386f189cdb13245d40a.1639744106.git.geert@linux-m68k.org>
+In-Reply-To: <3af15b09a5f05d49e2d99386f189cdb13245d40a.1639744106.git.geert@linux-m68k.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 17 Dec 2021 18:17:22 +0530
+Message-ID: <CAAhSdy2xTW0FkwvS2dExOb7q1dVruFfTP_Vh_jWju+yi7thCeA@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] dt-bindings: interrupt-controller: sifive,plic:
+ Fix number of interrupts
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Sagar Kadam <sagar.kadam@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ DTML <devicetree@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, Rob Herring <robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211217_043812_950652_0F1A3F16 
-X-CRM114-Status: UNSURE (   7.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211217_044735_717259_893A8534 
+X-CRM114-Status: GOOD (  21.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,34 +88,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-	Hi all,
+On Fri, Dec 17, 2021 at 6:04 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>
+> The number of interrupts lacks an upper bound, thus assuming one,
+> causing properly grouped "interrupts-extended" properties to be flagged
+> as an error by "make dtbs_check".
+>
+> Fix this by adding the missing "maxItems".  As the architectural maximum
+> is 15872 interrupts, using that as the limit would be unpractical.
+> Hence limit it to 9 interrupts (one interrupt for a system management
+> core, and two interrupts per core for other cores).  This should be
+> sufficient for now, and the limit can always be increased when the need
+> arises.
 
-This patch series contains two improvements for the SiFive CLINT DT
-bindings.
+I disagree with having "maxItems" as 9.
 
-Changes compared to v2[1]:
-  - Add Acked-by, Reviewed-by.
+We are in the process of increasing max CPUs supported by
+QEMU virt machine to 512. There are already high CPU count
+systems already announced (example SiFive P650 which will
+have 16 cores). The "maxItems = 9" set by this patch will soon
+be out-of-date.
 
-Changes compared to v1[2]:
-  - Split in two patches,
-  - Improve patch description and document limit rationale.
+The "maxItems" should represent PLIC spec constraints so
+please don't add any synthetic value here.
 
-Thanks!
+Regards,
+Anup
 
-[1] https://lore.kernel.org/r/cover.1639662093.git.geert@linux-m68k.org
-[2] https://lore.kernel.org/r/20211125152317.162958-1-geert@linux-m68k.org
-
-
-Geert Uytterhoeven (2):
-  dt-bindings: timer: sifive,clint: Fix number of interrupts
-  dt-bindings: timer: sifive,clint: Group interrupt tuples
-
- .../devicetree/bindings/timer/sifive,clint.yaml          | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
-
--- 
-2.25.1
-
+>
+> Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> Acked-by: Rob Herring <robh@kernel.org>
+> ---
+> v3:
+>   - Add Acked-by,
+>
+> v2:
+>   - Split in two patches,
+>   - Improve patch description and document limit rationale.
+> ---
+>  .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml         | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+> index 28b6b17fe4b26778..0c6687511457413e 100644
+> --- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+> @@ -62,6 +62,7 @@ properties:
+>
+>    interrupts-extended:
+>      minItems: 1
+> +    maxItems: 9
+>      description:
+>        Specifies which contexts are connected to the PLIC, with "-1" specifying
+>        that a context is not present. Each node pointed to should be a
+> --
+> 2.25.1
+>
 
 _______________________________________________
 linux-riscv mailing list
