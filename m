@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA1E7C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 15:23:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFFA6C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 15:33:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
 	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=24J5c2298LHBplNXRbYtBYRODgQeRnKgTiY1vcoL9Hc=; b=cF9y9zirWosWoc
-	w+c5v5tLGCqTuXebgz8nJ26qxm2R3ruPtlkUb4sqC7WfpvYmOwqtZv9tVm2OQqQfvJLJOp22NJtuh
-	k5pSj+Y2bwfeT1vrHP43kxNDiWm/zsBzoku8KYhh7mCB8yZCL+ds6H9ggznoKEy3W1xwUIYPiVXHo
-	Vjo8VFB8Ms3JmQU4c3SWUTZ3jlzl6fd+EqJkj/uI0YRAM7OF785G0VVvAoX55WqSBH489qEmSReXF
-	qZN3nfXvOaWSUGNE3MtLDheGUJ/hCOaucRAbzVYJ+IY3hLX53MkPm3U8SvVQcNyVH1cH4nF9un7Xk
-	ICbZaBTT5IjPJm1sqHpg==;
+	List-Owner; bh=zpDk1j7/awRlobsfrMxjxHmVCT0uEZT/Sa3CVoKZC50=; b=d8QoL82qEr5KoK
+	Lmr7oEW61Ro4uQSe5Z3kz9ZM/XzTTqO0Z0Dk7Mjm8N0tNm66nj/mbzfUAoIo0RhPjMKVFDArEO0rn
+	Z/XrVSdwWHtMudnRV7NSZGox2CsCFnDKHhJf8GF47qLeTecG2APqqx0VdQrvqITwAtQN5f4lmSyTm
+	A7Y1IRhA1DGL/e9cJcoPIcKwn63+iTrEpQaxTFPmv3TFQ5SVyCurvUPloqGK4i+v+dR/NHSpW3a5d
+	d5C5emhr59tnCIIyL2r4Nif8oBO15gfjuuBUUw6ZhKp7j7oWo1uaD9puOobxDkkJFqejVLSoyJ3f9
+	C/VDEHwEOX3YlfadePcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1myF55-00AtPY-EV; Fri, 17 Dec 2021 15:23:35 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1myFE8-00AvbJ-5w; Fri, 17 Dec 2021 15:32:56 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1myF51-00AtNZ-99
- for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 15:23:33 +0000
+ id 1myFE5-00AvaQ-Kc
+ for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 15:32:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1639754611; x=1671290611;
+ t=1639755173; x=1671291173;
  h=from:to:cc:subject:date:message-id:references:
  in-reply-to:content-id:content-transfer-encoding: mime-version;
- bh=e/rgwXEOYoqzU8X9KAzjzXgDD96JqJNLwbLamYfThkg=;
- b=FdtPSGrigkEmog6ryf2DT44OWo1ZlTy65SJ0y1poQ7x1QG4PBvOWR0yf
- 8SfkupwjGYnb0NS3cVeE4tgL/g4fW0aJTibOyKH89pkgjF7b75E/hFm0N
- uuH4LM5y369qNsRUcgPlPXFCGpPucAa+NSfyRyxrNosurjuoQgcD5fz9M
- kbOdpm64u5K1hsFLj4z0V6aTFC2EQ6HvpWEe/vLc0rbl6pIeYoFvDjOOd
- Th1AM2GoGeS6AfMMAXN4USqFliq1eYCfqFKKiVu/wDmsGOhkmX9v2aXUW
- uSBzG+Oqkod1ewcC+hnwyjvaS0h/iJ0kd1M2IxuZi1HPNLRRcFOhwQm8y A==;
-IronPort-SDR: XF1epj6/yPxdjX+C0zKB2WXC/qMaoodaZY3nbM4P2j58QCUS8Bf1lQeRzEVyj9sscJJq9lzmtK
- wr8PrC3pCQU/EmUXJmJu9PA3cSc8c0FdRJNwm2cM9H4CHHecrudi72OtqKANoXIE9zt6Ta23aT
- /3UewvSK0u8pu9PKlIxFOKvhYoWlPxUFRTyS1GCO4Y5nP585IqsGeEqA2eCk1qZOPnCT0nuWFF
- oSkKYnfMMVbf6AG0508XDW52LyAj2U9LDlULivdFtu9i8rQYrU69jtiMaoJgzvxVhDQFLtKPDK
- 9avzIEGLI1a6k8hOHQwwjRgK
-X-IronPort-AV: E=Sophos;i="5.88,213,1635231600"; d="scan'208";a="155887772"
+ bh=Bisqq1o+ldEqxGvyiBNrM8RTJ0J6bCWVtlmz1a9G2nU=;
+ b=UuW2UAfWX758JNJ54BE43uDqc+sGum/BwFXNemW/OYP3SWEfLcoEmujr
+ F9e4y1k89ObDavP1BWhrBV7uaC4isJqQ/GiN0tDiAT9K37ff354RbJHkJ
+ Pr1aCuvi3zgxA8xY+1Dh7RmV1lzjELSxtFsE+GYg/gscX/QwmfMEKnzLo
+ nbU/gZwOsuB3ORhYvqzZt5SAgNo+OLb8hfUoQCe0rQRUn5lA2b8BgK7oJ
+ dWVT75XGkoMHGvrQlkqcS2WJk+vTvl3q79iT6RTKWsdHi6AEeT/jCDDfa
+ T9vutGEJq5US6fVwRbPClbEGFUmFaAnqhTFIBg5W9gaLfrIbV9P+ZGfCm w==;
+IronPort-SDR: oHXFDyOP7Zy8AuQcs8nEUvXpkTWBTqvVwm/FcXWarjMlacJYF2b88acjiLzgk9JVbec0SsUSVZ
+ 3PiTf37iGezqvKw5D2anqgSEgSdKhFYHBK1Cs+MZ3ZBWk+jr01vaQ7A6y0OMoIlPhNmVAx2uL8
+ a3h7DzJsxNqo+t0Bx1+p/CDV1/+iNkXyMDpDfTKuJ+ge+3yc66jwWFroh9jc7TY+hrhrzG+8Fm
+ h4KcTbxNH+CnPLjHhOlpQk+LBxpgHBgB+U3LISqOpVHn5J4li5O4UtwJAu+iQ+q8+8pHX7vxXS
+ TA7JQZkXTWe28gJG6nXrBqa/
+X-IronPort-AV: E=Sophos;i="5.88,213,1635231600"; d="scan'208";a="79928072"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
- by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 17 Dec 2021 08:23:29 -0700
+ by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 17 Dec 2021 08:32:51 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Fri, 17 Dec 2021 08:23:17 -0700
-Received: from NAM02-SN1-obe.outbound.protection.outlook.com (10.10.215.89) by
+ 15.1.2375.17; Fri, 17 Dec 2021 08:32:50 -0700
+Received: from NAM12-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
  email.microchip.com (10.10.87.71) with Microsoft SMTP Server
  (version=TLS1_2, 
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.17 via Frontend
- Transport; Fri, 17 Dec 2021 08:23:17 -0700
+ Transport; Fri, 17 Dec 2021 08:32:49 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=iGHAabC29oqjRQ/ojaiWyFby/BkblItwks10wpD/bx3HAMKWMg2WaVnmFPhnX4VG2ggvzwsNYyMIebc84DD6Urw8BlH9h7xQnmJ2k6bibzxKg63cabBVdOJ13SlBu5+oSSqSsRUwtpc74QqSmfWtta5+eGKWy+LTwHAVaSMy6j51KtSYZk3rxVPvbeLPmkGAWfnWxX490MX1pjWTNu6L8qQuY1jgm2xQAk1QpiP6tEpteRSYBO5fEWm2JAHo9aXO9iKBP6juPnF4qHgZa0tHYjtQASgQdqTJ0FUC8gWecVvhdFCe6++3UyKTP5/j0xGJmbS3G/UGcAKAQ2Yrjy8EBw==
+ b=PlVjelGPp33ltvbJT3rPq9E0YvQohJ2EXAlZT/a7k/k2jmi83ceKXTzVJTF0EOsCRfYszMBEe80z0pKjYla37m+D1Xp6SXpFH4Um0WUptJ5lQ4IfCMtzkF9pwI+c3fNcaJV3JopeC8LnmpqesQIgFU3tjTzNsl6FJT/iW3vLiArZYfwHpk8UwdSPimDNdGyNhkfoI3vulQg9S0NLwOVd+J8Rki2oJaa+IDMq5ueDjj6n2kFthyCn5N1mBJ9ohW4b7q7O57CqZ9K3jEGUj7WOfHK/ZC+qou42xkHXt6VS1Cukn7uNCTEbZdWfPaRQ/ZyNY24NxY9FeDtSCPZVc7GQXg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=e/rgwXEOYoqzU8X9KAzjzXgDD96JqJNLwbLamYfThkg=;
- b=iTdZOYUI7Vp/1hVIY+oyjuIGsuPqWYEv5ChWSID9qs38VWCSAP3BcmN3DII3vC4Aw3a63DAu5Vx64ysmBXvibuN7BxUYCcjvtVoQHYKqkF2FvbLS+sPceZk/YUTFymtkPBmrbNEPqXC6g4+quFwR7qeJhe8kSxKHtet5DI1UnA6vdlZ/1zf05zCFFnjdNHm5np+Sn/XO/827IVHlA/nQNxECZKHhASUUzNC3fUTnPdqJX9sybVTJYNIjP2skFBGg6W19n5CjcuafQutux5NN1mvuO1mbFTo0DFTp9qOrwxR86qkj3vrSCiJzfbVMb2kiPEaGx4fLYKruhvjjytQ4jg==
+ bh=Bisqq1o+ldEqxGvyiBNrM8RTJ0J6bCWVtlmz1a9G2nU=;
+ b=mI05c7Fk744PQYWsGBpFXIM080ZpXWaV4k2blpdT1YofG5dxDTdmW6mUfmqFvAecx6hJ7Vn2lTbKXup7A1vZijBugtciVgVRSjbkKOxPg6W7qazMtNDdoLquFFdfmUzqmc4/pGM6uH8BlfMpUjOJXu93BE98U41nGSqxE4J3BX/Z4HaEBupxTmdcVXQeYqN7lDAVN2H5kI5m7jrI32ganSB+L3YTAAmQAhLqnaks0+bVl5mmiqze3G4EPbfrOiIXfEsYJk6CCiNJT+b3UwVFTOagD8VPrGxMa3x0th+ZFBUefNPKEsIOWHp35M2y0FfenWv/4PcfebgvAXPHaepMyg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=microchip.com; dmarc=pass action=none
  header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
@@ -70,22 +70,22 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=microchiptechnology.onmicrosoft.com;
  s=selector2-microchiptechnology-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=e/rgwXEOYoqzU8X9KAzjzXgDD96JqJNLwbLamYfThkg=;
- b=DT0dlTZtLCHjq5Ic9h5fjAQKtBtIIs5rXfiWMkZRzjJoy6Zmm2hTfL6OKR/y2+Zn6PIcLK4Oeo4y1vr050YjzrUWrjlDiZToMhv7e8fwjo1p+q/snIe5WqZycoCyPXpZd85hYJ5geKxFFMNsWGWEjl0W7wJzbq5QICYYhdvEKps=
+ bh=Bisqq1o+ldEqxGvyiBNrM8RTJ0J6bCWVtlmz1a9G2nU=;
+ b=pPER+/SnmfbnOyhu6giUrda6jhDmcgCVloryBbVio4Li5MdvBOs9s8IBMLzJAz9WGznnJMvDv4+H8kn1s6ESHVlIKYKPaCf7O83GC4QfDOkrlGfIsl3mk1Bqz6MV/sUbxXaCJGS6gNAuZuYrwmTBP76q9jzCJc8MzWbSipD8Jn4=
 Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:95::7)
- by MWHPR11MB1998.namprd11.prod.outlook.com (2603:10b6:300:1e::23) with
+ by MWHPR11MB1696.namprd11.prod.outlook.com (2603:10b6:300:23::23) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4778.16; Fri, 17 Dec
- 2021 15:23:16 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4778.17; Fri, 17 Dec
+ 2021 15:32:47 +0000
 Received: from CO1PR11MB5154.namprd11.prod.outlook.com
  ([fe80::a192:c9ae:1f83:797b]) by CO1PR11MB5154.namprd11.prod.outlook.com
  ([fe80::a192:c9ae:1f83:797b%9]) with mapi id 15.20.4801.017; Fri, 17 Dec 2021
- 15:23:16 +0000
+ 15:32:47 +0000
 From: <Conor.Dooley@microchip.com>
-To: <krzysztof.kozlowski@canonical.com>, <linus.walleij@linaro.org>,
- <bgolaszewski@baylibre.com>, <robh+dt@kernel.org>,
- <jassisinghbrar@gmail.com>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, 
- <aou@eecs.berkeley.edu>, <a.zummo@towertech.it>,
+To: <geert@linux-m68k.org>
+CC: <linus.walleij@linaro.org>, <bgolaszewski@baylibre.com>,
+ <robh+dt@kernel.org>, <jassisinghbrar@gmail.com>, <paul.walmsley@sifive.com>, 
+ <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <a.zummo@towertech.it>,
  <alexandre.belloni@bootlin.com>, <broonie@kernel.org>,
  <gregkh@linuxfoundation.org>, <thierry.reding@gmail.com>,
  <u.kleine-koenig@pengutronix.de>, <lee.jones@linaro.org>,
@@ -93,21 +93,22 @@ To: <krzysztof.kozlowski@canonical.com>, <linus.walleij@linaro.org>,
  <linux-kernel@vger.kernel.org>, <linux-i2c@vger.kernel.org>,
  <linux-pwm@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
  <linux-crypto@vger.kernel.org>, <linux-rtc@vger.kernel.org>,
- <linux-spi@vger.kernel.org>, <linux-usb@vger.kernel.org>
-CC: <geert@linux-m68k.org>, <bin.meng@windriver.com>, <heiko@sntech.de>,
- <Lewis.Hanly@microchip.com>, <Daire.McNamara@microchip.com>,
- <Ivan.Griffin@microchip.com>, <atish.patra@wdc.com>
-Subject: Re: [PATCH v2 15/17] riscv: dts: microchip: refactor icicle kit
- device tree
-Thread-Topic: [PATCH v2 15/17] riscv: dts: microchip: refactor icicle kit
- device tree
-Thread-Index: AQHX8ylEKKNUHVy5IkWjmg6nu466E6w2yFYAgAAF4wA=
-Date: Fri, 17 Dec 2021 15:23:15 +0000
-Message-ID: <429325fb-9190-0c65-7c54-fb6b1c8e847e@microchip.com>
+ <linux-spi@vger.kernel.org>, <linux-usb@vger.kernel.org>,
+ <krzysztof.kozlowski@canonical.com>, <bin.meng@windriver.com>,
+ <heiko@sntech.de>, <Lewis.Hanly@microchip.com>,
+ <Daire.McNamara@microchip.com>, <Ivan.Griffin@microchip.com>,
+ <atish.patra@wdc.com>
+Subject: Re: [PATCH v2 14/17] riscv: dts: microchip: add fpga fabric section
+ to icicle kit
+Thread-Topic: [PATCH v2 14/17] riscv: dts: microchip: add fpga fabric section
+ to icicle kit
+Thread-Index: AQHX8ylFKW6kqD5p50ew7h8tB9OgBKw2sbwAgAAfJwA=
+Date: Fri, 17 Dec 2021 15:32:47 +0000
+Message-ID: <11333b59-733c-186f-3708-7357f72d7bef@microchip.com>
 References: <20211217093325.30612-1-conor.dooley@microchip.com>
- <20211217093325.30612-16-conor.dooley@microchip.com>
- <0b7344d2-629f-7f78-b0e8-f6c70fbe9f37@canonical.com>
-In-Reply-To: <0b7344d2-629f-7f78-b0e8-f6c70fbe9f37@canonical.com>
+ <20211217093325.30612-15-conor.dooley@microchip.com>
+ <CAMuHMdV0N-15kNZ1fnzaj_psNVCRUQP506Noc-tHawmgxqCVeA@mail.gmail.com>
+In-Reply-To: <CAMuHMdV0N-15kNZ1fnzaj_psNVCRUQP506Noc-tHawmgxqCVeA@mail.gmail.com>
 Accept-Language: en-IE, en-US
 Content-Language: en-IE
 X-MS-Has-Attach: 
@@ -117,71 +118,71 @@ user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
 authentication-results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=microchip.com;
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: d88c6321-d680-4d96-84f5-08d9c17125e5
-x-ms-traffictypediagnostic: MWHPR11MB1998:EE_
-x-microsoft-antispam-prvs: <MWHPR11MB1998AA573EFF3F90BCFC533B98789@MWHPR11MB1998.namprd11.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:5797;
+x-ms-office365-filtering-correlation-id: 14810de6-9da1-4c86-9de2-08d9c1727a50
+x-ms-traffictypediagnostic: MWHPR11MB1696:EE_
+x-microsoft-antispam-prvs: <MWHPR11MB16962ACF1EF6314C0748BF1298789@MWHPR11MB1696.namprd11.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:6430;
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: qfzRoKjfznRzhxbEOInRp828FPTSeM3o5vbljg2TdI5YvtMXiCuwjOMPawGNbSwIrrA2+6gbFsESGK9kLxGr5+EAi2h9eLvKV6yZNSyoNUOTz5iv0Qz3d92XUe+6s3B8y5GBye32Z3k82Ym6ykHXxFIMvwwZmXegNOYHIjVSq3cpyA+OUZnhtk9raa5TZkhXHpr5O2WN8RRexuMOP6lRQSALiO5xSmpp/TIU3Jxu4NiaHEwWkgcYaMe/9N1XX6+wgwTcaeQsjuVQQqTXbDiPwQ2eGkhUt6OwC/FCpFMvEOp3NknWcSKL0ZzrhERpNcotnX7e9X2dtsZ1FsOh3Jf1guDDzzEImtuQVZ9zoxGnQcanJXuNOReAMGiCiewUnVpp6kOWg3Yo/w/O4gI0cvJlBg4fuTIRbyY2do/CvlQ1RA41GmYzyUe/Vh/ncq0fKpfq0Flkd+JgmswcZPi2g5NM/nHu4f0MpjzNF3llgCkMV0qOXdBt+Nr6qwFV8crF/DrGN3rCY/McbGS0HQ7J1bmY0wrUQVS+dEh/3/xH2Q0kBwcenfTcTFha6Y7cya/BnxoNqtmAtunnFcsVHgpcovW7XrGWIdjIoA8XSCGt0rm3vbpF7hhL/tNjtKm+BZegHiB8FU52zjuRaXxW1WgA6Vc+jFCtDa+p7A19G6hY7YAnRfYBJ5J1qyvmhbvI+ucd3zmhxZ7bzBrFklFuJlRvsKlFzHHUySXK0BJnCcDqN1RsLitNvZTOy/vjEQrxCNHYfNTSJBBzdoKriWcShU8vjC3AbEtNERdiICi09lia6+Fm9KY=
+x-microsoft-antispam-message-info: rXWxfH1KTqxSdE3GpcQAdjy013D8kBmy2qgLtBxbQcMe/FUyY9MP3/BN7JGjDmBrndloKb62rqDAFgSTKk55hpvJtEEPXBPUW9Wk5IPLdvj/SHW6VzoegCh37cuMQmtpNv1anKC1LHDFQqowCSneAIKwAx0F/XLLfLgNnxLpxLC5R8htXj0ad0S7uPxclbnDoCaADtUM95N/MPoiJ5Ha0oCunqSrPNxjJ6/iKRuJMy+w7ouMc87qOnaMiu3wFZOSwEYq21wPIU5jkJUOXf5FLSMsPrmsz1vODQB3aV/l4bK66PtjOcIa0J8JisJ1WkyNLzOcrXrVfMsB/Y9psHxhVLwudsYQ7UZ0xnOp4pctMIVuSvjyIcjKQabCKip0gJJlRFbV9uSd1uknVoC9G3lW+Ii5L+rZqtkd/EMd1Nv2nUd51+zRmW/mdggl1HCXAJJa1LcBYxClFjwan5PAkhCRssysNH9Njuz7R5Qj15C3L9ML7Cp/gGQ/6TJCCz/muwGg2teHXNn+aPB1+imFsobidnKzEvRZZqP/EYjaJ/kXB3hBroYU4GUGm0NWSyU+6z0liOvlxtYeUwlANzrv30h7btff47jhMfjF+gWjtO1uSvZzNeGoHBCbgi9RsU9GFp90KAdxi44qfdmiI7CheVRYHPJcjfNW8HNp5kTDKxI3sc6cFNSEzOvM/XEvir69CyqiMxUj0tXqDAh4PD25RgGPoryOHaf/zvMo580VtGzssstM4JwX7bEj0pUqzAn0ZHyjDR5lhqSBAnzZMKS9B6uxdg==
 x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:CO1PR11MB5154.namprd11.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(366004)(6512007)(6486002)(316002)(83380400001)(110136005)(54906003)(122000001)(38100700002)(38070700005)(6506007)(91956017)(71200400001)(5660300002)(4326008)(508600001)(2906002)(76116006)(64756008)(66556008)(66476007)(66446008)(66946007)(53546011)(36756003)(26005)(2616005)(186003)(8936002)(7416002)(31696002)(86362001)(8676002)(921005)(31686004)(45980500001)(43740500002);
+ SFS:(366004)(38100700002)(186003)(6486002)(38070700005)(122000001)(6916009)(86362001)(316002)(2906002)(71200400001)(2616005)(31686004)(26005)(4326008)(36756003)(53546011)(7416002)(6506007)(54906003)(8676002)(6512007)(8936002)(83380400001)(508600001)(64756008)(66556008)(76116006)(5660300002)(66476007)(66446008)(91956017)(66946007)(31696002)(43740500002)(45980500001);
  DIR:OUT; SFP:1101; 
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?eDNFMXAvM0J0TE9SZWFLcHQzdVVvUC9NY2hMMjVEOS94WnhrQVZ1T0RsdVNB?=
- =?utf-8?B?eTNEWVE2a2k1TFZWVnpLc1c5WTJQOXdoemZCNWRLZ2RnNDY1NXhWRElGM0Jq?=
- =?utf-8?B?WTNGWE1SdUdINzhPR1FSZlhEWXRHU3Y0U1hBTjQyZUdxcnlYT2JvbHFaWkh3?=
- =?utf-8?B?TGtJOHVVWmVQZDMyVnd2d2k4eC9QdUZvVWRVYXZEY3VrRHEwK1NLQjlDRURv?=
- =?utf-8?B?VVhGcXZXT2J6VjZqUkpGdWczQ2ZRSlJhR3dXOVVhVUs2U0tZVzJJT0tKQlVV?=
- =?utf-8?B?NXEyR1BJM1lYM3VqaFJqSGpLREhKRXpnd0sxczJ6RWJMcllPUG5FT0hmN1M3?=
- =?utf-8?B?WnZDbTJvUHRMWGQ0QjVBRDNyaGVhajJJem1HOThNRW9RN01TZm9jelZuLzJ1?=
- =?utf-8?B?bXRuTmViVkR5eHBDKzJPRHphcWJPWVBicjkvU3hyaXpKdndxcU9tZ1ZWbDRP?=
- =?utf-8?B?UGIrRTEzYmxQdDN4OGIzdUU5eFVKVG5JRlk3MzJYRDNSVG9lWHZvaHhIZUor?=
- =?utf-8?B?YTBHUnpmVXNzWFBmc1RwSWZmUnlZRENLSjJ5dHFtU0JVRi9ZV1lPZU5mcW00?=
- =?utf-8?B?T3ZJODFFWEgwZStIenlQQUE0bVpjOHRQUXM5RENtY1ArSWFNcHhOWGFzR0tW?=
- =?utf-8?B?eWRObjhTTC9WRHBFWVVPd1ArNDdxWm5pSXdIV25zM2dGSktQMTVLVVhOYzVF?=
- =?utf-8?B?WEZYRmNIT1YxeE1URGR4dzJMd1NlTHlYWVVDYmV4dm5vdVNuVXZRbmtiMGdP?=
- =?utf-8?B?ak9aVGV0QTJHeCtUVzZsajVFT2ttMGZDSWhWRFJzcHJHWUt3NGxqR2hOTFpt?=
- =?utf-8?B?T3RVd1dBQTJ0UjFYTVhob1V3TEczem5IbnE3Rkx4R2tTRlhxRHhEQmlBaE1E?=
- =?utf-8?B?TWJlZFZ1T0k2aHQ1UkdiTGdZY3VXOFlyZ3dNNldXcy9wZ3VlWEZtVHFmT05x?=
- =?utf-8?B?U1BZTVJPTVNwSDg4SmVIUC9WRjd4bzU5bU42ZDlSOEU4R0lUdVlHamRna2RY?=
- =?utf-8?B?dnEyemh0L2RnWi9ZV2NzbUZabVdJY0pVMTB4OWJnSW1SRGF5TzZDOE1scXV4?=
- =?utf-8?B?WUhrUnZoNDk5NGpTSUovWHdZcWxqWTN4U0J6WWVUVENKS3BsNXlFa0RIeDhP?=
- =?utf-8?B?NjRka3ZxYy91V2lITDU2SVkwOVAyTTYrMWJzRTYzTjh4NEMxbER4c3N2VGtq?=
- =?utf-8?B?dEJoR2lEMjc4THJuWGNjdHZEeWRSRGlYNTI4dWJBYm1hVUd4Q1pINDZHazRr?=
- =?utf-8?B?R2cwa1oxSVp3K3ZXTlNxNTF2aitXR2JHdm5qVzlod05OZHg3Z2NqUnhzaXNT?=
- =?utf-8?B?UG5tb056QXlDYUpzWnJWeG40cVFmbVF6d2Q5bU5GZnRaOEc4bHMxTndheHB3?=
- =?utf-8?B?Sks0UlVURFdxQ2xOOVN6cytUandQd0FZVnZyZXphMzBIZUROdmRRVjM2Rnl0?=
- =?utf-8?B?WmZoREdNUlg1ditUdGZTcDRPMGhoSXdxTVJJMGdCaHpFbFQrUDQ2THdPRTlJ?=
- =?utf-8?B?TzNkaFlrOTZOY3ZOMXU1SnZCSUtGRDJ2WEFkSzlqYlJ3MjM1TFROcHpPbExl?=
- =?utf-8?B?R0R4ZU5QaDV0M2xSUnB0d3ZOZWY2SXlQOE1leFJFTEdTd3FFNlFUakF2Vjdj?=
- =?utf-8?B?SGN2SkU2OG1PNXU0STU3MlVrL1ViZUZGcXpzQ1JXZWowbzRsaUZTQ2pNSjZE?=
- =?utf-8?B?YytWZi9NN2pPeDg5VjhiVVN2bUFlYTlCUVpGTVcwaUNNeWpyWVUraUNFTU9S?=
- =?utf-8?B?c2paYjBoejY3LzhVSDRjamx1MFVacnBWd2F1Wm9pMW42aXVDZ1VkSjIxTDQ1?=
- =?utf-8?B?NkFINnFsWWdNUVBLdVQxdk40ck1pbkZjYnRBUlIwcXpoOGVIdVNwdERUVVM1?=
- =?utf-8?B?WCtpT05SNllVamtielZkdUdtTlYyaDBEZ0x4R2JPUDRlMkFPd2ZoYmYrTHN0?=
- =?utf-8?B?SkJudG9Zc21pZTJDQzlveGJBVEFGZWRWVDVHOHhmbkd6TmFJSmYxem4yVUtU?=
- =?utf-8?B?Q1BaVCs1MUNpakJSd0w3Wm5VLzJhTXBnMFdheWZwR3NwSWJvbUZUcDlQdVRz?=
- =?utf-8?B?TDc0QUZQNEJCMVc0cnUzWTBpcjJqRHVoZ3BobFBJT1FSSmoxNFFpRTJUMlo1?=
- =?utf-8?B?bVU2TjZaUmxuODFjaGJTVGRaeERaMnFBVFBMN09VZ2pRTjJTMGpXaHRqZEN1?=
- =?utf-8?B?Z2pCbjJ3RnBjSTNrWmYyWC8wejRrbmNGTDRybnVWWmhNWjY4ZHJzNmlHVld6?=
- =?utf-8?B?aWlZWUg0Q3N4Q0Nyd0V2a2VwM1VnPT0=?=
-Content-ID: <96F393AC1001374D9C8DD6DA4D04A552@namprd11.prod.outlook.com>
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?N29ZUGQ3SURLZHRldG9sckNTWUlkcFVmV3dhMnFuNEd5VU9ITjBnVTlNaTkw?=
+ =?utf-8?B?YWhRdkh0OTZmMW96UWg4M1FDUjNMUFQvQlZINTk3a2U2VEU5TlhaTUJXNjJY?=
+ =?utf-8?B?bTVFL0NtUFNYU2JxTXEvanoxRlVXa1FxU3RFMDV5QStxRzdoaGp3aVhOdGw0?=
+ =?utf-8?B?VHJEQVhVODZueUFpLzdnTFBEcDRwd1FUYkRGQU9KRE11dFRJK1Y5ZnYzK2gv?=
+ =?utf-8?B?SkE3VitSVG4yNnJWaXByb0c0ZFA0bTdZV2hKUEZnVnFqZjBpcm5EZVdsVGVT?=
+ =?utf-8?B?NXdFSnREL2RwVVpvOS9VdWF3Z2tpVkNiTHJsVW1DWXVjamFjL3FqSTRnTEEv?=
+ =?utf-8?B?L21ybW9TQ3BYa0dZSzlKT1R4Nk1LRFlsZ1NtUFpkZVVlTzJRb1hYbEs3cjhH?=
+ =?utf-8?B?WEp4OExHWjdTN294MWRTWmZhVjU0b2VqK3dOZXNPeEVFSS83TFJ4bEVKMmNm?=
+ =?utf-8?B?b2JRT3VveTA0SGFPc0J3NDhBbFNMOG5mWUg1STRuL2dVbmU4dFMrQmcyOXhI?=
+ =?utf-8?B?QTgxbnBEQkZ2SXIrUGRPM1FTTUEzTFptZldYMW04NHpmV1VBS2k4QUV5Ymxt?=
+ =?utf-8?B?V0FjWnlXeU1lUkZNOENKcFVBR0lOR2praWEvby9UdEppbk1GRmxGRWZBaitH?=
+ =?utf-8?B?QW9GYndzbmVLU2pQcEVFUDlpcTRwYTFPckRqYk5haUpNNXdDOHpneHc0NEIz?=
+ =?utf-8?B?VitkM241N3pzRG5Rb2IvRWN4OUJvU3ZxUmhyS0hJQm5TSVpMaXZ0ZHFNUHBa?=
+ =?utf-8?B?RzViOE9hU29ZMzNranR0Zk1zaVJTeU5ibE1EQ01ORk5QVnpzRUpFRnpGWDZZ?=
+ =?utf-8?B?akJWR0JJUTFSaU9YZ2tJMVFvV0pRK3MvcEdXclVQOGFsQXh2WUFMaXRLQlF5?=
+ =?utf-8?B?OXdORkptS0hrY3l3cXJKZGdkWWtrSnV0YVNuQ1RncFZ3cGpUd1JZNXE5ZU54?=
+ =?utf-8?B?TVZ1NDkxZGYraWZHdERnZ1JIb1V5eFNMMllUWFNkbVI0eXVBVWl6bWpkaVVM?=
+ =?utf-8?B?TkxTQXo2N1gvcnBrTkdpRmk0Z0I5dXRJUjRVblJkT3FTZEFYMWdCOGdwaWg5?=
+ =?utf-8?B?U05oSEdaQ2tudTBFZUplMjNoSEU1dHpDSzFQUXB5bUpwcXpqOHRyS3l3NjlI?=
+ =?utf-8?B?Y0V0aUlBR2hlUTRvTmpRbUNCQ1gyQzZwV0YrcWhpaS9HQzcrcjByV0xObDdD?=
+ =?utf-8?B?bnJSZllwREtELzFaZ09VbnJWc3RNcVhEUlp2SFhocmQxODg3NFYxcFQ1MjBC?=
+ =?utf-8?B?Nk5aNWxnMDlIbmc5WHZuTkN5UWFsZ0ZGZ2lmUHVYQVU3ellPWFRhVnpWeWdG?=
+ =?utf-8?B?RllveE5DeTJYRzJEakNXSkV3REgwUDVhY1Y1VkVFYUR5ZmR6T1g1N2p6Y00y?=
+ =?utf-8?B?WmF3Slk5TTRXN0dkZWZEZFRlVlpqU0F5bUhxYjNJcUxRQ0xsZnNyM1VHaS9u?=
+ =?utf-8?B?dTVmaDJYdG5aMU9BbWlxU2lIRGdSOFdOMHgxVzlsYkZFSVZaZmxTeUhraXVn?=
+ =?utf-8?B?cE5RSUl1d1F3aHdoYzFZb0Vlc2M0ZEMyVGpIdzc0SEs0ZHFTL01xN2FVNEhO?=
+ =?utf-8?B?RVdXQ2lLQk13cExGdjdRNHZmTUlydHFxeVBDTEMyYjIyVUN2cm9JMFFzZUFL?=
+ =?utf-8?B?VVdhSjRJd3B1UXJiVHprcU5hSlFEdTlmT3REb25GRC91QXIzeGR2OGx1Smpa?=
+ =?utf-8?B?OEh4Q1hxRytXR2taMldOaURsYnU5bVZSUE4wOXJuK0F4SmlEQmtYVk9kYXBK?=
+ =?utf-8?B?QnBZMS93NGtTT0lTRk9lanNsaFpsK3NDNm5JckJwcUFHMkdrajZDZjJVRmxa?=
+ =?utf-8?B?aVhqWmNHdHVFR1pFMjBJenFlSmJaZFNESzNtVmtCTVdsR0xpWG1QVmViTjYr?=
+ =?utf-8?B?NTA4TXBIRncxelNWTVdxRE44NWowT00ycDQvczZBUS8wcG9BY0Z3Ti83SWsz?=
+ =?utf-8?B?Z3JVSmF1b2FvVE9MOGpyVEpLY3AyUFZFY0tzczdsZnNPQ1hHOVFVempLQmtq?=
+ =?utf-8?B?a01NVzRyKzA5Y0x3UTlTaGRuT3NVSFdRN2E2cENtWG02UVFyd2R3WkhGK1pS?=
+ =?utf-8?B?Q1lXcGZlU1p5bTNCNGY4aFVUU2ZaTytQemI3RTdIUGZlOFlsMTEybkNjVURy?=
+ =?utf-8?B?YmdvR2w1WDcyK1FFSXUxdGg5QkhLbkhuUDlXb2tPUlEwRXZ2a3FkcVpKZ251?=
+ =?utf-8?B?OVVISmlGWDB0Rk1YUDR6T1JhSmt4YS81Y1BkOS9aL0luUzFaWkoxcDIwd2hv?=
+ =?utf-8?B?RThCbHNXMCtHUGFGRVZpNnNJYU93PT0=?=
+Content-ID: <8FE4DB1D6E5EC142836346CC44B53E61@namprd11.prod.outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d88c6321-d680-4d96-84f5-08d9c17125e5
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Dec 2021 15:23:15.9181 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 14810de6-9da1-4c86-9de2-08d9c1727a50
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Dec 2021 15:32:47.0922 (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: RxYBXG0pYblRbJa25f9SPtVc0RM7Vw5HECI9a6jwgzDLJKi1T2ZGnlUyBqps8gAdA8NK36YwBnt95rVo/hgyq5ry937tLHAkHQhxptqWG6c=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MWHPR11MB1998
+X-MS-Exchange-CrossTenant-userprincipalname: a8z9LXTkFvLRD6tlyyK4lFfC5Oz88t3K7smA4epSyhvii0KDt0jVrY9Wf9YB1yNaLX4uR+5mGnGW4gKah5C0zQQEkOzKyBeVCicdP08wRwY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MWHPR11MB1696
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211217_072331_371547_DC131543 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20211217_073253_806113_939C1A30 
+X-CRM114-Status: GOOD (  27.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -198,260 +199,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 17/12/2021 15:04, Krzysztof Kozlowski wrote:
+On 17/12/2021 13:43, Geert Uytterhoeven wrote:
 > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
 > 
-> On 17/12/2021 10:33, conor.dooley@microchip.com wrote:
+> Hi Conor,
+> 
+> On Fri, Dec 17, 2021 at 10:33 AM <conor.dooley@microchip.com> wrote:
 >> From: Conor Dooley <conor.dooley@microchip.com>
 >>
->> Assorted minor changes to the MPFS/Icicle kit device tree:
->>
->> - rename serial to mmuart to match microchip documentation
->> - enable mmuart4 instead of mmuart0
-> 
-> This is not refactoring. Refactoring could include renames,
-> hierarchy/layout differences, naming, coding convention. You are
-> changing features, e.g. using different UART. Please split the changes.
-will do :)
-> 
->> - move stdout path to serial1 to avoid collision with
->>        bootloader running on the e51
->> - split memory node to match updated fpga design
->> - move phy0 inside mac1 node to match phy configuration
->> - add labels where missing (cpus, cache controller)
->> - add missing address cells & interrupts to MACs
+>> Split the device tree for the Microchip MPFS into two sections by adding
+>> microchip-mpfs-fabric.dtsi, which contains peripherals contained in the
+>> FPGA fabric.
 >>
 >> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
->> ---
->>   .../microchip/microchip-mpfs-icicle-kit.dts   | 52 ++++++++------
->>   .../boot/dts/microchip/microchip-mpfs.dtsi    | 70 ++++++++++---------
->>   2 files changed, 68 insertions(+), 54 deletions(-)
->>
->> diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
->> index 174f977c164b..f6542ef76046 100644
->> --- a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
->> +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
->> @@ -1,5 +1,5 @@
->>   // SPDX-License-Identifier: (GPL-2.0 OR MIT)
->> -/* Copyright (c) 2020 Microchip Technology Inc */
+> 
+> Thanks for your patch!
+> 
+>> --- /dev/null
+>> +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs-fabric.dtsi
+>> @@ -0,0 +1,13 @@
+>> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
 >> +/* Copyright (c) 2020-2021 Microchip Technology Inc */
->>
->>   /dts-v1/;
->>
->> @@ -13,25 +13,34 @@ / {
->>        compatible = "microchip,mpfs-icicle-kit", "microchip,mpfs";
->>
->>        aliases {
->> -             ethernet0 = &emac1;
->> -             serial0 = &serial0;
->> -             serial1 = &serial1;
->> -             serial2 = &serial2;
->> -             serial3 = &serial3;
->> +             ethernet0 = &mac1;
->> +             serial0 = &mmuart0;
->> +             serial1 = &mmuart1;
->> +             serial2 = &mmuart2;
->> +             serial3 = &mmuart3;
->> +             serial4 = &mmuart4;
->>        };
->>
->>        chosen {
->> -             stdout-path = "serial0:115200n8";
->> +             stdout-path = "serial1:115200n8";
->>        };
->>
->>        cpus {
->>                timebase-frequency = <RTCCLK_FREQ>;
->>        };
->>
->> -     memory@80000000 {
->> +     ddrc_cache_lo: memory@80000000 {
->>                device_type = "memory";
->> -             reg = <0x0 0x80000000 0x0 0x40000000>;
->> +             reg = <0x0 0x80000000 0x0 0x2e000000>;
->>                clocks = <&clkcfg CLK_DDRC>;
->> +             status = "okay";
->> +     };
 >> +
->> +     ddrc_cache_hi: memory@1000000000 {
+>> +/ {
+>> +       corePWM0: pwm@41000000 {
+>> +               compatible = "microchip,corepwm";
+>> +               reg = <0x0 0x41000000 0x0 0xF0>;
+>> +               microchip,sync-update = /bits/ 8 <0>;
+>> +               #pwm-cells = <2>;
+>> +               clocks = <&clkcfg CLK_FIC3>;
+>> +               status = "disabled";
+>> +       };
 > 
-> This looks unrelated to refactoring - split of memory - and needs
-> separate change.
+> I'm wondering if these should be grouped under a "fabric" subnode,
+> like we have an "soc" subnode for on-SoC devices? Rob?
 > 
->> +             device_type = "memory";
->> +             reg = <0x10 0x0 0x0 0x40000000>;
->> +             clocks = <&clkcfg CLK_DDRC>;
->> +             status = "okay";
->>        };
->>   };
->>
->> @@ -39,19 +48,19 @@ &refclk {
->>        clock-frequency = <600000000>;
->>   };
->>
->> -&serial0 {
->> +&mmuart1 {
->>        status = "okay";
->>   };
->>
->> -&serial1 {
->> +&mmuart2 {
->>        status = "okay";
->>   };
->>
->> -&serial2 {
->> +&mmuart3 {
->>        status = "okay";
->>   };
->>
->> -&serial3 {
->> +&mmuart4 {
->>        status = "okay";
->>   };
->>
->> @@ -61,29 +70,32 @@ &mmc {
->>        bus-width = <4>;
->>        disable-wp;
->>        cap-sd-highspeed;
->> +     cap-mmc-highspeed;
->>        card-detect-delay = <200>;
->> +     mmc-ddr-1_8v;
->> +     mmc-hs200-1_8v;
+> BTW, do you already have a naming plan for different revisions of
+> FPGA fabric cores?
+Not yet (assuming you mean specifically how we will handle it in the 
+device tree) - although i was talking to someone about it yesterday.
+It's possible that we might handle that via a register, but if you have 
+a suggestion or some precedence that you're aware of that would be useful.
+
+The actual naming convention of the IP cores themselves, yeah. I will 
+dig it up for you on Monday.
 > 
-> This looks unrelated to refactoring - new modes for MMC - and needs
-> separate change.
+> Gr{oetje,eeting}s,
 > 
->>        sd-uhs-sdr12;
->>        sd-uhs-sdr25;
->>        sd-uhs-sdr50;
->>        sd-uhs-sdr104;
->>   };
->>
->> -&emac0 {
->> +&mac0 {
->>        phy-mode = "sgmii";
->>        phy-handle = <&phy0>;
->> -     phy0: ethernet-phy@8 {
->> -             reg = <8>;
->> -             ti,fifo-depth = <0x01>;
->> -     };
->>   };
->>
->> -&emac1 {
->> +&mac1 {
->>        status = "okay";
->>        phy-mode = "sgmii";
->>        phy-handle = <&phy1>;
->>        phy1: ethernet-phy@9 {
->>                reg = <9>;
->> -             ti,fifo-depth = <0x01>;
->> +             ti,fifo-depth = <0x1>;
->> +     };
->> +     phy0: ethernet-phy@8 {
->> +             reg = <8>;
->> +             ti,fifo-depth = <0x1>;
->>        };
->>   };
->>
->> diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
->> index 808500be26c3..d311c5ea27c9 100644
->> --- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
->> +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
->> @@ -1,5 +1,5 @@
->>   // SPDX-License-Identifier: (GPL-2.0 OR MIT)
->> -/* Copyright (c) 2020 Microchip Technology Inc */
->> +/* Copyright (c) 2020-2021 Microchip Technology Inc */
->>
->>   /dts-v1/;
->>   #include "dt-bindings/clock/microchip,mpfs-clock.h"
->> @@ -16,7 +16,7 @@ cpus {
->>                #address-cells = <1>;
->>                #size-cells = <0>;
->>
->> -             cpu@0 {
->> +             cpu0: cpu@0 {
->>                        compatible = "sifive,e51", "sifive,rocket0", "riscv";
->>                        device_type = "cpu";
->>                        i-cache-block-size = <64>;
->> @@ -34,7 +34,7 @@ cpu0_intc: interrupt-controller {
->>                        };
->>                };
->>
->> -             cpu@1 {
->> +             cpu1: cpu@1 {
->>                        compatible = "sifive,u54-mc", "sifive,rocket0", "riscv";
->>                        d-cache-block-size = <64>;
->>                        d-cache-sets = <64>;
->> @@ -61,7 +61,7 @@ cpu1_intc: interrupt-controller {
->>                        };
->>                };
->>
->> -             cpu@2 {
->> +             cpu2: cpu@2 {
->>                        compatible = "sifive,u54-mc", "sifive,rocket0", "riscv";
->>                        d-cache-block-size = <64>;
->>                        d-cache-sets = <64>;
->> @@ -88,7 +88,7 @@ cpu2_intc: interrupt-controller {
->>                        };
->>                };
->>
->> -             cpu@3 {
->> +             cpu3: cpu@3 {
->>                        compatible = "sifive,u54-mc", "sifive,rocket0", "riscv";
->>                        d-cache-block-size = <64>;
->>                        d-cache-sets = <64>;
->> @@ -115,7 +115,7 @@ cpu3_intc: interrupt-controller {
->>                        };
->>                };
->>
->> -             cpu@4 {
->> +             cpu4: cpu@4 {
->>                        compatible = "sifive,u54-mc", "sifive,rocket0", "riscv";
->>                        d-cache-block-size = <64>;
->>                        d-cache-sets = <64>;
->> @@ -153,8 +153,9 @@ soc {
->>                compatible = "simple-bus";
->>                ranges;
->>
->> -             cache-controller@2010000 {
->> +             cctrllr: cache-controller@2010000 {
->>                        compatible = "sifive,fu540-c000-ccache", "cache";
->> +                     reg = <0x0 0x2010000 0x0 0x1000>;
->>                        cache-block-size = <64>;
->>                        cache-level = <2>;
->>                        cache-sets = <1024>;
->> @@ -162,10 +163,9 @@ cache-controller@2010000 {
->>                        cache-unified;
->>                        interrupt-parent = <&plic>;
->>                        interrupts = <1>, <2>, <3>;
->> -                     reg = <0x0 0x2010000 0x0 0x1000>;
->>                };
->>
->> -             clint@2000000 {
->> +             clint: clint@2000000 {
->>                        compatible = "sifive,fu540-c000-clint", "sifive,clint0";
->>                        reg = <0x0 0x2000000 0x0 0xC000>;
->>                        interrupts-extended = <&cpu0_intc HART_INT_M_SOFT>,
->> @@ -198,15 +198,6 @@ plic: interrupt-controller@c000000 {
->>                        riscv,ndev = <186>;
->>                };
->>
->> -             dma@3000000 {
->> -                     compatible = "sifive,fu540-c000-pdma";
+>                          Geert
 > 
-> Removal of nodes does not look like refactoring.
+> --
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 > 
->> -                     reg = <0x0 0x3000000 0x0 0x8000>;
->> -                     interrupt-parent = <&plic>;
->> -                     interrupts = <23>, <24>, <25>, <26>, <27>, <28>, <29>,
->> -                                  <30>;
->> -                     #dma-cells = <1>;
->> -             };
->> -
-> 
-> 
-> Best regards,
-> Krzysztof
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                  -- Linus Torvalds
 > 
 
 _______________________________________________
