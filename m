@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 952DCC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 13:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB59CC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 13:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=czkDqt9EKmDvIT1UG/uCc0Kavbjr3RqxGUaYPNfBuAo=; b=zjqfzsHtADmZ0y
-	EKbt36UnIedJcKUfKNSVwF+8bwnpKfIvqN9kViGQp9O8zlhg3CHtmUoB9lPKbAmHXM1mJG9GH+Igp
-	isGvVPg3PWnyLEnyCHzRvkxkElej1/ogJjwjaeDbxTgbTS3a7tXTqn8A0AC16jGtwSseE0+xH3Zt1
-	2WzmLT4G+nu5z/a55WY3ckMyXcr7+/mWeH2Zcztxt8D9Qpdog9Pg4ouGUm0uDM9l93aZ3ZqyYVvhu
-	Ur4opX//HEdJV3VqKkb0Yoz9UTJYq+Lj1oVnXwOgc807hdtMqWwgv5M2mQPnZyzypfMjDDXwi0Fds
-	OI0fr2UmbVUKVYXP48bg==;
+	List-Owner; bh=czkDqt9EKmDvIT1UG/uCc0Kavbjr3RqxGUaYPNfBuAo=; b=gzR0Czyzn2PmCr
+	PzBa2UVe3DuEj8yUH4eO9Xl4esCPi1ikMUb6XrlpPPw/518atoStZ01Cy4GR2pmISVl39UMJN6EZx
+	x7kfmIJRL4HEGaJIjiSdljMb/rrVDHKFA+uV17b+NuE005ulSuqRi92jnLiC6FWj0IcVuUrTJGyIN
+	2AqEn1WwyNTLGdyuTCp0BunreUziNoDXUwSZAuwBfY+S0exOdx4c6qdS5FjzCzkCG/kllg7443MJO
+	+A1l3Jy7zfqobHG0HwrqR1DVafccjckax/WRbmrKcgi3fvOYzul5ytn3N4G4ljhr9PcpsjjcqB4tF
+	XXCZN0O62GIajgBkXJDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1myDFA-00ANeY-AK; Fri, 17 Dec 2021 13:25:52 +0000
-Received: from mail-ua1-f54.google.com ([209.85.222.54])
+	id 1myDJk-00AOeD-8U; Fri, 17 Dec 2021 13:30:36 +0000
+Received: from mail-qk1-f173.google.com ([209.85.222.173])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1myDF2-00ANbd-05
- for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 13:25:45 +0000
-Received: by mail-ua1-f54.google.com with SMTP id r15so4319570uao.3
- for <linux-riscv@lists.infradead.org>; Fri, 17 Dec 2021 05:25:43 -0800 (PST)
+ id 1myDJh-00AOdC-OD
+ for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 13:30:35 +0000
+Received: by mail-qk1-f173.google.com with SMTP id m186so2057061qkb.4
+ for <linux-riscv@lists.infradead.org>; Fri, 17 Dec 2021 05:30:33 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
  bh=UfQoARdnbkZAiC3vtgUpOeQLmZLNRjjpwLc9s5ZyHps=;
- b=1M2vpa8IauWcU0PpgxV8L0TIzV2+svhjgxqrHkzIQ2UFd/V+8HVTZdkruLcLrTJA95
- fkPkmxAbY2MoZMmrmkz7ZCxciCfR1jUQ1oZPE16okbCLee/fEYwcOMyxsqkZyhMcDcUJ
- H40mIoW2AVcQPE4T4VvThj4RXHXcfIktLXFQ5n2OAkkqKIlJtSu05tGyU9vn9G6k4tq/
- t2LP5lcXIy9IF1UTpJDVlfK67M+hzqJZWf2/b5IWzePIicE5VtyrZ2tB7MFdybhpSI86
- X34VmSqBt9fY+nAzKgcM97xNzvOJsSJ3fQw+RfrmBwufWJD4olRnj/dbbs1tiWtwprLn
- cJsA==
-X-Gm-Message-State: AOAM533FFJTSxlC3jkZINwPlkjQRz54mdLLVDwVgC/9tZWYfW77v5Kat
- gMgUZwX0Lv5M7W3XhaB90cSHD8NW3Lyajg==
-X-Google-Smtp-Source: ABdhPJzHf/4gzrYRnPJY/K4mGBBnghwumE8MMUWC9JFIzRy8Ug/KLlzMDhq7OFs2WUObdyyRIW5MhA==
-X-Received: by 2002:ab0:2801:: with SMTP id w1mr926800uap.135.1639747542294;
- Fri, 17 Dec 2021 05:25:42 -0800 (PST)
-Received: from mail-ua1-f48.google.com (mail-ua1-f48.google.com.
- [209.85.222.48])
- by smtp.gmail.com with ESMTPSA id j19sm1768020vka.4.2021.12.17.05.25.40
+ b=C71/KNUlPKIfwYRpxCMDO8UOS0sEhGlaEoqnxdY6wVEwyTrLQ3VGS/nqXGBJ3gkvMm
+ qnGRsEJmHpTQT/6qNWVcQ921wJB2vzRCrTPQBT+9qdHUgqGjzPU4Wgm6BU/q1DleVZX3
+ 9dXKJpxx6NKW9LLHVXXh4hTXSdpjDp7RXhjKv7QESq+owIA1c2sYi00GBDRDb3+nvXVx
+ YYQhaqE2gaHOBJx+M/s+7LJ8kpOjlnmKNZEnWKBQf18q1CrhitN3WbG9r0n1VMQtZeHg
+ kwy/r8oQrEanFGK5okWkYoa8/pC+mvVbAc47fSgkhiLFfutXBi5aDgV8O1cQgTnVyZe4
+ zC9w==
+X-Gm-Message-State: AOAM530AK6qZbtGCIJlqb4ycmQ9IC7tIGwm4K50/z6opNXo/yPJH7lGx
+ BNikhXJpCZKhUzpr+yARNKcyBkq/+vNvpA==
+X-Google-Smtp-Source: ABdhPJzq/NK8Rjz3AMEZMvJeLQay2f1Oe9Bio7cAvAvwd/lvkzgEYkqlLGWBv9b9hYj7kk9GL6aH8w==
+X-Received: by 2002:a05:620a:410e:: with SMTP id
+ j14mr1534168qko.47.1639747832506; 
+ Fri, 17 Dec 2021 05:30:32 -0800 (PST)
+Received: from mail-qv1-f50.google.com (mail-qv1-f50.google.com.
+ [209.85.219.50])
+ by smtp.gmail.com with ESMTPSA id o21sm7236003qta.89.2021.12.17.05.30.32
  for <linux-riscv@lists.infradead.org>
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Fri, 17 Dec 2021 05:25:40 -0800 (PST)
-Received: by mail-ua1-f48.google.com with SMTP id a14so4405449uak.0
- for <linux-riscv@lists.infradead.org>; Fri, 17 Dec 2021 05:25:40 -0800 (PST)
-X-Received: by 2002:a05:6102:e10:: with SMTP id
- o16mr1015811vst.5.1639747540015; 
- Fri, 17 Dec 2021 05:25:40 -0800 (PST)
+ Fri, 17 Dec 2021 05:30:32 -0800 (PST)
+Received: by mail-qv1-f50.google.com with SMTP id ke6so2345534qvb.1
+ for <linux-riscv@lists.infradead.org>; Fri, 17 Dec 2021 05:30:32 -0800 (PST)
+X-Received: by 2002:a67:c106:: with SMTP id d6mr960485vsj.77.1639747458226;
+ Fri, 17 Dec 2021 05:24:18 -0800 (PST)
 MIME-Version: 1.0
 References: <20211217093325.30612-1-conor.dooley@microchip.com>
- <20211217093325.30612-5-conor.dooley@microchip.com>
-In-Reply-To: <20211217093325.30612-5-conor.dooley@microchip.com>
+ <20211217093325.30612-3-conor.dooley@microchip.com>
+In-Reply-To: <20211217093325.30612-3-conor.dooley@microchip.com>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 17 Dec 2021 14:25:29 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXf-nLGXbxwSZJQncdNXaD4_3bHwcb7WyxeYUw21eGX+g@mail.gmail.com>
-Message-ID: <CAMuHMdXf-nLGXbxwSZJQncdNXaD4_3bHwcb7WyxeYUw21eGX+g@mail.gmail.com>
-Subject: Re: [PATCH v2 04/17] mailbox: change mailbox-mpfs compatible string
+Date: Fri, 17 Dec 2021 14:24:07 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdXBm6PMnBTQDZY=3XkGBXsr4wXy8m+WbgHjA8SpctbVCA@mail.gmail.com>
+Message-ID: <CAMuHMdXBm6PMnBTQDZY=3XkGBXsr4wXy8m+WbgHjA8SpctbVCA@mail.gmail.com>
+Subject: Re: [PATCH v2 02/17] dt-bindings: soc/microchip: update syscontroller
+ compatibles
 To: Conor Dooley <conor.dooley@microchip.com>
 Cc: Linus Walleij <linus.walleij@linaro.org>, 
  Bartosz Golaszewski <bgolaszewski@baylibre.com>,
@@ -91,8 +92,8 @@ Cc: Linus Walleij <linus.walleij@linaro.org>,
  daire.mcnamara@microchip.com, ivan.griffin@microchip.com, 
  Atish Patra <atish.patra@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211217_052544_078121_F1733BF1 
-X-CRM114-Status: GOOD (  20.96  )
+X-CRM114-CacheID: sfid-20211217_053033_799008_1F6D3DED 
+X-CRM114-Status: GOOD (  21.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
