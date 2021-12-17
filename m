@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECE44C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 12:34:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02997C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 12:34:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Qni8QKUHRnSzoekIp65d+8q3I5voEzsscYt2OFMf9tA=; b=ZoUlKBngWM/yS4
-	SChGogrwmy1mpBxqqC7274XgOxwHMOdhVvET2wAkLtamq18Rj6YhDlhLpzeLef8U13LdfjU8fTYyc
-	dgQAcJNtYxnprnK+uAJKj+TnsuhaZ+UA5gPu0dju/QmbcmsetIcCEHg71766vtCrVibT/lwfPBpOC
-	0NcoH8zn/EWVfNoarNDAQf9niZ2KlKHu0brubaeheywk84SxIZT9GUh8g2RfAn1an3Ib4YwKvHTJb
-	yO3AUsfqq3IVm1bq5QTFPaVKfPfZlgXbfv/NaP+n/K0PnwzdW7fCTeWkvJvQYmTCZNRs5PMCYS4I8
-	4feu3G/OvVah2/mTmg3w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wZnznRvKHZ+/Q34Cd7gX49Z1P7eNjtmXzOILbv1RgkI=; b=CEbT6G7rcD4g0A
+	DE52Tsetgbogbv+jWQPsNe05O3VTkCZeXHqZHoeERCOkUB5eJbC50gTD5Ob8mtjaAYDpCkEKw2jqd
+	2g2/5k/y/wpcI7XeHbMbewxwVaWDJtWqfysw+4jrWCuSIR8ZCD/SctRbWpnWcZgh7AaKIIn1tH/s3
+	rBymjSkG1cOzSQHJ8QYzcKYedyk1uAMSb9mI19dX+E3Qv4IytU+SCIYT5/ggUYFYuIV0QPVYjov4c
+	KrZUhdpoWsYvIadnJl/nIEenZ7AEEssb/jpnMVM0P9i9fGVEXvkV1r6bEEyW/Tej51ATD/HCri4zK
+	XIZC3vm5bt1lLGaHLPZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1myCRH-00A9vP-AP; Fri, 17 Dec 2021 12:34:19 +0000
+	id 1myCRN-00A9xR-4e; Fri, 17 Dec 2021 12:34:25 +0000
 Received: from andre.telenet-ops.be ([2a02:1800:120:4::f00:15])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1myCRC-00A9t0-Ks
+ id 1myCRC-00A9tC-Ks
  for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 12:34:16 +0000
 Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed20:d13f:527c:5504:a743])
  by andre.telenet-ops.be with bizsmtp
- id XQaB2600T250X3001QaBJ6; Fri, 17 Dec 2021 13:34:11 +0100
+ id XQaB2600X250X3001QaBJ7; Fri, 17 Dec 2021 13:34:12 +0100
 Received: from rox.of.borg ([192.168.97.57])
  by ramsan.of.borg with esmtps (TLS1.3) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
  (envelope-from <geert@linux-m68k.org>)
- id 1myCR9-005Yog-49; Fri, 17 Dec 2021 13:34:11 +0100
+ id 1myCR9-005Yoh-75; Fri, 17 Dec 2021 13:34:11 +0100
 Received: from geert by rox.of.borg with local (Exim 4.93)
  (envelope-from <geert@linux-m68k.org>)
- id 1myCR8-00ASKe-MS; Fri, 17 Dec 2021 13:34:10 +0100
+ id 1myCR8-00ASKo-ON; Fri, 17 Dec 2021 13:34:10 +0100
 From: Geert Uytterhoeven <geert@linux-m68k.org>
 To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
  Palmer Dabbelt <palmer@dabbelt.com>,
@@ -43,16 +43,19 @@ To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
  Sagar Kadam <sagar.kadam@sifive.com>
 Cc: Rob Herring <robh+dt@kernel.org>, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- Geert Uytterhoeven <geert@linux-m68k.org>
-Subject: [PATCH v3 0/2] dt-bindings: interrupt-controller: sifive,
- plic: Miscellaneous improvements
-Date: Fri, 17 Dec 2021 13:34:02 +0100
-Message-Id: <cover.1639744106.git.geert@linux-m68k.org>
+ Geert Uytterhoeven <geert@linux-m68k.org>, Rob Herring <robh@kernel.org>
+Subject: [PATCH v3 2/2] dt-bindings: interrupt-controller: sifive,
+ plic: Group interrupt tuples
+Date: Fri, 17 Dec 2021 13:34:04 +0100
+Message-Id: <33c1526be595c933ddf7f2583fdb5e23e69968a7.1639744106.git.geert@linux-m68k.org>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <cover.1639744106.git.geert@linux-m68k.org>
+References: <cover.1639744106.git.geert@linux-m68k.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211217_043414_876958_A049CE1B 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20211217_043414_884506_07545AD8 
+X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,44 +72,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-	Hi all,
+To improve human readability and enable automatic validation, the tuples
+in "interrupts-extended" properties should be grouped using angle
+brackets.
 
-This patch series contains two improvements for the SiFive PLIC DT
-bindings.
+Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Reviewed-by: Rob Herring <robh@kernel.org>
+---
+v3:
+  - Add Reviewed-by,
 
-Changes compared to v2[1]:
-  - Add Acked-by, Reviewed-by.
+v2:
+  - Split in two patches.
+---
+ .../interrupt-controller/sifive,plic-1.0.0.yaml       | 11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
 
-Changes compared to v1[2]:
-  - Split in two patches,
-  - Improve patch description and document limit rationale.
-
-Thanks!
-
-[1] https://lore.kernel.org/r/cover.1639661878.git.geert@linux-m68k.org
-[2] https://lore.kernel.org/r/20211125152233.162868-1-geert@linux-m68k.org
-
-Geert Uytterhoeven (2):
-  dt-bindings: interrupt-controller: sifive,plic: Fix number of
-    interrupts
-  dt-bindings: interrupt-controller: sifive,plic: Group interrupt tuples
-
- .../interrupt-controller/sifive,plic-1.0.0.yaml      | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+index 0c6687511457413e..52a3bc31a2c19c5d 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+@@ -91,12 +91,11 @@ examples:
+       #interrupt-cells = <1>;
+       compatible = "sifive,fu540-c000-plic", "sifive,plic-1.0.0";
+       interrupt-controller;
+-      interrupts-extended = <
+-        &cpu0_intc 11
+-        &cpu1_intc 11 &cpu1_intc 9
+-        &cpu2_intc 11 &cpu2_intc 9
+-        &cpu3_intc 11 &cpu3_intc 9
+-        &cpu4_intc 11 &cpu4_intc 9>;
++      interrupts-extended = <&cpu0_intc 11>,
++                            <&cpu1_intc 11>, <&cpu1_intc 9>,
++                            <&cpu2_intc 11>, <&cpu2_intc 9>,
++                            <&cpu3_intc 11>, <&cpu3_intc 9>,
++                            <&cpu4_intc 11>, <&cpu4_intc 9>;
+       reg = <0xc000000 0x4000000>;
+       riscv,ndev = <10>;
+     };
 -- 
 2.25.1
 
-Gr{oetje,eeting}s,
-
-						Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-							    -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
