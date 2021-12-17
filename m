@@ -4,75 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D951EC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 12:49:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1CF2C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 12:49:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cbtpba+4YCMDEc4NHUlW7NrZNGEgXhSR1e6ZRZsDM5E=; b=S8PZIEwxOWVUz7
-	34QBonKRjrw2tXiFauq6FODW8MSCHqdSh2ScRyUTEcw/aIn/8ZiEdx78r0iu1thw6syJQZeZU3Uar
-	QD8IHHwl4BZJWvEie3jdFM+XwnUpc4YEIzld/99X2BefR8nQDh/xdysuzZXXay3kIhFb/mVPe4L5L
-	mzv5TRwx9H20Y8vvOHdZaeVzo02TteVp28WMkJz+HuxPMJ8UdfH7YoPmJjyek4hzzpwsfvKgVN76S
-	RIb56zEgZ3kqJLPvIP5t3o+0TgBUF4/qq3R6NlpJu8CxdmrEKyfWgzsq3JL3ZhDwX6tIMQVzXlkJd
-	HEq8uM5fwfBdaQTS6awA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=779vOnqJmFaAYCiHJutNtAv/REjWABskp9Z7C0/eloc=; b=Z/1ubDQ5R7Sedf
+	74V4JvsHxykWcHPNrWKqGjZq2RydTJDcN51lhhDWFgR7mSJcgzshwQgK1Kj252n3dcV0Yhs84ftt9
+	jlh1Ycu48x7fb8PlQ/mjTo3fOJCu1PY4wcExV7xHaz0Y0OTzcp7DWq1erVTBk8b9Ardz6TuZuneZb
+	qecyuK8qv8jzQKGFtVAVZjfKXlOEve5QxPV44TRe6xgMqQfL0AakZG6OkYNEwZ/pk7CQKx6h21dzq
+	bu0rLG+B00dr9AESuc7vJbxRkW4J1CrE9IvUznBhIDNXKasvVgCaYr15kFOfCYurRU0D0ZGkpnC0c
+	PB2LC8rH8Cc77YmN4NQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1myCfT-00AE0D-1k; Fri, 17 Dec 2021 12:48:59 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1myCgB-00AECi-7K; Fri, 17 Dec 2021 12:49:43 +0000
+Received: from albert.telenet-ops.be ([2a02:1800:110:4::f00:1a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1myCfP-00ADxE-PZ
- for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 12:48:57 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id a9so3815621wrr.8
- for <linux-riscv@lists.infradead.org>; Fri, 17 Dec 2021 04:48:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=snUeSCccdhoRxlfsg8Ts9j6VNOw1G6e55Lk+9WKqlyc=;
- b=VrmeN3wpi1gNrML4Do0CYOVryw5xkN4me97Ek7NhAj7E67onCecFOZV06lH2uNNoJ0
- YR5aTAScn+MqHEktNhQIouNZlSvvsSqlSYK5pSwn8ZCcOfFGQXYPYLSNyVpWYH2ymQrB
- 2/qLQ5fz8zm9gKd9baYQ2q+5P0Qc+27cwpVt1UayVc8QE1JtQhIVPcXFDxT5a1Mg3OXy
- hupJvCEkFLVmuspWM2kMimCBqqJ+XCEPm+jiE3o2oOqxeeZZELizJuZJIoiaxKgrMqsV
- yWiWsLt+2WpKUJlE59KZU1/7iNyhKk7B5XFEwrxms8hnaYVQ8erxC3etPvF7V8Qf5rOd
- 9Zew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=snUeSCccdhoRxlfsg8Ts9j6VNOw1G6e55Lk+9WKqlyc=;
- b=B/Lp1SOnjNgPsS2Gent2lBBfpXzPszRkOrhOd5zdkilFcauT4zF4d8KB5p9PbM2dYB
- IFPlaAEVYflt3vfaeiDIIgPsT/4rV74yzWKtXamsjR6OU0Yf+OopsQcB7eGGIYZxM2Vu
- Q0HlQRHLaiz7jR0pBqQxI+AnBTVqvX5VaInjkKjvcZsd0SxkYK0ykUtdIMxhaIc9sdkv
- vZ9gK+Qbw9l+xoTsbI0ewrI8znKPwEVHVk58R8bbJijdu1ZUGYq+eqoY8nJxOMrMyyJK
- fIiEnpraYZrSMSRRBC+s/RGRn8t//8bAo3FI4ZBjHpa0OMnQ/lLUFLzcpSyf1m0rGDty
- pDkg==
-X-Gm-Message-State: AOAM531vYAj6rSVHNXvMse1uZ/cbtNB8XqIXBJGBRMCXDiFQB7c1bcTp
- gd3QBnO0wDYTpL9uyROtYHBo5MTgjpDJ/YvcwcHxFw==
-X-Google-Smtp-Source: ABdhPJy6jZjbGiy24EK1rrImb8JGalcQGHnt5zFcmV3cEzqNUYKetq2K2+tqD4tnFwJzeYSapqKjLx5IuF9v9+BKmaA=
-X-Received: by 2002:adf:efd0:: with SMTP id i16mr2505380wrp.86.1639745333595; 
- Fri, 17 Dec 2021 04:48:53 -0800 (PST)
+ id 1myCg7-00AEAt-VQ
+ for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 12:49:41 +0000
+Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed20:d13f:527c:5504:a743])
+ by albert.telenet-ops.be with bizsmtp
+ id XQpZ26002250X3006QpZHQ; Fri, 17 Dec 2021 13:49:34 +0100
+Received: from rox.of.borg ([192.168.97.57])
+ by ramsan.of.borg with esmtps (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
+ (envelope-from <geert@linux-m68k.org>)
+ id 1myCg0-005Yx4-ES; Fri, 17 Dec 2021 13:49:32 +0100
+Received: from geert by rox.of.borg with local (Exim 4.93)
+ (envelope-from <geert@linux-m68k.org>)
+ id 1myCg0-00ASqQ-1s; Fri, 17 Dec 2021 13:49:32 +0100
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Rob Herring <robh+dt@kernel.org>, Damien Le Moal <damien.lemoal@wdc.com>,
+ Lewis Hanly <lewis.hanly@microchip.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, Geert Uytterhoeven <geert@linux-m68k.org>
+Subject: [PATCH v3 00/11] riscv: dts: Miscellaneous fixes
+Date: Fri, 17 Dec 2021 13:49:21 +0100
+Message-Id: <cover.1639744905.git.geert@linux-m68k.org>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <cover.1639744468.git.geert@linux-m68k.org>
- <4f409ac939e260a4657a0e6e6518ef8736527822.1639744468.git.geert@linux-m68k.org>
-In-Reply-To: <4f409ac939e260a4657a0e6e6518ef8736527822.1639744468.git.geert@linux-m68k.org>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 17 Dec 2021 18:18:42 +0530
-Message-ID: <CAAhSdy3g9WsBmQk7KOgdVNSw9qUouxF2i==q9M3WQq3iabXv7Q@mail.gmail.com>
-Subject: Re: [PATCH v3 1/2] dt-bindings: timer: sifive,
- clint: Fix number of interrupts
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Anup Patel <anup.patel@wdc.com>, Rob Herring <robh+dt@kernel.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- DTML <devicetree@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, Rob Herring <robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211217_044855_879802_C3216ACC 
-X-CRM114-Status: GOOD (  19.05  )
+X-CRM114-CacheID: sfid-20211217_044940_180487_730DB4F2 
+X-CRM114-Status: GOOD (  15.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,57 +68,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 17, 2021 at 6:08 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> The number of interrupts lacks an upper bound, thus assuming one,
-> causing properly grouped "interrupts-extended" properties to be flagged
-> as an error by "make dtbs_check".
->
-> Fix this by adding the missing "maxItems".  As the architectural maximum
-> is 4095 interrupts, using that as the limit would be unpractical.  Hence
-> limit it to 10 interrupts (two interrupts for a system management core,
-> and two interrupts per core for other cores).  This should be sufficient
-> for now, and the limit can always be increased when the need arises.
+	Hi Paul, Palmer, Albert,
 
-Same comment as the PLIC DT binding patch.
+This patch series contains miscellaneous fixes for the DTS files for
+RISC-V platforms.
 
-The "maxItems" should represent CLINT spec constraints so
-please don't add any synthetic value here.
+Changes compared to v2[1]:
+  - Add Reviewed-by, Tested-by.
 
-Regards,
-Anup
+Changes compared to v1[2]:
+  - Add Reviewed-by, Tested-by,
+  - Move mpfs refclk clock-frequency to board DTS,
+  - New patches "[PATCH v2 06/11] riscv: dts: microchip: mpfs: Fix clock
+    controller node" and "[PATCH v2 11/11] riscv: dts: sifive:
+    fu540-c000: Fix PLIC node".
 
+Thanks for applying!
 
+[1] https://lore.kernel.org/r/cover.1639660956.git.geert@linux-m68k.org
+[2] https://lore.kernel.org/r/20211125153131.163533-1-geert@linux-m68k.org
 
->
-> Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
-> Acked-by: Rob Herring <robh@kernel.org>
-> ---
-> v3:
->   - Add Acked-by,
->
-> v2:
->   - Split in two patches,
->   - Improve patch description and document limit rationale.
-> ---
->  Documentation/devicetree/bindings/timer/sifive,clint.yaml | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> index 8d5f4687add9e81e..b75fd6f982b1ecb3 100644
-> --- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> +++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> @@ -44,6 +44,7 @@ properties:
->
->    interrupts-extended:
->      minItems: 1
-> +    maxItems: 10
->
->  additionalProperties: false
->
-> --
-> 2.25.1
->
+Geert Uytterhoeven (11):
+  riscv: dts: canaan: Fix SPI FLASH node names
+  riscv: dts: canaan: Group tuples in interrupt properties
+  riscv: dts: microchip: mpfs: Drop empty chosen node
+  riscv: dts: microchip: mpfs: Fix PLIC node
+  riscv: dts: microchip: mpfs: Fix reference clock node
+  riscv: dts: microchip: mpfs: Fix clock controller node
+  riscv: dts: microchip: mpfs: Group tuples in interrupt properties
+  riscv: dts: sifive: Group tuples in interrupt properties
+  riscv: dts: sifive: Group tuples in register properties
+  riscv: dts: sifive: fu540-c000: Drop bogus soc node compatible values
+  riscv: dts: sifive: fu540-c000: Fix PLIC node
+
+ arch/riscv/boot/dts/canaan/k210.dtsi          | 23 +++----
+ .../riscv/boot/dts/canaan/sipeed_maix_bit.dts |  2 +-
+ .../boot/dts/canaan/sipeed_maix_dock.dts      |  2 +-
+ arch/riscv/boot/dts/canaan/sipeed_maix_go.dts |  2 +-
+ .../boot/dts/canaan/sipeed_maixduino.dts      |  2 +-
+ .../microchip/microchip-mpfs-icicle-kit.dts   |  4 ++
+ .../boot/dts/microchip/microchip-mpfs.dtsi    | 60 ++++++++-----------
+ arch/riscv/boot/dts/sifive/fu540-c000.dtsi    | 40 +++++++------
+ arch/riscv/boot/dts/sifive/fu740-c000.dtsi    | 14 ++---
+ 9 files changed, 72 insertions(+), 77 deletions(-)
+
+-- 
+2.25.1
+
+Gr{oetje,eeting}s,
+
+						Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+							    -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
