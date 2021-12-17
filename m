@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A796C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 12:34:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E43D0C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Dec 2021 12:38:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CMEZDrQZr3ih7eUuDejBq+rlJ43PNkIH/gTLh2FSPP8=; b=SgntqDzxTUNO+w
-	QsydIZQHgtxyAmeAWqpT88apvLuBIwnbiFlt7L1UgWDUWp24GjF/7E2NsPJkoXAQoSDvYeRwNogpG
-	YED5uAdn7dbHVBKl7FH8eSJoLKlosPK+KX2uj/qajVi4cyDLfVNgUWdr90+nyVLApgYbOEsyflCiv
-	P76kFnL4xKFXZvyuYufB3dAChhDnBWqyJ2815gDoCs0jXPA60vJalyCGMkyRpBnvZqMbkeFtO03xD
-	bGXwGh7ts+e/kf8GIeL01pb/Tkd+fGhWRE2pGNpAAPflL2VoD4H0mTWl7zz6Ht+QRJt0mH4z1TXQe
-	l91yAUsGDjRu55MZAHHQ==;
+	List-Owner; bh=GqxZ9gR+8ywDr4fIxVKOLtHgHW2JW6LR/bWERixvMAc=; b=Y4fUWvYtFtHKDF
+	lsAtgZzChMaJNSTiRhaBrBdozGFOJblHi2fMVdTYZR1hwPQHDRtmYdELwwvynKcrQVrP886U/H2g9
+	Vjd6MvYaiC2On3bxvFOoAdMhwaqb7f5+cdQnXe4tFiwBVoYvl9OO0lbqjhITOVMXAyyhVjC6TVJ1S
+	cVSweq9BrpgvWzxG8mWa3mfUcgftogBihFyqQyVrQfZa5UrX2VNM5NntcWAxRAhJQFDV3GQeRSpoH
+	Nv7XVfcD2mcDgu/PlMprpFMzmQJDy4G2ytdVRnXSqUMYgsy4FkATVPdYYGe4bpnJz7kJeqpT5sfvL
+	bvjVZueFumYI8qRSTGYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1myCRU-00A9zI-Gn; Fri, 17 Dec 2021 12:34:32 +0000
-Received: from baptiste.telenet-ops.be ([2a02:1800:120:4::f00:13])
+	id 1myCV4-00AB8S-CX; Fri, 17 Dec 2021 12:38:14 +0000
+Received: from xavier.telenet-ops.be ([2a02:1800:120:4::f00:14])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1myCRD-00A9tF-FM
- for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 12:34:17 +0000
+ id 1myCV1-00AB6Y-8Y
+ for linux-riscv@lists.infradead.org; Fri, 17 Dec 2021 12:38:12 +0000
 Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed20:d13f:527c:5504:a743])
- by baptiste.telenet-ops.be with bizsmtp
- id XQaB2600Y250X3001QaBzp; Fri, 17 Dec 2021 13:34:13 +0100
+ by xavier.telenet-ops.be with bizsmtp
+ id XQe826011250X3001Qe8dR; Fri, 17 Dec 2021 13:38:09 +0100
 Received: from rox.of.borg ([192.168.97.57])
  by ramsan.of.borg with esmtps (TLS1.3) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
  (envelope-from <geert@linux-m68k.org>)
- id 1myCR9-005Yof-79; Fri, 17 Dec 2021 13:34:11 +0100
+ id 1myCUy-005Yqk-Cx; Fri, 17 Dec 2021 13:38:08 +0100
 Received: from geert by rox.of.borg with local (Exim 4.93)
  (envelope-from <geert@linux-m68k.org>)
- id 1myCR8-00ASKk-Ne; Fri, 17 Dec 2021 13:34:10 +0100
+ id 1myCUx-00ASTS-VZ; Fri, 17 Dec 2021 13:38:07 +0100
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Sagar Kadam <sagar.kadam@sifive.com>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup.patel@wdc.com>
 Cc: Rob Herring <robh+dt@kernel.org>, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- Geert Uytterhoeven <geert@linux-m68k.org>, Rob Herring <robh@kernel.org>
-Subject: [PATCH v3 1/2] dt-bindings: interrupt-controller: sifive,
- plic: Fix number of interrupts
-Date: Fri, 17 Dec 2021 13:34:03 +0100
-Message-Id: <3af15b09a5f05d49e2d99386f189cdb13245d40a.1639744106.git.geert@linux-m68k.org>
+ Geert Uytterhoeven <geert@linux-m68k.org>
+Subject: [PATCH v3 2/2] dt-bindings: timer: sifive,
+ clint: Group interrupt tuples
+Date: Fri, 17 Dec 2021 13:38:04 +0100
+Message-Id: <b2409de8943b56dfda2c972f4fe566a381be07a7.1639744468.git.geert@linux-m68k.org>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <cover.1639744106.git.geert@linux-m68k.org>
-References: <cover.1639744106.git.geert@linux-m68k.org>
+In-Reply-To: <cover.1639744468.git.geert@linux-m68k.org>
+References: <cover.1639744468.git.geert@linux-m68k.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211217_043415_725658_F7B42CA8 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20211217_043811_479809_B2E114A5 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,42 +71,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The number of interrupts lacks an upper bound, thus assuming one,
-causing properly grouped "interrupts-extended" properties to be flagged
-as an error by "make dtbs_check".
-
-Fix this by adding the missing "maxItems".  As the architectural maximum
-is 15872 interrupts, using that as the limit would be unpractical.
-Hence limit it to 9 interrupts (one interrupt for a system management
-core, and two interrupts per core for other cores).  This should be
-sufficient for now, and the limit can always be increased when the need
-arises.
+To improve human readability and enable automatic validation, the tuples
+in "interrupts-extended" properties should be grouped using angle
+brackets.
 
 Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
-Acked-by: Rob Herring <robh@kernel.org>
 ---
 v3:
-  - Add Acked-by,
+  - Add Reviewed-by,
 
 v2:
-  - Split in two patches,
-  - Improve patch description and document limit rationale.
+  - Split in two patches.
 ---
- .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml         | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/timer/sifive,clint.yaml | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-index 28b6b17fe4b26778..0c6687511457413e 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-@@ -62,6 +62,7 @@ properties:
- 
-   interrupts-extended:
-     minItems: 1
-+    maxItems: 9
-     description:
-       Specifies which contexts are connected to the PLIC, with "-1" specifying
-       that a context is not present. Each node pointed to should be a
+diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+index b75fd6f982b1ecb3..3b25ec37d81159cb 100644
+--- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
++++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+@@ -57,10 +57,10 @@ examples:
+   - |
+     timer@2000000 {
+       compatible = "sifive,fu540-c000-clint", "sifive,clint0";
+-      interrupts-extended = <&cpu1intc 3 &cpu1intc 7
+-                             &cpu2intc 3 &cpu2intc 7
+-                             &cpu3intc 3 &cpu3intc 7
+-                             &cpu4intc 3 &cpu4intc 7>;
++      interrupts-extended = <&cpu1intc 3>, <&cpu1intc 7>,
++                            <&cpu2intc 3>, <&cpu2intc 7>,
++                            <&cpu3intc 3>, <&cpu3intc 7>,
++                            <&cpu4intc 3>, <&cpu4intc 7>;
+        reg = <0x2000000 0x10000>;
+     };
+ ...
 -- 
 2.25.1
 
