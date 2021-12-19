@@ -4,130 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 707EEC433F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 Dec 2021 23:28:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3BF7C433F5
+	for <linux-riscv@archiver.kernel.org>; Sun, 19 Dec 2021 21:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Dmso1qJOEXI2R0UplaLxPs7Rm+YW/k9fZFj0DT/58S8=; b=KdE6c9+/QpyUAd
-	/dLt0LLB/JXC3Y5ICDksKw3NyEnrabjADKoMmIOSOaON7m9CWnsFPj1OzuI7EMnmId7V0HQHRl61t
-	65TS+MTc4UehisY40pgM4OY32e3PxmVyWuGx/C8q+DesqLLil2jexqiCuhEp8zYNIWFlBAVc/xQjD
-	8QCYe4mNVOe703bB1Xsz2/z8bJfBRphC8j36ajHKj25c6ibwoBu/1EO9bwhZQ65934PC2bL71AVtN
-	Dq4iBQtb/4tekYj5+nvJ5tg84IuFCIWDGLc3gP9FxPPIkLDeO2g1fNuc/55nIDrQ7gQcn9Nv4qv8/
-	AijHpgAJn/3KP6yiWmEQ==;
+	List-Owner; bh=Mq+DqN1j8qfhYsuok8fuj9H8W8OdZh/1VawX5LSTjZQ=; b=oRNoF+WIY1PRU9
+	oNTVyZzocSW9hZUS7B5JHOhZ0Kdz+2fe76FrJcmOHL+8E+z+Gzso4j3b4snj+QLPvcaoNHIi+Lwb+
+	6g0MCpo29uxqaLQ0kj50rbwtVKQiZmDfWzNXPJCK1V1/1SS/rIZ74ci2kobQDizA3c15aIJP9KX9c
+	Yo8lDm5z5sbXwKlSql/rcwiht6QZaS+k49t41K3T6rR5bP85xoKPzHtVBt1nzHnPJTHljgLABhPG1
+	nFxa0/sPSopQ1mIsKUIpF37zXRKDZb6F5RC5nQxoOLi6pnS3wpURlK14HQTaiB0ezj09CQcIKBZ2h
+	bkH6v/tXh8x0pjLTZ+Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1myj86-00EziE-Ug; Sat, 18 Dec 2021 23:28:42 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1mz4BD-00H8ja-FM; Sun, 19 Dec 2021 21:57:19 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1myj84-00Ezh3-0c; Sat, 18 Dec 2021 23:28:41 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id r5so5746122pgi.6;
- Sat, 18 Dec 2021 15:28:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=pIYxkiGisug+VVJYFtmCG20TylNRXB8zO8kw91s3wyc=;
- b=TIuyQXz6oo8PN+yMbImlC2c2rmmoCdLu5CdlQlReccXapNNMDZyLSkZvnzlgZ9AIdV
- 6+qzntuQo5gBX86FaZFlCIaH4FCNC7RUVw367F08QPEjoiFWXa2CV6SAzISHS5RZPpY/
- QbkHqa0fdrihFEuRX0X/GeMy6P75DvnBsKWfABXcb5D5/2zTgkKaV4VEiJSuyy+zBwcd
- zNIVzererH+Fx7ZEOWvTBpmd3THvXh1KHtzsLHvjMiIPuGFGIqMdZbyjf9H7vLYP6+7J
- cQ/P2vAafsI3DEFtzgX9UWRj1ZmCeXy01hG6ih9PN1N9Tz70SEQsg8aJQpCrrbXl1cqP
- QppQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=pIYxkiGisug+VVJYFtmCG20TylNRXB8zO8kw91s3wyc=;
- b=G90Zh987SyYIE5BftiajCGziDEZ/ACXG94U0rmPmAv8YevgXkmmlmK/cJi9Uf2z0ja
- 6wzL+TgTdPnH5VS2DvzKqjL8WmAT5wk3w1B/FXiP1CLh6CbPydimycnOO/TqsfikzXLU
- RF3a2L/nKW+mt8MQjLqu/26hMKOMnHRbD9LEm82KMCKPEuz+UsxospZ+4nek9/KWpfN3
- MkpiBT+A1MRSEHZtR+wnYjvPJD9RAx9MPjge9x6I5JUYvxayBLilICzcMvw+R8n7RG2s
- xwZl0e272LI04jdt71VpwxSiHigWo0c51uPfI9a+XFsoUwxOHZFY935oULxrRJmkMf8v
- DHjg==
-X-Gm-Message-State: AOAM530d3cn5l+JiSgvEtd5kKF2LEiGQFf0y47I15OcZCm+9Pi3goHKK
- 4lGekeS7ZcZ9/z92QocMSwgrr04OriUgHiKGizQ=
-X-Google-Smtp-Source: ABdhPJxWDXMTWC77oOKCjFiIpES/JejUzoFwUACXrmSW9T47MOn3N7k2dUXoB6NpZZlsfwgvBd+k97C3LkDR7q0l13Y=
-X-Received: by 2002:a63:2a0d:: with SMTP id q13mr8815341pgq.513.1639870119035; 
- Sat, 18 Dec 2021 15:28:39 -0800 (PST)
+ id 1mz4B9-00H8hw-F9
+ for linux-riscv@lists.infradead.org; Sun, 19 Dec 2021 21:57:17 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
+ helo=diego.localnet)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1mz4As-00068I-JM; Sun, 19 Dec 2021 22:56:58 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: plr.vincent@gmail.com, linux-riscv@lists.infradead.org
+Cc: robh+dt@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ aou@eecs.berkeley.edu, krzysztof.kozlowski@canonical.com,
+ qiuwenbo@kylinos.com.cn, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ david.abdurachmanov@sifive.com, Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: [PATCH v3 4/6] riscv: dts: sifive unmatched: Expose the FU740
+ core supply regulator
+Date: Sun, 19 Dec 2021 22:56:57 +0100
+Message-ID: <5471232.RFuYXYORHR@diego>
+In-Reply-To: <mhng-854afd5f-800b-4b58-af68-cdc6afdc0a4a@palmer-ri-x1c9>
+References: <mhng-854afd5f-800b-4b58-af68-cdc6afdc0a4a@palmer-ri-x1c9>
 MIME-Version: 1.0
-References: <20211218212014.1315894-1-yury.norov@gmail.com>
- <20211218212014.1315894-2-yury.norov@gmail.com>
- <Yb5dmqlYd3owtH29@qmqm.qmqm.pl>
-In-Reply-To: <Yb5dmqlYd3owtH29@qmqm.qmqm.pl>
-From: Yury Norov <yury.norov@gmail.com>
-Date: Sat, 18 Dec 2021 15:28:29 -0800
-Message-ID: <CAAH8bW9uWW+t5TvkMt_e-sKp71hiLpXhXeuGuSZPK-3kds-GgQ@mail.gmail.com>
-Subject: Re: [PATCH 01/17] all: don't use bitmap_weight() where possible
-To: =?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>
-Cc: linux-kernel@vger.kernel.org, "James E.J. Bottomley" <jejb@linux.ibm.com>, 
- "Martin K. Petersen" <martin.petersen@oracle.com>,
- "Paul E. McKenney" <paulmck@kernel.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Alexey Klimov <aklimov@redhat.com>, Amitkumar Karwar <amitkarwar@gmail.com>, 
- Andi Kleen <ak@linux.intel.com>, Andrew Lunn <andrew@lunn.ch>, 
- Andrew Morton <akpm@linux-foundation.org>, Andy Gross <agross@kernel.org>, 
- Andy Lutomirski <luto@kernel.org>, Andy Shevchenko <andy@infradead.org>,
- Anup Patel <anup.patel@wdc.com>, 
- Ard Biesheuvel <ardb@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, 
- Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christoph Hellwig <hch@lst.de>, 
- Christoph Lameter <cl@linux.com>, Daniel Vetter <daniel@ffwll.ch>, 
- Dave Hansen <dave.hansen@linux.intel.com>, David Airlie <airlied@linux.ie>, 
- David Laight <David.Laight@aculab.com>, Dennis Zhou <dennis@kernel.org>, 
- Emil Renner Berthing <kernel@esmil.dk>,
- Geert Uytterhoeven <geert@linux-m68k.org>, 
- Geetha sowjanya <gakula@marvell.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Guo Ren <guoren@kernel.org>, Hans de Goede <hdegoede@redhat.com>, 
- Heiko Carstens <hca@linux.ibm.com>, Ian Rogers <irogers@google.com>,
- Ingo Molnar <mingo@redhat.com>, 
- Jakub Kicinski <kuba@kernel.org>, Jason Wessel <jason.wessel@windriver.com>,
- Jens Axboe <axboe@fb.com>, 
- Jiri Olsa <jolsa@redhat.com>, Joe Perches <joe@perches.com>,
- Jonathan Cameron <jic23@kernel.org>, 
- Juri Lelli <juri.lelli@redhat.com>, Kees Cook <keescook@chromium.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Lee Jones <lee.jones@linaro.org>, 
- Marc Zyngier <maz@kernel.org>, Marcin Wojtas <mw@semihalf.com>,
- Mark Gross <markgross@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Matti Vaittinen <mazziesaccount@gmail.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Mel Gorman <mgorman@suse.de>, 
- Michael Ellerman <mpe@ellerman.id.au>, 
- Mike Marciniszyn <mike.marciniszyn@cornelisnetworks.com>,
- Nicholas Piggin <npiggin@gmail.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Peter Zijlstra <peterz@infradead.org>, 
- Petr Mladek <pmladek@suse.com>, Randy Dunlap <rdunlap@infradead.org>, 
- Rasmus Villemoes <linux@rasmusvillemoes.dk>,
- Russell King <linux@armlinux.org.uk>, 
- Saeed Mahameed <saeedm@nvidia.com>, Sagi Grimberg <sagi@grimberg.me>, 
- Sergey Senozhatsky <senozhatsky@chromium.org>,
- Solomon Peachy <pizza@shaftnet.org>, 
- Stephen Boyd <sboyd@kernel.org>, Stephen Rothwell <sfr@canb.auug.org.au>, 
- Steven Rostedt <rostedt@goodmis.org>, Subbaraya Sundeep <sbhatta@marvell.com>, 
- Sudeep Holla <sudeep.holla@arm.com>, Sunil Goutham <sgoutham@marvell.com>, 
- Tariq Toukan <tariqt@nvidia.com>, Tejun Heo <tj@kernel.org>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Thomas Gleixner <tglx@linutronix.de>, 
- Ulf Hansson <ulf.hansson@linaro.org>,
- Vincent Guittot <vincent.guittot@linaro.org>, 
- Vineet Gupta <vgupta@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
- Vivien Didelot <vivien.didelot@gmail.com>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, 
- bcm-kernel-feedback-list@broadcom.com, kvm@vger.kernel.org, 
- linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-crypto@vger.kernel.org, linux-csky@vger.kernel.org, 
- linux-ia64@vger.kernel.org, linux-mips@vger.kernel.org, linux-mm@kvack.org, 
- linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
- linuxppc-dev@lists.ozlabs.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211218_152840_073419_A023EA41 
-X-CRM114-Status: GOOD (  19.75  )
+X-CRM114-CacheID: sfid-20211219_135715_538024_FDB9FF34 
+X-CRM114-Status: GOOD (  22.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,36 +58,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBEZWMgMTgsIDIwMjEgYXQgMjoxNiBQTSBNaWNoYcWCIE1pcm9zxYJhdyA8bWlycS1s
-aW51eEByZXJlLnFtcW0ucGw+IHdyb3RlOgo+Cj4gT24gU2F0LCBEZWMgMTgsIDIwMjEgYXQgMDE6
-MTk6NTdQTSAtMDgwMCwgWXVyeSBOb3JvdiB3cm90ZToKPiA+IERvbid0IGNhbGwgYml0bWFwX3dl
-aWdodCgpIGlmIHRoZSBmb2xsb3dpbmcgY29kZSBjYW4gZ2V0IGJ5Cj4gPiB3aXRob3V0IGl0Lgo+
-ID4KPiA+IFNpZ25lZC1vZmYtYnk6IFl1cnkgTm9yb3YgPHl1cnkubm9yb3ZAZ21haWwuY29tPgo+
-ID4gLS0tCj4gPiAgZHJpdmVycy9uZXQvZHNhL2I1My9iNTNfY29tbW9uLmMgICAgICAgICAgIHwg
-NiArLS0tLS0KPiA+ICBkcml2ZXJzL25ldC9ldGhlcm5ldC9icm9hZGNvbS9iY21zeXNwb3J0LmMg
-fCA2ICstLS0tLQo+ID4gIGRyaXZlcnMvdGhlcm1hbC9pbnRlbC9pbnRlbF9wb3dlcmNsYW1wLmMg
-ICB8IDkgKysrLS0tLS0tCj4gPiAgMyBmaWxlcyBjaGFuZ2VkLCA1IGluc2VydGlvbnMoKyksIDE2
-IGRlbGV0aW9ucygtKQo+IFsuLi5dCj4KPiBMb29rcyBnb29kLAoKRG9lcyBpdCBtZWFuIEFja2Vk
-LWJ5LCBSZXZpZXdlZC1ieSwgb3Igc29tZXRoaW5nIGVsc2U/Cgo+IGJ1dCBJIHRoaW5rIHRoaXMg
-bmVlZHMgdG8gYmUgc3BsaXQgcGVyIHN1YnN5c3RlbS4KCldoYXQgeW91IGFzayBicmVha3MgcnVs
-ZXM6CgpEb2N1bWVudGF0aW9uL3Byb2Nlc3Mvc3VibWl0dGluZy1wYXRjaGVzLnJzdDoKClNlcGFy
-YXRlIGVhY2ggKipsb2dpY2FsIGNoYW5nZSoqIGludG8gYSBzZXBhcmF0ZSBwYXRjaC4KCkZvciBl
-eGFtcGxlLCBpZiB5b3VyIGNoYW5nZXMgaW5jbHVkZSBib3RoIGJ1ZyBmaXhlcyBhbmQgcGVyZm9y
-bWFuY2UKZW5oYW5jZW1lbnRzIGZvciBhIHNpbmdsZSBkcml2ZXIsIHNlcGFyYXRlIHRob3NlIGNo
-YW5nZXMgaW50byB0d28Kb3IgbW9yZSBwYXRjaGVzLiAgSWYgeW91ciBjaGFuZ2VzIGluY2x1ZGUg
-YW4gQVBJIHVwZGF0ZSwgYW5kIGEgbmV3CmRyaXZlciB3aGljaCB1c2VzIHRoYXQgbmV3IEFQSSwg
-c2VwYXJhdGUgdGhvc2UgaW50byB0d28gcGF0Y2hlcy4KCk9uIHRoZSBvdGhlciBoYW5kLCBpZiB5
-b3UgbWFrZSBhIHNpbmdsZSBjaGFuZ2UgdG8gbnVtZXJvdXMgZmlsZXMsCmdyb3VwIHRob3NlIGNo
-YW5nZXMgaW50byBhIHNpbmdsZSBwYXRjaC4gIFRodXMgYSBzaW5nbGUgbG9naWNhbCBjaGFuZ2UK
-aXMgY29udGFpbmVkIHdpdGhpbiBhIHNpbmdsZSBwYXRjaC4KClRoaXMgaXMgbm90IGEgZGVhZCBy
-dWxlLCByZWZlciBmb3IgZXhhbXBsZSB0aGUgOTZkNGYyNjdlNDBmOSAoIlJlbW92ZQondHlwZScg
-YXJndW1lbnQgZnJvbSBhY2Nlc3Nfb2soKSBmdW5jdGlvaW4uIikKCk9yIHRoaXM6IGh0dHBzOi8v
-bGttbC5vcmcvbGttbC8yMDIxLzYvMTQvMTczNgoKVGhhbmtzLApZdXJ5CgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Am Freitag, 17. Dezember 2021, 06:35:00 CET schrieb Palmer Dabbelt:
+> On Fri, 19 Nov 2021 14:55:40 PST (-0800), plr.vincent@gmail.com wrote:
+> > Provides monitoring of core voltage and current:
+> > tps544b20-i2c-0-1e
+> > Adapter: i2c-ocores
+> > vout1:       906.00 mV
+> > temp1:        -40.0=B0C  (high =3D +125.0=B0C, crit =3D +150.0=B0C)
+> > iout1:         5.06 A  (max =3D +20.00 A, crit max =3D +26.00 A)
+> >
+> > Signed-off-by: Vincent Pelletier <plr.vincent@gmail.com>
+> >
+> > ---
+> > Note: checkpatch.pl complains about undocumented devicetree binding,
+> > which is fixed by:
+> >   https://lore.kernel.org/linux-devicetree/20211116110207.68494-1-krzys=
+ztof.kozlowski@canonical.com/T/#u
+> >
+> > Changes since v2:
+> > - Fix end-of-commit-message separator so change lists do not end up in =
+them.
+> > Changes since v1:
+> > - Added missing "ti," prefix in compatible string.
+> > - Remove trailing "." on subject line.
+> > - Rename tree node.
+> =
+
+> I see this in Rob's for-next as 761de79adc2c ("dt-bindings: hwmon: add
+> TI DC-DC converters"), so I'm going to hold off on this one until the
+> bindings land.
+
+Can't this patch then simply go into your for-next branch then?
+
+The split is most times binding goes through the driver-tree
+(or Rob's dt tree) and the dts patch through an arch or soc tree.
+
+But in general once a maintainer accepts the binding it is ok
+to also apply the dts patch for the same cycle (aka merge window)
+the binding will be in.
+
+
+Heiko
+
+
+> =
+
+> I've put the others on fixes.
+> =
+
+> Thanks!
+> =
+
+> > ---
+> >  arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 5 +++++
+> >  1 file changed, 5 insertions(+)
+> >
+> > diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch=
+/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> > index 270360b258b7..6e7775fdae32 100644
+> > --- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> > +++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> > @@ -51,6 +51,11 @@ &uart1 {
+> >  &i2c0 {
+> >  	status =3D "okay";
+> >
+> > +	regulator@1e {
+> > +		compatible =3D "ti,tps544b20";
+> > +		reg =3D <0x1e>;
+> > +	};
+> > +
+> >  	temperature-sensor@4c {
+> >  		compatible =3D "ti,tmp451";
+> >  		reg =3D <0x4c>;
+> =
+
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> =
+
+
+
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
