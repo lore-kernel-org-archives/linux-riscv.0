@@ -4,79 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9218C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Dec 2021 14:37:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C049C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Dec 2021 14:42:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1ObowT8GiywN5qdRA6u7f6Hol6Pjx+3EUs6I/N6e5IM=; b=oyJFMqY+AGnTFS
-	EI54ray584AUXrLfapasDM9b40940dHdA0l+SLPgEQYy5y8SvA0xcePB3iZ/wrrMJVD2OT1+2OOZZ
-	Un2RELF22i1bKxJWvBDmQk3BAl07DrV4djXGmmek9dGpfLbIKZYsro0d0+8TIafNauI7NSLpljTIy
-	ePy69pkPu95APQ/Je+8rjahpaUjIAQ3R+UP7HgHIVEO/rabRxcTwp7EhQpGiQDwUNLKjAP38hLHjk
-	8HVUuggOgmn3i2jdyiRPmlw8spRZOHUhYkg8O4DZ1MURkH/s4hwfyBMvNO2Nu7sfDTeuYXpczCnJc
-	eNDahPvWRBp9C6/uy+YA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2MBVE1b3f16NLGuWzKOGqDXOdy5fKbr2n2+LvcVmmjs=; b=nNbFOcXYfkrEAn
+	BL5+Cwtz9Qg4dQQAooejO/MptCaYE9W1ytgvxSCTgN5vMbNv/9ajFGC6L9xYLNCOEAiLqfXocpb4B
+	8ajQWL1+5L5alI8KlK2tnL8eeVbqFMx93eZUr76f/Cc2FvOpqzROOyAbRRNRMtBY37POuk5lIsPJd
+	DJUz6QnIMub8qwJNI1CxM9+fX/fuCTld+op1nZAeQlhfm7uDDiT7X48ZPOUsRxgo3uWI1FqzWU9l5
+	fZYLed95AHdtEVZ5y08XKXLSquNDwj/8aKaRDhWcV5QSSTZ2sMtK2s7+z+zCh6ljkX0lFrmfdaPG0
+	JGiLh8BZ9T66FA5SBjeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mzJnE-002qLX-1b; Mon, 20 Dec 2021 14:37:36 +0000
-Received: from mail-oi1-f173.google.com ([209.85.167.173])
+	id 1mzJrx-002rxx-TP; Mon, 20 Dec 2021 14:42:29 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mzJnA-002qJe-TX
- for linux-riscv@lists.infradead.org; Mon, 20 Dec 2021 14:37:34 +0000
-Received: by mail-oi1-f173.google.com with SMTP id p4so16028520oia.9
- for <linux-riscv@lists.infradead.org>; Mon, 20 Dec 2021 06:37:32 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=MX2xD6NxZlK32RqDAc9k/pbvJlT/hpUSltlaWuBfZyY=;
- b=W2yOD0gpDunGBewP4k0uMU3O7Eb7M2BDOLonjR8b8Hu3ie9xBzozc3+3UttyZcL5qS
- r6gJuHhvWRpzwVsEp3eUk1R2wsBH0Cl4Z9StpsK/sj490AzVuBcQz6qxG35W3zFgwjdK
- i1oE4puJatHulxZkDLDlaD45ZyAEPfM+5W/D6Ae/gKse+HIzf1KpGt5kgmu5K36WismN
- MmQ1IdE4X1An8ahknGRiMnm/kuVzXiFotzu7pvBBuyzZOAnLycZvnAeLjFrK4chteQu8
- KsOTU8jtqtklqGx4/s7+WR+5q7I99kgrl+axrfuGuAuu13tDT3WAjW7i4615UU0je/2j
- i16Q==
-X-Gm-Message-State: AOAM531aKU4f78AdSNtmv0vwjOUODcYLcs0QERIN+TjVt93Yz6+yvrTS
- TfffNL8QFNW4jr1eMo4FYQ==
-X-Google-Smtp-Source: ABdhPJwb8Epp66kgn5FAQJGNGoQLiIht6dxhdac9TXEyh6nIWNGhfonlF1xdobHH+VltWNqopZLZIQ==
-X-Received: by 2002:a05:6808:11:: with SMTP id
- u17mr1043535oic.88.1640011051574; 
- Mon, 20 Dec 2021 06:37:31 -0800 (PST)
-Received: from robh.at.kernel.org ([12.252.7.226])
- by smtp.gmail.com with ESMTPSA id ay40sm3423367oib.1.2021.12.20.06.37.29
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 20 Dec 2021 06:37:30 -0800 (PST)
-Received: (nullmailer pid 3403888 invoked by uid 1000);
- Mon, 20 Dec 2021 14:37:28 -0000
-Date: Mon, 20 Dec 2021 08:37:28 -0600
-From: Rob Herring <robh@kernel.org>
-To: conor.dooley@microchip.com
-Cc: linus.walleij@linaro.org, bgolaszewski@baylibre.com,
- jassisinghbrar@gmail.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, a.zummo@towertech.it, alexandre.belloni@bootlin.com,
- broonie@kernel.org, gregkh@linuxfoundation.org, thierry.reding@gmail.com,
- u.kleine-koenig@pengutronix.de, lee.jones@linaro.org,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
- linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-crypto@vger.kernel.org, linux-rtc@vger.kernel.org,
- linux-spi@vger.kernel.org, linux-usb@vger.kernel.org,
- krzysztof.kozlowski@canonical.com, geert@linux-m68k.org,
- bin.meng@windriver.com, heiko@sntech.de, lewis.hanly@microchip.com,
- daire.mcnamara@microchip.com, ivan.griffin@microchip.com, atish.patra@wdc.com
-Subject: Re: [PATCH v2 07/17] dt-bindings: rtc: add bindings for microchip
- mpfs rtc
-Message-ID: <YcCVKFm+7aEG2FYH@robh.at.kernel.org>
-References: <20211217093325.30612-1-conor.dooley@microchip.com>
- <20211217093325.30612-8-conor.dooley@microchip.com>
+ id 1mzJru-002rwM-IW; Mon, 20 Dec 2021 14:42:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1640011347; x=1671547347;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=YNa8YHikRJ/OKzAGyD12kWBKv4tGn1WRMnt2QZArwnc=;
+ b=tlGF/QfuZowrxpAQO7cbJiRI6hRr3Z4dZdx1YzbxMVrCu5616FAQ8CJE
+ GD8/l25pWsYmu74OOAzGfX+f0dnRNVF7hac8+AM2iTWJaln+gIxcSYBJq
+ J24Jr6QZUVjKJYTCaGtvH92HVV7mc3QysZ6QhqSqgCL0wGeQibGEm7Ghn
+ 9xoO5KmyYfYbbFpelqPfWuBiPMFFv3sDg+rcS++3SN+J40MUlf2lg5N02
+ P95Su0S80PnbsvYtgIPX2SAplEa1KLMCHN5xUKHtfcCyTjArf2lz3w954
+ N7gU5iWjx3LxGuiCpa3NFQVU9TBTesqt80TSEcLJtDbf6WJbNz1NdDpS/ w==;
+IronPort-SDR: 5gTeZxK3/JoYsKr5AUjMzhAxFNSCKxbe0kR5vEy+WK5GUC/DQ3loE4mYxdvIayukdfz8sqMuLB
+ dWSS2dEt26O/ROOdFHEHPu6YSfzYJIbs0VsjyXY0u/U0K1QjAcUqhyVM0sroXepfUUooeyRHDS
+ 2Ujl6+GfiIZU8XUtWrAMNeVlHbj+u9ODCOp5oHF0iWlUsURu9Z8gdk7+pr2uqk+apLLEVEubMF
+ isLeP4E3Vc7G0UUouZFb1BZLRBT+VOnYabxtTt6kAmO8jGFandBq/NYSxqsHLeUInBk+aMMP86
+ ViHr4q4X/EVzSIzLlKta3fhg
+X-IronPort-AV: E=Sophos;i="5.88,220,1635231600"; d="scan'208";a="147245455"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 20 Dec 2021 07:42:25 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Mon, 20 Dec 2021 07:42:23 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2375.17 via
+ Frontend Transport; Mon, 20 Dec 2021 07:42:20 -0700
+From: <conor.dooley@microchip.com>
+To: <aou@eecs.berkeley.edu>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, 
+ <arnd@arndb.de>, <olof@lixom.net>, <linux-riscv@lists.infradead.org>
+CC: <cyril.jean@microchip.com>, <daire.mcnamara@microchip.com>,
+ <lewis.hanly@microchip.com>, <jassisinghbrar@gmail.com>,
+ <j.neuschaefer@gmx.net>, <sfr@canb.auug.org.au>, <damien.lemoal@wdc.com>,
+ <atishp@atishpatra.org>, <nicolas.ferre@microchip.com>,
+ <alexandre.belloni@bootlin.com>, <ludovic.desroches@microchip.com>,
+ <claudiu.beznea@microchip.com>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v2 0/1] soc: add polarfire soc system controller
+Date: Mon, 20 Dec 2021 14:44:12 +0000
+Message-ID: <20211220144413.6798-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.33.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20211217093325.30612-8-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211220_063732_985700_6C46A492 
-X-CRM114-Status: GOOD (  17.66  )
+X-CRM114-CacheID: sfid-20211220_064226_677690_1A74BC2D 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,95 +87,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 17, 2021 at 09:33:15AM +0000, conor.dooley@microchip.com wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Add device tree bindings for the real time clock on
-> the Microchip PolarFire SoC.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
-> ---
->  .../bindings/rtc/microchip,mfps-rtc.yaml      | 63 +++++++++++++++++++
->  1 file changed, 63 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml b/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
-> new file mode 100644
-> index 000000000000..d57460cbe5e3
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
-> @@ -0,0 +1,63 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/rtc/microchip,mfps-rtc.yaml#
-> +
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Microchip PolarFire Soc (MPFS) RTC Device Tree Bindings
-> +
-> +allOf:
-> +  - $ref: rtc.yaml#
-> +
-> +maintainers:
-> +  - Daire McNamara <daire.mcnamara@microchip.com>
-> +  - Lewis Hanly <lewis.hanly@microchip.com>
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - microchip,mpfs-rtc
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 2
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Need to define what each one is.
+Changes since v1:
+- system controller is now an mfd
+- parentage is now used to get the device node on the system controller
+- mpfs_sys_controller_get() now updates the reference count
+- "polarfire-soc" in compat string changed to "mpfs"
 
-> +
-> +  microchip,prescaler:
-> +    description: |
-> +      The prescaler divides the input frequency to create a time-based strobe (typically 1 Hz) for
-> +      the calendar counter. The Alarm and Compare Registers, in conjunction with the calendar
-> +      counter, facilitate time-matched events. To properly operate in Calendar or Binary mode,
-> +      the 26-bit prescaler must be programmed to generate a strobe to the RTC.
-> +    maxItems: 1
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  clock-names:
-> +    items:
-> +      - const: rtc
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - clocks
-> +  - clock-names
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/microchip,mpfs-clock.h>
-> +    rtc@20124000 {
-> +        compatible = "microchip,mpfs-rtc";
-> +        reg = <0x20124000 0x1000>;
-> +        clocks = <&clkcfg CLK_RTC>;
-> +        clock-names = "rtc";
-> +        interrupts = <80>, <81>;
-> +    };
-> +...
-> -- 
-> 2.33.1
-> 
-> 
+Depends on [0] to change the compat string in the dt-binding.
+
+@Arnd Bergmann:
+I sent the first version of this patch in November & you (along with
+requesting referencing counting) wanted me to check if the driver was
+bound to the specific device [1]. I have taken another look at this
+driver now and I am still none the wiser as to how I should do this.
+
+As I said in the previous thread, I checked other driver but was not
+able to find any examples of of_find_device_by_node() where the binding
+of the driver was checked. If you could point me towards an example
+that would be great.
+
+Thanks,
+Conor.
+
+For some extra context, the device tree entry for this driver will look
+like:
+
+syscontroller: syscontroller {
+	compatible = "microchip,mpfs-sys-controller", "simple-mfd";
+	mboxes = <&mbox 0>;
+
+	hwrandom: hwrandom {
+		compatible = "microchip,mpfs-rng";
+	};
+
+	sysserv: sysserv {
+		compatible = "microchip,mpfs-generic-service";
+	};
+};
+
+and the mpfs_sys_controller_get() function is called in, for example,
+the mpfs-rng driver:
+
+node_pointer = of_get_parent(dev->of_node);
+if (!node_pointer) {
+	dev_err(&pdev->dev,
+		"Failed to find mpfs system controller node\n");
+	return -ENODEV;
+}
+
+rng_priv->sys_controller =  mpfs_sys_controller_get(&pdev->dev, node_pointer);
+
+[0] https://lore.kernel.org/linux-riscv/CAMuHMdWTjrAiHosU0cGyJYkK=9JzNgHb=tjHXPdYxTWmkVzeYQ@mail.gmail.com/T/
+[1] https://lore.kernel.org/linux-riscv/CAK8P3a1m_LhOg5JGMqPz6sohJa2hPZ3GN-jQDPxigZ5DaqAGxQ@mail.gmail.com/
+
+Conor Dooley (1):
+  soc: add polarfire soc system controller
+
+ drivers/soc/Kconfig                         |   1 +
+ drivers/soc/Makefile                        |   1 +
+ drivers/soc/microchip/Kconfig               |  10 ++
+ drivers/soc/microchip/Makefile              |   1 +
+ drivers/soc/microchip/mpfs-sys-controller.c | 169 ++++++++++++++++++++
+ include/soc/microchip/mpfs.h                |   3 +-
+ 6 files changed, 184 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/soc/microchip/Kconfig
+ create mode 100644 drivers/soc/microchip/Makefile
+ create mode 100644 drivers/soc/microchip/mpfs-sys-controller.c
+
+-- 
+2.33.1
+
 
 _______________________________________________
 linux-riscv mailing list
