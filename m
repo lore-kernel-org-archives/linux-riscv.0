@@ -4,117 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0419C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Dec 2021 16:41:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DA9CC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Dec 2021 19:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5yIGIs3phlNOQrxdWMN1ji3hJW9KEQ3+tXTW89XMqxU=; b=F8jkcayD0Zl9Ra
-	oO9ztg6j5oKDtA3AD1cR60vggJU9UDKbFVhX/Are7c3uN6ImFRs1GwYwhVsRHsdiHwYsxcbbnGBrF
-	qYe5MFkF1GBlc/KOaW7YdAa82vNzmvrZ7Q4fsJuLIs0ZVtISaQJLlANn40dvES+8QwbtRwF7A/SNi
-	4sQw1NAJqGH2Eq3bXxkMuhQvbPVE7oHU9IBywH7ww/Jn7/QkuohZ911IVyLGbpAgjx6Rame3lLNsn
-	nTt9OLUciwMSvtrpuXnWC0TyvpC3Zh5JbrulkZoEXDV0SFfU3zmbKADdSxkinBfTqZ7n1OvReEhDL
-	pR2NnKQxkyKthQc541Ww==;
+	List-Owner; bh=HL72q8aQOPNewMd5hkUtJjY6ITtYrC+4RaTmRvsF9Tg=; b=Dfy33X3HLpfNgZ
+	VEqIWMr84EsarARRbUEYaGI8HTjDI0Jt719654Ru4P/8+DuIBdaHd23Nqn63yHWHe9HKdQ254K7Io
+	aPRYtG1BI5biC1I11aZ0jFHG1si83FX3RNqSxSgFRJUaUFPOsq9kLsMWD6kwYI4RVavNUAYxZ6ElS
+	c9tKAZenCBQzHwRsmaB6PFr3Kd9tHnMRgVbgFwR/8J1hfJQ3+vRwDEYvE5Hmv0c7CzkVNn4H/Wss0
+	ujag4Wa6Qb8ftnPd8BRCmcvQjAj5kPTiAyFofX8xJVeod0bS6XtpAFxfjELYjUMKp7WN0LebQ0oB5
+	ar3Y+gSAXJXV755umTKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mzLip-003LEw-Cd; Mon, 20 Dec 2021 16:41:11 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1mzOat-0048f6-06; Mon, 20 Dec 2021 19:45:11 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mzLil-003LB0-Tf; Mon, 20 Dec 2021 16:41:10 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 500EDB80F98;
- Mon, 20 Dec 2021 16:41:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8EC6C36AE2;
- Mon, 20 Dec 2021 16:41:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
- s=korg; t=1640018465;
- bh=TuP185pT5gdSlNtfNfQ+Kye5lOB+euhTli9+HNxshOM=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=enGWQQJij7Gn5KXQIvc6DgLGhW8TsmstPvfbBL0Frpv76daIROB5Wk6RyCml6X1M0
- INr/wU0RVuAcWcOkPbgbi5U7MaR0NTk6+o3rhiyEe0vywSW27g/jS59FjbvlDzhRr3
- ovNt3nB3npaxHStYKaqE8ptag4HrP8L17DKCvcbQ=
-Date: Mon, 20 Dec 2021 17:41:02 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Yury Norov <yury.norov@gmail.com>
-Cc: linux-kernel@vger.kernel.org, "James E.J. Bottomley" <jejb@linux.ibm.com>,
- "Martin K. Petersen" <martin.petersen@oracle.com>,
- =?utf-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>,
- "Paul E. McKenney" <paulmck@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Alexey Klimov <aklimov@redhat.com>,
- Amitkumar Karwar <amitkarwar@gmail.com>,
- Andi Kleen <ak@linux.intel.com>, Andrew Lunn <andrew@lunn.ch>,
- Andrew Morton <akpm@linux-foundation.org>,
- Andy Gross <agross@kernel.org>, Andy Lutomirski <luto@kernel.org>,
- Andy Shevchenko <andy@infradead.org>,
- Anup Patel <anup.patel@wdc.com>, Ard Biesheuvel <ardb@kernel.org>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Christoph Hellwig <hch@lst.de>, Christoph Lameter <cl@linux.com>,
- Daniel Vetter <daniel@ffwll.ch>, Dave Hansen <dave.hansen@linux.intel.com>,
- David Airlie <airlied@linux.ie>, David Laight <David.Laight@aculab.com>,
- Dennis Zhou <dennis@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Geetha sowjanya <gakula@marvell.com>, Guo Ren <guoren@kernel.org>,
- Hans de Goede <hdegoede@redhat.com>,
- Heiko Carstens <hca@linux.ibm.com>, Ian Rogers <irogers@google.com>,
- Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
- Jason Wessel <jason.wessel@windriver.com>,
- Jens Axboe <axboe@fb.com>, Jiri Olsa <jolsa@redhat.com>,
- Joe Perches <joe@perches.com>, Jonathan Cameron <jic23@kernel.org>,
- Juri Lelli <juri.lelli@redhat.com>, Kees Cook <keescook@chromium.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Lee Jones <lee.jones@linaro.org>, Marc Zyngier <maz@kernel.org>,
- Marcin Wojtas <mw@semihalf.com>, Mark Gross <markgross@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Matti Vaittinen <mazziesaccount@gmail.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Mel Gorman <mgorman@suse.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Mike Marciniszyn <mike.marciniszyn@cornelisnetworks.com>,
- Nicholas Piggin <npiggin@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Peter Zijlstra <peterz@infradead.org>, Petr Mladek <pmladek@suse.com>,
- Randy Dunlap <rdunlap@infradead.org>,
- Rasmus Villemoes <linux@rasmusvillemoes.dk>,
- Russell King <linux@armlinux.org.uk>, Saeed Mahameed <saeedm@nvidia.com>,
- Sagi Grimberg <sagi@grimberg.me>,
- Sergey Senozhatsky <senozhatsky@chromium.org>,
- Solomon Peachy <pizza@shaftnet.org>, Stephen Boyd <sboyd@kernel.org>,
- Stephen Rothwell <sfr@canb.auug.org.au>,
- Steven Rostedt <rostedt@goodmis.org>,
- Subbaraya Sundeep <sbhatta@marvell.com>,
- Sudeep Holla <sudeep.holla@arm.com>, Sunil Goutham <sgoutham@marvell.com>,
- Tariq Toukan <tariqt@nvidia.com>, Tejun Heo <tj@kernel.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Thomas Gleixner <tglx@linutronix.de>, Ulf Hansson <ulf.hansson@linaro.org>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Vineet Gupta <vgupta@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>,
- Vivien Didelot <vivien.didelot@gmail.com>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- bcm-kernel-feedback-list@broadcom.com, kvm@vger.kernel.org,
- linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-crypto@vger.kernel.org, linux-csky@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, linux-perf-users@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH 08/17] all: replace bitmap_weight with
- bitmap_weight_{eq,gt,ge,lt,le} where appropriate
-Message-ID: <YcCyHvr1f+Z8M9M1@kroah.com>
-References: <20211218212014.1315894-1-yury.norov@gmail.com>
- <20211218212014.1315894-9-yury.norov@gmail.com>
+ id 1mzOap-0048dc-IZ
+ for linux-riscv@lists.infradead.org; Mon, 20 Dec 2021 19:45:09 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id
+ o63-20020a17090a0a4500b001b1c2db8145so157801pjo.5
+ for <linux-riscv@lists.infradead.org>; Mon, 20 Dec 2021 11:45:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=9utNYtF7nbB+ny8Zz1Q0qxMiDuM46joQzQmvzzrN56I=;
+ b=MKzIkQMyFLCHcVjCyhCE9CFcyp/GFZNhZKLrRFLpauudskVD6/M4E35pj8N/k6PFWq
+ dxzXbCQNLTbgHOaUo9lyEe52DhZrMqSOpSbWSiC3rmhawnW3Vhcd2ofHg460QmU1S3+6
+ Juc6MueHrzIezVNQDFi0ziywbIuQMp2GUfwUM2IDndVk4h12Ttlu0y1YuL+IIAAcClpH
+ pcO8b38Rxyzdn0ExdcWur3WTwjX7Xj4O2VV6xFK0tTaLgKrNfzqA6KUAKKatpBvJalGh
+ h3U2EwBSR65pEIIFRkNWtLWYO7wI53W6Sn9vUZ+8PVeJS+fOejo7KJmGMt0hzTumzmS5
+ JlPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=9utNYtF7nbB+ny8Zz1Q0qxMiDuM46joQzQmvzzrN56I=;
+ b=Jv/4DFqxX7toBCC1YieqLGZ3IlPIFF31MSZxZ5CPwQ+2bIufpAyBUqxo22S3s1jUom
+ jUAVVzpfd1zYGtVe4SlG+H2PUcpSbjuZkf7l4dvgcpa2dIQj+gNM2lhehYoOEBIGe9zr
+ YtjaPr3OuXwm8oMJWsxwjVIEwkzgaFF8gM+H0IE0sORBZWFVmWxyFnzxqM3xIRaDNs47
+ l91O1T2+AnlzlXQ/qbZRG4bOJLQmvMEJTK8X8fVA5SH8iVT04tLHufPoWcEhp7EuWyxM
+ xx22goN3pMS6V0KbSHOxdhbpVhg/d/hTKyGKBDduYgXx7KQe2bbKUvt6RFn1sZXBWTOz
+ DD0w==
+X-Gm-Message-State: AOAM5325fOEDkuuuzdcseSahaLNMJzSzQ37fkx2RUUEytjR0ePwTti9q
+ D2OMH6c3yDM6THFeNWkBiDFz4Q==
+X-Google-Smtp-Source: ABdhPJz9fxZPk5z4s+GXQitXrpsy8xcsqun69MNxnSpmZ5tOYABVgyfGrAXKFYzahDOFlitumpiksw==
+X-Received: by 2002:a17:90a:a083:: with SMTP id r3mr601594pjp.55.1640029505867; 
+ Mon, 20 Dec 2021 11:45:05 -0800 (PST)
+Received: from google.com (157.214.185.35.bc.googleusercontent.com.
+ [35.185.214.157])
+ by smtp.gmail.com with ESMTPSA id t8sm19386929pfj.26.2021.12.20.11.45.05
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 20 Dec 2021 11:45:05 -0800 (PST)
+Date: Mon, 20 Dec 2021 19:45:01 +0000
+From: Sean Christopherson <seanjc@google.com>
+To: Anup Patel <anup.patel@wdc.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
+ Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] KVM: selftests: Add EXTRA_CFLAGS in top-level
+ Makefile
+Message-ID: <YcDdPUn9bAVnxb/2@google.com>
+References: <20211129075451.418122-1-anup.patel@wdc.com>
+ <20211129075451.418122-4-anup.patel@wdc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20211218212014.1315894-9-yury.norov@gmail.com>
+In-Reply-To: <20211129075451.418122-4-anup.patel@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211220_084108_251692_FD8D5370 
-X-CRM114-Status: GOOD (  19.61  )
+X-CRM114-CacheID: sfid-20211220_114507_640731_2024D56C 
+X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,42 +98,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 18, 2021 at 01:20:04PM -0800, Yury Norov wrote:
-> Kernel code calls bitmap_weight() to compare the weight of bitmap with
-> a given number. We can do it more efficiently with bitmap_weight_{eq, ...}
-> because conditional bitmap_weight may stop traversing the bitmap earlier,
-> as soon as condition is met.
-> 
-> This patch replaces bitmap_weight with conditional versions where possible,
-> except for small bitmaps which size is not configurable and  known at
-> constant time. In that case conditional version of bitmap_weight would not
-> benefit due to small_const_nbits() optimization; but readability may
-> suffer.
-> 
-> Signed-off-by: Yury Norov <yury.norov@gmail.com>
+On Mon, Nov 29, 2021, Anup Patel wrote:
+> We add EXTRA_CFLAGS to the common CFLAGS of top-level Makefile
+
+Nit, wrap closer to 75 chars.
+
+> which will allow users to pass additional compile-time flags such
+> as "-static".
+
+In case there's any hesitation in applying this (Paolo asked if this was just for
+debugging in v1), being able to pass "-static" is helpful for our environment as
+our test systems have a funky and minimal configuration (no gcc, and the interpreter
+is in a weird location).  Running selftests either requires building them with
+-static or creating a symbolic link for /lib64/ld-linux-x86-64.so.2.  It's generally
+easier to just tell people to compile with -static.
+
+> Signed-off-by: Anup Patel <anup.patel@wdc.com>
 > ---
->  arch/x86/kernel/cpu/resctrl/rdtgroup.c                 |  2 +-
->  drivers/iio/dummy/iio_simple_dummy_buffer.c            |  4 ++--
->  drivers/iio/industrialio-trigger.c                     |  2 +-
->  drivers/memstick/core/ms_block.c                       |  4 ++--
->  drivers/net/ethernet/intel/ixgbe/ixgbe_sriov.c         |  2 +-
->  .../net/ethernet/marvell/octeontx2/nic/otx2_ethtool.c  |  2 +-
->  .../net/ethernet/marvell/octeontx2/nic/otx2_flows.c    |  4 ++--
->  drivers/net/ethernet/mellanox/mlx4/cmd.c               | 10 +++-------
->  drivers/net/ethernet/mellanox/mlx4/eq.c                |  4 ++--
->  drivers/net/ethernet/mellanox/mlx4/fw.c                |  4 ++--
->  drivers/net/ethernet/mellanox/mlx4/main.c              |  2 +-
->  drivers/perf/thunderx2_pmu.c                           |  4 ++--
->  drivers/staging/media/tegra-video/vi.c                 |  2 +-
->  13 files changed, 21 insertions(+), 25 deletions(-)
 
-"all" is not how to submit changes to the kernel.  Please break them up
-into subsystem-specific patches, and send them after your core changes
-are accepted.
-
-good luck!
-
-greg k-h
+Reviewed-and-tested-by: Sean Christopherson <seanjc@google.com>
 
 _______________________________________________
 linux-riscv mailing list
