@@ -4,85 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EF38C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Dec 2021 13:41:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9218C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Dec 2021 14:37:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iyL18FfGPNgCdRZSoKCMcHHSc+cogMchVLZv6ORNnGY=; b=aob0OROEP3OnA2
-	X8sMtngD6NARy5sfYgPMv9yL+9Et1USuXCuxbN8VQu0lTx+BPS+ijMpBcor3AnjFgCVHMSvRYUxa0
-	pCa9RDs6Ze6VuXSTTOjumi/bilktxkmnhP0HXgOUe7mFKntmtn0BZzOzQ6jLfGMEZRHryXam0Kc0O
-	FFzFiRTBSAHhzg2+pwXu9/yIuJjqLbGcF1a+hV93urU9KVq2SqLzDHlt4uqjNotBT9EnOGEIYP3SK
-	tmKKtEsdOGG9PlYrp0Izt3PEcjdIUdHvnj3v2S4M7zv+vj8WDcRo5aYTHVY4rQM1gfiERZ5uYhlXF
-	HPsWpMjwTNU8j9hCfCKQ==;
+	List-Owner; bh=1ObowT8GiywN5qdRA6u7f6Hol6Pjx+3EUs6I/N6e5IM=; b=oyJFMqY+AGnTFS
+	EI54ray584AUXrLfapasDM9b40940dHdA0l+SLPgEQYy5y8SvA0xcePB3iZ/wrrMJVD2OT1+2OOZZ
+	Un2RELF22i1bKxJWvBDmQk3BAl07DrV4djXGmmek9dGpfLbIKZYsro0d0+8TIafNauI7NSLpljTIy
+	ePy69pkPu95APQ/Je+8rjahpaUjIAQ3R+UP7HgHIVEO/rabRxcTwp7EhQpGiQDwUNLKjAP38hLHjk
+	8HVUuggOgmn3i2jdyiRPmlw8spRZOHUhYkg8O4DZ1MURkH/s4hwfyBMvNO2Nu7sfDTeuYXpczCnJc
+	eNDahPvWRBp9C6/uy+YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mzIuY-002Zxk-MC; Mon, 20 Dec 2021 13:41:06 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1mzJnE-002qLX-1b; Mon, 20 Dec 2021 14:37:36 +0000
+Received: from mail-oi1-f173.google.com ([209.85.167.173])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mzIuW-002ZxH-AE
- for linux-riscv@lists.infradead.org; Mon, 20 Dec 2021 13:41:05 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id A1B0661123
- for <linux-riscv@lists.infradead.org>; Mon, 20 Dec 2021 13:41:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16397C36AEA
- for <linux-riscv@lists.infradead.org>; Mon, 20 Dec 2021 13:41:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1640007663;
- bh=sEhqYPxM4z19kGZYE2peDh+u0pT/5DH5Q0sa/WgLz2s=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=oT13uPmkAxGD5Bshuprq6DF7tVZgmsbYCW7m81SlEheTzmKYwN9cteS2Qm0f+yzG6
- FxEZ90zHRkBUkkldie3P2GUorJw1P9OF2hEnTx8f/v+ToJqdVDYWB/RZ1XHjnjfRxL
- fLVSWyLXsF5rXhpcI2KLW7oGXDoL1S/kUska8UuCqrAnXLgCH77Juo+nSxz7bV+YX3
- 3WfuXF6l3rrDlcVq5dlYauRBATyJZitLDYYQCif2MaHz6a5dvEw228kOuvYnysWwa9
- APhZ9+umMMMIfdZxyvdYYy+6SLkJwLHrNpa2baLRP4StlCKGzXgQu+j2Qe1Fq0Q/Z8
- 2W1x/QxmwJyOQ==
-Received: by mail-ua1-f52.google.com with SMTP id a14so17820104uak.0
- for <linux-riscv@lists.infradead.org>; Mon, 20 Dec 2021 05:41:03 -0800 (PST)
-X-Gm-Message-State: AOAM533dNUFu6PEsOf9NkTOj4Ht4gxN1z8BL2OHlBl00e5+AUgzSNbC7
- b/36dwDbwMDmVAzMcTWZARZW1lK2JmjuYjCWTzg=
-X-Google-Smtp-Source: ABdhPJwGr/+MFfoW7ipUpJBlTl+ZN+AB5Gr6EIJrZEEcp5Ttg/AYr9iCWiGr8Ukebm4uIUfe9nTB/0FRTqyMvS0jIYU=
-X-Received: by 2002:a05:6102:316e:: with SMTP id
- l14mr233250vsm.8.1640007662059; 
- Mon, 20 Dec 2021 05:41:02 -0800 (PST)
+ id 1mzJnA-002qJe-TX
+ for linux-riscv@lists.infradead.org; Mon, 20 Dec 2021 14:37:34 +0000
+Received: by mail-oi1-f173.google.com with SMTP id p4so16028520oia.9
+ for <linux-riscv@lists.infradead.org>; Mon, 20 Dec 2021 06:37:32 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=MX2xD6NxZlK32RqDAc9k/pbvJlT/hpUSltlaWuBfZyY=;
+ b=W2yOD0gpDunGBewP4k0uMU3O7Eb7M2BDOLonjR8b8Hu3ie9xBzozc3+3UttyZcL5qS
+ r6gJuHhvWRpzwVsEp3eUk1R2wsBH0Cl4Z9StpsK/sj490AzVuBcQz6qxG35W3zFgwjdK
+ i1oE4puJatHulxZkDLDlaD45ZyAEPfM+5W/D6Ae/gKse+HIzf1KpGt5kgmu5K36WismN
+ MmQ1IdE4X1An8ahknGRiMnm/kuVzXiFotzu7pvBBuyzZOAnLycZvnAeLjFrK4chteQu8
+ KsOTU8jtqtklqGx4/s7+WR+5q7I99kgrl+axrfuGuAuu13tDT3WAjW7i4615UU0je/2j
+ i16Q==
+X-Gm-Message-State: AOAM531aKU4f78AdSNtmv0vwjOUODcYLcs0QERIN+TjVt93Yz6+yvrTS
+ TfffNL8QFNW4jr1eMo4FYQ==
+X-Google-Smtp-Source: ABdhPJwb8Epp66kgn5FAQJGNGoQLiIht6dxhdac9TXEyh6nIWNGhfonlF1xdobHH+VltWNqopZLZIQ==
+X-Received: by 2002:a05:6808:11:: with SMTP id
+ u17mr1043535oic.88.1640011051574; 
+ Mon, 20 Dec 2021 06:37:31 -0800 (PST)
+Received: from robh.at.kernel.org ([12.252.7.226])
+ by smtp.gmail.com with ESMTPSA id ay40sm3423367oib.1.2021.12.20.06.37.29
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 20 Dec 2021 06:37:30 -0800 (PST)
+Received: (nullmailer pid 3403888 invoked by uid 1000);
+ Mon, 20 Dec 2021 14:37:28 -0000
+Date: Mon, 20 Dec 2021 08:37:28 -0600
+From: Rob Herring <robh@kernel.org>
+To: conor.dooley@microchip.com
+Cc: linus.walleij@linaro.org, bgolaszewski@baylibre.com,
+ jassisinghbrar@gmail.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, a.zummo@towertech.it, alexandre.belloni@bootlin.com,
+ broonie@kernel.org, gregkh@linuxfoundation.org, thierry.reding@gmail.com,
+ u.kleine-koenig@pengutronix.de, lee.jones@linaro.org,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
+ linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-crypto@vger.kernel.org, linux-rtc@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-usb@vger.kernel.org,
+ krzysztof.kozlowski@canonical.com, geert@linux-m68k.org,
+ bin.meng@windriver.com, heiko@sntech.de, lewis.hanly@microchip.com,
+ daire.mcnamara@microchip.com, ivan.griffin@microchip.com, atish.patra@wdc.com
+Subject: Re: [PATCH v2 07/17] dt-bindings: rtc: add bindings for microchip
+ mpfs rtc
+Message-ID: <YcCVKFm+7aEG2FYH@robh.at.kernel.org>
+References: <20211217093325.30612-1-conor.dooley@microchip.com>
+ <20211217093325.30612-8-conor.dooley@microchip.com>
 MIME-Version: 1.0
-References: <20211206104657.433304-1-alexandre.ghiti@canonical.com>
- <20211206104657.433304-13-alexandre.ghiti@canonical.com>
- <CAJF2gTQEHv1dVzv=JNCYSzD8oh6UxYOFRTdBOp-FFeeeOhSJrQ@mail.gmail.com>
- <CAMj1kXHmdDKFozkoAfM-mxsxxfanhVq5HcA1qKTrkp=vAt=Umg@mail.gmail.com>
-In-Reply-To: <CAMj1kXHmdDKFozkoAfM-mxsxxfanhVq5HcA1qKTrkp=vAt=Umg@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 20 Dec 2021 21:40:51 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTR2pDN8vvknmE2s1nj2WSuCfTkXYkU074rCck+CCwQv7Q@mail.gmail.com>
-Message-ID: <CAJF2gTR2pDN8vvknmE2s1nj2WSuCfTkXYkU074rCck+CCwQv7Q@mail.gmail.com>
-Subject: Re: [PATCH v3 12/13] riscv: Initialize thread pointer before calling
- C functions
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Alexandre Ghiti <alexandre.ghiti@canonical.com>,
- Jonathan Corbet <corbet@lwn.net>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Zong Li <zong.li@sifive.com>, 
- Anup Patel <anup@brainfault.org>, Atish Patra <Atish.Patra@rivosinc.com>, 
- Christoph Hellwig <hch@lst.de>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
- Alexander Potapenko <glider@google.com>,
- Andrey Konovalov <andreyknvl@gmail.com>, 
- Dmitry Vyukov <dvyukov@google.com>, Arnd Bergmann <arnd@arndb.de>,
- Kees Cook <keescook@chromium.org>, Guo Ren <guoren@linux.alibaba.com>, 
- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
- Mayuresh Chitale <mchitale@ventanamicro.com>, panqinglin2020@iscas.ac.cn, 
- Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- kasan-dev <kasan-dev@googlegroups.com>, 
- linux-efi <linux-efi@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>
+Content-Disposition: inline
+In-Reply-To: <20211217093325.30612-8-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211220_054104_467296_A1C45CCB 
-X-CRM114-Status: GOOD (  25.74  )
+X-CRM114-CacheID: sfid-20211220_063732_985700_6C46A492 
+X-CRM114-Status: GOOD (  17.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,70 +93,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 20, 2021 at 5:17 PM Ard Biesheuvel <ardb@kernel.org> wrote:
->
-> On Mon, 20 Dec 2021 at 10:11, Guo Ren <guoren@kernel.org> wrote:
-> >
-> > On Tue, Dec 7, 2021 at 11:55 AM Alexandre Ghiti
-> > <alexandre.ghiti@canonical.com> wrote:
-> > >
-> > > Because of the stack canary feature that reads from the current task
-> > > structure the stack canary value, the thread pointer register "tp" must
-> > > be set before calling any C function from head.S: by chance, setup_vm
-> > Shall we disable -fstack-protector for setup_vm() with __attribute__?
->
-> Don't use __attribute__((optimize())) for that: it is known to be
-> broken, and documented as debug purposes only in the GCC info pages:
->
-> https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html
-Oh, thx for the link.
+On Fri, Dec 17, 2021 at 09:33:15AM +0000, conor.dooley@microchip.com wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> Add device tree bindings for the real time clock on
+> the Microchip PolarFire SoC.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
+> ---
+>  .../bindings/rtc/microchip,mfps-rtc.yaml      | 63 +++++++++++++++++++
+>  1 file changed, 63 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml b/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
+> new file mode 100644
+> index 000000000000..d57460cbe5e3
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
+> @@ -0,0 +1,63 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/rtc/microchip,mfps-rtc.yaml#
+> +
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Microchip PolarFire Soc (MPFS) RTC Device Tree Bindings
+> +
+> +allOf:
+> +  - $ref: rtc.yaml#
+> +
+> +maintainers:
+> +  - Daire McNamara <daire.mcnamara@microchip.com>
+> +  - Lewis Hanly <lewis.hanly@microchip.com>
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - microchip,mpfs-rtc
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 2
 
->
->
->
->
-> > Actually, we've already init tp later.
-> >
-> > > and all the functions that it calls does not seem to be part of the
-> > > functions where the canary check is done, but in the following commits,
-> > > some functions will.
-> > >
-> > > Fixes: f2c9699f65557a31 ("riscv: Add STACKPROTECTOR supported")
-> > > Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-> > > ---
-> > >  arch/riscv/kernel/head.S | 1 +
-> > >  1 file changed, 1 insertion(+)
-> > >
-> > > diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-> > > index c3c0ed559770..86f7ee3d210d 100644
-> > > --- a/arch/riscv/kernel/head.S
-> > > +++ b/arch/riscv/kernel/head.S
-> > > @@ -302,6 +302,7 @@ clear_bss_done:
-> > >         REG_S a0, (a2)
-> > >
-> > >         /* Initialize page tables and relocate to virtual addresses */
-> > > +       la tp, init_task
-> > >         la sp, init_thread_union + THREAD_SIZE
-> > >         XIP_FIXUP_OFFSET sp
-> > >  #ifdef CONFIG_BUILTIN_DTB
-> > > --
-> > > 2.32.0
-> > >
-> >
-> >
-> > --
-> > Best Regards
-> >  Guo Ren
-> >
-> > ML: https://lore.kernel.org/linux-csky/
+Need to define what each one is.
 
-
-
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+> +
+> +  microchip,prescaler:
+> +    description: |
+> +      The prescaler divides the input frequency to create a time-based strobe (typically 1 Hz) for
+> +      the calendar counter. The Alarm and Compare Registers, in conjunction with the calendar
+> +      counter, facilitate time-matched events. To properly operate in Calendar or Binary mode,
+> +      the 26-bit prescaler must be programmed to generate a strobe to the RTC.
+> +    maxItems: 1
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  clock-names:
+> +    items:
+> +      - const: rtc
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +  - clock-names
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/microchip,mpfs-clock.h>
+> +    rtc@20124000 {
+> +        compatible = "microchip,mpfs-rtc";
+> +        reg = <0x20124000 0x1000>;
+> +        clocks = <&clkcfg CLK_RTC>;
+> +        clock-names = "rtc";
+> +        interrupts = <80>, <81>;
+> +    };
+> +...
+> -- 
+> 2.33.1
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
