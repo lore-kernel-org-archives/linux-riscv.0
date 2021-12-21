@@ -4,83 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DA9CC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Dec 2021 19:45:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F10EC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Dec 2021 01:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HL72q8aQOPNewMd5hkUtJjY6ITtYrC+4RaTmRvsF9Tg=; b=Dfy33X3HLpfNgZ
-	VEqIWMr84EsarARRbUEYaGI8HTjDI0Jt719654Ru4P/8+DuIBdaHd23Nqn63yHWHe9HKdQ254K7Io
-	aPRYtG1BI5biC1I11aZ0jFHG1si83FX3RNqSxSgFRJUaUFPOsq9kLsMWD6kwYI4RVavNUAYxZ6ElS
-	c9tKAZenCBQzHwRsmaB6PFr3Kd9tHnMRgVbgFwR/8J1hfJQ3+vRwDEYvE5Hmv0c7CzkVNn4H/Wss0
-	ujag4Wa6Qb8ftnPd8BRCmcvQjAj5kPTiAyFofX8xJVeod0bS6XtpAFxfjELYjUMKp7WN0LebQ0oB5
-	ar3Y+gSAXJXV755umTKQ==;
+	List-Owner; bh=czwTH5iNLpyZIqwpF6P+LqoD9WJi5/TxEKDhXLkMuZM=; b=mWL2lFkKEH4N4N
+	pu5MVXzc/THdiQyv6cO+KCBLHqpDmEjayy6IxeI3bABTdhcE6JCCtJAsP2AbE58VmySYHF0RowYFr
+	hmCF+xtakV31cebXBWeDct8Xk5jlQM7jwG/nXXNBDJnvC9mABqufxKdCmhiowlPScZ5Q6MVagb/bG
+	QNyKCea7tQzxqH8mnO8y9nIF5SgqXfk2z8Y8NkuHREFCS0ueODnEvFE8O5x3W6mNEfFNf4bENmbna
+	gyhRos6xeTDfXInj5RyX33U2ktRrejDb3RVEiSihdwz0FqyFc2nAeGdID5tofe24t3A0ogMti3OYQ
+	22kCtMtzKSyMNXCKsc1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mzOat-0048f6-06; Mon, 20 Dec 2021 19:45:11 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1mzUQc-0057Wo-Ix; Tue, 21 Dec 2021 01:58:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mzOap-0048dc-IZ
- for linux-riscv@lists.infradead.org; Mon, 20 Dec 2021 19:45:09 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id
- o63-20020a17090a0a4500b001b1c2db8145so157801pjo.5
- for <linux-riscv@lists.infradead.org>; Mon, 20 Dec 2021 11:45:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=9utNYtF7nbB+ny8Zz1Q0qxMiDuM46joQzQmvzzrN56I=;
- b=MKzIkQMyFLCHcVjCyhCE9CFcyp/GFZNhZKLrRFLpauudskVD6/M4E35pj8N/k6PFWq
- dxzXbCQNLTbgHOaUo9lyEe52DhZrMqSOpSbWSiC3rmhawnW3Vhcd2ofHg460QmU1S3+6
- Juc6MueHrzIezVNQDFi0ziywbIuQMp2GUfwUM2IDndVk4h12Ttlu0y1YuL+IIAAcClpH
- pcO8b38Rxyzdn0ExdcWur3WTwjX7Xj4O2VV6xFK0tTaLgKrNfzqA6KUAKKatpBvJalGh
- h3U2EwBSR65pEIIFRkNWtLWYO7wI53W6Sn9vUZ+8PVeJS+fOejo7KJmGMt0hzTumzmS5
- JlPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=9utNYtF7nbB+ny8Zz1Q0qxMiDuM46joQzQmvzzrN56I=;
- b=Jv/4DFqxX7toBCC1YieqLGZ3IlPIFF31MSZxZ5CPwQ+2bIufpAyBUqxo22S3s1jUom
- jUAVVzpfd1zYGtVe4SlG+H2PUcpSbjuZkf7l4dvgcpa2dIQj+gNM2lhehYoOEBIGe9zr
- YtjaPr3OuXwm8oMJWsxwjVIEwkzgaFF8gM+H0IE0sORBZWFVmWxyFnzxqM3xIRaDNs47
- l91O1T2+AnlzlXQ/qbZRG4bOJLQmvMEJTK8X8fVA5SH8iVT04tLHufPoWcEhp7EuWyxM
- xx22goN3pMS6V0KbSHOxdhbpVhg/d/hTKyGKBDduYgXx7KQe2bbKUvt6RFn1sZXBWTOz
- DD0w==
-X-Gm-Message-State: AOAM5325fOEDkuuuzdcseSahaLNMJzSzQ37fkx2RUUEytjR0ePwTti9q
- D2OMH6c3yDM6THFeNWkBiDFz4Q==
-X-Google-Smtp-Source: ABdhPJz9fxZPk5z4s+GXQitXrpsy8xcsqun69MNxnSpmZ5tOYABVgyfGrAXKFYzahDOFlitumpiksw==
-X-Received: by 2002:a17:90a:a083:: with SMTP id r3mr601594pjp.55.1640029505867; 
- Mon, 20 Dec 2021 11:45:05 -0800 (PST)
-Received: from google.com (157.214.185.35.bc.googleusercontent.com.
- [35.185.214.157])
- by smtp.gmail.com with ESMTPSA id t8sm19386929pfj.26.2021.12.20.11.45.05
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 20 Dec 2021 11:45:05 -0800 (PST)
-Date: Mon, 20 Dec 2021 19:45:01 +0000
-From: Sean Christopherson <seanjc@google.com>
-To: Anup Patel <anup.patel@wdc.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
- Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v2 3/4] KVM: selftests: Add EXTRA_CFLAGS in top-level
- Makefile
-Message-ID: <YcDdPUn9bAVnxb/2@google.com>
-References: <20211129075451.418122-1-anup.patel@wdc.com>
- <20211129075451.418122-4-anup.patel@wdc.com>
+ id 1mzUQZ-0057U7-FI
+ for linux-riscv@lists.infradead.org; Tue, 21 Dec 2021 01:58:56 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 042C66136E;
+ Tue, 21 Dec 2021 01:58:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2302AC36AE9;
+ Tue, 21 Dec 2021 01:58:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1640051934;
+ bh=Afu9l4w/gvyA5c/feIE1na4rvdsZEWsBjcE5lry7ZvU=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=gK3KyxNY6yRzPPLOdD4vIvdSZRYfTLtJ3/LXLDtghEXSBtpnb7PVTKvNTfruuAh+r
+ Hhb8gdMAtOUqQI6gEATZcSinOP9F2PhQXEe8R9KfQnHg81j8VrY8a52Ui7o6NFatfN
+ 9rPW2LF7bxEGMP8rBmGmgzqmQ+YBIQPHISCKn4l8DZDFNXiPeWKAlMJAZ9Sigjk9TC
+ FN5UGqCr10EyKJI/oRpPTdNe8OzHNuG3eUvoQ8QRL/8OpP2M8hRIZNCvWCjqTU/BTd
+ KY+Vm87Q+TjybJd3EzO9nXU7RP13b7x4w86tStD97W6bVruxlh12+jKziMiDSZ8yL5
+ wzzXwVCkF1L9A==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Vincent Pelletier <plr.vincent@gmail.com>,
+ Palmer Dabbelt <palmer@rivosinc.com>, Sasha Levin <sashal@kernel.org>,
+ robh+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, qiuwenbo@kylinos.com.cn, yash.shah@sifive.com,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: [PATCH AUTOSEL 5.15 25/29] riscv: dts: sifive unmatched: Expose the
+ board ID eeprom
+Date: Mon, 20 Dec 2021 20:57:46 -0500
+Message-Id: <20211221015751.116328-25-sashal@kernel.org>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20211221015751.116328-1-sashal@kernel.org>
+References: <20211221015751.116328-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20211129075451.418122-4-anup.patel@wdc.com>
+X-stable: review
+X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211220_114507_640731_2024D56C 
-X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-CacheID: sfid-20211220_175855_610181_CA1644F8 
+X-CRM114-Status: UNSURE (   9.52  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,25 +80,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 29, 2021, Anup Patel wrote:
-> We add EXTRA_CFLAGS to the common CFLAGS of top-level Makefile
+From: Vincent Pelletier <plr.vincent@gmail.com>
 
-Nit, wrap closer to 75 chars.
+[ Upstream commit 8120393b74b31bbaf293f59896de6b0d50febc48 ]
 
-> which will allow users to pass additional compile-time flags such
-> as "-static".
+Mark it as read-only as it is factory-programmed with identifying
+information, and no executable nor configuration:
+- eth MAC address
+- board model (PCB version, BoM version)
+- board serial number
+Accidental modification would cause misidentification which could brick
+the board, so marking read-only seem like both a safe and non-constraining
+choice.
 
-In case there's any hesitation in applying this (Paolo asked if this was just for
-debugging in v1), being able to pass "-static" is helpful for our environment as
-our test systems have a funky and minimal configuration (no gcc, and the interpreter
-is in a weird location).  Running selftests either requires building them with
--static or creating a symbolic link for /lib64/ld-linux-x86-64.so.2.  It's generally
-easier to just tell people to compile with -static.
+Signed-off-by: Vincent Pelletier <plr.vincent@gmail.com>
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-> Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> ---
+diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+index a788b99638af8..7ea1c8da5fb2e 100644
+--- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
++++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+@@ -63,6 +63,16 @@ temperature-sensor@4c {
+ 		interrupts = <6 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ 
++	eeprom@54 {
++		compatible = "microchip,24c02", "atmel,24c02";
++		reg = <0x54>;
++		vcc-supply = <&vdd_bpro>;
++		label = "board-id";
++		pagesize = <16>;
++		read-only;
++		size = <256>;
++	};
++
+ 	pmic@58 {
+ 		compatible = "dlg,da9063";
+ 		reg = <0x58>;
+-- 
+2.34.1
 
-Reviewed-and-tested-by: Sean Christopherson <seanjc@google.com>
 
 _______________________________________________
 linux-riscv mailing list
