@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF31BC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Dec 2021 17:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4686AC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Dec 2021 18:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gkM22wVIDuRDMyrvFkPP8Xv9brnZn3LxNKx+cs7upII=; b=yVOGOaYnyr7Zgb
-	wMvXXL5l+j/huQn5aZhLvzRXzoyGKyy2mm7lXr5sQUjd5CVTa3nnefpwz5wGl+NCCKsOUTLhxzzEE
-	b65156nLYyWxdLA9oXXumb/KnE2V2DT+eS1sQVvwGPmHUtnqWkGTDaSUCt0Dd5P/RbIh1WIIPubmi
-	RybVvdB8P0O1u51/a4tcHRg3UIwpvvxe5HG32ZH1JDheelEr0qc0qpzmMlTfBurcOxd07fG2IZazy
-	7j/XZCse6PjyMfZ/oLshYaQpNrzqQUBeZG/5Eux3s9asvnTMEr/b3zk7TcgwORJF3TTT7XWqx3C+S
-	3RLmHkDSLMVDn20CcKAw==;
+	List-Owner; bh=jQtf8/pSlTuOEworkPN2+CNjGvUVq9qVPQ6ijKIj2kI=; b=RB4Go6qzbe6oGU
+	hvYtTrV0rzg4/Cmq4DXhRlE/wZAEeqmpIk3mS7/dqX9++g24Lpj75wFdYUZFSjhDZ0zvwyr7kb2yw
+	e9Owtf9SUS5iZkKVA7eLHcxLqNDr4e3nx5JBr5E4IqIBHrEMjVc38a6RX7mYjAgesIJBrShcL8YEh
+	9oiWmAyy8cvVQLSVTydto22KajlQcCj/DMS2AJYE5Uhe7Y6SsPZ6IaV3a0eYqWHLys2ctW/6alPoK
+	WLAnl9zh645oVBMyJrGmijT/wMURlLjL9pXesLuUWbn0OBuOtMRRxliSmdXPZsIVUd6S4lIkjgp4H
+	zvNRrMGxIqBHcqg6kvzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mzjEW-007vCa-4H; Tue, 21 Dec 2021 17:47:28 +0000
-Received: from mail-qk1-f172.google.com ([209.85.222.172])
+	id 1mzja0-0080cl-Vb; Tue, 21 Dec 2021 18:09:41 +0000
+Received: from mail-qk1-f170.google.com ([209.85.222.170])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mzjER-007vAL-Vg
- for linux-riscv@lists.infradead.org; Tue, 21 Dec 2021 17:47:26 +0000
-Received: by mail-qk1-f172.google.com with SMTP id 69so791626qkd.6
- for <linux-riscv@lists.infradead.org>; Tue, 21 Dec 2021 09:47:22 -0800 (PST)
+ id 1mzjMT-007xUR-6H
+ for linux-riscv@lists.infradead.org; Tue, 21 Dec 2021 17:55:42 +0000
+Received: by mail-qk1-f170.google.com with SMTP id 69so815354qkd.6
+ for <linux-riscv@lists.infradead.org>; Tue, 21 Dec 2021 09:55:39 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to;
- bh=enBZKRe45Eq3IaJ4YleNfTEAHY3TWjrKA5JUyvv9lv8=;
- b=tzOJbZRklZY8crrWOVwbp8NhTojHf6gmph/2Ca2vZvodjm4/62pS5ngg7tn9Ku/tco
- BES4foxAIic4s1wZQefXerzabhnlUojUSNdnvD2pV1s7/YxoQCc9AffQgIu0/+MJiODV
- OM6Ei4hf60Elx6YD9ywV9fsyupEsbwyG1meYsvafIJAAZ1kHirTIi3JWZWtv+ZUGoUp0
- jrkmKUrvwIDqWiODK4/aY3q7zovrquylHjn3oIo26C8lHtBaa3eq/EPLLdutjM9+T8gr
- QyW7T1S27a3bEhgyHjOSMqLq40nDfvWs0zUOgSldzIhAcgovubTsyhF2tkZCc0ylMOFJ
- pl/g==
-X-Gm-Message-State: AOAM531sX3LyHp++cKtVrq9oqR8Eg9K+w4IiJzlAZvApzA9snl8s7LAC
- /YJOG+HdbZTTL2KLUvh5sQ==
-X-Google-Smtp-Source: ABdhPJz3OOPp5uAFgP2bRqUduxgScmvXC/dj9htul/5dPYzu+6NqrrafVrSjfakiGVyL6R3b5cnMvw==
-X-Received: by 2002:a05:620a:1496:: with SMTP id
- w22mr206198qkj.463.1640108841543; 
- Tue, 21 Dec 2021 09:47:21 -0800 (PST)
+ bh=4GSGA/qwtNXG0IPZ01RqeQiJyKL3VoAZk2c0sbKkobg=;
+ b=at4U9NNntt7dpQO/OeNkd3Euu+cMmi5FJUtDLpO9O3f9KL2ht0wgJXXr/aClaNmx8Y
+ v1lveX/xtWVC7ITFAuyZW7fISV1OEHcKWTElgYJHkBjAmEuQORQG/Ym7pnYjr/v4mT4E
+ cpOUi0lhnr3k40FDj2FbAITTDPFhzsNINfoL06dV6mlQD8oLnTy1UButwZ9tjMsiUBJt
+ lu023Fl8Vtr21yy1uiTOpaZhbyQKp6MfruCaHnGivhHfvPv7ihgl1QIUHxwb9+XQuCdI
+ 21UL9FsI6tW/Jgnoh7ZwzsPDwKCalQQdBNKBzliRXMbvpBubGn/axXDum7EOvPRZjeRC
+ yuJQ==
+X-Gm-Message-State: AOAM531UkfTKJtZHz5HsyLpa0wsF/yQDksAQRXqBFrupGWgipqxb4bLv
+ BRbIDG+op29P7D3lbHqBSLLxJPHay9HQ
+X-Google-Smtp-Source: ABdhPJz5vgBn1TjeZtoc2YYKvQ+HmcEPZTFsNL3qHHc8SbteC0W1UmfcNlqbGX3NnNYb5boB3sk4Pg==
+X-Received: by 2002:a05:620a:258e:: with SMTP id
+ x14mr2824830qko.578.1640109338673; 
+ Tue, 21 Dec 2021 09:55:38 -0800 (PST)
 Received: from robh.at.kernel.org ([24.55.105.145])
- by smtp.gmail.com with ESMTPSA id ay42sm13916078qkb.40.2021.12.21.09.47.18
+ by smtp.gmail.com with ESMTPSA id bm35sm14659623qkb.86.2021.12.21.09.55.35
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 21 Dec 2021 09:47:20 -0800 (PST)
-Received: (nullmailer pid 1484960 invoked by uid 1000);
- Tue, 21 Dec 2021 17:47:16 -0000
-Date: Tue, 21 Dec 2021 13:47:16 -0400
+ Tue, 21 Dec 2021 09:55:38 -0800 (PST)
+Received: (nullmailer pid 1495705 invoked by uid 1000);
+ Tue, 21 Dec 2021 17:55:33 -0000
+Date: Tue, 21 Dec 2021 13:55:33 -0400
 From: Rob Herring <robh@kernel.org>
 To: conor.dooley@microchip.com
-Cc: lee.jones@linaro.org, devicetree@vger.kernel.org, aou@eecs.berkeley.edu,
- atish.patra@wdc.com, linux-crypto@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-gpio@vger.kernel.org, heiko@sntech.de, geert@linux-m68k.org,
- lewis.hanly@microchip.com, daire.mcnamara@microchip.com,
- jassisinghbrar@gmail.com, paul.walmsley@sifive.com, robh+dt@kernel.org,
- u.kleine-koenig@pengutronix.de, linux-rtc@vger.kernel.org,
- linus.walleij@linaro.org, linux-riscv@lists.infradead.org,
- krzysztof.kozlowski@canonical.com, palmer@dabbelt.com,
- bgolaszewski@baylibre.com, ivan.griffin@microchip.com,
- linux-kernel@vger.kernel.org, broonie@kernel.org, gregkh@linuxfoundation.org,
- linux-i2c@vger.kernel.org, thierry.reding@gmail.com, a.zummo@towertech.it,
- alexandre.belloni@bootlin.com, linux-spi@vger.kernel.org,
- linux-pwm@vger.kernel.org, bin.meng@windriver.com
-Subject: Re: [PATCH v2 01/17] dt-bindings: interrupt-controller: create a
- header for RISC-V interrupts
-Message-ID: <YcITJFfZ/U56MxBv@robh.at.kernel.org>
+Cc: linus.walleij@linaro.org, bgolaszewski@baylibre.com,
+ jassisinghbrar@gmail.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, a.zummo@towertech.it, alexandre.belloni@bootlin.com,
+ broonie@kernel.org, gregkh@linuxfoundation.org, thierry.reding@gmail.com,
+ u.kleine-koenig@pengutronix.de, lee.jones@linaro.org,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
+ linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-crypto@vger.kernel.org, linux-rtc@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-usb@vger.kernel.org,
+ krzysztof.kozlowski@canonical.com, geert@linux-m68k.org,
+ bin.meng@windriver.com, heiko@sntech.de, lewis.hanly@microchip.com,
+ daire.mcnamara@microchip.com, ivan.griffin@microchip.com, atish.patra@wdc.com
+Subject: Re: [PATCH v2 03/17] dt-bindings: soc/microchip: make
+ systemcontroller a mfd
+Message-ID: <YcIVFZSqt/JSuk3J@robh.at.kernel.org>
 References: <20211217093325.30612-1-conor.dooley@microchip.com>
- <20211217093325.30612-2-conor.dooley@microchip.com>
+ <20211217093325.30612-4-conor.dooley@microchip.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20211217093325.30612-2-conor.dooley@microchip.com>
+In-Reply-To: <20211217093325.30612-4-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211221_094724_050979_D237E2D0 
-X-CRM114-Status: UNSURE (   9.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211221_095541_277707_82AE8326 
+X-CRM114-Status: GOOD (  14.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,23 +93,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 17 Dec 2021 09:33:09 +0000, conor.dooley@microchip.com wrote:
-> From: Ivan Griffin <ivan.griffin@microchip.com>
+On Fri, Dec 17, 2021 at 09:33:11AM +0000, conor.dooley@microchip.com wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> Provide named identifiers for device tree for RISC-V interrupts.
+> Make the system controller on the Polarfire SoC
+> a "simple,mfd" so that the services can be child
+> nodes of the system controller node.
 > 
-> Licensed under GPL and MIT, as this file may be useful to any OS that
-> uses device tree.
-> 
-> Signed-off-by: Ivan Griffin <ivan.griffin@microchip.com>
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  .../interrupt-controller/riscv-hart.h         | 19 +++++++++++++++++++
->  1 file changed, 19 insertions(+)
->  create mode 100644 include/dt-bindings/interrupt-controller/riscv-hart.h
+>  .../microchip,mpfs-sys-controller.yaml        | 33 +++++++++++++++++--
+>  1 file changed, 30 insertions(+), 3 deletions(-)
 > 
+> diff --git a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
+> index f699772fedf3..014cb44b8f31 100644
+> --- a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
+> +++ b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
+> @@ -13,13 +13,34 @@ description: |
+>    The PolarFire SoC system controller is communicated with via a mailbox.
+>    This document describes the bindings for the client portion of that mailbox.
+>  
+> -
+>  properties:
+>    mboxes:
+>      maxItems: 1
+>  
+>    compatible:
+> -    const: microchip,mpfs-sys-controller
+> +    items:
+> +      - const: microchip,mpfs-sys-controller
+> +      - const: simple-mfd
 
-Acked-by: Rob Herring <robh@kernel.org>
+'simple-mfd' means there is zero dependency on the parent for the child 
+nodes. Isn't 'mboxes' a dependency?
+
+> +
+> +  hwrandom:
+> +    type: object
+> +
+> +    properties:
+> +      compatible:
+> +        const: microchip,mpfs-rng
+> +
+> +    required:
+> +      - compatible
+> +
+> +  sysserv:
+> +    type: object
+> +
+> +    properties:
+> +      compatible:
+> +        const: microchip,mpfs-generic-service
+> +
+> +    required:
+> +      - compatible
+
+There's not really any need to have child nodes which have no resources. 
+The driver for microchip,mpfs-sys-controller can create child devices.
+
+Rob
 
 _______________________________________________
 linux-riscv mailing list
