@@ -4,48 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A47C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Dec 2021 17:13:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6205AC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Dec 2021 17:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NNQOooH4EmJv7vZV/vxz5DgUelGKXRIdpndaIoeUHgE=; b=ePdcjQZNyAPwW3
-	6/UWs3apkzMs+vZKG4t7q2VIkqfD7hq60sVd8m0jPeUuh3diLNIh94M+HsS6INoVyRlPb14tjHH6H
-	fw+OwUOWudWK+OYXZBDoWOhapRPoMEeWjUp/7OdsHtvzdft34bdOCISBrgO+QzTIlVoi1NOYRjE7y
-	W27mM+y3nk0fHiMdjr0solXwtoaKH9M4H+QeLf7UYLE73MJNQkxF0lJH3R/1HGqqi7JwE70E4uB2B
-	ByZ8EGGqM5d0kIvLwayBvT1T3yol1UpgtKZaXFj4m7W3RE5fZOETyGYi8k2V+CGvUacQmnIIAoULc
-	hC0VBb0Xj3nxp0TznycA==;
+	List-Owner; bh=606RCVYfaxG8zvh/qMUsPt5b5qcCO3PuI+wI9Faen/E=; b=JjPOYk14SBSw/z
+	hBzgUryjHyFKXKSx1mWjalfzBKVNHD/QxChKdWZvsdr21WWPLJQwmaK42mf7xvekkTLRI4ZkK0VJ7
+	YD/h2jX1GTsaLzBjRBb2aZ8JlvTkqK/uXEKVZ872U/5NGFCt0TFFASklRkGn8GdXyF3m+/923jvdm
+	LGVJxGNeBdnDAk4wvYNFphIyt7SIQfAS7zolzEvmL3SDC7gM2xy34SnBekWvKNaafOaqyzknxPbSp
+	dmhAiuic44RaTckAf75PRXmnJr7ARXi7PNia4tgQSgjYj8bP5/QO6e2rjzzdQLDfgcP2VqRfF70ri
+	5b4MTcitCl9kV6I5DzTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mzihK-007kN2-Dx; Tue, 21 Dec 2021 17:13:10 +0000
-Received: from mout.kundenserver.de ([212.227.17.13])
+	id 1mzihY-007kWM-Ao; Tue, 21 Dec 2021 17:13:24 +0000
+Received: from mout.kundenserver.de ([212.227.126.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mzidM-007iZc-Ey
- for linux-riscv@lists.infradead.org; Tue, 21 Dec 2021 17:09:06 +0000
-Received: from mail-wm1-f43.google.com ([209.85.128.43]) by
- mrelayeu.kundenserver.de (mreue106 [213.165.67.113]) with ESMTPSA (Nemesis)
- id 1N3sNa-1mHxld3fou-00zr0h for <linux-riscv@lists.infradead.org>; Tue, 21
- Dec 2021 18:09:01 +0100
-Received: by mail-wm1-f43.google.com with SMTP id l4so63831wmq.3
- for <linux-riscv@lists.infradead.org>; Tue, 21 Dec 2021 09:09:01 -0800 (PST)
-X-Gm-Message-State: AOAM5307YdjsvTsXr1mppDuu3Sg4lCVzSD/+GkV7NfnrlROaEiLMO3de
- UXLayLV4Fbz7b6ZAGCpb1hYznuoIMBqZqcit4KQ=
-X-Google-Smtp-Source: ABdhPJwBjfG8n5UL3gUcPzQHQGqJD8jdtXydpXBiVw9zz8vMTxK4PxCyGzOYKywQHcSPDIX78gSsHjw/vuP33ZnB2VQ=
-X-Received: by 2002:a1c:8013:: with SMTP id b19mr3463956wmd.35.1640106541291; 
- Tue, 21 Dec 2021 09:09:01 -0800 (PST)
+ id 1mzie5-007ite-Gh
+ for linux-riscv@lists.infradead.org; Tue, 21 Dec 2021 17:09:51 +0000
+Received: from mail-wm1-f41.google.com ([209.85.128.41]) by
+ mrelayeu.kundenserver.de (mreue010 [213.165.67.97]) with ESMTPSA (Nemesis) id
+ 1M4ahC-1n0GsP03So-001j9Q for <linux-riscv@lists.infradead.org>; Tue, 21 Dec
+ 2021 18:09:47 +0100
+Received: by mail-wm1-f41.google.com with SMTP id b73so9548613wmd.0
+ for <linux-riscv@lists.infradead.org>; Tue, 21 Dec 2021 09:09:46 -0800 (PST)
+X-Gm-Message-State: AOAM532VwqgDEIqjWuL3sIOTsrj++b/XNMAgrRV/lv1dwoco4VF82e2B
+ iPcX3ggC1gCYUQRHb70jxghDpugQuTkvNRXX0E4=
+X-Google-Smtp-Source: ABdhPJzaqpqJNCbIa99dFVCtyNIizr9whaZNUWhkKim9JOkhaY5AWVisxu8w7rdXDuXyxS5+Qd3gQL/iBewf18GWlZ8=
+X-Received: by 2002:a7b:c007:: with SMTP id c7mr3639851wmb.82.1640106586666;
+ Tue, 21 Dec 2021 09:09:46 -0800 (PST)
 MIME-Version: 1.0
 References: <20211221163532.2636028-1-guoren@kernel.org>
- <20211221163532.2636028-2-guoren@kernel.org>
-In-Reply-To: <20211221163532.2636028-2-guoren@kernel.org>
+ <20211221163532.2636028-3-guoren@kernel.org>
+In-Reply-To: <20211221163532.2636028-3-guoren@kernel.org>
 From: Arnd Bergmann <arnd@arndb.de>
-Date: Tue, 21 Dec 2021 18:08:45 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a1fC8aro3kHLvGMVDdvVYjaQdxJeGur9ac=11+6=r0Xyg@mail.gmail.com>
-Message-ID: <CAK8P3a1fC8aro3kHLvGMVDdvVYjaQdxJeGur9ac=11+6=r0Xyg@mail.gmail.com>
-Subject: Re: [PATCH 01/13] syscalls: compat: Fix the missing part for
- __SYSCALL_COMPAT
+Date: Tue, 21 Dec 2021 18:09:30 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a3dS=Ne0Pd2qZc8vB2whM7AUcJ1BNbhtf6EEboWAPpSug@mail.gmail.com>
+Message-ID: <CAK8P3a3dS=Ne0Pd2qZc8vB2whM7AUcJ1BNbhtf6EEboWAPpSug@mail.gmail.com>
+Subject: Re: [PATCH 02/13] riscv: Fixup difference with defconfig
 To: Guo Ren <guoren@kernel.org>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
  Anup Patel <anup.patel@wdc.com>, 
@@ -56,24 +55,26 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
  linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
  Guo Ren <guoren@linux.alibaba.com>
-X-Provags-ID: V03:K1:jVtXffS1cYeqhVKBNLcTR62VXO0Xd1EkXF31W9sEHllgBQpOm+9
- LcF5ERj7eojlztKZubidBGm11qoY2rxjyEOskSXljZTVh/2S/Xsd5Mrg72ZCxJ+Hp2+0URS
- s6EyXcZWl+GfnPQ2Z4gNuelZOjRfCqtMBpOlDzz4OGFpW4b86Lhqhq8DsivFwS7FoYXXvDK
- a9ql8wnNzA5K2W8iksO0w==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:V0pDdgU95qs=:vr1wkuggAGx67ZSzWXFaDu
- s72zFWS6IISwLw2gqdHCMHL2j9FD+oWPp7dEf6NjnmqIkMZucjj5ucMk2RuAHgGe46GTzHB+e
- 7cWN/1S0XfvconEcUVT+AiPELa1TMQe5CPG0NsigP4VBKAcd/ohscXI8Fvy1q0+TlWUZewnqh
- rIRec9YI8Z5tB3/Z6ySbU0UycznYw7b9DvVnB8FWmL6oIIXiUtBVyHDvDMrd20iHG00A+D25z
- 7Gg84rEUUGRjv87NUPBRTNaoK+8nEsLUbs1qIqWPw7ea54QYhGmMSbdAuUCp7um/79uVCUdVn
- /DpZR9hZuasRG/l8c/IKZuDVZtgtDVMPUZP+8SkYDyTuV7V30nyQ3ZhfDiG5kbg23tF5eJbiT
- L8rPibmnloi/MWNQiA7UyMZ2le69mcGvHE/zGba4O35/avqMlhGMUvBjfDRJV7zJo0hcWh+WO
- k81ooC1n3QmHngWcgyA+QtgnSbOh4sXOKkPeL3qAhz89Caed40GVHfrmmLbLtlRH1g6rkZTu0
- 8F+xe8BMMj48r/UWt9Va0WTn1jM2O+IdWkgJyq8KYgmkDOO1YEcfo9aCX3x8Fx9vj/uNalEHS
- cjBaUSfs0hgzlzxAksoFETDxV91rpXCbXOVMlInGDW4xuHdOgRpUCpjVSbfw0tS53JrL8khEy
- lbVUa+MHeqLjWab7wgJ9X9f4bcbG1YP/0IvIrWDgOw//wggmwWE7FYaO1kK/78jzi0+Q=
+X-Provags-ID: V03:K1:fpHe1GYwAboOlviu8n62eSJ4MvJLhqGDMxAGBEjs+yeTKTrBlYO
+ XZkZrHh89VOTBm+XfWCUhrrFPB6tJ9HFZF8a6QKL9DP9LWOSZ7uMlLDKD7OFI+1YFz22VMf
+ 5NF8HV9sMMzVL7RZWCWz8v1icCItWrly0lKgbno3VW0hoDusKOeOV1GEdiCtr/W5bV/4mc2
+ sOecElgcus+1B2je4i/Pw==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:0SZnezN+qEA=:ID98wvlMHZFwO64WE8+bpL
+ vT1qdPhIY19M672aFmO7MfPD5tgHFPbn0yIzNJljnxlZu+UqO1sRQPm/ibffai0mrQEsmL3Pk
+ ayzwjlOSiHFPPuKkrfoqbmj5xscXq7iwq1MHf445G/haeoHCi0JLc71QGGF/2EOJjPfZq+cEi
+ s9J2WrHP0ZQpmMP8ZMWsn9vfgx2rDMwSTAoAotnTUtVaXg9mv4d0n07ujucWqN3G6HQ6ruyUE
+ 8g9Ue3XAYNMEjF9Vz+IvSZAi6nQen9ipkZ0Au6q9HsAjg0AIBNgY0nrXYuYgntaBdf0akKaH2
+ SMfCZA75AEWCC1Yj5jRMsywFcvwdkoMOiIoep35ofnsaNwqky/5Ode2gdVuTpJWArc7oM0GMP
+ UUO8sY6AL/JTnqUJiYULKRnHgCPwENNj2DeZAQ+iKF2to0t27NoTpRR++vEe/W9phsn7Li6MQ
+ Cm3PkK4tj8dJhHcvvHO22pCpGjSJiyWkmtJzHwsxkAOtnR3al9dxuNvMdhIQSB5CxPAvPGesZ
+ Bzc+wB1F/+0eSjp2engFmz83WY/Qe70YDXv/Hu3nBotaJr7QE2yCeXPAq1+XnW2y5LaChFGoH
+ vSOjBNed6Qz8ftVCQrBcdt14d8buIpiy8MnENSXmUKnuYOtvWDG8A3nhnzZI7+0XVUW0KfHW6
+ +EohkCYxEOrKUrkEffqfakvHrSYAJHbsoF1CIQZfv+9VaDtCiVTsnDrR1AJTXwhQywBrc2BFG
+ dw5lfjtNU448VF5t5KY8WU0fn2KtdJ7zJRoaw6v3yiik4UKfZsO5IvibM2L4qZAGJl3WTsijq
+ BA1FBrEdb48hVSchpgnmqaSoQw2lFzYBIzlURe+15+8yL93cmk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211221_090904_858410_E9BEE639 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20211221_090949_892383_74D457CC 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,36 +92,21 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On Tue, Dec 21, 2021 at 5:35 PM <guoren@kernel.org> wrote:
-> diff --git a/include/uapi/asm-generic/unistd.h b/include/uapi/asm-generic/unistd.h
-> index 4557a8b6086f..aafe5cfeb27c 100644
-> --- a/include/uapi/asm-generic/unistd.h
-> +++ b/include/uapi/asm-generic/unistd.h
-> @@ -383,7 +383,7 @@ __SYSCALL(__NR_syslog, sys_syslog)
 >
->  /* kernel/ptrace.c */
->  #define __NR_ptrace 117
-> -__SYSCALL(__NR_ptrace, sys_ptrace)
-> +__SC_COMP(__NR_ptrace, sys_ptrace, compat_sys_ptrace)
+> From: Guo Ren <guoren@linux.alibaba.com>
+>
+> Let's follow the origin patch's spirit.
+>
+> The only difference between rv32_defconfig and defconfig is that
+> rv32_defconfig has  CONFIG_ARCH_RV32I=y.
+>
+> This is helpful to compare rv64-compat-rv32 v.s. rv32-linux.
 >
 
-Right. We could merge sys_ptrace and compat_sys_ptrace() by adding
-a in_compat_syscall() check, but either way works.
+If the intention is to keep them in sync, maybe use a fragment for 32-bit
+mode, like powerpc or mips do.
 
->  /* kernel/sched/core.c */
->  #define __NR_sched_setparam 118
-> @@ -779,7 +779,7 @@ __SYSCALL(__NR_rseq, sys_rseq)
->  #define __NR_kexec_file_load 294
->  __SYSCALL(__NR_kexec_file_load,     sys_kexec_file_load)
->  /* 295 through 402 are unassigned to sync up with generic numbers, don't use */
-> -#if __BITS_PER_LONG == 32
-> +#if defined(__SYSCALL_COMPAT) || __BITS_PER_LONG == 32
->  #define __NR_clock_gettime64 403
->  __SYSCALL(__NR_clock_gettime64, sys_clock_gettime)
-
-This part looks wrong, you expose clock_gettime64 to user space this way, both
-in asm/unistd.h and in the table.
-
-         Arnd
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
