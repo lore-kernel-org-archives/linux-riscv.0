@@ -4,78 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5225C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Dec 2021 17:18:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D95BC43217
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Dec 2021 17:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hoy2epGFkl21yZbsZ2S/ZdIm+RPXkI8MacrOW1449NA=; b=QKYgza93F8fR23
-	3pU86W3oVpBdujueoNlYmhQNXXrwYkt9mN0gC1Oyn9xpaEDvwA5LH3V/BT7bfohdm0iTp81zaTSWg
-	7PZwx/Gnv2D0WRms5nZTYA0Cr5K/jJLUkgBdaCv8Gpd+DtA4gFDYVgUSduxBfphV0w6wYIz+bjT7n
-	sor7+wC4UFw8TWFJwqD7ViLxtf5WLVSRPR+9zt2z+WD5sW88IkK1xBrLZWbrg7GKzJ1b3WkFmUy3H
-	xjqdaH6OWyEJ80OKnjxbpamjR9Wyj/7Wu8W+lquK6vCYTIhWsGs7li3cHIS8gInxCj2dFShur/tKu
-	uE49qGxeTaXcza5XDQmw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZXfhKLmuMjZ2bcusHf/0Q9BpfG9Op2OmOqte9nJCifY=; b=uG7weqsjIL1NxLuxUg8xFeft8b
+	Q1nfwK9cjJrgbi5zjp46EydxlF3Jj80Biz0Ie2AlAHpW4nuNlJmW0zRIkzsO43Sh4jiTdNJ21kQyN
+	CTkLlRTIvaO0sLYNCcYFVQpOXFk8Nd1jxw/5SLPx13vzQp32DLP33snT8sZewQrCMXdWPCdqAmAS8
+	a0wFTekNW2HYsApXAeeYyQ5B6rQSN0hzQI4PfIEIkbIOIOsLu6q/X2Pv/06TEJ0CgQW7SVA+Sh8m0
+	+2Xt8m7gx7yek8IpT19/dHhAVi28Q4uFW6u7fQGPWRTHUfSsbzYpqnNIZSBsdACJZlqaPAPwi11M8
+	qfdS6Ahw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mzimZ-007mnK-SN; Tue, 21 Dec 2021 17:18:35 +0000
-Received: from mout.kundenserver.de ([212.227.126.187])
+	id 1mziqW-007oTb-89; Tue, 21 Dec 2021 17:22:40 +0000
+Received: from mail-il1-x132.google.com ([2607:f8b0:4864:20::132])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mzihF-007kJG-LL
- for linux-riscv@lists.infradead.org; Tue, 21 Dec 2021 17:13:07 +0000
-Received: from mail-wr1-f48.google.com ([209.85.221.48]) by
- mrelayeu.kundenserver.de (mreue009 [213.165.67.97]) with ESMTPSA (Nemesis) id
- 1N3sZs-1mHxqZ0HVQ-00zrxF for <linux-riscv@lists.infradead.org>; Tue, 21 Dec
- 2021 18:13:03 +0100
-Received: by mail-wr1-f48.google.com with SMTP id d9so8793006wrb.0
- for <linux-riscv@lists.infradead.org>; Tue, 21 Dec 2021 09:13:03 -0800 (PST)
-X-Gm-Message-State: AOAM530zmaasuTHgrMS7k+VMYg65ajnSJ3jY7h+McJhFFIPUyrvwQwxI
- TmKx3rMt/glt0RIcnvA3WzR8u6zEMibBInhewVI=
-X-Google-Smtp-Source: ABdhPJxbIqjyU8TaVGGex6NdChPO7fkenTBnB/BLD4Lq+OCkYunXjff2m0E1G3pTqKAWxFdhJPGy7XhHYU7jc7xKAk4=
-X-Received: by 2002:a5d:6989:: with SMTP id g9mr3336935wru.12.1640106782679;
- Tue, 21 Dec 2021 09:13:02 -0800 (PST)
+ id 1mziqS-007oQa-03
+ for linux-riscv@lists.infradead.org; Tue, 21 Dec 2021 17:22:37 +0000
+Received: by mail-il1-x132.google.com with SMTP id d14so10782307ila.1
+ for <linux-riscv@lists.infradead.org>; Tue, 21 Dec 2021 09:22:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=linuxfoundation.org; s=google;
+ h=subject:to:cc:references:from:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=r4TtaoKR6+w2BbxrXfBzscheepGCVX5dJ59bu2XE0Ds=;
+ b=VnBhSWQefpBVT2b0pz/7ZeOTyrjEp+Xkn0YvQb6PfeqyL2jdnvXYHwCh4ncvHolT3j
+ G1+e63VfqwWBG273ftrqUdWfFETc5oftMo+x5Z1dj3H6Qj2/D3hncdiXtRRKbYlZAu4E
+ p8X9HLJKF2MXGjIjMta++QR3KDTDbyOG4LSGU=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=r4TtaoKR6+w2BbxrXfBzscheepGCVX5dJ59bu2XE0Ds=;
+ b=gyW9pIUReChwI3tniU+mezrGAMDR1ZYB5+YBqiFzisNhKmgaqaVVC4fNHAEgcbXMP5
+ qFYaBbNeIyaX2QSmdad8qNRoUjkAn9VOIyOaY2HcT7b7E3+9YPcJALH25cVcOAOHkPCh
+ LF6X77k3LoDJh771oG5CmS1WlT/O+gjLSK2rWg1x1ItZlmNr2yNO6PtpDU+zkj/Qfw0n
+ 9sWCzn/TomBmbDSmh+RN2qdJw62b8T+IYzNIHaD7jsRT+glQAFJ4DJn9cDqgo4abN8tA
+ JMOddmIf/wi6m4gnIJhfFN3wi4WemVRvygkFTYUxmG+0twkRq5PGLEig43de2w6befsk
+ RGbQ==
+X-Gm-Message-State: AOAM533JQpEi23bkzHa2pelTxdiGAIZB8LDr2RRImK5U5yU4+qcrNuZW
+ fpEdaCxeQfQ5xHfgHebLrm/B8Q==
+X-Google-Smtp-Source: ABdhPJyI1IqcAXOfBvHsRSlq/TpODWZldpSt+9i96f0MwjG04pQlNqa7NSStvHzPlbcSKVsZOodgUA==
+X-Received: by 2002:a05:6e02:12e5:: with SMTP id
+ l5mr2169481iln.316.1640107354480; 
+ Tue, 21 Dec 2021 09:22:34 -0800 (PST)
+Received: from [192.168.1.112] (c-24-9-64-241.hsd1.co.comcast.net.
+ [24.9.64.241])
+ by smtp.gmail.com with ESMTPSA id j6sm11288938ilc.8.2021.12.21.09.22.33
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Tue, 21 Dec 2021 09:22:34 -0800 (PST)
+Subject: Re: [PATCH] KVM: selftests: Fix compile error for non-x86
+ vm_compute_max_gfn()
+To: Anup Patel <anup.patel@wdc.com>, Paolo Bonzini <pbonzini@redhat.com>,
+ Shuah Khan <shuah@kernel.org>, Atish Patra <atishp@atishpatra.org>
+Cc: Sean Christopherson <seanjc@google.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel
+ <anup@brainfault.org>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, Shuah Khan <skhan@linuxfoundation.org>
+References: <20211221125617.932371-1-anup.patel@wdc.com>
+From: Shuah Khan <skhan@linuxfoundation.org>
+Message-ID: <3e3b5295-f6fb-1ff9-acfe-1a4c47c6ba20@linuxfoundation.org>
+Date: Tue, 21 Dec 2021 10:22:33 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.1
 MIME-Version: 1.0
-References: <20211221163532.2636028-1-guoren@kernel.org>
- <20211221163532.2636028-4-guoren@kernel.org>
-In-Reply-To: <20211221163532.2636028-4-guoren@kernel.org>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Tue, 21 Dec 2021 18:12:46 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a3navO2Z2F5zxisby5EBNDo8rwQ6hxSuyniFgFxrQ5qXQ@mail.gmail.com>
-Message-ID: <CAK8P3a3navO2Z2F5zxisby5EBNDo8rwQ6hxSuyniFgFxrQ5qXQ@mail.gmail.com>
-Subject: Re: [PATCH 03/13] riscv: compat: Add basic compat date type
- implementation
-To: Guo Ren <guoren@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
- Anup Patel <anup.patel@wdc.com>, 
- gregkh <gregkh@linuxfoundation.org>, liush <liush@allwinnertech.com>,
- wefu@redhat.com, 
- Drew Fustini <drew@beagleboard.org>, wangjunqiang@iscas.ac.cn, 
- =?UTF-8?B?V2VpIFd1ICjlkLTkvJ8p?= <lazyparser@gmail.com>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
- Guo Ren <guoren@linux.alibaba.com>
-X-Provags-ID: V03:K1:3QWSs2yJlMenmOLMrl5hW70rcW7xobwYtr4FL+glu2FJSTH8tuv
- PhV2c31rOKJ0cAYvfoF6QxZDmTPk7xPRP1S0muNXwXxxS7eCbDaTObw2FV5rlwFIOe07vV3
- 3fHGckxKhQC1dTAbpoIeGEhhMfCJ0d5L3+NLhkKzCcAhHT8FSMHn5/NxG1Fon9MceRcSWlc
- 7B/lZAlrO/def2+kOW9Ig==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:AXf2Yzh9xbk=:Lbw9W4wn87KmUeYk2dCRnL
- 9HedJD3esbSym3zRCgLkYmx+b1T/u6TQpFB2nODUlZKHTGGz9LCy6TYmikW3aB9IihhFda57S
- J4IrTbATeU2RYliuo9HVmOJW8WMlVpweIvLYx1SwpUoVB41VsvqQFWD/gB1+w9aF4kPxpzDPB
- gnnOwrfbmMh4+f2WnOqqOj2R2u4yB77GwhizlvbaokquKBt3cfFiraBFnXRI+sP2CZSmdljdZ
- IgmRqHI+9Yzq5P3IsBx3DA5q0xXhhQpFZtnZ9K3D4PGobfXE5ZTtSzM56bmuwnhgJUKOuxsdT
- qW+J0I+wZdi8UONoZyUrU/gZp2MyA5c5ZeR0TDzFtssnAIHfcGZzLc6f1xsifFJzMgRFRg/4G
- pXhfIe8LX0TUIhy8sdjQqyhcv/6Ra040+wmkJ5N8sWqaO7FwFI80MKmOrAJXbgcTaAYkMWU/Q
- 21LBwGyH7Odhb7uFrKu+WjW/ny4eFCPiZ9oRVE+wtIXf9/wDy9zOIkDxE5u9o63HV1ITT5bhz
- AMKjPdr5odH1l82lVhTZ0zV67INkOfs9YIyv7lJZhdALSrIS7ErL8+kQEV5cG9Ujfw8l6vSs2
- cbQ0SqszRRozj6BfSCAuf2qASLGu6SQTxnAniPY4+ABVgYPKP+eTF1oSY4OKrCS0WQOVTi00V
- bsyFa8W2h1PaP71p1zX3Y+EP8v00BPgeU9xutTjEpGIn/7/BMfHPPkRuK+/qumuwZJNNhsfjE
- fTXLiMfDsHRfw8t2X/YOB+52+6L47YhvzQaLxszQbwNOytOvFGDGDR9Xlyg72Ut9icRIIXfdv
- LOFcGfVesUeEspqt47hpXQbCl727xs1eyZ9Qu1jruXmQqzZ/wE=
+In-Reply-To: <20211221125617.932371-1-anup.patel@wdc.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211221_091306_040271_90CD5329 
-X-CRM114-Status: GOOD (  14.32  )
+X-CRM114-CacheID: sfid-20211221_092236_121416_5DCAB705 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,49 +93,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 21, 2021 at 5:35 PM <guoren@kernel.org> wrote:
->
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> Implement asm/compat.h for struct compat_xxx, RLIM_INFINITY,
-> OFF_T_MAX, is_compat_task, compat_user_regset, regset convert.
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> ---
->  arch/riscv/include/asm/compat.h      | 259 +++++++++++++++++++++++++++
+On 12/21/21 5:56 AM, Anup Patel wrote:
+> The inline version of vm_compute_max_gfn() in kvm_util.h directly
+> access members of "struct kvm_vm" which causes compile errors for
+> non-x86 architectures because lib/elf.c includes "kvm_util.h" before
+> "kvm_util_internal.h".
+> 
+> This patch fixes above described compile error by converting inline
+> version of vm_compute_max_gfn() into a macro.
 
-Since both the native and compat side use the generic interface, I think this
-should all be part of asm-generic/compat.h, in case other architectures want to
-share this in the future. Maybe see if any other architectures use the
-same definition
-for some of the structures and then remove the duplicates.
+Thank you for the patch. Please include the actual compile error in the
+change log and send v2,
 
-> +struct compat_stat {
-> +       compat_ulong_t  st_dev;
-> +       compat_ulong_t  st_ino;
-> +       compat_uint_t   st_mode;
-> +       compat_uint_t   st_nlink;
-
-You should not need a compat_stat, because native rv32 does not have a
-stat() syscall.
-
-> +static inline int is_compat_task(void)
-> +{
-> +       return test_thread_flag(TIF_32BIT);
-> +}
-> +
-> +struct compat_user_regs_struct {
-> +       compat_ulong_t pc;
-> +       compat_ulong_t ra;
-
-These clearly need to stay in arch/riscv
-
-        Arnd
+thanks,
+-- Shuah
 
 _______________________________________________
 linux-riscv mailing list
