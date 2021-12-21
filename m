@@ -4,78 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04E6CC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Dec 2021 13:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABDE5C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Dec 2021 14:56:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yqdpiYaxPjGqlfB/w4wrtEMnUkXZGmzWc0ZlrZrwCGU=; b=pGdSmkTahrqCnp
-	64s06S5iuzWz/6Mmgkj/N+Vk91ieLciwtv591JDoZ/6e5UQKbx4EKANUloOMtejgp2wO9mHSahrcC
-	pF+dHMJHpTLfTbxrtvYfCS1vfWpQi8TS2frggS6LehL75QT14e8wCdjeSDMRjqpVMm7C+uIs3g9q4
-	+cXsz4mmaNndMWjctPRKaDsnW3T1R20aJZs9AMejpa8na1LSH40mWd4squ5IRR60mNeTytA2WWPGj
-	BkWPfiUtttxrh1JlVK8N3dGuC09+p91KfAL0FOQ0YfVHZDYgXeMzRpc6vCKeXu4b+rVY4AZh617I5
-	Q8mNg109UJBxxEd1EaUA==;
+	List-Owner; bh=SyNwBEW42m/L0adUlOaUFaZp5Q51aJ+y+E8mAI7Z+nA=; b=khmXrU2Exmlnsb
+	l+PWLl/msh0GSHU5wL/iWdFmL8/QzakSDkY54TPXSPTjZDRL/6EPVuph139x0GEpq4P468ZDhGeB3
+	pdnGkgKFG4f9h8GkXKK2zr4SkOLAlDBj0YsalbZ2pggr5xK3hF4FcRk232WPzTK/sYBtmm7RcsU+e
+	QUuTUSF2joTJgd7tLUp/kcq95f32+JLW/rqo0jm4A7sIJgvJz1A6RZS9cOCj5KLOfHfPMcewUgDXA
+	O+sbww6kSYApjguwnQ6YveHlPhGI4vLHcHeusczwWJPA5xUmNhwZRjNraTvyuRenV7djVat0Lpq5O
+	Vk3OOlRE+NdoApPGYiRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mzfGI-006ym0-Ng; Tue, 21 Dec 2021 13:33:02 +0000
-Received: from mail-qt1-f169.google.com ([209.85.160.169])
+	id 1mzgZB-007DpD-QE; Tue, 21 Dec 2021 14:56:37 +0000
+Received: from mail-qv1-f49.google.com ([209.85.219.49])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mzfGG-006ylA-Gh
- for linux-riscv@lists.infradead.org; Tue, 21 Dec 2021 13:33:02 +0000
-Received: by mail-qt1-f169.google.com with SMTP id t11so12818693qtw.3
- for <linux-riscv@lists.infradead.org>; Tue, 21 Dec 2021 05:32:59 -0800 (PST)
+ id 1mzgZ9-007DoB-7t
+ for linux-riscv@lists.infradead.org; Tue, 21 Dec 2021 14:56:36 +0000
+Received: by mail-qv1-f49.google.com with SMTP id ke6so12674178qvb.1
+ for <linux-riscv@lists.infradead.org>; Tue, 21 Dec 2021 06:56:34 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to;
- bh=DHbNzpt0iAUYfu5r/W24qY79bvlSWjiGM23ZPveiPVQ=;
- b=iHYKRXy7Ri7QoYOcGqjCoNxrz2+J9n8f4yei4SA5/HcU7EGIgYPmIugDb7p08w+cpV
- sRBUHwAdBQJTJQ0t1mMTf2tlk5XRMUv5kUak8wFNqWG7aW7qNGcC4A0zH2E2mt3BT0k9
- MVysVvbkRpj8VWB540RKkm73dovngzrlkFmxLlioShSXc8JoWbLSYVs1c+bqoqdNHx/6
- z/oRGHeM1yyMx9KUhl3307A4OjNlYxENVzmMHwaCDPEoftpSzWNdbAFJcevP6/DUzf/4
- fmGzMckmrBowIQSoe5ZpKOkhPzwB2Y6ODeolzjCe0c1Z9yMqiSKj9R+HM1WqazMVt2lW
- s7vQ==
-X-Gm-Message-State: AOAM5330OfPbIyM7xfpwVNOIWARyJO6nk9CMdtiNYAquqig/UxS079qK
- G1QtGKQfK1dQE4g3YkGgfA==
-X-Google-Smtp-Source: ABdhPJy3Z1ImApelVtQQKouP5J7Mv1P6nlUyv+LtrwSb6ZYUeEsizGUI8yk3xIcWpcpRQ2mkxiO6CA==
-X-Received: by 2002:ac8:4f07:: with SMTP id b7mr1371584qte.301.1640093579004; 
- Tue, 21 Dec 2021 05:32:59 -0800 (PST)
+ bh=IfHUO6xtXv9Ts0W33bZQlQeeBuIG/rdx+gMNJR+vL2M=;
+ b=5jThvyAMR6SZyy230FJsNo8Zey6eE7khIF9c2sg/aY7dDKZPhQOl+d3UM2+ff3ixWD
+ b2c8cGFOWHcClR+tUpCAGxcaghUP9GFZ0nx45+SxPWvufn70DxzGLJeB5ic+qFZzWkCS
+ 7QeIEJXK1Y751nsW0bSPjPGfWhO+dj16aB//Q1ezKCtA4/7akzlaXcD/0RslvoAkY0TP
+ QTQOjvRyQBQYkcTn18dsVASNwopJEsuWSn5Tu6/yeTDXRAZW079OJ/kF0dCuh/Kmywnv
+ GI1DD8ZdYlQf8Kr6xnDwk81IRGpuNAeikprp1b7PWbDHqm93bXFmxRAwPc5Oyvgw/92+
+ k+bQ==
+X-Gm-Message-State: AOAM5317Dkk7eB6Ods2vn3suftFUnFMhkPjdkv+EMFM0vY90wGXc7ZvK
+ xBLu1OFB1M/4l4Rvs88H8Q==
+X-Google-Smtp-Source: ABdhPJzKvh6+eMR4c3h3MgNOzyuXugSjD5a43VT7csyUNrV/SxCwE64LUsGRc2BySZ7d5T5kol/K+Q==
+X-Received: by 2002:a0c:d841:: with SMTP id i1mr2815831qvj.126.1640098594266; 
+ Tue, 21 Dec 2021 06:56:34 -0800 (PST)
 Received: from robh.at.kernel.org ([24.55.105.145])
- by smtp.gmail.com with ESMTPSA id y16sm12642056qkj.69.2021.12.21.05.32.56
+ by smtp.gmail.com with ESMTPSA id k1sm13044520qkh.53.2021.12.21.06.56.32
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 21 Dec 2021 05:32:58 -0800 (PST)
-Received: (nullmailer pid 1262982 invoked by uid 1000);
- Tue, 21 Dec 2021 13:32:55 -0000
-Date: Tue, 21 Dec 2021 09:32:55 -0400
+ Tue, 21 Dec 2021 06:56:33 -0800 (PST)
+Received: (nullmailer pid 1403641 invoked by uid 1000);
+ Tue, 21 Dec 2021 14:56:32 -0000
+Date: Tue, 21 Dec 2021 10:56:32 -0400
 From: Rob Herring <robh@kernel.org>
-To: conor.dooley@microchip.com
-Cc: linus.walleij@linaro.org, bgolaszewski@baylibre.com,
- jassisinghbrar@gmail.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, a.zummo@towertech.it, alexandre.belloni@bootlin.com,
- broonie@kernel.org, gregkh@linuxfoundation.org, thierry.reding@gmail.com,
- u.kleine-koenig@pengutronix.de, lee.jones@linaro.org,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
- linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-crypto@vger.kernel.org, linux-rtc@vger.kernel.org,
- linux-spi@vger.kernel.org, linux-usb@vger.kernel.org,
- krzysztof.kozlowski@canonical.com, geert@linux-m68k.org,
- bin.meng@windriver.com, heiko@sntech.de, lewis.hanly@microchip.com,
- daire.mcnamara@microchip.com, ivan.griffin@microchip.com, atish.patra@wdc.com
-Subject: Re: [PATCH v2 11/17] dt-bindings: usb: add bindings for microchip
- mpfs musb
-Message-ID: <YcHXhyYhFfPty7mA@robh.at.kernel.org>
-References: <20211217093325.30612-1-conor.dooley@microchip.com>
- <20211217093325.30612-12-conor.dooley@microchip.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup.patel@wdc.com>,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 2/2] dt-bindings: timer: sifive, clint: Group interrupt
+ tuples
+Message-ID: <YcHrIM9e+tSmpk8B@robh.at.kernel.org>
+References: <cover.1639744468.git.geert@linux-m68k.org>
+ <b2409de8943b56dfda2c972f4fe566a381be07a7.1639744468.git.geert@linux-m68k.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20211217093325.30612-12-conor.dooley@microchip.com>
+In-Reply-To: <b2409de8943b56dfda2c972f4fe566a381be07a7.1639744468.git.geert@linux-m68k.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211221_053300_588095_B043B7F2 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20211221_065635_310777_63AACC93 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,96 +84,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 17, 2021 at 09:33:19AM +0000, conor.dooley@microchip.com wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+On Fri, Dec 17, 2021 at 01:38:04PM +0100, Geert Uytterhoeven wrote:
+> To improve human readability and enable automatic validation, the tuples
+> in "interrupts-extended" properties should be grouped using angle
+> brackets.
 > 
-> Add device tree bindings for the usb controller on
-> the Microchip PolarFire SoC.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
 > ---
->  .../bindings/usb/microchip,mpfs-musb.yaml     | 61 +++++++++++++++++++
->  1 file changed, 61 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/usb/microchip,mpfs-musb.yaml
+> v3:
+>   - Add Reviewed-by,
+
+Did you? ;)
+
+Reviewed-by: Rob Herring <robh@kernel.org>
+
 > 
-> diff --git a/Documentation/devicetree/bindings/usb/microchip,mpfs-musb.yaml b/Documentation/devicetree/bindings/usb/microchip,mpfs-musb.yaml
-> new file mode 100644
-> index 000000000000..eec918046c73
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/usb/microchip,mpfs-musb.yaml
-> @@ -0,0 +1,61 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/usb/microchip,mpfs-musb.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Microchip MPFS USB Controller Device Tree Bindings
-> +
-> +maintainers:
-> +  - Conor Dooley <conor.dooley@microchip.com>
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - microchip,mpfs-musb
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    minItems: 2
-> +    maxItems: 2
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: dma
-> +      - const: mc
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  dr_mode:
-> +    enum:
-> +      - host
-> +      - otg
-> +      - peripheral
-
-Reference usb-drd.yaml and you can drop this.
-
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - interrupt-names
-> +  - clocks
-> +  - dr_mode
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include "dt-bindings/clock/microchip,mpfs-clock.h"
-> +    usb: usb@20201000 {
-
-Drop unused labels.
-
-> +        compatible = "microchip,mpfs-musb";
-> +        reg = <0x20201000 0x1000>;
-> +        clocks = <&clkcfg CLK_USB>;
-> +        interrupt-parent = <&plic>;
-> +        interrupts = <86>, <87>;
-> +        interrupt-names = "dma","mc";
-
-space                              ^
-
-> +        dr_mode = "host";
-> +    };
-> +
-> +...
+> v2:
+>   - Split in two patches.
+> ---
+>  Documentation/devicetree/bindings/timer/sifive,clint.yaml | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> index b75fd6f982b1ecb3..3b25ec37d81159cb 100644
+> --- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> +++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> @@ -57,10 +57,10 @@ examples:
+>    - |
+>      timer@2000000 {
+>        compatible = "sifive,fu540-c000-clint", "sifive,clint0";
+> -      interrupts-extended = <&cpu1intc 3 &cpu1intc 7
+> -                             &cpu2intc 3 &cpu2intc 7
+> -                             &cpu3intc 3 &cpu3intc 7
+> -                             &cpu4intc 3 &cpu4intc 7>;
+> +      interrupts-extended = <&cpu1intc 3>, <&cpu1intc 7>,
+> +                            <&cpu2intc 3>, <&cpu2intc 7>,
+> +                            <&cpu3intc 3>, <&cpu3intc 7>,
+> +                            <&cpu4intc 3>, <&cpu4intc 7>;
+>         reg = <0x2000000 0x10000>;
+>      };
+>  ...
 > -- 
-> 2.33.1
+> 2.25.1
 > 
 > 
 
