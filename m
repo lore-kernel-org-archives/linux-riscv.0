@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21375C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Dec 2021 17:12:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A47C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Dec 2021 17:13:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nfi4xCEoc7lpxylgNo9g6/odiacCO2qEE/AMtSI3NlI=; b=oju93Bq9iBF9G+
-	As+foW9WEtbQwZVMOLLmCOiVcXSFh1ELxWnVAAc7ckm4ZXpOmupgJTQiHR9TKAl1h6qVl12GsAZeG
-	kICj3qhXEy9KXhqFbB2aYZH3IdNSPz6SY7cE6ZfuLNyOzOWfUr9KX0KlB60wV/59hl1/IYfsWUEP8
-	mIFdWBECAreBZaJNo1mlSjj4FMRbKPZG/Cf24CY12xUo19Vn7CLAsOmHvEIdiLqB3DBVwrFXA+hsE
-	F91305B05R0YUGOv075A6lj6EuG5+doD1DmhgJ/Tw6XRjBkNeYlKf0YIsq6eDOo/8+OPc6RlUBjKc
-	ko/CvVCbHx1iAsyX+w7w==;
+	List-Owner; bh=NNQOooH4EmJv7vZV/vxz5DgUelGKXRIdpndaIoeUHgE=; b=ePdcjQZNyAPwW3
+	6/UWs3apkzMs+vZKG4t7q2VIkqfD7hq60sVd8m0jPeUuh3diLNIh94M+HsS6INoVyRlPb14tjHH6H
+	fw+OwUOWudWK+OYXZBDoWOhapRPoMEeWjUp/7OdsHtvzdft34bdOCISBrgO+QzTIlVoi1NOYRjE7y
+	W27mM+y3nk0fHiMdjr0solXwtoaKH9M4H+QeLf7UYLE73MJNQkxF0lJH3R/1HGqqi7JwE70E4uB2B
+	ByZ8EGGqM5d0kIvLwayBvT1T3yol1UpgtKZaXFj4m7W3RE5fZOETyGYi8k2V+CGvUacQmnIIAoULc
+	hC0VBb0Xj3nxp0TznycA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mzigu-007kAC-Vv; Tue, 21 Dec 2021 17:12:45 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1mzihK-007kN2-Dx; Tue, 21 Dec 2021 17:13:10 +0000
+Received: from mout.kundenserver.de ([212.227.17.13])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mziWH-007fAt-Ij; Tue, 21 Dec 2021 17:01:53 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 066DD6169D;
- Tue, 21 Dec 2021 17:01:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81050C36AEC;
- Tue, 21 Dec 2021 17:01:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1640106104;
- bh=5T//5GQugAmz1CEViBCCmsXDs4J5BoJEcY/PJqyOdEA=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=Ya5sC66uzXxa7udtqo/unVjSwoVcTSBjptfJw0RYyTUVDE5oX9+M504c435ZgQyBK
- CaWRH0BVMHqbBzk3gvaE3HqqMpgsEQb/drJi0wMSuBfKzLL0S81UhispyKobCvYqbw
- g8RpTdht/DMzv4i7nYcl3kmmkyePlFagSwR09dIq7rv+PC+fzcrHmJwor4Nx+dGHxU
- nFSO7Nh/8NBsBUlCA/lWWFDUJxdGavC9OUFEXCEJeexB+o7Vib9O+36R5+GWXgfqrh
- Vk5CLMreK1SrxVUkKqA0NnZPFt2df8Ir0fs7VD/AnJ+po7zceJU21PauXCitI0BsEF
- r6+BrSBpUMEgg==
-From: guoren@kernel.org
-To: guoren@kernel.org, will@kernel.org, tglx@linutronix.de,
- benh@kernel.crashing.org, arnd@arndb.de, mingo@redhat.com,
- peterz@infradead.org, juri.lelli@redhat.com
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.or,
- linuxppc-dev@lists.ozlabs.org, inux-parisc@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- x86@kernel.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH 8/8] sched: mips: Remove unused TASK_SIZE_OF
-Date: Wed, 22 Dec 2021 01:00:57 +0800
-Message-Id: <20211221170057.2637763-9-guoren@kernel.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20211221170057.2637763-1-guoren@kernel.org>
-References: <20211221170057.2637763-1-guoren@kernel.org>
+ id 1mzidM-007iZc-Ey
+ for linux-riscv@lists.infradead.org; Tue, 21 Dec 2021 17:09:06 +0000
+Received: from mail-wm1-f43.google.com ([209.85.128.43]) by
+ mrelayeu.kundenserver.de (mreue106 [213.165.67.113]) with ESMTPSA (Nemesis)
+ id 1N3sNa-1mHxld3fou-00zr0h for <linux-riscv@lists.infradead.org>; Tue, 21
+ Dec 2021 18:09:01 +0100
+Received: by mail-wm1-f43.google.com with SMTP id l4so63831wmq.3
+ for <linux-riscv@lists.infradead.org>; Tue, 21 Dec 2021 09:09:01 -0800 (PST)
+X-Gm-Message-State: AOAM5307YdjsvTsXr1mppDuu3Sg4lCVzSD/+GkV7NfnrlROaEiLMO3de
+ UXLayLV4Fbz7b6ZAGCpb1hYznuoIMBqZqcit4KQ=
+X-Google-Smtp-Source: ABdhPJwBjfG8n5UL3gUcPzQHQGqJD8jdtXydpXBiVw9zz8vMTxK4PxCyGzOYKywQHcSPDIX78gSsHjw/vuP33ZnB2VQ=
+X-Received: by 2002:a1c:8013:: with SMTP id b19mr3463956wmd.35.1640106541291; 
+ Tue, 21 Dec 2021 09:09:01 -0800 (PST)
 MIME-Version: 1.0
+References: <20211221163532.2636028-1-guoren@kernel.org>
+ <20211221163532.2636028-2-guoren@kernel.org>
+In-Reply-To: <20211221163532.2636028-2-guoren@kernel.org>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Tue, 21 Dec 2021 18:08:45 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a1fC8aro3kHLvGMVDdvVYjaQdxJeGur9ac=11+6=r0Xyg@mail.gmail.com>
+Message-ID: <CAK8P3a1fC8aro3kHLvGMVDdvVYjaQdxJeGur9ac=11+6=r0Xyg@mail.gmail.com>
+Subject: Re: [PATCH 01/13] syscalls: compat: Fix the missing part for
+ __SYSCALL_COMPAT
+To: Guo Ren <guoren@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
+ Anup Patel <anup.patel@wdc.com>, 
+ gregkh <gregkh@linuxfoundation.org>, liush <liush@allwinnertech.com>,
+ wefu@redhat.com, 
+ Drew Fustini <drew@beagleboard.org>, wangjunqiang@iscas.ac.cn, 
+ =?UTF-8?B?V2VpIFd1ICjlkLTkvJ8p?= <lazyparser@gmail.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
+ Guo Ren <guoren@linux.alibaba.com>
+X-Provags-ID: V03:K1:jVtXffS1cYeqhVKBNLcTR62VXO0Xd1EkXF31W9sEHllgBQpOm+9
+ LcF5ERj7eojlztKZubidBGm11qoY2rxjyEOskSXljZTVh/2S/Xsd5Mrg72ZCxJ+Hp2+0URS
+ s6EyXcZWl+GfnPQ2Z4gNuelZOjRfCqtMBpOlDzz4OGFpW4b86Lhqhq8DsivFwS7FoYXXvDK
+ a9ql8wnNzA5K2W8iksO0w==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:V0pDdgU95qs=:vr1wkuggAGx67ZSzWXFaDu
+ s72zFWS6IISwLw2gqdHCMHL2j9FD+oWPp7dEf6NjnmqIkMZucjj5ucMk2RuAHgGe46GTzHB+e
+ 7cWN/1S0XfvconEcUVT+AiPELa1TMQe5CPG0NsigP4VBKAcd/ohscXI8Fvy1q0+TlWUZewnqh
+ rIRec9YI8Z5tB3/Z6ySbU0UycznYw7b9DvVnB8FWmL6oIIXiUtBVyHDvDMrd20iHG00A+D25z
+ 7Gg84rEUUGRjv87NUPBRTNaoK+8nEsLUbs1qIqWPw7ea54QYhGmMSbdAuUCp7um/79uVCUdVn
+ /DpZR9hZuasRG/l8c/IKZuDVZtgtDVMPUZP+8SkYDyTuV7V30nyQ3ZhfDiG5kbg23tF5eJbiT
+ L8rPibmnloi/MWNQiA7UyMZ2le69mcGvHE/zGba4O35/avqMlhGMUvBjfDRJV7zJo0hcWh+WO
+ k81ooC1n3QmHngWcgyA+QtgnSbOh4sXOKkPeL3qAhz89Caed40GVHfrmmLbLtlRH1g6rkZTu0
+ 8F+xe8BMMj48r/UWt9Va0WTn1jM2O+IdWkgJyq8KYgmkDOO1YEcfo9aCX3x8Fx9vj/uNalEHS
+ cjBaUSfs0hgzlzxAksoFETDxV91rpXCbXOVMlInGDW4xuHdOgRpUCpjVSbfw0tS53JrL8khEy
+ lbVUa+MHeqLjWab7wgJ9X9f4bcbG1YP/0IvIrWDgOw//wggmwWE7FYaO1kK/78jzi0+Q=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211221_090145_692408_CC7E68D7 
-X-CRM114-Status: UNSURE (   7.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211221_090904_858410_E9BEE639 
+X-CRM114-Status: GOOD (  11.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,33 +90,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+On Tue, Dec 21, 2021 at 5:35 PM <guoren@kernel.org> wrote:
+> diff --git a/include/uapi/asm-generic/unistd.h b/include/uapi/asm-generic/unistd.h
+> index 4557a8b6086f..aafe5cfeb27c 100644
+> --- a/include/uapi/asm-generic/unistd.h
+> +++ b/include/uapi/asm-generic/unistd.h
+> @@ -383,7 +383,7 @@ __SYSCALL(__NR_syslog, sys_syslog)
+>
+>  /* kernel/ptrace.c */
+>  #define __NR_ptrace 117
+> -__SYSCALL(__NR_ptrace, sys_ptrace)
+> +__SC_COMP(__NR_ptrace, sys_ptrace, compat_sys_ptrace)
+>
 
-This macro isn't used in Linux sched, now. Delete in
-include/linux/sched.h and arch's include/asm.
+Right. We could merge sys_ptrace and compat_sys_ptrace() by adding
+a in_compat_syscall() check, but either way works.
 
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
----
- arch/mips/include/asm/processor.h | 3 ---
- 1 file changed, 3 deletions(-)
+>  /* kernel/sched/core.c */
+>  #define __NR_sched_setparam 118
+> @@ -779,7 +779,7 @@ __SYSCALL(__NR_rseq, sys_rseq)
+>  #define __NR_kexec_file_load 294
+>  __SYSCALL(__NR_kexec_file_load,     sys_kexec_file_load)
+>  /* 295 through 402 are unassigned to sync up with generic numbers, don't use */
+> -#if __BITS_PER_LONG == 32
+> +#if defined(__SYSCALL_COMPAT) || __BITS_PER_LONG == 32
+>  #define __NR_clock_gettime64 403
+>  __SYSCALL(__NR_clock_gettime64, sys_clock_gettime)
 
-diff --git a/arch/mips/include/asm/processor.h b/arch/mips/include/asm/processor.h
-index 4bb24579d12e..8871fc5b0baa 100644
---- a/arch/mips/include/asm/processor.h
-+++ b/arch/mips/include/asm/processor.h
-@@ -61,9 +61,6 @@ extern int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src
- #define TASK_SIZE (test_thread_flag(TIF_32BIT_ADDR) ? TASK_SIZE32 : TASK_SIZE64)
- #define STACK_TOP_MAX	TASK_SIZE64
- 
--#define TASK_SIZE_OF(tsk)						\
--	(test_tsk_thread_flag(tsk, TIF_32BIT_ADDR) ? TASK_SIZE32 : TASK_SIZE64)
--
- #define TASK_IS_32BIT_ADDR test_thread_flag(TIF_32BIT_ADDR)
- 
- #endif
--- 
-2.25.1
+This part looks wrong, you expose clock_gettime64 to user space this way, both
+in asm/unistd.h and in the table.
 
+         Arnd
 
 _______________________________________________
 linux-riscv mailing list
