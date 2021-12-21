@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CBD6C433EF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7157C433FE
 	for <linux-riscv@archiver.kernel.org>; Tue, 21 Dec 2021 16:36:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,53 +12,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PRp/3/hgwEd/LL6hihaWPnncf8LKfxaef6cG4a0Rchk=; b=ldeJ7AxP3AUQIC
-	qKk+dv5dBfzS89HljHFeHsbc/acSG4WhWiJSwSZ91SgwoWsneXhL+JZH0H9taZJ8WvcvLooqq42Hg
-	zr+qEVx7ksAga5nYfXe4Hd7zEWUwbwrzk7uccEQ0/TnA2KOdNjZHiqAWZjZyD8Nb88/Mzhtzi0ntS
-	ezfWRBP3tPh546TLC/G5syzKFNl6pNpIAGMuwphSkvcjBriQKuUcwZX4c+KmdV+2G8oWRfjvZZb54
-	3Gv6fX2P9Yp8jFPBTztLexESelXKd08SCQNRRU1yPf89or3CVsAJ573cW9fecQ+qohEHplo7ZKqu7
-	QJ5a38Bxwrqur7FJ8+fw==;
+	List-Owner; bh=gQFwTvDo8qKVTMmW2PWTtxvwc7jEWWn3vGXBIjqU45c=; b=ZnHycp+CH19FrC
+	tIKFRUvhgt4GN+kYVzEQOaC6melS9vBBLOwwk4VwPZ43v/NFj/qi3REEngOAZAqQIEudCCKiEFmcY
+	2VQIR1U+xhX8exZh7leQ6T8FrjqXqNulqCvCIhcKUr0+A5nLAELoQZbr70jdZU6yR/BAuCKPqHD5d
+	oflYZS94kJz9e7P+sMH/RieuZTIzlR6obuD0eCywBCOogU8Ne1WGBBfnWjddBfN+J4Vm4H0uLYZan
+	zqWpIrtc00Vcxdz3ZmIWbeYLbOupNS2MwwObNGFkCmfW7p/aHLvx17WniheAxc3OTALCGqQO5V3zp
+	2y/steRo97fgUmEse0hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mzi7F-007Zr9-5M; Tue, 21 Dec 2021 16:35:53 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1mzi7M-007Zsi-Tr; Tue, 21 Dec 2021 16:36:00 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mzi7B-007ZqM-R4
- for linux-riscv@lists.infradead.org; Tue, 21 Dec 2021 16:35:51 +0000
+ id 1mzi7J-007Zrg-Hb
+ for linux-riscv@lists.infradead.org; Tue, 21 Dec 2021 16:35:59 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 49B7E61671;
+ by ams.source.kernel.org (Postfix) with ESMTPS id 2A83EB817AF;
+ Tue, 21 Dec 2021 16:35:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85005C36AEC;
  Tue, 21 Dec 2021 16:35:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F16BC36AEA;
- Tue, 21 Dec 2021 16:35:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1640104548;
- bh=SmCMwMB6mifMZHjrcjCqP+LFszJlcLxeNHrU1HuSk/I=;
+ s=k20201202; t=1640104554;
+ bh=37IMHVJWT8iFSW/Zorv/QJp1kD8U97EWQ2fm9ilMpcc=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=UxRGiRlaQYSsTlirDmwYntSHHymyhgcC8AEnnu17ddJvJItWTlnsohLSeBfvgi+2e
- SQDarQX8FFipDnFLitVcZdC+7AeK9C6K1fiUlN3sIVWeYaF5vFwaRnk4x1RzvPbEAw
- lbP5XOXe8vdyk/to4wXp/B2kzH4JkeKORiTpiretHXyebtBygeefjYA660rFFgMABM
- p2VJ3hK91g+Mmv4E+Nq6qmDQbfepgEgvq4b8B+RQl0unfXXlkJwW0YY1IdRXm2f1DK
- yg998nApFn5uY9rD2neBOes7Xw+Zwz2rZ2NIbUYwfdw3X2icgtbR0QBlgTdrNyOhR3
- WLrTutABc8XqA==
+ b=VfEInCc2gJ4DYuWbzUYNrwXfVQGQjJAMy91gcX96jrWtFEc29ZVC7UnokxDKgBzSh
+ a9x1wEB96ZmjCL7OfQKIgr/f5kSzJe3XqtPnT596EG6n99f8KjhHvHWVBbWQKFbXle
+ rfRv98Icm3wXYg/4FvFUlNNQwHRqPuJYRQ7lbiJzPf61nWstQBQOyfNeGPL/T5MeyT
+ 79zCVZ+79QIGx5KwYAwSQLFvxgIfK7CJSTWEDjLIw3j6RwKKAUNK1QQpvY9dqadVsf
+ 6uB85ssbwsCR2zticdQLEcnTtdB7XkwxhYSSDO1GfwhJpyShJS+XVjdI172ra2x/kQ
+ Lf7h36qQ+L9HA==
 From: guoren@kernel.org
 To: guoren@kernel.org, palmer@dabbelt.com, arnd@arndb.de, anup.patel@wdc.com,
  gregkh@linuxfoundation.org, liush@allwinnertech.com, wefu@redhat.com,
  drew@beagleboard.org, wangjunqiang@iscas.ac.cn, lazyparser@gmail.com
 Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH 01/13] syscalls: compat: Fix the missing part for
- __SYSCALL_COMPAT
-Date: Wed, 22 Dec 2021 00:35:20 +0800
-Message-Id: <20211221163532.2636028-2-guoren@kernel.org>
+Subject: [PATCH 02/13] riscv: Fixup difference with defconfig
+Date: Wed, 22 Dec 2021 00:35:21 +0800
+Message-Id: <20211221163532.2636028-3-guoren@kernel.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20211221163532.2636028-1-guoren@kernel.org>
 References: <20211221163532.2636028-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211221_083549_939347_9773EFC2 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20211221_083557_889197_F192DB3D 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,59 +77,94 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Make "uapi asm unistd.h" could be used for architectures' COMPAT
-mode. The __SYSCALL_COMPAT is first used in riscv.
+Let's follow the origin patch's spirit.
 
+The only difference between rv32_defconfig and defconfig is that
+rv32_defconfig has  CONFIG_ARCH_RV32I=y.
+
+This is helpful to compare rv64-compat-rv32 v.s. rv32-linux.
+
+Fixes: 1b937e8faa87ccfb ("RISC-V: Add separate defconfig for 32bit systems")
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Cc: Anup Patel <anup.patel@wdc.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
 ---
- include/uapi/asm-generic/unistd.h       | 4 ++--
- tools/include/uapi/asm-generic/unistd.h | 4 ++--
- 2 files changed, 4 insertions(+), 4 deletions(-)
+ arch/riscv/configs/rv32_defconfig | 20 ++++++++++++++++----
+ 1 file changed, 16 insertions(+), 4 deletions(-)
 
-diff --git a/include/uapi/asm-generic/unistd.h b/include/uapi/asm-generic/unistd.h
-index 4557a8b6086f..aafe5cfeb27c 100644
---- a/include/uapi/asm-generic/unistd.h
-+++ b/include/uapi/asm-generic/unistd.h
-@@ -383,7 +383,7 @@ __SYSCALL(__NR_syslog, sys_syslog)
- 
- /* kernel/ptrace.c */
- #define __NR_ptrace 117
--__SYSCALL(__NR_ptrace, sys_ptrace)
-+__SC_COMP(__NR_ptrace, sys_ptrace, compat_sys_ptrace)
- 
- /* kernel/sched/core.c */
- #define __NR_sched_setparam 118
-@@ -779,7 +779,7 @@ __SYSCALL(__NR_rseq, sys_rseq)
- #define __NR_kexec_file_load 294
- __SYSCALL(__NR_kexec_file_load,     sys_kexec_file_load)
- /* 295 through 402 are unassigned to sync up with generic numbers, don't use */
--#if __BITS_PER_LONG == 32
-+#if defined(__SYSCALL_COMPAT) || __BITS_PER_LONG == 32
- #define __NR_clock_gettime64 403
- __SYSCALL(__NR_clock_gettime64, sys_clock_gettime)
- #define __NR_clock_settime64 404
-diff --git a/tools/include/uapi/asm-generic/unistd.h b/tools/include/uapi/asm-generic/unistd.h
-index 4557a8b6086f..aafe5cfeb27c 100644
---- a/tools/include/uapi/asm-generic/unistd.h
-+++ b/tools/include/uapi/asm-generic/unistd.h
-@@ -383,7 +383,7 @@ __SYSCALL(__NR_syslog, sys_syslog)
- 
- /* kernel/ptrace.c */
- #define __NR_ptrace 117
--__SYSCALL(__NR_ptrace, sys_ptrace)
-+__SC_COMP(__NR_ptrace, sys_ptrace, compat_sys_ptrace)
- 
- /* kernel/sched/core.c */
- #define __NR_sched_setparam 118
-@@ -779,7 +779,7 @@ __SYSCALL(__NR_rseq, sys_rseq)
- #define __NR_kexec_file_load 294
- __SYSCALL(__NR_kexec_file_load,     sys_kexec_file_load)
- /* 295 through 402 are unassigned to sync up with generic numbers, don't use */
--#if __BITS_PER_LONG == 32
-+#if defined(__SYSCALL_COMPAT) || __BITS_PER_LONG == 32
- #define __NR_clock_gettime64 403
- __SYSCALL(__NR_clock_gettime64, sys_clock_gettime)
- #define __NR_clock_settime64 404
+diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
+index 6e9f12ff968a..d858906cff2d 100644
+--- a/arch/riscv/configs/rv32_defconfig
++++ b/arch/riscv/configs/rv32_defconfig
+@@ -1,3 +1,4 @@
++CONFIG_ARCH_RV32I=y
+ CONFIG_SYSVIPC=y
+ CONFIG_POSIX_MQUEUE=y
+ CONFIG_NO_HZ_IDLE=y
+@@ -16,7 +17,7 @@ CONFIG_EXPERT=y
+ CONFIG_BPF_SYSCALL=y
+ CONFIG_SOC_SIFIVE=y
+ CONFIG_SOC_VIRT=y
+-CONFIG_ARCH_RV32I=y
++CONFIG_SOC_MICROCHIP_POLARFIRE=y
+ CONFIG_SMP=y
+ CONFIG_HOTPLUG_CPU=y
+ CONFIG_VIRTUALIZATION=y
+@@ -41,10 +42,12 @@ CONFIG_PCI=y
+ CONFIG_PCIEPORTBUS=y
+ CONFIG_PCI_HOST_GENERIC=y
+ CONFIG_PCIE_XILINX=y
++CONFIG_PCIE_FU740=y
+ CONFIG_DEVTMPFS=y
+ CONFIG_DEVTMPFS_MOUNT=y
+ CONFIG_BLK_DEV_LOOP=y
+ CONFIG_VIRTIO_BLK=y
++CONFIG_BLK_DEV_NVME=m
+ CONFIG_BLK_DEV_SD=y
+ CONFIG_BLK_DEV_SR=y
+ CONFIG_SCSI_VIRTIO=y
+@@ -68,11 +71,14 @@ CONFIG_HW_RANDOM=y
+ CONFIG_HW_RANDOM_VIRTIO=y
+ CONFIG_SPI=y
+ CONFIG_SPI_SIFIVE=y
++CONFIG_GPIOLIB=y
++CONFIG_GPIO_SIFIVE=y
+ # CONFIG_PTP_1588_CLOCK is not set
+ CONFIG_POWER_RESET=y
+-CONFIG_DRM=y
+-CONFIG_DRM_RADEON=y
+-CONFIG_DRM_VIRTIO_GPU=y
++CONFIG_DRM=m
++CONFIG_DRM_RADEON=m
++CONFIG_DRM_NOUVEAU=m
++CONFIG_DRM_VIRTIO_GPU=m
+ CONFIG_FRAMEBUFFER_CONSOLE=y
+ CONFIG_USB=y
+ CONFIG_USB_XHCI_HCD=y
+@@ -83,6 +89,9 @@ CONFIG_USB_OHCI_HCD=y
+ CONFIG_USB_OHCI_HCD_PLATFORM=y
+ CONFIG_USB_STORAGE=y
+ CONFIG_USB_UAS=y
++CONFIG_MMC_SDHCI=y
++CONFIG_MMC_SDHCI_PLTFM=y
++CONFIG_MMC_SDHCI_CADENCE=y
+ CONFIG_MMC=y
+ CONFIG_MMC_SPI=y
+ CONFIG_RTC_CLASS=y
+@@ -105,6 +114,8 @@ CONFIG_NFS_V4_1=y
+ CONFIG_NFS_V4_2=y
+ CONFIG_ROOT_NFS=y
+ CONFIG_9P_FS=y
++CONFIG_NLS_CODEPAGE_437=y
++CONFIG_NLS_ISO8859_1=m
+ CONFIG_CRYPTO_USER_API_HASH=y
+ CONFIG_CRYPTO_DEV_VIRTIO=y
+ CONFIG_PRINTK_TIME=y
+@@ -133,3 +144,4 @@ CONFIG_RCU_EQS_DEBUG=y
+ # CONFIG_RUNTIME_TESTING_MENU is not set
+ CONFIG_MEMTEST=y
+ # CONFIG_SYSFS_SYSCALL is not set
++CONFIG_EFI=y
 -- 
 2.25.1
 
