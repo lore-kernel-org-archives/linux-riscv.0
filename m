@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 638D7C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Dec 2021 13:15:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87F0BC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Dec 2021 13:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IhFoizBoWYEA93dIP4P1m5LLNAj3fWxcFG/pobSSlD8=; b=N8IyJir+VcYMD1
-	TaFkH3TPYF8I8VVpNes/D0C892p/pnTRv4Czi8ycPvMCDG8KlrTBKl93OUccGBKOPlxMy6MWYcLSk
-	Z6eYuBtyOHVMoiN7gBL1gPi98kI4KJh+HG4KUaEM1IE7leBAFrSH3N4B/bDSaqmaZXoOD3zHSyqq9
-	XrJDga+OCfNK+gnzieLjwinEa8az+AJzNQ1kATR1/8QBs0b7N+fB/1VGKW9niDD1Q+t1iGIziZK3L
-	XnHRdnWClse6LylAfvv4Ln6b5FAbiqvzG1FP3jjBQFETiLW1omuDPdh//OXVbBR+agfrEjJAt9hLX
-	DPZfKL5VnGGWR8GLAFAA==;
+	List-Owner; bh=2DQsFFmvRRwQV5SQdrlhU5MgckEkxoEnQyQLLqYVVJQ=; b=tefGUxTms78BzG
+	TPKTkbNTqwmubjwRIEXcJM4lDXGpntZxDLtdqq4mlCTxBa8iCCGWYzGlT/MgeZfaUwiUsxHR0xbJ/
+	KEeQ5lPQt3G2+nUECmOLYOFzxdQsW9SWoSX2a5NXz850wQxpT9fPRy2WzFk0ggEYsRfCRBQiuezO1
+	4VhDR1ek4gvPR6EEYvnBVdiA3SaHs29xbj710OcQpxI+CK8oqa1Olgti87hU35pCHFyeEd3JLU/dc
+	MGk1FBUiAsYRi/F2WoMycRs1alkxuhyI1SqZ5kA16WmGJKxG3HqL+5owJubn2Sgcy0N2+VDx+uTA6
+	jkmEB94PcimkLTuiQ5wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mzeyq-006uHK-15; Tue, 21 Dec 2021 13:15:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1mzezq-006ucx-A4; Tue, 21 Dec 2021 13:16:02 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mzeyo-006uGl-3I; Tue, 21 Dec 2021 13:14:58 +0000
+ id 1mzezp-006ucF-3H; Tue, 21 Dec 2021 13:16:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+ d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
  References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
  Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=BQJ41uOETooHS8YreNmk+iO8nSNFA+o+JuBWcEsnIp0=; b=FgQjd3eDwQkafscGGqIntpgWn8
- QcQ0GBrEAqdyid02waGnI5pcwDat1etueqnRtzjcJFAzD5xly6k1U4pdETbNcy4Qbd2BZIQu8HyNZ
- JZ4CUE9nFUq+AVKLJCnyiNw9oMApWQpTeexx8YoMAjArG4BdFHled+sT8RJqkCFmDLaRBauqF4iSP
- 2vGZlFStkFrl+77Zfh9WqOR24gVDKtIgKu/Rjg0UzVluQMA9mtvvs5W5pg76wSw2U9cBjwQ0ny84S
- GybOC5r4ZCemafXBrvD4t0vyR2npdq8qorykzkLs3rcFhsgmeE9IFzzfzu1LLSWwoDiln8+wOvrpn
- XoC3ydUg==;
+ bh=GBBnAb3uzp4suSaLhtbSHK02SXI8tanA6M9OarZBIic=; b=S58ARfQ+ZDNc9V8XHYU6WB4hFJ
+ y+GXTGZ6uxOOM4T0uUpg9W97tcenH36WWd97bsX/V2yeLeFj32EovBKMUbCY7SIPJqp4Fnq9w0oEc
+ B7qbhrfsijGjjSKOkgQurQWLW0Nbd6XVj4+Gce2fGyfrwpaq6w3Cy77w/woPDtJjlvhwqWl2L7pr3
+ RVKh7cYkp2KGkRFGF/BfNObt5tlY2fcgq1UQblASBMKnLHYGJe9yLPVQQIsWYxD0rb4MILLfUlo/+
+ 8w3AgFvC50lfGcJ3tiF5dq9Y1S83zi5i1T+z66g6ctbm178rr+VxCGRFiybAGmP+SPCSYxsGQ/JMW
+ D/VUXqdQ==;
 Received: from j217100.upc-j.chello.nl ([24.132.217.100]
  helo=noisy.programming.kicks-ass.net)
- by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mzeyd-002jrB-4H; Tue, 21 Dec 2021 13:14:47 +0000
+ by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1mzezl-002UYX-9z; Tue, 21 Dec 2021 13:15:57 +0000
 Received: from hirez.programming.kicks-ass.net
  (hirez.programming.kicks-ass.net [192.168.1.225])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (4096 bits))
  (Client did not present a certificate)
- by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 871D2300347;
- Tue, 21 Dec 2021 14:14:46 +0100 (CET)
+ by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id AF198300347;
+ Tue, 21 Dec 2021 14:15:56 +0100 (CET)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
- id 75C9F206E66FD; Tue, 21 Dec 2021 14:14:46 +0100 (CET)
-Date: Tue, 21 Dec 2021 14:14:46 +0100
+ id 9D91A2072814B; Tue, 21 Dec 2021 14:15:56 +0100 (CET)
+Date: Tue, 21 Dec 2021 14:15:56 +0100
 From: Peter Zijlstra <peterz@infradead.org>
 To: Yury Norov <yury.norov@gmail.com>
 Cc: linux-kernel@vger.kernel.org, "James E.J. Bottomley" <jejb@linux.ibm.com>,
@@ -114,13 +114,13 @@ Cc: linux-kernel@vger.kernel.org, "James E.J. Bottomley" <jejb@linux.ibm.com>,
  linux-mm@kvack.org, linux-perf-users@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
  linux-snps-arc@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH 14/17] kernel/cpu: add num_present_cpu counter
-Message-ID: <YcHTRsi+cdMxmBkl@hirez.programming.kicks-ass.net>
+Subject: Re: [PATCH 13/17] kernel/cpu: add num_possible_cpus counter
+Message-ID: <YcHTjJxmUntOHKXB@hirez.programming.kicks-ass.net>
 References: <20211218212014.1315894-1-yury.norov@gmail.com>
- <20211218212014.1315894-15-yury.norov@gmail.com>
+ <20211218212014.1315894-14-yury.norov@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20211218212014.1315894-15-yury.norov@gmail.com>
+In-Reply-To: <20211218212014.1315894-14-yury.norov@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,8 +137,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 18, 2021 at 01:20:10PM -0800, Yury Norov wrote:
-> +EXPORT_SYMBOL(set_cpu_present);
+On Sat, Dec 18, 2021 at 01:20:09PM -0800, Yury Norov wrote:
+> Similarly to the online cpus, the cpu_possible_mask is actively used
+> in the kernel. This patch adds a counter for possible cpus, so that
+> users that call num_possible_cpus() would know the result immediately,
+> instead of calling the bitmap_weight for the mask underlying.
+
+So what user actually cares about performance here enough to warrant
+this?
+
+
+> +EXPORT_SYMBOL(set_cpu_possible);
 
 NAK
 
