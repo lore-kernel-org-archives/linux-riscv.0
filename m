@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FB27C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Dec 2021 16:36:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55FE2C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Dec 2021 16:36:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CsV/bx+Ixa4NSlH1ZDcU5XZAwfSmJM7+QXhnxHzf4CM=; b=itTwLAwLtIFT0w
-	2xHGBBMeM9AjtDp3zI/A/9kH2Lp99Xg/71is1EYCepIJ1sJbx8x7Ra9WPWFeNdSwQnqRbW3BSNjWw
-	BEqX1bG7cbWeJK61vSJkoM9HtgbGREO3/hq8D5nu+I3QcJx3/kum/02I0sWCfiq1klwz9IDMFm8Ah
-	eCMWGSBho/qYSZRGh6/2X2RnwLjziiYL+s24xrx9Duyq9fdxbDatiUSFf2OD4VxCMbsfl1LrGUWGx
-	yn5ZtQesoxrv6ZQBmtlfHd0qsg5XQIq90b1/lNrZvZtPEJV5mkyYZbB6sgWD9rPBpxzBgeKlN9YlS
-	etd81nFkQKEKHj885WBg==;
+	List-Owner; bh=BW1ejjJyINF8caeFbMQZ7AI4t2pa71TQeLJfISbJo7k=; b=LZB+E+7DQdbfvX
+	0689hkTmfeZNeqzoo9NECcHCcqMNGCLkmvMWFT7sw05YaTh/27pPQzGdyGOp7znPEK9g2fn2X+IYB
+	Gj6RXxXQFdMXbG9qjkjgoAj4sQZHooPuK3LtmnlLFxd/vfKvzyuGtA6p4/ayV3dD9X0tLB6Npec+1
+	NlMCoNfIbOC1FTjcH3ZDdBMpcYczoL6tAnHsuRYKXUlsGi92fpi7gZP3eZVn/u24amscSBlxplIWP
+	09+JLiRH4Y8mPAj3rEKF4reLzlTxIBMwUh+RYZJX9AHebBOlN0KG02C0e53cV+hQwcyKkeQmLi6PS
+	66tbtfGTHU4H3NUY6xdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mzi7X-007Zzf-1P; Tue, 21 Dec 2021 16:36:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1mzi7d-007a50-7f; Tue, 21 Dec 2021 16:36:17 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mzi7T-007Zww-HB
- for linux-riscv@lists.infradead.org; Tue, 21 Dec 2021 16:36:09 +0000
+ id 1mzi7a-007a28-Vh
+ for linux-riscv@lists.infradead.org; Tue, 21 Dec 2021 16:36:16 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 028D5616AA;
- Tue, 21 Dec 2021 16:36:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D353C36AEA;
- Tue, 21 Dec 2021 16:36:03 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 8BA2AB817BB;
+ Tue, 21 Dec 2021 16:36:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DBC9C36AE9;
+ Tue, 21 Dec 2021 16:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1640104566;
- bh=faphGyURWtXEOMLKUCGGnY6spV2KyoBcjjwgGbOApL0=;
+ s=k20201202; t=1640104570;
+ bh=pyNDRrLm8h1op2D/CnDPZ+t7MIQaxafy6aTK+h3aaoA=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=aR/lUQ3Dl/Yrlw2FPQpM8gDT3ARBPF5FXM+b7HA2ng28yMnFUO6rxFWxKmsmJT0Xi
- cAfsd31NvOSrnEzrHbhpPRcWHE2pLL+b2JfaPqbFeqiERHGx60Xl4qOnp/YWbCw4Qh
- tbtJ2+eCNx5b3jmpR6mzxVUTb18DrtjHAYBAUmNYgSTE8YF0Z00XgSp1RfER8jkFu9
- OCEAMYW7ntoWpg+XcHMIy8zGsYdNXzsw7D42lTB+uWG1PvMAtxyo2D0BgaTS1YHe8R
- F9+/wdd2guvw60dADD1QmDVxx14WxZA/sgjV0FraFibyNP0e1QxLyaW2mjTuCF/IUH
- m8U61P3lOguJQ==
+ b=BXFzUjg0CKVpXzn/vqjFhfWcIKxxKh5+2lJH05zapwEnp3pKszZuliqDGV5DGu/+k
+ o/NWNQZmRh+kLW0qYhoecVjD1QZUch/9ltyKjmkY4mtef6TxnjIkUPsMYv1l/bExfZ
+ yO6pA1aDjJov5LHVef6Ab4zk20H8BcpThqysCNzuPMd5LG9gxIyP0we+dNRFE7DcKQ
+ fHxBjmiOCmzxUvpDnZBVKPUD9zaX3B4/9mBS9A4ti4k9GEYJ3aiyMdL56p8awVcdMq
+ 8Q4ayAgOMGHT5cB00WHezk6wHQ1R0ZK8txkLtINMIjmNO0mQOcdfMtdXIYkfHttiRa
+ MvlX1pR32ewnQ==
 From: guoren@kernel.org
 To: guoren@kernel.org, palmer@dabbelt.com, arnd@arndb.de, anup.patel@wdc.com,
  gregkh@linuxfoundation.org, liush@allwinnertech.com, wefu@redhat.com,
  drew@beagleboard.org, wangjunqiang@iscas.ac.cn, lazyparser@gmail.com
 Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH 05/13] riscv: compat: syscall: Add compat_sys_call_table
- implementation
-Date: Wed, 22 Dec 2021 00:35:24 +0800
-Message-Id: <20211221163532.2636028-6-guoren@kernel.org>
+Subject: [PATCH 06/13] riscv: compat: syscall: Add entry.S implementation
+Date: Wed, 22 Dec 2021 00:35:25 +0800
+Message-Id: <20211221163532.2636028-7-guoren@kernel.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20211221163532.2636028-1-guoren@kernel.org>
 References: <20211221163532.2636028-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211221_083607_676863_63D7E293 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20211221_083615_185860_CDFE99F2 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,121 +76,72 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Implement compat_syscall_table.c with compat_sys_call_table & fixup
-system call such as truncate64,pread64,fallocate which need two
-regs to indicate 64bit-arg (copied from arm64).
+Implement the entry of compat_sys_call_table[] in asm. Ref to
+riscv-privileged spec 4.1.1 Supervisor Status Register (sstatus):
+
+ BIT[32:33] = UXL[1:0]:
+ - 1:32
+ - 2:64
+ - 3:128
 
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 ---
- arch/riscv/include/asm/syscall.h         |  3 +
- arch/riscv/kernel/compat_syscall_table.c | 84 ++++++++++++++++++++++++
- 2 files changed, 87 insertions(+)
- create mode 100644 arch/riscv/kernel/compat_syscall_table.c
+ arch/riscv/include/asm/csr.h |  7 +++++++
+ arch/riscv/kernel/entry.S    | 18 ++++++++++++++++--
+ 2 files changed, 23 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
-index 7ac6a0e275f2..4ff98a22ef24 100644
---- a/arch/riscv/include/asm/syscall.h
-+++ b/arch/riscv/include/asm/syscall.h
-@@ -16,6 +16,9 @@
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index 5046f431645c..7dac12366833 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -36,6 +36,13 @@
+ #define SR_SD		_AC(0x8000000000000000, UL) /* FS/XS dirty */
+ #endif
  
- /* The array of function pointers for syscalls. */
- extern void * const sys_call_table[];
 +#ifdef CONFIG_COMPAT
-+extern void * const compat_sys_call_table[];
++#define SR_UXL		_AC(0x300000000, UL) /* XLEN mask for U-mode */
++#define SR_UXL_32	_AC(0x100000000, UL) /* XLEN = 32 for U-mode */
++#define SR_UXL_64	_AC(0x200000000, UL) /* XLEN = 64 for U-mode */
++#define SR_UXL_SHIFT	32
 +#endif
++
+ /* SATP flags */
+ #ifndef CONFIG_64BIT
+ #define SATP_PPN	_AC(0x003FFFFF, UL)
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index ed29e9c8f660..1951743f09b3 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -207,13 +207,27 @@ check_syscall_nr:
+ 	 * Syscall number held in a7.
+ 	 * If syscall number is above allowed value, redirect to ni_syscall.
+ 	 */
+-	bgeu a7, t0, 1f
++	bgeu a7, t0, 3f
++#ifdef CONFIG_COMPAT
++	REG_L s0, PT_STATUS(sp)
++	srli s0, s0, SR_UXL_SHIFT
++	andi s0, s0, (SR_UXL >> SR_UXL_SHIFT)
++	li t0, (SR_UXL_32 >> SR_UXL_SHIFT)
++	sub t0, s0, t0
++	bnez t0, 1f
++
++	/* Call compat_syscall */
++	la s0, compat_sys_call_table
++	j 2f
++1:
++#endif
+ 	/* Call syscall */
+ 	la s0, sys_call_table
++2:
+ 	slli t0, a7, RISCV_LGPTR
+ 	add s0, s0, t0
+ 	REG_L s0, 0(s0)
+-1:
++3:
+ 	jalr s0
  
- /*
-  * Only the low 32 bits of orig_r0 are meaningful, so we return int.
-diff --git a/arch/riscv/kernel/compat_syscall_table.c b/arch/riscv/kernel/compat_syscall_table.c
-new file mode 100644
-index 000000000000..9b81fb9a8683
---- /dev/null
-+++ b/arch/riscv/kernel/compat_syscall_table.c
-@@ -0,0 +1,84 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+#define __SYSCALL_COMPAT
-+#undef __LP64__
-+
-+#include <linux/compat.h>
-+#include <linux/syscalls.h>
-+#include <asm-generic/mman-common.h>
-+#include <asm-generic/syscalls.h>
-+#include <asm/syscall.h>
-+
-+SYSCALL_DEFINE6(mmap2, unsigned long, addr, unsigned long, len,
-+	unsigned long, prot, unsigned long, flags,
-+	unsigned long, fd, unsigned long, offset)
-+{
-+	if ((prot & PROT_WRITE) && (prot & PROT_EXEC))
-+		if (unlikely(!(prot & PROT_READ)))
-+			return -EINVAL;
-+
-+	return ksys_mmap_pgoff(addr, len, prot, flags, fd, offset);
-+}
-+
-+#define arg_u32p(name)  u32, name##_lo, u32, name##_hi
-+
-+#define arg_u64(name)   (((u64)name##_hi << 32) | \
-+			 ((u64)name##_lo & 0xffffffff))
-+
-+COMPAT_SYSCALL_DEFINE3(truncate64, const char __user *, pathname,
-+		       arg_u32p(length))
-+{
-+	return ksys_truncate(pathname, arg_u64(length));
-+}
-+
-+COMPAT_SYSCALL_DEFINE3(ftruncate64, unsigned int, fd, arg_u32p(length))
-+{
-+	return ksys_ftruncate(fd, arg_u64(length));
-+}
-+
-+COMPAT_SYSCALL_DEFINE6(fallocate, int, fd, int, mode,
-+		       arg_u32p(offset), arg_u32p(len))
-+{
-+	return ksys_fallocate(fd, mode, arg_u64(offset), arg_u64(len));
-+}
-+
-+COMPAT_SYSCALL_DEFINE5(pread64, unsigned int, fd, char __user *, buf,
-+		       size_t, count, arg_u32p(pos))
-+{
-+	return ksys_pread64(fd, buf, count, arg_u64(pos));
-+}
-+
-+COMPAT_SYSCALL_DEFINE5(pwrite64, unsigned int, fd,
-+		       const char __user *, buf, size_t, count, arg_u32p(pos))
-+{
-+	return ksys_pwrite64(fd, buf, count, arg_u64(pos));
-+}
-+
-+COMPAT_SYSCALL_DEFINE6(sync_file_range, int, fd, arg_u32p(offset),
-+		       arg_u32p(nbytes), unsigned int, flags)
-+{
-+	return ksys_sync_file_range(fd, arg_u64(offset), arg_u64(nbytes),
-+				    flags);
-+}
-+
-+COMPAT_SYSCALL_DEFINE4(readahead, int, fd, arg_u32p(offset),
-+		       size_t, count)
-+{
-+	return ksys_readahead(fd, arg_u64(offset), count);
-+}
-+
-+COMPAT_SYSCALL_DEFINE6(fadvise64_64, int, fd, int, advice, arg_u32p(offset),
-+		       arg_u32p(len))
-+{
-+	return ksys_fadvise64_64(fd, arg_u64(offset), arg_u64(len), advice);
-+}
-+
-+#undef __SYSCALL
-+#define __SYSCALL(nr, call)      [nr] = (call),
-+
-+asmlinkage long compat_sys_rt_sigreturn(void);
-+
-+void * const compat_sys_call_table[__NR_syscalls] = {
-+	[0 ... __NR_syscalls - 1] = sys_ni_syscall,
-+#include <asm/unistd.h>
-+};
+ ret_from_syscall:
 -- 
 2.25.1
 
