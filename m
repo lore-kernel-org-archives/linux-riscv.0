@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55A41C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Dec 2021 16:36:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28A6AC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Dec 2021 17:02:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gjB8byVbxqBY5vT+roxGTadrZEuYRgxs5SXXF4fDKoc=; b=0hlaf9ah4gF1Cy
-	8lUHd92LC254OSGbL5bayypyax0zdYfIGDuILQCat0+ICEJ/lIovN5y75WEpzgcOLNb4hYUXWxbZN
-	WTqUy5QKXymDe2VnnaHhsGzk8gmD+2dtPTT6ocnL7DbtbgzqHkA4tQmZJ3rLUOE2UZJR4CS4iz+SS
-	N1vnBa/RoJTu1jGgf7JBdTq4KE7MxypLzkbtCkqYnj6OrcUNmFSauSvq4BvRJWPyDIA6UtXgWVONE
-	IgFubygMHZMarstC7GTHY3jPI3aMBD+Wcz3pvEWAxCfOLT/PRo6zVcp6MNfe7j9ze673YQ9CefzOH
-	pX5vkFPW92sNCF/OJ9hQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=q8z/v7X0GH/NoF+OIVScTTQ2hJQS3CaeQElhNwy4bYc=; b=AGlhAm9Cu6CLMe
+	7tV20BdI0jGTyAIbukPAx8w0iw1hr3bMLMrFgYt0q06E0XMy53TvJ6O4DOGlNTiZeJpbxTz1HJ+uL
+	8yl9sunGiNPraDv8I33qo6oSiWICDLMqgKooOAnwMaoH1AnyNybpgCx9hf1Jt/mpv+wVkU3VJzIzE
+	e2KhRDT33WsgdxdOmbGqGrtxaOnSa8+jb4O3xFkhK28nEz9z95UvVCdHVibIUPPGTm5nZeRq6aoRF
+	mYWetCAlbFibWSl528L8iILVfFO0O1aaPjbhtcxDRuIvVn0nI+My8nyCnuia3jQahcJd6BeFWlBQd
+	IHP0bX2g2WnV+c4M0vIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mzi8C-007ae7-7M; Tue, 21 Dec 2021 16:36:52 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1mziX1-007fQA-Gc; Tue, 21 Dec 2021 17:02:31 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1mzi83-007aVS-H5
- for linux-riscv@lists.infradead.org; Tue, 21 Dec 2021 16:36:45 +0000
+ id 1mziVh-007eqA-0a; Tue, 21 Dec 2021 17:01:10 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 00DC86168E;
- Tue, 21 Dec 2021 16:36:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 466E5C36AEA;
- Tue, 21 Dec 2021 16:36:38 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 8B70EB817AF;
+ Tue, 21 Dec 2021 17:01:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5408C36AE8;
+ Tue, 21 Dec 2021 17:01:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1640104601;
- bh=Raa20oTo55bW6fRnesFHj7YQjLtEnX8esLtzywI76A4=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=twN39g170uyrsJj31r1hpC5+M6PPY8IcmqdvVkc8SoPSfZTBEXteJdbJ27bBEl7Kt
- ++4Lbva4Wpgqy6J8NKPBYpJqlxjaZLPaN0F4ZNz1tzxOH6G+y7Cq3Jhr1wIUJrd7qI
- tLPOzYMnXbux8ZXrT/5+FxqIgL1AjuE6a0gk/6Dq8H1mM3u0yvTFd1MoV2U4JTUyfH
- jT5CR0lR43+5hSrhqiuozecY4WQsEvv9jjzTvQTn98U6GK5XeQtOfbYOzZfnefVtP9
- reicZKmyhx7GAZb87b8nIi8jP9tL1RKHjRuCJngFNyOS9kNN6n+h55rWQzafemUgZa
- OqWE3XUOQYbvQ==
+ s=k20201202; t=1640106066;
+ bh=7d8LhHNqF8chXHYwnQCba3+BVf9M2vb5t0LpTpOXl3I=;
+ h=From:To:Cc:Subject:Date:From;
+ b=dEgydiYrKTv4MoEpX8HEQPqxS6hcDAYv3fewK7fRHlYo1CHlD/jbRbllFF0F8kZJR
+ 7Ol7HU29iOHWoMgGNtsqJUJCM5S4W0bgP/zIGIS5hDslGvSBAcnMkOveiGKJ3RC9in
+ phVRHxd7jJND527OgA3JMqshWfpLFVLj3H6JoZQlMlYklclMYaZz0Kb7LD+CmhEWua
+ uKrgpIgE7bEmoNRS3EL88iGk+rcBxqSBw196mkCKvdSsMMYIldXUa3jUAkYsmHra4o
+ ZYOiY88ri24LqnBH+ncTH+nICWwBRbCrgyo/8AjbwLlOdXvXLXKKZdbHKtkvqkpvAZ
+ +r/YN5cJ3971w==
 From: guoren@kernel.org
-To: guoren@kernel.org, palmer@dabbelt.com, arnd@arndb.de, anup.patel@wdc.com,
- gregkh@linuxfoundation.org, liush@allwinnertech.com, wefu@redhat.com,
- drew@beagleboard.org, wangjunqiang@iscas.ac.cn, lazyparser@gmail.com
+To: guoren@kernel.org, will@kernel.org, tglx@linutronix.de,
+ benh@kernel.crashing.org, arnd@arndb.de, mingo@redhat.com,
+ peterz@infradead.org, juri.lelli@redhat.com
 Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH 13/13] riscv: compat: ptrace: Add compat_arch_ptrace implement
-Date: Wed, 22 Dec 2021 00:35:32 +0800
-Message-Id: <20211221163532.2636028-14-guoren@kernel.org>
+ linux-s390@vger.kernel.org, sparclinux@vger.kernel.or,
+ linuxppc-dev@lists.ozlabs.org, inux-parisc@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ x86@kernel.org, Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH 0/8] sched: Remove unused TASK_SIZE_OF
+Date: Wed, 22 Dec 2021 01:00:49 +0800
+Message-Id: <20211221170057.2637763-1-guoren@kernel.org>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20211221163532.2636028-1-guoren@kernel.org>
-References: <20211221163532.2636028-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211221_083643_733922_590A1653 
-X-CRM114-Status: GOOD (  14.93  )
+X-CRM114-CacheID: sfid-20211221_090109_223200_6EEC574F 
+X-CRM114-Status: UNSURE (   7.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,188 +77,30 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Now, you can use native gdb on riscv64 for rv32 app debugging.
+This macro isn't used in Linux, now. Delete in include/linux/sched.h
+and arch's include/asm. This would confuse people who are
+implementing the COMPAT feature for architecture.
 
-$ uname -a
-Linux buildroot 5.16.0-rc4-00036-gbef6b82fdf23-dirty #53 SMP Mon Dec 20 23:06:53 CST 2021 riscv64 GNU/Linux
-$ cat /proc/cpuinfo
-processor       : 0
-hart            : 0
-isa             : rv64imafdcsuh
-mmu             : sv48
+Guo Ren (8):
+  sched: Remove unused TASK_SIZE_OF
+  sched: x86: Remove unused TASK_SIZE_OF
+  sched: sparc: Remove unused TASK_SIZE_OF
+  sched: powerpc: Remove unused TASK_SIZE_OF
+  sched: s390: Remove unused TASK_SIZE_OF
+  sched: parisc: Remove unused TASK_SIZE_OF
+  sched: arm64: Remove unused TASK_SIZE_OF
+  sched: mips: Remove unused TASK_SIZE_OF
 
-$ file /bin/busybox
-/bin/busybox: setuid ELF 32-bit LSB shared object, UCB RISC-V, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-riscv32-ilp32d.so.1, for GNU/Linux 5.15.0, stripped
-$ file /usr/bin/gdb
-/usr/bin/gdb: ELF 32-bit LSB shared object, UCB RISC-V, version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux-riscv32-ilp32d.so.1, for GNU/Linux 5.15.0, stripped
-$ /usr/bin/gdb /bin/busybox
-GNU gdb (GDB) 10.2
-Copyright (C) 2021 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-...
-Reading symbols from /bin/busybox...
-(No debugging symbols found in /bin/busybox)
-(gdb) b main
-Breakpoint 1 at 0x8ddc
-(gdb) r
-Starting program: /bin/busybox
-Failed to read a valid object file image from memory.
+ arch/arm64/include/asm/processor.h      | 2 --
+ arch/mips/include/asm/processor.h       | 3 ---
+ arch/parisc/include/asm/processor.h     | 3 +--
+ arch/powerpc/include/asm/task_size_64.h | 6 ++----
+ arch/s390/include/asm/processor.h       | 3 +--
+ arch/sparc/include/asm/processor_64.h   | 3 ---
+ arch/x86/include/asm/page_64_types.h    | 2 --
+ include/linux/sched.h                   | 4 ----
+ 8 files changed, 4 insertions(+), 22 deletions(-)
 
-Breakpoint 1, 0x555a8ddc in main ()
-(gdb) i r
-ra             0x77df0b74       0x77df0b74
-sp             0x7fdd3d10       0x7fdd3d10
-gp             0x5567e800       0x5567e800 <bb_common_bufsiz1+160>
-tp             0x77f64280       0x77f64280
-t0             0x0      0
-t1             0x555a6fac       1431990188
-t2             0x77dd8db4       2011008436
-fp             0x7fdd3e34       0x7fdd3e34
-s1             0x7fdd3e34       2145205812
-a0             0xffffffff       -1
-a1             0x2000   8192
-a2             0x7fdd3e3c       2145205820
-a3             0x0      0
-a4             0x7fdd3d30       2145205552
-a5             0x555a8dc0       1431997888
-a6             0x77f2c170       2012397936
-a7             0x6a7c7a2f       1786542639
-s2             0x0      0
-s3             0x0      0
-s4             0x555a8dc0       1431997888
-s5             0x77f8a3a8       2012783528
-s6             0x7fdd3e3c       2145205820
-s7             0x5567cecc       1432866508
---Type <RET> for more, q to quit, c to continue without paging--
-s8             0x1      1
-s9             0x0      0
-s10            0x55634448       1432568904
-s11            0x0      0
-t3             0x77df0bb8       2011106232
-t4             0x42fc   17148
-t5             0x0      0
-t6             0x40     64
-pc             0x555a8ddc       0x555a8ddc <main+28>
-(gdb) si
-0x555a78f0 in mallopt@plt ()
-(gdb) c
-Continuing.
-BusyBox v1.34.1 (2021-12-19 22:39:48 CST) multi-call binary.
-BusyBox is copyrighted by many authors between 1998-2015.
-Licensed under GPLv2. See source distribution for detailed
-copyright notices.
-
-Usage: busybox [function [arguments]...]
-   or: busybox --list[-full]
-...
-[Inferior 1 (process 107) exited normally]
-(gdb) q
-
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
----
- arch/riscv/kernel/ptrace.c | 80 +++++++++++++++++++++++++++++++++++---
- 1 file changed, 74 insertions(+), 6 deletions(-)
-
-diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-index 55dd50f8a5cc..76042ed861a3 100644
---- a/arch/riscv/kernel/ptrace.c
-+++ b/arch/riscv/kernel/ptrace.c
-@@ -114,11 +114,6 @@ static const struct user_regset_view riscv_user_native_view = {
- 	.n = ARRAY_SIZE(riscv_user_regset),
- };
- 
--const struct user_regset_view *task_user_regset_view(struct task_struct *task)
--{
--	return &riscv_user_native_view;
--}
--
- struct pt_regs_offset {
- 	const char *name;
- 	int offset;
-@@ -278,9 +273,82 @@ __visible void do_syscall_trace_exit(struct pt_regs *regs)
- }
- 
- #ifdef CONFIG_COMPAT
-+static int compat_riscv_gpr_get(struct task_struct *target,
-+				const struct user_regset *regset,
-+				struct membuf to)
-+{
-+	struct compat_user_regs_struct cregs;
-+
-+	regs_to_cregs(&cregs, task_pt_regs(target));
-+
-+	return membuf_write(&to, &cregs,
-+			    sizeof(struct compat_user_regs_struct));
-+}
-+
-+static int compat_riscv_gpr_set(struct task_struct *target,
-+				const struct user_regset *regset,
-+				unsigned int pos, unsigned int count,
-+				const void *kbuf, const void __user *ubuf)
-+{
-+	int ret;
-+	struct compat_user_regs_struct cregs;
-+
-+	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &cregs, 0, -1);
-+
-+	cregs_to_regs(&cregs, task_pt_regs(target));
-+
-+	return ret;
-+}
-+
-+static const struct user_regset compat_riscv_user_regset[] = {
-+	[REGSET_X] = {
-+		.core_note_type = NT_PRSTATUS,
-+		.n = ELF_NGREG,
-+		.size = sizeof(compat_elf_greg_t),
-+		.align = sizeof(compat_elf_greg_t),
-+		.regset_get = compat_riscv_gpr_get,
-+		.set = compat_riscv_gpr_set,
-+	},
-+#ifdef CONFIG_FPU
-+	[REGSET_F] = {
-+		.core_note_type = NT_PRFPREG,
-+		.n = ELF_NFPREG,
-+		.size = sizeof(elf_fpreg_t),
-+		.align = sizeof(elf_fpreg_t),
-+		.regset_get = riscv_fpr_get,
-+		.set = riscv_fpr_set,
-+	},
-+#endif
-+};
-+
-+static const struct user_regset_view compat_riscv_user_native_view = {
-+	.name = "riscv",
-+	.e_machine = EM_RISCV,
-+	.regsets = compat_riscv_user_regset,
-+	.n = ARRAY_SIZE(compat_riscv_user_regset),
-+};
-+
- long compat_arch_ptrace(struct task_struct *child, compat_long_t request,
- 			compat_ulong_t caddr, compat_ulong_t cdata)
- {
--	return 0;
-+	long ret = -EIO;
-+
-+	switch (request) {
-+	default:
-+		ret = compat_ptrace_request(child, request, caddr, cdata);
-+		break;
-+	}
-+
-+	return ret;
- }
-+#endif /* CONFIG_COMPAT */
-+
-+const struct user_regset_view *task_user_regset_view(struct task_struct *task)
-+{
-+#ifdef CONFIG_COMPAT
-+	if (test_tsk_thread_flag(task, TIF_32BIT))
-+		return &compat_riscv_user_native_view;
-+	else
- #endif
-+		return &riscv_user_native_view;
-+}
 -- 
 2.25.1
 
