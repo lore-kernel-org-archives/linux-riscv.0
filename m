@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED9EC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Dec 2021 12:04:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31F05C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Dec 2021 12:07:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=txrMyYTp8xdssQtXg+JKUQ8f4d9y78txWA0vw9DaH/I=; b=afQKo7ogUSXYZq
-	Rkp4acwd4FymQBMLRN5Mn6oQzRoKD1TSa6nC6zfisvXN68/4j2lwGmZ6JyaWx72eDUykQ6qDM94Ul
-	FNQMWDGxp7xjjyDfXO9E7hvipBpgITNTlj2gS8zutiY7h9sR8dJYSnWhNZio1HGeI0CkeIrnQ5OZ0
-	wJ7467bwh3iELVA3Kc4tX8DgNpHw3b/wIxnw1cIlXwD7QZkaRfUCU3NhLFjBwJxs6pxFEuxXGLLUg
-	Gn2jBnecB0d3yKtGYEeINfEuUOUbjTQFm9E5mPqVXYfwIjDPFEVwfJAyGXxdk2s68m02eyoyNVJKb
-	mKOLUXh+3/gad8r6Mlwg==;
+	List-Owner; bh=4nWu/wyrANHrf5DEicYT6Emg5WAWE5iX9iY5FmmONb4=; b=BLT6EaISTcFFuo
+	Pyj0aX/RDHUDSBi3O2RJlwtEs5aWtAYkdCLntgeuNjlKzJINeRD6hx7CqQKSZYEr313oXuVpLlX6r
+	C7ZNlwKalqQZBczRleZCITiXftLHu49W1xpCKBFWRADoiCUxx2dq5/6bso6+crq/k/wwwZLFShjnK
+	gFC7DkWF1OOjjEcFkaV3KmicLqc8yYJvAxTAWfVibqQrCu6M6YH8RdJ84OkbKk+qWfZgNOxa8IkqR
+	S5vo5OaIYIWkY7++Hbasjj1nCkNASJuwVxjbYCo00REC0mguJZvv7nmz8IyvQ6Uh/H7T3nroD0Wlr
+	47HqLb+jSWdjeXdqjxnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n00Li-00ADpi-UK; Wed, 22 Dec 2021 12:04:02 +0000
+	id 1n00Oo-00AET3-24; Wed, 22 Dec 2021 12:07:14 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n00Lf-00ADp8-DR
- for linux-riscv@lists.infradead.org; Wed, 22 Dec 2021 12:04:01 +0000
+ id 1n00Oi-00AERU-Ld
+ for linux-riscv@lists.infradead.org; Wed, 22 Dec 2021 12:07:13 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id E9BB0619E9
- for <linux-riscv@lists.infradead.org>; Wed, 22 Dec 2021 12:03:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25CA9C36AEE
- for <linux-riscv@lists.infradead.org>; Wed, 22 Dec 2021 12:03:58 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 37B85619E4
+ for <linux-riscv@lists.infradead.org>; Wed, 22 Dec 2021 12:07:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F2DAC36AEB
+ for <linux-riscv@lists.infradead.org>; Wed, 22 Dec 2021 12:07:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1640174638;
- bh=U+TPVOLF6BgXdmpEAt6iPjDJBLkn0NoPAUmdT0tglpM=;
+ s=k20201202; t=1640174827;
+ bh=+wqXN0WBIIDqmYLgad4enZJ2Q7SP/1omJsy3ZSi/9sQ=;
  h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=DrbdBzZCmKrlDQEWXXhG+g9wyDWbVY3Rny16fORbCrzUCSmKkRnuvQyyBPgEco3ab
- Z7qVZ92PqYLoUbyjhjj9zdn41GYStvJOcTGztSeXV469oYNKsnbWg1J5e+XwauWyGJ
- MD7MmDPb6TnjjfFEhOO6rTviv/bH/EV/oEKh7xf0gXiT+PEuAXyLMCt2K/BI1DvUyg
- AO0FMCm2moZrjfWhjppBofUASIMtRQQ2TPFhEaN9l/XCtiKkj9iQ9Av5DZ58KDh0Eh
- WBcjUknI/zUtbOomJ+viKlbGT1q2XHRhaYoZSIOA+Ohevqjc+03fnZqsZC6nTcDVBK
- xWqvTqtU/Immg==
-Received: by mail-ua1-f49.google.com with SMTP id y22so3980251uap.2
- for <linux-riscv@lists.infradead.org>; Wed, 22 Dec 2021 04:03:58 -0800 (PST)
-X-Gm-Message-State: AOAM5300UvJUeTXD/eJtWI+wBWPzBxP74A2zNSDdm2en0uo80qYj59Ug
- k2j3HZwqHlu+7bTViIR2KGlSzB35f/TkbbNZ75M=
-X-Google-Smtp-Source: ABdhPJxA8UfmeTMZxAQvlcXPjE2yJPCWv7FK497e7SoRSycDfZSx1xBpfGkQsQ3tiAkQ2ooUzwKy7f0F8S9QkRxgieg=
-X-Received: by 2002:a67:e244:: with SMTP id w4mr785309vse.51.1640174637095;
- Wed, 22 Dec 2021 04:03:57 -0800 (PST)
+ b=FgJBC2cmzC9ZDUPKM6OeTvPlm0kpzUupY5nnoF0GpYUQXfS3Aj0YPjqxHrKtExyhR
+ Kv3JoqgSULLvap/lDwP/Cbt8P6hB6dmJBD0x5I4PFJUUVlfmSksd6FNRRlxQw90wsZ
+ bO9Kf5f/3fraeTe4698bzDeG28PRNet9rdyINQAQFzUN/P5L0XO8wjIXAZB9m8f/Sy
+ DAG9Vxy1fg5xIT8iODXBDoIfFd2MVRlOt3pSUGixzUAu/hpzHKTozKUeTD0Cnp5Jrj
+ ktKcQC4HBaPk3xdXFPBECnw2bQb2Cb0p8Vcdff/7fnt9643HExwc8iW/9ITp9eCMhI
+ 64UBiTMWNQidQ==
+Received: by mail-ua1-f49.google.com with SMTP id p37so3722381uae.8
+ for <linux-riscv@lists.infradead.org>; Wed, 22 Dec 2021 04:07:07 -0800 (PST)
+X-Gm-Message-State: AOAM530jS1RA/Z2a+I7Af4YCkO6x6a7Na2978hJna5tXAYpm3Z0GEOgy
+ elx9fgBvKft+S5v9e+Xc9Uv6ZzlJblzoRRtdt+U=
+X-Google-Smtp-Source: ABdhPJxGX4KrZs2TnGR1gSjUu92pDva4Xdm8isb3ATByYY/kfaTFVcqSn5kqos02FM+dXr9lRhbSDFcRUucnDxIKpsQ=
+X-Received: by 2002:a67:e244:: with SMTP id w4mr788901vse.51.1640174826756;
+ Wed, 22 Dec 2021 04:07:06 -0800 (PST)
 MIME-Version: 1.0
 References: <20211221163532.2636028-1-guoren@kernel.org>
- <20211221163532.2636028-4-guoren@kernel.org>
- <CAK8P3a3navO2Z2F5zxisby5EBNDo8rwQ6hxSuyniFgFxrQ5qXQ@mail.gmail.com>
-In-Reply-To: <CAK8P3a3navO2Z2F5zxisby5EBNDo8rwQ6hxSuyniFgFxrQ5qXQ@mail.gmail.com>
+ <20211221163532.2636028-9-guoren@kernel.org>
+ <CAK8P3a0-ZOwoC_Ft+TiKAXdETcqU5XPS+9DZGkA+bB73SNCCbQ@mail.gmail.com>
+In-Reply-To: <CAK8P3a0-ZOwoC_Ft+TiKAXdETcqU5XPS+9DZGkA+bB73SNCCbQ@mail.gmail.com>
 From: Guo Ren <guoren@kernel.org>
-Date: Wed, 22 Dec 2021 20:03:46 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSssufQOQTXqzRjY8h_JjAmMs8jC6R+6d09K728=4fOOA@mail.gmail.com>
-Message-ID: <CAJF2gTSssufQOQTXqzRjY8h_JjAmMs8jC6R+6d09K728=4fOOA@mail.gmail.com>
-Subject: Re: [PATCH 03/13] riscv: compat: Add basic compat date type
- implementation
+Date: Wed, 22 Dec 2021 20:06:55 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQ=Yo98-S12D9CbVXPJsAKpLu1NhJAVB3yu+J9thz6CUg@mail.gmail.com>
+Message-ID: <CAJF2gTQ=Yo98-S12D9CbVXPJsAKpLu1NhJAVB3yu+J9thz6CUg@mail.gmail.com>
+Subject: Re: [PATCH 08/13] riscv: compat: Add COMPAT Kbuild skeletal support
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup.patel@wdc.com>, 
  gregkh <gregkh@linuxfoundation.org>, liush <liush@allwinnertech.com>, 
@@ -70,8 +69,8 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup.patel@wdc.com>,
  linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
  Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211222_040359_558402_9C402945 
-X-CRM114-Status: GOOD (  21.16  )
+X-CRM114-CacheID: sfid-20211222_040708_768684_DAAAB567 
+X-CRM114-Status: GOOD (  17.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,73 +87,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 22, 2021 at 1:13 AM Arnd Bergmann <arnd@arndb.de> wrote:
+On Wed, Dec 22, 2021 at 2:23 AM Arnd Bergmann <arnd@arndb.de> wrote:
 >
 > On Tue, Dec 21, 2021 at 5:35 PM <guoren@kernel.org> wrote:
-> >
-> > From: Guo Ren <guoren@linux.alibaba.com>
-> >
-> > Implement asm/compat.h for struct compat_xxx, RLIM_INFINITY,
-> > OFF_T_MAX, is_compat_task, compat_user_regset, regset convert.
-> >
-> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > ---
-> >  arch/riscv/include/asm/compat.h      | 259 +++++++++++++++++++++++++++
->
-> Since both the native and compat side use the generic interface, I think this
-> should all be part of asm-generic/compat.h, in case other architectures want to
-> share this in the future. Maybe see if any other architectures use the
-> same definition
-> for some of the structures and then remove the duplicates.
-Agree.
-
->
-> > +struct compat_stat {
-> > +       compat_ulong_t  st_dev;
-> > +       compat_ulong_t  st_ino;
-> > +       compat_uint_t   st_mode;
-> > +       compat_uint_t   st_nlink;
->
-> You should not need a compat_stat, because native rv32 does not have a
-> stat() syscall.
-We need it:
-
-$ make ARCH=riscv CROSS_COMPILE=riscv64-unknown-linux-gnu-
-EXTRA_CFLAGS+=-g O=../build-riscv/ Image -j > /dev/null
-/home/guoren/source/kernel/riscv-linux/fs/stat.c: In function 'cp_compat_stat':
-/home/guoren/source/kernel/riscv-linux/fs/stat.c:645:21: error:
-storage size of 'tmp' isn't known
-  645 |  struct compat_stat tmp;
-      |                     ^~~
-/home/guoren/source/kernel/riscv-linux/fs/stat.c:645:21: warning:
-unused variable 'tmp' [-Wunused-variable]
-/home/guoren/source/kernel/riscv-linux/fs/stat.c:674:1: error: control
-reaches end of non-void function [-Werror=return-type]
-  674 | }
-      | ^
-cc1: some warnings being treated as errors
-make[2]: *** [/home/guoren/source/kernel/riscv-linux/scripts/Makefile.build:287:
-fs/stat.o] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/home/guoren/source/kernel/riscv-linux/Makefile:1846: fs] Error 2
-
->
-> > +static inline int is_compat_task(void)
-> > +{
-> > +       return test_thread_flag(TIF_32BIT);
-> > +}
 > > +
-> > +struct compat_user_regs_struct {
-> > +       compat_ulong_t pc;
-> > +       compat_ulong_t ra;
+> > +config SYSVIPC_COMPAT
+> > +       def_bool y
+> > +       depends on COMPAT && SYSVIPC
 >
-> These clearly need to stay in arch/riscv
-Okay
+> Can this be moved to init/Kconfig next to SYSVIPC?
 
+I would try another patchset, to see other architecture guys' advice.
+
+$ grep SYSVIPC_COMPAT arch -r
+arch/x86/Kconfig:config SYSVIPC_COMPAT
+arch/parisc/Kconfig:config SYSVIPC_COMPAT
+arch/powerpc/Kconfig:config SYSVIPC_COMPAT
+arch/arm64/Kconfig:config SYSVIPC_COMPAT
+arch/riscv/Kconfig:config SYSVIPC_COMPAT
+arch/s390/Kconfig:config SYSVIPC_COMPAT
+arch/mips/Kconfig:config SYSVIPC_COMPAT
+arch/mips/Kconfig:      select SYSVIPC_COMPAT if SYSVIPC
+arch/mips/Kconfig:      select SYSVIPC_COMPAT if SYSVIPC
+arch/sparc/Kconfig:config SYSVIPC_COMPAT
+
+>
+> > +
+> > +COMPAT_SYSCALL_DEFINE0(rt_sigreturn)
+> > +{
+> > +       return 0;
+> > +}
+>
+> This confused me a bit while reviewing, would it make sense to reorder the
+> patches to add the three missing functions first instead of adding the
+> dummy and then replacing it?
+Okay, I would try in the next version. Make the compile at last.
+
+>
 >
 >         Arnd
 
---
+
+
+-- 
 Best Regards
  Guo Ren
 
