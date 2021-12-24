@@ -4,42 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D2F4C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Dec 2021 06:53:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C6CFC433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Dec 2021 06:54:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YvwVeIlkLYflDAu9TQun9SB9BLw9ZYtbiReZOz5TChA=; b=zC5wapZmfuqqAI
-	SnTxlBW8/tYT8hi8NGl0oj0BhHkQGG+UuZlYH/nD9gKmLDoKUVBdzdLYGKl/M0PXG0HCqfGmGMOrv
-	lGGdESK0yZm1d8I44FA8YXw5LEdSG8uaxHBEXg99z8HBK2Cuzb94weRukfg0jeEdGfpj5/vvrJPsE
-	gPOnVhDhSymTARsuF4PqzqI4F8jD+9zUzelc81YAasjknrmeWLsBAjaY2nbGyUGjVyUWFgaumAdZH
-	JMM9GlxVPkrB1hdE1HYzjva8lqUcYRFrIYeU5yDbH0f4S0ZxzvCMtDgBluykrx8AlySq74b3BHVv0
-	4Alaf1OvrizP0X5YhRXA==;
+	List-Owner; bh=ha1bELr/Y5GAKjaa4k0B4ut6nFB/aGKMj5h6t6/EZBA=; b=o5JhouDFr1j34I
+	sa0Zh6+N9JaNx78kONxu2KB630IQm+XxXW+wgLCoZex4gCyasG3vjNh32xyojW5iMWLtym63D+S57
+	cx9gbWbMX86WFAbW7M/yuReEvtHyfWs++nMIIAQ9fdWmMIpe/CD/QM+QRy95GRX7tCUDGNdqUe15k
+	jOJyAKSDv+w8UXdthAuZOMvHlTqEFHzRPThSS8yYLTcDkt76tjUqR9EXhtqk14ED7vE5z4r586wNo
+	RqjVFfeSa+YuDwBOneWvsjKnLlztWq8pQdzKLXfsS113FWZtxWPudu03ZE2t82dhEdIr+J60f5h2C
+	7YN8LoM9VPexnD7yWeiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n0eS9-00Dogh-Ck; Fri, 24 Dec 2021 06:53:21 +0000
+	id 1n0eTL-00DorQ-14; Fri, 24 Dec 2021 06:54:35 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.94.2 #2 (Red
- Hat Linux)) id 1n0eS8-00DogZ-3l; Fri, 24 Dec 2021 06:53:20 +0000
-Date: Thu, 23 Dec 2021 22:53:20 -0800
+ Hat Linux)) id 1n0eTJ-00DorD-QV; Fri, 24 Dec 2021 06:54:33 +0000
+Date: Thu, 23 Dec 2021 22:54:33 -0800
 From: Christoph Hellwig <hch@infradead.org>
-To: guoren@kernel.org
-Cc: palmer@dabbelt.com, arnd@arndb.de, anup.patel@wdc.com,
- gregkh@linuxfoundation.org, liush@allwinnertech.com,
- wefu@redhat.com, drew@beagleboard.org, wangjunqiang@iscas.ac.cn,
- lazyparser@gmail.com, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org,
- Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH 03/13] riscv: compat: Add basic compat date type
- implementation
-Message-ID: <YcVuYEt2LQArK5iL@infradead.org>
+To: Guo Ren <guoren@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Anup Patel <anup.patel@wdc.com>, gregkh <gregkh@linuxfoundation.org>,
+ liush <liush@allwinnertech.com>, Wei Fu <wefu@redhat.com>,
+ Drew Fustini <drew@beagleboard.org>,
+ Wang Junqiang <wangjunqiang@iscas.ac.cn>,
+ Wei Wu =?utf-8?B?KOWQtOS8nyk=?= <lazyparser@gmail.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH 08/13] riscv: compat: Add COMPAT Kbuild skeletal support
+Message-ID: <YcVuqfsiObz4XirW@infradead.org>
 References: <20211221163532.2636028-1-guoren@kernel.org>
- <20211221163532.2636028-4-guoren@kernel.org>
+ <20211221163532.2636028-9-guoren@kernel.org>
+ <CAK8P3a0-ZOwoC_Ft+TiKAXdETcqU5XPS+9DZGkA+bB73SNCCbQ@mail.gmail.com>
+ <CAJF2gTQ=Yo98-S12D9CbVXPJsAKpLu1NhJAVB3yu+J9thz6CUg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20211221163532.2636028-4-guoren@kernel.org>
+In-Reply-To: <CAJF2gTQ=Yo98-S12D9CbVXPJsAKpLu1NhJAVB3yu+J9thz6CUg@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -56,15 +60,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 22, 2021 at 12:35:22AM +0800, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
+On Wed, Dec 22, 2021 at 08:06:55PM +0800, Guo Ren wrote:
+> On Wed, Dec 22, 2021 at 2:23 AM Arnd Bergmann <arnd@arndb.de> wrote:
+> >
+> > On Tue, Dec 21, 2021 at 5:35 PM <guoren@kernel.org> wrote:
+> > > +
+> > > +config SYSVIPC_COMPAT
+> > > +       def_bool y
+> > > +       depends on COMPAT && SYSVIPC
+> >
+> > Can this be moved to init/Kconfig next to SYSVIPC?
 > 
-> Implement asm/compat.h for struct compat_xxx, RLIM_INFINITY,
-> OFF_T_MAX, is_compat_task, compat_user_regset, regset convert.
+> I would try another patchset, to see other architecture guys' advice.
 
-Much of this really has no busines being duplicated over all the
-architectures.  I have an old series to consolidate a fair amount
-of compat.h cruft, I'll see if I can resurrect that.
+The existing per-arch definitions are pretty much historic cruft.
 
 _______________________________________________
 linux-riscv mailing list
