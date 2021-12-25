@@ -4,71 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 108ECC433F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Dec 2021 14:49:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D32D3C433F5
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Dec 2021 16:26:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7GtGM9R9qDZeZpU3NqO7WVyRst2BmgAeg/dz/C9jvPQ=; b=4kkSB19rLUYunI
-	39hdiAPR8FKDlu16MaiBftwleLX071d2A5YGOjTJE/0FvOgNH0ImELem79zD4EGpurA6LSRsYCD8w
-	WMzdyjMKvzAFtCXdRodGAPdomBG0Rk30/kcQ00AsW75bX5HcIrSlBL2PsaoFCmiwcZ45BAQTvA+hU
-	Xv2RNHgwZRG5CdKKPYuiQjVWvoSVOYYruScg3iEYAkH0jOGVVIcNKuolcPx3UOscpaQjk8CfW6Sy9
-	jMOqhtebTBFUdF92o58fTwnBAboma9QGFbUdvAoHwS6810ju3B8ihsRaj38mh4cKMquD2thsNfoJm
-	dtQkHfyeMoFfVdHVfvHg==;
+	List-Owner; bh=nyhuYf43c9iWHLy+spyXrbGHsbsDBDBEKiinZBJGgww=; b=wLaYsqYa+Q9ukG
+	zlDr86axBWRbQMfJleYyVHueW1RNQ/NpQEy6Li5Xe2uNdSMyrScGgHQ98UevbdK8W9pzCxELpXwZ7
+	WneQ+3rDYklCT4r9qe1nVBuRVlti5w7df1oBei5kByUToFalpqu6yM7+GcqXV1kvouu9YjuLA8ImW
+	rK41vizop6lv26yJfCSf7VtLlz1DBtJnoV1uCA58PiQ6b9v5GU+ErCIemSGUO4SWLbY9s4No1hHtm
+	dQ5I4XD7fUsPhci3RHRhfKZkKYrp0LRJFKF781G4/KNWPBsx0wqgvhxTLuUmu8RpnWAkWfBUkb5Qk
+	jFO1uCETMtBrLfDQwyWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n18M5-00EvDB-7k; Sat, 25 Dec 2021 14:49:05 +0000
-Received: from mail-qk1-f177.google.com ([209.85.222.177])
+	id 1n19sV-00EyS2-4q; Sat, 25 Dec 2021 16:26:39 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
+ helo=mx0a-001b2d01.pphosted.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n18M2-00EvBx-Bz
- for linux-riscv@lists.infradead.org; Sat, 25 Dec 2021 14:49:03 +0000
-Received: by mail-qk1-f177.google.com with SMTP id e25so4863726qkl.12
- for <linux-riscv@lists.infradead.org>; Sat, 25 Dec 2021 06:49:02 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:in-reply-to:references:subject:date
- :message-id;
- bh=ZKo4CuVNE9aj6YktgJ2/0mQdTIBC53q4u65AzxojkOI=;
- b=ly4hQiWe0BTPg7WbRj1kkvUR74ZKKiDrwN2t6Z7LmnkEISBW7MAj+7FtvAEveWtlnr
- Do2dtdUbb4bfwIScTXDGTl4qSG66rnG75ZCv29oJLOHd17ZPCZORg7AJHD5cGeK8bLDK
- 5r9h4rFzstcvLrRASRCtYJRhU/L5Dr7zxgA6PJk/xtryZmngnYvQqjkxXwBK+H0tdbpc
- t0GMW8v3B+eLs7lE9hrC6UJeH7A6WFbK2jdNOwb0idulLEU0Fv29sQ20Qt0r1taINJxE
- pXsJ/83E5z5aBnwM05LPJmmTEAFZLH9k/7WcdqFzl8BLiBSLokrSoymS6kq3nFtlc9E3
- f7dg==
-X-Gm-Message-State: AOAM530dbzy5b/9r82Px8VdcM4RKsC9FXdUjSNr6TAWLk+o0jcUXXhj9
- YAb2bzQ7kYE7XEzRlbI6KA==
-X-Google-Smtp-Source: ABdhPJxbEwWOAh1OuwX92qa21z32NQ6vc/Q6XUc34IMLFdh/n70CHypODZCeYjxxUMlkjawTK0+Z+Q==
-X-Received: by 2002:a05:620a:14ae:: with SMTP id
- x14mr7451582qkj.347.1640443741093; 
- Sat, 25 Dec 2021 06:49:01 -0800 (PST)
-Received: from robh.at.kernel.org ([24.55.105.145])
- by smtp.gmail.com with ESMTPSA id q12sm8962160qtx.16.2021.12.25.06.48.59
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 25 Dec 2021 06:49:00 -0800 (PST)
-Received: (nullmailer pid 363345 invoked by uid 1000);
- Sat, 25 Dec 2021 14:48:42 -0000
-From: Rob Herring <robh@kernel.org>
-To: Atish Patra <atishp@atishpatra.org>
-Cc: linux-kernel@vger.kernel.org, Damien Le Moal <damien.lemoal@wdc.com>,
- linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>,
- Atish Patra <atishp@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
- Anup Patel <anup@brainfault.org>, Jisheng Zhang <jszhang@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- devicetree@vger.kernel.org
-In-Reply-To: <20211224211632.1698523-3-atishp@rivosinc.com>
-References: <20211224211632.1698523-1-atishp@rivosinc.com>
- <20211224211632.1698523-3-atishp@rivosinc.com>
-Subject: Re: [PATCH v1 2/2] dt-bindings: riscv: Add DT binding for RISC-V ISA
- extensions
-Date: Sat, 25 Dec 2021 10:48:42 -0400
-Message-Id: <1640443722.919526.363344.nullmailer@robh.at.kernel.org>
+ id 1n19sJ-00EyRY-72; Sat, 25 Dec 2021 16:26:28 +0000
+Received: from pps.filterd (m0098416.ppops.net [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com (8.16.1.2/8.16.1.2) with SMTP id 1BPFbYVI007744; 
+ Sat, 25 Dec 2021 16:25:55 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
+ h=date : from : to : cc :
+ subject : message-id : references : mime-version : content-type :
+ in-reply-to; s=pp1; bh=VMq+orNvVrYzmkq8guGGYpWmBSvGM4QTihzK/n+8Nws=;
+ b=bu6sJrVd6ld2DWxDDjHBvx0dsuDz1uZdLP6LejUVknyiOidJHvtW2IlUTCiGAm239iBb
+ bbPyIjvuyHoO5N7p0Y9vbm7pNX/CPZ50qo1BUhGJwnMfmCt0gkRxePcAv6wUpq1PLQYh
+ 6U5c2JNv+QOtJFwUhNE+3ee5Xt3jDP1SYsbnKNBjHZPPsOX84FsFTUlhlK1H/Cf1j6jj
+ XqQI7ClUiwMObh3Cfchv0nguWTUT6E11d124eSOlJ6UviIRCLQdx5HrUW53U41n1OKRj
+ WQQ5KeddfveRCRdrqs0dGaOF89dnVqgxAGEezFatPdg4alK15JvkANGyFQtEAcSAqJSz dQ== 
+Received: from pps.reinject (localhost [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com with ESMTP id 3d64ugh4vm-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Sat, 25 Dec 2021 16:25:54 +0000
+Received: from m0098416.ppops.net (m0098416.ppops.net [127.0.0.1])
+ by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 1BPGPf7P008499;
+ Sat, 25 Dec 2021 16:25:54 GMT
+Received: from ppma06fra.de.ibm.com (48.49.7a9f.ip4.static.sl-reverse.com
+ [159.122.73.72])
+ by mx0b-001b2d01.pphosted.com with ESMTP id 3d64ugh4va-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Sat, 25 Dec 2021 16:25:54 +0000
+Received: from pps.filterd (ppma06fra.de.ibm.com [127.0.0.1])
+ by ppma06fra.de.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 1BPGKU9m001117;
+ Sat, 25 Dec 2021 16:25:52 GMT
+Received: from b06cxnps4075.portsmouth.uk.ibm.com
+ (d06relay12.portsmouth.uk.ibm.com [9.149.109.197])
+ by ppma06fra.de.ibm.com with ESMTP id 3d5tjj25jw-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Sat, 25 Dec 2021 16:25:51 +0000
+Received: from d06av25.portsmouth.uk.ibm.com (d06av25.portsmouth.uk.ibm.com
+ [9.149.105.61])
+ by b06cxnps4075.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ 1BPGPniJ46924238
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Sat, 25 Dec 2021 16:25:49 GMT
+Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id A2C0B11C04A;
+ Sat, 25 Dec 2021 16:25:49 +0000 (GMT)
+Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id DA26211C04C;
+ Sat, 25 Dec 2021 16:25:48 +0000 (GMT)
+Received: from osiris (unknown [9.145.52.227])
+ by d06av25.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
+ Sat, 25 Dec 2021 16:25:48 +0000 (GMT)
+Date: Sat, 25 Dec 2021 17:25:47 +0100
+From: Heiko Carstens <hca@linux.ibm.com>
+To: guoren@kernel.org
+Cc: will@kernel.org, tglx@linutronix.de, benh@kernel.crashing.org,
+ arnd@arndb.de, mingo@redhat.com, peterz@infradead.org,
+ juri.lelli@redhat.com, christophe.leroy@csgroup.eu,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, sparclinux@vger.kernel.or,
+ linuxppc-dev@lists.ozlabs.org, inux-parisc@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ x86@kernel.org, Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH V2 5/8] sched: s390: Remove unused TASK_SIZE_OF
+Message-ID: <YcdGC4ZNejSgZgRG@osiris>
+References: <20211225045430.2868608-1-guoren@kernel.org>
+ <20211225045430.2868608-6-guoren@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20211225045430.2868608-6-guoren@kernel.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: -atRMtwxqSfN1mZI4uRDUeADm09Mlt3_
+X-Proofpoint-ORIG-GUID: nmg8Ty_J-4NM8K4-4F2UN7I-J9MfO6Hp
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.205,Aquarius:18.0.790,Hydra:6.0.425,FMLib:17.11.62.513
+ definitions=2021-12-25_03,2021-12-24_01,2021-12-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 clxscore=1011
+ priorityscore=1501 malwarescore=0 mlxscore=0 bulkscore=0 impostorscore=0
+ suspectscore=0 adultscore=0 lowpriorityscore=0 mlxlogscore=999
+ phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2110150000 definitions=main-2112250080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211225_064902_431068_ABC4F3C0 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20211225_082627_403899_1A4A8A8F 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,49 +116,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 24 Dec 2021 13:16:32 -0800, Atish Patra wrote:
-> RISC-V ISA extensions can be single letter or multi-letter names.
-> The single letter extensions are mostly base extensions and encoded in
-> "riscv,isa" DT property. However, parsing the multi-letter extensions
-> via the isa string is cumbersome and is not scalable.
+On Sat, Dec 25, 2021 at 12:54:27PM +0800, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
 > 
-> Add a new DT node for multi-letter extensions.
+> This macro isn't used in Linux sched, now. Delete in
+> include/linux/sched.h and arch's include/asm.
 > 
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Reviewed-by: Arnd Bergmann <arnd@arndb.de>
 > ---
->  Documentation/devicetree/bindings/riscv/cpus.yaml | 9 +++++++++
->  1 file changed, 9 insertions(+)
-> 
+>  arch/s390/include/asm/processor.h | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
 
-My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
-on your patch (DT_CHECKER_FLAGS is new in v5.13):
+I could pick this up for s390, however sender (From: field) of this patch
+series does not match From: and Signed-off-by: fields above.
 
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-./Documentation/devicetree/bindings/riscv/cpus.yaml: Unresolvable JSON pointer: 'definitions/boolean'
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/patch/1573119
-
-This check can fail if there are any dependencies. The base for a patch
-series is generally the most recent rc1.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit.
-
+In general I don't pick up such patches, since this doesn't match the
+"Developer's Certificate of Origin" requirements.
+-> Documentation/process/submitting-patches.rst
 
 _______________________________________________
 linux-riscv mailing list
