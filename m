@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 940BCC433F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Dec 2021 05:41:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5808C433FE
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Dec 2021 05:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=I+t2vX3cInCVqp/eHfeGy3hs1N1mHeXGFCxtWtnxyyM=; b=Z8/wiW2BXcE5Nv
-	e+HuF14OPzwMblIBIDyePuWwPA82rxGWtYzn/3FQsR1afNXNRoBEoc/lyrWZxP4EECn2Cz9u9zixb
-	R8SaSGDIe8jBkJQRLd5qwfsCPlxUNPQ7tRrEqm1+sbxBWG8r4xf0Wi2CY4I9HzNI3W7qRS3UDTG6T
-	fpT5nSUyObiQhhh9eA7gbBf+SzM8nexCCPf4vA76H0Q1ANjtgPg52E/iOJgZ9nNEEEB7+iGSVMQt1
-	CKIVoAQpbnTowJ2xIynoZbLZWQ68aIsLbUeuXXcJqwg3TVLYLDHLkubVT85UYo0gfqAzcrboPeHrV
-	wcmcggszxsZkHd15D5Tw==;
+	List-Owner; bh=I+t2vX3cInCVqp/eHfeGy3hs1N1mHeXGFCxtWtnxyyM=; b=TRh/Xy6YiFcmer
+	mqU+Ye73JiR033D00cXcVP6Met1DxIpJSj23aStUBpC3aPz20J/wC5tPkpw2Dj0QE4hzMEPhiQVgF
+	7Q4Hrsa8IyI5OoCQaIEFwO+hmXw/acxmTMT2YWvIKdMrieuu5kYbJqcmmC1WPCK0UbGoG3XKQeLmo
+	0TIRYbwbBpO1uFY/hdcbin7kiccExRT7DSOQWNRbPvZMrfha0mvTDlSINFlrLaJISfq2gsYl14xnq
+	8Y+5VqHDts9Hp8jppv5QHVTTNI5Kp0j1Z5TJQRmSUWcmKWwU8OFM6OMd6ycA+lcyp3WOZO+q/DjmN
+	lXkydo1/xaQ7qYQhZxRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n0zng-00EhNr-Kq; Sat, 25 Dec 2021 05:41:00 +0000
-Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
+	id 1n0ztw-00Ehck-C2; Sat, 25 Dec 2021 05:47:28 +0000
+Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n0znc-00EhNX-Nj
- for linux-riscv@lists.infradead.org; Sat, 25 Dec 2021 05:40:59 +0000
-Received: by mail-qv1-xf35.google.com with SMTP id kd9so9227030qvb.11
- for <linux-riscv@lists.infradead.org>; Fri, 24 Dec 2021 21:40:56 -0800 (PST)
+ id 1n0zts-00Ehbq-O5
+ for linux-riscv@lists.infradead.org; Sat, 25 Dec 2021 05:47:27 +0000
+Received: by mail-qt1-x82f.google.com with SMTP id 8so9098489qtx.5
+ for <linux-riscv@lists.infradead.org>; Fri, 24 Dec 2021 21:47:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=atishpatra.org; s=google;
  h=from:to:cc:subject:date:message-id:mime-version
  :content-transfer-encoding;
  bh=eVf5ASnQyWxFtVYPQd2gNN7mzIEJUDef/ygen8sz+zE=;
- b=PcDn2aMMB/ta7fNug/Eg1rGzoxogfr9ZGi6vqFEcF2W9OVLs2z8JpP0oLc334v0L4/
- bwFJvVn4GHAzBkwtcFhHl6p7uDixF9muZlb4+cRL1xFqjhNXZDawB+w0e/9Kq3Nc3L4o
- q1n5aYZ/W95lPMAFQyPMXqOekvGc8GqDy8OKc=
+ b=XbiMOE9O97S2AX4Edic6aIx4BpOQmAx+A/tN39175P//XPymu027UQUew7DD5WQ8Ng
+ UQRYZZCvUCUHPNt2zX1xv64n2f92wYj/mOCMRaR4x4JyDNg1whO/q3GJy2YE7hAjoalP
+ qoPiQ5EN1E3JPzv3iFT8iEJFCf5ShZhf3OY18=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
  :content-transfer-encoding;
  bh=eVf5ASnQyWxFtVYPQd2gNN7mzIEJUDef/ygen8sz+zE=;
- b=6UfJ385r6FtAq5ZJw9IHmsPLVjJ75L4+i1yllHlvQqJW7utQST5qLQIS2vjnaHITWn
- tnOfhp0dLiE9Lx/LtRF39PIt2X1cESPoLQqVaV3e6CElOXv6QXVG6Z0S/VRb1uX4HMvA
- SWOaDDB3cFBV8tSLwB0947MwLUXEt+EyYKNTFlRe8E1Yugv4PKcM/F756zWga80P59xg
- +QBml2nyKiRI0gjhbEV9EESQ2+RSuQBILUvhHT1YXHgO7RlrK1+gK1YaFyZFzbG5YJu5
- Z80WtmwQcnfBdxJlss0KbQpIqxD7ujV3GiDyUPeLXc+ND/7CT14b3/LqXLzJGjlOjudI
- d8tQ==
-X-Gm-Message-State: AOAM530lxXR5QMBOjE8FI4n8OQeZJakUsrzm8M0lgLgHrFGZwTZcBDc3
- QN0sYDY7K78mL2BDGYnsdCyZ
-X-Google-Smtp-Source: ABdhPJyePniAwy5ZyhYMohnPAZTIi0GW7ngbYpDu0HOnwDS56/Kn/8JYC72l7Oi8/Qc6ymk+XJII4g==
-X-Received: by 2002:a05:6214:301e:: with SMTP id
- ke30mr8000803qvb.2.1640410854258; 
- Fri, 24 Dec 2021 21:40:54 -0800 (PST)
+ b=etmlhUkfSWiHQ7i4QhOkQmVTLDtTiswnd2Bu/qBbmk09mO/OsIxgOtbvaO5gDNZdhO
+ +19fX0pJMjB80abekxDT3rKS5IytVnLBiBVG9mhcBN3CBbiXO65LQt50D70qsSz5jNxE
+ wGZgo4hODp1wlU0kcgk1AhiETe1Y8Krh2iTnuYsc8WyfUGNXRkYP7y8JreAb4QODyRr0
+ 2ZwK+06ukX7ecnQukFxAzkwUMyvqjngHI5u2QPtmldtZ2PFuq4WmJlPcQLb88pejguox
+ olG/h8kNtKt5Vxr/gEIuqvo5EwnaAeZhEB09k4E4B7oO1+i4T8Yde4p5Tbs7rRJxYEv9
+ BCaQ==
+X-Gm-Message-State: AOAM532oR1WCdcOHqqT1VZrUse7pDf8vR5CLdo3pjfQvEcFHYjCJYErx
+ 2RQi+mnG81UdOSKqWD9/LSse
+X-Google-Smtp-Source: ABdhPJy/gGNoMjc90peM+WciNihyqFAZseZKaqdbIvx1vNnzYniYoA4GFUxKlyauCoZQ7jjbvLwRmA==
+X-Received: by 2002:ac8:7dd5:: with SMTP id c21mr7824178qte.176.1640411243339; 
+ Fri, 24 Dec 2021 21:47:23 -0800 (PST)
 Received: from fedora.. (adsl-70-228-75-190.dsl.akrnoh.ameritech.net.
  [70.228.75.190])
- by smtp.gmail.com with ESMTPSA id x16sm8304574qko.15.2021.12.24.21.40.52
+ by smtp.gmail.com with ESMTPSA id c7sm8492780qtx.67.2021.12.24.21.47.21
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 24 Dec 2021 21:40:53 -0800 (PST)
+ Fri, 24 Dec 2021 21:47:22 -0800 (PST)
 From: Atish Patra <atishp@atishpatra.org>
 X-Google-Original-From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
-Cc: Atish Patra <atishp@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
- Damien Le Moal <damien.lemoal@wdc.com>, devicetree@vger.kernel.org,
- Jisheng Zhang <jszhang@kernel.org>,
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@atishpatra.org>,
+ Anup Patel <anup@brainfault.org>, Damien Le Moal <damien.lemoal@wdc.com>,
+ devicetree@vger.kernel.org, Jisheng Zhang <jszhang@kernel.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
  linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
 Subject: [v5 0/9] Improve RISC-V Perf support using SBI PMU and sscofpmf
  extension
-Date: Fri, 24 Dec 2021 21:40:18 -0800
-Message-Id: <20211225054027.1750075-1-atishp@rivosinc.com>
+Date: Fri, 24 Dec 2021 21:46:38 -0800
+Message-Id: <20211225054647.1750577-1-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.33.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211224_214056_896847_715D2454 
+X-CRM114-CacheID: sfid-20211224_214724_798380_BEC17389 
 X-CRM114-Status: GOOD (  24.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
