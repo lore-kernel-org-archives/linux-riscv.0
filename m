@@ -4,83 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B7EC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Dec 2021 23:25:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E22AC433F5
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Dec 2021 03:13:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=76nnb30KfsE1L1SvSFI9sJwCT0odgjtgL3mj3vOCtZQ=; b=DaHVbwnBf8IhgJ
-	ffTLX7aokgjlv6hXxDelBTFntcEXH11bQFFWhpt64cz5DdTPBbRrst/KYyyCZesHvA+qjAhxSv0WX
-	4jSjafKk2QYMfvTnXP3LsDWMiojYTel2HAl5osv86w02eCtAqthatI6J1bzgcJc22fRic4kml9Dw2
-	KLn/9TLGek/r3mwKbooywjxURpYVS1TPAglVrH/Pj51OixKbwVcK34P37eLqsT/w5LUHV7Tt3FO5L
-	TyDWt+5Gmb5rdlGx8PLcUi1wULzC4nBZPyfPjeB2jNzWKLnWt5LVnnkOyCaZkuKgEyNit415RK5jF
-	5tWjlleJZFrWfljMQIsw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	Mime-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1335TaFodYLTQOTPuH4MbvOtgviliTAwWfkZWLhuP18=; b=KEkGU4OgJh/mbr
+	9BGDuxgekC8oXSLqc9r7ZQ4Z0C/922A+xFduPdYQoGkzBibCuJ4UXmBUwBxcaYfWHLFpSn8Le+Ra6
+	WfwEZb4NYFjxngtMYLGXXN6xNovvEtbIPwr8SM1YqG4iuHa1ZEd49QqAB4YrIe3VBw68zs9kNB6TS
+	3hcU8P4frkN67AV7cRwILYPA/cmHguKv6SNKc2hCYR9hP6S6Zb1XfygOCIAz0fVY5PzD4+Ty/MKvT
+	WTamqAm8qQnWakSQ06WKGRoK7c3RXIuyCJjCXtK2hYJvdj5AItmpSfXxtyw+QLCsiBnRbtD/ZNOuB
+	YmEQH8vuzxF1I4w8iSJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n0tvy-00EX91-Ut; Fri, 24 Dec 2021 23:25:10 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1n0xUc-00EbgE-57; Sat, 25 Dec 2021 03:13:10 +0000
+Received: from mail-sender-0.a4lg.com ([2401:2500:203:30b:4000:6bfe:4757:0])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n0tvw-00EX8J-5S
- for linux-riscv@lists.infradead.org; Fri, 24 Dec 2021 23:25:09 +0000
-Received: by mail-wr1-x432.google.com with SMTP id v11so19728752wrw.10
- for <linux-riscv@lists.infradead.org>; Fri, 24 Dec 2021 15:25:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=jrtc27.com; s=gmail.jrtc27.user;
- h=mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=CBWI94DnAbuhdlI8jpyRcjT77P/sUwa6Q+G0yKJaxQQ=;
- b=QMSCoNEQcDJcNrvfqRwfymcwEDL37lsh89/EIODzCg7becUZ9M0aOlPdTl0gtd1WMI
- pLN/0cB89YMdxs8I75iLYYmUn09Chq1kPZB4+FPCnFUAQyFmdisdIm+AocxFdvJ/aAax
- LAx5PvCJIpvK0Z1shGhYAUj5In85pxuN33Dpq6Xht9tH+yCCuMzeCwSYaaoVpvx6gfhP
- xfnrAgPKabnzTyAWPB9X8zRIbdnNcFft6YRLtF6TO7fgD6Yfk/UWNozB+fPPPurWV/xJ
- ac2gj465VkRf0BBDTPl4Bk4eDQlFb96SzgDpvzVM6+WAXAI0YJUTe9iNU8fgsvNzd5Ij
- emVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=CBWI94DnAbuhdlI8jpyRcjT77P/sUwa6Q+G0yKJaxQQ=;
- b=ofuDYt9CPuJUbOH7OeeDzqUJl0oMES+WhU5l4JWSQOLHYnaZCX2UVYhCbgVz3rmk4x
- TeQFkWLLA1qiyoU/HtjQOTRPrCAcSt+w1hueuNf0B/4ZKwkbJiGiKrDC2eax7nLMijIc
- N3NEFqPFy2ba/bkvyaXwar86mg9Ond22Cl/q3/fUJj/2akhp28jbiCCV6eeyP8OED8T+
- Kpzn+qNok/WO0uRd7u9i0kFfvBsyeanJa/JhX9JDyhgvu/MjujUV2091LosFNgFkhpsR
- afvEsJOvnLvJOaEGly7qhSqdPQl6Ajuf5j683DitWNJ66cGyoK0PRhPzL+FGQaGyk1P+
- Eiaw==
-X-Gm-Message-State: AOAM5333f5BTtYIkWjv/VSwgKM5r4MbMW+mKIja/YzHwx7grvZEABeqw
- LzORppFNfGWdzJX4JEiDka9NYQ==
-X-Google-Smtp-Source: ABdhPJxo4AHSt7YwUTMDC+sX6bSs8y00mJ4xSqoQ/5X1pHjUvUNc0OnM2ORuKgSXV9zwfbGFws98qA==
-X-Received: by 2002:a05:6000:168c:: with SMTP id
- y12mr6066606wrd.409.1640388304934; 
- Fri, 24 Dec 2021 15:25:04 -0800 (PST)
-Received: from smtpclient.apple (global-5-141.nat-2.net.cam.ac.uk.
- [131.111.5.141])
- by smtp.gmail.com with ESMTPSA id o12sm9779882wrc.69.2021.12.24.15.25.04
- (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 24 Dec 2021 15:25:04 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 14.0 \(3654.120.0.1.13\))
-Subject: Re: [PATCH v1 2/2] dt-bindings: riscv: Add DT binding for RISC-V ISA
- extensions
-From: Jessica Clarke <jrtc27@jrtc27.com>
-In-Reply-To: <20211224211632.1698523-3-atishp@rivosinc.com>
-Date: Fri, 24 Dec 2021 23:25:01 +0000
-Cc: linux-kernel@vger.kernel.org, Atish Patra <atishp@rivosinc.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
- Damien Le Moal <damien.lemoal@wdc.com>, devicetree@vger.kernel.org,
- Jisheng Zhang <jszhang@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
-Message-Id: <3188F71E-93A4-452E-A730-A2F393067346@jrtc27.com>
+ id 1n0xUZ-00Ebfu-0b
+ for linux-riscv@lists.infradead.org; Sat, 25 Dec 2021 03:13:09 +0000
+Received: by mail-sender-0.a4lg.com (Postfix) with ESMTPSA id CAB58300089;
+ Sat, 25 Dec 2021 03:12:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=irq.a4lg.com;
+ s=2017s01; t=1640401979;
+ bh=lUXwwqF9UuGqgRHAjOeTba4TsblHFEGJAMGTvJJ3X6k=;
+ h=Message-ID:Date:Mime-Version:Subject:To:References:From:
+ In-Reply-To:Content-Type:Content-Transfer-Encoding;
+ b=kjqedETDpzPuAdWAy/s2M4i3PsVx8lIZYgM4NyrFQh1AjwEHgfh/A3T6XYPPMd+8L
+ 9xDy7RXx7X9S15V1V76K9l+ZG6kkxTsOnlLxPQ3qENBCxenwPwzGwQKXI47ZH6MPOL
+ vgYF5W1SDMU1ZWXb8IyXz6LyUxiXrbfWz0cvgEX8=
+Message-ID: <01a238a6-4f0e-623f-4c49-8b0a3f896205@irq.a4lg.com>
+Date: Sat, 25 Dec 2021 12:12:57 +0900
+Mime-Version: 1.0
+Subject: Re: [PATCH v1 1/2] RISC-V: Provide a framework for parsing
+ multi-letter ISA extensions
+Content-Language: en-US
+To: linux-riscv@lists.infradead.org,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 References: <20211224211632.1698523-1-atishp@rivosinc.com>
- <20211224211632.1698523-3-atishp@rivosinc.com>
-To: Atish Patra <atishp@atishpatra.org>
-X-Mailer: Apple Mail (2.3654.120.0.1.13)
+ <20211224211632.1698523-2-atishp@rivosinc.com>
+From: Tsukasa OI <research_trasio@irq.a4lg.com>
+In-Reply-To: <20211224211632.1698523-2-atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211224_152508_240360_5284ECEE 
-X-CRM114-Status: GOOD (  14.74  )
+X-CRM114-CacheID: sfid-20211224_191307_486548_A4D5A9AB 
+X-CRM114-Status: GOOD (  32.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,40 +61,238 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjQgRGVjIDIwMjEsIGF0IDIxOjE2LCBBdGlzaCBQYXRyYSA8YXRpc2hwQGF0aXNocGF0cmEu
-b3JnPiB3cm90ZToKPiAKPiBSSVNDLVYgSVNBIGV4dGVuc2lvbnMgY2FuIGJlIHNpbmdsZSBsZXR0
-ZXIgb3IgbXVsdGktbGV0dGVyIG5hbWVzLgo+IFRoZSBzaW5nbGUgbGV0dGVyIGV4dGVuc2lvbnMg
-YXJlIG1vc3RseSBiYXNlIGV4dGVuc2lvbnMgYW5kIGVuY29kZWQgaW4KPiAicmlzY3YsaXNhIiBE
-VCBwcm9wZXJ0eS4gSG93ZXZlciwgcGFyc2luZyB0aGUgbXVsdGktbGV0dGVyIGV4dGVuc2lvbnMK
-PiB2aWEgdGhlIGlzYSBzdHJpbmcgaXMgY3VtYmVyc29tZSBhbmQgaXMgbm90IHNjYWxhYmxlLgo+
-IAo+IEFkZCBhIG5ldyBEVCBub2RlIGZvciBtdWx0aS1sZXR0ZXIgZXh0ZW5zaW9ucy4KPiAKPiBT
-aWduZWQtb2ZmLWJ5OiBBdGlzaCBQYXRyYSA8YXRpc2hwQHJpdm9zaW5jLmNvbT4KPiAtLS0KPiBE
-b2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcmlzY3YvY3B1cy55YW1sIHwgOSArKysr
-KysrKysKPiAxIGZpbGUgY2hhbmdlZCwgOSBpbnNlcnRpb25zKCspCj4gCj4gZGlmZiAtLWdpdCBh
-L0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9jcHVzLnlhbWwgYi9Eb2N1
-bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcmlzY3YvY3B1cy55YW1sCj4gaW5kZXggYWE1
-ZmI2NGQ1N2ViLi42YzRlZWNmMzg5YTkgMTAwNjQ0Cj4gLS0tIGEvRG9jdW1lbnRhdGlvbi9kZXZp
-Y2V0cmVlL2JpbmRpbmdzL3Jpc2N2L2NwdXMueWFtbAo+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2
-aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9jcHVzLnlhbWwKPiBAQCAtNzgsNiArNzgsMTUgQEAgcHJv
-cGVydGllczoKPiAgICAgICAtIHJ2NjRpbWFjCj4gICAgICAgLSBydjY0aW1hZmRjCj4gCj4gKyAg
-cmlzY3YsaXNhLWV4dDoKPiArICAgIGRlc2NyaXB0aW9uOgo+ICsgICAgICBJZGVudGlmaWVzIHRo
-ZSBzcGVjaWZpYyBSSVNDLVYgaW5zdHJ1Y3Rpb24gc2V0IGFyY2hpdGVjdHVyZSBleHRlbnNpb25z
-Cj4gKyAgICAgIHN1cHBvcnRlZCBieSBvbmUgb3IgbXVsdGlwbGUgaGFydHMuIEFsbCB0aGUgbXVs
-dGktbGV0dGVyIGV4dGVuc2lvbnMKPiArICAgICAgc2hvdWxkIGJlIGxpc3RlZCBoZXJlIGFzIGEg
-Ym9vbGVhbiBwcm9wZXJ0eS4gVGhpcyBzdWJub2RlIGNhbiBiZSB1bmRlcgo+ICsgICAgICAvY3B1
-cyBvciB1bmRlciBpbmRpdmlkdWFsIGNwdSBub2RlLiBJbiBjYXNlIG9mIGZvcm1lciwgaXQgcmVw
-cmVzZW50Cj4gKyAgICAgIHRoZSBjb21tb24gSVNBIGV4dGVuc2lvbnMgZm9yIGFsbCBoYXJ0cy4g
-VGhlIG5hbWUgb2YgdGhlIGJvb2xlYW4gcHJvcGVydHkKPiArICAgICAgbXVzdCBtYXRjaCB0aGUg
-YWN0dWFsIElTQSBleHRlbnNpb24gbmFtZSBpbiBhbGwgbG93ZXJjYXNlIGZvcm1hdC4KCkkgZG9u
-4oCZdCBzZWUgd2h5IHRoaXMgbmVlZHMgZXhwbGljaXRseSBjYWxsaW5nIG91dCwgdGhhdOKAmXMg
-dHJ1ZSBpbgpnZW5lcmFsIG9mIGNwdSBub2RlIHByb3BlcnRpZXMgKDMuOHA0IG9mIHRoZSBEZXZp
-Y2V0cmVlIHNwZWMgdjAuNC1yYzEgLwp2MC4zLTQwLWc3ZTFjYzE3KSwgbm90IHRoYXQgSSBsaWtl
-IGl0LgoKSmVzcwoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+Hello Atish,
+
+On 2021/12/25 6:16, Atish Patra wrote:
+> Recently, there were 15 specifications/40 ISA extensions were ratified.
+> Except hypervisor ('H') extension, all of them are multi-letter extensions.
+> Going forward, there will be more number of multi-letter extensions as
+> well. Parsing all of these extensions from ISA string is not scalable.
+
+Accepting multi-letter extensions and providing framework is very nice.
+
+But would you enlighten me how and why "parsing all of these extensions
+from ISA string is not scalable"? That's the only thing I'm not convinced.
+
+Parsing ISA string is per-hart but one-time only (in kernel space) and
+doesn't take much long.  Yes, the ISA string will get longer and longer
+over time (which might affect the boot performance on many-core systems)
+but once we get heterogeneous systems (as you mentioned), we will have
+per-hart "isa-ext" anyway and we will have pretty much the same situation.
+We could take per-group approach instead of per-hart for efficiency but
+that means ISA string parsing can be optimized just as "isa-ext".
+
+Current RISC-V systems have not long ISA string and not many cores (making
+per-hart ISA string processing not a problem).  Future complex RISC-V
+systems may have many cores, heterogeneous capabilities and long ISA
+strings that need to be taken care.  However, "isa-ext" will have a
+similar scaling issue over time (just as the ISA string).
+
+So, I don't see any merits of "isa-ext" in the long or short term.
+
+Regards,
+
+
+> Thus, this patch provides a DT based framework to for easy parsing and
+> querying of any ISA extensions. It facilitates custom user visible strings
+> for the ISA extensions via /proc/cpuinfo as well.
+> 
+> Currently, there are no platforms with heterogeneous Linux capable harts.
+> That's why, this patch supports only a single DT node which can only work
+> for systems with homogeneous harts. To support heterogeneous systems, this
+> cpu node must be a subnode for each cpu.
+> 
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>  arch/riscv/include/asm/hwcap.h | 31 ++++++++++++++++++
+>  arch/riscv/kernel/cpu.c        | 16 ++++++++++
+>  arch/riscv/kernel/cpufeature.c | 58 +++++++++++++++++++++++++++++++++-
+>  3 files changed, 104 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index 5ce50468aff1..368ab0f330c8 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -34,7 +34,36 @@ extern unsigned long elf_hwcap;
+>  #define RISCV_ISA_EXT_s		('s' - 'a')
+>  #define RISCV_ISA_EXT_u		('u' - 'a')
+>  
+> +/*
+> + * Increse this to higher value as kernel support more ISA extensions.
+> + */
+>  #define RISCV_ISA_EXT_MAX	64
+> +#define RISCV_ISA_EXT_NAME_LEN_MAX 32
+> +/* The base ID for multi-letter ISA extensions */
+> +#define RISCV_ISA_EXT_BASE 26
+> +
+> +/*
+> + * This enum represent the logical ID for each multi-letter RISC-V ISA extension.
+> + * The logical ID should start from RISCV_ISA_EXT_BASE and must not exceed
+> + * RISCV_ISA_EXT_MAX. 0-25 range is reserved for single letter
+> + * extensions while all the multi-letter extensions should define the next
+> + * available logical extension id.
+> + */
+> +enum riscv_isa_ext_id {
+> +	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
+> +};
+> +
+> +struct riscv_isa_ext_data {
+> +	struct list_head node;
+> +	/* Name of the extension property in DT */
+> +	char dtprop[RISCV_ISA_EXT_NAME_LEN_MAX];
+> +	/* Name of the extension displayed to userspace via /proc/cpuinfo */
+> +	char uprop[RISCV_ISA_EXT_NAME_LEN_MAX];
+> +	/* The logical ISA extension ID */
+> +	unsigned int isa_ext_id;
+> +};
+> +
+> +extern struct list_head riscv_isa_ext_list;
+>  
+>  unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap);
+>  
+> @@ -44,6 +73,8 @@ bool __riscv_isa_extension_available(const unsigned long *isa_bitmap, int bit);
+>  #define riscv_isa_extension_available(isa_bitmap, ext)	\
+>  	__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_##ext)
+>  
+> +int riscv_isa_ext_list_add(struct riscv_isa_ext_data *edata);
+> +
+>  #endif
+>  
+>  #endif /* _ASM_RISCV_HWCAP_H */
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index f13b2c9ea912..dad95bdd3cca 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -71,6 +71,21 @@ static void print_isa(struct seq_file *f, const char *isa)
+>  	seq_puts(f, "\n");
+>  }
+>  
+> +static void print_isa_ext(struct seq_file *f)
+> +{
+> +	struct riscv_isa_ext_data *edata;
+> +	int count = 0;
+> +
+> +	seq_puts(f, "isa-ext\t\t: ");
+> +	list_for_each_entry(edata, &riscv_isa_ext_list, node) {
+> +		if (count)
+> +			seq_puts(f, ",");
+> +		seq_write(f, edata->uprop, strnlen(edata->uprop, RISCV_ISA_EXT_NAME_LEN_MAX));
+> +		count++;
+> +	}
+> +	seq_puts(f, "\n");
+> +}
+> +
+>  static void print_mmu(struct seq_file *f, const char *mmu_type)
+>  {
+>  #if defined(CONFIG_32BIT)
+> @@ -113,6 +128,7 @@ static int c_show(struct seq_file *m, void *v)
+>  	seq_printf(m, "hart\t\t: %lu\n", cpuid_to_hartid_map(cpu_id));
+>  	if (!of_property_read_string(node, "riscv,isa", &isa))
+>  		print_isa(m, isa);
+> +	print_isa_ext(m);
+>  	if (!of_property_read_string(node, "mmu-type", &mmu))
+>  		print_mmu(m, mmu);
+>  	if (!of_property_read_string(node, "compatible", &compat)
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index d959d207a40d..c70eeec17f5b 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -7,6 +7,8 @@
+>   */
+>  
+>  #include <linux/bitmap.h>
+> +#include <linux/list.h>
+> +#include <linux/slab.h>
+>  #include <linux/of.h>
+>  #include <asm/processor.h>
+>  #include <asm/hwcap.h>
+> @@ -18,6 +20,8 @@ unsigned long elf_hwcap __read_mostly;
+>  /* Host ISA bitmap */
+>  static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
+>  
+> +LIST_HEAD(riscv_isa_ext_list);
+> +
+>  #ifdef CONFIG_FPU
+>  __ro_after_init DEFINE_STATIC_KEY_FALSE(cpu_hwcap_fpu);
+>  #endif
+> @@ -59,12 +63,60 @@ bool __riscv_isa_extension_available(const unsigned long *isa_bitmap, int bit)
+>  }
+>  EXPORT_SYMBOL_GPL(__riscv_isa_extension_available);
+>  
+> +#define __RISCV_ISA_EXT_DATA(DTPROP, UPROP, EXTID) \
+> +	{							\
+> +		.dtprop = #DTPROP,				\
+> +		.uprop = #UPROP,				\
+> +		.isa_ext_id = EXTID,				\
+> +	}
+> +
+> +static struct riscv_isa_ext_data isa_ext_arr[] = {
+> +	__RISCV_ISA_EXT_DATA("", "", RISCV_ISA_EXT_MAX),
+> +};
+> +
+> +int riscv_isa_ext_list_add(struct riscv_isa_ext_data *edata)
+> +{
+> +	struct device_node *node, *enode;
+> +	int eid;
+> +
+> +	if (!edata || !edata->dtprop)
+> +		return -EINVAL;
+> +
+> +	node = of_find_node_by_path("/cpus");
+> +	if (!node) {
+> +		pr_err("No CPU information found in DT\n");
+> +		return -ENOENT;
+> +	}
+> +
+> +	enode = of_get_child_by_name(node, "riscv,isa-ext");
+> +	if (!enode) {
+> +		pr_err("No riscv-isa-ext found in DT\n");
+> +		return -ENOENT;
+> +	}
+> +
+> +	eid = edata->isa_ext_id;
+> +	if (eid < RISCV_ISA_EXT_BASE || eid >= RISCV_ISA_EXT_MAX)
+> +		return -EINVAL;
+> +
+> +	if (!of_property_read_bool(enode, edata->dtprop)) {
+> +		pr_err("The ISA extension %s is not present in DT\n", edata->dtprop);
+> +		return -ENODEV;
+> +	}
+> +
+> +	/* Enable the extension id in the riscv_isa for easier probing */
+> +	riscv_isa[0] |= 1 << eid;
+> +	list_add(&edata->node, &riscv_isa_ext_list);
+> +	pr_info("RISC-V ISA extension '%s' available\n", edata->uprop);
+> +
+> +	return 0;
+> +}
+> +
+>  void __init riscv_fill_hwcap(void)
+>  {
+>  	struct device_node *node;
+>  	const char *isa;
+>  	char print_str[BITS_PER_LONG + 1];
+> -	size_t i, j, isa_len;
+> +	size_t i, j, isa_len, ext_arr_sz;
+>  	static unsigned long isa2hwcap[256] = {0};
+>  
+>  	isa2hwcap['i'] = isa2hwcap['I'] = COMPAT_HWCAP_ISA_I;
+> @@ -148,4 +200,8 @@ void __init riscv_fill_hwcap(void)
+>  	if (elf_hwcap & (COMPAT_HWCAP_ISA_F | COMPAT_HWCAP_ISA_D))
+>  		static_branch_enable(&cpu_hwcap_fpu);
+>  #endif
+> +
+> +	ext_arr_sz = ARRAY_SIZE(isa_ext_arr);
+> +	for (i = 0; i < ext_arr_sz - 1; i++)
+> +		riscv_isa_ext_list_add(&isa_ext_arr[i]);
+>  }
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
