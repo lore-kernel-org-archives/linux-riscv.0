@@ -4,107 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D32D3C433F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Dec 2021 16:26:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41995C433F5
+	for <linux-riscv@archiver.kernel.org>; Sun, 26 Dec 2021 08:19:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nyhuYf43c9iWHLy+spyXrbGHsbsDBDBEKiinZBJGgww=; b=wLaYsqYa+Q9ukG
-	zlDr86axBWRbQMfJleYyVHueW1RNQ/NpQEy6Li5Xe2uNdSMyrScGgHQ98UevbdK8W9pzCxELpXwZ7
-	WneQ+3rDYklCT4r9qe1nVBuRVlti5w7df1oBei5kByUToFalpqu6yM7+GcqXV1kvouu9YjuLA8ImW
-	rK41vizop6lv26yJfCSf7VtLlz1DBtJnoV1uCA58PiQ6b9v5GU+ErCIemSGUO4SWLbY9s4No1hHtm
-	dQ5I4XD7fUsPhci3RHRhfKZkKYrp0LRJFKF781G4/KNWPBsx0wqgvhxTLuUmu8RpnWAkWfBUkb5Qk
-	jFO1uCETMtBrLfDQwyWg==;
+	List-Owner; bh=UzslxN+b9OOT4VErqUnwDCAIxKWNmGcRz/1hdNg+Hx0=; b=Qc2YvAf/l7UDFW
+	4Rrnkmq4zBex9S+GTu2WC4AS0vp/eGHJEpLXkJ5XfVD052406PQJZybJ8Um6B5l2RDSTlC42/dprh
+	IgwOlw6pArMUCTjePvi/jGkhK2+3W/KDr1P5FTo4TIiSZqcVF8qcZGv1NHG+TWgUik+g0qQsFVnHW
+	Xj9n1hrR51bGOcQUFOjD3CFVlE82fyk60lj8ooliGMybg/VbPjRIvPT1pgQqAhS7cIxBjFI/F7ZLU
+	e5XypJnedBdFXlDpm6iJje+N80R06HK8mQXSfod/AfkLb0oenO/LlBiM8hYOpjsfdimLzGRskWKDU
+	/VzXrloGusvZJ7l0k48g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n19sV-00EyS2-4q; Sat, 25 Dec 2021 16:26:39 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
- helo=mx0a-001b2d01.pphosted.com)
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n19sJ-00EyRY-72; Sat, 25 Dec 2021 16:26:28 +0000
-Received: from pps.filterd (m0098416.ppops.net [127.0.0.1])
- by mx0b-001b2d01.pphosted.com (8.16.1.2/8.16.1.2) with SMTP id 1BPFbYVI007744; 
- Sat, 25 Dec 2021 16:25:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
- h=date : from : to : cc :
- subject : message-id : references : mime-version : content-type :
- in-reply-to; s=pp1; bh=VMq+orNvVrYzmkq8guGGYpWmBSvGM4QTihzK/n+8Nws=;
- b=bu6sJrVd6ld2DWxDDjHBvx0dsuDz1uZdLP6LejUVknyiOidJHvtW2IlUTCiGAm239iBb
- bbPyIjvuyHoO5N7p0Y9vbm7pNX/CPZ50qo1BUhGJwnMfmCt0gkRxePcAv6wUpq1PLQYh
- 6U5c2JNv+QOtJFwUhNE+3ee5Xt3jDP1SYsbnKNBjHZPPsOX84FsFTUlhlK1H/Cf1j6jj
- XqQI7ClUiwMObh3Cfchv0nguWTUT6E11d124eSOlJ6UviIRCLQdx5HrUW53U41n1OKRj
- WQQ5KeddfveRCRdrqs0dGaOF89dnVqgxAGEezFatPdg4alK15JvkANGyFQtEAcSAqJSz dQ== 
-Received: from pps.reinject (localhost [127.0.0.1])
- by mx0b-001b2d01.pphosted.com with ESMTP id 3d64ugh4vm-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Sat, 25 Dec 2021 16:25:54 +0000
-Received: from m0098416.ppops.net (m0098416.ppops.net [127.0.0.1])
- by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 1BPGPf7P008499;
- Sat, 25 Dec 2021 16:25:54 GMT
-Received: from ppma06fra.de.ibm.com (48.49.7a9f.ip4.static.sl-reverse.com
- [159.122.73.72])
- by mx0b-001b2d01.pphosted.com with ESMTP id 3d64ugh4va-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Sat, 25 Dec 2021 16:25:54 +0000
-Received: from pps.filterd (ppma06fra.de.ibm.com [127.0.0.1])
- by ppma06fra.de.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 1BPGKU9m001117;
- Sat, 25 Dec 2021 16:25:52 GMT
-Received: from b06cxnps4075.portsmouth.uk.ibm.com
- (d06relay12.portsmouth.uk.ibm.com [9.149.109.197])
- by ppma06fra.de.ibm.com with ESMTP id 3d5tjj25jw-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Sat, 25 Dec 2021 16:25:51 +0000
-Received: from d06av25.portsmouth.uk.ibm.com (d06av25.portsmouth.uk.ibm.com
- [9.149.105.61])
- by b06cxnps4075.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- 1BPGPniJ46924238
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Sat, 25 Dec 2021 16:25:49 GMT
-Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id A2C0B11C04A;
- Sat, 25 Dec 2021 16:25:49 +0000 (GMT)
-Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id DA26211C04C;
- Sat, 25 Dec 2021 16:25:48 +0000 (GMT)
-Received: from osiris (unknown [9.145.52.227])
- by d06av25.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
- Sat, 25 Dec 2021 16:25:48 +0000 (GMT)
-Date: Sat, 25 Dec 2021 17:25:47 +0100
-From: Heiko Carstens <hca@linux.ibm.com>
-To: guoren@kernel.org
-Cc: will@kernel.org, tglx@linutronix.de, benh@kernel.crashing.org,
- arnd@arndb.de, mingo@redhat.com, peterz@infradead.org,
- juri.lelli@redhat.com, christophe.leroy@csgroup.eu,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.or,
- linuxppc-dev@lists.ozlabs.org, inux-parisc@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- x86@kernel.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V2 5/8] sched: s390: Remove unused TASK_SIZE_OF
-Message-ID: <YcdGC4ZNejSgZgRG@osiris>
-References: <20211225045430.2868608-1-guoren@kernel.org>
- <20211225045430.2868608-6-guoren@kernel.org>
+	id 1n1Ojt-00FLJJ-So; Sun, 26 Dec 2021 08:18:45 +0000
+Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1n1Ojp-00FLIy-Bo
+ for linux-riscv@lists.infradead.org; Sun, 26 Dec 2021 08:18:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+ Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; bh=0UhNzxT9Vlw81dA+elTicyI9XerVlvhOGP
+ OKLmgF/eE=; b=LCP8e3WUPymwrHGJA1ZMN6wq9HMwMm8ED9Hxe8SIHnECNqn0aI
+ PHThwZejbk1qQjfgo8mBnaEvyhEPObyi6SuGfArde8d0vyLYFFMYfeZOfB4wpwwu
+ 610hWAdrzQu+jxenfi7E/XyD36dqIvWnptyOMPm+PTdu8QC27q22m8D70=
+Received: from xhacker (unknown [101.86.42.35])
+ by newmailweb.ustc.edu.cn (Coremail) with SMTP id
+ LkAmygAXSGVGJchhY3_CAA--.2281S2; 
+ Sun, 26 Dec 2021 16:18:17 +0800 (CST)
+Date: Sun, 26 Dec 2021 16:10:56 +0800
+From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
+To: Alexandre ghiti <alex@ghiti.fr>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: mm: fix wrong phys_ram_base value for RV64
+Message-ID: <20211226161056.5ef4a5d9@xhacker>
+In-Reply-To: <baa3e6dc-cfbc-c491-384a-639867734a7f@ghiti.fr>
+References: <20211202153641.1961-1-jszhang@kernel.org>
+ <baa3e6dc-cfbc-c491-384a-639867734a7f@ghiti.fr>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20211225045430.2868608-6-guoren@kernel.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: -atRMtwxqSfN1mZI4uRDUeADm09Mlt3_
-X-Proofpoint-ORIG-GUID: nmg8Ty_J-4NM8K4-4F2UN7I-J9MfO6Hp
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.205,Aquarius:18.0.790,Hydra:6.0.425,FMLib:17.11.62.513
- definitions=2021-12-25_03,2021-12-24_01,2021-12-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 clxscore=1011
- priorityscore=1501 malwarescore=0 mlxscore=0 bulkscore=0 impostorscore=0
- suspectscore=0 adultscore=0 lowpriorityscore=0 mlxlogscore=999
- phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2110150000 definitions=main-2112250080
+X-CM-TRANSID: LkAmygAXSGVGJchhY3_CAA--.2281S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Zryruw45GF1kZrWftr1DZFb_yoW8XF1xpr
+ WxGanakFW8Xry8ua9Fvw4rWF4DJ3Z2ga4Sgr4UCry5uFyYqr47ta1vqw12gryqyFWxua1S
+ vrn8Cryru3WqyaDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUyYb7Iv0xC_KF4lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
+ 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+ A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+ jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
+ A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+ w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
+ vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCF04k20xvY0x0EwIxGrwCFx2IqxVCF
+ s4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r
+ 1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWU
+ JVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r
+ W3Jr0E3s1lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8
+ JbIYCTnIWIevJa73UjIFyTuYvjxUcDDGUUUUU
+X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211225_082627_403899_1A4A8A8F 
-X-CRM114-Status: GOOD (  17.35  )
+X-CRM114-CacheID: sfid-20211226_001842_128908_C2CECAC7 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,24 +84,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 25, 2021 at 12:54:27PM +0800, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
-> 
-> This macro isn't used in Linux sched, now. Delete in
-> include/linux/sched.h and arch's include/asm.
-> 
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Reviewed-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  arch/s390/include/asm/processor.h | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
+On Thu, 2 Dec 2021 16:52:08 +0100
+Alexandre ghiti <alex@ghiti.fr> wrote:
 
-I could pick this up for s390, however sender (From: field) of this patch
-series does not match From: and Signed-off-by: fields above.
+> On 12/2/21 16:36, Jisheng Zhang wrote:
+> > Currently, if 64BIT and !XIP_KERNEL, the phys_ram_base is always 0,
+> > no matter the real start of dram reported by memblock is. The original
+> > patch[1] is correct, I believe it's not corrected merged due to lots
+> > of #ifdef in arch/riscv/mm/init.c, I plan to send a clean up series
+> > soon.
+> >
+> > [1] http://lists.infradead.org/pipermail/linux-riscv/2021-July/007650.html
+> >
+> > Fixes: 6d7f91d914bc ("riscv: Get rid of CONFIG_PHYS_RAM_BASE in kernel physical address conversion")
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > ---
+> >   arch/riscv/mm/init.c | 2 +-
+> >   1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> > index 24b2b8044602..3c0649dba4ff 100644
+> > --- a/arch/riscv/mm/init.c
+> > +++ b/arch/riscv/mm/init.c
+> > @@ -187,10 +187,10 @@ static void __init setup_bootmem(void)
+> >   
+> >   
+> >   	phys_ram_end = memblock_end_of_DRAM();
+> > -#ifndef CONFIG_64BIT
+> >   #ifndef CONFIG_XIP_KERNEL
+> >   	phys_ram_base = memblock_start_of_DRAM();
+> >   #endif
+> > +#ifndef CONFIG_64BIT
+> >   	/*
+> >   	 * memblock allocator is not aware of the fact that last 4K bytes of
+> >   	 * the addressable memory can not be mapped because of IS_ERR_VALUE  
+> 
+> 
+> Good catch, you can add:
+> 
+> Reviewed-by: Alexandre Ghiti <alex@ghiti.fr>
+> 
 
-In general I don't pick up such patches, since this doesn't match the
-"Developer's Certificate of Origin" requirements.
--> Documentation/process/submitting-patches.rst
+Hi Palmer,
+
+I noticed this patch is missing in recent riscv fixes pull.
+
+Thanks
+
 
 _______________________________________________
 linux-riscv mailing list
