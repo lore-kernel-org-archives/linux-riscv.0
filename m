@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41995C433F5
-	for <linux-riscv@archiver.kernel.org>; Sun, 26 Dec 2021 08:19:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3406C433F5
+	for <linux-riscv@archiver.kernel.org>; Sun, 26 Dec 2021 08:30:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UzslxN+b9OOT4VErqUnwDCAIxKWNmGcRz/1hdNg+Hx0=; b=Qc2YvAf/l7UDFW
-	4Rrnkmq4zBex9S+GTu2WC4AS0vp/eGHJEpLXkJ5XfVD052406PQJZybJ8Um6B5l2RDSTlC42/dprh
-	IgwOlw6pArMUCTjePvi/jGkhK2+3W/KDr1P5FTo4TIiSZqcVF8qcZGv1NHG+TWgUik+g0qQsFVnHW
-	Xj9n1hrR51bGOcQUFOjD3CFVlE82fyk60lj8ooliGMybg/VbPjRIvPT1pgQqAhS7cIxBjFI/F7ZLU
-	e5XypJnedBdFXlDpm6iJje+N80R06HK8mQXSfod/AfkLb0oenO/LlBiM8hYOpjsfdimLzGRskWKDU
-	/VzXrloGusvZJ7l0k48g==;
+	List-Owner; bh=qEHUp1dLP1memyo2QzWXI44L5IXeaMd68L77u6osRtA=; b=QcV8qygzarfnZK
+	YThIsIyLahqTkUXBjd0nJQOhUN2tpdL/o7uGV1wRPZEcVQEsHuv+fJBiCIxhPBVeTRP8f/zQaw2cE
+	LN3GMcu+1hKwPf4wnW4hE4qTyjkCPRlb/yC9bFgwIbFbHPfdUHI+Y9ag7NRHDZXr2pUbEiD/ggfcz
+	vxIkhIbw17TU703r7eE1HOqDdvrFfaIBMI2mDHfVx1QwW11SA+nE8MVBy2FlTcVOstTXMKNwXTuAf
+	65rAz+q3D1BXuEGDNBUgLc7gObGOXQD4FsNgYcZiyQB+G/FhHRWo7WQvHu6sCPMS2HaFGdCGfnyuY
+	ydRdhFcXH4fR2igFiC2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n1Ojt-00FLJJ-So; Sun, 26 Dec 2021 08:18:45 +0000
+	id 1n1Oun-00FLlW-Kv; Sun, 26 Dec 2021 08:30:01 +0000
 Received: from email6.ustc.edu.cn ([2001:da8:d800::8] helo=ustc.edu.cn)
  by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n1Ojp-00FLIy-Bo
- for linux-riscv@lists.infradead.org; Sun, 26 Dec 2021 08:18:43 +0000
+ id 1n1Ouj-00FLhP-Vo
+ for linux-riscv@lists.infradead.org; Sun, 26 Dec 2021 08:30:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=mail.ustc.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
  Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
- Content-Transfer-Encoding; bh=0UhNzxT9Vlw81dA+elTicyI9XerVlvhOGP
- OKLmgF/eE=; b=LCP8e3WUPymwrHGJA1ZMN6wq9HMwMm8ED9Hxe8SIHnECNqn0aI
- PHThwZejbk1qQjfgo8mBnaEvyhEPObyi6SuGfArde8d0vyLYFFMYfeZOfB4wpwwu
- 610hWAdrzQu+jxenfi7E/XyD36dqIvWnptyOMPm+PTdu8QC27q22m8D70=
+ Content-Transfer-Encoding; bh=aYBtzLSIsckjaVB7NEd+HnkH+vEuZvJZrp
+ ig/CtlFFo=; b=h38x0TYrWNI2mdnzBpWoDq01VjZp6pPsYyjNG+NoBNjYVCpkeq
+ UvvfhDLcbr/JBj0Qxqu6/gd+FwvnfKzfMYGuz9I4U5NnGXsmvo05EAIASa37Xw92
+ 8+RO3tjTAxvxkI3sP6UOeFNpH1k4WZYnD0QLmEzUzABBkuRqWF6LsNLLc=
 Received: from xhacker (unknown [101.86.42.35])
  by newmailweb.ustc.edu.cn (Coremail) with SMTP id
- LkAmygAXSGVGJchhY3_CAA--.2281S2; 
- Sun, 26 Dec 2021 16:18:17 +0800 (CST)
-Date: Sun, 26 Dec 2021 16:10:56 +0800
+ LkAmygC3v2_yJ8hh8Y3CAA--.59233S2; 
+ Sun, 26 Dec 2021 16:29:38 +0800 (CST)
+Date: Sun, 26 Dec 2021 16:22:23 +0800
 From: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
-To: Alexandre ghiti <alex@ghiti.fr>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: mm: fix wrong phys_ram_base value for RV64
-Message-ID: <20211226161056.5ef4a5d9@xhacker>
-In-Reply-To: <baa3e6dc-cfbc-c491-384a-639867734a7f@ghiti.fr>
-References: <20211202153641.1961-1-jszhang@kernel.org>
- <baa3e6dc-cfbc-c491-384a-639867734a7f@ghiti.fr>
+To: Guo Ren <guoren@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Palmer Dabbelt <palmer@dabbelt.com>, Anup
+ Patel <anup.patel@wdc.com>, gregkh <gregkh@linuxfoundation.org>, liush
+ <liush@allwinnertech.com>, Wei Fu <wefu@redhat.com>, Drew Fustini
+ <drew@beagleboard.org>, Wang Junqiang <wangjunqiang@iscas.ac.cn>, "Wei Wu
+ (=?UTF-8?B?5ZC05Lyf?=)" <lazyparser@gmail.com>, Linux Kernel Mailing List
+ <linux-kernel@vger.kernel.org>, linux-riscv
+ <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, Guo Ren
+ <guoren@linux.alibaba.com>
+Subject: Re: [PATCH 00/13] riscv: compat: Add COMPAT mode support for rv64
+Message-ID: <20211226162223.795f9417@xhacker>
+In-Reply-To: <CAJF2gTRAxX0qEcNmw+5N=3jZcJw9YF75oRjT7Y5FUMUkHoSz4Q@mail.gmail.com>
+References: <20211221163532.2636028-1-guoren@kernel.org>
+ <CAK8P3a37+0=CCE7283VQ4QZ1tZqcU+A2POUGXtvdM46ZMHx-gw@mail.gmail.com>
+ <CAJF2gTRAxX0qEcNmw+5N=3jZcJw9YF75oRjT7Y5FUMUkHoSz4Q@mail.gmail.com>
 MIME-Version: 1.0
-X-CM-TRANSID: LkAmygAXSGVGJchhY3_CAA--.2281S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Zryruw45GF1kZrWftr1DZFb_yoW8XF1xpr
- WxGanakFW8Xry8ua9Fvw4rWF4DJ3Z2ga4Sgr4UCry5uFyYqr47ta1vqw12gryqyFWxua1S
- vrn8Cryru3WqyaDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
- 9KBjDU0xBIdaVrnRJUUUyYb7Iv0xC_KF4lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
+X-CM-TRANSID: LkAmygC3v2_yJ8hh8Y3CAA--.59233S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7KF13Zr4UXrWfWr1rWF17ZFb_yoW5JF47pa
+ 90g3WDtanrAryfAw4Sqw1xXFWYq395tr45ta4jqry8Cws09F18tr18ta1ruasrurnYgw42
+ vFW2gry7ua9ava7anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUkmb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
  0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
  A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
- jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
- A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
- w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
- vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCF04k20xvY0x0EwIxGrwCFx2IqxVCF
- s4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r
- 1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWU
- JVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r
- W3Jr0E3s1lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8
- JbIYCTnIWIevJa73UjIFyTuYvjxUcDDGUUUUU
+ jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
+ 8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+ 64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8Jw
+ Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+ 42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJV
+ WUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAK
+ I48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F
+ 4UMIIF0xvE42xK8VAvwI8IcIk0rVWrJr0_WFyUJwCI42IY6I8E87Iv67AKxVWUJVW8JwCI
+ 42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU7y89DUUUU
 X-CM-SenderInfo: xmv2xttqjtqzxdloh3xvwfhvlgxou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211226_001842_128908_C2CECAC7 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20211226_002958_510372_C430DB9C 
+X-CRM114-Status: GOOD (  29.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,52 +90,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2 Dec 2021 16:52:08 +0100
-Alexandre ghiti <alex@ghiti.fr> wrote:
+On Wed, 22 Dec 2021 20:59:30 +0800
+Guo Ren <guoren@kernel.org> wrote:
 
-> On 12/2/21 16:36, Jisheng Zhang wrote:
-> > Currently, if 64BIT and !XIP_KERNEL, the phys_ram_base is always 0,
-> > no matter the real start of dram reported by memblock is. The original
-> > patch[1] is correct, I believe it's not corrected merged due to lots
-> > of #ifdef in arch/riscv/mm/init.c, I plan to send a clean up series
-> > soon.
+> On Wed, Dec 22, 2021 at 2:10 AM Arnd Bergmann <arnd@arndb.de> wrote:
 > >
-> > [1] http://lists.infradead.org/pipermail/linux-riscv/2021-July/007650.html
+> > On Tue, Dec 21, 2021 at 5:35 PM <guoren@kernel.org> wrote:  
+> > >
+> > > From: Guo Ren <guoren@linux.alibaba.com>
+> > >
+> > > Currently, most 64-bit architectures (x86, parisc, powerpc, arm64,
+> > > s390, mips, sparc) have supported COMPAT mode. But they all have
+> > > history issues and can't use standard linux unistd.h. RISC-V would
+> > > be first standard __SYSCALL_COMPAT user of include/uapi/asm-generic
+> > > /unistd.h.
+> > >
+> > > The patchset are based on v5.16-rc6, you can compare rv64-compat32
+> > > v.s. rv32-whole in qemu with following step:  
 > >
-> > Fixes: 6d7f91d914bc ("riscv: Get rid of CONFIG_PHYS_RAM_BASE in kernel physical address conversion")
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > ---
-> >   arch/riscv/mm/init.c | 2 +-
-> >   1 file changed, 1 insertion(+), 1 deletion(-)
+> > Looks good overall, see my individual replies for minor comments I had.  
+> Thx for the review :)
+> 
 > >
-> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > index 24b2b8044602..3c0649dba4ff 100644
-> > --- a/arch/riscv/mm/init.c
-> > +++ b/arch/riscv/mm/init.c
-> > @@ -187,10 +187,10 @@ static void __init setup_bootmem(void)
-> >   
-> >   
-> >   	phys_ram_end = memblock_end_of_DRAM();
-> > -#ifndef CONFIG_64BIT
-> >   #ifndef CONFIG_XIP_KERNEL
-> >   	phys_ram_base = memblock_start_of_DRAM();
-> >   #endif
-> > +#ifndef CONFIG_64BIT
-> >   	/*
-> >   	 * memblock allocator is not aware of the fact that last 4K bytes of
-> >   	 * the addressable memory can not be mapped because of IS_ERR_VALUE  
+> > I think there is a bigger question to answer though, which is whether this is
+> > actually a useful feature for rv64. In general, there are two reasons for
+> > wanting compat mode:
+> >
+> > a) compatibility with existing binaries and distros
+> >
+> > b) reducing the memory footprint of user space in a memory constrained
+> > environment, either deeply embedded or in a container.
+> >
+> > For the other architectures, a) is clearly the main driver, but equally so
+> > this is not the case on riscv, which does not have any legacy 32-bit
+> > code. Without that, adding compat mode would mainly introduce a
+> > second ABI to a lot of environments that at the moment only need to
+> > support one, and that adds complexity to the implementation and
+> > the extra attack surface of the second syscall ABI when an exploit
+> > may be possible only in compat mode.
+> >
+> > There is still some benefit in b), but it would need to be weighed
+> > against the downsides above. Can you explain in more detail what
+> > use cases you have in mind, and which CPU cores actually support
+> > this mode?  
+> The most reason is about b), see our customer's product:
+> https://www.cnx-software.com/2021/10/25/allwinner-d1s-f133-risc-v-processor-64mb-ddr2/
 > 
+> So I think all our next generation rv64 cores should support
+> compat-mode. Compare to releasing rv32-full core, rv64 compat-mode is
+> very cheap for our CPU design.
 > 
-> Good catch, you can add:
-> 
-> Reviewed-by: Alexandre Ghiti <alex@ghiti.fr>
+> You would get the answer when our new generation CPU is announced and it's soon.
 > 
 
-Hi Palmer,
-
-I noticed this patch is missing in recent riscv fixes pull.
+What about adding RV64 ILP32 support instead? This don't need HW side
+modifications so can benefit all RV64.
 
 Thanks
+ 
+> Currently, only qemu supports rv64 compact mode, that is my colleague
+> (LIU Zhi Wei) contributed.
 
 
 _______________________________________________
