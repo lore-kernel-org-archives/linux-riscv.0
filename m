@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 708F6C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Dec 2021 22:05:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29BF0C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Dec 2021 22:34:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=ZPsxov/E8GI8svRe7AdweObm+Oi7Y8NfaAaZUZpl7RI=; b=AroOcu/mcH8MPp
-	FVgSkLmfGj6V/z3lfRgi1+qd5CqDmp7HLMYOUxbV9IGmURP2f8TMPOAJNI3cHJWhWDJ4A/Cn0za+a
-	wihiv3kBzHg7nMqtWM1k++S3WpthGbHvv4jAKqQkfQaPcqspIy5xKMp7w939OCEIGBapAGSnCHfsr
-	9MRCjGcpC0Y0g/YKQgY8OIYtrGbt73XBNA5rZ3L4jF0oe8Ywuh9PhId/AxCeHwM01jogQZZXlekCD
-	8zzhNpwM8pKbH54LPE6LevmwnJD5zzcnWMpXY+fe79b2h3E6XaqNIATgl1kj2YIH1GeVSXPjK3MMn
-	O1jXj0BtU/zh13bFJ2Nw==;
+	List-Owner; bh=mIqCnhQISWm789S0EBN/eHgSLecWcDavnvDsKsKL0NQ=; b=TxdDzKdG2oNic6
+	lfYr+ULOSN0s0OI4AOzOXt2GckT9etLLJwJcvIUnxAnzRAwR34r7o+qPi9h6yRYFiZbBmiiUC3l5F
+	PFKjPP1c9AlnxBg0kdKt3Wa73KGdRzzWx+I4qXsfdD2qadaR4XO6tagtBT7QcqXyacz0agFbwrps0
+	zHaePb7jBBkhOpn43IUgxUAKNn652VUYszzg7SIg/DUP+bpgrNvyV9vfG3y4aIAjQi8qo6VC8ItHS
+	JpaTRSnESru+KIQGFksDWu2Vqf0tkADNLdpyDflCkeJ01DtgBwOg9MaI8xu3mtcBrk5zhroGMlAVG
+	+sI5Wywxx+6NdEQNd3iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n1y6s-00HVuc-Ns; Mon, 27 Dec 2021 22:04:50 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1n1yZ1-00HWtN-1P; Mon, 27 Dec 2021 22:33:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n1y6p-00HVto-PS
- for linux-riscv@lists.infradead.org; Mon, 27 Dec 2021 22:04:49 +0000
+ id 1n1yYy-00HWsx-LA
+ for linux-riscv@lists.infradead.org; Mon, 27 Dec 2021 22:33:54 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 6948EB81151;
- Mon, 27 Dec 2021 22:04:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF63FC36AEA;
- Mon, 27 Dec 2021 22:04:43 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 26C586102A;
+ Mon, 27 Dec 2021 22:33:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B58DC36AE7;
+ Mon, 27 Dec 2021 22:33:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1640642684;
- bh=WJL+K0hI3nwJke136i/0N4gSC4MX2UG4T24o5kI2ZCo=;
+ s=k20201202; t=1640644430;
+ bh=/sJY7Kisz1PSOFfZV+hFs5yhBktmtLqFb2f5YxJeypg=;
  h=Date:From:To:Cc:Subject:In-Reply-To:From;
- b=LPLcrpwmwEpR6GXtmPDQxAS5U0HsQLi/CB9P+gregE+DcfQwu7ErElWcKXTZbMdU6
- XsCtsWEk0WBE+mdjM1tKbunFxcFQikU/+TA0D89rcFi86Y85WxzRdoIY86PRvjVdtG
- diIwKaiI3YvY4kYq43BX3PuQVbuHlqLoF3LUbX+n+6aL1J9DGg4HhKBvQx2P0XfAy7
- WusCUz7/Y5id3h1FfcJgYrgH5um91lNX8uL0nwr0Tpepdou9dSJJIXZ6GCtfCdLfBD
- LIlhhqwlkP3AiKo8eLFOy/k3gO8zizcoVOTtD8CF1BbmHHWy/myCg1kQ1We1WzE6Nq
- 9m7bdLO4V7+kA==
-Date: Mon, 27 Dec 2021 16:04:42 -0600
+ b=qwgGSPvatgMe1CpNXXSX+vv/ERMiU7z545ZfOCpO+f1+4P8hhpXjl+Wdgtyyc9ufd
+ eD7w2TB3tYdV6BYtgGkzURzDTm/j3KniZsvqSyNieblnbr1y6Nx1wyJe+l3GqeKXv3
+ o+6TyuA9rfBpIzNRhulx//qhQDoQlej1bluDv9OUWVVb/EYOyMeAESrlR2uFi9Bmqo
+ fLjgW5tmyq6w3LTfgb8n0DPvlOp2bmTBChMh9OmDnr7ipigWHnLCauzsvWBjlhMiTt
+ nJ5NRRTogGH5opz9tvGIIdHy6e6Eux9NyWRjGhXlzV0GuBtCCUx4oP0SdLRUjCsiIO
+ /L9526LATEFLQ==
+Date: Mon, 27 Dec 2021 16:33:48 -0600
 From: Bjorn Helgaas <helgaas@kernel.org>
 To: Niklas Schnelle <schnelle@linux.ibm.com>
 Cc: Arnd Bergmann <arnd@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
@@ -54,14 +54,14 @@ Cc: Arnd Bergmann <arnd@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
  linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
  linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-csky@vger.kernel.org
-Subject: Re: [RFC 27/32] PCI/sysfs: make I/O resource depend on HAS_IOPORT
-Message-ID: <20211227220442.GA1544995@bhelgaas>
+Subject: Re: [RFC 28/32] PCI: make quirk using inw() depend on HAS_IOPORT
+Message-ID: <20211227223348.GA1545446@bhelgaas>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20211227164317.4146918-28-schnelle@linux.ibm.com>
+In-Reply-To: <20211227164317.4146918-29-schnelle@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211227_140448_165725_D1439DCA 
-X-CRM114-Status: GOOD (  20.04  )
+X-CRM114-CacheID: sfid-20211227_143352_801411_7107C4C9 
+X-CRM114-Status: GOOD (  18.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,75 +78,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Make the subject match historical convention (capitalize "Make").
+On Mon, Dec 27, 2021 at 05:43:13PM +0100, Niklas Schnelle wrote:
+> In the future inw()/outw() and friends will not be compiled on
+> architectures without I/O port support.
 
-On Mon, Dec 27, 2021 at 05:43:12PM +0100, Niklas Schnelle wrote:
-> Exporting I/O resources only makes sense if legacy I/O spaces are
-> supported so conditionally add them only if HAS_IOPORT is set.
+This commit log actually doesn't say what the patch does.
 
-IIUC, the effect of this is that the "resource%d" file for an I/O BAR
-still appears in /sys, but reads or writes will fail with ENXIO.
-Worth mentioning that in the commit log, since one could interpret the
-above as meaning that the "resource%d" file exists only if HAS_IOPORT
-is set.  I think I will *exist* but not be very useful.
+I'm pretty sure this particular quirk is x86 specific and could
+probably be moved to arch/x86/pci/fixup.c, where the #ifdef probably
+wouldn't be needed.
 
-I also wonder what this looks like in the sysfs "resource" file and
-via lspci.  I suppose it's useful if lspci shows the fact that the BAR
-exists and is an I/O BAR, even if the arch doesn't set HAS_IOPORT.
+If we keep it in drivers/pci, please update the subject line to make
+it more specific and match the convention, e.g.,
+
+  PCI: Compile quirk_tigerpoint_bm_sts() only when HAS_IOPORT set
+
+BTW, git complains about some whitespace errors in other patches:
+
+  Applying: char: impi, tpm: depend on HAS_IOPORT
+  .git/rebase-apply/patch:92: trailing whitespace.
+	    If you have a TPM security chip from Atmel say Yes and it
+  .git/rebase-apply/patch:93: trailing whitespace.
+	    will be accessible from within Linux.  To compile this driver
+  warning: 2 lines add whitespace errors.
+  Applying: video: handle HAS_IOPORT dependencies
+  .git/rebase-apply/patch:23: trailing whitespace.
+
+  warning: 1 line adds whitespace errors.
 
 > Co-developed-by: Arnd Bergmann <arnd@kernel.org>
 > Signed-off-by: Arnd Bergmann <arnd@kernel.org>
 > Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
 > ---
->  drivers/pci/pci-sysfs.c | 16 ++++++++++++++++
->  1 file changed, 16 insertions(+)
+>  drivers/pci/quirks.c | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> diff --git a/drivers/pci/pci-sysfs.c b/drivers/pci/pci-sysfs.c
-> index cfe2f85af09e..a59a85593972 100644
-> --- a/drivers/pci/pci-sysfs.c
-> +++ b/drivers/pci/pci-sysfs.c
-> @@ -1099,6 +1099,7 @@ static int pci_mmap_resource_wc(struct file *filp, struct kobject *kobj,
->  	return pci_mmap_resource(kobj, attr, vma, 1);
->  }
+> diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
+> index 003950c738d2..8624c98c57b2 100644
+> --- a/drivers/pci/quirks.c
+> +++ b/drivers/pci/quirks.c
+> @@ -265,6 +265,7 @@ DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_NEC,	PCI_DEVICE_ID_NEC_CBUS_1,	quirk_isa_d
+>  DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_NEC,	PCI_DEVICE_ID_NEC_CBUS_2,	quirk_isa_dma_hangs);
+>  DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_NEC,	PCI_DEVICE_ID_NEC_CBUS_3,	quirk_isa_dma_hangs);
 >  
 > +#ifdef CONFIG_HAS_IOPORT
->  static ssize_t pci_resource_io(struct file *filp, struct kobject *kobj,
->  			       struct bin_attribute *attr, char *buf,
->  			       loff_t off, size_t count, bool write)
-> @@ -1157,6 +1158,21 @@ static ssize_t pci_write_resource_io(struct file *filp, struct kobject *kobj,
->  
->  	return pci_resource_io(filp, kobj, attr, buf, off, count, true);
+>  /*
+>   * Intel NM10 "TigerPoint" LPC PM1a_STS.BM_STS must be clear
+>   * for some HT machines to use C4 w/o hanging.
+> @@ -284,6 +285,7 @@ static void quirk_tigerpoint_bm_sts(struct pci_dev *dev)
+>  	}
 >  }
-> +#else
-> +static ssize_t pci_read_resource_io(struct file *filp, struct kobject *kobj,
-> +				    struct bin_attribute *attr, char *buf,
-> +				    loff_t off, size_t count)
-> +{
-> +	return -ENXIO;
-> +}
-
-I assume the sysfs infrastructure prevents or fails reads/write if
-res_attr->read and res_attr->write are not set at all, so maybe we
-wouldn't need the stubs if we did something like this?
-
-    if (pci_resource_flags(pdev, num) & IORESOURCE_IO) {
-  #ifdef CONFIG_HAS_IOPORT
-      res_attr->read = pci_read_resource_io;
-      res_attr->write = pci_write_resource_io;
-      ...
-  #endif
-    } else {
-
-> +static ssize_t pci_write_resource_io(struct file *filp, struct kobject *kobj,
-> +				     struct bin_attribute *attr, char *buf,
-> +				     loff_t off, size_t count)
-> +{
-> +	return -ENXIO;
-> +}
+>  DECLARE_PCI_FIXUP_HEADER(PCI_VENDOR_ID_INTEL, PCI_DEVICE_ID_INTEL_TGP_LPC, quirk_tigerpoint_bm_sts);
 > +#endif
 >  
->  /**
->   * pci_remove_resource_files - cleanup resource files
+>  /* Chipsets where PCI->PCI transfers vanish or hang */
+>  static void quirk_nopcipci(struct pci_dev *dev)
 > -- 
 > 2.32.0
 > 
