@@ -4,89 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6643EC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Dec 2021 02:29:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5FE2C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Dec 2021 03:05:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QG3rMEAUhSFAkFjlMtPTkbe/emv5qeXZDqFWeMS7j7s=; b=UxTWzZrzlewOze
-	JlCGRsqcr1W1wPmb44DFWts9++ysXzBZmfEZO7PFDH28bmlL3WxMe7wFoCXhDxjPFApmOO0sao8Qt
-	fJINVKVg0aFTwKyIthpvve3NFiCXirEAYcwciC67fC6Ytj+7GFNeU2+P1tHxqj1HhWwtIzdClc8mM
-	hBx8rzDT6LXRUli9HhoSSs6AzzUupVfpPGM79Fc4eZRtIHBHVblZjy0WkN7iO6fXKsM6ThRoyBuPH
-	8t1ueeHj/aeN19dOExp7ShGCQSXJlIzBjn9UnTFxuruMzML4o1trukMc1bqyKyvX1LXLHwpVH4B8Q
-	R5LVngOe6ixAv1sZ2nPQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kLVChY6dsq0l+uWziXcaMn11CaBXgmT8XcNtJPjer54=; b=o1hImdBsRYqXrR
+	/1KPhlLlWvKGrxP4TFXYgfRDMAljcMhUss8ugxIj4rdn5UzkUbphiha6dLfFj9c+n68YqPoC/cjRg
+	QezbJbvTxU2yFrB+PpSgqxoU7Wtoumdhe5qiDtZQ7GEYT1ZsG4MoFl440GgNJgEOQFiSJhIP6/xuu
+	Vwbr5/DM+79Qnc1wfPan0yxCkRA/MO7enZnSVT7uHKdovzejN4FEL15tzLyxkg9f/GGkYkzdVSAf7
+	QBulGRavcuAbwwDV73WuNiTBLRJtEfY+XpdkBNF54u1FtU6STYS8Vcuw9BZ07jMzFyIYWKEmL2WFT
+	kd7t9GO5O4gwYnqYFMPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n1fl6-00G2qd-Nh; Mon, 27 Dec 2021 02:29:08 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1n1gKO-00G3kg-Mb; Mon, 27 Dec 2021 03:05:36 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n1fl3-00G2q8-9p
- for linux-riscv@lists.infradead.org; Mon, 27 Dec 2021 02:29:06 +0000
-Received: by mail-wr1-x435.google.com with SMTP id q16so29719650wrg.7
- for <linux-riscv@lists.infradead.org>; Sun, 26 Dec 2021 18:29:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=jrtc27.com; s=gmail.jrtc27.user;
- h=mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=bOhEvVozhHM6YldXriruHfBFw2hklkJ8aXUAF0+xVPg=;
- b=XoIoCzWCYSPvm4fY4M3T73vMITkswDgMyGplM+rbY6W6VkBBfPVdETLchyI2PCRrF0
- xbvSb/rgdUlEDXwDPcHcrOJ5Ob49nn81tZ/qnfjjH3tf0btwcV4Z3wIsyvqNiyAG6syh
- 6OwGpi28YXtGyrkvuxqHEs5NFuM1nYrlAqhALE8XU24+1NqeT2WgiioMcASaTvF3k/EF
- 9pHla7ja7tr0wIPCKUDiU9ICMOuLGzA0Em7b0B/0FoTGbdkPSGCPnHKiCCNRoY2eNqJ9
- Rp4wFGjLj7Up5L0Oo1ioaay6r6u1/K+k+WEYVSdR3svV8nKekHAazev9o/04eXai88lk
- 6swQ==
+ id 1n1gKL-00G3k7-Ut
+ for linux-riscv@lists.infradead.org; Mon, 27 Dec 2021 03:05:35 +0000
+Received: by mail-pf1-x434.google.com with SMTP id c2so12598425pfc.1
+ for <linux-riscv@lists.infradead.org>; Sun, 26 Dec 2021 19:05:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:to:cc:subject:date:message-id;
+ bh=dGqwsw/SIIdqWvaKeKwu/tVA9A1cy1/HMgE5QohgKlU=;
+ b=Kl9q2qVKSrylxgD0urqVHCWFl3B8NzwKjCXYywt+moEF6EXD/nIFuioHvvrjZ74dq4
+ COyilWJHHpo2PTntECJylnDQUpLNi0uC7dEPEfgfYs4J94ZGcnWPHtANxnJOR6bK+ZPD
+ fX8mQFQGFgKRgySvkzw0xs3FRowwgd9aF1mrTOqiXPFtj+cPE50GyDlOgNrBelN7esFS
+ 843ooQz7wvle/IZJe3eHMOy7wjN8L/NmiJJby6/44yro8owB8wyhiCF5uqZtcfu3BtNc
+ tAOWpVQvSzkv1Z6AVnb1VFyLURI4mptK2uZwM7aO2jkPVHUKYUDwmDXlHHYqVJnHUXN5
+ tFLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=bOhEvVozhHM6YldXriruHfBFw2hklkJ8aXUAF0+xVPg=;
- b=TaRx5eTIgGlxqdzRDNkLmL0M7MPpsnBfSg9pEndM7AHtxUuXahNvgbYvrvMpPA1P17
- xF6skY/p7qaAt32Ra4yfcKZGSL2rQ+cKrce0KfQ0L20eGxpxhUH62LIBK8vCDaqGKy4Y
- knEYdRjb/AMpPer/DpzBmgi5pDaXubnKMmZYy0deu96Wb85JIkwhldGkmMU24t8LKFcO
- EaP2OI4rvBS3ZRxN61jVHSLzordR9wx9xIWpI7ygUlmMu7S/qB392RHhgMOHxw+4+mEL
- v28J3S+EH49PDRCPpK7xXqGBr98UhycS0KP37YpzRY3BhjlTsuH8RFV8tKo/MoCUj9yi
- a8/Q==
-X-Gm-Message-State: AOAM531d7nV/v8loZ8rMybnICdDhEOxUCm3v9XcVdL+b5IV0/l+A3oei
- IuWjulqfjWG0+T09BJv/AuqEPQ==
-X-Google-Smtp-Source: ABdhPJwqzX+wn7fueplWnROokfjMQchC3UHOG/zKLlnPZj61VkZ2EQle1lIluZZcEB73WdGst5H9xg==
-X-Received: by 2002:a05:6000:15c4:: with SMTP id
- y4mr11112209wry.166.1640572143101; 
- Sun, 26 Dec 2021 18:29:03 -0800 (PST)
-Received: from smtpclient.apple (global-5-141.nat-2.net.cam.ac.uk.
- [131.111.5.141])
- by smtp.gmail.com with ESMTPSA id g5sm14158063wru.48.2021.12.26.18.29.02
- (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Sun, 26 Dec 2021 18:29:02 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 14.0 \(3654.120.0.1.13\))
-Subject: Re: [PATCH 00/13] riscv: compat: Add COMPAT mode support for rv64
-From: Jessica Clarke <jrtc27@jrtc27.com>
-In-Reply-To: <CAJF2gTQ04utyOc9=q9Tu92togGuyygKgq3tWwfPBCuyTfLh2SQ@mail.gmail.com>
-Date: Mon, 27 Dec 2021 02:29:02 +0000
-Cc: Arnd Bergmann <arnd@arndb.de>, Jisheng Zhang <jszhang3@mail.ustc.edu.cn>,
- Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup.patel@wdc.com>,
- gregkh <gregkh@linuxfoundation.org>, liush <liush@allwinnertech.com>,
- Wei Fu <wefu@redhat.com>, Drew Fustini <drew@beagleboard.org>,
- Wang Junqiang <wangjunqiang@iscas.ac.cn>,
- =?utf-8?B?IldlaSBXdSAo5ZC05LyfKSI=?= <lazyparser@gmail.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org,
- Guo Ren <guoren@linux.alibaba.com>
-Message-Id: <AA7091EA-C3AF-47CE-B0C5-E2ECE4133D09@jrtc27.com>
-References: <20211221163532.2636028-1-guoren@kernel.org>
- <CAK8P3a37+0=CCE7283VQ4QZ1tZqcU+A2POUGXtvdM46ZMHx-gw@mail.gmail.com>
- <CAJF2gTRAxX0qEcNmw+5N=3jZcJw9YF75oRjT7Y5FUMUkHoSz4Q@mail.gmail.com>
- <20211226162223.795f9417@xhacker>
- <CAJF2gTRHND1F_-5+Euzy-UdRRdg2oAXDY4dt8_5p9JxsHDSe6Q@mail.gmail.com>
- <CAK8P3a08kawHpz6RsLZsvNNn0_WKaFWRU-7M4fJ3e7i7J+GQcA@mail.gmail.com>
- <CAJF2gTQ04utyOc9=q9Tu92togGuyygKgq3tWwfPBCuyTfLh2SQ@mail.gmail.com>
-To: Guo Ren <guoren@kernel.org>
-X-Mailer: Apple Mail (2.3654.120.0.1.13)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=dGqwsw/SIIdqWvaKeKwu/tVA9A1cy1/HMgE5QohgKlU=;
+ b=fI+nQ+3PhaJeIZ9F/fPHzz93Z9gJpnTJOsfyt218fmWik/1RFIeovFRgYIM+BGHKKe
+ 7hZdMmAib7Y30uWX4dpUqNwz4klBItQCZbDfOMtFxK5Hw4ILPGfxdzm0YarSWtDsjbrn
+ 97DBEzbH9XPOGRSOUIvSLDp954TFMj+H3vPelcJSPxu1I6dP90yW8ZJvOpN5nfnh3OS8
+ xpDGkWvvs93ZOE3OG9oVEcW3OH9SqvUCm8tYdC6jrAiywleY250hR98aFUCTT2Oh+1rd
+ 5PRdHJm1A6sPns5c9PmU8msdUpCnxgRZLgbU/Aio2+x4Aj0dDSZfGqBQaLFGsqJo3+3B
+ AMcQ==
+X-Gm-Message-State: AOAM532v54I2/AtMSI9NHGW1GwA1NUtlEdAhsxJDrkQrn4tMOWn7KEkY
+ 5oVQrJPRj+wyMmHiZtqaHpYbUw==
+X-Google-Smtp-Source: ABdhPJz/JwlWWdFL4Jpz/lZX4PtnvXc+0OjTxMyF4j9YepvyHlXwG6prmSxMMLgq/8ne80iSJ/I4BQ==
+X-Received: by 2002:a63:cd58:: with SMTP id a24mr13919898pgj.15.1640574333060; 
+ Sun, 26 Dec 2021 19:05:33 -0800 (PST)
+Received: from VincentChen-ThinkPad-T480s.internal.sifive.com
+ (36-226-186-250.dynamic-ip.hinet.net. [36.226.186.250])
+ by smtp.gmail.com with ESMTPSA id n14sm12818917pgd.80.2021.12.26.19.05.31
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 26 Dec 2021 19:05:32 -0800 (PST)
+From: Vincent Chen <vincent.chen@sifive.com>
+To: anup.patel@wdc.com,
+	atish.patra@wdc.com
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ Vincent Chen <vincent.chen@sifive.com>
+Subject: [PATCH v2] KVM: RISC-V: Avoid spurious virtual interrupts after
+ clearing hideleg CSR
+Date: Mon, 27 Dec 2021 11:05:14 +0800
+Message-Id: <20211227030514.1426-1-vincent.chen@sifive.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211226_182905_430095_83A2676A 
-X-CRM114-Status: GOOD (  15.92  )
+X-CRM114-CacheID: sfid-20211226_190534_045698_BE4D728D 
+X-CRM114-Status: UNSURE (   7.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,59 +82,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 27 Dec 2021, at 01:16, Guo Ren <guoren@kernel.org> wrote:
-> 
-> On Mon, Dec 27, 2021 at 4:31 AM Arnd Bergmann <arnd@arndb.de> wrote:
->> 
->> On Sun, Dec 26, 2021 at 7:38 AM Guo Ren <guoren@kernel.org> wrote:
->>> On Sun, Dec 26, 2021 at 4:36 PM Jisheng Zhang <jszhang3@mail.ustc.edu.cn> wrote:
->>>> On Wed, 22 Dec 2021 20:59:30 +0800 Guo Ren <guoren@kernel.org> wrote:
->>>>> On Wed, Dec 22, 2021 at 2:10 AM Arnd Bergmann <arnd@arndb.de> wrote:
->>>> 
->>>> What about adding RV64 ILP32 support instead? This don't need HW side
->>>> modifications so can benefit all RV64.
->>> 
->>> ILP32 is another topic in C Language Data Type Models and it couldn't
->>> replace the standard rv32 ecosystem.
->>> COMPAT is a common framework in Linux (7 arches have been supported),
->>> so let rv64 support COMPAT mode is considerable.
->>> 
->>> Customers would choose ILP32 / RV32-compat by themself and that
->>> depends on which one has a better ecosystem.
->> 
->> From a kernel perspective, supporting both is not much more work than
->> supporting either of them. We had the same debate for Arm64, and ended
->> up never merging the ILP32 patches despite them being well written
->> and maintainable, to limit the number of supported user space ABIs
->> as well as the possible attack vectors when there is an exploitable
->> bug that is specific to an ABI.
->> 
->> arm64 does support big-endian mode, which is a similar niche, but it
->> can't easily be removed after it's already supported. Supporting normal
->> compat mode is the easiest here because it doesn't add another user
->> space ABI, but I'd strongly recommend not to add any other ones.
-> 
-> @Palmer Dabbelt How do you think about supporting ILP32 & COMPAT both
-> in rv64? And let users vote by foot which is better.
+When the last VM is terminated, the host kernel will invoke function
+hardware_disable_nolock() on each CPU to disable the related virtualization
+functions. Here, RISC-V currently only clears hideleg CSR and hedeleg CSR.
+This behavior will cause the host kernel to receive spurious interrupts if
+hvip CSR has pending interrupts and the corresponding enable bits in vsie
+CSR are asserted. To avoid it, hvip CSR and vsie CSR must be cleared
+before clearing hideleg CSR.
 
-As psABI TG co-chair I really do not want an ILP32 RV64 to exist if it
-can at all be avoided. Every single attempt at an ILP32 ABI for a
-64-bit architecture has failed to take off in the past, so I struggle
-to see why RV64 will be any different. So, in my opinion, there is a
-relatively high barrier to entry for it to be an official frozen ABI,
-and without it being that I doubt upstreams will want to go near it, be
-it Linux, GCC, binutils or GCC, but they can speak for themselves if
-they feel otherwise.
+Fixes: 99cdc6c18c2d ("RISC-V: Add initial skeletal KVM support")
+Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+Reviewed-by: Anup Patel <anup.patel@wdc.com>
+---
+ arch/riscv/kvm/main.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-Also, with every year that goes by, ILP32 becomes more and more limited
-in what you can use it for, due to increased memory footprints...
-
-Jess
+diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
+index 421ecf4e6360..18e7a979740c 100644
+--- a/arch/riscv/kvm/main.c
++++ b/arch/riscv/kvm/main.c
+@@ -58,6 +58,14 @@ int kvm_arch_hardware_enable(void)
+ 
+ void kvm_arch_hardware_disable(void)
+ {
++	/*
++	 * After clearing the hideleg CSR, the host kernel will receive spurious
++	 * interrupts if hvip CSR has pending interrupts and the corresponding
++	 * enable bits in vsie CSR are asserted. To avoid it, hvip CSR and
++	 * vsie CSR must be cleared before clearing hideleg CSR.
++	 */
++	csr_write(CSR_VSIE, 0);
++	csr_write(CSR_HVIP, 0);
+ 	csr_write(CSR_HEDELEG, 0);
+ 	csr_write(CSR_HIDELEG, 0);
+ }
+-- 
+2.17.1
 
 
 _______________________________________________
