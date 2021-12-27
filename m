@@ -4,99 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6885FC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Dec 2021 17:58:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F642C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Dec 2021 18:03:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NwMsx65NrfLG0T74Xis3UPwtQJkWTcZZ9nfzAOIBwNE=; b=cNSN8RUGvOcUEJ
-	PkakzZ1CqsI66YyxML8WRsBfAqB9xGdaLXVHkFjtHe/qbVKM4rNdMS0lBIvcxDlDfstkoLhWOMer/
-	lBwxxmT2GislZSpqivIir+UOHqp38rS7yihSRCmDSKdo0mmcBk/u+s23bkl1rbWB3pAU75xwqINi7
-	jwtyKm1GS1DT69LC2tRFnzhC4b2Liz4nqOZTrzhFLgQQwHbEZmq5X1MLczNaaWdiFAor0srHqezMG
-	Rq/1HE8QzJX+c31HK1qGpkLEWv/U6BUzlDeqlf8akswG+8BXMN9O+M9VOkyKd/rkawnIbC1ho4LyC
-	RwMhORtD/8MHtkwYrrCg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:Subject:
+	From:References:Cc:To:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lpA7Ng6M22Jbx4Pc/DVUiTiZFouuztThVuJRMORCs7M=; b=dfD9diz4auseE3jegwfoHRRLhR
+	o4TrYs7/3qmx8RoS8h2OMsT7MmxVH2chWXlA6Wn0vN1icaZII8UB5C9JKFY3oXKT1ntEBKwm3N/WW
+	lurqUagWScGtXTanADJZ6DQh+yS2pZnGk/gb0k5lWgw6HZo6PxYL4KMpkinTHLEKbY1Zv+Ht2QP+A
+	Dlho5gACPHhXZzUHbly2kY97uL+zpHLUuJSM2TeXemukNoCmaqev+N+1odBHXuGbaAR2o9qOmLlXq
+	jizHmxsxVt8O7aJjcbscaZpziaKg9L5D/cOw73gtVEwKo786puw7jBLU7RU1UZzoZQqJD/nbMgdHe
+	OofZAk7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n1uFr-00HCgK-5M; Mon, 27 Dec 2021 17:57:51 +0000
-Received: from hera.aquilenet.fr ([185.233.100.1])
+	id 1n1uLA-00HDpB-5W; Mon, 27 Dec 2021 18:03:20 +0000
+Received: from mail-oi1-x232.google.com ([2607:f8b0:4864:20::232])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n1uFo-00HCec-9f
- for linux-riscv@lists.infradead.org; Mon, 27 Dec 2021 17:57:50 +0000
-Received: from localhost (localhost [127.0.0.1])
- by hera.aquilenet.fr (Postfix) with ESMTP id DB6A22B0;
- Mon, 27 Dec 2021 18:52:18 +0100 (CET)
-X-Virus-Scanned: Debian amavisd-new at aquilenet.fr
-Received: from hera.aquilenet.fr ([127.0.0.1])
- by localhost (hera.aquilenet.fr [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id a87sJkm--fNp; Mon, 27 Dec 2021 18:52:18 +0100 (CET)
-Received: from begin.home (2a01cb0088600700de41a9fffe47ec49.ipv6.abo.wanadoo.fr
- [IPv6:2a01:cb00:8860:700:de41:a9ff:fe47:ec49])
- by hera.aquilenet.fr (Postfix) with ESMTPSA id 139E5281;
- Mon, 27 Dec 2021 18:52:18 +0100 (CET)
-Received: from samy by begin.home with local (Exim 4.95)
- (envelope-from <samuel.thibault@ens-lyon.org>) id 1n1uAT-00CRly-7Q;
- Mon, 27 Dec 2021 18:52:17 +0100
-Date: Mon, 27 Dec 2021 18:52:17 +0100
-From: Samuel Thibault <samuel.thibault@ens-lyon.org>
-To: Niklas Schnelle <schnelle@linux.ibm.com>
-Cc: Arnd Bergmann <arnd@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ id 1n1uL7-00HDoQ-Gt
+ for linux-riscv@lists.infradead.org; Mon, 27 Dec 2021 18:03:18 +0000
+Received: by mail-oi1-x232.google.com with SMTP id j124so26413289oih.12
+ for <linux-riscv@lists.infradead.org>; Mon, 27 Dec 2021 10:03:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=sender:to:cc:references:from:subject:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=estVpf11XBcCHh7/EsEMsmeAZD0WKzbLuknLI7vdHRc=;
+ b=LJCpOzkwux2I4nV1n97aB9IUKvSkBGD3iUUD++H9D4mmSZ/D3sOacT6mjhY6fTgku+
+ qHvc+fbPOsRqc0bg48tytzE8mIBM2Q1eievS683WX45BEBNPmwnuA5pe50fRib26/BFN
+ 6/HKVHvFnyD9BYbilNGf8XcOv8n2g3rE/wZ72yP5DmsbxhKomgtiL1oavpxuDRV/nXGy
+ Q6fVaDX8ZKPQft53OsOgdJkO9erQ6zljua5QBUUoc8abkqBvgMv6sWSKnVXGfA3hpSaJ
+ ONght/mWkC2YAJykH+ajzmQcuI5Eatc2quB10O3MQyTPoCGnzIJ1GaMjmVPuOQo3pET6
+ WwFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:sender:to:cc:references:from:subject:message-id
+ :date:user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=estVpf11XBcCHh7/EsEMsmeAZD0WKzbLuknLI7vdHRc=;
+ b=xNa8ooVsld6VXIobVWUowqE/3wSU3oYRquOsfIa0SzkJ0c/1rO8vSqozmZB5HrIpqS
+ ZCSY/63ho6d4yMtVuGRonNfP/G75PRHxEnxprZLQJx+jexWfTeDH9c2b7O5Sde0rWcML
+ z4dk6gKmF5dVkO/m1wk0NX4Kv6YdYxl5vJCWF0u/jMku7Pum2FFK0aHhHrJ1r0GS0Cpl
+ WqJYln8N29atg1aC/bpyF3PQARgStVBeOa+ryHtDt49eTZCSST4xDm0evdSJLO9OYdkH
+ abxao5v21ob3fEQKX63A3W/5u3lsmBmpczYLhW8px0VXFKqOXgMwCI0hLxu/cyv9FCpG
+ SqMA==
+X-Gm-Message-State: AOAM532vIcgq1pjsc83K5XrgIdwA0LrKKBF6e3voZgQ6YS8z5dLGMyUa
+ PdRbhnwl3Dz067szjigY/3k=
+X-Google-Smtp-Source: ABdhPJyPWxZ0FYqGXnkAxeGcmPPuoSSaJqXVZdkH1ZvL+v9Ry2ZD/jZglb5h2L0TwG+Cjf13kprmVw==
+X-Received: by 2002:a05:6808:554:: with SMTP id
+ i20mr14023491oig.51.1640628196494; 
+ Mon, 27 Dec 2021 10:03:16 -0800 (PST)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+ by smtp.gmail.com with ESMTPSA id
+ f20sm3452616oiw.48.2021.12.27.10.03.14
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Mon, 27 Dec 2021 10:03:15 -0800 (PST)
+To: Niklas Schnelle <schnelle@linux.ibm.com>, Arnd Bergmann
+ <arnd@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
  John Garry <john.garry@huawei.com>, Nick Hu <nickhu@andestech.com>,
  Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
- William Hubbs <w.d.hubbs@gmail.com>,
- Chris Brannon <chris@the-brannons.com>,
- Kirk Reiser <kirk@reisers.ca>, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org,
- speakup@linux-speakup.org
-Subject: Re: [RFC 06/32] speakup: Kconfig: add HAS_IOPORT dependencies
-Message-ID: <20211227175217.5bnpoauk2e3ni73s@begin>
-Mail-Followup-To: Samuel Thibault <samuel.thibault@ens-lyon.org>,
- Niklas Schnelle <schnelle@linux.ibm.com>,
- Arnd Bergmann <arnd@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- John Garry <john.garry@huawei.com>, Nick Hu <nickhu@andestech.com>,
- Greentime Hu <green.hu@gmail.com>,
- Vincent Chen <deanbo422@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
- William Hubbs <w.d.hubbs@gmail.com>,
- Chris Brannon <chris@the-brannons.com>,
- Kirk Reiser <kirk@reisers.ca>, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org,
- speakup@linux-speakup.org
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Guo Ren <guoren@kernel.org>, Wim Van Sebroeck <wim@linux-watchdog.org>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-watchdog@vger.kernel.org
 References: <20211227164317.4146918-1-schnelle@linux.ibm.com>
- <20211227164317.4146918-7-schnelle@linux.ibm.com>
+ <20211227164317.4146918-26-schnelle@linux.ibm.com>
+From: Guenter Roeck <linux@roeck-us.net>
+Subject: Re: [RFC 25/32] watchdog: Kconfig: add HAS_IOPORT dependencies
+Message-ID: <280c0490-3a68-5498-5751-d53162203b5b@roeck-us.net>
+Date: Mon, 27 Dec 2021 10:03:13 -0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.14.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20211227164317.4146918-7-schnelle@linux.ibm.com>
-Organization: I am not organized
-User-Agent: NeoMutt/20170609 (1.8.3)
-X-Spamd-Bar: +
-X-Rspamd-Server: hera
-Authentication-Results: hera.aquilenet.fr;
-	none
-X-Rspamd-Queue-Id: DB6A22B0
-X-Spamd-Result: default: False [1.90 / 15.00]; ARC_NA(0.00)[];
- RCVD_VIA_SMTP_AUTH(0.00)[]; FROM_HAS_DN(0.00)[];
- TO_DN_SOME(0.00)[]; FREEMAIL_ENVRCPT(0.00)[gmail.com];
- TO_MATCH_ENVRCPT_ALL(0.00)[]; TAGGED_RCPT(0.00)[];
- MIME_GOOD(-0.10)[text/plain]; HAS_ORG_HEADER(0.00)[];
- RCVD_COUNT_THREE(0.00)[3]; RCPT_COUNT_TWELVE(0.00)[20];
- FROM_EQ_ENVFROM(0.00)[]; MIME_TRACE(0.00)[0:+];
- RCVD_TLS_LAST(0.00)[];
- FREEMAIL_CC(0.00)[kernel.org,google.com,huawei.com,andestech.com,gmail.com,sifive.com,dabbelt.com,eecs.berkeley.edu,the-brannons.com,reisers.ca,vger.kernel.org,lists.infradead.org,linux-speakup.org];
- MID_RHS_NOT_FQDN(0.50)[]; SUSPICIOUS_RECIPS(1.50)[]
+In-Reply-To: <20211227164317.4146918-26-schnelle@linux.ibm.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211227_095748_539523_F6BE555C 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20211227_100317_589614_C80FC392 
+X-CRM114-Status: GOOD (  17.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,33 +95,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-TmlrbGFzIFNjaG5lbGxlLCBsZSBsdW4uIDI3IGTDqWMuIDIwMjEgMTc6NDI6NTEgKzAxMDAsIGEg
-ZWNyaXQ6Cj4gSW4gYSBmdXR1cmUgcGF0Y2ggSEFTX0lPUE9SVD1uIHdpbGwgcmVzdWx0IGluIGlu
-YigpL291dGIoKSBhbmQgZnJpZW5kcwo+IG5vdCBiZWluZyBkZWNsYXJlZC4gU1BFQUtVUF9TRVJJ
-QUxJTyB0aHVzIG5lZWRzIHRvIGRlcGVuZCBvbiBIQVNfSU9QT1JULgo+IAo+IENvLWRldmVsb3Bl
-ZC1ieTogQXJuZCBCZXJnbWFubiA8YXJuZEBrZXJuZWwub3JnPgo+IFNpZ25lZC1vZmYtYnk6IEFy
-bmQgQmVyZ21hbm4gPGFybmRAa2VybmVsLm9yZz4KPiBTaWduZWQtb2ZmLWJ5OiBOaWtsYXMgU2No
-bmVsbGUgPHNjaG5lbGxlQGxpbnV4LmlibS5jb20+CgpSZXZpZXdlZC1ieTogU2FtdWVsIFRoaWJh
-dWx0IDxzYW11ZWwudGhpYmF1bHRAZW5zLWx5b24ub3JnPgoKPiAtLS0KPiAgZHJpdmVycy9hY2Nl
-c3NpYmlsaXR5L3NwZWFrdXAvS2NvbmZpZyB8IDEgKwo+ICAxIGZpbGUgY2hhbmdlZCwgMSBpbnNl
-cnRpb24oKykKPiAKPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9hY2Nlc3NpYmlsaXR5L3NwZWFrdXAv
-S2NvbmZpZyBiL2RyaXZlcnMvYWNjZXNzaWJpbGl0eS9zcGVha3VwL0tjb25maWcKPiBpbmRleCAw
-N2VjYmJkZTAzODQuLmU4NGZiNjE3YWNjNCAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL2FjY2Vzc2li
-aWxpdHkvc3BlYWt1cC9LY29uZmlnCj4gKysrIGIvZHJpdmVycy9hY2Nlc3NpYmlsaXR5L3NwZWFr
-dXAvS2NvbmZpZwo+IEBAIC00Niw2ICs0Niw3IEBAIGlmIFNQRUFLVVAKPiAgY29uZmlnIFNQRUFL
-VVBfU0VSSUFMSU8KPiAgCWRlZl9ib29sIHkKPiAgCWRlcGVuZHMgb24gSVNBIHx8IENPTVBJTEVf
-VEVTVAo+ICsJZGVwZW5kcyBvbiBIQVNfSU9QT1JUCj4gIAo+ICBjb25maWcgU1BFQUtVUF9TWU5U
-SF9BQ05UU0EKPiAgCXRyaXN0YXRlICJBY2NlbnQgU0Egc3ludGhlc2l6ZXIgc3VwcG9ydCIKPiAt
-LSAKPiAyLjMyLjAKPiAKCi0tIApTYW11ZWwKCS8qIEFtdXNlIHRoZSB1c2VyLiAqLwoJcHJpbnRr
-KAoiICAgICAgICAgICAgICBcXHwvIF9fX18gXFx8L1xuIgoiICAgICAgICAgICAgICBcIkAnLyAs
-LiBcXGBAXCJcbiIKIiAgICAgICAgICAgICAgL198IFxcX18vIHxfXFxcbiIKIiAgICAgICAgICAg
-ICAgICAgXFxfX1VfL1xuIik7CihGcm9tIGxpbnV4L2FyY2gvc3BhcmMva2VybmVsL3RyYXBzLmM6
-ZGllX2lmX2tlcm5lbCgpKQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+On 12/27/21 8:43 AM, Niklas Schnelle wrote:
+> In a future patch HAS_IOPORT=n will result in inb()/outb() and friends
+> not being declared. We thus need to add HAS_IOPORT as dependency for
+> those drivers using them.
+> 
+
+How is the need for HAS_IOPORT determined, when exactly is it needed,
+and when not ?
+
+$ git grep -E "inb|inw" drivers/watchdog/ | cut -f1 -d: | sort -u
+drivers/watchdog/acquirewdt.c
+drivers/watchdog/advantechwdt.c
+drivers/watchdog/cpu5wdt.c
+drivers/watchdog/f71808e_wdt.c
+drivers/watchdog/ibmasr.c
+drivers/watchdog/ie6xx_wdt.c
+drivers/watchdog/it8712f_wdt.c
+drivers/watchdog/it87_wdt.c
+drivers/watchdog/iTCO_vendor_support.c
+drivers/watchdog/iTCO_wdt.c
+drivers/watchdog/Kconfig
+drivers/watchdog/machzwd.c
+drivers/watchdog/mixcomwd.c
+drivers/watchdog/ni903x_wdt.c
+drivers/watchdog/nic7018_wdt.c
+drivers/watchdog/nv_tco.c
+drivers/watchdog/pc87413_wdt.c
+drivers/watchdog/pcwd.c
+drivers/watchdog/pcwd_pci.c
+drivers/watchdog/sbc60xxwdt.c
+drivers/watchdog/sbc7240_wdt.c
+drivers/watchdog/sc1200wdt.c
+drivers/watchdog/sch311x_wdt.c
+drivers/watchdog/smsc37b787_wdt.c
+drivers/watchdog/sp5100_tco.c
+drivers/watchdog/w83627hf_wdt.c
+drivers/watchdog/w83877f_wdt.c
+drivers/watchdog/w83977f_wdt.c
+drivers/watchdog/wafer5823wdt.c
+drivers/watchdog/wdt977.c
+drivers/watchdog/wdt.c
+drivers/watchdog/wdt_pci.c
+
+Guenter
+
+> Co-developed-by: Arnd Bergmann <arnd@kernel.org>
+> Signed-off-by: Arnd Bergmann <arnd@kernel.org>
+> Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
+> ---
+>   drivers/watchdog/Kconfig | 2 ++
+>   1 file changed, 2 insertions(+)
+> 
+> diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
+> index 05258109bcc2..2e87a65bdc8b 100644
+> --- a/drivers/watchdog/Kconfig
+> +++ b/drivers/watchdog/Kconfig
+> @@ -452,6 +452,7 @@ config 21285_WATCHDOG
+>   config 977_WATCHDOG
+>   	tristate "NetWinder WB83C977 watchdog"
+>   	depends on (FOOTBRIDGE && ARCH_NETWINDER) || (ARM && COMPILE_TEST)
+> +	depends on HAS_IOPORT
+>   	help
+>   	  Say Y here to include support for the WB977 watchdog included in
+>   	  NetWinder machines. Alternatively say M to compile the driver as
+> @@ -1200,6 +1201,7 @@ config ITCO_WDT
+>   	select WATCHDOG_CORE
+>   	depends on I2C || I2C=n
+>   	depends on MFD_INTEL_PMC_BXT || !MFD_INTEL_PMC_BXT
+> +	depends on HAS_IOPORT # for I2C_I801
+>   	select LPC_ICH if !EXPERT
+>   	select I2C_I801 if !EXPERT && I2C
+>   	help
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
