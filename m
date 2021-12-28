@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6593AC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Dec 2021 06:51:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B22ADC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Dec 2021 06:51:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Yhbo4oQvUlluosbc7gtu61ZVP3OAmyFRcBCnKw0datc=; b=4zuYU0aPqPrPnF
-	T08t/piM3zpL/B+0OvAZcqQel6OdiC9h+E2FFUcpmaUAuLtu4LzcxqbgYgJ/zSyGBWhH9jF9CobL7
-	2WCu5c4NmeXOiWgiOt2URMNLsCx1Ea5UHBPwtVMaWBbD6knGkJvGJwNTMnevSo5hOqsrfkxjG+BH3
-	KZjjoeC8AUKz51Hww4Gy2CRJg6KExiiKsc+H+TNxNXlgMD3SG/2/8HaynAgy7SG6al8dQ0gQPMAZH
-	AaAmjHwfOfIGHryYWmz+uSTVj7Q0uae8cxPB6ioz8IMcctgvEH2tovojn0onFG2tcZSLZG3JVmwSD
-	bIp+7cJEZPccJKHy2hkQ==;
+	List-Owner; bh=3Rc6Bmsd12cYsJkzrU/j0NR13/IlrDhxv+sswEV6cvU=; b=bNVsCJMSRmuedi
+	nT8tMB8orG6mbL+Zs6MuoG8L1sFlFFa2Ib0KJy/p7nPajLC6s3U7lw3fqXgqnAfn4d4HSYduIWMLX
+	qMXGZIgo5OPClkCrP4aaf31EdHKXMjiRPG8/HcOpoRSL7e2wwHgGZJHoYYjYdvtHEcny2yaru6XM9
+	deKvNe1+X+XAUdjXiP9s3QAPHH/Kf1r15+OWCGuzoxq+piH5MmgUl9hvsRGsoC+zM+0ZMHiwn2aL6
+	RwpJBPC144Ru2TwJjidIbu5FhmV3AgYwaZBb4TPVK9Y5zHMdgB2/va4jB9GwE6X4GaLd2SqcfjVoE
+	45VyMA6yv9m4MfmQ2G/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n26Jx-000IXD-CX; Tue, 28 Dec 2021 06:50:53 +0000
+	id 1n26KY-000IuN-Tv; Tue, 28 Dec 2021 06:51:30 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n26HX-000H12-R0; Tue, 28 Dec 2021 06:48:25 +0000
+ id 1n26He-000H5a-SW; Tue, 28 Dec 2021 06:48:32 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 6A7FFB8118C;
- Tue, 28 Dec 2021 06:48:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3888C36AEF;
- Tue, 28 Dec 2021 06:48:15 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 8EED8B81183;
+ Tue, 28 Dec 2021 06:48:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03D17C36AEB;
+ Tue, 28 Dec 2021 06:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1640674101;
- bh=RnnvsP16LZkGVq1CvZskQLpA80ExePCT6xw8+7fx9qY=;
+ s=k20201202; t=1640674108;
+ bh=VNmoFKw8R9K2OcmjmelDhRhySWO6Ih0fBU/Aljv4crs=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=GAoVXZipFGCxV1/J8x20sPoRBFPkXgmVnkV+HOz0yZ+hszEzck+jTLQEyaBFDCAsF
- nhMW0srHzh6avykgI4hf3qL5eiO4uDlOsbuqZg+HqHxfp8khIORLxXGxg98FyIxiTL
- DYxPUdH6IgrxsUCbNjk+3FJWr/RI/ES0Rz9P8rFrdqK5k/PY6qdYie8FS4RJoBapSC
- +6L1eggOmbr++OMwy/asnM9nZM3XYYaDkTgDKf7/XDx37sb4TCkhRGxpnW1CVwSvVg
- AcXr1nE30xxR1dgZHUkMxlCtpoUIkNYKdj92p0BYsagzDQxhH8JH49QwvsN4yQduF2
- sJm6UEP/sM7Sw==
+ b=p4P7PIVKeH9DRPDMaJHzgL9388gzhi6Jpx/12ZZaWUMeUmu0fZt7eygIyKX8iFEEp
+ 5V7Qm2P/0tUCPOllQQS5zGIKo1i9xBMYcEo0LwM4nRrc1GBp4jY0IknZCs8CW+b8aC
+ +BWs1+cfSPC5J8+q7mLjVFtOZiazn965xbGrsrVnPhcbVr1Oo0pjsKAzECkfHZU1vW
+ 5oE6//VIWrFOJ7unJPtQolyyGtYFSHR++InYTtZ7ns6hf2rxEtLmmIRGM3fv3SKrIk
+ WiGlzw3OZn26f4CGIp4O4kCTDg4moVXZYWKHXEQKA4j1miHCHincoRMHWP25QglKsk
+ Oqsjqp5no8Bdg==
 From: guoren@kernel.org
 To: guoren@kernel.org, will@kernel.org, tglx@linutronix.de,
  benh@kernel.crashing.org, arnd@arndb.de, mingo@redhat.com,
@@ -51,16 +51,16 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  linuxppc-dev@lists.ozlabs.org, inux-parisc@vger.kernel.org,
  linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  x86@kernel.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH V3 7/8] sched: arm64: Remove unused TASK_SIZE_OF
-Date: Tue, 28 Dec 2021 14:47:28 +0800
-Message-Id: <20211228064730.2882351-8-guoren@kernel.org>
+Subject: [PATCH V3 8/8] sched: mips: Remove unused TASK_SIZE_OF
+Date: Tue, 28 Dec 2021 14:47:29 +0800
+Message-Id: <20211228064730.2882351-9-guoren@kernel.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20211228064730.2882351-1-guoren@kernel.org>
 References: <20211228064730.2882351-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211227_224824_040567_9DA515A5 
-X-CRM114-Status: UNSURE (   8.49  )
+X-CRM114-CacheID: sfid-20211227_224831_108319_892D3ED6 
+X-CRM114-Status: UNSURE (   7.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,22 +87,23 @@ Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
 Reviewed-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/arm64/include/asm/processor.h | 2 --
- 1 file changed, 2 deletions(-)
+ arch/mips/include/asm/processor.h | 3 ---
+ 1 file changed, 3 deletions(-)
 
-diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
-index 6f41b65f9962..d24dfb49237d 100644
---- a/arch/arm64/include/asm/processor.h
-+++ b/arch/arm64/include/asm/processor.h
-@@ -65,8 +65,6 @@
- #endif /* CONFIG_ARM64_64K_PAGES */
- #define TASK_SIZE		(test_thread_flag(TIF_32BIT) ? \
- 				TASK_SIZE_32 : TASK_SIZE_64)
--#define TASK_SIZE_OF(tsk)	(test_tsk_thread_flag(tsk, TIF_32BIT) ? \
--				TASK_SIZE_32 : TASK_SIZE_64)
- #define DEFAULT_MAP_WINDOW	(test_thread_flag(TIF_32BIT) ? \
- 				TASK_SIZE_32 : DEFAULT_MAP_WINDOW_64)
- #else
+diff --git a/arch/mips/include/asm/processor.h b/arch/mips/include/asm/processor.h
+index 4bb24579d12e..8871fc5b0baa 100644
+--- a/arch/mips/include/asm/processor.h
++++ b/arch/mips/include/asm/processor.h
+@@ -61,9 +61,6 @@ extern int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src
+ #define TASK_SIZE (test_thread_flag(TIF_32BIT_ADDR) ? TASK_SIZE32 : TASK_SIZE64)
+ #define STACK_TOP_MAX	TASK_SIZE64
+ 
+-#define TASK_SIZE_OF(tsk)						\
+-	(test_tsk_thread_flag(tsk, TIF_32BIT_ADDR) ? TASK_SIZE32 : TASK_SIZE64)
+-
+ #define TASK_IS_32BIT_ADDR test_thread_flag(TIF_32BIT_ADDR)
+ 
+ #endif
 -- 
 2.25.1
 
