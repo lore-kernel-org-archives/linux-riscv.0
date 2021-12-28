@@ -4,64 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35BA5C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Dec 2021 17:28:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA0FAC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Dec 2021 22:31:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=G/q0P8NVWfGPDy6A7/B25iZlDsW2l24D4d/WAAaY3E8=; b=zfTV+jbiDFZVKR
-	O12pFvijYVJTIlLqGYSymbAuiCjNhyj5TKPmc2rOuqPpcDlFeyyfP1z3J8ZjXeTZI14qWYxGUcNQA
-	IXREWOyg1lUAXlv8gxYszEMlph4YU9umco3g1c36p/a06VamRrUbZVU+8AsGfkyzmD3c5Tum6ZEdH
-	zcrt1IJNcox7rpwdcXT5ZizJGjgDp0LfyjZqRaX6WOP0ZggCCVVHl0oXMvUNf4k2HjngTe2RNUf1z
-	vSslx4/aKgBbL78lw75wRhe1+AGgiR+Ip1A//DCZmrbW5YC3NHLh/k07J+PUf2mfxv3oWPfYu4ddV
-	1Y2lRJzSkwdsLzSguAZw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zz6h3oWCb+fZ+4w4Qo/8UesHA/M7BubHc+4DS7JX9NA=; b=z/egymFvCwbeNf
+	ajCKXziVTygxtLzOVgzubPRbwfbHWbZU/HXzhP+a8zBxhLuAeXUYeT7oVDeo5k6Cd741Bre5Cuek1
+	u5Mx74gwqs+1rilHNqy+uKp8hlqJ7nN2gZmcrZZ4Y0vZP0XzHC9CEC+KXhMnhEikDkW4jy62WnWCG
+	RUTvAZDwCBt38t8fOJbIrOwltBefVVRm+wI3yk8kU09B/FBaqkUwWtkFYcODQYmZDB1ldPKYgOlcM
+	zUrEbVhMuIqEVk8/J+yphiTMZJTKFofP8Zkiqj7DZV2qJcmaWkdujGDpgX7K6mqpceZ24LZzdT4Rl
+	K2PIwV8lt3ZGojbdE1Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n2GH1-001dh4-SH; Tue, 28 Dec 2021 17:28:31 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1n2Kzw-001vCw-RU; Tue, 28 Dec 2021 22:31:12 +0000
+Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n2GGz-001dga-0H
- for linux-riscv@lists.infradead.org; Tue, 28 Dec 2021 17:28:30 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 756C161221;
- Tue, 28 Dec 2021 17:28:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D8C2C36AE8;
- Tue, 28 Dec 2021 17:28:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1640712507;
- bh=dXA+jtJKXsZeuGL+gqW27tuo78x2G9m366Sa3KzPs/Y=;
- h=Date:From:To:Cc:Subject:In-Reply-To:From;
- b=crA/K81U+X4as89k12VFJhq7l5G6mmRiyHJCr7rvQuKaJSWdRD8HsUWMtEiR6YiT9
- xkh3fc1SixiPjDrMU7N3s05mIn5FkXwJyvfvz2HzU6vrRz2riOGV87mq/O3z4d8tQl
- l3wzHW2xFwKfv/dalFrjV7NW+fNDw/8hVQWXM7ZxJJ/MA9xQMMsO/9gsZW7o3NqZJ4
- IikED5UaPWdt+nNRLG32gAEABqEKOfGQmWnJ51QmGxTBRsSymGbPiYQxhpnJTOsMHR
- ZQBcfSywIaDJPWsFdgoWCxTk5qfXOwl/2CtDSh3spa9fUbjDU36CMRuAVLEtAj2MBM
- dc88VkjPVXadA==
-Date: Tue, 28 Dec 2021 11:28:25 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Niklas Schnelle <schnelle@linux.ibm.com>
-Cc: Arnd Bergmann <arnd@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- John Garry <john.garry@huawei.com>, Nick Hu <nickhu@andestech.com>,
- Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-csky@vger.kernel.org
-Subject: Re: [RFC 28/32] PCI: make quirk using inw() depend on HAS_IOPORT
-Message-ID: <20211228172825.GA1604151@bhelgaas>
+ id 1n2Kzq-001vAF-8G
+ for linux-riscv@lists.infradead.org; Tue, 28 Dec 2021 22:31:09 +0000
+Received: by mail-qv1-xf34.google.com with SMTP id kd9so17567783qvb.11
+ for <linux-riscv@lists.infradead.org>; Tue, 28 Dec 2021 14:31:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=atishpatra.org; s=google;
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=JWDZG+O5QMw6Gx6H+DMlU7as2a1pC5H4fQ/YCHQ2l+Y=;
+ b=U/S1I+cSe4mLRbGLbnq4cgulAqcxT4UxPOeKVkGJIoCCB4Ox6b7ZqNFQ+mBduOHFso
+ t4rMObEyAMJP2eHp98k1yahLu6fxxuwUYzyoiHOhxkCTQ18/9uqbi/pGd65ZcsTKVF8Y
+ cWnVa+D3BOjNqJf9FtbztZaJhuE0jFQeKTSn8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=JWDZG+O5QMw6Gx6H+DMlU7as2a1pC5H4fQ/YCHQ2l+Y=;
+ b=4QC/NFE4a4hGjiQbHEp7j0D9LRdU4fp3PLtU7meEVfmIY+d20xSBXCn8yOy9/FHN/E
+ Yo+Nc1GydAGWVO99iC7H91m5h0Kn22/Bap/ZMkpnwI6wYzR7rjFpQ2nphEeJbDKzEgr8
+ 2+8E3T3OJ97rUIFzc6ZIFyE5SsCS+4lRWFqJbZ8NH4kL05OBr5LdK7ScZifP3UaQzhjr
+ KrpFVfIsCn+CMrTimU3Y+7iU61ec64SZvWyGoTg/TJVWEG+5CRz64oFQhiJLiekiR9w1
+ GtzcbN9Dszzp0sm3SfZlMP/o1w/UTIwS1EYvMWsHexyHoV/W24tEtwb/kImZhQm6o84r
+ gQoQ==
+X-Gm-Message-State: AOAM530VSJK859/N1f1NoYic1uD4tgbV48a4wSO7C0IAhbadgwI70T79
+ CPDbsX7R+yxROAGq7zmFkX4V
+X-Google-Smtp-Source: ABdhPJyUZ5+HZnMhHNyj8B9R04F7Fzf7ePbGliqWg3h7IItwupJdQhrZvoSq5lZqaUU1hC+U6l0B2A==
+X-Received: by 2002:a05:6214:226d:: with SMTP id
+ gs13mr20887535qvb.75.1640730665263; 
+ Tue, 28 Dec 2021 14:31:05 -0800 (PST)
+Received: from fedora.. (adsl-70-228-75-190.dsl.akrnoh.ameritech.net.
+ [70.228.75.190])
+ by smtp.gmail.com with ESMTPSA id i5sm2738407qti.27.2021.12.28.14.31.03
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 28 Dec 2021 14:31:05 -0800 (PST)
+From: Atish Patra <atishp@atishpatra.org>
+X-Google-Original-From: Atish Patra <atishp@rivosinc.com>
+To: linux-kernel@vger.kernel.org
+Cc: Atish Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@atishpatra.org>,
+ Damien Le Moal <damien.lemoal@wdc.com>, devicetree@vger.kernel.org,
+ Jisheng Zhang <jszhang@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
+Subject: [PATCH v2 2/6] RISC-V: Do not print the SBI version during HSM
+ extension boot print
+Date: Tue, 28 Dec 2021 14:30:53 -0800
+Message-Id: <20211228223057.2772727-3-atishp@rivosinc.com>
+X-Mailer: git-send-email 2.33.1
+In-Reply-To: <20211228223057.2772727-1-atishp@rivosinc.com>
+References: <20211228223057.2772727-1-atishp@rivosinc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <5112a787b635d5d2fc80a7f126c28176ad151098.camel@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211228_092829_119330_1D9022EA 
-X-CRM114-Status: GOOD (  21.19  )
+X-CRM114-CacheID: sfid-20211228_143106_314352_FB550A10 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,42 +94,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 28, 2021 at 05:52:05PM +0100, Niklas Schnelle wrote:
-> On Tue, 2021-12-28 at 10:35 -0600, Bjorn Helgaas wrote:
-> > On Tue, Dec 28, 2021 at 04:25:25PM +0100, Niklas Schnelle wrote:
-> > > On Mon, 2021-12-27 at 16:33 -0600, Bjorn Helgaas wrote:
+The HSM extension information log also prints the SBI version v0.2. This
+is misleading as the underlying firmware SBI version may be different
+from v0.2.
 
-> > > > BTW, git complains about some whitespace errors in other patches:
-> > > > 
-> > > >   Applying: char: impi, tpm: depend on HAS_IOPORT
-> > > >   .git/rebase-apply/patch:92: trailing whitespace.
-> > > > 	    If you have a TPM security chip from Atmel say Yes and it
-> > > >   .git/rebase-apply/patch:93: trailing whitespace.
-> > > > 	    will be accessible from within Linux.  To compile this driver
-> > > >   warning: 2 lines add whitespace errors.
-> > > >   Applying: video: handle HAS_IOPORT dependencies
-> > > >   .git/rebase-apply/patch:23: trailing whitespace.
-> > > > 
-> > > >   warning: 1 line adds whitespace errors.
-> > > 
-> > > ... But I just tried fetching the patches with b4 on top of
-> > > v5.16-rc7 and the resulting tree passes "./scripts/checkpatch.pl
-> > > --git v5.16-rc7..HEAD" and has an empty diff to my branch. What
-> > > tool did you use to check?
-> > 
-> > "git am" is what complained.  Here's what I did:
-> > 
-> >   $ git checkout -b wip/niklas v5.16-rc1
-> 
-> Ah this seems to be because my patches are against v5.16-rc7. I
-> noted that in the cover letter but I guess that is easy to miss and
-> might not match expectations.
+Remove the unncessary printing of SBI version.
 
-I get the same complaints when applying to v5.16-rc7:
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+---
+ arch/riscv/kernel/cpu_ops.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-  $ git checkout -b wip/niklas3 v5.16-rc7
-  $ b4 am -om/ 20211227164317.4146918-1-schnelle@linux.ibm.com
-  $ git am m/20211227_schnelle_kconfig_introduce_has_ioport_and_legacy_pci_options.mbx
+diff --git a/arch/riscv/kernel/cpu_ops.c b/arch/riscv/kernel/cpu_ops.c
+index 1985884fe829..3f5a38b03044 100644
+--- a/arch/riscv/kernel/cpu_ops.c
++++ b/arch/riscv/kernel/cpu_ops.c
+@@ -38,7 +38,7 @@ void __init cpu_set_ops(int cpuid)
+ #if IS_ENABLED(CONFIG_RISCV_SBI)
+ 	if (sbi_probe_extension(SBI_EXT_HSM) > 0) {
+ 		if (!cpuid)
+-			pr_info("SBI v0.2 HSM extension detected\n");
++			pr_info("SBI HSM extension detected\n");
+ 		cpu_ops[cpuid] = &cpu_ops_sbi;
+ 	} else
+ #endif
+-- 
+2.33.1
+
 
 _______________________________________________
 linux-riscv mailing list
