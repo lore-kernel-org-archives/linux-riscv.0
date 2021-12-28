@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64036C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Dec 2021 06:21:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52469C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Dec 2021 06:21:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PdW93Yjlzq2hkKz3LfOLk1r1Q+77LpSsg5pJ5IRxopY=; b=z+7aAgUw5pORvj
-	fRKFCNocolUSo5dn0d8uJ174PO/dcMc51Z0/1GkvkD/W/l7y3d/AWlWxo96WHwwKhAYdM8eXJQXGk
-	lzEP/52ZcFA0m8MAQ5mAzmKqw8hvqA7A8HHk5mvcRBMekwz2L+xb4OHZnOWJl0C424WvhfOpRd1U6
-	jPtGqFA282ZCSebo/Rly9aAEQQOxr9cHGLqZWCdh6EwoOEzbrXGfnlg8yBBKVV8EqrI/u0g4cU/YN
-	wNcSKO3AiWsr/sxEYHYULAUzUW1Bv4CRJmYnGvzQGOSOFSgUGlH1xQaLO5dOBRto58DoUgQtvXDEi
-	1x9GXzA8upJJKK+x4EKQ==;
+	List-Owner; bh=iFmTzNwAu+ctsw/CuDNTjEK++F0HI6x+le5IxbsR52Q=; b=cdyT6Q2bXZb63q
+	bVMvgmBZ6QeVXZzBlZ/eTG3BBcbOXHx3xUdH57qFyMHIX6aWy/igXHrSS8yxgdGGsR5Bz+LuMLMBx
+	SUIOTy3bBWowb5dOs7v8bv+P6sck1LddNHJ371ZkNHEwX+woDxkg7icxyPwTQgNRAIQiuzK03rJ4T
+	NguPG+Fy4Mwf7kDnI7lxS6PLvrBYdMDUk7AUfSkiPhv7olb2LBRZAIiSdM2B0O7sB3cS64eku/ijX
+	ckT5Z99gRgOQsRni+dpVF9N2noD5kzO8wb7YLO55tBgiZ5tUivA6DePBLZvqxnvsmNX/bCNjmQWBY
+	GF8RK2ZNkw2mUGMscCkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n25qt-000FbR-BF; Tue, 28 Dec 2021 06:20:51 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1n25rL-000FjM-Ak; Tue, 28 Dec 2021 06:21:19 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n25qr-000FaT-4J
- for linux-riscv@lists.infradead.org; Tue, 28 Dec 2021 06:20:50 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id i22so36269497wrb.13
- for <linux-riscv@lists.infradead.org>; Mon, 27 Dec 2021 22:20:48 -0800 (PST)
+ id 1n25rI-000Fhl-Rk
+ for linux-riscv@lists.infradead.org; Tue, 28 Dec 2021 06:21:18 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id
+ g191-20020a1c9dc8000000b0032fbf912885so9459517wme.4
+ for <linux-riscv@lists.infradead.org>; Mon, 27 Dec 2021 22:21:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20210112.gappssmtp.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=yxMuslxDg2S3RmGiAouREuoen21s3vRjxpPLCKGYDOs=;
- b=U5bV+uGyfh50ndVDYNS4v8SIYAIV7TP4jb4JRs/qKkRb363U8GOEwqMIaXYWHnWQHY
- hzgYFZYX1N5JjkSd/rNXhDJIZhcBE13FCjLdQjkLfjljxYubVQ0PcOKltArbh4Qn8kjy
- DV1nNXhwAsVtLducS7lQBaXgVBJiAYLhM9oWbhofkvbQBGM076NOf5sRcvVlaQ5xidkk
- zn1JXUg13XN4J2WyZlFBXJ1U7LuaD8n56DfQz3Wlj0LYreGacNOrBoZ5VGLIQorNTZsm
- ps3iYeyLMvSPCSZQPVP3b2e4aGZwvAB/Jh5/optZ+eMaFXydOlP9qV3RWN5QT7aK5I8f
- cXiQ==
+ :cc; bh=fz/c6/4SGSYodrgD5AdFvdel0zxLs/yQs8FyjZNs4tQ=;
+ b=g8BS2gkO3Z2Uowvmo4A8Ijgd4KkngqwKudZDouJ64O4ICZF4AftTAzILir3ldPIGRP
+ 2HtEyL5f891oVMB3m6gVXI8/xD1r9NhLBSZsFfQuUVHpX/86kWDNC++lz59nfmN9z/W0
+ cMKGrJdmbUvqHhvU1uxqsv7X0U86JVXp0NZhYr17K0KjlFtwAJ0woa3kCEAcWHHRNp4Q
+ 35crBEvFtatsX2esBh7evM8EU1IF6zgU2G4YA4Bk2lfvnaVhgRO9jMGtIs/OuczxQIK4
+ +HRFBI8MPTcGcGjwSaIrpk2xLO2TLW5r2PgSRa5rGLTK4duDOuLK22GrkaX9kuABwEbP
+ H+tw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=yxMuslxDg2S3RmGiAouREuoen21s3vRjxpPLCKGYDOs=;
- b=6DC64fwF5bX7gX5/Ev4p8Za0X+3aJdQ3XdESthxMERmCqEcWsGqe03rQWPLfnKFFHw
- VFbv90FdTA7/O1hU4lhEaltAlCJzmFd4XaTujHDtT3RJGPFssvu8tbXXMmiHk+XC4Yut
- mla02e5pKHctA0r8u0qrDNjzG57gg0xUxmZEPP38FnBKNAr1Ql8mheIRVdKvDEFCWXZv
- PCgvv3gBrBoKfniA7m2syYiAuuHWB8/w2etF3LG2Zc7Kehn878d83Q5YlQh8DJqo/kRL
- ieZuvsiSOdk78XdFGqWmskqTA5/HTXAGpNczDDSn+WZgYJZHCaAvo7dOxWevP1BqL3PP
- Aq/w==
-X-Gm-Message-State: AOAM532a3bSWAxBOi1i45cbcyIQ9KSgzyjVa/GxQx/WUnYoOuQEzvqWJ
- dBQm02IGZe5v5KWUZdrE1qmcKjt9d2IrNSegqhgz8w==
-X-Google-Smtp-Source: ABdhPJxPxIuKiLfECI1gIGeabM+airz3qfDP8dU5RAgK/IaKfx4bJkcGaOV3uUbgjVxC8g8TAdk41Ao3iLE07aQeNos=
-X-Received: by 2002:adf:d1e2:: with SMTP id g2mr14860743wrd.346.1640672447584; 
- Mon, 27 Dec 2021 22:20:47 -0800 (PST)
+ bh=fz/c6/4SGSYodrgD5AdFvdel0zxLs/yQs8FyjZNs4tQ=;
+ b=E8Yr7GXf9bRMdy7M0WmFlIi5OU5Xtpcj4BWRcrpsDI2LmtsPIlF4VYkriRse7bp36P
+ vKsG4BP/LmtAZEPH329hj3Rh9FqIuGMbk/Qd6tHVQyXg9Gn4ZHLbXLA4fZO+B3RzdUAs
+ 6goGI4cFcgMqgH9Wt4GQ9fMmBx29+6GZTeYDuhUzhTATuHAvk2872ht3cng0orzYOrpQ
+ hGfJkmGvVgBP/MbzSaM4F8DNY/5T+Z9AjaUdqmq8wJFtBiQaTVgR6EsY9Gk5g3vynNTU
+ sgkIyGhFP+WLy5uhSXqJy0hCoXgb+PyDUmrmNHGtYQ1e2Ue1xnRcnCoUreKjP0FqykzG
+ kVrw==
+X-Gm-Message-State: AOAM531KsPAMTs45UcBWPDgQCAVTIDG2LwpYcBfXOowgH1aLMYEOCTxR
+ n6yVZ06+mXobiZ+eL9ug363SAc0xblQBrnM7Ujiptw==
+X-Google-Smtp-Source: ABdhPJzwphhcZ5/970ADxXH2bibdTOzzfkGmRBRlIOXuEZmGT+1EFTP2zwlDZkGJmzwPLY/AU7Qe3W3uiVvJgPUspkQ=
+X-Received: by 2002:a05:600c:4f08:: with SMTP id
+ l8mr16128758wmq.59.1640672475272; 
+ Mon, 27 Dec 2021 22:21:15 -0800 (PST)
 MIME-Version: 1.0
 References: <20211224073604.1085464-1-anup.patel@wdc.com>
- <20211224073604.1085464-3-anup.patel@wdc.com>
-In-Reply-To: <20211224073604.1085464-3-anup.patel@wdc.com>
+ <20211224073604.1085464-4-anup.patel@wdc.com>
+In-Reply-To: <20211224073604.1085464-4-anup.patel@wdc.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Tue, 28 Dec 2021 11:50:35 +0530
-Message-ID: <CAAhSdy1NE1LhwpU=TE8LnES6c7AQiq04zNJkSv2nLk=BOnYLsQ@mail.gmail.com>
-Subject: Re: [PATCH v4 2/4] RISC-V: KVM: Add VM capability to allow userspace
- get GPA bits
+Date: Tue, 28 Dec 2021 11:51:03 +0530
+Message-ID: <CAAhSdy0jN-Nz_jWXgvrfRVzS5=vRPWjBp+hytU1fA0nyVsq20w@mail.gmail.com>
+Subject: Re: [PATCH v4 3/4] KVM: selftests: Add EXTRA_CFLAGS in top-level
+ Makefile
 To: Anup Patel <anup.patel@wdc.com>
 Cc: Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, 
  Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -69,10 +71,11 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
  Alistair Francis <Alistair.Francis@wdc.com>, KVM General <kvm@vger.kernel.org>,
  kvm-riscv@lists.infradead.org, linux-riscv <linux-riscv@lists.infradead.org>, 
  "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- linux-kselftest@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
+ linux-kselftest@vger.kernel.org, 
+ Atish Patra <atishp@rivosinc.com>, Sean Christopherson <seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211227_222049_203126_252CCDE3 
-X-CRM114-Status: GOOD (  20.50  )
+X-CRM114-CacheID: sfid-20211227_222116_911058_972C6040 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,16 +94,12 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Fri, Dec 24, 2021 at 1:06 PM Anup Patel <anup.patel@wdc.com> wrote:
 >
-> The number of GPA bits supported for a RISC-V Guest/VM is based on the
-> MMU mode used by the G-stage translation. The KVM RISC-V will detect and
-> use the best possible MMU mode for the G-stage in kvm_arch_init().
->
-> We add a generic VM capability KVM_CAP_VM_GPA_BITS which can be used by
-> the KVM userspace to get the number of GPA (guest physical address) bits
-> supported for a Guest/VM.
+> We add EXTRA_CFLAGS to the common CFLAGS of top-level Makefile which will
+> allow users to pass additional compile-time flags such as "-static".
 >
 > Signed-off-by: Anup Patel <anup.patel@wdc.com>
 > Reviewed-and-tested-by: Atish Patra <atishp@rivosinc.com>
+> Reviewed-and-tested-by: Sean Christopherson <seanjc@google.com>
 
 Queued this patch for 5.17
 
@@ -108,63 +107,22 @@ Thanks,
 Anup
 
 > ---
->  arch/riscv/include/asm/kvm_host.h | 1 +
->  arch/riscv/kvm/mmu.c              | 5 +++++
->  arch/riscv/kvm/vm.c               | 3 +++
->  include/uapi/linux/kvm.h          | 1 +
->  4 files changed, 10 insertions(+)
+>  tools/testing/selftests/kvm/Makefile | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-> index 247b761c72fd..ac38696abedf 100644
-> --- a/arch/riscv/include/asm/kvm_host.h
-> +++ b/arch/riscv/include/asm/kvm_host.h
-> @@ -219,6 +219,7 @@ void kvm_riscv_stage2_free_pgd(struct kvm *kvm);
->  void kvm_riscv_stage2_update_hgatp(struct kvm_vcpu *vcpu);
->  void kvm_riscv_stage2_mode_detect(void);
->  unsigned long kvm_riscv_stage2_mode(void);
-> +int kvm_riscv_stage2_gpa_bits(void);
+> diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
+> index f307c9f61981..3c839c01d4fd 100644
+> --- a/tools/testing/selftests/kvm/Makefile
+> +++ b/tools/testing/selftests/kvm/Makefile
+> @@ -132,7 +132,7 @@ endif
+>  CFLAGS += -Wall -Wstrict-prototypes -Wuninitialized -O2 -g -std=gnu99 \
+>         -fno-stack-protector -fno-PIE -I$(LINUX_TOOL_INCLUDE) \
+>         -I$(LINUX_TOOL_ARCH_INCLUDE) -I$(LINUX_HDR_PATH) -Iinclude \
+> -       -I$(<D) -Iinclude/$(UNAME_M) -I..
+> +       -I$(<D) -Iinclude/$(UNAME_M) -I.. $(EXTRA_CFLAGS)
 >
->  void kvm_riscv_stage2_vmid_detect(void);
->  unsigned long kvm_riscv_stage2_vmid_bits(void);
-> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-> index d0efdc2259dc..58a47c93e5f9 100644
-> --- a/arch/riscv/kvm/mmu.c
-> +++ b/arch/riscv/kvm/mmu.c
-> @@ -766,3 +766,8 @@ unsigned long kvm_riscv_stage2_mode(void)
->  {
->         return stage2_mode >> HGATP_MODE_SHIFT;
->  }
-> +
-> +int kvm_riscv_stage2_gpa_bits(void)
-> +{
-> +       return stage2_gpa_bits;
-> +}
-> diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
-> index fb18af34a4b5..1e12c19a7c6a 100644
-> --- a/arch/riscv/kvm/vm.c
-> +++ b/arch/riscv/kvm/vm.c
-> @@ -82,6 +82,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->         case KVM_CAP_NR_MEMSLOTS:
->                 r = KVM_USER_MEM_SLOTS;
->                 break;
-> +       case KVM_CAP_VM_GPA_BITS:
-> +               r = kvm_riscv_stage2_gpa_bits();
-> +               break;
->         default:
->                 r = 0;
->                 break;
-> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-> index 1daa45268de2..469f05d69c8d 100644
-> --- a/include/uapi/linux/kvm.h
-> +++ b/include/uapi/linux/kvm.h
-> @@ -1131,6 +1131,7 @@ struct kvm_ppc_resize_hpt {
->  #define KVM_CAP_EXIT_ON_EMULATION_FAILURE 204
->  #define KVM_CAP_ARM_MTE 205
->  #define KVM_CAP_VM_MOVE_ENC_CONTEXT_FROM 206
-> +#define KVM_CAP_VM_GPA_BITS 207
->
->  #ifdef KVM_CAP_IRQ_ROUTING
->
+>  no-pie-option := $(call try-run, echo 'int main() { return 0; }' | \
+>          $(CC) -Werror -no-pie -x c - -o "$$TMP", -no-pie)
 > --
 > 2.25.1
 >
