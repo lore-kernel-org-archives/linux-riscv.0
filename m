@@ -4,98 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D182C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Dec 2021 02:10:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D2F8C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Dec 2021 06:20:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0Kqd4fN8jS35tA+U3cMUKqx2Y/AwzSQFDDn4USmlsaY=; b=GC1vLHIqLlry6u
-	zRPct3Nyo1mBBx+KGuhYUu4/4T5fuNnLt1pE595K4TUkcTjOMI8l5ErL8rAGKOqvY3JP9CR/udc2v
-	EheDwmXnNMtJDkmicm7nRHRWCeueqSZZkUCPjXEaHffyUqYCmg79tMgMqQ4lNSMbp/go0SMad03g5
-	Qbyt0AkpBGd64E4Ia0BwzPWYa0vtjKs9svSWl0yS1awffASGqJ9ySYtlLn4ZvOPmgXmk6LMLC6lYO
-	GO9LFLOcPaARGnFXNdSN0Y+wLT7LB5sOrO7GJlrzB4mPeK1/87qXWvlpNcKvzIQCDjABQ35CXcrig
-	oOVbZvp29WhJ65eOkdcA==;
+	List-Owner; bh=lpH2BLj2b15fkulcQ2ZwrrvPz3j5Qg6cLwjt365PsXY=; b=dZy3jLD4IIBn1N
+	d1vsI+WIGV6ae9zXln3Ij04UmvzTPc7QUT4iWTxicJL+A94xjvtbB/IOC3xmTYZcYoM4ZOl0gh4Xl
+	e9EZfN2YUcEy07TtUQ5ZC+J237liWxXpU3cjxRtF4YpM1impZhoe5XZWvoj46ldEjBFrXjXGwBjBi
+	L8BbnpVARU686UKCvMsc89gLfkOlfNQ5iLg7ktTc3elqFgGT+WrThfiwNqO88rp1pk0Nosci1a/Pp
+	LYIjMFZSsOrrFaRi4hZgOWFxMcBPstessPc6Vic1VnjTCvrS/y4CKR1HbQbiAWlAAHT7OpEqSlYi9
+	7nTv478wyvLpfSGOSs4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n21wI-0007GH-Ki; Tue, 28 Dec 2021 02:10:10 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1n25qY-000FYY-L3; Tue, 28 Dec 2021 06:20:30 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n21wF-0007FG-LX
- for linux-riscv@lists.infradead.org; Tue, 28 Dec 2021 02:10:09 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 5464961152;
- Tue, 28 Dec 2021 02:10:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C19A8C36AEA;
- Tue, 28 Dec 2021 02:09:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1640657404;
- bh=SWYw07zmaaDNu+bU6UjWMUGttSEKl48ssAwYr917Irk=;
- h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
- b=AP7PTZtlYcp1DDFFD9oOox44rlGILxnZhjrWGoppO9nx889cG994Anev93Fi8avnE
- QKDjPgXQd+0j5ryyJUZRF2fBwkLwO80XrnSF/7Fx+x50yneeRCMv+6NTewDTm+M3mY
- UmjlUI3lKpBa+eY+azArRNs2im3Ff4KiJ7Zi2yf5dhhdWeFi5sankCfKs3hH/NkcWY
- C3nDae4xyYfSY866Hl7iueZkbXg7sQjQFFHeioueEr+2zR+wkgXwGDiPuaIoio9xml
- rwSFGRLZ2Ry45efsPcHYEzY5Wj/FdpgdsOlVeG8/L54LBpew0o0F/pJgWb5CCAbMPX
- 5d9alQgd1Ngqw==
-Date: Tue, 28 Dec 2021 03:09:46 +0100
-From: Mauro Carvalho Chehab <mchehab@kernel.org>
-To: Niklas Schnelle <schnelle@linux.ibm.com>
-Cc: Arnd Bergmann <arnd@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- John Garry <john.garry@huawei.com>, Nick Hu <nickhu@andestech.com>,
- Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, Damien Le
- Moal <damien.lemoal@opensource.wdc.com>, Ian Abbott <abbotti@mev.co.uk>, H
- Hartley Sweeten <hsweeten@visionengravers.com>, Linus Walleij
- <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Jean
- Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>, Dmitry
- Torokhov <dmitry.torokhov@gmail.com>, Karsten Keil <isdn@linux-pingi.de>,
- Hans Verkuil <hverkuil-cisco@xs4all.nl>, Sathya Prakash
- <sathya.prakash@broadcom.com>, Sreekanth Reddy
- <sreekanth.reddy@broadcom.com>, Suganath Prabu Subramani
- <suganath-prabu.subramani@broadcom.com>, Michael Grzeschik
- <m.grzeschik@pengutronix.de>, "David S. Miller" <davem@davemloft.net>,
- Jakub Kicinski <kuba@kernel.org>, Jesse Brandeburg
- <jesse.brandeburg@intel.com>, Tony Nguyen <anthony.l.nguyen@intel.com>,
- Kalle Valo <kvalo@kernel.org>, Jouni Malinen <j@w1.fi>, "James E.J.
- Bottomley" <jejb@linux.ibm.com>, "Martin K. Petersen"
- <martin.petersen@oracle.com>, Hannes Reinecke <hare@suse.com>, Kashyap
- Desai <kashyap.desai@broadcom.com>, Sumit Saxena
- <sumit.saxena@broadcom.com>, Shivasharan S
- <shivasharan.srikanteshwara@broadcom.com>, Nilesh Javali
- <njavali@marvell.com>, GR-QLogic-Storage-Upstream@marvell.com, Mark Brown
- <broonie@kernel.org>, Sudip Mukherjee <sudipm.mukherjee@gmail.com>, Teddy
- Wang <teddy.wang@siliconmotion.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Forest Bond <forest@alittletooquiet.net>,
- Jiri Slaby <jirislaby@kernel.org>, Wim Van Sebroeck
- <wim@linux-watchdog.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai
- <tiwai@suse.com>, linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-ide@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-hwmon@vger.kernel.org,
- linux-i2c@vger.kernel.org, linux-input@vger.kernel.org,
- netdev@vger.kernel.org, linux-media@vger.kernel.org,
- MPT-FusionLinux.pdl@broadcom.com, linux-scsi@vger.kernel.org,
- intel-wired-lan@lists.osuosl.org, linux-wireless@vger.kernel.org,
- megaraidlinux.pdl@broadcom.com, linux-spi@vger.kernel.org,
- linux-fbdev@vger.kernel.org, linux-staging@lists.linux.dev,
- linux-serial@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-watchdog@vger.kernel.org, alsa-devel@alsa-project.org
-Subject: Re: [RFC 01/32] Kconfig: introduce and depend on LEGACY_PCI
-Message-ID: <20211228030946.65932d2e@coco.lan>
-In-Reply-To: <20211227164317.4146918-2-schnelle@linux.ibm.com>
-References: <20211227164317.4146918-1-schnelle@linux.ibm.com>
- <20211227164317.4146918-2-schnelle@linux.ibm.com>
-X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.30; x86_64-redhat-linux-gnu)
+ id 1n25qW-000FXD-9i
+ for linux-riscv@lists.infradead.org; Tue, 28 Dec 2021 06:20:29 +0000
+Received: by mail-wm1-x335.google.com with SMTP id
+ n10-20020a7bc5ca000000b00345c520d38eso9395207wmk.1
+ for <linux-riscv@lists.infradead.org>; Mon, 27 Dec 2021 22:20:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=O5m6I1+e/fTravXWaM/DR1a+IZkwqzGyxUYHprrFJVo=;
+ b=bnLjTnAxvgWOVF84U5Yxqqzb7N8OpgqFseDIG18DsC2weLGdpYeiorRfvLme+3H3Wj
+ e9z4Uph6f+N+cbnzqXE6ZU87HGt5QGpfcIRaMGKpUWTm7EQVOzEL6R/P11zFFmFGFlNY
+ KRj+nMBRPsd/qw3NAET7uXBMsQggbAhusGYeUEekhMIN5jUmR1AdJY/1SkHlxNn3pD07
+ 7GJC9WMCyBwenw3fpzAglpT8U7ceZENxBx1hpoosIJnnCUcusNkimv8wRDVrAqrsB41p
+ bvbvOibSS1DHL0SqeWZGbBkxK/sKTfqmAukEjBHp/jrShKjZvwbPJf5m5YulHz6hzEcJ
+ CSyg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=O5m6I1+e/fTravXWaM/DR1a+IZkwqzGyxUYHprrFJVo=;
+ b=ZI2Vrrq4JXoxRQPOUeei60H7X1xWQUD4zeVT+gxAdXp/amAkAE95/uhm0ZxNwzt78o
+ NO0m/KWT4g5Cm6M22IN7+Z62xZHFrTl7QVWHJheYYtHo8Lxyv0JnREW0NJUdF23BgS/Q
+ GwEMs/KI4Or0uMdE8moGNsjNvzcmqYHeWJYb/lDbBIo51hPuOIB9GLE8EMMopuHYufAn
+ 2aJqvKlUr7rMxL7m6YEZcJnqJ6eAjemzzdI6GGUIlLW8tfCKhVKj++CxDLaRlGhk/0rr
+ YdnVwBdq5qmDlWRSDTN6LwjWCG68HeAoxRc2wzROyxPuIMl7uXASnb5sE51++tbwMq0E
+ mdIQ==
+X-Gm-Message-State: AOAM530rFfPU4+v/VZgWtL/HYoiVr8yJFeHfs+/brwT/VUuPUme/JNjW
+ gPLLeZwWtGGyhJAnOyQ+KveS5FfHCy02RDd2SEQPmQ==
+X-Google-Smtp-Source: ABdhPJxShEPXSHMDLpX+ZXACyVmaSjYjAuKiTpyen4bSDSjamxzNsqKq6fBZdoR4fZD7LmMdF4bKoMIrXSZydRh8fKs=
+X-Received: by 2002:a7b:c243:: with SMTP id b3mr15737850wmj.61.1640672425557; 
+ Mon, 27 Dec 2021 22:20:25 -0800 (PST)
 MIME-Version: 1.0
+References: <20211224073604.1085464-1-anup.patel@wdc.com>
+ <20211224073604.1085464-2-anup.patel@wdc.com>
+In-Reply-To: <20211224073604.1085464-2-anup.patel@wdc.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Tue, 28 Dec 2021 11:50:12 +0530
+Message-ID: <CAAhSdy2MGEhn+Mbg=rKZO9nkHcV28Fro-sL3YH_9+S-ZCzXgqA@mail.gmail.com>
+Subject: Re: [PATCH v4 1/4] RISC-V: KVM: Forward SBI experimental and vendor
+ extensions
+To: Anup Patel <anup.patel@wdc.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, 
+ Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alistair Francis <Alistair.Francis@wdc.com>, KVM General <kvm@vger.kernel.org>,
+ kvm-riscv@lists.infradead.org, linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ linux-kselftest@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211227_181007_853305_069016DF 
-X-CRM114-Status: GOOD (  21.79  )
+X-CRM114-CacheID: sfid-20211227_222028_425527_2C0176CA 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,66 +90,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Em Mon, 27 Dec 2021 17:42:46 +0100
-Niklas Schnelle <schnelle@linux.ibm.com> escreveu:
+On Fri, Dec 24, 2021 at 1:06 PM Anup Patel <anup.patel@wdc.com> wrote:
+>
+> The SBI experimental extension space is for temporary (or experimental)
+> stuff whereas SBI vendor extension space is for hardware vendor specific
+> stuff. Both these SBI extension spaces won't be standardized by the SBI
+> specification so let's blindly forward such SBI calls to the userspace.
+>
+> Signed-off-by: Anup Patel <anup.patel@wdc.com>
+> Reviewed-and-tested-by: Atish Patra <atishp@rivosinc.com>
 
-> Introduce a new LEGACY_PCI Kconfig option which gates support for legacy
-> PCI devices including those attached to a PCI-to-PCI Express bridge and
-> PCI Express devices using legacy I/O spaces. Note that this is different
-> from non PCI uses of I/O ports such as by ACPI.
-> 
-> Add dependencies on LEGACY_PCI for all PCI drivers which only target
-> legacy PCI devices and ifdef legacy PCI specific functions in ata
-> handling.
-> 
-> Co-developed-by: Arnd Bergmann <arnd@kernel.org>
-> Signed-off-by: Arnd Bergmann <arnd@kernel.org>
-> Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
+Queued this patch for 5.17
+
+Thanks,
+Anup
+
 > ---
->  drivers/ata/Kconfig                          | 34 ++++++++--------
->  drivers/ata/ata_generic.c                    |  3 +-
->  drivers/ata/libata-sff.c                     |  2 +
->  drivers/comedi/Kconfig                       | 42 +++++++++++++++++++
->  drivers/gpio/Kconfig                         |  2 +-
->  drivers/hwmon/Kconfig                        |  6 +--
->  drivers/i2c/busses/Kconfig                   | 24 +++++------
->  drivers/input/gameport/Kconfig               |  4 +-
->  drivers/isdn/hardware/mISDN/Kconfig          | 14 +++----
-
->  drivers/media/cec/platform/Kconfig           |  2 +-
->  drivers/media/pci/dm1105/Kconfig             |  2 +-
->  drivers/media/radio/Kconfig                  |  2 +-
-
-Not sure what you meant by "legacy I/O spaces" on this patch. 
-I mean, I would expect non-PCIe devices - like bttv and other
-devices developed at the past millennium or so to be "legacy",
-but at least on media, it is touching some drivers that aren't
-that old, while keeping the really old ones untouched. Instead,
-it is touching a driver developed in 2017 plus two other ones
-that are a way newer than other drivers.
-
-The support for the Bt8xx chipset, in particular, is really 
-weird, as a sound driver for such chipset:
-
-> @@ -172,6 +177,7 @@ config SND_AZT3328
->  
->  config SND_BT87X
->  	tristate "Bt87x Audio Capture"
-> +	depends on LEGACY_PCI
->  	select SND_PCM
->  	help
->  	  If you want to record audio from TV cards based on
-
-was marked as dependent of LEGACY_PCI, while the DVB and V4L2 ones 
-weren't.
-
-Sounds confusing to me, as the PCI bridge used by a Bt87x device 
-should be the same for all three subdevices.
-
-I'm confused...
-
-Regards,
-Mauro
+>  arch/riscv/kvm/vcpu_sbi.c      |  4 ++++
+>  arch/riscv/kvm/vcpu_sbi_base.c | 27 +++++++++++++++++++++++++++
+>  2 files changed, 31 insertions(+)
+>
+> diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
+> index f62d25bc9733..78aa3db76225 100644
+> --- a/arch/riscv/kvm/vcpu_sbi.c
+> +++ b/arch/riscv/kvm/vcpu_sbi.c
+> @@ -46,6 +46,8 @@ extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_time;
+>  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_ipi;
+>  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_rfence;
+>  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_hsm;
+> +extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_experimental;
+> +extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_vendor;
+>
+>  static const struct kvm_vcpu_sbi_extension *sbi_ext[] = {
+>         &vcpu_sbi_ext_v01,
+> @@ -54,6 +56,8 @@ static const struct kvm_vcpu_sbi_extension *sbi_ext[] = {
+>         &vcpu_sbi_ext_ipi,
+>         &vcpu_sbi_ext_rfence,
+>         &vcpu_sbi_ext_hsm,
+> +       &vcpu_sbi_ext_experimental,
+> +       &vcpu_sbi_ext_vendor,
+>  };
+>
+>  void kvm_riscv_vcpu_sbi_forward(struct kvm_vcpu *vcpu, struct kvm_run *run)
+> diff --git a/arch/riscv/kvm/vcpu_sbi_base.c b/arch/riscv/kvm/vcpu_sbi_base.c
+> index d1ec08fe7289..4ecf377f483b 100644
+> --- a/arch/riscv/kvm/vcpu_sbi_base.c
+> +++ b/arch/riscv/kvm/vcpu_sbi_base.c
+> @@ -70,3 +70,30 @@ const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_base = {
+>         .extid_end = SBI_EXT_BASE,
+>         .handler = kvm_sbi_ext_base_handler,
+>  };
+> +
+> +static int kvm_sbi_ext_forward_handler(struct kvm_vcpu *vcpu,
+> +                                       struct kvm_run *run,
+> +                                       unsigned long *out_val,
+> +                                       struct kvm_cpu_trap *utrap,
+> +                                       bool *exit)
+> +{
+> +       /*
+> +        * Both SBI experimental and vendor extensions are
+> +        * unconditionally forwarded to userspace.
+> +        */
+> +       kvm_riscv_vcpu_sbi_forward(vcpu, run);
+> +       *exit = true;
+> +       return 0;
+> +}
+> +
+> +const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_experimental = {
+> +       .extid_start = SBI_EXT_EXPERIMENTAL_START,
+> +       .extid_end = SBI_EXT_EXPERIMENTAL_END,
+> +       .handler = kvm_sbi_ext_forward_handler,
+> +};
+> +
+> +const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_vendor = {
+> +       .extid_start = SBI_EXT_VENDOR_START,
+> +       .extid_end = SBI_EXT_VENDOR_END,
+> +       .handler = kvm_sbi_ext_forward_handler,
+> +};
+> --
+> 2.25.1
+>
 
 _______________________________________________
 linux-riscv mailing list
