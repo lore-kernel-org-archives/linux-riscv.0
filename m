@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C95EC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Dec 2021 08:15:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F278C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Dec 2021 08:17:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E/sCZtGVh3+RlCliF6sRusHVr853dBcotS5fW1eoRGE=; b=QpI+f525wi6pNQ
-	QrWDk63RITC8NpXM4qF59e7nsBuDd2qqlguZWE3F1hCJEMYGlfZRgBFpiPHxJGSowiE87hFzpNG+c
-	vfzKmFEQYKodYLjFTl7y2JzUxXccpmsNZSX80xpqaq5mhRQ7BGQHCWJOL3dk8bOYSPKPAprTyryrs
-	49W5JZFZXdrsCy/cFTSTqZTTmHTakmtmMbkuDQCGqwWGzCgiNK9n4WUFh4TI/LRO5gg95watst7o6
-	ElWfNEchyvmuhz2IiX06INetT6A+r8OXgJV7nonghKgju95wAQ/rMRDqxDme1CcUOLi5Ebe7Fbqlh
-	cNIRsrdCwMm0rzrAzKjg==;
+	List-Owner; bh=RPEjn1Sbn5F4kMmGOmu+c1qoz42lxO5KJBru/bnJZZk=; b=GL/6oM7nvmRPWM
+	H2PjCm7z4RWHSr7d8OICYhKF6NoitTRpvY6oHxr6jvO64vY9UYe1Dgi9wCss2/l6o9I709Tgvh4YY
+	CddHdui0ziW1uIFSJfd5CyJQhi052c5RkQ2t/XCKdRCmF7UKs4grcFbBsLlu8IEWaAzE3S/gnumSx
+	AKl1Fpnzr0u9XTMHaCk0G41pPbaDETgaXd52NsiOuVpzUuDpeyXHozsRxyOvS4w9GVDhCv4AZvgFD
+	t7MHXiCtqWg0FyGX+r16Yp89YNjHyssAjdsJIANJGlvls/i4MBGIo9iqvS3G6fMO+AaumWkITjaNn
+	vzInLENtF6xOdn47Ms3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n27dp-000PmU-DD; Tue, 28 Dec 2021 08:15:29 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1n27g2-000Q2J-Io; Tue, 28 Dec 2021 08:17:46 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n27dm-000Pkl-PT
- for linux-riscv@lists.infradead.org; Tue, 28 Dec 2021 08:15:28 +0000
+ id 1n27fz-000Q1q-UY
+ for linux-riscv@lists.infradead.org; Tue, 28 Dec 2021 08:17:45 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id C01106117C;
- Tue, 28 Dec 2021 08:15:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 002F8C36AE7;
- Tue, 28 Dec 2021 08:15:13 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 2EFDA6118D;
+ Tue, 28 Dec 2021 08:17:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CE5BC36AE8;
+ Tue, 28 Dec 2021 08:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
- s=korg; t=1640679315;
- bh=VBxcm5mbsbYVIp6HBaklzK/nPNC0PMjZn2VE4aLnAOs=;
+ s=korg; t=1640679462;
+ bh=6V/mPY6g2RVrJ859O1hhAptFGU7EB3tYhvoaTL7suFc=;
  h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=vwrzngpastuetBPEvMyaV2HOPaZCNDjEmFST41sBawwyngnYsNBJX/XyP+ZCbvzZ8
- Er2f017CXxfpLME5JRrqRrQnRjuRfFNLO6IG8ZTZxbUtALVHMFkfIONWhjLATAEmjr
- tECrWtGEKyjGgMi907uTqCBWIv6X8bAZJnOy1xJY=
-Date: Tue, 28 Dec 2021 09:15:07 +0100
+ b=u8bPcC8Py2UrHh4nuBvcLx3OPPg1JpMwVwq9awnw3OPYUmJCx0u7qkcBRQFJj+rc1
+ jHD8XbeKgw7R7dEzQtQPm+75l/HBYcjMc85SJuwX3G1pgFHoGAFW8jIOmdm1z2qRz4
+ hWDg69i61kcll+XBLzGES7o+z6qsnD3/qhrMNiw8=
+Date: Tue, 28 Dec 2021 09:17:35 +0100
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: Niklas Schnelle <schnelle@linux.ibm.com>
 Cc: Arnd Bergmann <arnd@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
@@ -51,16 +51,17 @@ Cc: Arnd Bergmann <arnd@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
  Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org,
  linux-arch@vger.kernel.org, linux-pci@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org
-Subject: Re: [RFC 16/32] misc: handle HAS_IOPORT dependencies
-Message-ID: <YcrHi7cZDWZlTZ2w@kroah.com>
+Subject: Re: [RFC 30/32] /dev/port: don't compile file operations without
+ CONFIG_DEVPORT
+Message-ID: <YcrIHxTDipVNUuCA@kroah.com>
 References: <20211227164317.4146918-1-schnelle@linux.ibm.com>
- <20211227164317.4146918-17-schnelle@linux.ibm.com>
+ <20211227164317.4146918-31-schnelle@linux.ibm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20211227164317.4146918-17-schnelle@linux.ibm.com>
+In-Reply-To: <20211227164317.4146918-31-schnelle@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211228_001526_914856_49E40795 
-X-CRM114-Status: GOOD (  16.43  )
+X-CRM114-CacheID: sfid-20211228_001744_050212_1AAA861C 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,45 +78,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 27, 2021 at 05:43:01PM +0100, Niklas Schnelle wrote:
-> In a future patch HAS_IOPORT=n will result in inb()/outb() and friends
-> not being declared. We thus need to add HAS_IOPORT as dependency for
-> those drivers using them.
+On Mon, Dec 27, 2021 at 05:43:15PM +0100, Niklas Schnelle wrote:
+> In the future inb() and friends will not be available when compiling
+> with CONFIG_HAS_IOPORT=n so we must only try to access them here if
+> CONFIG_DEVPORT is set which depends on HAS_IOPORT.
 > 
 > Co-developed-by: Arnd Bergmann <arnd@kernel.org>
 > Signed-off-by: Arnd Bergmann <arnd@kernel.org>
 > Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
 > ---
->  drivers/misc/altera-stapl/Makefile | 3 ++-
->  drivers/misc/altera-stapl/altera.c | 6 +++++-
->  2 files changed, 7 insertions(+), 2 deletions(-)
+>  drivers/char/mem.c | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
 > 
-> diff --git a/drivers/misc/altera-stapl/Makefile b/drivers/misc/altera-stapl/Makefile
-> index dd0f8189666b..90f18e7bf9b0 100644
-> --- a/drivers/misc/altera-stapl/Makefile
-> +++ b/drivers/misc/altera-stapl/Makefile
-> @@ -1,4 +1,5 @@
->  # SPDX-License-Identifier: GPL-2.0-only
-> -altera-stapl-objs = altera-lpt.o altera-jtag.o altera-comp.o altera.o
-> +altera-stapl-y = altera-jtag.o altera-comp.o altera.o
-> +altera-stapl-$(CONFIG_HAS_IOPORT) += altera-lpt.o
+> diff --git a/drivers/char/mem.c b/drivers/char/mem.c
+> index cc296f0823bd..c1373617153f 100644
+> --- a/drivers/char/mem.c
+> +++ b/drivers/char/mem.c
+> @@ -402,6 +402,7 @@ static int mmap_mem(struct file *file, struct vm_area_struct *vma)
+>  	return 0;
+>  }
 >  
->  obj-$(CONFIG_ALTERA_STAPL) += altera-stapl.o
-> diff --git a/drivers/misc/altera-stapl/altera.c b/drivers/misc/altera-stapl/altera.c
-> index 92c0611034b0..c7ae64de8bb4 100644
-> --- a/drivers/misc/altera-stapl/altera.c
-> +++ b/drivers/misc/altera-stapl/altera.c
-> @@ -2431,6 +2431,10 @@ int altera_init(struct altera_config *config, const struct firmware *fw)
+> +#ifdef CONFIG_DEVPORT
+>  static ssize_t read_port(struct file *file, char __user *buf,
+>  			 size_t count, loff_t *ppos)
+>  {
+> @@ -443,6 +444,7 @@ static ssize_t write_port(struct file *file, const char __user *buf,
+>  	*ppos = i;
+>  	return tmp-buf;
+>  }
+> +#endif
 >  
->  	astate->config = config;
->  	if (!astate->config->jtag_io) {
-> +		if (!IS_ENABLED(CONFIG_HAS_IOPORT)) {
-> +			retval = -ENODEV;
-> +			goto free_state;
-> +		}
+>  static ssize_t read_null(struct file *file, char __user *buf,
+>  			 size_t count, loff_t *ppos)
+> @@ -665,12 +667,14 @@ static const struct file_operations null_fops = {
+>  	.splice_write	= splice_write_null,
+>  };
+>  
+> -static const struct file_operations __maybe_unused port_fops = {
+> +#ifdef CONFIG_DEVPORT
+> +static const struct file_operations port_fops = {
+>  	.llseek		= memory_lseek,
+>  	.read		= read_port,
+>  	.write		= write_port,
+>  	.open		= open_port,
+>  };
+> +#endif
 
-A comment as to why you are doing this check here would be nice, as it
-is not obvious at all what is going on.
+Why is this #ifdef needed if it is already __maybe_unused?
+
+In looking closer, this change could be taken now as the use of this
+variable already is behind this same #ifdef statement, right?
 
 thanks,
 
