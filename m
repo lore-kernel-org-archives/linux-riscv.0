@@ -4,105 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C5DBC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Dec 2021 17:01:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED622C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Dec 2021 17:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=j2MeGqO8xXekqaEt5tMSCxzjfAM2E/GC2j0eJ43NjB4=; b=mzxjyfNI6LmDcW
-	nQZ5BfJpV/YyGTiRh/7cVGtnwvqu/ap9W0SsXNETFwleeJPkUuwZpD2oz1yACl3qMHqF4AUgkcuOZ
-	55iu1N8NtUeZUcR25YP/TLvl36hNjQ1azFX+rkRgDynHOK9nZ+mLoanmqjiSAqiftKOrBFmcQ55Cs
-	DvENTDfrDcz2MFk6T6oe0XqdhpU2m3udxQx++33XqQIsonEY9dQ2oQDxOIj51EpkgHCFE5L+KVHeS
-	0S00G92CMbZOwb0i4AJq5PpJ52eKcZ/0WeiSurRwRU9oFxbEJon+IdoTmcDTkvUv/+O3ASNjJygFP
-	ZKJFnV74AmMfCwiwi/1A==;
+	List-Owner; bh=efv7PkgpkBqIte/VpLd7BBCKgQT0Y/HBNMNPrua001k=; b=j1hnbvK97aVEF8
+	o1PLYP1N0e2UOONNT2JdNuyze6mxYO2ERkdCXqe2Z6xn4c7xEiovXLNW7THYhibY1APs1Yp1UEWwL
+	HCYm0MSb5aMJ+mAA1kkLal5XvsDXcv0s1GjcQnaV5W2uuWCKg4pl8onigzz3OAbU4mS0o5sRXIwcB
+	a+jmf82dWNolW4bGn6v5MVzp5xmf1prFIU4M6WERDwYPdZHrERQzbV9tYix9TZ5iMuKOpZwyuOTMb
+	ythxfFUin9VcljPyQts4t+tqF3U7vw+W0K5ksPP/Tzd5EzhM708y0qaaJ4ZNieSi351gG4Av3Eh5W
+	bmbcNIIWUo0jpJXHZQiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n2Fqf-001b7R-4r; Tue, 28 Dec 2021 17:01:17 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1n2G2N-001coD-7K; Tue, 28 Dec 2021 17:13:23 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n2FqR-001b4u-31; Tue, 28 Dec 2021 17:01:06 +0000
-Received: from pps.filterd (m0127361.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.1.2/8.16.1.2) with SMTP id 1BSF2jrG013235; 
- Tue, 28 Dec 2021 17:00:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
- h=date : from : to : cc :
- subject : message-id : references : mime-version : content-type :
- in-reply-to; s=pp1; bh=HnOj7Ruj/aiPsemF0RK+yqeJAcI1ks0Mm0MLeijRB0k=;
- b=XWoCeNtjHD83AOJpWuV7RWM6f2sZGfEYS1osz5n0bsX9qZ2f6YZfEuGHJ44wO7EnPRNK
- qef6MFp6RJhBhmzXrAriiMgk0kj0omjKu66e58gCEDqlO0HkNJW/QhPR9MzWjwOSJ8CV
- OZ1wapSrboP0ceeP3TTxMCavmyv3ofkY6Kz+EXW0cTePFeIRv66U40j7vje1SSBNTIyw
- 4HWLUBNHsnkUNYLQqNDUzoKpKx24Nkamd94ducNtkF5I40ZaTt4SFFF3nwwrCPZn5wi2
- Tc6tM+zz5Fdigmutmn2KvcrXx5FPn27fb9V6VoYMN3xZP5+UNbqMkT9UwfOyqtvWXOHO 5g== 
-Received: from pps.reinject (localhost [127.0.0.1])
- by mx0a-001b2d01.pphosted.com with ESMTP id 3d81g66p9m-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Tue, 28 Dec 2021 17:00:33 +0000
-Received: from m0127361.ppops.net (m0127361.ppops.net [127.0.0.1])
- by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 1BSGxEOD038776;
- Tue, 28 Dec 2021 17:00:32 GMT
-Received: from ppma04ams.nl.ibm.com (63.31.33a9.ip4.static.sl-reverse.com
- [169.51.49.99])
- by mx0a-001b2d01.pphosted.com with ESMTP id 3d81g66p8n-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Tue, 28 Dec 2021 17:00:32 +0000
-Received: from pps.filterd (ppma04ams.nl.ibm.com [127.0.0.1])
- by ppma04ams.nl.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 1BSGwEj7020583;
- Tue, 28 Dec 2021 17:00:30 GMT
-Received: from b06cxnps3075.portsmouth.uk.ibm.com
- (d06relay10.portsmouth.uk.ibm.com [9.149.109.195])
- by ppma04ams.nl.ibm.com with ESMTP id 3d5txasjgm-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Tue, 28 Dec 2021 17:00:30 +0000
-Received: from d06av24.portsmouth.uk.ibm.com (mk.ibm.com [9.149.105.60])
- by b06cxnps3075.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- 1BSH0Rb930605762
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Tue, 28 Dec 2021 17:00:27 GMT
-Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id EF96842056;
- Tue, 28 Dec 2021 17:00:26 +0000 (GMT)
-Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 3A54B4203F;
- Tue, 28 Dec 2021 17:00:26 +0000 (GMT)
-Received: from osiris (unknown [9.145.95.23])
- by d06av24.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
- Tue, 28 Dec 2021 17:00:26 +0000 (GMT)
-Date: Tue, 28 Dec 2021 18:00:24 +0100
-From: Heiko Carstens <hca@linux.ibm.com>
-To: guoren@kernel.org
-Cc: will@kernel.org, tglx@linutronix.de, benh@kernel.crashing.org,
- arnd@arndb.de, mingo@redhat.com, peterz@infradead.org,
- juri.lelli@redhat.com, christophe.leroy@csgroup.eu,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.or,
- linuxppc-dev@lists.ozlabs.org, inux-parisc@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- x86@kernel.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V3 5/8] sched: s390: Remove unused TASK_SIZE_OF
-Message-ID: <YctCqJsKWltOfLO6@osiris>
-References: <20211228064730.2882351-1-guoren@kernel.org>
- <20211228064730.2882351-6-guoren@kernel.org>
+ id 1n2G2K-001cnG-32
+ for linux-riscv@lists.infradead.org; Tue, 28 Dec 2021 17:13:22 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 05949B81689;
+ Tue, 28 Dec 2021 17:13:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EC36C36AF0;
+ Tue, 28 Dec 2021 17:13:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1640711595;
+ bh=T3HUEllg1Pw7vYBFjSPgjWTc0i5UwlDCIB5VYMi9zQk=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+ b=aC2AgnEYsVn8ajMr8WXjrdgvYdxaICxzBEIqsQvRNJDdSNTmgYKxxE13ldY57jvt6
+ wtSnEDHwfFeP7WPa1v2BXHsL164j0gjjc1waprQ7FxnadoJwpFcS8YPlJ1fRUUEgNG
+ 1n8B6ybs2qiYbmmANluzHzAR+HA2JhBdfnB5r0OInhaGxnhy9LnnhUQ0kSAmYqyjvt
+ U8WA12Q8XWC6B4+2O+Uw+3c+bVIkQEInrB+E4lsE9bM/HIbStWglKd4TfiZn9oNjTC
+ 71qzDaDkiqAQz8JEolGNowQ5U8m10M955+gDpfmp1KuoHVnN/ysNieqn8T0FB5YrhX
+ IQJmZwEC33MlQ==
+Date: Tue, 28 Dec 2021 18:12:58 +0100
+From: Mauro Carvalho Chehab <mchehab@kernel.org>
+To: Niklas Schnelle <schnelle@linux.ibm.com>, Hans Verkuil
+ <hverkuil-cisco@xs4all.nl>, Ettore Chimenti <ek5.chimenti@gmail.com>
+Cc: Bjorn Helgaas  <helgaas@kernel.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Arnd Bergmann <arnd@kernel.org>, Bjorn
+ Helgaas <bhelgaas@google.com>, John Garry <john.garry@huawei.com>, Nick Hu
+ <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>, Vincent Chen
+ <deanbo422@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren
+ <guoren@kernel.org>, Damien Le Moal <damien.lemoal@opensource.wdc.com>, Ian
+ Abbott <abbotti@mev.co.uk>, H Hartley Sweeten
+ <hsweeten@visionengravers.com>, Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Jean Delvare <jdelvare@suse.com>,
+ Guenter Roeck <linux@roeck-us.net>, Dmitry Torokhov
+ <dmitry.torokhov@gmail.com>, Karsten Keil <isdn@linux-pingi.de>, Sathya
+ Prakash <sathya.prakash@broadcom.com>, Sreekanth Reddy
+ <sreekanth.reddy@broadcom.com>, Suganath Prabu Subramani
+ <suganath-prabu.subramani@broadcom.com>, Michael Grzeschik
+ <m.grzeschik@pengutronix.de>, "David S. Miller" <davem@davemloft.net>,
+ Jakub Kicinski <kuba@kernel.org>, Jesse Brandeburg
+ <jesse.brandeburg@intel.com>, Tony Nguyen <anthony.l.nguyen@intel.com>,
+ Kalle Valo <kvalo@kernel.org>, Jouni Malinen <j@w1.fi>, "James E.J.
+ Bottomley" <jejb@linux.ibm.com>, "Martin K. Petersen"
+ <martin.petersen@oracle.com>, Hannes Reinecke <hare@suse.com>, Kashyap
+ Desai <kashyap.desai@broadcom.com>, Sumit Saxena
+ <sumit.saxena@broadcom.com>, Shivasharan S
+ <shivasharan.srikanteshwara@broadcom.com>, Nilesh Javali
+ <njavali@marvell.com>, GR-QLogic-Storage-Upstream@marvell.com, Mark Brown
+ <broonie@kernel.org>, Sudip Mukherjee <sudipm.mukherjee@gmail.com>, Teddy
+ Wang <teddy.wang@siliconmotion.com>, Forest Bond
+ <forest@alittletooquiet.net>, Jiri Slaby <jirislaby@kernel.org>, Wim Van
+ Sebroeck <wim@linux-watchdog.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-hwmon@vger.kernel.org, linux-i2c@vger.kernel.org,
+ linux-input@vger.kernel.org, netdev@vger.kernel.org,
+ linux-media@vger.kernel.org, MPT-FusionLinux.pdl@broadcom.com,
+ linux-scsi@vger.kernel.org, intel-wired-lan@lists.osuosl.org,
+ linux-wireless@vger.kernel.org, megaraidlinux.pdl@broadcom.com,
+ linux-spi@vger.kernel.org, linux-fbdev@vger.kernel.org,
+ linux-staging@lists.linux.dev, linux-serial@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-watchdog@vger.kernel.org,
+ alsa-devel@alsa-project.org
+Subject: Re: [RFC 01/32] Kconfig: introduce and depend on LEGACY_PCI
+Message-ID: <20211228181107.2d476028@coco.lan>
+In-Reply-To: <4b630b7b87bd983291f628c42a1394fc0d2d86bd.camel@linux.ibm.com>
+References: <20211227164317.4146918-1-schnelle@linux.ibm.com>
+ <20211227164317.4146918-2-schnelle@linux.ibm.com>
+ <YcrJAwsKIxxX18pW@kroah.com> <20211228101435.3a55b983@coco.lan>
+ <b1475f6aecb752a858941f44a957b2183cd68405.camel@linux.ibm.com>
+ <20211228135425.0a69168c@coco.lan>
+ <4b630b7b87bd983291f628c42a1394fc0d2d86bd.camel@linux.ibm.com>
+X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.30; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20211228064730.2882351-6-guoren@kernel.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: 4jtWmHMXNG03Qh0QF9W5oA_Gpf3QaHpv
-X-Proofpoint-GUID: 18xlVlTjbnO_Si-BGff2bmk9Qz6OyusA
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.205,Aquarius:18.0.790,Hydra:6.0.425,FMLib:17.11.62.513
- definitions=2021-12-28_08,2021-12-28_01,2021-12-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 mlxscore=0
- priorityscore=1501 bulkscore=0 adultscore=0 lowpriorityscore=0
- suspectscore=0 mlxlogscore=999 phishscore=0 clxscore=1015 malwarescore=0
- spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2110150000 definitions=main-2112280075
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211228_090105_116443_AFEB7982 
-X-CRM114-Status: GOOD (  16.17  )
+X-CRM114-CacheID: sfid-20211228_091320_462639_03B1E056 
+X-CRM114-Status: GOOD (  52.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,20 +118,130 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 28, 2021 at 02:47:26PM +0800, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
-> 
-> This macro isn't used in Linux sched, now. Delete in
-> include/linux/sched.h and arch's include/asm.
-> 
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> Reviewed-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  arch/s390/include/asm/processor.h | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
+Em Tue, 28 Dec 2021 16:06:44 +0100
+Niklas Schnelle <schnelle@linux.ibm.com> escreveu:
 
-Applied, thanks!
+(on a side note: the c/c list of this patch is too long. I would try to
+avoid using a too long list, as otherwise this e-mail may end being rejected
+by mail servers)
+
+> On Tue, 2021-12-28 at 13:54 +0100, Mauro Carvalho Chehab wrote:
+> >  
+> ---8<---
+> >     
+> > > > > All you really care about is the "legacy" I/O spaces here, this isn't
+> > > > > tied to PCI specifically at all, right?
+> > > > > 
+> > > > > So why not just have a OLD_STYLE_IO config option or something like
+> > > > > that, to show that it's the i/o functions we care about here, not PCI at
+> > > > > all?
+> > > > > 
+> > > > > And maybe not call it "old" or "legacy" as time constantly goes forward,
+> > > > > just describe it as it is, "DIRECT_IO"?    
+> > > > 
+> > > > Agreed. HAVE_PCI_DIRECT_IO (or something similar) seems a more appropriate
+> > > > name for it.
+> > > > 
+> > > > Thanks,
+> > > > Mauro    
+> > > 
+> > > Hmm, I might be missing something here but that sounds a lot like the
+> > > HAS_IOPORT option added in patch 02.
+> > > 
+> > > We add both LEGACY_PCI and HAS_IOPORT to differentiate between two
+> > > cases. HAS_IOPORT is for PC-style devices that are not on a PCI card
+> > > while LEGACY_PCI is for PCI drivers that require port I/O.   
+> > 
+> > I didn't look at the other patches on this series, but why it is needed
+> > to deal with them on a separate way? Won't "PCI" and "HAS_IOPORT" be enough? 
+> > 
+> > I mean, are there any architecture where HAVE_PCI=y and HAS_IOPORT=y
+> > where LEGACY_PCI shall be "n"?  
+> 
+> In the current patch set LEGACY_PCI is not currently selected by
+> architectures, though of course it could be if we know that an
+> architecture requires it. We should probably also set it in any
+> defconfig that has devices depending on it so as not to break these.
+> 
+> Other than that it would be set during kernel configuration if one
+> wants/needs support for legacy PCI devices. For testing I ran with
+> HAVE_PCI=y, HAS_IOPORT=y and LEGACY_PCI=n on both my local Ryzen 3990X
+> based workstation and Raspberry Pi 4 (DT). I guess at the moment it
+> would make most sense for special configs such as those tailored for
+> vitualization guets but in the end that would be something for
+> distributions to decide.
+
+IMO, it makes sense to have a "default y" there, as on systems that
+support I/O space, disabling it will just randomly disable some drivers
+that could be required by some hardware. I won't doubt that some of 
+those could be ported from using inb/outb to use, instead, readb/writeb.
+
+> 
+> Arnd described the options here:
+> https://lore.kernel.org/lkml/CAK8P3a3HHeP+Gw_k2P7Qtig0OmErf0HN30G22+qHic_uZTh11Q@mail.gmail.com/
+
+Based on Arnd's description, LEGACY_PCI should depend on HAS_IOPORT.
+This is missing on patch 1. You should probably reorder your patch
+series to first create HAS_IOPORT and then add LEGACY_PCI with
+depends on, as otherwise it may cause randconfig build issues
+at robots and/or git bisect.
+
+I would also suggest to first introduce such change and then send
+a per-subsystem LEGACY_PCI patch, as it would be a lot easier for
+maintainers to review.
+
+> 
+> >   
+> > > This
+> > > includes pre-PCIe devices as well as PCIe devices which require
+> > > features like I/O spaces. The "legacy" naming is comes from the PCIe
+> > > spec which in section 2.1.1.2 says "PCI Express supports I/O Space for
+> > > compatibility with legacy devices which require their use. Future
+> > > revisions of this specification may deprecate the use of I/O Space."  
+> > 
+> > I would still avoid calling it LEGACY_PCI, as this sounds too generic.
+> > 
+> > I didn't read the PCI/PCIe specs, but I suspect that are a lot more
+> > features that were/will be deprecated on PCI specs as time goes by.
+> > 
+> > So, I would, instead, use something like PCI_LEGACY_IO_SPACE or 
+> > HAVE_PCI_LEGACY_IO_SPACE, in order to let it clear what "legacy"
+> > means.  
+> 
+> Hmm, I'd like to hear Bjorn's opinion on this. Personally I feel like
+> LEGACY_PCI is pretty clear since most devices are either pre-PCIe
+> devices or a compatibility feature allowing drivers for a pre-PCIe
+> device to work with a PCIe device.
+
+That's the main point: it is *not* disabling pre-PCIe devices or
+even legacy PCI drivers. It just disables a random set of drivers just
+because they use inb/outb instead of readb/writeb. It keeps several pure 
+PCI drivers selected, and disables some PCIe for no real reason.
+
+Just to give one example, this symbol:
+
+> diff --git a/drivers/media/cec/platform/Kconfig b/drivers/media/cec/platform/Kconfig
+> index b672d3142eb7..5e92ece5b104 100644
+> --- a/drivers/media/cec/platform/Kconfig
+> +++ b/drivers/media/cec/platform/Kconfig
+> @@ -100,7 +100,7 @@ config CEC_TEGRA
+>  config CEC_SECO
+>  	tristate "SECO Boards HDMI CEC driver"
+>  	depends on (X86 || IA64) || COMPILE_TEST
+> -	depends on PCI && DMI
+> +	depends on LEGACY_PCI && DMI
+>  	select CEC_CORE
+>  	select CEC_NOTIFIER
+>  	help
+
+Disables HDMI CEC support on some Intel motherboards.
+Any distro meant to run on generic hardware should keep it selected.
+
+I can see some value of a "PCI_LEGACY" option to disable all
+non-PCIe drivers, but this is not the case here.
+
+Thanks,
+Mauro
 
 _______________________________________________
 linux-riscv mailing list
