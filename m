@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E35CC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Dec 2021 10:33:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4354BC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Dec 2021 10:40:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d4v3uco6e/J0xW3ZDW6h39aJC/Qd5mVb0hmFJSDl4k4=; b=Slz+I9i8vqUW8S
-	nlgHxI97TtqN0T7dq53AvsfvJGwKhrI7jLqiWFp4qn2xzv/yj+NaZLDQG5njXAEg5+nfrw8O+c+vp
-	xjjCcjUZnnTD1vm3q0jChLAcp1NFfJA2POIWsaLpsnawHngpZHFixNe44P+LyYdX1VurSjDoqwOJN
-	3FxIE//Z+MBCuaOZFNMidntSoFtnqLvRcitaEEoQWL2p2PdiRagl1ZNYdBnEKCwsADslvLyuvWRnk
-	xNcTvEN3EAA56Zxp/zPQAU6jr7sM+iTKPEKup12eL7lQEM2nmah2klT8hOu1AZXVvAdVUugSAyEGl
-	RuHTZIii1HcVoBGOubPg==;
+	List-Owner; bh=fxP1deVTaohagKLDXGblsuHl6nbSOl69rt7qPPBojBY=; b=BpwMEsItFGtjja
+	NwHld+0I71GAXlUf9ernEXIaQCYdrPGe3gHr9UM10rXROx10QLqzb5C05k6ahH/WNOYwUQKunqiGr
+	e4GSwmWvQPpip1nErfxRQa2U0FJEiLufYZiiH9Z5mZLv/8cNPG+nH5BBhT5S+/qhmW8R5L2pAJPli
+	tVuTZEv8TmmWsE9JXlrBkLhuV7JSGZTSvgrdR2kV0h4ISt58WivuC0J2hXLfYSUGvKSfK0vkUvWT5
+	6+Y8dqLso4VQks9V+7Hid+yy3IN3PBwGkr/jyIMjVlzDznE1wrcwU1le+f4Gv4Q1KqGx6x4KHTjKF
+	tZz51NsrM1Yu+9LUSMTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n29mr-000hdU-QG; Tue, 28 Dec 2021 10:32:57 +0000
-Received: from mail-ua1-f47.google.com ([209.85.222.47])
+	id 1n29u1-000iqO-FA; Tue, 28 Dec 2021 10:40:21 +0000
+Received: from mail-ua1-f46.google.com ([209.85.222.46])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n29mo-000hcC-OF
- for linux-riscv@lists.infradead.org; Tue, 28 Dec 2021 10:32:55 +0000
-Received: by mail-ua1-f47.google.com with SMTP id r15so31337182uao.3
- for <linux-riscv@lists.infradead.org>; Tue, 28 Dec 2021 02:32:54 -0800 (PST)
+ id 1n29ty-000ipJ-Uh
+ for linux-riscv@lists.infradead.org; Tue, 28 Dec 2021 10:40:20 +0000
+Received: by mail-ua1-f46.google.com with SMTP id i5so16284254uaq.10
+ for <linux-riscv@lists.infradead.org>; Tue, 28 Dec 2021 02:40:18 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=QQ0Ut1LNrzqnM5tmiaXKSEzqL3RAAlFvcxdwMLjQ2+M=;
- b=uQ8hg6hhHCYyv4I5IA47E34YhtNJ3NPkOvsfMWwyRuIaRWtO8DwwI5nkbip0UkXGCa
- /6UKbJi3YDJFnoj559tNhEzCgFZTNWFJSGV8TPQPF1OAb8823kLalG2EY/mutDb7EpTO
- 9S+w3s9diwdQCtYa/PuKboJwTx2le0jcmB7YhrndpRoOeVZDHC7VQpjjzJyyoiQmYpSZ
- LZay56SlxZTANHabaZKDp63DGVL/bGaB/BEqAHZhIEkPx4lxIYOegwvwqlKZ/114IP69
- iDuQ0s8SJhw7veblHyP9SFAf5qP8Qm6E6Xv8yNESmGLTmtyGBvcUc3EvJOYudFQ39aYi
- La0Q==
-X-Gm-Message-State: AOAM530CBMH7zHPR8FOj9GOXrUPXTVMPnjm8kqt1WMzHAJusJiQgBBsi
- cKiE9Vev1UiF75hyWNtKJsq11OB1HRKBTg==
-X-Google-Smtp-Source: ABdhPJwRRWKU/nO3kYLp0MUD2qS9Qt0rQ9zKWmm6qrCCgCPw/k2nS1fAmNWxwe+pBE6NZljarNg8uA==
-X-Received: by 2002:ab0:15a1:: with SMTP id i30mr6198043uae.122.1640687573939; 
- Tue, 28 Dec 2021 02:32:53 -0800 (PST)
-Received: from mail-vk1-f170.google.com (mail-vk1-f170.google.com.
- [209.85.221.170])
- by smtp.gmail.com with ESMTPSA id x21sm3976585ual.11.2021.12.28.02.32.53
+ bh=QGprts+IMCcw2LRbyJoC20xYqdPz6LzpMb8Wjv374xM=;
+ b=vXzpnnVNcvwy+hyX50y8oLoT/DxL1NiyMzqaWhxgONG7wh5AFDodLVMLVSSQtJJ1SF
+ 1cujyJfsC8Vuwac9vePWddsb7UDQ65JainA+DkNzpMNwDvEozO7xQVAueW546HI6AsUl
+ A5pk+UXn14KceH2h4Q+jJSmefZSeDezskt0rh4lNWt0qIPGbvXHUrxYjetPPrQqR49E/
+ xXpkOJqMkKg6Jdf43dJxl7iz/cCrO8bX2dzH5mwij0iVe/jstluGusuMb7V5YBB6bQDl
+ bOfnsqyrTLZWI4quKj44gDgtWz7fNbbAThjqcfka1K2sjd4weoP1aduKoUn2oQY01MnD
+ KT/w==
+X-Gm-Message-State: AOAM531W2k7CNxiJykn32ie68n39ySn7OUqnL3UC+w/ShYpkyAfgEepP
+ nCxu4OqgX3OMNn9MK6f18q/ddhlb9ykYrA==
+X-Google-Smtp-Source: ABdhPJygT6snpbbyboUBtoetQJ2whVebj+Hs/76TP1+224uqKl0RT56g6hO6ih7v8CDTTS1mrm5diA==
+X-Received: by 2002:a67:f613:: with SMTP id k19mr5116865vso.31.1640688017191; 
+ Tue, 28 Dec 2021 02:40:17 -0800 (PST)
+Received: from mail-ua1-f43.google.com (mail-ua1-f43.google.com.
+ [209.85.222.43])
+ by smtp.gmail.com with ESMTPSA id 46sm2138279uav.10.2021.12.28.02.40.16
  for <linux-riscv@lists.infradead.org>
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 28 Dec 2021 02:32:53 -0800 (PST)
-Received: by mail-vk1-f170.google.com with SMTP id s144so10072287vkb.8
- for <linux-riscv@lists.infradead.org>; Tue, 28 Dec 2021 02:32:53 -0800 (PST)
-X-Received: by 2002:ac5:c853:: with SMTP id g19mr6363163vkm.20.1640687573214; 
- Tue, 28 Dec 2021 02:32:53 -0800 (PST)
+ Tue, 28 Dec 2021 02:40:16 -0800 (PST)
+Received: by mail-ua1-f43.google.com with SMTP id r15so31365990uao.3
+ for <linux-riscv@lists.infradead.org>; Tue, 28 Dec 2021 02:40:16 -0800 (PST)
+X-Received: by 2002:a67:2e09:: with SMTP id u9mr5382186vsu.77.1640688015917;
+ Tue, 28 Dec 2021 02:40:15 -0800 (PST)
 MIME-Version: 1.0
 References: <20211227164317.4146918-1-schnelle@linux.ibm.com>
- <20211227164317.4146918-13-schnelle@linux.ibm.com>
-In-Reply-To: <20211227164317.4146918-13-schnelle@linux.ibm.com>
+ <20211227164317.4146918-25-schnelle@linux.ibm.com>
+In-Reply-To: <20211227164317.4146918-25-schnelle@linux.ibm.com>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 28 Dec 2021 11:32:42 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXDL6XXfohzJFTTV6tR=gg=bcCQq935eKUbNaNLHp9xiw@mail.gmail.com>
-Message-ID: <CAMuHMdXDL6XXfohzJFTTV6tR=gg=bcCQq935eKUbNaNLHp9xiw@mail.gmail.com>
-Subject: Re: [RFC 12/32] iio: adc: Kconfig: add HAS_IOPORT dependencies
+Date: Tue, 28 Dec 2021 11:40:04 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVQuOO7WzzO1mB-buEj1h8h0e6Cn7CAbFbaH9Uyvcc=wQ@mail.gmail.com>
+Message-ID: <CAMuHMdVQuOO7WzzO1mB-buEj1h8h0e6Cn7CAbFbaH9Uyvcc=wQ@mail.gmail.com>
+Subject: Re: [RFC 24/32] scsi: Kconfig: add HAS_IOPORT dependencies
 To: Niklas Schnelle <schnelle@linux.ibm.com>
 Cc: Arnd Bergmann <arnd@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
  John Garry <john.garry@huawei.com>, Nick Hu <nickhu@andestech.com>, 
  Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>, 
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
  Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, 
- Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, 
+ "James E.J. Bottomley" <jejb@linux.ibm.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>, 
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
  Linux-Arch <linux-arch@vger.kernel.org>, 
  linux-pci <linux-pci@vger.kernel.org>,
  linux-riscv <linux-riscv@lists.infradead.org>, 
- linux-csky@vger.kernel.org, linux-iio@vger.kernel.org
+ linux-csky@vger.kernel.org, scsi <linux-scsi@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211228_023254_814430_42AB7087 
-X-CRM114-Status: GOOD (  20.44  )
+X-CRM114-CacheID: sfid-20211228_024019_011843_A5502511 
+X-CRM114-Status: GOOD (  19.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,25 +107,20 @@ On Mon, Dec 27, 2021 at 5:53 PM Niklas Schnelle <schnelle@linux.ibm.com> wrote:
 
 Thanks for your patch!
 
-> --- a/drivers/iio/adc/Kconfig
-> +++ b/drivers/iio/adc/Kconfig
-> @@ -119,7 +119,7 @@ config AD7606
->
->  config AD7606_IFACE_PARALLEL
->         tristate "Analog Devices AD7606 ADC driver with parallel interface support"
-> -       depends on HAS_IOMEM
+> --- a/drivers/scsi/Kconfig
+> +++ b/drivers/scsi/Kconfig
+> @@ -793,6 +793,7 @@ config SCSI_INIA100
+>  config SCSI_PPA
+>         tristate "IOMEGA parallel port (ppa - older drives)"
+>         depends on SCSI && PARPORT_PC
 > +       depends on HAS_IOPORT
 
-While this driver uses ins[bw](), this seems unrelated to legacy
-I/O space, as the driver maps a MMIO region.  Probably different
-accessors should be used instead.
+This is not needed, [04/32] already added that dependency to
+PARPORT_PC.
 
-Note that this driver has no in-tree users. Same for the SPI variant,
-but at least that one has modern json-schema DT bindings ;-)
-
->         select AD7606
 >         help
->           Say yes here to build parallel interface support for Analog Devices:
+>           This driver supports older versions of IOMEGA's parallel port ZIP
+>           drive (a 100 MB removable media device).
 
 Gr{oetje,eeting}s,
 
