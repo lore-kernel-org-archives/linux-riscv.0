@@ -4,110 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87DF9C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Dec 2021 01:21:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A7BDC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Dec 2021 02:59:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:Cc:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xej3LKOYLPJfMJReZH7EoUndvQQkC7eyQ/FwqZzfaqI=; b=duXbP6sJcM56jbMfEe52kagol7
-	8qgvFMGyOrHEkMwhChdNQSYf9KVkkFWDn9mujFobe1k32X15NcVsS0HkJ5wccz4c77473F4mg83+X
-	lCHQVa93IAoAQcR+CG+0rPQ/0qbxDlzkH3Iu+UQVjyHbG2XE/v0u0jORgrWADUKQ0BPmMZTZAoPSG
-	UAPC+mA0AG+lp26mwYTZn+ywIbJerxmdefugUqn+9I0HOcBedDZDOTdkhk4mK7TJMrg/eHmInokSD
-	JbR3kuZXmkjOOfNwO4CJMXQn7HeX6k35ZSsU0EkDmriN2b2pVW+TDLPzBZOS5d3Cb4TvdJ1hjb+uS
-	ARSdy6cg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7ZJsiZaxsc34zFePCEMUo2cENTKMD7AMPmKACdkjYls=; b=2UsKSJ+CAK+uPn
+	pUtOzvGCGGp12zeZjLBf7xr8cDerOUfxDgXtGcNF115+SWpMwftL4Lfp9B3o2EnYY1uaODI5uleZJ
+	cMVfFf3dJ5UsTaZwRAH/CY7e/k8e/NG2bMGtAVD9m54ikSRSuurkRsO6EjcjHo01xcZP1mknxoG1q
+	WJoiHRScnOfpJFwdHfK0R6e1aJJD+cQzzNgOMn+qy66k3atvf4cRozRnFVz5o1bSk8zmM0UvFtBuy
+	lUVmvOFU+559SQFXp9fngaQS2izPCFEdBU79V9WUMm+BeZMu/ykMRqcTINGQfoBwQ+BIbcFAoZkkT
+	/P4zc2z3SCfFA1cfTvCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n2NeS-0025ox-O8; Wed, 29 Dec 2021 01:21:12 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1n2PBC-002AoB-CM; Wed, 29 Dec 2021 02:59:06 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n2NeO-0025nz-MA; Wed, 29 Dec 2021 01:21:10 +0000
-Received: by mail-pg1-x529.google.com with SMTP id g22so17219763pgn.1;
- Tue, 28 Dec 2021 17:21:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=subject:to:references:cc:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-transfer-encoding;
- bh=ce+QRujFh6Z6jXwpwj96Ajoqinq3qkVE1ootEg0tvM4=;
- b=HR4+5gEvbRK0rU8/dntHoBj1g+0X3qKpLMsP358svmvVe4LU0yAyJLNGs3fCG1IxN5
- M/QTR8OXVpknffzN/8b3pOWH0ImhkhbIhkjgUWsWwTRZMZ2woqwqIa5115FbA6Nf6xT4
- TiKsVnkG1OLJDDZ06iwYnbvfkz/MJz2DtOV5zSZDVPVN2jIRsDW3XOaMugqlveDm5gnG
- bFN6SiWtJfdMPi0YTy0yZg20PhHPIvQQsScpgCUPn8k9cu6v+natJ9ebpk8jSRGpwixK
- MiRCzMxl519LQW1SjZgL9Y49JFwBww9vU7/YKwkn2coaccmwFAJf32w2Pk2xT9akAsgc
- lavA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:subject:to:references:cc:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-transfer-encoding;
- bh=ce+QRujFh6Z6jXwpwj96Ajoqinq3qkVE1ootEg0tvM4=;
- b=E2q4d6dqTZSEilqDuJC3TRqtB6OqAyGZvr6bATbnUOvsSEXUUmaINDJfbMhou5f5k/
- GspbKbOtt3SGwfj9YebEmBW3wV8vvyX1jS0g3dwWB2UelveekMYAKK+QVKRoGexir5E2
- /BexOdm+AzbpTLElIU6KzU8BGD/eQjBiKkIsBtOrj5xwhLvdU1F7ztFqba+2lzFN9nD5
- Hd59D4u5eNwSZBIKF6GlA5K4m71m6rGBaVFkqCMxD0+lD0iFWYNhnuiVV4yMtaGPGtKK
- QDWGkLVwjKDNwp3s0T7LL/SEdWaOTLuKK5LZOcO2CRys/SItNIrr15VbK0vYUZX9SEiN
- Bg6w==
-X-Gm-Message-State: AOAM533y1AqY4ntFGdZlxy4hSuzmAJ7089tNIWl+r5FhrBng848+ih7E
- YlCBLxiKRTU7G2ikIpRqH9k=
-X-Google-Smtp-Source: ABdhPJx/po46hxln8jdEFq24zHXmQfZv0rMy1a+pao1gS+//RcuuYa1+uO7C36+ZKnR8X7vS6LfebQ==
-X-Received: by 2002:a05:6a00:cca:b0:4ba:f5cc:538c with SMTP id
- b10-20020a056a000cca00b004baf5cc538cmr24584430pfv.60.1640740867094; 
- Tue, 28 Dec 2021 17:21:07 -0800 (PST)
-Received: from [10.1.1.24] (222-155-5-102-adsl.sparkbb.co.nz. [222.155.5.102])
- by smtp.gmail.com with ESMTPSA id
- cm20sm18920963pjb.28.2021.12.28.17.20.41
- (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 28 Dec 2021 17:21:06 -0800 (PST)
-Subject: Re: [RFC 02/32] Kconfig: introduce HAS_IOPORT option and select it as
- necessary
-To: Geert Uytterhoeven <geert@linux-m68k.org>,
- Niklas Schnelle <schnelle@linux.ibm.com>
-References: <20211227164317.4146918-1-schnelle@linux.ibm.com>
- <20211227164317.4146918-3-schnelle@linux.ibm.com>
- <CAMuHMdXk6VcDryekkMJ3aGFnw4LLWOWMi8M2PwjT81PsOsOBMQ@mail.gmail.com>
-Cc: Arnd Bergmann <arnd@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- John Garry <john.garry@huawei.com>, Nick Hu <nickhu@andestech.com>,
- Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Guo Ren <guoren@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>,
- Chris Zankel <chris@zankel.net>, Karol Gugala <kgugala@antmicro.com>,
- Jeff Dike <jdike@addtoit.com>, Yoshinori Sato <ysato@users.sourceforge.jp>,
- Brian Cain <bcain@codeaurora.org>, Heiko Carstens <hca@linux.ibm.com>,
- Richard Henderson <rth@twiddle.net>,
- Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Matt Turner
- <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Michal Simek <monstr@monstr.eu>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Rich Felker <dalias@libc.org>,
- "David S. Miller" <davem@davemloft.net>, Thomas Gleixner
- <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-xtensa@linux-xtensa.org,
- openrisc@lists.librecores.org, linux-s390@vger.kernel.org,
- linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- Greg Ungerer <gerg@linux-m68k.org>
-From: Michael Schmitz <schmitzmic@gmail.com>
-Message-ID: <d406b93a-0f76-d056-3380-65d459d05ea9@gmail.com>
-Date: Wed, 29 Dec 2021 14:20:38 +1300
-User-Agent: Mozilla/5.0 (X11; Linux ppc; rv:45.0) Gecko/20100101 Icedove/45.4.0
+ id 1n2PBA-002Ano-3z
+ for linux-riscv@lists.infradead.org; Wed, 29 Dec 2021 02:59:05 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 158DB613E2
+ for <linux-riscv@lists.infradead.org>; Wed, 29 Dec 2021 02:59:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 784A8C36AEC
+ for <linux-riscv@lists.infradead.org>; Wed, 29 Dec 2021 02:59:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1640746742;
+ bh=WWehljrE+d9Z+3M+T9SrX10/EYU7Gcap3svFN0FpHdY=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=doH0dqKHCCTGOPu7FBhWS2NixYdNIAZs3lvbFohR9oR9TumeD881kf9+IoQao0Fnn
+ D2nm6NiAyKk+tf4J71AFRLYpRNAqCU9tOabxkqydkOGq0cyZbBEWV/CyJw1Ro+l24Z
+ zrX7Qo+Xtx4pDEZzhBUX6fdPKU/THYX+AUPG/HXQt7fC2J6CET/D6gW7X9kgSCV1zI
+ yyXR9O9uizkViq/MpkH2MiXqAWEtjTgI35mbL0pLm+RwbwBXu6rHSMSebd0G3g2ObM
+ 5ro9OAUNI/kzdBc373QdKLKbYDKg5NLrw91WExPg9pC1lzu2PRgPs73T+8XHdadHTC
+ g1lCqK3LJsZxw==
+Received: by mail-wr1-f47.google.com with SMTP id v7so41593813wrv.12
+ for <linux-riscv@lists.infradead.org>; Tue, 28 Dec 2021 18:59:02 -0800 (PST)
+X-Gm-Message-State: AOAM533sVcQ8TGN7vsKr7RHzddauorS6xX2Bc//u+JZuKQlZTJQsoNl5
+ zr0LaXxroovuepoiWlPsbe0Y8h0LoNWSuXm/Wxs=
+X-Google-Smtp-Source: ABdhPJxrps/NwZGe5JTUmDrzyXLa9rjvKVDghRb3MXHYJ0NDa0CGgiMBThXsngnn+H2n+tqEv9R0l1/E9RkqUJy1fEI=
+X-Received: by 2002:adf:f051:: with SMTP id t17mr18729122wro.192.1640746740813; 
+ Tue, 28 Dec 2021 18:59:00 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <CAMuHMdXk6VcDryekkMJ3aGFnw4LLWOWMi8M2PwjT81PsOsOBMQ@mail.gmail.com>
+References: <20211227164317.4146918-1-schnelle@linux.ibm.com>
+ <20211227164317.4146918-5-schnelle@linux.ibm.com>
+ <CAMuHMdVBXBXSE8bQFNqxkbCASZKq25evHGXHjC6u7f3ktW4dpQ@mail.gmail.com>
+In-Reply-To: <CAMuHMdVBXBXSE8bQFNqxkbCASZKq25evHGXHjC6u7f3ktW4dpQ@mail.gmail.com>
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Tue, 28 Dec 2021 21:58:51 -0500
+X-Gmail-Original-Message-ID: <CAK8P3a2uw2PMjAEeEA36hssL9aoNv4BCNpubon+0UK=ubCbLXQ@mail.gmail.com>
+Message-ID: <CAK8P3a2uw2PMjAEeEA36hssL9aoNv4BCNpubon+0UK=ubCbLXQ@mail.gmail.com>
+Subject: Re: [RFC 04/32] parport: PC style parport depends on HAS_IOPORT
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Niklas Schnelle <schnelle@linux.ibm.com>,
+ Bjorn Helgaas <bhelgaas@google.com>, 
+ John Garry <john.garry@huawei.com>, Nick Hu <nickhu@andestech.com>, 
+ Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, 
+ Sudip Mukherjee <sudipm.mukherjee@gmail.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Linux-Arch <linux-arch@vger.kernel.org>, 
+ linux-pci <linux-pci@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211228_172108_803410_04CE9FA9 
-X-CRM114-Status: GOOD (  27.95  )
+X-CRM114-CacheID: sfid-20211228_185904_292033_963AAC44 
+X-CRM114-Status: GOOD (  18.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,83 +85,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Geert, Niklas,
-
-
-
-Am 28.12.2021 um 23:08 schrieb Geert Uytterhoeven:
+On Tue, Dec 28, 2021 at 5:14 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>
 > Hi Niklas,
 >
-> On Mon, Dec 27, 2021 at 5:44 PM Niklas Schnelle <schnelle@linux.ibm.com> wrote:
->> We introduce a new HAS_IOPORT Kconfig option to gate support for
->> I/O port access. In a future patch HAS_IOPORT=n will disable compilation
->> of the I/O accessor functions inb()/outb() and friends on architectures
->> which can not meaningfully support legacy I/O spaces. On these platforms
->> inb()/outb() etc are currently just stubs in asm-generic/io.h which when
->> called will cause a NULL pointer access which some compilers actually
->> detect and warn about.
->>
->> The dependencies on HAS_IOPORT in drivers as well as ifdefs for
->> HAS_IOPORT specific sections will be added in subsequent patches on
->> a per subsystem basis. Then a final patch will ifdef the I/O access
->> functions on HAS_IOPORT thus turning any use not gated by HAS_IOPORT
->> into a compile-time warning.
->>
->> Link: https://lore.kernel.org/lkml/CAHk-=wg80je=K7madF4e7WrRNp37e3qh6y10Svhdc7O8SZ_-8g@mail.gmail.com/
->> Co-developed-by: Arnd Bergmann <arnd@kernel.org>
->> Signed-off-by: Arnd Bergmann <arnd@kernel.org>
->> Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
+> On Mon, Dec 27, 2021 at 5:48 PM Niklas Schnelle <schnelle@linux.ibm.com> wrote:
+> > In a future patch HAS_IOPORT=n will result in inb()/outb() and friends
+> > not being declared. As PC style parport uses these functions we need to
+> > handle this dependency for HAS_IOPORT.
+> >
+> > Co-developed-by: Arnd Bergmann <arnd@kernel.org>
+> > Signed-off-by: Arnd Bergmann <arnd@kernel.org>
+> > Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
 >
 > Thanks for your patch!
 >
->> --- a/arch/m68k/Kconfig
->> +++ b/arch/m68k/Kconfig
->> @@ -16,6 +16,7 @@ config M68K
->>         select GENERIC_CPU_DEVICES
->>         select GENERIC_IOMAP
->>         select GENERIC_IRQ_SHOW
->> +       select HAS_IOPORT
->>         select HAVE_AOUT if MMU
->>         select HAVE_ASM_MODVERSIONS
->>         select HAVE_DEBUG_BUGVERBOSE
+> > --- a/drivers/parport/Kconfig
+> > +++ b/drivers/parport/Kconfig
+> > @@ -14,7 +14,6 @@ config ARCH_MIGHT_HAVE_PC_PARPORT
+> >
+> >  menuconfig PARPORT
+> >         tristate "Parallel port support"
+> > -       depends on HAS_IOMEM
 >
-> This looks way too broad to me: most m68k platform do not have I/O
-> port access support.
->
-> My gut feeling says:
->
->     select HAS_IOPORT if PCI || ISA
->
-> but that might miss some intricate details...
+> Why drop this?
+> Don't all other parport drivers depend on it?
 
-In particular, this misses the Atari ROM port ISA adapter case -
+The other drivers all have dependencies on specific platforms, so I
+probably dropped it in the original draft because the remaining dependencies
+are sufficient.
 
-	select HAS_IOPORT if PCI || ISA || ATARI_ROM_ISA
+Technically, the partport_pc driver only needs HAS_IOPORT, not HAS_IOMEM,
+but in the end this makes very little difference.
 
-might do instead.
-
-Cheers,
-
-	Michael
-
-
->
-> Gr{oetje,eeting}s,
->
->                         Geert
->
-> --
-> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
->
-> In personal conversations with technical people, I call myself a hacker. But
-> when I'm talking to journalists I just say "programmer" or something like that.
->                                 -- Linus Torvalds
->
+        Arnd
 
 _______________________________________________
 linux-riscv mailing list
