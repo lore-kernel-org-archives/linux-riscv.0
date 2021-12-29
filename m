@@ -4,80 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2168FC4321E
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Dec 2021 22:31:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87DF9C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Dec 2021 01:21:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cM8sqE8T3Tf5JfumsOBbo8bF3UtTb1xqU/JD8ZieWbI=; b=pseoPF7u9UX7sX
-	fJGOlfppL+5ttA6IPJWTfqjur6MleRTvsdHuitX1YLVU7pZfMSdOApeZjSzJ7r5By3nbiTHC8Xs0A
-	lAI7lTHEtGIKK4WRhVm5qxLhODu7St7VerElDZOHOs3zgMvTaQL57VuBofuL/327Vw2cAnZ+IxUx+
-	EOqCE+d44pWqTrTkg8JH7K9DMDBNa79Ms1R9G9Rhb6MSC3biDhRl8btH62TBILZyVwva9UOTqSQxp
-	1eJSOyepSILy/fAAz1pIu2xMQIS/ADwx4cBDc6LTbZrDFLQCc0DRRTTzbvi+s2OMcwNfvt5yHDuTD
-	bKg5vM1YJVh2A/e3AbHg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:Cc:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xej3LKOYLPJfMJReZH7EoUndvQQkC7eyQ/FwqZzfaqI=; b=duXbP6sJcM56jbMfEe52kagol7
+	8qgvFMGyOrHEkMwhChdNQSYf9KVkkFWDn9mujFobe1k32X15NcVsS0HkJ5wccz4c77473F4mg83+X
+	lCHQVa93IAoAQcR+CG+0rPQ/0qbxDlzkH3Iu+UQVjyHbG2XE/v0u0jORgrWADUKQ0BPmMZTZAoPSG
+	UAPC+mA0AG+lp26mwYTZn+ywIbJerxmdefugUqn+9I0HOcBedDZDOTdkhk4mK7TJMrg/eHmInokSD
+	JbR3kuZXmkjOOfNwO4CJMXQn7HeX6k35ZSsU0EkDmriN2b2pVW+TDLPzBZOS5d3Cb4TvdJ1hjb+uS
+	ARSdy6cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n2L03-001vG0-PR; Tue, 28 Dec 2021 22:31:19 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1n2NeS-0025ox-O8; Wed, 29 Dec 2021 01:21:12 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n2Kzw-001vCs-NP
- for linux-riscv@lists.infradead.org; Tue, 28 Dec 2021 22:31:15 +0000
-Received: by mail-qk1-x729.google.com with SMTP id r139so17472180qke.9
- for <linux-riscv@lists.infradead.org>; Tue, 28 Dec 2021 14:31:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=OOYfs+7/+76Ga8hNJYiYI+J0CUrpBuUwoUcFkhhtTjc=;
- b=SNhGkG7Bz1n3tzbJ9pjctHOG2fXHpOPGb5H7x1+ln1fKhXYTrW801NsFC36kVeX1pP
- iiJcoyftqriKl1RGh9/MgCuVl6XmVUG2Y+D9xiHd7T5j2Sz2ABipXmQaz6YCHu+PnlVL
- ApAoaYCab6qmn0mW0h+2lNZrtU6LDN2Yd1xCk=
+ id 1n2NeO-0025nz-MA; Wed, 29 Dec 2021 01:21:10 +0000
+Received: by mail-pg1-x529.google.com with SMTP id g22so17219763pgn.1;
+ Tue, 28 Dec 2021 17:21:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=subject:to:references:cc:from:message-id:date:user-agent
+ :mime-version:in-reply-to:content-transfer-encoding;
+ bh=ce+QRujFh6Z6jXwpwj96Ajoqinq3qkVE1ootEg0tvM4=;
+ b=HR4+5gEvbRK0rU8/dntHoBj1g+0X3qKpLMsP358svmvVe4LU0yAyJLNGs3fCG1IxN5
+ M/QTR8OXVpknffzN/8b3pOWH0ImhkhbIhkjgUWsWwTRZMZ2woqwqIa5115FbA6Nf6xT4
+ TiKsVnkG1OLJDDZ06iwYnbvfkz/MJz2DtOV5zSZDVPVN2jIRsDW3XOaMugqlveDm5gnG
+ bFN6SiWtJfdMPi0YTy0yZg20PhHPIvQQsScpgCUPn8k9cu6v+natJ9ebpk8jSRGpwixK
+ MiRCzMxl519LQW1SjZgL9Y49JFwBww9vU7/YKwkn2coaccmwFAJf32w2Pk2xT9akAsgc
+ lavA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=OOYfs+7/+76Ga8hNJYiYI+J0CUrpBuUwoUcFkhhtTjc=;
- b=6wbCtla4EnV4rpqxdrpaBfn66Kk4OevTnM1m3BgTeE7vV9g/oN7iAubAs03fu4TIXV
- w7M4KS87SV9D94Xp2vpj0YJrb9Endgb9ElaNf5zm1r71LSlUYEvShRAhvdCBlDTCclHZ
- CCxESgbdccR5L5dCN01tNU37DsRrK7Xtqmun9d7lc5/OF37hDfpaSPGnoS5W30DR7Woc
- ynNdKwOezGgs1OJo7kEXUkYj2xS+2y+dizzTkrq8BAHrl0/fCEHftdpYZOJr2nO3r7qC
- xkQGk6ZESYJR596rrKjCn9+2h3/uzEPdS4nbcaeF//xiUoT9esJ/EZVbJGPp3qgiDZb2
- 1GcA==
-X-Gm-Message-State: AOAM5308LHyRkFAFQM0YBP875gZhuwKr7TTKxO72C0N8t7ITsou3VfPT
- HgNF/rGiFXG0iHE7LOM1xgC8
-X-Google-Smtp-Source: ABdhPJyUcX98eJl54eRNn9Ho+7M0PT7EOyaVx4oBggpqKYMDlXshxzTHQObsTk30OZPHo8qqQOVq4Q==
-X-Received: by 2002:a05:620a:2806:: with SMTP id
- f6mr17427499qkp.87.1640730671581; 
- Tue, 28 Dec 2021 14:31:11 -0800 (PST)
-Received: from fedora.. (adsl-70-228-75-190.dsl.akrnoh.ameritech.net.
- [70.228.75.190])
- by smtp.gmail.com with ESMTPSA id i5sm2738407qti.27.2021.12.28.14.31.10
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 28 Dec 2021 14:31:11 -0800 (PST)
-From: Atish Patra <atishp@atishpatra.org>
-X-Google-Original-From: Atish Patra <atishp@rivosinc.com>
-To: linux-kernel@vger.kernel.org
-Cc: Atish Patra <atishp@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
- Damien Le Moal <damien.lemoal@wdc.com>, devicetree@vger.kernel.org,
- Jisheng Zhang <jszhang@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
-Subject: [PATCH v2 6/6] RISC-V: Do not use cpumask data structure for hartid
- bitmap
-Date: Tue, 28 Dec 2021 14:30:57 -0800
-Message-Id: <20211228223057.2772727-7-atishp@rivosinc.com>
-X-Mailer: git-send-email 2.33.1
-In-Reply-To: <20211228223057.2772727-1-atishp@rivosinc.com>
-References: <20211228223057.2772727-1-atishp@rivosinc.com>
+ h=x-gm-message-state:subject:to:references:cc:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-transfer-encoding;
+ bh=ce+QRujFh6Z6jXwpwj96Ajoqinq3qkVE1ootEg0tvM4=;
+ b=E2q4d6dqTZSEilqDuJC3TRqtB6OqAyGZvr6bATbnUOvsSEXUUmaINDJfbMhou5f5k/
+ GspbKbOtt3SGwfj9YebEmBW3wV8vvyX1jS0g3dwWB2UelveekMYAKK+QVKRoGexir5E2
+ /BexOdm+AzbpTLElIU6KzU8BGD/eQjBiKkIsBtOrj5xwhLvdU1F7ztFqba+2lzFN9nD5
+ Hd59D4u5eNwSZBIKF6GlA5K4m71m6rGBaVFkqCMxD0+lD0iFWYNhnuiVV4yMtaGPGtKK
+ QDWGkLVwjKDNwp3s0T7LL/SEdWaOTLuKK5LZOcO2CRys/SItNIrr15VbK0vYUZX9SEiN
+ Bg6w==
+X-Gm-Message-State: AOAM533y1AqY4ntFGdZlxy4hSuzmAJ7089tNIWl+r5FhrBng848+ih7E
+ YlCBLxiKRTU7G2ikIpRqH9k=
+X-Google-Smtp-Source: ABdhPJx/po46hxln8jdEFq24zHXmQfZv0rMy1a+pao1gS+//RcuuYa1+uO7C36+ZKnR8X7vS6LfebQ==
+X-Received: by 2002:a05:6a00:cca:b0:4ba:f5cc:538c with SMTP id
+ b10-20020a056a000cca00b004baf5cc538cmr24584430pfv.60.1640740867094; 
+ Tue, 28 Dec 2021 17:21:07 -0800 (PST)
+Received: from [10.1.1.24] (222-155-5-102-adsl.sparkbb.co.nz. [222.155.5.102])
+ by smtp.gmail.com with ESMTPSA id
+ cm20sm18920963pjb.28.2021.12.28.17.20.41
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Tue, 28 Dec 2021 17:21:06 -0800 (PST)
+Subject: Re: [RFC 02/32] Kconfig: introduce HAS_IOPORT option and select it as
+ necessary
+To: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Niklas Schnelle <schnelle@linux.ibm.com>
+References: <20211227164317.4146918-1-schnelle@linux.ibm.com>
+ <20211227164317.4146918-3-schnelle@linux.ibm.com>
+ <CAMuHMdXk6VcDryekkMJ3aGFnw4LLWOWMi8M2PwjT81PsOsOBMQ@mail.gmail.com>
+Cc: Arnd Bergmann <arnd@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ John Garry <john.garry@huawei.com>, Nick Hu <nickhu@andestech.com>,
+ Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Guo Ren <guoren@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>,
+ Chris Zankel <chris@zankel.net>, Karol Gugala <kgugala@antmicro.com>,
+ Jeff Dike <jdike@addtoit.com>, Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Brian Cain <bcain@codeaurora.org>, Heiko Carstens <hca@linux.ibm.com>,
+ Richard Henderson <rth@twiddle.net>,
+ Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Matt Turner
+ <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Michal Simek <monstr@monstr.eu>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>, Rich Felker <dalias@libc.org>,
+ "David S. Miller" <davem@davemloft.net>, Thomas Gleixner
+ <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-xtensa@linux-xtensa.org,
+ openrisc@lists.librecores.org, linux-s390@vger.kernel.org,
+ linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ Greg Ungerer <gerg@linux-m68k.org>
+From: Michael Schmitz <schmitzmic@gmail.com>
+Message-ID: <d406b93a-0f76-d056-3380-65d459d05ea9@gmail.com>
+Date: Wed, 29 Dec 2021 14:20:38 +1300
+User-Agent: Mozilla/5.0 (X11; Linux ppc; rv:45.0) Gecko/20100101 Icedove/45.4.0
 MIME-Version: 1.0
+In-Reply-To: <CAMuHMdXk6VcDryekkMJ3aGFnw4LLWOWMi8M2PwjT81PsOsOBMQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211228_143112_822836_C5269958 
-X-CRM114-Status: GOOD (  23.89  )
+X-CRM114-CacheID: sfid-20211228_172108_803410_04CE9FA9 
+X-CRM114-Status: GOOD (  27.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,779 +119,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, SBI APIs accept a hartmask that is generated from struct
-cpumask. Cpumask data structure can hold upto NR_CPUs value. Thus, it
-is not the correct data structure for hartids as it can be higher
-than NR_CPUs for platforms with sparse or discontguous hartids.
+Hi Geert, Niklas,
 
-Remove all association between hartid mask and struct cpumask.
 
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- arch/riscv/include/asm/sbi.h      |  19 +--
- arch/riscv/include/asm/smp.h      |   8 --
- arch/riscv/kernel/sbi.c           | 189 +++++++++++++++++-------------
- arch/riscv/kernel/smp.c           |  10 --
- arch/riscv/kernel/smpboot.c       |   2 +-
- arch/riscv/kvm/mmu.c              |   4 +-
- arch/riscv/kvm/vcpu_sbi_replace.c |  11 +-
- arch/riscv/kvm/vcpu_sbi_v01.c     |  11 +-
- arch/riscv/kvm/vmid.c             |   4 +-
- arch/riscv/mm/cacheflush.c        |   5 +-
- arch/riscv/mm/tlbflush.c          |   9 +-
- 11 files changed, 130 insertions(+), 142 deletions(-)
 
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 9c46dd3ff4a2..94abf4c300e4 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -8,6 +8,7 @@
- #define _ASM_RISCV_SBI_H
- 
- #include <linux/types.h>
-+#include <linux/cpumask.h>
- 
- #ifdef CONFIG_RISCV_SBI
- enum sbi_ext_id {
-@@ -112,27 +113,27 @@ long sbi_get_mimpid(void);
- void sbi_set_timer(uint64_t stime_value);
- void sbi_shutdown(void);
- void sbi_clear_ipi(void);
--int sbi_send_ipi(const unsigned long *hart_mask);
--int sbi_remote_fence_i(const unsigned long *hart_mask);
--int sbi_remote_sfence_vma(const unsigned long *hart_mask,
-+int sbi_send_ipi(const struct cpumask *cpu_mask);
-+int sbi_remote_fence_i(const struct cpumask *cpu_mask);
-+int sbi_remote_sfence_vma(const struct cpumask *cpu_mask,
- 			   unsigned long start,
- 			   unsigned long size);
- 
--int sbi_remote_sfence_vma_asid(const unsigned long *hart_mask,
-+int sbi_remote_sfence_vma_asid(const struct cpumask *cpu_mask,
- 				unsigned long start,
- 				unsigned long size,
- 				unsigned long asid);
--int sbi_remote_hfence_gvma(const unsigned long *hart_mask,
-+int sbi_remote_hfence_gvma(const struct cpumask *cpu_mask,
- 			   unsigned long start,
- 			   unsigned long size);
--int sbi_remote_hfence_gvma_vmid(const unsigned long *hart_mask,
-+int sbi_remote_hfence_gvma_vmid(const struct cpumask *cpu_mask,
- 				unsigned long start,
- 				unsigned long size,
- 				unsigned long vmid);
--int sbi_remote_hfence_vvma(const unsigned long *hart_mask,
-+int sbi_remote_hfence_vvma(const struct cpumask *cpu_mask,
- 			   unsigned long start,
- 			   unsigned long size);
--int sbi_remote_hfence_vvma_asid(const unsigned long *hart_mask,
-+int sbi_remote_hfence_vvma_asid(const struct cpumask *cpu_mask,
- 				unsigned long start,
- 				unsigned long size,
- 				unsigned long asid);
-@@ -159,7 +160,7 @@ static inline unsigned long sbi_minor_version(void)
- 
- int sbi_err_map_linux_errno(int err);
- #else /* CONFIG_RISCV_SBI */
--static inline int sbi_remote_fence_i(const unsigned long *hart_mask) { return -1; }
-+static inline int sbi_remote_fence_i(const struct cpumask *cpu_mask) { return -1; }
- static inline void sbi_init(void) {}
- #endif /* CONFIG_RISCV_SBI */
- #endif /* _ASM_RISCV_SBI_H */
-diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
-index a7d2811f3536..e07ecfb5d925 100644
---- a/arch/riscv/include/asm/smp.h
-+++ b/arch/riscv/include/asm/smp.h
-@@ -43,7 +43,6 @@ void arch_send_call_function_ipi_mask(struct cpumask *mask);
- void arch_send_call_function_single_ipi(int cpu);
- 
- int riscv_hartid_to_cpuid(int hartid);
--void riscv_cpuid_to_hartid_mask(const struct cpumask *in, struct cpumask *out);
- 
- /* Set custom IPI operations */
- void riscv_set_ipi_ops(const struct riscv_ipi_ops *ops);
-@@ -85,13 +84,6 @@ static inline unsigned long cpuid_to_hartid_map(int cpu)
- 	return boot_cpu_hartid;
- }
- 
--static inline void riscv_cpuid_to_hartid_mask(const struct cpumask *in,
--					      struct cpumask *out)
--{
--	cpumask_clear(out);
--	cpumask_set_cpu(boot_cpu_hartid, out);
--}
--
- static inline void riscv_set_ipi_ops(const struct riscv_ipi_ops *ops)
- {
- }
-diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-index 7402a417f38e..2438d6fdb788 100644
---- a/arch/riscv/kernel/sbi.c
-+++ b/arch/riscv/kernel/sbi.c
-@@ -15,8 +15,8 @@ unsigned long sbi_spec_version __ro_after_init = SBI_SPEC_VERSION_DEFAULT;
- EXPORT_SYMBOL(sbi_spec_version);
- 
- static void (*__sbi_set_timer)(uint64_t stime) __ro_after_init;
--static int (*__sbi_send_ipi)(const unsigned long *hart_mask) __ro_after_init;
--static int (*__sbi_rfence)(int fid, const unsigned long *hart_mask,
-+static int (*__sbi_send_ipi)(const struct cpumask *cpu_mask) __ro_after_init;
-+static int (*__sbi_rfence)(int fid, const struct cpumask *cpu_mask,
- 			   unsigned long start, unsigned long size,
- 			   unsigned long arg4, unsigned long arg5) __ro_after_init;
- 
-@@ -66,6 +66,30 @@ int sbi_err_map_linux_errno(int err)
- EXPORT_SYMBOL(sbi_err_map_linux_errno);
- 
- #ifdef CONFIG_RISCV_SBI_V01
-+static unsigned long __sbi_v01_cpumask_to_hartmask(const struct cpumask *cpu_mask)
-+{
-+	unsigned long cpuid, hartid;
-+	unsigned long hmask = 0;
-+
-+	/*
-+	 * There is no maximum hartid concept in RISC-V and NR_CPUS must not be
-+	 * associated with hartid. As SBI v0.1 is only kept for backward compatibility
-+	 * and will be removed in the future, there is no point in supporting hartid
-+	 * greater than BITS_PER_LONG (32 for RV32 and 64 for RV64). Ideally, SBI v0.2
-+	 * should be used for platforms with hartid greater than BITS_PER_LONG.
-+	 */
-+	for_each_cpu(cpuid, cpu_mask) {
-+		hartid = cpuid_to_hartid_map(cpuid);
-+		if (hartid >= BITS_PER_LONG) {
-+			pr_warn("Unable to send any request to hartid > BITS_PER_LONG for SBI v0.1\n");
-+			break;
-+		}
-+		hmask |= 1 << hartid;
-+	}
-+
-+	return hmask;
-+}
-+
- /**
-  * sbi_console_putchar() - Writes given character to the console device.
-  * @ch: The data to be written to the console.
-@@ -131,33 +155,44 @@ static void __sbi_set_timer_v01(uint64_t stime_value)
- #endif
- }
- 
--static int __sbi_send_ipi_v01(const unsigned long *hart_mask)
-+static int __sbi_send_ipi_v01(const struct cpumask *cpu_mask)
- {
--	sbi_ecall(SBI_EXT_0_1_SEND_IPI, 0, (unsigned long)hart_mask,
-+	unsigned long hart_mask;
-+
-+	if (!cpu_mask)
-+		cpu_mask = cpu_online_mask;
-+	hart_mask = __sbi_v01_cpumask_to_hartmask(cpu_mask);
-+
-+	sbi_ecall(SBI_EXT_0_1_SEND_IPI, 0, (unsigned long)(&hart_mask),
- 		  0, 0, 0, 0, 0);
- 	return 0;
- }
- 
--static int __sbi_rfence_v01(int fid, const unsigned long *hart_mask,
-+static int __sbi_rfence_v01(int fid, const struct cpumask *cpu_mask,
- 			    unsigned long start, unsigned long size,
- 			    unsigned long arg4, unsigned long arg5)
- {
- 	int result = 0;
-+	unsigned long hart_mask;
-+
-+	if (!cpu_mask)
-+		cpu_mask = cpu_online_mask;
-+	hart_mask = __sbi_v01_cpumask_to_hartmask(cpu_mask);
- 
- 	/* v0.2 function IDs are equivalent to v0.1 extension IDs */
- 	switch (fid) {
- 	case SBI_EXT_RFENCE_REMOTE_FENCE_I:
- 		sbi_ecall(SBI_EXT_0_1_REMOTE_FENCE_I, 0,
--			  (unsigned long)hart_mask, 0, 0, 0, 0, 0);
-+			  (unsigned long)&hart_mask, 0, 0, 0, 0, 0);
- 		break;
- 	case SBI_EXT_RFENCE_REMOTE_SFENCE_VMA:
- 		sbi_ecall(SBI_EXT_0_1_REMOTE_SFENCE_VMA, 0,
--			  (unsigned long)hart_mask, start, size,
-+			  (unsigned long)&hart_mask, start, size,
- 			  0, 0, 0);
- 		break;
- 	case SBI_EXT_RFENCE_REMOTE_SFENCE_VMA_ASID:
- 		sbi_ecall(SBI_EXT_0_1_REMOTE_SFENCE_VMA_ASID, 0,
--			  (unsigned long)hart_mask, start, size,
-+			  (unsigned long)&hart_mask, start, size,
- 			  arg4, 0, 0);
- 		break;
- 	default:
-@@ -179,7 +214,7 @@ static void __sbi_set_timer_v01(uint64_t stime_value)
- 		sbi_major_version(), sbi_minor_version());
- }
- 
--static int __sbi_send_ipi_v01(const unsigned long *hart_mask)
-+static int __sbi_send_ipi_v01(const struct cpumask *cpu_mask)
- {
- 	pr_warn("IPI extension is not available in SBI v%lu.%lu\n",
- 		sbi_major_version(), sbi_minor_version());
-@@ -187,7 +222,7 @@ static int __sbi_send_ipi_v01(const unsigned long *hart_mask)
- 	return 0;
- }
- 
--static int __sbi_rfence_v01(int fid, const unsigned long *hart_mask,
-+static int __sbi_rfence_v01(int fid, const struct cpumask *cpu_mask,
- 			    unsigned long start, unsigned long size,
- 			    unsigned long arg4, unsigned long arg5)
- {
-@@ -211,37 +246,33 @@ static void __sbi_set_timer_v02(uint64_t stime_value)
- #endif
- }
- 
--static int __sbi_send_ipi_v02(const unsigned long *hart_mask)
-+static int __sbi_send_ipi_v02(const struct cpumask *cpu_mask)
- {
--	unsigned long hartid, hmask_val, hbase;
--	struct cpumask tmask;
-+	unsigned long hartid, cpuid, hmask = 0, hbase = 0;
- 	struct sbiret ret = {0};
- 	int result;
- 
--	if (!hart_mask || !(*hart_mask)) {
--		riscv_cpuid_to_hartid_mask(cpu_online_mask, &tmask);
--		hart_mask = cpumask_bits(&tmask);
--	}
-+	if (!cpu_mask)
-+		cpu_mask = cpu_online_mask;
- 
--	hmask_val = 0;
--	hbase = 0;
--	for_each_set_bit(hartid, hart_mask, NR_CPUS) {
--		if (hmask_val && ((hbase + BITS_PER_LONG) <= hartid)) {
-+	for_each_cpu(cpuid, cpu_mask) {
-+		hartid = cpuid_to_hartid_map(cpuid);
-+		if (hmask && ((hbase + BITS_PER_LONG) <= hartid)) {
- 			ret = sbi_ecall(SBI_EXT_IPI, SBI_EXT_IPI_SEND_IPI,
--					hmask_val, hbase, 0, 0, 0, 0);
-+					hmask, hbase, 0, 0, 0, 0);
- 			if (ret.error)
- 				goto ecall_failed;
--			hmask_val = 0;
-+			hmask = 0;
- 			hbase = 0;
- 		}
--		if (!hmask_val)
-+		if (!hmask)
- 			hbase = hartid;
--		hmask_val |= 1UL << (hartid - hbase);
-+		hmask |= 1UL << (hartid - hbase);
- 	}
- 
--	if (hmask_val) {
-+	if (hmask) {
- 		ret = sbi_ecall(SBI_EXT_IPI, SBI_EXT_IPI_SEND_IPI,
--				hmask_val, hbase, 0, 0, 0, 0);
-+				hmask, hbase, 0, 0, 0, 0);
- 		if (ret.error)
- 			goto ecall_failed;
- 	}
-@@ -251,11 +282,11 @@ static int __sbi_send_ipi_v02(const unsigned long *hart_mask)
- ecall_failed:
- 	result = sbi_err_map_linux_errno(ret.error);
- 	pr_err("%s: hbase = [%lu] hmask = [0x%lx] failed (error [%d])\n",
--	       __func__, hbase, hmask_val, result);
-+	       __func__, hbase, hmask, result);
- 	return result;
- }
- 
--static int __sbi_rfence_v02_call(unsigned long fid, unsigned long hmask_val,
-+static int __sbi_rfence_v02_call(unsigned long fid, unsigned long hmask,
- 				 unsigned long hbase, unsigned long start,
- 				 unsigned long size, unsigned long arg4,
- 				 unsigned long arg5)
-@@ -266,31 +297,31 @@ static int __sbi_rfence_v02_call(unsigned long fid, unsigned long hmask_val,
- 
- 	switch (fid) {
- 	case SBI_EXT_RFENCE_REMOTE_FENCE_I:
--		ret = sbi_ecall(ext, fid, hmask_val, hbase, 0, 0, 0, 0);
-+		ret = sbi_ecall(ext, fid, hmask, hbase, 0, 0, 0, 0);
- 		break;
- 	case SBI_EXT_RFENCE_REMOTE_SFENCE_VMA:
--		ret = sbi_ecall(ext, fid, hmask_val, hbase, start,
-+		ret = sbi_ecall(ext, fid, hmask, hbase, start,
- 				size, 0, 0);
- 		break;
- 	case SBI_EXT_RFENCE_REMOTE_SFENCE_VMA_ASID:
--		ret = sbi_ecall(ext, fid, hmask_val, hbase, start,
-+		ret = sbi_ecall(ext, fid, hmask, hbase, start,
- 				size, arg4, 0);
- 		break;
- 
- 	case SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA:
--		ret = sbi_ecall(ext, fid, hmask_val, hbase, start,
-+		ret = sbi_ecall(ext, fid, hmask, hbase, start,
- 				size, 0, 0);
- 		break;
- 	case SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA_VMID:
--		ret = sbi_ecall(ext, fid, hmask_val, hbase, start,
-+		ret = sbi_ecall(ext, fid, hmask, hbase, start,
- 				size, arg4, 0);
- 		break;
- 	case SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA:
--		ret = sbi_ecall(ext, fid, hmask_val, hbase, start,
-+		ret = sbi_ecall(ext, fid, hmask, hbase, start,
- 				size, 0, 0);
- 		break;
- 	case SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA_ASID:
--		ret = sbi_ecall(ext, fid, hmask_val, hbase, start,
-+		ret = sbi_ecall(ext, fid, hmask, hbase, start,
- 				size, arg4, 0);
- 		break;
- 	default:
-@@ -302,43 +333,39 @@ static int __sbi_rfence_v02_call(unsigned long fid, unsigned long hmask_val,
- 	if (ret.error) {
- 		result = sbi_err_map_linux_errno(ret.error);
- 		pr_err("%s: hbase = [%lu] hmask = [0x%lx] failed (error [%d])\n",
--		       __func__, hbase, hmask_val, result);
-+		       __func__, hbase, hmask, result);
- 	}
- 
- 	return result;
- }
- 
--static int __sbi_rfence_v02(int fid, const unsigned long *hart_mask,
-+static int __sbi_rfence_v02(int fid, const struct cpumask *cpu_mask,
- 			    unsigned long start, unsigned long size,
- 			    unsigned long arg4, unsigned long arg5)
- {
--	unsigned long hmask_val, hartid, hbase;
--	struct cpumask tmask;
-+	unsigned long hartid, cpuid, hmask = 0, hbase = 0;
- 	int result;
- 
--	if (!hart_mask || !(*hart_mask)) {
--		riscv_cpuid_to_hartid_mask(cpu_online_mask, &tmask);
--		hart_mask = cpumask_bits(&tmask);
--	}
-+	if (!cpu_mask)
-+		cpu_mask = cpu_online_mask;
- 
--	hmask_val = 0;
--	hbase = 0;
--	for_each_set_bit(hartid, hart_mask, NR_CPUS) {
--		if (hmask_val && ((hbase + BITS_PER_LONG) <= hartid)) {
--			result = __sbi_rfence_v02_call(fid, hmask_val, hbase,
-+	for_each_cpu(cpuid, cpu_mask) {
-+		hartid = cpuid_to_hartid_map(cpuid);
-+		if (hmask && ((hbase + BITS_PER_LONG) <= hartid)) {
-+			result = __sbi_rfence_v02_call(fid, hmask, hbase,
- 						       start, size, arg4, arg5);
- 			if (result)
- 				return result;
--			hmask_val = 0;
-+			hmask = 0;
- 			hbase = 0;
- 		}
--		if (!hmask_val)
-+		if (!hmask)
- 			hbase = hartid;
--		hmask_val |= 1UL << (hartid - hbase);
-+		hmask |= 1UL << (hartid - hbase);
- 	}
- 
--	if (hmask_val) {
--		result = __sbi_rfence_v02_call(fid, hmask_val, hbase,
-+	if (hmask) {
-+		result = __sbi_rfence_v02_call(fid, hmask, hbase,
- 					       start, size, arg4, arg5);
- 		if (result)
- 			return result;
-@@ -360,44 +387,44 @@ void sbi_set_timer(uint64_t stime_value)
- 
- /**
-  * sbi_send_ipi() - Send an IPI to any hart.
-- * @hart_mask: A cpu mask containing all the target harts.
-+ * @cpu_mask: A cpu mask containing all the target harts.
-  *
-  * Return: 0 on success, appropriate linux error code otherwise.
-  */
--int sbi_send_ipi(const unsigned long *hart_mask)
-+int sbi_send_ipi(const struct cpumask *cpu_mask)
- {
--	return __sbi_send_ipi(hart_mask);
-+	return __sbi_send_ipi(cpu_mask);
- }
- EXPORT_SYMBOL(sbi_send_ipi);
- 
- /**
-  * sbi_remote_fence_i() - Execute FENCE.I instruction on given remote harts.
-- * @hart_mask: A cpu mask containing all the target harts.
-+ * @cpu_mask: A cpu mask containing all the target harts.
-  *
-  * Return: 0 on success, appropriate linux error code otherwise.
-  */
--int sbi_remote_fence_i(const unsigned long *hart_mask)
-+int sbi_remote_fence_i(const struct cpumask *cpu_mask)
- {
- 	return __sbi_rfence(SBI_EXT_RFENCE_REMOTE_FENCE_I,
--			    hart_mask, 0, 0, 0, 0);
-+			    cpu_mask, 0, 0, 0, 0);
- }
- EXPORT_SYMBOL(sbi_remote_fence_i);
- 
- /**
-  * sbi_remote_sfence_vma() - Execute SFENCE.VMA instructions on given remote
-  *			     harts for the specified virtual address range.
-- * @hart_mask: A cpu mask containing all the target harts.
-+ * @cpu_mask: A cpu mask containing all the target harts.
-  * @start: Start of the virtual address
-  * @size: Total size of the virtual address range.
-  *
-  * Return: 0 on success, appropriate linux error code otherwise.
-  */
--int sbi_remote_sfence_vma(const unsigned long *hart_mask,
-+int sbi_remote_sfence_vma(const struct cpumask *cpu_mask,
- 			   unsigned long start,
- 			   unsigned long size)
- {
- 	return __sbi_rfence(SBI_EXT_RFENCE_REMOTE_SFENCE_VMA,
--			    hart_mask, start, size, 0, 0);
-+			    cpu_mask, start, size, 0, 0);
- }
- EXPORT_SYMBOL(sbi_remote_sfence_vma);
- 
-@@ -405,38 +432,38 @@ EXPORT_SYMBOL(sbi_remote_sfence_vma);
-  * sbi_remote_sfence_vma_asid() - Execute SFENCE.VMA instructions on given
-  * remote harts for a virtual address range belonging to a specific ASID.
-  *
-- * @hart_mask: A cpu mask containing all the target harts.
-+ * @cpu_mask: A cpu mask containing all the target harts.
-  * @start: Start of the virtual address
-  * @size: Total size of the virtual address range.
-  * @asid: The value of address space identifier (ASID).
-  *
-  * Return: 0 on success, appropriate linux error code otherwise.
-  */
--int sbi_remote_sfence_vma_asid(const unsigned long *hart_mask,
-+int sbi_remote_sfence_vma_asid(const struct cpumask *cpu_mask,
- 				unsigned long start,
- 				unsigned long size,
- 				unsigned long asid)
- {
- 	return __sbi_rfence(SBI_EXT_RFENCE_REMOTE_SFENCE_VMA_ASID,
--			    hart_mask, start, size, asid, 0);
-+			    cpu_mask, start, size, asid, 0);
- }
- EXPORT_SYMBOL(sbi_remote_sfence_vma_asid);
- 
- /**
-  * sbi_remote_hfence_gvma() - Execute HFENCE.GVMA instructions on given remote
-  *			   harts for the specified guest physical address range.
-- * @hart_mask: A cpu mask containing all the target harts.
-+ * @cpu_mask: A cpu mask containing all the target harts.
-  * @start: Start of the guest physical address
-  * @size: Total size of the guest physical address range.
-  *
-  * Return: None
-  */
--int sbi_remote_hfence_gvma(const unsigned long *hart_mask,
-+int sbi_remote_hfence_gvma(const struct cpumask *cpu_mask,
- 			   unsigned long start,
- 			   unsigned long size)
- {
- 	return __sbi_rfence(SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA,
--			    hart_mask, start, size, 0, 0);
-+			    cpu_mask, start, size, 0, 0);
- }
- EXPORT_SYMBOL_GPL(sbi_remote_hfence_gvma);
- 
-@@ -444,38 +471,38 @@ EXPORT_SYMBOL_GPL(sbi_remote_hfence_gvma);
-  * sbi_remote_hfence_gvma_vmid() - Execute HFENCE.GVMA instructions on given
-  * remote harts for a guest physical address range belonging to a specific VMID.
-  *
-- * @hart_mask: A cpu mask containing all the target harts.
-+ * @cpu_mask: A cpu mask containing all the target harts.
-  * @start: Start of the guest physical address
-  * @size: Total size of the guest physical address range.
-  * @vmid: The value of guest ID (VMID).
-  *
-  * Return: 0 if success, Error otherwise.
-  */
--int sbi_remote_hfence_gvma_vmid(const unsigned long *hart_mask,
-+int sbi_remote_hfence_gvma_vmid(const struct cpumask *cpu_mask,
- 				unsigned long start,
- 				unsigned long size,
- 				unsigned long vmid)
- {
- 	return __sbi_rfence(SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA_VMID,
--			    hart_mask, start, size, vmid, 0);
-+			    cpu_mask, start, size, vmid, 0);
- }
- EXPORT_SYMBOL(sbi_remote_hfence_gvma_vmid);
- 
- /**
-  * sbi_remote_hfence_vvma() - Execute HFENCE.VVMA instructions on given remote
-  *			     harts for the current guest virtual address range.
-- * @hart_mask: A cpu mask containing all the target harts.
-+ * @cpu_mask: A cpu mask containing all the target harts.
-  * @start: Start of the current guest virtual address
-  * @size: Total size of the current guest virtual address range.
-  *
-  * Return: None
-  */
--int sbi_remote_hfence_vvma(const unsigned long *hart_mask,
-+int sbi_remote_hfence_vvma(const struct cpumask *cpu_mask,
- 			   unsigned long start,
- 			   unsigned long size)
- {
- 	return __sbi_rfence(SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA,
--			    hart_mask, start, size, 0, 0);
-+			    cpu_mask, start, size, 0, 0);
- }
- EXPORT_SYMBOL(sbi_remote_hfence_vvma);
- 
-@@ -484,20 +511,20 @@ EXPORT_SYMBOL(sbi_remote_hfence_vvma);
-  * remote harts for current guest virtual address range belonging to a specific
-  * ASID.
-  *
-- * @hart_mask: A cpu mask containing all the target harts.
-+ * @cpu_mask: A cpu mask containing all the target harts.
-  * @start: Start of the current guest virtual address
-  * @size: Total size of the current guest virtual address range.
-  * @asid: The value of address space identifier (ASID).
-  *
-  * Return: None
-  */
--int sbi_remote_hfence_vvma_asid(const unsigned long *hart_mask,
-+int sbi_remote_hfence_vvma_asid(const struct cpumask *cpu_mask,
- 				unsigned long start,
- 				unsigned long size,
- 				unsigned long asid)
- {
- 	return __sbi_rfence(SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA_ASID,
--			    hart_mask, start, size, asid, 0);
-+			    cpu_mask, start, size, asid, 0);
- }
- EXPORT_SYMBOL(sbi_remote_hfence_vvma_asid);
- 
-@@ -564,11 +591,7 @@ long sbi_get_mimpid(void)
- 
- static void sbi_send_cpumask_ipi(const struct cpumask *target)
- {
--	struct cpumask hartid_mask;
--
--	riscv_cpuid_to_hartid_mask(target, &hartid_mask);
--
--	sbi_send_ipi(cpumask_bits(&hartid_mask));
-+	sbi_send_ipi(target);
- }
- 
- static const struct riscv_ipi_ops sbi_ipi_ops = {
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index 2f6da845c9ae..b5d30ea92292 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -59,16 +59,6 @@ int riscv_hartid_to_cpuid(int hartid)
- 	return -ENOENT;
- }
- 
--void riscv_cpuid_to_hartid_mask(const struct cpumask *in, struct cpumask *out)
--{
--	int cpu;
--
--	cpumask_clear(out);
--	for_each_cpu(cpu, in)
--		cpumask_set_cpu(cpuid_to_hartid_map(cpu), out);
--}
--EXPORT_SYMBOL_GPL(riscv_cpuid_to_hartid_mask);
--
- bool arch_match_cpu_phys_id(int cpu, u64 phys_id)
- {
- 	return phys_id == cpuid_to_hartid_map(cpu);
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index bd82375db51a..622f226454d5 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -96,7 +96,7 @@ void __init setup_smp(void)
- 		if (cpuid >= NR_CPUS) {
- 			pr_warn("Invalid cpuid [%d] for hartid [%d]\n",
- 				cpuid, hart);
--			break;
-+			continue;
- 		}
- 
- 		cpuid_to_hartid_map(cpuid) = hart;
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 9ffd0255af43..81702a4829ae 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -114,7 +114,6 @@ static bool stage2_get_leaf_entry(struct kvm *kvm, gpa_t addr,
- 
- static void stage2_remote_tlb_flush(struct kvm *kvm, u32 level, gpa_t addr)
- {
--	struct cpumask hmask;
- 	unsigned long size = PAGE_SIZE;
- 	struct kvm_vmid *vmid = &kvm->arch.vmid;
- 
-@@ -127,8 +126,7 @@ static void stage2_remote_tlb_flush(struct kvm *kvm, u32 level, gpa_t addr)
- 	 * where the Guest/VM is running.
- 	 */
- 	preempt_disable();
--	riscv_cpuid_to_hartid_mask(cpu_online_mask, &hmask);
--	sbi_remote_hfence_gvma_vmid(cpumask_bits(&hmask), addr, size,
-+	sbi_remote_hfence_gvma_vmid(cpu_online_mask, addr, size,
- 				    READ_ONCE(vmid->vmid));
- 	preempt_enable();
- }
-diff --git a/arch/riscv/kvm/vcpu_sbi_replace.c b/arch/riscv/kvm/vcpu_sbi_replace.c
-index 67a64db1efc9..734b38b1846b 100644
---- a/arch/riscv/kvm/vcpu_sbi_replace.c
-+++ b/arch/riscv/kvm/vcpu_sbi_replace.c
-@@ -80,7 +80,7 @@ static int kvm_sbi_ext_rfence_handler(struct kvm_vcpu *vcpu, struct kvm_run *run
- 				      struct kvm_cpu_trap *utrap, bool *exit)
- {
- 	int i, ret = 0;
--	struct cpumask cm, hm;
-+	struct cpumask cm;
- 	struct kvm_vcpu *tmp;
- 	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
- 	unsigned long hmask = cp->a0;
-@@ -88,7 +88,6 @@ static int kvm_sbi_ext_rfence_handler(struct kvm_vcpu *vcpu, struct kvm_run *run
- 	unsigned long funcid = cp->a6;
- 
- 	cpumask_clear(&cm);
--	cpumask_clear(&hm);
- 	kvm_for_each_vcpu(i, tmp, vcpu->kvm) {
- 		if (hbase != -1UL) {
- 			if (tmp->vcpu_id < hbase)
-@@ -101,17 +100,15 @@ static int kvm_sbi_ext_rfence_handler(struct kvm_vcpu *vcpu, struct kvm_run *run
- 		cpumask_set_cpu(tmp->cpu, &cm);
- 	}
- 
--	riscv_cpuid_to_hartid_mask(&cm, &hm);
--
- 	switch (funcid) {
- 	case SBI_EXT_RFENCE_REMOTE_FENCE_I:
--		ret = sbi_remote_fence_i(cpumask_bits(&hm));
-+		ret = sbi_remote_fence_i(&cm);
- 		break;
- 	case SBI_EXT_RFENCE_REMOTE_SFENCE_VMA:
--		ret = sbi_remote_hfence_vvma(cpumask_bits(&hm), cp->a2, cp->a3);
-+		ret = sbi_remote_hfence_vvma(&cm, cp->a2, cp->a3);
- 		break;
- 	case SBI_EXT_RFENCE_REMOTE_SFENCE_VMA_ASID:
--		ret = sbi_remote_hfence_vvma_asid(cpumask_bits(&hm), cp->a2,
-+		ret = sbi_remote_hfence_vvma_asid(&cm, cp->a2,
- 						  cp->a3, cp->a4);
- 		break;
- 	case SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA:
-diff --git a/arch/riscv/kvm/vcpu_sbi_v01.c b/arch/riscv/kvm/vcpu_sbi_v01.c
-index 08097d1c13c1..84d7b96874f2 100644
---- a/arch/riscv/kvm/vcpu_sbi_v01.c
-+++ b/arch/riscv/kvm/vcpu_sbi_v01.c
-@@ -38,7 +38,7 @@ static int kvm_sbi_ext_v01_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 	int i, ret = 0;
- 	u64 next_cycle;
- 	struct kvm_vcpu *rvcpu;
--	struct cpumask cm, hm;
-+	struct cpumask cm;
- 	struct kvm *kvm = vcpu->kvm;
- 	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
- 
-@@ -101,15 +101,12 @@ static int kvm_sbi_ext_v01_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 				continue;
- 			cpumask_set_cpu(rvcpu->cpu, &cm);
- 		}
--		riscv_cpuid_to_hartid_mask(&cm, &hm);
- 		if (cp->a7 == SBI_EXT_0_1_REMOTE_FENCE_I)
--			ret = sbi_remote_fence_i(cpumask_bits(&hm));
-+			ret = sbi_remote_fence_i(&cm);
- 		else if (cp->a7 == SBI_EXT_0_1_REMOTE_SFENCE_VMA)
--			ret = sbi_remote_hfence_vvma(cpumask_bits(&hm),
--						cp->a1, cp->a2);
-+			ret = sbi_remote_hfence_vvma(&cm, cp->a1, cp->a2);
- 		else
--			ret = sbi_remote_hfence_vvma_asid(cpumask_bits(&hm),
--						cp->a1, cp->a2, cp->a3);
-+			ret = sbi_remote_hfence_vvma_asid(&cm, cp->a1, cp->a2, cp->a3);
- 		break;
- 	default:
- 		ret = -EINVAL;
-diff --git a/arch/riscv/kvm/vmid.c b/arch/riscv/kvm/vmid.c
-index 2c6253b293bc..1bd4779d124e 100644
---- a/arch/riscv/kvm/vmid.c
-+++ b/arch/riscv/kvm/vmid.c
-@@ -67,7 +67,6 @@ void kvm_riscv_stage2_vmid_update(struct kvm_vcpu *vcpu)
- {
- 	int i;
- 	struct kvm_vcpu *v;
--	struct cpumask hmask;
- 	struct kvm_vmid *vmid = &vcpu->kvm->arch.vmid;
- 
- 	if (!kvm_riscv_stage2_vmid_ver_changed(vmid))
-@@ -102,8 +101,7 @@ void kvm_riscv_stage2_vmid_update(struct kvm_vcpu *vcpu)
- 		 * running, we force VM exits on all host CPUs using IPI and
- 		 * flush all Guest TLBs.
- 		 */
--		riscv_cpuid_to_hartid_mask(cpu_online_mask, &hmask);
--		sbi_remote_hfence_gvma(cpumask_bits(&hmask), 0, 0);
-+		sbi_remote_hfence_gvma(cpu_online_mask, 0, 0);
- 	}
- 
- 	vmid->vmid = vmid_next;
-diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-index 89f81067e09e..6cb7d96ad9c7 100644
---- a/arch/riscv/mm/cacheflush.c
-+++ b/arch/riscv/mm/cacheflush.c
-@@ -67,10 +67,7 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
- 		 */
- 		smp_mb();
- 	} else if (IS_ENABLED(CONFIG_RISCV_SBI)) {
--		cpumask_t hartid_mask;
--
--		riscv_cpuid_to_hartid_mask(&others, &hartid_mask);
--		sbi_remote_fence_i(cpumask_bits(&hartid_mask));
-+		sbi_remote_fence_i(&others);
- 	} else {
- 		on_each_cpu_mask(&others, ipi_remote_fence_i, NULL, 1);
- 	}
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index 64f8201237c2..37ed760d007c 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -32,7 +32,6 @@ static void __sbi_tlb_flush_range(struct mm_struct *mm, unsigned long start,
- 				  unsigned long size, unsigned long stride)
- {
- 	struct cpumask *cmask = mm_cpumask(mm);
--	struct cpumask hmask;
- 	unsigned int cpuid;
- 	bool broadcast;
- 
-@@ -46,9 +45,7 @@ static void __sbi_tlb_flush_range(struct mm_struct *mm, unsigned long start,
- 		unsigned long asid = atomic_long_read(&mm->context.id);
- 
- 		if (broadcast) {
--			riscv_cpuid_to_hartid_mask(cmask, &hmask);
--			sbi_remote_sfence_vma_asid(cpumask_bits(&hmask),
--						   start, size, asid);
-+			sbi_remote_sfence_vma_asid(cmask, start, size, asid);
- 		} else if (size <= stride) {
- 			local_flush_tlb_page_asid(start, asid);
- 		} else {
-@@ -56,9 +53,7 @@ static void __sbi_tlb_flush_range(struct mm_struct *mm, unsigned long start,
- 		}
- 	} else {
- 		if (broadcast) {
--			riscv_cpuid_to_hartid_mask(cmask, &hmask);
--			sbi_remote_sfence_vma(cpumask_bits(&hmask),
--					      start, size);
-+			sbi_remote_sfence_vma(cmask, start, size);
- 		} else if (size <= stride) {
- 			local_flush_tlb_page(start);
- 		} else {
--- 
-2.33.1
+Am 28.12.2021 um 23:08 schrieb Geert Uytterhoeven:
+> Hi Niklas,
+>
+> On Mon, Dec 27, 2021 at 5:44 PM Niklas Schnelle <schnelle@linux.ibm.com> wrote:
+>> We introduce a new HAS_IOPORT Kconfig option to gate support for
+>> I/O port access. In a future patch HAS_IOPORT=n will disable compilation
+>> of the I/O accessor functions inb()/outb() and friends on architectures
+>> which can not meaningfully support legacy I/O spaces. On these platforms
+>> inb()/outb() etc are currently just stubs in asm-generic/io.h which when
+>> called will cause a NULL pointer access which some compilers actually
+>> detect and warn about.
+>>
+>> The dependencies on HAS_IOPORT in drivers as well as ifdefs for
+>> HAS_IOPORT specific sections will be added in subsequent patches on
+>> a per subsystem basis. Then a final patch will ifdef the I/O access
+>> functions on HAS_IOPORT thus turning any use not gated by HAS_IOPORT
+>> into a compile-time warning.
+>>
+>> Link: https://lore.kernel.org/lkml/CAHk-=wg80je=K7madF4e7WrRNp37e3qh6y10Svhdc7O8SZ_-8g@mail.gmail.com/
+>> Co-developed-by: Arnd Bergmann <arnd@kernel.org>
+>> Signed-off-by: Arnd Bergmann <arnd@kernel.org>
+>> Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
+>
+> Thanks for your patch!
+>
+>> --- a/arch/m68k/Kconfig
+>> +++ b/arch/m68k/Kconfig
+>> @@ -16,6 +16,7 @@ config M68K
+>>         select GENERIC_CPU_DEVICES
+>>         select GENERIC_IOMAP
+>>         select GENERIC_IRQ_SHOW
+>> +       select HAS_IOPORT
+>>         select HAVE_AOUT if MMU
+>>         select HAVE_ASM_MODVERSIONS
+>>         select HAVE_DEBUG_BUGVERBOSE
+>
+> This looks way too broad to me: most m68k platform do not have I/O
+> port access support.
+>
+> My gut feeling says:
+>
+>     select HAS_IOPORT if PCI || ISA
+>
+> but that might miss some intricate details...
 
+In particular, this misses the Atari ROM port ISA adapter case -
+
+	select HAS_IOPORT if PCI || ISA || ATARI_ROM_ISA
+
+might do instead.
+
+Cheers,
+
+	Michael
+
+
+>
+> Gr{oetje,eeting}s,
+>
+>                         Geert
+>
+> --
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+>
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                 -- Linus Torvalds
+>
 
 _______________________________________________
 linux-riscv mailing list
