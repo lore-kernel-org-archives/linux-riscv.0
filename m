@@ -4,58 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF6ADC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Dec 2021 06:46:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B19EC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Dec 2021 15:58:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:CC:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Acuz+zccj3Rom6IFqzOvrsoyGwleeoxxnI5t0qFt6as=; b=4Q0d2aTCGKeON9I4mbKhNYDEbY
-	J4HHugapF+/6c3SA9sLOYeAGehOXVLcLFqM+xchvKZy32rhZOF1lOsTjk5Pd22zK5Td1n9x27kkRx
-	OG0ORC5TNnc2IN8E2hv9qiquiOa+9R20Z78qQYlq+cmkvWqS5WekFjxshlYf2FSghfNwTL7HDsQQ6
-	VQd9fS1Lmq7wv/8V4/Q79VT8iexXn4lG2f8YvysHJJ0+yX2kJHEwLog+DXAkRKw8JCeg0RhPkvwVu
-	Id+CGSTB6LZKMXut6LWgef5S7Ky4GjGnsM1zUBzmH0bEE8yw436X3OVziMlYUyjjqxFHsDlMy8v86
-	eiUTKs5w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6VQXvE4pgk4Xz/4Yjuc2NQyxVA0CT8nOvD9fO0CNEyM=; b=TdefLw4JIGC9lk
+	d7JlAcSH877o4Lvpisxt+pi4luDa86DfdCFFycEdYNriDmAt5cla/by0VebV5TGpScMqTpRrZdOCJ
+	pQgzpHh+OxuJ2a4pLt6yl/7R/8SLHT0HgQPAGR6Rpdzyx64Hw3E3+mHD4LPYexf9G6sriDK6hx4Hs
+	RmfijPylgRo8f3O4kVoTJKDXBaUvlBMKDF3yW6Tdwa+yLgWEuRQef/mxGe0MSz8q3xMV1K6NJyE4k
+	xLYR2LDKsRG22+Fvd0zwa43l1T9sen4aUGec1ru6DJo62+Tn+IqkmhMFf0deMzzgRLwybBl8R1eCd
+	tbFkXCeQ4Ap5xe9a1uog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n2pCQ-003i8e-8F; Thu, 30 Dec 2021 06:46:06 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1n2xoc-004hkh-3g; Thu, 30 Dec 2021 15:58:06 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n2pCN-003i7M-39
- for linux-riscv@lists.infradead.org; Thu, 30 Dec 2021 06:46:04 +0000
-Received: from kwepemi100004.china.huawei.com (unknown [172.30.72.57])
- by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4JPdxW5nyDzZdsk;
- Thu, 30 Dec 2021 14:42:39 +0800 (CST)
-Received: from kwepemm600003.china.huawei.com (7.193.23.202) by
- kwepemi100004.china.huawei.com (7.221.188.70) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.20; Thu, 30 Dec 2021 14:45:58 +0800
-Received: from [10.174.179.79] (10.174.179.79) by
- kwepemm600003.china.huawei.com (7.193.23.202) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.20; Thu, 30 Dec 2021 14:45:58 +0800
-Subject: Re: [PATCH -next 0/2] riscv/mm: Enable THP migration
-To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>
-CC: <palmerdabbelt@google.com>, <wangkefeng.wang@huawei.com>,
- <anup@brainfault.org>, <alex@ghiti.fr>, <jszhang@kernel.org>,
- <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20211123140638.3852400-1-sunnanyong@huawei.com>
-From: Nanyong Sun <sunnanyong@huawei.com>
-Message-ID: <3c9ba160-74b2-a933-e8e5-9fd5359dc2cc@huawei.com>
-Date: Thu, 30 Dec 2021 14:45:57 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.1
+ id 1n2xoZ-004hjz-T5
+ for linux-riscv@lists.infradead.org; Thu, 30 Dec 2021 15:58:05 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id f9so22057561qtk.4
+ for <linux-riscv@lists.infradead.org>; Thu, 30 Dec 2021 07:58:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=JS+FiKSeT5f12gRyVzfSR3kPguW23wtXqyvRjIMFpqI=;
+ b=mY4GeSgx7uJKI8pLh6VENQs/UsOw59UxMLfMIP92SxOTvBd3AtvzG84MJMmKy8rQPM
+ l6uOY/iTCJ5208cHc8x/gVcl2Sfw0BXV1It7s/zUrRFRlmpQUba1zuur1jHWnHymD7OZ
+ MBFDUhLa5hsEr2NPIoX0oYa6bhi4Wkf+qVCA07asQzJIxyXbsNut3qw0GqiCJcH5NHaj
+ Ifb0GyPQq06hi9W5IygEOWdFg+ojHEM61XH9WWkShFe+ePHNwnjGJ9euNw23bsJ+mpO6
+ 9S04byKVRDWja/EJY9/dDdbIQSpWLz4Evr7ATnRNG6sDycKG1IYtWzvLuo1DSrXyfN3W
+ qr0A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=JS+FiKSeT5f12gRyVzfSR3kPguW23wtXqyvRjIMFpqI=;
+ b=FWGpT3/sJWCdwxdbJ63RuhwTlrEP0NL2qAsDNTLWOppL5NqxLZSDKscj77xasqC4br
+ k5Mu+AmTz6XagTOpc84Q6fEVzCOXSEYitTT5RaJb+Vvfuf+s2C6bk3S3tabDNvLVAXV7
+ h8a5tqX+Qq2b6QMIHi/tgLocjsCQLM+xRhrzLdGnjlLUPPZvGm8C11owB/M3DDpCCVXg
+ 3Ou7eaSK+wI2IDOdHAqOPQPN/gdqJFrXA8MZ6tLZI2X9eJodFrS1tfZaIGoJ++r3teE+
+ bwLpSs9OJvBJrWsf/eF70vWkzziwsi9RKYv9Z2ul7yZuYluWjDVVCJqF2BAP3nh/FZVg
+ vbKA==
+X-Gm-Message-State: AOAM531jL1OrlzmXniglcxH3/MDx6HmeQk3xdPAU7mDcUSBMqxiwzjMa
+ 2WIjxc2XDIOPw8mJH6QMti8=
+X-Google-Smtp-Source: ABdhPJxcBEOdjQ+MgEJANgHQuPK0IPhBHynueDf+BM9DEl4Um31/Zb9ZnZS3E2MR8vMZpjZjYhXWqg==
+X-Received: by 2002:a05:622a:3d1:: with SMTP id
+ k17mr23980588qtx.335.1640879881789; 
+ Thu, 30 Dec 2021 07:58:01 -0800 (PST)
+Received: from localhost.localdomain (071-085-241-167.res.spectrum.com.
+ [71.85.241.167])
+ by smtp.gmail.com with ESMTPSA id k9sm20495402qta.48.2021.12.30.07.58.00
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 30 Dec 2021 07:58:01 -0800 (PST)
+From: hasheddan <georgedanielmangum@gmail.com>
+To: 
+Cc: georgedanielmangum@gmail.com, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Mark Rutland <mark.rutland@arm.com>, Tong Tiangen <tongtiangen@huawei.com>,
+ Guo Ren <guoren@kernel.org>, Vincent Chen <vincent.chen@sifive.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Atish Patra <atish.patra@wdc.com>,
+ Andreas Schwab <schwab@suse.de>, Zihao Yu <yuzihao@ict.ac.cn>,
+ Damien Le Moal <damien.lemoal@wdc.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv/entry: fix misspelling of instruction
+Date: Thu, 30 Dec 2021 10:57:11 -0500
+Message-Id: <20211230155714.1019859-1-georgedanielmangum@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-In-Reply-To: <20211123140638.3852400-1-sunnanyong@huawei.com>
-X-Originating-IP: [10.174.179.79]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- kwepemm600003.china.huawei.com (7.193.23.202)
-X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211229_224603_354467_07B5FF08 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20211230_075803_978045_6D55C892 
+X-CRM114-Status: UNSURE (   9.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,46 +89,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Palmer,
+Changes spelling from instruciton to instruction in comment in entry.S.
 
-This patchset has been sent for one month ago, I was wondering if you could
+Signed-off-by: hasheddan <georgedanielmangum@gmail.com>
+---
+ arch/riscv/kernel/entry.S | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-have a review and give a feedback please, thanks.
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index ed29e9c8f660..728c521dcc85 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -568,7 +568,7 @@ ENTRY(excp_vect_table)
+ 	RISCV_PTR do_trap_ecall_s
+ 	RISCV_PTR do_trap_unknown
+ 	RISCV_PTR do_trap_ecall_m
+-	/* instruciton page fault */
++	/* instruction page fault */
+ 	ALT_PAGE_FAULT(RISCV_PTR do_page_fault)
+ 	RISCV_PTR do_page_fault   /* load page fault */
+ 	RISCV_PTR do_trap_unknown
+-- 
+2.25.1
 
-On 2021/11/23 22:06, Nanyong Sun wrote:
-> This series enables THP migration on riscv via ARCH_ENABLE_THP_MIGRATION.
-> But first this adjusts PAGE_PROT_NONE to satisfy generic memory semantics
-> like the behavior of pmd_present() and pmd_trans_huge() when in
-> THP splitting or migration.
->
-> This feature can reduce the time of THP migration by not splits THP
-> before migration and can guarantee the pages after migration are still
-> contiguous.[1]
->
-> I have tested the below test case on qemu based on riscv after
-> enabling this feature, the throughput of THP migration gains 13x
-> performance improvement:
-> https://github.com/x-y-z/thp-migration-bench
->
-> I also have tested and passed the test cases under
-> tools/testing/selftests/vm.
->
-> [1]: https://lwn.net/Articles/723764/
->
-> Nanyong Sun (2):
->    riscv/mm: Adjust PAGE_PROT_NONE to comply with THP semantics
->    riscv/mm: Enable THP migration
->
->   arch/riscv/Kconfig                    |  1 +
->   arch/riscv/include/asm/pgtable-bits.h |  2 +-
->   arch/riscv/include/asm/pgtable.h      | 16 +++++++++++-----
->   3 files changed, 13 insertions(+), 6 deletions(-)
->
 
 _______________________________________________
 linux-riscv mailing list
