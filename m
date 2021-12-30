@@ -4,114 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 600C5C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Dec 2021 03:45:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE3C4C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Dec 2021 05:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:Cc:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1WqH+MRgKC+ndNyXBLdnHxAPyLw4kXBoCH3xXKth7c8=; b=WtI3BxoJO2M9L2QcqXsc2cvbv9
-	vNXFSRVLtslcJIXKWH8GYvo6p5VNzyfVdJcR8PrSi+CUJGshM6RFc2r3bVMpSNh1xEIp6fJ4n3yVG
-	sZTWmwzwNuW8fJPeIIIxuH9ZLpAVEdehb6SMV7dLWeXrMZvjT8567p1Z+3Yw3hzGlVh/WURCy7YBW
-	tv3/jh6QDvHaVCkxTIjO3TqUgT06Y5vTW+NWLUpQ5/Qw1zuksEZ1aDcTlS3z6gNdFpn+jXyjBNpwa
-	oUjCVdkck46YIvcXlCpVIF7zHswLq2ThMsk/fs2XvUNSqcyMXPh7+YYbeIUC2D6/fFv9IfnGaJRBN
-	8JKhHxug==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2JU8UbAPCOE2ljWiC7PlEWPduiAwHjuwVktxtIYeAkA=; b=ptn7nEcStIls1A
+	QqeCf4MjrmOd6v8PbcVMJj7MFKuNB9jcayf2dF28mIa52Cycs+quxBibFaxnhPLSdo8J6l78+IiTP
+	CFM58BOu947FxJHC8qUNdcotS4pboDTE7bYldprdvf88GKpxCCQ9+3adwSzL8Dg0m1m4dswBMOEfK
+	09NOYL0jwm3SRBz+LIbaArJTdGERT2ACuFEKTBTCFR0FL7y0kN09ZnEVYHkpsUILnVKUZUvkqGWp5
+	eD2Ne9U7jnkrXOCqMvEFWiFgSkbvNbLyD9u/Xzh7qfKKVOdhZk0lo9R6yZ+yvEeuaMvgywqCXPXqW
+	S+79dfpIhmQhp1tf/ojA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n2mNU-003dKX-Jl; Thu, 30 Dec 2021 03:45:20 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1n2nuN-003flZ-Ee; Thu, 30 Dec 2021 05:23:23 +0000
+Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n2mNQ-003dJB-Qg; Thu, 30 Dec 2021 03:45:18 +0000
-Received: by mail-pg1-x532.google.com with SMTP id l10so20358643pgm.7;
- Wed, 29 Dec 2021 19:45:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=subject:to:references:cc:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-transfer-encoding;
- bh=5E1c4uav1w29ypwAHwbdxz4O+xfES0SpMBM/hIdsoE0=;
- b=WbuJzdZv6QdxI4sm1uAN5RK2dB/vxRRAL3AviYD6SfM29AlUSb5I5hMDIqugVgl6q5
- V/7xuA/EOm2Dv0zChCOeqZsFvsMIm7UeuFMBWZAvuAVpy5VWIbHsXe0LO+k7wbZT9XA+
- bKo1QUX3kp7MeKzCaqX8Qy0FWsFH26Y65uXLR/vaqgIBvGoVcBkMmv2ha7gL/lhC+wsc
- 9IDoT4MY3JFxvbdNQp9rzst5K+jmfgdTuMjjeHVOo5kymPqz9E6EMIfWlGg4R2VCRufH
- r5zUkrJO0E2MYAcArK0leS4VFV7M5hYte5KRuaiLgKGVmb4cT/v9GFrgNcGmE2q7OUEY
- IqTg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:subject:to:references:cc:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-transfer-encoding;
- bh=5E1c4uav1w29ypwAHwbdxz4O+xfES0SpMBM/hIdsoE0=;
- b=MVvrS+3llMLs7m1ShXA5GckJZkTuSwawdx+9VuflSI8cr6G+4n+Refac4RWF62XlYq
- RdJtvv8vLK22xVgfxV+Kbm0LdERlOkS1lLmWrFvHHD/vkg1wl0i8/0jIaPVn/ZxhMuPX
- GUhCNj48HEzFynXufTJum1DvJZdic3DFf9JcdoVL3Ej/I8DC6wbqHzyLQTZbE66no0Pd
- HOqejHDGJA5CNOFuAWKcDuMYNWgiEufGmDkcq45RrZoHHEgYdSUgCMIvMGZJOnrhdjUA
- YZxln38jOxZzD//nQZgOHbDZKfWIImA/1GSn2mdTo3sQpa7IgqmPCxF3jUjHSkZj2OVB
- x2eQ==
-X-Gm-Message-State: AOAM530m2i+19i2JUVoqJP4pmicGQZsRpnw1BU2PGA/aWiCCum1nX1gm
- 4VIUa1MQWVxOLsii+RATMbs=
-X-Google-Smtp-Source: ABdhPJzhu0vR0ubHbZDDMdnE240kX84aNyi3i3N9D1mBlwe522lCZMc1R9id41niT15FZfmjs4s+bA==
-X-Received: by 2002:a63:10a:: with SMTP id 10mr26111733pgb.170.1640835913587; 
- Wed, 29 Dec 2021 19:45:13 -0800 (PST)
-Received: from [10.1.1.24] (222-155-5-102-adsl.sparkbb.co.nz. [222.155.5.102])
- by smtp.gmail.com with ESMTPSA id
- pg12sm29480602pjb.4.2021.12.29.19.44.48
- (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Wed, 29 Dec 2021 19:45:12 -0800 (PST)
-Subject: Re: [RFC 02/32] Kconfig: introduce HAS_IOPORT option and select it as
- necessary
-To: Arnd Bergmann <arnd@kernel.org>
-References: <20211227164317.4146918-1-schnelle@linux.ibm.com>
- <20211227164317.4146918-3-schnelle@linux.ibm.com>
- <CAMuHMdXk6VcDryekkMJ3aGFnw4LLWOWMi8M2PwjT81PsOsOBMQ@mail.gmail.com>
- <d406b93a-0f76-d056-3380-65d459d05ea9@gmail.com>
- <CAK8P3a2j-OFUUp+haHoV4PyL-On4EASZ9+59SDqNqmL8Gv_k7Q@mail.gmail.com>
- <1f90f145-219e-1cad-6162-9959d43a27ad@gmail.com>
- <CAK8P3a3NqU-3nUZ9ve=QyPPB5Uep3eK+_hicjjSiP8VuL4FYfA@mail.gmail.com>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
- Niklas Schnelle <schnelle@linux.ibm.com>, Bjorn Helgaas
- <bhelgaas@google.com>, John Garry <john.garry@huawei.com>,
- Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
- Vincent Chen <deanbo422@gmail.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
- Dinh Nguyen <dinguyen@kernel.org>, Chris Zankel <chris@zankel.net>,
- Karol Gugala <kgugala@antmicro.com>, Jeff Dike <jdike@addtoit.com>,
- Yoshinori Sato <ysato@users.sourceforge.jp>,
- Brian Cain <bcain@codeaurora.org>, Heiko Carstens <hca@linux.ibm.com>,
- Richard Henderson <rth@twiddle.net>,
- Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Matt Turner
- <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Michal Simek <monstr@monstr.eu>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Rich Felker <dalias@libc.org>,
- "David S. Miller" <davem@davemloft.net>, Thomas Gleixner
- <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-xtensa@linux-xtensa.org,
- openrisc@lists.librecores.org, linux-s390@vger.kernel.org,
- linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- Greg Ungerer <gerg@linux-m68k.org>
-From: Michael Schmitz <schmitzmic@gmail.com>
-Message-ID: <0211719b-8402-9865-8e5d-5c0a35715816@gmail.com>
-Date: Thu, 30 Dec 2021 16:44:45 +1300
-User-Agent: Mozilla/5.0 (X11; Linux ppc; rv:45.0) Gecko/20100101 Icedove/45.4.0
+ id 1n2nuK-003fko-8c
+ for linux-riscv@lists.infradead.org; Thu, 30 Dec 2021 05:23:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1640841800; x=1672377800;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-id:content-transfer-encoding: mime-version;
+ bh=L1e9498bWz/LtBjJsbEIUS9ddO5rKm/gsYV0E7N8HkA=;
+ b=DjHCsvdU398O/tpAG3wWHGr8zHWJEYGfX0gzK8U+xZKX2xiFPKz89Dsy
+ IE7reOfvxNpoNzAAH1sCb55U4WBxSirtqmBFU9HE/PoANVDVQeT492YC/
+ FLlyD47XpF9g57JZUUuSlP5kPCwMyD6pgIKnEGrrvakRj5XGzS+OQgGNc
+ KCdiL11EnGuxcuyPhHcenIWTN3uKdGmzJB8x8kNpjtx8MxaUlhgVLmHLb
+ Qectj1KHpZH7ZPVk4mWDnY92x0MAJC9qBBg0zcpz66JVHlxJvrDBHG9qo
+ R5Ymqqnn2ef5FWWRhb9lkrEFnh0vS4f5pV34s9fi0bonY4UUlmgZPFTpN Q==;
+X-IronPort-AV: E=Sophos;i="5.88,247,1635177600"; d="scan'208";a="301227765"
+Received: from mail-mw2nam08lp2169.outbound.protection.outlook.com (HELO
+ NAM04-MW2-obe.outbound.protection.outlook.com) ([104.47.73.169])
+ by ob1.hgst.iphmx.com with ESMTP; 30 Dec 2021 13:23:17 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=nNMNZIBRZEvczKXY/7xvSQs4tIH8Z5sMoa1k0IxAa/VcJaeT1droP7gakX7eZ1jPANoewgVOXk+bavA1xKR+xzA+RDUlBQl36Z4GlBxgWOSREbq9NeqThfWhQmb9sexCv5VPOHAySs38/yZFioQvXzs7gNcTUUCGqNMTqlcNOr/mun5SWPDT9DXxGAdavBtdfIM6xqy7y1fDzcLwb2zRMQmUjahfAtIg+temgCFIL5Q2EjajKwjyGRpKyJOv0C30qAbmrbzcqSynZvOhZs5Z7ZRa5AaVGFwBNYTCKolvDRqhI9ju0JzkZoobEGpxBQNqrmzWRxZeeqMzKiRSk69eoQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=L1e9498bWz/LtBjJsbEIUS9ddO5rKm/gsYV0E7N8HkA=;
+ b=j3lsgHCSGiRT1omqR1aMrQcRsaZrOOljEgIINYxNfXcDmHJuxjJ1+kWHS5vsgFvAbuBI1z5K0btYoeJXdjZk2244WkujIw8xqizQvcYSM6JvR9JC5KD8vyMTzKE/CzRUHEm1LEwk3wFDaYyt0L4y8sDT8VqMIesUswRUxcT8eiYZCbrO+rH8otDfBbhIsVcZxG9wm5MykmeDnrCVWJyhAXNz/0Gb1mGh0w9Jy3u7fXH9oyxD2xy8jNLe7FzJelPaV6F7rcISr3Jn4Mbb0fPnl2BWSRsPuNcsxdMbF1nUcl0B0HNqZxBs2PHMb00gpICqnulQrc/4cAqju2kYIyVzMQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=L1e9498bWz/LtBjJsbEIUS9ddO5rKm/gsYV0E7N8HkA=;
+ b=wRxkAyjcBcoJhNFb4c2+xp+6MeNtUBrDnDt0UWi7PVnAVrlZMq0X9FzFYEmY8l7Xelu9ugVgq+nmYhUNklBsG+epoJI6toKZrr5cC+yfywPY8VdX5ePhWte4pYHHEhtAYZ/4ReWANpIZHm+TVO3ca8rwrKQ4O/rbirGnCENI3sA=
+Received: from DM6PR04MB7081.namprd04.prod.outlook.com (2603:10b6:5:244::21)
+ by DM5PR04MB0252.namprd04.prod.outlook.com (2603:10b6:3:6f::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4823.19; Thu, 30 Dec
+ 2021 05:23:16 +0000
+Received: from DM6PR04MB7081.namprd04.prod.outlook.com
+ ([fe80::e58a:8ae5:2f73:35ea]) by DM6PR04MB7081.namprd04.prod.outlook.com
+ ([fe80::e58a:8ae5:2f73:35ea%8]) with mapi id 15.20.4844.013; Thu, 30 Dec 2021
+ 05:23:16 +0000
+From: Damien Le Moal <Damien.LeMoal@wdc.com>
+To: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+ "palmer@dabbelt.com" <palmer@dabbelt.com>, "linux-riscv@lists.infradead.org"
+ <linux-riscv@lists.infradead.org>, "lukas.bulwahn@gmail.com"
+ <lukas.bulwahn@gmail.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>
+CC: "kernel-janitors@vger.kernel.org" <kernel-janitors@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] riscv: canaan: remove useless select of non-existing
+ config SYSCON
+Thread-Topic: [PATCH] riscv: canaan: remove useless select of non-existing
+ config SYSCON
+Thread-Index: AQHX/O3cc7ndk+KhFk2dULDeAuPYaaxKgNQA
+Date: Thu, 30 Dec 2021 05:23:15 +0000
+Message-ID: <4cffedae85c9d847a5285a2f91cb369c48ebe9c9.camel@wdc.com>
+References: <20211229192458.25138-1-lukas.bulwahn@gmail.com>
+In-Reply-To: <20211229192458.25138-1-lukas.bulwahn@gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.42.2 (3.42.2-1.fc35) 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=wdc.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 2a3b6c44-c4db-4d56-a019-08d9cb547b92
+x-ms-traffictypediagnostic: DM5PR04MB0252:EE_
+x-microsoft-antispam-prvs: <DM5PR04MB02526141F8E4FF3043F55E91E7459@DM5PR04MB0252.namprd04.prod.outlook.com>
+wdcipoutbound: EOP-TRUE
+x-ms-oob-tlc-oobclassifiers: OLM:4125;
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: Rh3DddSd3hkGNgReWe9CoKTXFLNmzYg/02ebsGGzTuu109vDMOqnzyY6t5Q3ld1pIOGmux8uogkO8ZAI0JbaT9os7eXB9dzy9+1+YiZ1FIbFYPLCSyZwpl/lM1vawKKuiuS2aHhPizwoGXNC9+QvyRP9ex1vel5/utu88Xfc6puCQd5qUnualmTWhi4TR6RLxDyTo7eQa0NjYHt/1ZJp86dP635jn2KgZWnsWOy+MNpZwYg1M1bKkqBKSRI2DtMc+lfROgq4twH+cQ4RHV33AzOW2atLyotkn7P1mzZVxyYjvpbdYngG86Jy+5mPyWuSdpO7Psgo6gDNG1q4xaDgR6pExkpJblYRgoAcGkSOOERr4CLYbQq7gsDanyWSkWyhZo7IdxpcMx7ieqkUWHqJ+UPWKaIeBo/vzfMO56lGzVl1Bbc235lIuB2Wm6t9edKS+ATgI4vipgBcQ8ehypPNFCY7dRbqTCJJhktsQCzTjqyREybkX8Z5ZlWyZHBjZ/QTwHAqWc4Wj+bCo8XbnrGzEaeJ9t+F6Wk2X9qx/tLC7nkvFLGLg1lyBwXIsyqtjWR+Fv+yMQMNmrLrjdDCOK2+H+kZINso7aNfG3Y63l8DCgjLsS8AduhTgkdEkTb1TZ99F62m7+7rxeSx4jGiRVh26QZLxFrBmpYmkMieQWzgZ84CvueCEGIYOQlAX0Pwupvt9ZyCsDo7s4VsUwt2kwRgjg==
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:DM6PR04MB7081.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(4636009)(366004)(71200400001)(316002)(508600001)(54906003)(4001150100001)(110136005)(2906002)(66946007)(186003)(66446008)(86362001)(38100700002)(5660300002)(26005)(64756008)(4744005)(36756003)(66476007)(91956017)(76116006)(6486002)(38070700005)(6512007)(122000001)(83380400001)(2616005)(8936002)(82960400001)(8676002)(4326008)(6506007)(66556008);
+ DIR:OUT; SFP:1102; 
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Z2MrVnlLN2w4QlA3aFVaTkRzWnVWU2l6UFFoQnhFSHVJaEEvL0xjejltdWV3?=
+ =?utf-8?B?UzFtdHcwY0k4MFJZVXpEU2dBR0wxaUx0V0xsZVk3U1p6dVBVZWE0R2ZTd0pw?=
+ =?utf-8?B?ZjRabTNKSFVleEpwblhvYzZ4YVZHRzUrK3N4ZnpSZ1dsZzJMN2xoRjk5SU5O?=
+ =?utf-8?B?UEl6dDBZOWRjNThMcCt3ajhFcmk2UUZIb2loWDh0Q1dpUS9iMjBLelhHSVRi?=
+ =?utf-8?B?ZWtKbjUvM3J5eGEyZFo1ZmtOZkorTDZQQW1lMytUYXdTT2dzd0pPKzk1UkFv?=
+ =?utf-8?B?YVpaL1hsOWp6ZmRGM0RXRm5rRUdpRDkyS3lMcVE4TVRTZ3VtbGxIclRQdSth?=
+ =?utf-8?B?WWJNUDU5L2FVNHI3eWlWRStwSW1XVTVhanE4aHMvR1JKeDdhYXdiOXh4NGU2?=
+ =?utf-8?B?SFJYeDVwL3hnaWpFdkUvaVJFbkhZeU9DRzBTTFZoaEVCb01JUjVHdzhaNE9s?=
+ =?utf-8?B?V09MT1NRQ1E3b011WFVTb1lRbmw0b2FXTkFwMmc3NDA1MmgvaXJ4dzExOFRU?=
+ =?utf-8?B?TnRyOHpLWi9HT0IwT0hZcmlWWlB5Wmh0R3FOWDdOZmY0Z2NXVjdEcDR4QURB?=
+ =?utf-8?B?Z1psbTZObVIzT2RvZTN1dVlPSlFMZ2Q5WmpSLzRYMk9Kcko4a0VBYlpTc2lC?=
+ =?utf-8?B?QjVHeWtVZzJKdmU4cjFKUVZlWmh0SGw4TUl4cWZWb0VZTVdaYmpTS1c1TmdV?=
+ =?utf-8?B?RXVCWU0rTEZkT21FZjY5d2NocW13MzRiakQvSlFFMFE1ekg4SGp3WEJMVGd6?=
+ =?utf-8?B?RExBTGNWRDhYbk5NM3JPSHRBbUdVU2VwdjdZaisybnRUMHQ2Y3ZzSUZ2elMz?=
+ =?utf-8?B?NjlRZWpIS0xsWUExaUxBZkozQTRpVEtuWGhWTzlhbWlQeC84Tnk5NDlDbWpu?=
+ =?utf-8?B?OXdONmY0cXdsS1FHbDRqWko2WlNSYmFLbHVNdUdmSzVWQ212dXpvT3BRbWJ2?=
+ =?utf-8?B?elljekM3bytiRXMzUkprMDE0cVlYeHM4ZUxaSVAxckZ6dFl2NERxWGliR0pk?=
+ =?utf-8?B?TXlHSDBRQ0I4ajBhQkZpeE1OTEJzZGUrZ1RIS05OdHhLMUxJTFA5Vmd6Tm5O?=
+ =?utf-8?B?WjhzNXYxSWxaUHBoa1hCWDJpakhuY3F6S3Znc1VjRXZQWDlrd1FPK0dWTjg1?=
+ =?utf-8?B?bXUrWmgyVnYvNjR5ZmVULzJGT0dTb1BDRi95OWdZcHVGTURyZUQyNmtXaG1I?=
+ =?utf-8?B?dWN0cmJwOVNqcDFBZGIxUm1QZ1A3Q3JzN2JrV0FUZ0VqRUg1TGlsejFNQkNh?=
+ =?utf-8?B?WW1TVjZFREQ1YkJJWkZLOEc4bzlaUjJCTm1GYnh0MnB3TFBzNUxhWTFiSXVY?=
+ =?utf-8?B?WUt2Si9NYkFKc0RmWGduaGNtRTVhSnR0TzlPVE1YZWk0aWZYRDZ5ZmoxbDVR?=
+ =?utf-8?B?U2dVYXdpTE1WN0JWL1NQckhZQmhWcUk2NUthS2hSSGJIQ2ZiOFFKN1ZsYTB5?=
+ =?utf-8?B?clpLczN3STFrUk1hNWFNN1RGTkxyOHowYmFPRGFEZ0sweFBWSURwV3JrS3Ji?=
+ =?utf-8?B?VUJEbDdTQXJ3TEJZelhyc0tzbWhSVU1UcGJCUjMrS285QkVid2FZUmt4b1hW?=
+ =?utf-8?B?Ui9JcElYanVwV1lvU3ZhV2w4TkczVitmOXM0djhyREIrc29QNmJZbWR5NHgx?=
+ =?utf-8?B?TmtBTS9MR1pkaXhjTVAwQm9GY3FjSkJ0dThrZnNRYnZ6c2FCNVF3Y3BuNTM3?=
+ =?utf-8?B?NE82MkpwSGtrMUdnak9YOEE4ekxJQno1a2ptMVlnS25QdE1KQ1N5ZEVlYVJz?=
+ =?utf-8?B?anFyemFDWXpBcnQzZVFtNk1RczRUR1p5ZFVkMm5NblJIZ3pUVmxzM3RESlYx?=
+ =?utf-8?B?a1FSQk56VWhacXJta3prL2hPV3FaY0pUbXFzZGNUNVhaV0gwTGt6aHFNbVNG?=
+ =?utf-8?B?M3NOdmNSUklDNis0ZFJqa0RYdFJkK251ckRVN0l1Y0p1N3dQR0p3c3luUmlB?=
+ =?utf-8?B?YkhkeUlxWmRCS3pmWkcvTDZIRG9wMTAwN0J6N0Q1V3BKZ0FHK0YzemlYRFl6?=
+ =?utf-8?B?VkZUZ3M5OFl4ejhsdklXNy9BUlcvRWpGdEJvZCs4OXRUcW1TSXhwdEpUYmVt?=
+ =?utf-8?B?bTlvYlRCb0k4VWNCWlpZVXhzT3dPN3gvSXpTNHRISEtJd1RsbWxJMDI0MjVj?=
+ =?utf-8?B?bzVVdXZlWkdEYUxnNTJoVGQyVWZhSTZxUUFjNTdzemtVR3Q4dDhGVmtuWVVm?=
+ =?utf-8?Q?GTeXvoFSw4Xw/lzN3OZaawo=3D?=
+Content-ID: <72E372D5F33F9A4D8544E776B53D4908@namprd04.prod.outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <CAK8P3a3NqU-3nUZ9ve=QyPPB5Uep3eK+_hicjjSiP8VuL4FYfA@mail.gmail.com>
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR04MB7081.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2a3b6c44-c4db-4d56-a019-08d9cb547b92
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Dec 2021 05:23:15.9272 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: qCsFP73SZhY0HDI8J0z2t9AtTxTD+x7UXVbgwB42n4TkuK2srI2aqCWdkMfj0B9YNDoebyLCCdFXmbU/XfyqcA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR04MB0252
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211229_194516_914534_D0AEEF6E 
-X-CRM114-Status: GOOD (  26.45  )
+X-CRM114-CacheID: sfid-20211229_212320_345397_F758C554 
+X-CRM114-Status: GOOD (  19.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,94 +166,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+On Wed, 2021-12-29 at 20:24 +0100, Lukas Bulwahn wrote:
+> The config SYSCON never existed in the kernel repository; so, the select of
+> that config in ./drivers/soc/canaan/Kconfig has no effect.
+> 
+> Presumably, this was just some mistake, assuming some symmetry in handling
+> and naming of configs that simply does not exist.
+> 
+> Remove this useless select of a non-existing config.
+> 
+> Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+> ---
+>  drivers/soc/canaan/Kconfig | 1 -
+>  1 file changed, 1 deletion(-)
+> 
+> diff --git a/drivers/soc/canaan/Kconfig b/drivers/soc/canaan/Kconfig
+> index 853096b7e84c..2527cf5757ec 100644
+> --- a/drivers/soc/canaan/Kconfig
+> +++ b/drivers/soc/canaan/Kconfig
+> @@ -5,7 +5,6 @@ config SOC_K210_SYSCTL
+>  	depends on RISCV && SOC_CANAAN && OF
+>  	default SOC_CANAAN
+>          select PM
+> -        select SYSCON
+>          select MFD_SYSCON
+>  	help
+>  	  Canaan Kendryte K210 SoC system controller driver.
 
-Am 30.12.2021 um 14:48 schrieb Arnd Bergmann:
-> On Tue, Dec 28, 2021 at 11:15 PM Michael Schmitz <schmitzmic@gmail.com> wrote:
->> Am 29.12.2021 um 16:41 schrieb Arnd Bergmann:
->>> On Tue, Dec 28, 2021 at 8:20 PM Michael Schmitz <schmitzmic@gmail.com> wrote:
->> I'd hope not - we spent some effort to make sure setting ATARI_ROM_ISA
->> does not affect other m68k platforms when e.g. building multiplatform
->> kernels.
->
-> Ok
->
->> Replacing inb() by readb() without any address translation won't do much
->> good for m68k though - addresses in the traditional ISA I/O port range
->> would hit the (unmapped) zero page.
->
-> Correct, this is exactly the problem that Niklas is trying to solve here:
-> we do have drivers that hit this bug, and on s390 clang actually produces
-> a compile-time error for drivers that cause a NULL pointer dereference
-> this way.
+My bad :)
 
-Thanks for clarifying - I only saw Geert's CC and failed to go back to 
-the start of the thread.
+Reviewed-by: Damien Le Moal <damien.lemoal@wdc.com>
 
-> What some other architectures do is to rely on inb()/outb() to have a
-> zero-based offset, and use an io_offset in PCI buses to ensure that a
-> low port number on the bus gets translated into a pointer value for the
-> virtual mapping in the kernel, which is then represented as an unsigned
-> int.
-
-M54xx does just that for Coldfire:
-
-arch/m68k/include/asm/io_no.h:
-#define PCI_IO_PA	0xf8000000		/* Host physical address */
-
-(used to set PCI BAR mappings, so matches your definition above).
-
-All other (MMU) m68k users of inb()/outb() apply an io_offset in the 
-platform specific address translation:
-
-arch/m68k/include/asm/io_mm.h:
-
-#define q40_isa_io_base  0xff400000
-#define enec_isa_read_base  0xfffa0000
-#define enec_isa_write_base 0xfffb0000
-
-arch/m68k/include/asm/amigayle.h:
-
-#define GAYLE_IO                (0xa20000+zTwoBase)     /* 16bit and 
-even 8bit registers */
-#define GAYLE_IO_8BITODD        (0xa30000+zTwoBase)     /* odd 8bit 
-registers */
-
-(all constants used in address translation inlines that are used by the 
-m68k inb()/outb() macros - you can call that the poor man's version of 
-PCI BAR mappings ...).
-
-So as long as support for any of the m68k PCI or ISA bridges is selected 
-in the kernel config, the appropriate IO space mapping is applied. If no 
-support for PCI or ISA bridges is selected, we already fall back to zero 
-offset mapping (but as far as I can tell, it shouldn't be possible to 
-build a kernel without bridge support but drivers that require it).
-
->
-> As this is indistinguishable from architectures that just don't have
-> a base address for I/O ports (we unfortunately picked 0 as the default
-> PCI_IOBASE value), my suggestion was to start marking architectures
-> that may have this problem as using HAS_IOPORT in order to keep
-> the existing behavior unchanged. If m68k does not suffer from this,
-> making HAS_IOPORT conditional on those config options that actually
-> need it would of course be best.
-
-Following your description, HAS_IOPORT would be required for neither of 
-PCI, ISA or ATARI_ROM_ISA ??
-
-Cheers,
-
-	Michael
-
-
->
->          Arnd
->
+-- 
+Damien Le Moal
+Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
