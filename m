@@ -4,79 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F057C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Dec 2021 16:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8E3DC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Dec 2021 06:15:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pJpmn8jvnuT59R/FL48kFOlpbRjS9UjLX8YDP2Gkn3w=; b=GBNxiSsrq9qOXu
-	hR6B6w1FYVBrI7C6O0no5Bxj9UGgOWBoAvIcWNv/j1KTUYJAlNj38xFwXjryxbRhZPzYVwd3Y0ICK
-	+Cvuwai+D12TdEXC0v7hHrtIlfG8jMITZWlxqb0hxr8gBDe9/3zOLRdOnGMy4OHMr1joEgGRvFrVj
-	sOEOnAhsLUt0I0YeBC2n6RyRQQIwqg20CPfM3pnhCbKnCqJV5eryUR3atloW6vpZj4xTCdjpLyTZ8
-	RxQcbqqdJs2wymZOpk/cAVtVjLxP7sJKX0y33RbqN+GgzaJ2VXoHpEO8fZYHXrmktpCcT2YQXp8N9
-	bUmZds6jvUzGfw8lnb9Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xih2ARFHb3nby6I8V7qTdITlYfk9D7fGdx39Op7J+eo=; b=U4JhVWFJiyJQvM
+	mxfd+mcVbZfKk/n+u5UV0/DLaZ/ldLud8SCru+RHbI+Anr90Av3EoxnRztVN3Ltyho0tYMQjszULn
+	8EajYAyZmP4sv/dvWMVo8zWEMxcgLma6BmieX6LhpFiYauYKlIML+rPD4Cap+L0U7Tzj4t3qnmAKU
+	Qo3yoaVbof0o27sGT//E3xA94kIC9BUUueYgB/3YfI1SVPGmXPYpPwThLQxoxmrKMe21idbPQyeF1
+	bNE0QhjTXBz0hSgh4r5iBJ9TrcsdgQZhjCOFF31cI15gmGj8KKtvX+QrV3PgePtCP5TQBCsIJvXOG
+	VCsAM+IGxdvallqjqPEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n2y9K-004kAg-L1; Thu, 30 Dec 2021 16:19:30 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1n3BC2-005jqK-Hs; Fri, 31 Dec 2021 06:15:10 +0000
+Received: from resqmta-a1p-077724.sys.comcast.net ([2001:558:fd01:2bb4::5])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n2y9H-004k9P-O8
- for linux-riscv@lists.infradead.org; Thu, 30 Dec 2021 16:19:29 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id E3B7AB81C77
- for <linux-riscv@lists.infradead.org>; Thu, 30 Dec 2021 16:19:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB5DEC36AEC
- for <linux-riscv@lists.infradead.org>; Thu, 30 Dec 2021 16:19:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1640881164;
- bh=arlWW/UtCGQmMH5E2Pogag5ZNNfDUyUhSMYEtoB3GwU=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=nallgZfdxZjoVCuHYZ4XlZvCFvFjCagAjfY/7DnXl6uLT3rQXZhTqfX8CxA2KfD5s
- ggMTdGtk4qkhT64rRpeqYTGP0AX7rd5U9SpMvtI5EA3ixEunFcmItWDP+Dny71TOkU
- 2N+6dF/itqqOSChjsVTnbC/RnZjqsumYlT6QDIepmBYHjzM3WHIoXjPTsXx998T4MH
- AbHzEa9iCb3R8ZQuSPQxkbKl22DO8o6HOrukaINf9SUG+j2QRXNBifWfkcqIVJpn3F
- 2oqxztcYkbMDMWDWXHLWL9/qwAxBjNURJG+yFFF4BLBbRogQN0MJupw1+goKz9KbcM
- BfBhOeAdyvsxQ==
-Received: by mail-wr1-f45.google.com with SMTP id s1so51459990wrg.1
- for <linux-riscv@lists.infradead.org>; Thu, 30 Dec 2021 08:19:24 -0800 (PST)
-X-Gm-Message-State: AOAM531xVsrSN822AZUuueTThAKjzw1fHoX1+gaR7A0SOGZydUOVlFVk
- P64WVeDKSIKYkVqziqzVVtvTf5Tgk6FIbr3Mi9g=
-X-Google-Smtp-Source: ABdhPJzh0JRUZ8uDOReUUyLcA2Hj2LVO0R3PZ4wX3Eigt9m04vC/yXSrbqUBq3MAhxfR6QKgikfyV3h0Maj9zD2gdAs=
-X-Received: by 2002:a5d:6989:: with SMTP id g9mr25095895wru.12.1640881163018; 
- Thu, 30 Dec 2021 08:19:23 -0800 (PST)
+ id 1n3BC0-005jpt-GH
+ for linux-riscv@lists.infradead.org; Fri, 31 Dec 2021 06:15:09 +0000
+Received: from resomta-a1p-077059.sys.comcast.net ([96.103.145.240])
+ by resqmta-a1p-077724.sys.comcast.net with ESMTP
+ id 3BAPnbExuaNgs3BBpndrxH; Fri, 31 Dec 2021 06:14:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=comcast.net;
+ s=20190202a; t=1640931297;
+ bh=B8RJ34LocrDqPDwZMnx/NOtlAthCdFGYGjocIeA+vIk=;
+ h=Received:Received:From:To:Subject:Date:Message-Id:MIME-Version;
+ b=cuEvwyxfet1tSFhlThUWp+5YvhjmsGNCS5u0X00QSCNM3QcC20vezYsp4ZPv/GdeF
+ /onysaPVDX5/+4yd98QuOIP6gnjehgyog/tcr7TQgC5J4obrOmQ97hr7dwB0zkFWNH
+ +ZAnBQKxfQSfUkcTmg5SLsS8rOm9l1X7y7Mw1YKUPIffen+WH2HkXAqFNgdteHhni6
+ K7UkvWYwKxnZ96v9GWD2kGU+QRgGplshRrAuqgd25SjITuKfMhxTfGf/1XReYct8J4
+ PTLfi3N3lwnRC8Msj3Ju0HMVmGjZ9JYT20rqzWKYaBWVq9zbNhcDMsvZgsrIQ5uIQn
+ lML771UGXBAeg==
+Received: from w6rz.silicon ([IPv6:2601:647:4700:284:9d56:573c:4e75:fa6c])
+ by resomta-a1p-077059.sys.comcast.net with ESMTPA
+ id 3BBFnSy4GhrTt3BBNnq2cX; Fri, 31 Dec 2021 06:14:32 +0000
+X-Xfinity-VMeta: sc=-100.00;st=legit
+From: Ron Economos <w6rz@comcast.net>
+To: Dimitri John Ledkov <dimitri.ledkov@canonical.com>
+Cc: Ron Economos <w6rz@comcast.net>, Rob Herring <robh+dt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Vincent Pelletier <plr.vincent@gmail.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Qiu Wenbo <qiuwenbo@kylinos.com.cn>, Yash Shah <yash.shah@sifive.com>,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: dts: sifive unmatched: Add gpio poweroff
+Date: Thu, 30 Dec 2021 22:11:06 -0800
+Message-Id: <20211231061110.89403-1-w6rz@comcast.net>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20211227164317.4146918-1-schnelle@linux.ibm.com>
- <20211227164317.4146918-31-schnelle@linux.ibm.com>
- <YcrIHxTDipVNUuCA@kroah.com>
- <b9d0c0b88ef66f9beb51a880e765177670a76394.camel@linux.ibm.com>
- <Ycw6kXhd+NV0GMWc@kroah.com>
-In-Reply-To: <Ycw6kXhd+NV0GMWc@kroah.com>
-From: Arnd Bergmann <arnd@kernel.org>
-Date: Thu, 30 Dec 2021 11:19:05 -0500
-X-Gmail-Original-Message-ID: <CAK8P3a1p6_=s4XcJiJSkuZJBrCpwCXQ1MX6EadY00KdypVQisg@mail.gmail.com>
-Message-ID: <CAK8P3a1p6_=s4XcJiJSkuZJBrCpwCXQ1MX6EadY00KdypVQisg@mail.gmail.com>
-Subject: Re: [RFC 30/32] /dev/port: don't compile file operations without
- CONFIG_DEVPORT
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Niklas Schnelle <schnelle@linux.ibm.com>,
- Bjorn Helgaas <bhelgaas@google.com>, 
- John Garry <john.garry@huawei.com>, Nick Hu <nickhu@andestech.com>, 
- Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-arch <linux-arch@vger.kernel.org>, 
- linux-pci <linux-pci@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211230_081928_098620_AFBF441B 
-X-CRM114-Status: GOOD (  18.54  )
+X-CRM114-CacheID: sfid-20211230_221508_659741_69F3D556 
+X-CRM114-Status: UNSURE (   6.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,42 +77,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 29, 2021 at 5:38 AM Greg Kroah-Hartman
-<gregkh@linuxfoundation.org> wrote:
-> > > > -static const struct file_operations __maybe_unused port_fops = {
-> > > > +#ifdef CONFIG_DEVPORT
-> > > > +static const struct file_operations port_fops = {
-> > > >   .llseek         = memory_lseek,
-> > > >   .read           = read_port,
-> > > >   .write          = write_port,
-> > > >   .open           = open_port,
-> > > >  };
-> > > > +#endif
-> > >
-> > > Why is this #ifdef needed if it is already __maybe_unused?
-> >
-> > Because read_port() calls inb() and write_port() calls outb() they
-> > wouldn't compile once these are no longer defined. Then however the
-> > read_port/write_port symbols in the struct initialization above
-> > couldn't be resolved.
-> >
-> > >
-> > > In looking closer, this change could be taken now as the use of this
-> > > variable already is behind this same #ifdef statement, right?
-> >
-> > Yes
->
-> Great, feel free to send this individually, not as a RFC patch, and I
-> will be glad to queue it up.
+This patch is required for the following commit to work.
 
-I think this patch should contain the 'depends on HAS_IOPORT' that
-is currently added in a different patch (char: impi, tpm: depend on
-HAS_IOPORT).
+commit f2928e224d85 ("riscv: set default pm_power_off to NULL")
 
-However, we can't merge that version until HAS_IOPORT is actually
-added to the kernel.
+Signed-off-by: Ron Economos <w6rz@comcast.net>
+---
+ arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-      Arnd
+diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+index 6bfa1f24d3de..c4ed9efdff03 100644
+--- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
++++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+@@ -39,6 +39,11 @@ rtcclk: rtcclk {
+ 		clock-frequency = <RTCCLK_FREQ>;
+ 		clock-output-names = "rtcclk";
+ 	};
++
++	gpio-poweroff {
++		compatible = "gpio-poweroff";
++		gpios = <&gpio 2 GPIO_ACTIVE_LOW>;
++	};
+ };
+ 
+ &uart0 {
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
