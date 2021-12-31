@@ -4,137 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4CF3C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Dec 2021 11:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 765E0C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Dec 2021 15:35:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9aQ/lto+pt7cMHDRbDYha/pmtVXFKuyfXL4l/6NPiiw=; b=sKcPBURfYYBm44
-	owr8mGk8QXQk7tqeyOa7HVu3XeqjD/lIEZXectp8owLeLe4NnrzhtuePoULTFBOjQ8eIit236MS7F
-	+XYFnLp15/+rig+3wApvOi+g8Y0mkAcEIGemsY7jVGQZRQreY3xwlumIyuCu6UzpVkeV0kL+TTT5V
-	ksysesHH9sbBj/V00vEwn6aP+u8dvyhsbCsi/kO3i1MBNUfAVwZr9x5uNi0Ais3DRWjdpH294zw7I
-	wP7ficjkdDtssx/JzfuQL2L6x3fOkLl6bk94rN/FOn8+Mj5MBHnsTFp39irPaYwQiFaQ3iguuNf+f
-	iBy08Nci0puy/ovPkcGw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6psSrWw3hH/4kZJ9VVQPEbmhfG/FsD+S/PoW6/FJbJw=; b=YlS72qJAQsD3SB2O2NCBa6LMa1
+	8bXIMKMszG96p0yInzv8OHtdn1bOPCpmLTxxhuH3N57QjrAInlkJihI7vPSCRaHS2erchFmk/Myy7
+	lq2/3di4QUv5G4wf3mGf1y3bX/rphRcmwHHfm8iD1kf+Hs5LDpv9nIT6tnghleQ6Ty3VROuI51uea
+	/MaPtOtNP8BrjhDSlq17yQZ91zvChqBz98Fhu2D1V1AN1N9yLu6rJUcgRGSbLj68yEC3B3WkwPGeC
+	8EsTBOoGrOzPP1mQ+dGGFdtoV9L08dW/WingWz07epTi94rE4jv2rQ2C73yjaKe7viuCSSHmH6O8y
+	n4qPeQIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n3G64-005zZg-KF; Fri, 31 Dec 2021 11:29:20 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1n3JwG-006E0h-Tm; Fri, 31 Dec 2021 15:35:28 +0000
+Received: from resqmta-c1p-023464.sys.comcast.net ([2001:558:fd00:56::b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n3G60-005zZ4-Gr; Fri, 31 Dec 2021 11:29:18 +0000
-Received: from pps.filterd (m0098393.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.1.2/8.16.1.2) with SMTP id 1BV6teKp016507; 
- Fri, 31 Dec 2021 11:28:34 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
- h=message-id : subject :
- from : to : cc : date : in-reply-to : references : content-type :
- mime-version : content-transfer-encoding; s=pp1;
- bh=pzUt4LgyPXDJP5o63yyZnj398P6Tb55t1EAvGioG3k8=;
- b=g160z1MzL7ZaBJP0PCFl8WM+/oaNldyPX5T/b2OeqniIg6zpoJJ47PVZUowg0MtVBM+b
- 75D8w5J5YM6d+KsITNJ6SyAPHmjNd4qzLkRKe2Aa5iqaRILDTl8nTunlrD/V/PWQopyi
- ffu+DrDe3G3FsNW8naQ0Vs9Jme2ccq8/xhb9T75Om2b3Ho14lej524nWlJSXlp9TAAz1
- NyTMooQ1KiqpJr+uzRKwIcFVyCGx228US4hJSEC5MwRoddDO03iAEPHtx6Mul7n9ZuAB
- j9Zbs6TrzO/vN/WHJf/odeWes281S8+pAqE18r2f1uyR1y9UGT7YCQUk3l3U7i4EttAT XQ== 
-Received: from pps.reinject (localhost [127.0.0.1])
- by mx0a-001b2d01.pphosted.com with ESMTP id 3d9qyvfxnh-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Fri, 31 Dec 2021 11:28:34 +0000
-Received: from m0098393.ppops.net (m0098393.ppops.net [127.0.0.1])
- by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 1BVBRr2I030593;
- Fri, 31 Dec 2021 11:28:33 GMT
-Received: from ppma03fra.de.ibm.com (6b.4a.5195.ip4.static.sl-reverse.com
- [149.81.74.107])
- by mx0a-001b2d01.pphosted.com with ESMTP id 3d9qyvfxms-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Fri, 31 Dec 2021 11:28:33 +0000
-Received: from pps.filterd (ppma03fra.de.ibm.com [127.0.0.1])
- by ppma03fra.de.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 1BVBO64f003482;
- Fri, 31 Dec 2021 11:28:30 GMT
-Received: from b06cxnps3074.portsmouth.uk.ibm.com
- (d06relay09.portsmouth.uk.ibm.com [9.149.109.194])
- by ppma03fra.de.ibm.com with ESMTP id 3d5txa0f1e-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Fri, 31 Dec 2021 11:28:30 +0000
-Received: from d06av24.portsmouth.uk.ibm.com (mk.ibm.com [9.149.105.60])
- by b06cxnps3074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- 1BVBSRO447514016
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Fri, 31 Dec 2021 11:28:27 GMT
-Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id A7DF04203F;
- Fri, 31 Dec 2021 11:28:27 +0000 (GMT)
-Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 2638942047;
- Fri, 31 Dec 2021 11:28:24 +0000 (GMT)
-Received: from sig-9-145-181-202.de.ibm.com (unknown [9.145.181.202])
- by d06av24.portsmouth.uk.ibm.com (Postfix) with ESMTP;
- Fri, 31 Dec 2021 11:28:24 +0000 (GMT)
-Message-ID: <072b9080be4a408052bf2c2cc1a9be0089cce5cc.camel@linux.ibm.com>
-Subject: Re: [RFC 02/32] Kconfig: introduce HAS_IOPORT option and select it
- as necessary
-From: Niklas Schnelle <schnelle@linux.ibm.com>
-To: Michael Schmitz <schmitzmic@gmail.com>, Arnd Bergmann <arnd@kernel.org>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Bjorn Helgaas
- <bhelgaas@google.com>, John Garry <john.garry@huawei.com>, Nick Hu
- <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>, Vincent Chen
- <deanbo422@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren
- <guoren@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>, Chris Zankel
- <chris@zankel.net>, Karol Gugala <kgugala@antmicro.com>, Jeff Dike
- <jdike@addtoit.com>, Yoshinori Sato <ysato@users.sourceforge.jp>, Brian
- Cain <bcain@codeaurora.org>, Heiko Carstens <hca@linux.ibm.com>, Richard
- Henderson <rth@twiddle.net>, Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
- Matt Turner <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>, Russell
- King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Michal Simek <monstr@monstr.eu>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, "James E.J. Bottomley"
- <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Rich Felker <dalias@libc.org>,
- "David S. Miller" <davem@davemloft.net>, Thomas Gleixner
- <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
- <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-xtensa@linux-xtensa.org, openrisc@lists.librecores.org,
- linux-s390@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- Greg Ungerer <gerg@linux-m68k.org>
-Date: Fri, 31 Dec 2021 12:28:23 +0100
-In-Reply-To: <0211719b-8402-9865-8e5d-5c0a35715816@gmail.com>
-References: <20211227164317.4146918-1-schnelle@linux.ibm.com>
- <20211227164317.4146918-3-schnelle@linux.ibm.com>
- <CAMuHMdXk6VcDryekkMJ3aGFnw4LLWOWMi8M2PwjT81PsOsOBMQ@mail.gmail.com>
- <d406b93a-0f76-d056-3380-65d459d05ea9@gmail.com>
- <CAK8P3a2j-OFUUp+haHoV4PyL-On4EASZ9+59SDqNqmL8Gv_k7Q@mail.gmail.com>
- <1f90f145-219e-1cad-6162-9959d43a27ad@gmail.com>
- <CAK8P3a3NqU-3nUZ9ve=QyPPB5Uep3eK+_hicjjSiP8VuL4FYfA@mail.gmail.com>
- <0211719b-8402-9865-8e5d-5c0a35715816@gmail.com>
-X-Mailer: Evolution 3.28.5 (3.28.5-18.el8) 
-Mime-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: d7GAvK0BVAwkfUmW9z0Tnb-kHBnvpkJi
-X-Proofpoint-ORIG-GUID: nVApRVBnj1QdMi6qsc--MaC8MDeDduB8
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.205,Aquarius:18.0.790,Hydra:6.0.425,FMLib:17.11.62.513
- definitions=2021-12-31_04,2021-12-30_02,2021-12-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 bulkscore=0
- phishscore=0 mlxlogscore=999 spamscore=0 adultscore=0 clxscore=1011
- priorityscore=1501 mlxscore=0 lowpriorityscore=0 malwarescore=0
- impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2110150000 definitions=main-2112310050
+ id 1n3JwE-006E0G-HP
+ for linux-riscv@lists.infradead.org; Fri, 31 Dec 2021 15:35:27 +0000
+Received: from resomta-c1p-023266.sys.comcast.net ([96.102.18.234])
+ by resqmta-c1p-023464.sys.comcast.net with ESMTP
+ id 3IdUntOrKjsNg3Jw8ncfGZ; Fri, 31 Dec 2021 15:35:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=comcast.net;
+ s=20190202a; t=1640964920;
+ bh=X0PGbkm5AYY94s+W5+NodReCIEluZYxv8imWvsSK3Yg=;
+ h=Received:Received:Subject:To:From:Message-ID:Date:MIME-Version:
+ Content-Type;
+ b=zDqg6Tb9sclnQpBV3FdaFBbsTqX35htzY4F6j0fy3JkbNCMhwbfanQ9m4BWjcjMzH
+ UsxP94BgAjQ+tDZWpoUQ7r6nw6tY+TceacQUI0Ds/o1o2+HoouLTDP3J3PGkI3pPop
+ CY7ssdLTJp6ECBb2u34kzxtyxlNzTJWnWL50MYTueOQPXWBKKAPiHDKKWaj6jF9nXD
+ 44GjFsYA/cBbw447y5IGYjH5VdTH2Qh+20gWbLnV1v1yKznJdKt0+lIbhJuEn5wXL7
+ rIgiNrt4QjfCTr+hZrlj5Is/sOJUZg49xtTa6dBoOmRCMymMLGVHFXvAW5cKQCu0kA
+ jVYDc+y877uqw==
+Received: from [IPv6:2601:647:4700:284:9d56:573c:4e75:fa6c]
+ ([IPv6:2601:647:4700:284:9d56:573c:4e75:fa6c])
+ by resomta-c1p-023266.sys.comcast.net with ESMTPSA
+ id 3Jw2nnMYa4rcW3Jw3nrhvk; Fri, 31 Dec 2021 15:35:17 +0000
+X-Xfinity-VMeta: sc=-100.00;st=legit
+Subject: Re: [PATCH] riscv: dts: sifive unmatched: Add gpio poweroff
+To: James Clarke <jrtc27@jrtc27.com>
+Cc: Dimitri John Ledkov <dimitri.ledkov@canonical.com>,
+ Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Vincent Pelletier <plr.vincent@gmail.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Qiu Wenbo <qiuwenbo@kylinos.com.cn>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20211231061110.89403-1-w6rz@comcast.net>
+ <73F7FAE3-5113-48DD-B0F5-0EEAA0A8B0C1@jrtc27.com>
+From: Ron Economos <w6rz@comcast.net>
+Message-ID: <99ac0009-b49a-f618-1b96-7896d6d155ae@comcast.net>
+Date: Fri, 31 Dec 2021 07:35:14 -0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.14.0
+MIME-Version: 1.0
+In-Reply-To: <73F7FAE3-5113-48DD-B0F5-0EEAA0A8B0C1@jrtc27.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211231_032916_576104_8FEA83EC 
-X-CRM114-Status: GOOD (  35.16  )
+X-CRM114-CacheID: sfid-20211231_073526_659540_86F07C74 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,68 +77,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2021-12-30 at 16:44 +1300, Michael Schmitz wrote:
-> Hi Arnd,
-> 
-> Am 30.12.2021 um 14:48 schrieb Arnd Bergmann:
-> > On Tue, Dec 28, 2021 at 11:15 PM Michael Schmitz <schmitzmic@gmail.com> wrote:
-> > > Am 29.12.2021 um 16:41 schrieb Arnd Bergmann:
-> > > > On Tue, Dec 28, 2021 at 8:20 PM Michael Schmitz <schmitzmic@gmail.com> wrote:
----8<---
-> 
-> > What some other architectures do is to rely on inb()/outb() to have a
-> > zero-based offset, and use an io_offset in PCI buses to ensure that a
-> > low port number on the bus gets translated into a pointer value for the
-> > virtual mapping in the kernel, which is then represented as an unsigned
-> > int.
-> 
-> M54xx does just that for Coldfire:
-> 
-> arch/m68k/include/asm/io_no.h:
-> #define PCI_IO_PA	0xf8000000		/* Host physical address */
-> 
-> (used to set PCI BAR mappings, so matches your definition above).
-> 
-> All other (MMU) m68k users of inb()/outb() apply an io_offset in the 
-> platform specific address translation:
-> 
-> 
----8<---
-> So as long as support for any of the m68k PCI or ISA bridges is selected 
-> in the kernel config, the appropriate IO space mapping is applied. If no 
-> support for PCI or ISA bridges is selected, we already fall back to zero 
-> offset mapping (but as far as I can tell, it shouldn't be possible to 
-> build a kernel without bridge support but drivers that require it).
-> 
-> > As this is indistinguishable from architectures that just don't have
-> > a base address for I/O ports (we unfortunately picked 0 as the default
-> > PCI_IOBASE value), my suggestion was to start marking architectures
-> > that may have this problem as using HAS_IOPORT in order to keep
-> > the existing behavior unchanged. If m68k does not suffer from this,
-> > making HAS_IOPORT conditional on those config options that actually
-> > need it would of course be best.
-> 
-> Following your description, HAS_IOPORT would be required for neither of 
-> PCI, ISA or ATARI_ROM_ISA ??
-> 
-
-No, HAS_IOPORT being set just means that inb() etc. exist and are
-functional be it as special instructions like on x86 or via an I/O
-address offset. As I understand it if you do have PCI, ISA or
-ATARI_ROM_ISA they are functional. If none of them are set and your
-zero offset mapping means these accessors can't actually be used you
-could make the declerations ifdeffed on CONFIG_HAS_IOPORT to detect the
-cases where somone managed to build drivers that require them and that
-would result in a compile time error instead of silently, or with a
-NULL pointer warning, compiling code that won't work.
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMTIvMzAvMjEgMTA6NTggUE0sIEphbWVzIENsYXJrZSB3cm90ZToKPiBPbiAzMSBEZWMgMjAy
+MSwgYXQgMDY6MTEsIFJvbiBFY29ub21vcyA8dzZyekBjb21jYXN0Lm5ldD4gd3JvdGU6Cj4+IFRo
+aXMgcGF0Y2ggaXMgcmVxdWlyZWQgZm9yIHRoZSBmb2xsb3dpbmcgY29tbWl0IHRvIHdvcmsuCj4+
+Cj4+IGNvbW1pdCBmMjkyOGUyMjRkODUgKCJyaXNjdjogc2V0IGRlZmF1bHQgcG1fcG93ZXJfb2Zm
+IHRvIE5VTEwiKQo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBSb24gRWNvbm9tb3MgPHc2cnpAY29tY2Fz
+dC5uZXQ+Cj4+IC0tLQo+PiBhcmNoL3Jpc2N2L2Jvb3QvZHRzL3NpZml2ZS9oaWZpdmUtdW5tYXRj
+aGVkLWEwMC5kdHMgfCA1ICsrKysrCj4+IDEgZmlsZSBjaGFuZ2VkLCA1IGluc2VydGlvbnMoKykK
+Pj4KPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvc2lmaXZlL2hpZml2ZS11bm1h
+dGNoZWQtYTAwLmR0cyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc2lmaXZlL2hpZml2ZS11bm1hdGNo
+ZWQtYTAwLmR0cwo+PiBpbmRleCA2YmZhMWYyNGQzZGUuLmM0ZWQ5ZWZkZmYwMyAxMDA2NDQKPj4g
+LS0tIGEvYXJjaC9yaXNjdi9ib290L2R0cy9zaWZpdmUvaGlmaXZlLXVubWF0Y2hlZC1hMDAuZHRz
+Cj4+ICsrKyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc2lmaXZlL2hpZml2ZS11bm1hdGNoZWQtYTAw
+LmR0cwo+PiBAQCAtMzksNiArMzksMTEgQEAgcnRjY2xrOiBydGNjbGsgewo+PiAgICAgICAgIGNs
+b2NrLWZyZXF1ZW5jeSA9IDxSVENDTEtfRlJFUT47Cj4+ICAgICAgICAgY2xvY2stb3V0cHV0LW5h
+bWVzID0gInJ0Y2NsayI7Cj4+ICAgICB9Owo+PiArCj4+ICsgICAgZ3Bpby1wb3dlcm9mZiB7Cj4+
+ICsgICAgICAgIGNvbXBhdGlibGUgPSAiZ3Bpby1wb3dlcm9mZiI7Cj4+ICsgICAgICAgIGdwaW9z
+ID0gPCZncGlvIDIgR1BJT19BQ1RJVkVfTE9XPjsKPj4gKyAgICB9Owo+IFdoeT8gSXTigJlzIGFi
+c3RyYWN0ZWQgYnkgZmlybXdhcmUsIHdoaWNoIHdvcmtzLgo+Cj4gSmVzcwo+CkkgZGlkbid0IHJl
+YWxpemUgdGhhdCBPcGVuU0JJIDEuMCBoYWQgYmVlbiByZWxlYXNlZCBsYXN0IHdlZWsuIFBsZWFz
+ZSAKZGlzcmVnYXJkIHRoaXMgcGF0Y2guCgpSb24KCgoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
