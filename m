@@ -4,63 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8E3DC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Dec 2021 06:15:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BF63C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Dec 2021 06:58:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xih2ARFHb3nby6I8V7qTdITlYfk9D7fGdx39Op7J+eo=; b=U4JhVWFJiyJQvM
-	mxfd+mcVbZfKk/n+u5UV0/DLaZ/ldLud8SCru+RHbI+Anr90Av3EoxnRztVN3Ltyho0tYMQjszULn
-	8EajYAyZmP4sv/dvWMVo8zWEMxcgLma6BmieX6LhpFiYauYKlIML+rPD4Cap+L0U7Tzj4t3qnmAKU
-	Qo3yoaVbof0o27sGT//E3xA94kIC9BUUueYgB/3YfI1SVPGmXPYpPwThLQxoxmrKMe21idbPQyeF1
-	bNE0QhjTXBz0hSgh4r5iBJ9TrcsdgQZhjCOFF31cI15gmGj8KKtvX+QrV3PgePtCP5TQBCsIJvXOG
-	VCsAM+IGxdvallqjqPEw==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=luh9EXp6dG5IgxG2fCDfbbMxTVkUHcxz1UU0PBVFvYM=; b=djgrZ1GiuQDtfs
+	j+ljbMXwiUAFCt5VO3u+BGFS6YD1l99nVVdhStXl9P11vNdHHL3MHnI2A3kwnilgrrdcg8ajQYs/x
+	+m9F23BwudOY517YJK68OizqeoDpWWVg+rcAzJSEET8CFeCobVQJnbX8Rm4XTYBbDTuOjVrtw9dQP
+	z2rU2wOib4Qk3YI64MCMPhAa8264xtp/kxB8AhPuqcLPOutfIwpYQK8RGjpZ7Dcjiu0ypocnWY6aZ
+	9e+fntisZ5mlPh4PIGoe8cDlS8X+Etgiwhg2UxI4iht51D50/2AfqpeaWoEoeSHxnGtmCmyXA3c98
+	FMEhyFbNHdMH0GITpR8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n3BC2-005jqK-Hs; Fri, 31 Dec 2021 06:15:10 +0000
-Received: from resqmta-a1p-077724.sys.comcast.net ([2001:558:fd01:2bb4::5])
+	id 1n3Bs3-005lIE-NV; Fri, 31 Dec 2021 06:58:35 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n3BC0-005jpt-GH
- for linux-riscv@lists.infradead.org; Fri, 31 Dec 2021 06:15:09 +0000
-Received: from resomta-a1p-077059.sys.comcast.net ([96.103.145.240])
- by resqmta-a1p-077724.sys.comcast.net with ESMTP
- id 3BAPnbExuaNgs3BBpndrxH; Fri, 31 Dec 2021 06:14:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=comcast.net;
- s=20190202a; t=1640931297;
- bh=B8RJ34LocrDqPDwZMnx/NOtlAthCdFGYGjocIeA+vIk=;
- h=Received:Received:From:To:Subject:Date:Message-Id:MIME-Version;
- b=cuEvwyxfet1tSFhlThUWp+5YvhjmsGNCS5u0X00QSCNM3QcC20vezYsp4ZPv/GdeF
- /onysaPVDX5/+4yd98QuOIP6gnjehgyog/tcr7TQgC5J4obrOmQ97hr7dwB0zkFWNH
- +ZAnBQKxfQSfUkcTmg5SLsS8rOm9l1X7y7Mw1YKUPIffen+WH2HkXAqFNgdteHhni6
- K7UkvWYwKxnZ96v9GWD2kGU+QRgGplshRrAuqgd25SjITuKfMhxTfGf/1XReYct8J4
- PTLfi3N3lwnRC8Msj3Ju0HMVmGjZ9JYT20rqzWKYaBWVq9zbNhcDMsvZgsrIQ5uIQn
- lML771UGXBAeg==
-Received: from w6rz.silicon ([IPv6:2601:647:4700:284:9d56:573c:4e75:fa6c])
- by resomta-a1p-077059.sys.comcast.net with ESMTPA
- id 3BBFnSy4GhrTt3BBNnq2cX; Fri, 31 Dec 2021 06:14:32 +0000
-X-Xfinity-VMeta: sc=-100.00;st=legit
-From: Ron Economos <w6rz@comcast.net>
-To: Dimitri John Ledkov <dimitri.ledkov@canonical.com>
-Cc: Ron Economos <w6rz@comcast.net>, Rob Herring <robh+dt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
+ id 1n3Bs0-005lHR-MA
+ for linux-riscv@lists.infradead.org; Fri, 31 Dec 2021 06:58:34 +0000
+Received: by mail-wr1-x435.google.com with SMTP id s1so54539332wra.6
+ for <linux-riscv@lists.infradead.org>; Thu, 30 Dec 2021 22:58:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=jrtc27.com; s=gmail.jrtc27.user;
+ h=mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=IPvWCWArFmIoJo6e3SOp/K7+W774iGoTLAEhKjFbcaM=;
+ b=dSM1+9ApbR+hVWEQTXuqFoWRuF2F4OskLpLWSebcI5qH7YaRhtzyDrQ6O8S//o+Sed
+ TVpKnAyqwT4pl06ZBCvkuNgkuEtp380NBzsCXOyu5x7A134l1RQBDM1zkDYDBhqsaN0B
+ itO5qp62T5nZR+b3iNfVFZ6VZS5scV1Q3w05MkWo2UGSzx0P8vqMGGYRfA28RtrMwFu6
+ 1V+49vpa8EBXHvFnlPaSI+6sQAD/PoVKtd6FaUFYS5l9sI2LMFbwY+eM3zc9a+gp6V/n
+ mflPV/80xEyUceQxQWFVDzLzaMLpFvXkbjEHkMzd+w8jgM/2QUlrMqCHVC7ssriChgDn
+ wDJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=IPvWCWArFmIoJo6e3SOp/K7+W774iGoTLAEhKjFbcaM=;
+ b=SYe3Yx2nEQASWSoNoRTeWK9q/rIRphNekf2Ju9Pc9EkwEKha9Ou9MXOx77MEcC3gjC
+ WVZQrlrBTXyCjXFDVztv8aDQaL5M3T0m5XtQ2nBcR/8N6i1lPnhRtIvDlcZxwGiHt8e4
+ Xwc0c/UxvYp4S1Zjp0McX/FtpwI3mRdvn/Wx28SIoBmxZUKXX8OkCP1uHJAxH6VFpfID
+ Jm+QfDbkGfLQj8jELONSFoUlkoreDWfoh7yRMAyd/mtbH6VxPJj5DRBZ6QcUkTOElGG3
+ LYFZlGcvcv+AstLOyCX6timQPNToBY1DWqdCLJ0hDEYcCiCH2yMPIFtdOaX/bO+WbIZ5
+ b0uQ==
+X-Gm-Message-State: AOAM530grAAlX4NhCwDAsjW3eD3HUDfKK/4dYTCuKrTqjCVmP6RKlXfM
+ 7S/nRj/scK9ZuvXymudIeQUzvF4EVvykoa7W
+X-Google-Smtp-Source: ABdhPJygojzvVzB67tBssVheNi//lj4PKhm+W1eQ9WhHYt1kuWqGvmaINV7eorhNEFDhpHAQ8BhDag==
+X-Received: by 2002:a5d:6d8a:: with SMTP id l10mr28425146wrs.527.1640933909153; 
+ Thu, 30 Dec 2021 22:58:29 -0800 (PST)
+Received: from [10.248.123.188] (global-5-144.nat-2.net.cam.ac.uk.
+ [131.111.5.144])
+ by smtp.gmail.com with ESMTPSA id j39sm23680532wms.0.2021.12.30.22.58.28
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Thu, 30 Dec 2021 22:58:28 -0800 (PST)
+Mime-Version: 1.0 (1.0)
+Subject: Re: [PATCH] riscv: dts: sifive unmatched: Add gpio poweroff
+From: James Clarke <jrtc27@jrtc27.com>
+X-Mailer: iPhone Mail (16H62)
+In-Reply-To: <20211231061110.89403-1-w6rz@comcast.net>
+Date: Fri, 31 Dec 2021 06:58:22 +0000
+Cc: Dimitri John Ledkov <dimitri.ledkov@canonical.com>,
+ Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Vincent Pelletier <plr.vincent@gmail.com>,
  Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
  Qiu Wenbo <qiuwenbo@kylinos.com.cn>, Yash Shah <yash.shah@sifive.com>,
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Subject: [PATCH] riscv: dts: sifive unmatched: Add gpio poweroff
-Date: Thu, 30 Dec 2021 22:11:06 -0800
-Message-Id: <20211231061110.89403-1-w6rz@comcast.net>
-X-Mailer: git-send-email 2.25.1
-MIME-Version: 1.0
+Message-Id: <73F7FAE3-5113-48DD-B0F5-0EEAA0A8B0C1@jrtc27.com>
+References: <20211231061110.89403-1-w6rz@comcast.net>
+To: Ron Economos <w6rz@comcast.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211230_221508_659741_69F3D556 
-X-CRM114-Status: UNSURE (   6.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20211230_225832_755806_00AF454C 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,41 +90,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch is required for the following commit to work.
-
-commit f2928e224d85 ("riscv: set default pm_power_off to NULL")
-
-Signed-off-by: Ron Economos <w6rz@comcast.net>
----
- arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-index 6bfa1f24d3de..c4ed9efdff03 100644
---- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-+++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-@@ -39,6 +39,11 @@ rtcclk: rtcclk {
- 		clock-frequency = <RTCCLK_FREQ>;
- 		clock-output-names = "rtcclk";
- 	};
-+
-+	gpio-poweroff {
-+		compatible = "gpio-poweroff";
-+		gpios = <&gpio 2 GPIO_ACTIVE_LOW>;
-+	};
- };
- 
- &uart0 {
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMzEgRGVjIDIwMjEsIGF0IDA2OjExLCBSb24gRWNvbm9tb3MgPHc2cnpAY29tY2FzdC5uZXQ+
+IHdyb3RlOgo+IAo+IFRoaXMgcGF0Y2ggaXMgcmVxdWlyZWQgZm9yIHRoZSBmb2xsb3dpbmcgY29t
+bWl0IHRvIHdvcmsuCj4gCj4gY29tbWl0IGYyOTI4ZTIyNGQ4NSAoInJpc2N2OiBzZXQgZGVmYXVs
+dCBwbV9wb3dlcl9vZmYgdG8gTlVMTCIpCj4gCj4gU2lnbmVkLW9mZi1ieTogUm9uIEVjb25vbW9z
+IDx3NnJ6QGNvbWNhc3QubmV0Pgo+IC0tLQo+IGFyY2gvcmlzY3YvYm9vdC9kdHMvc2lmaXZlL2hp
+Zml2ZS11bm1hdGNoZWQtYTAwLmR0cyB8IDUgKysrKysKPiAxIGZpbGUgY2hhbmdlZCwgNSBpbnNl
+cnRpb25zKCspCj4gCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvc2lmaXZlL2hp
+Zml2ZS11bm1hdGNoZWQtYTAwLmR0cyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc2lmaXZlL2hpZml2
+ZS11bm1hdGNoZWQtYTAwLmR0cwo+IGluZGV4IDZiZmExZjI0ZDNkZS4uYzRlZDllZmRmZjAzIDEw
+MDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvc2lmaXZlL2hpZml2ZS11bm1hdGNoZWQt
+YTAwLmR0cwo+ICsrKyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc2lmaXZlL2hpZml2ZS11bm1hdGNo
+ZWQtYTAwLmR0cwo+IEBAIC0zOSw2ICszOSwxMSBAQCBydGNjbGs6IHJ0Y2NsayB7Cj4gICAgICAg
+IGNsb2NrLWZyZXF1ZW5jeSA9IDxSVENDTEtfRlJFUT47Cj4gICAgICAgIGNsb2NrLW91dHB1dC1u
+YW1lcyA9ICJydGNjbGsiOwo+ICAgIH07Cj4gKwo+ICsgICAgZ3Bpby1wb3dlcm9mZiB7Cj4gKyAg
+ICAgICAgY29tcGF0aWJsZSA9ICJncGlvLXBvd2Vyb2ZmIjsKPiArICAgICAgICBncGlvcyA9IDwm
+Z3BpbyAyIEdQSU9fQUNUSVZFX0xPVz47Cj4gKyAgICB9OwoKV2h5PyBJdOKAmXMgYWJzdHJhY3Rl
+ZCBieSBmaXJtd2FyZSwgd2hpY2ggd29ya3MuCgpKZXNzCgoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
