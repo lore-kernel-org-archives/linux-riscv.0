@@ -4,84 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C527C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Dec 2021 17:16:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21033C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Dec 2021 21:56:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=00QEm0/dZo8Pt44mOGPDNCwFHWRxZgX6E2Hlq0wbI+E=; b=m3qPy011Mxkaki
-	GJUEeh3Z/xg96e8FGpjZYnyqOiL2sZICowlJEEChCYdXtIzTaHVUmgCn+q0hysCmeV2AoeDZTBNAW
-	QnqJc4GutYYxhGR/b5RSyOJDA9Fp86w00KIFXBQn83PkKGFgeeqAGos81NNGaY2TciwuhLC0bdtvG
-	p2yS8rm/LTake3KCvxn6HR56ZQYb15c1AJKPmoI5puhRrOqG7BWZBUGVwbO7ZYVzb5F/DcldC8IPM
-	wrwDjJYYbXEO2rrvNfqs71h4N8HUTMgVrq+KaHlQ1IRt/OIIRD/CR9roLwWObFgR645qa54SMQcmh
-	75mFPtuoeWZpRdlTFk1g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:Cc:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wfqzHMZfmhtCxgr2OwwhxTFdXY6wrQotIk5p7NNTjwQ=; b=KIvGFBkK5kHfpX0wNCfmx48eG8
+	IxRuyrSCbeMRd7Q/CpGJePNBzPSnuiJh/MHN+30Is+4/MtlxRWox3kFQdXZ5TRlq2xLDOeHPcHGCm
+	NxmJdIBtul20k1gYpIhra8VUizldLOBCsYtuDg4KRqgrs9Cr2T9bHEavYcZIWWlRqcHIJXXNE1WOe
+	f0fjkzKDCPPPKzsWUSOi3PJnwvSpvdleqQPWSSuuCrDJea9QYe8IyemJtPmNSMGkezeCsUAb7bc3K
+	n6sE93BentXg8XumXzqYjk4eH5QFRAoS5WhxUC2lb3f6iTizo/6wI9elhmJ7fkkN1flrPJ8EyJbyr
+	JZ4JsHaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n3LVe-006QD0-2T; Fri, 31 Dec 2021 17:16:06 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1n3PsW-006YvI-2b; Fri, 31 Dec 2021 21:56:00 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n3LVb-006QCO-7f
- for linux-riscv@lists.infradead.org; Fri, 31 Dec 2021 17:16:04 +0000
-Received: by mail-wr1-x434.google.com with SMTP id i22so56876800wrb.13
- for <linux-riscv@lists.infradead.org>; Fri, 31 Dec 2021 09:16:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=jrtc27.com; s=gmail.jrtc27.user;
- h=mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=nW3DRwBXlWxCsw3rkSWFhL6nZOR/Uw6StM6XHT9/rAY=;
- b=SUARbtRK/Q6wxcxjjpNA+tLAytZ3tSIuGys93vOAubdM7+oXzozKqsZ1nueUKAxpOo
- YryBJDO4rPwzJnOx/6fVZSC+M6wwegsjnc3vayRdEdeLq1KZo5nvaH5jzc4/5zAWPuXV
- tHM5FDTraUVJ5a82TMuZkWdjpuJ+/sABDEtuaQ1igflT15IZrVwMWdgD513/AU62c1Bu
- 10MBvp8oU0aTNKfPAADeCBw8xPiXsC2YUItXFeizdLVHQ+wRWQm5ToNdqYl6wxFrAbgb
- j1cHE2S1H5yBIJrdtEieoi5lVuAI64KK/pAGpSmHA0eYndLEI4T5QoY7gqDax2lGTVAc
- S6Hw==
+ id 1n3PsS-006Yuk-8C; Fri, 31 Dec 2021 21:55:57 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id
+ g11-20020a17090a7d0b00b001b2c12c7273so3649430pjl.0; 
+ Fri, 31 Dec 2021 13:55:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=subject:to:references:cc:from:message-id:date:user-agent
+ :mime-version:in-reply-to:content-transfer-encoding;
+ bh=T1hx50UVDERByCQtA2jPhEceIqEPV53U/9yB8e5/FYk=;
+ b=LjsOP7dtkJk8TTLzgH2x733jvWKdpcNmqgEkJGbhcliBN3P4mGcoa4RHGyc7AE+uv0
+ 1q6IiTtA1Dj+hFT4fbo5YFfHQJP3D3q9epLhg2FMsybdbsOcLxZAwPm0457fBAaRsDqQ
+ IL99rj8gfeLcMykifXB/Gt0fb/qQevJBIrut1EB236pdFPwlsYQCiXgvL1uR2c1NkIEI
+ s9mlOS/JU5lFDS2xWEDijv28JBOklmN0+7s5aGmoNcQDKeGvOeymMRfNiZGGdhERxmTx
+ AwTYJpI5KYZX0tSyGEY8pkdXLvzdxOJEnG3qvPabZ4r2I9OhjOAaaBl0S4GhUjhjIInk
+ c95g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=nW3DRwBXlWxCsw3rkSWFhL6nZOR/Uw6StM6XHT9/rAY=;
- b=Lrh6ML9uEpomEUqIMzlnj3nnnzVd1XEeGcdkiaHvdXn8hHNKy5EzSGbAtOatP3I1WB
- Pt5rvuTwP7aeaDVcLYOfc1BOFl3szMBYWhdsNKToiiDVdOlrF2+0H6eyRyc7QVBuZ7M4
- y6thm3B4LNswv5W0916UG7ibEXKgWoBARXSxL2f7BCJphqdr1WbsrCfL4MYKE01FE/XT
- dvHdb00klsJpjx8q/8m3khQvtAsc5JP1sFxG6VT7XaNVRJZHdNrsPVQdZ3T/bPgtEp4+
- qE2MVKa2O4fmKVWcK9xjIHL9ZBslqvz9pMGfkXLfp/Wi6s8cSTsT2Wn+wfi+VslEqhih
- hhOg==
-X-Gm-Message-State: AOAM530fsM0lLZIMGSL/j2ev8Tt/uQuiq0rwqbOJs6UrDr4jH35qhucn
- kGSrYLy6Oqm1SI25r2YuShjpaQ==
-X-Google-Smtp-Source: ABdhPJxHr6RcCJR4Xr5xMJYG4onusmC3VQwM62AcBuYQhyzFRV3AB/cgcID+72uMYWwAPxjDbNjN9w==
-X-Received: by 2002:a05:6000:2a6:: with SMTP id
- l6mr29788136wry.76.1640970961775; 
- Fri, 31 Dec 2021 09:16:01 -0800 (PST)
-Received: from smtpclient.apple (global-5-141.nat-2.net.cam.ac.uk.
- [131.111.5.141])
- by smtp.gmail.com with ESMTPSA id z5sm26518553wru.87.2021.12.31.09.16.01
+ h=x-gm-message-state:subject:to:references:cc:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-transfer-encoding;
+ bh=T1hx50UVDERByCQtA2jPhEceIqEPV53U/9yB8e5/FYk=;
+ b=gPQe131s8O4qhClmxRS5eGmgPHzepdf31nRoJ/CsPGfv+0QORC3YEz0DiUtjOz3jgv
+ B5RlZ6vy4AVkJ0muGzopfUJrvIqT9XOPxzg+wozPxB2Ts+AxwVTiDvEWCNqi5Fo5+MCE
+ 5TLhWf85WMTVPa2FMGNmNhtr5ujMdP95O2CEMu01i+Z3QnFzYsqY9Az8P0ruKN1UthHK
+ d2Lu4GwoPHw1M+kRdw9yK3muSAsSTyCFlVnJNrSDx/mrGARHR9+jvLIDWp3qD6t3N//H
+ i2tP+psajf1j2BCBnL43ZR7Ldj15S8DnolkUje+ybiXLIyT324eJ/gNR1vI/zlUvDDmG
+ hoEQ==
+X-Gm-Message-State: AOAM532ujvCYd2x2NSWc4QStmMD4n/NvIjLVVFTqK7H6nW/R2aVxmrOH
+ iqANbfVsauulxqnPWnI4190=
+X-Google-Smtp-Source: ABdhPJz1F4nn7gYkCA3wVb/U0vH3yAlfu9Ov4LEv5tjkAkrde3xqL11hZ+AbHJ3jgiQyphWKkycvHA==
+X-Received: by 2002:a17:902:bb97:b0:144:d5cb:969f with SMTP id
+ m23-20020a170902bb9700b00144d5cb969fmr36731618pls.36.1640987753994; 
+ Fri, 31 Dec 2021 13:55:53 -0800 (PST)
+Received: from [10.1.1.24] (222-155-5-102-adsl.sparkbb.co.nz. [222.155.5.102])
+ by smtp.gmail.com with ESMTPSA id
+ p186sm13526661pfp.128.2021.12.31.13.55.29
  (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 31 Dec 2021 09:16:01 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 14.0 \(3654.120.0.1.13\))
-Subject: Re: [PATCH] riscv: dts: sifive unmatched: Add gpio poweroff
-From: Jessica Clarke <jrtc27@jrtc27.com>
-In-Reply-To: <CADWks+Yjh1B=Fu8NFS4KYrvNh_bU8P5pzb+_yNvseS+1+D5H7Q@mail.gmail.com>
-Date: Fri, 31 Dec 2021 17:16:00 +0000
-Cc: Ron Economos <w6rz@comcast.net>, Rob Herring <robh+dt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Vincent Pelletier <plr.vincent@gmail.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Qiu Wenbo <qiuwenbo@kylinos.com.cn>, Yash Shah <yash.shah@sifive.com>,
- devicetree@vger.kernel.org, linux-riscv <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
-Message-Id: <ED7B7FCA-182C-45AC-90E7-17559762DE0B@jrtc27.com>
-References: <20211231061110.89403-1-w6rz@comcast.net>
- <73F7FAE3-5113-48DD-B0F5-0EEAA0A8B0C1@jrtc27.com>
- <CADWks+Yjh1B=Fu8NFS4KYrvNh_bU8P5pzb+_yNvseS+1+D5H7Q@mail.gmail.com>
-To: Dimitri John Ledkov <dimitri.ledkov@canonical.com>
-X-Mailer: Apple Mail (2.3654.120.0.1.13)
+ Fri, 31 Dec 2021 13:55:53 -0800 (PST)
+Subject: Re: [RFC 02/32] Kconfig: introduce HAS_IOPORT option and select it as
+ necessary
+To: Arnd Bergmann <arnd@kernel.org>
+References: <20211227164317.4146918-1-schnelle@linux.ibm.com>
+ <20211227164317.4146918-3-schnelle@linux.ibm.com>
+ <CAMuHMdXk6VcDryekkMJ3aGFnw4LLWOWMi8M2PwjT81PsOsOBMQ@mail.gmail.com>
+ <d406b93a-0f76-d056-3380-65d459d05ea9@gmail.com>
+ <CAK8P3a2j-OFUUp+haHoV4PyL-On4EASZ9+59SDqNqmL8Gv_k7Q@mail.gmail.com>
+ <1f90f145-219e-1cad-6162-9959d43a27ad@gmail.com>
+ <CAK8P3a3NqU-3nUZ9ve=QyPPB5Uep3eK+_hicjjSiP8VuL4FYfA@mail.gmail.com>
+ <0211719b-8402-9865-8e5d-5c0a35715816@gmail.com>
+ <CAK8P3a2GGGuP0miLRy8w2+8vdSsGRNioBHEZ-ervSBrYbuZ+5w@mail.gmail.com>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Niklas Schnelle <schnelle@linux.ibm.com>, Bjorn Helgaas
+ <bhelgaas@google.com>, John Garry <john.garry@huawei.com>,
+ Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
+ Vincent Chen <deanbo422@gmail.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+ Dinh Nguyen <dinguyen@kernel.org>, Chris Zankel <chris@zankel.net>,
+ Karol Gugala <kgugala@antmicro.com>, Jeff Dike <jdike@addtoit.com>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Brian Cain <bcain@codeaurora.org>, Heiko Carstens <hca@linux.ibm.com>,
+ Richard Henderson <rth@twiddle.net>,
+ Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Matt Turner
+ <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Michal Simek <monstr@monstr.eu>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>, Rich Felker <dalias@libc.org>,
+ "David S. Miller" <davem@davemloft.net>, Thomas Gleixner
+ <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ the arch/x86 maintainers <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-arch <linux-arch@vger.kernel.org>,
+ linux-pci <linux-pci@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org,
+ "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>,
+ Openrisc <openrisc@lists.librecores.org>,
+ linux-s390 <linux-s390@vger.kernel.org>, alpha
+ <linux-alpha@vger.kernel.org>,
+ "open list:SYNOPSYS ARC ARCHITECTURE" <linux-snps-arc@lists.infradead.org>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ linux-ia64@vger.kernel.org, linux-m68k <linux-m68k@lists.linux-m68k.org>,
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ Parisc List <linux-parisc@vger.kernel.org>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ Linux-sh list <linux-sh@vger.kernel.org>,
+ sparclinux <sparclinux@vger.kernel.org>, Greg Ungerer <gerg@linux-m68k.org>
+From: Michael Schmitz <schmitzmic@gmail.com>
+Message-ID: <a635e885-c365-8bdc-bf3c-e74d7d39a786@gmail.com>
+Date: Sat, 1 Jan 2022 10:55:27 +1300
+User-Agent: Mozilla/5.0 (X11; Linux ppc; rv:45.0) Gecko/20100101 Icedove/45.4.0
+MIME-Version: 1.0
+In-Reply-To: <CAK8P3a2GGGuP0miLRy8w2+8vdSsGRNioBHEZ-ervSBrYbuZ+5w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20211231_091603_323718_6122FA35 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20211231_135556_360351_D22F1124 
+X-CRM114-Status: GOOD (  32.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,48 +133,110 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMzEgRGVjIDIwMjEsIGF0IDE2OjQ5LCBEaW1pdHJpIEpvaG4gTGVka292IDxkaW1pdHJpLmxl
-ZGtvdkBjYW5vbmljYWwuY29tPiB3cm90ZToKPiAKPiBIb3dldmVyLCBpbiBzb21lIGNvbmZpZ3Vy
-YXRpb25zIHVib290IGxvYWRzIGtlcm5lbCBwcm92aWRlZCBkdGIsIHRoZW4gdGhpcyBwaW4gbmVl
-ZHMgdG8gYmUgZGVmaW5lcyBmb3IgU0JJIHRvIHByb3ZpZGUgcG93ZXJvZmYgdmlhIHRoaXMgcGlu
-Lgo+IAo+IEtlcm5lbCwgdWJvb3QsIG9wZW5zYmkgZHRicyBmb3IgdW5tYXRjaGVkIG11c3QgYmUg
-Y29uc2lzdGVudCB3aXRoIGVhY2ggb3RoZXIgYW5kIGFsbCBzaG91bGQgZGVmaW5lIHBvd2Vyb2Zm
-IHBpbi4KClUtQm9vdCBTUEwgbG9hZHMgaXRzIGVtYmVkZGVkIERUQiBmb3IgT3BlblNCSeKAmXMg
-dXNlLiBVLUJvb3Qg4oCccHJvcGVy4oCdCmxvYWRzIHRoZSBrZXJuZWzigJlzIERUQiBmb3IgdGhl
-IGtlcm5lbOKAmXMgdXNlLiBUaGUgRFRCIGxvYWRlZCBmb3IgdGhlCmtlcm5lbCBpcyBuZXZlciBm
-ZWQgYmFjayBzb21laG93LiBKdXN0IGFzIHdlIGRvbuKAmXQgcHJvdmlkZSBERFIgdGltaW5nCmlu
-Zm9ybWF0aW9uIGluIHRoZSBrZXJuZWwgRFRCLCBvbmx5IFUtQm9vdOKAmXMsIHRoZXJlIHNob3Vs
-ZCBiZSBubyBuZWVkCnRvIHByb3ZpZGUgaW5mb3JtYXRpb24gYWJvdXQgdGhpcyBHUElPIHRvIHRo
-ZSBrZXJuZWwuIEVpdGhlciB0aGUga2VybmVsCndpbGwgcHJpb3JpdGlzZSBTQkkgcG93ZXItb2Zm
-LCB3aGljaCByZW5kZXJzIHRoZSBEVEIgbm9kZSBhIGNvbXBsZXRlCndhc3RlIG9mIHNwYWNlLCBh
-bmQgcG9zc2libHkgY29uZnVzaW5nIHRvIGV4aXN0LCBvciB0aGUga2VybmVsIHdpbGwKcHJpb3Jp
-dGlzZSBHUElPIHBvd2VyLW9mZiwgd2hpY2ggc2hvdWxkIGJlIGRpc2NvdXJhZ2VkIGFzIHlvdeKA
-mXJlCnN1cHBvc2VkIHRvIHVzZSBzdGFuZGFyZGlzZWQgZmlybXdhcmUgaW50ZXJmYWNlcyBmb3Ig
-dGhlc2Uga2luZHMgb2YKcGxhdGZvcm0tc3BlY2lmaWMgdGhpbmdzLgoKSmVzcwoKPiBPbiBGcmks
-IDMxIERlYyAyMDIxLCAwNjo1OCBKYW1lcyBDbGFya2UsIDxqcnRjMjdAanJ0YzI3LmNvbT4gd3Jv
-dGU6Cj4gT24gMzEgRGVjIDIwMjEsIGF0IDA2OjExLCBSb24gRWNvbm9tb3MgPHc2cnpAY29tY2Fz
-dC5uZXQ+IHdyb3RlOgo+ID4gCj4gPiBUaGlzIHBhdGNoIGlzIHJlcXVpcmVkIGZvciB0aGUgZm9s
-bG93aW5nIGNvbW1pdCB0byB3b3JrLgo+ID4gCj4gPiBjb21taXQgZjI5MjhlMjI0ZDg1ICgicmlz
-Y3Y6IHNldCBkZWZhdWx0IHBtX3Bvd2VyX29mZiB0byBOVUxMIikKPiA+IAo+ID4gU2lnbmVkLW9m
-Zi1ieTogUm9uIEVjb25vbW9zIDx3NnJ6QGNvbWNhc3QubmV0Pgo+ID4gLS0tCj4gPiBhcmNoL3Jp
-c2N2L2Jvb3QvZHRzL3NpZml2ZS9oaWZpdmUtdW5tYXRjaGVkLWEwMC5kdHMgfCA1ICsrKysrCj4g
-PiAxIGZpbGUgY2hhbmdlZCwgNSBpbnNlcnRpb25zKCspCj4gPiAKPiA+IGRpZmYgLS1naXQgYS9h
-cmNoL3Jpc2N2L2Jvb3QvZHRzL3NpZml2ZS9oaWZpdmUtdW5tYXRjaGVkLWEwMC5kdHMgYi9hcmNo
-L3Jpc2N2L2Jvb3QvZHRzL3NpZml2ZS9oaWZpdmUtdW5tYXRjaGVkLWEwMC5kdHMKPiA+IGluZGV4
-IDZiZmExZjI0ZDNkZS4uYzRlZDllZmRmZjAzIDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9i
-b290L2R0cy9zaWZpdmUvaGlmaXZlLXVubWF0Y2hlZC1hMDAuZHRzCj4gPiArKysgYi9hcmNoL3Jp
-c2N2L2Jvb3QvZHRzL3NpZml2ZS9oaWZpdmUtdW5tYXRjaGVkLWEwMC5kdHMKPiA+IEBAIC0zOSw2
-ICszOSwxMSBAQCBydGNjbGs6IHJ0Y2NsayB7Cj4gPiAgICAgICAgY2xvY2stZnJlcXVlbmN5ID0g
-PFJUQ0NMS19GUkVRPjsKPiA+ICAgICAgICBjbG9jay1vdXRwdXQtbmFtZXMgPSAicnRjY2xrIjsK
-PiA+ICAgIH07Cj4gPiArCj4gPiArICAgIGdwaW8tcG93ZXJvZmYgewo+ID4gKyAgICAgICAgY29t
-cGF0aWJsZSA9ICJncGlvLXBvd2Vyb2ZmIjsKPiA+ICsgICAgICAgIGdwaW9zID0gPCZncGlvIDIg
-R1BJT19BQ1RJVkVfTE9XPjsKPiA+ICsgICAgfTsKPiAKPiBXaHk/IEl04oCZcyBhYnN0cmFjdGVk
-IGJ5IGZpcm13YXJlLCB3aGljaCB3b3Jrcy4KPiAKPiBKZXNzCj4gCgoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Arnd,
+
+Am 01.01.2022 um 05:04 schrieb Arnd Bergmann:
+> On Wed, Dec 29, 2021 at 10:44 PM Michael Schmitz <schmitzmic@gmail.com> wrote:
+>> Am 30.12.2021 um 14:48 schrieb Arnd Bergmann:
+>>> On Tue, Dec 28, 2021 at 11:15 PM Michael Schmitz <schmitzmic@gmail.com> wrote:
+>>> What some other architectures do is to rely on inb()/outb() to have a
+>>> zero-based offset, and use an io_offset in PCI buses to ensure that a
+>>> low port number on the bus gets translated into a pointer value for the
+>>> virtual mapping in the kernel, which is then represented as an unsigned
+>>> int.
+>>
+>> M54xx does just that for Coldfire:
+>>
+>> arch/m68k/include/asm/io_no.h:
+>> #define PCI_IO_PA       0xf8000000              /* Host physical address */
+>>
+>> (used to set PCI BAR mappings, so matches your definition above).
+>
+> I think coldfire gets it right here, using PCI_IOBASE to find the start of
+> the window and a zero io_offset:
+>
+> #define PCI_IOBASE ((void __iomem *) PCI_IO_PA)
+
+Good - I bear that in mind if I ever get around to reactivating my 060 
+accelerator and the PCI board for that.
+
+>> All other (MMU) m68k users of inb()/outb() apply an io_offset in the
+>> platform specific address translation:
+>>
+>> arch/m68k/include/asm/io_mm.h:
+>>
+>> #define q40_isa_io_base  0xff400000
+>> #define enec_isa_read_base  0xfffa0000
+>> #define enec_isa_write_base 0xfffb0000
+>>
+>> arch/m68k/include/asm/amigayle.h:
+>>
+>> #define GAYLE_IO                (0xa20000+zTwoBase)     /* 16bit and
+>> even 8bit registers */
+>> #define GAYLE_IO_8BITODD        (0xa30000+zTwoBase)     /* odd 8bit
+>> registers */
+>>
+>> (all constants used in address translation inlines that are used by the
+>> m68k inb()/outb() macros - you can call that the poor man's version of
+>> PCI BAR mappings ...).
+>
+> This still looks like the same thing to me, where you have inb() take a
+> zero-based port number, not a pointer. The effect is the same as the
+> coldfire version, it just uses a custom inline function instead of the
+> version from asm-generic/io.h.
+
+Right.
+
+>> So as long as support for any of the m68k PCI or ISA bridges is selected
+>> in the kernel config, the appropriate IO space mapping is applied. If no
+>> support for PCI or ISA bridges is selected, we already fall back to zero
+>> offset mapping (but as far as I can tell, it shouldn't be possible to
+>> build a kernel without bridge support but drivers that require it).
+>
+> Right.
+>
+>>> As this is indistinguishable from architectures that just don't have
+>>> a base address for I/O ports (we unfortunately picked 0 as the default
+>>> PCI_IOBASE value), my suggestion was to start marking architectures
+>>> that may have this problem as using HAS_IOPORT in order to keep
+>>> the existing behavior unchanged. If m68k does not suffer from this,
+>>> making HAS_IOPORT conditional on those config options that actually
+>>> need it would of course be best.
+>>
+>> Following your description, HAS_IOPORT would be required for neither of
+>> PCI, ISA or ATARI_ROM_ISA ??
+>
+> For these three options, we definitely need HAS_IOPORT, which would
+> imply that some version of inb()/outb() is provided. The difference between
+
+Thanks for clarifying that (and to Niklas as well). Did sound a little 
+counter-intuitive to me...
+
+> using a custom PCI_IOBASE (or an open-coded equivalent) and using
+> a zero PCI_IOBASE in combination with registering PCI using a custom
+> io_offset is whether we can use drivers with hardcoded port numbers.
+> These should depend on a different Kconfig symbol to be introduced
+> (CONFIG_HARDCODED_IOPORT or similar) once we introduce them,
+> and you could decide for m68k whether to allow those or not, I would
+> assume you do want them in order to use certain legacy ISA drivers.
+
+That's exactly the purpose (though we're overmuch pushing the envelope 
+trying to accomodate legacy ISA drivers on too many platforms).
+
+Cheers,
+
+	Michael
+
+
+>        Arnd
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
