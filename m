@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFEE9C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Jan 2022 13:20:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C72ABC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Jan 2022 13:27:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nbNmpljyThySmK9MfX5c4Xm8z58ouZ+Bgf+PbcXRrrw=; b=VieRoEyF1NzKRn
-	c63my5dTjF296o3UzFili4FOpzVn169+yV2jEzrAHicgMuoprC9Y9VmChvY6mH+RI065Ie2iTPcVc
-	WTFgAnx9D+0E6uOVTeX0Yt7Kn+lhvY4zPc5w3xxbz+8KQq+IOGnPkfFso78OK6aeFlNJLTmj4ih4k
-	LTjkbVmRS6q5o8E96jPO6gaLT3dY1JeamIiK33L/zguY3BAvq0Mb/rdTz5u8/JyF4KqsQpuCyKar+
-	br0DAFC6KtwrliKltvhu/qEr8uBDCFDluiyjDEbn8Ts6w4nvKYqSMH0+2bjwF67UxjFlhSaAZKCjB
-	jCetb51qoThIntN4FAcQ==;
+	List-Owner; bh=wDLw8okRt4CgSpG12fmxvGePUF3T9yTGF6LAYIRZNeA=; b=edk+ARKdYYLz1s
+	9oTJL7o0YxOXdA6c+9hufT3/Bx9VxbPuQnAZmZw5fRqvb23gBQAupdTkERHWShdFHFNEUs/Fw/3Vb
+	VpCwTmhtBYEtbbrvwWCOrdTDmiND2srV66E5pjlBPs5lJyN5pF/XfHFv2ci08t1y1ToGbvoU2+wQb
+	EAwlnxFkEYaXG6B2UrBzfrX2djtJtXdh5AJ0lYQ1vNBQYVTHVwVtQRH2PJR/ufixyQzBLxyFjdd/S
+	oWn/aZq/NRUWhm+5yweWOEE0LgqIxncsZJl57cBEFA3EhuIGp4YNY3nSisAUxB5bxIuszUiuER5fx
+	t2VYwz5arQYgrAN3RBPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n4jjL-00BV1L-Dm; Tue, 04 Jan 2022 13:19:59 +0000
+	id 1n4jqW-00BVbn-L5; Tue, 04 Jan 2022 13:27:24 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n4jjH-00BUzi-Bz; Tue, 04 Jan 2022 13:19:57 +0000
+ id 1n4jqU-00BVar-Eb; Tue, 04 Jan 2022 13:27:23 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
  helo=diego.localnet)
  by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
  (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1n4jj4-0004br-8W; Tue, 04 Jan 2022 14:19:42 +0100
+ id 1n4jqN-0004e6-TR; Tue, 04 Jan 2022 14:27:15 +0100
 From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
 To: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 Cc: Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>,
@@ -37,18 +37,19 @@ Cc: Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>,
  Kefeng Wang <wangkefeng.wang@huawei.com>, kvm-riscv@lists.infradead.org,
  kvm@vger.kernel.org, linux-riscv@lists.infradead.org,
  Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Atish Patra <atishp@rivosinc.com>
+ Atish Patra <atishp@rivosinc.com>,
+ Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
 Subject: Re: [PATCH v5 1/5] RISC-V: KVM: Mark the existing SBI implementation
  as v01
-Date: Tue, 04 Jan 2022 14:19:41 +0100
-Message-ID: <6615284.qex3tTltCR@diego>
-In-Reply-To: <20211118083912.981995-2-atishp@rivosinc.com>
+Date: Tue, 04 Jan 2022 14:27:14 +0100
+Message-ID: <8323751.1mJVJdxAKN@diego>
+In-Reply-To: <6615284.qex3tTltCR@diego>
 References: <20211118083912.981995-1-atishp@rivosinc.com>
- <20211118083912.981995-2-atishp@rivosinc.com>
+ <20211118083912.981995-2-atishp@rivosinc.com> <6615284.qex3tTltCR@diego>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220104_051955_615317_1F04BBC0 
-X-CRM114-Status: GOOD (  31.91  )
+X-CRM114-CacheID: sfid-20220104_052722_511955_C85AF6E4 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,281 +61,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Atish,
+Am Dienstag, 4. Januar 2022, 14:19:41 CET schrieb Heiko St=FCbner:
+> Hi Atish,
+> =
 
-Am Donnerstag, 18. November 2021, 09:39:08 CET schrieb Atish Patra:
-> From: Atish Patra <atish.patra@wdc.com>
-> 
-> The existing SBI specification impelementation follows v0.1
-> specification. The latest specification allows more
-> scalability and performance improvements.
-> 
-> Rename the existing implementation as v01 and provide a way to allow
-> future extensions.
-> 
-> Reviewed-by: Anup Patel <anup.patel@wdc.com>
-> Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
+> Am Donnerstag, 18. November 2021, 09:39:08 CET schrieb Atish Patra:
+> > From: Atish Patra <atish.patra@wdc.com>
+> > =
 
-> diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
-> index eb3c045edf11..32376906ff20 100644
-> --- a/arch/riscv/kvm/vcpu_sbi.c
-> +++ b/arch/riscv/kvm/vcpu_sbi.c
-> @@ -1,5 +1,5 @@
->  // SPDX-License-Identifier: GPL-2.0
-> -/**
-> +/*
->   * Copyright (c) 2019 Western Digital Corporation or its affiliates.
->   *
->   * Authors:
+> > The existing SBI specification impelementation follows v0.1
+> > specification. The latest specification allows more
+> > scalability and performance improvements.
+> > =
 
-This got already fixed by [0]
-commit 0e2e64192100 ("riscv: kvm: fix non-kernel-doc comment block")
-so this patch doesn't apply cleanly anymore.
+> > Rename the existing implementation as v01 and provide a way to allow
+> > future extensions.
+> > =
 
-This looks like it is a prerequisite for the sparse-hart-id series,
-so a respin might be in order.
+> > Reviewed-by: Anup Patel <anup.patel@wdc.com>
+> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> > ---
+> =
 
+> > diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
+> > index eb3c045edf11..32376906ff20 100644
+> > --- a/arch/riscv/kvm/vcpu_sbi.c
+> > +++ b/arch/riscv/kvm/vcpu_sbi.c
+> > @@ -1,5 +1,5 @@
+> >  // SPDX-License-Identifier: GPL-2.0
+> > -/**
+> > +/*
+> >   * Copyright (c) 2019 Western Digital Corporation or its affiliates.
+> >   *
+> >   * Authors:
+> =
+
+> This got already fixed by [0]
+> commit 0e2e64192100 ("riscv: kvm: fix non-kernel-doc comment block")
+> so this patch doesn't apply cleanly anymore.
+
+hmm, just found Anup's "I've queued this..." message after
+writing my reply, so scratch the above ;-) .
+
+@Anup: I've looked at git.kernel.org but didn't find a tree
+there, can you tell me where this did go to?
+
+Thanks
 Heiko
-
-[0] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0e2e641921000ffc647b12918cdfcc504a9f6e3b
-
-> @@ -12,9 +12,25 @@
->  #include <asm/csr.h>
->  #include <asm/sbi.h>
->  #include <asm/kvm_vcpu_timer.h>
-> +#include <asm/kvm_vcpu_sbi.h>
->  
-> -#define SBI_VERSION_MAJOR			0
-> -#define SBI_VERSION_MINOR			1
-> +static int kvm_linux_err_map_sbi(int err)
-> +{
-> +	switch (err) {
-> +	case 0:
-> +		return SBI_SUCCESS;
-> +	case -EPERM:
-> +		return SBI_ERR_DENIED;
-> +	case -EINVAL:
-> +		return SBI_ERR_INVALID_PARAM;
-> +	case -EFAULT:
-> +		return SBI_ERR_INVALID_ADDRESS;
-> +	case -EOPNOTSUPP:
-> +		return SBI_ERR_NOT_SUPPORTED;
-> +	default:
-> +		return SBI_ERR_FAILURE;
-> +	};
-> +}
->  
->  static void kvm_riscv_vcpu_sbi_forward(struct kvm_vcpu *vcpu,
->  				       struct kvm_run *run)
-> @@ -72,21 +88,19 @@ static void kvm_sbi_system_shutdown(struct kvm_vcpu *vcpu,
->  	run->exit_reason = KVM_EXIT_SYSTEM_EVENT;
->  }
->  
-> -int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
-> +static int kvm_sbi_ext_v01_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
-> +				      unsigned long *out_val,
-> +				      struct kvm_cpu_trap *utrap,
-> +				      bool *exit)
->  {
->  	ulong hmask;
-> -	int i, ret = 1;
-> +	int i, ret = 0;
->  	u64 next_cycle;
->  	struct kvm_vcpu *rvcpu;
-> -	bool next_sepc = true;
->  	struct cpumask cm, hm;
->  	struct kvm *kvm = vcpu->kvm;
-> -	struct kvm_cpu_trap utrap = { 0 };
->  	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
->  
-> -	if (!cp)
-> -		return -EINVAL;
-> -
->  	switch (cp->a7) {
->  	case SBI_EXT_0_1_CONSOLE_GETCHAR:
->  	case SBI_EXT_0_1_CONSOLE_PUTCHAR:
-> @@ -95,8 +109,7 @@ int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
->  		 * handled in kernel so we forward these to user-space
->  		 */
->  		kvm_riscv_vcpu_sbi_forward(vcpu, run);
-> -		next_sepc = false;
-> -		ret = 0;
-> +		*exit = true;
->  		break;
->  	case SBI_EXT_0_1_SET_TIMER:
->  #if __riscv_xlen == 32
-> @@ -104,47 +117,42 @@ int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
->  #else
->  		next_cycle = (u64)cp->a0;
->  #endif
-> -		kvm_riscv_vcpu_timer_next_event(vcpu, next_cycle);
-> +		ret = kvm_riscv_vcpu_timer_next_event(vcpu, next_cycle);
->  		break;
->  	case SBI_EXT_0_1_CLEAR_IPI:
-> -		kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_VS_SOFT);
-> +		ret = kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_VS_SOFT);
->  		break;
->  	case SBI_EXT_0_1_SEND_IPI:
->  		if (cp->a0)
->  			hmask = kvm_riscv_vcpu_unpriv_read(vcpu, false, cp->a0,
-> -							   &utrap);
-> +							   utrap);
->  		else
->  			hmask = (1UL << atomic_read(&kvm->online_vcpus)) - 1;
-> -		if (utrap.scause) {
-> -			utrap.sepc = cp->sepc;
-> -			kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
-> -			next_sepc = false;
-> +		if (utrap->scause)
->  			break;
-> -		}
-> +
->  		for_each_set_bit(i, &hmask, BITS_PER_LONG) {
->  			rvcpu = kvm_get_vcpu_by_id(vcpu->kvm, i);
-> -			kvm_riscv_vcpu_set_interrupt(rvcpu, IRQ_VS_SOFT);
-> +			ret = kvm_riscv_vcpu_set_interrupt(rvcpu, IRQ_VS_SOFT);
-> +			if (ret < 0)
-> +				break;
->  		}
->  		break;
->  	case SBI_EXT_0_1_SHUTDOWN:
->  		kvm_sbi_system_shutdown(vcpu, run, KVM_SYSTEM_EVENT_SHUTDOWN);
-> -		next_sepc = false;
-> -		ret = 0;
-> +		*exit = true;
->  		break;
->  	case SBI_EXT_0_1_REMOTE_FENCE_I:
->  	case SBI_EXT_0_1_REMOTE_SFENCE_VMA:
->  	case SBI_EXT_0_1_REMOTE_SFENCE_VMA_ASID:
->  		if (cp->a0)
->  			hmask = kvm_riscv_vcpu_unpriv_read(vcpu, false, cp->a0,
-> -							   &utrap);
-> +							   utrap);
->  		else
->  			hmask = (1UL << atomic_read(&kvm->online_vcpus)) - 1;
-> -		if (utrap.scause) {
-> -			utrap.sepc = cp->sepc;
-> -			kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
-> -			next_sepc = false;
-> +		if (utrap->scause)
->  			break;
-> -		}
-> +
->  		cpumask_clear(&cm);
->  		for_each_set_bit(i, &hmask, BITS_PER_LONG) {
->  			rvcpu = kvm_get_vcpu_by_id(vcpu->kvm, i);
-> @@ -154,22 +162,97 @@ int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
->  		}
->  		riscv_cpuid_to_hartid_mask(&cm, &hm);
->  		if (cp->a7 == SBI_EXT_0_1_REMOTE_FENCE_I)
-> -			sbi_remote_fence_i(cpumask_bits(&hm));
-> +			ret = sbi_remote_fence_i(cpumask_bits(&hm));
->  		else if (cp->a7 == SBI_EXT_0_1_REMOTE_SFENCE_VMA)
-> -			sbi_remote_hfence_vvma(cpumask_bits(&hm),
-> +			ret = sbi_remote_hfence_vvma(cpumask_bits(&hm),
->  						cp->a1, cp->a2);
->  		else
-> -			sbi_remote_hfence_vvma_asid(cpumask_bits(&hm),
-> +			ret = sbi_remote_hfence_vvma_asid(cpumask_bits(&hm),
->  						cp->a1, cp->a2, cp->a3);
->  		break;
->  	default:
-> +		ret = -EINVAL;
-> +		break;
-> +	}
-> +
-> +	return ret;
-> +}
-> +
-> +const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_v01 = {
-> +	.extid_start = SBI_EXT_0_1_SET_TIMER,
-> +	.extid_end = SBI_EXT_0_1_SHUTDOWN,
-> +	.handler = kvm_sbi_ext_v01_handler,
-> +};
-> +
-> +static const struct kvm_vcpu_sbi_extension *sbi_ext[] = {
-> +	&vcpu_sbi_ext_v01,
-> +};
-> +
-> +const struct kvm_vcpu_sbi_extension *kvm_vcpu_sbi_find_ext(unsigned long extid)
-> +{
-> +	int i = 0;
-> +
-> +	for (i = 0; i < ARRAY_SIZE(sbi_ext); i++) {
-> +		if (sbi_ext[i]->extid_start <= extid &&
-> +		    sbi_ext[i]->extid_end >= extid)
-> +			return sbi_ext[i];
-> +	}
-> +
-> +	return NULL;
-> +}
-> +
-> +int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
-> +{
-> +	int ret = 1;
-> +	bool next_sepc = true;
-> +	bool userspace_exit = false;
-> +	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
-> +	const struct kvm_vcpu_sbi_extension *sbi_ext;
-> +	struct kvm_cpu_trap utrap = { 0 };
-> +	unsigned long out_val = 0;
-> +	bool ext_is_v01 = false;
-> +
-> +	sbi_ext = kvm_vcpu_sbi_find_ext(cp->a7);
-> +	if (sbi_ext && sbi_ext->handler) {
-> +		if (cp->a7 >= SBI_EXT_0_1_SET_TIMER &&
-> +		    cp->a7 <= SBI_EXT_0_1_SHUTDOWN)
-> +			ext_is_v01 = true;
-> +		ret = sbi_ext->handler(vcpu, run, &out_val, &utrap, &userspace_exit);
-> +	} else {
->  		/* Return error for unsupported SBI calls */
->  		cp->a0 = SBI_ERR_NOT_SUPPORTED;
-> -		break;
-> +		goto ecall_done;
-> +	}
-> +
-> +	/* Handle special error cases i.e trap, exit or userspace forward */
-> +	if (utrap.scause) {
-> +		/* No need to increment sepc or exit ioctl loop */
-> +		ret = 1;
-> +		utrap.sepc = cp->sepc;
-> +		kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
-> +		next_sepc = false;
-> +		goto ecall_done;
->  	}
->  
-> +	/* Exit ioctl loop or Propagate the error code the guest */
-> +	if (userspace_exit) {
-> +		next_sepc = false;
-> +		ret = 0;
-> +	} else {
-> +		/**
-> +		 * SBI extension handler always returns an Linux error code. Convert
-> +		 * it to the SBI specific error code that can be propagated the SBI
-> +		 * caller.
-> +		 */
-> +		ret = kvm_linux_err_map_sbi(ret);
-> +		cp->a0 = ret;
-> +		ret = 1;
-> +	}
-> +ecall_done:
->  	if (next_sepc)
->  		cp->sepc += 4;
-> +	if (!ext_is_v01)
-> +		cp->a1 = out_val;
->  
->  	return ret;
->  }
-> 
-
-
 
 
 
