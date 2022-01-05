@@ -4,107 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F213BC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jan 2022 19:48:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B58CFC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jan 2022 21:34:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=51+1OckvD4X0eYW2IBEQjemDwVYM1vVsiiasGIk/X90=; b=r3+sLWx/FYXwPl
-	Ka0nYMDPrRyjaZvYWafqGy4OHZEfRPwD1W28yky9SFaomkIGlphSLU1vuDvWngbZl/SycV/axGo5/
-	BEwL+01jqIPMmBhLOeKh3aln6b1A1L9TjLKlHBHTyHRS5a6lpx/z12TJErEcIhAE4+Z0LsvpdC2qq
-	q4tC3kBQT1yTXlTxkCIZUSARqDsUlR1sflw7t5l8BFWszTKwUaxskeQ56u77wmyGitLE6qnix+xKe
-	vqdDFWXsaeLh8fatLfulLdR3MbJvz+G2q5TMumWjXeIFtedVHu9bziPQqOI2souyE06lOkrebPUGf
-	kB3WRjQgX+2JUMFs0YGA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=E/ifFWgpxg4lgnbYk9xMFMYP9zsc9G1NDU81+FneHtk=; b=ZpCVkQLGWbcl/g
+	NgcOCNrPwflaBh9C9A/lPJ62sWLK1RUE7jFKwXMBl4lzaKiNuRlLqsyoX2sVwaJKOr1J7L9TbG4vn
+	InzEk2elQPkFMGHp6TBISf8GcIxmYJo+m3xzTYrgfW/T9yCVCFOfMpzS3Y/EvEQYabrc1ZGVIzy/p
+	jZKs2VUvg1f1KEmHiBrEHfYtGSq5tBuKNCVrd/RCzS5dABQNMef1rJclQpZuhXg7rwWcaujB0ReoD
+	8nGUFPMP/VY4t/8PZo58dYlmVae725h+Ys24MWISCJiEodNAnRKPSSlpyHTbYGpu/dgKPIJm1/cDy
+	Tghl4fhLWwIRIIu63wxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n5CGI-00Fhv4-KL; Wed, 05 Jan 2022 19:47:54 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1n5DvM-00FuFh-Bj; Wed, 05 Jan 2022 21:34:24 +0000
+Received: from mail-yb1-xb33.google.com ([2607:f8b0:4864:20::b33])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n5CGE-00Fhui-SU
- for linux-riscv@lists.infradead.org; Wed, 05 Jan 2022 19:47:52 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 27F5261859;
- Wed,  5 Jan 2022 19:47:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F8F0C36AE0;
- Wed,  5 Jan 2022 19:47:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1641412069;
- bh=t/Luv/nk2DzaSNkJU//u39w5XVRhppoSx5pKsM3k/v4=;
- h=Date:From:To:Cc:Subject:In-Reply-To:From;
- b=VUv9O2qdqKxA+jG4CFc2u3LsBBtVCfotavPXFO/fA1pTVEWrxgynepfFoNwDmpPe3
- gm6mzSwrf0Mu9v8LI0ep1L8d0gF07n+txTEieNZIGWxOqW9SiL4CAOcvJbfSVMhQ+3
- AXwKESLwYk/C/VLxQ9B09ONeiabtURx+gn19Ju8IEKSa/0hYllteATy6HWhv5F/Jtp
- 78FWTCTutn0mw70OCHpRgC8L6tBrcnnp3ILK1zuW9o6rgJRHSCKyS7qdLXCdCEZ3Sf
- pZgJlDurZwMThwqJkqgUgnGVT16YwqrnJM1KhaMG1e1LQ7K8PhR9cgiSRWv4dC4Mip
- cFT1uhvBqjObQ==
-Date: Wed, 5 Jan 2022 13:47:48 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: John Garry <john.garry@huawei.com>
-Cc: Niklas Schnelle <schnelle@linux.ibm.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Hans Verkuil <hverkuil-cisco@xs4all.nl>,
- Ettore Chimenti <ek5.chimenti@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Arnd Bergmann <arnd@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Nick Hu <nickhu@andestech.com>,
- Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
- Damien Le Moal <damien.lemoal@opensource.wdc.com>,
- Ian Abbott <abbotti@mev.co.uk>,
- H Hartley Sweeten <hsweeten@visionengravers.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Jean Delvare <jdelvare@suse.com>,
- Guenter Roeck <linux@roeck-us.net>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Karsten Keil <isdn@linux-pingi.de>,
- Sathya Prakash <sathya.prakash@broadcom.com>,
- Sreekanth Reddy <sreekanth.reddy@broadcom.com>,
- Suganath Prabu Subramani <suganath-prabu.subramani@broadcom.com>,
- Michael Grzeschik <m.grzeschik@pengutronix.de>,
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Jesse Brandeburg <jesse.brandeburg@intel.com>,
- Tony Nguyen <anthony.l.nguyen@intel.com>,
- Kalle Valo <kvalo@kernel.org>, Jouni Malinen <j@w1.fi>,
- "James E.J. Bottomley" <jejb@linux.ibm.com>,
- "Martin K. Petersen" <martin.petersen@oracle.com>,
- Hannes Reinecke <hare@suse.com>,
- Kashyap Desai <kashyap.desai@broadcom.com>,
- Sumit Saxena <sumit.saxena@broadcom.com>,
- Shivasharan S <shivasharan.srikanteshwara@broadcom.com>,
- Nilesh Javali <njavali@marvell.com>,
- GR-QLogic-Storage-Upstream@marvell.com, Mark Brown <broonie@kernel.org>,
- Sudip Mukherjee <sudipm.mukherjee@gmail.com>,
- Teddy Wang <teddy.wang@siliconmotion.com>,
- Forest Bond <forest@alittletooquiet.net>,
- Jiri Slaby <jirislaby@kernel.org>,
- Wim Van Sebroeck <wim@linux-watchdog.org>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-ide@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-hwmon@vger.kernel.org,
- linux-i2c@vger.kernel.org, linux-input@vger.kernel.org,
- netdev@vger.kernel.org, linux-media@vger.kernel.org,
- MPT-FusionLinux.pdl@broadcom.com, linux-scsi@vger.kernel.org,
- intel-wired-lan@lists.osuosl.org, linux-wireless@vger.kernel.org,
- megaraidlinux.pdl@broadcom.com, linux-spi@vger.kernel.org,
- linux-fbdev@vger.kernel.org, linux-serial@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-watchdog@vger.kernel.org
-Subject: Re: [RFC 01/32] Kconfig: introduce and depend on LEGACY_PCI
-Message-ID: <20220105194748.GA215560@bhelgaas>
+ id 1n5DvI-00FuFI-DB
+ for linux-riscv@lists.infradead.org; Wed, 05 Jan 2022 21:34:22 +0000
+Received: by mail-yb1-xb33.google.com with SMTP id j83so1781153ybg.2
+ for <linux-riscv@lists.infradead.org>; Wed, 05 Jan 2022 13:34:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=GJd5y+L+N+DFo19C16TqQALPw1txX6MptypK5PWYprc=;
+ b=MZe4qoSm0yK0xdAqk/G7iISzQzlBfEkiH8BsLqP9VWISEHJoYDayePX/2tBe2bisNC
+ EWhTdR35PwNsK+9OifkwKGrKVFWUNYG6rCGJO6JFzWjrZm94dobzydIsbo9k3HJlG74m
+ DO2bl3t5fq09JbuMgmxpL36fcIlFIS45Ne7n0=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=GJd5y+L+N+DFo19C16TqQALPw1txX6MptypK5PWYprc=;
+ b=13wg+FEuLvwjnZwUeQEeqGPqjnB8Z+KglRyu8Qqxo8YLN05XgCe+Hlkh58ldnJCfxk
+ XuOY928ie/7Q3MrAURGeON8UTumw+GILIvlugyJlk/IylWeVXZws8ZCQtkZC7Vy6+sin
+ fLymh29XGIEF5qaveiZSHP/4rBQdUGwMagMrEz0CRLJz2BQAwC+1t8Z8p+vf14nOVQb+
+ pUQJl0za6y8Pq/jdROKHGZPewXjeu8ZG2RE4fiXMUZP8c/VaEdLAQkFzwio2K1xI2bce
+ EJkvGDOAaex22tDuD8zI+w/Etz1doDUmvpBPq7CvWgqX5nW1Gbln2Kw4D18l+0yMmqj8
+ ej6Q==
+X-Gm-Message-State: AOAM530dhRhqKOyYx3c0HgMAQIQeobQMbrZuSjQKH6aaJw/YYMFuPl8E
+ PkYL5DrL8miFN6H7P/0jcwWBktZsujLZCphzXfpK
+X-Google-Smtp-Source: ABdhPJzWeFx6vn7FKeQcNabepj66d6sV2CRvMKE0Ng2MDVsA6j06csZG7Z9IB/snyRbFuVNL+KRNkOvvWlgSNmDvJUc=
+X-Received: by 2002:a25:3890:: with SMTP id
+ f138mr62081969yba.703.1641418458652; 
+ Wed, 05 Jan 2022 13:34:18 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <3f39d8a2-2e57-a671-2926-eb4f2bf20c76@huawei.com>
+References: <20211225054647.1750577-1-atishp@rivosinc.com>
+ <20211225054647.1750577-8-atishp@rivosinc.com>
+ <CAKddAkCkbHLQS2XzH=+uz4gJG=ECMRZfd0P_5r48O0v0NT2yVQ@mail.gmail.com>
+ <CAPqJEFp8Bss6ND1AmZRPLTJJSTSiPacvSe9y-EgLwfBwTrf8Yg@mail.gmail.com>
+In-Reply-To: <CAPqJEFp8Bss6ND1AmZRPLTJJSTSiPacvSe9y-EgLwfBwTrf8Yg@mail.gmail.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Wed, 5 Jan 2022 13:34:07 -0800
+Message-ID: <CAOnJCU+aN2w0n+QtoB=zdNbrGD1CdpoArO8s1AdeYxyeozaaBQ@mail.gmail.com>
+Subject: Re: [v5 7/9] RISC-V: Add sscofpmf extension support
+To: Eric Lin <eric.lin@sifive.com>
+Cc: Atish Patra <atish.patra@wdc.com>, Atish Patra <atishp@rivosinc.com>, 
+ linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220105_114751_053362_BEE9498E 
-X-CRM114-Status: GOOD (  44.86  )
+X-CRM114-CacheID: sfid-20220105_133420_547538_5F2D54EA 
+X-CRM114-Status: GOOD (  40.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,78 +83,423 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 05, 2022 at 05:42:16PM +0000, John Garry wrote:
-> On 29/12/2021 16:55, Niklas Schnelle wrote:
-> > On Wed, 2021-12-29 at 10:03 -0600, Bjorn Helgaas wrote:
-> > > On Wed, Dec 29, 2021 at 01:12:07PM +0100, Mauro Carvalho Chehab wrote:
-> > > > Em Wed, 29 Dec 2021 12:45:38 +0100
-> > > > Niklas Schnelle<schnelle@linux.ibm.com>  escreveu:
-> > > > > ...
-> > > > > I do think we agree that once done correctly there is value in
-> > > > > such an option independent of HAS_IOPORT only gating inb() etc uses.
-> > > I'm not sure I'm convinced about this.  For s390, you could do this
-> > > patch series, where you don't define inb() at all, and you add new
-> > > dependencies to prevent compile errors.  Or you could define inb() to
-> > > return ~0, which is what happens on other platforms when the device is
-> > > not present.
-> > > 
-> > > > Personally, I don't see much value on a Kconfig var for legacy PCI I/O
-> > > > space. From maintenance PoV, bots won't be triggered if someone use
-> > > > HAS_IOPORT instead of the PCI specific one - or vice-versa. So, we
-> > > > could end having a mix of both at the wrong places, in long term.
-> > > > 
-> > > > Also, assuming that PCIe hardware will some day abandon support for
-> > > > "legacy" PCI I/O space, I guess some runtime logic would be needed,
-> > > > in order to work with both kinds of PCIe controllers. So, having a
-> > > > Kconfig option won't help much, IMO.
-> > > > 
-> > > > So, my personal preference would be to have just one Kconfig var, but
-> > > > I'm ok if the PCI maintainers decide otherwise.
-> > > I don't really like the "LEGACY_PCI" Kconfig option.  "Legacy" just
-> > > means something old and out of favor; it doesn't say*what*  that
-> > > something is.
-> > > 
-> > > I think you're specifically interested in I/O port space usage, and it
-> > > seems that you want all PCI drivers that *only* use I/O port space to
-> > > depend on LEGACY_PCI?  Drivers that can use either I/O or memory
-> > > space or both would not depend on LEGACY_PCI?  This seems a little
-> > > murky and error-prone.
-> > I'd like to hear Arnd's opinion on this but you're the PCI maintainer
-> > so of course your buy-in would be quite important for such an option.
+On Tue, Jan 4, 2022 at 11:44 PM Eric Lin <eric.lin@sifive.com> wrote:
+>
+> Hi Atish,
+>
+> >
+> > From: Atish Patra <atish.patra@wdc.com>
+> >
+> > The sscofpmf extension allows counter overflow and filtering for
+> > programmable counters. Enable the perf driver to handle the overflow
+> > interrupt. The overflow interrupt is a hart local interrupt.
+> > Thus, per cpu overflow interrupts are setup as a child under the root
+> > INTC irq domain.
+> >
+> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> > ---
+> >  arch/riscv/include/asm/csr.h   |   8 +-
+> >  arch/riscv/include/asm/hwcap.h |   1 +
+> >  arch/riscv/kernel/cpufeature.c |   1 +
+> >  drivers/perf/riscv_pmu_sbi.c   | 218 +++++++++++++++++++++++++++++++--
+> >  include/linux/perf/riscv_pmu.h |   2 +
+> >  5 files changed, 222 insertions(+), 8 deletions(-)
+> >
+> > diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> > index e4d369830af4..8518eb0014bc 100644
+> > --- a/arch/riscv/include/asm/csr.h
+> > +++ b/arch/riscv/include/asm/csr.h
+> > @@ -63,6 +63,7 @@
+> >  #define IRQ_M_TIMER            7
+> >  #define IRQ_S_EXT              9
+> >  #define IRQ_M_EXT              11
+> > +#define IRQ_PMU_OVF            13
+> >
+> >  /* Exception causes */
+> >  #define EXC_INST_MISALIGNED    0
+> > @@ -151,6 +152,8 @@
+> >  #define CSR_HPMCOUNTER30H      0xc9e
+> >  #define CSR_HPMCOUNTER31H      0xc9f
+> >
+> > +#define CSR_SSCOUNTOVF         0xda0
+> > +
+> >  #define CSR_SSTATUS            0x100
+> >  #define CSR_SIE                        0x104
+> >  #define CSR_STVEC              0x105
+> > @@ -212,7 +215,10 @@
+> >  # define RV_IRQ_SOFT           IRQ_S_SOFT
+> >  # define RV_IRQ_TIMER  IRQ_S_TIMER
+> >  # define RV_IRQ_EXT            IRQ_S_EXT
+> > -#endif /* CONFIG_RISCV_M_MODE */
+> > +# define RV_IRQ_PMU    IRQ_PMU_OVF
+> > +# define SIP_LCOFIP     (_AC(0x1, UL) << IRQ_PMU_OVF)
+> > +
+> > +#endif /* !CONFIG_RISCV_M_MODE */
+> >
+> >  /* IE/IP (Supervisor/Machine Interrupt Enable/Pending) flags */
+> >  #define IE_SIE         (_AC(0x1, UL) << RV_IRQ_SOFT)
+> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> > index 368ab0f330c8..417e0840647a 100644
+> > --- a/arch/riscv/include/asm/hwcap.h
+> > +++ b/arch/riscv/include/asm/hwcap.h
+> > @@ -50,6 +50,7 @@ extern unsigned long elf_hwcap;
+> >   * available logical extension id.
+> >   */
+> >  enum riscv_isa_ext_id {
+> > +       RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
+> >         RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
+> >  };
+> >
+> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> > index c70eeec17f5b..3eedfb9ecd48 100644
+> > --- a/arch/riscv/kernel/cpufeature.c
+> > +++ b/arch/riscv/kernel/cpufeature.c
+> > @@ -71,6 +71,7 @@ EXPORT_SYMBOL_GPL(__riscv_isa_extension_available);
+> >         }
+> >
+> >  static struct riscv_isa_ext_data isa_ext_arr[] = {
+> > +       __RISCV_ISA_EXT_DATA(sscofpmf, sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+> >         __RISCV_ISA_EXT_DATA("", "", RISCV_ISA_EXT_MAX),
+> >  };
+> >
+> > diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+> > index f078d423a89a..ff8692ac43a5 100644
+> > --- a/drivers/perf/riscv_pmu_sbi.c
+> > +++ b/drivers/perf/riscv_pmu_sbi.c
+> > @@ -11,8 +11,13 @@
+> >  #include <linux/mod_devicetable.h>
+> >  #include <linux/perf/riscv_pmu.h>
+> >  #include <linux/platform_device.h>
+> > +#include <linux/irq.h>
+> > +#include <linux/irqdomain.h>
+> > +#include <linux/of_irq.h>
+> > +#include <linux/of.h>
+> >
+> >  #include <asm/sbi.h>
+> > +#include <asm/hwcap.h>
+> >
+> >  union sbi_pmu_ctr_info {
+> >         unsigned long value;
+> > @@ -33,6 +38,7 @@ union sbi_pmu_ctr_info {
+> >   * per_cpu in case of harts with different pmu counters
+> >   */
+> >  static union sbi_pmu_ctr_info *pmu_ctr_list;
+> > +static unsigned int riscv_pmu_irq;
+> >
+> >  struct pmu_event_data {
+> >         union {
+> > @@ -450,33 +456,223 @@ static int pmu_sbi_get_ctrinfo(int nctr)
+> >         return 0;
+> >  }
+> >
+> > +static inline void pmu_sbi_stop_all(struct riscv_pmu *pmu)
+> > +{
+> > +       int idx = 0;
+> > +       struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
+> > +       unsigned long cmask = 0;
+> > +       union sbi_pmu_ctr_info *info;
+> > +
+> > +       /* We should only stop the used hardware counters */
+> > +       for_each_set_bit(idx, cpu_hw_evt->used_event_ctrs, RISCV_MAX_COUNTERS) {
+> > +               info = &pmu_ctr_list[idx];
+> > +               if (info->type != SBI_PMU_CTR_TYPE_FW)
+> > +                       cmask |= (1 << idx);
+> > +       }
+> > +       /* No need to check the error here as we can't do anything about the error */
+> > +       sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP, 0, cmask, 0, 0, 0, 0);
+> > +}
+> > +
+> > +/**
+> > + * This function starts all the used counters in two step approach.
+> > + * Any counter that did not overflow can be start in a single step
+> > + * while the overflowed counters need to be started with updated initialization
+> > + * value.
+> > + */
+> > +static inline void pmu_sbi_start_overflow_mask(struct riscv_pmu *pmu,
+> > +                                              unsigned long ctr_ovf_mask)
+> > +{
+> > +       int idx = 0;
+> > +       struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
+> > +       struct perf_event *event;
+> > +       unsigned long flag = SBI_PMU_START_FLAG_SET_INIT_VALUE;
+> > +       unsigned long ctr_start_mask = 0;
+> > +       uint64_t max_period;
+> > +       struct hw_perf_event *hwc;
+> > +       u64 init_val = 0;
+> > +
+> > +       ctr_start_mask = cpu_hw_evt->used_event_ctrs[0] & ~ctr_ovf_mask;
+> > +
+> > +       /* Start all the counters that did not overflow in a single shot */
+> > +       sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, 0, ctr_start_mask,
+> > +                 0, 0, 0, 0);
+> > +
+> > +       /* Reinitialize and start all the counter that overflowed */
+> > +       while (ctr_ovf_mask) {
+> > +               if (ctr_ovf_mask & 0x01) {
+> > +                       event = cpu_hw_evt->events[idx];
+> > +                       hwc = &event->hw;
+> > +                       max_period = riscv_pmu_ctr_get_width_mask(event);
+> > +                       init_val = local64_read(&hwc->prev_count) & max_period;
+> > +                       sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, idx, 1,
+> > +                                 flag, init_val, 0, 0);
+> > +               }
+> > +               ctr_ovf_mask = ctr_ovf_mask >> 1;
+> > +               idx++;
+> > +       }
+> > +}
+> > +
+> > +static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+> > +{
+> > +       struct perf_sample_data data;
+> > +       struct pt_regs *regs;
+> > +       struct hw_perf_event *hw_evt;
+> > +       union sbi_pmu_ctr_info *info;
+> > +       int lidx, hidx, fidx;
+> > +       struct riscv_pmu *pmu;
+> > +       struct perf_event *event;
+> > +       struct cpu_hw_events *cpu_hw_evt = dev;
+> > +       unsigned long overflow;
+> > +       unsigned long overflowed_ctrs = 0;
+> > +
+> > +       fidx = find_first_bit(cpu_hw_evt->used_event_ctrs, RISCV_MAX_COUNTERS);
+> > +       event = cpu_hw_evt->events[fidx];
+> > +       if (!event) {
+> > +               csr_clear(CSR_SIP, SIP_LCOFIP);
+> > +               return IRQ_NONE;
+> > +       }
+> > +
+> > +       pmu = to_riscv_pmu(event->pmu);
+> > +       pmu_sbi_stop_all(pmu);
+> > +
+> > +       /* Overflow status register should only be read after counter are stopped */
+> > +       overflow = csr_read(CSR_SSCOUNTOVF);
+> > +
+> > +       /**
+> > +        * Overflow interrupt pending bit should only be cleared after stopping
+> > +        * all the counters to avoid any race condition.
+> > +        */
+> > +       csr_clear(CSR_SIP, SIP_LCOFIP);
+> > +
+> > +       /* No overflow bit is set */
+> > +       if (!overflow)
+> > +               return IRQ_NONE;
+> > +
+> > +       regs = get_irq_regs();
+> > +
+> > +       for_each_set_bit(lidx, cpu_hw_evt->used_event_ctrs, RISCV_MAX_COUNTERS) {
+> > +               struct perf_event *event = cpu_hw_evt->events[lidx];
+> > +
+> > +               /* Skip if invalid event or user did not request a sampling */
+> > +               if (!event || !is_sampling_event(event))
+> > +                       continue;
+> > +
+> > +               info = &pmu_ctr_list[lidx];
+> > +               /* Firmware counter don't support overflow yet */
+> > +               if (!info || info->type == SBI_PMU_CTR_TYPE_FW)
+> > +                       continue;
+> > +
+> > +               /* compute hardware counter index */
+> > +               hidx = info->csr - CSR_CYCLE;
+> > +               /* check if the corresponding bit is set in sscountovf */
+> > +               if (!(overflow & (1 << hidx)))
+> > +                       continue;
+> > +
+> > +               /*
+> > +                * Keep a track of overflowed counters so that they can be started
+> > +                * with updated initial value.
+> > +                */
+> > +               overflowed_ctrs |= 1 << lidx;
+> > +               hw_evt = &event->hw;
+> > +               riscv_pmu_event_update(event);
+> > +               perf_sample_data_init(&data, 0, hw_evt->last_period);
+> > +               if (riscv_pmu_event_set_period(event)) {
+> > +                       /*
+> > +                        * Unlike other ISAs, RISC-V don't have to disable interrupts
+> > +                        * to avoid throttling here. As per the specification, the
+> > +                        * interrupt remains disabled until the OF bit is set.
+> > +                        * Interrupts are enabled again only during the start.
+> > +                        * TODO: We will need to stop the guest counters once
+> > +                        * virtualization support is added.
+> > +                        */
+> > +                       perf_event_overflow(event, &data, regs);
+> > +               }
+> > +       }
+> > +       pmu_sbi_start_overflow_mask(pmu, overflowed_ctrs);
+> > +
+> > +       return IRQ_HANDLED;
+> > +}
+> > +
+> >  static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
+> >  {
+> >         struct riscv_pmu *pmu = hlist_entry_safe(node, struct riscv_pmu, node);
+> > +       struct cpu_hw_events __percpu *hw_events = pmu->hw_events;
+> >
+> >         /* Enable the access for TIME csr only from the user mode now */
+> >         csr_write(CSR_SCOUNTEREN, 0x2);
+> >
+> >         /* Stop all the counters so that they can be enabled from perf */
+> > -       sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP,
+> > -                 0, GENMASK_ULL(pmu->num_counters - 1, 0), 0, 0, 0, 0);
+> > +       pmu_sbi_stop_all(pmu);
+> > +
+> > +       if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
+> > +               hw_events->irq = riscv_pmu_irq;
+>
+> As I understand hw_events points to a per_cpu data, I think we should
+> use per_cpu(hw_events->irq, cpu) to store per cpu data.
+>
 
-I'd like to hear Arnd's opinion, too.  If we do add LEGACY_PCI, I
-think we need a clear guide for when to use it, e.g., "a PCI driver
-that uses inb() must depend on LEGACY_PCI" or whatever it is.
+Thanks for catching it. Fixed it.
 
-I must be missing something because I don't see what we gain from
-this.  We have PCI drivers, e.g., megaraid [1], for devices that have
-either MEM or I/O BARs.  I think we want to build drivers like that on
-any arch that supports PCI.
+> Thanks.
+> Eric Lin
+>
+> > +               csr_clear(CSR_IP, BIT(RV_IRQ_PMU));
+> > +               csr_set(CSR_IE, BIT(RV_IRQ_PMU));
+> > +               enable_percpu_irq(riscv_pmu_irq, IRQ_TYPE_NONE);
+> > +       }
+> >
+> >         return 0;
+> >  }
+> >
+> >  static int pmu_sbi_dying_cpu(unsigned int cpu, struct hlist_node *node)
+> >  {
+> > +       if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
+> > +               disable_percpu_irq(riscv_pmu_irq);
+> > +               csr_clear(CSR_IE, BIT(RV_IRQ_PMU));
+> > +       }
+> > +
+> >         /* Disable all counters access for user mode now */
+> >         csr_write(CSR_SCOUNTEREN, 0x0);
+> >
+> >         return 0;
+> >  }
+> >
+> > +static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pdev)
+> > +{
+> > +       int ret;
+> > +       struct cpu_hw_events __percpu *hw_events = pmu->hw_events;
+> > +       struct device_node *cpu, *child;
+> > +       struct irq_domain *domain = NULL;
+> > +
+> > +       if (!riscv_isa_extension_available(NULL, SSCOFPMF))
+> > +               return -EOPNOTSUPP;
+> > +
+> > +       for_each_of_cpu_node(cpu) {
+> > +               child = of_get_compatible_child(cpu, "riscv,cpu-intc");
+> > +               if (!child) {
+> > +                       pr_err("Failed to find INTC node\n");
+> > +                       return -ENODEV;
+> > +               }
+> > +               domain = irq_find_host(child);
+> > +               of_node_put(child);
+> > +               if (domain)
+> > +                       break;
+> > +       }
+> > +       if (!domain) {
+> > +               pr_err("Failed to find INTC IRQ root domain\n");
+> > +               return -ENODEV;
+> > +       }
+> > +
+> > +       riscv_pmu_irq = irq_create_mapping(domain, RV_IRQ_PMU);
+> > +       if (!riscv_pmu_irq) {
+> > +               pr_err("Failed to map PMU interrupt for node\n");
+> > +               return -ENODEV;
+> > +       }
+> > +
+> > +       ret = request_percpu_irq(riscv_pmu_irq, pmu_sbi_ovf_handler, "riscv-pmu", hw_events);
+> > +       if (ret) {
+> > +               pr_err("registering percpu irq failed [%d]\n", ret);
+> > +               return ret;
+> > +       }
+> > +
+> > +       return 0;
+> > +}
+> > +
+> >  static int pmu_sbi_device_probe(struct platform_device *pdev)
+> >  {
+> >         struct riscv_pmu *pmu = NULL;
+> >         int num_counters;
+> > -       int ret;
+> > +       int ret = -ENODEV;
+> >
+> >         pr_info("SBI PMU extension is available\n");
+> >         /* Notify legacy implementation that SBI pmu is available*/
+> > @@ -488,13 +684,19 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+> >         num_counters = pmu_sbi_find_num_ctrs();
+> >         if (num_counters < 0) {
+> >                 pr_err("SBI PMU extension doesn't provide any counters\n");
+> > -               return -ENODEV;
+> > +               goto out_free;
+> >         }
+> >
+> >         /* cache all the information about counters now */
+> >         if (pmu_sbi_get_ctrinfo(num_counters))
+> > -               return -ENODEV;
+> > +               goto out_free;
+> >
+> > +       ret = pmu_sbi_setup_irqs(pmu, pdev);
+> > +       if (ret < 0) {
+> > +               pr_info("Perf sampling/filtering is not supported as sscof extension is not available\n");
+> > +               pmu->pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
+> > +               pmu->pmu.capabilities |= PERF_PMU_CAP_NO_EXCLUDE;
+> > +       }
+> >         pmu->num_counters = num_counters;
+> >         pmu->ctr_start = pmu_sbi_ctr_start;
+> >         pmu->ctr_stop = pmu_sbi_ctr_stop;
+> > @@ -515,6 +717,10 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+> >         }
+> >
+> >         return 0;
+> > +
+> > +out_free:
+> > +       kfree(pmu);
+> > +       return ret;
+> >  }
+> >
+> >  static struct platform_driver pmu_sbi_driver = {
+> > @@ -544,8 +750,6 @@ static int __init pmu_sbi_devinit(void)
+> >         }
+> >
+> >         ret = platform_driver_register(&pmu_sbi_driver);
+> > -       if (ret)
+> > -               return ret;
+> >
+> >         pdev = platform_device_register_simple(RISCV_PMU_PDEV_NAME, -1, NULL, 0);
+> >         if (IS_ERR(pdev)) {
+> > diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
+> > index 52672de540c2..c7e2d689063a 100644
+> > --- a/include/linux/perf/riscv_pmu.h
+> > +++ b/include/linux/perf/riscv_pmu.h
+> > @@ -29,6 +29,8 @@
+> >  struct cpu_hw_events {
+> >         /* currently enabled events */
+> >         int                     n_events;
+> > +       /* Counter overflow interrupt */
+> > +       int             irq;
+> >         /* currently enabled events */
+> >         struct perf_event       *events[RISCV_MAX_COUNTERS];
+> >         /* currently enabled counters */
+> > --
+> > 2.33.1
+> >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-If the arch doesn't support I/O port space, devices that only have I/O
-BARs won't work, of course, and hopefully the PCI core and driver can
-figure that out and gracefully fail the probe.
 
-But that same driver should still work with devices that have MEM
-BARs.  If inb() isn't always present, I guess we could litter these
-drivers with #ifdefs, but that would be pretty ugly.  IMO inb() should
-be present but do something innocuous like return ~0, as it would if
-I/O port space is supported but there's no device at that address.
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/scsi/megaraid.c?id=v5.15#n4210
-
-> I can't see the value in the LEGACY_PCI config - however I don't really
-> understand Arnd's original intention.
-> 
-> It was written that it would allow us to control "whether we have any
-> pre-PCIe devices or those PCIe drivers that need PIO accessors other than
-> ioport_map()/pci_iomap()".
-> 
-> However I just don't see why CONFIG_PCI=y and CONFIG_HAS_IOPORT=y aren't
-> always the gating factor here. Arnd?
-> 
-> Thanks,
-> John
+-- 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
