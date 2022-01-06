@@ -4,74 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F392C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jan 2022 01:55:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4688C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jan 2022 03:21:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ycB0cJVGJFr5O1MKbICPoaEzdNbhFyWSz3yUCod3uX4=; b=seNLOD82wH0CZb
-	IOLk8RI2LeZKuHt4Kn/OQMFdEJjR6GLSmYW9FjoXPo41JOcv41HD9zjflAG+AGC3FX1PlwmWh6jKN
-	mJTkg9HazHPxm5U/mPu9VB6ZPuZ3jsI48eN5GqK6DwLmrfHDbuLctGcj0hJxhU5z/L8i1JGhMl6AD
-	DRnGkZ6YHoVoWqc/i3HbmNpD6ioA4DEtNHlsjU6cgJe/PeE8CVpqBvzNxLtpinIv7vaJxA21bBAY2
-	lsLBCgBi9CUY/h1zLlJ9spALjJzo1KNJA5rvuh6356jbgQ9tuuOEckfjJBqzwjwNq1/VX3Hkmga1j
-	4/LeBFI6kqT9HxRetKGA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=9dJTfyHb0wT6S+T0lKob+NvsTRL39/7pPF5Dtp9cMqI=; b=zuRF7HbBkB8wenoGO5o7ZLQ8Ma
+	ptQqtDoViiz9SWK5/Gm+/wcrJzdzIVllPlSRY1vDb6GkBmNrMcNFDFRmBQ4H6M9EuhqwEi+5AE2fC
+	XqvW+S7VaPkJM08tcHjeXtC0lvlYazTNUsEVRHXRI3uga7nhIjkS0eMXDMxQaql+5t5frRyPqim07
+	JZ90cWX8ssEfm3/vmYZBxEzN+PGjoPFoSztZcYsRKo673J5dOvSmRbnpP5kdgoBIgiWaqj4SjfmPc
+	KJ0MjDmifHAHrwTQjElbwQts9UX7bgLou4QFLOPUCJ3fPdLZKl+ulit2o1XY2gAyHRl2HrebjADPw
+	AdTw6tEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n5I0E-00GCCF-38; Thu, 06 Jan 2022 01:55:42 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1n5JLI-00GHCJ-Tk; Thu, 06 Jan 2022 03:21:32 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n5I0B-00GCBt-QY
- for linux-riscv@lists.infradead.org; Thu, 06 Jan 2022 01:55:41 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id x6so1861273lfa.5
- for <linux-riscv@lists.infradead.org>; Wed, 05 Jan 2022 17:55:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=OY3uWewQtYqbmVzvOMrfMhsghQBKU5B87qtjpHzkHwM=;
- b=ipUfJrPtuoM3OX+8XpUGTuzwp8LIrxnrnVTCz/NKRTFLj0eDItJI7MINOV2zCJh4fP
- DUBDZ5m8TOKZUoat+Zen2mZLg4iwATK4/TJ8oLpzCYdJDwzIOephdvB2QCmrmbdnET3w
- t2pzXnxwlHCX06cLahqhBDjbwBeAxW2KUAPXgGX1rnTpvBRDzHUtNNFJVUyjr7/kgF+p
- sZxWdQP4r9PAFgBmZobrpKewDOjY2CyFHi9mf+Wb/TiVoOEQG/X4et0ZajC9Mt2d2zM4
- m2QmFoKsHMYZzptDMyHI8PE0L+rF/Icb/slVZUei4K/YTUoFNBAvqFWPjsyM8f/4VBpw
- ZGqg==
+ id 1n5JLF-00GHBe-IX
+ for linux-riscv@lists.infradead.org; Thu, 06 Jan 2022 03:21:31 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id oa15so474335pjb.4
+ for <linux-riscv@lists.infradead.org>; Wed, 05 Jan 2022 19:21:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=L1kt8i+PKHaNiwL3dKZWcYg8PXU//JPnPYFIcwDdGfc=;
+ b=2R0Da2tFc7++Xc3yybYIx+8Lh8wqtM9Mjox4PAZuIEDFcqITJek0A59lpXRvWUlXk0
+ uF53KE3M8oeji64aGEwHFwT3WuJpkD+dBsw7/yt4ubkkB8RynEGp3sfCH/ChZNHdRwKV
+ wABF92HSTztHwKgLaHghfMnbWBLGRE5sSZVgf1vJ2XOGqIkPIbjgSN5Ko5Ug0MmuwO6n
+ 5PoPoJpw9tpp4ir0O4bJ8UNC9v4JELpYzA2L/Db9H3U+iYpeHBAOM8ZbeHareODlS+Zv
+ AfkBEf8hxLpqlT3pBLEj4e2rA0NByIlRmkZFefYd6/xhOPOueMj/79HVhTXkMXJ1XGqO
+ qvFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=OY3uWewQtYqbmVzvOMrfMhsghQBKU5B87qtjpHzkHwM=;
- b=VJGEcCZh/pUXx0LUF8UHdXp40MvN+lLU4vPSBqtV57jqBllHWdN3Gz1m22WoAOGpUe
- I2cAJbJHkv8eKakOI/KciSanAkFdgCr9onsHbRZw3pPE4NGv6ozWW8TVLP0ABQfV8PgQ
- duXfksTYtzR6zIvZCk9dkBDqZUyqWRK+ODnptteVKbmFnl0cs4PDkO7G4zDLMmr3e9yo
- rXopjy2HqMR8aE7Xw6OMKVvzTCo7JFG+xdrLATbBlIXb7LoYgUTPwTayJIfhz7vtPtM1
- EfRijWjUDtI89SLCXkyjwLyhU3xzDwjTcPn28nbeYKF8kmkBBx0i32tDczKFtyOYeI/S
- cwog==
-X-Gm-Message-State: AOAM533+didlgMVgIBqddtvWNK4lPxWF6pWaNObZM1wxpk29yHWtrjWp
- OwGbRPh6efcVs0qSUglO2Bthv/wVV6ogR+zojBKnxQ==
-X-Google-Smtp-Source: ABdhPJwpOpaROeBcJuF5ML+cbQJ+6ZpxXluAtT9hh8WQwOGx1lb+lORNlbJeI+rM8pjhVvPrEb8pwtAYLIOeVAUeufk=
-X-Received: by 2002:a05:6512:10cc:: with SMTP id
- k12mr44602930lfg.5.1641434134779; 
- Wed, 05 Jan 2022 17:55:34 -0800 (PST)
-MIME-Version: 1.0
-References: <7823666b57c105aee8323e6896f83f3ed249d9ee.1638957553.git.zong.li@sifive.com>
- <CANXhq0qdNxxi=jmrpMO-NKbxbHwaqoj=VGqphCw8cz+9DAyBDw@mail.gmail.com>
- <20220105234103.D597CC36AE9@smtp.kernel.org>
-In-Reply-To: <20220105234103.D597CC36AE9@smtp.kernel.org>
-From: Zong Li <zong.li@sifive.com>
-Date: Thu, 6 Jan 2022 09:55:24 +0800
-Message-ID: <CANXhq0qVsgposTnYQStHGP6c0NTgZP7W_QpzzG54kKwRqr=72g@mail.gmail.com>
-Subject: Re: [PATCH v2 1/1] clk: sifive: Fix W=1 kernel build warning
-To: Stephen Boyd <sboyd@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, lee.jones@linaro.org, 
- linux-clk <linux-clk@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=L1kt8i+PKHaNiwL3dKZWcYg8PXU//JPnPYFIcwDdGfc=;
+ b=SBX/WNF+v1+fphTm42JA54zwb0rNh+y1FRHXWLJCQhYAPVhccIHRcQIOZfqQFHa/Vg
+ C3Zczt/dQKRDf0rFfdhlHq/WW2NyFgLw81uul55yNOZlzCnbFZybYhGNEfPefUQw0Yi9
+ q3QimMs6guds9IwZUbtPKPVa2DnokKrD79IZi72tpR/K6Md686qA/GN6Z1lSuGhw8NXZ
+ cQn1xTqevZr46d2eh7rzjLTfX/7TmLyA9UT4ld5MZenLrSDt6KoDBKIovpgGrZgPrdP7
+ kfzJOtjAYch+LNmyPq0BcMrLEXa1XiZlY5S3U6J2dNaVHejDxV+OhrYbUpMmyAwOkCwK
+ I9jw==
+X-Gm-Message-State: AOAM533SGpv6MzcqWiKEtn63/zoK4fGVXmyOXJVVW9WJwccWnpX5mcOk
+ bbZwHOoQrqZpRbXDVg6h6IIOow==
+X-Google-Smtp-Source: ABdhPJx+qsaW9e3nS8xYE3uGzJD868WVU1ZiRYqaH/dQax0aODKoR/36iJxLlMJS1PRFkPjsegb6YA==
+X-Received: by 2002:a17:903:1cf:b0:149:b6f:4e98 with SMTP id
+ e15-20020a17090301cf00b001490b6f4e98mr56918701plh.118.1641439286739; 
+ Wed, 05 Jan 2022 19:21:26 -0800 (PST)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id q21sm467662pfu.176.2022.01.05.19.21.25
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 05 Jan 2022 19:21:26 -0800 (PST)
+Date: Wed, 05 Jan 2022 19:21:26 -0800 (PST)
+X-Google-Original-Date: Wed, 05 Jan 2022 19:20:58 PST (-0800)
+Subject: Re: [PATCH 09/12] riscv: extable: add `type` and `data` fields
+In-Reply-To: <20211118152155.GB9977@lakrids.cambridge.arm.com>
+CC: jszhang3@mail.ustc.edu.cn, tglx@linutronix.de,
+ Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ bjorn@kernel.org, ast@kernel.org, daniel@iogearbox.net, 
+ andrii@kernel.org, john.fastabend@gmail.com, kpsingh@kernel.org,
+ masahiroy@kernel.org, 
+ michal.lkml@markovi.net, ndesaulniers@google.com, wangkefeng.wang@huawei.com,
+ tongtiangen@huawei.com, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, bpf@vger.kernel.org, linux-kbuild@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: mark.rutland@arm.com
+Message-ID: <mhng-84ef2902-21c8-4cde-9d02-aa89f913a981@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220105_175539_921904_551D5771 
-X-CRM114-Status: UNSURE (   8.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220105_192129_643290_D99BDD2B 
+X-CRM114-Status: GOOD (  26.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,24 +91,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 6, 2022 at 7:41 AM Stephen Boyd <sboyd@kernel.org> wrote:
+On Thu, 18 Nov 2021 07:21:55 PST (-0800), mark.rutland@arm.com wrote:
+> On Thu, Nov 18, 2021 at 07:42:49PM +0800, Jisheng Zhang wrote:
+>> On Thu, 18 Nov 2021 19:26:05 +0800 Jisheng Zhang wrote:
+>>
+>> > From: Jisheng Zhang <jszhang@kernel.org>
+>> >
+>> > This is a riscv port of commit d6e2cc564775("arm64: extable: add `type`
+>> > and `data` fields").
+>> >
+>> > We will add specialized handlers for fixups, the `type` field is for
+>> > fixup handler type, the `data` field is used to pass specific data to
+>> > each handler, for example register numbers.
+>> >
+>> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 >
-> Quoting Zong Li (2022-01-04 20:24:28)
-> > On Wed, Dec 8, 2021 at 6:06 PM Zong Li <zong.li@sifive.com> wrote:
-> > >
-> > > This commit reverts commit 487dc7bb6a0c ("clk: sifive: fu540-prci:
-> >
-> > ping
+>> > diff --git a/scripts/sorttable.c b/scripts/sorttable.c
+>> > index 0c031e47a419..5b5472b543f5 100644
+>> > --- a/scripts/sorttable.c
+>> > +++ b/scripts/sorttable.c
+>> > @@ -376,9 +376,11 @@ static int do_file(char const *const fname, void *addr)
+>> >  	case EM_PARISC:
+>> >  	case EM_PPC:
+>> >  	case EM_PPC64:
+>> > -	case EM_RISCV:
+>> >  		custom_sort = sort_relative_table;
+>> >  		break;
+>> > +	case EM_RISCV:
+>> > +		custom_sort = arm64_sort_relative_table;
+>>
+>> Hi Mark, Thomas,
+>>
+>> x86 and arm64 version of sort_relative_table routine are the same, I want to
+>> unify them, and then use the common function for riscv, but I'm not sure
+>> which name is better. Could you please suggest?
 >
-> Please don't send "ping" at the very end of the mail and trim nothing
-> else. It wastes time.
+> I sent a patch last week which unifies them as
+> sort_relative_table_with_data():
+>
+>   https://lore.kernel.org/linux-arm-kernel/20211108114220.32796-1-mark.rutland@arm.com/
+>
+> Thomas, are you happy with that patch?
+>
+> With your ack it could go via the riscv tree for v5.17 as a preparatory
+> cleanup in this series.
+>
+> Maybe we could get it in as a cleanup for v5.16-rc{2,3} ?
 
-I got it. Thanks. Let me resend the patch with the change information.
+I don't see anything on that thread, and looks like last time I had to 
+touch sorttable I just took it via the RISC-V tree.  I went ahead and 
+put Mark's patch, along with this patch set, on my for-next.  I had to 
+fix up a few minor issues, so LMK if anything went off the rails.
+
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
