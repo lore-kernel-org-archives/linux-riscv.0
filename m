@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9FBAC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jan 2022 18:02:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94DD8C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jan 2022 18:02:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=QHufSerjt1TxMj7X2AYrm7tOMLXq0lCO+VyO0DfNBLQ=; b=uwM9nY51kliJ1IkZwBmd0OPmoS
-	EXltjEFV3l4XLQ4gJbUy49ppWgvRaZGm42s764mD9ZCv194H0asQQu0Vm2wUt5S0A90JGqa4rxkMe
-	S0gdYfJhDc9r63y9T4G7hd9XiCpT3LEvszj4HLNNQldmn4Wn1R8NU+/ILC2fPIC+flVFhytGew/Xm
-	g/6ALyqHQAhkFbhW5kLxCSCpepFsLQH+DJ2ZPnS2CZeCEDWmOWq3fb0jnxJd0ALuk+DrlIOqs9nY2
-	iswHutJF4Dr1+e40LI4QplEj3lVS6ByKhmdA3zBoVX3KT4l+CgFnd8tHki6IakKN1KgFurSIQh5dY
-	bADqmx6w==;
+	bh=ZA4j7KNGpt582TfawFgDAl2DnwVc1sZU8uM1iDWVDYs=; b=BO4596OaWZSZX4XV/zscXThwst
+	hUN4q6/GLtKOYB+AuSQrevob4Vq/2vfZJD2boMT8PdksWrdSbNZlxFdpdprd437hA4154fsB9nqdr
+	tmOeNlzDFWKwVHvlid1X8BUQALrPhG4pgxuaSA21narv8D1/AmzzBFqniXyoz2AfYkXu22b3KgLEU
+	fLkhr9ng0IR/vmcfWdIJieL2PWLQ5FIlXumoKfj2bKr+2f1VMKqpQu3XEmAg6AXcjEevlzvYPX8uq
+	T6Wq4BSr5tUfOVWaFAk90dwCyBKfiDR6YZqlHJeys9ydRiS6cxCI0X/OIlBF6o+aqZrQP0djC757V
+	iuJdzHig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n5X5L-000uyw-DU; Thu, 06 Jan 2022 18:01:59 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1n5X5N-000v09-L8; Thu, 06 Jan 2022 18:02:01 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n5X5I-000uwu-5S
- for linux-riscv@lists.infradead.org; Thu, 06 Jan 2022 18:01:57 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id f8so3252493pgf.8
- for <linux-riscv@lists.infradead.org>; Thu, 06 Jan 2022 10:01:55 -0800 (PST)
+ id 1n5X5K-000uxg-RP
+ for linux-riscv@lists.infradead.org; Thu, 06 Jan 2022 18:02:00 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id i6so3057084pla.0
+ for <linux-riscv@lists.infradead.org>; Thu, 06 Jan 2022 10:01:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=XgTsSDw/cwN0SZ5s5fkZLZ3uXbTWYqRAbY7QRxHVY18=;
- b=8JVlsFdlqxOaS82s31Ts55+GXRP8BLCxJJgLC9uDmZ4opT+mG0Jzng218K3mB+rZRZ
- cilULMNS51t5yA/qi20o6ha5xXhwRk6k1VhWaaKxwW9TBYySNmC3rfQmamPTmO/JIsPI
- spQGwdlmCY7JEvXEBOeYnJORd7X8klyiUimItQ4tZgdKcpwdVknPK6Eah/OMHavBIyqt
- tOK8+uTnaXF9JflPvbX0hOr5y2T1VVxjRPtLka3jxwWkG07iFgMnGCU+I9cYXwnjDOTy
- JC/EdA2QACjR1vT9FER48Bl4XuVmrl5tCiLnrUP6xtzDcRiNrYZoAXsJPmyTS6eeZjDk
- wj3g==
+ bh=4zcOQ9tOzM//Yk7TQGq7eHYDGBLmCAFxO9dcr6dZd90=;
+ b=DIZgxcXzw8eHu0c1FCLZmjbgNvWxxUXm9ereYtae3do2ZAGBOv2V7qCYgdcDo8kmlV
+ Pe4ZKLQbFBbBqzBiiIKQE+w844eEmWE89Mj4juZdQh059BCUnn3l7hDr8eRSAYJwlxXT
+ ALtjbBUhflR46FuhAqzZfY6rSmwb4JVKMNKOtXvaMFiVor8tfr/z0RZHE1xKEz2R74Yj
+ x70Gsb8XVjzPSu9Dv2X2pkAJDxs8RT9ZEU9ZUbJFOaVlEcKR+OcuxEIjtmu55cyz/wQW
+ mlPD2alf4zDT6WWYmZM9E2NXWhFGl9UwlKn11e8IK70k0zQ98WBJPMf5Y4gDr8ysTB/k
+ SVBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=XgTsSDw/cwN0SZ5s5fkZLZ3uXbTWYqRAbY7QRxHVY18=;
- b=XwpUQ48U4G51RRwb2FVowlaqEtZgH+q3bJybMTUMPTl/FaY1Uaz2GdTk1zt96LAlys
- ourLhgH2HSa5j2zibAkrj8XZBy9IHvdtWgkVu+BOj5Ms75PMIvgs07GwFBqIlvb27lTN
- yMgXhCqOdHJtuKFTceQacdCNYA2Yc2GWsD9xJlzvZUfN821tAtF3BhkHDAuxMwYQiL4j
- gcIo2iA0DG6+Ys4oCcGyWgJ3ln04Y+ZOwvYW+Qm+XfROZFVYA5JhN3LCgh1gTPtzjJam
- O6KlqKs5DrQl/aj/BJdmD69EybI5Gtbt3iTpYGbBG9PI6aNjYWEwQBT0vJ7uUF2m/5pv
- AoTA==
-X-Gm-Message-State: AOAM530ab0zZSIyhxCZ1U73s9GIZDpEu8FJIcXz7iKb0OPzmxpldkMJ7
- ir7uwbKsrnhTXOrB2ZJ1FAHXVg==
-X-Google-Smtp-Source: ABdhPJwT1LjozBUHdb4tR7Ch6r8coyZ3NWcoe4v9PJh1J2xlNchg8+tOBsAnqgBCccZL2ctKWhCpuA==
-X-Received: by 2002:a63:43c6:: with SMTP id
- q189mr53653779pga.424.1641492114780; 
- Thu, 06 Jan 2022 10:01:54 -0800 (PST)
+ bh=4zcOQ9tOzM//Yk7TQGq7eHYDGBLmCAFxO9dcr6dZd90=;
+ b=LJ6m3eBEwufNCfeT39I+Tfvn5IYnJuZgaVmhajbVCaaJmyy+sGf08aDWP/UlubScGc
+ YlpzQ+ryepXfvsvUFIQ0l3FoX5cGQN4E4tq80XYCOsAJwYyuStYPdn2kZqbbNdBYw0qu
+ moPXTcVU0fYmaV/YXC9VtZ9XrRITf1R7KsNTrCNWjfPsGSSSKfcoNK/T+ciiiIarNqeM
+ GxG6UBOQPWtiYfsLuOnROlCSH3R05jrWhAkX2Zj+rY7tL/hC4UWThNLkxspn2RYi80qv
+ 0xe10QQH9e5shGYvFUs22Ot15zVWvL2EM0WozD6rdGJMJOYbRV0pZB35a9HVBefu1FkN
+ eChw==
+X-Gm-Message-State: AOAM532qdS7xXG82i2F9br8ujhl//oK/DLdSHlxPOYAs8wOHss+NiOvQ
+ UbQ+rR6z+2wW3Is2goEAWGnk2PjUrpVLiA==
+X-Google-Smtp-Source: ABdhPJwxRgBsmYz4yEwedUABJs7D0bB9QxHddTM6iDuTsAaHUHBx9dOLYOQX/OiNZqx1wfnABsvJVw==
+X-Received: by 2002:a17:902:7442:b0:149:7a3f:3899 with SMTP id
+ e2-20020a170902744200b001497a3f3899mr49389317plt.90.1641492116369; 
+ Thu, 06 Jan 2022 10:01:56 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id z13sm3123044pjq.0.2022.01.06.10.01.53
+ by smtp.gmail.com with ESMTPSA id gm9sm3034133pjb.25.2022.01.06.10.01.55
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 06 Jan 2022 10:01:54 -0800 (PST)
-Date: Thu, 06 Jan 2022 10:01:54 -0800 (PST)
-X-Google-Original-Date: Thu, 06 Jan 2022 10:01:12 PST (-0800)
-Subject: Re: [PATCH 0/12] RISC-V: Clean up the defconfigs
-In-Reply-To: <CAEUhbmWP_e3_UWf-mO8AFwECw5Li0L=4Ywjb00jUHy2J1RX5Yg@mail.gmail.com>
-CC: anup@brainfault.org, linux-riscv@lists.infradead.org,
- Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- anup@brainfault.org, heinrich.schuchardt@canonical.com, 
- bin.meng@windriver.com, sagar.kadam@sifive.com, damien.lemoal@wdc.com,
- axboe@kernel.dk, linux-kernel@vger.kernel.org, atishp@atishpatra.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: bmeng.cn@gmail.com
-Message-ID: <mhng-b74a848e-3cd7-4cd9-8831-d66c12b41aae@palmer-ri-x1c9>
+ Thu, 06 Jan 2022 10:01:55 -0800 (PST)
+Date: Thu, 06 Jan 2022 10:01:55 -0800 (PST)
+X-Google-Original-Date: Thu, 06 Jan 2022 10:01:24 PST (-0800)
+Subject: Re: [PATCH 12/12] RISC-V: defconfigs: Remove redundant K210 DT source
+In-Reply-To: <DM6PR04MB70816CBD9FFA383FEE8DDC67E79E9@DM6PR04MB7081.namprd04.prod.outlook.com>
+CC: linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, 
+ aou@eecs.berkeley.edu, anup@brainfault.org,
+ heinrich.schuchardt@canonical.com, 
+ Atish Patra <atishp@rivosinc.com>, bin.meng@windriver.com,
+ sagar.kadam@sifive.com, axboe@kernel.dk, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Damien.LeMoal@wdc.com
+Message-ID: <mhng-40969d90-76cb-4b9b-9c39-32dbd0f9a7ea@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220106_100156_276820_11E0D7AA 
-X-CRM114-Status: GOOD (  29.56  )
+X-CRM114-CacheID: sfid-20220106_100158_996857_D3B0976E 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,49 +92,69 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 21 Nov 2021 18:45:24 PST (-0800), bmeng.cn@gmail.com wrote:
-> On Sat, Nov 20, 2021 at 12:32 PM Anup Patel <anup@brainfault.org> wrote:
->>
->> On Fri, Nov 19, 2021 at 10:14 PM Palmer Dabbelt <palmer@rivosinc.com> wrote:
->> >
->> > It's been a while since updating the defconfigs, so I figured it would
->> > be good to go through all the diff to make sure nothing was lurking.  It
->> > turns out there were two minor issues, which I've fixed with the first
->> > two patches.  The rest of these are just cleanups that should have no
->> > functional change.
->> >
->> > I don't have a K210 (I might somewhere, but I've yet to boot it) so I
->> > can't test this to make sure, but I think patch 2 is the reason we have
->> > a special !MMU PAGE_OFFSET config.  If someone does have one it'd be
->> > nice to be able to remove that special case.
->> >
->> >
->>
->> Using savedefconfig, I used to always get a huge diff so thanks for
->> doing this cleanups. Going forward, I suggest that we insiste everyone
->> to always use "make savedefconfig" for creating defconfig patches.
+On Sun, 21 Nov 2021 15:41:18 PST (-0800), Damien.LeMoal@wdc.com wrote:
+>> On 2021/11/20 1:45, Palmer Dabbelt wrote:
+>> From: Palmer Dabbelt <palmer@rivosinc.com>
+>> 
+>> The "k210_generic" DT has been the default in Kconfig since 7d96729a9e7
+>> ("riscv: Update Canaan Kendryte K210 device tree"), so drop it from the
+>> defconfigs to avoid diff with savedefconfig.
+>> 
+>> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+>> ---
+>>  arch/riscv/configs/nommu_k210_defconfig        | 1 -
+>>  arch/riscv/configs/nommu_k210_sdcard_defconfig | 1 -
+>>  2 files changed, 2 deletions(-)
+>> 
+>> diff --git a/arch/riscv/configs/nommu_k210_defconfig b/arch/riscv/configs/nommu_k210_defconfig
+>> index 89ab76349ea8..e8ceab678e8b 100644
+>> --- a/arch/riscv/configs/nommu_k210_defconfig
+>> +++ b/arch/riscv/configs/nommu_k210_defconfig
+>> @@ -29,7 +29,6 @@ CONFIG_EMBEDDED=y
+>>  CONFIG_SLOB=y
+>>  # CONFIG_MMU is not set
+>>  CONFIG_SOC_CANAAN=y
+>> -CONFIG_SOC_CANAAN_K210_DTB_SOURCE="k210_generic"
+>>  CONFIG_MAXPHYSMEM_2GB=y
+>>  CONFIG_SMP=y
+>>  CONFIG_NR_CPUS=2
+>> diff --git a/arch/riscv/configs/nommu_k210_sdcard_defconfig b/arch/riscv/configs/nommu_k210_sdcard_defconfig
+>> index 84b87f8bfc8f..46aa3879f19c 100644
+>> --- a/arch/riscv/configs/nommu_k210_sdcard_defconfig
+>> +++ b/arch/riscv/configs/nommu_k210_sdcard_defconfig
+>> @@ -21,7 +21,6 @@ CONFIG_EMBEDDED=y
+>>  CONFIG_SLOB=y
+>>  # CONFIG_MMU is not set
+>>  CONFIG_SOC_CANAAN=y
+>> -CONFIG_SOC_CANAAN_K210_DTB_SOURCE="k210_generic"
+>>  CONFIG_MAXPHYSMEM_2GB=y
+>>  CONFIG_SMP=y
+>>  CONFIG_NR_CPUS=2
+>> 
 >
-> Yep, using "savedefconfig" is always required by U-Boot maintainers. I
-> thought that's always the case for the Linux kernel but it seems it is
-> not the case.
+> Then maybe also delete the arch/riscv/boot/dts/canaan/k210_generic.dts file too
+> ? It is redundant now that it is not being referenced...
 
-It's actually a bit more complicated than that, as the results of
-savedefconfig change to track Kconfig updates.  I'd mostly been running
-savedefconfig and tossing the extra diff for people, but that led to a
-bit of a mess here.
+IIUC that's the opposite of what's going on here.  Looks like I somehow 
+managed to get the commit wrong, which I've fixed, it's 67d96729a9e7 
+("riscv: Update Canaan Kendryte K210 device tree")  That contains
 
-There's no way we can require everyone to run savedefconfig on our tree 
-(and even if we could, it'd be a merge nightmare).  IIUC what most folks 
-do is regularly re-spin the defconfigs, now that they're clean that 
-should be easy.  I'm going to start doing that, the best I can come up 
-with is in the second week of the merge window -- that way we'll have 
-both fixes and for-next based on the newer defconfigs, along with all 
-the WIP branches that folks base on rc1.  If anyone's got a better 
-scheme then I'm all ears, though.
+    diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+    index 6402746c68f3..7efcece8896c 100644
+    --- a/arch/riscv/Kconfig.socs
+    +++ b/arch/riscv/Kconfig.socs
+    @@ -51,7 +51,7 @@ config SOC_CANAAN_K210_DTB_SOURCE
+            string "Source file for the Canaan Kendryte K210 builtin DTB"
+            depends on SOC_CANAAN
+            depends on SOC_CANAAN_K210_DTB_BUILTIN
+    -       default "k210"
+    +       default "k210_generic"
+            help
+              Base name (without suffix, relative to arch/riscv/boot/dts/canaan)
+              for the DTS file that will be used to produce the DTB linked into the
 
-This patch set is on for-next.
-
-Thanks!
+which makes the defconfig entry redundant but still references the DT 
+file.
 
 _______________________________________________
 linux-riscv mailing list
