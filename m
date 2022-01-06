@@ -4,97 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C20E7C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jan 2022 17:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24427C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jan 2022 17:45:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
 	References:CC:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HS8bg9iidlYfn8sY5LSl7J3hxMgHVUuXRVQ23etLPio=; b=fOjUENz6TIN1G1On9dtAjLfN+k
-	fRfpHVgxwie3ehgMXhqOPbHXpaXdCTL+l1lvKOOeWrtGn3A6JnxYo1p5Myc8ZUMb/pkUJEE5ow7j6
-	6WrfQJV0Ib+yginyWzQ/QgQl5Dp9s2+izY2jJt42wiHJ7XH148YXD0MyaQo7WKId6kc5qm7mT5LIs
-	kEq5Lzmv5Ze3ashgpRn2+dxEV2p25t9egpyySJ9mMvX6GPZNIGR0tASBfiYNOhwTzoEqGSyeLBl1+
-	8+Hk7yrWvjnZfTafssRn3yg5JG/VjWEa1cm8vpDmpHb6CPdIZnVs0XDDz9N4Mdr7Jnu78ROZ/u9zt
-	vNqaUg3g==;
+	bh=bWetnG/HsXwSv1zPHfroWsn3CYJrPE/x/JoaTACylF4=; b=f3YXWEBmgGG9V0Xqz/ReS23/mf
+	tOobr//qAULJy86hmD2SkpcscMM74C6x61Vac59FAp+rQRoUyN5g2Zl399Ln4BeVtl2fO5vySSYoT
+	RLYIgx+mMwNWMLJO6eQl9ejp4hvIdrf3Zn8q7mn2udZuGfOVcOHk1bRq+hRM2dfFI4DM0/YnWloif
+	5SfDYX05DtUh+eV/5p/rb5aESMo4m6faD//C8csxGeCX4JXBGE1JdeMEJAkhfyyK+ACQukvPD3k4u
+	DwXDheHi+dSh/KkzIv4Yi7ttQXg55601ShJSnRORDcch9Mqqk6yFEzQNRYC/ZZzT8nk8iFc4FAm/t
+	FNRIRV/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n5WlT-000rJj-Us; Thu, 06 Jan 2022 17:41:28 +0000
+	id 1n5Wpe-000sMc-LV; Thu, 06 Jan 2022 17:45:46 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n5WlQ-000rIJ-Gs
- for linux-riscv@lists.infradead.org; Thu, 06 Jan 2022 17:41:27 +0000
-Received: from fraeml714-chm.china.huawei.com (unknown [172.18.147.226])
- by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4JVD6c3dG6z67wb3;
- Fri,  7 Jan 2022 01:36:24 +0800 (CST)
+ id 1n5Wpc-000sKz-EN
+ for linux-riscv@lists.infradead.org; Thu, 06 Jan 2022 17:45:45 +0000
+Received: from fraeml715-chm.china.huawei.com (unknown [172.18.147.226])
+ by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4JVDFV64LGz67PH4;
+ Fri,  7 Jan 2022 01:42:22 +0800 (CST)
 Received: from lhreml724-chm.china.huawei.com (10.201.108.75) by
- fraeml714-chm.china.huawei.com (10.206.15.33) with Microsoft SMTP Server
+ fraeml715-chm.china.huawei.com (10.206.15.34) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.20; Thu, 6 Jan 2022 18:41:19 +0100
+ 15.1.2308.20; Thu, 6 Jan 2022 18:45:40 +0100
 Received: from [10.47.27.56] (10.47.27.56) by lhreml724-chm.china.huawei.com
  (10.201.108.75) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2308.20; Thu, 6 Jan
- 2022 17:41:15 +0000
-Subject: Re: [RFC 01/32] Kconfig: introduce and depend on LEGACY_PCI
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: Niklas Schnelle <schnelle@linux.ibm.com>, Mauro Carvalho Chehab
- <mchehab@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Hans Verkuil
- <hverkuil-cisco@xs4all.nl>, Ettore Chimenti <ek5.chimenti@gmail.com>, "Greg
- Kroah-Hartman" <gregkh@linuxfoundation.org>, Arnd Bergmann <arnd@kernel.org>, 
+ 2022 17:45:39 +0000
+Subject: Re: [RFC 00/32] Kconfig: Introduce HAS_IOPORT and LEGACY_PCI options
+To: Niklas Schnelle <schnelle@linux.ibm.com>, Arnd Bergmann <arnd@kernel.org>, 
  Bjorn Helgaas <bhelgaas@google.com>, Nick Hu <nickhu@andestech.com>,
  Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>, "Paul
  Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, "Damien Le
- Moal" <damien.lemoal@opensource.wdc.com>, Ian Abbott <abbotti@mev.co.uk>, "H
- Hartley Sweeten" <hsweeten@visionengravers.com>, Linus Walleij
- <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Jean Delvare
- <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>, Dmitry Torokhov
- <dmitry.torokhov@gmail.com>, Karsten Keil <isdn@linux-pingi.de>, "Sathya
- Prakash" <sathya.prakash@broadcom.com>, Sreekanth Reddy
- <sreekanth.reddy@broadcom.com>, Suganath Prabu Subramani
- <suganath-prabu.subramani@broadcom.com>, Michael Grzeschik
- <m.grzeschik@pengutronix.de>, "David S. Miller" <davem@davemloft.net>, "Jakub
- Kicinski" <kuba@kernel.org>, Jesse Brandeburg <jesse.brandeburg@intel.com>,
- Tony Nguyen <anthony.l.nguyen@intel.com>, Kalle Valo <kvalo@kernel.org>,
- Jouni Malinen <j@w1.fi>, "James E.J. Bottomley" <jejb@linux.ibm.com>, "Martin
- K. Petersen" <martin.petersen@oracle.com>, Hannes Reinecke <hare@suse.com>,
- Kashyap Desai <kashyap.desai@broadcom.com>, Sumit Saxena
- <sumit.saxena@broadcom.com>, Shivasharan S
- <shivasharan.srikanteshwara@broadcom.com>, Nilesh Javali
- <njavali@marvell.com>, <GR-QLogic-Storage-Upstream@marvell.com>, Mark Brown
- <broonie@kernel.org>, Sudip Mukherjee <sudipm.mukherjee@gmail.com>, "Teddy
- Wang" <teddy.wang@siliconmotion.com>, Forest Bond
- <forest@alittletooquiet.net>, Jiri Slaby <jirislaby@kernel.org>, "Wim Van
- Sebroeck" <wim@linux-watchdog.org>, Jaroslav Kysela <perex@perex.cz>,
- "Takashi Iwai" <tiwai@suse.com>, <linux-kernel@vger.kernel.org>,
- <linux-arch@vger.kernel.org>, <linux-pci@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <linux-csky@vger.kernel.org>,
- <linux-ide@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
- <linux-hwmon@vger.kernel.org>, <linux-i2c@vger.kernel.org>,
- <linux-input@vger.kernel.org>, <netdev@vger.kernel.org>,
- <linux-media@vger.kernel.org>, <MPT-FusionLinux.pdl@broadcom.com>,
- <linux-scsi@vger.kernel.org>, <intel-wired-lan@lists.osuosl.org>,
- <linux-wireless@vger.kernel.org>, <megaraidlinux.pdl@broadcom.com>,
- <linux-spi@vger.kernel.org>, <linux-fbdev@vger.kernel.org>,
- <linux-serial@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
- <linux-watchdog@vger.kernel.org>
-References: <20220105194748.GA215560@bhelgaas>
+ Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <linux-arch@vger.kernel.org>,
+ <linux-pci@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <linux-csky@vger.kernel.org>
+References: <20211227164317.4146918-1-schnelle@linux.ibm.com>
 From: John Garry <john.garry@huawei.com>
-Message-ID: <74bf4fde-3972-1c36-ca04-58089da0d82b@huawei.com>
-Date: Thu, 6 Jan 2022 17:41:00 +0000
+Message-ID: <00c5a9e2-1876-e8d1-68f3-2be6d3bd38cb@huawei.com>
+Date: Thu, 6 Jan 2022 17:45:24 +0000
 User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
  Thunderbird/68.12.1
 MIME-Version: 1.0
-In-Reply-To: <20220105194748.GA215560@bhelgaas>
+In-Reply-To: <20211227164317.4146918-1-schnelle@linux.ibm.com>
 Content-Language: en-US
 X-Originating-IP: [10.47.27.56]
 X-ClientProxiedBy: lhreml736-chm.china.huawei.com (10.201.108.87) To
  lhreml724-chm.china.huawei.com (10.201.108.75)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220106_094124_912147_62046892 
-X-CRM114-Status: GOOD (  25.32  )
+X-CRM114-CacheID: sfid-20220106_094544_666651_6D9BA0B5 
+X-CRM114-Status: UNSURE (   7.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,60 +78,25 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 05/01/2022 19:47, Bjorn Helgaas wrote:
->>>>>   ok if the PCI maintainers decide otherwise.
->>>> I don't really like the "LEGACY_PCI" Kconfig option.  "Legacy" just
->>>> means something old and out of favor; it doesn't say*what*  that
->>>> something is.
->>>>
->>>> I think you're specifically interested in I/O port space usage, and it
->>>> seems that you want all PCI drivers that*only*  use I/O port space to
->>>> depend on LEGACY_PCI?  Drivers that can use either I/O or memory
->>>> space or both would not depend on LEGACY_PCI?  This seems a little
->>>> murky and error-prone.
->>> I'd like to hear Arnd's opinion on this but you're the PCI maintainer
->>> so of course your buy-in would be quite important for such an option.
-> I'd like to hear Arnd's opinion, too.  If we do add LEGACY_PCI, I
-> think we need a clear guide for when to use it, e.g., "a PCI driver
-> that uses inb() must depend on LEGACY_PCI" or whatever it is.
+Hi Niklas,
+
+On 27/12/2021 16:42, Niklas Schnelle wrote:
+> I performed the following testing:
 > 
-> I must be missing something because I don't see what we gain from
-> this.  We have PCI drivers, e.g., megaraid [1], for devices that have
-> either MEM or I/O BARs.  I think we want to build drivers like that on
-> any arch that supports PCI.
-> 
-> If the arch doesn't support I/O port space, devices that only have I/O
-> BARs won't work, of course, and hopefully the PCI core and driver can
-> figure that out and gracefully fail the probe.
-> 
-> But that same driver should still work with devices that have MEM
-> BARs.  If inb() isn't always present, I guess we could litter these
-> drivers with #ifdefs, but that would be pretty ugly. 
+> - On s390 this series on top of v5.16-rc7 builds with allyesconfig i.e. the
+>    HAS_IOPORT=n case.
 
-There were some ifdefs added to the 8250 drivers in Arnd's original 
-patch [0], but it does not seem included here.
+Are you sure that allyesconfig gives HAS_IOPORT=n? Indeed I see no 
+mechanism is always disallow HAS_IOPORT for s390 (which I think we would 
+want).
 
-Niklas, what happened to the 8250 and the other driver changes?
-
-[0] 
-https://lore.kernel.org/lkml/CAK8P3a0MNbx-iuzW_-=0ab6-TTZzwV-PT_6gAC1Gp5PgYyHcrA@mail.gmail.com/
-
-> IMO inb() should
-> be present but do something innocuous like return ~0, as it would if
-> I/O port space is supported but there's no device at that address.
-> 
-> [1]https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/scsi/megaraid.c?id=v5.15#n4210
-> 
-
-That driver would prob not be used on systems which does not support 
-PIO, and so could have a HAS_IOPORT dependency. But it is not strictly 
-necessary.
-
-Anyway, it would be good to have an idea of how much ifdeffery is 
-required in drivers.
+> It also builds with defconfig and the resulting kernel
+>    appears fully functional including tests with PCI devices.
 
 Thanks,
-John
+Johnw
+
+
 
 _______________________________________________
 linux-riscv mailing list
