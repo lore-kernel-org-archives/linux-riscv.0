@@ -4,78 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94DD8C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jan 2022 18:02:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80644C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jan 2022 18:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=ZA4j7KNGpt582TfawFgDAl2DnwVc1sZU8uM1iDWVDYs=; b=BO4596OaWZSZX4XV/zscXThwst
-	hUN4q6/GLtKOYB+AuSQrevob4Vq/2vfZJD2boMT8PdksWrdSbNZlxFdpdprd437hA4154fsB9nqdr
-	tmOeNlzDFWKwVHvlid1X8BUQALrPhG4pgxuaSA21narv8D1/AmzzBFqniXyoz2AfYkXu22b3KgLEU
-	fLkhr9ng0IR/vmcfWdIJieL2PWLQ5FIlXumoKfj2bKr+2f1VMKqpQu3XEmAg6AXcjEevlzvYPX8uq
-	T6Wq4BSr5tUfOVWaFAk90dwCyBKfiDR6YZqlHJeys9ydRiS6cxCI0X/OIlBF6o+aqZrQP0djC757V
-	iuJdzHig==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=kjSRzFy8S4YOLy55soWpqyxqYYEzYFUAFYVesZHb9fM=; b=usHF4Svc0+De12
+	bwD0+qvRGzhkPUBCyofY5rT6HM16Yn7H/isM/6aGUbOKcSD5LGKsfgJjgqOL3+yvY6uFp92znQFEZ
+	ajs/usSVYutctmh7cNz1TUFFfkqMA6bs3Y6ZIL2ZnyuZ+IIhGHMM000gVI+4pCfWw2XoWe7IRl40z
+	HQM3BeWACrGU7Y4VxeqYW9fF+VPkDj00/GklmbO+Fe/nACt0GgMQ7hUGJmB2A+miSbqI0hSCAqa73
+	cRmGTzVIOTGBPFDkzMp98LOSguKKBEGSGZ1fFQjFD5/PGHV1zwck42FPk1BZfWNI4Eyc5t/CNniNt
+	HsObqX/2KBJqL7IdBYKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n5X5N-000v09-L8; Thu, 06 Jan 2022 18:02:01 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1n5XHF-000xX4-3z; Thu, 06 Jan 2022 18:14:17 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n5X5K-000uxg-RP
- for linux-riscv@lists.infradead.org; Thu, 06 Jan 2022 18:02:00 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id i6so3057084pla.0
- for <linux-riscv@lists.infradead.org>; Thu, 06 Jan 2022 10:01:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=4zcOQ9tOzM//Yk7TQGq7eHYDGBLmCAFxO9dcr6dZd90=;
- b=DIZgxcXzw8eHu0c1FCLZmjbgNvWxxUXm9ereYtae3do2ZAGBOv2V7qCYgdcDo8kmlV
- Pe4ZKLQbFBbBqzBiiIKQE+w844eEmWE89Mj4juZdQh059BCUnn3l7hDr8eRSAYJwlxXT
- ALtjbBUhflR46FuhAqzZfY6rSmwb4JVKMNKOtXvaMFiVor8tfr/z0RZHE1xKEz2R74Yj
- x70Gsb8XVjzPSu9Dv2X2pkAJDxs8RT9ZEU9ZUbJFOaVlEcKR+OcuxEIjtmu55cyz/wQW
- mlPD2alf4zDT6WWYmZM9E2NXWhFGl9UwlKn11e8IK70k0zQ98WBJPMf5Y4gDr8ysTB/k
- SVBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=4zcOQ9tOzM//Yk7TQGq7eHYDGBLmCAFxO9dcr6dZd90=;
- b=LJ6m3eBEwufNCfeT39I+Tfvn5IYnJuZgaVmhajbVCaaJmyy+sGf08aDWP/UlubScGc
- YlpzQ+ryepXfvsvUFIQ0l3FoX5cGQN4E4tq80XYCOsAJwYyuStYPdn2kZqbbNdBYw0qu
- moPXTcVU0fYmaV/YXC9VtZ9XrRITf1R7KsNTrCNWjfPsGSSSKfcoNK/T+ciiiIarNqeM
- GxG6UBOQPWtiYfsLuOnROlCSH3R05jrWhAkX2Zj+rY7tL/hC4UWThNLkxspn2RYi80qv
- 0xe10QQH9e5shGYvFUs22Ot15zVWvL2EM0WozD6rdGJMJOYbRV0pZB35a9HVBefu1FkN
- eChw==
-X-Gm-Message-State: AOAM532qdS7xXG82i2F9br8ujhl//oK/DLdSHlxPOYAs8wOHss+NiOvQ
- UbQ+rR6z+2wW3Is2goEAWGnk2PjUrpVLiA==
-X-Google-Smtp-Source: ABdhPJwxRgBsmYz4yEwedUABJs7D0bB9QxHddTM6iDuTsAaHUHBx9dOLYOQX/OiNZqx1wfnABsvJVw==
-X-Received: by 2002:a17:902:7442:b0:149:7a3f:3899 with SMTP id
- e2-20020a170902744200b001497a3f3899mr49389317plt.90.1641492116369; 
- Thu, 06 Jan 2022 10:01:56 -0800 (PST)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id gm9sm3034133pjb.25.2022.01.06.10.01.55
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 06 Jan 2022 10:01:55 -0800 (PST)
-Date: Thu, 06 Jan 2022 10:01:55 -0800 (PST)
-X-Google-Original-Date: Thu, 06 Jan 2022 10:01:24 PST (-0800)
-Subject: Re: [PATCH 12/12] RISC-V: defconfigs: Remove redundant K210 DT source
-In-Reply-To: <DM6PR04MB70816CBD9FFA383FEE8DDC67E79E9@DM6PR04MB7081.namprd04.prod.outlook.com>
-CC: linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, 
- aou@eecs.berkeley.edu, anup@brainfault.org,
- heinrich.schuchardt@canonical.com, 
- Atish Patra <atishp@rivosinc.com>, bin.meng@windriver.com,
- sagar.kadam@sifive.com, axboe@kernel.dk, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Damien.LeMoal@wdc.com
-Message-ID: <mhng-40969d90-76cb-4b9b-9c39-32dbd0f9a7ea@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+ id 1n5XHB-000xUt-Ck
+ for linux-riscv@lists.infradead.org; Thu, 06 Jan 2022 18:14:15 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id E4BAFB822E4;
+ Thu,  6 Jan 2022 18:14:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A780C36AEB;
+ Thu,  6 Jan 2022 18:14:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1641492850;
+ bh=pk9c3vFsS24A9H9YRNmuoLU04tTgveyiSfxz/RguLrg=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:From;
+ b=tWL9ah320xPJ7ZLvQrLFkjIeV1LTlPrJ2qSY/t0fKFbU+5MxnpWBBUesVfIjO0xOO
+ l+Yvi8TANgRjNK2vReZYRlLqehfzP4qE2oNJarfvWixIS0OfQkuKWpI6rrQEfWGn25
+ oroVHI/IQA8JEpMkHqxWMkHxAKg+IVXn/Zqji7RoVtpWyymeRt5WcM4qay0A7EFOWe
+ jnI4JpbaAmAttF9a/Yhl/wWUUgx6A1s8zF9Wpc8ft5Y9hFSMLv91rRujQQ/od6scnA
+ LsHiF+8iYMGoQ6RcvIn/+ZU8WqHN0Y3LnsXMJdYHRbXi/+K/WGfnGi+pM9zExj10bs
+ +smYL/+iBYHZg==
+Date: Thu, 6 Jan 2022 12:14:09 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: John Garry <john.garry@huawei.com>
+Cc: Niklas Schnelle <schnelle@linux.ibm.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Hans Verkuil <hverkuil-cisco@xs4all.nl>,
+ Ettore Chimenti <ek5.chimenti@gmail.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Arnd Bergmann <arnd@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Nick Hu <nickhu@andestech.com>,
+ Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+ Damien Le Moal <damien.lemoal@opensource.wdc.com>,
+ Ian Abbott <abbotti@mev.co.uk>,
+ H Hartley Sweeten <hsweeten@visionengravers.com>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Jean Delvare <jdelvare@suse.com>,
+ Guenter Roeck <linux@roeck-us.net>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Karsten Keil <isdn@linux-pingi.de>,
+ Sathya Prakash <sathya.prakash@broadcom.com>,
+ Sreekanth Reddy <sreekanth.reddy@broadcom.com>,
+ Suganath Prabu Subramani <suganath-prabu.subramani@broadcom.com>,
+ Michael Grzeschik <m.grzeschik@pengutronix.de>,
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
+ Jesse Brandeburg <jesse.brandeburg@intel.com>,
+ Tony Nguyen <anthony.l.nguyen@intel.com>,
+ Kalle Valo <kvalo@kernel.org>, Jouni Malinen <j@w1.fi>,
+ "James E.J. Bottomley" <jejb@linux.ibm.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ Hannes Reinecke <hare@suse.com>,
+ Kashyap Desai <kashyap.desai@broadcom.com>,
+ Sumit Saxena <sumit.saxena@broadcom.com>,
+ Shivasharan S <shivasharan.srikanteshwara@broadcom.com>,
+ Nilesh Javali <njavali@marvell.com>,
+ GR-QLogic-Storage-Upstream@marvell.com, Mark Brown <broonie@kernel.org>,
+ Sudip Mukherjee <sudipm.mukherjee@gmail.com>,
+ Teddy Wang <teddy.wang@siliconmotion.com>,
+ Forest Bond <forest@alittletooquiet.net>,
+ Jiri Slaby <jirislaby@kernel.org>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-ide@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-hwmon@vger.kernel.org,
+ linux-i2c@vger.kernel.org, linux-input@vger.kernel.org,
+ netdev@vger.kernel.org, linux-media@vger.kernel.org,
+ MPT-FusionLinux.pdl@broadcom.com, linux-scsi@vger.kernel.org,
+ intel-wired-lan@lists.osuosl.org, linux-wireless@vger.kernel.org,
+ megaraidlinux.pdl@broadcom.com, linux-spi@vger.kernel.org,
+ linux-fbdev@vger.kernel.org, linux-serial@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-watchdog@vger.kernel.org
+Subject: Re: [RFC 01/32] Kconfig: introduce and depend on LEGACY_PCI
+Message-ID: <20220106181409.GA297735@bhelgaas>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <74bf4fde-3972-1c36-ca04-58089da0d82b@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220106_100158_996857_D3B0976E 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20220106_101413_729393_62409FDA 
+X-CRM114-Status: GOOD (  22.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,74 +116,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 21 Nov 2021 15:41:18 PST (-0800), Damien.LeMoal@wdc.com wrote:
->> On 2021/11/20 1:45, Palmer Dabbelt wrote:
->> From: Palmer Dabbelt <palmer@rivosinc.com>
->> 
->> The "k210_generic" DT has been the default in Kconfig since 7d96729a9e7
->> ("riscv: Update Canaan Kendryte K210 device tree"), so drop it from the
->> defconfigs to avoid diff with savedefconfig.
->> 
->> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
->> ---
->>  arch/riscv/configs/nommu_k210_defconfig        | 1 -
->>  arch/riscv/configs/nommu_k210_sdcard_defconfig | 1 -
->>  2 files changed, 2 deletions(-)
->> 
->> diff --git a/arch/riscv/configs/nommu_k210_defconfig b/arch/riscv/configs/nommu_k210_defconfig
->> index 89ab76349ea8..e8ceab678e8b 100644
->> --- a/arch/riscv/configs/nommu_k210_defconfig
->> +++ b/arch/riscv/configs/nommu_k210_defconfig
->> @@ -29,7 +29,6 @@ CONFIG_EMBEDDED=y
->>  CONFIG_SLOB=y
->>  # CONFIG_MMU is not set
->>  CONFIG_SOC_CANAAN=y
->> -CONFIG_SOC_CANAAN_K210_DTB_SOURCE="k210_generic"
->>  CONFIG_MAXPHYSMEM_2GB=y
->>  CONFIG_SMP=y
->>  CONFIG_NR_CPUS=2
->> diff --git a/arch/riscv/configs/nommu_k210_sdcard_defconfig b/arch/riscv/configs/nommu_k210_sdcard_defconfig
->> index 84b87f8bfc8f..46aa3879f19c 100644
->> --- a/arch/riscv/configs/nommu_k210_sdcard_defconfig
->> +++ b/arch/riscv/configs/nommu_k210_sdcard_defconfig
->> @@ -21,7 +21,6 @@ CONFIG_EMBEDDED=y
->>  CONFIG_SLOB=y
->>  # CONFIG_MMU is not set
->>  CONFIG_SOC_CANAAN=y
->> -CONFIG_SOC_CANAAN_K210_DTB_SOURCE="k210_generic"
->>  CONFIG_MAXPHYSMEM_2GB=y
->>  CONFIG_SMP=y
->>  CONFIG_NR_CPUS=2
->> 
->
-> Then maybe also delete the arch/riscv/boot/dts/canaan/k210_generic.dts file too
-> ? It is redundant now that it is not being referenced...
+On Thu, Jan 06, 2022 at 05:41:00PM +0000, John Garry wrote:
+> On 05/01/2022 19:47, Bjorn Helgaas wrote:
 
-IIUC that's the opposite of what's going on here.  Looks like I somehow 
-managed to get the commit wrong, which I've fixed, it's 67d96729a9e7 
-("riscv: Update Canaan Kendryte K210 device tree")  That contains
+> > IMO inb() should
+> > be present but do something innocuous like return ~0, as it would if
+> > I/O port space is supported but there's no device at that address.
+> > 
+> > [1]https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/scsi/megaraid.c?id=v5.15#n4210
+> > 
+> 
+> That driver would prob not be used on systems which does not support PIO,
+> and so could have a HAS_IOPORT dependency. But it is not strictly necessary.
 
-    diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-    index 6402746c68f3..7efcece8896c 100644
-    --- a/arch/riscv/Kconfig.socs
-    +++ b/arch/riscv/Kconfig.socs
-    @@ -51,7 +51,7 @@ config SOC_CANAAN_K210_DTB_SOURCE
-            string "Source file for the Canaan Kendryte K210 builtin DTB"
-            depends on SOC_CANAAN
-            depends on SOC_CANAAN_K210_DTB_BUILTIN
-    -       default "k210"
-    +       default "k210_generic"
-            help
-              Base name (without suffix, relative to arch/riscv/boot/dts/canaan)
-              for the DTS file that will be used to produce the DTB linked into the
+I don't want the path of "this driver isn't needed because the device
+is unlikely to be used on this arch."
 
-which makes the defconfig entry redundant but still references the DT 
-file.
+Maybe it's not _always_ possible, but if the device can be plugged
+into the platform, I think we should be able to build the driver for
+it.
+
+If the device requires I/O port space and the platform doesn't support
+it, the PCI core or the driver should detect that and give a useful
+diagnostic.
+
+Bjorn
 
 _______________________________________________
 linux-riscv mailing list
