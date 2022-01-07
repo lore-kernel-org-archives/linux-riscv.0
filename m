@@ -4,84 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6278C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jan 2022 14:27:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57FD9C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jan 2022 15:13:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:CC:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=RPN3R4SacgVBCcPnASelVdCg4rro5MNvXrUr71OfeVk=; b=bAHrts912cVU+8oNMj58SLEQp0
-	lq3mEyC1sY3idUBERzn0ra62mlkI2AoADZ2sgtwAFXRnBmH3HmD6s1Cly0MCZrNofQlK4mMGUtF8D
-	kbExIRcWwfZNvkfxSOOht3ioqgCqWvIS1kNWewronnzeU61flYZbubgF8lA6UjD9K65FZXSSADBHE
-	RcxPokwLt+ENGzDWkY1VeEsa2DVnFor7/PO1Xd6MyL1ddhMkLR/AbvrAjXlfG5Ev3bYu0efuZp/1J
-	idSyMNjuJj/30U8PSxOAGcfRt2O20FyURS6e1+E6EvE0q5zbmneJ1T+Y54+fuPPFyaI0aHQeJ9hr+
-	1ADkq8tw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ast055ZC/nVT5hQ7yIr3qCpnW1XSvzsqXAizF3DVVR4=; b=G+dzggn63tsALE
+	C5mOwrP42L5z52zHFIa/L/Dt4voW9jlttzSUVntv1a11BLrmlUbt7bE0rSeRlP7mrMDb4PuAg2VS+
+	IhpV9Ch3HS+jK7sbj/pSdaBJQT6Fo4p33jO0j9HfTP50gZVk9ITD7T75Xj3prH5wGOyz+8XqqTmzD
+	H99k8Yq6cXWT7kp2eoQTIonv9mTIACnB8zXTfIwom1AnqzqLhUCefkwtEyQNM6EZapOFAW0jNtsGe
+	sdLY2eFe05nZZPByfNzaCIF90OAZrOFLDOinZP2fFO+eiwqMyBf0TrjCPVib1buiHGDMet3bqYvkH
+	mOMGEH92eudA+G2026OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n5qDK-004BJm-74; Fri, 07 Jan 2022 14:27:30 +0000
-Received: from lelv0142.ext.ti.com ([198.47.23.249])
+	id 1n5qvg-004QJm-HW; Fri, 07 Jan 2022 15:13:20 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n5qD7-004BFl-IL; Fri, 07 Jan 2022 14:27:20 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
- by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 207EQahw093477;
- Fri, 7 Jan 2022 08:26:36 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
- s=ti-com-17Q1; t=1641565596;
- bh=bbpnL2bqMN5H6aNKxgvIvY9vGPdi1O8RpGftvud1Gx8=;
- h=Subject:To:CC:References:From:Date:In-Reply-To;
- b=OBKsSOCXPMflYsrV1dtvfOQBQCM+dt8F3FowNuexaOIHWQXksqzPVDy0tCsNmKU2B
- Cyo5sTcLNQCSGiL5++OUNoVs8GVUsnWwKJ7+dasTTs1eDbEXRaAXQ9VRVkgekvWx+v
- LsAhce0fL/LqhXDcbeLszNQkVccx71MkVTOsZPw8=
-Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
- by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 207EQZXO115620
- (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
- Fri, 7 Jan 2022 08:26:35 -0600
-Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2308.14; Fri, 7
- Jan 2022 08:26:35 -0600
-Received: from fllv0040.itg.ti.com (10.64.41.20) by DFLE102.ent.ti.com
- (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2308.14 via
- Frontend Transport; Fri, 7 Jan 2022 08:26:35 -0600
-Received: from [10.249.36.164] (ileax41-snat.itg.ti.com [10.172.224.153])
- by fllv0040.itg.ti.com (8.15.2/8.15.2) with ESMTP id 207EQZKj097440;
- Fri, 7 Jan 2022 08:26:35 -0600
-Subject: Re: [PATCH] dt-bindings: Drop required 'interrupt-parent'
-To: Rob Herring <robh@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Nobuhiro Iwamatsu
- <nobuhiro1.iwamatsu@toshiba.co.jp>, Jassi Brar <jassisinghbrar@gmail.com>,
- Charles Keepax <ckeepax@opensource.cirrus.com>, Richard Fitzgerald
- <rf@opensource.cirrus.com>, Lee Jones <lee.jones@linaro.org>, "David S.
- Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paul
- Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>,
- Bjorn Helgaas <bhelgaas@google.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Michal Simek <michal.simek@xilinx.com>,
- - <patches@opensource.cirrus.com>, John Crispin <john@phrozen.org>,
- Hauke Mehrtens <hauke@hauke-m.de>, Kumar
- Gogada <bharat.kumar.gogada@xilinx.com>
-CC: <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <alsa-devel@alsa-project.org>, <netdev@vger.kernel.org>,
- <linux-pci@vger.kernel.org>, <linux-riscv@lists.infradead.org>, "Nagalla,
- Hari" <hnagalla@ti.com>
-References: <20220107031905.2406176-1-robh@kernel.org>
-From: Suman Anna <s-anna@ti.com>
-Message-ID: <cf75f1ee-8424-b6b2-f873-beea4676a29f@ti.com>
-Date: Fri, 7 Jan 2022 08:26:34 -0600
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.14.0
+ id 1n5qvc-004QHm-VU
+ for linux-riscv@lists.infradead.org; Fri, 07 Jan 2022 15:13:19 +0000
+Received: by mail-wr1-x429.google.com with SMTP id o3so11595550wrh.10
+ for <linux-riscv@lists.infradead.org>; Fri, 07 Jan 2022 07:13:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=wRWXVVqeT2yMH9OFKjUKf879QdNlFXMuI2vDxLIhIrA=;
+ b=VXk4WCQGziswu+VM2czJLmhqnzBpA8E4s5qdkyYPo91024Y5scQ0OB9NGgDWEZtkuL
+ D5oictgbbCeLbWt5UlFvCBx662C9Dk/D+dPlewJ+xvDsbxmopmXeFikqEuYjujQ5pyMQ
+ C9U4QQFEvqtPdNP32D6CsPONvcKTZa5ofgT4OcuBlCevakTQm4VL+yvtYB8J/9ZNQCO4
+ LDgBS5A2ElHT6qZ9c3cv2zzc3joN27n9H63si+C3dPDGW+aTmuf6f+YsZDRU8z4K0BVI
+ 4b7ZMQVBywqnJ03QmLZzZ9+ryg3gAiDEY6n0BbyDWPUxePDBwdsxX4lJrA8t6o70Wz/s
+ 77eg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=wRWXVVqeT2yMH9OFKjUKf879QdNlFXMuI2vDxLIhIrA=;
+ b=YvXNYOxOlKidj0YLn3/AI441POvd3UMk2Nc6Gy1cnr+CgPezJqZDTRL53Om7pGQEb3
+ XZVE8AqfimvIgRzx7t+sCDQI0CX4Tpw4rtmpMa9Ot6T/YZuX3qym7vFONclx8vzTxGxo
+ xRsHDOQmmoYtbbmnpeQwn99g1ahMJfJyQMjRCRqlMvK7haYJvPccsqEp+ZN2nHhpm0SP
+ 5c19hkj8q4hG65g0YmEvKUwvr9/7JceK5GArbcgKDEXQKgDaGGP0gYi0bwY+kzVW5hzh
+ 6Ue5F80tGInhcJ6w30VSv1W4zbGK2qqnqA55xby5GiJmx4A2qsEURsCsbSsrtCPQ8DL3
+ IYog==
+X-Gm-Message-State: AOAM533B6VU+6S0jNvhijibnsrwntF9vfhQL1P9WeJvx8agLGrNQYwru
+ mEFRA/TuJK7DV1hv4owIPWHCvEvAgq0Ucenf1gJfAg==
+X-Google-Smtp-Source: ABdhPJwub4Q3b54YQN6p3Bd75DoQbiRyO2WpWifkKFp5sCPoF/b8OV7ao9Za0hJKKOg4cnWb1f2uc0Ov5eCtAVDkn40=
+X-Received: by 2002:adf:d1e2:: with SMTP id g2mr54351490wrd.346.1641568394655; 
+ Fri, 07 Jan 2022 07:13:14 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20220107031905.2406176-1-robh@kernel.org>
-Content-Language: en-US
-X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
+References: <20211228223057.2772727-1-atishp@rivosinc.com>
+ <20211228223057.2772727-2-atishp@rivosinc.com>
+In-Reply-To: <20211228223057.2772727-2-atishp@rivosinc.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 7 Jan 2022 20:43:02 +0530
+Message-ID: <CAAhSdy0S_uJR7jueEpvwMzt4k6yqh4_pS5qdBwyCTjeNwuLPDw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/6] RISC-V: Avoid using per cpu array for ordered
+ booting
+To: Atish Patra <atishp@atishpatra.org>
+Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Atish Patra <atishp@rivosinc.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Damien Le Moal <damien.lemoal@wdc.com>, 
+ DTML <devicetree@vger.kernel.org>, Jisheng Zhang <jszhang@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220107_062717_752124_7CE6C15F 
-X-CRM114-Status: GOOD (  17.63  )
+X-CRM114-CacheID: sfid-20220107_071317_154209_A35E2E6F 
+X-CRM114-Status: GOOD (  26.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,130 +90,185 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
-
-On 1/6/22 9:19 PM, Rob Herring wrote:
-> 'interrupt-parent' is never required as it can be in a parent node or a
-> parent node itself can be an interrupt provider. Where exactly it lives is
-> outside the scope of a binding schema.
-> 
-> Signed-off-by: Rob Herring <robh@kernel.org>
+On Wed, Dec 29, 2021 at 4:01 AM Atish Patra <atishp@atishpatra.org> wrote:
+>
+> Currently both order booting and spinwait approach uses a per cpu
+> array to update stack & task pointer. This approach will not work for the
+> following cases.
+> 1. If NR_CPUs are configured to be less than highest hart id.
+> 2. A platform has sparse hartid.
+>
+> This issue can be fixed for ordered booting as the booting cpu brings up
+> one cpu at a time using SBI HSM extension which has opaque parameter
+> that is unused until now.
+>
+> Introduce a common secondary boot data structure that can store the stack
+> and task pointer. Secondary harts will use this data while booting up
+> to setup the sp & tp.
+>
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
 > ---
->  .../devicetree/bindings/gpio/toshiba,gpio-visconti.yaml  | 1 -
->  .../devicetree/bindings/mailbox/ti,omap-mailbox.yaml     | 9 ---------
->  Documentation/devicetree/bindings/mfd/cirrus,madera.yaml | 1 -
->  .../devicetree/bindings/net/lantiq,etop-xway.yaml        | 1 -
->  .../devicetree/bindings/net/lantiq,xrx200-net.yaml       | 1 -
->  .../devicetree/bindings/pci/sifive,fu740-pcie.yaml       | 1 -
->  .../devicetree/bindings/pci/xilinx-versal-cpm.yaml       | 1 -
->  7 files changed, 15 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/gpio/toshiba,gpio-visconti.yaml b/Documentation/devicetree/bindings/gpio/toshiba,gpio-visconti.yaml
-> index 9ad470e01953..b085450b527f 100644
-> --- a/Documentation/devicetree/bindings/gpio/toshiba,gpio-visconti.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/toshiba,gpio-visconti.yaml
-> @@ -43,7 +43,6 @@ required:
->    - gpio-controller
->    - interrupt-controller
->    - "#interrupt-cells"
-> -  - interrupt-parent
->  
->  additionalProperties: false
->  
-> diff --git a/Documentation/devicetree/bindings/mailbox/ti,omap-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/ti,omap-mailbox.yaml
-> index e864d798168d..d433e496ec6e 100644
-> --- a/Documentation/devicetree/bindings/mailbox/ti,omap-mailbox.yaml
-> +++ b/Documentation/devicetree/bindings/mailbox/ti,omap-mailbox.yaml
-> @@ -175,15 +175,6 @@ required:
->    - ti,mbox-num-fifos
->  
->  allOf:
-> -  - if:
-> -      properties:
-> -        compatible:
-> -          enum:
-> -            - ti,am654-mailbox
-> -    then:
-> -      required:
-> -        - interrupt-parent
+>  arch/riscv/include/asm/cpu_ops_sbi.h | 25 +++++++++++++++++++++++++
+>  arch/riscv/kernel/asm-offsets.c      |  3 +++
+>  arch/riscv/kernel/cpu_ops_sbi.c      | 23 ++++++++++++++++++++---
+>  arch/riscv/kernel/head.S             | 19 ++++++++++---------
+>  4 files changed, 58 insertions(+), 12 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/cpu_ops_sbi.h
+>
+> diff --git a/arch/riscv/include/asm/cpu_ops_sbi.h b/arch/riscv/include/asm/cpu_ops_sbi.h
+> new file mode 100644
+> index 000000000000..90e2219f5eec
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/cpu_ops_sbi.h
+> @@ -0,0 +1,25 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (c) 2021 by Rivos Inc.
+> + */
+> +#ifndef __ASM_CPU_OPS_SBI_H
+> +#define __ASM_CPU_OPS_SBI_H
+> +
+> +#ifndef __ASSEMBLY__
+> +#include <linux/init.h>
+> +#include <linux/sched.h>
+> +#include <linux/threads.h>
+> +
+> +/**
+> + * struct sbi_hart_boot_data - Hart specific boot used during booting and
+> + *                            cpu hotplug.
+> + * @task_ptr: A pointer to the hart specific tp
+> + * @stack_ptr: A pointer to the hart specific sp
+> + */
+> +struct sbi_hart_boot_data {
+> +       void *task_ptr;
+> +       void *stack_ptr;
+> +};
+> +#endif
+> +
+> +#endif /* ifndef __ASM_CPU_OPS_H */
+
+s/__ASM_CPU_OPS_H /__ASM_CPU_OPS_SBI_H/
+
+> diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+> index 253126e4beef..df0519a64eaf 100644
+> --- a/arch/riscv/kernel/asm-offsets.c
+> +++ b/arch/riscv/kernel/asm-offsets.c
+> @@ -12,6 +12,7 @@
+>  #include <asm/kvm_host.h>
+>  #include <asm/thread_info.h>
+>  #include <asm/ptrace.h>
+> +#include <asm/cpu_ops_sbi.h>
+>
+>  void asm_offsets(void);
+>
+> @@ -468,4 +469,6 @@ void asm_offsets(void)
+>         DEFINE(PT_SIZE_ON_STACK, ALIGN(sizeof(struct pt_regs), STACK_ALIGN));
+>
+>         OFFSET(KERNEL_MAP_VIRT_ADDR, kernel_mapping, virt_addr);
+> +       OFFSET(SBI_HART_BOOT_TASK_PTR_OFFSET, sbi_hart_boot_data, task_ptr);
+> +       OFFSET(SBI_HART_BOOT_STACK_PTR_OFFSET, sbi_hart_boot_data, stack_ptr);
+>  }
+> diff --git a/arch/riscv/kernel/cpu_ops_sbi.c b/arch/riscv/kernel/cpu_ops_sbi.c
+> index 685fae72b7f5..2e7a9dd9c2a7 100644
+> --- a/arch/riscv/kernel/cpu_ops_sbi.c
+> +++ b/arch/riscv/kernel/cpu_ops_sbi.c
+> @@ -7,13 +7,22 @@
+>
+>  #include <linux/init.h>
+>  #include <linux/mm.h>
+> +#include <linux/sched/task_stack.h>
+>  #include <asm/cpu_ops.h>
+> +#include <asm/cpu_ops_sbi.h>
+>  #include <asm/sbi.h>
+>  #include <asm/smp.h>
+>
+>  extern char secondary_start_sbi[];
+>  const struct cpu_operations cpu_ops_sbi;
+>
+> +/*
+> + * Ordered booting via HSM brings one cpu at a time. However, cpu hotplug can
+> + * be invoked from multiple threads in paralle. Define a per cpu data
+
+s/paralle/parallel/
+
+> + * to handle that.
+> + */
+> +DEFINE_PER_CPU(struct sbi_hart_boot_data, boot_data);
+> +
+>  static int sbi_hsm_hart_start(unsigned long hartid, unsigned long saddr,
+>                               unsigned long priv)
+>  {
+> @@ -58,9 +67,17 @@ static int sbi_cpu_start(unsigned int cpuid, struct task_struct *tidle)
+>         int rc;
+>         unsigned long boot_addr = __pa_symbol(secondary_start_sbi);
+>         int hartid = cpuid_to_hartid_map(cpuid);
 > -
+> -       cpu_update_secondary_bootdata(cpuid, tidle);
+> -       rc = sbi_hsm_hart_start(hartid, boot_addr, 0);
+> +       unsigned long hsm_data;
+> +       struct sbi_hart_boot_data *bdata = &per_cpu(boot_data, cpuid);
+> +
+> +       /* Make sure tidle is updated */
+> +       smp_mb();
+> +       bdata->task_ptr = tidle;
+> +       bdata->stack_ptr = task_stack_page(tidle) + THREAD_SIZE;
+> +       /* Make sure boot data is updated */
+> +       smp_mb();
+> +       hsm_data = __pa(bdata);
+> +       rc = sbi_hsm_hart_start(hartid, boot_addr, hsm_data);
 
-There are multiple interrupt controllers on TI K3 devices, and we need this
-property to be defined _specifically_ to point to the relevant interrupt router
-parent node.
+No need for the rc variable here.
 
-While what you state in general is true, I cannot have a node not define this on
-K3 devices, and end up using the wrong interrupt parent (GIC
-interrupt-controller). That's why the conditional compatible check.
+>
+>         return rc;
+>  }
+> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+> index f52f01ecbeea..40d4c625513c 100644
+> --- a/arch/riscv/kernel/head.S
+> +++ b/arch/riscv/kernel/head.S
+> @@ -11,6 +11,7 @@
+>  #include <asm/page.h>
+>  #include <asm/pgtable.h>
+>  #include <asm/csr.h>
+> +#include <asm/cpu_ops_sbi.h>
+>  #include <asm/hwcap.h>
+>  #include <asm/image.h>
+>  #include "efi-header.S"
+> @@ -167,15 +168,15 @@ secondary_start_sbi:
+>         la a3, .Lsecondary_park
+>         csrw CSR_TVEC, a3
+>
+> -       slli a3, a0, LGREG
+> -       la a4, __cpu_up_stack_pointer
+> -       XIP_FIXUP_OFFSET a4
+> -       la a5, __cpu_up_task_pointer
+> -       XIP_FIXUP_OFFSET a5
+> -       add a4, a3, a4
+> -       add a5, a3, a5
+> -       REG_L sp, (a4)
+> -       REG_L tp, (a5)
+> +       /* a0 contains the hartid & a1 contains boot data */
+> +       li a2, SBI_HART_BOOT_TASK_PTR_OFFSET
+> +       XIP_FIXUP_OFFSET a2
+> +       add a2, a2, a1
+> +       REG_L tp, (a2)
+> +       li a3, SBI_HART_BOOT_STACK_PTR_OFFSET
+> +       XIP_FIXUP_OFFSET a3
+> +       add a3, a3, a1
+> +       REG_L sp, (a3)
+>
+>         .global secondary_start_common
+>  secondary_start_common:
+> --
+> 2.33.1
+>
 
-regards
-Suman
+Apart from minor nits above, this looks good to me.
 
->    - if:
->        properties:
->          compatible:
-> diff --git a/Documentation/devicetree/bindings/mfd/cirrus,madera.yaml b/Documentation/devicetree/bindings/mfd/cirrus,madera.yaml
-> index 499c62c04daa..5dce62a7eff2 100644
-> --- a/Documentation/devicetree/bindings/mfd/cirrus,madera.yaml
-> +++ b/Documentation/devicetree/bindings/mfd/cirrus,madera.yaml
-> @@ -221,7 +221,6 @@ required:
->    - '#gpio-cells'
->    - interrupt-controller
->    - '#interrupt-cells'
-> -  - interrupt-parent
->    - interrupts
->    - AVDD-supply
->    - DBVDD1-supply
-> diff --git a/Documentation/devicetree/bindings/net/lantiq,etop-xway.yaml b/Documentation/devicetree/bindings/net/lantiq,etop-xway.yaml
-> index 437502c5ca96..3ce9f9a16baf 100644
-> --- a/Documentation/devicetree/bindings/net/lantiq,etop-xway.yaml
-> +++ b/Documentation/devicetree/bindings/net/lantiq,etop-xway.yaml
-> @@ -46,7 +46,6 @@ properties:
->  required:
->    - compatible
->    - reg
-> -  - interrupt-parent
->    - interrupts
->    - interrupt-names
->    - lantiq,tx-burst-length
-> diff --git a/Documentation/devicetree/bindings/net/lantiq,xrx200-net.yaml b/Documentation/devicetree/bindings/net/lantiq,xrx200-net.yaml
-> index 7bc074a42369..5bc1a21ca579 100644
-> --- a/Documentation/devicetree/bindings/net/lantiq,xrx200-net.yaml
-> +++ b/Documentation/devicetree/bindings/net/lantiq,xrx200-net.yaml
-> @@ -38,7 +38,6 @@ properties:
->  required:
->    - compatible
->    - reg
-> -  - interrupt-parent
->    - interrupts
->    - interrupt-names
->    - "#address-cells"
-> diff --git a/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml b/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
-> index 2b9d1d6fc661..72c78f4ec269 100644
-> --- a/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
-> +++ b/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
-> @@ -61,7 +61,6 @@ required:
->    - num-lanes
->    - interrupts
->    - interrupt-names
-> -  - interrupt-parent
->    - interrupt-map-mask
->    - interrupt-map
->    - clock-names
-> diff --git a/Documentation/devicetree/bindings/pci/xilinx-versal-cpm.yaml b/Documentation/devicetree/bindings/pci/xilinx-versal-cpm.yaml
-> index a2bbc0eb7220..32f4641085bc 100644
-> --- a/Documentation/devicetree/bindings/pci/xilinx-versal-cpm.yaml
-> +++ b/Documentation/devicetree/bindings/pci/xilinx-versal-cpm.yaml
-> @@ -55,7 +55,6 @@ required:
->    - reg-names
->    - "#interrupt-cells"
->    - interrupts
-> -  - interrupt-parent
->    - interrupt-map
->    - interrupt-map-mask
->    - bus-range
-> 
+Reviewed-by: Anup Patel <anup@brainfault.org>
 
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
