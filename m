@@ -4,82 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CA24C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jan 2022 13:53:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6278C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jan 2022 14:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gxj1LgaFc8jZf061x8PFr/aHG6BA15HWdQalvERcwGQ=; b=GEG2PQoOCl1beF
-	UBKP1YiQHEbD9AK2GPtU/14WwGRabUX6M0gMj08odzfs2YCTx7wgRwlmYbEl8V75lcU/6Mn8mw5sJ
-	eonw6wKVxpxbrRjoSKMKHBjEUPjkpIi0J/Qt0j3jEXLlU59ELeXb9cKeBCcvkOiKVzyczkR7bcBFo
-	CyOBOwhUy4vUMUDImpi+lhZblvFLtJifG8qfJC+Qye22yFLiyZlA6Dzb6C9DBZwjpXGxPZxIZzcI4
-	kYq1U2uCEsvmJ0Hal6g4ODe/PMTBko43xDXQLJ1oSYYX/ia6cBHDsWZjPmy96G02cncyQqfUQSvSN
-	SatG2WM+cPIFvu7+VWkg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:CC:To:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=RPN3R4SacgVBCcPnASelVdCg4rro5MNvXrUr71OfeVk=; b=bAHrts912cVU+8oNMj58SLEQp0
+	lq3mEyC1sY3idUBERzn0ra62mlkI2AoADZ2sgtwAFXRnBmH3HmD6s1Cly0MCZrNofQlK4mMGUtF8D
+	kbExIRcWwfZNvkfxSOOht3ioqgCqWvIS1kNWewronnzeU61flYZbubgF8lA6UjD9K65FZXSSADBHE
+	RcxPokwLt+ENGzDWkY1VeEsa2DVnFor7/PO1Xd6MyL1ddhMkLR/AbvrAjXlfG5Ev3bYu0efuZp/1J
+	idSyMNjuJj/30U8PSxOAGcfRt2O20FyURS6e1+E6EvE0q5zbmneJ1T+Y54+fuPPFyaI0aHQeJ9hr+
+	1ADkq8tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n5pgN-0044BV-32; Fri, 07 Jan 2022 13:53:27 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1n5qDK-004BJm-74; Fri, 07 Jan 2022 14:27:30 +0000
+Received: from lelv0142.ext.ti.com ([198.47.23.249])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n5pgJ-00449r-MK
- for linux-riscv@lists.infradead.org; Fri, 07 Jan 2022 13:53:25 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id o30so3947424wms.4
- for <linux-riscv@lists.infradead.org>; Fri, 07 Jan 2022 05:53:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=jrtc27.com; s=gmail.jrtc27.user;
- h=mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=rAxfAsKzV2Pe0qb3PwDKOtR13CrT8bc/2sOCHjuoqFw=;
- b=OnpWI4AZLiSo9UrT5h4eH13nvjqsTSeiW1oLL4Ka6pYQLm/Jtjx0PAS6xzq4VYCVnV
- MSWJ9Aux3dhfvLOyuVITNYGbWMQKWgsFtzRiWGyaZjHzXY68wuxfawTDuvIFNTL+LKct
- 6jOx4FqFVkCi4Tful20rKutyNgxH4UZTLG8QHbEcMmax1z24Qb8yQTEbCn/kYgXKe3li
- 7ENwqoFasvPhaIvScH8NzPGRCvW+4c0gGDqP73W5G9+ofNzusEWyiaZnFD7heQpVsfQ/
- eAlgm75uH7yookL2Ik/2V9kbMwAuhIF5PibTIZ9LSxelXbOkMaOs+N0goIrFqOey1OzL
- Q9QQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=rAxfAsKzV2Pe0qb3PwDKOtR13CrT8bc/2sOCHjuoqFw=;
- b=4XaLAqNeAceoAe2aU+OS36HrI/gxSSl5LIUFI++Z8rJMUmVlLbXSrTP0K7MSUahu+u
- CG/wmchi/smDHsO7F2Xh2CjwrCl/dG4pcp16+SsqXpgGiwClPxT5+1KjkK7L6vQh8QGV
- Dv72Ep0ALnbDg1tZhXmpIgiUD06nypDjobVWSh4akumtfdUERXE4wnUggK1cdfFD5BfF
- vFdpfpvYAdujPS3uEsQCPWjK6zyumMVNbOV9rtdlK0p2kUy68hSnrXQU70XNDmacJHhj
- 7t+khzwNk799KWv7RV4jOuZ3qREi1lADhrFqJNnmf2y2JSK3QwhdwxCublwWuVI6nfNT
- n/2A==
-X-Gm-Message-State: AOAM53332q48o0CNOryt90KYzPlFnQNQ/lUmIJxX3yXGWNwpciUpr7D2
- d8KsSx9jL0j3I67WPgiW+vMYXw==
-X-Google-Smtp-Source: ABdhPJzKGqRpYwiwExY4pzGEPg7vMjL6mBq48LsmktgeX66Q8yaGm++enBP5DEwKO5Fkr6j8spun4Q==
-X-Received: by 2002:a05:600c:1f0f:: with SMTP id
- bd15mr11021421wmb.2.1641563601216; 
- Fri, 07 Jan 2022 05:53:21 -0800 (PST)
-Received: from smtpclient.apple (global-5-143.nat-2.net.cam.ac.uk.
- [131.111.5.143])
- by smtp.gmail.com with ESMTPSA id o8sm5849233wry.20.2022.01.07.05.53.20
- (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 07 Jan 2022 05:53:20 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 15.0 \(3693.40.0.1.81\))
-Subject: Re: [PATCH v9 08/17] riscv: Add vector struct and assembler
- definitions
-From: Jessica Clarke <jrtc27@jrtc27.com>
-In-Reply-To: <CAHCEehJhMQf9jtVkTvorriv6xY5QnEDmN_JjM-UxcCj9UL86Lg@mail.gmail.com>
-Date: Fri, 7 Jan 2022 13:53:20 +0000
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Albert Ou <aou@eecs.berkeley.edu>
-Message-Id: <FAC07911-491C-46F5-AA96-7C97BC5BD7F4@jrtc27.com>
-References: <15d09938180ee45bc5481c4a2d41ad656ca23c82.1636362169.git.greentime.hu@sifive.com>
- <mhng-a7a94a37-5791-4c76-8f2d-072130d71819@palmer-ri-x1c9>
- <CAHCEehJhMQf9jtVkTvorriv6xY5QnEDmN_JjM-UxcCj9UL86Lg@mail.gmail.com>
-To: Greentime Hu <greentime.hu@sifive.com>
-X-Mailer: Apple Mail (2.3693.40.0.1.81)
+ id 1n5qD7-004BFl-IL; Fri, 07 Jan 2022 14:27:20 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+ by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 207EQahw093477;
+ Fri, 7 Jan 2022 08:26:36 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+ s=ti-com-17Q1; t=1641565596;
+ bh=bbpnL2bqMN5H6aNKxgvIvY9vGPdi1O8RpGftvud1Gx8=;
+ h=Subject:To:CC:References:From:Date:In-Reply-To;
+ b=OBKsSOCXPMflYsrV1dtvfOQBQCM+dt8F3FowNuexaOIHWQXksqzPVDy0tCsNmKU2B
+ Cyo5sTcLNQCSGiL5++OUNoVs8GVUsnWwKJ7+dasTTs1eDbEXRaAXQ9VRVkgekvWx+v
+ LsAhce0fL/LqhXDcbeLszNQkVccx71MkVTOsZPw8=
+Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
+ by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 207EQZXO115620
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+ Fri, 7 Jan 2022 08:26:35 -0600
+Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2308.14; Fri, 7
+ Jan 2022 08:26:35 -0600
+Received: from fllv0040.itg.ti.com (10.64.41.20) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2308.14 via
+ Frontend Transport; Fri, 7 Jan 2022 08:26:35 -0600
+Received: from [10.249.36.164] (ileax41-snat.itg.ti.com [10.172.224.153])
+ by fllv0040.itg.ti.com (8.15.2/8.15.2) with ESMTP id 207EQZKj097440;
+ Fri, 7 Jan 2022 08:26:35 -0600
+Subject: Re: [PATCH] dt-bindings: Drop required 'interrupt-parent'
+To: Rob Herring <robh@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Nobuhiro Iwamatsu
+ <nobuhiro1.iwamatsu@toshiba.co.jp>, Jassi Brar <jassisinghbrar@gmail.com>,
+ Charles Keepax <ckeepax@opensource.cirrus.com>, Richard Fitzgerald
+ <rf@opensource.cirrus.com>, Lee Jones <lee.jones@linaro.org>, "David S.
+ Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>,
+ Greentime Hu <greentime.hu@sifive.com>,
+ Bjorn Helgaas <bhelgaas@google.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Michal Simek <michal.simek@xilinx.com>,
+ - <patches@opensource.cirrus.com>, John Crispin <john@phrozen.org>,
+ Hauke Mehrtens <hauke@hauke-m.de>, Kumar
+ Gogada <bharat.kumar.gogada@xilinx.com>
+CC: <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <alsa-devel@alsa-project.org>, <netdev@vger.kernel.org>,
+ <linux-pci@vger.kernel.org>, <linux-riscv@lists.infradead.org>, "Nagalla,
+ Hari" <hnagalla@ti.com>
+References: <20220107031905.2406176-1-robh@kernel.org>
+From: Suman Anna <s-anna@ti.com>
+Message-ID: <cf75f1ee-8424-b6b2-f873-beea4676a29f@ti.com>
+Date: Fri, 7 Jan 2022 08:26:34 -0600
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.14.0
+MIME-Version: 1.0
+In-Reply-To: <20220107031905.2406176-1-robh@kernel.org>
+Content-Language: en-US
+X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220107_055323_820841_E9D21639 
-X-CRM114-Status: GOOD (  23.32  )
+X-CRM114-CacheID: sfid-20220107_062717_752124_7CE6C15F 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,99 +93,137 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNyBKYW4gMjAyMiwgYXQgMTM6MjgsIEdyZWVudGltZSBIdSA8Z3JlZW50aW1lLmh1QHNpZml2
-ZS5jb20+IHdyb3RlOgo+IAo+IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAZGFiYmVsdC5jb20+IOaW
-vCAyMDIx5bm0MTLmnIgxNeaXpSDpgLHkuIkg5LiK5Y2IMTI6Mjnlr6vpgZPvvJoKPj4gCj4+IE9u
-IFR1ZSwgMDkgTm92IDIwMjEgMDE6NDg6MjAgUFNUICgtMDgwMCksIGdyZWVudGltZS5odUBzaWZp
-dmUuY29tIHdyb3RlOgo+Pj4gQWRkIHZlY3RvciBzdGF0ZSBjb250ZXh0IHN0cnVjdCBpbiBzdHJ1
-Y3QgdGhyZWFkIGFuZCBhc20tb2Zmc2V0cy5jCj4+PiBkZWZpbml0aW9ucy4KPj4+IAo+Pj4gVGhl
-IHZlY3RvciByZWdpc3RlcnMgd2lsbCBiZSBzYXZlZCBpbiBkYXRhcCBwb2ludGVyIG9mIF9fcmlz
-Y3Zfdl9zdGF0ZS4gSXQKPj4+IHdpbGwgYmUgZHluYW1pY2FsbHkgYWxsb2NhdGVkIGluIGtlcm5l
-bCBzcGFjZS4gSXQgd2lsbCBiZSBwdXQgcmlnaHQgYWZ0ZXIKPj4+IHRoZSBfX3Jpc2N2X3Zfc3Rh
-dGUgZGF0YSBzdHJ1Y3R1cmUgaW4gdXNlciBzcGFjZS4KPj4+IAo+Pj4gQ28tZGV2ZWxvcGVkLWJ5
-OiBWaW5jZW50IENoZW4gPHZpbmNlbnQuY2hlbkBzaWZpdmUuY29tPgo+Pj4gU2lnbmVkLW9mZi1i
-eTogVmluY2VudCBDaGVuIDx2aW5jZW50LmNoZW5Ac2lmaXZlLmNvbT4KPj4+IFNpZ25lZC1vZmYt
-Ynk6IEdyZWVudGltZSBIdSA8Z3JlZW50aW1lLmh1QHNpZml2ZS5jb20+Cj4+PiAtLS0KPj4+IGFy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvY2Vzc29yLmggICB8ICAxICsKPj4+IGFyY2gvcmlzY3Yv
-aW5jbHVkZS91YXBpL2FzbS9wdHJhY2UuaCB8IDExICsrKysrKysrKysrCj4+PiBhcmNoL3Jpc2N2
-L2tlcm5lbC9hc20tb2Zmc2V0cy5jICAgICAgfCAgNiArKysrKysKPj4+IDMgZmlsZXMgY2hhbmdl
-ZCwgMTggaW5zZXJ0aW9ucygrKQo+Pj4gCj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS9wcm9jZXNzb3IuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvY2Vzc29yLmgK
-Pj4+IGluZGV4IDQ2YjQ5MmM3OGNiYi4uYTI2OGYxMzgyZTUyIDEwMDY0NAo+Pj4gLS0tIGEvYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaAo+Pj4gKysrIGIvYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS9wcm9jZXNzb3IuaAo+Pj4gQEAgLTM1LDYgKzM1LDcgQEAgc3RydWN0IHRocmVhZF9z
-dHJ1Y3Qgewo+Pj4gICAgICB1bnNpZ25lZCBsb25nIHNbMTJdOyAgICAvKiBzWzBdOiBmcmFtZSBw
-b2ludGVyICovCj4+PiAgICAgIHN0cnVjdCBfX3Jpc2N2X2RfZXh0X3N0YXRlIGZzdGF0ZTsKPj4+
-ICAgICAgdW5zaWduZWQgbG9uZyBiYWRfY2F1c2U7Cj4+PiArICAgICBzdHJ1Y3QgX19yaXNjdl92
-X3N0YXRlIHZzdGF0ZTsKPj4+IH07Cj4+PiAKPj4+IC8qIFdoaXRlbGlzdCB0aGUgZnN0YXRlIGZy
-b20gdGhlIHRhc2tfc3RydWN0IGZvciBoYXJkZW5lZCB1c2VyY29weSAqLwo+Pj4gZGlmZiAtLWdp
-dCBhL2FyY2gvcmlzY3YvaW5jbHVkZS91YXBpL2FzbS9wdHJhY2UuaCBiL2FyY2gvcmlzY3YvaW5j
-bHVkZS91YXBpL2FzbS9wdHJhY2UuaAo+Pj4gaW5kZXggODgyNTQ3ZjZiZDVjLi5iZDNiOGE3MTAy
-NDYgMTAwNjQ0Cj4+PiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20vcHRyYWNlLmgK
-Pj4+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS91YXBpL2FzbS9wdHJhY2UuaAo+Pj4gQEAgLTc3
-LDYgKzc3LDE3IEBAIHVuaW9uIF9fcmlzY3ZfZnBfc3RhdGUgewo+Pj4gICAgICBzdHJ1Y3QgX19y
-aXNjdl9xX2V4dF9zdGF0ZSBxOwo+Pj4gfTsKPj4+IAo+Pj4gK3N0cnVjdCBfX3Jpc2N2X3Zfc3Rh
-dGUgewo+Pj4gKyAgICAgdW5zaWduZWQgbG9uZyB2c3RhcnQ7Cj4+PiArICAgICB1bnNpZ25lZCBs
-b25nIHZsOwo+Pj4gKyAgICAgdW5zaWduZWQgbG9uZyB2dHlwZTsKPj4+ICsgICAgIHVuc2lnbmVk
-IGxvbmcgdmNzcjsKPj4gCj4+IERvbid0IHdlIGFsc28gbmVlZCB2bGVuIHRvIGFkZXF1YXRlbHkg
-ZGV0ZXJtaW5lIHRoZSB2ZWN0b3Igc3RhdGU/Cj4+IE90aGVyd2lzZSB3ZSdyZSBnb2luZyB0byBl
-bmQgdXAgZHJvcHBpbmcgc29tZSBzdGF0ZSB3aGVuIHZsIGlzbid0IHZsbWF4LAo+PiB3aGljaCBJ
-SVVDIGlzbid0IGxlZ2FsLgo+IAo+IERvIHlvdSBtZWFuIHZsZW5iPyBTaW5jZSBpdCBpcyBhIGNv
-bnN0YW50IHZhbHVlLCB3ZSBkb24ndCBuZWVkIHRvCj4gc2F2ZS9yZXN0b3JlIGl0IGluIHRoZSBj
-b250ZXh0Lgo+IAo+Pj4gKyAgICAgdm9pZCAqZGF0YXA7Cj4+PiArI2lmIF9fcmlzY3ZfeGxlbiA9
-PSAzMgo+Pj4gKyAgICAgX191MzIgX19wYWRkaW5nOwo+Pj4gKyNlbmRpZgo+PiAKPj4gV2h5IGlz
-IHRoZXJlIHBhZGRpbmc/Cj4gCj4gVG8ga2VlcCB2ZWN0b3IgcmVnaXN0ZXJzIHNhdmVkIGluIGEg
-MTYtYnl0ZXMgYWxpZ25lZCBhZGRyZXNzIGZvciBydjMyLgoKVGhhdCBzdHJ1Y3QgaGFzIGFuIGFs
-aWdubWVudCBvZiA0IGJ5dGVzLiBJdCBkb2VzbuKAmXQgbWFrZSBzZW5zZSB0byBwdXQKdGhlIHBh
-ZGRpbmcgdGhlcmU7IGl0IHNob3VsZCBiZSB3aGVyZXZlciB0aGUgMTYgYnl0ZSBhbGlnbm1lbnQg
-aXMKaW50cm9kdWNlZCwgd2hpY2ggbG9va3MgbGlrZSB5b3VyIF9fc2NfcmlzY3Zfdl9zdGF0ZSBi
-ZWxvdyAoYXNzdW1pbmcKeW91IG5lZWQgdG8gZXhwbGljaXRseSBuYW1lIHRoZSBwYWRkaW5nIGFu
-ZCBjYW7igJl0IGp1c3QgcmVseSBvbiBpbXBsaWNpdApjb21waWxlciBwYWRkaW5nOyBwcmVzdW1h
-Ymx5IHlvdSBuZWVkIGl0IHNvIHlvdSBjYW4gZ3VhcmFudGVlIGl04oCZcyB6ZXJvCndoZW4gd3Jp
-dHRlbiB0byB1c2Vyc3BhY2UgbWVtb3J5PykuCgpFc3BlY2lhbGx5IHNpbmNlIHRoZSBhbW91bnQg
-b2YgcGFkZGluZyB5b3UgbmVlZCBpbiBfX3Jpc2N2X3Zfc3RhdGUgaWYKZG9pbmcgaXQgdGhpcyB3
-YXkgZGVwZW5kcyBvbiB0aGUgc2l6ZSBvZiBfX3Jpc2N2X2N0eF9oZHIsIGJlY2F1c2UgdGhhdApo
-YXBwZW5zIHRvIGJlIGluIF9fc2NfcmlzY3Zfdl9zdGF0ZS4gVGhpcyBpcyBxdWl0ZSBmcmFnaWxl
-IGFuZApub24tb2J2aW91cyBhcyBpdCBzdGFuZHMuCgpKZXNzCgo+IHN0cnVjdCBfX3Jpc2N2X2N0
-eF9oZHIgewo+ICAgICAgICBfX3UzMiBtYWdpYzsKPiAgICAgICAgX191MzIgc2l6ZTsKPiB9Owo+
-IHN0cnVjdCBfX3NjX3Jpc2N2X3Zfc3RhdGUgewo+ICAgICAgICBzdHJ1Y3QgX19yaXNjdl9jdHhf
-aGRyIGhlYWQ7Cj4gICAgICAgIHN0cnVjdCBfX3Jpc2N2X3Zfc3RhdGUgdl9zdGF0ZTsKPiB9IF9f
-YXR0cmlidXRlX18oKGFsaWduZWQoMTYpKSk7Cj4gCj4gcnY2NCA9PiA0OGJ5dGVzIC0+IDE2Ynl0
-ZSBhbGlnbmVkCj4gcnYzMiA9PiAzMmJ5dGVzIC0+IDE2Ynl0ZSBhbGlnbmVkCj4gCj4gVGhpcyBz
-dHJ1Y3QgYW5kIHZlY3RvciByZWdpc3RlcnMgd2lsbCBiZSBjb3BpZWQgdG8KPiBzaWdjb250ZXh0
-LnJlc2VydmVkW10gZm9yIHNpZ25hbCBoYW5kbGVyIHNvIHdlJ2QgbGlrZSB0byBrZWVwIGl0IGlz
-Cj4gMTYtYnl0ZSBhbGlnbmVkLgo+IAo+IHN0cnVjdCBzaWdjb250ZXh0IHsKPiAgICAgICAgc3Ry
-dWN0IHVzZXJfcmVnc19zdHJ1Y3Qgc2NfcmVnczsKPiAgICAgICAgdW5pb24gX19yaXNjdl9mcF9z
-dGF0ZSBzY19mcHJlZ3M7Cj4gICAgICAgIC8qCj4gICAgICAgICAqIDRLICsgMTI4IHJlc2VydmVk
-IGZvciB2ZWN0b3Igc3RhdGUgYW5kIGZ1dHVyZSBleHBhbnNpb24uCj4gICAgICAgICAqIFRoaXMg
-c3BhY2UgaXMgZW5vdWdoIHRvIHN0b3JlIHRoZSB2ZWN0b3IgY29udGV4dCB3aG9zZSBWTEVOQgo+
-ICAgICAgICAgKiBpcyBsZXNzIG9yIGVxdWFsIHRvIDEyOC4KPiAgICAgICAgICogKFRoZSBzaXpl
-IG9mIHRoZSB2ZWN0b3IgY29udGV4dCBpcyA0MTQ0IGJ5dGUgYXMgVkxFTkIgaXMgMTI4KQo+ICAg
-ICAgICAgKi8KPiAgICAgICAgX191OCBfX3Jlc2VydmVkWzQyMjRdIF9fYXR0cmlidXRlX18oKF9f
-YWxpZ25lZF9fKDE2KSkpOwo+IH07Cj4gCj4gCj4+PiArfTsKPj4+ICsKPj4+ICNlbmRpZiAvKiBf
-X0FTU0VNQkxZX18gKi8KPj4+IAo+Pj4gI2VuZGlmIC8qIF9VQVBJX0FTTV9SSVNDVl9QVFJBQ0Vf
-SCAqLwo+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL2FzbS1vZmZzZXRzLmMgYi9h
-cmNoL3Jpc2N2L2tlcm5lbC9hc20tb2Zmc2V0cy5jCj4+PiBpbmRleCA5MGY4Y2U2NGZhNmYuLjM0
-ZjQzYzg0NzIzYSAxMDA2NDQKPj4+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL2FzbS1vZmZzZXRz
-LmMKPj4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2FzbS1vZmZzZXRzLmMKPj4+IEBAIC03Miw2
-ICs3MiwxMiBAQCB2b2lkIGFzbV9vZmZzZXRzKHZvaWQpCj4+PiAgICAgIE9GRlNFVChUU0tfU1RB
-Q0tfQ0FOQVJZLCB0YXNrX3N0cnVjdCwgc3RhY2tfY2FuYXJ5KTsKPj4+ICNlbmRpZgo+Pj4gCj4+
-PiArICAgICBPRkZTRVQoUklTQ1ZfVl9TVEFURV9WU1RBUlQsIF9fcmlzY3Zfdl9zdGF0ZSwgdnN0
-YXJ0KTsKPj4+ICsgICAgIE9GRlNFVChSSVNDVl9WX1NUQVRFX1ZMLCBfX3Jpc2N2X3Zfc3RhdGUs
-IHZsKTsKPj4+ICsgICAgIE9GRlNFVChSSVNDVl9WX1NUQVRFX1ZUWVBFLCBfX3Jpc2N2X3Zfc3Rh
-dGUsIHZ0eXBlKTsKPj4+ICsgICAgIE9GRlNFVChSSVNDVl9WX1NUQVRFX1ZDU1IsIF9fcmlzY3Zf
-dl9zdGF0ZSwgdmNzcik7Cj4+PiArICAgICBPRkZTRVQoUklTQ1ZfVl9TVEFURV9EQVRBUCwgX19y
-aXNjdl92X3N0YXRlLCBkYXRhcCk7Cj4+PiArCj4+PiAgICAgIERFRklORShQVF9TSVpFLCBzaXpl
-b2Yoc3RydWN0IHB0X3JlZ3MpKTsKPj4+ICAgICAgT0ZGU0VUKFBUX0VQQywgcHRfcmVncywgZXBj
-KTsKPj4+ICAgICAgT0ZGU0VUKFBUX1JBLCBwdF9yZWdzLCByYSk7Cj4gCj4gX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKPiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoKCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Rob,
+
+On 1/6/22 9:19 PM, Rob Herring wrote:
+> 'interrupt-parent' is never required as it can be in a parent node or a
+> parent node itself can be an interrupt provider. Where exactly it lives is
+> outside the scope of a binding schema.
+> 
+> Signed-off-by: Rob Herring <robh@kernel.org>
+> ---
+>  .../devicetree/bindings/gpio/toshiba,gpio-visconti.yaml  | 1 -
+>  .../devicetree/bindings/mailbox/ti,omap-mailbox.yaml     | 9 ---------
+>  Documentation/devicetree/bindings/mfd/cirrus,madera.yaml | 1 -
+>  .../devicetree/bindings/net/lantiq,etop-xway.yaml        | 1 -
+>  .../devicetree/bindings/net/lantiq,xrx200-net.yaml       | 1 -
+>  .../devicetree/bindings/pci/sifive,fu740-pcie.yaml       | 1 -
+>  .../devicetree/bindings/pci/xilinx-versal-cpm.yaml       | 1 -
+>  7 files changed, 15 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/gpio/toshiba,gpio-visconti.yaml b/Documentation/devicetree/bindings/gpio/toshiba,gpio-visconti.yaml
+> index 9ad470e01953..b085450b527f 100644
+> --- a/Documentation/devicetree/bindings/gpio/toshiba,gpio-visconti.yaml
+> +++ b/Documentation/devicetree/bindings/gpio/toshiba,gpio-visconti.yaml
+> @@ -43,7 +43,6 @@ required:
+>    - gpio-controller
+>    - interrupt-controller
+>    - "#interrupt-cells"
+> -  - interrupt-parent
+>  
+>  additionalProperties: false
+>  
+> diff --git a/Documentation/devicetree/bindings/mailbox/ti,omap-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/ti,omap-mailbox.yaml
+> index e864d798168d..d433e496ec6e 100644
+> --- a/Documentation/devicetree/bindings/mailbox/ti,omap-mailbox.yaml
+> +++ b/Documentation/devicetree/bindings/mailbox/ti,omap-mailbox.yaml
+> @@ -175,15 +175,6 @@ required:
+>    - ti,mbox-num-fifos
+>  
+>  allOf:
+> -  - if:
+> -      properties:
+> -        compatible:
+> -          enum:
+> -            - ti,am654-mailbox
+> -    then:
+> -      required:
+> -        - interrupt-parent
+> -
+
+There are multiple interrupt controllers on TI K3 devices, and we need this
+property to be defined _specifically_ to point to the relevant interrupt router
+parent node.
+
+While what you state in general is true, I cannot have a node not define this on
+K3 devices, and end up using the wrong interrupt parent (GIC
+interrupt-controller). That's why the conditional compatible check.
+
+regards
+Suman
+
+>    - if:
+>        properties:
+>          compatible:
+> diff --git a/Documentation/devicetree/bindings/mfd/cirrus,madera.yaml b/Documentation/devicetree/bindings/mfd/cirrus,madera.yaml
+> index 499c62c04daa..5dce62a7eff2 100644
+> --- a/Documentation/devicetree/bindings/mfd/cirrus,madera.yaml
+> +++ b/Documentation/devicetree/bindings/mfd/cirrus,madera.yaml
+> @@ -221,7 +221,6 @@ required:
+>    - '#gpio-cells'
+>    - interrupt-controller
+>    - '#interrupt-cells'
+> -  - interrupt-parent
+>    - interrupts
+>    - AVDD-supply
+>    - DBVDD1-supply
+> diff --git a/Documentation/devicetree/bindings/net/lantiq,etop-xway.yaml b/Documentation/devicetree/bindings/net/lantiq,etop-xway.yaml
+> index 437502c5ca96..3ce9f9a16baf 100644
+> --- a/Documentation/devicetree/bindings/net/lantiq,etop-xway.yaml
+> +++ b/Documentation/devicetree/bindings/net/lantiq,etop-xway.yaml
+> @@ -46,7 +46,6 @@ properties:
+>  required:
+>    - compatible
+>    - reg
+> -  - interrupt-parent
+>    - interrupts
+>    - interrupt-names
+>    - lantiq,tx-burst-length
+> diff --git a/Documentation/devicetree/bindings/net/lantiq,xrx200-net.yaml b/Documentation/devicetree/bindings/net/lantiq,xrx200-net.yaml
+> index 7bc074a42369..5bc1a21ca579 100644
+> --- a/Documentation/devicetree/bindings/net/lantiq,xrx200-net.yaml
+> +++ b/Documentation/devicetree/bindings/net/lantiq,xrx200-net.yaml
+> @@ -38,7 +38,6 @@ properties:
+>  required:
+>    - compatible
+>    - reg
+> -  - interrupt-parent
+>    - interrupts
+>    - interrupt-names
+>    - "#address-cells"
+> diff --git a/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml b/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
+> index 2b9d1d6fc661..72c78f4ec269 100644
+> --- a/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
+> +++ b/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
+> @@ -61,7 +61,6 @@ required:
+>    - num-lanes
+>    - interrupts
+>    - interrupt-names
+> -  - interrupt-parent
+>    - interrupt-map-mask
+>    - interrupt-map
+>    - clock-names
+> diff --git a/Documentation/devicetree/bindings/pci/xilinx-versal-cpm.yaml b/Documentation/devicetree/bindings/pci/xilinx-versal-cpm.yaml
+> index a2bbc0eb7220..32f4641085bc 100644
+> --- a/Documentation/devicetree/bindings/pci/xilinx-versal-cpm.yaml
+> +++ b/Documentation/devicetree/bindings/pci/xilinx-versal-cpm.yaml
+> @@ -55,7 +55,6 @@ required:
+>    - reg-names
+>    - "#interrupt-cells"
+>    - interrupts
+> -  - interrupt-parent
+>    - interrupt-map
+>    - interrupt-map-mask
+>    - bus-range
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
