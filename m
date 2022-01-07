@@ -4,97 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1EA3C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jan 2022 17:16:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF945C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jan 2022 18:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:CC:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:Subject:Cc:To:From
+	:Date:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qdwHIzomAr6Yh41Ib5qB2fQUvKFvIdSo0WV/qxy+9ws=; b=0+eBf0+ksuFoVCfSSIqeDD0uO0
-	2d21oTYlalEj+fvTCER8uoHoLsG/Ovww3l8c7txiy0kmAJnr4Riev2PxMdfKwrbWgvNrmY7GTwyDM
-	24c0Lbzgh2AqQEszVqdpIVoPLOp74x4bH7/teb98Z5tpNmpynBANVW7VHw/o4PUqNj53wyNVBiVOb
-	rcySuMUBfjDcjDwgf0HLefCAJ1/Xx8apEFQXdOrPMJLDV62GuQoqfYNa9eIRYlUNLMSms3Qz/3qE1
-	Fxy3sbVnwX4w0byG5bFFgtH7pyd9OG9WwiPiDHcjBGv7PopmhdsXwezbn5Z2Xw/Si1KYNDtE6MTDh
-	/zi/xpiA==;
+	bh=sDkR8EFxQAXAWTdqea8t0NuQWLFLXIFAIuo4Mgn3408=; b=A0wZptj14ewueFIa1+t5r5qOtL
+	a1Yw4l8wL+xgyilSNn5lQfSWUplJdIG7Z/khMfetDFcQjAaswVGuXYVdJxAFK5jrTJzXG2PGBfux9
+	uH4foansXewxKcvdImvcXVlrYqaKBs1F7UTHP57vSnTJP/bdf/i9Dx0Bg3sQfOAiJ4X21//uN/HMn
+	eeqRmSKNeKlPnTSmksznJqy4b2NJpaz7tRb3LD6isDoXu41bR8ipWCvr5sk7chwbUsAngbQR6H57H
+	mhMi0sAx6wz6PU/gGk0yDEz5X21LvICuzmNAkKQb3KBsD/FhTNeaGQodpdbe0qKG1LGFxt15x0/mB
+	LrKXnCjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n5srA-004j03-F0; Fri, 07 Jan 2022 17:16:48 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1n5tc9-004mpz-T4; Fri, 07 Jan 2022 18:05:21 +0000
+Received: from mailgate.ics.forth.gr ([139.91.1.2])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n5sr7-004iz2-4H
- for linux-riscv@lists.infradead.org; Fri, 07 Jan 2022 17:16:47 +0000
-Received: from fraeml740-chm.china.huawei.com (unknown [172.18.147.207])
- by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4JVqWg6H9Pz67ZhV;
- Sat,  8 Jan 2022 01:11:43 +0800 (CST)
-Received: from lhreml724-chm.china.huawei.com (10.201.108.75) by
- fraeml740-chm.china.huawei.com (10.206.15.221) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.20; Fri, 7 Jan 2022 18:16:40 +0100
-Received: from [10.47.89.210] (10.47.89.210) by lhreml724-chm.china.huawei.com
- (10.201.108.75) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2308.20; Fri, 7 Jan
- 2022 17:16:37 +0000
-Subject: Re: [RFC 01/32] Kconfig: introduce and depend on LEGACY_PCI
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: Niklas Schnelle <schnelle@linux.ibm.com>, Mauro Carvalho Chehab
- <mchehab@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Hans Verkuil
- <hverkuil-cisco@xs4all.nl>, Ettore Chimenti <ek5.chimenti@gmail.com>, "Greg
- Kroah-Hartman" <gregkh@linuxfoundation.org>, Arnd Bergmann <arnd@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Nick Hu <nickhu@andestech.com>,
- Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>, "Paul
- Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, "Damien Le
- Moal" <damien.lemoal@opensource.wdc.com>, Ian Abbott <abbotti@mev.co.uk>, "H
- Hartley Sweeten" <hsweeten@visionengravers.com>, Linus Walleij
- <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Jean Delvare
- <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>, Dmitry Torokhov
- <dmitry.torokhov@gmail.com>, Karsten Keil <isdn@linux-pingi.de>, "Sathya
- Prakash" <sathya.prakash@broadcom.com>, Sreekanth Reddy
- <sreekanth.reddy@broadcom.com>, Suganath Prabu Subramani
- <suganath-prabu.subramani@broadcom.com>, Michael Grzeschik
- <m.grzeschik@pengutronix.de>, "David S. Miller" <davem@davemloft.net>, "Jakub
- Kicinski" <kuba@kernel.org>, Jesse Brandeburg <jesse.brandeburg@intel.com>,
- Tony Nguyen <anthony.l.nguyen@intel.com>, Kalle Valo <kvalo@kernel.org>,
- Jouni Malinen <j@w1.fi>, "James E.J. Bottomley" <jejb@linux.ibm.com>, "Martin
- K. Petersen" <martin.petersen@oracle.com>, Hannes Reinecke <hare@suse.com>,
- Kashyap Desai <kashyap.desai@broadcom.com>, Sumit Saxena
- <sumit.saxena@broadcom.com>, Shivasharan S
- <shivasharan.srikanteshwara@broadcom.com>, Nilesh Javali
- <njavali@marvell.com>, <GR-QLogic-Storage-Upstream@marvell.com>, Mark Brown
- <broonie@kernel.org>, Sudip Mukherjee <sudipm.mukherjee@gmail.com>, "Teddy
- Wang" <teddy.wang@siliconmotion.com>, Forest Bond
- <forest@alittletooquiet.net>, Jiri Slaby <jirislaby@kernel.org>, "Wim Van
- Sebroeck" <wim@linux-watchdog.org>, Jaroslav Kysela <perex@perex.cz>,
- "Takashi Iwai" <tiwai@suse.com>, <linux-kernel@vger.kernel.org>,
- <linux-arch@vger.kernel.org>, <linux-pci@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <linux-csky@vger.kernel.org>,
- <linux-ide@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
- <linux-hwmon@vger.kernel.org>, <linux-i2c@vger.kernel.org>,
- <linux-input@vger.kernel.org>, <netdev@vger.kernel.org>,
- <linux-media@vger.kernel.org>, <MPT-FusionLinux.pdl@broadcom.com>,
- <linux-scsi@vger.kernel.org>, <intel-wired-lan@lists.osuosl.org>,
- <linux-wireless@vger.kernel.org>, <megaraidlinux.pdl@broadcom.com>,
- <linux-spi@vger.kernel.org>, <linux-fbdev@vger.kernel.org>,
- <linux-serial@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
- <linux-watchdog@vger.kernel.org>
-References: <20220106181409.GA297735@bhelgaas>
-From: John Garry <john.garry@huawei.com>
-Message-ID: <b0e772ed-4c21-3d5a-d890-aba05c41904c@huawei.com>
-Date: Fri, 7 Jan 2022 17:16:23 +0000
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.1
+ id 1n5tbC-004mR7-O2
+ for linux-riscv@lists.infradead.org; Fri, 07 Jan 2022 18:04:27 +0000
+Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
+ by mailgate.ics.forth.gr (8.15.2/ICS-FORTH/V10-1.8-GATE) with ESMTP id
+ 207I4Aom063114
+ for <linux-riscv@lists.infradead.org>; Fri, 7 Jan 2022 20:04:10 +0200 (EET)
+DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
+ q=dns/txt; i=@ics.forth.gr; t=1641578645; x=1644170645;
+ h=From:Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+ Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:Resent-From:
+ Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+ List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=s5cE7HP13OGL6tOvFCkENHSYqRvjKRhAnn9y2DfklEY=;
+ b=Mp+IGz0UgN4HJYPOjgg+7qeQlNA4QDeHhRQoBpfVqFazG5PR9WJnNCeaRcTiWr3a
+ 1t1JnTZ9zO4/i4CN1oa3KP2GBUeBGnNKjLpwDKoNzR80fp+ab12YXXaGEN+x5Naj
+ Jzp4ltQUFw7F4jw67r4Rc3rcJ9dhUQGk+fjYgfDy/ophM1p2+zx1fiOHyZ1wXRBL
+ LTZPjtM61sN9rSGmi120RKImF+IvzXAhehY3WUhuV/84/JthaQlbmSxybXvGSUYL
+ 51jtxJUp8tm+oybQCq+GwKpwJWNXFT4D288s13sYZxJd9jqluXBE3kui7iCQ23tP
+ TDxotv07U3eKDgnLpV0htQ==;
+X-AuditID: 8b5b014d-9a2477000000460a-c1-61d880957c58
+Received: from enigma.ics.forth.gr (webmail.ics.forth.gr [139.91.151.35])
+ by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id
+ 8F.71.17930.59088D16; Fri,  7 Jan 2022 20:04:05 +0200 (EET)
+X-ICS-AUTH-INFO: Authenticated user:  at ics.forth.gr
 MIME-Version: 1.0
-In-Reply-To: <20220106181409.GA297735@bhelgaas>
-Content-Language: en-US
-X-Originating-IP: [10.47.89.210]
-X-ClientProxiedBy: lhreml745-chm.china.huawei.com (10.201.108.195) To
- lhreml724-chm.china.huawei.com (10.201.108.75)
-X-CFilter-Loop: Reflected
+Date: Fri, 07 Jan 2022 20:03:59 +0200
+From: Nick Kossifidis <mick@ics.forth.gr>
+To: Nick Kossifidis <mick@ics.forth.gr>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Alexandre
+ Ghiti <alex@ghiti.fr>, stable@vger.kernel.org
+Subject: Re: [PATCH 1/3] riscv: Don't use va_pa_offset on kdump
+Organization: FORTH
+In-Reply-To: <20211126180411.187597-1-mick@ics.forth.gr>
+References: <20211126180411.187597-1-mick@ics.forth.gr>
+Message-ID: <70fe8aa8bfe3923308e6248377577f58@mailhost.ics.forth.gr>
+X-Sender: mick@mailhost.ics.forth.gr
+User-Agent: Roundcube Webmail/1.3.16
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrILMWRmVeSWpSXmKPExsXSHT1dWXdqw41Eg2NTuC2e3fnKarH19yx2
+ i8u75rBZbPvcwmbR/O4cu8XLyz3MFm2z+C0WbHzE6MDh8eblSxaPwx1f2D3unZjG6vFw0yUm
+ j81L6j0uNV9n9/i8SS6APYrLJiU1J7MstUjfLoEr49ehPWwF87grrjedY29gbOHsYuTkkBAw
+ kbg/Zx5bFyMXh5DAUUaJAw+3MEEkTCVm7+1kBLF5BQQlTs58wgJiMwtYSEy9sp8RwpaXaN46
+ mxnEZhFQlZh9oxGsl01AU2L+pYNg9SIC6hKdz98wgixgFrjMKPFu4WqwBmEBe4nO9/vBbH4B
+ YYlPdy+ydjFycHACLdjxOxIkLCRgLvF+00pWiBtcJJ7e7WGFuE1F4sPvB+wg5aJA9ua5ShMY
+ BWchuXQWkktnIbl0ASPzKkaBxDJjvczkYr20/KKSDL30ok2M4Fhg9N3BeHvzW71DjEwcjIcY
+ JTiYlUR4p+69lijEm5JYWZValB9fVJqTWnyIUZqDRUmcl1dvQryQQHpiSWp2ampBahFMlomD
+ U6qBae99g7p1KWatCf+sQjh2H7+i/eYBl92ODdOOnG74Lr/487rZFamqpy7ubOCadPOIwqIf
+ U5OTg4yfirT+YXq9+jFvpqFF/cRv1+32T2Dfm3JAmbHuyn6Bu9wmNsqHBWe2h7O1XBWJWVGx
+ 76QJ87KNihfyj0w0zTwZx79jl2m2vbex4M+ZFmw8sx7+rfQ6sOJz+mffb9O8PHP53XefDp9o
+ tmx5kVKPRMO/KoYL0yp+Rd0/9b4zx3vPbI7v/w5mLnyXZxOySONs6Mrym7u2adqE8X+8y2r2
+ LZQl8tzjS+XrtptKLBc1mCh0++e3FXO+xgctyZB/nXTKYb33HpdJLG1Rt2Yy+B9qY+Qsdnl/
+ ZLoIU4gSS3FGoqEWc1FxIgDELZZR9AIAAA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220107_091645_501571_B23D90E1 
-X-CRM114-Status: GOOD (  20.58  )
+X-CRM114-CacheID: sfid-20220107_100423_200115_96250723 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,43 +89,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 06/01/2022 18:14, Bjorn Helgaas wrote:
->> That driver would prob not be used on systems which does not support PIO,
->> and so could have a HAS_IOPORT dependency. But it is not strictly necessary.
-> I don't want the path of "this driver isn't needed because the device
-> is unlikely to be used on this arch."
-
-Sure, that was just a one off example. As I mentioned before, I think 
-that Arnd already did most of the ifdeffery work, but it was not 
-included in this series.
-
-> 
-> Maybe it's not_always_  possible, but if the device can be plugged
-> into the platform, I think we should be able to build the driver for
-> it.
-> 
-> If the device requires I/O port space and the platform doesn't support
-> it, the PCI core or the driver should detect that and give a useful
-> diagnostic.
-> 
-
-I'm not sure what the driver can say apart from -ENODEV. Or IO port 
-management in resource.c could warn for requesting IO port region when 
-it's unsupported.
-
-Anyway, this same conversion was had with Linus before I got involved. 
-If you think it is worth discussing again then I suppose the authors 
-here need to gain consensus.
-
-Thanks,
-John
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGVsbG8gUGFsbWVyLAoKQW55IHVwZGF0ZXMgb24gdGhvc2UgMyBwYXRjaGVzID8KClJlZ2FyZHMs
+Ck5pY2sKCs6jz4TOuc+CIDIwMjEtMTEtMjYgMjA6MDQsIE5pY2sgS29zc2lmaWRpcyDOrc6zz4HO
+sc+IzrU6Cj4gT24ga2R1bXAgaW5zdGVhZCBvZiB1c2luZyBhbiBpbnRlcm1lZGlhdGUgc3RlcCB0
+byByZWxvY2F0ZSB0aGUga2VybmVsLAo+IHRoYXQgbGl2ZXMgaW4gYSAiY29udHJvbCBidWZmZXIi
+IG91dHNpZGUgdGhlIGN1cnJlbnQga2VybmVsJ3MgbWFwcGluZywKPiB3ZSBqdW1wIHRvIHRoZSBj
+cmFzaCBrZXJuZWwgZGlyZWN0bHkgYnkgY2FsbGluZyAKPiByaXNjdl9rZXhlY19ub3JlbG9jYXRl
+KCkuCj4gVGhlIGN1cnJlbnQgaW1wbGVtZW50YXRpb24gdXNlcyB2YV9wYV9vZmZzZXQgd2hpbGUg
+c3dpdGNoaW5nIHRvIAo+IHBoeXNpY2FsCj4gYWRkcmVzc2luZywgaG93ZXZlciBzaW5jZSB3ZSBt
+b3ZlZCB0aGUga2VybmVsIG91dHNpZGUgdGhlIGxpbmVhciAKPiBtYXBwaW5nCj4gdGhpcyB3b24n
+dCB3b3JrIGFueW1vcmUgc2luY2UgcmlzY3Zfa2V4ZWNfbm9yZWxvY2F0ZSgpIGlzIHBhcnQgb2Yg
+dGhlCj4ga2VybmVsIG1hcHBpbmcgYW5kIHdlIHNob3VsZCB1c2Uga2VybmVsX21hcC52YV9rZXJu
+ZWxfcGFfb2Zmc2V0LCBhbmQgCj4gYWxzbwo+IHRha2UgWElQIGtlcm5lbCBpbnRvIGFjY291bnQu
+Cj4gCj4gV2UgZG9uJ3QgcmVhbGx5IG5lZWQgdG8gdXNlIHZhX3BhX29mZnNldCBvbiByaXNjdl9r
+ZXhlY19ub3JlbG9jYXRlLCB3ZQo+IGNhbiBqdXN0IHNldCBTVFZFQyB0byB0aGUgcGh5c2ljYWwg
+YWRkcmVzcyBvZiB0aGUgbmV3IGtlcm5lbCBpbnN0ZWFkIAo+IGFuZAo+IGxldCB0aGUgaGFydCBq
+dW1wIHRvIHRoZSBuZXcga2VybmVsIG9uIHRoZSBuZXh0IGluc3RydWN0aW9uIGFmdGVyIAo+IHNl
+dHRpbmcKPiBTQVRQIHRvIHplcm8uIFRoaXMgZml4ZXMga2R1bXAgYW5kIGlzIGFsc28gc2ltcGxl
+ci9jbGVhbmVyLgo+IAo+IEkgdGVzdGVkIHRoaXMgb24gdGhlIGxhdGVzdCBxZW11IGFuZCBIaUZp
+dmUgVW5tYXRjaGVkIGFuZCB3b3JrcyBhcwo+IGV4cGVjdGVkLgo+IAo+IHYyOiBJIHJlbW92ZWQg
+dGhlIGRpcmVjdCBqdW1wIGFmdGVyIHNldHRpbmcgc2F0cCBhcyBzdWdnZXN0ZWQuCj4gCj4gRml4
+ZXM6IDJiZmM2Y2Q4MWJkMSAoInJpc2N2OiBNb3ZlIGtlcm5lbCBtYXBwaW5nIG91dHNpZGUgb2Yg
+bGluZWFyIAo+IG1hcHBpbmciKQo+IAo+IFNpZ25lZC1vZmYtYnk6IE5pY2sgS29zc2lmaWRpcyA8
+bWlja0BpY3MuZm9ydGguZ3I+Cj4gUmV2aWV3ZWQtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleEBn
+aGl0aS5mcj4KPiBDYzogPHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmc+ICMgNS4xMwo+IENjOiA8c3Rh
+YmxlQHZnZXIua2VybmVsLm9yZz4gIyA1LjE0CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1yaXNjdgo=
