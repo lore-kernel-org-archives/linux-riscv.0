@@ -4,60 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E5A8C433F5
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Jan 2022 00:45:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A336C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Jan 2022 02:24:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:To:Cc:From:Subject:
-	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XaKfrTpX2jgvI1dn64IkPyZVMhmr22PmBsTa8oJIpLI=; b=sfjs7q7V/NsVs5
-	vxvE/Z5aHDoFJ1WE+wOy/5u1sMfB0hVwgvn4/0gp2nftambgwbNAwH6GXmIlaIjJ42a8sUFPwSwvP
-	27QyI/z9BZT2CYtzOyt1qAa3QuM40skgQayPGoSTVeZGAkwu6IICJa4WQqbpwfSYSWmVi4zk4SBI/
-	FZ0nymmfSEOi5j/MG/PyZapGkdDgmB0Z2Fj1EsmxhVvPBRv94JrtodKK9M+2mrZexdnjtH/cphf6a
-	Ba9LP5w+Z+K1eiZSlboTgCU3R/K5JO10BuQjdODp29UKM2SHiLY6Yss/US9O0IvKvhZSf5ReYAlRM
-	YBDjYJTXewJtProGiWfg==;
+	List-Owner; bh=Exv8hsBIdtxe6g/XGUnQgDobR2MiQZY3XHuZfEmHE5U=; b=sB/q4gXgyVxJF9
+	LbPLSEtjvFVeR6/ceJ5CnJzGUTsp4tyR5kkzm8Ynw5t4f/T0E3ULY0VR36fqQhDUCTgPEl3lazzC5
+	b99isgYXWmJ4PXWyUunxfUIn4NHWsAPcWICZZHZ/YWu7+XV2xEHYbrfc2BchTasTLQNCHtPrxbEhx
+	fL8mIEVeInpmlx3UsBnnWXJSpEntvK/pfD/GWUiuFuo4EQYpUmRmVrTiFku2dICt2hwEh/alEUgAg
+	qyQUMlkzlI8IrHkg+ptuN+kQg0nUVfXC98VJMRH8SM9dU77EVvYM15wqYdk83X0szphh9QQj48RCi
+	9CUPaqXM431ynP1jCwkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n5zrF-005h4H-Ub; Sat, 08 Jan 2022 00:45:21 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1n61PD-005nxr-Sb; Sat, 08 Jan 2022 02:24:31 +0000
+Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n5zrD-005h3a-Dc
- for linux-riscv@lists.infradead.org; Sat, 08 Jan 2022 00:45:20 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 26025B827C1;
- Sat,  8 Jan 2022 00:45:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C331AC36AE9;
- Sat,  8 Jan 2022 00:45:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1641602714;
- bh=dUWN3mVrxOEErbJ6o4JMx/VEB9lx/aE7w+sbf0AOXtQ=;
- h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
- b=hmn0TWaH7ZvGwpnXaB2vwQ+3Tf+V69zsButjd64DIO7LTsT+HHIHbAtRZOcDFbIP7
- Sf5UyYonN5WRDGpnMd5p+kgKy4J9qbivxrqiROBU7UpH9nbuEXNHn8n/m7DI9fOszO
- aF5oM9wF01STq88gVbksW4/o73YFEMH+78fMuXDX7VCA+QCY+0orUFrOkoGdhNa3WV
- /brbmmZNY6hiN8LPlydKQwIXKWyPNU3Gd4s/iMJ1tFo+nhaU6so2CpXbSjq/oQS3+Q
- rkOTk4VVX6wkXRsX5u806tSTx+JimgRj/+cn3bAgfDnek5Tycxz0KR2NcXioxT20GQ
- fjEesRdRTyKiA==
+ id 1n61PA-005nx9-Oa
+ for linux-riscv@lists.infradead.org; Sat, 08 Jan 2022 02:24:30 +0000
+Received: by mail-yb1-xb35.google.com with SMTP id p5so14539519ybd.13
+ for <linux-riscv@lists.infradead.org>; Fri, 07 Jan 2022 18:24:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=QROqgPW59BmcvlO26kw/MeYQfypRFjouqTufbGjALHk=;
+ b=FZATxcc7mOnkcgbLCbKdkEj0rbX6avAvHEXE4Il3SPKEFIRJ+WPL51JijNz4IUDwUo
+ /70F9R5DidMxgWPt5pIN1MKNes2dV9BjA/8+kkooVvmeP/jFJ6toPLH1HrBNDDnUD2/h
+ QpYQWUlVpyQTb1B+Q2EDsrhmrYLrfVCC67MxQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=QROqgPW59BmcvlO26kw/MeYQfypRFjouqTufbGjALHk=;
+ b=6OPTpTrcwtKlHN/6Qi22kSVZXDnFsVWgxaA+Sb3r1RooZtfB7gnjJGB+8hob6oJ+1j
+ 466FqfXsI0zpRmBPP/1yBUgO3ApE0S+A4F3nes0mv5lTjJch+Ee7Soezh3WhjTodauXB
+ wrQA/QJP6kAED7Zgt23Xv/fDRf/IuaqVzbHw3GfZ+6zNpR+R5g1a/eWqEtIlv9k6wvmA
+ USBGmlELIFP0QrHULSUsh61ZWYV/HW7X5rbE+yUaSDo5v+ejgsz+/8L5zmFdhqecRDjX
+ YHV6RSmgoZ8uBxAfAobK+/LWIi2Z08kkBzRlkkuX/0Vt5W1J+Kkc7geSC9gn4/G8eXJy
+ WtIQ==
+X-Gm-Message-State: AOAM533087eDeTlUH3uHH9GPV8IaYUdVliYWq8qCxgGTDMN6yRFQhoLM
+ 0INjg7sQgySeNNQGVEb6vfVac+/4hanYzgwv0A03
+X-Google-Smtp-Source: ABdhPJzmlMAHa9+09iIXNJube0f30s+fSJGYHVyUNzBRhM1K9SIardeIOp+GRLW2iSehiv5zDlHXWWgur6iC5+YRkHQ=
+X-Received: by 2002:a25:9191:: with SMTP id w17mr1876051ybl.10.1641608662771; 
+ Fri, 07 Jan 2022 18:24:22 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20220107090715.2601-1-zong.li@sifive.com>
-References: <20220107090715.2601-1-zong.li@sifive.com>
-Subject: Re: [PATCH v3 RESEND] clk: sifive: Fix W=1 kernel build warning
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: Zong Li <zong.li@sifive.com>
-To: Zong Li <zong.li@sifive.com>, lee.jones@linaro.org,
- linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
- mturquette@baylibre.com, palmer@dabbelt.com, paul.walmsley@sifive.com
-Date: Fri, 07 Jan 2022 16:45:13 -0800
-User-Agent: alot/0.9.1
-Message-Id: <20220108004514.C331AC36AE9@smtp.kernel.org>
+References: <20211224211632.1698523-1-atishp@rivosinc.com>
+ <mhng-791652b4-53f0-48e4-a640-f4c418c9926b@palmer-ri-x1c9>
+In-Reply-To: <mhng-791652b4-53f0-48e4-a640-f4c418c9926b@palmer-ri-x1c9>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Fri, 7 Jan 2022 18:24:12 -0800
+Message-ID: <CAOnJCULirV30g6ti7QvY40=p_W9+-XG+nAbxiZ4qDZLo28RJ6A@mail.gmail.com>
+Subject: Re: [PATCH v1 0/2] Provide a fraemework for RISC-V ISA extensions
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ Tsukasa OI <research_trasio@irq.a4lg.com>
+Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Atish Patra <atishp@rivosinc.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
+ Damien Le Moal <damien.lemoal@wdc.com>, devicetree <devicetree@vger.kernel.org>,
+ Jisheng Zhang <jszhang@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220107_164519_624080_A5E1CF40 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220107_182428_856347_D0842FE2 
+X-CRM114-Status: GOOD (  26.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,27 +82,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UXVvdGluZyBab25nIExpICgyMDIyLTAxLTA3IDAxOjA3OjE1KQo+IFRoaXMgY29tbWl0IHJldmVy
-dHMgY29tbWl0IDQ4N2RjN2JiNmEwYyAoImNsazogc2lmaXZlOiBmdTU0MC1wcmNpOgo+IERlY2xh
-cmUgc3RhdGljIGNvbnN0IHZhcmlhYmxlICdwcmNpX2Nsa19mdTU0MCcgd2hlcmUgaXQncyB1c2Vk
-IikuCj4gRm9yIGZpeGluZyBXPTEga2VybmVsIGJ1aWxkIHdhcm5pbmcocykgYWJvdXQg4oCYcHJj
-aV9jbGtfZnU1NDDigJkgZGVmaW5lZAo+IGJ1dCBub3QgdXNlZCBbLVd1bnVzZWQtY29uc3QtdmFy
-aWFibGU9XSwgdGhlIHByb2JsZW0gaXMgdGhhdCB0aGUgQyBmaWxlCj4gb2YgZnU1NDAgYW5kIGZ1
-NzQwIGRvZXNuJ3QgdXNlIHRoZXNlIHZhcmlhYmxlcywgYnV0IHRoZXkgaW5jbHVkZXMgdGhlCj4g
-aGVhZGVyIGZpbGVzLiBXZSBjb3VsZCByZWZpbmUgdGhlIGNvZGUgYnkgbW92aW5nIHRoZSBkZWZp
-bml0aW9uIG9mIHRoZXNlCj4gdmFyaWFibGVzIGludG8gZnU1NDAgYW5kIGZ1NzQwIGltcGxlbWVu
-dGF0aW9uIHJlc3BlY3RpdmVseSBpbnN0ZWFkIG9mCj4gY29tbW9uIGNvcmUgY29kZSwgdGhlbiB3
-ZSBjb3VsZCBzdGlsbCBzZXBhcmF0ZSB0aGUgU29Dcy1kZXBlbmRlbnQgZGF0YQo+IGluIHRoZWly
-IG93biBpbXBsZW1lbnRhdGlvbi4KPiAKPiBGaXhlczogNDg3ZGM3YmI2YTBjICgiY2xrOiBzaWZp
-dmU6IGZ1NTQwLXByY2k6IERlY2xhcmUgc3RhdGljCj4gY29uc3QgdmFyaWFibGUgJ3ByY2lfY2xr
-X2Z1NTQwJyB3aGVyZSBpdCdzIHVzZWQiKQoKVGhlIGZpeGVzIHRhZyBzaG91bGQgYmUgb24gb25l
-IGxpbmUsIG5vdCBzcGxpdCBhY3Jvc3MgdHdvLgoKPiBTaWduZWQtb2ZmLWJ5OiBab25nIExpIDx6
-b25nLmxpQHNpZml2ZS5jb20+Cj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+On Fri, Jan 7, 2022 at 1:58 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>
+> On Fri, 24 Dec 2021 13:16:30 PST (-0800), atishp@atishpatra.org wrote:
+> > This series implements a generic framework to parse multi-letter ISA
+> > extensions. It introduces a new DT node that can be under /cpus or
+> > individual cpu depends on the platforms with homogeneous or heterogeneous
+> > harts. This version of the series only allows adds support for homogeneous
+> > harts as there are no platforms with heterogeneous harts yet. However,
+> > the DT binding allows both.
+> >
+> > The patch also indicates the user space about the available ISA extensions
+> > via /proc/cpuinfo.
+> >
+> > Here is the example output of /proc/cpuinfo:
+> > (with debug patches in Qemu and Linux kernel)
+> >
+> > / # cat /proc/cpuinfo
+> > processor     : 0
+> > hart          : 0
+> > isa           : rv64imafdcsu
+> > isa-ext               : sstc,sscofpmf
+> > mmu           : sv48
+>
+> IMO this is the wrong way to go.  I get that the ISA string is very
+> complicated to parse, but we've tried to come up with other
+> representations of this we've ended up having that interface break when
+> the ISA string rules eventually change.  We should just stick to the ISA
+> string for these interfaces, as that's at least something everyone can
+> agree on because they're defined by the spec.
+>
+
+Fair enough.
+
+> That said, we should add the spec versions into this interface.  At
+> least the user spec version is relevant here, but given that we're
+> passing through some other priv-level details we might as well pass that
+> though too.
+>
+
+Tsukasa already has a version that extends the isa string parsing for
+multi-letter extensions
+and versions parsing. We just need to add the ISA bitmap support on top of it.
+
+I will coordinate with Tsukasa to have a complete framework based on
+string parsing.
+It would be good to have this series asap as all other series  (perf,
+svpbmt) will rely on it.
+
+> > processor     : 1
+> > hart          : 1
+> > isa           : rv64imafdcsu
+> > isa-ext               : sstc,sscofpmf
+> > mmu           : sv48
+> >
+> > processor     : 2
+> > hart          : 2
+> > isa           : rv64imafdcsu
+> > isa-ext               : sstc,sscofpmf
+> > mmu           : sv48
+> >
+> > processor     : 3
+> > hart          : 3
+> > isa           : rv64imafdcsu
+> > isa-ext               : sstc,sscofpmf
+> > mmu           : sv48
+> >
+> > Anybody adding support for any new multi-letter extensions should add an
+> > entry to the riscv_isa_ext_id and the isa extension array.
+> > E.g. The patch[1] adds the support for sscofpmf extension.
+> >
+> > [1] https://github.com/atishp04/linux/commit/a23157264118d6fd905fd08d8717c7df03078bb1
+> >
+> > Atish Patra (2):
+> > RISC-V: Provide a framework for parsing multi-letter ISA extensions
+> > dt-bindings: riscv: Add DT binding for RISC-V ISA extensions
+> >
+> > .../devicetree/bindings/riscv/cpus.yaml       |  9 +++
+> > arch/riscv/include/asm/hwcap.h                | 31 ++++++++++
+> > arch/riscv/kernel/cpu.c                       | 16 +++++
+> > arch/riscv/kernel/cpufeature.c                | 58 ++++++++++++++++++-
+> > 4 files changed, 113 insertions(+), 1 deletion(-)
+
+
+
+--
+Regards,
+Atish
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
