@@ -4,100 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0492C433F5
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Jan 2022 23:36:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD5CDC433F5
+	for <linux-riscv@archiver.kernel.org>; Sun,  9 Jan 2022 10:31:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=su0anqOfZ7m3uN9ppByDORRSCEDHQsaPEHcYJIl3hQg=; b=uMDpIeKmF/xfp0
-	aoYF+eX4PF//ZJcrymybNcDKNqIch2p+dd//JEs7mWVjgGYbu3qUXI+ja2G/n2+MITSeSNKYozVPP
-	rwwIlVasacowwPsV+hUjACDlwpRK/cAbbG9NyM/ObnKI/V9KQcgVmVPXHfbd/b+cifJPdRC542XQA
-	6k+PH8J75Kim9jQlT/kIZXacg70PV/ebx76jfyON0vmxoQDhnln3wuh4yRVQfkZEpaPjoQy2WJZZg
-	UR16fXDN53hA4T/rwGmXPahVsEIrR6soPfN3Ct8CT7ldFbzhAlUGR6UNageWkjQGGOCKwkwzUv6mx
-	2UjnFbZojX6IAItraA4A==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=5wU/mypJ9Oqalov439YYQH/fjrserndos7dQJecyX+I=; b=XtFHLGmQYmq6gK
+	wT9y/BevESMD0/Dyp8+yIR39YXY2mQsTJqMmAPUJC9WMg8GjC8YMqW0ckBN2Dl+786VfYRPrdiXXo
+	bF82aeLgSbDW0smOT0EBzprJd1J5TX8Vc/fd20s3jTmUJzhD3b7fvf7XbEDGRLewwo/1erkxhHa2b
+	5oNvQqrl6/tUpjqvZ9YGfElrvde/8eUpbDF1W9uJauv/MSW/9QfmRvSqUbFqWGo4NZNs2KMi13mO1
+	YN/JGKBk27U6Xlc67ZRj1LDJKwLRIbTQECxroYlmWcJFaKiBmk1fsfhmXkKZr51x/4mnYaQD3Q2ch
+	YgCFJ7K6Jv4OJkiwSEAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n6LFO-007790-OU; Sat, 08 Jan 2022 23:35:42 +0000
-Received: from rere.qmqm.pl ([91.227.64.183])
+	id 1n6VTY-007dYK-8I; Sun, 09 Jan 2022 10:31:00 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n6LFK-007787-Uj
- for linux-riscv@lists.infradead.org; Sat, 08 Jan 2022 23:35:40 +0000
-Received: from remote.user (localhost [127.0.0.1])
- by rere.qmqm.pl (Postfix) with ESMTPSA id 4JWbzn6Bf4z9c;
- Sun,  9 Jan 2022 00:35:17 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=rere.qmqm.pl; s=1;
- t=1641684931; bh=PlUOfTOJmz/Ue3/EDBlVUxJ2DxqecfDU18/1xQbQtoA=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=FscL30pAUhiOa20r1Aci5nnOyAPPM7+JoY4I/TdvClRTh0U4D6S+wg1hl5DP6lTxY
- uXsR1x49ZX58OBDSXL5QGeKh44OE5Qx3HX+fhAHnzzl6d2Bb3RMolFLW/CZs7ANyT9
- 2B2bqDVSaDvrnFLV9W4laov2KVjSpYZyXNNSx0uhvIf6/Ty/Jc6im2Ya6WtOK+mKnU
- 8tBa912YBdNEWU6kN5XGlGndW+KwbfYMSoJHIv4OJWOXoW7NdW+vFlXd5iG2C0Sl5t
- yLjrrdYJpGeB9xfuugFJFXVZkd4+VRh97hWFY+LEwPEsT5kUEeN00fOMl2F0IbFH2g
- x9nJQfgC6GmfA==
-X-Virus-Status: Clean
-X-Virus-Scanned: clamav-milter 0.103.4 at mail
-Date: Sun, 9 Jan 2022 00:35:15 +0100
-From: =?iso-8859-2?Q?Micha=B3_Miros=B3aw?= <mirq-linux@rere.qmqm.pl>
-To: Dmitry Osipenko <digetx@gmail.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Greg Ungerer <gerg@linux-m68k.org>, Joshua Thompson <funaho@jurai.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Sebastian Reichel <sre@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Greentime Hu <green.hu@gmail.com>,
- Vincent Chen <deanbo422@gmail.com>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Yoshinori Sato <ysato@users.sourceforge.jp>,
- Rich Felker <dalias@libc.org>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- Juergen Gross <jgross@suse.com>,
- Stefano Stabellini <sstabellini@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Santosh Shilimkar <ssantosh@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Pavel Machek <pavel@ucw.cz>,
- Lee Jones <lee.jones@linaro.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Guenter Roeck <linux@roeck-us.net>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Ulf Hansson <ulf.hansson@linaro.org>, alankao@andestech.com,
- "K . C . Kuen-Chern Lin" <kclin@andestech.com>,
- linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-sh@vger.kernel.org, xen-devel@lists.xenproject.org,
- linux-acpi@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-tegra@vger.kernel.org
-Subject: Re: [PATCH v5 04/21] kernel: Add combined power-off+restart handler
- call chain API
-Message-ID: <Ydofs2CIfA+r5KAz@qmqm.qmqm.pl>
-References: <20211212210309.9851-1-digetx@gmail.com>
- <20211212210309.9851-5-digetx@gmail.com>
+ id 1n6VTV-007dXw-78
+ for linux-riscv@lists.infradead.org; Sun, 09 Jan 2022 10:30:58 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id h2so33722265lfv.9
+ for <linux-riscv@lists.infradead.org>; Sun, 09 Jan 2022 02:30:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:from:date:message-id:subject:to:cc
+ :content-transfer-encoding;
+ bh=N4VdQMqsU42J/GEtn26CNy7dQyd3XcaQCO8occ40GHM=;
+ b=OFm1RWF3fqvuETUznHVtNEAWeLbEC+02APKkRHAzF9/myPNYLmGA+PIIHRYcs6Xq5X
+ AJ9Oq4HWg62AjRymHnSNklD/Et97gG6BUMCJmFEsC9ggGtWZ57H8X90DtU9YhKJVmxfU
+ XrliQQNid/+GNkv0rSosFrznDzLVUIEVWMjOgyGyUVO0YFlD+pJrpqKjqgH9e/ExRK7j
+ 1Hcyz28/QDtN4wG9t0MiNMFI6kA/NmcokUlI4LhiCIzrroGAuysrJnYK312g09KrEbWV
+ yTHSTuEB+SKgSUqz5Q6CIXugv4iTwykOzbms4JS+eGygTyY0KxXRJ/ZSuZzq+UZjSR3d
+ Te0A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc
+ :content-transfer-encoding;
+ bh=N4VdQMqsU42J/GEtn26CNy7dQyd3XcaQCO8occ40GHM=;
+ b=ARk3uBa3Eqa0NPexBTULLXDVrbwA4umzIIusoRzgMdFGMb+5yCvitMKOrNIfXJLoed
+ Zhy2TuyJdDlPbyVEHnmTi5UI/Po4n42gl1mm8SKT7CitqicbKnVU8kJreKCKBZBM2zXz
+ nCbv41Bz2Z8niocvmdtrEa6IOgiO2KaAWJw1ucUqYprS491xQpyh8lsZAwAgTAqY+8Tk
+ cJNu7Q4bDxBdxhFdHG1VQqhObmhj4kkc8TevozPF40rJCQaCdcpMHyehJpfZ/O5tl2Xj
+ 8jFlc4fOt1S40sdOMVQ0UDgFoGqlT7aMJkRG70EOtVCWJROAAMGjK7vIqy/Durd0BEVZ
+ 6+qg==
+X-Gm-Message-State: AOAM530RoGth+uYXrh2ymsXlqSe46Tu0g2wT8a+ApCbZvQTep2pBHflo
+ 4qIEEdmJVaHINwaTULQNttBxVeqBrhULe37LRqHVzA==
+X-Google-Smtp-Source: ABdhPJzrcPX+XvnEr9o4ngcrGjQ43RAfdERwldzGMmHX4xeYMuNF5bS5th9q9QzloR0WjqVd7cDYnGv8A04TKGgllmw=
+X-Received: by 2002:a2e:b803:: with SMTP id u3mr54630896ljo.503.1641724254305; 
+ Sun, 09 Jan 2022 02:30:54 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20211212210309.9851-5-digetx@gmail.com>
+From: Kito Cheng <kito.cheng@sifive.com>
+Date: Sun, 9 Jan 2022 18:30:43 +0800
+Message-ID: <CALLt3TjtVFjTfszjM38sOX81KJ9TgdMLDBMfggJf9hveRgs3YQ@mail.gmail.com>
+Subject: Public review for RISC-V psABI v1.0-rc1
+To: Jessica Clarke <jrtc27@jrtc27.com>, linux-riscv@lists.infradead.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Kito Cheng <kito.cheng@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220108_153539_366933_7EF3EB5D 
-X-CRM114-Status: GOOD (  19.15  )
+X-CRM114-CacheID: sfid-20220109_023057_316573_8ED3F150 
+X-CRM114-Status: UNSURE (   5.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,114 +76,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-2"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 13, 2021 at 12:02:52AM +0300, Dmitry Osipenko wrote:
-[...]
-> +/**
-> + * struct power_off_data - Power-off callback argument
-> + *
-> + * @cb_data: Callback data.
-> + */
-> +struct power_off_data {
-> +	void *cb_data;
-> +};
-> +
-> +/**
-> + * struct power_off_prep_data - Power-off preparation callback argument
-> + *
-> + * @cb_data: Callback data.
-> + */
-> +struct power_off_prep_data {
-> +	void *cb_data;
-> +};
-
-Why two exactly same structures? Why only a single pointer instead? If
-it just to enable type-checking callbacks, then thouse could be opaque
-or zero-sized structs that would be embedded or casted away in
-respective callbacks.
-
-> +
-> +/**
-> + * struct restart_data - Restart callback argument
-> + *
-> + * @cb_data: Callback data.
-> + * @cmd: Restart command string.
-> + * @stop_chain: Further lower priority callbacks won't be executed if se=
-t to
-> + *		true. Can be changed within callback. Default is false.
-> + * @mode: Reboot mode ID.
-> + */
-> +struct restart_data {
-> +	void *cb_data;
-> +	const char *cmd;
-> +	bool stop_chain;
-> +	enum reboot_mode mode;
-> +};
-> +
-> +/**
-> + * struct reboot_prep_data - Reboot and shutdown preparation callback ar=
-gument
-> + *
-> + * @cb_data: Callback data.
-> + * @cmd: Restart command string.
-> + * @stop_chain: Further lower priority callbacks won't be executed if se=
-t to
-> + *		true. Can be changed within callback. Default is false.
-
-Why would we want to stop power-off or erboot chain? If the callback
-succeded, then further calls won't be made. If it doesn't succeed, but
-possibly breaks the system somehow, it shouldn't return. Then the only
-case left would be to just try the next method of shutting down.
-
-> + * @mode: Preparation mode ID.
-> + */
-> +struct reboot_prep_data {
-> +	void *cb_data;
-> +	const char *cmd;
-> +	bool stop_chain;
-> +	enum reboot_prepare_mode mode;
-> +};
-> +
-> +struct sys_off_handler_private_data {
-> +	struct notifier_block power_off_nb;
-> +	struct notifier_block restart_nb;
-> +	struct notifier_block reboot_nb;
-
-What's the difference between restart and reboot?
-
-> +	void (*platform_power_off_cb)(void);
-> +	void (*simple_power_off_cb)(void *data);
-> +	void *simple_power_off_cb_data;
-> +	bool registered;
-> +};
-
-BTW, I couldn't find a right description of my idea of unifying the
-chains before, so let me sketch it now.
-
-The idea is to have a single system-off chain in which the callback
-gets a mode ({QUERY_*, PREP_*, DO_*} for each of {*_REBOOT, *_POWEROFF, ...=
-?).
-The QUERY_* calls would be made in can_kernel_reboot/poweroff(): all
-would be called, and if at least one returned true, then the shutdown
-mode would continue. All of PREP_* would be called then. After that
-all DO_* would be tried until one doesn't return (succeeded or broke
-the system hard). Classic for(;;); could be a final fallback for the
-case where arch/machine (lowest priority) call would return instead
-of halting the system in machine-dependent way. The QUERY and PREP
-stages could be combined, but I haven't thought about it enough to
-see what conditions would need to be imposed on the callbacks in
-that case (maybe it's not worth the trouble, since it isn't a fast
-path anyway?). The goal here is to have less (duplicated) code in
-kernel, but otherwise it seems equivalent to your API proposal.
-
-Best Regards
-Micha=B3 Miros=B3aw
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgYWxsOgoKSXTigJlzIEtpdG8gQ2hlbmcgZnJvbSB0aGUgUklTQy1WIGNvbW11bml0eSwgSmVz
+c2ljYSBDbGFya2UgYW5kIEkgYXJlCndvcmtpbmcgb24gcmVsZWFzaW5nIGEgc3RhYmxlIHZlcnNp
+b24gb2YgdGhlIHBzQUJJLCBhbmQgYXJlIHNlZWtpbmcKZmVlZGJhY2sgZnJvbSB0aGUgb3BlbiBz
+b3VyY2UgY29tbXVuaXR5LgoKVGhlIGdvYWwgb2YgdGhpcyBzdGFibGUgcmVsZWFzZSBpcyBoYXZp
+bmcgYSBzdGFibGUgdmVyc2lvbiB0byBsZXQKcGVvcGxlIHVzZSBhcyBhIHJlZmVyZW5jZSBwb2lu
+dC4gV2UgYXJlIHRyeWluZyB0byBkZXNjcmliZSB3aGF0IHdlIGRpZAphbmQgd2hhdCB3ZSBoYXZl
+LCBhbmQgd2l0aCBhcyBsaXR0bGUgbmV3IHN0dWZmIGFzIG5lY2Vzc2FyeSBmb3IgdGhlCm5ldyBh
+bmQgdXBjb21pbmcgZXh0ZW5zaW9ucy4KCkJ1dCB0aGF0IGRvZXMgTk9UIG1lYW4gd2Ugd29u4oCZ
+dCBhY2NlcHQgYW55IG5ldyBzdHVmZiBpbiB0aGUgZnV0dXJlLAp0aGUgUklTQy1WIHBzQUJJIHdp
+bGwgc3RpbGwgYWNjZXB0IG5ldyBiYWNrd2FyZHMtY29tcGF0aWJsZSBjaGFuZ2VzCmFuZCByZWxl
+YXNlIHBlcmlvZGljYWxseSBnb2luZyBmb3J3YXJkcy4KCkZlZWwgZnJlZSB0byBnaXZlIGZlZWRi
+YWNrIG9yIGFzayBhbnkgcXVlc3Rpb24gYnkgcmVwbHlpbmcgdG8gdGhpcwptYWlsIG9yIGNyZWF0
+aW5nIGFuIGlzc3VlIG9uIEdpdEh1YiEKCkRvY3VtZW50OiBodHRwczovL2dpdGh1Yi5jb20vcmlz
+Y3Ytbm9uLWlzYS9yaXNjdi1lbGYtcHNhYmktZG9jL3JlbGVhc2VzL3RhZy92MS4wLXJjMQpDcmVh
+dGUgaXNzdWVzIGhlcmU6IGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi1ub24taXNhL3Jpc2N2LWVs
+Zi1wc2FiaS1kb2MvaXNzdWVzCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
