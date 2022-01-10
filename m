@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA6C1C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jan 2022 09:28:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1BB2C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jan 2022 09:30:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=43URgqRHYEss9URR6gG7PlPPgxTig8P2PLBcomk1t0I=; b=ZMUGO5UobTbLgJ
-	o+iI1uEfsREpbw3S/tLp7E0PbW6MLjM4BYltCmB/F2HaZY3iuyQtdjLqlt1OTwUilwXpA9BImmR3R
-	/A80C2BmNSUg7Pjkk/LHnCAd6QoIK+RQRr0PXAoWhY3I5W3YnnGgAQJ6RZby2+j8Fy6b3QGZiRw+9
-	mJaedcR+8cjCpgIZo17Vwno53+l0vBAx+yx7yI7VOCU72StTTrNB0RtqAUkxkhpbpz5ogOr40s7+j
-	HoI0ZmHC1tz0Ot3V4RJPNId4euVXv9WvUAuGoK4k6Ab48g6FHHCpJ3GJ6h+h6pHdATSuym4Soe5XH
-	0YdGhv7KCXkhoD+sob7Q==;
+	List-Owner; bh=TOEQ67Ac0DGRqt8QOjphHuqycgDziG1WU4sqp5eC5hU=; b=QaxKIr49nyqAVK
+	7E4lQ4mWoQ0mNcBmS863UwmrhAYixl5Q5KUDRX2hQxYAyG1OZb6HhKNnjCVDTrnccmIBJFhXJDOhm
+	eU0+I6Mz4yzPBDGVts0RN7SXoSdGeNlAfTrMvRiRw19J4hgzlK50qHz/onRc+JSvAyB6WrQXhfxQl
+	rYn0LDpctCGIHC/HAE7rpI4vbmyeQolM/vEBKGhvSoXB+U/A9veYVxhmuKSXewpZ3izVMWv9xt7jX
+	N2BCB0aNn+QHnsx3YdjrhysZA2EoYhYfq8a4W/gxKEofsiXHknyLbOko8XKy+IJ6cE3ias8CLoAmM
+	zyAK5enm5KeBi5QhvY5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n6qy6-00AN4w-42; Mon, 10 Jan 2022 09:27:58 +0000
-Received: from mail-ua1-f52.google.com ([209.85.222.52])
+	id 1n6r0L-00AONm-LY; Mon, 10 Jan 2022 09:30:17 +0000
+Received: from mail-ua1-f53.google.com ([209.85.222.53])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n6qVD-00A6j7-52
- for linux-riscv@lists.infradead.org; Mon, 10 Jan 2022 08:58:08 +0000
-Received: by mail-ua1-f52.google.com with SMTP id l15so10674775uai.11
- for <linux-riscv@lists.infradead.org>; Mon, 10 Jan 2022 00:58:05 -0800 (PST)
+ id 1n6qXV-00A7w4-Go
+ for linux-riscv@lists.infradead.org; Mon, 10 Jan 2022 09:00:31 +0000
+Received: by mail-ua1-f53.google.com with SMTP id x33so20789825uad.12
+ for <linux-riscv@lists.infradead.org>; Mon, 10 Jan 2022 01:00:28 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=vzvAQJe2veQdg4DaRkaqygFL5jyj5pSAthDAblQ6LsI=;
- b=qH6Ul6jA5Mn23d/Dj+L11hMED2C4biblF/RvyXhgvqXZ5kWMxNO5O7GgR5IgfgyUkY
- M4tE/RKwQAD3VlRjmfIZk4txRd9hPNJQzHofTinAM+CvG3th2aw05+bd1Q8Wt67HWRi3
- TWSEy8nW92BqLZw/sqqOr1ZjnKjMdxvM56itaiksXcdgIp7Y3wEqeUWc1bIv1lABRXR9
- Xytr5qs/SPsSCAKxcYIZZ9+OqknWNrX5+mm0i/H6HrqnbC2je2H8G2guUSW5m6pOHMBQ
- LRkFPxSkMSJEHe5q6Pflcl6hOOsh90lvjVonoxJGFu351jQR1Z93RxXqsTZlHoO1nOb3
- 3ZFg==
-X-Gm-Message-State: AOAM533lQ3jUIo9KUjpm6VO8CXgvd8y+alRyMKwy9XsG/KkfDjBTIBuC
- MNiDc8n7fcHEIkC6SEbsyBf5bfF/Yy70fw==
-X-Google-Smtp-Source: ABdhPJzCLiAaYxU9VxKoxo+wvgdIutJaqrz++x/F+TNiDhGYrxynGKideS6ip5QIh8Zzpckn4dIezg==
-X-Received: by 2002:ab0:7c5c:: with SMTP id d28mr1428155uaw.123.1641805084688; 
- Mon, 10 Jan 2022 00:58:04 -0800 (PST)
-Received: from mail-vk1-f169.google.com (mail-vk1-f169.google.com.
- [209.85.221.169])
- by smtp.gmail.com with ESMTPSA id l202sm2196081vkl.40.2022.01.10.00.58.02
+ bh=8NhtBWzQ5apsDhjpCyjxZEW0Il7Jt/CqRkEvPo1Xwf8=;
+ b=a4PFZlqxGhfjkqOs/U455pORHwEUy6SxsYloezutPnVuIaaIsJqS06otLwT8dhCjXT
+ 7M1L2Hc1oaqrLU107zkgNvUdW0MfewcOGRHCd5s1tG6aPrOVVgB0R+K8+OHxxPE/k2Rq
+ YIR0Ym6GYd3TctZCnw3fH5xvY9nqQPM80AGkAcjQPAQcVPQ9AlzTzmoksV66Ub5D/fYh
+ MJAXOvfmAcXuvqMKQhhNyF6tq9UwUn6W8Tgh/9zuo9qA+Z1BJ3aoYBDhSDe//Jv4pWZO
+ QHeWQmGwf6b+CXIWri90INpjoa8Z+qr0lnJg1y5Ar/dBuBbNti2oKR27i2bIKclJ2TAI
+ sdeA==
+X-Gm-Message-State: AOAM533vv406e3uVHZC4J8whwMPK/jCSEuCFob4MtXC1rNoQ8Ss50oCX
+ +VkH4aQedUqCzOP5U2V+jMLjKJP3hru+Bw==
+X-Google-Smtp-Source: ABdhPJykmZdPFIcDxO4A23MYR6XZ9VMCEX4Sb96vLSHGIl2/J/r/d17kM4ndgsrvWPKCyuJA1byNNw==
+X-Received: by 2002:a67:d813:: with SMTP id e19mr25883622vsj.87.1641805227825; 
+ Mon, 10 Jan 2022 01:00:27 -0800 (PST)
+Received: from mail-ua1-f51.google.com (mail-ua1-f51.google.com.
+ [209.85.222.51])
+ by smtp.gmail.com with ESMTPSA id t131sm1828285vkd.8.2022.01.10.01.00.26
  for <linux-riscv@lists.infradead.org>
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 10 Jan 2022 00:58:03 -0800 (PST)
-Received: by mail-vk1-f169.google.com with SMTP id l68so7685391vkh.4
- for <linux-riscv@lists.infradead.org>; Mon, 10 Jan 2022 00:58:02 -0800 (PST)
-X-Received: by 2002:a1f:1bd0:: with SMTP id b199mr13248764vkb.33.1641805082754; 
- Mon, 10 Jan 2022 00:58:02 -0800 (PST)
+ Mon, 10 Jan 2022 01:00:27 -0800 (PST)
+Received: by mail-ua1-f51.google.com with SMTP id x33so20789723uad.12
+ for <linux-riscv@lists.infradead.org>; Mon, 10 Jan 2022 01:00:26 -0800 (PST)
+X-Received: by 2002:a67:e985:: with SMTP id b5mr1097590vso.77.1641805226820;
+ Mon, 10 Jan 2022 01:00:26 -0800 (PST)
 MIME-Version: 1.0
 References: <cover.1641289490.git.zong.li@sifive.com>
- <5a7786cff08d55d0e084cd28bc2800565fa2dce7.1641289490.git.zong.li@sifive.com>
-In-Reply-To: <5a7786cff08d55d0e084cd28bc2800565fa2dce7.1641289490.git.zong.li@sifive.com>
+ <0419b2865c87f72adeb4edee9113a959e468b4a5.1641289490.git.zong.li@sifive.com>
+In-Reply-To: <0419b2865c87f72adeb4edee9113a959e468b4a5.1641289490.git.zong.li@sifive.com>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 10 Jan 2022 09:57:51 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdV5gbeaaXPfJ4EuYur0NChp3iurdzNzC_UOLDrGP7rZNA@mail.gmail.com>
-Message-ID: <CAMuHMdV5gbeaaXPfJ4EuYur0NChp3iurdzNzC_UOLDrGP7rZNA@mail.gmail.com>
-Subject: Re: [PATCH 3/3] dmaengine: sf-pdma: Get number of channel by device
- tree
+Date: Mon, 10 Jan 2022 10:00:15 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUyYVBXAeJ8XS9OsUePpFLgpCXYT5rH_bJCvCg3eaav_w@mail.gmail.com>
+Message-ID: <CAMuHMdUyYVBXAeJ8XS9OsUePpFLgpCXYT5rH_bJCvCg3eaav_w@mail.gmail.com>
+Subject: Re: [PATCH 2/3] dt-bindings: Add dma-channels for pdma device node
 To: Zong Li <zong.li@sifive.com>
 Cc: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
@@ -75,8 +74,8 @@ Cc: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
  linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220110_005807_237119_696E68B4 
-X-CRM114-Status: GOOD (  26.30  )
+X-CRM114-CacheID: sfid-20220110_010029_630378_30E18338 
+X-CRM114-Status: GOOD (  21.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,51 +95,38 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hi Zong,
 
 On Wed, Jan 5, 2022 at 6:44 AM Zong Li <zong.li@sifive.com> wrote:
-> It currently assumes that there are four channels by default, it might
-> cause the error if there is actually less than four channels. Change
-> that by getting number of channel from device tree.
+> Add dma-channels property, then we can determine how many channels there
+> by device tree, rather than statically defines it in PDMA driver
 >
 > Signed-off-by: Zong Li <zong.li@sifive.com>
 
 Thanks for your patch!
 
-> --- a/drivers/dma/sf-pdma/sf-pdma.c
-> +++ b/drivers/dma/sf-pdma/sf-pdma.c
-> @@ -484,21 +484,24 @@ static int sf_pdma_probe(struct platform_device *pdev)
->         struct sf_pdma *pdma;
->         struct sf_pdma_chan *chan;
->         struct resource *res;
-> -       int len, chans;
-> -       int ret;
-> +       int len, ret;
->         const enum dma_slave_buswidth widths =
->                 DMA_SLAVE_BUSWIDTH_1_BYTE | DMA_SLAVE_BUSWIDTH_2_BYTES |
->                 DMA_SLAVE_BUSWIDTH_4_BYTES | DMA_SLAVE_BUSWIDTH_8_BYTES |
->                 DMA_SLAVE_BUSWIDTH_16_BYTES | DMA_SLAVE_BUSWIDTH_32_BYTES |
->                 DMA_SLAVE_BUSWIDTH_64_BYTES;
+> --- a/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
+> +++ b/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
+> @@ -34,12 +34,17 @@ properties:
+>      minItems: 1
+>      maxItems: 8
 >
-> -       chans = PDMA_NR_CH;
-> -       len = sizeof(*pdma) + sizeof(*chan) * chans;
-> +       len = sizeof(*pdma) + sizeof(*chan) * PDMA_MAX_NR_CH;
->         pdma = devm_kzalloc(&pdev->dev, len, GFP_KERNEL);
->         if (!pdma)
->                 return -ENOMEM;
->
-> -       pdma->n_chans = chans;
-> +       ret = of_property_read_u32(pdev->dev.of_node, "dma-channels",
-> +                                  &pdma->n_chans);
-> +       if (ret) {
-> +               dev_err(&pdev->dev, "failed to read dma-channels\n");
-> +               return ret;
+> +  dma-channels:
+> +    minimum: 1
+> +    maximum: 4
 
-Note that this is not backwards-compatible with existing DTBs, which
-lack the "dma-channels" property.
-Perhaps you want to fallback to a default of 4 instead?
+As per my comment on [PATCH 3/3], perhaps you want to use a default
+value of 4, and document that here, too?
 
-> +       }
+> +
+>    '#dma-cells':
+>      const: 1
 >
->         res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
->         pdma->membase = devm_ioremap_resource(&pdev->dev, res);
+>  required:
+>    - compatible
+>    - reg
+> +  - dma-channels
+>    - interrupts
+>    - '#dma-cells'
+>
+
 
 Gr{oetje,eeting}s,
 
