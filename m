@@ -4,75 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7348FC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jan 2022 06:55:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C44C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jan 2022 08:04:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WJJSJXQWo9A0YpcrvGP3Yw2RT0Cecrv52Spvx4r9u3c=; b=Qz+HNOuUy/gkvN
-	LM/m2u7dBJlrvvalRkSOD7GMePmKegp+AKBf6ujWTQoPGgjv/N08HKa41ITmEO/MAZZVQloholUfb
-	tr1zhhPwYaKw41sXoXL5eg8ImpAUr1i71GmPEc3COFEoMeusWEaw9k3Q6EBRsx50qRtb4KnyLwLJM
-	Ee12Z64iuUUBl603XSIDwLuCTRZzcUcSgvrPVg3icxczshCbOHPiE/2jAu1XI4NyLb5AdmTvXYIyk
-	r5zhl3Xmw9Bejm/ba42O007YfiHIiDR28j0xkUTjnoDY4Fd1IJ8mmpRXjm8I7x6vNOjBJtG0bazKG
-	6EGPPlM/EO4kL+jV/jQQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WxfxDx1tyEhoa0CZK1LAzUKeniUG4p+KT4bfFLN2iFs=; b=wnjxzQsrWUqFQotyQdbSycdaGU
+	Ly6WeDpqJVYH4a4n7inqjsJzUyMmjX/myRXj4v5fR/Wh/yC9V7kjQhmcgy5xou1IreJ/qinT8t3lg
+	vZbZVlxzE4xJuWezBaywX2HbCSjWVVsDW0WrVEXbgW6e2ryCqZb/MaYB33o7exjK5ORqvkAyApv2u
+	krZOqkZ7go9AHgy8o1+DRkqMGsDdHDQnMOqroIurapUcN3X/rJAvuqFnTNqDvlgX9YAXRIw/tB7VD
+	98dBlgi1AEYYpJmjIQO7rndyM6y+unYV63v5fs91xPVJo//sVNLLs2iDtDUfJeeuV92Rpf6kCgIXl
+	iCWPp7Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n6oan-009Y3H-Sp; Mon, 10 Jan 2022 06:55:45 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1n6pf5-009lZ2-ND; Mon, 10 Jan 2022 08:04:15 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n6oal-009Y2S-1t
- for linux-riscv@lists.infradead.org; Mon, 10 Jan 2022 06:55:44 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id
- l10-20020a17090a384a00b001b22190e075so21251646pjf.3
- for <linux-riscv@lists.infradead.org>; Sun, 09 Jan 2022 22:55:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=ga/Od3KnKWj8t6bt46K7KiC7VAoXXyAJ/YENFxvbQ9w=;
- b=ZGvbg7Pcc3RY8usQUiwJ70tWCipo+jDomplquSHS7TFkDP7pGXK9fEAwJzsC2EjlU4
- POFvCJNXLUj2dkbch5qJhwp/lnlfIAYHCLKwTRy4AlyLR06YPy8wlMHBNpJofB4aT2n7
- 3GJeX0Sde+v+OxwS+iUdGd/VtqjOWV7NtnIuC5Rs8g3rF7+R32Ndh3pyEbMoKI9gYNkA
- 0jTMl8X7jeS7cJbpimDOe6GQP7xuzuWKuJaLIDXtCgJOabuutKMvt1y/M/pSbI5KlpKe
- gn94uU8a/S+oxruC1NVSrhe1uXLgysy6hDiJwVWH9XtGD26Oxq+h83Br/i1pWZQ7T2py
- KU/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=ga/Od3KnKWj8t6bt46K7KiC7VAoXXyAJ/YENFxvbQ9w=;
- b=SOulJziNUu9iGFlIF546mVaxPT+bsyXdgBYYmws9x0Z6emSkj33dVKlJc2bk2kkCKf
- AVimtmsBD/eqhV+KU7SPPaI4CWOmZ3ctX26UyuGzt6XEF7SJAmbHZ/uBlS+fqManzlWN
- qyy6fzsEc3mgMkSneP/DbssJzI9r+VZ3g/aVRJpPkmyZyoxwF3+UBPXGNXYTMyNOqbsi
- c4MwZmb+LZUCxtWiKYgvoxTWSwgnOE01/TnyOXSVrlPeS/VjvE5mGF31NFYfugGlZI1p
- s1q1yBqHpQ67Iwkv53oRYiYmiRA+Og664l+VFN79RbiOwbk9j5gVYxuueao9fnVRf4aP
- TFDQ==
-X-Gm-Message-State: AOAM532FpIYB8jCUvjG/CgnZZKdIJ2QcqMHQErOWwvRtlmDR08t5yjl8
- zhRWzg/pmtt4FQ9ef7fdsy6QcrLtdelQ/xMo
-X-Google-Smtp-Source: ABdhPJygnowcodFXZOaiKLsuhj1pifUF4euGfkHh2D6F5h/eVvxnLUIj1WXdfjnIqQnnoNzXQAzqtQ==
-X-Received: by 2002:a17:903:22ca:b0:14a:15ab:ba27 with SMTP id
- y10-20020a17090322ca00b0014a15abba27mr10061732plg.128.1641797742079; 
- Sun, 09 Jan 2022 22:55:42 -0800 (PST)
-Received: from hsinchu16.internal.sifive.com
- (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
- by smtp.gmail.com with ESMTPSA id j8sm5955231pfc.11.2022.01.09.22.55.40
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 09 Jan 2022 22:55:41 -0800 (PST)
-From: Zong Li <zong.li@sifive.com>
-To: mturquette@baylibre.com, sboyd@kernel.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, lee.jones@linaro.org, linux-clk@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Cc: Zong Li <zong.li@sifive.com>
-Subject: [PATCH v4] clk: sifive: Fix W=1 kernel build warning
-Date: Mon, 10 Jan 2022 14:55:36 +0800
-Message-Id: <20220110065536.11451-1-zong.li@sifive.com>
-X-Mailer: git-send-email 2.31.1
+ id 1n6pf2-009lXC-5f
+ for linux-riscv@lists.infradead.org; Mon, 10 Jan 2022 08:04:14 +0000
+Received: (Authenticated sender: alex@ghiti.fr)
+ by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 6A184240003;
+ Mon, 10 Jan 2022 08:03:50 +0000 (UTC)
+Message-ID: <44e6e00e-0b80-8329-bcc9-820940e02023@ghiti.fr>
+Date: Mon, 10 Jan 2022 09:03:49 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.3.1
+Subject: Re: [PATCH v3 12/13] riscv: Initialize thread pointer before calling
+ C functions
+Content-Language: en-US
+To: Alexandre Ghiti <alexandre.ghiti@canonical.com>,
+ Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Zong Li <zong.li@sifive.com>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <Atish.Patra@rivosinc.com>, Christoph Hellwig <hch@lst.de>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Kees Cook <keescook@chromium.org>, Guo Ren <guoren@linux.alibaba.com>,
+ Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+ Mayuresh Chitale <mchitale@ventanamicro.com>, panqinglin2020@iscas.ac.cn,
+ linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
+ linux-efi@vger.kernel.org, linux-arch@vger.kernel.org
+References: <20211206104657.433304-1-alexandre.ghiti@canonical.com>
+ <20211206104657.433304-13-alexandre.ghiti@canonical.com>
+From: Alexandre ghiti <alex@ghiti.fr>
+In-Reply-To: <20211206104657.433304-13-alexandre.ghiti@canonical.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220109_225543_136205_33AB5BCC 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20220110_000412_409560_AE10325A 
+X-CRM114-Status: GOOD (  17.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,83 +69,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhpcyBjb21taXQgcmV2ZXJ0cyBjb21taXQgNDg3ZGM3YmI2YTBjICgiY2xrOiBzaWZpdmU6IGZ1
-NTQwLXByY2k6CkRlY2xhcmUgc3RhdGljIGNvbnN0IHZhcmlhYmxlICdwcmNpX2Nsa19mdTU0MCcg
-d2hlcmUgaXQncyB1c2VkIikuCkZvciBmaXhpbmcgVz0xIGtlcm5lbCBidWlsZCB3YXJuaW5nKHMp
-IGFib3V0IOKAmHByY2lfY2xrX2Z1NTQw4oCZIGRlZmluZWQKYnV0IG5vdCB1c2VkIFstV3VudXNl
-ZC1jb25zdC12YXJpYWJsZT1dLCB0aGUgcHJvYmxlbSBpcyB0aGF0IHRoZSBDIGZpbGUKb2YgZnU1
-NDAgYW5kIGZ1NzQwIGRvZXNuJ3QgdXNlIHRoZXNlIHZhcmlhYmxlcywgYnV0IHRoZXkgaW5jbHVk
-ZSB0aGUKaGVhZGVyIGZpbGVzLiBXZSBjb3VsZCByZWZpbmUgdGhlIGNvZGUgYnkgbW92aW5nIHRo
-ZSBkZWZpbml0aW9uIG9mIHRoZXNlCnZhcmlhYmxlcyBpbnRvIGZ1NTQwIGFuZCBmdTc0MCBpbXBs
-ZW1lbnRhdGlvbiByZXNwZWN0aXZlbHkgaW5zdGVhZCBvZgpjb21tb24gY29yZSBjb2RlLCB0aGVu
-IHdlIGNvdWxkIHN0aWxsIHNlcGFyYXRlIHRoZSBTb0NzLWRlcGVuZGVudCBkYXRhCmluIHRoZWly
-IG93biBpbXBsZW1lbnRhdGlvbi4KCkZpeGVzOiA0ODdkYzdiYjZhMGMgKCJjbGs6IHNpZml2ZTog
-ZnU1NDAtcHJjaTogRGVjbGFyZSBzdGF0aWMgY29uc3QgdmFyaWFibGUgJ3ByY2lfY2xrX2Z1NTQw
-JyB3aGVyZSBpdCdzIHVzZWQiKQpTaWduZWQtb2ZmLWJ5OiBab25nIExpIDx6b25nLmxpQHNpZml2
-ZS5jb20+CgotLS0KQ2hhbmdlZCBpbiB2NDoKIC0gUmViYXNlIG9uIHY1LjE2CiAtIE1vZGlmeSBm
-aXhlcyB0YWcKCkNoYW5nZWQgaW4gdjM6CiAtIFJlYmFzZSBvbiB2NS4xNi1yYzgKIC0gQWRkIGZp
-eGVzIHRhZwoKQ2hhbmdlZCBpbiB2MjoKIC0gTW92ZSBkZWZpbml0aW9uIG9mIHZhcmlhYmxlIHRv
-IEMgZmlsZSBmcm9tIGhlYWRlcgotLS0KIGRyaXZlcnMvY2xrL3NpZml2ZS9mdTU0MC1wcmNpLmMg
-IHwgIDYgKysrKystCiBkcml2ZXJzL2Nsay9zaWZpdmUvZnU1NDAtcHJjaS5oICB8ICA2ICstLS0t
-LQogZHJpdmVycy9jbGsvc2lmaXZlL2Z1NzQwLXByY2kuYyAgfCAgNiArKysrKy0KIGRyaXZlcnMv
-Y2xrL3NpZml2ZS9mdTc0MC1wcmNpLmggIHwgMTEgKy0tLS0tLS0tLS0KIGRyaXZlcnMvY2xrL3Np
-Zml2ZS9zaWZpdmUtcHJjaS5jIHwgIDUgLS0tLS0KIDUgZmlsZXMgY2hhbmdlZCwgMTIgaW5zZXJ0
-aW9ucygrKSwgMjIgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvZHJpdmVycy9jbGsvc2lmaXZl
-L2Z1NTQwLXByY2kuYyBiL2RyaXZlcnMvY2xrL3NpZml2ZS9mdTU0MC1wcmNpLmMKaW5kZXggMjli
-YWI5MTUwMDNjLi41NTY4YmMyNmUzNmYgMTAwNjQ0Ci0tLSBhL2RyaXZlcnMvY2xrL3NpZml2ZS9m
-dTU0MC1wcmNpLmMKKysrIGIvZHJpdmVycy9jbGsvc2lmaXZlL2Z1NTQwLXByY2kuYwpAQCAtMjAs
-NyArMjAsNiBAQAogCiAjaW5jbHVkZSA8ZHQtYmluZGluZ3MvY2xvY2svc2lmaXZlLWZ1NTQwLXBy
-Y2kuaD4KIAotI2luY2x1ZGUgImZ1NTQwLXByY2kuaCIKICNpbmNsdWRlICJzaWZpdmUtcHJjaS5o
-IgogCiAvKiBQUkNJIGludGVncmF0aW9uIGRhdGEgZm9yIGVhY2ggV1JQTEwgaW5zdGFuY2UgKi8K
-QEAgLTg3LDMgKzg2LDggQEAgc3RydWN0IF9fcHJjaV9jbG9jayBfX3ByY2lfaW5pdF9jbG9ja3Nf
-ZnU1NDBbXSA9IHsKIAkJLm9wcyA9ICZzaWZpdmVfZnU1NDBfcHJjaV90bGNsa3NlbF9jbGtfb3Bz
-LAogCX0sCiB9OworCitzdHJ1Y3QgcHJjaV9jbGtfZGVzYyBwcmNpX2Nsa19mdTU0MCA9IHsKKwku
-Y2xrcyA9IF9fcHJjaV9pbml0X2Nsb2Nrc19mdTU0MCwKKwkubnVtX2Nsa3MgPSBBUlJBWV9TSVpF
-KF9fcHJjaV9pbml0X2Nsb2Nrc19mdTU0MCksCit9OwpkaWZmIC0tZ2l0IGEvZHJpdmVycy9jbGsv
-c2lmaXZlL2Z1NTQwLXByY2kuaCBiL2RyaXZlcnMvY2xrL3NpZml2ZS9mdTU0MC1wcmNpLmgKaW5k
-ZXggYzIyMDY3N2RjMDEwLi45MzFkNmNhZDhjMWMgMTAwNjQ0Ci0tLSBhL2RyaXZlcnMvY2xrL3Np
-Zml2ZS9mdTU0MC1wcmNpLmgKKysrIGIvZHJpdmVycy9jbGsvc2lmaXZlL2Z1NTQwLXByY2kuaApA
-QCAtNywxMCArNyw2IEBACiAjaWZuZGVmIF9fU0lGSVZFX0NMS19GVTU0MF9QUkNJX0gKICNkZWZp
-bmUgX19TSUZJVkVfQ0xLX0ZVNTQwX1BSQ0lfSAogCi0jaW5jbHVkZSAic2lmaXZlLXByY2kuaCIK
-LQotI2RlZmluZSBOVU1fQ0xPQ0tfRlU1NDAJNAotCi1leHRlcm4gc3RydWN0IF9fcHJjaV9jbG9j
-ayBfX3ByY2lfaW5pdF9jbG9ja3NfZnU1NDBbTlVNX0NMT0NLX0ZVNTQwXTsKK2V4dGVybiBzdHJ1
-Y3QgcHJjaV9jbGtfZGVzYyBwcmNpX2Nsa19mdTU0MDsKIAogI2VuZGlmIC8qIF9fU0lGSVZFX0NM
-S19GVTU0MF9QUkNJX0ggKi8KZGlmZiAtLWdpdCBhL2RyaXZlcnMvY2xrL3NpZml2ZS9mdTc0MC1w
-cmNpLmMgYi9kcml2ZXJzL2Nsay9zaWZpdmUvZnU3NDAtcHJjaS5jCmluZGV4IDUzZjZlMDBhMDNi
-OS4uMGFkZTNkY2QyNGVkIDEwMDY0NAotLS0gYS9kcml2ZXJzL2Nsay9zaWZpdmUvZnU3NDAtcHJj
-aS5jCisrKyBiL2RyaXZlcnMvY2xrL3NpZml2ZS9mdTc0MC1wcmNpLmMKQEAgLTgsNyArOCw2IEBA
-CiAKICNpbmNsdWRlIDxkdC1iaW5kaW5ncy9jbG9jay9zaWZpdmUtZnU3NDAtcHJjaS5oPgogCi0j
-aW5jbHVkZSAiZnU1NDAtcHJjaS5oIgogI2luY2x1ZGUgInNpZml2ZS1wcmNpLmgiCiAKIC8qIFBS
-Q0kgaW50ZWdyYXRpb24gZGF0YSBmb3IgZWFjaCBXUlBMTCBpbnN0YW5jZSAqLwpAQCAtMTMyLDMg
-KzEzMSw4IEBAIHN0cnVjdCBfX3ByY2lfY2xvY2sgX19wcmNpX2luaXRfY2xvY2tzX2Z1NzQwW10g
-PSB7CiAJCS5vcHMgPSAmc2lmaXZlX2Z1NzQwX3ByY2lfcGNpZV9hdXhfY2xrX29wcywKIAl9LAog
-fTsKKworc3RydWN0IHByY2lfY2xrX2Rlc2MgcHJjaV9jbGtfZnU3NDAgPSB7CisJLmNsa3MgPSBf
-X3ByY2lfaW5pdF9jbG9ja3NfZnU3NDAsCisJLm51bV9jbGtzID0gQVJSQVlfU0laRShfX3ByY2lf
-aW5pdF9jbG9ja3NfZnU3NDApLAorfTsKZGlmZiAtLWdpdCBhL2RyaXZlcnMvY2xrL3NpZml2ZS9m
-dTc0MC1wcmNpLmggYi9kcml2ZXJzL2Nsay9zaWZpdmUvZnU3NDAtcHJjaS5oCmluZGV4IDUxMWEw
-YmY3YmEyYi4uNWJjMGUxOGYwNThjIDEwMDY0NAotLS0gYS9kcml2ZXJzL2Nsay9zaWZpdmUvZnU3
-NDAtcHJjaS5oCisrKyBiL2RyaXZlcnMvY2xrL3NpZml2ZS9mdTc0MC1wcmNpLmgKQEAgLTcsMTUg
-KzcsNiBAQAogI2lmbmRlZiBfX1NJRklWRV9DTEtfRlU3NDBfUFJDSV9ICiAjZGVmaW5lIF9fU0lG
-SVZFX0NMS19GVTc0MF9QUkNJX0gKIAotI2luY2x1ZGUgInNpZml2ZS1wcmNpLmgiCi0KLSNkZWZp
-bmUgTlVNX0NMT0NLX0ZVNzQwCTkKLQotZXh0ZXJuIHN0cnVjdCBfX3ByY2lfY2xvY2sgX19wcmNp
-X2luaXRfY2xvY2tzX2Z1NzQwW05VTV9DTE9DS19GVTc0MF07Ci0KLXN0YXRpYyBjb25zdCBzdHJ1
-Y3QgcHJjaV9jbGtfZGVzYyBwcmNpX2Nsa19mdTc0MCA9IHsKLQkuY2xrcyA9IF9fcHJjaV9pbml0
-X2Nsb2Nrc19mdTc0MCwKLQkubnVtX2Nsa3MgPSBBUlJBWV9TSVpFKF9fcHJjaV9pbml0X2Nsb2Nr
-c19mdTc0MCksCi19OworZXh0ZXJuIHN0cnVjdCBwcmNpX2Nsa19kZXNjIHByY2lfY2xrX2Z1NzQw
-OwogCiAjZW5kaWYgLyogX19TSUZJVkVfQ0xLX0ZVNzQwX1BSQ0lfSCAqLwpkaWZmIC0tZ2l0IGEv
-ZHJpdmVycy9jbGsvc2lmaXZlL3NpZml2ZS1wcmNpLmMgYi9kcml2ZXJzL2Nsay9zaWZpdmUvc2lm
-aXZlLXByY2kuYwppbmRleCA4MGEyODhjNTllNTYuLjkxNmQyZmMyOGI5YyAxMDA2NDQKLS0tIGEv
-ZHJpdmVycy9jbGsvc2lmaXZlL3NpZml2ZS1wcmNpLmMKKysrIGIvZHJpdmVycy9jbGsvc2lmaXZl
-L3NpZml2ZS1wcmNpLmMKQEAgLTEyLDExICsxMiw2IEBACiAjaW5jbHVkZSAiZnU1NDAtcHJjaS5o
-IgogI2luY2x1ZGUgImZ1NzQwLXByY2kuaCIKIAotc3RhdGljIGNvbnN0IHN0cnVjdCBwcmNpX2Ns
-a19kZXNjIHByY2lfY2xrX2Z1NTQwID0gewotCS5jbGtzID0gX19wcmNpX2luaXRfY2xvY2tzX2Z1
-NTQwLAotCS5udW1fY2xrcyA9IEFSUkFZX1NJWkUoX19wcmNpX2luaXRfY2xvY2tzX2Z1NTQwKSwK
-LX07Ci0KIC8qCiAgKiBQcml2YXRlIGZ1bmN0aW9ucwogICovCi0tIAoyLjMxLjEKCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Palmer,
+
+I fell onto this issue again today, do you think you could take this 
+patch in for-next? Because I assume it is too late now to take the sv48 
+patchset: if not, I can respin it today or tomorrow.
+
+Thanks,
+
+Alex
+
+On 12/6/21 11:46, Alexandre Ghiti wrote:
+> Because of the stack canary feature that reads from the current task
+> structure the stack canary value, the thread pointer register "tp" must
+> be set before calling any C function from head.S: by chance, setup_vm
+> and all the functions that it calls does not seem to be part of the
+> functions where the canary check is done, but in the following commits,
+> some functions will.
+>
+> Fixes: f2c9699f65557a31 ("riscv: Add STACKPROTECTOR supported")
+> Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+> ---
+>   arch/riscv/kernel/head.S | 1 +
+>   1 file changed, 1 insertion(+)
+>
+> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+> index c3c0ed559770..86f7ee3d210d 100644
+> --- a/arch/riscv/kernel/head.S
+> +++ b/arch/riscv/kernel/head.S
+> @@ -302,6 +302,7 @@ clear_bss_done:
+>   	REG_S a0, (a2)
+>   
+>   	/* Initialize page tables and relocate to virtual addresses */
+> +	la tp, init_task
+>   	la sp, init_thread_union + THREAD_SIZE
+>   	XIP_FIXUP_OFFSET sp
+>   #ifdef CONFIG_BUILTIN_DTB
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
