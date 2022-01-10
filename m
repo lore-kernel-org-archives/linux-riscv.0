@@ -4,47 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B17A9C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jan 2022 13:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF1A9C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jan 2022 14:29:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YxTUeC/TO62syHU8B0StadtSnSTyVuEbX1LZ06MXgzM=; b=u7GCPDjVQTfDAY
-	oMOaP1pXBDLPFyyY4t0nTUp07nt6nAGDt2tNUDu9ACizwpbTCGM0lHYl5W6TdVgHf6bWjBPq/PHZ7
-	/VbaX0ZYL3jwppZYt+LegFzQp03UpM67qeVJpxJhv1knXbS/ZA0aUwqRguvTPf0lOG6BQjCOUzIjl
-	y/84GIVGzD0kHMGkoRw5uvIbPnief9HNQnMFUMuwxwftFRJDZvLZIjCpl1ruvVYqT23lk1urlIY/R
-	uud450yfc9TvLMfptOox9tqyK4beURH8eDWAqUa3tAymuaKhwyNvADuyg87rhUpEtS3r3uylQkQdU
-	9yq2pC2tpafC9f3xGHSA==;
+	List-Owner; bh=reX+PqQq+bb5os7eZ2VRH5jZ/WXvjy9FICchFeXOHlQ=; b=awWgO/pi44Kw4J
+	Hr002wsVaKwOJUkzTDc/F9QOjG47zQxIB4n5QGs0yp52IxEf9CHPklVcGldmGxArFXk+esNy0sxFQ
+	eEWP9YTBvf+U4E1zSKfxQVtdO8NvWNP4F2BpQDqsNNwBQE9cXqKNTgZxPApA6+fdAkdQXdhr34jHM
+	jQO+s1OQjXd9cT0KzC9ek7EbP9tXYCspakt39Drzqf2CS+VhoFmpa/uYbz51NjBLJJmed4OYdHa/H
+	KoYRBPFiK9vGVT6D0WUk6ctxKxwx9qZG81wC7kTJUoMKzD3S8KM3oDzjnxCjWOLsx4mKnUAbWzkNP
+	5uzOp53VddPOsAbwCJtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n6upy-00BY5p-8v; Mon, 10 Jan 2022 13:35:50 +0000
-Received: from mout.kundenserver.de ([212.227.126.130])
+	id 1n6vfc-00BoXP-K5; Mon, 10 Jan 2022 14:29:12 +0000
+Received: from mout.kundenserver.de ([217.72.192.74])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n6upm-00BY1d-2G; Mon, 10 Jan 2022 13:35:39 +0000
-Received: from mail-wm1-f47.google.com ([209.85.128.47]) by
- mrelayeu.kundenserver.de (mreue010 [213.165.67.97]) with ESMTPSA (Nemesis) id
- 1M7aqD-1mzTmf0aAX-0083pS; Mon, 10 Jan 2022 14:35:36 +0100
-Received: by mail-wm1-f47.google.com with SMTP id
- a83-20020a1c9856000000b00344731e044bso7292379wme.1; 
- Mon, 10 Jan 2022 05:35:35 -0800 (PST)
-X-Gm-Message-State: AOAM531IoJo+RUkej5pwm/R8OoWalPzqXSvM2Yr4dN9PsDdU7N/vreoN
- /DKixa4dKcOlKms2V7g7CfGMYyx19qV+W8AL6ZE=
-X-Google-Smtp-Source: ABdhPJxi0Z/ZiBz/NSOKjhoGPprS74nLPOzeNY5wtnvdjs0k7wca4Io+stHgBpdw9GGPmWr9NuMWVabYObO8sOckUL0=
-X-Received: by 2002:a1c:4c19:: with SMTP id z25mr8601383wmf.173.1641821735504; 
- Mon, 10 Jan 2022 05:35:35 -0800 (PST)
+ id 1n6vfP-00BoSo-UM; Mon, 10 Jan 2022 14:29:01 +0000
+Received: from mail-wr1-f54.google.com ([209.85.221.54]) by
+ mrelayeu.kundenserver.de (mreue107 [213.165.67.113]) with ESMTPSA (Nemesis)
+ id 1MFbmS-1n8dol1Z78-00HAUI; Mon, 10 Jan 2022 15:28:57 +0100
+Received: by mail-wr1-f54.google.com with SMTP id e9so25632405wra.2;
+ Mon, 10 Jan 2022 06:28:57 -0800 (PST)
+X-Gm-Message-State: AOAM530yNRJ38WrlCa1IAqGOF0Hmvs5TgwMlH0WfTSB/ceTCkl/wjI2t
+ wkL7xHeHJoTaLxTfWIFY8YdAwL8VK/Zrj5ZXB2Y=
+X-Google-Smtp-Source: ABdhPJwP2dj7vwEXcQpaQSkksNl0ZEmP7KqS5c95/LhZe5KvkABgHfbU/HDC2zAjxcbRJXknKfqyiFGKdYDX7S/ttBs=
+X-Received: by 2002:a05:6000:16c7:: with SMTP id
+ h7mr17539097wrf.317.1641824936821; 
+ Mon, 10 Jan 2022 06:28:56 -0800 (PST)
 MIME-Version: 1.0
 References: <20211228143958.3409187-1-guoren@kernel.org>
- <20211228143958.3409187-4-guoren@kernel.org>
-In-Reply-To: <20211228143958.3409187-4-guoren@kernel.org>
+ <20211228143958.3409187-12-guoren@kernel.org>
+In-Reply-To: <20211228143958.3409187-12-guoren@kernel.org>
 From: Arnd Bergmann <arnd@arndb.de>
-Date: Mon, 10 Jan 2022 14:35:19 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a2zn9M6X09WsjJ9HYiS9WnO_YPCvJLSBk+HaH+yZHQqfA@mail.gmail.com>
-Message-ID: <CAK8P3a2zn9M6X09WsjJ9HYiS9WnO_YPCvJLSBk+HaH+yZHQqfA@mail.gmail.com>
-Subject: Re: [PATCH V2 03/17] asm-generic: fcntl: compat: Remove duplicate
- definitions
+Date: Mon, 10 Jan 2022 15:28:40 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a0H2Nq=bFdzWGzzGuFWP85JA7=Td6_rb8GqOF3bYCRJBw@mail.gmail.com>
+Message-ID: <CAK8P3a0H2Nq=bFdzWGzzGuFWP85JA7=Td6_rb8GqOF3bYCRJBw@mail.gmail.com>
+Subject: Re: [PATCH V2 11/17] riscv: compat: Add elf.h implementation
 To: Guo Ren <guoren@kernel.org>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
  Anup Patel <anup.patel@wdc.com>, 
@@ -58,29 +57,27 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
  linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, inux-parisc@vger.kernel.org, 
  "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
  Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>,
- Jeff Layton <jlayton@kernel.org>, "J. Bruce Fields" <bfields@fieldses.org>, 
- Linux FS-devel Mailing List <linux-fsdevel@vger.kernel.org>
-X-Provags-ID: V03:K1:c5ulGSwFH7dSvczCy/ZMJT2KEVezazRTHE956ir6SPS4AFGT0as
- F0xpKD8aggEu6OVSQsWSjNHVPecHpMhn9Zuh1IZp0QMBLfv9vtcPHsGGTNPIinduBrFDU8t
- 4HzeDvrS3Qxu8azUiMAUAUwv5M078tnZYQs3rOpIBXoCwHZKYvAmjU5UfoPykjfZLdzysxy
- BD8ex5Hg+tqSLxcbYiYRQ==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:4e96AgJdS9g=:YS43pTl+diI8IBZJWBO0ja
- ZJ4aN5ztjLkfiP1FJlHZv11hNpx26Ub3fv1YlnNTLW/SHdfx+EvLlqmyM50I6vb92sKeZRDoV
- 603Weo1/7tuPrpx+9xFphtKNtTI6ySYqGbdVn7mTrEjv3qWAtdodq6yfId7jT8VkHuK0YWpnd
- p+Fup5uCM6SUDs5lK1K3vnX9bIQaVD1SAyk+CCm9ffgQ6EwYhyIN6xVxF/tXsfX/odMJDLK6D
- 63WGAyNrsYGMiqXTE3ptg9Kz8HIX/jXOyZFf2kZaEYbs3sSQNAbINIhmKaicl9O81UGXYvGeb
- 8jQbGMnz7bTHSVUnzc7xsAsTbYLjovjhSt1XYOxmENQmMOqpBZiZHm/yy7XjwGUVlj99KhgYi
- AX3PjT4ljqIeHFDBO5jcdT6D6yp8PnM9mMobkC+YZl6R+yIXG4DsXzoa3XYkb0i4Zr5nzLM00
- OnwZFVlB+sqkwNYSpxzbdE4UrM/Mvb07GEJFpyLAwunzWt8e/o75pKxC20f9ruNlQb99A5NmN
- jCcBFxEG0lNvJHXMICj5PwgcNGWxrCPbuhTq1nbaq2KE6KxbgOS19+apvZB4UEIZ3qdkZzIMz
- ZqIZ3OyC/03yO4YfYJNqtEiqpJnkjfO0mEag1FJ0Md8lbURZnSSmwvg+ts5XVcClCYKax2AMF
- +FjqOqovPJ9FTRQbwLLEgeBg5GegxajYNMs731GmPIi/SAbJ36w6KYBT1nirpln2VNoT30bau
- Q4+nDNwVgp7IpVZg/VxL7cI6VR+VWr7HnYE6/eYvY5E79ZzxSADuqjZ8XQF4zemdLSny3Jsu4
- JhkEwUfCs/AVD1SqyQ+CSMz0ehtB7cGF0i+LSjZ5Vr4bWPpfz8=
+ "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
+X-Provags-ID: V03:K1:PHrVTGniCiPr1a8aPpoWxmh8TkwPq+i/YJj+jiQ9PAFOKTaCK6B
+ XwccnGAiv3guVMyidZdjvVSVm3jNU9Q5ZJ78bp11WxA8A4/9NAot+IzCn2o6BoFhMdDNlOP
+ vsThvvk48TAmphNuX6AhgIDHSIcgm2IHxJSjsHP6NOQEYICTvkzfozgwnDtCt+WXTxhvKZn
+ M8tIzzCFUozE0uPEohkqg==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:8Wavrdlb/hA=:qjd0beBFn5JyRCAWsEnqHH
+ C1a2WMWkbb18wpPEe5vMo44HJ6OSohJSVVnTfBU6YkXHapoBED9Qgaq3SUFgxiBvp8g11oQVR
+ VCf0JlIkeIEoGQNnuoi1R9THjv8inHNRMAv8KxkRxs0xeISdqPXH6KrshzBaqn/UYXRUnHG3K
+ VHJ3p6+189Tp5ZeEeGJh6i/xYJGaREASq6ZdlGErDgJtiN40RJncSlgLyvBg6NjEb0JtB9VF5
+ 3K6SRTHDrOwirq+0+N65aLemlPHpTV0RuKjWynYfi7QFERCBODeQ3cN15B2PRZBmFjXjYWv1C
+ qCNqpzhbVBe2xz6KsISxTCh6ENEi6bhINf9ouKYW8eDNAfQ5GYBcVGZVsLW5oNWdvt1/Kr3ec
+ MzJ6GYxqXCZRqFj4EqxzCKSz4wC9E3q+J1pDjMA7GwTRwf9tO0qtMqhhmM7y+ZeVk8bMnmwpr
+ XWSJqn42tmHt5QYfGm/WuJmXtuuCUzCL9y8ubI/Q7XJFfmSRUIlVU1lJzhXxyjoXx4Hxf7MBH
+ 33vhfRJGPJ6uIAtEQEZMglgJXqmazuUGPmeZAJLUe7ybvUSbfoAuBuKzIZLRJw7Dd/wRZkc0H
+ 3tI8IfOeDDUGq9prk3P4lMdsaL/gHqk7IYnmTniQPztKoRzxDDI0OtgupRxZI36nOhCI/6J9M
+ 2AId345zB2+E7XEsKYqaR6bXx/kqKPcWcecdOUkwqt//TFWXrVe7eR35PzR/v8g/p8RG2L1pH
+ 6cPkjoRVSFL0TtOQOTfXFQOiKE1fvEnHMj9BRU5T8hfnxZiLUUBbfweHQkHFi/j6rfafmBxgy
+ fXIYHzB2A1OvYyAlFfx7Ij9SQHsaUA8IEq2T4qnP7Ddos9o2+M=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220110_053538_424063_0E98A7BD 
-X-CRM114-Status: GOOD (  18.32  )
+X-CRM114-CacheID: sfid-20220110_062900_308313_25697C60 
+X-CRM114-Status: GOOD (  16.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,52 +98,94 @@ On Tue, Dec 28, 2021 at 3:39 PM <guoren@kernel.org> wrote:
 >
 > From: Guo Ren <guoren@linux.alibaba.com>
 >
-> Remove duplicate F_GETLK64,F_SETLK64,F_SETLKW64 definitions in
-> arch/*/include/asm/compat.h.
+> Implement necessary type and macro for compat elf. See the code
+> comment for detail.
 >
 > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 > Signed-off-by: Guo Ren <guoren@kernel.org>
 > Cc: Arnd Bergmann <arnd@arndb.de>
 
-Unfortunately, this one does not look correct to me:
+This looks mostly correct,
 
-> @@ -116,7 +116,7 @@
->  #define F_GETSIG       11      /* for sockets. */
->  #endif
->
-> -#ifndef CONFIG_64BIT
-> +#if !defined(CONFIG_64BIT) || defined(CONFIG_COMPAT)
->  #ifndef F_GETLK64
->  #define F_GETLK64      12      /*  using 'struct flock64' */
->  #define F_SETLK64      13
+> +/*
+> + * FIXME: not sure SET_PERSONALITY for compat process is right!
+> + */
+> +#define SET_PERSONALITY(ex)                                               \
+> +do {    if ((ex).e_ident[EI_CLASS] == ELFCLASS32)                         \
+> +               set_thread_flag(TIF_32BIT);                                \
+> +       else                                                               \
+> +               clear_thread_flag(TIF_32BIT);                              \
+> +       set_personality(PER_LINUX | (current->personality & (~PER_MASK))); \
+> +} while (0)
 
-The problem here is that include/uapi/ headers cannot contain checks for
-CONFIG_* symbols because those may have different meanings in user space
-compared to kernel.
+This means the personality after exec is always set to PER_LINUX, not
+PER_LINUX32, which I think is wrong: you want the PER_LINUX32
+setting to stick, just like the upper bits do in the default implementation.
 
-This is a preexisting problem in the header, but I think the change
-makes it worse.
+What the other ones do is:
 
-With the current behavior, user space will always see the definitions,
-unless it happens to have its own definition for CONFIG_64BIT already.
-On 64-bit parisc, this has the effect of defining the macros to the
-same values as F_SETOWN/F_SETSIG/F_GETSIG, which is potentially
-harmful. On MIPS, it uses values that are different from the 32-bit numbers
-but are otherwise unused. Everywhere else, we get the definition from
-the 32-bit architecture in user space, which will do nothing in the kernel.
+| arch/parisc/include/asm/elf.h-
+set_personality((current->personality & ~PER_MASK) | PER_LINUX); \
 
-The correct check for a uapi header would be to test for
-__BITS_PER_LONG==32. We should probably do that here, but
-this won't help you move the definitions, and it is a user-visible change
-as the incorrect definition will no longer be visible. [Adding Jeff and Bruce
-(the flock mainainers) to Cc for additional feedback on this]
+This looks like the same problem you introduce here: always forcing PER_LINUX
+instead of PER_LINUX32 makes it impossible to use PER_LINUX32.
 
-For your series, I would suggest just moving the macro definitions to
-include/linux/compat.h along with the 'struct compat_flock64'
-definition, and leaving the duplicate one in the uapi header unchanged
-until we have decided on a solution.
+| arch/alpha/include/asm/elf.h:#define SET_PERSONALITY(EX)
+                           \
+| arch/alpha/include/asm/elf.h-   set_personality(((EX).e_flags &
+EF_ALPHA_32BIT)         \
+| arch/alpha/include/asm/elf.h-      ? PER_LINUX_32BIT : PER_LINUX)
+| arch/csky/include/asm/elf.h:#define SET_PERSONALITY(ex)
+set_personality(PER_LINUX)
+| arch/nds32/include/asm/elf.h:#define SET_PERSONALITY(ex)
+set_personality(PER_LINUX)
 
-        Arnd
+These look even worse: instead of forcing the lower bits to
+PER_LINUX/PER_LINUX32 and
+leaving the upper bits untouched, these also clear the upper bits
+unconditionally.
+
+| arch/arm64/include/asm/elf.h:#define SET_PERSONALITY(ex)
+                                   \
+| arch/arm64/include/asm/elf.h-   current->personality &=
+~READ_IMPLIES_EXEC;                     \
+| arch/x86/um/asm/elf.h:#define SET_PERSONALITY(ex) do {} while(0)
+| arch/x86/include/asm/elf.h:#define set_personality_64bit()      do {
+} while (0)
+| arch/x86/kernel/process_64.c:static void __set_personality_ia32(void)
+|         current->personality |= force_personality32;
+
+Inconsistent: does not enforce PER_LINUX/PER_LINUX32 as the default
+implementation
+does, but just leaves the value untouched (other than (re)setting
+READ_IMPLIES_EXEC).
+I think this is harmless otherwise, as we generally ignore the lower
+bits, except for the
+bit of code that checks for PER_LINUX32 in override_architecture() to mangle the
+output of sys_newuname() or in /proc/cpuinfo.
+
+| arch/s390/include/asm/elf.h-    if
+(personality(current->personality) != PER_LINUX32)   \
+| arch/s390/include/asm/elf.h-            set_personality(PER_LINUX |
+                   \
+| arch/s390/include/asm/elf.h-
+(current->personality & ~PER_MASK));    \
+| arch/powerpc/include/asm/elf.h- if
+(personality(current->personality) != PER_LINUX32)   \
+| arch/powerpc/include/asm/elf.h-         set_personality(PER_LINUX |
+                   \
+| arch/powerpc/include/asm/elf.h-
+(current->personality & (~PER_MASK)));  \
+| arch/sparc/include/asm/elf_64.h-        if
+(personality(current->personality) != PER_LINUX32)   \
+| arch/sparc/include/asm/elf_64.h-
+set_personality(PER_LINUX |             \
+| arch/sparc/include/asm/elf_64.h-
+(current->personality & (~PER_MASK)));  \
+
+This is probably the behavior you want to copy.
+
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
