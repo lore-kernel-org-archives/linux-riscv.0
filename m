@@ -4,76 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3AFDC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jan 2022 09:51:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CA52C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jan 2022 10:03:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I7w9OJ45yhyG00RtS4krPXmvOR4UTrUD1WIIcekn7Hc=; b=VXrJloWYu/4dQ/
-	VT5+0WaUbbe1oL5i+qjwq8sVBO1RgkNdVzJW+YXG1sbqbWJVvnRmLx3+VKUsnGlzV1W26jpqNZ7+h
-	qpLgcxovGTS/gIDB/ljzLtBord24XtS9nnR0vvMoZHhdejKKc2NZ3pvAyTX7/4pRB6ktmFyi4mJQ2
-	UsOrKNgUAbWM7DTMQ5CTwe2cK0O2Atx8T8sffm8EMwz6HlAMjeinNAEfdonSiGSKY88bM/30hT8SA
-	ZDkG2aEebsGtIqS58zMa+G09bBY+WS4k4p+Vp5JKzuVPA2An/Qw32foDzLsz7hIfrnIXZcpfzSJ1z
-	8SFR/aN9qe9ezs166IBg==;
+	List-Owner; bh=T6S9dyiURL23t6znd6YY3lBAhIMmOr5v2lO6oZaS08I=; b=Zi21YAIJfm8X3s
+	81cXWM5eHDJH+vj0LNxv6eBTP0S6Fwe+Yb8k+3OQgcFl/YCXyopYRfzRtSvjHJD77S8cJGrMGSTkP
+	hiSxOHB0I0vC06FD7uGZ8tcL8ZdF5oBU5NZzTaWZo3tn49TgcgOshdQkpi+twZ+ifuaHGCGBoZk5n
+	e/RjqT0oJOZWvVW2zdt0gu2yXE7me79zv6JO8V0I2INnWlAWY6pXwf+9DEZVlWYCdl8P7ROIgiS3L
+	gNpkG/l1c+wn/DG2RCgzH/6LFIeZfcq19Uc7SFXxigweAvz9Twet5dDL1BPzlhEangwtkEcFMtnVL
+	r6HyixIIXkin5iUr8WQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n6rKl-00AaHm-EX; Mon, 10 Jan 2022 09:51:23 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1n6rWa-00AfUw-E0; Mon, 10 Jan 2022 10:03:36 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n6rKS-00Aa5q-Bz
- for linux-riscv@lists.infradead.org; Mon, 10 Jan 2022 09:51:05 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id r10so17944466wrc.3
- for <linux-riscv@lists.infradead.org>; Mon, 10 Jan 2022 01:51:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:content-transfer-encoding:in-reply-to;
- bh=XjI+RU6al+oJtSFSee741SP13qfOGtttOWkUcj1LQbs=;
- b=NJNPlDAKDl2C2HGO2BkBNbWyUWBNgBf4Oexcyn7jonBhZWZkxiVpbc9Y/lmcqGfeDu
- j6VC91aakYpMEYfH6wrbmBRAT+0i2jyghqDxaF+dAe2mbq5P2dlZrPD7jIJ7nx8kNGdj
- /fZJrxOXgDir2hBvS70ZyJ+z8SOQm2e5hvG2Zxusl+pptxOn+7a4oAPyunZml4It7xN2
- zmOgEIUPU/RrzsJXwGvx22joHp/70vWUmycVInyKYhqXnbiTlXWhIEaD0LS4j6U0Cw5x
- XWARprNFPcmfqfg7mti+cG0SJ+J3J2nqtHI8R4HTKdSjqY3sdRY+WQK8/aQ9HiooUlWv
- 4HBg==
+ id 1n6rWY-00AfTi-1i
+ for linux-riscv@lists.infradead.org; Mon, 10 Jan 2022 10:03:35 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id br17so11192615lfb.6
+ for <linux-riscv@lists.infradead.org>; Mon, 10 Jan 2022 02:03:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=HY6zdUgUPJS0rZ9Ot4PacGAg8YII4kCfsueCrIhKQWY=;
+ b=H/hhv/x8EzQOjr1k+fLZF3B7CAvRRYEH7EnnulDR8KojIxjB3Jy0WngKqCnaEJZ9AQ
+ H0GkrpL2uvxKCxiv9iD7NNtwqZK4YVSuHoJVJdMspvcmsT+bo4kHO6v/eQZsyHnwY+Fs
+ /GaHP+eN37cXeJJuFzW3OOD83ivkpGLwLWRFZNUDArSPWECEbLmip/A2l6chRcAHZPnH
+ pBMKhag9gnvjHeu7p/ayq/nrNISo2mwFLpZAAGkL8TYvQavMqmLQbQBuYbxj2cvkaeTN
+ +m54X7JjzHOTo3nN7z++KMhjAvF+iIF4NeRpmSy1O3ono0RiDTCbqRt09gFtj5HYwh6a
+ FwkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:content-transfer-encoding
- :in-reply-to;
- bh=XjI+RU6al+oJtSFSee741SP13qfOGtttOWkUcj1LQbs=;
- b=AZq9Z/GqmVD86Ib41HnFR4SJ3vYlPDgB78wLzFF7gBPR6DjnE+t+g0mk0N7z9GvHoL
- SZn1l+GPmtaskyf8dyMqjZflGLCxreIorn6rN6z/twAAPkRDJlDzoFhAqWuz/+p4l2BC
- 0ikPTcxk5+vh4VKA+dLAOUFpHOBTajKq8mdNR18IjK08Tgs/rSn0J/0M/tffkYyledhB
- psDxEY5iYrfDJHRRa09k3NARyNk5IX+FlUleFbFlq2BQkFFAHgf5wtGgfG1KrNZXKSHu
- DtzEfopdzBEmt4DxaHMr0Mdx+MKNFfiA5veHhgG329BC0wpHRgu4II72RZPqaBHXm2Fi
- A0iA==
-X-Gm-Message-State: AOAM532YJoUDWN43saj8j5+ZVdsLBvEdbc3/boETYbCLVID1T+wWrYhh
- 9hsIP/LtjdEWWpbsLCvWQS93T8HSxCm0Dg==
-X-Google-Smtp-Source: ABdhPJy64z5uatD6yk6wqa3/5nkEpQ5brCeZ12/zFKyWtXxSGP2vBqwJk7aMZd00MBcF6osrGLJ8kg==
-X-Received: by 2002:a05:6000:c8:: with SMTP id
- q8mr2089490wrx.611.1641808262884; 
- Mon, 10 Jan 2022 01:51:02 -0800 (PST)
-Received: from google.com ([31.124.24.179])
- by smtp.gmail.com with ESMTPSA id k33sm6296470wms.21.2022.01.10.01.51.02
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 10 Jan 2022 01:51:02 -0800 (PST)
-Date: Mon, 10 Jan 2022 09:51:07 +0000
-From: Lee Jones <lee.jones@linaro.org>
-To: Zong Li <zong.li@sifive.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, linux-clk@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4] clk: sifive: Fix W=1 kernel build warning
-Message-ID: <YdwBi7uwH4NHi0GD@google.com>
-References: <20220110065536.11451-1-zong.li@sifive.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=HY6zdUgUPJS0rZ9Ot4PacGAg8YII4kCfsueCrIhKQWY=;
+ b=IRWszX2nYTLkmOXHNVnSpuMF0mQvgiJT3W8OVHoypUmBmrfNLFnOiEt9TUHqVBfhYT
+ ybWYNvRzrwQLC5r58D8a5Ng9LdezIZSqMw7kcC3MyofGj1WHt2hEPhBQf+YyQ7Dk99rB
+ xdSlnl73TrkbX9wZ5r+uCybvBPz9HbplB7XAl34lexWTsqtbtzJPaEFc2Uqjuku0xAD9
+ x5FjP1+g7p/s4yDFNWiOUaKp8TTxGXhfGgclD4wq98ajAPIOFZ3Rh29uBKZkIwbYaaIG
+ 9pj8DUmIoSYpwpY2nx6b4jf/bvN0k1jYZvCj1L0nYOzDFR2GVDEO/NYhTGbJ56rFNm41
+ z86w==
+X-Gm-Message-State: AOAM5321A2IEiFYZGutwpSifbQ3OPUIJnbeXCFT3cbRNhNEWGMVgaOEI
+ Yt7vVLJnHH343adYn81xAIkbeo8922yfDz5dQ0FuRw==
+X-Google-Smtp-Source: ABdhPJzuq0aXiUP/F1mE5uAGsEE58SDn3kREJFq3JcX7qKN8JgezJdqYacYS9Vtb1vlZzcgPK6y7ZO0Wf1//9XS4ewg=
+X-Received: by 2002:a05:6512:260a:: with SMTP id
+ bt10mr19060865lfb.223.1641809011771; 
+ Mon, 10 Jan 2022 02:03:31 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220110065536.11451-1-zong.li@sifive.com>
+References: <cover.1641289490.git.zong.li@sifive.com>
+ <5a7786cff08d55d0e084cd28bc2800565fa2dce7.1641289490.git.zong.li@sifive.com>
+ <CAMuHMdV5gbeaaXPfJ4EuYur0NChp3iurdzNzC_UOLDrGP7rZNA@mail.gmail.com>
+In-Reply-To: <CAMuHMdV5gbeaaXPfJ4EuYur0NChp3iurdzNzC_UOLDrGP7rZNA@mail.gmail.com>
+From: Zong Li <zong.li@sifive.com>
+Date: Mon, 10 Jan 2022 18:03:20 +0800
+Message-ID: <CANXhq0r_x=xW37SGJfQRs11-+VL1oJKRHe1fxk3QbT_Qzy6-dQ@mail.gmail.com>
+Subject: Re: [PATCH 3/3] dmaengine: sf-pdma: Get number of channel by device
+ tree
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, Bin Meng <bin.meng@windriver.com>, 
+ Green Wan <green.wan@sifive.com>, Vinod <vkoul@kernel.org>, 
+ dmaengine <dmaengine@vger.kernel.org>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220110_015104_457669_FEB8BECF 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20220110_020334_180324_B4F9D2AC 
+X-CRM114-Status: GOOD (  29.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,39 +88,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAxMCBKYW4gMjAyMiwgWm9uZyBMaSB3cm90ZToKCj4gVGhpcyBjb21taXQgcmV2ZXJ0
-cyBjb21taXQgNDg3ZGM3YmI2YTBjICgiY2xrOiBzaWZpdmU6IGZ1NTQwLXByY2k6Cj4gRGVjbGFy
-ZSBzdGF0aWMgY29uc3QgdmFyaWFibGUgJ3ByY2lfY2xrX2Z1NTQwJyB3aGVyZSBpdCdzIHVzZWQi
-KS4KPiBGb3IgZml4aW5nIFc9MSBrZXJuZWwgYnVpbGQgd2FybmluZyhzKSBhYm91dCDigJhwcmNp
-X2Nsa19mdTU0MOKAmSBkZWZpbmVkCj4gYnV0IG5vdCB1c2VkIFstV3VudXNlZC1jb25zdC12YXJp
-YWJsZT1dLCB0aGUgcHJvYmxlbSBpcyB0aGF0IHRoZSBDIGZpbGUKPiBvZiBmdTU0MCBhbmQgZnU3
-NDAgZG9lc24ndCB1c2UgdGhlc2UgdmFyaWFibGVzLCBidXQgdGhleSBpbmNsdWRlIHRoZQo+IGhl
-YWRlciBmaWxlcy4gV2UgY291bGQgcmVmaW5lIHRoZSBjb2RlIGJ5IG1vdmluZyB0aGUgZGVmaW5p
-dGlvbiBvZiB0aGVzZQo+IHZhcmlhYmxlcyBpbnRvIGZ1NTQwIGFuZCBmdTc0MCBpbXBsZW1lbnRh
-dGlvbiByZXNwZWN0aXZlbHkgaW5zdGVhZCBvZgo+IGNvbW1vbiBjb3JlIGNvZGUsIHRoZW4gd2Ug
-Y291bGQgc3RpbGwgc2VwYXJhdGUgdGhlIFNvQ3MtZGVwZW5kZW50IGRhdGEKPiBpbiB0aGVpciBv
-d24gaW1wbGVtZW50YXRpb24uCj4gCj4gRml4ZXM6IDQ4N2RjN2JiNmEwYyAoImNsazogc2lmaXZl
-OiBmdTU0MC1wcmNpOiBEZWNsYXJlIHN0YXRpYyBjb25zdCB2YXJpYWJsZSAncHJjaV9jbGtfZnU1
-NDAnIHdoZXJlIGl0J3MgdXNlZCIpCgpPa2F5LCB0aGF0J3MgZ29vZC4KCk15IG90aGVyIGNvbW1l
-bnRzIHN0aWxsIGFwcGx5IGhlcmUgdGhvdWdoLgoKPiBTaWduZWQtb2ZmLWJ5OiBab25nIExpIDx6
-b25nLmxpQHNpZml2ZS5jb20+Cj4gCj4gLS0tCj4gQ2hhbmdlZCBpbiB2NDoKPiAgLSBSZWJhc2Ug
-b24gdjUuMTYKPiAgLSBNb2RpZnkgZml4ZXMgdGFnCj4gCj4gQ2hhbmdlZCBpbiB2MzoKPiAgLSBS
-ZWJhc2Ugb24gdjUuMTYtcmM4Cj4gIC0gQWRkIGZpeGVzIHRhZwo+IAo+IENoYW5nZWQgaW4gdjI6
-Cj4gIC0gTW92ZSBkZWZpbml0aW9uIG9mIHZhcmlhYmxlIHRvIEMgZmlsZSBmcm9tIGhlYWRlcgo+
-IC0tLQo+ICBkcml2ZXJzL2Nsay9zaWZpdmUvZnU1NDAtcHJjaS5jICB8ICA2ICsrKysrLQo+ICBk
-cml2ZXJzL2Nsay9zaWZpdmUvZnU1NDAtcHJjaS5oICB8ICA2ICstLS0tLQo+ICBkcml2ZXJzL2Ns
-ay9zaWZpdmUvZnU3NDAtcHJjaS5jICB8ICA2ICsrKysrLQo+ICBkcml2ZXJzL2Nsay9zaWZpdmUv
-ZnU3NDAtcHJjaS5oICB8IDExICstLS0tLS0tLS0tCj4gIGRyaXZlcnMvY2xrL3NpZml2ZS9zaWZp
-dmUtcHJjaS5jIHwgIDUgLS0tLS0KPiAgNSBmaWxlcyBjaGFuZ2VkLCAxMiBpbnNlcnRpb25zKCsp
-LCAyMiBkZWxldGlvbnMoLSkKCi0tIApMZWUgSm9uZXMgW+adjueQvOaWr10KUHJpbmNpcGFsIFRl
-Y2huaWNhbCBMZWFkIC0gRGV2ZWxvcGVyIFNlcnZpY2VzCkxpbmFyby5vcmcg4pSCIE9wZW4gc291
-cmNlIHNvZnR3YXJlIGZvciBBcm0gU29DcwpGb2xsb3cgTGluYXJvOiBGYWNlYm9vayB8IFR3aXR0
-ZXIgfCBCbG9nCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+On Mon, Jan 10, 2022 at 4:58 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>
+> Hi Zong,
+>
+> On Wed, Jan 5, 2022 at 6:44 AM Zong Li <zong.li@sifive.com> wrote:
+> > It currently assumes that there are four channels by default, it might
+> > cause the error if there is actually less than four channels. Change
+> > that by getting number of channel from device tree.
+> >
+> > Signed-off-by: Zong Li <zong.li@sifive.com>
+>
+> Thanks for your patch!
+>
+> > --- a/drivers/dma/sf-pdma/sf-pdma.c
+> > +++ b/drivers/dma/sf-pdma/sf-pdma.c
+> > @@ -484,21 +484,24 @@ static int sf_pdma_probe(struct platform_device *pdev)
+> >         struct sf_pdma *pdma;
+> >         struct sf_pdma_chan *chan;
+> >         struct resource *res;
+> > -       int len, chans;
+> > -       int ret;
+> > +       int len, ret;
+> >         const enum dma_slave_buswidth widths =
+> >                 DMA_SLAVE_BUSWIDTH_1_BYTE | DMA_SLAVE_BUSWIDTH_2_BYTES |
+> >                 DMA_SLAVE_BUSWIDTH_4_BYTES | DMA_SLAVE_BUSWIDTH_8_BYTES |
+> >                 DMA_SLAVE_BUSWIDTH_16_BYTES | DMA_SLAVE_BUSWIDTH_32_BYTES |
+> >                 DMA_SLAVE_BUSWIDTH_64_BYTES;
+> >
+> > -       chans = PDMA_NR_CH;
+> > -       len = sizeof(*pdma) + sizeof(*chan) * chans;
+> > +       len = sizeof(*pdma) + sizeof(*chan) * PDMA_MAX_NR_CH;
+> >         pdma = devm_kzalloc(&pdev->dev, len, GFP_KERNEL);
+> >         if (!pdma)
+> >                 return -ENOMEM;
+> >
+> > -       pdma->n_chans = chans;
+> > +       ret = of_property_read_u32(pdev->dev.of_node, "dma-channels",
+> > +                                  &pdma->n_chans);
+> > +       if (ret) {
+> > +               dev_err(&pdev->dev, "failed to read dma-channels\n");
+> > +               return ret;
+>
+> Note that this is not backwards-compatible with existing DTBs, which
+> lack the "dma-channels" property.
+> Perhaps you want to fallback to a default of 4 instead?
+>
+
+Thanks for your advice. I would set n_chans to 4 in failure condition
+for backwards-compatible.
+
+> > +       }
+> >
+> >         res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> >         pdma->membase = devm_ioremap_resource(&pdev->dev, res);
+>
+> Gr{oetje,eeting}s,
+>
+>                         Geert
+>
+> --
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+>
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                 -- Linus Torvalds
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
