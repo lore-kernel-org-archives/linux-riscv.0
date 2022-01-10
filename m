@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA1FEC433F5
-	for <linux-riscv@archiver.kernel.org>; Sun,  9 Jan 2022 21:39:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5E55C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jan 2022 02:05:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=ipM3363H+lEGz/wtDRksadTeVcvhHTb4rW3e49HwWPM=; b=OD5AxI8wOG8I+9L21GQU3uSc76
-	fe+tUl/WwzLUEia0/EIG9dm0/WNpuLxt34muygdnRHgdHxXfB/JsHi1Et0lnY41nl4FxDlxftnySo
-	/9M2v/G5Rqi4C43VX5MbIgf9DSz6O9yxzrB/PYcWFKcNv37q+2S71M5Zq49yoABQYDFEKpmDcrCRC
-	8/EbK3OLXC/cC6mXmln7CCfNrI4rPaphuYLEMFT4DxVdw8OITlsHcivyycg5hWT+Jmi9Y7RhsnyWA
-	lm6yqB63tby0Rw9BmfGmkllVt6fFBzrupU9bVCcSEV3t5RrJdTwp2feJ6zcC3HSuAWY+1G3BH29Qt
-	oYBCsENw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zY92UF82LQ9po3J4GTaejmm7M3jebvhs5DDGF9GcKtg=; b=mhXvXgMqZnzE5s
+	yTymeRlJECXkfJfN7xtEdLoM+kDmBprG4ii+NsJ/XLEwuHtuu2RJy7Faf0FhXmRKlQBQTCgdxCt9P
+	GceOc0s5HM1fUH/mIizckLbVY06n+7PNBPVcpD2a1MIArnE/LkMbX+UuQtyfUewlezR7YnFmiTH5X
+	+0q1Lx0P5dt4eKufzYRGNgTP5nwkID+IVBy93PTO13j/070X+pncZSBJWQ02iTGPxowCdqApYIK0M
+	TAp9JsQWzQ+s9h+t0vqPdxKwmUzOpAxUPO9MWGW12nYBG3Ypa8JmDxeG4tDt/UANwJUWCRI2r1rIE
+	JoPFpzDuKDbj2WcduihQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n6fty-008QqE-BX; Sun, 09 Jan 2022 21:38:58 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1n6k47-008toD-M7; Mon, 10 Jan 2022 02:05:43 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n6ftu-008Qpb-RL
- for linux-riscv@lists.infradead.org; Sun, 09 Jan 2022 21:38:56 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id z3so10389713plg.8
- for <linux-riscv@lists.infradead.org>; Sun, 09 Jan 2022 13:38:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=rXdw2GcIBdIhjQSHYqX/xAztXUoROrQNXwxR+5wqtUc=;
- b=AgCkFBOYRL6wzgk9rUUtc87/SGNgoOCSNZvxIiEmHu8N65NJ73I7/1fkgcdCabpBya
- sez0kaMYbpf3hBENHp/9iJ6/1NJjScfXXRLN2BIqNQ9z/UnkrwPE4JtAQm+4Ry/NcsZV
- xqBYwshVDlri3NFFMasZ8qU7nPR97cKsDyWa0IyTbTuJ76O6MUG6E11F34sNugcleyWd
- /ekK5I8Kb+3dVeXqBzdBYSAJCMIJkGMDw4VpBT1KjU6Lsls6gecbzPRI1cU3sLNRqIb5
- UTbE+8X4M0Nn8Fsn4MZlKuZKtZKSjZCjqZ0r6TiMddVqeRFkJlQscHOxOl+qoH4H6Y0W
- K6hw==
+ id 1n6jrT-008ms2-E1
+ for linux-riscv@lists.infradead.org; Mon, 10 Jan 2022 01:52:40 +0000
+Received: by mail-lf1-x129.google.com with SMTP id g26so38976023lfv.11
+ for <linux-riscv@lists.infradead.org>; Sun, 09 Jan 2022 17:52:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=PAmvDjOQprSLqp3N1+fz5g6MUD0+lASiAhwymAYrtVM=;
+ b=TTA3x5DgsSIXAhRr84LY9zUjOch1cXk659M5mY85o3HhpJCosqz035iFXGHImoBLrL
+ npwUPI0VKeyoAJmeclRznjI0GNeiZkj+qn9o4d+dhkqRCe+lTj7bDxg1GfD43zm2vN7V
+ 4TsHxbRcnmXXNtKFVpxNOYx4np7GnFZVIL/0NwlNs6IJlWCHkWY2EvZX5BFI2+H/2dzK
+ 6jopjdilMadSNzvzNDfApcSD4xXc5ERIl5T2mX77GvVUJO3Et1rrk6OTinWJuu7DY7qR
+ myich9mgF+4x1SRliu/WXPJW3gwZs9A0FOnziI0Gypk8jYurXTHazn0w+JudkvfyhiWL
+ JUKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=rXdw2GcIBdIhjQSHYqX/xAztXUoROrQNXwxR+5wqtUc=;
- b=J/HtJLN9l8EXzJtOEB7I+Giuh+n/5RRaPucMtiCC/q+A3UJA1dNg+U6wNKcLAGzk0B
- hSPmVbYL8rfz4RzusMAozQUQMNlgUL74WlIqdAKrYCQcICLLWRYFAYyd0FoOkPgNxp++
- 2AuZJqTgJBr0Rk3BCnfC3bS14IB3k8/qUIzI074tDDwp4sAW/O+29bb5amY0wxAiHyjh
- IzpPjUg+ZjimEqu7TMOVRKUP8qp+JudWGNERS3QTj9ny/gv/1JZXLeBGN+Vc4+PsRMfT
- kz71VjdGlGY5N8JGfvDxuN5jvNtZjWvrFho8uEC8e+WC+ND+MDZbxIloZijFOtyHw7jN
- NyNA==
-X-Gm-Message-State: AOAM532iIeuoiWcF9kfzNkEFfSfxNQ5IvFwi0RUTWJ9bz8XjSPzu0XHU
- XkA9MnBrGWe7Z5rJOE3gqX0yYA==
-X-Google-Smtp-Source: ABdhPJysUToxCp9VCbTEcOIlt7PoOfuYKVF87cmkQs4e3XpzZEZnM/BsMXSiAxW8rrA31HyQHk8FOw==
-X-Received: by 2002:a17:902:7483:b0:14a:2a1e:468d with SMTP id
- h3-20020a170902748300b0014a2a1e468dmr4301218pll.97.1641764333346; 
- Sun, 09 Jan 2022 13:38:53 -0800 (PST)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id lw5sm6965662pjb.13.2022.01.09.13.38.52
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 09 Jan 2022 13:38:52 -0800 (PST)
-Date: Sun, 09 Jan 2022 13:38:52 -0800 (PST)
-X-Google-Original-Date: Sun, 09 Jan 2022 13:38:18 PST (-0800)
-Subject: Re: [PATCH] RISC-V: Use common riscv_cpuid_to_hartid_mask() for both
- SMP=y and SMP=n
-In-Reply-To: <20211129214342.1221766-1-seanjc@google.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- kilobyte@angband.pl, anup@brainfault.org, seanjc@google.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: seanjc@google.com
-Message-ID: <mhng-e5835f2e-6232-4a53-bb14-091d2a07b2aa@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=PAmvDjOQprSLqp3N1+fz5g6MUD0+lASiAhwymAYrtVM=;
+ b=EyIo2DVuucXCX6ap6H85qKkEWmZy/a/UWUISiZ4wwQqy/dqZImJAu0fK5+uC+6laWg
+ esG2LbESjpdbpFLc3k38I4oBcpDMvMOR5a+OBDLrwrHEYk2R/MS9cYploFXQvUZJKflW
+ SHz9/ac8Axw+vDArwULHxby1PS+aAHTE8rNXlm7O7mQla1SJsirpGUHUQ5r0ewUNA+GL
+ 5nfZgOozoqs0Vko4leN786h2dVIkinPbd4mOaTD6ye946Ql0qu4tZBvd/X+yjoOWfPj5
+ sPF4oFojW59Rmg5Y2LnkIKtr1u4ddChw6kzFKgQ9qPhIdSt/j9MJJgCE6uWBJqCEk1Dk
+ yRnA==
+X-Gm-Message-State: AOAM532ZSYqV9Lg/XPgpz3Q0YEbutCXkBEo5PleDqz9THmZv5E0OxLc9
+ N4k+ml2ew99U9BMjlSyD2/un4YbSHM/mgcDOMQmucg==
+X-Google-Smtp-Source: ABdhPJzMPmTi/ANQ/Ww5I/fTF/P9J0QbJtUOem/3EUzfHpLTjXLP4Uu9/jvj83SJc6SXf62ESEAmBEJcZB2S/vNG0qM=
+X-Received: by 2002:a05:6512:280c:: with SMTP id
+ cf12mr988837lfb.5.1641779556910; 
+ Sun, 09 Jan 2022 17:52:36 -0800 (PST)
+MIME-Version: 1.0
+References: <20220107090715.2601-1-zong.li@sifive.com>
+ <20220108004514.C331AC36AE9@smtp.kernel.org>
+In-Reply-To: <20220108004514.C331AC36AE9@smtp.kernel.org>
+From: Zong Li <zong.li@sifive.com>
+Date: Mon, 10 Jan 2022 09:52:27 +0800
+Message-ID: <CANXhq0qQO9K0j5OaB2U3jJi+4V1tcDpf9Pu+yrcqBtdZ-Q5Z1A@mail.gmail.com>
+Subject: Re: [PATCH v3 RESEND] clk: sifive: Fix W=1 kernel build warning
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: lee.jones@linaro.org, linux-clk <linux-clk@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Michael Turquette <mturquette@baylibre.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220109_133854_954504_97215F37 
-X-CRM114-Status: GOOD (  22.03  )
+X-CRM114-CacheID: sfid-20220109_175239_579992_654D847A 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,112 +82,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 29 Nov 2021 13:43:42 PST (-0800), seanjc@google.com wrote:
-> Use what is currently the SMP=y version of riscv_cpuid_to_hartid_mask()
-> for both SMP=y and SMP=n to fix a build failure with KVM=m and SMP=n due
-> to boot_cpu_hartid not being exported.  This also fixes a second bug
-> where the SMP=n version assumes the sole CPU in the system is in the
-> incoming mask, which may not hold true in kvm_riscv_vcpu_sbi_ecall() if
-> the KVM guest VM has multiple vCPUs (on a SMP=n system).
->
-> Fixes: 1ef46c231df4 ("RISC-V: Implement new SBI v0.2 extensions")
-> Reported-by: Adam Borowski <kilobyte@angband.pl>
-> Cc: stable@vger.kernel.org
-> Reviewed-by: Anup Patel <anup.patel@wdc.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-
-This is on for-next, thanks!
-
-> ---
->  arch/riscv/include/asm/smp.h | 10 ++--------
->  arch/riscv/kernel/setup.c    | 10 ++++++++++
->  arch/riscv/kernel/smp.c      | 10 ----------
->  3 files changed, 12 insertions(+), 18 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
-> index a7d2811f3536..62d0e6e61da8 100644
-> --- a/arch/riscv/include/asm/smp.h
-> +++ b/arch/riscv/include/asm/smp.h
-> @@ -43,7 +43,6 @@ void arch_send_call_function_ipi_mask(struct cpumask *mask);
->  void arch_send_call_function_single_ipi(int cpu);
->
->  int riscv_hartid_to_cpuid(int hartid);
-> -void riscv_cpuid_to_hartid_mask(const struct cpumask *in, struct cpumask *out);
->
->  /* Set custom IPI operations */
->  void riscv_set_ipi_ops(const struct riscv_ipi_ops *ops);
-> @@ -85,13 +84,6 @@ static inline unsigned long cpuid_to_hartid_map(int cpu)
->  	return boot_cpu_hartid;
->  }
->
-> -static inline void riscv_cpuid_to_hartid_mask(const struct cpumask *in,
-> -					      struct cpumask *out)
-> -{
-> -	cpumask_clear(out);
-> -	cpumask_set_cpu(boot_cpu_hartid, out);
-> -}
-> -
->  static inline void riscv_set_ipi_ops(const struct riscv_ipi_ops *ops)
->  {
->  }
-> @@ -102,6 +94,8 @@ static inline void riscv_clear_ipi(void)
->
->  #endif /* CONFIG_SMP */
->
-> +void riscv_cpuid_to_hartid_mask(const struct cpumask *in, struct cpumask *out);
-> +
->  #if defined(CONFIG_HOTPLUG_CPU) && (CONFIG_SMP)
->  bool cpu_has_hotplug(unsigned int cpu);
->  #else
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index b42bfdc67482..63241abe84eb 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -59,6 +59,16 @@ atomic_t hart_lottery __section(".sdata")
->  unsigned long boot_cpu_hartid;
->  static DEFINE_PER_CPU(struct cpu, cpu_devices);
->
-> +void riscv_cpuid_to_hartid_mask(const struct cpumask *in, struct cpumask *out)
-> +{
-> +	int cpu;
-> +
-> +	cpumask_clear(out);
-> +	for_each_cpu(cpu, in)
-> +		cpumask_set_cpu(cpuid_to_hartid_map(cpu), out);
-> +}
-> +EXPORT_SYMBOL_GPL(riscv_cpuid_to_hartid_mask);
-> +
->  /*
->   * Place kernel memory regions on the resource tree so that
->   * kexec-tools can retrieve them from /proc/iomem. While there
-> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-> index 2f6da845c9ae..b5d30ea92292 100644
-> --- a/arch/riscv/kernel/smp.c
-> +++ b/arch/riscv/kernel/smp.c
-> @@ -59,16 +59,6 @@ int riscv_hartid_to_cpuid(int hartid)
->  	return -ENOENT;
->  }
->
-> -void riscv_cpuid_to_hartid_mask(const struct cpumask *in, struct cpumask *out)
-> -{
-> -	int cpu;
-> -
-> -	cpumask_clear(out);
-> -	for_each_cpu(cpu, in)
-> -		cpumask_set_cpu(cpuid_to_hartid_map(cpu), out);
-> -}
-> -EXPORT_SYMBOL_GPL(riscv_cpuid_to_hartid_mask);
-> -
->  bool arch_match_cpu_phys_id(int cpu, u64 phys_id)
->  {
->  	return phys_id == cpuid_to_hartid_map(cpu);
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU2F0LCBKYW4gOCwgMjAyMiBhdCA4OjQ1IEFNIFN0ZXBoZW4gQm95ZCA8c2JveWRAa2VybmVs
+Lm9yZz4gd3JvdGU6Cj4KPiBRdW90aW5nIFpvbmcgTGkgKDIwMjItMDEtMDcgMDE6MDc6MTUpCj4g
+PiBUaGlzIGNvbW1pdCByZXZlcnRzIGNvbW1pdCA0ODdkYzdiYjZhMGMgKCJjbGs6IHNpZml2ZTog
+ZnU1NDAtcHJjaToKPiA+IERlY2xhcmUgc3RhdGljIGNvbnN0IHZhcmlhYmxlICdwcmNpX2Nsa19m
+dTU0MCcgd2hlcmUgaXQncyB1c2VkIikuCj4gPiBGb3IgZml4aW5nIFc9MSBrZXJuZWwgYnVpbGQg
+d2FybmluZyhzKSBhYm91dCDigJhwcmNpX2Nsa19mdTU0MOKAmSBkZWZpbmVkCj4gPiBidXQgbm90
+IHVzZWQgWy1XdW51c2VkLWNvbnN0LXZhcmlhYmxlPV0sIHRoZSBwcm9ibGVtIGlzIHRoYXQgdGhl
+IEMgZmlsZQo+ID4gb2YgZnU1NDAgYW5kIGZ1NzQwIGRvZXNuJ3QgdXNlIHRoZXNlIHZhcmlhYmxl
+cywgYnV0IHRoZXkgaW5jbHVkZXMgdGhlCj4gPiBoZWFkZXIgZmlsZXMuIFdlIGNvdWxkIHJlZmlu
+ZSB0aGUgY29kZSBieSBtb3ZpbmcgdGhlIGRlZmluaXRpb24gb2YgdGhlc2UKPiA+IHZhcmlhYmxl
+cyBpbnRvIGZ1NTQwIGFuZCBmdTc0MCBpbXBsZW1lbnRhdGlvbiByZXNwZWN0aXZlbHkgaW5zdGVh
+ZCBvZgo+ID4gY29tbW9uIGNvcmUgY29kZSwgdGhlbiB3ZSBjb3VsZCBzdGlsbCBzZXBhcmF0ZSB0
+aGUgU29Dcy1kZXBlbmRlbnQgZGF0YQo+ID4gaW4gdGhlaXIgb3duIGltcGxlbWVudGF0aW9uLgo+
+ID4KPiA+IEZpeGVzOiA0ODdkYzdiYjZhMGMgKCJjbGs6IHNpZml2ZTogZnU1NDAtcHJjaTogRGVj
+bGFyZSBzdGF0aWMKPiA+IGNvbnN0IHZhcmlhYmxlICdwcmNpX2Nsa19mdTU0MCcgd2hlcmUgaXQn
+cyB1c2VkIikKPgo+IFRoZSBmaXhlcyB0YWcgc2hvdWxkIGJlIG9uIG9uZSBsaW5lLCBub3Qgc3Bs
+aXQgYWNyb3NzIHR3by4KPgoKT2ssIGxldCBtZSBmaXggaXQgaW4gdGhlIHY0IHBhdGNoLiBUaGFu
+a3MKCj4gPiBTaWduZWQtb2ZmLWJ5OiBab25nIExpIDx6b25nLmxpQHNpZml2ZS5jb20+Cj4gPgoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
