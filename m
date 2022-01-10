@@ -4,67 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C385C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jan 2022 17:05:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3A7BC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jan 2022 23:07:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V0oM3k7FAcpwEgdA1pRcV5Xkmhtk/ka8PMUcbPMTUeQ=; b=BgQnKkX+hBUCZw
-	lDzqWj+gz3YHGqCTLPSenaOYjBxSfHmZWI/s4b6LbgSyva0rywdNq6Nrfd/b/O6zLjBTUXXVb0ORY
-	9j5aE7UIwld1Dn++0nYi4H1gNJyBtr3PemnkDovHMezrO2CfAUAWQ7rwWuw4z/ewCwNyFkHnVlypp
-	jaAzBsX9fIPst2tP2JAVDnvGl2fwR2eoBjkmrgmZQe3xdOVo4mBFsFtmMZyE/bUl+ixKYBE+Q/Slv
-	UajZ29rmDiPX9TZcEo/Oz14Uh9rUYl739Ol/8iWamaHtXkIXoXKj0DP7B8Dyo3LV3Qo+Q3ZTL+0oz
-	TyI77IyEzc0SkmymsMBQ==;
+	List-Owner; bh=Z9Pl7SyE6HQBEQkV/7nEX2VYIDQOwpDXW4mDiYn1czk=; b=LYx6OM04wcjCct
+	ItB85vE2EXSjFWbZVs4NhCO6QFjtONDI9OS07wXXvDRS7TjGIugqjYyK2cA5gALVEEJ/7d8h5oJKy
+	z969iOkNXpGdxk2kDD8/BWzge9SSxsK7dx45hBTY4T3xjtbOSHB7+rWp/LWUcXD9KVPqZm67RLh2Y
+	08H5hRRd28Nz2aMrBu6+pQrClq6zSu4ddfbxpptjrO4fpqzGQsV7b/BcDf6Evb78/wq4b4UVQVrYl
+	roIn5qiDo3JdnFiVcmFE5WHeSqSzGbTEa/ti53dVU2N79JJAfp9FfwwNnpt7c8auiI9VYBDB9nTUv
+	nBUs188thpVRRVnnOM9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n6y6q-00CTKv-Dp; Mon, 10 Jan 2022 17:05:28 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1n73kd-00Dnro-J0; Mon, 10 Jan 2022 23:06:55 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n6y6n-00CTJM-Hp
- for linux-riscv@lists.infradead.org; Mon, 10 Jan 2022 17:05:27 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by sin.source.kernel.org (Postfix) with ESMTPS id 6CB3CCE13E0;
- Mon, 10 Jan 2022 17:05:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0C0EC36AE5;
- Mon, 10 Jan 2022 17:05:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1641834319;
- bh=UdWl8wuXbg1UuKvjSdkNKobDow52EvDCA/OGcUygQ/A=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=XJ/yRtAPWqZqjqWTSZ71bZIPdXqhZ8DKLpL9knwVx9Ug11TfhQsKEoUjAryftb85P
- f1DXOl4Y8ESsSLSYUCCpIpL/TwliJNnl9+kPC8rTN9owRqd4KVyQlAZKCo34ekNNiQ
- NymiGFChxwnQ8rc+PN1TzpZd3WH9nMq3JTgrCkxSztrtd8o+INWtNqzgTHmkMyWLg6
- tdXPvorVIGwGQzSdACUW52BV0r97eXx+26IP5sFuIxalbNp1gJgh+gLklNcrNCKpFY
- e2z1EVdEOjsjkXA5JMHXgbypDV+yh9NxR/cr1XYWVvQSFuBXt6abCGSrw3rLeD4Mfr
- osfV4HyLqJHOg==
-Date: Tue, 11 Jan 2022 00:57:50 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ id 1n73kb-00Dnox-Cl
+ for linux-riscv@lists.infradead.org; Mon, 10 Jan 2022 23:06:54 +0000
+Received: by mail-pl1-x634.google.com with SMTP id q14so14382073plx.4
+ for <linux-riscv@lists.infradead.org>; Mon, 10 Jan 2022 15:06:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=y+VBsHBfwIdG2OzWHPdI/WIqfhyYeKNFkPIFzGKgGjs=;
+ b=X/BYePGBzH1Y0U06VN7h0LTAx5XkiSMJkjX4bzEruFI1kwOUOCZ/UQD5Hz1I4ruAQl
+ PKrgHenyxeASQaRZZvzIOgMnuzQdonH1VvyAbdvdjbchbZ2+uMZc22CuQapKF6//7uez
+ U7SEtzQCYOhll5kuSGrRuD3424eXtMM1K2q20cLcgofjiBKZpwYAGGu/G+SgPu+Ah0Ai
+ cMXFe7zrtF2HSeLvPaMRp85OO6XQzOWT5yW68a8WQ+brErvfPeLpyOXHT8jSayE1ssES
+ B/xCP4larnCmFQsqFp3LTl28pqvPRHXZOcO2unNP2YugKO4xbE5RD1x5r36xyKuMboWr
+ viJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=y+VBsHBfwIdG2OzWHPdI/WIqfhyYeKNFkPIFzGKgGjs=;
+ b=QWdpXnjXOR1vY4K8ZkJz0FhF7jl7YThOXtj9Hj1wVKcLazkwcKY1gNqBNMlrK5iTGy
+ DIjhCMp6D8YgJ/rWd9LPk5fJ/rhppSH1SF6JEfxRpD27SLv5sy8QyywQU63yv+Xq0jvF
+ e5/4WFImFwUv4lCAtMl2xwPwW0gYw8TwvNmHLSBygk1gcz5r61gdxshq3zqkmldcSXxw
+ 1Vt9piyKe+GoktRlwpD0ge6s6EFlmfZSlYnJOWx3u7e7kkociT/Z+y0kjCsavFInq+Ex
+ AjC7jcA9bGaf6Fprw02SIzBrowPqSqsiUbK6GAT0PPyfnxpBMYiN7oyVBFOfWwDWIm7P
+ OcUA==
+X-Gm-Message-State: AOAM533LG/BslgNX+S2j9iYOeg3zdVVMTKe81gGpOjvk3bI/SIQI/+Gg
+ cyVytrZNh/2aD6ORZgjkTWfOUw==
+X-Google-Smtp-Source: ABdhPJwuqul2WTZrr6xhkm1p+58Y11+q37mOxYmOZK51ca5s/4q/F/MIfrRIm+VTh9ySZMN7V9F+qQ==
+X-Received: by 2002:a17:90a:d90b:: with SMTP id
+ c11mr37450pjv.211.1641856009160; 
+ Mon, 10 Jan 2022 15:06:49 -0800 (PST)
+Received: from google.com (157.214.185.35.bc.googleusercontent.com.
+ [35.185.214.157])
+ by smtp.gmail.com with ESMTPSA id d1sm4554170pgd.66.2022.01.10.15.06.48
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 10 Jan 2022 15:06:48 -0800 (PST)
+Date: Mon, 10 Jan 2022 23:06:44 +0000
+From: Sean Christopherson <seanjc@google.com>
+To: Chao Gao <chao.gao@intel.com>
+Cc: kvm@vger.kernel.org, pbonzini@redhat.com, kevin.tian@intel.com,
+ tglx@linutronix.de, Marc Zyngier <maz@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>, Anup Patel <anup.patel@wdc.com>,
+ Atish Patra <atish.patra@wdc.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>,
- Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
- Yonghong Song <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>,
- KP Singh <kpsingh@kernel.org>
-Cc: netdev@vger.kernel.org, bpf@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Tong Tiangen <tongtiangen@huawei.com>
-Subject: Re: [PATCH riscv-next] riscv: bpf: Fix eBPF's exception tables
-Message-ID: <Ydxljv2Q4YNDYRTx@xhacker>
-References: <20220110165208.1826-1-jszhang@kernel.org>
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ David Hildenbrand <david@redhat.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
+ Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>,
+ "Maciej S. Szmigiero" <maciej.szmigiero@oracle.com>,
+ Fabiano Rosas <farosas@linux.ibm.com>,
+ Ravi Bangoria <ravi.bangoria@linux.ibm.com>,
+ =?iso-8859-1?Q?C=E9dric?= Le Goater <clg@kaod.org>,
+ Bharata B Rao <bharata@linux.ibm.com>, Nicholas Piggin <npiggin@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
+ linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
+Subject: Re: [PATCH 3/6] KVM: Remove opaque from
+ kvm_arch_check_processor_compat
+Message-ID: <Ydy8BCfE0jhJd5uE@google.com>
+References: <20211227081515.2088920-1-chao.gao@intel.com>
+ <20211227081515.2088920-4-chao.gao@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220110165208.1826-1-jszhang@kernel.org>
+In-Reply-To: <20211227081515.2088920-4-chao.gao@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220110_090525_806522_9D7F475B 
-X-CRM114-Status: GOOD (  19.07  )
+X-CRM114-CacheID: sfid-20220110_150653_447510_21CD6EC0 
+X-CRM114-Status: UNSURE (   7.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,45 +125,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 11, 2022 at 12:52:08AM +0800, Jisheng Zhang wrote:
-> eBPF's exception tables needs to be modified to relative synchronously.
-> 
-> Suggested-by: Tong Tiangen <tongtiangen@huawei.com>
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  arch/riscv/net/bpf_jit_comp64.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-> index 69bab7e28f91..44c97535bc15 100644
-> --- a/arch/riscv/net/bpf_jit_comp64.c
-> +++ b/arch/riscv/net/bpf_jit_comp64.c
-> @@ -498,7 +498,7 @@ static int add_exception_handler(const struct bpf_insn *insn,
->  	offset = pc - (long)&ex->insn;
->  	if (WARN_ON_ONCE(offset >= 0 || offset < INT_MIN))
->  		return -ERANGE;
-> -	ex->insn = pc;
-> +	ex->insn = offset;
+On Mon, Dec 27, 2021, Chao Gao wrote:
+> No arch implementation uses this opaque now.
 
-Hi Palmer,
-
-Tong pointed out this issue but there was something wrong with my email
-forwarding address, so I didn't get his reply. Today, I searched on
-lore.kernel.org just found his reply, sorry for inconvenience.
-
-Thanks
-
->  
->  	/*
->  	 * Since the extable follows the program, the fixup offset is always
-> -- 
-> 2.34.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Except for the RISC-V part, this can be a pure revert of commit b99040853738 ("KVM:
+Pass kvm_init()'s opaque param to additional arch funcs").  I think it makes sense
+to process it as a revert, with a short blurb in the changelog to note that RISC-V
+is manually modified as RISC-V support came along in the interim.
 
 _______________________________________________
 linux-riscv mailing list
