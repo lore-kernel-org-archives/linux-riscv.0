@@ -4,75 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82C6EC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jan 2022 14:21:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10559C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jan 2022 14:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NOKqllwwlSQNQqpCmUvf2j7sW4IhwZFewrKwUQ3a348=; b=q6BqoDukGarwJS
-	jkMScKRNpWCfsQUR1qi7wCk8zYWcGyW6KZUYsuoL+zQovI77dvlmeXKrgxfpro6REKDHVrv+x9vRk
-	gGZVUEjzxe5SLmeTgIozPfNNAcNVCmNM/XdIJ/UrIefayCtuWdlvE3oiuEaS2n7UsbKH99/9rcKFE
-	298N+2z/LZJLzqjs7Faur+x7XfrYmrIDMxi4uapVXOAyA4K+NIKFrSVxVHe2yN0OK9lYwdbnEYQnX
-	g/q3TzU0kPpGKPxFPG2iXIo1UqBfeFLLQToO8CoJbMZFoQMAzG1wWleH0DTfnU8T5uGHP3ovU70MW
-	NYyt6fIIy3jAt7Ll36Cg==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=13C1u2awSZnR7qLvNZPQ71wrd5LmJ2ui85jVl6LdL8E=; b=3Wp9t7NmXGEve6
+	gCGNSVwyratx6z5Z3oHBlskNNN63b6zxKI81ZCKagbLlZqRfTYvqRNkJPcSe5U6RT6/5SPfAmVG3d
+	nmL5Abw75iE9SqfdFLNYZLssBovBHKQGuPzqLgE0RMNneNlVwSxXNj55w3HutqYJRP+NgVyIe0j7O
+	9TlRX4/Q/gI3E8TeIcOKLCwDqvGdFFHLFRiNIOrCyFklUa0/AW1uBFagcolFlLj0M/4/kwJwd8UU3
+	AVs2opGE5L6F5O1auFiL9y2s6PDTmkCU9tPArrlmcaayVreNyjMHLKCADAIco+1YQLJyuNDkDmnvz
+	DZR3c1vFQBVCkZpZbopQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n7I1V-00GY06-Da; Tue, 11 Jan 2022 14:21:17 +0000
-Received: from forward500o.mail.yandex.net ([2a02:6b8:0:1a2d::610])
+	id 1n7I9J-00GZNT-SO; Tue, 11 Jan 2022 14:29:21 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n7I1Q-00GXwA-W9
- for linux-riscv@lists.infradead.org; Tue, 11 Jan 2022 14:21:15 +0000
-Received: from sas1-49a2f795d8eb.qloud-c.yandex.net
- (sas1-49a2f795d8eb.qloud-c.yandex.net
- [IPv6:2a02:6b8:c08:c505:0:640:49a2:f795])
- by forward500o.mail.yandex.net (Yandex) with ESMTP id 427B9942363;
- Tue, 11 Jan 2022 17:21:06 +0300 (MSK)
-Received: from sas1-37da021029ee.qloud-c.yandex.net
- (sas1-37da021029ee.qloud-c.yandex.net [2a02:6b8:c08:1612:0:640:37da:210])
- by sas1-49a2f795d8eb.qloud-c.yandex.net (mxback/Yandex) with ESMTP id
- EikuKe4oJT-L4fOE3jQ; Tue, 11 Jan 2022 17:21:06 +0300
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maquefel.me; s=mail;
- t=1641910866; bh=O4dtUcfS47xQno2hdUMnHIDEsNKgjBtaKVEzsBNYXP8=;
- h=In-Reply-To:References:Date:Subject:To:From:Message-Id:Cc;
- b=F+2B6vkQDohj597k8vuzWQIrElSFb18VybmU4LaN/oUjX7A/ncZpeJsdxmmuVnACL
- u6apa4GdfSspErYvCmLQYl4ZbNZbjjJJpRygR7IyM8oQQBIc7mVTctoJxslR3UJ0QM
- jxwEdW6ygJXzB9v+J1HD59CVMjg34TC9+PN7mHzM=
-Authentication-Results: sas1-49a2f795d8eb.qloud-c.yandex.net;
- dkim=pass header.i=@maquefel.me
-Received: by sas1-37da021029ee.qloud-c.yandex.net (smtp/Yandex) with ESMTPSA
- id l3U269SIUy-L3Pq5u6g; Tue, 11 Jan 2022 17:21:04 +0300
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
- (Client certificate not present)
-X-Yandex-Fwd: 2
-From: Nikita Shubin <nikita.shubin@maquefel.me>
-To: 
-Cc: Atish Patra <atishp@rivosinc.com>, linux-riscv@lists.infradead.org,
- linux@yadro.com, Nikita Shubin <n.shubin@yadro.com>,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
+ id 1n7I9G-00GZML-IT
+ for linux-riscv@lists.infradead.org; Tue, 11 Jan 2022 14:29:20 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id e9so31818828wra.2
+ for <linux-riscv@lists.infradead.org>; Tue, 11 Jan 2022 06:29:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=jrtc27.com; s=gmail.jrtc27.user;
+ h=mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=cVpO0twPTQYfaXvPrtKidZn97kp3fh1pXoSqkP4do5M=;
+ b=A6pNOFu2UXG3kppLMdQlce00YTOBthcO5R3s/QHOsLu7xl2a2dNlSJuXTDWN+IKkvN
+ hed+rczKtREGBW+Dz/wzknJMwLjN7tKA838lwxJo7RZL/BNu6Z2ZLR8ChGYeHRXiGVDw
+ qtBeQGcAZwl0avn8kaSY1eEv9Px7e5frQLxQZJAyKgaAu7TaHjAXk4ue5JDGEj3ZK9j3
+ t3RXi9LXY62E3KY6KyKKEvnt8Zh+Th+E25tZndDWNoUe/wAulsKxqvsNBtsyRt2crOAZ
+ tw57338YczPFLw0iR4iyAi5YO0Tm1oiK0Y25W63xyPhXWFH7SKdPPYNFeUlAqx9BmNmO
+ WGaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=cVpO0twPTQYfaXvPrtKidZn97kp3fh1pXoSqkP4do5M=;
+ b=LaNpbIjV1NmdLc2+5hvIn3a9f152CgRdHu3Xq0IPNcnjB5LNgwYifpPQFYHYWD4AWL
+ amq3jb+FipFxuVP6RiI5nHERB1bDHc1TOohLPOfx4PUF1eloZchz/zDZugmBq4WIQsr7
+ PKfh4PuDuMkppR6YBCwZQMdP5EQlTFpR+XoBmsPGFHkXSVJwrku/swtzDkMTKnfMMenB
+ I7d8gUAPfYl2Rp5egMlKWMsKmMdYHki9kK2D8KkpfYMoYEV88LIQP31u+Nn5tAce2Y1x
+ IY7H5SNERU/wqZ3PdYteoQFpDtVvHXtlromOKg6IW8NE27tA1U9fldOyRffqEVstAEyP
+ fonA==
+X-Gm-Message-State: AOAM533f0mOxa4d46Tbu+O1dOpIn6LvR2omOrqLgSBDwgpBqIOQuFeeq
+ QAKutG2418WC8csm20oa3REkYA==
+X-Google-Smtp-Source: ABdhPJz569ql8rw4+Bp8dedwXG13FhgJT9VU8wnYfLgstT9Lg7arvKTCBiy0HFx1TJAMO4b9AOzrvA==
+X-Received: by 2002:a05:6000:1687:: with SMTP id
+ y7mr4090466wrd.234.1641911356619; 
+ Tue, 11 Jan 2022 06:29:16 -0800 (PST)
+Received: from smtpclient.apple (global-5-142.nat-2.net.cam.ac.uk.
+ [131.111.5.142])
+ by smtp.gmail.com with ESMTPSA id bg19sm2204544wmb.47.2022.01.11.06.29.15
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Tue, 11 Jan 2022 06:29:16 -0800 (PST)
+Mime-Version: 1.0 (Mac OS X Mail 15.0 \(3693.40.0.1.81\))
+Subject: Re: [RFC PATCH 0/1] perf tools: Add 'm' event modifier for counting
+From: Jessica Clarke <jrtc27@jrtc27.com>
+In-Reply-To: <20220111142054.18733-1-nikita.shubin@maquefel.me>
+Date: Tue, 11 Jan 2022 14:29:15 +0000
+Cc: Atish Patra <atishp@rivosinc.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, linux <linux@yadro.com>,
+ Nikita Shubin <n.shubin@yadro.com>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
  Mark Rutland <mark.rutland@arm.com>,
  Alexander Shishkin <alexander.shishkin@linux.intel.com>,
  Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
- Kajol Jain <kjain@linux.ibm.com>, Adrian Hunter <adrian.hunter@intel.com>,
- Kan Liang <kan.liang@linux.intel.com>, Jin Yao <yao.jin@linux.intel.com>,
- Ian Rogers <irogers@google.com>, Andi Kleen <ak@linux.intel.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Kajol Jain <kjain@linux.ibm.com>, Andi Kleen <ak@linux.intel.com>,
+ Jin Yao <yao.jin@linux.intel.com>, Kan Liang <kan.liang@linux.intel.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, Ian Rogers <irogers@google.com>,
  John Garry <john.garry@huawei.com>, Riccardo Mancini <rickyman7@gmail.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>, Song Liu <song@kernel.org>,
+ Song Liu <song@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>,
  linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 1/1] perf tools: Add 'm' event modifier for counting
- machine
-Date: Tue, 11 Jan 2022 17:20:48 +0300
-Message-Id: <20220111142054.18733-2-nikita.shubin@maquefel.me>
-X-Mailer: git-send-email 2.31.1
-In-Reply-To: <20220111142054.18733-1-nikita.shubin@maquefel.me>
+Message-Id: <B6E7919C-9414-4CC1-BB86-7D358085CECD@jrtc27.com>
 References: <20220111142054.18733-1-nikita.shubin@maquefel.me>
-MIME-Version: 1.0
+To: Nikita Shubin <nikita.shubin@maquefel.me>
+X-Mailer: Apple Mail (2.3693.40.0.1.81)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220111_062113_439453_5B4F422D 
-X-CRM114-Status: GOOD (  20.35  )
+X-CRM114-CacheID: sfid-20220111_062918_683482_B4F487E0 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,222 +103,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Nikita Shubin <n.shubin@yadro.com>
+On 11 Jan 2022, at 14:20, Nikita Shubin <nikita.shubin@maquefel.me> wrote:
+> 
+> From: Nikita Shubin <n.shubin@yadro.com>
+> 
+> This patch is a proposal to add Machine Mode modifier that is currently 
+> available only for RISC-V for perf tool.
+> 
+> We don't currently have a level that is lower than kernel, so i don't 
+> see we can reuse something existing for this purpose.
+> 
+> The exclude_machine bit seems harmless to as no one will proccess it apart 
+> of riscv.
 
-Adding 'm' event modifier for machine mode counting.
+Armv8 has equivalent bits in PMEVTYPER<n>_EL0 and PMCCFILTR_EL0 for
+EL-based filtering, which includes filtering EL3.
 
-Any event specified with 'm', will set exclude_machine to zero.
+Jess
 
-Default behavior is setting exclude_machine to zero, unless kernel or
-user specified explicitly.
-
-Adding automated tests.
-
-Signed-off-by: Nikita Shubin <n.shubin@yadro.com>
----
- include/uapi/linux/perf_event.h        |  3 ++-
- tools/include/uapi/linux/perf_event.h  |  3 ++-
- tools/perf/Documentation/perf-list.txt |  1 +
- tools/perf/tests/parse-events.c        | 18 ++++++++++++++++++
- tools/perf/util/evsel.c                |  4 +++-
- tools/perf/util/parse-events.c         | 18 +++++++++++++-----
- tools/perf/util/parse-events.l         |  2 +-
- 7 files changed, 40 insertions(+), 9 deletions(-)
-
-diff --git a/include/uapi/linux/perf_event.h b/include/uapi/linux/perf_event.h
-index bd8860eeb291..b70c245664eb 100644
---- a/include/uapi/linux/perf_event.h
-+++ b/include/uapi/linux/perf_event.h
-@@ -409,7 +409,8 @@ struct perf_event_attr {
- 				inherit_thread :  1, /* children only inherit if cloned with CLONE_THREAD */
- 				remove_on_exec :  1, /* event is removed from task on exec */
- 				sigtrap        :  1, /* send synchronous SIGTRAP on event */
--				__reserved_1   : 26;
-+				exclude_machine:  1, /* don't count M-Mode */
-+				__reserved_1   : 25;
- 
- 	union {
- 		__u32		wakeup_events;	  /* wakeup every n events */
-diff --git a/tools/include/uapi/linux/perf_event.h b/tools/include/uapi/linux/perf_event.h
-index bd8860eeb291..17f4d3ac10da 100644
---- a/tools/include/uapi/linux/perf_event.h
-+++ b/tools/include/uapi/linux/perf_event.h
-@@ -409,7 +409,8 @@ struct perf_event_attr {
- 				inherit_thread :  1, /* children only inherit if cloned with CLONE_THREAD */
- 				remove_on_exec :  1, /* event is removed from task on exec */
- 				sigtrap        :  1, /* send synchronous SIGTRAP on event */
--				__reserved_1   : 26;
-+				exclude_machine:  1, /* don't count events in M-Mode */
-+				__reserved_1   : 25;
- 
- 	union {
- 		__u32		wakeup_events;	  /* wakeup every n events */
-diff --git a/tools/perf/Documentation/perf-list.txt b/tools/perf/Documentation/perf-list.txt
-index 4dc8d0af19df..e6d10d95df70 100644
---- a/tools/perf/Documentation/perf-list.txt
-+++ b/tools/perf/Documentation/perf-list.txt
-@@ -53,6 +53,7 @@ counted. The following modifiers exist:
- 
-  u - user-space counting
-  k - kernel counting
-+ m - machine counting
-  h - hypervisor counting
-  I - non idle counting
-  G - guest counting (in KVM guests)
-diff --git a/tools/perf/tests/parse-events.c b/tools/perf/tests/parse-events.c
-index a508f1dbcb2a..617a66003648 100644
---- a/tools/perf/tests/parse-events.c
-+++ b/tools/perf/tests/parse-events.c
-@@ -1323,6 +1323,19 @@ static int test__exclusive_group(struct evlist *evlist)
- 
- 	return 0;
- }
-+
-+static int test__checkevent_exclude_machine_modifier(struct evlist *evlist)
-+{
-+	struct evsel *evsel = evlist__first(evlist);
-+
-+	TEST_ASSERT_VAL("wrong exclude_user", evsel->core.attr.exclude_user);
-+	TEST_ASSERT_VAL("wrong exclude_kernel", evsel->core.attr.exclude_kernel);
-+	TEST_ASSERT_VAL("wrong exclude_machine", !evsel->core.attr.exclude_machine);
-+	TEST_ASSERT_VAL("wrong exclude_hv", evsel->core.attr.exclude_hv);
-+
-+	return test__checkevent_symbolic_name(evlist);
-+}
-+
- static int test__checkevent_breakpoint_len(struct evlist *evlist)
- {
- 	struct evsel *evsel = evlist__first(evlist);
-@@ -1943,6 +1956,11 @@ static struct evlist_test test__events[] = {
- 		.check = test__exclusive_group,
- 		.id    = 57,
- 	},
-+	{
-+		.name  = "instructions:m",
-+		.check = test__checkevent_exclude_machine_modifier,
-+		.id    = 58,
-+	},
- };
- 
- static struct evlist_test test__events_pmu[] = {
-diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
-index a59fb2ecb84e..a49c995908dc 100644
---- a/tools/perf/util/evsel.c
-+++ b/tools/perf/util/evsel.c
-@@ -542,9 +542,11 @@ static int evsel__add_modifiers(struct evsel *evsel, char *bf, size_t size)
- 			r += scnprintf(bf + r, size - r, "%c", mod);	\
- 		} } while(0)
- 
--	if (attr->exclude_kernel || attr->exclude_user || attr->exclude_hv) {
-+	if (attr->exclude_kernel || attr->exclude_user ||
-+	    attr->exclude_hv || attr->exclude_machine) {
- 		MOD_PRINT(kernel, 'k');
- 		MOD_PRINT(user, 'u');
-+		MOD_PRINT(machine, 'm');
- 		MOD_PRINT(hv, 'h');
- 		exclude_guest_default = true;
- 	}
-diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-index 5bfb6f892489..920397e1b959 100644
---- a/tools/perf/util/parse-events.c
-+++ b/tools/perf/util/parse-events.c
-@@ -1867,6 +1867,7 @@ struct event_modifier {
- 	int weak;
- 	int exclusive;
- 	int bpf_counter;
-+	int em;
- };
- 
- static int get_event_modifier(struct event_modifier *mod, char *str,
-@@ -1874,6 +1875,7 @@ static int get_event_modifier(struct event_modifier *mod, char *str,
- {
- 	int eu = evsel ? evsel->core.attr.exclude_user : 0;
- 	int ek = evsel ? evsel->core.attr.exclude_kernel : 0;
-+	int em = evsel ? evsel->core.attr.exclude_machine : 0;
- 	int eh = evsel ? evsel->core.attr.exclude_hv : 0;
- 	int eH = evsel ? evsel->core.attr.exclude_host : 0;
- 	int eG = evsel ? evsel->core.attr.exclude_guest : 0;
-@@ -1884,7 +1886,7 @@ static int get_event_modifier(struct event_modifier *mod, char *str,
- 	int pinned = evsel ? evsel->core.attr.pinned : 0;
- 	int exclusive = evsel ? evsel->core.attr.exclusive : 0;
- 
--	int exclude = eu | ek | eh;
-+	int exclude = eu | ek | eh | em;
- 	int exclude_GH = evsel ? evsel->exclude_GH : 0;
- 	int weak = 0;
- 	int bpf_counter = 0;
-@@ -1894,17 +1896,17 @@ static int get_event_modifier(struct event_modifier *mod, char *str,
- 	while (*str) {
- 		if (*str == 'u') {
- 			if (!exclude)
--				exclude = eu = ek = eh = 1;
-+				exclude = eu = ek = eh = em = 1;
- 			if (!exclude_GH && !perf_guest)
- 				eG = 1;
- 			eu = 0;
- 		} else if (*str == 'k') {
- 			if (!exclude)
--				exclude = eu = ek = eh = 1;
-+				exclude = eu = ek = eh = em = 1;
- 			ek = 0;
- 		} else if (*str == 'h') {
- 			if (!exclude)
--				exclude = eu = ek = eh = 1;
-+				exclude = eu = ek = eh = em = 1;
- 			eh = 0;
- 		} else if (*str == 'G') {
- 			if (!exclude_GH)
-@@ -1933,6 +1935,10 @@ static int get_event_modifier(struct event_modifier *mod, char *str,
- 			weak = 1;
- 		} else if (*str == 'b') {
- 			bpf_counter = 1;
-+		} else if (*str == 'm') {
-+			if (!exclude)
-+				exclude = eu = ek = eh = em = 1;
-+			em = 0;
- 		} else
- 			break;
- 
-@@ -1958,6 +1964,7 @@ static int get_event_modifier(struct event_modifier *mod, char *str,
- 	mod->eH = eH;
- 	mod->eG = eG;
- 	mod->eI = eI;
-+	mod->em = em;
- 	mod->precise = precise;
- 	mod->precise_max = precise_max;
- 	mod->exclude_GH = exclude_GH;
-@@ -1979,7 +1986,7 @@ static int check_modifier(char *str)
- 	char *p = str;
- 
- 	/* The sizeof includes 0 byte as well. */
--	if (strlen(str) > (sizeof("ukhGHpppPSDIWeb") - 1))
-+	if (strlen(str) > (sizeof("ukmhGHpppPSDIWeb") - 1))
- 		return -1;
- 
- 	while (*p) {
-@@ -2011,6 +2018,7 @@ int parse_events__modifier_event(struct list_head *list, char *str, bool add)
- 
- 		evsel->core.attr.exclude_user   = mod.eu;
- 		evsel->core.attr.exclude_kernel = mod.ek;
-+		evsel->core.attr.exclude_machine= mod.em;
- 		evsel->core.attr.exclude_hv     = mod.eh;
- 		evsel->core.attr.precise_ip     = mod.precise;
- 		evsel->core.attr.exclude_host   = mod.eH;
-diff --git a/tools/perf/util/parse-events.l b/tools/perf/util/parse-events.l
-index 4efe9872c667..5528a52611de 100644
---- a/tools/perf/util/parse-events.l
-+++ b/tools/perf/util/parse-events.l
-@@ -214,7 +214,7 @@ name_tag	[\'][a-zA-Z_*?\[\]][a-zA-Z0-9_*?\-,\.\[\]:=]*[\']
- name_minus	[a-zA-Z_*?][a-zA-Z0-9\-_*?.:]*
- drv_cfg_term	[a-zA-Z0-9_\.]+(=[a-zA-Z0-9_*?\.:]+)?
- /* If you add a modifier you need to update check_modifier() */
--modifier_event	[ukhpPGHSDIWeb]+
-+modifier_event	[ukhpPGHSDIWebm]+
- modifier_bp	[rwx]{1,3}
- 
- %%
--- 
-2.31.1
+> Patch depends on Atish Patra PMU series:
+> https://lwn.net/Articles/879905/
+> + some modifications to pass execlude event to SBI PMU extension
+> 
+> Tested with qemu.
+> 
+> Nikita Shubin (1):
+>  perf tools: Add 'm' event modifier for counting machine
+> 
+> include/uapi/linux/perf_event.h        |  3 ++-
+> tools/include/uapi/linux/perf_event.h  |  3 ++-
+> tools/perf/Documentation/perf-list.txt |  1 +
+> tools/perf/tests/parse-events.c        | 18 ++++++++++++++++++
+> tools/perf/util/evsel.c                |  4 +++-
+> tools/perf/util/parse-events.c         | 18 +++++++++++++-----
+> tools/perf/util/parse-events.l         |  2 +-
+> 7 files changed, 40 insertions(+), 9 deletions(-)
+> 
+> -- 
+> 2.31.1
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 
 _______________________________________________
