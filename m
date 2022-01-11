@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 696BCC4332F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB48C433FE
 	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jan 2022 08:51:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Jb8t4KafTSg0+2ZC+3/ydWbZV5LkBTr4+ZR40b7bJAA=; b=Fls6NZPDqih5n/
-	yVWUi3ztVE35q+U/7qr+cKUPbOpJe7AIqz9tDHX2VsRcAKw+wMdP2IhI6twmjMDSIYPlxgexc6LAP
-	BgcSx2kcKsCeB4Tp/QksJQknoBOIJm5Bcxk53agZdoIOYGl8OvC3UiKC6h5IttivMYZ6yWoRiB+5C
-	WdDc89l9dFwBTjtasq3SlaoKJZSKRzhQN+YYWPgpobEEAOLY2v9mWyG2s/UTl9s/NKfqX4XuvuKLP
-	VazNbjekbBkMyWQqwaqiymCVydGwJFo1EhUQmRT4b8TWcRbRR1mIgGV2tz8eYr54ogq8egJaUuUU7
-	208PbYfB4L+FLHFDAZGA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JJ1G/yGs5bSv1biHo/l3GlyS7cNIdip9hVC7nZmoIvE=; b=JRRgMDy8H39jSD
+	M3oJ+H9mwMisQ3gEPJK9i4MRPanAew6SX71vJDXDJZGvV9PekZsNa9bXLRHRwubvxWj1P1mobGP/r
+	3IzppOr/1VLeSCMtUXhREJtVmNdPDNPSSKAPoWO6MUACSc88dmi65YIzsZS5pbECSHjqYfNdLlQre
+	SrhAX8174YKMQnBuF/226KujlNbdgdWatLOUbwY+2r+BBNB+VaJN5cHQS1Fi+Q6ijs+G2d/Ral8tJ
+	BkSAEkf4dLwtWuFwMaGzKRdU+R3e5yuliEooDkTALZbkXkNN14EfrHtkXinKUJZF0zN5zXkDTkNLe
+	Q1JH2stWgkDb4TaP25eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n7CsZ-00FPbq-MA; Tue, 11 Jan 2022 08:51:43 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1n7Csc-00FPcj-FN; Tue, 11 Jan 2022 08:51:46 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n7CsV-00FPar-FN
- for linux-riscv@lists.infradead.org; Tue, 11 Jan 2022 08:51:40 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id
- 59-20020a17090a09c100b001b34a13745eso3863513pjo.5
- for <linux-riscv@lists.infradead.org>; Tue, 11 Jan 2022 00:51:39 -0800 (PST)
+ id 1n7CsY-00FPb8-BO
+ for linux-riscv@lists.infradead.org; Tue, 11 Jan 2022 08:51:45 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id pj2so16014503pjb.2
+ for <linux-riscv@lists.infradead.org>; Tue, 11 Jan 2022 00:51:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=9CyD9l+2ezhf6QjDxxdO63hYLgAiFV1ZYCShhusA3Zc=;
- b=EQGDnRWIzVflvRC1LoZBEca5vqEcilEfPy7CnUu3mLOtpkgy6w5pKahNh//E5U3xfQ
- crvEswdn9+Jw2nKpYnT1laOXAsAHj+ZsDHWXcC39ec83ibeSMG19vP1c8eGcX/PSrm0B
- xWWSpl3a6wyNpRIl+61dCj24l2FvXfWQLWevlOAfje9O4ZMVbw6yYNFEPn89DJjg3eFo
- 1wNVB9CBl9AFVAqxt1zDYzGICrZ4TKipIqU+2hDijnAK3GfZK7AiZ6+uBelBctFUN0wQ
- TX72hOMnbXnfHv316neSjDGnMl7KvIOiyovEZX3g9mnj+HGM+FS9atoldU5UeFftMSwQ
- fAVQ==
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=K49u+vw8xuJoyxVWZcA3NU+d4XvPmTqJkyhbFma1tEc=;
+ b=dhVYdWw7PREA2x6EIZ4xujgcUvHYDPBvCt58d97/WsIX21uIzkZiCc2rXn6tw/8ef+
+ N59TsHOZYauZ8NIBcMJjjYvDiYsFlqTLhkJtJaxu8O4qr38BnNaXg9WbqDAR6OEQ3MWX
+ thmy55rc30zJKjDoRD0OdJKhs1Or9+tNIVskVu+8IDN0hFpKlzwprBCUI789q1AmzO6H
+ SXEj/uSp87gr+stzL4xBYBR7Iqolh7Gt8E6pK1vnVj8htrZ9pgAmCRnu5fJpXGRyerNt
+ K2S4VjfTTzAOuEkbIz0uCUPEKWg/iHzHXdvOqZVaMz/ysUKrbS2rDn/K7qfFN1DXQ5oR
+ 3wMQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=9CyD9l+2ezhf6QjDxxdO63hYLgAiFV1ZYCShhusA3Zc=;
- b=HeMoS1vs65yD0KO134xrF/RNhNgj6nR0t+iqZZRGjW/Zo/47atXQSc6f9mhFoy0/3K
- 6BZgRdTKbtWpnzlEOvSMh7mzbR9dHBua0MQFjb/HfXjhLWybMCg9aaVDtdBkEQ8kDqk1
- nQoNemEKZqKw0QEDoufmxB3A23DmSK+AVR8h1UEtyET54qiiy7eQo04sy9OuE5VT3RHh
- ayKKP1IU0UJNgr9jofQYoz6y6POfIndaSTI9loIHTFxnMZHsAb+kyfjCEkrt+eI887p3
- wWZzzVBQ7wxC9khA3zhufIjGcEnvjW1oj++hla078fRcZwNqFhRmcc+spN575qipDQS1
- bjRA==
-X-Gm-Message-State: AOAM530QRvYMLP/Urq0dFbp0nQPK4fAGvGdOeBq/oF/vJBo6PQdCGM8r
- m9xruIZdzFN7ssSFdAjJ8E6XBw==
-X-Google-Smtp-Source: ABdhPJwD+RQbLIRJC0BxCTDAflnidt5/NwF1Mtjccg6WfBOp5jBUvuu24w0KyQxWVGPNZVnK8Oba1w==
-X-Received: by 2002:a63:3e81:: with SMTP id l123mr3215398pga.41.1641891098542; 
- Tue, 11 Jan 2022 00:51:38 -0800 (PST)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=K49u+vw8xuJoyxVWZcA3NU+d4XvPmTqJkyhbFma1tEc=;
+ b=MvqoKzrVKJ45Ht+hoGjctSDePB+W9A2BdZn7uFIfUBBEGn81kcN/GcJLbzS+MUA2Ek
+ H9lzDHKeEES6Hu2PXjDxo7hM9VPv+Faetovf2x6ueq8XYcfZlvzisq2EiPDDtD+rPZIw
+ Hm6mRZxbL2ayzE9LxN6090oqbCf7ydGt0kaEWV1fZeg+JvL3cWsCFCav6SqEzDDLymh7
+ Fv/JRJd2dJpF9T3kuAJFf1iaSz/CjjNDAwthS5SHXBiVbn//9SgYdbqomTPbGn5HPaBw
+ bxFi+CGL6CsD6CzBghhlqHoJQbeCMUgpcbMPYhlRe0fntPq7QQQDu4pJ7DUC7kI05dxo
+ K7rg==
+X-Gm-Message-State: AOAM533hnqdfrrYovMjRAn56fXDXpfQ6JWnT8ffve3cR+YcSoilI4mE9
+ azMZmKn4125L1s3Hb5m3VqsbKcVg+dAexgNX
+X-Google-Smtp-Source: ABdhPJyyRNf9d57sKUsXdmiRpvG67UAK/JRDnkTqjiyNt2dbhjIL4gIaHj1J+p3aF75oTpbWw45k8g==
+X-Received: by 2002:a17:902:7c84:b0:149:9481:bbb9 with SMTP id
+ y4-20020a1709027c8400b001499481bbb9mr3638418pll.148.1641891101607; 
+ Tue, 11 Jan 2022 00:51:41 -0800 (PST)
 Received: from hsinchu16.internal.sifive.com
  (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
- by smtp.gmail.com with ESMTPSA id j4sm9447598pfa.149.2022.01.11.00.51.35
+ by smtp.gmail.com with ESMTPSA id j4sm9447598pfa.149.2022.01.11.00.51.38
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 11 Jan 2022 00:51:38 -0800 (PST)
+ Tue, 11 Jan 2022 00:51:41 -0800 (PST)
 From: Zong Li <zong.li@sifive.com>
 To: robh+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
  aou@eecs.berkeley.edu, krzysztof.kozlowski@canonical.com,
@@ -67,15 +67,16 @@ To: robh+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org
 Cc: Zong Li <zong.li@sifive.com>
-Subject: [PATCH v2 0/3] Determine the number of DMA channels by 'dma-channels'
- property
-Date: Tue, 11 Jan 2022 16:51:24 +0800
-Message-Id: <cover.1641890718.git.zong.li@sifive.com>
+Subject: [PATCH v2 1/3] riscv: dts: Add dma-channels property in dma node
+Date: Tue, 11 Jan 2022 16:51:25 +0800
+Message-Id: <163a2cf11b2aceee2a1b8dc83251576d2371d4a6.1641890718.git.zong.li@sifive.com>
 X-Mailer: git-send-email 2.31.1
+In-Reply-To: <cover.1641890718.git.zong.li@sifive.com>
+References: <cover.1641890718.git.zong.li@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220111_005139_591136_A0B9FE4B 
-X-CRM114-Status: UNSURE (   9.02  )
+X-CRM114-CacheID: sfid-20220111_005142_738803_F8C74B4B 
+X-CRM114-Status: UNSURE (   8.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,30 +94,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The PDMA driver currently assumes there are four channels by default, it
-might cause the error if there is actually less than four channels.
-Change that by getting number of channel dynamically from device tree.
-For backwards-compatible, it uses the default value (i.e. 4) when there
-is no 'dma-channels' information in dts.
+Add dma-channels property, then we can determine how many channels there
+by device tree.
 
-This patch set contains the dts and dt-bindings change.
+Signed-off-by: Zong Li <zong.li@sifive.com>
+---
+ arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi | 1 +
+ arch/riscv/boot/dts/sifive/fu540-c000.dtsi        | 1 +
+ 2 files changed, 2 insertions(+)
 
-Changed in v2:
- - Rebase on tag v5.16
- - Use 4 as default value of dma-channels
-
-Zong Li (3):
-  riscv: dts: Add dma-channels property in dma node
-  dt-bindings: Add dma-channels for pdma device node
-  dmaengine: sf-pdma: Get number of channel by device tree
-
- .../bindings/dma/sifive,fu540-c000-pdma.yaml      |  7 +++++++
- arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi |  1 +
- arch/riscv/boot/dts/sifive/fu540-c000.dtsi        |  1 +
- drivers/dma/sf-pdma/sf-pdma.c                     | 15 +++++++++------
- drivers/dma/sf-pdma/sf-pdma.h                     |  8 ++------
- 5 files changed, 20 insertions(+), 12 deletions(-)
-
+diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+index c9f6d205d2ba..3c48f2d7a4a4 100644
+--- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+@@ -188,6 +188,7 @@ dma@3000000 {
+ 			reg = <0x0 0x3000000 0x0 0x8000>;
+ 			interrupt-parent = <&plic>;
+ 			interrupts = <23 24 25 26 27 28 29 30>;
++			dma-channels = <4>;
+ 			#dma-cells = <1>;
+ 		};
+ 
+diff --git a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
+index 0655b5c4201d..2bdfe7f06e4b 100644
+--- a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
++++ b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
+@@ -171,6 +171,7 @@ dma: dma@3000000 {
+ 			reg = <0x0 0x3000000 0x0 0x8000>;
+ 			interrupt-parent = <&plic0>;
+ 			interrupts = <23 24 25 26 27 28 29 30>;
++			dma-channels = <4>;
+ 			#dma-cells = <1>;
+ 		};
+ 		uart1: serial@10011000 {
 -- 
 2.31.1
 
