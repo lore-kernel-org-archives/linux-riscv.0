@@ -4,110 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3A7BC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jan 2022 23:07:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 568F5C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jan 2022 01:05:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z9Pl7SyE6HQBEQkV/7nEX2VYIDQOwpDXW4mDiYn1czk=; b=LYx6OM04wcjCct
-	ItB85vE2EXSjFWbZVs4NhCO6QFjtONDI9OS07wXXvDRS7TjGIugqjYyK2cA5gALVEEJ/7d8h5oJKy
-	z969iOkNXpGdxk2kDD8/BWzge9SSxsK7dx45hBTY4T3xjtbOSHB7+rWp/LWUcXD9KVPqZm67RLh2Y
-	08H5hRRd28Nz2aMrBu6+pQrClq6zSu4ddfbxpptjrO4fpqzGQsV7b/BcDf6Evb78/wq4b4UVQVrYl
-	roIn5qiDo3JdnFiVcmFE5WHeSqSzGbTEa/ti53dVU2N79JJAfp9FfwwNnpt7c8auiI9VYBDB9nTUv
-	nBUs188thpVRRVnnOM9Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=arvCBDJZQRk1bGyBrivCwTV7QagRxqRIBMuORPKnsvM=; b=KVgSK1yDJLOU42
+	0UDU+bjuBGI2vG665MfruVmvigQRuKJ662+AAj+fz27lGysDigrBS0NK1WFq70VN/4ljTBNrScGMG
+	foQaLddf7n+BE2K8a37D1Yt7KMULN1a/7EIaJolL7iswVYmTciZZHrRHzzoC5t2BhmNG9daaHVh/d
+	RRjCdh5nvggMzeMUFdXxcimD1Wz+G1hajEDAb4UqdbeZiLab2ULCbC/iVeR4kMtjXJuznKwh7NbRl
+	TTb9la3+1KnUpYpBSFy6iLz5lMi38zE2LXfrbG/ZcKJFJylQaWNSinSoksemxRtwqk/qFTy8XEYCm
+	0x9Szd6TPbjeexxvh7Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n73kd-00Dnro-J0; Mon, 10 Jan 2022 23:06:55 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1n75b2-00EAhG-A2; Tue, 11 Jan 2022 01:05:08 +0000
+Received: from out30-42.freemail.mail.aliyun.com ([115.124.30.42])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n73kb-00Dnox-Cl
- for linux-riscv@lists.infradead.org; Mon, 10 Jan 2022 23:06:54 +0000
-Received: by mail-pl1-x634.google.com with SMTP id q14so14382073plx.4
- for <linux-riscv@lists.infradead.org>; Mon, 10 Jan 2022 15:06:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=y+VBsHBfwIdG2OzWHPdI/WIqfhyYeKNFkPIFzGKgGjs=;
- b=X/BYePGBzH1Y0U06VN7h0LTAx5XkiSMJkjX4bzEruFI1kwOUOCZ/UQD5Hz1I4ruAQl
- PKrgHenyxeASQaRZZvzIOgMnuzQdonH1VvyAbdvdjbchbZ2+uMZc22CuQapKF6//7uez
- U7SEtzQCYOhll5kuSGrRuD3424eXtMM1K2q20cLcgofjiBKZpwYAGGu/G+SgPu+Ah0Ai
- cMXFe7zrtF2HSeLvPaMRp85OO6XQzOWT5yW68a8WQ+brErvfPeLpyOXHT8jSayE1ssES
- B/xCP4larnCmFQsqFp3LTl28pqvPRHXZOcO2unNP2YugKO4xbE5RD1x5r36xyKuMboWr
- viJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=y+VBsHBfwIdG2OzWHPdI/WIqfhyYeKNFkPIFzGKgGjs=;
- b=QWdpXnjXOR1vY4K8ZkJz0FhF7jl7YThOXtj9Hj1wVKcLazkwcKY1gNqBNMlrK5iTGy
- DIjhCMp6D8YgJ/rWd9LPk5fJ/rhppSH1SF6JEfxRpD27SLv5sy8QyywQU63yv+Xq0jvF
- e5/4WFImFwUv4lCAtMl2xwPwW0gYw8TwvNmHLSBygk1gcz5r61gdxshq3zqkmldcSXxw
- 1Vt9piyKe+GoktRlwpD0ge6s6EFlmfZSlYnJOWx3u7e7kkociT/Z+y0kjCsavFInq+Ex
- AjC7jcA9bGaf6Fprw02SIzBrowPqSqsiUbK6GAT0PPyfnxpBMYiN7oyVBFOfWwDWIm7P
- OcUA==
-X-Gm-Message-State: AOAM533LG/BslgNX+S2j9iYOeg3zdVVMTKe81gGpOjvk3bI/SIQI/+Gg
- cyVytrZNh/2aD6ORZgjkTWfOUw==
-X-Google-Smtp-Source: ABdhPJwuqul2WTZrr6xhkm1p+58Y11+q37mOxYmOZK51ca5s/4q/F/MIfrRIm+VTh9ySZMN7V9F+qQ==
-X-Received: by 2002:a17:90a:d90b:: with SMTP id
- c11mr37450pjv.211.1641856009160; 
- Mon, 10 Jan 2022 15:06:49 -0800 (PST)
-Received: from google.com (157.214.185.35.bc.googleusercontent.com.
- [35.185.214.157])
- by smtp.gmail.com with ESMTPSA id d1sm4554170pgd.66.2022.01.10.15.06.48
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 10 Jan 2022 15:06:48 -0800 (PST)
-Date: Mon, 10 Jan 2022 23:06:44 +0000
-From: Sean Christopherson <seanjc@google.com>
-To: Chao Gao <chao.gao@intel.com>
-Cc: kvm@vger.kernel.org, pbonzini@redhat.com, kevin.tian@intel.com,
- tglx@linutronix.de, Marc Zyngier <maz@kernel.org>,
- James Morse <james.morse@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
- Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Anup Patel <anup.patel@wdc.com>,
- Atish Patra <atish.patra@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>,
- David Hildenbrand <david@redhat.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
- Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>,
- "Maciej S. Szmigiero" <maciej.szmigiero@oracle.com>,
- Fabiano Rosas <farosas@linux.ibm.com>,
- Ravi Bangoria <ravi.bangoria@linux.ibm.com>,
- =?iso-8859-1?Q?C=E9dric?= Le Goater <clg@kaod.org>,
- Bharata B Rao <bharata@linux.ibm.com>, Nicholas Piggin <npiggin@gmail.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
- linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
-Subject: Re: [PATCH 3/6] KVM: Remove opaque from
- kvm_arch_check_processor_compat
-Message-ID: <Ydy8BCfE0jhJd5uE@google.com>
-References: <20211227081515.2088920-1-chao.gao@intel.com>
- <20211227081515.2088920-4-chao.gao@intel.com>
+ id 1n75ax-00EAfS-FK; Tue, 11 Jan 2022 01:05:05 +0000
+X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R951e4; CH=green; DM=||false|;
+ DS=||; FP=0|-1|-1|-1|0|-1|-1|-1; HT=e01e04407; MF=yang.lee@linux.alibaba.com;
+ NM=1; PH=DS; RN=11; SR=0; TI=SMTPD_---0V1WtPEy_1641863096; 
+Received: from localhost(mailfrom:yang.lee@linux.alibaba.com
+ fp:SMTPD_---0V1WtPEy_1641863096) by smtp.aliyun-inc.com(127.0.0.1);
+ Tue, 11 Jan 2022 09:04:57 +0800
+From: Yang Li <yang.lee@linux.alibaba.com>
+To: anup@brainfault.org
+Cc: atishp@atishpatra.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Yang Li <yang.lee@linux.alibaba.com>, Abaci Robot <abaci@linux.alibaba.com>
+Subject: [PATCH -next] RISC-V: KVM: remove unneeded semicolon
+Date: Tue, 11 Jan 2022 09:04:54 +0800
+Message-Id: <20220111010454.126241-1-yang.lee@linux.alibaba.com>
+X-Mailer: git-send-email 2.20.1.7.g153144c
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20211227081515.2088920-4-chao.gao@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220110_150653_447510_21CD6EC0 
-X-CRM114-Status: UNSURE (   7.83  )
+X-CRM114-CacheID: sfid-20220110_170503_720376_E9811600 
+X-CRM114-Status: UNSURE (   6.56  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,13 +61,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 27, 2021, Chao Gao wrote:
-> No arch implementation uses this opaque now.
+Eliminate the following coccicheck warning:
+./arch/riscv/kvm/vcpu_sbi_v01.c:117:2-3: Unneeded semicolon
 
-Except for the RISC-V part, this can be a pure revert of commit b99040853738 ("KVM:
-Pass kvm_init()'s opaque param to additional arch funcs").  I think it makes sense
-to process it as a revert, with a short blurb in the changelog to note that RISC-V
-is manually modified as RISC-V support came along in the interim.
+Reported-by: Abaci Robot <abaci@linux.alibaba.com>
+Signed-off-by: Yang Li <yang.lee@linux.alibaba.com>
+---
+ arch/riscv/kvm/vcpu_sbi_v01.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/riscv/kvm/vcpu_sbi_v01.c b/arch/riscv/kvm/vcpu_sbi_v01.c
+index 4c7e13ec9ccc..9acc8fa21d1f 100644
+--- a/arch/riscv/kvm/vcpu_sbi_v01.c
++++ b/arch/riscv/kvm/vcpu_sbi_v01.c
+@@ -114,7 +114,7 @@ static int kvm_sbi_ext_v01_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	default:
+ 		ret = -EINVAL;
+ 		break;
+-	};
++	}
+ 
+ 	return ret;
+ }
+-- 
+2.20.1.7.g153144c
+
 
 _______________________________________________
 linux-riscv mailing list
