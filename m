@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11AC5C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jan 2022 18:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 325B1C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jan 2022 18:53:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NaO+zS4WaJaz5KgfbplQuO0wcEsJWJdrJcRBGRdCRd0=; b=fMdHBf8E6h8ySF
-	GhpUraY4qiF+YPbTEx2t65B8Lqgk+/iRCFsIM9NS3c5m/+PxQAla/Jl8scKzm9LI3lWV5KxnnRTGk
-	pXoyGFosNyLDes5b/XDifBJszPjxfVGojTPo5NQW0YiudlJGS3Q2ZoQJnwC+g4L3tNJbFDgOetbpY
-	5WoiZYKq0Z3imwRthg3EmB6G4Ucw7doWB42aHI4zksASk99Jz94uGuRnTMngG8V6fOa39KSwDG2Aj
-	qWIVekbPZhicQ9c4Q8ndvoTAtMCjjl6hYRyMCk+tfGdLM4FdMhlJDJmVZ4lMrf3MFRaG7jVr+SlMX
-	pDF7o1NHr4rjadlIwwTw==;
+	List-Owner; bh=jZxjyuuzSTLALjmlegeBrIC2bxa3YsCoCBaxRrudSMI=; b=Ryc7vZaYn02K+Z
+	Wslr7KQXecIM4Dw9ddoakXfZ1pBKVix+SuziqlzU/Ev4VRe0FvgmMry4yafEFg3zH8juUmBp+wvFJ
+	wprT99G5S8aQvh7tRSjl/l+erYZuWABCaA2BLIq3ul4FxbbdB8r6llrPJCsaxM5r7jGnUGUrMNzJp
+	agrltDwtjCKex+BQ7CziPvJAqREGgTx0jFtBWgYJVRsHNN0DZSJVY/UHhWgRLCJXlP5m9zPtrWaqg
+	90EOGfUTOiCPihbrlD2xTL0dvQ/P46dlhBLPVhh62Va5+3fi4wkszU6s2bO5CzXPTIkdVPK2srB/n
+	VANfRWNRPvax8DK6qJpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n7M9r-00HHwI-KC; Tue, 11 Jan 2022 18:46:11 +0000
-Received: from mail-yb1-xb29.google.com ([2607:f8b0:4864:20::b29])
+	id 1n7MGL-00HJh1-6A; Tue, 11 Jan 2022 18:52:53 +0000
+Received: from mga06.intel.com ([134.134.136.31])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n7M9o-00HHuv-3n
- for linux-riscv@lists.infradead.org; Tue, 11 Jan 2022 18:46:10 +0000
-Received: by mail-yb1-xb29.google.com with SMTP id p5so42750104ybd.13
- for <linux-riscv@lists.infradead.org>; Tue, 11 Jan 2022 10:46:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=sM8wuZyLOamyQ+NaAWxgxygW9jRKD3OsUdPukmMlL1U=;
- b=OpLYe3hGobUDsobWW/zx65mRZbZ+bnV73uNhO5xjHnaneVs0YX2ZC/o290orDokc0u
- WNiWHsAC9xKw+VU2KOnbLTcKHOqsdO5P1aE1IXFuxwY4ZDxpzzL/jn+Lw37Pt6HUlJdW
- LTMdizaDElo92GlzxfbX8joJBw9EPa9Fmw2r0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=sM8wuZyLOamyQ+NaAWxgxygW9jRKD3OsUdPukmMlL1U=;
- b=vRt9pkvw15xC0KBz4D5GbaoBPWN11bDbNfOVWiUjPDjE9Y1ALcR+sZhMnnMGjizNG6
- WSvup+tbf0et69DmuApovmmEqzq/ghz5k4c5B5inlKvlxKYXpOP9cxGT1XyBGTAx1q7U
- 34jM4asrCqCwslnh4kAOeV+I0T5RQwtb5Ag/Uxlqui0bsqd9ne+NhyVs8qEgSKgjY45d
- NODM8vkG/lzOBJFmnCy9EN4Ilw7u/cgHuZHPdKoGqSDpg88wK/Nz0nNMBlsb/SMnYbKL
- JjI4FPd+6p/VGQEvELPxqQ9kUKNej/U+GhUQ0V9YtGV7WqAL43B4UUiJjnx1J4kqE8T3
- 4b1w==
-X-Gm-Message-State: AOAM532o0xjJhZ+KJzo+4XgXTCFuoiaM/UVGCRg7BkQvb4n2I3g9G/cJ
- zO1MqqykHhnwSJ7UcGg0iQskBcENSYPbuikuPr2u
-X-Google-Smtp-Source: ABdhPJx0Y8SQdmOLymALspxxE440M5sdcmWqHQIm5ZCLL7vr2lFtY9Dk3p4WLCtnG5DHhsKNkV8pIQcewm2Nq+Si/qc=
-X-Received: by 2002:a25:d14c:: with SMTP id i73mr832991ybg.713.1641926766802; 
- Tue, 11 Jan 2022 10:46:06 -0800 (PST)
+ id 1n7MGF-00HJe7-IS
+ for linux-riscv@lists.infradead.org; Tue, 11 Jan 2022 18:52:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+ d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+ t=1641927167; x=1673463167;
+ h=message-id:date:mime-version:subject:to:cc:references:
+ from:in-reply-to:content-transfer-encoding;
+ bh=Sua0LrwqqZdGAfIsKVCvbngimpLDy6yy/a/Faw9JSso=;
+ b=WVP8DLUSrZsVjIn9XftzLKsCN9UVQxz8iO2Rtyu8+KxB4fuuAgx/fwAe
+ B7oZWoIq4yROGT5yDA30X1UzZyXti3pHQYOKVz+j6zDxYEXrAmnS63Mu9
+ 6yWHJiGyab2bf/kLhjFjKuFEFMdJ3pxdS2DvTahB/0aK6gtycAbUwpWx4
+ oRTskmIxB2SauxAGEaRL76qwpWIgoyYA0vyxWJsemAbfF5Jxh7SOLCH8B
+ tQwECxtyMmEQk8/NO/CQ4NH70CnQiafBM0n0KXbUbgCNAdjRyvLNefh0u
+ iAhN3UXJLvKScROuUYzgvsIAmeBcGPduVxArw5iFdhbW+YdG8N09mnfZZ Q==;
+X-IronPort-AV: E=McAfee;i="6200,9189,10224"; a="304299756"
+X-IronPort-AV: E=Sophos;i="5.88,279,1635231600"; d="scan'208";a="304299756"
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+ by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 11 Jan 2022 10:52:45 -0800
+X-IronPort-AV: E=Sophos;i="5.88,279,1635231600"; d="scan'208";a="528400339"
+Received: from akleen-mobl1.amr.corp.intel.com (HELO [10.209.36.204])
+ ([10.209.36.204])
+ by fmsmga007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 11 Jan 2022 10:52:44 -0800
+Message-ID: <4b655bf8-ce56-ffe6-78b6-1f949b8df11f@linux.intel.com>
+Date: Tue, 11 Jan 2022 10:52:35 -0800
 MIME-Version: 1.0
-References: <20220111142054.18733-1-nikita.shubin@maquefel.me>
- <B6E7919C-9414-4CC1-BB86-7D358085CECD@jrtc27.com>
-In-Reply-To: <B6E7919C-9414-4CC1-BB86-7D358085CECD@jrtc27.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 11 Jan 2022 10:45:56 -0800
-Message-ID: <CAOnJCUJ6JNY9eWrPhGi3XK3omDwXhM37oimsZoqxbOP_f7vUog@mail.gmail.com>
-Subject: Re: [RFC PATCH 0/1] perf tools: Add 'm' event modifier for counting
-To: Jessica Clarke <jrtc27@jrtc27.com>
-Cc: Nikita Shubin <nikita.shubin@maquefel.me>,
- Atish Patra <atishp@rivosinc.com>, 
- linux-riscv <linux-riscv@lists.infradead.org>, linux <linux@yadro.com>, 
- Nikita Shubin <n.shubin@yadro.com>, Peter Zijlstra <peterz@infradead.org>, 
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, 
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.4.1
+Subject: Re: [RFC PATCH 1/1] perf tools: Add 'm' event modifier for counting
+ machine
+Content-Language: en-US
+To: Nikita Shubin <nikita.shubin@maquefel.me>
+Cc: Atish Patra <atishp@rivosinc.com>, linux-riscv@lists.infradead.org,
+ linux@yadro.com, Nikita Shubin <n.shubin@yadro.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
  Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@redhat.com>, 
- Namhyung Kim <namhyung@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Kajol Jain <kjain@linux.ibm.com>, Andi Kleen <ak@linux.intel.com>, 
- Jin Yao <yao.jin@linux.intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, Ian Rogers <irogers@google.com>, 
- John Garry <john.garry@huawei.com>, Riccardo Mancini <rickyman7@gmail.com>,
- Song Liu <song@kernel.org>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, linux-perf-users@vger.kernel.org, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+ Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
+ Kajol Jain <kjain@linux.ibm.com>, Adrian Hunter <adrian.hunter@intel.com>,
+ Kan Liang <kan.liang@linux.intel.com>, Jin Yao <yao.jin@linux.intel.com>,
+ Ian Rogers <irogers@google.com>, John Garry <john.garry@huawei.com>,
+ Riccardo Mancini <rickyman7@gmail.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>, Song Liu <song@kernel.org>,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20220111142054.18733-1-nikita.shubin@maquefel.me>
+ <20220111142054.18733-2-nikita.shubin@maquefel.me>
+From: Andi Kleen <ak@linux.intel.com>
+In-Reply-To: <20220111142054.18733-2-nikita.shubin@maquefel.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220111_104608_237935_C154B651 
-X-CRM114-Status: GOOD (  25.04  )
+X-CRM114-CacheID: sfid-20220111_105247_712162_42A83E38 
+X-CRM114-Status: UNSURE (   4.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,82 +88,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 11, 2022 at 6:29 AM Jessica Clarke <jrtc27@jrtc27.com> wrote:
->
-> On 11 Jan 2022, at 14:20, Nikita Shubin <nikita.shubin@maquefel.me> wrote:
-> >
-> > From: Nikita Shubin <n.shubin@yadro.com>
-> >
-> > This patch is a proposal to add Machine Mode modifier that is currently
-> > available only for RISC-V for perf tool.
-> >
-> > We don't currently have a level that is lower than kernel, so i don't
-> > see we can reuse something existing for this purpose.
-> >
 
-Thanks for a quick turnaround with a working patch!!
-
-However, the use case can be applied to other arch as well. It would
-be good to classify this
-as excluding "firmware" events instead of machine mode which is a
-RISC-V terminology.
-Ofcourse, the current documentation should indicate that this option
-is only useful
-for RISC-V right now.
-
-I would like to understand if this idea is appealing to the broader community.
-
-> > The exclude_machine bit seems harmless to as no one will proccess it apart
-> > of riscv.
->
-> Armv8 has equivalent bits in PMEVTYPER<n>_EL0 and PMCCFILTR_EL0 for
-> EL-based filtering, which includes filtering EL3.
->
-> Jess
->
-> > Patch depends on Atish Patra PMU series:
-> > https://lwn.net/Articles/879905/
-> > + some modifications to pass execlude event to SBI PMU extension
-> >
-> > Tested with qemu.
-> >
-> > Nikita Shubin (1):
-> >  perf tools: Add 'm' event modifier for counting machine
-> >
-> > include/uapi/linux/perf_event.h        |  3 ++-
-> > tools/include/uapi/linux/perf_event.h  |  3 ++-
-> > tools/perf/Documentation/perf-list.txt |  1 +
-> > tools/perf/tests/parse-events.c        | 18 ++++++++++++++++++
-> > tools/perf/util/evsel.c                |  4 +++-
-> > tools/perf/util/parse-events.c         | 18 +++++++++++++-----
-> > tools/perf/util/parse-events.l         |  2 +-
-> > 7 files changed, 40 insertions(+), 9 deletions(-)
-> >
-> > --
-> > 2.31.1
-> >
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>   
+>    u - user-space counting
+>    k - kernel counting
+> + m - machine counting
 
 
+You really need to explain what "machine counting" actually is, as well 
+that is likely irrelevant for most CPUs.
 
--- 
-Regards,
-Atish
+I also didn't see that anywhere in the commit logs.
+
+-Andi
+
 
 _______________________________________________
 linux-riscv mailing list
