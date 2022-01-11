@@ -4,79 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51F67C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jan 2022 02:44:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AD7DC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jan 2022 03:09:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JTMwCAvQRgU1LydogOJs99YLsfGAu0p9FXSAGGA3a/o=; b=ehGwwQU7RPkCcp
-	qqx3CJUT5a7SB3nVN75dsH2WejX2+GIONZfzh7G6Q8mR2lz4Nke1etoS0t+dAo3zBoWuqB7zGbT1a
-	StS9iJa7+5dSwkz8yePe2yzw7wbs7VJMuKe1lFxDAnX6CoUGVpv7rtGj33L7hTi1mPKGN/bo/OvP8
-	Qa5tKkZaq+sLaR8DX6/gu/DfKR3bsv0cvqlixZUCIJSpOKt+cH54oVwxskO2aCmfkrd6+3CT/oFNt
-	Y3aasGfWyLnp7KeVanoLiERIXln4HJ47IpgQHfAKVmrwZQ1VSbRn4dc584YZyoD9lOB4IhsqFHFLw
-	WDzZHaAybFlIVTJQzD/A==;
+	List-Owner; bh=OdSGm63H8NgCGgEvCpwZgvkAo/lp9DXyxcRzH4PsqLI=; b=dFr6+W1Q5W8Lyb
+	s1040+RP+Gas8h6aVhV4wRKjeW79ezuesc4zugNpZKoJEp8ryaPdIuWh+BZ3MKmaoyJinDxBJD3gt
+	bTknHPphacQhN+EeC6JJFkzOWG/n2A9h2nITjIzIUvnJmWdWvIORsyvkZSCubPYTl0Gdtx+GYTkl2
+	rZbAUsBi/hlMQZ9RODWAo6YpHIpXjNZs+tHcTjTeo2ixj7YcbDkhqVwEgvpQooKPK5jUdoI7u0aZm
+	E10TZSiEaLe5bSEoKccpil/xJsD7ly22Cu3IDj5QvYzryl94M05odeEgRxL3FB9KMGzgESw57t6gB
+	I5LgVbLzH02FeutcA0lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n7793-00EKA6-Rs; Tue, 11 Jan 2022 02:44:21 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1n77Wp-00EPBZ-GY; Tue, 11 Jan 2022 03:08:55 +0000
+Received: from mga09.intel.com ([134.134.136.24])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n778q-00EK6A-QV; Tue, 11 Jan 2022 02:44:10 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 49571B8182F;
- Tue, 11 Jan 2022 02:44:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E8ACC36AFA;
- Tue, 11 Jan 2022 02:44:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1641869045;
- bh=ZU/rHB8FnpSXUsKne+pbLzZ+noAo0MmMuqR+JolfoEE=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=FIXZmAOcNHXQ7ZM8JZhHkhdBWZszVi+ECpPOUMS7Q2uAMUWdtSKJgKxm4iPtpaQ5x
- I21P4xp3+iDmYip4C+ATD3Hqnxzlkk/Y+fOC3iOZWcI+MAk1G6A6JbeyITPek/lmAz
- pnP/Qdgpq7CWUIHiMFxdqzslfvavEROTb5R2s9RhCijilg8mEIkXGHdcQroc6CN9GY
- MmBTswGCNQ7Dcolsem3eW0EaTRnKzPoPSa0G+/Xhq2TnZaSOhdNbMk8usIMM9zp34/
- iYYC2acRHzBNo+XfhlJmI0nEozUnX/UaLGUcwGJVd5qv1KqMl88lPx4k3JUHzNSEpi
- SMbg8w1JgJPaw==
-Received: by mail-vk1-f170.google.com with SMTP id 191so4799120vkc.1;
- Mon, 10 Jan 2022 18:44:05 -0800 (PST)
-X-Gm-Message-State: AOAM5334A6qvQyh6DonmkdMZXbYubli2MhX4b1TZHu4RpSDmxaGeEJji
- mS5y4lxMjrvuVUf7ef4ZKy6uSQgLTiLBgRFp/a0=
-X-Google-Smtp-Source: ABdhPJxiL77rGTLuws5g7KGQ/X9mfhysvv2bOJP9MXedX7dnBC1sSY9bwxU9DL7TLgPk3W1o87rBKfppwaCBYGQoNO8=
-X-Received: by 2002:a1f:e243:: with SMTP id z64mr1284031vkg.28.1641869044562; 
- Mon, 10 Jan 2022 18:44:04 -0800 (PST)
+ id 1n77Wn-00EPA9-Na; Tue, 11 Jan 2022 03:08:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+ d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+ t=1641870533; x=1673406533;
+ h=date:from:to:cc:subject:message-id:references:
+ mime-version:in-reply-to;
+ bh=RMI1RbSj7Nf4sUd+ZkqJlzpz1NnGp0vcp4SZw2pUIQ4=;
+ b=NM/k1HB5Oy1rib0Q02sJLahk/FcOfjglC7YTGeL+PclBMumu0OqzdTlb
+ bY5L3yWQJSXR2aCYanivheTsnaP8wjvsMd7DUSTw5y5A2sI27M5MVVmrT
+ IbSQniFrsZ1V/ejPnQWoGHll5ak60ZvqrbXjdVrb+5YurIIF0kE6zER6D
+ 9aiU6CPkjptCY+4anUd1kSlrnA85ReqXkt5goBfPgibLgKKp4t3gmSCaa
+ WgZudJyvXZ8A/dflcBzEL4V8MeWf45VHDpKmKIAA7R2ZYDtsA+U8iIojQ
+ B3s4O7yPNrWJS/r5LX3QYCYrKVTzs7ssltUp1CoWeZG4nhtVWg2vTmT95 w==;
+X-IronPort-AV: E=McAfee;i="6200,9189,10223"; a="243186997"
+X-IronPort-AV: E=Sophos;i="5.88,278,1635231600"; d="scan'208";a="243186997"
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+ by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 10 Jan 2022 19:08:50 -0800
+X-IronPort-AV: E=Sophos;i="5.88,278,1635231600"; d="scan'208";a="622907157"
+Received: from gao-cwp.sh.intel.com (HELO gao-cwp) ([10.239.159.105])
+ by orsmga004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 10 Jan 2022 19:08:40 -0800
+Date: Tue, 11 Jan 2022 11:19:34 +0800
+From: Chao Gao <chao.gao@intel.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: kvm@vger.kernel.org, pbonzini@redhat.com, kevin.tian@intel.com,
+ tglx@linutronix.de, Marc Zyngier <maz@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>, Anup Patel <anup.patel@wdc.com>,
+ Atish Patra <atish.patra@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ David Hildenbrand <david@redhat.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
+ Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>,
+ "Maciej S. Szmigiero" <maciej.szmigiero@oracle.com>,
+ Fabiano Rosas <farosas@linux.ibm.com>,
+ Ravi Bangoria <ravi.bangoria@linux.ibm.com>,
+ =?iso-8859-1?Q?C=E9dric?= Le Goater <clg@kaod.org>,
+ Bharata B Rao <bharata@linux.ibm.com>, Nicholas Piggin <npiggin@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
+ linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
+Subject: Re: [PATCH 3/6] KVM: Remove opaque from
+ kvm_arch_check_processor_compat
+Message-ID: <20220111031933.GB2175@gao-cwp>
+References: <20211227081515.2088920-1-chao.gao@intel.com>
+ <20211227081515.2088920-4-chao.gao@intel.com>
+ <Ydy8BCfE0jhJd5uE@google.com>
 MIME-Version: 1.0
-References: <20211228143958.3409187-1-guoren@kernel.org>
- <20211228143958.3409187-4-guoren@kernel.org>
- <CAK8P3a2zn9M6X09WsjJ9HYiS9WnO_YPCvJLSBk+HaH+yZHQqfA@mail.gmail.com>
-In-Reply-To: <CAK8P3a2zn9M6X09WsjJ9HYiS9WnO_YPCvJLSBk+HaH+yZHQqfA@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 11 Jan 2022 10:43:53 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTzUV1teCh0Avw7rTsrd=50atKGCdpQsVyEeUus1TeGjA@mail.gmail.com>
-Message-ID: <CAJF2gTTzUV1teCh0Avw7rTsrd=50atKGCdpQsVyEeUus1TeGjA@mail.gmail.com>
-Subject: Re: [PATCH V2 03/17] asm-generic: fcntl: compat: Remove duplicate
- definitions
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup.patel@wdc.com>, 
- gregkh <gregkh@linuxfoundation.org>, liush <liush@allwinnertech.com>, 
- Wei Fu <wefu@redhat.com>, Drew Fustini <drew@beagleboard.org>, 
- Wang Junqiang <wangjunqiang@iscas.ac.cn>, Christoph Hellwig <hch@infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
- linux-s390 <linux-s390@vger.kernel.org>,
- sparclinux <sparclinux@vger.kernel.org>, 
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, inux-parisc@vger.kernel.org, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>,
- Jeff Layton <jlayton@kernel.org>, "J. Bruce Fields" <bfields@fieldses.org>, 
- Linux FS-devel Mailing List <linux-fsdevel@vger.kernel.org>
+Content-Disposition: inline
+In-Reply-To: <Ydy8BCfE0jhJd5uE@google.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220110_184409_146646_013356A6 
-X-CRM114-Status: GOOD (  28.15  )
+X-CRM114-CacheID: sfid-20220110_190853_870349_4C5A4C97 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,68 +113,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 10, 2022 at 9:35 PM Arnd Bergmann <arnd@arndb.de> wrote:
+On Mon, Jan 10, 2022 at 11:06:44PM +0000, Sean Christopherson wrote:
+>On Mon, Dec 27, 2021, Chao Gao wrote:
+>> No arch implementation uses this opaque now.
 >
-> On Tue, Dec 28, 2021 at 3:39 PM <guoren@kernel.org> wrote:
-> >
-> > From: Guo Ren <guoren@linux.alibaba.com>
-> >
-> > Remove duplicate F_GETLK64,F_SETLK64,F_SETLKW64 definitions in
-> > arch/*/include/asm/compat.h.
-> >
-> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > Signed-off-by: Guo Ren <guoren@kernel.org>
-> > Cc: Arnd Bergmann <arnd@arndb.de>
->
-> Unfortunately, this one does not look correct to me:
->
-> > @@ -116,7 +116,7 @@
-> >  #define F_GETSIG       11      /* for sockets. */
-> >  #endif
-> >
-> > -#ifndef CONFIG_64BIT
-> > +#if !defined(CONFIG_64BIT) || defined(CONFIG_COMPAT)
-> >  #ifndef F_GETLK64
-> >  #define F_GETLK64      12      /*  using 'struct flock64' */
-> >  #define F_SETLK64      13
->
-> The problem here is that include/uapi/ headers cannot contain checks for
-> CONFIG_* symbols because those may have different meanings in user space
-> compared to kernel.
->
-> This is a preexisting problem in the header, but I think the change
-> makes it worse.
->
-> With the current behavior, user space will always see the definitions,
-> unless it happens to have its own definition for CONFIG_64BIT already.
-> On 64-bit parisc, this has the effect of defining the macros to the
-> same values as F_SETOWN/F_SETSIG/F_GETSIG, which is potentially
-> harmful. On MIPS, it uses values that are different from the 32-bit numbers
-> but are otherwise unused. Everywhere else, we get the definition from
-> the 32-bit architecture in user space, which will do nothing in the kernel.
->
-> The correct check for a uapi header would be to test for
-> __BITS_PER_LONG==32. We should probably do that here, but
-> this won't help you move the definitions, and it is a user-visible change
-> as the incorrect definition will no longer be visible. [Adding Jeff and Bruce
-> (the flock mainainers) to Cc for additional feedback on this]
->
-> For your series, I would suggest just moving the macro definitions to
-> include/linux/compat.h along with the 'struct compat_flock64'
-> definition, and leaving the duplicate one in the uapi header unchanged
-> until we have decided on a solution.
-Okay.
+>Except for the RISC-V part, this can be a pure revert of commit b99040853738 ("KVM:
+>Pass kvm_init()'s opaque param to additional arch funcs").  I think it makes sense
+>to process it as a revert, with a short blurb in the changelog to note that RISC-V
+>is manually modified as RISC-V support came along in the interim.
 
->
->         Arnd
+commit b99040853738 adds opaque param to kvm_arch_hardware_setup(), which isn't
+reverted in this patch. I.e., this patch is a partial revert of b99040853738
+plus manual changes to RISC-V. Given that, "process it as a revert" means
+clearly say in changelog that this commit contains a partial revert of commit
+b99040853738 ("KVM: Pass kvm_init()'s opaque param to additional arch funcs").
 
-
-
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+Right?
 
 _______________________________________________
 linux-riscv mailing list
