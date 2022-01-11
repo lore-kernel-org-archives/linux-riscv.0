@@ -4,49 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61225C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jan 2022 01:11:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E898C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jan 2022 01:57:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qMFZOJ0oG4cggivpNANQ/tk3zgSXwHrkwXUrHRTUhCw=; b=bAZ9YQislfZa4w
-	2lyQEC6x4GQDBsbyg85yCVgpNxdpV+v1dBg71VZgD1NqYTLlgTJ078mWiI/tMTjKJX3u9tD1SU1zk
-	3zNvvSYaoTE3zYvVe+o4dKXZKVAPT0l5jh5JdoUYK5MbZBQ5LCg9DnR46Kvr8FosCOx4tmjlCTs/R
-	DBHNqZF2GtHHYXCcJCWjZoZ/e7JhFN0byk4PX+0/9jUTlhzjtyyFBu1WJxy+9casNXxRpHSdXR4dB
-	w6ccsv2+0X7vo50rQt2GTEtnmxFgKkXVm6onAeb4eG8AGxzidf8MrpV6vfbHslXMRIaT3dmj9wc/2
-	MyVl8H02z4mwv4Y9EIfA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uMv7WLvbP4xNW3vd322bQQLCvYsY+DgQAON+1r9O4X0=; b=SRbWwQB7nKz5pF
+	Ax6NieffyGzN8mPGS4oNuGAd3Ck5r1Jf6AJViYuh0h/EzO/rZsKy04CVQePXA9QeLrqfjNI0UPRMa
+	b2h8YicG3hSMfIRcmxS3ddfGhEFO5s8Vlq/uE7pfA71yBhRNg2ccbP5T0ABqoRuciwkoDg776InjG
+	te00RdUXOccJzvkBpbArK/20lBU9Mlt4jNutr0CLEyg87Zs/z086Bdrm15NXKZLQJxcEZ3svK0IXK
+	7MNm6uH7GUCZsvwSjqO/PgIa6UD6uMZPkdY0nxtIRlq4PxkT7GnnuNn6v7ehdcLwtz5lj+nU9FAmY
+	yHthtaqAcijSO1lKRy+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n75hT-00EBMe-MQ; Tue, 11 Jan 2022 01:11:47 +0000
-Received: from out30-44.freemail.mail.aliyun.com ([115.124.30.44])
+	id 1n76PL-00EHVw-Eb; Tue, 11 Jan 2022 01:57:07 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n75hP-00EBLW-St
- for linux-riscv@lists.infradead.org; Tue, 11 Jan 2022 01:11:45 +0000
-X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R861e4; CH=green; DM=||false|;
- DS=||; FP=0|-1|-1|-1|0|-1|-1|-1; HT=e01e01424; MF=yang.lee@linux.alibaba.com;
- NM=1; PH=DS; RN=11; SR=0; TI=SMTPD_---0V1X8SuR_1641863499; 
-Received: from localhost(mailfrom:yang.lee@linux.alibaba.com
- fp:SMTPD_---0V1X8SuR_1641863499) by smtp.aliyun-inc.com(127.0.0.1);
- Tue, 11 Jan 2022 09:11:40 +0800
-From: Yang Li <yang.lee@linux.alibaba.com>
-To: shuah@kernel.org
-Cc: pbonzini@redhat.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, kvm@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Yang Li <yang.lee@linux.alibaba.com>,
- Abaci Robot <abaci@linux.alibaba.com>
-Subject: [PATCH -next] KVM: selftests: remove unneeded semicolon
-Date: Tue, 11 Jan 2022 09:11:38 +0800
-Message-Id: <20220111011138.3929-1-yang.lee@linux.alibaba.com>
-X-Mailer: git-send-email 2.20.1.7.g153144c
+ id 1n76PI-00EHVA-6F
+ for linux-riscv@lists.infradead.org; Tue, 11 Jan 2022 01:57:05 +0000
+Received: by mail-lf1-x134.google.com with SMTP id g11so51051032lfu.2
+ for <linux-riscv@lists.infradead.org>; Mon, 10 Jan 2022 17:56:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=tezxY2J06qhj7ov7742qW1p6EILBDEbMRTBUVeQPkvo=;
+ b=buCvymbn8/qQJdU8bjvND2DQ21cgq5eCD6EU/xlyXOirMVhyD8bmJNLG7SO20LjLa+
+ kxl+6Oc/q6NqZbLRk95NMCHkXOaAgreCkl/EoML1qCcIlK8L9MZK/9quEN5n726JDmRA
+ LANIBuHAbucgweYbvAr1kDzt09xwsubl7LrqhSxenMnXvfCOt9y1gbRnx05K1G+USBNJ
+ DbFPFiAMblWbhWo3UE+QeHZzEwU519n1kF471TZ1Dwl/duIPnUa3whZzHExWTSUvTC7L
+ aTpsA7ViXESqUf+5xCsQIhFm3JETYA8SvftBHWdTGGs0y2qL66/IlaqEy9zqAjS7J2m4
+ Rjdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=tezxY2J06qhj7ov7742qW1p6EILBDEbMRTBUVeQPkvo=;
+ b=UC7BnI4zxt+B0jjjaE/yeFF0PosmR3FkjgnmZVzmqCLCUHq20CaNoh5ErTkrZQ7UjZ
+ hJx8az3OqQlRj71hEzALqfRIU2XTeNGyaBKGCrnggHznRIF8+MEMNgoSnhf2E/6rWvpm
+ hM9WIqXGXD1kEK0vEhA8XAQ0kwv/EzUcMaNlUwPWyib1QRvn+ITG3Ve1Og86EdsDTEV+
+ WzuswqG4Q6Ii9yHKGaQ2gMtHtnYlkofyAthgN1bbaCO7Z2873V06xHDD8knsZiMoMqo+
+ U4LZ02AdNpLkdNKJhIgKYAGldmTyv70Fquo5p7juk2VLLryyl+FfmO5zNmiRQA1JWiH2
+ WQlA==
+X-Gm-Message-State: AOAM5300JKfIX+6AhAZelYNCHXKxt+fNwLV/NzcJbbgYGIJAoENlmHQA
+ zmHSB5/JhncvtWRgkiQF2eQBz5tJRNSxkjr5mgoqCw==
+X-Google-Smtp-Source: ABdhPJyYj1U9xCeV1tG6jxMxA24J+Bqp8dsehDAUbfCEY4gC63Hr3XQfMqUzDBAVXliFyH+P/Eil7hBWTmWek2HHg/4=
+X-Received: by 2002:a05:6512:260a:: with SMTP id
+ bt10mr1754644lfb.223.1641866216357; 
+ Mon, 10 Jan 2022 17:56:56 -0800 (PST)
 MIME-Version: 1.0
+References: <cover.1641289490.git.zong.li@sifive.com>
+ <0419b2865c87f72adeb4edee9113a959e468b4a5.1641289490.git.zong.li@sifive.com>
+ <CAMuHMdUyYVBXAeJ8XS9OsUePpFLgpCXYT5rH_bJCvCg3eaav_w@mail.gmail.com>
+In-Reply-To: <CAMuHMdUyYVBXAeJ8XS9OsUePpFLgpCXYT5rH_bJCvCg3eaav_w@mail.gmail.com>
+From: Zong Li <zong.li@sifive.com>
+Date: Tue, 11 Jan 2022 09:56:45 +0800
+Message-ID: <CANXhq0psEs0X=w6n4_HA5P3bWWac00byGQ4CaivJSBPZMjgwdA@mail.gmail.com>
+Subject: Re: [PATCH 2/3] dt-bindings: Add dma-channels for pdma device node
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, Bin Meng <bin.meng@windriver.com>, 
+ Green Wan <green.wan@sifive.com>, Vinod <vkoul@kernel.org>, 
+ dmaengine <dmaengine@vger.kernel.org>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220110_171144_125316_3EC614FD 
-X-CRM114-Status: UNSURE (   6.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220110_175704_283987_E3307B75 
+X-CRM114-Status: GOOD (  25.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,32 +92,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Eliminate the following coccicheck warning:
-./tools/testing/selftests/kvm/lib/riscv/processor.c:353:3-4: Unneeded
-semicolon
+On Mon, Jan 10, 2022 at 5:00 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>
+> Hi Zong,
+>
+> On Wed, Jan 5, 2022 at 6:44 AM Zong Li <zong.li@sifive.com> wrote:
+> > Add dma-channels property, then we can determine how many channels there
+> > by device tree, rather than statically defines it in PDMA driver
+> >
+> > Signed-off-by: Zong Li <zong.li@sifive.com>
+>
+> Thanks for your patch!
+>
+> > --- a/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
+> > +++ b/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
+> > @@ -34,12 +34,17 @@ properties:
+> >      minItems: 1
+> >      maxItems: 8
+> >
+> > +  dma-channels:
+> > +    minimum: 1
+> > +    maximum: 4
+>
+> As per my comment on [PATCH 3/3], perhaps you want to use a default
+> value of 4, and document that here, too?
+>
 
-Reported-by: Abaci Robot <abaci@linux.alibaba.com>
-Signed-off-by: Yang Li <yang.lee@linux.alibaba.com>
----
- tools/testing/selftests/kvm/lib/riscv/processor.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Thanks for your reminder, it should be modified as well. I would
+change it and add a description in the next version.
 
-diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
-index d377f2603d98..e8d7cda99472 100644
---- a/tools/testing/selftests/kvm/lib/riscv/processor.c
-+++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
-@@ -350,7 +350,7 @@ void vcpu_args_set(struct kvm_vm *vm, uint32_t vcpuid, unsigned int num, ...)
- 		case 7:
- 			id = RISCV_CORE_REG(regs.a7);
- 			break;
--		};
-+		}
- 		set_reg(vm, vcpuid, id, va_arg(ap, uint64_t));
- 	}
- 
--- 
-2.20.1.7.g153144c
-
+> > +
+> >    '#dma-cells':
+> >      const: 1
+> >
+> >  required:
+> >    - compatible
+> >    - reg
+> > +  - dma-channels
+> >    - interrupts
+> >    - '#dma-cells'
+> >
+>
+>
+> Gr{oetje,eeting}s,
+>
+>                         Geert
+>
+> --
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+>
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                 -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
