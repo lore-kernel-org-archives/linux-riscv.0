@@ -4,82 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33D13C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jan 2022 09:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AEBFC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jan 2022 09:45:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dbDocZSi0SX1YuMPNu+Q799lSMipHU5yJbS6aqry+Is=; b=E45aHa+AZGIQT+
-	ZdRBd1x1qRwbsy5OtqfJiHoE/Xa6qNyhno2feR2IlHo3rvKNQuolMxabhmJ3QDPu57e3LCIlIxJtC
-	S+P2BFgvdg0HYCW9pnYKc8LR3/V2w5qkPLJIUwrcrMsmsjZskK7vs8Gh+aEoT/xTzs1WngjSwhRpX
-	f5jnGK9fxberh7Bkufe7UXJVrk+e/GvJ8rwvziE3N/E2pj+7MBXB4aBDoySkl/2Iwa9zHx/dMgV8B
-	p8DhRj/uftwG58BN6R+hCWLF3FkF82LWg1Def3gEf1d8iFdb5vSBfUX2LpGSEdguuOoMBM7Ssw8Dj
-	O0ktiDtZGYsvlnfCsI0A==;
+	List-Owner; bh=6TamcyiVwAwod6qoHpjDW1hroDyiP5nkKnnx8OtDJGA=; b=ZZloQDfl/NHaHq
+	K/7NCDqmXDyZ226Qv6alWn5H7VOOtks6dTJHVwyiix2rhteKOBHhQdv7UO+Zly7u/AeSjJrtRLyaL
+	k6cMhVpjRO9tE1RyoMsMQNFwgseI9bw7xgKtINsjj0+XAx71iR2FfNN0uFpJIZ/iBuIYR3oTw0+Hs
+	4mngATB97+psoQPQg0tO+jBuXKS0S4lpVY34nRGbOJYbe0rI1HYsyifdvTUCjavjokohbXi6s66L3
+	V8QoHEfWJZPFJJQ3ly038qR6Tj9ouRudN9/Lt4nQVlBCfm8icvIPaTCYW8HM04lacfpxBCMGbbhvA
+	EfIYxm4zv8PxEElUPTfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n7wV9-005HQZ-DN; Thu, 13 Jan 2022 09:34:35 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1n7wfG-005Icl-Lr; Thu, 13 Jan 2022 09:45:02 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n7wV6-005HQF-QW
- for linux-riscv@lists.infradead.org; Thu, 13 Jan 2022 09:34:34 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id p27so5704249lfa.1
- for <linux-riscv@lists.infradead.org>; Thu, 13 Jan 2022 01:34:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=BFaUjGoSq7CJXt63qYZ1DRgGRGveZoeVpigHF/5JHIs=;
- b=OZZ0AGhpKURBrrphAoZPlAwBk3kW6t6XYKMow4h8n9xldl+WbgIYjGY4KOcrl8dyak
- wWTf9L2Kr0ZolWIUnG1GqgGaSHYwWBNs/psu+cK2UyV29eL9fwKdu6l8ElJxm9M9Xjfd
- HWOuOgX+DSO1Ayi8QiZKn60Nmi69FZ3JDOxgeMahQE/t2/Jo4pIO2sIDfRE7iwZ8biDg
- JMixPoeCxyFgOoafKljyPT86K2L7Hwg0pktBE+Cn8vjHvpaWpIMRfmGUd5XbEzNffg2B
- MtmgN2pCTAXEOi3/ZMKr0MUGzSzKI/7K/h6SI800+57WHFAyM3dqErp4FivrRVa+G/9C
- Bsbw==
+ id 1n7wfB-005Ia9-V5
+ for linux-riscv@lists.infradead.org; Thu, 13 Jan 2022 09:45:00 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id
+ y16-20020a17090a6c9000b001b13ffaa625so18078398pjj.2
+ for <linux-riscv@lists.infradead.org>; Thu, 13 Jan 2022 01:44:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ventanamicro.com; s=google;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=scZAB/j3rCU6b/i4IDXGYP87Wshe7S+PQhQyZF7rlpU=;
+ b=Itt8WSddr4f6Vg0RoyAcjLP/J4i+9raQ04ORsOjm4cZc1eaV6bkH+YOwZ545GK10Zn
+ dgOOxRSTi2017CjXot1nKqGGIjzK1HtGKVUn4XYsbw3Fk8cYEEvggqk8KpxU9NPfk85G
+ a8gx39jkVMjl0npecPEul9FZonIu9ZfQO4SAmi0jT1Arq4YGrowpWaIH9NpULAvvGyBp
+ lGa4F+Y8yYgmwNKrkzZ4actTYVZyq4woOnpzL6AWmZ8QnFD60RkzMLmmaP/Duw/UHLGb
+ qGj7fbvy4KdUW2Ix0XYtyf6MOiV0DgIDJo8FfGPxYq6+TSdYdn9m1QURvaz8kvNdsAR9
+ 21mA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=BFaUjGoSq7CJXt63qYZ1DRgGRGveZoeVpigHF/5JHIs=;
- b=7MaleEci8J+wyT5268j0vTVnJ7yuH5TTVHwWBYKcEU/q9iOgPzfsN9xbWa2XGVym05
- uA1L712zld53DnFTaizu4cOrHCL9fr447ea9uGlOV1C0MLwU8Xk4qm828ADWotU8xvw2
- nIdYXES1nE9cVWzRZwDIGN1jaTk0f2p9LZsl3ql6WIzR8g47AUPUL3+BMzfYZItBhTuR
- KiHk3lrjilzeMvss5BfWlci8gCK7v1TOHlDurIanVc+XDLbuBzgDt15pYX3i21dzj7zR
- MX9QVCdcj044FbRCGzwLPhdzumk/fuFWfHm7Bz2kRMkXFVRvr7SnPqOPJWXkn0ypyh09
- 6e0g==
-X-Gm-Message-State: AOAM531Lf4KsNGOE5GtvBRyUvvZUdxQ7zGAgjRLjmOIgoBpvl0fuDpJ/
- WDMcKO5gmrj13C7wkGmGbElp+SXEedn3Ft4qPiebMA==
-X-Google-Smtp-Source: ABdhPJyOFWmaizdavabg4PJIlZzvvNVJDR+WalBfCRioqzOdzZEfBNh1SRLA5SkHkSHF4xEe1l5bY0rbPT7Iu7+GQqs=
-X-Received: by 2002:a05:6512:280c:: with SMTP id
- cf12mr2806560lfb.5.1642066471295; 
- Thu, 13 Jan 2022 01:34:31 -0800 (PST)
-MIME-Version: 1.0
-References: <cover.1641890718.git.zong.li@sifive.com>
- <78cfa00a02cbd10202040058af22a73caa9c5ae8.1641890718.git.zong.li@sifive.com>
- <CAMuHMdUogbyjU=vBuvocxofGFCwzdQndk9OTnVdP+RNA8HEFZQ@mail.gmail.com>
- <CANXhq0qpkArvELBDqOT=bnVCwvR47cxHN7oH1hYKr1Yt7zaGOQ@mail.gmail.com>
- <CANXhq0rKsAsm4oSvnVqy385shoY2uTQOGUSqYdf-D=2xJ5vgWg@mail.gmail.com>
- <CAMuHMdXUa8VCyocHzXGrQevEHiMVs_-p+qGpw_5ZFdOT66pv=Q@mail.gmail.com>
-In-Reply-To: <CAMuHMdXUa8VCyocHzXGrQevEHiMVs_-p+qGpw_5ZFdOT66pv=Q@mail.gmail.com>
-From: Zong Li <zong.li@sifive.com>
-Date: Thu, 13 Jan 2022 17:34:19 +0800
-Message-ID: <CANXhq0qzwj1XtLk2+D=HDu4ibpnT9AAhg2=F5m4th_D9M1Er1Q@mail.gmail.com>
-Subject: Re: [PATCH v2 3/3] dmaengine: sf-pdma: Get number of channel by
- device tree
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
- Conor Dooley <conor.dooley@microchip.com>, Bin Meng <bin.meng@windriver.com>, 
- Green Wan <green.wan@sifive.com>, Vinod <vkoul@kernel.org>, 
- dmaengine <dmaengine@vger.kernel.org>, 
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=scZAB/j3rCU6b/i4IDXGYP87Wshe7S+PQhQyZF7rlpU=;
+ b=VthkT/xH0/ZAAF0HAvxX7Dwji468svfxV7D+H2RSUxS7MX+HtGkyGXtZ5atE8urKsn
+ iqqTDEXXmLF45qqGyBW6PQYcXasA83L/S3wzEmtj4Q/PzELrMTwNoXcJqlpOA5hjrABt
+ iAWplrU6K+TBU8Mj9BwSWr+OFPC1jd5SolWuKeaG5i/bDcDgxlYEVOy7z+CBwx2YakjN
+ fNNb8QCzOEQfQPaS2S0OK6IAzuDz3ZlQxlCtehQEBSIXj/j+s/rf8ai9Ff92+VfTrmA7
+ UjsPjFBhm4G3bypgTffxLnhwksq367NbrapkVGg8yZN0IHmax+6MWirthOLu0ItY8HmC
+ qUzQ==
+X-Gm-Message-State: AOAM532cmrest5QFdQZ5EzIok+QfjqMJldwSm5N7qNTnHE7mVpsOpkfU
+ shuUuOQIgl3L59aR9P8R7K97Vw==
+X-Google-Smtp-Source: ABdhPJyP7cR3wTvsZ+Bqw05GJq+udCvB7QziWiD5s7WvNNfShefY/0ME/jOR5rfPArK6XJt5nFP6uw==
+X-Received: by 2002:a17:902:d898:b0:14a:41f6:7b0 with SMTP id
+ b24-20020a170902d89800b0014a41f607b0mr3644182plz.64.1642067096221; 
+ Thu, 13 Jan 2022 01:44:56 -0800 (PST)
+Received: from sunil-ThinkPad-T490 ([49.206.3.187])
+ by smtp.gmail.com with ESMTPSA id q13sm2302400pfj.65.2022.01.13.01.44.52
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 13 Jan 2022 01:44:55 -0800 (PST)
+Date: Thu, 13 Jan 2022 15:14:48 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+ Atish Patra <atishp@atishpatra.org>,
+ Anup Patel <anup@brainfault.org>, Abner Chang <abner.chang@hpe.com>,
+ Heinrich Schuchardt <xypron.glpk@gmx.de>,
+ Jessica Clarke <jrtc27@jrtc27.com>,
+ Palmer Dabbelt <palmer@rivosinc.com>, sunil.vl@gmail.com,
  linux-riscv <linux-riscv@lists.infradead.org>
+Subject: Re: Question regarding "boot-hartid" DT node
+Message-ID: <20220113094448.GA15466@sunil-ThinkPad-T490>
+References: <CAOnJCUJfEpW6TtBPFGZ9TfNJeb9r+-L_8BddsxxejAd9Fe8VHw@mail.gmail.com>
+ <CAMj1kXHGPZBfaiMCPYt7tYe+5wt_jn78Qdih9U-XLDba5sfqtQ@mail.gmail.com>
+ <6fccad4e-b579-25ed-6bf3-2fb2a968b243@canonical.com>
+ <c758bae4-3578-f062-edfd-f5835ae525fe@gmx.de>
+ <CAOnJCUJ6Aoh7881HOSifQTc61+vCTVjxnYORfWM_WGLJQCugRg@mail.gmail.com>
+ <7416157e-50d1-3664-7df0-2a45e29cd8c1@canonical.com>
+ <CAAhSdy1DOnEGpxPQF7juUSyBTyx9W8KsH8exTpOmTLOnNCMJqg@mail.gmail.com>
+ <CAOnJCU+taK16cnfnQtk3QM3s-f4RCUTWENAPe8Nhs-8L29vKew@mail.gmail.com>
+ <d7f57c7f-a02c-c245-e1ef-af30bc9f6998@canonical.com>
+ <CAMj1kXHXFXSojAUz6EDeoTkqD5AxeFTffA=RyTu5JnsAsAHsfg@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAMj1kXHXFXSojAUz6EDeoTkqD5AxeFTffA=RyTu5JnsAsAHsfg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220113_013432_942519_D477BBD0 
-X-CRM114-Status: GOOD (  45.81  )
+X-CRM114-CacheID: sfid-20220113_014458_043490_7497C820 
+X-CRM114-Status: GOOD (  67.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,117 +104,238 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 13, 2022 at 4:57 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> Hi Zong,
->
-> On Thu, Jan 13, 2022 at 8:26 AM Zong Li <zong.li@sifive.com> wrote:
-> > On Thu, Jan 13, 2022 at 2:53 PM Zong Li <zong.li@sifive.com> wrote:
-> > > On Wed, Jan 12, 2022 at 4:28 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > > On Tue, Jan 11, 2022 at 9:51 AM Zong Li <zong.li@sifive.com> wrote:
-> > > > > It currently assumes that there are always four channels, it would
-> > > > > cause the error if there is actually less than four channels. Change
-> > > > > that by getting number of channel from device tree.
-> > > > >
-> > > > > For backwards-compatible, it uses the default value (i.e. 4) when there
-> > > > > is no 'dma-channels' information in dts.
-> > > > >
-> > > > > Signed-off-by: Zong Li <zong.li@sifive.com>
-> > > >
-> > > > Thanks for your patch!
-> > > >
-> > > > > --- a/drivers/dma/sf-pdma/sf-pdma.c
-> > > > > +++ b/drivers/dma/sf-pdma/sf-pdma.c
-> > > > > @@ -484,21 +484,24 @@ static int sf_pdma_probe(struct platform_device *pdev)
-> > > > >         struct sf_pdma *pdma;
-> > > > >         struct sf_pdma_chan *chan;
-> > > > >         struct resource *res;
-> > > > > -       int len, chans;
-> > > > > -       int ret;
-> > > > > +       int len, ret;
-> > > > >         const enum dma_slave_buswidth widths =
-> > > > >                 DMA_SLAVE_BUSWIDTH_1_BYTE | DMA_SLAVE_BUSWIDTH_2_BYTES |
-> > > > >                 DMA_SLAVE_BUSWIDTH_4_BYTES | DMA_SLAVE_BUSWIDTH_8_BYTES |
-> > > > >                 DMA_SLAVE_BUSWIDTH_16_BYTES | DMA_SLAVE_BUSWIDTH_32_BYTES |
-> > > > >                 DMA_SLAVE_BUSWIDTH_64_BYTES;
-> > > > >
-> > > > > -       chans = PDMA_NR_CH;
-> > > > > -       len = sizeof(*pdma) + sizeof(*chan) * chans;
-> > > > > +       len = sizeof(*pdma) + sizeof(*chan) * PDMA_MAX_NR_CH;
-> > > >
-> > > > Why is the last part added (yes, this is a pre-existing issue)?
-> > > > struct sf_pdma already contains space for chans[PDMA_MAX_NR_CH].
-> > > > Either drop the last part, or change sf_pdma.chans[] to a flexible
-> > > > array member.
-> > > >
-> > > > BTW, you can use the struct_size() or flex_array_size() helper
-> > > > to calculate len.
-> > >
-> > > Thanks for your suggestions, let me fix it in the next version.
-> > >
-> > > >
-> > > > >         pdma = devm_kzalloc(&pdev->dev, len, GFP_KERNEL);
-> > > > >         if (!pdma)
-> > > > >                 return -ENOMEM;
-> > > > >
-> > > > > -       pdma->n_chans = chans;
-> > > > > +       ret = of_property_read_u32(pdev->dev.of_node, "dma-channels",
-> > > > > +                                  &pdma->n_chans);
-> > > > > +       if (ret) {
-> > > > > +               dev_notice(&pdev->dev, "set number of channels to default value: 4\n");
-> > > > > +               pdma->n_chans = PDMA_MAX_NR_CH;
-> > > > > +       }
-> > > > >
-> > > > >         res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> > > > >         pdma->membase = devm_ioremap_resource(&pdev->dev, res);
-> > > > > @@ -556,7 +559,7 @@ static int sf_pdma_remove(struct platform_device *pdev)
-> > > > >         struct sf_pdma_chan *ch;
-> > > > >         int i;
-> > > > >
-> > > > > -       for (i = 0; i < PDMA_NR_CH; i++) {
-> > > > > +       for (i = 0; i < pdma->n_chans; i++) {
-> > > > >                 ch = &pdma->chans[i];
-> > > >
-> > > > If dma-channels in DT > PDMA_NR_CH, this becomes an out-of-bound
-> > > > access.
-> > > >
-> > >
-> > > Okay, let me get the min() between pdma->chans and PDMA_MAX_NR_CH,
-> > > please let me know if it isn't good to you.
+On Sat, Dec 04, 2021 at 08:13:35PM +0100, Ard Biesheuvel wrote:
+> On Sat, 4 Dec 2021 at 20:03, Heinrich Schuchardt
+> <heinrich.schuchardt@canonical.com> wrote:
 > >
-> > Please allow me give more details on it, I would compare the value of
-> > pdma->chans with PDMA_MAX_NR_CH in probe function, and set the
-> > pdma->chans to PDMA_MAX_NR_CH if the value in DT is bigger than
-> > PDMA_MAX_NR_CH.
->
-> Silently limiting "dma-channels" to PDMA_MAX_NR_CH is not a good idea,
-> as that may lead to hard-to-track problems.
->
-> Basically you have two options:
->   1. Just use the value of "dma-channels" if present.
->      This has the advantage that it will work automatically with
->      future variants that have more channels, but allows the
->      developer to trigger memory exhaustion by providing a very large value.
->   2. Return -EINVAL if "dma-channels" is larger than PDMA_MAX_NR_CH.
->      This is the safest, but requires driver changes for a future variant
->       that has more channels.
+> >
+> >
+> > On 12/4/21 19:34, Atish Patra wrote:
+> > > On Fri, Dec 3, 2021 at 8:24 PM Anup Patel <anup@brainfault.org> wrote:
+> > >>
+> > >> On Sat, Dec 4, 2021 at 7:17 AM Heinrich Schuchardt
+> > >> <heinrich.schuchardt@canonical.com> wrote:
+> > >>>
+> > >>>
+> > >>>
+> > >>> On 12/4/21 01:44, Atish Patra wrote:
+> > >>>> On Fri, Dec 3, 2021 at 10:45 AM Heinrich Schuchardt <xypron.glpk@gmx.de> wrote:
+> > >>>>>
+> > >>>>> On 12/3/21 11:53 AM, Heinrich Schuchardt wrote:
+> > >>>>>> On 12/3/21 11:13, Ard Biesheuvel wrote:
+> > >>>>>>> On Thu, 2 Dec 2021 at 20:29, Atish Patra <atishp@atishpatra.org> wrote:
+> > >>>>>>>>
+> > >>>>>>>> On Thu, Dec 2, 2021 at 9:05 AM Heinrich Schuchardt
+> > >>>>>>>> <heinrich.schuchardt@canonical.com> wrote:
+> > >>>>>>>>>
+> > >>>>>>>>> On 12/2/21 17:58, Ard Biesheuvel wrote:
+> > >>>>>>>>>> On Thu, 2 Dec 2021 at 17:53, Heinrich Schuchardt
+> > >>>>>>>>>> <heinrich.schuchardt@canonical.com> wrote:
+> > >>>>>>>>>>>
+> > >>>>>>>>>>> On 12/2/21 17:20, Ard Biesheuvel wrote:
+> > >>>>>>>>>>>> On Thu, 2 Dec 2021 at 16:05, Sunil V L <sunilvl@ventanamicro.com>
+> > >>>>>>>>>>>> wrote:
+> > >>>>>>>>>>>>>
+> > >>>>>>>>>>>>> Hi All,
+> > >>>>>>>>>>>>>         I am starting this thread to discuss about the
+> > >>>>>>>>>>>>> "boot-hartid" DT node
+> > >>>>>>>>>>>>>         that is being used in RISC-V Linux EFI stub.
+> > >>>>>>>>>>>>>
+> > >>>>>>>>>>>>>         As you know, the boot Hart ID is passed in a0 register to
+> > >>>>>>>>>>>>> the kernel
+> > >>>>>>>>>>>>>         and hence there is actually no need to pass it via DT.
+> > >>>>>>>>>>>>> However, since
+> > >>>>>>>>>>>>>         EFI stub follows EFI application calling conventions, it
+> > >>>>>>>>>>>>> needs to
+> > >>>>>>>>>>>>>         know the boot Hart ID so that it can pass it to the proper
+> > >>>>>>>>>>>>> kernel via
+> > >>>>>>>>>>>>>         a0. For this issue, the solution was to add
+> > >>>>>>>>>>>>> "/chosen/boot-hartid" in
+> > >>>>>>>>>>>>>         DT. Both EDK2 and u-boot append this node in DT.
+> > >>>>>>>>>>>>>
+> > >>>>>>>>>>>>
+> > >>>>>>>>>>>> I think this was a mistake tbh
+> > >>>>>>>>>>>>
+> > >>>>>>>>>>>>>         But above approach causes issue for ACPI since ACPI
+> > >>>>>>>>>>>>> initialization
+> > >>>>>>>>>>>>>         happens late in the proper kernel. Same is true even if we
+> > >>>>>>>>>>>>> pass this
+> > >>>>>>>>>>>>>         information via SMBIOS.
+> > >>>>>>>>>>>>>
+> > >>>>>>>>>>>>
+> > >>>>>>>>>>>> It would be better to define a RISCV specific EFI protocol that the
+> > >>>>>>>>>>>> stub can call to discover the boot-hartid value. That wat, it can
+> > >>>>>>>>>>>> pass
+> > >>>>>>>>>>>> it directly, without having to rely on firmware tables.
+> > >>>>>>>>>>>
+> > >>>>>>>>>>> As discovering the current process' hartid is not a UEFI specific
+> > >>>>>>>>>>> task
+> > >>>>>>>>>>> SBI would be a better fit.
+> > >>>>>>>>>>>
+> > >>>>>>>>>>
+> > >>>>>>>>>> I disagree. The OS<->loader firmware interface is UEFI not SBI. So if
+> > >>>>>>>>>> the EFI stub needs to ask the firmware which boot-hartid it should
+> > >>>>>>>>>> pass in A0, it should use a EFI protocol and nothing else.
+> > >>>>>>>>>>
+> > >>>>>>>>>> Whether or not the loader/firmware *implements* this EFI protocol by
+> > >>>>>>>>>> calling into SBI is a different matter (and likely the best choice).
+> > >>>>>>>>>> But that does not mean the EFI stub should make SBI calls directly.
+> > >>>>>>>>>>
+> > >>>>>>>>>
+> > >>>>>>>>> The EFI stub does not need the boot-hartid. It is the main Linux kernel
+> > >>>>>>>>> that does. And that kernel already implements SBI calls.
+> > >>>>>>>>>
+> > >>>>>>>>> The main kernel could just try to read CSR mhartid which fails in
+> > >>>>>>>>> S-mode
+> > >>>>>>>>> and the SBI could emulate it.
+> > >>>>>>>>
+> > >>>>>>>> New SBI extension should be added only if there is no other way to
+> > >>>>>>>> solve a generic
+> > >>>>>>
+> > >>>>>> I am not sure this feature would be implemented as SBI extension or as a
+> > >>>>>> CSR emulation. Cf. sbi_emulate_csr_read(). But anyway it would require
+> > >>>>>> an update of the SBI specification.
+> > >>>>>>
+> > >>>>>>>> problem. The boot hartid issue is very specific to efi booting only.
+> > >>>>>>>> Any system that doesn't require
+> > >>>>>>
+> > >>>>>> The boot hartid is not EFI related at all. A firmware running single
+> > >>>>>> threaded does not need this information.
+> > >>>>>>
+> > >>>>>> Information about the boot hartid is a general OS need.
+> > >>>>>>
+> > >>>>>> I am wondering why S-mode software should not have a generic means to
+> > >>>>>> find out on which hart it is currently running.
+> > >>>>>>
+> > >>>>>>>> EFI booting won't need it. Even for EFI booting, we have other
+> > >>>>>>>> approaches already proposed
+> > >>>>>>>> to solve it. That's why, SBI extension should be the last resort
+> > >>>>>>>> rather than first.
+> > >>>>>>>>
+> > >>>>>>>> I think an RISC-V specific EFI protocol as suggested by Ard should
+> > >>>>>>>> work for all the cases.
+> > >>>>>>>> Is there a case where you think it may not work ? U-Boot & EDK2
+> > >>>>>>>> already stores the boot hartid.
+> > >>>>>>>> They just implement that protocol and pass the hartid to the caller.
+> > >>>>>>>> We do need to support it in the grub though.
+> > >>>>>>>>
+> > >>>>>>>
+> > >>>>>>> Why would GRUB care about this? The EFI stub will call into the
+> > >>>>>>> underlying firmware to invoke the protocol, GRUB is just a loader with
+> > >>>>>>> a fancy menu that allows you to select which image to load, no?
+> > >>>>>>
+> > >>>>>> This is a related discussion:
+> > >>>>>>
+> > >>>>>> https://github.com/tekkamanninja/grub/commit/be9d4f1863a1fcb1cbbd2f867309457fade8be73#commitcomment-60851029
+> > >>>>>>
+> > >>>>
+> > >>>> Yes!! Thanks for refreshing the memory. It seems after 2 years, we are
+> > >>>> still debating the same topic :).
+> > >>>> Let me summarize the thread. There are multiple ways for EFI stub code
+> > >>>> to retrieve the boot hartid.
+> > >>>>
+> > >>>> 1. EFI variables - This is what Henerich proposed last time. Ard
+> > >>>> suggested that EFI configuration tables are better candidates than EFI
+> > >>>> variables.
+> > >>>> 2. DT modification - This was preferred over the configuration table
+> > >>>> at that time given because RISC-V was DT only at that time.
+> > >>>>                                    We already had all the infrastructure
+> > >>>> around DT. Thus, DT seemed to be a natural choice then.
+> > >>>>                                    It works now for existing setup
+> > >>>> however, the DT approach will not work for systems with ACPI support.
+> > >>>>                                    Adding a similar entry in ACPI tables
+> > >>>> is possible but adding ACPI support in EFI stub is not trivial.
+> > >>>> 3. SMBIOS - Only for platforms with SMBIOS support. SMBIOS is not
+> > >>>> mandatory and adding SMBIOS support in EFI stub is not trivial.
+> > >>>> 4. SBI         -  As I mentioned before, this is an EFI specific
+> > >>>> problem because EFI stub doesn't know what the boot hartid is. Thus,
+> > >>>> it should be solved
+> > >>>>                         in an EFI specific way. An SBI extension for
+> > >>>> such features may not be acceptable as the non-EFI booting method
+> > >>>> works fine without the SBI extension.
+> > >>>> 5. RISC-V specific EFI configuration table or protocol: Ard suggested
+> > >>>> EFI configuration table last time. Earlier in this thread, EFI
+> > >>>> protocol was suggested.
+> > >>>>                         My personal preference has always been one of
+> > >>>> these as it solves the problem for all EFI booting methods
+> > >>>>                         for platforms-os
+> > >>>> combination(DT/ACPI-Linux/FreeBSD) in an EFI specific way.
+> > >>>>
+> > >>>> @Heinrich: Do you see any issue with the EFI configuration table or
+> > >>>> protocol to retrieve the boot hartid?
+> > >>>
+> > >>> There is nothing technical stopping us from implementing either option.
+> > >>>
+> > >>> We could simply reuse the EFI Device Tree Fixup Protocol
+> > >>> (https://github.com/U-Boot-EFI/EFI_DT_FIXUP_PROTOCOL) implemented in
+> > >>> U-Boot and already used by systemd-boot. Pass a devicetree (which may be
+> > >>> empty) to the Fixup() method and it will add the /chosen node with the
+> > >>> boot-hartid parameter.
+> > >>>
+> > >>> The EFI stub anyway creates a new device-tree to pass the memory map to
+> > >>> the kernel in the ACPI case (function update_fdt()). Calling the EFI
+> > >>> Device Tree Fixup Protocol could be easily added.
+> > >
+> > > Thanks. Yes. We can solve the current problem for EFI stub in Linux.
+> > >
+> > >>
+> > >> Are you suggesting that DTB (skeletal or full-blown) will always be there when
+> > >> booting the kernel as an EFI application ? If yes then we are
+> > >> indirectly mandating
+> > >> skeletal DTB for UEFI+ACPI system.
+> > >
+> > > Yes. EFI Stub tries to find a fdt from the command line (not a
+> > > preferred method) or EFI configuration table[1]
+> > > (currently used for RISC-V systems). If it can't find a device tree,
+> > > it generates one [2]
+> > >
+> > > [1] https://elixir.bootlin.com/linux/v5.16-rc3/source/drivers/firmware/efi/libstub/efi-stub.c#L231
+> > > [2] https://elixir.bootlin.com/linux/v5.16-rc3/source/drivers/firmware/efi/libstub/fdt.c#L58
+> > >
+> > > However, we may still need to define the RISC-V EFI protocol to
+> > > support ACPI for other OS (FreeBSD) which doesn't have
+> > > a stub like loader that uses DT.
+> > >
+> > > In that case, where should we document it ? UEFI spec or RISC-V platform spec ?
+> >
+> > Defining EFI protocols outside the UEFI spec has precedents, e.g. the
+> > EFI_TCG2_PROTOCOL is defined in a specification hosted by the Trusted
+> > Computing Group.
+> >
+> 
+> The 'E' in EFI means 'extensible' and the UEFI spec was never intended
+> as an exhaustive reference of all imaginable protocols. It is
+> perfectly fine to define your own protocols, and document them
+> wherever appropriate.
+> 
+> > The UEFI Forum prefers an implemention first approach. We should
+> > demonstrate with a patched EDK II or U-Boot and a patched Linux that
+> > what we define is working before creating a change request.
+> >
+> 
+> ... if needed. There is no need to incorporate this into the UEFI spec.
+> 
+> > Let's start with a draft protocol specification on Github and then
+> > develop the necessary patches.
+> >
+> 
+> Agreed.
 
-Many thanks for your tips on that. The second approach might be better
-to me, because it is safer and it seems to me that we don't currently
-have a plan to extend the channels in the pdma. I will modify it in
-the next version.
+Hi Ard,
+   Here is the draft EFI_RISCV_BOOT_PROTOCOL specification.
+   https://github.com/riscv-non-isa/riscv-uefi/releases/download/0.3/EFI_RISCV_PROTOCOL-spec.pdf
 
->
-> Gr{oetje,eeting}s,
->
->                         Geert
->
-> --
-> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
->
-> In personal conversations with technical people, I call myself a hacker. But
-> when I'm talking to journalists I just say "programmer" or something like that.
->                                 -- Linus Torvalds
+   If you are fine with this, we can freeze this spec. Thanks a lot for
+   your help on this.
+
+Thanks
+Sunil
+> 
+> And to Heinrich's point regarding that there should not be a need for
+> this protocol: I completely agree. The fact that passing the
+> boot-hartid in a0 is part of the boot protocol is unfortunate, and
+> sadly, the EFI stub needs to implement what the boot protocol
+> stipulates, even though it is not a great design to begin with.
 
 _______________________________________________
 linux-riscv mailing list
