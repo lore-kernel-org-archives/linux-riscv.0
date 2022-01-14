@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D91CCC433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jan 2022 15:16:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40BE5C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jan 2022 15:16:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sE1IHHBAnIfLFheqf9l92ABbC+DyRXRyWUVuRAu7fD0=; b=u8S/pze14YkJno
-	GFoYhC+u3lZQPyC5F7gBp+zd7Xo5XAdfuee/HfvkEVq2Rn/sZ/nByW2ZFWfFEWekdRGYXyehbINEo
-	8b9zUqXTK5OK44KjS4mMGUieWLvpkIhIvC/P0ExiQZnNOVG28iyWiov1JBAIgAJ/Lur6euAYwhz+P
-	92K9L2e3XY9y6FScZBeIvyG1+CSl8d/Tj9GsIiYcA45jKN/JaOojLV8ES3IbnpifueM2pPTIQxGes
-	MGXRXIpHvxvIJsrDkswvFKcC3ygrWX2PwnxfixoFPsTtzlSnpyJ7nGmqtE5vBVuHDAN2WDrRASv9S
-	1LCqTUe5St1t91tPFtfA==;
+	List-Owner; bh=kewLgZYZm66sPbaaypq36ezHfDsQWx/XBCdEY9vEfTQ=; b=oaRFt6bMGv5puq
+	T+OA4gYFwKzG3JX4Ai95mL/8FOoCc2qlHNL4xtQojZDYSWcJicTKbbm4d81bQzTGyFunYqVHF7Ohu
+	Xx90ESUw6TA0SKGu2RzySngj9JfwA5fMzWg4SAyg2Lv6ATpgPQqtCTCpEa3IPS0H2hLV7iRJseUOU
+	exNHTZ031McBRXGpUm9UGWNujkfQqhdDLHU2YtNNB7VjcpgTq/0abYG9JfRODzCub2o6kVfhoP6Cx
+	7aEPEfTtFaLXs5kGRChtvL1k2tPbUfDhI7roi8YODyYGtKOUKwx1LjpzOjzPN3E2RvI2LpTZuso5B
+	LXrEbHUdWGyjLIflIhIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n8OJX-009XgM-Nh; Fri, 14 Jan 2022 15:16:27 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1n8OJh-009Xly-Gy; Fri, 14 Jan 2022 15:16:37 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n8OJU-009XcW-OJ
- for linux-riscv@lists.infradead.org; Fri, 14 Jan 2022 15:16:26 +0000
+ id 1n8OJe-009XkH-SK
+ for linux-riscv@lists.infradead.org; Fri, 14 Jan 2022 15:16:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1642173384; x=1673709384;
+ t=1642173394; x=1673709394;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=XUOAM/z0skey1/2aHSGp5yId0ktuv9jM+qE4YtnPYMg=;
- b=gAcCG47A3SUKkdSm2OrBNzdbUy/N5e/7tBLo4sXHi5qaZn/bbY5bjID2
- P5KwvwDFKtW1+G3c7d57cH1NGgMkEYpkkGUdgrpEMIfnjJhIbuKyFOcDW
- T1/BisxCcLYkaCOHhTioWmubsRr3qS2taD8MrzaKYwCm4GQ2kB8fcbUdD
- zUKsiW8Cj8EP27mCWekD8lEmElmyiHyrsnFY/q5OufPac3wHIYS+aFn7p
- eS5LKSex5PiyRIwqXLePrSYsRkilwtwEswU7co1x5iw7WuHpNh09l14pg
- a95UlEqbNQ6kYr2867KdJdbyI3jAKrAB4mb4+ZEmZcXfdsW/qhoNIwyBc g==;
-IronPort-SDR: 7bZXMxhI1W6ANOzk/aoRucFoxwWAMmVNSQwQlQiLezS8P01P8wBPS19OtnKWvypYb0p1CReeaU
- BeOtxx80R+c2gAgEcZIojFy8DpB6czkNmz8B1PDA9fRf1uNh503BHEkectI7uufm9IcJX6HiOQ
- Qzop4lq7LWIcUmlaWSe2/Ruoojhk9eDw26F06FyTe0fToD0tQnfcVTgDAUyIbTDdo9F7VTq3bH
- Fb47llcmUFYihcNNUO6s9UwseM3n3hzZUK3wzffTq1SesBMCw+Th1R5dFPOFM1PmN9kob+yxaj
- i74cDjqGhu8xRybw8iA+axzt
-X-IronPort-AV: E=Sophos;i="5.88,289,1635231600"; d="scan'208";a="150236573"
+ bh=WIRab6h1hcL8MT7Wt72ljqAGomYq1u7lJ21fWjCYfGU=;
+ b=XHiQ5kQwMhZG28gNpS2bewo3M2MscZsVQhi0IJuxFQM5G+Qh1dEqsGhw
+ y1kNOe3IppxR1Q6IRPou7Jjbn/ejfVQgqIZ5/C7+EM+HhTYd0G7QESXzr
+ 5OsmVmx+k9ItpIyKCll5JQ3g2mU086Jlhkarjb60vAXkyz9mFXworEPOt
+ SXGD6+tnkWwbkmHDSKsKaQ9ckhzgV0TzyEaV7h770stPCC+kEhEamoW6p
+ 6CaBLencxLAmAHyqkWTK80ibBMAkLxopu+KJSr0nqCcvwNnApWpmDGS62
+ Ese5lRY9K2AjwhuVGdqSWXudOxfTQAwGNWNH5JzLx5Cl8ZRtkzN5dMQVR Q==;
+IronPort-SDR: HbKIBJDyXoXla2Re69L7lEFZqn/vZmN5/+QF+7y6aR8BCvGbcwan8zI6aBYo7C9ViM2zwLelqd
+ 8RYjH0rUej5VOatEeglxnNq18OIahyzjuCmv3F9cb4Lbj3FEBb2GR50kSur/gHfcNdcKztf8Qr
+ p+7m1p67jxhqBvS9BQ/SlDUPnKOwQRnm5Ptc7H7X9rmuPtaDe6j6akQsnJiIVCXWthn9uCVEf6
+ xhjxh3hDGjSMtMrNcs+ABl5QWSlhZcqM+Ijljk1DFPAE0DdsNLYtHV18dXedAEGgioyFxhB3vA
+ GAYpiISfc9ga40ZpfVwix6Pu
+X-IronPort-AV: E=Sophos;i="5.88,289,1635231600"; d="scan'208";a="142730841"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
- by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 14 Jan 2022 08:16:11 -0700
+ by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 14 Jan 2022 08:16:33 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Fri, 14 Jan 2022 08:16:10 -0700
+ 15.1.2375.17; Fri, 14 Jan 2022 08:16:33 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
  (10.10.85.143) with Microsoft SMTP Server id 15.1.2375.17 via
- Frontend Transport; Fri, 14 Jan 2022 08:16:04 -0700
+ Frontend Transport; Fri, 14 Jan 2022 08:16:27 -0700
 From: <conor.dooley@microchip.com>
 To: <linus.walleij@linaro.org>, <bgolaszewski@baylibre.com>,
  <robh+dt@kernel.org>, <jassisinghbrar@gmail.com>, <paul.walmsley@sifive.com>, 
@@ -70,18 +70,16 @@ CC: <krzysztof.kozlowski@canonical.com>, <geert@linux-m68k.org>,
  <bin.meng@windriver.com>, <heiko@sntech.de>, <lewis.hanly@microchip.com>,
  <conor.dooley@microchip.com>, <daire.mcnamara@microchip.com>,
  <ivan.griffin@microchip.com>, <atishp@rivosinc.com>
-Subject: [PATCH v3 01/15] dt-bindings: soc/microchip: update syscontroller
- compatibles
-Date: Fri, 14 Jan 2022 15:17:13 +0000
-Message-ID: <20220114151727.2319915-2-conor.dooley@microchip.com>
+Subject: [PATCH v3 03/15] mailbox: change mailbox-mpfs compatible string
+Date: Fri, 14 Jan 2022 15:17:15 +0000
+Message-ID: <20220114151727.2319915-4-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20220114151727.2319915-1-conor.dooley@microchip.com>
 References: <20220114151727.2319915-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220114_071624_830080_3A56D86A 
-X-CRM114-Status: UNSURE (   8.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220114_071635_003837_785FA1AD 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,84 +101,27 @@ From: Conor Dooley <conor.dooley@microchip.com>
 The Polarfire SoC is currently using two different compatible string
 prefixes. Fix this by changing "polarfire-soc-*" strings to "mpfs-*" in
 its system controller in order to match the compatible string used in
-the soc binding and device tree
+the soc binding and device tree.
 
 Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- ...larfire-soc-mailbox.yaml => microchip,mpfs-mailbox.yaml} | 6 +++---
- ...s-controller.yaml => microchip,mpfs-sys-controller.yaml} | 6 +++---
- 2 files changed, 6 insertions(+), 6 deletions(-)
- rename Documentation/devicetree/bindings/mailbox/{microchip,polarfire-soc-mailbox.yaml => microchip,mpfs-mailbox.yaml} (82%)
- rename Documentation/devicetree/bindings/soc/microchip/{microchip,polarfire-soc-sys-controller.yaml => microchip,mpfs-sys-controller.yaml} (75%)
+ drivers/mailbox/mailbox-mpfs.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/mailbox/microchip,polarfire-soc-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml
-similarity index 82%
-rename from Documentation/devicetree/bindings/mailbox/microchip,polarfire-soc-mailbox.yaml
-rename to Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml
-index bbb173ea483c..9251c2218c68 100644
---- a/Documentation/devicetree/bindings/mailbox/microchip,polarfire-soc-mailbox.yaml
-+++ b/Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: "http://devicetree.org/schemas/mailbox/microchip,polarfire-soc-mailbox.yaml#"
-+$id: "http://devicetree.org/schemas/mailbox/microchip,mpfs-mailbox.yaml#"
- $schema: "http://devicetree.org/meta-schemas/core.yaml#"
+diff --git a/drivers/mailbox/mailbox-mpfs.c b/drivers/mailbox/mailbox-mpfs.c
+index 0d6e2231a2c7..4e34854d1238 100644
+--- a/drivers/mailbox/mailbox-mpfs.c
++++ b/drivers/mailbox/mailbox-mpfs.c
+@@ -232,7 +232,7 @@ static int mpfs_mbox_probe(struct platform_device *pdev)
+ }
  
- title: Microchip PolarFire SoC (MPFS) MSS (microprocessor subsystem) mailbox controller
-@@ -11,7 +11,7 @@ maintainers:
- 
- properties:
-   compatible:
--    const: microchip,polarfire-soc-mailbox
-+    const: microchip,mpfs-mailbox
- 
-   reg:
-     items:
-@@ -38,7 +38,7 @@ examples:
-       #address-cells = <2>;
-       #size-cells = <2>;
-       mbox: mailbox@37020000 {
--        compatible = "microchip,polarfire-soc-mailbox";
-+        compatible = "mpfs-mailbox";
-         reg = <0x0 0x37020000 0x0 0x1000>, <0x0 0x2000318c 0x0 0x40>;
-         interrupt-parent = <&L1>;
-         interrupts = <96>;
-diff --git a/Documentation/devicetree/bindings/soc/microchip/microchip,polarfire-soc-sys-controller.yaml b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
-similarity index 75%
-rename from Documentation/devicetree/bindings/soc/microchip/microchip,polarfire-soc-sys-controller.yaml
-rename to Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
-index 2cd3bc6bd8d6..f699772fedf3 100644
---- a/Documentation/devicetree/bindings/soc/microchip/microchip,polarfire-soc-sys-controller.yaml
-+++ b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: "http://devicetree.org/schemas/soc/microchip/microchip,polarfire-soc-sys-controller.yaml#"
-+$id: "http://devicetree.org/schemas/soc/microchip/microchip,mpfs-sys-controller.yaml#"
- $schema: "http://devicetree.org/meta-schemas/core.yaml#"
- 
- title: Microchip PolarFire SoC (MPFS) MSS (microprocessor subsystem) system controller
-@@ -19,7 +19,7 @@ properties:
-     maxItems: 1
- 
-   compatible:
--    const: microchip,polarfire-soc-sys-controller
-+    const: microchip,mpfs-sys-controller
- 
- required:
-   - compatible
-@@ -30,6 +30,6 @@ additionalProperties: false
- examples:
-   - |
-     syscontroller: syscontroller {
--      compatible = "microchip,polarfire-soc-sys-controller";
-+      compatible = "microchip,mpfs-sys-controller";
-       mboxes = <&mbox 0>;
-     };
+ static const struct of_device_id mpfs_mbox_of_match[] = {
+-	{.compatible = "microchip,polarfire-soc-mailbox", },
++	{.compatible = "microchip,mpfs-mailbox", },
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, mpfs_mbox_of_match);
 -- 
 2.32.0
 
