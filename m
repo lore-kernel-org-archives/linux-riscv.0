@@ -4,53 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8A1BC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jan 2022 09:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C072C43219
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jan 2022 09:18:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3E+KfrvqhYP2h4HKz3xu7MF4S7CMyQUOA+7IzP2/Wz4=; b=4JnnVhfY7NETDj
-	vdYqIdQm8iNoNdh+fuL4P32mEEFJYxREfzHTuwgWZ9ugEpMSBUPYD6R7ga076Wcl1LnrI97tCgJtL
-	4KaoYGrvpMvjj9CGCI4m7z51Zxb7qyqcAllim6O33QXfEGeSSsModLHLYMfqMNOeHz3jMPuNTlS1u
-	N7GyHcixefu2K6SoX7uehU6Ut7lw7b51rHj+IcOiCl28iSxndD7MYXK0iL/wXyloMPRqKXt/QhiSo
-	efvEJ3CtYlaYt6L99ZlcD+yJ+hbDod3akGegg7Q1KL7of4PxCQjeVZSwZNvrw6bhA8wsVwOmXJ7mG
-	jvcTI5Wfe4MqS3QViiew==;
+	List-Owner; bh=JJ1G/yGs5bSv1biHo/l3GlyS7cNIdip9hVC7nZmoIvE=; b=WkpNOVxRaV8wWe
+	wvL/SakCd9Ggql4TFPTM/CtmZjVmOqLF+TlvPD3O18d29U/EjHEWCKqnyNecCP8e/mzlEkLxV1dqO
+	+4vWkSvXO577oagYyAV6+RPwSL1/pmTSDfDZG/wE2k4/tSUqBbRofMw8rrN8eSmRz65sTl/sw8Jp8
+	Ssnq3Y7zeSiWP6v3qNuZUX9QDVuNY9fItWlHpNbiPflh0pLQ97qOeM/sINulycNhWQUdulb+a1vts
+	FVHAfAodHe/YWs5CPWavi2BgSx5x70AY0bElMxhmy75rBUelB8qZJQL2VoFTJcydoNGcgahdP1YfO
+	nQK8VbJ66+T2alSbLDxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n8IaD-008QS1-97; Fri, 14 Jan 2022 09:09:17 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1n8IiY-008RWV-Ul; Fri, 14 Jan 2022 09:17:54 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n8Ia9-008QQJ-R5
- for linux-riscv@lists.infradead.org; Fri, 14 Jan 2022 09:09:16 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
- by relay3-d.mail.gandi.net (Postfix) with ESMTPSA id B690460003;
- Fri, 14 Jan 2022 09:09:04 +0000 (UTC)
-Message-ID: <d95094f8-2407-7e93-490d-94fce2af21a3@ghiti.fr>
-Date: Fri, 14 Jan 2022 10:09:03 +0100
+ id 1n8IiW-008RUu-AY
+ for linux-riscv@lists.infradead.org; Fri, 14 Jan 2022 09:17:53 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id
+ b1-20020a17090a990100b001b14bd47532so13652158pjp.0
+ for <linux-riscv@lists.infradead.org>; Fri, 14 Jan 2022 01:17:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=K49u+vw8xuJoyxVWZcA3NU+d4XvPmTqJkyhbFma1tEc=;
+ b=EVupHttrxPcen6ULmEixZnPbT26g4c+94DyjVPU66nQYYT/5Ego7P6RHu0tJanvUrH
+ 8guNm0FdQveO46wxKD9SEyeO1sLcsuboP1p9BytGBbPXOE07McBST/jGPcHjXU98cuFL
+ eUCb3cmm69qtqXb8LabZ/ZH5qBP794eqqa/XqLeZGEW3mCWgP4NwHIhRsqjMgfsImtyQ
+ j5D12YxHNBxitsbn6L9UrZNArImktllj8Knsw3KhD1rb5CgKWXaF3RD7xlVinr8OLdEX
+ QIbLoKcRC1uYTCHgQT1G7d0nqkJjlo89YF7cSPOy8fP4vJiys05E1TWfn/Z7VJIzhmAA
+ ow2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=K49u+vw8xuJoyxVWZcA3NU+d4XvPmTqJkyhbFma1tEc=;
+ b=AKyuirHFj14nbTaqBjur+7ICLp/I3HwxksR2M6WMET0FECz+KVDwRuUFAtxQiMEIjI
+ laCIY3U2XaTSVcxyj5cO7qbi8ZXLbEmOocUL70jmVZNf405iKFlJ/X5VKIA6cXLckc4J
+ caWrHjMLLPGfFFxA3QTHNOS1IhVy2ZCXJJdqgMKPq/fK5scFe/XALTiR2Po8g98DqGiE
+ rhne52zyhr+czmp4WFqJaW76FyJWvSwOg1XuhOpn2/y5oJMoiexWeYrdFtZiHcZbmrAU
+ gNZAXmpg7dfPa2QrWavSOoVxAp98gIxDFEMhRpr2BKSCCyIFd0e5j89iTofQmYj6YIlm
+ rrZw==
+X-Gm-Message-State: AOAM533ABKb5aYb0D4tBKU5YyOuZV5IGxmSjPQNGd1PIGnCLtdI6Zj2q
+ FtIuNjZuPW6xcHcX9NyZ23B7vg==
+X-Google-Smtp-Source: ABdhPJwgjZNZBcWY1WqDIfspOa+C3WcZH6OkqRDy57h33N56DUi3jBThAmxkLw4TGNzYi0naU9J2MQ==
+X-Received: by 2002:a17:90a:4f4b:: with SMTP id
+ w11mr18924303pjl.112.1642151871283; 
+ Fri, 14 Jan 2022 01:17:51 -0800 (PST)
+Received: from hsinchu16.internal.sifive.com
+ (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+ by smtp.gmail.com with ESMTPSA id z3sm4237179pgc.45.2022.01.14.01.17.48
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 14 Jan 2022 01:17:50 -0800 (PST)
+From: Zong Li <zong.li@sifive.com>
+To: robh+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, krzysztof.kozlowski@canonical.com,
+ conor.dooley@microchip.com, geert@linux-m68k.org, bin.meng@windriver.com,
+ green.wan@sifive.com, vkoul@kernel.org, dmaengine@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Cc: Zong Li <zong.li@sifive.com>
+Subject: [PATCH v3 1/3] riscv: dts: Add dma-channels property in dma node
+Date: Fri, 14 Jan 2022 17:17:39 +0800
+Message-Id: <163a2cf11b2aceee2a1b8dc83251576d2371d4a6.1642151791.git.zong.li@sifive.com>
+X-Mailer: git-send-email 2.31.1
+In-Reply-To: <cover.1642151791.git.zong.li@sifive.com>
+References: <cover.1642151791.git.zong.li@sifive.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.3.1
-Subject: Re: [PATCH 02/12] RISC-V: MAXPHYSMEM_2GB doesn't depend on
- CMODEL_MEDLOW
-Content-Language: en-US
-To: Conor.Dooley@microchip.com, geert@linux-m68k.org, palmer@rivosinc.com
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu,
- heinrich.schuchardt@canonical.com, bin.meng@windriver.com,
- sagar.kadam@sifive.com, damien.lemoal@wdc.com, axboe@kernel.dk,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20211119164413.29052-1-palmer@rivosinc.com>
- <20211119164413.29052-3-palmer@rivosinc.com>
- <CAMuHMdXQg942-DwDBJANsFiOCqyAwCt_GwW4HuC1nh0_DNmyEQ@mail.gmail.com>
- <232b8a0d-b25d-b942-eeec-9a67b66b81ce@microchip.com>
-From: Alexandre ghiti <alex@ghiti.fr>
-In-Reply-To: <232b8a0d-b25d-b942-eeec-9a67b66b81ce@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220114_010914_234806_9044346B 
-X-CRM114-Status: GOOD (  30.60  )
+X-CRM114-CacheID: sfid-20220114_011752_396413_9ABE495F 
+X-CRM114-Status: UNSURE (   7.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,135 +90,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+Add dma-channels property, then we can determine how many channels there
+by device tree.
 
-On 1/14/22 09:40, Conor.Dooley@microchip.com wrote:
-> On 11/01/2022 16:04, Geert Uytterhoeven wrote:
->> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
->>
->> Hi Palmer,
->>
->> On Fri, Nov 19, 2021 at 5:47 PM Palmer Dabbelt <palmer@rivosinc.com> wrote:
->>> From: Palmer Dabbelt <palmer@rivosinc.com>
->>>
->>> For non-relocatable kernels we need to be able to link the kernel at
->>> approximately PAGE_OFFSET, thus requiring medany (as medlow requires the
->>> code to be linked within 2GiB of 0).  The inverse doesn't apply, though:
->>> since medany code can be linked anywhere it's fine to link it close to
->>> 0, so we can support the smaller memory config.
->>>
->>> Fixes: de5f4b8f634b ("RISC-V: Define MAXPHYSMEM_1GB only for RV32")
->>> Cc: stable@vger.kernel.org
->>> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
->> Thanks for your patch, which is now commit 9f36b96bc70f9707 ("RISC-V:
->> MAXPHYSMEM_2GB doesn't depend on CMODEL_MEDLOW").
->>
->>> I found this when going through the savedefconfig diffs for the K210
->>> defconfigs.  I'm not entirely sure they're doing the right thing here
->>> (they should probably be setting CMODEL_LOW to take advantage of the
->>> better code generation), but I don't have any way to test those
->>> platforms so I don't want to change too much.
->> I can confirm MAXPHYSMEM_2GB works on K210 with CMODEL_MEDANY.
->>
->> As the Icicle has 1760 MiB of RAM, I gave it a try with MAXPHYSMEM_2GB
->> (and CMODEL_MEDANY), too.  Unfortunately it crashes very early
->> (needs earlycon to see):
-> Given you said 1760 MiB I assume you're not running the device tree
-> currently in the kernel?
-> But the defconfig is /arch/riscv/configs/defconfig?
->
-> I tested it w/ my newer version of the dts, using both 1760 & 736 MiB
-> (ddrc_cache_lo only) w/ MAXPHYSMEM_2GB.
-> Enabling MAXPHYSMEM_2GB with either CMODEL_MEDANY or CMODEL_MEDLOW
-> lead to the same boot failure as you got.
+Signed-off-by: Zong Li <zong.li@sifive.com>
+---
+ arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi | 1 +
+ arch/riscv/boot/dts/sifive/fu540-c000.dtsi        | 1 +
+ 2 files changed, 2 insertions(+)
 
+diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+index c9f6d205d2ba..3c48f2d7a4a4 100644
+--- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+@@ -188,6 +188,7 @@ dma@3000000 {
+ 			reg = <0x0 0x3000000 0x0 0x8000>;
+ 			interrupt-parent = <&plic>;
+ 			interrupts = <23 24 25 26 27 28 29 30>;
++			dma-channels = <4>;
+ 			#dma-cells = <1>;
+ 		};
+ 
+diff --git a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
+index 0655b5c4201d..2bdfe7f06e4b 100644
+--- a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
++++ b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
+@@ -171,6 +171,7 @@ dma: dma@3000000 {
+ 			reg = <0x0 0x3000000 0x0 0x8000>;
+ 			interrupt-parent = <&plic0>;
+ 			interrupts = <23 24 25 26 27 28 29 30>;
++			dma-channels = <4>;
+ 			#dma-cells = <1>;
+ 		};
+ 		uart1: serial@10011000 {
+-- 
+2.31.1
 
-Any chance you can give a try to [1] so that I can extract it from my 
-sv48 patchset and propose it to fixes if it works?
-
-Thanks,
-
-Alex
-
-https://patchwork.kernel.org/project/linux-riscv/patch/20211206104657.433304-6-alexandre.ghiti@canonical.com/
-
-
->>       OF: fdt: Ignoring memory range 0x80000000 - 0x80200000
->>       Machine model: Microchip PolarFire-SoC Icicle Kit
->>       printk: debug: ignoring loglevel setting.
->>       earlycon: ns16550a0 at MMIO32 0x0000000020100000 (options '115200n8')
->>       printk: bootconsole [ns16550a0] enabled
->>       printk: debug: skip boot console de-registration.
->>       efi: UEFI not found.
->>       Unable to handle kernel paging request at virtual address ffffffff87e00001
->>       Oops [#1]
->>       Modules linked in:
->>       CPU: 0 PID: 0 Comm: swapper Not tainted 5.16.0-08771-g85515233477d #56
->>       Hardware name: Microchip PolarFire-SoC Icicle Kit (DT)
->>       epc : fdt_check_header+0x14/0x208
->>        ra : early_init_dt_verify+0x16/0x94
->>       epc : ffffffff802ddacc ra : ffffffff8082415a sp : ffffffff81203ee0
->>        gp : ffffffff812ec3a8 tp : ffffffff8120cd80 t0 : 0000000000000005
->>        t1 : 0000001040000000 t2 : ffffffff80000000 s0 : ffffffff81203f00
->>        s1 : ffffffff87e00000 a0 : ffffffff87e00000 a1 : 000000040ffffce7
->>        a2 : 00000000000000e7 a3 : ffffffff8080394c a4 : 0000000000000000
->>        a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000000000000
->>        s2 : ffffffff81203f98 s3 : 8000000a00006800 s4 : fffffffffffffff3
->>        s5 : 0000000000000000 s6 : 0000000000000001 s7 : 0000000000000000
->>        s8 : 0000000020236c20 s9 : 0000000000000000 s10: 0000000000000000
->>        s11: 0000000000000000 t3 : 0000000000000018 t4 : 00ff000000000000
->>        t5 : 0000000000000000 t6 : 0000000000000010
->>       status: 0000000200000100 badaddr: ffffffff87e00001 cause: 000000000000000d
->>       [<ffffffff802ddacc>] fdt_check_header+0x14/0x208
->>       [<ffffffff8082415a>] early_init_dt_verify+0x16/0x94
->>       [<ffffffff80802dee>] setup_arch+0xec/0x4ec
->>       [<ffffffff80800700>] start_kernel+0x88/0x6d6
->>       random: get_random_bytes called from
->> print_oops_end_marker+0x22/0x44 with crng_init=0
->>       ---[ end trace 903df1a0ade0b876 ]---
->>       Kernel panic - not syncing: Attempted to kill the idle task!
->>       ---[ end Kernel panic - not syncing: Attempted to kill the idle task! ]---
->>
->> So the FDT is at 0xffffffff87e00000, i.e. at 0x7e00000 from the start
->> of virtual memory (CONFIG_PAGE_OFFSET=0xffffffff80000000), and thus
->> within the 2 GiB range.
->>
->>> --- a/arch/riscv/Kconfig
->>> +++ b/arch/riscv/Kconfig
->>> @@ -280,7 +280,7 @@ choice
->>>                   depends on 32BIT
->>>                   bool "1GiB"
->>>           config MAXPHYSMEM_2GB
->>> -               depends on 64BIT && CMODEL_MEDLOW
->>> +               depends on 64BIT
->>>                   bool "2GiB"
->>>           config MAXPHYSMEM_128GB
->>>                   depends on 64BIT && CMODEL_MEDANY
->> Gr{oetje,eeting}s,
->>
->>                           Geert
->>
->> --
->> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
->>
->> In personal conversations with technical people, I call myself a hacker. But
->> when I'm talking to journalists I just say "programmer" or something like that.
->>                                   -- Linus Torvalds
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
->>
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
