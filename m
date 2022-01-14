@@ -4,65 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D872C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jan 2022 16:16:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E4ABC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jan 2022 16:19:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:
 	In-Reply-To:Message-ID:Subject:Cc:From:To:Date:Content-ID:Content-Description
 	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SfoaYzHlPuTt2expBIACeewfRr98kG/33mw28qrTAEU=; b=4EWP/HkwOE1FQf
-	9KP9QxgHPFZGqIOYpB68i0sOGn5HiPTAuWD2JyAnPzwl4oD4UsA6t9MY4xUuKVkeerWA4siXWCdin
-	LkUuIgVXau2qX5BOE2RbtgqBaIgOL8FihFQhOav6ny+vx4nH4Ba+H8zceoT3ohDU1C7ZFJv/Tz0qp
-	o6AcrtstMsDSiR3U6Ao3ty2QlmaIZyOYunrvXjA5ZfsInLmMyyDlrT7VEucaiXMrp67wGDfguiiBe
-	TWBjz1308J3mNX/LBxCrdARFDrPLhoiOgxdF5XRomVR648fy+rCaENF8ItURUWeA0gL8C7WXsxNRg
-	XtpxdTM5NlDuJnte03Pg==;
+	List-Owner; bh=fDdAuHqrwM21jF5lDNTK1UEvlJ+yq3sGUKZmwTec55g=; b=zs2vIi/JYqgRbU
+	YjAJQGd+nB3bK1VkjJ0g4C16gG5lm+yW+GPu53vavs7Auio5rq3IZJBJA29yY+Pl3pSz6fVhzPN/R
+	+aPR0zKhUDmWP8W6Lpt0o7mVSvTjEYHU1S4xiadyPgbGYlksvkaGpLPxmNKsTOqNBdRjBqEqYa6YH
+	IV1phxcKORTOh9TKbOSTduO0+ywMz1/QTdy69K9Z+tWidNv6trtXr+fPmBXPONVky4tLqPTAR9rl0
+	vnYaEsRIjkR7bOJfMImebrs/j44/UgjR/rhhaKPDCFx7tU0iueC2YEsBKvg8Ejy80Iq0+ukrp/V+o
+	wboKk2gT/fUcbxNT+qxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n8PFK-009iQw-2U; Fri, 14 Jan 2022 16:16:10 +0000
-Received: from mail-4022.proton.ch ([185.70.40.22])
+	id 1n8PI0-009it9-73; Fri, 14 Jan 2022 16:18:56 +0000
+Received: from mail-4018.proton.ch ([185.70.40.18])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n8PFG-009iPV-QT
- for linux-riscv@lists.infradead.org; Fri, 14 Jan 2022 16:16:08 +0000
-Date: Fri, 14 Jan 2022 16:15:58 +0000
+ id 1n8PHx-009is6-El
+ for linux-riscv@lists.infradead.org; Fri, 14 Jan 2022 16:18:55 +0000
+Date: Fri, 14 Jan 2022 16:18:50 +0000
 Authentication-Results: mail-4018.proton.ch; dkim=none
-To: Geert Uytterhoeven <geert@linux-m68k.org>
+To: conor.dooley@microchip.com
 From: conor dooley <mail@conchuod.ie>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <bgolaszewski@baylibre.com>,
- Rob Herring <robh+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alessandro Zummo <a.zummo@towertech.it>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Mark Brown <broonie@kernel.org>, Greg KH <gregkh@linuxfoundation.org>,
- Thierry Reding <thierry.reding@gmail.com>,
- =?utf-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
- Lee Jones <lee.jones@linaro.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Linux I2C <linux-i2c@vger.kernel.org>,
- Linux PWM List <linux-pwm@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>, Linux Crypto Mailing List
- <linux-crypto@vger.kernel.org>, linux-rtc@vger.kernel.org,
- linux-spi <linux-spi@vger.kernel.org>, USB list <linux-usb@vger.kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Bin Meng <bin.meng@windriver.com>, Heiko Stuebner <heiko@sntech.de>,
- Lewis Hanly <lewis.hanly@microchip.com>, daire.mcnamara@microchip.com,
- ivan.griffin@microchip.com, Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH v3 03/15] mailbox: change mailbox-mpfs compatible string
-Message-ID: <MzSOUvHzeH0svo7uoPc_rfCs1BVTByRKAZ_EftQ5Qk2sheETSbE_NFPRVzFd8YmKMQ_9uIggomOqyQUD9clIwabiKrVp4F2Gw4nOnJkXv2M=@conchuod.ie>
-In-Reply-To: <CAMuHMdUXD8CHqoaygXzcC0YpsbRT_KAUni1hD4sMn=k=WD+DuQ@mail.gmail.com>
+Cc: linus.walleij@linaro.org, bgolaszewski@baylibre.com, robh+dt@kernel.org,
+ jassisinghbrar@gmail.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, a.zummo@towertech.it, alexandre.belloni@bootlin.com,
+ broonie@kernel.org, gregkh@linuxfoundation.org, thierry.reding@gmail.com,
+ u.kleine-koenig@pengutronix.de, lee.jones@linaro.org,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
+ linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-crypto@vger.kernel.org, linux-rtc@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-usb@vger.kernel.org,
+ krzysztof.kozlowski@canonical.com, geert@linux-m68k.org,
+ bin.meng@windriver.com, heiko@sntech.de, lewis.hanly@microchip.com,
+ daire.mcnamara@microchip.com, ivan.griffin@microchip.com, atishp@rivosinc.com
+Subject: Re: [PATCH v3 01/15] dt-bindings: soc/microchip: update syscontroller
+ compatibles
+Message-ID: <nK7Z7oZFnoE0yhMjColrEPJvSFc7SpHv54Ftu3PJzQjpLA0s1F0Rwa3P5qEQrcFhJVbcUvY3TOFppyaIAS9QX09qg5nPMiilhvOO_W0fmHQ=@conchuod.ie>
+In-Reply-To: <20220114151727.2319915-2-conor.dooley@microchip.com>
 References: <20220114151727.2319915-1-conor.dooley@microchip.com>
- <20220114151727.2319915-4-conor.dooley@microchip.com>
- <CAMuHMdUXD8CHqoaygXzcC0YpsbRT_KAUni1hD4sMn=k=WD+DuQ@mail.gmail.com>
+ <20220114151727.2319915-2-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220114_081607_058687_BBB9DF62 
-X-CRM114-Status: GOOD (  23.88  )
+X-CRM114-CacheID: sfid-20220114_081853_681117_C0F60A40 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,42 +69,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> Hi Conor,
+> From: Conor Dooley <conor.dooley@microchip.com>
 >
-> On Fri, Jan 14, 2022 at 4:16 PM <conor.dooley@microchip.com> wrote:
-> > From: Conor Dooley <conor.dooley@microchip.com>
-> >
-> > The Polarfire SoC is currently using two different compatible string
-> > prefixes. Fix this by changing "polarfire-soc-*" strings to "mpfs-*" in
-> > its system controller in order to match the compatible string used in
-> > the soc binding and device tree.
-> >
-> > Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
-> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> The Polarfire SoC is currently using two different compatible string
+> prefixes. Fix this by changing "polarfire-soc-*" strings to "mpfs-*" in
+> its system controller in order to match the compatible string used in
+> the soc binding and device tree
 >
-> This is already upstream, commit f10b1fc0161cd99e ("mailbox: change
-> mailbox-mpfs compatible string").
+> Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  ...larfire-soc-mailbox.yaml => microchip,mpfs-mailbox.yaml} | 6 +++---
+>  ...s-controller.yaml => microchip,mpfs-sys-controller.yaml} | 6 +++---
+>  2 files changed, 6 insertions(+), 6 deletions(-)
+>  rename Documentation/devicetree/bindings/mailbox/{microchip,polarfire-soc-mailbox.yaml => microchip,mpfs-mailbox.yaml} (82%)
+>  rename Documentation/devicetree/bindings/soc/microchip/{microchip,polarfire-soc-sys-controller.yaml => microchip,mpfs-sys-controller.yaml} (75%)
+>
+> diff --git a/Documentation/devicetree/bindings/mailbox/microchip,polarfire-soc-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml
+> similarity index 82%
+> rename from Documentation/devicetree/bindings/mailbox/microchip,polarfire-soc-mailbox.yaml
+> rename to Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml
+> index bbb173ea483c..9251c2218c68 100644
+> --- a/Documentation/devicetree/bindings/mailbox/microchip,polarfire-soc-mailbox.yaml
+> +++ b/Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml
+> @@ -1,7 +1,7 @@
+>  # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>  %YAML 1.2
+>  ---
+> -$id: "http://devicetree.org/schemas/mailbox/microchip,polarfire-soc-mailbox.yaml#"
+> +$id: "http://devicetree.org/schemas/mailbox/microchip,mpfs-mailbox.yaml#"
+>  $schema: "http://devicetree.org/meta-schemas/core.yaml#"
+>
+>  title: Microchip PolarFire SoC (MPFS) MSS (microprocessor subsystem) mailbox controller
+> @@ -11,7 +11,7 @@ maintainers:
+>
+>  properties:
+>    compatible:
+> -    const: microchip,polarfire-soc-mailbox
+> +    const: microchip,mpfs-mailbox
+>
+>    reg:
+>      items:
+> @@ -38,7 +38,7 @@ examples:
+>        #address-cells = <2>;
+>        #size-cells = <2>;
+>        mbox: mailbox@37020000 {
+> -        compatible = "microchip,polarfire-soc-mailbox";
+> +        compatible = "mpfs-mailbox";
 
-I would say great, but that means the new string is now in the driver
-but the new dt-binding is not (and I just noticed contains an error).
-Conor.
+Example is wrong, should read "microchip,mpfs-mailbox".
 
->
-> Gr{oetje,eeting}s,
->
->                         Geert
->
-> --
-> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
->
-> In personal conversations with technical people, I call myself a hacker. But
-> when I'm talking to journalists I just say "programmer" or something like that.
->                                 -- Linus Torvalds
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Will resubmit Monday.
+
+>          reg = <0x0 0x37020000 0x0 0x1000>, <0x0 0x2000318c 0x0 0x40>;
+>          interrupt-parent = <&L1>;
+>          interrupts = <96>;
+
 
 _______________________________________________
 linux-riscv mailing list
