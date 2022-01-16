@@ -4,78 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95651C4321E
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Jan 2022 17:22:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89FEBC433F5
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jan 2022 13:39:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m3sJuZcR1FXx0WtRMMXjYXb3UzrOhAdnrSMAYgOhCeY=; b=T7S15XRVwjTo4W
-	oW3GZ8WriLxb3hsnyxrhZyjTDni4Uj2YjMO707tfnr/wsPtWsRsanhSGqhlieShoU+VVZN0OgC9iV
-	JDWPUBGH7zxcX8PvpCgNxPa0dZOp+9Bh6P6vKPyDEPLFDI9gTTR/PnQNz/tJT4Xs+IToIbW5oxAWk
-	ucCFUV+D23Xo6KuYlD2hpX2efhWM+eHyG9jX3chS87HfWi+xK9ilOAViMDYLLbnmACEbtBA2zFDV5
-	xyzsXr8YWx6rUsUPTddd07bvyDOeCq3jWCv1M2zf8GDYtrI4fY1Beatm3chlo2ysLFVL1XswJL/4r
-	7cwMrFtkbAspzTbc4uCg==;
+	List-Owner; bh=N8WavzBiyeiSQDVvg43TRTAI+qvtaLrM1Dg2hpve/qg=; b=XG2VVqmLiGPqEt
+	EZQZ6U6CFzY90+OQ0OFPht2lSDwL8o1iGXnmhrg1eqG6gZ8BqwZ1YohwY8kZhY8G6NCYiwyf3mG4U
+	xXD2FpxEgoS4ng24BBPIc/RqgKoHXhb1GeChnDYqa/UM1eO0srY5YYae4+9G+sfWRNPwuguvKcvH3
+	kuw5j7+RW+Y19ciWYGWUsUGAc1a6uzD/IA4YaQ05+Bt3ShP67BW2KcHmszadcqIigvXeuZTrJinEz
+	thG1aenwkgVNCZ5UKTfE+QbZ7YVMSHdk5KX/Rzs9Ioic1yatjDa70sRu4BOMBu96+x+sG/x0CpLLT
+	6ROGHMLe5Z3VQFMHBgLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n8mlO-00BOrg-MA; Sat, 15 Jan 2022 17:22:50 +0000
-Received: from mail-ot1-f53.google.com ([209.85.210.53])
+	id 1n95kc-00CUVY-OS; Sun, 16 Jan 2022 13:39:18 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n8mlM-00BOqQ-NC
- for linux-riscv@lists.infradead.org; Sat, 15 Jan 2022 17:22:50 +0000
-Received: by mail-ot1-f53.google.com with SMTP id
- a12-20020a0568301dcc00b005919e149b4cso14146094otj.8
- for <linux-riscv@lists.infradead.org>; Sat, 15 Jan 2022 09:22:48 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:in-reply-to:references:subject:date
- :message-id;
- bh=tOd5PlmluudALXw25P1FUTpuTqmX0VJHEIDiSnDnSyQ=;
- b=3wNbLO9aSourlawDH51OVHgHVYdmb3LDohS0tPED9+ZZ8pE7HL+pp4cx5bRSSEE+Qn
- o1ND7+8JeNY2t9KlQSuLmXBJZWxMPZIbkSn1HGlMU+NYPopI6jD9pbPX4Lk5kxdN0Oj2
- 6DXDYH1XkudA/aPs7JX2T0f9NqsGKepvtQru+1hNZSokZ+bbCQZ5l6eTnZDQXxTQO9/s
- mW/CMf8mPika1j33gnfiwUCUfyqrWllSVOn2ts6ozcVzefSs3UONCNo++HLuxXyN77Iz
- nH5DgIM57udq/xgZAPb67tv8/Ji9/OKFCzU1ggYIaH2D93qH9DKUDErk1KK1Yg5KSqY7
- zwrw==
-X-Gm-Message-State: AOAM531Pb2Q/SUqgS8tCHdFRr0v3+k1SC1siiMo/VTyRWcZrdaTyPGYW
- 2PpqUerKCNwWP0U3LiPFSQ==
-X-Google-Smtp-Source: ABdhPJwIybGqL+uwk2P4tWp5L19eVC71Jl+JwGpTzzBPt2XUw3/wznpGXkiPdKkv8jvQYIA+SGnISQ==
-X-Received: by 2002:a9d:7cc9:: with SMTP id r9mr10587481otn.202.1642267368079; 
- Sat, 15 Jan 2022 09:22:48 -0800 (PST)
-Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
- [66.90.148.213])
- by smtp.gmail.com with ESMTPSA id x13sm3251441oof.19.2022.01.15.09.22.46
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 15 Jan 2022 09:22:47 -0800 (PST)
-Received: (nullmailer pid 119886 invoked by uid 1000);
- Sat, 15 Jan 2022 17:22:30 -0000
-From: Rob Herring <robh@kernel.org>
-To: conor.dooley@microchip.com
-Cc: linus.walleij@linaro.org, heiko@sntech.de, linux-usb@vger.kernel.org,
- linux-gpio@vger.kernel.org, aou@eecs.berkeley.edu, linux-spi@vger.kernel.org,
- linux-kernel@vger.kernel.org, atishp@rivosinc.com, bgolaszewski@baylibre.com,
- palmer@dabbelt.com, a.zummo@towertech.it, ivan.griffin@microchip.com,
- u.kleine-koenig@pengutronix.de, devicetree@vger.kernel.org,
- daire.mcnamara@microchip.com, thierry.reding@gmail.com, bin.meng@windriver.com,
- robh+dt@kernel.org, lewis.hanly@microchip.com, lee.jones@linaro.org,
- linux-crypto@vger.kernel.org, linux-pwm@vger.kernel.org,
- jassisinghbrar@gmail.com, linux-riscv@lists.infradead.org,
- geert@linux-m68k.org, linux-rtc@vger.kernel.org,
- krzysztof.kozlowski@canonical.com, paul.walmsley@sifive.com,
- alexandre.belloni@bootlin.com, linux-i2c@vger.kernel.org, broonie@kernel.org,
- gregkh@linuxfoundation.org
-In-Reply-To: <20220114151727.2319915-7-conor.dooley@microchip.com>
-References: <20220114151727.2319915-1-conor.dooley@microchip.com>
- <20220114151727.2319915-7-conor.dooley@microchip.com>
-Subject: Re: [PATCH v3 06/15] dt-bindings: gpio: add bindings for microchip
- mpfs gpio
-Date: Sat, 15 Jan 2022 11:22:30 -0600
-Message-Id: <1642267350.915591.119885.nullmailer@robh.at.kernel.org>
+ id 1n95kP-00CUSV-1g
+ for linux-riscv@lists.infradead.org; Sun, 16 Jan 2022 13:39:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1642340343;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=cp5M2AGP5P4N6b6EQKr0vl4nAKthbkR6iiQTidIywuQ=;
+ b=icFUoJGhxD4c6wa25EUnAkuyLgmXfE9zWpy1JSjIxoGEaEtfL4XXnsK+/e2PDC2rMaIo3K
+ Jk2cZmcsILLmpZbhYYoNilIyUkcnrGuHAxqwrd97iOCGgfOjBtTd6BcjgiNkKC/lnCE8y3
+ OQCZefEKi5ea6AsD7E2671SnTTsBOY0=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-663-xbtBAwTnOzqAyXi4zY5DnA-1; Sun, 16 Jan 2022 08:39:00 -0500
+X-MC-Unique: xbtBAwTnOzqAyXi4zY5DnA-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
+ [10.5.11.22])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 2AF89802924;
+ Sun, 16 Jan 2022 13:38:57 +0000 (UTC)
+Received: from localhost (ovpn-12-76.pek2.redhat.com [10.72.12.76])
+ by smtp.corp.redhat.com (Postfix) with ESMTPS id 9B9F7105C891;
+ Sun, 16 Jan 2022 13:38:51 +0000 (UTC)
+Date: Sun, 16 Jan 2022 21:38:47 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ hpa@zytor.com, Eric Biederman <ebiederm@xmission.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, kexec@lists.infradead.org,
+ Alexandre ghiti <alex@ghiti.fr>
+Subject: Re: [PATCH v2 0/5] kexec: use IS_ENABLED(CONFIG_KEXEC_CORE) instead
+ of #ifdef
+Message-ID: <20220116133847.GE2388@MiWiFi-R3L-srv>
+References: <20211206160514.2000-1-jszhang@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20211206160514.2000-1-jszhang@kernel.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220115_092248_781055_B4DCD819 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20220116_053905_370364_A138CB8B 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,53 +85,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 14 Jan 2022 15:17:18 +0000, conor.dooley@microchip.com wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Add device tree bindings for the gpio controller on
-> the Microchip PolarFire SoC.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  .../bindings/gpio/microchip,mpfs-gpio.yaml    | 80 +++++++++++++++++++
->  1 file changed, 80 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
-> 
+Hi Jisheng,
 
-My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
-on your patch (DT_CHECKER_FLAGS is new in v5.13):
+On 12/07/21 at 12:05am, Jisheng Zhang wrote:
+> Replace the conditional compilation using "#ifdef CONFIG_KEXEC_CORE"
+> by a check for "IS_ENABLED(CONFIG_KEXEC_CORE)", to simplify the code
+> and increase compile coverage.
 
-yamllint warnings/errors:
+I go through this patchset, You mention the benefits it brings are
+1) simplity the code;
+2) increase compile coverage;
 
-dtschema/dtc warnings/errors:
-Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.example.dts:19:18: fatal error: dt-bindings/clock/microchip,mpfs-clock.h: No such file or directory
-   19 |         #include "dt-bindings/clock/microchip,mpfs-clock.h"
-      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[1]: *** [scripts/Makefile.lib:373: Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.example.dt.yaml] Error 1
-make[1]: *** Waiting for unfinished jobs....
-make: *** [Makefile:1413: dt_binding_check] Error 2
+For benefit 1), it mainly removes the dummy function in x86, arm and
+arm64, right?
 
-doc reference errors (make refcheckdocs):
+For benefit 2), increasing compile coverage, could you tell more how it
+achieves and why it matters? What if people disables CONFIG_KEXEC_CORE in
+purpose? Please forgive my poor compiling knowledge.
 
-See https://patchwork.ozlabs.org/patch/1580118
-
-This check can fail if there are any dependencies. The base for a patch
-series is generally the most recent rc1.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit.
+Thanks
+Baoquan
 
 
 _______________________________________________
