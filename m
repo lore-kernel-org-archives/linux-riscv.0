@@ -4,78 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3742C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jan 2022 01:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C5B4C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jan 2022 04:14:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=pm5thBdVrYqQEAHulMl69AglgmyCOsTEtZRPcfUqkVI=; b=rUUQ2oKMcPc7Rh
-	hKk+WYVGxZUV2LL8IPVPv1k2y+68whCsflBgfIBCiIFXeiNqMQgaH+aLANFweaEujugcJGxO4rpET
-	s8w9LlLJzwu5KvXHYwvugdfLHpOeVsyRGULWtWV0Trck9D01Q42A/7xubGuIT4H+4MYCdFmsmI42C
-	c1jB4KvbeQt3ey7BkjVCvhmgXet5V6JGILzNNqyxJI056PAA7LJfwzrVk98AmzW5WE/xA3kam0tlj
-	muScyZudMzS7V34nrHepDgbl7m9kAkPoh2ADWPmOmkYoHO1L7ucjz0VPS7CPny/bI50hSvNFOLdtI
-	rootmj7PoLsk03txMIdg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GaX2BoDc0FoDy8mt2BXP11/nFcNoHL5u8iU+YRQCCEA=; b=X3C9AR7zHCYxEt
+	jWRJLZSfjZwI7ikUIiOKCQNGfPjBe7H85tAVax54GXc9fkDggnhmeEhf/xPn1FLPeMyvfQCnEsn9y
+	/wenNP3xNqZZgsqzOIacgxu4s7kBpqUcnqTMe04Jr0aYJazuyEY34dkVomnE6DBARQR8SU6ywn90F
+	D0URrNf8LzbmOZ60jVXJibpQHnW7fUCYs244UqGhItaEu1SZ+0SaG6J4plDtXVXlErEGhZOklUAOq
+	tDRWNhjYhkYVdmh3973d5jftJY8sRw+uYkLrnHgw+zrRiR5dbS4zX318SZRZxNQT/3UJzOHy92kNm
+	/VBNK9DrqpSH98QpklZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n9Gvq-00DCL2-Li; Mon, 17 Jan 2022 01:35:38 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1n9JPM-00DO0h-Kr; Mon, 17 Jan 2022 04:14:16 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n9Gvn-00DCK3-NI
- for linux-riscv@lists.infradead.org; Mon, 17 Jan 2022 01:35:37 +0000
-Received: by mail-pg1-x530.google.com with SMTP id t32so9197095pgm.7
- for <linux-riscv@lists.infradead.org>; Sun, 16 Jan 2022 17:35:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=p5VfPZXhTB1Gitf1/abkH4dtjlhx6yCzyBbwzkYPtDE=;
- b=nuEGBewfX2D4CBsw5hzzXDBRybGp50VAcaPLK0Bqr/3r2gDlgyUhoDa01Y75lMtU4R
- ZsqZtEl/sbAcUqB9SJYhkfasbFUOOp6jKKaBBeKAEC4P1f6pataPMUxT76rMe6VnGxnE
- bxWI36FkiT/2N2I4+m/qFkrI3+iiAaY0rSbiG6Jp9qMbzoNCVRxeVNeGzh1iZxFnnKLa
- xXrj9gowNzNXtyIaGxcZlx0cz/zZM0r/4g5P1T8FcZDwusYWq3P64BtvYD7EvrOg7PEy
- 1lMmj1YjI+E9v4/poeZIQqxDWdeoV0xpkV4rAZTGGF7PQ3wAFQkz0l4UDRJWSuMzrkb+
- hXUQ==
+ id 1n9JPJ-00DNzb-FU
+ for linux-riscv@lists.infradead.org; Mon, 17 Jan 2022 04:14:14 +0000
+Received: by mail-wm1-x333.google.com with SMTP id
+ d18-20020a05600c251200b0034974323cfaso21274318wma.4
+ for <linux-riscv@lists.infradead.org>; Sun, 16 Jan 2022 20:14:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=uC9QK9tDrDJ8bYUEkaLZMfhd29it01RtK3UNjGu6F+0=;
+ b=ciayjtT67GxQzlTSXm/xVUEcDMmOUTYKy1dGlkK0RlBk8DAWiHlAzcIKbvbDYe/5NB
+ eEMT+ivFn9XuyEiceNYjrBlFxJsKpmT1yBe+LEQM6wCmvJgGaDLNnz2IQvJldm9p9LN8
+ sjZMLhJvUa+jlS971DBqTx2JiV8MYE7VyRVbDQmkSCN2nZ/trP8TheKpE3SYVP8o7GRl
+ mKBVTHRYjfCaidRz00H1J+UyTio36Vc/fOt5C3nAm3iwUg/j/x/e/GqRm8HQD+XzItiI
+ gB934+DIUJ5Orh198FNLc5fF0SsjA5a2mJAfGzvcrEsMXUae/kwTZsnK3s4MYhi9duCa
+ QxtQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=p5VfPZXhTB1Gitf1/abkH4dtjlhx6yCzyBbwzkYPtDE=;
- b=i/zvCWttjJyLqTbTz8tLIx4QwDoiOMohfiP0wRkoxPUZtFlpVmlmIsDwgv1cZBwdLu
- NkmryMsxbdai3yBytgRzgl5kzsUWxAcu1Bco11p99EDE+XsIyNosFe+7858fAfGmplU/
- PeyhPnMlgQl+6RFODjP5m89lpuRzWcqGkv3rlcXb6vxgZf/SpEhMLwsHr0Bo/92Vs4iJ
- G9yaLBBSLhqIDfNPsHuKWH7HMeK2/RDBbLoHtR8ooCbPEPeuvsRVuTuNYKb1GrgKbSjW
- x9EeDnAPqIc4iGpMmyI8GmlamGBCJoXaQi8u9uqxyP0GRmhGtiXmsjjNZeTAkXvE7yOG
- 5xHw==
-X-Gm-Message-State: AOAM530HPvXmCf0bK+E3UT1kASiMF0/92Eg+V0px4Jl7FSD0JjZAzpKv
- pLxHQ357/6pgwRXMh+Rf+MixjQ==
-X-Google-Smtp-Source: ABdhPJxLIYeShTzCQNAuiqhv+woORrPiGiFg3PY5eGHPTWu8DqZgmWT1wWUIlKvDczvdCAZbTZ+aQg==
-X-Received: by 2002:a63:83c8:: with SMTP id h191mr9624306pge.499.1642383334271; 
- Sun, 16 Jan 2022 17:35:34 -0800 (PST)
-Received: from hsinchu16.internal.sifive.com
- (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
- by smtp.gmail.com with ESMTPSA id l1sm10008335pgn.35.2022.01.16.17.35.31
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 16 Jan 2022 17:35:33 -0800 (PST)
-From: Zong Li <zong.li@sifive.com>
-To: robh+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, krzysztof.kozlowski@canonical.com,
- conor.dooley@microchip.com, geert@linux-m68k.org, bin.meng@windriver.com,
- green.wan@sifive.com, vkoul@kernel.org, dmaengine@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Cc: Zong Li <zong.li@sifive.com>
-Subject: [PATCH v4 0/3] Determine the number of DMA channels by 'dma-channels'
- property
-Date: Mon, 17 Jan 2022 09:35:25 +0800
-Message-Id: <cover.1642383007.git.zong.li@sifive.com>
-X-Mailer: git-send-email 2.31.1
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=uC9QK9tDrDJ8bYUEkaLZMfhd29it01RtK3UNjGu6F+0=;
+ b=OgXp6fnyCUHCrXVtM7tNRKEVLr8VrXnF/5Epz0miM1A85BIEQyb+W57iQeRR6doBvf
+ PNLrT0/9hVtRyqH2Qg6Unvz1y0NvbyNQKdlblmD/QOvoWADUF72cQdQgVk6MClf3GvFG
+ OKBQ0JcU92TEA0JG8oBZNLjz/kItVlG2FW8MiCiuSUcxaqmCz1xUwfYmF2I5ugmHrPRi
+ CR5PN4Ej07QZ86cZTjjcLj9EMhcbsxqcLw2SPOu3ZyJ0OHpVEeTbAIpqNZKTZMiWQKPV
+ V6BxpAspD8M58ZGFoEzA4Fwa140XwVOWjMb4cRNTfB5lKI0itT0hoJxRk/B0nD56vEMQ
+ 5p5g==
+X-Gm-Message-State: AOAM531FCABnbCMmY5OwzZ/mp/JFlJ1TwbmwyAF0Z4gGZULre4dp6imP
+ TuHIhBdxd+0hEQhJS6Ji4kVsJvfilfBNz7Mz010o4A==
+X-Google-Smtp-Source: ABdhPJx4fa4h5AQb2MyTrvdM9qwAZU72bUbMnBBf3yoS2z9C11Wfyu6Dxyi24T7agTe5QbcUb33joJwV51zePD0brdE=
+X-Received: by 2002:a7b:cb05:: with SMTP id u5mr19465099wmj.59.1642392851103; 
+ Sun, 16 Jan 2022 20:14:11 -0800 (PST)
 MIME-Version: 1.0
+References: <20220112114024.7be8aac6@canb.auug.org.au>
+ <20220117085431.7bef9ebc@canb.auug.org.au>
+In-Reply-To: <20220117085431.7bef9ebc@canb.auug.org.au>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 17 Jan 2022 09:43:58 +0530
+Message-ID: <CAAhSdy3gEW+SC1GCH0V4iVA9h1sxeVV-V=x4kG7w_9tcVTtamw@mail.gmail.com>
+Subject: Re: linux-next: manual merge of the kvm tree with the risc-v tree
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Stephen Rothwell <sfr@canb.auug.org.au>, Paul Walmsley <paul@pwsan.com>, 
+ Paolo Bonzini <pbonzini@redhat.com>, KVM <kvm@vger.kernel.org>, 
+ Atish Patra <atishp@atishpatra.org>, Atish Patra <atishp@rivosinc.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ Linux Next Mailing List <linux-next@vger.kernel.org>,
+ Palmer Dabbelt <palmer@rivosinc.com>, 
+ linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220116_173535_822961_078869DA 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220116_201413_615392_0D706CAE 
+X-CRM114-Status: GOOD (  24.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,40 +89,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The PDMA driver currently assumes there are four channels by default, it
-might cause the error if there is actually less than four channels.
-Change that by getting number of channel dynamically from device tree.
-For backwards-compatible, it uses the default value (i.e. 4) when there
-is no 'dma-channels' information in dts.
+Hi Palmer,
 
-This patch set contains the dts and dt-bindings change.
+On Mon, Jan 17, 2022 at 3:24 AM Stephen Rothwell <sfr@canb.auug.org.au> wrote:
+>
+> Hi all,
+>
+> On Wed, 12 Jan 2022 11:40:24 +1100 Stephen Rothwell <sfr@canb.auug.org.au> wrote:
+> >
+> > Today's linux-next merge of the kvm tree got a conflict in:
+> >
+> >   arch/riscv/include/asm/sbi.h
+> >
+> > between commit:
+> >
+> >   b579dfe71a6a ("RISC-V: Use SBI SRST extension when available")
+> >
+> > from the risc-v tree and commit:
+> >
+> >   c62a76859723 ("RISC-V: KVM: Add SBI v0.2 base extension")
+> >
+> > from the kvm tree.
+> >
+> > I fixed it up (see below) and can carry the fix as necessary. This
+> > is now fixed as far as linux-next is concerned, but any non trivial
+> > conflicts should be mentioned to your upstream maintainer when your tree
+> > is submitted for merging.  You may also want to consider cooperating
+> > with the maintainer of the conflicting tree to minimise any particularly
+> > complex conflicts.
+> >
+> >
+> > diff --cc arch/riscv/include/asm/sbi.h
+> > index 289621da4a2a,9c46dd3ff4a2..000000000000
+> > --- a/arch/riscv/include/asm/sbi.h
+> > +++ b/arch/riscv/include/asm/sbi.h
+> > @@@ -27,7 -27,14 +27,15 @@@ enum sbi_ext_id
+> >       SBI_EXT_IPI = 0x735049,
+> >       SBI_EXT_RFENCE = 0x52464E43,
+> >       SBI_EXT_HSM = 0x48534D,
+> >  +    SBI_EXT_SRST = 0x53525354,
+> > +
+> > +     /* Experimentals extensions must lie within this range */
+> > +     SBI_EXT_EXPERIMENTAL_START = 0x08000000,
+> > +     SBI_EXT_EXPERIMENTAL_END = 0x08FFFFFF,
+> > +
+> > +     /* Vendor extensions must lie within this range */
+> > +     SBI_EXT_VENDOR_START = 0x09000000,
+> > +     SBI_EXT_VENDOR_END = 0x09FFFFFF,
+> >   };
+> >
+> >   enum sbi_ext_base_fid {
+>
+> This is now a conflict between the risc-v tree and Linus' tree.
 
-Changed in v4:
- - Remove cflags of debug use reported-by: kernel test robot <lkp@intel.com>
+The commit c62a76859723 ("RISC-V: KVM: Add SBI v0.2 base extension")
+is already merged in Linus' tree.
 
-Changed in v3:
- - Fix allocating wrong size
- - Return error if 'dma-channels' is larger than maximum
+Since you are yet to send PR for 5.17, we have two options:
+1) Rebase your for-next branch upon latest Linus' tree master branch
+2) Send "RISC-V: Use SBI SRST extension when available" in the
+next batch of changes for 5.17 after 5.17-rc1
 
-Changed in v2:
- - Rebase on tag v5.16
- - Use 4 as default value of dma-channels
+Let me know if you want me to rebase and send v8 patch of
+"RISC-V: Use SBI SRST extension when available"
 
-Zong Li (3):
-  riscv: dts: Add dma-channels property in dma node
-  dt-bindings: Add dma-channels for pdma device node
-  dmaengine: sf-pdma: Get number of channel by device tree
+In future, we should coordinate and use a shared tag for such
+conflicting changes.
 
- .../bindings/dma/sifive,fu540-c000-pdma.yaml  |  7 +++++++
- .../boot/dts/microchip/microchip-mpfs.dtsi    |  1 +
- arch/riscv/boot/dts/sifive/fu540-c000.dtsi    |  1 +
- drivers/dma/sf-pdma/sf-pdma.c                 | 20 ++++++++++++-------
- drivers/dma/sf-pdma/sf-pdma.h                 |  8 ++------
- 5 files changed, 24 insertions(+), 13 deletions(-)
+Regards,
+Anup
 
--- 
-2.31.1
 
+
+>
+> --
+> Cheers,
+> Stephen Rothwell
 
 _______________________________________________
 linux-riscv mailing list
