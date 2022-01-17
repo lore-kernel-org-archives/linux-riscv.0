@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE780C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jan 2022 17:03:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73DBEC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jan 2022 17:13:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/5HTzvyb2P6RcXduMVFcRmJE1rkUfTjHZOfYVeLYF8A=; b=Ol+qJyZKU61oRw
-	vBFY0bWu9klRAZmPkMedr+9/Z98NB+e0JVH7xUreyzQQzCeAaAHk5qgKOlsdc7ze5rrpeKulMDpWx
-	jWQhaYeDuUSRNeFxDznlMdUYpy0VNgmpprQTNFXNS2tH7J5c+ee3ZRQGIYOY2xYhFYqSa2GL9X8y6
-	Nlilrhnr7ocI496iDilLyc5ToEmkg+eFRY8RSycgT7KiXb+xfbY1Mv7FPg1e2hrPLPEWdQV8Lth5s
-	T8W8gojJs2BEGKgKS142RxT/P7F3dDBG7duTgoiy1sjWZNe1gTrBEKih/gHfWGgykTSJTMsCKFHML
-	Fj+cPbLJPpBF+WAjWAGw==;
+	List-Owner; bh=/5HTzvyb2P6RcXduMVFcRmJE1rkUfTjHZOfYVeLYF8A=; b=Ty+HkO/9uqRo9y
+	OEGjf74TDw1pgdqhMeEa9NAB8BdVvzNhxFqMLRyHrKkReNZ3e6B2GBfLkuUUeIgibAAdovyWJk6I/
+	lTpPnfjhct1BXH2O1qWCy7DWq2oREb4KFsczpb93PSZkqhi5vQJ96SwTJHK+7qIHJqMZva3WCQGGP
+	BirFJc7Wf4rjJv5Un4QXDoqQlFDG7qO3mjQPj909t0ylKHsiJWZHVRAkmbLZj0hZaijgiZ/x5p7gD
+	/cbBEiO3XZxxWpamYOiE4abgvH1OJEQAzhBIqEavko175vDojo+QWWTF/fhv7iPAwgQetliXkc2qA
+	ZH8IXmwQg321vvlb5jSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n9VPx-00Fhn6-IR; Mon, 17 Jan 2022 17:03:41 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1n9VZ8-00FmzD-Vm; Mon, 17 Jan 2022 17:13:11 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n9VNj-00FgJ7-H6
- for linux-riscv@lists.infradead.org; Mon, 17 Jan 2022 17:01:25 +0000
+ id 1n9VPf-00FhcD-Gv
+ for linux-riscv@lists.infradead.org; Mon, 17 Jan 2022 17:03:24 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 112D2611CA;
- Mon, 17 Jan 2022 17:01:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9951FC36AE7;
- Mon, 17 Jan 2022 17:01:21 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 2F72AB81131;
+ Mon, 17 Jan 2022 17:03:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 117ADC36AEC;
+ Mon, 17 Jan 2022 17:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1642438882;
+ s=k20201202; t=1642439000;
  bh=AGVkdtvLj/AXz77WxRuV1yF6BCr8p0lcB/5+6NNM0k0=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=rjEPrQK2JMNrTRAyao7NJSk50a/L1ePVPKgpNCIYLf3MpYO9BJcNLm5H2cG+cxurw
- KQiEzkEJCPy3XMQJZG83mRwFt4caOMLfv+6YxtSzvyKATXpq8eIzTYyIqm1TLMpvBj
- ynQDxpAqxnsopn8onKq/qUr2r0L4LaC+D0JEWaWEXVzbIHXIdXCs2NfdCYVXAoFP2P
- SXJbq+/fYwE2z6ujtCVSvO6b41KpJCstRPnHOTxa0Tf5hV+1T4nTVkTnLfB4BOgDtc
- M+GP1+0iAxeyGeSKjMVb9a7ND0xtzJCoC2ujwanQYYlhS1na5uYuq/pK0Z/m1UbZrE
- sx7LsFcnknrLQ==
+ b=YlNfIeLjVNbGJYH5/FGbsN2lhgXFNEvrhijjIWJNFvkfJy2WncP3DhvdiU3SNwEta
+ Vv4550Hg1mbnNPw/WOnwEyKMlOpzJTrDMwJgeWw9DHrW3l+e/h0v2uJW0+Irqgg9YE
+ a/gEHF6zfn0FcW96Mn6USyVIZqclaNbHHK7ryPrsrAMkMg9wGW4M7wD1boHyEtCWua
+ E3na078FFoaSNQ5m0Ko/egcyCvcSxKkwyeBAgy+PzBWRm15UV2Aq9Bu5Mh2PukSDR+
+ wq6Opd3Ja3ZCgXnftE+8TpcXRMVq3eBgycpHc9WqBt0WrB9ET8dnUDYPH7vMRNVO73
+ QKY3h+e8Cb6pg==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -50,18 +50,18 @@ Cc: Conor Dooley <conor.dooley@microchip.com>,
  Jassi Brar <jaswinder.singh@linaro.org>, Sasha Levin <sashal@kernel.org>,
  lewis.hanly@microchip.com, jassisinghbrar@gmail.com,
  linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.16 51/52] mailbox: change mailbox-mpfs compatible
+Subject: [PATCH AUTOSEL 5.15 43/44] mailbox: change mailbox-mpfs compatible
  string
-Date: Mon, 17 Jan 2022 11:58:52 -0500
-Message-Id: <20220117165853.1470420-51-sashal@kernel.org>
+Date: Mon, 17 Jan 2022 12:01:26 -0500
+Message-Id: <20220117170127.1471115-43-sashal@kernel.org>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220117165853.1470420-1-sashal@kernel.org>
-References: <20220117165853.1470420-1-sashal@kernel.org>
+In-Reply-To: <20220117170127.1471115-1-sashal@kernel.org>
+References: <20220117170127.1471115-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220117_090123_659876_363A1B05 
+X-CRM114-CacheID: sfid-20220117_090323_747203_4967D939 
 X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
