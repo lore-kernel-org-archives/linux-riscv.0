@@ -4,65 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73DBEC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jan 2022 17:13:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4126DC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jan 2022 17:33:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/5HTzvyb2P6RcXduMVFcRmJE1rkUfTjHZOfYVeLYF8A=; b=Ty+HkO/9uqRo9y
-	OEGjf74TDw1pgdqhMeEa9NAB8BdVvzNhxFqMLRyHrKkReNZ3e6B2GBfLkuUUeIgibAAdovyWJk6I/
-	lTpPnfjhct1BXH2O1qWCy7DWq2oREb4KFsczpb93PSZkqhi5vQJ96SwTJHK+7qIHJqMZva3WCQGGP
-	BirFJc7Wf4rjJv5Un4QXDoqQlFDG7qO3mjQPj909t0ylKHsiJWZHVRAkmbLZj0hZaijgiZ/x5p7gD
-	/cbBEiO3XZxxWpamYOiE4abgvH1OJEQAzhBIqEavko175vDojo+QWWTF/fhv7iPAwgQetliXkc2qA
-	ZH8IXmwQg321vvlb5jSA==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4wLK5EQpWOgVhVp1QbamkNc+iveZxveJe5oi4bEPYG0=; b=afQgWiCN7WA651
+	aiuf7psxkX1cngU1grNPWJMzqtB5AvY4L/9nJnBUuSUZeoYgqSOMdORJ8PL+gvwDaphlqioWV2b3V
+	uy6/Fu33N/k5CjO4iJ73S6+UKVK7bdORIpbGFnAFd3auDgeDmn0FEjAFuyC5YeMXAzdrJD0CepA1G
+	wuvP9JcLdMg/rxVG0S6tZA0bIz8OuzhLNPK/5s3OQP8rLE2WKRR35ZcsIikaZwUCPU0KTJ7LkA1BZ
+	+CoUtz1H7YQC50YVD8GjhIPh2bZa6yibDBs9BC0ADN+De5a3Vxe9m+SksvGYz0u8Tj28rOFoucJkc
+	/ljNF4amdFdjtvLHqP6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1n9VZ8-00FmzD-Vm; Mon, 17 Jan 2022 17:13:11 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1n9Vt8-00FwuT-3L; Mon, 17 Jan 2022 17:33:50 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1n9VPf-00FhcD-Gv
- for linux-riscv@lists.infradead.org; Mon, 17 Jan 2022 17:03:24 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 2F72AB81131;
- Mon, 17 Jan 2022 17:03:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 117ADC36AEC;
- Mon, 17 Jan 2022 17:03:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1642439000;
- bh=AGVkdtvLj/AXz77WxRuV1yF6BCr8p0lcB/5+6NNM0k0=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=YlNfIeLjVNbGJYH5/FGbsN2lhgXFNEvrhijjIWJNFvkfJy2WncP3DhvdiU3SNwEta
- Vv4550Hg1mbnNPw/WOnwEyKMlOpzJTrDMwJgeWw9DHrW3l+e/h0v2uJW0+Irqgg9YE
- a/gEHF6zfn0FcW96Mn6USyVIZqclaNbHHK7ryPrsrAMkMg9wGW4M7wD1boHyEtCWua
- E3na078FFoaSNQ5m0Ko/egcyCvcSxKkwyeBAgy+PzBWRm15UV2Aq9Bu5Mh2PukSDR+
- wq6Opd3Ja3ZCgXnftE+8TpcXRMVq3eBgycpHc9WqBt0WrB9ET8dnUDYPH7vMRNVO73
- QKY3h+e8Cb6pg==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Conor Dooley <conor.dooley@microchip.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Jassi Brar <jaswinder.singh@linaro.org>, Sasha Levin <sashal@kernel.org>,
- lewis.hanly@microchip.com, jassisinghbrar@gmail.com,
- linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.15 43/44] mailbox: change mailbox-mpfs compatible
- string
-Date: Mon, 17 Jan 2022 12:01:26 -0500
-Message-Id: <20220117170127.1471115-43-sashal@kernel.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220117170127.1471115-1-sashal@kernel.org>
-References: <20220117170127.1471115-1-sashal@kernel.org>
-MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
+ id 1n9Vt4-00Fwqp-Qv
+ for linux-riscv@lists.infradead.org; Mon, 17 Jan 2022 17:33:48 +0000
+Received: by mail-wm1-x334.google.com with SMTP id c2so16521872wml.1
+ for <linux-riscv@lists.infradead.org>; Mon, 17 Jan 2022 09:33:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=jrtc27.com; s=gmail.jrtc27.user;
+ h=mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=fZgWPWOX9Mc6FibI4zRymEqtmZX2ottHTayO6iuSsq0=;
+ b=OyzcBB+qy5rvsCZSRU/KkaPmbiHFhhrAtEzXEnoLEjKYvIWrJbt/DrsVNf5Z1udWOv
+ PSad0frh2KtmWQkbt1/rDEfOhb3RaB0rMZ1kJZKXZ6/YDx5+9O+5lDpgPaPz82EFm9Cw
+ +mSZuEhsmXaE6uZ1AI3nwGfVI2sPMZ3TDGHlMzEcMEX1bxBMCcvcAJZdU4L2ugw05agX
+ ycMVOidCPnZLVBjLoCbG6RL/IjBrjuvV0YB33RQscWORkd9yZM1rqCOKATLkRMuWLOYj
+ YWpuuJoS7kqqNfpCQNysX9au6OUkpuGzS149cxyNE/taSa8BU8E4D1/0jxqMI75I3ZTt
+ +0Hg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=fZgWPWOX9Mc6FibI4zRymEqtmZX2ottHTayO6iuSsq0=;
+ b=3NxDvyDLHj2y5lj7nV9IEEsibFRwCm1EDQjZv0E/MdMIpurgaqes6giNqMnxonSt09
+ YEUSu3Ku94RjwzHnirsc5iHid0KGg3c8vqZorMERh+QchecOdowmAvSkrwTCBH86xIN9
+ wNHB//6cQqSHvqlDr+ctafK5XHE0zTdsxlrJlFzNoRYfiWXZryztt6LPRY1Gn39Q66A5
+ aqUpljx2bxK0PSwUuOYJLFErdkjlmEaNjaYGjvSEsYqVjz8VOQeG72C5aGJgIqzRTqgj
+ p1kzsJdkMIdnqlcTMMtoFyQFWdGqpPtm9MTCL+t1pE7SxTCnB/ST748AOp3+KganRq9u
+ YgbQ==
+X-Gm-Message-State: AOAM531dydStWVRcvAjUUPsY7KeDl6WbwelwikjSn33f9xbtLuOzRsUF
+ g4fdYpHwqDh4nmMP2leSyAxFKA==
+X-Google-Smtp-Source: ABdhPJxqZx/+3nE4cUA+kCqTXZsj9eDyMdS0Rfo/QUBoPTF7miKiD/tyX72lD3xc48L8hcmTZg3B/A==
+X-Received: by 2002:a5d:6847:: with SMTP id o7mr20330024wrw.706.1642440821028; 
+ Mon, 17 Jan 2022 09:33:41 -0800 (PST)
+Received: from smtpclient.apple (global-5-142.nat-2.net.cam.ac.uk.
+ [131.111.5.142])
+ by smtp.gmail.com with ESMTPSA id b6sm8184682wri.108.2022.01.17.09.33.40
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Mon, 17 Jan 2022 09:33:40 -0800 (PST)
+Mime-Version: 1.0 (Mac OS X Mail 15.0 \(3693.40.0.1.81\))
+Subject: Re: [PATCH] riscv: eliminate unreliable __builtin_frame_address(1)
+From: Jessica Clarke <jrtc27@jrtc27.com>
+In-Reply-To: <20220117154433.3124-1-changbin.du@gmail.com>
+Date: Mon, 17 Jan 2022 17:33:40 +0000
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv <linux-riscv@lists.infradead.org>, linux-kernel@vger.kernel.org
+Message-Id: <C2470F2D-9E45-49D7-A03B-E6A7BB4B9738@jrtc27.com>
+References: <20220117154433.3124-1-changbin.du@gmail.com>
+To: Changbin Du <changbin.du@gmail.com>
+X-Mailer: Apple Mail (2.3693.40.0.1.81)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220117_090323_747203_4967D939 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20220117_093346_977197_69688E70 
+X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,38 +90,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On 17 Jan 2022, at 15:44, Changbin Du <changbin.du@gmail.com> wrote:
+> 
+> I tried different pieces of code which uses __builtin_frame_address(1)
+> (with both gcc version 7.5.0 and 10.3.0) to verify whether it works as
+> expected on riscv64. The result is negative.
+> 
+> What the compiler had generated is as below:
+> 31                      fp = (unsigned long)__builtin_frame_address(1);
+>   0xffffffff80006024 <+200>:   ld      s1,0(s0)
+> 
+> It takes '0(s0)' as the address of frame 1 (caller), but the actual address
+> should be '-16(s0)'.
+> 
+>          |       ...       | <-+
+>          +-----------------+   |
+>          | return address  |   |
+>          | previous fp     |   |
+>          | saved registers |   |
+>          | local variables |   |
+>  $fp --> |       ...       |   |
+>          +-----------------+   |
+>          | return address  |   |
+>          | previous fp --------+
+>          | saved registers |
+>  $sp --> | local variables |
+>          +-----------------+
+> 
+> This leads the kernel can not dump the full stack trace on riscv.
+> 
+> [    7.222126][    T1] Call Trace:
+> [    7.222804][    T1] [<ffffffff80006058>] dump_backtrace+0x2c/0x3a
+> 
+> This problem is not exposed on most riscv builds just because the '0(s0)'
+> occasionally is the address frame 2 (caller's caller), if only ra and fp
+> are stored in frame 1 (caller).
+> 
+>          |       ...       | <-+
+>          +-----------------+   |
+>          | return address  |   |
+>  $fp --> | previous fp     |   |
+>          +-----------------+   |
+>          | return address  |   |
+>          | previous fp --------+
+>          | saved registers |
+>  $sp --> | local variables |
+>          +-----------------+
+> 
+> This could be a *bug* of gcc that should be fixed. But as noted in gcc
+> manual "Calling this function with a nonzero argument can have
+> unpredictable effects, including crashing the calling program.", let's
+> remove the '__builtin_frame_address(1)' in backtrace code.
 
-[ Upstream commit f10b1fc0161cd99e54c5687fcc63368aa255e05e ]
+Yes, this is a bug, that is always wrong. LLVM gets this right.
 
-The Polarfire SoC is currently using two different compatible string
-prefixes. Fix this by changing "polarfire-soc-*" strings to "mpfs-*" in
-its system controller in order to match the compatible string used in
-the soc binding and device tree.
+https://godbolt.org/z/MrhsoPPM6
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
-Signed-off-by: Jassi Brar <jaswinder.singh@linaro.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/mailbox/mailbox-mpfs.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/mailbox/mailbox-mpfs.c b/drivers/mailbox/mailbox-mpfs.c
-index 0d6e2231a2c75..4e34854d12389 100644
---- a/drivers/mailbox/mailbox-mpfs.c
-+++ b/drivers/mailbox/mailbox-mpfs.c
-@@ -232,7 +232,7 @@ static int mpfs_mbox_probe(struct platform_device *pdev)
- }
- 
- static const struct of_device_id mpfs_mbox_of_match[] = {
--	{.compatible = "microchip,polarfire-soc-mailbox", },
-+	{.compatible = "microchip,mpfs-mailbox", },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, mpfs_mbox_of_match);
--- 
-2.34.1
+Jess
 
 
 _______________________________________________
