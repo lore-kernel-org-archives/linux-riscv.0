@@ -4,97 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B4AC43219
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jan 2022 15:45:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96775C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jan 2022 16:00:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K1ytWieoeunoziZPzII17NcPy2W03sn3QuQitbRpNec=; b=3T2hMRBq427qygBmM6DcNCidZq
-	e1NiZGRta+o96MhN9uod3TutXCVcil5o5QktCZ0UxRFcUR5VI33PQ2uRMuProzh5kDF0PBJsx4BL/
-	MGKWCBhHiENs9wiwldW6kO/CEepuGeAGdswzoeGCbJrJ1oCevRvyHWzQgFFy8iC4d+2+dYo/dg4Gg
-	E3KGoePCEq2eXZT2ZP6l8d4ylnw2GL7ymC8tONfxxY16BXR1f1PUrsMYOvM/DIV8fhJQQmdUGFDD+
-	3Xt2AxhqTLQmvMigt/O3hI8rjovuU72WwTxnU6MRMgffpYa1Yqjq5qUmZd3aiznfcepDLfFHtXWFO
-	DGW7S1Hw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jKMgKuEBzyN6IBUC7IkHPvayMe9J67ffR7Mb/YwK6uI=; b=k0ji4cD70ATUhq
+	iE1X1hvk44HqVcHcS+D41exQ47zKxDF1fp4a21RMDBuN7TdUKzotzozPYccxZ7uVFzFyfrr5zc3m/
+	wLw/gynZaQqY5SS8/MSUIzEyJevp2tznBUqBJmE57jVdsnVmqsDMDswSBUZkNoO6EpnMUo0WpzbEy
+	Cb8WNm20h9UWpEPWfN5Gku8z45soS243Te11mUfoqxM74X2YD1U/nzAc/WzKJgzHa/TRJeFpp7OZN
+	Tz0zxsW5Y0MS/wsqR+2h0/aRAvhoUAOotORHoIb/GEj5oxBNPTfUt371GNuOyYpPjVgl2hkH96mCD
+	MkduTGhvzMBjE0nRVh1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nAD9h-006Cms-H1; Wed, 19 Jan 2022 15:45:49 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1nADNN-006GIu-0I; Wed, 19 Jan 2022 15:59:57 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nAD9e-006Cla-Hf; Wed, 19 Jan 2022 15:45:47 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id E1AB961518;
- Wed, 19 Jan 2022 15:45:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1238AC004E1;
- Wed, 19 Jan 2022 15:45:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1642607145;
- bh=lGvpU5SU2oeO2Gj2gUOdONvIDUBxvoCyLVrP9LdAyK0=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=uFHSCn+eRhus5s0gMFtlk4M/7JhocnfANlW1cVHA0G6W01cpJd8F+h8fndGiFBKZn
- nCZZCtAQC4k7abNvVhvbVvzHZ7dwbuD74/T+NiX/IT3CWwnmAbzJ0EI/MN3ouRA4NK
- JcMa2vYnHRlxojVgmRVHQy8kAseKCb6RYvwbbz/tuDQ+FYrQPMEKinDs+/J/QCmOle
- OH44fC1gV0pSNhO5CC8MUprlf5WJ73QIy9YW2JqYDexDIA+m9Gz2JyKjFMMikgheJ8
- PhLYlTQI+6mhi8SuY2B8vNy7F68ziMiWUL/NDEe4veZOx2TcwQKBwmk2W+zhD/Bwkn
- UzTQKF64F/eMw==
-Date: Wed, 19 Jan 2022 15:45:29 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Damien Le Moal <damien.lemoal@opensource.wdc.com>,
- Herbert Xu <herbert@gondor.apana.org.au>,
- "David S. Miller" <davem@davemloft.net>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
- Vinod Koul <vkoul@kernel.org>, Georgi Djakov <djakov@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Joerg Roedel <joro@8bytes.org>, Lee Jones <lee.jones@linaro.org>,
- Daniel Thompson <daniel.thompson@linaro.org>,
- Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@ucw.cz>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Jakub Kicinski <kuba@kernel.org>, Wolfgang Grandegger <wg@grandegger.com>,
- Marc Kleine-Budde <mkl@pengutronix.de>, Andrew Lunn <andrew@lunn.ch>,
- Vivien Didelot <vivien.didelot@gmail.com>,
- Florian Fainelli <f.fainelli@gmail.com>,
- Vladimir Oltean <olteanv@gmail.com>, Kalle Valo <kvalo@kernel.org>,
- Viresh Kumar <vireshk@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
- Kishon Vijay Abraham I <kishon@ti.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Kevin Hilman <khilman@kernel.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, Sebastian Reichel <sre@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Zhang Rui <rui.zhang@intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- Sudeep Holla <sudeep.holla@arm.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- linux-ide@vger.kernel.org, linux-crypto@vger.kernel.org,
- dri-devel@lists.freedesktop.org, dmaengine@vger.kernel.org,
- linux-pm@vger.kernel.org, iommu@lists.linux-foundation.org,
- linux-leds@vger.kernel.org, linux-media@vger.kernel.org,
- netdev@vger.kernel.org, linux-can@vger.kernel.org,
- linux-wireless@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-remoteproc@vger.kernel.org, alsa-devel@alsa-project.org,
- linux-usb@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: Improve phandle-array schemas
-Message-ID: <YegyGbGcwSNo49gY@sirena.org.uk>
-References: <20220119015038.2433585-1-robh@kernel.org>
+ id 1nADNJ-006GHs-PV
+ for linux-riscv@lists.infradead.org; Wed, 19 Jan 2022 15:59:55 +0000
+Received: by mail-wm1-x330.google.com with SMTP id p18so5903192wmg.4
+ for <linux-riscv@lists.infradead.org>; Wed, 19 Jan 2022 07:59:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=+vOb5yHTUTgHDDJX2OrXL/1O2I+8ETIcPsDexqsYa1Y=;
+ b=fYraz93MX4Xg4NtOpfPQ59K9zOTiqFaT0QfJNRUzZde4KwXyKNXQvByB6IiFd7oaIl
+ hV5QVjpdZBq6KWaOnHRlZui/ponpmAj49JbWd1Q7uGx/4H9BsrNEyngiok+2pDjp7kPz
+ A7+je10EtD2nsoGw0WQ7BxkzTCWskyvqecMmZbKAw9Z3bHd+uh0oDfxzDX1BKyFir8Da
+ YqgQ3KvlO0VJwTsi7XrNWKoSU18rZGG2hOQ+AqqHiLZrl5eHZG6uTQC7fYzlOCCe4unT
+ oH+djtM/VcPzktfiXU8ICsIsHRWVl2iRHUlW8cvM7sr0bXAgJZMr40qeyZsjqG0rWbRe
+ oJZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=+vOb5yHTUTgHDDJX2OrXL/1O2I+8ETIcPsDexqsYa1Y=;
+ b=UKncXYIC3Q1YYpb9mOoSsyhhIkKk/1syxuCPP9Cs+Qr3Po9ZP8MhELaP5ohTbcQP3X
+ GEWvUvjqUyxFr/t7+zEI9Ab4dcMLGSSmbMQhPcPEDbVGhonQg4Tsr+xVKsV+moY3d0i4
+ f9qANteWJfxC+pTB0+C8/atV28CSd6Kc26Pit6EITfudQXSHD2bwCcrFss+UkjYpyhTY
+ ehy9vhwXsfpajSKK2j1N1/D1tvaxbmUyS2TntUgYy04tJB+0y4Up3zkkGWb2pHHdbDoy
+ CCc9MMMFxj7iHFt8LZQRSbxDmEVvx2+iIyFnsapS4Jlcp9vMQL7JDtLA6K3zJISMjQIk
+ KQ3Q==
+X-Gm-Message-State: AOAM532iyr406DOaskKfcwOBKg8By+vnGLPXRgVhO0CVKt5o3027fPPq
+ WOjpPtB6BON6KP7mFouQLEOD3OVCQsTvj7UHLQM=
+X-Google-Smtp-Source: ABdhPJxllMHmNdo+PnzLV4B/leNYKBD0RcLgdBJ9d7U41dzillp07VzmjbjOGDrtTBkD7GmO0emmpFkyrOxTSsLuAH0=
+X-Received: by 2002:a1c:f70d:: with SMTP id v13mr4222288wmh.133.1642607992553; 
+ Wed, 19 Jan 2022 07:59:52 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20220119015038.2433585-1-robh@kernel.org>
-X-Cookie: This bag is recyclable.
+References: <20220110165208.1826-1-jszhang@kernel.org>
+ <Ydxljv2Q4YNDYRTx@xhacker>
+ <CAJ+HfNiS7Ss0FJowPUrrKvuC+1Kn9gXb=VqNoqh3eWJDu=m4Mg@mail.gmail.com>
+ <1b104397-8cb7-c5c2-92cb-11ce56c9a8de@iogearbox.net>
+In-Reply-To: <1b104397-8cb7-c5c2-92cb-11ce56c9a8de@iogearbox.net>
+From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
+Date: Wed, 19 Jan 2022 16:59:40 +0100
+Message-ID: <CAJ+HfNikH3OMH_b3=uvfSqAJZkjJabn9yipbYdnTxsh_=VDHOQ@mail.gmail.com>
+Subject: Re: [PATCH riscv-next] riscv: bpf: Fix eBPF's exception tables
+To: Daniel Borkmann <daniel@iogearbox.net>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ palmer@rivosinc.com, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <kafai@fb.com>, 
+ Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, 
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, 
+ Netdev <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ LKML <linux-kernel@vger.kernel.org>, Tong Tiangen <tongtiangen@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220119_074546_691778_3EE06BBB 
-X-CRM114-Status: GOOD (  14.03  )
+X-CRM114-CacheID: sfid-20220119_075953_857575_961ECE85 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,57 +89,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4530758177909035433=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============4530758177909035433==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="czK8d+IES+j+3Pl3"
-Content-Disposition: inline
-
-
---czK8d+IES+j+3Pl3
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Tue, Jan 18, 2022 at 07:50:38PM -0600, Rob Herring wrote:
-> The 'phandle-array' type is a bit ambiguous. It can be either just an
-> array of phandles or an array of phandles plus args. Many schemas for
-> phandle-array properties aren't clear in the schema which case applies
-> though the description usually describes it.
-
-Acked-by: Mark Brown <broonie@kernel.org>
-
---czK8d+IES+j+3Pl3
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmHoMhgACgkQJNaLcl1U
-h9AndQf6AqqY9YG2aSYiiYYVIPZoOOjUX2h6CnkvjYCVewt5gN+SxENXpgaLc0p7
-vUq1Rp5AXTu7uFjL2ebgJ8UZPO5cjNIcj81k5OTqRYCvRBqWrPJpsacwSvuNAIUC
-wrrUMNkFdRa0zaMGhMzVeaIAH9o5nqER6z2qXqGG9ccVbPBok8wg6W1xQCDlmyp8
-wzYMD1gLPXMihGy7mzkZd/BHFVdUjKVmYlGiUNl7GI9MVp6v8wt8BbDP4qng30Yz
-BLjhS3YyPDXdeYumU5Mvht+JzYmhn8Ihggw6dbQf6dO/UjwL+5ApN6em8mMhc0VH
-9cXSuI+tv6I8BrIvDkVLV+hVCpjdBg==
-=GpmZ
------END PGP SIGNATURE-----
-
---czK8d+IES+j+3Pl3--
-
-
---===============4530758177909035433==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4530758177909035433==--
-
+T24gV2VkLCAxOSBKYW4gMjAyMiBhdCAxNjo0MiwgRGFuaWVsIEJvcmttYW5uIDxkYW5pZWxAaW9n
+ZWFyYm94Lm5ldD4gd3JvdGU6Cj4KWy4uLl0KPiA+IEFGQUlLLCBKaXNoZW5nJ3MgZXh0YWJsZSB3
+b3JrIGlzIHN0aWxsIGluIFBhbG1lcidzIGZvci1uZXh0IHRyZWUuCj4gPgo+ID4gRGFuaWVsL0Fs
+ZXhlaTogVGhpcyBlQlBGIG11c3QgZm9sbG93IGNvbW1pdCAxZjc3ZWQ5NDIyY2IgKCJyaXNjdjoK
+PiA+IHN3aXRjaCB0byByZWxhdGl2ZSBleHRhYmxlIGFuZCBvdGhlciBpbXByb3ZlbWVudHMiKSwg
+d2hpY2ggaXMgaW4KPiA+IFBhbG1lcidzIHRyZWUuIEl0IGNhbm5vdCBnbyB2aWEgYnBmLW5leHQu
+Cj4KPiBUaGFua3MgZm9yIGxldHRpbmcgdXMga25vdywgdGhlbiBsZXRzIHJvdXRlIHRoaXMgZml4
+IHZpYSBQYWxtZXIuIE1heWJlIGhlIGNvdWxkCj4gYWxzbyBhZGQgRml4ZXMgdGFncyB3aGVuIGFw
+cGx5aW5nLCBzbyBzdGFibGUgY2FuIHBpY2sgaXQgdXAgbGF0ZXIgb24uCj4KCkl0IHNob3VsZG4n
+dCBoYXZlIGEgZml4ZXMtdGFnLCBzaW5jZSBpdCdzIGEgbmV3IGZlYXR1cmUgZm9yIFJWLiBUaGlz
+CndhcyBhZGFwdGluZyB0byB0aGF0IG5ldyBmZWF0dXJlLiBJdCBoYXNuJ3QgbWFkZSBpdCB1cHN0
+cmVhbSB5ZXQgKEkKaG9wZSEpLgoKCkNoZWVycywKQmrDtnJuCgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
+dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
