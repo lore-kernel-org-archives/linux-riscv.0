@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB283C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jan 2022 11:03:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E0FC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jan 2022 11:52:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5WJkqXrEfXmC83ygs4aE28/dQF7fslLrm0ZTr/9FVW0=; b=4dqvi9E3HXS7eV
-	cIwptUm8NVY1pJ0W9QF6qXv2NL/4j2KpvreN5cL2oc7rgZ25Sva3ZJ3nt+IoXIfqldVqNPa1ZoTBo
-	Y8v6jtbuZac0PedrVZrSnD2EFrD7wPSJTQBX86JuUcr6rK+UGeOM5DwwWfwE8CEIEUtlkfOGJAPaX
-	qtIUlCSvA7ktFHfqmh1yDTKRi5ZO/LgEvuaXvkn1I6DqBSAqTID8h8RzUAJC7LP2iymQ8Lh9AGfnn
-	XS0VruZqgSKyE6xiKS42MubOzTOrTJgcDhmW9F4XhiTfBKIRX8hwacz6ta6aQ/seQyHNpy0gzbDmh
-	qlT8AG4+VQ3g6UQaFifQ==;
+	List-Owner; bh=pq8izXXKcb1ZuR1BjMXhkr4lcpR6/YI/2VKv1L/6VIM=; b=wJ/5cnkEs9tGVB
+	ybMV077ohNzNEDbjt/ax1BUZflLnbJH/VgWvJbxfBhAGDpzjFAEsnNhw10dmkI+RePyMHfpfUD9QV
+	8laVwcyn+WjHF/2+a5p8vUHfxDB4V+rt5yuybsPDppyl5gE9SHYncLjM4LoyfJq4MggL44qy0V2t6
+	sw6RnDqqAnUii18BI19GhFPRq4HZiVYFGZOuZREb4AUnG1d9b9xpQqOSV3V2BGqenabZPZ8DTYG/U
+	zDrc47vaRPWxLNbAvfHftIecIYvVyZMPhArM0ohz9joXV3yp0O1YeeULyDbf8UP7LeWE3AV9LYuOi
+	1yXU6Mu+jKpOTUUYghxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nA8jy-0054Oa-4S; Wed, 19 Jan 2022 11:02:58 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1nA9W2-005Fvf-Oc; Wed, 19 Jan 2022 11:52:38 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nA8jv-0054Mz-53
- for linux-riscv@lists.infradead.org; Wed, 19 Jan 2022 11:02:56 +0000
-Received: by mail-wm1-x331.google.com with SMTP id c2so4654793wml.1
- for <linux-riscv@lists.infradead.org>; Wed, 19 Jan 2022 03:02:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:content-transfer-encoding:in-reply-to;
- bh=y3GaD+SwN8APMQh031bGmSeVhkIovJ6kmTWH0X4e1qs=;
- b=a6dQ+O363irHUe/2uR6WdKPelWnbsGOe88aYXZJWYu3+R/9z0BBECAZLkfcQyAIb7K
- BuOGMmgyUuAsXMLD7g/PBRldy0iYCslevoNDB9GKInXvWMHAp9ZpbtfoWkVgiRq8np+a
- ES/7nyOiJGW1FiUwq2GKq3n87Nw1OyOCNaLqzWUa6al8gXCelS4Stk4LNgzahgmTLHCP
- tYsEFbjLqH5RqCAkUCl37Y/xgoU7XN4N1rgBXThWeRkntCS8B+51Fjil534FR2DQbH7Y
- 3Oukbh2d5EilpYtLc4uiRsX7txttv8BHU5O4v9HhcdNmd5bP4hg5nDZ8sBD5ykU9e1Vz
- dUCQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:content-transfer-encoding
- :in-reply-to;
- bh=y3GaD+SwN8APMQh031bGmSeVhkIovJ6kmTWH0X4e1qs=;
- b=ZNnXl79A0DZ4JDbrd+kpUArX2YUynlMTm+7tep67VrwES2so6doEx2Fy/9Lu9n1HRy
- GepqhEhZ5jKe646tCTulhCbPncDSIBpfyGcwPUlRZf4jovq4mUJIlmdZVje8LuCn/8SC
- u1So1GZVJxZlrba78CkGSn5DurmhqWaA30KGrYUeVKhbZrGv7CzHkI+y5+RsGmCKin4r
- xxJYXFPNbvPsnrD8VH+olI8yHTuvzQ9Hkg5ZujDmXcgRKcsjA3myVnPamxw+rtvmjsMA
- UfbUJce+yLpEzLGqCR37Z2rRllmzxFL1yLj4cqd6vyVbCy7o3rolTfcTQEnNNOt1bq6Y
- c1aw==
-X-Gm-Message-State: AOAM532BfQnRou0AiAV5JDekR5PQEYlXgeOdKb+INNykxLGJhZLsfaEd
- RBcsszWmlgio6H3TWkJPA8qEUg==
-X-Google-Smtp-Source: ABdhPJxX7fgAprwygcmLbv/bWso8tv6+jbaJ2Y6smRT4U6jn90jPf3xZUhJtuZxCXWHTGChun0sZpw==
-X-Received: by 2002:a1c:a102:: with SMTP id k2mr2688174wme.78.1642590173201;
- Wed, 19 Jan 2022 03:02:53 -0800 (PST)
-Received: from google.com (cpc106310-bagu17-2-0-cust853.1-3.cable.virginm.net.
- [86.15.223.86])
- by smtp.gmail.com with ESMTPSA id bj6sm313517wrb.48.2022.01.19.03.02.52
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 19 Jan 2022 03:02:52 -0800 (PST)
-Date: Wed, 19 Jan 2022 11:02:50 +0000
-From: Lee Jones <lee.jones@linaro.org>
-To: Zong Li <zong.li@sifive.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, robh+dt@kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/4] clk: sifive: Move all stuff into SoCs header files
- from C files
-Message-ID: <Yefv2uFYme4+GDdL@google.com>
-References: <cover.1642582832.git.zong.li@sifive.com>
- <70c9317814b06c7ce37688b158178b188d3fd604.1642582832.git.zong.li@sifive.com>
+ id 1nA9Vl-005FpK-U2; Wed, 19 Jan 2022 11:52:24 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 92085B8199C;
+ Wed, 19 Jan 2022 11:52:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2160C004E1;
+ Wed, 19 Jan 2022 11:52:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1642593139;
+ bh=QfpuL80/duahPHOR1KalTLy06DYEW34Je3XdZ5Xf75o=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=m20X0mJ3MzAXLJNXcmWwhF/O7iTUjdtfIexfjhZORLToSTg97fm/4gM9W6iaJgCeK
+ LDE/VvkdorLX7OPmUYCHGd3iKRDjEBlEAY51Mjrnj75VWOSjRPbgHbDK099v510ybO
+ i68wLNd1mS+hqMXQIKZyTtGLrBtmVYVgrOougnyK5KWeXCiM1YqF7+rfOyxiID29p+
+ KyGnJZFjKCTbNwPDlmuHFFOzU3MSLGpfF1Kjf1CKGFiSDMafyPeyHobNAcCXSTWE6r
+ Sykn4NY72ExihyXhecuVSwaJbwbTciTKlU2coZTaPjAn9IUSdFe7ru4In6WdKyec3k
+ WRmakSOBFkXcA==
+Date: Wed, 19 Jan 2022 19:44:35 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Baoquan He <bhe@redhat.com>
+Cc: Alexandre Ghiti <alexandre.ghiti@canonical.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ hpa@zytor.com, Eric Biederman <ebiederm@xmission.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, kexec@lists.infradead.org,
+ Alexandre ghiti <alex@ghiti.fr>
+Subject: Re: [PATCH v2 0/5] kexec: use IS_ENABLED(CONFIG_KEXEC_CORE) instead
+ of #ifdef
+Message-ID: <Yef5oz/XiZT/Pxfy@xhacker>
+References: <20211206160514.2000-1-jszhang@kernel.org>
+ <20220116133847.GE2388@MiWiFi-R3L-srv> <YebK70Sx4w8zLfj/@xhacker>
+ <20220119080859.GB4977@MiWiFi-R3L-srv>
+ <CA+zEjCvqYAWaWW9hVbHqYm_GbV-BaiOM4c77WHnxDNh+SRDUuw@mail.gmail.com>
+ <20220119093322.GC4977@MiWiFi-R3L-srv>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <70c9317814b06c7ce37688b158178b188d3fd604.1642582832.git.zong.li@sifive.com>
+In-Reply-To: <20220119093322.GC4977@MiWiFi-R3L-srv>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220119_030255_227247_B96B0FDD 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20220119_035222_281529_FF3FD9A0 
+X-CRM114-Status: GOOD (  34.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,36 +81,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAxOSBKYW4gMjAyMiwgWm9uZyBMaSB3cm90ZToKCj4gSW1wcm92ZSBQUkNJIGRyaXZl
-ciB0byByZWR1Y2UgdGhlIGNvbXBsZXhpdHksIHdlIHJlbW92ZSB0aGUgU29DcyBDIGZpbGVzCj4g
-YnkgcHV0dGluZyBhbGwgc3R1ZmYgaW4gZWFjaCBTb0NzIGhlYWRlciBmaWxlcywgYW5kIGluY2x1
-ZGUgdGhlc2UKPiBTb0NzLXNwZWNpZmljIGhlYWRlciBmaWxlcyBpbiBjb3JlIG9mIFBSQ0kuIEl0
-IGNhbiBhbHNvIGF2b2lkIHRoZSBXPTEKPiBrZXJuZWwgYnVpbGQgd2FybmluZ3MgYWJvdXQgdmFy
-aWFibGUgZGVmaW5lZCBidXQgbm90IHVzZWQKPiBbLVd1bnVzZWQtY29uc3QtdmFyaWFibGU9XSwg
-bGlrZSBjb21taXQgNDg3ZGM3YmI2YTBjICgiY2xrOiBzaWZpdmU6Cj4gZnU1NDAtcHJjaTogRGVj
-bGFyZSBzdGF0aWMgY29uc3QgdmFyaWFibGUgJ3ByY2lfY2xrX2Z1NTQwJyB3aGVyZSBpdCdzCj4g
-dXNlZCIpIGRvZXMuCj4gCj4gU2lnbmVkLW9mZi1ieTogWm9uZyBMaSA8em9uZy5saUBzaWZpdmUu
-Y29tPgo+IFN1Z2dlc3RlZC1ieTogTGVlIEpvbmVzIDxsZWUuam9uZXNAbGluYXJvLm9yZz4KPiAt
-LS0KPiAgZHJpdmVycy9jbGsvc2lmaXZlL01ha2VmaWxlICAgICAgfCAgIDIgKy0KPiAgZHJpdmVy
-cy9jbGsvc2lmaXZlL2Z1NTQwLXByY2kuYyAgfCAgODkgLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiAg
-ZHJpdmVycy9jbGsvc2lmaXZlL2Z1NTQwLXByY2kuaCAgfCAgOTEgKysrKysrKysrKysrKysrKysr
-KystCj4gIGRyaXZlcnMvY2xrL3NpZml2ZS9mdTc0MC1wcmNpLmMgIHwgMTM0IC0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0KPiAgZHJpdmVycy9jbGsvc2lmaXZlL2Z1NzQwLXByY2kuaCAg
-fCAxMzAgKysrKysrKysrKysrKysrKysrKysrKysrKysrKystCj4gIGRyaXZlcnMvY2xrL3NpZml2
-ZS9zaWZpdmUtcHJjaS5jIHwgICA1IC0tCj4gIDYgZmlsZXMgY2hhbmdlZCwgMjE0IGluc2VydGlv
-bnMoKyksIDIzNyBkZWxldGlvbnMoLSkKPiAgZGVsZXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvY2xr
-L3NpZml2ZS9mdTU0MC1wcmNpLmMKPiAgZGVsZXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvY2xrL3Np
-Zml2ZS9mdTc0MC1wcmNpLmMKClRoaXMgaXMgdGhlIHNvcnQgb2YgdGhpbmcgSSB3YXMgYWZ0ZXIu
-CgpUaGlzIHBhdGNoIGF0IGxlYXN0IExHVE0uCgpSZXZpZXdlZC1ieTogTGVlIEpvbmVzIDxsZWUu
-am9uZXNAbGluYXJvLm9yZz4KCi0tIApMZWUgSm9uZXMgW+adjueQvOaWr10KUHJpbmNpcGFsIFRl
-Y2huaWNhbCBMZWFkIC0gRGV2ZWxvcGVyIFNlcnZpY2VzCkxpbmFyby5vcmcg4pSCIE9wZW4gc291
-cmNlIHNvZnR3YXJlIGZvciBBcm0gU29DcwpGb2xsb3cgTGluYXJvOiBGYWNlYm9vayB8IFR3aXR0
-ZXIgfCBCbG9nCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+On Wed, Jan 19, 2022 at 05:33:22PM +0800, Baoquan He wrote:
+> On 01/19/22 at 09:52am, Alexandre Ghiti wrote:
+> > Hi Baoquan,
+> > 
+> > On Wed, Jan 19, 2022 at 9:11 AM Baoquan He <bhe@redhat.com> wrote:
+> > >
+> > > On 01/18/22 at 10:13pm, Jisheng Zhang wrote:
+> > > > On Sun, Jan 16, 2022 at 09:38:47PM +0800, Baoquan He wrote:
+> > > > > Hi Jisheng,
+> > > >
+> > > > Hi Baoquan,
+> > > >
+> > > > >
+> > > > > On 12/07/21 at 12:05am, Jisheng Zhang wrote:
+> > > > > > Replace the conditional compilation using "#ifdef CONFIG_KEXEC_CORE"
+> > > > > > by a check for "IS_ENABLED(CONFIG_KEXEC_CORE)", to simplify the code
+> > > > > > and increase compile coverage.
+> > > > >
+> > > > > I go through this patchset, You mention the benefits it brings are
+> > > > > 1) simplity the code;
+> > > > > 2) increase compile coverage;
+> > > > >
+> > > > > For benefit 1), it mainly removes the dummy function in x86, arm and
+> > > > > arm64, right?
+> > > >
+> > > > Another benefit: remove those #ifdef #else #endif usage. Recently, I
+> > > > fixed a bug due to lots of "#ifdefs":
+> > > > http://lists.infradead.org/pipermail/linux-riscv/2021-December/010607.html
+> > >
+> > > Glad to know the fix. While, sometime the ifdeffery is necessary. I am
+> > > sorry about the one in riscv and you have fixed, it's truly a bug . But,
+> > > the increasing compile coverage at below you tried to make, it may cause
+> > > issue. Please see below my comment.
+> > >
+> > > >
+> > > > >
+> > > > > For benefit 2), increasing compile coverage, could you tell more how it
+> > > > > achieves and why it matters? What if people disables CONFIG_KEXEC_CORE in
+> > > > > purpose? Please forgive my poor compiling knowledge.
+> > > >
+> > > > Just my humble opinion, let's compare the code::
+> > > >
+> > > > #ifdef CONFIG_KEXEC_CORE
+> > > >
+> > > > code block A;
+> > > >
+> > > > #endif
+> > > >
+> > > > If KEXEC_CORE is disabled, code block A won't be compiled at all, the
+> > > > preprocessor will remove code block A;
+> > > >
+> > > > If we convert the code to:
+> > > >
+> > > > if (IS_ENABLED(CONFIG_KEXEC_CORE)) {
+> > > >       code block A;
+> > > > }
+> > > >
+> > > > Even if KEXEC_CORE is disabled, code block A is still compiled.
+> > >
+> > > This is what I am worried about. Before, if CONFIG_KEXEC_CORE is
+> > > unset, those relevant codes are not compiled in. I can't see what
+> > > benefit is brought in if compiled in the unneeded code block. Do I miss
+> > > anything?
+> > >
+> > 
+> > This is explained in Documentation/process/coding-style.rst "21)
+> > Conditional Compilation".
+> 
+> Thanks for the pointer, Alex.
+> 
+> I read that part, while my confusion isn't gone. With the current code,
+> CONFIG_KEXEC_CORE is set,
+>   - reserve_crashkernel_low() and reserve_crashkernel() compiled in.
+
+Although the code block will be compiled, but the code block will be
+optimized out.
+
+> CONFIG_KEXEC_CORE is unset,
+>   - reserve_crashkernel_low() and reserve_crashkernel() compiled out. 
+> 
+> After this patch applied, does it have the same effect as the old code?
+
+I compared the .o, and can confirm they acchieve the same effect.
+
+> 
+> arch/x86/kernel/setup.c:
+> 
+> before
+> ======
+> #ifdef CONFIG_KEXEC_CORE
+> static int __init reserve_crashkernel_low(void)
+> {
+> 	......
+> }
+> static void __init reserve_crashkernel(void)
+> {
+> 	......
+> }
+> #else
+> static void __init reserve_crashkernel(void)
+> {
+> }
+> #endif
+> 
+> after
+> =======
+> static int __init reserve_crashkernel_low(void)
+> {
+> 	......
+> }
+> static void __init reserve_crashkernel(void)
+> {
+> 	......
+> 	if (!IS_ENABLED(CONFIG_KEXEC_CORE))
+>                 return;
+> 	......
+> }
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
