@@ -4,82 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AA0BC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 15:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CF49C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 16:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OKXs6luwYwS+Z2gtp3AaWNc2hESgbiwu/0EP1i9YhAg=; b=1+sKiue3hpFolE
-	PheloCvPtwCfY6DSvAuHo4Q+7NrsvPgzUVmilUk0JQneEhcbO8Esu3BVPoxFMCLGeeo+qR5i5bieF
-	dZ6AU90ogVKHGvBY01Nyu2GHpu9ABOmSwk0LgTIszLOzAU5PIrqhb7qBBSebbb9bohOaC6o6V3zOl
-	c1KmpVqpwtSH2kJ+wE+GXeqxbeLkcaUx+rne8ENNaZitCkeldnj5laIcQJqb2sd0MtNtGEXt/dx3+
-	qh5vMY9vlvgi1IAF/yj3/oJaUBfJoXoFa2hMyWI98ZruMgbVfXUbAj0fY+XRs2WUxwEcYncvUPEYy
-	JyvSC4VPwi7mvkpclJ1Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=h5+By8ISXhaHngPPFHetBoy5bl1hy5PTovZhcOk9lrw=; b=zExcxnfpT2fRKE48Y1K9GixMe8
+	3MuggAg42M43aCfE0C+T91AYfflJ3Smw/KgDC8rpTvA/GxYq2Ri4SPUj9wYhTXjKcDh5wAVJmywl2
+	mvPVURnfOdZrgg34ZnTUEqieGR/ic7cXDa6LYA7cio3iio8G2SCwSY3d8YLzqGG7FVKgjveo5tYsX
+	a6W9O5Sk8Rh9ko5tNXu/GSBsgo7kNS8gH9/lz3+bc+4t1afm1n6l+SqLMa7aGmfIBfuUMvjPQEaWn
+	yUc5xazvOjWm9G7gh3oLDU+vkkAIlcb5r/xZsf2Pq1CbIfZeuJn7cSONDJ9PNXzqLcjXlwA1to+Vy
+	NNgZRuVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nAZds-00CDqp-Rg; Thu, 20 Jan 2022 15:46:28 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
+	id 1nAalY-00CU30-Q8; Thu, 20 Jan 2022 16:58:28 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nAZdq-00CDny-3E
- for linux-riscv@lists.infradead.org; Thu, 20 Jan 2022 15:46:27 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-193-7WTwajXxOa6GXzO1g1m_hA-1; Thu, 20 Jan 2022 15:46:20 +0000
-X-MC-Unique: 7WTwajXxOa6GXzO1g1m_hA-1
-Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
- AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
- Server (TLS) id 15.0.1497.28; Thu, 20 Jan 2022 15:46:18 +0000
-Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
- AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
- 15.00.1497.028; Thu, 20 Jan 2022 15:46:18 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Arnd Bergmann' <arnd@arndb.de>, Guo Ren <guoren@kernel.org>
-CC: Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>,
- gregkh <gregkh@linuxfoundation.org>, liush <liush@allwinnertech.com>, Wei Fu
- <wefu@redhat.com>, Drew Fustini <drew@beagleboard.org>, Wang Junqiang
- <wangjunqiang@iscas.ac.cn>, Christoph Hellwig <hch@lst.de>, Christoph Hellwig
- <hch@infradead.org>, Linux Kernel Mailing List
- <linux-kernel@vger.kernel.org>, linux-riscv
- <linux-riscv@lists.infradead.org>, "linux-csky@vger.kernel.org"
- <linux-csky@vger.kernel.org>, linux-s390 <linux-s390@vger.kernel.org>,
- sparclinux <sparclinux@vger.kernel.org>, linuxppc-dev
- <linuxppc-dev@lists.ozlabs.org>, "inux-parisc@vger.kernel.org"
- <inux-parisc@vger.kernel.org>, "open list:BROADCOM NVRAM DRIVER"
- <linux-mips@vger.kernel.org>, Linux ARM
- <linux-arm-kernel@lists.infradead.org>, the arch/x86 maintainers
- <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
-Subject: RE: [PATCH V3 07/17] riscv: compat: Re-implement TASK_SIZE for
- COMPAT_32BIT
-Thread-Topic: [PATCH V3 07/17] riscv: compat: Re-implement TASK_SIZE for
- COMPAT_32BIT
-Thread-Index: AQHYDePReMzknTU7UkCjQWPLhaJn7Kxr3G8ggAAj9ueAAAuaMA==
-Date: Thu, 20 Jan 2022 15:46:18 +0000
-Message-ID: <01a8da9e5a374373a922e569a1e10ee8@AcuMS.aculab.com>
-References: <20220120073911.99857-8-guoren@kernel.org>
- <CAK8P3a1UvqsS-D7cVXBkp4KCRWDfquQ6QTkvrQ=FqLxhsAi7Rw@mail.gmail.com>
- <f16cf10425a14c2e8183d5c90667ce72@AcuMS.aculab.com>
- <CAJF2gTRwh40xDBkoRJWZEUketKFDAy7_z=-WW7E=T46yH4zPvw@mail.gmail.com>
- <CAK8P3a3FLnqibdXCGR8c+mm92HSiuvocZDeW8MyoTO_L1sYT=w@mail.gmail.com>
-In-Reply-To: <CAK8P3a3FLnqibdXCGR8c+mm92HSiuvocZDeW8MyoTO_L1sYT=w@mail.gmail.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
-MIME-Version: 1.0
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=C51A453 smtp.mailfrom=david.laight@aculab.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+ id 1nAalV-00CU1L-16
+ for linux-riscv@lists.infradead.org; Thu, 20 Jan 2022 16:58:27 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d1so5645452plh.10
+ for <linux-riscv@lists.infradead.org>; Thu, 20 Jan 2022 08:58:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=IlE4PKTqOpwGLmeHcvM3V2OxUD4byfa5I1kusdpu4LM=;
+ b=BoOlO916FeueTACmIVZG6Di6cPnwL0MibCyttpptZBXLlTNcE/yoZ13RFqGVg6HZir
+ awMcBlC9bJCCRwuRDsKkkqxpiNxUfmm6a4Px9DYt+aURU+4IQ6rhBvKWPsTnemgONUKC
+ fUs1oHDRk5dl73ycxB9NtWBLN05sHvUPIRMLy40L2hDj2qXwIyrvJ1sIQ4Ay4S2L2cEE
+ RdecNvZycqTmGJuAR//yjleMUGGnZSGkBu5dw/j+zzFgBlWdV7vFJh7WDYX5DU8zfpu7
+ nCr+tjJKOf5xppKqyKLv/sA1f5stBkdvz3tyhi0Vztl2ijC0/1W2C99zIxL0f12RsniN
+ FwGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=IlE4PKTqOpwGLmeHcvM3V2OxUD4byfa5I1kusdpu4LM=;
+ b=PR1H2CNad1gPKO3o3DEVPH+ZM8MJEIaUJiApHSK6FKwCjwgeWLuGyGo+wFEe5MFxi1
+ IWYVIEKuiRtBI3zrzx/oMgsrRXmzEO59Z/cghTjrEGQFvqxvOalUVUIfMAVdn4mdpqAa
+ pC5EIkK5qph/12gNRHxMeIH9agMJOFr4MgF8Yj9+crfLbJRwYPAxc5OIQBMdIQrckc9J
+ t9mWbMFajygiNximPWL34QuMAAk+WT2A1oHp3ticBj4eFFMqVwTNCeJVXzy6HOjlScAW
+ XSO2zzEfFAWxwGyjo/2skSYhIDQuqgiAKndlmG5GH8kuDpC3kiSheQhQJx6gdkBNthv9
+ gu5A==
+X-Gm-Message-State: AOAM530b+NgzuYwTMQci0r9mwmiB0LmNdMkILKBAqpjutAaowCT1cG/c
+ D90ZImAv37hVlaQpWZqaQc/Yiw==
+X-Google-Smtp-Source: ABdhPJz/GMEZDHsqoWmkmlnFC/P5fgMAtM7xYdj0RtuinLJoarckNRDraf406XfaKisylPQa7RDlqg==
+X-Received: by 2002:a17:90b:3b83:: with SMTP id
+ pc3mr11739741pjb.217.1642697904051; 
+ Thu, 20 Jan 2022 08:58:24 -0800 (PST)
+Received: from localhost ([12.3.194.138])
+ by smtp.gmail.com with ESMTPSA id l2sm4209809pfc.183.2022.01.20.08.58.23
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 20 Jan 2022 08:58:23 -0800 (PST)
+Date: Thu, 20 Jan 2022 08:58:23 -0800 (PST)
+X-Google-Original-Date: Thu, 20 Jan 2022 08:57:56 PST (-0800)
+Subject: Re: [PATCH 1/1] riscv: default to CONFIG_RISCV_SBI_V01=n
+In-Reply-To: <20211216123538.175087-1-heinrich.schuchardt@canonical.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ heinrich.schuchardt@canonical.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: heinrich.schuchardt@canonical.com
+Message-ID: <mhng-ca6db968-3278-4108-b8f5-4435eb40def5@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220120_074626_452886_183FD8B8 
-X-CRM114-Status: UNSURE (   9.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220120_085825_147056_DCE27E89 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,33 +84,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-...
-> One example of software that runs into virtual memory size limitations is
-> the gnu linker when building large applications, but it's unlikely that you'll
-> actually need to run applications that run into this, while also needing to
-> build them natively.
+On Thu, 16 Dec 2021 04:35:38 PST (-0800), heinrich.schuchardt@canonical.com wrote:
+> The SBI 0.1 specification is obsolete. The current version is 0.3.
+> Hence we should not rely by default on SBI 0.1 being implemented.
+>
+> Signed-off-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+> ---
+>  arch/riscv/Kconfig | 1 -
+>  1 file changed, 1 deletion(-)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 09abf62ae0ad..f177ad3bee0f 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -396,7 +396,6 @@ source "kernel/Kconfig.hz"
+>
+>  config RISCV_SBI_V01
+>  	bool "SBI v0.1 support"
+> -	default y
+>  	depends on RISCV_SBI
+>  	help
+>  	  This config allows kernel to use SBI v0.1 APIs. This will be
 
-There are also database programs that want to mmap() large sparse files.
-To some extent that is where the pressure for 64bit addresses comes from.
+Thanks, this is on for-next.
 
-While (I think) most of the current riscv systems are 'toy' ones
-there are definitely press reports of some quite high power systems.
-
-I suspect they are less 'toy' than the Altera (Intel) Nios processors
-we use on out fpga - you can run linux on the Nios cpu, but you probably
-don't really want to do so.
-Better to find an fpga with a 'proper' ARM core in the corner.
-
-	David
-
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
