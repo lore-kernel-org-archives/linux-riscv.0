@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20CD1C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 15:29:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AF05C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 15:33:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=91x7ZAahiEdCNcdHO5qBr5D/btJ/Bo3e3sPcqRxkqjo=; b=0QRAYO/DgWzJrN
-	JIrXwuj/DW4BrY52VZm9+SpZh1JQCgS1VMXu13mN6h9bswl9o+KmRAMbC6gvcd6mI8Jo5Oc3iNsDO
-	JD72k+6QsR/39PrCZIN5LPcA7E+JqG/s+Aqw2MO3ZfO/3B3bYGR4dyMwFxM3zNmdnh+efuWCUR9Zy
-	80sZ/CjBIK8DlDpHyh7u70AHV95I7c1EhB50dqtQ0+Q+WpIOabsuIOpI61idzcXR23m1bfh51o1wj
-	Y5YVv1v56P1afeJDLuG8eJePJ5WXlRPmxx2NGyeoX04RcVa8wWkxIiTClAMIZb5I+7OtscIEEjFMt
-	dAVLPsDS8CtMTJXkFckw==;
+	List-Owner; bh=91x7ZAahiEdCNcdHO5qBr5D/btJ/Bo3e3sPcqRxkqjo=; b=Psc/1mBZEcpt3Z
+	a50oWyjgR6CF2xmTw+6/iEMsJRoUZ1+nSgAbBP5iYycUWeC7TQsM7RYZOne5NZgrrFvAmbzoL1Mza
+	8VTKCXyBc+NXIzNUHBpMSLVRdphzkM/2THfdGcJ7/TICjsx122KDqZ9yczxsysw4NEbvB2jGp75H8
+	BHHOEAzuDZZ2oIepvWuSovh6/TmxFgsRQ+FGEkFc6Ir14ro63duZIzP4FNTsl57DQQO2hrICc/h/r
+	IihEzemeSNP49n5FsREorw3jfuIkYmoX6jIhEFNcupIwY3STaPisZFEDMXtWZI00MvvvsY+uQgopq
+	X8LrdSSwGeT8CVoVChcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nAZMn-00C9Ph-Pi; Thu, 20 Jan 2022 15:28:49 +0000
-Received: from mail-108-mta107.mxroute.com ([136.175.108.107])
+	id 1nAZRd-00CAcE-NW; Thu, 20 Jan 2022 15:33:49 +0000
+Received: from mail-108-mta2.mxroute.com ([136.175.108.2])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nAZMk-00C9NT-F9
- for linux-riscv@lists.infradead.org; Thu, 20 Jan 2022 15:28:48 +0000
+ id 1nAZRb-00CAax-7B
+ for linux-riscv@lists.infradead.org; Thu, 20 Jan 2022 15:33:48 +0000
 Received: from filter004.mxroute.com ([149.28.56.236] filter004.mxroute.com)
  (Authenticated sender: mN4UYu2MZsgR)
- by mail-108-mta107.mxroute.com (ZoneMTA) with ESMTPSA id
- 17e781aa047000bdf2.002 for <linux-riscv@lists.infradead.org>
+ by mail-108-mta2.mxroute.com (ZoneMTA) with ESMTPSA id 17e781f48d9000bdf2.002
+ for <linux-riscv@lists.infradead.org>
  (version=TLSv1/SSLv3 cipher=ECDHE-RSA-AES128-GCM-SHA256);
- Thu, 20 Jan 2022 15:28:37 +0000
-X-Zone-Loop: 87361e9113d96d03804189c27501aa6bd31b7bd4e544
+ Thu, 20 Jan 2022 15:33:43 +0000
+X-Zone-Loop: da9a5bdf11e6da5cbd9da3cf73ec378f9e4525a65506
 X-Originating-IP: [149.28.56.236]
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=ds0.me; s=x
  ;
@@ -40,22 +40,22 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=ds0.me; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=f5DSyw8Jktl2OVLrktO0AZ8z+S3qRtxlhEygciHsFM0=; b=QdHjhTksC/LcefLXrzjBNyPewf
- p1pSvWd7frxT1A0ZsHAQymG9gGiNnbgE0LvNVTlntHKa/lvaQlq6XoWlqiAgAVaGgJ7txx6x9jnku
- GjOWbFbpVpKRfmDCd5UGcIWJF5PgGY2dYXoFaWoyvJ8x/+xmHn5z7VnvN7btifAAYFiYpPupQCdQx
- WnTs/Vzde5IKViqz3p4BKaHxUXFqf0xi/mwNX1kiDSBCEFdVZ2trReSy3Q9GR5ArVea2vFwxy5W/J
- KgFYNAtcddt0/QD9IetVUOlmh9wHZAx4Gzp84H2EnJhXFayEVzylduVC7kLr36c32aZrzvBtew7sn
- NE8BsJBA==;
+ bh=f5DSyw8Jktl2OVLrktO0AZ8z+S3qRtxlhEygciHsFM0=; b=vwaGUQdtU23VDN98+q07TkVvD6
+ Xn85oBlpqKE6QsPksa1RTtD1jnxOZLJKpkkPFXw0cKyVly2WUOs5u5CvsQlXG8IGVJAx5dwgOBpXY
+ ccFSGtMWfZqWvqDqe6ulPzihLeVzttDlZaEUuyeUTXenVjHh/99GOha1kiLJ06QWsuSiG+X/bp8O9
+ c1+6Upspv6NquhPdZmjFfUE62qBrHKV8T9eiSak9iiYPyx/j/XpU6xXO28wHtI9I5HwG1Tjuurgok
+ WCUYLLkS/tZqTELl3mMtZ3tjNC4LpdBXv58vejcOEfKKrygaR+nXGfz21R/hrX+qZP/u0k24tbAn1
+ xPR+uqug==;
 From: Myrtle Shah <gatecat@ds0.me>
 To: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
  palmer@dabbelt.com
 Cc: linux-kernel@vger.kernel.org
 Subject: [PATCH 2/2] riscv/mm: Add some missing XIP_FIXUPs
-Date: Thu, 20 Jan 2022 15:28:28 +0000
-Message-Id: <20220120152828.4089364-3-gatecat@ds0.me>
+Date: Thu, 20 Jan 2022 15:33:38 +0000
+Message-Id: <20220120153338.4093003-3-gatecat@ds0.me>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220120152828.4089364-1-gatecat@ds0.me>
-References: <20220120152828.4089364-1-gatecat@ds0.me>
+In-Reply-To: <20220120153338.4093003-1-gatecat@ds0.me>
+References: <20220120153338.4093003-1-gatecat@ds0.me>
 MIME-Version: 1.0
 X-AuthUser: dave@ds0.me
 X-Zone-Spam-Resolution: no action
@@ -64,7 +64,7 @@ X-Zone-Spam-Status: No, score=5, required=15, tests=[ARC_NA=0,
  R_MISSING_CHARSET=2.5, RCVD_COUNT_ZERO=0, FROM_EQ_ENVFROM=0, MIME_TRACE=0,
  BROKEN_CONTENT_TYPE=1.5, TO_DN_NONE=0, NEURAL_SPAM=0]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220120_072846_823278_CB744D61 
+X-CRM114-CacheID: sfid-20220120_073347_406298_13B7060D 
 X-CRM114-Status: UNSURE (   6.32  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
