@@ -4,61 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C985C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 13:43:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3178C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 14:43:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=av0SHU7zVhd4nc6NHTNinN8979eXGsPJcfuikerC6bw=; b=ppiAo5+puqPPAf
-	+Xsp7sOt+QHTGaHwjv2FtNyK/xdGVcCjz0HJpJZTo8Qxgmohq2zqxOD9H7zY+6AiONIIuydBaxLW9
-	dD+x9L7sZNV+UUOW4YdD+0ZHXUbI1zky3L+sahLN0+VE21vqu5zIeekptLTZy0B83wNARvvwO70I0
-	EsYPlxEtkCvSTn8tpAI7qKIdw7dEGi+cjjhrQ2X3XjLnwMNI+qu17gcxXz8tddvrjV85T+MJzbIBl
-	Nrh+1RTqeUobzJtY8oe4MKHCqBM+kuMLNygJQAwddmybNPpAIN952cmkC475cRF7Q+gRQOHNu0J/c
-	cRDO17QU7ctNnK8iH3Mg==;
+	List-Owner; bh=M7opeLN/KUFKeEzL485lptD2in6wcjeCsjfV3MtmdUI=; b=Bug7nHm4UkUcF2
+	k8h+Uy1mrmTR0g9cYvBBMpZduFfdSW8++4RSspO2x+ASMk8kEaoOxPS+tevgh4SONLJ1/or6+bu1+
+	nV1R6Il4W6dzmJ2w+P2lfRkZEn6zFfovIcou077RfbtNChdKLqwXvgFc2G6YbeF2dBsxbOE+p2aqC
+	6yh62COHpNoZ9NDLq+5gp3kskoif76N15AoRtABkaFCiz/Anu3ChoPApFrNgLpPcEVjhGeOWz2y5H
+	GRxTdn40zzBqnN87jzK0DSUBd9pvx4zxIHflzC3li7VkvczsJsHZewnwmR0Z1H3cR4oPJHRgqQFu/
+	Fwi110v2F3eChHee05bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nAXiv-00BlcW-30; Thu, 20 Jan 2022 13:43:33 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1nAYek-00BxDx-7s; Thu, 20 Jan 2022 14:43:18 +0000
+Received: from mout.kundenserver.de ([212.227.126.135])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nAXie-00BlWi-Gn; Thu, 20 Jan 2022 13:43:17 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 1060261760;
- Thu, 20 Jan 2022 13:43:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 735C0C340E0;
- Thu, 20 Jan 2022 13:43:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1642686195;
- bh=D+Etye9r3fua1x02UnecAbZv0CalmuxTOWCQ+e8HzdE=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=cN8TeiZRwruoIRJkOoV5cCJrRkANf7l3v6f2dnF2xlBmUXAwCKjGM3kmUmmr7lfcJ
- 1APkSDv+D1H3WQp3uuaV0kT/S8OeoYHOyoCm+Uh5ZwvEw7IhawBDNn89d/q5eyXPa3
- nAY2sqd8hpAZSIAYJGf70xVxfIBc+dqte1gPEuhjwCNzY97jFtY3PEtY924x+w0WZd
- wAeTD/djlb2LaOfPp5PAZ48mZs2FwdBxQt7SiLMX8KePhQm69b789EqQ8wWQDq0dC/
- 8Od7DRhnmvf6YwO+Awvtgi4eoym2J8Zy/zeuP32XDNFMzEGlHelD0Dh2qQJ7xmBcHR
- 1Xfu4zn6tGfTQ==
-Received: by mail-vk1-f179.google.com with SMTP id b77so3594451vka.11;
- Thu, 20 Jan 2022 05:43:15 -0800 (PST)
-X-Gm-Message-State: AOAM531yw9rzAA/0WweldskW94FnApnouNS6U415B2XIU6ZXOz6EqCS2
- jMfqz08C69ikeC6jcsc4/1hI7BXjouUZ0o89pAY=
-X-Google-Smtp-Source: ABdhPJxsPoD4QKSG5cjRmiwRNbBq9kp7PjD2iW5iWTPRRES5wTkmV/37UExZW0GDHhLl6tuiT3nFW4CEpN2qDzbKvC8=
-X-Received: by 2002:a1f:2844:: with SMTP id o65mr15161979vko.2.1642686194514; 
- Thu, 20 Jan 2022 05:43:14 -0800 (PST)
+ id 1nAYeX-00BxAF-BF; Thu, 20 Jan 2022 14:43:07 +0000
+Received: from mail-oi1-f175.google.com ([209.85.167.175]) by
+ mrelayeu.kundenserver.de (mreue011 [213.165.67.97]) with ESMTPSA (Nemesis) id
+ 1N32y5-1m9crJ1Nu9-013Q4r; Thu, 20 Jan 2022 15:43:00 +0100
+Received: by mail-oi1-f175.google.com with SMTP id bf5so9192353oib.4;
+ Thu, 20 Jan 2022 06:42:59 -0800 (PST)
+X-Gm-Message-State: AOAM531biRL5XYJLKA4g4TkVMgEJEWhoaEeioHeMIHb00MncT88rGMcD
+ mPbvDHoQBz79cW4w+4wI2QBqnwfqeQg7t0V1kJw=
+X-Google-Smtp-Source: ABdhPJx7CtRumP0QQYfXweJthBATxPSWS8llRiPfBtrUDHNd5XtCBWTkqgRw8si0X+m1xq787CRD7WnkdtRMWwwXsuo=
+X-Received: by 2002:a05:6808:1490:: with SMTP id
+ e16mr7781849oiw.84.1642689778452; 
+ Thu, 20 Jan 2022 06:42:58 -0800 (PST)
 MIME-Version: 1.0
-References: <20220120073911.99857-16-guoren@kernel.org>
- <CAK8P3a0Mr2m2dVoVss59cN-9X7GVBD29VQLo3m4xswRznk_WUQ@mail.gmail.com>
-In-Reply-To: <CAK8P3a0Mr2m2dVoVss59cN-9X7GVBD29VQLo3m4xswRznk_WUQ@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 20 Jan 2022 21:43:03 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTGD_Ks2pO4jXx+QbiLV4nkjzk6mP-xKJOCvHtGTeFfOQ@mail.gmail.com>
-Message-ID: <CAJF2gTTGD_Ks2pO4jXx+QbiLV4nkjzk6mP-xKJOCvHtGTeFfOQ@mail.gmail.com>
-Subject: Re: [PATCH V3 15/17] riscv: compat: Add UXL_32 support in start_thread
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>, 
+References: <20220120073911.99857-9-guoren@kernel.org>
+In-Reply-To: <20220120073911.99857-9-guoren@kernel.org>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Thu, 20 Jan 2022 15:42:42 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a0LxB3we9wHOa4OPmNow6wz5NP49zeYhh7QXNv-MiR8UA@mail.gmail.com>
+Message-ID: <CAK8P3a0LxB3we9wHOa4OPmNow6wz5NP49zeYhh7QXNv-MiR8UA@mail.gmail.com>
+Subject: Re: [PATCH V3 08/17] riscv: compat: syscall: Add compat_sys_call_table
+ implementation
+To: Guo Ren <guoren@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
+ Anup Patel <anup@brainfault.org>, 
  gregkh <gregkh@linuxfoundation.org>, liush <liush@allwinnertech.com>, 
  Wei Fu <wefu@redhat.com>, Drew Fustini <drew@beagleboard.org>, 
  Wang Junqiang <wangjunqiang@iscas.ac.cn>, Christoph Hellwig <hch@lst.de>, 
@@ -71,9 +59,23 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>,
  "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
  Linux ARM <linux-arm-kernel@lists.infradead.org>, 
  "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
+X-Provags-ID: V03:K1:dMKauVZVVkdMbwA0KSioFm8Wr64Q5NyLdLrLn4IF/RX8a/bGP/q
+ wCS99mwPPoEfAoN+EMG+Duwwq8StYpE3YmakDQTlXXI4D1FuXnFgdxtJO77GVIocPkVuCYE
+ AFOmWXu3aXFs3zswu1whMx3d3HModfnu9oNUD6fd1jZwAsvdKIROnS8O0bY2Kk7bKN9jia6
+ Ro8aAntBtT2ezDKnthGxg==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:YgN0oisu7r4=:QwoQlC8i7E6JbzaeRHDWY5
+ 2HFCJoelDfBhUpwYwaeD55HaqYU2Ae5wDevm0yQhzMDPlkkCcfM6OSxXAA6rt6Sgvj1B/F+I6
+ ZvScOqahxT7WJ37l0qhr2ES9NWxks+Au2/mfUZNpEJghjKP9qVdQU+EfACa0sg+U2eFqoxxhs
+ FMAkhGEREpIyEU0mNKQypS+saCNDZi8o+m91OTS3nGuWHGKHRrBtl7J6pScl+D+EyKlS84cC0
+ TV4tMcDUJe2EpYs1IJ0hbs9av7lavuD1LBobsZOlMrafE5XzxHAcSQgjnINgqBcxj3ee8Krdo
+ vDqyeKQ3/gf9zSGf+24U4Y/7Oqj6qS+Zd1/j5Hw2obZwiwohUjSIYC0MAlqoOtDxqCman2e20
+ eeAdl64goM+8KoKfjyP11JoZ8UK/wl4PsGpVYeTGL2iPblkkGqJ0kW1Oj3dmODxHI+xAVD0et
+ gY+PG6zXWyh23wpl7URxSpkWkdxPlHwV5mhjma+ZJcKqDFirrwe6DmQmV80iQSGN80Z3oxGY/
+ B77jyExmjxy2+hiN/oiecW65vMTP/az68Qv2THMHbIFWBZ1vAkQMQBATafFvrUngRUlf0lpQl
+ tLOuUzDO1DN4s=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220120_054316_629978_5F7A4D76 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20220120_064305_687377_958C53A4 
+X-CRM114-Status: GOOD (  15.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,33 +92,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 20, 2022 at 9:39 PM Arnd Bergmann <arnd@arndb.de> wrote:
+On Thu, Jan 20, 2022 at 8:39 AM <guoren@kernel.org> wrote:
 >
-> On Thu, Jan 20, 2022 at 8:39 AM <guoren@kernel.org> wrote:
-> > +
-> > +#ifdef CONFIG_COMPAT
-> > +       if (is_compat_task())
-> > +               regs->status |= SR_UXL_32;
-> > +#endif
->
->
-> You should not need that #ifdef, as the is_compat_task() definition is
-> meant to drop the code at compile time, unless the SR_UXL_32
-> definition is not visible here.
-I almost put CONFIG_COMPAT in every compat related code, because I
-hope the next arch that wants to support COMPAT could easily find
-where to be modified.
+>  /* The array of function pointers for syscalls. */
+>  extern void * const sys_call_table[];
+> +#ifdef CONFIG_COMPAT
+> +extern void * const compat_sys_call_table[];
+> +#endif
 
->
->          Arnd
+No need for the #ifdef, the normal convention is to just define the
+extern declaration unconditionally for symbols that may or may not be defined.
 
+> +COMPAT_SYSCALL_DEFINE3(truncate64, const char __user *, pathname,
+> +                      arg_u32p(length))
+> +{
+> +       return ksys_truncate(pathname, arg_u64(length));
+> +}
 
+Are you sure these are the right calling conventions? According to [1],
+I think the 64-bit argument should be in an aligned pair of registers,
+which means you need an extra pad argument as in the arm64 version
+of these functions. Same for ftruncate64, pread64, pwrite64, and
+readahead.
 
--- 
-Best Regards
- Guo Ren
+> +COMPAT_SYSCALL_DEFINE3(ftruncate64, unsigned int, fd, arg_u32p(length))
+> +{
+> +       return ksys_ftruncate(fd, arg_u64(length));
+> +}
+> +
+> +COMPAT_SYSCALL_DEFINE6(fallocate, int, fd, int, mode,
+> +                      arg_u32p(offset), arg_u32p(len))
+> +{
+> +       return ksys_fallocate(fd, mode, arg_u64(offset), arg_u64(len));
+> +}
+> +
+> +COMPAT_SYSCALL_DEFINE5(pread64, unsigned int, fd, char __user *, buf,
+> +                      size_t, count, arg_u32p(pos))
+> +{
+> +       return ksys_pread64(fd, buf, count, arg_u64(pos));
+> +}
+> +
+> +COMPAT_SYSCALL_DEFINE5(pwrite64, unsigned int, fd,
+> +                      const char __user *, buf, size_t, count, arg_u32p(pos))
+> +{
+> +       return ksys_pwrite64(fd, buf, count, arg_u64(pos));
+> +}
+> +
+> +COMPAT_SYSCALL_DEFINE6(sync_file_range, int, fd, arg_u32p(offset),
+> +                      arg_u32p(nbytes), unsigned int, flags)
+> +{
+> +       return ksys_sync_file_range(fd, arg_u64(offset), arg_u64(nbytes),
+> +                                   flags);
+> +}
+> +
+> +COMPAT_SYSCALL_DEFINE4(readahead, int, fd, arg_u32p(offset),
+> +                      size_t, count)
+> +{
+> +       return ksys_readahead(fd, arg_u64(offset), count);
+> +}
+> +
+> +COMPAT_SYSCALL_DEFINE6(fadvise64_64, int, fd, int, advice, arg_u32p(offset),
+> +                      arg_u32p(len))
+> +{
+> +       return ksys_fadvise64_64(fd, arg_u64(offset), arg_u64(len), advice);
+> +}
 
-ML: https://lore.kernel.org/linux-csky/
+I still feel like these should be the common implementations next to the
+native handlers inside of an #ifdef CONFIG_COMPAT.
+
+The names clash with the custom versions defined for powerpc and sparc,
+but the duplicates look compatible if you can account for the padded
+argument and the lo/hi order of the pairs, so could just be removed here
+(all other architectures use custom function names instead).
+
+        Arnd
+
+[1] https://riscv.org/wp-content/uploads/2015/01/riscv-calling.pdf
 
 _______________________________________________
 linux-riscv mailing list
