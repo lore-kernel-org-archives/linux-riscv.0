@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 981BFC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 18:16:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98C2FC433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 18:17:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9e5asUvipB2cczU6rjAZSVIbF7PsO6T+7DoFhDz2HUw=; b=DVna809eL7lHWJ
-	b/Hh9wIPDEsCE8eAPoKuPIP8SNyDFdMgMox0Z7229/2eJhkD9n6JgpamJQs8WwU6mrxMo2W8dPW7q
-	GvWaQAjsIcKSTnIUn4m1Qau79moCk5KmOUJeOeJIPeyU1w/Vw6V6p93cKUluk7qMNpawJ36g43gJu
-	hJ6VGsGXPBKw7TA6oa5XyZB22yyfkyIKnlN6BgkzeYEpR/hXPmPEQj/lu7oSUmBCvayZePhr10jZn
-	Ah+p32+QP02oG7wvzGqtaNhpDSQbQAXQvhmLAaavmahm+muwLxfMShbINgh0WI9HZRqbjfkVAThcw
-	0InLy6NHQaiMPkM6irUA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=bZ4MZhVigesiiV1cdh44e191TcPuYsiTRkf/++DL7bw=; b=XKB+pGxBND8WV5hBPL5pUcvTF8
+	v0Pdy+6hU6OH1GoDXoYJPYz3PDSjNKvncGjw/VRvUKaIlSbc/MLgzn+E7y5h3JqFjYsQDq2IrVBpX
+	nhhEuXvVECIoi1c/gReXCIszIcJqoi8Bmd2JsyagjDuvMsgZU/MkaMzdbicebOn3odyQBxHf2rgE1
+	Zu4VC07ccF3klHgsDlTKpF13n8Qjhz8juns4zeIYJc/g6IuvbFNZLdOiCknLgL0fMFmVTWCSpz88J
+	4Mjl5CMNL0X6Vw5iZTq5h9P9Dt8BGQ3nXBUJwP2S8iCT27pOvboGUiXOluhKH492dxSL0SgViRlbl
+	yTg+nkOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nAbyp-00Ckd5-Gx; Thu, 20 Jan 2022 18:16:15 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1nAbzz-00Ckz8-FV; Thu, 20 Jan 2022 18:17:27 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nAbym-00CkcB-Pe
- for linux-riscv@lists.infradead.org; Thu, 20 Jan 2022 18:16:15 +0000
-Received: by mail-lf1-x132.google.com with SMTP id d3so24739896lfv.13
- for <linux-riscv@lists.infradead.org>; Thu, 20 Jan 2022 10:16:12 -0800 (PST)
+ id 1nAbzw-00Ckxy-MW
+ for linux-riscv@lists.infradead.org; Thu, 20 Jan 2022 18:17:26 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id
+ n16-20020a17090a091000b001b46196d572so6516915pjn.5
+ for <linux-riscv@lists.infradead.org>; Thu, 20 Jan 2022 10:17:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ventanamicro.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=J9x2NG+LgE4kaD5UG5LUL0GB0NdPSyzMtwcN6xwlv9c=;
- b=UuAosnS4uZq9DoXlhTBm4j5l2w1d3uzS1YTDRfj9LBQyPwlz6lHwa3/ypLEr5zmS7k
- pt/lZDx7hlGBC3crCBzVwmp8t2ixX5/2a0nkfDSp4Kru+pSVPKZtUWhqQYcVdiN5HiUO
- WpBGKcJpqU7V4pg5PTUGwatPlL+giv/QcjBc3qGRjWYM34j4EdkN+kNyDOqhr54G64ry
- WWzRfIpb+bYWwx/wBMHhTNpDyimr/Mld0kgdo/BCjycjgRXREiZ8gzJzne/VND60di8c
- b3wv3kQRT+j0JNBpWPwbhpQzAdrDopXsBMpjb7d3wS2tLfFVQDndXur5qLVBLLAmStJt
- nU+w==
+ d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=KQ1vWUfThsgcO0TMX//y1/F6aK1Vz2XCJRw2Z+ID7Ls=;
+ b=IeGtbhQKHlgHsUpPUReuIIuNM/1GaRyvGFBqBSyZ2zvuR+rx0OnkspBEyl0UDkbzge
+ 56sdBReFheQbsjNE3vACa7SkiCjC0ktFZ880I7Cocfl1XXtuDnEPMkLrug8EC6PdV0r8
+ ZQU/FXbVwkZUcR/uvAaroXSswIBlqhrhZT7eemjZjof2hxSj1M0GuZeK5y6qT9EAH9SH
+ W3HxwBxgoHfPb6hUS+GcZ/QBvhp+ANzY5N/Z0QbKQRMmW6Jj/ZBd7hHz9ZTzRkDOfzgk
+ U3eZhuSANLneiRC6XBEvCzKST7W9WmuwDIbpBEpymsnaz9n1GHhhpM/oSTl+ndffu0nX
+ PT0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=J9x2NG+LgE4kaD5UG5LUL0GB0NdPSyzMtwcN6xwlv9c=;
- b=kAOpIab6HuG8kQjliJ+pI6MBPNbWEoznVhQ7rVjd3G1Di21E9zW1azCz4NeNMhceuc
- +TZ1oMt0dlstij1Dk4t29mim0EHs/W/FET4yboCMjpUqqKu/M/7mDpewhOArh3kzKKBA
- +BktEU3/NrAGa6fgikMB1Y2QJ4kkotRIeV7Vh+4jmlSE2wQ9saq+IUKZwhEMb/8dMqRN
- 32aBUp4GglMyorxtolsdR0lGG4/q1xHHgmg0qKYIK53hAYHHiRGMyyjZONbnY/RM0n9e
- WzY/aAh8Zx7wMN8zX3YNO5m1jiUYh5WqMT9ilpfFDbVWYGB+4VGAR+7AibEjsy04gwC2
- 3G7g==
-X-Gm-Message-State: AOAM533vMBV0OZrBamPP27dpvno5ZjA0rEw231uzuTmvEe08AjALklcX
- iEJOJrO5Vo7Bx4SNrI5z5nIEP6SxzEzE19fcA7BoNA==
-X-Google-Smtp-Source: ABdhPJybBrwpc3UAc6Gu9IhMW/l96xRVYL7rrYuA41iXQZChzao9yTwmwptotwP66Tm7Frroc0/+6+Z/W8qqzY+Uz2w=
-X-Received: by 2002:a05:6512:130f:: with SMTP id
- x15mr242448lfu.587.1642702571197; 
- Thu, 20 Jan 2022 10:16:11 -0800 (PST)
-MIME-Version: 1.0
-References: <20211118192130.48b8f04c@xhacker> <20211118192651.605d0c80@xhacker>
-In-Reply-To: <20211118192651.605d0c80@xhacker>
-From: Mayuresh Chitale <mchitale@ventanamicro.com>
-Date: Thu, 20 Jan 2022 23:45:34 +0530
-Message-ID: <CAN37VV6vfee+T18UkbDLe1ts87+Zvg25oQR1+VJD3e6SJFPPiA@mail.gmail.com>
-Subject: Re: [PATCH 11/12] riscv: extable: add a dedicated uaccess handler
-To: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>,
- Song Liu <songliubraving@fb.com>, 
- Yonghong Song <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>,
- KP Singh <kpsingh@kernel.org>, 
- Masahiro Yamada <masahiroy@kernel.org>, Michal Marek <michal.lkml@markovi.net>,
- Nick Desaulniers <ndesaulniers@google.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>, 
- Tong Tiangen <tongtiangen@huawei.com>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org, bpf@vger.kernel.org, 
- linux-kbuild@vger.kernel.org
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=KQ1vWUfThsgcO0TMX//y1/F6aK1Vz2XCJRw2Z+ID7Ls=;
+ b=eXtQ58iFqxixPuG4wXeE1YOVGpbXQ33I6u8Qfwxx3k0IUbMBx0mJdfL2snuSbvQif/
+ oIg5cAJ9p0X8ZY5cXFeTW/JyiFTsKPLJUsT2vREh8f9dxByb4D5hW9uXg4H083JO5l9A
+ bjIfQHsF6G97Bz3RJCxzhJ3d6bRgKkvS3N+YFQkWcPlZvcTsl8odTnqdKBxsLYfrnZZ0
+ ZNufa0DRpzgmf5AI16QbY8HNl0hllQ9vMovbxtgyvnOKUUJ/nrD6o/Jz+uk9/H4fbX7K
+ RVGx8rN5kYkUk09xg5l3yeTo4sHfUnPawnnOrbeTJTZvZ1xd2dh1Nc3yjJNqmiqY8iR9
+ UPLA==
+X-Gm-Message-State: AOAM532aUN9ObTg5N1ioR6q282ahj2nMQ4PfmsgReH7cWhllCl8pw7Jb
+ w9NfEC6mE5q8SYHZXuHfngWV9Q==
+X-Google-Smtp-Source: ABdhPJzo1syrhZbBJ2vXUJ9jpJzxvw01YRDAUtHo6ubpZbmmP51+HflWuEPTKfWLQ6wx5lTOwNzQKg==
+X-Received: by 2002:a17:903:2442:b0:14a:54e3:3905 with SMTP id
+ l2-20020a170903244200b0014a54e33905mr248717pls.55.1642702643084; 
+ Thu, 20 Jan 2022 10:17:23 -0800 (PST)
+Received: from localhost ([12.3.194.138])
+ by smtp.gmail.com with ESMTPSA id f4sm4183556pfe.204.2022.01.20.10.17.22
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 20 Jan 2022 10:17:22 -0800 (PST)
+Date: Thu, 20 Jan 2022 10:17:22 -0800 (PST)
+X-Google-Original-Date: Thu, 20 Jan 2022 09:59:13 PST (-0800)
+Subject: Re: [PATCH v3 0/6] Sparse HART id support 
+In-Reply-To: <20220120090918.2646626-1-atishp@rivosinc.com>
+CC: linux-kernel@vger.kernel.org, Atish Patra <atishp@rivosinc.com>,
+ aou@eecs.berkeley.edu, atishp@atishpatra.org, anup@brainfault.org,
+ damien.lemoal@wdc.com, devicetree@vger.kernel.org, jszhang@kernel.org,
+ krzysztof.kozlowski@canonical.com, 
+ linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ robh+dt@kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Atish Patra <atishp@rivosinc.com>
+Message-ID: <mhng-b8ab7493-45b7-46d9-9cb3-8bc29c98833d@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220120_101612_998124_D17C807D 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20220120_101724_807903_8C995DFE 
+X-CRM114-Status: GOOD (  34.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,326 +88,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Jisheng,
+On Thu, 20 Jan 2022 01:09:12 PST (-0800), Atish Patra wrote:
+> Currently, sparse hartid is not supported for Linux RISC-V for the following
+> reasons.
+> 1. Both spinwait and ordered booting method uses __cpu_up_stack/task_pointer
+>    which is an array size of NR_CPUs.
+> 2. During early booting, any hartid greater than NR_CPUs are not booted at all.
+> 3. riscv_cpuid_to_hartid_mask uses struct cpumask for generating hartid bitmap.
+> 4. SBI v0.2 implementation uses NR_CPUs as the maximum hartid number while
+>    generating hartmask.
+>
+> In order to support sparse hartid, the hartid & NR_CPUS needs to be disassociated
+> which was logically incorrect anyways. NR_CPUs represent the maximum logical|
+> CPU id configured in the kernel while the hartid represent the physical hartid
+> stored in mhartid CSR defined by the privilege specification. Thus, hartid
+> can have much greater value than logical cpuid.
+>
+> Currently, we have two methods of booting. Ordered booting where the booting
+> hart brings up each non-booting hart one by one using SBI HSM extension.
+> The spinwait booting method relies on harts jumping to Linux kernel randomly
+> and boot hart is selected by a lottery. All other non-booting harts keep
+> spinning on __cpu_up_stack/task_pointer until boot hart initializes the data.
+> Both these methods rely on __cpu_up_stack/task_pointer to setup the stack/
+> task pointer. The spinwait method is mostly used to support older firmwares
+> without SBI HSM extension and M-mode Linux.  The ordered booting method is the
+> preferred booting method for booting general Linux because it can support
+> cpu hotplug and kexec.
+>
+> The first patch modified the ordered booting method to use an opaque parameter
+> already available in HSM start API to setup the stack/task pointer. The third
+> patch resolves the issue #1 by limiting the usage of
+> __cpu_up_stack/task_pointer to spinwait specific booting method. The fourth
+> and fifth patch moves the entire hart lottery selection and spinwait method
+> to a separate config that can be disabled if required. It solves the issue #2.
+> The 6th patch solves issue #3 and #4 by removing riscv_cpuid_to_hartid_mask
+> completely. All the SBI APIs directly pass a pointer to struct cpumask and
+> the SBI implementation takes care of generating the hart bitmap from the
+> cpumask.
+>
+> It is not trivial to support sparse hartid for spinwait booting method and
+> there are no usecases to support sparse hartid for spinwait method as well.
+> Any platform with sparse hartid will probably require more advanced features
+> such as cpu hotplug and kexec. Thus, the series supports the sparse hartid via
+> ordered booting method only. To maintain backward compatibility, spinwait
+> booting method is currently enabled in defconfig so that M-mode linux will
+> continue to work. Any platform that requires to sparse hartid must disable the
+> spinwait method.
+>
+> This series also fixes the out-of-bounds access error[1] reported by Geert.
+> The issue can be reproduced with SMP booting with NR_CPUS=4 on platforms with
+> discontiguous hart numbering (HiFive unleashed/unmatched & polarfire).
+> Spinwait method should also be disabled for such configuration where NR_CPUS
+> value is less than maximum hartid in the platform.
+>
+> [1] https://lore.kernel.org/lkml/CAMuHMdUPWOjJfJohxLJefHOrJBtXZ0xfHQt4=hXpUXnasiN+AQ@mail.gmail.com/#t
+>
+> The series is based on queue branch on kvm-riscv as it has kvm related changes
+> as well. I have tested it on HiFive Unmatched and Qemu.
+>
+> Changes from v2->v3:
+> 1. Rebased on linux-next
+> 2. Removed the redundant variable in PATCH 1.
+> 3. Added the reviewed-by/acked-by tags.
+>
+> Changes from v1->v2:
+> 1. Fixed few typos in Kconfig.
+> 2. Moved the boot data structure offsets to a asm-offset.c
+> 3. Removed the redundant config check in head.S
+>
+> Atish Patra (6):
+> RISC-V: Avoid using per cpu array for ordered booting
+> RISC-V: Do not print the SBI version during HSM extension boot print
+> RISC-V: Use __cpu_up_stack/task_pointer only for spinwait method
+> RISC-V: Move the entire hart selection via lottery to SMP
+> RISC-V: Move spinwait booting method to its own config
+> RISC-V: Do not use cpumask data structure for hartid bitmap
+>
+> arch/riscv/Kconfig                   |  14 ++
+> arch/riscv/include/asm/cpu_ops.h     |   2 -
+> arch/riscv/include/asm/cpu_ops_sbi.h |  25 ++++
+> arch/riscv/include/asm/sbi.h         |  19 +--
+> arch/riscv/include/asm/smp.h         |   2 -
+> arch/riscv/kernel/Makefile           |   3 +-
+> arch/riscv/kernel/asm-offsets.c      |   3 +
+> arch/riscv/kernel/cpu_ops.c          |  26 ++--
+> arch/riscv/kernel/cpu_ops_sbi.c      |  26 +++-
+> arch/riscv/kernel/cpu_ops_spinwait.c |  27 +++-
+> arch/riscv/kernel/head.S             |  35 ++---
+> arch/riscv/kernel/head.h             |   6 +-
+> arch/riscv/kernel/sbi.c              | 189 +++++++++++++++------------
+> arch/riscv/kernel/setup.c            |  10 --
+> arch/riscv/kernel/smpboot.c          |   2 +-
+> arch/riscv/kvm/mmu.c                 |   4 +-
+> arch/riscv/kvm/vcpu_sbi_replace.c    |  11 +-
+> arch/riscv/kvm/vcpu_sbi_v01.c        |  11 +-
+> arch/riscv/kvm/vmid.c                |   4 +-
+> arch/riscv/mm/cacheflush.c           |   5 +-
+> arch/riscv/mm/tlbflush.c             |   9 +-
+> 21 files changed, 253 insertions(+), 180 deletions(-)
+> create mode 100644 arch/riscv/include/asm/cpu_ops_sbi.h
 
-Just wanted to inform you that this patch breaks the writev02 test
-case in LTP and if it is reverted then the test passes. If we run the
-test through strace then we see that the test hangs and following is
-the last line printed by strace:
-
-"writev(3, [{iov_base=0x7fff848a6000, iov_len=8192}, {iov_base=NULL,
-iov_len=0}]"
-
-Thanks,
-Mayuresh.
-
-
-On Thu, Nov 18, 2021 at 5:05 PM Jisheng Zhang <jszhang3@mail.ustc.edu.cn> wrote:
->
-> From: Jisheng Zhang <jszhang@kernel.org>
->
-> Inspired by commit 2e77a62cb3a6("arm64: extable: add a dedicated
-> uaccess handler"), do similar to riscv to add a dedicated uaccess
-> exception handler to update registers in exception context and
-> subsequently return back into the function which faulted, so we remove
-> the need for fixups specialized to each faulting instruction.
->
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  arch/riscv/include/asm/asm-extable.h | 23 +++++++++
->  arch/riscv/include/asm/futex.h       | 23 +++------
->  arch/riscv/include/asm/uaccess.h     | 74 +++++++++-------------------
->  arch/riscv/mm/extable.c              | 27 ++++++++++
->  4 files changed, 78 insertions(+), 69 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/asm-extable.h b/arch/riscv/include/asm/asm-extable.h
-> index 1b1f4ffd8d37..14be0673f5b5 100644
-> --- a/arch/riscv/include/asm/asm-extable.h
-> +++ b/arch/riscv/include/asm/asm-extable.h
-> @@ -5,6 +5,7 @@
->  #define EX_TYPE_NONE                   0
->  #define EX_TYPE_FIXUP                  1
->  #define EX_TYPE_BPF                    2
-> +#define EX_TYPE_UACCESS_ERR_ZERO       3
->
->  #ifdef __ASSEMBLY__
->
-> @@ -23,7 +24,9 @@
->
->  #else /* __ASSEMBLY__ */
->
-> +#include <linux/bits.h>
->  #include <linux/stringify.h>
-> +#include <asm/gpr-num.h>
->
->  #define __ASM_EXTABLE_RAW(insn, fixup, type, data)     \
->         ".pushsection   __ex_table, \"a\"\n"            \
-> @@ -37,6 +40,26 @@
->  #define _ASM_EXTABLE(insn, fixup)      \
->         __ASM_EXTABLE_RAW(#insn, #fixup, __stringify(EX_TYPE_FIXUP), "0")
->
-> +#define EX_DATA_REG_ERR_SHIFT  0
-> +#define EX_DATA_REG_ERR                GENMASK(4, 0)
-> +#define EX_DATA_REG_ZERO_SHIFT 5
-> +#define EX_DATA_REG_ZERO       GENMASK(9, 5)
-> +
-> +#define EX_DATA_REG(reg, gpr)                                          \
-> +       "((.L__gpr_num_" #gpr ") << " __stringify(EX_DATA_REG_##reg##_SHIFT) ")"
-> +
-> +#define _ASM_EXTABLE_UACCESS_ERR_ZERO(insn, fixup, err, zero)          \
-> +       __DEFINE_ASM_GPR_NUMS                                           \
-> +       __ASM_EXTABLE_RAW(#insn, #fixup,                                \
-> +                         __stringify(EX_TYPE_UACCESS_ERR_ZERO),        \
-> +                         "("                                           \
-> +                           EX_DATA_REG(ERR, err) " | "                 \
-> +                           EX_DATA_REG(ZERO, zero)                     \
-> +                         ")")
-> +
-> +#define _ASM_EXTABLE_UACCESS_ERR(insn, fixup, err)                     \
-> +       _ASM_EXTABLE_UACCESS_ERR_ZERO(insn, fixup, err, zero)
-> +
->  #endif /* __ASSEMBLY__ */
->
->  #endif /* __ASM_ASM_EXTABLE_H */
-> diff --git a/arch/riscv/include/asm/futex.h b/arch/riscv/include/asm/futex.h
-> index 2e15e8e89502..fc8130f995c1 100644
-> --- a/arch/riscv/include/asm/futex.h
-> +++ b/arch/riscv/include/asm/futex.h
-> @@ -21,20 +21,14 @@
->
->  #define __futex_atomic_op(insn, ret, oldval, uaddr, oparg)     \
->  {                                                              \
-> -       uintptr_t tmp;                                          \
->         __enable_user_access();                                 \
->         __asm__ __volatile__ (                                  \
->         "1:     " insn "                                \n"     \
->         "2:                                             \n"     \
-> -       "       .section .fixup,\"ax\"                  \n"     \
-> -       "       .balign 4                               \n"     \
-> -       "3:     li %[r],%[e]                            \n"     \
-> -       "       jump 2b,%[t]                            \n"     \
-> -       "       .previous                               \n"     \
-> -               _ASM_EXTABLE(1b, 3b)                            \
-> +       _ASM_EXTABLE_UACCESS_ERR(1b, 2b, %[r])                  \
->         : [r] "+r" (ret), [ov] "=&r" (oldval),                  \
-> -         [u] "+m" (*uaddr), [t] "=&r" (tmp)                    \
-> -       : [op] "Jr" (oparg), [e] "i" (-EFAULT)                  \
-> +         [u] "+m" (*uaddr)                                     \
-> +       : [op] "Jr" (oparg)                                     \
->         : "memory");                                            \
->         __disable_user_access();                                \
->  }
-> @@ -96,15 +90,10 @@ futex_atomic_cmpxchg_inatomic(u32 *uval, u32 __user *uaddr,
->         "2:     sc.w.aqrl %[t],%z[nv],%[u]              \n"
->         "       bnez %[t],1b                            \n"
->         "3:                                             \n"
-> -       "       .section .fixup,\"ax\"                  \n"
-> -       "       .balign 4                               \n"
-> -       "4:     li %[r],%[e]                            \n"
-> -       "       jump 3b,%[t]                            \n"
-> -       "       .previous                               \n"
-> -               _ASM_EXTABLE(1b, 4b)                    \
-> -               _ASM_EXTABLE(2b, 4b)                    \
-> +               _ASM_EXTABLE_UACCESS_ERR(1b, 3b, %[r])  \
-> +               _ASM_EXTABLE_UACCESS_ERR(2b, 3b, %[r])  \
->         : [r] "+r" (ret), [v] "=&r" (val), [u] "+m" (*uaddr), [t] "=&r" (tmp)
-> -       : [ov] "Jr" (oldval), [nv] "Jr" (newval), [e] "i" (-EFAULT)
-> +       : [ov] "Jr" (oldval), [nv] "Jr" (newval)
->         : "memory");
->         __disable_user_access();
->
-> diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-> index 40e6099af488..a4716c026386 100644
-> --- a/arch/riscv/include/asm/uaccess.h
-> +++ b/arch/riscv/include/asm/uaccess.h
-> @@ -81,22 +81,14 @@ static inline int __access_ok(unsigned long addr, unsigned long size)
->
->  #define __get_user_asm(insn, x, ptr, err)                      \
->  do {                                                           \
-> -       uintptr_t __tmp;                                        \
->         __typeof__(x) __x;                                      \
->         __asm__ __volatile__ (                                  \
->                 "1:\n"                                          \
-> -               "       " insn " %1, %3\n"                      \
-> +               "       " insn " %1, %2\n"                      \
->                 "2:\n"                                          \
-> -               "       .section .fixup,\"ax\"\n"               \
-> -               "       .balign 4\n"                            \
-> -               "3:\n"                                          \
-> -               "       li %0, %4\n"                            \
-> -               "       li %1, 0\n"                             \
-> -               "       jump 2b, %2\n"                          \
-> -               "       .previous\n"                            \
-> -                       _ASM_EXTABLE(1b, 3b)                    \
-> -               : "+r" (err), "=&r" (__x), "=r" (__tmp)         \
-> -               : "m" (*(ptr)), "i" (-EFAULT));                 \
-> +               _ASM_EXTABLE_UACCESS_ERR_ZERO(1b, 2b, %0, %1)   \
-> +               : "+r" (err), "=&r" (__x)                       \
-> +               : "m" (*(ptr)));                                \
->         (x) = __x;                                              \
->  } while (0)
->
-> @@ -108,27 +100,18 @@ do {                                                              \
->  do {                                                           \
->         u32 __user *__ptr = (u32 __user *)(ptr);                \
->         u32 __lo, __hi;                                         \
-> -       uintptr_t __tmp;                                        \
->         __asm__ __volatile__ (                                  \
->                 "1:\n"                                          \
-> -               "       lw %1, %4\n"                            \
-> +               "       lw %1, %3\n"                            \
->                 "2:\n"                                          \
-> -               "       lw %2, %5\n"                            \
-> +               "       lw %2, %4\n"                            \
->                 "3:\n"                                          \
-> -               "       .section .fixup,\"ax\"\n"               \
-> -               "       .balign 4\n"                            \
-> -               "4:\n"                                          \
-> -               "       li %0, %6\n"                            \
-> -               "       li %1, 0\n"                             \
-> -               "       li %2, 0\n"                             \
-> -               "       jump 3b, %3\n"                          \
-> -               "       .previous\n"                            \
-> -                       _ASM_EXTABLE(1b, 4b)                    \
-> -                       _ASM_EXTABLE(2b, 4b)                    \
-> -               : "+r" (err), "=&r" (__lo), "=r" (__hi),        \
-> -                       "=r" (__tmp)                            \
-> -               : "m" (__ptr[__LSW]), "m" (__ptr[__MSW]),       \
-> -                       "i" (-EFAULT));                         \
-> +               _ASM_EXTABLE_UACCESS_ERR_ZERO(1b, 3b, %0, %1)   \
-> +               _ASM_EXTABLE_UACCESS_ERR_ZERO(2b, 3b, %0, %1)   \
-> +               : "+r" (err), "=&r" (__lo), "=r" (__hi)         \
-> +               : "m" (__ptr[__LSW]), "m" (__ptr[__MSW]))       \
-> +       if (err)                                                \
-> +               __hi = 0;                                       \
->         (x) = (__typeof__(x))((__typeof__((x)-(x)))(            \
->                 (((u64)__hi << 32) | __lo)));                   \
->  } while (0)
-> @@ -216,21 +199,14 @@ do {                                                              \
->
->  #define __put_user_asm(insn, x, ptr, err)                      \
->  do {                                                           \
-> -       uintptr_t __tmp;                                        \
->         __typeof__(*(ptr)) __x = x;                             \
->         __asm__ __volatile__ (                                  \
->                 "1:\n"                                          \
-> -               "       " insn " %z3, %2\n"                     \
-> +               "       " insn " %z2, %1\n"                     \
->                 "2:\n"                                          \
-> -               "       .section .fixup,\"ax\"\n"               \
-> -               "       .balign 4\n"                            \
-> -               "3:\n"                                          \
-> -               "       li %0, %4\n"                            \
-> -               "       jump 2b, %1\n"                          \
-> -               "       .previous\n"                            \
-> -                       _ASM_EXTABLE(1b, 3b)                    \
-> -               : "+r" (err), "=r" (__tmp), "=m" (*(ptr))       \
-> -               : "rJ" (__x), "i" (-EFAULT));                   \
-> +               _ASM_EXTABLE_UACCESS_ERR(1b, 2b, %0)            \
-> +               : "+r" (err), "=m" (*(ptr))                     \
-> +               : "rJ" (__x));                                  \
->  } while (0)
->
->  #ifdef CONFIG_64BIT
-> @@ -244,22 +220,16 @@ do {                                                              \
->         uintptr_t __tmp;                                        \
->         __asm__ __volatile__ (                                  \
->                 "1:\n"                                          \
-> -               "       sw %z4, %2\n"                           \
-> +               "       sw %z3, %1\n"                           \
->                 "2:\n"                                          \
-> -               "       sw %z5, %3\n"                           \
-> +               "       sw %z4, %2\n"                           \
->                 "3:\n"                                          \
-> -               "       .section .fixup,\"ax\"\n"               \
-> -               "       .balign 4\n"                            \
-> -               "4:\n"                                          \
-> -               "       li %0, %6\n"                            \
-> -               "       jump 3b, %1\n"                          \
-> -               "       .previous\n"                            \
-> -                       _ASM_EXTABLE(1b, 4b)                    \
-> -                       _ASM_EXTABLE(2b, 4b)                    \
-> -               : "+r" (err), "=r" (__tmp),                     \
-> +               _ASM_EXTABLE_UACCESS_ERR(1b, 3b, %0)            \
-> +               _ASM_EXTABLE_UACCESS_ERR(2b, 3b, %0)            \
-> +               : "+r" (err),                                   \
->                         "=m" (__ptr[__LSW]),                    \
->                         "=m" (__ptr[__MSW])                     \
-> -               : "rJ" (__x), "rJ" (__x >> 32), "i" (-EFAULT)); \
-> +               : "rJ" (__x), "rJ" (__x >> 32));                \
->  } while (0)
->  #endif /* CONFIG_64BIT */
->
-> diff --git a/arch/riscv/mm/extable.c b/arch/riscv/mm/extable.c
-> index 91e52c4bb33a..05978f78579f 100644
-> --- a/arch/riscv/mm/extable.c
-> +++ b/arch/riscv/mm/extable.c
-> @@ -7,10 +7,12 @@
->   */
->
->
-> +#include <linux/bitfield.h>
->  #include <linux/extable.h>
->  #include <linux/module.h>
->  #include <linux/uaccess.h>
->  #include <asm/asm-extable.h>
-> +#include <asm/ptrace.h>
->
->  static inline unsigned long
->  get_ex_fixup(const struct exception_table_entry *ex)
-> @@ -25,6 +27,29 @@ static bool ex_handler_fixup(const struct exception_table_entry *ex,
->         return true;
->  }
->
-> +static inline void regs_set_gpr(struct pt_regs *regs, unsigned int offset,
-> +                               unsigned long val)
-> +{
-> +       if (unlikely(offset > MAX_REG_OFFSET))
-> +               return;
-> +
-> +       if (!offset)
-> +               *(unsigned long *)((unsigned long)regs + offset) = val;
-> +}
-> +
-> +static bool ex_handler_uaccess_err_zero(const struct exception_table_entry *ex,
-> +                                       struct pt_regs *regs)
-> +{
-> +       int reg_err = FIELD_GET(EX_DATA_REG_ERR, ex->data);
-> +       int reg_zero = FIELD_GET(EX_DATA_REG_ZERO, ex->data);
-> +
-> +       regs_set_gpr(regs, reg_err, -EFAULT);
-> +       regs_set_gpr(regs, reg_zero, 0);
-> +
-> +       regs->epc = get_ex_fixup(ex);
-> +       return true;
-> +}
-> +
->  bool fixup_exception(struct pt_regs *regs)
->  {
->         const struct exception_table_entry *ex;
-> @@ -38,6 +63,8 @@ bool fixup_exception(struct pt_regs *regs)
->                 return ex_handler_fixup(ex, regs);
->         case EX_TYPE_BPF:
->                 return ex_handler_bpf(ex, regs);
-> +       case EX_TYPE_UACCESS_ERR_ZERO:
-> +               return ex_handler_uaccess_err_zero(ex, regs);
->         }
->
->         BUG();
-> --
-> 2.33.0
->
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Thanks, these are on for-next.
 
 _______________________________________________
 linux-riscv mailing list
