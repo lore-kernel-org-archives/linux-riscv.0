@@ -4,78 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F74C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 18:20:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2D55C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 18:52:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=0Hejh/uFq3R8I+/9tmvksVjo9pJHWDukCROrt/pAYc4=; b=GqAFkdVLzxvwd/mg+/v2A7n53o
-	m6OyHx4icIZ2Rs+/PKxETzATY6sbxFY2do9UIVxF3p7mmelmM+4apBFltsI4mNiXV5mfeoD6lg9Q4
-	fGjEItngH4Z3VOStPwb1u/4OnI7uFNL2BPgWrCKvymWTNS1cW8VZx05A1J8iNgJshj43gWLmRqxsj
-	5cqLpLUN4/WLA/SnSi8LfSBqcpqoNjgn54+oFY3+4XmUIjBfSmDkpw1uHKwww2CCmBbjV6fESlHgu
-	etNCNxihEBxhEFijxVN++gMPmhxHzwx2vTPc5D2SWiGO3WbyEFphqaoVp2RofTFHUdS7oSyWRL4YG
-	dxYK+7JQ==;
+	bh=sF27JwFqOPIgaCP85RdjZvKWFt07sCmf7CM1jO5cR7I=; b=2OaZUlKca+ogUMczGGuvyIscQs
+	tCmcmOlRCtM/Z/WWX1vcUFi0s4QgLsbgdG5XN+yMfuO75F27NYWXSOQM2zprE3wgA46yO7d3/G94i
+	hAXacZ9xlRskjNvM0BV98x+SHSJ9dR/F3KjaSv6RZnbQ0ykpvRvOrVblHggZmuEFdw2tHFXCGttbc
+	cnp5FBgy0Y8UmzYKrw55hGsMZab70UoAiEyyOTuRVmBgsmlm6h5zxoS1HDh1Vr4+dLzWtds5a5ZO8
+	HeoRhlfFyncxp8MzuHVoMsSY9jUuest3IS1CiC16qHe+OvK5tUEAPnrk+wP5OHRcLWR4p5VvhSpvH
+	ylUTXkog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nAc2Q-00CliL-Bx; Thu, 20 Jan 2022 18:19:58 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1nAcXP-00Crco-6V; Thu, 20 Jan 2022 18:51:59 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nAc2N-00Clgu-7z
- for linux-riscv@lists.infradead.org; Thu, 20 Jan 2022 18:19:56 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id u11so5807215plh.13
- for <linux-riscv@lists.infradead.org>; Thu, 20 Jan 2022 10:19:53 -0800 (PST)
+ id 1nAcXN-00Crc7-1J
+ for linux-riscv@lists.infradead.org; Thu, 20 Jan 2022 18:51:58 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id
+ my12-20020a17090b4c8c00b001b528ba1cd7so1613313pjb.1
+ for <linux-riscv@lists.infradead.org>; Thu, 20 Jan 2022 10:51:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+ d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=7I5OODOa5piQNsKmLmbhAnVs29y4MT3sx3I0fLDPy2w=;
- b=qAcObxObCDq1N919u4ec4prmW472518LnFhDPyYfYOqdct9Jvu/bgC6p9ASucwA6xR
- pKbhJ/cMqkrdIq00r96VE6qFmsYm0U+x8Day96Wq46xWEjKT+JNUnI8Sjs2q5BP/uagl
- E5iz5A8s/Szvs6xgy7BC6WS1V27HLVpTVkPrroIj8sDaxnU+18uGbeO1GN9HbCl2pW3T
- DYPaN/7V+BL0N6A1sAE8gWk1WzxljeeKtMn1Wd7FZ1IgonzdiBLmHtqz6TWl4nMgnCOG
- 5cp5Ns4zrtkIPeVZ1ceUH9FchijSaTAlpNlLm9DlhQoF5cSxjr7sbHlz5YNaZwY/z8KO
- Dw3Q==
+ bh=aAElqll6HcGOKdu1l+4BDFs74fKBxBPJQ/1HSNtgISI=;
+ b=3brA5+YFUK34MXcTtFKlB0aLLKO/YP/rq83VzW1SYf97Ri8DZxIuLQ4zJJxwQBLzpJ
+ NW2oj/gcvtvpHEohXKo2pPEI+iFeXuhv46Kcdz/axsh6dtmzisEW9Gt67C2H3i7+Ux84
+ 52FatSauhcQOgh/AX8D67demVSYOQ73JyUaFzaVqqAVZIV0ZZG+IzN8GxxR1xg1oRZ0z
+ Spm5+2c37GczUWkqlbNAKiU3S0wBzSmTDiZuWTrrAkEtBc1+WS8AxWA0uVozybduJYVQ
+ QZsFbHfOtUoY7ClI0w0j2vIUJgVdj3rfifazeMMLqypQd9pozZIezwatL6C3oSNPATj7
+ jT3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=7I5OODOa5piQNsKmLmbhAnVs29y4MT3sx3I0fLDPy2w=;
- b=cFgVSSdjJUaonGCzzjnCdKTBN2R8jaK3DIAL1wgicT2vMIABkSvKN8i3oTnfqtPVrb
- QDgIOrmJHhvv5Qxkb4rIHJMAY75OkcTZUEy7ETgEE1/RQ3AvwQln6+FhHL7zxkTojow/
- H8WNcCCzhDnj3+FZZS2An+B5zb8Nx68LVGTjz5QGfw1Khtj4eVHC2oum4XWf3aMXJh+M
- Tlr8oE0ToFMLuwr5GBw2y7Yucnx3Buk8w1erjj8Y20kIxqQY4iT/qU74L8PvwVBbZZVt
- kEUUmzfUWL+tmm0mfWXZzEGahi0rWCd78dKAU03168Cvdm7titeKfMtgY2odX1DKXOsg
- FJoQ==
-X-Gm-Message-State: AOAM533ePTuL2E0Ijk4EFYj7kpb77jbC6BH/Eza6htRWIMYNijs+4qXW
- MuA3+x7UyOGVQN1l+53kkZOkYG9cScFGVg==
-X-Google-Smtp-Source: ABdhPJwb05nkzkp2TpQCijXSNYaPtKpZw3Qs733bSdJ9zS0nGG4S4+IbLGn7RLmphX1r0U7O10Ihuw==
-X-Received: by 2002:a17:902:f54a:b0:14a:97ad:b877 with SMTP id
- h10-20020a170902f54a00b0014a97adb877mr203886plf.152.1642702792943; 
- Thu, 20 Jan 2022 10:19:52 -0800 (PST)
+ bh=aAElqll6HcGOKdu1l+4BDFs74fKBxBPJQ/1HSNtgISI=;
+ b=QD/JIsX7fXtYQvDIli2CXC9og745UCKIrWAU9Mv1LyYjNCoez48cJPxVat/USu3Hpo
+ t8h5fTLsf0rruVSUTPFxSCzcn2mZvhBVrf2qW0fF1vVdhpbXM0j/1/fBJrrJr3ivySup
+ cBSfGIKqrSSTb9QpdhEuGaRn8OBcoqZSwJLovw7Ydpcel4wSky+DC4nshNtfbVUomgNK
+ CzhSAtVoekZj1z/BDaHBfH9+p5adDR3jx5sbksi46QVP/T7gtD2D1ryFZ1n5C+wtGe3+
+ 2Oud7nFDSmcNEvdmz+c+Ow0N8kHxCaERw/kwxkERmLZbZk6GyAXm5GaIeg1epHS3/F+/
+ 8UIQ==
+X-Gm-Message-State: AOAM531IufFWHOw2Xj7IRhy0iCSTxh1mHMbqVbzp/gvZ16RhpiVQZl/R
+ LEafniL9/dGGfkrqAfE+0wsy/iSTYtOy3w==
+X-Google-Smtp-Source: ABdhPJx0HnJkGKqfD4Kv3vqyguY0PXPBkZwjEjaFA0kzfYMCst7atFsorC+k0j7udcuzCzvQAS+25g==
+X-Received: by 2002:a17:90b:4c89:: with SMTP id
+ my9mr416443pjb.74.1642704716407; 
+ Thu, 20 Jan 2022 10:51:56 -0800 (PST)
 Received: from localhost ([12.3.194.138])
- by smtp.gmail.com with ESMTPSA id t31sm4200143pfg.92.2022.01.20.10.19.51
+ by smtp.gmail.com with ESMTPSA id x25sm3816569pfu.205.2022.01.20.10.51.55
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 20 Jan 2022 10:19:52 -0800 (PST)
-Date: Thu, 20 Jan 2022 10:19:52 -0800 (PST)
-X-Google-Original-Date: Thu, 20 Jan 2022 10:19:24 PST (-0800)
-Subject: Re: [PATCH 12/12] RISC-V: defconfigs: Remove redundant K210 DT source
-In-Reply-To: <DM6PR04MB70816AD80E3D9BD56A59FEFFE74D9@DM6PR04MB7081.namprd04.prod.outlook.com>
-CC: linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, 
- aou@eecs.berkeley.edu, anup@brainfault.org,
- heinrich.schuchardt@canonical.com, 
- Atish Patra <atishp@rivosinc.com>, bin.meng@windriver.com,
- sagar.kadam@sifive.com, axboe@kernel.dk, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Damien.LeMoal@wdc.com
-Message-ID: <mhng-f042ecd2-dc39-4212-a2c6-3ea842c20e3c@palmer-ri-x1c9>
+ Thu, 20 Jan 2022 10:51:55 -0800 (PST)
+Date: Thu, 20 Jan 2022 10:51:55 -0800 (PST)
+X-Google-Original-Date: Thu, 20 Jan 2022 10:45:50 PST (-0800)
+Subject: Re: [PATCH v4 2/3] dt-bindings: Add dma-channels for pdma device node
+In-Reply-To: <5db314b798cd9cfcb5cb61bc56515220b7d50315.1642383007.git.zong.li@sifive.com>
+CC: robh+dt@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ aou@eecs.berkeley.edu, krzysztof.kozlowski@canonical.com,
+ conor.dooley@microchip.com, 
+ geert@linux-m68k.org, bin.meng@windriver.com, green.wan@sifive.com,
+ vkoul@kernel.org, dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, zong.li@sifive.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: zong.li@sifive.com
+Message-ID: <mhng-e5e649a2-96bf-4244-a29a-a75c913111a2@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220120_101955_351537_6CCCFF7E 
-X-CRM114-Status: UNSURE (   8.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220120_105157_108083_06155945 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,12 +94,53 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 06 Jan 2022 18:14:00 PST (-0800), Damien.LeMoal@wdc.com wrote:
+On Sun, 16 Jan 2022 17:35:27 PST (-0800), zong.li@sifive.com wrote:
+> Add dma-channels property, then we can determine how many channels there
+> by device tree, rather than statically defines it in PDMA driver
 
-I just see an empty message here.  Not sure if it's something wrong with 
-my mail client, it's always a bit confused by yours -- it's usually not 
-this confused, but it is generally a broken mess so I wouldn't be 
-surprised by anything ;)
+Maybe "statically defining it" is better here?
+
+>
+> Signed-off-by: Zong Li <zong.li@sifive.com>
+> ---
+>  .../devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml    | 7 +++++++
+>  1 file changed, 7 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml b/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
+> index d32a71b975fe..3dbb8caefc17 100644
+> --- a/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
+> +++ b/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
+> @@ -34,6 +34,12 @@ properties:
+>      minItems: 1
+>      maxItems: 8
+>
+> +  dma-channels:
+> +    description: For backwards-compatible, the default value is 4
+
+Maybe "backwards-compatibility" is better here?
+
+> +    minimum: 1
+> +    maximum: 4
+> +    default: 4
+> +
+>    '#dma-cells':
+>      const: 1
+>
+> @@ -50,6 +56,7 @@ examples:
+>      dma@3000000 {
+>        compatible = "sifive,fu540-c000-pdma";
+
+IMO we should have a "sifive,pdma-1.0.0" (or whatever the versioning 
+scheme ended up being) here, in addition to the SOC-specific DT entry.  
+It's kind of odd to start extending the SOC-specific DT entry, as the 
+whole idea there is to let us have an out in case we find future 
+compatibility issues.
+
+>        reg = <0x3000000 0x8000>;
+> +      dma-channels = <4>;
+>        interrupts = <23 24 25 26 27 28 29 30>;
+>        #dma-cells = <1>;
+>      };
 
 _______________________________________________
 linux-riscv mailing list
