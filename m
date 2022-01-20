@@ -4,82 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BFBDC433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 09:30:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 623B8C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 09:46:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yKfnJ1SA3+B0fM1f768vfKuI7oGM8F+a3XHB9GX2rt4=; b=RMjCLGKpwqSnlK
-	B+pkR/OPZo5PNYLlv0Himq4z7suh6dvVhFP65LUsQXiVpFWVQx0LVJPJVXoXC+u+Xs2SUIeGMmavj
-	5wBeaG2KJml6kmvEP//JBbjb56bnxTsOhX3pA5np1yFuspQtoNwCqady4Dj0amqTO7OBZR2WPd4/I
-	6q82F93ARefPWtap7m6vM8xmYuUF+D3rzN0Y/0E/6accdFvFQCuD9X1Ek0rj1NzMUUEDvAwZexuHJ
-	0FAoUIObWfSnLkOCJqIOk9pLCIXWVwySV6te03kv7dumd2leUS9WiTHuquJaVyk2mCYClWFHKzqPb
-	sktwaSG7pjMLBGkRHnwg==;
+	List-Owner; bh=NPnFHpsf3tewS+8rHOT7jKcz9tGv8CcUzIIKS4ox/Ho=; b=Thq1tOUueB6AUe
+	I72d7/rUNexCtpTI9xzbScSh3SdKmSmK7Fbv1M6dW5LVRG+cPbxgs1wvGfZB5K3FmNqAim5suBORR
+	+5fkvbsXLKPISTeZ+ut1sAynT4YV+4getX+QZ8kDQagaDXqnU4QIRZphppIiGBexQjWINw/x8EQXA
+	9949juVe2pldykFp8WifOImHzZ4CHPhw87+WDajDK3akH9jqPw3y3YgAZfw1srDxuTbtXR4vfw4Fv
+	5TZvwf5TqhZiSSxEIE/rwzVahO+zSO45oodTRWAyAeJ/tYJEqQtv6W3H8ii3uO79Fr9Ju2Sxm9RO5
+	ABfWjVQGbmxZWSddEEGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nATlV-00AEUD-4I; Thu, 20 Jan 2022 09:29:57 +0000
-Received: from mout.kundenserver.de ([212.227.126.130])
+	id 1nAU16-00ALQl-9q; Thu, 20 Jan 2022 09:46:04 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nATlS-00AES5-DR; Thu, 20 Jan 2022 09:29:55 +0000
-Received: from mail-ot1-f44.google.com ([209.85.210.44]) by
- mrelayeu.kundenserver.de (mreue010 [213.165.67.97]) with ESMTPSA (Nemesis) id
- 1MEFjJ-1n2TQA1rYT-00AHwQ; Thu, 20 Jan 2022 10:29:51 +0100
-Received: by mail-ot1-f44.google.com with SMTP id
- m8-20020a9d4c88000000b00592bae7944bso6832330otf.1; 
- Thu, 20 Jan 2022 01:29:51 -0800 (PST)
-X-Gm-Message-State: AOAM530M31Cy5grkhxKdIp894bJqNIsU3RCCokt+8MWzg2CyepQYX5wE
- HK6dZzjYb0w+jA0QZ1qLkBQl4+S5ntFamy5tHwY=
-X-Google-Smtp-Source: ABdhPJw23cQjee+wzKe1BZuP5Egl38StW0xVS2Lx2CrxQkm8C96LIXXcbD+ld7BJcIRLzViPyYDZ1TVXzpuf+zNTwjI=
-X-Received: by 2002:a05:6830:2095:: with SMTP id
- y21mr25066257otq.368.1642670990087; 
- Thu, 20 Jan 2022 01:29:50 -0800 (PST)
+ id 1nAU10-00ALN1-Iq
+ for linux-riscv@lists.infradead.org; Thu, 20 Jan 2022 09:46:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1642671957;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=AnozGUjZxfRbxL/uXbhZzAjPZpfXbAj0xuaYn46Ym1Q=;
+ b=NJjkkARJZezA/0RNYzYtAyUaELpC13zuVbpPYd71OXyj70UzLoMWexlc36tM7JQoslamGY
+ AHYCJ65dGQihq2v+EWjLcM3uqwIoCBcdVlmfJDbqECw1fgs/57OTgiXgigB0/5C3H8cyuq
+ AunP6l6IPuhHjPSRScLhZ+h1MXbcyZI=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-556-Q1acZg4LMjWZJjJMpLE5jw-1; Thu, 20 Jan 2022 04:45:52 -0500
+X-MC-Unique: Q1acZg4LMjWZJjJMpLE5jw-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
+ [10.5.11.22])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7497D108087A;
+ Thu, 20 Jan 2022 09:45:49 +0000 (UTC)
+Received: from localhost (ovpn-13-177.pek2.redhat.com [10.72.13.177])
+ by smtp.corp.redhat.com (Postfix) with ESMTPS id 0F2C510013C1;
+ Thu, 20 Jan 2022 09:45:42 +0000 (UTC)
+Date: Thu, 20 Jan 2022 17:45:39 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Alexandre Ghiti <alexandre.ghiti@canonical.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ hpa@zytor.com, Eric Biederman <ebiederm@xmission.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, kexec@lists.infradead.org,
+ Alexandre ghiti <alex@ghiti.fr>
+Subject: Re: [PATCH v2 0/5] kexec: use IS_ENABLED(CONFIG_KEXEC_CORE) instead
+ of #ifdef
+Message-ID: <20220120094539.GC18398@MiWiFi-R3L-srv>
+References: <20211206160514.2000-1-jszhang@kernel.org>
+ <20220116133847.GE2388@MiWiFi-R3L-srv> <YebK70Sx4w8zLfj/@xhacker>
+ <20220119080859.GB4977@MiWiFi-R3L-srv>
+ <CA+zEjCvqYAWaWW9hVbHqYm_GbV-BaiOM4c77WHnxDNh+SRDUuw@mail.gmail.com>
+ <20220119093322.GC4977@MiWiFi-R3L-srv> <Yef5oz/XiZT/Pxfy@xhacker>
 MIME-Version: 1.0
-References: <20220120073911.99857-7-guoren@kernel.org>
-In-Reply-To: <20220120073911.99857-7-guoren@kernel.org>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Thu, 20 Jan 2022 10:29:33 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a00uYPBBphpipBoqCnGFwr_C9vDzS1p1iLN==YTVOARug@mail.gmail.com>
-Message-ID: <CAK8P3a00uYPBBphpipBoqCnGFwr_C9vDzS1p1iLN==YTVOARug@mail.gmail.com>
-Subject: Re: [PATCH V3 06/17] riscv: compat: Add basic compat date type
- implementation
-To: Guo Ren <guoren@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
- Anup Patel <anup@brainfault.org>, 
- gregkh <gregkh@linuxfoundation.org>, liush <liush@allwinnertech.com>, 
- Wei Fu <wefu@redhat.com>, Drew Fustini <drew@beagleboard.org>, 
- Wang Junqiang <wangjunqiang@iscas.ac.cn>, Christoph Hellwig <hch@lst.de>, 
- Christoph Hellwig <hch@infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
- linux-s390 <linux-s390@vger.kernel.org>,
- sparclinux <sparclinux@vger.kernel.org>, 
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, inux-parisc@vger.kernel.org, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
-X-Provags-ID: V03:K1:JVurDN4Y4Q7f+fI//N+MnlkhEvfNIom4M5T0JaW0UqyAqISpzsc
- uXZvUqRLm0qPCgjJmxVb4Qayyr2amTekvPUvV+EHw/wEz5xo87Ecb5ogwuqXJxip3/FtSEE
- BWWEqkrwg7UqdTxcVBWrmUYqaT5hdWkAms66bYsjqCyOqd3jblfZ7etbhCAZ+T/uP+NUqJW
- nkeolOs0xDsDZoKtTA9Mw==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:VP+CxMDm6V4=:Bs9vqMcmGnQ7QZ/n+FwIrB
- JzA3sd7hN7Cg1wyFNaiJ04N9BaN9RDJJDibV1zbuRn4OHdJqDGE0tY6lbP966Eqh1Zd5FzSQC
- FtRa82Gd9fJ8PUBKGWjTzPCJQm8NxJOSFs2/rQHpMY2cskO20TpIFms2XEgaxD1uLtNmkcOFW
- ppn3zNIMWxpgoe2oDOLHhgQEzP6QF0DGhqw+bkTvJtU9IGol0HRqNaH2nJQaajfVtx8O4m3Ww
- HLLzdjrHlEy2xBgeNyoL1SenZWTGkPiLh44xlMSdhDwCCeSVAeUb7bRSQIPv2N856nSdK4TiX
- V/Ampr1HVew9Y3WTbueAx4ATGKu/+5cxDIOfQ1qScxmhiIxnp5+RF9jMOpEUZJuTXdcLZuaCk
- xO19UONguOoEp5oS/OGYJTiJxdfkAT2Oy8h2VlHEYrNbibMPV2dJAXwAsSJj4bnlTW10ixREX
- IMQwSmzsfz84m+AhS4XD4dQNbVLpY8s2idB2CqoyyKkSyPqPlxFzEpJv8BEpfXAwPsWjN22ry
- lrdmcQiMNj6PPMsqDivQ7+jpiXxSPezjktkHMOSVZYOjpAS6mLtdxckaYHKXRK1vdCdFtL8iz
- /bbXjBAZ8hC1PaFVGdyI7sNEC//e40rtQYRUhbrWKtQNRn31A3z5ZzIQrcspffEl0vQrK54TH
- M7tlRP8NkDGyfKuYio+xj1OyWEbHFCVDDFrp0ejoZF/0WyqPDQFLqzBmR5RWNCfZvtRpQqh0c
- QZlydvLZ2VeyqidU0PI7g7avnkA7QYkH2Dgb2o1eEdpkJEKQ1nNU4m5fkG0lltgq8OINkP/q6
- yGeCxsBlzUBl8NR4MfhH/utNCSBLPu19SI5GBdVodjuhU7B4yU=
+Content-Disposition: inline
+In-Reply-To: <Yef5oz/XiZT/Pxfy@xhacker>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220120_012954_781723_0897ED36 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20220120_014558_732037_A508FCB8 
+X-CRM114-Status: GOOD (  35.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,23 +95,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 20, 2022 at 8:38 AM <guoren@kernel.org> wrote:
+On 01/19/22 at 07:44pm, Jisheng Zhang wrote:
+> On Wed, Jan 19, 2022 at 05:33:22PM +0800, Baoquan He wrote:
+> > On 01/19/22 at 09:52am, Alexandre Ghiti wrote:
+> > > Hi Baoquan,
+> > > 
+> > > On Wed, Jan 19, 2022 at 9:11 AM Baoquan He <bhe@redhat.com> wrote:
+> > > >
+> > > > On 01/18/22 at 10:13pm, Jisheng Zhang wrote:
+> > > > > On Sun, Jan 16, 2022 at 09:38:47PM +0800, Baoquan He wrote:
+> > > > > > Hi Jisheng,
+> > > > >
+> > > > > Hi Baoquan,
+> > > > >
+> > > > > >
+> > > > > > On 12/07/21 at 12:05am, Jisheng Zhang wrote:
+> > > > > > > Replace the conditional compilation using "#ifdef CONFIG_KEXEC_CORE"
+> > > > > > > by a check for "IS_ENABLED(CONFIG_KEXEC_CORE)", to simplify the code
+> > > > > > > and increase compile coverage.
+> > > > > >
+> > > > > > I go through this patchset, You mention the benefits it brings are
+> > > > > > 1) simplity the code;
+> > > > > > 2) increase compile coverage;
+> > > > > >
+> > > > > > For benefit 1), it mainly removes the dummy function in x86, arm and
+> > > > > > arm64, right?
+> > > > >
+> > > > > Another benefit: remove those #ifdef #else #endif usage. Recently, I
+> > > > > fixed a bug due to lots of "#ifdefs":
+> > > > > http://lists.infradead.org/pipermail/linux-riscv/2021-December/010607.html
+> > > >
+> > > > Glad to know the fix. While, sometime the ifdeffery is necessary. I am
+> > > > sorry about the one in riscv and you have fixed, it's truly a bug . But,
+> > > > the increasing compile coverage at below you tried to make, it may cause
+> > > > issue. Please see below my comment.
+> > > >
+> > > > >
+> > > > > >
+> > > > > > For benefit 2), increasing compile coverage, could you tell more how it
+> > > > > > achieves and why it matters? What if people disables CONFIG_KEXEC_CORE in
+> > > > > > purpose? Please forgive my poor compiling knowledge.
+> > > > >
+> > > > > Just my humble opinion, let's compare the code::
+> > > > >
+> > > > > #ifdef CONFIG_KEXEC_CORE
+> > > > >
+> > > > > code block A;
+> > > > >
+> > > > > #endif
+> > > > >
+> > > > > If KEXEC_CORE is disabled, code block A won't be compiled at all, the
+> > > > > preprocessor will remove code block A;
+> > > > >
+> > > > > If we convert the code to:
+> > > > >
+> > > > > if (IS_ENABLED(CONFIG_KEXEC_CORE)) {
+> > > > >       code block A;
+> > > > > }
+> > > > >
+> > > > > Even if KEXEC_CORE is disabled, code block A is still compiled.
+> > > >
+> > > > This is what I am worried about. Before, if CONFIG_KEXEC_CORE is
+> > > > unset, those relevant codes are not compiled in. I can't see what
+> > > > benefit is brought in if compiled in the unneeded code block. Do I miss
+> > > > anything?
+> > > >
+> > > 
+> > > This is explained in Documentation/process/coding-style.rst "21)
+> > > Conditional Compilation".
+> > 
+> > Thanks for the pointer, Alex.
+> > 
+> > I read that part, while my confusion isn't gone. With the current code,
+> > CONFIG_KEXEC_CORE is set,
+> >   - reserve_crashkernel_low() and reserve_crashkernel() compiled in.
+> 
+> Although the code block will be compiled, but the code block will be
+> optimized out.
+> 
+> > CONFIG_KEXEC_CORE is unset,
+> >   - reserve_crashkernel_low() and reserve_crashkernel() compiled out. 
+> > 
+> > After this patch applied, does it have the same effect as the old code?
+> 
+> I compared the .o, and can confirm they acchieve the same effect.
 
-> @@ -0,0 +1,136 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +#ifndef __ASM_COMPAT_H
-> +#define __ASM_COMPAT_H
-> +
-> +#define compat_mode_t  compat_mode_t
-> +typedef u16            compat_mode_t;
+Checked the .o, it's truly as you said. I didn't know this before,
+thank you and Alex, learned this now.
 
-I think this one is wrong, as rv32 should get the native definition from
+Seems only static function has this effect. I tested your x86 patch,
+those two functions are all optimized out. If I remove the static,
+the entire reserve_crashkernel_low() exists, while reserve_crashkernel()
+will be optimized as a empty function. 
 
-include/uapi/asm-generic/posix_types.h:typedef unsigned int     __kernel_mode_t;
-
-I think it works if you just remove those two lines. The rest looks good to me.
-
-       Arnd
 
 _______________________________________________
 linux-riscv mailing list
