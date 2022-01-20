@@ -4,64 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D294AC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 07:58:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AB3AC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 08:30:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WYjv+GjCHvy/btvq68qqzqfVmUy7I8rX8lmIoR2SgUc=; b=YdblONAPkmJJy2
-	P6YV+qVGmROevpIO7rwD8M5b8jvSyLRDNykNSuLGpy92iLjfCqk6LHYXUrs5zjyEwlACD9GgwESQO
-	c72/TfpG4sbfqpZCtu5+OzeagBKEMz20/3KvVJLmxsplv0L7KBQsTOsz4pkSyr4FUMUmWs5X3S2+d
-	w0umncG/C36Xaf8Pj/+mbkEdz7b0nVij4xBjDzhzSVNLCD4Uv7Zc/Sia8M4a1OCLeKxLt5RXwfwCK
-	bYH59yZvjNOyJnUaJjP2jetp55U18VQqElW0O6wWhzklIPy1dBtEqkhcmT3IP0SrgW0u5b9zQkrGU
-	zoNwftjMFhHTc3HSofJA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=U+5/xBk3ryfLqoJsTg8FKmw+wYbBcClflbuQYV0g5bw=; b=uL1Wrnj3WJ3zlp
+	qm/4YDmHgMFZuIpAxtpDeAGN0JEqD6B/UyQsL9dpDk10Qq9CdiU3ueQu9yb4/2R9w+yVHRM5c6K7k
+	2k6c/KT0dq83pYYMbFh99hjSwIdJkmx/Y3gs1bPapl3K74dOsq+yVwrrXTnzbpd7z+IWeu/QRsxTF
+	lSSzmvfoUxXJXoamkfotFK6uAxHB3GgW55DJ5auUYCLGEZKRiU+3B5ipxSFvLGU1hX5Up2XlNQHVo
+	yfP1DYZ1kmdB5rYM9htK7ABPDMnz/QUvnyjmluCVNiP/mxZ7iClN9X0M4b+vqf2XmZc/ZkHQCysnK
+	RLrRz8WZmZa1/cImuOkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nASKd-009W4T-2w; Thu, 20 Jan 2022 07:58:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1nASpt-009lmx-Gb; Thu, 20 Jan 2022 08:30:25 +0000
+Received: from mail-ua1-f45.google.com ([209.85.222.45])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nAS4h-009Opc-O6; Thu, 20 Jan 2022 07:41:42 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 0633F616AA;
- Thu, 20 Jan 2022 07:41:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73AD3C36AE3;
- Thu, 20 Jan 2022 07:41:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1642664498;
- bh=KczpaYYxoMGx41tEylY7vYP9V7d2/gwOtWp0+pQI1sQ=;
- h=From:To:Cc:Subject:Date:From;
- b=SoHKcLAbBRynCkDM25QymLddQPGokjxZWUXnz/C9Z/c9CM+6aBpTN2iW2HlHf8OcZ
- DvdM8kYes0KuSUihXi19oyVed9O24Fcyd3T1vlfejN0ZYrFb4SrYdvwkV5BXqengFt
- ptfJZ/LJQ+W4YCfoEbx8IQ1xgl8OjvN9joS2nfQPs6ajAG/EEwwXNGWEezEclwkyjg
- 0Fjxfc0orzJMqb0vXLUw4X5LseWg+aWm18Rtx/Slt4NNvcGtQwXpD3gV0KOE2ePcTb
- GROcMJT9VT4/SBaQYee9ajIjuxe4cUqhulfkx3ziJhLfmtSOEm08Bnt9CZJ1Vcya5i
- 76J8FDUpiSyjA==
-From: guoren@kernel.org
-To: guoren@kernel.org, palmer@dabbelt.com, arnd@arndb.de, anup@brainfault.org,
- gregkh@linuxfoundation.org, liush@allwinnertech.com, wefu@redhat.com,
- drew@beagleboard.org, wangjunqiang@iscas.ac.cn, hch@lst.de,
- hch@infradead.org
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-s390@vger.kernel.org,
- sparclinux@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- inux-parisc@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, x86@kernel.org,
- Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH V3 17/17] KVM: compat: riscv: Prevent KVM_COMPAT from being
- selected
-Date: Thu, 20 Jan 2022 15:39:10 +0800
-Message-Id: <20220120073911.99857-18-guoren@kernel.org>
-X-Mailer: git-send-email 2.25.1
+ id 1nASpp-009llo-UL
+ for linux-riscv@lists.infradead.org; Thu, 20 Jan 2022 08:30:23 +0000
+Received: by mail-ua1-f45.google.com with SMTP id y4so9492624uad.1
+ for <linux-riscv@lists.infradead.org>; Thu, 20 Jan 2022 00:30:21 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=rjpWEc8ofW9Ln+ZzVM/iDZ8qr5vzNcJvKqxioEzCZGY=;
+ b=e0ZwZ+4OCElPWEgCL3oYpRN6Pc/XnFD0DwnQnmsZYA57UxsAG2NFTncj3/SMqxznLO
+ oh8egGztO84Re1p+0UPawUa3Qt+h/Roc5zsYOZUSKpdbrZK3cd6WE4ZXlqDFbQIbak7P
+ ObwDlODqAR1kok8ymDl6+dLR4st8xmfHufQxqB9mfcXxkKSO3dlT8KqBiG3bDy3TNIy9
+ 8ZGIuvIVUQZECKleBX3QnVFmzIzpaj+0ZEnEqoryEfn+a2wIZtsFty+YliDQv13FOsVC
+ ktsLQPzkwiO2Pgj6dofPo3iXvGc+77Tg/5Aya2nh1QSJGzwyHk/xX2Sm10h1M2VRn3sp
+ QrXw==
+X-Gm-Message-State: AOAM530jHYZvZ/2C5mBMAinCtG/ULVoJRL+qymiriv9h/YrMHSrax2Ut
+ u4wf+YbDFqs+JXXwQBja+LnrdpqfQpBH7g==
+X-Google-Smtp-Source: ABdhPJygmrrQC9pZXX5P8sT4nx03h9F3VM17mbe4IYFzwzNgY7ocX7iqvTnVgAZDs+JHJ9SQZbXA8A==
+X-Received: by 2002:a05:6102:30a9:: with SMTP id
+ y9mr12930051vsd.68.1642667420164; 
+ Thu, 20 Jan 2022 00:30:20 -0800 (PST)
+Received: from mail-vk1-f171.google.com (mail-vk1-f171.google.com.
+ [209.85.221.171])
+ by smtp.gmail.com with ESMTPSA id g199sm422184vkf.30.2022.01.20.00.30.18
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Thu, 20 Jan 2022 00:30:19 -0800 (PST)
+Received: by mail-vk1-f171.google.com with SMTP id b77so3117761vka.11
+ for <linux-riscv@lists.infradead.org>; Thu, 20 Jan 2022 00:30:18 -0800 (PST)
+X-Received: by 2002:a1f:a2d3:: with SMTP id l202mr4847687vke.7.1642667418540; 
+ Thu, 20 Jan 2022 00:30:18 -0800 (PST)
 MIME-Version: 1.0
+References: <20220117110755.3433142-1-conor.dooley@microchip.com>
+ <20220117110755.3433142-4-conor.dooley@microchip.com>
+In-Reply-To: <20220117110755.3433142-4-conor.dooley@microchip.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 20 Jan 2022 09:30:07 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdXwe3_F8NeePnoFrLwyzKUwnHtmETC=ambgsC2N3w_h8A@mail.gmail.com>
+Message-ID: <CAMuHMdXwe3_F8NeePnoFrLwyzKUwnHtmETC=ambgsC2N3w_h8A@mail.gmail.com>
+Subject: Re: [PATCH v4 03/14] dt-bindings: i2c: add bindings for microchip
+ mpfs i2c
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <bgolaszewski@baylibre.com>,
+ Rob Herring <robh+dt@kernel.org>, 
+ Jassi Brar <jassisinghbrar@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alessandro Zummo <a.zummo@towertech.it>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Mark Brown <broonie@kernel.org>, Greg KH <gregkh@linuxfoundation.org>, 
+ Thierry Reding <thierry.reding@gmail.com>, 
+ =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, 
+ Lee Jones <lee.jones@linaro.org>, 
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Linux I2C <linux-i2c@vger.kernel.org>, 
+ Linux PWM List <linux-pwm@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
+ linux-rtc@vger.kernel.org, 
+ linux-spi <linux-spi@vger.kernel.org>, USB list <linux-usb@vger.kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Bin Meng <bin.meng@windriver.com>, 
+ Heiko Stuebner <heiko@sntech.de>, Lewis Hanly <lewis.hanly@microchip.com>, 
+ daire.mcnamara@microchip.com, ivan.griffin@microchip.com, 
+ Atish Patra <atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220119_234139_928633_F2D66805 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220120_003022_006115_1D5271DD 
+X-CRM114-Status: GOOD (  24.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,32 +110,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+Hi Conor,
 
-Current riscv doesn't support the 32bit KVM/arm API. Let's make it
-clear by not selecting KVM_COMPAT.
+On Mon, Jan 17, 2022 at 12:06 PM <conor.dooley@microchip.com> wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+>
+> Add device tree bindings for the i2c controller on
+> the Microchip PolarFire SoC.
+>
+> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
----
- virt/kvm/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Thanks for your patch!
 
-diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
-index f4834c20e4a6..a8c5c9f06b3c 100644
---- a/virt/kvm/Kconfig
-+++ b/virt/kvm/Kconfig
-@@ -53,7 +53,7 @@ config KVM_GENERIC_DIRTYLOG_READ_PROTECT
- 
- config KVM_COMPAT
-        def_bool y
--       depends on KVM && COMPAT && !(S390 || ARM64)
-+       depends on KVM && COMPAT && !(S390 || ARM64 || RISCV)
- 
- config HAVE_KVM_IRQ_BYPASS
-        bool
--- 
-2.25.1
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/i2c/microchip,mpfs-i2c.yaml
+> @@ -0,0 +1,55 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/i2c/microchip,mpfs-i2c.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Microchip MPFS I2C Controller Device Tree Bindings
+> +
+> +maintainers:
+> +  - Daire McNamara <daire.mcnamara@microchip.com>
+> +
+> +allOf:
+> +  - $ref: /schemas/i2c/i2c-controller.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - microchip,mpfs-i2c # Microchip PolarFire SoC compatible SoCs
+> +      - microchip,corei2c-rtl-v7 # Microchip Fabric based i2c IP core
 
+Wouldn't it be more logical to have:
+
+    items:
+      - const: microchip,mpfs-i2c # Microchip PolarFire SoC compatible SoCs
+      - const: microchip,corei2c-rtl-v7 # Microchip Fabric based i2c IP core
+
+?
+
+If the IP core is reused, it can become:
+
+    items:
+      - enum:
+          - microchip,mpfs-i2c # Microchip PolarFire SoC compatible SoCs
+          - microchip,<foo>-i2c # ...
+      - const: microchip,corei2c-rtl-v7 # Microchip Fabric based i2c IP core
+
+That way the driver can just match on the second (fallback) value,
+and no further driver changes will be needed (until v8 or later).
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
