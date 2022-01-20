@@ -4,82 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2BFFC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 09:57:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BB71C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 10:06:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G9bDJ3+WuRtaI/dbdk3FCByBsTGCbm9uEnV7oxuBZo4=; b=erbE0rZMYllKsH
-	gwfb8EP+x48owPNDPDASvdIEWO0N3b7LX9FR4T8ZzCA2SRJvIydwiwGpL86bKDDYiO5FOD4NIbdW2
-	ZyujGPflo4c9/Mn+XfZAGgyiWsbkq4RpmYavSQ7vwCEF3dUlkmdgv7CwPmHo+Nlo/CrnhMFMnG1Ww
-	0fWYy61FgMNZ36Xd2lmo6q+5S1Mb15NNHZz43IFJesLDuYp3eLZ/cRFd7yfdAyBmjrrRXQ/eqjb7N
-	tbwxYrVaJy1bCEl7uZwctrC+Jy2YUbJ2itsC3cVjGpc1KRx3YshQ/C/x8mxU4YqQlHakKrP+yF52C
-	QLK+u5yeMrNh8jlOizlw==;
+	List-Owner; bh=k39AZhRXEjPAr7vtNPyVdeM6cD/4cGXaoWlk7cZEvZI=; b=ZyDl/SF+I371gp
+	pWkXgVDVqaIq6+7DVNF01eRbKb4lEOMiubP2Ww5EYvcSdxiS0cjCHg5Wjkt4S5y7jGgEOofBmftza
+	7tkpq2oTN3lgkjRpfmdmHoBdoC5atZ5YhxREaJU3pI819UUyoCuXRRZqyaMXgMIgXBXZdNzDDwK6r
+	ndzc7Fz0ESLvtE7my0hbHvohdVY6XMF6y7Ra25Ygu0YSnt5NYBHroi6n9mxvHgCOTktOtxqhiNubm
+	HuwzQJN+NnxzZvqwEUW9M0IUj5HAXqMyV+r1UGSsJ2K/hRujjPAwX2+Sq7bk1pyoQayv+rJthZKz1
+	ZGFA3moIOIyn5za4Z3rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nAUC6-00APVx-TG; Thu, 20 Jan 2022 09:57:26 +0000
-Received: from mout.kundenserver.de ([217.72.192.75])
+	id 1nAUKT-00AUlo-JZ; Thu, 20 Jan 2022 10:06:05 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nAUC3-00APQc-NN
- for linux-riscv@lists.infradead.org; Thu, 20 Jan 2022 09:57:25 +0000
-Received: from mail-ed1-f48.google.com ([209.85.208.48]) by
- mrelayeu.kundenserver.de (mreue109 [213.165.67.113]) with ESMTPSA (Nemesis)
- id 1Mg6mG-1mfGma0L5K-00hgeu for <linux-riscv@lists.infradead.org>; Thu, 20
- Jan 2022 10:57:22 +0100
-Received: by mail-ed1-f48.google.com with SMTP id f21so26202510eds.11;
- Thu, 20 Jan 2022 01:57:22 -0800 (PST)
-X-Gm-Message-State: AOAM532Hs+miJrpLx1iROFDZ4AlPFwhpATUgKmPiMETE5lkXfuNydqzR
- SIisRsOw8SbiJ5Fe/UEMIfkRChiEYHxUKLyBAdM=
-X-Google-Smtp-Source: ABdhPJzWEQOVmrSCBjLkthqjYvCekql2pWig3E9/sv1NmQbjWn/17+5wGi2Yo7L626/g8+PxrkZBITeqW35NrwNIykU=
-X-Received: by 2002:adf:e193:: with SMTP id
- az19mr26654977wrb.407.1642671389935; 
- Thu, 20 Jan 2022 01:36:29 -0800 (PST)
+ id 1nAUKP-00AUeZ-MC
+ for linux-riscv@lists.infradead.org; Thu, 20 Jan 2022 10:06:03 +0000
+Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com
+ [209.85.208.69])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id D1FB840052
+ for <linux-riscv@lists.infradead.org>; Thu, 20 Jan 2022 10:05:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1642673157;
+ bh=w26SyRlRb1I1H6K/gmJqzdX3K4fWh5zNRWtuBCu0Vhg=;
+ h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+ To:Cc:Content-Type;
+ b=e6hXJ0IeM+a3TZvnftPzACQUC/BTo148mKyEaRzmMMatFoA204htx69CQOI3YB5OO
+ sriUGwnpfgmuijm7iGKzVu9gsZXNszndfh7JcmME+dZHAkCqlJjY+s2SY/j8b0RfAM
+ y5tigLyYcUgxXDLPupnKq/7rUCSt/dWuGzLB/VgcvHVAkGEV50ulXl+qUPlZvTqVW7
+ Yih4CcfKH1m9RXvM5LhOQkubPZDw5xfyLw3jI+jFlwKAhqXqrlZZoPWTIIrs+REZVe
+ y1OsmlSegpYeq51n6Z86bERKNT0XGQUqnsLme9MAbJtafug0lyRkA6CjzJjACCXmtq
+ W6twBPcAijYVA==
+Received: by mail-ed1-f69.google.com with SMTP id
+ cf15-20020a0564020b8f00b0040284b671c6so5414370edb.22
+ for <linux-riscv@lists.infradead.org>; Thu, 20 Jan 2022 02:05:57 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=w26SyRlRb1I1H6K/gmJqzdX3K4fWh5zNRWtuBCu0Vhg=;
+ b=LpOe0sNS3TcA3c53c4D+LG3sZotjhUCTrgZsS0i0thbgENt+dM+K1tEpi/v/MTUrKc
+ 2dQasPTEbTZZYy5HXlHogstBD0Mxjwrj6rLPt+27dCXW7M42ByYYkLwn5YUJwRhmoMpC
+ QW2gheDNk0cfhnx+2bEt8o87p0htrAosCUlv2S2slkEEp2o/A2esYgP8Uxg/O5hCEgt9
+ fmqJpufqMiRUFfhC44MxdHDk5f79hh+M2xadyms9crpzqgtuBvpIXFcEkcVR2fUavMNv
+ OPHCrAbbD+fPdgWSoMwfxQyR4Uf3t+iLHQbBHl8r/P/g6lxMSoPmtbZPTzMSVF1/ybc2
+ ilSw==
+X-Gm-Message-State: AOAM533yBccQxoTB28IheUl2L5MRC7tp/5Maq48kRAiPQ7Gonv0RVzHL
+ 0akEp6vk+MnJk6V5ygMAgcn4/o8ct2mls1mqOL1ddDeyaexwkcbGEQJJsDMAo6kVphkpXZ8Iymv
+ yDNRjYTqd9WF/GY7oEkkPPFLXqluGHRj2Bu+9k73/3PtYeK4TQejSS2Afd1sXBg==
+X-Received: by 2002:a05:6402:b33:: with SMTP id
+ bo19mr7643832edb.70.1642673157477; 
+ Thu, 20 Jan 2022 02:05:57 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJynv0ocn7NF6vgUdF1oJY52IvmBizAszTcAGapgjCakCzI58Vihpn2W5C5OjIWMX2LmXdeXWqskyns8624yTaM=
+X-Received: by 2002:a05:6402:b33:: with SMTP id
+ bo19mr7643811edb.70.1642673157166; 
+ Thu, 20 Jan 2022 02:05:57 -0800 (PST)
 MIME-Version: 1.0
-References: <20220120073911.99857-11-guoren@kernel.org>
-In-Reply-To: <20220120073911.99857-11-guoren@kernel.org>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Thu, 20 Jan 2022 10:36:13 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a2HaeFGdOr4Rm_ZcEP0rjh2Mo53=-ZRnEPtFfnmzfeE6g@mail.gmail.com>
-Message-ID: <CAK8P3a2HaeFGdOr4Rm_ZcEP0rjh2Mo53=-ZRnEPtFfnmzfeE6g@mail.gmail.com>
-Subject: Re: [PATCH V3 10/17] riscv: compat: Add elf.h implementation
-To: Guo Ren <guoren@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
- Anup Patel <anup@brainfault.org>, 
- gregkh <gregkh@linuxfoundation.org>, liush <liush@allwinnertech.com>, 
- Wei Fu <wefu@redhat.com>, Drew Fustini <drew@beagleboard.org>, 
- Wang Junqiang <wangjunqiang@iscas.ac.cn>, Christoph Hellwig <hch@lst.de>, 
- Christoph Hellwig <hch@infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
- linux-s390 <linux-s390@vger.kernel.org>,
- sparclinux <sparclinux@vger.kernel.org>, 
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, inux-parisc@vger.kernel.org, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
-X-Provags-ID: V03:K1:QInHwpZTgWDNqrkYOn05OO7koO/mTAkpB9VxVlYMk7E4C+2w64a
- 6gCV6DgUvwYxoZ3okMraO3me/Tfnt6MV8M/MYRoQMXPHbmGWMZdxu2hXWYgMCraPFfTi/9b
- Q67oWi7bKxUSVFvBTETTUhfRYBD4/630avdK8y3BhTnV4kSL4MVqM4l5tJ/5fIDbmvLEmc9
- GTdDIofwmcDiUKJcQq5pQ==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:UHsfKbLxCLU=:ls0TnXVYAlTCxssTFuI372
- oe5W+M00lscEoOMsI5Q04aVEqJ56v5FyLzIK+Y7mI7AZq+FMgaFLMYnLKb7Crq8mMMsf0X4Hb
- mKlMZS9Odr8K74gEQb6TGC30Z8sfvUndXVpiI1boM60JjwMag5z+GqYQDzaBv5pXV81us3p/R
- omAi0EgP5zjGnsw+ZOctQmA6eHRsemc6J4cxSkfIQLDQIozkMKRSsiRxrfmMa2Uhic4vMq+il
- dHYUj6FMCLHgBM0GWkT5qB5eDtW/35NMEp8qCf5lsbceE0IJGmPpAiHvW8koLH6SgRua0K3DN
- ag3kkzToF4XOHmOJh6G20FB/UWlYDiY1W9aaZmFLw3AMSjcf8FKtSHBwuSwQKsbxAusmNWvYg
- GQH62q5fXtpS+fWhCYQdYwRZbk6kptCM0y5yk+wLOkRmFxtt5PSEEzDkOm99iXW5+lP7BVZOB
- imVG9FqJeudMpc49BPM/4+JM85QjhCDnkJx8eioCxTuOGQH+5Bvs6ur1vX6YWFaql2M0QNAfK
- PFPiBCK+QunS3/sKSxrg3PiqfDXKr3SWd8stTGFs60ZiOKf/eVCRn+KDrsnYx0F6SN3ztE4FM
- zdRPmIprVfDyFnKYCx7aefCrWPCGryIQO6vyXPbPwY/Q2pS3Sd7WB5cbFaReLq7UJaDKXyclQ
- i2gS1Gl3ZMgPrW1O3ldX0SSixRGPWUGs497G6jX4VlPvqzTJOo5SIbKYH4gVpHSpEZM1JKQ7l
- QqM7tV7VF7bYT+Zh1XKMffFCWjvaGPNMcEHVnCCFDLv8AEVBf83PU4deRISZ97cXVYG644R4d
- NhxQjJtLAE5tk33q7uofXQpxyzYA+t1Bz29SGK9liYpq7AeDsbMG2SrO3O/h4WeoeZLuEoL
+References: <20211206104657.433304-1-alexandre.ghiti@canonical.com>
+ <mhng-cdec292e-aea2-4b76-8853-b8465521e94f@palmer-ri-x1c9>
+ <CA+zEjCuTSjOCmNExSN1jO50tsuXNzL9x6K6jWjG4+vVky5eWsw@mail.gmail.com>
+In-Reply-To: <CA+zEjCuTSjOCmNExSN1jO50tsuXNzL9x6K6jWjG4+vVky5eWsw@mail.gmail.com>
+From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Date: Thu, 20 Jan 2022 11:05:46 +0100
+Message-ID: <CA+zEjCuTYmk-dLPhJ=9CkNrqf7VbCNyRDSZUGYkJSUWqZDWHpA@mail.gmail.com>
+Subject: Re: [PATCH v3 00/13] Introduce sv48 support without relocatable kernel
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: corbet@lwn.net, Paul Walmsley <paul.walmsley@sifive.com>,
+ aou@eecs.berkeley.edu, 
+ zong.li@sifive.com, anup@brainfault.org, Atish.Patra@rivosinc.com, 
+ Christoph Hellwig <hch@lst.de>, ryabinin.a.a@gmail.com, glider@google.com, 
+ andreyknvl@gmail.com, dvyukov@google.com, ardb@kernel.org, 
+ Arnd Bergmann <arnd@arndb.de>, keescook@chromium.org, guoren@linux.alibaba.com,
+ heinrich.schuchardt@canonical.com, mchitale@ventanamicro.com, 
+ panqinglin2020@iscas.ac.cn, linux-doc@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kasan-dev@googlegroups.com, linux-efi@vger.kernel.org, 
+ linux-arch@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220120_015724_081292_2A0F34AC 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20220120_020601_999021_BEF067EE 
+X-CRM114-Status: GOOD (  43.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,34 +107,134 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 20, 2022 at 8:39 AM <guoren@kernel.org> wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
+On Thu, Jan 20, 2022 at 8:30 AM Alexandre Ghiti
+<alexandre.ghiti@canonical.com> wrote:
 >
-> Implement necessary type and macro for compat elf. See the code
-> comment for detail.
+> On Thu, Jan 20, 2022 at 5:18 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> >
+> > On Mon, 06 Dec 2021 02:46:44 PST (-0800), alexandre.ghiti@canonical.com wrote:
+> > > * Please note notable changes in memory layouts and kasan population *
+> > >
+> > > This patchset allows to have a single kernel for sv39 and sv48 without
+> > > being relocatable.
+> > >
+> > > The idea comes from Arnd Bergmann who suggested to do the same as x86,
+> > > that is mapping the kernel to the end of the address space, which allows
+> > > the kernel to be linked at the same address for both sv39 and sv48 and
+> > > then does not require to be relocated at runtime.
+> > >
+> > > This implements sv48 support at runtime. The kernel will try to
+> > > boot with 4-level page table and will fallback to 3-level if the HW does not
+> > > support it. Folding the 4th level into a 3-level page table has almost no
+> > > cost at runtime.
+> > >
+> > > Note that kasan region had to be moved to the end of the address space
+> > > since its location must be known at compile-time and then be valid for
+> > > both sv39 and sv48 (and sv57 that is coming).
+> > >
+> > > Tested on:
+> > >   - qemu rv64 sv39: OK
+> > >   - qemu rv64 sv48: OK
+> > >   - qemu rv64 sv39 + kasan: OK
+> > >   - qemu rv64 sv48 + kasan: OK
+> > >   - qemu rv32: OK
+> > >
+> > > Changes in v3:
+> > >   - Fix SZ_1T, thanks to Atish
+> > >   - Fix warning create_pud_mapping, thanks to Atish
+> > >   - Fix k210 nommu build, thanks to Atish
+> > >   - Fix wrong rebase as noted by Samuel
+> > >   - * Downgrade to sv39 is only possible if !KASAN (see commit changelog) *
+> > >   - * Move KASAN next to the kernel: virtual layouts changed and kasan population *
+> > >
+> > > Changes in v2:
+> > >   - Rebase onto for-next
+> > >   - Fix KASAN
+> > >   - Fix stack canary
+> > >   - Get completely rid of MAXPHYSMEM configs
+> > >   - Add documentation
+> > >
+> > > Alexandre Ghiti (13):
+> > >   riscv: Move KASAN mapping next to the kernel mapping
+> > >   riscv: Split early kasan mapping to prepare sv48 introduction
+> > >   riscv: Introduce functions to switch pt_ops
+> > >   riscv: Allow to dynamically define VA_BITS
+> > >   riscv: Get rid of MAXPHYSMEM configs
+> > >   asm-generic: Prepare for riscv use of pud_alloc_one and pud_free
+> > >   riscv: Implement sv48 support
+> > >   riscv: Use pgtable_l4_enabled to output mmu_type in cpuinfo
+> > >   riscv: Explicit comment about user virtual address space size
+> > >   riscv: Improve virtual kernel memory layout dump
+> > >   Documentation: riscv: Add sv48 description to VM layout
+> > >   riscv: Initialize thread pointer before calling C functions
+> > >   riscv: Allow user to downgrade to sv39 when hw supports sv48 if !KASAN
+> > >
+> > >  Documentation/riscv/vm-layout.rst             |  48 ++-
+> > >  arch/riscv/Kconfig                            |  37 +-
+> > >  arch/riscv/configs/nommu_k210_defconfig       |   1 -
+> > >  .../riscv/configs/nommu_k210_sdcard_defconfig |   1 -
+> > >  arch/riscv/configs/nommu_virt_defconfig       |   1 -
+> > >  arch/riscv/include/asm/csr.h                  |   3 +-
+> > >  arch/riscv/include/asm/fixmap.h               |   1
+> > >  arch/riscv/include/asm/kasan.h                |  11 +-
+> > >  arch/riscv/include/asm/page.h                 |  20 +-
+> > >  arch/riscv/include/asm/pgalloc.h              |  40 ++
+> > >  arch/riscv/include/asm/pgtable-64.h           | 108 ++++-
+> > >  arch/riscv/include/asm/pgtable.h              |  47 +-
+> > >  arch/riscv/include/asm/sparsemem.h            |   6 +-
+> > >  arch/riscv/kernel/cpu.c                       |  23 +-
+> > >  arch/riscv/kernel/head.S                      |   4 +-
+> > >  arch/riscv/mm/context.c                       |   4 +-
+> > >  arch/riscv/mm/init.c                          | 408 ++++++++++++++----
+> > >  arch/riscv/mm/kasan_init.c                    | 250 ++++++++---
+> > >  drivers/firmware/efi/libstub/efi-stub.c       |   2
+> > >  drivers/pci/controller/pci-xgene.c            |   2 +-
+> > >  include/asm-generic/pgalloc.h                 |  24 +-
+> > >  include/linux/sizes.h                         |   1
+> > >  22 files changed, 833 insertions(+), 209 deletions(-)
+> >
+> > Sorry this took a while.  This is on for-next, with a bit of juggling: a
+> > handful of trivial fixes for configs that were failing to build/boot and
+> > some merge issues.  I also pulled out that MAXPHYSMEM fix to the top, so
+> > it'd be easier to backport.  This is bigger than something I'd normally like to
+> > take late in the cycle, but given there's a lot of cleanups, likely some fixes,
+> > and it looks like folks have been testing this I'm just going to go with it.
+> >
 >
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Yes yes yes! That's fantastic news :)
+>
+> > Let me know if there's any issues with the merge, it was a bit hairy.
+> > Probably best to just send along a fixup patch at this point.
+>
+> I'm going to take a look at that now, and I'll fix anything that comes
+> up quickly :)
 
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+I see in for-next that you did not take the following patches:
 
-> +
-> +/*
-> + * FIXME: not sure SET_PERSONALITY for compat process is right!
-> + */
-> +#define SET_PERSONALITY(ex)                                    \
-> +do {    if ((ex).e_ident[EI_CLASS] == ELFCLASS32)              \
-> +               set_thread_flag(TIF_32BIT);                     \
-> +       else                                                    \
-> +               clear_thread_flag(TIF_32BIT);                   \
-> +       if (personality(current->personality) != PER_LINUX32)   \
-> +               set_personality(PER_LINUX |                     \
-> +                       (current->personality & (~PER_MASK)));  \
-> +} while (0)
-> +
+  riscv: Improve virtual kernel memory layout dump
+  Documentation: riscv: Add sv48 description to VM layout
+  riscv: Initialize thread pointer before calling C functions
+  riscv: Allow user to downgrade to sv39 when hw supports sv48 if !KASAN
 
-The implementation looks good to me now,  you can remove that comment above it.
+I'm not sure this was your intention. If it was, I believe that at
+least the first 2 patches are needed in this series, the 3rd one is a
+useful fix and we can discuss the 4th if that's an issue for you.
 
-        Arnd
+I tested for-next on both sv39 and sv48 successfully, I took a glance
+at the code and noticed you fixed the PTRS_PER_PGD error, thanks for
+that. Otherwise nothing obvious has popped.
+
+Thanks again,
+
+Alex
+
+>
+> Thanks!
+>
+> Alex
+>
+> >
+> > Thanks!
 
 _______________________________________________
 linux-riscv mailing list
