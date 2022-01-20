@@ -4,76 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69AACC433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 09:50:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2BFFC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 09:57:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jp67pweC1X/fCczGQVEpkZvUzHpXf9rdcGVGjSUzx64=; b=RPhgUx7DUfz321
-	iNBJXG9fmYXEcn1Jdavq7+KIPAnyhpnjMYndQO1Fy/loR4TMBQOUIaPBeQsiuUEYGu8RgJD7kXCOf
-	iw7BMF91YFo16S6jvJkkIJOnW4b4JnOjXGiZ/Y9DTlksGHa01/NvaxLDhPz7FC/qK0XfQ6hBCWMxq
-	TNGHn8RVKP087eNDozHhV1BpTOlAIwsnEAwur3Y7/YfQvAVwfZty9N6DLLiB9WnpLquIGzU4DY/H0
-	o003P3az/RqriqPSy13krYArGDS3nm/H8vF72GP7oZUCLJan6W35uAKrGGu/Jy5OKDZX7M5HOLFrk
-	8jPr+hvFd0+LpNnJFMbg==;
+	List-Owner; bh=G9bDJ3+WuRtaI/dbdk3FCByBsTGCbm9uEnV7oxuBZo4=; b=erbE0rZMYllKsH
+	gwfb8EP+x48owPNDPDASvdIEWO0N3b7LX9FR4T8ZzCA2SRJvIydwiwGpL86bKDDYiO5FOD4NIbdW2
+	ZyujGPflo4c9/Mn+XfZAGgyiWsbkq4RpmYavSQ7vwCEF3dUlkmdgv7CwPmHo+Nlo/CrnhMFMnG1Ww
+	0fWYy61FgMNZ36Xd2lmo6q+5S1Mb15NNHZz43IFJesLDuYp3eLZ/cRFd7yfdAyBmjrrRXQ/eqjb7N
+	tbwxYrVaJy1bCEl7uZwctrC+Jy2YUbJ2itsC3cVjGpc1KRx3YshQ/C/x8mxU4YqQlHakKrP+yF52C
+	QLK+u5yeMrNh8jlOizlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nAU5S-00AN41-1F; Thu, 20 Jan 2022 09:50:34 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1nAUC6-00APVx-TG; Thu, 20 Jan 2022 09:57:26 +0000
+Received: from mout.kundenserver.de ([217.72.192.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nAU5P-00AN2Y-Bc
- for linux-riscv@lists.infradead.org; Thu, 20 Jan 2022 09:50:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1642672230;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=ZNWy14bNC4fJbtyD6GpQKM/LUxExM+x+l77VyG1ixgQ=;
- b=W122MDsb0tcrPaGG5+WzQmu6HxQF6OkIcytJQIfkm9H5YUPTbdKwW3KzClbDzmccbj9KNN
- u54kxEYhlSnGcWffkFrJ5Hgo2lqxezgdGySP+rT2OLtxS1MunOFv0ZRwsgu9wWET7/ySls
- HqQ3+Avk/O+ejbxGGzEaIyijckq3tLo=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-6-uRckonSkOxqb_rkLypEbFA-1; Thu, 20 Jan 2022 04:50:27 -0500
-X-MC-Unique: uRckonSkOxqb_rkLypEbFA-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
- [10.5.11.12])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A1E251932482;
- Thu, 20 Jan 2022 09:50:24 +0000 (UTC)
-Received: from localhost (ovpn-13-177.pek2.redhat.com [10.72.13.177])
- by smtp.corp.redhat.com (Postfix) with ESMTPS id E9AC47CAD5;
- Thu, 20 Jan 2022 09:50:21 +0000 (UTC)
-Date: Thu, 20 Jan 2022 17:50:19 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Jisheng Zhang <jszhang@kernel.org>, akpm@linux-foundation.org
-Cc: Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- hpa@zytor.com, Eric Biederman <ebiederm@xmission.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, kexec@lists.infradead.org,
- Alexandre ghiti <alex@ghiti.fr>
-Subject: Re: [PATCH v2 0/5] kexec: use IS_ENABLED(CONFIG_KEXEC_CORE) instead
- of #ifdef
-Message-ID: <20220120095019.GA4579@MiWiFi-R3L-srv>
-References: <20211206160514.2000-1-jszhang@kernel.org>
+ id 1nAUC3-00APQc-NN
+ for linux-riscv@lists.infradead.org; Thu, 20 Jan 2022 09:57:25 +0000
+Received: from mail-ed1-f48.google.com ([209.85.208.48]) by
+ mrelayeu.kundenserver.de (mreue109 [213.165.67.113]) with ESMTPSA (Nemesis)
+ id 1Mg6mG-1mfGma0L5K-00hgeu for <linux-riscv@lists.infradead.org>; Thu, 20
+ Jan 2022 10:57:22 +0100
+Received: by mail-ed1-f48.google.com with SMTP id f21so26202510eds.11;
+ Thu, 20 Jan 2022 01:57:22 -0800 (PST)
+X-Gm-Message-State: AOAM532Hs+miJrpLx1iROFDZ4AlPFwhpATUgKmPiMETE5lkXfuNydqzR
+ SIisRsOw8SbiJ5Fe/UEMIfkRChiEYHxUKLyBAdM=
+X-Google-Smtp-Source: ABdhPJzWEQOVmrSCBjLkthqjYvCekql2pWig3E9/sv1NmQbjWn/17+5wGi2Yo7L626/g8+PxrkZBITeqW35NrwNIykU=
+X-Received: by 2002:adf:e193:: with SMTP id
+ az19mr26654977wrb.407.1642671389935; 
+ Thu, 20 Jan 2022 01:36:29 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20211206160514.2000-1-jszhang@kernel.org>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+References: <20220120073911.99857-11-guoren@kernel.org>
+In-Reply-To: <20220120073911.99857-11-guoren@kernel.org>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Thu, 20 Jan 2022 10:36:13 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a2HaeFGdOr4Rm_ZcEP0rjh2Mo53=-ZRnEPtFfnmzfeE6g@mail.gmail.com>
+Message-ID: <CAK8P3a2HaeFGdOr4Rm_ZcEP0rjh2Mo53=-ZRnEPtFfnmzfeE6g@mail.gmail.com>
+Subject: Re: [PATCH V3 10/17] riscv: compat: Add elf.h implementation
+To: Guo Ren <guoren@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
+ Anup Patel <anup@brainfault.org>, 
+ gregkh <gregkh@linuxfoundation.org>, liush <liush@allwinnertech.com>, 
+ Wei Fu <wefu@redhat.com>, Drew Fustini <drew@beagleboard.org>, 
+ Wang Junqiang <wangjunqiang@iscas.ac.cn>, Christoph Hellwig <hch@lst.de>, 
+ Christoph Hellwig <hch@infradead.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
+ linux-s390 <linux-s390@vger.kernel.org>,
+ sparclinux <sparclinux@vger.kernel.org>, 
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, inux-parisc@vger.kernel.org, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+ "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
+X-Provags-ID: V03:K1:QInHwpZTgWDNqrkYOn05OO7koO/mTAkpB9VxVlYMk7E4C+2w64a
+ 6gCV6DgUvwYxoZ3okMraO3me/Tfnt6MV8M/MYRoQMXPHbmGWMZdxu2hXWYgMCraPFfTi/9b
+ Q67oWi7bKxUSVFvBTETTUhfRYBD4/630avdK8y3BhTnV4kSL4MVqM4l5tJ/5fIDbmvLEmc9
+ GTdDIofwmcDiUKJcQq5pQ==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:UHsfKbLxCLU=:ls0TnXVYAlTCxssTFuI372
+ oe5W+M00lscEoOMsI5Q04aVEqJ56v5FyLzIK+Y7mI7AZq+FMgaFLMYnLKb7Crq8mMMsf0X4Hb
+ mKlMZS9Odr8K74gEQb6TGC30Z8sfvUndXVpiI1boM60JjwMag5z+GqYQDzaBv5pXV81us3p/R
+ omAi0EgP5zjGnsw+ZOctQmA6eHRsemc6J4cxSkfIQLDQIozkMKRSsiRxrfmMa2Uhic4vMq+il
+ dHYUj6FMCLHgBM0GWkT5qB5eDtW/35NMEp8qCf5lsbceE0IJGmPpAiHvW8koLH6SgRua0K3DN
+ ag3kkzToF4XOHmOJh6G20FB/UWlYDiY1W9aaZmFLw3AMSjcf8FKtSHBwuSwQKsbxAusmNWvYg
+ GQH62q5fXtpS+fWhCYQdYwRZbk6kptCM0y5yk+wLOkRmFxtt5PSEEzDkOm99iXW5+lP7BVZOB
+ imVG9FqJeudMpc49BPM/4+JM85QjhCDnkJx8eioCxTuOGQH+5Bvs6ur1vX6YWFaql2M0QNAfK
+ PFPiBCK+QunS3/sKSxrg3PiqfDXKr3SWd8stTGFs60ZiOKf/eVCRn+KDrsnYx0F6SN3ztE4FM
+ zdRPmIprVfDyFnKYCx7aefCrWPCGryIQO6vyXPbPwY/Q2pS3Sd7WB5cbFaReLq7UJaDKXyclQ
+ i2gS1Gl3ZMgPrW1O3ldX0SSixRGPWUGs497G6jX4VlPvqzTJOo5SIbKYH4gVpHSpEZM1JKQ7l
+ QqM7tV7VF7bYT+Zh1XKMffFCWjvaGPNMcEHVnCCFDLv8AEVBf83PU4deRISZ97cXVYG644R4d
+ NhxQjJtLAE5tk33q7uofXQpxyzYA+t1Bz29SGK9liYpq7AeDsbMG2SrO3O/h4WeoeZLuEoL
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220120_015031_524820_648122F5 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20220120_015724_081292_2A0F34AC 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,47 +96,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/07/21 at 12:05am, Jisheng Zhang wrote:
-> Replace the conditional compilation using "#ifdef CONFIG_KEXEC_CORE"
-> by a check for "IS_ENABLED(CONFIG_KEXEC_CORE)", to simplify the code
-> and increase compile coverage.
+On Thu, Jan 20, 2022 at 8:39 AM <guoren@kernel.org> wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
+>
+> Implement necessary type and macro for compat elf. See the code
+> comment for detail.
+>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 
-Only checked the x86 patch, but the whole patchset looks good to me,
-thanks, Jisheng.
+Reviewed-by: Arnd Bergmann <arnd@arndb.de>
 
-Acked-by: Baoquan He <bhe@redhat.com>
+> +
+> +/*
+> + * FIXME: not sure SET_PERSONALITY for compat process is right!
+> + */
+> +#define SET_PERSONALITY(ex)                                    \
+> +do {    if ((ex).e_ident[EI_CLASS] == ELFCLASS32)              \
+> +               set_thread_flag(TIF_32BIT);                     \
+> +       else                                                    \
+> +               clear_thread_flag(TIF_32BIT);                   \
+> +       if (personality(current->personality) != PER_LINUX32)   \
+> +               set_personality(PER_LINUX |                     \
+> +                       (current->personality & (~PER_MASK)));  \
+> +} while (0)
+> +
 
-Maybe Andrew can help pick this whole series lest each patch need be taken
-care of by its own ARCH maintainer.
+The implementation looks good to me now,  you can remove that comment above it.
 
-> 
-> I only modify x86, arm, arm64 and riscv, other architectures such as
-> sh, powerpc and s390 are better to be kept kexec code as-is so they
-> are not touched.
-> 
-> Since v1:
->  - collect Reviewed-by tag
->  - fix misleading commit msg.
-> 
-> Jisheng Zhang (5):
->   kexec: make crashk_res, crashk_low_res and crash_notes symbols always
->     visible
->   riscv: mm: init: use IS_ENABLED(CONFIG_KEXEC_CORE) instead of #ifdef
->   x86/setup: use IS_ENABLED(CONFIG_KEXEC_CORE) instead of #ifdef
->   arm64: mm: use IS_ENABLED(CONFIG_KEXEC_CORE) instead of #ifdef
->   arm: use IS_ENABLED(CONFIG_KEXEC_CORE) instead of #ifdef
-> 
->  arch/arm/kernel/setup.c |  7 +++----
->  arch/arm64/mm/init.c    |  9 +++------
->  arch/riscv/mm/init.c    |  6 ++----
->  arch/x86/kernel/setup.c | 10 +++-------
->  include/linux/kexec.h   | 12 ++++++------
->  5 files changed, 17 insertions(+), 27 deletions(-)
-> 
-> -- 
-> 2.34.1
-> 
-
+        Arnd
 
 _______________________________________________
 linux-riscv mailing list
