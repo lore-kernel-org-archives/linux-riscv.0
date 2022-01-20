@@ -4,81 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA398C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 18:52:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2CFAC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 18:57:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=iuyNf2EhYws2BuMNaNfeNGHe4AaZ/vxg2qbo9QO9vHk=; b=xPn+glMF3OJXIjcJE+NiCyMu78
-	OptnbRU9kKJ1aOiuBqdca5nXf086aZQL4TNigWc+Bfp9T1sDXPIYGo0A53qkMc8BirZZJjOObASjA
-	KFg7+lAbM+zdOyC2q3iNn87JoDa/I4irxIHJxYEqYLTAfnizomHyO6MYjuUlQTh9qXQ22Na5VBPm9
-	IWULcxgk6V01jHgW6IpJ+ooYr6WxqQW1ENVzjlr/DVeI9vu/eW79zgWWupRAtOpSokRsRo81eTrFF
-	rPNPs9oRzJ1DjBIpi5fIpkLRCmOPg97bzzj6d6BBBPz6Vo3pMJ2pbJc6KiNyjPgZ/+bL76XRNrGli
-	xPEYe4Mw==;
+	bh=5373tr0YcUAoLN8yl3qQYBo2vq22nwfzrHWQFMtif0E=; b=ekpRRUXnMaMsDWtwnKVZcgogH2
+	sqxv6ZaZ8/z6HOGEGZlrMmjDq49d2waDHmnhemvvfrPDlsa4R+VwknKfK0TuLsLo4ImswBIYs0pM+
+	Yce2Pl5oZNzjDdqGRfukGCmpMNlsIgUG2hnkM+LqyA/ukYktbk4cgmRCvt9NoPOLh8fWUqeG7WMPY
+	DLK5MGu/npuniI9qutN/QJmVu1yZvK57LdYST8n3F5HQPt+cKTQYP29LXvaerlxqgaTNLaUG059Tv
+	WxxwtlFfC/f5C4XVYNL3FgIhacKWt3ZxQWxtSfQ9geR1uJjA5+ZsZ3oOGIMm4hbDTli5Bpn/c40zU
+	AxFyprgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nAcXY-00CrhM-BU; Thu, 20 Jan 2022 18:52:08 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1nAccB-00Csod-Vv; Thu, 20 Jan 2022 18:56:56 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nAcXV-00Crd9-J9
- for linux-riscv@lists.infradead.org; Thu, 20 Jan 2022 18:52:07 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id
- s2-20020a17090ad48200b001b501977b23so6073483pju.2
- for <linux-riscv@lists.infradead.org>; Thu, 20 Jan 2022 10:52:00 -0800 (PST)
+ id 1nAcc9-00Csnt-CG
+ for linux-riscv@lists.infradead.org; Thu, 20 Jan 2022 18:56:54 +0000
+Received: by mail-pg1-x534.google.com with SMTP id p125so6073990pga.2
+ for <linux-riscv@lists.infradead.org>; Thu, 20 Jan 2022 10:56:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=8EtW5aJUkZlLqS6KByBwT87+2IR1JSn6MQ8pl+a1L1I=;
- b=NQYgEA4M/w5/oPAMr8pOQ9c83buHBZm1EOwnhxvMJD73dViVTwW7SLmFSapT8MzP0k
- lp1qLzKIbojGpeLkOn1wqY9P1fr3M9lleuPC7xsasrVHWj2ODjuxoLGvzMVW6VwclLHu
- 22vQjx+Zt/s4e0x5Fixv7T+W/WpFZC1ypEv9TEvEW0/cG+4OBEP2mLfdU5m4VnxRSq4h
- pZs5usczWpG+aEqvRpk0LiNJLQ7uKPzU/QjHZiFDQlWpbKtn0iSnaQDHbLBvkG6eQ9J2
- hOGCTa95y9r4vAvQ/OHyTOXA3RAGK8CF+2cQ2FazuMfX1SR+dfkWnCG33Gv/9XwxtBkk
- +sHQ==
+ bh=BLjtA7Aums/ilXFg+4gjh+nfchSZIUu6a21JuAeXehM=;
+ b=1r7ggSjoyjiEd0AgERULWPQKaqUaILvMLutii1XqZIybZBPD173WhgtoRWQ5dB7bxJ
+ pdVZtqJWOHBYqyrmwsfefuhQ0coEepqdXHfu5zQnB1VpbSCOR1LRNmkFnW5/HiUW0oNA
+ eojnyHhq6AsFTvbWG5Tk+6coYuGPWIFa7meblIfUBMhjKSqMGNcLYn9om51xCcBiS6c0
+ 3cu03oNy8YmWTky1JwuR3D+7cVMIEQByfN8SqvEhSujckzxsJkA2sdRD0v21DkdVjQRm
+ ShzllnfXIy3Zx6gHc/PdNmLTHn5/X/Y+TqvnszOEq/+BTRfVrvKTxzTRA8YEMlAGjlEz
+ 6Y+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=8EtW5aJUkZlLqS6KByBwT87+2IR1JSn6MQ8pl+a1L1I=;
- b=VrCauo3iqPzM9WNrrg7dm6vFc5E3I4rrFLGhKxQWn3GR0JjVdQMC8pQqqHhqnqMymU
- JyV2IpFuIyI9/1F9EYv86gP8YTLmHj3qh2fA1DZt56pwJnRGo55VXAF4yfJX4E4jVMti
- jHhO19bTGdsKrfFIObfnbf3MUo9JisYLaBpfY4ElFFx4OOLMDi5wmZqnOjKkxJaO7RUJ
- GyOwSwQ4i8bYa6ZZs5oOQBgPiiZ76J1PRj8V7rA+Yt5ia+s2Zi9U/kbopTTaqK4JEHx2
- WkMQzQNGQff/5fTkwAvU6FoobPRB6BqpWGXT5w+occ11fQ8aXa/WPmDA2RmQW0yg59Lv
- P8FQ==
-X-Gm-Message-State: AOAM531CT4VuCUKfky9u017FpmS0/3ob+nfwmgnE+1vVRnXodLRvlwk+
- 0IRJnapxb6GwqFtBE23CiTntbA==
-X-Google-Smtp-Source: ABdhPJwOcKX4q0aXSX3awK4t1GwYFAHIAnuIczRRG34WtbQiXod6hQvEiN93AyBbUWCvMdAzZb7Ngw==
-X-Received: by 2002:a17:902:7401:b0:14b:1339:58cf with SMTP id
- g1-20020a170902740100b0014b133958cfmr81275pll.66.1642704719518; 
- Thu, 20 Jan 2022 10:51:59 -0800 (PST)
+ bh=BLjtA7Aums/ilXFg+4gjh+nfchSZIUu6a21JuAeXehM=;
+ b=Lr1L//r0ER2U6P4WkPPlScq1Xkga2nXOm2h8p6fH63apW+mrh5J214SR0QYYJBMEaB
+ 7WsdSE6jCbSiiYv8P08VhlF5gmKe2H1T3uBdxSrhST9EI8DfWNXRODax1b7kpfRAh/WD
+ shISUn2AZR3M3JJf4SMUCaclnnM8Enhhp7asajS6v2ALhBag7C+elt4ZNbXx2oqCMxHw
+ NT0aUy7FI+kSQ7sS65jvd7OyDSyYxSEQ6aTpvwxhP0fii3Ey+puULWtXklSA2HyNFXJ2
+ oxsvHMldjYZTborT0ROjDGVMoPvVG9+dBP8KUIY5E0mFE+DjxBfdoTXvvAQLtXG0G8hj
+ lZ5A==
+X-Gm-Message-State: AOAM532wot3OLMXRs/OLEA6H2f98Up2Sahv5Y2Zh7H3k4AT5j12Fq38I
+ 61udGAhUaNsntv9JObvXPtuFlw==
+X-Google-Smtp-Source: ABdhPJxdE/w6f1aJwRVw74resTa1XXc33k37AYF3EbNOLlPLmRzeKe7qDQ0i6GxH8YBBPkP+X3A5HQ==
+X-Received: by 2002:a63:610b:: with SMTP id v11mr111312pgb.183.1642705011241; 
+ Thu, 20 Jan 2022 10:56:51 -0800 (PST)
 Received: from localhost ([12.3.194.138])
- by smtp.gmail.com with ESMTPSA id q4sm4512124pfu.15.2022.01.20.10.51.58
+ by smtp.gmail.com with ESMTPSA id v17sm4231250pfu.220.2022.01.20.10.56.50
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 20 Jan 2022 10:51:59 -0800 (PST)
-Date: Thu, 20 Jan 2022 10:51:59 -0800 (PST)
-X-Google-Original-Date: Thu, 20 Jan 2022 10:51:23 PST (-0800)
-Subject: Re: [PATCH v4 3/3] dmaengine: sf-pdma: Get number of channel by
- device tree
-In-Reply-To: <0d0b0a3ad703f5ef50611e2dd80439675bda666a.1642383007.git.zong.li@sifive.com>
-CC: robh+dt@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, krzysztof.kozlowski@canonical.com,
- conor.dooley@microchip.com, 
- geert@linux-m68k.org, bin.meng@windriver.com, green.wan@sifive.com,
- vkoul@kernel.org, dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, zong.li@sifive.com
+ Thu, 20 Jan 2022 10:56:50 -0800 (PST)
+Date: Thu, 20 Jan 2022 10:56:50 -0800 (PST)
+X-Google-Original-Date: Thu, 20 Jan 2022 10:56:08 PST (-0800)
+Subject: Re: [PATCH] arch/riscv/kernel: remove redundant err variable
+In-Reply-To: <20220112082729.667743-1-chi.minghao@zte.com.cn>
+CC: oleg@redhat.com, Paul Walmsley <paul.walmsley@sifive.com>,
+ aou@eecs.berkeley.edu, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ chi.minghao@zte.com.cn, zealci@zte.com.cn, cgel.zte@gmail.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: zong.li@sifive.com
-Message-ID: <mhng-5b3e2596-3558-4534-9229-26885ee4cc5c@palmer-ri-x1c9>
+To: cgel.zte@gmail.com
+Message-ID: <mhng-c795fe10-28e3-4762-92ae-0b8a99b58f96@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220120_105205_659506_20ECAB4A 
-X-CRM114-Status: GOOD (  26.07  )
+X-CRM114-CacheID: sfid-20220120_105653_445577_456BE19E 
+X-CRM114-Status: GOOD (  16.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,103 +89,39 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 16 Jan 2022 17:35:28 PST (-0800), zong.li@sifive.com wrote:
-> It currently assumes that there are always four channels, it would
-> cause the error if there is actually less than four channels. Change
-> that by getting number of channel from device tree.
+On Wed, 12 Jan 2022 00:27:29 PST (-0800), cgel.zte@gmail.com wrote:
+> From: Minghao Chi <chi.minghao@zte.com.cn>
 >
-> For backwards-compatible, it uses the default value (i.e. 4) when there
-> is no 'dma-channels' information in dts.
-
-Some of the same wording issues here as those I pointed out in the DT 
-bindings patch.
-
-> Signed-off-by: Zong Li <zong.li@sifive.com>
+> Return value from user_regset_copyin() directly instead
+> of taking this in another redundant variable.
+>
+> Reported-by: Zeal Robot <zealci@zte.com.cn>
+> Signed-off-by: Minghao Chi <chi.minghao@zte.com.cn>
+> Signed-off-by: CGEL ZTE <cgel.zte@gmail.com>
 > ---
->  drivers/dma/sf-pdma/sf-pdma.c | 20 +++++++++++++-------
->  drivers/dma/sf-pdma/sf-pdma.h |  8 ++------
->  2 files changed, 15 insertions(+), 13 deletions(-)
+>  arch/riscv/kernel/ptrace.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
 >
-> diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
-> index f12606aeff87..1264add9897e 100644
-> --- a/drivers/dma/sf-pdma/sf-pdma.c
-> +++ b/drivers/dma/sf-pdma/sf-pdma.c
-> @@ -482,9 +482,7 @@ static void sf_pdma_setup_chans(struct sf_pdma *pdma)
->  static int sf_pdma_probe(struct platform_device *pdev)
+> diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+> index 9c0511119bad..a89243730153 100644
+> --- a/arch/riscv/kernel/ptrace.c
+> +++ b/arch/riscv/kernel/ptrace.c
+> @@ -42,12 +42,10 @@ static int riscv_gpr_set(struct task_struct *target,
+>  			 unsigned int pos, unsigned int count,
+>  			 const void *kbuf, const void __user *ubuf)
 >  {
->  	struct sf_pdma *pdma;
-> -	struct sf_pdma_chan *chan;
->  	struct resource *res;
-> -	int len, chans;
->  	int ret;
->  	const enum dma_slave_buswidth widths =
->  		DMA_SLAVE_BUSWIDTH_1_BYTE | DMA_SLAVE_BUSWIDTH_2_BYTES |
-> @@ -492,13 +490,21 @@ static int sf_pdma_probe(struct platform_device *pdev)
->  		DMA_SLAVE_BUSWIDTH_16_BYTES | DMA_SLAVE_BUSWIDTH_32_BYTES |
->  		DMA_SLAVE_BUSWIDTH_64_BYTES;
+> -	int ret;
+>  	struct pt_regs *regs;
 >
-> -	chans = PDMA_NR_CH;
-> -	len = sizeof(*pdma) + sizeof(*chan) * chans;
-> -	pdma = devm_kzalloc(&pdev->dev, len, GFP_KERNEL);
-> +	pdma = devm_kzalloc(&pdev->dev, sizeof(*pdma), GFP_KERNEL);
->  	if (!pdma)
->  		return -ENOMEM;
+>  	regs = task_pt_regs(target);
+> -	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, regs, 0, -1);
+> -	return ret;
+> +	return user_regset_copyin(&pos, &count, &kbuf, &ubuf, regs, 0, -1);
+>  }
 >
-> -	pdma->n_chans = chans;
-> +	ret = of_property_read_u32(pdev->dev.of_node, "dma-channels",
-> +				   &pdma->n_chans);
-> +	if (ret) {
-> +		dev_notice(&pdev->dev, "set number of channels to default value: 4\n");
-> +		pdma->n_chans = PDMA_MAX_NR_CH;
-> +	}
-> +
-> +	if (pdma->n_chans > PDMA_MAX_NR_CH) {
-> +		dev_err(&pdev->dev, "the number of channels exceeds the maximum\n");
-> +		return -EINVAL;
+>  #ifdef CONFIG_FPU
 
-Can we get away with just using only the number of channels the driver 
-actually supports?  ie, just never sending an op to the channels above 
-MAX_NR_CH?  That should leave us with nothing to track.
-
-> +	}
->
->  	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
->  	pdma->membase = devm_ioremap_resource(&pdev->dev, res);
-> @@ -556,7 +562,7 @@ static int sf_pdma_remove(struct platform_device *pdev)
->  	struct sf_pdma_chan *ch;
->  	int i;
->
-> -	for (i = 0; i < PDMA_NR_CH; i++) {
-> +	for (i = 0; i < pdma->n_chans; i++) {
->  		ch = &pdma->chans[i];
->
->  		devm_free_irq(&pdev->dev, ch->txirq, ch);
-> diff --git a/drivers/dma/sf-pdma/sf-pdma.h b/drivers/dma/sf-pdma/sf-pdma.h
-> index 0c20167b097d..8127d792f639 100644
-> --- a/drivers/dma/sf-pdma/sf-pdma.h
-> +++ b/drivers/dma/sf-pdma/sf-pdma.h
-> @@ -22,11 +22,7 @@
->  #include "../dmaengine.h"
->  #include "../virt-dma.h"
->
-> -#define PDMA_NR_CH					4
-> -
-> -#if (PDMA_NR_CH != 4)
-> -#error "Please define PDMA_NR_CH to 4"
-> -#endif
-> +#define PDMA_MAX_NR_CH					4
->
->  #define PDMA_BASE_ADDR					0x3000000
->  #define PDMA_CHAN_OFFSET				0x1000
-> @@ -118,7 +114,7 @@ struct sf_pdma {
->  	void __iomem            *membase;
->  	void __iomem            *mappedbase;
->  	u32			n_chans;
-> -	struct sf_pdma_chan	chans[PDMA_NR_CH];
-> +	struct sf_pdma_chan	chans[PDMA_MAX_NR_CH];
->  };
->
->  #endif /* _SF_PDMA_H */
+Thanks, this is on for-next.
 
 _______________________________________________
 linux-riscv mailing list
