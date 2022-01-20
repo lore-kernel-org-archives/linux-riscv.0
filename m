@@ -4,101 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34308C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 15:05:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20CD1C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jan 2022 15:29:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ss0/HrTsZTpjbDFMCX3hH3HI/e0yNqvuL4xkNNHvBx8=; b=fuImeHNw6eMXE7
-	9W/ZUZ/nA0GX3X22Wva6mgjzH9eLQlein/J472Ab/sph6N/hMm5e8WDUHmrXcxHnQpI5DLs3DpevI
-	72IMaaQLDuOtnb+NWmZjzvwI82ulEZtK4QyR/kb8WZS79rp0OlDY9evh/KyRD+eJztkQUjPAhJhcT
-	9vV8OKod1BaLR3k9b/1NHqOzm/cqlB0FWcaB8WfBI7zWaxw4a64fwLtItQPqBBiWndqYZh8R07TtR
-	3kUTzLXu224dNs5dh3LAL0m/eomkHzrKq+uNcMh+m03MxQgRu+vfWSmIYwjeyIQlZsaNUI9aOXv2k
-	7nkVcUhsLXwtLuSWTS+Q==;
+	List-Owner; bh=91x7ZAahiEdCNcdHO5qBr5D/btJ/Bo3e3sPcqRxkqjo=; b=0QRAYO/DgWzJrN
+	JIrXwuj/DW4BrY52VZm9+SpZh1JQCgS1VMXu13mN6h9bswl9o+KmRAMbC6gvcd6mI8Jo5Oc3iNsDO
+	JD72k+6QsR/39PrCZIN5LPcA7E+JqG/s+Aqw2MO3ZfO/3B3bYGR4dyMwFxM3zNmdnh+efuWCUR9Zy
+	80sZ/CjBIK8DlDpHyh7u70AHV95I7c1EhB50dqtQ0+Q+WpIOabsuIOpI61idzcXR23m1bfh51o1wj
+	Y5YVv1v56P1afeJDLuG8eJePJ5WXlRPmxx2NGyeoX04RcVa8wWkxIiTClAMIZb5I+7OtscIEEjFMt
+	dAVLPsDS8CtMTJXkFckw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nAZ04-00C2Zq-Ei; Thu, 20 Jan 2022 15:05:20 +0000
-Received: from mail-pj1-f49.google.com ([209.85.216.49])
+	id 1nAZMn-00C9Ph-Pi; Thu, 20 Jan 2022 15:28:49 +0000
+Received: from mail-108-mta107.mxroute.com ([136.175.108.107])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nAZ00-00C2YA-Qz
- for linux-riscv@lists.infradead.org; Thu, 20 Jan 2022 15:05:18 +0000
-Received: by mail-pj1-f49.google.com with SMTP id
- w12-20020a17090a528c00b001b276aa3aabso10412559pjh.0
- for <linux-riscv@lists.infradead.org>; Thu, 20 Jan 2022 07:05:15 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=1L35cmAx7uCLqrcryWAZKBNOGx+ekbrBkpQCXHRgWJQ=;
- b=Nw+xSqbuQLlwuiujcjgCLAb/XPDJV/It91H5rkUlbj3/N/7soW9ruj7dtXJcRo12w6
- G7y+u6vuIFOcoHCK1uH2tgPBlxuX0TG4wHx2XUIu/44Q27WIgiTUco/H6PKc6Guqgvcj
- MYtMbXQPJkemY8wzB5T5bZrdpq1xLB0ZD8dRedhRjxcX+LKXmMZL7EwMRhLc3fapSgx+
- JG7givUr6u3jdMV/uWcjr15Ynfh8zFiY6bbPMy6PqQTeWu2xwsjC/qHeW/3He1rg8+Fl
- Br0+kNLbeGvS5I9wOi6sCDmqytKMeNcu3OLZFVrkCHfYfdcTQvLmvsCnipiLER9fVD+J
- k9tg==
-X-Gm-Message-State: AOAM531mtuBHimkLfDnPtR3vcwwmqTSJvFtbFfgMrII/uG/CB3nLeXvo
- wtv/yaPgpC4qfOKE9f7+zcDO/yRXDZ6UtA==
-X-Google-Smtp-Source: ABdhPJwvAfu1h6Yl+mB7bSR6gd5WimXbgzefTFGQRkr23R6cYTY0J6pVeA5dl7YXDyoTKkYNrwn8EA==
-X-Received: by 2002:a17:90b:4b0a:: with SMTP id
- lx10mr11231146pjb.176.1642691114427; 
- Thu, 20 Jan 2022 07:05:14 -0800 (PST)
-Received: from mail-pj1-f45.google.com (mail-pj1-f45.google.com.
- [209.85.216.45])
- by smtp.gmail.com with ESMTPSA id ne23sm2799729pjb.57.2022.01.20.07.05.14
- for <linux-riscv@lists.infradead.org>
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Thu, 20 Jan 2022 07:05:14 -0800 (PST)
-Received: by mail-pj1-f45.google.com with SMTP id
- d15-20020a17090a110f00b001b4e7d27474so6026912pja.2
- for <linux-riscv@lists.infradead.org>; Thu, 20 Jan 2022 07:05:14 -0800 (PST)
-X-Received: by 2002:a05:6102:3581:: with SMTP id
- h1mr14235247vsu.5.1642690617601; 
- Thu, 20 Jan 2022 06:56:57 -0800 (PST)
+ id 1nAZMk-00C9NT-F9
+ for linux-riscv@lists.infradead.org; Thu, 20 Jan 2022 15:28:48 +0000
+Received: from filter004.mxroute.com ([149.28.56.236] filter004.mxroute.com)
+ (Authenticated sender: mN4UYu2MZsgR)
+ by mail-108-mta107.mxroute.com (ZoneMTA) with ESMTPSA id
+ 17e781aa047000bdf2.002 for <linux-riscv@lists.infradead.org>
+ (version=TLSv1/SSLv3 cipher=ECDHE-RSA-AES128-GCM-SHA256);
+ Thu, 20 Jan 2022 15:28:37 +0000
+X-Zone-Loop: 87361e9113d96d03804189c27501aa6bd31b7bd4e544
+X-Originating-IP: [149.28.56.236]
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=ds0.me; s=x
+ ;
+ h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=f5DSyw8Jktl2OVLrktO0AZ8z+S3qRtxlhEygciHsFM0=; b=QdHjhTksC/LcefLXrzjBNyPewf
+ p1pSvWd7frxT1A0ZsHAQymG9gGiNnbgE0LvNVTlntHKa/lvaQlq6XoWlqiAgAVaGgJ7txx6x9jnku
+ GjOWbFbpVpKRfmDCd5UGcIWJF5PgGY2dYXoFaWoyvJ8x/+xmHn5z7VnvN7btifAAYFiYpPupQCdQx
+ WnTs/Vzde5IKViqz3p4BKaHxUXFqf0xi/mwNX1kiDSBCEFdVZ2trReSy3Q9GR5ArVea2vFwxy5W/J
+ KgFYNAtcddt0/QD9IetVUOlmh9wHZAx4Gzp84H2EnJhXFayEVzylduVC7kLr36c32aZrzvBtew7sn
+ NE8BsJBA==;
+From: Myrtle Shah <gatecat@ds0.me>
+To: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com
+Cc: linux-kernel@vger.kernel.org
+Subject: [PATCH 2/2] riscv/mm: Add some missing XIP_FIXUPs
+Date: Thu, 20 Jan 2022 15:28:28 +0000
+Message-Id: <20220120152828.4089364-3-gatecat@ds0.me>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20220120152828.4089364-1-gatecat@ds0.me>
+References: <20220120152828.4089364-1-gatecat@ds0.me>
 MIME-Version: 1.0
-References: <20220117110755.3433142-1-conor.dooley@microchip.com>
- <20220117110755.3433142-4-conor.dooley@microchip.com>
- <CAMuHMdXwe3_F8NeePnoFrLwyzKUwnHtmETC=ambgsC2N3w_h8A@mail.gmail.com>
- <889dab52-95eb-f36d-0af9-beea958a97e7@microchip.com>
-In-Reply-To: <889dab52-95eb-f36d-0af9-beea958a97e7@microchip.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 20 Jan 2022 15:56:46 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXU_M89W7w064YsjuFfqE2m_PeM9HVps0nmaC1+aUHAQw@mail.gmail.com>
-Message-ID: <CAMuHMdXU_M89W7w064YsjuFfqE2m_PeM9HVps0nmaC1+aUHAQw@mail.gmail.com>
-Subject: Re: [PATCH v4 03/14] dt-bindings: i2c: add bindings for microchip
- mpfs i2c
-To: Conor Dooley <Conor.Dooley@microchip.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <bgolaszewski@baylibre.com>,
- Rob Herring <robh+dt@kernel.org>, 
- Jassi Brar <jassisinghbrar@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alessandro Zummo <a.zummo@towertech.it>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Mark Brown <broonie@kernel.org>, Greg KH <gregkh@linuxfoundation.org>, 
- Thierry Reding <thierry.reding@gmail.com>, 
- =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, 
- Lee Jones <lee.jones@linaro.org>, 
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Linux I2C <linux-i2c@vger.kernel.org>, 
- Linux PWM List <linux-pwm@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
- linux-rtc@vger.kernel.org, 
- linux-spi <linux-spi@vger.kernel.org>, USB list <linux-usb@vger.kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Bin Meng <bin.meng@windriver.com>, 
- Heiko Stuebner <heiko@sntech.de>, Lewis Hanly <Lewis.Hanly@microchip.com>, 
- Daire.McNamara@microchip.com, Ivan.Griffin@microchip.com, 
- Atish Patra <atishp@rivosinc.com>
+X-AuthUser: dave@ds0.me
+X-Zone-Spam-Resolution: no action
+X-Zone-Spam-Status: No, score=5, required=15, tests=[ARC_NA=0,
+ MID_CONTAINS_FROM=1, FROM_HAS_DN=0, RCPT_COUNT_THREE=0,
+ R_MISSING_CHARSET=2.5, RCVD_COUNT_ZERO=0, FROM_EQ_ENVFROM=0, MIME_TRACE=0,
+ BROKEN_CONTENT_TYPE=1.5, TO_DN_NONE=0, NEURAL_SPAM=0]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220120_070516_914173_B52A0D5A 
-X-CRM114-Status: GOOD (  36.50  )
+X-CRM114-CacheID: sfid-20220120_072846_823278_CB744D61 
+X-CRM114-Status: UNSURE (   6.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,102 +83,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+Signed-off-by: Myrtle Shah <gatecat@ds0.me>
+---
+ arch/riscv/mm/init.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-On Thu, Jan 20, 2022 at 2:42 PM <Conor.Dooley@microchip.com> wrote:
-> On 20/01/2022 08:30, Geert Uytterhoeven wrote:
-> > On Mon, Jan 17, 2022 at 12:06 PM <conor.dooley@microchip.com> wrote:
-> >> From: Conor Dooley <conor.dooley@microchip.com>
-> >>
-> >> Add device tree bindings for the i2c controller on
-> >> the Microchip PolarFire SoC.
-> >>
-> >> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
-> >> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> >
-> > Thanks for your patch!
-> >
-> >> --- /dev/null
-> >> +++ b/Documentation/devicetree/bindings/i2c/microchip,mpfs-i2c.yaml
-> >> @@ -0,0 +1,55 @@
-> >> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> >> +%YAML 1.2
-> >> +---
-> >> +$id: http://devicetree.org/schemas/i2c/microchip,mpfs-i2c.yaml#
-> >> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> >> +
-> >> +title: Microchip MPFS I2C Controller Device Tree Bindings
-> >> +
-> >> +maintainers:
-> >> +  - Daire McNamara <daire.mcnamara@microchip.com>
-> >> +
-> >> +allOf:
-> >> +  - $ref: /schemas/i2c/i2c-controller.yaml#
-> >> +
-> >> +properties:
-> >> +  compatible:
-> >> +    enum:
-> >> +      - microchip,mpfs-i2c # Microchip PolarFire SoC compatible SoCs
-> >> +      - microchip,corei2c-rtl-v7 # Microchip Fabric based i2c IP core
-> >
-> > Wouldn't it be more logical to have:
-> >
-> >      items:
-> >        - const: microchip,mpfs-i2c # Microchip PolarFire SoC compatible SoCs
-> >        - const: microchip,corei2c-rtl-v7 # Microchip Fabric based i2c IP core
-> >
-> > ?
-> This would be fine for mpfs-i2c since corei2c is a "superset" - but how
-> would that look for the fabric core? I don't think falling back from the
-> fabric core onto the "hard" one makes sense. This would mean the
-> following two entries:
->
-> i2c2: i2c@44000000 { //fabric
->         compatible = "microchip,corei2c-rtl-v7";
-> };
-> i2c1: i2c@2010b000 { //"hard" mpfs peripheral
->         compatible = "microchip,mpfs-i2c", "microchip,corei2c-rtl-v7";
-> };
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 0624c68331d8..eeafefd1c2b3 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -41,6 +41,7 @@ phys_addr_t phys_ram_base __ro_after_init;
+ EXPORT_SYMBOL(phys_ram_base);
+ 
+ #ifdef CONFIG_XIP_KERNEL
++#define phys_ram_base  (*(phys_addr_t *)XIP_FIXUP(&phys_ram_base))
+ extern char _xiprom[], _exiprom[], __data_loc;
+ #endif
+ 
+@@ -248,6 +249,7 @@ pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
+ static pmd_t __maybe_unused early_dtb_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
+ 
+ #ifdef CONFIG_XIP_KERNEL
++#define riscv_pfn_base         (*(unsigned long  *)XIP_FIXUP(&riscv_pfn_base))
+ #define trampoline_pg_dir      ((pgd_t *)XIP_FIXUP(trampoline_pg_dir))
+ #define fixmap_pte             ((pte_t *)XIP_FIXUP(fixmap_pte))
+ #define early_pg_dir           ((pgd_t *)XIP_FIXUP(early_pg_dir))
+-- 
+2.34.1
 
-Oops, I missed that you have both forms.
-But in se, they're the same IP core, just hard vs. soft? Then the
-below makes sense.
-
-> But this generates errors in dt_binding_check w/ your suggestion - so
-> how about the following (similar to ti,omap4-i2c.yaml):
->
->    compatible:
->      oneOf:
->        - items:
->          - const: microchip,mpfs-i2c #  Microchip PolarFire...
->          - const: microchip,corei2c-rtl-v7 # Microchip Fabric...
->        - const: microchip,corei2c-rtl-v7 # Microchip Fabric...
->
-> Is there a prettier way than this duplication?
-
-I'm afraid not, and the above scheme is used a lot.
-
-> > If the IP core is reused, it can become:
-> >
-> >      items:
-> >        - enum:
-> >            - microchip,mpfs-i2c # Microchip PolarFire SoC compatible SoCs
-> >            - microchip,<foo>-i2c # ...
-> >        - const: microchip,corei2c-rtl-v7 # Microchip Fabric based i2c IP core
-> >
-> > That way the driver can just match on the second (fallback) value,
-> > and no further driver changes will be needed (until v8 or later).
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
