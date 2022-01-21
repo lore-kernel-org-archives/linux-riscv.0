@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2253AC43217
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jan 2022 16:37:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70EDEC433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jan 2022 16:37:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zBINJrmZJRh+ram3b1wfWQcSCgP5RBgtemUYb/v0tz0=; b=VUWRWjKPjQMuww
-	gNOI/j5iyZJ9qU4V/ZkzJNOkpXkZXtaJ4pSkRbzSx4tzG5PjsRnOg2GX+d3m1RvYDT81ihvH4zZAB
-	rysj/vV3dyuxW4HEAvCZ2ihHD0Up16TzyKx1xtLBQzxrkD4ayiIxunF638Aw5YGMk94prLMwUxVDg
-	1V3jNwAiwMzeAwNLscnu9G0TAb8lAEks26a8dfVDZ88mHv5iT9R3xZsKcoYFo8awUNQu76Vlx/mFL
-	DO0l2Aa0GEDKjNdfjPG69LJ45iQf22daFZIdDc/nFCUBITHaPfa6OWn6sThomLkP0T3KDPi9YssEB
-	2uviaNs0Xol64l+5IYsQ==;
+	List-Owner; bh=g6rs/cCNS7UPoO1YkqOwb6fbuKYG/G5XrVtJM8t3OVY=; b=mud5VIWzvC3SzI
+	SucCk0hMOl2s9Ugk7XMl5WGpdHAsUTHO/lydCouZWGf/8qSKEKl1YzvqZjWbLKl6fC3w3hxNXLHLO
+	kmklYIWA7X1b2A6i5U7DFji1kVT/QSSnCipEXpF8ifK38PWmIEPRhcaMBUq7YaQjZMeLIKwHzObM1
+	dYWt+92Ah4yjCkZU2Yn8yzakF+ddbIo0PAiN0s/nhLPFpE0ez4ugyH0uqzuGnY/MWv8gT2wWMP73l
+	83D1X++QBWnvdAYcU3Gb/Am9nKzmUdB12ddq4dFTjZ7RjAn1Ou9YkxviWGtH7MIiImofkUEa8Wq3X
+	68BLB78V1A8PtMZJq3Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nAwub-00FZYc-1l; Fri, 21 Jan 2022 16:37:17 +0000
+	id 1nAwue-00FZa7-RV; Fri, 21 Jan 2022 16:37:20 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nAwuV-00FZTp-1M
+ id 1nAwuV-00FZUC-2P
  for linux-riscv@lists.infradead.org; Fri, 21 Jan 2022 16:37:13 +0000
 Received: from p508fcef5.dip0.t-ipconnect.de ([80.143.206.245]
  helo=phil.fritz.box)
  by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
  (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1nAwuH-0008GA-PU; Fri, 21 Jan 2022 17:36:57 +0100
+ id 1nAwuO-0008GA-21; Fri, 21 Jan 2022 17:37:04 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: palmer@dabbelt.com,
 	paul.walmsley@sifive.com,
@@ -44,16 +44,17 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  allen.baum@esperantotech.com, jscheid@ventanamicro.com, rtrauben@gmail.com,
  samuel@sholland.org, cmuellner@linux.com, philipp.tomsich@vrull.eu,
  Heiko Stuebner <heiko@sntech.de>
-Subject: [PATCH v5 03/14] riscv: allow different stages with alternatives
-Date: Fri, 21 Jan 2022 17:36:07 +0100
-Message-Id: <20220121163618.351934-4-heiko@sntech.de>
+Subject: [PATCH v5 09/14] riscv: Fix accessing pfn bits in PTEs for non-32bit
+ variants
+Date: Fri, 21 Jan 2022 17:36:13 +0100
+Message-Id: <20220121163618.351934-10-heiko@sntech.de>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20220121163618.351934-1-heiko@sntech.de>
 References: <20220121163618.351934-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220121_083711_128704_F8C74136 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20220121_083711_160364_9EF02642 
+X-CRM114-Status: GOOD (  16.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,105 +71,144 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Future features may need to be applied at a different
-time during boot, so allow defining stages for alternatives
-and handling them differently depending on the stage.
+On rv32 the PFN part of PTEs is defined to use bits [xlen-1:10]
+while on rv64 it is defined to use bits [53:10], leaving [63:54]
+as reserved.
 
-Also make the alternatives-location more flexible so that
-future stages may provide their own location.
+With upcoming optional extensions like svpbmt these previously
+reserved bits will get used so simply right-shifting the PTE
+to get the PFN won't be enough.
+
+So introduce a _PAGE_PFN_MASK constant to mask the correct bits
+for both rv32 and rv64 before shifting.
 
 Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 ---
- arch/riscv/errata/sifive/errata.c    |  3 ++-
- arch/riscv/include/asm/alternative.h |  5 ++++-
- arch/riscv/kernel/alternative.c      | 25 +++++++++++++++++--------
- 3 files changed, 23 insertions(+), 10 deletions(-)
+ arch/riscv/include/asm/pgtable-32.h   |  8 ++++++++
+ arch/riscv/include/asm/pgtable-64.h   | 14 +++++++++++---
+ arch/riscv/include/asm/pgtable-bits.h |  6 ------
+ arch/riscv/include/asm/pgtable.h      |  6 +++---
+ 4 files changed, 22 insertions(+), 12 deletions(-)
 
-diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
-index f5e5ae70e829..4fe03ac41fd7 100644
---- a/arch/riscv/errata/sifive/errata.c
-+++ b/arch/riscv/errata/sifive/errata.c
-@@ -80,7 +80,8 @@ static void __init warn_miss_errata(u32 miss_errata)
+diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
+index 5b2e79e5bfa5..e266a4fe7f43 100644
+--- a/arch/riscv/include/asm/pgtable-32.h
++++ b/arch/riscv/include/asm/pgtable-32.h
+@@ -7,6 +7,7 @@
+ #define _ASM_RISCV_PGTABLE_32_H
+ 
+ #include <asm-generic/pgtable-nopmd.h>
++#include <linux/bits.h>
+ #include <linux/const.h>
+ 
+ /* Size of region mapped by a page global directory */
+@@ -16,4 +17,11 @@
+ 
+ #define MAX_POSSIBLE_PHYSMEM_BITS 34
+ 
++/*
++ * rv32 PTE format:
++ * | XLEN-1  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
++ *       PFN      reserved for SW   D   A   G   U   X   W   R   V
++ */
++#define _PAGE_PFN_MASK  GENMASK(31, 10)
++
+ #endif /* _ASM_RISCV_PGTABLE_32_H */
+diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+index 228261aa9628..706f0897437d 100644
+--- a/arch/riscv/include/asm/pgtable-64.h
++++ b/arch/riscv/include/asm/pgtable-64.h
+@@ -6,6 +6,7 @@
+ #ifndef _ASM_RISCV_PGTABLE_64_H
+ #define _ASM_RISCV_PGTABLE_64_H
+ 
++#include <linux/bits.h>
+ #include <linux/const.h>
+ 
+ #define PGDIR_SHIFT     30
+@@ -28,6 +29,13 @@ typedef struct {
+ 
+ #define PTRS_PER_PMD    (PAGE_SIZE / sizeof(pmd_t))
+ 
++/*
++ * rv64 PTE format:
++ * | 63 | 62 61 | 60 54 | 53  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
++ *   N      MT     RSV    PFN      reserved for SW   D   A   G   U   X   W   R   V
++ */
++#define _PAGE_PFN_MASK  GENMASK(53, 10)
++
+ static inline int pud_present(pud_t pud)
+ {
+ 	return (pud_val(pud) & _PAGE_PRESENT);
+@@ -61,12 +69,12 @@ static inline void pud_clear(pud_t *pudp)
+ 
+ static inline pmd_t *pud_pgtable(pud_t pud)
+ {
+-	return (pmd_t *)pfn_to_virt(pud_val(pud) >> _PAGE_PFN_SHIFT);
++	return (pmd_t *)pfn_to_virt((pud_val(pud) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT);
  }
  
- void __init sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
--				     unsigned long archid, unsigned long impid)
-+				     unsigned long archid, unsigned long impid,
-+				     unsigned int stage)
+ static inline struct page *pud_page(pud_t pud)
  {
- 	struct alt_entry *alt;
- 	u32 cpu_req_errata = sifive_errata_probe(archid, impid);
-diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
-index e625d3cafbed..811bdd8027db 100644
---- a/arch/riscv/include/asm/alternative.h
-+++ b/arch/riscv/include/asm/alternative.h
-@@ -17,6 +17,8 @@
- #include <linux/stddef.h>
- #include <asm/hwcap.h>
- 
-+#define RISCV_ALTERNATIVES_BOOT		0 /* alternatives applied during regular boot */
-+
- void __init apply_boot_alternatives(void);
- 
- struct alt_entry {
-@@ -33,7 +35,8 @@ struct errata_checkfunc_id {
- };
- 
- void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
--			      unsigned long archid, unsigned long impid);
-+			      unsigned long archid, unsigned long impid,
-+			      unsigned int stage);
- 
- #endif
- #endif
-diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
-index 3b15885db70b..ead00c508266 100644
---- a/arch/riscv/kernel/alternative.c
-+++ b/arch/riscv/kernel/alternative.c
-@@ -22,7 +22,8 @@ static struct cpu_manufacturer_info_t {
- } cpu_mfr_info;
- 
- static void (*vendor_patch_func)(struct alt_entry *begin, struct alt_entry *end,
--				 unsigned long archid, unsigned long impid);
-+				 unsigned long archid, unsigned long impid,
-+				 unsigned int stage);
- 
- static inline void __init riscv_fill_cpu_mfr_info(void)
- {
-@@ -57,6 +58,18 @@ static void __init init_alternative(void)
-  * a feature detect on the boot CPU). No need to worry about other CPUs
-  * here.
-  */
-+static void __init _apply_alternatives(struct alt_entry *begin,
-+				       struct alt_entry *end,
-+				       unsigned int stage)
-+{
-+	if (!vendor_patch_func)
-+		return;
-+
-+	vendor_patch_func(begin, end,
-+			  cpu_mfr_info.arch_id, cpu_mfr_info.imp_id,
-+			  stage);
-+}
-+
- void __init apply_boot_alternatives(void)
- {
- 	/* If called on non-boot cpu things could go wrong */
-@@ -64,11 +77,7 @@ void __init apply_boot_alternatives(void)
- 
- 	init_alternative();
- 
--	if (!vendor_patch_func)
--		return;
--
--	vendor_patch_func((struct alt_entry *)__alt_start,
--			  (struct alt_entry *)__alt_end,
--			  cpu_mfr_info.arch_id, cpu_mfr_info.imp_id);
-+	_apply_alternatives((struct alt_entry *)__alt_start,
-+			    (struct alt_entry *)__alt_end,
-+			    RISCV_ALTERNATIVES_BOOT);
+-	return pfn_to_page(pud_val(pud) >> _PAGE_PFN_SHIFT);
++	return pfn_to_page((pud_val(pud) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT);
  }
+ 
+ static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
+@@ -76,7 +84,7 @@ static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
+ 
+ static inline unsigned long _pmd_pfn(pmd_t pmd)
+ {
+-	return pmd_val(pmd) >> _PAGE_PFN_SHIFT;
++	return (pmd_val(pmd) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT;
+ }
+ 
+ #define mk_pmd(page, prot)    pfn_pmd(page_to_pfn(page), prot)
+diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
+index 2ee413912926..4831122d559d 100644
+--- a/arch/riscv/include/asm/pgtable-bits.h
++++ b/arch/riscv/include/asm/pgtable-bits.h
+@@ -6,12 +6,6 @@
+ #ifndef _ASM_RISCV_PGTABLE_BITS_H
+ #define _ASM_RISCV_PGTABLE_BITS_H
+ 
+-/*
+- * PTE format:
+- * | XLEN-1  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
+- *       PFN      reserved for SW   D   A   G   U   X   W   R   V
+- */
 -
+ #define _PAGE_ACCESSED_OFFSET 6
+ 
+ #define _PAGE_PRESENT   (1 << 0)
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index bf204e7c1f74..5cf7465a96c5 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -232,12 +232,12 @@ static inline unsigned long _pgd_pfn(pgd_t pgd)
+ 
+ static inline struct page *pmd_page(pmd_t pmd)
+ {
+-	return pfn_to_page(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
++	return pfn_to_page((pmd_val(pmd) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT);
+ }
+ 
+ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
+ {
+-	return (unsigned long)pfn_to_virt(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
++	return (unsigned long)pfn_to_virt((pmd_val(pmd) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT);
+ }
+ 
+ static inline pte_t pmd_pte(pmd_t pmd)
+@@ -253,7 +253,7 @@ static inline pte_t pud_pte(pud_t pud)
+ /* Yields the page frame number (PFN) of a page table entry */
+ static inline unsigned long pte_pfn(pte_t pte)
+ {
+-	return (pte_val(pte) >> _PAGE_PFN_SHIFT);
++	return ((pte_val(pte) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT);
+ }
+ 
+ #define pte_page(x)     pfn_to_page(pte_pfn(x))
 -- 
 2.30.2
 
