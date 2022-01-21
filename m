@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4232EC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jan 2022 10:29:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A4CC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jan 2022 12:24:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v9xct8X9dVOic8F5f3BcKEWPLIctMXDiWhfJGBWcmN0=; b=UEAoOD4wfpnlj3
-	Ulm83OyO1DwXlLkyWajgKy2i9WIRaLd1Nke6gaB/1T9TXH7K00W0ZTeEBkCx3eOpobib5YuQZPjzL
-	EEhczsPm4rSKKv2aCs+dYwEIEu9Gm2LN7mcr2i8tdMYRlSF0fPLBerKUkD5nRD4wmyF+FMZSFQtCR
-	c1IvmghwdGlt1WOjK6gBMUqqwRs/Kmf3zTl6PXfW6THBGO3Rcu8tZZrj4KBJFFRstPuw9DeDFxA2X
-	3zAOB0AgAZrWEhVMkIae0sQG+1OpgTOvM73BSfz/HSHuoVpxnUk1AXADeccIiTAY1uq8Z4IqfyPOL
-	7fakLwVakGHv7hldL1hA==;
+	List-Owner; bh=4OCmsMVGn9Oy7Iw77SbcS72s6Hm6yOeHkPtiEvCH3Xo=; b=ZJCJ5jjZ8Fy+Nh
+	VE1WdA9GHRWeFvVvUNCIIy/cMhQOBeeuNNVMhUVQxHemwNw7zom9BgEV49gglBCLv2l6fTHNPPcQt
+	EQin996x2IKzZcGlr+NvCrHAgAMe2xYYwxbnKBFa0A33izgXb4sQibRPlg+ZrR/iVTr0DpnqlG6/V
+	8BtCf4t3SA6nOP5pqL8rVA2pXlXjmgjp7IGr57p5ohhKLJnBMsNLpdW7PlLGCdXDJ9rTymzf2l0CY
+	M//blm6N0WZwJTRjXLnDPg0YOHdlVvH3GgdQfIoOGFV1rcWkZmOa6en0biKWhYqcRlr/r8WNWnGed
+	Vjk9+VR0mTjtWPhRGcYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nArAh-00EfDK-O8; Fri, 21 Jan 2022 10:29:31 +0000
-Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
+	id 1nAsxq-00EvmW-QR; Fri, 21 Jan 2022 12:24:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nArAe-00EfCI-68
- for linux-riscv@lists.infradead.org; Fri, 21 Jan 2022 10:29:29 +0000
-Received: by mail-yb1-xb2e.google.com with SMTP id l68so25683266ybl.0
- for <linux-riscv@lists.infradead.org>; Fri, 21 Jan 2022 02:29:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=O8w6xWRpa7rbpkggVeukinLzBFh9GxZQwFDGtpRnC44=;
- b=m52NB69onp/zx9ahchIitMVkr5LhjxaNcYFjkdcinu6bnm9NAQJTjMrHBbkgeM9OfC
- HXftb2G62xf1sm5KLZvxgQ3rvesY+Sc/YcBdei2LGNQPra9qIgiu+UDhbDLA/VlfLBNt
- skF2g3Rsb9f2kPHcPaRq4sQv1t9DmTSjopwjSJ3rTiLL8Eua0dYVlPgXR0O7SbecPdOj
- 6s2IrOUSUF9GNbarrDN+oMV7NtJ0sWXDzbFR7oEP8DyZq8+FHuynvTWwPi7p5nB5xNwS
- gYi+WSDxq/CnJBmKrW3oQXzXVfOQqViHni+3d2n5l4giZdSD6XLNDjEMoA6tfnqg5H1N
- /vOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=O8w6xWRpa7rbpkggVeukinLzBFh9GxZQwFDGtpRnC44=;
- b=UD1fp4FmAYnnt4T6oliiTI6Ehnflh3VB7lZ6SZtnzAqqc4YZ4arDE35qySvAEfYjzh
- O/IVZjQTUMtecLQYzHs/IvhLrxPYnPZKp6YjXGrJKKOU256u4mXUN7m5whBh0NOi+hc2
- 5GkYAHI6emfkJurH6Ue/TMoDrsu4hmZbPduj1YEmCq0PKey2JlJwFQ07N9kxBGGmoRCp
- q//vXJbGWhSxIa/3fKC3oz2cKWph+0/AgLzlBr+uDvnIX/0VHiMZL6IC1yD7EZv6jmoK
- Yowcw9KNdyZROUas1LlUKlmvinyGbsg0n44fWn6VIvrIdWbBdjDtCqKR97I8y6LQBtts
- UfaQ==
-X-Gm-Message-State: AOAM531t1CvoHHun5Sec5XrfPS7CEvrFMiidG9D+sqgZfBncvfyAv7u/
- J+jD81HrzJ+EfVIz6A78lb0j1H4BcZiBuv0Pn2/gjA==
-X-Google-Smtp-Source: ABdhPJxm744i+nISDqxOsYuvMp+v23wPfnB2Z/8fLa4of8nEAD0vpc980qigY5xY1bfcMU3/heJwA/3CEi3t6OXMJUQ=
-X-Received: by 2002:a25:2507:: with SMTP id l7mr5166575ybl.526.1642760966773; 
- Fri, 21 Jan 2022 02:29:26 -0800 (PST)
+ id 1nAsxn-00EvlT-IU
+ for linux-riscv@lists.infradead.org; Fri, 21 Jan 2022 12:24:21 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id EA7B061A3D;
+ Fri, 21 Jan 2022 12:24:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BE4FC340E1;
+ Fri, 21 Jan 2022 12:24:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1642767857;
+ bh=hBZUb0mh6dd9Oooj7DGxq6E/nDsItqULZkSGJF/J+Es=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=U9zkBbrJ/4C84Cfe15GZlbZi/IxQyUeQ+Q8XEJ2xx65Ho2kIf8y6vUkEX154kEheT
+ Hg0BX9+33Bdx9J824clJ0SBHAeQ+Ybw6P6dlMVlr4FZ5vhQKK2FQbXYI94fhoNs6DP
+ p0B4dVaDziICUlNS9vokoFK81OfcECj1CSJVVwp9xgxaEyjbvrcYk2yDc72BPJsFil
+ 4N2oDfbFwXg88HatxOzRhQX7juDWGdRvngjBAzFifZIxBbzGUMUpNXJX99GJYqWL7T
+ 31ucExYNBq2QHRC0jJ8F+ZOFYbN260yEr8pTWErpsQ/00nKFWmbtjHT4718XFhfkNu
+ ggfJKFB5J7nIA==
+Date: Fri, 21 Jan 2022 20:16:32 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Mayuresh Chitale <mchitale@ventanamicro.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
+ Yonghong Song <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>,
+ KP Singh <kpsingh@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>,
+ Michal Marek <michal.lkml@markovi.net>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>,
+ Tong Tiangen <tongtiangen@huawei.com>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, bpf@vger.kernel.org, linux-kbuild@vger.kernel.org
+Subject: Re: [PATCH 11/12] riscv: extable: add a dedicated uaccess handler
+Message-ID: <YeqkIKUsdHH0ORxf@xhacker>
+References: <20211118192130.48b8f04c@xhacker> <20211118192651.605d0c80@xhacker>
+ <CAN37VV6vfee+T18UkbDLe1ts87+Zvg25oQR1+VJD3e6SJFPPiA@mail.gmail.com>
 MIME-Version: 1.0
-References: <0d0b0a3ad703f5ef50611e2dd80439675bda666a.1642383007.git.zong.li@sifive.com>
- <mhng-5b3e2596-3558-4534-9229-26885ee4cc5c@palmer-ri-x1c9>
- <CANXhq0ruGxjO0WPUipzZ7QQM1oEapyHAvb_aVQ_CMqVxbjc_BQ@mail.gmail.com>
- <CAMuHMdVh_cXpbUeOmr_1K0dOJwGHSO0Ao=W43j5mpgvOiNyV9w@mail.gmail.com>
-In-Reply-To: <CAMuHMdVh_cXpbUeOmr_1K0dOJwGHSO0Ao=W43j5mpgvOiNyV9w@mail.gmail.com>
-From: Zong Li <zong.li@sifive.com>
-Date: Fri, 21 Jan 2022 18:29:15 +0800
-Message-ID: <CANXhq0oTrVMhY19odFHroJKXmW1dROdS5J5YR-osO9uwbr9GKA@mail.gmail.com>
-Subject: Re: [PATCH v4 3/3] dmaengine: sf-pdma: Get number of channel by
- device tree
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
- Conor Dooley <conor.dooley@microchip.com>, Bin Meng <bin.meng@windriver.com>, 
- Green Wan <green.wan@sifive.com>, Vinod <vkoul@kernel.org>, 
- dmaengine <dmaengine@vger.kernel.org>, 
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>
+Content-Disposition: inline
+In-Reply-To: <CAN37VV6vfee+T18UkbDLe1ts87+Zvg25oQR1+VJD3e6SJFPPiA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220121_022928_278304_7BD06165 
-X-CRM114-Status: GOOD (  43.05  )
+X-CRM114-CacheID: sfid-20220121_042419_744544_45E0671A 
+X-CRM114-Status: GOOD (  25.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,96 +86,328 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 21, 2022 at 4:33 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> Hi Zong, Palmer,
->
-> On Fri, Jan 21, 2022 at 3:21 AM Zong Li <zong.li@sifive.com> wrote:
-> > On Fri, Jan 21, 2022 at 2:52 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
-> > > On Sun, 16 Jan 2022 17:35:28 PST (-0800), zong.li@sifive.com wrote:
-> > > > It currently assumes that there are always four channels, it would
-> > > > cause the error if there is actually less than four channels. Change
-> > > > that by getting number of channel from device tree.
-> > > >
-> > > > For backwards-compatible, it uses the default value (i.e. 4) when there
-> > > > is no 'dma-channels' information in dts.
-> > >
-> > > Some of the same wording issues here as those I pointed out in the DT
-> > > bindings patch.
-> > >
-> > > > Signed-off-by: Zong Li <zong.li@sifive.com>
->
-> > > > --- a/drivers/dma/sf-pdma/sf-pdma.c
-> > > > +++ b/drivers/dma/sf-pdma/sf-pdma.c
-> > > > @@ -482,9 +482,7 @@ static void sf_pdma_setup_chans(struct sf_pdma *pdma)
-> > > >  static int sf_pdma_probe(struct platform_device *pdev)
-> > > >  {
-> > > >       struct sf_pdma *pdma;
-> > > > -     struct sf_pdma_chan *chan;
-> > > >       struct resource *res;
-> > > > -     int len, chans;
-> > > >       int ret;
-> > > >       const enum dma_slave_buswidth widths =
-> > > >               DMA_SLAVE_BUSWIDTH_1_BYTE | DMA_SLAVE_BUSWIDTH_2_BYTES |
-> > > > @@ -492,13 +490,21 @@ static int sf_pdma_probe(struct platform_device *pdev)
-> > > >               DMA_SLAVE_BUSWIDTH_16_BYTES | DMA_SLAVE_BUSWIDTH_32_BYTES |
-> > > >               DMA_SLAVE_BUSWIDTH_64_BYTES;
-> > > >
-> > > > -     chans = PDMA_NR_CH;
-> > > > -     len = sizeof(*pdma) + sizeof(*chan) * chans;
-> > > > -     pdma = devm_kzalloc(&pdev->dev, len, GFP_KERNEL);
-> > > > +     pdma = devm_kzalloc(&pdev->dev, sizeof(*pdma), GFP_KERNEL);
-> > > >       if (!pdma)
-> > > >               return -ENOMEM;
-> > > >
-> > > > -     pdma->n_chans = chans;
-> > > > +     ret = of_property_read_u32(pdev->dev.of_node, "dma-channels",
-> > > > +                                &pdma->n_chans);
-> > > > +     if (ret) {
-> > > > +             dev_notice(&pdev->dev, "set number of channels to default value: 4\n");
-> > > > +             pdma->n_chans = PDMA_MAX_NR_CH;
-> > > > +     }
-> > > > +
-> > > > +     if (pdma->n_chans > PDMA_MAX_NR_CH) {
-> > > > +             dev_err(&pdev->dev, "the number of channels exceeds the maximum\n");
-> > > > +             return -EINVAL;
-> > >
-> > > Can we get away with just using only the number of channels the driver
-> > > actually supports?  ie, just never sending an op to the channels above
-> > > MAX_NR_CH?  That should leave us with nothing to track.
->
-> In theory we can...
->
-> > It might be a bit like when pdma->n_chans is bigger than the maximum,
-> > set the pdma->chans to PDMA_MAX_NR_CH, then we could ensure that we
-> > don't access the channels above the maximum. If I understand
-> > correctly, I gave the similar thought in the thread of v2 patch, and
-> > there are some discussions on that, but this way seems to lead to
-> > hard-to-track problems.
->
-> ... but that would mean that when a new variant appears that supports
-> more channels, no error is printed, and people might not notice
-> immediately that the higher channels are never used.
->
+On Thu, Jan 20, 2022 at 11:45:34PM +0530, Mayuresh Chitale wrote:
+> Hello Jisheng,
 
-I guess people might need to follow the dt-bindings, so they couldn't
-specify the number of channels to the value which is more than
-maximum. But as you mentioned, if people don't notice that and specify
-it more than maximum,  they wouldn't be aware that the higher channels
-are never used. It seems to me that we could keep returning the error
-there, or show a warning message and use PDMA_MAX_NR_CH in that
-situation, both looks good to me.
+Hi,
 
-> Gr{oetje,eeting}s,
->
->                         Geert
->
-> --
-> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
->
-> In personal conversations with technical people, I call myself a hacker. But
-> when I'm talking to journalists I just say "programmer" or something like that.
->                                 -- Linus Torvalds
+> 
+> Just wanted to inform you that this patch breaks the writev02 test
+> case in LTP and if it is reverted then the test passes. If we run the
+> test through strace then we see that the test hangs and following is
+> the last line printed by strace:
+> 
+> "writev(3, [{iov_base=0x7fff848a6000, iov_len=8192}, {iov_base=NULL,
+> iov_len=0}]"
+> 
+
+Thanks for the bug report. I will try to fix it.
+
+> Thanks,
+> Mayuresh.
+> 
+> 
+> On Thu, Nov 18, 2021 at 5:05 PM Jisheng Zhang <jszhang3@mail.ustc.edu.cn> wrote:
+> >
+> > From: Jisheng Zhang <jszhang@kernel.org>
+> >
+> > Inspired by commit 2e77a62cb3a6("arm64: extable: add a dedicated
+> > uaccess handler"), do similar to riscv to add a dedicated uaccess
+> > exception handler to update registers in exception context and
+> > subsequently return back into the function which faulted, so we remove
+> > the need for fixups specialized to each faulting instruction.
+> >
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > ---
+> >  arch/riscv/include/asm/asm-extable.h | 23 +++++++++
+> >  arch/riscv/include/asm/futex.h       | 23 +++------
+> >  arch/riscv/include/asm/uaccess.h     | 74 +++++++++-------------------
+> >  arch/riscv/mm/extable.c              | 27 ++++++++++
+> >  4 files changed, 78 insertions(+), 69 deletions(-)
+> >
+> > diff --git a/arch/riscv/include/asm/asm-extable.h b/arch/riscv/include/asm/asm-extable.h
+> > index 1b1f4ffd8d37..14be0673f5b5 100644
+> > --- a/arch/riscv/include/asm/asm-extable.h
+> > +++ b/arch/riscv/include/asm/asm-extable.h
+> > @@ -5,6 +5,7 @@
+> >  #define EX_TYPE_NONE                   0
+> >  #define EX_TYPE_FIXUP                  1
+> >  #define EX_TYPE_BPF                    2
+> > +#define EX_TYPE_UACCESS_ERR_ZERO       3
+> >
+> >  #ifdef __ASSEMBLY__
+> >
+> > @@ -23,7 +24,9 @@
+> >
+> >  #else /* __ASSEMBLY__ */
+> >
+> > +#include <linux/bits.h>
+> >  #include <linux/stringify.h>
+> > +#include <asm/gpr-num.h>
+> >
+> >  #define __ASM_EXTABLE_RAW(insn, fixup, type, data)     \
+> >         ".pushsection   __ex_table, \"a\"\n"            \
+> > @@ -37,6 +40,26 @@
+> >  #define _ASM_EXTABLE(insn, fixup)      \
+> >         __ASM_EXTABLE_RAW(#insn, #fixup, __stringify(EX_TYPE_FIXUP), "0")
+> >
+> > +#define EX_DATA_REG_ERR_SHIFT  0
+> > +#define EX_DATA_REG_ERR                GENMASK(4, 0)
+> > +#define EX_DATA_REG_ZERO_SHIFT 5
+> > +#define EX_DATA_REG_ZERO       GENMASK(9, 5)
+> > +
+> > +#define EX_DATA_REG(reg, gpr)                                          \
+> > +       "((.L__gpr_num_" #gpr ") << " __stringify(EX_DATA_REG_##reg##_SHIFT) ")"
+> > +
+> > +#define _ASM_EXTABLE_UACCESS_ERR_ZERO(insn, fixup, err, zero)          \
+> > +       __DEFINE_ASM_GPR_NUMS                                           \
+> > +       __ASM_EXTABLE_RAW(#insn, #fixup,                                \
+> > +                         __stringify(EX_TYPE_UACCESS_ERR_ZERO),        \
+> > +                         "("                                           \
+> > +                           EX_DATA_REG(ERR, err) " | "                 \
+> > +                           EX_DATA_REG(ZERO, zero)                     \
+> > +                         ")")
+> > +
+> > +#define _ASM_EXTABLE_UACCESS_ERR(insn, fixup, err)                     \
+> > +       _ASM_EXTABLE_UACCESS_ERR_ZERO(insn, fixup, err, zero)
+> > +
+> >  #endif /* __ASSEMBLY__ */
+> >
+> >  #endif /* __ASM_ASM_EXTABLE_H */
+> > diff --git a/arch/riscv/include/asm/futex.h b/arch/riscv/include/asm/futex.h
+> > index 2e15e8e89502..fc8130f995c1 100644
+> > --- a/arch/riscv/include/asm/futex.h
+> > +++ b/arch/riscv/include/asm/futex.h
+> > @@ -21,20 +21,14 @@
+> >
+> >  #define __futex_atomic_op(insn, ret, oldval, uaddr, oparg)     \
+> >  {                                                              \
+> > -       uintptr_t tmp;                                          \
+> >         __enable_user_access();                                 \
+> >         __asm__ __volatile__ (                                  \
+> >         "1:     " insn "                                \n"     \
+> >         "2:                                             \n"     \
+> > -       "       .section .fixup,\"ax\"                  \n"     \
+> > -       "       .balign 4                               \n"     \
+> > -       "3:     li %[r],%[e]                            \n"     \
+> > -       "       jump 2b,%[t]                            \n"     \
+> > -       "       .previous                               \n"     \
+> > -               _ASM_EXTABLE(1b, 3b)                            \
+> > +       _ASM_EXTABLE_UACCESS_ERR(1b, 2b, %[r])                  \
+> >         : [r] "+r" (ret), [ov] "=&r" (oldval),                  \
+> > -         [u] "+m" (*uaddr), [t] "=&r" (tmp)                    \
+> > -       : [op] "Jr" (oparg), [e] "i" (-EFAULT)                  \
+> > +         [u] "+m" (*uaddr)                                     \
+> > +       : [op] "Jr" (oparg)                                     \
+> >         : "memory");                                            \
+> >         __disable_user_access();                                \
+> >  }
+> > @@ -96,15 +90,10 @@ futex_atomic_cmpxchg_inatomic(u32 *uval, u32 __user *uaddr,
+> >         "2:     sc.w.aqrl %[t],%z[nv],%[u]              \n"
+> >         "       bnez %[t],1b                            \n"
+> >         "3:                                             \n"
+> > -       "       .section .fixup,\"ax\"                  \n"
+> > -       "       .balign 4                               \n"
+> > -       "4:     li %[r],%[e]                            \n"
+> > -       "       jump 3b,%[t]                            \n"
+> > -       "       .previous                               \n"
+> > -               _ASM_EXTABLE(1b, 4b)                    \
+> > -               _ASM_EXTABLE(2b, 4b)                    \
+> > +               _ASM_EXTABLE_UACCESS_ERR(1b, 3b, %[r])  \
+> > +               _ASM_EXTABLE_UACCESS_ERR(2b, 3b, %[r])  \
+> >         : [r] "+r" (ret), [v] "=&r" (val), [u] "+m" (*uaddr), [t] "=&r" (tmp)
+> > -       : [ov] "Jr" (oldval), [nv] "Jr" (newval), [e] "i" (-EFAULT)
+> > +       : [ov] "Jr" (oldval), [nv] "Jr" (newval)
+> >         : "memory");
+> >         __disable_user_access();
+> >
+> > diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
+> > index 40e6099af488..a4716c026386 100644
+> > --- a/arch/riscv/include/asm/uaccess.h
+> > +++ b/arch/riscv/include/asm/uaccess.h
+> > @@ -81,22 +81,14 @@ static inline int __access_ok(unsigned long addr, unsigned long size)
+> >
+> >  #define __get_user_asm(insn, x, ptr, err)                      \
+> >  do {                                                           \
+> > -       uintptr_t __tmp;                                        \
+> >         __typeof__(x) __x;                                      \
+> >         __asm__ __volatile__ (                                  \
+> >                 "1:\n"                                          \
+> > -               "       " insn " %1, %3\n"                      \
+> > +               "       " insn " %1, %2\n"                      \
+> >                 "2:\n"                                          \
+> > -               "       .section .fixup,\"ax\"\n"               \
+> > -               "       .balign 4\n"                            \
+> > -               "3:\n"                                          \
+> > -               "       li %0, %4\n"                            \
+> > -               "       li %1, 0\n"                             \
+> > -               "       jump 2b, %2\n"                          \
+> > -               "       .previous\n"                            \
+> > -                       _ASM_EXTABLE(1b, 3b)                    \
+> > -               : "+r" (err), "=&r" (__x), "=r" (__tmp)         \
+> > -               : "m" (*(ptr)), "i" (-EFAULT));                 \
+> > +               _ASM_EXTABLE_UACCESS_ERR_ZERO(1b, 2b, %0, %1)   \
+> > +               : "+r" (err), "=&r" (__x)                       \
+> > +               : "m" (*(ptr)));                                \
+> >         (x) = __x;                                              \
+> >  } while (0)
+> >
+> > @@ -108,27 +100,18 @@ do {                                                              \
+> >  do {                                                           \
+> >         u32 __user *__ptr = (u32 __user *)(ptr);                \
+> >         u32 __lo, __hi;                                         \
+> > -       uintptr_t __tmp;                                        \
+> >         __asm__ __volatile__ (                                  \
+> >                 "1:\n"                                          \
+> > -               "       lw %1, %4\n"                            \
+> > +               "       lw %1, %3\n"                            \
+> >                 "2:\n"                                          \
+> > -               "       lw %2, %5\n"                            \
+> > +               "       lw %2, %4\n"                            \
+> >                 "3:\n"                                          \
+> > -               "       .section .fixup,\"ax\"\n"               \
+> > -               "       .balign 4\n"                            \
+> > -               "4:\n"                                          \
+> > -               "       li %0, %6\n"                            \
+> > -               "       li %1, 0\n"                             \
+> > -               "       li %2, 0\n"                             \
+> > -               "       jump 3b, %3\n"                          \
+> > -               "       .previous\n"                            \
+> > -                       _ASM_EXTABLE(1b, 4b)                    \
+> > -                       _ASM_EXTABLE(2b, 4b)                    \
+> > -               : "+r" (err), "=&r" (__lo), "=r" (__hi),        \
+> > -                       "=r" (__tmp)                            \
+> > -               : "m" (__ptr[__LSW]), "m" (__ptr[__MSW]),       \
+> > -                       "i" (-EFAULT));                         \
+> > +               _ASM_EXTABLE_UACCESS_ERR_ZERO(1b, 3b, %0, %1)   \
+> > +               _ASM_EXTABLE_UACCESS_ERR_ZERO(2b, 3b, %0, %1)   \
+> > +               : "+r" (err), "=&r" (__lo), "=r" (__hi)         \
+> > +               : "m" (__ptr[__LSW]), "m" (__ptr[__MSW]))       \
+> > +       if (err)                                                \
+> > +               __hi = 0;                                       \
+> >         (x) = (__typeof__(x))((__typeof__((x)-(x)))(            \
+> >                 (((u64)__hi << 32) | __lo)));                   \
+> >  } while (0)
+> > @@ -216,21 +199,14 @@ do {                                                              \
+> >
+> >  #define __put_user_asm(insn, x, ptr, err)                      \
+> >  do {                                                           \
+> > -       uintptr_t __tmp;                                        \
+> >         __typeof__(*(ptr)) __x = x;                             \
+> >         __asm__ __volatile__ (                                  \
+> >                 "1:\n"                                          \
+> > -               "       " insn " %z3, %2\n"                     \
+> > +               "       " insn " %z2, %1\n"                     \
+> >                 "2:\n"                                          \
+> > -               "       .section .fixup,\"ax\"\n"               \
+> > -               "       .balign 4\n"                            \
+> > -               "3:\n"                                          \
+> > -               "       li %0, %4\n"                            \
+> > -               "       jump 2b, %1\n"                          \
+> > -               "       .previous\n"                            \
+> > -                       _ASM_EXTABLE(1b, 3b)                    \
+> > -               : "+r" (err), "=r" (__tmp), "=m" (*(ptr))       \
+> > -               : "rJ" (__x), "i" (-EFAULT));                   \
+> > +               _ASM_EXTABLE_UACCESS_ERR(1b, 2b, %0)            \
+> > +               : "+r" (err), "=m" (*(ptr))                     \
+> > +               : "rJ" (__x));                                  \
+> >  } while (0)
+> >
+> >  #ifdef CONFIG_64BIT
+> > @@ -244,22 +220,16 @@ do {                                                              \
+> >         uintptr_t __tmp;                                        \
+> >         __asm__ __volatile__ (                                  \
+> >                 "1:\n"                                          \
+> > -               "       sw %z4, %2\n"                           \
+> > +               "       sw %z3, %1\n"                           \
+> >                 "2:\n"                                          \
+> > -               "       sw %z5, %3\n"                           \
+> > +               "       sw %z4, %2\n"                           \
+> >                 "3:\n"                                          \
+> > -               "       .section .fixup,\"ax\"\n"               \
+> > -               "       .balign 4\n"                            \
+> > -               "4:\n"                                          \
+> > -               "       li %0, %6\n"                            \
+> > -               "       jump 3b, %1\n"                          \
+> > -               "       .previous\n"                            \
+> > -                       _ASM_EXTABLE(1b, 4b)                    \
+> > -                       _ASM_EXTABLE(2b, 4b)                    \
+> > -               : "+r" (err), "=r" (__tmp),                     \
+> > +               _ASM_EXTABLE_UACCESS_ERR(1b, 3b, %0)            \
+> > +               _ASM_EXTABLE_UACCESS_ERR(2b, 3b, %0)            \
+> > +               : "+r" (err),                                   \
+> >                         "=m" (__ptr[__LSW]),                    \
+> >                         "=m" (__ptr[__MSW])                     \
+> > -               : "rJ" (__x), "rJ" (__x >> 32), "i" (-EFAULT)); \
+> > +               : "rJ" (__x), "rJ" (__x >> 32));                \
+> >  } while (0)
+> >  #endif /* CONFIG_64BIT */
+> >
+> > diff --git a/arch/riscv/mm/extable.c b/arch/riscv/mm/extable.c
+> > index 91e52c4bb33a..05978f78579f 100644
+> > --- a/arch/riscv/mm/extable.c
+> > +++ b/arch/riscv/mm/extable.c
+> > @@ -7,10 +7,12 @@
+> >   */
+> >
+> >
+> > +#include <linux/bitfield.h>
+> >  #include <linux/extable.h>
+> >  #include <linux/module.h>
+> >  #include <linux/uaccess.h>
+> >  #include <asm/asm-extable.h>
+> > +#include <asm/ptrace.h>
+> >
+> >  static inline unsigned long
+> >  get_ex_fixup(const struct exception_table_entry *ex)
+> > @@ -25,6 +27,29 @@ static bool ex_handler_fixup(const struct exception_table_entry *ex,
+> >         return true;
+> >  }
+> >
+> > +static inline void regs_set_gpr(struct pt_regs *regs, unsigned int offset,
+> > +                               unsigned long val)
+> > +{
+> > +       if (unlikely(offset > MAX_REG_OFFSET))
+> > +               return;
+> > +
+> > +       if (!offset)
+> > +               *(unsigned long *)((unsigned long)regs + offset) = val;
+> > +}
+> > +
+> > +static bool ex_handler_uaccess_err_zero(const struct exception_table_entry *ex,
+> > +                                       struct pt_regs *regs)
+> > +{
+> > +       int reg_err = FIELD_GET(EX_DATA_REG_ERR, ex->data);
+> > +       int reg_zero = FIELD_GET(EX_DATA_REG_ZERO, ex->data);
+> > +
+> > +       regs_set_gpr(regs, reg_err, -EFAULT);
+> > +       regs_set_gpr(regs, reg_zero, 0);
+> > +
+> > +       regs->epc = get_ex_fixup(ex);
+> > +       return true;
+> > +}
+> > +
+> >  bool fixup_exception(struct pt_regs *regs)
+> >  {
+> >         const struct exception_table_entry *ex;
+> > @@ -38,6 +63,8 @@ bool fixup_exception(struct pt_regs *regs)
+> >                 return ex_handler_fixup(ex, regs);
+> >         case EX_TYPE_BPF:
+> >                 return ex_handler_bpf(ex, regs);
+> > +       case EX_TYPE_UACCESS_ERR_ZERO:
+> > +               return ex_handler_uaccess_err_zero(ex, regs);
+> >         }
+> >
+> >         BUG();
+> > --
+> > 2.33.0
+> >
+> >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
