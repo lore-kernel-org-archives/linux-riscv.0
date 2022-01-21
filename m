@@ -4,77 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47EB8C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jan 2022 07:13:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35220C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jan 2022 08:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8eJHvevV9Uq92Z4dl7hgOs2HJjNpgWtEl9HL2ZzYS7g=; b=HJIT8Auf3TNdmJ
-	6RKP2KzPR7h9JKU1D+eNzwT27EL5jrFAhQY4CJ79Vk6lSIXp7kJtMYbVkfJxFi2qxbCyIM/SIwM+2
-	gMxcdJvLkILRSJdJj6P2Wi8UpJrJsDqje2Fa9XMnenzpekHBBxq2Zj4GvLKNOSF4vSjdiCkCs/bGK
-	XExnTO8BK7qX3AOQJ7hY9eqibscrVNDL7MlXEyM8IdHCOFcixTjK4uvfpBKnPpSBvSULQ2RulvSq8
-	OxAOYCjbZem7kPgeW2rfY0UYeha+YXrHmVRHLVlyELt0ELuBrZ46x0HgFd5G8BJkuauKocBwueQy3
-	4k+zXf4jiInVC43DP6+g==;
+	List-Owner; bh=/5TikKcR72O5VpCDGbTRzqk/TN66X1JXe/j3ZlfdBl8=; b=AVUMo+iFxLSzOY
+	jEvLKgQCBWxPoGv+gEXbztbCZFtaxjoPx1WWHl1jURw5UZlezebE9Bx1akqtGUPOKFIGpmnfRCqrm
+	ovL28vODt0C3P58bRcfph8ugHO0ZEE/KN3yT0BCy7tNGIMcaQlhGkwKDdoUOTyzurYn+8OW2usSsX
+	9r0uMIrAPxqR3eyi2MqPh2O6kbx0VtyHU19tx0Hzk43BNvgrkk7qZuFfqV2e+/pzVrw57MW6kD5ML
+	vGLJ2V5wobL6q2izAqQ2U3Vf9U8ZCyViTrmTLICW1dlhpLT8Qw8FHV6b5EXyfnmwY4fYGPIXOW70j
+	b9p3J7GlyTHs69JENMDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nAo6r-00E1oF-8h; Fri, 21 Jan 2022 07:13:21 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1nApMW-00EH3d-Tn; Fri, 21 Jan 2022 08:33:36 +0000
+Received: from mail-ua1-f46.google.com ([209.85.222.46])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nAo6f-00E1mD-B5; Fri, 21 Jan 2022 07:13:10 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id CFEEF61778;
- Fri, 21 Jan 2022 07:13:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E498C340E2;
- Fri, 21 Jan 2022 07:13:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1642749188;
- bh=SYu90Dv3l/L+64SNcy50aiw16Lnx3umbKRTsGOMrQkg=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=k3uRWzp0SWvrQt4wpv0wp6HqoqMuube0dVeHTED+DvTqJqQ9JteKgAHFuRzMK7La9
- hdnPtmnF2+6oHL0sMYFETK3B/JMjsOW1iHomI2Xxura1sskJ+xnkPbfy35KWaVO1oF
- 26rdD0dYwJ3PYFSq+U3dWovrDZcwDzLVyfSAEZDEYRmJINM8Tmg0Ctmu12Rf81s5Ac
- gTKy8KVDZlLocphtUaf3ZDWDQa7DnN48hoqfKvLktVOOCow1KTrdDLQoLL6djNiLnt
- IAwyIbddJ0s5SrRTLwybw+lS0U5xtFSYhGyprgDLn7Xl/Wos5XISZ+lA6JoDVYmrwQ
- LJ4wkPbrGtrCw==
-Received: by mail-ua1-f52.google.com with SMTP id w21so15277940uan.7;
- Thu, 20 Jan 2022 23:13:08 -0800 (PST)
-X-Gm-Message-State: AOAM531rtbr0goG0o7qou64CSA/nbhmx8UjORt66J9gXUo1aoA0qL9qM
- L1p0BMsIhf2D8BAiXg6lL/ccIq1DnvfCtd4TVq0=
-X-Google-Smtp-Source: ABdhPJx6xNJuRVb4aLVlJ7P9bbeDPtJXSmXNRd3kkpQg8PkHlzrym8B0ENWLs0YxpXjFKvxlitpnKg+MIWjsd2Jznqg=
-X-Received: by 2002:a67:c89e:: with SMTP id v30mr1186161vsk.2.1642749187280;
- Thu, 20 Jan 2022 23:13:07 -0800 (PST)
+ id 1nApMT-00EH2h-KN
+ for linux-riscv@lists.infradead.org; Fri, 21 Jan 2022 08:33:35 +0000
+Received: by mail-ua1-f46.google.com with SMTP id c36so15531673uae.13
+ for <linux-riscv@lists.infradead.org>; Fri, 21 Jan 2022 00:33:32 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=n56f2PNNQdieA9k1jX9tvG8Cwk+6C0TIvBu9rWE3i4o=;
+ b=C95gLQEPihbCqk2MRt9UcsIxTMh8ht8LwOpA33rCQZBx1hjMEdHuygQ7GmmGTUTNqJ
+ AZu4j6JWx83Sm4PGxs6fEY+hgsrE5kfCcGLYICZEDud4kW/J8U4wFJI4SnYzqrH6k7w+
+ v9yl3h6lXWSDnjMA270mwElZyFvb+0dswm4S+wMLOeCS7fIv7wJVyU4zVFruCAKKKoK4
+ Q6p+CX92YLjTGAo1jZ9UceNz1MjqCYA5aDfdTD6XSBYYQ11f1m1yAEoYmyums2oEp3eE
+ 2NcvAgkjEQw+rw4EuXcdCTh6U4QYa6dKAdD03OhWypii0IWNJJPWXH/cbDOpbrauJ1B1
+ hImg==
+X-Gm-Message-State: AOAM532UgMMVjOQNPbbHjo3xP3paWaJ5ahnZNjSfwlRagNpJR/+Eax+t
+ npH/jkRW1chBStbeb0ZpaMM8xh/4wT8S5w==
+X-Google-Smtp-Source: ABdhPJwsZpQxLnlScClMp8dj0Fz+OhAcAAB4ZjaCWv/p82icHuS6HCV01IDrq1lMxXz20s1Uz0YJ4g==
+X-Received: by 2002:a05:6102:3563:: with SMTP id
+ bh3mr1320283vsb.47.1642754011537; 
+ Fri, 21 Jan 2022 00:33:31 -0800 (PST)
+Received: from mail-vk1-f179.google.com (mail-vk1-f179.google.com.
+ [209.85.221.179])
+ by smtp.gmail.com with ESMTPSA id p8sm324908vkm.23.2022.01.21.00.33.30
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Fri, 21 Jan 2022 00:33:31 -0800 (PST)
+Received: by mail-vk1-f179.google.com with SMTP id z15so1908081vkp.13
+ for <linux-riscv@lists.infradead.org>; Fri, 21 Jan 2022 00:33:30 -0800 (PST)
+X-Received: by 2002:a1f:5702:: with SMTP id l2mr1220320vkb.33.1642754010512;
+ Fri, 21 Jan 2022 00:33:30 -0800 (PST)
 MIME-Version: 1.0
-References: <20220120073911.99857-14-guoren@kernel.org>
- <CAK8P3a03-3QTC-vxmnbouK7wBd8iunPGZpX0-Jf6ntS1DY0E=w@mail.gmail.com>
-In-Reply-To: <CAK8P3a03-3QTC-vxmnbouK7wBd8iunPGZpX0-Jf6ntS1DY0E=w@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 21 Jan 2022 15:12:56 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRMWj0yVLn2=16Gu1O-6tuqLaxcdduw0YnDK6vrizJEsQ@mail.gmail.com>
-Message-ID: <CAJF2gTRMWj0yVLn2=16Gu1O-6tuqLaxcdduw0YnDK6vrizJEsQ@mail.gmail.com>
-Subject: Re: [PATCH V3 13/17] riscv: compat: signal: Add rt_frame
- implementation
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>, 
- gregkh <gregkh@linuxfoundation.org>, liush <liush@allwinnertech.com>, 
- Wei Fu <wefu@redhat.com>, Drew Fustini <drew@beagleboard.org>, 
- Wang Junqiang <wangjunqiang@iscas.ac.cn>, Christoph Hellwig <hch@lst.de>, 
- Christoph Hellwig <hch@infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
- linux-s390 <linux-s390@vger.kernel.org>,
- sparclinux <sparclinux@vger.kernel.org>, 
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, inux-parisc@vger.kernel.org, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
+References: <0d0b0a3ad703f5ef50611e2dd80439675bda666a.1642383007.git.zong.li@sifive.com>
+ <mhng-5b3e2596-3558-4534-9229-26885ee4cc5c@palmer-ri-x1c9>
+ <CANXhq0ruGxjO0WPUipzZ7QQM1oEapyHAvb_aVQ_CMqVxbjc_BQ@mail.gmail.com>
+In-Reply-To: <CANXhq0ruGxjO0WPUipzZ7QQM1oEapyHAvb_aVQ_CMqVxbjc_BQ@mail.gmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 21 Jan 2022 09:33:19 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVh_cXpbUeOmr_1K0dOJwGHSO0Ao=W43j5mpgvOiNyV9w@mail.gmail.com>
+Message-ID: <CAMuHMdVh_cXpbUeOmr_1K0dOJwGHSO0Ao=W43j5mpgvOiNyV9w@mail.gmail.com>
+Subject: Re: [PATCH v4 3/3] dmaengine: sf-pdma: Get number of channel by
+ device tree
+To: Zong Li <zong.li@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, Bin Meng <bin.meng@windriver.com>, 
+ Green Wan <green.wan@sifive.com>, Vinod <vkoul@kernel.org>, 
+ dmaengine <dmaengine@vger.kernel.org>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220120_231309_486688_C347CEC8 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20220121_003333_695240_D7425C34 
+X-CRM114-Status: GOOD (  37.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,57 +95,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 20, 2022 at 6:31 PM Arnd Bergmann <arnd@arndb.de> wrote:
->
-> On Thu, Jan 20, 2022 at 8:39 AM <guoren@kernel.org> wrote:
+Hi Zong, Palmer,
+
+On Fri, Jan 21, 2022 at 3:21 AM Zong Li <zong.li@sifive.com> wrote:
+> On Fri, Jan 21, 2022 at 2:52 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> > On Sun, 16 Jan 2022 17:35:28 PST (-0800), zong.li@sifive.com wrote:
+> > > It currently assumes that there are always four channels, it would
+> > > cause the error if there is actually less than four channels. Change
+> > > that by getting number of channel from device tree.
+> > >
+> > > For backwards-compatible, it uses the default value (i.e. 4) when there
+> > > is no 'dma-channels' information in dts.
 > >
-> > From: Guo Ren <guoren@linux.alibaba.com>
+> > Some of the same wording issues here as those I pointed out in the DT
+> > bindings patch.
 > >
-> > Implement compat_setup_rt_frame for sigcontext save & restore. The
-> > main process is the same with signal, but the rv32 pt_regs' size
-> > is different from rv64's, so we needs convert them.
+> > > Signed-off-by: Zong Li <zong.li@sifive.com>
+
+> > > --- a/drivers/dma/sf-pdma/sf-pdma.c
+> > > +++ b/drivers/dma/sf-pdma/sf-pdma.c
+> > > @@ -482,9 +482,7 @@ static void sf_pdma_setup_chans(struct sf_pdma *pdma)
+> > >  static int sf_pdma_probe(struct platform_device *pdev)
+> > >  {
+> > >       struct sf_pdma *pdma;
+> > > -     struct sf_pdma_chan *chan;
+> > >       struct resource *res;
+> > > -     int len, chans;
+> > >       int ret;
+> > >       const enum dma_slave_buswidth widths =
+> > >               DMA_SLAVE_BUSWIDTH_1_BYTE | DMA_SLAVE_BUSWIDTH_2_BYTES |
+> > > @@ -492,13 +490,21 @@ static int sf_pdma_probe(struct platform_device *pdev)
+> > >               DMA_SLAVE_BUSWIDTH_16_BYTES | DMA_SLAVE_BUSWIDTH_32_BYTES |
+> > >               DMA_SLAVE_BUSWIDTH_64_BYTES;
+> > >
+> > > -     chans = PDMA_NR_CH;
+> > > -     len = sizeof(*pdma) + sizeof(*chan) * chans;
+> > > -     pdma = devm_kzalloc(&pdev->dev, len, GFP_KERNEL);
+> > > +     pdma = devm_kzalloc(&pdev->dev, sizeof(*pdma), GFP_KERNEL);
+> > >       if (!pdma)
+> > >               return -ENOMEM;
+> > >
+> > > -     pdma->n_chans = chans;
+> > > +     ret = of_property_read_u32(pdev->dev.of_node, "dma-channels",
+> > > +                                &pdma->n_chans);
+> > > +     if (ret) {
+> > > +             dev_notice(&pdev->dev, "set number of channels to default value: 4\n");
+> > > +             pdma->n_chans = PDMA_MAX_NR_CH;
+> > > +     }
+> > > +
+> > > +     if (pdma->n_chans > PDMA_MAX_NR_CH) {
+> > > +             dev_err(&pdev->dev, "the number of channels exceeds the maximum\n");
+> > > +             return -EINVAL;
 > >
-> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > Signed-off-by: Guo Ren <guoren@kernel.org>
-> > Cc: Arnd Bergmann <arnd@arndb.de>
->
-> I hope someone else can properly review this part, it's not my area
-> but it looks complex enough that it could bring subtle bugs.
-Here are ltp signal test results:
+> > Can we get away with just using only the number of channels the driver
+> > actually supports?  ie, just never sending an op to the channels above
+> > MAX_NR_CH?  That should leave us with nothing to track.
 
-sigaction01                                        PASS       0
-sigaction02                                        PASS       0
-sigaltstack01                                      PASS       0
-sigaltstack02                                      PASS       0
-sighold02                                          PASS       0
-signal01                                           PASS       0
-signal02                                           PASS       0
-signal03                                           PASS       0
-signal04                                           PASS       0
-signal05                                           PASS       0
-signal06                                           CONF       32
-signalfd01                                         PASS       0
-signalfd4_01                                       PASS       0
-signalfd4_02                                       PASS       0
-sigpending02                                       PASS       0
-sigprocmask01                                      PASS       0
-sigrelse01                                         PASS       0
-sigsuspend01                                       PASS       0
-sigtimedwait01                                     PASS       0
-sigwait01                                          PASS       0
-sigwaitinfo01                                      CONF       32
+In theory we can...
 
+> It might be a bit like when pdma->n_chans is bigger than the maximum,
+> set the pdma->chans to PDMA_MAX_NR_CH, then we could ensure that we
+> don't access the channels above the maximum. If I understand
+> correctly, I gave the similar thought in the thread of v2 patch, and
+> there are some discussions on that, but this way seems to lead to
+> hard-to-track problems.
 
->
->        Arnd
+... but that would mean that when a new variant appears that supports
+more channels, no error is printed, and people might not notice
+immediately that the higher channels are never used.
 
+Gr{oetje,eeting}s,
 
+                        Geert
 
--- 
-Best Regards
- Guo Ren
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-ML: https://lore.kernel.org/linux-csky/
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
