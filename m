@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 247C9C433F5
-	for <linux-riscv@archiver.kernel.org>; Sun, 23 Jan 2022 00:11:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0155C433FE
+	for <linux-riscv@archiver.kernel.org>; Sun, 23 Jan 2022 00:12:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ngBqkZWlOFRNcJYV8aKWh/gdQgfbWfj+w7eDrwqN5Co=; b=cC9gHKTIb5pawS
-	FkatCwH4Mwp8VaYnPnKJSYTR3byTh0G9qloI7P8Us8Wyr2rD93bZP/hcCCSSiwR7oByuS0da85O04
-	nvJ9Scl0JkOVZ11vLM5CqYagsiIv6NFVxGz15Dn7BqlBcjSsYIVpPvgMt3E2Bc6IGl1hXlWHhWkJZ
-	Wp+H2h5TjjYuJRH5w54e7+FfWFZv8LvzuKTwEkxyf/qKy38ouTRni/v3eYl7zurkM1ApW42FNrwus
-	1hkrIN56SX9jAZnc4Zt/HnfxPA+9TCN/arPyJ8uVi+/PR9g9Nt6Wu609ND+fgk9OZsn6guafkdVuq
-	m8b2mPkYU0+InQf7lL4A==;
+	List-Owner; bh=UnhBNOjlA1ncNCdj6Bbl+dMSHn1E/BxUNZvxaCvz+lA=; b=qmo5QNlM61y8Wj
+	rMYiaEyXGWJ3tErOQQzw2pPh/8dSErnQvBPdRoAOVALzfo4mlBDOBMBYPYXEL5oHxzdC9JqJhYx/7
+	NbiONt63Q0fQ1ifSPlYrzoY35kNDyXreDJ7XXKS/bd/Df/+HE8NGywEIOsNCPPJ+/vj8WmXut+dZ4
+	VItjb21Q3D6EeTQqoWMClD0wo9ywKyCgWB1i9KYwSTeF7QKwZ2KXLrVgCa/zWs+OtHueymK3EIR/X
+	exRzw5Deudit+LqcHE+cSSBx4vg7pFBKn4K1jHZIVZ9MbG4mzu9skrCiq3gNPNjz1hbfXk1kGy90G
+	/UPYqgB0cUP+Z3+3jm3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nBQTw-0008R0-PN; Sun, 23 Jan 2022 00:11:44 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1nBQUt-0008ih-9k; Sun, 23 Jan 2022 00:12:43 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nBQTu-0008Qg-LV
- for linux-riscv@lists.infradead.org; Sun, 23 Jan 2022 00:11:44 +0000
+ id 1nBQUq-0008hS-5P
+ for linux-riscv@lists.infradead.org; Sun, 23 Jan 2022 00:12:41 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 3578660F9A;
- Sun, 23 Jan 2022 00:11:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C136C004E1;
- Sun, 23 Jan 2022 00:11:40 +0000 (UTC)
+ by sin.source.kernel.org (Postfix) with ESMTPS id C0AC9CE0920;
+ Sun, 23 Jan 2022 00:12:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBC6FC004E1;
+ Sun, 23 Jan 2022 00:12:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1642896701;
- bh=+Wq/XfukU2RuymmnC+RI32yy8McfYjimAgrLewPdj2E=;
+ s=k20201202; t=1642896751;
+ bh=3gLQh3f3+oWaMhkGHsFQqoHKnRNIrxUNODuNRihVYVw=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=qctFadGJ65pAlXOZ7ChRAUpIK8tVVZI8DIQFd0avdyrie4X+n1DxeoHZluNM6v47g
- HL+MyOQRNYfxrVuR+OCfLIdqzICgl6AbQnVXEHzutq1ITcKaCtKxJX+6XaDAIama1S
- Z4jeGE+NHBDw+gWfIYfbN/Hsq2ETui3Qbcs70Xw2gVFzS/OxK9Dj/c3aymYJJlepGK
- Jj761agsRE0Hs5NvsHnv+rkCI1vnThHauYN/F8lLeJvDQybYCpFwlrjZOumadITbcM
- OUIp5CK27XfrE7gYJS3imNRFwW5guw8ar1KKM9jFkaa0wVSvwAV23tCZb4CEMe/mMd
- v9lPOLZZNSJAg==
+ b=Hz8vRJCj0pP7A4PTqJsYeWT56Nm7qT4zKZhMXubDGUFgQIPgl2rj1x4VrWtHI8sAD
+ sO+AWm5TMAu6GPMiv0xzzsX/YSXJ2zufn6NEhAHQcdB59HNX8r1RSS2SwCktMnBK/z
+ UQkCA7Ds4FO03v+c3SnJrlCoa4x2EkOwVhWxn1aNEW3XObXjBcNMOR+b0hzQWsEOnk
+ kSfpzLERDVGUqUGd855VLC4SqvdSwfm+v6DHDkSWc6qzWqw9RmLawZH5bWHaK15+Ft
+ Rxtj08Z7I3mLf/hUaPNKC+bD/6Qa/4XJa2IncTyxBBCEAmsvCmdD72FdkMJ1EuJlj8
+ Z4MGdSrTyM2mQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -52,18 +52,18 @@ Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
  robh+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
  aou@eecs.berkeley.edu, bin.meng@windriver.com, atishp@atishpatra.org,
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.16 04/19] riscv: dts: microchip: mpfs: Fix reference
+Subject: [PATCH AUTOSEL 5.15 04/16] riscv: dts: microchip: mpfs: Fix reference
  clock node
-Date: Sat, 22 Jan 2022 19:10:57 -0500
-Message-Id: <20220123001113.2460140-4-sashal@kernel.org>
+Date: Sat, 22 Jan 2022 19:12:03 -0500
+Message-Id: <20220123001216.2460383-4-sashal@kernel.org>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220123001113.2460140-1-sashal@kernel.org>
-References: <20220123001113.2460140-1-sashal@kernel.org>
+In-Reply-To: <20220123001216.2460383-1-sashal@kernel.org>
+References: <20220123001216.2460383-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220122_161142_805013_4F493ECD 
+X-CRM114-CacheID: sfid-20220122_161240_577604_961499B4 
 X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,10 +108,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  2 files changed, 9 insertions(+), 7 deletions(-)
 
 diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
-index fc1e5869df1b9..0c748ae1b0068 100644
+index cce5eca31f257..4b69ab4ff30a2 100644
 --- a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
 +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
-@@ -35,6 +35,10 @@ memory@80000000 {
+@@ -40,6 +40,10 @@ soc {
  	};
  };
  
@@ -123,7 +123,7 @@ index fc1e5869df1b9..0c748ae1b0068 100644
  	status = "okay";
  };
 diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
-index c9f6d205d2ba1..393f18cdbb346 100644
+index b12fd594e7172..18ccbdbe86d99 100644
 --- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
 +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
 @@ -142,6 +142,11 @@ cpu4_intc: interrupt-controller {
