@@ -4,77 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B160AC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jan 2022 10:27:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7250CC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jan 2022 12:30:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D/ePMNDiPcFUb2RTJDuxovpo2lXAGnQ0MYpai9IU9lI=; b=qXcuUWjCHkdSbf
-	0hSavmXDtywH6+L3W+3XJEAprv8YtaCZbYUykq7JQfxm28swffj3was+/HH5cHabdYrWVQEeArFpz
-	THtNRnpNeYKQ5L2BpgEJvh0z4xMtmQ5EQJotfoQGSo2dfU/1KsuFGCrVVdMFU+hlBG3usSeE5g/DM
-	3F2wpaRV+tBU7eAaNTkH+PwoEXSzH/+SS6UFhAPEfxTcgsQKIr9uMMUVaae0xEhE/QAkR+achtDZV
-	ZFWnPz+5CBiJV3JeWUiJQcjy4IlpkDw8YgnMo7fWqevceqTXlOTC6wZqlpcXc8pA73+Nb7oXy6YO5
-	9kiS4cLpohV92vgd7Agg==;
+	List-Owner; bh=PmqfFph9ltVSjzq9TlXfH3rQfru0p2FJYVdANCKMDQA=; b=i8IbXzXCzyOPwB
+	JyCRjZLN7Sj2x3j7EkJYm8+/oZ9ZoKpchmISdYG8UdJZnx2/x+UClUMYwFSGV2W+KUuFhkAIv5BFP
+	lYSM4gCkEPJfiPmkTbCSrTY7DT6N9itei2GCVtcLIci8AJACvf+ipwjQ0e1niGlnRpnaNsbUKuYCu
+	czOErBJYfcJY3aGdrrFUEw58o5/JlQ84FCwUuqnQDnBqh91+cOPSjtlOEzfZVR2NUQ6cCxCF4XPn2
+	m11nEE5zBVlkpczSRu5FKo1UzRbJDCOZfRzYY7soUfbZv8si7j79ksiE+VT10fTWzostzpfkH7CIm
+	j8JmrrHQCIQeMEiIBLBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nBwZ5-002yRT-QP; Mon, 24 Jan 2022 10:27:11 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1nByUI-003HXP-Kh; Mon, 24 Jan 2022 12:30:22 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nBwYs-002yMZ-Q9
- for linux-riscv@lists.infradead.org; Mon, 24 Jan 2022 10:27:00 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
- by mx07-00178001.pphosted.com (8.16.1.2/8.16.1.2) with ESMTP id 20O6jNgR004848;
- Mon, 24 Jan 2022 11:26:56 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- h=from : to : cc :
- subject : date : message-id : in-reply-to : references : mime-version :
- content-transfer-encoding : content-type; s=selector1;
- bh=6iYh3HvDKsBuXC7i6mR0bnn4qfD6pUZAhtq3u6rdDLw=;
- b=tSdwKfLqm4vbNlm0ABgatJtnRk8KHdRllfC1EuePJHOrfGA1BAxDknyDoXaMhEbnVtQJ
- lWklWdBG2WEtZmsfzIbYlUHZK5pwTGoLRShe4vPhm8mWN9kj1v6LEe6ojmeQNdLLq7w8
- iSfeSjP08/tXHEIanEBmJeKp0fsN+z2p64f0PIQKqjbMjz5WvECjizURyL8i1bBkDLt7
- VFdVNCtuBEPJ+Yiu1to0h33y7qftOlQD3AD8esow2FyR7uy44QjA33GFhYvlQik6Z+kh
- pVUQx7rMXswLUE/oMZuuKFIjc0L39WoDYezsh00ssDp6SFswR++XDZdsShk1Xq6jY2Py Zg== 
-Received: from beta.dmz-eu.st.com (beta.dmz-eu.st.com [164.129.1.35])
- by mx07-00178001.pphosted.com (PPS) with ESMTPS id 3ds9v1kcsa-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Mon, 24 Jan 2022 11:26:56 +0100
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
- by beta.dmz-eu.st.com (STMicroelectronics) with ESMTP id C501210002A;
- Mon, 24 Jan 2022 11:26:55 +0100 (CET)
-Received: from Webmail-eu.st.com (sfhdag2node2.st.com [10.75.127.5])
- by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 3C7022128C0;
- Mon, 24 Jan 2022 11:26:55 +0100 (CET)
-Received: from localhost (10.75.127.44) by SFHDAG2NODE2.st.com (10.75.127.5)
- with Microsoft SMTP Server (TLS) id 15.0.1497.26; Mon, 24 Jan 2022 11:26:54
- +0100
-From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-To: Bjorn Andersson <bjorn.andersson@linaro.org>, Mathieu Poirier
- <mathieu.poirier@linaro.org>
-CC: <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-stm32@st-md-mailman.stormreply.com>, <julien.massot@iot.bzh>,
- <arnaud.pouliquen@foss.st.com>, Anup Patel <anup@brainfault.org>,
- <linux-riscv@lists.infradead.org>
-Subject: [PATCH v9 05/11] RISC-V: configs: Configs that had RPMSG_CHAR now get
- RPMSG_CTRL
-Date: Mon, 24 Jan 2022 11:25:18 +0100
-Message-ID: <20220124102524.295783-6-arnaud.pouliquen@foss.st.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220124102524.295783-1-arnaud.pouliquen@foss.st.com>
-References: <20220124102524.295783-1-arnaud.pouliquen@foss.st.com>
+ id 1nByUF-003HWg-Ll
+ for linux-riscv@lists.infradead.org; Mon, 24 Jan 2022 12:30:21 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
+ helo=diego.localnet)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1nByU4-0002so-3s; Mon, 24 Jan 2022 13:30:08 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Atish Patra <atishp@atishpatra.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ devicetree <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, Wei Fu <wefu@redhat.com>,
+ liush <liush@allwinnertech.com>, Guo Ren <guoren@kernel.org>,
+ Anup Patel <anup@brainfault.org>, Drew Fustini <drew@beagleboard.org>,
+ Christoph Hellwig <hch@lst.de>, Arnd Bergmann <arnd@arndb.de>,
+ Chen-Yu Tsai <wens@csie.org>, Maxime Ripard <maxime@cerno.tech>,
+ Daniel Lustig <dlustig@nvidia.com>, Greg Favor <gfavor@ventanamicro.com>,
+ Andrea Mondelli <andrea.mondelli@huawei.com>,
+ Jonathan Behrens <behrensj@mit.edu>, Xinhaoqu <xinhaoqu@huawei.com>,
+ Bill Huffman <huffman@cadence.com>, Nick Kossifidis <mick@ics.forth.gr>,
+ Allen Baum <allen.baum@esperantotech.com>,
+ Josh Scheid <jscheid@ventanamicro.com>, Richard Trauben <rtrauben@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Christoph Muellner <cmuellner@linux.com>,
+ Philipp Tomsich <philipp.tomsich@vrull.eu>
+Subject: Re: [PATCH v5 01/14] riscv: only use IPIs to handle cache-flushes on
+ remote cpus
+Date: Mon, 24 Jan 2022 13:30:06 +0100
+Message-ID: <10651919.N8281ZbHTu@diego>
+In-Reply-To: <CAOnJCU+NR_hOrvS_+B+OKXeg4s+uh37gYWGVTs_kDd3LQDVEkQ@mail.gmail.com>
+References: <20220121163618.351934-1-heiko@sntech.de>
+ <20220121163618.351934-2-heiko@sntech.de>
+ <CAOnJCU+NR_hOrvS_+B+OKXeg4s+uh37gYWGVTs_kDd3LQDVEkQ@mail.gmail.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.75.127.44]
-X-ClientProxiedBy: SFHDAG2NODE2.st.com (10.75.127.5) To SFHDAG2NODE2.st.com
- (10.75.127.5)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.205,Aquarius:18.0.816,Hydra:6.0.425,FMLib:17.11.62.513
- definitions=2022-01-24_06,2022-01-24_01,2021-12-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220124_022659_196206_1D7E2C62 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20220124_043019_761888_A86BC931 
+X-CRM114-Status: GOOD (  35.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,45 +78,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In the patch "rpmsg: Move the rpmsg control device from rpmsg_char
-to rpmsg_ctrl", we split the rpmsg_char driver in two.
-By default give everyone who had the old driver enabled the rpmsg_ctrl
-driver too.
+Hi Atish,
 
-Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
-cc: linux-riscv@lists.infradead.org
----
- arch/riscv/configs/defconfig      | 1 +
- arch/riscv/configs/rv32_defconfig | 1 +
- 2 files changed, 2 insertions(+)
+Am Samstag, 22. Januar 2022, 04:45:52 CET schrieb Atish Patra:
+> On Fri, Jan 21, 2022 at 8:37 AM Heiko Stuebner <heiko@sntech.de> wrote:
+> >
+> > Right now, the flush_icache functions always use the SBI remote-fence
+> > when SBI is available, leaving using IPIs as a fallback mechanism.
+> >
+> > IPIs on the other hand are more flexible, as the ipi_ops are initially
+> > set to go through SBI but later will be overwritten to go through the
+> > ACLINT/CLINT.
+> >
+> > In a discussion we had, Nick was of the opinion that "In general we
+> > should prefer doing IPIs on S-mode through CLINT instead of going
+> > through SBI/M-mode,
+> 
+> Yes. Once Anup's ACLINT drivers are merged, that should be the
+> preferred approach.
+> 
+> https://github.com/avpatel/linux/commit/416c667fd77d6f1fc310cbf727ec127aaf96cae2
+> 
+> >so IMHO we should only be using
+> > on_each_cpu_mask(ipi_remote_fence_i) on flush_icache_all()/
+> > flush_icache_mm() and remove any explicit calls to sbi_remote_fence_i(),
+> 
+> That's a bit confusing because we will be using SBI calls for all other fences
+> while using IPIs for fence.i
+> 
+> > because this way we continue using SBI for doing remote fences even after
+> > CLINT/ACLINT driver is registered, instead of using direct IPIs through
+> > CLINT/ACLINT."
+> >
+> > So follow this suggestion and just do ipi calls to have the proper kernel
+> > parts do them,
+> >
+> > This also fixes the null-ptr dereference happening when flush_icache_all()
+> > is called before sbi_init().
+> >
+> 
+> IMHO, this series should only fix the null-ptr dereference issue.
+> The IPI based fence (for all) should only be disabled along with the
+> ACLINT driver
+> that actually enables S-mode IPIs.
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index f120fcc43d0a..aaccb1e5f328 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -100,6 +100,7 @@ CONFIG_VIRTIO_BALLOON=y
- CONFIG_VIRTIO_INPUT=y
- CONFIG_VIRTIO_MMIO=y
- CONFIG_RPMSG_CHAR=y
-+CONFIG_RPMSG_CTRL=y
- CONFIG_RPMSG_VIRTIO=y
- CONFIG_EXT4_FS=y
- CONFIG_EXT4_FS_POSIX_ACL=y
-diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-index 8b56a7f1eb06..47e50c992c9c 100644
---- a/arch/riscv/configs/rv32_defconfig
-+++ b/arch/riscv/configs/rv32_defconfig
-@@ -92,6 +92,7 @@ CONFIG_VIRTIO_BALLOON=y
- CONFIG_VIRTIO_INPUT=y
- CONFIG_VIRTIO_MMIO=y
- CONFIG_RPMSG_CHAR=y
-+CONFIG_RPMSG_CTRL=y
- CONFIG_RPMSG_VIRTIO=y
- CONFIG_EXT4_FS=y
- CONFIG_EXT4_FS_POSIX_ACL=y
--- 
-2.25.1
+ok, I'll roll this back to simply fixing the null-ptr issue.
+
+Meanwhile I even found a nicer solution without actually touching
+the cachflush code.
+
+Without sbi_init() we can assume that we're still before smp bringup,
+so the local_flush_icache_all() in flush_icache_all() will do the trick
+just fine and sbi_remote_fence_i() simply just needs to be an empty
+function until sbi is initialized.
+
+
+Heiko
+
+> 
+> > Suggested-by: Nick Kossifidis <mick@ics.forth.gr>
+> > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> > ---
+> >  arch/riscv/mm/cacheflush.c | 8 +-------
+> >  1 file changed, 1 insertion(+), 7 deletions(-)
+> >
+> > diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+> > index 6cb7d96ad9c7..c35375cd52ec 100644
+> > --- a/arch/riscv/mm/cacheflush.c
+> > +++ b/arch/riscv/mm/cacheflush.c
+> > @@ -17,11 +17,7 @@ static void ipi_remote_fence_i(void *info)
+> >  void flush_icache_all(void)
+> >  {
+> >         local_flush_icache_all();
+> > -
+> > -       if (IS_ENABLED(CONFIG_RISCV_SBI))
+> > -               sbi_remote_fence_i(NULL);
+> > -       else
+> > -               on_each_cpu(ipi_remote_fence_i, NULL, 1);
+> > +       on_each_cpu(ipi_remote_fence_i, NULL, 1);
+> >  }
+> >  EXPORT_SYMBOL(flush_icache_all);
+> >
+> > @@ -66,8 +62,6 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
+> >                  * with flush_icache_deferred().
+> >                  */
+> >                 smp_mb();
+> > -       } else if (IS_ENABLED(CONFIG_RISCV_SBI)) {
+> > -               sbi_remote_fence_i(&others);
+> >         } else {
+> >                 on_each_cpu_mask(&others, ipi_remote_fence_i, NULL, 1);
+> >         }
+> > --
+> > 2.30.2
+> >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+> 
+> 
+> 
+
+
+
 
 
 _______________________________________________
