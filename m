@@ -4,69 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A52C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 23 Jan 2022 23:03:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76EE9C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jan 2022 07:22:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rjPR/dc1w671JH5vasGB8r2OborERKHcpd/WlrN6fH4=; b=uH39pvTTDXpsMc
-	+74a4r+OF+yf73+HBjuWhUlg771Z2y4aI7h21hTgeldoN5qhDCqEE6Rd4pz40iUc28l6YaPtYE79S
-	0jn8//2XQhXGpVLqMJW5tLvZKPR4mK7VBoUr87XxQOIqzZ2pb88rM3+7q2pxfGaN3i7780G9UIlaE
-	IWmAtzAtbHYQ0aNa5eO4p+iOCfZcUUoMDyL4S0N5a2X9OIKcZhK9kLw673NqPzf4+76oBItfwvapy
-	9VQrT14rew6d6mNzlWG4pt7cd/CnszaH3Nr3Y3qGJxMp6X/Q5MTTCBWGgMJ3HE7SIOsyJ7NqRdtma
-	w0a5zU1p4Asl8EE6MBZQ==;
+	List-Owner; bh=6h7QMoSyotwr9Hg/pnlpRt3gvvkqewbnEKmR33g/9+M=; b=1jaxxyRjpsGnoD
+	APLUP6IdifG0E70yOtiOM1AROsG6u/UwCPoaJtQTYS/afhyQUKc6XIbLjudO+NfenVheCFpMWTQik
+	5+H/3ojJD3SXFLmnfw8BPHwsLNZgtQshi6En2u/s407HY1XznhNnNXK9Rh5es29X8PLEYPs6x3meb
+	XkwiSM8Xk1/cilut2g+4riju4EKDToZIKUuLOnB6n9Ul3xlti4CUFoIMCdhtzoXAjaCVbxl/t+Rfq
+	2Htp+UTQQ4TDHujiS+KledvVAtPjgZQ5IEHrQChSqjb8QyZzn0p1rDN8E9weEqbW2YRZh6bhPaPP3
+	qglKu+WixNLxp9Ir516g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nBltN-001urL-P9; Sun, 23 Jan 2022 23:03:25 +0000
-Received: from m228-4.mailgun.net ([159.135.228.4])
+	id 1nBtgI-002TpL-JS; Mon, 24 Jan 2022 07:22:26 +0000
+Received: from verein.lst.de ([213.95.11.211])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nBltG-001uqq-Rh
- for linux-riscv@lists.infradead.org; Sun, 23 Jan 2022 23:03:23 +0000
-DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=michaelkloos.com;
- q=dns/txt; 
- s=k1; t=1642979002; h=Content-Transfer-Encoding: Content-Type:
- In-Reply-To: From: References: Cc: To: Subject: MIME-Version: Date:
- Message-ID: Sender; bh=y1h7LZQUH/315cUWgICxYsfKN2rIJtSAVtMI/BEmfGM=;
- b=YWFVLPy5LVrQ3UuddiTko/AzjVCyfGS1kCJV7d2OG6XQNt7RqcgbHLkPz+JxddYw9KUqunRA
- 0wVUQzL6J5YtRv1N3qRpuV2byYTvcjTJ52xK455I1cCnlX4+NzZWmTqbxxdqbGvlgq5byklb
- ZqB0hlZjYNZucwFxWbtvX+adeTA=
-X-Mailgun-Sending-Ip: 159.135.228.4
-X-Mailgun-Sid: WyIxOGJjMSIsICJsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnIiwgIjQ4Y2MwIl0=
-Received: from drop1.michaelkloos.com (drop1.michaelkloos.com
- [67.205.190.89]) by smtp-out-n06.prod.us-east-1.postgun.com with SMTP id
- 61eddeac06362278a1d42f30 (version=TLS1.3, cipher=TLS_AES_128_GCM_SHA256);
- Sun, 23 Jan 2022 23:03:08 GMT
-Received: from [192.168.0.104] (cpe-173-88-115-50.columbus.res.rr.com
- [173.88.115.50])
- by drop1.michaelkloos.com (Postfix) with ESMTPSA id 0870040118;
- Sun, 23 Jan 2022 23:03:07 +0000 (UTC)
-Message-ID: <5dca7098-0986-1e2a-1452-124c506b1241@michaelkloos.com>
-Date: Sun, 23 Jan 2022 18:03:07 -0500
+ id 1nBtgF-002ToQ-HK
+ for linux-riscv@lists.infradead.org; Mon, 24 Jan 2022 07:22:25 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+ id 898DB68BEB; Mon, 24 Jan 2022 08:22:08 +0100 (CET)
+Date: Mon, 24 Jan 2022 08:22:08 +0100
+From: Christoph Hellwig <hch@lst.de>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, robh+dt@kernel.org, wefu@redhat.com,
+ liush@allwinnertech.com, guoren@kernel.org, atishp@atishpatra.org,
+ anup@brainfault.org, drew@beagleboard.org, hch@lst.de,
+ arnd@arndb.de, wens@csie.org, maxime@cerno.tech, dlustig@nvidia.com,
+ gfavor@ventanamicro.com, andrea.mondelli@huawei.com,
+ behrensj@mit.edu, xinhaoqu@huawei.com, huffman@cadence.com,
+ mick@ics.forth.gr, allen.baum@esperantotech.com,
+ jscheid@ventanamicro.com, rtrauben@gmail.com, samuel@sholland.org,
+ cmuellner@linux.com, philipp.tomsich@vrull.eu
+Subject: Re: [PATCH v5 00/14] riscv: support for svpbmt and D1 memory types
+Message-ID: <20220124072208.GA21441@lst.de>
+References: <20220121163618.351934-1-heiko@sntech.de>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.5.0
-Subject: Re: [PATCH v2] Fixed: Misaligned memory access. Fixed pointer
- comparison.
-Content-Language: en-US
-To: David Laight <David.Laight@ACULAB.COM>,
- "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
- "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>
-Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20220123034518.3717116-1-michael@michaelkloos.com>
- <fed7ee473044432180c67b4adc0eb45d@AcuMS.aculab.com>
- <c184c65e-c960-8ecc-7cfe-d58af1cde0a3@michaelkloos.com>
- <228cbdb42a5c4c2f9d7214d2685fcaeb@AcuMS.aculab.com>
-From: "Michael T. Kloos" <michael@michaelkloos.com>
-In-Reply-To: <228cbdb42a5c4c2f9d7214d2685fcaeb@AcuMS.aculab.com>
+Content-Disposition: inline
+In-Reply-To: <20220121163618.351934-1-heiko@sntech.de>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220123_150322_677090_AC325532 
-X-CRM114-Status: UNSURE (   6.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220123_232223_772062_3C6C7788 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,24 +67,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-No problem.  If you have any other concerns about my patch, please let me know.
+On Fri, Jan 21, 2022 at 05:36:04PM +0100, Heiko Stuebner wrote:
+> So this is my try at implementing svpbmt (and the diverging D1 memory
+> types using the alternatives framework).
 
-	Michael
+Please spell out what it does.  While I can remember the original single
+letter extensions very well, the new priviliged extension naming is
+just letter salad.
 
-On 1/23/22 17:35, David Laight wrote:
-
-> From: michael@michaelkloos.com
->> Sent: 23 January 2022 16:54
->>
->> No.  It only uses tabs.  The previous version used spaces.
-> Ah, it was the old one that was wrong.
-> One of them was.
->
-> 	David
->
-> -
-> Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-> Registration No: 1397386 (Wales)
+You might also want to explain in more detail what it does and why you
+want to support it.
 
 _______________________________________________
 linux-riscv mailing list
