@@ -4,80 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3F58C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jan 2022 05:08:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6563AC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jan 2022 05:12:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gIxJ4gLLxnRLXdIKnCYsK3wtsv9XIcIEG+gxuZ6TbKo=; b=0mV9/pElN9Z0ek
-	Tf0PaSDbDOOSv9SPSB5jgrHxdY4fvNk7sK9xUj5Xy0RqOsjxzafJWWOhcRznGk2O0D8wYE5pz70rc
-	iSGbE5az/z5OKKAM0MRQm6On/w/XVEqEP7UPmy6HE0emSKrD6TLt0GQwVbLT/3r60YbsVMtQeudGj
-	Z52bHpxFMqfXetWwj9sTfzZPSZFvGT3o0i64KY5/OBLbBZ/GCu79G3si5QXt1f6HBSmkPS/hwE8Lm
-	tjHTUSUVhUIziAo5tvS/KCrLWOu6QKJWnAJYiiX7CD65GrkCAA8JSiNv8a1+qAmNaBuWbpec5Whhx
-	ViPxk1IKeTibh4c7UMRg==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=Ww7RPHcheDiHKqFr8hHxAubRodarJEBSgQW2lxPloHk=; b=RKPW48+KfFdAmSimtujepXF3hg
+	IG6PzyQQMtMFEr58WYEpwlRCV3GqS3XON8YPNb5eV/ZVy6TrW4by+n4CEGCULGIJPNv9Z8NVhM2lV
+	eF3bLE1OlmxpY6XBqo367KPC6YjxwIGnG8Ys5e8MS0+GodUpWFpeiexgv6SawgDvC28/WWq98tjyE
+	gr7iBDEFz/z3qZSfzsf+BxrZRLOoqaL8QGWWi6NGpGsy0SNbgL7Qy03VPUmszjZ2H+/+bTlXKuusK
+	rmgqgr3UYZebTJ2cuOus1UHg1oiiJXMhv0NsVnGISDDkEjeWr26I+LmdjEIrirIsOCZ+kGmEu80gh
+	BcvRC2mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nCE4K-006T6n-R9; Tue, 25 Jan 2022 05:08:36 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1nCE7u-006TYN-P1; Tue, 25 Jan 2022 05:12:18 +0000
+Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nCE4I-006T6F-4u
- for linux-riscv@lists.infradead.org; Tue, 25 Jan 2022 05:08:35 +0000
-Received: by mail-lj1-x232.google.com with SMTP id q22so6308465ljh.7
- for <linux-riscv@lists.infradead.org>; Mon, 24 Jan 2022 21:08:31 -0800 (PST)
+ id 1nCE7r-006TXo-VR
+ for linux-riscv@lists.infradead.org; Tue, 25 Jan 2022 05:12:17 +0000
+Received: by mail-lj1-x234.google.com with SMTP id t14so13519215ljh.8
+ for <linux-riscv@lists.infradead.org>; Mon, 24 Jan 2022 21:12:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=GxSSyNnOqzCbDA/E9stdLnXQVVTk0qCNicklKSphmTE=;
- b=XEpVz6JCzRlwvzrVHSlio1hJXN0I7Jo6RUS5WdJB14stes+pFX/TT0467/drOAtV4F
- Fafx04YchRFLS+NrdBHCAVYSrZeyfGWQJgO4yCFWZ7TNS9nRbfOEXhHc0p8bLu2j1nGx
- DGm/hPyrHFSepZnu3ufjhHKobDXEsFymq0ySxjPE+KB27IFzhaSyGizFo5pl1Etijd0i
- 0rWi31Vci8bBF2yteqOmvuMbBsxqQQm7x6M6rLK3Q1uvUO41150UWdvM2ZTZlf2m/5oH
- iYRqc5B2RKbZYDT2Qmx+L78jmyd89HwnG+Dkzh+HrKzMJRoZ8tp5y6Pa4i29N916vZwE
- xvAw==
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+ bh=ZGyzBA+XlQ6F5GTLHJupOokjX96+atE9oKu+PQxFbIs=;
+ b=GOQ1PbZ6xR8OFtGgBNirZAyrAVd14xJIvA3zYrAEIMlLFI92uPKYur4reEE1aXVUmW
+ +iAvRfdKWGz8dWT9+y75NKFANHV6mIwCS3QX+0T3g9WTFoA0JYWRNpSkk6qF0rXmUVNs
+ nB/y2p1v0ZrynSKoXJVPeWg6Oa/TYYOO347mGPntmYroCeU4Ca/HEJ79eSRNWUtEU9nl
+ SlZSHcBkyemr/mxlBnScqNw4sa44WkIOKKWWYbo45h4RE41Dmw7qVK/jMWtPYCzgg8UY
+ v7N2yHTPTxJgTj1/iaCyRTjQEeAcFgLzWm1OUT1zG1c2jk7xTlohKK5WUMT6AGVzPWGQ
+ XGTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=GxSSyNnOqzCbDA/E9stdLnXQVVTk0qCNicklKSphmTE=;
- b=mQICc5GDn1vl+2hbGZjNTlycXvM5a+vk+I8dLSFLVV+JoH1VPIlsbJ6IpHc64lf15W
- EHt9XFjajAQVizjodFjZ5mezvMCpew38K7RsdBbDmFL2wJ+bLYsYviyaiCGDPODlQ7wY
- gDnm7JsG09Cvy4WqxCKK11nhvs1KGAaCAvHqHUbPEfXY9g+BDBLJJu7F0czXpIjpKilG
- t2Z9HDIjezcap3XN2ckoCI/TAquJ5MGzQ3wYodMHTw8mDEA8frraJS7x0nWjom0Je6D2
- BjSBYh3Ddl/NE2Y7Jrfz2ApvypSLy34xPYn3gv3+r5rAiI62KhQ3Jr/mKKsWrKT5gziQ
- 82fA==
-X-Gm-Message-State: AOAM531kQo/F3/O3jmbAEmD/iuvqPsNxAWcaoPwXDIYjrFT5XREi2oo4
- Ae2eNTfAIuo5zjZyqv5nL897d5YtXuqKekT2WMQmPb6FcVpk0g==
-X-Google-Smtp-Source: ABdhPJz8G5O7CyRA7YfvnePDrgsxGm48JXzLciOKTXj+4VHnx7wVcDu1IeHFxk8DtOhTpLN4KlQ+FL8pGOHi0tssC/U=
-X-Received: by 2002:a2e:3604:: with SMTP id d4mr13188020lja.52.1643087309734; 
- Mon, 24 Jan 2022 21:08:29 -0800 (PST)
+ :message-id:subject:to;
+ bh=ZGyzBA+XlQ6F5GTLHJupOokjX96+atE9oKu+PQxFbIs=;
+ b=AnWEhx7YmWmN5DQ+3Gw1WyBOFVmxc+IT7ueeaHRExgyU7CpZTjsGBq2LfOl0yyb50d
+ BcQJqoDXb7g85Xi7uHPxKgVndRPtRXlZnDT16gyA7RZJuI0aD4mOkUt/GZ76YIsHrP5j
+ 4LhwC3XBCX/ttp10Cv53LNWOHw5/ggo1E1iYcogCswCSOBoIMHFMZjacnjdCNhqURiZk
+ AIkkqTeGY7vXnwalzZwAQxhDzeKILp2pfDv5q2srKXpBSM9bbw9Z5xkNH8PBilSxel17
+ Rlm+lNpnhT6TkrPKYvYs7AaqzIee18q72m7pKLE6kaweWYxY9kwOp8p3P9CW+w/Lq/wd
+ Yrig==
+X-Gm-Message-State: AOAM5337v1qN0Aqx07ZNxGM9T+Z2vXDsCSE/xX8GpLFGcZS+9AdJJ8dA
+ cFEYmIpvOR74Pzv/7dFOcN01PvrQ4FVGzeebGzj7ZQ==
+X-Google-Smtp-Source: ABdhPJwmDQASZqc5TLdz6lkxcncn+MPxfVSubqIKKHVUHrZ6012DuApiU3/H0PMOW5hQghP6qVQ/BCf/TGbi83Nlgjk=
+X-Received: by 2002:a2e:8707:: with SMTP id m7mr2935760lji.516.1643087534046; 
+ Mon, 24 Jan 2022 21:12:14 -0800 (PST)
 MIME-Version: 1.0
-References: <0d0b0a3ad703f5ef50611e2dd80439675bda666a.1642383007.git.zong.li@sifive.com>
- <mhng-5b3e2596-3558-4534-9229-26885ee4cc5c@palmer-ri-x1c9>
- <CANXhq0ruGxjO0WPUipzZ7QQM1oEapyHAvb_aVQ_CMqVxbjc_BQ@mail.gmail.com>
- <CAMuHMdVh_cXpbUeOmr_1K0dOJwGHSO0Ao=W43j5mpgvOiNyV9w@mail.gmail.com>
- <CANXhq0oTrVMhY19odFHroJKXmW1dROdS5J5YR-osO9uwbr9GKA@mail.gmail.com>
-In-Reply-To: <CANXhq0oTrVMhY19odFHroJKXmW1dROdS5J5YR-osO9uwbr9GKA@mail.gmail.com>
+References: <cover.1642582832.git.zong.li@sifive.com>
+In-Reply-To: <cover.1642582832.git.zong.li@sifive.com>
 From: Zong Li <zong.li@sifive.com>
-Date: Tue, 25 Jan 2022 13:08:18 +0800
-Message-ID: <CANXhq0rODPACKVuUgz=7_S0JW0Rp+RGCQawPQ9ruYCQH87ZQoA@mail.gmail.com>
-Subject: Re: [PATCH v4 3/3] dmaengine: sf-pdma: Get number of channel by
- device tree
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
- Conor Dooley <conor.dooley@microchip.com>, Bin Meng <bin.meng@windriver.com>, 
- Green Wan <green.wan@sifive.com>, Vinod <vkoul@kernel.org>, 
- dmaengine <dmaengine@vger.kernel.org>, 
+Date: Tue, 25 Jan 2022 13:12:02 +0800
+Message-ID: <CANXhq0rzTAOrLBShX9AHoNdOy5HPcXj-ZqpND4R_PP-1J-vDag@mail.gmail.com>
+Subject: Re: [PATCH 0/4] Refactor the PRCI driver to reduce the complexity
+To: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Lee Jones <lee.jones@linaro.org>, Rob Herring <robh+dt@kernel.org>, 
  "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>
+ <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+ linux-clk <linux-clk@vger.kernel.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220124_210834_251632_C6E04115 
-X-CRM114-Status: GOOD (  48.93  )
+X-CRM114-CacheID: sfid-20220124_211216_035623_C7DA86F4 
+X-CRM114-Status: GOOD (  20.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,104 +87,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 21, 2022 at 6:29 PM Zong Li <zong.li@sifive.com> wrote:
+On Wed, Jan 19, 2022 at 5:28 PM Zong Li <zong.li@sifive.com> wrote:
 >
-> On Fri, Jan 21, 2022 at 4:33 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> >
-> > Hi Zong, Palmer,
-> >
-> > On Fri, Jan 21, 2022 at 3:21 AM Zong Li <zong.li@sifive.com> wrote:
-> > > On Fri, Jan 21, 2022 at 2:52 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
-> > > > On Sun, 16 Jan 2022 17:35:28 PST (-0800), zong.li@sifive.com wrote:
-> > > > > It currently assumes that there are always four channels, it would
-> > > > > cause the error if there is actually less than four channels. Change
-> > > > > that by getting number of channel from device tree.
-> > > > >
-> > > > > For backwards-compatible, it uses the default value (i.e. 4) when there
-> > > > > is no 'dma-channels' information in dts.
-> > > >
-> > > > Some of the same wording issues here as those I pointed out in the DT
-> > > > bindings patch.
-> > > >
-> > > > > Signed-off-by: Zong Li <zong.li@sifive.com>
-> >
-> > > > > --- a/drivers/dma/sf-pdma/sf-pdma.c
-> > > > > +++ b/drivers/dma/sf-pdma/sf-pdma.c
-> > > > > @@ -482,9 +482,7 @@ static void sf_pdma_setup_chans(struct sf_pdma *pdma)
-> > > > >  static int sf_pdma_probe(struct platform_device *pdev)
-> > > > >  {
-> > > > >       struct sf_pdma *pdma;
-> > > > > -     struct sf_pdma_chan *chan;
-> > > > >       struct resource *res;
-> > > > > -     int len, chans;
-> > > > >       int ret;
-> > > > >       const enum dma_slave_buswidth widths =
-> > > > >               DMA_SLAVE_BUSWIDTH_1_BYTE | DMA_SLAVE_BUSWIDTH_2_BYTES |
-> > > > > @@ -492,13 +490,21 @@ static int sf_pdma_probe(struct platform_device *pdev)
-> > > > >               DMA_SLAVE_BUSWIDTH_16_BYTES | DMA_SLAVE_BUSWIDTH_32_BYTES |
-> > > > >               DMA_SLAVE_BUSWIDTH_64_BYTES;
-> > > > >
-> > > > > -     chans = PDMA_NR_CH;
-> > > > > -     len = sizeof(*pdma) + sizeof(*chan) * chans;
-> > > > > -     pdma = devm_kzalloc(&pdev->dev, len, GFP_KERNEL);
-> > > > > +     pdma = devm_kzalloc(&pdev->dev, sizeof(*pdma), GFP_KERNEL);
-> > > > >       if (!pdma)
-> > > > >               return -ENOMEM;
-> > > > >
-> > > > > -     pdma->n_chans = chans;
-> > > > > +     ret = of_property_read_u32(pdev->dev.of_node, "dma-channels",
-> > > > > +                                &pdma->n_chans);
-> > > > > +     if (ret) {
-> > > > > +             dev_notice(&pdev->dev, "set number of channels to default value: 4\n");
-> > > > > +             pdma->n_chans = PDMA_MAX_NR_CH;
-> > > > > +     }
-> > > > > +
-> > > > > +     if (pdma->n_chans > PDMA_MAX_NR_CH) {
-> > > > > +             dev_err(&pdev->dev, "the number of channels exceeds the maximum\n");
-> > > > > +             return -EINVAL;
-> > > >
-> > > > Can we get away with just using only the number of channels the driver
-> > > > actually supports?  ie, just never sending an op to the channels above
-> > > > MAX_NR_CH?  That should leave us with nothing to track.
-> >
-> > In theory we can...
-> >
-> > > It might be a bit like when pdma->n_chans is bigger than the maximum,
-> > > set the pdma->chans to PDMA_MAX_NR_CH, then we could ensure that we
-> > > don't access the channels above the maximum. If I understand
-> > > correctly, I gave the similar thought in the thread of v2 patch, and
-> > > there are some discussions on that, but this way seems to lead to
-> > > hard-to-track problems.
-> >
-> > ... but that would mean that when a new variant appears that supports
-> > more channels, no error is printed, and people might not notice
-> > immediately that the higher channels are never used.
-> >
+> This patch set tries to improve the PRCI driver to reduce the
+> complexity, we remove the SoCs C files by putting putting all stuff in
+> each SoCs header file, and include these SoCs-specific header files in
+> core of PRCI. It can also avoid the W=1 kernel build warnings about
+> variable defined but not used [-Wunused-const-variable=], like 'commit
+> 487dc7bb6a0c ("clk: sifive:fu540-prci: Declare static const variable
+> 'prci_clk_fu540' where it's used")' does.
 >
-> I guess people might need to follow the dt-bindings, so they couldn't
-> specify the number of channels to the value which is more than
-> maximum. But as you mentioned, if people don't notice that and specify
-> it more than maximum,  they wouldn't be aware that the higher channels
-> are never used. It seems to me that we could keep returning the error
-> there, or show a warning message and use PDMA_MAX_NR_CH in that
-> situation, both looks good to me.
+> This patch set also contains the dt-bindings and dts change, because
+> we change the macro name for fu540 and fu740 by adding the prefix
+> respectively.
+>
+> Thanks all for your review and suggestions.
+>
+> Zong Li (4):
+>   dt-bindings: change the macro name of prci in header files and example
+>   riscv: dts: Change the macro name of prci in each device node
+>   clk: sifive: Add SoCs prefix in each SoCs-dependent data
+>   clk: sifive: Move all stuff into SoCs header files from C files
+>
+>  .../devicetree/bindings/gpio/sifive,gpio.yaml |   2 +-
+>  .../bindings/pci/sifive,fu740-pcie.yaml       |   2 +-
+>  .../bindings/serial/sifive-serial.yaml        |   2 +-
+>  arch/riscv/boot/dts/sifive/fu540-c000.dtsi    |  22 +--
+>  arch/riscv/boot/dts/sifive/fu740-c000.dtsi    |  26 ++--
+>  drivers/clk/sifive/Makefile                   |   2 +-
+>  drivers/clk/sifive/fu540-prci.c               |  89 ------------
+>  drivers/clk/sifive/fu540-prci.h               |  91 +++++++++++-
+>  drivers/clk/sifive/fu740-prci.c               | 134 ------------------
+>  drivers/clk/sifive/fu740-prci.h               | 130 ++++++++++++++++-
+>  drivers/clk/sifive/sifive-prci.c              |   5 -
+>  include/dt-bindings/clock/sifive-fu540-prci.h |   8 +-
+>  include/dt-bindings/clock/sifive-fu740-prci.h |  18 +--
+>  13 files changed, 254 insertions(+), 277 deletions(-)
+>  delete mode 100644 drivers/clk/sifive/fu540-prci.c
+>  delete mode 100644 drivers/clk/sifive/fu740-prci.c
+>
+> --
+> 2.31.1
 >
 
-Hi all, thank you for the review, I'd like to prepare the next version
-patch, if current implementation of this part is ok to you, I will
-keep it in the next version. Please let me know if anything can be
-improved. Thanks
-
-> > Gr{oetje,eeting}s,
-> >
-> >                         Geert
-> >
-> > --
-> > Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-> >
-> > In personal conversations with technical people, I call myself a hacker. But
-> > when I'm talking to journalists I just say "programmer" or something like that.
-> >                                 -- Linus Torvalds
+Hi all, thanks for your review, I'd like to know if anything else can
+be improved in this patch, or it might be good enough to be picked up.
+Thanks.
 
 _______________________________________________
 linux-riscv mailing list
