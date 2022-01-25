@@ -4,69 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 638D5C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jan 2022 22:28:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3F58C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jan 2022 05:08:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xEe0TUvdm2Hpfk5plxJiWVxYTw6KMrkj4kQjMoZAvI0=; b=nScRPxqpPh8/+b
-	i5A274dSMHTr0MDV8e+d8eRd5jQVEXQGNa+XcHcOctAfriv+gWXxL4jI87eG0miGkTRhFspzf/ZpY
-	FNRrVYd05KLJhLtUGVOiEtakcfvhhROco68mMzs3I+oMvcmKtP50X6c1SxXN8E5AZHmm0DyVwMJ1T
-	tNVDazMmiiC5sxoBSLwtXPdS7ijge9Pp4Y5BKalMKkhwUyIQkD4qTuliGAovyUi8rv1fvgjMlLfqh
-	pM7oSTAgrAcC6gKNHljPmYITQwXzCgFZcQ6g6/gEDYP4QZOoidN8umrS6f0jLqj/nMnUFx/DRjmh9
-	OAJzfW9xKKpEdJ+2d5Jg==;
+	List-Owner; bh=gIxJ4gLLxnRLXdIKnCYsK3wtsv9XIcIEG+gxuZ6TbKo=; b=0mV9/pElN9Z0ek
+	Tf0PaSDbDOOSv9SPSB5jgrHxdY4fvNk7sK9xUj5Xy0RqOsjxzafJWWOhcRznGk2O0D8wYE5pz70rc
+	iSGbE5az/z5OKKAM0MRQm6On/w/XVEqEP7UPmy6HE0emSKrD6TLt0GQwVbLT/3r60YbsVMtQeudGj
+	Z52bHpxFMqfXetWwj9sTfzZPSZFvGT3o0i64KY5/OBLbBZ/GCu79G3si5QXt1f6HBSmkPS/hwE8Lm
+	tjHTUSUVhUIziAo5tvS/KCrLWOu6QKJWnAJYiiX7CD65GrkCAA8JSiNv8a1+qAmNaBuWbpec5Whhx
+	ViPxk1IKeTibh4c7UMRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nC7pD-005SXy-Gu; Mon, 24 Jan 2022 22:28:35 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
+	id 1nCE4K-006T6n-R9; Tue, 25 Jan 2022 05:08:36 +0000
+Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nC7p9-005SXS-SC
- for linux-riscv@lists.infradead.org; Mon, 24 Jan 2022 22:28:33 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-403-wZBAgXQyNgW9L0sW707gJQ-1; Mon, 24 Jan 2022 22:28:24 +0000
-X-MC-Unique: wZBAgXQyNgW9L0sW707gJQ-1
-Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
- AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
- Server (TLS) id 15.0.1497.28; Mon, 24 Jan 2022 22:28:24 +0000
-Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
- AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
- 15.00.1497.028; Mon, 24 Jan 2022 22:28:24 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: "'michael@michaelkloos.com'" <michael@michaelkloos.com>,
- "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, "palmer@dabbelt.com"
- <palmer@dabbelt.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>
-CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v2] Fixed: Misaligned memory access. Fixed pointer
- comparison.
-Thread-Topic: [PATCH v2] Fixed: Misaligned memory access. Fixed pointer
- comparison.
-Thread-Index: AQHYEVdKMW4neByjLUyzfoYpVaSTlKxyvXYg
-Date: Mon, 24 Jan 2022 22:28:23 +0000
-Message-ID: <394ff54c0b574484a4656e52c3c7e244@AcuMS.aculab.com>
-References: <20220123034518.3717116-1-michael@michaelkloos.com>
- <4fa1c4bbf27242cf9835dde0abdc89d5@AcuMS.aculab.com>
- <fdbf6e1c-6ed1-bb82-1a56-f7188de7f83f@michaelkloos.com>
-In-Reply-To: <fdbf6e1c-6ed1-bb82-1a56-f7188de7f83f@michaelkloos.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+ id 1nCE4I-006T6F-4u
+ for linux-riscv@lists.infradead.org; Tue, 25 Jan 2022 05:08:35 +0000
+Received: by mail-lj1-x232.google.com with SMTP id q22so6308465ljh.7
+ for <linux-riscv@lists.infradead.org>; Mon, 24 Jan 2022 21:08:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=GxSSyNnOqzCbDA/E9stdLnXQVVTk0qCNicklKSphmTE=;
+ b=XEpVz6JCzRlwvzrVHSlio1hJXN0I7Jo6RUS5WdJB14stes+pFX/TT0467/drOAtV4F
+ Fafx04YchRFLS+NrdBHCAVYSrZeyfGWQJgO4yCFWZ7TNS9nRbfOEXhHc0p8bLu2j1nGx
+ DGm/hPyrHFSepZnu3ufjhHKobDXEsFymq0ySxjPE+KB27IFzhaSyGizFo5pl1Etijd0i
+ 0rWi31Vci8bBF2yteqOmvuMbBsxqQQm7x6M6rLK3Q1uvUO41150UWdvM2ZTZlf2m/5oH
+ iYRqc5B2RKbZYDT2Qmx+L78jmyd89HwnG+Dkzh+HrKzMJRoZ8tp5y6Pa4i29N916vZwE
+ xvAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=GxSSyNnOqzCbDA/E9stdLnXQVVTk0qCNicklKSphmTE=;
+ b=mQICc5GDn1vl+2hbGZjNTlycXvM5a+vk+I8dLSFLVV+JoH1VPIlsbJ6IpHc64lf15W
+ EHt9XFjajAQVizjodFjZ5mezvMCpew38K7RsdBbDmFL2wJ+bLYsYviyaiCGDPODlQ7wY
+ gDnm7JsG09Cvy4WqxCKK11nhvs1KGAaCAvHqHUbPEfXY9g+BDBLJJu7F0czXpIjpKilG
+ t2Z9HDIjezcap3XN2ckoCI/TAquJ5MGzQ3wYodMHTw8mDEA8frraJS7x0nWjom0Je6D2
+ BjSBYh3Ddl/NE2Y7Jrfz2ApvypSLy34xPYn3gv3+r5rAiI62KhQ3Jr/mKKsWrKT5gziQ
+ 82fA==
+X-Gm-Message-State: AOAM531kQo/F3/O3jmbAEmD/iuvqPsNxAWcaoPwXDIYjrFT5XREi2oo4
+ Ae2eNTfAIuo5zjZyqv5nL897d5YtXuqKekT2WMQmPb6FcVpk0g==
+X-Google-Smtp-Source: ABdhPJz8G5O7CyRA7YfvnePDrgsxGm48JXzLciOKTXj+4VHnx7wVcDu1IeHFxk8DtOhTpLN4KlQ+FL8pGOHi0tssC/U=
+X-Received: by 2002:a2e:3604:: with SMTP id d4mr13188020lja.52.1643087309734; 
+ Mon, 24 Jan 2022 21:08:29 -0800 (PST)
 MIME-Version: 1.0
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=C51A453 smtp.mailfrom=david.laight@aculab.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+References: <0d0b0a3ad703f5ef50611e2dd80439675bda666a.1642383007.git.zong.li@sifive.com>
+ <mhng-5b3e2596-3558-4534-9229-26885ee4cc5c@palmer-ri-x1c9>
+ <CANXhq0ruGxjO0WPUipzZ7QQM1oEapyHAvb_aVQ_CMqVxbjc_BQ@mail.gmail.com>
+ <CAMuHMdVh_cXpbUeOmr_1K0dOJwGHSO0Ao=W43j5mpgvOiNyV9w@mail.gmail.com>
+ <CANXhq0oTrVMhY19odFHroJKXmW1dROdS5J5YR-osO9uwbr9GKA@mail.gmail.com>
+In-Reply-To: <CANXhq0oTrVMhY19odFHroJKXmW1dROdS5J5YR-osO9uwbr9GKA@mail.gmail.com>
+From: Zong Li <zong.li@sifive.com>
+Date: Tue, 25 Jan 2022 13:08:18 +0800
+Message-ID: <CANXhq0rODPACKVuUgz=7_S0JW0Rp+RGCQawPQ9ruYCQH87ZQoA@mail.gmail.com>
+Subject: Re: [PATCH v4 3/3] dmaengine: sf-pdma: Get number of channel by
+ device tree
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, Bin Meng <bin.meng@windriver.com>, 
+ Green Wan <green.wan@sifive.com>, Vinod <vkoul@kernel.org>, 
+ dmaengine <dmaengine@vger.kernel.org>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220124_142832_228394_605A8120 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20220124_210834_251632_C6E04115 
+X-CRM114-Status: GOOD (  48.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,42 +94,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: michael@michaelkloos.com
-> Sent: 24 January 2022 19:19
+On Fri, Jan 21, 2022 at 6:29 PM Zong Li <zong.li@sifive.com> wrote:
+>
+> On Fri, Jan 21, 2022 at 4:33 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> >
+> > Hi Zong, Palmer,
+> >
+> > On Fri, Jan 21, 2022 at 3:21 AM Zong Li <zong.li@sifive.com> wrote:
+> > > On Fri, Jan 21, 2022 at 2:52 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> > > > On Sun, 16 Jan 2022 17:35:28 PST (-0800), zong.li@sifive.com wrote:
+> > > > > It currently assumes that there are always four channels, it would
+> > > > > cause the error if there is actually less than four channels. Change
+> > > > > that by getting number of channel from device tree.
+> > > > >
+> > > > > For backwards-compatible, it uses the default value (i.e. 4) when there
+> > > > > is no 'dma-channels' information in dts.
+> > > >
+> > > > Some of the same wording issues here as those I pointed out in the DT
+> > > > bindings patch.
+> > > >
+> > > > > Signed-off-by: Zong Li <zong.li@sifive.com>
+> >
+> > > > > --- a/drivers/dma/sf-pdma/sf-pdma.c
+> > > > > +++ b/drivers/dma/sf-pdma/sf-pdma.c
+> > > > > @@ -482,9 +482,7 @@ static void sf_pdma_setup_chans(struct sf_pdma *pdma)
+> > > > >  static int sf_pdma_probe(struct platform_device *pdev)
+> > > > >  {
+> > > > >       struct sf_pdma *pdma;
+> > > > > -     struct sf_pdma_chan *chan;
+> > > > >       struct resource *res;
+> > > > > -     int len, chans;
+> > > > >       int ret;
+> > > > >       const enum dma_slave_buswidth widths =
+> > > > >               DMA_SLAVE_BUSWIDTH_1_BYTE | DMA_SLAVE_BUSWIDTH_2_BYTES |
+> > > > > @@ -492,13 +490,21 @@ static int sf_pdma_probe(struct platform_device *pdev)
+> > > > >               DMA_SLAVE_BUSWIDTH_16_BYTES | DMA_SLAVE_BUSWIDTH_32_BYTES |
+> > > > >               DMA_SLAVE_BUSWIDTH_64_BYTES;
+> > > > >
+> > > > > -     chans = PDMA_NR_CH;
+> > > > > -     len = sizeof(*pdma) + sizeof(*chan) * chans;
+> > > > > -     pdma = devm_kzalloc(&pdev->dev, len, GFP_KERNEL);
+> > > > > +     pdma = devm_kzalloc(&pdev->dev, sizeof(*pdma), GFP_KERNEL);
+> > > > >       if (!pdma)
+> > > > >               return -ENOMEM;
+> > > > >
+> > > > > -     pdma->n_chans = chans;
+> > > > > +     ret = of_property_read_u32(pdev->dev.of_node, "dma-channels",
+> > > > > +                                &pdma->n_chans);
+> > > > > +     if (ret) {
+> > > > > +             dev_notice(&pdev->dev, "set number of channels to default value: 4\n");
+> > > > > +             pdma->n_chans = PDMA_MAX_NR_CH;
+> > > > > +     }
+> > > > > +
+> > > > > +     if (pdma->n_chans > PDMA_MAX_NR_CH) {
+> > > > > +             dev_err(&pdev->dev, "the number of channels exceeds the maximum\n");
+> > > > > +             return -EINVAL;
+> > > >
+> > > > Can we get away with just using only the number of channels the driver
+> > > > actually supports?  ie, just never sending an op to the channels above
+> > > > MAX_NR_CH?  That should leave us with nothing to track.
+> >
+> > In theory we can...
+> >
+> > > It might be a bit like when pdma->n_chans is bigger than the maximum,
+> > > set the pdma->chans to PDMA_MAX_NR_CH, then we could ensure that we
+> > > don't access the channels above the maximum. If I understand
+> > > correctly, I gave the similar thought in the thread of v2 patch, and
+> > > there are some discussions on that, but this way seems to lead to
+> > > hard-to-track problems.
+> >
+> > ... but that would mean that when a new variant appears that supports
+> > more channels, no error is printed, and people might not notice
+> > immediately that the higher channels are never used.
+> >
+>
+> I guess people might need to follow the dt-bindings, so they couldn't
+> specify the number of channels to the value which is more than
+> maximum. But as you mentioned, if people don't notice that and specify
+> it more than maximum,  they wouldn't be aware that the higher channels
+> are never used. It seems to me that we could keep returning the error
+> there, or show a warning message and use PDMA_MAX_NR_CH in that
+> situation, both looks good to me.
+>
 
-Re-instating the bit I commented on ..
-> > ... Additionally, hardware support may not exist and would likely
-> > still run slower than aligned accesses even if it did.
-> 
-> > That may not be true.
-> > On x86 the cost of misaligned accesses only just measurable.
-> > It isn't even one clock per cache line for reads (eg ipcsum).
+Hi all, thank you for the review, I'd like to prepare the next version
+patch, if current implementation of this part is ok to you, I will
+keep it in the next version. Please let me know if anything can be
+improved. Thanks
 
-> I know that the Intel manuals still recommend alignment on x86.  I
-> haven't tried to measure performance differences yet.
+> > Gr{oetje,eeting}s,
+> >
+> >                         Geert
+> >
+> > --
+> > Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> >
+> > In personal conversations with technical people, I call myself a hacker. But
+> > when I'm talking to journalists I just say "programmer" or something like that.
+> >                                 -- Linus Torvalds
 
-IIRC they recommend aligned writes in particular.
-(And don't do misaligned locked accesses that cross page boundaries.)
-
-I've done some measurements for reads and the cost really was minimal.
-You'd need to be doing a high proportion of multi-kb misaligned transfers
-to cover the cost of any conditional test on aligned tranfsers.
-
-> I think the issue here is that RISC-V is designed as a modular
-> architecture.  Unlike x86, we don't know that misaligned accesses
-> will or will not be supported.  I will grant you that if they are
-> supported by hardware, it will probably be faster to let the hardware
-> natively take care of it.  However, if the hardware doesn't support
-> it, the kernel won't be compatible with that hardware.
-
-Indeed you really don't want to be fixing up alignment faults - ever.
-I've no idea why that ever became acceptable.
-
-	David
-
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
