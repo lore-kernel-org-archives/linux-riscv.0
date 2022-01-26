@@ -4,82 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 825B1C28CF5
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jan 2022 09:10:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D009EC28CF5
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jan 2022 10:13:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GqJNyxkaaXCz3TEeOLyqz1+BxZ650F4Mi7W5V6b1yig=; b=x1wwyGP0p9K+EF
-	bZcWa6FkiUR/eJT9CYeTskuEsBPoChdI6G65jbj9bBEeqEr0Las/APPXyPImoCdzSnx7Ys4kSP1+f
-	+EDD6aubBzOzW5bnBsPr/IHsij5j6DkC06n2rBxJUSEHf4EHdkTsvqrLjjlpxd98ElfAlTsPZSswo
-	cg2YVLTQeR5bOgPtU7cjCu/EgWqmzWsSpd9h6NebPRrz1gFBmbTPrCj7Ly7NRYVb1jJwDXZiDvTcx
-	Guj1eHC/gl7cf5wpib39rs9wcxUt1l+H8IXhT1lPVZCyttzhdphoayQAy3ElnpUqUVpWGDUN1iDYX
-	EeDNMRRFoHxieBC2KmGA==;
+	List-Owner; bh=DxhWA8mr9oyKaT4lCfSD/GTTbA4azgU9nn6RtclWZXQ=; b=0qLFi8Ll/gYDhU
+	qVSZc7zJ8sE7yqMemJDL0TP9YD146s7THrN7Kujo7Up5K4K3/fusoUHAQn84FIbHr9+OM4xfU5D+W
+	6hz7G4ZKZLlFSnrSPKtbGh6I8ZWDPlgr3BPzDi+hoKoRsPZ04QBA0D1UPfwccFwu0o+JisidP7aEv
+	Ym9+XUccbbaWk0hcCgTcyn3r5iIyAUQd8p67A0XgeN7R3qL8Ds6kOQ9O17VQjsyCsvPUWAB3areQH
+	lOsNM2fpOj+K0O0jIV8gtsKkRmbE/6biwe8xntf8Pn0RIgOJQviskrgHwhCGOsjggVgHJdb0chixk
+	fVIHLbSgm+i3HErdKEtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nCeK3-00As3n-1Y; Wed, 26 Jan 2022 09:10:35 +0000
-Received: from mail-vk1-f180.google.com ([209.85.221.180])
+	id 1nCfIB-00B9uv-56; Wed, 26 Jan 2022 10:12:43 +0000
+Received: from mail-yb1-xb29.google.com ([2607:f8b0:4864:20::b29])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nCeK0-00As1z-KH
- for linux-riscv@lists.infradead.org; Wed, 26 Jan 2022 09:10:33 +0000
-Received: by mail-vk1-f180.google.com with SMTP id b77so13939675vka.11
- for <linux-riscv@lists.infradead.org>; Wed, 26 Jan 2022 01:10:30 -0800 (PST)
+ id 1nCfI7-00B9tZ-RE
+ for linux-riscv@lists.infradead.org; Wed, 26 Jan 2022 10:12:41 +0000
+Received: by mail-yb1-xb29.google.com with SMTP id h14so69789584ybe.12
+ for <linux-riscv@lists.infradead.org>; Wed, 26 Jan 2022 02:12:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ventanamicro.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=xq4i7DaguI8skryThxdNyfbFk29T5RJk2Ad5MDxqB7I=;
+ b=milU7saKVSeEnF8Dd701ScG1KT6mxQszuXSl/LP/kq5bhLWsfITbUDXTUxAJHrzKrK
+ cgWMcSNz/HW3fUrikdI+A5l+P9z4SVf2GY7bQF6/h+yYibdr0PtfwbWS/odr0oBRq9iJ
+ BcSOt6CdZAscRBAPKJG61k2Jd91eJ9Bq5f4cuJLuGxpYsd9nonrWE0PlhFQTwgxrSaSF
+ Zdm8hU7F3iix02FigaL0oYpDOQd+xck9KlxciRQP1wZH4tZnlzOKzjKiRD7jpkuAU9MO
+ j9GaNJ4LS3GKP8iLiw5ZjrT2AT93QtnZSGxncvk3uBeAKesugfh8/bV6JQdEuWy4qSEk
+ 71Mw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=WmTPz9PmKhTaX5wyRQ+ebsEt337fwh+gbpdxl24qCZk=;
- b=3Vza4FpvkYOoPXKRgKsvFgyBWnVhKDucdl2Xm0pFmBCJoCzKCBmYqS8P/r3Zhm31oZ
- ra/NThHch7mfLUEmar2JTEnfLYmtRQGHjCUrcLajoBkbTu47tsEktnhDvsjZskuTMvTE
- 4JqMs+m+IozZNxolbMULi778ML5iGqwpSZ5XTp5QOarMhpa3GLx7oarfguSVyRTwRc4E
- 3SykK+b6qurvMfTkz/9ksZ2blVzGZeSh2LFZDH469JoCHlN0k5eYgtGSxSY8IbM/wNHF
- /z+2d3H2yYW0UmpkN5nKimEx5+E4DcD7lsUccMTHmXbpS8wDkg5vi7QWXdeyrEIdzt26
- 4gLw==
-X-Gm-Message-State: AOAM530k0grKbSxaisvftgGksrrAObf5H3wfOye2VWsA8hcX0hJ7KWuS
- iFFaRMDO6m1S2Rk9Ff1vvZTcSuTw8b07os8D
-X-Google-Smtp-Source: ABdhPJz5NHVT6G/N8Y2z19T9ObGFeQUxNQiT2hmuOp0q6rdyOeuWYDcH1THBA01JU6mME+ZNVK61ZA==
-X-Received: by 2002:a05:6122:916:: with SMTP id
- j22mr795921vka.20.1643188229787; 
- Wed, 26 Jan 2022 01:10:29 -0800 (PST)
-Received: from mail-ua1-f49.google.com (mail-ua1-f49.google.com.
- [209.85.222.49])
- by smtp.gmail.com with ESMTPSA id k204sm4192634vkk.0.2022.01.26.01.10.29
- for <linux-riscv@lists.infradead.org>
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Wed, 26 Jan 2022 01:10:29 -0800 (PST)
-Received: by mail-ua1-f49.google.com with SMTP id y4so42226048uad.1
- for <linux-riscv@lists.infradead.org>; Wed, 26 Jan 2022 01:10:29 -0800 (PST)
-X-Received: by 2002:a67:b009:: with SMTP id z9mr5917064vse.57.1643188229085;
- Wed, 26 Jan 2022 01:10:29 -0800 (PST)
+ bh=xq4i7DaguI8skryThxdNyfbFk29T5RJk2Ad5MDxqB7I=;
+ b=lka6vXANnOCtoKfWJ94sS2BJNVILgFEHK9SA2ePzoBmB9ls3GyjdfH7GpFweJs83sT
+ 1JZgDr2wdu96Zya8qeDfElXZWLARkHgDksyY93EU8Jydg9L4SOwgPY2VtTG3/brkVbWd
+ f9LkbcLhNdNLC/UGIA2htB5MWd8M8RUChQU1X1ZCmGWIw8OoviWz5AVCNpVUhUYeAege
+ xDkdIrbZS3OBbbCJVDV5G88N4SwyoWgLweETDlBDFCIVuQMf+l273xO4fdSkqcwSAGD/
+ brmnBBfqcxZYQSIXHDIT1BW5FybhJ9b46wN50xVqV799pWHjEfHZ/z1LEpqdPF3ETf8A
+ fMdA==
+X-Gm-Message-State: AOAM530qZ5LlQIgXxILg5nghYy7jE0D/3obkcgB6XJGlsD+9saw4IveK
+ BRXnPYfMSAAqoIo6Gk7Y/UNu+hdxlT6LWAvpdIJ3Qw==
+X-Google-Smtp-Source: ABdhPJwpnc6SO6tCPSAKRYP+MV6zXZuvbpKX4oKp+OcsmFc1guIULcsDkZiW7TAtP876a1yd2Z1807UcrDNDnv0mU0E=
+X-Received: by 2002:a25:cb47:: with SMTP id b68mr34928976ybg.397.1643191957973; 
+ Wed, 26 Jan 2022 02:12:37 -0800 (PST)
 MIME-Version: 1.0
-References: <20220120090918.2646626-1-atishp@rivosinc.com>
- <20220120090918.2646626-7-atishp@rivosinc.com>
- <1AA3005C-E9C8-4E4B-900D-DD48B37CEA41@jrtc27.com>
- <CAOnJCUKJmHv2Rs3=FR3LjiZqvM5uxcVeZ3D5xRSbEeDFCeS9=Q@mail.gmail.com>
- <CAMuHMdW+ZO0=Qc8NCWujZUq=L-LZJpcd7oZo4MxRFYMmcURXVQ@mail.gmail.com>
-In-Reply-To: <CAMuHMdW+ZO0=Qc8NCWujZUq=L-LZJpcd7oZo4MxRFYMmcURXVQ@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 26 Jan 2022 10:10:17 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXq7OQJL6H7=JRnDTR6p+AD0o2Ctjn806XZQZ9PYjvepg@mail.gmail.com>
-Message-ID: <CAMuHMdXq7OQJL6H7=JRnDTR6p+AD0o2Ctjn806XZQZ9PYjvepg@mail.gmail.com>
-Subject: Re: [PATCH v3 6/6] RISC-V: Do not use cpumask data structure for
- hartid bitmap
-To: Atish Patra <atishp@atishpatra.org>
-Cc: Jessica Clarke <jrtc27@jrtc27.com>, Atish Patra <atishp@rivosinc.com>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Anup Patel <anup@brainfault.org>, 
- Albert Ou <aou@eecs.berkeley.edu>, Damien Le Moal <damien.lemoal@wdc.com>, 
- devicetree <devicetree@vger.kernel.org>, Jisheng Zhang <jszhang@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
+References: <20220125054217.383482-1-apatel@ventanamicro.com>
+ <20220125054217.383482-3-apatel@ventanamicro.com>
+ <87lez37k8h.wl-maz@kernel.org>
+ <CAAhSdy0NrB4Q-mYtMH_HCtbfm5OXi-cxXhiu1AxKdCkTv4cskQ@mail.gmail.com>
+ <87ilu67tvw.wl-maz@kernel.org>
+In-Reply-To: <87ilu67tvw.wl-maz@kernel.org>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Wed, 26 Jan 2022 15:42:25 +0530
+Message-ID: <CAK9=C2Xi60XqzPxTOO+gT3B+-1v4i0QT-9nkhN7hLFX9SchQng@mail.gmail.com>
+Subject: Re: [PATCH 2/6] irqchip/riscv-intc: Set intc domain as the default
+ host
+To: Marc Zyngier <maz@kernel.org>
+Cc: Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Rob Herring <robh+dt@kernel.org>, 
+ Atish Patra <atishp@atishpatra.org>,
+ Alistair Francis <Alistair.Francis@wdc.com>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220126_011032_685776_D5AD79BF 
-X-CRM114-Status: GOOD (  27.89  )
+X-CRM114-CacheID: sfid-20220126_021239_931142_3026FA82 
+X-CRM114-Status: GOOD (  38.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,57 +92,139 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Atish,
-
-On Wed, Jan 26, 2022 at 9:28 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> On Wed, Jan 26, 2022 at 3:21 AM Atish Patra <atishp@atishpatra.org> wrote:
-> > On Tue, Jan 25, 2022 at 2:26 PM Jessica Clarke <jrtc27@jrtc27.com> wrote:
-> > > On 20 Jan 2022, at 09:09, Atish Patra <atishp@rivosinc.com> wrote:
-> > > > Currently, SBI APIs accept a hartmask that is generated from struct
-> > > > cpumask. Cpumask data structure can hold upto NR_CPUs value. Thus, it
-> > > > is not the correct data structure for hartids as it can be higher
-> > > > than NR_CPUs for platforms with sparse or discontguous hartids.
+On Wed, Jan 26, 2022 at 2:31 PM Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Wed, 26 Jan 2022 03:16:55 +0000,
+> Anup Patel <anup@brainfault.org> wrote:
+> >
+> > On Tue, Jan 25, 2022 at 11:47 PM Marc Zyngier <maz@kernel.org> wrote:
+> > >
+> > > On Tue, 25 Jan 2022 05:42:13 +0000,
+> > > Anup Patel <apatel@ventanamicro.com> wrote:
 > > > >
-> > > > Remove all association between hartid mask and struct cpumask.
+> > > > We have quite a few RISC-V drivers (such as RISC-V SBI IPI driver,
+> > > > RISC-V timer driver, RISC-V PMU driver, etc) which do not have a
+> > > > dedicated DT/ACPI fwnode. This patch makes intc domain as the default
+> > > > host so that these drivers can directly create local interrupt mapping
+> > > > using standardized local interrupt numbers
 > > > >
-> > > > Reviewed-by: Anup Patel <anup@brainfault.org> (For Linux RISC-V changes)
-> > > > Acked-by: Anup Patel <anup@brainfault.org> (For KVM RISC-V changes)
-> > > > Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> > > > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> > > > ---
+> > > >  drivers/clocksource/timer-riscv.c | 17 +----------------
+> > > >  drivers/irqchip/irq-riscv-intc.c  |  9 +++++++++
+> > > >  2 files changed, 10 insertions(+), 16 deletions(-)
+> > > >
+> > > > diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+> > > > index 1767f8bf2013..dd6916ae6365 100644
+> > > > --- a/drivers/clocksource/timer-riscv.c
+> > > > +++ b/drivers/clocksource/timer-riscv.c
+> > > > @@ -102,8 +102,6 @@ static irqreturn_t riscv_timer_interrupt(int irq, void *dev_id)
+> > > >  static int __init riscv_timer_init_dt(struct device_node *n)
+> > > >  {
+> > > >       int cpuid, hartid, error;
+> > > > -     struct device_node *child;
+> > > > -     struct irq_domain *domain;
+> > > >
+> > > >       hartid = riscv_of_processor_hartid(n);
+> > > >       if (hartid < 0) {
+> > > > @@ -121,20 +119,7 @@ static int __init riscv_timer_init_dt(struct device_node *n)
+> > > >       if (cpuid != smp_processor_id())
+> > > >               return 0;
+> > > >
+> > > > -     domain = NULL;
+> > > > -     child = of_get_compatible_child(n, "riscv,cpu-intc");
+> > > > -     if (!child) {
+> > > > -             pr_err("Failed to find INTC node [%pOF]\n", n);
+> > > > -             return -ENODEV;
+> > > > -     }
+> > > > -     domain = irq_find_host(child);
+> > > > -     of_node_put(child);
+> > > > -     if (!domain) {
+> > > > -             pr_err("Failed to find IRQ domain for node [%pOF]\n", n);
+> > > > -             return -ENODEV;
+> > > > -     }
+> > > > -
+> > > > -     riscv_clock_event_irq = irq_create_mapping(domain, RV_IRQ_TIMER);
+> > > > +     riscv_clock_event_irq = irq_create_mapping(NULL, RV_IRQ_TIMER);
+> > > >       if (!riscv_clock_event_irq) {
+> > > >               pr_err("Failed to map timer interrupt for node [%pOF]\n", n);
+> > > >               return -ENODEV;
+> > > > diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
+> > > > index b65bd8878d4f..9f0a7a8a5c4d 100644
+> > > > --- a/drivers/irqchip/irq-riscv-intc.c
+> > > > +++ b/drivers/irqchip/irq-riscv-intc.c
+> > > > @@ -125,6 +125,15 @@ static int __init riscv_intc_init(struct device_node *node,
+> > > >               return rc;
+> > > >       }
+> > > >
+> > > > +     /*
+> > > > +      * Make INTC as the default domain which will allow drivers
+> > > > +      * not having dedicated DT/ACPI fwnode (such as RISC-V SBI IPI
+> > > > +      * driver, RISC-V timer driver, RISC-V PMU driver, etc) can
+> > > > +      * directly create local interrupt mapping using standardized
+> > > > +      * local interrupt numbers.
+> > > > +      */
+> > > > +     irq_set_default_host(intc_domain);
+> > >
+> > > No, please. This really is a bad idea. This sort of catch-all have
+> > > constantly proven to be a nuisance, because they discard all the
+> > > topology information. Eventually, you realise that you need to know
+> > > where this is coming from, but it really is too late.
+> > >
+> > > I'd rather you *synthesise* a fwnode (like ACPI does) rather then do
+> > > this.
+> >
+> > In absence of INTC as the default domain, currently we have various
+> > drivers looking up INTC irq_domain from DT (or ACPI). This is quite a
+> > bit of duplicate code across various drivers.
+> >
+> > How about having a irq_domain lookup routine (riscv_intc_find_irq_domain())
+> > exported by the RISC-V INTC driver or arch/riscv ?
+> > OR
+> > Do you have an alternative suggestion ?
 >
-> > I am yet to reproduce it on my end.
-> > @Geert Uytterhoeven: can you please try the below diff on your end.
+> But *why* don't you provide an interrupt controller node for DT? I
+> really don't think that's outlandish to require.
+
+Historically, all RISC-V SBI related drivers never had any DT/ACPI
+node because we can always query/discover the SBI functionality
+at runtime.
+
+The mechanism to query/discover SBI IPI, Timer and PMU is
+through SBI base functions. Also, local interrupts used by these
+drivers are specified by the RISC-V specification. This means having
+a DT/ACPI node for these drivers doesn't provide any info.
+
+We will be having KVM RISC-V AIA support in future which will not
+have a DT/ACPI node as well because this can be discovered as a
+CPU capability and the local interrupt to be used is specified by the
+RISC-V hypervisor specification.
+
 >
-> Unfortunately it doesn't fix the issue for me.
+> For ACPI, we already have an interface that allows a fwnode to be
+> registered (acpi_set_irq_model) and interrupts mapped
+> (acpi_register_gsi).
+
+The ACPI specification being proposed for RISC-V does not have
+any details for SBI IPI, Timer, and PMU for the same reasons
+mentioned above.
+
 >
-> /me debugging...
+> You should already have all the required tools you need.
 
-Found it: after this commit, the SBI_EXT_RFENCE_REMOTE_FENCE_I and
-SBI_EXT_RFENCE_REMOTE_SFENCE_VMA ecalls are now called with
-hmask = 0x8000000000000001 and hbase = 1 instead of hmask = 3 and
-hbase = 0.
+Are you okay if arch/riscv exports riscv_intc_find_irq_domain() ?
+OR
+Maybe export riscv_intc_find_irq_domain() from INTC driver ?
 
-cpuid 1 maps to  hartid 0
-cpuid 0 maps to hartid 1
+Regards,
+Anup
 
-    __sbi_rfence_v02:364: cpuid 1 hartid 0
-    __sbi_rfence_v02:377: hartid 0 hbase 1
-    hmask |= 1UL << (hartid - hbase);
 
-oops
-
-    __sbi_rfence_v02_call:303: SBI_EXT_RFENCE_REMOTE_FENCE_I hmask
-8000000000000001 hbase 1
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
