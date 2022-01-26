@@ -4,62 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98CA5C63682
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jan 2022 17:37:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59450C28CF5
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jan 2022 19:37:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3hgmv9TcdHLSwSUp+D+5mq4N0qYX/Qo6T5eyIiKtzak=; b=z4F1ew9ULxKqvN
-	CoTTBcs2pkcJhef41GHjvbjLHQHsIa2EJBQUojBxdECgy869typ/VPAmWP6eyW7ax9ACO5mB6Jfa7
-	v+rEMwLiXAk4+TXDpAk8jZedUuTFLwF032/PofUBcxMXv17/9LrKBlkVSHcqIut7QkVDsZBAg86XD
-	Zunz7D7mn4oq9Yk32vLP7NfCgxORnCnrl6IBFSuDFdsoxFR40A+0g2WK210fPRBykOlCBNuZlZB0K
-	KXsQ1cEbxa+qMrqE/o3SUU8rl/s1D6PA+KEIzwn7OiM5dpxXzhXcrgu1eO0EydK5KsJ8UqWzvoPR2
-	Gy2DInxRffEmQjEYTd1w==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AjlkVjM5el+drcSvF2fBQCM9NbFsNu6WhVxY8DcQM4w=; b=JKRxv8qwvlQ/5P
+	N/Old1PHZxSPzdygLnxyS9tIMTXWeWuD77fkzBA+Ma3tmLOZX2jMeD3xNj3Cc195wMa6cM7R1gcic
+	ubExioLf4mWmA4DzGl7u9x+6YepUBcB02Z3VmoWsqj3er2CGIPtDIkv2gaOAAGyqZQNk9HuTfgxYK
+	2PrZacsNH7gThTYQ33iC8sR/OBtYrf/F1HhAHAyZX6jRmQMMvSozYs9583rpY/+rKxuCZECaKCDtc
+	ENivT6RXc3U5979ikYGXS7wjD5xGnu2ktRuCMs1nJ6taG7KeVxLxNpw6p9EhDlI8VnWQPjAXKNb3O
+	uj9DMqaMQLEHXMvUFtYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nCmEs-00D3Ud-7N; Wed, 26 Jan 2022 17:37:46 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1nCo6J-00DOmf-7f; Wed, 26 Jan 2022 19:37:03 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nCltB-00CvWy-DZ
- for linux-riscv@lists.infradead.org; Wed, 26 Jan 2022 17:15:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
- ; s=202004.hall;
- h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:
- Subject:Cc:To:From:Content-Type:From:Reply-To:Subject:Content-ID:
- Content-Description:In-Reply-To:References:X-Debbugs-Cc;
- bh=JcMDygQ3jwximp20F0L2sMP6dOWvpxTtwX9dpTRf13o=; b=FgHcbTeJt+uvUQR6oh7qwpxdYX
- 1mpfNXVC0gmKsHHP2B1yg368NoThRObuLXqxuTsbPF4W+OKfIMecSSYu/RJYBBk2TzT8ibhWgybsA
- NsKhDbpRmmL7KvxDQ7A7qlOfeGEKTdp0X0JNyGswv3KgbWdbLDl0P7xzzfj2aRCcG3dYYGtn59DDV
- c7WxPdrkOJWgoFEkyfqNdxgh2GC6W9vg00PNC6MCfjCdMDjDcT9rbGg7HyOA7g7DnebDsi4vr6JGn
- sqmPBPmpRrEa2twe0/A+fUU4UuXWAOyeKrT1IZDSLk5Bm00r7aSRLg48AI1OWKfK1HkNWZiX1Kqw7
- fThuM5Hg==;
-Received: from [2a01:e34:ec5d:a741:8a4c:7c4e:dc4c:1787] (helo=ohm.rr44.fr)
- by hall.aurel32.net with esmtpsa (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <aurelien@aurel32.net>)
- id 1nClsx-00Gm2K-NS; Wed, 26 Jan 2022 18:15:07 +0100
-Received: from aurel32 by ohm.rr44.fr with local (Exim 4.95)
- (envelope-from <aurelien@aurel32.net>) id 1nClsx-005cI1-6x;
- Wed, 26 Jan 2022 18:15:07 +0100
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: linux-kernel@vger.kernel.org
-Cc: Aurelien Jarno <aurelien@aurel32.net>, stable@vger.kernel.org,
- Kito Cheng <kito.cheng@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE)
-Subject: [PATCH] riscv: fix build with binutils 2.38
-Date: Wed, 26 Jan 2022 18:14:42 +0100
-Message-Id: <20220126171442.1338740-1-aurelien@aurel32.net>
-X-Mailer: git-send-email 2.34.1
+ id 1nCo6H-00DOlo-Al
+ for linux-riscv@lists.infradead.org; Wed, 26 Jan 2022 19:37:02 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 47354B81FBE
+ for <linux-riscv@lists.infradead.org>; Wed, 26 Jan 2022 19:36:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17351C340E3
+ for <linux-riscv@lists.infradead.org>; Wed, 26 Jan 2022 19:36:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1643225818;
+ bh=FX4ycAoQ1Kx85m2fAggwF/dB1ZrkI6hhsraoivrg4v4=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=m8gbUXGPpJdJS8OapXAAZcQt2i3/3+PMvgDfJRpDX1OjSrB/hny0Pir35k+D1pIK/
+ t5kV4j3NKaombI9TG1VzqViFb9WZvoBxeYULKInkMpsHwaDsEreXT1rz6q8VE/st53
+ rtJt71BDkx6Z5Kleckul57cHE/fXOpOhXS0uTw7KnBXWAR0JNuLKSPFx1roLTSJTlV
+ 20BkHyKTgJ43fNfKCW8somfRYGo/DX4l/UG9qUBIKdPdFPspYgds7vu/aUJIjIUUue
+ pqg8mFzeLC9qKajXh8VRm+lWKBKCbf4hj2Po4YVrtH0VRSVlyR7Y8cY73N+5DGw5T6
+ S6mPpKhBa9/IA==
+Received: by mail-ej1-f50.google.com with SMTP id j2so803527ejk.6
+ for <linux-riscv@lists.infradead.org>; Wed, 26 Jan 2022 11:36:57 -0800 (PST)
+X-Gm-Message-State: AOAM532V7Boqd1CCR3NH+Lx2dzy8/3vAQ7wNj7nJFT1o9t8jlyErM9Rg
+ ri7zY4N3HxOjcC8ypRhuOoq6Q48HQT5snF8LYg==
+X-Google-Smtp-Source: ABdhPJxCkKeplWRipuk7FYPCNtGWq3C0aDwhj+I3Yngm5B4DjN1t4ZcmJr+s62lzu5ahhDGTjWbImmlIaR86QPECXo8=
+X-Received: by 2002:a17:906:4781:: with SMTP id
+ cw1mr258583ejc.264.1643225816453; 
+ Wed, 26 Jan 2022 11:36:56 -0800 (PST)
 MIME-Version: 1.0
+References: <cover.1639744468.git.geert@linux-m68k.org>
+ <4f409ac939e260a4657a0e6e6518ef8736527822.1639744468.git.geert@linux-m68k.org>
+ <CAAhSdy3g9WsBmQk7KOgdVNSw9qUouxF2i==q9M3WQq3iabXv7Q@mail.gmail.com>
+In-Reply-To: <CAAhSdy3g9WsBmQk7KOgdVNSw9qUouxF2i==q9M3WQq3iabXv7Q@mail.gmail.com>
+From: Rob Herring <robh+dt@kernel.org>
+Date: Wed, 26 Jan 2022 13:36:45 -0600
+X-Gmail-Original-Message-ID: <CAL_Jsq++-Sp45vna5-WhPsnrxp1_J1krrBUPgd2y3xkp5=sTSw@mail.gmail.com>
+Message-ID: <CAL_Jsq++-Sp45vna5-WhPsnrxp1_J1krrBUPgd2y3xkp5=sTSw@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] dt-bindings: timer: sifive,
+ clint: Fix number of interrupts
+To: Anup Patel <anup@brainfault.org>, Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Anup Patel <anup.patel@wdc.com>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ DTML <devicetree@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220126_091521_493144_4E7A4256 
-X-CRM114-Status: UNSURE (   9.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220126_113701_547160_43E7A473 
+X-CRM114-Status: GOOD (  16.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,50 +88,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From version 2.38, binutils default to ISA spec version 20191213. This
-means that the csr read/write (csrr*/csrw*) instructions and fence.i
-instruction has separated from the `I` extension, become two standalone
-extensions: Zicsr and Zifencei. As the kernel uses those instruction,
-this causes the following build failure:
+On Fri, Dec 17, 2021 at 6:48 AM Anup Patel <anup@brainfault.org> wrote:
+>
+> On Fri, Dec 17, 2021 at 6:08 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> >
+> > The number of interrupts lacks an upper bound, thus assuming one,
+> > causing properly grouped "interrupts-extended" properties to be flagged
+> > as an error by "make dtbs_check".
+> >
+> > Fix this by adding the missing "maxItems".  As the architectural maximum
+> > is 4095 interrupts, using that as the limit would be unpractical.  Hence
+> > limit it to 10 interrupts (two interrupts for a system management core,
+> > and two interrupts per core for other cores).  This should be sufficient
+> > for now, and the limit can always be increased when the need arises.
+>
+> Same comment as the PLIC DT binding patch.
+>
+> The "maxItems" should represent CLINT spec constraints so
+> please don't add any synthetic value here.
 
-  CC      arch/riscv/kernel/vdso/vgettimeofday.o
-  <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h: Assembler messages:
-  <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error: unrecognized opcode `csrr a5,0xc01'
-  <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error: unrecognized opcode `csrr a5,0xc01'
-  <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error: unrecognized opcode `csrr a5,0xc01'
-  <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error: unrecognized opcode `csrr a5,0xc01'
+I agree.
 
-The fix is to specify those extensions explicitely in -march. However as
-older binutils version do not support this, we first need to detect
-that.
+Geert, are you going to respin these?
 
-Cc: stable@vger.kernel.org # 4.15+
-Cc: Kito Cheng <kito.cheng@gmail.com>
-Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
----
- arch/riscv/Makefile | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 8a107ed18b0d..7d81102cffd4 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -50,6 +50,12 @@ riscv-march-$(CONFIG_ARCH_RV32I)	:= rv32ima
- riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
- riscv-march-$(CONFIG_FPU)		:= $(riscv-march-y)fd
- riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
-+
-+# Newer binutils versions default to ISA spec version 20191213 which moves some
-+# instructions from the I extension to the Zicsr and Zifencei extensions.
-+toolchain-need-zicsr-zifencei := $(call cc-option-yn, -march=$(riscv-march-y)_zicsr_zifencei)
-+riscv-march-$(toolchain-need-zicsr-zifencei) := $(riscv-march-y)_zicsr_zifencei
-+
- KBUILD_CFLAGS += -march=$(subst fd,,$(riscv-march-y))
- KBUILD_AFLAGS += -march=$(riscv-march-y)
- 
--- 
-2.34.1
-
+Rob
 
 _______________________________________________
 linux-riscv mailing list
