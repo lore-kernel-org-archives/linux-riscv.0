@@ -4,84 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39636C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jan 2022 08:49:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2DD8C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jan 2022 08:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qvYBu1v5GRePQOUcz/OjxXgg0/rRytC3JkhAlA/dz3w=; b=gpDz3t83qHCfRx
-	RzO9fZtK5GHuFDEgeVe851CgpPKh5bvC90dwOxzj5Z2CVgGM0TC+k0fCeN7cXZAhCdFQs6ebAmTCx
-	Zdt1mHirERnzsEjur74Dh2W/NdFc7zQya53fUupeC4x61vaYJT7QEXKXPhjLyfPWyvHplmjtU2OYi
-	ZN/doF3Vdp+bWBkmx25FIOxH+HoaujLhVCejvM/DYh+1XRXCexnRX3G3jx+XbmPRID9KliKO3wUJk
-	XrMCLzUdcgn3H0otjeiWdUBUHYMiQW25yQHuAZWgARTTXJtmFkvwmfqFYC1T5qzbsHyYQbsfHW5dH
-	+oxUWnw2m1MxYdEi+wPw==;
+	List-Owner; bh=IHmMnOYRHdIhl7WL7CVMKXrGNTQlVoKJJQ52VHVwH5I=; b=l0L+RE9bFF4ffD
+	atgQ/wypLY4vOj+rVO4tmgdr+LnPWQtPJlZSNF9d0HAFii5jYx7B7Ib9qhC5bxQZQ3p3twrivwMFO
+	JNZZpCbalqn/q6Vq2aosIuehW8JnuFLATjsHYivLX9sSCKXTybKIYXoWTYGOAkzstO/ltD1Qgkos1
+	sQckZ559Cr5M5KTtrf3qQQIU6cHIXgefnmKSxXPUGskH/EIJCMfLX9iVsjwnCfgOgTTd2u5M68x7J
+	n6QToqSuGdR6huTop+P6Ew9ZmlcadegwL0TZBmBiT4dM7kHtlsD5ccVhI85tqFWA96p+0UTwi00VS
+	NktcBiVytogQEZvmynRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nD0Su-00El3F-4p; Thu, 27 Jan 2022 08:49:12 +0000
-Received: from mail-ua1-f46.google.com ([209.85.222.46])
+	id 1nD0bK-00EmVQ-9n; Thu, 27 Jan 2022 08:57:54 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nD0Sp-00El0b-Jz
- for linux-riscv@lists.infradead.org; Thu, 27 Jan 2022 08:49:10 +0000
-Received: by mail-ua1-f46.google.com with SMTP id n15so3438582uaq.5
- for <linux-riscv@lists.infradead.org>; Thu, 27 Jan 2022 00:49:06 -0800 (PST)
+ id 1nD0bH-00EmUY-9y
+ for linux-riscv@lists.infradead.org; Thu, 27 Jan 2022 08:57:53 +0000
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id F25883F1A4
+ for <linux-riscv@lists.infradead.org>; Thu, 27 Jan 2022 08:57:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1643273859;
+ bh=rAWQ6puFnAfnGHvaDRJL0/9MJBEwP+tB4PiTycqmC4A=;
+ h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
+ In-Reply-To:Content-Type;
+ b=JPAW2Y3j9mfHMYbZpvk78XH7UfhgEuVnb/F7ZIoRDo8oXPsdj8Aqe+9m55+n+QBnb
+ lJAdX/XsPH6oUH1VpJBSrIZjkLwCJyTNoUsehzHgIkG6SAl1FQyGF/DaTCc6T7nwJ/
+ MtAWqigXrr2jTBO/zh5c6tJIY2eg84lqahmEkm3EZW4qw4efZ2pDxRLP8pxOZsCeac
+ TjTtXpk4dBZotvflF+CtfWYVfY27ZNuTgJ+STQE/gUQy7lGWxudyAdX9zTvtnzr0jO
+ hV5v/UcJWlTt/GIosuu/y7jdjwR3DDTSNQ6amSRnos5RKJSYjqUSQEwhO+NebCxW5D
+ ORIcqZD2pGPng==
+Received: by mail-wr1-f69.google.com with SMTP id
+ s25-20020adfa299000000b001d8d032255fso783620wra.14
+ for <linux-riscv@lists.infradead.org>; Thu, 27 Jan 2022 00:57:39 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=tiYQ03BGYl3eFh9sLWDt0ZrzOmKrMYMSVnNiMqCKOig=;
- b=uGcpZn8LU6XAKnhRIzumPAnuVkUyNhc1NsF/i8orxl5/Lppcp8O9CONHijU6+fZmOv
- 0ARskPjl4djPlWXc1nIgtd0arQqFf0fVoevMdKBbGthprQGvek8TL98xDfav4KWnslN8
- hdhBVxHRxxcOKaqOOZ9aFBlVyngdkWuP9j1egQGFR8z0sfKvN1aFDYONR6ehsoqISR9R
- f4Cuhv6Y7GM4Sm0odbgzmJZrFAr7rZI29VT2ed2+1VNyg7PGZhpAdA+3Vx8/Tq369d24
- nF1Oo/xsxbx/W4Tr2sYoDSgFaY2A4nkNnlSJ0rVxL4rtOAmBjXsF8NKbBxoOcjSoRuom
- ktZg==
-X-Gm-Message-State: AOAM5307T+yR/Pn89suYEne2EgBiZjDp51wbNwiOkfDpioWyL3hfLR3C
- MxtCwbVc7o4HMUJS+TXDe9Kqbkhx8/XB1sBY
-X-Google-Smtp-Source: ABdhPJyKvuKhBkNPL6Gox0FS1DuAv3VXBfjjNZnMQAtr9gK4nNTq/OkwQRygH54cfZrtMLcykx7nxQ==
-X-Received: by 2002:a67:c802:: with SMTP id u2mr1130765vsk.52.1643273345928;
- Thu, 27 Jan 2022 00:49:05 -0800 (PST)
-Received: from mail-vk1-f181.google.com (mail-vk1-f181.google.com.
- [209.85.221.181])
- by smtp.gmail.com with ESMTPSA id n8sm442186vke.24.2022.01.27.00.49.04
- for <linux-riscv@lists.infradead.org>
+ h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+ :content-language:to:cc:references:from:in-reply-to
+ :content-transfer-encoding;
+ bh=rAWQ6puFnAfnGHvaDRJL0/9MJBEwP+tB4PiTycqmC4A=;
+ b=lOCL0hx+JzNB4Dg0V5wvkoklrc+pWhYm9GLe4PyQQlLI8ImNCSm3CFbISzwgRDwqeK
+ hg306HSv9x43o6qH3okwAUIMZoDZ+KLqDgjOuMYVxC84DLkfS7QOTSeQBH5qjUuZlrdQ
+ O/vHhRvDGsrf6Rl6sliDBFIqD7P5UVCK1CUibShbL3Tz1Jh579pYl7SX+HomiH2UzVxv
+ BV+lR5FfBrVcNIN30BtNdahLs+YTanPTzugBMOS+XVNbepLO4P1ljaobkZGV/sJpfSE1
+ I5bxJB+OzxP6fFfxaxzGJMympny7Sz14qqWIT1VIBJDjpexnCbdA26uM9otzmVXJxAhr
+ 3ETw==
+X-Gm-Message-State: AOAM5314iYwXf89yO/jpBYQzE/MwScfQf7JGZqu3/h+dOm5xaGOI00TG
+ /KYIrsffRdFgjwwGYS73URZcPi+wo5Qs+N7F0ry2yUTZvFuyy5/kzGLX8KkNF0xQUp9sVay/w9K
+ 1TZvPu40uYzYqfgY6DQzsmHnArVj3venI0QL08Iq5lWrk0g==
+X-Received: by 2002:a05:600c:25a:: with SMTP id
+ 26mr2294188wmj.184.1643273859626; 
+ Thu, 27 Jan 2022 00:57:39 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJw+tc5uGSZJ2NLXKSLDBGrhUCHZWHKj1ckOzezNQYB715MSsKTfad8hD58pkhcBmDyb4g1VXA==
+X-Received: by 2002:a05:600c:25a:: with SMTP id
+ 26mr2294172wmj.184.1643273859278; 
+ Thu, 27 Jan 2022 00:57:39 -0800 (PST)
+Received: from [192.168.123.55] (ip-088-152-144-107.um26.pools.vodafone-ip.de.
+ [88.152.144.107])
+ by smtp.gmail.com with ESMTPSA id p8sm1820025wrr.16.2022.01.27.00.57.38
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Thu, 27 Jan 2022 00:49:05 -0800 (PST)
-Received: by mail-vk1-f181.google.com with SMTP id w206so1373896vkd.10
- for <linux-riscv@lists.infradead.org>; Thu, 27 Jan 2022 00:49:04 -0800 (PST)
-X-Received: by 2002:a1f:5d84:: with SMTP id r126mr1015757vkb.33.1643273344756; 
- Thu, 27 Jan 2022 00:49:04 -0800 (PST)
+ Thu, 27 Jan 2022 00:57:38 -0800 (PST)
+Message-ID: <61c78bdc-7ae3-a755-bfc6-df07f266b2dc@canonical.com>
+Date: Thu, 27 Jan 2022 09:57:37 +0100
 MIME-Version: 1.0
-References: <20220120090918.2646626-1-atishp@rivosinc.com>
- <20220120090918.2646626-7-atishp@rivosinc.com>
- <1AA3005C-E9C8-4E4B-900D-DD48B37CEA41@jrtc27.com>
- <CAOnJCUKJmHv2Rs3=FR3LjiZqvM5uxcVeZ3D5xRSbEeDFCeS9=Q@mail.gmail.com>
- <CAMuHMdW+ZO0=Qc8NCWujZUq=L-LZJpcd7oZo4MxRFYMmcURXVQ@mail.gmail.com>
- <CAMuHMdXq7OQJL6H7=JRnDTR6p+AD0o2Ctjn806XZQZ9PYjvepg@mail.gmail.com>
- <CAOnJCU+AVS5Js4ZXmUubTqwU5Ye-9_z8onEE1mwhvCsOXchFBg@mail.gmail.com>
- <CAMuHMdWsX-Pg3B1=KRf9hz1JrPAbydBrANTXg4q5CFJCqHJAoA@mail.gmail.com>
-In-Reply-To: <CAMuHMdWsX-Pg3B1=KRf9hz1JrPAbydBrANTXg4q5CFJCqHJAoA@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 27 Jan 2022 09:48:53 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdX4VPY4KTV+0zwxUqgObGk9gj=D-aMNsTTvAFqV+67zwg@mail.gmail.com>
-Message-ID: <CAMuHMdX4VPY4KTV+0zwxUqgObGk9gj=D-aMNsTTvAFqV+67zwg@mail.gmail.com>
-Subject: Re: [PATCH v3 6/6] RISC-V: Do not use cpumask data structure for
- hartid bitmap
-To: Atish Patra <atishp@atishpatra.org>
-Cc: Jessica Clarke <jrtc27@jrtc27.com>, Atish Patra <atishp@rivosinc.com>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Anup Patel <anup@brainfault.org>, 
- Albert Ou <aou@eecs.berkeley.edu>, Damien Le Moal <damien.lemoal@wdc.com>, 
- devicetree <devicetree@vger.kernel.org>, Jisheng Zhang <jszhang@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.5.0
+Subject: Re: [RISC-V] [tech-unixplatformspec] Public review of Supervisor
+ Binary Interface (SBI) Specification
+Content-Language: en-US
+To: atishp@rivosinc.com
+Cc: Jonathan Behrens <behrensj@mit.edu>,
+ tech-unixplatformspec <tech-unixplatformspec@lists.riscv.org>,
  linux-riscv <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
+ Andrew Waterman <andrew@sifive.com>
+References: <CAHBxVyHsJkDQB=4o1hCjy2MRs6J4R6n6+XS3bT1iCA+6Z9NGqQ@mail.gmail.com>
+ <CANnJOVF3rnpgSixuiwH9x5C+DOViROL_jjpF=2+fkBTh5Amh+w@mail.gmail.com>
+ <CAHBxVyF5A4-Nh2gYHoEGYKGxRGyMEKXuK6i8_T64U5hyUSOm3g@mail.gmail.com>
+ <CANnJOVFpq_LpsNz1sd3-dbxJfYnrR9XapzRbcGVw98ATKoMsbw@mail.gmail.com>
+ <CA++6G0AkUu_39LwXEvNZ+RRDyaeCsC=vdFY_Oue-ZLiuaHN7VQ@mail.gmail.com>
+ <CAHBxVyHygA6k7WxjoK8qAEUv_HTqUwc3=cSyXZp_OaBnxgf3Eg@mail.gmail.com>
+From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+In-Reply-To: <CAHBxVyHygA6k7WxjoK8qAEUv_HTqUwc3=cSyXZp_OaBnxgf3Eg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220127_004907_692011_7F0AC0D3 
-X-CRM114-Status: GOOD (  36.95  )
+X-CRM114-CacheID: sfid-20220127_005751_623808_A81A9AC3 
+X-CRM114-Status: GOOD (  39.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,78 +108,188 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 27, 2022 at 9:48 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> On Thu, Jan 27, 2022 at 2:02 AM Atish Patra <atishp@atishpatra.org> wrote:
-> > On Wed, Jan 26, 2022 at 1:10 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > On Wed, Jan 26, 2022 at 9:28 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > > On Wed, Jan 26, 2022 at 3:21 AM Atish Patra <atishp@atishpatra.org> wrote:
-> > > > > On Tue, Jan 25, 2022 at 2:26 PM Jessica Clarke <jrtc27@jrtc27.com> wrote:
-> > > > > > On 20 Jan 2022, at 09:09, Atish Patra <atishp@rivosinc.com> wrote:
-> > > > > > > Currently, SBI APIs accept a hartmask that is generated from struct
-> > > > > > > cpumask. Cpumask data structure can hold upto NR_CPUs value. Thus, it
-> > > > > > > is not the correct data structure for hartids as it can be higher
-> > > > > > > than NR_CPUs for platforms with sparse or discontguous hartids.
-> > > > > > >
-> > > > > > > Remove all association between hartid mask and struct cpumask.
-> > > > > > >
-> > > > > > > Reviewed-by: Anup Patel <anup@brainfault.org> (For Linux RISC-V changes)
-> > > > > > > Acked-by: Anup Patel <anup@brainfault.org> (For KVM RISC-V changes)
-> > > > > > > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > > >
-> > > > > I am yet to reproduce it on my end.
-> > > > > @Geert Uytterhoeven: can you please try the below diff on your end.
-> > > >
-> > > > Unfortunately it doesn't fix the issue for me.
-> > > >
-> > > > /me debugging...
-> > >
-> > > Found it: after this commit, the SBI_EXT_RFENCE_REMOTE_FENCE_I and
-> > > SBI_EXT_RFENCE_REMOTE_SFENCE_VMA ecalls are now called with
-> > > hmask = 0x8000000000000001 and hbase = 1 instead of hmask = 3 and
-> > > hbase = 0.
-> > >
-> > > cpuid 1 maps to  hartid 0
-> > > cpuid 0 maps to hartid 1
-> > >
-> > >     __sbi_rfence_v02:364: cpuid 1 hartid 0
-> > >     __sbi_rfence_v02:377: hartid 0 hbase 1
-> > >     hmask |= 1UL << (hartid - hbase);
-> > >
-> > > oops
-> > >
-> > >     __sbi_rfence_v02_call:303: SBI_EXT_RFENCE_REMOTE_FENCE_I hmask
-> > > 8000000000000001 hbase 1
-> > >
-> >
-> > Ahh yes. hmask will be incorrect if the bootcpu(cpu 0) is a higher
-> > hartid and it is trying to do a remote tlb flush/IPI
-> > to lower the hartid. We should generate the hartid array before the loop.
-> >
-> > Can you try this diff ? It seems to work for me during multiple boot
-> > cycle on the unleashed.
-> >
-> > You can find the patch here as well
-> > https://github.com/atishp04/linux/commits/v5.17-rc1
->
-> Thanks, that fixes the issue for me.
+On 1/27/22 09:33, atishp@rivosinc.com wrote:
+> 
+> 
+> On Tue, Jan 18, 2022 at 2:46 PM Andrew Waterman <andrew@sifive.com 
+> <mailto:andrew@sifive.com>> wrote:
+> 
+> 
+> 
+>     On Wed, Jan 12, 2022 at 12:50 PM Jonathan Behrens <behrensj@mit.edu
+>     <mailto:behrensj@mit.edu>> wrote:
+> 
+>         If that is the intention, the text should be changed to "Returns
+>         0 if the given SBI extension ID (EID) is not available, or an
+>         *implementation defined* non-zero value if it is available".
+>         Although, if the extensions aren't defining any meaning to the
+>         various possible non-zero values, I personally don't see why we
+>         shouldn't change it to "returns one if it is available".
+> 
+> 
+>     I think allowing implementation-defined nonzero rather than
+>     requiring it be 1 is OK, but I agree with your proposed wording change.
+> 
+> 
+> Sounds good to me as well. I will make the change.
 
-Tested-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Why should the value be implementation specific and not extension specific?
 
-Gr{oetje,eeting}s,
+I would prefer if the specification would provide extension specific 
+unique return values instead of introducing ambiguity about possible 
+return values.
 
-                        Geert
+This also allows us to define further return values per extension if 
+needed in future. But currently all of these values can be defined as 1.
 
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+We just have to add this value 1 to each extension description.
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Best regards
+
+Heinrich
+
+> 
+> 
+>         Jonathan
+> 
+>         On Wed, Jan 12, 2022 at 3:32 PM Atish Kumar Patra
+>         <atishp@rivosinc.com <mailto:atishp@rivosinc.com>> wrote:
+> 
+>             On Wed, Jan 12, 2022 at 10:59 AM Jonathan Behrens
+>             <behrensj@mit.edu <mailto:behrensj@mit.edu>> wrote:
+>              >
+>              > If I understand correctly, per the description of
+>             `sbi_probe_extension`, each of the extensions are supposed
+>             to specify an "extension-specific non-zero value" to return
+>             if they are available. However, right now I don't think any
+>             of them do. Is this something that should be fixed?
+>              >
+> 
+>             The description says "Returns 0 if the given SBI extension
+>             ID (EID) is
+>             not available, or an extension-specific non-zero value if it is
+>             available"
+>             The specification says it should be non-zero as the value "0"
+>             indicates non-availability of the extension. The exact
+>             return value
+>             should be an implementation detail.
+> 
+>              > Jonathan
+>              >
+>              > On Wed, Jan 12, 2022 at 1:44 PM atishp via
+>             lists.riscv.org <http://lists.riscv.org>
+>             <atishp=rivosinc.com@lists.riscv.org
+>             <mailto:rivosinc.com@lists.riscv.org>> wrote:
+>              >>
+>              >> I just realized that the below email was not delivered
+>             to unix
+>              >> platform mailing list and
+>              >> linux-riscv mailing list because of the attachment.
+>             Reseeding it again
+>              >> without the
+>              >> attachment. Apologies for the noise.
+>              >>
+>              >>
+>             -----------------------------------------------------------------------------------------------
+>              >> We are delighted to announce the start of the public
+>             review period for
+>              >> the Non-ISA Supervisor Binary Interface (SBI)
+>             specification. The
+>              >> SBI specification is considered as frozen now as per the
+>             RISC-V International
+>              >> policies.
+>              >>
+>              >> The review period begins today, Monday Jan 10, and ends
+>             on Monday
+>              >> Jan 24 (inclusive).
+>              >>
+>              >> The specification can be found here
+>              >>
+>             https://github.com/riscv-non-isa/riscv-sbi-doc/releases/download/v1.0-rc1/riscv-sbi.pdf
+>             <https://github.com/riscv-non-isa/riscv-sbi-doc/releases/download/v1.0-rc1/riscv-sbi.pdf>
+>              >>
+>              >> which was generated from the source available in the
+>             following GitHub
+>              >> repository:
+>              >> https://github.com/riscv-non-isa/riscv-sbi-doc
+>             <https://github.com/riscv-non-isa/riscv-sbi-doc>
+>              >>
+>              >> To respond to the public review, please either reply to
+>             this email or
+>              >> send comments to the platform mailing list[1] or add
+>             issues to the
+>              >> SBI GitHub repo[2]. We welcome all input and appreciate
+>             your time and
+>              >> effort in helping us by reviewing the specification.
+>              >>
+>              >> During the public review period, corrections, comments, and
+>              >> suggestions, will be gathered for review by the Platform
+>             HSC members. Any
+>              >> minor corrections and/or uncontroversial changes will be
+>             incorporated
+>              >> into the specification. Any remaining issues or proposed
+>             changes will
+>              >> be addressed in the public review summary report. If
+>             there are no
+>              >> issues that require incompatible changes to the public
+>             review
+>              >> specification, the platform HSC will recommend the updated
+>              >> specifications be approved and ratified by the RISC-V
+>             Technical
+>              >> Steering Committee and the RISC-V Board of Directors.
+>              >>
+>              >> SBI specification is non-ISA specifications and will
+>             evolve over time
+>              >> with new extensions as long as they are backward
+>             compatible. Any such
+>              >> proposals for new extensions can be included in the
+>             future releases
+>              >> after proper discussions in the platform working group
+>             meetings.
+>              >>
+>              >> Thanks to all the contributors for all their hard work.
+>              >>
+>              >> [1] tech-unixplatformspec@lists.riscv.org
+>             <mailto:tech-unixplatformspec@lists.riscv.org>
+>              >> [2]
+>             https://github.com/riscv-non-isa/riscv-sbi-doc/issues
+>             <https://github.com/riscv-non-isa/riscv-sbi-doc/issues>
+>              >>
+>              >> Regards,
+>              >> Atish Patra
+>              >>
+>              >>
+>              >>
+>              >>
+>              >>
+> 
+> _._,_._,_
+> ------------------------------------------------------------------------
+> Links:
+> 
+> You receive all messages sent to this group.
+> 
+> View/Reply Online (#1667) 
+> <https://lists.riscv.org/g/tech-unixplatformspec/message/1667> | Reply 
+> To Sender 
+> <mailto:atishp@rivosinc.com?subject=Private:%20Re:%20Re%3A%20%5BRISC-V%5D%20%5Btech-unixplatformspec%5D%20Public%20review%20of%20Supervisor%20Binary%20Interface%20%28SBI%29%20Specification> 
+> | Reply To Group 
+> <mailto:tech-unixplatformspec@lists.riscv.org?subject=Re:%20Re%3A%20%5BRISC-V%5D%20%5Btech-unixplatformspec%5D%20Public%20review%20of%20Supervisor%20Binary%20Interface%20%28SBI%29%20Specification> 
+> | Mute This Topic <https://lists.riscv.org/mt/88379909/6300605> | New 
+> Topic <https://lists.riscv.org/g/tech-unixplatformspec/post>
+> Your Subscription 
+> <https://lists.riscv.org/g/tech-unixplatformspec/editsub/6300605> | 
+> Contact Group Owner <mailto:tech-unixplatformspec+owner@lists.riscv.org> 
+> | Unsubscribe <https://lists.riscv.org/g/tech-unixplatformspec/unsub> 
+> [heinrich.schuchardt@canonical.com]
+> 
+> _._,_._,_
+
 
 _______________________________________________
 linux-riscv mailing list
