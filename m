@@ -4,48 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29F53C43219
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jan 2022 15:17:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10800C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jan 2022 15:17:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=znIafXsDXbV5ldaCNgod33VTirtFcMc7lkbNzbe3zEg=; b=McSYIfXFM8o/Q0
-	os4hJ6s3Rana0EogIOwZp2NC9L3QdbmQHhR2+qNpBngNhxkG6OkWSMDZi17w0MQOFqHs37oVnzX04
-	jfi5tYosK7A7luYV9rpfuDScvmFyHiBZ4VqyWeqtqo5fMXam3t/fvJvpqcQV/383OuF0A7wZWrTHu
-	x770dZyqDOyeag7s6WrYHGVRAahjAmuDJtBCUASx7Ny5Y/6KZ3NwLT3iEYbdaiq+lqrmTqh2/Fr7u
-	7Dh+yk//uvbeTRd+AsWNMb0KV3n6lp9sz1jGj77wYKAJ4Hu/6KfuuUsLYnzbGCFgM1sehJ9Nma98g
-	sxfgQAtD45xpx86Gc5LQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6pL51A5/CqlxsWNP6KzPCF4PTJlcnplGXA1SDgTchxs=; b=kcr7yt5Ix3uDNx
+	VzO6H+aPDdips8NNUyJnGTejY/77X20ZFV1gK9+0eFSt10k+nKQFoC1Sy7OGm3SOLgouEaK0pE9zM
+	26yiJAKu75QoUJt3qs6Eoe1XtTv/z3vtRM2TCpOV4elWFpC4F4OO2LVKTx6nMiZTuvHCkN/3/JMDa
+	nozpgWTEtc9qmxHvJe7IX9iifgpW88mVCwRWrPJO8Y53GUYpid70WOvInI52zcFCe7d8iyqmnsUTi
+	ZdqBlN6d/pirRo8534wnsQbpoy9Fo68OvTpaJ67fiYxwiqqjUwW3REKkxCcIYYU4NybONKfKbVF1h
+	zoVs1D+kjyTLeQUTUlkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nD6WH-00GBzd-9r; Thu, 27 Jan 2022 15:17:05 +0000
-Received: from out28-76.mail.aliyun.com ([115.124.28.76])
+	id 1nD6WW-00GC9f-GG; Thu, 27 Jan 2022 15:17:20 +0000
+Received: from out29-4.mail.aliyun.com ([115.124.29.4])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nD6WC-00GBwQ-AK
- for linux-riscv@lists.infradead.org; Thu, 27 Jan 2022 15:17:02 +0000
-X-Alimail-AntiSpam: AC=CONTINUE; BC=0.4309704|-1; CH=green; DM=|CONTINUE|false|;
- DS=CONTINUE|ham_system_inform|0.0724481-0.000318653-0.927233;
- FP=0|0|0|0|0|-1|-1|-1; HT=ay29a033018047190; MF=icenowy@nucleisys.com; NM=1;
- PH=DS; RN=10; RT=10; SR=0; TI=SMTPD_---.Mj85OyW_1643296608; 
+ id 1nD6WF-00GBwx-9v
+ for linux-riscv@lists.infradead.org; Thu, 27 Jan 2022 15:17:04 +0000
+X-Alimail-AntiSpam: AC=SUSPECT; BC=0.6349558|-1; BR=01201311R141b1; CH=blue;
+ DM=|SUSPECT|false|;
+ DS=CONTINUE|ham_system_inform|0.0327302-0.00826224-0.959008;
+ FP=0|0|0|0|0|-1|-1|-1; HT=ay29a033018047192; MF=icenowy@nucleisys.com; NM=1;
+ PH=DS; RN=10; RT=10; SR=0; TI=SMTPD_---.Mj85OzO_1643296617; 
 Received: from ice-e5v2.lan(mailfrom:icenowy@nucleisys.com
- fp:SMTPD_---.Mj85OyW_1643296608)
- by smtp.aliyun-inc.com(33.45.46.134); Thu, 27 Jan 2022 23:16:53 +0800
+ fp:SMTPD_---.Mj85OzO_1643296617)
+ by smtp.aliyun-inc.com(33.45.46.134); Thu, 27 Jan 2022 23:16:58 +0800
 From: Icenowy Zheng <icenowy@nucleisys.com>
 To: Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
 Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org,
  linux-spi@vger.kernel.org, Icenowy Zheng <icenowy@nucleisys.com>
-Subject: [PATCH 00/12] Initial support for Nuclei DemoSoC w/ UX600
-Date: Thu, 27 Jan 2022 23:16:35 +0800
-Message-Id: <20220127151647.2375449-1-icenowy@nucleisys.com>
+Subject: [PATCH 02/12] RISC-V: add Nuclei SoC Kconfig option
+Date: Thu, 27 Jan 2022 23:16:37 +0800
+Message-Id: <20220127151647.2375449-3-icenowy@nucleisys.com>
 X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20220127151647.2375449-1-icenowy@nucleisys.com>
+References: <20220127151647.2375449-1-icenowy@nucleisys.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220127_071700_624259_19F6828B 
-X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-CacheID: sfid-20220127_071703_587136_EAA76BAD 
+X-CRM114-Status: UNSURE (   7.37  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -63,59 +66,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset adds support for Nuclei DemoSoC (which is an evaluation
-platform made with Nuclei CPU cores and mainly peripherals in original
-Hummingbird E203 project, running on FPGA) with UX600 CPU cores.
+As a CPU core vendor, Nuclei has some "DemoSoCs" that uses Nuclei CPU
+cores and modified peripherals from Hummingbird E203.
 
-Most patches are for DT bindings, the remaining ones are adding a
-Kconfig option and some DTS/DTSI files. The last one is a workaround for
-a severe bug in currently released versions of UX600, which is found
-in 5.17 kernel, in which Sv48 support is added to Linux.
+Add a Kconfig option for this.
 
-Two non-technical patches are in this patchset too, for MAINTAINERS
-and .mailmap items.
+Signed-off-by: Icenowy Zheng <icenowy@nucleisys.com>
+---
+ arch/riscv/Kconfig.socs | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Icenowy Zheng (12):
-  dt-bindings: vendor-prefixes: add Nuclei
-  RISC-V: add Nuclei SoC Kconfig option
-  dt-bindings: riscv: add compatible strings for Nuclei UX600 series
-  dt-bindings: timer: add compatible for Nuclei UX600 CLINT-compat timer
-  dt-bindings: interrupt-controller: add compatible string for UX600
-    PLIC
-  dt-bindings: serial: add compatible string for Nuclei DemoSoC UART
-  dt-bindings: spi: add compatible string for Nuclei DemoSoC SPI
-  dt-bindings: riscv: add binding for Nuclei platform boards
-  riscv: dts: add device tree for Nuclei DemoSoC w/ UX600 on DDR200T
-  RISC-V: workaround Nuclei UX600 cores with broken SATP CSR
-  MAINTAINERS: add myself as Nuclei SoCs/CPUs supporter
-  mailmap: add Icenowy Zheng's Nuclei mail addresses
-
- .mailmap                                      |  1 +
- .../sifive,plic-1.0.0.yaml                    |  1 +
- .../devicetree/bindings/riscv/cpus.yaml       |  7 ++
- .../devicetree/bindings/riscv/nuclei.yaml     | 27 ++++++++
- .../bindings/serial/sifive-serial.yaml        |  1 +
- .../devicetree/bindings/spi/spi-sifive.yaml   |  1 +
- .../bindings/timer/sifive,clint.yaml          |  1 +
- .../devicetree/bindings/vendor-prefixes.yaml  |  2 +
- MAINTAINERS                                   |  7 ++
- arch/riscv/Kconfig.socs                       |  6 ++
- arch/riscv/boot/dts/Makefile                  |  1 +
- arch/riscv/boot/dts/nuclei/Makefile           |  2 +
- .../dts/nuclei/nuclei-demosoc-ddr200t.dtsi    | 41 ++++++++++++
- .../nuclei/nuclei-demosoc-ux600-ddr200t.dts   | 13 ++++
- .../boot/dts/nuclei/nuclei-demosoc-ux600.dtsi | 49 ++++++++++++++
- .../riscv/boot/dts/nuclei/nuclei-demosoc.dtsi | 67 +++++++++++++++++++
- arch/riscv/include/asm/vendorid_list.h        |  1 +
- arch/riscv/mm/init.c                          | 17 +++++
- 18 files changed, 245 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/riscv/nuclei.yaml
- create mode 100644 arch/riscv/boot/dts/nuclei/Makefile
- create mode 100644 arch/riscv/boot/dts/nuclei/nuclei-demosoc-ddr200t.dtsi
- create mode 100644 arch/riscv/boot/dts/nuclei/nuclei-demosoc-ux600-ddr200t.dts
- create mode 100644 arch/riscv/boot/dts/nuclei/nuclei-demosoc-ux600.dtsi
- create mode 100644 arch/riscv/boot/dts/nuclei/nuclei-demosoc.dtsi
-
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 6ec44a22278a..e4488ac8c72b 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -7,6 +7,12 @@ config SOC_MICROCHIP_POLARFIRE
+ 	help
+ 	  This enables support for Microchip PolarFire SoC platforms.
+ 
++config SOC_NUCLEI
++	bool "Nuclei SoCs"
++	select SIFIVE_PLIC
++	help
++	  This enables support for Nuclei SoC platform hardware.
++
+ config SOC_SIFIVE
+ 	bool "SiFive SoCs"
+ 	select SERIAL_SIFIVE if TTY
 -- 
 2.30.2
 
