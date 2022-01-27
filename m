@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CFD9C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jan 2022 01:02:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F458C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jan 2022 02:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4quZ8vId2p2GoLDissecRjZ3k/G+Fg2eYEO7hLxRw6c=; b=Pk0sdpJ80u5eHQ
-	EoRvoGdyaZ7cKp/PlIgslgxD27KgqGXsOiFJPB11cRqOVaE0B6d/b8fPmZ939HNtvy9n6wRfdC+Y8
-	eLu9Tms7XJzsvZEdl07wfbKmMIIvrg+wW7Sflry6MfpnnEYo9VhjhO4C/rTCjPUhT0eIMV2nke28k
-	XQFthr2z4otpqL4QlsA0bUkdF6FMMzxVYGNNCl33Pf+ENzAiF3t4toAuO2fonT+QZGMM6TFI944kJ
-	Vu/scnwU3PMAXRBAJjgmn5KHfPvz2TNQjY1oazzf+7C5PEyiI3iijkCnZkUb6Th0tLR7fgQKkt/V3
-	8hx/KFCDJ/lvV9bX+rgg==;
+	List-Owner; bh=DOU3ZQhH7uiZ8y2oP0qEZjPCXvcMHxkvQhiloogaLCY=; b=qyzE2xfc+xKV2W
+	Z4XY6KrCHj4BdMtGe1kTU6yHUZKQGkWqX/HBKGAsQwIXswupKgsSR2v7OjOFK4I+8WjytVjKdXaka
+	xcBO6vlKNEm4pUSAIHfyTLAsYM3AhoPLRaOUu3iWkmHP//PG5ZuDpgJKs6GA+5lueBVlL4QZ01DoO
+	G+rFRVEhgy9ttPtCaKbYe6BcL2PxeZhGPi2BYpn2WQ8TPDP3dFXzDs9QPdELIqWcgvI6PvitJejP0
+	hydpKFqXr/8wPt4kveVKkyUJskVISBzn0BSFnG/Ja07YtUdtRLPlAw61JxDF5qkN7Kt7fvsI+vCIj
+	HWZpD+oWHiND6+B3yTGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nCtAz-00DvJ8-9g; Thu, 27 Jan 2022 01:02:13 +0000
-Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nCtAv-00DvG0-FY
- for linux-riscv@lists.infradead.org; Thu, 27 Jan 2022 01:02:11 +0000
-Received: by mail-yb1-xb2c.google.com with SMTP id l68so4064088ybl.0
- for <linux-riscv@lists.infradead.org>; Wed, 26 Jan 2022 17:02:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=uCfp+mv9XZ6IpRY4p39vfAWXjlQsufjrNR7XuTkTSA0=;
- b=kdDs0j4eBH3Ul2Ha67seRy8CctY5Z2a7drDpC8CObpmBHSn2BUzrQ66VOQP2A2q296
- ooormPp/0unPlT1OI0BXNtgapKdTHvG4Z/aOdVn/KHCtUijkzcZQe0/6+SqX3gWmeEaV
- dCieIwRoz/jSlxJkqgsZPnAL+ufJP/UA+yuTk=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=uCfp+mv9XZ6IpRY4p39vfAWXjlQsufjrNR7XuTkTSA0=;
- b=wYJ669B+tWFmXO6MZmT1HNRb1aAB//wLuxHMmhv2yRVMLkEJ9Gxpf2hat+vQxQ1Uge
- pbGXBtgB33fs+p7cAPi4I+IAKTfwvRjYdDoFArGsHQMXCIRlScleYloG1OAJVuTM7o0C
- B0L0b29Dquot66hynS02qhLq78W/DAC5sz4GLKwkDF3DM/0DP/k9wvXSGtVhVufwNXnJ
- 0yfNmgA5bKpEWoE1sykiOY/I3vrrzeouEOR5DmfXSo9ombGNviTLdXlR5X9l5AfSMPV9
- +nqGFsrtdcLoHGS09kvi+v8TZX7PiVVc0mf8HJCih+gsl+LCjYKQGJB2vZ41RYThqz9Y
- g8jg==
-X-Gm-Message-State: AOAM532wY96kt2vRYiGruGmkxRn2CKwSmjPxCwafSQGuB7dF4WXtEp/g
- vxOjEBJXwJg/oqXwYc752uUakVwpUqwfsqKd/aZo
-X-Google-Smtp-Source: ABdhPJwQbOzQxlbt/a09fR00iPVtrGYZ3evSYo/X9KWDDMiaD4+h8WJwnD/VD0VlB6JkhcFk6WwSAaraJPX1jw0TtgU=
-X-Received: by 2002:a5b:44:: with SMTP id e4mr2376039ybp.713.1643245326587;
- Wed, 26 Jan 2022 17:02:06 -0800 (PST)
+	id 1nCuqR-00E7zZ-U3; Thu, 27 Jan 2022 02:49:07 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nCuqL-00E7xg-MW
+ for linux-riscv@lists.infradead.org; Thu, 27 Jan 2022 02:49:04 +0000
+Received: from localhost.localdomain (unknown [124.16.141.242])
+ by APP-01 (Coremail) with SMTP id qwCowADHz8cOCPJhFmwLAA--.8245S4;
+ Thu, 27 Jan 2022 10:48:54 +0800 (CST)
+From: panqinglin2020@iscas.ac.cn
+To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org
+Cc: jeff@riscv.org, xuyinan@ict.ac.cn, Qinglin Pan <panqinglin2020@iscas.ac.cn>
+Subject: [PATCH v2 2/4] riscv: mm: Prepare pt_ops helper functions for sv57
+Date: Thu, 27 Jan 2022 10:48:42 +0800
+Message-Id: <20220127024844.2413385-3-panqinglin2020@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20220127024844.2413385-1-panqinglin2020@iscas.ac.cn>
+References: <20220127024844.2413385-1-panqinglin2020@iscas.ac.cn>
 MIME-Version: 1.0
-References: <20220120090918.2646626-1-atishp@rivosinc.com>
- <20220120090918.2646626-7-atishp@rivosinc.com>
- <1AA3005C-E9C8-4E4B-900D-DD48B37CEA41@jrtc27.com>
- <CAOnJCUKJmHv2Rs3=FR3LjiZqvM5uxcVeZ3D5xRSbEeDFCeS9=Q@mail.gmail.com>
- <CAMuHMdW+ZO0=Qc8NCWujZUq=L-LZJpcd7oZo4MxRFYMmcURXVQ@mail.gmail.com>
- <CAMuHMdXq7OQJL6H7=JRnDTR6p+AD0o2Ctjn806XZQZ9PYjvepg@mail.gmail.com>
-In-Reply-To: <CAMuHMdXq7OQJL6H7=JRnDTR6p+AD0o2Ctjn806XZQZ9PYjvepg@mail.gmail.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Wed, 26 Jan 2022 17:01:55 -0800
-Message-ID: <CAOnJCU+AVS5Js4ZXmUubTqwU5Ye-9_z8onEE1mwhvCsOXchFBg@mail.gmail.com>
-Subject: Re: [PATCH v3 6/6] RISC-V: Do not use cpumask data structure for
- hartid bitmap
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Jessica Clarke <jrtc27@jrtc27.com>, Atish Patra <atishp@rivosinc.com>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Anup Patel <anup@brainfault.org>, 
- Albert Ou <aou@eecs.berkeley.edu>, Damien Le Moal <damien.lemoal@wdc.com>, 
- devicetree <devicetree@vger.kernel.org>, Jisheng Zhang <jszhang@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
+X-CM-TRANSID: qwCowADHz8cOCPJhFmwLAA--.8245S4
+X-Coremail-Antispam: 1UD129KBjvJXoW3Zw1DXFW7KrykuryfuF17Jrb_yoWDAr47pr
+ 48GF1ktF45JrWvqa1ftry5tr17ZwnrW3yDJrWkWFykuay7ArySgrs7KrWavFyxuF4kAF15
+ Ars5tay5AayjkrJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUPm14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+ rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
+ x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+ Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
+ 8EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr0_GcWl
+ nxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4
+ CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvj
+ eVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I
+ 1lw4CEc2x0rVAKj4xxMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I
+ 3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxV
+ WUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8I
+ cVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aV
+ AFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZE
+ Xa7VUUpwZ7UUUUU==
+X-Originating-IP: [124.16.141.242]
+X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220126_170209_621340_9851E6BC 
-X-CRM114-Status: GOOD (  40.60  )
+X-CRM114-CacheID: sfid-20220126_184902_159616_2CA3B378 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,195 +78,264 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 26, 2022 at 1:10 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> Hi Atish,
->
-> On Wed, Jan 26, 2022 at 9:28 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > On Wed, Jan 26, 2022 at 3:21 AM Atish Patra <atishp@atishpatra.org> wrote:
-> > > On Tue, Jan 25, 2022 at 2:26 PM Jessica Clarke <jrtc27@jrtc27.com> wrote:
-> > > > On 20 Jan 2022, at 09:09, Atish Patra <atishp@rivosinc.com> wrote:
-> > > > > Currently, SBI APIs accept a hartmask that is generated from struct
-> > > > > cpumask. Cpumask data structure can hold upto NR_CPUs value. Thus, it
-> > > > > is not the correct data structure for hartids as it can be higher
-> > > > > than NR_CPUs for platforms with sparse or discontguous hartids.
-> > > > >
-> > > > > Remove all association between hartid mask and struct cpumask.
-> > > > >
-> > > > > Reviewed-by: Anup Patel <anup@brainfault.org> (For Linux RISC-V changes)
-> > > > > Acked-by: Anup Patel <anup@brainfault.org> (For KVM RISC-V changes)
-> > > > > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> >
-> > > I am yet to reproduce it on my end.
-> > > @Geert Uytterhoeven: can you please try the below diff on your end.
-> >
-> > Unfortunately it doesn't fix the issue for me.
-> >
-> > /me debugging...
->
-> Found it: after this commit, the SBI_EXT_RFENCE_REMOTE_FENCE_I and
-> SBI_EXT_RFENCE_REMOTE_SFENCE_VMA ecalls are now called with
-> hmask = 0x8000000000000001 and hbase = 1 instead of hmask = 3 and
-> hbase = 0.
->
-> cpuid 1 maps to  hartid 0
-> cpuid 0 maps to hartid 1
->
->     __sbi_rfence_v02:364: cpuid 1 hartid 0
->     __sbi_rfence_v02:377: hartid 0 hbase 1
->     hmask |= 1UL << (hartid - hbase);
->
-> oops
->
->     __sbi_rfence_v02_call:303: SBI_EXT_RFENCE_REMOTE_FENCE_I hmask
-> 8000000000000001 hbase 1
->
+From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
 
-Ahh yes. hmask will be incorrect if the bootcpu(cpu 0) is a higher
-hartid and it is trying to do a remote tlb flush/IPI
-to lower the hartid. We should generate the hartid array before the loop.
+This patch prepare some pt_ops helper functions which will be used in
+creating sv57 mappings during boot time.
 
-Can you try this diff ? It seems to work for me during multiple boot
-cycle on the unleashed.
+Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
 
-You can find the patch here as well
-https://github.com/atishp04/linux/commits/v5.17-rc1
-
---------------------------------------------------------------------------------------------------------------------------------
-diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-index f72527fcb347..4ebeb5813edc 100644
---- a/arch/riscv/kernel/sbi.c
-+++ b/arch/riscv/kernel/sbi.c
-@@ -8,6 +8,8 @@
- #include <linux/init.h>
- #include <linux/pm.h>
- #include <linux/reboot.h>
-+#include <linux/sort.h>
+diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
+index 58a718573ad6..3cfece8b6568 100644
+--- a/arch/riscv/include/asm/fixmap.h
++++ b/arch/riscv/include/asm/fixmap.h
+@@ -25,6 +25,7 @@ enum fixed_addresses {
+ 	FIX_PTE,
+ 	FIX_PMD,
+ 	FIX_PUD,
++	FIX_P4D,
+ 	FIX_TEXT_POKE1,
+ 	FIX_TEXT_POKE0,
+ 	FIX_EARLYCON_MEM_BASE,
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 58fece3133e9..351cabcd528e 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -133,6 +133,8 @@ struct pt_alloc_ops {
+ 	phys_addr_t (*alloc_pmd)(uintptr_t va);
+ 	pud_t *(*get_pud_virt)(phys_addr_t pa);
+ 	phys_addr_t (*alloc_pud)(uintptr_t va);
++	p4d_t *(*get_p4d_virt)(phys_addr_t pa);
++	phys_addr_t (*alloc_p4d)(uintptr_t va);
+ #endif
+ };
+ 
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 9e4ed02e3d56..425377c97c40 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -229,6 +229,7 @@ pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+ static pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
+ 
+ pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
++static p4d_t __maybe_unused early_dtb_p4d[PTRS_PER_P4D] __initdata __aligned(PAGE_SIZE);
+ static pud_t __maybe_unused early_dtb_pud[PTRS_PER_PUD] __initdata __aligned(PAGE_SIZE);
+ static pmd_t __maybe_unused early_dtb_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
+ 
+@@ -319,6 +320,16 @@ static pmd_t early_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
+ #define early_pmd      ((pmd_t *)XIP_FIXUP(early_pmd))
+ #endif /* CONFIG_XIP_KERNEL */
+ 
++static p4d_t trampoline_p4d[PTRS_PER_P4D] __page_aligned_bss;
++static p4d_t fixmap_p4d[PTRS_PER_P4D] __page_aligned_bss;
++static p4d_t early_p4d[PTRS_PER_P4D] __initdata __aligned(PAGE_SIZE);
 +
- #include <asm/sbi.h>
- #include <asm/smp.h>
-
-@@ -85,7 +87,7 @@ static unsigned long
-__sbi_v01_cpumask_to_hartmask(const struct cpumask *cpu_mas
-  pr_warn("Unable to send any request to hartid > BITS_PER_LONG for
-SBI v0.1\n");
-  break;
-  }
-- hmask |= 1 << hartid;
-+ hmask |= 1UL << hartid;
-  }
-
-  return hmask;
-@@ -160,7 +162,7 @@ static int __sbi_send_ipi_v01(const struct cpumask
-*cpu_mask)
- {
-  unsigned long hart_mask;
-
-- if (!cpu_mask)
-+ if (!cpu_mask || cpumask_empty(cpu_mask))
-  cpu_mask = cpu_online_mask;
-  hart_mask = __sbi_v01_cpumask_to_hartmask(cpu_mask);
-
-@@ -176,7 +178,7 @@ static int __sbi_rfence_v01(int fid, const struct
-cpumask *cpu_mask,
-  int result = 0;
-  unsigned long hart_mask;
-
-- if (!cpu_mask)
-+ if (!cpu_mask || cpumask_empty(cpu_mask))
-  cpu_mask = cpu_online_mask;
-  hart_mask = __sbi_v01_cpumask_to_hartmask(cpu_mask);
-
-@@ -236,6 +238,18 @@ static int __sbi_rfence_v01(int fid, const struct
-cpumask *cpu_mask,
- static void sbi_set_power_off(void) {}
- #endif /* CONFIG_RISCV_SBI_V01 */
-
-+static int cmp_ulong(const void *A, const void *B)
++#ifdef CONFIG_XIP_KERNEL
++#define trampoline_p4d ((p4d_t *)XIP_FIXUP(trampoline_p4d))
++#define fixmap_p4d     ((p4d_t *)XIP_FIXUP(fixmap_p4d))
++#define early_p4d      ((p4d_t *)XIP_FIXUP(early_p4d))
++#endif /* CONFIG_XIP_KERNEL */
++
+ static pud_t trampoline_pud[PTRS_PER_PUD] __page_aligned_bss;
+ static pud_t fixmap_pud[PTRS_PER_PUD] __page_aligned_bss;
+ static pud_t early_pud[PTRS_PER_PUD] __initdata __aligned(PAGE_SIZE);
+@@ -433,6 +444,44 @@ static phys_addr_t alloc_pud_late(uintptr_t va)
+ 	return __pa(vaddr);
+ }
+ 
++static p4d_t *__init get_p4d_virt_early(phys_addr_t pa)
 +{
-+ const unsigned long *a = A, *b = B;
-+
-+ if (*a < *b)
-+ return -1;
-+ else if (*a > *b)
-+ return 1;
-+ else
-+ return 0;
++	return (p4d_t *)((uintptr_t)pa);
 +}
 +
- static void __sbi_set_timer_v02(uint64_t stime_value)
- {
- #if __riscv_xlen == 32
-@@ -251,13 +265,22 @@ static int __sbi_send_ipi_v02(const struct
-cpumask *cpu_mask)
- {
-  unsigned long hartid, cpuid, hmask = 0, hbase = 0;
-  struct sbiret ret = {0};
-- int result;
-+ int result, index = 0, max_index = 0;
-+ unsigned long hartid_arr[NR_CPUS] = {0};
-
-- if (!cpu_mask)
-+ if (!cpu_mask || cpumask_empty(cpu_mask))
-  cpu_mask = cpu_online_mask;
-
-  for_each_cpu(cpuid, cpu_mask) {
-  hartid = cpuid_to_hartid_map(cpuid);
-+ hartid_arr[index] = hartid;
-+ index++;
-+ }
++static p4d_t *__init get_p4d_virt_fixmap(phys_addr_t pa)
++{
++	clear_fixmap(FIX_P4D);
++	return (p4d_t *)set_fixmap_offset(FIX_P4D, pa);
++}
 +
-+ max_index = index;
-+ sort(hartid_arr, max_index, sizeof(unsigned long), cmp_ulong, NULL);
-+ for (index = 0; index < max_index; index++) {
-+ hartid = hartid_arr[index];
-  if (hmask && ((hbase + BITS_PER_LONG) <= hartid)) {
-  ret = sbi_ecall(SBI_EXT_IPI, SBI_EXT_IPI_SEND_IPI,
-  hmask, hbase, 0, 0, 0, 0);
-@@ -345,13 +368,21 @@ static int __sbi_rfence_v02(int fid, const
-struct cpumask *cpu_mask,
-      unsigned long arg4, unsigned long arg5)
- {
-  unsigned long hartid, cpuid, hmask = 0, hbase = 0;
-- int result;
-+ int result, index = 0, max_index = 0;
-+ unsigned long hartid_arr[NR_CPUS] = {0};
-
-- if (!cpu_mask)
-+ if (!cpu_mask || cpumask_empty(cpu_mask))
-  cpu_mask = cpu_online_mask;
-
-  for_each_cpu(cpuid, cpu_mask) {
-  hartid = cpuid_to_hartid_map(cpuid);
-+ hartid_arr[index] = hartid;
-+ index++;
-+ }
-+ max_index = index;
-+ sort(hartid_arr, max_index, sizeof(unsigned long), cmp_ulong, NULL);
-+ for (index = 0; index < max_index; index++) {
-+ hartid = hartid_arr[index];
-  if (hmask && ((hbase + BITS_PER_LONG) <= hartid)) {
-  result = __sbi_rfence_v02_call(fid, hmask, hbase,
-         start, size, arg4, arg5);
-
---------------------------------------------------------------------------------------------------------------------------------
-
-> Gr{oetje,eeting}s,
->
->                         Geert
->
-> --
-> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
->
-> In personal conversations with technical people, I call myself a hacker. But
-> when I'm talking to journalists I just say "programmer" or something like that.
->                                 -- Linus Torvalds
-
-
-
++static p4d_t *__init get_p4d_virt_late(phys_addr_t pa)
++{
++	return (p4d_t *)__va(pa);
++}
++
++static phys_addr_t __init alloc_p4d_early(uintptr_t va)
++{
++	/* Only one P4D is available for early mapping */
++	BUG_ON((va - kernel_map.virt_addr) >> PGDIR_SHIFT);
++
++	return (uintptr_t)early_p4d;
++}
++
++static phys_addr_t __init alloc_p4d_fixmap(uintptr_t va)
++{
++	return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
++}
++
++static phys_addr_t alloc_p4d_late(uintptr_t va)
++{
++	unsigned long vaddr;
++
++	vaddr = __get_free_page(GFP_KERNEL);
++	BUG_ON(!vaddr);
++	return __pa(vaddr);
++}
++
+ static void __init create_pud_mapping(pud_t *pudp,
+ 				      uintptr_t va, phys_addr_t pa,
+ 				      phys_addr_t sz, pgprot_t prot)
+@@ -460,21 +509,55 @@ static void __init create_pud_mapping(pud_t *pudp,
+ 	create_pmd_mapping(nextp, va, pa, sz, prot);
+ }
+ 
+-#define pgd_next_t		pud_t
+-#define alloc_pgd_next(__va)	(pgtable_l4_enabled ?			\
+-		pt_ops.alloc_pud(__va) : pt_ops.alloc_pmd(__va))
+-#define get_pgd_next_virt(__pa)	(pgtable_l4_enabled ?			\
+-		pt_ops.get_pud_virt(__pa) : (pgd_next_t *)pt_ops.get_pmd_virt(__pa))
++static void __init create_p4d_mapping(p4d_t *p4dp,
++				      uintptr_t va, phys_addr_t pa,
++				      phys_addr_t sz, pgprot_t prot)
++{
++	pud_t *nextp;
++	phys_addr_t next_phys;
++	uintptr_t p4d_index = p4d_index(va);
++
++	if (sz == P4D_SIZE) {
++		if (p4d_val(p4dp[p4d_index]) == 0)
++			p4dp[p4d_index] = pfn_p4d(PFN_DOWN(pa), prot);
++		return;
++	}
++
++	if (p4d_val(p4dp[p4d_index]) == 0) {
++		next_phys = pt_ops.alloc_pud(va);
++		p4dp[p4d_index] = pfn_p4d(PFN_DOWN(next_phys), PAGE_TABLE);
++		nextp = pt_ops.get_pud_virt(next_phys);
++		memset(nextp, 0, PAGE_SIZE);
++	} else {
++		next_phys = PFN_PHYS(_p4d_pfn(p4dp[p4d_index]));
++		nextp = pt_ops.get_pud_virt(next_phys);
++	}
++
++	create_pud_mapping(nextp, va, pa, sz, prot);
++}
++
++#define pgd_next_t		p4d_t
++#define alloc_pgd_next(__va)	(pgtable_l5_enabled ?			\
++		pt_ops.alloc_p4d(__va) : (pgtable_l4_enabled ?		\
++		pt_ops.alloc_pud(__va) : pt_ops.alloc_pmd(__va)))
++#define get_pgd_next_virt(__pa)	(pgtable_l5_enabled ?			\
++		pt_ops.get_p4d_virt(__pa) : (pgd_next_t *)(pgtable_l4_enabled ?	\
++		pt_ops.get_pud_virt(__pa) : (pud_t *)pt_ops.get_pmd_virt(__pa)))
+ #define create_pgd_next_mapping(__nextp, __va, __pa, __sz, __prot)	\
++				(pgtable_l5_enabled ?			\
++		create_p4d_mapping(__nextp, __va, __pa, __sz, __prot) : \
+ 				(pgtable_l4_enabled ?			\
+-		create_pud_mapping(__nextp, __va, __pa, __sz, __prot) :	\
+-		create_pmd_mapping((pmd_t *)__nextp, __va, __pa, __sz, __prot))
+-#define fixmap_pgd_next		(pgtable_l4_enabled ?			\
+-		(uintptr_t)fixmap_pud : (uintptr_t)fixmap_pmd)
+-#define trampoline_pgd_next	(pgtable_l4_enabled ?			\
+-		(uintptr_t)trampoline_pud : (uintptr_t)trampoline_pmd)
+-#define early_dtb_pgd_next	(pgtable_l4_enabled ?			\
+-		(uintptr_t)early_dtb_pud : (uintptr_t)early_dtb_pmd)
++		create_pud_mapping((pud_t *)__nextp, __va, __pa, __sz, __prot) :	\
++		create_pmd_mapping((pmd_t *)__nextp, __va, __pa, __sz, __prot)))
++#define fixmap_pgd_next		(pgtable_l5_enabled ?			\
++		(uintptr_t)fixmap_p4d : (pgtable_l4_enabled ?		\
++		(uintptr_t)fixmap_pud : (uintptr_t)fixmap_pmd))
++#define trampoline_pgd_next	(pgtable_l5_enabled ?			\
++		(uintptr_t)trampoline_p4d : (pgtable_l4_enabled ?	\
++		(uintptr_t)trampoline_pud : (uintptr_t)trampoline_pmd))
++#define early_dtb_pgd_next	(pgtable_l5_enabled ?			\
++		(uintptr_t)early_dtb_p4d : (pgtable_l4_enabled ?	\
++		(uintptr_t)early_dtb_pud : (uintptr_t)early_dtb_pmd))
+ #else
+ #define pgd_next_t		pte_t
+ #define alloc_pgd_next(__va)	pt_ops.alloc_pte(__va)
+@@ -483,6 +566,7 @@ static void __init create_pud_mapping(pud_t *pudp,
+ 	create_pte_mapping(__nextp, __va, __pa, __sz, __prot)
+ #define fixmap_pgd_next		((uintptr_t)fixmap_pte)
+ #define early_dtb_pgd_next	((uintptr_t)early_dtb_pmd)
++#define create_p4d_mapping(__pmdp, __va, __pa, __sz, __prot)
+ #define create_pud_mapping(__pmdp, __va, __pa, __sz, __prot)
+ #define create_pmd_mapping(__pmdp, __va, __pa, __sz, __prot)
+ #endif /* __PAGETABLE_PMD_FOLDED */
+@@ -693,10 +777,13 @@ static void __init create_fdt_early_page_table(pgd_t *pgdir, uintptr_t dtb_pa)
+ 			   PGDIR_SIZE,
+ 			   IS_ENABLED(CONFIG_64BIT) ? PAGE_TABLE : PAGE_KERNEL);
+ 
+-	if (pgtable_l4_enabled) {
++	if (pgtable_l5_enabled)
++		create_p4d_mapping(early_dtb_p4d, DTB_EARLY_BASE_VA,
++				   (uintptr_t)early_dtb_pud, P4D_SIZE, PAGE_TABLE);
++
++	if (pgtable_l4_enabled)
+ 		create_pud_mapping(early_dtb_pud, DTB_EARLY_BASE_VA,
+ 				   (uintptr_t)early_dtb_pmd, PUD_SIZE, PAGE_TABLE);
+-	}
+ 
+ 	if (IS_ENABLED(CONFIG_64BIT)) {
+ 		create_pmd_mapping(early_dtb_pmd, DTB_EARLY_BASE_VA,
+@@ -732,6 +819,8 @@ void __init pt_ops_set_early(void)
+ 	pt_ops.get_pmd_virt = get_pmd_virt_early;
+ 	pt_ops.alloc_pud = alloc_pud_early;
+ 	pt_ops.get_pud_virt = get_pud_virt_early;
++	pt_ops.alloc_p4d = alloc_p4d_early;
++	pt_ops.get_p4d_virt = get_p4d_virt_early;
+ #endif
+ }
+ 
+@@ -752,6 +841,8 @@ void __init pt_ops_set_fixmap(void)
+ 	pt_ops.get_pmd_virt = kernel_mapping_pa_to_va((uintptr_t)get_pmd_virt_fixmap);
+ 	pt_ops.alloc_pud = kernel_mapping_pa_to_va((uintptr_t)alloc_pud_fixmap);
+ 	pt_ops.get_pud_virt = kernel_mapping_pa_to_va((uintptr_t)get_pud_virt_fixmap);
++	pt_ops.alloc_p4d = kernel_mapping_pa_to_va((uintptr_t)alloc_p4d_fixmap);
++	pt_ops.get_p4d_virt = kernel_mapping_pa_to_va((uintptr_t)get_p4d_virt_fixmap);
+ #endif
+ }
+ 
+@@ -768,6 +859,8 @@ void __init pt_ops_set_late(void)
+ 	pt_ops.get_pmd_virt = get_pmd_virt_late;
+ 	pt_ops.alloc_pud = alloc_pud_late;
+ 	pt_ops.get_pud_virt = get_pud_virt_late;
++	pt_ops.alloc_p4d = alloc_p4d_late;
++	pt_ops.get_p4d_virt = get_p4d_virt_late;
+ #endif
+ }
+ 
+@@ -828,6 +921,10 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 			   fixmap_pgd_next, PGDIR_SIZE, PAGE_TABLE);
+ 
+ #ifndef __PAGETABLE_PMD_FOLDED
++	/* Setup fixmap P4D and PUD */
++	if (pgtable_l5_enabled)
++		create_p4d_mapping(fixmap_p4d, FIXADDR_START,
++				   (uintptr_t)fixmap_pud, P4D_SIZE, PAGE_TABLE);
+ 	/* Setup fixmap PUD and PMD */
+ 	if (pgtable_l4_enabled)
+ 		create_pud_mapping(fixmap_pud, FIXADDR_START,
+@@ -837,6 +934,9 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 	/* Setup trampoline PGD and PMD */
+ 	create_pgd_mapping(trampoline_pg_dir, kernel_map.virt_addr,
+ 			   trampoline_pgd_next, PGDIR_SIZE, PAGE_TABLE);
++	if (pgtable_l5_enabled)
++		create_p4d_mapping(trampoline_p4d, kernel_map.virt_addr,
++				   (uintptr_t)trampoline_pud, P4D_SIZE, PAGE_TABLE);
+ 	if (pgtable_l4_enabled)
+ 		create_pud_mapping(trampoline_pud, kernel_map.virt_addr,
+ 				   (uintptr_t)trampoline_pmd, PUD_SIZE, PAGE_TABLE);
+@@ -938,6 +1038,7 @@ static void __init setup_vm_final(void)
+ 	clear_fixmap(FIX_PTE);
+ 	clear_fixmap(FIX_PMD);
+ 	clear_fixmap(FIX_PUD);
++	clear_fixmap(FIX_P4D);
+ 
+ 	/* Move to swapper page table */
+ 	csr_write(CSR_SATP, PFN_DOWN(__pa_symbol(swapper_pg_dir)) | satp_mode);
 -- 
-Regards,
-Atish
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
