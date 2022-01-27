@@ -4,79 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B1B2C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jan 2022 10:17:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03FDEC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jan 2022 14:39:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
-	Date:References:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X/oNd8glaT9rnTmImaLhtOykxPJx2NxXdmSbqoyhpuE=; b=SG5WYZU42qPUwN
-	z0e+eZ6YYDFv2HCHNAtqor67zfuzaWiOBOPxUdxekoKqmdPOHzWXJjnq5sZozxORKX9ysYQ3iQwnZ
-	l41VvCvvQql++5wtXAwzZxiGnJCEo3MDP3Rl0BXgbwu4xXySaVyJvQWt02SJljxyNCY6hRJoKmyNf
-	BpcmG9JzT+/9DniFOSKjrktU184LRgKkZWb2EVsIuCJLbL1pSifGwxiYXJXq6iAB5T98Rh0ZfU+ZM
-	OQVuxfyE4OKyDBLR3Vzeye4krgPf5wN/EBLIF7i+6atqjH7pyrlIyDU0UnRCm0NLi0c6HB1onpJjl
-	RCXnDibwrupERG42go5Q==;
+	List-Owner; bh=WG807zdnNEHKLLiUmTK3sgjXIHJ2ShyZyyz+K6BLVdI=; b=dbXgVSjVWJEmBl
+	5z3zGw6tO4buP2WD0dbu0qLqRwxXZzaoGiMoIpVBm88cTIkPtFrwRwmmUj3PbANFw5uWM7FaXg5rp
+	O4lRZnPJhHwJBF7JjR428MwcypjQsE1/KYB6l16PfwkIx/uGuKVYAjNc5LhLJOPfoEDYqTIkHVrBk
+	/a4X3vSh2Wu+10dgezQMpIXQxe0Q4RCcCgxfW9pGXTbAVzs93EiRZFS/aoHHNUXvJAGeARYPEhhJV
+	G6p3IDu2uKteg7/wv6et3Pets4jj86xkRSeLiLcVaqHoPOPvXNAW8QEW7giJkj0baa79E90vIGRcy
+	3MKDW8rfUOPNRGg9kmsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nD1qQ-00F7L1-Sw; Thu, 27 Jan 2022 10:17:34 +0000
-Received: from mail-out.m-online.net ([212.18.0.9])
+	id 1nD5vy-00G69D-Sx; Thu, 27 Jan 2022 14:39:34 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nD1qN-00F7Gs-Kj
- for linux-riscv@lists.infradead.org; Thu, 27 Jan 2022 10:17:33 +0000
-Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
- by mail-out.m-online.net (Postfix) with ESMTP id 4JkxNL2R2pz1qxH2;
- Thu, 27 Jan 2022 11:17:22 +0100 (CET)
-Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
- by mail.m-online.net (Postfix) with ESMTP id 4JkxNL0XLCz1qqkB;
- Thu, 27 Jan 2022 11:17:22 +0100 (CET)
-X-Virus-Scanned: amavisd-new at mnet-online.de
-Received: from mail.mnet-online.de ([192.168.8.182])
- by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
- port 10024)
- with ESMTP id tCDRGupXv8VQ; Thu, 27 Jan 2022 11:17:20 +0100 (CET)
-X-Auth-Info: RfvJpsA84gliY7mSCZZqmbcpg6JZ542+98dB4R6X6KFoCqBa8BX5Iua3nl62Uv9n
-Received: from igel.home (ppp-46-244-180-78.dynamic.mnet-online.de
- [46.244.180.78])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.mnet-online.de (Postfix) with ESMTPSA;
- Thu, 27 Jan 2022 11:17:20 +0100 (CET)
-Received: by igel.home (Postfix, from userid 1000)
- id 8F3EA2C36D2; Thu, 27 Jan 2022 11:17:19 +0100 (CET)
-From: Andreas Schwab <schwab@linux-m68k.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Atish Patra <atishp@atishpatra.org>,  Jessica Clarke
- <jrtc27@jrtc27.com>,  Atish Patra <atishp@rivosinc.com>,  Linux Kernel
- Mailing List <linux-kernel@vger.kernel.org>,  Anup Patel
- <anup@brainfault.org>,  Albert Ou <aou@eecs.berkeley.edu>,  Damien Le Moal
- <damien.lemoal@wdc.com>,  devicetree <devicetree@vger.kernel.org>,
- Jisheng Zhang <jszhang@kernel.org>,  Krzysztof Kozlowski
- <krzysztof.kozlowski@canonical.com>,  linux-riscv
- <linux-riscv@lists.infradead.org>,  Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,  Rob Herring <robh+dt@kernel.org>
-Subject: Re: [PATCH v3 6/6] RISC-V: Do not use cpumask data structure for
- hartid bitmap
-References: <20220120090918.2646626-1-atishp@rivosinc.com>
- <20220120090918.2646626-7-atishp@rivosinc.com>
- <1AA3005C-E9C8-4E4B-900D-DD48B37CEA41@jrtc27.com>
- <CAOnJCUKJmHv2Rs3=FR3LjiZqvM5uxcVeZ3D5xRSbEeDFCeS9=Q@mail.gmail.com>
- <CAMuHMdW+ZO0=Qc8NCWujZUq=L-LZJpcd7oZo4MxRFYMmcURXVQ@mail.gmail.com>
- <CAMuHMdXq7OQJL6H7=JRnDTR6p+AD0o2Ctjn806XZQZ9PYjvepg@mail.gmail.com>
- <CAOnJCU+AVS5Js4ZXmUubTqwU5Ye-9_z8onEE1mwhvCsOXchFBg@mail.gmail.com>
- <CAMuHMdWsX-Pg3B1=KRf9hz1JrPAbydBrANTXg4q5CFJCqHJAoA@mail.gmail.com>
- <CAMuHMdXyjSrXNCAO8V8pajXW5ts29p==p2J1HnPPoo3-8osKbA@mail.gmail.com>
-X-Yow: Isn't this my STOP?!
-Date: Thu, 27 Jan 2022 11:17:19 +0100
-In-Reply-To: <CAMuHMdXyjSrXNCAO8V8pajXW5ts29p==p2J1HnPPoo3-8osKbA@mail.gmail.com>
- (Geert Uytterhoeven's message of "Thu, 27 Jan 2022 11:03:08 +0100")
-Message-ID: <87o83xtrdc.fsf@igel.home>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/28.0.91 (gnu/linux)
+ id 1nD5vu-00G67X-U8
+ for linux-riscv@lists.infradead.org; Thu, 27 Jan 2022 14:39:33 +0000
+Received: by mail-lf1-x134.google.com with SMTP id u14so5718266lfo.11
+ for <linux-riscv@lists.infradead.org>; Thu, 27 Jan 2022 06:39:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=message-id:date:mime-version:user-agent:subject:content-language:to
+ :cc:references:from:in-reply-to:content-transfer-encoding;
+ bh=XkYKE/mqIw+ZogEPzGoXmtOQI8nkKTmA4V70TLbVWS4=;
+ b=BHb2Xn1jq66/9MHahrzGm/gWUKtVbh/58wKW18vGWzni3fO5qyqP4VG1OOnOie8Jsh
+ gDERoDSbSutwAXYx2C5vNn4TrrwM4BpgdHcNKbywEL+R5MYLhL5n2nGGvdHyYC3+WdiR
+ AH7kOLTk/zgQKoF333ryAx/KFlOhDG6pX/tZk4LwhLgv5peCfB01DtWBVE+9RHO5Zn9/
+ GlTTQk4e9TGZCrINPfliTtlCZdTAH9LmWOb+qXQAmfLULPmn+Omh2L6j2NgulGAPM/A+
+ p0mPzTS/Ny1WZgGK/AicqnPTN5Ub7NU4t23e3Ka67Gnz7TG7Nyg0lXeqh7s3FoDGgrJx
+ 11/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+ :content-language:to:cc:references:from:in-reply-to
+ :content-transfer-encoding;
+ bh=XkYKE/mqIw+ZogEPzGoXmtOQI8nkKTmA4V70TLbVWS4=;
+ b=dKreWKg0EGvkHpkdhM6UUBxv2OaWJIzynPYqv7Ah5DS/4Ld1KkMCUEcMb5MOWi+cFa
+ Pub8A6z1GlPdyzbWk63em7lPJo7Twik/c0wZubIgvNyl5n0XCggQgo9bD4+eI4mxsujW
+ Kq5vu+l+brUxqaxuvw/cqSvCaD5lldVnZJBfSz/v6s+24iVLnGcLvesnWHD4ZbeoF3Dv
+ PhTBiFKHVQ9YuSQvxZ0M6N0I3ZxcIjqhH+IHqvE+tet54qHjojCta8o/agoLxp7EBU8/
+ ux1k2vxe4bU4XhmHi2WCZ64m4ly4FATd0Gn/fhVlxUFlQoUC9s+mMIm55qk0ZiaSU4LB
+ VKrw==
+X-Gm-Message-State: AOAM533XKpLREPnbqV0QikqPcQ6IUcXtcP5RSq5uDpReacQMujLk454t
+ j9ov2k9E70BPqbGE/L5OvHs=
+X-Google-Smtp-Source: ABdhPJy1MhVvMOXi8UxQ8s4idXCyJ+ifGIsp8CpwyHRf9+W1A9LbFInI9I0x2geweWfK/i1YhzfC+Q==
+X-Received: by 2002:a05:6512:3d1c:: with SMTP id
+ d28mr2997039lfv.135.1643294367899; 
+ Thu, 27 Jan 2022 06:39:27 -0800 (PST)
+Received: from [192.168.2.145] (109-252-138-126.dynamic.spd-mgts.ru.
+ [109.252.138.126])
+ by smtp.googlemail.com with ESMTPSA id r13sm476323lfr.65.2022.01.27.06.39.16
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Thu, 27 Jan 2022 06:39:22 -0800 (PST)
+Message-ID: <e8d3ca39-ddeb-2c21-6000-1cc65da57915@gmail.com>
+Date: Thu, 27 Jan 2022 17:39:15 +0300
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.5.0
+Subject: Re: [PATCH v5 04/21] kernel: Add combined power-off+restart handler
+ call chain API
+Content-Language: en-US
+To: =?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>
+Cc: Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Russell King
+ <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Greg Ungerer
+ <gerg@linux-m68k.org>, Joshua Thompson <funaho@jurai.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Sebastian Reichel <sre@kernel.org>, Linus Walleij
+ <linus.walleij@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Juergen Gross
+ <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Santosh Shilimkar <ssantosh@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Pavel Machek <pavel@ucw.cz>, Lee Jones <lee.jones@linaro.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Guenter Roeck
+ <linux@roeck-us.net>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, alankao@andestech.com,
+ "K . C . Kuen-Chern Lin" <kclin@andestech.com>,
+ linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, xen-devel@lists.xenproject.org,
+ linux-acpi@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-tegra@vger.kernel.org
+References: <20211212210309.9851-1-digetx@gmail.com>
+ <20211212210309.9851-5-digetx@gmail.com> <Ydofs2CIfA+r5KAz@qmqm.qmqm.pl>
+From: Dmitry Osipenko <digetx@gmail.com>
+In-Reply-To: <Ydofs2CIfA+r5KAz@qmqm.qmqm.pl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220127_021732_053550_CA9EA2AD 
-X-CRM114-Status: GOOD (  24.13  )
+X-CRM114-CacheID: sfid-20220127_063930_994265_00659C8E 
+X-CRM114-Status: GOOD (  22.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,55 +125,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Jan 27 2022, Geert Uytterhoeven wrote:
-
-> Hi Atish,
->
-> On Thu, Jan 27, 2022 at 9:48 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->> On Thu, Jan 27, 2022 at 2:02 AM Atish Patra <atishp@atishpatra.org> wrote:
->  > Ahh yes. hmask will be incorrect if the bootcpu(cpu 0) is a higher
->> > hartid and it is trying to do a remote tlb flush/IPI
->> > to lower the hartid. We should generate the hartid array before the loop.
->> >
->> > Can you try this diff ? It seems to work for me during multiple boot
->> > cycle on the unleashed.
->> >
->> > You can find the patch here as well
->> > https://github.com/atishp04/linux/commits/v5.17-rc1
->>
->> Thanks, that fixes the issue for me.
->>
->> > --- a/arch/riscv/kernel/sbi.c
->> > +++ b/arch/riscv/kernel/sbi.c
->
->> > @@ -345,13 +368,21 @@ static int __sbi_rfence_v02(int fid, const
->> > struct cpumask *cpu_mask,
->> >       unsigned long arg4, unsigned long arg5)
->> >  {
->> >   unsigned long hartid, cpuid, hmask = 0, hbase = 0;
->> > - int result;
->> > + int result, index = 0, max_index = 0;
->> > + unsigned long hartid_arr[NR_CPUS] = {0};
->>
->> That's up to 256 bytes on the stack. And more if the maximum
->> number of cores is increased.
->
-> I.e. 4 KiB with the proposed increase to 256 CPUs, as mentioned in
-
-And those 4K need to be cleared each time the function is called, even
-if there is only a small number of cpus.
-
--- 
-Andreas Schwab, schwab@linux-m68k.org
-GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
-"And now for something completely different."
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGVsbG8gTWljaGHFgiwKCjA5LjAxLjIwMjIgMDI6MzUsIE1pY2hhxYIgTWlyb3PFgmF3INC/0LjR
+iNC10YI6Cj4gQlRXLCBJIGNvdWxkbid0IGZpbmQgYSByaWdodCBkZXNjcmlwdGlvbiBvZiBteSBp
+ZGVhIG9mIHVuaWZ5aW5nIHRoZQo+IGNoYWlucyBiZWZvcmUsIHNvIGxldCBtZSBza2V0Y2ggaXQg
+bm93Lgo+IAo+IFRoZSBpZGVhIGlzIHRvIGhhdmUgYSBzaW5nbGUgc3lzdGVtLW9mZiBjaGFpbiBp
+biB3aGljaCB0aGUgY2FsbGJhY2sKPiBnZXRzIGEgbW9kZSAoe1FVRVJZXyosIFBSRVBfKiwgRE9f
+Kn0gZm9yIGVhY2ggb2YgeypfUkVCT09ULCAqX1BPV0VST0ZGLCAuLi4/KS4KPiBUaGUgUVVFUllf
+KiBjYWxscyB3b3VsZCBiZSBtYWRlIGluIGNhbl9rZXJuZWxfcmVib290L3Bvd2Vyb2ZmKCk6IGFs
+bAo+IHdvdWxkIGJlIGNhbGxlZCwgYW5kIGlmIGF0IGxlYXN0IG9uZSByZXR1cm5lZCB0cnVlLCB0
+aGVuIHRoZSBzaHV0ZG93bgo+IG1vZGUgd291bGQgY29udGludWUuIEFsbCBvZiBQUkVQXyogd291
+bGQgYmUgY2FsbGVkIHRoZW4uIEFmdGVyIHRoYXQKPiBhbGwgRE9fKiB3b3VsZCBiZSB0cmllZCB1
+bnRpbCBvbmUgZG9lc24ndCByZXR1cm4gKHN1Y2NlZWRlZCBvciBicm9rZQo+IHRoZSBzeXN0ZW0g
+aGFyZCkuIENsYXNzaWMgZm9yKDs7KTsgY291bGQgYmUgYSBmaW5hbCBmYWxsYmFjayBmb3IgdGhl
+Cj4gY2FzZSB3aGVyZSBhcmNoL21hY2hpbmUgKGxvd2VzdCBwcmlvcml0eSkgY2FsbCB3b3VsZCBy
+ZXR1cm4gaW5zdGVhZAo+IG9mIGhhbHRpbmcgdGhlIHN5c3RlbSBpbiBtYWNoaW5lLWRlcGVuZGVu
+dCB3YXkuIFRoZSBRVUVSWSBhbmQgUFJFUAo+IHN0YWdlcyBjb3VsZCBiZSBjb21iaW5lZCwgYnV0
+IEkgaGF2ZW4ndCB0aG91Z2h0IGFib3V0IGl0IGVub3VnaCB0bwo+IHNlZSB3aGF0IGNvbmRpdGlv
+bnMgd291bGQgbmVlZCB0byBiZSBpbXBvc2VkIG9uIHRoZSBjYWxsYmFja3MgaW4KPiB0aGF0IGNh
+c2UgKG1heWJlIGl0J3Mgbm90IHdvcnRoIHRoZSB0cm91YmxlLCBzaW5jZSBpdCBpc24ndCBhIGZh
+c3QKPiBwYXRoIGFueXdheT8pLiBUaGUgZ29hbCBoZXJlIGlzIHRvIGhhdmUgbGVzcyAoZHVwbGlj
+YXRlZCkgY29kZSBpbgo+IGtlcm5lbCwgYnV0IG90aGVyd2lzZSBpdCBzZWVtcyBlcXVpdmFsZW50
+IHRvIHlvdXIgQVBJIHByb3Bvc2FsLgoKVGhhbmsgeW91IGFnYWluIGZvciB5b3VycyBwcm9wb3Nh
+bCEgSU1PLCBpdCdzIG11Y2ggbW9yZSBpbXBvcnRhbnQgdG8Ka2VlcCB0aGUgY29yZSBjb2RlIHNp
+bXBsZSBhbmQgbWFpbnRhaW5hYmxlLCByYXRoZXIgdGhhbiB0cnkgdG8gb3B0aW1pemUKaXQgd2l0
+aG91dCBhIHZlcnkgZ29vZCByZWFzb24sIGdpdmVuIHRoYXQgdGhpcyBpc24ndCBhIGhvdCBjb2Rl
+IHBhdGggYXQKYWxsIGFuZCBzYXZpbmcgYSBjb3VwbGUgb2YgYnl0ZXMgd29uJ3QgYmUgbm90aWNl
+YWJsZS4gVGhlIHBvd2Vyb2ZmLApyZXN0YXJ0IGFuZCByZWJvb3Qgd2VyZSBzZXBhcmF0ZWQgYmVm
+b3JlIHRoaXMgc2VyaWVzIGFuZCBJJ20gZmluZGluZwp0aGF0IGl0J3MgZWFzaWVyIHRvIGZvbGxv
+dyB0aGUgY29kZSB3aGVuIGl0J3Mgc3RydWN0dXJlZCB0aGF0IHdheS4gSSdtCm5vdCBjb252aW5j
+ZWQgdGhhdCB3ZSBuZWVkIHRvIGNoYW5nZSBpdC4KCl9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
+dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
+bGlzdGluZm8vbGludXgtcmlzY3YK
