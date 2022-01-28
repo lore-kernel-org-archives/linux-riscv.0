@@ -4,73 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B55A8C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 15:30:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56B52C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 17:55:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HhqkbiUTZlZ3p5AbUNynFLUerj1ccDQqU+5Ph0Ah4cM=; b=qicKq1OGl7JjdZ
-	GdfiTNqjV9WLtrZFBqogCTwz1MG/ZPO9vMt7o+vGWYtQ5k7omSxw1FoAJlmtnAMdOTv1EBqz4TWlR
-	KiJ0DBRQXqLIggL1Zt2kS7CcB00+x/j6Y1uX6Lxu+GTSNa/e6aPASOBkSj2nHPv1ylR0OeogDKVtN
-	LXNpJ4hleuPGFQbXbpH/4isf6HpxaHmJHSR73IR/zqH2gY6DcHTec88OyU5yMirieB6lYpB48Cb+w
-	j6yEU6JHb+vXOc7sR2GJwn7Ggtz9cPT9VyL3fRvU618mAqtKgs78JiTlCa6/JeDq53vLNAzVSb5oL
-	OmMdJ/fG6W9hwdKwmsng==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:
+	In-Reply-To:Message-ID:Subject:Cc:From:To:Date:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=88sSMo69ZdpXgBZvdLXf2elAoH+RkTM5A/tzOYNFx+8=; b=N0fxjpqzY0uGc4
+	kS3R6BK9Sg/Lp+n9ySQtQc/aoMpeAlXZ1CD7PtafAfFC7V5eLh6laQ8O9ovq5ctx6D+noxMjHW0vO
+	5L9kd6R50D32k1hZ8mWl1DLFesSL2c56ZQL9kILBFP0GVwanFhpnJ9r+GHcMlLCKdkHrRuolfi/0c
+	b04peZNCutMuqN1SEQrTIhohJegn4UT9tAmWMMGeYuM3G874C6lp2HyNNV82/eA0ApqXKlar3cJ28
+	0v6nIN4ensIqO5NYIeqxeBpsxoZzDiK6TsQIP/omt+Nt7iUTypFtinC2K3ARirFj0+5Eku3B3PTJa
+	8edbE03UrQgLLa3SSfow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nDTCH-002j9b-Qg; Fri, 28 Jan 2022 15:29:57 +0000
-Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
+	id 1nDVTA-003G9P-Rp; Fri, 28 Jan 2022 17:55:32 +0000
+Received: from mail-4323.proton.ch ([185.70.43.23])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nDTCB-002j7i-2o
- for linux-riscv@lists.infradead.org; Fri, 28 Jan 2022 15:29:52 +0000
-Received: by mail-qv1-xf32.google.com with SMTP id s6so6107601qvv.11
- for <linux-riscv@lists.infradead.org>; Fri, 28 Jan 2022 07:29:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=CSl2ozcmK5vQmYT5NCTW7Ai/PaWfN2v+NSUoqmah+A8=;
- b=FJH5uIAxTQM8O59a+3eYNLA7MIl2VXZdu1Ls3a0q13RPtU8l8XeD2Ln20sWLsa1KEw
- ErpwSzzd/dvP5kaq9bR87xrhD5k9T5D3LS24Wzfv0bDCHY8IGjgJ3/jqrpLsShFPwnZf
- s2SEnCIr7rf4+M9Dyh54dwWY6IZGLVyethy+lAk4SkXIKzsnfwhm9VDFuMobyWKrZ5WJ
- Zm+bbHHE7qcit3vSQVHzhnQAfXoGfL2vmSQ52TYK49RsXl/r8NfykLpiwZzz4H3aAhQL
- y0w+QscTCqxZvzLB4jHfjGWXi61I9u8YowD5Euj4jxncsHDFQuSMBHEiDGoy7rZLQIz1
- ny7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=CSl2ozcmK5vQmYT5NCTW7Ai/PaWfN2v+NSUoqmah+A8=;
- b=N3l5V/o8SX5t1DDzO1mx179kVSN/GCg+xubWJq+h/KSATTppdoM0vYILxRvY50ys3m
- pPRmaFjCyWFd08IIATV6xIdPiB/sijbZ7pofw1jPWIAI83RKdYt4XwpbPZLmqu2A8RNo
- s0YjHATyArySfX5ZiUBRykN/wICAITndSzkW9x2LO66SRLuNX1Hqsv1/PUuEIIr4PtHF
- Nj3+jHCNWD7szzb5Gn+0E0pXyLV7JqMyIL9Qd6FSutGPDxfmFolpvSfjfa8bxYyWuhFQ
- X6T4Plve8xy+avY+oA0jjLVxZR3VRE8e/zfTY2KHM2dq9PrULYGNaQK+V5wT+cdUpyKh
- HxXA==
-X-Gm-Message-State: AOAM531ZmSBSJLQSFu9rrYcK0Lg3UFjX/ANxFijT5BbrDblqB6mvLMz0
- To8iKmSGEEfDXRicXQsJT+vLlLCK7qS+yHC3
-X-Google-Smtp-Source: ABdhPJx2D4vFcc3WaNsxX3fdUzR9zquDZDLejQkoNd5LrGIWifupQR2VaDiHtqSOypg0woYUHrHDwQ==
-X-Received: by 2002:a05:6214:4011:: with SMTP id
- kd17mr7272985qvb.45.1643383789737; 
- Fri, 28 Jan 2022 07:29:49 -0800 (PST)
-Received: from WRT-WX9.. ([207.246.89.135])
- by smtp.gmail.com with ESMTPSA id bs16sm385231qkb.69.2022.01.28.07.29.46
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 28 Jan 2022 07:29:49 -0800 (PST)
-From: Changbin Du <changbin.du@gmail.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Changbin Du <changbin.du@gmail.com>
-Subject: [PATCH] riscv: fix oops caused by irq on/off tracer
-Date: Fri, 28 Jan 2022 23:29:39 +0800
-Message-Id: <20220128152939.99544-1-changbin.du@gmail.com>
-X-Mailer: git-send-email 2.32.0
+ id 1nDVT8-003G81-5P
+ for linux-riscv@lists.infradead.org; Fri, 28 Jan 2022 17:55:31 +0000
+Date: Fri, 28 Jan 2022 17:55:24 +0000
+Authentication-Results: mail-4317.proton.ch; dkim=none
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+From: Conor Dooley <mail@conchuod.ie>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup.patel@wdc.com>,
+ Rob Herring <robh+dt@kernel.org>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH v4 1/2] dt-bindings: timer: sifive,
+ clint: Fix number of interrupts
+Message-ID: <57Vhxv8ckv7WroKy1FfDqfQsDLTkgIaUSc-aiOIftZeBHjDkXLAqDfcsCMHgEYQvPebzA9iZExDD2HfRw-Vmm03d-h-MlwJqH8T8JDSVWrc=@conchuod.ie>
+In-Reply-To: <e6a4c5b20d2acb52125d7d6e6c7e3694d7cb182c.1643360652.git.geert@linux-m68k.org>
+References: <cover.1643360652.git.geert@linux-m68k.org>
+ <e6a4c5b20d2acb52125d7d6e6c7e3694d7cb182c.1643360652.git.geert@linux-m68k.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220128_072951_163497_C4E185D2 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20220128_095530_393660_9F67F82A 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,137 +56,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: Conor Dooley <mail@conchuod.ie>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The trace_hardirqs_on/off requires at least two parent call frames.
-If not, the code generated by CALLER_ADDR1 (aka. ftrace_return_address(1))
-could trigger memory access fault.
+> The number of interrupts lacks an upper bound, thus assuming one,
+> causing properly grouped "interrupts-extended" properties to be flagged
+> as an error by "make dtbs_check".
+>
+> Fix this by adding the missing "maxItems", using the architectural
+> maximum of 4095 interrupts.
+>
+> Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> Acked-by: Rob Herring <robh@kernel.org>
+> ---
+> v4:
+>   - Use architectural maximum instead of practical maximum of 10,
+>
+> v3:
+>   - Add Acked-by,
+>
+> v2:
+>   - Split in two patches,
+>   - Improve patch description and document limit rationale.
+> ---
+>  Documentation/devicetree/bindings/timer/sifive,clint.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> index 8d5f4687add9e81e..fe4b73c3f269fc0f 100644
+> --- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> +++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> @@ -44,6 +44,7 @@ properties:
+>
+>    interrupts-extended:
+>      minItems: 1
+> +    maxItems: 4095
+>
+>  additionalProperties: false
+>
+> --
+> 2.25.1
 
-[    0.039615][    T0] Unable to handle kernel NULL pointer dereference at virtual address 00000000000000f8
-[    0.041925][    T0] Oops [#1]
-[    0.042063][    T0] Modules linked in:
-[    0.042864][    T0] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.17.0-rc1-00233-g9a20c48d1ed2 #29
-[    0.043568][    T0] Hardware name: riscv-virtio,qemu (DT)
-[    0.044343][    T0] epc : trace_hardirqs_on+0x56/0xe2
-[    0.044601][    T0]  ra : restore_all+0x12/0x6e
-[    0.044721][    T0] epc : ffffffff80126a5c ra : ffffffff80003b94 sp : ffffffff81403db0
-[    0.044801][    T0]  gp : ffffffff8163acd8 tp : ffffffff81414880 t0 : 0000000000000020
-[    0.044882][    T0]  t1 : 0098968000000000 t2 : 0000000000000000 s0 : ffffffff81403de0
-[    0.044967][    T0]  s1 : 0000000000000000 a0 : 0000000000000001 a1 : 0000000000000100
-[    0.045046][    T0]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : 0000000000000000
-[    0.045124][    T0]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000054494d45
-[    0.045210][    T0]  s2 : ffffffff80003b94 s3 : ffffffff81a8f1b0 s4 : ffffffff80e27b50
-[    0.045289][    T0]  s5 : ffffffff81414880 s6 : ffffffff8160fa00 s7 : 00000000800120e8
-[    0.045389][    T0]  s8 : 0000000080013100 s9 : 000000000000007f s10: 0000000000000000
-[    0.045474][    T0]  s11: 0000000000000000 t3 : 7fffffffffffffff t4 : 0000000000000000
-[    0.045548][    T0]  t5 : 0000000000000000 t6 : ffffffff814aa368
-[    0.045620][    T0] status: 0000000200000100 badaddr: 00000000000000f8 cause: 000000000000000d
-[    0.046402][    T0] [<ffffffff80003b94>] restore_all+0x12/0x6e
-
-To fix above issue, here we add one extra level wrapper so they can be
-safely called by low level entry code.
-
-Signed-off-by: Changbin Du <changbin.du@gmail.com>
----
- arch/riscv/kernel/Makefile    |  2 ++
- arch/riscv/kernel/entry.S     | 10 +++++-----
- arch/riscv/kernel/trace_irq.c | 24 ++++++++++++++++++++++++
- 3 files changed, 31 insertions(+), 5 deletions(-)
- create mode 100644 arch/riscv/kernel/trace_irq.c
-
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index 612556faa527..ffc87e76b1dd 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -51,6 +51,8 @@ obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
- obj-$(CONFIG_FUNCTION_TRACER)	+= mcount.o ftrace.o
- obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
- 
-+obj-$(CONFIG_TRACE_IRQFLAGS)	+= trace_irq.o
-+
- obj-$(CONFIG_RISCV_BASE_PMU)	+= perf_event.o
- obj-$(CONFIG_PERF_EVENTS)	+= perf_callchain.o
- obj-$(CONFIG_HAVE_PERF_REGS)	+= perf_regs.o
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index ed29e9c8f660..d6a46ed0bf05 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -108,7 +108,7 @@ _save_context:
- .option pop
- 
- #ifdef CONFIG_TRACE_IRQFLAGS
--	call trace_hardirqs_off
-+	call __trace_hardirqs_off
- #endif
- 
- #ifdef CONFIG_CONTEXT_TRACKING
-@@ -143,7 +143,7 @@ skip_context_tracking:
- 	li t0, EXC_BREAKPOINT
- 	beq s4, t0, 1f
- #ifdef CONFIG_TRACE_IRQFLAGS
--	call trace_hardirqs_on
-+	call __trace_hardirqs_on
- #endif
- 	csrs CSR_STATUS, SR_IE
- 
-@@ -234,7 +234,7 @@ ret_from_exception:
- 	REG_L s0, PT_STATUS(sp)
- 	csrc CSR_STATUS, SR_IE
- #ifdef CONFIG_TRACE_IRQFLAGS
--	call trace_hardirqs_off
-+	call __trace_hardirqs_off
- #endif
- #ifdef CONFIG_RISCV_M_MODE
- 	/* the MPP value is too large to be used as an immediate arg for addi */
-@@ -270,10 +270,10 @@ restore_all:
- 	REG_L s1, PT_STATUS(sp)
- 	andi t0, s1, SR_PIE
- 	beqz t0, 1f
--	call trace_hardirqs_on
-+	call __trace_hardirqs_on
- 	j 2f
- 1:
--	call trace_hardirqs_off
-+	call __trace_hardirqs_off
- 2:
- #endif
- 	REG_L a0, PT_STATUS(sp)
-diff --git a/arch/riscv/kernel/trace_irq.c b/arch/riscv/kernel/trace_irq.c
-new file mode 100644
-index 000000000000..090fd82064e3
---- /dev/null
-+++ b/arch/riscv/kernel/trace_irq.c
-@@ -0,0 +1,24 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2022 Changbin Du <changbin.du@gmail.com>
-+ */
-+
-+#include <linux/irqflags.h>
-+#include <linux/kprobes.h>
-+
-+/**
-+ * trace_hardirqs_on/off requires at least two parent call frames. Here we add
-+ * one extra level so they can be safely called by low level entry code.
-+ */
-+
-+void __trace_hardirqs_on(void)
-+{
-+	trace_hardirqs_on();
-+}
-+NOKPROBE_SYMBOL(__trace_hardirqs_on);
-+
-+void __trace_hardirqs_off(void)
-+{
-+	trace_hardirqs_off();
-+}
-+NOKPROBE_SYMBOL(__trace_hardirqs_off);
--- 
-2.32.0
-
+Clears errors on the icicle dt, so fwiw: Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
 _______________________________________________
 linux-riscv mailing list
