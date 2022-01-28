@@ -4,81 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B93EC433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 05:16:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B303C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 05:25:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tXxz7peFw9YwC+wuOXwu4dJdL6zBf2meeK+IozBDuJs=; b=sD2JViQIBUEa5S
-	smYSw82ZdwX6ALP8Ghv6WvS6Zws3wBQrcF/f/Qx+yE+Dhin1pS2EDDFnZ/CJRQ02p6kDTeYgLwym+
-	aA4DQ4BQ4bJ8cmud2nbMBVthmIUilLjOiQ95bEyF3KoLzA5SpbHbmu3OeXXCgQafyK+KvU/P+Oolw
-	lGUCQOdsjh2hTCGqYS2k6pos2HV+MK5/pq9T1LeuHcqnJYUWPGTqU6fTAjiXaesxRJADGISVbMFxr
-	7PVTBz0u2IeQcrCBK/MgwKdgxXaDpwYdcdLrKZUx2btqWikkH6DyzEzWL7FDRONbFt/EZ/3V87PMk
-	otWlLptAnAKDD9N67TLQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JUe4ZMcXNG5AeHkyXJbImC3Fcvf3iCd9YyE4vgVdTpo=; b=L7Dxkq4pJEnp+Z
+	YLInIBhTVSSdNyoV5Rc8KzVFzfEU8kosMb1BNckqpwmNlGl43gf7cOVnAJ7q8FSaJwYosowDiNj0r
+	Fv6ofmubbmLO84Bsgz8PSGYoXy7y8CS37GviKXYfq8ioh800K/TTUlPU0QMcFqryPAxJnVIoqRyGm
+	U1Fq+qt7Malp/voIFKV1IOqrZSSbsNLRzMfnrf7mfdC6OJ2fshfQFRykt+ar5HBbNmbeisH3gsXoU
+	IcqXyvBpPfRr5Q+m0lgLMsMZjCsjJn0kG2xfus62E7mlGCad2LKGGzHQC25biWjZP7amxNutzxwEg
+	Iy4Kn5F4V2ArCWbax+8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nDJcJ-000Qnp-Qs; Fri, 28 Jan 2022 05:16:11 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1nDJlc-000RU3-PW; Fri, 28 Jan 2022 05:25:48 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nDJcH-000QnM-MY
- for linux-riscv@lists.infradead.org; Fri, 28 Jan 2022 05:16:11 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 133so4306517pgb.0
- for <linux-riscv@lists.infradead.org>; Thu, 27 Jan 2022 21:16:08 -0800 (PST)
+ id 1nDJlZ-000RTd-Kk
+ for linux-riscv@lists.infradead.org; Fri, 28 Jan 2022 05:25:47 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id i17so5106639pfq.13
+ for <linux-riscv@lists.infradead.org>; Thu, 27 Jan 2022 21:25:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=ventanamicro.com; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=Xy7V1RKBgPy7ej3aLewZ5fgpZQ6691qdKaJczzqlNHk=;
- b=dvy7Hfy2AHdOXqtC7FdYxoxNBYCQzybLnMezlpbU7QfAVQ94QYX7yYbzPaX4ZM99aa
- JGTaixtkYrNUgotaWxqqyRofLShMxqEjk4rlkyGfzntMnDprBkc5c76+8oDm835SA6Gs
- rL+x0Bkz+dD/OLxKax+lWYebU1P+JkSxNJTT8vrlLwJtOVbzIN5v7OWTnPJBttegPugO
- FV6mPeqs51H88DF5LBRHkc2a+Fhhu0ldsNGOwPi/kk1LWGwO2Nf0sNZXyMYfNU2b735I
- djNR59SP7DmpBilvPJAAqvWfmbCixzOOPSuPHhOiCzHB9ATSCnef3wMrY/NG6KdMbat9
- pdUg==
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=DUZSzAcBhhZobyRqFeEeGc1759qGpQJqQcRHPtjlbUQ=;
+ b=TEF4bPPwMHipCR6h448CMERqnyvi/R7CVUVo5I/BGCZC6VmMF1O1OVn0AzQrJunM5F
+ pvT8wXP3kw91xkxEvvjkgNF88OTWWptcIwbkLV0sMyhRJcJkSlbgLeA8MqF75pZDssrG
+ E2YrUZf4Vsovudo+OfLuj2FYq72lWEVnxDtTU+HsbodjxLJmO4CuQLNEadbhDTNH4D1B
+ Zkw7Zu51/0k+OQVj9jDxtcDJrxS4mknTzssjtUAWER5ROv3PkYz96pkAgcYpntX53QP5
+ X23kPt64tl6woC8cCvq6BBnJT4jbr2gMCnJZRT1o5riDDFA4Wajg7sZsmiXSfXYVroza
+ viog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=Xy7V1RKBgPy7ej3aLewZ5fgpZQ6691qdKaJczzqlNHk=;
- b=mdTIemnNihpJOzzaLP1ioHLDCGkL4VDTp7QF9nqydgOcFizCbnYudr3bSLPPzHP6Df
- 56/rKHxZerHK6jb5G1qOcpVKGHr2seSYulgGf9tMVrmT5CfzifApbmdhCiOmKfOjqNOf
- AZQW/UkvSGZAwg/ZpVp5YR+2tVWJpAFnehh9hao9ITCLB7yF288uVBFf2vBuU4totuI5
- dKf6wDS5tUN/srPLs8C7rQ8/UXamWNyTkuzwnqdyPxhhgCH/obLTlIKni7gcehsjodfa
- D0M7cDJGBqvpbNCPQAx0Q2XgLSo0Vi48pmuj+drbxozsxnx1EqsY0hBa3otJ4CW2vquV
- js8g==
-X-Gm-Message-State: AOAM532ME5csptH5FqUUQ8ckH1tZJjVPgiVxQMRgazDz6gCEJudXZMKU
- 5sv3MXTz3pB5FN3g/JyEk8EkiQ==
-X-Google-Smtp-Source: ABdhPJwcDyOeN54f5ywguadGTIVI8TcNaRt3WmrVCPE7jF6+vI+RUWxhwFLhAJHDtO7JUAZ3sRrvBA==
-X-Received: by 2002:a63:f650:: with SMTP id u16mr5337290pgj.2.1643346968484;
- Thu, 27 Jan 2022 21:16:08 -0800 (PST)
-Received: from sunil-ThinkPad-T490 ([49.206.3.187])
- by smtp.gmail.com with ESMTPSA id b22sm7617198pfl.121.2022.01.27.21.16.04
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=DUZSzAcBhhZobyRqFeEeGc1759qGpQJqQcRHPtjlbUQ=;
+ b=kjWWZ3Sm/4pA3bQCeX9mMZwxWmELiL/I4pkToQJAshHlPWXbfvC9BCak4F3Ua1NbHh
+ uuJx519iy6kbJrMdKGhe1ja33aHPdRP0vHfVzZddDtJZ8wunvCttCJ7KhF/KsxVQdLNC
+ rN2MBadiFLE7K+JglM7n/2Y0ZJRAUrYwnip6IWEOTzSTcMWghZs4CYCNaW1M2JUcYPsV
+ L27SCeYwH0fBNZs+xTUbOsnigo0sULLqiRGhDkg98G1p/tZIUyOLhT9nThVpH3ZOZswG
+ zQ2IkC0gM1a8g8cu8DfuesT9JUbMncNa0NzXXQy89IIXB3Iqpc6T/0/1uphhNB6uUZM1
+ OIIA==
+X-Gm-Message-State: AOAM530EDb78zwn5JCdy66xOm/fZ4sJpvxitKXkS1RrUwpv8+lIcHwTV
+ trBT95Gi0jK3Dsjz+GFD2q0Uag==
+X-Google-Smtp-Source: ABdhPJwGmC85dSyvoA9FlcpwnwdXnTb6JDpj7JG673O2Cyimnrc2fRGqbcNyrCwVYDsKEKcCA2K32A==
+X-Received: by 2002:a62:e317:: with SMTP id g23mr6320329pfh.49.1643347544629; 
+ Thu, 27 Jan 2022 21:25:44 -0800 (PST)
+Received: from localhost.localdomain ([122.171.184.231])
+ by smtp.gmail.com with ESMTPSA id b20sm7731744pfv.134.2022.01.27.21.25.40
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 27 Jan 2022 21:16:08 -0800 (PST)
-Date: Fri, 28 Jan 2022 10:46:00 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Heinrich Schuchardt <xypron.glpk@gmx.de>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, linux-efi@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Anup Patel <apatel@ventanamicro.com>, Atish Patra <atishp@rivosinc.com>,
- Abner Chang <abner.chang@hpe.com>, Jessica Clarke <jrtc27@jrtc27.com>
-Subject: Re: [RFC PATCH 1/1] riscv/efi_stub: Add support for
- RISCV_EFI_BOOT_PROTOCOL
-Message-ID: <20220128051600.GB5018@sunil-ThinkPad-T490>
-References: <20220126110615.33371-1-sunilvl@ventanamicro.com>
- <20220126110615.33371-2-sunilvl@ventanamicro.com>
- <667AE324-A8D2-41ED-B9DF-62750F3C2574@gmx.de>
+ Thu, 27 Jan 2022 21:25:44 -0800 (PST)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: Atish Patra <atishp@atishpatra.org>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH v2 0/6] RISC-V IPI Improvements
+Date: Fri, 28 Jan 2022 10:54:59 +0530
+Message-Id: <20220128052505.859518-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <667AE324-A8D2-41ED-B9DF-62750F3C2574@gmx.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220127_211609_776301_0590AE61 
-X-CRM114-Status: GOOD (  26.76  )
+X-CRM114-CacheID: sfid-20220127_212545_710870_4C9B2955 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,147 +91,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 27, 2022 at 08:47:35AM +0100, Heinrich Schuchardt wrote:
-> Am 26. Januar 2022 12:06:15 MEZ schrieb Sunil V L <sunilvl@ventanamicro.com>:
-> >This patch adds the support for getting the boot hart ID in
-> >Linux EFI stub using RISCV_EFI_BOOT_PROTOCOL.
-> 
-> It would be helpful to add a link to the spec in the commit message and maybe a comment that this protocol is needed for the ACPI use case.
+This series aims to improve IPI support in Linux RISC-V in following ways:
+ 1) Treat IPIs as normal per-CPU interrupts instead of having custom RISC-V
+    specific hooks. This also makes Linux RISC-V IPI support aligned with
+    other architectures.
+ 2) Remote TLB flushes and icache flushes should prefer local IPIs instead
+    of SBI calls whenever we have specialized hardware (such as RISC-V AIA
+    IMSIC and RISC-V ACLINT) which allows S-mode software to directly inject
+    IPIs without any assistance from M-mode runtime firmware.
 
-Sure. Will add.
+These patches were already part of the "Linux RISC-V ACLINT Support" series
+but this now a separate series so that it can be merged independently of
+the "Linux RISC-V ACLINT Support" series.
+(Refer, https://lore.kernel.org/lkml/20211007123632.697666-1-anup.patel@wdc.com/)
 
-> 
-> >
-> >Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> >---
-> > drivers/firmware/efi/libstub/efistub.h    | 15 ++++++++++++
-> > drivers/firmware/efi/libstub/riscv-stub.c | 28 ++++++++++++++++++++---
-> > include/linux/efi.h                       |  1 +
-> > 3 files changed, 41 insertions(+), 3 deletions(-)
-> >
-> >diff --git a/drivers/firmware/efi/libstub/efistub.h b/drivers/firmware/efi/libstub/efistub.h
-> >index edb77b0621ea..0428f8816942 100644
-> >--- a/drivers/firmware/efi/libstub/efistub.h
-> >+++ b/drivers/firmware/efi/libstub/efistub.h
-> >@@ -720,6 +720,21 @@ union efi_tcg2_protocol {
-> > 	} mixed_mode;
-> > };
-> > 
-> >+typedef union riscv_efi_boot_protocol riscv_efi_boot_protocol_t;
-> >+
-> >+union riscv_efi_boot_protocol {
-> >+	struct {
-> >+		u64 revision;
-> >+		efi_status_t (__efiapi *get_boot_hartid)(
-> >+							 riscv_efi_boot_protocol_t *,
-> >+							 size_t *);
-> 
-> I prefer to have parameter names for readability
+These patches are also a preparatory patches for the up-coming:
+ 1) Linux RISC-V ACLINT support
+ 2) Linux RISC-V AIA support
+ 3) KVM RISC-V TLB flush improvements
 
-Sure. Will add.
+These patches can also be found in riscv_ipi_imp_v2 branch at:
+https://github.com/avpatel/linux.git
 
-> 
-> According to the platform specification mhartid is MXLEN wide. UINTN (size_t) is SXLEN wide. 
-> 
-> Does this have any implications on how we define the protocol?
+Changes since v1:
+ - Use synthetic fwnode for INTC instead of irq_set_default_host() in PATCH2
 
-I don't think so. EFI and kernel will be at same privilige level. So, it
-is not really an issue for this protocol. 
+Anup Patel (6):
+  RISC-V: Clear SIP bit only when using SBI IPI operations
+  irqchip/riscv-intc: Create domain using named fwnode
+  RISC-V: Treat IPIs as normal Linux IRQs
+  RISC-V: Allow marking IPIs as suitable for remote FENCEs
+  RISC-V: Use IPIs for remote TLB flush when possible
+  RISC-V: Use IPIs for remote icache flush when possible
 
-But when MXLEN > SXLEN (ex: 64 vs 32), then implementation need to
-ensure hartid value is 32 bit only so that when it is passed from M-mode
-firmware to S-mode, it gets correct value. But again this is not an
-issue from this EFI protocol perspective.
+ arch/riscv/Kconfig                |   1 +
+ arch/riscv/include/asm/ipi-mux.h  |  45 ++++++
+ arch/riscv/include/asm/irq.h      |   2 +
+ arch/riscv/include/asm/sbi.h      |   2 +
+ arch/riscv/include/asm/smp.h      |  49 +++++--
+ arch/riscv/kernel/Makefile        |   1 +
+ arch/riscv/kernel/cpu-hotplug.c   |   3 +-
+ arch/riscv/kernel/ipi-mux.c       | 223 ++++++++++++++++++++++++++++++
+ arch/riscv/kernel/irq.c           |  16 ++-
+ arch/riscv/kernel/sbi.c           |  18 ++-
+ arch/riscv/kernel/smp.c           | 164 +++++++++++-----------
+ arch/riscv/kernel/smpboot.c       |   5 +-
+ arch/riscv/mm/cacheflush.c        |   5 +-
+ arch/riscv/mm/tlbflush.c          |  93 +++++++++++--
+ drivers/clocksource/timer-clint.c |  21 ++-
+ drivers/clocksource/timer-riscv.c |  11 +-
+ drivers/irqchip/irq-riscv-intc.c  |  67 ++++-----
+ drivers/irqchip/irq-sifive-plic.c |  19 +--
+ 18 files changed, 563 insertions(+), 182 deletions(-)
+ create mode 100644 arch/riscv/include/asm/ipi-mux.h
+ create mode 100644 arch/riscv/kernel/ipi-mux.c
 
-> 
-> >+	};
-> >+	struct {
-> >+		u32 revision;
-> >+		u32 get_boot_hartid;>+	} mixed_mode;
-> >+};
-> >+
-> > typedef union efi_load_file_protocol efi_load_file_protocol_t;
-> > typedef union efi_load_file_protocol efi_load_file2_protocol_t;
-> > 
-> >diff --git a/drivers/firmware/efi/libstub/riscv-stub.c b/drivers/firmware/efi/libstub/riscv-stub.c
-> >index 380e4e251399..c7add4eb5453 100644
-> >--- a/drivers/firmware/efi/libstub/riscv-stub.c
-> >+++ b/drivers/firmware/efi/libstub/riscv-stub.c
-> >@@ -46,12 +46,34 @@ static u32 get_boot_hartid_from_fdt(void)
-> > 	return fdt32_to_cpu(*prop);
-> > }
-> > 
-> >+static u32 get_boot_hartid_from_efi(void)
-> >+{
-> 
-> The returned value must be UINTN /size_t like the protocol. This width must be carried to the legacy entry point of Linux.
-> 
-> >+	efi_guid_t boot_protocol_guid = RISCV_EFI_BOOT_PROTOCOL_GUID;
-> >+	efi_status_t status;
-> >+	riscv_efi_boot_protocol_t *boot_protocol;
-> >+	size_t boot_hart_id;
-> >+
-> >+	status = efi_bs_call(locate_protocol, &boot_protocol_guid, NULL,
-> >+			     (void **)&boot_protocol);
-> >+	if (status == EFI_SUCCESS) {
-> >+		status = efi_call_proto(boot_protocol,
-> >+					get_boot_hartid, &boot_hart_id);
-> >+		if (status == EFI_SUCCESS) {
-> >+			return (u32)boot_hart_id;
-> >+		}
-> >+	}
-> >+	return U32_MAX;
-> 
-> U32_MAX is a legal value for the hart id.
+-- 
+2.25.1
 
-Yeah. This is an existing issue in get_boot_hartid_from_fdt() for which
-I have sent a fix patch. Once that gets accepted, I will fix
-get_boot_hartid_from_efi() and send RFC V2 patch.
-
-> 
-> >+}
-> >+
-> > efi_status_t check_platform_features(void)
-> > {
-> >-	hartid = get_boot_hartid_from_fdt();
-> >+	hartid = get_boot_hartid_from_efi();
-> > 	if (hartid == U32_MAX) {
-> >-		efi_err("/chosen/boot-hartid missing or invalid!\n");
-> >-		return EFI_UNSUPPORTED;
-> >+		hartid = get_boot_hartid_from_fdt();
-> >+		if (hartid == U32_MAX) {
-> 
-> U32_MAX is a legal value for the hart id. Please, separate status and value.
-
-Will fix it.
-
-Thank you very much for the feedback.
-Sunil
-
-> 
-> Best regards
-> 
-> Heinrich
-> 
-> >+			efi_err("/chosen/boot-hartid missing or invalid!\n");
-> >+			return EFI_UNSUPPORTED;
-> >+		}
-> > 	}
-> > 	return EFI_SUCCESS;
-> > }
-> >diff --git a/include/linux/efi.h b/include/linux/efi.h
-> >index ccd4d3f91c98..9822c730207c 100644
-> >--- a/include/linux/efi.h
-> >+++ b/include/linux/efi.h
-> >@@ -380,6 +380,7 @@ void efi_native_runtime_setup(void);
-> > #define EFI_CONSOLE_OUT_DEVICE_GUID		EFI_GUID(0xd3b36f2c, 0xd551, 0x11d4,  0x9a, 0x46, 0x00, 0x90, 0x27, 0x3f, 0xc1, 0x4d)
-> > #define APPLE_PROPERTIES_PROTOCOL_GUID		EFI_GUID(0x91bd12fe, 0xf6c3, 0x44fb,  0xa5, 0xb7, 0x51, 0x22, 0xab, 0x30, 0x3a, 0xe0)
-> > #define EFI_TCG2_PROTOCOL_GUID			EFI_GUID(0x607f766c, 0x7455, 0x42be,  0x93, 0x0b, 0xe4, 0xd7, 0x6d, 0xb2, 0x72, 0x0f)
-> >+#define RISCV_EFI_BOOT_PROTOCOL_GUID		EFI_GUID(0xccd15fec, 0x6f73, 0x4eec,  0x83, 0x95, 0x3e, 0x69, 0xe4, 0xb9, 0x40, 0xbf)
-> > #define EFI_LOAD_FILE_PROTOCOL_GUID		EFI_GUID(0x56ec3091, 0x954c, 0x11d2,  0x8e, 0x3f, 0x00, 0xa0, 0xc9, 0x69, 0x72, 0x3b)
-> > #define EFI_LOAD_FILE2_PROTOCOL_GUID		EFI_GUID(0x4006c0c1, 0xfcb3, 0x403e,  0x99, 0x6d, 0x4a, 0x6c, 0x87, 0x24, 0xe0, 0x6d)
-> > #define EFI_RT_PROPERTIES_TABLE_GUID		EFI_GUID(0xeb66918a, 0x7eef, 0x402a,  0x84, 0x2e, 0x93, 0x1d, 0x21, 0xc3, 0x8a, 0xe9)
-> 
 
 _______________________________________________
 linux-riscv mailing list
