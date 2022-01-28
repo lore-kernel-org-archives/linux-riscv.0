@@ -4,75 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED540C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 09:07:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA520C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 09:07:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5lIm5OylwUBAFBfZbxQQYGL1zm2lBxqYf3+wi7RbZwg=; b=O0mDc2P/OGMBRk
-	SbAtpAyfnXqDI/RTGsQ/LwwhFuB9jTIxEGHwPwc4uFIeWiE0GVrw1v9k0UMZXs4dYu/vW/eWdlOBR
-	Wl9fctr7zfjkaJdDw2xLbfeI1evfovvenDIme5sLIUFndtNxcHEFdhsMT01kuE2gQu6+5rYkhzaEu
-	M3e7F/UwLcsSu3aTN+ch4C8yxvESc5jxfHD7cnvxYx+3iBtLqWqHk/QLcn71TY50YAXOtv6H7s+Df
-	TmjbxLAGoATzALvyJ6xEOSLx5FNlh2LvBy8Zh+TXBtE5LMojBpfr2zoOyT51MI3lrz3IedDF9u9AI
-	WiQZJD/rYRQYG/5bM4YA==;
+	List-Owner; bh=Tcm3BaAx3zyYfeo41KZH1+w1AxU/hxDulPdtxL/2Hxs=; b=EwjR0Lq9IbeklJ
+	vTBZ5mM+rDkm6XNeDqJLxUDMUNTTCkze3Z0OAcK7fIBMZFqj9jPtm7ncfdRlVC1eISdkisCxBOo0i
+	fkK4Ix8U4WU84CTDwZnXI7dmwaJ0HdGVIlFWd/Vh/VL7o6vW3JAy+Eoltay9JMkoIJqoDSt2eJE7I
+	I8LiUvO7GBJB9Eq0lN2fMZXD8DbAIpOWuQV01x3O+Ceb6Cdh0BtYs9k4BCKEB5YwMZYuWZTDsw2Jr
+	k2x4CGwa8ZV2KyMoscozXyD5w/ypQ9EmXybS5xJ/EUVeiTHAaiyvxPquYauQa1PREs3TUmruOcM4s
+	8J8fJU6YDNV5ALW3O+LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nDNDb-0018w6-HI; Fri, 28 Jan 2022 09:06:55 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1nDNEQ-0019Bi-F3; Fri, 28 Jan 2022 09:07:46 +0000
+Received: from albert.telenet-ops.be ([2a02:1800:110:4::f00:1a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nDNDX-0018sf-FP
- for linux-riscv@lists.infradead.org; Fri, 28 Jan 2022 09:06:53 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id r7so3826383wmq.5
- for <linux-riscv@lists.infradead.org>; Fri, 28 Jan 2022 01:06:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=I6wIAYdGWZvgUsjPei+YbgKLlhX+BWcT4ZFFreUIf/o=;
- b=e73sSH1LXzCPedGG67Np0Stuh7FrNuD36SgjCIgJXn6tMAZP2RLyxpZ5numftYWMkn
- uUzxnPg8OT4ngevlyyJYj2XknPGqVKMYKBEtLa5Zc1qziBiUF3qPs7+sEiljmCKDxlvX
- v3D2EBhTMdw2JLJ1bdrtvFib+Cykh4rvp5b1zCbQzjgz4z2MjEzlUNP8MyHhkc64rC5O
- fj2p1owTF9KfsHFMViYbftU7c5/Ztvu0X0PHXW03QxyysfL3PaFxlGTQbx//YBCzdJux
- aCjfVRw5TADT5hyTzV2vsieM9Bm2AiKFR7EI33AWwGTHDQ6nRNwsEQ9LP5xc/F/B1972
- sUJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=I6wIAYdGWZvgUsjPei+YbgKLlhX+BWcT4ZFFreUIf/o=;
- b=rMLTXCp7550+U8pF0mf56VR0DIHdB5uIwCJhwIHma24piPg0wABIc41iGHn0YWrdbt
- oNwtyXzntVx5kzGXXz/iJZdhbOr1tOInwEjqdRcatmNJPSY7Satnq2TXPiT67NGekarO
- As0WrB0rHtSr2QiRlrBE1G/tSTGpVM9aYwhq8Vz9sPB89dLqrQcgxeg/AcV3iJlcJGAx
- WW8vFr3HVVOiPqFxY2LrO9mUCQQe7q7Hzc9UG1H35S9Ibac47EU/7AcErls9EZVfV6c5
- gSJMfxa53A1abg86yRRkEMNfSyOY1WvM3RfdOO1wg+5XtK6IK+0Ocoku/17bFuAGoOTf
- RwUg==
-X-Gm-Message-State: AOAM5327u7E1LxK9TXOmJgfrzW1euVXzcohRW0HtStfLNx4XQKVQqtJf
- DsQUFhnQBpkhEbxBlgwkO2CLbA6vmAniOR91SkEuhQ==
-X-Google-Smtp-Source: ABdhPJwPIrr2gE94yvvHvP7GvT3Wa+RsEPzFUqQsChCTORUdOrGaMkrRfg9l3aIgiVlBuFYisnhQExd2es0kZuE0U8M=
-X-Received: by 2002:a05:600c:21c1:: with SMTP id
- x1mr6622486wmj.59.1643360809397; 
- Fri, 28 Jan 2022 01:06:49 -0800 (PST)
+ id 1nDNEN-00199Z-GJ
+ for linux-riscv@lists.infradead.org; Fri, 28 Jan 2022 09:07:45 +0000
+Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed40:3999:e79d:cb59:f2ec])
+ by albert.telenet-ops.be with bizsmtp
+ id o97e2600Y04fKGS0697eYM; Fri, 28 Jan 2022 10:07:40 +0100
+Received: from rox.of.borg ([192.168.97.57])
+ by ramsan.of.borg with esmtps (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
+ (envelope-from <geert@linux-m68k.org>)
+ id 1nDNEI-00BjuW-Fe; Fri, 28 Jan 2022 10:07:38 +0100
+Received: from geert by rox.of.borg with local (Exim 4.93)
+ (envelope-from <geert@linux-m68k.org>)
+ id 1nDNEI-005psK-0U; Fri, 28 Jan 2022 10:07:38 +0100
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup.patel@wdc.com>
+Cc: Rob Herring <robh+dt@kernel.org>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Rob Herring <robh@kernel.org>
+Subject: [PATCH v4 2/2] dt-bindings: timer: sifive,
+ clint: Group interrupt tuples
+Date: Fri, 28 Jan 2022 10:07:36 +0100
+Message-Id: <62bf4ee6613550c07a99d4bd226ab0d33acae4c4.1643360652.git.geert@linux-m68k.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <cover.1643360652.git.geert@linux-m68k.org>
+References: <cover.1643360652.git.geert@linux-m68k.org>
 MIME-Version: 1.0
-References: <cover.1643360419.git.geert@linux-m68k.org>
- <211705e74a2ce77de43d036c5dea032484119bf7.1643360419.git.geert@linux-m68k.org>
-In-Reply-To: <211705e74a2ce77de43d036c5dea032484119bf7.1643360419.git.geert@linux-m68k.org>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 28 Jan 2022 14:36:38 +0530
-Message-ID: <CAAhSdy1VfWaSxPb0kLFtxz4acX6fBOuZ=7y7QRiGp0SydqD6ZA@mail.gmail.com>
-Subject: Re: [PATCH v4 2/2] dt-bindings: interrupt-controller: sifive,plic:
- Group interrupt tuples
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Sagar Kadam <sagar.kadam@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- DTML <devicetree@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, Rob Herring <robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220128_010651_561832_DDD27252 
-X-CRM114-Status: GOOD (  15.21  )
+X-CRM114-CacheID: sfid-20220128_010743_752388_95C0F0B1 
+X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,60 +71,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 28, 2022 at 2:34 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> To improve human readability and enable automatic validation, the tuples
-> in "interrupts-extended" properties should be grouped using angle
-> brackets.
->
-> Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
-> Reviewed-by: Rob Herring <robh@kernel.org>
+To improve human readability and enable automatic validation, the tuples
+in "interrupts-extended" properties should be grouped using angle
+brackets.
 
-Looks good to me.
+Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Reviewed-by: Rob Herring <robh@kernel.org>
+---
+v4:
+  - Add Reviewed-by (this time for real ;-),
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
+v3:
+  - Add Reviewed-by,
 
-Regards,
-Anup
+v2:
+  - Split in two patches.
+---
+ Documentation/devicetree/bindings/timer/sifive,clint.yaml | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-> ---
-> v4:
->   - No changes,
->
-> v3:
->   - Add Reviewed-by,
->
-> v2:
->   - Split in two patches.
-> ---
->  .../interrupt-controller/sifive,plic-1.0.0.yaml       | 11 +++++------
->  1 file changed, 5 insertions(+), 6 deletions(-)
->
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> index 57c06126c99502fa..0dfa6b26e09910a8 100644
-> --- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> @@ -91,12 +91,11 @@ examples:
->        #interrupt-cells = <1>;
->        compatible = "sifive,fu540-c000-plic", "sifive,plic-1.0.0";
->        interrupt-controller;
-> -      interrupts-extended = <
-> -        &cpu0_intc 11
-> -        &cpu1_intc 11 &cpu1_intc 9
-> -        &cpu2_intc 11 &cpu2_intc 9
-> -        &cpu3_intc 11 &cpu3_intc 9
-> -        &cpu4_intc 11 &cpu4_intc 9>;
-> +      interrupts-extended = <&cpu0_intc 11>,
-> +                            <&cpu1_intc 11>, <&cpu1_intc 9>,
-> +                            <&cpu2_intc 11>, <&cpu2_intc 9>,
-> +                            <&cpu3_intc 11>, <&cpu3_intc 9>,
-> +                            <&cpu4_intc 11>, <&cpu4_intc 9>;
->        reg = <0xc000000 0x4000000>;
->        riscv,ndev = <10>;
->      };
-> --
-> 2.25.1
->
+diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+index fe4b73c3f269fc0f..e64f46339079fa3f 100644
+--- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
++++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+@@ -57,10 +57,10 @@ examples:
+   - |
+     timer@2000000 {
+       compatible = "sifive,fu540-c000-clint", "sifive,clint0";
+-      interrupts-extended = <&cpu1intc 3 &cpu1intc 7
+-                             &cpu2intc 3 &cpu2intc 7
+-                             &cpu3intc 3 &cpu3intc 7
+-                             &cpu4intc 3 &cpu4intc 7>;
++      interrupts-extended = <&cpu1intc 3>, <&cpu1intc 7>,
++                            <&cpu2intc 3>, <&cpu2intc 7>,
++                            <&cpu3intc 3>, <&cpu3intc 7>,
++                            <&cpu4intc 3>, <&cpu4intc 7>;
+        reg = <0x2000000 0x10000>;
+     };
+ ...
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
