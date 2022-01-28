@@ -4,46 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D185FC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 17:57:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EEDFC433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 18:52:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:
-	In-Reply-To:Message-ID:Subject:Cc:From:To:Date:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UtiwQ1pJi5wgE6GVNhEEtWkDb0Oe9Sn+xtmBCASwooY=; b=uoa5K0FDShrLke
-	X7Ugw9QPYQ9FPLhy5HFWV+YC/bg17l6k0cYgGkBHrS7WaT54tQ+Z+gIMzsHegl3ako33jzzKvMqXt
-	qu1FCrck39glg1t+1zfTowyqndZb5/o9pa7EQkiDrKMFR7SkZYQggBwJG+373gRFDnrF6zxG0Xtj2
-	Tr5S2RlFiWlX2chwUhvWa9vONCLjjJbTf/YKQgPwDTxJMHBrH018mgu3Uavn4Az86RM1BikreU5KC
-	ELJp0UhcYy3sEiko5DhywsmWKN9jLw5LqRdz2ybhCW1bHhCEzB8bJUI3HcGHlXL0lsVWHrCdTRJDp
-	LDafVNevVPXAvEJa7Nzg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wZrz3ys1ane2enqEGq0/pmtrkmpycrSYR2+FJJ63+4w=; b=CX2RRvoyvp1VtO
+	DAD7xGBocoa1MdNq5KaKxDPf6uVhvLIfavAUPcpNV87PLILojP8MRoDMh8w0w1KKOcpEJQtvlFIVb
+	x3sekfT+3aNmnxqyUodyoRqXAoeggYVjpVJLKB411YHWdKgoMBkLdu0yr0V11jj9oUqBsWwiwlRBn
+	e5WK/klj20rrvaAPU17d4bnxpotj2hK5uogkxcYvhzPJsujoR1cAQrHb3OZN9aqNFq/hHF7XnZ8VB
+	XHz8AiZ+g2zlKjPvAIgCoiFzjLYIB8AEGmKeEqV2tcf55mCU5vLcvl3Zty2NflDFx4qd0AXiJE+fW
+	wfGM3Y9pBhLCBLg9FjfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nDVUl-003GXD-Ca; Fri, 28 Jan 2022 17:57:11 +0000
-Received: from mail-4018.proton.ch ([185.70.40.18])
+	id 1nDWLw-003Myz-J0; Fri, 28 Jan 2022 18:52:08 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nDVUj-003GVO-3q
- for linux-riscv@lists.infradead.org; Fri, 28 Jan 2022 17:57:10 +0000
-Date: Fri, 28 Jan 2022 17:57:04 +0000
-Authentication-Results: mail-4018.proton.ch; dkim=none
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-From: Conor Dooley <mail@conchuod.ie>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ id 1nDWLt-003MyY-Dh
+ for linux-riscv@lists.infradead.org; Fri, 28 Jan 2022 18:52:06 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 6D9FCB81CA6;
+ Fri, 28 Jan 2022 18:52:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40241C340E7;
+ Fri, 28 Jan 2022 18:52:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1643395922;
+ bh=B3YtyNHxZR5KM+o1ZKPGnTvNlQkuMlzv8fu30ftptCg=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+ b=jxdAPsjHhsL49xAwP0piG3fyX/VL7EWEsAbftkevxLbMZ0Qm+N0ooYfyZuJhxyzQR
+ IAkM/WmfoZu6RcVfzYubB8+/V6fEMtgI//vaKU0xZel7o4w1Ib+oQ34uRfKrVUNYdy
+ B/b11e3UPqbyBqMNdnF9BloWfEnl8sLIBMf9Oaric42X7HN8XWrFk+peJ3JeJq7BSM
+ wrjX9jurpLOmMsI+CXDmoNMnh/SpM4ugOxZT5cSdA1n6QCUIiKDYEi+cDp3hIqRfam
+ m+w2eOVH3/Hhcr3DyHEEU/WdcSn0KkeJaCvlhhqVkiMkdDSurz/3FmSHKaL4POYm6P
+ N5/24Wrjy4yQA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
+ by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
+ (envelope-from <maz@kernel.org>)
+ id 1nDWLm-003tSX-Le; Fri, 28 Jan 2022 18:52:00 +0000
+Date: Fri, 28 Jan 2022 18:51:58 +0000
+Message-ID: <87mtjf66cx.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Conor Dooley <mail@conchuod.ie>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
  Sagar Kadam <sagar.kadam@sifive.com>, Rob Herring <robh+dt@kernel.org>,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>
 Subject: Re: [PATCH v4 1/2] dt-bindings: interrupt-controller: sifive,
  plic: Fix number of interrupts
-Message-ID: <D-55Hk0vrg2vkivFR3NXwnyI8hno6J5TA6gRHi3GbGVflgVPOGQNM2auwcIoHVt3fuzkg-pe7MAARda8PG8-KPoEnarmha7U6TI-pA7V6uI=@conchuod.ie>
-In-Reply-To: <f73a0aead89e1426b146c4c64f797aa035868bf0.1643360419.git.geert@linux-m68k.org>
+In-Reply-To: <D-55Hk0vrg2vkivFR3NXwnyI8hno6J5TA6gRHi3GbGVflgVPOGQNM2auwcIoHVt3fuzkg-pe7MAARda8PG8-KPoEnarmha7U6TI-pA7V6uI=@conchuod.ie>
 References: <cover.1643360419.git.geert@linux-m68k.org>
  <f73a0aead89e1426b146c4c64f797aa035868bf0.1643360419.git.geert@linux-m68k.org>
-MIME-Version: 1.0
+ <D-55Hk0vrg2vkivFR3NXwnyI8hno6J5TA6gRHi3GbGVflgVPOGQNM2auwcIoHVt3fuzkg-pe7MAARda8PG8-KPoEnarmha7U6TI-pA7V6uI=@conchuod.ie>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mail@conchuod.ie, geert@linux-m68k.org, tglx@linutronix.de,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, sagar.kadam@sifive.com,
+ robh+dt@kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, robh@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
+ SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220128_095709_340789_1DD69B48 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20220128_105205_654473_8FDF60DD 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -55,52 +89,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Conor Dooley <mail@conchuod.ie>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> The number of interrupts lacks an upper bound, thus assuming one,
-> causing properly grouped "interrupts-extended" properties to be flagged
-> as an error by "make dtbs_check".
->
-> Fix this by adding the missing "maxItems", using the architectural
-> maximum of 15872 interrupts.
->
-> Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
-> Acked-by: Rob Herring <robh@kernel.org>
-> ---
-> v4:
->   - Use architectural maximum instead of practical maximum of 9,
->
-> v3:
->   - Add Acked-by,
->
-> v2:
->   - Split in two patches,
->   - Improve patch description and document limit rationale.
-> ---
->  .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml         | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> index 28b6b17fe4b26778..57c06126c99502fa 100644
-> --- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> @@ -62,6 +62,7 @@ properties:
->
->    interrupts-extended:
->      minItems: 1
-> +    maxItems: 15872
->      description:
->        Specifies which contexts are connected to the PLIC, with "-1" specifying
->        that a context is not present. Each node pointed to should be a
-> --
-> 2.25.1
+On Fri, 28 Jan 2022 17:57:04 +0000,
+Conor Dooley <mail@conchuod.ie> wrote:
+> 
+> [1 PGP/MIME version identification <application/pgp-encrypted (7bit)>]
+> [2 OpenPGP encrypted message <application/octet-stream (7bit)>]
 
-As with the clint - clears errors on the icicle dt, so fwiw:
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Please refrain from posting encrypted messages to the mailing lists.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
