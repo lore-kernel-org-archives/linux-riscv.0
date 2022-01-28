@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37316C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 15:22:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B55A8C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 15:30:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1HGpJVWWz2uOzZGiyKpV1YUlrEfXbYPkhpdN8G2ggRk=; b=u09X4o43uA5xGB
-	PTQ+d8rvXTr78QuY2ULQsiwTjuLLxUds9RIyhF2I/7qyWjeox+Ge4NDiVRGUd2Dy3t2y1nWcxISJW
-	obLpdwR3FqqpkPmrOHXvZIbYk0KPyBERbkzoYXXJwK645Piw4olQfBHWZxVMlGsAdplmGdxUmfnSP
-	4O16WsGMju8Mh1+kgcYsRgPjAiyN4SIaED76097J4e2LtLpy/8Ru/cAA9g2N1ebqpYNSF66AHVDka
-	qxudFXqSzH//q6ZkEBmYOvGznpZaAMkvDUZgaGLL5IAs4ZqWeiCJbMZq2BhFNLxcWs2BsLaQcqXQS
-	/yXZZoMaXHUVxZe9FglQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HhqkbiUTZlZ3p5AbUNynFLUerj1ccDQqU+5Ph0Ah4cM=; b=qicKq1OGl7JjdZ
+	GdfiTNqjV9WLtrZFBqogCTwz1MG/ZPO9vMt7o+vGWYtQ5k7omSxw1FoAJlmtnAMdOTv1EBqz4TWlR
+	KiJ0DBRQXqLIggL1Zt2kS7CcB00+x/j6Y1uX6Lxu+GTSNa/e6aPASOBkSj2nHPv1ylR0OeogDKVtN
+	LXNpJ4hleuPGFQbXbpH/4isf6HpxaHmJHSR73IR/zqH2gY6DcHTec88OyU5yMirieB6lYpB48Cb+w
+	j6yEU6JHb+vXOc7sR2GJwn7Ggtz9cPT9VyL3fRvU618mAqtKgs78JiTlCa6/JeDq53vLNAzVSb5oL
+	OmMdJ/fG6W9hwdKwmsng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nDT4Z-002hk2-MQ; Fri, 28 Jan 2022 15:21:59 +0000
-Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
+	id 1nDTCH-002j9b-Qg; Fri, 28 Jan 2022 15:29:57 +0000
+Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nDT4X-002hiU-78
- for linux-riscv@lists.infradead.org; Fri, 28 Jan 2022 15:21:58 +0000
-Received: by mail-qk1-x731.google.com with SMTP id o10so5861109qkg.0
- for <linux-riscv@lists.infradead.org>; Fri, 28 Jan 2022 07:21:56 -0800 (PST)
+ id 1nDTCB-002j7i-2o
+ for linux-riscv@lists.infradead.org; Fri, 28 Jan 2022 15:29:52 +0000
+Received: by mail-qv1-xf32.google.com with SMTP id s6so6107601qvv.11
+ for <linux-riscv@lists.infradead.org>; Fri, 28 Jan 2022 07:29:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=sXDhGu9GO+2x7oeDXdjJk9+Khk66FD4cDaSrxJDPkgQ=;
- b=Ye+Jk2yJquDBLp8LprPQrJBQdOyqQmIavIAudC7Jo+Z8qLzg2KN/Cl8zNHin9h9k25
- UvuaJxmZidqK71a6+gdYibjoQGKMCJpojtjIQ4QPePRKwDJaITA31o6Llo/B7zqdYueB
- L2N4d6Cm2XcWc5vw8ISevauEG+SToOAVB3wWjDwF/qik79Xr/hmb+Nh3+vpypi6f2oCV
- nI2ikry+opEUL2NQImKYYfBWoKqD0ltg9NSuJBLIvYVzseLkTthDQuUyp2i1sciFZLaR
- YwdLpvg/V57PiOQVQSUw3rMKUEyinWHZoEl6h0nqMow0sZlFCu22kW8Zl1I8gtSm7iv8
- MuKQ==
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=CSl2ozcmK5vQmYT5NCTW7Ai/PaWfN2v+NSUoqmah+A8=;
+ b=FJH5uIAxTQM8O59a+3eYNLA7MIl2VXZdu1Ls3a0q13RPtU8l8XeD2Ln20sWLsa1KEw
+ ErpwSzzd/dvP5kaq9bR87xrhD5k9T5D3LS24Wzfv0bDCHY8IGjgJ3/jqrpLsShFPwnZf
+ s2SEnCIr7rf4+M9Dyh54dwWY6IZGLVyethy+lAk4SkXIKzsnfwhm9VDFuMobyWKrZ5WJ
+ Zm+bbHHE7qcit3vSQVHzhnQAfXoGfL2vmSQ52TYK49RsXl/r8NfykLpiwZzz4H3aAhQL
+ y0w+QscTCqxZvzLB4jHfjGWXi61I9u8YowD5Euj4jxncsHDFQuSMBHEiDGoy7rZLQIz1
+ ny7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=sXDhGu9GO+2x7oeDXdjJk9+Khk66FD4cDaSrxJDPkgQ=;
- b=qUXnUljEDYMnrXMfLl7Np0QNgTxeO7D5kQIVS3YC+EKI4N0JTyS7/4cLEWwbnrapOU
- oSYCobLwQRV1W6MFxWLyRj9SmMy6vgMxGJ/KcEAVXYcVPByJ9JqS3GH0GcdYgvg2fzs+
- gBCscrCRA4QgRKKNsiKuG6fD9OYxEyfwGa5/sPoSqDiWw/A/ABWvwaVtmjzM0JWy0EXI
- /RVIZBwvF9sRr9Gq+pwvjKbddIovyo+pCwYLnQdrvTqOPMrWIowtshlG2R+zrqrRXfn0
- DjOHOEM65R+52XDyiWD4JlnMSvd1/BfMAdlZnaQaj6BoAuh0cpkW8H2mRVke6/J4vC1W
- h7cw==
-X-Gm-Message-State: AOAM531kjijFl7xgUt5udOqRo3PsQ86wC44GJTxwnp0knVL3Q9xDdYbZ
- D1EH3CKaGW+P4o+Z+KTITFY=
-X-Google-Smtp-Source: ABdhPJxv1mdf78ujD+RNvg6CT0H+GTKSKjgvzoPABwxeAxNLIDDUs/3Y1SQ9xD2eSW0m0/elkJS61Q==
-X-Received: by 2002:a05:620a:71b:: with SMTP id
- 27mr5974535qkc.474.1643383315857; 
- Fri, 28 Jan 2022 07:21:55 -0800 (PST)
-Received: from mail.google.com ([207.246.89.135])
- by smtp.gmail.com with ESMTPSA id m16sm3575782qkp.90.2022.01.28.07.21.51
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=CSl2ozcmK5vQmYT5NCTW7Ai/PaWfN2v+NSUoqmah+A8=;
+ b=N3l5V/o8SX5t1DDzO1mx179kVSN/GCg+xubWJq+h/KSATTppdoM0vYILxRvY50ys3m
+ pPRmaFjCyWFd08IIATV6xIdPiB/sijbZ7pofw1jPWIAI83RKdYt4XwpbPZLmqu2A8RNo
+ s0YjHATyArySfX5ZiUBRykN/wICAITndSzkW9x2LO66SRLuNX1Hqsv1/PUuEIIr4PtHF
+ Nj3+jHCNWD7szzb5Gn+0E0pXyLV7JqMyIL9Qd6FSutGPDxfmFolpvSfjfa8bxYyWuhFQ
+ X6T4Plve8xy+avY+oA0jjLVxZR3VRE8e/zfTY2KHM2dq9PrULYGNaQK+V5wT+cdUpyKh
+ HxXA==
+X-Gm-Message-State: AOAM531ZmSBSJLQSFu9rrYcK0Lg3UFjX/ANxFijT5BbrDblqB6mvLMz0
+ To8iKmSGEEfDXRicXQsJT+vLlLCK7qS+yHC3
+X-Google-Smtp-Source: ABdhPJx2D4vFcc3WaNsxX3fdUzR9zquDZDLejQkoNd5LrGIWifupQR2VaDiHtqSOypg0woYUHrHDwQ==
+X-Received: by 2002:a05:6214:4011:: with SMTP id
+ kd17mr7272985qvb.45.1643383789737; 
+ Fri, 28 Jan 2022 07:29:49 -0800 (PST)
+Received: from WRT-WX9.. ([207.246.89.135])
+ by smtp.gmail.com with ESMTPSA id bs16sm385231qkb.69.2022.01.28.07.29.46
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 28 Jan 2022 07:21:55 -0800 (PST)
-Date: Fri, 28 Jan 2022 23:21:47 +0800
+ Fri, 28 Jan 2022 07:29:49 -0800 (PST)
 From: Changbin Du <changbin.du@gmail.com>
-To: Changbin Du <changbin.du@gmail.com>
-Cc: Nathan Chancellor <nathan@kernel.org>,
- Masahiro Yamada <masahiroy@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>,
- linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] kallsyms: ignore local block labels generated by compiler
-Message-ID: <20220128152147.mwjkf45z72qwdikq@mail.google.com>
-References: <20220128105746.2459-1-changbin.du@gmail.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Changbin Du <changbin.du@gmail.com>
+Subject: [PATCH] riscv: fix oops caused by irq on/off tracer
+Date: Fri, 28 Jan 2022 23:29:39 +0800
+Message-Id: <20220128152939.99544-1-changbin.du@gmail.com>
+X-Mailer: git-send-email 2.32.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220128105746.2459-1-changbin.du@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220128_072157_308651_E2EE5247 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20220128_072951_163497_C4E185D2 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,47 +87,132 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 28, 2022 at 06:57:46PM +0800, Changbin Du wrote:
-> The llvm compiler can generate lots of local block labels and they might
-> overlap with C defined symbols. So let's ignore such local labels.
-> 
-> Before this change, dumpstack shows a local symbol for epc:
-> [    0.040341][    T0] Hardware name: riscv-virtio,qemu (DT)
-> [    0.040376][    T0] epc : .LBB6_14+0x22/0x6a
-> [    0.040452][    T0]  ra : restore_all+0x12/0x6e
-> 
-> After this change, the C defined symbol is shown which is expected:
-> [    0.035795][    T0] Hardware name: riscv-virtio,qemu (DT)
-> [    0.036332][    T0] epc : trace_hardirqs_on+0x54/0x13c
-> [    0.036567][    T0]  ra : restore_all+0x12/0x6e
-> 
-> Signed-off-by: Changbin Du <changbin.du@gmail.com>
-> ---
->  scripts/kallsyms.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/scripts/kallsyms.c b/scripts/kallsyms.c
-> index 54ad86d13784..5f4be9d72a32 100644
-> --- a/scripts/kallsyms.c
-> +++ b/scripts/kallsyms.c
-> @@ -108,6 +108,7 @@ static bool is_ignored_symbol(const char *name, char type)
->  	/* Symbol names that begin with the following are ignored.*/
->  	static const char * const ignored_prefixes[] = {
->  		"$",			/* local symbols for ARM, MIPS, etc. */
-> +		".LBB",			/* local block labels generated by compiler */
-I aslo found many symbols like '.Ltmpxxx', '.L__unnamed_xx'. So should we just
-ignore all symbols prefixed by '.L'?
+The trace_hardirqs_on/off requires at least two parent call frames.
+If not, the code generated by CALLER_ADDR1 (aka. ftrace_return_address(1))
+could trigger memory access fault.
 
->  		".LASANPC",		/* s390 kasan local symbols */
->  		"__crc_",		/* modversions */
->  		"__efistub_",		/* arm64 EFI stub namespace */
-> -- 
-> 2.32.0
-> 
+[    0.039615][    T0] Unable to handle kernel NULL pointer dereference at virtual address 00000000000000f8
+[    0.041925][    T0] Oops [#1]
+[    0.042063][    T0] Modules linked in:
+[    0.042864][    T0] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.17.0-rc1-00233-g9a20c48d1ed2 #29
+[    0.043568][    T0] Hardware name: riscv-virtio,qemu (DT)
+[    0.044343][    T0] epc : trace_hardirqs_on+0x56/0xe2
+[    0.044601][    T0]  ra : restore_all+0x12/0x6e
+[    0.044721][    T0] epc : ffffffff80126a5c ra : ffffffff80003b94 sp : ffffffff81403db0
+[    0.044801][    T0]  gp : ffffffff8163acd8 tp : ffffffff81414880 t0 : 0000000000000020
+[    0.044882][    T0]  t1 : 0098968000000000 t2 : 0000000000000000 s0 : ffffffff81403de0
+[    0.044967][    T0]  s1 : 0000000000000000 a0 : 0000000000000001 a1 : 0000000000000100
+[    0.045046][    T0]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : 0000000000000000
+[    0.045124][    T0]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000054494d45
+[    0.045210][    T0]  s2 : ffffffff80003b94 s3 : ffffffff81a8f1b0 s4 : ffffffff80e27b50
+[    0.045289][    T0]  s5 : ffffffff81414880 s6 : ffffffff8160fa00 s7 : 00000000800120e8
+[    0.045389][    T0]  s8 : 0000000080013100 s9 : 000000000000007f s10: 0000000000000000
+[    0.045474][    T0]  s11: 0000000000000000 t3 : 7fffffffffffffff t4 : 0000000000000000
+[    0.045548][    T0]  t5 : 0000000000000000 t6 : ffffffff814aa368
+[    0.045620][    T0] status: 0000000200000100 badaddr: 00000000000000f8 cause: 000000000000000d
+[    0.046402][    T0] [<ffffffff80003b94>] restore_all+0x12/0x6e
 
+To fix above issue, here we add one extra level wrapper so they can be
+safely called by low level entry code.
+
+Signed-off-by: Changbin Du <changbin.du@gmail.com>
+---
+ arch/riscv/kernel/Makefile    |  2 ++
+ arch/riscv/kernel/entry.S     | 10 +++++-----
+ arch/riscv/kernel/trace_irq.c | 24 ++++++++++++++++++++++++
+ 3 files changed, 31 insertions(+), 5 deletions(-)
+ create mode 100644 arch/riscv/kernel/trace_irq.c
+
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 612556faa527..ffc87e76b1dd 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -51,6 +51,8 @@ obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
+ obj-$(CONFIG_FUNCTION_TRACER)	+= mcount.o ftrace.o
+ obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
+ 
++obj-$(CONFIG_TRACE_IRQFLAGS)	+= trace_irq.o
++
+ obj-$(CONFIG_RISCV_BASE_PMU)	+= perf_event.o
+ obj-$(CONFIG_PERF_EVENTS)	+= perf_callchain.o
+ obj-$(CONFIG_HAVE_PERF_REGS)	+= perf_regs.o
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index ed29e9c8f660..d6a46ed0bf05 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -108,7 +108,7 @@ _save_context:
+ .option pop
+ 
+ #ifdef CONFIG_TRACE_IRQFLAGS
+-	call trace_hardirqs_off
++	call __trace_hardirqs_off
+ #endif
+ 
+ #ifdef CONFIG_CONTEXT_TRACKING
+@@ -143,7 +143,7 @@ skip_context_tracking:
+ 	li t0, EXC_BREAKPOINT
+ 	beq s4, t0, 1f
+ #ifdef CONFIG_TRACE_IRQFLAGS
+-	call trace_hardirqs_on
++	call __trace_hardirqs_on
+ #endif
+ 	csrs CSR_STATUS, SR_IE
+ 
+@@ -234,7 +234,7 @@ ret_from_exception:
+ 	REG_L s0, PT_STATUS(sp)
+ 	csrc CSR_STATUS, SR_IE
+ #ifdef CONFIG_TRACE_IRQFLAGS
+-	call trace_hardirqs_off
++	call __trace_hardirqs_off
+ #endif
+ #ifdef CONFIG_RISCV_M_MODE
+ 	/* the MPP value is too large to be used as an immediate arg for addi */
+@@ -270,10 +270,10 @@ restore_all:
+ 	REG_L s1, PT_STATUS(sp)
+ 	andi t0, s1, SR_PIE
+ 	beqz t0, 1f
+-	call trace_hardirqs_on
++	call __trace_hardirqs_on
+ 	j 2f
+ 1:
+-	call trace_hardirqs_off
++	call __trace_hardirqs_off
+ 2:
+ #endif
+ 	REG_L a0, PT_STATUS(sp)
+diff --git a/arch/riscv/kernel/trace_irq.c b/arch/riscv/kernel/trace_irq.c
+new file mode 100644
+index 000000000000..090fd82064e3
+--- /dev/null
++++ b/arch/riscv/kernel/trace_irq.c
+@@ -0,0 +1,24 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2022 Changbin Du <changbin.du@gmail.com>
++ */
++
++#include <linux/irqflags.h>
++#include <linux/kprobes.h>
++
++/**
++ * trace_hardirqs_on/off requires at least two parent call frames. Here we add
++ * one extra level so they can be safely called by low level entry code.
++ */
++
++void __trace_hardirqs_on(void)
++{
++	trace_hardirqs_on();
++}
++NOKPROBE_SYMBOL(__trace_hardirqs_on);
++
++void __trace_hardirqs_off(void)
++{
++	trace_hardirqs_off();
++}
++NOKPROBE_SYMBOL(__trace_hardirqs_off);
 -- 
-Cheers,
-Changbin Du
+2.32.0
+
 
 _______________________________________________
 linux-riscv mailing list
