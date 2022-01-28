@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B17C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 10:58:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A674AC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 13:37:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xJWXEEHl94BZXFeRm2pWhWweWjvdjNTt6P2RPoyn7pg=; b=HrjuYqMO8upUpx
-	ch28AUAVfIlbreFrCPaeHApg44ARyKzvov81z4pwJhaXdSF4TI4N6bYRhTU/DxGPLHrkqE3ifdWwr
-	ng3K5hFKKnI7A6bVdx3Oyp7Qo70c4LePGXylCTVrOXd8n7ljKWvhv3x8uqTSETacPtjndK0aFFfSS
-	Y66Zh9+K6pBtAcWfpe1hdQI2oj21wWwkdpqeSU9NhYrAWalixaRmmIIZdaCx3cSX+AM4fgNxDbFi8
-	6mkYMIh1etmCAgZKERu1zKjEncGup2Obvc9HqiBqldtk8pqpzX1ZMfKH47XaD6PdZOIa0xsudRZwl
-	E46at4pDYS2kaVDQrKNg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2FU5qZ5f0WmxVKtFjSRUHPn0veWf7lDlrhScMTRetHA=; b=nvoxdPyXG3rX19
+	2XpsejGIu1/orgCuJKSP9YaWn76Co6UeXsfOBhOhTPNn2rQSRQpvz86FssJCNA9CdC+cdnMTkpmeg
+	2+gtQbcVuA/4ffXRgkUnCSdaoYbxCTS9y6b6dtvQ2kmhMfQs3fRuWwyE/Q1AL9CoEwRM9SyRB9rdC
+	NFhyhiLtoUX/yVvDqnc3aOYX0bE1kiAaymTEFi0ZhBlu57Q1j/FHDZsc4e9Z8yhaOD0j1gee4lFQr
+	hT5o+0WLbZ+mVYeIXTf4WFrE3eJM1096m2+SXi0PyJUDOq4HaRDBhuvUxVCPNsWNEugbaqIS3SaBx
+	V0JK1EzC4wifRRIiNfeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nDOx7-001ZJX-0z; Fri, 28 Jan 2022 10:58:01 +0000
-Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
+	id 1nDRRM-002N0I-4X; Fri, 28 Jan 2022 13:37:24 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nDOx4-001ZIf-Uy
- for linux-riscv@lists.infradead.org; Fri, 28 Jan 2022 10:58:00 +0000
-Received: by mail-qk1-x72b.google.com with SMTP id 71so5174078qkf.4
- for <linux-riscv@lists.infradead.org>; Fri, 28 Jan 2022 02:57:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=/+SeEyjxwFir/H5f1F7mn87tKlWsYSPhRkGZK9gJ8WQ=;
- b=idITS+qsEgTSqNSARyHb+MK0YAl2Lqm/wpb3MvDnXngVHUq1mz+rnZ7QdNtndfwy/4
- uNyfrv58+iBhnw6pxZPKkFayx4X6V8R1jT8XdorGiKT1UH9Pove0mzucSr6xprNbgHU9
- 6Nk01dHZv4vyA1HMxj+iqrJxlNtvthBQ5kOfiswGZaZWvu8hymtRi7HBsvbGS9/0yjKT
- YrPHHIT4By0Npi7M/d4LX7s9Kfk72OV6yfzY7alNXjR3UIjigIBMiCovwY500/flfX3c
- +Ei8dBGIBRda++OvbQsfCrpbi9LgGLFxDgfXAPrGa2RECeIZtIWqx5Uc7RX4xAnJyzK1
- XcWQ==
+ id 1nDR7E-002EuF-7m
+ for linux-riscv@lists.infradead.org; Fri, 28 Jan 2022 13:16:37 +0000
+Received: by mail-wr1-x430.google.com with SMTP id a13so10818836wrh.9
+ for <linux-riscv@lists.infradead.org>; Fri, 28 Jan 2022 05:16:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=BHcagqEkqEykMyyD1xqLGjKIFp6BT1eCL4LXbv7aRtk=;
+ b=z1z4u2VR4nMLNcfMJQxbE378w1Bkvo+bQ12eM82xrKedNFu09LNRo7PtbYC1YT/sKn
+ BMKP/Se1i9xSMY3zMzepRXR0gXeNa/6MbH1tu+aJ+TBwTVxyp75vMC7XPnyfwKglLeIS
+ eXMvLY2mQvN/3j6RtTuOnVRdBsRMJFbzLDgl5xu5U4X2tQEaYKd3zQzGUlGOUC5pHrCp
+ tpp5Z79F3+lSJ3VVbaJw5YGBStBUYTmVM85JmZbmf9nu7mj+gQmVkEttd78esru7agde
+ ej3MhA+QzWmuSD6ZHxv2SrfivSYAXHflcMXgQTiHjAhNUTxfA1VHL3HPqHAog/Q2k+nO
+ NgIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=/+SeEyjxwFir/H5f1F7mn87tKlWsYSPhRkGZK9gJ8WQ=;
- b=O+JgafFYKZhnS9ZNjZITiN7iYE+/nuBDZOgF5109qjb9tda3Ul/9RmfJzPcrsx0OWt
- 3tTEwUlHaT1uYJC4wUyS3XKhgBR7+TIEjGL7XPPBLZU/oog0Zk1KHDDheRn1vgvzpta8
- 2KgLhY4UxFkiUO8RlfJE/JJS2qO5pWt+2C8kseIBdiP60OFEfSa/JkGTF7kRq5WqpUZm
- u8WD+vgBCvUYfxyZSe/3wSaZ+iXUd6OF3GC3WUsFyk0Y9E+zmtImvlntyttVpERn8Law
- H/f+iwckEgdMCUDe/lxOtOOAsmyf1+1tliR8SGtCmBqbRQ8OEJgl4OzjQ9R8MB/EThQv
- mqRA==
-X-Gm-Message-State: AOAM530KY1Uk6oAXkza04HAeHdS3u3gfiJsm4cDYkg70bHkIRm0Kxi9p
- vugJdy3R5+tz8UWyNrLdBco9xKFOXUNU3Zir
-X-Google-Smtp-Source: ABdhPJwAlxxr8DwO9VIhBMkCY9tCwgduZKFXPTJfv+jBpE31Di+Bi3EWZhZvy5bwYqTYzZQsDN44Dw==
-X-Received: by 2002:a05:620a:1132:: with SMTP id
- p18mr5276652qkk.543.1643367477079; 
- Fri, 28 Jan 2022 02:57:57 -0800 (PST)
-Received: from WRT-WX9.. ([207.246.89.135])
- by smtp.gmail.com with ESMTPSA id t11sm2932998qkm.77.2022.01.28.02.57.53
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 28 Jan 2022 02:57:56 -0800 (PST)
-From: Changbin Du <changbin.du@gmail.com>
-To: Nathan Chancellor <nathan@kernel.org>,
- Masahiro Yamada <masahiroy@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>
-Cc: linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
- linux-riscv@lists.infradead.org, Changbin Du <changbin.du@gmail.com>
-Subject: [PATCH] kallsyms: ignore local block labels generated by compiler
-Date: Fri, 28 Jan 2022 18:57:46 +0800
-Message-Id: <20220128105746.2459-1-changbin.du@gmail.com>
-X-Mailer: git-send-email 2.32.0
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=BHcagqEkqEykMyyD1xqLGjKIFp6BT1eCL4LXbv7aRtk=;
+ b=xKSbp3J204jipMWb7GGvrGBopnTtXdiIggu2Yfg7pZqb5vJ2tc4BACH43iEjZHRsl6
+ tep5YsQW6BVIih9X9IJqX7pLRTfA5h0H3xuP8fTbEH0t8bq+3o6/VYvyHTR4sRByNxKb
+ /FG+FLV0aF8zV79qtYRsh971PDc/dLLSxpGThb69pWsmnwhNV1apN1Dfu+k5jX+Y6JDX
+ cErQGQTEy3DupzgwUk8lauaYT+26Y8LMyKOR1Sk5nktmTn51bq433R0sNc+WYsshopBJ
+ hV1DrZYXnpwh6AsBEaaDMqdhcWWia2U59u/kqw2b1/XPaZC2+ARrANQ5eEcN5SeCo+dq
+ gnSw==
+X-Gm-Message-State: AOAM532ukajAYUJU/oY3wZ98RXv4KFIVW3/Di8HCC69dAT50GIGmQ3/q
+ /JJV5C5Ct2im31CyHBzuysDgJSuJ004NngB4WILY0Q==
+X-Google-Smtp-Source: ABdhPJzA3jkPCbW0m1A2rMkTINirAStcdud8umRS8/GKCdo23UjL6ZBvlx5/0/v4gLHlo2udk8QVh6ji0A7krqXzCYs=
+X-Received: by 2002:a05:6000:387:: with SMTP id
+ u7mr7204296wrf.214.1643375794752; 
+ Fri, 28 Jan 2022 05:16:34 -0800 (PST)
 MIME-Version: 1.0
+References: <cover.1643360652.git.geert@linux-m68k.org>
+ <e6a4c5b20d2acb52125d7d6e6c7e3694d7cb182c.1643360652.git.geert@linux-m68k.org>
+In-Reply-To: <e6a4c5b20d2acb52125d7d6e6c7e3694d7cb182c.1643360652.git.geert@linux-m68k.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 28 Jan 2022 18:46:23 +0530
+Message-ID: <CAAhSdy1+aWmNZJxxDS+tVHeOjGdLH6ALXLp4X6+tgZu+HS1d9g@mail.gmail.com>
+Subject: Re: [PATCH v4 1/2] dt-bindings: timer: sifive,
+ clint: Fix number of interrupts
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Anup Patel <anup.patel@wdc.com>, Rob Herring <robh+dt@kernel.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ DTML <devicetree@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, Rob Herring <robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220128_025759_019821_FE7324B8 
-X-CRM114-Status: UNSURE (   7.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220128_051636_386855_3D89AB38 
+X-CRM114-Status: GOOD (  18.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,39 +90,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The llvm compiler can generate lots of local block labels and they might
-overlap with C defined symbols. So let's ignore such local labels.
+On Fri, Jan 28, 2022 at 2:37 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>
+> The number of interrupts lacks an upper bound, thus assuming one,
+> causing properly grouped "interrupts-extended" properties to be flagged
+> as an error by "make dtbs_check".
+>
+> Fix this by adding the missing "maxItems", using the architectural
+> maximum of 4095 interrupts.
+>
+> Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> Acked-by: Rob Herring <robh@kernel.org>
 
-Before this change, dumpstack shows a local symbol for epc:
-[    0.040341][    T0] Hardware name: riscv-virtio,qemu (DT)
-[    0.040376][    T0] epc : .LBB6_14+0x22/0x6a
-[    0.040452][    T0]  ra : restore_all+0x12/0x6e
+Looks good to me.
 
-After this change, the C defined symbol is shown which is expected:
-[    0.035795][    T0] Hardware name: riscv-virtio,qemu (DT)
-[    0.036332][    T0] epc : trace_hardirqs_on+0x54/0x13c
-[    0.036567][    T0]  ra : restore_all+0x12/0x6e
+Reviewed-by: Anup Patel <anup@brainfault.org>
 
-Signed-off-by: Changbin Du <changbin.du@gmail.com>
----
- scripts/kallsyms.c | 1 +
- 1 file changed, 1 insertion(+)
+Regards,
+Anup
 
-diff --git a/scripts/kallsyms.c b/scripts/kallsyms.c
-index 54ad86d13784..5f4be9d72a32 100644
---- a/scripts/kallsyms.c
-+++ b/scripts/kallsyms.c
-@@ -108,6 +108,7 @@ static bool is_ignored_symbol(const char *name, char type)
- 	/* Symbol names that begin with the following are ignored.*/
- 	static const char * const ignored_prefixes[] = {
- 		"$",			/* local symbols for ARM, MIPS, etc. */
-+		".LBB",			/* local block labels generated by compiler */
- 		".LASANPC",		/* s390 kasan local symbols */
- 		"__crc_",		/* modversions */
- 		"__efistub_",		/* arm64 EFI stub namespace */
--- 
-2.32.0
-
+> ---
+> v4:
+>   - Use architectural maximum instead of practical maximum of 10,
+>
+> v3:
+>   - Add Acked-by,
+>
+> v2:
+>   - Split in two patches,
+>   - Improve patch description and document limit rationale.
+> ---
+>  Documentation/devicetree/bindings/timer/sifive,clint.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> index 8d5f4687add9e81e..fe4b73c3f269fc0f 100644
+> --- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> +++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> @@ -44,6 +44,7 @@ properties:
+>
+>    interrupts-extended:
+>      minItems: 1
+> +    maxItems: 4095
+>
+>  additionalProperties: false
+>
+> --
+> 2.25.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
