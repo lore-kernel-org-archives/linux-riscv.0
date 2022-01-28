@@ -4,77 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1834AC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 07:21:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB1F5C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 07:51:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZTrCqJvt8OZzdoxHiTQXiTezMckDwkYCJ5GexOc+k2Y=; b=w6OXScGcmUWkAJ
-	5QAjvhx+Uc4fYm+S8fAd0Ag8nvz3UXlc1ye1vPAYmZHtq8tZ/r/60DOK4tNtPP/GmhQNHAHYdBfux
-	iLdv2W6+bckjoihPtxs+aRCaL10K1VvCSS90oQOuNDccbvBmBZss2SJDAOhgoed20a+qIqv/ulz+C
-	yGR7amV8lq64mDGJ59ZDahsXbMGhMVgOevoBlnW0nC9vAYV0MpgfNMybVXPJ45ciqJtU4/9OJSK/E
-	iu2oOB9DoKnNEFdXAKJLa2R3En0hePi9eXQ81Ss2UWUDNeobwh6JvJs/SG4+kOestZxKNT8F6NnuZ
-	hb5XPBfpfKYZc37mF3Gg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SAwp7firtyJGsPTlRRfPh7H36JHUa36YDgaSGkBVoNs=; b=qullcuiNW7g1Ks
+	rVRo71cEmlas6dRHpU0+GxPGC79plSg6FYZrRRnlSR4Tb3o7OppwmZl+dQOOzkVZM8NRU+smIGxsJ
+	yKOy4CcUiAKGtpTYNgFR3tMYC2lwUBL/7Y3ccL7Jb9IQp+R3eO6mgdR+Zc5iLEUs37WrsS4gnLBkH
+	ovqyrVSZuLgF47tyFh04hV+65xE9R7Tx6o7GzK47IgvmhJZCRwxAtUL8vfbVHWj+gOnMgHw9XUzIj
+	j7KL5n78b7Tj2c9L7e17yIeRxqbcRi7KK/8IVOJpL5L9e2+e3Sx8KlO2IiaGT3W6LIPb5Peva+rRP
+	6KVnXpEf8jzHBiN/yhxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nDLYy-000nI0-QK; Fri, 28 Jan 2022 07:20:52 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1nDM2t-000tFQ-GW; Fri, 28 Jan 2022 07:51:47 +0000
+Received: from m228-6.mailgun.net ([159.135.228.6])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nDLYW-000n8N-VJ; Fri, 28 Jan 2022 07:20:27 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id C690261BE7;
- Fri, 28 Jan 2022 07:20:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3795AC340ED;
- Fri, 28 Jan 2022 07:20:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1643354423;
- bh=T5hvP6N/YDzJivdP96HpAMsEBUvVss8W1EdZxq9UDZ4=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=rT9QbL1WnPZ2MHGbg0JvXIvyik13Be4VSHK3AZWcckQfOPTQ3p8BK92cMVnIvrzMg
- MakENSENL+JCT+fJfjBxHS6GxPMra9V8+ZT+KUn2jwKlTN9HxC166Gja/waPD3bzgq
- 4JCS1G112hbc461us35r3Eed4yccGu1Em4uTf4Rw0YIYh75HZuXZZml/IpW7r4V0pG
- TtUQAhmnS1cm9v7Gs28cGhDI9GH3HtS8WlxKplc7ac/dHKfNtZW1rl5KkFkQ3HGVJ7
- x1M30Rp1WyZU5Ga8NNdFkmoINdLWHcZ4E7GPUs+o2KFHLSSPp0zGvLb9FWhLrIWM/a
- CpHO/6lgegEkw==
-Received: by mail-ua1-f53.google.com with SMTP id y4so7212729uad.1;
- Thu, 27 Jan 2022 23:20:23 -0800 (PST)
-X-Gm-Message-State: AOAM533aTH3Elmd/AclK/SxxlHdVPD4GxqILAXRHnplA3Si4duiij2P6
- m7Fs0JLdssV8pGcLLkUH9el0/7FiD8b7F8VoKkM=
-X-Google-Smtp-Source: ABdhPJy2RpgEjhRo6X4RJ0pAxWaXFERfP1D6JpGvXcxtvMy0oyK9vzxHewNF9PQNMbdvJh891BhmawJDHyR3Cg69bT8=
-X-Received: by 2002:ab0:3565:: with SMTP id e5mr3609249uaa.97.1643354422066;
- Thu, 27 Jan 2022 23:20:22 -0800 (PST)
+ id 1nDM2o-000tBQ-Fe
+ for linux-riscv@lists.infradead.org; Fri, 28 Jan 2022 07:51:44 +0000
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=michaelkloos.com;
+ q=dns/txt; 
+ s=k1; t=1643356301; h=Content-Transfer-Encoding: MIME-Version:
+ Message-Id: Date: Subject: Cc: To: From: Sender;
+ bh=aujULivnFd1KXgcT/iaqPtwhFPOe2JiYmfoyotoY1H8=;
+ b=jUUy5Er/j+vC04RiGeJ6ja2YM2Y13MAb7ZXQlW3GF4MXUmD7NNFjYuzTA33eUu0OlZu8xw7p
+ ZVNcmJc2xWZq5MxHUChvxf+YZ98lYzczoFITp+DEV7t4JpK+mS25d/Yb4pSsY2gEYxu4V7HL
+ Xu3oU3lceU4RcyFk493xEVDYz2Y=
+X-Mailgun-Sending-Ip: 159.135.228.6
+X-Mailgun-Sid: WyIxOGJjMSIsICJsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnIiwgIjQ4Y2MwIl0=
+Received: from drop1.michaelkloos.com (drop1.michaelkloos.com
+ [67.205.190.89]) by smtp-out-n08.prod.us-east-1.postgun.com with SMTP id
+ 61f3a08bd2de5dba98fa6bf3 (version=TLS1.3, cipher=TLS_AES_128_GCM_SHA256);
+ Fri, 28 Jan 2022 07:51:39 GMT
+Received: from qpc.home.michaelkloos.com
+ (cpe-173-88-115-50.columbus.res.rr.com [173.88.115.50])
+ by drop1.michaelkloos.com (Postfix) with ESMTPSA id 39A9840118;
+ Fri, 28 Jan 2022 07:51:39 +0000 (UTC)
+From: "Michael T. Kloos" <michael@michaelkloos.com>
+To: David Laight <David.Laight@ACULAB.COM>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ "Michael T. Kloos" <michael@michaelkloos.com>
+Subject: [PATCH v3] riscv: Fixed misaligned memory access. Fixed pointer
+ comparison.
+Date: Fri, 28 Jan 2022 02:51:19 -0500
+Message-Id: <20220128075119.48156-1-michael@michaelkloos.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20220120073911.99857-4-guoren@kernel.org>
- <CAK8P3a1UmnjHk8B6hSULiKv3FKoY5BW9=4=ESerQzc+4=LR5Zw@mail.gmail.com>
-In-Reply-To: <CAK8P3a1UmnjHk8B6hSULiKv3FKoY5BW9=4=ESerQzc+4=LR5Zw@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 28 Jan 2022 15:20:11 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRoVaD0yrh7_Lxwvn9KdYdUeiNH4YhiaY6+G=nt04r9Yw@mail.gmail.com>
-Message-ID: <CAJF2gTRoVaD0yrh7_Lxwvn9KdYdUeiNH4YhiaY6+G=nt04r9Yw@mail.gmail.com>
-Subject: Re: [PATCH V3 03/17] asm-generic: compat: Cleanup duplicate
- definitions
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>, 
- gregkh <gregkh@linuxfoundation.org>, liush <liush@allwinnertech.com>, 
- Wei Fu <wefu@redhat.com>, Drew Fustini <drew@beagleboard.org>, 
- Wang Junqiang <wangjunqiang@iscas.ac.cn>, Christoph Hellwig <hch@lst.de>, 
- Christoph Hellwig <hch@infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
- linux-s390 <linux-s390@vger.kernel.org>,
- sparclinux <sparclinux@vger.kernel.org>, 
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, inux-parisc@vger.kernel.org, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220127_232025_117802_234DBE0D 
-X-CRM114-Status: GOOD (  44.28  )
+X-CRM114-CacheID: sfid-20220127_235142_641342_311D0159 
+X-CRM114-Status: GOOD (  32.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,257 +74,377 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 20, 2022 at 9:02 PM Arnd Bergmann <arnd@arndb.de> wrote:
->
->   On Thu, Jan 20, 2022 at 8:38 AM <guoren@kernel.org> wrote:
-> >
-> > From: Guo Ren <guoren@linux.alibaba.com>
-> >
-> > There are 7 64bit architectures that support Linux COMPAT mode to
-> > run 32bit applications. A lot of definitions are duplicate:
-> >  - COMPAT_USER_HZ
-> >  - COMPAT_RLIM_INFINITY
-> >  - COMPAT_OFF_T_MAX
-> >  - __compat_uid_t, __compat_uid_t
-> >  - compat_dev_t
-> >  - compat_ipc_pid_t
-> >  - struct compat_flock
-> >  - struct compat_flock64
-> >  - struct compat_statfs
-> >  - struct compat_ipc64_perm, compat_semid64_ds,
-> >           compat_msqid64_ds, compat_shmid64_ds
-> >
-> > Cleanup duplicate definitions and merge them into asm-generic.
-> >
-> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > Signed-off-by: Guo Ren <guoren@kernel.org>
-> > Cc: Arnd Bergmann <arnd@arndb.de>
->
-> > ---
-> >  arch/arm64/include/asm/compat.h   | 108 +++-----------------------
-> >  arch/mips/include/asm/compat.h    |  24 ++----
-> >  arch/parisc/include/asm/compat.h  |  47 ++----------
-> >  arch/powerpc/include/asm/compat.h |  47 ++----------
-> >  arch/s390/include/asm/compat.h    | 109 +++-----------------------
-> >  arch/sparc/include/asm/compat.h   |  39 ++++------
-> >  arch/x86/include/asm/compat.h     | 114 +++-------------------------
-> >  include/asm-generic/compat.h      | 122 ++++++++++++++++++++++++++++++
-> >  8 files changed, 191 insertions(+), 419 deletions(-)
-> >
-> > diff --git a/arch/arm64/include/asm/compat.h b/arch/arm64/include/asm/compat.h
-> > index eaa6ca062d89..f54f295efae3 100644
-> > --- a/arch/arm64/include/asm/compat.h
-> > +++ b/arch/arm64/include/asm/compat.h
-> > @@ -5,9 +5,18 @@
-> >  #ifndef __ASM_COMPAT_H
-> >  #define __ASM_COMPAT_H
-> >
-> > +#define COMPAT_RLIM_INFINITY           0xffffffff
-> ...
-> > +#ifndef COMPAT_RLIM_INFINITY
-> > +#define COMPAT_RLIM_INFINITY   0x7fffffff
-> > +#endif
->
-> While this is a correct conversion, I think the default should
-> be 0xffffffff, to match the asm-generic RLIM_INFINITY
-> definition, with only mips and sparc getting the exception
-Okay
+Rewrote the riscv memmove() assembly implementation.  The
+previous implementation did not check memory alignment and it
+compared 2 pointers with a signed comparison.  The misaligned
+memory access would cause the kernel to crash on systems that
+did not emulate it in firmware and did not support it in hardware.
+Firmware emulation is slow and may not exist.  The RISC-V spec
+does not guarantee that support for misaligned memory accesses
+will exist.  It should not be depended on.
 
->
-> > -struct compat_flock {
-> > -       short           l_type;
-> > -       short           l_whence;
-> > -       compat_off_t    l_start;
-> > -       compat_off_t    l_len;
-> > -       compat_pid_t    l_pid;
-> > -};
-> ...
-> > +#ifndef compat_flock
-> > +struct compat_flock {
-> > +       compat_short_t  l_type;
-> > +       compat_short_t  l_whence;
-> > +       compat_off_t    l_start;
-> > +       compat_off_t    l_len;
-> > +       compat_pid_t    l_pid;
-> > +} __attribute__((packed));
-> > +#endif
->
-> You are adding __attribute__((packed)) here, which I think has
-> no effect on the layout on the structure on any of the architectures
-> but it does change the alignment requirements needlessly.
->
-> Better leave it without the attribute.
-Okay
+This patch now checks for XLEN granularity of co-alignment between
+the pointers.  Failing that, copying is done by loading from the 2
+contiguous and naturally aligned XLEN memory locations containing
+the overlaping XLEN sized data to be copied.  The data is then
+shifted into the correct place and binary or'ed together.  The
+result is then stored into the corresponding naturally aligned
+XLEN sized location in the destination.  For unaligned data at
+the terminations of the regions to be copied or for copies less
+than XLEN in size, byte copy is used.
 
->
-> > -struct compat_flock64 {
-> > -       short           l_type;
-> > -       short           l_whence;
-> > -       compat_loff_t   l_start;
-> > -       compat_loff_t   l_len;
-> > -       compat_pid_t    l_pid;
-> > -};
-> ...
-> > +#ifndef compat_flock64
-> > +struct compat_flock64 {
-> > +       compat_short_t  l_type;
-> > +       compat_short_t  l_whence;
-> > +       compat_loff_t   l_start;
-> > +       compat_loff_t   l_len;
-> > +       compat_pid_t    l_pid;
-> > +} __attribute__((packed));
-> > +#endif
->
-> This one is different: on all architectures other than x86,
-> the added packed attribute changes the size of the
-> structure by removing the four padding bytes at the
-> end. x86 originally added the attribute here to work around
-> the weirdness of the x86-32 ABI that aligns 64-bit values
-> on a 4-byte boundary.
->
-> The easiest workaround would be to have x86 keep its
-> custom definition. A slightly nicer version would drop the
-> attribute on x86 as well but instead change the compat_loff_t
-> definition to use compat_s64 instead of s64, giving it the
-> correct alignment.
-Okay, I would leave x86 origin first.
+This patch also now uses unsigned comparison for the pointers and
+migrates to the newer assembler annotations from the now deprecated
+ones.
 
->
-> > -struct compat_statfs {
-> > -       int             f_type;
-> > -       int             f_bsize;
-> > -       int             f_blocks;
-> > -       int             f_bfree;
-> > -       int             f_bavail;
-> > -       int             f_files;
-> > -       int             f_ffree;
-> > -       compat_fsid_t   f_fsid;
-> > -       int             f_namelen;      /* SunOS ignores this field. */
-> > -       int             f_frsize;
-> > -       int             f_flags;
-> > -       int             f_spare[4];
-> > -};
-> ...
-> > +#ifndef compat_statfs
-> > +struct compat_statfs {
-> > +       compat_uint_t   f_type;
-> > +       compat_uint_t   f_bsize;
-> > +       compat_uint_t   f_blocks;
-> > +       compat_uint_t   f_bfree;
-> > +       compat_uint_t   f_bavail;
-> > +       compat_uint_t   f_files;
-> > +       compat_uint_t   f_ffree;
-> > +       __kernel_fsid_t f_fsid;
-> > +       compat_uint_t   f_namelen;
-> > +       compat_uint_t   f_frsize;
-> > +       compat_uint_t   f_flags;
-> > +       compat_uint_t   f_spare[4];
-> > +} __attribute__((packed));
-> > +#endif
->
-> None of the architectures use the packed attribute at the moment,
-> so please don't add one here.
->
-> Changing compat_fsid_t to __kernel_fsid_t is harmless, but seems
-> unnecessary.
-Okay. I would add another
-typedef __kernel_fsid_t compat_fsid_t;
-in the file.
+[v3]
 
->
-> Changing the signed int to an unsigned int (regardless of notation)
-> may be a change in behavior. s390 is the only architecture
-> using unsigned members here at the moment, as of b8668fd0a7e1
-> ("s390/uapi: change struct statfs[64] member types to unsigned
-> values").
-> The description of that patch sounds like this was changed to fix
-> a bug, but I don't see what the actual problem would be in the
-> put_compat_statfs().
->
-> For the moment I'd suggest leaving this with the signed version,
-> with s390 being another exception next to mips. We can follow-up
-> with merging s390 into the common definition using either the
-> signed or unsigned types, but I think that needs to be a separate
-> patch with a detailed explanation.
-Okay, I would leave s390 origin first.
+Fixed the build issue reported by the test robot.  Changed the
+copy implementation based on the suggestion by David Laight.
 
->
->  +#ifndef compat_ipc64_perm
-> > +struct compat_ipc64_perm {
-> > +       compat_key_t key;
-> > +       __compat_uid32_t uid;
-> > +       __compat_gid32_t gid;
-> > +       __compat_uid32_t cuid;
-> > +       __compat_gid32_t cgid;
-> > +       compat_mode_t   mode;
-> > +       unsigned char   __pad1[4 - sizeof(compat_mode_t)];
-> > +       compat_ushort_t seq;
-> > +       compat_ushort_t __pad2;
-> > +       compat_ulong_t  unused1;
-> > +       compat_ulong_t  unused2;
-> > +} __attribute__((packed));
-> > +
-> > +struct compat_semid64_ds {
-> > +       struct compat_ipc64_perm sem_perm;
-> > +       compat_ulong_t sem_otime;
-> > +       compat_ulong_t sem_otime_high;
-> > +       compat_ulong_t sem_ctime;
-> > +       compat_ulong_t sem_ctime_high;
-> > +       compat_ulong_t sem_nsems;
-> > +       compat_ulong_t __unused3;
-> > +       compat_ulong_t __unused4;
-> > +} __attribute__((packed));
-> > +
-> > +struct compat_msqid64_ds {
-> > +       struct compat_ipc64_perm msg_perm;
-> > +       compat_ulong_t msg_stime;
-> > +       compat_ulong_t msg_stime_high;
-> > +       compat_ulong_t msg_rtime;
-> > +       compat_ulong_t msg_rtime_high;
-> > +       compat_ulong_t msg_ctime;
-> > +       compat_ulong_t msg_ctime_high;
-> > +       compat_ulong_t msg_cbytes;
-> > +       compat_ulong_t msg_qnum;
-> > +       compat_ulong_t msg_qbytes;
-> > +       compat_pid_t   msg_lspid;
-> > +       compat_pid_t   msg_lrpid;
-> > +       compat_ulong_t __unused4;
-> > +       compat_ulong_t __unused5;
-> > +} __attribute__((packed));
-> > +
-> > +struct compat_shmid64_ds {
-> > +       struct compat_ipc64_perm shm_perm;
-> > +       compat_size_t  shm_segsz;
-> > +       compat_ulong_t shm_atime;
-> > +       compat_ulong_t shm_atime_high;
-> > +       compat_ulong_t shm_dtime;
-> > +       compat_ulong_t shm_dtime_high;
-> > +       compat_ulong_t shm_ctime;
-> > +       compat_ulong_t shm_ctime_high;
-> > +       compat_pid_t   shm_cpid;
-> > +       compat_pid_t   shm_lpid;
-> > +       compat_ulong_t shm_nattch;
-> > +       compat_ulong_t __unused4;
-> > +       compat_ulong_t __unused5;
-> > +} __attribute__((packed));
-> > +#endif
->
-> I checked these in detail, looking at the seven architectures, and your
-> conversion looks exactly right (I had initially missed the part about
-> compat_mode_t that you got right).
->
-> As with compat_flock, the packed attribute has no impact on the layout
-> here, but please drop it anyway for consistency.
->
->         Arnd
+One change that could potentially still be made is to roll one
+of the values loaded in the copy loop into the next iteration
+of the fixup loop, rather than reloading both values from memory
+on each interation.  It would require some more logic and I'm
+really not sure that it is worth it.  It could be added in a
+later patch.  For now, this fixes the issues I set out to fix.
 
+Signed-off-by: Michael T. Kloos <michael@michaelkloos.com>
+---
+ arch/riscv/lib/memmove.S | 319 +++++++++++++++++++++++++++++++--------
+ 1 file changed, 259 insertions(+), 60 deletions(-)
 
-
+diff --git a/arch/riscv/lib/memmove.S b/arch/riscv/lib/memmove.S
+index 07d1d2152ba5..dd2ceb111904 100644
+--- a/arch/riscv/lib/memmove.S
++++ b/arch/riscv/lib/memmove.S
+@@ -1,64 +1,263 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2022 Michael T. Kloos <michael@michaelkloos.com>
++ */
+ 
+ #include <linux/linkage.h>
+ #include <asm/asm.h>
+ 
+-ENTRY(__memmove)
+-WEAK(memmove)
+-        move    t0, a0
+-        move    t1, a1
+-
+-        beq     a0, a1, exit_memcpy
+-        beqz    a2, exit_memcpy
+-        srli    t2, a2, 0x2
+-
+-        slt     t3, a0, a1
+-        beqz    t3, do_reverse
+-
+-        andi    a2, a2, 0x3
+-        li      t4, 1
+-        beqz    t2, byte_copy
+-
+-word_copy:
+-        lw      t3, 0(a1)
+-        addi    t2, t2, -1
+-        addi    a1, a1, 4
+-        sw      t3, 0(a0)
+-        addi    a0, a0, 4
+-        bnez    t2, word_copy
+-        beqz    a2, exit_memcpy
+-        j       byte_copy
+-
+-do_reverse:
+-        add     a0, a0, a2
+-        add     a1, a1, a2
+-        andi    a2, a2, 0x3
+-        li      t4, -1
+-        beqz    t2, reverse_byte_copy
+-
+-reverse_word_copy:
+-        addi    a1, a1, -4
+-        addi    t2, t2, -1
+-        lw      t3, 0(a1)
+-        addi    a0, a0, -4
+-        sw      t3, 0(a0)
+-        bnez    t2, reverse_word_copy
+-        beqz    a2, exit_memcpy
+-
+-reverse_byte_copy:
+-        addi    a0, a0, -1
+-        addi    a1, a1, -1
+-
+-byte_copy:
+-        lb      t3, 0(a1)
+-        addi    a2, a2, -1
+-        sb      t3, 0(a0)
+-        add     a1, a1, t4
+-        add     a0, a0, t4
+-        bnez    a2, byte_copy
+-
+-exit_memcpy:
+-        move a0, t0
+-        move a1, t1
+-        ret
+-END(__memmove)
++SYM_FUNC_START(__memmove)
++SYM_FUNC_START_WEAK(memmove)
++	/*
++	 * Returns
++	 *   a0 - dest
++	 *
++	 * Parameters
++	 *   a0 - Inclusive first byte of dest
++	 *   a1 - Inclusive first byte of src
++	 *   a2 - Length of copy n
++	 *
++	 * Because the return matches the parameter register a0,
++	 * we will not clobber or modify that register.
++	 *
++	 * Note: This currently only works on little-endian.
++	 * To port to big-endian, reverse the direction of shifts
++	 * in the 2 misaligned fixup copy loops.
++	 */
++
++	/* Return if nothing to do */
++	beq a0, a1, 20f /* Return from memmove */
++	beqz a2, 20f /* Return from memmove */
++
++	/*
++	 * Register Uses
++	 *      Forward Copy: a3 - Index counter of src
++	 *      Reverse Copy: a4 - Index counter of src
++	 *      Forward Copy: t3 - Index counter of dest
++	 *      Reverse Copy: t4 - Index counter of dest
++	 *   Both Copy Modes: t5 - Inclusive first multibyte/aligned of dest
++	 *   Both Copy Modes: t6 - Non-Inclusive last multibyte/aligned of dest
++	 *   Both Copy Modes: t0 - Link (Once the copying begins)
++	 *   Both Copy Modes: t1 - Temporary for load-store
++	 *   Both Copy Modes: t2 - Temporary for load-store
++	 *   Both Copy Modes: a5 - dest to src alignment offset
++	 *   Both Copy Modes: a6 - Shift ammount
++	 *   Both Copy Modes: a7 - Inverse Shift ammount
++	 */
++
++	/*
++	 * Solve for some register values now.
++	 * Byte copy does not need t5 or t6.
++	 */
++	add  t3, a0, zero
++	add  t4, a0, a2
++	add  a3, a1, zero
++	add  a4, a1, a2
++
++	/*
++	 * Byte copy if copying less than SZREG bytes.
++	 * This can cause problems with the bulk copy
++	 * implementation and is small enough not
++	 * to bother.
++	 */
++	andi t0, a2, -SZREG
++	beqz t0, 21f
++
++	/*
++	 * Now solve for t5 and t6.
++	 */
++	andi t5, t3, -SZREG
++	andi t6, t4, -SZREG
++	/*
++	 * If dest(Register t3) rounded down to the nearest naturally
++	 * aligned SZREG address, does not equal dest, then add SZREG
++	 * to find the low-bound of SZREG alignment in the dest memory
++	 * region.  Note that this could overshoot the dest memory
++	 * region if n is less than SZREG.  This is one reason why
++	 * we always byte copy if n is less than SZREG.
++	 * Otherwise, dest is already naturally aligned to SZREG.
++	 */
++	beq  t5, t3, 1f
++		addi t5, t5, SZREG
++	1:
++
++	/*
++	 * If the dest and src are co-aligned to SZREG, then there is
++	 * no need for the full rigmarole of a full misaligned fixup copy.
++	 * Instead, do a simpler co-aligned copy.
++	 */
++	xor  t0, a0, a1
++	andi t1, t0, (SZREG - 1)
++	beqz t1, 26f
++	/* Fall through to misaligned fixup copy */
++
++1: /* Misaligned fixup copy */
++	bltu a1, a0, 4f /* Misaligned fixup copy: Reverse */
++
++3: /* Misaligned fixup copy: Forward */
++	jal  t0, 24f /* Byte copy until aligned: Forward */
++
++	andi a5, a3, (SZREG - 1) /* Find the alignment offset of src (a3) */
++	slli a6, a5, 3 /* Multiply by 8 to convert that to bits to shift */
++
++	sub  a3, a3, a5 /* Align the src pointer */
++
++	/*
++	 * Compute The Inverse Shift
++	 * a7 = XLEN - a6 = XLEN + -a6
++	 * 2s complement negation to find the negative: -a6 = ~a6 + 1
++	 * Add that to XLEN.  XLEN = SZREG * 8.
++	 */
++	not  a7, a6
++	addi a7, a7, (SZREG * 8 + 1)
++
++	/*
++	 * Fix Misalignment Copy Loop.
++	 * while (store_ptr != store_ptr_end) {
++	 *   *store_ptr = (load_ptr[0] >> {a6}) | (load_ptr[1] << {a7});
++	 *   load_ptr++;
++	 *   store_ptr++;
++	 * }
++	 */
++	1:
++	beq   t3, t6, 2f
++	REG_L t1, 0x000(a3)
++	REG_L t2, SZREG(a3)
++	srl   t1, t1, a6
++	sll   t2, t2, a7
++	or    t1, t1, t2
++	REG_S t1, 0x000(t3)
++	addi  a3, a3, SZREG
++	addi  t3, t3, SZREG
++	j 1b
++	2:
++
++	add  a3, a3, a5 /* Restore the src pointer */
++	j 22f /* Byte copy: Forward */ /* Copy any remaining bytes */
++
++4: /* Misaligned fixup copy: Reverse */
++	jal  t0, 25f /* Byte copy until aligned: Reverse */
++
++	andi a5, a4, (SZREG - 1) /* Find the alignment offset of src (a4) */
++	slli a6, a5, 3 /* Multiply by 8 to convert that to bits to shift */
++
++	sub  a4, a4, a5 /* Align the src pointer */
++
++	/*
++	 * Compute The Inverse Shift
++	 * a7 = XLEN - a6 = XLEN + -a6
++	 * 2s complement negation to find the negative: -a6 = ~a6 + 1
++	 * Add that to XLEN.  XLEN = SZREG * 8.
++	 */
++	not  a7, a6
++	addi a7, a7, (SZREG * 8 + 1)
++
++	/*
++	 * Fix Misalignment Copy Loop.
++	 * while (store_ptr != store_ptr_end) {
++	 *   load_ptr--;
++	 *   store_ptr--;
++	 *   *store_ptr = (load_ptr[0] >> {a6}) | (load_ptr[1] << {a7});
++	 * }
++	 */
++	1:
++	beq   t4, t5, 2f
++	addi  a4, a4, -SZREG
++	addi  t4, t4, -SZREG
++	REG_L t1, 0x000(a4)
++	REG_L t2, SZREG(a4)
++	srl   t1, t1, a6
++	sll   t2, t2, a7
++	or    t1, t1, t2
++	REG_S t1, 0x000(t4)
++	j 1b
++	2:
++
++	add  a4, a4, a5 /* Restore the src pointer */
++	j 23f /* Byte copy: Reverse */ /* Copy any remaining bytes */
++
++/*
++ * Simple copy loops for SZREG co-aligned memory locations.
++ * These also make calls to do byte copies for any unaligned
++ * data at their terminations.
++ */
++26: /* Co-Aligned copy */
++	bltu a1, a0, 3f /* Co-Aligned copy: Reverse */
++
++2: /* Co-Aligned copy: Forward */
++	jal t0, 24f /* Byte copy until aligned: Forward */
++
++	1:
++	beq   t3, t6, 22f /* Byte copy: Forward */
++	REG_L t1, (a3)
++	REG_S t1, (t3)
++	addi  a3, a3, SZREG
++	addi  t3, t3, SZREG
++	j 1b
++
++3: /* Co-Aligned copy: Reverse */
++	jal t0, 25f /* Byte copy until aligned: Reverse */
++
++	1:
++	beq   t4, t5, 23f /* Byte copy: Reverse */
++	addi  a4, a4, -SZREG
++	addi  t4, t4, -SZREG
++	REG_L t1, (a4)
++	REG_S t1, (t4)
++	j 1b
++
++/*
++ * These are basically sub-functions within the function.  They
++ * are used to byte copy until the dest pointer is in alignment.
++ * At which point, a bulk copy method can be used by the
++ * calling code.  These work on the same registers as the bulk
++ * copy loops.  Therefore, the register values can be picked
++ * up from where they were left and we avoid code duplication
++ * without any overhead except the call in and return jumps.
++ */
++24: /* Byte copy until aligned: Forward */
++	beq  t3, t5, 1f /* Reuse the return from the other copy loop */
++	lb   t1, (a3)
++	sb   t1, (t3)
++	addi a3, a3, 1
++	addi t3, t3, 1
++	j 24b
++
++25: /* Byte copy until aligned: Reverse */
++	beq  t4, t6, 1f
++	addi a4, a4, -1
++	addi t4, t4, -1
++	lb   t1, (a4)
++	sb   t1, (t4)
++	j 25b
++	1: jalr zero, 0x0(t0) /* Return to multibyte copy loop */
++
++/*
++ * Simple byte copy loops.
++ * These will byte copy until they reach the end of data to copy.
++ * At that point, they will call to return from memmove.
++ */
++21: /* Byte copy */
++	bltu a1, a0, 23f /* Byte copy: Reverse */
++
++22: /* Byte copy: Forward */
++	beq  t3, t4, 20f /* Return from memmove */
++	lb   t1, (a3)
++	sb   t1, (t3)
++	addi a3, a3, 1
++	addi t3, t3, 1
++	j 22b
++
++23: /* Byte copy: Reverse */
++	beq  t4, t3, 20f /* Return from memmove */
++	addi a4, a4, -1
++	addi t4, t4, -1
++	lb   t1, (a4)
++	sb   t1, (t4)
++	j 23b
++
++20: /* Return from memmove */
++	ret
++
++SYM_FUNC_END(memmove)
++SYM_FUNC_END(__memmove)
 -- 
-Best Regards
- Guo Ren
+2.34.1
 
-ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
