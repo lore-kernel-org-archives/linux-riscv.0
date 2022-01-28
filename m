@@ -4,68 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADC43C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 19:00:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BCBEC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 19:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Tub+TzoO7Rvr9CXzIqKYGl1Jx2TntFhohDFpFRROeIc=; b=SF4Ptq9RmXacYa
-	FmMReZTnlXs/ni3y5vtVFGh3RS8R5VPEmRvGI72nhWNW7jm2eM54i9nfMGDORbccATAf1AQbI+oix
-	IjtKARI0VlM6IDHCfCl4/gKitfM0Y/JT+o12FQJKRzCo186jEyDcEyzajXs8FiRnPxY21MeCiwRPL
-	C9YOVCUsRy7e2+TUebXW5GqaIUQd0p07dj+OpmCK/hMIov/1q2t6go5XoCDF3RLl/a5+aoPdMeiPb
-	iLRK6A9V1CPC/DDPwCevxYIoPptpNuPkh8qaHonExA1ZnR+4a/74pNRB09/S1V6rg/piXMf79AgOt
-	WY4lYDWLV+T/Bk7rH0xA==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:
+	In-Reply-To:Message-ID:Subject:Cc:From:To:Date:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0oJzVKxxg3fNU18Mzd3gB29yJZC6GeOQwjS7cL5kCo4=; b=VZWnRv8nL3cSg2
+	yDlnc1cxhWsEedjD/klM//brTrA6GVMqYu/0IaLzTv5cdefqL/28JUjJRvW/IDYKPy5oCvKD9kCM6
+	HoR8f39v1ZoY3uockDR3I2IrJ/P5CBKtGXC3cwIG7qYKmbI8qCFr4Swz3z2imk4qxHgLms/dvX1oL
+	dQaX+E0aDKWImN+vayIYvln93HGtWAghLlwcwJaxF2IKgC38WLZV+4/KlVrg1HF9FnXiV95cmoEmx
+	eqa7/pDkATRWCJ1ecEgQqfiRs7i0TMyo7sdtl0v8jkTXaXcFxnrJB/qNmtjDzG/DrH6nlrJn0JoJ7
+	xUu1eZ7ogCG2ziHiTizw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nDWTl-003Nfp-9L; Fri, 28 Jan 2022 19:00:13 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1nDX7G-003RPb-Hb; Fri, 28 Jan 2022 19:41:02 +0000
+Received: from mail-4317.proton.ch ([185.70.43.17])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nDWTi-003Nf9-LQ
- for linux-riscv@lists.infradead.org; Fri, 28 Jan 2022 19:00:12 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id z4so13650179lft.3
- for <linux-riscv@lists.infradead.org>; Fri, 28 Jan 2022 11:00:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=qBRm3X+bFlq2uddMz4dS1v977rSddYeT1DVBPmoaXm0=;
- b=AV3VOxfAW4xYtFVAqVWiqtqdAo2gePPE6r5NNM7Fle0w13Ckd39WxVpKUkjIj4ivt8
- 3T+5rVMZvBKFSvkfYWLcRGSeRLAz+BDzFTEeTrxLea2DWAm1Sb8U3PNGOxaIm32gs/Xa
- Vor8qlVZUZxrtccQLgBLDfq3rHkZTP/+ih0xyKaNKbDclffG7qEmS5arelN/bAfo7j0k
- eN6hWiMBvgPiE8qDn9AJ70q7c95UtrjrzbS8g9rtYv7K48cX2rYPgU5Y7zV7tiPXg3Nc
- wc3QhElD5tEwheHgwqTgoH7dnPbuBjUSQ2H2zzTcy7pqvimLKRZkA2L1ccA0gVeHkwQD
- pxXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=qBRm3X+bFlq2uddMz4dS1v977rSddYeT1DVBPmoaXm0=;
- b=8Gq4w3W5QcoQyuVFX6AvQiAedJ+Xa/RBjDjMSzKPQ8hABd03+v+dOoLzG6oh6iniBJ
- Erh2qPW4Kjwmn6x5Y+aoxvJoQLmb2MXBuSXVa4TMH+Dlolbv/2n7TYEGkgMF903Pbw2Z
- 59hxDb8+cSVHWljnwuo78c37Bs7CNLWxBZm3E1RsJ+vkcRWlIjMgN0juOMVQ0Hf7Ueb3
- DReF1/Qk0QZedOhBKzo3ZCJnNLlS/eg6c57llFiAm1GdkxIpMYx8t5rnXNt6L6Gp8+w0
- MXc6YYxs2kOLF6aZcLRfpnXT8ajwvODsPfZgA0xkcDdYgxbSDWbJRQHP0EfbbOjFxu3f
- qEAg==
-X-Gm-Message-State: AOAM531oEoOmTXo9FoqBLNsJWoQ3KzRqEL4xy5vo9Qmoo05EbAsc6uIO
- IG4My7OLdDRhNLLvinp7xXoJo99UlGv56UQOpk4VIw==
-X-Google-Smtp-Source: ABdhPJwNFA5r7YIfbCUFseh+GJz1V3CzzkTvSH4ZreVsrxw477tiR6JvbprCbzDWW7JfZ4pEFuXrrHASRZQs18PzbiQ=
-X-Received: by 2002:ac2:5510:: with SMTP id j16mr7086081lfk.240.1643396407846; 
- Fri, 28 Jan 2022 11:00:07 -0800 (PST)
+ id 1nDX7E-003ROe-BO
+ for linux-riscv@lists.infradead.org; Fri, 28 Jan 2022 19:41:01 +0000
+Date: Fri, 28 Jan 2022 19:40:52 +0000
+Authentication-Results: mail-4317.proton.ch; dkim=none
+To: Marc Zyngier <maz@kernel.org>
+From: Conor Dooley <mail@conchuod.ie>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Rob Herring <robh+dt@kernel.org>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH v4 1/2] dt-bindings: interrupt-controller: sifive,
+ plic: Fix number of interrupts
+Message-ID: <c3221217-52de-64fd-2375-78b5d80c8a9a@conchuod.ie>
+In-Reply-To: <87mtjf66cx.wl-maz@kernel.org>
+References: <cover.1643360419.git.geert@linux-m68k.org>
+ <f73a0aead89e1426b146c4c64f797aa035868bf0.1643360419.git.geert@linux-m68k.org>
+ <D-55Hk0vrg2vkivFR3NXwnyI8hno6J5TA6gRHi3GbGVflgVPOGQNM2auwcIoHVt3fuzkg-pe7MAARda8PG8-KPoEnarmha7U6TI-pA7V6uI=@conchuod.ie>
+ <87mtjf66cx.wl-maz@kernel.org>
 MIME-Version: 1.0
-References: <20220128105746.2459-1-changbin.du@gmail.com>
- <20220128152147.mwjkf45z72qwdikq@mail.google.com>
-In-Reply-To: <20220128152147.mwjkf45z72qwdikq@mail.google.com>
-From: Nick Desaulniers <ndesaulniers@google.com>
-Date: Fri, 28 Jan 2022 10:59:55 -0800
-Message-ID: <CAKwvOdncnh1sGjaBDOepQrAc+AHgEr=gWTJqKSxwvPu0f5A1dg@mail.gmail.com>
-Subject: Re: [PATCH] kallsyms: ignore local block labels generated by compiler
-To: Changbin Du <changbin.du@gmail.com>, Masahiro Yamada <masahiroy@kernel.org>
-Cc: Nathan Chancellor <nathan@kernel.org>, linux-kernel@vger.kernel.org,
- llvm@lists.linux.dev, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220128_110010_734403_B3BB43A5 
-X-CRM114-Status: GOOD (  20.85  )
+X-CRM114-CacheID: sfid-20220128_114100_559498_0226ADBB 
+X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,70 +59,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: Conor Dooley <mail@conchuod.ie>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 28, 2022 at 7:21 AM Changbin Du <changbin.du@gmail.com> wrote:
+On 28/01/2022 18:51, Marc Zyngier wrote:
+> On Fri, 28 Jan 2022 17:57:04 +0000,
+> Conor Dooley <mail@conchuod.ie> wrote:
+>>
+>> [1 PGP/MIME version identification <application/pgp-encrypted (7bit)>]
+>> [2 OpenPGP encrypted message <application/octet-stream (7bit)>]
 >
-> On Fri, Jan 28, 2022 at 06:57:46PM +0800, Changbin Du wrote:
-> > The llvm compiler can generate lots of local block labels and they might
-> > overlap with C defined symbols. So let's ignore such local labels.
-> >
-> > Before this change, dumpstack shows a local symbol for epc:
-> > [    0.040341][    T0] Hardware name: riscv-virtio,qemu (DT)
-> > [    0.040376][    T0] epc : .LBB6_14+0x22/0x6a
-> > [    0.040452][    T0]  ra : restore_all+0x12/0x6e
-> >
-> > After this change, the C defined symbol is shown which is expected:
-> > [    0.035795][    T0] Hardware name: riscv-virtio,qemu (DT)
-> > [    0.036332][    T0] epc : trace_hardirqs_on+0x54/0x13c
-> > [    0.036567][    T0]  ra : restore_all+0x12/0x6e
-> >
-> > Signed-off-by: Changbin Du <changbin.du@gmail.com>
-> > ---
-> >  scripts/kallsyms.c | 1 +
-> >  1 file changed, 1 insertion(+)
-> >
-> > diff --git a/scripts/kallsyms.c b/scripts/kallsyms.c
-> > index 54ad86d13784..5f4be9d72a32 100644
-> > --- a/scripts/kallsyms.c
-> > +++ b/scripts/kallsyms.c
-> > @@ -108,6 +108,7 @@ static bool is_ignored_symbol(const char *name, char type)
-> >       /* Symbol names that begin with the following are ignored.*/
-> >       static const char * const ignored_prefixes[] = {
-> >               "$",                    /* local symbols for ARM, MIPS, etc. */
-> > +             ".LBB",                 /* local block labels generated by compiler */
-> I aslo found many symbols like '.Ltmpxxx', '.L__unnamed_xx'. So should we just
-> ignore all symbols prefixed by '.L'?
-
-.L prefixes are "local labels" meaning they don't get an entry in the
-symbol table.  The trade off is that there is no such convention
-between compiler generated local label naming conventions, vs hand
-written ones.  If we omit all local labels, then it might be
-surprising that a handwritten local label disappeared from this list.
-I think though that we should omit all local labels, and if someone
-needs a label to appear in their dumpstack, then they should simply
-drop the .L prefix on their handwritten label.
-
+> Please refrain from posting encrypted messages to the mailing lists.
 >
-> >               ".LASANPC",             /* s390 kasan local symbols */
-> >               "__crc_",               /* modversions */
-> >               "__efistub_",           /* arm64 EFI stub namespace */
-> > --
-> > 2.32.0
-> >
+> 	M.
+
+Apologies - not my usual mail client. It appears to have decided that
+you (and Rob) should get it encrypted even though I had that disabled.
+Actually doing so also would appear to be non trivial. I am hoping but
+not expecting to have fixed it.
+The mail to the list itself looks to be fine however.
+
 >
 > --
-> Cheers,
-> Changbin Du
+> Without deviation from the norm, progress is not possible.
 
-
-
--- 
-Thanks,
-~Nick Desaulniers
 
 _______________________________________________
 linux-riscv mailing list
