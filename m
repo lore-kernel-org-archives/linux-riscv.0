@@ -4,84 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04123C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 10:07:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B17C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 10:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1Yi/SEtNSXaUBjmJpueEGwNOOS2JauheCimLVXnAj+o=; b=yv8Dhbgr1t6owc
-	4s5Gw3yUvoTlc4oRyZOleSu8YsShFFPVEG7cDL0f5B8AaA+F4p0RnBB03WWCf5WIZ8Cm86CI/PKkG
-	ENOHq6VDsDMNjspWbI0TYV52PR6HwEsburz/uwWKhnQef+I2FT4hOL8c5IAVEM3mcOUgkvcaKGYY4
-	J8Ba+QtqRQPl7L6/RMGc60dspONObUmFdXvOnASYJdC/Xq1DljqhW2+qeEu8V291nuGPlK7q3vVA1
-	g9EqQ5Yres7geIFt2E/ynQ8xq96BPHJm7kFctZueslryhl+Fl2OZrv1fCvkyUkYbqEWEv/NBgCMUV
-	VBsZcdwd/WYwLvTH37Ig==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xJWXEEHl94BZXFeRm2pWhWweWjvdjNTt6P2RPoyn7pg=; b=HrjuYqMO8upUpx
+	ch28AUAVfIlbreFrCPaeHApg44ARyKzvov81z4pwJhaXdSF4TI4N6bYRhTU/DxGPLHrkqE3ifdWwr
+	ng3K5hFKKnI7A6bVdx3Oyp7Qo70c4LePGXylCTVrOXd8n7ljKWvhv3x8uqTSETacPtjndK0aFFfSS
+	Y66Zh9+K6pBtAcWfpe1hdQI2oj21wWwkdpqeSU9NhYrAWalixaRmmIIZdaCx3cSX+AM4fgNxDbFi8
+	6mkYMIh1etmCAgZKERu1zKjEncGup2Obvc9HqiBqldtk8pqpzX1ZMfKH47XaD6PdZOIa0xsudRZwl
+	E46at4pDYS2kaVDQrKNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nDO9g-001Nam-Tn; Fri, 28 Jan 2022 10:06:56 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1nDOx7-001ZJX-0z; Fri, 28 Jan 2022 10:58:01 +0000
+Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nDO8Z-001NJg-Ng
- for linux-riscv@lists.infradead.org; Fri, 28 Jan 2022 10:05:49 +0000
-Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com
- [209.85.218.72])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 596DA3FE09
- for <linux-riscv@lists.infradead.org>; Fri, 28 Jan 2022 10:05:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1643364338;
- bh=O2AwCzmYc8oJyRvt38Q3eFdAEi62fT7JJ41T7HDRaZY=;
- h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
- To:Cc:Content-Type;
- b=jFynAPC5jS3TuSW0DwBFoBtJMNpyruFX8Ud/SKY65dHlfFes688+9yvc2QTtU+4bn
- L+fKJrSxitVSAHYJS0Lb+lLPdLNGVSkUQWVAO8AmIXdD9/0T9pXt/nlKX2Dg5JZLvg
- H8BjAwM5L0VoO7mDKvh7sbWtnRYDMn8tRNFmfzuHyGPOIvRAxcWk6hRGxyfrBa42ly
- M84OT647Chcd/U3H8T1CzYex/OEjWSKoUMR3kpTmI5/1/LWKK2Sw02hIIZBPuKNear
- bgOKMy5GSRw6czM5B5u2tVYp4mrImUzZjAYDfSiGZ7rxJNJU0a8OjkiHgfe9iZz7uy
- cgbx9VXJCrjeg==
-Received: by mail-ej1-f72.google.com with SMTP id
- l18-20020a1709063d3200b006a93f7d4941so2673777ejf.1
- for <linux-riscv@lists.infradead.org>; Fri, 28 Jan 2022 02:05:38 -0800 (PST)
+ id 1nDOx4-001ZIf-Uy
+ for linux-riscv@lists.infradead.org; Fri, 28 Jan 2022 10:58:00 +0000
+Received: by mail-qk1-x72b.google.com with SMTP id 71so5174078qkf.4
+ for <linux-riscv@lists.infradead.org>; Fri, 28 Jan 2022 02:57:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=/+SeEyjxwFir/H5f1F7mn87tKlWsYSPhRkGZK9gJ8WQ=;
+ b=idITS+qsEgTSqNSARyHb+MK0YAl2Lqm/wpb3MvDnXngVHUq1mz+rnZ7QdNtndfwy/4
+ uNyfrv58+iBhnw6pxZPKkFayx4X6V8R1jT8XdorGiKT1UH9Pove0mzucSr6xprNbgHU9
+ 6Nk01dHZv4vyA1HMxj+iqrJxlNtvthBQ5kOfiswGZaZWvu8hymtRi7HBsvbGS9/0yjKT
+ YrPHHIT4By0Npi7M/d4LX7s9Kfk72OV6yfzY7alNXjR3UIjigIBMiCovwY500/flfX3c
+ +Ei8dBGIBRda++OvbQsfCrpbi9LgGLFxDgfXAPrGa2RECeIZtIWqx5Uc7RX4xAnJyzK1
+ XcWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=O2AwCzmYc8oJyRvt38Q3eFdAEi62fT7JJ41T7HDRaZY=;
- b=VgK6eDeZu1aTqR6TCcqnVEHkT3xuhg/kRLt2ICGA0oi8dncVxFhFElePXQwGf2m2WH
- tw1wRIpWjTAWQE2F0zSmoQhwCq0oD7vF5JAL0jkA7mlkxx2inqpNhF2NDTN0qAdLsXB6
- YqbGBn8GPhQirVI87/NUiBhQtrMnV0tX7S4t2OvaCFqqTyXjNFAu6CVcbshmznZDIWvB
- 4JORbz5te39D2jRw+eV4JB2h3RRoELRTxf2q10f+1JM7n6kW3SHRnMBSR7HnueAWE/Q4
- TZhpgf1KQ7t68ZdRMqMusQP9ZdS0gzOEXSUBY3HNF6Yky3TQHy+xd054s74YbTQdOXrv
- j7eQ==
-X-Gm-Message-State: AOAM530td8xsgPXfwVMZIeTBNjy7/JLwdieh7EwKemyRCmGICwGkisYp
- g3Fahi6YB8dMPNAS1z02RQVbJJVe4wlwiQ5jpBYhxGl1bTs0euJnW5ET5XZbmDWa7u0+VjRbT9C
- MG21YQkPb5z//uTmNdIlstewMKDZvUfg3Pq3KmtLnxKP+np0I9XZ3m1tcyfcXDg==
-X-Received: by 2002:a05:6402:424a:: with SMTP id
- g10mr7509428edb.309.1643364337929; 
- Fri, 28 Jan 2022 02:05:37 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJzsVnSwgUFr96As1FnWBQoNDpcCVx1aZj6cMWJvV98yVlEvSPf2G1oW4NedbPBIYoEh/UJEBA7P84mQwLL5yCU=
-X-Received: by 2002:a05:6402:424a:: with SMTP id
- g10mr7509413edb.309.1643364337738; 
- Fri, 28 Jan 2022 02:05:37 -0800 (PST)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=/+SeEyjxwFir/H5f1F7mn87tKlWsYSPhRkGZK9gJ8WQ=;
+ b=O+JgafFYKZhnS9ZNjZITiN7iYE+/nuBDZOgF5109qjb9tda3Ul/9RmfJzPcrsx0OWt
+ 3tTEwUlHaT1uYJC4wUyS3XKhgBR7+TIEjGL7XPPBLZU/oog0Zk1KHDDheRn1vgvzpta8
+ 2KgLhY4UxFkiUO8RlfJE/JJS2qO5pWt+2C8kseIBdiP60OFEfSa/JkGTF7kRq5WqpUZm
+ u8WD+vgBCvUYfxyZSe/3wSaZ+iXUd6OF3GC3WUsFyk0Y9E+zmtImvlntyttVpERn8Law
+ H/f+iwckEgdMCUDe/lxOtOOAsmyf1+1tliR8SGtCmBqbRQ8OEJgl4OzjQ9R8MB/EThQv
+ mqRA==
+X-Gm-Message-State: AOAM530KY1Uk6oAXkza04HAeHdS3u3gfiJsm4cDYkg70bHkIRm0Kxi9p
+ vugJdy3R5+tz8UWyNrLdBco9xKFOXUNU3Zir
+X-Google-Smtp-Source: ABdhPJwAlxxr8DwO9VIhBMkCY9tCwgduZKFXPTJfv+jBpE31Di+Bi3EWZhZvy5bwYqTYzZQsDN44Dw==
+X-Received: by 2002:a05:620a:1132:: with SMTP id
+ p18mr5276652qkk.543.1643367477079; 
+ Fri, 28 Jan 2022 02:57:57 -0800 (PST)
+Received: from WRT-WX9.. ([207.246.89.135])
+ by smtp.gmail.com with ESMTPSA id t11sm2932998qkm.77.2022.01.28.02.57.53
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 28 Jan 2022 02:57:56 -0800 (PST)
+From: Changbin Du <changbin.du@gmail.com>
+To: Nathan Chancellor <nathan@kernel.org>,
+ Masahiro Yamada <masahiroy@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>
+Cc: linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
+ linux-riscv@lists.infradead.org, Changbin Du <changbin.du@gmail.com>
+Subject: [PATCH] kallsyms: ignore local block labels generated by compiler
+Date: Fri, 28 Jan 2022 18:57:46 +0800
+Message-Id: <20220128105746.2459-1-changbin.du@gmail.com>
+X-Mailer: git-send-email 2.32.0
 MIME-Version: 1.0
-References: <20220126171442.1338740-1-aurelien@aurel32.net>
-In-Reply-To: <20220126171442.1338740-1-aurelien@aurel32.net>
-From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Date: Fri, 28 Jan 2022 11:05:26 +0100
-Message-ID: <CA+zEjCvwsM=DaUqB8Hv_=dXRdauz6hjeFE1MK_A6=QjrsW2EyQ@mail.gmail.com>
-Subject: Re: [PATCH] riscv: fix build with binutils 2.38
-To: Aurelien Jarno <aurelien@aurel32.net>
-Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
- Kito Cheng <kito.cheng@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220128_020547_980611_55F2664A 
-X-CRM114-Status: GOOD (  19.65  )
+X-CRM114-CacheID: sfid-20220128_025759_019821_FE7324B8 
+X-CRM114-Status: UNSURE (   7.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,68 +89,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Aurelien,
+The llvm compiler can generate lots of local block labels and they might
+overlap with C defined symbols. So let's ignore such local labels.
 
-On Wed, Jan 26, 2022 at 6:41 PM Aurelien Jarno <aurelien@aurel32.net> wrote:
->
-> From version 2.38, binutils default to ISA spec version 20191213. This
-> means that the csr read/write (csrr*/csrw*) instructions and fence.i
-> instruction has separated from the `I` extension, become two standalone
-> extensions: Zicsr and Zifencei. As the kernel uses those instruction,
-> this causes the following build failure:
->
->   CC      arch/riscv/kernel/vdso/vgettimeofday.o
->   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h: Assembler messages:
->   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error: unrecognized opcode `csrr a5,0xc01'
->   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error: unrecognized opcode `csrr a5,0xc01'
->   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error: unrecognized opcode `csrr a5,0xc01'
->   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error: unrecognized opcode `csrr a5,0xc01'
->
-> The fix is to specify those extensions explicitely in -march. However as
-> older binutils version do not support this, we first need to detect
-> that.
->
-> Cc: stable@vger.kernel.org # 4.15+
-> Cc: Kito Cheng <kito.cheng@gmail.com>
-> Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
-> ---
->  arch/riscv/Makefile | 6 ++++++
->  1 file changed, 6 insertions(+)
->
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index 8a107ed18b0d..7d81102cffd4 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -50,6 +50,12 @@ riscv-march-$(CONFIG_ARCH_RV32I)     := rv32ima
->  riscv-march-$(CONFIG_ARCH_RV64I)       := rv64ima
->  riscv-march-$(CONFIG_FPU)              := $(riscv-march-y)fd
->  riscv-march-$(CONFIG_RISCV_ISA_C)      := $(riscv-march-y)c
-> +
-> +# Newer binutils versions default to ISA spec version 20191213 which moves some
-> +# instructions from the I extension to the Zicsr and Zifencei extensions.
-> +toolchain-need-zicsr-zifencei := $(call cc-option-yn, -march=$(riscv-march-y)_zicsr_zifencei)
-> +riscv-march-$(toolchain-need-zicsr-zifencei) := $(riscv-march-y)_zicsr_zifencei
-> +
->  KBUILD_CFLAGS += -march=$(subst fd,,$(riscv-march-y))
->  KBUILD_AFLAGS += -march=$(riscv-march-y)
->
-> --
-> 2.34.1
->
->
+Before this change, dumpstack shows a local symbol for epc:
+[    0.040341][    T0] Hardware name: riscv-virtio,qemu (DT)
+[    0.040376][    T0] epc : .LBB6_14+0x22/0x6a
+[    0.040452][    T0]  ra : restore_all+0x12/0x6e
 
-That fixes our kernel build with the new binutils, so you can add:
+After this change, the C defined symbol is shown which is expected:
+[    0.035795][    T0] Hardware name: riscv-virtio,qemu (DT)
+[    0.036332][    T0] epc : trace_hardirqs_on+0x54/0x13c
+[    0.036567][    T0]  ra : restore_all+0x12/0x6e
 
-Tested-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Signed-off-by: Changbin Du <changbin.du@gmail.com>
+---
+ scripts/kallsyms.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Thanks for working on this!
+diff --git a/scripts/kallsyms.c b/scripts/kallsyms.c
+index 54ad86d13784..5f4be9d72a32 100644
+--- a/scripts/kallsyms.c
++++ b/scripts/kallsyms.c
+@@ -108,6 +108,7 @@ static bool is_ignored_symbol(const char *name, char type)
+ 	/* Symbol names that begin with the following are ignored.*/
+ 	static const char * const ignored_prefixes[] = {
+ 		"$",			/* local symbols for ARM, MIPS, etc. */
++		".LBB",			/* local block labels generated by compiler */
+ 		".LASANPC",		/* s390 kasan local symbols */
+ 		"__crc_",		/* modversions */
+ 		"__efistub_",		/* arm64 EFI stub namespace */
+-- 
+2.32.0
 
-Alex
-
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
