@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A674AC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 13:37:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2BA5C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 13:37:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2FU5qZ5f0WmxVKtFjSRUHPn0veWf7lDlrhScMTRetHA=; b=nvoxdPyXG3rX19
-	2XpsejGIu1/orgCuJKSP9YaWn76Co6UeXsfOBhOhTPNn2rQSRQpvz86FssJCNA9CdC+cdnMTkpmeg
-	2+gtQbcVuA/4ffXRgkUnCSdaoYbxCTS9y6b6dtvQ2kmhMfQs3fRuWwyE/Q1AL9CoEwRM9SyRB9rdC
-	NFhyhiLtoUX/yVvDqnc3aOYX0bE1kiAaymTEFi0ZhBlu57Q1j/FHDZsc4e9Z8yhaOD0j1gee4lFQr
-	hT5o+0WLbZ+mVYeIXTf4WFrE3eJM1096m2+SXi0PyJUDOq4HaRDBhuvUxVCPNsWNEugbaqIS3SaBx
-	V0JK1EzC4wifRRIiNfeg==;
+	List-Owner; bh=pY93Bn8k66al88k7XUgtwc5AopGZ3CfgP9LxOs7oHeQ=; b=jZEConRc/OeUKi
+	RyAXclWFs9XihsCShb2YDJfRbeO45ioPYxhraya7v7pDWPlHXS0mRP6glJ78RZL4EmxSuN3IWV3il
+	jyQc93yaAxOv6XyROD+irQOKRJpyH7F6ZYh9U7G7ekxJ4VFbymbxxsybT/j3VCmbmxphPMdRfu0bC
+	+CSPsUZJqjSTP90EWRqdmB6YivGZZzgAKofxysqC5PQOT5uBInnKj14cxiACxZ+CsjkCBK0eE4hD9
+	PHt5mLM9ku4YMVv7Df9pBwODrWm6Rk0xc6LyrpIeWYnN6K5rLLfC0FTKiY2QyhfU2EV5B9oICLqcd
+	q+w7gc24lP09d3S6Ad3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nDRRM-002N0I-4X; Fri, 28 Jan 2022 13:37:24 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1nDRRZ-002N6c-5D; Fri, 28 Jan 2022 13:37:37 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nDR7E-002EuF-7m
- for linux-riscv@lists.infradead.org; Fri, 28 Jan 2022 13:16:37 +0000
-Received: by mail-wr1-x430.google.com with SMTP id a13so10818836wrh.9
- for <linux-riscv@lists.infradead.org>; Fri, 28 Jan 2022 05:16:36 -0800 (PST)
+ id 1nDR7v-002FCy-S4
+ for linux-riscv@lists.infradead.org; Fri, 28 Jan 2022 13:17:21 +0000
+Received: by mail-wr1-x433.google.com with SMTP id s9so10825757wrb.6
+ for <linux-riscv@lists.infradead.org>; Fri, 28 Jan 2022 05:17:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20210112.gappssmtp.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=BHcagqEkqEykMyyD1xqLGjKIFp6BT1eCL4LXbv7aRtk=;
- b=z1z4u2VR4nMLNcfMJQxbE378w1Bkvo+bQ12eM82xrKedNFu09LNRo7PtbYC1YT/sKn
- BMKP/Se1i9xSMY3zMzepRXR0gXeNa/6MbH1tu+aJ+TBwTVxyp75vMC7XPnyfwKglLeIS
- eXMvLY2mQvN/3j6RtTuOnVRdBsRMJFbzLDgl5xu5U4X2tQEaYKd3zQzGUlGOUC5pHrCp
- tpp5Z79F3+lSJ3VVbaJw5YGBStBUYTmVM85JmZbmf9nu7mj+gQmVkEttd78esru7agde
- ej3MhA+QzWmuSD6ZHxv2SrfivSYAXHflcMXgQTiHjAhNUTxfA1VHL3HPqHAog/Q2k+nO
- NgIA==
+ :cc; bh=zRE6cP7pvi+ZI23Vg5Fh1CMwZmc7C8MWpMozO16RBzU=;
+ b=8KM029J1OvRaJgPHOipEGOIcRfssg6B2NfpFNu8YWmSFDgkd9wWf+IJ66xVDuR43n3
+ 2+D8zdvVWoQ82hebXyvz6dirPC7Ek+lXA1x+TlEfAyd6br1C0uwLt1e98xEzEGvyT0fY
+ 8JTK9LEH9iYiJvTjwAAeNgHzm3M5OKfLZ8gcDzbf4wKVnixs82hUZiBRDTB290dvE7sO
+ 541MWF+TQExtk9I6p9OjDMGaI4wtmR+HmrGLEI+kq46EU/6Ab3QlK2EJZGdaKwtE7uZE
+ KneFJaj7Rh1Ep3zxWxGtuRQ6lXtfDjOIEai6LlotHYT8H8yrtJV5iIH5hCNKlvFtusdT
+ 9CwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=BHcagqEkqEykMyyD1xqLGjKIFp6BT1eCL4LXbv7aRtk=;
- b=xKSbp3J204jipMWb7GGvrGBopnTtXdiIggu2Yfg7pZqb5vJ2tc4BACH43iEjZHRsl6
- tep5YsQW6BVIih9X9IJqX7pLRTfA5h0H3xuP8fTbEH0t8bq+3o6/VYvyHTR4sRByNxKb
- /FG+FLV0aF8zV79qtYRsh971PDc/dLLSxpGThb69pWsmnwhNV1apN1Dfu+k5jX+Y6JDX
- cErQGQTEy3DupzgwUk8lauaYT+26Y8LMyKOR1Sk5nktmTn51bq433R0sNc+WYsshopBJ
- hV1DrZYXnpwh6AsBEaaDMqdhcWWia2U59u/kqw2b1/XPaZC2+ARrANQ5eEcN5SeCo+dq
- gnSw==
-X-Gm-Message-State: AOAM532ukajAYUJU/oY3wZ98RXv4KFIVW3/Di8HCC69dAT50GIGmQ3/q
- /JJV5C5Ct2im31CyHBzuysDgJSuJ004NngB4WILY0Q==
-X-Google-Smtp-Source: ABdhPJzA3jkPCbW0m1A2rMkTINirAStcdud8umRS8/GKCdo23UjL6ZBvlx5/0/v4gLHlo2udk8QVh6ji0A7krqXzCYs=
-X-Received: by 2002:a05:6000:387:: with SMTP id
- u7mr7204296wrf.214.1643375794752; 
- Fri, 28 Jan 2022 05:16:34 -0800 (PST)
+ bh=zRE6cP7pvi+ZI23Vg5Fh1CMwZmc7C8MWpMozO16RBzU=;
+ b=m4Tsq6eoDfFmBK1APfxhC2zhYdpcwxo/khPeqUFGWFqVU8y2nLMTCrerOZt3O2XT1W
+ YfmBMEccP7RmJ2K5k9tWsPOGHTXEmxx3r7f82TULjg7QYHqmq8TPEYLEOui6nf4N16gu
+ avKFF5rX3liW74CgFeWbzhEJ29C2C1WN5t+P4pjz1hUYi807UVMKWQ6XJXpIIQzyhFXY
+ zXU18vn5iO68n3SdT5HNJsrfDLjZTe2WYdGQw8Qmd4VW/Bj4E23L7EkHJybAZeOkLpzy
+ 1zPl3fA5mLKDnaCazweOU3s8PnOBBxZVo3dUV5ZKnXaJlqk80AOMsHDbHG78dUcLDCCu
+ CGhA==
+X-Gm-Message-State: AOAM5311IK2sZmDBg1cswgoekfs4j8KKMt6CUG4r49ZkcY7dt+ReYEtf
+ emMK0U0bWg9djWx04SNLOyFF2KEoGm2bF40ag4iHwA==
+X-Google-Smtp-Source: ABdhPJx0eAbfLbLIvSsOEMT0A5qjXLBP5J080JzYr7ucrMaAqfFeIyIpQaz8SMiXg4gtlqNBVlVuQi8VmjgUIugP5jw=
+X-Received: by 2002:a05:6000:1e0a:: with SMTP id
+ bj10mr7007651wrb.313.1643375837116; 
+ Fri, 28 Jan 2022 05:17:17 -0800 (PST)
 MIME-Version: 1.0
 References: <cover.1643360652.git.geert@linux-m68k.org>
- <e6a4c5b20d2acb52125d7d6e6c7e3694d7cb182c.1643360652.git.geert@linux-m68k.org>
-In-Reply-To: <e6a4c5b20d2acb52125d7d6e6c7e3694d7cb182c.1643360652.git.geert@linux-m68k.org>
+ <62bf4ee6613550c07a99d4bd226ab0d33acae4c4.1643360652.git.geert@linux-m68k.org>
+In-Reply-To: <62bf4ee6613550c07a99d4bd226ab0d33acae4c4.1643360652.git.geert@linux-m68k.org>
 From: Anup Patel <anup@brainfault.org>
-Date: Fri, 28 Jan 2022 18:46:23 +0530
-Message-ID: <CAAhSdy1+aWmNZJxxDS+tVHeOjGdLH6ALXLp4X6+tgZu+HS1d9g@mail.gmail.com>
-Subject: Re: [PATCH v4 1/2] dt-bindings: timer: sifive,
- clint: Fix number of interrupts
+Date: Fri, 28 Jan 2022 18:47:06 +0530
+Message-ID: <CAAhSdy139fUCYdTm=Ge4GhXt2WxnV3ngGHY2RVie4+k1yQnEKQ@mail.gmail.com>
+Subject: Re: [PATCH v4 2/2] dt-bindings: timer: sifive,
+ clint: Group interrupt tuples
 To: Geert Uytterhoeven <geert@linux-m68k.org>
 Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
  Thomas Gleixner <tglx@linutronix.de>, 
@@ -72,8 +72,8 @@ Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
  DTML <devicetree@vger.kernel.org>, 
  linux-riscv <linux-riscv@lists.infradead.org>, Rob Herring <robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220128_051636_386855_3D89AB38 
-X-CRM114-Status: GOOD (  18.17  )
+X-CRM114-CacheID: sfid-20220128_051719_996152_BDE2B06B 
+X-CRM114-Status: GOOD (  17.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,15 +92,12 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Fri, Jan 28, 2022 at 2:37 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
 >
-> The number of interrupts lacks an upper bound, thus assuming one,
-> causing properly grouped "interrupts-extended" properties to be flagged
-> as an error by "make dtbs_check".
->
-> Fix this by adding the missing "maxItems", using the architectural
-> maximum of 4095 interrupts.
+> To improve human readability and enable automatic validation, the tuples
+> in "interrupts-extended" properties should be grouped using angle
+> brackets.
 >
 > Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
-> Acked-by: Rob Herring <robh@kernel.org>
+> Reviewed-by: Rob Herring <robh@kernel.org>
 
 Looks good to me.
 
@@ -111,30 +108,36 @@ Anup
 
 > ---
 > v4:
->   - Use architectural maximum instead of practical maximum of 10,
+>   - Add Reviewed-by (this time for real ;-),
 >
 > v3:
->   - Add Acked-by,
+>   - Add Reviewed-by,
 >
 > v2:
->   - Split in two patches,
->   - Improve patch description and document limit rationale.
+>   - Split in two patches.
 > ---
->  Documentation/devicetree/bindings/timer/sifive,clint.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  Documentation/devicetree/bindings/timer/sifive,clint.yaml | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
 >
 > diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> index 8d5f4687add9e81e..fe4b73c3f269fc0f 100644
+> index fe4b73c3f269fc0f..e64f46339079fa3f 100644
 > --- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
 > +++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> @@ -44,6 +44,7 @@ properties:
->
->    interrupts-extended:
->      minItems: 1
-> +    maxItems: 4095
->
->  additionalProperties: false
->
+> @@ -57,10 +57,10 @@ examples:
+>    - |
+>      timer@2000000 {
+>        compatible = "sifive,fu540-c000-clint", "sifive,clint0";
+> -      interrupts-extended = <&cpu1intc 3 &cpu1intc 7
+> -                             &cpu2intc 3 &cpu2intc 7
+> -                             &cpu3intc 3 &cpu3intc 7
+> -                             &cpu4intc 3 &cpu4intc 7>;
+> +      interrupts-extended = <&cpu1intc 3>, <&cpu1intc 7>,
+> +                            <&cpu2intc 3>, <&cpu2intc 7>,
+> +                            <&cpu3intc 3>, <&cpu3intc 7>,
+> +                            <&cpu4intc 3>, <&cpu4intc 7>;
+>         reg = <0x2000000 0x10000>;
+>      };
+>  ...
 > --
 > 2.25.1
 >
