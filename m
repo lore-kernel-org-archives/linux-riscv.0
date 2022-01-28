@@ -4,95 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 181F8C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 06:17:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1834AC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jan 2022 07:21:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gmNpgh0L702IQ45ctdgb+G1Gy1EWjdRoMo+WaXOH/vY=; b=I/0aQIVklU6Cba
-	gAKXOaSas+nIXw4RciGdrC3hQT4qzgqwCLZPPzI3ashPjgrG3txbBM9lOkHEtM4Tv2QFR9eOe/Cv0
-	qcua7o5UwRNPTYdMQ03ZbfQBeWljrkZE6FrYygdx20AD41iP3kONpH+6S0JWcFOsyBqtkC5nNoWtU
-	TzJI+xwct0NhKsLGvSSV/ercei/Ah8h4PMSdirORLL2+wkeHQ5Wc4Qi9ur+/qUep1JNY/8INtYDoH
-	TOn+7hVUkI0EJ+pAPH3ZidFMZIYAupL9Mihh66kQA/fEQsFOsLKFIOKkcdkZ5bEdxkBM02N858pHK
-	sZXEwS7UKH8EWF9Q4Vow==;
+	List-Owner; bh=ZTrCqJvt8OZzdoxHiTQXiTezMckDwkYCJ5GexOc+k2Y=; b=w6OXScGcmUWkAJ
+	5QAjvhx+Uc4fYm+S8fAd0Ag8nvz3UXlc1ye1vPAYmZHtq8tZ/r/60DOK4tNtPP/GmhQNHAHYdBfux
+	iLdv2W6+bckjoihPtxs+aRCaL10K1VvCSS90oQOuNDccbvBmBZss2SJDAOhgoed20a+qIqv/ulz+C
+	yGR7amV8lq64mDGJ59ZDahsXbMGhMVgOevoBlnW0nC9vAYV0MpgfNMybVXPJ45ciqJtU4/9OJSK/E
+	iu2oOB9DoKnNEFdXAKJLa2R3En0hePi9eXQ81Ss2UWUDNeobwh6JvJs/SG4+kOestZxKNT8F6NnuZ
+	hb5XPBfpfKYZc37mF3Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nDKZp-000Xz5-Rz; Fri, 28 Jan 2022 06:17:41 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1nDLYy-000nI0-QK; Fri, 28 Jan 2022 07:20:52 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nDKZn-000Xxg-6B
- for linux-riscv@lists.infradead.org; Fri, 28 Jan 2022 06:17:40 +0000
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ id 1nDLYW-000n8N-VJ; Fri, 28 Jan 2022 07:20:27 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 9BDB33F1E9
- for <linux-riscv@lists.infradead.org>; Fri, 28 Jan 2022 06:17:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1643350649;
- bh=0t1V4zvmNPJT9wYj/Pd8jJat58ip8FOEKuqF28wuRD4=;
- h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
- In-Reply-To:Content-Type;
- b=ZdRus7QXPg/hqA9G2jvpSG/r/zc6jMY5EGxTTQOBJloYK+B9F0xYEUB53amld8ozu
- gLFE7WqZqWLkpRwXqq7QFM5GIc/Tl5HrglZ+UZ7FTwVm/F8wsn84pfVgnPZR6q+s9k
- 7CB+M95rKFndO37/H8U4E0Zr1YlS9yms7nONaZKTmgUVDaHQ4IHGw5/0aGw73nZkDY
- WEJH51NAS+q0WgbBa9QMlVITWzB9HTXFzXfPNgvOhDx7XjORgGWU067KUNLXwrOQhh
- +7Rfh8m1Q/7YVevZ00nej/oeDGbbAyR09jP++VkcShoH4k+wLgEpavzGnBGyOxgt52
- QyZg9dEhT2vYg==
-Received: by mail-wm1-f69.google.com with SMTP id
- d184-20020a1c1dc1000000b00350769d4bcfso1154963wmd.4
- for <linux-riscv@lists.infradead.org>; Thu, 27 Jan 2022 22:17:29 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:cc:references:from:in-reply-to
- :content-transfer-encoding;
- bh=0t1V4zvmNPJT9wYj/Pd8jJat58ip8FOEKuqF28wuRD4=;
- b=FFgyomCPcyylDD0zQ+zi9bZhXMcOSsIeEd/8G/nxpjPy3rcIaLuoCWRBW/VAgvBYVf
- SVH2/wyiBj91Zdxr8E4oI6MhulhdXaMFPpabUT728ex0mGbpeHyqheL1iPJv3CbZQuMD
- I3h8mqSxDeEQ67QOFW8xYCMcsjMTlaVWZveS7XhD1zW4RDBbWEJsoQmHINFK0YR/bTLr
- Okg+zPMrSY2pz3mDhm+eJ3f1J1awaCib6uPmp/BDJp90kS0CKfTa+KfIuRyZLF8QlVgx
- +iJMC+qgrOZJnLbiru2jq0g9oYpsCM02asIrUZN2cChp4htMUeWSPSei8ctkTNBgcM+B
- XHdQ==
-X-Gm-Message-State: AOAM530wuz+IKnF9gDSO5QY1z6e79FK5hFIvSaeuS1Ak0rLUV4NSuQkD
- e8QabEmvnUbmh4oeC4kLq+iC74h0ZzfMtozx/xVtkBu37r6n6lKXLyZZjIYZuWA1tNRl1qIUVdo
- Hz6J0nGxkAkbCuFzS+5M8OlpOnRCySCDa+aGC5iJ5swioEA==
-X-Received: by 2002:adf:fb05:: with SMTP id c5mr5875242wrr.220.1643350649333; 
- Thu, 27 Jan 2022 22:17:29 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJxnfGoUTSgGUq+FTJ1O5uTS7OjWZEbG246bwyKtGG3BSFUg0GOMLfkbUl4tx/4Z1J+yMAiWqg==
-X-Received: by 2002:adf:fb05:: with SMTP id c5mr5875223wrr.220.1643350649139; 
- Thu, 27 Jan 2022 22:17:29 -0800 (PST)
-Received: from [192.168.123.94] (ip-088-152-144-107.um26.pools.vodafone-ip.de.
- [88.152.144.107])
- by smtp.gmail.com with ESMTPSA id m6sm1158698wmq.6.2022.01.27.22.17.27
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Thu, 27 Jan 2022 22:17:28 -0800 (PST)
-Message-ID: <6cd57022-6fe3-d065-dbe3-e9487894a94c@canonical.com>
-Date: Fri, 28 Jan 2022 07:17:27 +0100
+ by dfw.source.kernel.org (Postfix) with ESMTPS id C690261BE7;
+ Fri, 28 Jan 2022 07:20:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3795AC340ED;
+ Fri, 28 Jan 2022 07:20:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1643354423;
+ bh=T5hvP6N/YDzJivdP96HpAMsEBUvVss8W1EdZxq9UDZ4=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=rT9QbL1WnPZ2MHGbg0JvXIvyik13Be4VSHK3AZWcckQfOPTQ3p8BK92cMVnIvrzMg
+ MakENSENL+JCT+fJfjBxHS6GxPMra9V8+ZT+KUn2jwKlTN9HxC166Gja/waPD3bzgq
+ 4JCS1G112hbc461us35r3Eed4yccGu1Em4uTf4Rw0YIYh75HZuXZZml/IpW7r4V0pG
+ TtUQAhmnS1cm9v7Gs28cGhDI9GH3HtS8WlxKplc7ac/dHKfNtZW1rl5KkFkQ3HGVJ7
+ x1M30Rp1WyZU5Ga8NNdFkmoINdLWHcZ4E7GPUs+o2KFHLSSPp0zGvLb9FWhLrIWM/a
+ CpHO/6lgegEkw==
+Received: by mail-ua1-f53.google.com with SMTP id y4so7212729uad.1;
+ Thu, 27 Jan 2022 23:20:23 -0800 (PST)
+X-Gm-Message-State: AOAM533aTH3Elmd/AclK/SxxlHdVPD4GxqILAXRHnplA3Si4duiij2P6
+ m7Fs0JLdssV8pGcLLkUH9el0/7FiD8b7F8VoKkM=
+X-Google-Smtp-Source: ABdhPJy2RpgEjhRo6X4RJ0pAxWaXFERfP1D6JpGvXcxtvMy0oyK9vzxHewNF9PQNMbdvJh891BhmawJDHyR3Cg69bT8=
+X-Received: by 2002:ab0:3565:: with SMTP id e5mr3609249uaa.97.1643354422066;
+ Thu, 27 Jan 2022 23:20:22 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.5.0
-Subject: Re: [PATCH] riscv/efi_stub: Fix get_boot_hartid_from_fdt() return
- value
-Content-Language: en-US
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: linux-efi@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>,
- stable@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
- Paul Walmsley <paul.walmsley@sifive.com>, Atish Patra
- <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Ard Biesheuvel <ardb@kernel.org>
-References: <20220128045004.4843-1-sunilvl@ventanamicro.com>
-From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-In-Reply-To: <20220128045004.4843-1-sunilvl@ventanamicro.com>
+References: <20220120073911.99857-4-guoren@kernel.org>
+ <CAK8P3a1UmnjHk8B6hSULiKv3FKoY5BW9=4=ESerQzc+4=LR5Zw@mail.gmail.com>
+In-Reply-To: <CAK8P3a1UmnjHk8B6hSULiKv3FKoY5BW9=4=ESerQzc+4=LR5Zw@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Fri, 28 Jan 2022 15:20:11 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRoVaD0yrh7_Lxwvn9KdYdUeiNH4YhiaY6+G=nt04r9Yw@mail.gmail.com>
+Message-ID: <CAJF2gTRoVaD0yrh7_Lxwvn9KdYdUeiNH4YhiaY6+G=nt04r9Yw@mail.gmail.com>
+Subject: Re: [PATCH V3 03/17] asm-generic: compat: Cleanup duplicate
+ definitions
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>, 
+ gregkh <gregkh@linuxfoundation.org>, liush <liush@allwinnertech.com>, 
+ Wei Fu <wefu@redhat.com>, Drew Fustini <drew@beagleboard.org>, 
+ Wang Junqiang <wangjunqiang@iscas.ac.cn>, Christoph Hellwig <hch@lst.de>, 
+ Christoph Hellwig <hch@infradead.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
+ linux-s390 <linux-s390@vger.kernel.org>,
+ sparclinux <sparclinux@vger.kernel.org>, 
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, inux-parisc@vger.kernel.org, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+ "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220127_221739_409250_C98155CC 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220127_232025_117802_234DBE0D 
+X-CRM114-Status: GOOD (  44.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,22 +86,262 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 1/28/22 05:50, Sunil V L wrote:
-> The get_boot_hartid_from_fdt() function currently returns U32_MAX
-> for failure case which is not correct because U32_MAX is a valid
-> hartid value. This patch fixes the issue by returning error code.
-> 
-> Fixes: d7071743db31 ("RISC-V: Add EFI stub support.")
-> Cc: stable@vger.kernel.org
-> 
-> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+On Thu, Jan 20, 2022 at 9:02 PM Arnd Bergmann <arnd@arndb.de> wrote:
+>
+>   On Thu, Jan 20, 2022 at 8:38 AM <guoren@kernel.org> wrote:
+> >
+> > From: Guo Ren <guoren@linux.alibaba.com>
+> >
+> > There are 7 64bit architectures that support Linux COMPAT mode to
+> > run 32bit applications. A lot of definitions are duplicate:
+> >  - COMPAT_USER_HZ
+> >  - COMPAT_RLIM_INFINITY
+> >  - COMPAT_OFF_T_MAX
+> >  - __compat_uid_t, __compat_uid_t
+> >  - compat_dev_t
+> >  - compat_ipc_pid_t
+> >  - struct compat_flock
+> >  - struct compat_flock64
+> >  - struct compat_statfs
+> >  - struct compat_ipc64_perm, compat_semid64_ds,
+> >           compat_msqid64_ds, compat_shmid64_ds
+> >
+> > Cleanup duplicate definitions and merge them into asm-generic.
+> >
+> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > Signed-off-by: Guo Ren <guoren@kernel.org>
+> > Cc: Arnd Bergmann <arnd@arndb.de>
+>
+> > ---
+> >  arch/arm64/include/asm/compat.h   | 108 +++-----------------------
+> >  arch/mips/include/asm/compat.h    |  24 ++----
+> >  arch/parisc/include/asm/compat.h  |  47 ++----------
+> >  arch/powerpc/include/asm/compat.h |  47 ++----------
+> >  arch/s390/include/asm/compat.h    | 109 +++-----------------------
+> >  arch/sparc/include/asm/compat.h   |  39 ++++------
+> >  arch/x86/include/asm/compat.h     | 114 +++-------------------------
+> >  include/asm-generic/compat.h      | 122 ++++++++++++++++++++++++++++++
+> >  8 files changed, 191 insertions(+), 419 deletions(-)
+> >
+> > diff --git a/arch/arm64/include/asm/compat.h b/arch/arm64/include/asm/compat.h
+> > index eaa6ca062d89..f54f295efae3 100644
+> > --- a/arch/arm64/include/asm/compat.h
+> > +++ b/arch/arm64/include/asm/compat.h
+> > @@ -5,9 +5,18 @@
+> >  #ifndef __ASM_COMPAT_H
+> >  #define __ASM_COMPAT_H
+> >
+> > +#define COMPAT_RLIM_INFINITY           0xffffffff
+> ...
+> > +#ifndef COMPAT_RLIM_INFINITY
+> > +#define COMPAT_RLIM_INFINITY   0x7fffffff
+> > +#endif
+>
+> While this is a correct conversion, I think the default should
+> be 0xffffffff, to match the asm-generic RLIM_INFINITY
+> definition, with only mips and sparc getting the exception
+Okay
 
-Reviewed-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+>
+> > -struct compat_flock {
+> > -       short           l_type;
+> > -       short           l_whence;
+> > -       compat_off_t    l_start;
+> > -       compat_off_t    l_len;
+> > -       compat_pid_t    l_pid;
+> > -};
+> ...
+> > +#ifndef compat_flock
+> > +struct compat_flock {
+> > +       compat_short_t  l_type;
+> > +       compat_short_t  l_whence;
+> > +       compat_off_t    l_start;
+> > +       compat_off_t    l_len;
+> > +       compat_pid_t    l_pid;
+> > +} __attribute__((packed));
+> > +#endif
+>
+> You are adding __attribute__((packed)) here, which I think has
+> no effect on the layout on the structure on any of the architectures
+> but it does change the alignment requirements needlessly.
+>
+> Better leave it without the attribute.
+Okay
+
+>
+> > -struct compat_flock64 {
+> > -       short           l_type;
+> > -       short           l_whence;
+> > -       compat_loff_t   l_start;
+> > -       compat_loff_t   l_len;
+> > -       compat_pid_t    l_pid;
+> > -};
+> ...
+> > +#ifndef compat_flock64
+> > +struct compat_flock64 {
+> > +       compat_short_t  l_type;
+> > +       compat_short_t  l_whence;
+> > +       compat_loff_t   l_start;
+> > +       compat_loff_t   l_len;
+> > +       compat_pid_t    l_pid;
+> > +} __attribute__((packed));
+> > +#endif
+>
+> This one is different: on all architectures other than x86,
+> the added packed attribute changes the size of the
+> structure by removing the four padding bytes at the
+> end. x86 originally added the attribute here to work around
+> the weirdness of the x86-32 ABI that aligns 64-bit values
+> on a 4-byte boundary.
+>
+> The easiest workaround would be to have x86 keep its
+> custom definition. A slightly nicer version would drop the
+> attribute on x86 as well but instead change the compat_loff_t
+> definition to use compat_s64 instead of s64, giving it the
+> correct alignment.
+Okay, I would leave x86 origin first.
+
+>
+> > -struct compat_statfs {
+> > -       int             f_type;
+> > -       int             f_bsize;
+> > -       int             f_blocks;
+> > -       int             f_bfree;
+> > -       int             f_bavail;
+> > -       int             f_files;
+> > -       int             f_ffree;
+> > -       compat_fsid_t   f_fsid;
+> > -       int             f_namelen;      /* SunOS ignores this field. */
+> > -       int             f_frsize;
+> > -       int             f_flags;
+> > -       int             f_spare[4];
+> > -};
+> ...
+> > +#ifndef compat_statfs
+> > +struct compat_statfs {
+> > +       compat_uint_t   f_type;
+> > +       compat_uint_t   f_bsize;
+> > +       compat_uint_t   f_blocks;
+> > +       compat_uint_t   f_bfree;
+> > +       compat_uint_t   f_bavail;
+> > +       compat_uint_t   f_files;
+> > +       compat_uint_t   f_ffree;
+> > +       __kernel_fsid_t f_fsid;
+> > +       compat_uint_t   f_namelen;
+> > +       compat_uint_t   f_frsize;
+> > +       compat_uint_t   f_flags;
+> > +       compat_uint_t   f_spare[4];
+> > +} __attribute__((packed));
+> > +#endif
+>
+> None of the architectures use the packed attribute at the moment,
+> so please don't add one here.
+>
+> Changing compat_fsid_t to __kernel_fsid_t is harmless, but seems
+> unnecessary.
+Okay. I would add another
+typedef __kernel_fsid_t compat_fsid_t;
+in the file.
+
+>
+> Changing the signed int to an unsigned int (regardless of notation)
+> may be a change in behavior. s390 is the only architecture
+> using unsigned members here at the moment, as of b8668fd0a7e1
+> ("s390/uapi: change struct statfs[64] member types to unsigned
+> values").
+> The description of that patch sounds like this was changed to fix
+> a bug, but I don't see what the actual problem would be in the
+> put_compat_statfs().
+>
+> For the moment I'd suggest leaving this with the signed version,
+> with s390 being another exception next to mips. We can follow-up
+> with merging s390 into the common definition using either the
+> signed or unsigned types, but I think that needs to be a separate
+> patch with a detailed explanation.
+Okay, I would leave s390 origin first.
+
+>
+>  +#ifndef compat_ipc64_perm
+> > +struct compat_ipc64_perm {
+> > +       compat_key_t key;
+> > +       __compat_uid32_t uid;
+> > +       __compat_gid32_t gid;
+> > +       __compat_uid32_t cuid;
+> > +       __compat_gid32_t cgid;
+> > +       compat_mode_t   mode;
+> > +       unsigned char   __pad1[4 - sizeof(compat_mode_t)];
+> > +       compat_ushort_t seq;
+> > +       compat_ushort_t __pad2;
+> > +       compat_ulong_t  unused1;
+> > +       compat_ulong_t  unused2;
+> > +} __attribute__((packed));
+> > +
+> > +struct compat_semid64_ds {
+> > +       struct compat_ipc64_perm sem_perm;
+> > +       compat_ulong_t sem_otime;
+> > +       compat_ulong_t sem_otime_high;
+> > +       compat_ulong_t sem_ctime;
+> > +       compat_ulong_t sem_ctime_high;
+> > +       compat_ulong_t sem_nsems;
+> > +       compat_ulong_t __unused3;
+> > +       compat_ulong_t __unused4;
+> > +} __attribute__((packed));
+> > +
+> > +struct compat_msqid64_ds {
+> > +       struct compat_ipc64_perm msg_perm;
+> > +       compat_ulong_t msg_stime;
+> > +       compat_ulong_t msg_stime_high;
+> > +       compat_ulong_t msg_rtime;
+> > +       compat_ulong_t msg_rtime_high;
+> > +       compat_ulong_t msg_ctime;
+> > +       compat_ulong_t msg_ctime_high;
+> > +       compat_ulong_t msg_cbytes;
+> > +       compat_ulong_t msg_qnum;
+> > +       compat_ulong_t msg_qbytes;
+> > +       compat_pid_t   msg_lspid;
+> > +       compat_pid_t   msg_lrpid;
+> > +       compat_ulong_t __unused4;
+> > +       compat_ulong_t __unused5;
+> > +} __attribute__((packed));
+> > +
+> > +struct compat_shmid64_ds {
+> > +       struct compat_ipc64_perm shm_perm;
+> > +       compat_size_t  shm_segsz;
+> > +       compat_ulong_t shm_atime;
+> > +       compat_ulong_t shm_atime_high;
+> > +       compat_ulong_t shm_dtime;
+> > +       compat_ulong_t shm_dtime_high;
+> > +       compat_ulong_t shm_ctime;
+> > +       compat_ulong_t shm_ctime_high;
+> > +       compat_pid_t   shm_cpid;
+> > +       compat_pid_t   shm_lpid;
+> > +       compat_ulong_t shm_nattch;
+> > +       compat_ulong_t __unused4;
+> > +       compat_ulong_t __unused5;
+> > +} __attribute__((packed));
+> > +#endif
+>
+> I checked these in detail, looking at the seven architectures, and your
+> conversion looks exactly right (I had initially missed the part about
+> compat_mode_t that you got right).
+>
+> As with compat_flock, the packed attribute has no impact on the layout
+> here, but please drop it anyway for consistency.
+>
+>         Arnd
+
+
+
+-- 
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
