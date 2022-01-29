@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EC27C433EF
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Jan 2022 12:33:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 501CAC433F5
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Jan 2022 13:42:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1SLW1GyhYCW7OtmvdirVFxrdoAE+TfSy8r6QiH+TUz8=; b=ksmewd6QAPH0UQ
-	Wluo8CD8+S/twDa6/H9koBmwCycgSe/I8LtFqnaQxNXIxRNqRkihIs8OozMSUsvnVw6Fxz8SFLG0p
-	hoZfucc6dK6aqL0sy2pTUPX8/Kfcembg0ymkbSNHZ3GYt1qEsz3RuiV5dd5UG+p7KS4DGgj7Px8cg
-	XseqeKbON++iSwbK/x0vxNUVXkWZhH+CS80WzEclcBxVJ4eNMJIaowBiV/NQb0r6ETAe397SVAaZG
-	qB7+cP0iZnHAEcwrvE9bdl0+ZK9xI/F4vE7HCuMUhWUExgqHUgtGc7C8YbET/jOrIxLZlZCMd+qJ/
-	IRt+fJ62miaktKw+z9eA==;
+	List-Owner; bh=nsJbxsa/CoHB0ORZUmOJ/zkZyH0wWBcw2c1LuSx5g7c=; b=LvEBOCgQZ06KaO
+	CFM5WY/A4TcgCzRX7IekACEG7MpvKYK3Y567aj27hgRT1xvY4bH6txwyQujYtoMiSoHf+if2eey+f
+	pVszLrLFFf+KFeheAw6Os8zYuc+3kf5kqDV3m+NMJSMd7kS+oILH4yqaLIXgKD/JXJWQAhE4RjNwa
+	UvN3C8AA9o7W6BaCSb1/tCA/i9vPenTrO0anODxf/+cdWjQcQ+e/zoX11Kc7LeGj5EdVb7WGKTEOf
+	OJrCmRkxxvH8Fveb5knEgTDN7m9is8i99q/9IQQkI9l/bf0THdCiok0e7ZSPRpzFnQmFSpvfrmJIh
+	hocJLwxPdxtkiVgV8okg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nDmuh-004jEa-4y; Sat, 29 Jan 2022 12:33:07 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1nDnzO-004r8U-N1; Sat, 29 Jan 2022 13:42:02 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nDmhe-004clx-Cq; Sat, 29 Jan 2022 12:19:39 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 06839B827B7;
- Sat, 29 Jan 2022 12:19:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA85DC36AE3;
- Sat, 29 Jan 2022 12:19:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1643458775;
- bh=J65VF607Au+lXQP+8mKXArK6fDS/9hBK5qV8mWwi4fM=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=hNexS/zfRcpJQb9tKy9uq83XaLRwvXw8cgOzwvW9WGM8zvfpjFXUMmOHV7wpYFjBp
- R4zZeyMkYScimS69R0rmPSDQiLeoyC4tNXnoZopSCmrKnJ8CXAdNqsBzb1ez7gi6HN
- 0Tyxrhtp5Mi9AKTv9oQEZpKazjfoFIi00SyeBHUBliq5cJENB09Lf+Pi7mLjn7YNBT
- aPsDFmioeyhcJlUMm3AZSlSK9ucd2doig8+iZU2Wyg6rU0gRs5rtmxtw+5HhoIUawl
- 66/hvRTiAyCZ/rB8cQbfhby7/PO6/fXx4w8NqSqdB00+lX+6mDb6AecdxvXlTOakZB
- Pa6OVe+KOUrow==
-From: guoren@kernel.org
-To: guoren@kernel.org, palmer@dabbelt.com, arnd@arndb.de, anup@brainfault.org,
- gregkh@linuxfoundation.org, liush@allwinnertech.com, wefu@redhat.com,
- drew@beagleboard.org, wangjunqiang@iscas.ac.cn, hch@lst.de,
- hch@infradead.org
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-parisc@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- x86@kernel.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH V4 17/17] KVM: compat: riscv: Prevent KVM_COMPAT from being
- selected
-Date: Sat, 29 Jan 2022 20:17:28 +0800
-Message-Id: <20220129121728.1079364-18-guoren@kernel.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220129121728.1079364-1-guoren@kernel.org>
-References: <20220129121728.1079364-1-guoren@kernel.org>
+ id 1nDnzL-004r73-Pz
+ for linux-riscv@lists.infradead.org; Sat, 29 Jan 2022 13:42:01 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ uk-mta-132-kl2_1KnEM5W2_GB7pgWbZw-1; Sat, 29 Jan 2022 13:41:53 +0000
+X-MC-Unique: kl2_1KnEM5W2_GB7pgWbZw-1
+Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
+ AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
+ Server (TLS) id 15.0.1497.28; Sat, 29 Jan 2022 13:41:52 +0000
+Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
+ AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
+ 15.00.1497.028; Sat, 29 Jan 2022 13:41:52 +0000
+From: David Laight <David.Laight@ACULAB.COM>
+To: "'michael@michaelkloos.com'" <michael@michaelkloos.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
+ <aou@eecs.berkeley.edu>
+CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v4] riscv: Fixed misaligned memory access. Fixed pointer
+ comparison.
+Thread-Topic: [PATCH v4] riscv: Fixed misaligned memory access. Fixed pointer
+ comparison.
+Thread-Index: AQHYFLeJevYJAUdx80uZ5JrJ5hRdzqx5/qSg
+Date: Sat, 29 Jan 2022 13:41:52 +0000
+Message-ID: <7ef35550b4dd44ffabfd7ca1e0ee27fa@AcuMS.aculab.com>
+References: <20220129022448.37483-1-michael@michaelkloos.com>
+In-Reply-To: <20220129022448.37483-1-michael@michaelkloos.com>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
+Authentication-Results: relay.mimecast.com;
+ auth=pass smtp.auth=C51A453 smtp.mailfrom=david.laight@aculab.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220129_041938_606556_7E5D2775 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20220129_054200_139067_92F30F06 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,33 +81,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+From: michael@michaelkloos.com
+...
+> [v4]
+> 
+> I could not resist implementing the optimization I mentioned in
+> my v3 notes.  I have implemented the roll over of data by cpu
+> register in the misaligned fixup copy loops.  Now, only one load
+> from memory is required per iteration of the loop.
 
-Current riscv doesn't support the 32bit KVM API. Let's make it
-clear by not selecting KVM_COMPAT.
+I nearly commented...
 
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>
----
- virt/kvm/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+...
+> +	/*
+> +	 * Fix Misalignment Copy Loop.
+> +	 * load_val1 = load_ptr[0];
+> +	 * while (store_ptr != store_ptr_end) {
+> +	 *   load_val0 = load_val1;
+> +	 *   load_val1 = load_ptr[1];
+> +	 *   *store_ptr = (load_val0 >> {a6}) | (load_val1 << {a7});
+> +	 *   load_ptr++;
+> +	 *   store_ptr++;
+> +	 * }
+> +	 */
+> +	REG_L t0, 0x000(a3)
+> +	1:
+> +	beq   t3, t6, 2f
+> +	mv    t1, t0
+> +	REG_L t0, SZREG(a3)
+> +	srl   t1, t1, a6
+> +	sll   t2, t0, a7
+> +	or    t1, t1, t2
+> +	REG_S t1, 0x000(t3)
+> +	addi  a3, a3, SZREG
+> +	addi  t3, t3, SZREG
+> +	j 1b
 
-diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
-index f4834c20e4a6..a8c5c9f06b3c 100644
---- a/virt/kvm/Kconfig
-+++ b/virt/kvm/Kconfig
-@@ -53,7 +53,7 @@ config KVM_GENERIC_DIRTYLOG_READ_PROTECT
- 
- config KVM_COMPAT
-        def_bool y
--       depends on KVM && COMPAT && !(S390 || ARM64)
-+       depends on KVM && COMPAT && !(S390 || ARM64 || RISCV)
- 
- config HAVE_KVM_IRQ_BYPASS
-        bool
--- 
-2.25.1
+No point jumping to a conditional branch that jumps bak
+Make this a:
+	bne	t3, t6, 1b
+and move 1: down one instruction.
+(Or is the 'beq' at the top even possible - there is likely to
+be an earlier test for zero length copies.)
+> +	2:
+
+I also suspect it is worth unrolling the loop once.
+You lose the 'mv t1, t0' and one 'addi' for each word transferred.
+
+I think someone mentioned that there is a few clocks delay before
+the data from the memory read (REG_L) is actually available.
+On in-order cpu this is likely to be a full pipeline stall.
+So move the 'addi' up between the 'REG_L' and 'sll' instructions.
+(The offset will need to be -SZREG to match.)
+
+	David
+
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 
 
 _______________________________________________
