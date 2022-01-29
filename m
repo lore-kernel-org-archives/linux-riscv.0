@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 725BBC433F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Jan 2022 12:30:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3007C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Jan 2022 12:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Oe+WIi5cuiJMnh/e3qB4bb9I9IzVygTJWVOiRDGexDY=; b=yTUoaIViASkVlE
-	DO9bgFOqnq1K34/DPehsZ0/0o6clSD4GicAVTU9Sw3QCa4S4/+R4kUlaPo74tlMJnAoStKre3Obxx
-	lEINaWnjuXmiIt6Wt0CzwXINQZ093rAr98D3jop3UFJOKMs3mL5+3tEYXoUmcdzyZsiXiypOMhdQG
-	JCK/EERaZQSOfvYx2xtFz9ysNTz9nIOjUT+HFV3TQmCFu/OFTQB7187uL/XrfFGK2BhM8v9BYvQpV
-	8Ax4VLURnpVsSCPp/CLRfx2h/X/PXWS+E+w47SxSbMiQMrNs+BTfsQx9Fo2cBuk3sawWjmFXEm2aC
-	wdMC+uNyWLsRBXzHwZTA==;
+	List-Owner; bh=i5pSDqEoKU2KPyy9zlX1Xm5u/1apDqnxTphoRD5s5GA=; b=Nz5i9SxV9DAoE7
+	2ubJfDc3D+thkFGs+ASvtKRXSDqgAAPQNhhI+CKrLk82/lvLbReY9CN3JZtaWEGIwYUxtWNPxxm43
+	zE7rN25+EAOPx/SNsDu7fUb+D6vs2FBXPulKtJitYU5qQ5tM3kzDtmjUDTeTz9k9XrxAaxVLQPuRZ
+	zKZ8PicIXYodwXMUGYdzGx5tjq0Fx8t+drvnRtLtuMLjpLGZGQTkOMmvfrv14uj492UGlhoON/Bmb
+	39fF5yMOg/71h4tBk4f2ScjGBjKuAkoXqWe+OjP23NQBgbPvmkG/xbDV03P67WHihQ4s60Fc1qEb1
+	U6TX8mkpWAEqIeu2M3WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nDmsR-004iGm-Fr; Sat, 29 Jan 2022 12:30:47 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1nDmtO-004ihM-Gs; Sat, 29 Jan 2022 12:31:46 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nDmhP-004cci-Vp; Sat, 29 Jan 2022 12:19:25 +0000
+ id 1nDmhW-004cgu-EF; Sat, 29 Jan 2022 12:19:33 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 7CBD360C3A;
+ by dfw.source.kernel.org (Postfix) with ESMTPS id DB04B60C3D;
+ Sat, 29 Jan 2022 12:19:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BD13C340EB;
  Sat, 29 Jan 2022 12:19:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D2A0C340E5;
- Sat, 29 Jan 2022 12:19:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1643458762;
- bh=qWtb6+cgEOxIhx/CvZddYYzDKOlMelvnzAQMykw6uB0=;
+ s=k20201202; t=1643458769;
+ bh=TkpF1bKo3WdGRomoemQuFbEscNstYtWDC/I865vm/5o=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=m5J//ohlceAdks3ZShiqFPnKC4d/Xg1X/uzZV83pQaEZfMlwqoDk92/wlReoKkpA4
- 8TM3aionMNLtK78fMczZsndv/z1yDzu0EoGEHtbFxMeZXUosyPFCVzmre2KkVlAG9i
- SzXTlIV1KSsf2yAJuF7UO04+o+Zi0skPJNAkpYF4oDM4OWSBh3pYBMYLmfgCBqS3Ea
- gtFrWs6wAqO6bJmDBWnwBtyE7EN3rUMWQ6V3KF+JaqVx3uxjgpMVr/TozHhXHL0RoZ
- 27ySINuK/vDPPkasYxg9obfnDgBLg1OpNlt54BMGZEFQJa+1913Tb5NAwdvu98uTeE
- mBnDl7j/LzrXw==
+ b=QiH+nw9zDyHJc3hC6rPAh5+xb6u2xZ68pGImJn0IoRtvLm+UdUZQqHHisi2Or1C0/
+ Qy8wvZ10rC3gyD1YLxRy73gMRgBDCbRa2TJ2fRi7/Cz51U+AbgCYjKYnIxjPQLiSew
+ OmfjJyfd4DyNd4P+DhZKHvaD0WGYt/G57Vj0cBmt2mSxvofduwGjquK5Q6PwGBLkQu
+ 9/40XHIn/rlwq6mrWrKQMr8Gjsd40DhTRuLLtALG/D/VliYRU+vrMDFH1MepxwLiAg
+ GtROPKDkeWzGrG9r9guU+xlU8y4sEdYp8unqyYzNENBzjJ6rckmZkhMNSSAQ0kWLvh
+ kyBGR8NbeOYhg==
 From: guoren@kernel.org
 To: guoren@kernel.org, palmer@dabbelt.com, arnd@arndb.de, anup@brainfault.org,
  gregkh@linuxfoundation.org, liush@allwinnertech.com, wefu@redhat.com,
@@ -52,17 +52,16 @@ Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, linux-parisc@vger.kernel.org,
  linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  x86@kernel.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH V4 15/17] riscv: compat: ptrace: Add compat_arch_ptrace
- implement
-Date: Sat, 29 Jan 2022 20:17:26 +0800
-Message-Id: <20220129121728.1079364-16-guoren@kernel.org>
+Subject: [PATCH V4 16/17] riscv: compat: Add COMPAT Kbuild skeletal support
+Date: Sat, 29 Jan 2022 20:17:27 +0800
+Message-Id: <20220129121728.1079364-17-guoren@kernel.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220129121728.1079364-1-guoren@kernel.org>
 References: <20220129121728.1079364-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220129_041924_158722_891109A7 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20220129_041930_547127_FE58038A 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,200 +80,69 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Now, you can use native gdb on riscv64 for rv32 app debugging.
-
-$ uname -a
-Linux buildroot 5.16.0-rc4-00036-gbef6b82fdf23-dirty #53 SMP Mon Dec 20 23:06:53 CST 2021 riscv64 GNU/Linux
-$ cat /proc/cpuinfo
-processor       : 0
-hart            : 0
-isa             : rv64imafdcsuh
-mmu             : sv48
-
-$ file /bin/busybox
-/bin/busybox: setuid ELF 32-bit LSB shared object, UCB RISC-V, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-riscv32-ilp32d.so.1, for GNU/Linux 5.15.0, stripped
-$ file /usr/bin/gdb
-/usr/bin/gdb: ELF 32-bit LSB shared object, UCB RISC-V, version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux-riscv32-ilp32d.so.1, for GNU/Linux 5.15.0, stripped
-$ /usr/bin/gdb /bin/busybox
-GNU gdb (GDB) 10.2
-Copyright (C) 2021 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-...
-Reading symbols from /bin/busybox...
-(No debugging symbols found in /bin/busybox)
-(gdb) b main
-Breakpoint 1 at 0x8ddc
-(gdb) r
-Starting program: /bin/busybox
-Failed to read a valid object file image from memory.
-
-Breakpoint 1, 0x555a8ddc in main ()
-(gdb) i r
-ra             0x77df0b74       0x77df0b74
-sp             0x7fdd3d10       0x7fdd3d10
-gp             0x5567e800       0x5567e800 <bb_common_bufsiz1+160>
-tp             0x77f64280       0x77f64280
-t0             0x0      0
-t1             0x555a6fac       1431990188
-t2             0x77dd8db4       2011008436
-fp             0x7fdd3e34       0x7fdd3e34
-s1             0x7fdd3e34       2145205812
-a0             0xffffffff       -1
-a1             0x2000   8192
-a2             0x7fdd3e3c       2145205820
-a3             0x0      0
-a4             0x7fdd3d30       2145205552
-a5             0x555a8dc0       1431997888
-a6             0x77f2c170       2012397936
-a7             0x6a7c7a2f       1786542639
-s2             0x0      0
-s3             0x0      0
-s4             0x555a8dc0       1431997888
-s5             0x77f8a3a8       2012783528
-s6             0x7fdd3e3c       2145205820
-s7             0x5567cecc       1432866508
---Type <RET> for more, q to quit, c to continue without paging--
-s8             0x1      1
-s9             0x0      0
-s10            0x55634448       1432568904
-s11            0x0      0
-t3             0x77df0bb8       2011106232
-t4             0x42fc   17148
-t5             0x0      0
-t6             0x40     64
-pc             0x555a8ddc       0x555a8ddc <main+28>
-(gdb) si
-0x555a78f0 in mallopt@plt ()
-(gdb) c
-Continuing.
-BusyBox v1.34.1 (2021-12-19 22:39:48 CST) multi-call binary.
-BusyBox is copyrighted by many authors between 1998-2015.
-Licensed under GPLv2. See source distribution for detailed
-copyright notices.
-
-Usage: busybox [function [arguments]...]
-   or: busybox --list[-full]
-...
-[Inferior 1 (process 107) exited normally]
-(gdb) q
+Adds initial skeletal COMPAT Kbuild (Runing 32bit U-mode on 64bit
+S-mode) support.
+ - Setup kconfig & dummy functions for compiling.
+ - Implement compat_start_thread by the way.
 
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>
+Reviewed-by: Arnd Bergmann <arnd@arndb.de>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>
 ---
- arch/riscv/kernel/ptrace.c | 87 +++++++++++++++++++++++++++++++++++---
- 1 file changed, 82 insertions(+), 5 deletions(-)
+ arch/riscv/Kconfig | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-index a89243730153..bb387593a121 100644
---- a/arch/riscv/kernel/ptrace.c
-+++ b/arch/riscv/kernel/ptrace.c
-@@ -12,6 +12,7 @@
- #include <asm/thread_info.h>
- #include <asm/switch_to.h>
- #include <linux/audit.h>
-+#include <linux/compat.h>
- #include <linux/ptrace.h>
- #include <linux/elf.h>
- #include <linux/regset.h>
-@@ -111,11 +112,6 @@ static const struct user_regset_view riscv_user_native_view = {
- 	.n = ARRAY_SIZE(riscv_user_regset),
- };
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 5adcbd9b5e88..6f11df8c189f 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -73,6 +73,7 @@ config RISCV
+ 	select HAVE_ARCH_KGDB if !XIP_KERNEL
+ 	select HAVE_ARCH_KGDB_QXFER_PKT
+ 	select HAVE_ARCH_MMAP_RND_BITS if MMU
++	select HAVE_ARCH_MMAP_RND_COMPAT_BITS if COMPAT
+ 	select HAVE_ARCH_SECCOMP_FILTER
+ 	select HAVE_ARCH_TRACEHOOK
+ 	select HAVE_ARCH_TRANSPARENT_HUGEPAGE if 64BIT && MMU
+@@ -123,12 +124,18 @@ config ARCH_MMAP_RND_BITS_MIN
+ 	default 18 if 64BIT
+ 	default 8
  
--const struct user_regset_view *task_user_regset_view(struct task_struct *task)
--{
--	return &riscv_user_native_view;
--}
--
- struct pt_regs_offset {
- 	const char *name;
- 	int offset;
-@@ -273,3 +269,84 @@ __visible void do_syscall_trace_exit(struct pt_regs *regs)
- 		trace_sys_exit(regs, regs_return_value(regs));
- #endif
- }
++config ARCH_MMAP_RND_COMPAT_BITS_MIN
++	default 8
 +
-+#ifdef CONFIG_COMPAT
-+static int compat_riscv_gpr_get(struct task_struct *target,
-+				const struct user_regset *regset,
-+				struct membuf to)
-+{
-+	struct compat_user_regs_struct cregs;
+ # max bits determined by the following formula:
+ #  VA_BITS - PAGE_SHIFT - 3
+ config ARCH_MMAP_RND_BITS_MAX
+ 	default 24 if 64BIT # SV39 based
+ 	default 17
+ 
++config ARCH_MMAP_RND_COMPAT_BITS_MAX
++	default 17
 +
-+	regs_to_cregs(&cregs, task_pt_regs(target));
+ # set if we run in machine mode, cleared if we run in supervisor mode
+ config RISCV_M_MODE
+ 	bool
+@@ -406,6 +413,18 @@ config CRASH_DUMP
+ 
+ 	  For more details see Documentation/admin-guide/kdump/kdump.rst
+ 
++config COMPAT
++	bool "Kernel support for 32-bit U-mode"
++	default 64BIT
++	depends on 64BIT && MMU
++	help
++	  This option enables support for a 32-bit U-mode running under a 64-bit
++	  kernel at S-mode. riscv32-specific components such as system calls,
++	  the user helper functions (vdso), signal rt_frame functions and the
++	  ptrace interface are handled appropriately by the kernel.
 +
-+	return membuf_write(&to, &cregs,
-+			    sizeof(struct compat_user_regs_struct));
-+}
++	  If you want to execute 32-bit userspace applications, say Y.
 +
-+static int compat_riscv_gpr_set(struct task_struct *target,
-+				const struct user_regset *regset,
-+				unsigned int pos, unsigned int count,
-+				const void *kbuf, const void __user *ubuf)
-+{
-+	int ret;
-+	struct compat_user_regs_struct cregs;
-+
-+	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &cregs, 0, -1);
-+
-+	cregs_to_regs(&cregs, task_pt_regs(target));
-+
-+	return ret;
-+}
-+
-+static const struct user_regset compat_riscv_user_regset[] = {
-+	[REGSET_X] = {
-+		.core_note_type = NT_PRSTATUS,
-+		.n = ELF_NGREG,
-+		.size = sizeof(compat_elf_greg_t),
-+		.align = sizeof(compat_elf_greg_t),
-+		.regset_get = compat_riscv_gpr_get,
-+		.set = compat_riscv_gpr_set,
-+	},
-+#ifdef CONFIG_FPU
-+	[REGSET_F] = {
-+		.core_note_type = NT_PRFPREG,
-+		.n = ELF_NFPREG,
-+		.size = sizeof(elf_fpreg_t),
-+		.align = sizeof(elf_fpreg_t),
-+		.regset_get = riscv_fpr_get,
-+		.set = riscv_fpr_set,
-+	},
-+#endif
-+};
-+
-+static const struct user_regset_view compat_riscv_user_native_view = {
-+	.name = "riscv",
-+	.e_machine = EM_RISCV,
-+	.regsets = compat_riscv_user_regset,
-+	.n = ARRAY_SIZE(compat_riscv_user_regset),
-+};
-+
-+long compat_arch_ptrace(struct task_struct *child, compat_long_t request,
-+			compat_ulong_t caddr, compat_ulong_t cdata)
-+{
-+	long ret = -EIO;
-+
-+	switch (request) {
-+	default:
-+		ret = compat_ptrace_request(child, request, caddr, cdata);
-+		break;
-+	}
-+
-+	return ret;
-+}
-+#endif /* CONFIG_COMPAT */
-+
-+const struct user_regset_view *task_user_regset_view(struct task_struct *task)
-+{
-+#ifdef CONFIG_COMPAT
-+	if (test_tsk_thread_flag(task, TIF_32BIT))
-+		return &compat_riscv_user_native_view;
-+	else
-+#endif
-+		return &riscv_user_native_view;
-+}
+ endmenu
+ 
+ menu "Boot options"
 -- 
 2.25.1
 
