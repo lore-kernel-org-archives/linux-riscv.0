@@ -4,65 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CBD9C433EF
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Jan 2022 21:08:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93F7BC433F5
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Jan 2022 21:40:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7jWq2aTQlEFXyLse8+IW//wywCU4MZR6yJZAqYuYpcQ=; b=lcb+o9Vw521KbT
-	ojPCUB+oj/MlIhs2leaAWWEf5BMJ7wthY2h0NzdViRsyhM6PUHqFTqZXy4JxbWXZEW2gUuMpq8wJn
-	vJDI4JxiOIgG2T7jLxDNosz2Q5Iuo9uedZbJKHivZZJpOJ3Of5XQwhyh3iEDE9PlBLH1g7Vv3wAXh
-	cns9z+dqVbgXksf5x9x9tFLvG44ItDMyWudgaNxyAGZhBh7u3g6d8sGjmzA/0lXbvdguI7Z8JB6lr
-	BJdkQPG855UqE2r5fhStv9m0VuRf0HIMLE6gE96x6TJmyaj2lSB2ZvAeN1qLvyzOYtN9Z/VzBXj6t
-	dRGYsjbhl9wFwOyp5c8w==;
+	List-Owner; bh=+YEiwSOEmsZWCpyF7Wj+vrJSr5aov9KOMNkySQYFQIs=; b=qsaAO9S6Mgtywq
+	lwD4Dia3NhpL4TJ2uxUcDUex9Gqvinlxkl9rAT7PwWH23qoRMe/4V2lL5UjC5VFGOoEobGfzDU81+
+	9DRtTJVGMd5KGOvwx/X3UFFx4oSVI/zFAykl7ZJMpRU286fcL1EUy2hSwQMymOq51oQFl/vP6E4Aq
+	QKHVa3i8HGe80DE47ndcwGmiWL5S43eIitrZ8M5FcVf5M3L1XdxaVEwymhIPJyoCr86oSD0i+3n7u
+	FkVLjtWh+j8HZjpiDlOpNcsIxGr6OEwdMZheu7vBqXPQFd9J0PbOQ1PdQmMDM8Qd3hgcvbKpnvw2Y
+	7yrwbMfP2wjPo9mK4DWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nDuwr-005Qre-Db; Sat, 29 Jan 2022 21:07:53 +0000
-Received: from m228-6.mailgun.net ([159.135.228.6])
+	id 1nDvSY-005SD4-9k; Sat, 29 Jan 2022 21:40:38 +0000
+Received: from mout.kundenserver.de ([212.227.126.135])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nDuwo-005Qqd-Bb
- for linux-riscv@lists.infradead.org; Sat, 29 Jan 2022 21:07:52 +0000
-DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=michaelkloos.com;
- q=dns/txt; 
- s=k1; t=1643490466; h=Content-Transfer-Encoding: Content-Type:
- In-Reply-To: From: References: Cc: To: Subject: MIME-Version: Date:
- Message-ID: Sender; bh=P7sy/Shl3iMY8p2MiNdl8zwqcGVIL54qKlYqjHUdWU0=;
- b=bsnRwHs9JfOqFEUpXhKpKgnFT3u8ofSIl260wu2CIRRek7Qj4+qbOQz9P73maT0i/JdrznAz
- eGWnKEm4rBtJ6ntF3uWHYYcoosE9d7ycmZTPCa1S0UUQFCqPGhY2vrYgkhDYiuczjejWLD6m
- 4fdWII1YMmo9Dk11ORpyTyFUzPA=
-X-Mailgun-Sending-Ip: 159.135.228.6
-X-Mailgun-Sid: WyIxOGJjMSIsICJsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnIiwgIjQ4Y2MwIl0=
-Received: from drop1.michaelkloos.com (drop1.michaelkloos.com
- [67.205.190.89]) by smtp-out-n03.prod.us-east-1.postgun.com with SMTP id
- 61f5aca162864ab101bbda4c (version=TLS1.3, cipher=TLS_AES_128_GCM_SHA256);
- Sat, 29 Jan 2022 21:07:45 GMT
-Received: from [192.168.0.104] (cpe-173-88-115-50.columbus.res.rr.com
- [173.88.115.50])
- by drop1.michaelkloos.com (Postfix) with ESMTPSA id 02C3F40249;
- Sat, 29 Jan 2022 21:07:44 +0000 (UTC)
-Message-ID: <548c3f3a-bb32-6c7e-3eb2-850a512ed489@michaelkloos.com>
-Date: Sat, 29 Jan 2022 16:07:44 -0500
+ id 1nDvSL-005SAF-Um; Sat, 29 Jan 2022 21:40:27 +0000
+Received: from mail-ot1-f50.google.com ([209.85.210.50]) by
+ mrelayeu.kundenserver.de (mreue009 [213.165.67.97]) with ESMTPSA (Nemesis) id
+ 1MRCFw-1mqsGV3ia4-00N8XH; Sat, 29 Jan 2022 22:40:20 +0100
+Received: by mail-ot1-f50.google.com with SMTP id
+ b17-20020a9d4791000000b005a17fc2dfc1so9201504otf.1; 
+ Sat, 29 Jan 2022 13:40:19 -0800 (PST)
+X-Gm-Message-State: AOAM533h0Oq8FmTSgUVY1mkPU0+me1NaYrAFtuJkf8i0V142UvEI3g9T
+ ZiaPiMUUCF8pelHhoJ0nI+s2/JRZ25qnoBnY46Y=
+X-Google-Smtp-Source: ABdhPJxSc4cWbyXoSGQiQtpLi4PNMIRU496vg4S4jN8fyO8Z/BY7E62yNehuKgdWMqyCyzVpdMc329RL2rEKIxjEMaU=
+X-Received: by 2002:a9d:73da:: with SMTP id m26mr8391513otk.72.1643492418274; 
+ Sat, 29 Jan 2022 13:40:18 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.5.0
-Subject: Re: [PATCH v4] riscv: Fixed misaligned memory access. Fixed pointer
- comparison.
-Content-Language: en-US
-To: David Laight <David.Laight@ACULAB.COM>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20220129022448.37483-1-michael@michaelkloos.com>
- <7ef35550b4dd44ffabfd7ca1e0ee27fa@AcuMS.aculab.com>
-From: "Michael T. Kloos" <michael@michaelkloos.com>
-In-Reply-To: <7ef35550b4dd44ffabfd7ca1e0ee27fa@AcuMS.aculab.com>
+References: <20220129121728.1079364-1-guoren@kernel.org>
+ <20220129121728.1079364-4-guoren@kernel.org>
+In-Reply-To: <20220129121728.1079364-4-guoren@kernel.org>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Sat, 29 Jan 2022 22:40:02 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a0jK4quTT6txPakQuuAjyoMXRq1eM35pCFLo0PQNq+p2Q@mail.gmail.com>
+Message-ID: <CAK8P3a0jK4quTT6txPakQuuAjyoMXRq1eM35pCFLo0PQNq+p2Q@mail.gmail.com>
+Subject: Re: [PATCH V4 03/17] asm-generic: compat: Cleanup duplicate
+ definitions
+To: Guo Ren <guoren@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
+ Anup Patel <anup@brainfault.org>, 
+ gregkh <gregkh@linuxfoundation.org>, liush <liush@allwinnertech.com>, 
+ Wei Fu <wefu@redhat.com>, Drew Fustini <drew@beagleboard.org>, 
+ Wang Junqiang <wangjunqiang@iscas.ac.cn>, Christoph Hellwig <hch@lst.de>, 
+ Christoph Hellwig <hch@infradead.org>, linux-arch <linux-arch@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
+ linux-s390 <linux-s390@vger.kernel.org>,
+ sparclinux <sparclinux@vger.kernel.org>, 
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ Parisc List <linux-parisc@vger.kernel.org>, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+ "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
+X-Provags-ID: V03:K1:eUdvwKOTKDSYyPUyiurEju+HTlR8GpqVSwS1WnTOd0GlwRm1sSV
+ nYqakZ/XZbEwNCjYE7DFockNayyOX0SRIwXACsJuAxewCdPaUprYw57ZhZrhanqoIgoLGax
+ di6c4NUIuUHnOlYtGkaq49ALh/n9mvIhbLwHLZedeHwkITGHkpDB4Q6LrIHDFHWOV2N+jvd
+ EyBK7AwmE44CuB0cT1Pvw==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:LXsLabF/pJI=:iZnyYFz6qDeoT7wz73HImD
+ mJPE4fUBLSKNb1YPZqDeJn8AIHIpyti3ID5iCtOar5uDNfpnM+Qgl1cZ8tod1QROxZeyrKOb2
+ rp/AO0ozMMPKngI4TIfIM1N7lGci2dWqxWEbOfY0oiXY4zxiCSmmHtcz5eQ1R2Xm1E4yla8uh
+ cqocF5jW22zNl/bAKg0Z6iaH51/IvB/1KLtQreCn5OtHWElVPKQ10CKaNRu8/byO8/Rd0V/ty
+ UFjeV0MuzBIy/kxDxc3aCVFIW+hcMZ3JQl3VKAr/0jLhiGk310GhZArIi7d/SyFge7V3IH/Bc
+ 7Cqk0tDDrr8DwzLXaAglScWkWNgfjE3zRapMofWzOY8rFE6liarVa1crKf/k8IUA4M45mt3CA
+ cQU6s9B5QUiFntPkHkWtfjDY1PvUFaXU88ZW3rQ5YuMpiFZnSdJdHKe5JfPawwx3sCPNm/Gon
+ aGvRYrT5evh+crMCf7BeBpXUGq4xaTPtwffTPoFZC1qk+qABPruJaMzRxn6TpjwNxgLUlyMFd
+ CyxANrymzV1pQbgph7KoIi2/u/YjmsYabwWt1oWORTuhsE3EgRUxZPyCEXQvWVcvDHc3fAvgB
+ 3wZNBX4DV+WeqpcvJaP4LmzWn5lmk1Msz53SKf8UhTZIqXH69VRhWj9rhsgmL2M9bdF60qq3b
+ jW5oQfUEmIFRYHj/7jfT3GTSFX3yMwGVqu4BWgtb03HykBPPnCdziLsFT8ex7V2askB1q/swX
+ UT34rZeOlbo2IexPY8Qed/qGrc9IK6KHmliAEb4KVy0X5BZqJPmJp8CsAVBZBAzbxtL6sio6M
+ c41CWDdtApRAA9A0+HbsxXzlp/Z1u4x+odYxham10UE0MQ8nDc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220129_130750_516476_D232FACF 
-X-CRM114-Status: GOOD (  30.86  )
+X-CRM114-CacheID: sfid-20220129_134026_324624_62E0CF27 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,128 +97,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Thank you for your feedback David.
-
-> No point jumping to a conditional branch that jumps bak
-> Make this a:
-> 	bne	t3, t6, 1b
-> and move 1: down one instruction.
-> (Or is the 'beq' at the top even possible - there is likely to
-> be an earlier test for zero length copies.)
-There are 2 checks for length.  One returns if zero.  The other 
-limits the copy to byte-copy if it is below SZREG.  It is possible 
-for the 'beq' to be true on the first attempt.
-
-This would happen with something like "memmove(0x02, 0x13, 5)" on 
-32-bit.  At no point would there be the ability to do a full 
-register width store.  So, misaligned copy would be jumped to 
-because they are not co-aligned and size is greater than or equal 
-to SZREG.  The misaligned copy would first call the byte-copy 
-sub-function to bring dest into natural SZREG alignment.  From 
-there, the misaligned copy loop would start, but it would 
-immediately break on the 'beq' being true because there are not 
-SZREG bytes left to copy.  So it would jump to byte copy which 
-would again try to copy any remaining unaligned bytes (if any 
-exist).
-
-One alternative is to make the previous copy length check force 
-byte-copy for any size less than 2 * SZREG, instead of just SZREG.  
-This would guarantee that the loop would always be able to run at 
-least once before breaking.  If you think I should make this change, 
-let me know.
-
-I also gave a lot of thought when implementing the register value 
-rollover so that I would not accidentally page fault in the kernel.  
-I needed to make sure that those first loads, since they occur 
-before those conditional checks, would not try to load from 
-anywhere outside of the page boundaries.  Given that the the code 
-pathway would not have been taken unless the copy length is 
-greater than zero and the low bits of dest are not equal to the low 
-bits of src(they are not co-aligned), we can say that bytes would 
-have to have been loaded from within that SZREG aligned bound 
-anyway.  And since pages are aligned at minimum to 0x1000 
-boundaries, I was confident that I would be within bounds even if 
-right up against the edge.
-
-I will make the change from j to bne instructions in the applicable 
-loops.
-
-
-> I also suspect it is worth unrolling the loop once.
-> You lose the 'mv t1, t0' and one 'addi' for each word transferred.
-I'll explore this possibility, but to my previous point, I need 
-to be careful about bounds checking.  Until I try to write it, I 
-can't be sure if it will make sense.  I'll see what I can come up 
-with.  No promises.
-
-> I think someone mentioned that there is a few clocks delay before
-> the data from the memory read (REG_L) is actually available.
-> On in-order cpu this is likely to be a full pipeline stall.
-> So move the 'addi' up between the 'REG_L' and 'sll' instructions.
-> (The offset will need to be -SZREG to match.)
-I try to keep loads as far apart as reasonable from their usage to 
-avoid this.  I'll make this change in the next version of the patch.
-
-	Michael
-
-On 1/29/22 08:41, David Laight wrote:
-
-> From: michael@michaelkloos.com
-> ...
->> [v4]
->>
->> I could not resist implementing the optimization I mentioned in
->> my v3 notes.  I have implemented the roll over of data by cpu
->> register in the misaligned fixup copy loops.  Now, only one load
->> from memory is required per iteration of the loop.
-> I nearly commented...
+On Sat, Jan 29, 2022 at 1:17 PM <guoren@kernel.org> wrote:
 >
-> ...
->> +	/*
->> +	 * Fix Misalignment Copy Loop.
->> +	 * load_val1 = load_ptr[0];
->> +	 * while (store_ptr != store_ptr_end) {
->> +	 *   load_val0 = load_val1;
->> +	 *   load_val1 = load_ptr[1];
->> +	 *   *store_ptr = (load_val0 >> {a6}) | (load_val1 << {a7});
->> +	 *   load_ptr++;
->> +	 *   store_ptr++;
->> +	 * }
->> +	 */
->> +	REG_L t0, 0x000(a3)
->> +	1:
->> +	beq   t3, t6, 2f
->> +	mv    t1, t0
->> +	REG_L t0, SZREG(a3)
->> +	srl   t1, t1, a6
->> +	sll   t2, t0, a7
->> +	or    t1, t1, t2
->> +	REG_S t1, 0x000(t3)
->> +	addi  a3, a3, SZREG
->> +	addi  t3, t3, SZREG
->> +	j 1b
-> No point jumping to a conditional branch that jumps bak
-> Make this a:
-> 	bne	t3, t6, 1b
-> and move 1: down one instruction.
-> (Or is the 'beq' at the top even possible - there is likely to
-> be an earlier test for zero length copies.)
->> +	2:
-> I also suspect it is worth unrolling the loop once.
-> You lose the 'mv t1, t0' and one 'addi' for each word transferred.
+> From: Guo Ren <guoren@linux.alibaba.com>
 >
-> I think someone mentioned that there is a few clocks delay before
-> the data from the memory read (REG_L) is actually available.
-> On in-order cpu this is likely to be a full pipeline stall.
-> So move the 'addi' up between the 'REG_L' and 'sll' instructions.
-> (The offset will need to be -SZREG to match.)
+> There are 7 64bit architectures that support Linux COMPAT mode to
+> run 32bit applications. A lot of definitions are duplicate:
+>  - COMPAT_USER_HZ
+>  - COMPAT_RLIM_INFINITY
+>  - COMPAT_OFF_T_MAX
+>  - __compat_uid_t, __compat_uid_t
+>  - compat_dev_t
+>  - compat_ipc_pid_t
+>  - struct compat_flock
+>  - struct compat_flock64
+>  - struct compat_statfs
+>  - struct compat_ipc64_perm, compat_semid64_ds,
+>           compat_msqid64_ds, compat_shmid64_ds
 >
-> 	David
+> Cleanup duplicate definitions and merge them into asm-generic.
 >
-> -
-> Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-> Registration No: 1397386 (Wales)
->
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+
+Reviewed-by: Arnd Bergmann <arnd@arndb.de>
 
 _______________________________________________
 linux-riscv mailing list
