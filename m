@@ -4,79 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41B99C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Jan 2022 05:54:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD763C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Jan 2022 10:29:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9ztfrd/orK9T/mR1iAgH8YS/JHGWvwQyM/4HhmEIxjo=; b=dRsqc61Bj+x9BF
-	x76+LSfOsgBB/Gq2oeRy1GmnvnM3avySEwbhll4LaVfizGopoAkYpaSo0XCpN1jPdondVHI0XgXwD
-	Hkm2aSH/E9lRN19dq+sGxajn1J+AYiYM/qOwqfESFJCZosIfw4dDZWV1u3Y0dw3A9e81lb1it9HpU
-	Aka/DaSoPY+9MBQxJLZhb8ZRhHmHOVSyjek8fI3Iy0tDP9tt6J+l4aS5WHzga38OMyHbOoRQmyk3E
-	/xrTLqxh5mq5o7biEBq6wwwx97XSU7flfMnseKvVf9dG+1etHWl2q86oILRXBLGPRoaWz1YqxQdvG
-	K8O7TjY5otMMFommzCAA==;
+	List-Owner; bh=gT25yb8wQLdWgkWAaHziP8NA4v9Uy6CxH8jFhCpSk2k=; b=ukBiBEu8r7RPTV
+	dyJ+38U/XPlJCEW2GlRXnuRQ97XGb523t/nB1ggrj7J78QOp4ZbbvtqwSGoMWJICxncD7u0mcW3He
+	5a0r3cl18n/dU3Z0N35MVGVbpU4muU4q1/qQP44dT+p47LTS/hpe8++/plBh0MPN1taq41MYA66fC
+	7GDnFhUoxtp4f/ZtaLmdkiJ/vDO/SFkHkzwWq50VQTB9uaeWbJ5QS6HWnqSo5kCNAlVRhEa8K8W4b
+	LTYO0QDWiGnTESnVMWqqbeydpjdOOSr0H35zRWECFcXSG67BvypXzpgx7HVHqVV+1BFTC0kX6Wrt/
+	4qXF0rmEgjUJLCqdZ9OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nE3Ak-005xfQ-MY; Sun, 30 Jan 2022 05:54:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1nE7S5-006M5Q-1E; Sun, 30 Jan 2022 10:28:57 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nE3AY-005xd0-IQ; Sun, 30 Jan 2022 05:54:36 +0000
+ id 1nE7S1-006M3t-8L
+ for linux-riscv@lists.infradead.org; Sun, 30 Jan 2022 10:28:55 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id BB0D860FEE;
- Sun, 30 Jan 2022 05:54:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C967EC36AE2;
- Sun, 30 Jan 2022 05:54:31 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 4956A61126;
+ Sun, 30 Jan 2022 10:28:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FD29C340E4;
+ Sun, 30 Jan 2022 10:28:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1643522071;
- bh=KTwtRKH/OVKhaNoB2dpS+9CRT5rYtiTrBbRTY58frfI=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=KbqY9YcjYQ53gmY2dHmrpw7RqkS4V6dNNJjtLBbW8U4K47uqz0ecQoZbQwgfGmZma
- tRCWkNjivI6OGFruhAjydv25WQ48WPT8wiGKtc8VkkqRijcv4FkBddBEiA9bZ6UpWM
- I5RJVntAdZO8XAOSx+Hzslf2/jqxqMaVH/0ebTmNHQjz/YBFdn/6EIt7d+vxsPHNSZ
- ZaFIL+Fyvt5HOclTxwg6T2ZdaTD4y5Z172agNJmW87mhTO2d74ig4seQ3g/0cZwPaa
- 1X8MVufLeenvPKvFey3paLO3ejlnzOfUnZP2orkztfEtq678+ZCjwp7m/wgaw/Qbsh
- 4OleGJIuGH/Uw==
-Received: by mail-vs1-f50.google.com with SMTP id x13so7992195vsl.10;
- Sat, 29 Jan 2022 21:54:31 -0800 (PST)
-X-Gm-Message-State: AOAM531bamIRdimDIbE6i087p6kqqOBLLRvxuRi/Qv1E8V61w6mWMNMg
- 9RMXrWS+ZPxTxIheQrZS1dZ/X7QqpDaR0neQqEU=
-X-Google-Smtp-Source: ABdhPJw3SI5w6wpfoRZZErXNv34dgmNp5eduh3H4LQwaI7qbmi+2hfTO0XEH13fEEhf3iFH2jsVqfmVsSGc5OwjgZr4=
-X-Received: by 2002:a67:e0d9:: with SMTP id m25mr5857135vsl.51.1643522070834; 
- Sat, 29 Jan 2022 21:54:30 -0800 (PST)
-MIME-Version: 1.0
-References: <20220129121728.1079364-1-guoren@kernel.org>
- <20220129121728.1079364-9-guoren@kernel.org>
- <CAK8P3a3JGP6fLVOyLgdNw2YpRSmArbEX8orUhRrN=GHmcdk=1g@mail.gmail.com>
-In-Reply-To: <CAK8P3a3JGP6fLVOyLgdNw2YpRSmArbEX8orUhRrN=GHmcdk=1g@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Sun, 30 Jan 2022 13:54:20 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQQnrUFNQ85vvoMkpxnCWuMw8iXtPZOJwWGaEA9f+rTwA@mail.gmail.com>
-Message-ID: <CAJF2gTQQnrUFNQ85vvoMkpxnCWuMw8iXtPZOJwWGaEA9f+rTwA@mail.gmail.com>
-Subject: Re: [PATCH V4 08/17] riscv: compat: syscall: Add compat_sys_call_table
- implementation
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>, 
- gregkh <gregkh@linuxfoundation.org>, liush <liush@allwinnertech.com>, 
- Wei Fu <wefu@redhat.com>, Drew Fustini <drew@beagleboard.org>, 
- Wang Junqiang <wangjunqiang@iscas.ac.cn>, Christoph Hellwig <hch@lst.de>, 
- Christoph Hellwig <hch@infradead.org>, linux-arch <linux-arch@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
- linux-s390 <linux-s390@vger.kernel.org>,
- sparclinux <sparclinux@vger.kernel.org>, 
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
- Parisc List <linux-parisc@vger.kernel.org>, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
+ s=k20201202; t=1643538523;
+ bh=JScouu7QJzKlX9zxN9+gJC2kurFCaqhYhzCffJo5CmY=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+ b=UO1SMJcNJgX2LrIsWjjT4ryauQ1+KZ1t4buAgyl08ZK9ezEUsorn/xeZNdyEJlSrO
+ eIm8CHvEVOJLGXMoYNPBu1QJuFBUX8bKG/T9Zb4bH5e1s05R7KeuRMExjHKwxjUkY4
+ 93Ad77S1psNZY/tBpaw+E6a59SLOtloEnP0jA34G1gDYgNrG9aZ3gsq9M1lM37lv9s
+ jErY1u1XUd7ZvHfOlJPLznacSu0fAa5fR7Jqpgz26/AAWpBXFppcmnsBYYNEbleSI7
+ 2NeFt7YSLeSu0QJTB93G4wTBr9zkcyAF6PURU3Vc914nRE3kjkx3odTpyJprt9AoZS
+ RshTaMiOqgUew==
+Received: from sofa.misterjones.org ([185.219.108.64]
+ helo=wait-a-minute.misterjones.org)
+ by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
+ (envelope-from <maz@kernel.org>)
+ id 1nE7Rp-00493J-K8; Sun, 30 Jan 2022 10:28:41 +0000
+Date: Sun, 30 Jan 2022 10:28:41 +0000
+Message-ID: <87o83ty0ti.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Guo Ren <guoren@kernel.org>
+Cc: Samuel Holland <samuel@sholland.org>, Anup Patel <anup@brainfault.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ devicetree <devicetree@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH V6 2/2] irqchip/sifive-plic: Fixup thead,
+ c900-plic dt parse in opensbi
+In-Reply-To: <CAJF2gTQsi6uT8ea6MTu6oDA-9xsd3fW5ETHAtpzGZxapLpLsWA@mail.gmail.com>
+References: <20220129162726.1154501-1-guoren@kernel.org>
+ <20220129162726.1154501-3-guoren@kernel.org>
+ <87r18qxui9.wl-maz@kernel.org>
+ <CAJF2gTTYN0bxnnMtP9L1KvaH0h6ny+Lr3+fC7GP-YWnwjAYd4A@mail.gmail.com>
+ <35b1838d-ef80-1816-46f6-9cba7afc813e@sholland.org>
+ <CAJF2gTQsi6uT8ea6MTu6oDA-9xsd3fW5ETHAtpzGZxapLpLsWA@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: guoren@kernel.org, samuel@sholland.org, anup@brainfault.org,
+ tglx@linutronix.de, palmer@dabbelt.com, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ guoren@linux.alibaba.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
+ SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220129_215434_710937_26F91433 
-X-CRM114-Status: GOOD (  17.26  )
+X-CRM114-CacheID: sfid-20220130_022853_428076_34C07A5B 
+X-CRM114-Status: GOOD (  41.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,51 +97,159 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 30, 2022 at 6:41 AM Arnd Bergmann <arnd@arndb.de> wrote:
->
-> > Implement compat sys_call_table and some system call functions:
-> > truncate64, ftruncate64, fallocate, pread64, pwrite64,
-> > sync_file_range, readahead, fadvise64_64 which need argument
-> > translation.
+On Sun, 30 Jan 2022 04:39:34 +0000,
+Guo Ren <guoren@kernel.org> wrote:
+> 
+> On Sun, Jan 30, 2022 at 10:50 AM Samuel Holland <samuel@sholland.org> wrote:
 > >
-> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > Signed-off-by: Guo Ren <guoren@kernel.org>
-> > Cc: Arnd Bergmann <arnd@arndb.de>
->
-> This all looks really good, but I would change one detail:
->
-> > +#ifndef compat_arg_u64
-> > +#define compat_arg_u64(name)           u32  name##_lo, u32  name##_hi
-> > +#define compat_arg_u64_dual(name)      u32, name##_lo, u32, name##_hi
-> > +#define compat_arg_u64_glue(name)      (((u64)name##_hi << 32) | \
-> > +                                        ((u64)name##_lo & 0xffffffffUL))
-> > +#endif
->
-> I would make these endian-specific, and reverse them on big-endian
-> architectures. That way it
-> should be possible to share them across all compat architectures
-> without needing the override
-> option.
-I hope it could be another patch. Because it's not clear to
-_LITTLE_ENDIAN definition in archs.
+> > On 1/29/22 8:08 PM, Guo Ren wrote:
+> > > On Sun, Jan 30, 2022 at 2:32 AM Marc Zyngier <maz@kernel.org> wrote:
+> > >>
+> > >> On Sat, 29 Jan 2022 16:27:26 +0000,
+> > >> guoren@kernel.org wrote:
+> > >>>
+> > >>> From: Guo Ren <guoren@linux.alibaba.com>
+> > >>>
+> > >>> The thead,c900-plic has been used in opensbi to distinguish
+> > >>> PLIC [1]. Although PLICs have the same behaviors in Linux,
+> > >>> they are different hardware with some custom initializing in
+> > >>> firmware(opensbi).
+> > >>>
+> > >>> [1]: https://github.com/riscv-software-src/opensbi/commit/78c2b19218bd62653b9fb31623a42ced45f38ea6
+> > >>>
+> > >>> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > >>> Cc: Anup Patel <anup@brainfault.org>
+> > >>> Cc: Marc Zyngier <maz@kernel.org>
+> > >>> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> > >>> Cc: Samuel Holland <samuel@sholland.org>
+> > >>> Cc: Thomas Gleixner <tglx@linutronix.de>
+> > >>> ---
+> > >>>  drivers/irqchip/irq-sifive-plic.c | 25 +++++++++++++++++++++++--
+> > >>>  1 file changed, 23 insertions(+), 2 deletions(-)
+> > >>>
+> > >>> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> > >>> index 259065d271ef..245655928076 100644
+> > >>> --- a/drivers/irqchip/irq-sifive-plic.c
+> > >>> +++ b/drivers/irqchip/irq-sifive-plic.c
+> > >>> @@ -172,7 +172,7 @@ static void plic_irq_eoi(struct irq_data *d)
+> > >>>       }
+> > >>>  }
+> > >>>
+> > >>> -static struct irq_chip plic_chip = {
+> > >>> +static struct irq_chip sifive_plic_chip = {
+> > >>>       .name           = "SiFive PLIC",
+> > >>>       .irq_mask       = plic_irq_mask,
+> > >>>       .irq_unmask     = plic_irq_unmask,
+> > >>> @@ -182,12 +182,24 @@ static struct irq_chip plic_chip = {
+> > >>>  #endif
+> > >>>  };
+> > >>>
+> > >>> +static struct irq_chip thead_plic_chip = {
+> > >>> +     .name           = "T-Head PLIC",
+> > >>> +     .irq_mask       = plic_irq_mask,
+> > >>> +     .irq_unmask     = plic_irq_unmask,
+> > >>> +     .irq_eoi        = plic_irq_eoi,
+> > >>> +#ifdef CONFIG_SMP
+> > >>> +     .irq_set_affinity = plic_set_affinity,
+> > >>> +#endif
+> > >>> +};
+> > >>
+> > >> For pure entertainment, let's compare the two structures:
+> > >>
+> > >> static struct irq_chip plic_chip = {
+> > >>         .name           = "SiFive PLIC",
+> > >>         .irq_mask       = plic_irq_mask,
+> > >>         .irq_unmask     = plic_irq_unmask,
+> > >>         .irq_eoi        = plic_irq_eoi,
+> > >> #ifdef CONFIG_SMP
+> > >>         .irq_set_affinity = plic_set_affinity,
+> > >> #endif
+> > >> };
+> > >>
+> > >> Oh wait: a string. Must be really important. Not.
+> > > No, pls see below comment.
+> > >
+> > >>
+> > >>> +
+> > >>> +static struct irq_chip *def_plic_chip = &sifive_plic_chip;
+> > >>> +
+> > >>>  static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
+> > >>>                             irq_hw_number_t hwirq)
+> > >>>  {
+> > >>>       struct plic_priv *priv = d->host_data;
+> > >>>
+> > >>> -     irq_domain_set_info(d, irq, hwirq, &plic_chip, d->host_data,
+> > >>> +     irq_domain_set_info(d, irq, hwirq, def_plic_chip, d->host_data,
+> > >>>                           handle_fasteoi_irq, NULL, NULL);
+> > >>>       irq_set_noprobe(irq);
+> > >>>       irq_set_affinity(irq, &priv->lmask);
+> > >>> @@ -396,5 +408,14 @@ static int __init plic_init(struct device_node *node,
+> > >>>       return error;
+> > >>>  }
+> > >>>
+> > >>> +static int __init thead_c900_plic_init(struct device_node *node,
+> > >>> +             struct device_node *parent)
+> > >>> +{
+> > >>> +     def_plic_chip = &thead_plic_chip;
+> > >>> +
+> > >>> +     return plic_init(node, parent);
+> > >>> +}
+> > >>> +
+> > >>>  IRQCHIP_DECLARE(sifive_plic, "sifive,plic-1.0.0", plic_init);
+> > >>>  IRQCHIP_DECLARE(riscv_plic0, "riscv,plic0", plic_init); /* for legacy systems */
+> > >>> +IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", thead_c900_plic_init);
+> > >>
+> > >> Sorry, but I can't see any point to this patch.
+> > > You didn't see the link I've put in the patch. In that opensbi patch:
 
-eg: Names could be __ORDER_LITTLE_ENDIAN__ CPU_LITTLE_ENDIAN
-SYS_SUPPORTS_LITTLE_ENDIAN __LITTLE_ENDIAN
+No. If you can't explain why you need this in the commit message, why
+should I reverse engineer that from some obscure piece of firmware?
 
-riscv is little-endian, but no any LITTLE_ENDIAN definition.
+> > >                 intc: interrupt-controller@10000000 {
+> > >                         #interrupt-cells = <1>;
+> > > -                       compatible = "riscv,plic0";
+> > > +                       compatible = "allwinner,sun20i-d1-plic",
+> > > +                                    "thead,c900-plic";
+> > >
+> > > +#define THEAD_PLIC_CTRL_REG 0x1ffffc
+> > > +
+> > > +static void thead_plic_plat_init(struct plic_data *pd)
+> > > +{
+> > > +       writel_relaxed(BIT(0), (void *)pd->addr + THEAD_PLIC_CTRL_REG);
+> > > +}
+> > > +
+> > >  static const struct fdt_match irqchip_plic_match[] = {
+> > >         { .compatible = "riscv,plic0" },
+> > >         { .compatible = "sifive,plic-1.0.0" },
+> > > +       { .compatible = "thead,c900-plic",
+> > > +         .data = thead_plic_plat_init },
+> > >         { },
+> > >  };
+> > >
+> > > We've changed the compatible name for thead,c900-plic, and there is no
+> > > riscv,plic0 / sifive,plic-1.0.0 in dts. Without the patch, the newest
+> > > opensbi + newest Linux would be broken in the Allwinner D1 dev board.
 
-So let's keep them in the patch, first, Thx
+So the firmware changes things in incompatible ways. Why does it
+matter to Linux? Why isn't the fix directly applied to the firmware
+instead? Why isn't the riscv,plic0 fallback appropriate?
 
->
->         Arnd
+> > Yes, some patch is still necessary, because the hardware is indeed incompatible
+> > with riscv,plic0. However, this driver does not care about the difference. So
+> > all you need to do is hook up the existing code to the new compatible:
+> >
+> > +IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", plic_init);
+> I think we should give clear info in /proc/interrupts. I hope we could
+> keep thead_plic_init.
 
+Why? There is no material difference at the driver level, and
+/proc/interrupts won't be the target of a branding exercise (which
+this series seems to be all about).
 
+	M.
 
 -- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
