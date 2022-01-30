@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52C09C433FE
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Jan 2022 23:38:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 769A3C4332F
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Jan 2022 23:38:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nIYCxCdRJTB7L2gDPhsDBM8oVBpBt0dHfZkqMGpaB0o=; b=ooeCXvulrlPy/O
-	WhNqWpAa1E8u3lOSJclHD225sxsM6n7YsgGFsfUUdoyYjAuV5YyTFSD+i+Rc7BkMM6UNlLSCssoZY
-	AMkC9oDB8Tkfsm3zndpMefYfyWCo/tAvahrsKS/DE9MqPFGDOEAWBphEXCMbtHqDuGf0uXXP9lxcx
-	cl2J0LSUSP//igpBYo3a2u3K+py2g7xa0PkH5rZudLKeirVRpFCcZT01CTUZubbKRdz1jXuj5qwdx
-	ODDHqW18XX54Wf2rgULmwu0nY/9jNZ2+9ZAfk6JnBxWTdty2e/lO9LtFkwy5qfbCDZFdFvyhMfWJD
-	ha+i093sIzsaNG2pfLhA==;
+	List-Owner; bh=44UnizOm2hPraUGgIGqqBt0Yh5/B5UTskY4Q67IyA88=; b=gRWgMNOBr21/ui
+	Y6bLTSwED43AT0THLqHrcAWrbBiOJ5KCGQ2RitEU4SnB+oADF0o+B5C7HJKPyPqn517uixvtuMxRJ
+	Aqiq8it4cq3siXxZgLKUe+bSI0lOAWjC1MZ6DWKrq6PnAiBpIEtSOL16P9cnJ8nKVPc28xg9DgJr4
+	VhexsW2kJ+YrLUq7M1SBnlTAa6J8WRxmCj5GVIuI7oOnLPnL8BkTEjL8eDXXwzwaN1pIX2SdbbLvG
+	uuMhUTCkoD29H19Vft1ovXssJhiSjRHuEYBjaAGXtTPFxmQ21KNs5dj8rT8d+LM5DKRdqDBFvddMz
+	qd9nuevWQNVwFH5MXUMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nEJly-007g5d-2E; Sun, 30 Jan 2022 23:38:18 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1nEJm4-007gAh-Ob; Sun, 30 Jan 2022 23:38:24 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nEJlS-007fcH-Mc
- for linux-riscv@lists.infradead.org; Sun, 30 Jan 2022 23:37:48 +0000
-Received: by mail-lf1-x134.google.com with SMTP id z4so23316545lft.3
- for <linux-riscv@lists.infradead.org>; Sun, 30 Jan 2022 15:37:46 -0800 (PST)
+ id 1nEJlU-007fey-PK
+ for linux-riscv@lists.infradead.org; Sun, 30 Jan 2022 23:37:50 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id u6so23257266lfm.10
+ for <linux-riscv@lists.infradead.org>; Sun, 30 Jan 2022 15:37:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=EOoRrU+XNCvH4y2De/y0/3nvouQcv+AIk9CqttDCqGU=;
- b=Xenhc8uEX5pndBJlaDWs7DZMq++uCKYCaPhTRn+v8Pl6kdDQBiq3K+xk68g+lJ4bfb
- xZ0s68SQJzgN7roWd+Sm2QhFGePj8q4/xhI0aeufWhORrHMmrI9Me+kOtUbih63bZtb6
- 0ONUKG+oe3tUPDlqh+XwtnfSXapDSUNhobEfHkXXD2jWYeC/eLrTsR82DtHf6HHPZ3Ti
- T856rZoGRovN/ZZzwL74avJYGt+XINSCwpiKRk5t0Q88fCFTaGgu6LEev5sylA8ww9qW
- bEbiz2YJdBL1j7FCE0FI146AM6wMNEQmt3CI8lSlsxZpxhGAK8uAOhBigDyDJ64IQ5ph
- fLRw==
+ bh=tAbveYQ6Sj9Bc7jSTaK6mqXkvmIczcqPXf0PDpGOqZw=;
+ b=QHplLZpG4Vn/qnA5SF9xQFG9TC0Ze8i4Spzrt9m1VH9xTuo4sL+GdKpNLnJA7KOr8X
+ Qfc/trGP80uyWOnL6/AW3/9PNKh6sZ4v+/AJr0yDEUAv6gwF+kbxhdx4PyYuQlWkYmBT
+ 5dcnK+FjbXKDiIkDUIeSgduqdLBtuC8rMXlJOwSh6i5VHZUwrW/dUGAwRrpUn/Af/fxj
+ WsMvnRXnP4aQQ0nueTuih5zFAem9IsmzVuE9wBKY5qbRUAnxw1SUKdH9hUrXyM5G4iNf
+ Wv3uZZ05umzkgZLlfNoLjxiV+CUOHCuLo8ttBfu5AssPJfG1v91CF2F7LItDTfLU1kFo
+ 8YCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=EOoRrU+XNCvH4y2De/y0/3nvouQcv+AIk9CqttDCqGU=;
- b=YECU+gZhck9v7BWdhB4F2yinjrj06aV25XBi72swG//xl4QMzvPaMHHCeAzS+hNSyb
- 2GMv3Tu3FYM1aDUL/lxxkPZRf87Gdru9Q7jr21IWnG4N7SWzJLaiB4KXVyaOJKnWnXgU
- jNHAtcsp/X85Qv+D4msG4H4F2K6bLT95EOn7Nrl/F94OEgotXvXy4QUehfEWZuz0v5u1
- oHpNgEkySBheqGsfO0p5Cq6EkuppFRkaykpawRFQgLv42KgZaHj3DL3Cnsl6zdnIUxSm
- 5crRR/uTSD6GwkaRCs6Y8NUj5x4eGmOcjum7C5M+57LnNw6LwuwplEeasX36fKokLtby
- gpcw==
-X-Gm-Message-State: AOAM53180ZKN5pwQgabihq1TZKzG4xQYblH+Yfc3dJB5ltVl06Yw9tny
- 72kcrXhbOTCpTfMAduYcAms=
-X-Google-Smtp-Source: ABdhPJwHvsxF1vvJkDiGpTgqSXjFtQ+p50F4FDOHob5db5lzmW0uNoHuWaSIs7Seja+8JuHVDBb7qw==
-X-Received: by 2002:ac2:5333:: with SMTP id f19mr13304920lfh.451.1643585865359; 
- Sun, 30 Jan 2022 15:37:45 -0800 (PST)
+ bh=tAbveYQ6Sj9Bc7jSTaK6mqXkvmIczcqPXf0PDpGOqZw=;
+ b=toWsKaEnjQTQLoL05CQ0NIed6xetZXKiXQQvsZPhpJsO1OKZftASbwQWwu3W5HENgm
+ USdPrC5CEiH5eVuYtxETW3AqpEiGK+zzSAQnUGBOVidKh9VRJtkFa5G7i/y8ZxNq99En
+ QMpQTDtvap89TkuaW/L272ydQVUpDyOllpHAIOxkbd1ZxbliIiDDpv1MeTcfzS8rPFiF
+ xV0P92GP21PexiKa2mRkeo+I/uXaZBFYStyja2Pn5gd0+Y+LpbSi20s9rEJu3arw57rG
+ UMZUet2OhwE7VGSn/gbGhRJ/Nq+NTgKRRWUY0hvNEuogI6hmZneA5BVv3TqeCavc5nb2
+ RFvg==
+X-Gm-Message-State: AOAM530JHNw01jhbpzIHLBPvTYv5K71j1h2DRf7e39pS71UqHVjMnlGi
+ e+7uYWmeR4vzPAVJYmXP8ao=
+X-Google-Smtp-Source: ABdhPJwh6ac6/+YvlvcJArSyTbTVyJtyah+mG/ZsA52vJGw4uJf6+kKdZUm5PeIMLD7zMqHGNap5TQ==
+X-Received: by 2002:a05:6512:2396:: with SMTP id
+ c22mr12993704lfv.547.1643585867143; 
+ Sun, 30 Jan 2022 15:37:47 -0800 (PST)
 Received: from localhost.localdomain (109-252-138-126.dynamic.spd-mgts.ru.
  [109.252.138.126])
- by smtp.gmail.com with ESMTPSA id a24sm1262950ljp.112.2022.01.30.15.37.43
+ by smtp.gmail.com with ESMTPSA id a24sm1262950ljp.112.2022.01.30.15.37.45
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 30 Jan 2022 15:37:44 -0800 (PST)
+ Sun, 30 Jan 2022 15:37:46 -0800 (PST)
 From: Dmitry Osipenko <digetx@gmail.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>,
@@ -101,16 +102,16 @@ Cc: linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
  xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: [PATCH v6 11/21] powerpc: Use do_kernel_power_off()
-Date: Mon, 31 Jan 2022 02:37:08 +0300
-Message-Id: <20220130233718.21544-12-digetx@gmail.com>
+Subject: [PATCH v6 12/21] m68k: Switch to new sys-off handler API
+Date: Mon, 31 Jan 2022 02:37:09 +0300
+Message-Id: <20220130233718.21544-13-digetx@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20220130233718.21544-1-digetx@gmail.com>
 References: <20220130233718.21544-1-digetx@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220130_153746_826812_7038331B 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20220130_153748_869716_CC306372 
+X-CRM114-Status: GOOD (  19.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,46 +128,132 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Kernel now supports chained power-off handlers. Use do_kernel_power_off()
-that invokes chained power-off handlers. It also invokes legacy
-pm_power_off() for now, which will be removed once all drivers will
-be converted to the new power-off API.
+Kernel now supports chained power-off handlers. Use
+register_power_off_handler() that registers power-off handlers and
+do_kernel_power_off() that invokes chained power-off handlers. Legacy
+pm_power_off() will be removed once all drivers will be converted to
+the new power-off API.
 
-Acked-by: Michael Ellerman <mpe@ellerman.id.au>
+Normally arch code should adopt only the do_kernel_power_off() at first,
+but m68k is a special case because it uses pm_power_off() "inside out",
+i.e. pm_power_off() invokes machine_power_off() [in fact it does nothing],
+while it's machine_power_off() that should invoke the pm_power_off(), and
+thus, we can't convert platforms to the new API separately. There are only
+two platforms changed here, so it's not a big deal.
+
+Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
 Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
 ---
- arch/powerpc/kernel/setup-common.c | 4 +---
- arch/powerpc/xmon/xmon.c           | 3 +--
- 2 files changed, 2 insertions(+), 5 deletions(-)
+ arch/m68k/emu/natfeat.c         | 3 ++-
+ arch/m68k/include/asm/machdep.h | 1 -
+ arch/m68k/kernel/process.c      | 5 ++---
+ arch/m68k/kernel/setup_mm.c     | 1 -
+ arch/m68k/kernel/setup_no.c     | 1 -
+ arch/m68k/mac/config.c          | 4 +++-
+ 6 files changed, 7 insertions(+), 8 deletions(-)
 
-diff --git a/arch/powerpc/kernel/setup-common.c b/arch/powerpc/kernel/setup-common.c
-index f8da937df918..8158e940db81 100644
---- a/arch/powerpc/kernel/setup-common.c
-+++ b/arch/powerpc/kernel/setup-common.c
-@@ -161,9 +161,7 @@ void machine_restart(char *cmd)
+diff --git a/arch/m68k/emu/natfeat.c b/arch/m68k/emu/natfeat.c
+index 71b78ecee75c..b19dc00026d9 100644
+--- a/arch/m68k/emu/natfeat.c
++++ b/arch/m68k/emu/natfeat.c
+@@ -15,6 +15,7 @@
+ #include <linux/string.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
++#include <linux/reboot.h>
+ #include <linux/io.h>
+ #include <asm/machdep.h>
+ #include <asm/natfeat.h>
+@@ -90,5 +91,5 @@ void __init nf_init(void)
+ 	pr_info("NatFeats found (%s, %lu.%lu)\n", buf, version >> 16,
+ 		version & 0xffff);
+ 
+-	mach_power_off = nf_poweroff;
++	register_platform_power_off(nf_poweroff);
+ }
+diff --git a/arch/m68k/include/asm/machdep.h b/arch/m68k/include/asm/machdep.h
+index 8fd80ef1b77e..8d8c3ee2069f 100644
+--- a/arch/m68k/include/asm/machdep.h
++++ b/arch/m68k/include/asm/machdep.h
+@@ -24,7 +24,6 @@ extern int (*mach_get_rtc_pll)(struct rtc_pll_info *);
+ extern int (*mach_set_rtc_pll)(struct rtc_pll_info *);
+ extern void (*mach_reset)( void );
+ extern void (*mach_halt)( void );
+-extern void (*mach_power_off)( void );
+ extern unsigned long (*mach_hd_init) (unsigned long, unsigned long);
+ extern void (*mach_hd_setup)(char *, int *);
+ extern void (*mach_heartbeat) (int);
+diff --git a/arch/m68k/kernel/process.c b/arch/m68k/kernel/process.c
+index a6030dbaa089..e160a7c57bd3 100644
+--- a/arch/m68k/kernel/process.c
++++ b/arch/m68k/kernel/process.c
+@@ -67,12 +67,11 @@ void machine_halt(void)
+ 
  void machine_power_off(void)
  {
- 	machine_shutdown();
--	if (pm_power_off)
--		pm_power_off();
--
+-	if (mach_power_off)
+-		mach_power_off();
 +	do_kernel_power_off();
- 	smp_send_stop();
- 	machine_hang();
+ 	for (;;);
  }
-diff --git a/arch/powerpc/xmon/xmon.c b/arch/powerpc/xmon/xmon.c
-index fd72753e8ad5..c916bf250796 100644
---- a/arch/powerpc/xmon/xmon.c
-+++ b/arch/powerpc/xmon/xmon.c
-@@ -1243,8 +1243,7 @@ static void bootcmds(void)
- 	} else if (cmd == 'h') {
- 		ppc_md.halt();
- 	} else if (cmd == 'p') {
--		if (pm_power_off)
--			pm_power_off();
-+		do_kernel_power_off();
- 	}
+ 
+-void (*pm_power_off)(void) = machine_power_off;
++void (*pm_power_off)(void);
+ EXPORT_SYMBOL(pm_power_off);
+ 
+ void show_regs(struct pt_regs * regs)
+diff --git a/arch/m68k/kernel/setup_mm.c b/arch/m68k/kernel/setup_mm.c
+index 8f94feed969c..47d55541612f 100644
+--- a/arch/m68k/kernel/setup_mm.c
++++ b/arch/m68k/kernel/setup_mm.c
+@@ -98,7 +98,6 @@ EXPORT_SYMBOL(mach_get_rtc_pll);
+ EXPORT_SYMBOL(mach_set_rtc_pll);
+ void (*mach_reset)( void );
+ void (*mach_halt)( void );
+-void (*mach_power_off)( void );
+ #ifdef CONFIG_HEARTBEAT
+ void (*mach_heartbeat) (int);
+ EXPORT_SYMBOL(mach_heartbeat);
+diff --git a/arch/m68k/kernel/setup_no.c b/arch/m68k/kernel/setup_no.c
+index 5e4104f07a44..00bf82258233 100644
+--- a/arch/m68k/kernel/setup_no.c
++++ b/arch/m68k/kernel/setup_no.c
+@@ -55,7 +55,6 @@ int (*mach_hwclk) (int, struct rtc_time*);
+ /* machine dependent reboot functions */
+ void (*mach_reset)(void);
+ void (*mach_halt)(void);
+-void (*mach_power_off)(void);
+ 
+ #ifdef CONFIG_M68000
+ #if defined(CONFIG_M68328)
+diff --git a/arch/m68k/mac/config.c b/arch/m68k/mac/config.c
+index 65d124ec80bb..382f656c29ea 100644
+--- a/arch/m68k/mac/config.c
++++ b/arch/m68k/mac/config.c
+@@ -12,6 +12,7 @@
+ 
+ #include <linux/errno.h>
+ #include <linux/module.h>
++#include <linux/reboot.h>
+ #include <linux/types.h>
+ #include <linux/mm.h>
+ #include <linux/tty.h>
+@@ -140,7 +141,6 @@ void __init config_mac(void)
+ 	mach_hwclk = mac_hwclk;
+ 	mach_reset = mac_reset;
+ 	mach_halt = mac_poweroff;
+-	mach_power_off = mac_poweroff;
+ #if IS_ENABLED(CONFIG_INPUT_M68K_BEEP)
+ 	mach_beep = mac_mksound;
+ #endif
+@@ -160,6 +160,8 @@ void __init config_mac(void)
+ 
+ 	if (macintosh_config->ident == MAC_MODEL_IICI)
+ 		mach_l2_flush = via_l2_flush;
++
++	register_platform_power_off(mac_poweroff);
  }
+ 
  
 -- 
 2.34.1
