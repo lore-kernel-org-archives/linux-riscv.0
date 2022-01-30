@@ -4,83 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD763C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Jan 2022 10:29:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF543C433F5
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Jan 2022 11:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gT25yb8wQLdWgkWAaHziP8NA4v9Uy6CxH8jFhCpSk2k=; b=ukBiBEu8r7RPTV
-	dyJ+38U/XPlJCEW2GlRXnuRQ97XGb523t/nB1ggrj7J78QOp4ZbbvtqwSGoMWJICxncD7u0mcW3He
-	5a0r3cl18n/dU3Z0N35MVGVbpU4muU4q1/qQP44dT+p47LTS/hpe8++/plBh0MPN1taq41MYA66fC
-	7GDnFhUoxtp4f/ZtaLmdkiJ/vDO/SFkHkzwWq50VQTB9uaeWbJ5QS6HWnqSo5kCNAlVRhEa8K8W4b
-	LTYO0QDWiGnTESnVMWqqbeydpjdOOSr0H35zRWECFcXSG67BvypXzpgx7HVHqVV+1BFTC0kX6Wrt/
-	4qXF0rmEgjUJLCqdZ9OQ==;
+	List-Owner; bh=YWd2W+rw/I1pbfPooIIwjOTHJ96H0WOYkfrqIEVbi4Y=; b=cSta2Chpt4gREM
+	Bl00TCYj8PD4KfeSxs/mvNVczV5fYsEbgX9Yczu3cGoRM/OQOdgLY4sAOqpiEKjy5UAf6P5OwbiUD
+	+XSuFGk2OWq8yvtN74x01HKG/YBw2/wJ+wtPzvve0G4VSQauRhh1hQj5xoT6lb+SraMbVvqvbzRs2
+	MpfEUY9u6j80kcYMNyi0DzbRdJUqG/PEW1vNhqhDK6LQ2MdAgrCXejXu9J1fJG6f4gDEynMWU0XV0
+	5NppPj1OIAjMrcLzNJRrtfL2d7k4eTZurfYcILhVYWF/gaY5tt2UmNG3NyRJKKgXhrxklqWwXTMZb
+	7RnLKnWnqByBPG1D/vRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nE7S5-006M5Q-1E; Sun, 30 Jan 2022 10:28:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1nE8Rz-006Pme-6u; Sun, 30 Jan 2022 11:32:55 +0000
+Received: from mout.kundenserver.de ([217.72.192.73])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nE7S1-006M3t-8L
- for linux-riscv@lists.infradead.org; Sun, 30 Jan 2022 10:28:55 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 4956A61126;
- Sun, 30 Jan 2022 10:28:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FD29C340E4;
- Sun, 30 Jan 2022 10:28:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1643538523;
- bh=JScouu7QJzKlX9zxN9+gJC2kurFCaqhYhzCffJo5CmY=;
- h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
- b=UO1SMJcNJgX2LrIsWjjT4ryauQ1+KZ1t4buAgyl08ZK9ezEUsorn/xeZNdyEJlSrO
- eIm8CHvEVOJLGXMoYNPBu1QJuFBUX8bKG/T9Zb4bH5e1s05R7KeuRMExjHKwxjUkY4
- 93Ad77S1psNZY/tBpaw+E6a59SLOtloEnP0jA34G1gDYgNrG9aZ3gsq9M1lM37lv9s
- jErY1u1XUd7ZvHfOlJPLznacSu0fAa5fR7Jqpgz26/AAWpBXFppcmnsBYYNEbleSI7
- 2NeFt7YSLeSu0QJTB93G4wTBr9zkcyAF6PURU3Vc914nRE3kjkx3odTpyJprt9AoZS
- RshTaMiOqgUew==
-Received: from sofa.misterjones.org ([185.219.108.64]
- helo=wait-a-minute.misterjones.org)
- by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <maz@kernel.org>)
- id 1nE7Rp-00493J-K8; Sun, 30 Jan 2022 10:28:41 +0000
-Date: Sun, 30 Jan 2022 10:28:41 +0000
-Message-ID: <87o83ty0ti.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
+ id 1nE8Rv-006Pl1-Jy; Sun, 30 Jan 2022 11:32:53 +0000
+Received: from mail-ot1-f52.google.com ([209.85.210.52]) by
+ mrelayeu.kundenserver.de (mreue106 [213.165.67.113]) with ESMTPSA (Nemesis)
+ id 1MD9Gh-1n5Zk61eQz-0095Ob; Sun, 30 Jan 2022 12:32:47 +0100
+Received: by mail-ot1-f52.google.com with SMTP id
+ x52-20020a05683040b400b0059ea92202daso10243926ott.7; 
+ Sun, 30 Jan 2022 03:32:47 -0800 (PST)
+X-Gm-Message-State: AOAM531OF6b9cr+mAeF7UnAR3WZBnehmp7yPc2jWgovkUhwUf1asDHE+
+ HYFZNYTo+aPV+bcb4YbVOVxJK4Fr9JJ8tnjGnWk=
+X-Google-Smtp-Source: ABdhPJwfE8JwIPR39kNR+t9u+MXKrX+M/IvR4BevQAZ6Ex6kYRsjbH69gpBCBcpvwPyYexj/E8Z2vleiIWqqwcDE0P4=
+X-Received: by 2002:a05:6830:33c2:: with SMTP id
+ q2mr8818491ott.368.1643542365934; 
+ Sun, 30 Jan 2022 03:32:45 -0800 (PST)
+MIME-Version: 1.0
+References: <20220129121728.1079364-1-guoren@kernel.org>
+ <20220129121728.1079364-9-guoren@kernel.org>
+ <CAK8P3a3JGP6fLVOyLgdNw2YpRSmArbEX8orUhRrN=GHmcdk=1g@mail.gmail.com>
+ <CAJF2gTQQnrUFNQ85vvoMkpxnCWuMw8iXtPZOJwWGaEA9f+rTwA@mail.gmail.com>
+In-Reply-To: <CAJF2gTQQnrUFNQ85vvoMkpxnCWuMw8iXtPZOJwWGaEA9f+rTwA@mail.gmail.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Sun, 30 Jan 2022 12:32:29 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a12CygLFT7qoQ9K=sowvTgNpeRej6Zh6Pv2PL_e2zMhMQ@mail.gmail.com>
+Message-ID: <CAK8P3a12CygLFT7qoQ9K=sowvTgNpeRej6Zh6Pv2PL_e2zMhMQ@mail.gmail.com>
+Subject: Re: [PATCH V4 08/17] riscv: compat: syscall: Add compat_sys_call_table
+ implementation
 To: Guo Ren <guoren@kernel.org>
-Cc: Samuel Holland <samuel@sholland.org>, Anup Patel <anup@brainfault.org>,
- Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- devicetree <devicetree@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V6 2/2] irqchip/sifive-plic: Fixup thead,
- c900-plic dt parse in opensbi
-In-Reply-To: <CAJF2gTQsi6uT8ea6MTu6oDA-9xsd3fW5ETHAtpzGZxapLpLsWA@mail.gmail.com>
-References: <20220129162726.1154501-1-guoren@kernel.org>
- <20220129162726.1154501-3-guoren@kernel.org>
- <87r18qxui9.wl-maz@kernel.org>
- <CAJF2gTTYN0bxnnMtP9L1KvaH0h6ny+Lr3+fC7GP-YWnwjAYd4A@mail.gmail.com>
- <35b1838d-ef80-1816-46f6-9cba7afc813e@sholland.org>
- <CAJF2gTQsi6uT8ea6MTu6oDA-9xsd3fW5ETHAtpzGZxapLpLsWA@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: guoren@kernel.org, samuel@sholland.org, anup@brainfault.org,
- tglx@linutronix.de, palmer@dabbelt.com, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- guoren@linux.alibaba.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
- SAEximRunCond expanded to false
+Cc: Arnd Bergmann <arnd@arndb.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Anup Patel <anup@brainfault.org>, 
+ gregkh <gregkh@linuxfoundation.org>, liush <liush@allwinnertech.com>, 
+ Wei Fu <wefu@redhat.com>, Drew Fustini <drew@beagleboard.org>, 
+ Wang Junqiang <wangjunqiang@iscas.ac.cn>, Christoph Hellwig <hch@lst.de>, 
+ Christoph Hellwig <hch@infradead.org>, linux-arch <linux-arch@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
+ linux-s390 <linux-s390@vger.kernel.org>,
+ sparclinux <sparclinux@vger.kernel.org>, 
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ Parisc List <linux-parisc@vger.kernel.org>, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+ "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
+X-Provags-ID: V03:K1:wR+evBvvi2PWJ81z1sy7HVS1goUpB8WfOIxAlemGAN3ZDszTMGV
+ ITkrV9sihipB6iAM/qcvvfJa07en0iWmOSWGJA4tGvJGhSbaXM2FpimDZ89rbB+5WqdOL6I
+ eUHY3miHmDqxqFs5N3FfNeWCNTj5Pti3x5PNSM6M3z4S8AxDbt4peSyDdXSciuyetHJTtqN
+ RLG8sdkYa00ym2X7XNx7w==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:ad67rr/LSuQ=:B9gYxNLfP4/InRN0ng4ko+
+ hqFgvyPVWRg063zC0Kb/iRZRFC+Xan04wAqfMoPZUcC6gScA2jJuswIIX8yOkuWi0okzoC9b1
+ scdcLRlqioPhncESOCeoUA9Hz3bwt5cukVgyIqL6WL/4L2716Oa2XGeSqCrQ+aURm2cOe7WE4
+ r8tznofGiG3srnNykphjIDsO6KNgIBo/iiByyJ9sGqlNMTktLZkm0p6ne5/ZBcTvchXOp5cur
+ ldWpLrCDeUlxoXa/1+0bZMLQFxRZoj/YZ30Q2Pyzf0gQWpW8eqvhXJm6YPtwzimJhGM5DTCZc
+ mGclcJJUxolKhHQHHKSWbQCMi4hNb7xaqhTnU9UejI3FFTIU7WtxHWk2B5+UivO/dt2v99dLE
+ g1wywUrJ4Gp+CzjYLv4NxGPM6bUJV4apXtHKutfk5ajdc2lcCdFt3xAQ8X9YGLqy8SAS0zTqZ
+ wRQEJWtSb/svs47cee/NZk8LCJYQl4rpAn9x1gc3eqQxw4DY9uiwJnXYstlPtl3S5OyLmSabb
+ i/6RSTvRqnPNI6oEDPxfw0OX2B4szWiM5U1Nd2gCiGx725MuBQ5GT//HqASMet378qB6bqC3t
+ AMAvDi0ly+sp4gkDNNWApX7mlM1c9I7zpMvGnIFbJMSbhO7K/VtqBbl7WdgvpX5yQ5tZGphuL
+ URdOt9hGdjecheSWryMao9IOkrbYhKFxxt4oXvCrWOQCSbxxwQ2siH5B3zpTuwEpkFNI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220130_022853_428076_34C07A5B 
-X-CRM114-Status: GOOD (  41.52  )
+X-CRM114-CacheID: sfid-20220130_033251_976430_BFEAF5BF 
+X-CRM114-Status: GOOD (  15.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,159 +98,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 30 Jan 2022 04:39:34 +0000,
-Guo Ren <guoren@kernel.org> wrote:
-> 
-> On Sun, Jan 30, 2022 at 10:50 AM Samuel Holland <samuel@sholland.org> wrote:
+On Sun, Jan 30, 2022 at 6:54 AM Guo Ren <guoren@kernel.org> wrote:
+> On Sun, Jan 30, 2022 at 6:41 AM Arnd Bergmann <arnd@arndb.de> wrote:
 > >
-> > On 1/29/22 8:08 PM, Guo Ren wrote:
-> > > On Sun, Jan 30, 2022 at 2:32 AM Marc Zyngier <maz@kernel.org> wrote:
-> > >>
-> > >> On Sat, 29 Jan 2022 16:27:26 +0000,
-> > >> guoren@kernel.org wrote:
-> > >>>
-> > >>> From: Guo Ren <guoren@linux.alibaba.com>
-> > >>>
-> > >>> The thead,c900-plic has been used in opensbi to distinguish
-> > >>> PLIC [1]. Although PLICs have the same behaviors in Linux,
-> > >>> they are different hardware with some custom initializing in
-> > >>> firmware(opensbi).
-> > >>>
-> > >>> [1]: https://github.com/riscv-software-src/opensbi/commit/78c2b19218bd62653b9fb31623a42ced45f38ea6
-> > >>>
-> > >>> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > >>> Cc: Anup Patel <anup@brainfault.org>
-> > >>> Cc: Marc Zyngier <maz@kernel.org>
-> > >>> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> > >>> Cc: Samuel Holland <samuel@sholland.org>
-> > >>> Cc: Thomas Gleixner <tglx@linutronix.de>
-> > >>> ---
-> > >>>  drivers/irqchip/irq-sifive-plic.c | 25 +++++++++++++++++++++++--
-> > >>>  1 file changed, 23 insertions(+), 2 deletions(-)
-> > >>>
-> > >>> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-> > >>> index 259065d271ef..245655928076 100644
-> > >>> --- a/drivers/irqchip/irq-sifive-plic.c
-> > >>> +++ b/drivers/irqchip/irq-sifive-plic.c
-> > >>> @@ -172,7 +172,7 @@ static void plic_irq_eoi(struct irq_data *d)
-> > >>>       }
-> > >>>  }
-> > >>>
-> > >>> -static struct irq_chip plic_chip = {
-> > >>> +static struct irq_chip sifive_plic_chip = {
-> > >>>       .name           = "SiFive PLIC",
-> > >>>       .irq_mask       = plic_irq_mask,
-> > >>>       .irq_unmask     = plic_irq_unmask,
-> > >>> @@ -182,12 +182,24 @@ static struct irq_chip plic_chip = {
-> > >>>  #endif
-> > >>>  };
-> > >>>
-> > >>> +static struct irq_chip thead_plic_chip = {
-> > >>> +     .name           = "T-Head PLIC",
-> > >>> +     .irq_mask       = plic_irq_mask,
-> > >>> +     .irq_unmask     = plic_irq_unmask,
-> > >>> +     .irq_eoi        = plic_irq_eoi,
-> > >>> +#ifdef CONFIG_SMP
-> > >>> +     .irq_set_affinity = plic_set_affinity,
-> > >>> +#endif
-> > >>> +};
-> > >>
-> > >> For pure entertainment, let's compare the two structures:
-> > >>
-> > >> static struct irq_chip plic_chip = {
-> > >>         .name           = "SiFive PLIC",
-> > >>         .irq_mask       = plic_irq_mask,
-> > >>         .irq_unmask     = plic_irq_unmask,
-> > >>         .irq_eoi        = plic_irq_eoi,
-> > >> #ifdef CONFIG_SMP
-> > >>         .irq_set_affinity = plic_set_affinity,
-> > >> #endif
-> > >> };
-> > >>
-> > >> Oh wait: a string. Must be really important. Not.
-> > > No, pls see below comment.
-> > >
-> > >>
-> > >>> +
-> > >>> +static struct irq_chip *def_plic_chip = &sifive_plic_chip;
-> > >>> +
-> > >>>  static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
-> > >>>                             irq_hw_number_t hwirq)
-> > >>>  {
-> > >>>       struct plic_priv *priv = d->host_data;
-> > >>>
-> > >>> -     irq_domain_set_info(d, irq, hwirq, &plic_chip, d->host_data,
-> > >>> +     irq_domain_set_info(d, irq, hwirq, def_plic_chip, d->host_data,
-> > >>>                           handle_fasteoi_irq, NULL, NULL);
-> > >>>       irq_set_noprobe(irq);
-> > >>>       irq_set_affinity(irq, &priv->lmask);
-> > >>> @@ -396,5 +408,14 @@ static int __init plic_init(struct device_node *node,
-> > >>>       return error;
-> > >>>  }
-> > >>>
-> > >>> +static int __init thead_c900_plic_init(struct device_node *node,
-> > >>> +             struct device_node *parent)
-> > >>> +{
-> > >>> +     def_plic_chip = &thead_plic_chip;
-> > >>> +
-> > >>> +     return plic_init(node, parent);
-> > >>> +}
-> > >>> +
-> > >>>  IRQCHIP_DECLARE(sifive_plic, "sifive,plic-1.0.0", plic_init);
-> > >>>  IRQCHIP_DECLARE(riscv_plic0, "riscv,plic0", plic_init); /* for legacy systems */
-> > >>> +IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", thead_c900_plic_init);
-> > >>
-> > >> Sorry, but I can't see any point to this patch.
-> > > You didn't see the link I've put in the patch. In that opensbi patch:
+> > I would make these endian-specific, and reverse them on big-endian
+> > architectures. That way it
+> > should be possible to share them across all compat architectures
+> > without needing the override
+> > option.
+> I hope it could be another patch. Because it's not clear to
+> _LITTLE_ENDIAN definition in archs.
+>
+> eg: Names could be __ORDER_LITTLE_ENDIAN__ CPU_LITTLE_ENDIAN
+> SYS_SUPPORTS_LITTLE_ENDIAN __LITTLE_ENDIAN
+>
+> riscv is little-endian, but no any LITTLE_ENDIAN definition.
+>
+> So let's keep them in the patch, first, Thx
 
-No. If you can't explain why you need this in the commit message, why
-should I reverse engineer that from some obscure piece of firmware?
+The correct way to do it is to check for CONFIG_CPU_BIG_ENDIAN,
+which works on all architectures. Since nothing else selects the
+__ARCH_WANT_COMPAT_* symbols, there is also no risk for
+regressions, so just use this and leave the #ifndef compat_arg_u64
+check in place.
 
-> > >                 intc: interrupt-controller@10000000 {
-> > >                         #interrupt-cells = <1>;
-> > > -                       compatible = "riscv,plic0";
-> > > +                       compatible = "allwinner,sun20i-d1-plic",
-> > > +                                    "thead,c900-plic";
-> > >
-> > > +#define THEAD_PLIC_CTRL_REG 0x1ffffc
-> > > +
-> > > +static void thead_plic_plat_init(struct plic_data *pd)
-> > > +{
-> > > +       writel_relaxed(BIT(0), (void *)pd->addr + THEAD_PLIC_CTRL_REG);
-> > > +}
-> > > +
-> > >  static const struct fdt_match irqchip_plic_match[] = {
-> > >         { .compatible = "riscv,plic0" },
-> > >         { .compatible = "sifive,plic-1.0.0" },
-> > > +       { .compatible = "thead,c900-plic",
-> > > +         .data = thead_plic_plat_init },
-> > >         { },
-> > >  };
-> > >
-> > > We've changed the compatible name for thead,c900-plic, and there is no
-> > > riscv,plic0 / sifive,plic-1.0.0 in dts. Without the patch, the newest
-> > > opensbi + newest Linux would be broken in the Allwinner D1 dev board.
-
-So the firmware changes things in incompatible ways. Why does it
-matter to Linux? Why isn't the fix directly applied to the firmware
-instead? Why isn't the riscv,plic0 fallback appropriate?
-
-> > Yes, some patch is still necessary, because the hardware is indeed incompatible
-> > with riscv,plic0. However, this driver does not care about the difference. So
-> > all you need to do is hook up the existing code to the new compatible:
-> >
-> > +IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", plic_init);
-> I think we should give clear info in /proc/interrupts. I hope we could
-> keep thead_plic_init.
-
-Why? There is no material difference at the driver level, and
-/proc/interrupts won't be the target of a branding exercise (which
-this series seems to be all about).
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
