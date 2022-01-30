@@ -4,81 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB085C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Jan 2022 15:01:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 707B4C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Jan 2022 15:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lPn+hYOyM/Jfgk8eqUmpc/HPmqCwGLojQLtKvI2Bqak=; b=O1XLUdqM8oIlY1
-	FPPqPks/5EDQWHOITnvMfYcqHtWUItbbpCZSNgl+MxWlA8d24E8i2ckotUYlV0f9HYm6qg+nSnAtn
-	jlSxUdZ38+1B3CkUfEubU0cXzh7C9QbWJy9mE45V8p1RInyazZSdrp+j5Hj/9ZV6LXFwnwlzUXXwh
-	vlKaLdDP8ggPfpTBZ0vIX33fdnC7eUps5nbfBesY7a7//njCde3ekz4m88C89pnT148VRHpmIrVMF
-	P4Oun1/4wF7Z1AGSP/M4Vx1WggSSS1Itosg2a/BsudAB9ls4qY1ZyKeRkCkah0qoQ2esbvCSMsD+q
-	vwmEsJPdfh7IfteVvlwg==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=nHKwHtcXYvvdpPK2YLFH1jkt9Cl/DYepuSXo8Zr5dKM=; b=aQuL8NjRLnGxGKUmkNVGsMAWa3
+	3WEg/LFF60ZTEg5pD2p3iIyVo9XVMWQqOV20ZC6XM1NRzCd6E8VIl5tZRGubgvUKXpib0IEkzh729
+	pmvFLGyLz25DQtcjw5hdz8ugPvQjnQxvUhZR4f7eJtMjwiu1yNjr+AzqfZ71KDTVc3G2vOBqItf2Y
+	1xuGtkrMJE5roqHrTUyvSAwT6CC8iVQyL0XsrlGVs8D/32eHwUn7CNcjxSWsLVfz+c7AateMMjTRY
+	QazOJbu8CBtKYqc1Mz5lWcLmJFcvB5U6bgCwLSl79PTuV3q9JE8LtpaaaboE5koZXRjUldNw54q17
+	rZwepQ1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nEBhN-006nwW-Ox; Sun, 30 Jan 2022 15:01:01 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1nEBhT-006nye-Ab; Sun, 30 Jan 2022 15:01:07 +0000
+Received: from mail-il1-x12e.google.com ([2607:f8b0:4864:20::12e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nEBds-006mCk-Le; Sun, 30 Jan 2022 14:57:27 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id E9BD0B8294B;
- Sun, 30 Jan 2022 14:57:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99649C340EB;
- Sun, 30 Jan 2022 14:57:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1643554641;
- bh=JxoHCxPtVM6TBwNWYVTkv4xgv4xXqSSrocAD8RhKPvQ=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=Kos3V8Vk5hA0UEtlbCmKfvDbCn6hgvFJPW0hutP471S22DT8zQZjqZYl8oPtPERRN
- mHTKJGaAu0B69fJNmAFmItV05nnqnnpRKb/kYsBaVswrhiA3ecXak702UJ1xD+aRyO
- Cyu417cH+tx6RjZLY1F4C0+gldC8KeEtNsbWOyaylils+pWq32+O/qNqqF6K8vS+Qa
- DU2SBhQ6eWn63e/dlaU9XUJXP5eg51s3F1n6055BcvsAgOgE2YRIXu5gQZ14MzwtZF
- RJhpqwiYSrbL56M0Y1luR1ep1hIfdzFS7gAvAKX1Hfe2YnV2vSbhGb9SEapKZC8pBf
- gYvL1GNaKIrpg==
-Received: by mail-vk1-f181.google.com with SMTP id z15so6752429vkp.13;
- Sun, 30 Jan 2022 06:57:21 -0800 (PST)
-X-Gm-Message-State: AOAM530/Ln46Og5n2dxCeaeD1pbLz73sO5RcH20RzSwOEhGnpPrRSj05
- x9WVO7PcEM+KNtaMygfNUMEo1USwoeCpoDIsFBE=
-X-Google-Smtp-Source: ABdhPJwXaD5cftVV1gTUpOLnxRw19SJ6xh2ZrT8jBGfIh39KXnRkloqQEHlrygYgN8HHE2HZ4UXsJQOHGX4lm9oymh8=
-X-Received: by 2002:a05:6122:1c5:: with SMTP id h5mr6907805vko.2.1643554640709; 
- Sun, 30 Jan 2022 06:57:20 -0800 (PST)
+ id 1nEBdv-006mFY-Vg
+ for linux-riscv@lists.infradead.org; Sun, 30 Jan 2022 14:57:29 +0000
+Received: by mail-il1-x12e.google.com with SMTP id z7so9543067ilb.6
+ for <linux-riscv@lists.infradead.org>; Sun, 30 Jan 2022 06:57:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+ bh=oOYUjlc7s0+4hg1a1akvuBImyksPkuzdo0yOayFwVZI=;
+ b=axYJWuMCOL/S3845RRTifpv8EYKjYd7RpA2svN0ltXbHX726YHf2Hg4CEhm3pMo0Wq
+ HDzO3CD4BJqvofjUpP3c2U1kE1CN4QKUAIxaWItYobqgW9Rxnc6ppHMxQ56g1ynjU1No
+ CFD6bETLdHb6KGqWOqzdg55Ygy25zEqcjoGVkNQyFHJmJm/g9el70LayHk1uUa/7dtgu
+ itjkLblbBwDvifj62FKlWq+GHleE68Mc+S8CmoMq0AUNlehQOXT1WUgw24VsnwjuAGFS
+ 91h4XZcCiwUddU/PBc7W2ebah9EI5GKatXkpbrJoOmRJ3KI7+/EAbq0VUdxHH95+AmyM
+ pc3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to;
+ bh=oOYUjlc7s0+4hg1a1akvuBImyksPkuzdo0yOayFwVZI=;
+ b=ed1GnB7Mt8DGqpexLpG6CoMYx0mEtW8knVMMzJep3c43LHQfMygsbp0JJbdt4aPEOC
+ 7hrngt3TBnMsjY3ZYjk1jgEqZSYpl9X96QFjQN+zHv9LnekkW2y+CyjHwurtQXxd0IOC
+ wtrYS6PVLwsiqGNAia55kIi9L7LVLTuf47Sim5VzdThZrD/+wUIceOIcCYo9UIxhWRCj
+ gnkedebofTcPSnxw2zsE8y2ynSKXryQawzrfstxZswjukHWovP7tPifBuock86mOk04G
+ eFWNzIXS8140goCTOP84XiftSp+cDRrNyi54LX9CUdMZqBI+VVLnzhaVE1A5IKp9szUy
+ tajQ==
+X-Gm-Message-State: AOAM532KpH7Ci9CMJA8VrFri4OgjrSF3FhHcLu6AG3zWVNzUWYTkowLL
+ GuJ0KWIaJzv++OGnXzBIGzqe+xVCRSALZ8KeAvqH3PXMEL4=
+X-Google-Smtp-Source: ABdhPJx8/scIasYoY05qRT2LSkMBCi4ZPEbpFE0SR6g9SQK0aN9HuRJ2E6NeYzF5YR0HnDrje+xzJrMdqpr1g/h9V58=
+X-Received: by 2002:a05:6e02:1c09:: with SMTP id
+ l9mr8012262ilh.283.1643554646792; 
+ Sun, 30 Jan 2022 06:57:26 -0800 (PST)
 MIME-Version: 1.0
-References: <20220129121728.1079364-1-guoren@kernel.org>
- <20220129121728.1079364-9-guoren@kernel.org>
- <CAK8P3a3JGP6fLVOyLgdNw2YpRSmArbEX8orUhRrN=GHmcdk=1g@mail.gmail.com>
- <CAJF2gTQQnrUFNQ85vvoMkpxnCWuMw8iXtPZOJwWGaEA9f+rTwA@mail.gmail.com>
- <CAK8P3a12CygLFT7qoQ9K=sowvTgNpeRej6Zh6Pv2PL_e2zMhMQ@mail.gmail.com>
-In-Reply-To: <CAK8P3a12CygLFT7qoQ9K=sowvTgNpeRej6Zh6Pv2PL_e2zMhMQ@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Sun, 30 Jan 2022 22:57:09 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSULHYYvAjfDvHiD-rJFsOy0-x58AKcD2upzpxaVf5sZQ@mail.gmail.com>
-Message-ID: <CAJF2gTSULHYYvAjfDvHiD-rJFsOy0-x58AKcD2upzpxaVf5sZQ@mail.gmail.com>
-Subject: Re: [PATCH V4 08/17] riscv: compat: syscall: Add compat_sys_call_table
- implementation
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>, 
- gregkh <gregkh@linuxfoundation.org>, liush <liush@allwinnertech.com>, 
- Wei Fu <wefu@redhat.com>, Drew Fustini <drew@beagleboard.org>, 
- Wang Junqiang <wangjunqiang@iscas.ac.cn>, Christoph Hellwig <hch@lst.de>, 
- Christoph Hellwig <hch@infradead.org>, linux-arch <linux-arch@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
- linux-s390 <linux-s390@vger.kernel.org>,
- sparclinux <sparclinux@vger.kernel.org>, 
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
- Parisc List <linux-parisc@vger.kernel.org>, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
+References: <CAPF60xXKU5OM+eDTcxxmWp7mVMVWhsF+ZaqSmLPsWJea=UH-Cw@mail.gmail.com>
+In-Reply-To: <CAPF60xXKU5OM+eDTcxxmWp7mVMVWhsF+ZaqSmLPsWJea=UH-Cw@mail.gmail.com>
+From: Jagan Sivakumar <jagansua92@gmail.com>
+Date: Sun, 30 Jan 2022 20:27:14 +0530
+Message-ID: <CAPF60xWYcZqQ5xzqCBZpSRE17rYc5B+Wy=dsF0t6d5YCo8Kj=w@mail.gmail.com>
+Subject: Re: RISC-V FPGA Board - increase memory in DTS file
+To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220130_065725_019917_F05D421B 
-X-CRM114-Status: GOOD (  20.13  )
+X-CRM114-CacheID: sfid-20220130_065728_078178_605EACAA 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,43 +81,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 30, 2022 at 7:32 PM Arnd Bergmann <arnd@arndb.de> wrote:
->
-> On Sun, Jan 30, 2022 at 6:54 AM Guo Ren <guoren@kernel.org> wrote:
-> > On Sun, Jan 30, 2022 at 6:41 AM Arnd Bergmann <arnd@arndb.de> wrote:
-> > >
-> > > I would make these endian-specific, and reverse them on big-endian
-> > > architectures. That way it
-> > > should be possible to share them across all compat architectures
-> > > without needing the override
-> > > option.
-> > I hope it could be another patch. Because it's not clear to
-> > _LITTLE_ENDIAN definition in archs.
-> >
-> > eg: Names could be __ORDER_LITTLE_ENDIAN__ CPU_LITTLE_ENDIAN
-> > SYS_SUPPORTS_LITTLE_ENDIAN __LITTLE_ENDIAN
-> >
-> > riscv is little-endian, but no any LITTLE_ENDIAN definition.
-> >
-> > So let's keep them in the patch, first, Thx
->
-> The correct way to do it is to check for CONFIG_CPU_BIG_ENDIAN,
-> which works on all architectures. Since nothing else selects the
-> __ARCH_WANT_COMPAT_* symbols, there is also no risk for
-> regressions, so just use this and leave the #ifndef compat_arg_u64
-> check in place.
-Okay, got it.
+Hi Team
 
+Is there any restriction riscv-pk that it will support maximum 256MB RAM.
+When i increased RAM more than 256MB its not working
+
+Regards
+Jagan S
+
+
+On Tue, Jan 25, 2022 at 2:21 PM Jagan Sivakumar <jagansua92@gmail.com> wrote:
 >
->       Arnd
+> HI Team
+>
+> I'm working on updating the FPGA board memory available within the
+> RISC-V Linux operating system from 120 MB to a higher value.
+> The board currently has a DDR4 2GB memory chip inside it.
+>
+> The DTS file's current settings for memory are shown below and it is
+> working fine.
+>
+> memory@80000000 {
+> device_type = "memory";
+> reg = <0x00000000 0x80000000 0x00000000 0x10000000>;
+> }
+>
+> When I update the memory settings to double it as shown below, the
+> Linux isn't booting. The DTS file configuration is printed on screen
+> and it hangs after that step. Attached log for reference
+>
+> memory@80000000 {
+> device_type = "memory";
+> reg = <0x00000000 0x80000000 0x00000000 0x20000000>;
+> }
+>
+> Note: When i decreases the memory the values are reflecting in RAM
+> size and its working
+>
+> --
+> Regards
+> Jagan Sivakumar
 
 
 
 -- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+Regards
+Jagan Sivakumar
 
 _______________________________________________
 linux-riscv mailing list
