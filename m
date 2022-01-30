@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6298DC433F5
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Jan 2022 23:39:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B8E7C4332F
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Jan 2022 23:39:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F//6w/oPlpkzVf4qn1vJf5/RcIF6iEwaVRjjXx+wP6k=; b=4gxtNLH1aXPILd
-	bhc0GN+j+da14EBXu3EdcNLKcPhaMJVvOoP5SRC0eWGpT2CJamSzTGKm8IqRdupkPPJtYpoT93tSL
-	q6HgwOx/FevY3WoNtjq3ogf990e/YSvcB7YYSniowL6wof6+DwRNlSXNSXorsKyEYUi8clWZzoclD
-	4Vzh3XfrA5oHaJvIlCe7dgMTGzNfisw7h340LrZGfUGDnRNqEFPbS3oEM1WaeHA/xA4EDI8/91Zwz
-	EtiSVBBDJQYHsCEIJuhKUHFo5tnTBdMcN8fkHbZIeicxWGFRf6btl12+Cbr3YHq5Z+VaM37GytV6F
-	VK6YFWmFNPJcuwKqj0EQ==;
+	List-Owner; bh=Q+LfMO5PpisUIIZgfykgwC7jXKSH238hPUcSxkKxYhM=; b=eeIedHLfl3GkXm
+	BWlyfK+FpMHr6RgaELSn0KDV9jH+Ka+Yt0ucdftDmOhI4N8SaikIbEPfKZtp0eDis3HbXEAymtVAy
+	HL1AGA4JVFvayNh4woBtf/zZohri28d8SMckZIEhlKrrSLfyR3PLS/oZxEUj7iF6IaT/0U6FS6yfo
+	K2pa16ijj5HwlAzuLiL4gEMhTm9uSHrbDI+yiCrTqMYM1ArHrf5qtt/xbTbZ+sSvHnHOtaF9DGpeO
+	kT9abNCM6gAhz+swHwgzDO8vmgV5Bx03sEt3v5A93oXofmumVR9C6TIWbAffd8Dmkm2y7etHRJhpZ
+	skfQlk3s+WKQIa0f6koQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nEJmg-007gdZ-E0; Sun, 30 Jan 2022 23:39:02 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1nEJmn-007giC-U7; Sun, 30 Jan 2022 23:39:10 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nEJlc-007flX-51
- for linux-riscv@lists.infradead.org; Sun, 30 Jan 2022 23:37:58 +0000
-Received: by mail-lf1-x136.google.com with SMTP id u14so23251133lfo.11
- for <linux-riscv@lists.infradead.org>; Sun, 30 Jan 2022 15:37:55 -0800 (PST)
+ id 1nEJld-007fnW-Jv
+ for linux-riscv@lists.infradead.org; Sun, 30 Jan 2022 23:37:59 +0000
+Received: by mail-lf1-x134.google.com with SMTP id u6so23257753lfm.10
+ for <linux-riscv@lists.infradead.org>; Sun, 30 Jan 2022 15:37:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=wIfZ+CakpfzF/ji3grllPcoAe/10yjc1ewRUofBsGOM=;
- b=A13Wbd19LUDerIcNp/bwkNjnM7R44S+FNahenjlu62KKeZzOwn22X46AmnbpRRHSD6
- ++VeiYi+w5973OIjqsKBoqpWZd1tNrsstlD+OK5Nb2BIn3qQuUxHMsdUL9LOLlnC2oh9
- 3QYxZJ6Rvcj4kbBtFo+GSvpPb2P4Us99EVxpEAj6NeCn9wQxCxqcvyPU6/Tn7QITtakm
- /V8zmLAMP0Zz48vMEXqiIlcDRfQmJ+d8Go+JSVClm5dRCb8xO1gx+MaZWCx1Y3YgBNEK
- BDZgHhW3BSNpzM/0TkvVs4HG5kI01iX7LNugVEJmEF9vWL8OTabOwQyDCncuLuPplJj0
- eXww==
+ bh=69wNajrm4+G/M74hrnrqfe/8gDIP1KRo4GBjc3qiBlE=;
+ b=eADmGdhywqGHgBNSOTg6DDqxchm8B8ixUxTFBRIurSpOjI9zmNGmnnTl7ImQhqB8Ei
+ 0mWnD7TAo0wSYeOZ937uVVcmUSkjlnYWZ7M+/JM6Dh7lyKqqc2++u6LI+atIfPTN5ays
+ s+ktDvb2sLXt8MKBHLK9lwAFupFTVgxMIzESdB4QojqTGIkGjlXlLAoIu5tRpwgO0yvf
+ ryjVbvaJTv11mzbS9UuOXGg5YPShB0ncAu5hIuMku9PpTrfxOLc753LOzzY0nXEsJ4s1
+ aTORw1Zo0yFFM9ZCzLTV1LBU1iplcGdbnitByV0PuagiZ7HTypKyLYaRcYB4LG2Z4YgC
+ xHEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=wIfZ+CakpfzF/ji3grllPcoAe/10yjc1ewRUofBsGOM=;
- b=3uEi/uMDq62tMQIq4hPKPg50y3Est1EKzcTt3nfgAC6swn4ubNGLfDSpuwIkP+NScn
- 2UvkjRgm7/0fx8uCDmmoiKGovBps/frpx7eu9Rbr5NDJsV8QKZGftPS4gWSZ7HqToZwI
- aOVUd09xmITkDQYY1TXC1hcADgZPegmd4Q/a+uzyl7tZar2cUEZ7AK3eiUlZEQ29HMAi
- 3Fx9XSXs+V7KmSThBO1/LB5jwzrjJyJRUACEGyHR6lvMqzwT8BQDd/TPPOzsS82eAJM8
- 8DVpSwlKCDRY2kxpFPHKJBP2BtlZiyImxSFG3pJ+gpnC9Cyvx9W++COmkxae26ftQtlM
- v15g==
-X-Gm-Message-State: AOAM533nFFa8K552SZgzsZ5XVKueBl4tbAozF0+qrUtWQ9Vd9h1QgPss
- DdDGgqSDBeTIA8LGk3fZ3I4=
-X-Google-Smtp-Source: ABdhPJyeM0zHMQgSAKLIY1pkC0yU7P3sq8yPWGFis8laCOZJiGOjvUQ29pFsEShO7sH0bxipvLhl6g==
-X-Received: by 2002:a05:6512:c09:: with SMTP id
- z9mr13566872lfu.147.1643585874478; 
- Sun, 30 Jan 2022 15:37:54 -0800 (PST)
+ bh=69wNajrm4+G/M74hrnrqfe/8gDIP1KRo4GBjc3qiBlE=;
+ b=awkYcO5Ki0XJb3czlTLE6Nf+TALSeRZ9OCCfIql7JGlfr4XneI5xjiw5UdxgI+DLo1
+ 94PMtjxJivRCdd4kz+YtjvAMYTruR0fLenYo5xlufDrBTF13zh8LFg6xYSZNb/iGqtDk
+ StVPtU+ak/AeDluZAC9pcZyt98a033MaOmKiD58EZBdOJ5IBDbwFZii/NUlcOSh9jSsv
+ gIpgsrqBN8BDSkRwgH+tJPf5H5Os4DT0Mkk1QaVS7PnnIs0rjNikPG/XjAfXmz2c279L
+ whq++TkW+iC3kqrUldvJRXgca6tyEAH5Ioo4+PXL/VEufjF7jA5ksVL2NQytq2zQs6Sj
+ ULwQ==
+X-Gm-Message-State: AOAM530x3+t5USDD84jr0JMjS6f2pnJG9v18zFWupO8b+kwVIRJxOZuJ
+ p8SO00kFrGJKkyJZYQv0y0M=
+X-Google-Smtp-Source: ABdhPJwNSyf/5qJrwp6Ej2liXxYcZa6QcRMNedNFLOrkN6ogQ1iJOFH/fhB+J9LuMCwJeeOYVcQcPA==
+X-Received: by 2002:a19:f806:: with SMTP id a6mr13933723lff.592.1643585876243; 
+ Sun, 30 Jan 2022 15:37:56 -0800 (PST)
 Received: from localhost.localdomain (109-252-138-126.dynamic.spd-mgts.ru.
  [109.252.138.126])
- by smtp.gmail.com with ESMTPSA id a24sm1262950ljp.112.2022.01.30.15.37.52
+ by smtp.gmail.com with ESMTPSA id a24sm1262950ljp.112.2022.01.30.15.37.54
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 30 Jan 2022 15:37:54 -0800 (PST)
+ Sun, 30 Jan 2022 15:37:55 -0800 (PST)
 From: Dmitry Osipenko <digetx@gmail.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>,
@@ -102,16 +101,16 @@ Cc: linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
  xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: [PATCH v6 16/21] mips: Use do_kernel_power_off()
-Date: Mon, 31 Jan 2022 02:37:13 +0300
-Message-Id: <20220130233718.21544-17-digetx@gmail.com>
+Subject: [PATCH v6 17/21] nds32: Use do_kernel_power_off()
+Date: Mon, 31 Jan 2022 02:37:14 +0300
+Message-Id: <20220130233718.21544-18-digetx@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20220130233718.21544-1-digetx@gmail.com>
 References: <20220130233718.21544-1-digetx@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220130_153756_634154_F885BB5C 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20220130_153757_737711_D9F44A7B 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,23 +134,23 @@ be converted to the new power-off API.
 
 Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
 ---
- arch/mips/kernel/reset.c | 3 +--
+ arch/nds32/kernel/process.c | 3 +--
  1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/arch/mips/kernel/reset.c b/arch/mips/kernel/reset.c
-index 6288780b779e..e7ce07b3e79b 100644
---- a/arch/mips/kernel/reset.c
-+++ b/arch/mips/kernel/reset.c
-@@ -114,8 +114,7 @@ void machine_halt(void)
+diff --git a/arch/nds32/kernel/process.c b/arch/nds32/kernel/process.c
+index 49fab9e39cbf..0936dcd7db1b 100644
+--- a/arch/nds32/kernel/process.c
++++ b/arch/nds32/kernel/process.c
+@@ -54,8 +54,7 @@ EXPORT_SYMBOL(machine_halt);
  
  void machine_power_off(void)
  {
 -	if (pm_power_off)
 -		pm_power_off();
 +	do_kernel_power_off();
+ }
  
- #ifdef CONFIG_SMP
- 	preempt_disable();
+ EXPORT_SYMBOL(machine_power_off);
 -- 
 2.34.1
 
