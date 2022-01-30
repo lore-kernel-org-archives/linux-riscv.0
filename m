@@ -4,74 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B6B2C433F5
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Jan 2022 04:40:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FBFFC433F5
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Jan 2022 05:48:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NVa/jiS4NTvXnRPcbo/zFoGAAxRS3icsuoLBTGvERxM=; b=0ib2d7yR5ju3Ms
-	2Xebd8OuZHD1ixg/mJEctqhMmc+YstkiJorLGjQtDdZmm6OOxoQoDDKxJ8Xhm2kdIEizLDbCutgcu
-	d/1MNi8BeRgTPRK6agHpZTR91dGicXLm3gpQApOprOSdLMVlGXeAEzqAGJ7TKcAunzpGCD2hPPe96
-	2880SaVyspBajydZ2SfJQkQByIWLrw+h8Pli2Y6alEbKLrp1g57vgO2IO+jS06NeN9pyaPbaWHr+b
-	vEJGYCZ4l55hQvQb7STBSW0XE06e6pU5sc3KeoukM4XySPguV+esRL6JeQ5WM/hUZ2tAqPMZvMAy3
-	/D0bHrdYTW0vb/WZ9HXQ==;
+	List-Owner; bh=amJKEFqjaonx7gAIUcYuSiw5RIVKzASwyumxG/9AYuA=; b=tF4cRsbuCjScbI
+	fVK5NPW2kURVpmApuuRpJhy9K1xoHJCnfxGqNKAMT4AcoKQTPdI63Ana3ZFvSF/DF8eh+t7ABUmyE
+	NzJBPLYTjP8a1KSdZ8i4t2nhhlbUz0C+e7dFeXdNLW5eX8OsSnL/Y9Wjs2Arf7BNPYz6mjcuwbUHM
+	A6Yp5n7mD8P2UkvxGne+3RBoSkXW2OECdMz67gc+WkeWsxJdXfPOKeS2EbL5sUyY3A3h42mcpwJjX
+	uha5yUEdM5mZ4jdhqHfdpJrbCKYQh/v5/+m8eKVayv/6oS6rC4Y3JQy5kEfCc3K76P2zf9bixBDD0
+	HesXCGoQUWo02B+M2gcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nE20E-005tF0-Cx; Sun, 30 Jan 2022 04:39:50 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1nE33w-005x4n-DF; Sun, 30 Jan 2022 05:47:44 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nE20B-005tEf-Sb
- for linux-riscv@lists.infradead.org; Sun, 30 Jan 2022 04:39:49 +0000
+ id 1nE33j-005x27-NV; Sun, 30 Jan 2022 05:47:33 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 4C6EC60B35
- for <linux-riscv@lists.infradead.org>; Sun, 30 Jan 2022 04:39:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B359AC340EE
- for <linux-riscv@lists.infradead.org>; Sun, 30 Jan 2022 04:39:46 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 231F2B828BB;
+ Sun, 30 Jan 2022 05:47:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8563C340EE;
+ Sun, 30 Jan 2022 05:47:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1643517586;
- bh=lIqRpPgt5ZOVkSCMuU19p1CNRtGg2YZr+XSa0dYDS+0=;
+ s=k20201202; t=1643521648;
+ bh=CFf7eYVsi2vfAFWFWWepRognCnx0qrq4RXbGFOfmx9c=;
  h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=NI37Edd5mq8IuZsVED+WhDdLWfGibvSriiMCP9y9naW5dTZSy06iAr2MoPsW8rA90
- KpN4idAM3HCQ0UlGNxXJ3F+viY09XkOSns2AyowHOCdnQhWkvlKGAjE7nGphqLTgbf
- //UqcC0FvwcCwDYrXH2/okvkkI5788n2jYu0btC7ZuoJ3Ssl7WIDqTkPWXG6cuF5l8
- 89Z1umkdtPwoR6NybrJ8UdqBoRGYfwxjzTjwjcajqtLVQ8f6LHLBZDuDXbcUvz60Ic
- JtebXv7aNB3XYXwPvos1hu9l4bWbZt+vJMC/XoL15400IpVpDr1Avqklb1coxgRoRZ
- IEcl96KFrwREw==
-Received: by mail-vs1-f48.google.com with SMTP id b2so7888466vso.9
- for <linux-riscv@lists.infradead.org>; Sat, 29 Jan 2022 20:39:46 -0800 (PST)
-X-Gm-Message-State: AOAM530I9o2K3HmAaegklCjsLEo2nO9t9CooPm04lN6E+bi3Yd9SBM2o
- U+6W1+UG5Hr0eWfgaKyjPo4z8WzpTc+fBFKkr6c=
-X-Google-Smtp-Source: ABdhPJw880aHNXeYkhi1jcDRAgJdMZlctpuVQKIFd6cUTVvaQDGDk82PM1yPlru7Wy+sN4aZVSRTzKsi4ZuU+1J/Vxw=
-X-Received: by 2002:a67:e947:: with SMTP id p7mr6193021vso.59.1643517585723;
- Sat, 29 Jan 2022 20:39:45 -0800 (PST)
+ b=NPAxCNaLTo4erRllOLayMfPUYfUOW9vn8x0aWJepTSfSmFE6cR2eBffVk6qUyvNdZ
+ v3wz8lOjDUgZTz25phHKEAzLGLT1NkVJp8AuWL2ej8PZnZfdv3FX2p4yUbOsNvaLc7
+ ad40OrZwitXivHc3LwQ2Z7IEwtIIa8viQ4z7g/2YsK4NgOLtEh5wOFyP+H7XH8E0bH
+ pTnTrhCsz05K8/+IBl0hK4EOqoejHMaIgxXuF2bpco6R1FaW174GiCmOEtCUbSh1QD
+ /vc0+bphJ+UVCMo6QbiAw+ofwI5iAXuGl0/v6S7yyySZLfYvKOlRd2M4ToNLzAH7hS
+ zlTbUHM35vSDw==
+Received: by mail-vk1-f180.google.com with SMTP id n14so6323370vkk.6;
+ Sat, 29 Jan 2022 21:47:28 -0800 (PST)
+X-Gm-Message-State: AOAM531lJJD+nEwSW+NKb1D1mk0fO90EGp+e20AfLnKL+jI9VA7fAFx4
+ davAv05vgCWxuHa03tSm+XZZi6MG8DznoLjdb8k=
+X-Google-Smtp-Source: ABdhPJxLWGk5CQ+MBw+7fcsDq1E1+v+xghtxN0mZV6UTIH/aZ2JMAd2qn/Emr/MxaYw7Fbc8Rg4biBjIlqvQekFa+1Q=
+X-Received: by 2002:a05:6122:1306:: with SMTP id
+ e6mr6299952vkp.28.1643521647659; 
+ Sat, 29 Jan 2022 21:47:27 -0800 (PST)
 MIME-Version: 1.0
-References: <20220129162726.1154501-1-guoren@kernel.org>
- <20220129162726.1154501-3-guoren@kernel.org>
- <87r18qxui9.wl-maz@kernel.org>
- <CAJF2gTTYN0bxnnMtP9L1KvaH0h6ny+Lr3+fC7GP-YWnwjAYd4A@mail.gmail.com>
- <35b1838d-ef80-1816-46f6-9cba7afc813e@sholland.org>
-In-Reply-To: <35b1838d-ef80-1816-46f6-9cba7afc813e@sholland.org>
+References: <20220129121728.1079364-1-guoren@kernel.org>
+ <20220129121728.1079364-7-guoren@kernel.org>
+ <CAK8P3a3_kVB78-26sxdsEjb3MMcco6U55tc7siCBFZbJjyH6Sw@mail.gmail.com>
+In-Reply-To: <CAK8P3a3_kVB78-26sxdsEjb3MMcco6U55tc7siCBFZbJjyH6Sw@mail.gmail.com>
 From: Guo Ren <guoren@kernel.org>
-Date: Sun, 30 Jan 2022 12:39:34 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQsi6uT8ea6MTu6oDA-9xsd3fW5ETHAtpzGZxapLpLsWA@mail.gmail.com>
-Message-ID: <CAJF2gTQsi6uT8ea6MTu6oDA-9xsd3fW5ETHAtpzGZxapLpLsWA@mail.gmail.com>
-Subject: Re: [PATCH V6 2/2] irqchip/sifive-plic: Fixup thead,c900-plic dt
- parse in opensbi
-To: Samuel Holland <samuel@sholland.org>
-Cc: Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
+Date: Sun, 30 Jan 2022 13:47:16 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTThb8_-T0iOFVZoJrvZqeFvjfWB+AdFyOwtGhN9aG-MQQ@mail.gmail.com>
+Message-ID: <CAJF2gTThb8_-T0iOFVZoJrvZqeFvjfWB+AdFyOwtGhN9aG-MQQ@mail.gmail.com>
+Subject: Re: [PATCH V4 06/17] riscv: compat: Add basic compat date type
+ implementation
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>, 
+ gregkh <gregkh@linuxfoundation.org>, liush <liush@allwinnertech.com>, 
+ Wei Fu <wefu@redhat.com>, Drew Fustini <drew@beagleboard.org>, 
+ Wang Junqiang <wangjunqiang@iscas.ac.cn>, Christoph Hellwig <hch@lst.de>, 
+ Christoph Hellwig <hch@infradead.org>, linux-arch <linux-arch@vger.kernel.org>,
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- devicetree <devicetree@vger.kernel.org>, 
- Guo Ren <guoren@linux.alibaba.com>
+ linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
+ linux-s390 <linux-s390@vger.kernel.org>,
+ sparclinux <sparclinux@vger.kernel.org>, 
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ Parisc List <linux-parisc@vger.kernel.org>, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+ "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220129_203948_031233_A4297930 
-X-CRM114-Status: GOOD (  35.27  )
+X-CRM114-CacheID: sfid-20220129_214731_957071_CAB7A9D4 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,144 +94,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 30, 2022 at 10:50 AM Samuel Holland <samuel@sholland.org> wrote:
+On Sun, Jan 30, 2022 at 5:56 AM Arnd Bergmann <arnd@arndb.de> wrote:
 >
-> On 1/29/22 8:08 PM, Guo Ren wrote:
-> > On Sun, Jan 30, 2022 at 2:32 AM Marc Zyngier <maz@kernel.org> wrote:
-> >>
-> >> On Sat, 29 Jan 2022 16:27:26 +0000,
-> >> guoren@kernel.org wrote:
-> >>>
-> >>> From: Guo Ren <guoren@linux.alibaba.com>
-> >>>
-> >>> The thead,c900-plic has been used in opensbi to distinguish
-> >>> PLIC [1]. Although PLICs have the same behaviors in Linux,
-> >>> they are different hardware with some custom initializing in
-> >>> firmware(opensbi).
-> >>>
-> >>> [1]: https://github.com/riscv-software-src/opensbi/commit/78c2b19218bd62653b9fb31623a42ced45f38ea6
-> >>>
-> >>> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> >>> Cc: Anup Patel <anup@brainfault.org>
-> >>> Cc: Marc Zyngier <maz@kernel.org>
-> >>> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> >>> Cc: Samuel Holland <samuel@sholland.org>
-> >>> Cc: Thomas Gleixner <tglx@linutronix.de>
-> >>> ---
-> >>>  drivers/irqchip/irq-sifive-plic.c | 25 +++++++++++++++++++++++--
-> >>>  1 file changed, 23 insertions(+), 2 deletions(-)
-> >>>
-> >>> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-> >>> index 259065d271ef..245655928076 100644
-> >>> --- a/drivers/irqchip/irq-sifive-plic.c
-> >>> +++ b/drivers/irqchip/irq-sifive-plic.c
-> >>> @@ -172,7 +172,7 @@ static void plic_irq_eoi(struct irq_data *d)
-> >>>       }
-> >>>  }
-> >>>
-> >>> -static struct irq_chip plic_chip = {
-> >>> +static struct irq_chip sifive_plic_chip = {
-> >>>       .name           = "SiFive PLIC",
-> >>>       .irq_mask       = plic_irq_mask,
-> >>>       .irq_unmask     = plic_irq_unmask,
-> >>> @@ -182,12 +182,24 @@ static struct irq_chip plic_chip = {
-> >>>  #endif
-> >>>  };
-> >>>
-> >>> +static struct irq_chip thead_plic_chip = {
-> >>> +     .name           = "T-Head PLIC",
-> >>> +     .irq_mask       = plic_irq_mask,
-> >>> +     .irq_unmask     = plic_irq_unmask,
-> >>> +     .irq_eoi        = plic_irq_eoi,
-> >>> +#ifdef CONFIG_SMP
-> >>> +     .irq_set_affinity = plic_set_affinity,
-> >>> +#endif
-> >>> +};
-> >>
-> >> For pure entertainment, let's compare the two structures:
-> >>
-> >> static struct irq_chip plic_chip = {
-> >>         .name           = "SiFive PLIC",
-> >>         .irq_mask       = plic_irq_mask,
-> >>         .irq_unmask     = plic_irq_unmask,
-> >>         .irq_eoi        = plic_irq_eoi,
-> >> #ifdef CONFIG_SMP
-> >>         .irq_set_affinity = plic_set_affinity,
-> >> #endif
-> >> };
-> >>
-> >> Oh wait: a string. Must be really important. Not.
-> > No, pls see below comment.
-> >
-> >>
-> >>> +
-> >>> +static struct irq_chip *def_plic_chip = &sifive_plic_chip;
-> >>> +
-> >>>  static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
-> >>>                             irq_hw_number_t hwirq)
-> >>>  {
-> >>>       struct plic_priv *priv = d->host_data;
-> >>>
-> >>> -     irq_domain_set_info(d, irq, hwirq, &plic_chip, d->host_data,
-> >>> +     irq_domain_set_info(d, irq, hwirq, def_plic_chip, d->host_data,
-> >>>                           handle_fasteoi_irq, NULL, NULL);
-> >>>       irq_set_noprobe(irq);
-> >>>       irq_set_affinity(irq, &priv->lmask);
-> >>> @@ -396,5 +408,14 @@ static int __init plic_init(struct device_node *node,
-> >>>       return error;
-> >>>  }
-> >>>
-> >>> +static int __init thead_c900_plic_init(struct device_node *node,
-> >>> +             struct device_node *parent)
-> >>> +{
-> >>> +     def_plic_chip = &thead_plic_chip;
-> >>> +
-> >>> +     return plic_init(node, parent);
-> >>> +}
-> >>> +
-> >>>  IRQCHIP_DECLARE(sifive_plic, "sifive,plic-1.0.0", plic_init);
-> >>>  IRQCHIP_DECLARE(riscv_plic0, "riscv,plic0", plic_init); /* for legacy systems */
-> >>> +IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", thead_c900_plic_init);
-> >>
-> >> Sorry, but I can't see any point to this patch.
-> > You didn't see the link I've put in the patch. In that opensbi patch:
-> >
-> >                 intc: interrupt-controller@10000000 {
-> >                         #interrupt-cells = <1>;
-> > -                       compatible = "riscv,plic0";
-> > +                       compatible = "allwinner,sun20i-d1-plic",
-> > +                                    "thead,c900-plic";
-> >
-> > +#define THEAD_PLIC_CTRL_REG 0x1ffffc
+> On Sat, Jan 29, 2022 at 1:17 PM <guoren@kernel.org> wrote:
 > > +
-> > +static void thead_plic_plat_init(struct plic_data *pd)
-> > +{
-> > +       writel_relaxed(BIT(0), (void *)pd->addr + THEAD_PLIC_CTRL_REG);
-> > +}
-> > +
-> >  static const struct fdt_match irqchip_plic_match[] = {
-> >         { .compatible = "riscv,plic0" },
-> >         { .compatible = "sifive,plic-1.0.0" },
-> > +       { .compatible = "thead,c900-plic",
-> > +         .data = thead_plic_plat_init },
-> >         { },
-> >  };
+> > +#define COMPAT_RLIM_INFINITY   0x7fffffff
 > >
-> > We've changed the compatible name for thead,c900-plic, and there is no
-> > riscv,plic0 / sifive,plic-1.0.0 in dts. Without the patch, the newest
-> > opensbi + newest Linux would be broken in the Allwinner D1 dev board.
+> > +#define F_GETLK64      12
+> > +#define F_SETLK64      13
+> > +#define F_SETLKW64     14
 >
-> Yes, some patch is still necessary, because the hardware is indeed incompatible
-> with riscv,plic0. However, this driver does not care about the difference. So
-> all you need to do is hook up the existing code to the new compatible:
->
-> +IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", plic_init);
-I think we should give clear info in /proc/interrupts. I hope we could
-keep thead_plic_init.
+> These now come from the generic definitions I think. The flock definitions
+> are just the normal ones,
+Yes, it could be removed after Christoph Hellwig's patch merged.
+
+> and AFAICT the RLIM_INIFINITY definition here
+> is actually wrong and should be the default 0xffffffffu to match the
+> native (~0UL) definition.
+Yes, native rv32 used ~0UL, although its task_size is only 2.4GB.
+
+I would remove #define COMPAT_RLIM_INFINITY   0x7fffffff
 
 >
-> Regards,
-> Samuel
+>             Arnd
 
 
 
