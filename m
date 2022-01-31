@@ -4,56 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54CC7C433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jan 2022 13:26:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CE02C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jan 2022 13:28:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PAfwxYx6v/j15vOEFxM/NRpCb+Px1FUAY9uieAPoyMU=; b=nCWrsoI08lfUTb
-	Y7b/0RRZ00NbW7z4ueUNJu2xPJW3a6n58xPxCUAUcpx8hDQ703fSVwzCxGL3yUQgW3FVU55XCnnkm
-	6yQn2sewRtFh+h7tFRcpLN08pmab5tAVusvXIUkEMjuaXGCBW00UvtpeNIwe+WJfpsNaPsjQ0Rwa1
-	tqHd+xymYUwmpVSEZIVNycFl1wYW3Doz1XArC1qp8+lG60xBuFa51DVUlvg3kC6yBepzUCVpfaFNg
-	9G5EfjTnzKxMC8882g7vObjGgbz5DJcKIaswn7sfJl0z9/82G58vna8f9yJLQzOYP6BMIQSLqLxku
-	dhm2IAkT0bHb76h2zPzA==;
+	List-Owner; bh=oS6z9nqKwPs5Lsm+/1Xsb+HZOl+/OruAcG64XVZh5PU=; b=iPvou9i6Ggo49n
+	oU88gEH23+b+vr5SiTK4f0hpQm5YeR+drcPDcQRFXSc2MDkXvvWnAx2K8Cn4zFrB/jdaxeLV6a/ay
+	z3CiQ0z13EQzA0/pdcocg+9cKwlnjI2rNpvsYEWyNOmc90/fbooCvlEtQ7tXKfNQYlqkHGkaHBaHj
+	nvs9xBqTW/GpU4qCN3OVpcdD1VBq8HeUzWRTMVFw6sSoq2tD/5Lj57xT8oEUdKonSbyOqwMq7FuCj
+	ZGe1fLjNWf+ELNOTE6uCTiJQIXKjv6gIwj/9TO6aMMdmDmBcTI1oGd2nm55IaAr2V6xof5idVfSX2
+	fwftg1Z4og7gQGqiPEMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nEWhf-009Trc-Eu; Mon, 31 Jan 2022 13:26:43 +0000
-Received: from michel.telenet-ops.be ([2a02:1800:110:4::f00:18])
+	id 1nEWj4-009UH4-JC; Mon, 31 Jan 2022 13:28:10 +0000
+Received: from mail-ua1-f44.google.com ([209.85.222.44])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nEWhW-009TnO-FX
- for linux-riscv@lists.infradead.org; Mon, 31 Jan 2022 13:26:37 +0000
-Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed40:58b3:216b:d287:833])
- by michel.telenet-ops.be with bizsmtp
- id pRSU2600Z2lsq0X06RSUsE; Mon, 31 Jan 2022 14:26:29 +0100
-Received: from rox.of.borg ([192.168.97.57])
- by ramsan.of.borg with esmtps (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
- (envelope-from <geert@linux-m68k.org>)
- id 1nEWhQ-00CaWA-JM; Mon, 31 Jan 2022 14:26:28 +0100
-Received: from geert by rox.of.borg with local (Exim 4.93)
- (envelope-from <geert@linux-m68k.org>)
- id 1nEWhQ-00H7Gl-2i; Mon, 31 Jan 2022 14:26:28 +0100
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>
-Cc: Jessica Clarke <jrtc27@jrtc27.com>, Emil Renner Berthing <kernel@esmil.dk>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Geert Uytterhoeven <geert@linux-m68k.org>
-Subject: [PATCH 3/3] RISC-V: Fix IPI/RFENCE hmask on non-monotonic hartid
- ordering
-Date: Mon, 31 Jan 2022 14:26:22 +0100
-Message-Id: <a45b0242160d97b312c64baec4f45d9f666cbed8.1643635156.git.geert@linux-m68k.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <cover.1643635156.git.geert@linux-m68k.org>
-References: <cover.1643635156.git.geert@linux-m68k.org>
+ id 1nEWj0-009UEr-ES
+ for linux-riscv@lists.infradead.org; Mon, 31 Jan 2022 13:28:08 +0000
+Received: by mail-ua1-f44.google.com with SMTP id u76so11844628uau.3
+ for <linux-riscv@lists.infradead.org>; Mon, 31 Jan 2022 05:28:05 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=5u585wGCFvffT6ZpVDKH8s7FQKzx7RBic/rFZXeRNwQ=;
+ b=mMYx+0wizL5BZJ4E3nalu4vvalzpXyaizZtyxf350xsPR3LLP1e/2C7mIOyGhHjNh/
+ NgVJckG+qg3VhgjYEeHGsQjagN+hIvIMGYpDemAMdNJFLuxOLHZdK1qs3zMTU1p6kTry
+ ecF8gJgegLnOZtFk9MFrhaLjTX/0xZzm0NkowBOG99Tjqxo17aU08SBq22kjp38jXPV3
+ ZxjHKnqCDUneJ3fdzttiTfRcIWqTJqsWN+eSncdFqVXn9uYw3C82JZg0QUF/WmPY7l7D
+ VbEiZmNpnteg67lqDBkqtAZrn9Qbp3Rc1y9taeIJpxHGXavnR1kJw8rXBJSa9I5yyUIc
+ QW4A==
+X-Gm-Message-State: AOAM530xSEDHxYVTC0YAbkFba1o5x2ZiV2uTpmvkbyVnfEBRpCyJIHF9
+ h2V9Rs368YJcW8uXkec0M7Hzm/OIka6+3g==
+X-Google-Smtp-Source: ABdhPJwZZm2upVssZ6KCV37/X/u9JtDPH7SQe1pyhZutEuiwxfpL07v1mltT7X5QPn8GiYxGi7TXrw==
+X-Received: by 2002:ab0:6642:: with SMTP id b2mr8244384uaq.99.1643635684060;
+ Mon, 31 Jan 2022 05:28:04 -0800 (PST)
+Received: from mail-vs1-f54.google.com (mail-vs1-f54.google.com.
+ [209.85.217.54])
+ by smtp.gmail.com with ESMTPSA id p74sm4139600vke.36.2022.01.31.05.28.02
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Mon, 31 Jan 2022 05:28:02 -0800 (PST)
+Received: by mail-vs1-f54.google.com with SMTP id l14so11779048vsm.3
+ for <linux-riscv@lists.infradead.org>; Mon, 31 Jan 2022 05:28:02 -0800 (PST)
+X-Received: by 2002:a67:5f83:: with SMTP id t125mr7426160vsb.68.1643635682152; 
+ Mon, 31 Jan 2022 05:28:02 -0800 (PST)
 MIME-Version: 1.0
+References: <20220120090918.2646626-1-atishp@rivosinc.com>
+ <20220120090918.2646626-7-atishp@rivosinc.com>
+ <1AA3005C-E9C8-4E4B-900D-DD48B37CEA41@jrtc27.com>
+ <CAOnJCUKJmHv2Rs3=FR3LjiZqvM5uxcVeZ3D5xRSbEeDFCeS9=Q@mail.gmail.com>
+ <CAMuHMdW+ZO0=Qc8NCWujZUq=L-LZJpcd7oZo4MxRFYMmcURXVQ@mail.gmail.com>
+ <CAMuHMdXq7OQJL6H7=JRnDTR6p+AD0o2Ctjn806XZQZ9PYjvepg@mail.gmail.com>
+ <CAOnJCU+AVS5Js4ZXmUubTqwU5Ye-9_z8onEE1mwhvCsOXchFBg@mail.gmail.com>
+ <CAMuHMdWsX-Pg3B1=KRf9hz1JrPAbydBrANTXg4q5CFJCqHJAoA@mail.gmail.com>
+ <CAOnJCU+U0xmw-_yTEUo9ZXO5pvoJ6VCGu+jjU-Sa2MnhcAha6Q@mail.gmail.com>
+ <CAMuHMdXLjjgD7j_5cm8qdL63m1SoB90O9j7YMYYrpXaH79hwJQ@mail.gmail.com>
+ <CAAhSdy03QnZAxuKODA3MGWpRtKJio-19Nea+QM_KrBuye7opSw@mail.gmail.com>
+In-Reply-To: <CAAhSdy03QnZAxuKODA3MGWpRtKJio-19Nea+QM_KrBuye7opSw@mail.gmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 31 Jan 2022 14:27:50 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdX781o5g7ezk3TFQsfFPsjf=hZKvgN0VdK1XyxV8rvFJQ@mail.gmail.com>
+Message-ID: <CAMuHMdX781o5g7ezk3TFQsfFPsjf=hZKvgN0VdK1XyxV8rvFJQ@mail.gmail.com>
+Subject: Re: [PATCH v3 6/6] RISC-V: Do not use cpumask data structure for
+ hartid bitmap
+To: Anup Patel <anup@brainfault.org>
+Cc: Atish Patra <atishp@atishpatra.org>, Jessica Clarke <jrtc27@jrtc27.com>, 
+ Atish Patra <atishp@rivosinc.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, 
+ Damien Le Moal <damien.lemoal@wdc.com>, devicetree <devicetree@vger.kernel.org>,
+ Jisheng Zhang <jszhang@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220131_052634_686943_9C8FDD08 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20220131_052806_516543_606C8AC3 
+X-CRM114-Status: GOOD (  57.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,116 +102,155 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If the boot CPU does not have the lowest hartid, "hartid - hbase" can
-become negative, leading to an incorrect hmask, causing userspace to
-crash with SEGV.  This is observed on e.g. Starlight Beta, where cpuid 1
-maps to hartid 0, and cpuid 0 maps to hartid 1.
+Hi Anup,
 
-Fix this by detecting this case, and shifting the accumulated mask and
-updating hbase, if possible.
+On Mon, Jan 31, 2022 at 1:09 PM Anup Patel <anup@brainfault.org> wrote:
+> On Fri, Jan 28, 2022 at 2:09 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> > On Fri, Jan 28, 2022 at 1:13 AM Atish Patra <atishp@atishpatra.org> wrote:
+> > > On Thu, Jan 27, 2022 at 12:48 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> > >> On Thu, Jan 27, 2022 at 2:02 AM Atish Patra <atishp@atishpatra.org> wrote:
+> > >> > On Wed, Jan 26, 2022 at 1:10 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> > >> > > On Wed, Jan 26, 2022 at 9:28 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> > >> > > > On Wed, Jan 26, 2022 at 3:21 AM Atish Patra <atishp@atishpatra.org> wrote:
+> > >> > > > > On Tue, Jan 25, 2022 at 2:26 PM Jessica Clarke <jrtc27@jrtc27.com> wrote:
+> > >> > > > > > On 20 Jan 2022, at 09:09, Atish Patra <atishp@rivosinc.com> wrote:
+> > >> > > > > > > Currently, SBI APIs accept a hartmask that is generated from struct
+> > >> > > > > > > cpumask. Cpumask data structure can hold upto NR_CPUs value. Thus, it
+> > >> > > > > > > is not the correct data structure for hartids as it can be higher
+> > >> > > > > > > than NR_CPUs for platforms with sparse or discontguous hartids.
+> > >> > > > > > >
+> > >> > > > > > > Remove all association between hartid mask and struct cpumask.
+> > >> > > > > > >
+> > >> > > > > > > Reviewed-by: Anup Patel <anup@brainfault.org> (For Linux RISC-V changes)
+> > >> > > > > > > Acked-by: Anup Patel <anup@brainfault.org> (For KVM RISC-V changes)
+> > >> > > > > > > Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> > >> > > >
+> > >> > > > > I am yet to reproduce it on my end.
+> > >> > > > > @Geert Uytterhoeven: can you please try the below diff on your end.
+> > >> > > >
+> > >> > > > Unfortunately it doesn't fix the issue for me.
+> > >> > > >
+> > >> > > > /me debugging...
+> > >> > >
+> > >> > > Found it: after this commit, the SBI_EXT_RFENCE_REMOTE_FENCE_I and
+> > >> > > SBI_EXT_RFENCE_REMOTE_SFENCE_VMA ecalls are now called with
+> > >> > > hmask = 0x8000000000000001 and hbase = 1 instead of hmask = 3 and
+> > >> > > hbase = 0.
+> > >> > >
+> > >> > > cpuid 1 maps to  hartid 0
+> > >> > > cpuid 0 maps to hartid 1
+> > >> > >
+> > >> > >     __sbi_rfence_v02:364: cpuid 1 hartid 0
+> > >> > >     __sbi_rfence_v02:377: hartid 0 hbase 1
+> > >> > >     hmask |= 1UL << (hartid - hbase);
+> > >> > >
+> > >> > > oops
+> > >> > >
+> > >> > >     __sbi_rfence_v02_call:303: SBI_EXT_RFENCE_REMOTE_FENCE_I hmask
+> > >> > > 8000000000000001 hbase 1
+> > >> > >
+> > >> >
+> > >> > Ahh yes. hmask will be incorrect if the bootcpu(cpu 0) is a higher
+> > >> > hartid and it is trying to do a remote tlb flush/IPI
+> > >> > to lower the hartid. We should generate the hartid array before the loop.
+> > >> >
+> > >> > Can you try this diff ? It seems to work for me during multiple boot
+> > >> > cycle on the unleashed.
+> > >> >
+> > >> > You can find the patch here as well
+> > >> > https://github.com/atishp04/linux/commits/v5.17-rc1
+> >
+> > >> > @@ -345,13 +368,21 @@ static int __sbi_rfence_v02(int fid, const
+> > >> > struct cpumask *cpu_mask,
+> > >> >       unsigned long arg4, unsigned long arg5)
+> > >> >  {
+> > >> >   unsigned long hartid, cpuid, hmask = 0, hbase = 0;
+> > >> > - int result;
+> > >> > + int result, index = 0, max_index = 0;
+> > >> > + unsigned long hartid_arr[NR_CPUS] = {0};
+> > >>
+> > >> That's up to 256 bytes on the stack. And more if the maximum
+> > >> number of cores is increased.
+> > >>
+> > >
+> > > Yeah. We can switch to dynamic allocation using kmalloc based on
+> > > the number of bits set in the cpumask.
+> >
+> > Even more overhead...
+> >
+> > >> > - if (!cpu_mask)
+> > >> > + if (!cpu_mask || cpumask_empty(cpu_mask))
+> > >> >   cpu_mask = cpu_online_mask;
+> > >> >
+> > >> >   for_each_cpu(cpuid, cpu_mask) {
+> > >> >   hartid = cpuid_to_hartid_map(cpuid);
+> > >> > + hartid_arr[index] = hartid;
+> > >> > + index++;
+> > >> > + }
+> > >> > + max_index = index;
+> > >> > + sort(hartid_arr, max_index, sizeof(unsigned long), cmp_ulong, NULL);
+> > >> > + for (index = 0; index < max_index; index++) {
+> > >> > + hartid = hartid_arr[index];
+> > >>
+> > >> That looks expensive to me.
+> > >>
+> > >> What about shifting hmask and adjusting hbase if a hartid is
+> > >> lower than the current hbase?
+> > >
+> > > That will probably work for current systems but it will fail when we have hartid > 64.
+> > > The below logic as it assumes that the hartids are in order. We can have a situation
+> > > where a two consecutive cpuid belong to hartids that require two invocations of sbi call
+> > > because the number of harts exceeds BITS_PER_LONG.
+> >
+> > If the number of harts exceeds BITS_PER_LONG, you always need multiple
+> > calls, right?
+> >
+> > I think the below (gmail-whitespace-damaged diff) should work:
 
-Fixes: 26fb751ca37846c9 ("RISC-V: Do not use cpumask data structure for hartid bitmap")
-Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
----
- arch/riscv/kernel/sbi.c | 57 ++++++++++++++++++++++++++++-------------
- 1 file changed, 39 insertions(+), 18 deletions(-)
+[...]
 
-diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-index 22444cfcd56cc646..775d3322b422fe14 100644
---- a/arch/riscv/kernel/sbi.c
-+++ b/arch/riscv/kernel/sbi.c
-@@ -250,7 +250,7 @@ static void __sbi_set_timer_v02(uint64_t stime_value)
- 
- static int __sbi_send_ipi_v02(const struct cpumask *cpu_mask)
- {
--	unsigned long hartid, cpuid, hmask = 0, hbase = 0;
-+	unsigned long hartid, cpuid, hmask = 0, hbase = 0, htop = 0;
- 	struct sbiret ret = {0};
- 	int result;
- 
-@@ -259,16 +259,27 @@ static int __sbi_send_ipi_v02(const struct cpumask *cpu_mask)
- 
- 	for_each_cpu(cpuid, cpu_mask) {
- 		hartid = cpuid_to_hartid_map(cpuid);
--		if (hmask && ((hbase + BITS_PER_LONG) <= hartid)) {
--			ret = sbi_ecall(SBI_EXT_IPI, SBI_EXT_IPI_SEND_IPI,
--					hmask, hbase, 0, 0, 0, 0);
--			if (ret.error)
--				goto ecall_failed;
--			hmask = 0;
--			hbase = 0;
-+		if (hmask) {
-+			if (hartid + BITS_PER_LONG <= htop ||
-+			    hbase + BITS_PER_LONG <= hartid) {
-+				ret = sbi_ecall(SBI_EXT_IPI,
-+						SBI_EXT_IPI_SEND_IPI, hmask,
-+						hbase, 0, 0, 0, 0);
-+				if (ret.error)
-+					goto ecall_failed;
-+				hmask = 0;
-+			} else if (hartid < hbase) {
-+				/* shift the mask to fit lower hartid */
-+				hmask <<= hbase - hartid;
-+				hbase = hartid;
-+			}
- 		}
--		if (!hmask)
-+		if (!hmask) {
- 			hbase = hartid;
-+			htop = hartid;
-+		} else if (hartid > htop) {
-+			htop = hartid;
-+		}
- 		hmask |= BIT(hartid - hbase);
- 	}
- 
-@@ -345,7 +356,7 @@ static int __sbi_rfence_v02(int fid, const struct cpumask *cpu_mask,
- 			    unsigned long start, unsigned long size,
- 			    unsigned long arg4, unsigned long arg5)
- {
--	unsigned long hartid, cpuid, hmask = 0, hbase = 0;
-+	unsigned long hartid, cpuid, hmask = 0, hbase = 0, htop = 0;
- 	int result;
- 
- 	if (!cpu_mask || cpumask_empty(cpu_mask))
-@@ -353,16 +364,26 @@ static int __sbi_rfence_v02(int fid, const struct cpumask *cpu_mask,
- 
- 	for_each_cpu(cpuid, cpu_mask) {
- 		hartid = cpuid_to_hartid_map(cpuid);
--		if (hmask && ((hbase + BITS_PER_LONG) <= hartid)) {
--			result = __sbi_rfence_v02_call(fid, hmask, hbase,
--						       start, size, arg4, arg5);
--			if (result)
--				return result;
--			hmask = 0;
--			hbase = 0;
-+		if (hmask) {
-+			if (hartid + BITS_PER_LONG <= htop ||
-+			    hbase + BITS_PER_LONG <= hartid) {
-+				result = __sbi_rfence_v02_call(fid, hmask,
-+						hbase, start, size, arg4, arg5);
-+				if (result)
-+					return result;
-+				hmask = 0;
-+			} else if (hartid < hbase) {
-+				/* shift the mask to fit lower hartid */
-+				hmask <<= hbase - hartid;
-+				hbase = hartid;
-+			}
- 		}
--		if (!hmask)
-+		if (!hmask) {
- 			hbase = hartid;
-+			htop = hartid;
-+		} else if (hartid > htop) {
-+			htop = hartid;
-+		}
- 		hmask |= BIT(hartid - hbase);
- 	}
- 
--- 
-2.25.1
+> >
+> > Another simpler solution would be to just round hbase down to a
+> > multiple of 32/64 (gmail-whitespace-damaged diff):
 
+[...]
+
+> > But that means multiple SBI calls if you have e.g. hartids 1-64.
+> > The shifted mask solution doesn't suffer from that.
+> > Both solutions don't sort the CPUs, so they are suboptimal in case of
+> > hartid numberings like 0, 64, 1, 65, ...
+>
+> In most cases, the hartids will be in sorted order under /cpus DT node
+> but it is not guaranteed that boot_cpu will be having smallest hartid
+>
+> This means hartid numbering will be something like:
+> 0, 1, 2, .....,
+> 64, 0, 1, 2, ....
+> 31, 0, 1, 2, .....
+>
+> >
+> > What do you think?
+>
+> Assuming hartids under /cpus DT node are ordered, I think your
+> approach will only have one additional SBI call compared to Atish's
+> approach but Atish's approach will require more memory with
+> increasing NR_CPUS so I suggest we go with your approach.
+>
+> Can you send a patch with your approach ?
+
+Sure, done.
+https://lore.kernel.org/r/cover.1643635156.git.geert@linux-m68k.org/
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
