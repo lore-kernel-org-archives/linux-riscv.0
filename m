@@ -4,93 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE7A4C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jan 2022 09:41:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 554BEC43217
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jan 2022 11:03:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ciKp0cJY3ZlRkiDNtyNFFz9lgc638qVob9KgY3lRFaY=; b=n+kYCsoKOLqfEg
-	DvMJDT8H5f9sMCmL3REhkYo2UdRKCztdGrqLqrKQ+dopr2oPep3vXLuYELBOXXTpDbE3VVsq4paAY
-	+khYq8dH/DyDC7Yh/vWLYfxzImrO64jSnvS3p/ifMGN3t/viHUKWQjlt3pKsoiCq6bYGBJATmkUMa
-	apoOHrFR1zxcCnIHkBJlQniP5Hd5J8Qsv35JXf7pxOUv7kSoNmT5inuj6FMCHS27XOsFVBaEWMD8w
-	2U2EyCJ+HCQBZurY6NBCe3EZeujtw9E5GDc9TiynTkWojOG/EqIwsMIRCxaeM59xBqLHNG9pZMa6x
-	r3trZxbnuUV82e3fgPrQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/0yPzT3Q09oV3z+cAIX1MCY2yT128+TLqvfOlG4qTas=; b=M4gviohevS95V3
+	Ui30rpxCjYWz7lGXukOzAOZszu450Z7w0xcA0IHMuVX5dr5w/RBjmjp1KlZvcs8qZPl//V8+tEjMQ
+	UROFobylY2j7qg+57mGwpZioqsInezZk4rtmJt2XrvZddD1/psG2flLg6PKHRQI/aNjwmw0eO4fzJ
+	GICVdDBQoAG8OPx4PqAIkBCbrwLP3xszpUkZKwayfPmz/2r8ed12DSNgBKU+4UmxXyBEywGpmFyN6
+	Hx4LWVzyzA/e8Xj381I8OIRBGhyQ+CebjVLZbYmkb3FQx21iGmsxnxsVxY1xIleKZhIA+0qVJfTIi
+	lrxKgBhDNDRLVlE1yBcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nETBx-008gSY-Pw; Mon, 31 Jan 2022 09:41:45 +0000
-Received: from smtp-out2.suse.de ([195.135.220.29])
+	id 1nEUT4-0090tw-49; Mon, 31 Jan 2022 11:03:30 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nETBj-008gMn-81; Mon, 31 Jan 2022 09:41:32 +0000
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
- (No client certificate requested)
- by smtp-out2.suse.de (Postfix) with ESMTPS id D40441F386;
- Mon, 31 Jan 2022 09:41:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
- t=1643622089; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=JzKQsvVlnpndbALvMTXcll7uzoa8T8eje3Q/bEI6mLM=;
- b=whj9BP6WhckdM25U/uFRLjh/5qEA3XBP2rJPmH/OFUiuQqSEmH4Kse73Ly2XNl7aeGy0D3
- 01nHUqxo5dFMLh/5OT1osDi6I//FYqxJOBWDlV7Pa2kDxDqS7SZU6eGFbFwhiIxa2yrWJn
- q2KzYMXrYzBSbk968nxUdzIBj5Xav5c=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
- s=susede2_ed25519; t=1643622089;
- h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=JzKQsvVlnpndbALvMTXcll7uzoa8T8eje3Q/bEI6mLM=;
- b=hfnhf0Ax+T4HdOjPQUboSd+ahGSEWUJYPr8iA9X+hUzJN0iQJC+aThno6atUOIFQQBrLSh
- W6EpHbrVTLIU+YBw==
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
- (No client certificate requested)
- by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 366CE13B68;
- Mon, 31 Jan 2022 09:41:28 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([192.168.254.65])
- by imap2.suse-dmz.suse.de with ESMTPSA id 2RKbCsiu92FODwAAMHmgww
- (envelope-from <osalvador@suse.de>); Mon, 31 Jan 2022 09:41:28 +0000
-Date: Mon, 31 Jan 2022 10:41:26 +0100
-From: Oscar Salvador <osalvador@suse.de>
-To: David Hildenbrand <david@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- Andrew Morton <akpm@linux-foundation.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Michal Hocko <mhocko@suse.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
- "David S. Miller" <davem@davemloft.net>,
- Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org
-Subject: Re: [PATCH RFC v1] drivers/base/node: consolidate node device
- subsystem initialization in node_dev_init()
-Message-ID: <20220131094125.GB15392@linux>
-References: <20220128151540.164759-1-david@redhat.com>
+ id 1nEUT0-0090q6-49
+ for linux-riscv@lists.infradead.org; Mon, 31 Jan 2022 11:03:27 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a8so41721743ejc.8
+ for <linux-riscv@lists.infradead.org>; Mon, 31 Jan 2022 03:03:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ventanamicro.com; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=sK8JR4wpkvls27MNU4s8AnmC/+c6q6h3rMPNEZP9Prw=;
+ b=kV2WIOTc9oeQLWaV5sGXLC5+V2MEcy/nFB1aBE7UYHZknUJxEqn2H0ruaImw1LSudd
+ YBNzrjQWd/WX2Hwg40tGHGWkbqDBoouxh0A/Ayeb9CepJhcdoHJDOuEDKwUofDr3YDeM
+ hypgPlPu6mQinAPkGCyMdCsKQFU1fjATndvTJhEYqTY98McJfIDfjY9+HkzOqsVitBdG
+ Xqq2dS+6YDzqE1kx/SWP4oOd8ZWxeaWizxmD8bzbtJrPZjZL0RU+y2OTYfMbjmhvmp3z
+ 8k476frHL7MmRK5tcQZCY+9vUWimfJMI8mN1upj5vNfqM0LhYOiHXz53dPIBVr83Q+i+
+ 5dZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=sK8JR4wpkvls27MNU4s8AnmC/+c6q6h3rMPNEZP9Prw=;
+ b=BZbRvucAPyZk91ClPyGpZEqpmFJ8pAbd5NvBX/8iAcX5lNGKWwTQqfTP6Q/aTy7z5X
+ hecKw1ub6dq9ecvU83lN5/W7+IIVboTtH5q5zwQpirYam3CVcpIbCVeApp8ZwQ+UiVo4
+ 1cNKDShQHdS8ZwvBOTQIBh1wyzm0rIeVPqA8shPDUJa78tIR/xkz04J0lf/7JXdoJKE1
+ UpX7ZAMLFJfUw2SaPsJddTVY0/fVHHT5kf+XiGzDhusxrLvUcYcSunZFX+SttWfYQbcz
+ VG+qPRz7qtnJxdLozxNmPColRBzM9gYbfFxgWQ+MKg4L1MvtaMxoU64h9kJULV9HAlPE
+ iXcA==
+X-Gm-Message-State: AOAM530UFG3MhQi574+EFyc6cJsyDBrYNwZMghCq7uprY7WNgkBlj6it
+ wqYpcMMEyAxEn6GJmxfwW1eXyA==
+X-Google-Smtp-Source: ABdhPJwJd++NGD5qapxySFts1jFknGVNB3DUXPDIe+XtkytAhXK38pCvvhgrbKuKdHAxqBOBaLUB0w==
+X-Received: by 2002:a17:907:1b0f:: with SMTP id
+ mp15mr16717542ejc.493.1643627003918; 
+ Mon, 31 Jan 2022 03:03:23 -0800 (PST)
+Received: from platform-PowerEdge-T440.dc1.ventanamicro.com ([117.248.109.221])
+ by smtp.gmail.com with ESMTPSA id b7sm14338971edv.58.2022.01.31.03.03.19
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 31 Jan 2022 03:03:23 -0800 (PST)
+From: Mayuresh Chitale <mchitale@ventanamicro.com>
+To: anup@brainfault.org
+Cc: atishp@atishpatra.org, palmer@dabbelt.com, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Mayuresh Chitale <mchitale@ventanamicro.com>
+Subject: [PATCH] RISC-V: KVM: make CY, TM,
+ and IR counters accessible in VU mode
+Date: Mon, 31 Jan 2022 16:33:07 +0530
+Message-Id: <20220131110307.1684739-1-mchitale@ventanamicro.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220128151540.164759-1-david@redhat.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220131_014131_465149_18A36AFB 
-X-CRM114-Status: GOOD (  19.25  )
+X-CRM114-CacheID: sfid-20220131_030326_197801_59440086 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,72 +85,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 28, 2022 at 04:15:40PM +0100, David Hildenbrand wrote:
-> ... and call node_dev_init() after memory_dev_init() from driver_init(),
-> so before any of the existing arch/subsys calls. All online nodes should
-> be known at that point.
-> 
-> This is in line with memory_dev_init(), which initializes the memory
-> device subsystem and creates all memory block devices.
-> 
-> Similar to memory_dev_init(), panic() if anything goes wrong, we don't
-> want to continue with such basic initialization errors.
-> 
-> The important part is that node_dev_init() gets called after
-> memory_dev_init() and after cpu_dev_init(), but before any of the
-> relevant archs call register_cpu() to register the new cpu device under
-> the node device. The latter should be the case for the current users
-> of topology_init().
-> 
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Cc: Michal Hocko <mhocko@suse.com>
-> Cc: Oscar Salvador <osalvador@suse.de>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-> Cc: Michael Ellerman <mpe@ellerman.id.au>
-> Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
-> Cc: Paul Mackerras <paulus@samba.org>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: Heiko Carstens <hca@linux.ibm.com>
-> Cc: Vasily Gorbik <gor@linux.ibm.com>
-> Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
-> Cc: Rich Felker <dalias@libc.org>
-> Cc: "David S. Miller" <davem@davemloft.net>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Ingo Molnar <mingo@redhat.com>
-> Cc: Borislav Petkov <bp@alien8.de>
-> Cc: Dave Hansen <dave.hansen@linux.intel.com>
-> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
-> Cc: x86@kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-ia64@vger.kernel.org
-> Cc: linux-mips@vger.kernel.org
-> Cc: linuxppc-dev@lists.ozlabs.org
-> Cc: linux-riscv@lists.infradead.org
-> Cc: linux-s390@vger.kernel.org
-> Cc: linux-sh@vger.kernel.org
-> Cc: sparclinux@vger.kernel.org
-> Cc: linux-mm@kvack.org
-> Signed-off-by: David Hildenbrand <david@redhat.com>
-
-Reviewed-by: Oscar Salvador <osalvador@suse.de>
-
-
--- 
-Oscar Salvador
-SUSE Labs
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhvc2UgYXBwbGljYXRpb25zIHRoYXQgcnVuIGluIFZVIG1vZGUgYW5kIGFjY2VzcyB0aGUgdGlt
+ZSBDU1IgY2F1c2UKYSB2aXJ0dWFsIGluc3RydWN0aW9uIHRyYXAgYXMgR3Vlc3Qga2VybmVsIGN1
+cnJlbnRseSBkb2VzIG5vdAppbml0aWFsaXplIHRoZSBzY291bnRlcmVuIENTUi4KwqAKVG8gZml4
+IHRoaXMsIHdlIHNob3VsZCBtYWtlIENZLCBUTSwgYW5kIElSIGNvdW50ZXJzIGFjY2Vzc2liaWxl
+CmJ5IGRlZmF1bHQgaW4gVlUgbW9kZSAoc2ltaWxhciB0byBPcGVuU0JJKS4KCkZpeGVzOiBhMzNj
+NzJmYWYyZDczICgiUklTQy1WOiBLVk06IEltcGxlbWVudCBWQ1BVIGNyZWF0ZSwgaW5pdCBhbmQK
+ZGVzdHJveSBmdW5jdGlvbnMiKQpDYzpzdGFibGVAdmdlci5rZXJuZWwub3JnClNpZ25lZC1vZmYt
+Ynk6IE1heXVyZXNoIENoaXRhbGUgPG1jaGl0YWxlQHZlbnRhbmFtaWNyby5jb20+Ci0tLQogYXJj
+aC9yaXNjdi9rdm0vdmNwdS5jIHwgNCArKysrCiAxIGZpbGUgY2hhbmdlZCwgNCBpbnNlcnRpb25z
+KCspCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rdm0vdmNwdS5jIGIvYXJjaC9yaXNjdi9rdm0v
+dmNwdS5jCmluZGV4IDBjNTIzOWUwNTcyMS4uY2FhZjgyNDM0N2I5IDEwMDY0NAotLS0gYS9hcmNo
+L3Jpc2N2L2t2bS92Y3B1LmMKKysrIGIvYXJjaC9yaXNjdi9rdm0vdmNwdS5jCkBAIC05MCw2ICs5
+MCw3IEBAIGludCBrdm1fYXJjaF92Y3B1X3ByZWNyZWF0ZShzdHJ1Y3Qga3ZtICprdm0sIHVuc2ln
+bmVkIGludCBpZCkKIGludCBrdm1fYXJjaF92Y3B1X2NyZWF0ZShzdHJ1Y3Qga3ZtX3ZjcHUgKnZj
+cHUpCiB7CiAJc3RydWN0IGt2bV9jcHVfY29udGV4dCAqY250eDsKKwlzdHJ1Y3Qga3ZtX3ZjcHVf
+Y3NyICpyZXNldF9jc3IgPSAmdmNwdS0+YXJjaC5ndWVzdF9yZXNldF9jc3I7CiAKIAkvKiBNYXJr
+IHRoaXMgVkNQVSBuZXZlciByYW4gKi8KIAl2Y3B1LT5hcmNoLnJhbl9hdGxlYXN0X29uY2UgPSBm
+YWxzZTsKQEAgLTEwNiw2ICsxMDcsOSBAQCBpbnQga3ZtX2FyY2hfdmNwdV9jcmVhdGUoc3RydWN0
+IGt2bV92Y3B1ICp2Y3B1KQogCWNudHgtPmhzdGF0dXMgfD0gSFNUQVRVU19TUFZQOwogCWNudHgt
+PmhzdGF0dXMgfD0gSFNUQVRVU19TUFY7CiAKKwkvKiBCeSBkZWZhdWx0LCBtYWtlIENZLCBUTSwg
+YW5kIElSIGNvdW50ZXJzIGFjY2Vzc2libGUgaW4gVlUgbW9kZSAqLworCXJlc2V0X2Nzci0+c2Nv
+dW50ZXJlbj0weDc7CisKIAkvKiBTZXR1cCBWQ1BVIHRpbWVyICovCiAJa3ZtX3Jpc2N2X3ZjcHVf
+dGltZXJfaW5pdCh2Y3B1KTsKIAotLSAKMi4yNS4xCgoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
