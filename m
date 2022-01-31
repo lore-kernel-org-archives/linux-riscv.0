@@ -4,26 +4,26 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F98EC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jan 2022 12:19:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C951C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jan 2022 12:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fKnPFlKV9ni1gXrqbIys/Lwum8qfOVQrgXNQOBioFHc=; b=CKY4kRvGPiAvvE
-	J02549akCJcxoNTssCZZvq3SH5uK0J/tFG96O7npb7yT1AwYsfdY3QflLBGlffTYWYsg+N8+VGHV/
-	k2SMLigWG/SA9q4pr32Nod9OWaCC9wJd5PPYbKetYiLgpmN3UZvBgCcDsJUTvBd9rdXBOiJYjH46V
-	QQgByABunUn2NKvZMr+eoDfkvrrfvBh5pQQ7vLJ3gaRpHllaFepfssYZz+QgTyQ0mwNqoul12poiu
-	N5RSEyy7DBbVp01X1Sc2tWDZ/XaMZCxcTRMFQ2aDFpVCUN7Pmx9kWSnYVn8fHp/d+KsufGZtSJgpq
-	w0bOhDqcZmI5Gmp1vqvw==;
+	List-Owner; bh=fKnPFlKV9ni1gXrqbIys/Lwum8qfOVQrgXNQOBioFHc=; b=Ye9UMCA+dth+BT
+	mI4SvmuIxoR4ZJ/j/f6Qa8J6eo7QuZZRUugaG2IxqvyJH52De7FIxP23QKpHzRAjE+USy8LTMjbZk
+	GLvRcTum9S0GY69zZcxlCnlhEK4cM/KBSzsMH8qS6C/e86o1y30Llcj9L5qtxdak/8n1jKmh3QbpW
+	hAP7jKo/mou+/jus4u/Cet56W2ysr3l8GzjFmQ8lZmv/Ug8861KAtEWmI9GiHJGYLvRx8RAr3crmK
+	Uf51FV5bxB7GBfryVXIA73Um8Rmqru8mzEjAvKgiug4bRezS5dP/6iaYzj1akut8WBncRxApyDDpI
+	VFqMielxKK45O30Og4lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nEVeB-009IO9-19; Mon, 31 Jan 2022 12:19:03 +0000
+	id 1nEVez-009Iaq-Ic; Mon, 31 Jan 2022 12:19:53 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.94.2 #2 (Red
- Hat Linux)) id 1nEVe8-009INd-1R; Mon, 31 Jan 2022 12:19:00 +0000
-Date: Mon, 31 Jan 2022 04:19:00 -0800
+ Hat Linux)) id 1nEVex-009IZs-RP; Mon, 31 Jan 2022 12:19:51 +0000
+Date: Mon, 31 Jan 2022 04:19:51 -0800
 From: Christoph Hellwig <hch@infradead.org>
 To: guoren@kernel.org
 Cc: palmer@dabbelt.com, arnd@arndb.de, anup@brainfault.org,
@@ -35,13 +35,13 @@ Cc: palmer@dabbelt.com, arnd@arndb.de, anup@brainfault.org,
  linuxppc-dev@lists.ozlabs.org, linux-parisc@vger.kernel.org,
  linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  x86@kernel.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V4 01/17] kconfig: Add SYSVIPC_COMPAT for all architectures
-Message-ID: <YffTtHYdvZA9kGLY@infradead.org>
+Subject: Re: [PATCH V4 02/17] fs: stat: compat: Add __ARCH_WANT_COMPAT_STAT
+Message-ID: <YffT55NEoBoZhuee@infradead.org>
 References: <20220129121728.1079364-1-guoren@kernel.org>
- <20220129121728.1079364-2-guoren@kernel.org>
+ <20220129121728.1079364-3-guoren@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220129121728.1079364-2-guoren@kernel.org>
+In-Reply-To: <20220129121728.1079364-3-guoren@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
