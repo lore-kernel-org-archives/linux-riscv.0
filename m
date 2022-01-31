@@ -4,74 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FA04C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jan 2022 04:17:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BE5CC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jan 2022 06:23:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8JgNqNEPooe/Er5zNrQALRV4k7o9aScmt0QTUDfq3nM=; b=F4CMhXzyMoblRJ
-	ArW6MYXpJibY2PiV4nyLElDRKRTolzvfYZGMQLj7NBd1RIWw0lXtAR3aa2EUWQ9oUrHAo2KlFxPXt
-	moqI1tUvbu2POg6STh2w7yMqne9tN+uKnyV60SEo+kZQiFQLhdRmbTJcS/7wJMly1v4/nH7O6V+Pw
-	i0gao7Ps85AnHe0roFzozx1P3ZwOug3AhZ71ciL7sdoXfZdfJCPCzonP3NjmMWm9mnhufmua+69p7
-	hX620HfuXGDfpYCxHv3rUMsKLZeOA1oJkqooC3exV45akfLqCK6fdgbzYTar1LKMdC3WGixc9l2nS
-	ndVcQ6gBPomp/2vR6pAA==;
+	List-Owner; bh=lAC/id8hPxl0ZQSllu9vyOCkuW5gODw81qAOckuHghc=; b=DOgBMAYQ9BhVin
+	6UlZkw1GzFNpMZHEHX87uJH5XwIOhtFwdeWfbCY2WLVzqhEwzoj64I1DVf+2u55LfJMEPEy4Rq4WB
+	mdMAtQn2XBRgR072pkdzpW23vXiaJ5F/5ygL9WhSlEmlLM9orgjc4+/16tDLLWfKSFz4LZ2Q90GvR
+	cV/Pu8/1fcTM+mShaouYgWg6QE2A4ZnITcc5VB1flMvPIa5YUPwappZmu1w3mOk+4X45Uylvj9FCr
+	DmzxFHgHSamknKYXGX5MJYp6Xx/YiScmRfqhgBqZkRPoIrO53WvUkDSU1rm0ok7oyX7+UWnbELYzW
+	3+PS99iUmR48tz3/uo8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nEO84-007zPk-IR; Mon, 31 Jan 2022 04:17:24 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1nEQ60-0087nV-Ob; Mon, 31 Jan 2022 06:23:24 +0000
+Received: from smtp-out1.suse.de ([195.135.220.28])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nEO81-007zOx-OQ
- for linux-riscv@lists.infradead.org; Mon, 31 Jan 2022 04:17:23 +0000
-Received: by mail-wm1-x331.google.com with SMTP id
- f202-20020a1c1fd3000000b0034dd403f4fbso8475852wmf.1
- for <linux-riscv@lists.infradead.org>; Sun, 30 Jan 2022 20:17:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=8HnH9Zt6R9fMT+vzNU6lZCDo2VCXBihuUUKx7xESYC4=;
- b=0eomZB6oDi+B2PWHxL749knbLFreIeZoy97lij1LRfXB9GM1IDHoeX87wMHRFVMpRW
- mZQKccb+LLGrXoFeBn8JeYS4oL+nEovgL98ccI4ifqSpbQtieKS5bOYSbvhXqMvrObwm
- qXLU185eoDiLIw9+hfivqFudXrjxwwj4P3xcRWnQu53fgYhtG2uoZh8+QwmviA907yI6
- 4F0qU/H/gzY7geH/J6lYqcrywqPwZqkqhRHk+8N5uAndk317jHDHWCYS3I7q19PjlwzK
- 6ogFaV6lAC+znFXrPWYBe14i2LSYVkkODrvLmmRIfN9YU7xR6iGeskBiJSZFYnpWRn74
- Ds7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=8HnH9Zt6R9fMT+vzNU6lZCDo2VCXBihuUUKx7xESYC4=;
- b=IDIHvghC+ksdmTTpCEZFvGBCvxcxsCYPnkG7zuSmzUcFF2DtWOQjUKHX0wS3saNdz9
- CMPoGxiSqynzQTVsSnYgeKwBLXDxCMorSg5YWlrYkKSNdBdScigen9Yabxbrdj2iHOA/
- xC1LUe88VXCXHa7ELlUcWjIO8PXi8vju9qYq5LEmWTgTzCeKgKj1mP3DdkVevR2aVOBQ
- 4RlvN50M91xVvKtSa5xgofm/TICN0ZS/NuliU/1GCr7yVV7wep1+SEIthHPHKpTcDVXR
- 7U9eo49VHWXa8ZYt5NMqm2+Y8CHyvZk0SRsvJoAJO0wQcU89kTlUJDF8Pu2wQXP7BfjN
- 1Org==
-X-Gm-Message-State: AOAM532qj6zGMXa9MT1FJqLfRrWXbPdf7wiCRzdfWeD0ZKPUwNBFrHgD
- 9AdkC7dijM3ataB25pInpeCRGAgKSHo7w05DDuE0gQ==
-X-Google-Smtp-Source: ABdhPJzVMzJp/elZCaxwqku1hZwYdiGLhgfcNoVLwLf27ozYDMCaPEGd8/rdnwQeKt1LHLsO+LAlMfv7evAMDGmJ/F0=
-X-Received: by 2002:a1c:750f:: with SMTP id o15mr16545257wmc.137.1643602639403; 
- Sun, 30 Jan 2022 20:17:19 -0800 (PST)
+ id 1nEQ5o-0087ko-OU; Mon, 31 Jan 2022 06:23:14 +0000
+Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+ (No client certificate requested)
+ by smtp-out1.suse.de (Postfix) with ESMTPS id 622DD21116;
+ Mon, 31 Jan 2022 06:23:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+ t=1643610186; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=glFJZo9ETm7z/ROJWLizrW+pr8HZoGe/q8WkURW8RkQ=;
+ b=w8KMAEvyM5acD//MgH4CajE1JEJz8SxcqA0XTBpjOLdP3Y3DfOPgmknPgt6vMEQSu2UxKr
+ u3k9g5AC6FK3rteUS6oQ2W4X6pdLAj2nmcydWV74bIC4MaopLhoOsqvmK/IQCZkgUjj+nU
+ t+q5jmvCPZIh0ma+eKW6RgMXyvuYuxQ=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+ s=susede2_ed25519; t=1643610186;
+ h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=glFJZo9ETm7z/ROJWLizrW+pr8HZoGe/q8WkURW8RkQ=;
+ b=TDQphaJNby4XljQkkKeL0ahZQdHJQgHaQp8Z41WoJRUMdR2cjZ5r7SYEkGg5JZegoMuWcn
+ bVZwx8tB3cZ/YtBg==
+Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+ (No client certificate requested)
+ by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 4E00713A89;
+ Mon, 31 Jan 2022 06:23:04 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([192.168.254.65])
+ by imap2.suse-dmz.suse.de with ESMTPSA id kb0eD0iA92GYMAAAMHmgww
+ (envelope-from <osalvador@suse.de>); Mon, 31 Jan 2022 06:23:04 +0000
+Date: Mon, 31 Jan 2022 07:23:02 +0100
+From: Oscar Salvador <osalvador@suse.de>
+To: David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Michal Hocko <mhocko@suse.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ "David S. Miller" <davem@davemloft.net>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org
+Subject: Re: [PATCH RFC v1] drivers/base/node: consolidate node device
+ subsystem initialization in node_dev_init()
+Message-ID: <YfeARpenqPii1WQH@localhost.localdomain>
+References: <20220128151540.164759-1-david@redhat.com>
 MIME-Version: 1.0
-References: <20220111010454.126241-1-yang.lee@linux.alibaba.com>
-In-Reply-To: <20220111010454.126241-1-yang.lee@linux.alibaba.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 31 Jan 2022 09:47:05 +0530
-Message-ID: <CAAhSdy1xnb=D70rHkewRka6_-bT0+7JAMTYc3fM1MRjs+s1uRQ@mail.gmail.com>
-Subject: Re: [PATCH -next] RISC-V: KVM: remove unneeded semicolon
-To: Yang Li <yang.lee@linux.alibaba.com>
-Cc: Atish Patra <atishp@atishpatra.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- KVM General <kvm@vger.kernel.org>, kvm-riscv@lists.infradead.org, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Abaci Robot <abaci@linux.alibaba.com>
+Content-Disposition: inline
+In-Reply-To: <20220128151540.164759-1-david@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220130_201721_873506_9750BFBA 
-X-CRM114-Status: GOOD (  14.43  )
+X-CRM114-CacheID: sfid-20220130_222312_987987_2DB7672F 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,39 +106,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 11, 2022 at 6:35 AM Yang Li <yang.lee@linux.alibaba.com> wrote:
->
-> Eliminate the following coccicheck warning:
-> ./arch/riscv/kvm/vcpu_sbi_v01.c:117:2-3: Unneeded semicolon
->
-> Reported-by: Abaci Robot <abaci@linux.alibaba.com>
-> Signed-off-by: Yang Li <yang.lee@linux.alibaba.com>
+On Fri, Jan 28, 2022 at 04:15:40PM +0100, David Hildenbrand wrote:
+> ... and call node_dev_init() after memory_dev_init() from driver_init(),
+> so before any of the existing arch/subsys calls. All online nodes should
+> be known at that point.
+> 
+> This is in line with memory_dev_init(), which initializes the memory
+> device subsystem and creates all memory block devices.
+> 
+> Similar to memory_dev_init(), panic() if anything goes wrong, we don't
+> want to continue with such basic initialization errors.
+> 
+> The important part is that node_dev_init() gets called after
+> memory_dev_init() and after cpu_dev_init(), but before any of the
+> relevant archs call register_cpu() to register the new cpu device under
+> the node device. The latter should be the case for the current users
+> of topology_init().
 
-Thanks, I have queued this patch for 5.18
+So, before this change we had something like this:
 
-Regards,
-Anup
+do_basic_setup
+ driver_init
+  memory_dev_init
+ do_init_calls
+  ...
+   topology_init
+    register_nodes/register_one_node
 
-> ---
->  arch/riscv/kvm/vcpu_sbi_v01.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/kvm/vcpu_sbi_v01.c b/arch/riscv/kvm/vcpu_sbi_v01.c
-> index 4c7e13ec9ccc..9acc8fa21d1f 100644
-> --- a/arch/riscv/kvm/vcpu_sbi_v01.c
-> +++ b/arch/riscv/kvm/vcpu_sbi_v01.c
-> @@ -114,7 +114,7 @@ static int kvm_sbi_ext_v01_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
->         default:
->                 ret = -EINVAL;
->                 break;
-> -       };
-> +       }
->
->         return ret;
->  }
-> --
-> 2.20.1.7.g153144c
->
+And after the patch all happens in driver_init()
+
+driver_init
+ memory_dev_init
+ node_dev_init
+
+I guess this is fine as we do not have any ordering problems (aka: none
+of the functions we used to call before expect the nodes not to be
+there for some weird reason).
+
+So, no functional change, right?
+
+This certainly looks like an improvment. 
+
+-- 
+Oscar Salvador
+SUSE Labs
 
 _______________________________________________
 linux-riscv mailing list
