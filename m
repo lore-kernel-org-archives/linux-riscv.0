@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C77AC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jan 2022 09:41:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE7A4C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jan 2022 09:41:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Pk9h95r+YsNaEKuT0ehPCXFWMehdWnLjRV4S9en2A9E=; b=m6uH81vO71mTVL
-	bQZYyj00P2Xd9VX42PSlup1qIHocZRTXC5fbp+IixIY+6GECjoZKlM9c55z+I/U1jYJgQtJYEVHf6
-	701DX1eAQNwkxR7Ni4J7fFOMuIiJMUbo9UfMp2xYv1Flgqgrn3I/F/LoVofks24aIOk1pR0aV4kOI
-	LMTPCJL+aJT+I4MPLOY9PrTXZyTtP6EReJVQCwKh3Fa31CDFnLnGpEPgmhuSdDjk3X0Pcqw2i4OWz
-	UuOiFZPNNpp2otOl4arVP/tUcUhPokqUY4lWRmpCA8jt6EQ+zC+/r0FIEh3o9Ypb8Tq3Se4ZGPMLb
-	JbkFRFoSvRmZhkBb2eYg==;
+	List-Owner; bh=ciKp0cJY3ZlRkiDNtyNFFz9lgc638qVob9KgY3lRFaY=; b=n+kYCsoKOLqfEg
+	DvMJDT8H5f9sMCmL3REhkYo2UdRKCztdGrqLqrKQ+dopr2oPep3vXLuYELBOXXTpDbE3VVsq4paAY
+	+khYq8dH/DyDC7Yh/vWLYfxzImrO64jSnvS3p/ifMGN3t/viHUKWQjlt3pKsoiCq6bYGBJATmkUMa
+	apoOHrFR1zxcCnIHkBJlQniP5Hd5J8Qsv35JXf7pxOUv7kSoNmT5inuj6FMCHS27XOsFVBaEWMD8w
+	2U2EyCJ+HCQBZurY6NBCe3EZeujtw9E5GDc9TiynTkWojOG/EqIwsMIRCxaeM59xBqLHNG9pZMa6x
+	r3trZxbnuUV82e3fgPrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nETBG-008gGr-6K; Mon, 31 Jan 2022 09:41:02 +0000
+	id 1nETBx-008gSY-Pw; Mon, 31 Jan 2022 09:41:45 +0000
 Received: from smtp-out2.suse.de ([195.135.220.29])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nETB3-008gCm-69; Mon, 31 Jan 2022 09:40:50 +0000
+ id 1nETBj-008gMn-81; Mon, 31 Jan 2022 09:41:32 +0000
 Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
  (No client certificate requested)
- by smtp-out2.suse.de (Postfix) with ESMTPS id 42D361F380;
- Mon, 31 Jan 2022 09:40:47 +0000 (UTC)
+ by smtp-out2.suse.de (Postfix) with ESMTPS id D40441F386;
+ Mon, 31 Jan 2022 09:41:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
- t=1643622047; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ t=1643622089; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
  mime-version:mime-version:content-type:content-type:
  in-reply-to:in-reply-to:references:references;
- bh=Y00ZKxq/dpqUDwh0rX8TbLgQbvVTvbkuCSKi0GTnT4o=;
- b=TAvjGCxBgtVEooteuwYwy7uWXHIEi1iRNO342s4/jJ+IIGBmHSjZzV5GBJojCxowtd9VF/
- o3CAUfL8yGH9rRehhR4/C5FstjONcFAU8j7o3FYVmx80A08KFhFcu/K4azbvNlmWYom+Ua
- 6mK0Ha0OUepOw9iyGtTEgdVyGEbI2ng=
+ bh=JzKQsvVlnpndbALvMTXcll7uzoa8T8eje3Q/bEI6mLM=;
+ b=whj9BP6WhckdM25U/uFRLjh/5qEA3XBP2rJPmH/OFUiuQqSEmH4Kse73Ly2XNl7aeGy0D3
+ 01nHUqxo5dFMLh/5OT1osDi6I//FYqxJOBWDlV7Pa2kDxDqS7SZU6eGFbFwhiIxa2yrWJn
+ q2KzYMXrYzBSbk968nxUdzIBj5Xav5c=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
- s=susede2_ed25519; t=1643622047;
+ s=susede2_ed25519; t=1643622089;
  h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
  mime-version:mime-version:content-type:content-type:
  in-reply-to:in-reply-to:references:references;
- bh=Y00ZKxq/dpqUDwh0rX8TbLgQbvVTvbkuCSKi0GTnT4o=;
- b=xUgFlc+6YdMvHQgFdTVnfhl595dV1vnsZnMruHRjkkwO5586I6U3elglHK3ZC5shbyTZxG
- 3d8GjzSobgWcibCQ==
+ bh=JzKQsvVlnpndbALvMTXcll7uzoa8T8eje3Q/bEI6mLM=;
+ b=hfnhf0Ax+T4HdOjPQUboSd+ahGSEWUJYPr8iA9X+hUzJN0iQJC+aThno6atUOIFQQBrLSh
+ W6EpHbrVTLIU+YBw==
 Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
  (No client certificate requested)
- by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 7204D13B68;
- Mon, 31 Jan 2022 09:40:45 +0000 (UTC)
+ by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 366CE13B68;
+ Mon, 31 Jan 2022 09:41:28 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([192.168.254.65])
- by imap2.suse-dmz.suse.de with ESMTPSA id f0PrF52u92G+DgAAMHmgww
- (envelope-from <osalvador@suse.de>); Mon, 31 Jan 2022 09:40:45 +0000
-Date: Mon, 31 Jan 2022 10:40:43 +0100
+ by imap2.suse-dmz.suse.de with ESMTPSA id 2RKbCsiu92FODwAAMHmgww
+ (envelope-from <osalvador@suse.de>); Mon, 31 Jan 2022 09:41:28 +0000
+Date: Mon, 31 Jan 2022 10:41:26 +0100
 From: Oscar Salvador <osalvador@suse.de>
 To: David Hildenbrand <david@redhat.com>
 Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
@@ -82,17 +82,15 @@ Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
  linux-sh@vger.kernel.org, sparclinux@vger.kernel.org
 Subject: Re: [PATCH RFC v1] drivers/base/node: consolidate node device
  subsystem initialization in node_dev_init()
-Message-ID: <20220131094041.GA15392@linux>
+Message-ID: <20220131094125.GB15392@linux>
 References: <20220128151540.164759-1-david@redhat.com>
- <YfeARpenqPii1WQH@localhost.localdomain>
- <3be2e20c-f0b9-c080-adf4-b0e17c046eb0@redhat.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <3be2e20c-f0b9-c080-adf4-b0e17c046eb0@redhat.com>
+In-Reply-To: <20220128151540.164759-1-david@redhat.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220131_014049_404142_1BB4113A 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20220131_014131_465149_18A36AFB 
+X-CRM114-Status: GOOD (  19.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,27 +107,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 31, 2022 at 08:48:54AM +0100, David Hildenbrand wrote:
-> Hi Oscar,
+On Fri, Jan 28, 2022 at 04:15:40PM +0100, David Hildenbrand wrote:
+> ... and call node_dev_init() after memory_dev_init() from driver_init(),
+> so before any of the existing arch/subsys calls. All online nodes should
+> be known at that point.
+> 
+> This is in line with memory_dev_init(), which initializes the memory
+> device subsystem and creates all memory block devices.
+> 
+> Similar to memory_dev_init(), panic() if anything goes wrong, we don't
+> want to continue with such basic initialization errors.
+> 
+> The important part is that node_dev_init() gets called after
+> memory_dev_init() and after cpu_dev_init(), but before any of the
+> relevant archs call register_cpu() to register the new cpu device under
+> the node device. The latter should be the case for the current users
+> of topology_init().
+> 
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> Cc: Michal Hocko <mhocko@suse.com>
+> Cc: Oscar Salvador <osalvador@suse.de>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+> Cc: Michael Ellerman <mpe@ellerman.id.au>
+> Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
+> Cc: Paul Mackerras <paulus@samba.org>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: Heiko Carstens <hca@linux.ibm.com>
+> Cc: Vasily Gorbik <gor@linux.ibm.com>
+> Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
+> Cc: Rich Felker <dalias@libc.org>
+> Cc: "David S. Miller" <davem@davemloft.net>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: Borislav Petkov <bp@alien8.de>
+> Cc: Dave Hansen <dave.hansen@linux.intel.com>
+> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+> Cc: x86@kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-ia64@vger.kernel.org
+> Cc: linux-mips@vger.kernel.org
+> Cc: linuxppc-dev@lists.ozlabs.org
+> Cc: linux-riscv@lists.infradead.org
+> Cc: linux-s390@vger.kernel.org
+> Cc: linux-sh@vger.kernel.org
+> Cc: sparclinux@vger.kernel.org
+> Cc: linux-mm@kvack.org
+> Signed-off-by: David Hildenbrand <david@redhat.com>
 
-Hi David :-),
+Reviewed-by: Oscar Salvador <osalvador@suse.de>
 
-> Right, and the idea is that the online state of nodes (+ node/zone
-> ranges) already has to be known at that point in time, because
-> otherwise, we'd be in bigger trouble.
-
-Yeah, I wanted to check where exactly did we mark the nodes online,
-and for the few architectures I checked it happens in setup_arch(),
-which is called very early in start_kernel(), while driver_init()
-gets called through arch_call_rest_init(), which happens at the end
-of the function.
-
-I am not sure whether we want to remark that somehow in the changelog,
-so it is crystal clear that by the time the node_dev_init() gets called,
-we already set the nodes online.
-
-Anyway, just saying, but is fine as is.
- 
 
 -- 
 Oscar Salvador
