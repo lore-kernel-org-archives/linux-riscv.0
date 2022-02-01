@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3AC5C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Feb 2022 08:24:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00522C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Feb 2022 08:24:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7tYcs2LAjbU7YhQwEiQlcHoyozLswSIt/BIich+hEzE=; b=QmTyewvoDF9LGd
-	UmwLjUpIpsO/A54vBYxb5g4kb8fR7ziGdYpAcgVMFgpQC7B40kbjSg4gHNRAsvOUSI2F9A9ErwI0H
-	rHgROtZWpG3sC7K8C70UUyIVTYxm47Vg94UnyCScHew2K7du/GBVMWxNW2X4NUY1mNWUSM3ScjZ1k
-	CX7EtsGMj25/R3vMrk3O2uekrXfDj2lpO+p5FkBs3yXeD44+nW+vsUWnRSDOEgBLypkk25NmIf4Ar
-	yIwfrHj8Vx0VCe+OWrtInDsVfsMZh/vmUKNmyLeelsGmc/Oxjmn0RzqyCfYfL/XtCucdgNvcNnrcv
-	PZ1M9ukXEE57UYbvltoQ==;
+	List-Owner; bh=Zn7xV80s87dQwzWoTLQn/qltFp8j3RV4/oSbqozLu6A=; b=hQggGMEpX4jp2O
+	+beTPtudDgevmyhYEszQx1ll1Eg+ST4rn1UZKRr8C6oXAhMX9Fn6z4dwf3X3WWERQEKXMQ5gREPey
+	MitER6ir3rs/ZrxWGcD8kDlozwHhsTDf0zw8ixkYb0W5fenGtrZJpjVcgm8beLjiGjfvLHVDu/PZ4
+	R859mQqsa9bQzBIr7W9+kdmaOT91Kok4sp+IWluA+EwzuOq7KcgKWlnbv6BKQFYmYUvLvYvzAfkOs
+	rSrNHFgErIXP3EiEAgeaQ5XfGA7l28tXWIGnKodjiUSbQPd6Jv7LKIFHQche5sttBkvoJgj8ZJcoT
+	lT9ZdU8Ore/cDqdlLU7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nEoSE-00BW6w-6P; Tue, 01 Feb 2022 08:23:58 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1nEoSI-00BWB0-Vi; Tue, 01 Feb 2022 08:24:02 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nEoSA-00BW2k-Qx
- for linux-riscv@lists.infradead.org; Tue, 01 Feb 2022 08:23:56 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id l5so32379227edv.3
- for <linux-riscv@lists.infradead.org>; Tue, 01 Feb 2022 00:23:54 -0800 (PST)
+ id 1nEoSF-00BW7w-WE
+ for linux-riscv@lists.infradead.org; Tue, 01 Feb 2022 08:24:01 +0000
+Received: by mail-ej1-x634.google.com with SMTP id k25so51272008ejp.5
+ for <linux-riscv@lists.infradead.org>; Tue, 01 Feb 2022 00:23:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=ventanamicro.com; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=T8jkwpaTNUs5ESeTMvPF9Tbpyy5JKY953H6W28s28Gw=;
- b=ngcy4rQ1Tpgrp9QzjvjPpqlVgEEEjqUKlV9f6VgLlo3oZPaCeQ7cPAESbm6F2HSzDM
- paNnr/LcQOSSotljA3esNoziLPThU5dSkiW4AQT1KrCJ9zkf1JDCYAN6aKYxd8akcqcX
- jvZxUF3iKLDGyAi9OE7LyyWgCLx3i7/oiQWaRChkSaQ1gOBdS9wRWZz6Ptio+n8+qEr8
- 9X1Np23oxzKTJSrFLRSmuLariV7eZqgzOOOkc4O9OgvbIc36GNjHYi4hXo/br2l0I8Aa
- y3IYbsaAGoRHvL+OFw2J90Y6uFAA+dp+NYQxTJ6hzTuVNihOXwkIQevryg1IPiuLIAC/
- Dn1w==
+ bh=zwd/8cqd/uyZjzuw2VQObQyskOR01to1ElscGOXTIT4=;
+ b=eC4DiGIz7XiaA9N2mXQL7I9xjW9v59lcMo3xOM1zS2qqTt/VkyB+tuaweSHrA5kejn
+ 5RU1BDgKui2WEL+B2hxVm1uW7QYKdSwgtNyoXUAMRjAKUd4dZ40F+QJQOFFybxqyq8vj
+ 2dg4BMMDM9vVVSpON2vnjF6NN/QnuJg/Bh2JYpa+cF1HLxl2nRkF8ylog15N/wqvvMGt
+ EjvaWUF7iui9SmZVdHL4VFa3LeHay3Y2Fk7rHK8a9nTLxvSQ4pOhVSvOMms4Y6JcCHNr
+ T+15e7UQ3Usi38CmXaVnBjrFS4wbDNAAZzku4LCT7OLl7seLooxbJWmh7HSVGaUkWiuq
+ uxgg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=T8jkwpaTNUs5ESeTMvPF9Tbpyy5JKY953H6W28s28Gw=;
- b=T2QtWQHGJpAp+BLE69OTcY8WvFgYQTyK6wua8XOW11luB2huQET+A9BDLBcsoW9434
- Y9iekwGcUjpCWym5QDMOA8QjAJCNbCG1LmB3235/K2vHCiWfIc3C8pCXz7UbQNIzDTit
- Wog1o8h+azlXjJg9BZvLBuJNid780CCDQb331uhbYRPpIoEs+jR188pAu++Cqaik0ukB
- a9N5uyh0caLwE6TR3EYtnPgv26/g54jdBu/XOSy4dz4SwpUAUyguqtKYDd2up5A291lN
- zjzNO6PunowV4nFprV/FsO4YMhqVD9UjORgciNh1Q8k8pyHmn70iLWnc71OsTS0zw2n5
- 6URQ==
-X-Gm-Message-State: AOAM5329qWK/cO7pQiyfJw0K5vYSGFCGr8jw/fbMuLMAk1mZd+mFMu1Y
- qobrgiHQXAMeq+pwIW7N/L7aAQ==
-X-Google-Smtp-Source: ABdhPJxMN4igBjnNAWqvjNJdPlsojVXp0jfP8pzdoErz1Lbcla7jF8s1hXlmk0ufOTGHDHY8aA6Zkg==
-X-Received: by 2002:a05:6402:1774:: with SMTP id
- da20mr24004748edb.372.1643703833389; 
- Tue, 01 Feb 2022 00:23:53 -0800 (PST)
+ bh=zwd/8cqd/uyZjzuw2VQObQyskOR01to1ElscGOXTIT4=;
+ b=jTwTjCOENwXfJn360AdpHFE0LZwTm9z/6lKYN75TTh4qLFAGZmpEQTAQ7HlT8fU9kK
+ 3zhWmvWaURKAbUNuRsK+u42AdIThzHldg0QXuUh/oCa3CWGL9JDZbd9w7rrPrEVZgW9z
+ OJ3sR4FrcVJXqykFI0zj137BBwG7xZhFfWQzreqQ/dst5mxX68zyHXNOpEyHgFy1mnP4
+ ZtBc+X8C1kx4cndJ6LPWZGUVqJ1/OrLsRk7eTQYQaT4jyreit7rhQhjuNfYOKdqY7vVi
+ aX60f6VYS2atmxJi7szuLLPWYRYi823xi3tKOBhfANiLsiXHdpe1cydCk+FBVOsp9HwL
+ T81Q==
+X-Gm-Message-State: AOAM530NQESAutAv30+pcclJxGxdXNCmL+xOg473N0fmRhn7RTSGNqJO
+ KdK7+om6dOyf4PDqUtayl6pO/Q==
+X-Google-Smtp-Source: ABdhPJy31giTDwE4wqN8u2biPEhaGB3Em2a9I6VCEGluXT0OlIBYWCHXDm+THh+U/KZhqQ92c9Ew+Q==
+X-Received: by 2002:a17:907:6ea0:: with SMTP id
+ sh32mr21034992ejc.460.1643703838800; 
+ Tue, 01 Feb 2022 00:23:58 -0800 (PST)
 Received: from localhost.localdomain ([122.179.76.38])
- by smtp.gmail.com with ESMTPSA id w8sm14312133ejq.220.2022.02.01.00.23.48
+ by smtp.gmail.com with ESMTPSA id w8sm14312133ejq.220.2022.02.01.00.23.53
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 01 Feb 2022 00:23:52 -0800 (PST)
+ Tue, 01 Feb 2022 00:23:58 -0800 (PST)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Atish Patra <atishp@atishpatra.org>
@@ -69,16 +69,16 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
  Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 3/6] RISC-V: KVM: Implement SBI v0.3 SRST extension
-Date: Tue,  1 Feb 2022 13:52:24 +0530
-Message-Id: <20220201082227.361967-4-apatel@ventanamicro.com>
+Subject: [PATCH 4/6] RISC-V: Add SBI HSM suspend related defines
+Date: Tue,  1 Feb 2022 13:52:25 +0530
+Message-Id: <20220201082227.361967-5-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220201082227.361967-1-apatel@ventanamicro.com>
 References: <20220201082227.361967-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220201_002354_919132_63A1E33D 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20220201_002400_090084_4D8AF32E 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,88 +95,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The SBI v0.3 specification defines SRST (System Reset) extension which
-provides a standard poweroff and reboot interface. This patch implements
-SRST extension for the KVM Guest.
+We add defines related to SBI HSM suspend call and also update HSM states
+naming as-per the latest SBI specification.
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- arch/riscv/kvm/vcpu_sbi.c         |  2 ++
- arch/riscv/kvm/vcpu_sbi_replace.c | 44 +++++++++++++++++++++++++++++++
- 2 files changed, 46 insertions(+)
+ arch/riscv/include/asm/sbi.h    | 27 ++++++++++++++++++++++-----
+ arch/riscv/kernel/cpu_ops_sbi.c |  2 +-
+ arch/riscv/kvm/vcpu_sbi_hsm.c   |  4 ++--
+ 3 files changed, 25 insertions(+), 8 deletions(-)
 
-diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
-index 11ae4f621f0d..a09ecb97b890 100644
---- a/arch/riscv/kvm/vcpu_sbi.c
-+++ b/arch/riscv/kvm/vcpu_sbi.c
-@@ -45,6 +45,7 @@ extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_base;
- extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_time;
- extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_ipi;
- extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_rfence;
-+extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_srst;
- extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_hsm;
- extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_experimental;
- extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_vendor;
-@@ -55,6 +56,7 @@ static const struct kvm_vcpu_sbi_extension *sbi_ext[] = {
- 	&vcpu_sbi_ext_time,
- 	&vcpu_sbi_ext_ipi,
- 	&vcpu_sbi_ext_rfence,
-+	&vcpu_sbi_ext_srst,
- 	&vcpu_sbi_ext_hsm,
- 	&vcpu_sbi_ext_experimental,
- 	&vcpu_sbi_ext_vendor,
-diff --git a/arch/riscv/kvm/vcpu_sbi_replace.c b/arch/riscv/kvm/vcpu_sbi_replace.c
-index 1bc0608a5bfd..0f217365c287 100644
---- a/arch/riscv/kvm/vcpu_sbi_replace.c
-+++ b/arch/riscv/kvm/vcpu_sbi_replace.c
-@@ -130,3 +130,47 @@ const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_rfence = {
- 	.extid_end = SBI_EXT_RFENCE,
- 	.handler = kvm_sbi_ext_rfence_handler,
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index d1c37479d828..06133b4f8e20 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -71,15 +71,32 @@ enum sbi_ext_hsm_fid {
+ 	SBI_EXT_HSM_HART_START = 0,
+ 	SBI_EXT_HSM_HART_STOP,
+ 	SBI_EXT_HSM_HART_STATUS,
++	SBI_EXT_HSM_HART_SUSPEND,
  };
+ 
+-enum sbi_hsm_hart_status {
+-	SBI_HSM_HART_STATUS_STARTED = 0,
+-	SBI_HSM_HART_STATUS_STOPPED,
+-	SBI_HSM_HART_STATUS_START_PENDING,
+-	SBI_HSM_HART_STATUS_STOP_PENDING,
++enum sbi_hsm_hart_state {
++	SBI_HSM_STATE_STARTED = 0,
++	SBI_HSM_STATE_STOPPED,
++	SBI_HSM_STATE_START_PENDING,
++	SBI_HSM_STATE_STOP_PENDING,
++	SBI_HSM_STATE_SUSPENDED,
++	SBI_HSM_STATE_SUSPEND_PENDING,
++	SBI_HSM_STATE_RESUME_PENDING,
+ };
+ 
++#define SBI_HSM_SUSP_BASE_MASK			0x7fffffff
++#define SBI_HSM_SUSP_NON_RET_BIT		0x80000000
++#define SBI_HSM_SUSP_PLAT_BASE			0x10000000
 +
-+static int kvm_sbi_ext_srst_handler(struct kvm_vcpu *vcpu,
-+				    struct kvm_run *run,
-+				    unsigned long *out_val,
-+				    struct kvm_cpu_trap *utrap, bool *exit)
-+{
-+	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
-+	unsigned long funcid = cp->a6;
-+	u32 reason = cp->a1;
-+	u32 type = cp->a0;
-+	int ret = 0;
++#define SBI_HSM_SUSPEND_RET_DEFAULT		0x00000000
++#define SBI_HSM_SUSPEND_RET_PLATFORM		SBI_HSM_SUSP_PLAT_BASE
++#define SBI_HSM_SUSPEND_RET_LAST		SBI_HSM_SUSP_BASE_MASK
++#define SBI_HSM_SUSPEND_NON_RET_DEFAULT		SBI_HSM_SUSP_NON_RET_BIT
++#define SBI_HSM_SUSPEND_NON_RET_PLATFORM	(SBI_HSM_SUSP_NON_RET_BIT | \
++						 SBI_HSM_SUSP_PLAT_BASE)
++#define SBI_HSM_SUSPEND_NON_RET_LAST		(SBI_HSM_SUSP_NON_RET_BIT | \
++						 SBI_HSM_SUSP_BASE_MASK)
 +
-+	switch (funcid) {
-+	case SBI_EXT_SRST_RESET:
-+		switch (type) {
-+		case SBI_SRST_RESET_TYPE_SHUTDOWN:
-+			kvm_riscv_vcpu_sbi_system_reset(vcpu, run,
-+						KVM_SYSTEM_EVENT_SHUTDOWN,
-+						reason);
-+			*exit = true;
-+			break;
-+		case SBI_SRST_RESET_TYPE_COLD_REBOOT:
-+		case SBI_SRST_RESET_TYPE_WARM_REBOOT:
-+			kvm_riscv_vcpu_sbi_system_reset(vcpu, run,
-+						KVM_SYSTEM_EVENT_RESET,
-+						reason);
-+			*exit = true;
-+			break;
-+		default:
-+			ret = -EOPNOTSUPP;
-+		}
-+		break;
-+	default:
-+		ret = -EOPNOTSUPP;
-+	}
-+
-+	return ret;
-+}
-+
-+const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_srst = {
-+	.extid_start = SBI_EXT_SRST,
-+	.extid_end = SBI_EXT_SRST,
-+	.handler = kvm_sbi_ext_srst_handler,
-+};
+ enum sbi_ext_srst_fid {
+ 	SBI_EXT_SRST_RESET = 0,
+ };
+diff --git a/arch/riscv/kernel/cpu_ops_sbi.c b/arch/riscv/kernel/cpu_ops_sbi.c
+index dae29cbfe550..2e16f6732cdf 100644
+--- a/arch/riscv/kernel/cpu_ops_sbi.c
++++ b/arch/riscv/kernel/cpu_ops_sbi.c
+@@ -111,7 +111,7 @@ static int sbi_cpu_is_stopped(unsigned int cpuid)
+ 
+ 	rc = sbi_hsm_hart_get_status(hartid);
+ 
+-	if (rc == SBI_HSM_HART_STATUS_STOPPED)
++	if (rc == SBI_HSM_STATE_STOPPED)
+ 		return 0;
+ 	return rc;
+ }
+diff --git a/arch/riscv/kvm/vcpu_sbi_hsm.c b/arch/riscv/kvm/vcpu_sbi_hsm.c
+index 2e383687fa48..1ac4b2e8e4ec 100644
+--- a/arch/riscv/kvm/vcpu_sbi_hsm.c
++++ b/arch/riscv/kvm/vcpu_sbi_hsm.c
+@@ -60,9 +60,9 @@ static int kvm_sbi_hsm_vcpu_get_status(struct kvm_vcpu *vcpu)
+ 	if (!target_vcpu)
+ 		return -EINVAL;
+ 	if (!target_vcpu->arch.power_off)
+-		return SBI_HSM_HART_STATUS_STARTED;
++		return SBI_HSM_STATE_STARTED;
+ 	else
+-		return SBI_HSM_HART_STATUS_STOPPED;
++		return SBI_HSM_STATE_STOPPED;
+ }
+ 
+ static int kvm_sbi_ext_hsm_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
 -- 
 2.25.1
 
