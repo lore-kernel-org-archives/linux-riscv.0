@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC864C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Feb 2022 08:23:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3122C4321E
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Feb 2022 08:23:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=q2Rx6BeAREuaSuF6DQGsXk6YLL5VDrVjTj7IVHX7GqI=; b=nNzHDELBKI1H+l
-	3ZYQ14DJzdIkZhZSe2D18PfOob9JDypL+MH/Uqr94dpB8CnONj+3bcE6kgOXqPJUTCHWDIgbTqB41
-	6fz8QnPVXSCRwL7FsnNWYkPbhjALmYwQWmDLpYGR2QGCjqVqAARs1rZ48nlY5zwt0eGpOBu6kh4Gu
-	KulpsrqhPbqqQv1Mbw5WNTjyMYwNKTMd9dFO5xJErdjCyAEPpc5pmlDtxTTvXsdd+68/rk0QNQu1J
-	rF9+Jh+azrAHfmIv/tRCIIe1zTzZ2vAWRuxOa6LQkMniJbBr7gAdqSHlGm0x/Y2gMcEQwQqRUMg9/
-	g5cT88D5VBrKv0K0pRww==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sKN4A3Q5R1WJmikUp2ghwV+kBNAsTNytpzFvXQmbYUc=; b=hp+fkxassQnZl4
+	c0sw+N9ea7zmC73S52x7TAHDKQny8fCpFhpsD4P64fUSIq45tAb78X8XGPyGM+EP7Iegv9TYzF0XX
+	+ndaC4qIuo4YuLNFX2hXuNJilcZTO9yz5IC3gkHgvzCYsKrB0PVZS8KcawZtdunzgrHcTiMdt06Iz
+	nLfKfBe3sF1choZIAYyCxuxiLkJ9xOvaU4hzSrqz+1ftYF3zS8y3TonvVViLnAhw/EY5DlLx7curH
+	JdrA1pxK5K19z2fv8ZmDrm9X+vPdZfN+Q0RDRYSr91CbcFTll/RuCIWOpoxsZ6qZwetqDDRMS45TQ
+	8UbB/HR5uGAhhumyLZKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nEoRx-00BVwf-P5; Tue, 01 Feb 2022 08:23:41 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1nEoS3-00BVz0-K4; Tue, 01 Feb 2022 08:23:47 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nEoRu-00BVuw-HY
- for linux-riscv@lists.infradead.org; Tue, 01 Feb 2022 08:23:40 +0000
-Received: by mail-ed1-x530.google.com with SMTP id r10so32735183edt.1
- for <linux-riscv@lists.infradead.org>; Tue, 01 Feb 2022 00:23:38 -0800 (PST)
+ id 1nEoS0-00BVwx-NE
+ for linux-riscv@lists.infradead.org; Tue, 01 Feb 2022 08:23:45 +0000
+Received: by mail-ej1-x634.google.com with SMTP id k25so51269772ejp.5
+ for <linux-riscv@lists.infradead.org>; Tue, 01 Feb 2022 00:23:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=ventanamicro.com; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=TFZBlP26iSCuq9pcp8AO1ebVNfyJtN9g48o0eg6YeUo=;
- b=G3B3ewFELNCJK22vhw0g+Z2PMKJnRMsQAO/hHyIzUQh5ZlrFJ5omPuWN5VX0uNvNE0
- EXmGj7q2qs/Qn4+WKa5VtdFR+Xt9d8n40Dv/yCHz14Vyk3lRh6yxM+M9LUrXiFkIeHeb
- ZQCK0qrFQHL+eKagfOP9ECzMyNaPvo672BM1oKLuu+bycdx5S3NCkgPpfyLf4WqOYf67
- AW76rtTOE5V23OXmkTwWvTNsl6R8atv3kK6w/Piw2vK4M22HeNpaqXvrqTJimLZiwGzH
- +fzf4JeDVUBmnVW6jFNFd5c+LptJrQ6VIESRg1DIz3YCvu1//jdcQyqVyP18anMZ+lxW
- wkTQ==
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=moWXwRufmzv2uumLJS/9LAZ+TSxfYh9+Zsj12AAFml0=;
+ b=megPh/BG5oFnZ49v1LXD50Xj/andQy3srFKAFC+gMyPjfTvGoYsIG3hfLiq4hYxtIB
+ 8iuFJWW+cp099IAO893rjhKCAI7teY/UWouMMrE7TJQehbHyaDR3nAqwlqxmsgfSwBli
+ 9f/DFJf4yXzoSnJA0VHLwRjiWbGW8jspI/EAtajH8hxW6yn7RfRW7Xs7xN/8j5u1MRLU
+ sneA5mmfSueXTPSQvo+Qh1VoTKL8YJLj8VRO6qzHXLnTzddiOV77AdPRdMooMWFT/Wvf
+ Rjubq2A6dSjKTSCKaLs390u3FQ7a+IlROa9jV9cSkyXu/5MwrnSW32MKoIqsVH+LaJf5
+ oR3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=TFZBlP26iSCuq9pcp8AO1ebVNfyJtN9g48o0eg6YeUo=;
- b=3Dv5iPitQVFPt88OXSg7IJsWnxtwjLIpXwf+kA3b5pjkSqSNIHkxFssHZbN057tbBg
- yWPGPQk53GnSDda5MlR0QfA5ea1LWXhqzCMULluq01L7kZlvGcYJIj5z6AUMubEUtrPh
- 7BMEH+yQ70TWZ+J9ved9dHB5wmXeAvEXKRYc+8Xs0aKaOJgRlmhZlkm3HAu1eUVNTVLO
- ZkEcndOIvcoA4fXoY/WChzL+2WNNOBcArPWi7zEqjeoV2EQB0k99VO9aTr2icQ1TIWCX
- PAeEoLUABkPIQGmgHsOEVjkYFu3jpAGW0HEMRoh2kPKAi+a2PsY6D9Xxzu+gD24ZPN75
- QK/w==
-X-Gm-Message-State: AOAM5321oCbNhEqGLwMV5v6Z5WDBJ9HYN958wFcz972LBAH8lCpaTBvb
- DkYSC3aiz+fsKj/d6JpScwvfKA==
-X-Google-Smtp-Source: ABdhPJyAQHIh8pxpRN/DzJhAGdHM+TPIjVRpgsk6BLPGFiShHIF8n3PXkg4A3GBNfSU5h5ety+T+Dw==
-X-Received: by 2002:aa7:c3cd:: with SMTP id l13mr24015019edr.93.1643703816963; 
- Tue, 01 Feb 2022 00:23:36 -0800 (PST)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=moWXwRufmzv2uumLJS/9LAZ+TSxfYh9+Zsj12AAFml0=;
+ b=23TKit9Z8sNejYYlLeTOYBQTT8KI/ujfrFsxIlE4xJ1HaOahxdHGXnPNlqWSwLR1JW
+ Q7FZD0BOKKMqwlrN0jk9cfNhW0or5vaDxSfqeofOB6eClQ/rtTTj8Xe5Lg/Q3cvzbcAr
+ EEY0BG00rbr7xJT9qoHxpX1Godxjo+TdV42x/ZQ7mNaIfOwcHJz8WQtFC54cP9TR18f6
+ KpKLYj1wk/CeZk/shSVnusOVPiyOjOP7Gq00Us0pzWPX/zCpghE3iyTbMMbk3kq1rTjn
+ bnoistVwVfAlCLpf/00V+MBh49rATrDmhFs5O5m8q/qj7g9m0hPFz3kwRP4AhEAb2xew
+ 9dYg==
+X-Gm-Message-State: AOAM533oKSPH4fGoL5MmJ7YNK1Rey0Km0GIqCunMP/r8cDfBVGVjGq4S
+ 86sWBdK4Vkgg2QAp3epVIOCcW36w6BgDbQ==
+X-Google-Smtp-Source: ABdhPJzlSuQ0ORHAbwDAjB4y7DcyZYYBLC+IfC2qa+oxDfgJJAX2C9+sYwnhDEYPKiloCVEXgsoaNA==
+X-Received: by 2002:a17:907:1b16:: with SMTP id
+ mp22mr20683012ejc.537.1643703822407; 
+ Tue, 01 Feb 2022 00:23:42 -0800 (PST)
 Received: from localhost.localdomain ([122.179.76.38])
- by smtp.gmail.com with ESMTPSA id w8sm14312133ejq.220.2022.02.01.00.23.31
+ by smtp.gmail.com with ESMTPSA id w8sm14312133ejq.220.2022.02.01.00.23.37
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 01 Feb 2022 00:23:36 -0800 (PST)
+ Tue, 01 Feb 2022 00:23:42 -0800 (PST)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Atish Patra <atishp@atishpatra.org>
@@ -68,15 +69,16 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
  Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 0/6] KVM RISC-V SBI v0.3 support
-Date: Tue,  1 Feb 2022 13:52:21 +0530
-Message-Id: <20220201082227.361967-1-apatel@ventanamicro.com>
+Subject: [PATCH 1/6] RISC-V: KVM: Upgrade SBI spec version to v0.3
+Date: Tue,  1 Feb 2022 13:52:22 +0530
+Message-Id: <20220201082227.361967-2-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20220201082227.361967-1-apatel@ventanamicro.com>
+References: <20220201082227.361967-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220201_002338_618541_9C29BA25 
-X-CRM114-Status: UNSURE (   8.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220201_002344_784581_6581D3D8 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,35 +95,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds initial support for SBI v0.3 which includes:
-1) SBI SRST support for Guest
-2) SBI HSM suspend for Guest
+We upgrade SBI spec version implemented by KVM RISC-V to v0.3 so
+that Guest kernel can probe and use SBI extensions added by the
+SBI v0.3 specification.
 
-The SBI PMU support is intentionally left out and will be added as
-a separate patch series.
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ arch/riscv/include/asm/kvm_vcpu_sbi.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-These patches can also be found in riscv_kvm_sbi_v03_v1 branch at:
-https://github.com/avpatel/linux.git
-
-Anup Patel (6):
-  RISC-V: KVM: Upgrade SBI spec version to v0.3
-  RISC-V: KVM: Add common kvm_riscv_vcpu_sbi_system_reset() function
-  RISC-V: KVM: Implement SBI v0.3 SRST extension
-  RISC-V: Add SBI HSM suspend related defines
-  RISC-V: KVM: Add common kvm_riscv_vcpu_wfi() function
-  RISC-V: KVM: Implement SBI HSM suspend call
-
- arch/riscv/include/asm/kvm_host.h     |  1 +
- arch/riscv/include/asm/kvm_vcpu_sbi.h |  5 ++-
- arch/riscv/include/asm/sbi.h          | 27 +++++++++++++---
- arch/riscv/kernel/cpu_ops_sbi.c       |  2 +-
- arch/riscv/kvm/vcpu_exit.c            | 22 ++++++++++----
- arch/riscv/kvm/vcpu_sbi.c             | 19 ++++++++++++
- arch/riscv/kvm/vcpu_sbi_hsm.c         | 18 +++++++++--
- arch/riscv/kvm/vcpu_sbi_replace.c     | 44 +++++++++++++++++++++++++++
- arch/riscv/kvm/vcpu_sbi_v01.c         | 18 ++---------
- 9 files changed, 125 insertions(+), 31 deletions(-)
-
+diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+index 76e4e17a3e00..04cd81f2ab5b 100644
+--- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
++++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+@@ -12,7 +12,7 @@
+ #define KVM_SBI_IMPID 3
+ 
+ #define KVM_SBI_VERSION_MAJOR 0
+-#define KVM_SBI_VERSION_MINOR 2
++#define KVM_SBI_VERSION_MINOR 3
+ 
+ struct kvm_vcpu_sbi_extension {
+ 	unsigned long extid_start;
 -- 
 2.25.1
 
