@@ -4,81 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5D4EC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Feb 2022 05:31:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C520FC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Feb 2022 05:38:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dEcFikBXymqWmKkgyNXoqvOOUOf/yBhdaILfQ2T7ifU=; b=UiPgv1OvryLJo3
-	j3G2NU4rIjoPPYURrs1ot7fkGwHx/xH1P2YCJeat0t0/5TquXl502Ht+ho/ZxMDjnT8W9EelqKpwb
-	vh+/qlOilp3C042QvUAjG1SROHbJ/BpSjQr9uBK1xt94Yk1/d+q1zaxIE2mwpRKmaKIu4S8kJ5afY
-	/1f2qTou/FBwhJX8Nj4ZgLvo7Doqw5WVL4MWMNvSQUn+BDpPwcQYRe3vIYnPBNCBna2jZcJapnJPq
-	u12HKHf33yylVO/YIfCXPX4vz9uhQqbXrohGQVroXfVpxvuR09E9+LtExV1Mor+Ukdx+5Lz5Jo2PZ
-	km2X5GJ9f2IxkDpLnpnA==;
+	List-Owner; bh=gmFxWz+/OVzvlucaiHWZAqYE9Ib8F9ofE/atLzEIdXk=; b=xJHYtWqx1RTdyC
+	mSJtPq+MLUamdCAIsIPbHpD2sq/0xGN9+qZzf0POSxOfNtV7CS4iHZo9hR8gcEzZwqncNQEKAcs/h
+	/Mt5hiWPMuF0TcOCKb1JEDIABB0FuN4l8KLUq1hrQ2dGaFioCA++lYn3Dor0xou7CibdJ7ypiYRIX
+	FDrUMCxfKun8z9TU8P/6KrhJ4LKxZEN4w/sSZWIyDlRTSd0gt6TYxok+71XQEbw8s6e2SBc9Bw62s
+	Z3cB2KQhACCMooxFHAtuB/4sVtHuecicsl6jjxVg+/9/V32q/Lca99ZDdIm5Ilpn01GlnZXVkJpHC
+	ySIgZssxnOMUrvZHgmNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nElks-00BDrd-Ea; Tue, 01 Feb 2022 05:31:02 +0000
-Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
+	id 1nElrW-00BEzE-8B; Tue, 01 Feb 2022 05:37:54 +0000
+Received: from mail-io1-xd32.google.com ([2607:f8b0:4864:20::d32])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nElkf-00BDnc-RR
- for linux-riscv@lists.infradead.org; Tue, 01 Feb 2022 05:30:53 +0000
-Received: by mail-yb1-xb2a.google.com with SMTP id p5so47353189ybd.13
- for <linux-riscv@lists.infradead.org>; Mon, 31 Jan 2022 21:30:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ id 1nElrT-00BEy8-M8
+ for linux-riscv@lists.infradead.org; Tue, 01 Feb 2022 05:37:53 +0000
+Received: by mail-io1-xd32.google.com with SMTP id w7so19858325ioj.5
+ for <linux-riscv@lists.infradead.org>; Mon, 31 Jan 2022 21:37:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=5kydovGavYpv7Z8Qzla4H6f1AHt/32IxvvPG5ynaWbE=;
- b=U77UZ+D4xbTT9TJN9/zszI5V0tEXwMdM+BFvx6Nb9KJU883KTTg8RWJqW4u+rENsbc
- mTJr60YFHw5Cyrrca0pMlnzqqtKSvEDubI0G2fZza/uyEvwpK6LDHKbyuL1pAKlu+isx
- 5Rnhlftwp2yqp8HSPx5SIs3NWouiN3k6iuUSYGxj7wdtzs4LuWuXt7HF6nYvE8dm6UJf
- J1nVZTCZUchtA+Hnhbrnp4yi2zYEiIcOXsDJBByWDsZQcVGxuYwU+aPi9Twkd3NAAQyx
- 7zDPjux6Iu/hWafBsPTXIjefy75b3o6mwNorP1BcbZabndECDeiebZm9E9u4xH8uPY2J
- Pp4A==
+ :cc; bh=HaH4YYFQUGYgJm+BChmNqccqpH4G/GlGC8W4GeH5Y7s=;
+ b=ek90t6PLRiryoISkxPbRM2CkM1aeFIDR54hPh8p2tPqh3IRwwA5RFr21jNosMYPbRA
+ MEQThNMibttROc5jLYq10u7/MxJ13RELBMj4mL13BFFBWUUN9nLUAWV2XZoTaiedlFXV
+ vIqZWpR/bwqH2+aWTpjx/GMDmf6g1sx3MRO1KCEZjpsZExj/GaPlHw5iT+z4Cx+IxpHC
+ OQYG6sy4mGCh+Ok9M6XD5zmtvhNQNFKjS9QSzAOSqazoVWNJFfeWJDLReT9n/hguNGTM
+ thum/I0sEzmXKEGXIHGXPL2XXXXuq+gvl/AQE5cqbJGc3Xw5c/pVtkA7IYnMeegLXtip
+ VLbA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=5kydovGavYpv7Z8Qzla4H6f1AHt/32IxvvPG5ynaWbE=;
- b=DwCmYqMSgk/rDAgOZVuqqnXp5d90YKIqSIay5k+nYwyTz8UjWLTwg35X0Cm/aXzJGV
- /aLllkUxl64w2wnjZljAPox0YscwEWGb0feCpjcGrUYRni7Zk4NTgSQ14deAEqavohqS
- zVbB3RdFbPdwc0t6z27lUFiGSAkqAa7ONQ8V7hSCI6wOxhBSIjUhf//4DYkJWQu1ui56
- fA41z/yOn7pN2pO9qoUOY9g/ZT+qre+BEbDHhSrzUxqm30I5XWK3L3Kanf5QfkF4tQFz
- +vRcucYM9HFHz+AyBrmCA67+K/DDIOvktUEmYWe6GQ/QDQf1jBcToyMm4UYdN1dfV4pM
- 4KZQ==
-X-Gm-Message-State: AOAM533khmhDXK83UamvuFbSxO+/NTy/om6IjM99ENXkVJrLkyLWNBBp
- 6AnBt6348L+V4JbFQ6XUzqWizpZzQNZJt3CNvLgYBQ==
-X-Google-Smtp-Source: ABdhPJynKbsLj1UEZZnKfLzmdFbVdxNi6pGBmrFfyYXto1lhLijfs+2rVmbRV30Q7qVZQAskM2peIoEkaBltQtJKHlQ=
-X-Received: by 2002:a25:50c7:: with SMTP id
- e190mr33046695ybb.324.1643693445559; 
- Mon, 31 Jan 2022 21:30:45 -0800 (PST)
+ bh=HaH4YYFQUGYgJm+BChmNqccqpH4G/GlGC8W4GeH5Y7s=;
+ b=SKmpGRZV9eII3MA7Tmidq3dtkru0AnMhDJqdanG2mAUmYo4+MeTuIRPv7yF1l+Xhau
+ gVF3I26ZbgXDtpWzbvowADILQzCMNAicIAu3ZxM2aLgSbz/R1X1ALDUuuUhJt4YZDgcT
+ bTnkQLq6tUV8SJS22nKD2smWE1ZRig38H6ZbWLEwJQdEngdujemzngNMoclVT+yWm5nL
+ nPxlkjp3RXXwcUizjXm3pX83SM0JZZ5jyj2083u0Jg+0VH2SrBr03VAzo4pPobcOLrsb
+ s+YgKHTVYf+zKjdBi4gn8S+/kuCvIGE8NHx133OVLuPaQznu37OvbKx6qJnACuFjeI1y
+ inXw==
+X-Gm-Message-State: AOAM5331WVO9gFXh5PMLopcP3prO8axQR59gWOzf7iBmx07KPZNOPXZd
+ YeDRTvqDsNO/4Cbvb2se6tVcdWGKtMYmVV3c3+s=
+X-Google-Smtp-Source: ABdhPJzwM6mUguBtwoWwo4q/nFsH4dB5BMq1zKQG9sN0wLToTQqNN6r6wPd4Nr4rL4eQfyyeQPi5tD0EN5Ti+LQuN+U=
+X-Received: by 2002:a05:6638:1028:: with SMTP id
+ n8mr12605683jan.318.1643693870129; 
+ Mon, 31 Jan 2022 21:37:50 -0800 (PST)
 MIME-Version: 1.0
-References: <20210929000735.585237-1-saravanak@google.com>
- <20210929000735.585237-2-saravanak@google.com>
- <7hk0efmfzo.fsf@baylibre.com>
-In-Reply-To: <7hk0efmfzo.fsf@baylibre.com>
-From: Saravana Kannan <saravanak@google.com>
-Date: Mon, 31 Jan 2022 21:30:09 -0800
-Message-ID: <CAGETcx_YEUxEBSBnzFaBxW=9=jO6BO0GuThaMGF+JPkDeC-ivw@mail.gmail.com>
-Subject: Re: [PATCH v4 1/2] drivers: bus: simple-pm-bus: Add support for
- probing simple bus only devices
-To: Kevin Hilman <khilman@baylibre.com>
-Cc: Russell King <linux@armlinux.org.uk>,
- Neil Armstrong <narmstrong@baylibre.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, 
- Tony Lindgren <tony@atomide.com>, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Damien Le Moal <damien.lemoal@wdc.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, 
- Rob Herring <robh+dt@kernel.org>, kernel-team@android.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-oxnas@groups.io, linux-renesas-soc@vger.kernel.org, 
- linux-omap@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20211209235857.423773-1-alistair.francis@opensource.wdc.com>
+ <YbNX3mRT0A9/N2il@kernel.org>
+In-Reply-To: <YbNX3mRT0A9/N2il@kernel.org>
+From: Alistair Francis <alistair23@gmail.com>
+Date: Tue, 1 Feb 2022 15:37:23 +1000
+Message-ID: <CAKmqyKNMJCHHMo01aCiyJRx926jYXz+sPgVwwZ7Kr1x0w81R2Q@mail.gmail.com>
+Subject: Re: [PATCH v5 1/6] perf bench futex: Add support for 32-bit systems
+ with 64-bit time_t
+To: Arnaldo Carvalho de Melo <arnaldo.melo@gmail.com>
+Cc: Alistair Francis <alistair.francis@opensource.wdc.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Davidlohr Bueso <dave@stgolabs.net>, 
+ Darren Hart <dvhart@infradead.org>, Arnd Bergmann <arnd@arndb.de>,
+ Namhyung Kim <namhyung@kernel.org>, 
+ Jiri Olsa <jolsa@redhat.com>, linux-perf-users@vger.kernel.org, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Mark Rutland <mark.rutland@arm.com>, 
+ Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Thomas Gleixner <tglx@linutronix.de>,
+ Alistair Francis <alistair.francis@wdc.com>, 
+ Atish Patra <atish.patra@wdc.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Arnaldo Carvalho de Melo <acme@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220131_213049_953230_F5D42B80 
-X-CRM114-Status: GOOD (  29.44  )
+X-CRM114-CacheID: sfid-20220131_213751_756229_F6AB22CE 
+X-CRM114-Status: GOOD (  19.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,70 +96,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 31, 2022 at 7:18 PM Kevin Hilman <khilman@baylibre.com> wrote:
+On Fri, Dec 10, 2021 at 11:36 PM Arnaldo Carvalho de Melo
+<arnaldo.melo@gmail.com> wrote:
 >
-> Hi Saravana,
->
-> Saravana Kannan <saravanak@google.com> writes:
->
-> > fw_devlink could end up creating device links for bus only devices.
-> > However, bus only devices don't get probed and can block probe() or
-> > sync_state() [1] call backs of other devices. To avoid this, probe these
-> > devices using the simple-pm-bus driver.
+> Em Fri, Dec 10, 2021 at 09:58:52AM +1000, Alistair Francis escreveu:
+> > From: Alistair Francis <alistair.francis@wdc.com>
 > >
-> > However, there are instances of devices that are not simple buses (they get
-> > probed by their specific drivers) that also list the "simple-bus" (or other
-> > bus only compatible strings) in their compatible property to automatically
-> > populate their child devices. We still want these devices to get probed by
-> > their specific drivers. So, we make sure this driver only probes devices
-> > that are only buses.
+> > Some 32-bit architectures (such are 32-bit RISC-V) only have a 64-bit
+> > time_t and as such don't have the SYS_futex syscall. This patch will
+> > allow us to use the SYS_futex_time64 syscall on those platforms.
 > >
-> > [1] - https://lore.kernel.org/lkml/CAPDyKFo9Bxremkb1dDrr4OcXSpE0keVze94Cm=zrkOVxHHxBmQ@mail.gmail.com/
-> > Fixes: c442a0d18744 ("driver core: Set fw_devlink to "permissive" behavior by default")
-> > Signed-off-by: Saravana Kannan <saravanak@google.com>
-> > Tested-by: Saravana Kannan <saravanak@google.com>
-> > Tested-by: Ulf Hansson <ulf.hansson@linaro.org>
+> > This also converts the futex calls to be y2038 safe (when built for a
+> > 5.1+ kernel).
+> >
+> > This is a revert of commit ba4026b09d83acf56c040b6933eac7916c27e728
+> > "Revert "perf bench futex: Add support for 32-bit systems with 64-bit time_t"".
+> >
+> > The original commit was reverted as including linux/time_types.h would
+> > fail to compile on older kernels. This commit doesn't include
+> > linux/time_types.h to avoid this issue.
 >
-> This patch landed in stable/linux-5.10.y as commit d5f13bbb5104 and it
-> broke suspend/resume on at least one TI AM335x board I'm testing on:
-> upstream dts: arch/arm/boot/dts/am335x-icev2.dts, upstream defconfig:
-> arch/arm/configs/omap2plus_defconfig.
->
-> Bisecting between vanilla v5.10 (good) and stable/linux-5.10.y (bad)
-> pointed me to this patch, and I confirmed that reverting just this patch
-> on top of stable/linux-5.10.y makes it work again.
->
-> Also interesting, this same platform works fine on vanilla v5.15, which
-> also includes this patch.  That suggests that either 1) this patch
-> should not have been backported to v5.10 stable or 2) there are some
-> other dependencies that are missing in v5.10.
->
-> Since vanilla v5.10 works fine, I'm leaning towards (1), but if you have
-> any ideas for deps that need backporting, I'm happy to try.
+>   10     9.99 alpine:3.12                   : FAIL gcc version 9.3.0 (Alpine 9.3.0)
+>     In file included from bench/futex-hash.c:29:
+>     bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
+>        37 |  __kernel_old_time_t tv_sec;  /* seconds */
+>           |  ^~~~~~~~~~~~~~~~~~~
+>     In file included from bench/futex-wake.c:25:
+>     bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
+>        37 |  __kernel_old_time_t tv_sec;  /* seconds */
+>           |  ^~~~~~~~~~~~~~~~~~~
+>     make[3]: *** [/git/perf-5.16.0-rc4/tools/build/Makefile.build:139: bench] Error 2
+>   11   114.27 alpine:3.13                   : Ok   gcc (Alpine 10.2.1_pre1) 10.2.1 20201203 , Alpine clang version 10.0.1
+>   12   100.12 alpine:3.14                   : Ok   gcc (Alpine 10.3.1_git20210424) 10.3.1 20210424 , Alpine clang version 11.1.0
+>   13   101.06 alpine:3.15                   : Ok   gcc (Alpine 10.3.1_git20211027) 10.3.1 20211027 , Alpine clang version 12.0.1
+>   14   101.96 alpine:edge                   : Ok   gcc (Alpine 11.2.1_git20211128) 11.2.1 20211128 , Alpine clang version 12.0.1
+>   15     6.98 alt:p8                        : FAIL gcc version 5.3.1 20151207 (ALT p8 5.3.1-alt3.M80P.1) (GCC)
+>     In file included from bench/futex-hash.c:29:0:
+>     bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
+>       __kernel_old_time_t tv_sec;  /* seconds */
+>       ^
+>     In file included from bench/futex-wake.c:25:0:
+>     bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
+>       __kernel_old_time_t tv_sec;  /* seconds */
+>       ^
+>     In file included from bench/futex-wake-parallel.c:31:0:
+>     bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
+>       __kernel_old_time_t tv_sec;  /* seconds */
+>       ^
+>     make[3]: *** [bench] Error 2
+>   16    73.65 alt:p9                        : Ok   x86_64-alt-linux-gcc (GCC) 8.4.1 20200305 (ALT p9 8.4.1-alt0.p9.1) , clang version 10.0.0
+>   17    72.34 alt:sisyphus                  : Ok   x86_64-alt-linux-gcc (GCC) 11.2.1 20210911 (ALT Sisyphus 11.2.1-alt1) , ALT Linux Team clang version 12.0.1
+>   18     7.58 amazonlinux:1                 : FAIL gcc version 7.2.1 20170915 (Red Hat 7.2.1-2) (GCC)
+>     In file included from bench/futex-hash.c:29:0:
+>     bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
+>       __kernel_old_time_t tv_sec;  /* seconds */
+>       ^~~~~~~~~~~~~~~~~~~
+>     In file included from bench/futex-wake.c:25:0:
+>     bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
+>       __kernel_old_time_t tv_sec;  /* seconds */
+>       ^~~~~~~~~~~~~~~~~~~
+>     make[3]: *** [bench] Error 2
+>   19     8.28 amazonlinux:2                 : FAIL gcc version 7.3.1 20180712 (Red Hat 7.3.1-13) (GCC)
+>     In file included from bench/futex-hash.c:29:0:
+>     bench/futex.h:37:2: error: unknown type name '__kernel_old_time_t'
+>       __kernel_old_time_t tv_sec;  /* seconds */
+>       ^~~~~~~~~~~~~~~~~~~
+>     make[3]: *** [bench] Error 2
+>   20    79.16 centos:8                      : Ok   gcc (GCC) 8.4.1 20200928 (Red Hat 8.4.1-1) , clang version 11.0.1 (Red Hat 11.0.1-1.module_el8.4.0+966+2995ef20)
 
-Oh wow! I didn't realize I made so many changes AFTER 5.10! Unless I'm
-doing something wrong with my git commands.
-$ git log v5.10..v5.15 --oneline -- drivers/of/property.c
-$ git log v5.10..v5.15 --oneline --author=saravanak -- drivers/base/
+Is there a way I can reproduce this failure?
 
-If you don't think I got my git command completely wrong, yeah, way
-too many patches are missing on 5.10. I'd go with the option of
-dropping this patch on 5.10.
+Alistair
 
-> I haven't debugged exactly where it's hanging yet, but, enabling
-> CONFIG_DEBUG_DRIVER=y, and suspending with "no_console_suspend" on the
-> command line, the last line before it hangs is:
 >
->    [   28.129966] simple-pm-bus ocp: noirq power domain suspend
 >
-> Any ideas?
-
-I'd guess it's either a sync_state() happening too soon since some of
-the dependencies aren't tracked. Or some dependency cycle that'd be
-handled correctly if the rest of the patches were picked up. Yeah, a
-pretty broad/vague answer.
-
--Saravana
+> Still building on the other containers.
+>
+> - Arnaldo
 
 _______________________________________________
 linux-riscv mailing list
