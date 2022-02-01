@@ -4,88 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F11CC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Feb 2022 09:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A7D5C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Feb 2022 10:03:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0WJUrx+u/pxecRpDTYWtpBF72gdEBybp+31IMnqUyXs=; b=yNXiNyJdTRbpZD
-	PiOjmoW2LgcCzioa5opWKMA3fu+nY/UGm3V4ZS/8kh4ee4wOPgbYgzg/3AUDMd9NpKe/9xHN79yLK
-	eChAzpF/iZgo6WPuaaAPtXzuHzZpW0ORyqEWFlX0QW5Zf4Jw6qYF6AYb6g2al5vCArFr7jSXr0wJs
-	coRXmYCUO0jY4vs+LDShwDFbwedi0dAEkSR0qI6CZZJm9Y8wswy8QJlJnCBq2kEuD7UIhKw5XXzZU
-	CRlNYQM7LGICZWKJmlLXIN+pzWrbOahFhPww3ex/mCY5Z/oIwgGMcwNg18g8OWhqFcKQAsPihFv5X
-	rCZI29+liYDryBNOEGqQ==;
+	List-Owner; bh=CnzX0cILTFnmpscuroQeO7Mq3r3NjB9MKJ51gGrlb2I=; b=hzO7NBlxZlYd4m
+	1el02sHcFhzFUpAiz0PrK0MjaqbbO1xwkkmtnD81/mZF5a1ou3XyidtuGYKAAJOsJ1BMMG4aRv379
+	rEMAYin9LAp8T3omk35Ibs+5eDZWIzUQ1U7x+YXRIb1cEP0GUCkOOoJWxyAO1bOoDQMppbJWNezKd
+	1HZ7iHka2UYb7M0TuvYMTuso+iT8JpFwTQoO2FYl61NgrKr2Vz/yheDsgpDoaE7SaA/jEuMP0tqFH
+	I8uHV+ZYZBKRGfbMTi1fesnBpUE8V9pKe+RBslhq8tw0L85ijKZjBA/B4JetOrz+dSDpgjA+6OGJH
+	IHRti2DCpErABH/rCtDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nEpaX-00Beab-9j; Tue, 01 Feb 2022 09:36:37 +0000
-Received: from mout.kundenserver.de ([212.227.126.134])
+	id 1nEq0L-00BgdX-VE; Tue, 01 Feb 2022 10:03:17 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nEpaM-00BeYK-5e; Tue, 01 Feb 2022 09:36:27 +0000
-Received: from mail-ot1-f49.google.com ([209.85.210.49]) by
- mrelayeu.kundenserver.de (mreue009 [213.165.67.97]) with ESMTPSA (Nemesis) id
- 1MpDRv-1mRxFK1AuF-00qk3U; Tue, 01 Feb 2022 10:36:21 +0100
-Received: by mail-ot1-f49.google.com with SMTP id
- i16-20020a056830011000b005a3cc8d20fbso9276636otp.9; 
- Tue, 01 Feb 2022 01:36:20 -0800 (PST)
-X-Gm-Message-State: AOAM532+9wqvB9FloxdmfPLlqMoigfYwkcEZmKTkF9R7Oq44zfKN0jvG
- DIWzW18ikOVlIYISCHXmVO5TRTBw/Qtt8el/Vwg=
-X-Google-Smtp-Source: ABdhPJzjYk9dm3bFjvGFwtGU979wMDH3XPeFI40ue70UVOPzI4lwptcfGFngzaOKSdB77TE70F1nIEDki5MDfbq8Q+A=
-X-Received: by 2002:a9d:654f:: with SMTP id q15mr13934011otl.119.1643708178915; 
- Tue, 01 Feb 2022 01:36:18 -0800 (PST)
+ id 1nEq09-00BgaQ-EG; Tue, 01 Feb 2022 10:03:06 +0000
+Received: by mail-ej1-x635.google.com with SMTP id h7so52537741ejf.1;
+ Tue, 01 Feb 2022 02:02:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=mClIZuGiU90N8/wVEGuz0kPrT8HDVsO1SF0mMBp9TKA=;
+ b=m8l3iizy6m+bL/jBYQ1WY3ATqWzlyg2KTCyNULM3eVNvkC5wqKTucOmaIxZWFKKHKC
+ O4vEtqtNwuq399PL5WPFG5Z7vCu6zPPjoimtCnr8vb/5lojlVqjvZJwxMJzVd0Vk35+r
+ ZVAR+4L1KqtGJhgkD+zr3U76KGUGG1P7/BPweFRor+Y6JBV2yCS0CX+UFmYJA0lC10As
+ KSMXOwfQMpM5C1cOo7NxFB454lv8KZ0AWzZzM/pxNJiKv31JpTcyWfsVCUPzCl573dFS
+ WOqZrDF8DuO60afmvVeUg1FCdgzqdmHYIJrUyRb6laaV9nlyKLCU0X2qcosie45x9Rgc
+ yezw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=mClIZuGiU90N8/wVEGuz0kPrT8HDVsO1SF0mMBp9TKA=;
+ b=lvK/eLm4OhkawIpmpJL2jiTT7+W/Imiak0w+PjM3vLRh+I/nuHtNVqaRfKC61aSKMk
+ 6atYYD3vYx8JlrysPV5CbtYZHpZt44KJ/Ml8NQaZy4YNhIXEzerJWnD9z+m0GOQwSJDB
+ 4sTrjnDM/6IOcSwLdMNG7sm/AkxhJHMtI+4K0kikiCXXlFZBOZZ1wK+1WLRtzpPnO/v8
+ y6u7NOA3crYywU241yoECGKbyTbqHd0Mx0cMmZ/3UTSFSIirjkwwcGaepsTyepcQjDU5
+ Pghb4ix8SI+KBF6N8Msw2rYtIZIXPrcehEH1YyZJajqlwfs83C+hWgrmVLD7E/PHGmb1
+ xquA==
+X-Gm-Message-State: AOAM532KW9sY/VX+sqo3o02cOcmeMlScO46PNc3Pc7gQdSl5T9zHiPi2
+ pgysXY1Jiip72eZTm+T0I5W18e5erGoPB9/cj+8=
+X-Google-Smtp-Source: ABdhPJyfD5PfJ3o2DgbfikfmuisQ6IDuSCV1txCGADlAID79HMnZ8k2HT/445aAlBSn/3Hrxj9wDnw0NxNHNH60hLfE=
+X-Received: by 2002:a17:907:1c1c:: with SMTP id
+ nc28mr20280513ejc.651.1643709778741; 
+ Tue, 01 Feb 2022 02:02:58 -0800 (PST)
 MIME-Version: 1.0
-References: <20220129121728.1079364-1-guoren@kernel.org>
- <20220129121728.1079364-17-guoren@kernel.org>
- <YffVZZg9GNcjgVdm@infradead.org>
- <CAJF2gTRXDotO1L1FMojQs6msrqvCzA782Pux8rg3AfZgA=y0ew@mail.gmail.com>
- <20220201074457.GC29119@lst.de>
- <CAJF2gTTc=zwD__zXwYbO8vmup5evWJtzyiAF9Pm-UVHLJRc5hQ@mail.gmail.com>
-In-Reply-To: <CAJF2gTTc=zwD__zXwYbO8vmup5evWJtzyiAF9Pm-UVHLJRc5hQ@mail.gmail.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Tue, 1 Feb 2022 10:36:01 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a2C7nDGQvopYzi1fe_LWyosp8t9dcBsduYK5k_s_OrCaA@mail.gmail.com>
-Message-ID: <CAK8P3a2C7nDGQvopYzi1fe_LWyosp8t9dcBsduYK5k_s_OrCaA@mail.gmail.com>
-Subject: Re: [PATCH V4 16/17] riscv: compat: Add COMPAT Kbuild skeletal support
-To: Guo Ren <guoren@kernel.org>
-Cc: Christoph Hellwig <hch@lst.de>, Christoph Hellwig <hch@infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Arnd Bergmann <arnd@arndb.de>, Anup Patel <anup@brainfault.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- liush <liush@allwinnertech.com>, 
- Wei Fu <wefu@redhat.com>, Drew Fustini <drew@beagleboard.org>, 
- Wang Junqiang <wangjunqiang@iscas.ac.cn>,
- linux-arch <linux-arch@vger.kernel.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
- linux-s390 <linux-s390@vger.kernel.org>,
- sparclinux <sparclinux@vger.kernel.org>, 
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
- Parisc List <linux-parisc@vger.kernel.org>, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
-X-Provags-ID: V03:K1:LTVToWslt1MMdcj5vss3XfaOTSMHziGyJJIkQMTAy6+uxjInqdZ
- pKd97AOm+RFSM4FZykIr673K7Jdzro/GYBAjhNW8ac7IalqZ6CNMD2QkjVGGpnz3rQga/mR
- 7VV7ArhHp9SJvc1n5E7FdnzbSedWx9KRILNJyF9eJUgJzTxFb3TRXk5D0OUWZJBfxlSfE+q
- Ny2g2p0/vbNdcTytWPCag==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:Se3n+l8/04w=:pFS9xt+WnhRtoapf3ORssn
- +scfwFH6raHXm+rBwvrxBgOVTDqw2eUCAAydum2QJ7iLZVbYot3dCZ9fIBzrXdShwKhqw2e98
- toYOoXpVoqnWAJ4A5EcfUxm/vJ9g/iKN7h1cAfBjfLF9yRVhksi8QkoozRzwxGxHfi0uRntIa
- E1bPIkz/p2QS2o9MsSo7TYmw5VjEWe/6HMXamvDV/ZgZlj5PmL9qf4vfBKrn0zXiK7Gnwqcmo
- gIZ16bB8/KjUTjEQ1k8GMpZX7G+dvG6T2EEeOm+2zLVZaA+JLbIvVILn+wwt16Y7URsli74dO
- XIAAbEbuiXb0eKIb9GMHrW7AUcW/kCtrUkHo8vMTKGcaTbDJQD53lLUJw5ZMH+aD7Tj7OByY+
- zCNy2wZ7LhgGVd4kPiUVP+v3Svopfoe7Zp9FBLQuoAFYuxu/a4TzWbqZTGys23TQgKsvO4AkR
- GH9fOHdgqaq4xqOjYzLH4yYHyDHqaKdhB6si4wE3EvTk8EfQv1pZKiJXTrrGIGcN9abPJUTo2
- XW0cwHcGXg/WrQE5sGkkUuRYiVJDBtmqQno3vQhdWznRBefWxFqAAdYpEMup4HScpTRAyS9Vx
- TbE+9IInCG7LutsQAMd1mADCnxQY3HxG/i4VLKdLKmGpOUWv6PVo3MpkSDwNBJwD6aFu/7PNz
- 1ZxSeV0ED92epcCmILRkE8KTJSlWGpIZA5p13OOYXsDjIJgdxUi9Hv2YCfff07vGFQsjm5U1f
- fyMrHuB2ThAnZPZov8xtqP4GeWXN/AFd9cvGjYqrU6NrsSSZavUP3o8MN9UFmaXHUcWmXQkl1
- 8/IwizMDDsGkaqzmcjxjZ+gRa4zouXdz+u/9uWg9f6TejQWyxA=
+References: <20220128151540.164759-1-david@redhat.com>
+In-Reply-To: <20220128151540.164759-1-david@redhat.com>
+From: Anatoly Pugachev <matorola@gmail.com>
+Date: Tue, 1 Feb 2022 13:02:45 +0300
+Message-ID: <CADxRZqx_rAkwFVwSc1ohm-RqKD=-pcBsR+rBrRaw9KazQncANQ@mail.gmail.com>
+Subject: Re: [PATCH RFC v1] drivers/base/node: consolidate node device
+ subsystem initialization in node_dev_init()
+To: David Hildenbrand <david@redhat.com>
+Cc: Linux Kernel list <linux-kernel@vger.kernel.org>,
+ linux-mm <linux-mm@kvack.org>, Andrew Morton <akpm@linux-foundation.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Michal Hocko <mhocko@suse.com>, Oscar Salvador <osalvador@suse.de>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Michael Ellerman <mpe@ellerman.id.au>, 
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>, 
+ Vasily Gorbik <gor@linux.ibm.com>, Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Rich Felker <dalias@libc.org>, "David S. Miller" <davem@davemloft.net>, 
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, x86@kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org, 
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ linux-riscv@lists.infradead.org, linux-s390 <linux-s390@vger.kernel.org>, 
+ linux-sh@vger.kernel.org, Sparc kernel list <sparclinux@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220201_013626_533486_564D7F2A 
-X-CRM114-Status: GOOD (  22.83  )
+X-CRM114-CacheID: sfid-20220201_020305_504234_13712924 
+X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,34 +100,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 1, 2022 at 10:13 AM Guo Ren <guoren@kernel.org> wrote:
-> On Tue, Feb 1, 2022 at 3:45 PM Christoph Hellwig <hch@lst.de> wrote:
-> > On Mon, Jan 31, 2022 at 09:50:58PM +0800, Guo Ren wrote:
-> > > On Mon, Jan 31, 2022 at 8:26 PM Christoph Hellwig <hch@infradead.org> wrote:
-> > > >
-> > > > Given that most rv64 implementations can't run in rv32 mode, what is the
-> > > > failure mode if someone tries it with the compat mode enabled?
-> > > A static linked simple hello_world could still run on a non-compat
-> > > support hardware. But most rv32 apps would meet different userspace
-> > > segment faults.
-> > >
-> > > Current code would let the machine try the rv32 apps without detecting
-> > > whether hw support or not.
-> >
-> > Hmm, we probably want some kind of check for not even offer running
-> > rv32 binaries.  I guess trying to write UXL some time during early
-> > boot and catching the resulting exception would be the way to go?
+On Mon, Jan 31, 2022 at 2:11 PM David Hildenbrand <david@redhat.com> wrote:
 >
-> Emm... I think it's unnecessary. Free rv32 app running won't cause
-> system problem, just as a wrong elf running. They are U-mode
-> privileged.
+> ... and call node_dev_init() after memory_dev_init() from driver_init(),
+> so before any of the existing arch/subsys calls. All online nodes should
+> be known at that point.
+>
+> This is in line with memory_dev_init(), which initializes the memory
+> device subsystem and creates all memory block devices.
+>
+> Similar to memory_dev_init(), panic() if anything goes wrong, we don't
+> want to continue with such basic initialization errors.
+>
+> The important part is that node_dev_init() gets called after
+> memory_dev_init() and after cpu_dev_init(), but before any of the
+> relevant archs call register_cpu() to register the new cpu device under
+> the node device. The latter should be the case for the current users
+> of topology_init().
+>
+> RFC because I tested only on x86-64 and s390x, I think I cross-compiled all
+> applicable architectures except riscv and sparc.
 
-While it's not a security issue, I think it would be helpful to get a
-user-readable error message and a machine-readable /proc/cpuinfo
-flag to see if a particular system can run rv32 binaries rather than
-relying on SIGILL to kill a process.
+Compiled and boot tested on sparc.
 
-        Arnd
+Tested-by: Anatoly Pugachev <matorola@gmail.com> (sparc64)
 
 _______________________________________________
 linux-riscv mailing list
