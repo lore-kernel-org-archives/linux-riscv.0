@@ -4,51 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F56FC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Feb 2022 10:27:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 008DBC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Feb 2022 11:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mRmcn7WkIfrl2h7TyWbSEXAXhwpJ/OGnf7avTb9fnZc=; b=1mZ8+zh/u5V8XW
-	YCU+8TdE0Rk8rw8iAV3iv3BiVxCUJ22nlSxMXQhN96XBhnK7ADKP9wYrOQ/Rl8DBbXAJlYxVfUyME
-	gjL4frWucsCDA2Vn7lKeGJ9DxFipJJ/1kOX72MnW8J1lg7A2H0rgDftaPHd9OlqJ/hCgBg9XfmAi3
-	lU/jrbmoTfBRVbxFYbZbJGyUaRR6PAmf9AM8ugz5lNY1GNCEGLKT1VmFr4RXOYO0IHD4oIIkEVbCy
-	CDbKyNxNQZrq752yVIoi9GhrLjzVFgXaRHU3qA1r35fzXf61Tiaewle7N2d92XBUjIHeejech91ee
-	2jndmgrBY+zi3J3uT0yQ==;
+	List-Owner; bh=zdAS8WQ1JLTsMW68w6vwqYIUyFiYxeMHemddhz7p+c8=; b=JR9utb+NDQgrp9
+	BB07WbORe2SPRethmUv/un4CrmdPPP0w+HxKZZ0Ri0W49W697dKtQrK9zd8WZiaHEh4PW8uk4aLWk
+	05YoAYqboK0/OgJGNfv2fX3kIouUJx1YLPd/sJtzckG8REcYif6CFv2+bWFf3s+Hg3AxcF0L1sYkB
+	EBXXYSoYIMUdx6MYuIM/SXjvmSaex+1QxvhQZCnlIS73gsaPtUrKWDjoxFkhEmEUI3oo4V92kkRLE
+	VCr3zWgw2DqOmGuYWb6/W5f/bpkARI//Gt4p4CaHOIv2ViUhPsUdT4ng+V0w02it/533HUwD6fyqo
+	GnmmKl/UW4VNS7CaeXLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nEqNO-00Bjvz-H8; Tue, 01 Feb 2022 10:27:06 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1nEreU-00BtEj-Le; Tue, 01 Feb 2022 11:48:50 +0000
+Received: from mout.kundenserver.de ([212.227.126.131])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nEqN9-00Bjqu-Le; Tue, 01 Feb 2022 10:26:54 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 5CE67B82D4F;
- Tue,  1 Feb 2022 10:26:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A2BEC34102;
- Tue,  1 Feb 2022 10:26:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1643711209;
- bh=YpNRNg5/ihQ4PP48BMlGgoh7uAQDP7LsHHGYiX5QI0o=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=g7mEjtgirOS2Zivm7Bm9R3ebuvol2S+TsbQ41/4gKPs5b7l3SaQRLA7OfWhuBfh+r
- ZsMv6Gx0LVyeoYf6Xw9b8FXf+4zN71F68WAL3NJIoc5v+3ZO3cePjYb5mxR/sqNKvw
- 5W/tmf2gXB6rLPPozNKA/T7oMkoB9a2+e0N7AXblHqLEKhrp2fAjL+hpdg5FJfbGjx
- 1MvghQ0dvPxKarNL6/Hk3zSGP0X647C+hEoYSiHMeJYECu/KJP1YKZ6gNCfsHUlquW
- KjB21XgD60/n2rSLeJDQgjhx27CSgJIRFvMa1IIHQqKmprAgwQIaJuOjURhfycG0ri
- OLVKaiaLRszLQ==
-Received: by mail-vk1-f179.google.com with SMTP id l14so8877288vko.12;
- Tue, 01 Feb 2022 02:26:49 -0800 (PST)
-X-Gm-Message-State: AOAM530XIvaEoy6atiKKJAdcsNaj93NZJquwdi6dn51kJ1JKTyw+cUHe
- 55x51iOfJpOxiDQQkXkDbj7/Vwitttuk9JTBneI=
-X-Google-Smtp-Source: ABdhPJwLhW//fixKVbaTjokrn8h3L9Q3pUBjKK03Q8LXfMtVREM4+ggbuel+/v83NuiYDPmVXHHyZJPscKX3YUkbjfo=
-X-Received: by 2002:a05:6122:91d:: with SMTP id
- j29mr9618418vka.8.1643711208229; 
- Tue, 01 Feb 2022 02:26:48 -0800 (PST)
+ id 1nEreH-00Bt7W-98; Tue, 01 Feb 2022 11:48:38 +0000
+Received: from mail-wr1-f43.google.com ([209.85.221.43]) by
+ mrelayeu.kundenserver.de (mreue009 [213.165.67.97]) with ESMTPSA (Nemesis) id
+ 1N6srH-1mAFo5418h-018HAk; Tue, 01 Feb 2022 12:48:34 +0100
+Received: by mail-wr1-f43.google.com with SMTP id h21so31484476wrb.8;
+ Tue, 01 Feb 2022 03:48:34 -0800 (PST)
+X-Gm-Message-State: AOAM5303KQH7oETwwo4F2RPte8G2iYzBlDd/wcLvmvyhXNP3NzOozIDN
+ XggDXn+KoTjwx066Rw6ybsm6CZ0uRmVk2fZkldM=
+X-Google-Smtp-Source: ABdhPJxO+OGO5lnSmsts+k8ffbEmh9/UtuFXn1dLVr5xpmsd+BH7cbCu5DpyTRvWDXlXMwgE6rWgsvPUd5Lt6roAGEM=
+X-Received: by 2002:a05:6000:178d:: with SMTP id
+ e13mr20737860wrg.317.1643716114442; 
+ Tue, 01 Feb 2022 03:48:34 -0800 (PST)
 MIME-Version: 1.0
 References: <20220129121728.1079364-1-guoren@kernel.org>
  <20220129121728.1079364-17-guoren@kernel.org>
@@ -57,18 +43,21 @@ References: <20220129121728.1079364-1-guoren@kernel.org>
  <20220201074457.GC29119@lst.de>
  <CAJF2gTTc=zwD__zXwYbO8vmup5evWJtzyiAF9Pm-UVHLJRc5hQ@mail.gmail.com>
  <CAK8P3a2C7nDGQvopYzi1fe_LWyosp8t9dcBsduYK5k_s_OrCaA@mail.gmail.com>
-In-Reply-To: <CAK8P3a2C7nDGQvopYzi1fe_LWyosp8t9dcBsduYK5k_s_OrCaA@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 1 Feb 2022 18:26:37 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTgTzvGfa3nGzVo4C=fe+ZCGBWp=VhTMRt1vF1O1bnS5g@mail.gmail.com>
-Message-ID: <CAJF2gTTgTzvGfa3nGzVo4C=fe+ZCGBWp=VhTMRt1vF1O1bnS5g@mail.gmail.com>
+ <CAJF2gTTgTzvGfa3nGzVo4C=fe+ZCGBWp=VhTMRt1vF1O1bnS5g@mail.gmail.com>
+In-Reply-To: <CAJF2gTTgTzvGfa3nGzVo4C=fe+ZCGBWp=VhTMRt1vF1O1bnS5g@mail.gmail.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Tue, 1 Feb 2022 12:48:18 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a3u8zo+MOOpDXaX8PY2ukN3J2VHnV8uDXQwc=0WgV6qFw@mail.gmail.com>
+Message-ID: <CAK8P3a3u8zo+MOOpDXaX8PY2ukN3J2VHnV8uDXQwc=0WgV6qFw@mail.gmail.com>
 Subject: Re: [PATCH V4 16/17] riscv: compat: Add COMPAT Kbuild skeletal support
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Christoph Hellwig <hch@lst.de>, Christoph Hellwig <hch@infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- liush <liush@allwinnertech.com>, Wei Fu <wefu@redhat.com>, 
- Drew Fustini <drew@beagleboard.org>, Wang Junqiang <wangjunqiang@iscas.ac.cn>, 
+To: Guo Ren <guoren@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Christoph Hellwig <hch@lst.de>,
+ Christoph Hellwig <hch@infradead.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ liush <liush@allwinnertech.com>, 
+ Wei Fu <wefu@redhat.com>, Drew Fustini <drew@beagleboard.org>, 
+ Wang Junqiang <wangjunqiang@iscas.ac.cn>,
  linux-arch <linux-arch@vger.kernel.org>, 
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
  linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
@@ -79,9 +68,24 @@ Cc: Christoph Hellwig <hch@lst.de>, Christoph Hellwig <hch@infradead.org>,
  "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
  Linux ARM <linux-arm-kernel@lists.infradead.org>, 
  "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
+X-Provags-ID: V03:K1:dnBZc3IJyAT1Xi7LH5pnTJKyyiTfPPEOV3tmoea53HzRS+xgMrz
+ Li6Nqo7yXRmeEXWcCoWj+6fMMr7yHh75rNdSYMFsIla2tGGmc1FtrXz/TAPxgDw2tYJbBhm
+ qDXQdszykCKItyFfn9s4e1tAuyVpsSZneeaKzjhohdrp5VibTVFD3JFZzzCg5eUmnAzgh4P
+ qDKRXxGyhI+u6Kb9e+0IQ==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:8kryebBYCAU=:j+D77jLM0MLUYHrYikpL/o
+ Pm780AMN7MECHa0kEEKVs8Ev1HT2ZHz0kCUB9is2i2L6mJriVAa18OqCAcK4W3mswXIxVV1jf
+ i4NhhA6G08mfH7Bl9IYmsytTHlzZRag/qfq3jADtWYe1gFwjz7HdQXRje3jvHJiszJS/5Apts
+ 2HjHMzuLmckDioJ+VJCSjozvfPudbTvn4tcQZeJN5U0w+QhyIpAsSROi7kaamJ6zNU+wR3pZU
+ 3btScy5+/mJe0eMH8KAIqMWllWBY0+WBzfw4i5hZHXlGyfKgZXU+HDAInj6n4JjOWPM7ZqF6y
+ lUBR7MnFBeve8Az1RP8XfJhuDsntnxboJgZnHwWMNxokr2LXd7WPeLMlC2ZYSFV/cXJzmM6Uq
+ sQ8a5vC/tP5yihMwrMWTBCg++nKNJOaWfe14iDs/FEdigJNNAYb5c+8S5FcJAcmJOPl6De8Tz
+ KpGsJVsukIzmHZjzVJsJJDLhaZ1oDdljQB3BUCCLEzrZo56Dds0vGv0H9Za8KcuKfEu6o+leP
+ K1E3hyU1278J/gVI7Jgj6Ka90/z0Jg5qetD473YJh/SV1abIYXdYtpM0rJDCZeZk3F81ewwdy
+ M82nHzB1iM/UMW1n2fJQxbFA6alB8mMAXetP0VujNQaUyY+ksiRZieEV1wJL3+eg8CcgKdb6B
+ X2YrPW5pqefoHD8/5t5SY8qExM03UfdIe5VCLdKVJrdDWx0Wxy1qPh9FeIU8oShRzeKk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220201_022652_018193_FA40A3A8 
-X-CRM114-Status: GOOD (  35.32  )
+X-CRM114-CacheID: sfid-20220201_034837_642303_4A5B2E25 
+X-CRM114-Status: GOOD (  19.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,153 +102,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd & Christoph,
-
-The UXL field controls the value of XLEN for U-mode, termed UXLEN,
-which may differ from the
-value of XLEN for S-mode, termed SXLEN. The encoding of UXL is the
-same as that of the MXL
-field of misa, shown in Table 3.1.
-
-Here is the patch. (We needn't exception helper, because we are in
-S-mode and UXL wouldn't affect.)
-
- arch/riscv/include/asm/elf.h       |  5 ++++-
- arch/riscv/include/asm/processor.h |  1 +
- arch/riscv/kernel/process.c        | 22 ++++++++++++++++++++++
- arch/riscv/kernel/setup.c          |  5 +++++
- 4 files changed, 32 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
-index 37f1cbdaa242..6baa49c4fba1 100644
---- a/arch/riscv/include/asm/elf.h
-+++ b/arch/riscv/include/asm/elf.h
-@@ -35,7 +35,10 @@
-  */
- #define elf_check_arch(x) ((x)->e_machine == EM_RISCV)
-
--#define compat_elf_check_arch(x) ((x)->e_machine == EM_RISCV)
-+#ifdef CONFIG_COMPAT
-+#define compat_elf_check_arch compat_elf_check_arch
-+extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
-+#endif
-
- #define CORE_DUMP_USE_REGSET
- #define ELF_EXEC_PAGESIZE (PAGE_SIZE)
-diff --git a/arch/riscv/include/asm/processor.h
-b/arch/riscv/include/asm/processor.h
-index 9544c138d9ce..8b288ac0d704 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -64,6 +64,7 @@ extern void start_thread(struct pt_regs *regs,
- #ifdef CONFIG_COMPAT
- extern void compat_start_thread(struct pt_regs *regs,
-  unsigned long pc, unsigned long sp);
-+extern void compat_mode_detect(void);
-
- #define DEFAULT_MAP_WINDOW_64 TASK_SIZE_64
- #else
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index 9ebf9a95e5ea..496d09c5d384 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -101,6 +101,28 @@ void start_thread(struct pt_regs *regs, unsigned long pc,
- }
-
- #ifdef CONFIG_COMPAT
-+static bool compat_mode_support __read_mostly = false;
-+
-+bool compat_elf_check_arch(Elf32_Ehdr *hdr)
-+{
-+ if (compat_mode_support && (hdr->e_machine == EM_RISCV))
-+ return true;
-+
-+ return false;
-+}
-+
-+void compat_mode_detect(void)
-+{
-+ unsigned long tmp = csr_read(CSR_STATUS);
-+ csr_write(CSR_STATUS, (tmp & ~SR_UXL) | SR_UXL_32);
-+
-+ if ((csr_read(CSR_STATUS) & SR_UXL) != SR_UXL_32) {
-+ csr_write(CSR_STATUS, tmp);
-+ return;
-+ }
-+
-+ csr_write(CSR_STATUS, tmp);
-+ compat_mode_support = true;
-+
-+ pr_info("riscv: compat: 32bit U-mode applications support\n");
-+}
-+
- void compat_start_thread(struct pt_regs *regs, unsigned long pc,
-  unsigned long sp)
- {
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index b42bfdc67482..be131219d549 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -12,6 +12,7 @@
- #include <linux/mm.h>
- #include <linux/memblock.h>
- #include <linux/sched.h>
-+#include <linux/compat.h>
- #include <linux/console.h>
- #include <linux/screen_info.h>
- #include <linux/of_fdt.h>
-@@ -294,6 +295,10 @@ void __init setup_arch(char **cmdline_p)
-  setup_smp();
- #endif
-
-+#ifdef CONFIG_COMPAT
-+ compat_mode_detect();
-+#endif
-+
-  riscv_fill_hwcap();
- }
-On Tue, Feb 1, 2022 at 5:36 PM Arnd Bergmann <arnd@arndb.de> wrote:
+On Tue, Feb 1, 2022 at 11:26 AM Guo Ren <guoren@kernel.org> wrote:
 >
-> On Tue, Feb 1, 2022 at 10:13 AM Guo Ren <guoren@kernel.org> wrote:
-> > On Tue, Feb 1, 2022 at 3:45 PM Christoph Hellwig <hch@lst.de> wrote:
-> > > On Mon, Jan 31, 2022 at 09:50:58PM +0800, Guo Ren wrote:
-> > > > On Mon, Jan 31, 2022 at 8:26 PM Christoph Hellwig <hch@infradead.org> wrote:
-> > > > >
-> > > > > Given that most rv64 implementations can't run in rv32 mode, what is the
-> > > > > failure mode if someone tries it with the compat mode enabled?
-> > > > A static linked simple hello_world could still run on a non-compat
-> > > > support hardware. But most rv32 apps would meet different userspace
-> > > > segment faults.
-> > > >
-> > > > Current code would let the machine try the rv32 apps without detecting
-> > > > whether hw support or not.
-> > >
-> > > Hmm, we probably want some kind of check for not even offer running
-> > > rv32 binaries.  I guess trying to write UXL some time during early
-> > > boot and catching the resulting exception would be the way to go?
-> >
-> > Emm... I think it's unnecessary. Free rv32 app running won't cause
-> > system problem, just as a wrong elf running. They are U-mode
-> > privileged.
+> Hi Arnd & Christoph,
 >
-> While it's not a security issue, I think it would be helpful to get a
-> user-readable error message and a machine-readable /proc/cpuinfo
-> flag to see if a particular system can run rv32 binaries rather than
-> relying on SIGILL to kill a process.
---
-2.25.1
-
-
+> The UXL field controls the value of XLEN for U-mode, termed UXLEN,
+> which may differ from the
+> value of XLEN for S-mode, termed SXLEN. The encoding of UXL is the
+> same as that of the MXL
+> field of misa, shown in Table 3.1.
 >
->         Arnd
+> Here is the patch. (We needn't exception helper, because we are in
+> S-mode and UXL wouldn't affect.)
 
+Looks good to me, just a few details that could be improved
 
+> -#define compat_elf_check_arch(x) ((x)->e_machine == EM_RISCV)
+> +#ifdef CONFIG_COMPAT
+> +#define compat_elf_check_arch compat_elf_check_arch
+> +extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
+> +#endif
 
---
-Best Regards
- Guo Ren
+No need for the #ifdef
+> +}
 
-ML: https://lore.kernel.org/linux-csky/
+> +void compat_mode_detect(void)
+
+__init
+
+> +{
+> + unsigned long tmp = csr_read(CSR_STATUS);
+> + csr_write(CSR_STATUS, (tmp & ~SR_UXL) | SR_UXL_32);
+> +
+> + if ((csr_read(CSR_STATUS) & SR_UXL) != SR_UXL_32) {
+> + csr_write(CSR_STATUS, tmp);
+> + return;
+> + }
+> +
+> + csr_write(CSR_STATUS, tmp);
+> + compat_mode_support = true;
+> +
+> + pr_info("riscv: compat: 32bit U-mode applications support\n");
+> +}
+
+I think an entry in /proc/cpuinfo would be more helpful than the pr_info at
+boot time. Maybe a follow-up patch though, as there is no obvious place
+to put it. On other architectures, you typically have a set of space
+separated feature names, but riscv has a single string that describes
+the ISA, and this feature is technically the support for a second ISA.
+
+         Arnd
 
 _______________________________________________
 linux-riscv mailing list
