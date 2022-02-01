@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00522C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Feb 2022 08:24:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10976C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Feb 2022 08:24:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Zn7xV80s87dQwzWoTLQn/qltFp8j3RV4/oSbqozLu6A=; b=hQggGMEpX4jp2O
-	+beTPtudDgevmyhYEszQx1ll1Eg+ST4rn1UZKRr8C6oXAhMX9Fn6z4dwf3X3WWERQEKXMQ5gREPey
-	MitER6ir3rs/ZrxWGcD8kDlozwHhsTDf0zw8ixkYb0W5fenGtrZJpjVcgm8beLjiGjfvLHVDu/PZ4
-	R859mQqsa9bQzBIr7W9+kdmaOT91Kok4sp+IWluA+EwzuOq7KcgKWlnbv6BKQFYmYUvLvYvzAfkOs
-	rSrNHFgErIXP3EiEAgeaQ5XfGA7l28tXWIGnKodjiUSbQPd6Jv7LKIFHQche5sttBkvoJgj8ZJcoT
-	lT9ZdU8Ore/cDqdlLU7g==;
+	List-Owner; bh=t0hjarM0NhbrsePZ1CQl2C/blnRT/HmOWxneS31xU64=; b=K3SONS3XQXEtII
+	yIltg4xeQPsHfxtaZFtgJVIl2na+qNLO6rEA1fJs9B1JpoFoJ41Sc5CdLw6nnfKL6gjKhkeaoBwEi
+	VYiZOptHk5mAZAE5lwabW/MRzCapVtcGMBE+RDWQ96Mk6GDkwDY8zE2j3L2UOR5wfAggYeJZRi05l
+	8q9/FSEf5K/tcQQViBUBXhTaNogoqbJWUDO0OlO/k7Kr7j8N0Q3/WTy0wkEmvPG2s6slXi4a97DHx
+	YS/J2XpVZyXeUNbZh844wecWyAAWhAwOJd8vD4Y0RVqZTCuCD+W8/twJwrBfOeSQVL+1PlDQpK79K
+	yChguxQ78RWYidt7eZSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nEoSI-00BWB0-Vi; Tue, 01 Feb 2022 08:24:02 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1nEoSP-00BWHE-Mx; Tue, 01 Feb 2022 08:24:09 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nEoSF-00BW7w-WE
- for linux-riscv@lists.infradead.org; Tue, 01 Feb 2022 08:24:01 +0000
-Received: by mail-ej1-x634.google.com with SMTP id k25so51272008ejp.5
- for <linux-riscv@lists.infradead.org>; Tue, 01 Feb 2022 00:23:59 -0800 (PST)
+ id 1nEoSL-00BWCK-Of
+ for linux-riscv@lists.infradead.org; Tue, 01 Feb 2022 08:24:07 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id jx6so52022293ejb.0
+ for <linux-riscv@lists.infradead.org>; Tue, 01 Feb 2022 00:24:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=ventanamicro.com; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=zwd/8cqd/uyZjzuw2VQObQyskOR01to1ElscGOXTIT4=;
- b=eC4DiGIz7XiaA9N2mXQL7I9xjW9v59lcMo3xOM1zS2qqTt/VkyB+tuaweSHrA5kejn
- 5RU1BDgKui2WEL+B2hxVm1uW7QYKdSwgtNyoXUAMRjAKUd4dZ40F+QJQOFFybxqyq8vj
- 2dg4BMMDM9vVVSpON2vnjF6NN/QnuJg/Bh2JYpa+cF1HLxl2nRkF8ylog15N/wqvvMGt
- EjvaWUF7iui9SmZVdHL4VFa3LeHay3Y2Fk7rHK8a9nTLxvSQ4pOhVSvOMms4Y6JcCHNr
- T+15e7UQ3Usi38CmXaVnBjrFS4wbDNAAZzku4LCT7OLl7seLooxbJWmh7HSVGaUkWiuq
- uxgg==
+ bh=l+b47qbaWpdYZN1v9p/s3UrPnbfSBgqc+qjFPZYSPg0=;
+ b=QdDeIW90ozVxbtAs28LtZP1SR1njpEwqySsxBFUYrwcKkO/9ik8SD7e63/ORdLuKN6
+ HyI3LupM10HaQJNfSiNGnwUgMsJjBe6rmEY71RUCVouSgN2Ww0ih1X5/il7CocKD9jmG
+ e5UutqWNP6FOjWmhNqdxTTF5IP65/y2m8Y7DezBkqTOkFj0jP2DTWUAHUNLzCaqt0i7s
+ UjBVdk5uVAxkNDd3LrfDYJwUdzSiJbvQ8ICYedqx1BtTCqJrVx2FgSPFfgzmM8UPEfvd
+ 0QPBGawu4zge1Rk2p7MyHEyooujXJtLlCTeJIQsuvkJSwOX5TavDG/J9JFJUOqdhbPrb
+ gLzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=zwd/8cqd/uyZjzuw2VQObQyskOR01to1ElscGOXTIT4=;
- b=jTwTjCOENwXfJn360AdpHFE0LZwTm9z/6lKYN75TTh4qLFAGZmpEQTAQ7HlT8fU9kK
- 3zhWmvWaURKAbUNuRsK+u42AdIThzHldg0QXuUh/oCa3CWGL9JDZbd9w7rrPrEVZgW9z
- OJ3sR4FrcVJXqykFI0zj137BBwG7xZhFfWQzreqQ/dst5mxX68zyHXNOpEyHgFy1mnP4
- ZtBc+X8C1kx4cndJ6LPWZGUVqJ1/OrLsRk7eTQYQaT4jyreit7rhQhjuNfYOKdqY7vVi
- aX60f6VYS2atmxJi7szuLLPWYRYi823xi3tKOBhfANiLsiXHdpe1cydCk+FBVOsp9HwL
- T81Q==
-X-Gm-Message-State: AOAM530NQESAutAv30+pcclJxGxdXNCmL+xOg473N0fmRhn7RTSGNqJO
- KdK7+om6dOyf4PDqUtayl6pO/Q==
-X-Google-Smtp-Source: ABdhPJy31giTDwE4wqN8u2biPEhaGB3Em2a9I6VCEGluXT0OlIBYWCHXDm+THh+U/KZhqQ92c9Ew+Q==
-X-Received: by 2002:a17:907:6ea0:: with SMTP id
- sh32mr21034992ejc.460.1643703838800; 
- Tue, 01 Feb 2022 00:23:58 -0800 (PST)
+ bh=l+b47qbaWpdYZN1v9p/s3UrPnbfSBgqc+qjFPZYSPg0=;
+ b=oJ3uP25HDCdryU2w+Wbygjx/RPlw/vXWbH++ugOS5cAr4cVxgHW6dk3yGtgtRMfTcg
+ NW4YzIq0XagVH6UvzRCAWNMI8SVBWLJck1pmX3bB94WYe/BEouudfXggw0vcJrnawH9i
+ 5wqx0+ekRcwowachIrO09UTMrQLBcDT6tPorBbiSSECnILe6WnrRrvnSGypX837cDNk5
+ 9qJyem+r2w88NhyhvcoWvj3YQVQF0TxUzwQfWNd287QdeByHxLfmkfERwPbiy0jWL7iX
+ 7K9xjWmYwiBrZi5DZKigwbM9bygbboU4GbKC22dSkIm7SagW5zwMpyQTxWYOu/wInnG5
+ 20yg==
+X-Gm-Message-State: AOAM532vNdiOlpVshbEfGzXz45duUS5wJhm9efVm8bQ6qqf1JdyXOg/J
+ I+AZ+lepYFZL4LD7ovgM7T9yRQ==
+X-Google-Smtp-Source: ABdhPJyt0wfNRFp/hPqRprYBU3q50Km0sidGpnOTXlGuTS40cAb2L7ml6sR8ZEkCU0opyyQARlSJ+g==
+X-Received: by 2002:a17:907:6293:: with SMTP id
+ nd19mr19620284ejc.64.1643703844251; 
+ Tue, 01 Feb 2022 00:24:04 -0800 (PST)
 Received: from localhost.localdomain ([122.179.76.38])
- by smtp.gmail.com with ESMTPSA id w8sm14312133ejq.220.2022.02.01.00.23.53
+ by smtp.gmail.com with ESMTPSA id w8sm14312133ejq.220.2022.02.01.00.23.59
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 01 Feb 2022 00:23:58 -0800 (PST)
+ Tue, 01 Feb 2022 00:24:03 -0800 (PST)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Atish Patra <atishp@atishpatra.org>
@@ -69,16 +69,16 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
  Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 4/6] RISC-V: Add SBI HSM suspend related defines
-Date: Tue,  1 Feb 2022 13:52:25 +0530
-Message-Id: <20220201082227.361967-5-apatel@ventanamicro.com>
+Subject: [PATCH 5/6] RISC-V: KVM: Add common kvm_riscv_vcpu_wfi() function
+Date: Tue,  1 Feb 2022 13:52:26 +0530
+Message-Id: <20220201082227.361967-6-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220201082227.361967-1-apatel@ventanamicro.com>
 References: <20220201082227.361967-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220201_002400_090084_4D8AF32E 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20220201_002405_851931_8452953E 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,87 +95,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We add defines related to SBI HSM suspend call and also update HSM states
-naming as-per the latest SBI specification.
+The wait for interrupt (WFI) instruction emulation can share the VCPU
+halt logic with SBI HSM suspend emulation so this patch adds a common
+kvm_riscv_vcpu_wfi() function for this purpose.
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- arch/riscv/include/asm/sbi.h    | 27 ++++++++++++++++++++++-----
- arch/riscv/kernel/cpu_ops_sbi.c |  2 +-
- arch/riscv/kvm/vcpu_sbi_hsm.c   |  4 ++--
- 3 files changed, 25 insertions(+), 8 deletions(-)
+ arch/riscv/include/asm/kvm_host.h |  1 +
+ arch/riscv/kvm/vcpu_exit.c        | 22 ++++++++++++++++------
+ 2 files changed, 17 insertions(+), 6 deletions(-)
 
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index d1c37479d828..06133b4f8e20 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -71,15 +71,32 @@ enum sbi_ext_hsm_fid {
- 	SBI_EXT_HSM_HART_START = 0,
- 	SBI_EXT_HSM_HART_STOP,
- 	SBI_EXT_HSM_HART_STATUS,
-+	SBI_EXT_HSM_HART_SUSPEND,
- };
+diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+index 99ef6a120617..78da839657e5 100644
+--- a/arch/riscv/include/asm/kvm_host.h
++++ b/arch/riscv/include/asm/kvm_host.h
+@@ -228,6 +228,7 @@ void kvm_riscv_stage2_vmid_update(struct kvm_vcpu *vcpu);
  
--enum sbi_hsm_hart_status {
--	SBI_HSM_HART_STATUS_STARTED = 0,
--	SBI_HSM_HART_STATUS_STOPPED,
--	SBI_HSM_HART_STATUS_START_PENDING,
--	SBI_HSM_HART_STATUS_STOP_PENDING,
-+enum sbi_hsm_hart_state {
-+	SBI_HSM_STATE_STARTED = 0,
-+	SBI_HSM_STATE_STOPPED,
-+	SBI_HSM_STATE_START_PENDING,
-+	SBI_HSM_STATE_STOP_PENDING,
-+	SBI_HSM_STATE_SUSPENDED,
-+	SBI_HSM_STATE_SUSPEND_PENDING,
-+	SBI_HSM_STATE_RESUME_PENDING,
- };
+ void __kvm_riscv_unpriv_trap(void);
  
-+#define SBI_HSM_SUSP_BASE_MASK			0x7fffffff
-+#define SBI_HSM_SUSP_NON_RET_BIT		0x80000000
-+#define SBI_HSM_SUSP_PLAT_BASE			0x10000000
-+
-+#define SBI_HSM_SUSPEND_RET_DEFAULT		0x00000000
-+#define SBI_HSM_SUSPEND_RET_PLATFORM		SBI_HSM_SUSP_PLAT_BASE
-+#define SBI_HSM_SUSPEND_RET_LAST		SBI_HSM_SUSP_BASE_MASK
-+#define SBI_HSM_SUSPEND_NON_RET_DEFAULT		SBI_HSM_SUSP_NON_RET_BIT
-+#define SBI_HSM_SUSPEND_NON_RET_PLATFORM	(SBI_HSM_SUSP_NON_RET_BIT | \
-+						 SBI_HSM_SUSP_PLAT_BASE)
-+#define SBI_HSM_SUSPEND_NON_RET_LAST		(SBI_HSM_SUSP_NON_RET_BIT | \
-+						 SBI_HSM_SUSP_BASE_MASK)
-+
- enum sbi_ext_srst_fid {
- 	SBI_EXT_SRST_RESET = 0,
- };
-diff --git a/arch/riscv/kernel/cpu_ops_sbi.c b/arch/riscv/kernel/cpu_ops_sbi.c
-index dae29cbfe550..2e16f6732cdf 100644
---- a/arch/riscv/kernel/cpu_ops_sbi.c
-+++ b/arch/riscv/kernel/cpu_ops_sbi.c
-@@ -111,7 +111,7 @@ static int sbi_cpu_is_stopped(unsigned int cpuid)
- 
- 	rc = sbi_hsm_hart_get_status(hartid);
- 
--	if (rc == SBI_HSM_HART_STATUS_STOPPED)
-+	if (rc == SBI_HSM_STATE_STOPPED)
- 		return 0;
- 	return rc;
- }
-diff --git a/arch/riscv/kvm/vcpu_sbi_hsm.c b/arch/riscv/kvm/vcpu_sbi_hsm.c
-index 2e383687fa48..1ac4b2e8e4ec 100644
---- a/arch/riscv/kvm/vcpu_sbi_hsm.c
-+++ b/arch/riscv/kvm/vcpu_sbi_hsm.c
-@@ -60,9 +60,9 @@ static int kvm_sbi_hsm_vcpu_get_status(struct kvm_vcpu *vcpu)
- 	if (!target_vcpu)
- 		return -EINVAL;
- 	if (!target_vcpu->arch.power_off)
--		return SBI_HSM_HART_STATUS_STARTED;
-+		return SBI_HSM_STATE_STARTED;
- 	else
--		return SBI_HSM_HART_STATUS_STOPPED;
-+		return SBI_HSM_STATE_STOPPED;
++void kvm_riscv_vcpu_wfi(struct kvm_vcpu *vcpu);
+ unsigned long kvm_riscv_vcpu_unpriv_read(struct kvm_vcpu *vcpu,
+ 					 bool read_insn,
+ 					 unsigned long guest_addr,
+diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
+index 571f319e995a..aa8af129e4bb 100644
+--- a/arch/riscv/kvm/vcpu_exit.c
++++ b/arch/riscv/kvm/vcpu_exit.c
+@@ -144,12 +144,7 @@ static int system_opcode_insn(struct kvm_vcpu *vcpu,
+ {
+ 	if ((insn & INSN_MASK_WFI) == INSN_MATCH_WFI) {
+ 		vcpu->stat.wfi_exit_stat++;
+-		if (!kvm_arch_vcpu_runnable(vcpu)) {
+-			srcu_read_unlock(&vcpu->kvm->srcu, vcpu->arch.srcu_idx);
+-			kvm_vcpu_halt(vcpu);
+-			vcpu->arch.srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
+-			kvm_clear_request(KVM_REQ_UNHALT, vcpu);
+-		}
++		kvm_riscv_vcpu_wfi(vcpu);
+ 		vcpu->arch.guest_context.sepc += INSN_LEN(insn);
+ 		return 1;
+ 	}
+@@ -453,6 +448,21 @@ static int stage2_page_fault(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	return 1;
  }
  
- static int kvm_sbi_ext_hsm_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
++/**
++ * kvm_riscv_vcpu_wfi -- Emulate wait for interrupt (WFI) behaviour
++ *
++ * @vcpu: The VCPU pointer
++ */
++void kvm_riscv_vcpu_wfi(struct kvm_vcpu *vcpu)
++{
++	if (!kvm_arch_vcpu_runnable(vcpu)) {
++		srcu_read_unlock(&vcpu->kvm->srcu, vcpu->arch.srcu_idx);
++		kvm_vcpu_halt(vcpu);
++		vcpu->arch.srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
++		kvm_clear_request(KVM_REQ_UNHALT, vcpu);
++	}
++}
++
+ /**
+  * kvm_riscv_vcpu_unpriv_read -- Read machine word from Guest memory
+  *
 -- 
 2.25.1
 
