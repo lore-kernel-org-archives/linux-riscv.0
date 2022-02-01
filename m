@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E8A4C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Feb 2022 08:24:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A84DC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Feb 2022 09:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SB06brhfO8YvANkU2Is8kRKRzA/cC3qcbW4q7ciQsr4=; b=YLqu6iAnif3Zxn
-	te6R7ILU/0k+oPxSaPIDzFhQHNsHON3J8Z9sywE/AFlQPU+wFEq0lIA1s6MlBolwSlIkRQr+6JrpD
-	fNvWOVk0o5iJQwQvEDFwq/vftDy6dKkOHW9RPbLhGbkHoPOjxtLxGR92h7EHsPIL69VLIHKYvb3fj
-	YTe4A+6V2h9Msqd5CeMocbTmqTUPHhA//NN578JphqA1bD+RBH1RRqqL+e7OO0deuprd4HQD8h++R
-	FY2wO3faKsC9C5d8uRvhQEqCmfcP99jbAznQfYxjK+IoyqO+uTLZHbwl38ClMWA8GETXFF8cWOqBa
-	rJCOZEOcYJb5qZrV6seA==;
+	List-Owner; bh=2EP8fIBHEj+E9us0QRjuNz2zPX+D/wuId9eN1hVb2WY=; b=5GZIXOGLTxJYHJ
+	M2Rqm1QkHxQxlcLhsajSDjA+jDKMMeTo3iQJXBR2YiYuFxeRrgVcIiSK0x9m1gKzvU6mUhk/6gXe2
+	5lihtYqFUWFgHFhIcXAU9wZyuLJGhBNCDgHMw0AYfuYksER1DN1oPOxz6+AVzXgieH/4F63KYLDz5
+	objowwZgPP+6e3g2rhIq8pPCUNuCByheyHOnTo3sQX49UNA91rRxpbXEGEV7XRTD1mCrHTAxL6Pgk
+	mx0cg9WhtFU+wvFqblyPQGu8bYgtqdUN+dhxdGbMVVndyz4MVWOWm934P3VwR6AMzzmuicoEmr5Z/
+	qYp3xIK1oEo+Zo1ll2Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nEoSW-00BWMB-4t; Tue, 01 Feb 2022 08:24:16 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1nEpEi-00BcUg-MF; Tue, 01 Feb 2022 09:14:04 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nEoSR-00BWHk-8B
- for linux-riscv@lists.infradead.org; Tue, 01 Feb 2022 08:24:14 +0000
-Received: by mail-ej1-x636.google.com with SMTP id ka4so51497039ejc.11
- for <linux-riscv@lists.infradead.org>; Tue, 01 Feb 2022 00:24:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ventanamicro.com; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=GHl1OHNEBsppykLL0FZwPbFOi9foYqykYD+EcFet6qM=;
- b=a7BBFEww46WyfPzbomNQG+Oqq2IlwS7J9fIC6wz4AdhnC7RyJpr/rJWZYYt2vAhObW
- iKEwMUG4feE/X4hSNAxQoRtiComrQv51VvEEYRla9+kWV86j1LQbU6kx+vhGqEd61/cy
- G2t3i2xZvnCqkVzIfZzQU2C62mnetTUKDAhzxiaYd34pcr2HvKXqAO0uOCOFqYacHePO
- vs923UsYq5I2ob+UgyHh5m1WF0yrD59QYadBvnneQAQcj857TlY7IXviNdvZDwFw7Noa
- sOmaqrashQAOt4ECeqnuo5hVWsTR85qX0g8Zx9Gh9fKZdbFMM1vrATkT2ORx5IRqOcsY
- mpJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=GHl1OHNEBsppykLL0FZwPbFOi9foYqykYD+EcFet6qM=;
- b=dGXV5+5VFaDGtG8XhclmEfdiyVXAOipcrL8wak3+whiZZmgnZq7z898/v5OdRbWhJY
- mnozEi+jnPUVjJpmyv/IkwmF4SUTZVS+h49xXAWGuNu3Zpw1jif/T98tuvi3xeyoCH9q
- kefOG/WKWV9I6eu8uWMpzhVJPQjSOJi5vBh14zMsEAL8N9Z28NK8kbKjJrNvTqRQv0Y6
- 1DkRU5fy4lCe9tP1h+xraYUS32Mvlds4Wy4pbhrfA2IkfGBe3CxRU3j9SAtSAb+BFakD
- inzWCmJ0Qsq8RkheS/VmLQCiE1C8a8ukBpH1Nm0NU/WYGp1fqhPWPnQJNWDGvQ0ul/dL
- enJA==
-X-Gm-Message-State: AOAM530+ThlQQkK+5ouh8rr1TcWPvmwPTKRisECXp2o80ByrCLWFb8Jb
- AeDcQtwCvqk33oSdBC1pQJnZiQ==
-X-Google-Smtp-Source: ABdhPJzCelwQYB0QuYOqiku+n7scTy7gUb/hHhHhs6GEaaroLB9AmfUKIaKTwSM1jvGPR/SYoABrkA==
-X-Received: by 2002:a17:906:58c6:: with SMTP id
- e6mr19318243ejs.733.1643703849679; 
- Tue, 01 Feb 2022 00:24:09 -0800 (PST)
-Received: from localhost.localdomain ([122.179.76.38])
- by smtp.gmail.com with ESMTPSA id w8sm14312133ejq.220.2022.02.01.00.24.04
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 01 Feb 2022 00:24:09 -0800 (PST)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Paolo Bonzini <pbonzini@redhat.com>,
-	Atish Patra <atishp@atishpatra.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 6/6] RISC-V: KVM: Implement SBI HSM suspend call
-Date: Tue,  1 Feb 2022 13:52:27 +0530
-Message-Id: <20220201082227.361967-7-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220201082227.361967-1-apatel@ventanamicro.com>
-References: <20220201082227.361967-1-apatel@ventanamicro.com>
+ id 1nEpEW-00BcRt-Dy; Tue, 01 Feb 2022 09:13:54 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 13436B82D1B;
+ Tue,  1 Feb 2022 09:13:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DED9EC340F0;
+ Tue,  1 Feb 2022 09:13:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1643706828;
+ bh=hnac9oX2VXGbCvTtbNqKOCdN7oRwr6SWdV4YiEu9kyM=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=osid9LTeTz41TprB3lECyF7yxevcSe3lIV4ZL99JzOMfl72MojScFC3KFSuxo0GG6
+ 70X7q6bsJNhjiYW4eYtM9zavsWFzGHmX86k9Ml9HGuOJ1orLTwnnB/8IKA1zhgYXgW
+ hSlvL+cQdKAdDBSohj3VnNdOp8d4C22kdbe4qC69gelcFnJI7j5B49J5FTE04dedNl
+ P/ryvvU3GDEs/ZJtT4weo0WgAKGCjVclvJKH46nYcgccaUjSCHheiE5OG55xQ15AO6
+ Knswca+0CXvzLPDMd7M6D20RiLGupntu6utpPUX04UUDdi0VLzhoKrW0Nxf/6moTC0
+ fgmqq3tGL2XIA==
+Received: by mail-vk1-f181.google.com with SMTP id n14so9958475vkk.6;
+ Tue, 01 Feb 2022 01:13:48 -0800 (PST)
+X-Gm-Message-State: AOAM530U19W2eQse4T3gq6bB0USznynoHhgqCttgZQSM4+Nl+eDk5bma
+ 4uT2NkssZMlp8yLEh1ExSxFFcBLYaw1BodbvRTo=
+X-Google-Smtp-Source: ABdhPJz8fzguZPbFnae5j7V9pl/dv5oQGM4hOb4aA5V9NpHM4cr9OW86mUtht2VbhtSN0zWJb+F+yH9GTu4P2KsI3X0=
+X-Received: by 2002:a05:6122:1c5:: with SMTP id h5mr9895590vko.2.1643706827991; 
+ Tue, 01 Feb 2022 01:13:47 -0800 (PST)
 MIME-Version: 1.0
+References: <20220129121728.1079364-1-guoren@kernel.org>
+ <20220129121728.1079364-17-guoren@kernel.org>
+ <YffVZZg9GNcjgVdm@infradead.org>
+ <CAJF2gTRXDotO1L1FMojQs6msrqvCzA782Pux8rg3AfZgA=y0ew@mail.gmail.com>
+ <20220201074457.GC29119@lst.de>
+In-Reply-To: <20220201074457.GC29119@lst.de>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 1 Feb 2022 17:13:37 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTc=zwD__zXwYbO8vmup5evWJtzyiAF9Pm-UVHLJRc5hQ@mail.gmail.com>
+Message-ID: <CAJF2gTTc=zwD__zXwYbO8vmup5evWJtzyiAF9Pm-UVHLJRc5hQ@mail.gmail.com>
+Subject: Re: [PATCH V4 16/17] riscv: compat: Add COMPAT Kbuild skeletal support
+To: Christoph Hellwig <hch@lst.de>
+Cc: Christoph Hellwig <hch@infradead.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Arnd Bergmann <arnd@arndb.de>, Anup Patel <anup@brainfault.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ liush <liush@allwinnertech.com>, Wei Fu <wefu@redhat.com>, 
+ Drew Fustini <drew@beagleboard.org>, Wang Junqiang <wangjunqiang@iscas.ac.cn>, 
+ linux-arch <linux-arch@vger.kernel.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
+ linux-s390 <linux-s390@vger.kernel.org>,
+ sparclinux <sparclinux@vger.kernel.org>, 
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ Parisc List <linux-parisc@vger.kernel.org>, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+ "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220201_002411_320269_3FD85B4D 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20220201_011352_775495_2A889D47 
+X-CRM114-Status: GOOD (  21.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,51 +95,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The SBI v0.3 specification extends SBI HSM extension by adding SBI HSM
-suspend call and related HART states. This patch extends the KVM RISC-V
-HSM implementation to provide KVM guest a minimal SBI HSM suspend call
-which is equivalent to a WFI instruction.
+On Tue, Feb 1, 2022 at 3:45 PM Christoph Hellwig <hch@lst.de> wrote:
+>
+> On Mon, Jan 31, 2022 at 09:50:58PM +0800, Guo Ren wrote:
+> > On Mon, Jan 31, 2022 at 8:26 PM Christoph Hellwig <hch@infradead.org> wrote:
+> > >
+> > > Given that most rv64 implementations can't run in rv32 mode, what is the
+> > > failure mode if someone tries it with the compat mode enabled?
+> > A static linked simple hello_world could still run on a non-compat
+> > support hardware. But most rv32 apps would meet different userspace
+> > segment faults.
+> >
+> > Current code would let the machine try the rv32 apps without detecting
+> > whether hw support or not.
+>
+> Hmm, we probably want some kind of check for not even offer running
+> rv32 binaries.  I guess trying to write UXL some time during early
+> boot and catching the resulting exception would be the way to go?
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- arch/riscv/kvm/vcpu_sbi_hsm.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+Emm... I think it's unnecessary. Free rv32 app running won't cause
+system problem, just as a wrong elf running. They are U-mode
+privileged.
+>
+> >
+> >
+> > --
+> > Best Regards
+> >  Guo Ren
+> >
+> > ML: https://lore.kernel.org/linux-csky/
+> ---end quoted text---
 
-diff --git a/arch/riscv/kvm/vcpu_sbi_hsm.c b/arch/riscv/kvm/vcpu_sbi_hsm.c
-index 1ac4b2e8e4ec..239dec0a628a 100644
---- a/arch/riscv/kvm/vcpu_sbi_hsm.c
-+++ b/arch/riscv/kvm/vcpu_sbi_hsm.c
-@@ -61,6 +61,8 @@ static int kvm_sbi_hsm_vcpu_get_status(struct kvm_vcpu *vcpu)
- 		return -EINVAL;
- 	if (!target_vcpu->arch.power_off)
- 		return SBI_HSM_STATE_STARTED;
-+	else if (vcpu->stat.generic.blocking)
-+		return SBI_HSM_STATE_SUSPENDED;
- 	else
- 		return SBI_HSM_STATE_STOPPED;
- }
-@@ -91,6 +93,18 @@ static int kvm_sbi_ext_hsm_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 			ret = 0;
- 		}
- 		break;
-+	case SBI_EXT_HSM_HART_SUSPEND:
-+		switch (cp->a0) {
-+		case SBI_HSM_SUSPEND_RET_DEFAULT:
-+			kvm_riscv_vcpu_wfi(vcpu);
-+			break;
-+		case SBI_HSM_SUSPEND_NON_RET_DEFAULT:
-+			ret = -EOPNOTSUPP;
-+			break;
-+		default:
-+			ret = -EINVAL;
-+		}
-+		break;
- 	default:
- 		ret = -EOPNOTSUPP;
- 	}
+
+
 -- 
-2.25.1
+Best Regards
+ Guo Ren
 
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
