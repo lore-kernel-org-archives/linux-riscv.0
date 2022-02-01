@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07978C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Feb 2022 07:45:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A20C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Feb 2022 07:59:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GYcG/4pxIg0JbiUp8X7+UXqeE1C+Eeqn4B43wqy32kg=; b=gXW11l9aGybnZd
-	qo2AK63ncryeR2yjn9mFPxyE0satOpSR02moLVaaxJehV3+HT5tZ7//Uv1MmRe9ufcNKV8/RkJ/c8
-	IAGukW8548PidauBz+bW8cbAaqIm+vAfZ+ZbdrG+TdeBFdqgJHKfuRKRTiaI3d284bxQTzKAfPy60
-	RifCzgEHE5PuHBIuHBUaGjEmch3Roe9fiB8udW+1LBMpE94mQQANh/381mKDIqYNukG2PzizlU08C
-	jtb8GhFBCdvuLltgiNkrfmznv0srM01MKUbde+UwdsuNXjN6hbw7ggdHJqUmfBeco6l92jHIL8a8m
-	nD3f6sZruf/z27nNU4LA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FVB9xp5rAT+jkseFB2uHTIIRC0heGxuPD6KFvlHPsmY=; b=2hv6UcDGSKwZ2cXz4n6EsRwF4E
+	LpGs2697k843wulN2uE5TSg5bzc8Q9iMNO1gFlroaSidarELVzHuehpAo4F+7mGncibnKisIBpHdF
+	1pSdK5zUgyD/x9Hq5h7F4H8jKqTYr9P4xAZZZZ5QVEXeEu+TMHXDrssr1Jcz8++/qC3lSTFARcalf
+	OY+3UFl76iJWS71pJmSj4SDFLFJra8RZig2wdl8EDLv4pQrBoVxpx1nG91dRnG65S/yx1rZll4MKn
+	xQeEtEWogW2/Yggc1+Mr1xyiBlkEgufKGUvf6JUw0/Bjqx2UpoChDm6yfnxWpbjvz3PzS+wv9+lXF
+	pRyQzz+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nEnr0-00BPC8-4e; Tue, 01 Feb 2022 07:45:30 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1nEo3z-00BRGG-HJ; Tue, 01 Feb 2022 07:58:55 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nEnqX-00BP2X-K4; Tue, 01 Feb 2022 07:45:03 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
- id 6C0AE68AA6; Tue,  1 Feb 2022 08:44:57 +0100 (CET)
-Date: Tue, 1 Feb 2022 08:44:57 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Guo Ren <guoren@kernel.org>
-Cc: Christoph Hellwig <hch@infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
- Anup Patel <anup@brainfault.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- liush <liush@allwinnertech.com>, Wei Fu <wefu@redhat.com>,
- Drew Fustini <drew@beagleboard.org>,
- Wang Junqiang <wangjunqiang@iscas.ac.cn>, Christoph Hellwig <hch@lst.de>,
- linux-arch <linux-arch@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- linux-csky@vger.kernel.org, linux-s390 <linux-s390@vger.kernel.org>,
- sparclinux <sparclinux@vger.kernel.org>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
- Parisc List <linux-parisc@vger.kernel.org>,
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- the arch/x86 maintainers <x86@kernel.org>,
- Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V4 16/17] riscv: compat: Add COMPAT Kbuild skeletal support
-Message-ID: <20220201074457.GC29119@lst.de>
-References: <20220129121728.1079364-1-guoren@kernel.org>
- <20220129121728.1079364-17-guoren@kernel.org>
- <YffVZZg9GNcjgVdm@infradead.org>
- <CAJF2gTRXDotO1L1FMojQs6msrqvCzA782Pux8rg3AfZgA=y0ew@mail.gmail.com>
+ id 1nEo3x-00BRFb-5b
+ for linux-riscv@lists.infradead.org; Tue, 01 Feb 2022 07:58:54 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+ by metis.ext.pengutronix.de with esmtps
+ (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1nEo3e-00046y-6s; Tue, 01 Feb 2022 08:58:34 +0100
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+ by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1nEo3V-00Dmxz-QK; Tue, 01 Feb 2022 08:58:25 +0100
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1nEo3U-002kWK-5c; Tue, 01 Feb 2022 08:58:24 +0100
+Date: Tue, 1 Feb 2022 08:58:24 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: conor.dooley@microchip.com
+Cc: linus.walleij@linaro.org, brgl@bgdev.pl, robh+dt@kernel.org,
+ jassisinghbrar@gmail.com, thierry.reding@gmail.com,
+ lee.jones@linaro.org, a.zummo@towertech.it,
+ alexandre.belloni@bootlin.com, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, geert@linux-m68k.org,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
+ linux-pwm@vger.kernel.org, linux-rtc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, krzysztof.kozlowski@canonical.com,
+ bin.meng@windriver.com, heiko@sntech.de, lewis.hanly@microchip.com,
+ daire.mcnamara@microchip.com, ivan.griffin@microchip.com,
+ atishp@rivosinc.com, Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH v5 06/12] dt-bindings: pwm: add microchip corepwm binding
+Message-ID: <20220201075824.aixrvkvmjde2ihxx@pengutronix.de>
+References: <20220131114726.973690-1-conor.dooley@microchip.com>
+ <20220131114726.973690-7-conor.dooley@microchip.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJF2gTRXDotO1L1FMojQs6msrqvCzA782Pux8rg3AfZgA=y0ew@mail.gmail.com>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+In-Reply-To: <20220131114726.973690-7-conor.dooley@microchip.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
+ SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220131_234501_868538_FF803C59 
-X-CRM114-Status: GOOD (  17.53  )
+X-CRM114-CacheID: sfid-20220131_235853_243932_2C4BF1FE 
+X-CRM114-Status: GOOD (  26.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,37 +77,155 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2134986020160647425=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 31, 2022 at 09:50:58PM +0800, Guo Ren wrote:
-> On Mon, Jan 31, 2022 at 8:26 PM Christoph Hellwig <hch@infradead.org> wrote:
-> >
-> > Given that most rv64 implementations can't run in rv32 mode, what is the
-> > failure mode if someone tries it with the compat mode enabled?
-> A static linked simple hello_world could still run on a non-compat
-> support hardware. But most rv32 apps would meet different userspace
-> segment faults.
-> 
-> Current code would let the machine try the rv32 apps without detecting
-> whether hw support or not.
 
-Hmm, we probably want some kind of check for not even offer running
-rv32 binaries.  I guess trying to write UXL some time during early
-boot and catching the resulting exception would be the way to go?
+--===============2134986020160647425==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pqylyjr6p2p3xcpl"
+Content-Disposition: inline
 
-> 
-> 
-> -- 
-> Best Regards
->  Guo Ren
-> 
-> ML: https://lore.kernel.org/linux-csky/
----end quoted text---
+
+--pqylyjr6p2p3xcpl
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Jan 31, 2022 at 11:47:21AM +0000, conor.dooley@microchip.com wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+>=20
+> Add device tree bindings for the Microchip fpga fabric based "core" PWM
+> controller.
+>=20
+> Reviewed-by: Rob Herring <robh@kernel.org>
+>=20
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  .../bindings/pwm/microchip,corepwm.yaml       | 75 +++++++++++++++++++
+>  1 file changed, 75 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pwm/microchip,corep=
+wm.yaml
+>=20
+> diff --git a/Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml=
+ b/Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml
+> new file mode 100644
+> index 000000000000..26a77cde2465
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml
+> @@ -0,0 +1,75 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pwm/microchip,corepwm.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Microchip ip core PWM controller bindings
+> +
+> +maintainers:
+> +  - Conor Dooley <conor.dooley@microchip.com>
+> +
+> +description: |
+> +  corePWM is an 16 channel pulse width modulator FPGA IP
+> +
+> +  https://www.microsemi.com/existing-parts/parts/152118
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: microchip,corepwm-rtl-v4
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  "#pwm-cells":
+> +    const: 2
+> +
+> +  microchip,sync-update:
+> +    description: |
+> +      In synchronous mode, all channels are updated at the beginning of =
+the PWM period.
+> +      Asynchronous mode is relevant to applications such as LED control,=
+ where
+> +      synchronous updates are not required. Asynchronous mode lowers the=
+ area size,
+> +      reducing shadow register requirements. This can be set at run time=
+, provided
+> +      SHADOW_REG_EN is asserted. SHADOW_REG_EN is set by the FPGA bitstr=
+eam programmed
+> +      to the device.
+> +      Each bit corresponds to a PWM channel & represents whether synchro=
+nous mode is
+> +      possible for the PWM channel.
+> +
+> +    $ref: /schemas/types.yaml#/definitions/uint16
+> +    default: 0
+
+I'm not sure I understand this correctly. This is a soft-core and you
+can synthesize it either with or without the ability to do synchronous
+updates or not, right? All 16 channels share the same period length and
+in the simple implementation changing the duty cycle is done at once
+(maybe introducing a glitch) and in the more expensive implementation
+there is a register to implement both variants?
+
+
+> +  microchip,dac-mode:
+> +    description: |
+> +      Optional, per-channel Low Ripple DAC mode is possible on this IP c=
+ore. It creates
+> +      a minimum period pulse train whose High/Low average is that of the=
+ chosen duty
+> +      cycle. This "DAC" will have far better bandwidth and ripple perfor=
+mance than the
+> +      standard PWM algorithm can achieve.
+> +      Each bit corresponds to a PWM channel & represents whether dac mod=
+e is enabled
+> +      that PWM channel.
+
+In the last sentence a "for" is missing?
+
+These two properties are not detectable in software?
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--pqylyjr6p2p3xcpl
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmH46B0ACgkQwfwUeK3K
+7Am3Sgf/UTtQSsIPttdHYyNUxSYZF6fH8Mu324npdIKQ+39Z6OX/+MjR27kWtIP9
+PnRVaiT3ysheX8NpDwOr4mFokpvxx6yswleZStNKVh+xzGfPDwvGMbCElcf/RL7P
+UdSovN/QCVE/X+dCUDz+sZtlbnXMW3+mJmDr2Qs1xh0/R+wuHwIwetY/8jW8t1Hy
+AkxUBTyiszRkAlXctrW+k+NaoXvtJnLLS3oCyp/vuHXvsCuwzp5GwHjL7alf89uE
+h/EMEzivdI/Bks9p9w9jDMg6GNp3KoL4RYeQwCWz4DkO3kezyhIwIgbMRLF57IqZ
+HYcnZow7dopjm+dWBk/s32mz7/prow==
+=622s
+-----END PGP SIGNATURE-----
+
+--pqylyjr6p2p3xcpl--
+
+
+--===============2134986020160647425==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2134986020160647425==--
+
