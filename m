@@ -4,68 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A20C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Feb 2022 07:59:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC864C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Feb 2022 08:23:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FVB9xp5rAT+jkseFB2uHTIIRC0heGxuPD6KFvlHPsmY=; b=2hv6UcDGSKwZ2cXz4n6EsRwF4E
-	LpGs2697k843wulN2uE5TSg5bzc8Q9iMNO1gFlroaSidarELVzHuehpAo4F+7mGncibnKisIBpHdF
-	1pSdK5zUgyD/x9Hq5h7F4H8jKqTYr9P4xAZZZZ5QVEXeEu+TMHXDrssr1Jcz8++/qC3lSTFARcalf
-	OY+3UFl76iJWS71pJmSj4SDFLFJra8RZig2wdl8EDLv4pQrBoVxpx1nG91dRnG65S/yx1rZll4MKn
-	xQeEtEWogW2/Yggc1+Mr1xyiBlkEgufKGUvf6JUw0/Bjqx2UpoChDm6yfnxWpbjvz3PzS+wv9+lXF
-	pRyQzz+g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=q2Rx6BeAREuaSuF6DQGsXk6YLL5VDrVjTj7IVHX7GqI=; b=nNzHDELBKI1H+l
+	3ZYQ14DJzdIkZhZSe2D18PfOob9JDypL+MH/Uqr94dpB8CnONj+3bcE6kgOXqPJUTCHWDIgbTqB41
+	6fz8QnPVXSCRwL7FsnNWYkPbhjALmYwQWmDLpYGR2QGCjqVqAARs1rZ48nlY5zwt0eGpOBu6kh4Gu
+	KulpsrqhPbqqQv1Mbw5WNTjyMYwNKTMd9dFO5xJErdjCyAEPpc5pmlDtxTTvXsdd+68/rk0QNQu1J
+	rF9+Jh+azrAHfmIv/tRCIIe1zTzZ2vAWRuxOa6LQkMniJbBr7gAdqSHlGm0x/Y2gMcEQwQqRUMg9/
+	g5cT88D5VBrKv0K0pRww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nEo3z-00BRGG-HJ; Tue, 01 Feb 2022 07:58:55 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1nEoRx-00BVwf-P5; Tue, 01 Feb 2022 08:23:41 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nEo3x-00BRFb-5b
- for linux-riscv@lists.infradead.org; Tue, 01 Feb 2022 07:58:54 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <ukl@pengutronix.de>)
- id 1nEo3e-00046y-6s; Tue, 01 Feb 2022 08:58:34 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
- by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
- (envelope-from <ukl@pengutronix.de>)
- id 1nEo3V-00Dmxz-QK; Tue, 01 Feb 2022 08:58:25 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
- (envelope-from <ukl@pengutronix.de>)
- id 1nEo3U-002kWK-5c; Tue, 01 Feb 2022 08:58:24 +0100
-Date: Tue, 1 Feb 2022 08:58:24 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: conor.dooley@microchip.com
-Cc: linus.walleij@linaro.org, brgl@bgdev.pl, robh+dt@kernel.org,
- jassisinghbrar@gmail.com, thierry.reding@gmail.com,
- lee.jones@linaro.org, a.zummo@towertech.it,
- alexandre.belloni@bootlin.com, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, geert@linux-m68k.org,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
- linux-pwm@vger.kernel.org, linux-rtc@vger.kernel.org,
- linux-riscv@lists.infradead.org, krzysztof.kozlowski@canonical.com,
- bin.meng@windriver.com, heiko@sntech.de, lewis.hanly@microchip.com,
- daire.mcnamara@microchip.com, ivan.griffin@microchip.com,
- atishp@rivosinc.com, Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH v5 06/12] dt-bindings: pwm: add microchip corepwm binding
-Message-ID: <20220201075824.aixrvkvmjde2ihxx@pengutronix.de>
-References: <20220131114726.973690-1-conor.dooley@microchip.com>
- <20220131114726.973690-7-conor.dooley@microchip.com>
+ id 1nEoRu-00BVuw-HY
+ for linux-riscv@lists.infradead.org; Tue, 01 Feb 2022 08:23:40 +0000
+Received: by mail-ed1-x530.google.com with SMTP id r10so32735183edt.1
+ for <linux-riscv@lists.infradead.org>; Tue, 01 Feb 2022 00:23:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ventanamicro.com; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=TFZBlP26iSCuq9pcp8AO1ebVNfyJtN9g48o0eg6YeUo=;
+ b=G3B3ewFELNCJK22vhw0g+Z2PMKJnRMsQAO/hHyIzUQh5ZlrFJ5omPuWN5VX0uNvNE0
+ EXmGj7q2qs/Qn4+WKa5VtdFR+Xt9d8n40Dv/yCHz14Vyk3lRh6yxM+M9LUrXiFkIeHeb
+ ZQCK0qrFQHL+eKagfOP9ECzMyNaPvo672BM1oKLuu+bycdx5S3NCkgPpfyLf4WqOYf67
+ AW76rtTOE5V23OXmkTwWvTNsl6R8atv3kK6w/Piw2vK4M22HeNpaqXvrqTJimLZiwGzH
+ +fzf4JeDVUBmnVW6jFNFd5c+LptJrQ6VIESRg1DIz3YCvu1//jdcQyqVyP18anMZ+lxW
+ wkTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=TFZBlP26iSCuq9pcp8AO1ebVNfyJtN9g48o0eg6YeUo=;
+ b=3Dv5iPitQVFPt88OXSg7IJsWnxtwjLIpXwf+kA3b5pjkSqSNIHkxFssHZbN057tbBg
+ yWPGPQk53GnSDda5MlR0QfA5ea1LWXhqzCMULluq01L7kZlvGcYJIj5z6AUMubEUtrPh
+ 7BMEH+yQ70TWZ+J9ved9dHB5wmXeAvEXKRYc+8Xs0aKaOJgRlmhZlkm3HAu1eUVNTVLO
+ ZkEcndOIvcoA4fXoY/WChzL+2WNNOBcArPWi7zEqjeoV2EQB0k99VO9aTr2icQ1TIWCX
+ PAeEoLUABkPIQGmgHsOEVjkYFu3jpAGW0HEMRoh2kPKAi+a2PsY6D9Xxzu+gD24ZPN75
+ QK/w==
+X-Gm-Message-State: AOAM5321oCbNhEqGLwMV5v6Z5WDBJ9HYN958wFcz972LBAH8lCpaTBvb
+ DkYSC3aiz+fsKj/d6JpScwvfKA==
+X-Google-Smtp-Source: ABdhPJyAQHIh8pxpRN/DzJhAGdHM+TPIjVRpgsk6BLPGFiShHIF8n3PXkg4A3GBNfSU5h5ety+T+Dw==
+X-Received: by 2002:aa7:c3cd:: with SMTP id l13mr24015019edr.93.1643703816963; 
+ Tue, 01 Feb 2022 00:23:36 -0800 (PST)
+Received: from localhost.localdomain ([122.179.76.38])
+ by smtp.gmail.com with ESMTPSA id w8sm14312133ejq.220.2022.02.01.00.23.31
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 01 Feb 2022 00:23:36 -0800 (PST)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Paolo Bonzini <pbonzini@redhat.com>,
+	Atish Patra <atishp@atishpatra.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH 0/6] KVM RISC-V SBI v0.3 support
+Date: Tue,  1 Feb 2022 13:52:21 +0530
+Message-Id: <20220201082227.361967-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-In-Reply-To: <20220131114726.973690-7-conor.dooley@microchip.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220131_235853_243932_2C4BF1FE 
-X-CRM114-Status: GOOD (  26.00  )
+X-CRM114-CacheID: sfid-20220201_002338_618541_9C29BA25 
+X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,155 +88,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2134986020160647425=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This series adds initial support for SBI v0.3 which includes:
+1) SBI SRST support for Guest
+2) SBI HSM suspend for Guest
 
---===============2134986020160647425==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="pqylyjr6p2p3xcpl"
-Content-Disposition: inline
+The SBI PMU support is intentionally left out and will be added as
+a separate patch series.
 
+These patches can also be found in riscv_kvm_sbi_v03_v1 branch at:
+https://github.com/avpatel/linux.git
 
---pqylyjr6p2p3xcpl
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Anup Patel (6):
+  RISC-V: KVM: Upgrade SBI spec version to v0.3
+  RISC-V: KVM: Add common kvm_riscv_vcpu_sbi_system_reset() function
+  RISC-V: KVM: Implement SBI v0.3 SRST extension
+  RISC-V: Add SBI HSM suspend related defines
+  RISC-V: KVM: Add common kvm_riscv_vcpu_wfi() function
+  RISC-V: KVM: Implement SBI HSM suspend call
 
-On Mon, Jan 31, 2022 at 11:47:21AM +0000, conor.dooley@microchip.com wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
->=20
-> Add device tree bindings for the Microchip fpga fabric based "core" PWM
-> controller.
->=20
-> Reviewed-by: Rob Herring <robh@kernel.org>
->=20
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  .../bindings/pwm/microchip,corepwm.yaml       | 75 +++++++++++++++++++
->  1 file changed, 75 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pwm/microchip,corep=
-wm.yaml
->=20
-> diff --git a/Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml=
- b/Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml
-> new file mode 100644
-> index 000000000000..26a77cde2465
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml
-> @@ -0,0 +1,75 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pwm/microchip,corepwm.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Microchip ip core PWM controller bindings
-> +
-> +maintainers:
-> +  - Conor Dooley <conor.dooley@microchip.com>
-> +
-> +description: |
-> +  corePWM is an 16 channel pulse width modulator FPGA IP
-> +
-> +  https://www.microsemi.com/existing-parts/parts/152118
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - const: microchip,corepwm-rtl-v4
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  "#pwm-cells":
-> +    const: 2
-> +
-> +  microchip,sync-update:
-> +    description: |
-> +      In synchronous mode, all channels are updated at the beginning of =
-the PWM period.
-> +      Asynchronous mode is relevant to applications such as LED control,=
- where
-> +      synchronous updates are not required. Asynchronous mode lowers the=
- area size,
-> +      reducing shadow register requirements. This can be set at run time=
-, provided
-> +      SHADOW_REG_EN is asserted. SHADOW_REG_EN is set by the FPGA bitstr=
-eam programmed
-> +      to the device.
-> +      Each bit corresponds to a PWM channel & represents whether synchro=
-nous mode is
-> +      possible for the PWM channel.
-> +
-> +    $ref: /schemas/types.yaml#/definitions/uint16
-> +    default: 0
+ arch/riscv/include/asm/kvm_host.h     |  1 +
+ arch/riscv/include/asm/kvm_vcpu_sbi.h |  5 ++-
+ arch/riscv/include/asm/sbi.h          | 27 +++++++++++++---
+ arch/riscv/kernel/cpu_ops_sbi.c       |  2 +-
+ arch/riscv/kvm/vcpu_exit.c            | 22 ++++++++++----
+ arch/riscv/kvm/vcpu_sbi.c             | 19 ++++++++++++
+ arch/riscv/kvm/vcpu_sbi_hsm.c         | 18 +++++++++--
+ arch/riscv/kvm/vcpu_sbi_replace.c     | 44 +++++++++++++++++++++++++++
+ arch/riscv/kvm/vcpu_sbi_v01.c         | 18 ++---------
+ 9 files changed, 125 insertions(+), 31 deletions(-)
 
-I'm not sure I understand this correctly. This is a soft-core and you
-can synthesize it either with or without the ability to do synchronous
-updates or not, right? All 16 channels share the same period length and
-in the simple implementation changing the duty cycle is done at once
-(maybe introducing a glitch) and in the more expensive implementation
-there is a register to implement both variants?
+-- 
+2.25.1
 
-
-> +  microchip,dac-mode:
-> +    description: |
-> +      Optional, per-channel Low Ripple DAC mode is possible on this IP c=
-ore. It creates
-> +      a minimum period pulse train whose High/Low average is that of the=
- chosen duty
-> +      cycle. This "DAC" will have far better bandwidth and ripple perfor=
-mance than the
-> +      standard PWM algorithm can achieve.
-> +      Each bit corresponds to a PWM channel & represents whether dac mod=
-e is enabled
-> +      that PWM channel.
-
-In the last sentence a "for" is missing?
-
-These two properties are not detectable in software?
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---pqylyjr6p2p3xcpl
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmH46B0ACgkQwfwUeK3K
-7Am3Sgf/UTtQSsIPttdHYyNUxSYZF6fH8Mu324npdIKQ+39Z6OX/+MjR27kWtIP9
-PnRVaiT3ysheX8NpDwOr4mFokpvxx6yswleZStNKVh+xzGfPDwvGMbCElcf/RL7P
-UdSovN/QCVE/X+dCUDz+sZtlbnXMW3+mJmDr2Qs1xh0/R+wuHwIwetY/8jW8t1Hy
-AkxUBTyiszRkAlXctrW+k+NaoXvtJnLLS3oCyp/vuHXvsCuwzp5GwHjL7alf89uE
-h/EMEzivdI/Bks9p9w9jDMg6GNp3KoL4RYeQwCWz4DkO3kezyhIwIgbMRLF57IqZ
-HYcnZow7dopjm+dWBk/s32mz7/prow==
-=622s
------END PGP SIGNATURE-----
-
---pqylyjr6p2p3xcpl--
-
-
---===============2134986020160647425==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2134986020160647425==--
-
