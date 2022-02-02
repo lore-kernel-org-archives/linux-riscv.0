@@ -4,83 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 250E4C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Feb 2022 13:19:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A140C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Feb 2022 13:19:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JBTmVJr0yF54F6mc2UYbpW/nlQZhte1YbLpyZVHbp9I=; b=fxiTIUC2dAy0nx
-	u8+acZWuaC891/+Ru6VNY2jo5LVRPsbEIR5DAzPjbWtBKgB6sT8isseQIbyoDAtueBWvjaXzXoS13
-	V+6dzsjH9DVM81WS6JQ0sBdOnHYt3LTeIVgN4D3DY04GemS17NCvwtMfBHvhpICNFijOejChuHrvM
-	CnKRHiNk5rfDOWgfiWz5f05SmgfuSC9xmKpVFTW91nPiTZURaPFJXBhfV+C2Y8bP5g6Ai+M1oWE8R
-	lnYM6HU4pV6S2w/8Ko/pVCvrAMwxDxwsJpo9EyPku6ds049UQOzMZEage3cxxQiTC7CM9AbSAR4cX
-	Fw5j6cwUw9/EOw4Uz9zg==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=61hy5+go4oL2aFRQdI7ZjE/Y0vSNdGWHZ12T5lLfFz0=; b=RsuaFXQarGWHJe
+	zSdpRMR8MCFM1jd9GcFMjU76MZ6fYYAO3y0u3YvLHyYAqot6b38bLUnyUFVghw5wpQCLOMvGSvCp4
+	5GkzlhUGkBErftWixfUHgsYUSoXdRoU2NHdEv9htbP4fxcduOEV1DcU6Uq00SLushTRGG9BApgol1
+	cVlaUnwkprfsk4OVjmdorvhtupTs2Vd+7lMYDDOvz142Ii+6Jsi5ZQgCu3HZd+G2+C68TiBHBm+2Y
+	GkobKCWnpXzuqU/8wrS8L5jFStaGOpMn2h+gvll9IhwkWVhVFrpxijikTnNEanKdvCdMSI1hiN+kV
+	SirhkWSMDayJCUZL9whQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nFFXJ-00FKWK-Cg; Wed, 02 Feb 2022 13:19:01 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1nFFY6-00FKnw-4A; Wed, 02 Feb 2022 13:19:50 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nFFXG-00FKUj-8p
- for linux-riscv@lists.infradead.org; Wed, 02 Feb 2022 13:19:00 +0000
-Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com
- [209.85.208.69])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 2F5353F07D
- for <linux-riscv@lists.infradead.org>; Wed,  2 Feb 2022 13:18:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1643807929;
- bh=snnqrCI4qkz8Hro6Gqsu3aM3hUykyWW5o1MMGnMsu4c=;
- h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
- To:Cc:Content-Type;
- b=BMuX1U50NYei+gExcEJCwUPseP/qvVfvdviixjVLhklBL9h1ksUyYHk2qJ4D9yGGr
- o3T3bpjSS7nUJFgbFS6wuUfO5Be914irJivSc8Bpyfi3crLJHUhC7QN6g+RN7knLkg
- ex0onBLxNzSdy9tYGUpEyjA84u0/FyVgZAlPqnYqb5Emf5FNRXL7kZwKzI9yf3iaHH
- CG0VODGcJh7ACIiJSwkygsi2dvaonv8PcDD3HQYdgyXrxlFPKY26LPRTPCXWvJpYbE
- wWIEY1YHR6YTtWKz1Cm/ZRKMAM6jxLZrIn4cMODmyGqcew2xWqlMWA5izJmxHf0qKd
- G9GpjXiikPRGA==
-Received: by mail-ed1-f69.google.com with SMTP id
- bc24-20020a056402205800b00407cf07b2e0so10427719edb.8
- for <linux-riscv@lists.infradead.org>; Wed, 02 Feb 2022 05:18:49 -0800 (PST)
+ id 1nFFXr-00FKhS-6K
+ for linux-riscv@lists.infradead.org; Wed, 02 Feb 2022 13:19:41 +0000
+Received: by mail-wr1-x433.google.com with SMTP id w11so38282617wra.4
+ for <linux-riscv@lists.infradead.org>; Wed, 02 Feb 2022 05:19:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=jrtc27.com; s=gmail.jrtc27.user;
+ h=mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=UYI//ra1wTgLyHqKdRvMjbFjIxVxiJ90kyMxoCqfe7o=;
+ b=BdnTyOGFvWo7ZOsPwl6fux65m4DLYweJEERzekMEE8H27wwdS3+nQ/U2j33dBYMudw
+ Eq0TXwdago9sG6j3KDWOLpvLf3b+IoUHY8DL/rwfZEN5abJJTKke3i2EeSxkj/Ah1i/K
+ j3J6uUnSK95UqDWXhoHzCS2LbBvYevBbttD5uFfKCiQplkh/aunp0/MbA0xKhdasCknv
+ uuWvt89ICmhS2Urtrfl6SYFsHIJ9WxX2eyyy4qkEShPKDPo5IDvaN1UaQIWuwiJFZSjA
+ A0muRiAE1N2UClRfFkVFgLfzEKz36nyYyXsHY3s0LIvJzL/7Y1wOVa0n1bW6jSX/+iJm
+ aukg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=snnqrCI4qkz8Hro6Gqsu3aM3hUykyWW5o1MMGnMsu4c=;
- b=0hKF9+vD/uQuTuURE9lFEH7Csk9h8dEIJIx0mwJ+qYJ3gDIrcFR0WHNBmowkoQIRZm
- VcG/9om8l713ex8FatRBbhIiBvP87EOUwYD4j0rNMEhcKD4NAXXF9z4HksO6dtfSNQDF
- 6pB9GVc0IkxcmT8qpj30+9XLJLcrURPodAQwU86tTvdSHKTTizmvoFT5Z75DiTiMpI6U
- Xq5czdPubuJDp/NSNYBGhdpPD3l7h5g9GxE4hSg0gIXaatfmPD6BInd4is4UyNdxNjPk
- UibR2WREHkGo4xhrD6HZ0uHj6ApQXqlpOeL1uCugfLRJ3/8Tze+NhNOcBbPwaS5U7vCO
- oBdw==
-X-Gm-Message-State: AOAM530zesqRlSS+AkOqcKslDLylZ8BV3B07lT2UQ7MSuXKN2o81938Q
- a6+RYCTp+aPL1zUWNmvBvmQQbr2L7Fa0EZlPA0O2OtRVwj5d2FvXZKmIhBSMDYS+1OhNtY9405s
- iMZMqpGYQMIgh6+v23N1ZbHsMFPDSBqHzsDRlZAwrZBDkBpur5/xb6b1RPD6l4g==
-X-Received: by 2002:aa7:cd0b:: with SMTP id b11mr29885615edw.412.1643807928849; 
- Wed, 02 Feb 2022 05:18:48 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJy1dzhipSUYTihxVVzQkkaZnzEIXAFJlJAmh3uo9RR5PEKeTLa1FlnwjQssXcKFJZ5pmuz11A7eZFDgrYYhlPY=
-X-Received: by 2002:aa7:cd0b:: with SMTP id b11mr29885596edw.412.1643807928661; 
- Wed, 02 Feb 2022 05:18:48 -0800 (PST)
-MIME-Version: 1.0
-References: <00000000000038779505d5d8b372@google.com>
- <CANp29Y7WjwXwgxPrNq0XXjXPu+wGFqTreh9gry=O6aE7+cKpLQ@mail.gmail.com>
-In-Reply-To: <CANp29Y7WjwXwgxPrNq0XXjXPu+wGFqTreh9gry=O6aE7+cKpLQ@mail.gmail.com>
-From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Date: Wed, 2 Feb 2022 14:18:36 +0100
-Message-ID: <CA+zEjCvu76yW7zfM+qJUe+t5y23oPdzR4KDV1mOdqH8bB4GmTw@mail.gmail.com>
-Subject: Re: [syzbot] riscv/fixes boot error: can't ssh into the instance
-To: Aleksandr Nogikh <nogikh@google.com>
-Cc: linux-riscv@lists.infradead.org, kasan-dev <kasan-dev@googlegroups.com>, 
- palmer@dabbelt.com, 
- syzbot <syzbot+330a558d94b58f7601be@syzkaller.appspotmail.com>, 
- LKML <linux-kernel@vger.kernel.org>, syzkaller-bugs@googlegroups.com
+ h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=UYI//ra1wTgLyHqKdRvMjbFjIxVxiJ90kyMxoCqfe7o=;
+ b=fbmtBDz8MlDnTcr90M6qGvSlCu04WxAwwJ6IAEZc2Z3vc0EWLn074yXk6VzPl+oT05
+ jIi9QFOfJLPBpc/vWKIw0F4CCf9CHf70f4clprsjyevLZR0OWh9oqgHxwRdF1hrYix28
+ X2RfxbnrAbgklHPAOFSyPaRa9zNWfVVOA5yybnNl2+yoBOeTJWwBfWOY7SRRsvZeBvWn
+ nOoXBMviuqmti3uBVf2lm6E8DIezQhW+5VH5hUQOJEAT09s3IvQ9yyAVFd150nzMKmzt
+ PPxMGnEY/8zHbQoy6PtZTYOpswjTjrolZiAmD8u1Q4fPZXWiH4gAAC5jdPMl79pXzySq
+ nmvw==
+X-Gm-Message-State: AOAM531319WLvVOpGl64wF9eIMcKXVpw5a0q7JYrGEWDAuuRBVj/l4Fx
+ zOIiuGxXRwbC5yrMogJiKzguWg==
+X-Google-Smtp-Source: ABdhPJzICvYrz69A0ityikLYb25DkNUNN2ptebetqW4p1gmz63PHRuJ5vDe+5x5Y5OTc6DJ6I4foww==
+X-Received: by 2002:a5d:614d:: with SMTP id y13mr1433428wrt.553.1643807972109; 
+ Wed, 02 Feb 2022 05:19:32 -0800 (PST)
+Received: from smtpclient.apple (global-5-143.nat-2.net.cam.ac.uk.
+ [131.111.5.143])
+ by smtp.gmail.com with ESMTPSA id t18sm17797789wri.34.2022.02.02.05.19.31
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Wed, 02 Feb 2022 05:19:31 -0800 (PST)
+Mime-Version: 1.0 (Mac OS X Mail 15.0 \(3693.40.0.1.81\))
+Subject: Re: [PATCH] RISC-V: KVM: make CY, TM, and IR counters accessible in
+ VU mode
+From: Jessica Clarke <jrtc27@jrtc27.com>
+In-Reply-To: <CAAhSdy2wX7Re4yepV7ReNQazF9jb-eqSUDE7rLCarr3iUchzkQ@mail.gmail.com>
+Date: Wed, 2 Feb 2022 13:19:31 +0000
+Cc: Mayuresh Chitale <mchitale@ventanamicro.com>,
+ Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ kvm-riscv@lists.infradead.org,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+Message-Id: <B04F937F-6FC8-42F5-9D6B-7EF1148F9646@jrtc27.com>
+References: <20220131110307.1684739-1-mchitale@ventanamicro.com>
+ <CAAhSdy2wX7Re4yepV7ReNQazF9jb-eqSUDE7rLCarr3iUchzkQ@mail.gmail.com>
+To: Anup Patel <anup@brainfault.org>
+X-Mailer: Apple Mail (2.3693.40.0.1.81)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220202_051858_482974_C7DA8992 
-X-CRM114-Status: GOOD (  26.33  )
+X-CRM114-CacheID: sfid-20220202_051935_340360_518AAAD8 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,80 +94,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Aleksandr,
+On 2 Feb 2022, at 11:14, Anup Patel <anup@brainfault.org> wrote:
+> 
+> On Mon, Jan 31, 2022 at 4:33 PM Mayuresh Chitale
+> <mchitale@ventanamicro.com> wrote:
+>> 
+>> Those applications that run in VU mode and access the time CSR cause
+>> a virtual instruction trap as Guest kernel currently does not
+>> initialize the scounteren CSR.
+>> 
+>> To fix this, we should make CY, TM, and IR counters accessibile
+>> by default in VU mode (similar to OpenSBI).
+>> 
+>> Fixes: a33c72faf2d73 ("RISC-V: KVM: Implement VCPU create, init and
+>> destroy functions")
+>> Cc:stable@vger.kernel.org
+>> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+> 
+> Thanks, I have queued this for fixes.
 
-On Wed, Feb 2, 2022 at 12:08 PM Aleksandr Nogikh <nogikh@google.com> wrote:
->
-> Hello,
->
-> syzbot has already not been able to fuzz its RISC-V instance for 97
+The formatting is clearly wrong...
 
-That's a longtime, I'll take a look more regularly.
+> Regards,
+> Anup
+> 
+>> ---
+>> arch/riscv/kvm/vcpu.c | 4 ++++
+>> 1 file changed, 4 insertions(+)
+>> 
+>> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+>> index 0c5239e05721..caaf824347b9 100644
+>> --- a/arch/riscv/kvm/vcpu.c
+>> +++ b/arch/riscv/kvm/vcpu.c
+>> @@ -90,6 +90,7 @@ int kvm_arch_vcpu_precreate(struct kvm *kvm, unsigned int id)
+>> int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
+>> {
+>>        struct kvm_cpu_context *cntx;
+>> +       struct kvm_vcpu_csr *reset_csr = &vcpu->arch.guest_reset_csr;
+>> 
+>>        /* Mark this VCPU never ran */
+>>        vcpu->arch.ran_atleast_once = false;
+>> @@ -106,6 +107,9 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
+>>        cntx->hstatus |= HSTATUS_SPVP;
+>>        cntx->hstatus |= HSTATUS_SPV;
+>> 
+>> +       /* By default, make CY, TM, and IR counters accessible in VU mode */
+>> +       reset_csr->scounteren=0x7;
 
-> days now because the compiled kernel cannot boot. I bisected the issue
-> to the following commit:
->
-> commit 54c5639d8f507ebefa814f574cb6f763033a72a5
-> Author: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-> Date:   Fri Oct 29 06:59:27 2021 +0200
->
->     riscv: Fix asan-stack clang build
->
-> Apparently, the problem appears on GCC-built RISC-V kernels with KASAN
-> enabled. In the previous message syzbot mentions
-> "riscv64-linux-gnu-gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU
-> Binutils for Debian) 2.35.2", but the issue also reproduces finely on
-> a newer GCC compiler: "riscv64-linux-gnu-gcc (Debian 11.2.0-10)
-> 11.2.0, GNU ld (GNU Binutils for Debian) 2.37".
-> For convenience, I also duplicate the .config file from the bot's
-> message: https://syzkaller.appspot.com/x/.config?x=522544a2e0ef2a7d
->
-> Can someone with KASAN and RISC-V expertise please take a look?
+... here
 
-I'll take a look at that today.
+Jess
 
-Thanks for reporting the issue,
+>> +
+>>        /* Setup VCPU timer */
+>>        kvm_riscv_vcpu_timer_init(vcpu);
+>> 
+>> --
+>> 2.25.1
+>> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-Alex
-
->
-> --
-> Best Regards,
-> Aleksandr
->
->
-> On Tue, Jan 18, 2022 at 11:26 AM syzbot
-> <syzbot+330a558d94b58f7601be@syzkaller.appspotmail.com> wrote:
-> >
-> > Hello,
-> >
-> > syzbot found the following issue on:
-> >
-> > HEAD commit:    f6f7fbb89bf8 riscv: dts: sifive unmatched: Link the tmp451..
-> > git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
-> > console output: https://syzkaller.appspot.com/x/log.txt?x=1095f85bb00000
-> > kernel config:  https://syzkaller.appspot.com/x/.config?x=522544a2e0ef2a7d
-> > dashboard link: https://syzkaller.appspot.com/bug?extid=330a558d94b58f7601be
-> > compiler:       riscv64-linux-gnu-gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU Binutils for Debian) 2.35.2
-> > userspace arch: riscv64
-> >
-> > IMPORTANT: if you fix the issue, please add the following tag to the commit:
-> > Reported-by: syzbot+330a558d94b58f7601be@syzkaller.appspotmail.com
-> >
-> >
-> >
-> > ---
-> > This report is generated by a bot. It may contain errors.
-> > See https://goo.gl/tpsmEJ for more information about syzbot.
-> > syzbot engineers can be reached at syzkaller@googlegroups.com.
-> >
-> > syzbot will keep track of this issue. See:
-> > https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
-> >
-> > --
-> > You received this message because you are subscribed to the Google Groups "syzkaller-bugs" group.
-> > To unsubscribe from this group and stop receiving emails from it, send an email to syzkaller-bugs+unsubscribe@googlegroups.com.
-> > To view this discussion on the web visit https://groups.google.com/d/msgid/syzkaller-bugs/00000000000038779505d5d8b372%40google.com.
 
 _______________________________________________
 linux-riscv mailing list
