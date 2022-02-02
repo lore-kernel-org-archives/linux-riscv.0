@@ -4,75 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F29E1C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Feb 2022 13:29:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D050C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Feb 2022 13:46:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vKtlqoOgdaCKWIIafm3ZvLIjg/Tts/FG2pW9/KuHot4=; b=fnXkzuVzc1NGzx
-	5bNq0ZMsiiVP1dE8UsbUKRWXZv8eXHx0y6/aWQuRj7+VE5WqWtvXqwYqGD24zhjPWWW5byT/857Ja
-	15oILq2p/2RFWzvh10i3htJrtaPau20haSw9L/SQmgOZ4o8A76JNdOBBi4YHNmxb/BQX8FCctWQn7
-	duH4PRGTckQ05r/csj5x60nwdOKQzyBQuEh0EsdrLwsbG6fyGzC9ZNg3THMAmGgSX+q1/9iUR8VVX
-	5Gy0fh++GkmLF9tAz9CdfQrStKbmsu4yPnaOFh4yPjY+/kh3PRd78rr1DOE3RtmRPqA0J08GjwKme
-	l5/LgeqWDqVOjM+x7blg==;
+	List-Owner; bh=mQha+GyF1Xp5GSRFzG2AuY8UYHF6HpfUdPsvUHo8H1I=; b=OkpnUGz/qB6maf
+	pBykGK41/RXJeuycI017PfYJcq9qq8WaEWkVC0kvDW81Ri6OHsalK5q/y6z0dLsYqnC6BVTpAuQeV
+	RHFQV/MPq9//El+cihRkf0VCJaGtE1Hh9r7Q/sAhHt9CViNbXY6gBfpusR3YbgWe0Nx/5z2vAiBpy
+	NC8w2dumFDhYirj4qOj37rkgfdjYNt0TjA17a/3W5+V+9UMC1BHC0G6SpQJ1l3K7YAhFtcDGumzFs
+	gyLF9zNowQySwC+wIGfQeLGJ/0H5c4j2Nn8N8NcxUq+8UHcg1CqiwkJS/GSLOe8qKdWWN1yJDqczA
+	JUcYT2fc3lbFChe2jvSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nFFhZ-00FMKx-46; Wed, 02 Feb 2022 13:29:37 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1nFFxQ-00FNyE-12; Wed, 02 Feb 2022 13:46:00 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nFFhU-00FMI1-K2
- for linux-riscv@lists.infradead.org; Wed, 02 Feb 2022 13:29:35 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id z20so28889777ljo.6
- for <linux-riscv@lists.infradead.org>; Wed, 02 Feb 2022 05:29:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ventanamicro.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=ut1heMlmneP+6IiHVYaCsRV+iQnMtY/plsON5gFnw/s=;
- b=pSxMvG+egIt4WW80jF9dDVL3Z8lG/xgxzcN3gE1P+6SGJWoI6nsWsoHQEl+4+ug4UX
- gOar1xx+mu87pvf4RiobK4x+KVC1BJ0rMGMqGoKBLxkSpfVs45nt0jEUavC6xXXffZGS
- 3a77UePfRjq+OPgpZjJkUwohMc5aUQDULSqqZwagYfF0RicMliSE9QWN0Hrn0IuXxiAt
- c9ViyFifNmmf1QaV6qNZXiz2p1HT/DmQ2aV8i4BCX+OIXIhGarMZzkeX/thOFYt3BPi1
- X8hme+1Sv7Cr9o2AxrucOVRe6/pynI7ogzarWIANwAiNk6dOQAL3W7orgc2jNEDuDVzJ
- upnw==
+ id 1nFFxN-00FNwo-5k
+ for linux-riscv@lists.infradead.org; Wed, 02 Feb 2022 13:45:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1643809555;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=YxruncnGKSYEtQADjLUNkNWhCcGBbzpK2sbDwkeQUpo=;
+ b=IvlHLOIoAfjxqUryG5VtmgReaCtzLoMtgEAAKndnl8Lqi914pDdVatgXRntOsQovBp53GE
+ EyeC3I9hFv8V8pRcIotB0VS/+D0GazCr7QtuFhOA16z9du7/fUdOXcleb1D3uDxp0yBjcv
+ uKzYQh460kzzs7wa0ybeaECp/Y3LALQ=
+Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com
+ [209.85.218.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-203-14e-4-tzNZ-lIKzHumjObg-1; Wed, 02 Feb 2022 08:45:54 -0500
+X-MC-Unique: 14e-4-tzNZ-lIKzHumjObg-1
+Received: by mail-ej1-f71.google.com with SMTP id
+ rl11-20020a170907216b00b006b73a611c1aso8129882ejb.22
+ for <linux-riscv@lists.infradead.org>; Wed, 02 Feb 2022 05:45:53 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=ut1heMlmneP+6IiHVYaCsRV+iQnMtY/plsON5gFnw/s=;
- b=D272yvwZcqqMeJ48RxYIBf0V+yNySqVKVEe4B8dCA2M9a5o0cioSHqmGFV7n+22aL8
- PUh3I4fWDE93P/nUL5HmcBop0pflxP61VPt39aWVNs9On4K0hEP4v8+JSk/X1nohAfsl
- olUsA2Ab3f9OPC63AdsW7jLtpXk3aLrMiq5zsXV1YW1nGTAX9xD3uKkxv+L8Z/PNgx/d
- knfsSN7yi/9l3qHpDafR5wHVIs+MTZziJmijuAURNq/6cJJT10B+Y60v9PMHArwcr7nR
- I5gwCXn3xtx1EYd7klSTXNQYRM9U8GTuaduFZx/lcZIRM/jcSpaFwCHjI7J/L3arrBuo
- VdTA==
-X-Gm-Message-State: AOAM533cP5+TUJgNW8J9AjDomlLVZi55an98rFl79uP6tUaunn4AwAd1
- eqscrRm+ugSkVDN8BSOS8barUbxyTJeGmjomEELa7g==
-X-Google-Smtp-Source: ABdhPJx5vsaf3f2A8imbwwx+BlfgfCJf+ICQ65e5a/dtBqayDqwZfU1QHrHiSP/evaTJiDLlffNcX5TPkt9HUMaKhUw=
-X-Received: by 2002:a05:651c:a0b:: with SMTP id
- k11mr15027229ljq.266.1643808570290; 
- Wed, 02 Feb 2022 05:29:30 -0800 (PST)
+ h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+ :content-language:to:cc:references:from:organization:in-reply-to
+ :content-transfer-encoding;
+ bh=YxruncnGKSYEtQADjLUNkNWhCcGBbzpK2sbDwkeQUpo=;
+ b=FGjJIRPHxkB/v3hXoXZJmn50Dsb4Whn25xfFraXfQXTibRMzyAMaJmFevFL30a4Cjc
+ 8KHELb0fzoPbnX/Ds72PISx98ndmjab+7o7qfwzxPvxvRbLeKtd+btuPtuIwAXLYuXwa
+ bwWqu4Yjq2r/SBQw+JbilcmocRjHjj8nMP30znzGatrZaLQk6ryhcghHGGstqmLi3Mj6
+ 4NzSfhp+alz+R/J0xv2jH0kSSDiRnsRcAVyHD5M8FGheD2QRzsexBGYqvYdbcJRglZvm
+ G9J9kYot4jK3RIY6aHBivHD6b6dq0i/V9wLVjjj/Pqd3koxJ5umD4TUquDRhgb1A0Nn2
+ dyZg==
+X-Gm-Message-State: AOAM530DORROC2UV1Af4U6xiFtBREc7/I8P3T7IRfs5V3zbhqQfJH/EB
+ UoXa2iDOJaW4TQCr8+pP9RN3WQ5YsLa366d6wzLEWwu4Lo2lEbo3vbY+bFRfAdBQ+OJyX5d8cqi
+ zR3RriYq52DMDCADYaajkpyC1YyKw
+X-Received: by 2002:a05:6402:5248:: with SMTP id
+ t8mr30084263edd.14.1643809552839; 
+ Wed, 02 Feb 2022 05:45:52 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxqE4L2UK0676VaeKIuCkwGMt3tw/zzsCSLR83dbtSZbWUp25WGEt3s5690JhdDTieh82ha0w==
+X-Received: by 2002:a05:6402:5248:: with SMTP id
+ t8mr30084241edd.14.1643809552570; 
+ Wed, 02 Feb 2022 05:45:52 -0800 (PST)
+Received: from ?IPV6:2003:cb:c709:f800:a55c:e484:3cd9:3632?
+ (p200300cbc709f800a55ce4843cd93632.dip0.t-ipconnect.de.
+ [2003:cb:c709:f800:a55c:e484:3cd9:3632])
+ by smtp.gmail.com with ESMTPSA id z8sm15746580ejc.151.2022.02.02.05.45.50
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Wed, 02 Feb 2022 05:45:52 -0800 (PST)
+Message-ID: <c25ad11e-6700-3a11-1a44-f69b4a7fc9e2@redhat.com>
+Date: Wed, 2 Feb 2022 14:45:50 +0100
 MIME-Version: 1.0
-References: <20220131110307.1684739-1-mchitale@ventanamicro.com>
- <CAAhSdy2wX7Re4yepV7ReNQazF9jb-eqSUDE7rLCarr3iUchzkQ@mail.gmail.com>
- <B04F937F-6FC8-42F5-9D6B-7EF1148F9646@jrtc27.com>
-In-Reply-To: <B04F937F-6FC8-42F5-9D6B-7EF1148F9646@jrtc27.com>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Wed, 2 Feb 2022 18:59:18 +0530
-Message-ID: <CAK9=C2WPmH4snAH1Ft4jNoaNuLRQ9dEuYm_K4ePVHdS9wkBYPA@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: KVM: make CY, TM, and IR counters accessible in
- VU mode
-To: Jessica Clarke <jrtc27@jrtc27.com>
-Cc: Anup Patel <anup@brainfault.org>,
- Mayuresh Chitale <mchitale@ventanamicro.com>, 
- Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- kvm-riscv@lists.infradead.org, linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.4.0
+Subject: Re: [PATCH RFC v1] drivers/base/node: consolidate node device
+ subsystem initialization in node_dev_init()
+To: linux-kernel@vger.kernel.org
+Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Michal Hocko <mhocko@suse.com>, Oscar Salvador <osalvador@suse.de>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ "David S. Miller" <davem@davemloft.net>, Thomas Gleixner
+ <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org
+References: <20220128151540.164759-1-david@redhat.com>
+From: David Hildenbrand <david@redhat.com>
+Organization: Red Hat
+In-Reply-To: <20220128151540.164759-1-david@redhat.com>
+Authentication-Results: relay.mimecast.com;
+ auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=david@redhat.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220202_052932_696370_A346E0CC 
-X-CRM114-Status: GOOD (  21.20  )
+X-CRM114-CacheID: sfid-20220202_054557_332468_5E9A142D 
+X-CRM114-Status: GOOD (  19.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,81 +126,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 2, 2022 at 6:49 PM Jessica Clarke <jrtc27@jrtc27.com> wrote:
->
-> On 2 Feb 2022, at 11:14, Anup Patel <anup@brainfault.org> wrote:
-> >
-> > On Mon, Jan 31, 2022 at 4:33 PM Mayuresh Chitale
-> > <mchitale@ventanamicro.com> wrote:
-> >>
-> >> Those applications that run in VU mode and access the time CSR cause
-> >> a virtual instruction trap as Guest kernel currently does not
-> >> initialize the scounteren CSR.
-> >>
-> >> To fix this, we should make CY, TM, and IR counters accessibile
-> >> by default in VU mode (similar to OpenSBI).
-> >>
-> >> Fixes: a33c72faf2d73 ("RISC-V: KVM: Implement VCPU create, init and
-> >> destroy functions")
-> >> Cc:stable@vger.kernel.org
-> >> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
-> >
-> > Thanks, I have queued this for fixes.
->
-> The formatting is clearly wrong...
+On 28.01.22 16:15, David Hildenbrand wrote:
+> ... and call node_dev_init() after memory_dev_init() from driver_init(),
+> so before any of the existing arch/subsys calls. All online nodes should
+> be known at that point.
+> 
+> This is in line with memory_dev_init(), which initializes the memory
+> device subsystem and creates all memory block devices.
+> 
+> Similar to memory_dev_init(), panic() if anything goes wrong, we don't
+> want to continue with such basic initialization errors.
+> 
+> The important part is that node_dev_init() gets called after
+> memory_dev_init() and after cpu_dev_init(), but before any of the
+> relevant archs call register_cpu() to register the new cpu device under
+> the node device. The latter should be the case for the current users
+> of topology_init().
+> 
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> Cc: Michal Hocko <mhocko@suse.com>
+> Cc: Oscar Salvador <osalvador@suse.de>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+> Cc: Michael Ellerman <mpe@ellerman.id.au>
+> Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
+> Cc: Paul Mackerras <paulus@samba.org>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: Heiko Carstens <hca@linux.ibm.com>
+> Cc: Vasily Gorbik <gor@linux.ibm.com>
+> Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
+> Cc: Rich Felker <dalias@libc.org>
+> Cc: "David S. Miller" <davem@davemloft.net>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: Borislav Petkov <bp@alien8.de>
+> Cc: Dave Hansen <dave.hansen@linux.intel.com>
+> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+> Cc: x86@kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-ia64@vger.kernel.org
+> Cc: linux-mips@vger.kernel.org
+> Cc: linuxppc-dev@lists.ozlabs.org
+> Cc: linux-riscv@lists.infradead.org
+> Cc: linux-s390@vger.kernel.org
+> Cc: linux-sh@vger.kernel.org
+> Cc: sparclinux@vger.kernel.org
+> Cc: linux-mm@kvack.org
+> Signed-off-by: David Hildenbrand <david@redhat.com>
 
-I have updated this in my fixes queue.
+If there are no further comments, then I'll resend as !RFC with a
+slightly extended patch description, testing at least under arm64 and
+ppc64 as they are relatively easy to test for me.
 
->
-> > Regards,
-> > Anup
-> >
-> >> ---
-> >> arch/riscv/kvm/vcpu.c | 4 ++++
-> >> 1 file changed, 4 insertions(+)
-> >>
-> >> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> >> index 0c5239e05721..caaf824347b9 100644
-> >> --- a/arch/riscv/kvm/vcpu.c
-> >> +++ b/arch/riscv/kvm/vcpu.c
-> >> @@ -90,6 +90,7 @@ int kvm_arch_vcpu_precreate(struct kvm *kvm, unsigned int id)
-> >> int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
-> >> {
-> >>        struct kvm_cpu_context *cntx;
-> >> +       struct kvm_vcpu_csr *reset_csr = &vcpu->arch.guest_reset_csr;
-> >>
-> >>        /* Mark this VCPU never ran */
-> >>        vcpu->arch.ran_atleast_once = false;
-> >> @@ -106,6 +107,9 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
-> >>        cntx->hstatus |= HSTATUS_SPVP;
-> >>        cntx->hstatus |= HSTATUS_SPV;
-> >>
-> >> +       /* By default, make CY, TM, and IR counters accessible in VU mode */
-> >> +       reset_csr->scounteren=0x7;
->
-> ... here
-
-Same as above, I have updated this my queue as well.
-
+-- 
 Thanks,
-Anup
 
->
-> Jess
->
-> >> +
-> >>        /* Setup VCPU timer */
-> >>        kvm_riscv_vcpu_timer_init(vcpu);
-> >>
-> >> --
-> >> 2.25.1
-> >>
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
->
+David / dhildenb
+
 
 _______________________________________________
 linux-riscv mailing list
