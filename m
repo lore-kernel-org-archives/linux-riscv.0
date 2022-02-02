@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB0AEC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Feb 2022 19:43:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84917C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Feb 2022 01:00:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oCYOjJXx5ejvB/a/d4ovIgxNJ2g/U9YfkNehVo3Mk4s=; b=PyikfJeY9cNdD6
-	Z6WoVBRBZb2YHyfUNKnlX6CYj9Ejq7aUFlVtuvfRl28Q+W9QDVrPElrXpl8HOuAID2RxKG/vfg+3n
-	0DlvgfBOys91bKw+ZutBR0l3MArKc4ra/fzlZHjZ0M1nTtNgCQbDcu8LPPXsNAs2Gua1iGoOn2HlO
-	Au7h1TVGuvsFzitqGvX34pyjhJkbjVSpS4Q9Fxcw2VfGRPMc9k1/5pWGoDxDJ4ZrW8t8b5vBwt+h4
-	agve/h5CMPIlR2655lhKC/uBcDW/kQpT20OBNHKBOUueD/46iiVytP14IA5cjRDWfwvvsQWCZvWwV
-	Ybays/nFRQdVK2KUYbEw==;
+	List-Owner; bh=mmlf8Sfo7k4exRGiaVAkIxuwy21nwqPIw9dCSl9TilM=; b=Y729jnYftNv6a+
+	XzIQtwKyzn1ZPPKuKTi866ydaTchtT8fVTmHRMddJaEtZ54QN4AAN0pknc+xIw9zM9w7nGA0K1jU+
+	n6sTkU5rgw/jWbn38u0htJwtnimY6QgkQZZRSmU7H4CRjo2s9PObCaCge51ay72p5hSCYgiQs56mX
+	PkyA+/Vd0gLL33S0Bmidirf9Fy8umarGvSfWA8jVvD8JQem+QwTPiPb+sOy5+zlPB6+tf/gHyR/gd
+	UfzWg+LH7ja3JL/oTahUF/FG52t7vXCMzVmNdPw3hiJlXeWn2RAPmZqSfLR1IPAJlX3ddRZPo+dlh
+	l0G8CuM4OWZAd1wWnGxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nEz3c-00DZOo-0L; Tue, 01 Feb 2022 19:43:16 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1nF40E-00DvWI-QL; Wed, 02 Feb 2022 01:00:06 +0000
+Received: from mail-oi1-f170.google.com ([209.85.167.170])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nEz3Y-00DZO8-Ur
- for linux-riscv@lists.infradead.org; Tue, 01 Feb 2022 19:43:14 +0000
-Received: by mail-lf1-x134.google.com with SMTP id b9so36031053lfq.6
- for <linux-riscv@lists.infradead.org>; Tue, 01 Feb 2022 11:43:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=Zz0Xmt+zBtk7CUu8XqSyog1XhQotf3FMA2GYjydlfL0=;
- b=Htw1wDOLdqMNCyrnaaITsbOvlAbxwjaEwcX4XYqlgm3Z1LbJ3RYWnOO2iaVRV9G1DI
- jpWXX/sIE5H39nMTY5p0razkshDoBz/F6McO6YAl4cwVeBGrzqrKxlpCylg0X1daUYGM
- pN1+7jnIfqpzP1w/68gLZUxAYx6q5/epW6c8ZzbqTYLBdgBSYEuSIbf4RTYvtgOQqKhn
- 6hVoaVpvltyP6VYnAqlza4uDqz2I8UVPlLlizImeDbsYw9ZdcKTRrWPMDYiVd4LnvIfl
- bLMUat+d1svMKOEcMMktaoHDYaIAxYouw3HK/LdxvxHdRjoGqvxMk1UmJZ5DI4v2Q+k6
- /e0g==
+ id 1nF40B-00DvV7-Kb
+ for linux-riscv@lists.infradead.org; Wed, 02 Feb 2022 01:00:05 +0000
+Received: by mail-oi1-f170.google.com with SMTP id x193so36976369oix.0
+ for <linux-riscv@lists.infradead.org>; Tue, 01 Feb 2022 17:00:03 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=Zz0Xmt+zBtk7CUu8XqSyog1XhQotf3FMA2GYjydlfL0=;
- b=fRWeUFkRLqF9KvAUw7osUjRn9F5tQHlwdB/4BTrQAmKKK5yc3UBDPS6nopiLQSrw0b
- MuD5VLV99+AdPhtQs4bvmBADrBVZsox/lclWeW2qB96vJCLYozcKiqfRTM2SIdqBwftR
- su7mgjlv6QjZMCa10wYSsUq9LrSoCht5C0VaRg/SQyG7UOhjrqtF12K6qAjUe3KseSv5
- il6glGF+kN68qHkMXoH4Gw914OAyJ8iLtpN3FK8AoWhS8Bzut71g7Gp2o7Bvv7zxIica
- tNd5WpN4bzHZD9sC9MZ87Q9GEs4Sn9IMnmfeK0IDpP+a8CoyP1EMlUwcUv71oB6uVSNq
- A/6g==
-X-Gm-Message-State: AOAM533TNfpXpyvmcLaR1P6Dlw5kAS0y4NGML6AYVES+qN8tTgqpKyUm
- KTvpjNmhkLtRl+7BlCP/NmxKMl7ATdpvl/5bc4Othg==
-X-Google-Smtp-Source: ABdhPJzBJdDca+G7ILqunsKdkfH03kHFBWuIxCxfb5qUaZqVHDaeZa+DmsszEC1qJYB5VVzT0+wAjJ7b2e5N+kgFJto=
-X-Received: by 2002:a05:6512:3ba5:: with SMTP id
- g37mr20511313lfv.651.1643744591095; 
- Tue, 01 Feb 2022 11:43:11 -0800 (PST)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=FwmA6JKPlfYdb8O53eG4VPOnrHtZJfiTdm/qzeAbUSI=;
+ b=UUg/rnEIxE3iwVKBGNoE6gJuWdPjXYqB0/xW+yceVW1pOWqqkp2xhCDWhSE6KfjHrz
+ hyGC2zAyf+zhbmdCSMHebVbl2cmKfaNkRjNCV4uAWSNZ0QRsgbL8CoPk0oqoY2aHACID
+ Wf9Mayf+s7gKvavB3yMhX0ycEbDYCmb5wSDUuony7srS9UV9ZHeduzx0MTm+tucmEURr
+ LsshWlBguO8mmr5TbNlQERQUMPOSDMPA6SlzsB752glc9HeCcFjjBxgEZYP04dkYguC7
+ iZHPHPPhsLq8m4nA0KP/UVvncJ5IYvS44foeaOzqm7bon5lzbcT7TXpZWiFoydSzFpC1
+ Dwig==
+X-Gm-Message-State: AOAM5338gJAlj9DaxEVid9I5CYyrnziRVjWNMVY1FJbN4230sYXjEZuC
+ uyAbqJSAMXazh0U+QT694g==
+X-Google-Smtp-Source: ABdhPJx94mzW80s1AVWpJttUhCzADCAhxdp8POgQUBSKTXkKjvBSI6IyPsZx17pLj82OsvpC+Wqtxg==
+X-Received: by 2002:a05:6808:1645:: with SMTP id
+ az5mr3359794oib.313.1643763602315; 
+ Tue, 01 Feb 2022 17:00:02 -0800 (PST)
+Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
+ [66.90.148.213])
+ by smtp.gmail.com with ESMTPSA id bc36sm5100831oob.45.2022.02.01.17.00.00
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 01 Feb 2022 17:00:01 -0800 (PST)
+Received: (nullmailer pid 1101236 invoked by uid 1000);
+ Wed, 02 Feb 2022 01:00:00 -0000
+Date: Tue, 1 Feb 2022 19:00:00 -0600
+From: Rob Herring <robh@kernel.org>
+To: guoren@kernel.org
+Cc: anup@brainfault.org, Guo Ren <guoren@linux.alibaba.com>,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Heiko Stuebner <heiko@sntech.de>, linux-kernel@vger.kernel.org, maz@kernel.org,
+ tglx@linutronix.de, Rob Herring <robh+dt@kernel.org>, palmer@dabbelt.com,
+ samuel@sholland.org
+Subject: Re: [PATCH V7 1/2] dt-bindings: update riscv plic compatible string
+Message-ID: <YfnXkO98mpm9O0zH@robh.at.kernel.org>
+References: <20220130135634.1213301-1-guoren@kernel.org>
+ <20220130135634.1213301-2-guoren@kernel.org>
 MIME-Version: 1.0
-References: <20220201013257.17926-1-changbin.du@gmail.com>
-In-Reply-To: <20220201013257.17926-1-changbin.du@gmail.com>
-From: Nick Desaulniers <ndesaulniers@google.com>
-Date: Tue, 1 Feb 2022 11:42:59 -0800
-Message-ID: <CAKwvOd=fCCjSfz6tW3514ifZOMw2PT4AZiFExq1qqG1rxf5fEg@mail.gmail.com>
-Subject: Re: [PATCH] kallsyms: ignore all local labels prefixed by '.L'
-To: Changbin Du <changbin.du@gmail.com>
-Cc: Nathan Chancellor <nathan@kernel.org>,
- Masahiro Yamada <masahiroy@kernel.org>, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- llvm@lists.linux.dev
+Content-Disposition: inline
+In-Reply-To: <20220130135634.1213301-2-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220201_114313_039086_331526AD 
-X-CRM114-Status: GOOD (  20.31  )
+X-CRM114-CacheID: sfid-20220201_170003_726499_F96BCD9C 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,59 +85,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 31, 2022 at 5:33 PM Changbin Du <changbin.du@gmail.com> wrote:
-
-Make sure to mark the version of your patches (this is v2, IIUC). `git
-format-patch -v2 HEAD~`
-
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-
->
-> The llvm compiler can generate lots of local labels ('.LBB', '.Ltmpxxx',
-> '.L__unnamed_xx', etc.). These symbols usually are useless for debugging.
-> And they might overlap with handwritten symbols.
->
-> Before this change, a dumpstack shows a local symbol for epc:
-> [    0.040341][    T0] Hardware name: riscv-virtio,qemu (DT)
-> [    0.040376][    T0] epc : .LBB6_14+0x22/0x6a
-> [    0.040452][    T0]  ra : restore_all+0x12/0x6e
->
-> The simple solution is that we can ignore all local labels prefixed by '.L'.
-> For handwritten symbols which need to be preserved should drop the '.L'
-> prefix.
->
-> After this change, the C defined symbol is shown so we can locate the
-> problematical code immediately:
-> [    0.035795][    T0] Hardware name: riscv-virtio,qemu (DT)
-> [    0.036332][    T0] epc : trace_hardirqs_on+0x54/0x13c
-> [    0.036567][    T0]  ra : restore_all+0x12/0x6e
->
-> Signed-off-by: Changbin Du <changbin.du@gmail.com>
+On Sun, 30 Jan 2022 21:56:33 +0800, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
+> 
+> Add the compatible string "thead,c900-plic" to the riscv plic
+> bindings to support allwinner d1 SOC which contains c906 core.
+> 
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Cc: Anup Patel <anup@brainfault.org>
+> Cc: Heiko Stuebner <heiko@sntech.de>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Rob Herring <robh+dt@kernel.org>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Samuel Holland <samuel@sholland.org>
 > ---
->  scripts/kallsyms.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/scripts/kallsyms.c b/scripts/kallsyms.c
-> index 54ad86d13784..8caabddf817c 100644
-> --- a/scripts/kallsyms.c
-> +++ b/scripts/kallsyms.c
-> @@ -108,7 +108,7 @@ static bool is_ignored_symbol(const char *name, char type)
->         /* Symbol names that begin with the following are ignored.*/
->         static const char * const ignored_prefixes[] = {
->                 "$",                    /* local symbols for ARM, MIPS, etc. */
-> -               ".LASANPC",             /* s390 kasan local symbols */
-> +               ".L",                   /* local labels, .LBB,.Ltmpxxx,.L__unnamed_xx,.LASANPC, etc. */
->                 "__crc_",               /* modversions */
->                 "__efistub_",           /* arm64 EFI stub namespace */
->                 "__kvm_nvhe_",          /* arm64 non-VHE KVM namespace */
-> --
-> 2.32.0
->
+>  .../sifive,plic-1.0.0.yaml                    | 21 +++++++++++++------
+>  1 file changed, 15 insertions(+), 6 deletions(-)
+> 
 
-
--- 
-Thanks,
-~Nick Desaulniers
+Reviewed-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
