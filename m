@@ -4,94 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2337DC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Feb 2022 15:00:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1DA6C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Feb 2022 19:59:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+nu5Oohifz6JkWEm/v+3WPELPBHvJOVWmbm82X19SPo=; b=z1B9+OagGMBV0+
-	ANUoZ/fOfNestf23K9Uh3XEmvOzmhzQQEVVW3sHjiWaj7AQ5XczVUz8HlVVXOc17wgyEcDsgpRsa6
-	fFx6Y29uwMQ/KemwE8BA8hLaPJMK/1E1H02my+ycuDZeAdRq2cHl7VPaBZ/ph92y3pT+pE9DtiYUI
-	d9HJRzVrU5EjYv1sIe4cMJCghzj3LAAcRNj7GfXjXrK0jEcRW6K3AvbfkOv/TYikygi1TnfrG+56/
-	ssr/uYDGT7FtNrWBvRG9mXF5y2yLO0En84o6D94/8GwfpnxI1hGW10GdZieGRNInEyalXLg3MSrzq
-	7yQB0uEBy7hZDpyWYTyQ==;
+	List-Owner; bh=0HPNoqEX+o+tGtT/aIvpGn3U6npl6cNAmCXOw0JMLiQ=; b=R0AoUEDvngOg9y
+	L5QKU0l1UOjt3jNdGXi+ZTUumZUt3Z4Ch8hpGHuQG7WJGFQ+fHFoy/Oe++/QwEh28iCMMqikqTBz8
+	jBs+61Ld2v1tnsgrP/vDGyvs9XbTpMDPArXS+EvN/WGhSO+E67uiUT/ZVb91B16r5fAxrSQPTRI1e
+	H2kWjbVIwtqkfb+R6REyYaeMwLl8jd3r+bRbai7J4VbAyrbqIVJNtYVhL4COt+Yk+2+iLr0NuT6NB
+	UrxVfnIpOAd50g1Kpgdcnv9uikoel9J4ewNaa9oo8Yklm+qZzYN1AbNXtPCYGhGAa6csJHceDrnt3
+	JxR8JKvZFuKTYZMvczMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nFH7Z-00FsBO-Bg; Wed, 02 Feb 2022 15:00:33 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1nFLmb-00Gkgr-FA; Wed, 02 Feb 2022 19:59:13 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nFH5c-00FrHN-UR
- for linux-riscv@lists.infradead.org; Wed, 02 Feb 2022 14:58:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1643813910;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=kbSx8+zVxuV1hAhVwdVFKdkNhwLaEFdsXyyAUcSyxCY=;
- b=RYLzi2/wAFSs5rwOKZp6h+DqbIOaGUfgTGefbl12E1dVmaXb/CBeiu1Jdr6niW++s00DwK
- p7LnH42Rr6PjMHNxdldSRySH4hPu+jv55qsCiFLhfsLiKG1Dt2pcX1cTgIl7uZWaGvJDGN
- MJwJJ+OkrJl+ESZcwVmI9pxgLrqbZbk=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-542-8LhC4_4zPz-rKQnGcYicbw-1; Wed, 02 Feb 2022 09:58:28 -0500
-X-MC-Unique: 8LhC4_4zPz-rKQnGcYicbw-1
-Received: by mail-wm1-f70.google.com with SMTP id
- c7-20020a1c3507000000b0034a0dfc86aaso4031075wma.6
- for <linux-riscv@lists.infradead.org>; Wed, 02 Feb 2022 06:58:27 -0800 (PST)
+ id 1nFLmO-00GkeR-O5
+ for linux-riscv@lists.infradead.org; Wed, 02 Feb 2022 19:59:03 +0000
+Received: by mail-pg1-x534.google.com with SMTP id f8so395049pgf.8
+ for <linux-riscv@lists.infradead.org>; Wed, 02 Feb 2022 11:58:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=baylibre-com.20210112.gappssmtp.com; s=20210112;
+ h=from:to:cc:subject:in-reply-to:references:date:message-id
+ :mime-version; bh=f3tBDDMz1Cl7wSR0qYXsf1pk6gj1XoAYJtYA02SWsWc=;
+ b=ERt7l2GrHpmbR9DfZcfO/4G0u2ftbECA90n/T2MYtJcF7KHFBaulB2Y3elqwXaErj1
+ SgvMX6enKgKi6ipwi3GMJOLq7A0vUuj+OsY4FTRYGfXeeKMbMo5SyR8KcChUElrIWjP9
+ IpVaglb+4cq+qD6XUS4B5zEK/B8IayPMTqhDakgUHyry0Qxa2ItcvneZnv5x2qc46k/8
+ A4UpBr5ygkm0tyA0ul4/XSajfr/oc0EOYQuT0FLTZsqNS6z0Bm7NgJmChV/kC881wVL1
+ R62PgB5ZIfasDbZ0uRPC0crSVv72woWDxTwCwfMvG3Yi3hUIqeHQq7rAUtZ0br6HfozV
+ 89eg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:cc:references:from:in-reply-to
- :content-transfer-encoding;
- bh=kbSx8+zVxuV1hAhVwdVFKdkNhwLaEFdsXyyAUcSyxCY=;
- b=jouHxlopi2y3lYXV1rqH1SxA1eJK/OrXV2hmh3WOc/2X4+6mFuC/U7fi/ET7baUOon
- Kn0cZpYQqoJw0Uc6iOgSq1EAuw9J73yR4yCMv5tMYHiPMa2+n8bwnD8I7aP2Adg8fDMI
- 8cLaIkUZwI/BG3RC1jw/UZbwgylOhat3lcn6W97eJfS9GkCdGHsZoEcnpVFSGIE28BPl
- 3CXs/QkOHpi85tWQIu0U8HLhBMIZOOTfQ+TT4obmc3xaSl4MQ6a69d9+Vx7eoXiARwRI
- vKmJcOmqprY/R7PaLsr7qxTMz3nXT0NGcuBqrV3f4kWwk5WurC3iWr2cEGoSii3ORd/t
- FSaA==
-X-Gm-Message-State: AOAM533IG6fbO9YXcQP1Kd4H5nGhLNSyNqwrbD9JVRHOTuvVWSjzv3vn
- NL9qo6Pl+20I1IjBx3slM0v4+1qRJWPYImkWyojxpjlUuH5KYrSz0890qEfPeNRfNaJDwrgvGtH
- RnFDleR01Zc0/cWl6bW8ncGsORak9
-X-Received: by 2002:a05:600c:1f15:: with SMTP id
- bd21mr6396849wmb.145.1643813906588; 
- Wed, 02 Feb 2022 06:58:26 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJx8cZy8w/TMcQ5Vhk87Qx5L3Fx0MaMgEgqgmwamGzXUabY78Xey6QEmEwRTCrIrSx8/F2ftiQ==
-X-Received: by 2002:a05:600c:1f15:: with SMTP id
- bd21mr6396834wmb.145.1643813906361; 
- Wed, 02 Feb 2022 06:58:26 -0800 (PST)
-Received: from ?IPV6:2001:b07:6468:f312:c8dd:75d4:99ab:290a?
- ([2001:b07:6468:f312:c8dd:75d4:99ab:290a])
- by smtp.googlemail.com with ESMTPSA id k12sm17536791wrd.98.2022.02.02.06.58.24
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Wed, 02 Feb 2022 06:58:25 -0800 (PST)
-Message-ID: <9b2dcb18-4f40-2f4f-421f-366d578c93dc@redhat.com>
-Date: Wed, 2 Feb 2022 15:58:24 +0100
+ h=x-gm-message-state:from:to:cc:subject:in-reply-to:references:date
+ :message-id:mime-version;
+ bh=f3tBDDMz1Cl7wSR0qYXsf1pk6gj1XoAYJtYA02SWsWc=;
+ b=6xmFa50MwX/r3n5ct7C9wBYwwjeg8qMF/p7cSoJzE8QY1Nal+B1js3s5qj2UDyEX6S
+ bkksL43o2xARxRoJjMFMqCQm+VLh5DhsZ8YnyJrMjwQtuXDbpl17bZG125Lk9gUnwpqN
+ Fy9rSOvwAmhffOOw1YWS0LFgOJjQeyCSDcrYjPx9NZa9oWIb6IPhUboKJwVi6kIsPmxa
+ I7jcfUgdt//y+RxdUd5zXtITgMg7ul/d/emfd2IY56oNUjWX68xry/ivQOhfCj8N1aU0
+ wDgy1GIRB0nj+30QGaOvcmKfho+hCRzb86Eenwe+BnkIs3EZXBhSiVldDPVkpTU/eWni
+ aY7A==
+X-Gm-Message-State: AOAM530DXUfNd5tnUdtZeIo1ImyZk1xdZkZsKCfitKlvsHfpxm/sJ5Re
+ dozBIkAlqRrnAfxAkQHdFJE1qA==
+X-Google-Smtp-Source: ABdhPJz4O1XMyNrRMSsccUAwZX/YKxQmjX8hl66qxIZUzVjXNWSKEFQOBJlAS5f+CRg6eHpU2klvjw==
+X-Received: by 2002:a63:6586:: with SMTP id
+ z128mr26035966pgb.103.1643831939129; 
+ Wed, 02 Feb 2022 11:58:59 -0800 (PST)
+Received: from localhost (c-71-197-186-152.hsd1.wa.comcast.net.
+ [71.197.186.152])
+ by smtp.gmail.com with ESMTPSA id nu15sm8160658pjb.5.2022.02.02.11.58.58
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 02 Feb 2022 11:58:58 -0800 (PST)
+From: Kevin Hilman <khilman@baylibre.com>
+To: Saravana Kannan <saravanak@google.com>
+Cc: Russell King <linux@armlinux.org.uk>, Neil Armstrong
+ <narmstrong@baylibre.com>, Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>, Tony Lindgren <tony@atomide.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Damien Le Moal <damien.lemoal@wdc.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Ulf Hansson <ulf.hansson@linaro.org>, Rob
+ Herring <robh+dt@kernel.org>, kernel-team@android.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-oxnas@groups.io, linux-renesas-soc@vger.kernel.org,
+ linux-omap@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 1/2] drivers: bus: simple-pm-bus: Add support for
+ probing simple bus only devices
+In-Reply-To: <7hee4mmo2s.fsf@baylibre.com>
+References: <20210929000735.585237-1-saravanak@google.com>
+ <20210929000735.585237-2-saravanak@google.com>
+ <7hk0efmfzo.fsf@baylibre.com>
+ <CAGETcx_YEUxEBSBnzFaBxW=9=jO6BO0GuThaMGF+JPkDeC-ivw@mail.gmail.com>
+ <7hee4mmo2s.fsf@baylibre.com>
+Date: Wed, 02 Feb 2022 11:58:58 -0800
+Message-ID: <7hpmo5kpkt.fsf@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.5.0
-Subject: Re: [GIT PULL] KVM/riscv fixes for 5.17, take #1
-To: Anup Patel <anup@brainfault.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, 
- KVM General <kvm@vger.kernel.org>, kvm-riscv@lists.infradead.org,
- linux-riscv <linux-riscv@lists.infradead.org>
-References: <CAAhSdy0C_RMVShk=vv7FRgmVRspBkVQfiCLx-4B6pYtLU10vZA@mail.gmail.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-In-Reply-To: <CAAhSdy0C_RMVShk=vv7FRgmVRspBkVQfiCLx-4B6pYtLU10vZA@mail.gmail.com>
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=pbonzini@redhat.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220202_065833_080741_6D5624F3 
-X-CRM114-Status: UNSURE (   5.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220202_115900_900388_C387143C 
+X-CRM114-Status: GOOD (  21.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,18 +96,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/2/22 15:55, Anup Patel wrote:
->    https://github.com/kvm-riscv/linux.git  tags/kvm-riscv-fixes-5.17-1
+Kevin Hilman <khilman@baylibre.com> writes:
 
-Pulled, thanks!
+> Saravana Kannan <saravanak@google.com> writes:
+>
+>> On Mon, Jan 31, 2022 at 7:18 PM Kevin Hilman <khilman@baylibre.com> wrote:
+>>>
+>>> Hi Saravana,
+>>>
+>>> Saravana Kannan <saravanak@google.com> writes:
+>>>
+>>> > fw_devlink could end up creating device links for bus only devices.
+>>> > However, bus only devices don't get probed and can block probe() or
+>>> > sync_state() [1] call backs of other devices. To avoid this, probe these
+>>> > devices using the simple-pm-bus driver.
+>>> >
+>>> > However, there are instances of devices that are not simple buses (they get
+>>> > probed by their specific drivers) that also list the "simple-bus" (or other
+>>> > bus only compatible strings) in their compatible property to automatically
+>>> > populate their child devices. We still want these devices to get probed by
+>>> > their specific drivers. So, we make sure this driver only probes devices
+>>> > that are only buses.
+>>> >
+>>> > [1] - https://lore.kernel.org/lkml/CAPDyKFo9Bxremkb1dDrr4OcXSpE0keVze94Cm=zrkOVxHHxBmQ@mail.gmail.com/
+>>> > Fixes: c442a0d18744 ("driver core: Set fw_devlink to "permissive" behavior by default")
+>>> > Signed-off-by: Saravana Kannan <saravanak@google.com>
+>>> > Tested-by: Saravana Kannan <saravanak@google.com>
+>>> > Tested-by: Ulf Hansson <ulf.hansson@linaro.org>
+>>>
+>>> This patch landed in stable/linux-5.10.y as commit d5f13bbb5104 and it
+>>> broke suspend/resume on at least one TI AM335x board I'm testing on:
+>>> upstream dts: arch/arm/boot/dts/am335x-icev2.dts, upstream defconfig:
+>>> arch/arm/configs/omap2plus_defconfig.
+>>>
+>>> Bisecting between vanilla v5.10 (good) and stable/linux-5.10.y (bad)
+>>> pointed me to this patch, and I confirmed that reverting just this patch
+>>> on top of stable/linux-5.10.y makes it work again.
+>>>
+>>> Also interesting, this same platform works fine on vanilla v5.15, which
+>>> also includes this patch.  That suggests that either 1) this patch
+>>> should not have been backported to v5.10 stable or 2) there are some
+>>> other dependencies that are missing in v5.10.
+>>>
+>>> Since vanilla v5.10 works fine, I'm leaning towards (1), but if you have
+>>> any ideas for deps that need backporting, I'm happy to try.
+>>
+>> Oh wow! I didn't realize I made so many changes AFTER 5.10! Unless I'm
+>> doing something wrong with my git commands.
+>> $ git log v5.10..v5.15 --oneline -- drivers/of/property.c
+>> $ git log v5.10..v5.15 --oneline --author=saravanak -- drivers/base/
+>>
+>> If you don't think I got my git command completely wrong, yeah, way
+>> too many patches are missing on 5.10. I'd go with the option of
+>> dropping this patch on 5.10.
+>
+> I agree.  Could you submit a revert for v5.10 stable?  As the patch
+> author, it's probably better if it comes from you.
 
-Paolo
+Nevermind, I'm impatient and submitted a revert to stable[1] :)
 
+Kevin
+
+[1] https://lore.kernel.org/stable/20220202195705.3598798-1-khilman@baylibre.com/
 
 _______________________________________________
 linux-riscv mailing list
