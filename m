@@ -4,87 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1DA6C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Feb 2022 19:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5476C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Feb 2022 01:01:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0HPNoqEX+o+tGtT/aIvpGn3U6npl6cNAmCXOw0JMLiQ=; b=R0AoUEDvngOg9y
-	L5QKU0l1UOjt3jNdGXi+ZTUumZUt3Z4Ch8hpGHuQG7WJGFQ+fHFoy/Oe++/QwEh28iCMMqikqTBz8
-	jBs+61Ld2v1tnsgrP/vDGyvs9XbTpMDPArXS+EvN/WGhSO+E67uiUT/ZVb91B16r5fAxrSQPTRI1e
-	H2kWjbVIwtqkfb+R6REyYaeMwLl8jd3r+bRbai7J4VbAyrbqIVJNtYVhL4COt+Yk+2+iLr0NuT6NB
-	UrxVfnIpOAd50g1Kpgdcnv9uikoel9J4ewNaa9oo8Yklm+qZzYN1AbNXtPCYGhGAa6csJHceDrnt3
-	JxR8JKvZFuKTYZMvczMw==;
+	List-Owner; bh=PY8I9MyMqGc2bmBBnpK0EPvfiGAot6sHa+q7IhO/+dM=; b=NsjGe/kaP8qSQx
+	DfCyetiYSq7jW1/VRFtNxTiR5ETe2L2joENnbn9GPIjNBYQNW61yvkn+SJeFxBGMAJC79Fj+fQuIX
+	lRqrM95OTM3sQSBesP/lhlZV4dO7GtezWWUJpZe/Izj5oj1Ed7OSXT24vsZiU+R6yprTbxHVQCq0P
+	GT68SEi2jsOauwec3U0LWpDScXErNFfwvuCp6Tmgz/pPaOAU6RA9eyD8nM+2lHzjFflq7r/uNG1x/
+	jj2yEsiBzQ9MR1Ah27/pKInVBDPontkQNXaDMCBz7RGSKVVdjKF1UPwICv4XOlSymLYF3214lrW8h
+	2imJYnR8FjlUecUKRhUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nFLmb-00Gkgr-FA; Wed, 02 Feb 2022 19:59:13 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1nFQVC-00HGa7-A7; Thu, 03 Feb 2022 01:01:34 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nFLmO-00GkeR-O5
- for linux-riscv@lists.infradead.org; Wed, 02 Feb 2022 19:59:03 +0000
-Received: by mail-pg1-x534.google.com with SMTP id f8so395049pgf.8
- for <linux-riscv@lists.infradead.org>; Wed, 02 Feb 2022 11:58:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=baylibre-com.20210112.gappssmtp.com; s=20210112;
- h=from:to:cc:subject:in-reply-to:references:date:message-id
- :mime-version; bh=f3tBDDMz1Cl7wSR0qYXsf1pk6gj1XoAYJtYA02SWsWc=;
- b=ERt7l2GrHpmbR9DfZcfO/4G0u2ftbECA90n/T2MYtJcF7KHFBaulB2Y3elqwXaErj1
- SgvMX6enKgKi6ipwi3GMJOLq7A0vUuj+OsY4FTRYGfXeeKMbMo5SyR8KcChUElrIWjP9
- IpVaglb+4cq+qD6XUS4B5zEK/B8IayPMTqhDakgUHyry0Qxa2ItcvneZnv5x2qc46k/8
- A4UpBr5ygkm0tyA0ul4/XSajfr/oc0EOYQuT0FLTZsqNS6z0Bm7NgJmChV/kC881wVL1
- R62PgB5ZIfasDbZ0uRPC0crSVv72woWDxTwCwfMvG3Yi3hUIqeHQq7rAUtZ0br6HfozV
- 89eg==
+ id 1nFQV9-00HGYD-KV
+ for linux-riscv@lists.infradead.org; Thu, 03 Feb 2022 01:01:33 +0000
+Received: by mail-qt1-x833.google.com with SMTP id r14so892786qtt.5
+ for <linux-riscv@lists.infradead.org>; Wed, 02 Feb 2022 17:01:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=JagqMAt85QEq7QG/F+4kNGpe+G2br22d2RC2rhBOnF4=;
+ b=CtDJhAre6wbVCyp6Ck99vBgoZfbQxqvxD1vAHFQ2K2m89AomkhHPZEV8bcQHOwrJmh
+ Ld8hSyr5YPDYM6/V3H96lEkfy7k1p7Vs2nZM1su/dHkxdsww3Q+SWsWM/PWendaCXkCE
+ PSg91X1AStkrdpnKlYE/VYfHFCDwn5tkVxD9sv4L3udMbHacXqp9z3mca89OEqCbfhTq
+ PjeLyEob4cyq5zZMWKTstnDZ9QqfMONkqXm9vHjMBL9v/hoTTuKBVerXrDSx4h6B6RMS
+ 4m2xe4SIlPg78t56A/8eCtdiwKNrb6I4JT3va2InIPcNO1sHhgLw42wnvqQ4tiZWGc78
+ JgsQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:in-reply-to:references:date
- :message-id:mime-version;
- bh=f3tBDDMz1Cl7wSR0qYXsf1pk6gj1XoAYJtYA02SWsWc=;
- b=6xmFa50MwX/r3n5ct7C9wBYwwjeg8qMF/p7cSoJzE8QY1Nal+B1js3s5qj2UDyEX6S
- bkksL43o2xARxRoJjMFMqCQm+VLh5DhsZ8YnyJrMjwQtuXDbpl17bZG125Lk9gUnwpqN
- Fy9rSOvwAmhffOOw1YWS0LFgOJjQeyCSDcrYjPx9NZa9oWIb6IPhUboKJwVi6kIsPmxa
- I7jcfUgdt//y+RxdUd5zXtITgMg7ul/d/emfd2IY56oNUjWX68xry/ivQOhfCj8N1aU0
- wDgy1GIRB0nj+30QGaOvcmKfho+hCRzb86Eenwe+BnkIs3EZXBhSiVldDPVkpTU/eWni
- aY7A==
-X-Gm-Message-State: AOAM530DXUfNd5tnUdtZeIo1ImyZk1xdZkZsKCfitKlvsHfpxm/sJ5Re
- dozBIkAlqRrnAfxAkQHdFJE1qA==
-X-Google-Smtp-Source: ABdhPJz4O1XMyNrRMSsccUAwZX/YKxQmjX8hl66qxIZUzVjXNWSKEFQOBJlAS5f+CRg6eHpU2klvjw==
-X-Received: by 2002:a63:6586:: with SMTP id
- z128mr26035966pgb.103.1643831939129; 
- Wed, 02 Feb 2022 11:58:59 -0800 (PST)
-Received: from localhost (c-71-197-186-152.hsd1.wa.comcast.net.
- [71.197.186.152])
- by smtp.gmail.com with ESMTPSA id nu15sm8160658pjb.5.2022.02.02.11.58.58
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=JagqMAt85QEq7QG/F+4kNGpe+G2br22d2RC2rhBOnF4=;
+ b=UHLoH1d2BEtIJussCOjbamscuYaqwLOJ5q/2++oQCWqF+jEl9QP+l9I6YjIxDfSyIf
+ iqOGb89q2zLRMs2+Bqoygtg23zfSu6CcLN/mKdpUNKFIZXQsmpKhhL4mXAHIwOdiV7bz
+ MuFP0at6Le2/3/CogZyuxRNVf5dRNr+OK9bCbNYz2FgnHWmHcnfTTBZhuRUZp5/Osq18
+ 0FcksJZQ8UYMUYe3+hHCLY2/ezHgw96mFBQKdRXRl/hvt2WmHu0YnWQMro2mwxPPcFax
+ SQUymKmU9YZ5XOvq1LmUFiNbdO/IxLyUCJ7Qnlz15TX/0nuay5gSkPfaeYvABQjG6QGc
+ gXvQ==
+X-Gm-Message-State: AOAM531d0Mqn0jzxfaYgR8eArpgdsJYYwZXKg93/oiIxZA1o39H5YfzN
+ J7kXZROydGAVcbpCqrG4Uf4=
+X-Google-Smtp-Source: ABdhPJyaHUHRoJ/EkOknro4ewQtKipU56FxmHyAl2nWgInj0hR2lQMWqI7alLaEn8xYPIaQbX5IX5g==
+X-Received: by 2002:a05:622a:130e:: with SMTP id
+ v14mr25101910qtk.355.1643850089839; 
+ Wed, 02 Feb 2022 17:01:29 -0800 (PST)
+Received: from mail.google.com ([207.246.89.135])
+ by smtp.gmail.com with ESMTPSA id j13sm10149462qko.46.2022.02.02.17.01.26
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 02 Feb 2022 11:58:58 -0800 (PST)
-From: Kevin Hilman <khilman@baylibre.com>
-To: Saravana Kannan <saravanak@google.com>
-Cc: Russell King <linux@armlinux.org.uk>, Neil Armstrong
- <narmstrong@baylibre.com>, Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, Tony Lindgren <tony@atomide.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Damien Le Moal <damien.lemoal@wdc.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Ulf Hansson <ulf.hansson@linaro.org>, Rob
- Herring <robh+dt@kernel.org>, kernel-team@android.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-oxnas@groups.io, linux-renesas-soc@vger.kernel.org,
- linux-omap@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 1/2] drivers: bus: simple-pm-bus: Add support for
- probing simple bus only devices
-In-Reply-To: <7hee4mmo2s.fsf@baylibre.com>
-References: <20210929000735.585237-1-saravanak@google.com>
- <20210929000735.585237-2-saravanak@google.com>
- <7hk0efmfzo.fsf@baylibre.com>
- <CAGETcx_YEUxEBSBnzFaBxW=9=jO6BO0GuThaMGF+JPkDeC-ivw@mail.gmail.com>
- <7hee4mmo2s.fsf@baylibre.com>
-Date: Wed, 02 Feb 2022 11:58:58 -0800
-Message-ID: <7hpmo5kpkt.fsf@baylibre.com>
+ Wed, 02 Feb 2022 17:01:29 -0800 (PST)
+Date: Thu, 3 Feb 2022 09:01:23 +0800
+From: Changbin Du <changbin.du@gmail.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Changbin Du <changbin.du@gmail.com>, Nathan Chancellor <nathan@kernel.org>,
+ Masahiro Yamada <masahiroy@kernel.org>,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ llvm@lists.linux.dev
+Subject: Re: [PATCH] kallsyms: ignore all local labels prefixed by '.L'
+Message-ID: <20220203010123.yo3go6lq5t7hglor@mail.google.com>
+References: <20220201013257.17926-1-changbin.du@gmail.com>
+ <CAKwvOd=fCCjSfz6tW3514ifZOMw2PT4AZiFExq1qqG1rxf5fEg@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAKwvOd=fCCjSfz6tW3514ifZOMw2PT4AZiFExq1qqG1rxf5fEg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220202_115900_900388_C387143C 
-X-CRM114-Status: GOOD (  21.04  )
+X-CRM114-CacheID: sfid-20220202_170131_715023_75AE2E60 
+X-CRM114-Status: GOOD (  23.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,68 +91,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Kevin Hilman <khilman@baylibre.com> writes:
-
-> Saravana Kannan <saravanak@google.com> writes:
+On Tue, Feb 01, 2022 at 11:42:59AM -0800, Nick Desaulniers wrote:
+> On Mon, Jan 31, 2022 at 5:33 PM Changbin Du <changbin.du@gmail.com> wrote:
+> 
+> Make sure to mark the version of your patches (this is v2, IIUC). `git
+> format-patch -v2 HEAD~`
 >
->> On Mon, Jan 31, 2022 at 7:18 PM Kevin Hilman <khilman@baylibre.com> wrote:
->>>
->>> Hi Saravana,
->>>
->>> Saravana Kannan <saravanak@google.com> writes:
->>>
->>> > fw_devlink could end up creating device links for bus only devices.
->>> > However, bus only devices don't get probed and can block probe() or
->>> > sync_state() [1] call backs of other devices. To avoid this, probe these
->>> > devices using the simple-pm-bus driver.
->>> >
->>> > However, there are instances of devices that are not simple buses (they get
->>> > probed by their specific drivers) that also list the "simple-bus" (or other
->>> > bus only compatible strings) in their compatible property to automatically
->>> > populate their child devices. We still want these devices to get probed by
->>> > their specific drivers. So, we make sure this driver only probes devices
->>> > that are only buses.
->>> >
->>> > [1] - https://lore.kernel.org/lkml/CAPDyKFo9Bxremkb1dDrr4OcXSpE0keVze94Cm=zrkOVxHHxBmQ@mail.gmail.com/
->>> > Fixes: c442a0d18744 ("driver core: Set fw_devlink to "permissive" behavior by default")
->>> > Signed-off-by: Saravana Kannan <saravanak@google.com>
->>> > Tested-by: Saravana Kannan <saravanak@google.com>
->>> > Tested-by: Ulf Hansson <ulf.hansson@linaro.org>
->>>
->>> This patch landed in stable/linux-5.10.y as commit d5f13bbb5104 and it
->>> broke suspend/resume on at least one TI AM335x board I'm testing on:
->>> upstream dts: arch/arm/boot/dts/am335x-icev2.dts, upstream defconfig:
->>> arch/arm/configs/omap2plus_defconfig.
->>>
->>> Bisecting between vanilla v5.10 (good) and stable/linux-5.10.y (bad)
->>> pointed me to this patch, and I confirmed that reverting just this patch
->>> on top of stable/linux-5.10.y makes it work again.
->>>
->>> Also interesting, this same platform works fine on vanilla v5.15, which
->>> also includes this patch.  That suggests that either 1) this patch
->>> should not have been backported to v5.10 stable or 2) there are some
->>> other dependencies that are missing in v5.10.
->>>
->>> Since vanilla v5.10 works fine, I'm leaning towards (1), but if you have
->>> any ideas for deps that need backporting, I'm happy to try.
->>
->> Oh wow! I didn't realize I made so many changes AFTER 5.10! Unless I'm
->> doing something wrong with my git commands.
->> $ git log v5.10..v5.15 --oneline -- drivers/of/property.c
->> $ git log v5.10..v5.15 --oneline --author=saravanak -- drivers/base/
->>
->> If you don't think I got my git command completely wrong, yeah, way
->> too many patches are missing on 5.10. I'd go with the option of
->> dropping this patch on 5.10.
->
-> I agree.  Could you submit a revert for v5.10 stable?  As the patch
-> author, it's probably better if it comes from you.
+Sure, I fogot to add version NO. this time. Thanks for your reminding.
 
-Nevermind, I'm impatient and submitted a revert to stable[1] :)
+> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+> 
+> >
+> > The llvm compiler can generate lots of local labels ('.LBB', '.Ltmpxxx',
+> > '.L__unnamed_xx', etc.). These symbols usually are useless for debugging.
+> > And they might overlap with handwritten symbols.
+> >
+> > Before this change, a dumpstack shows a local symbol for epc:
+> > [    0.040341][    T0] Hardware name: riscv-virtio,qemu (DT)
+> > [    0.040376][    T0] epc : .LBB6_14+0x22/0x6a
+> > [    0.040452][    T0]  ra : restore_all+0x12/0x6e
+> >
+> > The simple solution is that we can ignore all local labels prefixed by '.L'.
+> > For handwritten symbols which need to be preserved should drop the '.L'
+> > prefix.
+> >
+> > After this change, the C defined symbol is shown so we can locate the
+> > problematical code immediately:
+> > [    0.035795][    T0] Hardware name: riscv-virtio,qemu (DT)
+> > [    0.036332][    T0] epc : trace_hardirqs_on+0x54/0x13c
+> > [    0.036567][    T0]  ra : restore_all+0x12/0x6e
+> >
+> > Signed-off-by: Changbin Du <changbin.du@gmail.com>
+> > ---
+> >  scripts/kallsyms.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/scripts/kallsyms.c b/scripts/kallsyms.c
+> > index 54ad86d13784..8caabddf817c 100644
+> > --- a/scripts/kallsyms.c
+> > +++ b/scripts/kallsyms.c
+> > @@ -108,7 +108,7 @@ static bool is_ignored_symbol(const char *name, char type)
+> >         /* Symbol names that begin with the following are ignored.*/
+> >         static const char * const ignored_prefixes[] = {
+> >                 "$",                    /* local symbols for ARM, MIPS, etc. */
+> > -               ".LASANPC",             /* s390 kasan local symbols */
+> > +               ".L",                   /* local labels, .LBB,.Ltmpxxx,.L__unnamed_xx,.LASANPC, etc. */
+> >                 "__crc_",               /* modversions */
+> >                 "__efistub_",           /* arm64 EFI stub namespace */
+> >                 "__kvm_nvhe_",          /* arm64 non-VHE KVM namespace */
+> > --
+> > 2.32.0
+> >
+> 
+> 
+> -- 
+> Thanks,
+> ~Nick Desaulniers
 
-Kevin
-
-[1] https://lore.kernel.org/stable/20220202195705.3598798-1-khilman@baylibre.com/
+-- 
+Cheers,
+Changbin Du
 
 _______________________________________________
 linux-riscv mailing list
