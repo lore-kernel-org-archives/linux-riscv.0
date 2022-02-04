@@ -4,77 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E131C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Feb 2022 22:46:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37F78C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Feb 2022 22:53:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ueNtr8rx3cvj6SySMhc5f1Gru7eRfzMvT2jOPlz+Vgk=; b=jb2hJadzmWfBf0
-	0DU4noGePVK2qgqeDNTL1yAArnVEO+68qGMOytg+efkpfIirti4qzSCxMYRhWwSBqCv5PST7aNQ+F
-	angSY3oMc6HtU0D5Gfz8moX55oYlFEBE/xMUS4KVmhWV9UhVQVYZAV0cvCtwhDCnM/JHxAx7B0qNW
-	J7TyoVZMl5AFg9y40dwnad86v9QD/MbEB+BSrz8CzmO+ba+4uSC4fJSqmD1NL7QCD92XwVgQf7ggF
-	MBJShRrwUeeNdogbRSAiV0mpoAk1CUz9OCzowBC/rpS6IBbOTObNpdt3iqaR96GXBeAA4sE4pyBe9
-	aQ72tKwLKewNBgcDPe9A==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=Aau+/6b2fpaxXa/CeIK7ynTHAd/bEwvq5mjXw2byih8=; b=ONxy9M07SC6kMm
+	mvXnIGS3Eh4+ablwuG7Kqbq9hBEyB4X9MHMCR0ru6YdUudtJn39QrAF4qWmRGpjKRC+BGWIpueJ5r
+	Ni7I6BFTcx8uw3DTLlhrFVib0HKS955J70Rs+dqwxpMuuZPqhStoI3/V1DG7yIN7OpHmPLt2wq9So
+	9LC82jDvbsCwmVdefVf00YbljkYnCAV4motUb0Wetu05sN6Lraycm4be5BnDIPZKPAXNbokRB4xBz
+	2Zk7ul3pGeOkYK5wm1rBcGUCseMbLbDPyhLSrXMl+s2/Ny8+jxATBzgNNct7mZVYqA7RAIzIhCEzO
+	KtRVxdJZG0A7N8V4ha8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nG7Lt-005c3e-MS; Fri, 04 Feb 2022 22:46:49 +0000
-Received: from mail-oi1-f182.google.com ([209.85.167.182])
+	id 1nG7S7-005czk-Gx; Fri, 04 Feb 2022 22:53:15 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nG7Lr-005c2s-1s
- for linux-riscv@lists.infradead.org; Fri, 04 Feb 2022 22:46:48 +0000
-Received: by mail-oi1-f182.google.com with SMTP id s185so10240965oie.3
- for <linux-riscv@lists.infradead.org>; Fri, 04 Feb 2022 14:46:46 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=L8b72xGfF9umAJJg7tsHu1AkAehHlvUS7fj1GSuG6R0=;
- b=BWaIYIgrqpLx8WIaluXlR4RcwMKdjSRNwUq6PwKm6UtLiAcK25YC0dhY9/5AOybq9E
- QwIDaWhjIav75Vibzr+VJe3GTAyruI/pio+EFXkgAuW2yVEWwVDwycmPoX4R1duH8ttu
- qIMM6BO48oKYyyZYqy624+CBvVtaoBv/titDWcbzxTY24rg2JB/ilbGTrYgwG0rdWKYS
- /Cl0SAQnRj8kEHlXkBSsmqdM/pyp66Vv/KDR4T7saH69cxdfrd40SlO/KdCYoq4dlqPh
- JLPopDHSC+pDggfEQgEl247k83WCaGRvfksmgqWK0a3YVGth/Gex6m4caybPHQ13ebxS
- nOcg==
-X-Gm-Message-State: AOAM530jYoSz5X0B01Z6G4tTlN1ukEc3wQE8814GFoxHyJUyEq1hfLmP
- DmYW+FQWqcDvckLMEI22kw==
-X-Google-Smtp-Source: ABdhPJwxV7g+49b86KSwvPAvbdlz385/Vu9mnW4I2sV9P9k4qH3MueJC6HWx5Bhq3KvuLey/MH/2Zw==
-X-Received: by 2002:a05:6808:1981:: with SMTP id
- bj1mr2364232oib.213.1644014806196; 
- Fri, 04 Feb 2022 14:46:46 -0800 (PST)
-Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
- [66.90.148.213])
- by smtp.gmail.com with ESMTPSA id m7sm1268743ots.32.2022.02.04.14.46.44
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 04 Feb 2022 14:46:45 -0800 (PST)
-Received: (nullmailer pid 3324348 invoked by uid 1000);
- Fri, 04 Feb 2022 22:46:43 -0000
-Date: Fri, 4 Feb 2022 16:46:43 -0600
-From: Rob Herring <robh@kernel.org>
-To: conor.dooley@microchip.com
-Cc: linus.walleij@linaro.org, brgl@bgdev.pl, jassisinghbrar@gmail.com,
- thierry.reding@gmail.com, u.kleine-koenig@pengutronix.de, lee.jones@linaro.org,
- a.zummo@towertech.it, alexandre.belloni@bootlin.com, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, geert@linux-m68k.org,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
- linux-pwm@vger.kernel.org, linux-rtc@vger.kernel.org,
- linux-riscv@lists.infradead.org, krzysztof.kozlowski@canonical.com,
- bin.meng@windriver.com, heiko@sntech.de, lewis.hanly@microchip.com,
- daire.mcnamara@microchip.com, ivan.griffin@microchip.com, atishp@rivosinc.com
-Subject: Re: [PATCH v5 04/12] dt-bindings: rtc: add bindings for microchip
- mpfs rtc
-Message-ID: <Yf2s0w4Yi6rcxukj@robh.at.kernel.org>
-References: <20220131114726.973690-1-conor.dooley@microchip.com>
- <20220131114726.973690-5-conor.dooley@microchip.com>
+ id 1nG7S5-005cz2-1t
+ for linux-riscv@lists.infradead.org; Fri, 04 Feb 2022 22:53:14 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id B1714B83951;
+ Fri,  4 Feb 2022 22:53:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8B7EC004E1;
+ Fri,  4 Feb 2022 22:53:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1644015190;
+ bh=/GzwVvJMLbvFuL7505iRlddvcEtqGqqgxMSACzO5WaM=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:From;
+ b=SCVpnqN0O2Oeo+jsHYY7UyYnv8LrQu8v/cO91izw0Zs9hvvq2hXLdmscEji4rFGvO
+ 4RVO1ELuhL6b6ui5qdKFNgQ12FWmn2nziYmt7qR/M91iMcgxs77FjfsURueL/THNew
+ bkxAIjyODRfFB63pWunMh1AN6cjSiVWSxf0jOh3MGFS0fQvsc22UCBJBJIShflV0ux
+ SxeQ2X4ACfvBtpgXvzY6IZGxcnLmwIl9ZrR5QJCQt/e1CyyzAXF7Lb2a46NU5S99Ba
+ /0LYuDB8NnUZBQt4sScS2ZoK9AVN3t77ImLm+NkChXapZ+I3ZkLZVw01Zz7wm6YCL+
+ NJqaHHqyz4e3w==
+Date: Fri, 4 Feb 2022 16:53:08 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: paul.walmsley@sifive.com, greentime.hu@sifive.com,
+ lorenzo.pieralisi@arm.com, robh@kernel.org, kw@linux.com,
+ bhelgaas@google.com, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] PCI: fu740: fix finding gpios
+Message-ID: <20220204225308.GA225749@bhelgaas>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220131114726.973690-5-conor.dooley@microchip.com>
+In-Reply-To: <20220204173821.281784-1-ben.dooks@codethink.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220204_144647_118846_89F3CDDA 
-X-CRM114-Status: GOOD (  18.38  )
+X-CRM114-CacheID: sfid-20220204_145313_256944_B325CF4D 
+X-CRM114-Status: GOOD (  22.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,94 +73,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 31, 2022 at 11:47:19AM +0000, conor.dooley@microchip.com wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+Follow subject line convention (s/fix/Fix/, s/gpios/GPIOs/).
+
+On Fri, Feb 04, 2022 at 05:38:21PM +0000, Ben Dooks wrote:
+> The calls to devm_gpiod_get_optional() have the -gpios on
+> the name. This means the pcie driver is not finding the
+> necessary reset or power gpios to allow the pcie devices
+> on the SiFive Unmatched boards.
 > 
-> Add device tree bindings for the real time clock on
-> the Microchip PolarFire SoC.
-> 
-> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> Note, this was workng around 5.16 and may not have been
+> broken? There is still an issue if uboot has not probed
+> the pcie bus then there are no pcie devices shown when
+> Linux is started.
+
+Wrap to fill 75 columns
+s/gpios/GPIOs/
+s/pcie/PCIe/
+s/workng/working/
+s/to allow the pcie devices/to allow the PCIe devices <to something>?/
+
+I can't tell what this is saying.  It used to work and something broke
+it?  If so, we should have a "Fixes:" tag to identify the commit that
+broke it.
+
+Or it used to work and "may *not* have been broken"?  I'm confused.
+
+Unclear how uboot is involved.
+
+> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
 > ---
->  .../bindings/rtc/microchip,mfps-rtc.yaml      | 58 +++++++++++++++++++
->  1 file changed, 58 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
+>  drivers/pci/controller/dwc/pcie-fu740.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml b/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
-> new file mode 100644
-> index 000000000000..f35cca4e8656
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
-> @@ -0,0 +1,58 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/rtc/microchip,mfps-rtc.yaml#
-> +
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Microchip PolarFire Soc (MPFS) RTC Device Tree Bindings
-> +
-> +allOf:
-> +  - $ref: rtc.yaml#
-> +
-> +maintainers:
-> +  - Daire McNamara <daire.mcnamara@microchip.com>
-> +  - Lewis Hanly <lewis.hanly@microchip.com>
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - microchip,mpfs-rtc
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    description: |
-> +      The RTC on the PolarFire SoC has a pair of interrupts. The first is the
-> +      RTC_WAKEUP interrupt. The second, RTC_MATCH, is asserted when the
-> +      content of the Alarm register is equal to that of the RTC's count.
-> +    maxItems: 2
-
-Rework something like this:
-
-items:
-  - description: RTC_WAKEUP interrupt
-  - description: RTC_MATCH, is asserted when the content of the Alarm 
-      register is equal to that of the RTC's count.
-
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  clock-names:
-> +    items:
-> +      - const: rtc
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - clocks
-> +  - clock-names
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/microchip,mpfs-clock.h>
-> +    rtc@20124000 {
-> +        compatible = "microchip,mpfs-rtc";
-> +        reg = <0x20124000 0x1000>;
-> +        clocks = <&clkcfg CLK_RTC>;
-> +        clock-names = "rtc";
-> +        interrupts = <80>, <81>;
-> +    };
-> +...
+> diff --git a/drivers/pci/controller/dwc/pcie-fu740.c b/drivers/pci/controller/dwc/pcie-fu740.c
+> index 00cde9a248b5..842b7202b96e 100644
+> --- a/drivers/pci/controller/dwc/pcie-fu740.c
+> +++ b/drivers/pci/controller/dwc/pcie-fu740.c
+> @@ -259,11 +259,11 @@ static int fu740_pcie_probe(struct platform_device *pdev)
+>  		return PTR_ERR(afp->mgmt_base);
+>  
+>  	/* Fetch GPIOs */
+> -	afp->reset = devm_gpiod_get_optional(dev, "reset-gpios", GPIOD_OUT_LOW);
+> +	afp->reset = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_LOW);
+>  	if (IS_ERR(afp->reset))
+>  		return dev_err_probe(dev, PTR_ERR(afp->reset), "unable to get reset-gpios\n");
+>  
+> -	afp->pwren = devm_gpiod_get_optional(dev, "pwren-gpios", GPIOD_OUT_LOW);
+> +	afp->pwren = devm_gpiod_get_optional(dev, "pwren", GPIOD_OUT_LOW);
+>  	if (IS_ERR(afp->pwren))
+>  		return dev_err_probe(dev, PTR_ERR(afp->pwren), "unable to get pwren-gpios\n");
+>  
 > -- 
-> 2.35.0
-> 
+> 2.34.1
 > 
 
 _______________________________________________
