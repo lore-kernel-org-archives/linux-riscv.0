@@ -4,59 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37F78C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Feb 2022 22:53:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CABB5C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Feb 2022 23:34:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=Aau+/6b2fpaxXa/CeIK7ynTHAd/bEwvq5mjXw2byih8=; b=ONxy9M07SC6kMm
-	mvXnIGS3Eh4+ablwuG7Kqbq9hBEyB4X9MHMCR0ru6YdUudtJn39QrAF4qWmRGpjKRC+BGWIpueJ5r
-	Ni7I6BFTcx8uw3DTLlhrFVib0HKS955J70Rs+dqwxpMuuZPqhStoI3/V1DG7yIN7OpHmPLt2wq9So
-	9LC82jDvbsCwmVdefVf00YbljkYnCAV4motUb0Wetu05sN6Lraycm4be5BnDIPZKPAXNbokRB4xBz
-	2Zk7ul3pGeOkYK5wm1rBcGUCseMbLbDPyhLSrXMl+s2/Ny8+jxATBzgNNct7mZVYqA7RAIzIhCEzO
-	KtRVxdJZG0A7N8V4ha8Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3yD6yAQtLh0lvdnsB9i22k+6g2LOMA8MXN2fbCbNGPk=; b=jNGKQMllLgdrJn
+	thU0MEUyLrd56XSsR0493aWw/901JseK/Wy3ivO7b76BCOVigC1zbvSzDadWsfMg29mWncMozpP23
+	gajR3XIVHfcYeABQwP/0/AyqQPQExO3Cy4nLMs8KfGzPUEZjgWS25GN0cOMvzfypau1aepkgRzXPu
+	o3qsXYXAq/ECM4QluxSFypH+DhkMqrV/n2rV3mHB31FcSBxeJzsn35SHNiCSaE9EXsbvevb1+3Uhu
+	XSxMpfI7WTCd1csyatTU3HswsQD3xjlXI+07QjY5OH1KuqRxv9fYTjgT8gx1dM0DuAuV+NhldwD+K
+	tJZGC6vwjhzBxVQYC+Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nG7S7-005czk-Gx; Fri, 04 Feb 2022 22:53:15 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1nG85a-005mtS-LY; Fri, 04 Feb 2022 23:34:02 +0000
+Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nG7S5-005cz2-1t
- for linux-riscv@lists.infradead.org; Fri, 04 Feb 2022 22:53:14 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id B1714B83951;
- Fri,  4 Feb 2022 22:53:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8B7EC004E1;
- Fri,  4 Feb 2022 22:53:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1644015190;
- bh=/GzwVvJMLbvFuL7505iRlddvcEtqGqqgxMSACzO5WaM=;
- h=Date:From:To:Cc:Subject:In-Reply-To:From;
- b=SCVpnqN0O2Oeo+jsHYY7UyYnv8LrQu8v/cO91izw0Zs9hvvq2hXLdmscEji4rFGvO
- 4RVO1ELuhL6b6ui5qdKFNgQ12FWmn2nziYmt7qR/M91iMcgxs77FjfsURueL/THNew
- bkxAIjyODRfFB63pWunMh1AN6cjSiVWSxf0jOh3MGFS0fQvsc22UCBJBJIShflV0ux
- SxeQ2X4ACfvBtpgXvzY6IZGxcnLmwIl9ZrR5QJCQt/e1CyyzAXF7Lb2a46NU5S99Ba
- /0LYuDB8NnUZBQt4sScS2ZoK9AVN3t77ImLm+NkChXapZ+I3ZkLZVw01Zz7wm6YCL+
- NJqaHHqyz4e3w==
-Date: Fri, 4 Feb 2022 16:53:08 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Ben Dooks <ben.dooks@codethink.co.uk>
-Cc: paul.walmsley@sifive.com, greentime.hu@sifive.com,
- lorenzo.pieralisi@arm.com, robh@kernel.org, kw@linux.com,
- bhelgaas@google.com, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] PCI: fu740: fix finding gpios
-Message-ID: <20220204225308.GA225749@bhelgaas>
+ id 1nG85X-005mt5-SQ
+ for linux-riscv@lists.infradead.org; Fri, 04 Feb 2022 23:34:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1644017639; x=1675553639;
+ h=message-id:date:mime-version:subject:to:cc:references:
+ from:in-reply-to:content-transfer-encoding;
+ bh=kjitzkvpd5SHLeNm/aAzpQh3TCApea/ZtTpr7Lpfw+k=;
+ b=fKc5xxlTyVfGz3Ub88eK1Y9kZ3l5vSW2ypXz8ASqNzJsyCmeyUrAY5a4
+ /BmZhO0bb79HIDiwPm5a5Q+7rIKidYt9YdFjE7jxK1qfhKecj4sLJRBcS
+ 2N3wPxB50yGWN8IeVcsBbrXxW+e9Tj5RE/x95j9GUitAKXZN0FLpydMqd
+ fKQGmak1hhNNADclyqQm1JJgFbwS5S4HSsdI4r0EYxep2GC9Y9zJoXJpQ
+ Pl2AukIxpE81abFQj954xjnPWAJNttgets1Y+5sQCGTqqSPwO2kywxFnU
+ MtSovbUr76ZLgAzGqji16yzljpnK66NIv7wzxcBjglUd3lj1GqK/+oK3v g==;
+X-IronPort-AV: E=Sophos;i="5.88,344,1635177600"; d="scan'208";a="304105614"
+Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 05 Feb 2022 07:33:55 +0800
+IronPort-SDR: feWLs1GqVedJNKYgRbZCgE5fJVk8Taefe2rD0cPZ5K77MAOdoVH3xXTYt6jlPUITUMho9CcB0N
+ sTYEb/BDiRE1RF6cryIA2gaMcM3R6fcYRf9/lgKGQi2XgCniBzcyDCEOP1uFsV1u0CQNqScE7K
+ JeexTLqq2rSjs/miZusxs17PDsRUaTE9l3GnKF54k1Evx/1kZXVM7XToJoW8Y/ErfwTKX3VxCg
+ 3AjQB54fXSBaJlXAIXgmdr49jnzkokMPfVnpyQmyr5Ti1zA80VdBqfB3E47dzPzrb4q1A8q6Ge
+ /5x/cOZmtJdgYMwa+5rBk88R
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 04 Feb 2022 15:05:49 -0800
+IronPort-SDR: l6Aoa3V8p1usK+tfelLMlcbuWUrSrQudKq1aeNjjuOvzgXGiy2iTg2jQmQ7OlScC0edNHt3+da
+ 7SV4Rf3NbzJ5TBEsD3JeaGnLc66ob7UwIOKS4vPeycwigRUD6xh7uMBZAYVQGfDcMg0vngVVRp
+ PV3rtcmO+tVCGmI/+g+NwJCsoliDD4l5+PnHZsxIhDteo3mY4m1sIjciunYLaIL0k4wZJ4F+q+
+ tGeLKby9lZKS+theK01nK+bHh8xD9ycaAoD3AMu8M0xXLr6cfu1jud0O+4qZMCRKaRqmXRRpQh
+ 8sI=
+WDCIronportException: Internal
+Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
+ by uls-op-cesaip02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 04 Feb 2022 15:33:56 -0800
+Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4JrBgl0ZWRz1SVp2
+ for <linux-riscv@lists.infradead.org>; Fri,  4 Feb 2022 15:33:55 -0800 (PST)
+Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
+ reason="pass (just generated, assumed good)"
+ header.d=opensource.wdc.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
+ opensource.wdc.com; h=content-transfer-encoding:content-type
+ :in-reply-to:organization:from:references:to:content-language
+ :subject:user-agent:mime-version:date:message-id; s=dkim; t=
+ 1644017634; x=1646609635; bh=kjitzkvpd5SHLeNm/aAzpQh3TCApea/ZtTp
+ r7Lpfw+k=; b=Ud9XcBPEO4foBjPZWtgbcp4HaJh16SXnC1ucMgsalervNql1nQS
+ IETQYPPEcImSmwASS7Cwge+t4cwEyhBWNf1RJ4u+gLhS7R6YPCQao479EYe61lsl
+ lnwXVG4Jq4j9DEsUcjsUhNZ5z+dDrnEvKz+st7zGQ6vROmiymhShhCZbP3c+acoh
+ tM1TvvzsYjElp4n1iSASsQ8QOK4R6vber+fOxwMyKRIcj/Ccj+qZmprFh7c9EvOD
+ x7WCrvz1Xvm+D5BXgJQUXvYRoBRBVrpQsfHMCjOXAOCBhoF5rSIvHcWrsRhxpF1V
+ 3HfzLmSTdQzJmWtVl35OQlrI8Moo209GAmw==
+X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
+Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
+ by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new,
+ port 10026)
+ with ESMTP id 236F1xGb8K3i for <linux-riscv@lists.infradead.org>;
+ Fri,  4 Feb 2022 15:33:54 -0800 (PST)
+Received: from [10.225.163.63] (unknown [10.225.163.63])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4JrBgj2gvNz1Rwrw;
+ Fri,  4 Feb 2022 15:33:53 -0800 (PST)
+Message-ID: <aa6f85f3-1146-e857-148c-7a314b21e647@opensource.wdc.com>
+Date: Sat, 5 Feb 2022 08:33:51 +0900
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220204173821.281784-1-ben.dooks@codethink.co.uk>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.5.0
+Subject: Re: [PATCH] gpio: sifive: use the correct register to read output
+ values
+Content-Language: en-US
+To: Niklas Cassel <Niklas.Cassel@wdc.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
+ <brgl@bgdev.pl>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>
+Cc: "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+References: <20220204130142.21727-1-Niklas.Cassel@wdc.com>
+From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+Organization: Western Digital Research
+In-Reply-To: <20220204130142.21727-1-Niklas.Cassel@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220204_145313_256944_B325CF4D 
-X-CRM114-Status: GOOD (  22.19  )
+X-CRM114-CacheID: sfid-20220204_153359_998917_8824367A 
+X-CRM114-Status: GOOD (  25.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,59 +121,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Follow subject line convention (s/fix/Fix/, s/gpios/GPIOs/).
-
-On Fri, Feb 04, 2022 at 05:38:21PM +0000, Ben Dooks wrote:
-> The calls to devm_gpiod_get_optional() have the -gpios on
-> the name. This means the pcie driver is not finding the
-> necessary reset or power gpios to allow the pcie devices
-> on the SiFive Unmatched boards.
+On 2/4/22 22:02, Niklas Cassel wrote:
+> From: Niklas Cassel <niklas.cassel@wdc.com>
 > 
-> Note, this was workng around 5.16 and may not have been
-> broken? There is still an issue if uboot has not probed
-> the pcie bus then there are no pcie devices shown when
-> Linux is started.
+> Setting the output of a GPIO to 1 using gpiod_set_value(), followed by
+> reading the same GPIO using gpiod_get_value(), will currently yield an
+> incorrect result.
+> 
+> This is because the SiFive GPIO device stores the output values in reg_set,
+> not reg_dat.
+> 
+> Supply the flag BGPIOF_READ_OUTPUT_REG_SET to bgpio_init() so that the
+> generic driver reads the correct register.
+> 
+> Signed-off-by: Niklas Cassel <niklas.cassel@wdc.com>
 
-Wrap to fill 75 columns
-s/gpios/GPIOs/
-s/pcie/PCIe/
-s/workng/working/
-s/to allow the pcie devices/to allow the PCIe devices <to something>?/
+This probably needs a Fixes tag. I have not checked which patch though.
 
-I can't tell what this is saying.  It used to work and something broke
-it?  If so, we should have a "Fixes:" tag to identify the commit that
-broke it.
-
-Or it used to work and "may *not* have been broken"?  I'm confused.
-
-Unclear how uboot is involved.
-
-> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
 > ---
->  drivers/pci/controller/dwc/pcie-fu740.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+> The patch was tested on a canaan,k210 board (canaan,k210-gpiohs compatible
+> string). It would be nice with a Tested-by from someone with a SiFive board.
 > 
-> diff --git a/drivers/pci/controller/dwc/pcie-fu740.c b/drivers/pci/controller/dwc/pcie-fu740.c
-> index 00cde9a248b5..842b7202b96e 100644
-> --- a/drivers/pci/controller/dwc/pcie-fu740.c
-> +++ b/drivers/pci/controller/dwc/pcie-fu740.c
-> @@ -259,11 +259,11 @@ static int fu740_pcie_probe(struct platform_device *pdev)
->  		return PTR_ERR(afp->mgmt_base);
->  
->  	/* Fetch GPIOs */
-> -	afp->reset = devm_gpiod_get_optional(dev, "reset-gpios", GPIOD_OUT_LOW);
-> +	afp->reset = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_LOW);
->  	if (IS_ERR(afp->reset))
->  		return dev_err_probe(dev, PTR_ERR(afp->reset), "unable to get reset-gpios\n");
->  
-> -	afp->pwren = devm_gpiod_get_optional(dev, "pwren-gpios", GPIOD_OUT_LOW);
-> +	afp->pwren = devm_gpiod_get_optional(dev, "pwren", GPIOD_OUT_LOW);
->  	if (IS_ERR(afp->pwren))
->  		return dev_err_probe(dev, PTR_ERR(afp->pwren), "unable to get pwren-gpios\n");
->  
-> -- 
-> 2.34.1
+> However, the u-boot driver for this device already behaves exactly the same
+> as this driver does after my patch, for all platforms using the driver.
 > 
+>  drivers/gpio/gpio-sifive.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/gpio/gpio-sifive.c b/drivers/gpio/gpio-sifive.c
+> index 403f9e833d6a..7d82388b4ab7 100644
+> --- a/drivers/gpio/gpio-sifive.c
+> +++ b/drivers/gpio/gpio-sifive.c
+> @@ -223,7 +223,7 @@ static int sifive_gpio_probe(struct platform_device *pdev)
+>  			 NULL,
+>  			 chip->base + SIFIVE_GPIO_OUTPUT_EN,
+>  			 chip->base + SIFIVE_GPIO_INPUT_EN,
+> -			 0);
+> +			 BGPIOF_READ_OUTPUT_REG_SET);
+>  	if (ret) {
+>  		dev_err(dev, "unable to init generic GPIO\n");
+>  		return ret;
+
+
+-- 
+Damien Le Moal
+Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
