@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88A17C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Feb 2022 15:24:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CA6AC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Feb 2022 16:57:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yhSvTMAPSaqPIE/Df4QS6PH+2Xa6YwHebZhlTMpGMUo=; b=wcaXOu76Fw8CR7
-	sFWBmDjsZvv1EXABwqWVDNTdAtmQyPIYBN1kegURfkHOUtlNXQGnE07dGmSg6SSYovWPBHwgoNPd4
-	xCSv4h31rzPhEWz+PmT6iYMEP/ZWqv0gB5lrYKs9nxoKSSvTu+ZQv+YEHtIj7Jyz9z8KBiC+XGdJI
-	5R2hIPfLrDPOL6uhyadQwgWhAk1kJuVu64pSQSJeAECU2/EiRN+0vu15VFh3tnpFvMnHALlCfL1/3
-	WKoFo+SIAcSL8pg4oJhCxP/JCMYRnHuvQhkY/5TH9sQZxrwhj6YzQDXetLaqq+ytDrUUoeteW1Jl/
-	MbeJUgumK3PB0hLCqdHQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ElpTIFgJ4Ih5sXPCNKoTBh9tCnJ62B2Ewc5t91J8dBE=; b=ML3ZNbNC5ElMkt
+	VnwqSi0By641xptJxMNFAX2zqR+vcXZiBppSUGk7Kt5P75OeX5IPd/bqMxI6vWVAmNMxr36yHFmfG
+	DMs0K2zQkU6oE9Oo1COLx9LZLj4WebL+qUaomdAP5QXbj0d5242Nj2XfVERD/oyMo+49BkNqkX5qr
+	17XY3i9ZkD2SDJMg70ePt1E2+n3qg+ZXOSP6RqdGFrFQS+SEy6uUMAhW2psoWk1nxon3P70qQtfjV
+	Zj5AmDaZqfHRSKUDfc1mP8Ik7B84mwpG+9oBtJubFhiIItSzyzkAo0dC1xwG8+RSpQmOxgv3nNdum
+	1dyYBKoq13b9lYN3McnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nG0S7-004itm-SZ; Fri, 04 Feb 2022 15:24:47 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1nG1ti-004xhO-D0; Fri, 04 Feb 2022 16:57:22 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nG0Rq-004ilw-6M
- for linux-riscv@lists.infradead.org; Fri, 04 Feb 2022 15:24:31 +0000
-Received: by mail-wr1-x431.google.com with SMTP id f17so12046964wrx.1
- for <linux-riscv@lists.infradead.org>; Fri, 04 Feb 2022 07:24:28 -0800 (PST)
+ id 1nG1tf-004xgR-NM
+ for linux-riscv@lists.infradead.org; Fri, 04 Feb 2022 16:57:21 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id
+ l123-20020a1c2581000000b0037b9d960079so1062328wml.0
+ for <linux-riscv@lists.infradead.org>; Fri, 04 Feb 2022 08:57:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ventanamicro.com; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=soKnjeHrvb0Vn/OrIQZL5gTE/wserCdzPoCpnB6dAOs=;
- b=Ar8+AUuL8+EV8Mbyakvk8rCdb8vBDQDZ0wK2uKlNwCV4jYN1AmNrP7NQ/EtuZTXoFi
- 2Yl81ipRjLBcXR78jI/zCI2QoAIkax35S/dR7zFrq1cryNK6OJIafzz0FsnFLgWRNLS/
- rtR7tbqD7yOc+CZT7zjZq7agDOH9YvZ1JwjusMRyGL7XoeC7QFxMXgZ3zAtOdQ6K0KMb
- l+5TL2qdMvcjIlRLDbVG/4/o1aAA/zYvFPHaEr9GmVfV10y87G+k390OMXgussyLZYVM
- p8HsfwGIiS4dL1L6reUg95UjmSbCvGdRb1AFC5wdwxZkUYEs1PC14El5mF3kzXHj4VuN
- VZMw==
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=DPPRbmf3r5hnY6ZMBY/ScsB36bryxp+paqrTDwP7FQQ=;
+ b=uF3FVGks9Ybuig9KskJ7tvAbqnzOwyQSAsB+53thzphSFRnIc9WB0k+cREu8nTHwY2
+ Ma6glKQt6MzRSzCZaosb/6C77kOkhYtNuZ8au4s2GwHWJ2qwqKzBZeV3W0kzfCJWxe3Q
+ DoIHavMQJ8mq417K7avpeFqeMEtp4ECiF9HW9iiEKM8xcOGl4Xx0xS+57dKoFo8u+736
+ Ex0FqkTWgsKKHzSB1QSTVKWC5ZNvcd6eqcZeIoTmG53WiJkvXOqYUAX8DtxPi40eO4RE
+ TA1wChCI0pVvMS0JuNP0Op1bbb7Rw269eQ3hdhVWEwnAgJUmjOjqEZaybgDoDVy54ykz
+ t1CA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=soKnjeHrvb0Vn/OrIQZL5gTE/wserCdzPoCpnB6dAOs=;
- b=s51g8wNowEo2QJvaijg9CRiZaI8LBwn660AMXj+4IUVgVrjAnPw+fs5v2OLggyJaT9
- nTBTycFI/6G03EHVqOdS4TT6B+AJu11wVZpEGjfLQlx8GxWXmuOdihrDADI6Kp5mDt6H
- uzI2vbrP5fujcAyhWxlmRRbdYoXI+sduv+azb78PCqGx/0M3INcLIMCguDhoyADX4HPM
- qG8bIoHnqvJjyIGkDVG85Jsi1CyRTfywNtPusK9hBf3IWtQhlL4d3QfTQOXS7SWxmESV
- VZn/9NxoDb2EPZXcBYLVhW2bputmi0BAJaTGmGxUjfhakEym/ji5dT3eKZZLDE3hTYXx
- ZiXg==
-X-Gm-Message-State: AOAM533/LO8kTn+atDgMHrQikHCL8ODESGUiL9re14M/riq3faSwBSSg
- VEbKGJDUfNrxi+PLLuQOQPdVqw==
-X-Google-Smtp-Source: ABdhPJytgNIcIY/cFifvamLPbFAHPBPy/UinGTRpUk8W4zOMycVr4o/kvzlEcGBwwGXyDG5/VdTm5w==
-X-Received: by 2002:adf:9790:: with SMTP id s16mr2834645wrb.658.1643988267772; 
- Fri, 04 Feb 2022 07:24:27 -0800 (PST)
-Received: from platform-PowerEdge-T440.dc1.ventanamicro.com ([117.248.109.221])
- by smtp.gmail.com with ESMTPSA id t1sm2599477wre.45.2022.02.04.07.24.23
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 04 Feb 2022 07:24:27 -0800 (PST)
-From: Mayuresh Chitale <mchitale@ventanamicro.com>
-To: palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	paul.walmsley@sifive.com
-Cc: anup@brainfault.org, atishp@atishpatra.org,
- linux-riscv@lists.infradead.org,
- Mayuresh Chitale <mchitale@ventanamicro.com>
-Subject: [PATCH] riscv: defconfig: enable hugetlbfs option
-Date: Fri,  4 Feb 2022 20:53:47 +0530
-Message-Id: <20220204152347.1469380-1-mchitale@ventanamicro.com>
-X-Mailer: git-send-email 2.25.1
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=DPPRbmf3r5hnY6ZMBY/ScsB36bryxp+paqrTDwP7FQQ=;
+ b=mSCuVK2t81LaCn9xM3Gbs+IjCw2hZWfdielh4CuGGoxWc6flAzAziPx2OLCAEm7nGT
+ qt/7D8iv3/p/Kwh7d5y082WxFQ7IUAMoS8bk6U9up4NWZXIa47EFHQeQhNWzurFK3M9f
+ WeLKBzYF3l6hRWBCMxHjnUrd6hsxfD0HZSBcZCPr2NoYrXV9G/qHwF9qEpHrrVj7G4/Z
+ dNePhLaj9RNpSt4zYcfLg5Ubcs/sh24OA931LDAyVmgjbo0hOM5xVI9Up7WWtN1kKJr2
+ kKKHrVeG9+ovo22brSVFQOhZgbnmgg1BdmMZBClkU53CgcEo/8zE6I+5MBBasZmJWMmB
+ t3jg==
+X-Gm-Message-State: AOAM531O6YcRuLdtY3WZX1Xre94SRJUaVITbZW+LIPaGNM5QCmKeK9k3
+ va2rjZVrIgNt+xHMSPQvOjs+P88jHlqxmqrHZgDu64W+GTyv8A==
+X-Google-Smtp-Source: ABdhPJwUSjcdBYlTM1qMypRMCmNnomNECfYhLnIJFAl4ym++WU0VTUqxEd7awU5JIMRyULwkYrudRjrwnp7tPUgg0hE=
+X-Received: by 2002:a05:600c:3392:: with SMTP id
+ o18mr2985430wmp.59.1643993836742; 
+ Fri, 04 Feb 2022 08:57:16 -0800 (PST)
 MIME-Version: 1.0
+References: <20220204152347.1469380-1-mchitale@ventanamicro.com>
+In-Reply-To: <20220204152347.1469380-1-mchitale@ventanamicro.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 4 Feb 2022 22:27:05 +0530
+Message-ID: <CAAhSdy3oepnaEijKYGn0cTtNUyH+BnMo0R6U7xN6aRPxt7VQJQ@mail.gmail.com>
+Subject: Re: [PATCH] riscv: defconfig: enable hugetlbfs option
+To: Mayuresh Chitale <mchitale@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Atish Patra <atishp@atishpatra.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220204_072430_260148_14AD8A2D 
-X-CRM114-Status: UNSURE (   6.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220204_085719_829338_CFE2E4DD 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,42 +85,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enabling hugetlbfs in the defconfigs to allow tuning KVM
-guest performance using huge pages.
+On Fri, Feb 4, 2022 at 8:54 PM Mayuresh Chitale
+<mchitale@ventanamicro.com> wrote:
+>
+> Enabling hugetlbfs in the defconfigs to allow tuning KVM
+> guest performance using huge pages.
+>
+> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
 
-Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
----
- arch/riscv/configs/defconfig      | 1 +
- arch/riscv/configs/rv32_defconfig | 1 +
- 2 files changed, 2 insertions(+)
+Looks good to me.
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index f120fcc43d0a..7cd10ded7bf8 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -108,6 +108,7 @@ CONFIG_MSDOS_FS=y
- CONFIG_VFAT_FS=y
- CONFIG_TMPFS=y
- CONFIG_TMPFS_POSIX_ACL=y
-+CONFIG_HUGETLBFS=y
- CONFIG_NFS_FS=y
- CONFIG_NFS_V4=y
- CONFIG_NFS_V4_1=y
-diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-index 8b56a7f1eb06..e0e5c7c09ab8 100644
---- a/arch/riscv/configs/rv32_defconfig
-+++ b/arch/riscv/configs/rv32_defconfig
-@@ -100,6 +100,7 @@ CONFIG_MSDOS_FS=y
- CONFIG_VFAT_FS=y
- CONFIG_TMPFS=y
- CONFIG_TMPFS_POSIX_ACL=y
-+CONFIG_HUGETLBFS=y
- CONFIG_NFS_FS=y
- CONFIG_NFS_V4=y
- CONFIG_NFS_V4_1=y
--- 
-2.25.1
+Reviewed-by: Anup Patel <anup@brainfault.org>
 
+Regards,
+Anup
+
+> ---
+>  arch/riscv/configs/defconfig      | 1 +
+>  arch/riscv/configs/rv32_defconfig | 1 +
+>  2 files changed, 2 insertions(+)
+>
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index f120fcc43d0a..7cd10ded7bf8 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -108,6 +108,7 @@ CONFIG_MSDOS_FS=y
+>  CONFIG_VFAT_FS=y
+>  CONFIG_TMPFS=y
+>  CONFIG_TMPFS_POSIX_ACL=y
+> +CONFIG_HUGETLBFS=y
+>  CONFIG_NFS_FS=y
+>  CONFIG_NFS_V4=y
+>  CONFIG_NFS_V4_1=y
+> diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
+> index 8b56a7f1eb06..e0e5c7c09ab8 100644
+> --- a/arch/riscv/configs/rv32_defconfig
+> +++ b/arch/riscv/configs/rv32_defconfig
+> @@ -100,6 +100,7 @@ CONFIG_MSDOS_FS=y
+>  CONFIG_VFAT_FS=y
+>  CONFIG_TMPFS=y
+>  CONFIG_TMPFS_POSIX_ACL=y
+> +CONFIG_HUGETLBFS=y
+>  CONFIG_NFS_FS=y
+>  CONFIG_NFS_V4=y
+>  CONFIG_NFS_V4_1=y
+> --
+> 2.25.1
+>
 
 _______________________________________________
 linux-riscv mailing list
