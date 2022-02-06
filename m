@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6382CC433F5
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Feb 2022 16:40:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F732C433F5
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Feb 2022 00:30:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oL3tmiB8pG8seDL5BWFOhellGFgFKdT9OeW66xcGEmY=; b=QAkbte9CQE6MJV
-	pRljbMj/lFiMYkDfWxdE6QQSPJdrcZHY+dk7CH9mYKVx0dx/ztW2aJ19UNfBAF/5+qo5O//fAxo78
-	gnV1MmYqLxHghTGPc1gKElQfPuyFG0JypuA4F8rfL82vQsdkY1ISmcwxXbPYgzXqbucywleyXcEC6
-	p30lzKgw3fUJWm6Tkuh0G8LvJSJC2tVH71lxVxJz8Z3TsWlArmVs9isRoXQhKzFD/TGMpXdNzywlg
-	euqXjMwgu0dSy5elmriIKCQeRtZepFjU6/ArOaQMPQ9pawjS+TyGRSBaffsnDa79laGIHoKluGQgx
-	ZHcGrGhECs5RA1d+HZwQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=13ItDTgouzTT6lgqaciwBsQ33wBlKkAE+6ow6o0zdmE=; b=H1rI1z5w94vwF6
+	ODylBU26U/+ZmezXhBaY8hJrz4QML5v/LcKzbVGmRoHU212/maupfaUk9pAAeLw/JmBFL1c7JOm+E
+	4IekAdB4tQE2LhppJmbdRPaPX0eG6jqDaeC16wm4eV8p1B7alefTLLVy58TlZ29yb4AXPM8V1g/RE
+	MKLBYxvCcWf3MFQZWV1jSN71wGxRNPlQ2Kiv5i+iZM5GDuqvOipIg0WKyhBiXgGBLGRhYKNV+00d7
+	azzu/Hl4VsmVDd6z7AWW8IAsnSOsvCdaRdp9X816cLYdwotmavh8j8+61CYvY0DSDNzms8tJxknkt
+	Xt7IEF7xXt8IFwm2onqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nGO6J-006pl5-3S; Sat, 05 Feb 2022 16:39:51 +0000
-Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
+	id 1nGVR6-007iTh-US; Sun, 06 Feb 2022 00:29:48 +0000
+Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nGO6F-006pkb-LJ
- for linux-riscv@lists.infradead.org; Sat, 05 Feb 2022 16:39:49 +0000
-Received: by mail-yb1-xb2a.google.com with SMTP id z62so15807936ybc.11
- for <linux-riscv@lists.infradead.org>; Sat, 05 Feb 2022 08:39:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=7F+8USHFDE8IayAm+TB2xQEiUJldw7h6gDGNLYqTghg=;
- b=INqO7QDQEdOAV5NoH9Y7AUOI2g2l/U2lGjIMvznW3n27VeK55yayt20t7PlVMrFhyK
- bklzh35WXNqbTyrLEmtI7XFQSMiCLL7nqoJDedC5VCZLPtwe/KVdn8RbF70HkfRkB5c0
- IDvJ0Q4NHYnqmC/6eip3l9Qb/odjZp3i5lOB5OxrnkEUZnp2x3zGbOw3Dobv1GAYqB9G
- 9fCpc6SAKByvug8bkSA3jBVLyHZDG79nwC7vTEFGNNIHYs+RW+X5NyUq5d39swBfdo2h
- gG4TqD6rwEo53qmi0e7vo5GhZ3r3zm4w0gEwYLhgtrXpLyuPdsnegkNH5q+G0TpzIbpS
- 7imQ==
+ id 1nGVR3-007iT5-UW
+ for linux-riscv@lists.infradead.org; Sun, 06 Feb 2022 00:29:47 +0000
+Received: by mail-qk1-x735.google.com with SMTP id m25so8039839qka.9
+ for <linux-riscv@lists.infradead.org>; Sat, 05 Feb 2022 16:29:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=qeONPiUHU0AkiH7BV62IDzBx2bto00KJNgoRZxV98iA=;
+ b=kQSC1Pe05Uz4giRgdSeG/dUCvYdNhR3xP6xWEaZUv4NLV0xtqB6Y8J6m3Y/jxAZzkG
+ QKc3MZOU4uIN7QPRnEj07KCQBXw93RTvFJqYM9cX6FonzmotOQwCJLHpFCWULcpBgCUr
+ h1zH734FivNvSBPPLS0za7XIMRMd8ApdcczRb3Mg8qXmttgMILXJUYGQ+jJwR8i5j48c
+ pcps2HslqXkZx4TUARgZBGBi8uBvao/mJ9jvbDowV0y4MU0x9/Q4isB16P+IV8ZIqRUM
+ NKjaNR3OBveIcHkM8N83VH6XWkY0hj49Kc/KXE5NTBCU22/WkmWFZ7Y5WinkNWL+HXSL
+ ISEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=7F+8USHFDE8IayAm+TB2xQEiUJldw7h6gDGNLYqTghg=;
- b=vVxvMnIImIwjdHPcakpbm/lukDWWUeONCUmn/BHmMk/l5fZHY1LHA8n7XUGJ0r1v3p
- lTc0Rkq463WpS+/FEm5YItRKMn7NLK1FnPtuoazOjIh+tEQIrVs4Y+7hF6iwjFRmQ0wv
- OvzpiStjGzCyJx2kS42owKukHub/ZAjwp1NcwwBaQYx5gPupYUXEPvt9Z1VqYObpK3NM
- r97kHRJgB/mEG+z8XbMZHiUWDzxZo/f9Fh0qef0e0nAAYSAwlAWaKAsmwXj6wWTYLdj/
- v/SD6BAN4AWVM7hdUrXo5v94hfhLfl0g4+aoyfstshMlSdhHz1CukIBuIMwCGa8rm4Ak
- ATzg==
-X-Gm-Message-State: AOAM5335OSuyjK9ZDJYVVxeWuCqZwZA1ynVHsw5fw4sUhRh/ijoks82D
- GX/5dbzgF5boGDOZJb/z+S4Bhcq6QAUmgKtS0Mxz77kF/78=
-X-Google-Smtp-Source: ABdhPJxatjV1lGXgcy/ZJt/lFciDDNKH16UbIV+scTjMNBRxuQkcfRgr07sLhM2ygYwNysEVT+WIb3RNxJMTLUUlyAA=
-X-Received: by 2002:a25:a2c6:: with SMTP id c6mr3855899ybn.322.1644079186562; 
- Sat, 05 Feb 2022 08:39:46 -0800 (PST)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=qeONPiUHU0AkiH7BV62IDzBx2bto00KJNgoRZxV98iA=;
+ b=hMqa60I2bmPljZOMYsUxKoyssYo38EvJVjMJCSjT0Uaii+rx9zftg6juK4cw6D9JOy
+ tWS9rJHSt9m0aVUdvLx1QTzk0gFEpSc+Xtq84RuYCwwqDgeT8IgrnNgqDywbStoM13Ss
+ +VblMVH1R5yV6NivxfRQ8M/rS6Wq7tRzP5L4dtDqLxI0hfhKfti/JI8AjuafumJdjVYH
+ 03Z/DL2QH7cD08m7hwjJVkRT9EBw7/toXvALQQvNzl2Pap9ge+kCiPjbTCyUqeUYCdh3
+ 5cc7eETvcx/XpMj+/yE3YVxkwjMunsny29aEOhnjKwITCPvjHiabzCkamgcFRfPIFdeA
+ hAkw==
+X-Gm-Message-State: AOAM530xFOI+imP65OZiyKkroTwav97pycc1do5tJYxFseLYt/sZ0hv3
+ u8e+vvX+ix6SLzIuLKmAhVA=
+X-Google-Smtp-Source: ABdhPJyV6jCtE/ezy346p9XWtZmyqXQshDZ6e6xVjWH6u7KSk2N9qiqrZZ2LUd/VmVvRAHZ3Xi3htQ==
+X-Received: by 2002:a05:620a:40cc:: with SMTP id
+ g12mr3136238qko.308.1644107384324; 
+ Sat, 05 Feb 2022 16:29:44 -0800 (PST)
+Received: from WRT-WX9.. ([207.246.89.135])
+ by smtp.gmail.com with ESMTPSA id w10sm3843598qtj.73.2022.02.05.16.29.39
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sat, 05 Feb 2022 16:29:43 -0800 (PST)
+From: Changbin Du <changbin.du@gmail.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Changbin Du <changbin.du@gmail.com>
+Subject: [PATCH v3] riscv: fix oops caused by irqsoff latency tracer
+Date: Sun,  6 Feb 2022 08:29:33 +0800
+Message-Id: <20220206002933.437563-1-changbin.du@gmail.com>
+X-Mailer: git-send-email 2.32.0
 MIME-Version: 1.0
-References: <20220204130142.21727-1-Niklas.Cassel@wdc.com>
-In-Reply-To: <20220204130142.21727-1-Niklas.Cassel@wdc.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Sat, 5 Feb 2022 17:39:35 +0100
-Message-ID: <CACRpkdZX5Sd-bp1n5zmYv7biPuBoNMGW2+OQ9qUi3PKNeG-R=A@mail.gmail.com>
-Subject: Re: [PATCH] gpio: sifive: use the correct register to read output
- values
-To: Niklas Cassel <niklas.cassel@wdc.com>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- "damien.lemoal@opensource.wdc.com" <damien.lemoal@opensource.wdc.com>, 
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220205_083947_721769_827872EB 
-X-CRM114-Status: UNSURE (   9.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220205_162946_008883_1BE21E5B 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,29 +87,158 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 4, 2022 at 2:02 PM Niklas Cassel <Niklas.Cassel@wdc.com> wrote:
+The trace_hardirqs_{on,off}() requires at least two parent call frames.
+This because these two functions use macro 'CALLER_ADDR1' (aka.
+__builtin_return_address(1)) to acquire caller info. If there's no enough
+frames, the code generated the macro could trigger memory access fault.
 
-> From: Niklas Cassel <niklas.cassel@wdc.com>
+[    0.039615][    T0] Unable to handle kernel NULL pointer dereference at virtual address 00000000000000f8
+[    0.041925][    T0] Oops [#1]
+[    0.042063][    T0] Modules linked in:
+[    0.042864][    T0] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.17.0-rc1-00233-g9a20c48d1ed2 #29
+[    0.043568][    T0] Hardware name: riscv-virtio,qemu (DT)
+[    0.044343][    T0] epc : trace_hardirqs_on+0x56/0xe2
+[    0.044601][    T0]  ra : restore_all+0x12/0x6e
+[    0.044721][    T0] epc : ffffffff80126a5c ra : ffffffff80003b94 sp : ffffffff81403db0
+[    0.044801][    T0]  gp : ffffffff8163acd8 tp : ffffffff81414880 t0 : 0000000000000020
+[    0.044882][    T0]  t1 : 0098968000000000 t2 : 0000000000000000 s0 : ffffffff81403de0
+[    0.044967][    T0]  s1 : 0000000000000000 a0 : 0000000000000001 a1 : 0000000000000100
+[    0.045046][    T0]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : 0000000000000000
+[    0.045124][    T0]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000054494d45
+[    0.045210][    T0]  s2 : ffffffff80003b94 s3 : ffffffff81a8f1b0 s4 : ffffffff80e27b50
+[    0.045289][    T0]  s5 : ffffffff81414880 s6 : ffffffff8160fa00 s7 : 00000000800120e8
+[    0.045389][    T0]  s8 : 0000000080013100 s9 : 000000000000007f s10: 0000000000000000
+[    0.045474][    T0]  s11: 0000000000000000 t3 : 7fffffffffffffff t4 : 0000000000000000
+[    0.045548][    T0]  t5 : 0000000000000000 t6 : ffffffff814aa368
+[    0.045620][    T0] status: 0000000200000100 badaddr: 00000000000000f8 cause: 000000000000000d
+[    0.046402][    T0] [<ffffffff80003b94>] restore_all+0x12/0x6e
 
-Hi Niklas, long time no C!
+To fix above issue, here we add one extra level wrapper so they can be
+safely called by low level entry code.
 
-> Setting the output of a GPIO to 1 using gpiod_set_value(), followed by
-> reading the same GPIO using gpiod_get_value(), will currently yield an
-> incorrect result.
->
-> This is because the SiFive GPIO device stores the output values in reg_set,
-> not reg_dat.
->
-> Supply the flag BGPIOF_READ_OUTPUT_REG_SET to bgpio_init() so that the
-> generic driver reads the correct register.
->
-> Signed-off-by: Niklas Cassel <niklas.cassel@wdc.com>
+Signed-off-by: Changbin Du <changbin.du@gmail.com>
 
-Looks like a straight-forward fix so:
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+---
+v3: fix warning reported by documentation system.
+v2: fix compile warning.
+---
+ arch/riscv/kernel/Makefile    |  2 ++
+ arch/riscv/kernel/entry.S     | 10 +++++-----
+ arch/riscv/kernel/trace_irq.c | 26 ++++++++++++++++++++++++++
+ arch/riscv/kernel/trace_irq.h | 11 +++++++++++
+ 4 files changed, 44 insertions(+), 5 deletions(-)
+ create mode 100644 arch/riscv/kernel/trace_irq.c
+ create mode 100644 arch/riscv/kernel/trace_irq.h
 
-Yours,
-Linus Walleij
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 612556faa527..ffc87e76b1dd 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -51,6 +51,8 @@ obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
+ obj-$(CONFIG_FUNCTION_TRACER)	+= mcount.o ftrace.o
+ obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
+ 
++obj-$(CONFIG_TRACE_IRQFLAGS)	+= trace_irq.o
++
+ obj-$(CONFIG_RISCV_BASE_PMU)	+= perf_event.o
+ obj-$(CONFIG_PERF_EVENTS)	+= perf_callchain.o
+ obj-$(CONFIG_HAVE_PERF_REGS)	+= perf_regs.o
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index ed29e9c8f660..d6a46ed0bf05 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -108,7 +108,7 @@ _save_context:
+ .option pop
+ 
+ #ifdef CONFIG_TRACE_IRQFLAGS
+-	call trace_hardirqs_off
++	call __trace_hardirqs_off
+ #endif
+ 
+ #ifdef CONFIG_CONTEXT_TRACKING
+@@ -143,7 +143,7 @@ skip_context_tracking:
+ 	li t0, EXC_BREAKPOINT
+ 	beq s4, t0, 1f
+ #ifdef CONFIG_TRACE_IRQFLAGS
+-	call trace_hardirqs_on
++	call __trace_hardirqs_on
+ #endif
+ 	csrs CSR_STATUS, SR_IE
+ 
+@@ -234,7 +234,7 @@ ret_from_exception:
+ 	REG_L s0, PT_STATUS(sp)
+ 	csrc CSR_STATUS, SR_IE
+ #ifdef CONFIG_TRACE_IRQFLAGS
+-	call trace_hardirqs_off
++	call __trace_hardirqs_off
+ #endif
+ #ifdef CONFIG_RISCV_M_MODE
+ 	/* the MPP value is too large to be used as an immediate arg for addi */
+@@ -270,10 +270,10 @@ restore_all:
+ 	REG_L s1, PT_STATUS(sp)
+ 	andi t0, s1, SR_PIE
+ 	beqz t0, 1f
+-	call trace_hardirqs_on
++	call __trace_hardirqs_on
+ 	j 2f
+ 1:
+-	call trace_hardirqs_off
++	call __trace_hardirqs_off
+ 2:
+ #endif
+ 	REG_L a0, PT_STATUS(sp)
+diff --git a/arch/riscv/kernel/trace_irq.c b/arch/riscv/kernel/trace_irq.c
+new file mode 100644
+index 000000000000..54324d1bcc25
+--- /dev/null
++++ b/arch/riscv/kernel/trace_irq.c
+@@ -0,0 +1,26 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2022 Changbin Du <changbin.du@gmail.com>
++ */
++
++#include <linux/irqflags.h>
++#include <linux/kprobes.h>
++#include "trace_irq.h"
++
++/*
++ * trace_hardirqs_on/off requires at least two parent call frames.
++ * Here we add one extra level so they can be safely called by low
++ * level entry code.
++ */
++
++void __trace_hardirqs_on(void)
++{
++	trace_hardirqs_on();
++}
++NOKPROBE_SYMBOL(__trace_hardirqs_on);
++
++void __trace_hardirqs_off(void)
++{
++	trace_hardirqs_off();
++}
++NOKPROBE_SYMBOL(__trace_hardirqs_off);
+diff --git a/arch/riscv/kernel/trace_irq.h b/arch/riscv/kernel/trace_irq.h
+new file mode 100644
+index 000000000000..99fe67377e5e
+--- /dev/null
++++ b/arch/riscv/kernel/trace_irq.h
+@@ -0,0 +1,11 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2022 Changbin Du <changbin.du@gmail.com>
++ */
++#ifndef __TRACE_IRQ_H
++#define __TRACE_IRQ_H
++
++void __trace_hardirqs_on(void);
++void __trace_hardirqs_off(void);
++
++#endif /* __TRACE_IRQ_H */
+-- 
+2.32.0
+
 
 _______________________________________________
 linux-riscv mailing list
