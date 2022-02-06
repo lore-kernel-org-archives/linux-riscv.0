@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3CBEC433F5
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Feb 2022 17:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29DB1C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Feb 2022 17:43:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A8VhqJ1sEXSU6VJQmjCQ5fiR1XGk43AWWVEovQhq/jY=; b=oyTH8HZk3fE133
-	PXQ896s4e1KUUYibAEjO3QgJXuXt7DodkeeXFBQSfrY0Iq9DH3suhFSulLVJ9TA701cRVct/KL8t1
-	X3N3cLCK7OVD3PWTYIFnje9bkpvP7O7CWKQApKqKMlvwN1CF8oWN8CPsxKFOyj8xbtEYrQrZpcjQ0
-	cmjKz3SaDyjQ38Qbqk+7D/8/qD9OWprif3y3JLH/Fzv06yc3sNE7CkAa7mZsS7gRD7c4RlWMTc+f4
-	AOBA5fSiXlEtmZF3GmxUF8A1iKpf0tSoBEU1EUnY0wIlwfmiIUxq8Oz6th0G5DB0cXQdVQB9kpxwB
-	HkS2dlEpwtPUsKjatiXQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=zvy1nZsrMr3v423uvnwgKJbfkpAwSQj3D4YwnYKHZVg=; b=2JGsUA2Cmocmmo
+	jlrZFjr5l0sehLPer3WhaTMA2FTHS/3MsW6SKQ+qSasq6L2qSZQcFvOzxYNvlWLi0ZeV0DqVLWcNq
+	6YHUc6pUYFGyOU0+hWU5jKmEsSDLXf/8bdZ7AgWe/2CaX9BZ2pE9myFkYVfeadZHU+5uWCQdJn3HA
+	Djdjyf2QVg1cCJXmvOwM0IpjUdlfHEPIAxe5+dhpFqKFSqTNEfCMLAObPloNUBIy/VoHVj3H7xi7Y
+	S7uXX58fkQrUaOsqg3hvVM9YdnKTgthUw+QDePkv9+2kJ0muQ3snNdYynfuRp5e/JIkZlM8vyzHSY
+	YKbiFPDMB54b8Awj9P7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nGlPE-008TGp-1P; Sun, 06 Feb 2022 17:32:56 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1nGlZj-008US7-Sp; Sun, 06 Feb 2022 17:43:47 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nGlPB-008TGV-I4
- for linux-riscv@lists.infradead.org; Sun, 06 Feb 2022 17:32:55 +0000
+ id 1nGlZh-008UQx-Cc
+ for linux-riscv@lists.infradead.org; Sun, 06 Feb 2022 17:43:47 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 5BDA2611D6;
- Sun,  6 Feb 2022 17:32:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B702C340E9;
- Sun,  6 Feb 2022 17:32:50 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 252F7B80D9C;
+ Sun,  6 Feb 2022 17:43:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B45B3C340E9;
+ Sun,  6 Feb 2022 17:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1644168771;
- bh=gMzTBBMdtxGO63UBF7sMhkDOFkmpPJGG4DrBI60H7XI=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=ZpHsZnKDuay4orHTkL7iABQfZys5FNg9nzVBH9pWshMv7m2AbhzsUSXjrJpMT5xOR
- Z600e1yOGAqURhfOtuaGsUk7BSufjfeOSZ+3IW1hdzYYmNdieE7+FRajsEuzRrrrrA
- BAElRv7ZKCB1T1nD3mhmHYUvf3CuxapODK3fBN4wrmmGWUBM0KhLaCo3z/IeNLQFrS
- ZZ6t0TCpOzmoU5mxUjovXZOeIQvMgEi5V8pIRkQ/nhJOmekxHIoQj4c78dv3vURQ7T
- pAxfFlvWdZwo2UoWbeAhPYy9SlFU/5y5KysxAfSwsqfgKCTQUZCjp9bEDUk6qoUb2h
- u0tA8ieFfbQzA==
-Date: Mon, 7 Feb 2022 01:25:03 +0800
+ s=k20201202; t=1644169420;
+ bh=fLik+MCx1UepZ3oiLpbRUYEqsM0GTJc2mQEVFX7OMVs=;
+ h=From:To:Cc:Subject:Date:From;
+ b=dwKJ8dfhJ2vipvS9I3ja1ER8/OLzBJwXrHjv3eNgndq6rBRLUdRBJJKvcluGWmKC4
+ ahA/nxYES7KZKNrHOxC6qrz4V+RP/1hXwT4FnHY/wLPcVAz6I3MtdPFcGXXq/ep7ta
+ RsMWCFUcHUxZ6u+f74cpFh3XwuYiB4b5ablBiq78zZwDeY/ghyaJtfPe6jCGkY/j+J
+ AvXFe3vkhMQ9rS17Y5O+XFAcrfp+PASSPKsyQxGQJSzi+Sx1f5WsyB2k/IWoUS3Klv
+ ww2V3p0E3WQAHkt/rNPK68Lz72Brg+wB9GDUOkXJzeUsfbHxRjoWVGaT5CWWZahMfr
+ CT6iKz1uQmYTg==
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Changbin Du <changbin.du@gmail.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] riscv: fix oops caused by irq on/off tracer
-Message-ID: <YgAEb425uqy5/dw1@xhacker>
-References: <20220129004226.32868-1-changbin.du@gmail.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: add irq stack support
+Date: Mon,  7 Feb 2022 01:36:00 +0800
+Message-Id: <20220206173600.2784-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220129004226.32868-1-changbin.du@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220206_093253_729261_1DA2C5FD 
-X-CRM114-Status: GOOD (  23.78  )
+X-CRM114-CacheID: sfid-20220206_094345_752544_F917E68F 
+X-CRM114-Status: GOOD (  18.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,173 +71,145 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 29, 2022 at 08:42:26AM +0800, Changbin Du wrote:
-> The trace_hardirqs_on/off requires at least two parent call frames.
-> If not, the code generated by CALLER_ADDR1 (aka. ftrace_return_address(1))
-> could trigger memory access fault.
-> 
-> [    0.039615][    T0] Unable to handle kernel NULL pointer dereference at virtual address 00000000000000f8
-> [    0.041925][    T0] Oops [#1]
-> [    0.042063][    T0] Modules linked in:
-> [    0.042864][    T0] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.17.0-rc1-00233-g9a20c48d1ed2 #29
-> [    0.043568][    T0] Hardware name: riscv-virtio,qemu (DT)
-> [    0.044343][    T0] epc : trace_hardirqs_on+0x56/0xe2
-> [    0.044601][    T0]  ra : restore_all+0x12/0x6e
-> [    0.044721][    T0] epc : ffffffff80126a5c ra : ffffffff80003b94 sp : ffffffff81403db0
-> [    0.044801][    T0]  gp : ffffffff8163acd8 tp : ffffffff81414880 t0 : 0000000000000020
-> [    0.044882][    T0]  t1 : 0098968000000000 t2 : 0000000000000000 s0 : ffffffff81403de0
-> [    0.044967][    T0]  s1 : 0000000000000000 a0 : 0000000000000001 a1 : 0000000000000100
-> [    0.045046][    T0]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : 0000000000000000
-> [    0.045124][    T0]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000054494d45
-> [    0.045210][    T0]  s2 : ffffffff80003b94 s3 : ffffffff81a8f1b0 s4 : ffffffff80e27b50
-> [    0.045289][    T0]  s5 : ffffffff81414880 s6 : ffffffff8160fa00 s7 : 00000000800120e8
-> [    0.045389][    T0]  s8 : 0000000080013100 s9 : 000000000000007f s10: 0000000000000000
-> [    0.045474][    T0]  s11: 0000000000000000 t3 : 7fffffffffffffff t4 : 0000000000000000
-> [    0.045548][    T0]  t5 : 0000000000000000 t6 : ffffffff814aa368
-> [    0.045620][    T0] status: 0000000200000100 badaddr: 00000000000000f8 cause: 000000000000000d
-> [    0.046402][    T0] [<ffffffff80003b94>] restore_all+0x12/0x6e
-> 
+Currently, IRQs are still handled on the kernel stack of the current
+task on riscv platforms. If the task has a deep call stack at the time
+of interrupt, and handling the interrupt also requires a deep stack,
+it's possible to see stack overflow.
 
-Hi Changbin,
+Before this patch, the stack_max_size of a v5.17-rc1 kernel running on
+a lichee RV board gave:
+~ # cat /sys/kernel/debug/tracing/stack_max_size
+3736
 
-Could you please provide the reproduce steps? It looks a bit
-interesting.
+After this patch,
+~ # cat /sys/kernel/debug/tracing/stack_max_size
+3176
 
-> To fix above issue, here we add one extra level wrapper so they can be
-> safely called by low level entry code.
-> 
-> Signed-off-by: Changbin Du <changbin.du@gmail.com>
-> 
-> ---
-> v2: fix compile warning.
-> ---
->  arch/riscv/kernel/Makefile    |  2 ++
->  arch/riscv/kernel/entry.S     | 10 +++++-----
->  arch/riscv/kernel/trace_irq.c | 26 ++++++++++++++++++++++++++
->  arch/riscv/kernel/trace_irq.h | 11 +++++++++++
->  4 files changed, 44 insertions(+), 5 deletions(-)
->  create mode 100644 arch/riscv/kernel/trace_irq.c
->  create mode 100644 arch/riscv/kernel/trace_irq.h
-> 
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index 612556faa527..ffc87e76b1dd 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -51,6 +51,8 @@ obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
->  obj-$(CONFIG_FUNCTION_TRACER)	+= mcount.o ftrace.o
->  obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
->  
-> +obj-$(CONFIG_TRACE_IRQFLAGS)	+= trace_irq.o
-> +
->  obj-$(CONFIG_RISCV_BASE_PMU)	+= perf_event.o
->  obj-$(CONFIG_PERF_EVENTS)	+= perf_callchain.o
->  obj-$(CONFIG_HAVE_PERF_REGS)	+= perf_regs.o
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index ed29e9c8f660..d6a46ed0bf05 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -108,7 +108,7 @@ _save_context:
->  .option pop
->  
->  #ifdef CONFIG_TRACE_IRQFLAGS
-> -	call trace_hardirqs_off
-> +	call __trace_hardirqs_off
->  #endif
->  
->  #ifdef CONFIG_CONTEXT_TRACKING
-> @@ -143,7 +143,7 @@ skip_context_tracking:
->  	li t0, EXC_BREAKPOINT
->  	beq s4, t0, 1f
->  #ifdef CONFIG_TRACE_IRQFLAGS
-> -	call trace_hardirqs_on
-> +	call __trace_hardirqs_on
->  #endif
->  	csrs CSR_STATUS, SR_IE
->  
-> @@ -234,7 +234,7 @@ ret_from_exception:
->  	REG_L s0, PT_STATUS(sp)
->  	csrc CSR_STATUS, SR_IE
->  #ifdef CONFIG_TRACE_IRQFLAGS
-> -	call trace_hardirqs_off
-> +	call __trace_hardirqs_off
->  #endif
->  #ifdef CONFIG_RISCV_M_MODE
->  	/* the MPP value is too large to be used as an immediate arg for addi */
-> @@ -270,10 +270,10 @@ restore_all:
->  	REG_L s1, PT_STATUS(sp)
->  	andi t0, s1, SR_PIE
->  	beqz t0, 1f
-> -	call trace_hardirqs_on
-> +	call __trace_hardirqs_on
->  	j 2f
->  1:
-> -	call trace_hardirqs_off
-> +	call __trace_hardirqs_off
->  2:
->  #endif
->  	REG_L a0, PT_STATUS(sp)
-> diff --git a/arch/riscv/kernel/trace_irq.c b/arch/riscv/kernel/trace_irq.c
-> new file mode 100644
-> index 000000000000..fc194c56a35d
-> --- /dev/null
-> +++ b/arch/riscv/kernel/trace_irq.c
-> @@ -0,0 +1,26 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2022 Changbin Du <changbin.du@gmail.com>
-> + */
-> +
-> +#include <linux/irqflags.h>
-> +#include <linux/kprobes.h>
-> +#include "trace_irq.h"
-> +
-> +/**
-> + * trace_hardirqs_on/off requires at least two parent call frames.
-> + * Here we add one extra level so they can be safely called by low
-> + * level entry code.
-> + */
+We reduce the max kernel stack usage by 560 bytes!
 
-Hmm, I believe there's elegant solution without this grue, maybe
-fix in stacktrace implementation or something else?
+From another side, after this patch, it's possible to reduce the
+THREAD_SIZE to 8KB for RV64 platforms. This is especially useful for
+those systems with small memory size, e.g the Allwinner D1S platform
+which is RV64 but only has 64MB DDR.
 
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ arch/riscv/include/asm/thread_info.h |  1 +
+ arch/riscv/kernel/asm-offsets.c      |  2 ++
+ arch/riscv/kernel/entry.S            | 33 +++++++++++++++++++++++++---
+ arch/riscv/kernel/irq.c              | 16 ++++++++++++++
+ 4 files changed, 49 insertions(+), 3 deletions(-)
 
-> +
-> +void __trace_hardirqs_on(void)
-> +{
-> +	trace_hardirqs_on();
-> +}
-> +NOKPROBE_SYMBOL(__trace_hardirqs_on);
-> +
-> +void __trace_hardirqs_off(void)
-> +{
-> +	trace_hardirqs_off();
-> +}
-> +NOKPROBE_SYMBOL(__trace_hardirqs_off);
-> diff --git a/arch/riscv/kernel/trace_irq.h b/arch/riscv/kernel/trace_irq.h
-> new file mode 100644
-> index 000000000000..99fe67377e5e
-> --- /dev/null
-> +++ b/arch/riscv/kernel/trace_irq.h
-> @@ -0,0 +1,11 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright (C) 2022 Changbin Du <changbin.du@gmail.com>
-> + */
-> +#ifndef __TRACE_IRQ_H
-> +#define __TRACE_IRQ_H
-> +
-> +void __trace_hardirqs_on(void);
-> +void __trace_hardirqs_off(void);
-> +
-> +#endif /* __TRACE_IRQ_H */
-> -- 
-> 2.32.0
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+index 60da0dcacf14..67387a8bcb34 100644
+--- a/arch/riscv/include/asm/thread_info.h
++++ b/arch/riscv/include/asm/thread_info.h
+@@ -19,6 +19,7 @@
+ #endif
+ #define THREAD_SIZE		(PAGE_SIZE << THREAD_SIZE_ORDER)
+ 
++#define IRQ_STACK_SIZE		THREAD_SIZE
+ /*
+  * By aligning VMAP'd stacks to 2 * THREAD_SIZE, we can detect overflow by
+  * checking sp & (1 << THREAD_SHIFT), which we can do cheaply in the entry
+diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+index df0519a64eaf..9619398a69e1 100644
+--- a/arch/riscv/kernel/asm-offsets.c
++++ b/arch/riscv/kernel/asm-offsets.c
+@@ -36,6 +36,8 @@ void asm_offsets(void)
+ 	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
+ 	OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
+ 	OFFSET(TASK_TI_USER_SP, task_struct, thread_info.user_sp);
++	OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
++	OFFSET(TASK_STACK, task_struct, stack);
+ 
+ 	OFFSET(TASK_THREAD_F0,  task_struct, thread.fstate.f[0]);
+ 	OFFSET(TASK_THREAD_F1,  task_struct, thread.fstate.f[1]);
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index ed29e9c8f660..57c9b64e16a5 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -126,12 +126,39 @@ skip_context_tracking:
+ 	 */
+ 	bge s4, zero, 1f
+ 
+-	la ra, ret_from_exception
++	/* preserve the sp */
++	move s0, sp
+ 
+-	/* Handle interrupts */
+ 	move a0, sp /* pt_regs */
++
++	/*
++	 * Compare sp with the base of the task stack.
++	 * If the top ~(THREAD_SIZE - 1) bits match, we are on a task stack,
++	 * and should switch to the irq stack.
++	 */
++	REG_L t0, TASK_STACK(tp)
++	xor t0, t0, s0
++	li t1, ~(THREAD_SIZE - 1)
++	and t0, t0, t1
++	bnez t0, 2f
++
++	la t1, irq_stack
++	REG_L t2, TASK_TI_CPU(tp)
++	slli t2, t2, RISCV_LGPTR
++	add t1, t1, t2
++	REG_L t2, 0(t1)
++	li t1, IRQ_STACK_SIZE
++	/* switch to the irq stack */
++	add sp, t2, t1
++
++2:
++	/* Handle interrupts */
+ 	la a1, generic_handle_arch_irq
+-	jr a1
++	jalr a1
++
++	/* Restore sp */
++	move sp, s0
++	j ret_from_exception
+ 1:
+ 	/*
+ 	 * Exceptions run with interrupts enabled or disabled depending on the
+diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
+index 7207fa08d78f..9b586d6ad7ca 100644
+--- a/arch/riscv/kernel/irq.c
++++ b/arch/riscv/kernel/irq.c
+@@ -10,6 +10,8 @@
+ #include <linux/seq_file.h>
+ #include <asm/smp.h>
+ 
++void *irq_stack[NR_CPUS];
++
+ int arch_show_interrupts(struct seq_file *p, int prec)
+ {
+ 	show_ipi_stats(p, prec);
+@@ -18,7 +20,21 @@ int arch_show_interrupts(struct seq_file *p, int prec)
+ 
+ void __init init_IRQ(void)
+ {
++	int cpu;
++
+ 	irqchip_init();
+ 	if (!handle_arch_irq)
+ 		panic("No interrupt controller found.");
++
++	for_each_possible_cpu(cpu) {
++#ifdef CONFIG_VMAP_STACK
++		void *s = __vmalloc_node(IRQ_STACK_SIZE, THREAD_ALIGN,
++					 THREADINFO_GFP, cpu_to_node(cpu),
++					 __builtin_return_address(0));
++#else
++		void *s = (void *)__get_free_pages(GFP_KERNEL, get_order(IRQ_STACK_SIZE));
++#endif
++
++		irq_stack[cpu] = s;
++	}
+ }
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
