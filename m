@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E8EC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Feb 2022 08:38:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B2CC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Feb 2022 09:08:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
-	Date:References:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZTReUyo74MhaN+vDzIh7da/q2s9HEBcX4Fr0Wc32IsM=; b=17B+nFZOrS18xg
-	Lv8qsEFTxRjjBV1cUzRrFJZ78Zs8LnoiotZwiaAgjDvU+ZiTdOD8WfcasYw7H2JSZE+kLh5jeu4i3
-	wvLFZzNPX+kWtYpntkqu4ZfKWJYtq1If8mdxI8ohWBv1TGBoCMVNz11p5BQ/Rr983vBuZQ6j6KnI6
-	k6qQT9DVR7KUbOPq3JAga+D9b74L+9oRM5aD4uuUor5/UbVdAoQB2YXm76zn9PHC/eUxrV91rwjV8
-	j/5vsHTIhH8WJcVAGDGPKY9eIga8GcWBTv5Fn2968kH05dIZgQeJju9cOJJo/vCHOleZ37amPj/Yw
-	zH7Vgab/Tz3MJXmjBcFg==;
+	List-Owner; bh=Q7hzuKiA7fM8cRaQi/0cbFqCwNJdwF4wuSQP4EbugYw=; b=fhrXHSJKjE1BPU
+	kKF0OnMVjdR+cMAHAYIu1/OklS+hPwDQQ6V5BcEj+QCO26RojZWJEDuShFhKkDUUa2HjZ0hRwnU+c
+	r7IZWpzuVPq+UxBmgmfnF5d8NVZJXJ2eVZv+V5gvbmVW0UEHAP3m5OUELsdg74rXwgwkwYkOq3L3N
+	CnS2wdWeGqKwpi38GFriloUYj0Jvdf+kzj4KewJYUN8xHtMiKj6MwdImXuzvk+C4H5hkgr3OcDjgk
+	0P9BHECTmaVp4mKT1oZf7ssuslf6uaGIxFEmyQd1ozpRVV0fZeZ6tqkz+1KkJ9YZ9QWIv7PbH8tzD
+	Iu7V1IeEO9s+sX6MNZAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nGzXP-009Nw8-50; Mon, 07 Feb 2022 08:38:19 +0000
-Received: from mail-out.m-online.net ([212.18.0.9])
+	id 1nH00P-009UzH-GC; Mon, 07 Feb 2022 09:08:17 +0000
+Received: from mout.kundenserver.de ([212.227.126.134])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nGzXL-009NuD-Rd
- for linux-riscv@lists.infradead.org; Mon, 07 Feb 2022 08:38:17 +0000
-Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
- by mail-out.m-online.net (Postfix) with ESMTP id 4Jsffm0nXYz1rB81;
- Mon,  7 Feb 2022 09:38:08 +0100 (CET)
-Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
- by mail.m-online.net (Postfix) with ESMTP id 4Jsffm00XGz1qqkP;
- Mon,  7 Feb 2022 09:38:07 +0100 (CET)
-X-Virus-Scanned: amavisd-new at mnet-online.de
-Received: from mail.mnet-online.de ([192.168.8.182])
- by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
- port 10024)
- with ESMTP id 7iAGubkoVI4f; Mon,  7 Feb 2022 09:38:07 +0100 (CET)
-X-Auth-Info: 3fmUPnVS0Kvboy0oxbh9eBJwvyO+NTPtLCgh38lLIqw+6NL2h6OEzMlpGRGwyssh
-Received: from igel.home (ppp-46-244-191-16.dynamic.mnet-online.de
- [46.244.191.16])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.mnet-online.de (Postfix) with ESMTPSA;
- Mon,  7 Feb 2022 09:38:07 +0100 (CET)
-Received: by igel.home (Postfix, from userid 1000)
- id 9D7122C36AF; Mon,  7 Feb 2022 09:38:06 +0100 (CET)
-From: Andreas Schwab <schwab@linux-m68k.org>
-To: David Abdurachmanov <david.abdurachmanov@gmail.com>
-Cc: Jisheng Zhang <jszhang@kernel.org>,  Paul Walmsley
- <paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>,  Albert
- Ou <aou@eecs.berkeley.edu>,  linux-riscv
- <linux-riscv@lists.infradead.org>,  "linux-kernel@vger.kernel.org List"
- <linux-kernel@vger.kernel.org>
-Subject: Re: [RFC PATCH] riscv: reduce THREAD_SIZE from 16KB to 8KB for RV64
+ id 1nH00M-009UyN-Aa
+ for linux-riscv@lists.infradead.org; Mon, 07 Feb 2022 09:08:15 +0000
+Received: from mail-wr1-f41.google.com ([209.85.221.41]) by
+ mrelayeu.kundenserver.de (mreue010 [213.165.67.97]) with ESMTPSA (Nemesis) id
+ 1MpUEO-1o6YQZ49Vs-00pxPh for <linux-riscv@lists.infradead.org>; Mon, 07 Feb
+ 2022 10:08:12 +0100
+Received: by mail-wr1-f41.google.com with SMTP id s10so20866529wra.5
+ for <linux-riscv@lists.infradead.org>; Mon, 07 Feb 2022 01:08:11 -0800 (PST)
+X-Gm-Message-State: AOAM530bLn+ONwHQDao7QIxw85ZEhJrvBqIV+oWEv7tzCVIHmGF1iAad
+ mPZTHcOge7yeH/BB7Bl+81GyCTTTQlMdVHD9qXw=
+X-Google-Smtp-Source: ABdhPJy2OAsF40cRhp1hQ7PY7Unl0deCaPSYBDIEWOpw8v3CO2PPO1fqgQT5QBnVuSRSgX6rbfXRrkb7Q4LqWG3ZD10=
+X-Received: by 2002:a5d:500c:: with SMTP id e12mr9133772wrt.219.1644224891245; 
+ Mon, 07 Feb 2022 01:08:11 -0800 (PST)
+MIME-Version: 1.0
 References: <20220206174359.2986-1-jszhang@kernel.org>
  <CAEn-LTrZwq1-6F8PWScGPp1TRk1eaB-7qOrvPjyLhK=OzDTQBQ@mail.gmail.com>
-X-Yow: ..  One FISHWICH coming up!!
-Date: Mon, 07 Feb 2022 09:38:06 +0100
-In-Reply-To: <CAEn-LTrZwq1-6F8PWScGPp1TRk1eaB-7qOrvPjyLhK=OzDTQBQ@mail.gmail.com>
- (David Abdurachmanov's message of "Mon, 7 Feb 2022 10:05:14 +0200")
-Message-ID: <87bkzjvzpt.fsf@igel.home>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/28.0.91 (gnu/linux)
-MIME-Version: 1.0
+ <87bkzjvzpt.fsf@igel.home>
+In-Reply-To: <87bkzjvzpt.fsf@igel.home>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Mon, 7 Feb 2022 10:07:54 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a3ncwMz-yngiv_waYYNBydveLrhX=kEfWC_hfonHZ7k4w@mail.gmail.com>
+Message-ID: <CAK8P3a3ncwMz-yngiv_waYYNBydveLrhX=kEfWC_hfonHZ7k4w@mail.gmail.com>
+Subject: Re: [RFC PATCH] riscv: reduce THREAD_SIZE from 16KB to 8KB for RV64
+To: Andreas Schwab <schwab@linux-m68k.org>
+Cc: David Abdurachmanov <david.abdurachmanov@gmail.com>,
+ Jisheng Zhang <jszhang@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+X-Provags-ID: V03:K1:rzJ2VOCXY7drbT4/PyYBwztCESOhaycJl8SMSFlywkThHPdjzeE
+ 3vwjVd4iOoKlbaCFgdBtl9UbYHvsUgiOYoz68vDjKerhmc7jdg8sl2ET7FDLEWKtqtQSX1N
+ oNPyAQARqJ2PM9Wu7Y8ypcuDlU6Smn2Emhz4fbN4DMhnmLydvAiBGGgmm9LGDXqEVXq0oXb
+ MVYp6wwURYMHZ3hmNA7Qg==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:xWkFI1arQi8=:xmChBnFhpmXq7CDIl9pobw
+ c3j2eJQ3Bye6JeCk+HKivbCv9S6nfhR4N433myMmUOvd+8aTWgdReepOffU4FNa4t3ODHxMex
+ rn5OvVONM6G0/zzUXIlR34hLSjyL/ExFZfqVt3Lh6QD4CGtW56CR3JZEMcrmyIQ1FJVIjqirv
+ CjzFq0AW7r6wPMEWdA093OatA8DoGr3zjjan3SYX2QBufERQovjHhtuIMxh7yWq4lRt85sfsJ
+ l7ZmZSJgvF70+GlkuBt6vv/QcXb1qTv1t+D2N64KtxoVFrc/Kj3hhUz8oXimsr/BSHvImPE/B
+ 5e4lUZYV69OxiEpufNwISvJoCGOYxIYjunf+EGSVgIjQpFxdWaXNuXzS2S+Mi3vHV6d3tu6op
+ 33XUbq7jX8Uc8x+M3L2K+CaP7aeVeMxR+GcppyNGJUNuZ4cQ1LeIol4SjFp6PohJozZhPSJuY
+ zxWvMpghc5TTsui/MMNNa0//xvjtvTS3I0dMkGNCUObnmr1fnyl2Zi5AonhiVfH08cAF3lDm2
+ ix+gDamomIERAjKubLrpzTMyVFJULgKUy8OtOyk/vrkZAOFMUqhxZ3w3C1QkBUgp8tjU0cXhm
+ H0ogBMeAY7k3vsVmv/jtUejaGDXy5Jfaq3Wtj6zk5WfZOXKq5BoGMHWhe+Ynu3PZ5qDa1ingc
+ vFTrPgo+yws5TAH+es4OTLOiteXA7b4r5RFfAdUi2AMjSB5zyhfzb/w7v2xFZnyZsW5HYnP2c
+ n97vTaSrDRS7BRc7/m33k+tSJ6qiL+8rw6dng608qSErJlwwSOvJr6wxJa8GeR3veVgP5ptcs
+ oNYBEJDcHJx2piZUSKsYczVRgPZ0QZ6OzHj8ftAhCUbUtlt9CI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220207_003816_087508_E68ACF4F 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20220207_010814_684274_9692AC8E 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,25 +89,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Feb 07 2022, David Abdurachmanov wrote:
-
-> On Sun, Feb 6, 2022 at 7:53 PM Jisheng Zhang <jszhang@kernel.org> wrote:
->>
->> After irq stack is supported, it's possible to use small THREAD_SIZE.
->> In fact, I tested this patch on a Lichee RV board, looks good so far.
+On Mon, Feb 7, 2022 at 9:38 AM Andreas Schwab <schwab@linux-m68k.org> wrote:
 >
-> We went from 8K to 16K somewhere in mid-2020 on riscv64 because we
-> were seeing some random crashes in various distributions (Debian,
-> Fedora, OpenSUSE). Thus we matched what other popular arches do, i.e.
-> 16K.
+> On Feb 07 2022, David Abdurachmanov wrote:
+>
+> > On Sun, Feb 6, 2022 at 7:53 PM Jisheng Zhang <jszhang@kernel.org> wrote:
+> >>
+> >> After irq stack is supported, it's possible to use small THREAD_SIZE.
+> >> In fact, I tested this patch on a Lichee RV board, looks good so far.
+> >
+> > We went from 8K to 16K somewhere in mid-2020 on riscv64 because we
+> > were seeing some random crashes in various distributions (Debian,
+> > Fedora, OpenSUSE). Thus we matched what other popular arches do, i.e.
+> > 16K.
 
-I think NFS is one of the worst offenders.  I'm running an Unleashed
-with NFS root, which probably amplifies this.
+It sounds like 2020 predates both HAVE_ARCH_VMAP_STACK and
+IRQ stacks, so I would say that it was necessary back then because the
+crashes were too hard to debug, but it's worth trying again now at least
+as a compile-time option under CONFIG_EXPERT.
 
--- 
-Andreas Schwab, schwab@linux-m68k.org
-GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
-"And now for something completely different."
+You need VMAP stacks to reliably get a backtrace out, and you need
+IRQ stacks to make overflows happen reproducibly (and less often).
+
+> I think NFS is one of the worst offenders.  I'm running an Unleashed
+> with NFS root, which probably amplifies this.
+
+I think there are a few others that can be equally bad, and some of them
+might stack on top of others, such as swap over ecryptfs over nfs over
+an encrypted network tunnel over infiniband. In the end, you just need
+one badly written driver, or a compile bug to trigger it, and we have
+plenty of both.
+
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
