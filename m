@@ -4,56 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA908C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Feb 2022 16:40:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5B3DC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Feb 2022 20:08:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QD6PbEpDv2srrsMyGugeChHbCUzBlwPOSKjKZ6clZz8=; b=ZxmSKPthkod1ZI
-	9gG+7/AJKuxKfB30Ii+bzvStxsFWiEz6EMFAH6wXlSztE0jXu0rjHVaD/75lhVaWKrvvcMPxyl5YX
-	2IRbzdmTTEFB1fZ0gYFuBairyF6WBa3UhdBR6ImncyYwa2JlDvoEE+Kwxjlu5k2iZXrluc5tjptOj
-	kJYPo6xdk9BAbcuDKOemT/WZw4vG9AzrEvdkU3Y1ymWwKrkutm5Ttbx4DafvEMwVK8UdHy3H72sqR
-	RN90S6xs3o/J69K6bG/vrHWjmEj7uPjND2ykOIR/oKeNFtLNEK56BGDR/GaVd2f0TafZ84ExFhRjJ
-	1AwXbY6k7w1ciG7mfQrQ==;
+	List-Owner; bh=vxYRkQkik0tTRlAbSlO8KQAwjQ0e/fh915bmlw2yJac=; b=bVaJ4ogfPzOuf/
+	KQQySmh/SVC/MHQF75EvGRtI2K6qGiljF3+MNGQcgkLSFAPu9aF9eyY5GKIXJQs8rKQFb667uyFMq
+	todp4E2qFaVTo5hRdzrq+6zN4nj+N00+NfmFTJtdZhe7t85cRxpvQJ+x4dYII4k1bDouJ+iHL4KIk
+	fSVeVayUFw0XB7d45DXtMQO3nW1kIMXJGirUAunD654DUZqN8+Dpg/ijBmQcnejJ7kcZXhlpyy4Fi
+	SVm6qWS8D4jo/7f/YGePGqj2cMVopptVIEhlRo7nwibmfQGzTB9N1Z6wCBtU/gtMox6Re4d6/SLEa
+	xBHQMDqLzlZ3YCvosd8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nH74A-00B9qI-7k; Mon, 07 Feb 2022 16:40:38 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1nHAIs-00Be6v-9o; Mon, 07 Feb 2022 20:08:02 +0000
+Received: from mail-oo1-f41.google.com ([209.85.161.41])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nH6tz-00B5id-Sm
- for linux-riscv@lists.infradead.org; Mon, 07 Feb 2022 16:30:09 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
- helo=phil.localnet)
- by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1nH6tm-0004ET-2l; Mon, 07 Feb 2022 17:29:54 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, wefu@redhat.com, liush@allwinnertech.com,
- guoren@kernel.org, atishp@atishpatra.org, anup@brainfault.org,
- drew@beagleboard.org, hch@lst.de, arnd@arndb.de, wens@csie.org,
- maxime@cerno.tech, dlustig@nvidia.com, gfavor@ventanamicro.com,
- andrea.mondelli@huawei.com, behrensj@mit.edu, xinhaoqu@huawei.com,
- huffman@cadence.com, mick@ics.forth.gr, allen.baum@esperantotech.com,
- jscheid@ventanamicro.com, rtrauben@gmail.com, samuel@sholland.org,
- cmuellner@linux.com, philipp.tomsich@vrull.eu
-Subject: Re: [PATCH v5 11/14] dt-bindings: riscv: add MMU Standard Extensions
- support for Svpbmt
-Date: Mon, 07 Feb 2022 14:39:31 +0100
-Message-ID: <2446197.JSQJs4Nv0J@phil>
-In-Reply-To: <Yf2pxvmG0t6eugOz@robh.at.kernel.org>
-References: <20220121163618.351934-1-heiko@sntech.de>
- <20220121163618.351934-12-heiko@sntech.de>
- <Yf2pxvmG0t6eugOz@robh.at.kernel.org>
+ id 1nHAIp-00Be59-1W
+ for linux-riscv@lists.infradead.org; Mon, 07 Feb 2022 20:08:01 +0000
+Received: by mail-oo1-f41.google.com with SMTP id
+ u25-20020a4ad0d9000000b002e8d4370689so14986888oor.12
+ for <linux-riscv@lists.infradead.org>; Mon, 07 Feb 2022 12:07:58 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=HsXp1ktRNXXH1ZuQq9T7gkz8YQLCBAGSvs9f6otXSEc=;
+ b=Xh8sKIfvWWoCwui31UYdQLVx26wJAznmhyyKu2CoYboh0AP78/HO/LLdnivHuUKUpK
+ cBvA7/YwxLsGLgcygJDH2KjeIms0isjyuT+yyHdPlu4wqeI6rVH7O1SMed9dloV/C/GV
+ yzlrrRTsH1VvidDPQVbWRbABgiUrl2AN/BjajAPR/Pew7sVSSk+Pjy33cqBc7dYUFtnA
+ +hnZGmpMnacxoWyQY324TVk+Vsocz2O36P1ipzoMfYWph51IiN9CXwioEjdUcMj8EJCA
+ G/f/elk4lmKX+lGmTPZAHE+Koxh4ZkDPsxRwHrxt5zXZlPh+5soV/Ds7Pa6RHgnLO/Id
+ 9Bdg==
+X-Gm-Message-State: AOAM5327dQiixhl15uzMqWq1WRo2+ak44J9gTy+JGHkKgkRL9+CV4gZ7
+ C4WcWxrzeGvvRxJOfWxM5w==
+X-Google-Smtp-Source: ABdhPJwZ69i+KxDCJdLyXXbkdUnY+k1QIC0WKQTQTKD8UaxeMwXblmqX/F1sU7XCejibDstsOhUa7A==
+X-Received: by 2002:a4a:d051:: with SMTP id x17mr562987oor.60.1644264477617;
+ Mon, 07 Feb 2022 12:07:57 -0800 (PST)
+Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
+ [66.90.148.213])
+ by smtp.gmail.com with ESMTPSA id ep17sm4757304oab.21.2022.02.07.12.07.55
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 07 Feb 2022 12:07:56 -0800 (PST)
+Received: (nullmailer pid 820845 invoked by uid 1000);
+ Mon, 07 Feb 2022 20:07:55 -0000
+Date: Mon, 7 Feb 2022 14:07:55 -0600
+From: Rob Herring <robh@kernel.org>
+To: conor.dooley@microchip.com
+Cc: linus.walleij@linaro.org, brgl@bgdev.pl, jassisinghbrar@gmail.com,
+ thierry.reding@gmail.com, u.kleine-koenig@pengutronix.de, lee.jones@linaro.org,
+ a.zummo@towertech.it, alexandre.belloni@bootlin.com, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, geert@linux-m68k.org,
+ krzysztof.kozlowski@canonical.com, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-i2c@vger.kernel.org, linux-pwm@vger.kernel.org,
+ linux-rtc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ bin.meng@windriver.com, heiko@sntech.de, lewis.hanly@microchip.com,
+ daire.mcnamara@microchip.com, ivan.griffin@microchip.com, atishp@rivosinc.com,
+ Palmer Dabbelt <palmer@rivosinc.com>
+Subject: Re: [PATCH v6 02/12] dt-bindings: soc/microchip: add services as sub
+ devs of sys ctrlr
+Message-ID: <YgF8G/Eed03xn9iI@robh.at.kernel.org>
+References: <20220207162637.1658677-1-conor.dooley@microchip.com>
+ <20220207162637.1658677-3-conor.dooley@microchip.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220207162637.1658677-3-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220207_083007_991298_A46236B3 
-X-CRM114-Status: GOOD (  19.15  )
+X-CRM114-CacheID: sfid-20220207_120759_140349_7658E843 
+X-CRM114-Status: GOOD (  21.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,61 +92,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 4. Februar 2022, 23:33:42 CET schrieb Rob Herring:
-> On Fri, Jan 21, 2022 at 05:36:15PM +0100, Heiko Stuebner wrote:
-> > From: Wei Fu <wefu@redhat.com>
-> > 
-> > Previous patch has added svpbmt in arch/riscv and add "riscv,svpmbt"
-> > in the DT mmu node. Update dt-bindings related property here.
-> > 
-> > Signed-off-by: Wei Fu <wefu@redhat.com>
-> > Co-developed-by: Guo Ren <guoren@kernel.org>
-> > Signed-off-by: Guo Ren <guoren@kernel.org>
-> > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-> > Cc: Anup Patel <anup@brainfault.org>
-> > Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> > Cc: Rob Herring <robh+dt@kernel.org>
-> > ---
-> >  Documentation/devicetree/bindings/riscv/cpus.yaml | 10 ++++++++++
-> >  1 file changed, 10 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > index aa5fb64d57eb..3ad2593f1400 100644
-> > --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > @@ -63,6 +63,16 @@ properties:
-> >        - riscv,sv48
-> >        - riscv,none
-> >  
-> > +  mmu:
+On Mon, Feb 07, 2022 at 04:26:28PM +0000, conor.dooley@microchip.com wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> riscv,mmu
+> Document mpfs-rng and mpfs-generic-service as subdevices of the system
+> controller.
 > 
-> > +    description:
-> > +      Describes the CPU's MMU Standard Extensions support.
-> > +      These values originate from the RISC-V Privileged
-> > +      Specification document, available from
-> > +      https://riscv.org/specifications/
-> > +    $ref: '/schemas/types.yaml#/definitions/string'
-> > +    enum:
-> > +      - riscv,svpbmt
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+> ---
+>  .../microchip,mpfs-sys-controller.yaml        | 35 +++++++++++++++++--
+>  1 file changed, 33 insertions(+), 2 deletions(-)
 > 
-> Are there per vendor MMU extensions? If not, drop the 'riscv,' part. 
+> diff --git a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
+> index f699772fedf3..b02c8bd72605 100644
+> --- a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
+> +++ b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
+> @@ -13,7 +13,6 @@ description: |
+>    The PolarFire SoC system controller is communicated with via a mailbox.
+>    This document describes the bindings for the client portion of that mailbox.
+>  
+> -
+>  properties:
+>    mboxes:
+>      maxItems: 1
+> @@ -21,6 +20,38 @@ properties:
+>    compatible:
+>      const: microchip,mpfs-sys-controller
+>  
+> +  rng:
+> +    type: object
+> +
+> +    description: |
+> +      The hardware random number generator on the Polarfire SoC is
+> +      accessed via the mailbox interface provided by the system controller
+> +
+> +    properties:
+> +      compatible:
+> +        const: microchip,mpfs-rng
+> +
+> +    required:
+> +      - compatible
+> +
+> +  sysserv:
+> +    type: object
+> +
+> +    description: |
+> +      The PolarFire SoC system controller is communicated with via a mailbox.
+> +      This binding represents several of the functions provided by the system
+> +      controller which do not belong in a specific subsystem, such as reading
+> +      the fpga device certificate, all of which follow the same format:
+> +        - a command + optional payload sent to the sys controller
+> +        - a status + a payload returned to Linux
+> +
+> +    properties:
+> +      compatible:
+> +        const: microchip,mpfs-generic-service
+> +
+> +    required:
+> +      - compatible
+> +
+>  required:
+>    - compatible
+>    - mboxes
+> @@ -29,7 +60,7 @@ additionalProperties: false
+>  
+>  examples:
+>    - |
+> -    syscontroller: syscontroller {
+> +    syscontroller {
+>        compatible = "microchip,mpfs-sys-controller";
+>        mboxes = <&mbox 0>;
 
-Judging by the somewhat wild-west nature, I guess there might already
-be non-riscv extensions existing somewhere, or at least the probability
-is quite high that there will be in the future ;-)
+Removing the child nodes in the example doesn't address my comment. You 
+still have them in the schema. IOW, this patch should be dropped unless 
+you have reasons for child nodes other than I want to partition the OS 
+drivers a certain way and creating DT nodes instantiates them for me.
 
+>      };
+> -- 
+> 2.35.1
 > 
-> > +
-> >    riscv,isa:
-> >      description:
-> >        Identifies the specific RISC-V instruction set architecture
 > 
-
-
-
-
 
 _______________________________________________
 linux-riscv mailing list
