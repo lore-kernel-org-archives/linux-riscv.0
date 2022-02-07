@@ -4,80 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 581A7C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Feb 2022 20:08:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 129AFC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Feb 2022 20:09:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KsmNrNdAdNju9upGLoIvTpGRMiYlhb1kLJbC9PS5h1s=; b=owNVsrjleBQkIt
-	UoJdMjyB9ER6hDGXZo5AVCLs4eWqv78FbaTjjIeDyuNcnZOvUo8NqLNWZUCeRL/EHIAMw9jbBdgg7
-	OOeU+1dcu1AtD+TLjlJQjtyoKN/nJ8P5fNIXoSzRQUDkHG7htoqkCM6M7j7xnItI6ROuWkujoybM5
-	OFE6kK5Tyz2GYL+OVLF3X2UW/Ph6e5sOObVmLdgTxTNgKgxUCZqH6gAdLeRwaoO+3339vkhwz7C3p
-	+G5gWagoo6P4sSB6IerG+OWgcM9MaV0RwPrHtUgVVjFxCQff1ppe8jAfskXhTnYvx47tHmbBE2n4u
-	h0Xhb6NK75WQGqNja2aA==;
+	List-Owner; bh=JuP+SThGA36p6Dtl5N0rWBDouPE68s8Gpu1YTO6X7lM=; b=pzxRlCt6RB/fKk
+	znCOEcJalt8lfFrphkMAf6PopGUrPEzk3lF9sU8l3cnFzVR/0KE/YHUSn7Qib5tukBYdFrZhkZpS9
+	cVOEobWc1YJYD75Q+p/KNM5Nea+M1XAToHTyiasI+uzYzLeyvF1yQWPYs922d55vmZ2ArKEGYo9OU
+	rQZNUyQpNnvOu9t/TPw2hV+FSyDgkTME6lFef7fP0Wz01Lx9oQYg4zNmCMuI+JpP3HUzIdgdw9AdR
+	EHL86lkf0+qUX4n+46cyooBuokdEb1adMq8qxInf6ZD/k30Cy/nOROOgNSqeh8oY69616bfuS7Vo6
+	DlUEzj0kP3fmhtlThBMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nHAJc-00BeJv-89; Mon, 07 Feb 2022 20:08:48 +0000
-Received: from mail-oo1-f47.google.com ([209.85.161.47])
+	id 1nHAKZ-00BeXg-AW; Mon, 07 Feb 2022 20:09:47 +0000
+Received: from mail-oo1-f45.google.com ([209.85.161.45])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nHAJa-00BeHm-1c
- for linux-riscv@lists.infradead.org; Mon, 07 Feb 2022 20:08:47 +0000
-Received: by mail-oo1-f47.google.com with SMTP id
- v17-20020a4ac911000000b002eac41bb3f4so14956009ooq.10
- for <linux-riscv@lists.infradead.org>; Mon, 07 Feb 2022 12:08:41 -0800 (PST)
+ id 1nHAKW-00BeWm-Pq
+ for linux-riscv@lists.infradead.org; Mon, 07 Feb 2022 20:09:46 +0000
+Received: by mail-oo1-f45.google.com with SMTP id
+ u25-20020a4ad0d9000000b002e8d4370689so14992418oor.12
+ for <linux-riscv@lists.infradead.org>; Mon, 07 Feb 2022 12:09:44 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to;
- bh=CrvosFW42PH24vyhcJ8yCYK5kuH9wojPlsSY3hcdOUc=;
- b=yCbZykl2i0g3aoz8pta6eOCvco0wyJqDEiGaUL6whoZvZRfgWGPxHGXscHUO3G3aTk
- VYXTMN9hIWufi84VeC++dJDhGpBb7jTruzvlFiWivx5GmBq7/6fAtkQDBhVBJnxHFFGD
- sa++dM+3wGm5AdrGfNUNUDrgKBzuhRmmXQYw+hcDogsWqHiTG/a/r0m1PU97xkfuzpyN
- cBLiNOy4NHhKHUwOZ3rZtErASNRCZ5goxBuGftKHwZXvEDYS7MA3pxWQkO9GyLPIrsjF
- iTwTuhBuk4AEtlKjQ93mWvl1Sx7yzNuoMVtzpINIDfoqRKQHQPHcf5b2yWEY2Ep0lGW/
- lLtg==
-X-Gm-Message-State: AOAM5312xkXjRlJt/MiQsNBrOPJlZpg+N5B9PGXGxvsitQldIioVu6Di
- krwph2UzWL7NezBcVRK37A==
-X-Google-Smtp-Source: ABdhPJyJK27+psTtrfkCuMuAqpffgGb6n5sw/ohgngNCI1dXBNEA26ejonL56UAsIWXjvhBlpqcVtQ==
-X-Received: by 2002:a05:6870:72c5:: with SMTP id
- o5mr203147oak.138.1644264520985; 
- Mon, 07 Feb 2022 12:08:40 -0800 (PST)
+ bh=ttZ5bEvqZjIQmVs2OzberAWTk47diq+NL3G4lhS0EoU=;
+ b=kMoFnXEMjxBhJ1S8wa8NjiHBoZ+QKEzpP+pyzyhhnZhGvy7gmWF5d+6LBuloB3yNzh
+ pLItuGOGCxt4Q0W6SzuTTaCgQJbVNnvk/d6pOwocUc/tBPZeDKNhYEqdE1TyVglV5QV5
+ H4kB5fqa6KnUi7okeIleqblc6svtN4ixGXgRr7FfdILQG7UeRYuO1DzYseg7jcQCo5DN
+ rZAO7HMINx6y5110WFRyivqxmQkIiVeQuLWIRkmX04YVjgz05c/BYxF4O2gDGUrEncSC
+ yOuq2djHzTKFQ+XuH2v8sbeOiZhq5QDZy/JO9JzkTh/oXV2E1l43BdQDHEgK+OsZOEXR
+ xfcg==
+X-Gm-Message-State: AOAM531BYxC0QSwvlWhEUGvKxd7qbrVQegKoZNc2Rk3I+NJxqkK+I0Y8
+ V4H/diVKP4owdkqlZJMEog==
+X-Google-Smtp-Source: ABdhPJxQvqoRhiuE4eZoltL7bwVfENjxLmaf/fmvJxmAzjJWBu2Pt3FTdl2kIbPQ5qyr6OxY2RuXcA==
+X-Received: by 2002:a05:6870:13cd:: with SMTP id
+ 13mr198485oat.344.1644264583555; 
+ Mon, 07 Feb 2022 12:09:43 -0800 (PST)
 Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
  [66.90.148.213])
- by smtp.gmail.com with ESMTPSA id b8sm4398365otk.36.2022.02.07.12.08.38
+ by smtp.gmail.com with ESMTPSA id a19sm4404440otf.27.2022.02.07.12.09.42
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 07 Feb 2022 12:08:40 -0800 (PST)
-Received: (nullmailer pid 822044 invoked by uid 1000);
- Mon, 07 Feb 2022 20:08:38 -0000
-Date: Mon, 7 Feb 2022 14:08:38 -0600
+ Mon, 07 Feb 2022 12:09:42 -0800 (PST)
+Received: (nullmailer pid 823748 invoked by uid 1000);
+ Mon, 07 Feb 2022 20:09:41 -0000
+Date: Mon, 7 Feb 2022 14:09:41 -0600
 From: Rob Herring <robh@kernel.org>
-To: conor.dooley@microchip.com
-Cc: linux-i2c@vger.kernel.org, linus.walleij@linaro.org,
- linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-rtc@vger.kernel.org, robh+dt@kernel.org, ivan.griffin@microchip.com,
- atishp@rivosinc.com, bin.meng@windriver.com,
- Palmer Dabbelt <palmer@rivosinc.com>, devicetree@vger.kernel.org,
- heiko@sntech.de, u.kleine-koenig@pengutronix.de, paul.walmsley@sifive.com,
- krzysztof.kozlowski@canonical.com, aou@eecs.berkeley.edu,
- alexandre.belloni@bootlin.com, linux-kernel@vger.kernel.org,
- thierry.reding@gmail.com, jassisinghbrar@gmail.com, a.zummo@towertech.it,
- daire.mcnamara@microchip.com, palmer@dabbelt.com, lee.jones@linaro.org,
- linux-pwm@vger.kernel.org, geert@linux-m68k.org, brgl@bgdev.pl,
- lewis.hanly@microchip.com
-Subject: Re: [PATCH v6 04/12] dt-bindings: rtc: add bindings for microchip
- mpfs rtc
-Message-ID: <YgF8RhEUVNb1ZVFl@robh.at.kernel.org>
-References: <20220207162637.1658677-1-conor.dooley@microchip.com>
- <20220207162637.1658677-5-conor.dooley@microchip.com>
+To: Zong Li <zong.li@sifive.com>
+Cc: robh+dt@kernel.org, dmaengine@vger.kernel.org, geert@linux-m68k.org,
+ green.wan@sifive.com, aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
+ palmer@dabbelt.com, vkoul@kernel.org, devicetree@vger.kernel.org,
+ bin.meng@windriver.com, Palmer Dabbelt <palmer@rivosinc.com>,
+ krzysztof.kozlowski@canonical.com, conor.dooley@microchip.com,
+ paul.walmsley@sifive.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/3] dt-bindings: Add dma-channels property and modify
+ compatible
+Message-ID: <YgF8hR7YO3B3QI+S@robh.at.kernel.org>
+References: <cover.1644215230.git.zong.li@sifive.com>
+ <30430019105af445d52b7a48331c106f8e6d6816.1644215230.git.zong.li@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220207162637.1658677-5-conor.dooley@microchip.com>
+In-Reply-To: <30430019105af445d52b7a48331c106f8e6d6816.1644215230.git.zong.li@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220207_120846_113353_F8D3ADE5 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20220207_120944_871083_F069E599 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,19 +88,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 07 Feb 2022 16:26:30 +0000, conor.dooley@microchip.com wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+On Mon, 07 Feb 2022 14:30:38 +0800, Zong Li wrote:
+> Add dma-channels property, then we can determine how many channels there
+> by device tree, rather than statically defining it in PDMA driver.
+> In addition, we also modify the compatible for PDMA versioning scheme.
 > 
-> Add device tree bindings for the real time clock on
-> the Microchip PolarFire SoC.
-> 
-> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+> Signed-off-by: Zong Li <zong.li@sifive.com>
+> Suggested-by: Palmer Dabbelt <palmer@rivosinc.com>
 > ---
->  .../bindings/rtc/microchip,mfps-rtc.yaml      | 58 +++++++++++++++++++
->  1 file changed, 58 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
+>  .../bindings/dma/sifive,fu540-c000-pdma.yaml  | 19 +++++++++++++++++--
+>  1 file changed, 17 insertions(+), 2 deletions(-)
 > 
 
 Reviewed-by: Rob Herring <robh@kernel.org>
