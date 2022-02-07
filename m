@@ -4,78 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ACD2C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Feb 2022 12:39:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEABAC433FE
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Feb 2022 16:05:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ueolSKnAbmus3klYTec8wSmzzPt079wzr/LW7BlTMe4=; b=UGe+YBcq5qgPJP
-	Lxs8S2vW6/6RrZMI7hwE06rIFYbeWg/Lj7hmIHsZwwqqvaMsLBaHr1RateNXexYkJaZObjeUuXznQ
-	PwwqsAWXBV/uw07Xd0JMi74r4Zu7h41XSb4kuxuQ6BFQYi+wogY7DSdeI7DRfbxF8SQ4GTAQwPZQY
-	drB5+UXQmVSyKh78XDLySiJmNEPh6Fi7ou4CISDk199cT7NUnYNwWDoVKp+1BNfQyqyseqSOdx2BL
-	W8BREjLi5TVo5z6dYPxWlyTgmuBLjwF6Nm4dK0fOHeKgjyTpC9GU4YFTM8bxExfePcf+ZiB1LM5oU
-	XQF7FUbquXh1po9KziRg==;
+	List-Owner; bh=L0zhcsxAJA8jerpvPhlO5mHeZDk2BLXVAqaqYoiRh/0=; b=A0tXGV35nPqDSs
+	0mMdfZbk8UXQeePX/ravMWv/14JgXmYPgvvz6GU5RB4ufDZJUKGdG3zlQ30taSsn9bFDYF8gl4YYV
+	3xx1ZYt958xqxZsZrHRHMSEgD5U9RA1X4C5NR4YR7dsL/GBXDtn0r9YkNparidhb+1Efyy0x12UbX
+	SmziCG/ge8EvIn+ExcTkMlFKHBpg/8/fVxwgd/Ej8CVFwUez/MKY6ypKnwsaXBIEMvW/ytq9kyO4e
+	pw21iIhu9HC8XSiKGh6x7zHQSgEGQ8b77XriBRHvLZ62K4CDWhrvspptZn783Jf/bCHVCI5Z09Qtl
+	aCqLVB/UbHHWLYZtaqQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nH3IP-00AAoB-4v; Mon, 07 Feb 2022 12:39:05 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1nH6WP-00Axl7-EB; Mon, 07 Feb 2022 16:05:45 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nH3IL-00AAmX-Mv
- for linux-riscv@lists.infradead.org; Mon, 07 Feb 2022 12:39:03 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id o10so10769507qkg.0
- for <linux-riscv@lists.infradead.org>; Mon, 07 Feb 2022 04:38:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=DkD54i2Pug3GcN0vGMXIwskw5kZ403zclucyP/4FADw=;
- b=jejLNq9ZkAUM/1vtLhdi/Te45wokvj6FjwIW8AlLB1k5NEm5TM5g0CwJk0HDNunq/c
- 6W4b+6p5XRj7BipndV9DVl6qeBQUDxuA2t9aVfsgHBtTUreGRF2VJlsJST0i7l+dGEAU
- jXKut7VfVCZ2E+hEy2gkxGuFJNezlflnLtRFakk/VIJbd/sgO3BccmoGlfvC0JCvzp3J
- 2tMID7ZZ1b4NXRSy1Ykde3PurFm0gp35wEBgEZsJn2KO1xguHtzTQjSW4F1PNUcl8+b4
- HdNHI0HdCBlheN6vmAvm84gJKD5z/UurHEfshXaDAVDLPeLnCNSSIeFWZs/nklfcXELn
- Gzfg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=DkD54i2Pug3GcN0vGMXIwskw5kZ403zclucyP/4FADw=;
- b=WHuW9u7zyaB3rnem4qZuWyH0F+NzCLsfijTFThoW0XXYL/39rBhrMNilpUI9xmI1aq
- t4B5fIPMo2M20NkzE9LPancZoK2U5L4Xa+f7gojhEe2fvCIl+yAUbMUQL8y+QQYknNlQ
- I7pAl3GhR7ylEK4xjxFrkGPiCw02+SpxhqwkV55QEAr5KdKqxr4zFYkfkYYDWswxz7Zc
- hp+Q7UVwCXJYi0sxqGNTxs0ok29KW/y5urLpuHK9wUoidd4LtNT34HDioHZhYjsk51uU
- bwmsJddjiKHu2FiG5W/baf/buQzZne53XnoF1RPiwxTkr2PwSZ9wyQU0R9SOzf27Ma06
- 41vw==
-X-Gm-Message-State: AOAM5335xlt40fbptj9tphjMNo7wvem393wVkfKdIDiJeu6UsUwFY5YX
- wk58xhJgG466bunnMsMbfFE=
-X-Google-Smtp-Source: ABdhPJyZ0PJvzdTaMnj9syEuoj2Q+oZ9zjRD3eKKtBRLXKGxSCHQAcviLNhn4SyqNt+ctfVL07Y++g==
-X-Received: by 2002:a05:620a:2443:: with SMTP id
- h3mr6108230qkn.258.1644237538894; 
- Mon, 07 Feb 2022 04:38:58 -0800 (PST)
-Received: from mail.google.com ([207.246.89.135])
- by smtp.gmail.com with ESMTPSA id 134sm5114278qkl.50.2022.02.07.04.38.54
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 07 Feb 2022 04:38:58 -0800 (PST)
-Date: Mon, 7 Feb 2022 20:38:50 +0800
-From: ChangbinCONFIG_IRQSOFF_TRACER Du <changbin.du@gmail.com>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Changbin Du <changbin.du@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] riscv: fix oops caused by irq on/off tracer
-Message-ID: <20220207123850.l4r5qjswaegwisbx@mail.google.com>
-References: <20220129004226.32868-1-changbin.du@gmail.com>
- <YgAEb425uqy5/dw1@xhacker>
+ id 1nH63D-00AlUd-DG
+ for linux-riscv@lists.infradead.org; Mon, 07 Feb 2022 15:35:36 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id ED067614B8;
+ Mon,  7 Feb 2022 15:35:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19BB4C004E1;
+ Mon,  7 Feb 2022 15:35:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1644248134;
+ bh=U53gZ+l/kdaaJyvWD/b5EEP8osDkf04QBB3k8cFqnJU=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=EMvYcc4JNP+7zcm/GA8wH76cRCamoeL9hklxByyHqVwmPvWQTVfb7Aw57sPbo6DcR
+ FcaclsyfDyir6g3P2u4b+Q1gF4gOifVf6+nS2m9OPE/LgH1A3o5/iyaUkoF8oYITvb
+ ccA2A8bm3BEfLCkZ3bxKBIW8PEefrWM4KY84+jDlmBbhWT38/fMutqQcTbFy2FZ9At
+ 3F7HpBjoxQS+gVLMv3mqKvVJDQM41ETvbyUOGEKzV0TiGUlmVP2SXAtC/sS0ChlOyg
+ my/CWmpKykQe518DVWWLVUKMADOZwAw4mm/pI3gYc1kKbfxIc3gBRbxcrTo9oCVNhn
+ LebOMYeGZR+5g==
+Date: Mon, 7 Feb 2022 23:27:46 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Subject: Re: [RFC PATCH] riscv: reduce THREAD_SIZE from 16KB to 8KB for RV64
+Message-ID: <YgE6co0GR93s1LTQ@xhacker>
+References: <20220206174359.2986-1-jszhang@kernel.org>
+ <CAK8P3a3Nnw5gfPAYx5UGdW8Om16GDcBi1-SS9Bs+CyLzssgVbA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <YgAEb425uqy5/dw1@xhacker>
+In-Reply-To: <CAK8P3a3Nnw5gfPAYx5UGdW8Om16GDcBi1-SS9Bs+CyLzssgVbA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220207_043901_787437_B525C6E6 
-X-CRM114-Status: GOOD (  31.22  )
+X-CRM114-CacheID: sfid-20220207_073535_573151_3800B0EF 
+X-CRM114-Status: GOOD (  31.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,185 +75,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 07, 2022 at 01:25:03AM +0800, Jisheng Zhang wrote:
-> On Sat, Jan 29, 2022 at 08:42:26AM +0800, Changbin Du wrote:
-> > The trace_hardirqs_on/off requires at least two parent call frames.
-> > If not, the code generated by CALLER_ADDR1 (aka. ftrace_return_address(1))
-> > could trigger memory access fault.
-> > 
-> > [    0.039615][    T0] Unable to handle kernel NULL pointer dereference at virtual address 00000000000000f8
-> > [    0.041925][    T0] Oops [#1]
-> > [    0.042063][    T0] Modules linked in:
-> > [    0.042864][    T0] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.17.0-rc1-00233-g9a20c48d1ed2 #29
-> > [    0.043568][    T0] Hardware name: riscv-virtio,qemu (DT)
-> > [    0.044343][    T0] epc : trace_hardirqs_on+0x56/0xe2
-> > [    0.044601][    T0]  ra : restore_all+0x12/0x6e
-> > [    0.044721][    T0] epc : ffffffff80126a5c ra : ffffffff80003b94 sp : ffffffff81403db0
-> > [    0.044801][    T0]  gp : ffffffff8163acd8 tp : ffffffff81414880 t0 : 0000000000000020
-> > [    0.044882][    T0]  t1 : 0098968000000000 t2 : 0000000000000000 s0 : ffffffff81403de0
-> > [    0.044967][    T0]  s1 : 0000000000000000 a0 : 0000000000000001 a1 : 0000000000000100
-> > [    0.045046][    T0]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : 0000000000000000
-> > [    0.045124][    T0]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000054494d45
-> > [    0.045210][    T0]  s2 : ffffffff80003b94 s3 : ffffffff81a8f1b0 s4 : ffffffff80e27b50
-> > [    0.045289][    T0]  s5 : ffffffff81414880 s6 : ffffffff8160fa00 s7 : 00000000800120e8
-> > [    0.045389][    T0]  s8 : 0000000080013100 s9 : 000000000000007f s10: 0000000000000000
-> > [    0.045474][    T0]  s11: 0000000000000000 t3 : 7fffffffffffffff t4 : 0000000000000000
-> > [    0.045548][    T0]  t5 : 0000000000000000 t6 : ffffffff814aa368
-> > [    0.045620][    T0] status: 0000000200000100 badaddr: 00000000000000f8 cause: 000000000000000d
-> > [    0.046402][    T0] [<ffffffff80003b94>] restore_all+0x12/0x6e
-> > 
+On Mon, Feb 07, 2022 at 08:35:54AM +0100, Arnd Bergmann wrote:
+> On Sun, Feb 6, 2022 at 6:43 PM Jisheng Zhang <jszhang@kernel.org> wrote:
+> >
+> > After irq stack is supported, it's possible to use small THREAD_SIZE.
+> > In fact, I tested this patch on a Lichee RV board, looks good so far.
+> >
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 > 
-> Hi Changbin,
+> I can definitely see the value in this, in particular when you get hardware with
+> small RAM configurations that would run a 32-bit kernel on other architectures.
 > 
-> Could you please provide the reproduce steps? It looks a bit
-> interesting.
->
-Just enable CONFIG_IRQSOFF_TRACER and rebuild kernel with llvm. Then boot the
-new kernel.
+> However, it's worth pointing out that all other 64-bit architectures use 16KB or
+> more, so it is rather dangerous to be the first architecture to try this out in
+> a long time. Some on-stack structures have a lot of pointers and 'unsigned long'
+> members, so they need twice the space, while other structures are the
+> same size either way.
+> 
+> IRQ stacks obviously help here, but I don't think the 8KB size can be made
+> the default without a lot of testing of some of the more rarely used code paths.
+> 
+> Here are a few things that would be worth doing on the way to a smaller
+> kernel stack:
+> 
+> - do more compile-time testing with a lower CONFIG_FRAME_WARN value.
+>   Historically, this defaults to 2048 bytes on 64-bit architectures. This is
+>   much higher than we really want, but it takes work to find and eliminate
+>   the outliers. I previously had a series to reduce the limit to 1280 bytes on
+>   arm64 and still build all 'randconfig' configurations.
+> 
+> - Use a much lower limit during regression testing. There is already a config
+>    option to randomize the start of the thread stack, but you can also try
+>    adding a configurable offset to see how far you can push it for a given
+>    workload before you run into the guard page.
+> 
+> - With vmap stacks, using 12KB may be an option as well, giving you
+>    three pages for the stack plus one guard page, instead of 4 pages
+>    stack plus four guard pages.
+> 
+> - If you can make a convincing case for using a lower THREAD_SIZE,
+>   make this a compile-time option across all 64-bit architectures that
+>   support both IRQ stacks and VMAP stacks. The actual frame size
+>   does depend on the ISA a bit, and we know that parisc and ia64 are
+>   particularly, possibly s390 as well, but I would expect risc-v to be
+>   not much different from arm64 and x86 here.
+> 
 
-> > To fix above issue, here we add one extra level wrapper so they can be
-> > safely called by low level entry code.
-> > 
-> > Signed-off-by: Changbin Du <changbin.du@gmail.com>
-> > 
-> > ---
-> > v2: fix compile warning.
-> > ---
-> >  arch/riscv/kernel/Makefile    |  2 ++
-> >  arch/riscv/kernel/entry.S     | 10 +++++-----
-> >  arch/riscv/kernel/trace_irq.c | 26 ++++++++++++++++++++++++++
-> >  arch/riscv/kernel/trace_irq.h | 11 +++++++++++
-> >  4 files changed, 44 insertions(+), 5 deletions(-)
-> >  create mode 100644 arch/riscv/kernel/trace_irq.c
-> >  create mode 100644 arch/riscv/kernel/trace_irq.h
-> > 
-> > diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> > index 612556faa527..ffc87e76b1dd 100644
-> > --- a/arch/riscv/kernel/Makefile
-> > +++ b/arch/riscv/kernel/Makefile
-> > @@ -51,6 +51,8 @@ obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
-> >  obj-$(CONFIG_FUNCTION_TRACER)	+= mcount.o ftrace.o
-> >  obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
-> >  
-> > +obj-$(CONFIG_TRACE_IRQFLAGS)	+= trace_irq.o
-> > +
-> >  obj-$(CONFIG_RISCV_BASE_PMU)	+= perf_event.o
-> >  obj-$(CONFIG_PERF_EVENTS)	+= perf_callchain.o
-> >  obj-$(CONFIG_HAVE_PERF_REGS)	+= perf_regs.o
-> > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> > index ed29e9c8f660..d6a46ed0bf05 100644
-> > --- a/arch/riscv/kernel/entry.S
-> > +++ b/arch/riscv/kernel/entry.S
-> > @@ -108,7 +108,7 @@ _save_context:
-> >  .option pop
-> >  
-> >  #ifdef CONFIG_TRACE_IRQFLAGS
-> > -	call trace_hardirqs_off
-> > +	call __trace_hardirqs_off
-> >  #endif
-> >  
-> >  #ifdef CONFIG_CONTEXT_TRACKING
-> > @@ -143,7 +143,7 @@ skip_context_tracking:
-> >  	li t0, EXC_BREAKPOINT
-> >  	beq s4, t0, 1f
-> >  #ifdef CONFIG_TRACE_IRQFLAGS
-> > -	call trace_hardirqs_on
-> > +	call __trace_hardirqs_on
-> >  #endif
-> >  	csrs CSR_STATUS, SR_IE
-> >  
-> > @@ -234,7 +234,7 @@ ret_from_exception:
-> >  	REG_L s0, PT_STATUS(sp)
-> >  	csrc CSR_STATUS, SR_IE
-> >  #ifdef CONFIG_TRACE_IRQFLAGS
-> > -	call trace_hardirqs_off
-> > +	call __trace_hardirqs_off
-> >  #endif
-> >  #ifdef CONFIG_RISCV_M_MODE
-> >  	/* the MPP value is too large to be used as an immediate arg for addi */
-> > @@ -270,10 +270,10 @@ restore_all:
-> >  	REG_L s1, PT_STATUS(sp)
-> >  	andi t0, s1, SR_PIE
-> >  	beqz t0, 1f
-> > -	call trace_hardirqs_on
-> > +	call __trace_hardirqs_on
-> >  	j 2f
-> >  1:
-> > -	call trace_hardirqs_off
-> > +	call __trace_hardirqs_off
-> >  2:
-> >  #endif
-> >  	REG_L a0, PT_STATUS(sp)
-> > diff --git a/arch/riscv/kernel/trace_irq.c b/arch/riscv/kernel/trace_irq.c
-> > new file mode 100644
-> > index 000000000000..fc194c56a35d
-> > --- /dev/null
-> > +++ b/arch/riscv/kernel/trace_irq.c
-> > @@ -0,0 +1,26 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * Copyright (C) 2022 Changbin Du <changbin.du@gmail.com>
-> > + */
-> > +
-> > +#include <linux/irqflags.h>
-> > +#include <linux/kprobes.h>
-> > +#include "trace_irq.h"
-> > +
-> > +/**
-> > + * trace_hardirqs_on/off requires at least two parent call frames.
-> > + * Here we add one extra level so they can be safely called by low
-> > + * level entry code.
-> > + */
-> 
-> Hmm, I believe there's elegant solution without this grue, maybe
-> fix in stacktrace implementation or something else?
-> 
-This is not about stacktrace. As describe in commit msg, the problem is
-introduced by ftrace_return_address(1). The complier doesn't have knowledge
-about how many frames available at rumtime and wether each frame is valid.
+Hi Arnd
 
-> 
-> > +
-> > +void __trace_hardirqs_on(void)
-> > +{
-> > +	trace_hardirqs_on();
-> > +}
-> > +NOKPROBE_SYMBOL(__trace_hardirqs_on);
-> > +
-> > +void __trace_hardirqs_off(void)
-> > +{
-> > +	trace_hardirqs_off();
-> > +}
-> > +NOKPROBE_SYMBOL(__trace_hardirqs_off);
-> > diff --git a/arch/riscv/kernel/trace_irq.h b/arch/riscv/kernel/trace_irq.h
-> > new file mode 100644
-> > index 000000000000..99fe67377e5e
-> > --- /dev/null
-> > +++ b/arch/riscv/kernel/trace_irq.h
-> > @@ -0,0 +1,11 @@
-> > +/* SPDX-License-Identifier: GPL-2.0 */
-> > +/*
-> > + * Copyright (C) 2022 Changbin Du <changbin.du@gmail.com>
-> > + */
-> > +#ifndef __TRACE_IRQ_H
-> > +#define __TRACE_IRQ_H
-> > +
-> > +void __trace_hardirqs_on(void);
-> > +void __trace_hardirqs_off(void);
-> > +
-> > +#endif /* __TRACE_IRQ_H */
-> > -- 
-> > 2.32.0
-> > 
-> > 
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+Thanks so much for all the suggestions. Item3 and Item4 look more
+interesting to me.
 
--- 
-Cheers,
-Changbin Du
+Thanks a lot
 
 _______________________________________________
 linux-riscv mailing list
