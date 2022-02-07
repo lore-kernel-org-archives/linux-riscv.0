@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC7B8C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Feb 2022 16:33:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AEE5C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Feb 2022 16:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Sg+LHIwL0EcIMVeQlvdMPcI05YATcCXN+UKPEbXxU8M=; b=pvTizM/ZwoFhQ0
-	SXVVJTMYqRCSjWDHCySf6WjNjUl2XFDzYKdcXUyoViikElcxz6HnPzUkFPwZ5TaNiB3Vl4aIfaY1h
-	nMuWZBNl1sY7XmYW2k9nRgSyQ0YUZiYmncpUb10qyqgVweVFJiujdFXE4Cn+/HmvLCTvV+BpGvoIw
-	cXzuGIjFqBvZk2UKGhqIKnwwl+DyZIjZ5jG+7XWoTPqb+W8bNElu8XyuLLWHZ6VD6a6JRfmimuUBY
-	rzAahXb150U4sMaRCPPR+5ghtMWGUZe04sbzYGlmSZ4H7ouVBX/+u3xJ6DsQWDWWztsnOvCSLBGvj
-	58vo4RmcpkAHuRpyB+lw==;
+	List-Owner; bh=A8RPRLtTzxmE5A1neILvbWiWjV/9aFbMJoyv1AaIKIo=; b=JpUqF8KCDg/a8A
+	+tH2mY7CCK1n/pONNIAre+nunhm+LShRWXoKPVE3Jz4xzxj4Qz3bxN7egtd/Xd3xtQYWSMwOs1U79
+	uOOgeqNiDgZVepp14M6vBrCrklyLIY7tHGvjKtpBUQAwqN9Rf2OgBjCDe2mzZ5mfqh0T+z4rW6/+Y
+	OheCxijETEUP/NSL4J+hXwb645SyUNH0s0HE2pD1Cmpyvj77yMf+8LBZm5KBzSTqWOHmOocy5yZ8l
+	TdU1pghWOoTeD8f5k41PrU7TzNP1uIRtEY3bwun4hN63+ptgnyNCkruP1X83ZZmIR3793vqeh1oC2
+	/xH+8RM46KlZf+OZwCGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nH6xT-00B78d-Ik; Mon, 07 Feb 2022 16:33:43 +0000
+	id 1nH6xs-00B7Lp-Ir; Mon, 07 Feb 2022 16:34:08 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nH6oZ-00B3zr-KD
- for linux-riscv@lists.infradead.org; Mon, 07 Feb 2022 16:24:33 +0000
+ id 1nH6oa-00B40H-V4
+ for linux-riscv@lists.infradead.org; Mon, 07 Feb 2022 16:24:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1644251071; x=1675787071;
+ t=1644251072; x=1675787072;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=UgAsg9TlIrDzEqjVIYSY7g9vpEQeRY9RvW+oM1/ooF0=;
- b=Y6EzvARZf1MYGeZdtq9ka8n3vWm+rWVIUS5nmKFcaBfwXclYiw7Qjd5I
- Sds83A0LCOSpAvsRB+WrcasheqC4LM7RSzoSe6MxTDYMQdHEoprT0ltqN
- ths8h0mllnfA15AmuedKPJxtEjgjt3ye5cxw8tGc6qNCk+czDDGWqVIfD
- zyFGet3mRHsVaKk+DNX9AzJY4GB4N0UBtgOtwP74cq2YEC9wdsO1LI8tE
- oPPJYWFUNVh8TeWKlyxEFuomH6PYpEqxml2UjMypAzP+PEXr2/scJ9CAR
- 8bblgXzC8DE8jEk6WWuqtwxcX6bqUNoqSS1vaN2xxCffVjX14AZY86LvF Q==;
-IronPort-SDR: a5kwyl98BaeJDDdVDl5yUbw7rcuwyz/E9FtbOJijPgB9dt43zfaMptiY3NIHux370393lzmFLU
- lzWz2ZEqSQH/HZ1VfAY8nqH5lXPP3+LCjLuzIWQQUnOq+LbNCiLbIAbjkkHMrJqOt9joT9Unk7
- YJ/bfwhQjZXo5sAEDz5hJSqdcwZCClNOiHqx0yaQMyGtVaVpTfLWLhw8eh0GvO+h5Qu/4xJCB/
- I5TYpZlnOnLtZf15L/GmvsWalzfssFDfTE3+P7MBfH0yoj71s2cawwSQ6ZpxD+DOhQDRcD07g/
- MR2ujyQQJQOB9peCG1uyptaR
-X-IronPort-AV: E=Sophos;i="5.88,350,1635231600"; d="scan'208";a="145140011"
+ bh=Xp+E8x6cp/+S9XO0xoBl+LMOfRA1V8o491BFrDS7rf8=;
+ b=fZvoR+J2c+LBGiTMag/JZg5355u2DqXwz9kqQmS2Sxmxb0tpCxX8ZOSQ
+ h+bNtzvodOB4WnnDA/UsjZXhdoyuIvhdx/iTPkxpvRXraz53K0I5yIYFg
+ nHGk/vyr+A2A3gSVaTM7xJah7pUY3oYZm+LPqlVzmDuhXSusEGpYKZCN2
+ UsjjVfauWeZxY3ITlmz2IL1Zv8sMaRb/HEKVoGnCYLaZHejrcSdkodW8Z
+ hTWB8b1t8eR+wC+IHe72GvSzdIIwEsU5hEH8zeXNaGJP6e1KXe1N8/mtq
+ pGSU4kZs9tTL5Hijc7BdkalhgMswh9vzFC8I1aYbaauRnEZNEAlF0U5UX g==;
+IronPort-SDR: LIrxO5J9a/LqX1NiWN0EiUEdwLxZ1eziamN5vM9rNkGOrA0Uaf1/HwjOEYqhefBiLCUJtVf7ww
+ wNIMDVM+KXm5uzNP21FNcy2t9PDpGlJ6oGyr0ZD0wguOoXpqwcDiWRMQhKZzADUuD6BkRetsWk
+ 2xT9Vxc0q1YqPJ+eb7ChHbjxYJPdaUOeW6ANdb4fVOObvVxbrWSMJMAXLqV8aq1+9Bk1dSNQxS
+ d1TS6q5Pw38GVwdWuHn7P25GgxGQmRUD/irtDokMjAk9dENNrEzblVc9MqJ+w+ammauRLomaKc
+ UgIECKAfxMlcxVbyxTFGV93q
+X-IronPort-AV: E=Sophos;i="5.88,350,1635231600"; d="scan'208";a="145140020"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 07 Feb 2022 09:24:30 -0700
+ 07 Feb 2022 09:24:31 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Mon, 7 Feb 2022 09:24:22 -0700
+ 15.1.2375.17; Mon, 7 Feb 2022 09:24:27 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
  (10.10.85.152) with Microsoft SMTP Server id 15.1.2375.17 via
- Frontend Transport; Mon, 7 Feb 2022 09:24:17 -0700
+ Frontend Transport; Mon, 7 Feb 2022 09:24:22 -0700
 From: <conor.dooley@microchip.com>
 To: <linus.walleij@linaro.org>, <brgl@bgdev.pl>, <robh+dt@kernel.org>,
  <jassisinghbrar@gmail.com>, <thierry.reding@gmail.com>,
@@ -67,18 +67,19 @@ To: <linus.walleij@linaro.org>, <brgl@bgdev.pl>, <robh+dt@kernel.org>,
  <linux-riscv@lists.infradead.org>
 CC: <bin.meng@windriver.com>, <heiko@sntech.de>, <lewis.hanly@microchip.com>, 
  <conor.dooley@microchip.com>, <daire.mcnamara@microchip.com>,
- <ivan.griffin@microchip.com>, <atishp@rivosinc.com>, Rob Herring
- <robh@kernel.org>, Palmer Dabbelt <palmer@rivosinc.com>
-Subject: [PATCH v6 06/12] dt-bindings: pwm: add microchip corepwm binding
-Date: Mon, 7 Feb 2022 16:26:32 +0000
-Message-ID: <20220207162637.1658677-7-conor.dooley@microchip.com>
+ <ivan.griffin@microchip.com>, <atishp@rivosinc.com>, Palmer Dabbelt
+ <palmer@rivosinc.com>
+Subject: [PATCH v6 07/12] riscv: dts: microchip: use clk defines for icicle kit
+Date: Mon, 7 Feb 2022 16:26:33 +0000
+Message-ID: <20220207162637.1658677-8-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220207162637.1658677-1-conor.dooley@microchip.com>
 References: <20220207162637.1658677-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220207_082431_760903_248974E6 
-X-CRM114-Status: GOOD (  16.66  )
+X-CRM114-CacheID: sfid-20220207_082433_178623_D59A8D23 
+X-CRM114-Status: UNSURE (   8.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,102 +98,184 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Add device tree bindings for the Microchip fpga fabric based "core" PWM
-controller.
+Update the Microchip Icicle kit device tree by replacing clock
+related magic numbers with their defined counterparts.
 
-Reviewed-by: Rob Herring <robh@kernel.org>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- .../bindings/pwm/microchip,corepwm.yaml       | 79 +++++++++++++++++++
- 1 file changed, 79 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml
+ .../microchip/microchip-mpfs-icicle-kit.dts   |  2 +-
+ .../boot/dts/microchip/microchip-mpfs.dtsi    | 25 ++++++++++---------
+ 2 files changed, 14 insertions(+), 13 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml b/Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml
-new file mode 100644
-index 000000000000..30ec70ac5c44
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml
-@@ -0,0 +1,79 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pwm/microchip,corepwm.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Microchip IP corePWM controller bindings
-+
-+maintainers:
-+  - Conor Dooley <conor.dooley@microchip.com>
-+
-+description: |
-+  corePWM is an 16 channel pulse width modulator FPGA IP
-+
-+  https://www.microsemi.com/existing-parts/parts/152118
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: microchip,corepwm-rtl-v4
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  "#pwm-cells":
-+    const: 2
-+
-+  microchip,sync-update-mask:
-+    description: |
-+      Depending on how the IP is instantiated, there are two modes of operation.
-+      In synchronous mode, all channels are updated at the beginning of the PWM period,
-+      and in asynchronous mode updates happen as the control registers are written.
-+      A 16 bit wide "SHADOW_REG_EN" parameter of the IP core controls whether synchronous
-+      mode is possible for each channel, and is set by the bitstream programmed to the
-+      FPGA. If the IP core is instantiated with SHADOW_REG_ENx=1, both registers that
-+      control the duty cycle for channel x have a second "shadow"/buffer reg synthesised.
-+      At runtime a bit wide register exposed to APB can be used to toggle on/off
-+      synchronised mode for all channels it has been synthesised for.
-+      Each bit of "microchip,sync-update-mask" corresponds to a PWM channel & represents
-+      whether synchronous mode is possible for the PWM channel.
-+
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    default: 0
-+
-+  microchip,dac-mode-mask:
-+    description: |
-+      Optional, per-channel Low Ripple DAC mode is possible on this IP core. It creates
-+      a minimum period pulse train whose High/Low average is that of the chosen duty
-+      cycle. This "DAC" will have far better bandwidth and ripple performance than the
-+      standard PWM algorithm can achieve. A 16 bit DAC_MODE module parameter of the IP
-+      core, set at instantiation and by the bitstream programmed to the FPGA, determines
-+      whether a given channel operates in regular PWM or DAC mode.
-+      Each bit corresponds to a PWM channel & represents whether DAC mode is enabled
-+      for that channel.
-+
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    default: 0
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - "#pwm-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    pwm@41000000 {
-+      compatible = "microchip,corepwm-rtl-v4";
-+      microchip,sync-update-mask = /bits/ 32 <0>;
-+      clocks = <&clkcfg 30>;
-+      reg = <0x41000000 0xF0>;
-+      #pwm-cells = <2>;
-+    };
+diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
+index 0c748ae1b006..6d19ba196f12 100644
+--- a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
++++ b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
+@@ -31,7 +31,7 @@ cpus {
+ 	memory@80000000 {
+ 		device_type = "memory";
+ 		reg = <0x0 0x80000000 0x0 0x40000000>;
+-		clocks = <&clkcfg 26>;
++		clocks = <&clkcfg CLK_DDRC>;
+ 	};
+ };
+ 
+diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+index 869aaf0d5c06..717e39b30a15 100644
+--- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+@@ -2,6 +2,7 @@
+ /* Copyright (c) 2020 Microchip Technology Inc */
+ 
+ /dts-v1/;
++#include "dt-bindings/clock/microchip,mpfs-clock.h"
+ 
+ / {
+ 	#address-cells = <2>;
+@@ -14,7 +15,6 @@ cpus {
+ 		#size-cells = <0>;
+ 
+ 		cpu@0 {
+-			clock-frequency = <0>;
+ 			compatible = "sifive,e51", "sifive,rocket0", "riscv";
+ 			device_type = "cpu";
+ 			i-cache-block-size = <64>;
+@@ -22,6 +22,7 @@ cpu@0 {
+ 			i-cache-size = <16384>;
+ 			reg = <0>;
+ 			riscv,isa = "rv64imac";
++			clocks = <&clkcfg CLK_CPU>;
+ 			status = "disabled";
+ 
+ 			cpu0_intc: interrupt-controller {
+@@ -32,7 +33,6 @@ cpu0_intc: interrupt-controller {
+ 		};
+ 
+ 		cpu@1 {
+-			clock-frequency = <0>;
+ 			compatible = "sifive,u54-mc", "sifive,rocket0", "riscv";
+ 			d-cache-block-size = <64>;
+ 			d-cache-sets = <64>;
+@@ -48,6 +48,7 @@ cpu@1 {
+ 			mmu-type = "riscv,sv39";
+ 			reg = <1>;
+ 			riscv,isa = "rv64imafdc";
++			clocks = <&clkcfg CLK_CPU>;
+ 			tlb-split;
+ 			status = "okay";
+ 
+@@ -59,7 +60,6 @@ cpu1_intc: interrupt-controller {
+ 		};
+ 
+ 		cpu@2 {
+-			clock-frequency = <0>;
+ 			compatible = "sifive,u54-mc", "sifive,rocket0", "riscv";
+ 			d-cache-block-size = <64>;
+ 			d-cache-sets = <64>;
+@@ -75,6 +75,7 @@ cpu@2 {
+ 			mmu-type = "riscv,sv39";
+ 			reg = <2>;
+ 			riscv,isa = "rv64imafdc";
++			clocks = <&clkcfg CLK_CPU>;
+ 			tlb-split;
+ 			status = "okay";
+ 
+@@ -86,7 +87,6 @@ cpu2_intc: interrupt-controller {
+ 		};
+ 
+ 		cpu@3 {
+-			clock-frequency = <0>;
+ 			compatible = "sifive,u54-mc", "sifive,rocket0", "riscv";
+ 			d-cache-block-size = <64>;
+ 			d-cache-sets = <64>;
+@@ -102,6 +102,7 @@ cpu@3 {
+ 			mmu-type = "riscv,sv39";
+ 			reg = <3>;
+ 			riscv,isa = "rv64imafdc";
++			clocks = <&clkcfg CLK_CPU>;
+ 			tlb-split;
+ 			status = "okay";
+ 
+@@ -113,7 +114,6 @@ cpu3_intc: interrupt-controller {
+ 		};
+ 
+ 		cpu@4 {
+-			clock-frequency = <0>;
+ 			compatible = "sifive,u54-mc", "sifive,rocket0", "riscv";
+ 			d-cache-block-size = <64>;
+ 			d-cache-sets = <64>;
+@@ -129,6 +129,7 @@ cpu@4 {
+ 			mmu-type = "riscv,sv39";
+ 			reg = <4>;
+ 			riscv,isa = "rv64imafdc";
++			clocks = <&clkcfg CLK_CPU>;
+ 			tlb-split;
+ 			status = "okay";
+ 			cpu4_intc: interrupt-controller {
+@@ -210,7 +211,7 @@ serial0: serial@20000000 {
+ 			interrupt-parent = <&plic>;
+ 			interrupts = <90>;
+ 			current-speed = <115200>;
+-			clocks = <&clkcfg 8>;
++			clocks = <&clkcfg CLK_MMUART0>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -222,7 +223,7 @@ serial1: serial@20100000 {
+ 			interrupt-parent = <&plic>;
+ 			interrupts = <91>;
+ 			current-speed = <115200>;
+-			clocks = <&clkcfg 9>;
++			clocks = <&clkcfg CLK_MMUART1>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -234,7 +235,7 @@ serial2: serial@20102000 {
+ 			interrupt-parent = <&plic>;
+ 			interrupts = <92>;
+ 			current-speed = <115200>;
+-			clocks = <&clkcfg 10>;
++			clocks = <&clkcfg CLK_MMUART2>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -246,7 +247,7 @@ serial3: serial@20104000 {
+ 			interrupt-parent = <&plic>;
+ 			interrupts = <93>;
+ 			current-speed = <115200>;
+-			clocks = <&clkcfg 11>;
++			clocks = <&clkcfg CLK_MMUART3>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -256,7 +257,7 @@ mmc: mmc@20008000 {
+ 			reg = <0x0 0x20008000 0x0 0x1000>;
+ 			interrupt-parent = <&plic>;
+ 			interrupts = <88>, <89>;
+-			clocks = <&clkcfg 6>;
++			clocks = <&clkcfg CLK_MMC>;
+ 			max-frequency = <200000000>;
+ 			status = "disabled";
+ 		};
+@@ -267,7 +268,7 @@ emac0: ethernet@20110000 {
+ 			interrupt-parent = <&plic>;
+ 			interrupts = <64>, <65>, <66>, <67>;
+ 			local-mac-address = [00 00 00 00 00 00];
+-			clocks = <&clkcfg 4>, <&clkcfg 2>;
++			clocks = <&clkcfg CLK_MAC0>, <&clkcfg CLK_AHB>;
+ 			clock-names = "pclk", "hclk";
+ 			status = "disabled";
+ 			#address-cells = <1>;
+@@ -280,7 +281,7 @@ emac1: ethernet@20112000 {
+ 			interrupt-parent = <&plic>;
+ 			interrupts = <70>, <71>, <72>, <73>;
+ 			local-mac-address = [00 00 00 00 00 00];
+-			clocks = <&clkcfg 5>, <&clkcfg 2>;
++			clocks = <&clkcfg CLK_MAC1>, <&clkcfg CLK_AHB>;
+ 			status = "disabled";
+ 			clock-names = "pclk", "hclk";
+ 			#address-cells = <1>;
 -- 
 2.35.1
 
