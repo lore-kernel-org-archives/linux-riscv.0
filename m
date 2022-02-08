@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7499EC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Feb 2022 08:49:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DDF7C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Feb 2022 08:54:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SNAwcotcP0HAP1SrbpERjPHLTOF7qChYhKGLBofNbhk=; b=LEjEz0JBivZene
-	44h5MFgjsiiQt83SCIky9CG6XPu5r5DhALzM2DXO1GJBgXs3Stwys+uUfPxncEC0M7O0kTMpm2fgA
-	p+2cS+NFQTln3bDLQlBHmcsaNYcJISeHXMFhjtgY58ubTNxdCt6QRa7+LhxR7ItaS21dUu1vjdKOp
-	O6l5ZVHL1mwk3owzuST6PCziJzbOP4iBONJUN2z2+gzf9qTQQ5Mq1ceSpRNbQyJmWxmbJMWuhCqvN
-	Bv3FZ4RUO7ofEhbnAXA7FRxb5aSmbMYPJ7c3LVrcSKN47VBjdqaUKznhZcusJiQAesl9anbrpFk1D
-	mSNThleDPq/yLIr8+d9g==;
+	List-Owner; bh=WPmV2lmSZTS5b+xIPvanJ+nwXi4XY1uqPYVzPXfI360=; b=AZMGm1VmF8KsMF
+	kNdjHIk1cN4YB0pbJyl/x5QiAvHEifnaTnrC6eVoDsXgyG+UfyG8EGyRcI5UFL2XVoWJVs3s6j7N6
+	+v/9pUkCBxR8h9WySdWqsnnxzDeYG60ZHCH4RdR1CPpvIY317Evk6CjK6hMTGZIw6sJl731jaPeut
+	sBvXUqlmpGjTdZBBNcwRl1+xu4kxzjvEYp1fWgeX3DxwvLzty/XLXbiVAuqiYOLvYsufF3cIau3O0
+	cwaFj6Fv26ODhhaf/B+Vaysr4JeIgOi42P5BPL1VDYN16oTheHzM3cQ5rMvyWvsYCL3nI0Ab72Z8s
+	EZ/Ijbfmsjnt1Fa0Fe+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nHMBQ-00D4iy-3r; Tue, 08 Feb 2022 08:49:08 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1nHMGT-00D6K9-7Y; Tue, 08 Feb 2022 08:54:21 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nHMBA-00D4dm-Nb
- for linux-riscv@lists.infradead.org; Tue, 08 Feb 2022 08:48:55 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id h6so10630635wrb.9
- for <linux-riscv@lists.infradead.org>; Tue, 08 Feb 2022 00:48:51 -0800 (PST)
+ id 1nHMGP-00D6I2-L5
+ for linux-riscv@lists.infradead.org; Tue, 08 Feb 2022 08:54:19 +0000
+Received: by mail-wr1-x429.google.com with SMTP id i15so6976429wrb.3
+ for <linux-riscv@lists.infradead.org>; Tue, 08 Feb 2022 00:54:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20210112.gappssmtp.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=EkVxK/LOYz0/eo5az4a2zVWUd5m6LEvFlEjayukrMYk=;
- b=op64XUdgnstjz6QFJUzFkyQ4kvy0o35NYrSG8sjVko8AfwvJWsZX2akrlJ6y8EGQ2e
- wWBJdZQ/tesItUNAXQhq6UMZSjC+HOYBqpC3eKF79QrR3n3MC2iNq/7IvhOYj1Z2uea1
- tY5r5lV/2stL6vROHTELIfSmTXJHuMo+yDi910j2fFQlFc6qmbBoVmiykoU6jJ875/5d
- Z3UsB7FqwI31PKTcHz0xY00UJZoba83/zojhH3ni1KDI1L4I+Lf7wFi2CQr7KBKRatqG
- jqtcWLHmjx2+4Ad1YDmXlJYYJfWbMdIAIvgOj0tTEdyGg1Z07YptGVS00Fw2xCi4CIW+
- JFVg==
+ :cc; bh=ad/AIeKw/gggP6Br2uoykBbNKFVMSxSNAtQyiBt1RW0=;
+ b=5KxMGJIrZxz0UdJJ4KFG3h5rV0PZviBM1D2ZlImvgl2AYSR7uVDIp9FOmugYxXR0jd
+ /uG/+J603tKg3P37pGqHHlbr3fFTWLeZiT1w6+erAhedOqoJk8L3BOwALYuFUkgt9rFv
+ jQiGMsXhV5QujyODOTCAMmYW8e/ggOnHL5d6jTVn1If8szV5+b8LHzdFdowkrSUMEWah
+ jPTmEQXdKOuovazsDjAlCKdIyJVrK45UjaRmuw4mwTheKA34Yrm9QDVifKZ9hcVLF1Go
+ vZJYetHiq9fRPxQVsdpQnn9p5KE/Ol1buMRKZZWhAVmq4hbRovF1sdC/5fDZhn2tpOSm
+ 5hLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=EkVxK/LOYz0/eo5az4a2zVWUd5m6LEvFlEjayukrMYk=;
- b=r69grCgdxdXFJmYgVHRhuC9w2IUtG6decTowrJYeKC+27djKB5h2L7Fjl5xkMlvYBz
- XMMLukriaKn30NyGACopq+JfJqcKNuzjpBO9W9C9tNE6E8hrTZdTPXyjLplowBNIyhP4
- Erm+EXZ1AC18sWmotOdyA/QhFzlV0x+gCisZu4VQ59vKFPBRzLL/+sVA5rXU6MVrQ4IU
- XoX1bccp+8WiJYzBwUgN30aNrlfpAICJaf8Ty2Ci2QQ3EDLW8/VafUT/l3XkNW9ydU0j
- CpWw4wXJ2uGHQjRgP4gy4w+Hlsd7fsNs9hWqihfR8p9h9Kz97JtjW8IGD3eaAdahA/aw
- zNbg==
-X-Gm-Message-State: AOAM5339fjXEBg3eT6rfDNnwmGN+NEw86r/zmSEMtY19jcgm5htTDCjh
- zKDZG4yB+FGPD+RNiVGYYEJebehbq+FG3BMM4+hwjQ==
-X-Google-Smtp-Source: ABdhPJyosXWO+NAe1q63zMby8CE8NyRp3HJT3OqC3u+vUMEXQNCw+EOmmQ/CtbilJrSHEq/padGN1KsmnCaA7OOnan0=
-X-Received: by 2002:a05:6000:1e0a:: with SMTP id
- bj10mr2564533wrb.313.1644310130417; 
- Tue, 08 Feb 2022 00:48:50 -0800 (PST)
+ bh=ad/AIeKw/gggP6Br2uoykBbNKFVMSxSNAtQyiBt1RW0=;
+ b=xuJuIoNOcylBkgwzJ5pCrxHIqAcc+MtqRjDScEt/XOw1g6yhnMRpc3aId4E11LWw0Q
+ JW6uMFN0xEvbKHql0pX56T8MrRC6o9foUehMPpX7C9MgAB7mYVnp1lJnMGJoU9JXw76a
+ ATz2gtsNRCUKtsxkhcyY+gbba5PQ412tuAhCPLDjuFkp5nFsN4o74mwwnf5NFmGAdmgt
+ 7Irwk3aNFeOsIMSCkl/198Rgq1YHVCvxSOhn7yAupcH1ceQJbkAug3+DS+Szjd+FWQBG
+ BR2z7DOP0vHjVtPXNWXzK1osd2l+BJzFIH6Re03F0TaxRPZWbqyyy0CqpoOavM/XlUKD
+ c9Gw==
+X-Gm-Message-State: AOAM532Cxxg7O8SZWcYvzTY5EGrhBuSqjM4NUQqvUgmGRmD8bzYQKkbX
+ GHhTLN5+IkACSY7likE9ygMBqqI6lA6B5LDwts4iQA==
+X-Google-Smtp-Source: ABdhPJzgSop4y+Hsg6mK+sVfvqbbliyC19eTL7sLF/m+UVhe/JN/7WOPjVFLYB6Xxfkqx+mpiM4ybuPoWNgcPTqKJbA=
+X-Received: by 2002:adf:bc44:: with SMTP id a4mr2655518wrh.346.1644310456139; 
+ Tue, 08 Feb 2022 00:54:16 -0800 (PST)
 MIME-Version: 1.0
 References: <20220126114452.692512-1-apatel@ventanamicro.com>
  <20220126114452.692512-9-apatel@ventanamicro.com>
- <CAJF2gTRLcqQ8ZjKwWNmARtaraVW7dD5Hp5=iv+4kHYENvB2gWg@mail.gmail.com>
-In-Reply-To: <CAJF2gTRLcqQ8ZjKwWNmARtaraVW7dD5Hp5=iv+4kHYENvB2gWg@mail.gmail.com>
+ <CAJF2gTQsSn1KBgX2bg2LiSUbCmbGD3oF5KcmK5gq2Dd49BWDBQ@mail.gmail.com>
+In-Reply-To: <CAJF2gTQsSn1KBgX2bg2LiSUbCmbGD3oF5KcmK5gq2Dd49BWDBQ@mail.gmail.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Tue, 8 Feb 2022 14:18:37 +0530
-Message-ID: <CAAhSdy00Yi10M0ECm+aUmbeviaXnm-bV9yLkwJKMSXQ2_7geCw@mail.gmail.com>
+Date: Tue, 8 Feb 2022 14:24:04 +0530
+Message-ID: <CAAhSdy3Dkv6ga0ZMp5rMFa8nV9EDHgOMBwuJ4z4-w52T8EaUag@mail.gmail.com>
 Subject: Re: [PATCH v10 8/8] RISC-V: Enable RISC-V SBI CPU Idle driver for
  QEMU virt machine
 To: Guo Ren <guoren@kernel.org>
@@ -81,8 +80,9 @@ Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>,
  Linux ARM <linux-arm-kernel@lists.infradead.org>, 
  kvm-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220208_004852_862692_042A9AC9 
-X-CRM114-Status: GOOD (  22.06  )
+X-CRM114-CacheID: sfid-20220208_005417_730791_439122EB 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,89 +99,309 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 8, 2022 at 11:56 AM Guo Ren <guoren@kernel.org> wrote:
+On Tue, Feb 8, 2022 at 12:16 PM Guo Ren <guoren@kernel.org> wrote:
 >
-> On Wed, Jan 26, 2022 at 7:51 PM Anup Patel <apatel@ventanamicro.com> wrote:
-> >
-> > From: Anup Patel <anup.patel@wdc.com>
-> >
-> > We enable RISC-V SBI CPU Idle driver for QEMU virt machine to test
-> > SBI HSM Supend on QEMU.
-> >
-> > Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> > ---
-> >  arch/riscv/Kconfig.socs           | 3 +++
-> >  arch/riscv/configs/defconfig      | 1 +
-> >  arch/riscv/configs/rv32_defconfig | 1 +
-> >  3 files changed, 5 insertions(+)
-> >
-> > diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> > index 6ec44a22278a..f4097a815201 100644
-> > --- a/arch/riscv/Kconfig.socs
-> > +++ b/arch/riscv/Kconfig.socs
-> > @@ -36,6 +36,9 @@ config SOC_VIRT
-> >         select GOLDFISH
-> >         select RTC_DRV_GOLDFISH if RTC_CLASS
-> >         select SIFIVE_PLIC
-> > +       select PM_GENERIC_DOMAINS if PM
-> > +       select PM_GENERIC_DOMAINS_OF if PM && OF
-> > +       select RISCV_SBI_CPUIDLE if CPU_IDLE
-> >         help
-> >           This enables support for QEMU Virt Machine.
-> >
-> > diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> > index a5e0482a4969..b8c882b70b02 100644
-> > --- a/arch/riscv/configs/defconfig
-> > +++ b/arch/riscv/configs/defconfig
-> > @@ -20,6 +20,7 @@ CONFIG_SOC_SIFIVE=y
-> >  CONFIG_SOC_VIRT=y
-> >  CONFIG_SMP=y
-> >  CONFIG_HOTPLUG_CPU=y
-> > +CONFIG_PM=y
-> >  CONFIG_CPU_IDLE=y
-> >  CONFIG_VIRTUALIZATION=y
-> >  CONFIG_KVM=m
-> > diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-> rv32_defconfig would be removed. I think you could delete this part.
-> https://lore.kernel.org/linux-riscv/20220201150545.1512822-9-guoren@kernel.org/T/#u
+> Another question:
 >
-> I would Cc you in the patch, and you could track the progress.
+> Have you put "idle-states {" in qemu's DTS? or how do you test your patches?
 
-I am not sure in which order Palmer will merge these patches so I
-will let him take care of the conflicts in rv32_defconfig.
+I usually do the following:
+1) Dump QEMU virt machine DTB
+2) Convert QEMU virt machine DTB into DTS
+3) Add "idle-states" in QEMU virt machine DTS
+4) Create QEMU virt machine DTB with "idle-states"
+5) Use the new QEMU virt machine DTB for testing this series.
+
+Here's one of the DTS files which I used for testing on QEMU virt machine:
+
+/dts-v1/;
+
+/ {
+    #address-cells = <0x02>;
+    #size-cells = <0x02>;
+    compatible = "riscv-virtio";
+    model = "riscv-virtio,qemu";
+
+    chosen {
+        linux,initrd-end = <0x8855d200>;
+        linux,initrd-start = <0x88200000>;
+        bootargs = "root=/dev/ram rw console=ttyS0 earlycon";
+        stdout-path = "/soc/uart@10000000";
+    };
+
+    memory@80000000 {
+        device_type = "memory";
+        reg = <0x00 0x80000000 0x00 0x10000000>;
+    };
+
+    cpus {
+        #address-cells = <0x01>;
+        #size-cells = <0x00>;
+        timebase-frequency = <0x989680>;
+
+        cpu@0 {
+            phandle = <0x07>;
+            device_type = "cpu";
+            reg = <0x00>;
+            status = "okay";
+            compatible = "riscv";
+            riscv,isa = "rv64imafdcsu";
+            mmu-type = "riscv,sv48";
+            cpu-idle-states = <&CPU_NONRET_DEF>;
+
+            interrupt-controller {
+                #interrupt-cells = <0x01>;
+                interrupt-controller;
+                compatible = "riscv,cpu-intc";
+                phandle = <0x08>;
+            };
+        };
+
+        cpu@1 {
+            phandle = <0x05>;
+            device_type = "cpu";
+            reg = <0x01>;
+            status = "okay";
+            compatible = "riscv";
+            riscv,isa = "rv64imafdcsu";
+            mmu-type = "riscv,sv48";
+            cpu-idle-states = <&CPU_RET_DEF>;
+
+            interrupt-controller {
+                #interrupt-cells = <0x01>;
+                interrupt-controller;
+                compatible = "riscv,cpu-intc";
+                phandle = <0x06>;
+            };
+        };
+
+        cpu@2 {
+            phandle = <0x03>;
+            device_type = "cpu";
+            reg = <0x02>;
+            status = "okay";
+            compatible = "riscv";
+            riscv,isa = "rv64imafdcsu";
+            mmu-type = "riscv,sv48";
+            cpu-idle-states = <&CPU_NONRET_DEF>;
+
+            interrupt-controller {
+                #interrupt-cells = <0x01>;
+                interrupt-controller;
+                compatible = "riscv,cpu-intc";
+                phandle = <0x04>;
+            };
+        };
+
+        cpu@3 {
+            phandle = <0x01>;
+            device_type = "cpu";
+            reg = <0x03>;
+            status = "okay";
+            compatible = "riscv";
+            riscv,isa = "rv64imafdcsu";
+            mmu-type = "riscv,sv48";
+            cpu-idle-states = <&CPU_RET_DEF>;
+
+            interrupt-controller {
+                #interrupt-cells = <0x01>;
+                interrupt-controller;
+                compatible = "riscv,cpu-intc";
+                phandle = <0x02>;
+            };
+        };
+
+        cpu-map {
+
+            cluster0 {
+
+                core0 {
+                    cpu = <0x07>;
+                };
+
+                core1 {
+                    cpu = <0x05>;
+                };
+
+                core2 {
+                    cpu = <0x03>;
+                };
+
+                core3 {
+                    cpu = <0x01>;
+                };
+            };
+        };
+
+        idle-states {
+            CPU_RET_DEF: cpu-retentive-default {
+                compatible = "riscv,idle-state";
+                riscv,sbi-suspend-param = <0x00000000>;
+                entry-latency-us = <10>;
+                exit-latency-us = <10>;
+                min-residency-us = <100>;
+            };
+
+            CPU_NONRET_DEF: cpu-nonretentive-default {
+                compatible = "riscv,idle-state";
+                riscv,sbi-suspend-param = <0x80000000>;
+                entry-latency-us = <100>;
+                exit-latency-us = <100>;
+                min-residency-us = <1000>;
+            };
+        };
+    };
+
+    soc {
+        #address-cells = <0x02>;
+        #size-cells = <0x02>;
+        compatible = "simple-bus";
+        ranges;
+
+        flash@20000000 {
+            bank-width = <0x04>;
+            reg = <0x00 0x20000000 0x00 0x2000000 0x00 0x22000000 0x00
+0x2000000>;
+            compatible = "cfi-flash";
+        };
+
+        rtc@101000 {
+            interrupts = <0x0b>;
+            interrupt-parent = <0x09>;
+            reg = <0x00 0x101000 0x00 0x1000>;
+            compatible = "google,goldfish-rtc";
+        };
+
+        uart@10000000 {
+            interrupts = <0x0a>;
+            interrupt-parent = <0x09>;
+            clock-frequency = <0x384000>;
+            reg = <0x00 0x10000000 0x00 0x100>;
+            compatible = "ns16550a";
+        };
+
+        poweroff {
+            value = <0x5555>;
+            offset = <0x00>;
+            regmap = <0x0a>;
+            compatible = "syscon-poweroff";
+        };
+
+        reboot {
+            value = <0x7777>;
+            offset = <0x00>;
+            regmap = <0x0a>;
+            compatible = "syscon-reboot";
+        };
+
+        test@100000 {
+            phandle = <0x0a>;
+            reg = <0x00 0x100000 0x00 0x1000>;
+            compatible = "sifive,test1\0sifive,test0\0syscon";
+        };
+
+        pci@30000000 {
+            interrupt-map-mask = <0x1800 0x00 0x00 0x07>;
+            interrupt-map = <0x00 0x00 0x00 0x01 0x09 0x20 0x00 0x00
+0x00 0x02 0x09 0x21 0x00 0x00 0x00 0x03 0x09 0x22 0x00 0x00 0x00 0x04
+0x09 0x23 0x800 0x00 0x00 0x01 0x09 0x21 0x800 0x00 0x00 0x02 0x09
+0x22 0x800 0x00 0x00 0x03 0x09 0x23 0x800 0x00 0x00 0x04 0x09 0x20
+0x1000 0x00 0x00 0x01 0x09 0x22 0x1000 0x00 0x00 0x02 0x09 0x23 0x1000
+0x00 0x00 0x03 0x09 0x20 0x1000 0x00 0x00 0x04 0x09 0x21 0x1800 0x00
+0x00 0x01 0x09 0x23 0x1800 0x00 0x00 0x02 0x09 0x20 0x1800 0x00 0x00
+0x03 0x09 0x21 0x1800 0x00 0x00 0x04 0x09 0x22>;
+            ranges = <0x1000000 0x00 0x00 0x00 0x3000000 0x00 0x10000
+0x2000000 0x00 0x40000000 0x00 0x40000000 0x00 0x40000000>;
+            reg = <0x00 0x30000000 0x00 0x10000000>;
+            dma-coherent;
+            bus-range = <0x00 0xff>;
+            linux,pci-domain = <0x00>;
+            device_type = "pci";
+            compatible = "pci-host-ecam-generic";
+            #size-cells = <0x02>;
+            #interrupt-cells = <0x01>;
+            #address-cells = <0x03>;
+        };
+
+        virtio_mmio@10008000 {
+            interrupts = <0x08>;
+            interrupt-parent = <0x09>;
+            reg = <0x00 0x10008000 0x00 0x1000>;
+            compatible = "virtio,mmio";
+        };
+
+        virtio_mmio@10007000 {
+            interrupts = <0x07>;
+            interrupt-parent = <0x09>;
+            reg = <0x00 0x10007000 0x00 0x1000>;
+            compatible = "virtio,mmio";
+        };
+
+        virtio_mmio@10006000 {
+            interrupts = <0x06>;
+            interrupt-parent = <0x09>;
+            reg = <0x00 0x10006000 0x00 0x1000>;
+            compatible = "virtio,mmio";
+        };
+
+        virtio_mmio@10005000 {
+            interrupts = <0x05>;
+            interrupt-parent = <0x09>;
+            reg = <0x00 0x10005000 0x00 0x1000>;
+            compatible = "virtio,mmio";
+        };
+
+        virtio_mmio@10004000 {
+            interrupts = <0x04>;
+            interrupt-parent = <0x09>;
+            reg = <0x00 0x10004000 0x00 0x1000>;
+            compatible = "virtio,mmio";
+        };
+
+        virtio_mmio@10003000 {
+            interrupts = <0x03>;
+            interrupt-parent = <0x09>;
+            reg = <0x00 0x10003000 0x00 0x1000>;
+            compatible = "virtio,mmio";
+        };
+
+        virtio_mmio@10002000 {
+            interrupts = <0x02>;
+            interrupt-parent = <0x09>;
+            reg = <0x00 0x10002000 0x00 0x1000>;
+            compatible = "virtio,mmio";
+        };
+
+        virtio_mmio@10001000 {
+            interrupts = <0x01>;
+            interrupt-parent = <0x09>;
+            reg = <0x00 0x10001000 0x00 0x1000>;
+            compatible = "virtio,mmio";
+        };
+
+        plic@c000000 {
+            phandle = <0x09>;
+            riscv,ndev = <0x35>;
+            reg = <0x00 0xc000000 0x00 0x210000>;
+            interrupts-extended = <0x08 0x0b 0x08 0x09 0x06 0x0b 0x06
+0x09 0x04 0x0b 0x04 0x09 0x02 0x0b 0x02 0x09>;
+            interrupt-controller;
+            compatible = "riscv,plic0";
+            #interrupt-cells = <0x01>;
+            #address-cells = <0x00>;
+        };
+
+        clint@2000000 {
+            interrupts-extended = <0x08 0x03 0x08 0x07 0x06 0x03 0x06
+0x07 0x04 0x03 0x04 0x07 0x02 0x03 0x02 0x07>;
+            reg = <0x00 0x2000000 0x00 0x10000>;
+            compatible = "riscv,clint0";
+        };
+    };
+};
 
 Regards,
 Anup
-
->
-> > index d1b87db54d68..6f9a7c89bff9 100644
-> > --- a/arch/riscv/configs/rv32_defconfig
-> > +++ b/arch/riscv/configs/rv32_defconfig
-> > @@ -20,6 +20,7 @@ CONFIG_SOC_VIRT=y
-> >  CONFIG_ARCH_RV32I=y
-> >  CONFIG_SMP=y
-> >  CONFIG_HOTPLUG_CPU=y
-> > +CONFIG_PM=y
-> >  CONFIG_CPU_IDLE=y
-> >  CONFIG_VIRTUALIZATION=y
-> >  CONFIG_KVM=m
-> > --
-> > 2.25.1
-> >
-> >
-> > --
-> > kvm-riscv mailing list
-> > kvm-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/kvm-riscv
->
->
->
-> --
-> Best Regards
->  Guo Ren
->
-> ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
