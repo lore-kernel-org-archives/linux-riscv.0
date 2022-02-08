@@ -4,90 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEE15C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Feb 2022 11:09:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02DB3C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Feb 2022 12:18:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aRHlLG1XR0QrwjF13e9hA1pp8a7WPcD9U7D3mUV/KoI=; b=0u/aEX8zKmmUXB
-	JR0c7qyn0i3AGQNqlK1xNWw+8LRnzRUiuVIK8r7F9OeiZCQ5KqNtyIfJ43r++RNYXEyS/5TGfFQjn
-	a/zMENajhKWSqbj/UkcWCHsO3x8+GD1Wf8QJuY8xITEiqTZnJcFLCf4gy+I6Wt0RudGgdTdxFKVQW
-	l0z4NgHZQQx21YdJ3NZDkDmTnrCw0/fd0DsyfpYUK/Y1p+1EStV8HlgDrcYieA8RY5E7Xyz7uivYN
-	W6IpIgWGpTmQINOOdgicUm5fqWtytFXqSPjgLXQoH0jxe0E95POynh37y9Nndmua3f5qJCV7PG/6v
-	jNcB3oWy+thVxJS8yMPQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AG+SnIWjJMDYoTUUpuUcjAWfwDzY5vU5Vvp54YUrYIY=; b=WR5yxcQtQ4K5aMz1X/k7gqjP82
+	KhxntTODjmXEgC23PzINaXlk7ucdmvjD+gjgA7K2VIKrHBFky5XAdWojyImknj8mbvEfYt/zxEHpX
+	WxO4iygdhuCN5V2kdz60jVtVWFURCvbllOQH+cR3ZMG4mF9CAizVcsGIkFtHLs2MRBCkB9bKJd0HJ
+	cbIxftDCsJZr5hfsBl177OQNbQfiJ2t5TTwgv0e5TC4z/nZQd2rMUkhucS2x1fZcAwibLm5Yf2xiA
+	hMjbtp8CpD4jFBR3bUFMaFjug2Ojkf1hslqE0JO/Woiz5m8O7vqZl0OBVhQO6MrW3Rp4jYD09iRYt
+	eHgm7ufw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nHONP-00DWBb-3y; Tue, 08 Feb 2022 11:09:39 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1nHPSB-00DjUy-TI; Tue, 08 Feb 2022 12:18:39 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nHONM-00DWAH-NU
- for linux-riscv@lists.infradead.org; Tue, 08 Feb 2022 11:09:37 +0000
-Received: by mail-ed1-x535.google.com with SMTP id m11so36666125edi.13
- for <linux-riscv@lists.infradead.org>; Tue, 08 Feb 2022 03:09:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=bgdev-pl.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=KQBVfVDlvCSrk6Sswzhkfx8sEJDxZvcBw31v7IjCtFQ=;
- b=Zcfv+t1DGD3EB3HP5kz6zWh1pByYKpIDp3Q8enYRVXu63AQLAzCQugZ4SoXjF7MtVL
- wPoRzOO0w7TcQorumE2LF1RehZcto52dZVQic+Oml3gV3bdUn5exQP5qlieY7VK772IB
- 899VBZDJodq3ijB1E4fvyfVsqH5Yv4Wvfw9r+FwTxvKuN0Gv9NsxgyWrCWSqhTgUcvlA
- SsUtmMsqfSbJdRCSSPqUcEhsTh85nK2hsyj/xSZL1PKB+kbu1sc+t0jMHQvCn4lcflc5
- LXdfZb+JZrjoX0m2iXKT7sAVVRTIwqpSlqCbqvYB+7glzzi2eSDHj+aHnj1g5e8Z9v1g
- LvJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=KQBVfVDlvCSrk6Sswzhkfx8sEJDxZvcBw31v7IjCtFQ=;
- b=pYWvf1D3eqro/18FU90I/j69y+olR2ImRRPtz+rkUkdRy62tn1tGhLCciSRwhSynXO
- hc/ulPgDybW92ITo6+BGXW3ctTCy0RE49jHFM1uIaChw1pJJVZOX0j/K8ATSZXEahUEb
- 0LPRQaqMiBjgzhw29j1k9O6YCW9RtTAXv1PqRZ/30es4RRZnYZn9sS3YuXlNrKhKpu8S
- heW5kA7O3YAJolvAfJSZXGFgS8BVmJi6/HW/zC72ERJOK3EQL/QjnTZgu/YtJb6NPvgs
- Y/yiqdmPAQJGbTXwW6qqX9H6QFdaefno15kB8AikM/fM15lHVhl6C+3ls0D8osRLhZs+
- 6MyA==
-X-Gm-Message-State: AOAM532GhPun+psVWlw+qZfn63FP0Se8d0q4bKZP7v1TYNR/tUNCk1tg
- 2qCLOGxlGU5sMJiEi6nief6yLWQ9ZYxcUJ7CQMfkBQ==
-X-Google-Smtp-Source: ABdhPJzNCw/cioLcKrAYx5rbKSd05oiNHfv+p2Mg5ic+HSw2d1l/HVOQ3hTWmd+vsyuosiASrLQGqbIOMPkET3fjF+c=
-X-Received: by 2002:a05:6402:5189:: with SMTP id
- q9mr3959045edd.314.1644318575241; 
- Tue, 08 Feb 2022 03:09:35 -0800 (PST)
-MIME-Version: 1.0
-References: <20220207162637.1658677-1-conor.dooley@microchip.com>
- <20220207162637.1658677-6-conor.dooley@microchip.com>
-In-Reply-To: <20220207162637.1658677-6-conor.dooley@microchip.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 8 Feb 2022 12:09:24 +0100
-Message-ID: <CAMRc=Mc0CYCgiGqQgmCQArv=1P0M5dxCw53H+KQ92d=yX=BY4Q@mail.gmail.com>
-Subject: Re: [PATCH v6 05/12] dt-bindings: gpio: add bindings for microchip
- mpfs gpio
+ id 1nHPS9-00DjUU-67
+ for linux-riscv@lists.infradead.org; Tue, 08 Feb 2022 12:18:38 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 4CC40B81ACB;
+ Tue,  8 Feb 2022 12:18:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58648C340E9;
+ Tue,  8 Feb 2022 12:18:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1644322714;
+ bh=+jhBmsQwTJRGwAwlQW6FTGpVyZorlTh6XXyLTNZaKtM=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=jGFn+QhLelOPYfhz2FlG8XDs13dxBkoE4Sze6DbEgt+XrSfcByVQnWMlOj75yGkhi
+ 3yPz6zATvF1nsQbiYOJx9JZa2NZ5oH9zkLywt6bbgEiZb+iH3nDH4YfdjnAGdwVNIf
+ BbsdjCtUVoGVyuXLer7OHfpeFRRx1A4ktMyRfNKQ8Ru0eEEcLfs5JvY94yhUP4G6Qr
+ au2zYAK55xnxMVNnfI/MFnvs5YceUHT17Jq0jB9WZb5gFKtUruw4i8fnZNNWgLPBxp
+ 6Xo6/B0qhxeh0wgKvEX9chUI+ldjJ1TDtT4wxmeAgjCGuRG+wmItthm/7gIaYe9OpV
+ gBy8l5vbATDMA==
+Date: Tue, 8 Feb 2022 13:18:31 +0100
+From: Wolfram Sang <wsa@kernel.org>
 To: conor.dooley@microchip.com
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh+dt@kernel.org>,
- Jassi Brar <jassisinghbrar@gmail.com>,
- Thierry Reding <thierry.reding@gmail.com>, 
- =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, 
- Lee Jones <lee.jones@linaro.org>, Alessandro Zummo <a.zummo@towertech.it>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu, 
- Geert Uytterhoeven <geert@linux-m68k.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- devicetree <devicetree@vger.kernel.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-i2c <linux-i2c@vger.kernel.org>, 
- "open list:PWM SUBSYSTEM" <linux-pwm@vger.kernel.org>, 
- "open list:REAL TIME CLOCK (RTC) SUBSYSTEM" <linux-rtc@vger.kernel.org>,
- linux-riscv@lists.infradead.org, 
- bin.meng@windriver.com, Heiko Stuebner <heiko@sntech.de>,
- lewis.hanly@microchip.com, 
- daire.mcnamara@microchip.com, ivan.griffin@microchip.com, atishp@rivosinc.com, 
- Rob Herring <robh@kernel.org>, Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linus.walleij@linaro.org, brgl@bgdev.pl, robh+dt@kernel.org,
+ jassisinghbrar@gmail.com, thierry.reding@gmail.com,
+ u.kleine-koenig@pengutronix.de, lee.jones@linaro.org,
+ a.zummo@towertech.it, alexandre.belloni@bootlin.com,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ geert@linux-m68k.org, krzysztof.kozlowski@canonical.com,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
+ linux-pwm@vger.kernel.org, linux-rtc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, bin.meng@windriver.com,
+ heiko@sntech.de, lewis.hanly@microchip.com,
+ daire.mcnamara@microchip.com, ivan.griffin@microchip.com,
+ atishp@rivosinc.com, Rob Herring <robh@kernel.org>,
+ Palmer Dabbelt <palmer@rivosinc.com>
+Subject: Re: [PATCH v6 03/12] dt-bindings: i2c: add bindings for microchip
+ mpfs i2c
+Message-ID: <YgJfl5CmepRMb5He@ninjato>
+Mail-Followup-To: Wolfram Sang <wsa@kernel.org>, conor.dooley@microchip.com,
+ linus.walleij@linaro.org, brgl@bgdev.pl, robh+dt@kernel.org,
+ jassisinghbrar@gmail.com, thierry.reding@gmail.com,
+ u.kleine-koenig@pengutronix.de, lee.jones@linaro.org,
+ a.zummo@towertech.it, alexandre.belloni@bootlin.com,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ geert@linux-m68k.org, krzysztof.kozlowski@canonical.com,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
+ linux-pwm@vger.kernel.org, linux-rtc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, bin.meng@windriver.com,
+ heiko@sntech.de, lewis.hanly@microchip.com,
+ daire.mcnamara@microchip.com, ivan.griffin@microchip.com,
+ atishp@rivosinc.com, Rob Herring <robh@kernel.org>,
+ Palmer Dabbelt <palmer@rivosinc.com>
+References: <20220207162637.1658677-1-conor.dooley@microchip.com>
+ <20220207162637.1658677-4-conor.dooley@microchip.com>
+MIME-Version: 1.0
+In-Reply-To: <20220207162637.1658677-4-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220208_030936_787640_24BEE597 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20220208_041837_539549_AB8F14AF 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,28 +95,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6073673753717739291=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 7, 2022 at 5:24 PM <conor.dooley@microchip.com> wrote:
->
+
+--===============6073673753717739291==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="sdYSIm6VkoPV0MiH"
+Content-Disposition: inline
+
+
+--sdYSIm6VkoPV0MiH
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Feb 07, 2022 at 04:26:29PM +0000, conor.dooley@microchip.com wrote:
 > From: Conor Dooley <conor.dooley@microchip.com>
->
-> Add device tree bindings for the gpio controller on
+>=20
+> Add device tree bindings for the i2c controller on
 > the Microchip PolarFire SoC.
->
+>=20
+> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
 > Reviewed-by: Rob Herring <robh@kernel.org>
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-> ---
 
-Looks good.
+Shall this go via DT (Rob) or I2C (me) or some riscv tree?
 
-Acked-by: Bartosz Golaszewski <brgl@bgdev.pl>
+
+--sdYSIm6VkoPV0MiH
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmICX5MACgkQFA3kzBSg
+KbZzxhAArSdMKMsyP4zt6H3heN8FNENRNOKYegpVuGgnCzbtLbitNEQvjx0Z9HdF
+BUbaytztYIVoDstV1SxiWczUikuOQ7pQ2TB585jhzhF7FATjt0zqIr22/ATEBmN5
+nUNlnWMt5s05zgcppQyksrVddYYvgs+HqtTCNXCk6LOz0qC54dxze8766ageQYPz
+1gBy5cDmJrUMJ+X8JnveuPgKv4BrZgGKZsrNgHy5dOAdF0B0WyI4i/uv2YTq2y+o
+XIOA/B60tgZtIWkWWcFNPIE+TQQIDVY93O2R3i4gAvCfwYVqyRdtG5i5p3eK74RM
+LwpTEv6SJE5KJ0pxYmo5SP4AKsMaN7Z6ePga6LQz2tPETjhKNZixntc/KsoIPXQJ
+sQ025iG+3stSKxpnpWg/VjqM6ugoDQOX+VvsxFe34KjtmbgRYTROfxHY173+TfVb
+hZb+CYNHbDxl7/gGHkXlsbcNC6sSZq7qvu0ZeCXPvq4nzk1V0KwKPGLocQaTrGVo
+qNHIjEnA5CeIu8y5fF7r26769safY0B9chLwsxXWujW3WSHY3FYPmRDMtX89sVhr
+WxlPZDxBvIv16LQjg4lXWLrTsgkUaVU2xiHe8gd+gulSVMgKeeePSkiU4fKgonRj
++KJRlq7MvI0G5Mdb0F3PNIHoq4R/P8FYBNmGgRmjvIxBNzggd2M=
+=TDLj
+-----END PGP SIGNATURE-----
+
+--sdYSIm6VkoPV0MiH--
+
+
+--===============6073673753717739291==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6073673753717739291==--
+
