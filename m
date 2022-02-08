@@ -4,85 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DDF7C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Feb 2022 08:54:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1763C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Feb 2022 09:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WPmV2lmSZTS5b+xIPvanJ+nwXi4XY1uqPYVzPXfI360=; b=AZMGm1VmF8KsMF
-	kNdjHIk1cN4YB0pbJyl/x5QiAvHEifnaTnrC6eVoDsXgyG+UfyG8EGyRcI5UFL2XVoWJVs3s6j7N6
-	+v/9pUkCBxR8h9WySdWqsnnxzDeYG60ZHCH4RdR1CPpvIY317Evk6CjK6hMTGZIw6sJl731jaPeut
-	sBvXUqlmpGjTdZBBNcwRl1+xu4kxzjvEYp1fWgeX3DxwvLzty/XLXbiVAuqiYOLvYsufF3cIau3O0
-	cwaFj6Fv26ODhhaf/B+Vaysr4JeIgOi42P5BPL1VDYN16oTheHzM3cQ5rMvyWvsYCL3nI0Ab72Z8s
-	EZ/Ijbfmsjnt1Fa0Fe+g==;
+	List-Owner; bh=ps1OG099HAN0Cetc/xK1NBwelKGswn3dAlaaLMrNbGY=; b=bQ6X8VXl0CWG1r
+	leHtnSwisJ/LEWWHmiJE0ij+P0x661grLMR0XRpO+o1XtrXMMqDiV1QCu/TxzcIHyd9hzqSdzbL19
+	8mO60su+BKdRE+aRB61HQJoIFBqCV4l9TYhcPC9CHCaRfOkYE5S0FlyibwiJWLTEIskNsFk/XYWGv
+	zg9R5S9h5rk8lY8njmfd2NkDmvc1fLnqLH3F8g3X5AzxRt0yeYIqRUZY04JABTxUI56daZdXOC9Ov
+	B1Rb1KgDBW9gk7XJxRS/enbZYS7mnRBHdcupsB0nBuJQ4TzZEZQgfuhq5TVofHKdZZIyLcf7oQ16/
+	cahZ78LLSGdqTXJD5H9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nHMGT-00D6K9-7Y; Tue, 08 Feb 2022 08:54:21 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1nHN3R-00DIMd-1e; Tue, 08 Feb 2022 09:44:57 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nHMGP-00D6I2-L5
- for linux-riscv@lists.infradead.org; Tue, 08 Feb 2022 08:54:19 +0000
-Received: by mail-wr1-x429.google.com with SMTP id i15so6976429wrb.3
- for <linux-riscv@lists.infradead.org>; Tue, 08 Feb 2022 00:54:17 -0800 (PST)
+ id 1nHN3O-00DIM9-T8
+ for linux-riscv@lists.infradead.org; Tue, 08 Feb 2022 09:44:56 +0000
+Received: by mail-ed1-x531.google.com with SMTP id eg42so20445220edb.7
+ for <linux-riscv@lists.infradead.org>; Tue, 08 Feb 2022 01:44:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ d=bgdev-pl.20210112.gappssmtp.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=ad/AIeKw/gggP6Br2uoykBbNKFVMSxSNAtQyiBt1RW0=;
- b=5KxMGJIrZxz0UdJJ4KFG3h5rV0PZviBM1D2ZlImvgl2AYSR7uVDIp9FOmugYxXR0jd
- /uG/+J603tKg3P37pGqHHlbr3fFTWLeZiT1w6+erAhedOqoJk8L3BOwALYuFUkgt9rFv
- jQiGMsXhV5QujyODOTCAMmYW8e/ggOnHL5d6jTVn1If8szV5+b8LHzdFdowkrSUMEWah
- jPTmEQXdKOuovazsDjAlCKdIyJVrK45UjaRmuw4mwTheKA34Yrm9QDVifKZ9hcVLF1Go
- vZJYetHiq9fRPxQVsdpQnn9p5KE/Ol1buMRKZZWhAVmq4hbRovF1sdC/5fDZhn2tpOSm
- 5hLQ==
+ :cc; bh=BeRypQwass6YxPMaRwyaWgbo3dxTZ96rzrwO6lKw8tw=;
+ b=CPoGHoY5UFuK2gjDWY/wRSj3B48TF9rqTc8i4NRpSvzlBKCebVlPHHd0lxgw8vTMcH
+ J84BDRao2THS0Gd9E2mFD9x9Xun5oY96NoX8Ztjte5gPjLa6ooHuTx7FfmtVpETBrZYz
+ aF8z/nbBkZ/gA7d8PKXnbK/Ge1xjFdRGrTYlomy/jCZLgdtF5uvnLPEDoI8SMypVfcBn
+ VLJDm6P75D4KPdgbofdtIDDn2qkcH9A1wtOzimWkrbwzvHCvZVPIOChbKlc7NGjeOkzp
+ 8RJLjhYX8KF3kddGFyf7N+57HmqKjV+wHYL2x5CtA6kDWmHCYemaLMqzki4WKR1/Ojt8
+ VcWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=ad/AIeKw/gggP6Br2uoykBbNKFVMSxSNAtQyiBt1RW0=;
- b=xuJuIoNOcylBkgwzJ5pCrxHIqAcc+MtqRjDScEt/XOw1g6yhnMRpc3aId4E11LWw0Q
- JW6uMFN0xEvbKHql0pX56T8MrRC6o9foUehMPpX7C9MgAB7mYVnp1lJnMGJoU9JXw76a
- ATz2gtsNRCUKtsxkhcyY+gbba5PQ412tuAhCPLDjuFkp5nFsN4o74mwwnf5NFmGAdmgt
- 7Irwk3aNFeOsIMSCkl/198Rgq1YHVCvxSOhn7yAupcH1ceQJbkAug3+DS+Szjd+FWQBG
- BR2z7DOP0vHjVtPXNWXzK1osd2l+BJzFIH6Re03F0TaxRPZWbqyyy0CqpoOavM/XlUKD
- c9Gw==
-X-Gm-Message-State: AOAM532Cxxg7O8SZWcYvzTY5EGrhBuSqjM4NUQqvUgmGRmD8bzYQKkbX
- GHhTLN5+IkACSY7likE9ygMBqqI6lA6B5LDwts4iQA==
-X-Google-Smtp-Source: ABdhPJzgSop4y+Hsg6mK+sVfvqbbliyC19eTL7sLF/m+UVhe/JN/7WOPjVFLYB6Xxfkqx+mpiM4ybuPoWNgcPTqKJbA=
-X-Received: by 2002:adf:bc44:: with SMTP id a4mr2655518wrh.346.1644310456139; 
- Tue, 08 Feb 2022 00:54:16 -0800 (PST)
+ bh=BeRypQwass6YxPMaRwyaWgbo3dxTZ96rzrwO6lKw8tw=;
+ b=zw+8lUUarFxbIkt3aqnTr1CLZobt5u+gexK1LbevyQccKprSCM3oGgFfbuCD0y9xAu
+ ctTJ+DMjgh1bRpowFGDz51wexSYEQeSEA59GSkBqsm6zM/qBDcDKY2ZCJZIXVwUTAmid
+ LoJ1DdAC7lNPVE8B8PQJts/KDE64bDHUQnugqhCiM078dnEYxiMaNIfB+kxmhJQe9FI1
+ OAG6M89wjbO8Tf/nDU2YAKZRcqaPgKezmfAbo+U1X8H1KuPqTeau9g0qjvTVeptHfKgp
+ WavWSVwM/G3wVf4h4Dhkugu5MY0/BYLiUdqpWGbXeY8zNS9LHjrRZqqN3kFA0B3YMAZb
+ 8pZw==
+X-Gm-Message-State: AOAM531WopYiqsSBxzifXz5setpPge3GfWgza6fJmtcCBy72d2+g7Uts
+ aAiSq8r4MmnhkE9LY3NJzNwOxeHJEAKr1VRHxI4fsg==
+X-Google-Smtp-Source: ABdhPJyyUn+ESX1mrzcWKTtrYf0cJlehIsu5d5CCiBT1F/1vuRES3dsTpb3cJmLCLsUb8HULJ++KAkho1FM39XJS0P8=
+X-Received: by 2002:a50:eb46:: with SMTP id z6mr3567435edp.229.1644313491953; 
+ Tue, 08 Feb 2022 01:44:51 -0800 (PST)
 MIME-Version: 1.0
-References: <20220126114452.692512-1-apatel@ventanamicro.com>
- <20220126114452.692512-9-apatel@ventanamicro.com>
- <CAJF2gTQsSn1KBgX2bg2LiSUbCmbGD3oF5KcmK5gq2Dd49BWDBQ@mail.gmail.com>
-In-Reply-To: <CAJF2gTQsSn1KBgX2bg2LiSUbCmbGD3oF5KcmK5gq2Dd49BWDBQ@mail.gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 8 Feb 2022 14:24:04 +0530
-Message-ID: <CAAhSdy3Dkv6ga0ZMp5rMFa8nV9EDHgOMBwuJ4z4-w52T8EaUag@mail.gmail.com>
-Subject: Re: [PATCH v10 8/8] RISC-V: Enable RISC-V SBI CPU Idle driver for
- QEMU virt machine
-To: Guo Ren <guoren@kernel.org>
-Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, 
- "Rafael J . Wysocki" <rjw@rjwysocki.net>, Pavel Machek <pavel@ucw.cz>,
- Rob Herring <robh+dt@kernel.org>, 
- Sandeep Tripathy <milun.tripathy@gmail.com>,
- Atish Patra <atishp@atishpatra.org>, 
- Alistair Francis <Alistair.Francis@wdc.com>, Liush <liush@allwinnertech.com>, 
- devicetree <devicetree@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- "open list:THERMAL" <linux-pm@vger.kernel.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- kvm-riscv@lists.infradead.org
+References: <20220204130142.21727-1-Niklas.Cassel@wdc.com>
+ <aa6f85f3-1146-e857-148c-7a314b21e647@opensource.wdc.com>
+In-Reply-To: <aa6f85f3-1146-e857-148c-7a314b21e647@opensource.wdc.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Tue, 8 Feb 2022 10:44:41 +0100
+Message-ID: <CAMRc=MfrQYSOu+6ZPgLqxek2RfvmCVzS64rKRp_rsq+Hk1QYxg@mail.gmail.com>
+Subject: Re: [PATCH] gpio: sifive: use the correct register to read output
+ values
+To: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+Cc: Niklas Cassel <Niklas.Cassel@wdc.com>,
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220208_005417_730791_439122EB 
-X-CRM114-Status: UNSURE (   9.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220208_014454_963114_CAAF073A 
+X-CRM114-Status: GOOD (  25.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,309 +87,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 8, 2022 at 12:16 PM Guo Ren <guoren@kernel.org> wrote:
+On Sat, Feb 5, 2022 at 12:33 AM Damien Le Moal
+<damien.lemoal@opensource.wdc.com> wrote:
 >
-> Another question:
+> On 2/4/22 22:02, Niklas Cassel wrote:
+> > From: Niklas Cassel <niklas.cassel@wdc.com>
+> >
+> > Setting the output of a GPIO to 1 using gpiod_set_value(), followed by
+> > reading the same GPIO using gpiod_get_value(), will currently yield an
+> > incorrect result.
+> >
+> > This is because the SiFive GPIO device stores the output values in reg_set,
+> > not reg_dat.
+> >
+> > Supply the flag BGPIOF_READ_OUTPUT_REG_SET to bgpio_init() so that the
+> > generic driver reads the correct register.
+> >
+> > Signed-off-by: Niklas Cassel <niklas.cassel@wdc.com>
 >
-> Have you put "idle-states {" in qemu's DTS? or how do you test your patches?
+> This probably needs a Fixes tag. I have not checked which patch though.
+>
 
-I usually do the following:
-1) Dump QEMU virt machine DTB
-2) Convert QEMU virt machine DTB into DTS
-3) Add "idle-states" in QEMU virt machine DTS
-4) Create QEMU virt machine DTB with "idle-states"
-5) Use the new QEMU virt machine DTB for testing this series.
+I added the tag and queued this for fixes, thanks!
 
-Here's one of the DTS files which I used for testing on QEMU virt machine:
+Bart
 
-/dts-v1/;
-
-/ {
-    #address-cells = <0x02>;
-    #size-cells = <0x02>;
-    compatible = "riscv-virtio";
-    model = "riscv-virtio,qemu";
-
-    chosen {
-        linux,initrd-end = <0x8855d200>;
-        linux,initrd-start = <0x88200000>;
-        bootargs = "root=/dev/ram rw console=ttyS0 earlycon";
-        stdout-path = "/soc/uart@10000000";
-    };
-
-    memory@80000000 {
-        device_type = "memory";
-        reg = <0x00 0x80000000 0x00 0x10000000>;
-    };
-
-    cpus {
-        #address-cells = <0x01>;
-        #size-cells = <0x00>;
-        timebase-frequency = <0x989680>;
-
-        cpu@0 {
-            phandle = <0x07>;
-            device_type = "cpu";
-            reg = <0x00>;
-            status = "okay";
-            compatible = "riscv";
-            riscv,isa = "rv64imafdcsu";
-            mmu-type = "riscv,sv48";
-            cpu-idle-states = <&CPU_NONRET_DEF>;
-
-            interrupt-controller {
-                #interrupt-cells = <0x01>;
-                interrupt-controller;
-                compatible = "riscv,cpu-intc";
-                phandle = <0x08>;
-            };
-        };
-
-        cpu@1 {
-            phandle = <0x05>;
-            device_type = "cpu";
-            reg = <0x01>;
-            status = "okay";
-            compatible = "riscv";
-            riscv,isa = "rv64imafdcsu";
-            mmu-type = "riscv,sv48";
-            cpu-idle-states = <&CPU_RET_DEF>;
-
-            interrupt-controller {
-                #interrupt-cells = <0x01>;
-                interrupt-controller;
-                compatible = "riscv,cpu-intc";
-                phandle = <0x06>;
-            };
-        };
-
-        cpu@2 {
-            phandle = <0x03>;
-            device_type = "cpu";
-            reg = <0x02>;
-            status = "okay";
-            compatible = "riscv";
-            riscv,isa = "rv64imafdcsu";
-            mmu-type = "riscv,sv48";
-            cpu-idle-states = <&CPU_NONRET_DEF>;
-
-            interrupt-controller {
-                #interrupt-cells = <0x01>;
-                interrupt-controller;
-                compatible = "riscv,cpu-intc";
-                phandle = <0x04>;
-            };
-        };
-
-        cpu@3 {
-            phandle = <0x01>;
-            device_type = "cpu";
-            reg = <0x03>;
-            status = "okay";
-            compatible = "riscv";
-            riscv,isa = "rv64imafdcsu";
-            mmu-type = "riscv,sv48";
-            cpu-idle-states = <&CPU_RET_DEF>;
-
-            interrupt-controller {
-                #interrupt-cells = <0x01>;
-                interrupt-controller;
-                compatible = "riscv,cpu-intc";
-                phandle = <0x02>;
-            };
-        };
-
-        cpu-map {
-
-            cluster0 {
-
-                core0 {
-                    cpu = <0x07>;
-                };
-
-                core1 {
-                    cpu = <0x05>;
-                };
-
-                core2 {
-                    cpu = <0x03>;
-                };
-
-                core3 {
-                    cpu = <0x01>;
-                };
-            };
-        };
-
-        idle-states {
-            CPU_RET_DEF: cpu-retentive-default {
-                compatible = "riscv,idle-state";
-                riscv,sbi-suspend-param = <0x00000000>;
-                entry-latency-us = <10>;
-                exit-latency-us = <10>;
-                min-residency-us = <100>;
-            };
-
-            CPU_NONRET_DEF: cpu-nonretentive-default {
-                compatible = "riscv,idle-state";
-                riscv,sbi-suspend-param = <0x80000000>;
-                entry-latency-us = <100>;
-                exit-latency-us = <100>;
-                min-residency-us = <1000>;
-            };
-        };
-    };
-
-    soc {
-        #address-cells = <0x02>;
-        #size-cells = <0x02>;
-        compatible = "simple-bus";
-        ranges;
-
-        flash@20000000 {
-            bank-width = <0x04>;
-            reg = <0x00 0x20000000 0x00 0x2000000 0x00 0x22000000 0x00
-0x2000000>;
-            compatible = "cfi-flash";
-        };
-
-        rtc@101000 {
-            interrupts = <0x0b>;
-            interrupt-parent = <0x09>;
-            reg = <0x00 0x101000 0x00 0x1000>;
-            compatible = "google,goldfish-rtc";
-        };
-
-        uart@10000000 {
-            interrupts = <0x0a>;
-            interrupt-parent = <0x09>;
-            clock-frequency = <0x384000>;
-            reg = <0x00 0x10000000 0x00 0x100>;
-            compatible = "ns16550a";
-        };
-
-        poweroff {
-            value = <0x5555>;
-            offset = <0x00>;
-            regmap = <0x0a>;
-            compatible = "syscon-poweroff";
-        };
-
-        reboot {
-            value = <0x7777>;
-            offset = <0x00>;
-            regmap = <0x0a>;
-            compatible = "syscon-reboot";
-        };
-
-        test@100000 {
-            phandle = <0x0a>;
-            reg = <0x00 0x100000 0x00 0x1000>;
-            compatible = "sifive,test1\0sifive,test0\0syscon";
-        };
-
-        pci@30000000 {
-            interrupt-map-mask = <0x1800 0x00 0x00 0x07>;
-            interrupt-map = <0x00 0x00 0x00 0x01 0x09 0x20 0x00 0x00
-0x00 0x02 0x09 0x21 0x00 0x00 0x00 0x03 0x09 0x22 0x00 0x00 0x00 0x04
-0x09 0x23 0x800 0x00 0x00 0x01 0x09 0x21 0x800 0x00 0x00 0x02 0x09
-0x22 0x800 0x00 0x00 0x03 0x09 0x23 0x800 0x00 0x00 0x04 0x09 0x20
-0x1000 0x00 0x00 0x01 0x09 0x22 0x1000 0x00 0x00 0x02 0x09 0x23 0x1000
-0x00 0x00 0x03 0x09 0x20 0x1000 0x00 0x00 0x04 0x09 0x21 0x1800 0x00
-0x00 0x01 0x09 0x23 0x1800 0x00 0x00 0x02 0x09 0x20 0x1800 0x00 0x00
-0x03 0x09 0x21 0x1800 0x00 0x00 0x04 0x09 0x22>;
-            ranges = <0x1000000 0x00 0x00 0x00 0x3000000 0x00 0x10000
-0x2000000 0x00 0x40000000 0x00 0x40000000 0x00 0x40000000>;
-            reg = <0x00 0x30000000 0x00 0x10000000>;
-            dma-coherent;
-            bus-range = <0x00 0xff>;
-            linux,pci-domain = <0x00>;
-            device_type = "pci";
-            compatible = "pci-host-ecam-generic";
-            #size-cells = <0x02>;
-            #interrupt-cells = <0x01>;
-            #address-cells = <0x03>;
-        };
-
-        virtio_mmio@10008000 {
-            interrupts = <0x08>;
-            interrupt-parent = <0x09>;
-            reg = <0x00 0x10008000 0x00 0x1000>;
-            compatible = "virtio,mmio";
-        };
-
-        virtio_mmio@10007000 {
-            interrupts = <0x07>;
-            interrupt-parent = <0x09>;
-            reg = <0x00 0x10007000 0x00 0x1000>;
-            compatible = "virtio,mmio";
-        };
-
-        virtio_mmio@10006000 {
-            interrupts = <0x06>;
-            interrupt-parent = <0x09>;
-            reg = <0x00 0x10006000 0x00 0x1000>;
-            compatible = "virtio,mmio";
-        };
-
-        virtio_mmio@10005000 {
-            interrupts = <0x05>;
-            interrupt-parent = <0x09>;
-            reg = <0x00 0x10005000 0x00 0x1000>;
-            compatible = "virtio,mmio";
-        };
-
-        virtio_mmio@10004000 {
-            interrupts = <0x04>;
-            interrupt-parent = <0x09>;
-            reg = <0x00 0x10004000 0x00 0x1000>;
-            compatible = "virtio,mmio";
-        };
-
-        virtio_mmio@10003000 {
-            interrupts = <0x03>;
-            interrupt-parent = <0x09>;
-            reg = <0x00 0x10003000 0x00 0x1000>;
-            compatible = "virtio,mmio";
-        };
-
-        virtio_mmio@10002000 {
-            interrupts = <0x02>;
-            interrupt-parent = <0x09>;
-            reg = <0x00 0x10002000 0x00 0x1000>;
-            compatible = "virtio,mmio";
-        };
-
-        virtio_mmio@10001000 {
-            interrupts = <0x01>;
-            interrupt-parent = <0x09>;
-            reg = <0x00 0x10001000 0x00 0x1000>;
-            compatible = "virtio,mmio";
-        };
-
-        plic@c000000 {
-            phandle = <0x09>;
-            riscv,ndev = <0x35>;
-            reg = <0x00 0xc000000 0x00 0x210000>;
-            interrupts-extended = <0x08 0x0b 0x08 0x09 0x06 0x0b 0x06
-0x09 0x04 0x0b 0x04 0x09 0x02 0x0b 0x02 0x09>;
-            interrupt-controller;
-            compatible = "riscv,plic0";
-            #interrupt-cells = <0x01>;
-            #address-cells = <0x00>;
-        };
-
-        clint@2000000 {
-            interrupts-extended = <0x08 0x03 0x08 0x07 0x06 0x03 0x06
-0x07 0x04 0x03 0x04 0x07 0x02 0x03 0x02 0x07>;
-            reg = <0x00 0x2000000 0x00 0x10000>;
-            compatible = "riscv,clint0";
-        };
-    };
-};
-
-Regards,
-Anup
+> > ---
+> > The patch was tested on a canaan,k210 board (canaan,k210-gpiohs compatible
+> > string). It would be nice with a Tested-by from someone with a SiFive board.
+> >
+> > However, the u-boot driver for this device already behaves exactly the same
+> > as this driver does after my patch, for all platforms using the driver.
+> >
+> >  drivers/gpio/gpio-sifive.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/gpio/gpio-sifive.c b/drivers/gpio/gpio-sifive.c
+> > index 403f9e833d6a..7d82388b4ab7 100644
+> > --- a/drivers/gpio/gpio-sifive.c
+> > +++ b/drivers/gpio/gpio-sifive.c
+> > @@ -223,7 +223,7 @@ static int sifive_gpio_probe(struct platform_device *pdev)
+> >                        NULL,
+> >                        chip->base + SIFIVE_GPIO_OUTPUT_EN,
+> >                        chip->base + SIFIVE_GPIO_INPUT_EN,
+> > -                      0);
+> > +                      BGPIOF_READ_OUTPUT_REG_SET);
+> >       if (ret) {
+> >               dev_err(dev, "unable to init generic GPIO\n");
+> >               return ret;
+>
+>
+> --
+> Damien Le Moal
+> Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
