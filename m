@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B2CFC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Feb 2022 06:26:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4B70C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Feb 2022 06:46:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Dz3cvODXJBbEYdbqlvm0zZBrmMnz0KmtCpRdVJpipT4=; b=yvzZJyGnBu6idF
-	EKrx8NBSypm2mgvEZVCYgLPWw8ozhSrx2/ksNcFe/mn8Xk/RLHrXPrGTkK9oOgrlrY4paHoQxVDsK
-	rsb3AGhgsLk1VmJ5VLcja/A1Y/ecQEUCyFmrRiswR8Ls+uwV6TAtgSIwMeMFlAPMG1YrtmZJ6sTMS
-	8+FJo04Nanoew/LzVgit6m/g4FrRoWAhPCCsRicKHyeUHYsBVrvYU7D8LdJQnfNAlGrU/nHKyoDKX
-	uy/Hc/3rNlRlQZgr1b/Fny7gXjsBJF60g7aH8OkIOhyCQPdC9wMjYRBcuWcj034FGXhlstREmEoXd
-	ZYhpaBetvAqmxZae2jfA==;
+	List-Owner; bh=hCb+aDpSJwAMFdXWUe14I5UVZm2YrN8QTTsBGqQ4v6g=; b=XitEPpVGlTy4Mv
+	O5doFvj5JOpIEZfEKO0nHRituRi+gxmOf1uejzDGIbqfyVbWESjA9BLfpMRyqTJFUdv4Twp5TMykQ
+	0aa+vNXzVXimX71+YVecp1F9E4vmrSEXnvXTyG80XOL8p7yxFX1NEVMI8q3l7dFVMjFNvrDN6w47o
+	BEWy2fUuj0rGvIFdIwLJ0OdzCLBvJljdjws1oBZpoXsXGzBJCdS+LoDCTeH+9HtayPT8sxHd9ywrw
+	uUT1HFJdgW26K34lYrGkjTGfOpcf/qKkRcneDSv5hrfABGSncvPXq8n/QuCpDJjq1IgWvwq3rD8i2
+	e5Cmzbq+nZ5skGoWyppg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nHJxb-00CeJO-SQ; Tue, 08 Feb 2022 06:26:43 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1nHKGv-00ChgV-UZ; Tue, 08 Feb 2022 06:46:41 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nHJxO-00CeFP-2F; Tue, 08 Feb 2022 06:26:31 +0000
+ id 1nHKGj-00Che7-Fo; Tue, 08 Feb 2022 06:46:31 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 8DFB0615E6;
- Tue,  8 Feb 2022 06:26:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55CC7C340F8;
- Tue,  8 Feb 2022 06:26:28 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 234EDB81853;
+ Tue,  8 Feb 2022 06:46:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE05EC340F9;
+ Tue,  8 Feb 2022 06:46:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1644301588;
- bh=HIuCEKBnx2neFGe2TzYeuJVUlLTSD+WZPGwlgjCCuXU=;
+ s=k20201202; t=1644302785;
+ bh=2PAnZavsBCQOKNxqtrXZdWKUJUHNnqRJ7TmptXf/CRI=;
  h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=T9v/Dz0S1HpzoAwIBZvdu5DREqs+MdQzq9y55DHTQDwk2sn3pmvKSlv+GpfgCVTvV
- WfRWeusIuQzCfT2yyD8t04yJ/s3vViOSbz0a9Z/f5ayoUux9/YwxA7AfmFvKsbIriM
- CUvjWc1SmMF2pjmXGoFdMzwGfgyxP41s59LNfmalvMXvTGHrB8IjXJaPwKpz3rODn2
- WzkmTp8eIJmPjzo4yqOJPBsA8fAyVcKPNXUBBre2JNUrieVwuelVz/VrsbrB7pXbas
- HK9f03shLil5H84Uzil62wV17maN1jN99Fs7UheuvIyLIHRiwucQDztUqSCdWPvfBR
- 25twB4iSaCk5g==
-Received: by mail-vk1-f179.google.com with SMTP id l14so9172830vko.12;
- Mon, 07 Feb 2022 22:26:28 -0800 (PST)
-X-Gm-Message-State: AOAM532TWKxPT1iqKWLz4Z47D0n5SSqPbVi+gHlYx2PUgBlaMdUGA0DL
- MXLF+h4H9acXM6Zz0Nw0SRA5tpY6vPS06HN7Srs=
-X-Google-Smtp-Source: ABdhPJzacuJptpzsvQJRUnvzBbBzr1u57gJ0wQqQFKPI58LeRRTunUkd1GGEazbj4/xQPLofWtoVqwCs4xjOKh2E+nk=
-X-Received: by 2002:a05:6122:1c5:: with SMTP id h5mr1217423vko.2.1644301587245; 
- Mon, 07 Feb 2022 22:26:27 -0800 (PST)
+ b=aZguFV60JHW+Wl0UK/7jImD5iZ2QyXQpzBt2ompSVpfx2aQhZEjUM/zO+w4OCyYjO
+ Ui7QIfN2W+z7gDxc1JnzsBfKQGN5s/TidYc4jPISzyO16D28so+IP+DFawLRSyKpns
+ MtBJstEnQ5981dxzm3YL8z19G7ENfBkuRCNzxN2IvUMLjf9TzEJzYjKtXmqCKZaGoc
+ FfTw2C5fYhe90ThXnp9UV9mNdaSjUw/uHcSkovseC69NWwoCFUfXeZ5reXLThoqoGx
+ bANovyFliDK25n3uatfa3UAFy5sf13833yXs/7YUhwTgdzfWinwP5Tis+yV2BuNVZp
+ UTLCA4gjJG6bg==
+Received: by mail-vs1-f52.google.com with SMTP id b2so2319621vso.9;
+ Mon, 07 Feb 2022 22:46:25 -0800 (PST)
+X-Gm-Message-State: AOAM532Ly+2GsQwGed+LG2C3/d0IfuOhd6S/v2HlrLGNHEIdWg8hCYIg
+ NyPcXxQgfpCaXNFtXEGiYVFPlzwUk2E1tSIxO+M=
+X-Google-Smtp-Source: ABdhPJwcITGI3/F3NjBB05kTSNDFumGOEbnmXBce8eySQQ05hqGWKQ34yPQabBtqVtUZuP1cB0KdFDlqpj6pHvBDoD4=
+X-Received: by 2002:a67:e0d9:: with SMTP id m25mr1147574vsl.51.1644302784590; 
+ Mon, 07 Feb 2022 22:46:24 -0800 (PST)
 MIME-Version: 1.0
 References: <20220126114452.692512-1-apatel@ventanamicro.com>
  <20220126114452.692512-9-apatel@ventanamicro.com>
 In-Reply-To: <20220126114452.692512-9-apatel@ventanamicro.com>
 From: Guo Ren <guoren@kernel.org>
-Date: Tue, 8 Feb 2022 14:26:16 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRLcqQ8ZjKwWNmARtaraVW7dD5Hp5=iv+4kHYENvB2gWg@mail.gmail.com>
-Message-ID: <CAJF2gTRLcqQ8ZjKwWNmARtaraVW7dD5Hp5=iv+4kHYENvB2gWg@mail.gmail.com>
+Date: Tue, 8 Feb 2022 14:46:13 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQsSn1KBgX2bg2LiSUbCmbGD3oF5KcmK5gq2Dd49BWDBQ@mail.gmail.com>
+Message-ID: <CAJF2gTQsSn1KBgX2bg2LiSUbCmbGD3oF5KcmK5gq2Dd49BWDBQ@mail.gmail.com>
 Subject: Re: [PATCH v10 8/8] RISC-V: Enable RISC-V SBI CPU Idle driver for
  QEMU virt machine
 To: Anup Patel <apatel@ventanamicro.com>
@@ -74,8 +74,8 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
  linux-pm@vger.kernel.org, 
  Linux ARM <linux-arm-kernel@lists.infradead.org>, kvm-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220207_222630_208962_C93222E6 
-X-CRM114-Status: GOOD (  19.59  )
+X-CRM114-CacheID: sfid-20220207_224629_848922_E561DCE9 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,6 +91,10 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
+
+Another question:
+
+Have you put "idle-states {" in qemu's DTS? or how do you test your patches?
 
 On Wed, Jan 26, 2022 at 7:51 PM Anup Patel <apatel@ventanamicro.com> wrote:
 >
@@ -134,11 +138,6 @@ On Wed, Jan 26, 2022 at 7:51 PM Anup Patel <apatel@ventanamicro.com> wrote:
 >  CONFIG_VIRTUALIZATION=y
 >  CONFIG_KVM=m
 > diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-rv32_defconfig would be removed. I think you could delete this part.
-https://lore.kernel.org/linux-riscv/20220201150545.1512822-9-guoren@kernel.org/T/#u
-
-I would Cc you in the patch, and you could track the progress.
-
 > index d1b87db54d68..6f9a7c89bff9 100644
 > --- a/arch/riscv/configs/rv32_defconfig
 > +++ b/arch/riscv/configs/rv32_defconfig
