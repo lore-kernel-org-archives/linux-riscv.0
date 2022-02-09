@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E5A9C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Feb 2022 17:41:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93BEEC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Feb 2022 17:57:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z9g2SeftTB+gV/wQrX4404NUBio86jttZ22JIrM4gGo=; b=PdeDFfONlN7u4T
-	rGyNJGexv5Mpl3xWyzWh7IQrXw0tmx/3gIETBBOVn2PbS7/rs2T4KFBMFjaoffDnFLjVampRokkpu
-	Hu74jkNSmXXVms6n9egdWbzXkFAwnBiT65Cmxou3pZIJZbO+VwUj7/WBWb+Fv/s8dixZH/gPk13+/
-	s1+OIpXrEpf0eeA4aszV9Rs7Bs0T+wpkbIV7X6Q33ZV16dPTavGd0sRDoB92fO4zyxl4c8QKQyw/f
-	ssg57T8AscDuFBZb0gw19ckj04P0UdxgdftBsrMdn4neW5eVPhho0jXiLyGZ+ywfZgGpFJj6vMqVh
-	0Y+TzPoFazKRzUqG2MXg==;
+	List-Owner; bh=e0IPDzLJPLkVDN06TzlWTdC5Mf7XWdsGKp/QKJ5KuQ0=; b=ej1ZARSwKd8bys
+	X4mSboC44OZ9E1gWbuwGgCCRNmU3SGLYHnBSqLjAm5tfIA1g5uwZEp7WjhzMi9JtopnO0u0Kxe6Af
+	vkmBjQYtxB4w0U/Z2rnlcDbAZXKunarUYV35axfoYBtxuIuKrKGIkAkUMyGakOnEYcDSAtNNm6xq0
+	QlfTBUt6c5Ton2yEg/SIukb4Ul4feP1u5g5fBdpYPr/Qs5DsGmhFCAOWlv2SAYtcvsUX4Kp3Q63km
+	RHNKBHJ1PckB0VqvMFHJ3MCrzQA4+sB1Z2wTGGfPmy5JZ861xVO3HBasJrkqLElcoUAJ5v1ACpf0Q
+	hZm+gYGdXre733gm2eNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nHqxc-000ygg-O3; Wed, 09 Feb 2022 17:40:56 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1nHrDT-0012ys-OP; Wed, 09 Feb 2022 17:57:19 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nHqxZ-000yg9-0H
- for linux-riscv@lists.infradead.org; Wed, 09 Feb 2022 17:40:55 +0000
+ id 1nHrDO-0012xh-Gb
+ for linux-riscv@lists.infradead.org; Wed, 09 Feb 2022 17:57:17 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id EE02CB8233B;
- Wed,  9 Feb 2022 17:40:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF287C340E7;
- Wed,  9 Feb 2022 17:40:47 +0000 (UTC)
+ by sin.source.kernel.org (Postfix) with ESMTPS id 2F830CE2250;
+ Wed,  9 Feb 2022 17:57:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DBE7C340E9;
+ Wed,  9 Feb 2022 17:57:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1644428449;
- bh=AlopD8g/IxO/TUJsCJ2/uUlPLB4X9pN9HSSfhXOXIRI=;
+ s=k20201202; t=1644429430;
+ bh=iOxYp/R4z6NyCd4CMctrHVzFrNaRVI37GlqDqEU6psI=;
  h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=bLoJxufYJICvZfk36laW9vZUmtzElmgSphRskprZx4SqZTlfShVvcpL7IIUBBO2EU
- mL03JFh7fRXaEyEHon3W0bd2sGklgjmpNCmaltRoctiUYSEqL8Oc77DdcD7of9u20a
- yJxgmhv/pGBtACLDPa7dX8R3hwSKH5I42phpvCuiYmzX6zVXpqBOsPA2siFwhK9B6s
- PBs03GZuSs1ek+L7eDIkcW0jooUANG1eD29PiQBpTLrY/SPjRough0oNINJIBdjPKc
- 87HzNRut3b1UfSaW4GaA8Sc7AlZplas396NUVtOOsu0twHaljRFUCM0Ydv1DNftfIH
- c+WPnWPNnxOnA==
-Date: Thu, 10 Feb 2022 01:32:59 +0800
+ b=gQbP413M18GeHBjrV/vjinZHhOzGZMJZ6pHXdH/yNQLJ675oDAEskxhGDuqhftcSS
+ ROlfUZvpjGqjojoJZ85WrCEardNq5D3mMhQDJSzsLO1gH1+Wf8mm4XI2O446r8TmJl
+ uTBLjK2DBH8l0wSBzm8XNFzRDlFIW4YFeOSonQd9RxpoFxLHMq3iNCEekd6J/xzAwB
+ eecKsemaKrIU95miFZupeAkvItH4v/aoCPxU8wzm2KE3aSUHFi6XdYdUWEoZHdKSJC
+ 9AMzp8Qcth27749Vdhr8WxgRuyf185fo3c2F+5lD16DF8uIIykAxbJMpzFLQgBOC0h
+ bmTTmkqZ4HYWA==
+Date: Thu, 10 Feb 2022 01:49:19 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Changbin Du <changbin.du@gmail.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] riscv: fix oops caused by irq on/off tracer
-Message-ID: <YgP6y99LWFSoxjHg@xhacker>
-References: <20220129004226.32868-1-changbin.du@gmail.com>
- <YgAEb425uqy5/dw1@xhacker>
- <20220207123850.l4r5qjswaegwisbx@mail.google.com>
- <YgE7XRE/Uc6gTCWd@xhacker>
- <20220208003502.62gi5xhyg6bk2t2h@mail.google.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, robh+dt@kernel.org, wefu@redhat.com,
+ liush@allwinnertech.com, guoren@kernel.org, atishp@atishpatra.org,
+ anup@brainfault.org, drew@beagleboard.org, hch@lst.de,
+ arnd@arndb.de, wens@csie.org, maxime@cerno.tech,
+ gfavor@ventanamicro.com, andrea.mondelli@huawei.com,
+ behrensj@mit.edu, xinhaoqu@huawei.com, huffman@cadence.com,
+ mick@ics.forth.gr, allen.baum@esperantotech.com,
+ jscheid@ventanamicro.com, rtrauben@gmail.com, samuel@sholland.org,
+ cmuellner@linux.com, philipp.tomsich@vrull.eu
+Subject: Re: [PATCH v6 00/14] riscv: support for Svpbmt and D1 memory types
+Message-ID: <YgP+n5OMhQPSbICV@xhacker>
+References: <20220209123800.269774-1-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220208003502.62gi5xhyg6bk2t2h@mail.google.com>
+In-Reply-To: <20220209123800.269774-1-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220209_094053_378886_DD379FC3 
-X-CRM114-Status: GOOD (  25.32  )
+X-CRM114-CacheID: sfid-20220209_095714_930849_4DBD2D82 
+X-CRM114-Status: GOOD (  27.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,140 +81,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 08, 2022 at 08:35:02AM +0800, Changbin Du wrote:
-> On Mon, Feb 07, 2022 at 11:31:41PM +0800, Jisheng Zhang wrote:
-> > On Mon, Feb 07, 2022 at 08:38:50PM +0800, ChangbinCONFIG_IRQSOFF_TRACER Du wrote:
-> > > On Mon, Feb 07, 2022 at 01:25:03AM +0800, Jisheng Zhang wrote:
-> > > > On Sat, Jan 29, 2022 at 08:42:26AM +0800, Changbin Du wrote:
-> > > > > The trace_hardirqs_on/off requires at least two parent call frames.
-> > > > > If not, the code generated by CALLER_ADDR1 (aka. ftrace_return_address(1))
-> > > > > could trigger memory access fault.
-> > > > > 
-> > > > > [    0.039615][    T0] Unable to handle kernel NULL pointer dereference at virtual address 00000000000000f8
-> > > > > [    0.041925][    T0] Oops [#1]
-> > > > > [    0.042063][    T0] Modules linked in:
-> > > > > [    0.042864][    T0] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.17.0-rc1-00233-g9a20c48d1ed2 #29
-> > > > > [    0.043568][    T0] Hardware name: riscv-virtio,qemu (DT)
-> > > > > [    0.044343][    T0] epc : trace_hardirqs_on+0x56/0xe2
-> > > > > [    0.044601][    T0]  ra : restore_all+0x12/0x6e
-> > > > > [    0.044721][    T0] epc : ffffffff80126a5c ra : ffffffff80003b94 sp : ffffffff81403db0
-> > > > > [    0.044801][    T0]  gp : ffffffff8163acd8 tp : ffffffff81414880 t0 : 0000000000000020
-> > > > > [    0.044882][    T0]  t1 : 0098968000000000 t2 : 0000000000000000 s0 : ffffffff81403de0
-> > > > > [    0.044967][    T0]  s1 : 0000000000000000 a0 : 0000000000000001 a1 : 0000000000000100
-> > > > > [    0.045046][    T0]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : 0000000000000000
-> > > > > [    0.045124][    T0]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000054494d45
-> > > > > [    0.045210][    T0]  s2 : ffffffff80003b94 s3 : ffffffff81a8f1b0 s4 : ffffffff80e27b50
-> > > > > [    0.045289][    T0]  s5 : ffffffff81414880 s6 : ffffffff8160fa00 s7 : 00000000800120e8
-> > > > > [    0.045389][    T0]  s8 : 0000000080013100 s9 : 000000000000007f s10: 0000000000000000
-> > > > > [    0.045474][    T0]  s11: 0000000000000000 t3 : 7fffffffffffffff t4 : 0000000000000000
-> > > > > [    0.045548][    T0]  t5 : 0000000000000000 t6 : ffffffff814aa368
-> > > > > [    0.045620][    T0] status: 0000000200000100 badaddr: 00000000000000f8 cause: 000000000000000d
-> > > > > [    0.046402][    T0] [<ffffffff80003b94>] restore_all+0x12/0x6e
-> > > > > 
-> > > > 
-> > > > Hi Changbin,
-> > > > 
-> > > > Could you please provide the reproduce steps? It looks a bit
-> > > > interesting.
-> > > >
-> > > Just enable CONFIG_IRQSOFF_TRACER and rebuild kernel with llvm. Then boot the
-> > > new kernel.
-> > 
-> > Thanks for the information. I tried IRQSOFF_TRACER with gcc+binutils,
-> > can't reproduce the issue. I forget to try clang+llvm. From another side
-> > The fact that gcc+bintuils can't reproduce it means this is a clang+llvm
-> > speicial case, no?
-> The behaviour of GCC is a bit different, please refer to another disccusion:
-> https://lore.kernel.org/lkml/C2470F2D-9E45-49D7-A03B-E6A7BB4B9738@jrtc27.com/T/
+On Wed, Feb 09, 2022 at 01:37:46PM +0100, Heiko Stuebner wrote:
+> Svpbmt is an extension defining "Supervisor-mode: page-based memory types"
+> for things like non-cacheable pages or I/O memory pages.
 > 
-> But I suppose it still has similar issue. Make sure FRAME_POINTER is enabled
-> also.
 > 
+> So this is my 2nd try at implementing Svpbmt (and the diverging D1 memory
+> types) using the alternatives framework.
+> 
+> This includes a number of changes to the alternatives mechanism itself.
+> The biggest one being the move to a more central location, as I expect
+> in the future, nearly every chip needing some sort of patching, be it
+> either for erratas or for optional features (svpbmt or others).
+> 
+> The dt-binding for svpbmt itself is of course not finished and is still
+> using the binding introduced in previous versions, as where to put
+> a svpbmt-property in the devicetree is still under dicussion.
+> Atish seems to be working on a framework for extensions [0],
+> 
+> The series also introduces support for the memory types of the D1
+> which are implemented differently to svpbmt. But when patching anyway
+> it's pretty clean to add the D1 variant via ALTERNATIVE_2 to the same
+> location.
+> 
+> The only slightly bigger difference is that the "normal" type is not 0
+> as with svpbmt, so kernel patches for this PMA type need to be applied
+> even before the MMU is brought up, so the series introduces a separate
+> stage for that.
+> 
+> 
+> In theory this series is 3 parts:
+> - sbi cache-flush / null-ptr
+> - alternatives improvements
+> - svpbmt+d1
+> 
+> So expecially patches from the first 2 areas could be applied when
+> deemed ready, I just thought to keep it together to show-case where
+> the end-goal is and not requiring jumping between different series.
+> 
+> 
+> The sbi cache-flush patch is based on Atish's sparse-hartid patch [1],
+> as it touches a similar area in mm/cacheflush.c
+> 
+> 
+> I picked the recipient list from the previous version, hopefully
+> I didn't forget anybody.
+> 
+> changes in v6:
+> - rebase onto 5.17-rc1
+> - handle sbi null-ptr differently
+> - improve commit messages
+> - use riscv,mmu as property name
+> 
+> changes in v5:
+> - move to use alternatives for runtime-patching
 
-Hi Changbin,
+Hi,
 
-I read the code and find that current riscv frame records during
-exception isn't as completed as other architectures. riscv only
-records frames from the ret_from_exception(). If we add completed
-frame records as other arch do, then the issue you saw can also
-be fixed at the same time.
+another choice is using static key mechanism. Pros: no need to coding
+in asm, all in c.
 
-However, I'm not sure what's the best choice now.
+To support new arch features, I see other arch sometimes use static
+key, sometimes use alternative mechanism, so one question here would
+be which mechanism is better? Any guide?
 
-A simple demo to this incomplete frames:
-add dump_stack() in any ISR, then
-
-in riscv:
-[    2.961294] Call Trace:
-[    2.961460] [<ffffffff8000485e>] dump_backtrace+0x1c/0x24
-[    2.961823] [<ffffffff805ed980>] show_stack+0x2c/0x38
-[    2.962153] [<ffffffff805f292e>] dump_stack_lvl+0x40/0x58
-[    2.962483] [<ffffffff805f295a>] dump_stack+0x14/0x1c
-[    2.962792] [<ffffffff805f31a0>] serial8250_interrupt+0x20/0x82
-[    2.963139] [<ffffffff80053032>] __handle_irq_event_percpu+0x4c/0x106
-[    2.963526] [<ffffffff80053170>] handle_irq_event+0x38/0x80
-[    2.963856] [<ffffffff80056a32>] handle_fasteoi_irq+0x96/0x188
-[    2.964198] [<ffffffff800526ce>] generic_handle_domain_irq+0x28/0x3a
-[    2.964567] [<ffffffff802f0ae4>] plic_handle_irq+0x88/0xec
-[    2.964896] [<ffffffff800526ce>] generic_handle_domain_irq+0x28/0x3a
-[    2.965264] [<ffffffff802f08e4>] riscv_intc_irq+0x34/0x5c
-[    2.965584] [<ffffffff805f6dc8>] generic_handle_arch_irq+0x4a/0x74
-[    2.966068] [<ffffffff80002fe8>] ret_from_exception+0x0/0xc
-
-in x86:
-[    1.191274] Call Trace:
-[    1.192223]  <IRQ>
-[    1.192758]  dump_stack_lvl+0x45/0x59
-[    1.192982]  serial8250_interrupt+0x24/0x88
-[    1.193105]  __handle_irq_event_percpu+0x66/0x1b0
-[    1.193239]  handle_irq_event+0x34/0x70
-[    1.193345]  handle_edge_irq+0x85/0x1e0
-[    1.193455]  __common_interrupt+0x38/0x90
-[    1.193573]  common_interrupt+0x73/0x90
-[    1.193809]  </IRQ>
-[    1.193889]  <TASK>
-[    1.193956]  asm_common_interrupt+0x1b/0x40
-[    1.194318] RIP: 0010:_raw_spin_unlock_irqrestore+0x1b/0x40
-[    1.194566] Code: 24 be 01 02 00 00 e9 54 20 bf ff 0f 1f 40 00 0f 1f
-44 00 00 f7 c6 00f
-[    1.195137] RSP: 0000:ffff888000243b68 EFLAGS: 00000246
-[    1.195314] RAX: 0000000000000000 RBX: ffffffff82025840 RCX:
-0000000000000000
-[    1.195482] RDX: 0000000000000001 RSI: 0000000000000000 RDI:
-0000000000000001
-[    1.195645] RBP: 0000000000000202 R08: ffffffffffffffff R09:
-0000000000000000
-[    1.195808] R10: 00000000000000eb R11: 0000000000000000 R12:
-0000000000000000
-[    1.195972] R13: 0000000000000040 R14: 0000000000000000 R15:
-ffff888000c39000
-[    1.196245]  ? _raw_spin_unlock_irqrestore+0x15/0x40
-[    1.196373]  serial8250_do_startup+0x42d/0x600
-[    1.196502]  uart_port_startup+0x11b/0x270
-[    1.196619]  uart_port_activate+0x3f/0x60
-[    1.196729]  tty_port_open+0x7e/0xd0
-[    1.196835]  ? _raw_spin_unlock+0x12/0x30
-[    1.196942]  uart_open+0x1a/0x30
-[    1.197036]  tty_open+0x153/0x7c0
-[    1.197144]  chrdev_open+0xbf/0x230
-[    1.197253]  ? cdev_device_add+0x90/0x90
-[    1.197359]  do_dentry_open+0x13c/0x360
-[    1.197470]  path_openat+0xb0c/0xe00
-[    1.197577]  ? update_load_avg+0x5f/0x640
-[    1.197691]  ? finish_task_switch.isra.0+0xac/0x240
-[    1.197821]  do_filp_open+0xb2/0x150
-[    1.197935]  ? preempt_schedule_thunk+0x16/0x18
-[    1.198049]  ? preempt_schedule_common+0x90/0xd0
-[    1.198167]  ? preempt_schedule_thunk+0x16/0x18
-[    1.198291]  file_open_name+0xf1/0x1b0
-[    1.198397]  filp_open+0x2c/0x50
-[    1.198495]  console_on_rootfs+0x19/0x52
-[    1.198648]  kernel_init_freeable+0x19a/0x1c7
-[    1.198765]  ? rest_init+0xc0/0xc0
-[    1.198867]  kernel_init+0x16/0x110
-[    1.198965]  ret_from_fork+0x1f/0x30
-[    1.199131]  </TASK>
-
+Thanks in advance
 
 _______________________________________________
 linux-riscv mailing list
