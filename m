@@ -4,58 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 073C7C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Feb 2022 12:42:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E5A9C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Feb 2022 17:41:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IJ+9DbFlR33jQksvAWmRjZg15KEV2tQWjdM9Q8WJ50M=; b=kywpycnETdppEg
-	9ycRsbsDP0P7hLub1oLUIcFNI9AkaXuEoVp9bXfUWRSMC2YawCUWeGpk18K505JVAqyZYvJW2jF0w
-	WBY/kCu0r0Sam50tNoIbFwCPpeoM1iSEzQbAIlec1eh6IZAdBAreCiBU2aUum6B83ddQQQPBrjCW7
-	bZpuzyiVgCTGczEEy1/LjrNLdHiVsrt4QSNqFAoiJhY2QFkhFK4xvFGPHsuUNSGFy2bANAjkhsxl6
-	a21D7/s2w5aZstUhwtucKGwMEgPzCC/3Z44xoOlN4UesTmsBJJYTn0U+8DZdnbxJl+ajVr/kq2s7c
-	zYYpc/KpVnQXv9RhHdOA==;
+	List-Owner; bh=z9g2SeftTB+gV/wQrX4404NUBio86jttZ22JIrM4gGo=; b=PdeDFfONlN7u4T
+	rGyNJGexv5Mpl3xWyzWh7IQrXw0tmx/3gIETBBOVn2PbS7/rs2T4KFBMFjaoffDnFLjVampRokkpu
+	Hu74jkNSmXXVms6n9egdWbzXkFAwnBiT65Cmxou3pZIJZbO+VwUj7/WBWb+Fv/s8dixZH/gPk13+/
+	s1+OIpXrEpf0eeA4aszV9Rs7Bs0T+wpkbIV7X6Q33ZV16dPTavGd0sRDoB92fO4zyxl4c8QKQyw/f
+	ssg57T8AscDuFBZb0gw19ckj04P0UdxgdftBsrMdn4neW5eVPhho0jXiLyGZ+ywfZgGpFJj6vMqVh
+	0Y+TzPoFazKRzUqG2MXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nHmIk-0003wx-Q2; Wed, 09 Feb 2022 12:42:26 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1nHqxc-000ygg-O3; Wed, 09 Feb 2022 17:40:56 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nHmIi-0003vv-CR
- for linux-riscv@lists.infradead.org; Wed, 09 Feb 2022 12:42:25 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
- helo=phil.lan)
- by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1nHmEv-0001Mv-BV; Wed, 09 Feb 2022 13:38:29 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	aou@eecs.berkeley.edu
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, robh+dt@kernel.org, wefu@redhat.com,
- liush@allwinnertech.com, guoren@kernel.org, atishp@atishpatra.org,
- anup@brainfault.org, drew@beagleboard.org, hch@lst.de, arnd@arndb.de,
- wens@csie.org, maxime@cerno.tech, gfavor@ventanamicro.com,
- andrea.mondelli@huawei.com, behrensj@mit.edu, xinhaoqu@huawei.com,
- huffman@cadence.com, mick@ics.forth.gr, allen.baum@esperantotech.com,
- jscheid@ventanamicro.com, rtrauben@gmail.com, samuel@sholland.org,
- cmuellner@linux.com, philipp.tomsich@vrull.eu,
- Heiko Stuebner <heiko@sntech.de>
-Subject: [PATCH v6 13/14] riscv: remove FIXMAP_PAGE_IO and fall back to its
- default value
-Date: Wed,  9 Feb 2022 13:37:59 +0100
-Message-Id: <20220209123800.269774-14-heiko@sntech.de>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20220209123800.269774-1-heiko@sntech.de>
-References: <20220209123800.269774-1-heiko@sntech.de>
+ id 1nHqxZ-000yg9-0H
+ for linux-riscv@lists.infradead.org; Wed, 09 Feb 2022 17:40:55 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id EE02CB8233B;
+ Wed,  9 Feb 2022 17:40:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF287C340E7;
+ Wed,  9 Feb 2022 17:40:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1644428449;
+ bh=AlopD8g/IxO/TUJsCJ2/uUlPLB4X9pN9HSSfhXOXIRI=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=bLoJxufYJICvZfk36laW9vZUmtzElmgSphRskprZx4SqZTlfShVvcpL7IIUBBO2EU
+ mL03JFh7fRXaEyEHon3W0bd2sGklgjmpNCmaltRoctiUYSEqL8Oc77DdcD7of9u20a
+ yJxgmhv/pGBtACLDPa7dX8R3hwSKH5I42phpvCuiYmzX6zVXpqBOsPA2siFwhK9B6s
+ PBs03GZuSs1ek+L7eDIkcW0jooUANG1eD29PiQBpTLrY/SPjRough0oNINJIBdjPKc
+ 87HzNRut3b1UfSaW4GaA8Sc7AlZplas396NUVtOOsu0twHaljRFUCM0Ydv1DNftfIH
+ c+WPnWPNnxOnA==
+Date: Thu, 10 Feb 2022 01:32:59 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Changbin Du <changbin.du@gmail.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] riscv: fix oops caused by irq on/off tracer
+Message-ID: <YgP6y99LWFSoxjHg@xhacker>
+References: <20220129004226.32868-1-changbin.du@gmail.com>
+ <YgAEb425uqy5/dw1@xhacker>
+ <20220207123850.l4r5qjswaegwisbx@mail.google.com>
+ <YgE7XRE/Uc6gTCWd@xhacker>
+ <20220208003502.62gi5xhyg6bk2t2h@mail.google.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220208003502.62gi5xhyg6bk2t2h@mail.google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220209_044224_438408_9867500F 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220209_094053_378886_DD379FC3 
+X-CRM114-Status: GOOD (  25.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,31 +78,139 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If not defined in the arch, FIXMAP_PAGE_IO defaults to PAGE_KERNEL_IO,
-which we defined when adding the svpbmt implementation.
+On Tue, Feb 08, 2022 at 08:35:02AM +0800, Changbin Du wrote:
+> On Mon, Feb 07, 2022 at 11:31:41PM +0800, Jisheng Zhang wrote:
+> > On Mon, Feb 07, 2022 at 08:38:50PM +0800, ChangbinCONFIG_IRQSOFF_TRACER Du wrote:
+> > > On Mon, Feb 07, 2022 at 01:25:03AM +0800, Jisheng Zhang wrote:
+> > > > On Sat, Jan 29, 2022 at 08:42:26AM +0800, Changbin Du wrote:
+> > > > > The trace_hardirqs_on/off requires at least two parent call frames.
+> > > > > If not, the code generated by CALLER_ADDR1 (aka. ftrace_return_address(1))
+> > > > > could trigger memory access fault.
+> > > > > 
+> > > > > [    0.039615][    T0] Unable to handle kernel NULL pointer dereference at virtual address 00000000000000f8
+> > > > > [    0.041925][    T0] Oops [#1]
+> > > > > [    0.042063][    T0] Modules linked in:
+> > > > > [    0.042864][    T0] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.17.0-rc1-00233-g9a20c48d1ed2 #29
+> > > > > [    0.043568][    T0] Hardware name: riscv-virtio,qemu (DT)
+> > > > > [    0.044343][    T0] epc : trace_hardirqs_on+0x56/0xe2
+> > > > > [    0.044601][    T0]  ra : restore_all+0x12/0x6e
+> > > > > [    0.044721][    T0] epc : ffffffff80126a5c ra : ffffffff80003b94 sp : ffffffff81403db0
+> > > > > [    0.044801][    T0]  gp : ffffffff8163acd8 tp : ffffffff81414880 t0 : 0000000000000020
+> > > > > [    0.044882][    T0]  t1 : 0098968000000000 t2 : 0000000000000000 s0 : ffffffff81403de0
+> > > > > [    0.044967][    T0]  s1 : 0000000000000000 a0 : 0000000000000001 a1 : 0000000000000100
+> > > > > [    0.045046][    T0]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : 0000000000000000
+> > > > > [    0.045124][    T0]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000054494d45
+> > > > > [    0.045210][    T0]  s2 : ffffffff80003b94 s3 : ffffffff81a8f1b0 s4 : ffffffff80e27b50
+> > > > > [    0.045289][    T0]  s5 : ffffffff81414880 s6 : ffffffff8160fa00 s7 : 00000000800120e8
+> > > > > [    0.045389][    T0]  s8 : 0000000080013100 s9 : 000000000000007f s10: 0000000000000000
+> > > > > [    0.045474][    T0]  s11: 0000000000000000 t3 : 7fffffffffffffff t4 : 0000000000000000
+> > > > > [    0.045548][    T0]  t5 : 0000000000000000 t6 : ffffffff814aa368
+> > > > > [    0.045620][    T0] status: 0000000200000100 badaddr: 00000000000000f8 cause: 000000000000000d
+> > > > > [    0.046402][    T0] [<ffffffff80003b94>] restore_all+0x12/0x6e
+> > > > > 
+> > > > 
+> > > > Hi Changbin,
+> > > > 
+> > > > Could you please provide the reproduce steps? It looks a bit
+> > > > interesting.
+> > > >
+> > > Just enable CONFIG_IRQSOFF_TRACER and rebuild kernel with llvm. Then boot the
+> > > new kernel.
+> > 
+> > Thanks for the information. I tried IRQSOFF_TRACER with gcc+binutils,
+> > can't reproduce the issue. I forget to try clang+llvm. From another side
+> > The fact that gcc+bintuils can't reproduce it means this is a clang+llvm
+> > speicial case, no?
+> The behaviour of GCC is a bit different, please refer to another disccusion:
+> https://lore.kernel.org/lkml/C2470F2D-9E45-49D7-A03B-E6A7BB4B9738@jrtc27.com/T/
+> 
+> But I suppose it still has similar issue. Make sure FRAME_POINTER is enabled
+> also.
+> 
 
-So drop the FIXMAP_PAGE_IO riscv define.
+Hi Changbin,
 
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
----
- arch/riscv/include/asm/fixmap.h | 2 --
- 1 file changed, 2 deletions(-)
+I read the code and find that current riscv frame records during
+exception isn't as completed as other architectures. riscv only
+records frames from the ret_from_exception(). If we add completed
+frame records as other arch do, then the issue you saw can also
+be fixed at the same time.
 
-diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
-index 58a718573ad6..692e25e56d8e 100644
---- a/arch/riscv/include/asm/fixmap.h
-+++ b/arch/riscv/include/asm/fixmap.h
-@@ -44,8 +44,6 @@ enum fixed_addresses {
- 	__end_of_fixed_addresses
- };
- 
--#define FIXMAP_PAGE_IO		PAGE_KERNEL
--
- #define __early_set_fixmap	__set_fixmap
- 
- #define __late_set_fixmap	__set_fixmap
--- 
-2.30.2
+However, I'm not sure what's the best choice now.
+
+A simple demo to this incomplete frames:
+add dump_stack() in any ISR, then
+
+in riscv:
+[    2.961294] Call Trace:
+[    2.961460] [<ffffffff8000485e>] dump_backtrace+0x1c/0x24
+[    2.961823] [<ffffffff805ed980>] show_stack+0x2c/0x38
+[    2.962153] [<ffffffff805f292e>] dump_stack_lvl+0x40/0x58
+[    2.962483] [<ffffffff805f295a>] dump_stack+0x14/0x1c
+[    2.962792] [<ffffffff805f31a0>] serial8250_interrupt+0x20/0x82
+[    2.963139] [<ffffffff80053032>] __handle_irq_event_percpu+0x4c/0x106
+[    2.963526] [<ffffffff80053170>] handle_irq_event+0x38/0x80
+[    2.963856] [<ffffffff80056a32>] handle_fasteoi_irq+0x96/0x188
+[    2.964198] [<ffffffff800526ce>] generic_handle_domain_irq+0x28/0x3a
+[    2.964567] [<ffffffff802f0ae4>] plic_handle_irq+0x88/0xec
+[    2.964896] [<ffffffff800526ce>] generic_handle_domain_irq+0x28/0x3a
+[    2.965264] [<ffffffff802f08e4>] riscv_intc_irq+0x34/0x5c
+[    2.965584] [<ffffffff805f6dc8>] generic_handle_arch_irq+0x4a/0x74
+[    2.966068] [<ffffffff80002fe8>] ret_from_exception+0x0/0xc
+
+in x86:
+[    1.191274] Call Trace:
+[    1.192223]  <IRQ>
+[    1.192758]  dump_stack_lvl+0x45/0x59
+[    1.192982]  serial8250_interrupt+0x24/0x88
+[    1.193105]  __handle_irq_event_percpu+0x66/0x1b0
+[    1.193239]  handle_irq_event+0x34/0x70
+[    1.193345]  handle_edge_irq+0x85/0x1e0
+[    1.193455]  __common_interrupt+0x38/0x90
+[    1.193573]  common_interrupt+0x73/0x90
+[    1.193809]  </IRQ>
+[    1.193889]  <TASK>
+[    1.193956]  asm_common_interrupt+0x1b/0x40
+[    1.194318] RIP: 0010:_raw_spin_unlock_irqrestore+0x1b/0x40
+[    1.194566] Code: 24 be 01 02 00 00 e9 54 20 bf ff 0f 1f 40 00 0f 1f
+44 00 00 f7 c6 00f
+[    1.195137] RSP: 0000:ffff888000243b68 EFLAGS: 00000246
+[    1.195314] RAX: 0000000000000000 RBX: ffffffff82025840 RCX:
+0000000000000000
+[    1.195482] RDX: 0000000000000001 RSI: 0000000000000000 RDI:
+0000000000000001
+[    1.195645] RBP: 0000000000000202 R08: ffffffffffffffff R09:
+0000000000000000
+[    1.195808] R10: 00000000000000eb R11: 0000000000000000 R12:
+0000000000000000
+[    1.195972] R13: 0000000000000040 R14: 0000000000000000 R15:
+ffff888000c39000
+[    1.196245]  ? _raw_spin_unlock_irqrestore+0x15/0x40
+[    1.196373]  serial8250_do_startup+0x42d/0x600
+[    1.196502]  uart_port_startup+0x11b/0x270
+[    1.196619]  uart_port_activate+0x3f/0x60
+[    1.196729]  tty_port_open+0x7e/0xd0
+[    1.196835]  ? _raw_spin_unlock+0x12/0x30
+[    1.196942]  uart_open+0x1a/0x30
+[    1.197036]  tty_open+0x153/0x7c0
+[    1.197144]  chrdev_open+0xbf/0x230
+[    1.197253]  ? cdev_device_add+0x90/0x90
+[    1.197359]  do_dentry_open+0x13c/0x360
+[    1.197470]  path_openat+0xb0c/0xe00
+[    1.197577]  ? update_load_avg+0x5f/0x640
+[    1.197691]  ? finish_task_switch.isra.0+0xac/0x240
+[    1.197821]  do_filp_open+0xb2/0x150
+[    1.197935]  ? preempt_schedule_thunk+0x16/0x18
+[    1.198049]  ? preempt_schedule_common+0x90/0xd0
+[    1.198167]  ? preempt_schedule_thunk+0x16/0x18
+[    1.198291]  file_open_name+0xf1/0x1b0
+[    1.198397]  filp_open+0x2c/0x50
+[    1.198495]  console_on_rootfs+0x19/0x52
+[    1.198648]  kernel_init_freeable+0x19a/0x1c7
+[    1.198765]  ? rest_init+0xc0/0xc0
+[    1.198867]  kernel_init+0x16/0x110
+[    1.198965]  ret_from_fork+0x1f/0x30
+[    1.199131]  </TASK>
 
 
 _______________________________________________
