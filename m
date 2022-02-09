@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05988C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Feb 2022 23:32:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9107C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Feb 2022 23:34:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WdIxI1nloBWvnD4CX6AIAbWeU+kUE8PQ4m03OaC4Prw=; b=Mu15hq0RLXg98W
-	IlgIUQrrRIe8yihYU7Osmlc7sJmC08Pq+6K01P94vXOd/iOH7DHx1Xn1CuHPyldCP8iLbhl/AVO8+
-	sulS033ey12grPSRR0c7ITQC8vvEfxtlDZV/4+iJ5rEzdxNSyu6GZGRR9qjqe28LtNtQye4Tdbpf+
-	U0qtx/HmxH8Dy+da6TVPtCIvjAV7xuYfGvfyxB4Wpk+4Dj/dLVzgYeTQpYf7KltzpKScbjiz+/LM4
-	ACpDdXljUWFwgKWtNHqa9bZ4XLEsmH2mJfhfuztzHLzINFqGTMSx/SO/OUVOeamq7eyXCOAC35bxO
-	CEGi36A+Su/DGpu2fKQQ==;
+	List-Owner; bh=cTLmVocr4am6pXZyuvPpYoPOnNMyI4dMgr9uT3HfGcA=; b=B421MoZ3L85wdV
+	0Fk1yCHTlLRKBKPv0l/g/YCo66wyMZGe91bFLUD4G8Z/9CzuB/1SKmFZsG5J5PK+Ocs+HYveq9QPr
+	5MDeayL5zsgl0aQjnZWhzOBFhwleJfjvKGuYmGB/MFTCYy6Y3FAHUsGDc0kg0/mUrS6w9kHmAXo+P
+	b3L1daCQeQgyYvhrU44CTy3gE1FIhpPkMHxoNunxPkVkaCKgxYP5xrJwKeE6QhPTbvZwq3/eBf4QG
+	4Nr0jkgl45ZRhnV+zjZYpV8y1J4RRbsGjwhk6tAAnNMSM6rY/JWgyhCrhoAYBCR+6+MdM3Mbnr6Wn
+	eXHygLr4LhwPmuLVqYeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nHwRg-0023KP-1P; Wed, 09 Feb 2022 23:32:20 +0000
+	id 1nHwTa-0023ZF-06; Wed, 09 Feb 2022 23:34:18 +0000
 Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nHwRd-0023JM-4X
- for linux-riscv@lists.infradead.org; Wed, 09 Feb 2022 23:32:18 +0000
+ id 1nHwTX-0023Yk-TA
+ for linux-riscv@lists.infradead.org; Wed, 09 Feb 2022 23:34:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1644449535; x=1675985535;
+ t=1644449654; x=1675985654;
  h=message-id:date:mime-version:subject:to:cc:references:
  from:in-reply-to:content-transfer-encoding;
- bh=SCi2xcOs63Mel3nuQiDXDDze0xfHJgyKIw0uLAqxVp4=;
- b=IhMMlSUJKNbEP28Zou/svX8YxPMKU5ck+i0JkqtUbc+Uye3B1+tX81sE
- frzIbHb0mARzmRgNuQMI6JoaGatgFzaPdG2GbhRnqqAYkE0PM7RdM6058
- OCxup5UJn6KBRw/SZQiOvbxUVvMAso0Goy4yy9nqgHsG9e3kEN08nZg7e
- XI+vyf1MA0wrQ+q6YfjGzqCZ2eJ2uR3V80u56MVPgUvLx7/TfsIOdz4Az
- OMAj8aBSt8FrMRK5mLRxafkFjAHWNrJtYum6n+jX+JJPRAARpUXSdtOJm
- PunvZodcVp8m9kFFiDKbS8namgTMsooLbx+cO9zp0kMFLYiF3cYdNH+T7 A==;
-X-IronPort-AV: E=Sophos;i="5.88,357,1635177600"; d="scan'208";a="192545047"
+ bh=wZrslbFYkv3CyGGamhytlpz6Yr8LDwi9Rm0AXijDQb4=;
+ b=Mx4lFpTA29pxQw9Pu2USfqbO84q3B5UDE9oqhazQujF1p8KMp5gmGWyo
+ uABoL3j/3iTorIJSqydk4yI/ivuQqTXCLz0Rp//idUG+zh5dcxgNHniCZ
+ zVRF9LLj4y8e62Jec8V4UKRZJNQe5bkIHgArJKHX4wfNz8tPl349obea3
+ pvt0NQ/mRl5k/dwzDzrNqTMBTsz5KTsE3kWqJU1AICJdm9ZvCVa9E/miY
+ QIesIN3GpA+99WBWSxWD6NMFrHpdkEzLhusmME79pBKC2cHHiaLM3uhql
+ MZMCN4WzWiaXRE/Ykn9JTMxDo/mYh3bFjR1sJBc94t/IJrDPtMvMH9PPU A==;
+X-IronPort-AV: E=Sophos;i="5.88,357,1635177600"; d="scan'208";a="192545148"
 Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 10 Feb 2022 07:32:13 +0800
-IronPort-SDR: Bw+roP+/EJpUc5HCd/ZAHBeGwKg+4m8oLdtrdAwB5vjEKsvfXXBLsalqlkPbeV8aJZba9yZADv
- nCscByFAHYRYMCWCGyGIDAy8n6zD/E9CcpoSVRtg5W6wy//bvSVfagEpTNhFYb9MNz6EyeAchS
- gOIylIMSAFrCcEQhgvt6YYqus8aSatJyIEDjTypF79uXegCihC9tBILpi3KUys+434r7u/ZpVY
- sh8eNqmRMrNHp7idcXyuNsh4ZihY2n/l6QlgARIVtA5EVrdwUUg5yCcqhZy6Xrg+egDd/1zdWV
- y9+2BU9AI5pDX96Kxmt5dI7h
+ by ob1.hgst.iphmx.com with ESMTP; 10 Feb 2022 07:34:14 +0800
+IronPort-SDR: FSKE/ZkrQjGBK8T/KrJSixNzHsTnY4TVmRvjevbzUQ5rOHTfu2RvkwKCukFYnDmTJJWSalUXuY
+ Dyubg4sf44ziq3hxg5rZON5lpuG5ctREAtNUgpw12oLcSEsv08bHbJbZcHA/edTt2yJcgWgHzc
+ aOVC67FSEuOo2irzFNLaFnEBNt0IjhJBdgHLyp5qCLq7hWuccGoGHTG9g4AZX0Pa67UbAmfiWU
+ AgLnH4RoVJkDEZEd04B2TZ0Qi3Wr78EMd+6cSTCUqyA8FM68NshIdmejgZy3RJ1Jv7Cqm6QH36
+ LYu3WDlQcGwBzxV/VhQ8cYWS
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 09 Feb 2022 15:04:02 -0800
-IronPort-SDR: XLSy/DJmCUXNclrlTtwdbSWev3q17Yjjyd/eoFKZPxwraFOn/iq10p+INS8yhay5IekeRxrVLq
- 5z6/1QDmdCyXfP7ZVY9hPvM1DKxrM2JFOUvVlZyl4bQyZmdkdeRxO9ag+NAgFLnmznsBHZSxGC
- ofTlvvfA11jIbw4nKSYWOKZOiOma1ZFEtIQjCJ0LZqFBbVFg4ndCsYKIq5GzK1c/t3It7rCmu9
- xOxD/wPy2a7qjE18xaJDaGs5g7SA2pA5Ml8r05zpqyH3g7lQ6N4Ui0AaaNczACbPRi0/zGtGts
- 2d4=
+ 09 Feb 2022 15:06:03 -0800
+IronPort-SDR: NcQLHuj5jjZzvdknVA9Pvh7f3vnpCxSFV5lxEZMe2scA28l3R/lv1zUlIvgJ7O2hF98K0jAoCi
+ sjrGOeHLiFdTLct8N2iX4D5NyVEDqjdAwEB5WHuaIpDof646jJreLt1ePvKxVvBIve/Ie5QTjp
+ ipUb1dekpvqA9Ss+ZKkuL1nZzHFFYbLZDQIvXb7EZI19dee+IG14Vrcxwhn1Z7la/IYuAUUiLE
+ 0nkmeFXxupUd/Lk17vZ8ydj7O72H+Szasj6JdJRPtqfb1hW9wv3ni1vdWz/INw3KH0lkdIg+zw
+ DQA=
 WDCIronportException: Internal
 Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
  by uls-op-cesaip01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 09 Feb 2022 15:32:15 -0800
+ 09 Feb 2022 15:34:16 -0800
 Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
- by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4JvGPV0jxyz1SVp3
- for <linux-riscv@lists.infradead.org>; Wed,  9 Feb 2022 15:32:14 -0800 (PST)
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4JvGRq1Csmz1SVp2
+ for <linux-riscv@lists.infradead.org>; Wed,  9 Feb 2022 15:34:15 -0800 (PST)
 Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
  reason="pass (just generated, assumed good)"
  header.d=opensource.wdc.com
@@ -68,42 +68,40 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
  opensource.wdc.com; h=content-transfer-encoding:content-type
  :in-reply-to:organization:from:references:to:content-language
  :subject:user-agent:mime-version:date:message-id; s=dkim; t=
- 1644449533; x=1647041534; bh=SCi2xcOs63Mel3nuQiDXDDze0xfHJgyKIw0
- uLAqxVp4=; b=ZRVIrmYj3XrTAJf0bnCsH4qtvNW0lUuFx/jJpWP8hLrqcOQmCjH
- CS3UrT8uPJ31QdHyUUwNLCHm7OOsAj1e34aBO71VmFXG2NcDvCBhyhFSyiG4fr/U
- L2FFphXB3QBK+lw2V84dy18E+QBE3SP2Yx2dO9XcD1KO4LztCZmKEEQItl6U8g/H
- WVkkyb/6lPH3M4mOB1fqrMeaKI5WtnpucaK4rARJudXqICvOtws0Z41hzi4zQHS8
- phkVH8bXie4WlQPTWBMTcJ31yPyIxksSNokHNWC98vJi1YLHjlRqrV8U1YvP+e9J
- btSV5NXYRLTD1QYQVM7bpYz1TYQkTYU6JGA==
+ 1644449654; x=1647041655; bh=wZrslbFYkv3CyGGamhytlpz6Yr8LDwi9Rm0
+ AXijDQb4=; b=rY4QPwrmYLoClTrUYzD8WuYDziIlCcL6Qzh5ga47J96D7bW4E/E
+ uHo++jFo6pqRH0sTzoWjUfUUk/ow5pJHZOyWwMVXULqMuxcfICk8Yo89YSe7D+iB
+ +ontFRWvUlgQq4THEU13EmoaCgwdmu1YHTMk1HyPnx/gKekkiBX9effBrmJ5YUCi
+ c5uvREH2oErUrFBawLLvCuKimGJC4FbWfO/ZR4PPw97caXSoPU7UpKLGv+HYcd3a
+ NJ1/hDNXM8+c5QlbbK/Es1DOzdVJi+hl5FLjwBxNZcpCEMynr/L/aecvCVN1+ICy
+ PIBYtp9ikIPo/w8nmKt1QNXdRAwxBRI2ZPg==
 X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
 Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
  by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new,
  port 10026)
- with ESMTP id AqSl9THOE86o for <linux-riscv@lists.infradead.org>;
- Wed,  9 Feb 2022 15:32:13 -0800 (PST)
+ with ESMTP id r9t9Gf9OQIUe for <linux-riscv@lists.infradead.org>;
+ Wed,  9 Feb 2022 15:34:14 -0800 (PST)
 Received: from [10.225.163.67] (unknown [10.225.163.67])
- by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4JvGPS2bf7z1Rwrw;
- Wed,  9 Feb 2022 15:32:12 -0800 (PST)
-Message-ID: <2b574c51-5039-5145-b1b2-a139c27daa96@opensource.wdc.com>
-Date: Thu, 10 Feb 2022 08:32:11 +0900
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4JvGRn5J7Bz1Rwrw;
+ Wed,  9 Feb 2022 15:34:13 -0800 (PST)
+Message-ID: <fb3e9786-87e9-6346-cf84-2617adfa5b8d@opensource.wdc.com>
+Date: Thu, 10 Feb 2022 08:34:12 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.5.0
-Subject: Re: [PATCH] pinctrl: fix loop in k210_pinconf_get_drive()
+Subject: Re: [PATCH] pinctrl: k210: Fix bias-pull-up
 Content-Language: en-US
-To: Dan Carpenter <dan.carpenter@oracle.com>,
- Damien Le Moal <damien.lemoal@wdc.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- Sean Anderson <seanga2@gmail.com>, Palmer Dabbelt
- <palmerdabbelt@google.com>, linux-riscv@lists.infradead.org,
- linux-gpio@vger.kernel.org, kernel-janitors@vger.kernel.org
-References: <20220209180804.GA18385@kili>
+To: Sean Anderson <seanga2@gmail.com>,
+ Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Dan Carpenter <dan.carpenter@oracle.com>
+References: <20220209182822.640905-1-seanga2@gmail.com>
 From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
 Organization: Western Digital Research
-In-Reply-To: <20220209180804.GA18385@kili>
+In-Reply-To: <20220209182822.640905-1-seanga2@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220209_153217_222898_6F8F446A 
-X-CRM114-Status: GOOD (  17.44  )
+X-CRM114-CacheID: sfid-20220209_153415_984635_24A377BC 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,29 +118,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/10/22 03:08, Dan Carpenter wrote:
-> The loop exited too early so the k210_pinconf_drive_strength[0] array
-> element was never used.
+On 2/10/22 03:28, Sean Anderson wrote:
+> Using bias-pull-up would actually cause the pin to have its pull-down
+> enabled. Fix this.
 > 
-> Fixes: d4c34d09ab03 ("pinctrl: Add RISC-V Canaan Kendryte K210 FPIOA driver")
-> Signed-off-by: Dan Carpenter <dan.carpenter@oracle.com>
+> Signed-off-by: Sean Anderson <seanga2@gmail.com>
 > ---
+> 
 >  drivers/pinctrl/pinctrl-k210.c | 2 +-
 >  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
 > diff --git a/drivers/pinctrl/pinctrl-k210.c b/drivers/pinctrl/pinctrl-k210.c
-> index 49e32684dbb2..e3d03f2de7ef 100644
+> index 49e32684dbb2..1ad61b32ec88 100644
 > --- a/drivers/pinctrl/pinctrl-k210.c
 > +++ b/drivers/pinctrl/pinctrl-k210.c
-> @@ -482,7 +482,7 @@ static int k210_pinconf_get_drive(unsigned int max_strength_ua)
->  {
->  	int i;
->  
-> -	for (i = K210_PC_DRIVE_MAX; i; i--) {
-> +	for (i = K210_PC_DRIVE_MAX; i >= 0; i--) {
->  		if (k210_pinconf_drive_strength[i] <= max_strength_ua)
->  			return i;
->  	}
+> @@ -527,7 +527,7 @@ static int k210_pinconf_set_param(struct pinctrl_dev *pctldev,
+>  	case PIN_CONFIG_BIAS_PULL_UP:
+>  		if (!arg)
+>  			return -EINVAL;
+> -		val |= K210_PC_PD;
+> +		val |= K210_PC_PU;
+>  		break;
+>  	case PIN_CONFIG_DRIVE_STRENGTH:
+>  		arg *= 1000;
+
+Ooops... My bad :)
 
 Reviewed-by: Damien Le Moal <damien.lemoal@opensource.wdc.com>
 
