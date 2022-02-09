@@ -4,53 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74F7BC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Feb 2022 08:56:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31650C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Feb 2022 12:38:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=q8EQ0T9WDZpo9KWkAyKKEvpzY5SGY/DLoE/BfNi6oq0=; b=FDhfDLmAP7MYwm
-	N/6IBJGf4ulvtPj8a/F6CAtRtC8O+PaxPJm2J1ICwVygGTdeGyVCcL+5JaV9H45Fmqq0dFEbSthi9
-	MSi7Or0ec8268AK9hJ6pBWEKLgzO1RDKW43TecSu9Tn16WNwhWr1AFZU12tj6mYqkPKf4lmzDzL0q
-	NnuUAQ96YnPptCg4IfSwBMPpt4PpqmcqJt5I7zb9bskPGjp10YxY9deI1t97KGoVffei1TWXbffuW
-	GL+Lomh2/Xzk9TvT5W8cDi/iHyWKwBhE1PCeAmD79Kp4qQH6Tdg48JolH4s0l2f6ZU/Ke/9LZC7wU
-	fp5Q1eo4tm+ZKpqXL0lw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1GCuLx6bm9YQwrXU3Z7buXojj2IjXxqA4o3frDCyDgw=; b=WEIYkAwKfg+WXd
+	G8lUo/y6sidOBDtHM5XXXbWcy9tQC9hdNsSkIIBfBLa2kuCgiNYq/1LpgNWdDU0DtzCPFNtPeKXhh
+	ODlXMpCLJAABMLblHAcTvWtXRJR9YvDx2FLO8I8xkjrPdYjiCJ6Q7468UvSCwHVgfIl4X8nSDVjyN
+	gmIk9XSIRC+ITpoLe4stmEbgZ5S+DmU6zZMlolgFfEs/W+wEi9h220+kUbtnglwYud+I+dKAckE1z
+	T9EHjsoprDzOVXZ5aI2JjGKzRI572Udp68I27nWd1leX78ovmAC7FFj0FPT3XfP3qZBqAGuyRpz5r
+	jEkmYATBjlOt65zfGl+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nHilU-00Gkyf-SI; Wed, 09 Feb 2022 08:55:52 +0000
-Received: from baptiste.telenet-ops.be ([2a02:1800:120:4::f00:13])
+	id 1nHmEv-0002AT-Uk; Wed, 09 Feb 2022 12:38:29 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nHiju-00Gk7j-T7
- for linux-riscv@lists.infradead.org; Wed, 09 Feb 2022 08:54:16 +0000
-Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed40:54c7:c522:3859:290])
- by baptiste.telenet-ops.be with bizsmtp
- id swu4260014VQqf501wu4K1; Wed, 09 Feb 2022 09:54:05 +0100
-Received: from rox.of.borg ([192.168.97.57])
- by ramsan.of.borg with esmtps (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
- (envelope-from <geert@linux-m68k.org>)
- id 1nHijj-000DIg-CE; Wed, 09 Feb 2022 09:54:03 +0100
-Received: from geert by rox.of.borg with local (Exim 4.93)
- (envelope-from <geert@linux-m68k.org>)
- id 1nHiji-00DkLg-LU; Wed, 09 Feb 2022 09:54:02 +0100
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Atish Patra <atishp@rivosinc.com>, Jessica Clarke <jrtc27@jrtc27.com>,
- Anup Patel <anup@brainfault.org>, Emil Renner Berthing <kernel@esmil.dk>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Geert Uytterhoeven <geert@linux-m68k.org>
-Subject: [PATCH v2 0/3] RISC-V: Fix cpumask rework fall-out
-Date: Wed,  9 Feb 2022 09:53:58 +0100
-Message-Id: <cover.1644396407.git.geert@linux-m68k.org>
-X-Mailer: git-send-email 2.25.1
+ id 1nHmEt-00027r-0n
+ for linux-riscv@lists.infradead.org; Wed, 09 Feb 2022 12:38:28 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
+ helo=phil.lan)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1nHmEn-0001Mv-9Y; Wed, 09 Feb 2022 13:38:21 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	aou@eecs.berkeley.edu
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, robh+dt@kernel.org, wefu@redhat.com,
+ liush@allwinnertech.com, guoren@kernel.org, atishp@atishpatra.org,
+ anup@brainfault.org, drew@beagleboard.org, hch@lst.de, arnd@arndb.de,
+ wens@csie.org, maxime@cerno.tech, gfavor@ventanamicro.com,
+ andrea.mondelli@huawei.com, behrensj@mit.edu, xinhaoqu@huawei.com,
+ huffman@cadence.com, mick@ics.forth.gr, allen.baum@esperantotech.com,
+ jscheid@ventanamicro.com, rtrauben@gmail.com, samuel@sholland.org,
+ cmuellner@linux.com, philipp.tomsich@vrull.eu,
+ Heiko Stuebner <heiko@sntech.de>
+Subject: [PATCH v6 05/14] riscv: implement ALTERNATIVE_2 macro
+Date: Wed,  9 Feb 2022 13:37:51 +0100
+Message-Id: <20220209123800.269774-6-heiko@sntech.de>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20220209123800.269774-1-heiko@sntech.de>
+References: <20220209123800.269774-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220209_005415_140543_5189789F 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20220209_043827_120615_6C18B7C3 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,45 +70,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-	Hi all,
+When the alternatives were added the commit already provided a template
+on how to implement 2 different alternatives for one piece of code.
 
-This patch series fixes the fall-out from commit 26fb751ca37846c9
-("RISC-V: Do not use cpumask data structure for hartid bitmap"), cfr.
-the discussion in thread[1].  Most important, it fixes userspace crashes
-on systems where the first CPU does not have the lowest Hart ID.
+Make this usable.
 
-Changes compared to v1[2]:
-  - Add Reviewed-by, Tested-by.
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/riscv/include/asm/alternative-macros.h | 52 +++++++++++++--------
+ 1 file changed, 32 insertions(+), 20 deletions(-)
 
-Thanks for applying!
-
-[1] "[PATCH v3 6/6] RISC-V: Do not use cpumask data structure for hartid
-     bitmap"
-    https://lore.kernel.org/r/20220120090918.2646626-7-atishp@rivosinc.com/
-[2] "[PATCH 0/3] RISC-V: Fix cpumask rework falloout"
-    https://lore.kernel.org/all/cover.1643635156.git.geert@linux-m68k.org/
-
-Geert Uytterhoeven (3):
-  RISC-V: Fix hartid mask handling for hartid 31 and up
-  RISC-V: Fix handling of empty cpu masks
-  RISC-V: Fix IPI/RFENCE hmask on non-monotonic hartid ordering
-
- arch/riscv/kernel/sbi.c | 72 +++++++++++++++++++++++++++--------------
- 1 file changed, 47 insertions(+), 25 deletions(-)
-
+diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
+index 92da6b3920a3..baf649293288 100644
+--- a/arch/riscv/include/asm/alternative-macros.h
++++ b/arch/riscv/include/asm/alternative-macros.h
+@@ -37,6 +37,20 @@
+ #define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k) \
+ 	__ALTERNATIVE_CFG old_c, new_c, vendor_id, errata_id, IS_ENABLED(CONFIG_k)
+ 
++.macro __ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, enable_1, \
++				  new_c_2, vendor_id_2, errata_id_2, enable_2
++886 :
++	\old_c
++887 :
++	ALT_NEW_CONTENT \vendor_id_1, \errata_id_1, \enable_1, \new_c_1
++	ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
++.endm
++
++#define _ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1, CONFIG_k_1, \
++				  new_c_2, vendor_id_2, errata_id_2, CONFIG_k_2) \
++	__ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, IS_ENABLED(CONFIG_k_1), \
++				   new_c_2, vendor_id_2, errata_id_2, IS_ENABLED(CONFIG_k_2)
++
+ #else /* !__ASSEMBLY__ */
+ 
+ #include <asm/asm.h>
+@@ -72,6 +86,19 @@
+ #define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k)	\
+ 	__ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, IS_ENABLED(CONFIG_k))
+ 
++#define __ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1, enable_1, \
++				  new_c_2, vendor_id_2, errata_id_2, enable_2) \
++	"886 :\n"	\
++	old_c "\n"	\
++	"887 :\n"	\
++	ALT_NEW_CONTENT(vendor_id_1, errata_id_1, enable_1, new_c_1) \
++	ALT_NEW_CONTENT(vendor_id_2, errata_id_2, enable_2, new_c_2)
++
++#define _ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1, CONFIG_k_1,		\
++				  new_c_2, vendor_id_2, errata_id_2, CONFIG_k_2)		\
++	__ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1, IS_ENABLED(CONFIG_k_1),	\
++				   new_c_2, vendor_id_2, errata_id_2, IS_ENABLED(CONFIG_k_2))
++
+ #endif /* __ASSEMBLY__ */
+ 
+ /*
+@@ -96,25 +123,10 @@
+  * this case, this vendor can create a new macro ALTERNATIVE_2() based
+  * on the following sample code and then replace ALTERNATIVE() with
+  * ALTERNATIVE_2() to append its customized content.
+- *
+- * .macro __ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, enable_1, \
+- *                                   new_c_2, vendor_id_2, errata_id_2, enable_2
+- * 886 :
+- *      \old_c
+- * 887 :
+- *      ALT_NEW_CONTENT \vendor_id_1, \errata_id_1, \enable_1, \new_c_1
+- *      ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
+- * .endm
+- *
+- * #define _ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1, CONFIG_k_1, \
+- *                                   new_c_2, vendor_id_2, errata_id_2, CONFIG_k_2) \
+- *        __ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, IS_ENABLED(CONFIG_k_1), \
+- *                                   new_c_2, vendor_id_2, errata_id_2, IS_ENABLED(CONFIG_k_2) \
+- *
+- * #define ALTERNATIVE_2(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1, \
+- *                                    new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2) \
+- *         _ALTERNATIVE_CFG_2(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1, \
+- *                                         new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2)
+- *
+  */
++#define ALTERNATIVE_2(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1, \
++				   new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2) \
++	_ALTERNATIVE_CFG_2(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1, \
++					new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2)
++
+ #endif
 -- 
-2.25.1
+2.30.2
 
-Gr{oetje,eeting}s,
-
-						Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-							    -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
