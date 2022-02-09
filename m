@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB4B8C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Feb 2022 04:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F957C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Feb 2022 04:05:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=28F6M92IEUVcVuHc14FqTJWqtjAnxsGIwkRGto31cgk=; b=s4TBQhEvAjiveE
-	VWRgJxgDv7yr02tRokkEz3JMia5mgNmhUJVKfEljm5fC3KHo+7dL7j6Tjmc+hq2TsS7awTdIXD+3y
-	6P1w+je1HzU8e/iHlolDreJ03JPO1Nu8hOU6t9AY3jYmAiVtzj44u5bF8sgcw4gCWxJEfP0XE6Nbw
-	DbP9oNZGziMjvBDXvIqXOsffV0sbyEftSEHgoMK46/ddp3szobH9eG5Z3E5yADVR5oLVUvmXaciE9
-	K7D80X6f2ZU5yiDiSsuBvxF83UzGIDEnzCqVhifqCtEGvRcuw3xETZA67hDVAXgwAlyNKrZVTCKVe
-	OZebdB8shoOtmdutFMsQ==;
+	List-Owner; bh=NguZWrLmTRH1gSawD/RrwNaNYkmRDWiQhTiObjPhKQ0=; b=DOSKr/dTOgCujI
+	vSB+naaxKCA3GYfZI/jFx9q1iyLnnd0kxFGZ9CMdbr3DRNaM9l9LqVDF6YjDTLdUiJM49NefEPjzt
+	jNLHzup54fu+3q38wBkIg3/CR+Cb6iMavJ4nEROkG/heC3wbvorDr0TO/pInkrRnD+uixtmiDo6Sw
+	h5G4DI2zYhKA2vQLFjzB3i6iknr37HBQl/hyYLkk194ALiUBQh5B6AFW6IagBYqlxJ/3Q7O576j8a
+	bDEEuZu83GM1cZeT/kBh5zxQSgCr9Ll/hiPslj0OSouPtuml4TdVjjQqN0l1cm6zKSoWWVUUG1/mA
+	rjrzO8roj+DXR1EYUHRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nHeCM-00GB8Q-IS; Wed, 09 Feb 2022 04:03:18 +0000
-Received: from mail-oi1-f174.google.com ([209.85.167.174])
+	id 1nHeER-00GBLQ-E9; Wed, 09 Feb 2022 04:05:27 +0000
+Received: from mail-ot1-f44.google.com ([209.85.210.44])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nHeCJ-00GB7q-EA
- for linux-riscv@lists.infradead.org; Wed, 09 Feb 2022 04:03:16 +0000
-Received: by mail-oi1-f174.google.com with SMTP id x193so1352871oix.0
- for <linux-riscv@lists.infradead.org>; Tue, 08 Feb 2022 20:03:14 -0800 (PST)
+ id 1nHeEO-00GBL9-RU
+ for linux-riscv@lists.infradead.org; Wed, 09 Feb 2022 04:05:26 +0000
+Received: by mail-ot1-f44.google.com with SMTP id
+ g15-20020a9d6b0f000000b005a062b0dc12so715609otp.4
+ for <linux-riscv@lists.infradead.org>; Tue, 08 Feb 2022 20:05:24 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to;
- bh=CmY7PgTIB+xl2LL7tzgCE9G7RhMcwApZzrQupeWWqm8=;
- b=4cZzmEUvrshA8Jv/tQlbSp3qfYi7Y+teRgW4ZRpcyafTn+/uoy7qL+pVSPR7c8ZeIl
- D0VUMg4ks9NduKU8i9AFibU+sN5zy0R9aiM5nGRnfErb7hfU65/1vR4vapVy1WmljzRy
- 4NWzivqXnwLy8VlFYYSYTcOSXvzwGVzC794xJykIe/IuJn5HJff5in8eO9GBQPzWWtsY
- XGpDFniVL/xBk+r6e2+oD+ZX9ezgd7+tCGGLkvwhWuYVtWpGSmdbHfH8Xx4hvvJLZJZE
- 3y6chgVeobwIenPHwTo5qKqiOjBJSRtfWN9k3eVW1tsMnN+3F5rH0YcI97Mwlfx5wWxF
- 4mbg==
-X-Gm-Message-State: AOAM532Ka/GMwTUMBhy/c7zv6JmTLT4e6m+jYJkeeaGtXGR7D83l2gwn
- bMp3/yHI5hZlgUud3du7LQ==
-X-Google-Smtp-Source: ABdhPJx9qakOYsm8R9weCyJ5x50P3WxmBB4MhXyP6Tg54v2pjw/BqbvG0kz8V3sAEgcHwwz5Clokqg==
-X-Received: by 2002:a54:4812:: with SMTP id j18mr514855oij.277.1644379394062; 
- Tue, 08 Feb 2022 20:03:14 -0800 (PST)
+ bh=2qiG7G2GNRQ6LqjEvueRABe8KlaGUPbqxlWckqcNpAQ=;
+ b=1pBKqhqA1KsPa+JTsmclNQBxRxL4kWw5FZLTHOOWGB70C3Lx6KI5oTDcw+pRVn++ak
+ ZN2aSpT7KA+DFd8xoO9Gs2nFO47tdHFkKffDhzrmHcqvnxNLFqJJFRgp5kCKjNLIePoK
+ gDalM4grGnTc0ob2GDQjKa7zClVcPhvbacfMvMJVJoq9VvwCnNtRtZ5bzPXD0iSijLP7
+ MNGqB+fiRQgUSLmT/9xpxDty8179nq9JjR8zoAwr+j9p+0bBhuN3CZpHQOQimGYep5+Q
+ vFNo/dBy1Y5kmGUKm9HVnS5pLyhLC1jJOM9jZMizkPluxneBOFjMXwa4j44acS2KyZXt
+ W5QQ==
+X-Gm-Message-State: AOAM532hYABNkBS6xwCrrD0ybnnQ6e0iNAEWV2EgBLI1r+gnYmmA+/Vt
+ x/syTkE8vHJSBmRBcKs2GA==
+X-Google-Smtp-Source: ABdhPJynH5fEDWLtkyVZ8PCGjm16IhKQQhYktEgLlsd+uWoGQKCSWN+0Xt8uX2xw3Pvao+5XKQLBZg==
+X-Received: by 2002:a9d:6041:: with SMTP id v1mr216308otj.35.1644379523866;
+ Tue, 08 Feb 2022 20:05:23 -0800 (PST)
 Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
  [66.90.148.213])
- by smtp.gmail.com with ESMTPSA id 12sm2580297oam.5.2022.02.08.20.03.13
+ by smtp.gmail.com with ESMTPSA id 128sm5696608oor.15.2022.02.08.20.05.22
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 08 Feb 2022 20:03:13 -0800 (PST)
-Received: (nullmailer pid 3630578 invoked by uid 1000);
- Wed, 09 Feb 2022 04:03:12 -0000
-Date: Tue, 8 Feb 2022 22:03:12 -0600
+ Tue, 08 Feb 2022 20:05:22 -0800 (PST)
+Received: (nullmailer pid 3633432 invoked by uid 1000);
+ Wed, 09 Feb 2022 04:05:21 -0000
+Date: Tue, 8 Feb 2022 22:05:21 -0600
 From: Rob Herring <robh@kernel.org>
 To: Icenowy Zheng <icenowy@nucleisys.com>
-Cc: Rob Herring <robh+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-serial@vger.kernel.org, linux-spi@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>
-Subject: Re: [PATCH 01/12] dt-bindings: vendor-prefixes: add Nuclei
-Message-ID: <YgM9AMFhzsvhd85O@robh.at.kernel.org>
+Cc: linux-serial@vger.kernel.org, linux-spi@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Albert Ou <aou@eecs.berkeley.edu>,
+ Paul Walmsley <paul.walmsley@sifive.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ Rob Herring <robh+dt@kernel.org>
+Subject: Re: [PATCH 03/12] dt-bindings: riscv: add compatible strings for
+ Nuclei UX600 series
+Message-ID: <YgM9gZ0e/yoiHys9@robh.at.kernel.org>
 References: <20220127151647.2375449-1-icenowy@nucleisys.com>
- <20220127151647.2375449-2-icenowy@nucleisys.com>
+ <20220127151647.2375449-4-icenowy@nucleisys.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220127151647.2375449-2-icenowy@nucleisys.com>
+In-Reply-To: <20220127151647.2375449-4-icenowy@nucleisys.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220208_200315_494044_4E36C4B1 
-X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-CacheID: sfid-20220208_200524_933642_8E5D6EC5 
+X-CRM114-Status: UNSURE (   9.48  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,15 +87,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Jan 2022 23:16:36 +0800, Icenowy Zheng wrote:
-> Nuclei System Technology is a RISC-V CPU IP core vendor.
+On Thu, 27 Jan 2022 23:16:38 +0800, Icenowy Zheng wrote:
+> Nuclei UX600 series are 64-bit, MMU-equipped CPUs, which can run Linux.
 > 
-> Add vendor prefix for it.
+> Add compatible strings for these CPU cores.
 > 
 > Signed-off-by: Icenowy Zheng <icenowy@nucleisys.com>
 > ---
->  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
->  1 file changed, 2 insertions(+)
+>  Documentation/devicetree/bindings/riscv/cpus.yaml | 7 +++++++
+>  1 file changed, 7 insertions(+)
 > 
 
 Acked-by: Rob Herring <robh@kernel.org>
