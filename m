@@ -4,110 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C851CC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Feb 2022 19:53:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05988C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Feb 2022 23:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jcQi7xtJkKwzqA2wZHZLfEbxA8GYWZ1OjWZSKpVqf0s=; b=QnhdGZVJtPwIvb
-	FfjlvzQPtshD4AAz+nqWPyNXe28zfz7MQnpnrOev2cccsOyOpEKWH69QJsfNyEQUyIKFJ3wLfV/Ww
-	e7fblS4OmAPWpOHWSg8rmTucX2IG0kswhhFQtI+DGu0/aRXIkT07aK90l1uKDgpIH1gxx3s6vNICt
-	u148EoAEeZJxDxHq0bUJANigG1V+h4SdeZgYT0OdO/1At38BT/i4RPPLxCI8abnCR9U76w8HtzlKW
-	gxyzuL6EZrayMrkVDgmszNF1Vf0JRl2oUp4T+EnAHKQaC3gD0BEPcmVzB1aK2LFuApXqkAUb4sJZz
-	5YoHBxH8nM2XHX4Q0dsg==;
+	List-Owner; bh=WdIxI1nloBWvnD4CX6AIAbWeU+kUE8PQ4m03OaC4Prw=; b=Mu15hq0RLXg98W
+	IlgIUQrrRIe8yihYU7Osmlc7sJmC08Pq+6K01P94vXOd/iOH7DHx1Xn1CuHPyldCP8iLbhl/AVO8+
+	sulS033ey12grPSRR0c7ITQC8vvEfxtlDZV/4+iJ5rEzdxNSyu6GZGRR9qjqe28LtNtQye4Tdbpf+
+	U0qtx/HmxH8Dy+da6TVPtCIvjAV7xuYfGvfyxB4Wpk+4Dj/dLVzgYeTQpYf7KltzpKScbjiz+/LM4
+	ACpDdXljUWFwgKWtNHqa9bZ4XLEsmH2mJfhfuztzHLzINFqGTMSx/SO/OUVOeamq7eyXCOAC35bxO
+	CEGi36A+Su/DGpu2fKQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nHt1H-001QWA-Fy; Wed, 09 Feb 2022 19:52:51 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1nHwRg-0023KP-1P; Wed, 09 Feb 2022 23:32:20 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nHt1F-001QV5-00
- for linux-riscv@lists.infradead.org; Wed, 09 Feb 2022 19:52:50 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d187so6091582pfa.10
- for <linux-riscv@lists.infradead.org>; Wed, 09 Feb 2022 11:52:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=nFEbKA8UOj2F0aYmafhYdx9MoDnLhZL6FzGdA3foG6Y=;
- b=kMS+/VC4xCdhdLklBPMZrl1DDgsPdemkNlQ+9xJdsF7MXhYOau3XWTVe4FOrwEqNCE
- AtJl33LpEFo6tfuoyyjy0zXo24YUgl2rkRpZDMF8C8XU1aeb1hng1SUX4zjzRKukMAQ9
- 27hgmz8ku+LmTHBmD6JLUcxGm2ViDLqKuaJNEonZsgpd0HlXbksTP9GkQqwkK3nofxzk
- 9N3WOhuOj7Zmr/5Cp7EeaMz/pprsSKTROefT+5wZO27PB8CVnklUVAkPBIVMBiLCrHCw
- jl9lkCtgzT6We8ITi8RRxUdBU2p3bPtKzg04MIXkdCVNZOh+d/Fln2r4rSPfvBbdqxfm
- cNnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=nFEbKA8UOj2F0aYmafhYdx9MoDnLhZL6FzGdA3foG6Y=;
- b=X11n3jTkp7uCIXlDM9JRzI2lctiYe0AUC0g2Vi45aK12+xLx1DFsLeNIjQPZVLhOLG
- DpuOgOA9peqjzD4zp/U2dYtznYv6Wd5LTCg5oNgqjY45FFlozv/5QQFzR3/Z6gx8NZZ5
- O5/y6YPQJ2VW+quYdBrJ1ZzodmBMdmYDZgtM+SsSTB4RcJGRnucSPmDFiS6Iz/N5Sie8
- 6u1XGT+51VpUwWGbXZhoK3H7b/5+qtCApCd7GdNfMumY72Aszb2tcxnhHMuO1IR5OghA
- ovqxkADK69C5H/sNssqjlBQ9gzryPsgZE2cLmUJJ4JS0qbbebZTj28I4kzbVNMn9cz8s
- Ncyg==
-X-Gm-Message-State: AOAM5311lh7J6rJYb1xWuKPiyP5o5oJrEACNqagEbt6DV1OZmjFJDgEJ
- R+/gEVdzgegsX7DVRQjogir4aA==
-X-Google-Smtp-Source: ABdhPJxEijFR2ADtO2dJpv7+eOnsj3GAeQVvJQZsu/Pn1kY2yGlTgcOn0LgYSwuqCOLhd8P+Pi4JPg==
-X-Received: by 2002:a05:6a00:23d0:: with SMTP id
- g16mr3889078pfc.19.1644436367723; 
- Wed, 09 Feb 2022 11:52:47 -0800 (PST)
-Received: from google.com (157.214.185.35.bc.googleusercontent.com.
- [35.185.214.157])
- by smtp.gmail.com with ESMTPSA id pi9sm7744343pjb.46.2022.02.09.11.52.46
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 09 Feb 2022 11:52:47 -0800 (PST)
-Date: Wed, 9 Feb 2022 19:52:43 +0000
-From: Sean Christopherson <seanjc@google.com>
-To: Chao Gao <chao.gao@intel.com>
-Cc: kvm@vger.kernel.org, pbonzini@redhat.com, kevin.tian@intel.com,
- tglx@linutronix.de, Marc Zyngier <maz@kernel.org>,
- James Morse <james.morse@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
- Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Anup Patel <anup@brainfault.org>,
- Atish Patra <atishp@atishpatra.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>,
- David Hildenbrand <david@redhat.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
- Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>,
- "Maciej S. Szmigiero" <maciej.szmigiero@oracle.com>,
- Ravi Bangoria <ravi.bangoria@linux.ibm.com>,
- Juergen Gross <jgross@suse.com>, Fabiano Rosas <farosas@linux.ibm.com>,
- Bharata B Rao <bharata@linux.ibm.com>,
- Nick Desaulniers <ndesaulniers@google.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
- linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
-Subject: Re: [PATCH v3 2/5] Partially revert "KVM: Pass kvm_init()'s opaque
- param to additional arch funcs"
-Message-ID: <YgQbi1VcxA5OTo77@google.com>
-References: <20220209074109.453116-1-chao.gao@intel.com>
- <20220209074109.453116-3-chao.gao@intel.com>
+ id 1nHwRd-0023JM-4X
+ for linux-riscv@lists.infradead.org; Wed, 09 Feb 2022 23:32:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1644449535; x=1675985535;
+ h=message-id:date:mime-version:subject:to:cc:references:
+ from:in-reply-to:content-transfer-encoding;
+ bh=SCi2xcOs63Mel3nuQiDXDDze0xfHJgyKIw0uLAqxVp4=;
+ b=IhMMlSUJKNbEP28Zou/svX8YxPMKU5ck+i0JkqtUbc+Uye3B1+tX81sE
+ frzIbHb0mARzmRgNuQMI6JoaGatgFzaPdG2GbhRnqqAYkE0PM7RdM6058
+ OCxup5UJn6KBRw/SZQiOvbxUVvMAso0Goy4yy9nqgHsG9e3kEN08nZg7e
+ XI+vyf1MA0wrQ+q6YfjGzqCZ2eJ2uR3V80u56MVPgUvLx7/TfsIOdz4Az
+ OMAj8aBSt8FrMRK5mLRxafkFjAHWNrJtYum6n+jX+JJPRAARpUXSdtOJm
+ PunvZodcVp8m9kFFiDKbS8namgTMsooLbx+cO9zp0kMFLYiF3cYdNH+T7 A==;
+X-IronPort-AV: E=Sophos;i="5.88,357,1635177600"; d="scan'208";a="192545047"
+Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 10 Feb 2022 07:32:13 +0800
+IronPort-SDR: Bw+roP+/EJpUc5HCd/ZAHBeGwKg+4m8oLdtrdAwB5vjEKsvfXXBLsalqlkPbeV8aJZba9yZADv
+ nCscByFAHYRYMCWCGyGIDAy8n6zD/E9CcpoSVRtg5W6wy//bvSVfagEpTNhFYb9MNz6EyeAchS
+ gOIylIMSAFrCcEQhgvt6YYqus8aSatJyIEDjTypF79uXegCihC9tBILpi3KUys+434r7u/ZpVY
+ sh8eNqmRMrNHp7idcXyuNsh4ZihY2n/l6QlgARIVtA5EVrdwUUg5yCcqhZy6Xrg+egDd/1zdWV
+ y9+2BU9AI5pDX96Kxmt5dI7h
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+ by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 09 Feb 2022 15:04:02 -0800
+IronPort-SDR: XLSy/DJmCUXNclrlTtwdbSWev3q17Yjjyd/eoFKZPxwraFOn/iq10p+INS8yhay5IekeRxrVLq
+ 5z6/1QDmdCyXfP7ZVY9hPvM1DKxrM2JFOUvVlZyl4bQyZmdkdeRxO9ag+NAgFLnmznsBHZSxGC
+ ofTlvvfA11jIbw4nKSYWOKZOiOma1ZFEtIQjCJ0LZqFBbVFg4ndCsYKIq5GzK1c/t3It7rCmu9
+ xOxD/wPy2a7qjE18xaJDaGs5g7SA2pA5Ml8r05zpqyH3g7lQ6N4Ui0AaaNczACbPRi0/zGtGts
+ 2d4=
+WDCIronportException: Internal
+Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
+ by uls-op-cesaip01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 09 Feb 2022 15:32:15 -0800
+Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4JvGPV0jxyz1SVp3
+ for <linux-riscv@lists.infradead.org>; Wed,  9 Feb 2022 15:32:14 -0800 (PST)
+Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
+ reason="pass (just generated, assumed good)"
+ header.d=opensource.wdc.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
+ opensource.wdc.com; h=content-transfer-encoding:content-type
+ :in-reply-to:organization:from:references:to:content-language
+ :subject:user-agent:mime-version:date:message-id; s=dkim; t=
+ 1644449533; x=1647041534; bh=SCi2xcOs63Mel3nuQiDXDDze0xfHJgyKIw0
+ uLAqxVp4=; b=ZRVIrmYj3XrTAJf0bnCsH4qtvNW0lUuFx/jJpWP8hLrqcOQmCjH
+ CS3UrT8uPJ31QdHyUUwNLCHm7OOsAj1e34aBO71VmFXG2NcDvCBhyhFSyiG4fr/U
+ L2FFphXB3QBK+lw2V84dy18E+QBE3SP2Yx2dO9XcD1KO4LztCZmKEEQItl6U8g/H
+ WVkkyb/6lPH3M4mOB1fqrMeaKI5WtnpucaK4rARJudXqICvOtws0Z41hzi4zQHS8
+ phkVH8bXie4WlQPTWBMTcJ31yPyIxksSNokHNWC98vJi1YLHjlRqrV8U1YvP+e9J
+ btSV5NXYRLTD1QYQVM7bpYz1TYQkTYU6JGA==
+X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
+Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
+ by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new,
+ port 10026)
+ with ESMTP id AqSl9THOE86o for <linux-riscv@lists.infradead.org>;
+ Wed,  9 Feb 2022 15:32:13 -0800 (PST)
+Received: from [10.225.163.67] (unknown [10.225.163.67])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4JvGPS2bf7z1Rwrw;
+ Wed,  9 Feb 2022 15:32:12 -0800 (PST)
+Message-ID: <2b574c51-5039-5145-b1b2-a139c27daa96@opensource.wdc.com>
+Date: Thu, 10 Feb 2022 08:32:11 +0900
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220209074109.453116-3-chao.gao@intel.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.5.0
+Subject: Re: [PATCH] pinctrl: fix loop in k210_pinconf_get_drive()
+Content-Language: en-US
+To: Dan Carpenter <dan.carpenter@oracle.com>,
+ Damien Le Moal <damien.lemoal@wdc.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+ Sean Anderson <seanga2@gmail.com>, Palmer Dabbelt
+ <palmerdabbelt@google.com>, linux-riscv@lists.infradead.org,
+ linux-gpio@vger.kernel.org, kernel-janitors@vger.kernel.org
+References: <20220209180804.GA18385@kili>
+From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+Organization: Western Digital Research
+In-Reply-To: <20220209180804.GA18385@kili>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220209_115249_084491_3EB7A991 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20220209_153217_222898_6F8F446A 
+X-CRM114-Status: GOOD (  17.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,20 +120,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 09, 2022, Chao Gao wrote:
-> This partially reverts commit b99040853738 ("KVM: Pass kvm_init()'s opaque
-> param to additional arch funcs") remove opaque from
-> kvm_arch_check_processor_compat because no one uses this opaque now.
-> Address conflicts for ARM (due to file movement) and manually handle RISC-V
-> which comes after the commit.
+On 2/10/22 03:08, Dan Carpenter wrote:
+> The loop exited too early so the k210_pinconf_drive_strength[0] array
+> element was never used.
 > 
-> And changes about kvm_arch_hardware_setup() in original commit are still
-> needed so they are not reverted.
-> 
-> Signed-off-by: Chao Gao <chao.gao@intel.com>
+> Fixes: d4c34d09ab03 ("pinctrl: Add RISC-V Canaan Kendryte K210 FPIOA driver")
+> Signed-off-by: Dan Carpenter <dan.carpenter@oracle.com>
 > ---
+>  drivers/pinctrl/pinctrl-k210.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pinctrl/pinctrl-k210.c b/drivers/pinctrl/pinctrl-k210.c
+> index 49e32684dbb2..e3d03f2de7ef 100644
+> --- a/drivers/pinctrl/pinctrl-k210.c
+> +++ b/drivers/pinctrl/pinctrl-k210.c
+> @@ -482,7 +482,7 @@ static int k210_pinconf_get_drive(unsigned int max_strength_ua)
+>  {
+>  	int i;
+>  
+> -	for (i = K210_PC_DRIVE_MAX; i; i--) {
+> +	for (i = K210_PC_DRIVE_MAX; i >= 0; i--) {
+>  		if (k210_pinconf_drive_strength[i] <= max_strength_ua)
+>  			return i;
+>  	}
 
-Reviewed-by: Sean Christopherson <seanjc@google.com>
+Reviewed-by: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+
+-- 
+Damien Le Moal
+Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
