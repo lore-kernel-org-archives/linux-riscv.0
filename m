@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36E92C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Feb 2022 05:15:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD08C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Feb 2022 05:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xTCqz8+266Bby/ccOlEF3l3x0oattTIA0fxXJaLDekU=; b=bslG3MK0fKzF2A
-	mrZJO8Z4csvZV7kBZLk4wlF9LKm1W66YTbagUaaqG39UExsXMjEd0ngRZisnc1PM9K2o9UubyBqp6
-	k3xlX+KGDs7pWnJAAzXpjTZeQByw3qD4PZQbo5fTjkGiSYqnNZZAu0Eex6vWVez+zeCUsS9Dgm8R0
-	CoheNcIu5QOOGjzcJFGXxjK5LHRJue64RT/pq8wZZQRkD1NzwDJIR9WgaGTNx60t4pvsherR3FP9E
-	Sbfes6xbaNgn5pYVbnwTaODhdLvJ7rhKD/EiunICTIuoCkk+CRdqAelSEFi7KvA7E7ThOlfd9NofQ
-	NN302aBlNqNMBkizpfVA==;
+	List-Owner; bh=j3fRsiCaad5Ex8m8nmurUVzp/za8NXMteSGtYW179Cw=; b=CdyAEIsf1ZbTbY
+	V/0nDpA6Z2RRDK6eHz+CWjmBdwvo/yR6O1F85K0IsV58pB+LHM1FR96mtHiF8wCp76inNnBPiB9qU
+	gPXWdWyvpcWuIG19U+CqJECtMPNyeDXJPFcvFkYIV+UXk6qpJiWIkhbQD1nejAqXlFrcza7O58oed
+	yTq20GEh4Mf2naiGoV28V+VYSScwwplbpo1slZlmg+P3f2Qtg1LvqY/eqt6k8cTCTCAm5SO5YkZhd
+	YkqbRgNMYRv1FU24IESrmdBu8bJixobhQhmJ6J1DFFUcfZZEylfBSorwkrpaAxXPvy44eeyLtgnic
+	7LD11SFrJVOlMMciUFIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nHfKF-00GF5I-BB; Wed, 09 Feb 2022 05:15:31 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1nHfPR-00GFWf-Gz; Wed, 09 Feb 2022 05:20:53 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nHfK2-00GF4B-HQ
- for linux-riscv@lists.infradead.org; Wed, 09 Feb 2022 05:15:21 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id
- bg21-20020a05600c3c9500b0035283e7a012so772080wmb.0
- for <linux-riscv@lists.infradead.org>; Tue, 08 Feb 2022 21:15:17 -0800 (PST)
+ id 1nHfPF-00GFUZ-6p
+ for linux-riscv@lists.infradead.org; Wed, 09 Feb 2022 05:20:42 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id
+ bg21-20020a05600c3c9500b0035283e7a012so777925wmb.0
+ for <linux-riscv@lists.infradead.org>; Tue, 08 Feb 2022 21:20:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20210112.gappssmtp.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=R83kg3J8lh5wnpwznu/c6c1j21tsi5+UW4ZNVbTpfkQ=;
- b=cQLt8iTabwlg2Ev6+vNAfrfaVsetuJTsCIXfsbWxN2KJQ58d0KT0yZirQMTcbt0NXE
- LOfXB+yowzcYh6fsRbs+oRvGDrIyudB2kSF8OJDHN3A6K3ERrtV52t9beearu5kOexbl
- R/AilxUl1TEcYp7coPdkyR+2dFjXdBhU/4jKHmOAsBkBREdBpjS7BJ5H1/TM7y8VY1k+
- geFLbW0Sot0MDg/GGIDq4Uc5Phh2KwSsIUry0D33+azOc/I+Dh+yY82X10zhxY91RO0J
- QSagJNSO2WAfgnvRxfYUQ3nOofM6gq8dOXjEYfRV99IN5qHnqkdG+8+9UZC7Qp+gs90d
- G67g==
+ :cc; bh=wAsSnnD9JIeAeZJ9p3BQTgq96g2Q9LHlXoe8+WeEVfI=;
+ b=1tKXU6TXAd28+p0tvCpH0D5QBomKCxkddDWl5LVsYFX8hIdbe6CzV6wuulBu+sQEps
+ AeaTcuXTxF9e8cIPmKTyUX9QS/MLzuiJ3poPshrD3N/JwthsFwtR7IqmJ/qp78VdQzKC
+ EXqidiNi/RX6zBYFOA0F0nOb+555/L5wYmFW+TC4IxgMpILOkbFejGn9NmToUD47VYv6
+ VODXl9hVeDhlGEWLaNdgOkZgRtBATLz3GRtmkcoO1HawYxr03sK0DnYLDDdfYEJ4uErA
+ Jtbl/MdVrVMc95sx7r0egcRaQ5U2Mm2BKbFsBg2cO/Jq5juetaFMNFhUAyh1A0Te5JOo
+ C15w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=R83kg3J8lh5wnpwznu/c6c1j21tsi5+UW4ZNVbTpfkQ=;
- b=49vfresMlFqBYw16khqu2Uuypa5JBrDUHcHiRyer9ppilDt3sj2YkljN9o+EDO3fN2
- mEMAfZbX5Ja4VNaQC9saIokbQGKQZZvnzcT1tfa99ZB++6FHoCtyGIDXh2jllz7yQ4Me
- /xS9sUUSKcvMfOSpiPWly2eplmFqRu6xm1PnWxz7tRo9qKWJA9hPKHx1kZv+ZeWtCiuH
- 1nTqMDm3cluKc7MfuLZCIAI1pMrV+4JA9oLdnbvakX3BhLsiycvwc3N971An99twf9CM
- en18hG8EWJ90ag0PziVT00MN8u5bekGnnyHDy4vKT8Swz3a3iHgDciztIUWwT3fuYYoo
- cLkw==
-X-Gm-Message-State: AOAM532tM6COiEaFI5vfdhbSuVAOntwB3+bvEtwknpcKzTpS7mESjozK
- 8rc52Ew0XdjM7TNB/p88D2FGu0QtMjmMjZ89wrW5ew==
-X-Google-Smtp-Source: ABdhPJxxJAmtus+XKgjkisjrqjjLqRFgSAIDZ/p0j1uNWEJQORypvJKDSShWADJ4LEAWxrxvnzgCy6iYR0zK2J9eq8E=
-X-Received: by 2002:a05:600c:4185:: with SMTP id
- p5mr467679wmh.61.1644383716505; 
- Tue, 08 Feb 2022 21:15:16 -0800 (PST)
+ bh=wAsSnnD9JIeAeZJ9p3BQTgq96g2Q9LHlXoe8+WeEVfI=;
+ b=X8BkFFRDy5A5DdUBKunUABb1dZM3RNZYvkN9G94I8Bd8221V/rch0GWfmIVv99Y5AU
+ fp/ynUhknXH+pH7GR81Al8RSLCAHikCEA5zYzeE04ZuMS2o3S/edIhvwsKv3i2vsDlcF
+ 39FTrEoZfgaFpMTKuch6gtgbHFRxsgXAl1fh1Yi1p2UqGP0OlX8RQOJm0HLlujHr/JKO
+ kDL8MCTCtNLbf9ckyS8poATuQ86rzL2ORpfjdptM97jaLj5+Dave2OHUV/zSl+IXY4vX
+ kp7+guxoSL182vXPZYplDKKjsEkfinCi7696MaFdO+gNudU8PARK2fTj72JM9512eAU5
+ om+Q==
+X-Gm-Message-State: AOAM530grMjWhl2r4DlTuq2f20qfoaMVABKXDW9E79vBvIqEdhdhs9/O
+ 2Mm/vGxm6bKnkoNfUzNiEukqGIT45kuDlLpEHuSizQ==
+X-Google-Smtp-Source: ABdhPJzHE/r6P/Etiunn5Sn/mWZbmE+jczRf1EpGH91d7ufK0qYetKSekneRBxf/FBI5rfOD4EPdrW88BHZPAe+N0xw=
+X-Received: by 2002:a7b:c7d5:: with SMTP id z21mr496193wmk.59.1644384039591;
+ Tue, 08 Feb 2022 21:20:39 -0800 (PST)
 MIME-Version: 1.0
 References: <20220126114452.692512-1-apatel@ventanamicro.com>
  <20220126114452.692512-2-apatel@ventanamicro.com>
  <CAJF2gTSwzx-yC=WvFixT96=q+M0KPzaZH5PpgGKVWg42M4GBNw@mail.gmail.com>
 In-Reply-To: <CAJF2gTSwzx-yC=WvFixT96=q+M0KPzaZH5PpgGKVWg42M4GBNw@mail.gmail.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Wed, 9 Feb 2022 10:45:05 +0530
-Message-ID: <CAAhSdy0DcB2+vJSEBd5apQhzjFBz9haNTVqqTeX92+hYVyhB2A@mail.gmail.com>
+Date: Wed, 9 Feb 2022 10:50:28 +0530
+Message-ID: <CAAhSdy2onHRmnj6g6Swp86DL-nHJyv0r_KsUupatjHx11J11LA@mail.gmail.com>
 Subject: Re: [PATCH v10 1/8] RISC-V: Enable CPU_IDLE drivers
 To: Guo Ren <guoren@kernel.org>
 Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -81,8 +80,8 @@ Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>,
  Linux ARM <linux-arm-kernel@lists.infradead.org>, 
  kvm-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220208_211518_655022_7CD61FE9 
-X-CRM114-Status: GOOD (  30.55  )
+X-CRM114-CacheID: sfid-20220208_212041_266779_51B127A8 
+X-CRM114-Status: GOOD (  29.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -197,17 +196,6 @@ On Tue, Feb 8, 2022 at 11:46 AM Guo Ren <guoren@kernel.org> wrote:
 > > +        */
 > > +       mb();
 > I think it's a separate fixup.
-
-This one is tricky to move as separate fixup because there
-is no cpu_do_idle() until this patch adds it.
-
-If we deliberately have a separate patch for "mb()" then it
-will be only fixing cpu_do_idle() function added by previous
-patch in the same series.
-
-Regards,
-Anup
-
 >
 > > +       wait_for_interrupt();
 > > +}
@@ -231,6 +219,14 @@ Anup
 > >  {
 > maybe below is enough.
 > + mb();
+
+We can't add "mb()" here because cpu_do_idle() is called
+directly from linux/cpuidle.h and arch_cpu_idle() is only
+called when CPU idle is disabled.
+
+Regards,
+Anup
+
 >    wait_for_interrupt();
 >
 > > -       wait_for_interrupt();
