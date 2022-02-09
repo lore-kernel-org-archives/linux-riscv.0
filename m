@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A682C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Feb 2022 04:02:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB4B8C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Feb 2022 04:03:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1e7Me+6AyDBo/WOO9MX2nZOzGttaYp5gKRjL3fFuFIY=; b=YW/DHwHEsbD83y
-	wj4UCmhS548Um5MVljsWDgbmBLhvK4gnoFIwXCnppe4D30hMnDYPBY+HXB+ytmruYq1SIfSs8ojaF
-	w57LH1Gm8jqh/O+OEB8c7drjYOFnFsa6pt5GI771lzTzqAfsmI3Wh0OfNCGp36cLu24ON2Q14zWA7
-	iqbFF0Zq0mgy7YnMgHI8Nn1nRkwtY6eFGEBKtLFmL2cd5MDFjEGMVCPiBDYCrJxLQI0c/rPKza8mU
-	rUopPTTAetbELrpFe7H73PQDJaF7bRH2q0gUeA/Q1RV1u8zX8F62Pf7TL2yKhLfG5G4Y3XyGezzno
-	RHrz5lgDPhY7Hhojg3Bw==;
+	List-Owner; bh=28F6M92IEUVcVuHc14FqTJWqtjAnxsGIwkRGto31cgk=; b=s4TBQhEvAjiveE
+	VWRgJxgDv7yr02tRokkEz3JMia5mgNmhUJVKfEljm5fC3KHo+7dL7j6Tjmc+hq2TsS7awTdIXD+3y
+	6P1w+je1HzU8e/iHlolDreJ03JPO1Nu8hOU6t9AY3jYmAiVtzj44u5bF8sgcw4gCWxJEfP0XE6Nbw
+	DbP9oNZGziMjvBDXvIqXOsffV0sbyEftSEHgoMK46/ddp3szobH9eG5Z3E5yADVR5oLVUvmXaciE9
+	K7D80X6f2ZU5yiDiSsuBvxF83UzGIDEnzCqVhifqCtEGvRcuw3xETZA67hDVAXgwAlyNKrZVTCKVe
+	OZebdB8shoOtmdutFMsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nHeBd-00GB3L-P1; Wed, 09 Feb 2022 04:02:33 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1nHeCM-00GB8Q-IS; Wed, 09 Feb 2022 04:03:18 +0000
+Received: from mail-oi1-f174.google.com ([209.85.167.174])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nHeBa-00GB2s-T5
- for linux-riscv@lists.infradead.org; Wed, 09 Feb 2022 04:02:32 +0000
-Received: by mail-wm1-x330.google.com with SMTP id r131so631201wma.1
- for <linux-riscv@lists.infradead.org>; Tue, 08 Feb 2022 20:02:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=/Wpy8NcUW7r1t9gIGQmOAOeJtU1QzBLDbREH5B+mHRQ=;
- b=sMzCTM28O0czSttYjvbuC5//lPNV3PRc+46M9yOPwDChmJs1/24SuGhBRxvnJFf/rG
- ts43DlYdxrCbsVOeJksoZkyDw/QZJy8Z+34HlJvkhuB3db2jI1qogSRgOZywRswld2uc
- u/euTww/FqQ3PSZxwitNH61snDB8uoMgJorPCV8kKb85GcZ+9NF9aXK3NWL61XdmWBUa
- erJs1I21fDT6YYEPQ7rY/XXePM0bJFown7yrsEeLqj9VGlPjia7K6QdJJ8djfUmnXS0U
- Y4wXtLQEeWiY3y+dj0sVL0EovAoD0TUMZA7k4d4REtv5VD4XvxsnR+PW+RN4juCoj3uM
- dZIQ==
+ id 1nHeCJ-00GB7q-EA
+ for linux-riscv@lists.infradead.org; Wed, 09 Feb 2022 04:03:16 +0000
+Received: by mail-oi1-f174.google.com with SMTP id x193so1352871oix.0
+ for <linux-riscv@lists.infradead.org>; Tue, 08 Feb 2022 20:03:14 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=/Wpy8NcUW7r1t9gIGQmOAOeJtU1QzBLDbREH5B+mHRQ=;
- b=pjOQqX+iinpuPhyo5EiO34da6Jzag9NLDkUWoSoBxoKYNOLB+4QKkHi/r5PhXVBNPv
- BmgYrMYUhqZ5gPw7Efwti9bDUG33RfIOujPN1Km6M488gnspfGWafuXgunOHa695HNLe
- DFaN3se9JPHdz/NntujBCMu3bZrKfPm24i6skIpwlCMMl9XnaS6ozMeQYoBZyKDWZ/MR
- 990gRpxUiE9IxXdI+Gyj9RBiV3ZnIEiboKbY3YJKGU0Fslhd/i585wqCJXMMWNKfrSdS
- rxtWpgIxbI+C7Xtk4LBppU+a1qxDuPv8rj7Laen6YEdN9wiFRK8K1Ce0PQT7gJgx8CJe
- cUaA==
-X-Gm-Message-State: AOAM530RcAysV2DqLZP5PJM1yQFoBNvBUxYQtux9afDNSAu0HGmJ8RqK
- dYMGol3PmsLNMaU568gxwodDlg1zR/3c0MDSahCZXg==
-X-Google-Smtp-Source: ABdhPJzdFWxQIQOIprT1WhB+jk6J1VJoG+E36PrvHY8njcY28+x2aUddr638ZKbr22AEzypPi19xR0DnJQtc0sqbiCY=
-X-Received: by 2002:a05:600c:2211:: with SMTP id
- z17mr840742wml.59.1644379346235; 
- Tue, 08 Feb 2022 20:02:26 -0800 (PST)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=CmY7PgTIB+xl2LL7tzgCE9G7RhMcwApZzrQupeWWqm8=;
+ b=4cZzmEUvrshA8Jv/tQlbSp3qfYi7Y+teRgW4ZRpcyafTn+/uoy7qL+pVSPR7c8ZeIl
+ D0VUMg4ks9NduKU8i9AFibU+sN5zy0R9aiM5nGRnfErb7hfU65/1vR4vapVy1WmljzRy
+ 4NWzivqXnwLy8VlFYYSYTcOSXvzwGVzC794xJykIe/IuJn5HJff5in8eO9GBQPzWWtsY
+ XGpDFniVL/xBk+r6e2+oD+ZX9ezgd7+tCGGLkvwhWuYVtWpGSmdbHfH8Xx4hvvJLZJZE
+ 3y6chgVeobwIenPHwTo5qKqiOjBJSRtfWN9k3eVW1tsMnN+3F5rH0YcI97Mwlfx5wWxF
+ 4mbg==
+X-Gm-Message-State: AOAM532Ka/GMwTUMBhy/c7zv6JmTLT4e6m+jYJkeeaGtXGR7D83l2gwn
+ bMp3/yHI5hZlgUud3du7LQ==
+X-Google-Smtp-Source: ABdhPJx9qakOYsm8R9weCyJ5x50P3WxmBB4MhXyP6Tg54v2pjw/BqbvG0kz8V3sAEgcHwwz5Clokqg==
+X-Received: by 2002:a54:4812:: with SMTP id j18mr514855oij.277.1644379394062; 
+ Tue, 08 Feb 2022 20:03:14 -0800 (PST)
+Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
+ [66.90.148.213])
+ by smtp.gmail.com with ESMTPSA id 12sm2580297oam.5.2022.02.08.20.03.13
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 08 Feb 2022 20:03:13 -0800 (PST)
+Received: (nullmailer pid 3630578 invoked by uid 1000);
+ Wed, 09 Feb 2022 04:03:12 -0000
+Date: Tue, 8 Feb 2022 22:03:12 -0600
+From: Rob Herring <robh@kernel.org>
+To: Icenowy Zheng <icenowy@nucleisys.com>
+Cc: Rob Herring <robh+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-serial@vger.kernel.org, linux-spi@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: [PATCH 01/12] dt-bindings: vendor-prefixes: add Nuclei
+Message-ID: <YgM9AMFhzsvhd85O@robh.at.kernel.org>
+References: <20220127151647.2375449-1-icenowy@nucleisys.com>
+ <20220127151647.2375449-2-icenowy@nucleisys.com>
 MIME-Version: 1.0
-References: <20220209035623.243675-1-damien.lemoal@opensource.wdc.com>
-In-Reply-To: <20220209035623.243675-1-damien.lemoal@opensource.wdc.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 9 Feb 2022 09:32:14 +0530
-Message-ID: <CAAhSdy1LgV-rxXmx+=vEF75w08jqo9A2oDG7B+riqiOdRnNKqg@mail.gmail.com>
-Subject: Re: [PATCH] riscv: fix nommu_k210_sdcard_defconfig
-To: Damien Le Moal <damien.lemoal@opensource.wdc.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Content-Disposition: inline
+In-Reply-To: <20220127151647.2375449-2-icenowy@nucleisys.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220208_200231_028289_10B1A754 
-X-CRM114-Status: GOOD (  16.28  )
+X-CRM114-CacheID: sfid-20220208_200315_494044_4E36C4B1 
+X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,46 +85,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 9, 2022 at 9:26 AM Damien Le Moal
-<damien.lemoal@opensource.wdc.com> wrote:
->
-> Instead of an arbitrary delay, use the "rootwait" kernel option to wait
-> for the mmc root device to be ready.
->
-> Signed-off-by: Damien Le Moal <damien.lemoal@opensource.wdc.com>
-
-Looks good to me.
-
-Reviewed-by: Anup Patel <anup@brainfault.org>
-
-Regards,
-Anup
-
+On Thu, 27 Jan 2022 23:16:36 +0800, Icenowy Zheng wrote:
+> Nuclei System Technology is a RISC-V CPU IP core vendor.
+> 
+> Add vendor prefix for it.
+> 
+> Signed-off-by: Icenowy Zheng <icenowy@nucleisys.com>
 > ---
->  arch/riscv/configs/nommu_k210_sdcard_defconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/configs/nommu_k210_sdcard_defconfig b/arch/riscv/configs/nommu_k210_sdcard_defconfig
-> index 2a82a3b2992b..af64b95e88cc 100644
-> --- a/arch/riscv/configs/nommu_k210_sdcard_defconfig
-> +++ b/arch/riscv/configs/nommu_k210_sdcard_defconfig
-> @@ -23,7 +23,7 @@ CONFIG_SLOB=y
->  CONFIG_SOC_CANAAN=y
->  CONFIG_SMP=y
->  CONFIG_NR_CPUS=2
-> -CONFIG_CMDLINE="earlycon console=ttySIF0 rootdelay=2 root=/dev/mmcblk0p1 ro"
-> +CONFIG_CMDLINE="earlycon console=ttySIF0 root=/dev/mmcblk0p1 rootwait ro"
->  CONFIG_CMDLINE_FORCE=y
->  # CONFIG_SECCOMP is not set
->  # CONFIG_STACKPROTECTOR is not set
-> --
-> 2.34.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+
+Acked-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
