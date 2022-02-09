@@ -4,95 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 932BEC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Feb 2022 07:42:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A61DC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Feb 2022 08:55:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B7IjSUC1fKXG7Z2aui0x8bGbSQrHX9w+knWOCQxgCSs=; b=eLTBapKIazSLMA
-	rtXtHnFqP4lln7ZXnt9Fi4xaqkKjpMwg1OI4FQMdv+jxbX9+ruglZWARB0zmX4OeXx95zZyXI7Cj1
-	FcbU8mqVd3asVkE/iGo409P/G03Pq9DjJ+PCHgbzT9YACAdhdtk0SjaTEHTB9qe4sIgTOJHDgkev7
-	sVs7hAHQgogfnBw3J9rsm5CdVO1hDm3K31jxRuZ3r7j0AO71mRJbEoKF+4AH6PFmeQRFOHjJysz80
-	/GKIZ1HAQzupvh52XmL0m3BxNdqsOHmgc7ch7VTJ2B/2W5nMk0h9+W6kKMWV0uxx3k1BwtdRCxI+9
-	kxqzq3afvyp1pEwId94w==;
+	List-Owner; bh=Xhhm7k7eP9OPWQoCPQrTBspW3lymypBTaTei1yHSVAE=; b=byOtoUImWjvps+
+	IrfCx/bZO5l+smG+vBpABKGfwIKmzsBF9JSdGk8SjYPIffF8VpAaWhqDehPJPABCA7WZv6/uawMk4
+	dXod1PKPGKFw/NznO6mDlhvaY1b873oZANPDe8oL335EZqa/WX+0AMju09cig/+JZPjUtrYI7My5y
+	Sl/JZpsfiN4Mb0MLhYWH2VL+GOQsNSf+LNUq7lG45awU4exaEZP5Gel8GdM769oL6mywVjZ38bWjd
+	mCyqvKAyNuz6QOVZHoe3G0AEb6wiL71FXJhag18dUjcv0cnQfsYmLX9gTeCH6MwmFEJnaJxSTWWPR
+	gL/TnZ2ZA+mJANHseuaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nHhcL-00GWLT-LC; Wed, 09 Feb 2022 07:42:21 +0000
-Received: from mga14.intel.com ([192.55.52.115])
+	id 1nHil0-00Gkel-By; Wed, 09 Feb 2022 08:55:22 +0000
+Received: from xavier.telenet-ops.be ([2a02:1800:120:4::f00:14])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nHhcI-00GWK1-8c; Wed, 09 Feb 2022 07:42:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
- d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1644392538; x=1675928538;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=7VeRspiyxXCh3lSSnfqh2HL4gkG0CHa04PfTnd3ABnE=;
- b=Pf63sPgMVWroEMNYMonM1jCT5vr3N47dxAdN+J0CdUw24LW2AdQ5qsUj
- znW4S7C/4x9XTXiGjFfbBiJzxYhnvHliWYG2hX/QQ2EBj5k3bTidGqROG
- 6fpap7rJ686raMdaJwuGTT2kOxCf9nqELpS65/9UQmyZm3OBYbxtNHplZ
- 4BQfO96s5hJbBM98S1wr6OC3cSWGIv/eZcrRU4o2iDvvSFZyiAbdpz8lD
- 4LG9FelFbiWb7t+0xyLIG0BoS1BeWRgfxtlDgiPi508dvzoIcwV6fwxc8
- aYXsE6scW67RxhuNhuLhjRSFhSwAk83gqfjgK70oZIPo9a7ZyhXSsHOZ2 Q==;
-X-IronPort-AV: E=McAfee;i="6200,9189,10252"; a="249353508"
-X-IronPort-AV: E=Sophos;i="5.88,355,1635231600"; d="scan'208";a="249353508"
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
- by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 08 Feb 2022 23:41:52 -0800
-X-IronPort-AV: E=Sophos;i="5.88,355,1635231600"; d="scan'208";a="540984661"
-Received: from hyperv-sh4.sh.intel.com ([10.239.48.22])
- by orsmga008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 08 Feb 2022 23:41:40 -0800
-From: Chao Gao <chao.gao@intel.com>
-To: kvm@vger.kernel.org, seanjc@google.com, pbonzini@redhat.com,
- kevin.tian@intel.com, tglx@linutronix.de
-Cc: Chao Gao <chao.gao@intel.com>, Marc Zyngier <maz@kernel.org>,
- James Morse <james.morse@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>,
- Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Anup Patel <anup@brainfault.org>,
- Atish Patra <atishp@atishpatra.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>,
- David Hildenbrand <david@redhat.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
- Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>,
- "Maciej S. Szmigiero" <maciej.szmigiero@oracle.com>,
- Ravi Bangoria <ravi.bangoria@linux.ibm.com>,
- Juergen Gross <jgross@suse.com>, Fabiano Rosas <farosas@linux.ibm.com>,
- Bharata B Rao <bharata@linux.ibm.com>,
- Nick Desaulniers <ndesaulniers@google.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
- linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
-Subject: [PATCH v3 2/5] Partially revert "KVM: Pass kvm_init()'s opaque param
- to additional arch funcs"
-Date: Wed,  9 Feb 2022 15:41:03 +0800
-Message-Id: <20220209074109.453116-3-chao.gao@intel.com>
+ id 1nHijq-00Gk7l-9Z
+ for linux-riscv@lists.infradead.org; Wed, 09 Feb 2022 08:54:12 +0000
+Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed40:54c7:c522:3859:290])
+ by xavier.telenet-ops.be with bizsmtp
+ id swu42600U4VQqf501wu4nW; Wed, 09 Feb 2022 09:54:05 +0100
+Received: from rox.of.borg ([192.168.97.57])
+ by ramsan.of.borg with esmtps (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
+ (envelope-from <geert@linux-m68k.org>)
+ id 1nHijj-000DIi-Lv; Wed, 09 Feb 2022 09:54:03 +0100
+Received: from geert by rox.of.borg with local (Exim 4.93)
+ (envelope-from <geert@linux-m68k.org>)
+ id 1nHiji-00DkLs-NX; Wed, 09 Feb 2022 09:54:02 +0100
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Atish Patra <atishp@rivosinc.com>, Jessica Clarke <jrtc27@jrtc27.com>,
+ Anup Patel <anup@brainfault.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Geert Uytterhoeven <geert@linux-m68k.org>
+Subject: [PATCH v2 2/3] RISC-V: Fix handling of empty cpu masks
+Date: Wed,  9 Feb 2022 09:54:00 +0100
+Message-Id: <e9ffcdc6569cdeb294675905c731cfd89ce17d96.1644396407.git.geert@linux-m68k.org>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220209074109.453116-1-chao.gao@intel.com>
-References: <20220209074109.453116-1-chao.gao@intel.com>
+In-Reply-To: <cover.1644396407.git.geert@linux-m68k.org>
+References: <cover.1644396407.git.geert@linux-m68k.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220208_234218_344941_2B463B2B 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20220209_005410_544227_81A3A46F 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,159 +69,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This partially reverts commit b99040853738 ("KVM: Pass kvm_init()'s opaque
-param to additional arch funcs") remove opaque from
-kvm_arch_check_processor_compat because no one uses this opaque now.
-Address conflicts for ARM (due to file movement) and manually handle RISC-V
-which comes after the commit.
+The cpumask rework slightly changed the behavior of the code.  Fix this
+by treating an empty cpumask as meaning all online CPUs.
 
-And changes about kvm_arch_hardware_setup() in original commit are still
-needed so they are not reverted.
+Extracted from a patch by Atish Patra <atishp@rivosinc.com>.
 
-Signed-off-by: Chao Gao <chao.gao@intel.com>
+Reported-by: Jessica Clarke <jrtc27@jrtc27.com>
+Fixes: 26fb751ca37846c9 ("RISC-V: Do not use cpumask data structure for hartid bitmap")
+Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
+Tested-by: Emil Renner Berthing <kernel@esmil.dk>
 ---
- arch/arm64/kvm/arm.c       |  2 +-
- arch/mips/kvm/mips.c       |  2 +-
- arch/powerpc/kvm/powerpc.c |  2 +-
- arch/riscv/kvm/main.c      |  2 +-
- arch/s390/kvm/kvm-s390.c   |  2 +-
- arch/x86/kvm/x86.c         |  2 +-
- include/linux/kvm_host.h   |  2 +-
- virt/kvm/kvm_main.c        | 16 +++-------------
- 8 files changed, 10 insertions(+), 20 deletions(-)
+v2:
+  - Add Reviewed-by, Tested-by.
+---
+ arch/riscv/kernel/sbi.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index a069d5925f77..60494c576242 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -73,7 +73,7 @@ int kvm_arch_hardware_setup(void *opaque)
- 	return 0;
- }
- 
--int kvm_arch_check_processor_compat(void *opaque)
-+int kvm_arch_check_processor_compat(void)
+diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+index f93bc75f2bc43c8e..22444cfcd56cc646 100644
+--- a/arch/riscv/kernel/sbi.c
++++ b/arch/riscv/kernel/sbi.c
+@@ -161,7 +161,7 @@ static int __sbi_send_ipi_v01(const struct cpumask *cpu_mask)
  {
- 	return 0;
- }
-diff --git a/arch/mips/kvm/mips.c b/arch/mips/kvm/mips.c
-index a25e0b73ee70..092d09fb6a7e 100644
---- a/arch/mips/kvm/mips.c
-+++ b/arch/mips/kvm/mips.c
-@@ -140,7 +140,7 @@ int kvm_arch_hardware_setup(void *opaque)
- 	return 0;
- }
+ 	unsigned long hart_mask;
  
--int kvm_arch_check_processor_compat(void *opaque)
-+int kvm_arch_check_processor_compat(void)
- {
- 	return 0;
- }
-diff --git a/arch/powerpc/kvm/powerpc.c b/arch/powerpc/kvm/powerpc.c
-index 2ad0ccd202d5..30c817f3fa0c 100644
---- a/arch/powerpc/kvm/powerpc.c
-+++ b/arch/powerpc/kvm/powerpc.c
-@@ -423,7 +423,7 @@ int kvm_arch_hardware_setup(void *opaque)
- 	return 0;
- }
+-	if (!cpu_mask)
++	if (!cpu_mask || cpumask_empty(cpu_mask))
+ 		cpu_mask = cpu_online_mask;
+ 	hart_mask = __sbi_v01_cpumask_to_hartmask(cpu_mask);
  
--int kvm_arch_check_processor_compat(void *opaque)
-+int kvm_arch_check_processor_compat(void)
- {
- 	return kvmppc_core_check_processor_compat();
- }
-diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
-index 2e5ca43c8c49..992877e78393 100644
---- a/arch/riscv/kvm/main.c
-+++ b/arch/riscv/kvm/main.c
-@@ -20,7 +20,7 @@ long kvm_arch_dev_ioctl(struct file *filp,
- 	return -EINVAL;
- }
+@@ -177,7 +177,7 @@ static int __sbi_rfence_v01(int fid, const struct cpumask *cpu_mask,
+ 	int result = 0;
+ 	unsigned long hart_mask;
  
--int kvm_arch_check_processor_compat(void *opaque)
-+int kvm_arch_check_processor_compat(void)
- {
- 	return 0;
- }
-diff --git a/arch/s390/kvm/kvm-s390.c b/arch/s390/kvm/kvm-s390.c
-index 9c6d45d0d345..99c70d881cb6 100644
---- a/arch/s390/kvm/kvm-s390.c
-+++ b/arch/s390/kvm/kvm-s390.c
-@@ -252,7 +252,7 @@ int kvm_arch_hardware_enable(void)
- 	return 0;
- }
+-	if (!cpu_mask)
++	if (!cpu_mask || cpumask_empty(cpu_mask))
+ 		cpu_mask = cpu_online_mask;
+ 	hart_mask = __sbi_v01_cpumask_to_hartmask(cpu_mask);
  
--int kvm_arch_check_processor_compat(void *opaque)
-+int kvm_arch_check_processor_compat(void)
- {
- 	return 0;
- }
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index b71549a52ae0..e9777ffc50c2 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -11548,7 +11548,7 @@ void kvm_arch_hardware_unsetup(void)
- 	static_call(kvm_x86_hardware_unsetup)();
- }
+@@ -254,7 +254,7 @@ static int __sbi_send_ipi_v02(const struct cpumask *cpu_mask)
+ 	struct sbiret ret = {0};
+ 	int result;
  
--int kvm_arch_check_processor_compat(void *opaque)
-+int kvm_arch_check_processor_compat(void)
- {
- 	struct cpuinfo_x86 *c = &cpu_data(smp_processor_id());
+-	if (!cpu_mask)
++	if (!cpu_mask || cpumask_empty(cpu_mask))
+ 		cpu_mask = cpu_online_mask;
  
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index b3810976a27f..3c7b654e43fb 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -1413,7 +1413,7 @@ int kvm_arch_hardware_enable(void);
- void kvm_arch_hardware_disable(void);
- int kvm_arch_hardware_setup(void *opaque);
- void kvm_arch_hardware_unsetup(void);
--int kvm_arch_check_processor_compat(void *opaque);
-+int kvm_arch_check_processor_compat(void);
- int kvm_arch_vcpu_runnable(struct kvm_vcpu *vcpu);
- bool kvm_arch_vcpu_in_kernel(struct kvm_vcpu *vcpu);
- int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu);
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 034c567a680c..be614a6325e4 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -5599,22 +5599,14 @@ struct kvm_vcpu * __percpu *kvm_get_running_vcpus(void)
-         return &kvm_running_vcpu;
- }
+ 	for_each_cpu(cpuid, cpu_mask) {
+@@ -348,7 +348,7 @@ static int __sbi_rfence_v02(int fid, const struct cpumask *cpu_mask,
+ 	unsigned long hartid, cpuid, hmask = 0, hbase = 0;
+ 	int result;
  
--struct kvm_cpu_compat_check {
--	void *opaque;
--	int *ret;
--};
--
--static void check_processor_compat(void *data)
-+static void check_processor_compat(void *rtn)
- {
--	struct kvm_cpu_compat_check *c = data;
--
--	*c->ret = kvm_arch_check_processor_compat(c->opaque);
-+	*(int *)rtn = kvm_arch_check_processor_compat();
- }
+-	if (!cpu_mask)
++	if (!cpu_mask || cpumask_empty(cpu_mask))
+ 		cpu_mask = cpu_online_mask;
  
- int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
- 		  struct module *module)
- {
--	struct kvm_cpu_compat_check c;
- 	int r;
- 	int cpu;
- 
-@@ -5642,10 +5634,8 @@ int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
- 	if (r < 0)
- 		goto out_free_1;
- 
--	c.ret = &r;
--	c.opaque = opaque;
- 	for_each_online_cpu(cpu) {
--		smp_call_function_single(cpu, check_processor_compat, &c, 1);
-+		smp_call_function_single(cpu, check_processor_compat, &r, 1);
- 		if (r < 0)
- 			goto out_free_2;
- 	}
+ 	for_each_cpu(cpuid, cpu_mask) {
 -- 
 2.25.1
 
