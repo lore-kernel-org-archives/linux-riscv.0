@@ -4,67 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B6AC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Feb 2022 19:35:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98570C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Feb 2022 21:40:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VDhn50ZYUcJo/ru5AUZtxwGCCsIqj0PGc3AjnROu8CE=; b=iQv+ptfFrlThk2
-	J1ks2m1WG5Tlj1x1R0mFYa9htPqFNy0hb0jJLmnMTwjeLJtho2jXciLKVNwB4kgOr/F+oPZ2Nj6Cy
-	olwOtOgDo525OhIjnus2idS7+fB8tXiR9qXMFGPBvNVtpzmdL8EIEdoGrVZGpNRgfD+tHygSX6tPz
-	Zp72X3yyKh0atb2Lc3NLPuvbp8e+sfnWZPCLXnr/wPu2QWC6LALpDchdbOyDO4c1tNB8+oVfBRweO
-	bZQ0/LgQ+9o2uOfB6IHuNiueNOQQ0JppdxW53xFT6p1ZdmzuIlly/UQ3YrXLeyhEGsv+ROIW8iRec
-	U1qKnahDZzH1swEqG8GA==;
+	List-Owner; bh=Rn6RIkmK2qYw2aOA/NV4r2dQxhnLt40xOlwfj+p0KXw=; b=ez2rHBCePm5V6a
+	WOT29OByriweZJwmqH9bdMkxhV0ymUWjbzlAq75elj7csxmLGJq2rKANoANNsT9qb8+gaMTu29odp
+	SFYhLo3Qf5EOOuwM4bbJTjWDEiwRhGkjbwsNpdWzTNiZInc0xAifpUZWjnbZaxFQwtIj1LJEQU5IK
+	QSss+ukIvTbRiKTVpkgPcSMD0YVqRtY9YaIweHDPGB6RTioAylkWSTKcLWATtn7gIkqxdMo3wW7Bi
+	xYUvMsID3SthkatTs/B/ZfsBnkuYGHTUIP/0h7/un+Yr0hnLvEvqYRWFSw/5H8CZcihyg8AwVp/ux
+	49Pgw3nmUcj5DJUSaoAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nIFE2-004mLl-2c; Thu, 10 Feb 2022 19:35:30 +0000
-Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
+	id 1nIHB5-004xC7-4W; Thu, 10 Feb 2022 21:40:35 +0000
+Received: from mail-oo1-xc33.google.com ([2607:f8b0:4864:20::c33])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nIFDy-004mL6-JC
- for linux-riscv@lists.infradead.org; Thu, 10 Feb 2022 19:35:28 +0000
-Received: by mail-yb1-xb34.google.com with SMTP id c6so18550153ybk.3
- for <linux-riscv@lists.infradead.org>; Thu, 10 Feb 2022 11:35:25 -0800 (PST)
+ id 1nIHB1-004xAb-JO
+ for linux-riscv@lists.infradead.org; Thu, 10 Feb 2022 21:40:32 +0000
+Received: by mail-oo1-xc33.google.com with SMTP id
+ u25-20020a4ad0d9000000b002e8d4370689so8008896oor.12
+ for <linux-riscv@lists.infradead.org>; Thu, 10 Feb 2022 13:40:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=kQbKIG9j1W18INmvYSforoWyR9qXCd+zp+SDRigSpF0=;
- b=AWzSE4fxFtHcRnR8exZ0VvymBSZIjlc3NkHBuxoaBVwPTI5/7TGca3DizteXNmRfml
- UkTAJ6DDlovttVmBXC3I/G1L3Qz3zY7n07EcF5lxyzssr6Ecq5RE4nIgUthZuwdumdFy
- DfGUzaA1/ssr87kyFsn1iF1H4+VHRk32yXzc4=
+ d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=GFjBD5pXW1oDYaZhB6JNhzufwg/iO3HkPCeezpJonjE=;
+ b=iksg0xdHxV1KXnXClS6AIq8Ytp1aDbko+dvCH7ZzHG71K23Qmnr1+R0baz0UQxMCs2
+ YQTWvhzGus502Nd4u11IWiGPHUnIgTfbja0rgGiY7Kn74mZ6HmbGXID4MbaE24nQL4qG
+ danGWG+Lpn6iR2Jc9eq5JDuebElwhYT73dr8r8FB9XinMxsfVaO3PXz71hGqOG7ihwdc
+ 5UygxaTyz5DPQN7mVmw2tyAYRh8Y7UDZtPf/IHUoybfdjnnqxwAlhyxDgVDi0cyjqU/Q
+ jTIeJlVIVuFVs7tIb8dMpkOctU9yNl7saXOCdqPq2OGfMDZ3RmrezmG+996Xw9JtDMN+
+ VMUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=kQbKIG9j1W18INmvYSforoWyR9qXCd+zp+SDRigSpF0=;
- b=1NSxaElmGZwAlLOb+1yTsatZM4a6rW/uhh0F4t936jD1NPFafj7dYOwUQ3jzwXxroY
- Izjo/F2PYVHUR4lL9+jI6R7PNq8+US510WX1hyVfeajxlUtsZMHcL3MZjrCpSkUqG9HQ
- WwJmuo7QjiQlsHL1zOlalExTiEFMK2ac5UGx98uoxJuprhIa0ly5KOfzABaHcJ9zlHZ4
- qcdOJRxBhZlVydyDwalb6k6s4uQOQ11yxO4Wiqv/PSCWok1pMRzvtzEA4lehlV+25Pzc
- S1i2/Dtz9CG7q259gd9tJ+HF/tpuO3hnx/5SNC1zVeqku1NOH9/NAb/eCtQ6YHsSvcew
- OCnw==
-X-Gm-Message-State: AOAM532FiiQQUSS+2R3Z5kcMKC49x2vZYshaKwFYLorPCbFFGZOJO3YK
- U6RGB14ZqCYkPkrHmTtcn4VPrksAyCdZA2zDQiXY
-X-Google-Smtp-Source: ABdhPJx7raBOsuqaBIYZe+/6W1QquLhbZxxrQIkvCEfeU4XzAedeBtZAK3Ve+1wAs92y2OZC0c0c+hrlHZw+JpXhGKc=
-X-Received: by 2002:a25:8b0a:: with SMTP id i10mr9045482ybl.651.1644521724616; 
- Thu, 10 Feb 2022 11:35:24 -0800 (PST)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=GFjBD5pXW1oDYaZhB6JNhzufwg/iO3HkPCeezpJonjE=;
+ b=SAXjSXBOgeubp4QG5GOLxL0pbVxmAa1I9VJj8sv7YBkDS5tqvE3tTNK7vH7NpjTVlR
+ Qv/WLKn82v3njIOftNpURO2vQbZLsTZVPGr1Dm9yG+5U1jqxUGDpSbH6+xnKwVsu8av9
+ e9LT8QjhUHXj05kJXUVOKzdtClneiN/SVN957e+3FMf0/IC1GxD5xh14KKjWLpFCWbe1
+ scNYNU3KIGdzNySI5QEpvPF/0Hzxm4lRZ8ogzox90ErJdo6lEnMI2ECn7YMA0STPRmYf
+ rrS3OckvxXRArabuplJkNJDZ5/6rKwIos07zMkY8v9Vw7HFpWJWuUtUqYOo4LArGwlcG
+ 0PXw==
+X-Gm-Message-State: AOAM532L83N4C9W9KDIpu38x6XDAG2eSOXizUGqJeKwcu3qJVh7BJw/w
+ pLV1fE8k2kPYHkrZgUiFgjrDWw==
+X-Google-Smtp-Source: ABdhPJxIOW/t2XpzltCUJWHCX7cMfGm3IFWRnAKi5lDaNjDq9qMokJgcb7uSVeoQZAYVBUNcPYb07A==
+X-Received: by 2002:a05:6870:3816:: with SMTP id
+ y22mr1449908oal.210.1644529230378; 
+ Thu, 10 Feb 2022 13:40:30 -0800 (PST)
+Received: from rivos-atish.. (adsl-70-228-75-190.dsl.akrnoh.ameritech.net.
+ [70.228.75.190])
+ by smtp.gmail.com with ESMTPSA id u5sm8700000ooo.46.2022.02.10.13.40.28
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 10 Feb 2022 13:40:29 -0800 (PST)
+From: Atish Patra <atishp@rivosinc.com>
+To: linux-kernel@vger.kernel.org
+Cc: Tsukasa OI <research_trasio@irq.a4lg.com>,
+ Atish Patra <atishp@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
+ Damien Le Moal <damien.lemoal@wdc.com>, devicetree@vger.kernel.org,
+ Jisheng Zhang <jszhang@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
+Subject: [PATCH v2 1/6] RISC-V: Correctly print supported extensions
+Date: Thu, 10 Feb 2022 13:40:13 -0800
+Message-Id: <20220210214018.55739-2-atishp@rivosinc.com>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20220210214018.55739-1-atishp@rivosinc.com>
+References: <20220210214018.55739-1-atishp@rivosinc.com>
 MIME-Version: 1.0
-References: <20220123121352.13199-1-kernelfans@gmail.com>
- <mhng-9439ea0d-b7ab-48ed-a359-702383ad6321@palmer-ri-x1c9>
-In-Reply-To: <mhng-9439ea0d-b7ab-48ed-a359-702383ad6321@palmer-ri-x1c9>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Thu, 10 Feb 2022 11:35:14 -0800
-Message-ID: <CAOnJCUJcYwbO6XNjRkjYBzw77F97BKE_f8DRfQjh7Q_MJPMWNA@mail.gmail.com>
-Subject: Re: [PATCH] riscv: cpu-hotplug: clear cpu from numa map when teardown
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: kernelfans@gmail.com, linux-riscv <linux-riscv@lists.infradead.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Jisheng Zhang <jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220210_113526_703255_D66D79FE 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20220210_134031_662124_870D66A8 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,64 +97,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 8, 2022 at 5:13 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->
-> On Sun, 23 Jan 2022 04:13:52 PST (-0800), kernelfans@gmail.com wrote:
-> > There is numa_add_cpu() when cpus online, accordingly, there should be
-> > numa_remove_cpu() when cpus offline.
-> >
-> > Signed-off-by: Pingfan Liu <kernelfans@gmail.com>
-> > Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> > Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> > Cc: Albert Ou <aou@eecs.berkeley.edu>
-> > Cc: Jisheng Zhang <jszhang@kernel.org>
-> > To: linux-riscv@lists.infradead.org
-> > ---
-> >  arch/riscv/kernel/cpu-hotplug.c | 1 +
-> >  1 file changed, 1 insertion(+)
-> >
-> > diff --git a/arch/riscv/kernel/cpu-hotplug.c b/arch/riscv/kernel/cpu-hotplug.c
-> > index be7f05b542bb..78d156a359ef 100644
-> > --- a/arch/riscv/kernel/cpu-hotplug.c
-> > +++ b/arch/riscv/kernel/cpu-hotplug.c
-> > @@ -40,6 +40,7 @@ int __cpu_disable(void)
-> >               return ret;
-> >
-> >       remove_cpu_topology(cpu);
-> > +     numa_remove_cpu(cpu);
-> >       set_cpu_online(cpu, false);
-> >       irq_migrate_all_off_this_cpu();
->
-> Thanks, this is on fixes.  I don't really have any NUMA-related test
-> setups, but if someone has a QEMU-based config that's meaningful then
-> I'm happy to add it.
->
+From: Tsukasa OI <research_trasio@irq.a4lg.com>
 
-lscpu/numactl already checks the online cpu list and prints correct output
-without the fix which explains why I did not notice this earlier.
+This commit replaces BITS_PER_LONG with number of alphabet letters.
 
-This is the correct thing to do anyways. Thanks for the fix.
+Current ISA pretty-printing code expects extension 'a' (bit 0) through
+'z' (bit 25).  Although bit 26 and higher is not currently used (thus never
+cause an issue in practice), it will be an annoying problem if we start to
+use those in the future.
 
-Tested-by: Atish Patra <atishp@rivosinc.com>
+This commit disables printing high bits for now.
 
-Here is my qemu config
-qemu-system-riscv64 -cpu rv64 -M virt -m 1G -smp 4 \
--objectmemory-backend-ram,size=512M,policy=bind,host-nodes=0,id=ram-node0
-\
--numa node,memdev=ram-node0 \
--object memory-backend-ram,size=512M,policy=bind,host-nodes=0,id=ram-node1 \
--numa node,memdev=ram-node1
+Signed-off-by: Tsukasa OI <research_trasio@irq.a4lg.com>
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+---
+ arch/riscv/kernel/cpufeature.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-
-
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index d959d207a40d..dd3d57eb4eea 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -13,6 +13,8 @@
+ #include <asm/smp.h>
+ #include <asm/switch_to.h>
+ 
++#define NUM_ALPHA_EXTS ('z' - 'a' + 1)
++
+ unsigned long elf_hwcap __read_mostly;
+ 
+ /* Host ISA bitmap */
+@@ -63,7 +65,7 @@ void __init riscv_fill_hwcap(void)
+ {
+ 	struct device_node *node;
+ 	const char *isa;
+-	char print_str[BITS_PER_LONG + 1];
++	char print_str[NUM_ALPHA_EXTS + 1];
+ 	size_t i, j, isa_len;
+ 	static unsigned long isa2hwcap[256] = {0};
+ 
+@@ -133,13 +135,13 @@ void __init riscv_fill_hwcap(void)
+ 	}
+ 
+ 	memset(print_str, 0, sizeof(print_str));
+-	for (i = 0, j = 0; i < BITS_PER_LONG; i++)
++	for (i = 0, j = 0; i < NUM_ALPHA_EXTS; i++)
+ 		if (riscv_isa[0] & BIT_MASK(i))
+ 			print_str[j++] = (char)('a' + i);
+ 	pr_info("riscv: ISA extensions %s\n", print_str);
+ 
+ 	memset(print_str, 0, sizeof(print_str));
+-	for (i = 0, j = 0; i < BITS_PER_LONG; i++)
++	for (i = 0, j = 0; i < NUM_ALPHA_EXTS; i++)
+ 		if (elf_hwcap & BIT_MASK(i))
+ 			print_str[j++] = (char)('a' + i);
+ 	pr_info("riscv: ELF capabilities %s\n", print_str);
 -- 
-Regards,
-Atish
+2.30.2
+
 
 _______________________________________________
 linux-riscv mailing list
