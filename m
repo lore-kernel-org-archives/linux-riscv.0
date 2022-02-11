@@ -4,85 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E7CAC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Feb 2022 03:21:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 082D9C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Feb 2022 09:30:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pCE0vK8wdlIRx39/QxyuDczEdcRPgrUnmJcup7xCras=; b=ctDVHUnoS6UDV7
-	62epTL832uPSGuAlkkPi7XJpqRXZ+PofRqVadZeh5K6V3ElB1nwxhm8zIft4q6DUA4ag+wU9i3cwF
-	9RtH6ANEyWFsK1YwY0m8UTLMz9asX1o7SES92v1aJyw7sV0rEp+ee2djk6jgvXh4RO7UKnETlZ3bx
-	GQg5n48LDBnCkpxYDQr6NID0YBZWwRoCY8IZ56jJvY+9wBLQUAaq0Fw82Lfr6bEFZpkuHlAOudr6X
-	loOs4fU3PqNtM+CsSsAOz4JHvOrWuHPPqIdUceeu2SNoLKNId0ZChbdsLvEhru03OA5DeGb9gnccp
-	34L+9AdCl8J5uSifU6lQ==;
+	List-Owner; bh=hrTjddD/vSkWPyK+Vn2XUL25XzYgyI4AZwolIkgfSqQ=; b=Y2TmnwaydC0TWk
+	CRgCzkZBy5XReZcb/xtQ1DjFZ/zmiZtwRbANfn4IrLs8r+NDZwzHqSZ0+fEYb7bVrMPGLGmQQFOWh
+	47GtWaskVOnSa04ItLurNDKPKkLtFypPfL4ae9rkyobXZhnjvZ/KoF6DP4Bcis0qZUF37vDj5JTGa
+	eW4JtOWoYv0ptLmUIv4AcUZveSMURmOiSz6pXaWP5Vw2V68XOjSGRmsbyu0vZyzimW+34hCQe/S1f
+	bIetIPiROqF/PDEX0AlggT+KoDaffRb2VO14/jNwpAOnvBeTq1uE7TpOMbzn0pczE0bstlcLlkUZz
+	lp5jzxW5ydpNn2S7sEKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nIMVB-005a1l-Ia; Fri, 11 Feb 2022 03:21:41 +0000
-Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
+	id 1nISFo-006NNZ-3L; Fri, 11 Feb 2022 09:30:12 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nIMV8-005a0y-Pe
- for linux-riscv@lists.infradead.org; Fri, 11 Feb 2022 03:21:40 +0000
-Received: by mail-qk1-x730.google.com with SMTP id bs32so7125403qkb.1
- for <linux-riscv@lists.infradead.org>; Thu, 10 Feb 2022 19:21:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:content-transfer-encoding:in-reply-to;
- bh=oqHpQ1jA9x8DZY/4tJM8BD66i7X6IhemK1mVygEcjUc=;
- b=azcko7kQOkANFQZMcnL2nNee6Zngw9DZkEGYSAE868a2GfUVhf6QSs2d/X/gg+IaH5
- c2ICX+hKH4gHN8nasVyM/HB5f2DGhyIlqdBShF6+aDF0U9r+NPV4lMYW8LtG1Qf+oi+a
- 3B7s9eaz+azr9si6HkgNcIQ/rnZ8HnVVoQoA1wmtcwTpY2qDmY7Ao7foi8R1ykRfaScU
- VcKeAwhq0p4F4P7fjPZQWnxQTSCC3yiXvd4d/zrtseDhHkKf6td3gYvDyLZgtXjq9sZ2
- ewTUTQa0/1UnLqJogfV51Jq4eDshovGv21Yp5BpvSGkNvGReVdu58ToKPItAUXfyOYMQ
- mQ2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:content-transfer-encoding
- :in-reply-to;
- bh=oqHpQ1jA9x8DZY/4tJM8BD66i7X6IhemK1mVygEcjUc=;
- b=bxuIb2DIPJMMgNZTkhx7XEFUkxpEY8mkrOJFpaWVyowlND/BxmbhOvEC/qfdHtdATY
- 0rye9EiVcAwzriZ8EV+gwY32PJUpngHAtppWpiTO4UuODGLaM3De9b62/tNu2fkydMcK
- 7cRgw4c19+JMAOgcV87wn0IopLq2EdPOFkMcpsRi4xnwAuTnZZdMVpT4D3RUwT5HQti8
- VsuVMSPk4heY4FvgBKaiw8DTaUoW92TdyABdeIrWRm8+kxcX2sJIY4xVVB8iaCFhYZek
- Q48OAIRvzSxOi6WOykBNraRsp8iah7e95JBgeLGWADKbKA9AMrp6T5n/PKWPpbkUkvcm
- odlw==
-X-Gm-Message-State: AOAM533vGDqC+BBO2mhFwDigQOSXmzkf04JAzLegl4zkUJpCRmj4Y+G1
- /0tDOBtEsviN18iuKoVv+tY=
-X-Google-Smtp-Source: ABdhPJwHUgNco/6G2DsLdY4iAvYP+fbfL1LcJc1zWpzr+xTuLv3QjEKJlGk665TAWuFkHEaxUUbYYA==
-X-Received: by 2002:a05:620a:210b:: with SMTP id
- l11mr5498256qkl.201.1644549697541; 
- Thu, 10 Feb 2022 19:21:37 -0800 (PST)
-Received: from mail.google.com ([207.246.89.135])
- by smtp.gmail.com with ESMTPSA id x13sm11408917qko.114.2022.02.10.19.21.36
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 10 Feb 2022 19:21:37 -0800 (PST)
-Date: Fri, 11 Feb 2022 11:21:35 +0800
-From: Changbin Du <changbin.du@gmail.com>
-To: Jessica Clarke <jrtc27@jrtc27.com>
-Cc: Jisheng Zhang <jszhang@kernel.org>, Changbin Du <changbin.du@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv <linux-riscv@lists.infradead.org>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] riscv: fix oops caused by irq on/off tracer
-Message-ID: <20220211032135.i7jwvtb75pultwsp@mail.google.com>
-References: <20220129004226.32868-1-changbin.du@gmail.com>
- <YgAEb425uqy5/dw1@xhacker>
- <20220207123850.l4r5qjswaegwisbx@mail.google.com>
- <YgE7XRE/Uc6gTCWd@xhacker>
- <20220208003502.62gi5xhyg6bk2t2h@mail.google.com>
- <YgP6y99LWFSoxjHg@xhacker>
- <20220210133758.yzebffln6j76zme6@mail.google.com>
- <YgUuzZp/eiNoXejK@xhacker>
- <0D51738E-C4C0-4D30-BCDF-55786E0CC201@jrtc27.com>
+ id 1nISBV-006LKM-Fh
+ for linux-riscv@lists.infradead.org; Fri, 11 Feb 2022 09:25:48 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
+ helo=diego.localnet)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1nISBH-0006bl-Gt; Fri, 11 Feb 2022 10:25:31 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Atish Patra <atishp@atishpatra.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ devicetree <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, Wei Fu <wefu@redhat.com>,
+ liush <liush@allwinnertech.com>, Guo Ren <guoren@kernel.org>,
+ Anup Patel <anup@brainfault.org>, Drew Fustini <drew@beagleboard.org>,
+ Christoph Hellwig <hch@lst.de>, Arnd Bergmann <arnd@arndb.de>,
+ Chen-Yu Tsai <wens@csie.org>, Maxime Ripard <maxime@cerno.tech>,
+ Greg Favor <gfavor@ventanamicro.com>,
+ Andrea Mondelli <andrea.mondelli@huawei.com>,
+ Jonathan Behrens <behrensj@mit.edu>, Xinhaoqu <xinhaoqu@huawei.com>,
+ Bill Huffman <huffman@cadence.com>, Nick Kossifidis <mick@ics.forth.gr>,
+ Allen Baum <allen.baum@esperantotech.com>,
+ Josh Scheid <jscheid@ventanamicro.com>, Richard Trauben <rtrauben@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Christoph Muellner <cmuellner@linux.com>,
+ Philipp Tomsich <philipp.tomsich@vrull.eu>
+Subject: Re: [PATCH v6 14/14] riscv: add memory-type errata for T-Head
+Date: Fri, 11 Feb 2022 10:25:30 +0100
+Message-ID: <2456541.MUnXTO88Fi@diego>
+In-Reply-To: <CAOnJCU+zoSfvyFg0swotCt1NH9bHOr4OX0g4H97ZkV4-UpSyNw@mail.gmail.com>
+References: <20220209123800.269774-1-heiko@sntech.de>
+ <20220209123800.269774-15-heiko@sntech.de>
+ <CAOnJCU+zoSfvyFg0swotCt1NH9bHOr4OX0g4H97ZkV4-UpSyNw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <0D51738E-C4C0-4D30-BCDF-55786E0CC201@jrtc27.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220210_192138_875400_8330551C 
-X-CRM114-Status: GOOD (  31.30  )
+X-CRM114-CacheID: sfid-20220211_012545_914445_80917C4F 
+X-CRM114-Status: GOOD (  42.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,123 +72,484 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBGZWIgMTAsIDIwMjIgYXQgMDM6NTk6MzVQTSArMDAwMCwgSmVzc2ljYSBDbGFya2Ug
-d3JvdGU6Cj4gT24gMTAgRmViIDIwMjIsIGF0IDE1OjI3LCBKaXNoZW5nIFpoYW5nIDxqc3poYW5n
-QGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4gT24gVGh1LCBGZWIgMTAsIDIwMjIgYXQgMDk6Mzc6NThQ
-TSArMDgwMCwgQ2hhbmdiaW4gRHUgd3JvdGU6Cj4gPj4gT24gVGh1LCBGZWIgMTAsIDIwMjIgYXQg
-MDE6MzI6NTlBTSArMDgwMCwgSmlzaGVuZyBaaGFuZyB3cm90ZToKPiA+PiBbc25pcF0KPiA+Pj4g
-SGkgQ2hhbmdiaW4sCj4gPj4+IAo+ID4+PiBJIHJlYWQgdGhlIGNvZGUgYW5kIGZpbmQgdGhhdCBj
-dXJyZW50IHJpc2N2IGZyYW1lIHJlY29yZHMgZHVyaW5nCj4gPj4+IGV4Y2VwdGlvbiBpc24ndCBh
-cyBjb21wbGV0ZWQgYXMgb3RoZXIgYXJjaGl0ZWN0dXJlcy4gcmlzY3Ygb25seQo+ID4+PiByZWNv
-cmRzIGZyYW1lcyBmcm9tIHRoZSByZXRfZnJvbV9leGNlcHRpb24oKS4gSWYgd2UgYWRkIGNvbXBs
-ZXRlZAo+ID4+IFdoYXQgZG8geW91IG1lYW4gZm9yICdyZWNvcmQnPwo+ID4+IAo+ID4gCj4gPiBz
-dGFjayBmcmFtZSByZWNvcmQuCj4gPiAKPiA+Pj4gZnJhbWUgcmVjb3JkcyBhcyBvdGhlciBhcmNo
-IGRvLCB0aGVuIHRoZSBpc3N1ZSB5b3Ugc2F3IGNhbiBhbHNvCj4gPj4+IGJlIGZpeGVkIGF0IHRo
-ZSBzYW1lIHRpbWUuCj4gPj4+IAo+ID4+IEkgZG9uJ3QgdGhpbmsgc28uIFRoZSBwcm9ibGVtIGlz
-IF9fYnVpbHRpbl9yZXR1cm5fYWRkcmVzcygxKSB0cmlnZ2VyIHBhZ2UgZmF1bHQKPiA+PiBoZXJl
-Lgo+ID4gCj4gPiBUaGVyZSdzIG1pc3VuZGVyc3RhbmRpbmcgaGVyZS4gSSBpbnRlcnByZXQgdGhp
-cyBidWcgYXMgaW5jb21wbGV0ZQo+ID4gc3RhY2tmcmFtZXMuCj4gPiAKPiA+IFRoaXMgaXMgY3Vy
-cmVudCByaXNjdiBzdGFja2ZyYW1lIGR1cmluZyBleGNlcHRpb246Cj4gPiAKPiA+IGhpZ2gKPiA+
-IAktLS0tLS0tLS0tLS0tLS0tCj4gPiB0b3AJfAkJfCAgPC0gcmV0X2Zyb21fZXhjZXB0aW9uCj4g
-PiAJLS0tLS0tLS0tLS0tLS0tLQo+ID4gCXwJCXwgIDwtIHRyYWNlX2hhcmRpcnFzX29uCj4gPiAJ
-LS0tLS0tLS0tLS0tLS0tLS0KPiA+IGxvdwo+ID4gCj4gPiBBcyB5b3Ugc2FpZCwgdGhlIENBTExF
-Ul9BRERSMSBhLmsuYSBfX2J1aWx0aW5fcmV0dXJuX2FkZHJlc3MoMSkgbmVlZHMKPiA+IGF0IGxl
-YXN0IHR3byBwYXJlbnQgY2FsbCBmcmFtZXMuIAo+IAo+IE5vIGl0IGRvZXNu4oCZdCwgeW914oCZ
-cmUgb2ZmIGJ5IG9uZSwgaXQgb25seSBuZWVkcyBhIHZhbGlkIGN1cnJlbnQgZnJhbWUuCj4gCj4g
-SmVzcwo+CnllcywgaXQgaXMgdHdvIGZyYW1lcyBub3QgdHdvICdwYXJlbnQnIGZyYW1lcy4gTXkg
-ZmF1bHQuCiAKPiA+IElmIHdlIGNvbXBsZXRlIHRoZSBzdGFja2ZyYW1lcyBkdXJpbmcgZXhjZXB0
-aW9uIGFzIG90aGVyIGFyY2ggZG9lczoKPiA+IAo+ID4gaGlnaAo+ID4gCS0tLS0tLS0tLS0tLS0t
-LS0KPiA+IHRvcAl8CQl8ICA8LSB0aGUgc3ludGhldGljIHN0YWNrZnJhbWUgZnJvbSB0aGUgaW50
-ZXJydXB0ZWQgcG9pbnQKPiA+IAktLS0tLS0tLS0tLS0tLS0tCj4gPiAJICAgICAgLi4uLi4JICAg
-ICAgCj4gPiAgICAgICAgLS0tLS0tLS0tLS0tLS0tLQo+ID4gCXwJCXwgIDwtIHJldF9mcm9tX2V4
-Y2VwdGlvbgo+ID4gCS0tLS0tLS0tLS0tLS0tLS0KPiA+IAl8CQl8ICA8LSB0cmFjZV9oYXJkaXJx
-c19vbgo+ID4gCS0tLS0tLS0tLS0tLS0tLS0tCj4gPiBsb3cKPiA+IAo+ID4gCj4gPiBUaGVuIHdl
-IG1lZXQgdGhlICJhdCBsZWFzdCB0d28gcGFyZW50IGNhbGwgZnJhbWVzIiByZXF1aXJlbWVudC4g
-SU9XLCBteQo+ID4gc29sdXRpb24gc29sdmUgdGhlIHByb2JsZW0gZnJvbSB0aGUgZW50cnkuUyBz
-aWRlLiBPbmUgb2YgdGhlIGFkdmFudGFnZXMKPiA+IHdvdWxkIGJlIHdlIGxldCBpbnRlcnJ1cHRl
-ZCBwb2ludCBzaG93IHVwIGluIGR1bXBfc3RhY2soKSBhcyBvdGhlciBhcmNoCj4gPiBkby4gV2hh
-dCBJJ20gbm90IHN1cmUgaXMgd2hldGhlciBpdCdzIHNhZmUgdG8gZG8gc28gbm93IHNpbmNlIHJj
-MyBpcwo+ID4gcmVsZWFzZWQuCj4gPiAKPiA+PiAKPiA+Pj4gSG93ZXZlciwgSSdtIG5vdCBzdXJl
-IHdoYXQncyB0aGUgYmVzdCBjaG9pY2Ugbm93Lgo+ID4+PiAKPiA+Pj4gQSBzaW1wbGUgZGVtbyB0
-byB0aGlzIGluY29tcGxldGUgZnJhbWVzOgo+ID4+PiBhZGQgZHVtcF9zdGFjaygpIGluIGFueSBJ
-U1IsIHRoZW4KPiA+Pj4gCj4gPj4+IGluIHJpc2N2Ogo+ID4+PiBbICAgIDIuOTYxMjk0XSBDYWxs
-IFRyYWNlOgo+ID4+PiBbICAgIDIuOTYxNDYwXSBbPGZmZmZmZmZmODAwMDQ4NWU+XSBkdW1wX2Jh
-Y2t0cmFjZSsweDFjLzB4MjQKPiA+Pj4gWyAgICAyLjk2MTgyM10gWzxmZmZmZmZmZjgwNWVkOTgw
-Pl0gc2hvd19zdGFjaysweDJjLzB4MzgKPiA+Pj4gWyAgICAyLjk2MjE1M10gWzxmZmZmZmZmZjgw
-NWYyOTJlPl0gZHVtcF9zdGFja19sdmwrMHg0MC8weDU4Cj4gPj4+IFsgICAgMi45NjI0ODNdIFs8
-ZmZmZmZmZmY4MDVmMjk1YT5dIGR1bXBfc3RhY2srMHgxNC8weDFjCj4gPj4+IFsgICAgMi45NjI3
-OTJdIFs8ZmZmZmZmZmY4MDVmMzFhMD5dIHNlcmlhbDgyNTBfaW50ZXJydXB0KzB4MjAvMHg4Mgo+
-ID4+PiBbICAgIDIuOTYzMTM5XSBbPGZmZmZmZmZmODAwNTMwMzI+XSBfX2hhbmRsZV9pcnFfZXZl
-bnRfcGVyY3B1KzB4NGMvMHgxMDYKPiA+Pj4gWyAgICAyLjk2MzUyNl0gWzxmZmZmZmZmZjgwMDUz
-MTcwPl0gaGFuZGxlX2lycV9ldmVudCsweDM4LzB4ODAKPiA+Pj4gWyAgICAyLjk2Mzg1Nl0gWzxm
-ZmZmZmZmZjgwMDU2YTMyPl0gaGFuZGxlX2Zhc3Rlb2lfaXJxKzB4OTYvMHgxODgKPiA+Pj4gWyAg
-ICAyLjk2NDE5OF0gWzxmZmZmZmZmZjgwMDUyNmNlPl0gZ2VuZXJpY19oYW5kbGVfZG9tYWluX2ly
-cSsweDI4LzB4M2EKPiA+Pj4gWyAgICAyLjk2NDU2N10gWzxmZmZmZmZmZjgwMmYwYWU0Pl0gcGxp
-Y19oYW5kbGVfaXJxKzB4ODgvMHhlYwo+ID4+PiBbICAgIDIuOTY0ODk2XSBbPGZmZmZmZmZmODAw
-NTI2Y2U+XSBnZW5lcmljX2hhbmRsZV9kb21haW5faXJxKzB4MjgvMHgzYQo+ID4+PiBbICAgIDIu
-OTY1MjY0XSBbPGZmZmZmZmZmODAyZjA4ZTQ+XSByaXNjdl9pbnRjX2lycSsweDM0LzB4NWMKPiA+
-Pj4gWyAgICAyLjk2NTU4NF0gWzxmZmZmZmZmZjgwNWY2ZGM4Pl0gZ2VuZXJpY19oYW5kbGVfYXJj
-aF9pcnErMHg0YS8weDc0Cj4gPj4+IFsgICAgMi45NjYwNjhdIFs8ZmZmZmZmZmY4MDAwMmZlOD5d
-IHJldF9mcm9tX2V4Y2VwdGlvbisweDAvMHhjCj4gPj4+IAo+ID4+PiBpbiB4ODY6Cj4gPj4+IFsg
-ICAgMS4xOTEyNzRdIENhbGwgVHJhY2U6Cj4gPj4+IFsgICAgMS4xOTIyMjNdICA8SVJRPgo+ID4+
-PiBbICAgIDEuMTkyNzU4XSAgZHVtcF9zdGFja19sdmwrMHg0NS8weDU5Cj4gPj4+IFsgICAgMS4x
-OTI5ODJdICBzZXJpYWw4MjUwX2ludGVycnVwdCsweDI0LzB4ODgKPiA+Pj4gWyAgICAxLjE5MzEw
-NV0gIF9faGFuZGxlX2lycV9ldmVudF9wZXJjcHUrMHg2Ni8weDFiMAo+ID4+PiBbICAgIDEuMTkz
-MjM5XSAgaGFuZGxlX2lycV9ldmVudCsweDM0LzB4NzAKPiA+Pj4gWyAgICAxLjE5MzM0NV0gIGhh
-bmRsZV9lZGdlX2lycSsweDg1LzB4MWUwCj4gPj4+IFsgICAgMS4xOTM0NTVdICBfX2NvbW1vbl9p
-bnRlcnJ1cHQrMHgzOC8weDkwCj4gPj4+IFsgICAgMS4xOTM1NzNdICBjb21tb25faW50ZXJydXB0
-KzB4NzMvMHg5MAo+ID4+PiBbICAgIDEuMTkzODA5XSAgPC9JUlE+Cj4gPj4+IFsgICAgMS4xOTM4
-ODldICA8VEFTSz4KPiA+Pj4gWyAgICAxLjE5Mzk1Nl0gIGFzbV9jb21tb25faW50ZXJydXB0KzB4
-MWIvMHg0MAo+ID4+PiBbICAgIDEuMTk0MzE4XSBSSVA6IDAwMTA6X3Jhd19zcGluX3VubG9ja19p
-cnFyZXN0b3JlKzB4MWIvMHg0MAo+ID4+PiBbICAgIDEuMTk0NTY2XSBDb2RlOiAyNCBiZSAwMSAw
-MiAwMCAwMCBlOSA1NCAyMCBiZiBmZiAwZiAxZiA0MCAwMCAwZiAxZgo+ID4+PiA0NCAwMCAwMCBm
-NyBjNiAwMGYKPiA+Pj4gWyAgICAxLjE5NTEzN10gUlNQOiAwMDAwOmZmZmY4ODgwMDAyNDNiNjgg
-RUZMQUdTOiAwMDAwMDI0Ngo+ID4+PiBbICAgIDEuMTk1MzE0XSBSQVg6IDAwMDAwMDAwMDAwMDAw
-MDAgUkJYOiBmZmZmZmZmZjgyMDI1ODQwIFJDWDoKPiA+Pj4gMDAwMDAwMDAwMDAwMDAwMAo+ID4+
-PiBbICAgIDEuMTk1NDgyXSBSRFg6IDAwMDAwMDAwMDAwMDAwMDEgUlNJOiAwMDAwMDAwMDAwMDAw
-MDAwIFJESToKPiA+Pj4gMDAwMDAwMDAwMDAwMDAwMQo+ID4+PiBbICAgIDEuMTk1NjQ1XSBSQlA6
-IDAwMDAwMDAwMDAwMDAyMDIgUjA4OiBmZmZmZmZmZmZmZmZmZmZmIFIwOToKPiA+Pj4gMDAwMDAw
-MDAwMDAwMDAwMAo+ID4+PiBbICAgIDEuMTk1ODA4XSBSMTA6IDAwMDAwMDAwMDAwMDAwZWIgUjEx
-OiAwMDAwMDAwMDAwMDAwMDAwIFIxMjoKPiA+Pj4gMDAwMDAwMDAwMDAwMDAwMAo+ID4+PiBbICAg
-IDEuMTk1OTcyXSBSMTM6IDAwMDAwMDAwMDAwMDAwNDAgUjE0OiAwMDAwMDAwMDAwMDAwMDAwIFIx
-NToKPiA+Pj4gZmZmZjg4ODAwMGMzOTAwMAo+ID4+PiBbICAgIDEuMTk2MjQ1XSAgPyBfcmF3X3Nw
-aW5fdW5sb2NrX2lycXJlc3RvcmUrMHgxNS8weDQwCj4gPj4+IFsgICAgMS4xOTYzNzNdICBzZXJp
-YWw4MjUwX2RvX3N0YXJ0dXArMHg0MmQvMHg2MDAKPiA+Pj4gWyAgICAxLjE5NjUwMl0gIHVhcnRf
-cG9ydF9zdGFydHVwKzB4MTFiLzB4MjcwCj4gPj4+IFsgICAgMS4xOTY2MTldICB1YXJ0X3BvcnRf
-YWN0aXZhdGUrMHgzZi8weDYwCj4gPj4+IFsgICAgMS4xOTY3MjldICB0dHlfcG9ydF9vcGVuKzB4
-N2UvMHhkMAo+ID4+PiBbICAgIDEuMTk2ODM1XSAgPyBfcmF3X3NwaW5fdW5sb2NrKzB4MTIvMHgz
-MAo+ID4+PiBbICAgIDEuMTk2OTQyXSAgdWFydF9vcGVuKzB4MWEvMHgzMAo+ID4+PiBbICAgIDEu
-MTk3MDM2XSAgdHR5X29wZW4rMHgxNTMvMHg3YzAKPiA+Pj4gWyAgICAxLjE5NzE0NF0gIGNocmRl
-dl9vcGVuKzB4YmYvMHgyMzAKPiA+Pj4gWyAgICAxLjE5NzI1M10gID8gY2Rldl9kZXZpY2VfYWRk
-KzB4OTAvMHg5MAo+ID4+PiBbICAgIDEuMTk3MzU5XSAgZG9fZGVudHJ5X29wZW4rMHgxM2MvMHgz
-NjAKPiA+Pj4gWyAgICAxLjE5NzQ3MF0gIHBhdGhfb3BlbmF0KzB4YjBjLzB4ZTAwCj4gPj4+IFsg
-ICAgMS4xOTc1NzddICA/IHVwZGF0ZV9sb2FkX2F2ZysweDVmLzB4NjQwCj4gPj4+IFsgICAgMS4x
-OTc2OTFdICA/IGZpbmlzaF90YXNrX3N3aXRjaC5pc3JhLjArMHhhYy8weDI0MAo+ID4+PiBbICAg
-IDEuMTk3ODIxXSAgZG9fZmlscF9vcGVuKzB4YjIvMHgxNTAKPiA+Pj4gWyAgICAxLjE5NzkzNV0g
-ID8gcHJlZW1wdF9zY2hlZHVsZV90aHVuaysweDE2LzB4MTgKPiA+Pj4gWyAgICAxLjE5ODA0OV0g
-ID8gcHJlZW1wdF9zY2hlZHVsZV9jb21tb24rMHg5MC8weGQwCj4gPj4+IFsgICAgMS4xOTgxNjdd
-ICA/IHByZWVtcHRfc2NoZWR1bGVfdGh1bmsrMHgxNi8weDE4Cj4gPj4+IFsgICAgMS4xOTgyOTFd
-ICBmaWxlX29wZW5fbmFtZSsweGYxLzB4MWIwCj4gPj4+IFsgICAgMS4xOTgzOTddICBmaWxwX29w
-ZW4rMHgyYy8weDUwCj4gPj4+IFsgICAgMS4xOTg0OTVdICBjb25zb2xlX29uX3Jvb3RmcysweDE5
-LzB4NTIKPiA+Pj4gWyAgICAxLjE5ODY0OF0gIGtlcm5lbF9pbml0X2ZyZWVhYmxlKzB4MTlhLzB4
-MWM3Cj4gPj4+IFsgICAgMS4xOTg3NjVdICA/IHJlc3RfaW5pdCsweGMwLzB4YzAKPiA+Pj4gWyAg
-ICAxLjE5ODg2N10gIGtlcm5lbF9pbml0KzB4MTYvMHgxMTAKPiA+Pj4gWyAgICAxLjE5ODk2NV0g
-IHJldF9mcm9tX2ZvcmsrMHgxZi8weDMwCj4gPj4+IFsgICAgMS4xOTkxMzFdICA8L1RBU0s+Cj4g
-Pj4+IAo+ID4+IEFzIEkgc2FpZCBiZWZvcmUsIHRoaXMgaXNzdWUgaXMgbm90IHJlbGF0ZWQgdG8g
-c3RhY2tkdW1wLgo+ID4+IAo+ID4+IEJlc2lkZXMsIHlvdSBjYW4gc2VlIG1vcmUgY2FsbHRyYWNl
-IG9uIHg4NiB0aGF0IGJlY2F1c2UgeDg2IGl0ZXJhdGUgYWxsIHN0YWNrcwo+ID4+IChrZXJuZWws
-IGlycSBvciBleGNlcHRpb24pIHdoZW4gZHVtcGluZyBzdGFja3RyYWNlLiBXaGlsZSBSSVNDViBv
-bmx5IHNob3cKPiA+PiBjYWxsdHJhY2Ugb2YgY3VycmVudCBzdGFjay4KPiA+PiAKPiA+IAo+ID4g
-SSdtIG5vdCBzdXJlIHdoZXRoZXIgdGhlcmUncyBtaXN1bmRlcnN0YW5kaW5nLiBTZWUgYWJvdmUu
-Cj4gPiAKPiA+IFRoYW5rcwo+ID4gCj4gPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwo+ID4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gPiBsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cj4gCgotLSAKQ2hlZXJzLApDaGFuZ2JpbiBEdQoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Atish,
+
+Am Freitag, 11. Februar 2022, 01:12:55 CET schrieb Atish Patra:
+> On Wed, Feb 9, 2022 at 4:41 AM Heiko Stuebner <heiko@sntech.de> wrote:
+> >
+> > Some current cpus based on T-Head cores implement memory-types
+> > way different than described in the svpbmt spec even going
+> > so far as using PTE bits marked as reserved.
+> >
+> > Add the T-Head vendor-id and necessary errata code to
+> > replace the affected instructions.
+> >
+> > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> > ---
+> >  arch/riscv/Kconfig.erratas             | 19 ++++++
+> >  arch/riscv/errata/Makefile             |  1 +
+> >  arch/riscv/errata/sifive/errata.c      |  7 ++-
+> >  arch/riscv/errata/thead/Makefile       |  1 +
+> >  arch/riscv/errata/thead/errata.c       | 85 ++++++++++++++++++++++++++
+> >  arch/riscv/include/asm/alternative.h   |  5 ++
+> >  arch/riscv/include/asm/errata_list.h   | 47 ++++++++++++--
+> >  arch/riscv/include/asm/pgtable-64.h    | 18 +++++-
+> >  arch/riscv/include/asm/pgtable.h       | 18 +++++-
+> >  arch/riscv/include/asm/vendorid_list.h |  1 +
+> >  arch/riscv/kernel/alternative.c        | 14 +++++
+> >  arch/riscv/kernel/cpufeature.c         |  2 +
+> >  arch/riscv/mm/init.c                   |  1 +
+> >  13 files changed, 210 insertions(+), 9 deletions(-)
+> >  create mode 100644 arch/riscv/errata/thead/Makefile
+> >  create mode 100644 arch/riscv/errata/thead/errata.c
+> >
+> > diff --git a/arch/riscv/Kconfig.erratas b/arch/riscv/Kconfig.erratas
+> > index d18be8ff0245..380ec039c3dc 100644
+> > --- a/arch/riscv/Kconfig.erratas
+> > +++ b/arch/riscv/Kconfig.erratas
+> > @@ -31,4 +31,23 @@ config ERRATA_SIFIVE_CIP_1200
+> >
+> >           If you don't know what to do here, say "Y".
+> >
+> > +config ERRATA_THEAD
+> > +       bool "T-HEAD errata"
+> > +       help
+> > +         All T-HEAD errata Kconfig depend on this Kconfig. Disabling
+> > +         this Kconfig will disable all T-HEAD errata. Please say "Y"
+> > +         here if your platform uses T-HEAD CPU cores.
+> > +
+> > +         If you don't know what to do here, say "Y".
+> > +
+> > +config ERRATA_THEAD_PBMT
+> > +       bool "Apply T-Head memory type errata"
+> > +       depends on ERRATA_THEAD && 64BIT
+> > +       default y
+> > +       help
+> > +         This will apply the memory type errata to handle the non-standard
+> > +         memory type bits in page-table-entries on T-Head SoCs.
+> > +
+> > +         If you don't know what to do here, say "Y".
+> > +
+> >  endmenu
+> > diff --git a/arch/riscv/errata/Makefile b/arch/riscv/errata/Makefile
+> > index 0ca1c5281a2d..a1055965fbee 100644
+> > --- a/arch/riscv/errata/Makefile
+> > +++ b/arch/riscv/errata/Makefile
+> > @@ -1 +1,2 @@
+> >  obj-$(CONFIG_ERRATA_SIFIVE) += sifive/
+> > +obj-$(CONFIG_ERRATA_THEAD) += thead/
+> > diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
+> > index 4fe03ac41fd7..f933d6cdf304 100644
+> > --- a/arch/riscv/errata/sifive/errata.c
+> > +++ b/arch/riscv/errata/sifive/errata.c
+> > @@ -84,10 +84,15 @@ void __init sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *
+> >                                      unsigned int stage)
+> >  {
+> >         struct alt_entry *alt;
+> > -       u32 cpu_req_errata = sifive_errata_probe(archid, impid);
+> > +       u32 cpu_req_errata;
+> >         u32 cpu_apply_errata = 0;
+> >         u32 tmp;
+> >
+> > +       if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+> > +               return;
+> > +
+> > +       cpu_req_errata = sifive_errata_probe(archid, impid);
+> > +
+> >         for (alt = begin; alt < end; alt++) {
+> >                 if (alt->vendor_id != SIFIVE_VENDOR_ID)
+> >                         continue;
+> > diff --git a/arch/riscv/errata/thead/Makefile b/arch/riscv/errata/thead/Makefile
+> > new file mode 100644
+> > index 000000000000..2d644e19caef
+> > --- /dev/null
+> > +++ b/arch/riscv/errata/thead/Makefile
+> > @@ -0,0 +1 @@
+> > +obj-y += errata.o
+> > diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+> > new file mode 100644
+> > index 000000000000..fd8e0538a3f0
+> > --- /dev/null
+> > +++ b/arch/riscv/errata/thead/errata.c
+> > @@ -0,0 +1,85 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +/*
+> > + * Copyright (C) 2021 Heiko Stuebner <heiko@sntech.de>
+> > + */
+> > +
+> > +#include <linux/bug.h>
+> > +#include <linux/kernel.h>
+> > +#include <linux/module.h>
+> > +#include <linux/string.h>
+> > +#include <linux/uaccess.h>
+> > +#include <asm/alternative.h>
+> > +#include <asm/cacheflush.h>
+> > +#include <asm/errata_list.h>
+> > +#include <asm/patch.h>
+> > +#include <asm/vendorid_list.h>
+> > +
+> > +struct errata_info {
+> > +       char name[ERRATA_STRING_LENGTH_MAX];
+> > +       bool (*check_func)(unsigned long arch_id, unsigned long impid);
+> > +       unsigned int stage;
+> > +};
+> > +
+> > +static bool errata_mt_check_func(unsigned long  arch_id, unsigned long impid)
+> > +{
+> > +       if (arch_id != 0 || impid != 0)
+> > +               return false;
+> > +       return true;
+> > +}
+> > +
+> > +static const struct errata_info errata_list[ERRATA_THEAD_NUMBER] = {
+> > +       {
+> > +               .name = "memory-types",
+> > +               .stage = RISCV_ALTERNATIVES_EARLY_BOOT,
+> > +               .check_func = errata_mt_check_func
+> > +       },
+> > +};
+> > +
+> > +static u32 thead_errata_probe(unsigned int stage, unsigned long archid, unsigned long impid)
+> > +{
+> > +       const struct errata_info *info;
+> > +       u32 cpu_req_errata = 0;
+> > +       int idx;
+> > +
+> > +       for (idx = 0; idx < ERRATA_THEAD_NUMBER; idx++) {
+> > +               info = &errata_list[idx];
+> > +
+> > +               if ((stage == RISCV_ALTERNATIVES_MODULE ||
+> > +                    info->stage == stage) && info->check_func(archid, impid))
+> > +                       cpu_req_errata |= (1U << idx);
+> > +       }
+> > +
+> > +       return cpu_req_errata;
+> > +}
+> > +
+> > +void __init_or_module thead_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+> > +                                             unsigned long archid, unsigned long impid,
+> > +                                             unsigned int stage)
+> > +{
+> > +       struct alt_entry *alt;
+> > +       u32 cpu_req_errata = thead_errata_probe(stage, archid, impid);
+> > +       u32 cpu_apply_errata = 0;
+> > +       u32 tmp;
+> > +
+> > +       for (alt = begin; alt < end; alt++) {
+> > +               if (alt->vendor_id != THEAD_VENDOR_ID)
+> > +                       continue;
+> > +               if (alt->errata_id >= ERRATA_THEAD_NUMBER)
+> > +                       continue;
+> > +
+> > +               tmp = (1U << alt->errata_id);
+> > +               if (cpu_req_errata & tmp) {
+> > +                       /* On vm-alternatives, the mmu isn't running yet */
+> > +                       if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+> > +                               memcpy((void *)__pa_symbol(alt->old_ptr),
+> > +                                      (void *)__pa_symbol(alt->alt_ptr), alt->alt_len);
+> > +                       else
+> > +                               patch_text_nosync(alt->old_ptr, alt->alt_ptr, alt->alt_len);
+> > +
+> > +                       cpu_apply_errata |= tmp;
+> > +               }
+> > +       }
+> > +
+> > +       if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+> > +               local_flush_icache_all();
+> > +}
+> > diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
+> > index cf3b22173834..d1154c91ab03 100644
+> > --- a/arch/riscv/include/asm/alternative.h
+> > +++ b/arch/riscv/include/asm/alternative.h
+> > @@ -19,8 +19,10 @@
+> >
+> >  #define RISCV_ALTERNATIVES_BOOT                0 /* alternatives applied during regular boot */
+> >  #define RISCV_ALTERNATIVES_MODULE      1 /* alternatives applied during module-init */
+> > +#define RISCV_ALTERNATIVES_EARLY_BOOT  2 /* alternatives applied before mmu start */
+> >
+> 
+> But this stage invoked is used after RISCV_ALTERNATIVES_BOOT
+
+No it isn't.
+
+the "boot" alternative is applied right now directly before soc_early_init,
+while the "early-boot" alternative is already applied during setup_vm()
+even before page-tables are set up.
+
+Right now the numbering doesn't reflect the order and just
+makes it distinct, but I guess we can adjust it to make that clear
+(move early_boot to the top)
+
+
+> >  void __init apply_boot_alternatives(void);
+> > +void __init apply_early_boot_alternatives(void);
+> >  void apply_module_alternatives(void *start, size_t length);
+> >
+> >  struct alt_entry {
+> > @@ -39,6 +41,9 @@ struct errata_checkfunc_id {
+> >  void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+> >                               unsigned long archid, unsigned long impid,
+> >                               unsigned int stage);
+> > +void thead_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+> > +                            unsigned long archid, unsigned long impid,
+> > +                            unsigned int stage);
+> >
+> >  void riscv_cpufeature_patch_func(struct alt_entry *begin, struct alt_entry *end,
+> >                                  unsigned int stage);
+> > diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+> > index a4a9b0842922..4fac46b82c16 100644
+> > --- a/arch/riscv/include/asm/errata_list.h
+> > +++ b/arch/riscv/include/asm/errata_list.h
+> > @@ -14,6 +14,11 @@
+> >  #define        ERRATA_SIFIVE_NUMBER 2
+> >  #endif
+> >
+> > +#ifdef CONFIG_ERRATA_THEAD
+> > +#define        ERRATA_THEAD_PBMT 0
+> > +#define        ERRATA_THEAD_NUMBER 1
+> > +#endif
+> > +
+> >  #define        CPUFEATURE_SVPBMT 0
+> >  #define        CPUFEATURE_NUMBER 1
+> >
+> > @@ -42,10 +47,44 @@ asm(ALTERNATIVE("sfence.vma %0", "sfence.vma", SIFIVE_VENDOR_ID,    \
+> >   * in the default case.
+> >   */
+> >  #define ALT_SVPBMT_SHIFT 61
+> > -#define ALT_SVPBMT(_val, prot)                                         \
+> > -asm(ALTERNATIVE("li %0, 0\t\nnop", "li %0, %1\t\nslli %0,%0,%2", 0,    \
+> > -               CPUFEATURE_SVPBMT, CONFIG_64BIT)                        \
+> > -               : "=r"(_val) : "I"(prot##_SVPBMT >> ALT_SVPBMT_SHIFT), "I"(ALT_SVPBMT_SHIFT))
+> > +#define ALT_THEAD_PBMT_SHIFT 59
+> > +#define ALT_SVPBMT(_val, prot)                                                         \
+> > +asm(ALTERNATIVE_2("li %0, 0\t\nnop",                                                   \
+> > +                 "li %0, %1\t\nslli %0,%0,%3", 0, CPUFEATURE_SVPBMT, CONFIG_64BIT,     \
+> > +                 "li %0, %2\t\nslli %0,%0,%4", THEAD_VENDOR_ID, ERRATA_THEAD_PBMT,     \
+> > +                                               CONFIG_ERRATA_THEAD_PBMT)               \
+> > +               : "=r"(_val) : "I"(prot##_SVPBMT >> ALT_SVPBMT_SHIFT),                  \
+> > +                              "I"(prot##_THEAD >> ALT_THEAD_PBMT_SHIFT),               \
+> > +                              "I"(ALT_SVPBMT_SHIFT), "I"(ALT_THEAD_PBMT_SHIFT))
+> > +
+> > +#ifdef CONFIG_ERRATA_THEAD_PBMT
+> > +/*
+> > + * IO/NOCACHE memory types are handled together with svpbmt,
+> > + * so on T-Head chips, check if no other memory type is set,
+> > + * and set the non-0 PMA type if applicable.
+> > + */
+> > +#define ALT_THEAD_PMA(_val)                                                            \
+> > +asm volatile(ALTERNATIVE(                                                              \
+> > +       "nop\n\t"                                                                       \
+> > +       "nop\n\t"                                                                       \
+> > +       "nop\n\t"                                                                       \
+> > +       "nop\n\t"                                                                       \
+> > +       "nop\n\t"                                                                       \
+> > +       "nop\n\t"                                                                       \
+> > +       "nop",                                                                          \
+> > +       "li      t3, %2\n\t"                                                            \
+> > +       "slli    t3, t3, %4\n\t"                                                        \
+> > +       "and     t3, %0, t3\n\t"                                                        \
+> > +       "bne     t3, zero, 2f\n\t"                                                      \
+> > +       "li      t3, %3\n\t"                                                            \
+> > +       "slli    t3, t3, %4\n\t"                                                        \
+> > +       "or      %0, %0, t3\n\t"                                                        \
+> > +       "2:",  THEAD_VENDOR_ID, ERRATA_THEAD_PBMT, CONFIG_ERRATA_THEAD_PBMT)            \
+> > +       : "+r"(_val) : "0"(_val), "I"(_PAGE_MTMASK_THEAD >> ALT_THEAD_PBMT_SHIFT),      \
+> > +                      "I"(_PAGE_PMA_THEAD >> ALT_THEAD_PBMT_SHIFT),  "I"(ALT_THEAD_PBMT_SHIFT))
+> > +#else
+> > +#define ALT_THEAD_PMA(_val)
+> > +#endif
+> >
+> >  #endif /* __ASSEMBLY__ */
+> >
+> > diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+> > index 07ba3416cb19..6d59e4695200 100644
+> > --- a/arch/riscv/include/asm/pgtable-64.h
+> > +++ b/arch/riscv/include/asm/pgtable-64.h
+> > @@ -69,6 +69,18 @@ typedef struct {
+> >  #define _PAGE_IO_SVPBMT                (1UL << 62)
+> >  #define _PAGE_MTMASK_SVPBMT    (_PAGE_NOCACHE_SVPBMT | _PAGE_IO_SVPBMT)
+> >
+> > +/*
+> > + * [63:59] T-Head Memory Type definitions:
+> > + *
+> > + * 00000 - NC   Weakly-ordered, Non-cacheable, Non-bufferable, Non-shareable, Non-trustable
+> > + * 01110 - PMA  Weakly-ordered, Cacheable, Bufferable, Shareable, Non-trustable
+> > + * 10000 - IO   Strongly-ordered, Non-cacheable, Non-bufferable, Non-shareable, Non-trustable
+> > + */
+> > +#define _PAGE_PMA_THEAD                ((1UL << 62) | (1UL << 61) | (1UL << 60))
+> > +#define _PAGE_NOCACHE_THEAD    0UL
+> > +#define _PAGE_IO_THEAD         (1UL << 63)
+> > +#define _PAGE_MTMASK_THEAD     (_PAGE_PMA_THEAD | _PAGE_IO_THEAD | (1UL << 59))
+> > +
+> >  static inline u64 riscv_page_mtmask(void)
+> >  {
+> >         u64 val;
+> > @@ -167,7 +179,11 @@ static inline bool mm_pud_folded(struct mm_struct *mm)
+> >
+> >  static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
+> >  {
+> > -       return __pmd((pfn << _PAGE_PFN_SHIFT) | pgprot_val(prot));
+> > +       unsigned long prot_val = pgprot_val(prot);
+> > +
+> > +       ALT_THEAD_PMA(prot_val);
+> > +
+> > +       return __pmd((pfn << _PAGE_PFN_SHIFT) | prot_val);
+> >  }
+> >
+> >  static inline unsigned long _pmd_pfn(pmd_t pmd)
+> > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> > index b8abc75dfe01..3d0c4c144093 100644
+> > --- a/arch/riscv/include/asm/pgtable.h
+> > +++ b/arch/riscv/include/asm/pgtable.h
+> > @@ -245,7 +245,11 @@ static inline void pmd_clear(pmd_t *pmdp)
+> >
+> >  static inline pgd_t pfn_pgd(unsigned long pfn, pgprot_t prot)
+> >  {
+> > -       return __pgd((pfn << _PAGE_PFN_SHIFT) | pgprot_val(prot));
+> > +       unsigned long prot_val = pgprot_val(prot);
+> > +
+> > +       ALT_THEAD_PMA(prot_val);
+> > +
+> > +       return __pgd((pfn << _PAGE_PFN_SHIFT) | prot_val);
+> >  }
+> >
+> >  static inline unsigned long _pgd_pfn(pgd_t pgd)
+> > @@ -284,7 +288,11 @@ static inline unsigned long pte_pfn(pte_t pte)
+> >  /* Constructs a page table entry */
+> >  static inline pte_t pfn_pte(unsigned long pfn, pgprot_t prot)
+> >  {
+> > -       return __pte((pfn << _PAGE_PFN_SHIFT) | pgprot_val(prot));
+> > +       unsigned long prot_val = pgprot_val(prot);
+> > +
+> > +       ALT_THEAD_PMA(prot_val);
+> > +
+> > +       return __pte((pfn << _PAGE_PFN_SHIFT) | prot_val);
+> >  }
+> >
+> >  #define mk_pte(page, prot)       pfn_pte(page_to_pfn(page), prot)
+> > @@ -393,7 +401,11 @@ static inline int pmd_protnone(pmd_t pmd)
+> >  /* Modify page protection bits */
+> >  static inline pte_t pte_modify(pte_t pte, pgprot_t newprot)
+> >  {
+> > -       return __pte((pte_val(pte) & _PAGE_CHG_MASK) | pgprot_val(newprot));
+> > +       unsigned long newprot_val = pgprot_val(newprot);
+> > +
+> > +       ALT_THEAD_PMA(newprot_val);
+> > +
+> > +       return __pte((pte_val(pte) & _PAGE_CHG_MASK) | newprot_val);
+> >  }
+> >
+> >  #define pgd_ERROR(e) \
+> > diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
+> > index 9d934215b3c8..cb89af3f0704 100644
+> > --- a/arch/riscv/include/asm/vendorid_list.h
+> > +++ b/arch/riscv/include/asm/vendorid_list.h
+> > @@ -6,5 +6,6 @@
+> >  #define ASM_VENDOR_LIST_H
+> >
+> >  #define SIFIVE_VENDOR_ID       0x489
+> > +#define THEAD_VENDOR_ID                0x5b7
+> >
+> >  #endif
+> > diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
+> > index e6c9de9f9ba6..3f6ad91f524c 100644
+> > --- a/arch/riscv/kernel/alternative.c
+> > +++ b/arch/riscv/kernel/alternative.c
+> > @@ -48,6 +48,11 @@ static void __init init_alternative(void)
+> >         case SIFIVE_VENDOR_ID:
+> >                 vendor_patch_func = sifive_errata_patch_func;
+> >                 break;
+> > +#endif
+> > +#ifdef CONFIG_ERRATA_THEAD
+> > +       case THEAD_VENDOR_ID:
+> > +               vendor_patch_func = thead_errata_patch_func;
+> > +               break;
+> >  #endif
+> >         default:
+> >                 vendor_patch_func = NULL;
+> > @@ -85,6 +90,15 @@ void __init apply_boot_alternatives(void)
+> >                             RISCV_ALTERNATIVES_BOOT);
+> >  }
+> >
+> > +void __init apply_early_boot_alternatives(void)
+> > +{
+> > +       init_alternative();
+> > +
+> > +       _apply_alternatives((struct alt_entry *)__alt_start,
+> > +                           (struct alt_entry *)__alt_end,
+> > +                           RISCV_ALTERNATIVES_EARLY_BOOT);
+> > +}
+> > +
+> 
+> The name is a bit confusing as there is another "apply_boot_alternatives"
+> which was called earlier than "apply_early_boot_alternatives".
+
+I'm not that much attached to early-boot, so if you have other naming-
+suggestions we can of course change that.
+
+As explained above, the early-boot stage runs before page-table setup,
+so that things like the D1 can hook into it with their setting for the base
+page-type.
+
+
+Heiko
+
+
+
+> >  #ifdef CONFIG_MODULES
+> >  void apply_module_alternatives(void *start, size_t length)
+> >  {
+> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> > index 7bce66ee7ce7..ecc248e5dab7 100644
+> > --- a/arch/riscv/kernel/cpufeature.c
+> > +++ b/arch/riscv/kernel/cpufeature.c
+> > @@ -224,6 +224,8 @@ static bool cpufeature_svpbmt_check_func(unsigned int stage)
+> >
+> >  #if defined(CONFIG_MMU) && defined(CONFIG_64BIT)
+> >         switch (stage) {
+> > +       case RISCV_ALTERNATIVES_EARLY_BOOT:
+> > +               return false;
+> >         case RISCV_ALTERNATIVES_BOOT:
+> >                 return cpufeature_svpbmt_check_fdt();
+> >         default:
+> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> > index cf4d018b7d66..7216db5d6a2c 100644
+> > --- a/arch/riscv/mm/init.c
+> > +++ b/arch/riscv/mm/init.c
+> > @@ -819,6 +819,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+> >         BUG_ON((kernel_map.virt_addr + kernel_map.size) > ADDRESS_SPACE_END - SZ_4K);
+> >  #endif
+> >
+> > +       apply_early_boot_alternatives();
+> >         pt_ops_set_early();
+> >
+> >         /* Setup early PGD for fixmap */
+> > --
+> > 2.30.2
+> >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+> 
+> 
+> --
+> Regards,
+> Atish
+> 
+
+
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
