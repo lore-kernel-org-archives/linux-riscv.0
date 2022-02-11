@@ -4,64 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC2F2C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Feb 2022 09:34:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3DB0C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Feb 2022 12:52:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ky7ZxbHyNFzMubt8OWtpkFHRJyo2RO6oftU+uSM/Wz0=; b=R7Ke5xQCo+LJQs
-	Cj0wJiGqNIu4bBK1umqlqrqWEMtpnAcRcyUaqOepzIxLOzrPxYMLtqNqN+yVryF8zGymgGFpIQq/D
-	9/dI0CrQzARv/tkETOjTDCcXSnZX+p3EtjmMeVm4xtO8k5nHr/UZCs50PnIHlp5bWux3GrhM5m/NZ
-	+juJt/8X1E6nbfGMCYzmVVuw3NvxiI4K0y8wJd25h9/qqF746djLfQPBJlb2TLLw13FbyQrRjzt2x
-	sTg0qAbMI19+d66+YWrXwt2dPW9ZnrpFGPr6y+a/Gk/gC4KXmJ96Xko87PtULnQRr3zn6zADE3nZZ
-	om58qOfSdr2BkPqdDT9g==;
+	List-Owner; bh=FLznr+Cik5k/jrdn6OJ2MQUofxdPQq+fWyuHRV5Jy1c=; b=h2zXAef7my4BKG
+	DahaOxRiFG15AKI3MNqU9hAkCPfEYU7i4J6/XJ+I2917ZImynziseT5ggAQoX2vCpCKiRTxDNO6va
+	Gs24b0qf3m+66qgMIl+BHEgcJoYSosD2hBz0vY9rmo/ld/kK4B2pRx+KV6otXv4mDO5WgbpofHyKO
+	Wl9fFaO/NIzW34P5l/eX3rCCV8aEz039JQ107AEv3olgVecsTRlZQ7NLcht6wbzttKyOE3n928Cvt
+	d2ofwK6n6Wm8PVEOJ/7tuUVy5BEAs2vHqxzHMqQKwhOCZcTdN0YeQVFQ1kZUmYQgbIYv31Il2OeLt
+	NGpHBl7eR23mL2TjtVGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nISKD-006P53-71; Fri, 11 Feb 2022 09:34:45 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1nIVPf-007GRi-B2; Fri, 11 Feb 2022 12:52:35 +0000
+Received: from mail-vk1-f172.google.com ([209.85.221.172])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nISKA-006P3j-2g
- for linux-riscv@lists.infradead.org; Fri, 11 Feb 2022 09:34:43 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
- helo=diego.localnet)
- by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1nISK5-0006hE-Rr; Fri, 11 Feb 2022 10:34:37 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Atish Patra <atishp@atishpatra.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- devicetree <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Rob Herring <robh+dt@kernel.org>, Wei Fu <wefu@redhat.com>,
- liush <liush@allwinnertech.com>, Guo Ren <guoren@kernel.org>,
- Anup Patel <anup@brainfault.org>, Drew Fustini <drew@beagleboard.org>,
- Christoph Hellwig <hch@lst.de>, Arnd Bergmann <arnd@arndb.de>,
- Chen-Yu Tsai <wens@csie.org>, Maxime Ripard <maxime@cerno.tech>,
- Greg Favor <gfavor@ventanamicro.com>,
- Andrea Mondelli <andrea.mondelli@huawei.com>,
- Jonathan Behrens <behrensj@mit.edu>, Xinhaoqu <xinhaoqu@huawei.com>,
- Bill Huffman <huffman@cadence.com>, Nick Kossifidis <mick@ics.forth.gr>,
- Allen Baum <allen.baum@esperantotech.com>,
- Josh Scheid <jscheid@ventanamicro.com>, Richard Trauben <rtrauben@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Christoph Muellner <cmuellner@linux.com>,
- Philipp Tomsich <philipp.tomsich@vrull.eu>
-Subject: Re: [PATCH v6 08/14] riscv: move boot alternatives to a slightly
- earlier position
-Date: Fri, 11 Feb 2022 10:34:36 +0100
-Message-ID: <3955255.SSjG0rkiDu@diego>
-In-Reply-To: <CAOnJCUJJaPS_U3Hqg-YHT2gVMJ243L=070E7HRXEpt3uPga+cQ@mail.gmail.com>
-References: <20220209123800.269774-1-heiko@sntech.de>
- <2532021.2vfPgEiFAl@diego>
- <CAOnJCUJJaPS_U3Hqg-YHT2gVMJ243L=070E7HRXEpt3uPga+cQ@mail.gmail.com>
+ id 1nIVPc-007GPd-8q
+ for linux-riscv@lists.infradead.org; Fri, 11 Feb 2022 12:52:33 +0000
+Received: by mail-vk1-f172.google.com with SMTP id z15so4889620vkp.13
+ for <linux-riscv@lists.infradead.org>; Fri, 11 Feb 2022 04:52:30 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=k3yMDJ4AXnEfuVrUfk2PsPl0dHnN7EmeDB26b3zVqHM=;
+ b=t50OCXjUvqf2zGELG7PzBXd6lQbp2G3czILnM5TIQljipcNOLxpyR6OxPzMhsrax1p
+ 2B5PB0W/LY+a8eUvRdF/hP+TcnHGMGZtxdrJ4esSkHRdjbw94W56pktwieY+GHKQNXFj
+ qrzSYSiOlGweQl9h0ewyutmfpSBOY4R/oSDLrvIyNEYhYZQVHjeqfqrK/8a1WJjRZUfz
+ ydryFWcIT4ZKmpVIqkuoKRzuyZ/cv2unSvYlMMVSMPm+DRRJGhHsC6dezYB3TNWfkm2p
+ zp7vvCvAAADs0VwML3vItpO3FQElVcWE9CSUTkdX7bmb7We4165inc+/senpeyPMfW6X
+ VvCA==
+X-Gm-Message-State: AOAM533b40Pnbir1YunSEoczeZhZxjSNXzrYEJ3Eh/0GcZ93k98Kj7e7
+ IwT/TfwaOjKxUl1GyimvmC1oLh+/rOQSmA==
+X-Google-Smtp-Source: ABdhPJydnnaBnfifZNKQ4tnME+vL5diLLOPXcAudyZAa1AyjJL8t+0xOcdQtRiAFo57Irm6O3nUPtA==
+X-Received: by 2002:a05:6122:793:: with SMTP id
+ k19mr396220vkr.15.1644583949761; 
+ Fri, 11 Feb 2022 04:52:29 -0800 (PST)
+Received: from mail-vs1-f45.google.com (mail-vs1-f45.google.com.
+ [209.85.217.45])
+ by smtp.gmail.com with ESMTPSA id n21sm1321497vkq.21.2022.02.11.04.52.29
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Fri, 11 Feb 2022 04:52:29 -0800 (PST)
+Received: by mail-vs1-f45.google.com with SMTP id t22so10120932vsa.4
+ for <linux-riscv@lists.infradead.org>; Fri, 11 Feb 2022 04:52:29 -0800 (PST)
+X-Received: by 2002:a05:6102:34d9:: with SMTP id
+ a25mr415124vst.68.1644583948840; 
+ Fri, 11 Feb 2022 04:52:28 -0800 (PST)
 MIME-Version: 1.0
+References: <20220210214018.55739-1-atishp@rivosinc.com>
+ <20220210214018.55739-6-atishp@rivosinc.com>
+ <877da2xu32.fsf@igel.home>
+In-Reply-To: <877da2xu32.fsf@igel.home>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 11 Feb 2022 13:52:17 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdX4P82B96ZbANyF6cWo9CnrW9hg5up6pCb0PZ99=sPZ_A@mail.gmail.com>
+Message-ID: <CAMuHMdX4P82B96ZbANyF6cWo9CnrW9hg5up6pCb0PZ99=sPZ_A@mail.gmail.com>
+Subject: Re: [PATCH v2 5/6] RISC-V: Do no continue isa string parsing without
+ correct XLEN
+To: Andreas Schwab <schwab@linux-m68k.org>
+Cc: Atish Patra <atishp@rivosinc.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, 
+ Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>, 
+ Damien Le Moal <damien.lemoal@wdc.com>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, Jisheng Zhang <jszhang@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220211_013442_161667_206947AC 
-X-CRM114-Status: GOOD (  40.13  )
+X-CRM114-CacheID: sfid-20220211_045232_362405_FFDAFDB9 
+X-CRM114-Status: GOOD (  20.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,140 +92,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 11. Februar 2022, 02:57:19 CET schrieb Atish Patra:
-> On Thu, Feb 10, 2022 at 5:11 PM Heiko St=FCbner <heiko@sntech.de> wrote:
+Hi Andreas,
+
+On Thu, Feb 10, 2022 at 11:00 PM Andreas Schwab <schwab@linux-m68k.org> wrote:
+> On Feb 10 2022, Atish Patra wrote:
+> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> > index 469b9739faf7..cca579bae8a0 100644
+> > --- a/arch/riscv/kernel/cpufeature.c
+> > +++ b/arch/riscv/kernel/cpufeature.c
+> > @@ -84,6 +84,7 @@ void __init riscv_fill_hwcap(void)
+> >       for_each_of_cpu_node(node) {
+> >               unsigned long this_hwcap = 0;
+> >               uint64_t this_isa = 0;
+> > +             char *temp;
 > >
-> > Hi Atish,
+> >               if (riscv_of_processor_hartid(node) < 0)
+> >                       continue;
+> > @@ -93,6 +94,7 @@ void __init riscv_fill_hwcap(void)
+> >                       continue;
+> >               }
 > >
-> > Am Donnerstag, 10. Februar 2022, 23:42:35 CET schrieb Atish Patra:
-> > > On Wed, Feb 9, 2022 at 4:39 AM Heiko Stuebner <heiko@sntech.de> wrote:
-> > > >
-> > > > Move the application of boot alternatives to soc_early_init().
-> > > > This allows to catch more generic cases of code needing patches
-> > > > than doing it in smp_prepare_boot_cpu() and also makes it actually
-> > > > work if CONFIG_SMP is disabled for whatever reason.
-> > > >
-> > > > The position is chosen mainly as it is before the actual soc early
-> > > > init runs but also already allows accessing the devicetree
-> > > > via fdt_* functions.
-> > > >
-> > > > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-> > > > ---
-> > > >  arch/riscv/kernel/head.S    | 2 ++
-> > > >  arch/riscv/kernel/smpboot.c | 2 --
-> > > >  2 files changed, 2 insertions(+), 2 deletions(-)
-> > > >
-> > > > diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-> > > > index 2363b43312fc..0e1bb97f9749 100644
-> > > > --- a/arch/riscv/kernel/head.S
-> > > > +++ b/arch/riscv/kernel/head.S
-> > > > @@ -10,6 +10,7 @@
-> > > >  #include <asm/thread_info.h>
-> > > >  #include <asm/page.h>
-> > > >  #include <asm/pgtable.h>
-> > > > +#include <asm/alternative.h>
-> > > >  #include <asm/csr.h>
-> > > >  #include <asm/cpu_ops_sbi.h>
-> > > >  #include <asm/hwcap.h>
-> > > > @@ -341,6 +342,7 @@ clear_bss_done:
-> > > >         call kasan_early_init
-> > > >  #endif
-> > > >         /* Start the kernel */
-> > > > +       call apply_boot_alternatives
-> > >
-> > > Do you really need this early ?
-> > > if non-smp configuration is the only option, Can you do it in
-> > > setup_arch() after riscv_fill_hwcap() is called ?
-> >
-> > The issue I see is, we we have the soc_early_init [0] running
-> > directly after this and the one user I see [1] already wants to
-> > ioremap io-memory at this stage.
-> >
-> =
+> > +             temp = (char *)isa;
+>
+> There should be no need for this cast.
 
-> Kendryte is always a special case. IIRC, ioremap is done so early
-> so that it can use all 8MB of SRAM.
-> =
+Indeed, but only if "temp" is changed to "const char *".
 
-> > So judging by the fact that more early-inits will get added
-> > in the future I do guess we should've set up the io-memory
-> > page-type by this point?
-> >
-> =
+Gr{oetje,eeting}s,
 
-> I hope there won't be :). For any normal mmu capable SoC, I don't
-> see why that would be required.
+                        Geert
 
-ok, so we'll assume there won't be another special-special case SoC
-forthcoming and hope for the best - works for me :-D
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-Thanks
-Heiko
-
-
-> > [0] https://elixir.bootlin.com/linux/latest/source/arch/riscv/kernel/so=
-c.c#L14
-> > [1] https://elixir.bootlin.com/linux/latest/source/drivers/soc/canaan/k=
-210-sysctl.c#L66
-> >
-> > > By doing that, we can unify the cpu feature probing and you don't need
-> > > a separate DT parsing just for svpbmt.
-> > >
-> > > >         call soc_early_init
-> > > >         tail start_kernel
-> > > >
-> > > > diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboo=
-t.c
-> > > > index a6d13dca1403..f1e4948a4b52 100644
-> > > > --- a/arch/riscv/kernel/smpboot.c
-> > > > +++ b/arch/riscv/kernel/smpboot.c
-> > > > @@ -32,7 +32,6 @@
-> > > >  #include <asm/sections.h>
-> > > >  #include <asm/sbi.h>
-> > > >  #include <asm/smp.h>
-> > > > -#include <asm/alternative.h>
-> > > >
-> > > >  #include "head.h"
-> > > >
-> > > > @@ -41,7 +40,6 @@ static DECLARE_COMPLETION(cpu_running);
-> > > >  void __init smp_prepare_boot_cpu(void)
-> > > >  {
-> > > >         init_cpu_topology();
-> > > > -       apply_boot_alternatives();
-> > > >  }
-> > > >
-> > > >  void __init smp_prepare_cpus(unsigned int max_cpus)
-> > > > --
-> > > > 2.30.2
-> > > >
-> > > >
-> > > > _______________________________________________
-> > > > linux-riscv mailing list
-> > > > linux-riscv@lists.infradead.org
-> > > > http://lists.infradead.org/mailman/listinfo/linux-riscv
-> > >
-> > >
-> > >
-> > >
-> >
-> >
-> >
-> >
-> =
-
-> =
-
-> =
-
-
-
-
-
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
