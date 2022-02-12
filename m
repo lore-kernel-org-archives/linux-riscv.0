@@ -4,42 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F2DFC433EF
-	for <linux-riscv@archiver.kernel.org>; Sat, 12 Feb 2022 06:30:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A657C433F5
+	for <linux-riscv@archiver.kernel.org>; Sat, 12 Feb 2022 06:30:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eZUQ40U95VBWyvosAHxRLqYcM8KZjfy872golmpoGAs=; b=XPhrrf6KXnvva6
-	0DpibXljHx2wBWwa83LStmfxhVmXIv43QZWYTnfCTczXLrWIwj9eprSbf/Rypmu7dCU0N7xVOp3qV
-	IfVQdvCe3hdYFNRLAYvkrzF3X5gTzRVyI8Ajmr/n3JRwUBXqlyMzsl/oOrS3VdmtbjA+zI1w/Gmx9
-	Yp5V+eiH5dsxXj8q/WH3spAfgbnF+PWULJh/Xt47Q4VnX/cOCX/SPpv2ZixJqvFJL8M+NQf6+EqxY
-	YKu2SEO0TG47X4yLP8Gnjg+/TNlJ1mRBUVk8aQqwd8FIPGyJ8bn0RJvo1h19I2xpZkDi9ly6L1HXu
-	XxvC/rkyFwg/IoPCEuxA==;
+	List-Owner; bh=9gNS/LXGwvZ0s5LQfH8mKJT9Is98yq2aiDg8ZWigmmo=; b=WUIspJD1NetuQo
+	WWJTRqF1LQNP8I0Kaxk3Zpv+Fwg1tz9XfOkq3gVcDqiV0Y8Qhm0wJ5FqzGtEt+Ilke1MxZEbU4C5l
+	OiVjdJZ/8tR5OrpdlTfLjpoc/kRYzmeVXe1HOLi86IKQ3OpuqKpDrhJLfB0WoaTFs2Bs1/ZaxfthZ
+	D74d4v6KS7zQ8ESlY0ow05Mr8eEGHZ92fR+/jw8mCB6nEZ8eWxjF2Aw57sEgBG2SrKAypXsauBDdw
+	v4O4Vba0x4ypie1oa+Zu7YZ4l8tvuOHwNY8SD7osYHNI9Ab0cH3AyW4UXoema4R2p+XC5UhKETrBc
+	ezcpkzLAGtfVkgqZ+Prw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nIlvL-009Uhu-I1; Sat, 12 Feb 2022 06:30:23 +0000
-Received: from mail-sender-0.a4lg.com ([2401:2500:203:30b:4000:6bfe:4757:0])
+	id 1nIlvQ-009UjL-Df; Sat, 12 Feb 2022 06:30:28 +0000
+Received: from mail-sender.a4lg.com ([153.120.152.154]
+ helo=mail-sender-0.a4lg.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nIlvH-009Uh4-2t
- for linux-riscv@lists.infradead.org; Sat, 12 Feb 2022 06:30:20 +0000
+ id 1nIlvN-009Ui8-Iu
+ for linux-riscv@lists.infradead.org; Sat, 12 Feb 2022 06:30:27 +0000
 From: Tsukasa OI <research_trasio@irq.a4lg.com>
 Authentication-Results: mail-sender-0.a4lg.com;
  dkim=permerror (bad message/signature format)
 To: Tsukasa OI <research_trasio@irq.a4lg.com>, linux-riscv@lists.infradead.org
 Cc: Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
  Atish Patra <atishp@rivosinc.com>
-Subject: [PATCH v3 2/3] RISC-V: Minimal parser for "riscv, isa" strings
-Date: Sat, 12 Feb 2022 15:30:00 +0900
-Message-Id: <ff0494c3ca0115b73a0c201a283a85021b3b6b31.1644647398.git.research_trasio@irq.a4lg.com>
+Subject: [PATCH v3 3/3] RISC-V: Extract multi-letter extension names from
+ "riscv, isa"
+Date: Sat, 12 Feb 2022 15:30:01 +0900
+Message-Id: <7677a6ab686d9edcb0c09b56d8323c76008ea8a5.1644647398.git.research_trasio@irq.a4lg.com>
 In-Reply-To: <ae93358e-e117-b43d-faad-772c529f846c@irq.a4lg.com>
 References: <ae93358e-e117-b43d-faad-772c529f846c@irq.a4lg.com>
 Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220211_223019_406731_3E83E26E 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20220211_223025_772875_17D79817 
+X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -56,126 +59,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Current hart ISA ("riscv,isa") parser don't correctly parse:
+Currently, there is no usage for version numbers in extensions as
+any ratified non base ISA extension will always at v1.0.
 
-1. Multi-letter extensions
-2. Version numbers
-
-All ISA extensions ratified recently has multi-letter extensions
-(except 'H'). The current "riscv,isa" parser that is easily confused
-by multi-letter extensions and "p" in version numbers can be a huge
-problem for adding new extensions through the device tree.
-
-Leaving it would create incompatible hacks and would make "riscv,isa"
-value unreliable.
-
-This commit implements minimal parser for "riscv,isa" strings.  With this,
-we can safely ignore multi-letter extensions and version numbers.
+Extract the extension names in place for future parsing.
 
 Signed-off-by: Tsukasa OI <research_trasio@irq.a4lg.com>
-[Improved commit text and fixed a bug around 's' in base extension]
+[Improved commit text and comments]
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
-[Fixed workaround for QEMU]
-Signed-off-by: Tsukasa OI <research_trasio@irq.a4lg.com>
 ---
- arch/riscv/kernel/cpufeature.c | 66 ++++++++++++++++++++++++++++------
- 1 file changed, 55 insertions(+), 11 deletions(-)
+ arch/riscv/kernel/cpufeature.c | 38 ++++++++++++++++++++++++++--------
+ 1 file changed, 29 insertions(+), 9 deletions(-)
 
 diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index dd3d57eb4eea..9d5448542226 100644
+index 9d5448542226..cd9eb34f8d11 100644
 --- a/arch/riscv/kernel/cpufeature.c
 +++ b/arch/riscv/kernel/cpufeature.c
-@@ -7,6 +7,7 @@
-  */
- 
- #include <linux/bitmap.h>
-+#include <linux/ctype.h>
- #include <linux/of.h>
- #include <asm/processor.h>
- #include <asm/hwcap.h>
-@@ -66,7 +67,7 @@ void __init riscv_fill_hwcap(void)
- 	struct device_node *node;
- 	const char *isa;
- 	char print_str[NUM_ALPHA_EXTS + 1];
--	size_t i, j, isa_len;
-+	int i, j;
- 	static unsigned long isa2hwcap[256] = {0};
- 
- 	isa2hwcap['i'] = isa2hwcap['I'] = COMPAT_HWCAP_ISA_I;
-@@ -92,23 +93,66 @@ void __init riscv_fill_hwcap(void)
- 			continue;
- 		}
- 
--		i = 0;
--		isa_len = strlen(isa);
- #if IS_ENABLED(CONFIG_32BIT)
- 		if (!strncmp(isa, "rv32", 4))
--			i += 4;
-+			isa += 4;
- #elif IS_ENABLED(CONFIG_64BIT)
- 		if (!strncmp(isa, "rv64", 4))
--			i += 4;
-+			isa += 4;
- #endif
--		for (; i < isa_len; ++i) {
--			this_hwcap |= isa2hwcap[(unsigned char)(isa[i])];
-+		for (; *isa; ++isa) {
-+			const char *ext = isa++;
-+			const char *ext_end = isa;
-+			bool ext_long = false, ext_err = false;
+@@ -119,9 +119,28 @@ void __init riscv_fill_hwcap(void)
+ 				ext_long = true;
+ 				/* Multi-letter extension must be delimited */
+ 				for (; *isa && *isa != '_'; ++isa)
+-					if (!islower(*isa) && !isdigit(*isa))
++					if (unlikely(!islower(*isa)
++						     && !isdigit(*isa)))
+ 						ext_err = true;
+-				/* ... but must be ignored. */
++				/* Parse backwards */
++				ext_end = isa;
++				if (unlikely(ext_err))
++					break;
++				if (!isdigit(ext_end[-1]))
++					break;
++				/* Skip the minor version */
++				while (isdigit(*--ext_end))
++					;
++				if (ext_end[0] != 'p'
++				    || !isdigit(ext_end[-1])) {
++					/* Advance it to offset the pre-decrement */
++					++ext_end;
++					break;
++				}
++				/* Skip the major version */
++				while (isdigit(*--ext_end))
++					;
++				++ext_end;
+ 				break;
+ 			default:
+ 				if (unlikely(!islower(*ext))) {
+@@ -131,6 +150,7 @@ void __init riscv_fill_hwcap(void)
+ 				/* Find next extension */
+ 				if (!isdigit(*isa))
+ 					break;
++				/* Skip the minor version */
+ 				while (isdigit(*++isa))
+ 					;
+ 				if (*isa != 'p')
+@@ -139,20 +159,20 @@ void __init riscv_fill_hwcap(void)
+ 					--isa;
+ 					break;
+ 				}
++				/* Skip the major version */
+ 				while (isdigit(*++isa))
+ 					;
+ 				break;
+ 			}
+ 			if (*isa != '_')
+ 				--isa;
+-			/*
+-			 * TODO: Full version-aware handling including
+-			 * multi-letter extensions will be added in-future.
+-			 */
+-			if (ext_err || ext_long)
 +
-+			switch (*ext) {
-+			case 's':
-+			case 'x':
-+			case 'z':
-+				/**
-+				 * Workaround for invalid single-letter 's' (QEMU).
-+				 * It works until multi-letter extension starting
-+				 * with "Su" appears.
-+				 */
-+				if (*ext == 's' && ext[-1] != '_' && ext[1] == 'u')
-+					break;
-+				ext_long = true;
-+				/* Multi-letter extension must be delimited */
-+				for (; *isa && *isa != '_'; ++isa)
-+					if (!islower(*isa) && !isdigit(*isa))
-+						ext_err = true;
-+				/* ... but must be ignored. */
-+				break;
-+			default:
-+				if (unlikely(!islower(*ext))) {
-+					ext_err = true;
-+					break;
-+				}
-+				/* Find next extension */
-+				if (!isdigit(*isa))
-+					break;
-+				while (isdigit(*++isa))
-+					;
-+				if (*isa != 'p')
-+					break;
-+				if (!isdigit(*++isa)) {
-+					--isa;
-+					break;
-+				}
-+				while (isdigit(*++isa))
-+					;
-+				break;
++			if (unlikely(ext_err))
+ 				continue;
+-			this_hwcap |= isa2hwcap[(unsigned char)(*ext)];
+-			this_isa |= (1UL << (*ext - 'a'));
++			if (!ext_long) {
++				this_hwcap |= isa2hwcap[(unsigned char)(*ext)];
++				this_isa |= (1UL << (*ext - 'a'));
 +			}
-+			if (*isa != '_')
-+				--isa;
- 			/*
--			 * TODO: X, Y and Z extension parsing for Host ISA
--			 * bitmap will be added in-future.
-+			 * TODO: Full version-aware handling including
-+			 * multi-letter extensions will be added in-future.
- 			 */
--			if ('a' <= isa[i] && isa[i] < 'x')
--				this_isa |= (1UL << (isa[i] - 'a'));
-+			if (ext_err || ext_long)
-+				continue;
-+			this_hwcap |= isa2hwcap[(unsigned char)(*ext)];
-+			this_isa |= (1UL << (*ext - 'a'));
  		}
  
  		/*
