@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 434D5C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 20:06:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AE2FC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 20:06:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ONMKeB3vRt9/qEFM/dU0YtZK1CfS1wqLB4Gjfj/JUu4=; b=Vec9DSBrczGTaO
-	atlfUqRJmaehpSOrjQHDeayIAbOXt0pdc2xW0HruZB2t2KH8xVX4M8HA47HL+MKiFv6I1Z32DxVHu
-	8nWC78IKpJlP7kgjdrVH4AFMKn5aw1I9fruyq2hDh4aiScdlC+fvgbDHkEEYDuqxKEIuEOaJDGZc9
-	BGFAcjkdx+i6knyRpho9PjwHDPzd/rp4f2gCotYwdJKSXvIaZrrLPUTZfdD5zMmDEd2KuwWvvtcnK
-	0G9dAvVgTun1MIhwTGSXl3i07JJttTOeCF5qgWCgV1a985TmgfPjXUsZZcHgIVEekXu50jzRtKoYf
-	0nwPmtM9pk0CEmJjcYdA==;
+	List-Owner; bh=INrExU06gnB64bOmSDGKIpBmawtwToOo8KxXwBeJXUU=; b=trDY5hh7WoAPm5
+	iQhzHOlPZOkvjthXR0EffvTVNh/Ml12cWfbcRbHesLjfQn0sfcQ+1Bcclh4qfJwEEUhnrTjx9nsic
+	Yk6YpRchX9UjWlZz9jad7xF7Zxvc1fSuDmg/0Jyv0Sna5YzAMcKd5j7g+w35KfDHmFI3c0qcEjO5U
+	d1FDpnGZpn14sxQmoXGTzq+1pneac8dA2oGzq1BcNezgG2iVOviQEbr4uw25e8+puGdGpD7WVQn+M
+	yHV4VlzWuUNesYZ3Oe+WajZvQYy4C4l9wID2g/W5KhlVt3yougHaQhDyTEEtW8UNvPjOxVkPWT959
+	EOi0YUO40YlxGTsaCjHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJhbr-00GmkU-H8; Mon, 14 Feb 2022 20:06:07 +0000
+	id 1nJhcC-00GmvP-Ls; Mon, 14 Feb 2022 20:06:28 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJhbp-00GmjG-0b
- for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 20:06:06 +0000
+ id 1nJhc9-00GmtW-PR
+ for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 20:06:27 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
  helo=diego.localnet)
  by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
  (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1nJhbk-0002l8-UI; Mon, 14 Feb 2022 21:06:00 +0100
+ id 1nJhc4-0002le-Tx; Mon, 14 Feb 2022 21:06:20 +0100
 From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
 To: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 Cc: Atish Patra <atishp@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -40,17 +40,17 @@ Cc: Atish Patra <atishp@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>,
  linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
  Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH v2 4/6] RISC-V: Implement multi-letter ISA extension
- probing framework
-Date: Mon, 14 Feb 2022 21:05:59 +0100
-Message-ID: <3881365.IPMWXPQfj1@diego>
-In-Reply-To: <20220210214018.55739-5-atishp@rivosinc.com>
+Subject: Re: [PATCH v2 5/6] RISC-V: Do no continue isa string parsing without
+ correct XLEN
+Date: Mon, 14 Feb 2022 21:06:20 +0100
+Message-ID: <2355131.QFAWljMpKt@diego>
+In-Reply-To: <20220210214018.55739-6-atishp@rivosinc.com>
 References: <20220210214018.55739-1-atishp@rivosinc.com>
- <20220210214018.55739-5-atishp@rivosinc.com>
+ <20220210214018.55739-6-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_120605_100060_C2BB641B 
-X-CRM114-Status: GOOD (  27.04  )
+X-CRM114-CacheID: sfid-20220214_120625_891319_E1620CDA 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,124 +67,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 10. Februar 2022, 22:40:16 CET schrieb Atish Patra:
-> Multi-letter extensions can be probed using exising
-> riscv_isa_extension_available API now. It doesn't support versioning
-> right now as there is no use case for it.
-> Individual extension specific implementation will be added during
-> each extension support.
+Am Donnerstag, 10. Februar 2022, 22:40:17 CET schrieb Atish Patra:
+> The isa string should begin with either rv64 or rv32. Otherwise, it is
+> an incorrect isa string. Currently, the string parsing continues even if
+> it doesnot begin with current XLEN.
+> 
+> Fix this by checking if it found "rv64" or "rv32" in the beginning.
 > 
 > Signed-off-by: Atish Patra <atishp@rivosinc.com>
 
 Tested-by: Heiko Stuebner <heiko@sntech.de>
-
-
-By the way, does a similar parsing exist for opensbi as well?
-Things like svpbmt as well as zicbom have CSR bits controlling how
-these functions should behave (enabling them, etc), so I guess
-opensbi also needs to parse the extensions from the ISA string?
-
-
-Heiko
-
-> ---
->  arch/riscv/include/asm/hwcap.h | 18 ++++++++++++++++++
->  arch/riscv/kernel/cpufeature.c | 27 ++++++++++++++++++++++++---
->  2 files changed, 42 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> index 5ce50468aff1..170bd80da520 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -34,7 +34,25 @@ extern unsigned long elf_hwcap;
->  #define RISCV_ISA_EXT_s		('s' - 'a')
->  #define RISCV_ISA_EXT_u		('u' - 'a')
->  
-> +/*
-> + * Increse this to higher value as kernel support more ISA extensions.
-> + */
->  #define RISCV_ISA_EXT_MAX	64
-> +#define RISCV_ISA_EXT_NAME_LEN_MAX 32
-> +
-> +/* The base ID for multi-letter ISA extensions */
-> +#define RISCV_ISA_EXT_BASE 26
-> +
-> +/*
-> + * This enum represent the logical ID for each multi-letter RISC-V ISA extension.
-> + * The logical ID should start from RISCV_ISA_EXT_BASE and must not exceed
-> + * RISCV_ISA_EXT_MAX. 0-25 range is reserved for single letter
-> + * extensions while all the multi-letter extensions should define the next
-> + * available logical extension id.
-> + */
-> +enum riscv_isa_ext_id {
-> +	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
-> +};
->  
->  unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap);
->  
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index e9e3b0693d16..469b9739faf7 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -83,7 +83,7 @@ void __init riscv_fill_hwcap(void)
->  
->  	for_each_of_cpu_node(node) {
->  		unsigned long this_hwcap = 0;
-> -		unsigned long this_isa = 0;
-> +		uint64_t this_isa = 0;
->  
->  		if (riscv_of_processor_hartid(node) < 0)
->  			continue;
-> @@ -169,12 +169,22 @@ void __init riscv_fill_hwcap(void)
->  			if (*isa != '_')
->  				--isa;
->  
-> +#define SET_ISA_EXT_MAP(name, bit)						\
-> +			do {							\
-> +				if ((ext_end - ext == sizeof(name) - 1) &&	\
-> +				     !memcmp(ext, name, sizeof(name) - 1)) {    \
-> +					this_isa |= (1UL << bit);		\
-> +					pr_info("Found ISA extension %s", name);\
-> +				}						\
-> +			} while (false)						\
-> +
->  			if (unlikely(ext_err))
->  				continue;
->  			if (!ext_long) {
->  				this_hwcap |= isa2hwcap[(unsigned char)(*ext)];
->  				this_isa |= (1UL << (*ext - 'a'));
->  			}
-> +#undef SET_ISA_EXT_MAP
->  		}
->  
->  		/*
-> @@ -187,10 +197,21 @@ void __init riscv_fill_hwcap(void)
->  		else
->  			elf_hwcap = this_hwcap;
->  
-> -		if (riscv_isa[0])
-> +		if (riscv_isa[0]) {
-> +#if IS_ENABLED(CONFIG_32BIT)
-> +			riscv_isa[0] &= this_isa & 0xFFFFFFFF;
-> +			riscv_isa[1] &= this_isa >> 32;
-> +#else
->  			riscv_isa[0] &= this_isa;
-> -		else
-> +#endif
-> +		} else {
-> +#if IS_ENABLED(CONFIG_32BIT)
-> +			riscv_isa[0] = this_isa & 0xFFFFFFFF;
-> +			riscv_isa[1] = this_isa >> 32;
-> +#else
->  			riscv_isa[0] = this_isa;
-> +#endif
-> +		}
->  	}
->  
->  	/* We don't support systems with F but without D, so mask those out
-> 
-
-
 
 
 
