@@ -4,83 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5B02C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 11:45:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EBB4C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 11:58:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LvZ+89V6xx9fyQ0pFW8AgOO/FsvZyz3s2Y4EFIDmH64=; b=Pp1IMOXsaM4jx0
-	T61nK9wW4nF40Ssvcso+m9IoZUPoK84Ci8sZQDr07sqeP9WdTi8vCincbdCKtqQqUCselMJ9lIIjj
-	fbSdEo2gOShjikiGMD2IMhuJYuNvP7NlvzKpclhDjjDrmwskSomtED72daCRIoOfOU5DdpRCU428Q
-	jAq0jWgeIFlt61f3qg9BB3ArT4coe2uhudwcCei5FtwPjR3iB4iwhPEaeFRF8SCQgQqVopW23WaYP
-	JBOE86VwLQtdFVs/L4LkRU1IqFKGy30x/jaFp9lvGyLglZNfPY/mgFVphIhGmJBfSHr2FE0BVgnaF
-	ttKo49xRXSiLO6Pq8IRQ==;
+	List-Owner; bh=k6AkWuQBxf3E/GaAsxhvfASUTfOGBcgY9KVfGJ6QdBs=; b=PkeDFl1Xl72lrD
+	IfkIKdeepdo6/4npWRzq+gKTNpsNkPcA9Srm6IbI34Um7EZuqBPFb6A79MHaZvTgC28a2hxOPOnq7
+	tN1upNYrdDGcbOMklLkp2Hq8o+L9S/Wd3AWKtJBUnvTVHjj5LhfQUlS7/RwTYAfbTp/4stHo7vmrS
+	1j0RiyNJDVp2Crb2I90wVHeeityr/JPvlUf33tORq+0m288Sw4gRkT+oKcZyKPmoj0V1Lw6PVDs7n
+	bq/jnZrya2wVqd+/KTrp6D0y6JSHUsOlMrJXIFv8Xkk1auNtqbf5jhVdi+Ee940cYnbbF2QemWAM/
+	5LDDFwlbsf+CRzMdhGYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJZnR-00Euuf-DO; Mon, 14 Feb 2022 11:45:33 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1nJa0G-00EzCU-G5; Mon, 14 Feb 2022 11:58:48 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJYaX-00EViL-7q
- for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 10:28:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1644834483;
- bh=C52L81Zv6DgbMZ32Hm9sPxd7zXF+yQ2jiwL8dR4ieg4=;
- h=X-UI-Sender-Class:Date:Subject:To:Cc:References:From:In-Reply-To;
- b=Bjje2Nkw/46y+07oJ48NjQs1PB1iStZpLEA0luaeFydTMqyuMA6klR283DQG8u1DL
- s868gB2p8ykG0mpFemuA3JjtjgeAYkTnuTdeDGDdV22HZ998OMk9Psc/6AQeJq3sys
- HhqGhq8Sd5VmgwwxFAYtrgMSZNN6BZHoWE6cHNhc=
-X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from [192.168.123.94] ([88.152.144.107]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MFsYx-1nVLkT3WO7-00HNq3; Mon, 14
- Feb 2022 11:28:02 +0100
-Message-ID: <49d3aeab-1fe6-8d17-bc83-78f3555109c7@gmx.de>
-Date: Mon, 14 Feb 2022 11:27:53 +0100
+ id 1nJZ4i-00Ef54-J6; Mon, 14 Feb 2022 10:59:22 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
+ helo=diego.localnet)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1nJZ4E-00080o-TO; Mon, 14 Feb 2022 11:58:50 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Thierry Reding <thierry.reding@gmail.com>,
+ Uwe =?ISO-8859-1?Q?Kleine=2DK=F6nig?= <u.kleine-koenig@pengutronix.de>,
+ Lee Jones <lee.jones@linaro.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, bcm-kernel-feedback-list@broadcom.com,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Anson Huang <anson.huang@nxp.com>,
+ Vijayakannan Ayyathurai <vijayakannan.ayyathurai@intel.com>,
+ Rahul Tanwar <rtanwar@maxlinear.com>, Jeff LaBundy <jeff@labundy.com>,
+ Yash Shah <yash.shah@sifive.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Vignesh R <vigneshr@ti.com>,
+ Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-riscv@lists.infradead.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+Subject: Re: [PATCH 06/15] dt-bindings: pwm: rockchip: include generic pwm
+ schema
+Date: Mon, 14 Feb 2022 11:58:49 +0100
+Message-ID: <2270696.mDkAqzPR1c@diego>
+In-Reply-To: <20220214081605.161394-6-krzysztof.kozlowski@canonical.com>
+References: <20220214081605.161394-1-krzysztof.kozlowski@canonical.com>
+ <20220214081605.161394-6-krzysztof.kozlowski@canonical.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.6.0
-Subject: Re: [PATCH] riscv/efi_stub: Fix get_boot_hartid_from_fdt() return
- value
-Content-Language: en-US
-To: Andreas Schwab <schwab@linux-m68k.org>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@atishpatra.org>,
- linux-efi@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>,
- stable@vger.kernel.org, Sunil V L <sunilvl@ventanamicro.com>
-References: <20220128045004.4843-1-sunilvl@ventanamicro.com>
- <877d9xx14f.fsf@igel.home> <9cd9f149-d2ea-eb55-b774-8d817b9b6cc9@gmx.de>
- <87tud1vjn4.fsf@igel.home>
-From: Heinrich Schuchardt <xypron.glpk@gmx.de>
-In-Reply-To: <87tud1vjn4.fsf@igel.home>
-X-Provags-ID: V03:K1:kWX1RyymCzZi3HShz7TOEYlEEIuEzCNmVUcoaTDwlboEDX5KwFu
- T11R6pzWrra/U18O4BDT+sVEhjcz8mGruHI8KlMlxezPRwjHQjP7BDC7kB7HE7wSbWk5dG9
- A2yqlqau3mBKveqkKrrIjPWTC6WpDX8zIYF0Ip/e/9ud3RGLLFFsmhrML5JLwj88Mx458FZ
- mehheaVewk32SY9MHOJ3Q==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:KC66DkQYCFI=:wQA4JJFKXXrX1a8BRD4tEr
- JxzhfyP1kgYWsyaLZIB/DSH8NSwddXSz70aKY7CMeiEdGWeNxqlumsXQ7Y0vyMZWA22BTQzW2
- im9ZOKKwpQl8sHuzxeXN6kqsNWNgwRzAJl2OhhjJp4nC1w3IW4c+Uaf7uvhTxT/585+or+Zg4
- bYfpuiWXGJAsdFDtDwUXFT6qfqd77h3DQqd0jR6jkVl2I1bmLIPOVlo7F0hDn6MeV2GnDIFth
- c2QDG1ByqWTFpEuSK8GnT4vH9UpX/u+ODhcM0X6cCO9POoid2LgXH66FOa3iM10lphkRaMLl2
- euXjSAz0f2+6wO8UMW9qZZG2bMmDevVT8yRlK7u0KLpvalvmYOGODVeW9depA+2J6CD6jZUow
- UePAF5uibEJpb7hyr0Vu82bYwQUUWrBg1llcJnszJONpZ9bb8Pm2v4iuAwqZ4Sd8GFhkyWptl
- 3paP65/u5DE1JlTu0Y+2rHN7dwivqGxDc5emnSexU/lCblKXlzHlZakvcHs6XE5MPP27nkbrS
- +5egEHaUuvOKR5kyiFMfL+elSGXutclB3/1n3F5DjSzg+l2nobX1Uip2ZUYxIHujAN7hcWfOs
- TA6zf5U1s7h3Zs9dPX8vk/KseoaDZUXj3tXgkmwrv8VRH6iG9kf+6G2ozQuUADkuGvZwXSQTd
- hT3YjlsbGBzWM7V3tipIKIvF2FSY5XvbM1ZL72HrM+5zsrXRI31KeicPuzFq1xXFThQ/4TVMq
- HaHsTuUojGgeCJ8vT9oc9fKR+ONp+hdZLsaRdWDnMENmTBFybJkWircFKwDtz17rZd46GA4qq
- DMzQdoQj02CYZdy89t6XR0nJNVMLEka0PHYwUo+1jbWacvNzLHajOtDgj1kf5mufO3oRDEsa9
- MpHth3/GDs17vloqRmEl8V58diUoCtUGRmjtD25axHhB5CXAqi/uK4tW3YxmxKlPS03bF245H
- c7Ae/ce4WyLoRk3j/JYuOvLF/u8EMLgwVVCSuQESmEUSUIsxT40pwdHQAtD/5fhSo0Fjb4toG
- aVmWoKL7HHfEtItaxV6M3i+4Cc0dZw7karSRiGXmK+SES3GfN2uW0m3hjq4dOJlawTgNqYvk1
- g06tL+8GQj8gJo=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_022809_653406_4FFDCB9C 
-X-CRM114-Status: UNSURE (   7.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220214_025920_692097_86B684AA 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,21 +76,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/14/22 11:15, Andreas Schwab wrote:
-> On Feb 14 2022, Heinrich Schuchardt wrote:
->
->> set_boot_hartid() implies that the caller can change the boot hart ID.
->> As this is not a case this name obviously would be a misnomer.
->
-> initialize_boot_hartid would fit better.
->
+Am Montag, 14. Februar 2022, 09:15:56 CET schrieb Krzysztof Kozlowski:
+> Include generic pwm.yaml schema, which enforces PWM node naming and
+> brings pwm-cells requirement.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 
-Another misnomer.
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+
+> ---
+>  .../devicetree/bindings/pwm/pwm-rockchip.yaml | 74 ++++++++++---------
+>  1 file changed, 38 insertions(+), 36 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml b/Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml
+> index 81a54a4e8e3e..a336ff9364a9 100644
+> --- a/Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml
+> +++ b/Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml
+> @@ -51,42 +51,44 @@ properties:
+>  required:
+>    - compatible
+>    - reg
+> -  - "#pwm-cells"
+> -
+> -if:
+> -  properties:
+> -    compatible:
+> -      contains:
+> -        enum:
+> -          - rockchip,rk3328-pwm
+> -          - rockchip,rv1108-pwm
+> -
+> -then:
+> -  properties:
+> -    clocks:
+> -      items:
+> -        - description: Used to derive the functional clock for the device.
+> -        - description: Used as the APB bus clock.
+> -
+> -    clock-names:
+> -      items:
+> -        - const: pwm
+> -        - const: pclk
+> -
+> -  required:
+> -    - clocks
+> -    - clock-names
+> -
+> -else:
+> -  properties:
+> -    clocks:
+> -      maxItems: 1
+> -      description:
+> -        Used both to derive the functional clock
+> -        for the device and as the bus clock.
+> -
+> -  required:
+> -    - clocks
+> +
+> +allOf:
+> +  - $ref: pwm.yaml#
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - rockchip,rk3328-pwm
+> +              - rockchip,rv1108-pwm
+> +
+> +    then:
+> +      properties:
+> +        clocks:
+> +          items:
+> +            - description: Used to derive the functional clock for the device.
+> +            - description: Used as the APB bus clock.
+> +
+> +        clock-names:
+> +          items:
+> +            - const: pwm
+> +            - const: pclk
+> +
+> +      required:
+> +        - clocks
+> +        - clock-names
+> +
+> +    else:
+> +      properties:
+> +        clocks:
+> +          maxItems: 1
+> +          description:
+> +            Used both to derive the functional clock
+> +            for the device and as the bus clock.
+> +
+> +      required:
+> +        - clocks
+>  
+>  additionalProperties: false
+>  
+> 
+
+
+
 
 
 _______________________________________________
