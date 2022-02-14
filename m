@@ -4,67 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EBB4C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 11:58:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00B72C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 12:06:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:References:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k6AkWuQBxf3E/GaAsxhvfASUTfOGBcgY9KVfGJ6QdBs=; b=PkeDFl1Xl72lrD
-	IfkIKdeepdo6/4npWRzq+gKTNpsNkPcA9Srm6IbI34Um7EZuqBPFb6A79MHaZvTgC28a2hxOPOnq7
-	tN1upNYrdDGcbOMklLkp2Hq8o+L9S/Wd3AWKtJBUnvTVHjj5LhfQUlS7/RwTYAfbTp/4stHo7vmrS
-	1j0RiyNJDVp2Crb2I90wVHeeityr/JPvlUf33tORq+0m288Sw4gRkT+oKcZyKPmoj0V1Lw6PVDs7n
-	bq/jnZrya2wVqd+/KTrp6D0y6JSHUsOlMrJXIFv8Xkk1auNtqbf5jhVdi+Ee940cYnbbF2QemWAM/
-	5LDDFwlbsf+CRzMdhGYw==;
+	List-Owner; bh=aC6wiljoyb/kBioQfgouj0x1+SB6I0TuNGmO+XylTKI=; b=l+gI6E2yjkYWSI
+	zQujC/3Mt2zXGEl1RvfrCV37guWIz6vsYLuDzxaM9RzpvmJk7KZyC9sIY5QfptgsgGC5QDdMBHgw6
+	PeGAwZLKAuLilirznc0bVCiaJJDwwR3wRrjg6X98/8qdWdlbWUn1us8BMb2o36eit3wI8HhwDoSle
+	Zu8qew9J0D9wOx5gnWwE9P6Pzs3jgrTDNfMa+BxZB+elU+EjrbJ4OnStnS1dE3aqw6CwyKiPM2N96
+	2PC0m7B48s78Ds4+84ONy71jabTvoVX8UwrxuobkN2yyrjAPMD13lnqGpCwInuqw5V8OYYDz2B4aJ
+	Lrg8Y4Oq8A4AS+k/csVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJa0G-00EzCU-G5; Mon, 14 Feb 2022 11:58:48 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1nJa81-00F1ug-Nf; Mon, 14 Feb 2022 12:06:49 +0000
+Received: from mail-out.m-online.net ([2001:a60:0:28:0:1:25:1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJZ4i-00Ef54-J6; Mon, 14 Feb 2022 10:59:22 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
- helo=diego.localnet)
- by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1nJZ4E-00080o-TO; Mon, 14 Feb 2022 11:58:50 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Thierry Reding <thierry.reding@gmail.com>,
- Uwe =?ISO-8859-1?Q?Kleine=2DK=F6nig?= <u.kleine-koenig@pengutronix.de>,
- Lee Jones <lee.jones@linaro.org>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Florian Fainelli <f.fainelli@gmail.com>, bcm-kernel-feedback-list@broadcom.com,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
- Philipp Zabel <p.zabel@pengutronix.de>, Anson Huang <anson.huang@nxp.com>,
- Vijayakannan Ayyathurai <vijayakannan.ayyathurai@intel.com>,
- Rahul Tanwar <rtanwar@maxlinear.com>, Jeff LaBundy <jeff@labundy.com>,
- Yash Shah <yash.shah@sifive.com>, Sagar Kadam <sagar.kadam@sifive.com>,
- Vignesh R <vigneshr@ti.com>,
- Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
- linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-riscv@lists.infradead.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-Subject: Re: [PATCH 06/15] dt-bindings: pwm: rockchip: include generic pwm
- schema
-Date: Mon, 14 Feb 2022 11:58:49 +0100
-Message-ID: <2270696.mDkAqzPR1c@diego>
-In-Reply-To: <20220214081605.161394-6-krzysztof.kozlowski@canonical.com>
-References: <20220214081605.161394-1-krzysztof.kozlowski@canonical.com>
- <20220214081605.161394-6-krzysztof.kozlowski@canonical.com>
+ id 1nJZEH-00EiCy-14
+ for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 11:09:15 +0000
+Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
+ by mail-out.m-online.net (Postfix) with ESMTP id 4Jy1gl1ML5z1sb4v;
+ Mon, 14 Feb 2022 12:09:07 +0100 (CET)
+Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
+ by mail.m-online.net (Postfix) with ESMTP id 4Jy1gk6xvWz1qqkC;
+ Mon, 14 Feb 2022 12:09:06 +0100 (CET)
+X-Virus-Scanned: amavisd-new at mnet-online.de
+Received: from mail.mnet-online.de ([192.168.8.182])
+ by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
+ port 10024)
+ with ESMTP id PviuDD7DJMpb; Mon, 14 Feb 2022 12:09:05 +0100 (CET)
+X-Auth-Info: IIqgtslsiXqoU0044bdHXKurfQElNZ2hCA9ncLdtO9RAMGtWhVn9okSWqvV9m/4e
+Received: from igel.home (ppp-46-244-178-131.dynamic.mnet-online.de
+ [46.244.178.131])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.mnet-online.de (Postfix) with ESMTPSA;
+ Mon, 14 Feb 2022 12:09:05 +0100 (CET)
+Received: by igel.home (Postfix, from userid 1000)
+ id 827722C3A76; Mon, 14 Feb 2022 12:09:05 +0100 (CET)
+From: Andreas Schwab <schwab@linux-m68k.org>
+To: Heinrich Schuchardt <xypron.glpk@gmx.de>
+Cc: Ard Biesheuvel <ardb@kernel.org>,  Paul Walmsley
+ <paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>,  Albert
+ Ou <aou@eecs.berkeley.edu>,  Atish Patra <atishp@atishpatra.org>,
+ linux-efi@vger.kernel.org,  linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org,  Anup Patel <apatel@ventanamicro.com>,
+ stable@vger.kernel.org,  Sunil V L <sunilvl@ventanamicro.com>
+Subject: Re: [PATCH] riscv/efi_stub: Fix get_boot_hartid_from_fdt() return
+ value
+References: <20220128045004.4843-1-sunilvl@ventanamicro.com>
+ <877d9xx14f.fsf@igel.home>
+ <9cd9f149-d2ea-eb55-b774-8d817b9b6cc9@gmx.de>
+ <87tud1vjn4.fsf@igel.home>
+ <49d3aeab-1fe6-8d17-bc83-78f3555109c7@gmx.de>
+X-Yow: Now my EMOTIONAL RESOURCES are heavily committed to 23% of the
+ SMELTING and REFINING industry of the state of NEVADA!!
+Date: Mon, 14 Feb 2022 12:09:05 +0100
+In-Reply-To: <49d3aeab-1fe6-8d17-bc83-78f3555109c7@gmx.de> (Heinrich
+ Schuchardt's message of "Mon, 14 Feb 2022 11:27:53 +0100")
+Message-ID: <87pmnpvh66.fsf@igel.home>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/28.0.91 (gnu/linux)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_025920_692097_86B684AA 
-X-CRM114-Status: GOOD (  17.51  )
+X-CRM114-CacheID: sfid-20220214_030913_260595_39728574 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,108 +88,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 14. Februar 2022, 09:15:56 CET schrieb Krzysztof Kozlowski:
-> Include generic pwm.yaml schema, which enforces PWM node naming and
-> brings pwm-cells requirement.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+On Feb 14 2022, Heinrich Schuchardt wrote:
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+> On 2/14/22 11:15, Andreas Schwab wrote:
+>> On Feb 14 2022, Heinrich Schuchardt wrote:
+>>
+>>> set_boot_hartid() implies that the caller can change the boot hart ID.
+>>> As this is not a case this name obviously would be a misnomer.
+>>
+>> initialize_boot_hartid would fit better.
+>>
+>
+> Another misnomer.
 
-> ---
->  .../devicetree/bindings/pwm/pwm-rockchip.yaml | 74 ++++++++++---------
->  1 file changed, 38 insertions(+), 36 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml b/Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml
-> index 81a54a4e8e3e..a336ff9364a9 100644
-> --- a/Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml
-> +++ b/Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml
-> @@ -51,42 +51,44 @@ properties:
->  required:
->    - compatible
->    - reg
-> -  - "#pwm-cells"
-> -
-> -if:
-> -  properties:
-> -    compatible:
-> -      contains:
-> -        enum:
-> -          - rockchip,rk3328-pwm
-> -          - rockchip,rv1108-pwm
-> -
-> -then:
-> -  properties:
-> -    clocks:
-> -      items:
-> -        - description: Used to derive the functional clock for the device.
-> -        - description: Used as the APB bus clock.
-> -
-> -    clock-names:
-> -      items:
-> -        - const: pwm
-> -        - const: pclk
-> -
-> -  required:
-> -    - clocks
-> -    - clock-names
-> -
-> -else:
-> -  properties:
-> -    clocks:
-> -      maxItems: 1
-> -      description:
-> -        Used both to derive the functional clock
-> -        for the device and as the bus clock.
-> -
-> -  required:
-> -    - clocks
-> +
-> +allOf:
-> +  - $ref: pwm.yaml#
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - rockchip,rk3328-pwm
-> +              - rockchip,rv1108-pwm
-> +
-> +    then:
-> +      properties:
-> +        clocks:
-> +          items:
-> +            - description: Used to derive the functional clock for the device.
-> +            - description: Used as the APB bus clock.
-> +
-> +        clock-names:
-> +          items:
-> +            - const: pwm
-> +            - const: pclk
-> +
-> +      required:
-> +        - clocks
-> +        - clock-names
-> +
-> +    else:
-> +      properties:
-> +        clocks:
-> +          maxItems: 1
-> +          description:
-> +            Used both to derive the functional clock
-> +            for the device and as the bus clock.
-> +
-> +      required:
-> +        - clocks
->  
->  additionalProperties: false
->  
-> 
+But the best fit so far.
 
-
-
-
+-- 
+Andreas Schwab, schwab@linux-m68k.org
+GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
