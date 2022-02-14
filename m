@@ -4,149 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 994B3C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 12:57:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A977C4167B
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 13:56:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tuxNImWu0ksAbuZAHALz20xDYIXO+QaohvlotAyiLFg=; b=GhC+jjsN0QQcYH
-	4KUOxYNwfd+c5Hefq1W97+yiVRW8D0Nq+2CamI1PRm9MF7tTzDUL/7ibORoIvHNBbMWZvHjERejoJ
-	cM+33ItsHE/X4Mi/f8yGoDL4+t5I8SvEOZLWbeK8lGwaXcA/egt1BAu2ycsPd9he9TqWQWD091oqp
-	PbdO+KJGmABrjJlO1UlkHXIXL1cO+Fu7dj052DgFagdnCHS60hlZPPiXhsnHh0cZRVJSlBjDNDc9m
-	4qBmAHkHflH3W/o30+zlBq74CImoYyLcuLkAQG7qeaHaaY0JEN67T+KrefvcFVV/Np5WEG1pT/4CY
-	CRYPjwEptcWZ5xCPthbQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=f59w/VWz+OxTxACnxTTdk8h7vx+ceXkQ2HctN7nnpLI=; b=rEwAkxIhQnPQk3
+	88uQN+7/BNp0zPwcFgSBAPsFs5yRbAeEt0OZUQgWjrUSYlR8sPcGFa9mzQF6B64uaFsBvPW7llk+7
+	mMUpeJd42LQ38wsd0ImflxmhsoViG52gStTAVhDj4rOy1TOxhmY0OJhqnJ3Fdv0ERuLxQFVGvYDHX
+	44WjBUJ3s31+3kP8+sPYfL+s7cqoi+VpThK0cy0W98XMaiK2rzYPEm5L0o1/JI3I36Q6n4B7eqZuK
+	zWk34dCKjN7gJ3zJ3Au/VeKNUAe1aNZ/nXaN6PLItWm9Zk+EmDUsgmg91Ki3FdK1daHE4zCJBCcjT
+	fXH4a7ROXhHCIxjM+hRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJauV-00FIRO-FP; Mon, 14 Feb 2022 12:56:55 +0000
-Received: from mo-csw1114.securemx.jp ([210.130.202.156]
- helo=mo-csw.securemx.jp)
+	id 1nJbps-00FVH9-8p; Mon, 14 Feb 2022 13:56:12 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJahP-00FDIn-Mt; Mon, 14 Feb 2022 12:43:27 +0000
-Received: by mo-csw.securemx.jp (mx-mo-csw1114) id 21ECgOE7018633;
- Mon, 14 Feb 2022 21:42:24 +0900
-X-Iguazu-Qid: 2wGqsbWW1lOZcRLAJu
-X-Iguazu-QSIG: v=2; s=0; t=1644842543; q=2wGqsbWW1lOZcRLAJu;
- m=k5V7XzWVQj0SP0R98mV1AosP2jRUJYY7UC11k9IQftQ=
-Received: from imx2-a.toshiba.co.jp (imx2-a.toshiba.co.jp [106.186.93.35])
- by relay.securemx.jp (mx-mr1111) id 21ECgIUs021987
- (version=TLSv1.2 cipher=AES128-GCM-SHA256 bits=128 verify=NOT);
- Mon, 14 Feb 2022 21:42:18 +0900
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=j8xJ+lWPhAb97lsYnAgz9k7ZdOwhnzfz2p8+cjKtOiPo6URXdCFjSdZpfNqI5Czzv6fzmnKLWQX0rOFhJNx96extPQxX43Z1lyR2PxnKUpL4F4Xl4omPmS/CfaXOAMraWsXTeq/KFINudufmsFXJ8FurjtMed2Lg5g0C8vvgK5/yk0+FWjcNVvg5E4UsVFFv2SZzSt5ppJQnnEt9/ZLhl8zw0/oe0eUYUTLWdyPeYJadtNzZTsCgcVv+9/V3/SQ0ho8m/+JqSVnsT3NcHl+B1PV6V200MUevJ2GAXz5RpkB4E9Xadq/tX+w5Hzk9lN6mvoGJsG8Q4wpIqxdGTz4OOQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=E3ncVM72lBMCHEb/R5gUeOjq5dsjnGfltu2dRJoPvzo=;
- b=oGH1vM+N+0Oeyqe7EYhahgwVi3wuhKlcGbz7h+ROTQS6ukq63kvwuMhKUHCdmZ9O8aWAoSRmKsFdTIuIWUQhboG0V2CgYjZbtW687xJP1KJ8lRNfWU7KTTeUbdP/wgqLeadmbV4OohnXLED+cpEGJ8YFsFaTddUd7lBJf6PmdQHckLSk9c0o3a2IGipakinwoFpOCrkR9W5fPsvw+Boq0anAD4XxS777yzJJ+oBPHidOlOO1A1KQ9xd7O+D5FiCCJzEQhhAaU/q4qq3FjpiDF7w77oN3P3d/YuXUU/8OL9heyQOuuLLOhjS3Wv3rxGIoMQs9y3UgJpMWugvXGQ1aFw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-From: <nobuhiro1.iwamatsu@toshiba.co.jp>
-To: <krzysztof.kozlowski@canonical.com>, <thierry.reding@gmail.com>,
+ id 1nJbpo-00FVGS-UY
+ for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 13:56:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1644846968; x=1676382968;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=2adZHzbNbrqAYiiCJa+cCCwwilXc4/CtmowXbjAh+IU=;
+ b=Ezhzx12RwVtwkc85YaOcWEeu7+G9sdmeDRXTxW3t8W2WSmjS/dejJT/t
+ HzRUDynYTq5+9lzqmv4sxPvTH1RYd0XsbTyXPdyBlMHLjSMsdIpzogwPl
+ LX7fOcg5IPjRmd8EyEBXXhhrnFj0n5fJwSGqgGfBG+s2x57huJS1jYAv5
+ tu0XDKE7WoCMuByGus0Z4RQOvHKklppeyKb7VwKy3ZWnbxJ+Openfj2xQ
+ vzFsyO/zJgBMAvLn6KSod/jfhsjLEw4ZeSGIsI6QFsFabFQH36denVGqJ
+ ZRHcalWfxG+7pzQrFSSMf2lEx880SucTGPG83dN0lXKEkIDkTy3xdqIKM Q==;
+IronPort-SDR: 4TxOMrANn67xj1ALI0ajgUT2e4VduH1rcREVUcrtTcLCrC4S1myXJ+J/PA322ApiM1bIsPgoM/
+ VRkONhRHqzw4KrJjbi6I5HHSzj+E/fN4SxlXxtQ/QHVyN0eoHFR9gTKli3212vBAwCdO3DX/XC
+ XcufeG7L7gKvk9xEtHTIoX2zE6YdWQFm2+pJAi0o0UmGC1jwpXbN07lTJsxsTm7rNTufGFakU1
+ JzmPsaT4/A27DZCpbTHU3D9SNKUjBeJgT0xeNTJg/toi8MzQBRAS2nrPwgLc1xlwLlF00dGtP8
+ J8SX+m39W+Uo2QqeI7nI0drN
+X-IronPort-AV: E=Sophos;i="5.88,368,1635231600"; d="scan'208";a="85633717"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 14 Feb 2022 06:56:05 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Mon, 14 Feb 2022 06:56:04 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2375.17 via
+ Frontend Transport; Mon, 14 Feb 2022 06:55:58 -0700
+From: <conor.dooley@microchip.com>
+To: <linus.walleij@linaro.org>, <brgl@bgdev.pl>, <robh+dt@kernel.org>,
+ <jassisinghbrar@gmail.com>, <thierry.reding@gmail.com>,
  <u.kleine-koenig@pengutronix.de>, <lee.jones@linaro.org>,
- <robh+dt@kernel.org>, <mripard@kernel.org>, <wens@csie.org>,
- <jernej.skrabec@gmail.com>, <f.fainelli@gmail.com>,
- <bcm-kernel-feedback-list@broadcom.com>, <shawnguo@kernel.org>,
- <s.hauer@pengutronix.de>, <kernel@pengutronix.de>,
- <festevam@gmail.com>, <linux-imx@nxp.com>, <heiko@sntech.de>,
- <palmer@dabbelt.com>, <paul.walmsley@sifive.com>,
- <p.zabel@pengutronix.de>, <anson.huang@nxp.com>,
- <vijayakannan.ayyathurai@intel.com>, <rtanwar@maxlinear.com>,
- <jeff@labundy.com>, <yash.shah@sifive.com>, <sagar.kadam@sifive.com>,
- <vigneshr@ti.com>, <yoshihiro.shimoda.uh@renesas.com>,
- <laurent.pinchart+renesas@ideasonboard.com>,
- <linux-pwm@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>, <linux-rockchip@lists.infradead.org>,
- <linux-riscv@lists.infradead.org>
-Subject: RE: [PATCH 09/15] dt-bindings: pwm: toshiba, visconti: include generic
- pwm schema
-Thread-Topic: [PATCH 09/15] dt-bindings: pwm: toshiba,visconti: include
- generic pwm schema
-Thread-Index: AQHYIXtI+0MD+2w0uUqc+2gBlwMjwKyS/QgQ
-Date: Mon, 14 Feb 2022 12:42:14 +0000
-X-TSB-HOP2: ON
-Message-ID: <TYAPR01MB625242DAA48BB652D839FC8392339@TYAPR01MB6252.jpnprd01.prod.outlook.com>
-References: <20220214081605.161394-1-krzysztof.kozlowski@canonical.com>
- <20220214081605.161394-9-krzysztof.kozlowski@canonical.com>
-In-Reply-To: <20220214081605.161394-9-krzysztof.kozlowski@canonical.com>
-Accept-Language: ja-JP, en-US
-Content-Language: ja-JP
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=toshiba.co.jp;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 787aa248-3849-4121-ac0c-08d9efb76d9a
-x-ms-traffictypediagnostic: TYAPR01MB3088:EE_
-x-microsoft-antispam-prvs: <TYAPR01MB3088E56D37BD27D870A1570E92339@TYAPR01MB3088.jpnprd01.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:125;
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: Jkc3VXfs4Nn5Z580T8rD4BOxd5I9Uvdei6JnMWANi8AQv09LLUvBWTxMMAI4AmcdbXtX2iqPE3EH5yHD3tq6KN8fr6Lx/+KdBftqOPFQK39eQh2gTKDh54wfKLzUqFtAnygjujCgiJBojharX3Szl/GMe/D0yjXtBdEkIQrmOokyiOSgbKxJ7ZVdobeMWhQDK4k5r5uy9PSlxznO6DZyDg8621lj2t/xeMG6By3M5VoglTbuNVL0VrftxoGEqMmz+vxa7nBI8NNncNchGyNFpLi7GjOVAgdtb91mnNYwyNu4VugGEfatn6BuKr2F7SwuzsZ2IrbdnHwUJBoLQhoPvv2CcRFDS15UhauznbpgbS9hBf4IleY7DhALa/2A3LvH8XBCwXSDCRiXviXkqt0JoFzpf99XW88/PwamvTFw3aNNuz3L73mBEgj5rp753hOYPhB+bxx4Gj4JNPouHn+PXXaP/bkbzV1u8sC4zGkU0FfEw/kp6lwF4dJvtGYTXqknZkgAzChudtnwzYs671jH5LJmlMJdJm8JmRRPFp7zSzY6mmKOiG8X9kvWfqb6P9Cj1jj/KjR7xcSDeFQKX3aTOa2PvGU3AgON1uZYv1gsZWflyngicXX9FY7IAKXh/BxttOuxU3HySYSCe/RZqsDf9MH62eMuepfJdVDtUKgi9Hy6z5YTBivs4yNcNAqyUJ0v2QvtDY9k6hBVntoBIx2ZA85CmkRyUNTOGVIJV3YudfCp2jIgJmj063QJ3mRXrsI8
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:TYAPR01MB6252.jpnprd01.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(13230001)(4636009)(366004)(66476007)(66446008)(2906002)(38070700005)(66556008)(76116006)(66946007)(6506007)(64756008)(122000001)(508600001)(921005)(186003)(26005)(5660300002)(8676002)(71200400001)(7416002)(7406005)(8936002)(52536014)(38100700002)(83380400001)(7696005)(86362001)(9686003)(33656002)(110136005)(55016003)(53546011)(316002)(41533002);
- DIR:OUT; SFP:1101; 
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?b1JKaDZvdStlRGdhb3FPTEIrRDBENWFQdGhXa1pFZmpGTlRraXVEOFpBdldB?=
- =?utf-8?B?Z05nWlowczRiZEVybm1ueVY4bHMxRGdiektGWW1PRmxNYjdUVkVpQ2hzYzFt?=
- =?utf-8?B?eEtONHRTd3RVTEpWSUxtMERtMnVqb0N3dnpST0EzYXgxQ2RoekZUckErMjhx?=
- =?utf-8?B?Yi9SbE5WbUVvZFJ5d09vc2R6b2R3UDg1OWlzckpmNnFTa3pTMFRPdk9ZQXdB?=
- =?utf-8?B?aDdkaDlNYk00K1dWenNjeWdIMkhacmhFSW9NbS9xU21UNVVQaHRCOVhGMGt2?=
- =?utf-8?B?eHJLd25hajN3Rm9WWHIzUDJpT2NtNFBERklyOWc0Z0tWMDBSQ3U1MHo4YmVx?=
- =?utf-8?B?RnY0UGJZZVFiWkZOUFVjY3R3d2RBL0Y2dkNQc3dqRnBlWEpSWjRpYTc0aGxT?=
- =?utf-8?B?UjRVcmgvS0p0TmdkdStmd05XaXgvNGVQVXdFQXhvaUQxR1psSGlJeU4ycHo3?=
- =?utf-8?B?RWpSbjZqd2FEcm56OEhpTS9CZDk1MzRlWEs1bWYvTEF1M281czZwaGdrSEMw?=
- =?utf-8?B?SDIxWUJad04wai9LZFlLZGFSYXlUcGo4KytIY1Jja2dOUkhFd3RSdktKUTRI?=
- =?utf-8?B?cFhycG9yajFsKzU5ZnVqTGdVRnBOMmpZM29LTDZnWnJxZWZNSjBOeDdwOGdL?=
- =?utf-8?B?d3Zvd3JsNkxHcXptQUEwd0NSK2twNk5Xd1lWY0RlZHlhaGJuUkJPVlMwakgz?=
- =?utf-8?B?SmQ2NHk0YVcrNU5BdkhlSGwycTJ2QldZYXhEam50cjNkUTdFSTNUbjZURjV2?=
- =?utf-8?B?d3pJVkd4YUEvaCtZNlkrZzZidlBnTkFQZDROSWhQQ01TL2RVUVY4aVZGM0hK?=
- =?utf-8?B?cERsQm9CNDF2K0VlNFF5MCtXTlhQTzFaYy9MQkRnYUZuaTRWOHR2bFNiY253?=
- =?utf-8?B?UC8yMFdwYm5BYTRqSmk2RXh0UGUrS21Ld3pyQ21wRHg3Mm9UTjIweldYamdu?=
- =?utf-8?B?T1JGdDlOQjg5aUEvYnY4YUIvbDNVSVU3SGVqYmdTTmVkTXdKS1F5TDB4YVBl?=
- =?utf-8?B?ZTZld29HOU95Qk13VGR3K0d0cVZMVUdmSlV2d2txdXd0T0dBWDlPYThhMUU3?=
- =?utf-8?B?NDQ5VlFnZ0VNNFJSZGFYcTNidUJQbFZ3anFFeU9JQ3U4US9nZ1ZCUTRQZDRK?=
- =?utf-8?B?YWVjbVd4NWs2emdCc3c4ZHUwYUJPNkVabzIvNGpldUg4bTRmZkUzR3NNU29Y?=
- =?utf-8?B?eXdweHJJVmg2UFlNSDVUa1lMY1k4WDZ2dTN4eEhvQ0xHNUdRS0dXSWFUT0w0?=
- =?utf-8?B?TWlzbkd3eHpYaTVETmM2emMyb1d6M08rNnhvbHZjeGF3aUtEWWJ6Qjh3cVpW?=
- =?utf-8?B?eTNFa0lmK0p4VmtYTkErS2YwRmZxY1plYjJFb24xT05lWDhPV2JjOTJJWTNk?=
- =?utf-8?B?VWJRZi81UTk4L21tNmlDRzF5VFgzdFUvY1gzQ0p3WmMyMzdhNXJqeTRHZWZt?=
- =?utf-8?B?UDhUZjNPM0J5bnRmUkpMMnA3SkJwNEhBY3dIVUt0U3FFRHprOS9NREFoZVBM?=
- =?utf-8?B?clBOWlFqbzhVRmFFalJuZEUxZWxST3E0V09ZekZZZFNaZ0w2eXBhWi96dEl4?=
- =?utf-8?B?SGVYK0hGNUFWK3RDMnE1RERIVnUwN0xiNmJ3THJnNGFFNElaQ2N5U2RpWW45?=
- =?utf-8?B?SGRJWWR6Q1JCejRVVVlkN1d4VmJobkNQOHU2TmpwVmFqSExUcGNDM0ZSN2FK?=
- =?utf-8?B?ZVkrVGdxS2hPUHFNYkNXbnd3NW5TcmQvN3BZTUw0cldTTUNJend2Q1JYN1hv?=
- =?utf-8?B?WlY0U1hYK2dGd3dLMWJyaWErV0lWNi91bjE2RVhPYThvV0xBTTQ5SmNxcFRE?=
- =?utf-8?B?UVNqTGRUTHVwaDgzOUladXArLzNwVG1xc080TllZY09tZENBckVXRm85eTlI?=
- =?utf-8?B?RUF1STlqeHRvYnZwdDdRK2MrK0dTall6YjRLWGJiRzZMMDNmc21SeHZZTlVB?=
- =?utf-8?B?T3NYdXFrclVpUUdSSFJKQnFZR0VmU29YUWpLMTdHTHJiS1F1TVVneTVrN1Yz?=
- =?utf-8?B?cklkNEhRRHBnTUZ2Z2lpSEM2T1ZLUUxhcnY5bHd0czYrR0s1ZkFJalhKWmZm?=
- =?utf-8?B?dVM0bXZnT1ZlT2IxcTNoYllzRzFtTkdPdjhVL3pqajJ3K1BCL0R4Qno1WE1S?=
- =?utf-8?B?K2xUWkhmTFlGYk5iL2hxM0NpcGprZG9BOGFyczFoNUM5VUVROEM2OWcxUjJj?=
- =?utf-8?B?a1dYRTdiRXBBQUZkQlpEOTdxc1NQaFhpbEJvajRKU3NWa0t2YWVVbjFGUk9R?=
- =?utf-8?B?N3ZGT0p0RW9zNWFLbFVFNkpBZVBxN2JKMjQ0TjBheDEvN0puN25GRTNYd0tX?=
- =?utf-8?Q?e509+Ogktf7eTqwBsw?=
+ <a.zummo@towertech.it>, <alexandre.belloni@bootlin.com>,
+ <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+ <geert@linux-m68k.org>, <krzysztof.kozlowski@canonical.com>,
+ <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
+ <linux-rtc@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+CC: <lewis.hanly@microchip.com>, <conor.dooley@microchip.com>,
+ <daire.mcnamara@microchip.com>, <ivan.griffin@microchip.com>,
+ <atishp@rivosinc.com>
+Subject: [PATCH v7 00/11] Update the Icicle Kit device tree
+Date: Mon, 14 Feb 2022 13:58:30 +0000
+Message-ID: <20220214135840.168236-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.35.1
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYAPR01MB6252.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 787aa248-3849-4121-ac0c-08d9efb76d9a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Feb 2022 12:42:14.5444 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: f109924e-fb71-4ba0-b2cc-65dcdf6fbe4f
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: EEowhYL3L+R0Hg9QCz4VF6Th38PmHsk4dfsIXDK3BLQEbbhO3qmyDWPJIFLWAyib/NJi7iXxQ3Y1aWRIJ1bWGrZV/7o2RupeK1bqTPcasHj/6idMpMWPQCAsNyVGYvaC
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYAPR01MB3088
-X-OriginatorOrg: toshiba.co.jp
-MSSCP.TransferMailToMossAgent: 103
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_044324_133075_037003D0 
-X-CRM114-Status: UNSURE (   6.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220214_055609_098742_EEB66815 
+X-CRM114-Status: GOOD (  16.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,47 +86,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBLcnp5c3p0b2YgS296bG93c2tp
-IDxrcnp5c3p0b2Yua296bG93c2tpQGNhbm9uaWNhbC5jb20+DQo+IFNlbnQ6IE1vbmRheSwgRmVi
-cnVhcnkgMTQsIDIwMjIgNToxNiBQTQ0KPiBUbzogVGhpZXJyeSBSZWRpbmcgPHRoaWVycnkucmVk
-aW5nQGdtYWlsLmNvbT47IFV3ZSBLbGVpbmUtS8O2bmlnDQo+IDx1LmtsZWluZS1rb2VuaWdAcGVu
-Z3V0cm9uaXguZGU+OyBMZWUgSm9uZXMgPGxlZS5qb25lc0BsaW5hcm8ub3JnPjsgUm9iDQo+IEhl
-cnJpbmcgPHJvYmgrZHRAa2VybmVsLm9yZz47IEtyenlzenRvZiBLb3psb3dza2kNCj4gPGtyenlz
-enRvZi5rb3psb3dza2lAY2Fub25pY2FsLmNvbT47IE1heGltZSBSaXBhcmQNCj4gPG1yaXBhcmRA
-a2VybmVsLm9yZz47IENoZW4tWXUgVHNhaSA8d2Vuc0Bjc2llLm9yZz47IEplcm5laiBTa3JhYmVj
-DQo+IDxqZXJuZWouc2tyYWJlY0BnbWFpbC5jb20+OyBGbG9yaWFuIEZhaW5lbGxpIDxmLmZhaW5l
-bGxpQGdtYWlsLmNvbT47DQo+IGJjbS1rZXJuZWwtZmVlZGJhY2stbGlzdEBicm9hZGNvbS5jb207
-IFNoYXduIEd1bw0KPiA8c2hhd25ndW9Aa2VybmVsLm9yZz47IFNhc2NoYSBIYXVlciA8cy5oYXVl
-ckBwZW5ndXRyb25peC5kZT47DQo+IFBlbmd1dHJvbml4IEtlcm5lbCBUZWFtIDxrZXJuZWxAcGVu
-Z3V0cm9uaXguZGU+OyBGYWJpbyBFc3RldmFtDQo+IDxmZXN0ZXZhbUBnbWFpbC5jb20+OyBOWFAg
-TGludXggVGVhbSA8bGludXgtaW14QG54cC5jb20+OyBIZWlrbw0KPiBTdHVlYm5lciA8aGVpa29A
-c250ZWNoLmRlPjsgUGFsbWVyIERhYmJlbHQgPHBhbG1lckBkYWJiZWx0LmNvbT47IFBhdWwNCj4g
-V2FsbXNsZXkgPHBhdWwud2FsbXNsZXlAc2lmaXZlLmNvbT47IGl3YW1hdHN1IG5vYnVoaXJvKOWy
-qeadviDkv6HmtIsg4pah77yzDQo+IO+8t++8o+KXr++8oe+8o++8tCkgPG5vYnVoaXJvMS5pd2Ft
-YXRzdUB0b3NoaWJhLmNvLmpwPjsgUGhpbGlwcCBaYWJlbA0KPiA8cC56YWJlbEBwZW5ndXRyb25p
-eC5kZT47IEFuc29uIEh1YW5nIDxhbnNvbi5odWFuZ0BueHAuY29tPjsNCj4gVmlqYXlha2FubmFu
-IEF5eWF0aHVyYWkgPHZpamF5YWthbm5hbi5heXlhdGh1cmFpQGludGVsLmNvbT47IFJhaHVsIFRh
-bndhcg0KPiA8cnRhbndhckBtYXhsaW5lYXIuY29tPjsgSmVmZiBMYUJ1bmR5IDxqZWZmQGxhYnVu
-ZHkuY29tPjsgWWFzaCBTaGFoDQo+IDx5YXNoLnNoYWhAc2lmaXZlLmNvbT47IFNhZ2FyIEthZGFt
-IDxzYWdhci5rYWRhbUBzaWZpdmUuY29tPjsgVmlnbmVzaA0KPiBSIDx2aWduZXNockB0aS5jb20+
-OyBZb3NoaWhpcm8gU2hpbW9kYQ0KPiA8eW9zaGloaXJvLnNoaW1vZGEudWhAcmVuZXNhcy5jb20+
-OyBMYXVyZW50IFBpbmNoYXJ0DQo+IDxsYXVyZW50LnBpbmNoYXJ0K3JlbmVzYXNAaWRlYXNvbmJv
-YXJkLmNvbT47IGxpbnV4LXB3bUB2Z2VyLmtlcm5lbC5vcmc7DQo+IGRldmljZXRyZWVAdmdlci5r
-ZXJuZWwub3JnOyBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmc7DQo+IGxpbnV4
-LXN1bnhpQGxpc3RzLmxpbnV4LmRldjsgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZzsNCj4g
-bGludXgtcm9ja2NoaXBAbGlzdHMuaW5mcmFkZWFkLm9yZzsgbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZw0KPiBTdWJqZWN0OiBbUEFUQ0ggMDkvMTVdIGR0LWJpbmRpbmdzOiBwd206IHRv
-c2hpYmEsdmlzY29udGk6IGluY2x1ZGUgZ2VuZXJpYw0KPiBwd20gc2NoZW1hDQo+IA0KPiBJbmNs
-dWRlIGdlbmVyaWMgcHdtLnlhbWwgc2NoZW1hLCB3aGljaCBlbmZvcmNlcyBQV00gbm9kZSBuYW1p
-bmcgYW5kDQo+IGJyaW5ncyBwd20tY2VsbHMgcmVxdWlyZW1lbnQuDQo+IA0KPiBTaWduZWQtb2Zm
-LWJ5OiBLcnp5c3p0b2YgS296bG93c2tpIDxrcnp5c3p0b2Yua296bG93c2tpQGNhbm9uaWNhbC5j
-b20+DQoNClJldmlld2VkLWJ5OiBOb2J1aGlybyBJd2FtYXRzdSA8bm9idWhpcm8xLml3YW1hdHN1
-QHRvc2hpYmEuY28uanA+DQoNCkJlc3QgcmVnYXJkcywNCiAgTm9idWhpcm8NCg0KX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
-ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Conor Dooley <conor.dooley@microchip.com>
+
+This series updates the Microchip Icicle Kit device tree by adding a
+host of peripherals, and some updates to the memory map. In addition,
+the device tree has been split into a third part, which contains "soft"
+peripherals that are in the fpga fabric.
+
+Several of the entries are for peripherals that have not get had their
+drivers upstreamed, so in those cases the dt bindings are included where
+appropriate in order to avoid the many "DT compatible string <x> appears
+un-documented" errors.
+
+Depends on mpfs clock driver binding (on clk/next) to provide 
+dt-bindings/clock/microchip,mpfs-clock.h for the device tree
+and on the other changes to the icicle/mpfs device tree from geert
+that are already in linux/riscv/for-next.
+
+Additionally, the interrupt-extended warnings on the plic/clint are 
+cleared by [1] & [2].
+
+[1] https://lore.kernel.org/linux-riscv/cover.1639744468.git.geert@linux-m68k.org/
+[2] https://lore.kernel.org/linux-riscv/cover.1639744106.git.geert@linux-m68k.org/
+
+Changes from v6:
+- Dropped i2c patch, as its in i2c-next
+- Added ack on gpio, reviewed-by on rtc
+- Dropped child nodes from sysctrl binding entirely, added a link to
+  the online documenation for the services the system controller can
+  provide
+- Dropped the #pwm-cells and replaced with a ref, a la Krzysztof's
+  series
+
+Changes from v5:
+- reworded the descriptions in the pwm binding to (hopefully) add
+  clarity
+- added -mask to the custom properties and made them 32 bit
+- renamed the i2c binding to corei2c, since it is not mpfs specific
+- removed the child nodes of the system controller in example/dts &
+  will create them in the driver.
+  @Rob, I assume keeping them documented is the correct thing to do?
+- removed the dependancy on the clock binding from the examples
+- reformatted rtc interrupts as per Rob's suggestion
+
+Changes from v4:
+- dont include icicle_kit_defconfig, accidentally added in v3
+- drop prescaler from mpfs-rtc & calculate the value instead
+- use corei2c as a fallback device for mpfs-i2c
+- drop spi dt-binding (on spi-next)
+  commit 2da187304e556ac59cf2dacb323cc78ded988169
+- drop usb dt-binding (on usb-next)
+
+Changes from v3:
+- drop "mailbox: change mailbox-mpfs compatible string", already upstream:
+  commit f10b1fc0161cd99e ("mailbox: change mailbox-mpfs compatible string")
+- fix copy paste error in microchip,mpfs-mailbox dt-binding
+- remove whitespace in syscontroller dt entry
+
+Changes from v2:
+- dropped plic int header & corresponding defines in dts{,i}
+- use $ref to drmode in mpfs-musb binding
+- split changes to dts{,i} again: functional changes to existing
+  elements now are in a new patch
+- drop num-cs property in mpfs-spi binding
+- dont make the system controller a simple-mfd
+- move the separate bindings for rng/generic system services into the 
+  system controller binding
+- added an instance corei2c as i2c2 in the fabric dtsi
+- add version numbering to corepwm and corei2c compat string (-rtl-vN)
+
+Conor Dooley (11):
+  dt-bindings: soc/microchip: update syscontroller compatibles
+  dt-bindings: soc/microchip: add info about services to mpfs sysctrl
+  dt-bindings: rtc: add bindings for microchip mpfs rtc
+  dt-bindings: gpio: add bindings for microchip mpfs gpio
+  dt-bindings: pwm: add microchip corepwm binding
+  riscv: dts: microchip: use clk defines for icicle kit
+  riscv: dts: microchip: add fpga fabric section to icicle kit
+  riscv: dts: microchip: refactor icicle kit device tree
+  riscv: dts: microchip: update peripherals in icicle kit device tree
+  riscv: dts: microchip: add new peripherals to icicle kit device tree
+  MAINTAINERS: update riscv/microchip entry
+
+ .../bindings/gpio/microchip,mpfs-gpio.yaml    |  79 ++++++
+ ...ilbox.yaml => microchip,mpfs-mailbox.yaml} |   6 +-
+ .../bindings/pwm/microchip,corepwm.yaml       |  81 ++++++
+ .../bindings/rtc/microchip,mfps-rtc.yaml      |  58 ++++
+ .../microchip,mpfs-sys-controller.yaml        |  40 +++
+ ...icrochip,polarfire-soc-sys-controller.yaml |  35 ---
+ MAINTAINERS                                   |   2 +
+ .../dts/microchip/microchip-mpfs-fabric.dtsi  |  25 ++
+ .../microchip/microchip-mpfs-icicle-kit.dts   | 115 ++++++--
+ .../boot/dts/microchip/microchip-mpfs.dtsi    | 254 ++++++++++++++----
+ 10 files changed, 591 insertions(+), 104 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
+ rename Documentation/devicetree/bindings/mailbox/{microchip,polarfire-soc-mailbox.yaml => microchip,mpfs-mailbox.yaml} (82%)
+ create mode 100644 Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml
+ create mode 100644 Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
+ create mode 100644 Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
+ delete mode 100644 Documentation/devicetree/bindings/soc/microchip/microchip,polarfire-soc-sys-controller.yaml
+ create mode 100644 arch/riscv/boot/dts/microchip/microchip-mpfs-fabric.dtsi
+
+-- 
+2.35.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
