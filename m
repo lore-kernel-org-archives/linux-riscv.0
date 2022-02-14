@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57574C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 21:36:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 082DFC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 21:36:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fY1e7H4yJ3agAgYqQX8mhLnVlRe+MCjzcEzQGF/mpMA=; b=CiDgoGhLQgAv/2
-	+Yend3b8KpDof2lRPac/R7z4ssyFKvGKxYPsbZWbgBuGpOoPExWZUk3mX3ga7HmwZfxN9Mrs/8kKf
-	KEY+iA+fxtrs9lVGZrWScsq0jzYHcJvuUX5n1WV+Ul7KNLcM3rwJLr9vnBxH7YEa0lBqvxTpfOVba
-	88aTLJ0HlG1lrjDJsA5DQNde5nG7G9mePa6UoQkKZRJs97Q60Fqb7h4KuBHMzEXaZ//XAp2N1qxx4
-	6cjtDhOr8+5DtfYY3s9YIJn+8JzmiK+U4tU222ZlxhfItUaMkQr/2LSstUlIfoCIg8iaRHqe3GfLK
-	+4F71ns2pPv0RqKroUQQ==;
+	List-Owner; bh=hyw+TM8Xtv3TYNNmOUCcOTMNIisdHzZdTvHCiVXXFQU=; b=3w1S7C20MIJ/4f
+	mRe6yxpMvqLpIrnNF7lhMoHj4ZDuaajtMdfxvKsTZvUetd0zskrXxmUGoq8FCEIGHjPNm8Mm2yU1w
+	Lsi88keZhOIpdboqZp20UrSCcRCFDVHYnfhfqbCIJBQTbAWW8BWWVY+elwS0WDUOAS91i+DyL/bNF
+	VzIFemRSU8f73aneZE7HqkY2nAlcuTM+vICY36Q8GJvE1sco960snODifcojidcuIpCiEKpXxkZ3E
+	bmeGnxCGD32tI7yFWH6sgCB+Phx5ROHOQ5szlFKZUftzs8TLcqIb75J47Wrrq0yApNQ2IVvYkrsRu
+	yijhOtUFzImL4agR4kWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJj11-00H3rM-1Y; Mon, 14 Feb 2022 21:36:11 +0000
+	id 1nJj1P-00H41P-F2; Mon, 14 Feb 2022 21:36:35 +0000
 Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJinj-00GyQN-0K
- for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 21:22:29 +0000
-Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com
- [209.85.218.71])
+ id 1nJini-00GyPO-3n
+ for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 21:22:27 +0000
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id B34A3407DC
- for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 21:22:25 +0000 (UTC)
+ by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 55EE7402E0
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 21:22:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1644873745;
- bh=fQGwcHi8/nTW0SMwp6SpOvSaCBhZUIuzRLgVqfnHG+w=;
+ s=20210705; t=1644873744;
+ bh=rXTrjGyqcJ3i7iMn5DJq5QR/kPtoX00uoKdkO1EvWnA=;
  h=From:To:Subject:Date:Message-Id:In-Reply-To:References:
  MIME-Version;
- b=IyAge/kNvQDRLP9/loC2G1xfV5l7KXYX5EsT4XeoilVmE/xXI3JrCXecGTskZipbQ
- gmV80hnnxuBCE6Uy8z2KETIa2XrjYH3SXD+llYHn5CLHT1RifFaA45gPo6w+7pcR8d
- Bt2r0iPCLIkJNBt97jBFxnrHvVVmEK1yGHFUem8H3K30d/eXPjxUf8N+o5BpNmqIiZ
- WlOntD+vkF0WSL9m8hQmFTQv1m7AmrCeibIoMhuILMw8UED5teBcBs1ct3qXTWQPsA
- T3X7NHks5b+e0+v6dpqcnHlvohHWprHXfYQjSvkRHROJyij0lx76TbIQYawFX5vw0R
- r/Ibwx9o8S1DA==
-Received: by mail-ej1-f71.google.com with SMTP id
- m4-20020a170906160400b006be3f85906eso6394602ejd.23
- for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 13:22:25 -0800 (PST)
+ b=Zqz7MgTVbdVyNvbnsoHSas4wE7LTxrPVTViPN3I/zc7QTZgQnG9v4sUc99M5ySEWZ
+ ty+Vtmt0MdCZdFHgxW8TOswMj7j7pd+iNgAwRjcAwpJKUEvW4kvQD/2D45Zv1uxd8s
+ HMEG5aDaS4NpYmY0ai83+ZGhZ4Cx3idQ8g3DNn/pZOe3giVge3XOtv2notWPL+yAvD
+ CIqurwcLO4qU5sU9atPEszqydUdzpL5eP1aU+9rK8dkxQSRwgqVs5a5Vkf6QkEdFdD
+ yCxH8IlCRV1lxXon+6cC0mWeymap/OWtHXAnftVGGmI31VI5rm8NlnPtZKTCre+dpN
+ WDLNmV5FtXWxg==
+Received: by mail-wm1-f70.google.com with SMTP id
+ a8-20020a7bc1c8000000b0037bc4c62e97so142605wmj.0
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 13:22:24 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=fQGwcHi8/nTW0SMwp6SpOvSaCBhZUIuzRLgVqfnHG+w=;
- b=Hj8R4sKUsor+xLHztYxEz6tMS6fz+vzs6HqNUDer2M6YjQnrfcYwzc/C4PFtg/g8WT
- /ltMATU673t43aIOZRB5dys2JafJhg7R4Bi/6myMhTX4GxkIrQL4qRbhaBW7h0uW3FB2
- dHSavwxZPVvKiEUPPloVC1l43df2RTfKHzLSBw6pErnpC65027czT+1xt3mLCa5f4DI9
- pTExkuGLU9iRwxd4A4/yMUNsezKRbzVFx74ozmN+Ey1AoZmJetYBmn3XIiot5WmsN2n7
- L+N7o3eNBCQEUH9G2SomWivn/w6u0nd0Y+u8V9wduF0agZc1nWMDEjaORGkArV4H4Oln
- 4wsQ==
-X-Gm-Message-State: AOAM530IHmfqfjVMBoe6nby8uKChW9MkWcPaBQtBhGCGOZT9Zeg/hVvI
- x2P8r398zeWCFFITZfv+79Sf4lTW+34U1reKdHRY0EJRXjNZOz72VHulVzQly5Y5o4JifXaV4zX
- 0EqOOUmx2hdK8dQWmJoNrvm+GqHyQoGEn46hvmOcNLvdDFA==
-X-Received: by 2002:a05:6402:3687:: with SMTP id
- ej7mr784118edb.335.1644873734551; 
- Mon, 14 Feb 2022 13:22:14 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJxIpInfMiZOfc9K2mvopmHJpGq7HGo1U79elFbaK9u9/4kmAeiVck7Mp6uIQadoSXhIA1gAlg==
-X-Received: by 2002:a05:6402:3687:: with SMTP id
- ej7mr784084edb.335.1644873734367; 
- Mon, 14 Feb 2022 13:22:14 -0800 (PST)
+ bh=rXTrjGyqcJ3i7iMn5DJq5QR/kPtoX00uoKdkO1EvWnA=;
+ b=0VHFTh3TOeuU/mwbpG8B9guqItXkQeSK5JRy8wzajRp5Bf24E9ymJjYwuvjZbDKYhA
+ wJDYhpWRX55Yrnz9di6/krVfcotUc57QrNy3b/0Xtk3iTid85kA5ai5qyDthk8kfVujx
+ OMjpPplqZNzxijr7jcwojwIBg4q/2d+cyiUDge84Z85XGi/rwoG2KFve0tklgxUr4DzM
+ rrJ+FzYg3gJIGLl6C0Lbps4EpK5bR0pQtBSGtQ1aHftwknwActlrUP/hE/vyhwP4fJH2
+ ra518b0dVPGhCJDS/I7DHmjDFv6Nltc3rYTPo9InpDzCIztiyaZqN9IQeLy67TxUDLgF
+ aANg==
+X-Gm-Message-State: AOAM53279b/baPjW03+BqgGay/mYgGQsoI+H1x+AvnK84mxozdzkrTBQ
+ nGUWyoJuzQt9ZiVMex36VNhehS0/aQVWapPFsTstvDmP6gzIxYucNUWLiHBAmAzmgCB7wIgSVSo
+ iehB188Ytu2hJ1m3vNdVX/LFIwTR4h5SPQmpQSpt6C4+1NQ==
+X-Received: by 2002:a05:6402:34c7:: with SMTP id
+ w7mr750369edc.397.1644873733081; 
+ Mon, 14 Feb 2022 13:22:13 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxhpmbRreV1af3l7NRnMOVACbyZVoBFnimePwQQgpSt+JN3lhtVVBwqSExQGXUXAJA1H+Jnfw==
+X-Received: by 2002:a05:6402:34c7:: with SMTP id
+ w7mr750338edc.397.1644873732938; 
+ Mon, 14 Feb 2022 13:22:12 -0800 (PST)
 Received: from localhost.localdomain (xdsl-188-155-168-84.adslplus.ch.
  [188.155.168.84])
- by smtp.gmail.com with ESMTPSA id v24sm2327203ejf.7.2022.02.14.13.22.13
+ by smtp.gmail.com with ESMTPSA id v24sm2327203ejf.7.2022.02.14.13.22.11
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 14 Feb 2022 13:22:13 -0800 (PST)
+ Mon, 14 Feb 2022 13:22:12 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
@@ -98,17 +98,17 @@ To: Thierry Reding <thierry.reding@gmail.com>,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
  linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
  linux-riscv@lists.infradead.org
-Subject: [PATCH v2 09/15] dt-bindings: pwm: toshiba,
- visconti: Include generic pwm schema
-Date: Mon, 14 Feb 2022 22:21:48 +0100
-Message-Id: <20220214212154.8853-10-krzysztof.kozlowski@canonical.com>
+Subject: [PATCH v2 08/15] dt-bindings: pwm: renesas,
+ pwm: Include generic pwm schema
+Date: Mon, 14 Feb 2022 22:21:47 +0100
+Message-Id: <20220214212154.8853-9-krzysztof.kozlowski@canonical.com>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20220214212154.8853-1-krzysztof.kozlowski@canonical.com>
 References: <20220214212154.8853-1-krzysztof.kozlowski@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_132227_222851_7D868B79 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20220214_132226_349062_66FF3E26 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,30 +129,47 @@ Include generic pwm.yaml schema, which enforces PWM node naming and
 brings pwm-cells requirement.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-Reviewed-by: Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
 ---
- .../devicetree/bindings/pwm/toshiba,pwm-visconti.yaml         | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ .../bindings/pwm/renesas,pwm-rcar.yaml        | 26 ++++++++++---------
+ 1 file changed, 14 insertions(+), 12 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/pwm/toshiba,pwm-visconti.yaml b/Documentation/devicetree/bindings/pwm/toshiba,pwm-visconti.yaml
-index d350f5edfb67..46622661e5fb 100644
---- a/Documentation/devicetree/bindings/pwm/toshiba,pwm-visconti.yaml
-+++ b/Documentation/devicetree/bindings/pwm/toshiba,pwm-visconti.yaml
-@@ -9,6 +9,9 @@ title: Toshiba Visconti PWM Controller
- maintainers:
-   - Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
- 
-+allOf:
-+  - $ref: pwm.yaml#
-+
- properties:
-   compatible:
-     items:
-@@ -23,7 +26,6 @@ properties:
+diff --git a/Documentation/devicetree/bindings/pwm/renesas,pwm-rcar.yaml b/Documentation/devicetree/bindings/pwm/renesas,pwm-rcar.yaml
+index 7ea1070b4b3a..1c94acbc2b4a 100644
+--- a/Documentation/devicetree/bindings/pwm/renesas,pwm-rcar.yaml
++++ b/Documentation/devicetree/bindings/pwm/renesas,pwm-rcar.yaml
+@@ -59,21 +59,23 @@ properties:
  required:
    - compatible
    - reg
 -  - '#pwm-cells'
+   - clocks
+   - power-domains
+ 
+-if:
+-  not:
+-    properties:
+-      compatible:
+-        contains:
+-          enum:
+-            - renesas,pwm-r8a7778
+-            - renesas,pwm-r8a7779
+-then:
+-  required:
+-    - resets
++allOf:
++  - $ref: pwm.yaml#
++
++  - if:
++      not:
++        properties:
++          compatible:
++            contains:
++              enum:
++                - renesas,pwm-r8a7778
++                - renesas,pwm-r8a7779
++    then:
++      required:
++        - resets
  
  additionalProperties: false
  
