@@ -4,81 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6810C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 08:41:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72BC9C43219
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 08:43:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=di9NxWvNy4vejyl5If42WGFfk9hN/NDLS/f9Lk91C+E=; b=c+gfqhQQ4KOUFZ
-	IdRS1vZDVqAuHTEFKZyidBXG995aKpxY8K3KcgckHOYCJaKLPmOKd7mU9qVNm10LsYH1wYTePWj9l
-	i7jN834FvCmvwUafbWt2JYrIX7cc+06FktsxH1YkxibnS6IK1FhvyNUHp0Tw0XMvYCjepPynCQ+ag
-	WXKCKAv2I36D8w04sp5LuH6L+Lo5EVGyBth2Fjek+mj0hYhXKKxc2CwJyWf2XnQYu2RLaf7YBV1wM
-	scFmsAwl5XxvFM3Ap7gKFWHi0RpXlUprm2e5Txp+n9nL2XDEYqijKR33LQqDMq0ojIpMSirTcxRER
-	U+JcspkeirRgZVz0eK/w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JXgIBTkl8R7ke6ITA6IoOnUow4g3/nXt+3gL4t9MdhY=; b=hKj+8L6i9bvolM
+	oonNzOsI5ZiwA4eMJ8uG0qqXymTWkhE0mFa1rIQ27gIOD2Ec2KbYg+fArFNwG1xRQp+lFDVwW6kjx
+	zI33cgl14QrB50QfDM3h3+xZvzSBGum8pN9Z6cNKrMnpCcldpTFaYZvIOIKFRRiWkIZKEHSYzVWr3
+	yjnqTUEVTPpfGPb2woSvYlb0JvzUP3fkZNAonDUY9mJgvKnKceSapV+8L8Djyl+lXEM8ZmbFxFPtu
+	QTKbM8WiNLHqIJwAKF5rYMlH0OBZd7K8A6FeIaSUXfqPB+2TGmF55v0xjvSeKi35NpMW2P/kzHMXy
+	s4V062JIaB+Be36sPOxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJWvB-00E002-PQ; Mon, 14 Feb 2022 08:41:22 +0000
-Received: from mail-ua1-f48.google.com ([209.85.222.48])
+	id 1nJWxb-00E115-LL; Mon, 14 Feb 2022 08:43:51 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJWbY-00Drm2-Ss; Mon, 14 Feb 2022 08:21:08 +0000
-Received: by mail-ua1-f48.google.com with SMTP id v5so7722372uam.3;
- Mon, 14 Feb 2022 00:21:03 -0800 (PST)
+ id 1nJWeq-00DtDO-CR
+ for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 08:24:30 +0000
+Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com
+ [209.85.218.71])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 11DED405EC
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 08:24:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1644827067;
+ bh=Y1pkt7sh1u4nhMjpCSj85kjYF7GKoQX1FycUfW16GNg=;
+ h=From:To:Subject:Date:Message-Id:MIME-Version;
+ b=fkEPZPIqdT3xXDMbO6RyIJ/efuBDDpCqGW0Qt1NJ3rdBZLPTBfHODEymc8BuyYi4/
+ jB2end4RuBgDEInZynzp1Y9vp/3AlrjBBm0JSM0JJFyx1T6FwCkw/rWBm5gESdynLN
+ 6BxpMlIlV2vbgfGdlV0DdInUgt4QXZ4dbfb8aBnZ/TV4gCOGninddK4zobLlmjPyUJ
+ aYywAhbnCkYP++z4zTTT0Y8q1HGvO7Dk/anox08GgNZNVvi+B2F8lRsehJYYYdgo9O
+ oHCS2en/cWErJ0yqJwCLgOow5Mz6p+gb2A+A4LwXIvyzbRYO4IW+y+NPWIKj48jxih
+ 4Phb9clk0lUCg==
+Received: by mail-ej1-f71.google.com with SMTP id
+ qf24-20020a1709077f1800b006ce8c140d3dso587310ejc.18
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 00:24:27 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=/wocXln3OZyzUJ8vGAcSbzur2Qk8XU2C//sjVsqiZdk=;
- b=sHA49mwKV4lSrQFGdBQTLrSy5PxYw6+S4y7yFaeVO8aDBDSGXDMjlL0L7iCRlVt/us
- y4EzFwXWf9Lq0qyYgbXAr0NJbdtRMzNt2Tlggcx1Ph601w9nkliLnRkkkSQq6B5MKTzj
- vKTZkgJTrOqIqLCe6vcN7SpCrwqtFSE0UD0NvYz0f1eBPUY0XtduVgzRF8g+iwDjbsd9
- Wqw5SYaeuDgohHt6r2f/lNpNi6buN4Lb5yhjzR7VvW5GX+Ed+85RDp5El79QAh9YxUo1
- 3s0tSlb8zbwKLEQ6AQaFcR63CJormXCW0sDK5amtApP3o/3CYMbiG/O4pahbW3vu4VuY
- KWBA==
-X-Gm-Message-State: AOAM531gQ71hWrfM+PLeqkdJhqH/LXsJnwjL1OKtQQAw8wXoGC7k3MjX
- Js9gnj1IcNCb1L44Z4ooVCqoX7R8ryU/gQ==
-X-Google-Smtp-Source: ABdhPJxCMZL3N7RFSEHBTfSIwTLXYyIvdzHPYZzDQbmJHCBYVUi5+bLGhZqZDRfTy5i+VdcKcHUM5w==
-X-Received: by 2002:ab0:36b3:: with SMTP id v19mr3265708uat.101.1644826860560; 
- Mon, 14 Feb 2022 00:21:00 -0800 (PST)
-Received: from mail-vk1-f177.google.com (mail-vk1-f177.google.com.
- [209.85.221.177])
- by smtp.gmail.com with ESMTPSA id d25sm5387096vkl.53.2022.02.14.00.21.00
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 14 Feb 2022 00:21:00 -0800 (PST)
-Received: by mail-vk1-f177.google.com with SMTP id bj24so2668707vkb.8;
- Mon, 14 Feb 2022 00:21:00 -0800 (PST)
-X-Received: by 2002:a05:6122:c8f:: with SMTP id
- ba15mr3700134vkb.39.1644826860129; 
- Mon, 14 Feb 2022 00:21:00 -0800 (PST)
+ h=x-gm-message-state:from:to:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=Y1pkt7sh1u4nhMjpCSj85kjYF7GKoQX1FycUfW16GNg=;
+ b=WYC+QDj8r0rsAJSvSH7pa3Ftg+jxf/lpGnw2MD9w3lT4GADHH4y4qia5DsTvgWQlKx
+ heuRXjJKfukTTwnVWJpz1ur06dsZWi2ZyKVZ2rKiE2Xft1xL3vl4vyz6u1EkekAX6CCu
+ lHgay6oYAZSHaQIw7aRn0QQQyiP3srS/fY+Px6yEeHCC33KPRwvU5HgLLZR6iNyYXql+
+ oe7zZsnzZCCemPAJCZgcpDlX0gQvvumxperg/dYyRyLqqmJuZQIdnQ0GhNeNv1PsIzx4
+ VhUSdW6q1KbTjg/fyhpvRSoMq7y6SiaUNabakFXeWR7Iq/sNj5GzmmjfYRzTkEk6862A
+ hEfg==
+X-Gm-Message-State: AOAM533ZZRPBnb1vgZxV8gLbqtb0J5MUzJllxyB2FGQe2NHecCUuE6Bt
+ m2KbSuqcpPoiua9+XY/R07QIpLFecIj8uGIMDT6z0m5RajB/lbpJEzu+ACFr1VgKeQhU2SddbYG
+ ZvV2BYsMS5TeiUFjaWuwfnrBgwPMpP5XHzlQ4D0+2eZ6erg==
+X-Received: by 2002:aa7:c3d8:: with SMTP id l24mr9023381edr.63.1644827065917; 
+ Mon, 14 Feb 2022 00:24:25 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJy3sWIkomqniJbHGA9USzgWbkd0+vKt73BSCiBXKwRHhK2HxngI2g+YQq0rzs3pSOItOjbAow==
+X-Received: by 2002:aa7:c3d8:: with SMTP id l24mr9023363edr.63.1644827065698; 
+ Mon, 14 Feb 2022 00:24:25 -0800 (PST)
+Received: from localhost.localdomain (xdsl-188-155-168-84.adslplus.ch.
+ [188.155.168.84])
+ by smtp.gmail.com with ESMTPSA id fn5sm1363850ejc.179.2022.02.14.00.24.24
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 14 Feb 2022 00:24:25 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+To: Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+ Lee Jones <lee.jones@linaro.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Sagar Kadam <sagar.kadam@sifive.com>, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org
+Subject: [PATCH] MAINTAINERS: sifive: drop Yash Shah
+Date: Mon, 14 Feb 2022 09:23:49 +0100
+Message-Id: <20220214082349.162973-1-krzysztof.kozlowski@canonical.com>
+X-Mailer: git-send-email 2.32.0
 MIME-Version: 1.0
-References: <alpine.DEB.2.21.2202122313460.34636@angie.orcam.me.uk>
-In-Reply-To: <alpine.DEB.2.21.2202122313460.34636@angie.orcam.me.uk>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 14 Feb 2022 09:20:49 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdW-utcFzCZTgqONjxs=U662nF0=aBQu7Zi7FBQouwiA3g@mail.gmail.com>
-Message-ID: <CAMuHMdW-utcFzCZTgqONjxs=U662nF0=aBQu7Zi7FBQouwiA3g@mail.gmail.com>
-Subject: Re: [PATCH] parport_pc: Also enable driver for PCI systems
-To: "Maciej W. Rozycki" <macro@orcam.me.uk>
-Cc: Sudip Mukherjee <sudipm.mukherjee@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>, 
- Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>,
- Jeff Dike <jdike@addtoit.com>, Richard Weinberger <richard@nod.at>, 
- Anton Ivanov <anton.ivanov@cambridgegreys.com>, Chris Zankel <chris@zankel.net>,
- Max Filippov <jcmvbkbc@gmail.com>, linux-arm-kernel@lists.infradead.org, 
- linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-s390@vger.kernel.org, linux-um@lists.infradead.org, 
- linux-xtensa@linux-xtensa.org, linux-kernel@vger.kernel.org, 
- Niklas Schnelle <schnelle@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_002105_007108_821276F9 
-X-CRM114-Status: GOOD (  27.96  )
+X-CRM114-CacheID: sfid-20220214_002428_610055_3A8703E1 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,61 +106,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Maciej,
+Emails to Yash Shah bounce with "The email account that you tried to
+reach does not exist.", so drop him from all maintainer entries.
 
-CC Niklas
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+---
+ Documentation/devicetree/bindings/gpio/sifive,gpio.yaml     | 1 -
+ Documentation/devicetree/bindings/pwm/pwm-sifive.yaml       | 1 -
+ .../devicetree/bindings/riscv/sifive-l2-cache.yaml          | 1 -
+ MAINTAINERS                                                 | 6 ------
+ 4 files changed, 9 deletions(-)
 
-On Sun, Feb 13, 2022 at 1:45 PM Maciej W. Rozycki <macro@orcam.me.uk> wrote:
-> Nowadays PC-style parallel ports come in the form of PCI and PCIe option
-> cards and there are some combined parallel/serial option cards as well
-> that we handle in the parport subsystem.  There is nothing in particular
-> that would prevent them from being used in any system equipped with PCI
-> or PCIe connectivity, except that we do not permit the PARPORT_PC config
-> option to be selected for platforms for which ARCH_MIGHT_HAVE_PC_PARPORT
-> has not been set for.
->
-> The only PCI platforms that actually can't make use of PC-style parallel
-> port hardware are those newer PCIe systems that have no support for I/O
-> cycles in the host bridge, required by such parallel ports.  An example
-> of such a host bridge is the POWER9 PHB4 device, but it is an exception
-> rather than the norm.  Also it is not clear whether the serial port side
+diff --git a/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml b/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
+index e04349567eeb..427c5873f96a 100644
+--- a/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
++++ b/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
+@@ -7,7 +7,6 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ title: SiFive GPIO controller
+ 
+ maintainers:
+-  - Yash Shah <yash.shah@sifive.com>
+   - Paul Walmsley <paul.walmsley@sifive.com>
+ 
+ properties:
+diff --git a/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml b/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml
+index 676b2160bada..605c1766dba8 100644
+--- a/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml
++++ b/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml
+@@ -8,7 +8,6 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ title: SiFive PWM controller
+ 
+ maintainers:
+-  - Yash Shah <yash.shah@sifive.com>
+   - Sagar Kadam <sagar.kadam@sifive.com>
+   - Paul Walmsley <paul.walmsley@sifive.com>
+ 
+diff --git a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+index 2b1f91603897..e2d330bd4608 100644
+--- a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
++++ b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+@@ -9,7 +9,6 @@ title: SiFive L2 Cache Controller
+ 
+ maintainers:
+   - Sagar Kadam <sagar.kadam@sifive.com>
+-  - Yash Shah <yash.shah@sifive.com>
+   - Paul Walmsley  <paul.walmsley@sifive.com>
+ 
+ description:
+diff --git a/MAINTAINERS b/MAINTAINERS
+index ebf7a75a6bec..87eeac970ca2 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -7090,12 +7090,6 @@ L:	linux-edac@vger.kernel.org
+ S:	Maintained
+ F:	drivers/edac/sb_edac.c
+ 
+-EDAC-SIFIVE
+-M:	Yash Shah <yash.shah@sifive.com>
+-L:	linux-edac@vger.kernel.org
+-S:	Supported
+-F:	drivers/edac/sifive_edac.c
+-
+ EDAC-SKYLAKE
+ M:	Tony Luck <tony.luck@intel.com>
+ L:	linux-edac@vger.kernel.org
+-- 
+2.32.0
 
-Note that this hardware dependency is being addressed in
-"[RFC 00/32] Kconfig: Introduce HAS_IOPORT and LEGACY_PCI options"
-https://lore.kernel.org/all/20211227164317.4146918-1-schnelle@linux.ibm.com/
-
-> --- linux-macro.orig/drivers/parport/Kconfig
-> +++ linux-macro/drivers/parport/Kconfig
-> @@ -42,7 +42,7 @@ if PARPORT
->
->  config PARPORT_PC
->         tristate "PC-style hardware"
-> -       depends on ARCH_MIGHT_HAVE_PC_PARPORT
-> +       depends on ARCH_MIGHT_HAVE_PC_PARPORT || PCI
->         help
->           You should say Y here if you have a PC-style parallel port. All
->           IBM PC compatible computers and some Alphas have PC-style
-> @@ -77,7 +77,7 @@ config PARPORT_PC_FIFO
->
->  config PARPORT_PC_SUPERIO
->         bool "SuperIO chipset support"
-> -       depends on PARPORT_PC && !PARISC
-> +       depends on ARCH_MIGHT_HAVE_PC_PARPORT && PARPORT_PC && !PARISC
->         help
->           Saying Y here enables some probes for Super-IO chipsets in order to
->           find out things like base addresses, IRQ lines and DMA channels.  It
->
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
