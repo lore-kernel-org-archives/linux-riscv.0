@@ -4,67 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F98CC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 21:07:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70938C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 21:22:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vtIdJwuCm1xqJl8LfPonEvmIfkYQKJ2HjBD0aEvQYQg=; b=hb2YqH6dS1wzxj
-	4GA83I9V5sQK7dUcNYpytC3CoqIeKJAT9Nj7ifm0HK+OWWkfk3rEO5vBojY6cRTp4ecfdrX2X+Ecm
-	frGZvs/kwjnPLIT2KF8kmlTYMu42P86PljYwMhEH7FGWE/VFbkwwrp6KvK+kuQ1ynILDe/K6eZkki
-	sG5/RhOpayzUokzQOCABTyzF4z3F4ycbQ1e4/iXostcKGvGdoGsSdlqVL4ygMUHzGsNhC/4BkGpMp
-	Dp1/RNVc6AcTvcRQVsYBEq3xByRu0dyHWuTfzaAHMpBxg/DSc1ZkgHByel5XtJUEe7bv31Ug3HgC5
-	PzvIJL6uLe2DG1fKzP7g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sqLSZDFW1/5Z2+O8wpiYvtW+d3KvHB6E4AuK3LqSJAM=; b=vlVgsiSvhi1mnu
+	KhUxLE0OpxkxWAoSgKEY4GVFIavaF/vT//PwHGqnD26UjTAMshv+zfux+OYIfQp/ZLEh/r5StyyeO
+	x6mxUHpRDHG15a69Vk4QBbhd+HESrYGB9At4FAuQO+odoInAWMkb4RrdEGEwasrNpIgqlvza96HA7
+	Jm/yeuxGTziWv+YMdU3ryUhWQfzI3o4yqiduoJMAqmyYdO8sams4dLojtogf1AA7wdLekKyCgGSzI
+	BMYw/3pWWx4YVg5NkJuGW4IylvLBqW5nVR69K+Nmyn/UYUU5O4H9tjWqZCpShOszEmQZ20MUrvZl/
+	8MwwtU8FXllV58aMSqwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJiZ2-00Gvtv-Ni; Mon, 14 Feb 2022 21:07:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJiYz-00Gvs7-Bs; Mon, 14 Feb 2022 21:07:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ABB93139F;
- Mon, 14 Feb 2022 13:07:11 -0800 (PST)
-Received: from [10.57.70.89] (unknown [10.57.70.89])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A689F3F718;
- Mon, 14 Feb 2022 13:07:04 -0800 (PST)
-Message-ID: <cc6006c6-b073-7cc0-484d-7ddd193a8c2c@arm.com>
-Date: Mon, 14 Feb 2022 21:06:58 +0000
+	id 1nJinL-00Gy9Q-Lb; Mon, 14 Feb 2022 21:22:03 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nJinH-00Gy76-Rz
+ for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 21:22:02 +0000
+Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com
+ [209.85.208.70])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 6EEEA4033B
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 21:21:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1644873718;
+ bh=Yyn2NqnfgQsqTNINvOf5kiaG/8cnl0ieMPcjnfWxCE8=;
+ h=From:To:Subject:Date:Message-Id:MIME-Version;
+ b=SCQAX7bth7sriNYVeHYYWth8/XFEv/d+tUPhWT5gVVKvDio4qUCPq9xBV3oPWVjcM
+ neBm4F1VTU5LYux9DYolTY2kFRcaf0LKOuMPwWyR+MnhNtLJYxXxtN6YmF5UeqcUws
+ jQ+XzsdM8iPIKSrh1Xm1bE2V8ovu5tmSHxfnxjEUFh7VsCVEk5WmVwD498rNGmwv+M
+ OnkbU/mgTzgPphsk2zn1dV4AJC9BSZ0WM0Z+Q7PBZxBvJU1YYNhy85K9GHr5JR55OJ
+ SJS8Pi1k7uqptwZLtNLh+VWjJU4yCv1MvC0qcps7i5S/Sra0r2hjTAKW+EY/GFwliX
+ lNTVhCX/KEZKA==
+Received: by mail-ed1-f70.google.com with SMTP id
+ r11-20020a508d8b000000b00410a4fa4768so3774536edh.9
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 13:21:58 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=Yyn2NqnfgQsqTNINvOf5kiaG/8cnl0ieMPcjnfWxCE8=;
+ b=ZVt/ZwSkykIRw6QNdpIy0BjGxWQvk5wQgA1GDbDc4ElsvdBdNx3mhdopbk6Ws/B0Y7
+ uPivtw/Zsam4lvYmrGgIO+125CMflSfKz+DGrcSNrL7CiZqmuVojwFzhc0nJ8t8kYhvA
+ 6WHbdVbczmpxxrpqjqPrd9dmUWS5TVa21mniKoWNn4kWvNA0UowEzm9M63IpYyJSvord
+ iGe4VnF0DSxlG6oxCIAX84hxPBHeTF/LHCJncinK0UTpbzduPbMSOxzuffePAuAlWAw6
+ gHurVKL84m7pRJcDufNA2tuQaKlQuiUiYQERRD9lZCVTMQZEiDN8Z/GQilfcGeJV4iTi
+ i9+Q==
+X-Gm-Message-State: AOAM532IBhKdNKE4Th4PQH3lJcjr3mm47v6hsrQ/epULNOKVH5hW8WBv
+ LGm0hmdXXFvEaIVxU2t3wEOmmzbypfrC69Xr4vYh0PPIcXK1lL4I197IzNCpraxs/NRcH81MwRY
+ 4nNhI96iL6PDC14ib+2cq+oFCDY1hOJ1givYXYJWrRsR84w==
+X-Received: by 2002:a17:906:43c9:: with SMTP id
+ j9mr542967ejn.652.1644873717906; 
+ Mon, 14 Feb 2022 13:21:57 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxHUEbKK+ige7iX5bnwzSKFJMTswdOEpqx7cMi1lNy54Z/tS1AK9z5IhoWWwB46l5Z1qT3wqA==
+X-Received: by 2002:a17:906:43c9:: with SMTP id
+ j9mr542949ejn.652.1644873717746; 
+ Mon, 14 Feb 2022 13:21:57 -0800 (PST)
+Received: from localhost.localdomain (xdsl-188-155-168-84.adslplus.ch.
+ [188.155.168.84])
+ by smtp.gmail.com with ESMTPSA id v24sm2327203ejf.7.2022.02.14.13.21.56
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 14 Feb 2022 13:21:57 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+To: Thierry Reding <thierry.reding@gmail.com>,
+ =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+ Lee Jones <lee.jones@linaro.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Florian Fainelli <f.fainelli@gmail.com>,
+ bcm-kernel-feedback-list@broadcom.com, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
+ Heiko Stuebner <heiko@sntech.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Anson Huang <anson.huang@nxp.com>,
+ Vijayakannan Ayyathurai <vijayakannan.ayyathurai@intel.com>,
+ Rahul Tanwar <rtanwar@maxlinear.com>, Jeff LaBundy <jeff@labundy.com>,
+ Yash Shah <yash.shah@sifive.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Vignesh R <vigneshr@ti.com>,
+ Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-riscv@lists.infradead.org
+Subject: [PATCH v2 00/15] pwm: dt-bindings: Include generic pwm schema
+Date: Mon, 14 Feb 2022 22:21:39 +0100
+Message-Id: <20220214212154.8853-1-krzysztof.kozlowski@canonical.com>
+X-Mailer: git-send-email 2.32.0
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101
- Thunderbird/91.6.0
-Subject: Re: [PATCH 08/14] arm64: simplify access_ok()
-Content-Language: en-GB
-To: Arnd Bergmann <arnd@kernel.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Christoph Hellwig <hch@lst.de>, linux-arch@vger.kernel.org,
- linux-mm@kvack.org, linux-api@vger.kernel.org, arnd@arndb.de,
- linux-kernel@vger.kernel.org
-Cc: linux@armlinux.org.uk, will@kernel.org, guoren@kernel.org,
- bcain@codeaurora.org, geert@linux-m68k.org, monstr@monstr.eu,
- tsbogend@alpha.franken.de, nickhu@andestech.com, green.hu@gmail.com,
- dinguyen@kernel.org, shorne@gmail.com, deller@gmx.de, mpe@ellerman.id.au,
- peterz@infradead.org, mingo@redhat.com, mark.rutland@arm.com,
- hca@linux.ibm.com, dalias@libc.org, davem@davemloft.net, richard@nod.at,
- x86@kernel.org, jcmvbkbc@gmail.com, ebiederm@xmission.com,
- akpm@linux-foundation.org, ardb@kernel.org, linux-alpha@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org
-References: <20220214163452.1568807-1-arnd@kernel.org>
- <20220214163452.1568807-9-arnd@kernel.org>
-From: Robin Murphy <robin.murphy@arm.com>
-In-Reply-To: <20220214163452.1568807-9-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_130713_533909_843A3C3C 
-X-CRM114-Status: GOOD (  25.10  )
+X-CRM114-CacheID: sfid-20220214_132200_148125_6C40D9DE 
+X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,97 +117,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2022-02-14 16:34, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> arm64 has an inline asm implementation of access_ok() that is derived from
-> the 32-bit arm version and optimized for the case that both the limit and
-> the size are variable. With set_fs() gone, the limit is always constant,
-> and the size usually is as well, so just using the default implementation
-> reduces the check into a comparison against a constant that can be
-> scheduled by the compiler.
+Hi,
 
-Aww, I still vividly remember the birth of this madness, sat with my 
-phone on a Saturday morning waiting for my bike to be MOT'd, staring at 
-the 7-instruction sequence that Mark and I had come up with and certain 
-that it could be shortened still. Kinda sad to see it go, but at the 
-same time, glad that it can.
+Changes since v1:
+1. Add tags.
+2. Adjust subject (Uwe).
 
-Acked-by: Robin Murphy <robin.murphy@arm.com>
+Best regards,
+Krzysztof
 
-> On a defconfig build, this saves over 28KB of .text.
+Krzysztof Kozlowski (15):
+  dt-bindings: pwm: allwinner,sun4i-a10: Include generic pwm schema
+  dt-bindings: pwm: imx: Include generic pwm schema
+  dt-bindings: pwm: intel,lgm: Include generic pwm schema
+  dt-bindings: pwm: iqs620a: Include generic pwm schema
+  dt-bindings: pwm: mxs: Include generic pwm schema
+  dt-bindings: pwm: rockchip: Include generic pwm schema
+  dt-bindings: pwm: sifive: Include generic pwm schema
+  dt-bindings: pwm: renesas,pwm: Include generic pwm schema
+  dt-bindings: pwm: toshiba,visconti: Include generic pwm schema
+  dt-bindings: pwm: brcm,bcm7038: Do not require pwm-cells twice
+  dt-bindings: pwm: intel,keembay: Do not require pwm-cells twice
+  dt-bindings: pwm: samsung: Do not require pwm-cells twice
+  dt-bindings: pwm: tiecap: Do not require pwm-cells twice
+  dt-bindings: pwm: tiehrpwm: Do not require pwm-cells twice
+  dt-bindings: pwm: renesas,tpu: Do not require pwm-cells twice
 
-Not to mention saving those "WTF is going on there... oh yeah, 
-access_ok()" moments when looking through disassembly :)
+ .../bindings/pwm/allwinner,sun4i-a10-pwm.yaml | 53 ++++++-------
+ .../bindings/pwm/brcm,bcm7038-pwm.yaml        |  1 -
+ .../devicetree/bindings/pwm/imx-pwm.yaml      |  4 +-
+ .../devicetree/bindings/pwm/imx-tpm-pwm.yaml  |  4 +-
+ .../bindings/pwm/intel,keembay-pwm.yaml       |  1 -
+ .../bindings/pwm/intel,lgm-pwm.yaml           |  3 +
+ .../devicetree/bindings/pwm/iqs620a-pwm.yaml  |  4 +-
+ .../devicetree/bindings/pwm/mxs-pwm.yaml      |  4 +-
+ .../devicetree/bindings/pwm/pwm-rockchip.yaml | 74 ++++++++++---------
+ .../devicetree/bindings/pwm/pwm-samsung.yaml  |  1 -
+ .../devicetree/bindings/pwm/pwm-sifive.yaml   |  4 +-
+ .../devicetree/bindings/pwm/pwm-tiecap.yaml   |  1 -
+ .../devicetree/bindings/pwm/pwm-tiehrpwm.yaml |  1 -
+ .../bindings/pwm/renesas,pwm-rcar.yaml        | 26 ++++---
+ .../bindings/pwm/renesas,tpu-pwm.yaml         |  1 -
+ .../bindings/pwm/toshiba,pwm-visconti.yaml    |  4 +-
+ 16 files changed, 101 insertions(+), 85 deletions(-)
 
-Cheers,
-Robin.
+-- 
+2.32.0
 
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->   arch/arm64/include/asm/uaccess.h | 28 +++++-----------------------
->   1 file changed, 5 insertions(+), 23 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/uaccess.h b/arch/arm64/include/asm/uaccess.h
-> index 357f7bd9c981..e8dce0cc5eaa 100644
-> --- a/arch/arm64/include/asm/uaccess.h
-> +++ b/arch/arm64/include/asm/uaccess.h
-> @@ -26,6 +26,8 @@
->   #include <asm/memory.h>
->   #include <asm/extable.h>
->   
-> +static inline int __access_ok(const void __user *ptr, unsigned long size);
-> +
->   /*
->    * Test whether a block of memory is a valid user space address.
->    * Returns 1 if the range is valid, 0 otherwise.
-> @@ -33,10 +35,8 @@
->    * This is equivalent to the following test:
->    * (u65)addr + (u65)size <= (u65)TASK_SIZE_MAX
->    */
-> -static inline unsigned long __access_ok(const void __user *addr, unsigned long size)
-> +static inline int access_ok(const void __user *addr, unsigned long size)
->   {
-> -	unsigned long ret, limit = TASK_SIZE_MAX - 1;
-> -
->   	/*
->   	 * Asynchronous I/O running in a kernel thread does not have the
->   	 * TIF_TAGGED_ADDR flag of the process owning the mm, so always untag
-> @@ -46,27 +46,9 @@ static inline unsigned long __access_ok(const void __user *addr, unsigned long s
->   	    (current->flags & PF_KTHREAD || test_thread_flag(TIF_TAGGED_ADDR)))
->   		addr = untagged_addr(addr);
->   
-> -	__chk_user_ptr(addr);
-> -	asm volatile(
-> -	// A + B <= C + 1 for all A,B,C, in four easy steps:
-> -	// 1: X = A + B; X' = X % 2^64
-> -	"	adds	%0, %3, %2\n"
-> -	// 2: Set C = 0 if X > 2^64, to guarantee X' > C in step 4
-> -	"	csel	%1, xzr, %1, hi\n"
-> -	// 3: Set X' = ~0 if X >= 2^64. For X == 2^64, this decrements X'
-> -	//    to compensate for the carry flag being set in step 4. For
-> -	//    X > 2^64, X' merely has to remain nonzero, which it does.
-> -	"	csinv	%0, %0, xzr, cc\n"
-> -	// 4: For X < 2^64, this gives us X' - C - 1 <= 0, where the -1
-> -	//    comes from the carry in being clear. Otherwise, we are
-> -	//    testing X' - C == 0, subject to the previous adjustments.
-> -	"	sbcs	xzr, %0, %1\n"
-> -	"	cset	%0, ls\n"
-> -	: "=&r" (ret), "+r" (limit) : "Ir" (size), "0" (addr) : "cc");
-> -
-> -	return ret;
-> +	return likely(__access_ok(addr, size));
->   }
-> -#define __access_ok __access_ok
-> +#define access_ok access_ok
->   
->   #include <asm-generic/access_ok.h>
->   
 
 _______________________________________________
 linux-riscv mailing list
