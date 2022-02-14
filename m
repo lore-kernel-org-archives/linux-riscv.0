@@ -4,101 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6360DC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 17:19:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BF62C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 17:42:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=QdaTSVM5W11pxD7jBzKngTHNqM83PadMbYgs374ozC4=; b=Hsfhizf+I4XfI+i6Ug9nRDYgLp
-	Xft692WsAtqnmLUMs/JwcHArZgxvTQx92JP9lZem7DPqagLWzDAml1ynkqXRUN55/eiCx6/rA3xSH
-	YBgG+IaaHn0LGOUUyY3anKaCjqKdUwOTr1zTHzxJoW9s2p0dqJvtKYaIFTc6/1OtcSMWWsUvrwHDf
-	QOnNKsi7i6YgRLNl933hIrWnxLHBp7949T+8lQSZ+M5rleaCeiwLdGKUBkKyGvvdn0jGkPejBQ1RN
-	vfYzkiJhuq2Pt4+cJOnac8z/rxX+omSvJj4/yWV8MoZoXdPyZN1d3V2gTOQv7TBKIIG5grzUbvTOB
-	s2JdXKyA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UzKf0VQEMKMCyUajXhPWw8fTle3RASYyXMyeauIlTXc=; b=Ay8WkcLgXSIaw7
+	yQcChmeAnGYmtg9eILXMkSYwY6LW+PuSO1Da1XziivDQesccIGEvERBI2QaScx1LMuJsjqtfAEuLH
+	goIlm6xE1hc7Ma9sVG5ppyxToPPtBdDBPYwsjSyw714BNnOUdbo/V0OB90sQmwUB+oJSw0A+Vr9n6
+	oxtIomm5bDq/17lBZf4O+eRXUkX3jMC/gkc3IxB+1oXkimLW+EgZzs4Z6ewz3StDafNkgKa5Qsr8t
+	N/4h5AZdVVUFhrSiTwsWDip49vEp9Dr35MMxrtQQLoNB85yxqbwKGyhb7ffK0J7JLavSB0kBa+Yon
+	5LzCOTHFNf+KG3Ccvbtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJf0f-00GLvZ-Mx; Mon, 14 Feb 2022 17:19:33 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1nJfMm-00GPcx-Mt; Mon, 14 Feb 2022 17:42:24 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJf0a-00GLtX-97; Mon, 14 Feb 2022 17:19:32 +0000
-Received: by mail-pf1-x429.google.com with SMTP id z16so8459880pfh.3;
- Mon, 14 Feb 2022 09:19:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=subject:to:references:from:message-id:date:user-agent:mime-version
- :in-reply-to:content-language:content-transfer-encoding;
- bh=UlEoY4gUMCf+dGZF5OFEMsNszRaKi2NA9sVTb7hg2Q0=;
- b=Ae4U2rn/YgQgOSiyBw4kGAmri+C7D120xX2o4jTRqLmVZIwA9orrp82PFXVyOLe88t
- 5T5LS8Yywqq1yrpCVB7G4GG5FYZQUDJDm53OLiwGHyGy8+PzEh/ltOv9sdjQsLOQ37BW
- K9jUAGGyAGbO8m/d9ADpTfTiEDDicGmysucCnySqoNkUDMyL2sf0KwApIjlpCOBKh7LG
- PwLn7yzu096BJFsZbMkywa8qC5bLUChdLXtHANsVKuws7eixe2FC3CD/XVIIbRv0GFH4
- 8aL24++hGBw17OPlB9PFW8aJifALKZ5y0EbTPSEC7kOrBTt+Y+9DY5uTdqXJzHsuvFjt
- Fi7g==
+ id 1nJfMj-00GPbh-GT
+ for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 17:42:22 +0000
+Received: by mail-ed1-x530.google.com with SMTP id q17so272589edd.4
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 09:42:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=linux-foundation.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=hl2tx2/b0j1as4iPc8br7ak6VbssTN3Lkaa01qKImp4=;
+ b=B3+89vMVlD+t/jr4Ir3J5heCAGLy+8O/Bfqv5DSjHS7vGRacFAUCCs0TF2tOD5+IOJ
+ DARHbhMwmXg8IKTGNN5wyW1UIWJ3dy3zDkUXnMSy6euD4EH/SAawjrYbWaSs+0JtxWja
+ ZBOb3OkzZ9V/CSYGxjkJVHb89skxzNvZve0yg=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:subject:to:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=UlEoY4gUMCf+dGZF5OFEMsNszRaKi2NA9sVTb7hg2Q0=;
- b=EJNjc6sf0LcXLw/hIgabjMJ3nPAJ1Ci1VW5uaVKwl3IcjVefmRC4vZnG9WB/vqPuZt
- tlvJRySG/hq7QIuuzumNR+g9vOFOs08qFgPXxUnTcLIkuwnAvDDSBXDBatvP7/voOoLu
- zvJE4fJiDKFT7VBj2D9sCmqJv+lZD5ViYjtyjqo6oSlZD0T5i4tCCAixBn4cUjpMhLOF
- EYipZj35kJRrbyT7djrnyfXL5uqAE/5QNB3xzqTYk5v+RhtPQqX+hpzlBbOqsBFxcdtL
- VNbZG+nhYLP0QWBWv1EzPE9kwBLgpr3Y5epQ5QDEcKU2RcMxMqCREfXO34GRBKv3KlcE
- fg7w==
-X-Gm-Message-State: AOAM530n2wdQCQlEZsmAOvSV4KslIiqHiu1YESre1QsqqhPV7B0WzvXD
- oPHk5F9LwMWmKSP2aEJNR7bq9HCCtr0=
-X-Google-Smtp-Source: ABdhPJzbAW43zE1Qfnv6bnjeH7rBFCX7yXcNUn2pVO8yLoL7oe86rRsSHL23eDM2HIDNmODSHPh2sQ==
-X-Received: by 2002:a63:2a51:: with SMTP id q78mr4148pgq.239.1644859166687;
- Mon, 14 Feb 2022 09:19:26 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
- by smtp.googlemail.com with ESMTPSA id bd34sm5276481pfb.73.2022.02.14.09.19.16
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=hl2tx2/b0j1as4iPc8br7ak6VbssTN3Lkaa01qKImp4=;
+ b=b1rhQTE5MeJ3elkfuMetFLKUdSFEkk8EUnvhvroOifSCwJ/xAavYbRWDYkGNehwrVb
+ g0zQd+DeQ0Vpo3mU/UG42m/oINFxOYblriye5/ni6lSIk9ZFD3PwZ2zKhYQGaejT/+XJ
+ 3xVp4z0/rZVYOEdlaZuR2BhyrfJw4a5qKi3XEg6Zw3xRqHdRrLi4n3EQ7NTUQGkY6E/Q
+ 9ofr3K6QInEEoN/iny+5e/oU/I3YVcm16ajxY4/KCh+UFhJg2xXFCB3lGSdFMMYfohqd
+ 1b9Ov3q5js0E6VfQ/0WAejZR+v8oa4lzcsCS9MbpjyYm4iabKqcmBuSL5lVj52QY51QO
+ Ib4w==
+X-Gm-Message-State: AOAM532y+qyvfarJzeh4oG1459vxJZOhEX+AtP62bYjQmWlP975Ekruh
+ TImXvoytnCeWsEj1/c7F2Ud/xeoFgB4Zj/1bcjU=
+X-Google-Smtp-Source: ABdhPJyjPFPg9ljHL1JmM95uomz+na7cX7HKZa4PpkPjXMycTcKHjfOuozjIIpZihPyo9tjf5QnIYg==
+X-Received: by 2002:aa7:c3da:: with SMTP id l26mr758506edr.294.1644860539540; 
+ Mon, 14 Feb 2022 09:42:19 -0800 (PST)
+Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com.
+ [209.85.221.48])
+ by smtp.gmail.com with ESMTPSA id a20sm1899882ejs.85.2022.02.14.09.42.19
+ for <linux-riscv@lists.infradead.org>
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 14 Feb 2022 09:19:26 -0800 (PST)
-Subject: Re: [PATCH 10/15] dt-bindings: pwm: brcm,bcm7038: do not require
- pwm-cells
-To: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Thierry Reding <thierry.reding@gmail.com>,
- =?UTF-8?Q?Uwe_Kleine-K=c3=b6nig?= <u.kleine-koenig@pengutronix.de>,
- Lee Jones <lee.jones@linaro.org>, Rob Herring <robh+dt@kernel.org>,
- Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Florian Fainelli <f.fainelli@gmail.com>,
- bcm-kernel-feedback-list@broadcom.com, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
- Heiko Stuebner <heiko@sntech.de>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
- Philipp Zabel <p.zabel@pengutronix.de>, Anson Huang <anson.huang@nxp.com>,
- Vijayakannan Ayyathurai <vijayakannan.ayyathurai@intel.com>,
- Rahul Tanwar <rtanwar@maxlinear.com>, Jeff LaBundy <jeff@labundy.com>,
- Yash Shah <yash.shah@sifive.com>, Sagar Kadam <sagar.kadam@sifive.com>,
- Vignesh R <vigneshr@ti.com>,
- Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
- linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-riscv@lists.infradead.org
-References: <20220214081605.161394-1-krzysztof.kozlowski@canonical.com>
- <20220214081605.161394-10-krzysztof.kozlowski@canonical.com>
-From: Florian Fainelli <f.fainelli@gmail.com>
-Message-ID: <a8d3ea6e-c9f8-e5e4-7cbd-71e0c814db0a@gmail.com>
-Date: Mon, 14 Feb 2022 09:19:14 -0800
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.14.0
+ Mon, 14 Feb 2022 09:42:19 -0800 (PST)
+Received: by mail-wr1-f48.google.com with SMTP id d27so24323773wrb.5
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 09:42:19 -0800 (PST)
+X-Received: by 2002:a19:4302:: with SMTP id q2mr49672lfa.449.1644860131952;
+ Mon, 14 Feb 2022 09:35:31 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20220214081605.161394-10-krzysztof.kozlowski@canonical.com>
-Content-Language: en-US
+References: <20220214163452.1568807-1-arnd@kernel.org>
+In-Reply-To: <20220214163452.1568807-1-arnd@kernel.org>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Mon, 14 Feb 2022 09:35:15 -0800
+X-Gmail-Original-Message-ID: <CAHk-=whXYWoP6of7js=f4zov62on97mNFRSVRWhY75WoGM6CoQ@mail.gmail.com>
+Message-ID: <CAHk-=whXYWoP6of7js=f4zov62on97mNFRSVRWhY75WoGM6CoQ@mail.gmail.com>
+Subject: Re: [PATCH 00/14] clean up asm/uaccess.h, kill set_fs for good
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Christoph Hellwig <hch@lst.de>, linux-arch <linux-arch@vger.kernel.org>, 
+ Linux-MM <linux-mm@kvack.org>, Linux API <linux-api@vger.kernel.org>, 
+ Arnd Bergmann <arnd@arndb.de>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ Russell King - ARM Linux <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
+ Guo Ren <guoren@kernel.org>, 
+ Brian Cain <bcain@codeaurora.org>, Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Michal Simek <monstr@monstr.eu>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>, 
+ Dinh Nguyen <dinguyen@kernel.org>, Stafford Horne <shorne@gmail.com>,
+ Helge Deller <deller@gmx.de>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Peter Zijlstra <peterz@infradead.org>, 
+ Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>, 
+ Heiko Carstens <hca@linux.ibm.com>, Rich Felker <dalias@libc.org>,
+ David Miller <davem@davemloft.net>, Richard Weinberger <richard@nod.at>,
+ "the arch/x86 maintainers" <x86@kernel.org>, Max Filippov <jcmvbkbc@gmail.com>,
+ "Eric W. Biederman" <ebiederm@xmission.com>,
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Ard Biesheuvel <ardb@kernel.org>, alpha <linux-alpha@vger.kernel.org>, 
+ "open list:SYNOPSYS ARC ARCHITECTURE" <linux-snps-arc@lists.infradead.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, linux-csky@vger.kernel.org, 
+ linux-hexagon <linux-hexagon@vger.kernel.org>, linux-ia64@vger.kernel.org, 
+ linux-m68k <linux-m68k@lists.linux-m68k.org>, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ openrisc@lists.librecores.org, 
+ linux-parisc <linux-parisc@vger.kernel.org>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ linux-s390 <linux-s390@vger.kernel.org>, 
+ Linux-sh list <linux-sh@vger.kernel.org>,
+ linux-sparc <sparclinux@vger.kernel.org>, 
+ linux-um <linux-um@lists.infradead.org>, linux-xtensa@linux-xtensa.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_091928_370276_38D3EFAB 
-X-CRM114-Status: UNSURE (   9.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220214_094221_554643_1F768C6D 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,14 +121,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/14/22 12:16 AM, Krzysztof Kozlowski wrote:
-> pwm-cells are already required by pwm.yaml schema.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+On Mon, Feb 14, 2022 at 8:35 AM Arnd Bergmann <arnd@kernel.org> wrote:
+>
+> I did a patch for microblaze at some point, which turned out to be fairly
+> generic, and now ported it to most other architectures, using new generic
+> implementations of access_ok() and __{get,put}_kernel_nocheck().
 
-Acked-by: Florian Fainelli <f.fainelli@gmail.com>
--- 
-Florian
+Thanks for doing this.
+
+Apart from the sparc64 issue with completely separate address spaces
+(so access_ok() should always return true like Al pointed out), this
+looks excellent to me.
+
+Somebody should check that there aren't other cases like sparc64, but
+let's merge this asap other than that.
+
+              Linus
 
 _______________________________________________
 linux-riscv mailing list
