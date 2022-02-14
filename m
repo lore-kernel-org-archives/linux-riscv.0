@@ -4,110 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3E88C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 08:28:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6810C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 08:41:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Uz3C8+Pu/03kBCWHAGlZGh9lTwmkWnsWbFoIHNvPy5E=; b=3CaIVOiOHWS/Qg
-	LZB4YDmrgsCrlDxK77nBNTQ4ljypr3Bk3trjbpR5p2j4pEuJfdrvFm0dNNJcfIKEN4p6vGZBwTnkg
-	U3qPK1aedG5Y9+3CPXnPNWWWsAaYmrWFkcldIUUiEjFh/AVWjL8Bmyi46YmQXJGbmfUnch1XU9cPj
-	YAK1QmCSPp2dr7yqU/7iYM0LJU4Ewvygdkm8y5Ck8pIUuWoUZFPGVyg/jq1i//l4SPwmhEDq+3xZQ
-	Lwzt8aqhU18J9MLElvHVa2uOmObVoaA97PVJOnk8NlrancygmNMaBv2iL2wZQiyTC8TXgzGOubeHp
-	D3yj7shtMJEHg7FOTqYA==;
+	List-Owner; bh=di9NxWvNy4vejyl5If42WGFfk9hN/NDLS/f9Lk91C+E=; b=c+gfqhQQ4KOUFZ
+	IdRS1vZDVqAuHTEFKZyidBXG995aKpxY8K3KcgckHOYCJaKLPmOKd7mU9qVNm10LsYH1wYTePWj9l
+	i7jN834FvCmvwUafbWt2JYrIX7cc+06FktsxH1YkxibnS6IK1FhvyNUHp0Tw0XMvYCjepPynCQ+ag
+	WXKCKAv2I36D8w04sp5LuH6L+Lo5EVGyBth2Fjek+mj0hYhXKKxc2CwJyWf2XnQYu2RLaf7YBV1wM
+	scFmsAwl5XxvFM3Ap7gKFWHi0RpXlUprm2e5Txp+n9nL2XDEYqijKR33LQqDMq0ojIpMSirTcxRER
+	U+JcspkeirRgZVz0eK/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJWig-00DueZ-W0; Mon, 14 Feb 2022 08:28:27 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1nJWvB-00E002-PQ; Mon, 14 Feb 2022 08:41:22 +0000
+Received: from mail-ua1-f48.google.com ([209.85.222.48])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJWXq-00DpcD-6M
- for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 08:17:15 +0000
-Received: from mail-lj1-f198.google.com (mail-lj1-f198.google.com
- [209.85.208.198])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id A71E8407DB
- for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 08:17:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1644826632;
- bh=bOhlBRyYjdc4olCsTRd9yvmwLAfAPm/hGaoOpjTnzVA=;
- h=From:To:Subject:Date:Message-Id:In-Reply-To:References:
- MIME-Version;
- b=nvR8HYrs67ggslT4ASUAdGJzrcw55S0M2iScduJi80VfzUsnIjEYaDzMv4vi0Vyet
- /v7VASQD9X/eoOznXCxcSApyinWIxfqfFe/a0ndkYw7b4lHXkz0runXbo005n/k/Gy
- C9zuEvwowi1vw4HbO/Zlo/SRzgY1wBoOWGJeAeZ556BS9VHY3a8FZHnimwxUvXTd3c
- h4ngR5/0O5nTmQBrwvMbTUqUdbNwiZZEyNtABdBXnCcm6fKXikj9SbFaSUQ6fM5AXu
- gPWjpADrjzNUh5l6+oLO6F1eJXy9nMdJTG0MoSd4Eww+UWMYUgea3R+JYPdJR/S06l
- ziq7J3xQRCNPw==
-Received: by mail-lj1-f198.google.com with SMTP id
- y19-20020a2e9793000000b0023f158d6cc0so5430933lji.10
- for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 00:17:12 -0800 (PST)
+ id 1nJWbY-00Drm2-Ss; Mon, 14 Feb 2022 08:21:08 +0000
+Received: by mail-ua1-f48.google.com with SMTP id v5so7722372uam.3;
+ Mon, 14 Feb 2022 00:21:03 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=bOhlBRyYjdc4olCsTRd9yvmwLAfAPm/hGaoOpjTnzVA=;
- b=NSosC7i5Vd8lASU3ediLISN/5/q8WD1HrvRb2r2azCmNR0NKeaWP4JOeHIpfHovavK
- 4FUMuvAPkG/ZfCj2k52QN2wvOOaDAm3XqYnOpw+FCQTujGr/X4StRLjQznYxNEOJkyIB
- wIL99DSAo5V4wI0GY4B/yh0MpIOrVn1y4F6zAo+H31E0Qecxr5sO/yC9fgIhTL0DX10B
- lrggqJgo5rOZizOeSQSSPqm56W0qkPXtU9PxfrAu95RWvvQI8xMPNkqXFoRvUZqV1TbT
- JkLFMhOt8/tZbXcqXfJrmxhw5Pk3YJZmYeo4V33Ag+trfVpfFTMUk6qwIXuR4D71OgWw
- DU0Q==
-X-Gm-Message-State: AOAM531Sj5Xnlz/xkMp+3ZvCYSeje2G9RcwZho1jZwPkmbNviptbR/KI
- k3xjLF68Sb8ZFI0L7HkM48elzm/jrpNJ9vIGVdQmo2xPBG9pLltB0Vtv+yD+q2EYYHvEBRR/p2M
- kqfp0A08BAFQmOkwCqTIyvctymXY2KWduSMek+6ujVnVENA==
-X-Received: by 2002:a17:907:f9c:: with SMTP id
- kb28mr10076909ejc.213.1644826621272; 
- Mon, 14 Feb 2022 00:17:01 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJxxVq42SC5ZUR0wG1GQiAhOdCRluJBdfCYPvNoUVrfESuZAlthB1iFEyURnQo2Crc/39Bc5gA==
-X-Received: by 2002:a17:907:f9c:: with SMTP id
- kb28mr10076870ejc.213.1644826621102; 
- Mon, 14 Feb 2022 00:17:01 -0800 (PST)
-Received: from localhost.localdomain (xdsl-188-155-168-84.adslplus.ch.
- [188.155.168.84])
- by smtp.gmail.com with ESMTPSA id t21sm3363642edd.74.2022.02.14.00.16.59
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 14 Feb 2022 00:17:00 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-To: Thierry Reding <thierry.reding@gmail.com>,
- =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
- Lee Jones <lee.jones@linaro.org>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Florian Fainelli <f.fainelli@gmail.com>,
- bcm-kernel-feedback-list@broadcom.com, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
- Heiko Stuebner <heiko@sntech.de>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
- Philipp Zabel <p.zabel@pengutronix.de>, Anson Huang <anson.huang@nxp.com>,
- Vijayakannan Ayyathurai <vijayakannan.ayyathurai@intel.com>,
- Rahul Tanwar <rtanwar@maxlinear.com>, Jeff LaBundy <jeff@labundy.com>,
- Yash Shah <yash.shah@sifive.com>, Sagar Kadam <sagar.kadam@sifive.com>,
- Vignesh R <vigneshr@ti.com>,
- Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
- linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-riscv@lists.infradead.org
-Subject: [PATCH 13/15] dt-bindings: pwm: tiecap: do not require pwm-cells
-Date: Mon, 14 Feb 2022 09:16:03 +0100
-Message-Id: <20220214081605.161394-13-krzysztof.kozlowski@canonical.com>
-X-Mailer: git-send-email 2.32.0
-In-Reply-To: <20220214081605.161394-1-krzysztof.kozlowski@canonical.com>
-References: <20220214081605.161394-1-krzysztof.kozlowski@canonical.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=/wocXln3OZyzUJ8vGAcSbzur2Qk8XU2C//sjVsqiZdk=;
+ b=sHA49mwKV4lSrQFGdBQTLrSy5PxYw6+S4y7yFaeVO8aDBDSGXDMjlL0L7iCRlVt/us
+ y4EzFwXWf9Lq0qyYgbXAr0NJbdtRMzNt2Tlggcx1Ph601w9nkliLnRkkkSQq6B5MKTzj
+ vKTZkgJTrOqIqLCe6vcN7SpCrwqtFSE0UD0NvYz0f1eBPUY0XtduVgzRF8g+iwDjbsd9
+ Wqw5SYaeuDgohHt6r2f/lNpNi6buN4Lb5yhjzR7VvW5GX+Ed+85RDp5El79QAh9YxUo1
+ 3s0tSlb8zbwKLEQ6AQaFcR63CJormXCW0sDK5amtApP3o/3CYMbiG/O4pahbW3vu4VuY
+ KWBA==
+X-Gm-Message-State: AOAM531gQ71hWrfM+PLeqkdJhqH/LXsJnwjL1OKtQQAw8wXoGC7k3MjX
+ Js9gnj1IcNCb1L44Z4ooVCqoX7R8ryU/gQ==
+X-Google-Smtp-Source: ABdhPJxCMZL3N7RFSEHBTfSIwTLXYyIvdzHPYZzDQbmJHCBYVUi5+bLGhZqZDRfTy5i+VdcKcHUM5w==
+X-Received: by 2002:ab0:36b3:: with SMTP id v19mr3265708uat.101.1644826860560; 
+ Mon, 14 Feb 2022 00:21:00 -0800 (PST)
+Received: from mail-vk1-f177.google.com (mail-vk1-f177.google.com.
+ [209.85.221.177])
+ by smtp.gmail.com with ESMTPSA id d25sm5387096vkl.53.2022.02.14.00.21.00
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Mon, 14 Feb 2022 00:21:00 -0800 (PST)
+Received: by mail-vk1-f177.google.com with SMTP id bj24so2668707vkb.8;
+ Mon, 14 Feb 2022 00:21:00 -0800 (PST)
+X-Received: by 2002:a05:6122:c8f:: with SMTP id
+ ba15mr3700134vkb.39.1644826860129; 
+ Mon, 14 Feb 2022 00:21:00 -0800 (PST)
 MIME-Version: 1.0
+References: <alpine.DEB.2.21.2202122313460.34636@angie.orcam.me.uk>
+In-Reply-To: <alpine.DEB.2.21.2202122313460.34636@angie.orcam.me.uk>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 14 Feb 2022 09:20:49 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdW-utcFzCZTgqONjxs=U662nF0=aBQu7Zi7FBQouwiA3g@mail.gmail.com>
+Message-ID: <CAMuHMdW-utcFzCZTgqONjxs=U662nF0=aBQu7Zi7FBQouwiA3g@mail.gmail.com>
+Subject: Re: [PATCH] parport_pc: Also enable driver for PCI systems
+To: "Maciej W. Rozycki" <macro@orcam.me.uk>
+Cc: Sudip Mukherjee <sudipm.mukherjee@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>, 
+ Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>,
+ Jeff Dike <jdike@addtoit.com>, Richard Weinberger <richard@nod.at>, 
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>, Chris Zankel <chris@zankel.net>,
+ Max Filippov <jcmvbkbc@gmail.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ linux-s390@vger.kernel.org, linux-um@lists.infradead.org, 
+ linux-xtensa@linux-xtensa.org, linux-kernel@vger.kernel.org, 
+ Niklas Schnelle <schnelle@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_001714_388982_194E2748 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20220214_002105_007108_821276F9 
+X-CRM114-Status: GOOD (  27.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,28 +95,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-pwm-cells are already required by pwm.yaml schema.
+Hi Maciej,
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
----
- Documentation/devicetree/bindings/pwm/pwm-tiecap.yaml | 1 -
- 1 file changed, 1 deletion(-)
+CC Niklas
 
-diff --git a/Documentation/devicetree/bindings/pwm/pwm-tiecap.yaml b/Documentation/devicetree/bindings/pwm/pwm-tiecap.yaml
-index ed35b6cc48d5..3840ae709bc6 100644
---- a/Documentation/devicetree/bindings/pwm/pwm-tiecap.yaml
-+++ b/Documentation/devicetree/bindings/pwm/pwm-tiecap.yaml
-@@ -47,7 +47,6 @@ properties:
- required:
-   - compatible
-   - reg
--  - "#pwm-cells"
-   - clocks
-   - clock-names
- 
--- 
-2.32.0
+On Sun, Feb 13, 2022 at 1:45 PM Maciej W. Rozycki <macro@orcam.me.uk> wrote:
+> Nowadays PC-style parallel ports come in the form of PCI and PCIe option
+> cards and there are some combined parallel/serial option cards as well
+> that we handle in the parport subsystem.  There is nothing in particular
+> that would prevent them from being used in any system equipped with PCI
+> or PCIe connectivity, except that we do not permit the PARPORT_PC config
+> option to be selected for platforms for which ARCH_MIGHT_HAVE_PC_PARPORT
+> has not been set for.
+>
+> The only PCI platforms that actually can't make use of PC-style parallel
+> port hardware are those newer PCIe systems that have no support for I/O
+> cycles in the host bridge, required by such parallel ports.  An example
+> of such a host bridge is the POWER9 PHB4 device, but it is an exception
+> rather than the norm.  Also it is not clear whether the serial port side
 
+Note that this hardware dependency is being addressed in
+"[RFC 00/32] Kconfig: Introduce HAS_IOPORT and LEGACY_PCI options"
+https://lore.kernel.org/all/20211227164317.4146918-1-schnelle@linux.ibm.com/
+
+> --- linux-macro.orig/drivers/parport/Kconfig
+> +++ linux-macro/drivers/parport/Kconfig
+> @@ -42,7 +42,7 @@ if PARPORT
+>
+>  config PARPORT_PC
+>         tristate "PC-style hardware"
+> -       depends on ARCH_MIGHT_HAVE_PC_PARPORT
+> +       depends on ARCH_MIGHT_HAVE_PC_PARPORT || PCI
+>         help
+>           You should say Y here if you have a PC-style parallel port. All
+>           IBM PC compatible computers and some Alphas have PC-style
+> @@ -77,7 +77,7 @@ config PARPORT_PC_FIFO
+>
+>  config PARPORT_PC_SUPERIO
+>         bool "SuperIO chipset support"
+> -       depends on PARPORT_PC && !PARISC
+> +       depends on ARCH_MIGHT_HAVE_PC_PARPORT && PARPORT_PC && !PARISC
+>         help
+>           Saying Y here enables some probes for Super-IO chipsets in order to
+>           find out things like base addresses, IRQ lines and DMA channels.  It
+>
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
