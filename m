@@ -4,99 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF6C6C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 17:10:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2818C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 17:13:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ib9IJKbV+IrEl5F83gLVPd9HfWHgY/S1wUHQzp5hdkw=; b=bGMs9/fBwt5Tp7
-	mVe7aYlDU4j2lvNfM2inNzxQ6AnGpJI1FUg50Lhu8gkHCv0zWpDMioxhkUfZKFML9pLbBtBxE8gEW
-	M4OIZ/Es6vONL3qFHe4FuyH9aAzP2zAX62Klb4xji9yq790ky4T64OpYaPn4leLSODpK408nWned9
-	7VwULngohF3d+2yUk3WUuU14n8Nc9Mgdoz6nVnl4IKir0WKSaUyI4wT7TMUywm5n9vPwPiG/YRdpe
-	RVfZvBN9qNlBXbWsU7WsECQZis//6UvZ8GyP/zE4wgYp2pySPO5XGAHXZO2i6Gy5XHv/r5eg6+Y5U
-	hCpdPklvmhfXFS4/YOsQ==;
+	List-Owner; bh=nA6bd63V0OKm1ZT5u2KdzQ0z6PdJdtpbFRrLbepWBlE=; b=vXYZdm5vOWBjXP
+	1CIPJ7B+5YatRNtjbJ2Y4sV0Frd5Co7WZDBDROub8YEqaWnAEwixmWivFQrorAHaEV5sjfboOcwYm
+	dMRWlYfWzMiyLLcdot1jmv8rtjpHIi9ApC/z6Glsbx4e5WwPXJ7MyBSgKMYCtbimDj0VViMaDH7RZ
+	eZ4fKmTnfZ6+dX/kbboAIBc2rVYsIsI0/vmC4UiGpcuI2pMWKuHTuau5Ep/EgZjZ4YfqYELc5TgRX
+	Dk4rMNMBB2TsZbAqq3A6lu5IGqRNahzleM28bI+dW4LA13lUuhO1bkpzvCMAhHwTr1A+Kz2JFGN7U
+	iH+EXX8/AM0TZUFRNkdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJerq-00GJ5X-N1; Mon, 14 Feb 2022 17:10:26 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
+	id 1nJev0-00GKI6-CM; Mon, 14 Feb 2022 17:13:42 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJerg-00GIxq-7L
- for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 17:10:18 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-59-4uBsnFPgM72Ml12czhVz_g-1; Mon, 14 Feb 2022 17:10:09 +0000
-X-MC-Unique: 4uBsnFPgM72Ml12czhVz_g-1
-Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
- AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
- Server (TLS) id 15.0.1497.28; Mon, 14 Feb 2022 17:10:06 +0000
-Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
- AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
- 15.00.1497.028; Mon, 14 Feb 2022 17:10:06 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Christoph Hellwig' <hch@infradead.org>, Arnd Bergmann <arnd@kernel.org>
-CC: Linus Torvalds <torvalds@linux-foundation.org>, Christoph Hellwig
- <hch@lst.de>, "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>, "linux-api@vger.kernel.org"
- <linux-api@vger.kernel.org>, "arnd@arndb.de" <arnd@arndb.de>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "mark.rutland@arm.com" <mark.rutland@arm.com>, "dalias@libc.org"
- <dalias@libc.org>, "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>, 
- "linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>, "peterz@infradead.org"
- <peterz@infradead.org>, "jcmvbkbc@gmail.com" <jcmvbkbc@gmail.com>,
- "guoren@kernel.org" <guoren@kernel.org>, "sparclinux@vger.kernel.org"
- <sparclinux@vger.kernel.org>, "linux-hexagon@vger.kernel.org"
- <linux-hexagon@vger.kernel.org>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>, "will@kernel.org" <will@kernel.org>,
- "ardb@kernel.org" <ardb@kernel.org>, "linux-s390@vger.kernel.org"
- <linux-s390@vger.kernel.org>, "bcain@codeaurora.org" <bcain@codeaurora.org>,
- "deller@gmx.de" <deller@gmx.de>, "x86@kernel.org" <x86@kernel.org>,
- "linux@armlinux.org.uk" <linux@armlinux.org.uk>, "linux-csky@vger.kernel.org"
- <linux-csky@vger.kernel.org>, "mingo@redhat.com" <mingo@redhat.com>,
- "geert@linux-m68k.org" <geert@linux-m68k.org>,
- "linux-snps-arc@lists.infradead.org" <linux-snps-arc@lists.infradead.org>,
- "linux-xtensa@linux-xtensa.org" <linux-xtensa@linux-xtensa.org>,
- "hca@linux.ibm.com" <hca@linux.ibm.com>, "linux-alpha@vger.kernel.org"
- <linux-alpha@vger.kernel.org>, "linux-um@lists.infradead.org"
- <linux-um@lists.infradead.org>, "linux-m68k@lists.linux-m68k.org"
- <linux-m68k@lists.linux-m68k.org>, "openrisc@lists.librecores.org"
- <openrisc@lists.librecores.org>, "green.hu@gmail.com" <green.hu@gmail.com>,
- "shorne@gmail.com" <shorne@gmail.com>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "monstr@monstr.eu"
- <monstr@monstr.eu>, "tsbogend@alpha.franken.de" <tsbogend@alpha.franken.de>,
- "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
- "nickhu@andestech.com" <nickhu@andestech.com>, "linux-mips@vger.kernel.org"
- <linux-mips@vger.kernel.org>, "stable@vger.kernel.org"
- <stable@vger.kernel.org>, "dinguyen@kernel.org" <dinguyen@kernel.org>,
- "ebiederm@xmission.com" <ebiederm@xmission.com>, "richard@nod.at"
- <richard@nod.at>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "davem@davemloft.net" <davem@davemloft.net>
-Subject: RE: [PATCH 03/14] nds32: fix access_ok() checks in get/put_user
-Thread-Topic: [PATCH 03/14] nds32: fix access_ok() checks in get/put_user
-Thread-Index: AQHYIcSLBVNsuZIR/kWyaxa2mA9Gq6yTRsYw
-Date: Mon, 14 Feb 2022 17:10:05 +0000
-Message-ID: <8a6e309687d647e3aef8a88bdb0922af@AcuMS.aculab.com>
-References: <20220214163452.1568807-1-arnd@kernel.org>
- <20220214163452.1568807-4-arnd@kernel.org> <YgqK1ihlJvRFHJ9h@infradead.org>
-In-Reply-To: <YgqK1ihlJvRFHJ9h@infradead.org>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+ id 1nJeuS-00GK40-EO; Mon, 14 Feb 2022 17:13:11 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id lw4so8054272ejb.12;
+ Mon, 14 Feb 2022 09:13:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=from:to:subject:date:message-id:in-reply-to:references:mime-version
+ :content-transfer-encoding;
+ bh=3Fk8twNCDj+wvRPPnauS0r1tDhPrGepWuPsXEFLTKTk=;
+ b=NDAe7fCLf6sA/zxhNxQ77owR34T8UGjUGbAzZikk4FcorqiCJK7lWuW/PEigNr6TDZ
+ tT+BBY45s4+cKDEYBWfD61KxSAsdIsalAEo26xD37BJMrWH8ichvKOaVbNtpNSG3e+O1
+ OFP+uRStpbszEyHXQH4E7zmSB5F1o/g9/1OcJ1LJVXVSMwfpJC+Z7QdB7457m+aeGtss
+ eVwivFzm1n31yfxocGOGwnuiv73LrZIksNQx/Ko+HDM3JZihJpE08XV1/n7RXrZzlXG2
+ 2RZ0Gc0PSH9UXf5IY4wI7xqoRzyIs1C6YZXHdi7T1aQs2LLpwFGUkRVN5dA09LDjTVQJ
+ 7gVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=3Fk8twNCDj+wvRPPnauS0r1tDhPrGepWuPsXEFLTKTk=;
+ b=1q0cQlUljRC4r9VrJiv3zVICKOpqzdZqxOGfnx/Sk/o0IAEZQirjxA4CLAaVA1bR6Q
+ ax+DlU4uOYnDi1Ogxvl+8KMK8j6zru9hzBpfr/l3GgOXM4ybhy/4RgpCPBxcqm8IK28V
+ cOFeqT32/KcK3DL1uuKb4xKU5e/emPC/FlMW4MKeH+dvEfkv9fBzZ69X7VHXiE7IFTIV
+ dRS5C+gFQPU8cmCa+5NQhozmazUTK+LZ+NWyzaZ5/wPW8OqjSlMQTlMbU7cJxA0jjMPe
+ ODzdVpHRUULyawPqXo/DvS9dUGzm1RwHIeyP0cFa9E68SS8NZXtXsdl9PiUNB+KHXSye
+ kHuA==
+X-Gm-Message-State: AOAM533SjLVOKxsC2Ohl4Qkr2zzpQXtfVxx1w7LPxHPr5xWC+6+zlPIL
+ s8yC+Gi7/aaI7q5kHmle7uc=
+X-Google-Smtp-Source: ABdhPJzg4slRDT/mw7ZOBMAOQzMQYAcNt8auS9xTWhsl5NDb/5V8h4eVpjx6YXnsY8ve32KgLbEa+A==
+X-Received: by 2002:a17:907:a428:: with SMTP id
+ sg40mr512036ejc.128.1644858784198; 
+ Mon, 14 Feb 2022 09:13:04 -0800 (PST)
+Received: from kista.localnet (cpe-86-58-32-107.static.triera.net.
+ [86.58.32.107])
+ by smtp.gmail.com with ESMTPSA id 23sm2427068ejg.209.2022.02.14.09.13.02
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 14 Feb 2022 09:13:03 -0800 (PST)
+From: Jernej =?utf-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Thierry Reding <thierry.reding@gmail.com>, 
+ =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, 
+ Lee Jones <lee.jones@linaro.org>, Rob Herring <robh+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Maxime Ripard <mripard@kernel.org>, 
+ Chen-Yu Tsai <wens@csie.org>, Florian Fainelli <f.fainelli@gmail.com>, 
+ bcm-kernel-feedback-list@broadcom.com, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
+ Heiko Stuebner <heiko@sntech.de>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Anson Huang <anson.huang@nxp.com>, 
+ Vijayakannan Ayyathurai <vijayakannan.ayyathurai@intel.com>,
+ Rahul Tanwar <rtanwar@maxlinear.com>, 
+ Jeff LaBundy <jeff@labundy.com>, Yash Shah <yash.shah@sifive.com>, 
+ Sagar Kadam <sagar.kadam@sifive.com>, Vignesh R <vigneshr@ti.com>, 
+ Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+ linux-pwm@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 01/15] dt-bindings: pwm: allwinner,
+ sun4i-a10: include generic pwm schema
+Date: Mon, 14 Feb 2022 18:13:01 +0100
+Message-ID: <3485219.R56niFO833@kista>
+In-Reply-To: <20220214081605.161394-1-krzysztof.kozlowski@canonical.com>
+References: <20220214081605.161394-1-krzysztof.kozlowski@canonical.com>
 MIME-Version: 1.0
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=C51A453 smtp.mailfrom=david.laight@aculab.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_091016_579670_4E0413C0 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20220214_091308_587763_40ECBEC8 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,38 +110,94 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Christoph Hellwig
-> Sent: 14 February 2022 17:01
+Dne ponedeljek, 14. februar 2022 ob 09:15:51 CET je Krzysztof Kozlowski 
+napisal(a):
+> Include generic pwm.yaml schema, which enforces PWM node naming and
+> brings pwm-cells requirement.
 > 
-> On Mon, Feb 14, 2022 at 05:34:41PM +0100, Arnd Bergmann wrote:
-> > From: Arnd Bergmann <arnd@arndb.de>
-> >
-> > The get_user()/put_user() functions are meant to check for
-> > access_ok(), while the __get_user()/__put_user() functions
-> > don't.
-> >
-> > This broke in 4.19 for nds32, when it gained an extraneous
-> > check in __get_user(), but lost the check it needs in
-> > __put_user().
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+
+Best regards,
+Jernej
+
+> ---
+>  .../bindings/pwm/allwinner,sun4i-a10-pwm.yaml | 53 ++++++++++---------
+>  1 file changed, 28 insertions(+), 25 deletions(-)
 > 
-> Can we follow the lead of MIPS (which this was originally copied
-> from I think) and kill the pointless __get/put_user_check wrapper
-> that just obsfucate the code?
+> diff --git a/Documentation/devicetree/bindings/pwm/allwinner,sun4i-a10-
+pwm.yaml b/Documentation/devicetree/bindings/pwm/allwinner,sun4i-a10-pwm.yaml
+> index 800d511502c4..e93e935564fb 100644
+> --- a/Documentation/devicetree/bindings/pwm/allwinner,sun4i-a10-pwm.yaml
+> +++ b/Documentation/devicetree/bindings/pwm/allwinner,sun4i-a10-pwm.yaml
+> @@ -52,33 +52,36 @@ properties:
+>    resets:
+>      maxItems: 1
+>  
+> -if:
+> -  properties:
+> -    compatible:
+> -      contains:
+> -        const: allwinner,sun50i-h6-pwm
+> -
+> -then:
+> -  properties:
+> -    clocks:
+> -      maxItems: 2
+> -
+> -    clock-names:
+> -      items:
+> -        - const: mod
+> -        - const: bus
+> -
+> -  required:
+> -    - clock-names
+> -    - resets
+> -
+> -else:
+> -  properties:
+> -    clocks:
+> -      maxItems: 1
+> +
+> +allOf:
+> +  - $ref: pwm.yaml#
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: allwinner,sun50i-h6-pwm
+> +
+> +    then:
+> +      properties:
+> +        clocks:
+> +          maxItems: 2
+> +
+> +        clock-names:
+> +          items:
+> +            - const: mod
+> +            - const: bus
+> +
+> +      required:
+> +        - clock-names
+> +        - resets
+> +
+> +    else:
+> +      properties:
+> +        clocks:
+> +          maxItems: 1
+>  
+>  required:
+> -  - "#pwm-cells"
+>    - compatible
+>    - reg
+>    - clocks
+> -- 
+> 2.32.0
+> 
+> 
 
-Is it possible to make all these architectures fall back to
-a common definition somewhere?
-
-Maybe they need to define ACCESS_OK_USER_LIMIT - which can be
-different from TASK_SIZE.
-
-There'll be a few special cases, but most architectures have
-kernel addresses above userspace ones.
-
-	David
-
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
 
 
 _______________________________________________
