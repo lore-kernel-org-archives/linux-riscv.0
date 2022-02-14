@@ -4,54 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C0A4C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 20:24:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99710C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 20:24:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Tsn6oVfE8ojbg3xPHeUYyCZtYB0n6o7VcDADofyVU2k=; b=usNWoozWqnR/Dd
-	EG7teqbIjwQmtlDNkn4ZEo4D1xqwcDABEhF8aucWZNCLeDPCvhvaYiyOZHMOsSbYW2A4hw0aGugD1
-	0NfBYiSiWsEkEJNQO7YD9B0hWkaUZQJDhDpw5zpIS46Ag2ieIRtR1PvH3wb0ZYHFcw8fEFeaHj7Rb
-	pfgHYB+PbUitz8ItZKXDE+jaglKb9RJT1V8o9lrI/WvAB6doqWiSu5xKgV1qjMEAyr1BYhXjM/+Wv
-	5xPsigdkWite6R03Gaqa4FvOG/X58gr0J74QcHNCCL+22OQ8thUd2UHNFu0FICjdicPXFFYxLy6UL
-	pev5jSx7d0C4ryL/q9FQ==;
+	List-Owner; bh=O08YakNFoh0O+PgdlXe8WxjZnSF2bECCtrNghGObx24=; b=bb8nFnn9reIJbE
+	ZUjYzY6KHRi5rg5sg6q+5lSs4aca3luEjfinttpharOCnGQPSnPhzgcE80NCNQYCBKF849/EpuN9c
+	teeT/zbPu8394TGqDzRoDR8XJKTcg6yOBbshY7DK8NhA/fCWxS1CI/Th9NVJ3WWGSExhLr6OSaM9O
+	zPVpwyjFDxEypZpZwZmoBJzNu18+SCzgNCwuqW7HcjLftTb7zwnxMlMPoyrBI6F+RXfiYlvzNI7gS
+	Bp7dkb9nASqe042fQZMJjbeqAJWkznt5FQ5T0u6Yyspr4vCyHmZzvx25ZAtYy9Jb7tJv0a7iMIZaA
+	km/X7cHL42sAN8G273Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJhtS-00Gpoz-NR; Mon, 14 Feb 2022 20:24:18 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1nJhtm-00GprM-Cj; Mon, 14 Feb 2022 20:24:38 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJhtP-00GpoZ-C5
- for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 20:24:17 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
- helo=diego.localnet)
- by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1nJhtN-0002ru-T7; Mon, 14 Feb 2022 21:24:13 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Atish Patra <atishp@atishpatra.org>
-Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Atish Patra <atishp@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Anup Patel <anup@brainfault.org>, Damien Le Moal <damien.lemoal@wdc.com>,
- devicetree <devicetree@vger.kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Rob Herring <robh+dt@kernel.org>
-Subject: Re: [PATCH v2 4/6] RISC-V: Implement multi-letter ISA extension
- probing framework
-Date: Mon, 14 Feb 2022 21:24:12 +0100
-Message-ID: <3479483.A1skbJeUdD@diego>
-In-Reply-To: <CAOnJCUK1CwJ=J+y9EqszY0aACQsDdpLqCDbEZ1ZNDRdHE9C4gA@mail.gmail.com>
-References: <20220210214018.55739-1-atishp@rivosinc.com>
- <3881365.IPMWXPQfj1@diego>
- <CAOnJCUK1CwJ=J+y9EqszY0aACQsDdpLqCDbEZ1ZNDRdHE9C4gA@mail.gmail.com>
+ id 1nJhtk-00Gpq4-3v
+ for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 20:24:37 +0000
+Received: by mail-lf1-x134.google.com with SMTP id u6so32925174lfc.3
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 12:24:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=linux-foundation.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=uV1vHLzIr83T8MOCn12tMQAgRRvl8B7jglczOSl4CII=;
+ b=JVRzXzobglXSiT0bLuA7vSr1HiJLXJeQF0BO276l66RCTCZjx8953KmFOVPMErrs0l
+ on/NKX4mjsS9TS9bqhorHzBzM+OjtKgBLqdNoyLvrA639t1A433SV7/dJ5dxrhaCdPXH
+ bTp5UzrLKiAt8Y3WQUfvdICLgLXk8cVAfLq1E=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=uV1vHLzIr83T8MOCn12tMQAgRRvl8B7jglczOSl4CII=;
+ b=nWFF3jqngRRiwWgzXJuFw4hupxrvCUYMaszMN91X1914faDqQqZDA4ZNdj/hG6uWBO
+ K9Nvfh9YhBGQSjbAlf8xEtfz6EphTLywyUyXBURMgWoLZjxxpf9omFab+jxScKl7S/ic
+ mB3OiTEq4q4el6eFt03uy7DgcllJWrmjxvcbnrOmedGqjrQdV95l4fovJh+cB1oD6gMP
+ IdZCauWj664xzP2agrWPUhXAFazGc7J12YuJeRXzrVSOSod3ZV5zQB87k9IZZrvLzq9M
+ EYZ8Wf419KVYsmGKSP2UzpA6Lxjus8f5KF7cLC7mGJ2GNfa/Sj7c931Z9IsGk4f+BPYd
+ fRtA==
+X-Gm-Message-State: AOAM532fC+U41Hx80gEbSJw62A/uQFfGDPw9GCzrcGLFgspx5ZqyWIIZ
+ tLyoqM1X0do62BngpfxsunEkD3zAUj38suzpu+M=
+X-Google-Smtp-Source: ABdhPJy+23a9Mq0SPDiuowh51WhPah396z3Fz2Z7acL9ZK/bKHHz7s4Q5KOyrXyGLDZVYvT6sHr8xw==
+X-Received: by 2002:a05:6512:3f93:: with SMTP id
+ x19mr561397lfa.440.1644870271779; 
+ Mon, 14 Feb 2022 12:24:31 -0800 (PST)
+Received: from mail-lj1-f180.google.com (mail-lj1-f180.google.com.
+ [209.85.208.180])
+ by smtp.gmail.com with ESMTPSA id i8sm4269501lfj.226.2022.02.14.12.24.30
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Mon, 14 Feb 2022 12:24:30 -0800 (PST)
+Received: by mail-lj1-f180.google.com with SMTP id be32so5396659ljb.7
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 12:24:30 -0800 (PST)
+X-Received: by 2002:a05:651c:1543:: with SMTP id
+ y3mr306548ljp.152.1644870269711; 
+ Mon, 14 Feb 2022 12:24:29 -0800 (PST)
 MIME-Version: 1.0
+References: <20220214163452.1568807-1-arnd@kernel.org>
+ <20220214163452.1568807-5-arnd@kernel.org>
+ <YgqLFYqIqkIsNC92@infradead.org>
+ <CAK8P3a1F3JaYaJPy9bSCG1+YV6EN05PE0DbwpD_GT1qRwFSJ-w@mail.gmail.com>
+ <CAHk-=whq6_Nh3cB3FieP481VcRyCu69X3=wO1yLHGmcZEj69SA@mail.gmail.com>
+In-Reply-To: <CAHk-=whq6_Nh3cB3FieP481VcRyCu69X3=wO1yLHGmcZEj69SA@mail.gmail.com>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Mon, 14 Feb 2022 12:24:13 -0800
+X-Gmail-Original-Message-ID: <CAHk-=wgYu67OwP4LhcrPdDVxv2mOsx-Xsc2DKoVW6GZwKFtOYQ@mail.gmail.com>
+Message-ID: <CAHk-=wgYu67OwP4LhcrPdDVxv2mOsx-Xsc2DKoVW6GZwKFtOYQ@mail.gmail.com>
+Subject: Re: [PATCH 04/14] x86: use more conventional access_ok() definition
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Christoph Hellwig <hch@infradead.org>, Christoph Hellwig <hch@lst.de>, 
+ linux-arch <linux-arch@vger.kernel.org>, Linux-MM <linux-mm@kvack.org>, 
+ Linux API <linux-api@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, 
+ Rich Felker <dalias@libc.org>, linux-ia64@vger.kernel.org, 
+ Linux-sh list <linux-sh@vger.kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Max Filippov <jcmvbkbc@gmail.com>, Guo Ren <guoren@kernel.org>, 
+ sparclinux <sparclinux@vger.kernel.org>, 
+ "open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, Will Deacon <will@kernel.org>, 
+ Ard Biesheuvel <ardb@kernel.org>, linux-s390 <linux-s390@vger.kernel.org>, 
+ Brian Cain <bcain@codeaurora.org>, Helge Deller <deller@gmx.de>, 
+ "the arch/x86 maintainers" <x86@kernel.org>,
+ Russell King - ARM Linux <linux@armlinux.org.uk>, linux-csky@vger.kernel.org, 
+ Ingo Molnar <mingo@redhat.com>, Geert Uytterhoeven <geert@linux-m68k.org>, 
+ "open list:SYNOPSYS ARC ARCHITECTURE" <linux-snps-arc@lists.infradead.org>, 
+ "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>,
+ Heiko Carstens <hca@linux.ibm.com>, 
+ alpha <linux-alpha@vger.kernel.org>, linux-um <linux-um@lists.infradead.org>, 
+ linux-m68k <linux-m68k@lists.linux-m68k.org>,
+ Openrisc <openrisc@lists.librecores.org>, 
+ Greentime Hu <green.hu@gmail.com>, Stafford Horne <shorne@gmail.com>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ Michal Simek <monstr@monstr.eu>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Parisc List <linux-parisc@vger.kernel.org>, 
+ Nick Hu <nickhu@andestech.com>, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ Dinh Nguyen <dinguyen@kernel.org>, 
+ "Eric W . Biederman" <ebiederm@xmission.com>,
+ Richard Weinberger <richard@nod.at>, 
+ Andrew Morton <akpm@linux-foundation.org>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
+ David Miller <davem@davemloft.net>, Al Viro <viro@zeniv.linux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_122415_437121_F717BF7A 
-X-CRM114-Status: GOOD (  37.90  )
+X-CRM114-CacheID: sfid-20220214_122436_168363_821072D9 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,191 +124,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 14. Februar 2022, 21:14:13 CET schrieb Atish Patra:
-> On Mon, Feb 14, 2022 at 12:06 PM Heiko St=FCbner <heiko@sntech.de> wrote:
-> >
-> > Am Donnerstag, 10. Februar 2022, 22:40:16 CET schrieb Atish Patra:
-> > > Multi-letter extensions can be probed using exising
-> > > riscv_isa_extension_available API now. It doesn't support versioning
-> > > right now as there is no use case for it.
-> > > Individual extension specific implementation will be added during
-> > > each extension support.
-> > >
-> > > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> >
-> > Tested-by: Heiko Stuebner <heiko@sntech.de>
-> >
-> >
-> > By the way, does a similar parsing exist for opensbi as well?
-> > Things like svpbmt as well as zicbom have CSR bits controlling how
-> > these functions should behave (enabling them, etc), so I guess
-> > opensbi also needs to parse the extensions from the ISA string?
-> >
-> >
-> =
+On Mon, Feb 14, 2022 at 12:01 PM Linus Torvalds
+<torvalds@linux-foundation.org> wrote:
+>
+> x86-64 has always(*) used TASK_SIZE_MAX for access_ok(), and the
+> get_user() assembler implementation does the same.
 
-> No. Currently, OpenSBI relies on the CSR read/write & trap method to
-> identify the extensions [1].
-> =
+Side note: we could just check the sign bit instead, and avoid big
+constants that way.
 
-> https://github.com/riscv-software-src/opensbi/blob/master/lib/sbi/sbi_har=
-t.c#L404
+Right now we actually have this complexity in the x86-64 user access code:
 
-I guess my question is more, who is supposed to set CBIE, CBCFE bits in the
-ENVCFG CSR. I.e. at it's default settings CMO instructions will cause
-illegal instructions until the level above does allow them.
+  #ifdef CONFIG_X86_5LEVEL
+  #define LOAD_TASK_SIZE_MINUS_N(n) \
+        ALTERNATIVE __stringify(mov $((1 << 47) - 4096 - (n)),%rdx), \
+                    __stringify(mov $((1 << 56) - 4096 - (n)),%rdx),
+X86_FEATURE_LA57
+  #else
+  #define LOAD_TASK_SIZE_MINUS_N(n) \
+          mov $(TASK_SIZE_MAX - (n)),%_ASM_DX
+  #endif
 
-When the kernel wants to call a cache-invalidate, from my reading menvcfg
-needs to be modified accordingly - which would fall in SBI's court?
+just because the code tries to get that TASK_SIZE_MAX boundary just right.
 
+And getting that boundary just right is important on 32-bit x86, but
+it's *much* less important on x86-64.
 
-> In the future, zicbom can be detected in the same manner. However,
-> svpbmt is a bit tricky as it doesn't
-> define any new CSR. Do you think OpenSBI needs to detect svpbmt for any r=
-eason ?
+There's still a (weak) reason to do it even for 64-bit code: page
+faults outside the valid user space range don't actually cause a #PF
+fault - they cause #GP - and then we have the #GP handler warn about
+"this address hasn't been checked".
 
-There is the PBMTE bit in MENVCFG, which I found while looking through the
-zicbom-parts, which is supposed to "control wheter svpbmt is available for
-use". So I guess the question is the same as above :-)
+Which is nice and useful for doing syzbot kind of randomization loads
+(ie user accesses that didn't go through access_ok() will stand out
+nicely), but maybe it's not worth this. syzbot would be fine with only
+the "sign bit set" case warning for the same thing.
 
+So on x86-64, we could just check the sign of the address instead, and
+simplify and shrink those get/put_user() code sequences (but
+array_index_mask_nospec() currently uses the carry flag computation
+too, so we'd have to change that part as well, maybe not worth it).
 
-Heiko
-
-
-> > Heiko
-> >
-> > > ---
-> > >  arch/riscv/include/asm/hwcap.h | 18 ++++++++++++++++++
-> > >  arch/riscv/kernel/cpufeature.c | 27 ++++++++++++++++++++++++---
-> > >  2 files changed, 42 insertions(+), 3 deletions(-)
-> > >
-> > > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/=
-hwcap.h
-> > > index 5ce50468aff1..170bd80da520 100644
-> > > --- a/arch/riscv/include/asm/hwcap.h
-> > > +++ b/arch/riscv/include/asm/hwcap.h
-> > > @@ -34,7 +34,25 @@ extern unsigned long elf_hwcap;
-> > >  #define RISCV_ISA_EXT_s              ('s' - 'a')
-> > >  #define RISCV_ISA_EXT_u              ('u' - 'a')
-> > >
-> > > +/*
-> > > + * Increse this to higher value as kernel support more ISA extension=
-s.
-> > > + */
-> > >  #define RISCV_ISA_EXT_MAX    64
-> > > +#define RISCV_ISA_EXT_NAME_LEN_MAX 32
-> > > +
-> > > +/* The base ID for multi-letter ISA extensions */
-> > > +#define RISCV_ISA_EXT_BASE 26
-> > > +
-> > > +/*
-> > > + * This enum represent the logical ID for each multi-letter RISC-V I=
-SA extension.
-> > > + * The logical ID should start from RISCV_ISA_EXT_BASE and must not =
-exceed
-> > > + * RISCV_ISA_EXT_MAX. 0-25 range is reserved for single letter
-> > > + * extensions while all the multi-letter extensions should define th=
-e next
-> > > + * available logical extension id.
-> > > + */
-> > > +enum riscv_isa_ext_id {
-> > > +     RISCV_ISA_EXT_ID_MAX =3D RISCV_ISA_EXT_MAX,
-> > > +};
-> > >
-> > >  unsigned long riscv_isa_extension_base(const unsigned long *isa_bitm=
-ap);
-> > >
-> > > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufe=
-ature.c
-> > > index e9e3b0693d16..469b9739faf7 100644
-> > > --- a/arch/riscv/kernel/cpufeature.c
-> > > +++ b/arch/riscv/kernel/cpufeature.c
-> > > @@ -83,7 +83,7 @@ void __init riscv_fill_hwcap(void)
-> > >
-> > >       for_each_of_cpu_node(node) {
-> > >               unsigned long this_hwcap =3D 0;
-> > > -             unsigned long this_isa =3D 0;
-> > > +             uint64_t this_isa =3D 0;
-> > >
-> > >               if (riscv_of_processor_hartid(node) < 0)
-> > >                       continue;
-> > > @@ -169,12 +169,22 @@ void __init riscv_fill_hwcap(void)
-> > >                       if (*isa !=3D '_')
-> > >                               --isa;
-> > >
-> > > +#define SET_ISA_EXT_MAP(name, bit)                                  =
-         \
-> > > +                     do {                                           =
-         \
-> > > +                             if ((ext_end - ext =3D=3D sizeof(name) =
-- 1) &&      \
-> > > +                                  !memcmp(ext, name, sizeof(name) - =
-1)) {    \
-> > > +                                     this_isa |=3D (1UL << bit);    =
-           \
-> > > +                                     pr_info("Found ISA extension %s=
-", name);\
-> > > +                             }                                      =
-         \
-> > > +                     } while (false)                                =
-         \
-> > > +
-> > >                       if (unlikely(ext_err))
-> > >                               continue;
-> > >                       if (!ext_long) {
-> > >                               this_hwcap |=3D isa2hwcap[(unsigned cha=
-r)(*ext)];
-> > >                               this_isa |=3D (1UL << (*ext - 'a'));
-> > >                       }
-> > > +#undef SET_ISA_EXT_MAP
-> > >               }
-> > >
-> > >               /*
-> > > @@ -187,10 +197,21 @@ void __init riscv_fill_hwcap(void)
-> > >               else
-> > >                       elf_hwcap =3D this_hwcap;
-> > >
-> > > -             if (riscv_isa[0])
-> > > +             if (riscv_isa[0]) {
-> > > +#if IS_ENABLED(CONFIG_32BIT)
-> > > +                     riscv_isa[0] &=3D this_isa & 0xFFFFFFFF;
-> > > +                     riscv_isa[1] &=3D this_isa >> 32;
-> > > +#else
-> > >                       riscv_isa[0] &=3D this_isa;
-> > > -             else
-> > > +#endif
-> > > +             } else {
-> > > +#if IS_ENABLED(CONFIG_32BIT)
-> > > +                     riscv_isa[0] =3D this_isa & 0xFFFFFFFF;
-> > > +                     riscv_isa[1] =3D this_isa >> 32;
-> > > +#else
-> > >                       riscv_isa[0] =3D this_isa;
-> > > +#endif
-> > > +             }
-> > >       }
-> > >
-> > >       /* We don't support systems with F but without D, so mask those=
- out
-> > >
-> >
-> >
-> >
-> >
-> =
-
-> =
-
-> =
-
-
-
-
-
+                  Linus
 
 _______________________________________________
 linux-riscv mailing list
