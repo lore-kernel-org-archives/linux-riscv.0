@@ -4,26 +4,26 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2E94C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 17:03:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15F06C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 17:04:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fKnPFlKV9ni1gXrqbIys/Lwum8qfOVQrgXNQOBioFHc=; b=AuMjo/JDa5iOG6
-	f2lv8Z53soeWH+fOFscMfVyXx24zvADaiuz1VrItdLbfurjt2mJMOTOgP2hGsHTEb6CjayFA2BSXk
-	HX7DFREv+R4NzVqdxWmPmnhtm4BQ7e9qNzECICf0gCwvgtX2LMl1j/1Kh2J59FFwLzFNP8O/lmZzy
-	BAJvJt1x808vdIrX2j1jYZOUBdHls74fvSX6R9BIsydiqFzFF+22TYELQRyQf3dhMZkoov09Gcl3Y
-	9uaKIrnL3VwcJ6bNtbaW8UEMcmhEF6rQeKnQkyOih5yBlbWtz+72jFzkAO2c/7yOJg4mFmk+e4/Zp
-	hG/WrCok6RoHntkdZcYQ==;
+	List-Owner; bh=fKnPFlKV9ni1gXrqbIys/Lwum8qfOVQrgXNQOBioFHc=; b=3ikDoRt2Aeuw0h
+	xQg6IiR/yVknp+mW5oB4hdVYERb10DUXELHAga2wwGAU+95uu7XsfKOIIYmSvA/ziTtZ1h+nSd4YK
+	44UCL1EL7uBmJd2cCcG3NDXsF+rhQH2Y9ZKx3dk2RCVA7vxnalQurHCY9kq6OaP5+JTWii4JgVrGO
+	SQb4UA92DX3Tm7A+5onZv6SMCkeCFY5diMeJ1Y/E28VmfCywd22E4SNlrIBSNN8E9kYA0DoN8aGT7
+	IBZeqkC0qZXFWQ6LpS4EhrH5CnZTRD/OpPPUkLAUk7srOpACylfOsBmQ6144CQ5m4SGWkgCt84g1R
+	aE7mWbtQAiBg7lJwpSUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJekU-00GG8a-Pn; Mon, 14 Feb 2022 17:02:50 +0000
+	id 1nJemO-00GH23-Lv; Mon, 14 Feb 2022 17:04:48 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.94.2 #2 (Red
- Hat Linux)) id 1nJekS-00GG7B-B1; Mon, 14 Feb 2022 17:02:48 +0000
-Date: Mon, 14 Feb 2022 09:02:48 -0800
+ Hat Linux)) id 1nJemK-00GH0i-Nf; Mon, 14 Feb 2022 17:04:44 +0000
+Date: Mon, 14 Feb 2022 09:04:44 -0800
 From: Christoph Hellwig <hch@infradead.org>
 To: Arnd Bergmann <arnd@kernel.org>
 Cc: Linus Torvalds <torvalds@linux-foundation.org>,
@@ -47,13 +47,13 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
  dinguyen@kernel.org, ebiederm@xmission.com, richard@nod.at,
  akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org,
  davem@davemloft.net
-Subject: Re: [PATCH 05/14] uaccess: add generic __{get,put}_kernel_nofault
-Message-ID: <YgqLONpDAru08JBZ@infradead.org>
+Subject: Re: [PATCH 07/14] uaccess: generalize access_ok()
+Message-ID: <YgqLrB5LttWFIScK@infradead.org>
 References: <20220214163452.1568807-1-arnd@kernel.org>
- <20220214163452.1568807-6-arnd@kernel.org>
+ <20220214163452.1568807-8-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220214163452.1568807-6-arnd@kernel.org>
+In-Reply-To: <20220214163452.1568807-8-arnd@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
