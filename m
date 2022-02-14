@@ -4,80 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1860C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 13:57:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60F7DC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 14:05:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V3SVQN7Zop60ocjur1+EKsUZjHIQjkmr68rp3iIl5oQ=; b=F2jkXzyNJzobcN
-	jqNZ8P71BhAPwQInOoyKSmb1rFxtMBR6p3ioA2TZRykVq/cOrm03FCy77K4p3m5cFRRRx6gL+frlA
-	aVjeX1IyjEgAw/xWiYa1ZI+CW7PPmfE1UbjKyiLpcdtjKZo6ZQnu/6NHl9Bju/b0N/6RxyHjNIPEs
-	GDklxewndLr6iW86OvCVNBVM43wMDkzaOHIioaVGdW1JFUSPgffyQWtdOxHjjL39ISQ/ugp/9hAkr
-	Db3RYnAhPLjOhoQvUjRe7CjsYA7opiXAQ1Ek/YjnuMpqZ23Q5ifWvJyf5mczCDcWYWkzS8/cXirBQ
-	7LffcJZQBygcyD6MfiQw==;
+	List-Owner; bh=mDvACga72F+NvScurZi9p7OcL+4SKaue6Lg3tWROvn4=; b=IK2AFVhnW8kmU9
+	dzc3y+S0tgDs5zQe/jcMrCKRW3k6IkJt9dL2dwlYv7x5K+qKkivkI07amaO58yQ86Zh6ZT+bmB+La
+	SLkM3P7K3enCNSj4H+27I1NumBZ+BVeYkSCwE79jSpH4OXho0cHarUxOoWjHWnc9CB4GvUjStaQUz
+	VnPYbwikJn1tAQsFca6B6RpC3WWj57v0qELfR6WMQRCuyYRZ1UsY5lWYwItqJMNnjNlm+he4EJb/X
+	UWoMtInOFK/eXrMwQt35thPtDYqjZE8pX4IiD9HCfqTGYlavgJjaCXILZ8uGhKRTKDWAA24++VbPl
+	j7LjgVc02WphM0K5zXTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJbrH-00FWJV-3y; Mon, 14 Feb 2022 13:57:39 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1nJbyq-00FZiA-6t; Mon, 14 Feb 2022 14:05:28 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJbqn-00FVwj-Fq
- for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 13:57:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1644847029; x=1676383029;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=MUwu9Fdq/MRDAHV6UL3afCTA6/6dxR2I/gfuI0/01w0=;
- b=WmQHAx+COFzzHioV+l5+6P6XvNaC9cb1e+KnDS4oQyJC40mWGONOPhkn
- 4ut2Np2fRbmr/UIFS1uLbX6unAn8gbebD7quu+AxXdqvnXSQFmA4G3l/r
- 9JqeJlFAB2RM/NEGIgDvbNeXVNyfALBWQOgo+uz41Fwr1HZWRJY14Sq9O
- 4+P3yUwV1x1sA7RYN1wrj8zAquvt3SZIPXrL0TcsB7aJ1QXZNCGvZiApc
- l5gxAaQt7BLtJ8Ch2YzgJ5r0LL1sV/blTTpj7uvzD72NyXifXYgCnFKUZ
- LCpc8nURzSV0EmrrndMsuIY/ou9GEXnWhGjvcH2p4pahZ9GrxJk3v3NzS Q==;
-IronPort-SDR: kdqWLspQOOwf9G7rdt6GXhstA0tSrtetAQSQuUrB+kVWOTXjZ1u4sreZnGJiur6ujtgNfNlRWO
- ylnJnPTm8+Rj8P/JZ+VrZlCPwryivA9NBVMi17O/ZDaXZCssECByaiB/KhUb+wydCiekXzb1fh
- oR6zXRx1+NdZrvDMfCqXTb6g8s+ApLr8e5PloqnFMvlC7fKHXZLKqRm6vC1EpKqgHH7rJWSjPP
- wLmS46L8/NtCIzQHPeFEIp/BnLi/Gs4OzsUzuTuPnGA7b4gDgmnrtPVYNb/hKxFsqLwu23eTXt
- kpN2CztfMqj/piID4UfB5nY4
-X-IronPort-AV: E=Sophos;i="5.88,368,1635231600"; d="scan'208";a="152982610"
-Received: from smtpout.microchip.com (HELO email.microchip.com)
- ([198.175.253.82])
- by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 14 Feb 2022 06:57:08 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Mon, 14 Feb 2022 06:57:07 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server id 15.1.2375.17 via
- Frontend Transport; Mon, 14 Feb 2022 06:57:02 -0700
-From: <conor.dooley@microchip.com>
-To: <linus.walleij@linaro.org>, <brgl@bgdev.pl>, <robh+dt@kernel.org>,
- <jassisinghbrar@gmail.com>, <thierry.reding@gmail.com>,
- <u.kleine-koenig@pengutronix.de>, <lee.jones@linaro.org>,
- <a.zummo@towertech.it>, <alexandre.belloni@bootlin.com>,
- <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
- <geert@linux-m68k.org>, <krzysztof.kozlowski@canonical.com>,
- <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
- <linux-rtc@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-CC: <lewis.hanly@microchip.com>, <conor.dooley@microchip.com>,
- <daire.mcnamara@microchip.com>, <ivan.griffin@microchip.com>,
- <atishp@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>
-Subject: [PATCH v7 11/11] MAINTAINERS: update riscv/microchip entry
-Date: Mon, 14 Feb 2022 13:58:41 +0000
-Message-ID: <20220214135840.168236-12-conor.dooley@microchip.com>
-X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20220214135840.168236-1-conor.dooley@microchip.com>
-References: <20220214135840.168236-1-conor.dooley@microchip.com>
+ id 1nJbyl-00FZfH-35
+ for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 14:05:26 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id A7758B80E67
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 14:05:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AA2FC340EE
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 14:05:20 +0000 (UTC)
+Authentication-Results: smtp.kernel.org;
+ dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com
+ header.b="bUqw6ue4"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105; 
+ t=1644847519;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=QLgXSQB9b7XXmln9u8fQm/jVMLmkRr2wWxHA9OmWt1Q=;
+ b=bUqw6ue42avgTupnGw+h3faOhezXLsRWTERXCZkTjiWU3EWGaqVZsPu+EWoU5dYsEG+yLv
+ +R8ELL3RtI+O5xzed/w6dCHENmSJY17DIsFCz4wh50dQ8yEejNWROH1hC18dE+D/kbmxlB
+ 0GQjkMV/rWNUQPZtVmTX+sAiVbwU9yg=
+Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 51e2fa2d
+ (TLSv1.3:AEAD-AES256-GCM-SHA384:256:NO)
+ for <linux-riscv@lists.infradead.org>;
+ Mon, 14 Feb 2022 14:05:18 +0000 (UTC)
+Received: by mail-yb1-f170.google.com with SMTP id y129so46350154ybe.7
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 06:05:16 -0800 (PST)
+X-Gm-Message-State: AOAM532XOraLLEyumv+1tzi3WZzeFOqqBAootjNBGuinRqX/aYmwUby5
+ HLsgfgw3++yZYvQLBTF/stWMF8T0T+6jGZosnio=
+X-Google-Smtp-Source: ABdhPJx1rAQYW+BsQ/vOucuTQJhI9pVZ01yF0DPyTFL1e5L2Bmfiie7EtWck0pGXAqYbtpOZPqa2kzjO14vEvrtdV/A=
+X-Received: by 2002:a25:4144:: with SMTP id o65mr12095580yba.113.1644847514782; 
+ Mon, 14 Feb 2022 06:05:14 -0800 (PST)
 MIME-Version: 1.0
+References: <20220211210757.612595-1-Jason@zx2c4.com>
+ <fcab986b-d0bd-c798-de17-266abcdc7da2@gentoo.org>
+In-Reply-To: <fcab986b-d0bd-c798-de17-266abcdc7da2@gentoo.org>
+From: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Date: Mon, 14 Feb 2022 15:05:03 +0100
+X-Gmail-Original-Message-ID: <CAHmME9ooEbgiv3DRk87ei+rUoVNMJthY7UuG_xCgm=kfMZAajw@mail.gmail.com>
+Message-ID: <CAHmME9ooEbgiv3DRk87ei+rUoVNMJthY7UuG_xCgm=kfMZAajw@mail.gmail.com>
+Subject: Re: [PATCH RFC v0] random: block in /dev/urandom
+To: Joshua Kinard <kumba@gentoo.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, 
+ Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, 
+ linux-m68k <linux-m68k@lists.linux-m68k.org>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ Dominik Brodowski <linux@dominikbrodowski.net>, 
+ Eric Biggers <ebiggers@google.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, 
+ Thomas Gleixner <tglx@linutronix.de>, Andy Lutomirski <luto@kernel.org>,
+ Kees Cook <keescook@chromium.org>, 
+ Lennart Poettering <mzxreary@0pointer.de>,
+ Linus Torvalds <torvalds@linux-foundation.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Theodore Ts'o" <tytso@mit.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_055709_597977_C47B9E92 
-X-CRM114-Status: UNSURE (   6.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220214_060523_316514_63B73A2B 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,36 +102,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+Hi Joshua,
 
-Update the RISC-V/Microchip entry by adding the microchip dts
-directory and myself as maintainer
+Thanks a lot for the historical background.
 
-Reviewed-by: Lewis Hanly <lewis.hanly@microchip.com>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
----
- MAINTAINERS | 2 ++
- 1 file changed, 2 insertions(+)
+On Sun, Feb 13, 2022 at 12:06 AM Joshua Kinard <kumba@gentoo.org> wrote:
+> The R6000/R6000A CPU only ever existed in systems in the late 1980's that
+> were fairly large, and I don't think there is a complete, working unit out
+> there that can actually boot up, let alone boot a Linux kernel.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index ea3e6c914384..779a550dc95b 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -16575,8 +16575,10 @@ K:	riscv
- 
- RISC-V/MICROCHIP POLARFIRE SOC SUPPORT
- M:	Lewis Hanly <lewis.hanly@microchip.com>
-+M:	Conor Dooley <conor.dooley@microchip.com>
- L:	linux-riscv@lists.infradead.org
- S:	Supported
-+F:	arch/riscv/boot/dts/microchip/
- F:	drivers/mailbox/mailbox-mpfs.c
- F:	drivers/soc/microchip/
- F:	include/soc/microchip/mpfs.h
--- 
-2.35.1
+So from what you've written, it sounds like MIPS is actually not a problem here.
 
+So the only systems we're actually talking about without a good cycle
+counter are non-Amiga m68k? If so, that'd be a pretty terrific
+finding. It'd mean that this idea can move forward, and we only need
+to worry about some m68k museum pieces with misconfigured
+userspaces...
+
+Jason
 
 _______________________________________________
 linux-riscv mailing list
