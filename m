@@ -4,78 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E5A5C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 14:57:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65159C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 16:36:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7mMVGL4e57YIrsiGUIVe/qFpLxaIT0WFTydDPf/topA=; b=iELjTaVVHFxOmT
-	dxfbLYYNKzepz+SHhKuJ1BclDDX/PtPw4OdKAE2R7LcnUxR9WPAgaZAw3XnQNcfBouswPfTiuG3df
-	7ADNspDCR849BceRHAOVwCeU2U4OkUDNhLkpegOLKbW81LF1JVZr/hsGYBKfxDNC2s/qWLlVAMah7
-	hnhWIP4vJxVJTH8po7ZB9dCGvdoqGxqNtbZ4+YyvbSWbgI0S83sRJO9QxgXMR1gmBExIuGekE48Sc
-	UJz8J/takceQ7s6f5ktwsjRspBIi0fmOjgZx0Ub5mqFCmM9NtmxR57oiXkqA1VFdZOqJ6w4uuqT3a
-	blInc4mFDt8fbmAddyfg==;
+	List-Owner; bh=wDuSncWbL0qHd5EQCXwE7z2CAeV5DMxfnSdRQZ1qaMk=; b=3OHsgDryHEIAEj
+	uB5b6lQmRBJ07vjRaOQS1lsElznPHydck3bTKDwdLpWPghuoRbNjtzVSh+VkvxmUT7coXy5oGHaCN
+	Jb45rn1QtjGsGkRvvTTxsX3QMtcvJ2L3cJswMGwpOmujfAtP5QBEj7X3fw9rBRlPNPDCTJSXQjTTN
+	p00WVt41auZgzjOxxOtuvRzsKzes/1GGkmzawdAXcMuKTfkD3EBX9F33XpKSkeHLzV3sGXrbQAWKd
+	suJbEg6nKXHIYXLyV7gp2dGAUHxmDp9dOEI8hUva6a845PYKgHrnJRZWFHmmEx6rbP905C2QUegBx
+	gK5kYtmrgJ5Nk/U2N4Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJcmy-00FjaV-G9; Mon, 14 Feb 2022 14:57:16 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1nJeKW-00G2Nh-F8; Mon, 14 Feb 2022 16:36:00 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJcmu-00FjYb-N6
- for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 14:57:14 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-214-fl88X-xMPqWO--GZQOB3Tw-1; Mon, 14 Feb 2022 14:57:06 +0000
-X-MC-Unique: fl88X-xMPqWO--GZQOB3Tw-1
-Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
- AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
- Server (TLS) id 15.0.1497.28; Mon, 14 Feb 2022 14:57:05 +0000
-Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
- AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
- 15.00.1497.028; Mon, 14 Feb 2022 14:57:05 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Geert Uytterhoeven' <geert@linux-m68k.org>, "Jason A. Donenfeld"
- <Jason@zx2c4.com>
-CC: Joshua Kinard <kumba@gentoo.org>, LKML <linux-kernel@vger.kernel.org>,
- Linux Crypto Mailing List <linux-crypto@vger.kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, linux-riscv <linux-riscv@lists.infradead.org>,
- linux-m68k <linux-m68k@lists.linux-m68k.org>, Thomas Bogendoerfer
- <tsbogend@alpha.franken.de>, "open list:BROADCOM NVRAM DRIVER"
- <linux-mips@vger.kernel.org>, Dominik Brodowski <linux@dominikbrodowski.net>, 
- Eric Biggers <ebiggers@google.com>, Ard Biesheuvel <ardb@kernel.org>, "Arnd
- Bergmann" <arnd@arndb.de>, Thomas Gleixner <tglx@linutronix.de>, "Andy
- Lutomirski" <luto@kernel.org>, Kees Cook <keescook@chromium.org>, "Lennart
- Poettering" <mzxreary@0pointer.de>, Linus Torvalds
- <torvalds@linux-foundation.org>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Theodore Ts'o <tytso@mit.edu>
-Subject: RE: [PATCH RFC v0] random: block in /dev/urandom
-Thread-Topic: [PATCH RFC v0] random: block in /dev/urandom
-Thread-Index: AQHYIa/RMksFr1LZVEWsiQom7rZ3n6yTITWQ
-Date: Mon, 14 Feb 2022 14:57:05 +0000
-Message-ID: <63afd299c8df4495b27456a7f92aec75@AcuMS.aculab.com>
-References: <20220211210757.612595-1-Jason@zx2c4.com>
- <fcab986b-d0bd-c798-de17-266abcdc7da2@gentoo.org>
- <CAHmME9ooEbgiv3DRk87ei+rUoVNMJthY7UuG_xCgm=kfMZAajw@mail.gmail.com>
- <CAMuHMdXDj+BVCs4Syg39vjnHGKcwJnCgDxrGoOiEFM_T4ojwPg@mail.gmail.com>
-In-Reply-To: <CAMuHMdXDj+BVCs4Syg39vjnHGKcwJnCgDxrGoOiEFM_T4ojwPg@mail.gmail.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+ id 1nJeKQ-00G2KH-1t; Mon, 14 Feb 2022 16:35:56 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 9A6FB614F1;
+ Mon, 14 Feb 2022 16:35:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E10AAC340EF;
+ Mon, 14 Feb 2022 16:35:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1644856553;
+ bh=rSFbUFHYbR/4za9tBP+uUtPbOSoTyakm57XSAj/Auqo=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=OZ4O1gNSNtwwNmiHhjY6IhU0E4BJ5We8XbBhorxEj9WTOfzc8GW6A9wXhW3abITrh
+ 5VICuXJSDow6iYHC0e3qjJUZrd0nY+ZxgCA70cKABEhGmYygXnXVotyKfOCbgpbVrm
+ pGuK4IQR59nad5NN7zMl26jmakL0tF5IsM3zVKvJuUsbgvtw8ymirj23M7AeUqRAbK
+ Nb4ZCpdR7LXfqeDbObSioCUxRgm3spWcYhdjYFVER3t9sUGge35gaIcf4USGqAeqIv
+ Op0kZQjMjQu+Uf/UqNmdKlInWq80ZiSg5HRmKlo5FLGvtYFTEQ1arJmMBawI+kUcs8
+ VAdmt64TVWmMQ==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>,
+ Christoph Hellwig <hch@lst.de>, linux-arch@vger.kernel.org,
+ linux-mm@kvack.org, linux-api@vger.kernel.org, arnd@arndb.de,
+ linux-kernel@vger.kernel.org
+Cc: linux@armlinux.org.uk, will@kernel.org, guoren@kernel.org,
+ bcain@codeaurora.org, geert@linux-m68k.org, monstr@monstr.eu,
+ tsbogend@alpha.franken.de, nickhu@andestech.com, green.hu@gmail.com,
+ dinguyen@kernel.org, shorne@gmail.com, deller@gmx.de, mpe@ellerman.id.au,
+ peterz@infradead.org, mingo@redhat.com, mark.rutland@arm.com,
+ hca@linux.ibm.com, dalias@libc.org, davem@davemloft.net, richard@nod.at,
+ x86@kernel.org, jcmvbkbc@gmail.com, ebiederm@xmission.com,
+ akpm@linux-foundation.org, ardb@kernel.org, linux-alpha@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org,
+ stable@vger.kernel.org, David Laight <David.Laight@aculab.com>
+Subject: [PATCH 01/14] uaccess: fix integer overflow on access_ok()
+Date: Mon, 14 Feb 2022 17:34:39 +0100
+Message-Id: <20220214163452.1568807-2-arnd@kernel.org>
+X-Mailer: git-send-email 2.29.2
+In-Reply-To: <20220214163452.1568807-1-arnd@kernel.org>
+References: <20220214163452.1568807-1-arnd@kernel.org>
 MIME-Version: 1.0
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=C51A453 smtp.mailfrom=david.laight@aculab.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_065713_049863_AB3D7BCE 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20220214_083554_200910_C15D6E57 
+X-CRM114-Status: GOOD (  15.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,41 +89,119 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Geert Uytterhoeven
-> Sent: 14 February 2022 14:26
-...
-> I'm afraid you missed one important detail.  You wrote:
-> 
-> > On every platform, random_get_entropy() is connected to get_cycles(),
-> > except for three: m68k, MIPS, and RISC-V.
-> 
-> The default implementation in include/asm-generic/timex.h is:
-> 
->     static inline cycles_t get_cycles(void)
->     {
->             return 0;
->     }
-> 
-> Several architectures do not implement get_cycles(), or implement it
-> with a variant that's very similar or identical to the generic version.
+From: Arnd Bergmann <arnd@arndb.de>
 
-Add to the list nios2 and old x86 (I think rdtsc is a pentium instruction)
-I can't see it in my 386 book, and i don't think 486 added it.
+Three architectures check the end of a user access against the
+address limit without taking a possible overflow into account.
+Passing a negative length or another overflow in here returns
+success when it should not.
 
-I'm not sure if/when sparc added one.
-I don't remember it being there in the late 1980s.
+Use the most common correct implementation here, which optimizes
+for a constant 'size' argument, and turns the common case into a
+single comparison.
 
-nios2 (soft cpu on Altera/Intel fpga) is annoying.
-There is a 'read control register' instruction and plenty of space ones.
-But you can't define your own and one isn't a clock counter.
-You can add one as the result of a custom instruction.
-(Even the same custom instruction that does byteswap.)
+Cc: stable@vger.kernel.org
+Fixes: da551281947c ("csky: User access")
+Fixes: f663b60f5215 ("microblaze: Fix uaccess_ok macro")
+Fixes: 7567746e1c0d ("Hexagon: Add user access functions")
+Reported-by: David Laight <David.Laight@aculab.com>
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ arch/csky/include/asm/uaccess.h       |  7 +++----
+ arch/hexagon/include/asm/uaccess.h    | 18 +++++++++---------
+ arch/microblaze/include/asm/uaccess.h | 19 ++++---------------
+ 3 files changed, 16 insertions(+), 28 deletions(-)
 
-	David
+diff --git a/arch/csky/include/asm/uaccess.h b/arch/csky/include/asm/uaccess.h
+index c40f06ee8d3e..ac5a54f57d40 100644
+--- a/arch/csky/include/asm/uaccess.h
++++ b/arch/csky/include/asm/uaccess.h
+@@ -3,14 +3,13 @@
+ #ifndef __ASM_CSKY_UACCESS_H
+ #define __ASM_CSKY_UACCESS_H
+ 
+-#define user_addr_max() \
+-	(uaccess_kernel() ? KERNEL_DS.seg : get_fs().seg)
++#define user_addr_max() (current_thread_info()->addr_limit.seg)
+ 
+ static inline int __access_ok(unsigned long addr, unsigned long size)
+ {
+-	unsigned long limit = current_thread_info()->addr_limit.seg;
++	unsigned long limit = user_addr_max();
+ 
+-	return ((addr < limit) && ((addr + size) < limit));
++	return (size <= limit) && (addr <= (limit - size));
+ }
+ #define __access_ok __access_ok
+ 
+diff --git a/arch/hexagon/include/asm/uaccess.h b/arch/hexagon/include/asm/uaccess.h
+index ef5bfef8d490..719ba3f3c45c 100644
+--- a/arch/hexagon/include/asm/uaccess.h
++++ b/arch/hexagon/include/asm/uaccess.h
+@@ -25,17 +25,17 @@
+  * Returns true (nonzero) if the memory block *may* be valid, false (zero)
+  * if it is definitely invalid.
+  *
+- * User address space in Hexagon, like x86, goes to 0xbfffffff, so the
+- * simple MSB-based tests used by MIPS won't work.  Some further
+- * optimization is probably possible here, but for now, keep it
+- * reasonably simple and not *too* slow.  After all, we've got the
+- * MMU for backup.
+  */
++#define uaccess_kernel() (get_fs().seg == KERNEL_DS.seg)
++#define user_addr_max() (uaccess_kernel() ? ~0UL : TASK_SIZE)
+ 
+-#define __access_ok(addr, size) \
+-	((get_fs().seg == KERNEL_DS.seg) || \
+-	(((unsigned long)addr < get_fs().seg) && \
+-	  (unsigned long)size < (get_fs().seg - (unsigned long)addr)))
++static inline int __access_ok(unsigned long addr, unsigned long size)
++{
++	unsigned long limit = TASK_SIZE;
++
++	return (size <= limit) && (addr <= (limit - size));
++}
++#define __access_ok __access_ok
+ 
+ /*
+  * When a kernel-mode page fault is taken, the faulting instruction
+diff --git a/arch/microblaze/include/asm/uaccess.h b/arch/microblaze/include/asm/uaccess.h
+index d2a8ef9f8978..5b6e0e7788f4 100644
+--- a/arch/microblaze/include/asm/uaccess.h
++++ b/arch/microblaze/include/asm/uaccess.h
+@@ -39,24 +39,13 @@
+ 
+ # define uaccess_kernel()	(get_fs().seg == KERNEL_DS.seg)
+ 
+-static inline int access_ok(const void __user *addr, unsigned long size)
++static inline int __access_ok(unsigned long addr, unsigned long size)
+ {
+-	if (!size)
+-		goto ok;
++	unsigned long limit = user_addr_max();
+ 
+-	if ((get_fs().seg < ((unsigned long)addr)) ||
+-			(get_fs().seg < ((unsigned long)addr + size - 1))) {
+-		pr_devel("ACCESS fail at 0x%08x (size 0x%x), seg 0x%08x\n",
+-			(__force u32)addr, (u32)size,
+-			(u32)get_fs().seg);
+-		return 0;
+-	}
+-ok:
+-	pr_devel("ACCESS OK at 0x%08x (size 0x%x), seg 0x%08x\n",
+-			(__force u32)addr, (u32)size,
+-			(u32)get_fs().seg);
+-	return 1;
++	return (size <= limit) && (addr <= (limit - size));
+ }
++#define access_ok(addr, size) __access_ok((unsigned long)addr, size)
+ 
+ # define __FIXUP_SECTION	".section .fixup,\"ax\"\n"
+ # define __EX_TABLE_SECTION	".section __ex_table,\"a\"\n"
+-- 
+2.29.2
 
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
