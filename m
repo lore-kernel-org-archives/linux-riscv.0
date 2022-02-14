@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84E6FC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 08:17:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF7ACC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 08:18:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+XIOPfQ3wwG285octbYZ6W2wI+SuQRl9VW/nZiDmI4A=; b=nZhCMW/rNGdKqD
-	b7hL2/vAPtoamdkTAd/Wcb5J/i0MwuItSaozMuY0z3dWg3+4+NegEXsYvXbiZDa/OrQAWdTepSlSV
-	zhpgVTj/DkBrJeVFtZF47XegxMJ8Pzyh6brDd9Y14D0+n/1FdkGNHGNTftsx0wQWwf/OaRTiQO01q
-	IQaavONvCiyqFu9SLbCxYiC17zc3A+gS5Sr18yPpGYMUpImJdm0TMlinZdFecyK5KmhRHY/SUZYKl
-	IsqDQe5LXrsrEa+tqMFf32lEKe7qQH2PI+MmVLwUbR50BH3SYy3kI9MODsthsq18WFb+0SsnypHD0
-	E9p3pWNPq74zvFRVCVvw==;
+	List-Owner; bh=y8mLMHDvmzT6h1AOWuMNs3UHU00be6/7wDIfBIz5DQE=; b=ax3zRR4qlSwzeH
+	sE8E3TLN7AHD1TiCaCoEpAjFSvFudpicyXLpWHszQ3Rw3VxWV+1wU+99ehWcDzQZwFwfVeLl5kJ/R
+	xA2KG42WCkiJjly1tdfznUgu35VGGxMB20o2m5WPW1r0WdLiG3HbB78smDA8jaUhkFBvcRU7VPnvj
+	f86ZXzUIEIKGmHQ79olQ+YCSTJYUXfhnJ+OGnG2XNtqcFN/U2vXK4FO6X9sCEBjYonjhF5SFHAkly
+	cqni+6q1hveBiKXCf6Yg0U+YyuMvWmTniNiaJeMls4XV0abUyyCY3GL7HLNuy2ZItRbLf48kRn+st
+	O4E/0X1f4vMKYFLxpkGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJWXa-00DpPF-Df; Mon, 14 Feb 2022 08:16:58 +0000
+	id 1nJWYe-00Dq3e-VL; Mon, 14 Feb 2022 08:18:05 +0000
 Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJWXW-00DpJD-O4
- for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 08:16:56 +0000
-Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com
- [209.85.218.71])
+ id 1nJWXW-00DpJC-Qh
+ for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 08:16:58 +0000
+Received: from mail-ed1-f72.google.com (mail-ed1-f72.google.com
+ [209.85.208.72])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 1EE81402DF
- for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 08:16:45 +0000 (UTC)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 9E9E840341
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 08:16:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1644826605;
- bh=Vx5pgZq+wTDk2cXNM++1rpL4of1cb6TeLTw59n/JqH4=;
+ s=20210705; t=1644826606;
+ bh=05sXSD4PIb8v0ICor9Lwlzw82mhcHvJZHXpVeLkjK/k=;
  h=From:To:Subject:Date:Message-Id:In-Reply-To:References:
  MIME-Version;
- b=tl8dZp90zTN/3EA0rvFUUsZ/TaCS/1BYBo2ZytSqcEgUKVNNGj13npXlHNH2OzXmf
- N13k/v/AEBmU5eWO40/75lsP6qhTxJXjB94Ok2IV+jA6v31/T8grK3MvgGyz6pQ/Q8
- hnVWXvh4liqTeDcaHS60FmwKG3O7rtxC63YpXkvMcd1gnwUh5+xvRVnQkd/Izixzij
- 0TN8yvW8fR0PdsdqLGlRI/ke6gVLl9ZNh6dvAkSvIMcoIoIXsGDe33OrDUphRvsjC1
- 7zf9suvoGsl6rJeMAywggUX8VAZxK8CXjg2snbq4KSP34PA4n8mXfaNNODujuPrge/
- RL0D3muNxk9iQ==
-Received: by mail-ej1-f71.google.com with SMTP id
- sa22-20020a1709076d1600b006ce78cacb85so594046ejc.2
- for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 00:16:45 -0800 (PST)
+ b=aLG5u0EEqZ+k+XDmUs8TGF/olqL6f1JhByoVCnw9hRu+TY0pT4ZV2DOs8I59x6qg8
+ ev50SgiBio9wxOKqlajm6bSvh+bzyhNPqnpX8rBdCILKEAwMchThCwGOMvVI3+g+WZ
+ xpW0yKa6LRzuwzXQeb4lEsWWsR0l8i/aWNIrW6mOFYwob3bGx+qeCaEKd1Fed+SUK9
+ OyY0RD1aqUAqOzxENyh8XcwUB1H2ychj+BAtlwVb4dtoEUnwq6eVUlqbvM35Pk//5W
+ onEsrVi2pyUH8fk9MRC02LiKDZZQDx9+7Vi97DGDEXBMy2HMEkWB2JrupAm0kcfb02
+ Kz9CXUffvolVg==
+Received: by mail-ed1-f72.google.com with SMTP id
+ z21-20020a05640235d500b0041092b29ad6so3539464edc.19
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 00:16:46 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=Vx5pgZq+wTDk2cXNM++1rpL4of1cb6TeLTw59n/JqH4=;
- b=UrVsJJfnkUhwLsTRHxXaKM216/35rxLnOX9A/F7jEiMntNt2tK2PEqeS21zoiH91iW
- 9vQE7gR3Nj3VIe8S8RHp1uzHsKT85NwHJxF2rXlqceYc1/f3jZy5IyHvc1S++RZeEW3C
- 9KOUbrvauIWgBTR7YKZdeEZntXt5IhsnXgpGIYTBzcIQejk8BK6hsX0THBIGlql9u0fK
- nYX3Qkcr/9hq6xgPxgvDyAcOimfVHChespRY9JrZC4CsHHL/RSJHxdoo3aDKsLBqixfx
- zyptFaj38clsaw42Vwxw0FkxmdAVGc4l/DrdBBrvOolBUPdE+tEp0wGiIYkmtsnkVMWz
- pjsA==
-X-Gm-Message-State: AOAM5305gd4VrXV7YxpsTcpWezEUa0aAQHRA0csYubVpDIDE/nC53w6n
- qMnA0FLQ64UxsX8/gZlfywtRt0KDnyyCxSHwme1FemxRoJtR14L8wwBY2uc+Xp2BMFUcnpwzZM6
- 2Y+vjcDoakaL4HA0pCPnimOTEV0033KQ2M75l76SAtvCu6Q==
-X-Received: by 2002:a17:907:86a1:: with SMTP id
- qa33mr10593901ejc.516.1644826604833; 
- Mon, 14 Feb 2022 00:16:44 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJzHLCvj9EOOMBQpfPrsB+GOXcyF6v8PbErxtuwvlpLnjLHBW4y7stXTy+wJs5s8ptFN23VAWQ==
-X-Received: by 2002:a17:907:86a1:: with SMTP id
- qa33mr10593877ejc.516.1644826604628; 
- Mon, 14 Feb 2022 00:16:44 -0800 (PST)
+ bh=05sXSD4PIb8v0ICor9Lwlzw82mhcHvJZHXpVeLkjK/k=;
+ b=dTgitErtEsu5wdDICq0uc1Q1khyJwP/wtfgkTIoAYzvM3n5ygzDqQSuJ2giu8AdtHO
+ c4pAOfzPkr7j8ebvhg3jU9N8+XXQIu7FRosARQPADeQ7PumLJu+K50zfqbMG0bL2/GjT
+ iupbQ+0tVvsTRuwQ08zmm2bIXi0bfZnTzm3ly1mamh9H2DbtM/BLDV0co5ZON+ZNZbB8
+ pamkNk8lZ1jkLbHsDNz1uiPgPhHHXibnjM8VLKeNV6yER/LkOpTKsaC7BC2k8oi8Q3V+
+ tNgLBklJPfejI4CITZI20qvoeGvdSs1D/Yrj5YwnWsS/Sxkk6hfvDOw7/HVs5znAmLa+
+ dMdA==
+X-Gm-Message-State: AOAM533J+W+qjHW2X+/382EeyuJzuN6fITXABP5y4b9wVsCXmAeKm2X6
+ 1H+s+SENQdRE06JdnBg1jE8WdZp5RLsm1OGRwM6ZZxqahg5+i94IZL5fPE5xKHLr2+XIbiQBrAh
+ Ehn3+Lp6tzJ1N/gtyNEKv0BEUOLCdkWwUxfHvH+0E/YvXxQ==
+X-Received: by 2002:a17:907:3f09:: with SMTP id
+ hq9mr10433655ejc.388.1644826606212; 
+ Mon, 14 Feb 2022 00:16:46 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJw+ZKNecHLHlMF1p9Zdz7frO6KM7oerLABDg+IKR8oKqn7czs7ZE3TIi9GnMTbsd5cUpiNWFQ==
+X-Received: by 2002:a17:907:3f09:: with SMTP id
+ hq9mr10433614ejc.388.1644826605951; 
+ Mon, 14 Feb 2022 00:16:45 -0800 (PST)
 Received: from localhost.localdomain (xdsl-188-155-168-84.adslplus.ch.
  [188.155.168.84])
- by smtp.gmail.com with ESMTPSA id t21sm3363642edd.74.2022.02.14.00.16.43
+ by smtp.gmail.com with ESMTPSA id t21sm3363642edd.74.2022.02.14.00.16.44
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 14 Feb 2022 00:16:43 -0800 (PST)
+ Mon, 14 Feb 2022 00:16:45 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
@@ -98,16 +98,16 @@ To: Thierry Reding <thierry.reding@gmail.com>,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
  linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
  linux-riscv@lists.infradead.org
-Subject: [PATCH 03/15] dt-bindings: pwm: intel, lgm: include generic pwm schema
-Date: Mon, 14 Feb 2022 09:15:53 +0100
-Message-Id: <20220214081605.161394-3-krzysztof.kozlowski@canonical.com>
+Subject: [PATCH 04/15] dt-bindings: pwm: iqs620a: include generic pwm schema
+Date: Mon, 14 Feb 2022 09:15:54 +0100
+Message-Id: <20220214081605.161394-4-krzysztof.kozlowski@canonical.com>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20220214081605.161394-1-krzysztof.kozlowski@canonical.com>
 References: <20220214081605.161394-1-krzysztof.kozlowski@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_001654_938879_8D350B58 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20220214_001655_038255_0EF2759E 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,23 +129,31 @@ brings pwm-cells requirement.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 ---
- Documentation/devicetree/bindings/pwm/intel,lgm-pwm.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+ Documentation/devicetree/bindings/pwm/iqs620a-pwm.yaml | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/pwm/intel,lgm-pwm.yaml b/Documentation/devicetree/bindings/pwm/intel,lgm-pwm.yaml
-index 11a606536169..59d7c4d864c1 100644
---- a/Documentation/devicetree/bindings/pwm/intel,lgm-pwm.yaml
-+++ b/Documentation/devicetree/bindings/pwm/intel,lgm-pwm.yaml
-@@ -9,6 +9,9 @@ title: LGM SoC PWM fan controller
- maintainers:
-   - Rahul Tanwar <rtanwar@maxlinear.com>
+diff --git a/Documentation/devicetree/bindings/pwm/iqs620a-pwm.yaml b/Documentation/devicetree/bindings/pwm/iqs620a-pwm.yaml
+index 1d7c27be50da..0a46af240d83 100644
+--- a/Documentation/devicetree/bindings/pwm/iqs620a-pwm.yaml
++++ b/Documentation/devicetree/bindings/pwm/iqs620a-pwm.yaml
+@@ -15,6 +15,9 @@ description: |
+   Documentation/devicetree/bindings/mfd/iqs62x.yaml for further details as
+   well as an example.
  
 +allOf:
 +  - $ref: pwm.yaml#
 +
  properties:
    compatible:
-     const: intel,lgm-pwm
+     enum:
+@@ -25,7 +28,6 @@ properties:
+ 
+ required:
+   - compatible
+-  - "#pwm-cells"
+ 
+ additionalProperties: false
+ 
 -- 
 2.32.0
 
