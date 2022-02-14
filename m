@@ -4,87 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D01C433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 14:26:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09878C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 14:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JJXy8mWmILqwn3BGrB86HP9Q7ueSFo26HdIsrFo1Mhs=; b=49VTEWVgEhqCFP
-	F+lZilNhpZd560EWtrKh6O7hqssvLW9heiLjfHROE16+QOM3nMzuqB+wdQeR8mDXyhApS5slnUgg0
-	04ggIhOtGyK+x3zUEuQlc4TRZSeAsdbk1iSYdLLaiZUIPiDY/H7LIWz1MpJC0p3ka3D8t+W0mcza2
-	opWuwnRkW2bUprjk4oMwlayMJd+dMcHkI2ASyNR0HYTJoYh5T+Pmuoq5qTYTUFY9AK2Yp5yTxd6CZ
-	6DjlxkfDLI4AKpbzcHRFedFXlXGPF/wZE/puEItOvFZceO9+ClqXTwA4QW/cSqRA6A9sqPZJrpVeG
-	lw/wu4m/LkmQRQ1Bojjw==;
+	List-Owner; bh=1t0dLFn7k7Viy9glX+CDubX6P2OLBhf6a23PU4SzGYQ=; b=C0aiwiUkr45NeR
+	7XLJmZOrClc7QKtBh+gV7Vw3MEY+wynknkoFiQ08wQqaKHsORulc3/z78bNmvkhQM2eeplFXWXmit
+	Rd0pDeLCaU6gZFdtM6KnO0hxs85QcKioZQ0eZFEIIO2qXclZop//nsGNI3DX/xPOdHrlRNNBAXDf2
+	hVhJRVkaTR3Qe0rL4bO0IOHQXwB/R7pzJ7wuENSUTss3Z2v17AAdtvF2T9Oj/HpkJ405tMbqP6FHP
+	ERCYnsvPnirorFP8Nl+q+EEJHSV8UDkjxC7SeTdcrx7N2F/o+qNrh+bdjWs7uhWj56b6IGssVfU8G
+	MFfe3s/eereadXJihoWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJcJO-00FfJL-5W; Mon, 14 Feb 2022 14:26:42 +0000
-Received: from mail-vs1-f44.google.com ([209.85.217.44])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJcJK-00FfIV-QC
- for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 14:26:40 +0000
-Received: by mail-vs1-f44.google.com with SMTP id g21so6289285vsp.6
- for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 06:26:38 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=+D9TDb8zgo7SYyd9U66f/5PMXdHiP4mRfXaTW0S+zdU=;
- b=PfbZF0PzI1DwEFgyU9JuSkJEWSlZdYAlFP6fM7IgeuXjse6F4XWSwgYm0czP4VoDxg
- p2CcQzPA8oKUkaYVcE+w30+lQjGWavemoPYK8exgag5/W1rQiYPq0XROePDIUSCvzfbv
- Ab9EER7GBSU1yIbkp/fwm0M//K6++9HvecVqk9bB+ptGQzAIDnWqR/2Y6A2C2fIcxu4b
- mWoIyOpbmzEgYIE7yt+sxe0kN0h60/UQfIZ45Iv69l70WwW8SIeBbrW1PYMMxf9xkVXy
- ojOGmTN6uhFWLgeaqABvD00wIQx9+Ll3+Put4YaJX4ru8FUrNYpb+Qj+z8RCJmCrYc8Q
- tl/g==
-X-Gm-Message-State: AOAM532w0R1FEYy33CHpEMc+hW9bMFbE6DaGiQJou2D9bd32/+b4htCx
- v3KH+KkncfgOHtUG5NKybuTmX8AgHz8yXQ7e
-X-Google-Smtp-Source: ABdhPJxML5XtP5N0hqMkkoVEeM6mSm8jjx6PMs1NW0Ubrj2Rn3e0D5vlCxuXibj9/wibP+sGf/TmBQ==
-X-Received: by 2002:a05:6102:e8d:: with SMTP id
- l13mr2280846vst.87.1644848797582; 
- Mon, 14 Feb 2022 06:26:37 -0800 (PST)
-Received: from mail-ua1-f50.google.com (mail-ua1-f50.google.com.
- [209.85.222.50])
- by smtp.gmail.com with ESMTPSA id r26sm3166138uaw.12.2022.02.14.06.26.36
- for <linux-riscv@lists.infradead.org>
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 14 Feb 2022 06:26:37 -0800 (PST)
-Received: by mail-ua1-f50.google.com with SMTP id 4so5492155uaf.0
- for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 06:26:36 -0800 (PST)
-X-Received: by 2002:ab0:384c:: with SMTP id h12mr3670905uaw.122.1644848795466; 
- Mon, 14 Feb 2022 06:26:35 -0800 (PST)
-MIME-Version: 1.0
-References: <20220211210757.612595-1-Jason@zx2c4.com>
- <fcab986b-d0bd-c798-de17-266abcdc7da2@gentoo.org>
- <CAHmME9ooEbgiv3DRk87ei+rUoVNMJthY7UuG_xCgm=kfMZAajw@mail.gmail.com>
-In-Reply-To: <CAHmME9ooEbgiv3DRk87ei+rUoVNMJthY7UuG_xCgm=kfMZAajw@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 14 Feb 2022 15:26:24 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXDj+BVCs4Syg39vjnHGKcwJnCgDxrGoOiEFM_T4ojwPg@mail.gmail.com>
-Message-ID: <CAMuHMdXDj+BVCs4Syg39vjnHGKcwJnCgDxrGoOiEFM_T4ojwPg@mail.gmail.com>
-Subject: Re: [PATCH RFC v0] random: block in /dev/urandom
+	id 1nJcjA-00FjAI-IX; Mon, 14 Feb 2022 14:53:20 +0000
+Received: from gardel.0pointer.net ([2a01:238:43ed:c300:10c3:bcf3:3266:da74])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat
+ Linux)) id 1nJcj7-00Fj9u-9W
+ for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 14:53:19 +0000
+Received: from gardel-login.0pointer.net (gardel-mail [85.214.157.71])
+ by gardel.0pointer.net (Postfix) with ESMTP id 2D1E0E8045A;
+ Mon, 14 Feb 2022 15:53:14 +0100 (CET)
+Received: by gardel-login.0pointer.net (Postfix, from userid 1000)
+ id BF6CC16010E; Mon, 14 Feb 2022 15:53:13 +0100 (CET)
+Date: Mon, 14 Feb 2022 15:53:13 +0100
+From: Lennart Poettering <mzxreary@0pointer.de>
 To: "Jason A. Donenfeld" <Jason@zx2c4.com>
-Cc: Joshua Kinard <kumba@gentoo.org>, LKML <linux-kernel@vger.kernel.org>, 
- Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- linux-m68k <linux-m68k@lists.linux-m68k.org>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
- Dominik Brodowski <linux@dominikbrodowski.net>, 
- Eric Biggers <ebiggers@google.com>, Ard Biesheuvel <ardb@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, 
+Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+ Geert Uytterhoeven <geert@linux-m68k.org>, linux-m68k@lists.linux-m68k.org,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ linux-mips@vger.kernel.org, Dominik Brodowski <linux@dominikbrodowski.net>,
+ Eric Biggers <ebiggers@google.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
  Thomas Gleixner <tglx@linutronix.de>, Andy Lutomirski <luto@kernel.org>,
- Kees Cook <keescook@chromium.org>, 
- Lennart Poettering <mzxreary@0pointer.de>,
- Linus Torvalds <torvalds@linux-foundation.org>, 
+ Kees Cook <keescook@chromium.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Theodore Ts'o" <tytso@mit.edu>
+ Theodore Ts'o <tytso@mit.edu>
+Subject: Re: [PATCH RFC v0] random: block in /dev/urandom
+Message-ID: <Ygps2W6MfxKkP5eD@gardel-login>
+References: <20220211210757.612595-1-Jason@zx2c4.com>
+ <YgoYnX97imub7KEB@gardel-login> <YgpjfncV+C9FEZDc@zx2c4.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <YgpjfncV+C9FEZDc@zx2c4.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_062638_871425_2B74BCB0 
-X-CRM114-Status: GOOD (  25.52  )
+X-CRM114-CacheID: sfid-20220214_065317_605479_31A1955D 
+X-CRM114-Status: GOOD (  18.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,47 +73,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jason,
+On Mo, 14.02.22 15:13, Jason A. Donenfeld (Jason@zx2c4.com) wrote:
 
-On Mon, Feb 14, 2022 at 3:05 PM Jason A. Donenfeld <Jason@zx2c4.com> wrote:
-> On Sun, Feb 13, 2022 at 12:06 AM Joshua Kinard <kumba@gentoo.org> wrote:
-> > The R6000/R6000A CPU only ever existed in systems in the late 1980's that
-> > were fairly large, and I don't think there is a complete, working unit out
-> > there that can actually boot up, let alone boot a Linux kernel.
+> Hi Lennart,
 >
-> So from what you've written, it sounds like MIPS is actually not a problem here.
+> On Mon, Feb 14, 2022 at 9:53 AM Lennart Poettering <mzxreary@0pointer.de> wrote:
+> > So, systemd uses (potentially half-initialized) /dev/urandom for
+> > seeding its hash tables. For that its kinda OK if the random values
+> > have low entropy initially, as we'll automatically reseed when too
+> > many hash collisions happen, and then use a newer (and thus hopefully
+> > better) seed, again acquired through /dev/urandom. i.e. if the seeds
+> > are initially not good enough to thwart hash collision attacks, once
+> > the hash table are actually attacked we'll replace the seeds with
+> > someting better. For that all we need is that the random pool
+> > eventually gets better, that's all.
+> >
+> > So for that usecase /dev/urandom behaving the way it so far does is
+> > kinda nice.
 >
-> So the only systems we're actually talking about without a good cycle
-> counter are non-Amiga m68k? If so, that'd be a pretty terrific
-> finding. It'd mean that this idea can move forward, and we only need
-> to worry about some m68k museum pieces with misconfigured
-> userspaces...
+> Oh that's an interesting point. But that sounds to me like the problem
+> with this patch is not that it makes /dev/urandom block (its primary
+> purpose) but that it also removes GRND_INSECURE (a distraction). So
+> perhaps an improved patch would be something like the below, which
+> changes /dev/urandom for new kernels but doesn't remove GRND_INSECURE.
+> Then your hash tables could continue to use GRND_INSECURE and all would
+> be well.  (And for kernels without getrandom(), they'd just fall back to
+> /dev/urandom like normal which would have old semantics, so works.)
 
-I'm afraid you missed one important detail.  You wrote:
+In fact, systemd already uses getrandom(GRND_INSECURE) for this, if it
+is supported, and falls back to /dev/urandom only if it is not. So as
+long as GRND_INSECURE remains available we are good.
 
-> On every platform, random_get_entropy() is connected to get_cycles(),
-> except for three: m68k, MIPS, and RISC-V.
-
-The default implementation in include/asm-generic/timex.h is:
-
-    static inline cycles_t get_cycles(void)
-    {
-            return 0;
-    }
-
-Several architectures do not implement get_cycles(), or implement it
-with a variant that's very similar or identical to the generic version.
-
-Gr{oetje,eeting}s,
-
-                        Geert
+Lennart
 
 --
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Lennart Poettering, Berlin
 
 _______________________________________________
 linux-riscv mailing list
