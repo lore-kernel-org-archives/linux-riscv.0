@@ -4,26 +4,26 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15F06C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 17:04:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1DBEC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 17:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fKnPFlKV9ni1gXrqbIys/Lwum8qfOVQrgXNQOBioFHc=; b=3ikDoRt2Aeuw0h
-	xQg6IiR/yVknp+mW5oB4hdVYERb10DUXELHAga2wwGAU+95uu7XsfKOIIYmSvA/ziTtZ1h+nSd4YK
-	44UCL1EL7uBmJd2cCcG3NDXsF+rhQH2Y9ZKx3dk2RCVA7vxnalQurHCY9kq6OaP5+JTWii4JgVrGO
-	SQb4UA92DX3Tm7A+5onZv6SMCkeCFY5diMeJ1Y/E28VmfCywd22E4SNlrIBSNN8E9kYA0DoN8aGT7
-	IBZeqkC0qZXFWQ6LpS4EhrH5CnZTRD/OpPPUkLAUk7srOpACylfOsBmQ6144CQ5m4SGWkgCt84g1R
-	aE7mWbtQAiBg7lJwpSUA==;
+	List-Owner; bh=t8DJ+yUxfFt/OTlQTgnOgIhpd5JCYBJKeayq9xpZvvk=; b=Jd6yJJiObJ9HpV
+	765lO11dVCbo5VfjPqtmD8mWiuYA6UlVttOLhcDB9asU6Uvuj9bufYbofLKmmQDIPmjB9nZvvNsJk
+	HQIqEfClaWA5YfFvIckgrAOMMMawbRzDUMKbKI6/+RwoSVgCMy3zou852vtOEtffUCJtpc3TTineZ
+	6GKPk62OE34V55IZjKkXz6vMp5NQ2R5Qb5ptsk69j4qwvnnjRYMVyW6cGYCA6j+SIxMuknHNUIpQ+
+	sgTkYBP98zyatm7wY5sONxmTjZls2UEMArG3Y3hiVtwQqaDaHF4X7MCCG72Ah6gmCfRDYI7rXeLPJ
+	N0PDYBIQCy0hhqmspRJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJemO-00GH23-Lv; Mon, 14 Feb 2022 17:04:48 +0000
+	id 1nJene-00GHVy-SU; Mon, 14 Feb 2022 17:06:06 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.94.2 #2 (Red
- Hat Linux)) id 1nJemK-00GH0i-Nf; Mon, 14 Feb 2022 17:04:44 +0000
-Date: Mon, 14 Feb 2022 09:04:44 -0800
+ Hat Linux)) id 1nJenc-00GHV7-F2; Mon, 14 Feb 2022 17:06:04 +0000
+Date: Mon, 14 Feb 2022 09:06:04 -0800
 From: Christoph Hellwig <hch@infradead.org>
 To: Arnd Bergmann <arnd@kernel.org>
 Cc: Linus Torvalds <torvalds@linux-foundation.org>,
@@ -47,13 +47,13 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
  dinguyen@kernel.org, ebiederm@xmission.com, richard@nod.at,
  akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org,
  davem@davemloft.net
-Subject: Re: [PATCH 07/14] uaccess: generalize access_ok()
-Message-ID: <YgqLrB5LttWFIScK@infradead.org>
+Subject: Re: [PATCH 10/14] uaccess: remove most CONFIG_SET_FS users
+Message-ID: <YgqL/NJ3YHEAhj4i@infradead.org>
 References: <20220214163452.1568807-1-arnd@kernel.org>
- <20220214163452.1568807-8-arnd@kernel.org>
+ <20220214163452.1568807-11-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220214163452.1568807-8-arnd@kernel.org>
+In-Reply-To: <20220214163452.1568807-11-arnd@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,9 +70,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Looks good,
+On Mon, Feb 14, 2022 at 05:34:48PM +0100, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> On almost all architectures, there are no remaining callers
+> of set_fs(), so CONFIG_SET_FS can be disabled, along with
+> removing the thread_info field and any references to it.
+> 
+> This turns access_ok() into a cheaper check against TASK_SIZE_MAX.
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+Wouldn't it make more sense to just merge this into the last patch?
 
 _______________________________________________
 linux-riscv mailing list
