@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65063C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 08:20:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE73EC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 08:21:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=vmn4ZTcRjDj/T1IPuXbXdCU/DQXTI2sYxEsMdh8EjMY=; b=S2e+A24Yc9EZgL
-	h7sTgf4diLZoEzgtlIAK9mE/knRp+DV/Npka2beIioonixtH1w90yKRLquodHGgptbSff3o7cD703
-	9OgaTDfMK2CDQPfG1PMivRhe+PQ9/tinLEGhEeQ48/ER9yxpLL7K7xvY2m5s5GmEG3sg2LB2zl14j
-	DRX/iwjBiWB/bC5KRk1t2fGru8J7opc8r26UhJ1gXdZlEKU1HRHRhXEgGJIIp3Kppi+7wDzOZv2YO
-	k+3LwzcFKd0Wqh8al/XSQiwZKntuBMNeRe9d0SnupVZdVmbpD/3NBrx+K5bBan/jFB3oeN3+TC+q2
-	bNWjbDt18HIe0ELC8qsQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wm16cwJAH47UAOR1Twr5qrBIHVYvGz4FhSRNJzcJbNE=; b=VRa6xJV572hoQe
+	mbKp/LPbULadd9jvEagN8NsD3oJVE1gSFZelGp3kielgOhcklSYq/Aon90tGuLm8Y9J6ZmUGDlIa8
+	gbaicJKyWHe/DbxUwLwq8e2yJHut7npIp00LkeBOCjD+rOKThYRDS89xp+zssdVz25qmqCHp37fUj
+	FU6PDTDRToNgCsVB5NKAWlUo/Ge1RplidchUXpz0RO2i9cOv2SX0e0UtIZQRNhrtk5qoPTODiinnC
+	K0UawxMZZdum7Y1p53a/UpGNPmrsIVVmVPpI+MzV6Q6QghgbD9xcUAE4I+pTmKeGGrF+PH+0pr09d
+	t1Ykn57Loj8i/RQKOD8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJWb4-00DrX7-NB; Mon, 14 Feb 2022 08:20:34 +0000
+	id 1nJWbq-00Dru1-Sk; Mon, 14 Feb 2022 08:21:22 +0000
 Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJWXa-00DpOQ-LN
- for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 08:17:03 +0000
-Received: from mail-lf1-f71.google.com (mail-lf1-f71.google.com
- [209.85.167.71])
+ id 1nJWXb-00DpPb-KY
+ for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 08:17:05 +0000
+Received: from mail-ed1-f72.google.com (mail-ed1-f72.google.com
+ [209.85.208.72])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 2F9EC40524
- for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 08:16:53 +0000 (UTC)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 5FF004055E
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 08:16:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1644826613;
- bh=3IKrMG5sgA9nuG1n0JrwWMFi9IjPyF8pWWijGFM2qQk=;
- h=From:To:Subject:Date:Message-Id:MIME-Version;
- b=i79I2qa47alM5wkWj2yK0klr14FGqox2CzMSWnj2Lt2l0NlRGUoS7wFRAGkR4HFVN
- XVCOHVKhvOfO7U33kG8pHvmmR6xdQzoCtVYiKrFQingC2luIidjo918UqTkgG5Xcqo
- /eZB4cy1UkXHSGL/9b6laxvTd1QX5TUauviCdV336gKWT1wdNBlMDcCjYFdJu3vwry
- T/cRrE5EGAt6WQHAbHrOLBzEZsoUoDPJ7PinBq7LDbmpzIFoq5GBxQhR3thQ+rcGRu
- sNQC6blE9BU4JQfQa0Y9q2qgn7S/pZ8v2c3TJGOvi5JVQ//Xv95aM06jzN0gdS6Bfy
- /jfsT9tDDw+Dw==
-Received: by mail-lf1-f71.google.com with SMTP id
- z37-20020a0565120c2500b004433b7d95d3so1025651lfu.4
- for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 00:16:53 -0800 (PST)
+ s=20210705; t=1644826618;
+ bh=l15FonF8uQEq+4XEYAwpRwWSHHnXgwOoYp02FVF3qnI=;
+ h=From:To:Subject:Date:Message-Id:In-Reply-To:References:
+ MIME-Version;
+ b=CgnObQ6pKG+zIT2gtPZGDojVNzZAQXT+ivW4ioOQH1NdttAcL31eLSqNM4Xu0x679
+ 7QdIRXcYbSciPGPQmIz+cZro+5LR4+B62EgamMdTCVEJ33rVqrYN6tWczJtE6slKFp
+ HC15RVaoQrv7p7A2bXGODVQsuUHzUDRA8bn60wNuqMjwH7TbIdkAWihEmL9onMHOii
+ WjhV3p0+6kz7G8VdJdPRN5afHYk1rVhpBs4sMRb66COF63PmFenbsNyWOzGxMq54sm
+ qsUKhizGdS2jTaXbRebOIgb/U4XvFK4VAYbQGs1Bh68kLeqkN1/fOOxlgJgkVGRwWl
+ GHxNAenBVeqKg==
+Received: by mail-ed1-f72.google.com with SMTP id
+ d11-20020a50c88b000000b00410ba7a14acso1120589edh.6
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 00:16:58 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=3IKrMG5sgA9nuG1n0JrwWMFi9IjPyF8pWWijGFM2qQk=;
- b=vXp9XHovlRwJpLt0ybTlY3odySPedzYiXx7y2BCn0Y8o+8cfBOHAXlPMc6qgRoR/MQ
- bMM9eyRe1NkyaBbbO6r7DY3TBpZoD6TpruCNffrViUaPcSSzHjYUS8NtCULarP1F6Vor
- TIs1gP0gLsHEA7Q+J6sPlfe9vUcuI+ebWUgBSh5cDhSUs3X4zpX6srrSd6kDNJBVXUn2
- dxcaQ/zJz95FCg4BzEOdBoBSIcPyD0DeQ0Frx7I+DyP8v7TAeA6h+XIe1ho5AvEG7H1/
- TrlZST8j14uNQroeR+XObK28ULUHGUlPg4VfHAA1YP7h4QYIUQoLGij5RDCN00U50Hke
- zf5g==
-X-Gm-Message-State: AOAM531yvUH//026PKdf6CnIZIOACbsmNez0KNkH7nV1L052Dc42m92Y
- tOg+mGRkNannnH7VpQcFCKmIc23Mb+MSxaXJduHUX0k3hZJBAczRW+ZJEHiDOf7APDFEoQgRQbH
- MpSx497V9xfctHJ+DV3z66CWhp4GLAMzZLUEab25MhA13Sg==
-X-Received: by 2002:aa7:c90b:: with SMTP id b11mr13704777edt.378.1644826602009; 
- Mon, 14 Feb 2022 00:16:42 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJwgHjuUJhQbPl50s1KVPp6UQx9W5/7E84exEe5joEuH25s16vRC22QO8sTEVBDCljC9Ui8TEg==
-X-Received: by 2002:aa7:c90b:: with SMTP id b11mr13704730edt.378.1644826601747; 
- Mon, 14 Feb 2022 00:16:41 -0800 (PST)
+ h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=l15FonF8uQEq+4XEYAwpRwWSHHnXgwOoYp02FVF3qnI=;
+ b=sRPoBeZ3Sespd8dGsuSlfschg15chB9lrEGAmGPFtqEKFR2zwakCBl2+iCFN8/zpM2
+ RBZf2I22Fl57hjQlyHneIsW0jjCANvAnxK88wnjiAaKkQqe4JFZDyCtxIbzm7h0MHgDE
+ OurYzcgHiRlbX3g+MCy2yP2DxP0M3r3ucJ23D5mO3/QQkk0lRJ1mc+qXt/LaQHcbVCYo
+ mIrKsbhKNZNPKvrnDP5QkVAkRFTQ+bpRKMLPpZkN0G0Jdv33Ux7PozBxFhETsPEVCuom
+ vU18GJjrulVtnhZytvoI9XrA3rxLkZYtdBOBi5be6xm3BYKb0fgq7MVHT1DVc0Z1Rl1g
+ +QQg==
+X-Gm-Message-State: AOAM5319WZHwAWWHr/4NGu3cQTmcrSTe1s7rKJlkWJiDpkQgxLLa5lvg
+ 1NdHAkkXMOyb+BsjQkb1iqJou2mzQ7d7PFZmHuKvyor2IxbvQ1vKWk55//N+I4mcFdXHYmkYDj1
+ FZlB/uqJjp4W7tiCjZVifOn2HgTLE8piCoC+nhebOxmp7DQ==
+X-Received: by 2002:a17:907:1692:: with SMTP id
+ hc18mr1264341ejc.558.1644826617893; 
+ Mon, 14 Feb 2022 00:16:57 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJz7ZFaKPSqzJB7EzZe96ipyX590XuNxFjp7kl2szJXL0JpWvoFuFlVeLyW48x6LMwjXS7gpuA==
+X-Received: by 2002:a17:907:1692:: with SMTP id
+ hc18mr1264323ejc.558.1644826617720; 
+ Mon, 14 Feb 2022 00:16:57 -0800 (PST)
 Received: from localhost.localdomain (xdsl-188-155-168-84.adslplus.ch.
  [188.155.168.84])
- by smtp.gmail.com with ESMTPSA id t21sm3363642edd.74.2022.02.14.00.16.40
+ by smtp.gmail.com with ESMTPSA id t21sm3363642edd.74.2022.02.14.00.16.55
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 14 Feb 2022 00:16:41 -0800 (PST)
+ Mon, 14 Feb 2022 00:16:57 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
@@ -95,15 +98,17 @@ To: Thierry Reding <thierry.reding@gmail.com>,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
  linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
  linux-riscv@lists.infradead.org
-Subject: [PATCH 01/15] dt-bindings: pwm: allwinner,
- sun4i-a10: include generic pwm schema
-Date: Mon, 14 Feb 2022 09:15:51 +0100
-Message-Id: <20220214081605.161394-1-krzysztof.kozlowski@canonical.com>
+Subject: [PATCH 11/15] dt-bindings: pwm: intel,
+ keembay: do not require pwm-cells
+Date: Mon, 14 Feb 2022 09:16:01 +0100
+Message-Id: <20220214081605.161394-11-krzysztof.kozlowski@canonical.com>
 X-Mailer: git-send-email 2.32.0
+In-Reply-To: <20220214081605.161394-1-krzysztof.kozlowski@canonical.com>
+References: <20220214081605.161394-1-krzysztof.kozlowski@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_001658_892579_5C8D3BC1 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20220214_001659_894614_4C2DD334 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,80 +125,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Include generic pwm.yaml schema, which enforces PWM node naming and
-brings pwm-cells requirement.
+pwm-cells are already required by pwm.yaml schema.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 ---
- .../bindings/pwm/allwinner,sun4i-a10-pwm.yaml | 53 ++++++++++---------
- 1 file changed, 28 insertions(+), 25 deletions(-)
+ Documentation/devicetree/bindings/pwm/intel,keembay-pwm.yaml | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/pwm/allwinner,sun4i-a10-pwm.yaml b/Documentation/devicetree/bindings/pwm/allwinner,sun4i-a10-pwm.yaml
-index 800d511502c4..e93e935564fb 100644
---- a/Documentation/devicetree/bindings/pwm/allwinner,sun4i-a10-pwm.yaml
-+++ b/Documentation/devicetree/bindings/pwm/allwinner,sun4i-a10-pwm.yaml
-@@ -52,33 +52,36 @@ properties:
-   resets:
-     maxItems: 1
- 
--if:
--  properties:
--    compatible:
--      contains:
--        const: allwinner,sun50i-h6-pwm
--
--then:
--  properties:
--    clocks:
--      maxItems: 2
--
--    clock-names:
--      items:
--        - const: mod
--        - const: bus
--
--  required:
--    - clock-names
--    - resets
--
--else:
--  properties:
--    clocks:
--      maxItems: 1
-+
-+allOf:
-+  - $ref: pwm.yaml#
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: allwinner,sun50i-h6-pwm
-+
-+    then:
-+      properties:
-+        clocks:
-+          maxItems: 2
-+
-+        clock-names:
-+          items:
-+            - const: mod
-+            - const: bus
-+
-+      required:
-+        - clock-names
-+        - resets
-+
-+    else:
-+      properties:
-+        clocks:
-+          maxItems: 1
- 
- required:
--  - "#pwm-cells"
+diff --git a/Documentation/devicetree/bindings/pwm/intel,keembay-pwm.yaml b/Documentation/devicetree/bindings/pwm/intel,keembay-pwm.yaml
+index ff6880a02ce6..ec9f6bab798c 100644
+--- a/Documentation/devicetree/bindings/pwm/intel,keembay-pwm.yaml
++++ b/Documentation/devicetree/bindings/pwm/intel,keembay-pwm.yaml
+@@ -31,7 +31,6 @@ required:
    - compatible
    - reg
    - clocks
+-  - '#pwm-cells'
+ 
+ additionalProperties: false
+ 
 -- 
 2.32.0
 
