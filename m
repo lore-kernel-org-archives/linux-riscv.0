@@ -4,99 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1EFDC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 03:42:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84E6FC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 08:17:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=TrBe9Yr6hRGMVaexyjARGWh7G5fq80fZVqAriTQAcTY=; b=4EbtS+dmyS4Ad7Vv22pr/yqaB7
-	Z0P2R7uzb+VYV/ZwIIHF39RJdmm1WleZzur+8FFZTKqA776Yjjma2BRAsxYNNXy4l+IwnRfW5jU48
-	wLU2eF4ZzlhnqLK5pFdSBp567Nm/Z7lP7cyLMsn+1DO7amnAdnHuHSvxtXVmMOWUghiYUu47Pbiwo
-	glzOaSJhgKhPWfQ1t/cGK5mmmYGQQSCF7RrtGqfvwSYmEPVgOE6mctXks97eqNELPI7sCsncxKnBg
-	W+6tiS6XPtXGGGlycLaJI75TVmpE58rZa06MX3knArJFbm5f1qEMllh8Ay2uddouJgCZkZLKFWJQK
-	dfHaBmLg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+XIOPfQ3wwG285octbYZ6W2wI+SuQRl9VW/nZiDmI4A=; b=nZhCMW/rNGdKqD
+	b7hL2/vAPtoamdkTAd/Wcb5J/i0MwuItSaozMuY0z3dWg3+4+NegEXsYvXbiZDa/OrQAWdTepSlSV
+	zhpgVTj/DkBrJeVFtZF47XegxMJ8Pzyh6brDd9Y14D0+n/1FdkGNHGNTftsx0wQWwf/OaRTiQO01q
+	IQaavONvCiyqFu9SLbCxYiC17zc3A+gS5Sr18yPpGYMUpImJdm0TMlinZdFecyK5KmhRHY/SUZYKl
+	IsqDQe5LXrsrEa+tqMFf32lEKe7qQH2PI+MmVLwUbR50BH3SYy3kI9MODsthsq18WFb+0SsnypHD0
+	E9p3pWNPq74zvFRVCVvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJSFq-00DAXI-PZ; Mon, 14 Feb 2022 03:42:22 +0000
-Received: from new2-smtp.messagingengine.com ([66.111.4.224])
+	id 1nJWXa-00DpPF-Df; Mon, 14 Feb 2022 08:16:58 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJSFo-00DAVc-DQ
- for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 03:42:21 +0000
-Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
- by mailnew.nyi.internal (Postfix) with ESMTP id 9F15B580218;
- Sun, 13 Feb 2022 22:42:14 -0500 (EST)
-Received: from mailfrontend2 ([10.202.2.163])
- by compute4.internal (MEProxy); Sun, 13 Feb 2022 22:42:14 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
- cc:cc:content-transfer-encoding:content-type:date:date:from:from
- :in-reply-to:in-reply-to:message-id:mime-version:references
- :reply-to:sender:subject:subject:to:to; s=fm2; bh=JEibxPGvz4zlvz
- 8cnCgwsSaVEcxlPUvz1ybP2YVe2lw=; b=I5wIQ5mnPRhiGXUuQ5NkhC/FzDfS0R
- 8fAA0gG1hjZGSvhsgvrJeGhM3o/9QvE5RD8nLaDxIdgED9yOlpsJNv2ZKxQejCVK
- Qwp7M2YdhVPEnxbIgm8sHBq7kMNDgBKtgr8KXGgU6K5uzyR3nhwN4ZxymO1GzMSd
- OLVDLrO0fxSx4ZxqhrMI1FHABal3UQlA6RyzyvG05a3KYsHIepiysrhWOmW9SiMt
- K+pkGbgcA4MUiLWA2bZ1VT/XhMmP8sb+kypG2U06IFMyji3fNGP8q/IDD6+Dh3bV
- YOFQw7BkNrHgc5+59aSjhK6Bz+BnlkqV+w57Wa8EPmq9EltpRb829Feg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:cc:content-transfer-encoding
- :content-type:date:date:from:from:in-reply-to:in-reply-to
- :message-id:mime-version:references:reply-to:sender:subject
- :subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
- :x-sasl-enc; s=fm2; bh=JEibxPGvz4zlvz8cnCgwsSaVEcxlPUvz1ybP2YVe2
- lw=; b=UEJaJz8SjMfnmljMJTY+Rkas67dWAiQF88GmhwQuUEVinalhmW1pMnUDa
- rYzl90E0rWFAK1mx6VAq8G1Oh2ozQ2RhMS0i6sD32j2gtAGlRi54/R8gWJiUeF9o
- xfrNKL4gXNcpRrDyNJwoE4rGG9SA/SmttoSVAWm3LzbHM5jh0Z7z6yLj1FLL3hcU
- +2LkZEPO0OKDUd/QOu1+nVb7N17YjIF5XUo/W22/krAA5NEQEedU4ChYNbmFurD2
- TSPwptED95gwh2pn3gkdgDlbI7Zbiv4EDG+UJ7ABK0nxMHAF28NwupOtKmYnqop7
- h8DSPLv9N2/76gQvNvZnMYodNqN1Q==
-X-ME-Sender: <xms:lM8JYkN5kh3nhaAOhB1TJimIF3LmXPrlpVpoMcEOPR4hGGAOlqN5Kw>
- <xme:lM8JYq_vCVxhCRkoKlkfSOBY0l548IBdpyVBqDtu5DIx3n_W4n-RouMnARnpHKu38
- FigdL29sudWQJ-O7Q>
-X-ME-Received: <xmr:lM8JYrSfRszXnqyYZ0jf5bz0NgkvepYpRtlW_dXNo1cVw6Ig8dxPkULf_T36XqcRxQvPJbTURRIojSojcC4t77_jDhbf-ofYwao_rsvNgFnxU_xmC8_DcbHUIg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvvddrjedugdeivdcutefuodetggdotefrodftvf
- curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
- uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
- fjughrpefuvfhfhffkffgfgggjtgfgsehtjeertddtfeejnecuhfhrohhmpefurghmuhgv
- lhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenucggtf
- frrghtthgvrhhnpefgveffteelheffjeeukedvkedviedtheevgeefkeehueeiieeuteeu
- gfettdeggeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhroh
- hmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
-X-ME-Proxy: <xmx:lc8JYssjYQThyR8pU_bHiJfk-tsnG2muWnIl2j4u6n8GvKijTGk_Og>
- <xmx:lc8JYsdj7GgEKVoSL45LvQPDiVWsXiNlYdhC7t8yZtyj_iw6CLwGSQ>
- <xmx:lc8JYg3ipRwLyyUgAJ0Z4hJHDZJZ99_lXkKMw203rEvUHQuuZay9rQ>
- <xmx:ls8JYlMZC8CUIWe7QlfpHlGy8qd0_udfZJuldURA_j3LkPJVmNjFgQ>
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 13 Feb 2022 22:42:11 -0500 (EST)
-Subject: Re: [PATCH v6 14/14] riscv: add memory-type errata for T-Head
-To: Heiko Stuebner <heiko@sntech.de>, palmer@dabbelt.com,
- paul.walmsley@sifive.com, aou@eecs.berkeley.edu
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, robh+dt@kernel.org, wefu@redhat.com,
- liush@allwinnertech.com, guoren@kernel.org, atishp@atishpatra.org,
- anup@brainfault.org, drew@beagleboard.org, hch@lst.de, arnd@arndb.de,
- wens@csie.org, maxime@cerno.tech, gfavor@ventanamicro.com,
- andrea.mondelli@huawei.com, behrensj@mit.edu, xinhaoqu@huawei.com,
- huffman@cadence.com, mick@ics.forth.gr, allen.baum@esperantotech.com,
- jscheid@ventanamicro.com, rtrauben@gmail.com, cmuellner@linux.com,
- philipp.tomsich@vrull.eu
-References: <20220209123800.269774-1-heiko@sntech.de>
- <20220209123800.269774-15-heiko@sntech.de>
-From: Samuel Holland <samuel@sholland.org>
-Message-ID: <0f5e7f77-abe9-046e-7296-2f22cb7e5b86@sholland.org>
-Date: Sun, 13 Feb 2022 21:42:11 -0600
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+ id 1nJWXW-00DpJD-O4
+ for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 08:16:56 +0000
+Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com
+ [209.85.218.71])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 1EE81402DF
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 08:16:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1644826605;
+ bh=Vx5pgZq+wTDk2cXNM++1rpL4of1cb6TeLTw59n/JqH4=;
+ h=From:To:Subject:Date:Message-Id:In-Reply-To:References:
+ MIME-Version;
+ b=tl8dZp90zTN/3EA0rvFUUsZ/TaCS/1BYBo2ZytSqcEgUKVNNGj13npXlHNH2OzXmf
+ N13k/v/AEBmU5eWO40/75lsP6qhTxJXjB94Ok2IV+jA6v31/T8grK3MvgGyz6pQ/Q8
+ hnVWXvh4liqTeDcaHS60FmwKG3O7rtxC63YpXkvMcd1gnwUh5+xvRVnQkd/Izixzij
+ 0TN8yvW8fR0PdsdqLGlRI/ke6gVLl9ZNh6dvAkSvIMcoIoIXsGDe33OrDUphRvsjC1
+ 7zf9suvoGsl6rJeMAywggUX8VAZxK8CXjg2snbq4KSP34PA4n8mXfaNNODujuPrge/
+ RL0D3muNxk9iQ==
+Received: by mail-ej1-f71.google.com with SMTP id
+ sa22-20020a1709076d1600b006ce78cacb85so594046ejc.2
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 00:16:45 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=Vx5pgZq+wTDk2cXNM++1rpL4of1cb6TeLTw59n/JqH4=;
+ b=UrVsJJfnkUhwLsTRHxXaKM216/35rxLnOX9A/F7jEiMntNt2tK2PEqeS21zoiH91iW
+ 9vQE7gR3Nj3VIe8S8RHp1uzHsKT85NwHJxF2rXlqceYc1/f3jZy5IyHvc1S++RZeEW3C
+ 9KOUbrvauIWgBTR7YKZdeEZntXt5IhsnXgpGIYTBzcIQejk8BK6hsX0THBIGlql9u0fK
+ nYX3Qkcr/9hq6xgPxgvDyAcOimfVHChespRY9JrZC4CsHHL/RSJHxdoo3aDKsLBqixfx
+ zyptFaj38clsaw42Vwxw0FkxmdAVGc4l/DrdBBrvOolBUPdE+tEp0wGiIYkmtsnkVMWz
+ pjsA==
+X-Gm-Message-State: AOAM5305gd4VrXV7YxpsTcpWezEUa0aAQHRA0csYubVpDIDE/nC53w6n
+ qMnA0FLQ64UxsX8/gZlfywtRt0KDnyyCxSHwme1FemxRoJtR14L8wwBY2uc+Xp2BMFUcnpwzZM6
+ 2Y+vjcDoakaL4HA0pCPnimOTEV0033KQ2M75l76SAtvCu6Q==
+X-Received: by 2002:a17:907:86a1:: with SMTP id
+ qa33mr10593901ejc.516.1644826604833; 
+ Mon, 14 Feb 2022 00:16:44 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJzHLCvj9EOOMBQpfPrsB+GOXcyF6v8PbErxtuwvlpLnjLHBW4y7stXTy+wJs5s8ptFN23VAWQ==
+X-Received: by 2002:a17:907:86a1:: with SMTP id
+ qa33mr10593877ejc.516.1644826604628; 
+ Mon, 14 Feb 2022 00:16:44 -0800 (PST)
+Received: from localhost.localdomain (xdsl-188-155-168-84.adslplus.ch.
+ [188.155.168.84])
+ by smtp.gmail.com with ESMTPSA id t21sm3363642edd.74.2022.02.14.00.16.43
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 14 Feb 2022 00:16:43 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+To: Thierry Reding <thierry.reding@gmail.com>,
+ =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+ Lee Jones <lee.jones@linaro.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Florian Fainelli <f.fainelli@gmail.com>,
+ bcm-kernel-feedback-list@broadcom.com, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
+ Heiko Stuebner <heiko@sntech.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Anson Huang <anson.huang@nxp.com>,
+ Vijayakannan Ayyathurai <vijayakannan.ayyathurai@intel.com>,
+ Rahul Tanwar <rtanwar@maxlinear.com>, Jeff LaBundy <jeff@labundy.com>,
+ Yash Shah <yash.shah@sifive.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Vignesh R <vigneshr@ti.com>,
+ Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-riscv@lists.infradead.org
+Subject: [PATCH 03/15] dt-bindings: pwm: intel, lgm: include generic pwm schema
+Date: Mon, 14 Feb 2022 09:15:53 +0100
+Message-Id: <20220214081605.161394-3-krzysztof.kozlowski@canonical.com>
+X-Mailer: git-send-email 2.32.0
+In-Reply-To: <20220214081605.161394-1-krzysztof.kozlowski@canonical.com>
+References: <20220214081605.161394-1-krzysztof.kozlowski@canonical.com>
 MIME-Version: 1.0
-In-Reply-To: <20220209123800.269774-15-heiko@sntech.de>
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220213_194220_558502_7D92D5C4 
-X-CRM114-Status: UNSURE (   7.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220214_001654_938879_8D350B58 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,16 +124,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/9/22 6:38 AM, Heiko Stuebner wrote:
-> Some current cpus based on T-Head cores implement memory-types
-> way different than described in the svpbmt spec even going
-> so far as using PTE bits marked as reserved.
-> 
-> Add the T-Head vendor-id and necessary errata code to
-> replace the affected instructions.
-> 
-> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-Tested-by: Samuel Holland <samuel@sholland.org>
+Include generic pwm.yaml schema, which enforces PWM node naming and
+brings pwm-cells requirement.
+
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+---
+ Documentation/devicetree/bindings/pwm/intel,lgm-pwm.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/pwm/intel,lgm-pwm.yaml b/Documentation/devicetree/bindings/pwm/intel,lgm-pwm.yaml
+index 11a606536169..59d7c4d864c1 100644
+--- a/Documentation/devicetree/bindings/pwm/intel,lgm-pwm.yaml
++++ b/Documentation/devicetree/bindings/pwm/intel,lgm-pwm.yaml
+@@ -9,6 +9,9 @@ title: LGM SoC PWM fan controller
+ maintainers:
+   - Rahul Tanwar <rtanwar@maxlinear.com>
+ 
++allOf:
++  - $ref: pwm.yaml#
++
+ properties:
+   compatible:
+     const: intel,lgm-pwm
+-- 
+2.32.0
+
 
 _______________________________________________
 linux-riscv mailing list
