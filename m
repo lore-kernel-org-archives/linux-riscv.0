@@ -4,26 +4,26 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26849C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 17:01:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 249FEC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 17:02:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C1YhdCzdV0a/0Pgx0rkgIph9uel/syB3IhfDgXQO4qo=; b=LYLUjWIRoNcClB
-	qluQfSZFTDRNG0VlEs2j9/VAu6Rt2lKITXKVyBZe8UJCrei+rTPuTJHcfjWnZllHAPdJ6FSqVAnZK
-	IFgScyCb/A+kENR2yrirmBzHkZS8RvAxjwuqn+s53LGVv4qVpnZRo0LMKxW74sK9dilRJtxI80/o2
-	ezq5DbYAzQBzv76Y8nctda3Z5X9IalIcNX+u88P94T5lmi+XSRqq6U5k162NpYxYbRNR6iJ/nQX0D
-	bpsh/mHBsA1SGws89ybtZNdBVIJIhso8Ndlz5lJcqXywen9FPKRNZBWx6aQ0DnqdzEjLXEagLNYHV
-	OXafxnqWi/s5AomPY+yw==;
+	List-Owner; bh=8c01ri8ktpf/96JuXtVERGTiyQNpNCkJGphVw1611gQ=; b=ybCayvaCQP3X1L
+	aXhDOR2TXt4p0dcIO8a1R8Y8bzj4Bs6zqCIMn9kwIf4m10NqqA9NCkpDs08dZF1GcPePXbbiAGL/B
+	3dmW8nOUMCb0/ZvwQawRZfRxCb8oQVP38cd5EQMgaXlo2Huf4dZlIF3ZC370Y0x0ZC4q+v0dzjB45
+	ejen3vXRjCcCUMn4+K2/4rhjvUxZFUr4al79I5DtJ5FEoMzNMRVQeXeU8ykEpvg5K+dNPEbewfTVv
+	dzGT1hm2CfgIOIRyI5R0eOBq0zR3DbkOihtwSwV6QHFubHqNA0KTmNbhOr7wuJDPzprQT0WsZbTSL
+	y/YgShrktgikWEQ2enZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJeiv-00GF8l-L4; Mon, 14 Feb 2022 17:01:13 +0000
+	id 1nJejw-00GFpN-82; Mon, 14 Feb 2022 17:02:16 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.94.2 #2 (Red
- Hat Linux)) id 1nJeis-00GF7n-M5; Mon, 14 Feb 2022 17:01:10 +0000
-Date: Mon, 14 Feb 2022 09:01:10 -0800
+ Hat Linux)) id 1nJejt-00GFoH-Dz; Mon, 14 Feb 2022 17:02:13 +0000
+Date: Mon, 14 Feb 2022 09:02:13 -0800
 From: Christoph Hellwig <hch@infradead.org>
 To: Arnd Bergmann <arnd@kernel.org>
 Cc: Linus Torvalds <torvalds@linux-foundation.org>,
@@ -44,16 +44,16 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
  linux-arm-kernel@lists.infradead.org, monstr@monstr.eu,
  tsbogend@alpha.franken.de, linux-parisc@vger.kernel.org,
  nickhu@andestech.com, linux-mips@vger.kernel.org,
- stable@vger.kernel.org, dinguyen@kernel.org, ebiederm@xmission.com,
- richard@nod.at, akpm@linux-foundation.org,
- linuxppc-dev@lists.ozlabs.org, davem@davemloft.net
-Subject: Re: [PATCH 03/14] nds32: fix access_ok() checks in get/put_user
-Message-ID: <YgqK1ihlJvRFHJ9h@infradead.org>
+ dinguyen@kernel.org, ebiederm@xmission.com, richard@nod.at,
+ akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org,
+ davem@davemloft.net
+Subject: Re: [PATCH 04/14] x86: use more conventional access_ok() definition
+Message-ID: <YgqLFYqIqkIsNC92@infradead.org>
 References: <20220214163452.1568807-1-arnd@kernel.org>
- <20220214163452.1568807-4-arnd@kernel.org>
+ <20220214163452.1568807-5-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220214163452.1568807-4-arnd@kernel.org>
+In-Reply-To: <20220214163452.1568807-5-arnd@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,20 +70,11 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 14, 2022 at 05:34:41PM +0100, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> The get_user()/put_user() functions are meant to check for
-> access_ok(), while the __get_user()/__put_user() functions
-> don't.
-> 
-> This broke in 4.19 for nds32, when it gained an extraneous
-> check in __get_user(), but lost the check it needs in
-> __put_user().
+On Mon, Feb 14, 2022 at 05:34:42PM +0100, Arnd Bergmann wrote:
+> +#define __range_not_ok(addr, size, limit)	(!__access_ok(addr, size))
+> +#define __chk_range_not_ok(addr, size, limit)	(!__access_ok((void __user *)addr, size))
 
-Can we follow the lead of MIPS (which this was originally copied
-from I think) and kill the pointless __get/put_user_check wrapper
-that just obsfucate the code?
+Can we just kill these off insted of letting themm obsfucate the code?
 
 _______________________________________________
 linux-riscv mailing list
