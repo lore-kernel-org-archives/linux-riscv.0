@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C719C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 21:23:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA6EFC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 21:23:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+XIOPfQ3wwG285octbYZ6W2wI+SuQRl9VW/nZiDmI4A=; b=LcUAZ/jkCNKRna
-	wJORGuW+UJk0Oo+NZZIG+I5/4TpFG44+lAIz4jWVIycrxuXmD8JWnqlevNlJg1GYKYlmtWAw6K8o6
-	BsIs5KJfUTJuXM+Xc3zbEp3cIas1ERUd1/JBxXKJlft/zMjI1xm048kPaDWw6dP+VNC+c/S2dQDqc
-	KDh2egCmr4nMnW7+j8dk02fQUSZuLoQO7HYRuFdKgxZ0l5r0Zd3sEMHDSPMb7/k3XbUmMBDqmYncq
-	FsQfF1OKNvdpgtrPF7Rv/0ZItrYfYfjLhBWjifTw1krxs6UgoHDKNRXEUz4CB1m4iovLmygLAdmD7
-	wcKyVBpwQZmCoroClcrQ==;
+	List-Owner; bh=e3oX4+pGpUl0SuQS8w+dboy245noqthSr32fnfm5ZLk=; b=eUjVOpMvUiHAUb
+	XretaiywDYn78TmvX7Ps8JlPHGvAy2fL7REOor7/m6J1k7nqIpW9q7pda2Bi/8xhnt+hs82Za+QFM
+	4bMTT6FTK1KiGeiMmkY45nmapt09ZVMCzdvbbZe7D2cG8uFgg2uzqgQtsVLx/UAM6FTkZMgFHUZsk
+	V04thLMlz2ZZUdYbol7GLdza90vmbohRneXdD3nWrOLTLjjmbAs4ygBJvsjxOteffgaqCwlg+xzJu
+	cFlaLNtnUbg6JPqsd1m6sYPPBh894r4N+OLUxyCY3iuJo8Q87Jt0xkJMb8WJkhyHMgsIe25OMnaQ6
+	mGZtsldDUteUtTmwmhqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJiok-00GyyD-NZ; Mon, 14 Feb 2022 21:23:30 +0000
+	id 1nJioq-00Gz0l-5P; Mon, 14 Feb 2022 21:23:36 +0000
 Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJinN-00GyAD-E4
- for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 21:22:06 +0000
-Received: from mail-ej1-f69.google.com (mail-ej1-f69.google.com
- [209.85.218.69])
+ id 1nJinL-00Gy8t-B2
+ for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 21:22:07 +0000
+Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com
+ [209.85.208.69])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 2B929407C1
- for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 21:22:04 +0000 (UTC)
+ by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id C1A88407C2
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 21:22:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1644873724;
- bh=Vx5pgZq+wTDk2cXNM++1rpL4of1cb6TeLTw59n/JqH4=;
+ s=20210705; t=1644873721;
+ bh=11HYmRlx8dE2WpuAnKJ9eGJzYR6C7S08K2HSgZ9haWY=;
  h=From:To:Subject:Date:Message-Id:In-Reply-To:References:
  MIME-Version;
- b=bmLRHw85gqw8wok9EReyAa+vURzmKNoVTAS1Gmmh0QXhzcY4HXzEGqpBSdjwnmpTl
- CwuHKNJMV/NeIGy6Gbl1VT7MrcpcOT7e3buhCka08ugmem9W6Dh7wPZHbvbqC/E0Wx
- MmJuzntmYz0UiMM27SIUYC4ux37SMH/B2OGsQWEkl/6s6yJ7Ac++SQXantgpih5LWO
- j9kIWtBMWS8XHVTONkL/MNE3IYZox5OxVb33TwcukZLBBCLEJSpE4o/NjtRG72obH5
- /MBDtvgYlkUmlV458eOJHUBuV/9s0Ai7PEO1fXjY0dxN8IYKxQa9CSDKlxIknmoOb4
- cabgrUg8bSsxQ==
-Received: by mail-ej1-f69.google.com with SMTP id
- qa30-20020a170907869e00b006cee5e080easo1340926ejc.3
- for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 13:22:04 -0800 (PST)
+ b=D4Isp002T/68PG64fsV9tYAp3xpaOjws7fI7XFSQ893gibUR1y738SCL0X/ApK89C
+ ZjZVzAuvOl6tvexOPC4HiZm+7laa8ko4DenvpCGYV97CEEqqwRKrE2j/eCP1z43P6P
+ Hb/l99QuHjpq15Z0zyxQw/ussYDurUmlR4kosJtEvXKuawCrFBHZTA6g1gSTnL/kXs
+ lQlapgWf4B7o3rRn99QQTkoZtCAgW+pDTutN6Oev0ciNdxgG82bBsCvHN8tteLz3Ao
+ 5XR304tAyYR5H7mJuJS7qnKo2jLRJSr8ZY0QYpJYfNJ2FNSRw3/2Di2knIFEemElVh
+ mp6tSO+ZfknVw==
+Received: by mail-ed1-f69.google.com with SMTP id
+ d11-20020a50c88b000000b00410ba7a14acso2404919edh.6
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 13:22:01 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=Vx5pgZq+wTDk2cXNM++1rpL4of1cb6TeLTw59n/JqH4=;
- b=eXKW8J5jVlIbxXrMTFOgaBT5yHUOK7gaRH6qyNEp7z746SaPrYS3A8r994jZ022ccV
- DMby/F9qrg16FKtR45n5C21p8HgcHntcdLGLymf1ex6PRUUy2TOPFZVHw3KUABm+uUyb
- px2JAl3gaHnB55V9fR7H7Kzb2zXaXrRe+jstHWIj8U/DBhTUNj3pg98cNbbWSsxoUqY+
- 3DBm6AHE40AVhpPjP4dOjkwgM3VEp88NIWphaOoyOs2QbiO/ZprK5oM3dBuLfWbmsDXj
- qPFqTNiVZJwOWPaqphvmRYayBa7Vzjo1SmNNFexSlAEmv43FOCKJFFZRf1uK7m9TVs3K
- zXOQ==
-X-Gm-Message-State: AOAM530wWTt/GWiX9CBZJDb8NWx6LMDYzp2nsbuBBj5t/UCzBYpZ1fd4
- ZyDDDfqL1ZKhZYNq8cr0YZiM+XH/E5B8WCCF1GiZ9EIucd0dGVj5DBN5/f1q6QbxiCL7GFbc4u5
- bwRMjhtACCv1KEV2y1pkivNNooSuPUCimW+hvbt2omnv0NQ==
-X-Received: by 2002:a17:907:d17:: with SMTP id
- gn23mr511695ejc.719.1644873723788; 
- Mon, 14 Feb 2022 13:22:03 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJzn9EFz2R0CbHcclhbUA8j9QL+yRr4fQpPA+X8j3jV9fWd1mKh939ozog2RabglBFb1m4mDQw==
-X-Received: by 2002:a17:907:d17:: with SMTP id
- gn23mr511652ejc.719.1644873723619; 
- Mon, 14 Feb 2022 13:22:03 -0800 (PST)
+ bh=11HYmRlx8dE2WpuAnKJ9eGJzYR6C7S08K2HSgZ9haWY=;
+ b=k2eqA9NLwQhucMyQRTK/YUizeONQMmpSqiNfQzkPu9FS2loQzNdTE3vpRco08pLzyd
+ Dj+7HwdPraxqOifL0+FB7gnWJ1PgYXGpK+iAyCBj0ye2QTZCZLxkkStL+XSEiTcZCeaw
+ PxiJYOL/c95U40wYGyEA6fB3/21PYWndQU3QZNigYkgKjs1m+MCH/waOfKoJo4m14PAC
+ WdZJHBntUduWqDUxo94YyCFa5pIDRHEcPiJ47vw8VvObA3mvtKB2Zst6y7hitpMB6bP0
+ nbHuZBquglIfg8ngCBmSH/c4GteQ8g+ZSMLPX38Ve8bzI01kDw1MBafQX77JiKYeSe7U
+ Mbjg==
+X-Gm-Message-State: AOAM530scroMaEFrX1XArjhR7793r+hmUKxne5x23dtW+Gy/6vjgmlDp
+ r6viRy1TqpXQOyDtVRSh35WeNTh5RNxGCvQISnIluKjxgr9O0Dy7XRlAvdMr2kgd0f65lXuUGyg
+ LpCcUfcZi8UNj6uppO9og1IT6a1HSHXNQJ/9xKS9pi60SfA==
+X-Received: by 2002:a17:906:8a83:: with SMTP id
+ mu3mr507541ejc.699.1644873721204; 
+ Mon, 14 Feb 2022 13:22:01 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJzBRv82g+ePgMF2+U8SP74RMmwo7vMWesKHUBo0ELgxKNYYBtnBlWhrBbL5O1DcvkqWwBUiLQ==
+X-Received: by 2002:a17:906:8a83:: with SMTP id
+ mu3mr507532ejc.699.1644873721039; 
+ Mon, 14 Feb 2022 13:22:01 -0800 (PST)
 Received: from localhost.localdomain (xdsl-188-155-168-84.adslplus.ch.
  [188.155.168.84])
- by smtp.gmail.com with ESMTPSA id v24sm2327203ejf.7.2022.02.14.13.22.01
+ by smtp.gmail.com with ESMTPSA id v24sm2327203ejf.7.2022.02.14.13.21.59
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 14 Feb 2022 13:22:02 -0800 (PST)
+ Mon, 14 Feb 2022 13:22:00 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
@@ -98,17 +98,16 @@ To: Thierry Reding <thierry.reding@gmail.com>,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
  linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
  linux-riscv@lists.infradead.org
-Subject: [PATCH v2 03/15] dt-bindings: pwm: intel,
- lgm: Include generic pwm schema
-Date: Mon, 14 Feb 2022 22:21:42 +0100
-Message-Id: <20220214212154.8853-4-krzysztof.kozlowski@canonical.com>
+Subject: [PATCH v2 02/15] dt-bindings: pwm: imx: Include generic pwm schema
+Date: Mon, 14 Feb 2022 22:21:41 +0100
+Message-Id: <20220214212154.8853-3-krzysztof.kozlowski@canonical.com>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20220214212154.8853-1-krzysztof.kozlowski@canonical.com>
 References: <20220214212154.8853-1-krzysztof.kozlowski@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_132205_639784_5857965D 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20220214_132203_561711_215EBA7B 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,23 +129,54 @@ brings pwm-cells requirement.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 ---
- Documentation/devicetree/bindings/pwm/intel,lgm-pwm.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+ Documentation/devicetree/bindings/pwm/imx-pwm.yaml     | 4 +++-
+ Documentation/devicetree/bindings/pwm/imx-tpm-pwm.yaml | 4 +++-
+ 2 files changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/pwm/intel,lgm-pwm.yaml b/Documentation/devicetree/bindings/pwm/intel,lgm-pwm.yaml
-index 11a606536169..59d7c4d864c1 100644
---- a/Documentation/devicetree/bindings/pwm/intel,lgm-pwm.yaml
-+++ b/Documentation/devicetree/bindings/pwm/intel,lgm-pwm.yaml
-@@ -9,6 +9,9 @@ title: LGM SoC PWM fan controller
+diff --git a/Documentation/devicetree/bindings/pwm/imx-pwm.yaml b/Documentation/devicetree/bindings/pwm/imx-pwm.yaml
+index 379d693889f6..b3da4e629341 100644
+--- a/Documentation/devicetree/bindings/pwm/imx-pwm.yaml
++++ b/Documentation/devicetree/bindings/pwm/imx-pwm.yaml
+@@ -9,6 +9,9 @@ title: Freescale i.MX PWM controller
  maintainers:
-   - Rahul Tanwar <rtanwar@maxlinear.com>
+   - Philipp Zabel <p.zabel@pengutronix.de>
  
 +allOf:
 +  - $ref: pwm.yaml#
 +
  properties:
-   compatible:
-     const: intel,lgm-pwm
+   "#pwm-cells":
+     description: |
+@@ -59,7 +62,6 @@ properties:
+     maxItems: 1
+ 
+ required:
+-  - "#pwm-cells"
+   - compatible
+   - reg
+   - clocks
+diff --git a/Documentation/devicetree/bindings/pwm/imx-tpm-pwm.yaml b/Documentation/devicetree/bindings/pwm/imx-tpm-pwm.yaml
+index fe9ef42544f1..8bef9dfeba9a 100644
+--- a/Documentation/devicetree/bindings/pwm/imx-tpm-pwm.yaml
++++ b/Documentation/devicetree/bindings/pwm/imx-tpm-pwm.yaml
+@@ -13,6 +13,9 @@ description: |
+   The TPM counter and period counter are shared between multiple
+   channels, so all channels should use same period setting.
+ 
++allOf:
++  - $ref: pwm.yaml#
++
+ properties:
+   "#pwm-cells":
+     const: 3
+@@ -34,7 +37,6 @@ properties:
+     maxItems: 1
+ 
+ required:
+-  - "#pwm-cells"
+   - compatible
+   - reg
+   - clocks
 -- 
 2.32.0
 
