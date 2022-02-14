@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F774C433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 08:18:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 806E9C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 08:18:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e3oX4+pGpUl0SuQS8w+dboy245noqthSr32fnfm5ZLk=; b=1o0JOBfWBudr6z
-	m2HU0Jc7+laQpEXViPWRGdyrVL+bci0fh/Fn4mAE3YxwoNZltpRwiJnsY1LyOLj161h3cmEy25ovw
-	XTIyF6xGpaOGj5nCGT7YXivOwtRbdE/rvnBZmGM/aN9AJvN+UpD+CvNUgE4n8/FZ1CkX7FBk9i+B3
-	fNZIehO2eyphOF/P88aKvMDJarToApKxZNht27k/jQhGxCTqbRrEQ8msAfPB2EgCPnT0/G0d0Pokn
-	1YtAyTBkMnEutBVJIlOW6aRzTytqFXSvZrNObaJAbjEZKlm07pbFI/CPwZKtNi2ih/zrzuVyU7GrG
-	6/vsV0odKLzbszTbz8SQ==;
+	List-Owner; bh=hyw+TM8Xtv3TYNNmOUCcOTMNIisdHzZdTvHCiVXXFQU=; b=rn/Xj1hpPyqPzy
+	2ZdYJRWWxo5HcF3jNGYxDas3dQT8Sy+joTUkoF34PLF9cFbMEbC6wxAzySZHBNDbQAPPzzZNF/urv
+	xQflEy1iHl9/Qh/SzrrN7/V+A24muCcKEXyphaTFVvgi6e6nsmXAxgQ1b2L6fJOPUM8/g96EY7iP/
+	Rkj6vG2oQ0ehFn5OyqJB1gH0S4fefpcxkbtrUxmrjkXXgn6e9vEzRnOE+tg1AYW6q8H+Zx873CXZm
+	TkiyZnlpqG8oof+wapWb7b70KWHwieHthimEeP3RMug6s0k/jSBadlmePWmvSkgPNzb4Id79lA8yW
+	0pUhZU4bad/ukvsvEoMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJWZH-00DqQ4-Gt; Mon, 14 Feb 2022 08:18:43 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1nJWZP-00DqUK-28; Mon, 14 Feb 2022 08:18:51 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJWXX-00DpLA-FN
- for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 08:16:59 +0000
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69])
+ id 1nJWXa-00DpON-Hp
+ for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 08:17:01 +0000
+Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com
+ [209.85.208.69])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 4417A407D0
- for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 08:16:54 +0000 (UTC)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 89E3840513
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 08:16:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1644826614;
- bh=11HYmRlx8dE2WpuAnKJ9eGJzYR6C7S08K2HSgZ9haWY=;
+ s=20210705; t=1644826612;
+ bh=rXTrjGyqcJ3i7iMn5DJq5QR/kPtoX00uoKdkO1EvWnA=;
  h=From:To:Subject:Date:Message-Id:In-Reply-To:References:
  MIME-Version;
- b=WZvre+ZYzwd58Bw5kuYwf7PiKLVnARh/6YPLtryxyM9oy82mFO5nzwsix40K9/LsT
- RUij05lgpJgdIhhHIuDruFuGRpgfzWMsmhbOLiDy1V/PImRvM0TG6JIk7IEQkimML/
- +rI1Ti9CpRx3AABMuB3gf1Gd9bAsIgJhbyY6Keb+lY8tYK3RP1pjAArrEgCqTGFadd
- QSZxlyMNtdtwt1hQHiw0ehbqP9TDaAkNeVDF4/UJPYtfCMNvnvGOEXmpPAfQEJ/7Um
- NgdWKsxdgeFI5fhh51JtuecZttlIzfxGt1CJjSMHTZqMGfsPSVFqK0CIPFRjm9rnVi
- N6mVYBDNn6PWw==
-Received: by mail-wr1-f69.google.com with SMTP id
- m8-20020adfa3c8000000b001e3381fdf45so6562735wrb.4
- for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 00:16:54 -0800 (PST)
+ b=XguQib6tqbQdHn2xFczwuTV9mnJe52komOQN1koFGv95u6P2pbaz8YonvIdH3LHsh
+ jphP7OwoTCNldHaEcDFVqdFgSXhiOO0jhZyhHIhK9Czvdfruq8jj+9jHY8nLiUo/gK
+ vqFOfdB2MZE+Lr1LRc0El3+TKF+aU2Wg3OPKhU7/jXMx62+u/BFnMVY/xJJVoRksYb
+ 1kpzFSRf+syeTny0SBg0unbbNn4t/ANMMILrFG8MdYOrEX0qY3SNmS0K3p3CxpLR22
+ gD0DrZlj6PLBVwRhiQZvOUaVOcKmmsKNXYTsddH3K1cRcfi4d6SDeaRudhJ6Zre+GF
+ InqLUFQfdzOUg==
+Received: by mail-ed1-f69.google.com with SMTP id
+ d11-20020a50c88b000000b00410ba7a14acso1120468edh.6
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 00:16:52 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=11HYmRlx8dE2WpuAnKJ9eGJzYR6C7S08K2HSgZ9haWY=;
- b=jmrE8ihwh5hIV2u3sIYDtbMZzBPOOPLoryk8fV7SmWcH8BV77js+cAvB8mimp4GIQy
- QTHdQxHsQpTgaiIeNeVEZD//zGDSdjjr2gRFmRTOPRS61deNk8NRilYn3sImpEYRnLKW
- c967dbQz33NF1NAoN3MHelZFmIS8xz0fINCPaIkA09GMy4qSMlHq0aEBiD65JGWk0XCD
- EKJ3m8PvD4AsTNCZ3sgfluAjzMPAsGBfWSxthQVPpH8qAXpiM/NvXqgfa0IwerN+gZFy
- A1Wao4iVAVJIy8nvzBMpWK5oB3uIW0+aztbr/bqQTXfWVYEfuqvstrb/stM+pATNtwNN
- 6+xA==
-X-Gm-Message-State: AOAM533mTda7CEKaa7woYi9J5i0E+0Qc71V/dKxD+2lGm609rpYB5FRO
- OK7C9WJnqEWBwhhHNhjKeLtQokvvmdG44BSSQn/St4GagOBhp8iNo5DZIeVFmQWQWrX1LoRKXKg
- Hb037OWrvukjgiIX+e65HermZMdZxB/uPYEBFL36uRP/oZg==
-X-Received: by 2002:a17:907:2849:: with SMTP id
- el9mr10391933ejc.201.1644826603352; 
- Mon, 14 Feb 2022 00:16:43 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJxLuiFn010/+iYNxCh4N8RZLwAdqCGm9AdinTqIbutozbZK/206AXtZbT7nvgxN/IZXfSJlXQ==
-X-Received: by 2002:a17:907:2849:: with SMTP id
- el9mr10391886ejc.201.1644826603108; 
- Mon, 14 Feb 2022 00:16:43 -0800 (PST)
+ bh=rXTrjGyqcJ3i7iMn5DJq5QR/kPtoX00uoKdkO1EvWnA=;
+ b=qzMzkJpPCiQcUqg7ym2tO+7dTJih/dvGYP4KYkOGifgmkjqZrQ7DzHtSzjSxReEW1/
+ y9lq18cjIDmXmZ+DVmwP6EIba7HIrmrpaJimbNzbAHXRdwhxBkxKm8dBpSrOeYKP/fIl
+ W315JAqJ8AmqMf4cvFwZMe2WLbzDD2BkufPbjQ+oCDKLHUm7EHpGTYFKWzYOjybcctla
+ Q3Hvmh8siOcvH3hvu5mJ+b37nqMgYJucJ7iIB+nJJb1hSlkVAgGf6PLLm3PqeGSZrf0e
+ DLicev2k3GOZo+Y0X3QsEcgB+l1lllPmcAN31vgAoXNGEMV+eB82s3HLbdAAh3V6aqVf
+ htrw==
+X-Gm-Message-State: AOAM531hq4jiENvx432CwARGjoUEqmqfgBwmAHVwlXntRQGY1Dncpnu3
+ 8tzj9TKns5uzoGyXLhkZUOJfnw1On9tv1dkwaGqkatA2jfzqO9KAhv9KvJDxJfza8FcjPQyAmdK
+ DsijyINZyWkJEwSMqNr+5ngclRPlBMtqpdciNWi+LQcoFow==
+X-Received: by 2002:a05:6402:c1a:: with SMTP id
+ co26mr8160860edb.442.1644826612062; 
+ Mon, 14 Feb 2022 00:16:52 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJwS9jQ9wGixoRtv+jL2Y9f4opmRogKX8GhZRCH8lW8x+aJuR/wbCf92drFjmIbNOrRWeCUm2w==
+X-Received: by 2002:a05:6402:c1a:: with SMTP id
+ co26mr8160813edb.442.1644826611896; 
+ Mon, 14 Feb 2022 00:16:51 -0800 (PST)
 Received: from localhost.localdomain (xdsl-188-155-168-84.adslplus.ch.
  [188.155.168.84])
- by smtp.gmail.com with ESMTPSA id t21sm3363642edd.74.2022.02.14.00.16.41
+ by smtp.gmail.com with ESMTPSA id t21sm3363642edd.74.2022.02.14.00.16.50
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 14 Feb 2022 00:16:42 -0800 (PST)
+ Mon, 14 Feb 2022 00:16:51 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
@@ -98,16 +98,17 @@ To: Thierry Reding <thierry.reding@gmail.com>,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
  linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
  linux-riscv@lists.infradead.org
-Subject: [PATCH 02/15] dt-bindings: pwm: imx: include generic pwm schema
-Date: Mon, 14 Feb 2022 09:15:52 +0100
-Message-Id: <20220214081605.161394-2-krzysztof.kozlowski@canonical.com>
+Subject: [PATCH 08/15] dt-bindings: pwm: renesas,
+ pwm: include generic pwm schema
+Date: Mon, 14 Feb 2022 09:15:58 +0100
+Message-Id: <20220214081605.161394-8-krzysztof.kozlowski@canonical.com>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20220214081605.161394-1-krzysztof.kozlowski@canonical.com>
 References: <20220214081605.161394-1-krzysztof.kozlowski@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_001655_652737_5C142305 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20220214_001658_835021_251F3287 
+X-CRM114-Status: GOOD (  11.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,54 +130,49 @@ brings pwm-cells requirement.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 ---
- Documentation/devicetree/bindings/pwm/imx-pwm.yaml     | 4 +++-
- Documentation/devicetree/bindings/pwm/imx-tpm-pwm.yaml | 4 +++-
- 2 files changed, 6 insertions(+), 2 deletions(-)
+ .../bindings/pwm/renesas,pwm-rcar.yaml        | 26 ++++++++++---------
+ 1 file changed, 14 insertions(+), 12 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/pwm/imx-pwm.yaml b/Documentation/devicetree/bindings/pwm/imx-pwm.yaml
-index 379d693889f6..b3da4e629341 100644
---- a/Documentation/devicetree/bindings/pwm/imx-pwm.yaml
-+++ b/Documentation/devicetree/bindings/pwm/imx-pwm.yaml
-@@ -9,6 +9,9 @@ title: Freescale i.MX PWM controller
- maintainers:
-   - Philipp Zabel <p.zabel@pengutronix.de>
+diff --git a/Documentation/devicetree/bindings/pwm/renesas,pwm-rcar.yaml b/Documentation/devicetree/bindings/pwm/renesas,pwm-rcar.yaml
+index 7ea1070b4b3a..1c94acbc2b4a 100644
+--- a/Documentation/devicetree/bindings/pwm/renesas,pwm-rcar.yaml
++++ b/Documentation/devicetree/bindings/pwm/renesas,pwm-rcar.yaml
+@@ -59,21 +59,23 @@ properties:
+ required:
+   - compatible
+   - reg
+-  - '#pwm-cells'
+   - clocks
+   - power-domains
  
+-if:
+-  not:
+-    properties:
+-      compatible:
+-        contains:
+-          enum:
+-            - renesas,pwm-r8a7778
+-            - renesas,pwm-r8a7779
+-then:
+-  required:
+-    - resets
 +allOf:
 +  - $ref: pwm.yaml#
 +
- properties:
-   "#pwm-cells":
-     description: |
-@@ -59,7 +62,6 @@ properties:
-     maxItems: 1
++  - if:
++      not:
++        properties:
++          compatible:
++            contains:
++              enum:
++                - renesas,pwm-r8a7778
++                - renesas,pwm-r8a7779
++    then:
++      required:
++        - resets
  
- required:
--  - "#pwm-cells"
-   - compatible
-   - reg
-   - clocks
-diff --git a/Documentation/devicetree/bindings/pwm/imx-tpm-pwm.yaml b/Documentation/devicetree/bindings/pwm/imx-tpm-pwm.yaml
-index fe9ef42544f1..8bef9dfeba9a 100644
---- a/Documentation/devicetree/bindings/pwm/imx-tpm-pwm.yaml
-+++ b/Documentation/devicetree/bindings/pwm/imx-tpm-pwm.yaml
-@@ -13,6 +13,9 @@ description: |
-   The TPM counter and period counter are shared between multiple
-   channels, so all channels should use same period setting.
+ additionalProperties: false
  
-+allOf:
-+  - $ref: pwm.yaml#
-+
- properties:
-   "#pwm-cells":
-     const: 3
-@@ -34,7 +37,6 @@ properties:
-     maxItems: 1
- 
- required:
--  - "#pwm-cells"
-   - compatible
-   - reg
-   - clocks
 -- 
 2.32.0
 
