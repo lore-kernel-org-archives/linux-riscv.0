@@ -4,77 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABE9C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 20:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5AA7C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 20:17:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0oE020jrRc64jgldJtGvxv+c7A7CjmBBC/lfoM5HGSk=; b=ZaZ1Yjg46SwRWC
-	0KbNaX20ffZgvDy37eOFytEhpZWF8iZDlEw4mamZPk2sFHCztIQ7r9m1HlpbrPQERvOefouR1YRzw
-	dq9xo1vp98hnO9ZTCfQJazmmx8X+XKueD72AkfwKXRkXK4rzylUvr13QD80MPlGzdUIsb9gA12aGe
-	X52/h0gRiCsJ/ZBaddSNdci7x04MJnast/RLU9Re1mrT0DoicH5a2Cm+jZceX3uLl6Sft0gM+4NhE
-	kPZLEJ57saxkQL6eGq/B/NE/a/3LxV+pR8NctqmPf7ecEYR/hq3vPToL/4I+7E+93F0mZAncfxjJm
-	HYe0psh+7ftWVICK3FCg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=4z1prGwzX25ta+cuRJRo/OmbtiZpsJzAdNUyUXS2sDk=; b=eTXlQ2M8c1rcnM
+	D8FuyiiAMX2sYZLLf4XHDrPkp0yLY6sSh7XCLL+PGeLMtpjUmEMNal/1J/8wLsKivc5hxKe4QBiMu
+	xacj+bUhz76JjIyKkMOJjyf+8HrggCj6eOlWKbhByLkZMtLtBvIbtVla5LQ7/IH/ujGN3si5EcpWy
+	9q40cP1JfNz4hDlp/nyh5kC1s57itPmdIW0v0PrbGVlXSkkT1NOjsjfN5bBqZbEwZ95GgooMVDuw2
+	r0m52agh2HiatTqmaLJ5AWbFJEMB21p8SdmiEXKtad5tD8wv2PY/cpNPIqAtX9Qj0YUgu5RSXtG2f
+	9jehod68AgRmOcHETpxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJhkz-00GorZ-Tp; Mon, 14 Feb 2022 20:15:33 +0000
-Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJhkx-00GorB-E6
- for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 20:15:32 +0000
-Received: by mail-yb1-xb30.google.com with SMTP id j2so49814975ybu.0
- for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 12:15:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=Fc6F8UmVPobantRNaLLTN28a7rasUnDLwQKG9SVLzq0=;
- b=aH+paiSV3sgIYtrkaCwxKQbsjv6znZtteAiqoHHOb6AC3qgvXrFUWQj0XcZoTZMINW
- XGUKwFueUMXH5XAOnIH7ou9f4U9hG/LV426XR5UXme06/t0rUorIkOZtPQyonJWN4BwT
- 5Ifzqabl/THZ4Om0V+h+tNsYSgSPCC7lN2+5I=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=Fc6F8UmVPobantRNaLLTN28a7rasUnDLwQKG9SVLzq0=;
- b=Ew8w1LX85ak6Vg6eCF9oTmrVKy0xOeQdy8hFEPWxpMY7CIxYXXd+Ovw/iMy/yLZDEq
- 7zsFbHS8IX8fo2qd6r8jPm1ZbUXsLiq0JL/m/ln/2aw9tVJsxNW3Hs5jZjtaq1pU0r3n
- YTBo6iggRc37bEmWZmIi8DlcyrrEdpViCw8h67zK/RscTAQjU9HlDmZnSUt8Pwt+nssV
- sHZe+nOUsUu/RbLwDSYMnLphn9yDp2MqVKdaSGoimTfQw5V6doJjYPboAso8EuNo6agP
- WZc4nSm0rdy5BVEVWZjKvVwVtBEZvTAgHDNE9Xb4Q2QvHcz0CHMjkLYI/Dyx49lszKrZ
- c3OQ==
-X-Gm-Message-State: AOAM533mIZZNIpOaLVl9e3mae6hM1T6lDb5Lp7ul+Is1724Zl5ID+KDb
- RN0crO1rkGfiCQYeB1RyDXx1P9x5nDxuLv7JBPio
-X-Google-Smtp-Source: ABdhPJyfD2IesL3G/kU5m4HDGWuI/SKkArsW+wmg8ZWWtd9oGt7ZFjsXIxQ2DmTeIpsuWYk9K0Ng0fGqp9UWtHIi2NA=
-X-Received: by 2002:a25:73d5:: with SMTP id o204mr818084ybc.472.1644869729891; 
- Mon, 14 Feb 2022 12:15:29 -0800 (PST)
+	id 1nJhmU-00Gp3A-C8; Mon, 14 Feb 2022 20:17:06 +0000
+Received: from angie.orcam.me.uk ([78.133.224.34])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nJhmH-00Gp0d-IQ; Mon, 14 Feb 2022 20:16:55 +0000
+Received: by angie.orcam.me.uk (Postfix, from userid 500)
+ id D8D9792009C; Mon, 14 Feb 2022 21:16:50 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+ by angie.orcam.me.uk (Postfix) with ESMTP id D2C4C92009B;
+ Mon, 14 Feb 2022 20:16:50 +0000 (GMT)
+Date: Mon, 14 Feb 2022 20:16:50 +0000 (GMT)
+From: "Maciej W. Rozycki" <macro@orcam.me.uk>
+To: Sudip Mukherjee <sudipm.mukherjee@gmail.com>
+cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, Jeff Dike <jdike@addtoit.com>, 
+ Richard Weinberger <richard@nod.at>, 
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+ Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+ linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org, 
+ linux-kernel@vger.kernel.org
+Subject: [PATCH v2] parport_pc: Also enable driver for PCI systems
+Message-ID: <alpine.DEB.2.21.2202141955550.34636@angie.orcam.me.uk>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
-References: <20220210214018.55739-1-atishp@rivosinc.com>
- <20220210214018.55739-6-atishp@rivosinc.com>
- <877da2xu32.fsf@igel.home>
- <CAMuHMdX4P82B96ZbANyF6cWo9CnrW9hg5up6pCb0PZ99=sPZ_A@mail.gmail.com>
-In-Reply-To: <CAMuHMdX4P82B96ZbANyF6cWo9CnrW9hg5up6pCb0PZ99=sPZ_A@mail.gmail.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Mon, 14 Feb 2022 12:15:19 -0800
-Message-ID: <CAOnJCUKvE7Q2C+DOLdeQH_Qh44aUvdMydW9DUTrFQRxYWHGYgA@mail.gmail.com>
-Subject: Re: [PATCH v2 5/6] RISC-V: Do no continue isa string parsing without
- correct XLEN
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Andreas Schwab <schwab@linux-m68k.org>, Atish Patra <atishp@rivosinc.com>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Albert Ou <aou@eecs.berkeley.edu>, 
- Anup Patel <anup@brainfault.org>, Damien Le Moal <damien.lemoal@wdc.com>, 
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, Jisheng Zhang <jszhang@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_121531_498516_76CA85CC 
-X-CRM114-Status: GOOD (  21.84  )
+X-CRM114-CacheID: sfid-20220214_121653_805564_8B06B490 
+X-CRM114-Status: GOOD (  19.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,53 +69,150 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 11, 2022 at 4:52 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> Hi Andreas,
->
-> On Thu, Feb 10, 2022 at 11:00 PM Andreas Schwab <schwab@linux-m68k.org> wrote:
-> > On Feb 10 2022, Atish Patra wrote:
-> > > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> > > index 469b9739faf7..cca579bae8a0 100644
-> > > --- a/arch/riscv/kernel/cpufeature.c
-> > > +++ b/arch/riscv/kernel/cpufeature.c
-> > > @@ -84,6 +84,7 @@ void __init riscv_fill_hwcap(void)
-> > >       for_each_of_cpu_node(node) {
-> > >               unsigned long this_hwcap = 0;
-> > >               uint64_t this_isa = 0;
-> > > +             char *temp;
-> > >
-> > >               if (riscv_of_processor_hartid(node) < 0)
-> > >                       continue;
-> > > @@ -93,6 +94,7 @@ void __init riscv_fill_hwcap(void)
-> > >                       continue;
-> > >               }
-> > >
-> > > +             temp = (char *)isa;
-> >
-> > There should be no need for this cast.
->
-> Indeed, but only if "temp" is changed to "const char *".
->
+Nowadays PC-style parallel ports come in the form of PCI and PCIe option 
+cards and there are some combined parallel/serial option cards as well 
+that we handle in the parport subsystem.  There is nothing in particular 
+that would prevent them from being used in any system equipped with PCI 
+or PCIe connectivity, except that we do not permit the PARPORT_PC config 
+option to be selected for platforms for which ARCH_MIGHT_HAVE_PC_PARPORT 
+has not been set for.
 
-Yes. Fixed it in v3. Thanks.
+The only PCI platforms that actually can't make use of PC-style parallel 
+port hardware are those newer PCIe systems that have no support for I/O 
+cycles in the host bridge, required by such parallel ports.  Notably, 
+this includes the s390 arch, which has port I/O accessors that cause 
+compilation warnings (promoted to errors with `-Werror'), and there are 
+other cases such as the POWER9 PHB4 device, though this one has variable 
+port I/O accessors that depend on the particular system.  Also it is not 
+clear whether the serial port side of devices enabled by PARPORT_SERIAL 
+uses port I/O or MMIO.  Finally Super I/O solutions are always either 
+ISA or platform devices.
 
-> Gr{oetje,eeting}s,
->
->                         Geert
->
-> --
-> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
->
-> In personal conversations with technical people, I call myself a hacker. But
-> when I'm talking to journalists I just say "programmer" or something like that.
->                                 -- Linus Torvalds
+Make the PARPORT_PC option selectable also for PCI systems then, except 
+for the s390 arch, however limit the availability of PARPORT_PC_SUPERIO 
+to platforms that enable ARCH_MIGHT_HAVE_PC_PARPORT.  Update platforms 
+accordingly for the required <asm/parport.h> header.
 
+Signed-off-by: Maciej W. Rozycki <macro@orcam.me.uk>
+---
+Hi,
 
+ I have verified this lightly by booting a kernel with PARPORT_PC and 
+PARPORT_SERIAL enabled on a RISC-V HiFive Unmatched system.  While I do 
+have a PCIe parallel port option available that I could use with my RISC-V 
+machine (based on the OxSemi OXPCIe952 chip) it is currently plugged in 
+the wrong system, and both machines are in my remote lab I have currently 
+no visit scheduled to in the near future.  For the record the device 
+reports as:
 
--- 
-Regards,
-Atish
+PCI parallel port detected: 1415:c118, I/O at 0x1000(0x1008), IRQ 18
+parport1: PC-style at 0x1000 (0x1008), irq 18, using FIFO [PCSPP,TRISTATE,COMPAT,EPP,ECP]
+
+in the other system.  I'll see if I can verify it with the Unmatched at 
+the next opportunity, though it seems like an overkill to me given that a 
+PC-style parallel port is a generic PCIe device.  The OXPCIe952 implements 
+a multifunction device, so it doesn't rely on PARPORT_SERIAL.
+
+ NB platforms to be updated for <asm/parport.h> generation were chosen by 
+the presence of the HAVE_PCI or FORCE_PCI option from ones that do not 
+already have or generate that header, except for s390, now excluded.  Let 
+me know if I got anything wrong here.
+
+  Maciej
+
+Changes from v1:
+
+- Exclude s390 systems, update the change description accordingly.
+---
+ arch/arm64/include/asm/Kbuild  |    1 +
+ arch/csky/include/asm/Kbuild   |    1 +
+ arch/riscv/include/asm/Kbuild  |    1 +
+ arch/um/include/asm/Kbuild     |    1 +
+ arch/xtensa/include/asm/Kbuild |    1 +
+ drivers/parport/Kconfig        |    4 ++--
+ 6 files changed, 7 insertions(+), 2 deletions(-)
+
+linux-parport-pc-pci.diff
+Index: linux-macro/arch/arm64/include/asm/Kbuild
+===================================================================
+--- linux-macro.orig/arch/arm64/include/asm/Kbuild
++++ linux-macro/arch/arm64/include/asm/Kbuild
+@@ -3,6 +3,7 @@ generic-y += early_ioremap.h
+ generic-y += mcs_spinlock.h
+ generic-y += qrwlock.h
+ generic-y += qspinlock.h
++generic-y += parport.h
+ generic-y += user.h
+ 
+ generated-y += cpucaps.h
+Index: linux-macro/arch/csky/include/asm/Kbuild
+===================================================================
+--- linux-macro.orig/arch/csky/include/asm/Kbuild
++++ linux-macro/arch/csky/include/asm/Kbuild
+@@ -4,5 +4,6 @@ generic-y += extable.h
+ generic-y += gpio.h
+ generic-y += kvm_para.h
+ generic-y += qrwlock.h
++generic-y += parport.h
+ generic-y += user.h
+ generic-y += vmlinux.lds.h
+Index: linux-macro/arch/riscv/include/asm/Kbuild
+===================================================================
+--- linux-macro.orig/arch/riscv/include/asm/Kbuild
++++ linux-macro/arch/riscv/include/asm/Kbuild
+@@ -2,5 +2,6 @@
+ generic-y += early_ioremap.h
+ generic-y += flat.h
+ generic-y += kvm_para.h
++generic-y += parport.h
+ generic-y += user.h
+ generic-y += vmlinux.lds.h
+Index: linux-macro/arch/um/include/asm/Kbuild
+===================================================================
+--- linux-macro.orig/arch/um/include/asm/Kbuild
++++ linux-macro/arch/um/include/asm/Kbuild
+@@ -17,6 +17,7 @@ generic-y += mcs_spinlock.h
+ generic-y += mmiowb.h
+ generic-y += module.lds.h
+ generic-y += param.h
++generic-y += parport.h
+ generic-y += percpu.h
+ generic-y += preempt.h
+ generic-y += softirq_stack.h
+Index: linux-macro/arch/xtensa/include/asm/Kbuild
+===================================================================
+--- linux-macro.orig/arch/xtensa/include/asm/Kbuild
++++ linux-macro/arch/xtensa/include/asm/Kbuild
+@@ -4,6 +4,7 @@ generic-y += extable.h
+ generic-y += kvm_para.h
+ generic-y += mcs_spinlock.h
+ generic-y += param.h
++generic-y += parport.h
+ generic-y += qrwlock.h
+ generic-y += qspinlock.h
+ generic-y += user.h
+Index: linux-macro/drivers/parport/Kconfig
+===================================================================
+--- linux-macro.orig/drivers/parport/Kconfig
++++ linux-macro/drivers/parport/Kconfig
+@@ -42,7 +42,7 @@ if PARPORT
+ 
+ config PARPORT_PC
+ 	tristate "PC-style hardware"
+-	depends on ARCH_MIGHT_HAVE_PC_PARPORT
++	depends on ARCH_MIGHT_HAVE_PC_PARPORT || (PCI && !S390)
+ 	help
+ 	  You should say Y here if you have a PC-style parallel port. All
+ 	  IBM PC compatible computers and some Alphas have PC-style
+@@ -77,7 +77,7 @@ config PARPORT_PC_FIFO
+ 
+ config PARPORT_PC_SUPERIO
+ 	bool "SuperIO chipset support"
+-	depends on PARPORT_PC && !PARISC
++	depends on ARCH_MIGHT_HAVE_PC_PARPORT && PARPORT_PC && !PARISC
+ 	help
+ 	  Saying Y here enables some probes for Super-IO chipsets in order to
+ 	  find out things like base addresses, IRQ lines and DMA channels.  It
 
 _______________________________________________
 linux-riscv mailing list
