@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C1FBC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 13:56:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ACCAC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 13:56:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HH6vqNHCowQfEjkDJRg19gOvyjky8ALlQI1bgzHXvhs=; b=QB1uzW6ioCA3CZ
-	h5oGaQUMDko0bKGlUysgBKuX08/DS1BFXCCZ0fl4ZNyowNboc73n4qf6e3W9lhapzH6mDizuqTog5
-	NQqGERT4GXWxejrlmt7wIYrlXxi117+0pPeAgX4nmQTuO5Vtabmh/oT1Z+AnrpDLM5qwaT1OW9mAX
-	I1k3D+nZtpzvWHpUanr69x1t8KfvrtnmR3Q6rkStptx9ZqHHnZW7yIOG6wrHUgppB24aSvnBQ8nIH
-	rty9qq9cZpxtciS0my1Q0OHNHbLRp7XMrfGcFg8X8iGeHEijXribFNlyojRrR9kAt7T4TIdAHM9Us
-	94RS6YGiDpGqH2C3q6hg==;
+	List-Owner; bh=G0Pn55BXycI8HHxdktHe7+IBgm5BhJHEenr5566ZEWQ=; b=xHk2bwmRyYKqvl
+	dXRBXOahKZIn0pV2/8xFoa6NlpUC9iZvPTzLtoRzRvJBZJDFKVRztmgelwFCZTufW2uN3ZS6IzEjF
+	YG/stak3tCf/KnPiSFfJnIR7tA8kIuxDv/3e18fMy70tZJltWH/GazcAzjXqP8IkcfgjCs/NRypeu
+	+YG/tXGSA+NAaiRIGNDXH6ktXCIRYUPJQil/SKr3egYwIa0V7kN7MXdQ/6Id9Reg2PMCOFP/gcCbG
+	Ed/m7BwilmWe5NIUSnBL4ot158+c9l4+//Fz/DEEjLX+gj5afE056KjDYcmfUQecUo3+WVpzM7EKm
+	68jRJunl9Z+ls4ESSmHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJbqG-00FVSZ-6b; Mon, 14 Feb 2022 13:56:36 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1nJbqJ-00FVUt-Cj; Mon, 14 Feb 2022 13:56:39 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJbq9-00FVOn-Q8
- for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 13:56:35 +0000
+ id 1nJbqE-00FVRG-H7
+ for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 13:56:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1644846990; x=1676382990;
+ t=1644846994; x=1676382994;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=S5yk/nKl+yfqerme9u3V2jXvLX05QLsi07mGzQMyLL4=;
- b=Ij/BoHTWUh/NF2YNArSCm3d0hpj/euNyyU0dvk9eXvHlujA8cYbx0okF
- stq9lNav4VjV563lxg1b5hJ8g9UzO/Tk67Ydja11LiaK+8dRvTdxs7G4s
- 4VDw/bffrXdlL7iRQvyLHzJKWhfQPljAJ41Clfa8Hb3a09amxSPcx2Zb0
- 5ktRsrXdwq9uhtvhukgS15aLNepS+d8QqoUOIjpQk1AVfQ5mqZx6tfCt5
- K5ZyJHd2PeX0jTIHFVwUMKfXzZIhYtWzsc4BbdRb9QtCUZbUa/fPwd8/S
- 8G/aOy5dMDY4L+3uuavuYZ9odxtH1MCSuj3c9RLyvcTdvKVN5xQRpVPkY Q==;
-IronPort-SDR: KkYAeW0yo9IFmD1duJbhASl/qyLGdR+m2XwEyzYAGE5Zt8Wrrw7u9LDXQ6r4qqaC7SuF8Qvy/e
- gQXFLwnNJYIPOp5eQtXqoapnvjbfP+tLxr0PvG3JQCVKzPb3ewIK5IHpGXFI9icseWE3rxpNVG
- hAQT5cN9WbFf3VFWwl+k0gyzCFQYUbh5bC9tgR8TjZNfdpY/k784CXQC2Cr6gXmZH0FwIfrKX/
- YYlCfv4U5TW7/VewMBmip4NqPGjQlHiyPEcsSch8FvhJ1mqHNvMe9WrqpdZ/es6LormGpnGkOv
- ZX41z4HEegN0ZQ1Y8A56Jtbm
-X-IronPort-AV: E=Sophos;i="5.88,368,1635231600"; d="scan'208";a="148618035"
+ bh=UmflVMW1wi6gLsKsd8h3yAY2Rc3GU+Tr+EkBhqS8x6M=;
+ b=ubO3DwnAdNbi3NPn9Gn1Dr+BAPz8gUGbl3dprhMlhxbpcyco4hQIwH6H
+ 98K6bhm8k1u1tPrK9ORcpg8VrttVjJi06LGhAIWnDkRD9VOf2bPlLkx00
+ DvbgBVW9lYK5r7+nxFwepUeGv5ToEl1Vz1CnyngSqnsmtvLvb3p6G0yIV
+ DKDy869sdaOXfRuqfNA2YUu1fTwWzj4N7MXKcU5kecT28lCizK0RT0raF
+ 6nkFzzNItYsDUAUlkqlitcaFiuTz80pjUk6iIfp2O1S1m1P0jM0/V2pRe
+ 6Zy6iElwdno6HpFD6qVNWEztf2AEjeoB1iYpl2dC1Ky6mtwaeosXQO6h/ g==;
+IronPort-SDR: wsWP+cXMNk//TH2wOX2suvAZexUeW0dvVf3GsXtzSo2q+XGN071f7gJDbYI0T2ehIbJbp31TOA
+ PZpcqElnrUxoDUVxxBBaaphZGPlUzHI+/iYfuiuvZib4MaDIhogK+J5AWSEKjH6QBVB/W9fAYz
+ bD7xa+hfXun6hk2IcgJf71us3Oktdt3zSrP8PrrS4FjU863DoZ59WEpfr0qtN/5EF/Rv1nL9Rr
+ OSpsIcEog28Ln/CzAMwYjUfBBMkh8H7nNeAUxOxnwoGePVdP7eVBL5R/NA70wYOfyY682p7iVl
+ tJq0JI60hBko+BcFgLPpaFn0
+X-IronPort-AV: E=Sophos;i="5.88,368,1635231600"; d="scan'208";a="162154139"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
- by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 14 Feb 2022 06:56:28 -0700
+ by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 14 Feb 2022 06:56:33 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Mon, 14 Feb 2022 06:56:27 -0700
+ 15.1.2375.17; Mon, 14 Feb 2022 06:56:32 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
  (10.10.85.152) with Microsoft SMTP Server id 15.1.2375.17 via
- Frontend Transport; Mon, 14 Feb 2022 06:56:21 -0700
+ Frontend Transport; Mon, 14 Feb 2022 06:56:27 -0700
 From: <conor.dooley@microchip.com>
 To: <linus.walleij@linaro.org>, <brgl@bgdev.pl>, <robh+dt@kernel.org>,
  <jassisinghbrar@gmail.com>, <thierry.reding@gmail.com>,
@@ -68,18 +68,16 @@ CC: <lewis.hanly@microchip.com>, <conor.dooley@microchip.com>,
  <daire.mcnamara@microchip.com>, <ivan.griffin@microchip.com>,
  <atishp@rivosinc.com>, Rob Herring <robh@kernel.org>, Palmer Dabbelt
  <palmer@rivosinc.com>
-Subject: [PATCH v7 04/11] dt-bindings: gpio: add bindings for microchip mpfs
- gpio
-Date: Mon, 14 Feb 2022 13:58:34 +0000
-Message-ID: <20220214135840.168236-5-conor.dooley@microchip.com>
+Subject: [PATCH v7 05/11] dt-bindings: pwm: add microchip corepwm binding
+Date: Mon, 14 Feb 2022 13:58:35 +0000
+Message-ID: <20220214135840.168236-6-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220214135840.168236-1-conor.dooley@microchip.com>
 References: <20220214135840.168236-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_055629_933883_614D83BB 
-X-CRM114-Status: UNSURE (   9.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220214_055634_615784_36D6CD27 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,103 +96,104 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Add device tree bindings for the gpio controller on
-the Microchip PolarFire SoC.
+Add device tree bindings for the Microchip fpga fabric based "core" PWM
+controller.
 
 Reviewed-by: Rob Herring <robh@kernel.org>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-Acked-by: Bartosz Golaszewski <brgl@bgdev.pl>
 ---
- .../bindings/gpio/microchip,mpfs-gpio.yaml    | 79 +++++++++++++++++++
- 1 file changed, 79 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
+ .../bindings/pwm/microchip,corepwm.yaml       | 81 +++++++++++++++++++
+ 1 file changed, 81 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml
 
-diff --git a/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
+diff --git a/Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml b/Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml
 new file mode 100644
-index 000000000000..110651eafa70
+index 000000000000..a7fae1772a81
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
-@@ -0,0 +1,79 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++++ b/Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml
+@@ -0,0 +1,81 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/gpio/microchip,mpfs-gpio.yaml#
++$id: http://devicetree.org/schemas/pwm/microchip,corepwm.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Microchip MPFS GPIO Controller Device Tree Bindings
++title: Microchip IP corePWM controller bindings
 +
 +maintainers:
 +  - Conor Dooley <conor.dooley@microchip.com>
 +
++description: |
++  corePWM is an 16 channel pulse width modulator FPGA IP
++
++  https://www.microsemi.com/existing-parts/parts/152118
++
++allOf:
++  - $ref: pwm.yaml#
++
 +properties:
 +  compatible:
 +    items:
-+      - enum:
-+          - microchip,mpfs-gpio
++      - const: microchip,corepwm-rtl-v4
 +
 +  reg:
 +    maxItems: 1
 +
-+  interrupts:
-+    description:
-+      Interrupt mapping, one per GPIO. Maximum 32 GPIOs.
-+    minItems: 1
-+    maxItems: 32
-+
-+  interrupt-controller: true
-+
 +  clocks:
 +    maxItems: 1
 +
-+  "#gpio-cells":
++  "#pwm-cells":
 +    const: 2
 +
-+  "#interrupt-cells":
-+    const: 1
++  microchip,sync-update-mask:
++    description: |
++      Depending on how the IP is instantiated, there are two modes of operation.
++      In synchronous mode, all channels are updated at the beginning of the PWM period,
++      and in asynchronous mode updates happen as the control registers are written.
++      A 16 bit wide "SHADOW_REG_EN" parameter of the IP core controls whether synchronous
++      mode is possible for each channel, and is set by the bitstream programmed to the
++      FPGA. If the IP core is instantiated with SHADOW_REG_ENx=1, both registers that
++      control the duty cycle for channel x have a second "shadow"/buffer reg synthesised.
++      At runtime a bit wide register exposed to APB can be used to toggle on/off
++      synchronised mode for all channels it has been synthesised for.
++      Each bit of "microchip,sync-update-mask" corresponds to a PWM channel & represents
++      whether synchronous mode is possible for the PWM channel.
 +
-+  ngpios:
-+    description:
-+      The number of GPIOs available.
-+    minimum: 1
-+    maximum: 32
-+    default: 32
++    $ref: /schemas/types.yaml#/definitions/uint32
++    default: 0
 +
-+  gpio-controller: true
++  microchip,dac-mode-mask:
++    description: |
++      Optional, per-channel Low Ripple DAC mode is possible on this IP core. It creates
++      a minimum period pulse train whose High/Low average is that of the chosen duty
++      cycle. This "DAC" will have far better bandwidth and ripple performance than the
++      standard PWM algorithm can achieve. A 16 bit DAC_MODE module parameter of the IP
++      core, set at instantiation and by the bitstream programmed to the FPGA, determines
++      whether a given channel operates in regular PWM or DAC mode.
++      Each bit corresponds to a PWM channel & represents whether DAC mode is enabled
++      for that channel.
++
++    $ref: /schemas/types.yaml#/definitions/uint32
++    default: 0
 +
 +required:
 +  - compatible
 +  - reg
-+  - interrupts
-+  - "#interrupt-cells"
-+  - interrupt-controller
-+  - "#gpio-cells"
-+  - gpio-controller
 +  - clocks
 +
 +additionalProperties: false
 +
 +examples:
 +  - |
-+    gpio@20122000 {
-+        compatible = "microchip,mpfs-gpio";
-+        reg = <0x20122000 0x1000>;
-+        clocks = <&clkcfg 25>;
-+        interrupt-parent = <&plic>;
-+        gpio-controller;
-+        #gpio-cells = <2>;
-+        interrupt-controller;
-+        #interrupt-cells = <1>;
-+        interrupts = <53>, <53>, <53>, <53>,
-+                     <53>, <53>, <53>, <53>,
-+                     <53>, <53>, <53>, <53>,
-+                     <53>, <53>, <53>, <53>,
-+                     <53>, <53>, <53>, <53>,
-+                     <53>, <53>, <53>, <53>,
-+                     <53>, <53>, <53>, <53>,
-+                     <53>, <53>, <53>, <53>;
++    pwm@41000000 {
++      compatible = "microchip,corepwm-rtl-v4";
++      microchip,sync-update-mask = /bits/ 32 <0>;
++      clocks = <&clkcfg 30>;
++      reg = <0x41000000 0xF0>;
++      #pwm-cells = <2>;
 +    };
-+...
 -- 
 2.35.1
 
