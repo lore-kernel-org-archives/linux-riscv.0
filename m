@@ -4,80 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A883C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 18:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC384C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 19:26:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=37dwc2aNvpQSaA8sudBNT08H9yIkwFKPrvI8oBAnzWI=; b=u4Fte92yEvEiRmHbZ7zUxXavvB
-	YSJ9jYJuSj6nDuqXKOsulXFYkHkC/Jqxjm1llkZ9xSbRHwrRmoxd1Vm+k9FFPDC4Uh1LVdXdID9dn
-	mS2rE2hN6XEp/V72Vag/XyEmWzzNtmoVFERu+5T9IIGzlyNRHgyVpXAe79mgq8XxYo2oZ+UI5LNWq
-	Xq+nhPWbeX7ULxzxeXL9B2CoitTm+B3D3HDqMeSC9OklNe2pdgmQp692avR97q/bleF1ihjdHkR4j
-	aDwLW3H1ARqFVI5RETcprtrvhFrP5v6WIyasiWCi8BlONIn3cJZU+51m1Jdgqx1ys5SO15X06SQQ5
-	jKG479/Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=q1SkPkSBtB+y7vb3rTlTW/S++1Z9G5pyBmTUBNMOKE0=; b=xpbMsL9c+j68df
+	lUgq8ueuL2AnDtBBYc9vp8I9qsu5QN+VLO+bhf1X7WU3FaLbfZvYm5XV3kpGXMJkd0c3iJ4aQWgK6
+	kDbRcXaMHLJa9uVBmVV4lofABhsnW5eRLhBa5+1DMGkLV13QB9Kv4R6BEmQSFtcYkxLw+yU0sGmnT
+	vpQlvPKGWlHC9T1dkIMuLyYR2jFRcwBF7uMvsxV0sE+wGIaGBtZMIVm7YOdT/R7FCcF7junUS3F/+
+	TCEUMiK5+sx9ncMyrt2BGr6Phjh5upE7eOFqT8SKsW2JT54OMz+Pom7w2Guzqvj/2/IdvBt2sHeBj
+	AiOunmU99f0zIuI6M0TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJg6E-00GWaq-Bo; Mon, 14 Feb 2022 18:29:22 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1nJgz0-00Ghp6-0o; Mon, 14 Feb 2022 19:25:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJg61-00GWVY-MS
- for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 18:29:11 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <ukl@pengutronix.de>)
- id 1nJg5V-0006ak-2B; Mon, 14 Feb 2022 19:28:37 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
- by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
- (envelope-from <ukl@pengutronix.de>)
- id 1nJg5N-00GbE8-Cu; Mon, 14 Feb 2022 19:28:28 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
- (envelope-from <ukl@pengutronix.de>)
- id 1nJg5L-003BE4-Vq; Mon, 14 Feb 2022 19:28:27 +0100
-Date: Mon, 14 Feb 2022 19:28:24 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
- Lee Jones <lee.jones@linaro.org>, Rob Herring <robh+dt@kernel.org>,
- Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Florian Fainelli <f.fainelli@gmail.com>,
- bcm-kernel-feedback-list@broadcom.com, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
- Heiko Stuebner <heiko@sntech.de>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
- Philipp Zabel <p.zabel@pengutronix.de>, Anson Huang <anson.huang@nxp.com>,
- Vijayakannan Ayyathurai <vijayakannan.ayyathurai@intel.com>,
- Rahul Tanwar <rtanwar@maxlinear.com>,
- Jeff LaBundy <jeff@labundy.com>, Yash Shah <yash.shah@sifive.com>,
- Sagar Kadam <sagar.kadam@sifive.com>, Vignesh R <vigneshr@ti.com>,
- Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
- linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 11/15] dt-bindings: pwm: intel, keembay: do not require
- pwm-cells
-Message-ID: <20220214182824.gevtqbtv4qrddjqb@pengutronix.de>
-References: <20220214081605.161394-1-krzysztof.kozlowski@canonical.com>
- <20220214081605.161394-11-krzysztof.kozlowski@canonical.com>
+ id 1nJgyu-00Gho7-RF; Mon, 14 Feb 2022 19:25:55 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 587C06114D;
+ Mon, 14 Feb 2022 19:25:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C07B0C340EE;
+ Mon, 14 Feb 2022 19:25:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1644866751;
+ bh=zLWY4rc6tKJzkfOHU66+tSLIxceIVdBozj8MWHl9tz8=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=cLB0m+lUiyqzm6MkRXqfNjTidY0KSUw9y+g66SZETLNsFCZDZPIwWT08xV9J00P2W
+ l9L1fdj72F+ncGMnQYYXBi8K1xN3L9GI/iTH+0AddTuNSArXu6AHUMLB6nQhx0bRSL
+ A8T6+8ZjLQQjPJ/gbGjhUQbyDzWF0QKLQlROyDk3fZAmfOHwb3PPoOOW0tb1iFg+PP
+ rf8f8XtKwJOZ5uBkE1sa68Pp4Y4hBS7eJSkvNo+qtRLNsAkxE5f947h8G6oQqOibfG
+ kVu+PpivREVoaK8ki2hzusoUzjVUM7XR5/GUcSs+u3DNUwlj2eV/8BbJjYy8YosUTI
+ 530d3BBYOjNVg==
+Received: by mail-wr1-f54.google.com with SMTP id k1so28523141wrd.8;
+ Mon, 14 Feb 2022 11:25:51 -0800 (PST)
+X-Gm-Message-State: AOAM532DqyyuifgEwazyneZXp+cwTKd0qs2mr2a+NCct+M/7p17Zti8Y
+ BR2vI0xjm95TlrTGD2YIbAv5Ifaq3e+CAPagwgE=
+X-Google-Smtp-Source: ABdhPJwrOpkav7UeztG9pweW7/OWsS+hZNYg7RZgUDmgoSoPSixwWLgUERuof4XivnroH6SdfUIEp08YoMpfbv7qa3w=
+X-Received: by 2002:a5d:5446:: with SMTP id w6mr422520wrv.12.1644866740020;
+ Mon, 14 Feb 2022 11:25:40 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20220214081605.161394-11-krzysztof.kozlowski@canonical.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+References: <20220214163452.1568807-1-arnd@kernel.org>
+ <20220214163452.1568807-8-arnd@kernel.org>
+ <YgqOLZbFK7/B2HJT@zeniv-ca.linux.org.uk>
+In-Reply-To: <YgqOLZbFK7/B2HJT@zeniv-ca.linux.org.uk>
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Mon, 14 Feb 2022 20:25:24 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a36U35DK22UT6id=WawWaJa-2+_W9HFgmwdDJ_tVYE5NQ@mail.gmail.com>
+Message-ID: <CAK8P3a36U35DK22UT6id=WawWaJa-2+_W9HFgmwdDJ_tVYE5NQ@mail.gmail.com>
+Subject: Re: [PATCH 07/14] uaccess: generalize access_ok()
+To: Al Viro <viro@zeniv.linux.org.uk>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+ Christoph Hellwig <hch@lst.de>, 
+ linux-arch <linux-arch@vger.kernel.org>, Linux-MM <linux-mm@kvack.org>, 
+ Linux API <linux-api@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ Russell King - ARM Linux <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
+ Guo Ren <guoren@kernel.org>, 
+ Brian Cain <bcain@codeaurora.org>, Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Michal Simek <monstr@monstr.eu>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>, 
+ Dinh Nguyen <dinguyen@kernel.org>, Stafford Horne <shorne@gmail.com>,
+ Helge Deller <deller@gmx.de>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Peter Zijlstra <peterz@infradead.org>, 
+ Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>, 
+ Heiko Carstens <hca@linux.ibm.com>, Rich Felker <dalias@libc.org>,
+ David Miller <davem@davemloft.net>, Richard Weinberger <richard@nod.at>,
+ "the arch/x86 maintainers" <x86@kernel.org>, Max Filippov <jcmvbkbc@gmail.com>,
+ "Eric W . Biederman" <ebiederm@xmission.com>,
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Ard Biesheuvel <ardb@kernel.org>, alpha <linux-alpha@vger.kernel.org>, 
+ "open list:SYNOPSYS ARC ARCHITECTURE" <linux-snps-arc@lists.infradead.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, linux-csky@vger.kernel.org, 
+ "open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>,
+ linux-ia64@vger.kernel.org, linux-m68k <linux-m68k@lists.linux-m68k.org>, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ Openrisc <openrisc@lists.librecores.org>, 
+ Parisc List <linux-parisc@vger.kernel.org>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ linux-s390 <linux-s390@vger.kernel.org>, 
+ Linux-sh list <linux-sh@vger.kernel.org>,
+ sparclinux <sparclinux@vger.kernel.org>, 
+ linux-um <linux-um@lists.infradead.org>, 
+ "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_102909_756231_8B1748F2 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20220214_112552_968369_E7819B8D 
+X-CRM114-Status: GOOD (  21.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,66 +108,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6598877370201630763=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Feb 14, 2022 at 6:15 PM Al Viro <viro@zeniv.linux.org.uk> wrote:
+>
+> On Mon, Feb 14, 2022 at 05:34:45PM +0100, Arnd Bergmann wrote:
+>
+> > diff --git a/arch/csky/kernel/signal.c b/arch/csky/kernel/signal.c
+> > index c7b763d2f526..8867ddf3e6c7 100644
+> > --- a/arch/csky/kernel/signal.c
+> > +++ b/arch/csky/kernel/signal.c
+> > @@ -136,7 +136,7 @@ static inline void __user *get_sigframe(struct ksignal *ksig,
+> >  static int
+> >  setup_rt_frame(struct ksignal *ksig, sigset_t *set, struct pt_regs *regs)
+> >  {
+> > -     struct rt_sigframe *frame;
+> > +     struct rt_sigframe __user *frame;
+> >       int err = 0;
+> >
+> >       frame = get_sigframe(ksig, regs, sizeof(*frame));
+>
+> Minor nit: might make sense to separate annotations (here, on nios2, etc.) from the rest...
 
---===============6598877370201630763==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="lqbpgpqedfoirane"
-Content-Disposition: inline
+Done.
 
+> > -}
+> > -
+> > -static inline int access_ok(const void __user * addr, unsigned long size)
+> > -{
+> > -     return 1;
+> > -}
+> > +#define __range_not_ok(addr, size, limit) (!__access_ok(addr, size))
+>
+> is really wrong.  For sparc64, access_ok() should always be true.
+> This __range_not_ok() thing is used *only* for valid_user_frame() in
+> arch/sparc/kernel/perf_event.c - it's not a part of normal access_ok()
+> there.
+>
+> sparc64 has separate address spaces for kernel and for userland; access_ok()
+> had never been useful there.
 
---lqbpgpqedfoirane
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Ok, fixed as well now. I had the access_ok() bit right, the definition just
+moved around here so it comes before the #include, but I missed the
+bit about __range_not_ok(), which I have now reverted back to the
+correct version in my tree.
 
-Hello Krzysztof,
-
-when I read the subject line I thought the patch intention to be wrong.
-Maybe make that:
-
-	dt-bindings: intel,keembay-pwm: Don't require #pwm-cells twice
-
-?
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---lqbpgpqedfoirane
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmIKn0UACgkQwfwUeK3K
-7AmoPQgAnQ94Se1jdIRfuPxmJ8SI3oyoR5qYibmzoO6pwZLs9AEr0sb5Vgbt0bkU
-gQmoGNX0ivMunGQ1xXrSm0KXvUUM7nxRaxIHK/rmpYLvAiv1x1oZIKgV7QG7lBOx
-Ua+jxme5GKpJD8jNMWXOU/c2vvMb3D0f1FViJeMXitnnooA8RlMRwQeHO+Xz60Gs
-YokHBwlm1DtKPndRHVUcnoKpOIUnBvcDaFCVNPuqLfGRBsckM/5qqMH6duDEiZn7
-9EUVHIPADGIjR2kSt1jkf+sXnJ9qMguzKcxcouDXAkwqlqFS0xbk8s32UO+3BFM2
-rZo1vmmZ555NPDPiZmLPGN0ec+HiXQ==
-=7yzT
------END PGP SIGNATURE-----
-
---lqbpgpqedfoirane--
-
-
---===============6598877370201630763==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+        Arnd
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6598877370201630763==--
-
