@@ -4,113 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D5DBC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 21:03:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F98CC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 21:07:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9ohT7T7pZPusYC65xP+EkPWQ1J5HFlXZaB2WtuI9lec=; b=ho+CkxUKX0xzE8
-	08Yu6Ufn3sDAntxDrZtOzkJ6G0Bi/fXi/25Kd92I8+5EygJPyz1Llj1EBD4eApd+F0qMxvy/N3tG6
-	i/T/1LbDF11AA6zN0yA/H3K18sMU9nO44IQEWMP68nNhOb+BTc4oA/k5NFSN/af4GHCQiSPBF/qT2
-	0MX/33GsbFzD9XWLJxfM9i/PSQ2b+1wO6zeY9X4Uq3wdlskEdhud6DrZnNmSTDNkP08vXvpginzeC
-	ezMWa7npH5ku030Uif9UctJr/FJTLRqc3B/NG5j55ansIRb9rX73/yDPRLW2fFtRUL8x81EBUEZSY
-	rZyT6eHTRKx1UilTX3Sw==;
+	List-Owner; bh=vtIdJwuCm1xqJl8LfPonEvmIfkYQKJ2HjBD0aEvQYQg=; b=hb2YqH6dS1wzxj
+	4GA83I9V5sQK7dUcNYpytC3CoqIeKJAT9Nj7ifm0HK+OWWkfk3rEO5vBojY6cRTp4ecfdrX2X+Ecm
+	frGZvs/kwjnPLIT2KF8kmlTYMu42P86PljYwMhEH7FGWE/VFbkwwrp6KvK+kuQ1ynILDe/K6eZkki
+	sG5/RhOpayzUokzQOCABTyzF4z3F4ycbQ1e4/iXostcKGvGdoGsSdlqVL4ygMUHzGsNhC/4BkGpMp
+	Dp1/RNVc6AcTvcRQVsYBEq3xByRu0dyHWuTfzaAHMpBxg/DSc1ZkgHByel5XtJUEe7bv31Ug3HgC5
+	PzvIJL6uLe2DG1fKzP7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJiVF-00Gv6k-0C; Mon, 14 Feb 2022 21:03:21 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJiVC-00Gv5v-E5
- for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 21:03:19 +0000
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 76ACC407C1
- for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 21:03:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1644872596;
- bh=2bp2Rosxu6+8ZhH/EAY6coxFH5lGR8Dxl8BwV5vJAno=;
- h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
- In-Reply-To:Content-Type;
- b=o41X+zynfUPUcd2sbWIPFOg1A/wLabhJFwt2emay8OHXBMq+IpXsK9PQ4WpqL6v52
- dGDAXTUiEwd/BE52L95/3m1QJwsYkNjay9CCId6gXRBmAMTPJlxqmweS8FaD2qzosa
- 1OzLzqsAGldJPgYECAGj67Sr9p5BswLC5qeRhL18IpsDBRkHeJflTYWdi/78bgKQCK
- 1AlGIdOBUqvp86qf6iaMkshb0SWciC/pMF9qyYDdZQb3kU6Wiu2Cb4nbzNZ6iTb2k7
- X8lGKaL9MQlTG6Gq3QZaL5bHs4dV2B32BCYHZKfLystEa/c6dWBaqMuYaCbZbA4bRI
- ZSd6KkfOMLeiA==
-Received: by mail-wm1-f70.google.com with SMTP id
- r187-20020a1c44c4000000b0037bb51b549aso196595wma.4
- for <linux-riscv@lists.infradead.org>; Mon, 14 Feb 2022 13:03:16 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:cc:references:from:in-reply-to
- :content-transfer-encoding;
- bh=2bp2Rosxu6+8ZhH/EAY6coxFH5lGR8Dxl8BwV5vJAno=;
- b=ZvDqB9cjdHTfCjmL8Np8sFghsphPRbLBEgeY1ALlVmeutzl/rFr0zkCxEU+B7cq/Ck
- kvr2rgIGa0th6cw+JMK5hWKw3eONdjmdFY5YbIO6+42sOoBNmhlUXdnS6AGx4qeFVgQC
- Nr37GwaPmdhb27jxRb8WdQ7TGS8YgJgx3jRXz28AwzePsS+ZDYFcVwY22GiRo10NTsmQ
- qB8RWqTo3K5ZYUkrw4leK+Sk7MJuBXURrdBkw/EHut6RXMpbAOdanSXyD34+BJm4nAfP
- DldNy6FTpxyBMH7eqdFrVsFy4M8YxjRQV7tIObWtzXb0s815ppyWUlH9o2OdxlICqTie
- x3eg==
-X-Gm-Message-State: AOAM530vYN75t/cGwouDu4r1GNkBWopHpdK4KbJUW+uXO/vDLtZ3BDvk
- q/rDAy9j3zVU9WrVzurkGK19BhzCto3RoMzDtrFVhWxNfeW/QfHzzEOtgh5VFacvgFzS/FAR2WO
- QIVoz8HSmXqtgmT6qVpiOu/GbXyp91P0/5biyEe+lqLvScA==
-X-Received: by 2002:aa7:c3da:: with SMTP id l26mr727113edr.294.1644872586133; 
- Mon, 14 Feb 2022 13:03:06 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJx2FJZ3WFrmr3yKtdBu95hKE7kW2/adNT3dVxtT4u/B6q+4CQFvbOXViM594Gt5SL7EJZdGvA==
-X-Received: by 2002:aa7:c3da:: with SMTP id l26mr727056edr.294.1644872585884; 
- Mon, 14 Feb 2022 13:03:05 -0800 (PST)
-Received: from [192.168.0.106] (xdsl-188-155-168-84.adslplus.ch.
- [188.155.168.84])
- by smtp.gmail.com with ESMTPSA id j21sm1153464ejj.193.2022.02.14.13.03.04
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 14 Feb 2022 13:03:05 -0800 (PST)
-Message-ID: <f9cdef5e-a52b-03ba-a069-e0bc16ccd595@canonical.com>
-Date: Mon, 14 Feb 2022 22:03:04 +0100
+	id 1nJiZ2-00Gvtv-Ni; Mon, 14 Feb 2022 21:07:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nJiYz-00Gvs7-Bs; Mon, 14 Feb 2022 21:07:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ABB93139F;
+ Mon, 14 Feb 2022 13:07:11 -0800 (PST)
+Received: from [10.57.70.89] (unknown [10.57.70.89])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A689F3F718;
+ Mon, 14 Feb 2022 13:07:04 -0800 (PST)
+Message-ID: <cc6006c6-b073-7cc0-484d-7ddd193a8c2c@arm.com>
+Date: Mon, 14 Feb 2022 21:06:58 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.5.0
-Subject: Re: [PATCH 11/15] dt-bindings: pwm: intel, keembay: do not require
- pwm-cells
-Content-Language: en-US
-To: =?UTF-8?Q?Uwe_Kleine-K=c3=b6nig?= <u.kleine-koenig@pengutronix.de>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
- Lee Jones <lee.jones@linaro.org>, Rob Herring <robh+dt@kernel.org>,
- Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Florian Fainelli <f.fainelli@gmail.com>,
- bcm-kernel-feedback-list@broadcom.com, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
- Heiko Stuebner <heiko@sntech.de>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
- Philipp Zabel <p.zabel@pengutronix.de>, Anson Huang <anson.huang@nxp.com>,
- Vijayakannan Ayyathurai <vijayakannan.ayyathurai@intel.com>,
- Rahul Tanwar <rtanwar@maxlinear.com>, Jeff LaBundy <jeff@labundy.com>,
- Yash Shah <yash.shah@sifive.com>, Sagar Kadam <sagar.kadam@sifive.com>,
- Vignesh R <vigneshr@ti.com>,
- Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
- linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-riscv@lists.infradead.org
-References: <20220214081605.161394-1-krzysztof.kozlowski@canonical.com>
- <20220214081605.161394-11-krzysztof.kozlowski@canonical.com>
- <20220214182824.gevtqbtv4qrddjqb@pengutronix.de>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-In-Reply-To: <20220214182824.gevtqbtv4qrddjqb@pengutronix.de>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101
+ Thunderbird/91.6.0
+Subject: Re: [PATCH 08/14] arm64: simplify access_ok()
+Content-Language: en-GB
+To: Arnd Bergmann <arnd@kernel.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Christoph Hellwig <hch@lst.de>, linux-arch@vger.kernel.org,
+ linux-mm@kvack.org, linux-api@vger.kernel.org, arnd@arndb.de,
+ linux-kernel@vger.kernel.org
+Cc: linux@armlinux.org.uk, will@kernel.org, guoren@kernel.org,
+ bcain@codeaurora.org, geert@linux-m68k.org, monstr@monstr.eu,
+ tsbogend@alpha.franken.de, nickhu@andestech.com, green.hu@gmail.com,
+ dinguyen@kernel.org, shorne@gmail.com, deller@gmx.de, mpe@ellerman.id.au,
+ peterz@infradead.org, mingo@redhat.com, mark.rutland@arm.com,
+ hca@linux.ibm.com, dalias@libc.org, davem@davemloft.net, richard@nod.at,
+ x86@kernel.org, jcmvbkbc@gmail.com, ebiederm@xmission.com,
+ akpm@linux-foundation.org, ardb@kernel.org, linux-alpha@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org
+References: <20220214163452.1568807-1-arnd@kernel.org>
+ <20220214163452.1568807-9-arnd@kernel.org>
+From: Robin Murphy <robin.murphy@arm.com>
+In-Reply-To: <20220214163452.1568807-9-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_130318_619468_8E168065 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20220214_130713_533909_843A3C3C 
+X-CRM114-Status: GOOD (  25.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,17 +76,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTQvMDIvMjAyMiAxOToyOCwgVXdlIEtsZWluZS1Lw7ZuaWcgd3JvdGU6Cj4gSGVsbG8gS3J6
-eXN6dG9mLAo+IAo+IHdoZW4gSSByZWFkIHRoZSBzdWJqZWN0IGxpbmUgSSB0aG91Z2h0IHRoZSBw
-YXRjaCBpbnRlbnRpb24gdG8gYmUgd3JvbmcuCj4gTWF5YmUgbWFrZSB0aGF0Ogo+IAo+IAlkdC1i
-aW5kaW5nczogaW50ZWwsa2VlbWJheS1wd206IERvbid0IHJlcXVpcmUgI3B3bS1jZWxscyB0d2lj
-ZQo+IAo+ID8KCkFoLCB5ZXMsIHRoaXMgc291bmRzIGJldHRlci4gSSdsbCBzZW5kIGEgdjIuCgoK
-QmVzdCByZWdhcmRzLApLcnp5c3p0b2YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
-cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
-Zm8vbGludXgtcmlzY3YK
+On 2022-02-14 16:34, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> arm64 has an inline asm implementation of access_ok() that is derived from
+> the 32-bit arm version and optimized for the case that both the limit and
+> the size are variable. With set_fs() gone, the limit is always constant,
+> and the size usually is as well, so just using the default implementation
+> reduces the check into a comparison against a constant that can be
+> scheduled by the compiler.
+
+Aww, I still vividly remember the birth of this madness, sat with my 
+phone on a Saturday morning waiting for my bike to be MOT'd, staring at 
+the 7-instruction sequence that Mark and I had come up with and certain 
+that it could be shortened still. Kinda sad to see it go, but at the 
+same time, glad that it can.
+
+Acked-by: Robin Murphy <robin.murphy@arm.com>
+
+> On a defconfig build, this saves over 28KB of .text.
+
+Not to mention saving those "WTF is going on there... oh yeah, 
+access_ok()" moments when looking through disassembly :)
+
+Cheers,
+Robin.
+
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+>   arch/arm64/include/asm/uaccess.h | 28 +++++-----------------------
+>   1 file changed, 5 insertions(+), 23 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/uaccess.h b/arch/arm64/include/asm/uaccess.h
+> index 357f7bd9c981..e8dce0cc5eaa 100644
+> --- a/arch/arm64/include/asm/uaccess.h
+> +++ b/arch/arm64/include/asm/uaccess.h
+> @@ -26,6 +26,8 @@
+>   #include <asm/memory.h>
+>   #include <asm/extable.h>
+>   
+> +static inline int __access_ok(const void __user *ptr, unsigned long size);
+> +
+>   /*
+>    * Test whether a block of memory is a valid user space address.
+>    * Returns 1 if the range is valid, 0 otherwise.
+> @@ -33,10 +35,8 @@
+>    * This is equivalent to the following test:
+>    * (u65)addr + (u65)size <= (u65)TASK_SIZE_MAX
+>    */
+> -static inline unsigned long __access_ok(const void __user *addr, unsigned long size)
+> +static inline int access_ok(const void __user *addr, unsigned long size)
+>   {
+> -	unsigned long ret, limit = TASK_SIZE_MAX - 1;
+> -
+>   	/*
+>   	 * Asynchronous I/O running in a kernel thread does not have the
+>   	 * TIF_TAGGED_ADDR flag of the process owning the mm, so always untag
+> @@ -46,27 +46,9 @@ static inline unsigned long __access_ok(const void __user *addr, unsigned long s
+>   	    (current->flags & PF_KTHREAD || test_thread_flag(TIF_TAGGED_ADDR)))
+>   		addr = untagged_addr(addr);
+>   
+> -	__chk_user_ptr(addr);
+> -	asm volatile(
+> -	// A + B <= C + 1 for all A,B,C, in four easy steps:
+> -	// 1: X = A + B; X' = X % 2^64
+> -	"	adds	%0, %3, %2\n"
+> -	// 2: Set C = 0 if X > 2^64, to guarantee X' > C in step 4
+> -	"	csel	%1, xzr, %1, hi\n"
+> -	// 3: Set X' = ~0 if X >= 2^64. For X == 2^64, this decrements X'
+> -	//    to compensate for the carry flag being set in step 4. For
+> -	//    X > 2^64, X' merely has to remain nonzero, which it does.
+> -	"	csinv	%0, %0, xzr, cc\n"
+> -	// 4: For X < 2^64, this gives us X' - C - 1 <= 0, where the -1
+> -	//    comes from the carry in being clear. Otherwise, we are
+> -	//    testing X' - C == 0, subject to the previous adjustments.
+> -	"	sbcs	xzr, %0, %1\n"
+> -	"	cset	%0, ls\n"
+> -	: "=&r" (ret), "+r" (limit) : "Ir" (size), "0" (addr) : "cc");
+> -
+> -	return ret;
+> +	return likely(__access_ok(addr, size));
+>   }
+> -#define __access_ok __access_ok
+> +#define access_ok access_ok
+>   
+>   #include <asm-generic/access_ok.h>
+>   
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
