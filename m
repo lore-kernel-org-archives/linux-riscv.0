@@ -4,54 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B25CC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 22:22:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23AAEC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 22:53:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uknCVBjkUwR2XluzqQmoqHDImdr5bdSQ07YyxiWYZ/s=; b=xYJXLqr89Tyo4M
-	EH2Gp/VUydUJ3HKBJxoQrnpgXLJYwIE8pE0O78blAcHsmcKnpmNKgfIceQR5YaamP13k4GCJoZv/W
-	7tPc4Ax0MdUT1BWzKN3ZtDI75zS/uD4a0CTiJrZ7WtzD+DeEGGSqlS6wmv2utzipUp+phrXJY/w8b
-	0dZmFSnarglwiSXkDJFJrVKUO4LJYBlJ2j0Biic1nFObft54osS9nQbcmUsivmWN2SHygkfHRsqFl
-	KMEkQSoCJTKLQZ23p/Wb+cgUjrDfEHptuu64trTngxUAy7vo723ZzCi79KUeyXgv4E3LseVdo3QLo
-	RYkqx6orNHMFgyc7SpEg==;
+	List-Owner; bh=LsjzXT7WVtBTzvWbgunSS3tFEcWm+gR5fqAhzFBhc2Q=; b=gyEahhJECJTw65
+	qwbYKxEFkpr3UKuwwysl1Mj2fqAE0fXMBfy/zobK9cjcLxWNOVXmOo48VMuI/YzM/m0oZBsyGth/b
+	iWPK2cJi8lg4JtYThSyshWU+SA9ZQif4PiWA+O0GciEN3haWcm0j08QD9IRDEyvAzozYOYW43HW03
+	j/xt30eotkxPA6oCImyjB2Wi2Nf1NsasPnJD8knHiP3UXexuCFtLQj2zAyJcpHng/eC5jn6MfSvm2
+	BCYq+qjH6XdJJ5iUt48w4IuT2YiiTnnfQPUnobtenAPPBJOsXjQ4BGMQe31ZIC9NSZjWllgdEo05k
+	G+Wu+aJJJsTP403/Lz9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJjjr-00HCBG-Gy; Mon, 14 Feb 2022 22:22:31 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1nJkDZ-00HDmG-3E; Mon, 14 Feb 2022 22:53:13 +0000
+Received: from new3-smtp.messagingengine.com ([66.111.4.229])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJjjo-00HCAv-6T
- for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 22:22:30 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
- helo=diego.localnet)
- by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1nJjjm-0003ac-29; Mon, 14 Feb 2022 23:22:26 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Atish Patra <atishp@atishpatra.org>
-Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ id 1nJkDV-00HDlk-Kx
+ for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 22:53:11 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+ by mailnew.nyi.internal (Postfix) with ESMTP id AF0BF580632;
+ Mon, 14 Feb 2022 17:53:04 -0500 (EST)
+Received: from mailfrontend1 ([10.202.2.162])
+ by compute5.internal (MEProxy); Mon, 14 Feb 2022 17:53:04 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+ messagingengine.com; h=cc:cc:content-type:date:date:from:from
+ :in-reply-to:in-reply-to:message-id:mime-version:references
+ :reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
+ :x-me-sender:x-me-sender:x-sasl-enc; s=fm2; bh=e2LfV2BcYFTZ6ZIg8
+ FOTVm2MpIs9idDpZ8R+EsQHXrs=; b=SJdNeO/8jyTfLiWOckcAG2OHGKCIILKot
+ CoUd+ViU7KAYtLt39PVDcb/IGuv6zV7lLNGGyCe8EGuQ5DurWAtyc+59koNFynFb
+ Vax9tANM2zkhCcUoof6TNS/nhOKqyPS+Hw3tsgsfWgJvrvYRq/oTiaPhFIsCZ3gq
+ 572A76x7uTT/SQOWr2a+qXWcnzfFPlN8I/AlTAP67o6ZCB+w+xPm/B5psHno61aJ
+ DCH/hrkY5RKmleyp5ih42WMsScPaotRe9Unr3WD7ZeSnt0m2dNzPfz999KUbozwI
+ V020ATKE/pSE4MZC8o1aHNCuKDsllmkkIJSgA7ad0fRyvnrt2DTiw==
+X-ME-Sender: <xms:T90KYtUsU1i8H8oKgKHJ6zYGcswaPP0J8WgFAclau0XetWuIQzG0mw>
+ <xme:T90KYtmQA6gxwJzCjpgsGZ91IZLbkRkK9l-KZyxb5ryxN91ZuejBSqStpdrtODbHF
+ GifMxA7HMTM-t1YzjE>
+X-ME-Received: <xmr:T90KYpb6E2tmhE99twMc1QbFpCxPqjw62-HdwNAwXMsB5Z1t4aNo3u9CZxAFYhuTPi2ZXSZxw3FS5jdDrwiRWsSOAlcaid0NeVA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvvddrjeefgddtfecutefuodetggdotefrodftvf
+ curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+ uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+ fjughrpeffhffvufgjkfhfgggtsehttdertddttddvnecuhfhrohhmpefhihhnnhcuvfhh
+ rghinhcuoehfthhhrghinheslhhinhhugidqmheikehkrdhorhhgqeenucggtffrrghtth
+ gvrhhnpeffudfhgeefvdeitedugfelueegheekkeefveffhfeiveetledvhfdtveffteeu
+ udenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehfth
+ hhrghinheslhhinhhugidqmheikehkrdhorhhg
+X-ME-Proxy: <xmx:T90KYgXiz-V4ond-i7eX1uAvA0i9WOmsdnB3aAw0H2uwKsVWoxeXRw>
+ <xmx:T90KYnl-c428-0I3-b8b87OVnAgj1cO8HsHp8BhvVhhh6vh8QeegDA>
+ <xmx:T90KYtcrQAQMyH87a2CMfgA9HSwqEFEk9lDpm9-zJ546bLNuMFdolw>
+ <xmx:UN0KYnHmkgdFIoGzRmz69Z6jzOvFrkcKI8C9eYQOxPNBA0jBhzy_3Q>
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 14 Feb 2022 17:53:00 -0500 (EST)
+Date: Tue, 15 Feb 2022 09:53:11 +1100 (AEDT)
+From: Finn Thain <fthain@linux-m68k.org>
+To: "Jason A. Donenfeld" <Jason@zx2c4.com>
+cc: Joshua Kinard <kumba@gentoo.org>, LKML <linux-kernel@vger.kernel.org>,
+ Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  linux-riscv <linux-riscv@lists.infradead.org>,
- Atish Patra <atishp@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Anup Patel <anup@brainfault.org>, Damien Le Moal <damien.lemoal@wdc.com>,
- devicetree <devicetree@vger.kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Rob Herring <robh+dt@kernel.org>
-Subject: Re: [PATCH v2 4/6] RISC-V: Implement multi-letter ISA extension
- probing framework
-Date: Mon, 14 Feb 2022 23:22:25 +0100
-Message-ID: <2413800.L4PxSk42VP@diego>
-In-Reply-To: <CAOnJCU+cWBDrN-3Z37m8xA1GPrJY+JaOweYMiZBxJ-cT7ii_5Q@mail.gmail.com>
-References: <20220210214018.55739-1-atishp@rivosinc.com>
- <3479483.A1skbJeUdD@diego>
- <CAOnJCU+cWBDrN-3Z37m8xA1GPrJY+JaOweYMiZBxJ-cT7ii_5Q@mail.gmail.com>
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ linux-m68k <linux-m68k@lists.linux-m68k.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ Dominik Brodowski <linux@dominikbrodowski.net>,
+ Eric Biggers <ebiggers@google.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@linutronix.de>,
+ Andy Lutomirski <luto@kernel.org>, Kees Cook <keescook@chromium.org>,
+ Lennart Poettering <mzxreary@0pointer.de>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Theodore Ts'o <tytso@mit.edu>
+Subject: Re: [PATCH RFC v0] random: block in /dev/urandom
+In-Reply-To: <CAHmME9ooEbgiv3DRk87ei+rUoVNMJthY7UuG_xCgm=kfMZAajw@mail.gmail.com>
+Message-ID: <b43cc58-5ace-11e1-1a11-6cca42f65e7@linux-m68k.org>
+References: <20220211210757.612595-1-Jason@zx2c4.com>
+ <fcab986b-d0bd-c798-de17-266abcdc7da2@gentoo.org>
+ <CAHmME9ooEbgiv3DRk87ei+rUoVNMJthY7UuG_xCgm=kfMZAajw@mail.gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_142228_431177_6481CB26 
-X-CRM114-Status: GOOD (  49.74  )
+X-CRM114-CacheID: sfid-20220214_145309_890795_4456CD85 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,242 +100,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 14. Februar 2022, 21:42:32 CET schrieb Atish Patra:
-> On Mon, Feb 14, 2022 at 12:24 PM Heiko St=FCbner <heiko@sntech.de> wrote:
-> >
-> > Am Montag, 14. Februar 2022, 21:14:13 CET schrieb Atish Patra:
-> > > On Mon, Feb 14, 2022 at 12:06 PM Heiko St=FCbner <heiko@sntech.de> wr=
-ote:
-> > > >
-> > > > Am Donnerstag, 10. Februar 2022, 22:40:16 CET schrieb Atish Patra:
-> > > > > Multi-letter extensions can be probed using exising
-> > > > > riscv_isa_extension_available API now. It doesn't support version=
-ing
-> > > > > right now as there is no use case for it.
-> > > > > Individual extension specific implementation will be added during
-> > > > > each extension support.
-> > > > >
-> > > > > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > > >
-> > > > Tested-by: Heiko Stuebner <heiko@sntech.de>
-> > > >
-> > > >
-> > > > By the way, does a similar parsing exist for opensbi as well?
-> > > > Things like svpbmt as well as zicbom have CSR bits controlling how
-> > > > these functions should behave (enabling them, etc), so I guess
-> > > > opensbi also needs to parse the extensions from the ISA string?
-> > > >
-> > > >
-> > >
-> > > No. Currently, OpenSBI relies on the CSR read/write & trap method to
-> > > identify the extensions [1].
-> > >
-> > > https://github.com/riscv-software-src/opensbi/blob/master/lib/sbi/sbi=
-_hart.c#L404
-> >
-> > I guess my question is more, who is supposed to set CBIE, CBCFE bits in=
- the
-> > ENVCFG CSR. I.e. at it's default settings CMO instructions will cause
-> > illegal instructions until the level above does allow them.
-> >
-> > When the kernel wants to call a cache-invalidate, from my reading menvc=
-fg
-> > needs to be modified accordingly - which would fall in SBI's court?
-> >
-> =
+On Mon, 14 Feb 2022, Jason A. Donenfeld wrote:
 
-> I think so. I had the same question for the SSTC extension as well.
-> This is what I currently do:
-> =
+> 
+> So the only systems we're actually talking about without a good cycle 
+> counter are non-Amiga m68k? If so, that'd be a pretty terrific finding. 
+> It'd mean that this idea can move forward, and we only need to worry 
+> about some m68k museum pieces with misconfigured userspaces...
+> 
 
-> 1. Detect menvcfg first, detect stimecmp
-> 2. Enable SSTC feature only if both are available
-> 3. Set the STCE bit in menvcfg if SSTC is available
-> =
+A processor cycle counter is helpful when mounting a timing attack but my 
+museum pieces don't suffer from that problem.
 
-> Here is the patch
-> https://github.com/atishp04/opensbi/commit/e6b185821e8302bffdceb4633b4132=
-52e0de4889
+Also, they are and always were immune from spectre, meltdown etc.
 
-Hmm, the CBO fields are defined as WARL (write any, read legal),
-so I guess some sort of trap won't work here.
+You misrepresent those secure hardware designs as being problematic, just 
+because of some bad advice on some random blogs about RNG API usage.
 
-The priv-spec only points to the cmo-spec for these bits and the cmo-spec
-does not specifiy what the value should be when cmo is not present.
+Do you have a phone that no longer gets updates from its vendor? Have you 
+tried patching it?
 
-
-> > > In the future, zicbom can be detected in the same manner. However,
-> > > svpbmt is a bit tricky as it doesn't
-> > > define any new CSR. Do you think OpenSBI needs to detect svpbmt for a=
-ny reason ?
-> >
-> > There is the PBMTE bit in MENVCFG, which I found while looking through =
-the
-> > zicbom-parts, which is supposed to "control wheter svpbmt is available =
-for
-> > use". So I guess the question is the same as above :-)
-> >
-> =
-
-> PBMTE bit in MENVCFG says if PBMTE bit is available or not. OpenSBI
-> needs other way to
-> detect if PBMTE is available.
-> =
-
-> That's why, I think MENVCFG should be set correctly by the hardware
-> upon reset. What do you think
-> about that ? I couldn't find anything related to the reset state for menv=
-cfg.
-
-me neither. Both the priv-spec as well as the cmobase spec do not
-specifiy any reset-values it seems.
-
-So I guess in the Qemu case, Qemu needs to set that bit when
-its svpbmt extension is enabled?
-
-
-Heiko
-
-
-> > > > > ---
-> > > > >  arch/riscv/include/asm/hwcap.h | 18 ++++++++++++++++++
-> > > > >  arch/riscv/kernel/cpufeature.c | 27 ++++++++++++++++++++++++---
-> > > > >  2 files changed, 42 insertions(+), 3 deletions(-)
-> > > > >
-> > > > > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/=
-asm/hwcap.h
-> > > > > index 5ce50468aff1..170bd80da520 100644
-> > > > > --- a/arch/riscv/include/asm/hwcap.h
-> > > > > +++ b/arch/riscv/include/asm/hwcap.h
-> > > > > @@ -34,7 +34,25 @@ extern unsigned long elf_hwcap;
-> > > > >  #define RISCV_ISA_EXT_s              ('s' - 'a')
-> > > > >  #define RISCV_ISA_EXT_u              ('u' - 'a')
-> > > > >
-> > > > > +/*
-> > > > > + * Increse this to higher value as kernel support more ISA exten=
-sions.
-> > > > > + */
-> > > > >  #define RISCV_ISA_EXT_MAX    64
-> > > > > +#define RISCV_ISA_EXT_NAME_LEN_MAX 32
-> > > > > +
-> > > > > +/* The base ID for multi-letter ISA extensions */
-> > > > > +#define RISCV_ISA_EXT_BASE 26
-> > > > > +
-> > > > > +/*
-> > > > > + * This enum represent the logical ID for each multi-letter RISC=
--V ISA extension.
-> > > > > + * The logical ID should start from RISCV_ISA_EXT_BASE and must =
-not exceed
-> > > > > + * RISCV_ISA_EXT_MAX. 0-25 range is reserved for single letter
-> > > > > + * extensions while all the multi-letter extensions should defin=
-e the next
-> > > > > + * available logical extension id.
-> > > > > + */
-> > > > > +enum riscv_isa_ext_id {
-> > > > > +     RISCV_ISA_EXT_ID_MAX =3D RISCV_ISA_EXT_MAX,
-> > > > > +};
-> > > > >
-> > > > >  unsigned long riscv_isa_extension_base(const unsigned long *isa_=
-bitmap);
-> > > > >
-> > > > > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/c=
-pufeature.c
-> > > > > index e9e3b0693d16..469b9739faf7 100644
-> > > > > --- a/arch/riscv/kernel/cpufeature.c
-> > > > > +++ b/arch/riscv/kernel/cpufeature.c
-> > > > > @@ -83,7 +83,7 @@ void __init riscv_fill_hwcap(void)
-> > > > >
-> > > > >       for_each_of_cpu_node(node) {
-> > > > >               unsigned long this_hwcap =3D 0;
-> > > > > -             unsigned long this_isa =3D 0;
-> > > > > +             uint64_t this_isa =3D 0;
-> > > > >
-> > > > >               if (riscv_of_processor_hartid(node) < 0)
-> > > > >                       continue;
-> > > > > @@ -169,12 +169,22 @@ void __init riscv_fill_hwcap(void)
-> > > > >                       if (*isa !=3D '_')
-> > > > >                               --isa;
-> > > > >
-> > > > > +#define SET_ISA_EXT_MAP(name, bit)                              =
-             \
-> > > > > +                     do {                                       =
-             \
-> > > > > +                             if ((ext_end - ext =3D=3D sizeof(na=
-me) - 1) &&      \
-> > > > > +                                  !memcmp(ext, name, sizeof(name=
-) - 1)) {    \
-> > > > > +                                     this_isa |=3D (1UL << bit);=
-               \
-> > > > > +                                     pr_info("Found ISA extensio=
-n %s", name);\
-> > > > > +                             }                                  =
-             \
-> > > > > +                     } while (false)                            =
-             \
-> > > > > +
-> > > > >                       if (unlikely(ext_err))
-> > > > >                               continue;
-> > > > >                       if (!ext_long) {
-> > > > >                               this_hwcap |=3D isa2hwcap[(unsigned=
- char)(*ext)];
-> > > > >                               this_isa |=3D (1UL << (*ext - 'a'));
-> > > > >                       }
-> > > > > +#undef SET_ISA_EXT_MAP
-> > > > >               }
-> > > > >
-> > > > >               /*
-> > > > > @@ -187,10 +197,21 @@ void __init riscv_fill_hwcap(void)
-> > > > >               else
-> > > > >                       elf_hwcap =3D this_hwcap;
-> > > > >
-> > > > > -             if (riscv_isa[0])
-> > > > > +             if (riscv_isa[0]) {
-> > > > > +#if IS_ENABLED(CONFIG_32BIT)
-> > > > > +                     riscv_isa[0] &=3D this_isa & 0xFFFFFFFF;
-> > > > > +                     riscv_isa[1] &=3D this_isa >> 32;
-> > > > > +#else
-> > > > >                       riscv_isa[0] &=3D this_isa;
-> > > > > -             else
-> > > > > +#endif
-> > > > > +             } else {
-> > > > > +#if IS_ENABLED(CONFIG_32BIT)
-> > > > > +                     riscv_isa[0] =3D this_isa & 0xFFFFFFFF;
-> > > > > +                     riscv_isa[1] =3D this_isa >> 32;
-> > > > > +#else
-> > > > >                       riscv_isa[0] =3D this_isa;
-> > > > > +#endif
-> > > > > +             }
-> > > > >       }
-> > > > >
-> > > > >       /* We don't support systems with F but without D, so mask t=
-hose out
-> > > > >
-> > > >
-> > > >
-> > > >
-> > > >
-> > >
-> > >
-> > >
-> >
-> >
-> >
-> >
-> =
-
-> =
-
-> =
-
-
-
-
-
+Your insecure museum pieces are the real problem, not my secure ones.
 
 _______________________________________________
 linux-riscv mailing list
