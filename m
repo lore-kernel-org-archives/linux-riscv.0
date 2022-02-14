@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38DE6C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 20:37:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1FE7C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Feb 2022 20:42:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pXKKN0GAmV7ZmTOjGLHdaqGnwO0ODW/PJ4zeBwuDdS8=; b=2n+X1Q05/Upwh6
-	qCZZfBSwje698SRD0vPoECJi/ShHKe9C+8uXrfuSfgKZDXaz/Q7sKEyyGw7mcGBpM1se3EmIYGyv4
-	qEXQ6M+7uGCtYjhQoJEQ5qY1f+trSchitXMUJgKCu1/9d7HDF+xxcXkfCvtrMLb15ir8u1du/u0pn
-	weiPtGEvSBPJQaU6HOZTrYghW8lT5YaaXJZP95O1Auivp7xwWsHreunoCYVCHIDJdLZFw/7bXx88w
-	EyIoQQmJ+DHt8oU7zz54Hr4Z9/4GOW2FsbLIBl0GLs7vvyIIIcBTWKMUEatovCE7gbI9DecBHBdPn
-	NFTDg75Mdaz4QcmsuZjw==;
+	List-Owner; bh=vW2GusglumqFKpakiOvDaoY2pgF1Rt+DrOmEgKQAFvw=; b=HkSoRs6lpAH1Ig
+	6wRy+EyPh5Nuv8FWJ33ROqiR28o3+4Lfxk6NAvhNhy27DNLE3JJYnVDzsJk+5SKvU8oDJQKLBXi4M
+	k/Rsfu4QL+BjWN/W2oWm3x8r718STRIi+uzV18AhJL+GN8qzefElha9NfV/zaktk9s88lLTMtgt8p
+	RD0iMGmHJuemzppRp82lE08cnQ4i9TaW3mdMvHAuwGsvMrn40q6AXoDiaGqeBgsOtpWxD6EyumZrd
+	D70RbL8U+08C6TobSwYZhixaJdIKYPJToxG/Hn8CDWL/nqqSemvtf+q2iub4P8+DloHhqxqbCiD05
+	q3/wyesq/pej1ORSJqNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJi66-00GrFD-Qo; Mon, 14 Feb 2022 20:37:22 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJi62-00GrED-Qq
- for linux-riscv@lists.infradead.org; Mon, 14 Feb 2022 20:37:21 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
- helo=diego.localnet)
- by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1nJi5u-0002va-Pr; Mon, 14 Feb 2022 21:37:10 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Atish Patra <atishp@atishpatra.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- devicetree <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Rob Herring <robh+dt@kernel.org>, Wei Fu <wefu@redhat.com>,
- liush <liush@allwinnertech.com>, Guo Ren <guoren@kernel.org>,
- Anup Patel <anup@brainfault.org>, Drew Fustini <drew@beagleboard.org>,
- Christoph Hellwig <hch@lst.de>, Arnd Bergmann <arnd@arndb.de>,
- Chen-Yu Tsai <wens@csie.org>, Maxime Ripard <maxime@cerno.tech>,
- Greg Favor <gfavor@ventanamicro.com>,
- Andrea Mondelli <andrea.mondelli@huawei.com>,
- Jonathan Behrens <behrensj@mit.edu>, Xinhaoqu <xinhaoqu@huawei.com>,
- Bill Huffman <huffman@cadence.com>, Nick Kossifidis <mick@ics.forth.gr>,
- Allen Baum <allen.baum@esperantotech.com>,
- Josh Scheid <jscheid@ventanamicro.com>, Richard Trauben <rtrauben@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Christoph Muellner <cmuellner@linux.com>,
- Philipp Tomsich <philipp.tomsich@vrull.eu>
-Subject: Re: [PATCH v6 00/14] riscv: support for Svpbmt and D1 memory types
-Date: Mon, 14 Feb 2022 21:37:09 +0100
-Message-ID: <54830991.GVdpa7EOCm@diego>
-In-Reply-To: <CAOnJCU+6X+oPwf1Y+M0Nwb9Bj1kbxQuJ2+Za_UwTgGmhpK7q8w@mail.gmail.com>
-References: <20220209123800.269774-1-heiko@sntech.de>
- <1644870918.0lLKBYk3Mk@diego>
- <CAOnJCU+6X+oPwf1Y+M0Nwb9Bj1kbxQuJ2+Za_UwTgGmhpK7q8w@mail.gmail.com>
+	id 1nJiAr-00Grbg-V9; Mon, 14 Feb 2022 20:42:18 +0000
+Received: from angie.orcam.me.uk ([78.133.224.34])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nJiAg-00Grap-Ba; Mon, 14 Feb 2022 20:42:08 +0000
+Received: by angie.orcam.me.uk (Postfix, from userid 500)
+ id 2C98292009E; Mon, 14 Feb 2022 21:42:05 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+ by angie.orcam.me.uk (Postfix) with ESMTP id 221CC92009D;
+ Mon, 14 Feb 2022 20:42:05 +0000 (GMT)
+Date: Mon, 14 Feb 2022 20:42:05 +0000 (GMT)
+From: "Maciej W. Rozycki" <macro@orcam.me.uk>
+To: Niklas Schnelle <schnelle@linux.ibm.com>
+cc: Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Sudip Mukherjee <sudipm.mukherjee@gmail.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, Jeff Dike <jdike@addtoit.com>, 
+ Richard Weinberger <richard@nod.at>, 
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+ Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+ linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org, 
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] parport_pc: Also enable driver for PCI systems
+In-Reply-To: <624931c5da90387324a97be57745b13af4738bda.camel@linux.ibm.com>
+Message-ID: <alpine.DEB.2.21.2202142018060.34636@angie.orcam.me.uk>
+References: <alpine.DEB.2.21.2202122313460.34636@angie.orcam.me.uk>
+ <CAMuHMdW-utcFzCZTgqONjxs=U662nF0=aBQu7Zi7FBQouwiA3g@mail.gmail.com>
+ <alpine.DEB.2.21.2202140833290.34636@angie.orcam.me.uk>
+ <624931c5da90387324a97be57745b13af4738bda.camel@linux.ibm.com>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_123719_200352_69F3C8D0 
-X-CRM114-Status: GOOD (  47.79  )
+X-CRM114-CacheID: sfid-20220214_124206_615115_29C380E4 
+X-CRM114-Status: GOOD (  31.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,539 +71,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 14. Februar 2022, 21:25:06 CET schrieb Atish Patra:
-> On Mon, Feb 14, 2022 at 12:02 PM Heiko St=FCbner <heiko@sntech.de> wrote:
-> >
-> > Hi Atish,
-> >
-> > Am Samstag, 12. Februar 2022, 01:25:53 CET schrieb Atish Patra:
-> > > On Thu, Feb 10, 2022 at 6:04 PM Heiko St=FCbner <heiko@sntech.de> wro=
-te:
-> > > >
-> > > > Am Freitag, 11. Februar 2022, 02:48:38 CET schrieb Atish Patra:
-> > > > > On Thu, Feb 10, 2022 at 4:25 PM Atish Patra <atishp@atishpatra.or=
-g> wrote:
-> > > > > >
-> > > > > > On Wed, Feb 9, 2022 at 4:38 AM Heiko Stuebner <heiko@sntech.de>=
- wrote:
-> > > > > > >
-> > > > > > > Svpbmt is an extension defining "Supervisor-mode: page-based =
-memory types"
-> > > > > > > for things like non-cacheable pages or I/O memory pages.
-> > > > > > >
-> > > > > > >
-> > > > > > > So this is my 2nd try at implementing Svpbmt (and the divergi=
-ng D1 memory
-> > > > > > > types) using the alternatives framework.
-> > > > > > >
-> > > > > > > This includes a number of changes to the alternatives mechani=
-sm itself.
-> > > > > > > The biggest one being the move to a more central location, as=
- I expect
-> > > > > > > in the future, nearly every chip needing some sort of patchin=
-g, be it
-> > > > > > > either for erratas or for optional features (svpbmt or others=
-).
-> > > > > > >
-> > > > > > > The dt-binding for svpbmt itself is of course not finished an=
-d is still
-> > > > > > > using the binding introduced in previous versions, as where t=
-o put
-> > > > > > > a svpbmt-property in the devicetree is still under dicussion.
-> > > > > > > Atish seems to be working on a framework for extensions [0],
-> > > > > > >
-> > > > > >
-> > > > > > Here is the patch series
-> > > > > > https://lore.kernel.org/lkml/20220210214018.55739-1-atishp@rivo=
-sinc.com/
-> > > > > >
-> > > > > > I think we can simplify the cpu feature probing in PATCH 10 wit=
-h the
-> > > > > > above series
-> > > > > > which simply relies on the existing riscv_isa bitmap.
-> > > > > >
-> > > > > > We also don't need the separate svpbmt property in DT mmu node.
-> > > > > > Let me know what you think.
-> > > > > >
-> > > > > > > The series also introduces support for the memory types of th=
-e D1
-> > > > > > > which are implemented differently to svpbmt. But when patchin=
-g anyway
-> > > > > > > it's pretty clean to add the D1 variant via ALTERNATIVE_2 to =
-the same
-> > > > > > > location.
-> > > > > > >
-> > > > > > > The only slightly bigger difference is that the "normal" type=
- is not 0
-> > > > > > > as with svpbmt, so kernel patches for this PMA type need to b=
-e applied
-> > > > > > > even before the MMU is brought up, so the series introduces a=
- separate
-> > > > > > > stage for that.
-> > > > > > >
-> > > > > > >
-> > > > > > > In theory this series is 3 parts:
-> > > > > > > - sbi cache-flush / null-ptr
-> > > > > > > - alternatives improvements
-> > > > > > > - svpbmt+d1
-> > > > > > >
-> > > > > > > So expecially patches from the first 2 areas could be applied=
- when
-> > > > > > > deemed ready, I just thought to keep it together to show-case=
- where
-> > > > > > > the end-goal is and not requiring jumping between different s=
-eries.
-> > > > > > >
-> > > > > > >
-> > > > > > > The sbi cache-flush patch is based on Atish's sparse-hartid p=
-atch [1],
-> > > > > > > as it touches a similar area in mm/cacheflush.c
-> > > > > > >
-> > > > > > >
-> > > > > > > I picked the recipient list from the previous version, hopefu=
-lly
-> > > > > > > I didn't forget anybody.
-> > > > > > >
-> > > > >
-> > > > > I am also getting a load access fault while booting this series i=
-n Qemu.
-> > > > >
-> > > > > <with additional debug message when before sbi_trap_redirect in O=
-penSBI>
-> > > > > sbi_trap_error_debug: hart1: trap handler failed (error -2)
-> > > > > sbi_trap_error_debug: hart1: mcause=3D0x0000000000000005 mtval=3D=
-0x0000000080046468
-> > > > > sbi_trap_error_debug: hart1: mtval2=3D0x0000000000000000 mtinst=
-=3D0x0000000000000000
-> > > > > sbi_trap_error_debug: hart1: mepc=3D0x000000008080a8b8 mstatus=3D=
-0x0000000a00000800
-> > > > > sbi_trap_error_debug: hart1: ra=3D0x0000000080202b06 sp=3D0x00000=
-00081203f00
-> > > > > sbi_trap_error_debug: hart1: gp=3D0x00000000812d9db8 tp=3D0x00000=
-00080046000
-> > > > > sbi_trap_error_debug: hart1: s0=3D0x0000000081203f80 s1=3D0x00000=
-00080c1a8a8
-> > > > > sbi_trap_error_debug: hart1: a0=3D0x0000000080c1a8a8 a1=3D0x00000=
-00080c1b0d0
-> > > > > sbi_trap_error_debug: hart1: a2=3D0x0000000000000002 a3=3D0x00000=
-00000000000
-> > > > > sbi_trap_error_debug: hart1: a4=3D0x00000000812da902 a5=3D0x00000=
-00000000000
-> > > > > sbi_trap_error_debug: hart1: a6=3D0x0000000000000006 a7=3D0x00000=
-00000000010
-> > > > > sbi_trap_error_debug: hart1: s2=3D0x0000000080c1b0d0 s3=3D0x00000=
-00000000002
-> > > > > sbi_trap_error_debug: hart1: s4=3D0x00000000bf000000 s5=3D0x00000=
-00000000000
-> > > > > sbi_trap_error_debug: hart1: s6=3D0x8000000a00006800 s7=3D0x00000=
-0000000007f
-> > > > > sbi_trap_error_debug: hart1: s8=3D0x0000000080018038 s9=3D0x00000=
-00080039eac
-> > > > > sbi_trap_error_debug: hart1: s10=3D0x0000000000000000 s11=3D0x000=
-0000000000000
-> > > > > sbi_trap_error_debug: hart1: t0=3D0x0000000080c04000 t1=3D0x00000=
-00000000002
-> > > > > sbi_trap_error_debug: hart1: t2=3D0x0000000000001000 t3=3D0x00000=
-00000000010
-> > > > > sbi_trap_error_debug: hart1: t4=3D0x00000000800168be t5=3D0x00000=
-00000000027
-> > > > > sbi_trap_error_debug: hart1: t6=3D0x0000000000000001
-> > > > >
-> > > > > mepc : 0x000000008080a8b8 - call_function_init (kernel/smp.c)
-> > > > >
-> > > > > Kernel - 5.17-rc2 + my patches
-> > > > > Qemu - Alistairs next tree + my patches
-> > > >
-> > > > very strange. I was testing of course with Qemu as well, though nev=
-er saw
-> > > > anything like this.
-> > > >
-> > > > But of course it was Qemu master + the then still pending svpbmt pa=
-tchset [0]
-> > > > [looks like Alistair applied this today] + a patch that made qemu i=
-nsert the
-> > > > svpbmt dt-property for the virt machine.
-> > > >
-> > > > Oh ... just to make sure, did you enable the svpbmt parameter when =
-starting
-> > > > Qemu? (-cpu ...,svpbmt=3Dtrue)
-> > > >
-> > >
-> > > Yeah. I tried with or without. It's failing in both cases. I found a
-> > > fix but that may be unrelated and hiding the real issue.
-> > > Marking the cpufeature_svpbmt_check_of functions inline allows me to =
-boot.
-> > >
-> > > Here is my analysis:
-> > >
-> > > Here is the trace of the trap:
-> > > sbi_trap_error_debug: hart0: trap handler failed (error -2)
-> > > sbi_trap_error_debug: hart0: mcause=3D0x0000000000000005 mtval=3D0x00=
-00000080048468
-> > > sbi_trap_error_debug: hart0: mtval2=3D0x0000000000000000 mtinst=3D0x0=
-000000000000000
-> > > sbi_trap_error_debug: hart0: mepc=3D0x000000008080a8b8 mstatus=3D0x00=
-00000a00000800
-> > > sbi_trap_error_debug: hart0: ra=3D0x0000000080202b06 sp=3D0x000000008=
-1203f00
-> > > sbi_trap_error_debug: hart0: gp=3D0x00000000812d9db8 tp=3D0x000000008=
-0048000
-> > > sbi_trap_error_debug: hart0: s0=3D0x0000000081203f80 s1=3D0x000000008=
-0c1a8a8
-> > > sbi_trap_error_debug: hart0: a0=3D0x0000000080c1a8a8 a1=3D0x000000008=
-0c1b0d0
-> > > sbi_trap_error_debug: hart0: a2=3D0x0000000000000002 a3=3D0x000000000=
-0000000
-> > > sbi_trap_error_debug: hart0: a4=3D0x00000000812da902 a5=3D0x000000000=
-0000000
-> > > sbi_trap_error_debug: hart0: a6=3D0x0000000000000006 a7=3D0x000000000=
-0000010
-> > > sbi_trap_error_debug: hart0: s2=3D0x0000000080c1b0d0 s3=3D0x000000000=
-0000002
-> > > sbi_trap_error_debug: hart0: s4=3D0x00000000bf000000 s5=3D0x000000000=
-0000000
-> > > sbi_trap_error_debug: hart0: s6=3D0x8000000a00006800 s7=3D0x000000000=
-000007f
-> > > sbi_trap_error_debug: hart0: s8=3D0x0000000080018038 s9=3D0x000000008=
-0039ea8
-> > > sbi_trap_error_debug: hart0: s10=3D0x0000000000000000 s11=3D0x0000000=
-000000000
-> > > sbi_trap_error_debug: hart0: t0=3D0x0000000080c04000 t1=3D0x000000000=
-0000002
-> > > sbi_trap_error_debug: hart0: t2=3D0x0000000000001000 t3=3D0x000000000=
-0000010
-> > > sbi_trap_error_debug: hart0: t4=3D0x00000000800168be t5=3D0x000000000=
-0000027
-> > > sbi_trap_error_debug: hart0: t6=3D0x0000000000000001
-> > >
-> > > mepc : 0x000000008080a8b8 - should be ffffffff8060a8b8 in objdump
-> > > output after offset
-> > >
-> > > Here is the snippet of the objdump output for riscv_cpufeature_patch_=
-func
-> > >
-> > > =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> > > inline output: (booting fails with above dump)
-> > >
-> > > void riscv_cpufeature_patch_func(struct alt_entry *begin, struct alt_=
-entry *end,
-> > >                                  unsigned int stage)
-> > > {
-> > > ffffffff8060a89a:       7119                    addi    sp,sp,-128
-> > > ffffffff8060a89c:       f8a2                    sd      s0,112(sp)
-> > > ffffffff8060a89e:       f4a6                    sd      s1,104(sp)
-> > > ffffffff8060a8a0:       f0ca                    sd      s2,96(sp)
-> > > ffffffff8060a8a2:       e4d6                    sd      s5,72(sp)
-> > > ffffffff8060a8a4:       fc86                    sd      ra,120(sp)
-> > > ffffffff8060a8a6:       ecce                    sd      s3,88(sp)
-> > > ffffffff8060a8a8:       e8d2                    sd      s4,80(sp)
-> > > ffffffff8060a8aa:       e0da                    sd      s6,64(sp)
-> > > ffffffff8060a8ac:       fc5e                    sd      s7,56(sp)
-> > > ffffffff8060a8ae:       f862                    sd      s8,48(sp)
-> > > ffffffff8060a8b0:       f466                    sd      s9,40(sp)
-> > > ffffffff8060a8b2:       f06a                    sd      s10,32(sp)
-> > > ffffffff8060a8b4:       ec6e                    sd      s11,24(sp)
-> > > ffffffff8060a8b6:       0100                    addi    s0,sp,128
-> > > ffffffff8060a8b8:       46823783                ld      a5,1128(tp) #
-> > > 468 <__efistub_.L0 +0x5> --------> Faulting instruction
-> > > ffffffff8060a8bc:       f8f43423                sd      a5,-120(s0)
-> > > ffffffff8060a8c0:       4781                    li      a5,0
-> > > ffffffff8060a8c2:       8932                    mv      s2,a2
-> > > ffffffff8060a8c4:       84aa                    mv      s1,a0
-> > > ffffffff8060a8c6:       8aae                    mv      s5,a1
-> > >         switch (stage) {
-> > > ffffffff8060a8c8:       ca1d                    beqz
-> > > a2,ffffffff8060a8fe <riscv_cpufeature_patch_func+0x64>
-> > > ffffffff8060a8ca:       4789                    li      a5,2
-> > > ffffffff8060a8cc:       18f60363                beq
-> > > a2,a5,ffffffff8060aa52 <riscv_cpufeature_patch_func+0x1b8>
-> > >         for_each_of_cpu_node(node) {
-> > > ffffffff8060a8d0:       4501                    li      a0,0
-> > > =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> > >
-> > > noinline output (boots fine)
-> > > =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> > > void riscv_cpufeature_patch_func(struct alt_entry *begin, struct alt_=
-entry *end,
-> > >                                  unsigned int stage)
-> > > {
-> > > ffffffff8060a968:       7159                    addi    sp,sp,-112
-> > > ffffffff8060a96a:       f0a2                    sd      s0,96(sp)
-> > > ffffffff8060a96c:       eca6                    sd      s1,88(sp)
-> > > ffffffff8060a96e:       e8ca                    sd      s2,80(sp)
-> > > ffffffff8060a970:       fc56                    sd      s5,56(sp)
-> > > ffffffff8060a972:       f486                    sd      ra,104(sp)
-> > > ffffffff8060a974:       e4ce                    sd      s3,72(sp)
-> > > ffffffff8060a976:       e0d2                    sd      s4,64(sp)
-> > > ffffffff8060a978:       f85a                    sd      s6,48(sp)
-> > > ffffffff8060a97a:       f45e                    sd      s7,40(sp)
-> > > ffffffff8060a97c:       f062                    sd      s8,32(sp)
-> > > ffffffff8060a97e:       ec66                    sd      s9,24(sp)
-> > > ffffffff8060a980:       e86a                    sd      s10,16(sp)
-> > > ffffffff8060a982:       e46e                    sd      s11,8(sp)
-> > > ffffffff8060a984:       1880                    addi    s0,sp,112
-> > > ffffffff8060a986:       8932                    mv      s2,a2
-> > > ffffffff8060a988:       84aa                    mv      s1,a0
-> > > ffffffff8060a98a:       8aae                    mv      s5,a1
-> > >         switch (stage) {
-> > > ffffffff8060a98c:       ca09                    beqz
-> > > a2,ffffffff8060a99e <riscv_cpufeature_patch_func+0x36>
-> > > ffffffff8060a98e:       4789                    li      a5,2
-> > > ffffffff8060a990:       0ef60f63                beq
-> > > a2,a5,ffffffff8060aa8e <riscv_cpufeature_patch_func+0x126>
-> > >                 return cpufeature_svpbmt_check_of();
-> > > ffffffff8060a994:       f07ff0ef                jal
-> > > ra,ffffffff8060a89a <cpufeature_svpbmt_check_of>
-> > >                         cpu_req_feature |=3D (1U << idx);
-> > > ffffffff8060a998:       0005091b                sext.w  s2,a0
-> > > ffffffff8060a99c:       a8d5                    j
-> > > ffffffff8060aa90 <riscv_cpufeature_patch_func+0x128>
-> > >         const void *fdt =3D dtb_early_va;
-> > >
-> > >
-> > > Any thoughts ? It looks like it may related to "tp"
-> >
-> > Faulting instruction "efistub", so maybe something between efi
-> > and the devicetree not agreeing?
-> >
-> =
+On Mon, 14 Feb 2022, Niklas Schnelle wrote:
 
-> I don't think they are related as the execution has not reached the
-> device tree parsing yet.
-> It crashes before executing anything inside the DT parsing code.
-> =
+> > While older versions of the driver did have to be explicitly configured 
+> > for MMIO rather than port I/O, a feature added with commit e89a2cfb7d7b 
+> > ("[TC] defxx: TURBOchannel support"), the driver has been improved with 
+> > commit 795e272e5474 ("FDDI: defxx: Implement dynamic CSR I/O address space 
+> > selection") and the selection of the I/O space to use now fully automatic.
+> 
+> Very interesting and thanks for the input! On s390 we really only have
+> very few different PCI devices and I can only test another hand full
+> with my private x86 and ARM systems.
 
-> __efistub_ is just a prefix to make sure that there are no absolute
-> relocations in .init section.
-> It is also enabled in defconfig. So you should see that error as well.
-> =
+ Note that for TURBOchannel support, which is likewise MMIO only, the 
+driver has this:
 
-> > Though at least on my build I also have efistub enabled, so it
-> > should be the same. So it's very strange that you're seeing that
-> > trap, which I've never seen so far.
-> >
-> =
+#if defined(CONFIG_EISA) || defined(CONFIG_PCI)
+#define dfx_use_mmio bp->mmio
+#else
+#define dfx_use_mmio true
+#endif
 
-> Maybe GCC has to do something with it. Because adding "nolnine" solves
-> it for me.
-> I am using v11.1.0.
+so if your proposal to add HAS_IOPORT goes forward it'll be enough if we 
+update the condition to:
 
-I'm currently with 10.2.1 .. so that really might be an issue.
-I tried gcc-11 from Debian last week, but that didn't even seem
-to build working stock images, so I've reverted back to 10 for the
-time being.
+#if defined(CONFIG_HAS_IOPORT)
 
+or maybe even rewrite the entire piece as:
 
-> > In any case, I tried your + Tsukasa's patches regarding the isa-extensi=
-ons
-> > today, and obviously that works fine, so we will get rid of the devicet=
-ree-
-> > parts anyway I guess.
-> >
-> =
+#define dfx_use_mmio (!IS_ENABLED(CONFIG_HAS_IOPORT) || bp->mmio)
 
-> I will try those changes and update the thread.
-> =
+and all the port I/O stuff will be optimised away by the compiler.  The 
+only part of the driver that actually cannot do without port I/O is EISA 
+support, which uses the EISA slot port I/O space for BAR accesses even 
+if the actual CSR block has been set up to be decoded in the MMIO space.
 
-> > With the change below on top of that v2/v3 version-mix, I also get a
-> > working svpbmt of course. After hacking qemu to generate a
-> > suitable isa-string for me :-) .
-> =
+> >  Then what about the other FDDI driver there, SKFP?  It's not marked as
+> > LEGACY_PCI, although it's not selectable anyway due to the dependency of 
+> > FDDI on LEGACY_PCI.
+> > 
+> >  Niklas, what was the criterion for placing the LEGACY_PCI dependency?
+> 
+> Hmm, honestly I haven't really worked on this recently. There were some
+> open questions from Bjorn towards Arnd and I was waiting for his reply
+> but I guess he missed those. I think what you noticed was the main
+> problem, there wasn't really a clear set of criteria for LEGACY_PCI and
+> even for HAS_IOPORT we missed some uses if they were not compiled on
+> s390's allyesconfig due to other dependencies.
 
-> I will send a patch to Qemu to append the extension strings to the device=
- tree.
+ A dynamic boolean variable might be good having for platforms which may 
+or may not have PCI port I/O available depending on the specific system 
+model in addition to a compile-time constant of HAS_IOPORT.  I looked 
+into it briefly in the context of the POWER9 system when I got it back 
+in 2020, but figured out it wasn't straightforward enough and decided I 
+could not afford the time for a proper investigation.
 
-thanks a lot :-)
+> >  Also do you plan to post an updated series anytime soon?  I'm asking 
+> > because like with the m68k port also the MIPS one needs a more finegrained 
+> > approach and I suspect there may be other corner cases and I'd rather look 
+> > at the most recent version of your series.  Otherwise I'll have a look 
+> > through your original submission, but it may have to wait until the next 
+> > weekend due to my other commitments.
+> 
+> That sounds like you do see a need for something like HAS_IOPORT too,
+> correct? Maybe with some input what you need and possibly stripping the
+> LEGACY_PCI option it might make sense to do a new version. Rather than
+> possibly getting in your way could directly work in your input.
 
-Heiko
+ Yes, it does seem to me like a good direction, but will surely require 
+some coordination from platform and driver maintainers, as it's not 
+always easy for someone not familiar with a specific piece what the 
+context is (such as with the defxx driver as I noted above).
 
-
-> > -------------- 8< ------------------
-> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hw=
-cap.h
-> > index 691fc9c8099b..656cd626eb1a 100644
-> > --- a/arch/riscv/include/asm/hwcap.h
-> > +++ b/arch/riscv/include/asm/hwcap.h
-> > @@ -51,6 +51,7 @@ extern unsigned long elf_hwcap;
-> >   * available logical extension id.
-> >   */
-> >  enum riscv_isa_ext_id {
-> > +       RISCV_ISA_EXT_SVPBMT =3D RISCV_ISA_EXT_BASE,
-> >         RISCV_ISA_EXT_ID_MAX =3D RISCV_ISA_EXT_MAX,
-> >  };
-> >
-> > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> > index ced7e5be8641..b5130b15ca8d 100644
-> > --- a/arch/riscv/kernel/cpu.c
-> > +++ b/arch/riscv/kernel/cpu.c
-> > @@ -71,6 +71,7 @@ int riscv_of_parent_hartid(struct device_node *node)
-> >         }
-> >
-> >  static struct riscv_isa_ext_data isa_ext_arr[] =3D {
-> > +       __RISCV_ISA_EXT_DATA("svpbmt", RISCV_ISA_EXT_SVPBMT),
-> >         __RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
-> >  };
-> >
-> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeat=
-ure.c
-> > index 2e4eaedbf7f5..d82033ece1fd 100644
-> > --- a/arch/riscv/kernel/cpufeature.c
-> > +++ b/arch/riscv/kernel/cpufeature.c
-> > @@ -192,6 +192,8 @@ void __init riscv_fill_hwcap(void)
-> >                         if (!ext_long) {
-> >                                 this_hwcap |=3D isa2hwcap[(unsigned cha=
-r)(*ext)];
-> >                                 this_isa |=3D (1UL << (*ext - 'a'));
-> > +                       } else {
-> > +                               SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT=
-_SVPBMT);
-> >                         }
-> >  #undef SET_ISA_EXT_MAP
-> >                 }
-> > @@ -253,64 +255,6 @@ struct cpufeature_info {
-> >         bool (*check_func)(unsigned int stage);
-> >  };
-> >
-> > -#if defined(CONFIG_MMU) && defined(CONFIG_64BIT)
-> > -static bool __init_or_module cpufeature_svpbmt_check_fdt(void)
-> > -{
-> > -       const void *fdt =3D dtb_early_va;
-> > -       const char *str;
-> > -       int offset;
-> > -
-> > -       offset =3D fdt_path_offset(fdt, "/cpus");
-> > -       if (offset < 0)
-> > -               return false;
-> > -
-> > -       for (offset =3D fdt_next_node(fdt, offset, NULL); offset >=3D 0;
-> > -            offset =3D fdt_next_node(fdt, offset, NULL)) {
-> > -               str =3D fdt_getprop(fdt, offset, "device_type", NULL);
-> > -               if (!str || strcmp(str, "cpu"))
-> > -                       break;
-> > -
-> > -               str =3D fdt_getprop(fdt, offset, "mmu-type", NULL);
-> > -               if (!str)
-> > -                       continue;
-> > -
-> > -               if (!strncmp(str + 6, "none", 4))
-> > -                       continue;
-> > -
-> > -               str =3D fdt_getprop(fdt, offset, "riscv,mmu", NULL);
-> > -               if (!str)
-> > -                       continue;
-> > -
-> > -               if (!strncmp(str + 6, "svpbmt", 6))
-> > -                       return true;
-> > -       }
-> > -
-> > -       return false;
-> > -}
-> > -
-> > -static bool __init_or_module cpufeature_svpbmt_check_of(void)
-> > -{
-> > -       struct device_node *node;
-> > -       const char *str;
-> > -
-> > -       for_each_of_cpu_node(node) {
-> > -               if (of_property_read_string(node, "mmu-type", &str))
-> > -                       continue;
-> > -
-> > -               if (!strncmp(str + 6, "none", 4))
-> > -                       continue;
-> > -
-> > -               if (of_property_read_string(node, "riscv,mmu", &str))
-> > -                       continue;
-> > -
-> > -               if (!strncmp(str + 6, "svpbmt", 6))
-> > -                       return true;
-> > -       }
-> > -
-> > -       return false;
-> > -}
-> > -#endif
-> > -
-> >  static bool __init_or_module cpufeature_svpbmt_check_func(unsigned int=
- stage)
-> >  {
-> >         bool ret =3D false;
-> > @@ -319,10 +263,8 @@ static bool __init_or_module cpufeature_svpbmt_che=
-ck_func(unsigned int stage)
-> >         switch (stage) {
-> >         case RISCV_ALTERNATIVES_EARLY_BOOT:
-> >                 return false;
-> > -       case RISCV_ALTERNATIVES_BOOT:
-> > -               return cpufeature_svpbmt_check_fdt();
-> >         default:
-> > -               return cpufeature_svpbmt_check_of();
-> > +               return riscv_isa_extension_available(NULL, SVPBMT);
-> >         }
-> >  #endif
-> >
-> > diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-> > index c01012f3740d..ec07f991866a 100644
-> > --- a/arch/riscv/kernel/head.S
-> > +++ b/arch/riscv/kernel/head.S
-> > @@ -10,7 +10,6 @@
-> >  #include <asm/thread_info.h>
-> >  #include <asm/page.h>
-> >  #include <asm/pgtable.h>
-> > -#include <asm/alternative.h>
-> >  #include <asm/csr.h>
-> >  #include <asm/cpu_ops_sbi.h>
-> >  #include <asm/hwcap.h>
-> > @@ -341,7 +340,6 @@ clear_bss_done:
-> >         call kasan_early_init
-> >  #endif
-> >         /* Start the kernel */
-> > -       call apply_boot_alternatives
-> >         call soc_early_init
-> >         tail start_kernel
-> >
-> > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> > index 339ceb595b38..b4879c942b42 100644
-> > --- a/arch/riscv/kernel/setup.c
-> > +++ b/arch/riscv/kernel/setup.c
-> > @@ -21,6 +21,7 @@
-> >  #include <linux/efi.h>
-> >  #include <linux/crash_dump.h>
-> >
-> > +#include <asm/alternative.h>
-> >  #include <asm/cpu_ops.h>
-> >  #include <asm/early_ioremap.h>
-> >  #include <asm/pgtable.h>
-> > @@ -295,6 +296,7 @@ void __init setup_arch(char **cmdline_p)
-> >  #endif
-> >
-> >         riscv_fill_hwcap();
-> > +       apply_boot_alternatives();
-> >  }
-> >
-> >  static int __init topology_init(void)
-> >
-> >
-> >
-> =
-
-> Looks good to me.
-> =
-
-> =
-
-
-
-
-
+  Maciej
 
 _______________________________________________
 linux-riscv mailing list
