@@ -4,96 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 403A9C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 13:29:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6A41C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 15:30:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J+QyEllMDME1YCkQ+UzlUHP2doDoSDIsbflkMCpiObc=; b=WvnJ0lh5+ZyhbM
-	KkiqAKltieQrOYdpOfL7oKdSSZbEL91U9qehUdDkorQlf+ZUfks6mmVKETI2jaCbNeRDIaPbEi6pp
-	QXTm+LJOrTG03RD2o0GZkjN6ydqz0UFbyBNam3px8cRv2gAOYRmpXEnMD7hi4pATkoT90ObGNRrl3
-	wfyKMowKUKm7kcC7NCfPgDhQOXa4qOkNhjYDcJXvrqL8RF6drsNepPPSnYuGCi0d6E3U8M2h/YTyF
-	tgHcgBbkpHZ9zya8NYFkpWaqd62Kbg6EO8y9SDErm4r3CDMnkm+C/0Z8mn73Rl2toKnJmsejTqozC
-	6KMftkU3W028UTYDSW9Q==;
+	List-Owner; bh=xbdxFVIteuS07VjPCYE+fpvH+7tdgKxMauB3zLn8IRM=; b=jguHfHQ24tzCD+
+	N09DhGuVLUyTMvzaQjQ73ZZrQPIHoIDrObCR3QnkB4MwwSNkLO+J807UfvG4cfhiNq/04pZfFAa7x
+	MC9a0UnvGxoVWpv2hfcIUQe/WBG3mZbdK60So6xKSHIKxxZ7MMcy01ZT+EHXQbHlPDZGp662Ui5TZ
+	q3MWdbql/nIz3vETuOSkSv1CTCntofSfPqIA9lrzojSuv5Qlz/cy3Vg1cUrgmlA8uHtq98SvBFrXl
+	1lWZr0wFuYe10rSd3RJgdUxRf2dMK97nIkWuUfX5ujdVlgdvIy5eJv/n9yRqjTgUM9uTCRudiz9nM
+	6yq2mW8D9y+xU90fUo1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJxtH-002r7U-02; Tue, 15 Feb 2022 13:29:11 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1nJzm8-003HMM-Vg; Tue, 15 Feb 2022 15:29:57 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJxtB-002r3x-HJ
- for linux-riscv@lists.infradead.org; Tue, 15 Feb 2022 13:29:09 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-182-H3Rwu_w8NV6V0ZRo-LH3cg-1; Tue, 15 Feb 2022 13:29:01 +0000
-X-MC-Unique: H3Rwu_w8NV6V0ZRo-LH3cg-1
-Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
- AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
- Server (TLS) id 15.0.1497.28; Tue, 15 Feb 2022 13:28:59 +0000
-Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
- AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
- 15.00.1497.028; Tue, 15 Feb 2022 13:28:59 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Arnd Bergmann' <arnd@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>
-CC: Christoph Hellwig <hch@lst.de>, Linus Torvalds
- <torvalds@linux-foundation.org>, linux-arch <linux-arch@vger.kernel.org>,
- Linux-MM <linux-mm@kvack.org>, Linux API <linux-api@vger.kernel.org>, "Arnd
- Bergmann" <arnd@arndb.de>, Linux Kernel Mailing List
- <linux-kernel@vger.kernel.org>, Russell King - ARM Linux
- <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>, Guo Ren
- <guoren@kernel.org>, Brian Cain <bcain@codeaurora.org>, Geert Uytterhoeven
- <geert@linux-m68k.org>, Michal Simek <monstr@monstr.eu>, Thomas Bogendoerfer
- <tsbogend@alpha.franken.de>, Nick Hu <nickhu@andestech.com>, Greentime Hu
- <green.hu@gmail.com>, Dinh Nguyen <dinguyen@kernel.org>, Stafford Horne
- <shorne@gmail.com>, Helge Deller <deller@gmx.de>, Michael Ellerman
- <mpe@ellerman.id.au>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar
- <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>, Heiko Carstens
- <hca@linux.ibm.com>, Rich Felker <dalias@libc.org>, David Miller
- <davem@davemloft.net>, Richard Weinberger <richard@nod.at>, "the arch/x86
- maintainers" <x86@kernel.org>, Max Filippov <jcmvbkbc@gmail.com>, "Eric W .
- Biederman" <ebiederm@xmission.com>, Andrew Morton
- <akpm@linux-foundation.org>, Ard Biesheuvel <ardb@kernel.org>, alpha
- <linux-alpha@vger.kernel.org>, "open list:SYNOPSYS ARC ARCHITECTURE"
- <linux-snps-arc@lists.infradead.org>, Linux ARM
- <linux-arm-kernel@lists.infradead.org>, "linux-csky@vger.kernel.org"
- <linux-csky@vger.kernel.org>, "open list:QUALCOMM HEXAGON..."
- <linux-hexagon@vger.kernel.org>, "linux-ia64@vger.kernel.org"
- <linux-ia64@vger.kernel.org>, linux-m68k <linux-m68k@lists.linux-m68k.org>,
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, Openrisc
- <openrisc@lists.librecores.org>, Parisc List <linux-parisc@vger.kernel.org>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, linux-riscv
- <linux-riscv@lists.infradead.org>, linux-s390 <linux-s390@vger.kernel.org>,
- Linux-sh list <linux-sh@vger.kernel.org>, sparclinux
- <sparclinux@vger.kernel.org>, linux-um <linux-um@lists.infradead.org>, "open
- list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>
-Subject: RE: [PATCH 09/14] m68k: drop custom __access_ok()
-Thread-Topic: [PATCH 09/14] m68k: drop custom __access_ok()
-Thread-Index: AQHYIlMtkSdfU5++r0iADsDmNo4Sd6yUlQ9w
-Date: Tue, 15 Feb 2022 13:28:59 +0000
-Message-ID: <665a8abfa86f4b5f9a66e294a79bb531@AcuMS.aculab.com>
-References: <20220214163452.1568807-1-arnd@kernel.org>
- <20220214163452.1568807-10-arnd@kernel.org>
- <Ygr11RGjj3C9uAUg@zeniv-ca.linux.org.uk> <20220215062942.GA12551@lst.de>
- <YgtSpk0boDjsyjFK@zeniv-ca.linux.org.uk>
- <CAK8P3a0t-dnJXvXH0Mx5L-AeVQe1mYzRi0sQjYxzMQw-mVPv0Q@mail.gmail.com>
-In-Reply-To: <CAK8P3a0t-dnJXvXH0Mx5L-AeVQe1mYzRi0sQjYxzMQw-mVPv0Q@mail.gmail.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+ id 1nJzjW-003G0W-9y
+ for linux-riscv@lists.infradead.org; Tue, 15 Feb 2022 15:27:16 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id C59A9614C2;
+ Tue, 15 Feb 2022 15:27:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80246C340EB;
+ Tue, 15 Feb 2022 15:27:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1644938833;
+ bh=ZD01o9rSSE8LUE0dVcK7GaEZOVJK7nnDEiRaEzbfzEQ=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=AQBdzW+LPB3z/k09KCPIRWS8cScMbuNOJEtzmh+cLOcqT0/CB3eHHi4CXFsIepp95
+ PJSEpVUayWyhZjatePrk4Z7iMxCjDciDt0P7bLox4rNPVPYKIHWTJ3LtXw708UMwb+
+ AGmJjkYcbcrVe/byQLVTTZwzpXjbTMr3ptYUemLt2t90gQXRydBThMjtgW13OqG9TD
+ Ao6Gj3tN5OAE7H5yCEwQMKiTcPTgReNBAusbH6Uh66yHOLcWybONhelLuR8ViQ6Xue
+ p+GTkccCBkXbPrq3MebVeKzZbsShUz3Tw7op20tJ2T+XXHQZfu2Ru1mQSHDHXFD9xY
+ IV5oySbE3xsSw==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Guo Ren <guoren@linux.alibaba.com>, Anup Patel <anup@brainfault.org>,
+ Marc Zyngier <maz@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Samuel Holland <samuel@sholland.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Sasha Levin <sashal@kernel.org>, paul.walmsley@sifive.com,
+ aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org
+Subject: [PATCH AUTOSEL 5.16 07/34] irqchip/sifive-plic: Add missing thead,
+ c900-plic match string
+Date: Tue, 15 Feb 2022 10:26:30 -0500
+Message-Id: <20220215152657.580200-7-sashal@kernel.org>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20220215152657.580200-1-sashal@kernel.org>
+References: <20220215152657.580200-1-sashal@kernel.org>
 MIME-Version: 1.0
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=C51A453 smtp.mailfrom=david.laight@aculab.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+X-stable: review
+X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220215_052905_981837_15C26BF8 
-X-CRM114-Status: GOOD (  33.01  )
+X-CRM114-CacheID: sfid-20220215_072714_453958_7ADB1988 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,84 +79,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann
-> Sent: 15 February 2022 10:02
-> 
-> On Tue, Feb 15, 2022 at 8:13 AM Al Viro <viro@zeniv.linux.org.uk> wrote:
-> > On Tue, Feb 15, 2022 at 07:29:42AM +0100, Christoph Hellwig wrote:
-> > > On Tue, Feb 15, 2022 at 12:37:41AM +0000, Al Viro wrote:
-> > > > Perhaps simply wrap that sucker into #ifdef CONFIG_CPU_HAS_ADDRESS_SPACES
-> > > > (and trim the comment down to "coldfire and 68000 will pick generic
-> > > > variant")?
-> > >
-> > > I wonder if we should invert CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE,
-> > > select the separate address space config for s390, sparc64, non-coldfire
-> > > m68k and mips with EVA and then just have one single access_ok for
-> > > overlapping address space (as added by Arnd) and non-overlapping ones
-> > > (always return true).
-> >
-> > parisc is also such...  How about
-> >
-> >         select ALTERNATE_SPACE_USERLAND
-> >
-> > for that bunch?
-> 
-> Either of those works for me. My current version has this keyed off
-> TASK_SIZE_MAX==ULONG_MAX, but a CONFIG_ symbol does
-> look more descriptive.
-> 
-> >  While we are at it, how many unusual access_ok() instances are
-> > left after this series?  arm64, itanic, um, anything else?
-> 
-> x86 adds a WARN_ON_IN_IRQ() check in there.
+From: Guo Ren <guoren@linux.alibaba.com>
 
-If is a noop unless CONFIG_DEBUG_ATOMIC_SLEEP is set.
-I doubt that is often enabled.
+[ Upstream commit 1d4df649cbb4b26d19bea38ecff4b65b10a1bbca ]
 
-> This could be
-> made generic, but it's not obvious what exactly the exceptions are
-> that other architectures need. The arm64 tagged pointers could
-> probably also get integrated into the generic version.
-> 
-> > FWIW, sparc32 has a slightly unusual instance (see uaccess_32.h there); it's
-> > obviously cheaper than generic and I wonder if the trick is legitimate (and
-> > applicable elsewhere, perhaps)...
-> 
-> Right, a few others have the same, but I wasn't convinced that this
-> is actually safe for call possible cases: it's trivial to construct a caller
-> that works on other architectures but not this one, if you pass a large
-> enough size value and don't access the contents in sequence.
+The thead,c900-plic has been used in opensbi to distinguish
+PLIC [1]. Although PLICs have the same behaviors in Linux,
+they are different hardware with some custom initializing in
+firmware(opensbi).
 
-You'd need code that did an access_ok() check and then read from
-a large offset from the address - unlikely.
-It's not like the access_ok() check for read/write is done on syscall
-entry and then everything underneath assumes it is valid.
+Qute opensbi patch commit-msg by Samuel:
 
-Hasn't (almost) everything been checked for function calls between
-user_access_begin() and the actual accesses?
-And access_ok() is done by/at the same time as user_access_begin()?
+  The T-HEAD PLIC implementation requires setting a delegation bit
+  to allow access from S-mode. Now that the T-HEAD PLIC has its own
+  compatible string, set this bit automatically from the PLIC driver,
+  instead of reaching into the PLIC's MMIO space from another driver.
 
-You do need an unmapped page above the address that is tested.
+[1]: https://github.com/riscv-software-src/opensbi/commit/78c2b19218bd62653b9fb31623a42ced45f38ea6
 
-> Also, like the ((addr | (addr + size)) & MASK) check on some other
-> architectures, it is less portable because it makes assumptions about
-> the actual layout beyond a fixed address limit.
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Cc: Anup Patel <anup@brainfault.org>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Samuel Holland <samuel@sholland.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Tested-by: Samuel Holland <samuel@sholland.org>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Link: https://lore.kernel.org/r/20220130135634.1213301-3-guoren@kernel.org
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ drivers/irqchip/irq-sifive-plic.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Isn't that test broken without a separate bound check on size?
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index 259065d271ef0..09cc98266d30f 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -398,3 +398,4 @@ static int __init plic_init(struct device_node *node,
+ 
+ IRQCHIP_DECLARE(sifive_plic, "sifive,plic-1.0.0", plic_init);
+ IRQCHIP_DECLARE(riscv_plic0, "riscv,plic0", plic_init); /* for legacy systems */
++IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", plic_init); /* for firmware driver */
+-- 
+2.34.1
 
-I also seem to remember that access_ok(xxx, 0) is always 'ok'
-and some of the 'fast' tests give a false negative if the user
-buffer ends with the last byte of user address space.
 
-So you may need:
-	size < TASK_SIZE && (addr < (TASK_SIZE - size - 1) || !size)
-(sprinkled with [un]likely())
-
-	David
-
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
