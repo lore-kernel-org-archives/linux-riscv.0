@@ -4,65 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FD31C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 15:38:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25005C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 15:39:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xbdxFVIteuS07VjPCYE+fpvH+7tdgKxMauB3zLn8IRM=; b=sXTtIUqrhr3Xft
-	7yR45UgHwdmWtkK+qi24QKEC5c6LYqA9pSmf2u0Xn2ovBUAYXORxKbZD3EigaWGC08Kiv9eQM4VOV
-	jCBJS/32SAQG9SQKXt+oRHePHWmx/yJsAammhLnwZNLhEgN+eMvz+Zn5/QDcI3BjiaJ1U80BZgFIg
-	Zd8ZE6oiBrqa/DS74Wi0uowASc/AQ2tRiVXTcn/d0G2bODlJ9bud2TDdK8jk9EPoK6k4k5U3tO2JQ
-	0/RvkYS3omjomzHnqjKRBHaa2H8QSu6TxaUU2Js64gSKJkV53bDMvDEB61akMdq45GvW8iMx7Ge9L
-	Hx0a3EffT1fE1tTss19A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=m6vHMrQOzrjxdpX/p/zJJKy2QBhKqFVCis1b8zaWDbc=; b=b31zduqaE4GxHr
+	+EjPOfAH7Y60N7x7qYMYkhrBvi9zJlz0PeEYIUM2VMiDtg2YcFLgGEhzAz9i10y/DwJSbGuJiBD4A
+	PxXnkIWKKul5CcMWIfe/Edcr45sa9Ou1VOStqctch9S4CbuAn+ODOy6Sl74lEN8iOpnpKPYbXoEjn
+	xYCeb4XtyxVDPP3DfX5pB6wKnOOdHa4tV9MXUajc0E6cDaNwdR2zNtdP+q3zB5J72DVCN+GXvewmA
+	vmRDO5V74NJgzzJahhD5dsw4BAOnACW76wKvs1ByFln938MR5XDUs5ai4AqAac7KOhIk1r8H3bCOT
+	MBdU5KTcM1WT/ySuJl1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJzuQ-003LiS-U8; Tue, 15 Feb 2022 15:38:30 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1nJzuk-003LsE-Ab; Tue, 15 Feb 2022 15:38:50 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJzl2-003Gnr-3n
- for linux-riscv@lists.infradead.org; Tue, 15 Feb 2022 15:28:53 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 85CA6615F7;
- Tue, 15 Feb 2022 15:28:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75A35C340EB;
- Tue, 15 Feb 2022 15:28:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1644938925;
- bh=ZD01o9rSSE8LUE0dVcK7GaEZOVJK7nnDEiRaEzbfzEQ=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=BvgygTRtrXZqKefTAIGD0ISD87KDH41n9RoXSWys68dYXuip8rfW2MCu++uDtFUed
- KS1d8q5wFzjTk/ZLaCksploM/jMqlTLw5mtx3iCnkqnMGv9yV2mu4aqA6wFtPQHung
- oatrlsI/I6dlHxhDH2Nn7H+Q8p41YXPle/jEI4riKccKQcVuMsKBVKRhwO7vFsXwGw
- 9yDVHhefOHWCqDetiN487D6GRJmGqtKj1m5eea8W1r4Sn3ZFehQwBdCgyD4rTYrKdv
- nWo1VHu1XZ34PQaoo+rilRtuwsK/bNgq04sgkgGbpluBtO71BbvJwAR7DNH1rfX+2R
- X6BM4q0qLIInw==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Guo Ren <guoren@linux.alibaba.com>, Anup Patel <anup@brainfault.org>,
- Marc Zyngier <maz@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Samuel Holland <samuel@sholland.org>, Thomas Gleixner <tglx@linutronix.de>,
- Sasha Levin <sashal@kernel.org>, paul.walmsley@sifive.com,
- aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.15 07/33] irqchip/sifive-plic: Add missing thead,
- c900-plic match string
-Date: Tue, 15 Feb 2022 10:28:05 -0500
-Message-Id: <20220215152831.580780-7-sashal@kernel.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220215152831.580780-1-sashal@kernel.org>
-References: <20220215152831.580780-1-sashal@kernel.org>
+ id 1nJzlA-003Gr5-7M; Tue, 15 Feb 2022 15:29:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1644938935; x=1676474935;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=CNkkyV8OXoISEdxMr9xw0emMq/NP2qfPJ4QtHLz9mWU=;
+ b=yoWKp/vplb0MlbJ1GMd5iqn/wrvtzfOiwvtprgGrHBfvFKgxNWwH7L07
+ f1SviC3+I02PP8uGR2wvGiaJtOebKlE0Pkimm8g6a6n6pnZZ3cfdnUIUn
+ Np539nLw+1E9CRMvws3+9Ou2/el8R3XdojuWPMFeRwfSXewpWz1IHVgxh
+ vYSBERf1ZHl0CktD3XCqoc7DJQkWJRDlUSp3aVMSZPkFyoSn8V7iO/BnD
+ krSyoLS5PMq41McxwUg2/ZESKdfw/5zz6O+d9GMd4WGp9TeBCtKXVIxP/
+ dxy8wMs/oD2oUNu1Krc5Mh3LpcQbjO8zAJDPEG+uoDLGjpBQGBkbF6hC8 g==;
+IronPort-SDR: nXKiRn6I5wtM0Aid4B0KMR91QqOHjFsXR5wHKJ0YW3JLBCKqHmGKgqH39/TbMShUQvwLnOTh2u
+ Ap5iXJe+XReFF5Od34mGEfcq4R5PEKu9MqnDBt3Z3M5vMT0scg5UYIQvOjwMWKKtRIF2TP8B8I
+ 6q6t7KOESiGqUzVba+6gjRtJ5e8iQO4vrNSNgQQ3qYdueaYaJyG8d2wSBo2urlLBq4uVb9Uahw
+ soC4HQgIz7dGmYsfwUQqbcxJpADJQLYLTtbcb9h23jyo5SmJ7g7N7EHBtMF4wiUPo3tQSBc8UL
+ LJBp5zvvz1X1f19aESq++xqS
+X-IronPort-AV: E=Sophos;i="5.88,371,1635231600"; d="scan'208";a="146046829"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 15 Feb 2022 08:28:53 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Tue, 15 Feb 2022 08:28:53 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2375.17 via
+ Frontend Transport; Tue, 15 Feb 2022 08:28:48 -0700
+From: <conor.dooley@microchip.com>
+To: <aou@eecs.berkeley.edu>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, 
+ <arnd@arndb.de>, <olof@lixom.net>, <linux-riscv@lists.infradead.org>
+CC: <robh+dt@kernel.org>, <cyril.jean@microchip.com>,
+ <daire.mcnamara@microchip.com>, <lewis.hanly@microchip.com>,
+ <jassisinghbrar@gmail.com>, <j.neuschaefer@gmx.net>, <sfr@canb.auug.org.au>,
+ <damien.lemoal@wdc.com>, <atishp@atishpatra.org>,
+ <nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+ <ludovic.desroches@microchip.com>, <claudiu.beznea@microchip.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ "Conor Dooley" <conor.dooley@microchip.com>
+Subject: [PATCH v3 0/1] soc: add microchip polarfire soc system controller
+Date: Tue, 15 Feb 2022 15:31:53 +0000
+Message-ID: <20220215153153.4136503-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.35.1
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220215_072848_223980_F2F06C4C 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20220215_072856_377340_AC4B03D0 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,49 +88,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+From: Conor Dooley <conor.dooley@microchip.com>
 
-[ Upstream commit 1d4df649cbb4b26d19bea38ecff4b65b10a1bbca ]
+Since I submitted version 1 of this driver, I attempted to upstream
+bindings for devices dependant on the system controller [0]. In that
+process, Rob said that since they were devices with no resources,
+other than a reference to the system controller, the devices should
+not be in the device tree & instead they should be created by the
+system controller (which it now does).
 
-The thead,c900-plic has been used in opensbi to distinguish
-PLIC [1]. Although PLICs have the same behaviors in Linux,
-they are different hardware with some custom initializing in
-firmware(opensbi).
+Since the sub devices using mpfs_sys_controller_get will now have the
+system controller as their parent, this function now just checks if the
+parent device is compatible. If the parent is compatible, the sub-
+device then attempts to register as a consumer of the system controller
 
-Qute opensbi patch commit-msg by Samuel:
+@Arnd Hopefully this clears up the issues you had with reference
+counting & the lack of checks as to whether the device found by
+mpfs_sys_controller_get was in fact a system controller.
 
-  The T-HEAD PLIC implementation requires setting a delegation bit
-  to allow access from S-mode. Now that the T-HEAD PLIC has its own
-  compatible string, set this bit automatically from the PLIC driver,
-  instead of reaching into the PLIC's MMIO space from another driver.
+Depends on [0] to change the compatible string in the dt-binding.
+Thanks,
+Conor.
 
-[1]: https://github.com/riscv-software-src/opensbi/commit/78c2b19218bd62653b9fb31623a42ced45f38ea6
+Changes since v2:
+- system controller is no longer an mfd, system controller now creates
+  sub devices for itself.
+- specify that a mpfs_mss_msg is used in mpfs_blocking_transaction
+  rather than using a void pointer.
+- as the subdevices are now all created by the system controller, the
+  get() function now checks that the requesting device's parent is
+  compatible.
+- mpfs_sys_controller_get now passes a pointer to the device that is
+  trying to register as a consumer rather than a device node.
 
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Cc: Anup Patel <anup@brainfault.org>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Samuel Holland <samuel@sholland.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Tested-by: Samuel Holland <samuel@sholland.org>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Link: https://lore.kernel.org/r/20220130135634.1213301-3-guoren@kernel.org
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/irqchip/irq-sifive-plic.c | 1 +
- 1 file changed, 1 insertion(+)
+Changes since v1:
+- system controller is now an mfd
+- parentage is now used to get the device node on the system controller
+- mpfs_sys_controller_get() now updates the reference count
+- "polarfire-soc" in compat string changed to "mpfs"
 
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index 259065d271ef0..09cc98266d30f 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -398,3 +398,4 @@ static int __init plic_init(struct device_node *node,
- 
- IRQCHIP_DECLARE(sifive_plic, "sifive,plic-1.0.0", plic_init);
- IRQCHIP_DECLARE(riscv_plic0, "riscv,plic0", plic_init); /* for legacy systems */
-+IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", plic_init); /* for firmware driver */
+[0] https://lore.kernel.org/linux-riscv/20220214135840.168236-1-conor.dooley@microchip.com/
+
+Conor Dooley (1):
+  soc: add microchip polarfire soc system controller
+
+ drivers/soc/Kconfig                         |   1 +
+ drivers/soc/Makefile                        |   1 +
+ drivers/soc/microchip/Kconfig               |  10 +
+ drivers/soc/microchip/Makefile              |   1 +
+ drivers/soc/microchip/mpfs-sys-controller.c | 194 ++++++++++++++++++++
+ include/soc/microchip/mpfs.h                |   4 +-
+ 6 files changed, 209 insertions(+), 2 deletions(-)
+ create mode 100644 drivers/soc/microchip/Kconfig
+ create mode 100644 drivers/soc/microchip/Makefile
+ create mode 100644 drivers/soc/microchip/mpfs-sys-controller.c
+
 -- 
-2.34.1
+2.35.1
 
 
 _______________________________________________
