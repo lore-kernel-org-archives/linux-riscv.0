@@ -4,89 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57B3CC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 22:55:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC248C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 23:12:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TpK+2jpBOJaMOT1cja/70yZ7N4grBw8PoThk5Pc2OTo=; b=36noJIbUahPv+E
-	/isbI/NgtdpysfO3ULqYHD0rn9UWh91eNPT0D2tVOC5PH5pFGnpw/CIS0vT8OZii4i9AqtduOZcA1
-	OoyfQSOuK7ODzB1vXTxis6tu3BLmKMruXhrzb950y22n1PMrhW+1hXeuffpbwAJXO8d9IkF0ZMhD4
-	vo1iCtXh1oYR2cN625ckKIHnz0TVoU7CQsgOYVfULcHfWF/VQ1AkIpHfxBIPatiQ1in8Wig3cSOso
-	fRr+qFmm+iaYCob4i97orxOKAr4OeF71MSub1oqYFFJCTm6a9vsOHDUtHD3JCzssPqGFMN7KhiOdC
-	zTInxX/uwI2Ik2QbbcSg==;
+	List-Owner; bh=uibfTTGZGfZ8QsVbpIC7mmX5p5VFWHNlg/Qa6DuW7E0=; b=cY1RYSWxCdQKbM
+	nZbMkUNTOR7pq9RCEG+GM0WrLJnygTgWo8mFapyYpFgj8CtOL+Ry9WndepvMJx0daSFcVajUxuZuL
+	+V9KlDAibMfiwOvAcwP4p+UzgRLpSt4r08sVDG+PJhNx6hcbC4BPPs1b0z+G0kjHrMyilf4BKLR4G
+	duRYgqo05f1GWZG3Okw5sdnmo3Q/VC/niUcXaAVg7UNriAewOlfFdEhhJVy/wnMdKrBvE8WE8AJwk
+	KDa53KJZE5sOeVSzwCAxNwuTHkB/eEsRgNnUwdCDb23IolNH8PLdbsviRiHCWAvE5OjImSEY6Otyg
+	Nn7zlP+0Hmux3YQmVE4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nK6ih-004pAd-Fp; Tue, 15 Feb 2022 22:54:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1nK6zW-004rm4-Ae; Tue, 15 Feb 2022 23:12:14 +0000
+Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nK6iV-004p7M-LB; Tue, 15 Feb 2022 22:54:40 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 7F078613FB;
- Tue, 15 Feb 2022 22:54:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D452FC340FC;
- Tue, 15 Feb 2022 22:54:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1644965676;
- bh=vp0AA5rWNWbwH+h7RrfOW+1FW77YNO31CyLQUGfkQek=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=K3AFijseqC8GbeefAxP32BuWuyj0dYJ4Ia8GwqQo5txlC7d37OSdcvqOOFYVv0m9d
- p9c7lXNewgA3CMClmpJMlhEs3ny9AIOz4VjKR9B/mdBdLVIM/oLm6kEPK6pgdzyDBL
- zM8oPb/ZUR89LdED7edEt+40xGFeFzBCdW/hXy5yGi8DaxCTd5Au6JmMSpXguLl4aO
- FyaLJyh1Fe3S1hAah9W6rQ/PH1UjVuDraKPwXavoOLlVmA3T6EKGdxWkIS/7xeMRdT
- ad0bYkM0C6ws46CuOa+fN0IXMoMux61pGYcI8tyf/ShRV6XYeySDAQP4tzm+UUo9lL
- +towKOuOi7cng==
-Received: by mail-ed1-f43.google.com with SMTP id g7so781305edb.5;
- Tue, 15 Feb 2022 14:54:36 -0800 (PST)
-X-Gm-Message-State: AOAM531j19Jb32D+bTahV8DvVAjLB639jUrfbbAO6ICwKtQY50DTSmUT
- N6VwuIVWkGgQpQ+gJ0WvA6aBcuuQcI9yalnCfQ==
-X-Google-Smtp-Source: ABdhPJwIhjgFezkhGh/JThuKg8ThIEnytIpHYE2ZFs4zMkn1bSCelwpeUJLERmuj2x6h/ToJGmqArMx73XuAI+0Vol0=
-X-Received: by 2002:a05:6402:5242:b0:40f:6a4f:ff33 with SMTP id
- t2-20020a056402524200b0040f6a4fff33mr126833edd.30.1644965675039; Tue, 15 Feb
- 2022 14:54:35 -0800 (PST)
+ id 1nK6zS-004rj1-NJ
+ for linux-riscv@lists.infradead.org; Tue, 15 Feb 2022 23:12:12 +0000
+Received: by mail-yb1-xb2d.google.com with SMTP id y129so718961ybe.7
+ for <linux-riscv@lists.infradead.org>; Tue, 15 Feb 2022 15:12:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=loAfDoGLfr/iqSIkMgZ8bYEjmt72BeZCLhtdpL5OIaQ=;
+ b=gNwn4w1BBG0QO8d7il/hS7XnsvBv8CEpuRu43msQBQZCnhs9Fnj5h72+hczDMizL64
+ 9MeW8FDditxJs7M787wypzS7HhaJKVRx4aLxywV+pZoSHdANKzvX0JPQx2u6to6zWfDy
+ ZXcynRo469aF4QZX+xgx+6suPf+EIZz6Cfvl8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=loAfDoGLfr/iqSIkMgZ8bYEjmt72BeZCLhtdpL5OIaQ=;
+ b=jP/2iXHrXS7GtFeKn9afPyYzfuwjkCfmLnYY+Kwvjw0eptb1ycLm9ie9RUe6v2iRqe
+ Un89xrcabH81/zS6Z44HbQc4mLfVjHlY1HKxf2abSH0NT9ryDuHnSOjZw9nmbz3yvxCl
+ PGieq2fezevZF7EmG5fvwPV7shBzjEMuhXE02gCGNuS2Ed8QxvFhUQ2xmBSGyJR1SvzD
+ YMKkKGbkjjhL/3B4Hxp3quWbWafjC20ZITHVivtkifxVO1RRTZhH9LgcwubYitf1L7vm
+ 2uxXXnYR+nrIJSusQa2VlNkuQD567V+k2esei1UQQvFiKIKcDKoLzS6OifSZLWl5WxGH
+ 1bEw==
+X-Gm-Message-State: AOAM5337QRxBn7chBZwVVIpnMfyE9an5NubZOQFz0bWR1HwzmegL1NFZ
+ 6BBiN4yXArA2JdEU1XOFFGeLfCA2WltpDpiQUgxK
+X-Google-Smtp-Source: ABdhPJyU6ADhFsSkKFw6pjjAvZ21yhhrWabJjiIocdygUARwxsgbNK6NODHq3oiHUoD9dlFnAQQTVwPWoB0Pj4jiqlw=
+X-Received: by 2002:a25:c794:: with SMTP id w142mr1196085ybe.632.1644966722684; 
+ Tue, 15 Feb 2022 15:12:02 -0800 (PST)
 MIME-Version: 1.0
-References: <20220214212154.8853-1-krzysztof.kozlowski@canonical.com>
-In-Reply-To: <20220214212154.8853-1-krzysztof.kozlowski@canonical.com>
-From: Rob Herring <robh+dt@kernel.org>
-Date: Tue, 15 Feb 2022 16:54:23 -0600
-X-Gmail-Original-Message-ID: <CAL_Jsq+bfr=csxzKN3T=tBY7bZ6Gny+sm5xtMP8nmyiD3joNFg@mail.gmail.com>
-Message-ID: <CAL_Jsq+bfr=csxzKN3T=tBY7bZ6Gny+sm5xtMP8nmyiD3joNFg@mail.gmail.com>
-Subject: Re: [PATCH v2 00/15] pwm: dt-bindings: Include generic pwm schema
-To: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>, 
- =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, 
- Lee Jones <lee.jones@linaro.org>, Maxime Ripard <mripard@kernel.org>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Florian Fainelli <f.fainelli@gmail.com>, 
- "maintainer:BROADCOM BCM7XXX ARM ARCHITECTURE"
- <bcm-kernel-feedback-list@broadcom.com>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
- Heiko Stuebner <heiko@sntech.de>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Vijayakannan Ayyathurai <vijayakannan.ayyathurai@intel.com>,
- Rahul Tanwar <rtanwar@maxlinear.com>, 
- Jeff LaBundy <jeff@labundy.com>, Sagar Kadam <sagar.kadam@sifive.com>,
- Vignesh R <vigneshr@ti.com>, 
- Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
- Linux PWM List <linux-pwm@vger.kernel.org>, devicetree@vger.kernel.org, 
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- linux-sunxi@lists.linux.dev, 
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
- "open list:ARM/Rockchip SoC..." <linux-rockchip@lists.infradead.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>
+References: <20220215090211.911366-1-atishp@rivosinc.com>
+ <20220215090211.911366-5-atishp@rivosinc.com>
+ <CAAhSdy29nzXFesfeMjY_FkTmTZ4yrHjGxTweBCVn-wFFHnMV=A@mail.gmail.com>
+In-Reply-To: <CAAhSdy29nzXFesfeMjY_FkTmTZ4yrHjGxTweBCVn-wFFHnMV=A@mail.gmail.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Tue, 15 Feb 2022 15:11:51 -0800
+Message-ID: <CAOnJCUJR1V2xBxr61xYH6PAYEooqGuMtuyvA-wWXFVAwYsG3Gw@mail.gmail.com>
+Subject: Re: [PATCH v3 4/6] RISC-V: Implement multi-letter ISA extension
+ probing framework
+To: Anup Patel <anup@brainfault.org>
+Cc: Atish Patra <atishp@rivosinc.com>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, 
+ Damien Le Moal <damien.lemoal@wdc.com>, DTML <devicetree@vger.kernel.org>, 
+ Jisheng Zhang <jszhang@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220215_145439_816782_B068C86C 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20220215_151210_775002_09FD3693 
+X-CRM114-Status: GOOD (  30.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,38 +89,145 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 14, 2022 at 3:22 PM Krzysztof Kozlowski
-<krzysztof.kozlowski@canonical.com> wrote:
+On Tue, Feb 15, 2022 at 2:24 AM Anup Patel <anup@brainfault.org> wrote:
 >
-> Hi,
+> On Tue, Feb 15, 2022 at 2:32 PM Atish Patra <atishp@rivosinc.com> wrote:
+> >
+> > Multi-letter extensions can be probed using exising
+> > riscv_isa_extension_available API now. It doesn't support versioning
+> > right now as there is no use case for it.
+> > Individual extension specific implementation will be added during
+> > each extension support.
+> >
+> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> > ---
+> >  arch/riscv/include/asm/hwcap.h | 18 ++++++++++++++++++
+> >  arch/riscv/kernel/cpufeature.c | 27 ++++++++++++++++++++++++---
+> >  2 files changed, 42 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> > index 5ce50468aff1..170bd80da520 100644
+> > --- a/arch/riscv/include/asm/hwcap.h
+> > +++ b/arch/riscv/include/asm/hwcap.h
+> > @@ -34,7 +34,25 @@ extern unsigned long elf_hwcap;
+> >  #define RISCV_ISA_EXT_s                ('s' - 'a')
+> >  #define RISCV_ISA_EXT_u                ('u' - 'a')
+> >
+> > +/*
+> > + * Increse this to higher value as kernel support more ISA extensions.
+> > + */
+> >  #define RISCV_ISA_EXT_MAX      64
+> > +#define RISCV_ISA_EXT_NAME_LEN_MAX 32
+> > +
+> > +/* The base ID for multi-letter ISA extensions */
+> > +#define RISCV_ISA_EXT_BASE 26
+> > +
+> > +/*
+> > + * This enum represent the logical ID for each multi-letter RISC-V ISA extension.
+> > + * The logical ID should start from RISCV_ISA_EXT_BASE and must not exceed
+> > + * RISCV_ISA_EXT_MAX. 0-25 range is reserved for single letter
+> > + * extensions while all the multi-letter extensions should define the next
+> > + * available logical extension id.
+> > + */
+> > +enum riscv_isa_ext_id {
+> > +       RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
+> > +};
+> >
+> >  unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap);
+> >
+> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> > index cd9eb34f8d11..af9a57ad3d4e 100644
+> > --- a/arch/riscv/kernel/cpufeature.c
+> > +++ b/arch/riscv/kernel/cpufeature.c
+> > @@ -83,7 +83,7 @@ void __init riscv_fill_hwcap(void)
+> >
+> >         for_each_of_cpu_node(node) {
+> >                 unsigned long this_hwcap = 0;
+> > -               unsigned long this_isa = 0;
+> > +               uint64_t this_isa = 0;
 >
-> Changes since v1:
-> 1. Add tags.
-> 2. Adjust subject (Uwe).
+> Why not use a bitmap here ?
 >
-> Best regards,
-> Krzysztof
->
-> Krzysztof Kozlowski (15):
->   dt-bindings: pwm: allwinner,sun4i-a10: Include generic pwm schema
->   dt-bindings: pwm: imx: Include generic pwm schema
->   dt-bindings: pwm: intel,lgm: Include generic pwm schema
->   dt-bindings: pwm: iqs620a: Include generic pwm schema
->   dt-bindings: pwm: mxs: Include generic pwm schema
->   dt-bindings: pwm: rockchip: Include generic pwm schema
->   dt-bindings: pwm: sifive: Include generic pwm schema
->   dt-bindings: pwm: renesas,pwm: Include generic pwm schema
->   dt-bindings: pwm: toshiba,visconti: Include generic pwm schema
->   dt-bindings: pwm: brcm,bcm7038: Do not require pwm-cells twice
->   dt-bindings: pwm: intel,keembay: Do not require pwm-cells twice
->   dt-bindings: pwm: samsung: Do not require pwm-cells twice
->   dt-bindings: pwm: tiecap: Do not require pwm-cells twice
->   dt-bindings: pwm: tiehrpwm: Do not require pwm-cells twice
->   dt-bindings: pwm: renesas,tpu: Do not require pwm-cells twice
 
-For the series:
+Yeah. That will simplify things for both RV32 & RV64. Thanks.
 
-Reviewed-by: Rob Herring <robh@kernel.org>
+> >
+> >                 if (riscv_of_processor_hartid(node) < 0)
+> >                         continue;
+> > @@ -167,12 +167,22 @@ void __init riscv_fill_hwcap(void)
+> >                         if (*isa != '_')
+> >                                 --isa;
+> >
+> > +#define SET_ISA_EXT_MAP(name, bit)                                             \
+>
+> Where is this macro used ?
+
+It will be used in the future where individual extension support will use it.
+Here is an example from my debug patch
+
+https://github.com/atishp04/linux/commit/e9e240c9a854dceb434ceb53bdbe82a657bee5f2
+
+>
+> > +                       do {                                                    \
+> > +                               if ((ext_end - ext == sizeof(name) - 1) &&      \
+> > +                                    !memcmp(ext, name, sizeof(name) - 1)) {    \
+> > +                                       this_isa |= (1UL << bit);               \
+>
+> You can use set_bit() here when using bitmap.
+>
+> > +                                       pr_info("Found ISA extension %s", name);\
+> > +                               }                                               \
+> > +                       } while (false)                                         \
+> > +
+> >                         if (unlikely(ext_err))
+> >                                 continue;
+> >                         if (!ext_long) {
+> >                                 this_hwcap |= isa2hwcap[(unsigned char)(*ext)];
+> >                                 this_isa |= (1UL << (*ext - 'a'));
+> >                         }
+> > +#undef SET_ISA_EXT_MAP
+> >                 }
+> >
+> >                 /*
+> > @@ -185,10 +195,21 @@ void __init riscv_fill_hwcap(void)
+> >                 else
+> >                         elf_hwcap = this_hwcap;
+> >
+> > -               if (riscv_isa[0])
+> > +               if (riscv_isa[0]) {
+>
+> You can use bitmap_weight() here
+>
+> > +#if IS_ENABLED(CONFIG_32BIT)
+> > +                       riscv_isa[0] &= this_isa & 0xFFFFFFFF;
+> > +                       riscv_isa[1] &= this_isa >> 32;
+> > +#else
+> >                         riscv_isa[0] &= this_isa;
+> > -               else
+> > +#endif
+> > +               } else {
+> > +#if IS_ENABLED(CONFIG_32BIT)
+> > +                       riscv_isa[0] = this_isa & 0xFFFFFFFF;
+> > +                       riscv_isa[1] = this_isa >> 32;
+> > +#else
+> >                         riscv_isa[0] = this_isa;
+> > +#endif
+> > +               }
+> >         }
+> >
+> >         /* We don't support systems with F but without D, so mask those out
+> > --
+> > 2.30.2
+> >
+>
+> Regards,
+> Anup
+
+
+
+-- 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
