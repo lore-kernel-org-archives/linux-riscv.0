@@ -4,76 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAA69C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 15:43:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14305C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 15:48:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QMzYqU5GcL81dtW1M76J2Vp3ml7y16XsGXaL+P63h6Y=; b=awKgNRDN5CN2jk
-	58wimTpTiPemKD2DOx6D6gaLSn+Hfv7MgyUAHvUBqCuLkrXMfKz0BGsxLIQOwE3IVcLfoMkT3UV09
-	WyFnwj1w8ZSqpigYc6ztnFsTURMsoiolr+FwQmiIUFGHMX3tyvOfsEBOxEnPbknw1INLNJ4CB4xVK
-	zJR/CH7YCRiHNP7mWD123KahKUdB8qx9zUjXQgkNqehGT0PZBuwM5FUjGgs72J49QFGF2JjR92PxK
-	cKEMAUr3Qsk+jMVM6e2HkzidE02zhdboJuGolV4/3Xi0inx67lYM5R+hF+no4pVMYM8Q64I65tVel
-	hEbT4xhOD0B4IDm1oFdA==;
+	List-Owner; bh=y6bCfP+2Guydd+i4mzbeyxO3z8EI8GUuCFsO0o4pYWY=; b=QEQbAHh59pqKsF
+	vqpQOVNoZsyIHQt5A4o7jW4lu4yk+FsRF1Uu5Cgs60ngCzyOszdfOnTXAujNEnb6eqPapaAPlIwhV
+	sBkM6X5RE6tdN6nJH5QHtIc8XI43YGkMap0mTFl4QSXLFplWvtj8nRjLyigYPtcsK7TzZ/4UfP8K7
+	Hnz1ot5Dz9noveK6oJojbN3535Eh26D3WdSyGSM7fY4pMFnNlWJNJDSFD6SiJyp7oUFamqKz1VNqN
+	gpjR3ecWl+PkoQG9lmMPHAQ9/GSQ0K5krmYlLYH1MjJ/pmYH1XSBAoBRdIpzCfbJnWoZp0IWsZOsJ
+	bPxaqdi7QPwdhstSVySw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJzyq-003Nun-GS; Tue, 15 Feb 2022 15:43:04 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1nK03j-003QIL-Gl; Tue, 15 Feb 2022 15:48:07 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJzlD-003Gv3-Pp; Tue, 15 Feb 2022 15:29:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1644938939; x=1676474939;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=Ygm33S+VlsQ8CzXQ3Jgs5FRrEN6SCNcQpq3VhY355xk=;
- b=cMiBt8hgvglWjcfd1q0sTldgRugqYG4giVK0i+tEdZUojbfkMpdkocTn
- DNYPOW0lHZiI63RPIzFfAZgqa+p2EfSvwIr04746ncOO63Y0O3HqVIpfy
- WSOWu+axZV7dLbnCIyXC/mUuRfI0rwPrJAWmI4DY6JTNC80W2mbJPe3rl
- Sv4DPn6BIOj6Lu4/4UX3W/aaGb86R50gBCmAkrHsISgKXFgEDrpNj5Kcc
- YweKgFOZvgB13jlC16k7dYIj9vt2Do31bf845yfKKlmIRyBQycTFW/H2d
- EK7oB45rqZjD7KKniM4W+dVOuZNNKgDc73cpySn1JACP0iXfDxNZqrgvb A==;
-IronPort-SDR: B1RsNtqUlwJNhPbDeBFKVhgRDbJ5nRGwohofjKlIxn/slnpMMm8tnFeH8xAaQocoHGBbYL+YIf
- bjfaLE4p3KunNnGoObfj5m9Hbq8HbwMOBNaQAuE+kKuMhp+ssKwe8dE1fAH9ssdOdaWSX2MNMV
- +clfJjb3tYSXXNIJlIh5Pwz3Nn/018gKSa70St9yzY9QW0hLvGZIAdUG0lwt1bhAHM1C+u9OAJ
- quh0D9+/U9qvOO7tiW7nby8DZ2QJjHIlwgUUnePckcTl5l2qdSD2TswqLhbpPdjz/domrUnmsn
- sV5qa8CpC69JitOvNnDL87qb
-X-IronPort-AV: E=Sophos;i="5.88,371,1635231600"; d="scan'208";a="146046840"
-Received: from smtpout.microchip.com (HELO email.microchip.com)
- ([198.175.253.82])
- by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 15 Feb 2022 08:28:58 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Tue, 15 Feb 2022 08:28:58 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server id 15.1.2375.17 via
- Frontend Transport; Tue, 15 Feb 2022 08:28:53 -0700
-From: <conor.dooley@microchip.com>
-To: <aou@eecs.berkeley.edu>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, 
- <arnd@arndb.de>, <olof@lixom.net>, <linux-riscv@lists.infradead.org>
-CC: <robh+dt@kernel.org>, <cyril.jean@microchip.com>,
- <daire.mcnamara@microchip.com>, <lewis.hanly@microchip.com>,
- <jassisinghbrar@gmail.com>, <j.neuschaefer@gmx.net>, <sfr@canb.auug.org.au>,
- <damien.lemoal@wdc.com>, <atishp@atishpatra.org>,
- <nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
- <ludovic.desroches@microchip.com>, <claudiu.beznea@microchip.com>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Conor Dooley" <conor.dooley@microchip.com>
-Subject: [PATCH v3 1/1] soc: add microchip polarfire soc system controller
-Date: Tue, 15 Feb 2022 15:31:54 +0000
-Message-ID: <20220215153153.4136503-2-conor.dooley@microchip.com>
-X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20220215153153.4136503-1-conor.dooley@microchip.com>
-References: <20220215153153.4136503-1-conor.dooley@microchip.com>
+ id 1nJzmL-003HUw-Jj
+ for linux-riscv@lists.infradead.org; Tue, 15 Feb 2022 15:30:15 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id C0D97B81AEA;
+ Tue, 15 Feb 2022 15:30:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 292D6C36AE9;
+ Tue, 15 Feb 2022 15:30:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1644939006;
+ bh=IN67m1B3ZHGoI5hJjuFTOuQe6kviWvaaiA1kqxlzm1w=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=dwDQXcMU6eDQgkW0sALoD4AJL7X9JWTtEK0lQEC9jtVuHVWlUWzb5gV8F3YMu6gJI
+ etCaLXG1yMZAS5uT801TAmXeDTaTXxHXxFh3sNSYdEc5eiL+egGCUb8vefKuIfkys1
+ iYceBNIhXmiwvnMsfvLb+x0KZoxI0a9KbTKjPg/Lisq3UH0P9dKshQKLDsw4OUp9w1
+ XrEkT42t1ITV6Po16MQghYCv6zni5QnhXqks76rbjSBA6aXya9bN3gfDcIPafiK378
+ LxXkRsSHxliHA8opB00BiOVpPOuLHpnQ70co2IM+RZzIet4kBLMvBv/S1/a1GOIdMT
+ M0hVfxj0cr0Cw==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Guo Ren <guoren@linux.alibaba.com>, Anup Patel <anup@brainfault.org>,
+ Marc Zyngier <maz@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Samuel Holland <samuel@sholland.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Sasha Levin <sashal@kernel.org>, paul.walmsley@sifive.com,
+ aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org
+Subject: [PATCH AUTOSEL 5.10 05/23] irqchip/sifive-plic: Add missing thead,
+ c900-plic match string
+Date: Tue, 15 Feb 2022 10:29:39 -0500
+Message-Id: <20220215152957.581303-5-sashal@kernel.org>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20220215152957.581303-1-sashal@kernel.org>
+References: <20220215152957.581303-1-sashal@kernel.org>
 MIME-Version: 1.0
+X-stable: review
+X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220215_072900_101495_8913B072 
-X-CRM114-Status: GOOD (  24.47  )
+X-CRM114-CacheID: sfid-20220215_073009_875185_E8FF0241 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,289 +79,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+From: Guo Ren <guoren@linux.alibaba.com>
 
-This driver provides an interface for other drivers to access the
-functions of the system controller on the Microchip PolarFire SoC.
+[ Upstream commit 1d4df649cbb4b26d19bea38ecff4b65b10a1bbca ]
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+The thead,c900-plic has been used in opensbi to distinguish
+PLIC [1]. Although PLICs have the same behaviors in Linux,
+they are different hardware with some custom initializing in
+firmware(opensbi).
+
+Qute opensbi patch commit-msg by Samuel:
+
+  The T-HEAD PLIC implementation requires setting a delegation bit
+  to allow access from S-mode. Now that the T-HEAD PLIC has its own
+  compatible string, set this bit automatically from the PLIC driver,
+  instead of reaching into the PLIC's MMIO space from another driver.
+
+[1]: https://github.com/riscv-software-src/opensbi/commit/78c2b19218bd62653b9fb31623a42ced45f38ea6
+
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Cc: Anup Patel <anup@brainfault.org>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Samuel Holland <samuel@sholland.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Tested-by: Samuel Holland <samuel@sholland.org>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Link: https://lore.kernel.org/r/20220130135634.1213301-3-guoren@kernel.org
+Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/soc/Kconfig                         |   1 +
- drivers/soc/Makefile                        |   1 +
- drivers/soc/microchip/Kconfig               |  10 +
- drivers/soc/microchip/Makefile              |   1 +
- drivers/soc/microchip/mpfs-sys-controller.c | 194 ++++++++++++++++++++
- include/soc/microchip/mpfs.h                |   4 +-
- 6 files changed, 209 insertions(+), 2 deletions(-)
- create mode 100644 drivers/soc/microchip/Kconfig
- create mode 100644 drivers/soc/microchip/Makefile
- create mode 100644 drivers/soc/microchip/mpfs-sys-controller.c
+ drivers/irqchip/irq-sifive-plic.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
-index a8562678c437..c5aae42673d3 100644
---- a/drivers/soc/Kconfig
-+++ b/drivers/soc/Kconfig
-@@ -13,6 +13,7 @@ source "drivers/soc/imx/Kconfig"
- source "drivers/soc/ixp4xx/Kconfig"
- source "drivers/soc/litex/Kconfig"
- source "drivers/soc/mediatek/Kconfig"
-+source "drivers/soc/microchip/Kconfig"
- source "drivers/soc/qcom/Kconfig"
- source "drivers/soc/renesas/Kconfig"
- source "drivers/soc/rockchip/Kconfig"
-diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
-index adb30c2d4fea..904eec2a7871 100644
---- a/drivers/soc/Makefile
-+++ b/drivers/soc/Makefile
-@@ -18,6 +18,7 @@ obj-y				+= ixp4xx/
- obj-$(CONFIG_SOC_XWAY)		+= lantiq/
- obj-$(CONFIG_LITEX_SOC_CONTROLLER) += litex/
- obj-y				+= mediatek/
-+obj-y				+= microchip/
- obj-y				+= amlogic/
- obj-y				+= qcom/
- obj-y				+= renesas/
-diff --git a/drivers/soc/microchip/Kconfig b/drivers/soc/microchip/Kconfig
-new file mode 100644
-index 000000000000..eb656b33156b
---- /dev/null
-+++ b/drivers/soc/microchip/Kconfig
-@@ -0,0 +1,10 @@
-+config POLARFIRE_SOC_SYS_CTRL
-+	tristate "POLARFIRE_SOC_SYS_CTRL"
-+	depends on POLARFIRE_SOC_MAILBOX
-+	help
-+	  This driver adds support for the PolarFire SoC (MPFS) system controller.
-+
-+	  To compile this driver as a module, choose M here. the
-+	  module will be called mpfs_system_controller.
-+
-+	  If unsure, say N.
-diff --git a/drivers/soc/microchip/Makefile b/drivers/soc/microchip/Makefile
-new file mode 100644
-index 000000000000..14489919fe4b
---- /dev/null
-+++ b/drivers/soc/microchip/Makefile
-@@ -0,0 +1 @@
-+obj-$(CONFIG_POLARFIRE_SOC_SYS_CTRL)	+= mpfs-sys-controller.o
-diff --git a/drivers/soc/microchip/mpfs-sys-controller.c b/drivers/soc/microchip/mpfs-sys-controller.c
-new file mode 100644
-index 000000000000..c57be7b542db
---- /dev/null
-+++ b/drivers/soc/microchip/mpfs-sys-controller.c
-@@ -0,0 +1,194 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Microchip PolarFire SoC (MPFS) system controller driver
-+ *
-+ * Copyright (c) 2020-2021 Microchip Corporation. All rights reserved.
-+ *
-+ * Author: Conor Dooley <conor.dooley@microchip.com>
-+ *
-+ */
-+
-+#include <linux/slab.h>
-+#include <linux/kref.h>
-+#include <linux/module.h>
-+#include <linux/interrupt.h>
-+#include <linux/of_platform.h>
-+#include <linux/mailbox_client.h>
-+#include <linux/platform_device.h>
-+#include <soc/microchip/mpfs.h>
-+
-+static DEFINE_MUTEX(transaction_lock);
-+
-+struct mpfs_sys_controller {
-+	struct mbox_client client;
-+	struct mbox_chan *chan;
-+	struct completion c;
-+	struct kref consumers;
-+};
-+
-+int mpfs_blocking_transaction(struct mpfs_sys_controller *sys_controller, struct mpfs_mss_msg *msg)
-+{
-+	int ret, err;
-+
-+	err = mutex_lock_interruptible(&transaction_lock);
-+	if (err)
-+		return err;
-+
-+	reinit_completion(&sys_controller->c);
-+
-+	ret = mbox_send_message(sys_controller->chan, msg);
-+	if (ret >= 0) {
-+		if (wait_for_completion_timeout(&sys_controller->c, HZ)) {
-+			ret = 0;
-+		} else {
-+			ret = -ETIMEDOUT;
-+			dev_warn(sys_controller->client.dev,
-+				 "MPFS sys controller transaction timeout\n");
-+		}
-+	} else {
-+		dev_err(sys_controller->client.dev,
-+			"mpfs sys controller transaction returned %d\n", ret);
-+	}
-+
-+	mutex_unlock(&transaction_lock);
-+
-+	return ret;
-+}
-+EXPORT_SYMBOL(mpfs_blocking_transaction);
-+
-+static void rx_callback(struct mbox_client *client, void *msg)
-+{
-+	struct mpfs_sys_controller *sys_controller =
-+		container_of(client, struct mpfs_sys_controller, client);
-+
-+	complete(&sys_controller->c);
-+}
-+
-+static void mpfs_sys_controller_delete(struct kref *kref)
-+{
-+	struct mpfs_sys_controller *sys_controller = container_of(kref, struct mpfs_sys_controller,
-+					       consumers);
-+
-+	mbox_free_channel(sys_controller->chan);
-+	kfree(sys_controller);
-+}
-+
-+void mpfs_sys_controller_put(void *data)
-+{
-+	struct mpfs_sys_controller *sys_controller = data;
-+
-+	kref_put(&sys_controller->consumers, mpfs_sys_controller_delete);
-+}
-+EXPORT_SYMBOL_GPL(mpfs_sys_controller_put);
-+
-+static struct platform_device subdevs[] = {
-+	{
-+		.name		= "mpfs-rng",
-+		.id		= -1,
-+	},
-+	{
-+		.name		= "mpfs-generic-service",
-+		.id		= -1,
-+	}
-+};
-+
-+static int mpfs_sys_controller_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct mpfs_sys_controller *sys_controller;
-+	int i;
-+
-+	sys_controller = kzalloc(sizeof(*sys_controller), GFP_KERNEL);
-+	if (!sys_controller)
-+		return -ENOMEM;
-+
-+	sys_controller->client.dev = dev;
-+	sys_controller->client.rx_callback = rx_callback;
-+	sys_controller->client.tx_block = 1U;
-+
-+	sys_controller->chan = mbox_request_channel(&sys_controller->client, 0);
-+	if (IS_ERR(sys_controller->chan))
-+		return dev_err_probe(dev, PTR_ERR(sys_controller->chan),
-+				     "Failed to get mbox channel\n");
-+
-+	init_completion(&sys_controller->c);
-+	kref_init(&sys_controller->consumers);
-+
-+	platform_set_drvdata(pdev, sys_controller);
-+
-+	dev_info(&pdev->dev, "Registered MPFS system controller\n");
-+
-+	for (i = 0; i < ARRAY_SIZE(subdevs); i++) {
-+		subdevs[i].dev.parent = dev;
-+		if (platform_device_register(&subdevs[i]))
-+			dev_warn(dev, "Error registering sub device %s\n", subdevs[i].name);
-+	}
-+
-+	return 0;
-+}
-+
-+static int mpfs_sys_controller_remove(struct platform_device *pdev)
-+{
-+	struct mpfs_sys_controller *sys_controller = platform_get_drvdata(pdev);
-+
-+	mpfs_sys_controller_put(sys_controller);
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id mpfs_sys_controller_of_match[] = {
-+	{.compatible = "microchip,mpfs-sys-controller", },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, mpfs_sys_controller_of_match);
-+
-+struct mpfs_sys_controller *mpfs_sys_controller_get(struct device *dev)
-+{
-+	const struct of_device_id *match;
-+	struct mpfs_sys_controller *sys_controller;
-+	int ret;
-+
-+	if (!dev->parent)
-+		goto err_no_device;
-+
-+	match = of_match_node(mpfs_sys_controller_of_match,  dev->parent->of_node);
-+	of_node_put(dev->parent->of_node);
-+	if (!match)
-+		goto err_no_device;
-+
-+	sys_controller = dev_get_drvdata(dev->parent);
-+	if (!sys_controller)
-+		goto err_bad_device;
-+
-+	if (!kref_get_unless_zero(&sys_controller->consumers))
-+		goto err_bad_device;
-+
-+	ret = devm_add_action_or_reset(dev, mpfs_sys_controller_put, sys_controller);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	return sys_controller;
-+
-+err_no_device:
-+	dev_dbg(dev, "Parent device was not an MPFS system controller\n");
-+	return ERR_PTR(-ENODEV);
-+
-+err_bad_device:
-+	dev_dbg(dev, "MPFS system controller found but could not register as a sub device\n");
-+	return ERR_PTR(-EPROBE_DEFER);
-+}
-+EXPORT_SYMBOL_GPL(mpfs_sys_controller_get);
-+
-+static struct platform_driver mpfs_sys_controller_driver = {
-+	.driver = {
-+		.name = "mpfs-sys-controller",
-+		.of_match_table = mpfs_sys_controller_of_match,
-+	},
-+	.probe = mpfs_sys_controller_probe,
-+	.remove = mpfs_sys_controller_remove,
-+};
-+module_platform_driver(mpfs_sys_controller_driver);
-+
-+MODULE_LICENSE("GPL v2");
-+MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
-+MODULE_DESCRIPTION("MPFS system controller driver");
-diff --git a/include/soc/microchip/mpfs.h b/include/soc/microchip/mpfs.h
-index 2b64c95f3be5..6466515262bd 100644
---- a/include/soc/microchip/mpfs.h
-+++ b/include/soc/microchip/mpfs.h
-@@ -34,9 +34,9 @@ struct mpfs_mss_response {
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index 926e55d838cb1..bd99ee0ae433d 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -400,3 +400,4 @@ static int __init plic_init(struct device_node *node,
  
- #if IS_ENABLED(CONFIG_POLARFIRE_SOC_SYS_CTRL)
- 
--int mpfs_blocking_transaction(struct mpfs_sys_controller *mpfs_client, void *msg);
-+int mpfs_blocking_transaction(struct mpfs_sys_controller *mpfs_client, struct mpfs_mss_msg *msg);
- 
--struct mpfs_sys_controller *mpfs_sys_controller_get(struct device_node *mailbox_node);
-+struct mpfs_sys_controller *mpfs_sys_controller_get(struct device *dev);
- 
- #endif /* if IS_ENABLED(CONFIG_POLARFIRE_SOC_SYS_CTRL) */
- 
+ IRQCHIP_DECLARE(sifive_plic, "sifive,plic-1.0.0", plic_init);
+ IRQCHIP_DECLARE(riscv_plic0, "riscv,plic0", plic_init); /* for legacy systems */
++IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", plic_init); /* for firmware driver */
 -- 
-2.35.1
+2.34.1
 
 
 _______________________________________________
