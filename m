@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14305C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 15:48:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5A97C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 15:54:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y6bCfP+2Guydd+i4mzbeyxO3z8EI8GUuCFsO0o4pYWY=; b=QEQbAHh59pqKsF
-	vqpQOVNoZsyIHQt5A4o7jW4lu4yk+FsRF1Uu5Cgs60ngCzyOszdfOnTXAujNEnb6eqPapaAPlIwhV
-	sBkM6X5RE6tdN6nJH5QHtIc8XI43YGkMap0mTFl4QSXLFplWvtj8nRjLyigYPtcsK7TzZ/4UfP8K7
-	Hnz1ot5Dz9noveK6oJojbN3535Eh26D3WdSyGSM7fY4pMFnNlWJNJDSFD6SiJyp7oUFamqKz1VNqN
-	gpjR3ecWl+PkoQG9lmMPHAQ9/GSQ0K5krmYlLYH1MjJ/pmYH1XSBAoBRdIpzCfbJnWoZp0IWsZOsJ
-	bPxaqdi7QPwdhstSVySw==;
+	List-Owner; bh=nEXZwuuZq+O4s3qmZmM2g/U08l5LnEaiI+NvUGPHfPw=; b=OS7iwm5MJwqpM+
+	SoxVOLI6/gkPgsa/PWmzMMKD9mMIm66+zU2nnnGKJRC4QTKYt60mRUKwuTicUPgY0Im7cnDS6m3j+
+	f4x4W2ogCs68902vMIAG8F+WIbS/aATkvzMrMNdsf+zQQIeOWZbTzKVud1btWUBKddtjdEkNoXfPJ
+	1L1NpjcjoBzJtOtD/fFKdLWpRASdKEWblk8ze6hzcCVenjPSG1cWScwMUHz2eTxoR8y1IQ434BYn8
+	gY5Du8PGNzpV0Nrwk+DtL6R5J4y76bebPrQhI/D4iLmA6lduPbSmKl1alr56MMv45FCpWytNTdUl1
+	/mMvOHIDXC7wLTV1BaiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nK03j-003QIL-Gl; Tue, 15 Feb 2022 15:48:07 +0000
+	id 1nK09J-003Sxh-Dv; Tue, 15 Feb 2022 15:53:53 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJzmL-003HUw-Jj
- for linux-riscv@lists.infradead.org; Tue, 15 Feb 2022 15:30:15 +0000
+ id 1nJzmy-003Hqy-0g
+ for linux-riscv@lists.infradead.org; Tue, 15 Feb 2022 15:30:49 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id C0D97B81AEA;
- Tue, 15 Feb 2022 15:30:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 292D6C36AE9;
- Tue, 15 Feb 2022 15:30:05 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 7D81BB81AF2;
+ Tue, 15 Feb 2022 15:30:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCD90C340F1;
+ Tue, 15 Feb 2022 15:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1644939006;
- bh=IN67m1B3ZHGoI5hJjuFTOuQe6kviWvaaiA1kqxlzm1w=;
+ s=k20201202; t=1644939045;
+ bh=D+Ib7wkm+pUgHIFpFkgZMNVJA3CmXTMDtP5x7u0Q6fc=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=dwDQXcMU6eDQgkW0sALoD4AJL7X9JWTtEK0lQEC9jtVuHVWlUWzb5gV8F3YMu6gJI
- etCaLXG1yMZAS5uT801TAmXeDTaTXxHXxFh3sNSYdEc5eiL+egGCUb8vefKuIfkys1
- iYceBNIhXmiwvnMsfvLb+x0KZoxI0a9KbTKjPg/Lisq3UH0P9dKshQKLDsw4OUp9w1
- XrEkT42t1ITV6Po16MQghYCv6zni5QnhXqks76rbjSBA6aXya9bN3gfDcIPafiK378
- LxXkRsSHxliHA8opB00BiOVpPOuLHpnQ70co2IM+RZzIet4kBLMvBv/S1/a1GOIdMT
- M0hVfxj0cr0Cw==
+ b=owPH6hmPWgvIdleQTPHeC+UH3qazJQhmAMW0/iHVsMrNXy6srvK6bNgPucWwa8P/h
+ 7SPgL3FJvp+riQ28IRFTOuC/jW5ikNphqQ3wM3Zluh3ocx4iD7uRJ3lejB5Etk9qTZ
+ 9t4lJ2NagG2ivfdy6ElShWKv3khXkeccOmqBfwQ3JkwpH6pEuooRKrHkpv8QElJQjo
+ JXABGCdDPwIijvOOGNNu6S/SZAlA/euuNZr32qmazsMoCAxuFXgMVBlVfqw8KxnEFt
+ zP1LAKG826EQJV8V3Uf9eYQ9jGpmR9g3OFkIHQYkOglLhNDOPKz001AG/Y6YuCUASn
+ x4r+s1H0r/NMg==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -50,19 +50,19 @@ Cc: Guo Ren <guoren@linux.alibaba.com>, Anup Patel <anup@brainfault.org>,
  Samuel Holland <samuel@sholland.org>, Thomas Gleixner <tglx@linutronix.de>,
  Sasha Levin <sashal@kernel.org>, paul.walmsley@sifive.com,
  aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.10 05/23] irqchip/sifive-plic: Add missing thead,
+Subject: [PATCH AUTOSEL 5.4 04/17] irqchip/sifive-plic: Add missing thead,
  c900-plic match string
-Date: Tue, 15 Feb 2022 10:29:39 -0500
-Message-Id: <20220215152957.581303-5-sashal@kernel.org>
+Date: Tue, 15 Feb 2022 10:30:24 -0500
+Message-Id: <20220215153037.581579-4-sashal@kernel.org>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220215152957.581303-1-sashal@kernel.org>
-References: <20220215152957.581303-1-sashal@kernel.org>
+In-Reply-To: <20220215153037.581579-1-sashal@kernel.org>
+References: <20220215153037.581579-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220215_073009_875185_E8FF0241 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20220215_073048_280394_AE4F3E6C 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,10 +112,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 1 insertion(+)
 
 diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index 926e55d838cb1..bd99ee0ae433d 100644
+index 7cd7b140dfe97..9dad45d928bfe 100644
 --- a/drivers/irqchip/irq-sifive-plic.c
 +++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -400,3 +400,4 @@ static int __init plic_init(struct device_node *node,
+@@ -313,3 +313,4 @@ static int __init plic_init(struct device_node *node,
  
  IRQCHIP_DECLARE(sifive_plic, "sifive,plic-1.0.0", plic_init);
  IRQCHIP_DECLARE(riscv_plic0, "riscv,plic0", plic_init); /* for legacy systems */
