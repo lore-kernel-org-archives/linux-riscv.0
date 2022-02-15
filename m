@@ -4,72 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D3CAC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 17:13:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6295C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 18:09:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TkajLBDB0manD9rUH3tnuE31W0NZNHw7/L53KycqSAg=; b=C/pCm8g+o0R69s
-	H8b8NX0QtoInpydQwcHd3Datzid7zA9fBds6c+uXXoZ6hm1tXzLy/nHFgRW2Q/kLwqTCAT0HS6ynE
-	0sy+976cVeEToM9J0hOkNbZlWUldNU+WcT/Iht+VowYwoZXPDKwBWMxlxp2z7iZ5lADEZoehCLS15
-	KT+nLOaNLMW9gMhsz4W0G7Wqgd3pFXElkrQUGeNuBjc1BLc+PrYMuWH+PCdQtHZXHxQPLLjtiTv2b
-	BnA7UjbWexcU/HQ4zVXeZse5EMHd0/8QV/jIhXQeAx/m3KBb9du1KkFfbrDyIev9QHHM7Y6zsRRXG
-	GHmgZzwZhbz9BiRSbhUw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+GMXIDGPbhFGyOzazcgpYSGJHD+ZjTkD71QlxmKN4eo=; b=QvDhvDsxuddYe6sw1M14oamiSI
+	tfyTgQDEeh/SDjGkqo2Tjx/35g64viReD8G9PKXEPEV/jJ5Uc7Eoiaxt+FfQB2iZA+e7J+JwFHEQm
+	YdrE2dJ+OtiOHNFazJ6HdTg+pnzUbH3ICfNRucQTHaDXhzBLTjjaMZoDd+MsHdYSGD5T6kuR6k1AU
+	Lzwfg5/98ONCI4mML3WiqJCX+uVHle2mydLXHXAqmbTU4w2WnTXEE4n+DQYD+kPZ0kRRB0cBOKHdx
+	W8I8ySUxsm7aBZsk0nIkCZOLGXZI8rQmAs5DUpjal3elxEPtC3aHc7HLIkcwJ46Gahg7MIcr69L8J
+	WliRjRBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nK1OA-003rRk-5K; Tue, 15 Feb 2022 17:13:18 +0000
-Received: from mail-oi1-x234.google.com ([2607:f8b0:4864:20::234])
+	id 1nK2GL-00414f-Mx; Tue, 15 Feb 2022 18:09:17 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nK1O6-003rOI-LB
- for linux-riscv@lists.infradead.org; Tue, 15 Feb 2022 17:13:16 +0000
-Received: by mail-oi1-x234.google.com with SMTP id x24so1665551oie.9
- for <linux-riscv@lists.infradead.org>; Tue, 15 Feb 2022 09:13:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=dkNaB6kzC0t6gTi2pQx30aeojCMITTvkle2ZzaYqdBM=;
- b=Tl08YyyCqUz7jPsZpEIFs7dcAC/J3b3HZaMGn2NtoxJdeiQj1zWTIhiXMGBdMH83VQ
- 1PghJf9UK1UklkzjUbCFtG0ZVytd3YE5L/JU7Kj9Z9cs0Wvvd+DGV0TXm+DgvCOhGcRs
- VqO1dAL9k6fwlwYV03cAC0TdOdS+Q/ZQe65153sA+YsBU6iS7zg3OCu919enunaT31XZ
- 6oWEyPxUX6PDYpqqXRNWTgCxfQoV6e0VL/fBBeLHnuF3Tf+jt5xEugirI7diCJWGCLov
- 0y2Sg+P0c8WXjiAhxG6TJ0z3N43nJ9hDxYQULHaF9eUw6VZjJNwxw8XyTyxWSPqnnyu6
- bEnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=dkNaB6kzC0t6gTi2pQx30aeojCMITTvkle2ZzaYqdBM=;
- b=V9LkRompB2302JgvLGQGwX9P5hLivw6JIkBuCqHc0POdnFrkrRcPaKw4PDbYmoDPb/
- CUEHYxTMU932iPCvsem5SKaBULBNEWWUQFZCCUTIrGSOTvSdyhosUwegpgHFTOZyhbJo
- ny6ggPlnOUDBdjaDWj6foNV9TcNo9p/Wr5KOzVU36YLkQotBevhFJu8R1mLKExLCKoTi
- ipaxnzGL80ki/yWvyi73kXVdvbCw44KJkrg34duqyIig3tGkvj3ZdDjlU6Zb3T7w0Uwc
- Q5H3CJ7STb7IeepE3z7NwmwIGycT7zY/JlFtr6BUC3oleD201SkSxiuSX1PNt2z7kI0b
- HOEQ==
-X-Gm-Message-State: AOAM5329rG7Epv+VEU26anQ4GmCoSoyDFmNwYHXrpD8oPa07K9jOXHgt
- nHI5/bpSlUCbgRkWQWBG0eaT4rZEAKUKzCOYI/o6nw==
-X-Google-Smtp-Source: ABdhPJyF2d6aFudNgPHq5wPVAths+OUdollkoCVet7aNgbJuaRRSllKYLRFDUcSQY12kE4kPlhzrLKhEIuiY531pZK0=
-X-Received: by 2002:a05:6808:3021:b0:2d4:40f3:6b30 with SMTP id
- ay33-20020a056808302100b002d440f36b30mr605011oib.31.1644945190003; Tue, 15
- Feb 2022 09:13:10 -0800 (PST)
+ id 1nK2GI-00413p-KE
+ for linux-riscv@lists.infradead.org; Tue, 15 Feb 2022 18:09:16 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+ by metis.ext.pengutronix.de with esmtps
+ (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1nK2Fy-0001wD-JJ; Tue, 15 Feb 2022 19:08:54 +0100
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+ by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1nK2Fq-00GnTY-RA; Tue, 15 Feb 2022 19:08:46 +0100
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1nK2Fp-003OCR-H8; Tue, 15 Feb 2022 19:08:45 +0100
+Date: Tue, 15 Feb 2022 19:08:45 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, linux-pwm@vger.kernel.org,
+ Thierry Reding <thierry.reding@gmail.com>,
+ Vijayakannan Ayyathurai <vijayakannan.ayyathurai@intel.com>,
+ Sagar Kadam <sagar.kadam@sifive.com>,
+ Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
+ Lee Jones <lee.jones@linaro.org>, linux-riscv@lists.infradead.org,
+ Vignesh R <vigneshr@ti.com>, Florian Fainelli <f.fainelli@gmail.com>,
+ Fabio Estevam <festevam@gmail.com>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ linux-rockchip@lists.infradead.org, Rahul Tanwar <rtanwar@maxlinear.com>,
+ bcm-kernel-feedback-list@broadcom.com,
+ NXP Linux Team <linux-imx@nxp.com>, Jeff LaBundy <jeff@labundy.com>,
+ linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Maxime Ripard <mripard@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+ linux-arm-kernel@lists.infradead.org,
+ Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>
+Subject: Re: [PATCH v2 00/15] pwm: dt-bindings: Include generic pwm schema
+Message-ID: <20220215180845.vzzqwdaiaj7aqxry@pengutronix.de>
+References: <20220214212154.8853-1-krzysztof.kozlowski@canonical.com>
+ <20220215074030.3nugwproxjh3lwhl@pengutronix.de>
+ <CA+Eumj42Hojp1m4deuWnqMOaaNaupTSkzPaNbL_0eyBL-aDi_g@mail.gmail.com>
+ <7df71f8d-cdc3-4b2e-cf0a-7112eff28142@canonical.com>
+ <20220215094106.k35pmoxt2nk44dsj@pengutronix.de>
+ <20220215104952.3z7y2t5udwab64kh@pengutronix.de>
+ <d042abb2-e5df-42b9-824a-6fc3b9c6df6c@canonical.com>
+ <20220215125856.es2euyoqo6mp4y2t@pengutronix.de>
 MIME-Version: 1.0
-References: <00000000000038779505d5d8b372@google.com>
- <CANp29Y7WjwXwgxPrNq0XXjXPu+wGFqTreh9gry=O6aE7+cKpLQ@mail.gmail.com>
- <CA+zEjCvu76yW7zfM+qJUe+t5y23oPdzR4KDV1mOdqH8bB4GmTw@mail.gmail.com>
-In-Reply-To: <CA+zEjCvu76yW7zfM+qJUe+t5y23oPdzR4KDV1mOdqH8bB4GmTw@mail.gmail.com>
-From: Dmitry Vyukov <dvyukov@google.com>
-Date: Tue, 15 Feb 2022 18:12:58 +0100
-Message-ID: <CACT4Y+arufrRgwmN66wUU+_FGxMy-sTkjMQnRN8U2H2tQuhB7A@mail.gmail.com>
-Subject: Re: [syzbot] riscv/fixes boot error: can't ssh into the instance
-To: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Cc: Aleksandr Nogikh <nogikh@google.com>, linux-riscv@lists.infradead.org, 
- kasan-dev <kasan-dev@googlegroups.com>, palmer@dabbelt.com, 
- syzbot <syzbot+330a558d94b58f7601be@syzkaller.appspotmail.com>, 
- LKML <linux-kernel@vger.kernel.org>, syzkaller-bugs@googlegroups.com
+In-Reply-To: <20220215125856.es2euyoqo6mp4y2t@pengutronix.de>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
+ SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220215_091314_743861_0D07E902 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20220215_100914_687773_23C9EF62 
+X-CRM114-Status: GOOD (  17.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,80 +93,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4738860400389365156=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2 Feb 2022 at 14:18, Alexandre Ghiti
-<alexandre.ghiti@canonical.com> wrote:
->
-> Hi Aleksandr,
->
-> On Wed, Feb 2, 2022 at 12:08 PM Aleksandr Nogikh <nogikh@google.com> wrote:
-> >
-> > Hello,
-> >
-> > syzbot has already not been able to fuzz its RISC-V instance for 97
->
-> That's a longtime, I'll take a look more regularly.
->
-> > days now because the compiled kernel cannot boot. I bisected the issue
-> > to the following commit:
-> >
-> > commit 54c5639d8f507ebefa814f574cb6f763033a72a5
-> > Author: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-> > Date:   Fri Oct 29 06:59:27 2021 +0200
-> >
-> >     riscv: Fix asan-stack clang build
-> >
-> > Apparently, the problem appears on GCC-built RISC-V kernels with KASAN
-> > enabled. In the previous message syzbot mentions
-> > "riscv64-linux-gnu-gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU
-> > Binutils for Debian) 2.35.2", but the issue also reproduces finely on
-> > a newer GCC compiler: "riscv64-linux-gnu-gcc (Debian 11.2.0-10)
-> > 11.2.0, GNU ld (GNU Binutils for Debian) 2.37".
-> > For convenience, I also duplicate the .config file from the bot's
-> > message: https://syzkaller.appspot.com/x/.config?x=522544a2e0ef2a7d
-> >
-> > Can someone with KASAN and RISC-V expertise please take a look?
->
-> I'll take a look at that today.
->
-> Thanks for reporting the issue,
 
-Hi Alex,
-
-Do you have any updates on this? This is still blocking syzbot:
-https://syzkaller.appspot.com/bug?extid=330a558d94b58f7601be
-
-Do you use KASAN with clang or gcc? We can't boot riscv kernel with neither.
+--===============4738860400389365156==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="lgr56zm67yyqodt4"
+Content-Disposition: inline
 
 
-> > --
-> > Best Regards,
-> > Aleksandr
-> >
-> >
-> > On Tue, Jan 18, 2022 at 11:26 AM syzbot
-> > <syzbot+330a558d94b58f7601be@syzkaller.appspotmail.com> wrote:
-> > >
-> > > Hello,
-> > >
-> > > syzbot found the following issue on:
-> > >
-> > > HEAD commit:    f6f7fbb89bf8 riscv: dts: sifive unmatched: Link the tmp451..
-> > > git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
-> > > console output: https://syzkaller.appspot.com/x/log.txt?x=1095f85bb00000
-> > > kernel config:  https://syzkaller.appspot.com/x/.config?x=522544a2e0ef2a7d
-> > > dashboard link: https://syzkaller.appspot.com/bug?extid=330a558d94b58f7601be
-> > > compiler:       riscv64-linux-gnu-gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU Binutils for Debian) 2.35.2
-> > > userspace arch: riscv64
-> > >
-> > > IMPORTANT: if you fix the issue, please add the following tag to the commit:
-> > > Reported-by: syzbot+330a558d94b58f7601be@syzkaller.appspotmail.com
+--lgr56zm67yyqodt4
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hello,
+
+On Tue, Feb 15, 2022 at 01:58:56PM +0100, Uwe Kleine-K=F6nig wrote:
+> On Tue, Feb 15, 2022 at 01:41:20PM +0100, Krzysztof Kozlowski wrote:
+> > On 15/02/2022 11:49, Uwe Kleine-K=F6nig wrote:
+> > > [... Something inserted a space in Subject lines ...]
+> >=20
+> > Other threads - not only mine - are also affected:
+> > http://lists.infradead.org/pipermail/linux-arm-kernel/2022-February/714=
+311.html
+> > http://lists.infradead.org/pipermail/linux-arm-kernel/2022-February/714=
+316.html
+> > http://lists.infradead.org/pipermail/linux-arm-kernel/2022-February/714=
+364.html
+>=20
+> In the meantime I'm confident that mailman2 is the culprit.
+
+For the record: Using python2 (which is what mailman2 uses):
+
+>>> from email.header import Header
+>>> h =3D Header('[PATCH v2 08/15] dt-bindings: pwm: renesas,pwm: Include g=
+eneric pwm schema', maxlinelen=3D76, header_name=3D'Subject')
+>>> h.encode()
+'[PATCH v2 08/15] dt-bindings: pwm: renesas,\n pwm: Include generic pwm sch=
+ema'
+
+This is the inner source of the problem, mailman just does something
+like:
+
+>>> import email
+>>> a =3D email.message_from_file(open('message'))
+>>> open('message-mangled', 'w').write(a.as_string())
+
+So we just have to wait until all mailserver admins migrate away from
+mailman2. I bet this will happen no later than when Python2 will become
+EOL. :-\
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--lgr56zm67yyqodt4
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmIL7CkACgkQwfwUeK3K
+7Am22wf/QGAYOVL7Or/wGAw+w38cz+S2A17cswpSeUgQ9tVBFPsz54e2W/VEZWVo
+dXdS7jXz+yJ994+aOj0azyG0HVLpSFWm4w6bMQwUF/mKMDTBmEQblGYTgRA+ZKog
+LS2KEE3tSItn2cgXgzDvsS3jj6ONyOGipMEfFU3o/3Wy9FnTrX/bAy6kxDIDwTVH
+KfTm1YMQFP77eyXEueSNZl9ALHubGZqGXwNJ0Fy+IBE/OydoX2AC3oNzslvrPrMw
+7dy18agIIqzJ0as+OMD8kpIzxLfU/r4jcqmfSWHF7WNYfE5kfL8A7i+c/JiWtJaO
+y4RH/KCKM0Jmb58rB6611pS1iRadyA==
+=AUvf
+-----END PGP SIGNATURE-----
+
+--lgr56zm67yyqodt4--
+
+
+--===============4738860400389365156==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4738860400389365156==--
+
