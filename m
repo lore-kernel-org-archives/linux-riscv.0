@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53E52C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 07:14:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77ADDC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 07:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UWMHgy7TmuxSxpz4lOTgM/0XP5Dx9EokPuMTLuWCjsw=; b=zUMP0Gdcsv//3r
-	UtDo0/OiCYlxn7VZeeWUg7+G31LDmAtLINSAEWISVQ+FTtpQV9Y4X64LlIdniIyT2rMorF45xlfV2
-	xv3apFAnXVPlJqOz/QT/cXSsCEUm9pBiBI+0DAY+qxsyiriYYisclLsBQZXrs0lgMdhdWrQ4zBZr8
-	8khAIWnJsSe65B45hMV4JCm2VvIvA+kcrIJO1U89mOGihz5ALfd0+45WuEr7W1FW/WBU6cCxNXC4S
-	xl2i21a+bLt9s3cbT1DQjN/bzie7wJwak4l5UJI2eh4Oe21E5rUr1HfJ7Dz40FIiAEf2RNbQ//Iqh
-	9vf8LuCOo6fJkmZzZqMQ==;
+	List-Owner; bh=kwKRF8AVPTjmTZlX8W14pz6fXHy+x31IgzNzdTG8zaw=; b=sNe53VWDVkLHBG
+	AEazR4CfVDiqbd+Z2k2LmSmppkZ82mL5erCHHjP0E5HXgN2wu0CxYPEss+gk5CS3a846qjTJLkfGq
+	KxXNwx/5b15Xmn+XF8Nvo7aV4fgb6Yiohn7Xak0+1R0F1uUdK/KDXnvF+JLdDBzRfzNTysEkpg0Pl
+	Cs2dSVAVrK40HN8k79kCfCee7aNv2vxAx8gOKrZ0IaInxCmrAX2W+orJHf2bmzbvj1viC8VWTqQbj
+	ntFUweynOukLjdQL7R+LgljZrKhU7zFHNKngrfyy0UqJPZEsUQjv29lvWDUOhzD4MjXfM77MCl92i
+	iSfvnIzrW2XR7wYUQIIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJs2m-0014Pb-6I; Tue, 15 Feb 2022 07:14:36 +0000
-Received: from zeniv-ca.linux.org.uk ([142.44.231.140])
+	id 1nJsI4-001DzI-0n; Tue, 15 Feb 2022 07:30:24 +0000
+Received: from verein.lst.de ([213.95.11.211])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJs2h-0014KG-4E; Tue, 15 Feb 2022 07:14:33 +0000
-Received: from viro by zeniv-ca.linux.org.uk with local (Exim 4.94.2 #2 (Red
- Hat Linux)) id 1nJs1u-001uPd-Et; Tue, 15 Feb 2022 07:13:42 +0000
-Date: Tue, 15 Feb 2022 07:13:42 +0000
-From: Al Viro <viro@zeniv.linux.org.uk>
-To: Christoph Hellwig <hch@lst.de>
+ id 1nJrLS-000eQy-Ni; Tue, 15 Feb 2022 06:29:53 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+ id 11DDB68AA6; Tue, 15 Feb 2022 07:29:43 +0100 (CET)
+Date: Tue, 15 Feb 2022 07:29:42 +0100
+From: Christoph Hellwig <hch@lst.de>
+To: Al Viro <viro@zeniv.linux.org.uk>
 Cc: Arnd Bergmann <arnd@kernel.org>,
  Linus Torvalds <torvalds@linux-foundation.org>,
- linux-arch@vger.kernel.org, linux-mm@kvack.org,
- linux-api@vger.kernel.org, arnd@arndb.de,
+ Christoph Hellwig <hch@lst.de>, linux-arch@vger.kernel.org,
+ linux-mm@kvack.org, linux-api@vger.kernel.org, arnd@arndb.de,
  linux-kernel@vger.kernel.org, linux@armlinux.org.uk,
  will@kernel.org, guoren@kernel.org, bcain@codeaurora.org,
  geert@linux-m68k.org, monstr@monstr.eu, tsbogend@alpha.franken.de,
@@ -52,17 +52,18 @@ Cc: Arnd Bergmann <arnd@kernel.org>,
  sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
  linux-xtensa@linux-xtensa.org
 Subject: Re: [PATCH 09/14] m68k: drop custom __access_ok()
-Message-ID: <YgtSpk0boDjsyjFK@zeniv-ca.linux.org.uk>
+Message-ID: <20220215062942.GA12551@lst.de>
 References: <20220214163452.1568807-1-arnd@kernel.org>
  <20220214163452.1568807-10-arnd@kernel.org>
  <Ygr11RGjj3C9uAUg@zeniv-ca.linux.org.uk>
- <20220215062942.GA12551@lst.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220215062942.GA12551@lst.de>
+In-Reply-To: <Ygr11RGjj3C9uAUg@zeniv-ca.linux.org.uk>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_231431_199405_76FABE61 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20220214_222950_950792_AE191FE3 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,28 +80,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 15, 2022 at 07:29:42AM +0100, Christoph Hellwig wrote:
-> On Tue, Feb 15, 2022 at 12:37:41AM +0000, Al Viro wrote:
-> > Perhaps simply wrap that sucker into #ifdef CONFIG_CPU_HAS_ADDRESS_SPACES
-> > (and trim the comment down to "coldfire and 68000 will pick generic
-> > variant")?
-> 
-> I wonder if we should invert CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE,
-> select the separate address space config for s390, sparc64, non-coldfire
-> m68k and mips with EVA and then just have one single access_ok for
-> overlapping address space (as added by Arnd) and non-overlapping ones
-> (always return true).
+On Tue, Feb 15, 2022 at 12:37:41AM +0000, Al Viro wrote:
+> Perhaps simply wrap that sucker into #ifdef CONFIG_CPU_HAS_ADDRESS_SPACES
+> (and trim the comment down to "coldfire and 68000 will pick generic
+> variant")?
 
-parisc is also such...  How about
-
-	select ALTERNATE_SPACE_USERLAND
-
-for that bunch?  While we are at it, how many unusual access_ok() instances are
-left after this series?  arm64, itanic, um, anything else?
-
-FWIW, sparc32 has a slightly unusual instance (see uaccess_32.h there); it's
-obviously cheaper than generic and I wonder if the trick is legitimate (and
-applicable elsewhere, perhaps)...
+I wonder if we should invert CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE,
+select the separate address space config for s390, sparc64, non-coldfire
+m68k and mips with EVA and then just have one single access_ok for
+overlapping address space (as added by Arnd) and non-overlapping ones
+(always return true).
 
 _______________________________________________
 linux-riscv mailing list
