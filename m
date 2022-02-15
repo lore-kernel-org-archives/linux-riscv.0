@@ -4,77 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5A9AC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 07:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40428C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 07:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D++ruyrY3BiVZRuTx7MdR/Hruc3Edb8Ym4RTRaLVdKU=; b=sqG7+OToNbT34d8/+01h94goBS
-	gnaM6udLzWu3Kmaqse0BsT3QE2FeaFCF0KR7fTVaXJ1GCkETcrnkhjY3e/+8knOHXO7CG3MtJjaC+
-	NThIvBYnkVdguKwGFmjyocqwT/hzC87H1XEZ5dcpNXdslk9qt4eH5SUnwVBVTwd76AkOaKDV7WGvR
-	cdyu9WkvgkFssSzMzZBDaxB7h6kpmjyH2KfMua0r90B0YwCIDmM0vHG+jJfyOptWeQNE6x3gzgh3l
-	awyRTkTQeL6rDZrMHCEeiIEhnLfhks6Brlbhv/ht/Zk9CVrUbpH2J6jVyxthqZqMKI+3ryFTRS0cL
-	PVi66Ulw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KT/P8js0aZ9RRfJtn9+Iy8SU/ACwWUUkRC7mfdmnyd8=; b=H5JeEQ7zdk5Gdo
+	NccsmfGPcBPkI5Tk9fRVsrkmiqlVghf3RqQ3q3vxfx5fIWL4Oe/91ogFlNhu4v1DyNt7meIzkMjAY
+	4U0V9sRwPTIq9MrODGFJ7PK7MInTDHFZ4rXT8CRTqEPktAKg6e6oZnJ9Uj8jyKo6/7ucFr3K82/Ye
+	Ni/LpH75zA4wu62hsRKIGocv0pm4AOeDBTly7cpyvB7VhGe3yunCJnVY3M89LESBtdBNXMOIW6VDV
+	QIAq+Z/hdhn0xycuKfW09ZNrMAHhCZZYeGAUuIGCKvA9jdalyJ7S32LmD00SoyK5cBMFJ1DGBgfWA
+	LQZeKDvkpfoGfsXTO8MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJsSh-001Iya-Vx; Tue, 15 Feb 2022 07:41:24 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1nJsYY-001L9I-Kc; Tue, 15 Feb 2022 07:47:26 +0000
+Received: from mout.gmx.net ([212.227.17.20])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJsSX-001IuU-F2
- for linux-riscv@lists.infradead.org; Tue, 15 Feb 2022 07:41:15 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <ukl@pengutronix.de>)
- id 1nJsS0-0006FP-9s; Tue, 15 Feb 2022 08:40:40 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
- by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
- (envelope-from <ukl@pengutronix.de>)
- id 1nJsRu-00GhwB-EV; Tue, 15 Feb 2022 08:40:33 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
- (envelope-from <ukl@pengutronix.de>)
- id 1nJsRt-003I1A-4j; Tue, 15 Feb 2022 08:40:33 +0100
-Date: Tue, 15 Feb 2022 08:40:30 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
- Lee Jones <lee.jones@linaro.org>, Rob Herring <robh+dt@kernel.org>,
- Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Florian Fainelli <f.fainelli@gmail.com>,
- bcm-kernel-feedback-list@broadcom.com, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
- Heiko Stuebner <heiko@sntech.de>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Vijayakannan Ayyathurai <vijayakannan.ayyathurai@intel.com>,
- Rahul Tanwar <rtanwar@maxlinear.com>, Jeff LaBundy <jeff@labundy.com>,
- Sagar Kadam <sagar.kadam@sifive.com>, Vignesh R <vigneshr@ti.com>,
- Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
- linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 00/15] pwm: dt-bindings: Include generic pwm schema
-Message-ID: <20220215074030.3nugwproxjh3lwhl@pengutronix.de>
-References: <20220214212154.8853-1-krzysztof.kozlowski@canonical.com>
+ id 1nJsYT-001L3f-R7; Tue, 15 Feb 2022 07:47:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1644911179;
+ bh=Gg0eXtIflg4YSdhde6TPBD88ytt9vELXByFDX1EvH5o=;
+ h=X-UI-Sender-Class:Date:Subject:To:Cc:References:From:In-Reply-To;
+ b=cL8nOU4P5zROD6QnSaMf+IFH1JNakyChC41kZoyLmoh4OfhoEdCE5EpqWukFvfrr7
+ bbAty2PKJpf0Ivg7eDWbBX9KS9Ervz4FISwmJMXSrYDExxKjWqh9fx5gCxmn7+bcB3
+ 7iZgNWIrcC7CBfK5HN/OAh9s+XgKDV5Ya7JTmsv0=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from [192.168.20.60] ([92.116.185.100]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1N8obG-1oOVrh0Ttm-015uP2; Tue, 15
+ Feb 2022 08:46:19 +0100
+Message-ID: <215c0ddc-54b1-bcb1-c5aa-bd17c6b100a8@gmx.de>
+Date: Tue, 15 Feb 2022 08:46:05 +0100
 MIME-Version: 1.0
-In-Reply-To: <20220214212154.8853-1-krzysztof.kozlowski@canonical.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.3.0
+Subject: Re: [PATCH 14/14] uaccess: drop set_fs leftovers
+Content-Language: en-US
+To: Al Viro <viro@zeniv.linux.org.uk>, Arnd Bergmann <arnd@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+ Christoph Hellwig <hch@lst.de>, linux-arch@vger.kernel.org,
+ linux-mm@kvack.org, linux-api@vger.kernel.org, arnd@arndb.de,
+ linux-kernel@vger.kernel.org, linux@armlinux.org.uk, will@kernel.org,
+ guoren@kernel.org, bcain@codeaurora.org, geert@linux-m68k.org,
+ monstr@monstr.eu, tsbogend@alpha.franken.de, nickhu@andestech.com,
+ green.hu@gmail.com, dinguyen@kernel.org, shorne@gmail.com,
+ mpe@ellerman.id.au, peterz@infradead.org, mingo@redhat.com,
+ mark.rutland@arm.com, hca@linux.ibm.com, dalias@libc.org,
+ davem@davemloft.net, richard@nod.at, x86@kernel.org, jcmvbkbc@gmail.com,
+ ebiederm@xmission.com, akpm@linux-foundation.org, ardb@kernel.org,
+ linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+ linux-xtensa@linux-xtensa.org
+References: <20220214163452.1568807-1-arnd@kernel.org>
+ <20220214163452.1568807-15-arnd@kernel.org>
+ <YgsYD2nW9GjWJtn5@zeniv-ca.linux.org.uk>
+From: Helge Deller <deller@gmx.de>
+In-Reply-To: <YgsYD2nW9GjWJtn5@zeniv-ca.linux.org.uk>
+X-Provags-ID: V03:K1:YbVX8I9McP/aOoptX/QU6xXsMUxj5l3eWtWKIf3O+jL0xku9qtG
+ Zvd7JXlVOTeAkMcrw4ura0jf9AQkk5D8MaemK64qHhWPazHfq3pPTRp36Jgwt+Bz560jUXw
+ EnyWRjxioFtmKG1I+4nkiaSRoRlQJJpM92uIMgDane+QxlF3STQpbB16Ci0R4wmVz76au1k
+ fLV9rswEGC1K4sHhia8eg==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:NC2D0g2S/Ac=:jSN2OiozPQ2+o13baar10P
+ DJFvuJskDJlqwL6taTUNifHjp6CHOCpvH/lM0r8+MeU/IkrDDHBhH7pRYm+9PYQbT3DikuN8Y
+ wf2pthhc9JA07KaIYOCZHITmk9asiC4cauJ+KYyIdugvzYTERUeyCi5tklyg6ddqAnY1mFXMN
+ IzsYV9Agn4+eqyWx2YPB+vSH14egrQuc/WXYTR5MDXWYgDRkNEUQHagx0PKYbtEOFZOjTpuL2
+ mtoM7yAXNS7drjcOzyM19nnxtKwylBBQYcLPkj218FbcLL2vzhJHiHAWd24/Q9W3s09nHCIE6
+ fGumtyqCsMeSqw0mMH4wo+GvEWCCG6H4FoL+qDBFD2sodlwN+X7gfqBSW11rLH+XM3x8YM8NN
+ J54e3TA+Vei8jw4LRGe9Ymmqhkiqk6Uc6Wko0CB9iTVPAtnltjRfoYslftpQXOaFdBUYl2aok
+ k0g9BBm17D0XENQhlxsLa+WnayrWKt6yhyp1M7UGChhokjicHtvLAIy7ZtiZebwac9KgVxHVd
+ AQSmSlQgCo0OBFalh6iMSakk2BLgIjbIZKPGF2lt07iBIKj3hrvythTjqM9Kx9g4Mb9yKKUiR
+ 3hX3nB3W5yrzrvjAHjmMzLC5EmkRc15EoGpyfTlWnxkgto9eQnU+aUViFusixT5EpyIl2ug8Q
+ H4Kk+m6f3GVxVKL2Cx0ClZdpN0Zw+GeYYd7Pke8Y8nEMm549lY9iGBFHXyCw8F2oNiBZVz/4+
+ r1+Nz55zL4OErT4gqcqQim8TkBXvrLFJFeMF9Rs2Sr1cbQ0e8NM+TnoZSBjb2f9bWY8kh7F1o
+ qu/V8M1FYX5b55nnwZEcROdmSlyYYHcymV+Yhds+gLhP/FS7CDLGp9IQz74c+WtjVrbg1a9ol
+ wtrU5pIjiq/IBVYjCGlvJkUiX5qyYdvO48Ut1Tm1RMknPly6TVv5RW4v9ku8Y61mAR2Xi+BzF
+ wgnYdYR+Vn0Nzr7bHUXkOqVZlT4a138K2E/bPk4wyFt6d5rh0A1e53c9E5+hNVMfoUb38M8eC
+ IpYPs2Cvw5bMlKnUT33aNolZnoMt9Z+67iy8yZqI7/YHnt36EIgrIQMWOt9AaL+QmqLMHPGxA
+ Krl57Lr0WyEtCA=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_234113_512231_A13FD4AB 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20220214_234722_274930_EDB5F67D 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,88 +103,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0458271070197852637=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 2/15/22 04:03, Al Viro wrote:
+> On Mon, Feb 14, 2022 at 05:34:52PM +0100, Arnd Bergmann wrote:
+>> diff --git a/arch/parisc/include/asm/futex.h b/arch/parisc/include/asm/futex.h
+>> index b5835325d44b..2f4a1b1ef387 100644
+>> --- a/arch/parisc/include/asm/futex.h
+>> +++ b/arch/parisc/include/asm/futex.h
+>> @@ -99,7 +99,7 @@ futex_atomic_cmpxchg_inatomic(u32 *uval, u32 __user *uaddr,
+>>  	/* futex.c wants to do a cmpxchg_inatomic on kernel NULL, which is
+>>  	 * our gateway page, and causes no end of trouble...
+>>  	 */
+>> -	if (uaccess_kernel() && !uaddr)
+>> +	if (!uaddr)
+>>  		return -EFAULT;
+>
+> 	Huh?  uaccess_kernel() is removed since it becomes always false now,
+> so this looks odd.
+>
+> 	AFAICS, the comment above that check refers to futex_detect_cmpxchg()
+> -> cmpxchg_futex_value_locked() -> futex_atomic_cmpxchg_inatomic() call chain.
+> Which had been gone since commit 3297481d688a (futex: Remove futex_cmpxchg
+> detection).  The comment *and* the check should've been killed off back
+> then.
+> 	Let's make sure to get both now...
 
---===============0458271070197852637==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="75mhjvzsa3tznmbu"
-Content-Disposition: inline
+Right. Arnd, can you drop this if() and the comment above it?
 
-
---75mhjvzsa3tznmbu
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hello,
-
-[dropped Anson Huang and Yash Shah from Cc: which were not reachable for
-my last mail]
-
-On Mon, Feb 14, 2022 at 10:21:39PM +0100, Krzysztof Kozlowski wrote:
-> Hi,
->=20
-> Changes since v1:
-> 1. Add tags.
-> 2. Adjust subject (Uwe).
-
-However you only took a part of my suggestion ...
-
-> Krzysztof Kozlowski (15):
->   dt-bindings: pwm: allwinner,sun4i-a10: Include generic pwm schema
->   dt-bindings: pwm: imx: Include generic pwm schema
->   dt-bindings: pwm: intel,lgm: Include generic pwm schema
->   dt-bindings: pwm: iqs620a: Include generic pwm schema
->   dt-bindings: pwm: mxs: Include generic pwm schema
->   dt-bindings: pwm: rockchip: Include generic pwm schema
->   dt-bindings: pwm: sifive: Include generic pwm schema
->   dt-bindings: pwm: renesas,pwm: Include generic pwm schema
->   dt-bindings: pwm: toshiba,visconti: Include generic pwm schema
->   dt-bindings: pwm: brcm,bcm7038: Do not require pwm-cells twice
->   dt-bindings: pwm: intel,keembay: Do not require pwm-cells twice
-
-=2E.. The actual patch has a space after the comma, I like this variant
-without comma better as this is a compatible string. Also a # before
-pwm-cells would be nice.
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---75mhjvzsa3tznmbu
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmILWOsACgkQwfwUeK3K
-7An9UAf/fphlT382o9/FKqwTAw/JDCNvTPyXDeOLfHI7s5jElS2X/z6Ev+qvlRbO
-c69X0dIeX0m3ZG2Aqq9zXkzrEjLiv5BUPTnaA/EsPCkU8TWyTQa/cd+y7kAnqVxx
-63Vj1JFt9TxNaAR/+EebmDui9nLX3D/hUYNaJn+JbAZlLGGdzcmbovc5YmB1lw/M
-qByp61tL/ib3x+KV8tA4Rccvu1uxZTmU7VUf15xsHOdY1LXDeu/ZCbWIWOy0AeNa
-dlLq2yiogwbckiquxxHnHm3yVPt1ncclAYeUT3VY9VeHvU6OQkNvJgtdmsGkEFfn
-ZVt42/xmkq2p4d6tMsSkQzJGnR6DRA==
-=6jay
------END PGP SIGNATURE-----
-
---75mhjvzsa3tznmbu--
-
-
---===============0458271070197852637==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+Helge
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0458271070197852637==--
-
