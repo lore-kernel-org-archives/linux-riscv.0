@@ -4,82 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C26EBC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 09:03:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 721F7C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 09:12:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zLing6t1Y47eVR27+xPvMrghiNB9+C/a1a0/W2YbVek=; b=YiPHr+nlivbdI4
-	PfAQOumt/bi+w96BrYk8UlzrB0IxR+hmMUA/fgEeHTVK9HT9T2q42wE8fFeF6NlSq9RQ/1iDkwASR
-	uKxSTzrB8ml2LpTFhZRTDsVKgMLsqVyUjO129K4a3wTuZPneEPOxZlpzxs/8uiAkG0BudRX31EkMo
-	CLDgQGlVwfYvpBawWVlH+JrN0lusPxlh93sUzW/jKFTzk5VHNnW2WWAV/VCT7H5IP1ExjTM3lUUDv
-	3K7l12nQibcbo2exEyrjxn5bxIxhPw4NknDBrQFO5sR7z6ne/ZA7AdlhmFsYCS7jWpNRT9gHpFxfB
-	ZQA61cNVxwOekdVK7hCA==;
+	List-Owner; bh=BOyD4w2K9tPsbnl4xlCnE8zcKN7bhY7yHkGxg/aMFMo=; b=NlcsSnmseK8Z6J
+	UBpSY+GFEBR7RaEoY1U5O0U75bQZUyNrucUMBmo8rsMWRPtCgAJ3JzuMQFibnvWmjwpPvawP7MxwW
+	EDp9hz1FGWe8GGtaIy6DQKbxAiOI94pRukAKJAsYxTRa9/H0fKU2yWRJnfQpHISvVeTLlY9SRhLCx
+	g3s3AOLG4T5Qqdc7P8b6J19bwg8eijIBBfn0Jdw1wGkFxBOiVcbveH/Ka3JBXkmS6UHDSaklzWdHp
+	Z3uRTyvicE1iifIlm+J3BVYw4tJAznR7pQ5ZB96Zzu+m9qSe12+iTxfl5gPsXSKyH8luNSzvinUlJ
+	cgSVWWvXumFIShxgttiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJtjb-001srU-9z; Tue, 15 Feb 2022 09:02:55 +0000
-Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJtjN-001shp-Kz
- for linux-riscv@lists.infradead.org; Tue, 15 Feb 2022 09:02:48 +0000
-Received: by mail-qt1-x836.google.com with SMTP id o3so17932674qtm.12
- for <linux-riscv@lists.infradead.org>; Tue, 15 Feb 2022 01:02:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=hRHHCDwWs7pktn1e2TaButK3zinNjCuetMty1a6rgb4=;
- b=7B7t6he5vZWDqwC+Ob5M+euG08lerFIoCfMiLtDOqQ2llS4N7CH8tfcYn/KoBtv7rq
- E1nyUU1YJk68c1oAremArUd9AH0uqeCR7dp/29ak2YIBJl/QSXe/xtBn0NqyPDdZ9k7W
- 45JdN4FAhBHtOAIqm7j/s97C8948+pHvC6Djz+YAgPYpzuA+y/VkpthppYNN14E/tlCk
- Y93QFQJ/1US9wHDPQTDcZamZDqz+RlDCVmbwMbBgZrkHdTixO1BEOCclLFc5u6tbMV1A
- 1spsxllWmT7bU5arlXiRYWvH1e3qQWiSXrHqmhXBYOHHlwJB9+b4at8Z3bijZwd7w/L4
- 5vPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=hRHHCDwWs7pktn1e2TaButK3zinNjCuetMty1a6rgb4=;
- b=XPRQ/CUYGlzn1P516V7eDyWy5a9ciDMDV0VkfF/0pVqDBL55KSWDGy5t2bpn9hINDh
- ciqVgY50tt/p4tKyY9ERcYxhM3R54BVe2PkUBnSmaNmffknZb/IuBMBtM07EqBqKCmbF
- wp5SIvzLzm/wWp8gIwfLksRDl9d0ux7oVe312KCtIoPD4cRKG1ULe33WiUhni8zb6/mB
- S4B4+nzZdP4582rjEzFfjHNqQKAn/pz5uN8ri92T2PA1im8fC9WpZ6I2Gyn0SAwzF1/M
- KU741vccRvYZkqx4W7CwG3NJLEOj88G/wimxwH5dBEYlv6hkkE9VIbSVbhN+Wm4pZgtB
- pLLA==
-X-Gm-Message-State: AOAM530yBeCr8VflOhHvKwY4QSyyEEeGY+kl2Ce8PMIo3CV9AWbTCtQJ
- VyJp9eFdUYmMCNl6QUuPXSXbJg==
-X-Google-Smtp-Source: ABdhPJx5N9RQt5omXNMZk0pqvVK8FnSoi+atkRQddYY2Oh8yjRKofmbcY6IK0gC4u9lfv6gg2X9Y0w==
-X-Received: by 2002:a05:622a:1ba6:: with SMTP id
- bp38mr1972295qtb.259.1644915760250; 
- Tue, 15 Feb 2022 01:02:40 -0800 (PST)
-Received: from rivos-atish.. (adsl-70-228-75-190.dsl.akrnoh.ameritech.net.
- [70.228.75.190])
- by smtp.gmail.com with ESMTPSA id w4sm17711158qko.123.2022.02.15.01.02.38
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 15 Feb 2022 01:02:39 -0800 (PST)
-From: Atish Patra <atishp@rivosinc.com>
-To: linux-kernel@vger.kernel.org
-Cc: Atish Patra <atishp@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
- Damien Le Moal <damien.lemoal@wdc.com>, devicetree@vger.kernel.org,
- Jisheng Zhang <jszhang@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
-Subject: [PATCH v3 5/6] RISC-V: Do no continue isa string parsing without
- correct XLEN
-Date: Tue, 15 Feb 2022 01:02:10 -0800
-Message-Id: <20220215090211.911366-6-atishp@rivosinc.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20220215090211.911366-1-atishp@rivosinc.com>
-References: <20220215090211.911366-1-atishp@rivosinc.com>
+	id 1nJtsf-001wSM-1U; Tue, 15 Feb 2022 09:12:17 +0000
+Received: from angie.orcam.me.uk ([2001:4190:8020::34])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nJtsB-001wCV-Rd; Tue, 15 Feb 2022 09:11:49 +0000
+Received: by angie.orcam.me.uk (Postfix, from userid 500)
+ id 358E092009C; Tue, 15 Feb 2022 10:11:45 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+ by angie.orcam.me.uk (Postfix) with ESMTP id 2E7E692009B;
+ Tue, 15 Feb 2022 09:11:45 +0000 (GMT)
+Date: Tue, 15 Feb 2022 09:11:45 +0000 (GMT)
+From: "Maciej W. Rozycki" <macro@orcam.me.uk>
+To: Christoph Hellwig <hch@infradead.org>
+cc: Sudip Mukherjee <sudipm.mukherjee@gmail.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, Jeff Dike <jdike@addtoit.com>, 
+ Richard Weinberger <richard@nod.at>, 
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+ Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+ linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org, 
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] parport_pc: Also enable driver for PCI systems
+In-Reply-To: <YgtQkjRe7fbXI/lS@infradead.org>
+Message-ID: <alpine.DEB.2.21.2202150901170.34636@angie.orcam.me.uk>
+References: <alpine.DEB.2.21.2202141955550.34636@angie.orcam.me.uk>
+ <YgtQkjRe7fbXI/lS@infradead.org>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220215_010241_719778_FA6FEBED 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20220215_011148_082219_9A27D46D 
+X-CRM114-Status: UNSURE (   8.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,50 +74,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The isa string should begin with either rv64 or rv32. Otherwise, it is
-an incorrect isa string. Currently, the string parsing continues even if
-it doesnot begin with current XLEN.
+On Mon, 14 Feb 2022, Christoph Hellwig wrote:
 
-Fix this by checking if it found "rv64" or "rv32" in the beginning.
+> > ===================================================================
+> > --- linux-macro.orig/arch/arm64/include/asm/Kbuild
+> > +++ linux-macro/arch/arm64/include/asm/Kbuild
+> > @@ -3,6 +3,7 @@ generic-y += early_ioremap.h
+> >  generic-y += mcs_spinlock.h
+> >  generic-y += qrwlock.h
+> >  generic-y += qspinlock.h
+> > +generic-y += parport.h
+> 
+> Instead of adding generic-y just ad a mandatory-y in
+> include/asm-generic/Kbuild.
 
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- arch/riscv/kernel/cpufeature.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ I'm inconvinced.  Not all archs want it, 5 don't.
 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index af9a57ad3d4e..0c818035ec92 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -84,6 +84,7 @@ void __init riscv_fill_hwcap(void)
- 	for_each_of_cpu_node(node) {
- 		unsigned long this_hwcap = 0;
- 		uint64_t this_isa = 0;
-+		const char *temp;
- 
- 		if (riscv_of_processor_hartid(node) < 0)
- 			continue;
-@@ -93,6 +94,7 @@ void __init riscv_fill_hwcap(void)
- 			continue;
- 		}
- 
-+		temp = isa;
- #if IS_ENABLED(CONFIG_32BIT)
- 		if (!strncmp(isa, "rv32", 4))
- 			isa += 4;
-@@ -100,6 +102,9 @@ void __init riscv_fill_hwcap(void)
- 		if (!strncmp(isa, "rv64", 4))
- 			isa += 4;
- #endif
-+		/* The riscv,isa DT property must start with rv64 or rv32 */
-+		if (temp == isa)
-+			continue;
- 		for (; *isa; ++isa) {
- 			const char *ext = isa++;
- 			const char *ext_end = isa;
--- 
-2.30.2
-
+  Maciej
 
 _______________________________________________
 linux-riscv mailing list
