@@ -4,88 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98EE4C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 10:39:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 280A8C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 10:50:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wnLfep+01Ra450gW40Wa2VAntEFu84hSZeItMknGxJA=; b=Thikeg6C+vHoYf
-	bX0AQzmFf3ZCXMEQyIeWP7vfKMNSPTXqmxLX+wjHNdPuv81VTI4N4ejdcv04LqQATzkBOR1q7Cfvm
-	iuqMldxPJ3oP6YTCQ7vwDjDVYADoULMVdAayaCoj0l+gr3JoZj0AV+MaRduPwhSB1rZwMo/rSM/jl
-	x4PWccW3VgLG39LITWfVv2CVRMDFZmUmSAbluxdcSdolC3D9XrvzYxpYmLqStOq/76xisFRaEcyfh
-	HFvD+h/C1q2eSMlETz4zq2YgtrDfBtkBg/yqGh+YKGAv91i6W7pwCuQkl6Wt5UTAunEY7FVR07kTk
-	4Y3X1qzrOZqHjrTbSG2Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QxjvPQ03s8FZjfcxhxPvELE56Z6p24j49oxMknEaNQc=; b=h6MFYloaarRC96ppbeKtyZqYKx
+	VtHMHcUoSYAz8rZ45TzCQrz3ulUszUel+GMVnSmDIgvhMHkhm5KfVBPz451fFKoXOR/TF8Oi+UYca
+	b2ExQJlsMLi8/513rjJp7AkQURaesuou1UThLTNkC4Jz3SORwSc4JO7gh0ztWVv3QXRqI4vLmTUYx
+	TXzRGar0rDnLNGZ2Kn2QVDLonUaogqaKdwNlkA/rZQVPCsw7pP5ugExO6r83vmZHt/JhR99kXIn25
+	udvQ2f5nkR3lCs9hHE3zFEThS4DvotqsDy0oUacxWs39t0YeaHTtOtloMkzlfJg8sfUaPcCh5Xcd8
+	ll/v9j3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJvEv-002KwT-QO; Tue, 15 Feb 2022 10:39:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJvEs-002KuD-FT; Tue, 15 Feb 2022 10:39:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 31E1E13D5;
- Tue, 15 Feb 2022 02:39:17 -0800 (PST)
-Received: from FVFF77S0Q05N (unknown [10.57.89.144])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4B7AE3F66F;
- Tue, 15 Feb 2022 02:39:10 -0800 (PST)
-Date: Tue, 15 Feb 2022 10:39:06 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Ard Biesheuvel <ardb@kernel.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Christoph Hellwig <hch@lst.de>, linux-arch <linux-arch@vger.kernel.org>,
- Linux Memory Management List <linux-mm@kvack.org>,
- Linux API <linux-api@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
- Guo Ren <guoren@kernel.org>, Brian Cain <bcain@codeaurora.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
- Dinh Nguyen <dinguyen@kernel.org>,
- Stafford Horne <shorne@gmail.com>, Helge Deller <deller@gmx.de>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Heiko Carstens <hca@linux.ibm.com>,
- Rich Felker <dalias@libc.org>, "David S. Miller" <davem@davemloft.net>,
- Richard Weinberger <richard@nod.at>, X86 ML <x86@kernel.org>,
- Max Filippov <jcmvbkbc@gmail.com>,
- "Eric W. Biederman" <ebiederm@xmission.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- alpha <linux-alpha@vger.kernel.org>,
- "open list:SYNOPSYS ARC ARCHITECTURE" <linux-snps-arc@lists.infradead.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- linux-csky@vger.kernel.org,
- "open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>,
- linux-ia64@vger.kernel.org, linux-m68k <linux-m68k@lists.linux-m68k.org>,
- "open list:MIPS" <linux-mips@vger.kernel.org>,
- Openrisc <openrisc@lists.librecores.org>,
- "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>,
- "open list:LINUX FOR POWERPC (32-BIT AND 64-BIT)"
- <linuxppc-dev@lists.ozlabs.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- "open list:S390" <linux-s390@vger.kernel.org>,
- Linux-sh list <linux-sh@vger.kernel.org>,
- "open list:SPARC + UltraSPARC (sparc/sparc64)" <sparclinux@vger.kernel.org>,
- linux-um <linux-um@lists.infradead.org>,
- "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>,
- Robin Murphy <robin.murphy@arm.com>
-Subject: Re: [PATCH 08/14] arm64: simplify access_ok()
-Message-ID: <YguCysZGYYWUhAPk@FVFF77S0Q05N>
-References: <20220214163452.1568807-1-arnd@kernel.org>
- <20220214163452.1568807-9-arnd@kernel.org>
- <CAMj1kXHixUFjV=4m3tzfGz7AiRWc-VczymbKuZq7dyZZNuLKxQ@mail.gmail.com>
- <CAK8P3a2VfvDkueaJNTA9SiB+PFsi_Q17AX+aL46ueooW2ahmQw@mail.gmail.com>
- <CAMj1kXGkG0KMD2rnKAJc3V7X9LP1grbcHTNYMnj_q4GiYfG2pQ@mail.gmail.com>
- <CAK8P3a0NTqK_m7q909d8FN6is8k4_u3zeckC9XOrjEi7kqSvmg@mail.gmail.com>
+	id 1nJvPW-002MbN-Rz; Tue, 15 Feb 2022 10:50:18 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nJvPT-002MXo-Ni
+ for linux-riscv@lists.infradead.org; Tue, 15 Feb 2022 10:50:17 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+ by metis.ext.pengutronix.de with esmtps
+ (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1nJvPE-0000Mj-FZ; Tue, 15 Feb 2022 11:50:00 +0100
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+ by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1nJvP7-00GjUe-Ml; Tue, 15 Feb 2022 11:49:52 +0100
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1nJvP6-003Jg7-77; Tue, 15 Feb 2022 11:49:52 +0100
+Date: Tue, 15 Feb 2022 11:49:52 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, linux-pwm@vger.kernel.org,
+ Thierry Reding <thierry.reding@gmail.com>,
+ Vijayakannan Ayyathurai <vijayakannan.ayyathurai@intel.com>,
+ Sagar Kadam <sagar.kadam@sifive.com>,
+ Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
+ Lee Jones <lee.jones@linaro.org>, linux-riscv@lists.infradead.org,
+ Vignesh R <vigneshr@ti.com>, Florian Fainelli <f.fainelli@gmail.com>,
+ Fabio Estevam <festevam@gmail.com>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ linux-rockchip@lists.infradead.org, Rahul Tanwar <rtanwar@maxlinear.com>,
+ bcm-kernel-feedback-list@broadcom.com,
+ NXP Linux Team <linux-imx@nxp.com>, Jeff LaBundy <jeff@labundy.com>,
+ linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Maxime Ripard <mripard@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+ linux-arm-kernel@lists.infradead.org,
+ Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>
+Subject: Re: [PATCH v2 00/15] pwm: dt-bindings: Include generic pwm schema
+Message-ID: <20220215104952.3z7y2t5udwab64kh@pengutronix.de>
+References: <20220214212154.8853-1-krzysztof.kozlowski@canonical.com>
+ <20220215074030.3nugwproxjh3lwhl@pengutronix.de>
+ <CA+Eumj42Hojp1m4deuWnqMOaaNaupTSkzPaNbL_0eyBL-aDi_g@mail.gmail.com>
+ <7df71f8d-cdc3-4b2e-cf0a-7112eff28142@canonical.com>
+ <20220215094106.k35pmoxt2nk44dsj@pengutronix.de>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAK8P3a0NTqK_m7q909d8FN6is8k4_u3zeckC9XOrjEi7kqSvmg@mail.gmail.com>
+In-Reply-To: <20220215094106.k35pmoxt2nk44dsj@pengutronix.de>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
+ SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220215_023918_616150_FD4E6A7D 
-X-CRM114-Status: GOOD (  16.92  )
+X-CRM114-CacheID: sfid-20220215_025015_801933_702EF76C 
+X-CRM114-Status: GOOD (  28.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,39 +90,124 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2999817377070850094=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 15, 2022 at 10:39:46AM +0100, Arnd Bergmann wrote:
-> On Tue, Feb 15, 2022 at 10:21 AM Ard Biesheuvel <ardb@kernel.org> wrote:
-> > On Tue, 15 Feb 2022 at 10:13, Arnd Bergmann <arnd@kernel.org> wrote:
-> >
-> > arm64 also has this leading up to the range check, and I think we'd no
-> > longer need it:
-> >
-> >     if (IS_ENABLED(CONFIG_ARM64_TAGGED_ADDR_ABI) &&
-> >         (current->flags & PF_KTHREAD || test_thread_flag(TIF_TAGGED_ADDR)))
-> >             addr = untagged_addr(addr);
-> 
-> I suspect the expensive part here is checking the two flags, as untagged_addr()
-> seems to always just add a sbfx instruction. Would this work?
-> 
-> #ifdef CONFIG_ARM64_TAGGED_ADDR_ABI
-> #define access_ok(ptr, size) __access_ok(untagged_addr(ptr), (size))
-> #else // the else path is the default, this can be left out.
-> #define access_ok(ptr, size) __access_ok((ptr), (size))
-> #endif
 
-This would be an ABI change, e.g. for tasks without TIF_TAGGED_ADDR.
+--===============2999817377070850094==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="6ik55s7cffiwjwpg"
+Content-Disposition: inline
 
-I don't think we should change this as part of this series.
 
-Thanks,
-Mark.
+--6ik55s7cffiwjwpg
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Feb 15, 2022 at 10:41:06AM +0100, Uwe Kleine-K=F6nig wrote:
+> On Tue, Feb 15, 2022 at 09:02:25AM +0100, Krzysztof Kozlowski wrote:
+> > On 15/02/2022 08:59, Krzysztof Kozlowski wrote:
+> > > On Tue, 15 Feb 2022 at 08:40, Uwe Kleine-K=F6nig
+> > > <u.kleine-koenig@pengutronix.de> wrote:
+> > >>
+> > >> Hello,
+> > >>
+> > >> [dropped Anson Huang and Yash Shah from Cc: which were not reachable=
+ for
+> > >> my last mail]
+> > >>
+> > >> On Mon, Feb 14, 2022 at 10:21:39PM +0100, Krzysztof Kozlowski wrote:
+> > >>> Hi,
+> > >>>
+> > >>> Changes since v1:
+> > >>> 1. Add tags.
+> > >>> 2. Adjust subject (Uwe).
+> > >>
+> > >> However you only took a part of my suggestion ...
+> > >>
+> > >>> Krzysztof Kozlowski (15):
+> > >>>   dt-bindings: pwm: allwinner,sun4i-a10: Include generic pwm schema
+> > >>>   dt-bindings: pwm: imx: Include generic pwm schema
+> > >>>   dt-bindings: pwm: intel,lgm: Include generic pwm schema
+> > >>>   dt-bindings: pwm: iqs620a: Include generic pwm schema
+> > >>>   dt-bindings: pwm: mxs: Include generic pwm schema
+> > >>>   dt-bindings: pwm: rockchip: Include generic pwm schema
+> > >>>   dt-bindings: pwm: sifive: Include generic pwm schema
+> > >>>   dt-bindings: pwm: renesas,pwm: Include generic pwm schema
+> > >>>   dt-bindings: pwm: toshiba,visconti: Include generic pwm schema
+> > >>>   dt-bindings: pwm: brcm,bcm7038: Do not require pwm-cells twice
+> > >>>   dt-bindings: pwm: intel,keembay: Do not require pwm-cells twice
+> > >>
+> > >> ... The actual patch has a space after the comma, I like this variant
+> > >> without comma better as this is a compatible string.
+> > >=20
+> > > I am confused. My patch does not have comma after space. Your reply
+> > > had such in the subject, but not in the proposed new subject you wrote
+> > > in msg, so I left it as is. Without comma. If you still see comma, it
+> > > is something with your mail client.
+> > >=20
+> > > See:
+> > > https://lore.kernel.org/linux-devicetree/20220214212154.8853-12-krzys=
+ztof.kozlowski@canonical.com/T/#u
+> > >=20
+> > > Also reply from Vijayakannan does not have comma:
+> > > https://lore.kernel.org/linux-devicetree/20220214081605.161394-11-krz=
+ysztof.kozlowski@canonical.com/T/#m80af695f2c751341bc971114aefa00ccc929a3ec
+>=20
+> Strange: I have this mail four times in my mailboxes (via
+> linux-arm-kernel, linux-pwm, kernel@pengutronix.de and directly). In the
+> two latter the Subject line is broken in two:
+
+I was wrong. The ones to kernel@pengutronix.de and the linux-arm-kernel
+one are the ones with the linebreak.
+
+Hmm,
+
+http://lists.infradead.org/pipermail/linux-arm-kernel/2022-February/717310.=
+html
+http://lists.infradead.org/pipermail/linux-arm-kernel/2022-February/717304.=
+html
+
+has the linebreaks, too. Still I wonder what is different between
+kernel@pengutronix.de and u.kleine-koenig@pengutronix.de.
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--6ik55s7cffiwjwpg
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmILhU0ACgkQwfwUeK3K
+7Ak2jwf/YTZ2xphcIavG03zlKIE2aHmvTuLH2QJWSh+YE/vZDTs5qA96uHK4qJqE
+X5r25Qqby7C8Tb1gyOYSZJDoaiVnoe2XNyzDJeCG0QZnqYsj7bFKez3mmdKv7c/8
+7K4TeGdcWrOhVv6QFW+v8RrPWx5WkvSJT9PQ0CTgpmknr/9wX0YgO5yEGZcP3IYk
+265zktNZnG3rg+p1qb+qt98fkLQWvy+wtaGH2Sd9kzVM82ukJ0neX0fQxndvOHWW
+SbbXcy+HJWwBbUKiST0AvQCjqeo+O1LR5qn8+sLfNAADN6sjmZW09vX2rxC+DNXs
+G7dnLE2XCT/BaFyxHPQanXfYkZxb3w==
+=Rrce
+-----END PGP SIGNATURE-----
+
+--6ik55s7cffiwjwpg--
+
+
+--===============2999817377070850094==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2999817377070850094==--
+
