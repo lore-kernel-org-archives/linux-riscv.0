@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6565FC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 00:38:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66346C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 00:48:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f56giMDDc5+AVAQkXFTBDd/yN/OzoKKN48EX/DbGy6g=; b=FI3MVPw0CzYKIw
-	MRRmAOioMyED2MtHzzFKyNqoB2K+c14deqsA8ozqgQNHoHZ1qSlydLgzQpe6Vs02RGvwYE23V5XqU
-	crr727epecW0KSDQtPO44FZhi+rCOwl8bg3hy0MFBe1zZJf4SHlVi77u/A3YexGXAtv02yLMs0rEV
-	1d0nlQvVPKPV7ni1dq1zluSkhESkE/jmM4fT3BYxz5nLLiNp2oO8BwSf7YziDa/mRXyOEKbsU6cXN
-	W5gZ8yKGAVPWQ7Swu7UIYqO0MrXasHABOEokCY3XXHjOyJjs8YOZzmCY2IV8t/uKi17b+V1kPT0ex
-	eIR127m7MBioOArDbZOg==;
+	List-Owner; bh=g+cp+Q+34/qezOOaKwWeOICvZL3YyJ44uRH7XfIYC8E=; b=Q2fh0nYhDKk/4i
+	y1WqcavXOPMNCGomJ9nikWZpRVHazQpZb+ZaaR6LOHcT3qtr2yESyeMJ106cPpz2Dip8XDd45Hj4U
+	5QWdMtmEfitioml0cugnw3+81lOWjdSRerBBbMF7Rt+NyXrz+jSgQugzZq3gK/wEYnxz1cUd/7s+8
+	rCSfSQwRMh1Dmvu75ohI3WB8XLV827zbFxXXRldTY1T9Ow2YF5uZGEF9xZg3vQxh3vdW0JOVALeT5
+	3FNL7/zlwpD/QYElMlYr4EKZ6lLiqp+o1DtSmn9X1xAuTX9I0GAkbIW6hpdEn1lxtDHjI/CDPc0/f
+	FfCp/dXHkAMAUEQsrSIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJlr7-00HNhM-Qk; Tue, 15 Feb 2022 00:38:09 +0000
+	id 1nJm19-00HO8V-2J; Tue, 15 Feb 2022 00:48:31 +0000
 Received: from zeniv-ca.linux.org.uk ([2607:5300:60:148a::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJlr4-00HNgd-F3; Tue, 15 Feb 2022 00:38:07 +0000
+ id 1nJm15-00HO7q-SR; Tue, 15 Feb 2022 00:48:28 +0000
 Received: from viro by zeniv-ca.linux.org.uk with local (Exim 4.94.2 #2 (Red
- Hat Linux)) id 1nJlqf-001pf0-Dy; Tue, 15 Feb 2022 00:37:41 +0000
-Date: Tue, 15 Feb 2022 00:37:41 +0000
+ Hat Linux)) id 1nJm0h-001pkI-9F; Tue, 15 Feb 2022 00:48:03 +0000
+Date: Tue, 15 Feb 2022 00:48:03 +0000
 From: Al Viro <viro@zeniv.linux.org.uk>
 To: Arnd Bergmann <arnd@kernel.org>
 Cc: Linus Torvalds <torvalds@linux-foundation.org>,
@@ -50,16 +50,17 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
  linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
  sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
  linux-xtensa@linux-xtensa.org
-Subject: Re: [PATCH 09/14] m68k: drop custom __access_ok()
-Message-ID: <Ygr11RGjj3C9uAUg@zeniv-ca.linux.org.uk>
+Subject: Re: [PATCH 11/14] sparc64: remove CONFIG_SET_FS support
+Message-ID: <Ygr4Q2/KxfF86ETa@zeniv-ca.linux.org.uk>
 References: <20220214163452.1568807-1-arnd@kernel.org>
- <20220214163452.1568807-10-arnd@kernel.org>
+ <20220214163452.1568807-12-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220214163452.1568807-10-arnd@kernel.org>
+In-Reply-To: <20220214163452.1568807-12-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_163806_514436_0467345B 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20220214_164827_947197_63B7C862 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,54 +77,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 14, 2022 at 05:34:47PM +0100, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> While most m68k platforms use separate address spaces for user
-> and kernel space, at least coldfire does not, and the other
-> ones have a TASK_SIZE that is less than the entire 4GB address
-> range.
-> 
-> Using the generic implementation of __access_ok() stops coldfire
-> user space from trivially accessing kernel memory, and is probably
-> the right thing elsewhere for consistency as well.
+On Mon, Feb 14, 2022 at 05:34:49PM +0100, Arnd Bergmann wrote:
 
-Perhaps simply wrap that sucker into #ifdef CONFIG_CPU_HAS_ADDRESS_SPACES
-(and trim the comment down to "coldfire and 68000 will pick generic
-variant")?
+> -/*
+> - * Sparc64 is segmented, though more like the M68K than the I386.
+> - * We use the secondary ASI to address user memory, which references a
+> - * completely different VM map, thus there is zero chance of the user
+> - * doing something queer and tricking us into poking kernel memory.
 
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  arch/m68k/include/asm/uaccess.h | 13 -------------
->  1 file changed, 13 deletions(-)
-> 
-> diff --git a/arch/m68k/include/asm/uaccess.h b/arch/m68k/include/asm/uaccess.h
-> index d6bb5720365a..64914872a5c9 100644
-> --- a/arch/m68k/include/asm/uaccess.h
-> +++ b/arch/m68k/include/asm/uaccess.h
-> @@ -10,19 +10,6 @@
->  #include <linux/compiler.h>
->  #include <linux/types.h>
->  #include <asm/extable.h>
-> -
-> -/* We let the MMU do all checking */
-> -static inline int __access_ok(const void __user *addr,
-> -			    unsigned long size)
-> -{
-> -	/*
-> -	 * XXX: for !CONFIG_CPU_HAS_ADDRESS_SPACES this really needs to check
-> -	 * for TASK_SIZE!
-> -	 * Removing this helper is probably sufficient.
-> -	 */
-> -	return 1;
-> -}
-> -#define __access_ok __access_ok
->  #include <asm-generic/access_ok.h>
->  
->  /*
-> -- 
-> 2.29.2
-> 
+Actually, this part of comment probably ought to stay - it is relevant
+for understanding what's going on (e.g. why is access_ok() always true, etc.)
 
 _______________________________________________
 linux-riscv mailing list
