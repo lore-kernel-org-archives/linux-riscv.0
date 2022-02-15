@@ -4,97 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C885C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 08:18:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A81DC433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 09:02:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6oIY/Q/j3163ZV+fBCaS5uifvLiySlaw9GJiySurH88=; b=xXPucpg7TV5zmj
-	Mp5VziAWaXiWlT1tz8i6eKD4+3nAsIYDKXvisqSTn7Map56CyPwvPIxz7REUrlyMasOkeq05qDjBV
-	hD8nU7V9y40KiY7ZZA3b9GIzeooLOLRyl7IRdfRh4euek8I/0HjjmtIslHfGwz7mk/aO/UCYGa35v
-	imYjZvQ37UrMh5io+i0UFLhYBEzLEHf707RmZfg9UDC3cEQqaU692G7bBKayeKJz9ur6MBpADL8wg
-	nyMD92k2cfBWx/oP9GCRjwS385X6A/isze4F8tCxAxVeRoEDNbITVgLjWllz0hjJf+CIgTOVfttby
-	ZZP0UWqnWV2FKBrpyRwg==;
+	List-Owner; bh=oatb19GIUYKbgDeLTKy3uA8ci5u7yNQfqWQigaEiIyw=; b=H5qM+fPlTDKQb9
+	PVAbtc7sl2H2acOKIsNXKeAGcfLItv9mr+LeF64Q5mfcWKFbjB4gLlcYrWjB9nnMJCnuok/io4S6a
+	geYJ5UOpOt2lSKR0Uevm0hAxcsKJRulaXLnXEF05ZDlgABBhpfKnexnbPH3srzbly1lxroE2tznvS
+	+NN0ecjXVFlEbYq1E0n6B4HVnyggi88EOBPYA7IIUXrNgdDu7bNcgO46yBoRG3WjCuKFHYvxZ+wrN
+	JbRwPc9E+zO4pJSRNrn1CSrqlCInbVQGwmefJ7qMvXs1f33fhg51w4m1MlljAyqkvicznjg8Z76bc
+	7rAEIZOxSn+QjULROpzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJt2Q-001cYt-9j; Tue, 15 Feb 2022 08:18:18 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1nJtjJ-001see-1i; Tue, 15 Feb 2022 09:02:37 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJt2M-001cW5-2B; Tue, 15 Feb 2022 08:18:15 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 4165E61670;
- Tue, 15 Feb 2022 08:18:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16543C340F0;
- Tue, 15 Feb 2022 08:18:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1644913093;
- bh=04jl3xlTAr2mAK86GyJL0xbgNN5b7HtshwArFPtWTHk=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=stRaKCevAHKdgCmUGBrfhYzWT/8iK3ELaeINBLVStpnUtlgra7KJKB1LPYgCFz1Pz
- +EGWCG7GiscQwxqnR6qJYfTfqIKew2R3ilXdCTdcizcfhkqcFb2TJHt6sjZQfI2a33
- z9c50e3SciQbRuuCC7ZH5imVtHHxU2mhBfrCJWqpha1zoDHYemAFJAhKFnW+HE9Ygj
- VumcFjSy1p4dB9c+6GpPb1xWIMbXv5/9DDjAH5DCfzY/fxC8JQEtfusc6ZaJDHhC5h
- AXGqyPAIzRgK+LIGR73S0GgDLdYFf2jflIjiT0umxwXaCiuWmVS2bzqZo6JrJeQrhm
- 7SbBQn0gB5/3Q==
-Received: by mail-ed1-f45.google.com with SMTP id m17so5908511edc.13;
- Tue, 15 Feb 2022 00:18:13 -0800 (PST)
-X-Gm-Message-State: AOAM531LlpF6Ooa0Lk9idgD1lCRPGbbTeKf3i1PiJy56t1YzNtpcXmBi
- oHqYukPx0WPFQgV5tT2bG+Yfb5IjC7vwIC/ywtk=
-X-Google-Smtp-Source: ABdhPJw4PL6nNrFqa4c6RC8ozuX9Vj+TpXvd1rMYfibECm69yxHe+9RwBgU/na3QadsOPEjyGv1buhx93wXVXPObDfI=
-X-Received: by 2002:a5d:490d:: with SMTP id x13mr2213081wrq.417.1644913080942; 
- Tue, 15 Feb 2022 00:18:00 -0800 (PST)
+ id 1nJtjG-001sdJ-Be
+ for linux-riscv@lists.infradead.org; Tue, 15 Feb 2022 09:02:35 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id z1so17951193qto.3
+ for <linux-riscv@lists.infradead.org>; Tue, 15 Feb 2022 01:02:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=6U4rijSjm5U8GLHq/t1MdTXdgQmgucjQmV8Ymo3NwgE=;
+ b=d6AqXpyQAUkwb7NXhHhPGHpTrpz3kInmKc5l+9JKzydHa1Yjbsy2BRjVcrrntoh+uV
+ YSQEMzX9r2CZNmJmFCHPm+X5kRBzgTrZM02dq9yoSvrYlt7uRDIMi7wlJLYJE7nizXzu
+ aYhyLgumMIBE/xOUIwG9y/Z4cXW7mmh0UdF/CzdS7XB+Ck7zFP01JNJ19/P1gKt7YD3D
+ 7hyGx4x7oSLcY1P5xdXeceqdoBd7KXOMfRoYuKL1/FOYYXCS14RqfWH01+GK6FFBzypt
+ 8KllIXTC2VopZSJX1gQ/d3NwidFhmksqid4R56q62/Y6aJliP/uD5fXLPByPaBNiDRGF
+ +DyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=6U4rijSjm5U8GLHq/t1MdTXdgQmgucjQmV8Ymo3NwgE=;
+ b=1dW8ZHeuVczHk9QBf0G74GEmE1xZXPLoGdf9qhaY+4mXdHXas2Wyy3NSU2ptlVZoek
+ 0McV84RnIaUmNLWfnwAirXfynTG3vOJLPvcTwS8nIkQY9c2G9dsBeqyIotINjgFuuasD
+ pJ9YxvCKBb6bb3j5g3hjsFGL8a1ls+tgGCB2wwMG5K0vDcRwsxMl8WUwpwzqYIYxAHlx
+ OVKmzxXbBKMIY+Px8SX5Kib0xDjPjzmLALkfmP/wK0Zbj3Ej1wxKf+UxwDtaltTeTbBE
+ 8vTP9eUEdoBDyf7X777dMZSNQRbParh2jRrMgif6WLwrDl/rs6qn3EDzHRfyUoDz6TMt
+ Z/Aw==
+X-Gm-Message-State: AOAM531JxcPb89VA6rpAJ+aWHXsXs9Kc4Udvw4CC9TvNPuU54t26cCNy
+ PYlkaB/Sf2TSKOIaFK/14zYZnA==
+X-Google-Smtp-Source: ABdhPJx4/yvXhJ/ovAf24/YgwDAEuc6OS7o3jsbBhcLP6CiFPWkQQ7xGpHWTW3PyyVI01ETcK1YUEw==
+X-Received: by 2002:a05:622a:1350:: with SMTP id
+ w16mr1988487qtk.320.1644915752185; 
+ Tue, 15 Feb 2022 01:02:32 -0800 (PST)
+Received: from rivos-atish.. (adsl-70-228-75-190.dsl.akrnoh.ameritech.net.
+ [70.228.75.190])
+ by smtp.gmail.com with ESMTPSA id w4sm17711158qko.123.2022.02.15.01.02.30
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 15 Feb 2022 01:02:31 -0800 (PST)
+From: Atish Patra <atishp@rivosinc.com>
+To: linux-kernel@vger.kernel.org
+Cc: Tsukasa OI <research_trasio@irq.a4lg.com>,
+ Atish Patra <atishp@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>,
+ Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@atishpatra.org>,
+ Anup Patel <anup@brainfault.org>, Damien Le Moal <damien.lemoal@wdc.com>,
+ devicetree@vger.kernel.org, Jisheng Zhang <jszhang@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
+Subject: [PATCH v3 1/6] RISC-V: Correctly print supported extensions
+Date: Tue, 15 Feb 2022 01:02:06 -0800
+Message-Id: <20220215090211.911366-2-atishp@rivosinc.com>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20220215090211.911366-1-atishp@rivosinc.com>
+References: <20220215090211.911366-1-atishp@rivosinc.com>
 MIME-Version: 1.0
-References: <20220214163452.1568807-1-arnd@kernel.org>
- <20220214163452.1568807-9-arnd@kernel.org>
-In-Reply-To: <20220214163452.1568807-9-arnd@kernel.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 15 Feb 2022 09:17:48 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXHixUFjV=4m3tzfGz7AiRWc-VczymbKuZq7dyZZNuLKxQ@mail.gmail.com>
-Message-ID: <CAMj1kXHixUFjV=4m3tzfGz7AiRWc-VczymbKuZq7dyZZNuLKxQ@mail.gmail.com>
-Subject: Re: [PATCH 08/14] arm64: simplify access_ok()
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
- Christoph Hellwig <hch@lst.de>, linux-arch <linux-arch@vger.kernel.org>, 
- Linux Memory Management List <linux-mm@kvack.org>, linux-api@vger.kernel.org, 
- Arnd Bergmann <arnd@arndb.de>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
- Guo Ren <guoren@kernel.org>, 
- Brian Cain <bcain@codeaurora.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
- monstr@monstr.eu, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Nick Hu <nickhu@andestech.com>,
- Greentime Hu <green.hu@gmail.com>, dinguyen@kernel.org,
- Stafford Horne <shorne@gmail.com>, 
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Mark Rutland <mark.rutland@arm.com>, Heiko Carstens <hca@linux.ibm.com>,
- Rich Felker <dalias@libc.org>, 
- "David S. Miller" <davem@davemloft.net>, Richard Weinberger <richard@nod.at>,
- X86 ML <x86@kernel.org>, 
- Max Filippov <jcmvbkbc@gmail.com>, "Eric W. Biederman" <ebiederm@xmission.com>,
- Andrew Morton <akpm@linux-foundation.org>, alpha <linux-alpha@vger.kernel.org>,
- linux-snps-arc@lists.infradead.org, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, linux-csky@vger.kernel.org, 
- linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org, 
- linux-m68k <linux-m68k@lists.linux-m68k.org>, 
- "open list:MIPS" <linux-mips@vger.kernel.org>, openrisc@lists.librecores.org, 
- "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>, 
- "open list:LINUX FOR POWERPC (32-BIT AND 64-BIT)"
- <linuxppc-dev@lists.ozlabs.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "open list:S390" <linux-s390@vger.kernel.org>, linux-sh@vger.kernel.org, 
- "open list:SPARC + UltraSPARC (sparc/sparc64)" <sparclinux@vger.kernel.org>,
- linux-um <linux-um@lists.infradead.org>, 
- "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>,
- Robin Murphy <robin.murphy@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220215_001814_202633_D24B9ED1 
-X-CRM114-Status: GOOD (  35.30  )
+X-CRM114-CacheID: sfid-20220215_010234_424267_30EAEC97 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,98 +96,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 14 Feb 2022 at 17:37, Arnd Bergmann <arnd@kernel.org> wrote:
->
-> From: Arnd Bergmann <arnd@arndb.de>
->
-> arm64 has an inline asm implementation of access_ok() that is derived from
-> the 32-bit arm version and optimized for the case that both the limit and
-> the size are variable. With set_fs() gone, the limit is always constant,
-> and the size usually is as well, so just using the default implementation
-> reduces the check into a comparison against a constant that can be
-> scheduled by the compiler.
->
-> On a defconfig build, this saves over 28KB of .text.
->
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  arch/arm64/include/asm/uaccess.h | 28 +++++-----------------------
->  1 file changed, 5 insertions(+), 23 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/uaccess.h b/arch/arm64/include/asm/uaccess.h
-> index 357f7bd9c981..e8dce0cc5eaa 100644
-> --- a/arch/arm64/include/asm/uaccess.h
-> +++ b/arch/arm64/include/asm/uaccess.h
-> @@ -26,6 +26,8 @@
->  #include <asm/memory.h>
->  #include <asm/extable.h>
->
-> +static inline int __access_ok(const void __user *ptr, unsigned long size);
-> +
->  /*
->   * Test whether a block of memory is a valid user space address.
->   * Returns 1 if the range is valid, 0 otherwise.
-> @@ -33,10 +35,8 @@
->   * This is equivalent to the following test:
->   * (u65)addr + (u65)size <= (u65)TASK_SIZE_MAX
->   */
-> -static inline unsigned long __access_ok(const void __user *addr, unsigned long size)
-> +static inline int access_ok(const void __user *addr, unsigned long size)
->  {
-> -       unsigned long ret, limit = TASK_SIZE_MAX - 1;
-> -
->         /*
->          * Asynchronous I/O running in a kernel thread does not have the
->          * TIF_TAGGED_ADDR flag of the process owning the mm, so always untag
-> @@ -46,27 +46,9 @@ static inline unsigned long __access_ok(const void __user *addr, unsigned long s
->             (current->flags & PF_KTHREAD || test_thread_flag(TIF_TAGGED_ADDR)))
->                 addr = untagged_addr(addr);
->
-> -       __chk_user_ptr(addr);
-> -       asm volatile(
-> -       // A + B <= C + 1 for all A,B,C, in four easy steps:
-> -       // 1: X = A + B; X' = X % 2^64
-> -       "       adds    %0, %3, %2\n"
-> -       // 2: Set C = 0 if X > 2^64, to guarantee X' > C in step 4
-> -       "       csel    %1, xzr, %1, hi\n"
-> -       // 3: Set X' = ~0 if X >= 2^64. For X == 2^64, this decrements X'
-> -       //    to compensate for the carry flag being set in step 4. For
-> -       //    X > 2^64, X' merely has to remain nonzero, which it does.
-> -       "       csinv   %0, %0, xzr, cc\n"
-> -       // 4: For X < 2^64, this gives us X' - C - 1 <= 0, where the -1
-> -       //    comes from the carry in being clear. Otherwise, we are
-> -       //    testing X' - C == 0, subject to the previous adjustments.
-> -       "       sbcs    xzr, %0, %1\n"
-> -       "       cset    %0, ls\n"
-> -       : "=&r" (ret), "+r" (limit) : "Ir" (size), "0" (addr) : "cc");
-> -
-> -       return ret;
-> +       return likely(__access_ok(addr, size));
->  }
-> -#define __access_ok __access_ok
-> +#define access_ok access_ok
->
->  #include <asm-generic/access_ok.h>
->
-> --
-> 2.29.2
->
+From: Tsukasa OI <research_trasio@irq.a4lg.com>
 
-With set_fs() out of the picture, wouldn't it be sufficient to check
-that bit #55 is clear? (the bit that selects between TTBR0 and TTBR1)
-That would also remove the need to strip the tag from the address.
+This commit replaces BITS_PER_LONG with number of alphabet letters.
 
-Something like
+Current ISA pretty-printing code expects extension 'a' (bit 0) through
+'z' (bit 25).  Although bit 26 and higher is not currently used (thus never
+cause an issue in practice), it will be an annoying problem if we start to
+use those in the future.
 
-    asm goto("tbnz  %0, #55, %2     \n"
-             "tbnz  %1, #55, %2     \n"
-             :: "r"(addr), "r"(addr + size - 1) :: notok);
-    return 1;
-notok:
-    return 0;
+This commit disables printing high bits for now.
 
-with an additional sanity check on the size which the compiler could
-eliminate for compile-time constant values.
+Signed-off-by: Tsukasa OI <research_trasio@irq.a4lg.com>
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+Tested-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/riscv/kernel/cpufeature.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index d959d207a40d..dd3d57eb4eea 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -13,6 +13,8 @@
+ #include <asm/smp.h>
+ #include <asm/switch_to.h>
+ 
++#define NUM_ALPHA_EXTS ('z' - 'a' + 1)
++
+ unsigned long elf_hwcap __read_mostly;
+ 
+ /* Host ISA bitmap */
+@@ -63,7 +65,7 @@ void __init riscv_fill_hwcap(void)
+ {
+ 	struct device_node *node;
+ 	const char *isa;
+-	char print_str[BITS_PER_LONG + 1];
++	char print_str[NUM_ALPHA_EXTS + 1];
+ 	size_t i, j, isa_len;
+ 	static unsigned long isa2hwcap[256] = {0};
+ 
+@@ -133,13 +135,13 @@ void __init riscv_fill_hwcap(void)
+ 	}
+ 
+ 	memset(print_str, 0, sizeof(print_str));
+-	for (i = 0, j = 0; i < BITS_PER_LONG; i++)
++	for (i = 0, j = 0; i < NUM_ALPHA_EXTS; i++)
+ 		if (riscv_isa[0] & BIT_MASK(i))
+ 			print_str[j++] = (char)('a' + i);
+ 	pr_info("riscv: ISA extensions %s\n", print_str);
+ 
+ 	memset(print_str, 0, sizeof(print_str));
+-	for (i = 0, j = 0; i < BITS_PER_LONG; i++)
++	for (i = 0, j = 0; i < NUM_ALPHA_EXTS; i++)
+ 		if (elf_hwcap & BIT_MASK(i))
+ 			print_str[j++] = (char)('a' + i);
+ 	pr_info("riscv: ELF capabilities %s\n", print_str);
+-- 
+2.30.2
+
 
 _______________________________________________
 linux-riscv mailing list
