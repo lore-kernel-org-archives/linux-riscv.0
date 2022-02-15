@@ -4,153 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74C8BC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 01:51:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F9BCC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 02:47:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KOgwno083nbNhg6Zja0yvzJftRxpWi083jez9zjCFww=; b=dQ9n5Sv4aYMaCm
-	VMXdiPp63yKzr8pzzVHfDg/b1ZccKheemfYojJ0thMXhSef0+qa4q+6EPg0ub3d3wBMwOoHjUqQjU
-	y7+zogDaoYDUTHa4QSJ0n/QO5t/zeRLP4n1b5U++iKCoIacwce5eqS7ZJv0xRkyOaY+uHznburNY+
-	4EleF+s+9uTw+YGJtz0XAIJ2oNcdIgZIzGZh+PkPyVBWZfBxVSa1TG6J2WVCIM8a4FVmYL/uoPRAL
-	+VFJOkoU/BWwPsFIW9KSbQ439TUgyTDhtmrW/FM++IMJdAosmOu7ECFvcgpSiGDGUdmlhn+vJcVzI
-	MuS/i3b1d1VulSAI3xHQ==;
+	List-Owner; bh=9HqDP5B64RSnGX0uDhswkriKyya3a9F/42mfxmTms3Q=; b=2h0Z1f2dq17Lo+
+	bKDpZiKHBtomwW4IvYSkI5QV+ojGpDibTh20ZuLn+SvLLUPlGUjbKXZfe5FBbfD5cYlXtOCTIgqRp
+	QYd9CSJGrsgV4c7NMaGGXfZMuY9rbwqbaIB/iQIfP1mzscxcWRIkKr36fa6ZNA83twtdL0iIAJ/RV
+	+1ju5Mkr2ItBDPZCKuRgmydXX9aW84wBq0cW7Lt9VdakQv2m71Y4c3H8Rrya7KpN2tcGOg9QRUInH
+	1l+G7JAqTaKnPBr+Su4KX2/Ymlz+asOC31mMWGu565ismT7oXaQJXC5F/N/7PBtzZQcYVgwG2i97O
+	Pyky+W0doD0uQs4bz/PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJn0C-00HTz7-Fr; Tue, 15 Feb 2022 01:51:36 +0000
-Received: from mail-tycjpn01on2071d.outbound.protection.outlook.com
- ([2a01:111:f403:7010::71d]
- helo=JPN01-TYC-obe.outbound.protection.outlook.com)
+	id 1nJnsA-0000H6-UT; Tue, 15 Feb 2022 02:47:22 +0000
+Received: from zeniv-ca.linux.org.uk ([2607:5300:60:148a::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJmzv-00HTqb-Vb; Tue, 15 Feb 2022 01:51:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=lNhv8yZuw5F1ekupvLO/H4vB2Q2237O4fdTLpmqXbFOsnvLd5eAZmFq9QdZNUXlVK2sDrKcEqe/Np2sNcOooY3mSQNN1Sl8oE75pC5ojE0Rbi9OFXM6fzX6mLU622RN5fw0i/vjkaZZJniLbw7ClfpmYuZLrg1AtTmwTlvObbFz5DWZ57e7lyvFOgsITZ6XCS0ThJZ9soVsH1Ebuzunnqb5AbTr9TOvs5+WLWW7b88g1/oQZ5/bWnqJxTCF1L/2vvLc/ChdJhusTWjHLCP/1Yj4rBPrPPjG47CaOJjTaDgiauk7Acb6bJjnmEuCfIhMyUXoRoYyLlYKyPG91vt5KIw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=40pY2QTKxhgwm7axt+IpQawPHc04+dXbuATV9LZkbTc=;
- b=ZZQXk7sl5S3wx/vRhXzxsxf5E6Grulma99XKzRew7gOsjD51tgSj+cQHTf0/eOo9JVblmzKnvji88Veu03gsM52/0gC3B/QYC1+fsSfkfRAv+Rs6VyTR8mh+MGbDp+2Ui14dip6svLg7fMv4ikMdrgvmRJrLrFfwQH7V6pURyJA2JZei8Do1pEMrdmbi5oPeADQTeTBR5UepBMFxKEgiyNLbs/xLcl7Mjw2kpNfGeNfPSm+nhDHlg5nWopXzDju0ItryFTw81fSYfTP0PeH8vwaBEdbFxhxVRNSPnTSUvWGeaxdoyV2rMTQnbDbgcvpuA/Fy/uXm8hTn+dxrqhG95Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=40pY2QTKxhgwm7axt+IpQawPHc04+dXbuATV9LZkbTc=;
- b=FNqDu5AG+qCoeT3YdCYzedNupa1liHduTs1hUY76MpY2/Dz/6R2NnNcRmVz/9HxgMjI5q1psyXuNTHJsYcIKNGUzsLuuVjSuqTwdBdD0d4XBNmlQDu/Mc5BEl7VQKvwdA4wGtiPTgcW390ze/w5fAZjFapLmsbqO9hLEyurGLDw=
-Received: from TYBPR01MB5341.jpnprd01.prod.outlook.com
- (2603:1096:404:8028::13) by OS0PR01MB6082.jpnprd01.prod.outlook.com
- (2603:1096:604:cb::12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4975.11; Tue, 15 Feb
- 2022 01:51:14 +0000
-Received: from TYBPR01MB5341.jpnprd01.prod.outlook.com
- ([fe80::346f:1a56:ff4d:8c0a]) by TYBPR01MB5341.jpnprd01.prod.outlook.com
- ([fe80::346f:1a56:ff4d:8c0a%6]) with mapi id 15.20.4975.019; Tue, 15 Feb 2022
- 01:51:14 +0000
-From: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, Thierry Reding
- <thierry.reding@gmail.com>, =?iso-8859-1?Q?Uwe_Kleine-K=F6nig?=
- <u.kleine-koenig@pengutronix.de>, Lee Jones <lee.jones@linaro.org>, Rob
- Herring <robh+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>, Chen-Yu
- Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Florian
- Fainelli <f.fainelli@gmail.com>, "bcm-kernel-feedback-list@broadcom.com"
- <bcm-kernel-feedback-list@broadcom.com>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, NXP Linux Team
- <linux-imx@nxp.com>, Heiko Stuebner <heiko@sntech.de>, Palmer Dabbelt
- <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Nobuhiro
- Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>, Philipp Zabel
- <p.zabel@pengutronix.de>, Anson Huang <anson.huang@nxp.com>, Vijayakannan
- Ayyathurai <vijayakannan.ayyathurai@intel.com>, Rahul Tanwar
- <rtanwar@maxlinear.com>, Jeff LaBundy <jeff@labundy.com>, Yash Shah
- <yash.shah@sifive.com>, Sagar Kadam <sagar.kadam@sifive.com>, Vignesh R
- <vigneshr@ti.com>, Laurent Pinchart
- <laurent.pinchart+renesas@ideasonboard.com>, "linux-pwm@vger.kernel.org"
- <linux-pwm@vger.kernel.org>, "devicetree@vger.kernel.org"
- <devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-sunxi@lists.linux.dev"
- <linux-sunxi@lists.linux.dev>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linux-rockchip@lists.infradead.org"
- <linux-rockchip@lists.infradead.org>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>
-Subject: RE: [PATCH v2 15/15] dt-bindings: pwm: renesas,tpu: Do not require
- pwm-cells twice
-Thread-Topic: [PATCH v2 15/15] dt-bindings: pwm: renesas,tpu: Do not require
- pwm-cells twice
-Thread-Index: AQHYIej/xMkVKFS6d0iJGD2GVJguDKyT2OuA
-Date: Tue, 15 Feb 2022 01:51:14 +0000
-Message-ID: <TYBPR01MB53417D89BA0AF94D30C52256D8349@TYBPR01MB5341.jpnprd01.prod.outlook.com>
-References: <20220214212154.8853-1-krzysztof.kozlowski@canonical.com>
- <20220214212154.8853-16-krzysztof.kozlowski@canonical.com>
-In-Reply-To: <20220214212154.8853-16-krzysztof.kozlowski@canonical.com>
-Accept-Language: ja-JP, en-US
-Content-Language: ja-JP
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=renesas.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 1c545c57-899b-4628-2ff5-08d9f025a676
-x-ms-traffictypediagnostic: OS0PR01MB6082:EE_
-x-microsoft-antispam-prvs: <OS0PR01MB6082ADC75505396ABEDD4EE9D8349@OS0PR01MB6082.jpnprd01.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:1728;
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: Szk5122zacJr6G71Yp8zV4y4+/QASh/Sw8eiw+wmviHNc0odmZdesdRWYmAVCXeqPegr+kEtVm+50TZedalDplrWtkTS11paupGnNwNJGGd7dbYNQb6jAM0/UG+PNLW7Y60HOhY/YYHoHfP3piZlzylf1k3vQgoaguaMvD7+SbTjVuF8Yk1SVgJsv4Nbr23ypJbZIkaOzUgUR21kDmcLvHaQ+JoyIXSCXTQRytlimnBX6G7mg6yCbTsJYE3QsRbZUxQfAo4/dU3b5By2qGrZl4nYB7MZ6uWz/BQEOsbq2HLZEAHWnIsqN7Esj7uP2e7LhQ60/jH3ozkfddJakhWdXmkf9D3rDmVr/g5o4toTRtZVlrhDYfF0UKiX4mMKudYIn1riKDGlRxzXpR9ZGI5MA5HoegoKJX3ELVBFE+tR/yV6VRNyNpuReo2rkKOr2ruLBs4QJSD/BOKUWRNgZM75zFZPvqxFsMUC3xuMpoqls9J1JXnQIlKZ22fCH1AeieXMzIf9Ua3SMB3GOFvGMFXbJEU6KpAmdGhJnifTgT4rLOhFvGcfcru+lg0xvJ1VfKIlTrT9HH1/NQUF341PUobZnmZQMWW3STIMMMzD4c93Sz4EeL6znetBibCScnQO3+0kUPj1vEmaFz9vRDoums2JswaZMmjDHoaTQ5p5WJfDnN2s2AJyynARmMaItZQJoT/PDmXrTcN/6FXHYWhdtumYMKG6QDODInL/zg1Du4VPJ8o=
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:TYBPR01MB5341.jpnprd01.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(13230001)(4636009)(366004)(7406005)(7416002)(5660300002)(186003)(6506007)(2906002)(921005)(86362001)(8936002)(33656002)(38070700005)(52536014)(316002)(122000001)(76116006)(8676002)(66446008)(55016003)(66476007)(66556008)(64756008)(558084003)(66946007)(110136005)(508600001)(71200400001)(9686003)(7696005)(38100700002);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?D9FbRFF+tFyp6C2MAQMn3+uAxWeZEaU8TmvLyIU03hmFncTC319PfzeD+t?=
- =?iso-8859-1?Q?PFOvW9lMcAbyqBGxOzEwYAaUiUpfd0gVipzIYr75F8GtAeUQ8XTJfvKISN?=
- =?iso-8859-1?Q?7fnvYvkJAAaj+mg3GCE/zPyhu5qJLjvnjtsWJdsX+jPScf735HUHVN+13d?=
- =?iso-8859-1?Q?SqKSBb24PgJ2dTkno2EtGuLumcfGl+Eja8LDpTv1iRS9mjllvbrQ6z0rTo?=
- =?iso-8859-1?Q?c+z7AckpNV4LUt7STrgpz9Cmoz8WbQrNI76W9vI3s+DhyCyfNgppJz1Jo5?=
- =?iso-8859-1?Q?GjswZLmtpCYp+O6DL7gxJRbs3DfPBje9tTrsZq3egOKpy8HYb6vE6iefxb?=
- =?iso-8859-1?Q?d04hppwUR8UgcY3cjX+IFz6QbwrxMQpV+iWe12DohcfavV6JUvahSUkf7j?=
- =?iso-8859-1?Q?RayufOPL+xeB7mhaQKtK9ZY3kZQpnG5j5jpU8NnGSAyzLHcERJTn8m8/8g?=
- =?iso-8859-1?Q?KxUFmi3jr7Gi0pAszBL2O78o071j5a7cepUXb6Af+/vEOO7HROsyMEpc4J?=
- =?iso-8859-1?Q?KQBWgGn7mCsUXLio+BPXiuH8gb9k0Xo8zXn9JpQfMmt3QzZwPSCjRcglPB?=
- =?iso-8859-1?Q?kyq6n75PRkKuJI1603U5o7RywJaZkLM9KEgwsTtKxheHRgYKMnlpQH1mMf?=
- =?iso-8859-1?Q?m7iuB542gjL4odETxD2o0S6QoNT8qS8icAUg8T8YKF3iIq/mz6nb8+1qoR?=
- =?iso-8859-1?Q?1rEcx7M13RPbIxKnGX9lWFDM5tvO1Zk1fTMEL7A4cvQtFRoE2yhkDuh47H?=
- =?iso-8859-1?Q?h1DQaMIy4SPAgJ98HX3YvCjrgRBS559jBi5qIwYDG03sp/uw06tVeLeCMH?=
- =?iso-8859-1?Q?lzM5djahGa7iWc3cyqkYPfQM/mWZVDKUK4eaiu1SnYcGPz+VLq+zkJ1w5V?=
- =?iso-8859-1?Q?KGIGzjMH800nWQAiHVxXezETNwGmgageNxMC2bkDD47SGarDNvnr5mO8Ym?=
- =?iso-8859-1?Q?NjILDT/EbrSsBEavpzdoAPkaXVKypHudHoOcXkJw47+SHqtgnXlkM2Yf5O?=
- =?iso-8859-1?Q?f9/27PXuY1UsLAPrmlhJw4piXakw27rRhd2Qqb9yuc7Ppytnl8HBTBU7yg?=
- =?iso-8859-1?Q?aadr9De9CL0RhghHoAW/g073ci+chjiWB/ZR5TCPUX+fWrTG0SNU75fuQa?=
- =?iso-8859-1?Q?9IbVb2oAEvTfr6tFc1I97J70oLcrseJ7jNN3rgMzcwD1PdAsahjAz7VUIf?=
- =?iso-8859-1?Q?UogWnCoZA1bCHsLeT3+cgQVdoFjJ0DW7nidl7sjMwFj0Ik0En7lBG9uB4G?=
- =?iso-8859-1?Q?KiEPQZU8nqwDWNymag8hUVMOObFDAeDJfxf/GWg4dC1fn+bdaUEMUUONah?=
- =?iso-8859-1?Q?fx3LmPCK5/EiN8Xvd9+gNmFtFNcKLYydWZLYldVeOSsTaIrG0k/8ONkVoR?=
- =?iso-8859-1?Q?1vzhT99jOoQtrSDn9xjg+Qi2OLJE6s/hCat36IppqtVVsW5KMtnRJEZrV/?=
- =?iso-8859-1?Q?4OEqKkZpmgRotaj2lsjzSrcuiPso+Lr+TCHrxeHoOfhoI86esFWCxYmmn5?=
- =?iso-8859-1?Q?otrOWM8gquwaqoOVvEDe/eVyePo1uDr4klTkL3hwH1yHOJDPVfkV77MkVw?=
- =?iso-8859-1?Q?munnpeDTtw9Pl+A3VLLmJeNQO7SmD2UQ04Cxx5jQ1fh/8ZIwf0AF2tNrLY?=
- =?iso-8859-1?Q?OKpDKpUXxbiP2speXCdBbOkP9XzMc31T8pt3Mj6IKycOHlFhXAf/z6CrF6?=
- =?iso-8859-1?Q?UkircNwQOFxfxbAU2KFqGeFXDaopvw7fvGYgU3h2prSeGzA/qDW62vErbj?=
- =?iso-8859-1?Q?NEjUdLjTsx90BZES7BR0N6yghVUkIUoi3U1rjIxZhNC9S+RIOGLJS+YAj/?=
- =?iso-8859-1?Q?K0DCxREu/UsB1axEfZjfn8nRI5Ni5WRU8xcclTEE2M6RanXz9whs?=
+ id 1nJns8-0000GM-9B; Tue, 15 Feb 2022 02:47:21 +0000
+Received: from viro by zeniv-ca.linux.org.uk with local (Exim 4.94.2 #2 (Red
+ Hat Linux)) id 1nJnrt-001qwH-NG; Tue, 15 Feb 2022 02:47:05 +0000
+Date: Tue, 15 Feb 2022 02:47:05 +0000
+From: Al Viro <viro@zeniv.linux.org.uk>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Arnd Bergmann <arnd@kernel.org>, Christoph Hellwig <hch@infradead.org>,
+ Christoph Hellwig <hch@lst.de>, linux-arch <linux-arch@vger.kernel.org>,
+ Linux-MM <linux-mm@kvack.org>, Linux API <linux-api@vger.kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Rich Felker <dalias@libc.org>,
+ linux-ia64@vger.kernel.org, Linux-sh list <linux-sh@vger.kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Max Filippov <jcmvbkbc@gmail.com>, Guo Ren <guoren@kernel.org>,
+ sparclinux <sparclinux@vger.kernel.org>,
+ "open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+ linux-s390 <linux-s390@vger.kernel.org>,
+ Brian Cain <bcain@codeaurora.org>, Helge Deller <deller@gmx.de>,
+ the arch/x86 maintainers <x86@kernel.org>,
+ Russell King - ARM Linux <linux@armlinux.org.uk>,
+ linux-csky@vger.kernel.org, Ingo Molnar <mingo@redhat.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ "open list:SYNOPSYS ARC ARCHITECTURE" <linux-snps-arc@lists.infradead.org>,
+ "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>,
+ Heiko Carstens <hca@linux.ibm.com>, alpha <linux-alpha@vger.kernel.org>,
+ linux-um <linux-um@lists.infradead.org>,
+ linux-m68k <linux-m68k@lists.linux-m68k.org>,
+ Openrisc <openrisc@lists.librecores.org>,
+ Greentime Hu <green.hu@gmail.com>, Stafford Horne <shorne@gmail.com>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ Michal Simek <monstr@monstr.eu>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Parisc List <linux-parisc@vger.kernel.org>, Nick Hu <nickhu@andestech.com>,
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ Dinh Nguyen <dinguyen@kernel.org>,
+ "Eric W . Biederman" <ebiederm@xmission.com>,
+ Richard Weinberger <richard@nod.at>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ David Miller <davem@davemloft.net>
+Subject: Re: [PATCH 04/14] x86: use more conventional access_ok() definition
+Message-ID: <YgsUKcXGR7r4nINj@zeniv-ca.linux.org.uk>
+References: <20220214163452.1568807-1-arnd@kernel.org>
+ <20220214163452.1568807-5-arnd@kernel.org>
+ <YgqLFYqIqkIsNC92@infradead.org>
+ <CAK8P3a1F3JaYaJPy9bSCG1+YV6EN05PE0DbwpD_GT1qRwFSJ-w@mail.gmail.com>
+ <CAHk-=whq6_Nh3cB3FieP481VcRyCu69X3=wO1yLHGmcZEj69SA@mail.gmail.com>
+ <Ygq4wy9fikDYmuHU@zeniv-ca.linux.org.uk>
 MIME-Version: 1.0
-X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYBPR01MB5341.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1c545c57-899b-4628-2ff5-08d9f025a676
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Feb 2022 01:51:14.5761 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: pspydgUMDCBjpFdsJWnefiw3jFAecXRWbvnRJ2wyvikp3Zbj4FKPqESxl29Yp8iW8oteAApfS6gs/HdjD9ygz93QH1fIO52dwaMT4Ud1KyHWHiuKuvkmHobatVlayMKK
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS0PR01MB6082
+Content-Disposition: inline
+In-Reply-To: <Ygq4wy9fikDYmuHU@zeniv-ca.linux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_175120_031759_99A7608E 
-X-CRM114-Status: UNSURE (   7.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220214_184720_332629_86A5D88B 
+X-CRM114-Status: GOOD (  29.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,21 +96,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-
-> From: Krzysztof Kozlowski, Sent: Tuesday, February 15, 2022 6:22 AM
+On Mon, Feb 14, 2022 at 08:17:07PM +0000, Al Viro wrote:
+> On Mon, Feb 14, 2022 at 12:01:05PM -0800, Linus Torvalds wrote:
+> > On Mon, Feb 14, 2022 at 11:46 AM Arnd Bergmann <arnd@kernel.org> wrote:
+> > >
+> > > As Al pointed out, they turned out to be necessary on sparc64, but the only
+> > > definitions are on sparc64 and x86, so it's possible that they serve a similar
+> > > purpose here, in which case changing the limit from TASK_SIZE to
+> > > TASK_SIZE_MAX is probably wrong as well.
+> > 
+> > x86-64 has always(*) used TASK_SIZE_MAX for access_ok(), and the
+> > get_user() assembler implementation does the same.
+> > 
+> > I think any __range_not_ok() users that use TASK_SIZE are entirely
+> > historical, and should be just fixed.
 > 
-> pwm-cells property is already required by pwm.yaml schema.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+> IIRC, that was mostly userland stack trace collection in perf.
+> I'll try to dig in archives and see what shows up - it's been
+> a while ago...
 
-Thank you for the patch!
+After some digging:
 
-Reviewed-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+	access_ok() needs only to make sure that MMU won't go anywhere near
+the kernel page tables; address limit for 32bit threads is none of its
+concern, so TASK_SIZE_MAX is right for it.
 
-Best regards,
-Yoshihiro Shimoda
+	valid_user_frame() in arch/x86/events/core.c: used while walking
+the userland call chain.  The reason it's not access_ok() is only that
+perf_callchain_user() might've been called from interrupt that came while
+we'd been under KERNEL_DS.
+	That had been back in 2015 and it had been obsoleted since 2017, commit
+88b0193d9418 (perf/callchain: Force USER_DS when invoking perf_callchain_user()).
+We had been guaranteed USER_DS ever since.
+	IOW, it could've reverted to use of access_ok() at any point after that.
+TASK_SIZE vs TASK_SIZE_MAX is pretty much an accident there - might've been
+TASK_SIZE_MAX from the very beginning.
 
+	copy_stack_frame() in arch/x86/kernel/stacktrace.c: similar story,
+except the commit that made sure callers will have USER_DS - cac9b9a4b083
+(stacktrace: Force USER_DS for stack_trace_save_user()) in this case.
+Also could've been using access_ok() just fine.  Amusingly, access_ok()
+used to be there, until it had been replaced with explicit check on
+Jul 22 2019 - 4 days after that had been made useless by fix in the caller...
+
+	copy_from_user_nmi().  That one is a bit more interesting.
+We have a call chain from perf_output_sample_ustack() (covered by
+force_uaccess_begin() these days, not that it mattered for x86 now),
+there's something odd in dumpstack.c:copy_code() (with explicit check
+for TASK_SIZE_MAX in the caller) and there's a couple of callers in
+Intel PMU code.
+	AFAICS, there's no reason whatsoever to use TASK_SIZE
+in that one - the point is to prevent copyin from the kernel
+memory, and in that respect TASK_SIZE_MAX isn't any worse.
+The check in copy_code() probably should go.
+
+	So all of those guys should be simply switched to access_ok().
+Might be worth making that a preliminary patch - it's independent
+from everything else and there's no point folding it into any of the
+patches in the series.
 
 _______________________________________________
 linux-riscv mailing list
