@@ -4,102 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E998C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 10:04:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1586EC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 10:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F926i/LUs/2wMAf9hPcTDTAgaNDWRTMnhbqx6h9iz0g=; b=LdXWfhSzS64f+b
-	lpKTfnN8XRoD5x9sYqNMSSZ3a4N9KExfQyl65yOuAXS/7WsWt1zUmvqN4fMDUBwVp1LL4gyF2w5tH
-	j5JiUmteusP6QCqoO9QDN3oHRMAQjUALw6jUYPOTL+EcuEa3QlS63lanw8iKAX2KPeabciX7cyMUh
-	PE9jObbaw4yq7J78jUND4CdWxithQtWPszEl2xm95JKJYOY8QI/djwYQ9mrVXYsIunyZrZ817l+B0
-	/cBEjyhfoS03XZ5xpkILqfh6aMeIG/oinvDXrmIpLwr74FT9eM+wT9kYPD1NkmhTSUShytURn4tsE
-	vE1n61gNbyftkh45JOwg==;
+	List-Owner; bh=5lWED9sVb+tyqj76JYRdB6BMzF2T5f1l3K5N7t2h6iA=; b=T8CFls3XO9v6kO
+	yoKhxgOji7YkR7BGP/HMZBOVKbkQKRUum5YNDsDzHHSKhXZrpysrHHYwvEbu6RqCoZBe7+QvpdkrT
+	vOr9IEmkmYiAUQp2D7ZSWjdU790Ujv+QzWHGAOdMZhb7qN7nwfLT9txjgMZIB1wlVIAgeUlpDExWu
+	QuN+xHmKtnL401pPvJFCh1+vliHkCs50V/f3V2E2d1O6o7HFUiE9yTXzs0sNe6b/G7aGnaREhUd7D
+	adSOixVO+MUDWTqRR6l0Zv2NXjaQPptXbROpQOv+c0KVQWSDtJbvp4O/LKsd3Om6zigm5atZaG3ij
+	I9E4WuKXaCNtfeKtJuqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJuhC-002DQ3-5O; Tue, 15 Feb 2022 10:04:30 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1nJuqf-002GlX-UN; Tue, 15 Feb 2022 10:14:17 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJufQ-002CRw-3U; Tue, 15 Feb 2022 10:02:41 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 83A00612AC;
- Tue, 15 Feb 2022 10:02:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59491C36AE7;
- Tue, 15 Feb 2022 10:02:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1644919359;
- bh=6OaJO5k8UStns9fCBustiYnW4Ue2uRRTBF363T6I8Z8=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=uvEmspgqpxTxsLVTla+f0SMmX15oCQNrms2B9i0V9ia6kENfVsiE5Bzh7iEU5KPnw
- q9gpvWdnz7Ekg1lzBDLgsrNBP3KQiT85+nX2ztDJVrZIG/Ujb9BpDyYeBvTJqYuFFy
- UXxanyBNOo8MHsY34ccoxfMGLS2ZnrQfcuAKTi+R29nIBU60+3+8nE+aoXmDCfLSlj
- gLzEYCibUm4llc2wyWYPuInOJmc4XldnCXU+p9O2WXaNiWoHF4eSAsm49banFdwhfI
- qZ3iYDoP+YlMRMdIdv1rAxGAF/9VZx8l+SDbw/WEUswwJYP90PuoNP8rnqj493/bDf
- pKaaRvX+q+uBA==
-Received: by mail-wm1-f51.google.com with SMTP id
- q198-20020a1ca7cf000000b0037bb52545c6so1084543wme.1; 
- Tue, 15 Feb 2022 02:02:39 -0800 (PST)
-X-Gm-Message-State: AOAM533Fk4ibngYeh4jV8izOXB0HGA80w39Xh39uVoE7zqqMd2QYoP3W
- 9y3K58zxGw5dfVgx3jbqkPvTARnhHnzGYMcbgxU=
-X-Google-Smtp-Source: ABdhPJxXhF5oN8HK5+/UBfeNSuYxeBNAH3pN7Z2cMEK019oVoVAxn2dH7YUg+eieAXhNWJaJdsC0aGcEXS3C4UXMT34=
-X-Received: by 2002:a05:600c:2108:b0:34e:870:966e with SMTP id
- u8-20020a05600c210800b0034e0870966emr2332972wml.173.1644919346591; Tue, 15
- Feb 2022 02:02:26 -0800 (PST)
+ id 1nJuqc-002Gke-Qs
+ for linux-riscv@lists.infradead.org; Tue, 15 Feb 2022 10:14:16 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id
+ j9-20020a05600c190900b0037bff8a24ebso1085369wmq.4
+ for <linux-riscv@lists.infradead.org>; Tue, 15 Feb 2022 02:14:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=oSCtsd3fzrUKJIHAZet+tjs87CCWa1yDtr7CzSuhxDE=;
+ b=4P9S1itgLjR+WLtU0yKgH6geqBsZAQDIyLWXmwIAemApD0tzz70VbQnpUarv4j9Skc
+ Dd9sRJdtdSAWdwvA71LxPJxQR0ld/p4WNxBuHz4G6jmUYcNlmvH6jwGje4S198KK3zRB
+ sru5PO7Itxq4Auwd+uKtL6prn5yneWmZPzRmAMR9cJIlUYOCF91rZ98QvsLjEYt8qFpJ
+ jsOjg7urvQVsmjYMM/r0zGx+9xLexJoxSx30wzY/y9sNbL8SbMZVFZ+AizWCQ6VKKibE
+ SuPFd9Od2yUmIlBUyeVKrggPDxCvz1rbI4F1dvZPCK2XUqLYRInf+I1K8hJwbgPf5+6a
+ bPBQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=oSCtsd3fzrUKJIHAZet+tjs87CCWa1yDtr7CzSuhxDE=;
+ b=Sz8RwF6YNDNSgEwEyWRDjFHuT2QywMBJnbiw/AorTSjZJ0rE2oS86WaRHwYDUTovd5
+ 7negKJHaVBfCfzOUUtQpJU1y4wNTTkLjhJLrlcMJYnWqfJb6TmKitEopFbT6Hs87DTZE
+ vcfbu4UuGgyrBPosJ0tdF67B7vWLNqTTDEe4kkyS6U1aGy+RVbEuzP3k51GVZca+dxdh
+ qBAn4S/Hg4j5FdzPf+Lp5brcyu/XXG6gjNv+0MewXNOmpcaGOjnFBfdw9y3DLQLOaGJo
+ S3lGAOH4eTDSVl9fv3pTtURQF0PtVN9t88LI+MlBX+uPgm+x5RXdS06s+kiTF53AuYxh
+ ZaNw==
+X-Gm-Message-State: AOAM532ML9oya7BjRKNDfJ1KMqzd3y/VUIZu3K/N6rRV109recw6o607
+ qSeJVWyahLWQ6KxPzwl2MgbhI2jdr6X5tXz/hCXjuA==
+X-Google-Smtp-Source: ABdhPJwNWDxqimLiGPW3n0xj1IdnK8izeD/YPdGs8aF5FxCduWcL5ipg17QyPI0oH+gExeSy9a0tK6vxUt/OTD/sfCI=
+X-Received: by 2002:a1c:750f:: with SMTP id o15mr2399030wmc.137.1644920052860; 
+ Tue, 15 Feb 2022 02:14:12 -0800 (PST)
 MIME-Version: 1.0
-References: <20220214163452.1568807-1-arnd@kernel.org>
- <20220214163452.1568807-10-arnd@kernel.org>
- <Ygr11RGjj3C9uAUg@zeniv-ca.linux.org.uk> <20220215062942.GA12551@lst.de>
- <YgtSpk0boDjsyjFK@zeniv-ca.linux.org.uk>
-In-Reply-To: <YgtSpk0boDjsyjFK@zeniv-ca.linux.org.uk>
-From: Arnd Bergmann <arnd@kernel.org>
-Date: Tue, 15 Feb 2022 11:02:10 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a0t-dnJXvXH0Mx5L-AeVQe1mYzRi0sQjYxzMQw-mVPv0Q@mail.gmail.com>
-Message-ID: <CAK8P3a0t-dnJXvXH0Mx5L-AeVQe1mYzRi0sQjYxzMQw-mVPv0Q@mail.gmail.com>
-Subject: Re: [PATCH 09/14] m68k: drop custom __access_ok()
-To: Al Viro <viro@zeniv.linux.org.uk>
-Cc: Christoph Hellwig <hch@lst.de>,
- Linus Torvalds <torvalds@linux-foundation.org>, 
- linux-arch <linux-arch@vger.kernel.org>, Linux-MM <linux-mm@kvack.org>, 
- Linux API <linux-api@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- Russell King - ARM Linux <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
- Guo Ren <guoren@kernel.org>, 
- Brian Cain <bcain@codeaurora.org>, Geert Uytterhoeven <geert@linux-m68k.org>, 
- Michal Simek <monstr@monstr.eu>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>, 
- Dinh Nguyen <dinguyen@kernel.org>, Stafford Horne <shorne@gmail.com>,
- Helge Deller <deller@gmx.de>, 
- Michael Ellerman <mpe@ellerman.id.au>, Peter Zijlstra <peterz@infradead.org>, 
- Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>, 
- Heiko Carstens <hca@linux.ibm.com>, Rich Felker <dalias@libc.org>,
- David Miller <davem@davemloft.net>, Richard Weinberger <richard@nod.at>,
- "the arch/x86 maintainers" <x86@kernel.org>, Max Filippov <jcmvbkbc@gmail.com>,
- "Eric W . Biederman" <ebiederm@xmission.com>,
- Andrew Morton <akpm@linux-foundation.org>, 
- Ard Biesheuvel <ardb@kernel.org>, alpha <linux-alpha@vger.kernel.org>, 
- "open list:SYNOPSYS ARC ARCHITECTURE" <linux-snps-arc@lists.infradead.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, linux-csky@vger.kernel.org, 
- "open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>,
- linux-ia64@vger.kernel.org, linux-m68k <linux-m68k@lists.linux-m68k.org>, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
- Openrisc <openrisc@lists.librecores.org>, 
- Parisc List <linux-parisc@vger.kernel.org>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
+References: <20220215090211.911366-1-atishp@rivosinc.com>
+ <20220215090211.911366-4-atishp@rivosinc.com>
+In-Reply-To: <20220215090211.911366-4-atishp@rivosinc.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Tue, 15 Feb 2022 15:44:00 +0530
+Message-ID: <CAAhSdy3ved0OWUEeYUvjpjs=UrtPyFj3O+2Xcc2sUNBsm=AsMQ@mail.gmail.com>
+Subject: Re: [PATCH v3 3/6] RISC-V: Extract multi-letter extension names from
+ "riscv, isa"
+To: Atish Patra <atishp@rivosinc.com>
+Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Tsukasa OI <research_trasio@irq.a4lg.com>, 
+ Heiko Stuebner <heiko@sntech.de>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Atish Patra <atishp@atishpatra.org>, Damien Le Moal <damien.lemoal@wdc.com>, 
+ DTML <devicetree@vger.kernel.org>, Jisheng Zhang <jszhang@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
  linux-riscv <linux-riscv@lists.infradead.org>,
- linux-s390 <linux-s390@vger.kernel.org>, 
- Linux-sh list <linux-sh@vger.kernel.org>,
- sparclinux <sparclinux@vger.kernel.org>, 
- linux-um <linux-um@lists.infradead.org>, 
- "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220215_020240_245428_C23ECD30 
-X-CRM114-Status: GOOD (  26.00  )
+X-CRM114-CacheID: sfid-20220215_021414_906929_AD930EA7 
+X-CRM114-Status: GOOD (  22.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,51 +92,110 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 15, 2022 at 8:13 AM Al Viro <viro@zeniv.linux.org.uk> wrote:
-> On Tue, Feb 15, 2022 at 07:29:42AM +0100, Christoph Hellwig wrote:
-> > On Tue, Feb 15, 2022 at 12:37:41AM +0000, Al Viro wrote:
-> > > Perhaps simply wrap that sucker into #ifdef CONFIG_CPU_HAS_ADDRESS_SPACES
-> > > (and trim the comment down to "coldfire and 68000 will pick generic
-> > > variant")?
-> >
-> > I wonder if we should invert CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE,
-> > select the separate address space config for s390, sparc64, non-coldfire
-> > m68k and mips with EVA and then just have one single access_ok for
-> > overlapping address space (as added by Arnd) and non-overlapping ones
-> > (always return true).
+On Tue, Feb 15, 2022 at 2:32 PM Atish Patra <atishp@rivosinc.com> wrote:
 >
-> parisc is also such...  How about
+> From: Tsukasa OI <research_trasio@irq.a4lg.com>
 >
->         select ALTERNATE_SPACE_USERLAND
+> Currently, there is no usage for version numbers in extensions as
+> any ratified non base ISA extension will always at v1.0.
 >
-> for that bunch?
+> Extract the extension names in place for future parsing.
+>
+> Signed-off-by: Tsukasa OI <research_trasio@irq.a4lg.com>
+> [Improved commit text and comments]
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> Tested-by: Heiko Stuebner <heiko@sntech.de>
+> ---
+>  arch/riscv/kernel/cpufeature.c | 38 ++++++++++++++++++++++++++--------
+>  1 file changed, 29 insertions(+), 9 deletions(-)
+>
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 9d5448542226..cd9eb34f8d11 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -119,9 +119,28 @@ void __init riscv_fill_hwcap(void)
+>                                 ext_long = true;
+>                                 /* Multi-letter extension must be delimited */
+>                                 for (; *isa && *isa != '_'; ++isa)
+> -                                       if (!islower(*isa) && !isdigit(*isa))
+> +                                       if (unlikely(!islower(*isa)
+> +                                                    && !isdigit(*isa)))
+>                                                 ext_err = true;
+> -                               /* ... but must be ignored. */
+> +                               /* Parse backwards */
+> +                               ext_end = isa;
+> +                               if (unlikely(ext_err))
+> +                                       break;
+> +                               if (!isdigit(ext_end[-1]))
+> +                                       break;
+> +                               /* Skip the minor version */
+> +                               while (isdigit(*--ext_end))
+> +                                       ;
+> +                               if (ext_end[0] != 'p'
+> +                                   || !isdigit(ext_end[-1])) {
+> +                                       /* Advance it to offset the pre-decrement */
+> +                                       ++ext_end;
+> +                                       break;
+> +                               }
+> +                               /* Skip the major version */
+> +                               while (isdigit(*--ext_end))
+> +                                       ;
+> +                               ++ext_end;
+>                                 break;
+>                         default:
+>                                 if (unlikely(!islower(*ext))) {
+> @@ -131,6 +150,7 @@ void __init riscv_fill_hwcap(void)
+>                                 /* Find next extension */
+>                                 if (!isdigit(*isa))
+>                                         break;
+> +                               /* Skip the minor version */
 
-Either of those works for me. My current version has this keyed off
-TASK_SIZE_MAX==ULONG_MAX, but a CONFIG_ symbol does
-look more descriptive.
+This comment should be moved to PATCH2
 
->  While we are at it, how many unusual access_ok() instances are
-> left after this series?  arm64, itanic, um, anything else?
+>                                 while (isdigit(*++isa))
+>                                         ;
+>                                 if (*isa != 'p')
+> @@ -139,20 +159,20 @@ void __init riscv_fill_hwcap(void)
+>                                         --isa;
+>                                         break;
+>                                 }
+> +                               /* Skip the major version */
 
-x86 adds a WARN_ON_IN_IRQ() check in there. This could be
-made generic, but it's not obvious what exactly the exceptions are
-that other architectures need. The arm64 tagged pointers could
-probably also get integrated into the generic version.
+Same applies to this comment as well.
 
-> FWIW, sparc32 has a slightly unusual instance (see uaccess_32.h there); it's
-> obviously cheaper than generic and I wonder if the trick is legitimate (and
-> applicable elsewhere, perhaps)...
+>                                 while (isdigit(*++isa))
+>                                         ;
+>                                 break;
+>                         }
+>                         if (*isa != '_')
+>                                 --isa;
+> -                       /*
+> -                        * TODO: Full version-aware handling including
+> -                        * multi-letter extensions will be added in-future.
+> -                        */
+> -                       if (ext_err || ext_long)
+> +
+> +                       if (unlikely(ext_err))
+>                                 continue;
+> -                       this_hwcap |= isa2hwcap[(unsigned char)(*ext)];
+> -                       this_isa |= (1UL << (*ext - 'a'));
+> +                       if (!ext_long) {
+> +                               this_hwcap |= isa2hwcap[(unsigned char)(*ext)];
+> +                               this_isa |= (1UL << (*ext - 'a'));
+> +                       }
+>                 }
+>
+>                 /*
+> --
+> 2.30.2
+>
 
-Right, a few others have the same, but I wasn't convinced that this
-is actually safe for call possible cases: it's trivial to construct a caller
-that works on other architectures but not this one, if you pass a large
-enough size value and don't access the contents in sequence.
+Otherwise it looks good to me.
 
-Also, like the ((addr | (addr + size)) & MASK) check on some other
-architectures, it is less portable because it makes assumptions about
-the actual layout beyond a fixed address limit.
+Reviewed-by: Anup Patel <anup@brainfault.org>
 
-        Arnd
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
