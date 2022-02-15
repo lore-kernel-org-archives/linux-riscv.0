@@ -4,94 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40428C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 07:47:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29EDCC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Feb 2022 08:00:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KT/P8js0aZ9RRfJtn9+Iy8SU/ACwWUUkRC7mfdmnyd8=; b=H5JeEQ7zdk5Gdo
-	NccsmfGPcBPkI5Tk9fRVsrkmiqlVghf3RqQ3q3vxfx5fIWL4Oe/91ogFlNhu4v1DyNt7meIzkMjAY
-	4U0V9sRwPTIq9MrODGFJ7PK7MInTDHFZ4rXT8CRTqEPktAKg6e6oZnJ9Uj8jyKo6/7ucFr3K82/Ye
-	Ni/LpH75zA4wu62hsRKIGocv0pm4AOeDBTly7cpyvB7VhGe3yunCJnVY3M89LESBtdBNXMOIW6VDV
-	QIAq+Z/hdhn0xycuKfW09ZNrMAHhCZZYeGAUuIGCKvA9jdalyJ7S32LmD00SoyK5cBMFJ1DGBgfWA
-	LQZeKDvkpfoGfsXTO8MQ==;
+	List-Owner; bh=I3UIILAK4jqGuMSWei/H48sQaclG0M5GwnJZ43XluY8=; b=lpiqjRptUoxjMz
+	ebnI8hCJfNaQzHWQAKzBKzympB7G4bjeO1yJQOOFT0V1OfXfplO4jgoLTWtMtJ8Wo/0Jv6dXPOqKW
+	c8yxx6sdvf8GfD7S2+8GeeC5o2lt3q6TGKk6nvj+2SX0YPCpUAhxwfJ1qLGn1+pGZWa3OpBBAbNUi
+	TxFnVXxMsv9UHj+dUkvneFDqa6ohgyhsWQfijvw/KwCNh3UPcVnlfSLyjAh+mx9HznrG5YOwGSnJ4
+	0lt+P7ezjz6sD//FOqGl+EZh4cuM0pGxS/qYuFuakk33neZghDq2m8H06cQMLtLSBv/8NW1f95RXS
+	20Vzad3n1WqfmRmhzWSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nJsYY-001L9I-Kc; Tue, 15 Feb 2022 07:47:26 +0000
-Received: from mout.gmx.net ([212.227.17.20])
+	id 1nJsl4-001Rpl-6R; Tue, 15 Feb 2022 08:00:22 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nJsYT-001L3f-R7; Tue, 15 Feb 2022 07:47:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1644911179;
- bh=Gg0eXtIflg4YSdhde6TPBD88ytt9vELXByFDX1EvH5o=;
- h=X-UI-Sender-Class:Date:Subject:To:Cc:References:From:In-Reply-To;
- b=cL8nOU4P5zROD6QnSaMf+IFH1JNakyChC41kZoyLmoh4OfhoEdCE5EpqWukFvfrr7
- bbAty2PKJpf0Ivg7eDWbBX9KS9Ervz4FISwmJMXSrYDExxKjWqh9fx5gCxmn7+bcB3
- 7iZgNWIrcC7CBfK5HN/OAh9s+XgKDV5Ya7JTmsv0=
-X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from [192.168.20.60] ([92.116.185.100]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1N8obG-1oOVrh0Ttm-015uP2; Tue, 15
- Feb 2022 08:46:19 +0100
-Message-ID: <215c0ddc-54b1-bcb1-c5aa-bd17c6b100a8@gmx.de>
-Date: Tue, 15 Feb 2022 08:46:05 +0100
+ id 1nJsl0-001Rlq-Bq
+ for linux-riscv@lists.infradead.org; Tue, 15 Feb 2022 08:00:20 +0000
+Received: from mail-lf1-f70.google.com (mail-lf1-f70.google.com
+ [209.85.167.70])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 5A5E940338
+ for <linux-riscv@lists.infradead.org>; Tue, 15 Feb 2022 08:00:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1644912016;
+ bh=WKmF3ofcPXNkDjn7YKxiUvOekr6rsM7Z5lgS0lqXT8w=;
+ h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+ To:Cc:Content-Type;
+ b=cqiD1ptVOu3EZrIk3tjLcQJViDfjtdtpG6WiM1LtdI4tP6eqTBxH9OQz63WiMGNjJ
+ BQtSC32whCrxINOk/BitByk0nAXRjGZyyQ3R5v5OnGHSOgA52K1iFtRic/nVUZIEt+
+ JVeC7nbUov/SWyo8J52OU3Pfd2GVMxnHcnr40+bwRPni01ZOYLjhuykHImCRlvxvKp
+ iQPNPG7dVZ3A31YPY36+Rxw9cWRIs247D+mkt9OgtQCQGnTW7r1/nH71foCGRjjR6F
+ NzOv3X+++AJpeoB1j7LmtBLUcF3211PpBW5snTo9iwM3OCFqZIawzmjZ1Y5WViO1y4
+ byOUo4emGVFWA==
+Received: by mail-lf1-f70.google.com with SMTP id
+ o25-20020a05651205d900b0043e6c10892bso5925030lfo.14
+ for <linux-riscv@lists.infradead.org>; Tue, 15 Feb 2022 00:00:16 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=WKmF3ofcPXNkDjn7YKxiUvOekr6rsM7Z5lgS0lqXT8w=;
+ b=excpa0aq6/JErQ0WZ/I6XghqB19GO+Bar8VmACNw+VmTd4jko/KaiLPBJ0apvq/XUP
+ 9yyNE6aIlgqwyNiD1BnuPNqOK4ZrYnAI51rrxD+WM2LGUGsWW8Gm8f/6fGiszMiW7e+A
+ 3JB3NnXUWvO8GdvqcA8/Ob1zQRfLlSacmZUP5kfoIVGAVNFsKfoIcHjboWWv3lq81ssB
+ aVF4GQZErBAzaLKdMi0A6Q+y7ziCIfj+zkKFejo5DrqcLGAyNWAUPA2KVnezdVhQ9qxH
+ 9mefj4NgYopZznrQWM4YC3weTDNkDZvRM9ryKETTGJ8Aq/i0UoVvmKZSOsR0jb+RdsKO
+ jgrA==
+X-Gm-Message-State: AOAM532L0tu4ffMpGXwG2Rv2TpA/OsALXM3y+xDdDCQp+fL35J+IqcTg
+ Hlg7HP2Bcore9YxmIJt6Iml6hO5XXFTQX3cYvSy4AzpJkPQAVHMNOQhh2KrF+kvfvW225Shp/no
+ RpldZKN8KVSZbjIBB5BUEboah7li2qUpEGYgRpZ6FzMptfOENJzF6LHJqXj3nsw==
+X-Received: by 2002:a17:907:1c01:: with SMTP id
+ nc1mr2010495ejc.659.1644912003592; 
+ Tue, 15 Feb 2022 00:00:03 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJwuZ4VRaFsrBt53zgXGJrUAfN8tOgQwKpQDCWWN0b0yuET7r2Bc26aSK/euYsuMQ1hH/V9RfLx8GOJpFFdq8EM=
+X-Received: by 2002:a17:907:1c01:: with SMTP id
+ nc1mr2010457ejc.659.1644912003335; 
+ Tue, 15 Feb 2022 00:00:03 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.3.0
-Subject: Re: [PATCH 14/14] uaccess: drop set_fs leftovers
-Content-Language: en-US
-To: Al Viro <viro@zeniv.linux.org.uk>, Arnd Bergmann <arnd@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
- Christoph Hellwig <hch@lst.de>, linux-arch@vger.kernel.org,
- linux-mm@kvack.org, linux-api@vger.kernel.org, arnd@arndb.de,
- linux-kernel@vger.kernel.org, linux@armlinux.org.uk, will@kernel.org,
- guoren@kernel.org, bcain@codeaurora.org, geert@linux-m68k.org,
- monstr@monstr.eu, tsbogend@alpha.franken.de, nickhu@andestech.com,
- green.hu@gmail.com, dinguyen@kernel.org, shorne@gmail.com,
- mpe@ellerman.id.au, peterz@infradead.org, mingo@redhat.com,
- mark.rutland@arm.com, hca@linux.ibm.com, dalias@libc.org,
- davem@davemloft.net, richard@nod.at, x86@kernel.org, jcmvbkbc@gmail.com,
- ebiederm@xmission.com, akpm@linux-foundation.org, ardb@kernel.org,
- linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
- linux-xtensa@linux-xtensa.org
-References: <20220214163452.1568807-1-arnd@kernel.org>
- <20220214163452.1568807-15-arnd@kernel.org>
- <YgsYD2nW9GjWJtn5@zeniv-ca.linux.org.uk>
-From: Helge Deller <deller@gmx.de>
-In-Reply-To: <YgsYD2nW9GjWJtn5@zeniv-ca.linux.org.uk>
-X-Provags-ID: V03:K1:YbVX8I9McP/aOoptX/QU6xXsMUxj5l3eWtWKIf3O+jL0xku9qtG
- Zvd7JXlVOTeAkMcrw4ura0jf9AQkk5D8MaemK64qHhWPazHfq3pPTRp36Jgwt+Bz560jUXw
- EnyWRjxioFtmKG1I+4nkiaSRoRlQJJpM92uIMgDane+QxlF3STQpbB16Ci0R4wmVz76au1k
- fLV9rswEGC1K4sHhia8eg==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:NC2D0g2S/Ac=:jSN2OiozPQ2+o13baar10P
- DJFvuJskDJlqwL6taTUNifHjp6CHOCpvH/lM0r8+MeU/IkrDDHBhH7pRYm+9PYQbT3DikuN8Y
- wf2pthhc9JA07KaIYOCZHITmk9asiC4cauJ+KYyIdugvzYTERUeyCi5tklyg6ddqAnY1mFXMN
- IzsYV9Agn4+eqyWx2YPB+vSH14egrQuc/WXYTR5MDXWYgDRkNEUQHagx0PKYbtEOFZOjTpuL2
- mtoM7yAXNS7drjcOzyM19nnxtKwylBBQYcLPkj218FbcLL2vzhJHiHAWd24/Q9W3s09nHCIE6
- fGumtyqCsMeSqw0mMH4wo+GvEWCCG6H4FoL+qDBFD2sodlwN+X7gfqBSW11rLH+XM3x8YM8NN
- J54e3TA+Vei8jw4LRGe9Ymmqhkiqk6Uc6Wko0CB9iTVPAtnltjRfoYslftpQXOaFdBUYl2aok
- k0g9BBm17D0XENQhlxsLa+WnayrWKt6yhyp1M7UGChhokjicHtvLAIy7ZtiZebwac9KgVxHVd
- AQSmSlQgCo0OBFalh6iMSakk2BLgIjbIZKPGF2lt07iBIKj3hrvythTjqM9Kx9g4Mb9yKKUiR
- 3hX3nB3W5yrzrvjAHjmMzLC5EmkRc15EoGpyfTlWnxkgto9eQnU+aUViFusixT5EpyIl2ug8Q
- H4Kk+m6f3GVxVKL2Cx0ClZdpN0Zw+GeYYd7Pke8Y8nEMm549lY9iGBFHXyCw8F2oNiBZVz/4+
- r1+Nz55zL4OErT4gqcqQim8TkBXvrLFJFeMF9Rs2Sr1cbQ0e8NM+TnoZSBjb2f9bWY8kh7F1o
- qu/V8M1FYX5b55nnwZEcROdmSlyYYHcymV+Yhds+gLhP/FS7CDLGp9IQz74c+WtjVrbg1a9ol
- wtrU5pIjiq/IBVYjCGlvJkUiX5qyYdvO48Ut1Tm1RMknPly6TVv5RW4v9ku8Y61mAR2Xi+BzF
- wgnYdYR+Vn0Nzr7bHUXkOqVZlT4a138K2E/bPk4wyFt6d5rh0A1e53c9E5+hNVMfoUb38M8eC
- IpYPs2Cvw5bMlKnUT33aNolZnoMt9Z+67iy8yZqI7/YHnt36EIgrIQMWOt9AaL+QmqLMHPGxA
- Krl57Lr0WyEtCA=
+References: <20220214212154.8853-1-krzysztof.kozlowski@canonical.com>
+ <20220215074030.3nugwproxjh3lwhl@pengutronix.de>
+In-Reply-To: <20220215074030.3nugwproxjh3lwhl@pengutronix.de>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+Date: Tue, 15 Feb 2022 08:59:52 +0100
+Message-ID: <CA+Eumj42Hojp1m4deuWnqMOaaNaupTSkzPaNbL_0eyBL-aDi_g@mail.gmail.com>
+Subject: Re: [PATCH v2 00/15] pwm: dt-bindings: Include generic pwm schema
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+Cc: Thierry Reding <thierry.reding@gmail.com>, Lee Jones <lee.jones@linaro.org>,
+ Rob Herring <robh+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>,
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, 
+ bcm-kernel-feedback-list@broadcom.com, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
+ Heiko Stuebner <heiko@sntech.de>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Vijayakannan Ayyathurai <vijayakannan.ayyathurai@intel.com>,
+ Rahul Tanwar <rtanwar@maxlinear.com>, 
+ Jeff LaBundy <jeff@labundy.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Vignesh R <vigneshr@ti.com>, 
+ Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+ linux-pwm@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220214_234722_274930_EDB5F67D 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20220215_000018_614849_A36455A5 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,41 +112,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/15/22 04:03, Al Viro wrote:
-> On Mon, Feb 14, 2022 at 05:34:52PM +0100, Arnd Bergmann wrote:
->> diff --git a/arch/parisc/include/asm/futex.h b/arch/parisc/include/asm/futex.h
->> index b5835325d44b..2f4a1b1ef387 100644
->> --- a/arch/parisc/include/asm/futex.h
->> +++ b/arch/parisc/include/asm/futex.h
->> @@ -99,7 +99,7 @@ futex_atomic_cmpxchg_inatomic(u32 *uval, u32 __user *uaddr,
->>  	/* futex.c wants to do a cmpxchg_inatomic on kernel NULL, which is
->>  	 * our gateway page, and causes no end of trouble...
->>  	 */
->> -	if (uaccess_kernel() && !uaddr)
->> +	if (!uaddr)
->>  		return -EFAULT;
->
-> 	Huh?  uaccess_kernel() is removed since it becomes always false now,
-> so this looks odd.
->
-> 	AFAICS, the comment above that check refers to futex_detect_cmpxchg()
-> -> cmpxchg_futex_value_locked() -> futex_atomic_cmpxchg_inatomic() call chain.
-> Which had been gone since commit 3297481d688a (futex: Remove futex_cmpxchg
-> detection).  The comment *and* the check should've been killed off back
-> then.
-> 	Let's make sure to get both now...
-
-Right. Arnd, can you drop this if() and the comment above it?
-
-Thanks,
-Helge
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCAxNSBGZWIgMjAyMiBhdCAwODo0MCwgVXdlIEtsZWluZS1Lw7ZuaWcKPHUua2xlaW5l
+LWtvZW5pZ0BwZW5ndXRyb25peC5kZT4gd3JvdGU6Cj4KPiBIZWxsbywKPgo+IFtkcm9wcGVkIEFu
+c29uIEh1YW5nIGFuZCBZYXNoIFNoYWggZnJvbSBDYzogd2hpY2ggd2VyZSBub3QgcmVhY2hhYmxl
+IGZvcgo+IG15IGxhc3QgbWFpbF0KPgo+IE9uIE1vbiwgRmViIDE0LCAyMDIyIGF0IDEwOjIxOjM5
+UE0gKzAxMDAsIEtyenlzenRvZiBLb3psb3dza2kgd3JvdGU6Cj4gPiBIaSwKPiA+Cj4gPiBDaGFu
+Z2VzIHNpbmNlIHYxOgo+ID4gMS4gQWRkIHRhZ3MuCj4gPiAyLiBBZGp1c3Qgc3ViamVjdCAoVXdl
+KS4KPgo+IEhvd2V2ZXIgeW91IG9ubHkgdG9vayBhIHBhcnQgb2YgbXkgc3VnZ2VzdGlvbiAuLi4K
+Pgo+ID4gS3J6eXN6dG9mIEtvemxvd3NraSAoMTUpOgo+ID4gICBkdC1iaW5kaW5nczogcHdtOiBh
+bGx3aW5uZXIsc3VuNGktYTEwOiBJbmNsdWRlIGdlbmVyaWMgcHdtIHNjaGVtYQo+ID4gICBkdC1i
+aW5kaW5nczogcHdtOiBpbXg6IEluY2x1ZGUgZ2VuZXJpYyBwd20gc2NoZW1hCj4gPiAgIGR0LWJp
+bmRpbmdzOiBwd206IGludGVsLGxnbTogSW5jbHVkZSBnZW5lcmljIHB3bSBzY2hlbWEKPiA+ICAg
+ZHQtYmluZGluZ3M6IHB3bTogaXFzNjIwYTogSW5jbHVkZSBnZW5lcmljIHB3bSBzY2hlbWEKPiA+
+ICAgZHQtYmluZGluZ3M6IHB3bTogbXhzOiBJbmNsdWRlIGdlbmVyaWMgcHdtIHNjaGVtYQo+ID4g
+ICBkdC1iaW5kaW5nczogcHdtOiByb2NrY2hpcDogSW5jbHVkZSBnZW5lcmljIHB3bSBzY2hlbWEK
+PiA+ICAgZHQtYmluZGluZ3M6IHB3bTogc2lmaXZlOiBJbmNsdWRlIGdlbmVyaWMgcHdtIHNjaGVt
+YQo+ID4gICBkdC1iaW5kaW5nczogcHdtOiByZW5lc2FzLHB3bTogSW5jbHVkZSBnZW5lcmljIHB3
+bSBzY2hlbWEKPiA+ICAgZHQtYmluZGluZ3M6IHB3bTogdG9zaGliYSx2aXNjb250aTogSW5jbHVk
+ZSBnZW5lcmljIHB3bSBzY2hlbWEKPiA+ICAgZHQtYmluZGluZ3M6IHB3bTogYnJjbSxiY203MDM4
+OiBEbyBub3QgcmVxdWlyZSBwd20tY2VsbHMgdHdpY2UKPiA+ICAgZHQtYmluZGluZ3M6IHB3bTog
+aW50ZWwsa2VlbWJheTogRG8gbm90IHJlcXVpcmUgcHdtLWNlbGxzIHR3aWNlCj4KPiAuLi4gVGhl
+IGFjdHVhbCBwYXRjaCBoYXMgYSBzcGFjZSBhZnRlciB0aGUgY29tbWEsIEkgbGlrZSB0aGlzIHZh
+cmlhbnQKPiB3aXRob3V0IGNvbW1hIGJldHRlciBhcyB0aGlzIGlzIGEgY29tcGF0aWJsZSBzdHJp
+bmcuCgpJIGFtIGNvbmZ1c2VkLiBNeSBwYXRjaCBkb2VzIG5vdCBoYXZlIGNvbW1hIGFmdGVyIHNw
+YWNlLiBZb3VyIHJlcGx5CmhhZCBzdWNoIGluIHRoZSBzdWJqZWN0LCBidXQgbm90IGluIHRoZSBw
+cm9wb3NlZCBuZXcgc3ViamVjdCB5b3Ugd3JvdGUKaW4gbXNnLCBzbyBJIGxlZnQgaXQgYXMgaXMu
+IFdpdGhvdXQgY29tbWEuIElmIHlvdSBzdGlsbCBzZWUgY29tbWEsIGl0CmlzIHNvbWV0aGluZyB3
+aXRoIHlvdXIgbWFpbCBjbGllbnQuCgpTZWU6Cmh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4
+LWRldmljZXRyZWUvMjAyMjAyMTQyMTIxNTQuODg1My0xMi1rcnp5c3p0b2Yua296bG93c2tpQGNh
+bm9uaWNhbC5jb20vVC8jdQoKQWxzbyByZXBseSBmcm9tIFZpamF5YWthbm5hbiBkb2VzIG5vdCBo
+YXZlIGNvbW1hOgpodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1kZXZpY2V0cmVlLzIwMjIw
+MjE0MDgxNjA1LjE2MTM5NC0xMS1rcnp5c3p0b2Yua296bG93c2tpQGNhbm9uaWNhbC5jb20vVC8j
+bTgwYWY2OTVmMmM3NTEzNDFiYzk3MTExNGFlZmEwMGNjYzkyOWEzZWMKCj4gQWxzbyBhICMgYmVm
+b3JlCj4gcHdtLWNlbGxzIHdvdWxkIGJlIG5pY2UuCgpJIGNhbiBhZGQgdGhpcy4KCkJlc3QgcmVn
+YXJkcywKS3J6eXN6dG9mCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
