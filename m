@@ -4,98 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B16C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Feb 2022 03:16:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50E65C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Feb 2022 03:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ff9uDW/GqA6abUwBeIvEBUDoX+OlVILIyKxWbl+Uc2c=; b=dnU3967TOEeaCZ
-	FPnjWCC+76nA3RNiRzsoZHtHtVE8MlB8K1rLbHbVjAYAKHQjYHBe8KSI3Jwt4XJHYxxDRDE2cG+p3
-	Fc5aCF+RZe9cHHCwwrdgpZHMtBkAN9Iq4X4olHEv8+x8h70Kdt3aeec1FaNNhF+5mDyNNBBs9y0xQ
-	CuhadSflWQoORYggq5mff1TokJi5/KB2pekr65wLxa92++kGHh/rFfHNTECnwGnW8JT3NW2HxtCo2
-	/NHoI0IQMZJSfYUcYdPptcnZXzCaoWqx3heTiVFieJB7Gm36TCnG0vte72B4WXw/hV3selm9lvgPD
-	akxh703lsLoDoSvFxbmA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vdk0X5DbBzayEiSsgGh09cdPr4Ker1fvT4vWBNlHzBU=; b=QDMWSbG2k/Lcis
+	sqTQt4K8Ul60OqwuOd0Uc7PeVbuLNNN1Z0lu+gRz2GEcoj1PRyU364HEbdcVvSf1ibJw3+Dq/LXVO
+	zA3IEYk8orG4B/8+MnK0kM/FnaRG7kKgOOgfS2RwYe6cdezZAMMPIArgGZbNrePTkxBg49fxJGzwm
+	h3/QW+CYwwaIGq3WRewXd67HriwiFB0TyFNAjhSvVo8OwGkQGK0zoMAAgNARDqtPgi6QImxI7Rovt
+	du1/I3LSs8h4ZAP1gf/mQhhvOSvbiXxeUjy8BGOXCPN0mcbo/qJa/qxX0bO5/vyuGxu90YZcgbQp5
+	k4HpqDXesuYHA+SNS3TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nKAnK-005NdE-8f; Wed, 16 Feb 2022 03:15:54 +0000
-Received: from mga05.intel.com ([192.55.52.43])
+	id 1nKAnZ-005Niw-Jn; Wed, 16 Feb 2022 03:16:09 +0000
+Received: from mga03.intel.com ([134.134.136.65])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nKAnF-005NcQ-QH; Wed, 16 Feb 2022 03:15:51 +0000
+ id 1nKAnW-005NhJ-78; Wed, 16 Feb 2022 03:16:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1644981349; x=1676517349;
- h=from:to:cc:subject:date:message-id:mime-version:
- content-transfer-encoding;
- bh=QTNgfjCEcX1QhsvTX1L+Tjbtrc8LR7Y4aspA8SJiUsY=;
- b=JwBB0DbylUBY2K3e//TrI8m1LQawXcoZwceWmpubMWe0giVf7YIPEwUe
- duP7lcXCIOm9A0lnVIotI0XiHMTlbn6gEVIxnrVtFKk/xectxV0djtRuJ
- A9v0PfXFmDtJjm/wnwqqtuqALzL0+UDHdBddGebkPTGjzfF73sIS8quKw
- AkbSYG116omhG4VzRlqLH/PeafkFHaLC6heTiK2eDWkR9dJxKmx8F1RC8
- ELDfIQYflM0ZjCXATv/t14EbgA4je8RVIOwDaaPOThRrIFMr3YeAubZ2D
- ybISafQCEeBomQsPKrkd6a+MLiVq2W2/I5Dq2LeLIbBDSqNf8Wb3cRutc w==;
-X-IronPort-AV: E=McAfee;i="6200,9189,10259"; a="336944962"
-X-IronPort-AV: E=Sophos;i="5.88,371,1635231600"; d="scan'208";a="336944962"
+ t=1644981366; x=1676517366;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=OL/CJpx3e1GRIpNB1pTJCWsC1hGcn+U6/rlTNg6FcmQ=;
+ b=fBIFsSwKyFwawD3b5iWg1IeBMD0jzHGnB6alhf4i3NDVRkYdlTQFf8bu
+ bKQozEUMKW69+eE/p+UyZIDh7+KLPos0ltV//bbC9pNoar2DDycbpUy4J
+ 2u15ht7gAPnz5RnDEexSOnQyt8SutaPYUOx5/Z7tLrP9ffLZ1rjq9d1Bz
+ 0rA/DqCv1wHheU0dHt2R30OFSRL7/Mo1Ot+Ynq3279zvgHKqy9mCmQgzu
+ I/HQcivORmYJf4rCLssl8UJO6wQXp4YxVGUbbJu6EiqQdpYJ4kctJ55nJ
+ 8HaLmqGQEkQODmGWErOtGELIINVfoG5MUzmYNWtfYDUpis5MzXUsh7A/4 g==;
+X-IronPort-AV: E=McAfee;i="6200,9189,10259"; a="250456011"
+X-IronPort-AV: E=Sophos;i="5.88,371,1635231600"; d="scan'208";a="250456011"
 Received: from fmsmga006.fm.intel.com ([10.253.24.20])
- by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 15 Feb 2022 19:15:48 -0800
-X-IronPort-AV: E=Sophos;i="5.88,371,1635231600"; d="scan'208";a="773798119"
+ by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 15 Feb 2022 19:16:04 -0800
+X-IronPort-AV: E=Sophos;i="5.88,371,1635231600"; d="scan'208";a="773798219"
 Received: from hyperv-sh4.sh.intel.com ([10.239.48.22])
  by fmsmga006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 15 Feb 2022 19:15:36 -0800
+ 15 Feb 2022 19:15:54 -0800
 From: Chao Gao <chao.gao@intel.com>
 To: seanjc@google.com, maz@kernel.org, kvm@vger.kernel.org,
  pbonzini@redhat.com, kevin.tian@intel.com, tglx@linutronix.de
-Cc: Chao Gao <chao.gao@intel.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
+Cc: Chao Gao <chao.gao@intel.com>, James Morse <james.morse@arm.com>,
  Alexandru Elisei <alexandru.elisei@arm.com>,
- Andrew Jones <drjones@redhat.com>, Anup Patel <anup@brainfault.org>,
- Atish Patra <atishp@atishpatra.org>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Bharata B Rao <bharata@linux.ibm.com>, Borislav Petkov <bp@alien8.de>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- "Darrick J. Wong" <djwong@kernel.org>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>, Eric Auger <eric.auger@redhat.com>,
- Hector Martin <marcan@marcan.st>, Heiko Carstens <hca@linux.ibm.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Huacai Chen <chenhuacai@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, James Morse <james.morse@arm.com>,
- Janosch Frank <frankja@linux.ibm.com>, Jia He <justin.he@arm.com>,
- Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
- John Garry <john.garry@huawei.com>, Juergen Gross <jgross@suse.com>,
- kvmarm@lists.cs.columbia.edu, kvm-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- "Maciej S. Szmigiero" <maciej.szmigiero@oracle.com>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Nathan Chancellor <nathan@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Nick Desaulniers <ndesaulniers@google.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Mackerras <paulus@samba.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Qi Liu <liuqi115@huawei.com>,
- Shaokun Zhang <zhangshaokun@hisilicon.com>,
- Sumanth Korikkar <sumanthk@linux.ibm.com>,
  Suzuki K Poulose <suzuki.poulose@arm.com>,
- Sven Schnelle <svens@linux.ibm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
  Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Thomas Richter <tmricht@linux.ibm.com>,
- Tom Zanussi <tom.zanussi@linux.intel.com>,
- Vasily Gorbik <gor@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>,
- Wanpeng Li <wanpengli@tencent.com>, Will Deacon <will@kernel.org>,
- x86@kernel.org
-Subject: [PATCH v4 0/6] Improve KVM's interaction with CPU hotplug
-Date: Wed, 16 Feb 2022 11:15:15 +0800
-Message-Id: <20220216031528.92558-1-chao.gao@intel.com>
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <atishp@atishpatra.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ David Hildenbrand <david@redhat.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
+ Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>,
+ "Maciej S. Szmigiero" <maciej.szmigiero@oracle.com>,
+ Bharata B Rao <bharata@linux.ibm.com>, Nicholas Piggin <npiggin@gmail.com>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
+ linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
+Subject: [PATCH v4 2/6] Partially revert "KVM: Pass kvm_init()'s opaque param
+ to additional arch funcs"
+Date: Wed, 16 Feb 2022 11:15:17 +0800
+Message-Id: <20220216031528.92558-3-chao.gao@intel.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20220216031528.92558-1-chao.gao@intel.com>
+References: <20220216031528.92558-1-chao.gao@intel.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220215_191549_915933_2606B24C 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20220215_191606_324802_09586F38 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,91 +107,160 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Changes from v3->v4:
- - rebased to the lastest kvm/next branch.
- - add Sean's reviewed-by tags
- - add Marc's patch to simplify ARM's cpu hotplug logic in KVM
+This partially reverts commit b99040853738 ("KVM: Pass kvm_init()'s opaque
+param to additional arch funcs") remove opaque from
+kvm_arch_check_processor_compat because no one uses this opaque now.
+Address conflicts for ARM (due to file movement) and manually handle RISC-V
+which comes after the commit.
 
-Changes from v2->v3:
- - rebased to the latest kvm/next branch. 
- - patch 1: rename {svm,vmx}_check_processor_compat to follow the name
-	    convention
- - patch 3: newly added to provide more information when hardware enabling
-	    fails
- - patch 4: reset hardware_enable_failed if hardware enabling fails. And
-	    remove redundent kernel log.
- - patch 5: add a pr_err() for setup_vmcs_config() path.
+And changes about kvm_arch_hardware_setup() in original commit are still
+needed so they are not reverted.
 
-Changes from v1->v2: (all comments/suggestions on v1 are from Sean, thanks)
- - Merged v1's patch 2 into patch 1, and v1's patch 5 into patch 6.
- - Use static_call for check_processor_compatibility().
- - Generate patch 2 with "git revert" and do manual changes based on that.
- - Loosen the WARN_ON() in kvm_arch_check_processor_compat() instead of
-   removing it.
- - KVM always prevent incompatible CPUs from being brought up regardless of
-   running VMs.
- - Use pr_warn instead of pr_info to emit logs when KVM finds offending
-   CPUs.
+Signed-off-by: Chao Gao <chao.gao@intel.com>
+Reviewed-by: Sean Christopherson <seanjc@google.com>
+---
+ arch/arm64/kvm/arm.c       |  2 +-
+ arch/mips/kvm/mips.c       |  2 +-
+ arch/powerpc/kvm/powerpc.c |  2 +-
+ arch/riscv/kvm/main.c      |  2 +-
+ arch/s390/kvm/kvm-s390.c   |  2 +-
+ arch/x86/kvm/x86.c         |  2 +-
+ include/linux/kvm_host.h   |  2 +-
+ virt/kvm/kvm_main.c        | 16 +++-------------
+ 8 files changed, 10 insertions(+), 20 deletions(-)
 
-KVM registers its CPU hotplug callback to CPU starting section. And in the
-callback, KVM enables hardware virtualization on hotplugged CPUs if any VM
-is running on existing CPUs.
-
-There are two problems in the process:
-1. KVM doesn't do compatibility checks before enabling hardware
-virtualization on hotplugged CPUs. This may cause #GP if VMX isn't
-supported or vmentry failure if some in-use VMX features are missing on
-hotplugged CPUs. Both break running VMs.
-2. Callbacks in CPU STARTING section cannot fail. So, even if KVM finds
-some incompatible CPUs, its callback cannot block CPU hotplug.
-
-This series improves KVM's interaction with CPU hotplug to avoid
-incompatible CPUs breaking running VMs. Following changes are made:
-
-1. move KVM's CPU hotplug callback to ONLINE section (suggested by Thomas)
-2. do compatibility checks on hotplugged CPUs.
-3. abort onlining incompatible CPUs
-
-This series is a follow-up to the discussion about KVM and CPU hotplug
-https://lore.kernel.org/lkml/3d3296f0-9245-40f9-1b5a-efffdb082de9@redhat.com/T/
-
-Note: this series is tested only on Intel systems.
-
-Chao Gao (4):
-  KVM: x86: Move check_processor_compatibility from init ops to runtime
-    ops
-  Partially revert "KVM: Pass kvm_init()'s opaque param to additional
-    arch funcs"
-  KVM: Rename and move CPUHP_AP_KVM_STARTING to ONLINE section
-  KVM: Do compatibility checks on hotplugged CPUs
-
-Marc Zyngier (1):
-  KVM: arm64: Simplify the CPUHP logic
-
-Sean Christopherson (1):
-  KVM: Provide more information in kernel log if hardware enabling fails
-
- arch/arm64/kvm/arch_timer.c        | 27 ++++-------
- arch/arm64/kvm/arm.c               |  6 ++-
- arch/arm64/kvm/vgic/vgic-init.c    | 19 +-------
- arch/mips/kvm/mips.c               |  2 +-
- arch/powerpc/kvm/powerpc.c         |  2 +-
- arch/riscv/kvm/main.c              |  2 +-
- arch/s390/kvm/kvm-s390.c           |  2 +-
- arch/x86/include/asm/kvm-x86-ops.h |  1 +
- arch/x86/include/asm/kvm_host.h    |  2 +-
- arch/x86/kvm/svm/svm.c             |  4 +-
- arch/x86/kvm/vmx/evmcs.c           |  2 +-
- arch/x86/kvm/vmx/evmcs.h           |  2 +-
- arch/x86/kvm/vmx/vmx.c             | 22 +++++----
- arch/x86/kvm/x86.c                 | 16 +++++--
- include/kvm/arm_arch_timer.h       |  4 ++
- include/kvm/arm_vgic.h             |  4 ++
- include/linux/cpuhotplug.h         |  5 +-
- include/linux/kvm_host.h           |  2 +-
- virt/kvm/kvm_main.c                | 73 +++++++++++++++++++-----------
- 19 files changed, 107 insertions(+), 90 deletions(-)
-
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index ecc5958e27fe..0165cf3aac3a 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -73,7 +73,7 @@ int kvm_arch_hardware_setup(void *opaque)
+ 	return 0;
+ }
+ 
+-int kvm_arch_check_processor_compat(void *opaque)
++int kvm_arch_check_processor_compat(void)
+ {
+ 	return 0;
+ }
+diff --git a/arch/mips/kvm/mips.c b/arch/mips/kvm/mips.c
+index a25e0b73ee70..092d09fb6a7e 100644
+--- a/arch/mips/kvm/mips.c
++++ b/arch/mips/kvm/mips.c
+@@ -140,7 +140,7 @@ int kvm_arch_hardware_setup(void *opaque)
+ 	return 0;
+ }
+ 
+-int kvm_arch_check_processor_compat(void *opaque)
++int kvm_arch_check_processor_compat(void)
+ {
+ 	return 0;
+ }
+diff --git a/arch/powerpc/kvm/powerpc.c b/arch/powerpc/kvm/powerpc.c
+index 2ad0ccd202d5..30c817f3fa0c 100644
+--- a/arch/powerpc/kvm/powerpc.c
++++ b/arch/powerpc/kvm/powerpc.c
+@@ -423,7 +423,7 @@ int kvm_arch_hardware_setup(void *opaque)
+ 	return 0;
+ }
+ 
+-int kvm_arch_check_processor_compat(void *opaque)
++int kvm_arch_check_processor_compat(void)
+ {
+ 	return kvmppc_core_check_processor_compat();
+ }
+diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
+index 2e5ca43c8c49..992877e78393 100644
+--- a/arch/riscv/kvm/main.c
++++ b/arch/riscv/kvm/main.c
+@@ -20,7 +20,7 @@ long kvm_arch_dev_ioctl(struct file *filp,
+ 	return -EINVAL;
+ }
+ 
+-int kvm_arch_check_processor_compat(void *opaque)
++int kvm_arch_check_processor_compat(void)
+ {
+ 	return 0;
+ }
+diff --git a/arch/s390/kvm/kvm-s390.c b/arch/s390/kvm/kvm-s390.c
+index 577f1ead6a51..0053b81c6b02 100644
+--- a/arch/s390/kvm/kvm-s390.c
++++ b/arch/s390/kvm/kvm-s390.c
+@@ -252,7 +252,7 @@ int kvm_arch_hardware_enable(void)
+ 	return 0;
+ }
+ 
+-int kvm_arch_check_processor_compat(void *opaque)
++int kvm_arch_check_processor_compat(void)
+ {
+ 	return 0;
+ }
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index 9b484ed61f37..ffb88f0b7265 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -11509,7 +11509,7 @@ void kvm_arch_hardware_unsetup(void)
+ 	static_call(kvm_x86_hardware_unsetup)();
+ }
+ 
+-int kvm_arch_check_processor_compat(void *opaque)
++int kvm_arch_check_processor_compat(void)
+ {
+ 	struct cpuinfo_x86 *c = &cpu_data(smp_processor_id());
+ 
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index f11039944c08..2ad78e729bf7 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -1413,7 +1413,7 @@ int kvm_arch_hardware_enable(void);
+ void kvm_arch_hardware_disable(void);
+ int kvm_arch_hardware_setup(void *opaque);
+ void kvm_arch_hardware_unsetup(void);
+-int kvm_arch_check_processor_compat(void *opaque);
++int kvm_arch_check_processor_compat(void);
+ int kvm_arch_vcpu_runnable(struct kvm_vcpu *vcpu);
+ bool kvm_arch_vcpu_in_kernel(struct kvm_vcpu *vcpu);
+ int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu);
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 83c57bcc6eb6..ee47d33d69e1 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -5643,22 +5643,14 @@ void kvm_unregister_perf_callbacks(void)
+ }
+ #endif
+ 
+-struct kvm_cpu_compat_check {
+-	void *opaque;
+-	int *ret;
+-};
+-
+-static void check_processor_compat(void *data)
++static void check_processor_compat(void *rtn)
+ {
+-	struct kvm_cpu_compat_check *c = data;
+-
+-	*c->ret = kvm_arch_check_processor_compat(c->opaque);
++	*(int *)rtn = kvm_arch_check_processor_compat();
+ }
+ 
+ int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
+ 		  struct module *module)
+ {
+-	struct kvm_cpu_compat_check c;
+ 	int r;
+ 	int cpu;
+ 
+@@ -5686,10 +5678,8 @@ int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
+ 	if (r < 0)
+ 		goto out_free_1;
+ 
+-	c.ret = &r;
+-	c.opaque = opaque;
+ 	for_each_online_cpu(cpu) {
+-		smp_call_function_single(cpu, check_processor_compat, &c, 1);
++		smp_call_function_single(cpu, check_processor_compat, &r, 1);
+ 		if (r < 0)
+ 			goto out_free_2;
+ 	}
 -- 
 2.25.1
 
