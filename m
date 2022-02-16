@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83DD6C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Feb 2022 16:09:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57733C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Feb 2022 16:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W58KUx8x22tfG6aRL9RaLby40C4lUJnhFLoIpY2Ec/s=; b=155gpwIx5qIH2K
-	sIjtRz/V91I/MG9BgpH8AEDYZsW72mhmdV0DZhJ4Ev5IHLnAT+GKiw6EY4Az3iNWiGBO5Zc8Fo6Vf
-	S42cDdlvuX9+kHikNl7dUaCBv7oxQtYI4N2gUbdRCRbrGgNNTLmjlYEhzGFcWmaLPRP7OPwI+NDrF
-	07ek9M2dQH9ueJMNd1yr5MwA9cPH+UHI8mj0JjxtLsddTXJE41zJs9f1CI1HqZp7tmBHkmgXc4VDa
-	w/vgGwQO8toN6Mws3gdcCJj0ckHVVRdDzmbCAV7TQgM4AIOS2zSbefV+gX1WkVORTDNiC8gNAJgZ9
-	bvAFFFeZNsbxLcsTuY0Q==;
+	List-Owner; bh=ukh927OYJD3Cji/82PIzrE+hEASyF3L30w+mYdT3Xjk=; b=oZpMicjPklE35v
+	Ve8PLiADM68MauQ8o8QPENtyuQS3FfU/pq3UohRIYF51h4NueBSG40M7rUuAcTz6irea4Dkq/ovxL
+	wLe4pDZXDGBbcusiLkWca4GgkVDBL/D7BqTGqhOVtzb/6uaf4mK0X3kHyLLYswy7lAuyJthbzKKSa
+	BK9WX+oEApVgScqOa3sSVvvAEsdP2IvRc1PXSKeVJKWk41qUiwnqyLyF0oPzk23j44jeQEW5LPS79
+	gth8/VOd9tKkN4RZyAIGGQZzw8jlEMnkYHnPeUIzJGYYSe4YPjE3ANNDQAncT9p+D2lPOEJxKncJi
+	Ka8n9NGF1QFrgjjJalGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nKMrq-007c56-H4; Wed, 16 Feb 2022 16:09:22 +0000
-Received: from mail-il1-x136.google.com ([2607:f8b0:4864:20::136])
+	id 1nKMzK-007eVQ-9Y; Wed, 16 Feb 2022 16:17:06 +0000
+Received: from mail-il1-x131.google.com ([2607:f8b0:4864:20::131])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nKMrj-007c2b-Ul
- for linux-riscv@lists.infradead.org; Wed, 16 Feb 2022 16:09:17 +0000
-Received: by mail-il1-x136.google.com with SMTP id d3so117702ilr.10
- for <linux-riscv@lists.infradead.org>; Wed, 16 Feb 2022 08:09:15 -0800 (PST)
+ id 1nKMzH-007eUX-4Z
+ for linux-riscv@lists.infradead.org; Wed, 16 Feb 2022 16:17:05 +0000
+Received: by mail-il1-x131.google.com with SMTP id z18so162010iln.2
+ for <linux-riscv@lists.infradead.org>; Wed, 16 Feb 2022 08:17:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=X1DbyhBVBvnUPYaFyX9FKtS0pYUg5/jmB2DYqrFTT5U=;
- b=J+IlJwKwqNmOWrnf9XmZjoqXa0NqIoyKOJfIcTZrmFWEeZLQaOlywhGandqivrs4pJ
- B89cnA5e/+9qJQzIowUnlXGsCr65LTNHTGRRyzH5tTmj1I2LpsNBTLDSMItBBmKJuPVZ
- f4twJbUofcE5FHVhwVxSjSLIeQ71xPPXnfWFL1Tv0cdLNLR5Ou5czua9VLjsjBWmcJUr
- XCGwJtkNEmHkcsMwl0WkstoebpSHASn+bBGPtRt7JDqF46ZWwteM9qav+cGSv74qfNvJ
- e+5a+XgdW2fSFzlxfQ2ruUrOLVuaB/neINyCjXDMLwnj41WMvQXFGlS19PYvPvu6hqBL
- buXQ==
+ :cc; bh=Q/am0HDxpBYA40FHZaIrVn8nXi2cQpq4EMCF+My6Irk=;
+ b=NtvZYC1AXgVz959qRsuGJurUXhPS4HOehNbNlRawXOrzvQ6FV9JAel/aIqZu4j5tOe
+ ARRoSb3laykvZtmYJ6G7zYl0hT66XXYCL7t563wkKS8/eQawUAI0cHV/kAFXIcWzmFE1
+ 65Wmi/+YKQDZjLXHTp5GG7JwCR3HjiRGv3sX+0EmjGHl1deohObtRCBJlSodzDjZwKXC
+ Qq1NJJtyttLjiMaYdze63OowaswwpdPPyNLxnvcF+uxw+otohltXnHTtuEmrzOraOegu
+ 46EZHH02T+0+JN/0rnQlzoB2slZbFlAJS7WuOyGNU9Yv9SVWk4NmWWYDV4BGYveQHaXF
+ 0Rwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=X1DbyhBVBvnUPYaFyX9FKtS0pYUg5/jmB2DYqrFTT5U=;
- b=UCeSYlb0pAqjaSIWqsliorVY9ftuvHh4veD6nORXTV2lIydwWzEDDj/5XAjB+eLM+T
- O2HrZa47/4htAzsD6+HM3D2AQyIIStXA6kYuW3zXaSM3OQNoW5fQpjv7tCEOl/Ww2QtA
- 817WXnaFYD5aI03XdffiROjbzqW4mg1/UhadyNtgZ4gqh8VcO9ZUvIKXC/2L4sAWqHog
- oo26KXCkMFAv6Y6yHhUnqX7znQV2xammhxoIxOF+v3dJfW8DD1rhkaFvIyf/HXUjnHMs
- 7r94dVOYA5lwh6nYYitcdtrydxnND4QX5okR9a2cKHTmQUifpJMXDqg8DJ9TqPBewVfI
- zHlg==
-X-Gm-Message-State: AOAM532XM+IfIYbj0zG5GGnhTBI8QsAu6FaqVtcGUcA63g3g3Mqq4Ej6
- sfvsWzCSqtfDHp9MDXs15h3XAYDsZR0vR88x2p/gCg==
-X-Google-Smtp-Source: ABdhPJzW137+bxo/BCmaOoW3nCBMoRhmtQOnwHbg2dFkNZBf4NGOeG+OlNhTXXA6mrUdvAiuLoTMApI3sUxPNcHaTLc=
-X-Received: by 2002:a05:6e02:1a26:b0:2bc:2e01:ae73 with SMTP id
- g6-20020a056e021a2600b002bc2e01ae73mr2263040ile.44.1645027754573; Wed, 16 Feb
- 2022 08:09:14 -0800 (PST)
+ bh=Q/am0HDxpBYA40FHZaIrVn8nXi2cQpq4EMCF+My6Irk=;
+ b=WSmWkbJ7Jzs8EqIFRiVkKBFAa9VqM0sFqJ66ZXKJw0t75i7tcm9Bi8RM3PmMplOxx0
+ FFNMpCDepZxnYyAqAuPTUnLiA2pjLoDJOXGQ6qoKbX/X6Xj0SJyoWD12xGbMn2U2oxMe
+ NHL+pAwMi0WOhphUJBbpyReIwqcCv09cYxx620kG01ALaqMuoOOBB0eXb1/e7VsE1EQU
+ YL1Csy5cZYat3KtvXJEQ280kOdCjYEr/xqamBZS8PN2AfImylD76jMyR7f79TmmuGQwq
+ qZwkbiK+tnifnJYngxAeLZwjgukQ8H8BLtNg2Ve5jJFUS1gTkpESfVrJl3NCPrZKH02E
+ MPMA==
+X-Gm-Message-State: AOAM532yWlvrM80t6LyqZIrvp2rFHgdBMAp/bKoGN2rYiuAQiOGdrWoF
+ ugBIGc0f086sXxwGQIhH3mm17/uZg7xfOVJpcfXcAA==
+X-Google-Smtp-Source: ABdhPJzccQKhg4Q4I2/TlMKMErdUahLKq48uFhWv9juAGEB4ztofnqNxpU+OJ6PbL66QyDpWxoD0+4z4RQc5WzPDtHo=
+X-Received: by 2002:a92:c241:0:b0:2b9:80f9:e2a with SMTP id
+ k1-20020a92c241000000b002b980f90e2amr2303305ilo.208.1645028221681; Wed, 16
+ Feb 2022 08:17:01 -0800 (PST)
 MIME-Version: 1.0
 References: <00000000000038779505d5d8b372@google.com>
  <CANp29Y7WjwXwgxPrNq0XXjXPu+wGFqTreh9gry=O6aE7+cKpLQ@mail.gmail.com>
@@ -62,10 +62,11 @@ References: <00000000000038779505d5d8b372@google.com>
  <CANp29Y4WMhsE_-VWvNbwq18+qvb1Qc-ES80h_j_G-N_hcAnRAw@mail.gmail.com>
  <CANp29Y4ujmz901aE9oiBDx9dYWHti4-Jw=6Ewtotm6ck6MN9FQ@mail.gmail.com>
  <CACT4Y+ZvStiHLYBOcPDoAJnk8hquXwm9BgjQTv=APwh7AvgEUQ@mail.gmail.com>
-In-Reply-To: <CACT4Y+ZvStiHLYBOcPDoAJnk8hquXwm9BgjQTv=APwh7AvgEUQ@mail.gmail.com>
+ <CANp29Y56Or0V1AG7rzBfV_ZTph2Crg4JKKHiuw1kcGFFxeWqiQ@mail.gmail.com>
+In-Reply-To: <CANp29Y56Or0V1AG7rzBfV_ZTph2Crg4JKKHiuw1kcGFFxeWqiQ@mail.gmail.com>
 From: Aleksandr Nogikh <nogikh@google.com>
-Date: Wed, 16 Feb 2022 17:09:03 +0100
-Message-ID: <CANp29Y56Or0V1AG7rzBfV_ZTph2Crg4JKKHiuw1kcGFFxeWqiQ@mail.gmail.com>
+Date: Wed, 16 Feb 2022 17:16:50 +0100
+Message-ID: <CANp29Y5+MuhKAzVxzEDb_k9voXmKWrUFx8k4wnW5=2+5enVFVA@mail.gmail.com>
 Subject: Re: [syzbot] riscv/fixes boot error: can't ssh into the instance
 To: Dmitry Vyukov <dvyukov@google.com>
 Cc: Alexandre Ghiti <alex@ghiti.fr>,
@@ -75,8 +76,8 @@ Cc: Alexandre Ghiti <alex@ghiti.fr>,
  syzbot <syzbot+330a558d94b58f7601be@syzkaller.appspotmail.com>, 
  LKML <linux-kernel@vger.kernel.org>, syzkaller-bugs@googlegroups.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220216_080916_015470_8D30A361 
-X-CRM114-Status: GOOD (  34.46  )
+X-CRM114-CacheID: sfid-20220216_081703_206108_95D4A0BE 
+X-CRM114-Status: GOOD (  37.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,92 +94,139 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 16, 2022 at 12:56 PM Dmitry Vyukov <dvyukov@google.com> wrote:
+If I use just defconfig + DEBUG_VIRTUAL, without any KASAN, it begins
+to boot, but overwhelms me with tons of `virt_to_phys used for
+non-linear address:` errors.
+
+Like that
+
+[    2.701271] virt_to_phys used for non-linear address:
+00000000b59e31b6 (0xffffffff806c2000)
+[    2.701727] WARNING: CPU: 0 PID: 1 at arch/riscv/mm/physaddr.c:16
+__virt_to_phys+0x7e/0x86
+[    2.702207] Modules linked in:
+[    2.702393] CPU: 0 PID: 1 Comm: swapper/0 Tainted: G        W
+  5.17.0-rc1 #1
+[    2.702806] Hardware name: riscv-virtio,qemu (DT)
+[    2.703051] epc : __virt_to_phys+0x7e/0x86
+[    2.703298]  ra : __virt_to_phys+0x7e/0x86
+[    2.703547] epc : ffffffff80008448 ra : ffffffff80008448 sp :
+ffff8f800021bde0
+[    2.703977]  gp : ffffffff80ed9b30 tp : ffffaf8001230000 t0 :
+ffffffff80eea56f
+[    2.704704]  t1 : ffffffff80eea560 t2 : 0000000000000000 s0 :
+ffff8f800021be00
+[    2.705153]  s1 : ffffffff806c2000 a0 : 000000000000004f a1 :
+ffffffff80e723d8
+[    2.705555]  a2 : 0000000000000010 a3 : fffffffffffffffe a4 :
+0000000000000000
+[    2.706027]  a5 : 0000000000000000 a6 : 0000000000000005 a7 :
+ffffffffffffffff
+[    2.706474]  s2 : ffffffff80b80b08 s3 : 00000000000000c2 s4 :
+ffffffff806c2000
+[    2.706891]  s5 : ffffffff80edba10 s6 : ffffffff80edb960 s7 :
+0000000000000001
+[    2.707290]  s8 : 00000000000000ff s9 : ffffffff80b80b40 s10:
+00000000000000cc
+[    2.707689]  s11: ffffaf807e1fcf00 t3 : 0000000000000076 t4 :
+ffffffffffffffff
+[    2.708092]  t5 : 00000000000001f2 t6 : ffff8f800021bb48
+[    2.708433] status: 0000000000000120 badaddr: 0000000000000000
+cause: 0000000000000003
+[    2.708919] [<ffffffff8011416a>] free_reserved_area+0x72/0x19a
+[    2.709296] [<ffffffff80003a5a>] free_initmem+0x6c/0x7c
+[    2.709648] [<ffffffff805f60c8>] kernel_init+0x3a/0x10a
+[    2.709993] [<ffffffff80002fda>] ret_from_exception+0x0/0xc
+[    2.710310] ---[ end trace 0000000000000000 ]---
+
+On Wed, Feb 16, 2022 at 5:09 PM Aleksandr Nogikh <nogikh@google.com> wrote:
 >
-> On Wed, 16 Feb 2022 at 12:47, Aleksandr Nogikh <nogikh@google.com> wrote:
+> On Wed, Feb 16, 2022 at 12:56 PM Dmitry Vyukov <dvyukov@google.com> wrote:
 > >
-> > On Wed, Feb 16, 2022 at 11:37 AM Aleksandr Nogikh <nogikh@google.com> wrote:
+> > On Wed, 16 Feb 2022 at 12:47, Aleksandr Nogikh <nogikh@google.com> wrote:
 > > >
-> > > Hi Alex,
-> > >
-> > > On Wed, Feb 16, 2022 at 5:14 AM Alexandre Ghiti <alex@ghiti.fr> wrote:
+> > > On Wed, Feb 16, 2022 at 11:37 AM Aleksandr Nogikh <nogikh@google.com> wrote:
 > > > >
-> > > > Hi Dmitry,
+> > > > Hi Alex,
 > > > >
-> > > > On 2/15/22 18:12, Dmitry Vyukov wrote:
-> > > > > On Wed, 2 Feb 2022 at 14:18, Alexandre Ghiti
-> > > > > <alexandre.ghiti@canonical.com> wrote:
-> > > > >> Hi Aleksandr,
-> > > > >>
-> > > > >> On Wed, Feb 2, 2022 at 12:08 PM Aleksandr Nogikh <nogikh@google.com> wrote:
-> > > > >>> Hello,
-> > > > >>>
-> > > > >>> syzbot has already not been able to fuzz its RISC-V instance for 97
-> > > > >> That's a longtime, I'll take a look more regularly.
-> > > > >>
-> > > > >>> days now because the compiled kernel cannot boot. I bisected the issue
-> > > > >>> to the following commit:
-> > > > >>>
-> > > > >>> commit 54c5639d8f507ebefa814f574cb6f763033a72a5
-> > > > >>> Author: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-> > > > >>> Date:   Fri Oct 29 06:59:27 2021 +0200
-> > > > >>>
-> > > > >>>      riscv: Fix asan-stack clang build
-> > > > >>>
-> > > > >>> Apparently, the problem appears on GCC-built RISC-V kernels with KASAN
-> > > > >>> enabled. In the previous message syzbot mentions
-> > > > >>> "riscv64-linux-gnu-gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU
-> > > > >>> Binutils for Debian) 2.35.2", but the issue also reproduces finely on
-> > > > >>> a newer GCC compiler: "riscv64-linux-gnu-gcc (Debian 11.2.0-10)
-> > > > >>> 11.2.0, GNU ld (GNU Binutils for Debian) 2.37".
-> > > > >>> For convenience, I also duplicate the .config file from the bot's
-> > > > >>> message: https://syzkaller.appspot.com/x/.config?x=522544a2e0ef2a7d
-> > > > >>>
-> > > > >>> Can someone with KASAN and RISC-V expertise please take a look?
-> > > > >> I'll take a look at that today.
-> > > > >>
-> > > > >> Thanks for reporting the issue,
+> > > > On Wed, Feb 16, 2022 at 5:14 AM Alexandre Ghiti <alex@ghiti.fr> wrote:
 > > > > >
+> > > > > Hi Dmitry,
+> > > > >
+> > > > > On 2/15/22 18:12, Dmitry Vyukov wrote:
+> > > > > > On Wed, 2 Feb 2022 at 14:18, Alexandre Ghiti
+> > > > > > <alexandre.ghiti@canonical.com> wrote:
+> > > > > >> Hi Aleksandr,
+> > > > > >>
+> > > > > >> On Wed, Feb 2, 2022 at 12:08 PM Aleksandr Nogikh <nogikh@google.com> wrote:
+> > > > > >>> Hello,
+> > > > > >>>
+> > > > > >>> syzbot has already not been able to fuzz its RISC-V instance for 97
+> > > > > >> That's a longtime, I'll take a look more regularly.
+> > > > > >>
+> > > > > >>> days now because the compiled kernel cannot boot. I bisected the issue
+> > > > > >>> to the following commit:
+> > > > > >>>
+> > > > > >>> commit 54c5639d8f507ebefa814f574cb6f763033a72a5
+> > > > > >>> Author: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+> > > > > >>> Date:   Fri Oct 29 06:59:27 2021 +0200
+> > > > > >>>
+> > > > > >>>      riscv: Fix asan-stack clang build
+> > > > > >>>
+> > > > > >>> Apparently, the problem appears on GCC-built RISC-V kernels with KASAN
+> > > > > >>> enabled. In the previous message syzbot mentions
+> > > > > >>> "riscv64-linux-gnu-gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU
+> > > > > >>> Binutils for Debian) 2.35.2", but the issue also reproduces finely on
+> > > > > >>> a newer GCC compiler: "riscv64-linux-gnu-gcc (Debian 11.2.0-10)
+> > > > > >>> 11.2.0, GNU ld (GNU Binutils for Debian) 2.37".
+> > > > > >>> For convenience, I also duplicate the .config file from the bot's
+> > > > > >>> message: https://syzkaller.appspot.com/x/.config?x=522544a2e0ef2a7d
+> > > > > >>>
+> > > > > >>> Can someone with KASAN and RISC-V expertise please take a look?
+> > > > > >> I'll take a look at that today.
+> > > > > >>
+> > > > > >> Thanks for reporting the issue,
+> > > > > >
+> > > > >
+> > > > > I took a quick look, not enough to fix it but I know the issue comes
+> > > > > from the inline instrumentation, I have no problem with the outline
+> > > > > instrumentation. I need to find some cycles to work on this, my goal is
+> > > > > to fix this for 5.17.
 > > > >
-> > > > I took a quick look, not enough to fix it but I know the issue comes
-> > > > from the inline instrumentation, I have no problem with the outline
-> > > > instrumentation. I need to find some cycles to work on this, my goal is
-> > > > to fix this for 5.17.
+> > > > Thanks for the update!
+> > > >
+> > > > Can you please share the .config with which you tested the outline
+> > > > instrumentation?
+> > > > I updated the syzbot config to use KASAN_OUTLINE instead of KASAN_INLINE,
+> > > > but it still does not boot :(
+> > > >
+> > > > Here's what I used:
+> > > > https://gist.github.com/a-nogikh/279c85c2d24f47efcc3e865c08844138
 > > >
-> > > Thanks for the update!
+> > > Update: it doesn't boot with that big config, but boots if I generate
+> > > a simple one with KASAN_OUTLINE:
 > > >
-> > > Can you please share the .config with which you tested the outline
-> > > instrumentation?
-> > > I updated the syzbot config to use KASAN_OUTLINE instead of KASAN_INLINE,
-> > > but it still does not boot :(
+> > > make defconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
+> > > ./scripts/config -e KASAN -e KASAN_OUTLINE
+> > > make olddefconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
 > > >
-> > > Here's what I used:
-> > > https://gist.github.com/a-nogikh/279c85c2d24f47efcc3e865c08844138
+> > > And it indeed doesn't work if I use KASAN_INLINE.
 > >
-> > Update: it doesn't boot with that big config, but boots if I generate
-> > a simple one with KASAN_OUTLINE:
-> >
-> > make defconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
-> > ./scripts/config -e KASAN -e KASAN_OUTLINE
-> > make olddefconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
-> >
-> > And it indeed doesn't work if I use KASAN_INLINE.
+> > It may be an issue with code size. Full syzbot config + KASAN + KCOV
+> > produce hugely massive .text. It may be hitting some limitation in the
+> > bootloader/kernel bootstrap code.
 >
-> It may be an issue with code size. Full syzbot config + KASAN + KCOV
-> produce hugely massive .text. It may be hitting some limitation in the
-> bootloader/kernel bootstrap code.
-
-I bisected the difference between the config we use on syzbot and the
-simple one that was generated like I described above.
-Turns out that it's the DEBUG_VIRTUAL config that makes the difference.
-
-make defconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
-./scripts/config -e KASAN -e KASAN_OUTLINE -e DEBUG_VIRTUAL
-make olddefconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
-
-And the resulting kernel does not boot.
-My env: the `riscv/fixes` branch, commit
-6df2a016c0c8a3d0933ef33dd192ea6606b115e3, qemu 6.2.0.
+> I bisected the difference between the config we use on syzbot and the
+> simple one that was generated like I described above.
+> Turns out that it's the DEBUG_VIRTUAL config that makes the difference.
+>
+> make defconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
+> ./scripts/config -e KASAN -e KASAN_OUTLINE -e DEBUG_VIRTUAL
+> make olddefconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
+>
+> And the resulting kernel does not boot.
+> My env: the `riscv/fixes` branch, commit
+> 6df2a016c0c8a3d0933ef33dd192ea6606b115e3, qemu 6.2.0.
 
 _______________________________________________
 linux-riscv mailing list
