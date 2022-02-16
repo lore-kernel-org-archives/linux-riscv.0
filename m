@@ -4,83 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E34AC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Feb 2022 00:29:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14604C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Feb 2022 00:29:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lD6tZTu7mHG4STAf9AXLdzM7otdiqd1tqQkiiy7t09o=; b=VGe9GFh7wpzs9O
-	MGv8najCF5mmx13NXklL2De7G+pi+loxUCCWxsR46rIxL0RGRasI6figbnX4FIkXK2/e8HHB4HJkA
-	i7b6InEh6Kqfmoz+V5WYhkY9CNl1HIfiB+a2bg/daNsbE6MfuO6KHWgWjbnxxk72zfJxFnkzqnmIZ
-	EhID7KUDMaEqCWSQK5kBemX0dPgUmn8LvTyR+kb6vPFaxcWGgWEKIQhn2mU/e9y1zt1+7F5QfPlzm
-	SirQfQh2H9X9cgLKoXpCWF4j7DdkpZM+WnxCE9/RjbwYHbyN1ulQVRWzoFH4J3hZN6fPfRMM1iweG
-	Trq0LSoxEvounYFtu5TQ==;
+	List-Owner; bh=fw8TVVFZhOS07fabc+sxIWCWqu3LFy2t9NYSVtYxEUY=; b=xxbuONMrlv+SAy
+	mDJ3sLn/k+nvRci6IGb+XGTokBvhcORMnPm5LYuPWcgNpd+5Rm0XXK7FCxyRdlv6xwO0u7HSxc8J+
+	42nIakjTvV5NPdrxTDFq3soOAhCZDJSrkI7YUn3/hqlz/gBVoFyPVnKt4GnzEkqgyq+dmhjxH6DCL
+	/H8VZUJpBxTctzYk377rUKUyatVsRyGvdtK9iEfJ7xT6/GAiKtPXdsgQdj8Cph3xgac4HHqN3GoFi
+	MJmltFUYr8JJpvTV2IqtrZ3F+Qe9n/85yPeN0TsfFLspNFY8WRnkNRKc+4x2IwpM0PqeMSzG7WvoJ
+	F3SJfCNU1gA5ZR8GOElQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nK8CF-0053xQ-3W; Wed, 16 Feb 2022 00:29:27 +0000
-Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
+	id 1nK8CH-0053yI-1j; Wed, 16 Feb 2022 00:29:29 +0000
+Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nK8CA-0053ug-BS
- for linux-riscv@lists.infradead.org; Wed, 16 Feb 2022 00:29:25 +0000
-Received: by mail-qv1-xf35.google.com with SMTP id f19so721511qvb.6
- for <linux-riscv@lists.infradead.org>; Tue, 15 Feb 2022 16:29:21 -0800 (PST)
+ id 1nK8CC-0053vZ-G0
+ for linux-riscv@lists.infradead.org; Wed, 16 Feb 2022 00:29:26 +0000
+Received: by mail-qk1-x729.google.com with SMTP id o25so371927qkj.7
+ for <linux-riscv@lists.infradead.org>; Tue, 15 Feb 2022 16:29:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=iS9w0OaNOwq2lVntX7Egw8nvc58/BIqmU/Sn5pstZMs=;
- b=ScmFXUnXQsBDQOeRRDk2JBohAqloSaHvUZJJVuDjOjk6MgJrr3XFo1W8C/+DWEOpLp
- CFoD3CAA31Kh5JHz4MeR1/WPbopm9O71On05gdvf3KfQDy903btjnNyyFU0gz0tOB6Z7
- xFAFLQyz++xdvte4qay9VSxxaGBH7vl23QevY/KA6IP7MpaF5wB2+AKBVZNamTdUlfaN
- CIXDvPYRFQEAQU/t6zoMKOHwXQ9qgE2F8qmzjS9ffST7S5fB+ORib58xIj4LD7VVwqZV
- dk3soLeJWZbsvYAySuo3vUIXxVkk1ku0rTyE6Dy0DE6rWVNDB7awyY9j91+vQH4fLf7R
- gj7Q==
+ bh=oPhfrRu9lOMUwT/7SSpNUGyvJjdNpXCP/wW++bFxhRc=;
+ b=YPlmDeBF2w6ovQYBYeEzPbox6WtothHnO7nsxF53hmX5zJ0jsbDAZKFrpdr0D1vh0z
+ BbtZFa59zGUcnQ6/cbDnd6PQANTTzmOeB+gsU48SuAocmqBcD4N+sy7LAskYEaXBbwON
+ faFomcz6BuIUnNy12LVRLPmhUmXV2EuhqKhLv5YuTTEKFMqRf/Emz0Vl33gr1+NI30yy
+ WOWkisZcDD98K0wjYQAUeBQPkSOJ2RrMxr4zqfkXb6dusQu7XfRJqSUgx4b6fbppCbtY
+ VEq5tpGWHkbhOf7QjDe3WcQ0aDkKljAApomEwZzmb4UtaF2z/YR0SswW3HCXgIO6LJm8
+ WaXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=iS9w0OaNOwq2lVntX7Egw8nvc58/BIqmU/Sn5pstZMs=;
- b=eEtOHQIeW2KNfSvM4kULVGaXbBS/Nont14QgOkErge3D7MsZMfbuEaOu8MtmV5nDpV
- Wz765M18FKD35LFF3NGqczLAyGkrsso3im109RvMdEkaHKH+HMcb9YVzZ/L8pME+GyTU
- k8xPZzchvmwEk9J6DAqpeJLto3GN+AXTFClOgJnzuW/VqqRb0btybSaTUBcng51JvT2S
- BFCiQmFQyIBU2h51S9kY9CJ22L6iPFZoDINRN0JVmLaz7UVAKruJdvob9v70Sx56di4S
- kRZBUgrdnpwdI47oH0bHYkUy0+JuuxnVsk1kEKDcKeJdmzKD1RPKtC99Vxxm4e+m8Mff
- zDfg==
-X-Gm-Message-State: AOAM533W3UV97hKq0eyqDBrFZHTl0XMGu9c052AMr03fv8AKseVuWFW9
- yYFiZovjY6fNGictiqso/1EaAgKkpCp7vRCQ
-X-Google-Smtp-Source: ABdhPJz0gbZP4BqfwiEDTMFUWQv3BXrxUsgsH+d0Rk7lM7XCFsOt8L1wSSB2ejz32cYkvipIBoymcA==
-X-Received: by 2002:a05:6214:1c87:b0:42d:20cb:e484 with SMTP id
- ib7-20020a0562141c8700b0042d20cbe484mr288883qvb.10.1644971361084; 
- Tue, 15 Feb 2022 16:29:21 -0800 (PST)
+ bh=oPhfrRu9lOMUwT/7SSpNUGyvJjdNpXCP/wW++bFxhRc=;
+ b=CgJ4qTk8J1CZ64qn7KXQr72loSeWkdLH5kF3ycNHWzymzbebfjowhqH86CMx5pmF0k
+ 65bxnJeVvDW+5iV9h5ekDy6utu4LNPk6Elh0+hjLIcseESbAGENKMSqWd83sfcQj4vh/
+ chqWtwRKNcvR9r7UR906Q14fYpRNJ8eCvDpCNE20fu0iRFbDGruuHH1wd6iT8KDL5coM
+ GSuE/7ITKUSqeg5WAIQVQwgFppgIny0IAH6ZZn5X6su5odpX0kAyHd+bbmLBH4cLMEI9
+ j6AlYqiHymZcmrM9GpBkgkkcYmDxnilGchjtcK1ElQcOaMznc+IpiFm2xGyJaj6Tg7F5
+ YaIw==
+X-Gm-Message-State: AOAM533LSVEisBZ+vIg6SDhbXDzROhRVLF5JDaav+se4k+VRWKN+SD/t
+ kY6A4Aldcp2S4tX/UgwNWg7Afg==
+X-Google-Smtp-Source: ABdhPJwjUXfhUdSHWN5jaqEIsJNOX3lvX7622QszkSBMLvEK3VhO3Psn4rluzieRO/ioHE2DD9qi0Q==
+X-Received: by 2002:a37:2797:0:b0:605:bbdb:310d with SMTP id
+ n145-20020a372797000000b00605bbdb310dmr208086qkn.638.1644971363199; 
+ Tue, 15 Feb 2022 16:29:23 -0800 (PST)
 Received: from rivos-atish.. (adsl-70-228-75-190.dsl.akrnoh.ameritech.net.
  [70.228.75.190])
- by smtp.gmail.com with ESMTPSA id g21sm20882584qtb.70.2022.02.15.16.29.19
+ by smtp.gmail.com with ESMTPSA id g21sm20882584qtb.70.2022.02.15.16.29.21
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 15 Feb 2022 16:29:20 -0800 (PST)
+ Tue, 15 Feb 2022 16:29:22 -0800 (PST)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Tsukasa OI <research_trasio@irq.a4lg.com>,
- Anup Patel <anup@brainfault.org>, Heiko Stuebner <heiko@sntech.de>,
- Atish Patra <atishp@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Atish Patra <atishp@atishpatra.org>,
- Damien Le Moal <damien.lemoal@wdc.com>, devicetree@vger.kernel.org,
- Jisheng Zhang <jszhang@kernel.org>,
+ Atish Patra <atishp@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>,
+ Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@atishpatra.org>,
+ Anup Patel <anup@brainfault.org>, Damien Le Moal <damien.lemoal@wdc.com>,
+ devicetree@vger.kernel.org, Jisheng Zhang <jszhang@kernel.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
  linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
-Subject: [PATCH v4 1/6] RISC-V: Correctly print supported extensions
-Date: Tue, 15 Feb 2022 16:29:06 -0800
-Message-Id: <20220216002911.1219593-2-atishp@rivosinc.com>
+Subject: [PATCH v4 2/6] RISC-V: Minimal parser for "riscv, isa" strings
+Date: Tue, 15 Feb 2022 16:29:07 -0800
+Message-Id: <20220216002911.1219593-3-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20220216002911.1219593-1-atishp@rivosinc.com>
 References: <20220216002911.1219593-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220215_162922_417527_C50425B2 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20220215_162924_576770_BB406B18 
+X-CRM114-Status: GOOD (  18.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,61 +98,130 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Tsukasa OI <research_trasio@irq.a4lg.com>
 
-This commit replaces BITS_PER_LONG with number of alphabet letters.
+Current hart ISA ("riscv,isa") parser don't correctly parse:
 
-Current ISA pretty-printing code expects extension 'a' (bit 0) through
-'z' (bit 25).  Although bit 26 and higher is not currently used (thus never
-cause an issue in practice), it will be an annoying problem if we start to
-use those in the future.
+1. Multi-letter extensions
+2. Version numbers
 
-This commit disables printing high bits for now.
+All ISA extensions ratified recently has multi-letter extensions
+(except 'H'). The current "riscv,isa" parser that is easily confused
+by multi-letter extensions and "p" in version numbers can be a huge
+problem for adding new extensions through the device tree.
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Tested-by: Heiko Stuebner <heiko@sntech.de>
-Signed-off-by: Tsukasa OI <research_trasio@irq.a4lg.com>
+Leaving it would create incompatible hacks and would make "riscv,isa"
+value unreliable.
+
+This commit implements minimal parser for "riscv,isa" strings.  With this,
+we can safely ignore multi-letter extensions and version numbers.
+
+[Improved commit text and fixed a bug around 's' in base extension]
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
+[Fixed workaround for QEMU]
+Signed-off-by: Tsukasa OI <research_trasio@irq.a4lg.com>
+Tested-by: Heiko Stuebner <heiko@sntech.de>
 ---
- arch/riscv/kernel/cpufeature.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ arch/riscv/kernel/cpufeature.c | 67 ++++++++++++++++++++++++++++------
+ 1 file changed, 56 insertions(+), 11 deletions(-)
 
 diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index d959d207a40d..dd3d57eb4eea 100644
+index dd3d57eb4eea..65664422b04d 100644
 --- a/arch/riscv/kernel/cpufeature.c
 +++ b/arch/riscv/kernel/cpufeature.c
-@@ -13,6 +13,8 @@
- #include <asm/smp.h>
- #include <asm/switch_to.h>
+@@ -7,6 +7,7 @@
+  */
  
-+#define NUM_ALPHA_EXTS ('z' - 'a' + 1)
-+
- unsigned long elf_hwcap __read_mostly;
- 
- /* Host ISA bitmap */
-@@ -63,7 +65,7 @@ void __init riscv_fill_hwcap(void)
- {
+ #include <linux/bitmap.h>
++#include <linux/ctype.h>
+ #include <linux/of.h>
+ #include <asm/processor.h>
+ #include <asm/hwcap.h>
+@@ -66,7 +67,7 @@ void __init riscv_fill_hwcap(void)
  	struct device_node *node;
  	const char *isa;
--	char print_str[BITS_PER_LONG + 1];
-+	char print_str[NUM_ALPHA_EXTS + 1];
- 	size_t i, j, isa_len;
+ 	char print_str[NUM_ALPHA_EXTS + 1];
+-	size_t i, j, isa_len;
++	int i, j;
  	static unsigned long isa2hwcap[256] = {0};
  
-@@ -133,13 +135,13 @@ void __init riscv_fill_hwcap(void)
- 	}
+ 	isa2hwcap['i'] = isa2hwcap['I'] = COMPAT_HWCAP_ISA_I;
+@@ -92,23 +93,67 @@ void __init riscv_fill_hwcap(void)
+ 			continue;
+ 		}
  
- 	memset(print_str, 0, sizeof(print_str));
--	for (i = 0, j = 0; i < BITS_PER_LONG; i++)
-+	for (i = 0, j = 0; i < NUM_ALPHA_EXTS; i++)
- 		if (riscv_isa[0] & BIT_MASK(i))
- 			print_str[j++] = (char)('a' + i);
- 	pr_info("riscv: ISA extensions %s\n", print_str);
+-		i = 0;
+-		isa_len = strlen(isa);
+ #if IS_ENABLED(CONFIG_32BIT)
+ 		if (!strncmp(isa, "rv32", 4))
+-			i += 4;
++			isa += 4;
+ #elif IS_ENABLED(CONFIG_64BIT)
+ 		if (!strncmp(isa, "rv64", 4))
+-			i += 4;
++			isa += 4;
+ #endif
+-		for (; i < isa_len; ++i) {
+-			this_hwcap |= isa2hwcap[(unsigned char)(isa[i])];
++		for (; *isa; ++isa) {
++			const char *ext = isa++;
++			const char *ext_end = isa;
++			bool ext_long = false, ext_err = false;
++
++			switch (*ext) {
++			case 's':
++			case 'x':
++			case 'z':
++				/**
++				 * Workaround for invalid single-letter 's' (QEMU).
++				 * It works until multi-letter extension starting
++				 * with "Su" appears.
++				 */
++				if (*ext == 's' && ext[-1] != '_' && ext[1] == 'u')
++					break;
++				ext_long = true;
++				/* Multi-letter extension must be delimited */
++				for (; *isa && *isa != '_'; ++isa)
++					if (!islower(*isa) && !isdigit(*isa))
++						ext_err = true;
++				break;
++			default:
++				if (unlikely(!islower(*ext))) {
++					ext_err = true;
++					break;
++				}
++				/* Find next extension */
++				if (!isdigit(*isa))
++					break;
++				/* Skip the minor version */
++				while (isdigit(*++isa))
++					;
++				if (*isa != 'p')
++					break;
++				if (!isdigit(*++isa)) {
++					--isa;
++					break;
++				}
++				/* Skip the major version */
++				while (isdigit(*++isa))
++					;
++				break;
++			}
++			if (*isa != '_')
++				--isa;
+ 			/*
+-			 * TODO: X, Y and Z extension parsing for Host ISA
+-			 * bitmap will be added in-future.
++			 * TODO: Full version-aware handling including
++			 * multi-letter extensions will be added in-future.
+ 			 */
+-			if ('a' <= isa[i] && isa[i] < 'x')
+-				this_isa |= (1UL << (isa[i] - 'a'));
++			if (ext_err || ext_long)
++				continue;
++			this_hwcap |= isa2hwcap[(unsigned char)(*ext)];
++			this_isa |= (1UL << (*ext - 'a'));
+ 		}
  
- 	memset(print_str, 0, sizeof(print_str));
--	for (i = 0, j = 0; i < BITS_PER_LONG; i++)
-+	for (i = 0, j = 0; i < NUM_ALPHA_EXTS; i++)
- 		if (elf_hwcap & BIT_MASK(i))
- 			print_str[j++] = (char)('a' + i);
- 	pr_info("riscv: ELF capabilities %s\n", print_str);
+ 		/*
 -- 
 2.30.2
 
