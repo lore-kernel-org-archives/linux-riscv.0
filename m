@@ -4,69 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4818BC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Feb 2022 07:43:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A80FC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Feb 2022 07:57:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mIipxa7ITm/ksNYJmE7JdNzBlPCVVllzN5uXwzpPNOI=; b=xBUemdASFKmi2j
-	mjd/N9tRupRTMeULZU/4o92MLb8nu81z6dOL8kfKH7it3XUtODGwF7jiRtlQkyZ/ogngssOf8Ghlh
-	hLp4tx1S5cgTOeOWUUNhQ2qANcOKHC5OaiZ9qRNHBR5AVXgzlxNgLgR/0M4C745wk17VG1a4ErCeP
-	cnpY19qGweYMssLXIOyfnCVNxH9xlhxzuzLx7N9DPccAhNCDvhISHQ1if4/kC51I+qCATGZ7qibDo
-	OYmx4npPfCHcd83wUtxxu2rYTsYBWprsFXWevb5a+bTq6cIwrolgjDZTYqgXh+kB3FZr4nmbonE1p
-	f/rAOlyfgkQRBPxliKTg==;
+	List-Owner; bh=SrqTnJfI9FX8Wbd60snBJAZbldd6o3jgbmT+YhO8U7g=; b=TkqY2NmrTgTGfG
+	5ZQr9g6LddNGDReOBGMLLMV95k5xwNGjy3k8hqDQxFxC11CM3x0yyx4sYfvv5kr6GNVr01M0DtfvJ
+	gAXNj4xejznkuqljzhX4A96niPmrP2SEpINQHf4cjMn5vnFsvdahgJdWa9FhiTT2Px9/KIZyjHqXf
+	UttufmcJI8JdfDJg83uSPU5TTePZ9kEQywSsfl26hH5afjZBpDyWhnvnzM8Vs05S+J/6MD6mqw8+w
+	EjDBJEs9vEWAfQRpiLU1HvkTxCT1NeUDFp23DiSMw7h/JgBP+sidjohE0olfMYn9dO+CQNYG69WH7
+	0PGMQzerYOSmqU0Jjkbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nKEy8-005smM-NK; Wed, 16 Feb 2022 07:43:20 +0000
-Received: from mail-yb1-xb31.google.com ([2607:f8b0:4864:20::b31])
+	id 1nKFC0-005xYL-LW; Wed, 16 Feb 2022 07:57:40 +0000
+Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nKEy5-005sl3-Ge
- for linux-riscv@lists.infradead.org; Wed, 16 Feb 2022 07:43:19 +0000
-Received: by mail-yb1-xb31.google.com with SMTP id v186so3552994ybg.1
- for <linux-riscv@lists.infradead.org>; Tue, 15 Feb 2022 23:43:16 -0800 (PST)
+ id 1nKFBf-005xPV-Pj
+ for linux-riscv@lists.infradead.org; Wed, 16 Feb 2022 07:57:23 +0000
+Received: by mail-yb1-xb2e.google.com with SMTP id l125so3614559ybl.4
+ for <linux-riscv@lists.infradead.org>; Tue, 15 Feb 2022 23:57:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=atishpatra.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=zlwl1j4ZNXU3aBRR9WZ+P0kgEfawx+PLMB2GStev11k=;
- b=T4C8CMKKgBaIKhNZ5mTIQC6ln9Z9tftgKJr8lLOSxdm8bHfpWZkoew0U//2M/fae4/
- mP1hw9ttWKczKa4Z5uqyjRj838CRp/6CR9pfDAmLoCBW59zuvycBSB2xw9IVIzh+N3lK
- Jdi5isDcosY5UsGhqIe1DPcLIJErSPyO1TBZQ=
+ :cc; bh=oMtBLX0dxO/FEXDrSK4WwXrfvEvOmP/i+ozpjhDxh2o=;
+ b=EGr7uINoD4BR8i3qX/tomHNRruYcjc/QbsipOZJBMwQk2ZyhvOQqpMphIFGGGWNWd3
+ JuGaeHSzEymH3RXHvUYHLSTERTs3AOZYPXnaVJ7N/QHn/Lzy8Soxfsdbwy63HmyHvoGF
+ ibPohfBIFhqTBcVfC4PMPdPyf0zXr8PsqaP7A=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=zlwl1j4ZNXU3aBRR9WZ+P0kgEfawx+PLMB2GStev11k=;
- b=dOyeH+TwWOwUC960FHJgJmq7n5Yhccvl8PhUd3iQOPoAsesGLWbOseDaZt1FiM0C66
- paWxJgSw67aYQz/4MieXOCaYoSTjx1A1X7AXUmt05dqhoFmu2Iv4lgZvh2UirNE1v4gK
- wr3V5Z1e6EE9LCNMFjWiEF9eyiR55S+eXODPMhOkKRovDkWEKWSghlGUDAe88bpt/DnF
- R0cZob8c+g/S+B7Zk4FrKS/azhChQo0qYwZ4WgDmdMpNDxeW9AzpfDU3/FlnCpUOnp53
- 0ukizmIZ3wNPxoNRDzOsCG3NKiHxGUGe7cDARNtBGZC3I17at1IV2cmrbbxFZU8RTd6p
- A+0Q==
-X-Gm-Message-State: AOAM533EslkwROAszUFyv3w3UFcKJAzChTPCz3JvzXCfuwetpHGISo16
- t1chN8BNMPyx6RFTg+KF7SwEvHf98AnZk2A9gQNgqJtYHs8B
-X-Google-Smtp-Source: ABdhPJw+zfDi64jhqscLIY1IjKugDnaY1rezkNYotlvyuRZOEM65ukDCkMGoNyGL+tmKrGL2mUDjJ9wNdY9VeBJLi0c=
-X-Received: by 2002:a25:9388:0:b0:61d:6ff8:6472 with SMTP id
- a8-20020a259388000000b0061d6ff86472mr1094767ybm.121.1644997395727; Tue, 15
- Feb 2022 23:43:15 -0800 (PST)
+ bh=oMtBLX0dxO/FEXDrSK4WwXrfvEvOmP/i+ozpjhDxh2o=;
+ b=j3ddu1zTh5kVLaxuc6vjWvPIeJUNcaLSroV84ntYcGqhRMdhpV8uRObdUaDN9VEKOc
+ 3vyF9tPfDoRgQOSfPZ9o/mbqYO/IBjN4PE2YsTNqZWkBAFXBuJAEzfrJBT7ushH39zVE
+ t/4ixBr4aMwBm8tZwUJB7xFDmWLk6VW8ONL8O3uFiA87qHsdE/1MQmLeWKJrs5EQK418
+ WiD+mDU4smtrAiZF0C41WNtl/jiO+v21rbGSTsZo99P63ipqmN0juNjCUmf/RDAEtybp
+ ggq25AF99U/xM1PkQik5Vw0CErUWxI0TXdtBE6UZDFtwbETgQ4pgZ2UnSbqsu9n1Ae6h
+ h86A==
+X-Gm-Message-State: AOAM532Ku+Gsj7g5sPa00PvMEEsoNzwvZ/Mn9TBoXdGA9CwJNW40AT16
+ BRzjVfzZkCyZALn+BxOqO+HE5fLipdqGKhw6KolG
+X-Google-Smtp-Source: ABdhPJxexRI1WA8BLHddNiaTLw6WNqMOfbfVIS1bSiAe/Miw7A1PF3HzHsObN1ZBqCdCL+fBicqD5iLDeOuq1uHkDM4=
+X-Received: by 2002:a5b:ec5:0:b0:615:4edf:4641 with SMTP id
+ a5-20020a5b0ec5000000b006154edf4641mr1079024ybs.494.1644998236462; Tue, 15
+ Feb 2022 23:57:16 -0800 (PST)
 MIME-Version: 1.0
-References: <20220216002911.1219593-1-atishp@rivosinc.com>
- <cover.1644987761.git.research_trasio@irq.a4lg.com>
- <8d7e1937f9476d14f64a53684b11bedd6f4ff88d.1644987761.git.research_trasio@irq.a4lg.com>
- <CAOnJCUKPBht9OY6bhHracxsX7U0w8jPKX-kFcQ5ZYkD-k7q4mQ@mail.gmail.com>
- <32ca2b3e-3e2b-ded3-39a9-df12bb9cb416@irq.a4lg.com>
-In-Reply-To: <32ca2b3e-3e2b-ded3-39a9-df12bb9cb416@irq.a4lg.com>
+References: <20220210054947.170134-1-apatel@ventanamicro.com>
+ <20220210054947.170134-5-apatel@ventanamicro.com>
+In-Reply-To: <20220210054947.170134-5-apatel@ventanamicro.com>
 From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 15 Feb 2022 23:43:05 -0800
-Message-ID: <CAOnJCUL_OX1NgzP_uqu4oEt3E-J1-ipdAeuuBPkByUKGAXSJTg@mail.gmail.com>
-Subject: Re: [PATCH 2/2] RISC-V: Extract base ISA from device tree
-To: Tsukasa OI <research_trasio@irq.a4lg.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>
+Date: Tue, 15 Feb 2022 23:57:05 -0800
+Message-ID: <CAOnJCU+VpiMtkoKBTLn9kzNxdLaFmedhNX=K36O+42nTkfZ0-A@mail.gmail.com>
+Subject: Re: [PATCH v11 4/8] RISC-V: Add SBI HSM suspend related defines
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Ulf Hansson <ulf.hansson@linaro.org>, "Rafael J . Wysocki" <rjw@rjwysocki.net>,
+ Pavel Machek <pavel@ucw.cz>, 
+ Rob Herring <robh+dt@kernel.org>, Sandeep Tripathy <milun.tripathy@gmail.com>, 
+ Alistair Francis <Alistair.Francis@wdc.com>, Liush <liush@allwinnertech.com>, 
+ Anup Patel <anup@brainfault.org>, devicetree <devicetree@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
+ "open list:THERMAL" <linux-pm@vger.kernel.org>, 
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ kvm-riscv@lists.infradead.org, Guo Ren <guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220215_234317_664285_C6529CDF 
-X-CRM114-Status: GOOD (  36.84  )
+X-CRM114-CacheID: sfid-20220215_235719_892333_5F8C1369 
+X-CRM114-Status: GOOD (  17.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,183 +92,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 15, 2022 at 10:59 PM Tsukasa OI
-<research_trasio@irq.a4lg.com> wrote:
+On Wed, Feb 9, 2022 at 9:50 PM Anup Patel <apatel@ventanamicro.com> wrote:
 >
-> On 2022/02/16 15:01, Atish Patra wrote:
-> > On Tue, Feb 15, 2022 at 9:04 PM Tsukasa OI <research_trasio@irq.a4lg.com> wrote:
-> >>
-> >> This commit replaces print_isa function to extract base ISA from device
-> >> tree ("riscv,isa").  It uses a subset of Tsukasa's riscv_fill_hwcap ISA
-> >> parser.
-> >>
-> >> Design choices (1):
-> >>
-> >> It constructs base ISA string from the original string (does not cut
-> >> the original string like Atish's).  This is to strip version numbers
-> >> (too minor to represent as major ISA) but this behavior may be
-> >> debatable.
-> >>
-> >
-> > A simpler solution would be to just invoke
-> > __riscv_isa_extension_available for all the base
-> > extensions (imafdc) and print the base isa string.
-> > We don't need to parse the ISA string again here.
+> From: Anup Patel <anup.patel@wdc.com>
 >
-> I agree that my patchset is ugly and simpler solution would be good.
-> (Having two parser for same string is definitely not the best idea.)
-> There are some testcases (some are not accepted by Spike's --isa option
-> and requires custom Device tree) for testing:
+> We add defines related to SBI HSM suspend call and also
+> update HSM states naming as-per latest SBI specification.
 >
-> *   rv64imac
-> *   rv64imacsu      (invalid ISA string; test QEMU workaround)
-> *   rv64imafdch
-> *   rv64imafdcsuh   (invalid ISA string; test QEMU workaround)
-> *   rv64imafdc_svinval_svnapot
-> *   rv64imafdcsvinval_svnapot
-> *   rv64i2p1m2a2fdcsvinval
-> *   rv64i2p1_m_afdcsvinval
+> Signed-off-by: Anup Patel <anup.patel@wdc.com>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> Reviewed-by: Guo Ren <guoren@kernel.org>
+> ---
+>  arch/riscv/include/asm/sbi.h    | 27 ++++++++++++++++++++++-----
+>  arch/riscv/kernel/cpu_ops_sbi.c |  2 +-
+>  arch/riscv/kvm/vcpu_sbi_hsm.c   |  4 ++--
+>  3 files changed, 25 insertions(+), 8 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+> index d1c37479d828..06133b4f8e20 100644
+> --- a/arch/riscv/include/asm/sbi.h
+> +++ b/arch/riscv/include/asm/sbi.h
+> @@ -71,15 +71,32 @@ enum sbi_ext_hsm_fid {
+>         SBI_EXT_HSM_HART_START = 0,
+>         SBI_EXT_HSM_HART_STOP,
+>         SBI_EXT_HSM_HART_STATUS,
+> +       SBI_EXT_HSM_HART_SUSPEND,
+>  };
+>
+> -enum sbi_hsm_hart_status {
+> -       SBI_HSM_HART_STATUS_STARTED = 0,
+> -       SBI_HSM_HART_STATUS_STOPPED,
+> -       SBI_HSM_HART_STATUS_START_PENDING,
+> -       SBI_HSM_HART_STATUS_STOP_PENDING,
+> +enum sbi_hsm_hart_state {
+> +       SBI_HSM_STATE_STARTED = 0,
+> +       SBI_HSM_STATE_STOPPED,
+> +       SBI_HSM_STATE_START_PENDING,
+> +       SBI_HSM_STATE_STOP_PENDING,
+> +       SBI_HSM_STATE_SUSPENDED,
+> +       SBI_HSM_STATE_SUSPEND_PENDING,
+> +       SBI_HSM_STATE_RESUME_PENDING,
+>  };
+>
+> +#define SBI_HSM_SUSP_BASE_MASK                 0x7fffffff
+> +#define SBI_HSM_SUSP_NON_RET_BIT               0x80000000
+> +#define SBI_HSM_SUSP_PLAT_BASE                 0x10000000
+> +
+> +#define SBI_HSM_SUSPEND_RET_DEFAULT            0x00000000
+> +#define SBI_HSM_SUSPEND_RET_PLATFORM           SBI_HSM_SUSP_PLAT_BASE
+> +#define SBI_HSM_SUSPEND_RET_LAST               SBI_HSM_SUSP_BASE_MASK
+> +#define SBI_HSM_SUSPEND_NON_RET_DEFAULT                SBI_HSM_SUSP_NON_RET_BIT
+> +#define SBI_HSM_SUSPEND_NON_RET_PLATFORM       (SBI_HSM_SUSP_NON_RET_BIT | \
+> +                                                SBI_HSM_SUSP_PLAT_BASE)
+> +#define SBI_HSM_SUSPEND_NON_RET_LAST           (SBI_HSM_SUSP_NON_RET_BIT | \
+> +                                                SBI_HSM_SUSP_BASE_MASK)
+> +
+>  enum sbi_ext_srst_fid {
+>         SBI_EXT_SRST_RESET = 0,
+>  };
+> diff --git a/arch/riscv/kernel/cpu_ops_sbi.c b/arch/riscv/kernel/cpu_ops_sbi.c
+> index dae29cbfe550..2e16f6732cdf 100644
+> --- a/arch/riscv/kernel/cpu_ops_sbi.c
+> +++ b/arch/riscv/kernel/cpu_ops_sbi.c
+> @@ -111,7 +111,7 @@ static int sbi_cpu_is_stopped(unsigned int cpuid)
+>
+>         rc = sbi_hsm_hart_get_status(hartid);
+>
+> -       if (rc == SBI_HSM_HART_STATUS_STOPPED)
+> +       if (rc == SBI_HSM_STATE_STOPPED)
+>                 return 0;
+>         return rc;
+>  }
+> diff --git a/arch/riscv/kvm/vcpu_sbi_hsm.c b/arch/riscv/kvm/vcpu_sbi_hsm.c
+> index 2e383687fa48..1ac4b2e8e4ec 100644
+> --- a/arch/riscv/kvm/vcpu_sbi_hsm.c
+> +++ b/arch/riscv/kvm/vcpu_sbi_hsm.c
+> @@ -60,9 +60,9 @@ static int kvm_sbi_hsm_vcpu_get_status(struct kvm_vcpu *vcpu)
+>         if (!target_vcpu)
+>                 return -EINVAL;
+>         if (!target_vcpu->arch.power_off)
+> -               return SBI_HSM_HART_STATUS_STARTED;
+> +               return SBI_HSM_STATE_STARTED;
+>         else
+> -               return SBI_HSM_HART_STATUS_STOPPED;
+> +               return SBI_HSM_STATE_STOPPED;
+>  }
+>
+>  static int kvm_sbi_ext_hsm_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
+> --
+> 2.25.1
 >
 
-Thanks. This is a good set of test cases that covers most of the cases.
-
-> >
-> >> Design choices (2):
-> >>
-> >> It skips when single-letter 'S' or 'U' is encountered.  It improves
-> >> familiarity with regular ISA string.
-> >>
-> >
-> > I don't think this is necessary because only Qemu appends 'S' & 'U' in
-> > the isa string.
-> > Your patch in Qemu will fix that for future releases of Qemu.
-> > All other commonly used platforms (hardware/spike) already use the
-> > correct ISA string.
->
-> Yes, only QEMU.  It's not a serious problem like on cpufeature.c but would
-> be nice to remove them (when exposing to the usermode) to prevent confusion
-> on usermode side.
->
-> If you invoke __riscv_isa_extension_available to generate base ISA string,
-> would you exclude 'S' and 'U'?
->
-
-Yeah. That's easy. The possible valid base extensions are "IMAFHDQCBJPV".
-(all the possible defined bits in misa except 'S' & 'U')
-So we will invoke __riscv_isa_extension_available for those only.
-
-> >
-> >> This commit is intended to be squashed into Atish's isa_framework_v4
-> >> PATCH 6/6.
-> >>
-> >> Signed-off-by: Tsukasa OI <research_trasio@irq.a4lg.com>
-> >> ---
-> >>  arch/riscv/kernel/cpu.c | 83 ++++++++++++++++++++++++++++++++++++-----
-> >>  1 file changed, 74 insertions(+), 9 deletions(-)
-> >>
-> >> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> >> index 6f9660c0a973..3f9607a66d95 100644
-> >> --- a/arch/riscv/kernel/cpu.c
-> >> +++ b/arch/riscv/kernel/cpu.c
-> >> @@ -101,17 +101,82 @@ static void print_isa_ext(struct seq_file *f)
-> >>
-> >>  static void print_isa(struct seq_file *f, const char *isa)
-> >>  {
-> >> -       char *ext_start;
-> >> -       int isa_len = strlen(isa);
-> >> -       int base_isa_len = isa_len;
-> >> -
-> >> -       ext_start = strnchr(isa, isa_len, '_');
-> >> -       if (ext_start)
-> >> -               base_isa_len = isa_len - strlen(ext_start);
-> >> +       unsigned char parse_break = 0;
-> >> +       char base_isa[RISCV_ISA_EXT_BASE + 5];
-> >> +       char *base_isa_end = base_isa;
-> >> +       const char *isa_end = isa;
-> >> +#if IS_ENABLED(CONFIG_32BIT)
-> >> +       if (!strncmp(isa, "rv32", 4))
-> >> +               isa_end += 4;
-> >> +#elif IS_ENABLED(CONFIG_64BIT)
-> >> +       if (!strncmp(isa, "rv64", 4))
-> >> +               isa_end += 4;
-> >> +#endif
-> >> +       if (isa != isa_end) {
-> >> +               strncpy(base_isa, isa, isa_end - isa);
-> >> +               base_isa_end += isa_end - isa;
-> >> +               for (; *isa_end; ++isa_end) {
-> >> +                       switch (*isa_end++) {
-> >> +                       case 'x':
-> >> +                       case 'z':
-> >> +                               parse_break = 1;
-> >> +                               break;
-> >> +                       case 's':
-> >> +                               if (*isa_end != 'u') {
-> >> +                                       parse_break = 1;
-> >> +                                       break;
-> >> +                               }
-> >> +                               /**
-> >> +                                * Workaround for invalid single-letter 's'
-> >> +                                * (QEMU).  Should break for valid ISA string.
-> >> +                                */
-> >> +                               fallthrough;
-> >> +                       default:
-> >> +                               if (unlikely(!islower(isa_end[-1])
-> >> +                                   || base_isa_end == base_isa + sizeof(base_isa))) {
-> >> +                                       parse_break = 2;
-> >> +                                       break;
-> >> +                               }
-> >> +                               switch (isa_end[-1]) {
-> >> +                               case 's':
-> >> +                               case 'u':
-> >> +                                       break;
-> >> +                               default:
-> >> +                                       *base_isa_end++ = isa_end[-1];
-> >> +                               }
-> >> +                               /* Skip version number */
-> >> +                               if (!isdigit(*isa_end))
-> >> +                                       break;
-> >> +                               while (isdigit(*++isa_end))
-> >> +                                       ;
-> >> +                               if (*isa_end != 'p')
-> >> +                                       break;
-> >> +                               if (!isdigit(*++isa_end)) {
-> >> +                                       --isa_end;
-> >> +                                       break;
-> >> +                               }
-> >> +                               while (isdigit(*++isa_end))
-> >> +                                       ;
-> >> +                               break;
-> >> +                       }
-> >> +                       if (*isa_end != '_')
-> >> +                               --isa_end;
-> >> +                       if (parse_break)
-> >> +                               break;
-> >> +               }
-> >> +       }
-> >>
-> >> -       /* Print only the base ISA as it is */
-> >> +       /**
-> >> +        * Print only the base ISA
-> >> +        * (original ISA string as is if an error is encountered)
-> >> +        */
-> >>         seq_puts(f, "isa\t\t: ");
-> >> -       seq_write(f, isa, base_isa_len);
-> >> +       if (parse_break < 2) {
-> >> +               seq_write(f, base_isa, base_isa_end - base_isa);
-> >> +       } else {
-> >> +               isa_end += strlen(isa_end);
-> >> +               seq_write(f, isa, isa_end - isa);
-> >> +       }
-> >>         seq_puts(f, "\n");
-> >>  }
-> >>
-> >> --
-> >> 2.32.0
-> >>
-> >
-> >
-
-
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
 
 -- 
 Regards,
