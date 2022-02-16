@@ -4,67 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E952C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Feb 2022 06:02:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5036AC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Feb 2022 06:52:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dsPj6MJpOyjFl+N17uAdNqWbG55Mi0stP2tGpfybxzU=; b=OexMC2fv1T0DKz
-	bbRcJMZOWCgoLNuTS2IZkDWfisnLHkRDCWSH+ti+dGgK9GCiisZPzyqZB+ljv8OhGYNj5sJlmhSD6
-	DqNVW6a0yRXM50RVfNheq8KjvbzMNPq2HxZqTZK4W6BFk8dlp2ZlRTgYhC5Zr9VJfqi2kYirB9SWU
-	nxCg3a/tIXxuN7Ixpw1SIQXh/e5V3q8zxSktXiL2jX9/dnW6PYt2/qUpggDMFBu+dJ2QhTpAKNf6Q
-	FcQfpWaXBUg3X/VxoExlM3dBB5gMLr9f0SJvC9N2i11bUNulBPiSCE/iCfl1NQSsfpn2zmLpKbwXx
-	V3M6Zd7IqJjCsSApgzHA==;
+	List-Owner; bh=88YQccS29xYRvOdB6DNzU7BSmAHNNCAIA0MwqjMyWO0=; b=pYMLBrhm1jcbZ9
+	4vG6oO/3Yy6N3WY0LyjDHGjkL63TnWQenQ0wcuAUtehmsY/408hWwXDMVpse5Bn8ZkF/3EIJdB5Wm
+	5QttIzjI0HWJPILTgtapkLTr/zwrYJNTo4oX3o/VMbiqfPtTVHQafY3kXmBK4XXAnfi1B5sPsanCb
+	2QBjNaVYuKu+eeIEPXi6jW5JA+QBw3Piv1sOoC5eTNI3k6mZK8y8FvTStQiQ+tK31RkqKAHsUyk2a
+	oIaBvvn0XadFh+6Q8kDr+wW0IFeZjPuZYaTnsSk9M1NH/cybdLrWQmp7Zvz931fY8E/Hslu0Y1fAH
+	0sBEcEGBrhvlpJoTZByQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nKDOM-005dRf-5Q; Wed, 16 Feb 2022 06:02:18 +0000
-Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
+	id 1nKEAx-005ix7-2I; Wed, 16 Feb 2022 06:52:31 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nKDOI-005dPS-UG
- for linux-riscv@lists.infradead.org; Wed, 16 Feb 2022 06:02:16 +0000
-Received: by mail-yb1-xb35.google.com with SMTP id v63so2833674ybv.10
- for <linux-riscv@lists.infradead.org>; Tue, 15 Feb 2022 22:02:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
+ id 1nKEAu-005iwc-FM
+ for linux-riscv@lists.infradead.org; Wed, 16 Feb 2022 06:52:30 +0000
+Received: by mail-lf1-x135.google.com with SMTP id o2so2058417lfd.1
+ for <linux-riscv@lists.infradead.org>; Tue, 15 Feb 2022 22:52:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=1rbKjtTuqSd76t2artUCByRA28ELNC5Nnlp8GtVRo1A=;
- b=ebvZHN/qAMvc+F6EmLJRBahtwaxjIryTHv9sw/WSGaVH5iEa/BjCWVL7MoM15leGvl
- RQkQ97eClLWb29wqvJoyxn/sNYqXaPaAY68WYGyF+aR44oEZmxHgMil8MaWUctgRsKZK
- bdGPEaJU88J3GriIeu72b6DGUpbmHsipamMkc=
+ :cc; bh=gjCi/HaXP+bc/Zw8WReu9bjIQ1k5GoBWpagMKd2Rfl0=;
+ b=IgeglsV3Ccf40cqfZi33wnyMePOTDBS1Gj63ZrI9pUvFILQtGV9unvSUw8faEfUy7K
+ kKoVrK5Wxjt/WSSaJhjW/Xmo1AKosOR6Mcy0NWvmAT/Hh3D2Mw8FiDGRRv2Hbmt3gZiU
+ ESS5BZClYqWMuKOWKgJa6lrxHAeFFMfhFxla5BFuviqkVZJwZVFXZRg/U69ZwP84G6we
+ CUBGkFGlnnuLpDwVoMrSlArTHFSrAqrXvmy9yaUpWtSEffK54ZAe5/5m5XsXwMfXwty6
+ VIiAWTULGPYZmucLXgL8vYknVqPDEaHIT4bXnb6n5pwGkOEob4R6CV0OHLkXQcFv6QPC
+ lDmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=1rbKjtTuqSd76t2artUCByRA28ELNC5Nnlp8GtVRo1A=;
- b=zCcS5RRukcBNZ2DxuQtlKbWBwWdfWVK+JGFSTnkKgHmGR7AyYHqPjoSSTa2M2F1zNz
- EfhvHsDuA6rSF2eL0850x/GcYO5ZBdT4NiRqtEN78vORd16f11lB+96UwvOxql2sOiZV
- zHxLxmwlct5E0wtv8Lp7rs5dmICpPxp89+v/eZMfrQJp9gQuq5B8O7faPrPXZxca1etu
- ibO/CGMqqkRfhGqRKIiRdgMhYWIXmuTF1YagV48Kg6wL1gpKsBNrdXOPo1j83ZYuoXDK
- ltDLkSCmOoPw3zLa9W7hWWFABtjdy8E6z1zkjk9xH9Uxq3UHyNV3Dtm3b1TaiNyFj8UP
- 8ADg==
-X-Gm-Message-State: AOAM5321UYvIlx6UZJy2TqVxRLd/VkAAO1gMV4JyuTjdoUHcfATINJzI
- lQzEi2HB8te2qlmrjSlkJt5XyDjHOpc17lwPmgjR
-X-Google-Smtp-Source: ABdhPJzvezDUbOdbNXn+8RclKv+n+iemPric6QYwKX7XXEtQz9vXo1ArziNPBlkh5QDcmGlgKx1YbVk8Rede/nannYg=
-X-Received: by 2002:a25:fe03:0:b0:61d:f5ce:56a9 with SMTP id
- k3-20020a25fe03000000b0061df5ce56a9mr938290ybe.472.1644991330084; Tue, 15 Feb
- 2022 22:02:10 -0800 (PST)
+ bh=gjCi/HaXP+bc/Zw8WReu9bjIQ1k5GoBWpagMKd2Rfl0=;
+ b=I5uy/u1sbeXThLGSIVTtjjMmgCbaiQwQoIONCnogplBCXwV8Jnyd1nWBAa+sV0ul8z
+ WeyeaeOuGnaiaEbOUbRfV2NOlvntYxGaY0TEEXD0MF0icB9T5FqCcyxzYkls4zs5t72p
+ T8lrrIyaFr+wGx70agn5giQb6Qz5FLdOUtHbluG/AVCuM0QKm+2Nm9ytGzmOWZ2dNiIl
+ Wsllt9imM+m7xqzO2GDxr8Or5Flm1eu/tDRRixdKXMq02IF++DRWtjhoSHV6QHfHFeta
+ OTiNNOLhPlXdF0HYij/839fLkNEO1EBinRaga0PmTlx4vvDew9PblIkn6L2pUCYzkL/Z
+ AMEQ==
+X-Gm-Message-State: AOAM530Y4TS+52OZXFqjFXATmyA8ErVmaChO6ao0IBO4EDkR80VffuQT
+ x/m410oFcZpirmHZA+qCootawOZrEb7nilRglJB0Pg==
+X-Google-Smtp-Source: ABdhPJzRa2uVf64r3DqFR9UHw6YBgNGoCCYRwHItiwnl8QbxzQYuOmfiTBLUXZ0paSS6h6rWhZbscI5mfu3Fe6s3Rvc=
+X-Received: by 2002:ac2:4e4a:0:b0:430:5dc2:3877 with SMTP id
+ f10-20020ac24e4a000000b004305dc23877mr1062162lfr.116.1644994346088; Tue, 15
+ Feb 2022 22:52:26 -0800 (PST)
 MIME-Version: 1.0
-References: <20220216002911.1219593-1-atishp@rivosinc.com>
- <cover.1644987761.git.research_trasio@irq.a4lg.com>
- <8d7e1937f9476d14f64a53684b11bedd6f4ff88d.1644987761.git.research_trasio@irq.a4lg.com>
-In-Reply-To: <8d7e1937f9476d14f64a53684b11bedd6f4ff88d.1644987761.git.research_trasio@irq.a4lg.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 15 Feb 2022 22:01:59 -0800
-Message-ID: <CAOnJCUKPBht9OY6bhHracxsX7U0w8jPKX-kFcQ5ZYkD-k7q4mQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] RISC-V: Extract base ISA from device tree
-To: Tsukasa OI <research_trasio@irq.a4lg.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>
+References: <cover.1644215230.git.zong.li@sifive.com>
+ <df6c8d1c701b33fa735dd072de3cb585dc60f2c9.1644215230.git.zong.li@sifive.com>
+ <YguXQJp/b/8SzjGX@matsya>
+In-Reply-To: <YguXQJp/b/8SzjGX@matsya>
+From: Zong Li <zong.li@sifive.com>
+Date: Wed, 16 Feb 2022 14:52:14 +0800
+Message-ID: <CANXhq0p-Jv2HMNu9NaG=03yudanoqV6MH=LhiCspHbj5nTn+GQ@mail.gmail.com>
+Subject: Re: [PATCH v5 3/3] dmaengine: sf-pdma: Get number of channel by
+ device tree
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
+ Conor Dooley <conor.dooley@microchip.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Bin Meng <bin.meng@windriver.com>, Green Wan <green.wan@sifive.com>, 
+ dmaengine <dmaengine@vger.kernel.org>, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220215_220215_056484_E07E7A48 
-X-CRM114-Status: GOOD (  27.11  )
+X-CRM114-CacheID: sfid-20220215_225228_590510_A017EE6E 
+X-CRM114-Status: GOOD (  28.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,149 +94,118 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 15, 2022 at 9:04 PM Tsukasa OI <research_trasio@irq.a4lg.com> wrote:
+On Tue, Feb 15, 2022 at 8:06 PM Vinod Koul <vkoul@kernel.org> wrote:
 >
-> This commit replaces print_isa function to extract base ISA from device
-> tree ("riscv,isa").  It uses a subset of Tsukasa's riscv_fill_hwcap ISA
-> parser.
+> On 07-02-22, 14:30, Zong Li wrote:
+> > It currently assumes that there are always four channels, it would
+> > cause the error if there is actually less than four channels. Change
+> > that by getting number of channel from device tree.
+> >
+> > For backwards-compatibility, it uses the default value (i.e. 4) when
+> > there is no 'dma-channels' information in dts.
+> >
+> > Signed-off-by: Zong Li <zong.li@sifive.com>
+> > ---
+> >  drivers/dma/sf-pdma/sf-pdma.c | 21 ++++++++++++++-------
+> >  drivers/dma/sf-pdma/sf-pdma.h |  8 ++------
+> >  2 files changed, 16 insertions(+), 13 deletions(-)
+> >
+> > diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
+> > index f12606aeff87..2ae10b61dfa1 100644
+> > --- a/drivers/dma/sf-pdma/sf-pdma.c
+> > +++ b/drivers/dma/sf-pdma/sf-pdma.c
+> > @@ -482,9 +482,7 @@ static void sf_pdma_setup_chans(struct sf_pdma *pdma)
+> >  static int sf_pdma_probe(struct platform_device *pdev)
+> >  {
+> >       struct sf_pdma *pdma;
+> > -     struct sf_pdma_chan *chan;
+> >       struct resource *res;
+> > -     int len, chans;
+> >       int ret;
+> >       const enum dma_slave_buswidth widths =
+> >               DMA_SLAVE_BUSWIDTH_1_BYTE | DMA_SLAVE_BUSWIDTH_2_BYTES |
+> > @@ -492,13 +490,21 @@ static int sf_pdma_probe(struct platform_device *pdev)
+> >               DMA_SLAVE_BUSWIDTH_16_BYTES | DMA_SLAVE_BUSWIDTH_32_BYTES |
+> >               DMA_SLAVE_BUSWIDTH_64_BYTES;
+> >
+> > -     chans = PDMA_NR_CH;
+> > -     len = sizeof(*pdma) + sizeof(*chan) * chans;
+> > -     pdma = devm_kzalloc(&pdev->dev, len, GFP_KERNEL);
+> > +     pdma = devm_kzalloc(&pdev->dev, sizeof(*pdma), GFP_KERNEL);
+> >       if (!pdma)
+> >               return -ENOMEM;
+> >
+> > -     pdma->n_chans = chans;
+> > +     ret = of_property_read_u32(pdev->dev.of_node, "dma-channels",
+> > +                                &pdma->n_chans);
+> > +     if (ret) {
+> > +             dev_notice(&pdev->dev, "set number of channels to default value: 4\n");
 >
-> Design choices (1):
->
-> It constructs base ISA string from the original string (does not cut
-> the original string like Atish's).  This is to strip version numbers
-> (too minor to represent as major ISA) but this behavior may be
-> debatable.
+> This is useful for only debug i think, so dev_dbg perhaps
 >
 
-A simpler solution would be to just invoke
-__riscv_isa_extension_available for all the base
-extensions (imafdc) and print the base isa string.
-We don't need to parse the ISA string again here.
+Thanks for your suggestion, let me change it in the next version.
 
-> Design choices (2):
+> > +             pdma->n_chans = PDMA_MAX_NR_CH;
+> > +     }
+> > +
+> > +     if (pdma->n_chans > PDMA_MAX_NR_CH) {
+> > +             dev_err(&pdev->dev, "the number of channels exceeds the maximum\n");
+> > +             return -EINVAL;
+> > +     }
+> >
+> >       res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> >       pdma->membase = devm_ioremap_resource(&pdev->dev, res);
+> > @@ -556,7 +562,7 @@ static int sf_pdma_remove(struct platform_device *pdev)
+> >       struct sf_pdma_chan *ch;
+> >       int i;
+> >
+> > -     for (i = 0; i < PDMA_NR_CH; i++) {
+> > +     for (i = 0; i < pdma->n_chans; i++) {
+> >               ch = &pdma->chans[i];
+> >
+> >               devm_free_irq(&pdev->dev, ch->txirq, ch);
+> > @@ -574,6 +580,7 @@ static int sf_pdma_remove(struct platform_device *pdev)
+> >
+> >  static const struct of_device_id sf_pdma_dt_ids[] = {
+> >       { .compatible = "sifive,fu540-c000-pdma" },
+> > +     { .compatible = "sifive,pdma0" },
+> >       {},
+> >  };
+> >  MODULE_DEVICE_TABLE(of, sf_pdma_dt_ids);
+> > diff --git a/drivers/dma/sf-pdma/sf-pdma.h b/drivers/dma/sf-pdma/sf-pdma.h
+> > index 0c20167b097d..8127d792f639 100644
+> > --- a/drivers/dma/sf-pdma/sf-pdma.h
+> > +++ b/drivers/dma/sf-pdma/sf-pdma.h
+> > @@ -22,11 +22,7 @@
+> >  #include "../dmaengine.h"
+> >  #include "../virt-dma.h"
+> >
+> > -#define PDMA_NR_CH                                   4
+> > -
+> > -#if (PDMA_NR_CH != 4)
+> > -#error "Please define PDMA_NR_CH to 4"
+> > -#endif
+> > +#define PDMA_MAX_NR_CH                                       4
+> >
+> >  #define PDMA_BASE_ADDR                                       0x3000000
+> >  #define PDMA_CHAN_OFFSET                             0x1000
+> > @@ -118,7 +114,7 @@ struct sf_pdma {
+> >       void __iomem            *membase;
+> >       void __iomem            *mappedbase;
+> >       u32                     n_chans;
+> > -     struct sf_pdma_chan     chans[PDMA_NR_CH];
+> > +     struct sf_pdma_chan     chans[PDMA_MAX_NR_CH];
 >
-> It skips when single-letter 'S' or 'U' is encountered.  It improves
-> familiarity with regular ISA string.
+> why waste memory allocating max, we know number of channels in probe,
+> why not allocate runtime?
 >
 
-I don't think this is necessary because only Qemu appends 'S' & 'U' in
-the isa string.
-Your patch in Qemu will fix that for future releases of Qemu.
-All other commonly used platforms (hardware/spike) already use the
-correct ISA string.
+I kept it there because I'd like to do minimum change in this patch
+set. You're right, let me change it in the next version.
 
-> This commit is intended to be squashed into Atish's isa_framework_v4
-> PATCH 6/6.
->
-> Signed-off-by: Tsukasa OI <research_trasio@irq.a4lg.com>
-> ---
->  arch/riscv/kernel/cpu.c | 83 ++++++++++++++++++++++++++++++++++++-----
->  1 file changed, 74 insertions(+), 9 deletions(-)
->
-> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> index 6f9660c0a973..3f9607a66d95 100644
-> --- a/arch/riscv/kernel/cpu.c
-> +++ b/arch/riscv/kernel/cpu.c
-> @@ -101,17 +101,82 @@ static void print_isa_ext(struct seq_file *f)
->
->  static void print_isa(struct seq_file *f, const char *isa)
->  {
-> -       char *ext_start;
-> -       int isa_len = strlen(isa);
-> -       int base_isa_len = isa_len;
-> -
-> -       ext_start = strnchr(isa, isa_len, '_');
-> -       if (ext_start)
-> -               base_isa_len = isa_len - strlen(ext_start);
-> +       unsigned char parse_break = 0;
-> +       char base_isa[RISCV_ISA_EXT_BASE + 5];
-> +       char *base_isa_end = base_isa;
-> +       const char *isa_end = isa;
-> +#if IS_ENABLED(CONFIG_32BIT)
-> +       if (!strncmp(isa, "rv32", 4))
-> +               isa_end += 4;
-> +#elif IS_ENABLED(CONFIG_64BIT)
-> +       if (!strncmp(isa, "rv64", 4))
-> +               isa_end += 4;
-> +#endif
-> +       if (isa != isa_end) {
-> +               strncpy(base_isa, isa, isa_end - isa);
-> +               base_isa_end += isa_end - isa;
-> +               for (; *isa_end; ++isa_end) {
-> +                       switch (*isa_end++) {
-> +                       case 'x':
-> +                       case 'z':
-> +                               parse_break = 1;
-> +                               break;
-> +                       case 's':
-> +                               if (*isa_end != 'u') {
-> +                                       parse_break = 1;
-> +                                       break;
-> +                               }
-> +                               /**
-> +                                * Workaround for invalid single-letter 's'
-> +                                * (QEMU).  Should break for valid ISA string.
-> +                                */
-> +                               fallthrough;
-> +                       default:
-> +                               if (unlikely(!islower(isa_end[-1])
-> +                                   || base_isa_end == base_isa + sizeof(base_isa))) {
-> +                                       parse_break = 2;
-> +                                       break;
-> +                               }
-> +                               switch (isa_end[-1]) {
-> +                               case 's':
-> +                               case 'u':
-> +                                       break;
-> +                               default:
-> +                                       *base_isa_end++ = isa_end[-1];
-> +                               }
-> +                               /* Skip version number */
-> +                               if (!isdigit(*isa_end))
-> +                                       break;
-> +                               while (isdigit(*++isa_end))
-> +                                       ;
-> +                               if (*isa_end != 'p')
-> +                                       break;
-> +                               if (!isdigit(*++isa_end)) {
-> +                                       --isa_end;
-> +                                       break;
-> +                               }
-> +                               while (isdigit(*++isa_end))
-> +                                       ;
-> +                               break;
-> +                       }
-> +                       if (*isa_end != '_')
-> +                               --isa_end;
-> +                       if (parse_break)
-> +                               break;
-> +               }
-> +       }
->
-> -       /* Print only the base ISA as it is */
-> +       /**
-> +        * Print only the base ISA
-> +        * (original ISA string as is if an error is encountered)
-> +        */
->         seq_puts(f, "isa\t\t: ");
-> -       seq_write(f, isa, base_isa_len);
-> +       if (parse_break < 2) {
-> +               seq_write(f, base_isa, base_isa_end - base_isa);
-> +       } else {
-> +               isa_end += strlen(isa_end);
-> +               seq_write(f, isa, isa_end - isa);
-> +       }
->         seq_puts(f, "\n");
->  }
->
 > --
-> 2.32.0
->
-
-
--- 
-Regards,
-Atish
+> ~Vinod
 
 _______________________________________________
 linux-riscv mailing list
