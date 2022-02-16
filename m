@@ -4,80 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57733C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Feb 2022 16:17:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A361CC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Feb 2022 16:22:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ukh927OYJD3Cji/82PIzrE+hEASyF3L30w+mYdT3Xjk=; b=oZpMicjPklE35v
-	Ve8PLiADM68MauQ8o8QPENtyuQS3FfU/pq3UohRIYF51h4NueBSG40M7rUuAcTz6irea4Dkq/ovxL
-	wLe4pDZXDGBbcusiLkWca4GgkVDBL/D7BqTGqhOVtzb/6uaf4mK0X3kHyLLYswy7lAuyJthbzKKSa
-	BK9WX+oEApVgScqOa3sSVvvAEsdP2IvRc1PXSKeVJKWk41qUiwnqyLyF0oPzk23j44jeQEW5LPS79
-	gth8/VOd9tKkN4RZyAIGGQZzw8jlEMnkYHnPeUIzJGYYSe4YPjE3ANNDQAncT9p+D2lPOEJxKncJi
-	Ka8n9NGF1QFrgjjJalGg==;
+	List-Owner; bh=5v+b0IaDNTVNGJDiumwDXQ0bWQ9+y4fUCxvRL9pDMTM=; b=g8E6JZRimXY25+
+	1C+vBkCVggRaDtpx5c7c8pZmIjUFURo2f8f5NMFmBC6tMElweSXDIjaggNQG3tRdovKazbuj/AZsT
+	i8UKXOm10i2Ff87d7TkNci0S69p/FaUGoSMo4YwQX8PMMsdjWwh9CIHwQRqQMaKhMruDYxSsCab+7
+	9EY/5ai4LU5kzSAUpeyCeN3Mey8b3yleSfDgDUQj5MFILtu0gIkGOwgh/TLhzaFCKxHdbwEKgvXwG
+	3Q0Tmri3VLRJjBXr6r1++69aTp0ZCoE1ykypJ5CkjJnf5xSPFOBW8f6qgVexopsdR0wS4Ekb/d7qT
+	MshjYkiYk+2zaL9b0IOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nKMzK-007eVQ-9Y; Wed, 16 Feb 2022 16:17:06 +0000
-Received: from mail-il1-x131.google.com ([2607:f8b0:4864:20::131])
+	id 1nKN4a-007fTA-23; Wed, 16 Feb 2022 16:22:32 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
+ helo=mx0a-001b2d01.pphosted.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nKMzH-007eUX-4Z
- for linux-riscv@lists.infradead.org; Wed, 16 Feb 2022 16:17:05 +0000
-Received: by mail-il1-x131.google.com with SMTP id z18so162010iln.2
- for <linux-riscv@lists.infradead.org>; Wed, 16 Feb 2022 08:17:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=Q/am0HDxpBYA40FHZaIrVn8nXi2cQpq4EMCF+My6Irk=;
- b=NtvZYC1AXgVz959qRsuGJurUXhPS4HOehNbNlRawXOrzvQ6FV9JAel/aIqZu4j5tOe
- ARRoSb3laykvZtmYJ6G7zYl0hT66XXYCL7t563wkKS8/eQawUAI0cHV/kAFXIcWzmFE1
- 65Wmi/+YKQDZjLXHTp5GG7JwCR3HjiRGv3sX+0EmjGHl1deohObtRCBJlSodzDjZwKXC
- Qq1NJJtyttLjiMaYdze63OowaswwpdPPyNLxnvcF+uxw+otohltXnHTtuEmrzOraOegu
- 46EZHH02T+0+JN/0rnQlzoB2slZbFlAJS7WuOyGNU9Yv9SVWk4NmWWYDV4BGYveQHaXF
- 0Rwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=Q/am0HDxpBYA40FHZaIrVn8nXi2cQpq4EMCF+My6Irk=;
- b=WSmWkbJ7Jzs8EqIFRiVkKBFAa9VqM0sFqJ66ZXKJw0t75i7tcm9Bi8RM3PmMplOxx0
- FFNMpCDepZxnYyAqAuPTUnLiA2pjLoDJOXGQ6qoKbX/X6Xj0SJyoWD12xGbMn2U2oxMe
- NHL+pAwMi0WOhphUJBbpyReIwqcCv09cYxx620kG01ALaqMuoOOBB0eXb1/e7VsE1EQU
- YL1Csy5cZYat3KtvXJEQ280kOdCjYEr/xqamBZS8PN2AfImylD76jMyR7f79TmmuGQwq
- qZwkbiK+tnifnJYngxAeLZwjgukQ8H8BLtNg2Ve5jJFUS1gTkpESfVrJl3NCPrZKH02E
- MPMA==
-X-Gm-Message-State: AOAM532yWlvrM80t6LyqZIrvp2rFHgdBMAp/bKoGN2rYiuAQiOGdrWoF
- ugBIGc0f086sXxwGQIhH3mm17/uZg7xfOVJpcfXcAA==
-X-Google-Smtp-Source: ABdhPJzccQKhg4Q4I2/TlMKMErdUahLKq48uFhWv9juAGEB4ztofnqNxpU+OJ6PbL66QyDpWxoD0+4z4RQc5WzPDtHo=
-X-Received: by 2002:a92:c241:0:b0:2b9:80f9:e2a with SMTP id
- k1-20020a92c241000000b002b980f90e2amr2303305ilo.208.1645028221681; Wed, 16
- Feb 2022 08:17:01 -0800 (PST)
+ id 1nKN4W-007fRH-At; Wed, 16 Feb 2022 16:22:30 +0000
+Received: from pps.filterd (m0098420.ppops.net [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com (8.16.1.2/8.16.1.2) with SMTP id 21GGA5GZ012323; 
+ Wed, 16 Feb 2022 16:21:34 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
+ h=date : from : to : cc :
+ subject : message-id : in-reply-to : references : mime-version :
+ content-type : content-transfer-encoding; s=pp1;
+ bh=hGygGfyBZQzZARePJKDSLYnI6/62xJHqBNUbgyKANO0=;
+ b=NpcKNj54knmv3Q5MF4nttEklExUtM0QnFXSfFbH5fLroMiw0N1L7Xa8MLBKzbA6+xhQ6
+ 1A8V5M87+X3b1Tfo3x3mtxwXzFS1xpSvWBWB8iweUnRh03hK72itY3iUFxMEbeHOIznG
+ 2Td6sv6OHHJzOk0G9CrzEyOZMv0aIC8BNEwe+rtBpzHIGFiAjTGQdp6oFWqTi/59eQbg
+ 9tTXXKOPFhxVhGmjWZycA6pFuATn9SUX0YqIsTUBOLn7Yzfvnxk+4oePTb8kPoJrb301
+ V9f49DqQaHsVmTi8wL7XIpuMFT/EZujLouFH1tVpnV5z0mnMUfpCFGODtIFQce3j7Uk1 ow== 
+Received: from pps.reinject (localhost [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com with ESMTP id 3e944t8q6u-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Wed, 16 Feb 2022 16:21:34 +0000
+Received: from m0098420.ppops.net (m0098420.ppops.net [127.0.0.1])
+ by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 21GGB0gQ015426;
+ Wed, 16 Feb 2022 16:21:32 GMT
+Received: from ppma03ams.nl.ibm.com (62.31.33a9.ip4.static.sl-reverse.com
+ [169.51.49.98])
+ by mx0b-001b2d01.pphosted.com with ESMTP id 3e944t8q61-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Wed, 16 Feb 2022 16:21:32 +0000
+Received: from pps.filterd (ppma03ams.nl.ibm.com [127.0.0.1])
+ by ppma03ams.nl.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 21GGCjBB022708;
+ Wed, 16 Feb 2022 16:21:30 GMT
+Received: from b06cxnps4075.portsmouth.uk.ibm.com
+ (d06relay12.portsmouth.uk.ibm.com [9.149.109.197])
+ by ppma03ams.nl.ibm.com with ESMTP id 3e64haaj7w-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Wed, 16 Feb 2022 16:21:30 +0000
+Received: from b06wcsmtp001.portsmouth.uk.ibm.com
+ (b06wcsmtp001.portsmouth.uk.ibm.com [9.149.105.160])
+ by b06cxnps4075.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ 21GGLLhJ38535620
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Wed, 16 Feb 2022 16:21:21 GMT
+Received: from b06wcsmtp001.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id F295DA4062;
+ Wed, 16 Feb 2022 16:21:20 +0000 (GMT)
+Received: from b06wcsmtp001.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 00B50A4069;
+ Wed, 16 Feb 2022 16:21:19 +0000 (GMT)
+Received: from p-imbrenda (unknown [9.145.2.54])
+ by b06wcsmtp001.portsmouth.uk.ibm.com (Postfix) with ESMTP;
+ Wed, 16 Feb 2022 16:21:18 +0000 (GMT)
+Date: Wed, 16 Feb 2022 17:21:17 +0100
+From: Claudio Imbrenda <imbrenda@linux.ibm.com>
+To: Chao Gao <chao.gao@intel.com>
+Cc: seanjc@google.com, maz@kernel.org, kvm@vger.kernel.org,
+ pbonzini@redhat.com, kevin.tian@intel.com, tglx@linutronix.de, James Morse
+ <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>, Suzuki
+ K Poulose <suzuki.poulose@arm.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Huacai Chen
+ <chenhuacai@kernel.org>, Aleksandar Markovic
+ <aleksandar.qemu.devel@gmail.com>, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>, Paul Mackerras
+ <paulus@samba.org>, Anup Patel <anup@brainfault.org>, Atish Patra
+ <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian
+ Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank
+ <frankja@linux.ibm.com>, David Hildenbrand <david@redhat.com>, Heiko
+ Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander
+ Gordeev <agordeev@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>,
+ Vitaly Kuznetsov <vkuznets@redhat.com>,
+ Wanpeng Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,
+ Joerg Roedel <joro@8bytes.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin"
+ <hpa@zytor.com>, "Maciej S. Szmigiero" <maciej.szmigiero@oracle.com>,
+ Bharata B Rao <bharata@linux.ibm.com>, Nicholas Piggin <npiggin@gmail.com>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
+ linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
+Subject: Re: [PATCH v4 2/6] Partially revert "KVM: Pass kvm_init()'s opaque
+ param to additional arch funcs"
+Message-ID: <20220216172117.194e5309@p-imbrenda>
+In-Reply-To: <20220216031528.92558-3-chao.gao@intel.com>
+References: <20220216031528.92558-1-chao.gao@intel.com>
+ <20220216031528.92558-3-chao.gao@intel.com>
+Organization: IBM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.33; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-References: <00000000000038779505d5d8b372@google.com>
- <CANp29Y7WjwXwgxPrNq0XXjXPu+wGFqTreh9gry=O6aE7+cKpLQ@mail.gmail.com>
- <CA+zEjCvu76yW7zfM+qJUe+t5y23oPdzR4KDV1mOdqH8bB4GmTw@mail.gmail.com>
- <CACT4Y+arufrRgwmN66wUU+_FGxMy-sTkjMQnRN8U2H2tQuhB7A@mail.gmail.com>
- <a0769218-c84a-a1d3-71e7-aefd40bf54fe@ghiti.fr>
- <CANp29Y4WMhsE_-VWvNbwq18+qvb1Qc-ES80h_j_G-N_hcAnRAw@mail.gmail.com>
- <CANp29Y4ujmz901aE9oiBDx9dYWHti4-Jw=6Ewtotm6ck6MN9FQ@mail.gmail.com>
- <CACT4Y+ZvStiHLYBOcPDoAJnk8hquXwm9BgjQTv=APwh7AvgEUQ@mail.gmail.com>
- <CANp29Y56Or0V1AG7rzBfV_ZTph2Crg4JKKHiuw1kcGFFxeWqiQ@mail.gmail.com>
-In-Reply-To: <CANp29Y56Or0V1AG7rzBfV_ZTph2Crg4JKKHiuw1kcGFFxeWqiQ@mail.gmail.com>
-From: Aleksandr Nogikh <nogikh@google.com>
-Date: Wed, 16 Feb 2022 17:16:50 +0100
-Message-ID: <CANp29Y5+MuhKAzVxzEDb_k9voXmKWrUFx8k4wnW5=2+5enVFVA@mail.gmail.com>
-Subject: Re: [syzbot] riscv/fixes boot error: can't ssh into the instance
-To: Dmitry Vyukov <dvyukov@google.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
- Alexandre Ghiti <alexandre.ghiti@canonical.com>, 
- linux-riscv@lists.infradead.org, kasan-dev <kasan-dev@googlegroups.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, 
- syzbot <syzbot+330a558d94b58f7601be@syzkaller.appspotmail.com>, 
- LKML <linux-kernel@vger.kernel.org>, syzkaller-bugs@googlegroups.com
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: 3fTH7-ZleMRtuhzk036tkK96NWkQJCFz
+X-Proofpoint-ORIG-GUID: dWyQhtdRuToKG8BmT7g8zOnlfvrlm7Bk
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.205,Aquarius:18.0.816,Hydra:6.0.425,FMLib:17.11.62.513
+ definitions=2022-02-16_07,2022-02-16_01,2021-12-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 mlxscore=0
+ spamscore=0 phishscore=0 lowpriorityscore=0 bulkscore=0 mlxlogscore=999
+ impostorscore=0 priorityscore=1501 adultscore=0 suspectscore=0
+ clxscore=1011 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2201110000 definitions=main-2202160095
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220216_081703_206108_95D4A0BE 
-X-CRM114-Status: GOOD (  37.33  )
+X-CRM114-CacheID: sfid-20220216_082228_526486_83BD170C 
+X-CRM114-Status: GOOD (  25.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,139 +144,169 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If I use just defconfig + DEBUG_VIRTUAL, without any KASAN, it begins
-to boot, but overwhelms me with tons of `virt_to_phys used for
-non-linear address:` errors.
+On Wed, 16 Feb 2022 11:15:17 +0800
+Chao Gao <chao.gao@intel.com> wrote:
 
-Like that
+> This partially reverts commit b99040853738 ("KVM: Pass kvm_init()'s opaque
+> param to additional arch funcs") remove opaque from
+> kvm_arch_check_processor_compat because no one uses this opaque now.
+> Address conflicts for ARM (due to file movement) and manually handle RISC-V
+> which comes after the commit.
+> 
+> And changes about kvm_arch_hardware_setup() in original commit are still
+> needed so they are not reverted.
+> 
+> Signed-off-by: Chao Gao <chao.gao@intel.com>
+> Reviewed-by: Sean Christopherson <seanjc@google.com>
 
-[    2.701271] virt_to_phys used for non-linear address:
-00000000b59e31b6 (0xffffffff806c2000)
-[    2.701727] WARNING: CPU: 0 PID: 1 at arch/riscv/mm/physaddr.c:16
-__virt_to_phys+0x7e/0x86
-[    2.702207] Modules linked in:
-[    2.702393] CPU: 0 PID: 1 Comm: swapper/0 Tainted: G        W
-  5.17.0-rc1 #1
-[    2.702806] Hardware name: riscv-virtio,qemu (DT)
-[    2.703051] epc : __virt_to_phys+0x7e/0x86
-[    2.703298]  ra : __virt_to_phys+0x7e/0x86
-[    2.703547] epc : ffffffff80008448 ra : ffffffff80008448 sp :
-ffff8f800021bde0
-[    2.703977]  gp : ffffffff80ed9b30 tp : ffffaf8001230000 t0 :
-ffffffff80eea56f
-[    2.704704]  t1 : ffffffff80eea560 t2 : 0000000000000000 s0 :
-ffff8f800021be00
-[    2.705153]  s1 : ffffffff806c2000 a0 : 000000000000004f a1 :
-ffffffff80e723d8
-[    2.705555]  a2 : 0000000000000010 a3 : fffffffffffffffe a4 :
-0000000000000000
-[    2.706027]  a5 : 0000000000000000 a6 : 0000000000000005 a7 :
-ffffffffffffffff
-[    2.706474]  s2 : ffffffff80b80b08 s3 : 00000000000000c2 s4 :
-ffffffff806c2000
-[    2.706891]  s5 : ffffffff80edba10 s6 : ffffffff80edb960 s7 :
-0000000000000001
-[    2.707290]  s8 : 00000000000000ff s9 : ffffffff80b80b40 s10:
-00000000000000cc
-[    2.707689]  s11: ffffaf807e1fcf00 t3 : 0000000000000076 t4 :
-ffffffffffffffff
-[    2.708092]  t5 : 00000000000001f2 t6 : ffff8f800021bb48
-[    2.708433] status: 0000000000000120 badaddr: 0000000000000000
-cause: 0000000000000003
-[    2.708919] [<ffffffff8011416a>] free_reserved_area+0x72/0x19a
-[    2.709296] [<ffffffff80003a5a>] free_initmem+0x6c/0x7c
-[    2.709648] [<ffffffff805f60c8>] kernel_init+0x3a/0x10a
-[    2.709993] [<ffffffff80002fda>] ret_from_exception+0x0/0xc
-[    2.710310] ---[ end trace 0000000000000000 ]---
+for KVM s390:
 
-On Wed, Feb 16, 2022 at 5:09 PM Aleksandr Nogikh <nogikh@google.com> wrote:
->
-> On Wed, Feb 16, 2022 at 12:56 PM Dmitry Vyukov <dvyukov@google.com> wrote:
-> >
-> > On Wed, 16 Feb 2022 at 12:47, Aleksandr Nogikh <nogikh@google.com> wrote:
-> > >
-> > > On Wed, Feb 16, 2022 at 11:37 AM Aleksandr Nogikh <nogikh@google.com> wrote:
-> > > >
-> > > > Hi Alex,
-> > > >
-> > > > On Wed, Feb 16, 2022 at 5:14 AM Alexandre Ghiti <alex@ghiti.fr> wrote:
-> > > > >
-> > > > > Hi Dmitry,
-> > > > >
-> > > > > On 2/15/22 18:12, Dmitry Vyukov wrote:
-> > > > > > On Wed, 2 Feb 2022 at 14:18, Alexandre Ghiti
-> > > > > > <alexandre.ghiti@canonical.com> wrote:
-> > > > > >> Hi Aleksandr,
-> > > > > >>
-> > > > > >> On Wed, Feb 2, 2022 at 12:08 PM Aleksandr Nogikh <nogikh@google.com> wrote:
-> > > > > >>> Hello,
-> > > > > >>>
-> > > > > >>> syzbot has already not been able to fuzz its RISC-V instance for 97
-> > > > > >> That's a longtime, I'll take a look more regularly.
-> > > > > >>
-> > > > > >>> days now because the compiled kernel cannot boot. I bisected the issue
-> > > > > >>> to the following commit:
-> > > > > >>>
-> > > > > >>> commit 54c5639d8f507ebefa814f574cb6f763033a72a5
-> > > > > >>> Author: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-> > > > > >>> Date:   Fri Oct 29 06:59:27 2021 +0200
-> > > > > >>>
-> > > > > >>>      riscv: Fix asan-stack clang build
-> > > > > >>>
-> > > > > >>> Apparently, the problem appears on GCC-built RISC-V kernels with KASAN
-> > > > > >>> enabled. In the previous message syzbot mentions
-> > > > > >>> "riscv64-linux-gnu-gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU
-> > > > > >>> Binutils for Debian) 2.35.2", but the issue also reproduces finely on
-> > > > > >>> a newer GCC compiler: "riscv64-linux-gnu-gcc (Debian 11.2.0-10)
-> > > > > >>> 11.2.0, GNU ld (GNU Binutils for Debian) 2.37".
-> > > > > >>> For convenience, I also duplicate the .config file from the bot's
-> > > > > >>> message: https://syzkaller.appspot.com/x/.config?x=522544a2e0ef2a7d
-> > > > > >>>
-> > > > > >>> Can someone with KASAN and RISC-V expertise please take a look?
-> > > > > >> I'll take a look at that today.
-> > > > > >>
-> > > > > >> Thanks for reporting the issue,
-> > > > > >
-> > > > >
-> > > > > I took a quick look, not enough to fix it but I know the issue comes
-> > > > > from the inline instrumentation, I have no problem with the outline
-> > > > > instrumentation. I need to find some cycles to work on this, my goal is
-> > > > > to fix this for 5.17.
-> > > >
-> > > > Thanks for the update!
-> > > >
-> > > > Can you please share the .config with which you tested the outline
-> > > > instrumentation?
-> > > > I updated the syzbot config to use KASAN_OUTLINE instead of KASAN_INLINE,
-> > > > but it still does not boot :(
-> > > >
-> > > > Here's what I used:
-> > > > https://gist.github.com/a-nogikh/279c85c2d24f47efcc3e865c08844138
-> > >
-> > > Update: it doesn't boot with that big config, but boots if I generate
-> > > a simple one with KASAN_OUTLINE:
-> > >
-> > > make defconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
-> > > ./scripts/config -e KASAN -e KASAN_OUTLINE
-> > > make olddefconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
-> > >
-> > > And it indeed doesn't work if I use KASAN_INLINE.
-> >
-> > It may be an issue with code size. Full syzbot config + KASAN + KCOV
-> > produce hugely massive .text. It may be hitting some limitation in the
-> > bootloader/kernel bootstrap code.
->
-> I bisected the difference between the config we use on syzbot and the
-> simple one that was generated like I described above.
-> Turns out that it's the DEBUG_VIRTUAL config that makes the difference.
->
-> make defconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
-> ./scripts/config -e KASAN -e KASAN_OUTLINE -e DEBUG_VIRTUAL
-> make olddefconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
->
-> And the resulting kernel does not boot.
-> My env: the `riscv/fixes` branch, commit
-> 6df2a016c0c8a3d0933ef33dd192ea6606b115e3, qemu 6.2.0.
+Acked-by: Claudio Imbrenda <imbrenda@linux.ibm.com>
+
+> ---
+>  arch/arm64/kvm/arm.c       |  2 +-
+>  arch/mips/kvm/mips.c       |  2 +-
+>  arch/powerpc/kvm/powerpc.c |  2 +-
+>  arch/riscv/kvm/main.c      |  2 +-
+>  arch/s390/kvm/kvm-s390.c   |  2 +-
+>  arch/x86/kvm/x86.c         |  2 +-
+>  include/linux/kvm_host.h   |  2 +-
+>  virt/kvm/kvm_main.c        | 16 +++-------------
+>  8 files changed, 10 insertions(+), 20 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index ecc5958e27fe..0165cf3aac3a 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -73,7 +73,7 @@ int kvm_arch_hardware_setup(void *opaque)
+>  	return 0;
+>  }
+>  
+> -int kvm_arch_check_processor_compat(void *opaque)
+> +int kvm_arch_check_processor_compat(void)
+>  {
+>  	return 0;
+>  }
+> diff --git a/arch/mips/kvm/mips.c b/arch/mips/kvm/mips.c
+> index a25e0b73ee70..092d09fb6a7e 100644
+> --- a/arch/mips/kvm/mips.c
+> +++ b/arch/mips/kvm/mips.c
+> @@ -140,7 +140,7 @@ int kvm_arch_hardware_setup(void *opaque)
+>  	return 0;
+>  }
+>  
+> -int kvm_arch_check_processor_compat(void *opaque)
+> +int kvm_arch_check_processor_compat(void)
+>  {
+>  	return 0;
+>  }
+> diff --git a/arch/powerpc/kvm/powerpc.c b/arch/powerpc/kvm/powerpc.c
+> index 2ad0ccd202d5..30c817f3fa0c 100644
+> --- a/arch/powerpc/kvm/powerpc.c
+> +++ b/arch/powerpc/kvm/powerpc.c
+> @@ -423,7 +423,7 @@ int kvm_arch_hardware_setup(void *opaque)
+>  	return 0;
+>  }
+>  
+> -int kvm_arch_check_processor_compat(void *opaque)
+> +int kvm_arch_check_processor_compat(void)
+>  {
+>  	return kvmppc_core_check_processor_compat();
+>  }
+> diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
+> index 2e5ca43c8c49..992877e78393 100644
+> --- a/arch/riscv/kvm/main.c
+> +++ b/arch/riscv/kvm/main.c
+> @@ -20,7 +20,7 @@ long kvm_arch_dev_ioctl(struct file *filp,
+>  	return -EINVAL;
+>  }
+>  
+> -int kvm_arch_check_processor_compat(void *opaque)
+> +int kvm_arch_check_processor_compat(void)
+>  {
+>  	return 0;
+>  }
+> diff --git a/arch/s390/kvm/kvm-s390.c b/arch/s390/kvm/kvm-s390.c
+> index 577f1ead6a51..0053b81c6b02 100644
+> --- a/arch/s390/kvm/kvm-s390.c
+> +++ b/arch/s390/kvm/kvm-s390.c
+> @@ -252,7 +252,7 @@ int kvm_arch_hardware_enable(void)
+>  	return 0;
+>  }
+>  
+> -int kvm_arch_check_processor_compat(void *opaque)
+> +int kvm_arch_check_processor_compat(void)
+>  {
+>  	return 0;
+>  }
+> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+> index 9b484ed61f37..ffb88f0b7265 100644
+> --- a/arch/x86/kvm/x86.c
+> +++ b/arch/x86/kvm/x86.c
+> @@ -11509,7 +11509,7 @@ void kvm_arch_hardware_unsetup(void)
+>  	static_call(kvm_x86_hardware_unsetup)();
+>  }
+>  
+> -int kvm_arch_check_processor_compat(void *opaque)
+> +int kvm_arch_check_processor_compat(void)
+>  {
+>  	struct cpuinfo_x86 *c = &cpu_data(smp_processor_id());
+>  
+> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+> index f11039944c08..2ad78e729bf7 100644
+> --- a/include/linux/kvm_host.h
+> +++ b/include/linux/kvm_host.h
+> @@ -1413,7 +1413,7 @@ int kvm_arch_hardware_enable(void);
+>  void kvm_arch_hardware_disable(void);
+>  int kvm_arch_hardware_setup(void *opaque);
+>  void kvm_arch_hardware_unsetup(void);
+> -int kvm_arch_check_processor_compat(void *opaque);
+> +int kvm_arch_check_processor_compat(void);
+>  int kvm_arch_vcpu_runnable(struct kvm_vcpu *vcpu);
+>  bool kvm_arch_vcpu_in_kernel(struct kvm_vcpu *vcpu);
+>  int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu);
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index 83c57bcc6eb6..ee47d33d69e1 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -5643,22 +5643,14 @@ void kvm_unregister_perf_callbacks(void)
+>  }
+>  #endif
+>  
+> -struct kvm_cpu_compat_check {
+> -	void *opaque;
+> -	int *ret;
+> -};
+> -
+> -static void check_processor_compat(void *data)
+> +static void check_processor_compat(void *rtn)
+>  {
+> -	struct kvm_cpu_compat_check *c = data;
+> -
+> -	*c->ret = kvm_arch_check_processor_compat(c->opaque);
+> +	*(int *)rtn = kvm_arch_check_processor_compat();
+>  }
+>  
+>  int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
+>  		  struct module *module)
+>  {
+> -	struct kvm_cpu_compat_check c;
+>  	int r;
+>  	int cpu;
+>  
+> @@ -5686,10 +5678,8 @@ int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
+>  	if (r < 0)
+>  		goto out_free_1;
+>  
+> -	c.ret = &r;
+> -	c.opaque = opaque;
+>  	for_each_online_cpu(cpu) {
+> -		smp_call_function_single(cpu, check_processor_compat, &c, 1);
+> +		smp_call_function_single(cpu, check_processor_compat, &r, 1);
+>  		if (r < 0)
+>  			goto out_free_2;
+>  	}
+
 
 _______________________________________________
 linux-riscv mailing list
