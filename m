@@ -4,78 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C568C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Feb 2022 00:57:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B16C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Feb 2022 03:16:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iw7kXTACIlaLwblcAvcIn9v6MC/DmB+g91plpg5Rs6g=; b=uSx6ud3Dj/DMpA
-	mNUZJVOtGzBH6rABtyXxhKbun8u8tSdqxSbsJTjhmf5jHT626qtE6j9gsf4KkEhRH/wzsLWTR/NjM
-	8oZ+elTrplEYUfekXX5UrEFFyqVlURmTVkz4eprmtgysj9g2ahQ76H7zA8J9p43BP34JgFsxzCpMh
-	nuq4vvdwOjdyAUMdIjxOKgxD3BLXLM0AnDbI1bYlw+RRUpugqMZiDTh2j3NXphi8WVMU+rayX3f5g
-	Tx3MOefhhvqFjsQzTjgHfkM0ozcW2GycETl0KYYXhSEz/k/sV3y1Gvd3AWPYkl4xbXW9fRAZa0Ujr
-	weRBcdQuChnAyYHYGxYA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ff9uDW/GqA6abUwBeIvEBUDoX+OlVILIyKxWbl+Uc2c=; b=dnU3967TOEeaCZ
+	FPnjWCC+76nA3RNiRzsoZHtHtVE8MlB8K1rLbHbVjAYAKHQjYHBe8KSI3Jwt4XJHYxxDRDE2cG+p3
+	Fc5aCF+RZe9cHHCwwrdgpZHMtBkAN9Iq4X4olHEv8+x8h70Kdt3aeec1FaNNhF+5mDyNNBBs9y0xQ
+	CuhadSflWQoORYggq5mff1TokJi5/KB2pekr65wLxa92++kGHh/rFfHNTECnwGnW8JT3NW2HxtCo2
+	/NHoI0IQMZJSfYUcYdPptcnZXzCaoWqx3heTiVFieJB7Gm36TCnG0vte72B4WXw/hV3selm9lvgPD
+	akxh703lsLoDoSvFxbmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nK8dR-0056tw-AS; Wed, 16 Feb 2022 00:57:33 +0000
-Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
+	id 1nKAnK-005NdE-8f; Wed, 16 Feb 2022 03:15:54 +0000
+Received: from mga05.intel.com ([192.55.52.43])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nK8dE-0056qO-9J
- for linux-riscv@lists.infradead.org; Wed, 16 Feb 2022 00:57:21 +0000
-Received: by mail-yb1-xb34.google.com with SMTP id v63so1248505ybv.10
- for <linux-riscv@lists.infradead.org>; Tue, 15 Feb 2022 16:57:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=U8G5LYNj0LAd4VWKhX4PRkQunQsiCSSKv2IZ3Pf+XZs=;
- b=gpERkwaSaLIxACa9WIVhxhGtJssexFQa3ON9pkBRsTjx4PNq0MQw2kjCHUZz4hQjFI
- X4MeU8dMf0P33tjb48vBqe9UNBGOrBYQpILedHOhpC7eX44P1DuShRsNX9XjfoAcud+f
- y8FClYnR/o87poChRgDdKBi4llSa+2dvnrZXE=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=U8G5LYNj0LAd4VWKhX4PRkQunQsiCSSKv2IZ3Pf+XZs=;
- b=ClE94VHtce4aUk0uQhZBVeJeLpvMEQ70q5pwAOfT6ghjkP5ZY+GTitWxrd82bD0f8g
- NxPpcjsKVneYhh1bF6tJxQpK27AyBOtsPAinEKTJfJ3kuxXBj9PIUuwmVRijVpSWRYmf
- TcIsUKVLfgfvg38c3DM1kMBzlIQxegahvg4cCnPNhVaSW8xkD8LZTzsg8xR2jGPQDksX
- WspVxk7W621LnSr23csvxyL1I+qXZF4kbtW63h0xZ+fUJqyc+rFbGfEyS6MDMHkaBppC
- oeinQvJTcFM+qx8sIPilNH9bxZQGRAfbol+WGrM4Het2S48w5AJHkaliPiBYjdHG9/Ki
- Jo9w==
-X-Gm-Message-State: AOAM532VL4xdQSgkYilebT9XHVsU6th8K9eV4RvkkLJmufrQa3tcO4Fh
- THJM3Q8/IbFcuiZoZTP9dImx0+MZ4kINWfXLcICa
-X-Google-Smtp-Source: ABdhPJxWU3rQFdHx9DRWoyTLBAygvzH/GruMqzNlGu+Yz+32ovLqbluWBIZUb8NNplrLnx1jx1ox/IdWtkgRPbbh3v8=
-X-Received: by 2002:a25:9388:0:b0:61d:6ff8:6472 with SMTP id
- a8-20020a259388000000b0061d6ff86472mr208446ybm.121.1644973037573; Tue, 15 Feb
- 2022 16:57:17 -0800 (PST)
+ id 1nKAnF-005NcQ-QH; Wed, 16 Feb 2022 03:15:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+ d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+ t=1644981349; x=1676517349;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=QTNgfjCEcX1QhsvTX1L+Tjbtrc8LR7Y4aspA8SJiUsY=;
+ b=JwBB0DbylUBY2K3e//TrI8m1LQawXcoZwceWmpubMWe0giVf7YIPEwUe
+ duP7lcXCIOm9A0lnVIotI0XiHMTlbn6gEVIxnrVtFKk/xectxV0djtRuJ
+ A9v0PfXFmDtJjm/wnwqqtuqALzL0+UDHdBddGebkPTGjzfF73sIS8quKw
+ AkbSYG116omhG4VzRlqLH/PeafkFHaLC6heTiK2eDWkR9dJxKmx8F1RC8
+ ELDfIQYflM0ZjCXATv/t14EbgA4je8RVIOwDaaPOThRrIFMr3YeAubZ2D
+ ybISafQCEeBomQsPKrkd6a+MLiVq2W2/I5Dq2LeLIbBDSqNf8Wb3cRutc w==;
+X-IronPort-AV: E=McAfee;i="6200,9189,10259"; a="336944962"
+X-IronPort-AV: E=Sophos;i="5.88,371,1635231600"; d="scan'208";a="336944962"
+Received: from fmsmga006.fm.intel.com ([10.253.24.20])
+ by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 15 Feb 2022 19:15:48 -0800
+X-IronPort-AV: E=Sophos;i="5.88,371,1635231600"; d="scan'208";a="773798119"
+Received: from hyperv-sh4.sh.intel.com ([10.239.48.22])
+ by fmsmga006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 15 Feb 2022 19:15:36 -0800
+From: Chao Gao <chao.gao@intel.com>
+To: seanjc@google.com, maz@kernel.org, kvm@vger.kernel.org,
+ pbonzini@redhat.com, kevin.tian@intel.com, tglx@linutronix.de
+Cc: Chao Gao <chao.gao@intel.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Andrew Jones <drjones@redhat.com>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <atishp@atishpatra.org>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Bharata B Rao <bharata@linux.ibm.com>, Borislav Petkov <bp@alien8.de>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ "Darrick J. Wong" <djwong@kernel.org>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>, Eric Auger <eric.auger@redhat.com>,
+ Hector Martin <marcan@marcan.st>, Heiko Carstens <hca@linux.ibm.com>,
+ "H. Peter Anvin" <hpa@zytor.com>, Huacai Chen <chenhuacai@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, James Morse <james.morse@arm.com>,
+ Janosch Frank <frankja@linux.ibm.com>, Jia He <justin.he@arm.com>,
+ Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
+ John Garry <john.garry@huawei.com>, Juergen Gross <jgross@suse.com>,
+ kvmarm@lists.cs.columbia.edu, kvm-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ "Maciej S. Szmigiero" <maciej.szmigiero@oracle.com>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Nathan Chancellor <nathan@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Mackerras <paulus@samba.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Qi Liu <liuqi115@huawei.com>,
+ Shaokun Zhang <zhangshaokun@hisilicon.com>,
+ Sumanth Korikkar <sumanthk@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Thomas Richter <tmricht@linux.ibm.com>,
+ Tom Zanussi <tom.zanussi@linux.intel.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>,
+ Wanpeng Li <wanpengli@tencent.com>, Will Deacon <will@kernel.org>,
+ x86@kernel.org
+Subject: [PATCH v4 0/6] Improve KVM's interaction with CPU hotplug
+Date: Wed, 16 Feb 2022 11:15:15 +0800
+Message-Id: <20220216031528.92558-1-chao.gao@intel.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20220210054947.170134-1-apatel@ventanamicro.com>
- <20220210054947.170134-3-apatel@ventanamicro.com>
-In-Reply-To: <20220210054947.170134-3-apatel@ventanamicro.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 15 Feb 2022 16:57:06 -0800
-Message-ID: <CAOnJCUJHk4Yaj8Dx2-gViJNrRYmmnZqWCUqqddg44QCwCgF4Ag@mail.gmail.com>
-Subject: Re: [PATCH v11 2/8] RISC-V: Rename relocate() and make it global
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Ulf Hansson <ulf.hansson@linaro.org>, "Rafael J . Wysocki" <rjw@rjwysocki.net>,
- Pavel Machek <pavel@ucw.cz>, 
- Rob Herring <robh+dt@kernel.org>, Sandeep Tripathy <milun.tripathy@gmail.com>, 
- Alistair Francis <Alistair.Francis@wdc.com>, Liush <liush@allwinnertech.com>, 
- Anup Patel <anup@brainfault.org>, devicetree <devicetree@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
- "open list:THERMAL" <linux-pm@vger.kernel.org>, 
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
- kvm-riscv@lists.infradead.org, Guo Ren <guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220215_165720_337448_90F25D07 
-X-CRM114-Status: GOOD (  17.96  )
+X-CRM114-CacheID: sfid-20220215_191549_915933_2606B24C 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,68 +112,94 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 9, 2022 at 9:50 PM Anup Patel <apatel@ventanamicro.com> wrote:
->
-> From: Anup Patel <anup.patel@wdc.com>
->
-> The low-level relocate() function enables mmu and relocates
-> execution to link-time addresses. We rename relocate() function
-> to relocate_enable_mmu() function which is more informative.
->
-> Also, the relocate_enable_mmu() function will be used in the
-> resume path when a CPU wakes-up from a non-retentive suspend
-> so we make it global symbol.
->
-> Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> Reviewed-by: Guo Ren <guoren@kernel.org>
-> ---
->  arch/riscv/kernel/head.S | 7 ++++---
->  1 file changed, 4 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-> index 2363b43312fc..5f4c6b6c4974 100644
-> --- a/arch/riscv/kernel/head.S
-> +++ b/arch/riscv/kernel/head.S
-> @@ -90,7 +90,8 @@ pe_head_start:
->
->  .align 2
->  #ifdef CONFIG_MMU
-> -relocate:
-> +       .global relocate_enable_mmu
-> +relocate_enable_mmu:
->         /* Relocate return address */
->         la a1, kernel_map
->         XIP_FIXUP_OFFSET a1
-> @@ -185,7 +186,7 @@ secondary_start_sbi:
->         /* Enable virtual memory and relocate to virtual address */
->         la a0, swapper_pg_dir
->         XIP_FIXUP_OFFSET a0
-> -       call relocate
-> +       call relocate_enable_mmu
->  #endif
->         call setup_trap_vector
->         tail smp_callin
-> @@ -329,7 +330,7 @@ clear_bss_done:
->  #ifdef CONFIG_MMU
->         la a0, early_pg_dir
->         XIP_FIXUP_OFFSET a0
-> -       call relocate
-> +       call relocate_enable_mmu
->  #endif /* CONFIG_MMU */
->
->         call setup_trap_vector
-> --
-> 2.25.1
->
+Changes from v3->v4:
+ - rebased to the lastest kvm/next branch.
+ - add Sean's reviewed-by tags
+ - add Marc's patch to simplify ARM's cpu hotplug logic in KVM
 
+Changes from v2->v3:
+ - rebased to the latest kvm/next branch. 
+ - patch 1: rename {svm,vmx}_check_processor_compat to follow the name
+	    convention
+ - patch 3: newly added to provide more information when hardware enabling
+	    fails
+ - patch 4: reset hardware_enable_failed if hardware enabling fails. And
+	    remove redundent kernel log.
+ - patch 5: add a pr_err() for setup_vmcs_config() path.
 
+Changes from v1->v2: (all comments/suggestions on v1 are from Sean, thanks)
+ - Merged v1's patch 2 into patch 1, and v1's patch 5 into patch 6.
+ - Use static_call for check_processor_compatibility().
+ - Generate patch 2 with "git revert" and do manual changes based on that.
+ - Loosen the WARN_ON() in kvm_arch_check_processor_compat() instead of
+   removing it.
+ - KVM always prevent incompatible CPUs from being brought up regardless of
+   running VMs.
+ - Use pr_warn instead of pr_info to emit logs when KVM finds offending
+   CPUs.
 
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
+KVM registers its CPU hotplug callback to CPU starting section. And in the
+callback, KVM enables hardware virtualization on hotplugged CPUs if any VM
+is running on existing CPUs.
 
---
-Regards,
-Atish
+There are two problems in the process:
+1. KVM doesn't do compatibility checks before enabling hardware
+virtualization on hotplugged CPUs. This may cause #GP if VMX isn't
+supported or vmentry failure if some in-use VMX features are missing on
+hotplugged CPUs. Both break running VMs.
+2. Callbacks in CPU STARTING section cannot fail. So, even if KVM finds
+some incompatible CPUs, its callback cannot block CPU hotplug.
+
+This series improves KVM's interaction with CPU hotplug to avoid
+incompatible CPUs breaking running VMs. Following changes are made:
+
+1. move KVM's CPU hotplug callback to ONLINE section (suggested by Thomas)
+2. do compatibility checks on hotplugged CPUs.
+3. abort onlining incompatible CPUs
+
+This series is a follow-up to the discussion about KVM and CPU hotplug
+https://lore.kernel.org/lkml/3d3296f0-9245-40f9-1b5a-efffdb082de9@redhat.com/T/
+
+Note: this series is tested only on Intel systems.
+
+Chao Gao (4):
+  KVM: x86: Move check_processor_compatibility from init ops to runtime
+    ops
+  Partially revert "KVM: Pass kvm_init()'s opaque param to additional
+    arch funcs"
+  KVM: Rename and move CPUHP_AP_KVM_STARTING to ONLINE section
+  KVM: Do compatibility checks on hotplugged CPUs
+
+Marc Zyngier (1):
+  KVM: arm64: Simplify the CPUHP logic
+
+Sean Christopherson (1):
+  KVM: Provide more information in kernel log if hardware enabling fails
+
+ arch/arm64/kvm/arch_timer.c        | 27 ++++-------
+ arch/arm64/kvm/arm.c               |  6 ++-
+ arch/arm64/kvm/vgic/vgic-init.c    | 19 +-------
+ arch/mips/kvm/mips.c               |  2 +-
+ arch/powerpc/kvm/powerpc.c         |  2 +-
+ arch/riscv/kvm/main.c              |  2 +-
+ arch/s390/kvm/kvm-s390.c           |  2 +-
+ arch/x86/include/asm/kvm-x86-ops.h |  1 +
+ arch/x86/include/asm/kvm_host.h    |  2 +-
+ arch/x86/kvm/svm/svm.c             |  4 +-
+ arch/x86/kvm/vmx/evmcs.c           |  2 +-
+ arch/x86/kvm/vmx/evmcs.h           |  2 +-
+ arch/x86/kvm/vmx/vmx.c             | 22 +++++----
+ arch/x86/kvm/x86.c                 | 16 +++++--
+ include/kvm/arm_arch_timer.h       |  4 ++
+ include/kvm/arm_vgic.h             |  4 ++
+ include/linux/cpuhotplug.h         |  5 +-
+ include/linux/kvm_host.h           |  2 +-
+ virt/kvm/kvm_main.c                | 73 +++++++++++++++++++-----------
+ 19 files changed, 107 insertions(+), 90 deletions(-)
+
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
