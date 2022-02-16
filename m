@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77600C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Feb 2022 13:17:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80D13C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Feb 2022 13:17:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=see5nDCAgXCOFJV/DKMBjH/GOxRCufkl9UpWgmx8SJY=; b=lAUxn0piD1uA3Q
-	A2JXyDztv3CA++anYwM228yp2hZfRXGbtcRO2/hViB/AsvmfLTtEq/JxqkOGe0ZhpEhuTOUTcJ8CN
-	9tDbKcw5gtQUPGzW+o3WY6mv30Pxjackb3XXajyM5qi0D7Qh1TLpZXNfHgubAdBAHAMQR/DH2LMw9
-	IXaAkksFfdXIWL9gEtFASc2+cfvcmfxdCQ/cpfzg221GRIqwFhyAiQJKPVdJI2Ib8i0ocKOqgJq57
-	9hwE1WZ1/DimmtIKBpJktTbhJBie+VSJw9d9CaXcGceM4WREpNOYXKrv/ntSeqIcKuU6+VZsIePLs
-	CglvKaVElliHkB3eN64Q==;
+	List-Owner; bh=z0jy45CPcCnMWU49RuEWvQg0lS/kQhbe4GrVY3z8Tk0=; b=h278Z+SOXzXKGT
+	vQq0MjRnl3o5NoquCb1smv52aDDGioSPK2UmYPMhqpyBmb1qRfAq4uZPeF6uDe/M1tm/MObG8Nadn
+	+O8zDdj2BkZsz66866EBXUIUL/3XIG1/NVuDKQKhix9cXmrrkbKs2SjeLJJkOom6ycdHZ4bPMfW9a
+	66ulhPEnAYxPluot5SEFR6KDC8imjfr8mwrzJdCtGwsYg2QwKt57fJEs7bDA4b5XHTsMEiA0drmHG
+	S1kSOoZLDFM79pHTLWK+IFLffKGZa5siei4xBmkb+FGprwKenjoiztOOj5gD54MSn4wif1qWRh3M8
+	cQXb4H6v/X4CTidg0YRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nKKBN-0075z8-TN; Wed, 16 Feb 2022 13:17:21 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1nKKBV-00766j-6U; Wed, 16 Feb 2022 13:17:29 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nKKBJ-0075to-4k; Wed, 16 Feb 2022 13:17:19 +0000
+ id 1nKKBQ-007615-C3; Wed, 16 Feb 2022 13:17:27 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by sin.source.kernel.org (Postfix) with ESMTPS id 5ABD2CE26F6;
- Wed, 16 Feb 2022 13:17:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F2C4C340F9;
- Wed, 16 Feb 2022 13:17:04 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id D795961655;
+ Wed, 16 Feb 2022 13:17:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BB5FC340F1;
+ Wed, 16 Feb 2022 13:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1645017433;
- bh=XYviTV8III28kBrCQmsfuK51xOc09ZOif7iEHrUTuIg=;
+ s=k20201202; t=1645017443;
+ bh=MxlH7OSdWg2oRBDys6vsaBDtcNFNrqae9GgCDj46MDk=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=RtZeNhuMWLMdUCgp7sQPtFKueCz8UIMqyfmOJ7eTRpRAZj+EX1IydRbAp51tHxwWq
- 5ne2vxMm/JuLMAmzyha4cuHaIahixOHFYVc5gGcfZri8EF8XqsDBKKhTiX2FVDpISR
- Pagw3akqo4xNGkF8Pb3UNLVmcr6ZFwFviZKx75YteMrlQ/LSVcu+z3apLlbK8geLHf
- v3iSy1y9VzaMo/+yVZXWf0Swp3oDEXhPv7eE6oQXabEKWYYUYMRDAqB7mO4dBnJnsi
- bzLr4K/tjkFnSoB/60v9gCoDQiRG0gDzcN5E85Rk8eBnmYUibpTvgJRV9oTUxC2Xso
- Mffr2yyPA6wPQ==
+ b=sjI1N/Ysf6UohThwc+VXydeUqwNugfP8doF9H67EicATD6oaAkDsrCNS3AC/ubFNd
+ ziBIxKGEAeyq4Bw3XdZgjBuNcKHeB1enctrHaLGU2ykGVgZHDsnbC5Wzwde0sZPsGo
+ WD7WBQJHRS/PhCcVbk/s6TQX9q0zFJnPZsK3bgY0sTLsXoxe2RYo46AhoXLG6T8vLY
+ ptfvBD5j0ki8uiIVLlwxNojr8S73bqQ6CnNgAESnFCyQrATHgA3qg0Clpwhp7O6ene
+ UNjiTeS5j4av8zOGlm3gJWoU7z2Cw6gaTV6tNodGA/Zj7EYErzSRxKmSguUvyWCtWL
+ X2GGlpG3o7PVg==
 From: Arnd Bergmann <arnd@kernel.org>
 To: Linus Torvalds <torvalds@linux-foundation.org>,
  Christoph Hellwig <hch@lst.de>, linux-arch@vger.kernel.org,
@@ -62,16 +62,16 @@ Cc: linux@armlinux.org.uk, will@kernel.org, guoren@kernel.org,
  linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
  sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
  linux-xtensa@linux-xtensa.org
-Subject: [PATCH v2 09/18] mips: use simpler access_ok()
-Date: Wed, 16 Feb 2022 14:13:23 +0100
-Message-Id: <20220216131332.1489939-10-arnd@kernel.org>
+Subject: [PATCH v2 10/18] m68k: fix access_ok for coldfire
+Date: Wed, 16 Feb 2022 14:13:24 +0100
+Message-Id: <20220216131332.1489939-11-arnd@kernel.org>
 X-Mailer: git-send-email 2.29.2
 In-Reply-To: <20220216131332.1489939-1-arnd@kernel.org>
 References: <20220216131332.1489939-1-arnd@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220216_051717_589865_DECABAC9 
-X-CRM114-Status: GOOD (  19.43  )
+X-CRM114-CacheID: sfid-20220216_051724_505183_B17BB4D5 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,76 +90,47 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-Before unifying the mips version of __access_ok() with the generic
-code, this converts it to the same algorithm. This is a change in
-behavior on mips64, as now address in the user segment, the lower
-2^62 bytes, is taken to be valid, relying on a page fault for
-addresses that are within that segment but not valid on that CPU.
+While most m68k platforms use separate address spaces for user
+and kernel space, at least coldfire does not, and the other
+ones have a TASK_SIZE that is less than the entire 4GB address
+range.
 
-The new version should be the most effecient way to do this, but
-it gets rid of the special handling for size=0 that most other
-architectures ignore as well.
+Using the default implementation of __access_ok() stops coldfire
+user space from trivially accessing kernel memory.
 
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/mips/include/asm/uaccess.h | 22 ++++------------------
- 1 file changed, 4 insertions(+), 18 deletions(-)
+ arch/m68k/include/asm/uaccess.h | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
-diff --git a/arch/mips/include/asm/uaccess.h b/arch/mips/include/asm/uaccess.h
-index db9a8e002b62..d7c89dc3426c 100644
---- a/arch/mips/include/asm/uaccess.h
-+++ b/arch/mips/include/asm/uaccess.h
-@@ -19,6 +19,7 @@
- #ifdef CONFIG_32BIT
+diff --git a/arch/m68k/include/asm/uaccess.h b/arch/m68k/include/asm/uaccess.h
+index 79617c0b2f91..8eb625e75452 100644
+--- a/arch/m68k/include/asm/uaccess.h
++++ b/arch/m68k/include/asm/uaccess.h
+@@ -12,14 +12,21 @@
+ #include <asm/extable.h>
  
- #define __UA_LIMIT 0x80000000UL
-+#define TASK_SIZE_MAX	__UA_LIMIT
- 
- #define __UA_ADDR	".word"
- #define __UA_LA		"la"
-@@ -33,6 +34,7 @@
- extern u64 __ua_limit;
- 
- #define __UA_LIMIT	__ua_limit
-+#define TASK_SIZE_MAX	XKSSEG
- 
- #define __UA_ADDR	".dword"
- #define __UA_LA		"dla"
-@@ -42,22 +44,6 @@ extern u64 __ua_limit;
- 
- #endif /* CONFIG_64BIT */
- 
--/*
-- * Is a address valid? This does a straightforward calculation rather
-- * than tests.
-- *
-- * Address valid if:
-- *  - "addr" doesn't have any high-bits set
-- *  - AND "size" doesn't have any high-bits set
-- *  - AND "addr+size" doesn't have any high-bits set
-- *  - OR we are in kernel mode.
-- *
-- * __ua_size() is a trick to avoid runtime checking of positive constant
-- * sizes; for those we already know at compile time that the size is ok.
-- */
--#define __ua_size(size)							\
--	((__builtin_constant_p(size) && (signed long) (size) > 0) ? 0 : (size))
--
- /*
-  * access_ok: - Checks if a user space pointer is valid
-  * @addr: User space pointer to start of block to check
-@@ -79,9 +65,9 @@ extern u64 __ua_limit;
- static inline int __access_ok(const void __user *p, unsigned long size)
+ /* We let the MMU do all checking */
+-static inline int access_ok(const void __user *addr,
++static inline int access_ok(const void __user *ptr,
+ 			    unsigned long size)
  {
- 	unsigned long addr = (unsigned long)p;
--	unsigned long end = addr + size - !!size;
-+	unsigned long limit = TASK_SIZE_MAX;
- 
--	return (__UA_LIMIT & (addr | end | __ua_size(size))) == 0;
++	unsigned long limit = TASK_SIZE;
++	unsigned long addr = (unsigned long)ptr;
++
+ 	/*
+ 	 * XXX: for !CONFIG_CPU_HAS_ADDRESS_SPACES this really needs to check
+ 	 * for TASK_SIZE!
++	 * Removing this helper is probably sufficient.
+ 	 */
+-	return 1;
++	if (IS_ENABLED(CONFIG_CPU_HAS_ADDRESS_SPACES))
++		return 1;
++
 +	return (size <= limit) && (addr <= (limit - size));
  }
  
- #define access_ok(addr, size)					\
+ /*
 -- 
 2.29.2
 
