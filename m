@@ -4,88 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD55C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Feb 2022 19:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F03FC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Feb 2022 19:47:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4Yzh68iXNE3bi1t/B33/7fn1IoERu2NUJmIO1JeptYM=; b=PYt3z/8hO8g6yY
-	Swwf5b1py/M0N6d1VviCIVqwr8EATuiWik8jK25QUSSOakJrB5ypXSZv5VH3cpQkaCSaeMlvzENTy
-	AbXc4F6JPsp/7eH8sai9r0DAHdDixv1ivYq2Tc+15ezkog16z7TE9BA2pt2IHqFUPEb0beDMRbndR
-	54voz9o+c6egcgH6BnxOKNbcxjtb5Gr5vrWqrB7w5mPWMk5loG+t+BhIj3ykUMFmEIUkpuUX6nI3Z
-	u5detzZ0efGy/JMjQnxgyiT520kExM50y2iD7QL8gVG4dRLBbd7/pkrdkPByxCNtAhBEvvZDwanVp
-	Q3mZ1jSGCJYJf4KCYwKw==;
+	List-Owner; bh=v0199U1K1fovbBiyusxwy9v/NJsmsVJnO1I3hMnev1o=; b=MyEggu4qhelZWm
+	YLbtqh1g0m1EnA6M8CwgWjRyMkvI4RLgz1RvR6z3VpCDYxPKoo6TqKz7qthDgOM8dvhe0/i5LEgWI
+	j37kUlhNbMXxytz0TZWrxAN7ZrQ/lIGyyGXblXHoBbuYsWCXmgZQtCb+joFpEM6sLTW7a+xlM3MHf
+	X0pO9OXhSRabPB2JO0g5NVzcxhJ3jP/8RFhX9LHE/PVj88Q2oE8+PI9VZs2rExP/Bl+l1a9oZiOR4
+	l9anaUpLozoU+VsIQUl3CYBz9RmX5z09xpSTl8n3sJnabi2SioRdex0if2JkHmw5xDm6Fm+e5gBN1
+	U/1dFniYJE5uZcEGACkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nKmFX-00BrUJ-08; Thu, 17 Feb 2022 19:15:31 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1nKmk7-00Bvpm-AW; Thu, 17 Feb 2022 19:47:07 +0000
+Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nKmFR-00BrPL-7k
- for linux-riscv@lists.infradead.org; Thu, 17 Feb 2022 19:15:28 +0000
-Received: by mail-ej1-x632.google.com with SMTP id gb39so9613027ejc.1
- for <linux-riscv@lists.infradead.org>; Thu, 17 Feb 2022 11:15:23 -0800 (PST)
+ id 1nKmk4-00Bvp3-QI
+ for linux-riscv@lists.infradead.org; Thu, 17 Feb 2022 19:47:06 +0000
+Received: by mail-yw1-x112c.google.com with SMTP id
+ 00721157ae682-2d646fffcc2so43924687b3.4
+ for <linux-riscv@lists.infradead.org>; Thu, 17 Feb 2022 11:47:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=amacapital-net.20210112.gappssmtp.com; s=20210112;
+ d=atishpatra.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=+RZ8CAgnGa1bk5gBxds4oezzFjZLQMV+wOvrmesI1Hw=;
- b=aC4vKGs+W+TwIvfSuol31sXb0DdwmBd+7ynpizLCKhXxCJFdEAZpxJvcWGa/FztIyE
- kaM//DxAJXCDh5aNx4GSOgCqArnp/pPXpeZOwL6NCOz09LePB9aHf9rLmhVNdEQhmOfG
- zcHXwBp2FYlRXI6tXnhZ/KCBgXws1BhNZED9tFrHvUNz3V476fnXQSLMeM+Shpqaev6m
- W07DvhrokY4sorGqrqwhi0S/cnzs7UTqO0cIGR6WWEAN8VmZadQ9VO/+zsTblOwHPeWg
- SsUN3Cw66rH7ga20AFYG5KTR6BdWsnByVkv9VANJJ9bhC1jZcqQ2NhN41BgDZLcdhMyk
- TY3g==
+ :cc; bh=oaFgdGApNlDvtZyiIfo82SRxAus8TF8HrqjXlvq9h8Y=;
+ b=SuxQdh+t5+fvwh5ODRCj4O0o5dFuhnXt8wycvDS/oc9U/RxDeBZ3bX5ZeesGn6+oJY
+ CgPo+r2zBBVKinwJc2jONuwupZkCPpbAswzez7svHTfufRM0UpnHc0JQysuQUpfg39SP
+ AhXLqSKJ8RK3c/iQgxWFs5sMqgai7dSUoqMso=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=+RZ8CAgnGa1bk5gBxds4oezzFjZLQMV+wOvrmesI1Hw=;
- b=whYbdCtBhA9458LCCz2yPMP0jHf92Ro7ZlT2S8GzPLGyHFbBWYRhq113op/vWj3o6F
- Zis+8RDxM0V7CfIL8yRcaMkIg17ogHR3oFMh27ZeCH0LW767P7hvObE+CNVjCZoBlsG9
- MqdYZTTex2OeRrn0WwQGKjEmbqIsZxazymqMpSmJtZVXaJSPykzV/1DuEjaF2QeU6Q8q
- hZEQLUaq0hK/CW68j8+gz7TkXLd7kDMEFEjPM6oE4gH/w7xMcmINr7fLUDX3mN5pn4Gp
- MWsYKMunhRP4fRtdm4eKcEKLOUYm5Qrg117dPTNPD68upz6nhMf20E/AbHK9xa2AHXDG
- ayYQ==
-X-Gm-Message-State: AOAM531+/HehCkdLxYWcK6xIFtr4lN7y1NtnpVjv7Htu3p0QDfk3yrrk
- 5uSI6inwMSmsQmAd/AeoRzsvw8o5d5vZgctsPy8Pww==
-X-Google-Smtp-Source: ABdhPJw48Oadf8QR2zY/o5TdRU0UiMjXS1n08+Rvo/jef0cepMooOXBMnDr3m4SH0a9wsDyMLo89s3cuvktj12QRONA=
-X-Received: by 2002:a17:906:4b52:b0:6cd:3863:b35e with SMTP id
- j18-20020a1709064b5200b006cd3863b35emr3488094ejv.415.1645125322737; Thu, 17
- Feb 2022 11:15:22 -0800 (PST)
+ bh=oaFgdGApNlDvtZyiIfo82SRxAus8TF8HrqjXlvq9h8Y=;
+ b=lZ1sPtdU7A1LquvSdrqxIG7CeqWJFmJ7QXV2JmwK+SUV7W/mogpd0rGZWCrjUzgaLL
+ MNPj7KsDyawt2HHIfyuMXYm8IHEsAPFnzpIqFkTZuH0cqIaw4UnF7oOOGnOUnMc5HTTO
+ tS4eGw0wuw0hGm96ELjzq0wJpHIMFolw4Ff4Ro6puu7YLPAGNG5nPaTCHQdn8EHByqPY
+ C88kpMzzTWbLssQRFJ6M/D9iBx3uiialOq2SAqZAZz6dvq8wPQoG3ZPd4kkyWTk8rZCs
+ BWxCJd5br5qIVjdcGXJGuRSE6jyUVNLw0Z4Zrne4LIVqCIm9E7bnvgo0tmu5C6QiUn1e
+ oVLw==
+X-Gm-Message-State: AOAM531lbeTE921g4WrJFQkFKE1VtMPXhFNr2lqkKF88ujz+6jnjcNRR
+ oyUCpVG4Lo/DPwk24fyw/vs+3cIYb47BRftWLpDN
+X-Google-Smtp-Source: ABdhPJyYFJ0q/2SlA60syxammhFOBpSQhcIB9lrLmw/nIlWery9i8zrN9e9Vgg9W2i5AsrahmkX7VAebgSiqcHvfTL4=
+X-Received: by 2002:a81:924a:0:b0:2d6:b588:bd0e with SMTP id
+ j71-20020a81924a000000b002d6b588bd0emr2097858ywg.402.1645127222718; Thu, 17
+ Feb 2022 11:47:02 -0800 (PST)
 MIME-Version: 1.0
-References: <20220216131332.1489939-1-arnd@kernel.org>
- <20220216131332.1489939-14-arnd@kernel.org>
-In-Reply-To: <20220216131332.1489939-14-arnd@kernel.org>
-From: Andy Lutomirski <luto@amacapital.net>
-Date: Thu, 17 Feb 2022 11:15:11 -0800
-Message-ID: <CALCETrVOvYPN4_6hS8wpm2v9bGZupZ5x4=vZAseG57OUgvLGfw@mail.gmail.com>
-Subject: Re: [PATCH v2 13/18] uaccess: generalize access_ok()
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
- Christoph Hellwig <hch@lst.de>, 
- linux-arch@vger.kernel.org, linux-mm@kvack.org, linux-api@vger.kernel.org, 
- arnd@arndb.de, linux-kernel@vger.kernel.org, viro@zeniv.linux.org.uk, 
- linux@armlinux.org.uk, will@kernel.org, guoren@kernel.org, 
- bcain@codeaurora.org, geert@linux-m68k.org, monstr@monstr.eu, 
- tsbogend@alpha.franken.de, nickhu@andestech.com, green.hu@gmail.com, 
- dinguyen@kernel.org, shorne@gmail.com, deller@gmx.de, mpe@ellerman.id.au, 
- peterz@infradead.org, mingo@redhat.com, mark.rutland@arm.com, 
- hca@linux.ibm.com, dalias@libc.org, davem@davemloft.net, richard@nod.at, 
- x86@kernel.org, jcmvbkbc@gmail.com, ebiederm@xmission.com, 
- akpm@linux-foundation.org, ardb@kernel.org, linux-alpha@vger.kernel.org, 
- linux-snps-arc@lists.infradead.org, linux-csky@vger.kernel.org, 
- linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org, 
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
- openrisc@lists.librecores.org, linux-parisc@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
- sparclinux@vger.kernel.org, linux-um@lists.infradead.org, 
- linux-xtensa@linux-xtensa.org
+References: <20220128045004.4843-1-sunilvl@ventanamicro.com>
+ <877d9xx14f.fsf@igel.home> <9cd9f149-d2ea-eb55-b774-8d817b9b6cc9@gmx.de>
+ <87tud1vjn4.fsf@igel.home> <49d3aeab-1fe6-8d17-bc83-78f3555109c7@gmx.de>
+ <87pmnpvh66.fsf@igel.home> <20220217105450.GA20183@sunil-ThinkPad-T490>
+In-Reply-To: <20220217105450.GA20183@sunil-ThinkPad-T490>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Thu, 17 Feb 2022 11:46:52 -0800
+Message-ID: <CAOnJCULWjCHCCS7wzTBVsYcPzWPpL9jmS7xx5LUFT2tRvAZk6w@mail.gmail.com>
+Subject: Re: [PATCH] riscv/efi_stub: Fix get_boot_hartid_from_fdt() return
+ value
+To: Sunil V L <sunilvl@ventanamicro.com>
+Cc: Andreas Schwab <schwab@linux-m68k.org>,
+ Heinrich Schuchardt <xypron.glpk@gmx.de>, 
+ Ard Biesheuvel <ardb@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ linux-efi <linux-efi@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Anup Patel <apatel@ventanamicro.com>, stable@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220217_111525_414364_DADB47BA 
-X-CRM114-Status: GOOD (  17.23  )
+X-CRM114-CacheID: sfid-20220217_114704_919334_1F87FCC3 
+X-CRM114-Status: GOOD (  20.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,40 +91,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 16, 2022 at 5:19 AM Arnd Bergmann <arnd@kernel.org> wrote:
+On Thu, Feb 17, 2022 at 2:55 AM Sunil V L <sunilvl@ventanamicro.com> wrote:
 >
-> From: Arnd Bergmann <arnd@arndb.de>
+> On Mon, Feb 14, 2022 at 12:09:05PM +0100, Andreas Schwab wrote:
+> > On Feb 14 2022, Heinrich Schuchardt wrote:
+> >
+> > > On 2/14/22 11:15, Andreas Schwab wrote:
+> > >> On Feb 14 2022, Heinrich Schuchardt wrote:
+> > >>
+> > >>> set_boot_hartid() implies that the caller can change the boot hart ID.
+> > >>> As this is not a case this name obviously would be a misnomer.
+> > >>
+> > >> initialize_boot_hartid would fit better.
+> > >>
+> > >
+> > > Another misnomer.
+> >
+> > But the best fit so far.
 >
-> There are many different ways that access_ok() is defined across
-> architectures, but in the end, they all just compare against the
-> user_addr_max() value or they accept anything.
+> Can we use the name init_boot_hartid_from_fdt()? While I understand
+> Heinrich's point, I think since we have "_from_fdt", this may be fine.
 >
-> Provide one definition that works for most architectures, checking
-> against TASK_SIZE_MAX for user processes or skipping the check inside
-> of uaccess_kernel() sections.
->
-> For architectures without CONFIG_SET_FS(), this should be the fastest
-> check, as it comes down to a single comparison of a pointer against a
-> compile-time constant, while the architecture specific versions tend to
-> do something more complex for historic reasons or get something wrong.
 
-This isn't actually optimal.  On x86, TASK_SIZE_MAX is a bizarre
-constant that has a very specific value to work around a bug^Wdesign
-error^Wfeature of Intel CPUs.  TASK_SIZE_MAX is the maximum address at
-which userspace is permitted to allocate memory, but there is a huge
-gap between user and kernel addresses, and any value in the gap would
-be adequate for the comparison.  If we wanted to optimize this, simply
-checking the high bit (which x86 can do without any immediate
-constants at all) would be sufficient and, for an access known to fit
-in 32 bits, one could get even fancier and completely ignore the size
-of the access.  (For accesses not known to fit in 32 bits, I suspect
-some creativity could still come up with a construction that's
-substantially faster than the one in your patch.)
+init_boot_hartid_from_fdt or parse_boot_hartid_from_fdt
 
-So there's plenty of room for optimization here.
+are definitely much better than the current one.
 
-(This is not in any respect a NAK -- it's just an observation that
-this could be even better.)
+> I didn't rename the function since it was not recommended to do multiple
+> things in a "Fix" patch. If we can consider this as not very serious
+> issue which needs a "Fix" patch, then I can combine this patch with the
+> RISCV_EFI_BOOT_PROTOCOL patch series.
+>
+
+IMHO, it is okay to include this in the RISCV_EFI_BOOT_PROTOCOL series
+as we are not going to have hartid U32_MAX in a few months :)
+
+
+> Hi Ard, let me know your suggestion on how to proceed with this.
+>
+> Thanks
+> Sunil
+> >
+> > --
+> > Andreas Schwab, schwab@linux-m68k.org
+> > GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
+> > "And now for something completely different."
+
+
+
+-- 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
