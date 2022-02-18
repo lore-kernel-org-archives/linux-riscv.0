@@ -4,70 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41E63C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Feb 2022 08:26:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91D66C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Feb 2022 08:56:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Mime-Version:
-	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=DCi218bxNGXAuVkDD7maSOyplSXWzUsA24moLc9HZxs=; b=yCU
-	S5Vj+yM7Rrx29/A9nmM4lwZWRCwvViwxkxS3SM1yfDEvTWawYBfXfafnbvQkBiK7BJINGHu0XD7jh
-	Vs+esjgoeJPVTu/avoV5Xx3pW58vpfKBsn0b+dZ2O/iVFKR72lrChatmi5q56slHdoWYD5VuP61sb
-	WyqvjSlI4DUm0xBgzcGI9k8diBP5jlDHzzPO1fPrvofFxVf8DJE2CoovmS+hs42d60TBlgdaN7kXZ
-	fODt1+3nk9avN8/7HnZziMEsnWe95q80ejw4fbVVZuttrrm6mDJYo73IHx/UxdvuscSdys5R6rQ96
-	za/hv7AMHcsN51STy5axqhD+rcmv3XA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=F3hKaKWOlsbIPUH+Wru7rdLSFXoFev5w4hVptWVwmCE=; b=xkoevhTs0a1ydS
+	XSKBZFYmoFFBxc4NGukCAWEnMol1wulE7xjllqhwqO/rbco0y1pHf/2vJ/gshtjiOUioXoowOfqOr
+	PPeQ6IGyniJeTOHN/TBPiGGspEOqJJQV2caOijNcQa2d3rUW0sk2fDDm12jN7XzXiWIEq9YWPq/Ue
+	JG5zVQGmaZirKiwcVcTdafMx1ssBHuWF7u9dHlTIPXKixn3Gg+IIhn+1KMD6dfiNUasMVMdF1sqBG
+	E6OBqBXKbnAFDWDhgwZjQ9oXOT75clVEZnPc2A8eGtFy57qRjXMLfzwfgYZD0wdwYSWJ7rUsd6aSS
+	qTmdJ1JD9hs9Mr+MJqfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nKyaq-00DKEa-Cz; Fri, 18 Feb 2022 08:26:20 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1nKz3r-00DNGs-3M; Fri, 18 Feb 2022 08:56:19 +0000
+Received: from mail-ua1-f52.google.com ([209.85.222.52])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nKyan-00DKDk-5X
- for linux-riscv@lists.infradead.org; Fri, 18 Feb 2022 08:26:18 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id
- i205-20020a2522d6000000b00622c778ac7cso12814110ybi.3
- for <linux-riscv@lists.infradead.org>; Fri, 18 Feb 2022 00:26:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=date:message-id:mime-version:subject:from:to:cc;
- bh=RZAu1RopNW0ZnAhNX12nSJphTGjmyvccd/3qHZblYXY=;
- b=rCB+yv0t3K2artQviTbyk/s1ERydB/bk4ZSc8CtHBGWDb960G5TEmbF7KVd59dToSl
- fbSTCa3ux/7+xckpeHEGWrupiuQ26paV6JUm7AiZ695TBD8MwKRpOXr1aAyblZxp4f5z
- wI6qmLnLkEgVobo9GzyV8cgaoN+kiaMeSqzgzciQz0swVMXroFwjHuW8iSJsYMwGUJ7T
- QwFy6SnNz0o9fQrZopD2msec3ba4QSNiuewF7551R5Uc+CXwz/pBlVURbYaCatjKNFW+
- bVQIrlRO0drjc0DgrBs7NvA4cOLJLuyjnwhsN0Xe0nzTTlWeeZ/5uVnQvZsO1Ej2Aijn
- 1ifg==
+ id 1nKz3k-00DNEi-Fw; Fri, 18 Feb 2022 08:56:17 +0000
+Received: by mail-ua1-f52.google.com with SMTP id g15so3936126uap.11;
+ Fri, 18 Feb 2022 00:56:09 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc;
- bh=RZAu1RopNW0ZnAhNX12nSJphTGjmyvccd/3qHZblYXY=;
- b=Z0AnCd7KfOvMQmKjSlscJwWqRDRQlB+w4p8x0DsOVKo6A8e0bqcmwTAXUFwChL4vKE
- V/LYt1lSfaxQW2iN/7iJP9kdLKR1Q4yF1njMXAOag+C0ffu5lzG5L+mYlwc4d5IFiued
- bld8iVXS+yjCcw6HT6U6mLTRRmSv63q8TGYAhDF2FP9gBHPODL220/sONB3v+Kw7q39y
- Yf1WRe1ZWvVxpSQDX3YLZw2UUl2V931koukYIQzJoPyUygdLUrdlScl9gL/imWXN6OWL
- oVIcJOM6RcPa68YQFnJUw8wEhYQq6OV5HGdAv1kavci5ONCHb8FhGpL6xIyK0l8aexOr
- LQHw==
-X-Gm-Message-State: AOAM533uhwLIp+SlZrRSl5Ddr+wUwBMirkQSe1umhSxOwhCN7Uv1D2Z3
- wYS3u+mCcTecwhy22xYz6UPrkJsBOon3
-X-Google-Smtp-Source: ABdhPJxrlB+xqNTDUqw0l54UMAh7wnOLcJJX8wTR1FqNzyU2jkIXBNFKEJYtk1JqNQPyLFtrWMgHYrCO8QR6
-X-Received: from maskray1.svl.corp.google.com
- ([2620:15c:2ce:200:bdb7:3728:9760:87c])
- (user=maskray job=sendgmr) by 2002:a25:d6d3:0:b0:61d:aa5c:7e82 with SMTP id
- n202-20020a25d6d3000000b0061daa5c7e82mr6379447ybg.404.1645172775391; Fri, 18
- Feb 2022 00:26:15 -0800 (PST)
-Date: Fri, 18 Feb 2022 00:26:11 -0800
-Message-Id: <20220218082611.396353-1-maskray@google.com>
-Mime-Version: 1.0
-Subject: [PATCH] riscv module: remove (NOLOAD)
-From: Fangrui Song <maskray@google.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
-Cc: Nathan Chancellor <nathan@kernel.org>, linux-kernel@vger.kernel.org,
- llvm@lists.linux.dev, Fangrui Song <maskray@google.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=acpcDWZvSxDwOAzGTb7O2RMIWdslBDMuoEt9Qz/Phu0=;
+ b=AmaOhzoSmbz1agfA/EiZiJJmlf1dqTon7c8PWvdB93CT33GedEot2eZlGFO/sDSC9E
+ JQhvFXDBs/CpbgBSIRWbjh+28qwkUAuNa1mE74/AcdmHz5zd/RKL8yhX3vZarYNJlXBX
+ uGzgGZJ5tdUBrfPg10ENbPJ30nhY/K4WjjKZ7c9jCeTupZdodwyim4RNyrT4GZDa6yGX
+ 3MRhyVRrMV39Wb7qWqyCVZD4IPoL14A4Hpb+RalBz3Nr4TFJDlgi47qCyJ+irWb7ux2/
+ IV9JgqdY5B9Ek/QYRLEW+Qe0LBLt2BNTn35v/yVCEGjv7O835MeDFgiZv05UW9FLwcP9
+ M88A==
+X-Gm-Message-State: AOAM531lq840hsUiSCAzDzQCE8qNvG5z+9G/coJYMOfPGZmkE6qQOtO3
+ wJcQDlGyPkXdddviS076xhpt8qATpfsjSA==
+X-Google-Smtp-Source: ABdhPJw0HZwXPcLo//EczcgVXfgCoPygmr1NBFuvYx/x1uW1dl3OMND/B2J+O3qSjPApkjyMTlGdBw==
+X-Received: by 2002:ab0:334f:0:b0:341:d742:9327 with SMTP id
+ h15-20020ab0334f000000b00341d7429327mr57341uap.112.1645174567639; 
+ Fri, 18 Feb 2022 00:56:07 -0800 (PST)
+Received: from mail-vs1-f44.google.com (mail-vs1-f44.google.com.
+ [209.85.217.44])
+ by smtp.gmail.com with ESMTPSA id u63sm1014550vke.41.2022.02.18.00.56.07
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Fri, 18 Feb 2022 00:56:07 -0800 (PST)
+Received: by mail-vs1-f44.google.com with SMTP id u10so9150360vsu.13;
+ Fri, 18 Feb 2022 00:56:07 -0800 (PST)
+X-Received: by 2002:a67:e10e:0:b0:31b:956b:70cf with SMTP id
+ d14-20020a67e10e000000b0031b956b70cfmr2916488vsl.77.1645174557092; Fri, 18
+ Feb 2022 00:55:57 -0800 (PST)
+MIME-Version: 1.0
+References: <20220216131332.1489939-1-arnd@kernel.org>
+ <20220216131332.1489939-9-arnd@kernel.org>
+In-Reply-To: <20220216131332.1489939-9-arnd@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 18 Feb 2022 09:55:45 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVtRh5GHutxGf5dzGHBca7G4td3qqDTHM2KgoDr-kJ91Q@mail.gmail.com>
+Message-ID: <CAMuHMdVtRh5GHutxGf5dzGHBca7G4td3qqDTHM2KgoDr-kJ91Q@mail.gmail.com>
+Subject: Re: [PATCH v2 08/18] uaccess: add generic __{get,put}_kernel_nofault
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+ Christoph Hellwig <hch@lst.de>, 
+ Linux-Arch <linux-arch@vger.kernel.org>, Linux MM <linux-mm@kvack.org>, 
+ Linux API <linux-api@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Al Viro <viro@zeniv.linux.org.uk>, 
+ Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
+ Guo Ren <guoren@kernel.org>, 
+ Brian Cain <bcain@codeaurora.org>, Michal Simek <monstr@monstr.eu>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Nick Hu <nickhu@andestech.com>,
+ Greentime Hu <green.hu@gmail.com>, Dinh Nguyen <dinguyen@kernel.org>, 
+ Stafford Horne <shorne@gmail.com>, Helge Deller <deller@gmx.de>,
+ Michael Ellerman <mpe@ellerman.id.au>, 
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Mark Rutland <mark.rutland@arm.com>, Heiko Carstens <hca@linux.ibm.com>,
+ Rich Felker <dalias@libc.org>, 
+ "David S. Miller" <davem@davemloft.net>, Richard Weinberger <richard@nod.at>, 
+ "the arch/x86 maintainers" <x86@kernel.org>, Max Filippov <jcmvbkbc@gmail.com>,
+ "Eric W. Biederman" <ebiederm@xmission.com>,
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Ard Biesheuvel <ardb@kernel.org>, alpha <linux-alpha@vger.kernel.org>, 
+ arcml <linux-snps-arc@lists.infradead.org>, linux-csky@vger.kernel.org, 
+ "open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>, 
+ "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
+ linux-m68k <linux-m68k@lists.linux-m68k.org>, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ Openrisc <openrisc@lists.librecores.org>, 
+ Parisc List <linux-parisc@vger.kernel.org>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ linux-s390 <linux-s390@vger.kernel.org>, 
+ Linux-sh list <linux-sh@vger.kernel.org>,
+ sparclinux <sparclinux@vger.kernel.org>, 
+ linux-um <linux-um@lists.infradead.org>, 
+ "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220218_002617_238824_158D745B 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220218_005612_539508_81CDF1EA 
+X-CRM114-Status: GOOD (  22.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,43 +117,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On ELF, (NOLOAD) sets the section type to SHT_NOBITS[1]. It is conceptually
-inappropriate for .plt, .got, and .got.plt sections which are always
-SHT_PROGBITS.
+On Wed, Feb 16, 2022 at 2:17 PM Arnd Bergmann <arnd@kernel.org> wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> Nine architectures are still missing __{get,put}_kernel_nofault:
+> alpha, ia64, microblaze, nds32, nios2, openrisc, sh, sparc32, xtensa.
+>
+> Add a generic version that lets everything use the normal
+> copy_{from,to}_kernel_nofault() code based on these, removing the last
+> use of get_fs()/set_fs() from architecture-independent code.
+>
+> Reviewed-by: Christoph Hellwig <hch@lst.de>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-In GNU ld, if PLT entries are needed, .plt will be SHT_PROGBITS anyway
-and (NOLOAD) will be essentially ignored. In ld.lld, since
-https://reviews.llvm.org/D118840 ("[ELF] Support (TYPE=<value>) to
-customize the output section type"), ld.lld will report a `section type
-mismatch` error. Just remove (NOLOAD) to fix the error.
+>  arch/m68k/include/asm/uaccess.h     |   2 -
 
-[1] https://lld.llvm.org/ELF/linker_script.html As of today, "The
-section should be marked as not loadable" on
-https://sourceware.org/binutils/docs/ld/Output-Section-Type.html is
-outdated for ELF.
----
- arch/riscv/include/asm/module.lds.h | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
 
-diff --git a/arch/riscv/include/asm/module.lds.h b/arch/riscv/include/asm/module.lds.h
-index 4254ff2ff049..1075beae1ac6 100644
---- a/arch/riscv/include/asm/module.lds.h
-+++ b/arch/riscv/include/asm/module.lds.h
-@@ -2,8 +2,8 @@
- /* Copyright (C) 2017 Andes Technology Corporation */
- #ifdef CONFIG_MODULE_SECTIONS
- SECTIONS {
--	.plt (NOLOAD) : { BYTE(0) }
--	.got (NOLOAD) : { BYTE(0) }
--	.got.plt (NOLOAD) : { BYTE(0) }
-+	.plt : { BYTE(0) }
-+	.got : { BYTE(0) }
-+	.got.plt : { BYTE(0) }
- }
- #endif
--- 
-2.35.1.265.g69c8d7142f-goog
+Gr{oetje,eeting}s,
 
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
