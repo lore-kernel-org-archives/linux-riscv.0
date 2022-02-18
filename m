@@ -4,100 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73637C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Feb 2022 15:46:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41DDBC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Feb 2022 17:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9HjOUxkJDZcKY2lpfenRwzN0l0eUl60EzGlOOrevbww=; b=mvRy11ASXQtD2e
-	0jjAq4uWUqcmIQ5iD0lw12xNuymiFh4OP+++G3T6RqFnmn4es90gHj7nW5oBrY/vpNnswIL9X38Zw
-	4gVHLN5vpBNKr9p0TxP/8I33QA+bvSbVPStw71tAK9iM3B5Vj5ELGLjLa1LjckGFPBf+Euru97V2c
-	HODM8CaZGij1Px7LfZGw7URViQwUd1mdaWSmqyRe0j6RwH1sPbyDKCdN0JFsRjTkLBUzsgTXGO4x0
-	MnckAhVXve3gUgal0IIc0bhrnJzo9/KRsn4Oj/jL/q2Fc9/rxsLHUzIzYAySRx9cToM1owiMM16Ck
-	0S0RZIMNcj8DQxO1YdWQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2CHnsX00nEem8jM+d4K3U9Yr6oiaBVMByiCxrfyuVtw=; b=AQAl6b4hqXVjq0
+	ISF/5GRineAkxd5b8XlPC2rAUp+nmX8N/d8ri96d/Pggd7wMvR//679d4Ji3aYomRuwC6/HOucU45
+	awHSnpD9tGma+IxHCEH2gRFgE3MdaKLdsmrkpBH7PJQDJ4qBZaPF4kP6elQ0bTKjejRx87cfG2OqL
+	5U2rbtiZFHwXNNFjxJtzyqzpfjCnyHco54q2FRkl2nd9TX3lIBaCqoKz54lWzCIbjx0QaJaVAr3xd
+	89gs44+USpYmS9DnMsweNeFkvtAm5npisdF7QQ9ZNMlrb9P6l0GYOTpwo2Il48YC6WXVXhFFPhi2n
+	tPmrcmaqpL/LwyhUD6FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nL5SP-00FBBU-Pu; Fri, 18 Feb 2022 15:46:05 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1nL7Og-00FQzJ-F1; Fri, 18 Feb 2022 17:50:22 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nL5SN-00FBA2-A8
- for linux-riscv@lists.infradead.org; Fri, 18 Feb 2022 15:46:04 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-70--4RjbVXtMcueaeoDqT_n6w-1; Fri, 18 Feb 2022 15:45:59 +0000
-X-MC-Unique: -4RjbVXtMcueaeoDqT_n6w-1
-Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
- AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
- Server (TLS) id 15.0.1497.28; Fri, 18 Feb 2022 15:45:56 +0000
-Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
- AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
- 15.00.1497.028; Fri, 18 Feb 2022 15:45:56 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Christoph Hellwig' <hch@lst.de>, Arnd Bergmann <arnd@kernel.org>
-CC: Linus Torvalds <torvalds@linux-foundation.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>, "linux-api@vger.kernel.org"
- <linux-api@vger.kernel.org>, "arnd@arndb.de" <arnd@arndb.de>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "viro@zeniv.linux.org.uk" <viro@zeniv.linux.org.uk>, "linux@armlinux.org.uk"
- <linux@armlinux.org.uk>, "will@kernel.org" <will@kernel.org>,
- "guoren@kernel.org" <guoren@kernel.org>, "bcain@codeaurora.org"
- <bcain@codeaurora.org>, "geert@linux-m68k.org" <geert@linux-m68k.org>,
- "monstr@monstr.eu" <monstr@monstr.eu>, "tsbogend@alpha.franken.de"
- <tsbogend@alpha.franken.de>, "nickhu@andestech.com" <nickhu@andestech.com>,
- "green.hu@gmail.com" <green.hu@gmail.com>, "dinguyen@kernel.org"
- <dinguyen@kernel.org>, "shorne@gmail.com" <shorne@gmail.com>, "deller@gmx.de"
- <deller@gmx.de>, "mpe@ellerman.id.au" <mpe@ellerman.id.au>,
- "peterz@infradead.org" <peterz@infradead.org>, "mingo@redhat.com"
- <mingo@redhat.com>, "mark.rutland@arm.com" <mark.rutland@arm.com>,
- "hca@linux.ibm.com" <hca@linux.ibm.com>, "dalias@libc.org" <dalias@libc.org>, 
- "davem@davemloft.net" <davem@davemloft.net>, "richard@nod.at"
- <richard@nod.at>, "x86@kernel.org" <x86@kernel.org>, "jcmvbkbc@gmail.com"
- <jcmvbkbc@gmail.com>, "ebiederm@xmission.com" <ebiederm@xmission.com>,
- "akpm@linux-foundation.org" <akpm@linux-foundation.org>, "ardb@kernel.org"
- <ardb@kernel.org>, "linux-alpha@vger.kernel.org"
- <linux-alpha@vger.kernel.org>, "linux-snps-arc@lists.infradead.org"
- <linux-snps-arc@lists.infradead.org>, "linux-csky@vger.kernel.org"
- <linux-csky@vger.kernel.org>, "linux-hexagon@vger.kernel.org"
- <linux-hexagon@vger.kernel.org>, "linux-ia64@vger.kernel.org"
- <linux-ia64@vger.kernel.org>, "linux-m68k@lists.linux-m68k.org"
- <linux-m68k@lists.linux-m68k.org>, "linux-mips@vger.kernel.org"
- <linux-mips@vger.kernel.org>, "openrisc@lists.librecores.org"
- <openrisc@lists.librecores.org>, "linux-parisc@vger.kernel.org"
- <linux-parisc@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
- <linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>, "linux-s390@vger.kernel.org"
- <linux-s390@vger.kernel.org>, "linux-sh@vger.kernel.org"
- <linux-sh@vger.kernel.org>, "sparclinux@vger.kernel.org"
- <sparclinux@vger.kernel.org>, "linux-um@lists.infradead.org"
- <linux-um@lists.infradead.org>, "linux-xtensa@linux-xtensa.org"
- <linux-xtensa@linux-xtensa.org>, Christoph Hellwig <hch@infradead.org>
-Subject: RE: [PATCH v2 05/18] x86: remove __range_not_ok()
-Thread-Topic: [PATCH v2 05/18] x86: remove __range_not_ok()
-Thread-Index: AQHYJJDV6CwChj5QoEqoVAdoFeMQC6yZc16A
-Date: Fri, 18 Feb 2022 15:45:56 +0000
-Message-ID: <905678e9e05d40b9a4e13e7b1a34cb68@AcuMS.aculab.com>
-References: <20220216131332.1489939-1-arnd@kernel.org>
- <20220216131332.1489939-6-arnd@kernel.org> <20220218062851.GC22576@lst.de>
-In-Reply-To: <20220218062851.GC22576@lst.de>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
-MIME-Version: 1.0
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=C51A453 smtp.mailfrom=david.laight@aculab.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+ id 1nL7Od-00FQyy-6Y
+ for linux-riscv@lists.infradead.org; Fri, 18 Feb 2022 17:50:20 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id
+ n19-20020a17090ade9300b001b9892a7bf9so12981385pjv.5
+ for <linux-riscv@lists.infradead.org>; Fri, 18 Feb 2022 09:50:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:cc:from:to:message-id;
+ bh=0Qt9aLRVk4goBTUwquuWJkruOHldgdUssfKiVNyRjBQ=;
+ b=ELVfiqPh9ppAkt0PMnsaDcgHf9dr6TJTZx9jcxSn8dD8lROslE9gx+uCG3xPON3JIL
+ nzHVZTyC12rV3QQhc/z6iIQz5FJxsgNfVA5U3/S3dfxwjl/Oe8MQzGLia/1RA7VU/V0Y
+ VqcgPz2pHKc90EFevzjH0w6BQw9cbPycC84VHmDu7k6i3FAeqV1NF5P0Oo5588EvwZFL
+ 1wmwH+4WDywZdyLPB+X3ZP+Wm+KkOxTe9E6Nyj++EX+1KXh9D8gwWgwR3ECJN3c9FyFT
+ 3rBWEV8sGmdptAiulK619gvuB3lHRgHnMINsLG5SyjKYl8BIyyFlalWBRnWVE3q/8itv
+ J72w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:subject:cc:from:to:message-id;
+ bh=0Qt9aLRVk4goBTUwquuWJkruOHldgdUssfKiVNyRjBQ=;
+ b=P9GvlLMZnl5VRTxyxsoUL7Mtv2idfDUf+Vms8ZNQf1rJETzgj+2n+/3w2Is0fttouA
+ gemXI7LLYePOOJ59FigkROWnUQuIKCICcNasQmvJNJqy7u7KBGi9uVhBGdvFBZJx31Bn
+ +d6RbWxHP0mHKUjJWNPHzQSnbiy9z8BsgRH0xZG85f5IOIxgYwf9WcYYcA1sLhLVuICM
+ HbK+jz6XBYD4E3KxX+/EAxamUX4fb4zjGXKfonesDkpAc+LASjwmpoBK5hVNvJ6AlRqa
+ 5wpfxEBES3wMAmq4t5js8H9Dn8lDJjGHcav3dU6blKUVeXM6wGDoMbns5qMBusLURFMr
+ Acgg==
+X-Gm-Message-State: AOAM532A9e+ULEO4fFBxFkQtN9amKdo2vH3+/CDNIp5kmFuXNr38a5fv
+ oyzPG1GhD4BdRoD6KQNPTdvIaA==
+X-Google-Smtp-Source: ABdhPJwO6mvs5H5GQcZgPoP18sncryFhxTQwZ/ukf2jOdcU83CBOdxodUkk58WWfOmTighdkR3YjVw==
+X-Received: by 2002:a17:902:b201:b0:14d:66b5:5d69 with SMTP id
+ t1-20020a170902b20100b0014d66b55d69mr8420800plr.95.1645206617851; 
+ Fri, 18 Feb 2022 09:50:17 -0800 (PST)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id u1sm4081853pfg.151.2022.02.18.09.50.16
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 18 Feb 2022 09:50:17 -0800 (PST)
+Date: Fri, 18 Feb 2022 09:50:17 -0800 (PST)
+X-Google-Original-Date: Fri, 18 Feb 2022 09:49:33 PST (-0800)
+Subject: [GIT PULL] RISC-V Fixes for 5.17-rc5
+CC: linux-kernel@vger.kernel.org,         linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-f149d1ba-1f6d-43b3-8df0-95d27c2b89c0@palmer-mbp2014>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220218_074603_662820_174C91A5 
-X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-CacheID: sfid-20220218_095019_285258_011247EF 
+X-CRM114-Status: UNSURE (   6.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,40 +81,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Christoph Hellwig
-> Sent: 18 February 2022 06:29
-...
-> 
-> > diff --git a/arch/x86/kernel/stacktrace.c b/arch/x86/kernel/stacktrace.c
-> > index 15b058eefc4e..ee117fcf46ed 100644
-> > --- a/arch/x86/kernel/stacktrace.c
-> > +++ b/arch/x86/kernel/stacktrace.c
-> > @@ -90,7 +90,7 @@ copy_stack_frame(const struct stack_frame_user __user *fp,
-> >  {
-> >  	int ret;
-> >
-> > -	if (__range_not_ok(fp, sizeof(*frame), TASK_SIZE))
-> > +	if (!__access_ok(fp, sizeof(*frame)))
-> >  		return 0;
-> 
-> Just switch the __get_user calls below to get_user instead.
+The following changes since commit 6df2a016c0c8a3d0933ef33dd192ea6606b115e3:
 
-Is this worth doing at all?
-How much userspace code is actually compiled with stack frames?
+  riscv: fix build with binutils 2.38 (2022-02-10 09:17:01 -0800)
 
-Won't work well for a 32bit process on a 64bit kernel either.
+are available in the Git repository at:
 
-	David
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.17-rc5
 
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
+for you to fetch changes up to 5feef64f4c67068c49f5409d43c67cabf2327f66:
 
+  RISC-V: Fix IPI/RFENCE hmask on non-monotonic hartid ordering (2022-02-14 12:27:45 -0800)
+
+----------------------------------------------------------------
+RISC-V Fixes for 5.17-rc5
+
+* A set of three fixes, all aimed at fixing some fallout from the recent
+  sparse hart ID support.
+
+----------------------------------------------------------------
+Geert Uytterhoeven (3):
+      RISC-V: Fix hartid mask handling for hartid 31 and up
+      RISC-V: Fix handling of empty cpu masks
+      RISC-V: Fix IPI/RFENCE hmask on non-monotonic hartid ordering
+
+ arch/riscv/kernel/sbi.c | 72 ++++++++++++++++++++++++++++++++-----------------
+ 1 file changed, 47 insertions(+), 25 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
