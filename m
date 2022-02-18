@@ -4,88 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43117C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Feb 2022 02:21:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D46EC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Feb 2022 06:25:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kCkZtPSFb4JQy/l61/Xe7EZEF31dXC+iwGRJjidfB6Y=; b=pr8avbmGmRQOfo
-	tBSA6XI/Bn9SIEad9dnjC8aNm8l2rrwGS/610y4Dn/LpaUEjW02sZbguTPgReYzfKuAXafpiYaTZ4
-	KPCqVCMa9zotr2e7DcjTZaKb6mS727D39AzfnYgaS9cn60Zb6JayxWfSK1xnpk92EjSvVblp2We0v
-	1wdXrr55zfDOcUvyLM6nc0LPgOWnt3HPSM8ozh72khsYmBXeRMYbyfY9+6vBlQ19TfIl5N8TeaJe2
-	gjeS0XXlCmCmOcYYLfav2UMW/lVhJ+3Rwl5y9z0a5r9eqv9GkVJYzHC7QLXFUHHk4zvsm8vd9SwUs
-	OXKcYo2WNc4j07LdF8EQ==;
+	List-Owner; bh=9fGL9C0Tqt4xFoa4GzZeY/VD2Pyf4tW2dzsVB52lO0w=; b=jDB5IQJBylh+yZ
+	ciDvs7bpTSPV1aRoRCAmmLCYC+hvWuZayFAVk51ohOIOEecIn7oY8PhWvTrHUZBXXiZPqQEpIkYAx
+	m8BSpmr38csZv/j0eKGIRELq0GiHauOnlZsGF+Z0CBTCQXPlUC5BMTZKSKkwks+xzfz5yVjCL6mRm
+	RejP8auMy3L5m1KmxcXX+Bw02C/lNaj2YdPpSQRp86u4lYOc1XbNCq103LX3RmbBEDLDofDcBcE3a
+	fnh9pl840spErYBBI22RUb10HzVPI8Lh/xZ+cKVHo2lq8AtELBBf7X/2ks7HA+kE/jwPehdCRXc2A
+	EYKxeSDREsDFF3PKlIQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nKstY-00Chyv-U1; Fri, 18 Feb 2022 02:21:16 +0000
-Received: from zeniv-ca.linux.org.uk ([2607:5300:60:148a::1])
+	id 1nKwhq-00D3MH-UH; Fri, 18 Feb 2022 06:25:26 +0000
+Received: from verein.lst.de ([213.95.11.211])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nKstV-00ChxJ-Tq; Fri, 18 Feb 2022 02:21:15 +0000
-Received: from viro by zeniv-ca.linux.org.uk with local (Exim 4.94.2 #2 (Red
- Hat Linux)) id 1nKstJ-002dCt-8P; Fri, 18 Feb 2022 02:21:01 +0000
-Date: Fri, 18 Feb 2022 02:21:01 +0000
-From: Al Viro <viro@zeniv.linux.org.uk>
+ id 1nKwho-00D3L7-4Y; Fri, 18 Feb 2022 06:25:25 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+ id C068267373; Fri, 18 Feb 2022 07:25:16 +0100 (CET)
+Date: Fri, 18 Feb 2022 07:25:16 +0100
+From: Christoph Hellwig <hch@lst.de>
 To: Arnd Bergmann <arnd@kernel.org>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Christoph Hellwig <hch@lst.de>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
- "arnd@arndb.de" <arnd@arndb.de>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "mark.rutland@arm.com" <mark.rutland@arm.com>,
- "dalias@libc.org" <dalias@libc.org>,
- "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
- "linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>,
- "peterz@infradead.org" <peterz@infradead.org>,
- "jcmvbkbc@gmail.com" <jcmvbkbc@gmail.com>,
- "guoren@kernel.org" <guoren@kernel.org>,
- "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
- "linux-hexagon@vger.kernel.org" <linux-hexagon@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "will@kernel.org" <will@kernel.org>, "ardb@kernel.org" <ardb@kernel.org>,
- "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
- "bcain@codeaurora.org" <bcain@codeaurora.org>,
- "deller@gmx.de" <deller@gmx.de>, "x86@kernel.org" <x86@kernel.org>,
- "linux@armlinux.org.uk" <linux@armlinux.org.uk>,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- "mingo@redhat.com" <mingo@redhat.com>,
- "geert@linux-m68k.org" <geert@linux-m68k.org>,
- "linux-snps-arc@lists.infradead.org" <linux-snps-arc@lists.infradead.org>,
- "linux-xtensa@linux-xtensa.org" <linux-xtensa@linux-xtensa.org>,
- "hca@linux.ibm.com" <hca@linux.ibm.com>,
- "linux-alpha@vger.kernel.org" <linux-alpha@vger.kernel.org>,
- "linux-um@lists.infradead.org" <linux-um@lists.infradead.org>,
- "linux-m68k@lists.linux-m68k.org" <linux-m68k@lists.linux-m68k.org>,
- "openrisc@lists.librecores.org" <openrisc@lists.librecores.org>,
- "green.hu@gmail.com" <green.hu@gmail.com>,
- "shorne@gmail.com" <shorne@gmail.com>,
- "monstr@monstr.eu" <monstr@monstr.eu>,
- "tsbogend@alpha.franken.de" <tsbogend@alpha.franken.de>,
- "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
- "nickhu@andestech.com" <nickhu@andestech.com>,
- "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- "dinguyen@kernel.org" <dinguyen@kernel.org>,
- "ebiederm@xmission.com" <ebiederm@xmission.com>,
- "richard@nod.at" <richard@nod.at>,
- "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "davem@davemloft.net" <davem@davemloft.net>
-Subject: Re: [PATCH v2 00/18] clean up asm/uaccess.h, kill set_fs for good
-Message-ID: <Yg8CjZwjWYIibrsd@zeniv-ca.linux.org.uk>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+ Christoph Hellwig <hch@lst.de>, linux-arch@vger.kernel.org,
+ linux-mm@kvack.org, linux-api@vger.kernel.org, arnd@arndb.de,
+ linux-kernel@vger.kernel.org, viro@zeniv.linux.org.uk,
+ linux@armlinux.org.uk, will@kernel.org, guoren@kernel.org,
+ bcain@codeaurora.org, geert@linux-m68k.org, monstr@monstr.eu,
+ tsbogend@alpha.franken.de, nickhu@andestech.com, green.hu@gmail.com,
+ dinguyen@kernel.org, shorne@gmail.com, deller@gmx.de,
+ mpe@ellerman.id.au, peterz@infradead.org, mingo@redhat.com,
+ mark.rutland@arm.com, hca@linux.ibm.com, dalias@libc.org,
+ davem@davemloft.net, richard@nod.at, x86@kernel.org,
+ jcmvbkbc@gmail.com, ebiederm@xmission.com,
+ akpm@linux-foundation.org, ardb@kernel.org,
+ linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org
+Subject: Re: [PATCH v2 02/18] uaccess: fix nios2 and microblaze get_user_8()
+Message-ID: <20220218062516.GA22576@lst.de>
 References: <20220216131332.1489939-1-arnd@kernel.org>
- <00496df2-f9f2-2547-3ca3-7989e4713d6b@csgroup.eu>
- <CAK8P3a3_dPbjB23QffnYMtw+5ojfwChrVC8LLMQqNctU7Nh+mQ@mail.gmail.com>
+ <20220216131332.1489939-3-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAK8P3a3_dPbjB23QffnYMtw+5ojfwChrVC8LLMQqNctU7Nh+mQ@mail.gmail.com>
+In-Reply-To: <20220216131332.1489939-3-arnd@kernel.org>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220217_182113_974237_5CE87B3A 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20220217_222524_351283_2C7D89F9 
+X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,26 +78,9 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 17, 2022 at 08:49:59AM +0100, Arnd Bergmann wrote:
+Looks good:
 
-> Same here: architectures can already provide a __put_user_fn()
-> and __get_user_fn(), to get the generic versions of the interface,
-> but few architectures use that. You can actually get all the interfaces
-> by just providing raw_copy_from_user() and raw_copy_to_user(),
-> but the get_user/put_user versions you get from that are fairly
-> inefficient.
-
-FWIW, __{get,put}_user_{8,16,32,64} would probably make it easier to
-unify.  That's where the really variable part tends to be, anyway.
-IMO __get_user_fn() had been a mistake.
-
-One thing I somewhat dislike about the series is the boilerplate in
-asm/uaccess.h instances - #include <asm-generic/access-ok.h> in
-a lot of them might make sense as a transitory state, but getting
-stuck with those indefinitely...
-
-	BTW, do we need user_addr_max() anymore?  The definition in
-asm-generic/access-ok.h is the only one, so ifndef around it is pointless.
+Reviewed-by: Christoph Hellwig <hch@lst.de>
 
 _______________________________________________
 linux-riscv mailing list
