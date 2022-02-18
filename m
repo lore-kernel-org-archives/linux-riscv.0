@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DBF0C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Feb 2022 07:24:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B3A4C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Feb 2022 07:30:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QLWE+wR80cJrwMl2zE2L8xfbzLvkTnT1HYOwtdp4wSQ=; b=XYO2ry/vyAj8f7
-	n7TjqBypgOShvxGSHWjnQ3qtcvU4fPUuR6drDPNxAOpcDFj+Id9DnhvKAfKPAlD5qav8U0crzAj1O
-	hR8Uud+YYxfxTBjAh22nnoLx1Gfy1BHTn0UM3p11Bgno0K2A2IqPkaFpDSaJlkAETwEpl1dP688qo
-	d4jRSmLDkDWaXyWSwNqdlx2+rLJawmVhcwYWAPLw+c/TcNo4gYcgRG3QOik2IMsw68MIeDldG51UC
-	vFnDjymYoUBASjf9dzvnnFzcw6qe4RuniZabZwT83c5RJ8bEiHflqs2ZYMxgbRYWN4ltDESXB305E
-	DYwbARY5mP51QTA8cCkQ==;
+	List-Owner; bh=FU9NwAI9I/5O8DTnEfOMctyw0keprOf1v38AJqvBsZ0=; b=NTYCNDhq++EYO7
+	jXdqQlskcbwtPtpjZ3r6jshrKKrrXOeTDBAEQ9Dsp4xbeyGTDKzGIA5RJ5VvIKRoSJ/cLvBnMI95L
+	Qvqn2S1s3RVQITPIvJiEnRMD8PvXCX801dJs11kHzWKXZBeUjg9m1+O41U24x7JGdK/07UeniU/ad
+	5ikO+ioqZbJHay92ta5P956JsOzxpK8ZOjkb4R0QJ62ppGfOEJ++5zJ6NIgUV9G3CbyNAEYOTg/Wr
+	hIn8uHkUXGpfNYAtYq/HxlTzyzdbANMidsJUp11GJx1B8/38Jo5HN9j+XF0t4nFWUSi2k43zkATQL
+	4jmC4bVnPTZG1RG4xAeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nKxcX-00DBvK-RV; Fri, 18 Feb 2022 07:24:01 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1nKxiq-00DCZd-QD; Fri, 18 Feb 2022 07:30:32 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nKxcV-00DBte-4Z; Fri, 18 Feb 2022 07:24:00 +0000
+ id 1nKxio-00DCZC-Gl; Fri, 18 Feb 2022 07:30:32 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by sin.source.kernel.org (Postfix) with ESMTPS id 9615BCE3154;
- Fri, 18 Feb 2022 07:23:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CFEFC340ED;
- Fri, 18 Feb 2022 07:23:57 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 17E7AB82058;
+ Fri, 18 Feb 2022 07:30:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D59BC340FF;
+ Fri, 18 Feb 2022 07:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1645169037;
- bh=iX8k9YjATKpR4c62jPbZyUcM9GG/inNR2Rws8vh+5TI=;
+ s=k20201202; t=1645169428;
+ bh=4Rk51yI7cy+h8GrR+wkZuFO6d6ZOgVmodthZQla/xGE=;
  h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=tqTEPi3D8ykMJuM1O5WZXRrY+x9fqigElYE+7U2lP66aiQhXjwqc8np5cgJ3nPhob
- INc5mSHbYoAozc5dz6c6XrssTjPgLHo3DEzE+GZW+ofRygPj1jwo24y8Visn79VwMA
- TYn3bM3oEslfU6UAsDfSTdiWgRHp/xbijA5Nn8EoxI84pjZNNihf5nveTL2Wg3t2Uk
- NCbKF/iOfzWH0fJ2ENk81YbpznN36uJOc4XefmD5VTowvxTO475eweZNksp6ybfoLa
- KPWJ3pTDi4VzPKsHnWQphUSIyN2wHVcVVpwH2x7YU+Z9AstU7CKENvU2MS9xP0zaMn
- bqHyOdm/qy+lw==
-Received: by mail-lj1-f173.google.com with SMTP id n24so2979552ljj.10;
- Thu, 17 Feb 2022 23:23:57 -0800 (PST)
-X-Gm-Message-State: AOAM531w3FyBZLT4QDqoOwLPNplO+DoqU1c0Ad/hhhUYEzrMUzpYrMrJ
- 294A/dtetcqllgtW4ShOHdYNbK/Phfw9pHCcWyk=
-X-Google-Smtp-Source: ABdhPJy+O8dl23fyesXRWHjz7SZRLrJN54UunjRaSC3OSIYzwaAC/i9x7WkjUHComAvPWqTtg86CqT1E/gHbWgqhIZI=
-X-Received: by 2002:adf:90c1:0:b0:1e4:ad27:22b9 with SMTP id
- i59-20020adf90c1000000b001e4ad2722b9mr4994775wri.219.1645169025031; Thu, 17
- Feb 2022 23:23:45 -0800 (PST)
+ b=nfieHdtoc5pDqS5G+Vo+kHzqd26jkrD4pn8k7ivIDT01UdTHxcfE2U323R+wTs95P
+ SjXGrQR5t3CflTK8gDO5o1/jpzLh/W0vSfOdjuhK0MIH8MU487qgYRsdXfgKdcQFwx
+ Z8DEhvjyyFZMgz9C+eJMrEuZiHjh8LZtvTGanxRtkC8k+PDbRqYpHCGQOKOSBtyZxU
+ MyMVskyvUrgBJrO2kGej5iymlF3hkaSLGHXSeI8Kz9+3fQqcMqX4eMOdbLXgfkVQqP
+ FGgsr6IvGiXxq/3RTaYxvb7ljrjO/V1YQAzhZqfx99tLC1lGmBpJkwxKHbLeLzEQHs
+ QPzG/1NULMG0g==
+Received: by mail-ed1-f51.google.com with SMTP id u18so13905091edt.6;
+ Thu, 17 Feb 2022 23:30:28 -0800 (PST)
+X-Gm-Message-State: AOAM533jym1wik01CSTBj4+aZaV3FdJmqfyA28u3IHWxKPYciDGfOeIG
+ 7zo0Uihr/ZkZbgp/6lYMAPC+PqwF122vBvoIV5U=
+X-Google-Smtp-Source: ABdhPJz4trlMwdvjT8y0UPggztkdijECp2hMuaf6QP4pGa8b+VYFZp4/tSgCA0YRdkm1OA4dObRIZr3wh6XhtS+RfLY=
+X-Received: by 2002:adf:ea01:0:b0:1e4:b3e6:1f52 with SMTP id
+ q1-20020adfea01000000b001e4b3e61f52mr4942117wrm.317.1645169415535; Thu, 17
+ Feb 2022 23:30:15 -0800 (PST)
 MIME-Version: 1.0
 References: <20220216131332.1489939-1-arnd@kernel.org>
- <20220216131332.1489939-14-arnd@kernel.org>
- <20220218063450.GI22576@lst.de>
-In-Reply-To: <20220218063450.GI22576@lst.de>
+ <20220216131332.1489939-6-arnd@kernel.org>
+ <20220218062851.GC22576@lst.de>
+In-Reply-To: <20220218062851.GC22576@lst.de>
 From: Arnd Bergmann <arnd@kernel.org>
-Date: Fri, 18 Feb 2022 08:23:29 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a17kdz0gKYz3cDSpvWa80TY6QNSom11HVAb8h91RZn0Jg@mail.gmail.com>
-Message-ID: <CAK8P3a17kdz0gKYz3cDSpvWa80TY6QNSom11HVAb8h91RZn0Jg@mail.gmail.com>
-Subject: Re: [PATCH v2 13/18] uaccess: generalize access_ok()
+Date: Fri, 18 Feb 2022 08:29:59 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a1Dhn1Gsap1Wss2xpKBwe3jWLAmMYtL7S1-26tZ5D_2fQ@mail.gmail.com>
+Message-ID: <CAK8P3a1Dhn1Gsap1Wss2xpKBwe3jWLAmMYtL7S1-26tZ5D_2fQ@mail.gmail.com>
+Subject: Re: [PATCH v2 05/18] x86: remove __range_not_ok()
 To: Christoph Hellwig <hch@lst.de>
 Cc: Linus Torvalds <torvalds@linux-foundation.org>,
  linux-arch <linux-arch@vger.kernel.org>, 
@@ -95,10 +95,11 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
  Linux-sh list <linux-sh@vger.kernel.org>,
  sparclinux <sparclinux@vger.kernel.org>, 
  linux-um <linux-um@lists.infradead.org>, 
- "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>
+ "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>,
+ Christoph Hellwig <hch@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220217_232359_533435_95435483 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20220217_233030_888422_8EFE5FF5 
+X-CRM114-Status: GOOD (  27.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,25 +116,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 18, 2022 at 7:34 AM Christoph Hellwig <hch@lst.de> wrote:
+On Fri, Feb 18, 2022 at 7:28 AM Christoph Hellwig <hch@lst.de> wrote:
+> On Wed, Feb 16, 2022 at 02:13:19PM +0100, Arnd Bergmann wrote:
+> > --- a/arch/x86/events/core.c
+> > +++ b/arch/x86/events/core.c
+> > @@ -2794,7 +2794,7 @@ perf_callchain_kernel(struct perf_callchain_entry_ctx *entry, struct pt_regs *re
+> >  static inline int
+> >  valid_user_frame(const void __user *fp, unsigned long size)
+> >  {
+> > -     return (__range_not_ok(fp, size, TASK_SIZE) == 0);
+> > +     return __access_ok(fp, size);
+> >  }
 >
-> > +#include <asm-generic/access_ok.h>
+> valid_user_frame just need to go away and the following __get_user calls
+> replaced with normal get_user ones.
+
+As I understand it, that would not work here because get_user() calls
+access_ok() rather than __access_ok(), and on x86 that can not be
+called in NMI context.
+
+It is a bit odd that x86 is the only architecture that has this check,
+but adding
+it was clearly intentional, see 7c4788950ba5 ("x86/uaccess, sched/preempt:
+Verify access_ok() context").
+
+> > diff --git a/arch/x86/kernel/dumpstack.c b/arch/x86/kernel/dumpstack.c
+> > index 53de044e5654..da534fb7b5c6 100644
+> > --- a/arch/x86/kernel/dumpstack.c
+> > +++ b/arch/x86/kernel/dumpstack.c
+> > @@ -85,7 +85,7 @@ static int copy_code(struct pt_regs *regs, u8 *buf, unsigned long src,
+> >        * Make sure userspace isn't trying to trick us into dumping kernel
+> >        * memory by pointing the userspace instruction pointer at it.
+> >        */
+> > -     if (__chk_range_not_ok(src, nbytes, TASK_SIZE_MAX))
+> > +     if (!__access_ok((void __user *)src, nbytes))
+> >               return -EINVAL;
 >
-> Instead of the asm-generic games, shouldn't we just define access_ok in
-> <linux/uaccess.h> if not already defined by the architecture?
+> This one is not needed at all as copy_from_user_nmi already checks the
+> access range.
 
-I tried, but couldn't actually make it work because asm/uaccess.h tends
-to contain inline functions that rely on access_ok(). It could work once we
-move all the high-level functions into linux/uaccess.h, but that would likely
-require another long patch series.
+Ok, removing this.
 
-One option that can work is to require architectures to have an
-asm/access_ok.h header that gets included by linux/uaccess.h.
-On most architectures, that would be redirected to
-asm-generic/access_ok.h, as only ia64, x86, arm64 and um
-need to override the definition.
+> > diff --git a/arch/x86/kernel/stacktrace.c b/arch/x86/kernel/stacktrace.c
+> > index 15b058eefc4e..ee117fcf46ed 100644
+> > --- a/arch/x86/kernel/stacktrace.c
+> > +++ b/arch/x86/kernel/stacktrace.c
+> > @@ -90,7 +90,7 @@ copy_stack_frame(const struct stack_frame_user __user *fp,
+> >  {
+> >       int ret;
+> >
+> > -     if (__range_not_ok(fp, sizeof(*frame), TASK_SIZE))
+> > +     if (!__access_ok(fp, sizeof(*frame)))
+> >               return 0;
+>
+> Just switch the __get_user calls below to get_user instead.
 
-      Arnd
+Same as the first one, I think we can't do this in NMI context.
+
+         Arnd
 
 _______________________________________________
 linux-riscv mailing list
