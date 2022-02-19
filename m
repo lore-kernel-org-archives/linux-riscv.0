@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CEA9C433EF
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Feb 2022 09:32:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BFE4C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Feb 2022 13:04:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:Subject:Cc:To:From
-	:Date:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oGfLHmfN+rNx3W4mOuboLsnd+44icqSkjddiJCmAld0=; b=4YR1CiYZpUH0b+RWOsgEYTAnaS
-	Gtr5o71JHt7MkoPFuYEYsCEq9oe+SeeOb+1MjAAFr42A/yEUX8lUAaYRGB8Cp++0NF6gT3xuTsJK/
-	Sp4W8nP+vWCfZUCi3bF2a4tD+upJtORhMMJuctPxNhbn93ISPP7aesYkRV9TESlQHWKOKBNgSzgZE
-	fcx3O0moge26n/HNdWEWEgAJUw1EVyA0danKHqDJXxV1hHD9Gyocgjyy1Hh4FeIVb8PIUY8o9lu3o
-	Y8OlV3q3shdv2Urf7W2Pk9jwSiL8sSgBFyYmKmxBPXScbJz1Z6NbZYQtvNpAWoDVAo//ksBcuCqpO
-	HPrHRyFQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2vhbKN8SdbQ6CXQ9n4SvHGfxQS8BaQJ7r5cpJG6qRaI=; b=D3LaJbP2mRzPIi
+	L9ycxNBuVvHkrexecd+OKLwNU/krrYMkYzANHcMd0pSpPZfjoHdg7U5FWr/ZoV2OUGSb221C+ksYq
+	Klrvmf4tB3c6cSRx2K35dgW1Lv1UhZ4JYAPHO0HkfMhNVzGSKfbO6GrfUaJFUILXLXjnnv7+ABJk/
+	mRRaXdxe2i24vPf/XMb/Q185Uqz+pcHTzE4NyJFMZ3Fu3YEFZs8rMzlydigzL4ptphDpI84sfwFvU
+	QOjANdOukNkfIGVSTsXwNwTbWJmKwFufOUcZGHt/7534eY2arFGQtrxlPBKOYRGWhH6z4bRifKCY4
+	hKvW2+ixoURgyBuLgGIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nLM6a-00GZ0R-E7; Sat, 19 Feb 2022 09:32:40 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1nLPP2-00Guql-1X; Sat, 19 Feb 2022 13:03:56 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nLM6W-00GYyB-6c
- for linux-riscv@lists.infradead.org; Sat, 19 Feb 2022 09:32:38 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id B669BB80881;
- Sat, 19 Feb 2022 09:32:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3359BC004E1;
- Sat, 19 Feb 2022 09:32:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1645263149;
- bh=TFIg2O8K58C6QPwpMECrwYxaBkoGsAJ5vDjkcuHPduY=;
- h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
- b=mmlsJ905oEd+SxRdBDfmSAVkT/7Vig0fjh1BJLgZUpqpv+2O/b6BMBNhtAR/7TFFC
- AewSDmrOPNYRpnIuFoHOHVUfS04wdiQYZ4Mt3zA+6TzCYGfFx5l7VO6AUrPUSdTeMz
- ld5ygaHIlRKqutVsWcsDZfxZjDpA5O9R6yQxNSkNtHeYhZEft3UcOGpxZSm+x75iv3
- r0nuDL19gSmJN0dI+MmGRhFV7Mqbp23qnmUcVTrR4SwS3axV06Dish6tENQaSxAxa0
- 1XsE6HyHWO4OJT5nUeQwu6ocsmzjoqWT0/A8YTvJOxPoMwSFkhKGLgm5nP1hHqsk0C
- WcRJFuvXPs3jg==
-Received: from disco-boy.misterjones.org ([51.254.78.96] helo=www.loen.fr)
- by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <maz@kernel.org>)
- id 1nLM6M-008xBa-MD; Sat, 19 Feb 2022 09:32:26 +0000
+ id 1nLPOy-00Gupe-44
+ for linux-riscv@lists.infradead.org; Sat, 19 Feb 2022 13:03:54 +0000
+Received: by mail-wr1-x431.google.com with SMTP id u1so18976816wrg.11
+ for <linux-riscv@lists.infradead.org>; Sat, 19 Feb 2022 05:03:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=xt347mLimiyCriqepYPm5hTYnZWiY7Hkr7OzAlrAYKI=;
+ b=o7nlV+f3xWUtte87tViOiw8Bkgi1LVZqvdjfkBMM+AvIuDeAW7ewWpJpfAtJJ7Zznh
+ iDZJbU7yLco8MES7Se1bpuVtNyCgniucZ+buUYyBtemKUEgAm+LAwGRZzZ+0y6yNwLWX
+ 8LKp3BdUFsYIMZZPgxwPE30UODAgDjul9Qc0GLjE1cwI0T1m/Cj7bW1dkLToxM4pTWhD
+ Dhaqzn/WwFJOYBPlVc5Z6YDI1GpJNCZjEnEunPXEwDM0K3up4RJ11Mob1l3ASK4QBfUQ
+ D61gzZXheBS+JTAxZeA2vA6NE3R6tWvQyp4hJDZP3aDqpDttnqFN+d7h1g67Szw0od/L
+ ztoQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=xt347mLimiyCriqepYPm5hTYnZWiY7Hkr7OzAlrAYKI=;
+ b=G3NzGDnKB24OVN8F3tjzkE3B+e51AGogmoCv62skuXfYDVoLjguN2YozW3ZsHkcd6l
+ 7jLIQwmPZSjscVTk/GNH7GV05/Tlq0SSPNKCfMq7nGQz/ZI0Q0ES4UcFTVWVAKevTpCj
+ kvxKX5gS3n2ZqxSmePMNNvTlhCuBtYwNwhh3zaySf7I+GJ87/AeRetJjE1psOhb8QyZo
+ EdBcEdpIKtnQsvEpmUwXklrWjyW2B8SMz2iJgpxz/WdV5GTky4H2nlzEP703vDlCAzIo
+ PkOqQdX45OE26cCdwb656vxlPeePEICBBmIqsTwLsX1Kr4dF1MeQlY8Y97DY0GflJYO1
+ IGUg==
+X-Gm-Message-State: AOAM533XYQcdsbCY8I9TqDwIQW9xoRnyA4vdyNlzODUFUpE0MYdDx75a
+ MNGHG6z23K19D+YvUEYvFWoP9a7spSrK0zuqq22UPw==
+X-Google-Smtp-Source: ABdhPJx+/uT24Y0y1TFlDPUibFVWD8idICZvsFz63xvRmW+ySDjyRge4XGQuVXinT3FiktMPBRwy7UBJ2xcrq4znbEc=
+X-Received: by 2002:adf:b645:0:b0:1e3:bab:7594 with SMTP id
+ i5-20020adfb645000000b001e30bab7594mr9241465wre.346.1645275828602; Sat, 19
+ Feb 2022 05:03:48 -0800 (PST)
 MIME-Version: 1.0
-Date: Sat, 19 Feb 2022 09:32:26 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: Anup Patel <anup@brainfault.org>
-Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas
- Gleixner <tglx@linutronix.de>, Daniel Lezcano <daniel.lezcano@linaro.org>,
- Atish Patra <atishp@atishpatra.org>, Alistair Francis
- <Alistair.Francis@wdc.com>, linux-riscv <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 2/6] irqchip/riscv-intc: Create domain using named
- fwnode
-In-Reply-To: <CAAhSdy387r314f=YjvXJCxqxkvjm5q-EBOVu420giFzaVr_NYw@mail.gmail.com>
 References: <20220128052505.859518-1-apatel@ventanamicro.com>
  <20220128052505.859518-3-apatel@ventanamicro.com>
  <063b8a5636d6372f37029946b2c3e0f4@kernel.org>
  <CAAhSdy387r314f=YjvXJCxqxkvjm5q-EBOVu420giFzaVr_NYw@mail.gmail.com>
-User-Agent: Roundcube Webmail/1.4.13
-Message-ID: <31fea18e51a5021b79adb17973f9528e@kernel.org>
-X-Sender: maz@kernel.org
-X-SA-Exim-Connect-IP: 51.254.78.96
-X-SA-Exim-Rcpt-To: anup@brainfault.org, apatel@ventanamicro.com,
- palmer@dabbelt.com, paul.walmsley@sifive.com, tglx@linutronix.de,
- daniel.lezcano@linaro.org, atishp@atishpatra.org, Alistair.Francis@wdc.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
- SAEximRunCond expanded to false
+ <31fea18e51a5021b79adb17973f9528e@kernel.org>
+In-Reply-To: <31fea18e51a5021b79adb17973f9528e@kernel.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Sat, 19 Feb 2022 18:33:37 +0530
+Message-ID: <CAAhSdy0jTTDzoc+3T_8uLiWfBN3AFCWj99Ayc-Yh8FBfzUY2sQ@mail.gmail.com>
+Subject: Re: [PATCH v2 2/6] irqchip/riscv-intc: Create domain using named
+ fwnode
+To: Marc Zyngier <maz@kernel.org>
+Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Atish Patra <atishp@atishpatra.org>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220219_013236_699672_728086C9 
-X-CRM114-Status: GOOD (  36.53  )
+X-CRM114-CacheID: sfid-20220219_050352_266326_49922588 
+X-CRM114-Status: GOOD (  49.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,160 +88,239 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2022-02-19 03:38, Anup Patel wrote:
-> On Thu, Feb 17, 2022 at 8:42 PM Marc Zyngier <maz@kernel.org> wrote:
->> 
->> On 2022-01-28 05:25, Anup Patel wrote:
->> > We should create INTC domain using a synthetic fwnode which will allow
->> > drivers (such as RISC-V SBI IPI driver, RISC-V timer driver, RISC-V
->> > PMU driver, etc) not having dedicated DT/ACPI node to directly create
->> > interrupt mapping for standard local interrupt numbers defined by the
->> > RISC-V privileged specification.
->> >
->> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
->> > ---
->> >  arch/riscv/include/asm/irq.h      |  2 ++
->> >  arch/riscv/kernel/irq.c           | 13 +++++++++++++
->> >  drivers/clocksource/timer-clint.c | 13 +++++++------
->> >  drivers/clocksource/timer-riscv.c | 11 ++---------
->> >  drivers/irqchip/irq-riscv-intc.c  | 12 ++++++++++--
->> >  drivers/irqchip/irq-sifive-plic.c | 19 +++++++++++--------
->> >  6 files changed, 45 insertions(+), 25 deletions(-)
->> >
->> > diff --git a/arch/riscv/include/asm/irq.h
->> > b/arch/riscv/include/asm/irq.h
->> > index e4c435509983..f85ebaf07505 100644
->> > --- a/arch/riscv/include/asm/irq.h
->> > +++ b/arch/riscv/include/asm/irq.h
->> > @@ -12,6 +12,8 @@
->> >
->> >  #include <asm-generic/irq.h>
->> >
->> > +extern struct fwnode_handle *riscv_intc_fwnode(void);
->> > +
->> >  extern void __init init_IRQ(void);
->> >
->> >  #endif /* _ASM_RISCV_IRQ_H */
->> > diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
->> > index 7207fa08d78f..f2fed78ab659 100644
->> > --- a/arch/riscv/kernel/irq.c
->> > +++ b/arch/riscv/kernel/irq.c
->> > @@ -7,9 +7,22 @@
->> >
->> >  #include <linux/interrupt.h>
->> >  #include <linux/irqchip.h>
->> > +#include <linux/irqdomain.h>
->> > +#include <linux/module.h>
->> >  #include <linux/seq_file.h>
->> >  #include <asm/smp.h>
->> >
->> > +static struct fwnode_handle *intc_fwnode;
->> > +
->> > +struct fwnode_handle *riscv_intc_fwnode(void)
->> > +{
->> > +     if (!intc_fwnode)
->> > +             intc_fwnode = irq_domain_alloc_named_fwnode("RISCV-INTC");
->> > +
->> > +     return intc_fwnode;
->> > +}
->> > +EXPORT_SYMBOL_GPL(riscv_intc_fwnode);
->> 
->> Why is this created outside of the root interrupt controller driver?
->> Furthermore, why do you need to create a new fwnode the first place?
->> As far as I can tell, the INTC does have a node, and what you don't
->> have is the firmware linkage between PMU (an others) and the INTC.
-> 
-> Fair enough, I will update this patch to not create a synthetic fwnode.
-> 
-> The issue is not with INTC driver. We have other drivers and places
-> (such as SBI IPI driver, SBI PMU driver, and KVM RISC-V AIA support)
-> where we don't have a way to locate INTC fwnode.
+On Sat, Feb 19, 2022 at 3:02 PM Marc Zyngier <maz@kernel.org> wrote:
+>
+> On 2022-02-19 03:38, Anup Patel wrote:
+> > On Thu, Feb 17, 2022 at 8:42 PM Marc Zyngier <maz@kernel.org> wrote:
+> >>
+> >> On 2022-01-28 05:25, Anup Patel wrote:
+> >> > We should create INTC domain using a synthetic fwnode which will allow
+> >> > drivers (such as RISC-V SBI IPI driver, RISC-V timer driver, RISC-V
+> >> > PMU driver, etc) not having dedicated DT/ACPI node to directly create
+> >> > interrupt mapping for standard local interrupt numbers defined by the
+> >> > RISC-V privileged specification.
+> >> >
+> >> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> >> > ---
+> >> >  arch/riscv/include/asm/irq.h      |  2 ++
+> >> >  arch/riscv/kernel/irq.c           | 13 +++++++++++++
+> >> >  drivers/clocksource/timer-clint.c | 13 +++++++------
+> >> >  drivers/clocksource/timer-riscv.c | 11 ++---------
+> >> >  drivers/irqchip/irq-riscv-intc.c  | 12 ++++++++++--
+> >> >  drivers/irqchip/irq-sifive-plic.c | 19 +++++++++++--------
+> >> >  6 files changed, 45 insertions(+), 25 deletions(-)
+> >> >
+> >> > diff --git a/arch/riscv/include/asm/irq.h
+> >> > b/arch/riscv/include/asm/irq.h
+> >> > index e4c435509983..f85ebaf07505 100644
+> >> > --- a/arch/riscv/include/asm/irq.h
+> >> > +++ b/arch/riscv/include/asm/irq.h
+> >> > @@ -12,6 +12,8 @@
+> >> >
+> >> >  #include <asm-generic/irq.h>
+> >> >
+> >> > +extern struct fwnode_handle *riscv_intc_fwnode(void);
+> >> > +
+> >> >  extern void __init init_IRQ(void);
+> >> >
+> >> >  #endif /* _ASM_RISCV_IRQ_H */
+> >> > diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
+> >> > index 7207fa08d78f..f2fed78ab659 100644
+> >> > --- a/arch/riscv/kernel/irq.c
+> >> > +++ b/arch/riscv/kernel/irq.c
+> >> > @@ -7,9 +7,22 @@
+> >> >
+> >> >  #include <linux/interrupt.h>
+> >> >  #include <linux/irqchip.h>
+> >> > +#include <linux/irqdomain.h>
+> >> > +#include <linux/module.h>
+> >> >  #include <linux/seq_file.h>
+> >> >  #include <asm/smp.h>
+> >> >
+> >> > +static struct fwnode_handle *intc_fwnode;
+> >> > +
+> >> > +struct fwnode_handle *riscv_intc_fwnode(void)
+> >> > +{
+> >> > +     if (!intc_fwnode)
+> >> > +             intc_fwnode = irq_domain_alloc_named_fwnode("RISCV-INTC");
+> >> > +
+> >> > +     return intc_fwnode;
+> >> > +}
+> >> > +EXPORT_SYMBOL_GPL(riscv_intc_fwnode);
+> >>
+> >> Why is this created outside of the root interrupt controller driver?
+> >> Furthermore, why do you need to create a new fwnode the first place?
+> >> As far as I can tell, the INTC does have a node, and what you don't
+> >> have is the firmware linkage between PMU (an others) and the INTC.
+> >
+> > Fair enough, I will update this patch to not create a synthetic fwnode.
+> >
+> > The issue is not with INTC driver. We have other drivers and places
+> > (such as SBI IPI driver, SBI PMU driver, and KVM RISC-V AIA support)
+> > where we don't have a way to locate INTC fwnode.
+>
+> And that's exactly what I am talking about: The INTC is OK (sort of),
+> but the firmware is too crap for words, and isn't even able to expose
+> where the various endpoints route their interrupts to.
 
-And that's exactly what I am talking about: The INTC is OK (sort of),
-but the firmware is too crap for words, and isn't even able to expose
-where the various endpoints route their interrupts to.
+The firmware is always present at a higher privilege-level hence there
+is no DT node to discover the presence of firmware. The local interrupts
+used by the firmware for IPI, Timer and PMU are defined by the RISC-V
+ISA specification.
 
-Yes, this is probably fine today because you can describe the topology
-of RISC-V systems on the surface of a post stamp. Once you get to the
-complexity of a server-grade SoC (or worse, a mobile phone style SoC),
-this *implicit topology* stuff doesn't fly, because there is no 
-guarantee
-that all endpoints will always all point to the same controller.
+>
+> Yes, this is probably fine today because you can describe the topology
+> of RISC-V systems on the surface of a post stamp. Once you get to the
+> complexity of a server-grade SoC (or worse, a mobile phone style SoC),
+> this *implicit topology* stuff doesn't fly, because there is no
+> guarantee
+> that all endpoints will always all point to the same controller.
 
->> what you should have instead is something like:
->> 
->> static struct fwnode_handle *(*__get_root_intc_node)(void);
->> struct fwnode_handle *riscv_get_root_intc_hwnode(void)
->> {
->>          if (__get_root_intc_node)
->>                  return __get_root_intc_node();
->> 
->>          return NULL;
->> }
->> 
->> and the corresponding registration interface.
-> 
-> Thanks, I will follow this suggestion. This is a much better approach
-> and it will avoid touching existing drivers.
-> 
->> 
->> But either way, something breaks: the INTC has one node per CPU, and
->> expect one irqdomain per CPU. Having a single fwnode completely breaks
->> the INTC driver (and probably the irqdomain list, as we don't check 
->> for
->> duplicate entries).
->> 
->> > diff --git a/drivers/irqchip/irq-riscv-intc.c
->> > b/drivers/irqchip/irq-riscv-intc.c
->> > index b65bd8878d4f..26ed62c11768 100644
->> > --- a/drivers/irqchip/irq-riscv-intc.c
->> > +++ b/drivers/irqchip/irq-riscv-intc.c
->> > @@ -112,8 +112,16 @@ static int __init riscv_intc_init(struct
->> > device_node *node,
->> >       if (riscv_hartid_to_cpuid(hartid) != smp_processor_id())
->> >               return 0;
->> >
->> > -     intc_domain = irq_domain_add_linear(node, BITS_PER_LONG,
->> > -                                         &riscv_intc_domain_ops, NULL);
->> > +     /*
->> > +      * Create INTC domain using a synthetic fwnode which will allow
->> > +      * drivers (such as RISC-V SBI IPI driver, RISC-V timer driver,
->> > +      * RISC-V PMU driver, etc) not having dedicated DT/ACPI node to
->> > +      * directly create interrupt mapping for standard local interrupt
->> > +      * numbers defined by the RISC-V privileged specification.
->> > +      */
->> > +     intc_domain = irq_domain_create_linear(riscv_intc_fwnode(),
->> > +                                            BITS_PER_LONG,
->> > +                                            &riscv_intc_domain_ops, NULL);
->> 
->> This is what I'm talking about. It is simply broken. So either you 
->> don't
->> need a per-CPU node (and the DT was bad the first place), or you
->> absolutely need
->> one (and the whole 'well-known/default domain' doesn't work at all).
->> 
->> Either way, this patch is plain wrong.
-> 
-> Okay, I will update this patch with the new approach which you 
-> suggested.
+The local interrupts (per-CPU) are always managed by the INTC. The
+interrupt controllers to manage device interrupts (such as PLIC) can
+vary from platform to platform and have INTC as the parent domain.
 
-But how do you plan to work around the fact that everything is currently
-build around having a node (and an irqdomain) per CPU? The PLIC, for 
-example,
-clearly has one parent per CPU, not one global parent.
+We already have high-end interrupt controllers (such as AIA) under
+development which are scalable for server-grade SoC, mobile SoC
+and various other types of SoCs.
 
-I'm sure there was a good reason for this, and I suspect merging the 
-domains
-will simply end up breaking things.
+We are able to describe the topology of different types of interrupt
+controllers (PLIC as well as AIA) in DT.
 
-         M.
--- 
-Jazz is not dead. It just smells funny...
+The only issue is for drivers which do not have dedicated DT node
+(such as SBI IPI, SBI Timer, SBI PMU, or KVM RISC-V) but the
+upside is that local interrupt numbers used by these drivers is
+clearly defined by the RISC-V ISA specification:
+
+Here are the local interrupts defined by the RISC-V ISA spec:
+IRQ13 => PMU overflow interrupt (used by SBI PMU driver)
+IRQ12 => S-mode guest external interrupt (to be used by KVM RISC-V)
+IRQ11 => M-mode external interrupt (used by firmware)
+IRQ9  => S-mode external interrupt (used by PLIC driver)
+IRQ7  => M-mode timer interrupt
+IRQ5  => S-mode timer interrupt (used by SBI Timer driver)
+IRQ3  => M-mode software interrupt (used by firmware)
+IRQ1 =>  S-mode software interrupt (used by SBI IPI driver)
+
+>
+> >> what you should have instead is something like:
+> >>
+> >> static struct fwnode_handle *(*__get_root_intc_node)(void);
+> >> struct fwnode_handle *riscv_get_root_intc_hwnode(void)
+> >> {
+> >>          if (__get_root_intc_node)
+> >>                  return __get_root_intc_node();
+> >>
+> >>          return NULL;
+> >> }
+> >>
+> >> and the corresponding registration interface.
+> >
+> > Thanks, I will follow this suggestion. This is a much better approach
+> > and it will avoid touching existing drivers.
+> >
+> >>
+> >> But either way, something breaks: the INTC has one node per CPU, and
+> >> expect one irqdomain per CPU. Having a single fwnode completely breaks
+> >> the INTC driver (and probably the irqdomain list, as we don't check
+> >> for
+> >> duplicate entries).
+> >>
+> >> > diff --git a/drivers/irqchip/irq-riscv-intc.c
+> >> > b/drivers/irqchip/irq-riscv-intc.c
+> >> > index b65bd8878d4f..26ed62c11768 100644
+> >> > --- a/drivers/irqchip/irq-riscv-intc.c
+> >> > +++ b/drivers/irqchip/irq-riscv-intc.c
+> >> > @@ -112,8 +112,16 @@ static int __init riscv_intc_init(struct
+> >> > device_node *node,
+> >> >       if (riscv_hartid_to_cpuid(hartid) != smp_processor_id())
+> >> >               return 0;
+> >> >
+> >> > -     intc_domain = irq_domain_add_linear(node, BITS_PER_LONG,
+> >> > -                                         &riscv_intc_domain_ops, NULL);
+> >> > +     /*
+> >> > +      * Create INTC domain using a synthetic fwnode which will allow
+> >> > +      * drivers (such as RISC-V SBI IPI driver, RISC-V timer driver,
+> >> > +      * RISC-V PMU driver, etc) not having dedicated DT/ACPI node to
+> >> > +      * directly create interrupt mapping for standard local interrupt
+> >> > +      * numbers defined by the RISC-V privileged specification.
+> >> > +      */
+> >> > +     intc_domain = irq_domain_create_linear(riscv_intc_fwnode(),
+> >> > +                                            BITS_PER_LONG,
+> >> > +                                            &riscv_intc_domain_ops, NULL);
+> >>
+> >> This is what I'm talking about. It is simply broken. So either you
+> >> don't
+> >> need a per-CPU node (and the DT was bad the first place), or you
+> >> absolutely need
+> >> one (and the whole 'well-known/default domain' doesn't work at all).
+> >>
+> >> Either way, this patch is plain wrong.
+> >
+> > Okay, I will update this patch with the new approach which you
+> > suggested.
+>
+> But how do you plan to work around the fact that everything is currently
+> build around having a node (and an irqdomain) per CPU? The PLIC, for
+> example,
+> clearly has one parent per CPU, not one global parent.
+>
+> I'm sure there was a good reason for this, and I suspect merging the
+> domains
+> will simply end up breaking things.
+
+We can have multiple PLIC instances in a platform and each PLIC
+instance targets a subset of CPUs. Further, each PLIC instance has
+multiple PLIC contexts for associated CPUs.
+
+The per-CPU INTC DT nodes and the "interrupts-extended" DT
+property of PLIC DT node helps us describe the association
+between various PLIC contexts and CPUs.
+
+Here's an example PLIC DT node:
+
+    plic: interrupt-controller@c000000 {
+      #address-cells = <0>;
+      #interrupt-cells = <1>;
+      compatible = "sifive,fu540-c000-plic", "sifive,plic-1.0.0";
+      interrupt-controller;
+      interrupts-extended = <&cpu0_intc 11>,
+                            <&cpu1_intc 11>, <&cpu1_intc 9>,
+                            <&cpu2_intc 11>, <&cpu2_intc 9>,
+                            <&cpu3_intc 11>, <&cpu3_intc 9>,
+                            <&cpu4_intc 11>, <&cpu4_intc 9>;
+      reg = <0xc000000 0x4000000>;
+      riscv,ndev = <10>;
+    };
+
+In above above example, PLIC has 9 contexts and context
+to CPU connections are as follows:
+PLIC context0 => CPU0 M-mode external interrupt
+PLIC context1 => CPU1 M-mode external interrupt
+PLIC context2 => CPU1 S-mode external interrupt
+PLIC context3 => CPU2 M-mode external interrupt
+PLIC context4 => CPU2 S-mode external interrupt
+....
+
+This is just one example and we can describe any kind of
+PLIC context to CPU connections using "interrupts-extended"
+DT property.
+
+The same level of flexibility is provided by AIA interrupt
+controllers which are under development.
+
+Regards,
+Anup
+
+>
+>          M.
+> --
+> Jazz is not dead. It just smells funny...
 
 _______________________________________________
 linux-riscv mailing list
