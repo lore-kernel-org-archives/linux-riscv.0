@@ -4,81 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01332C4332F
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Feb 2022 00:47:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA17C43219
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Feb 2022 00:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z12dj6mtNp6v+74Er28vd0V0BWLjc8mhQlLG2b7c1es=; b=wFEO+K7ziypiW3
-	Dqua6T+U3UFo2HqLfKwlCUN8tUa3ojZRcGby5AXZRMJt/S+VktGBZduK02n+ubVrcu5tY0Douuneg
-	rFTHTmEBvwr846KZF7/t8Q2BGDl91vvU0ww5l2kARcFRUEm/H58mb+PG7bnh/aKeJPL3puahUWy+s
-	FshZ+Xm0HNFq2XKB0HFKmLofv8D254UZxtiYMR3u4vM7ztvIsTTDCrdIOYWCsYTexDiOVTIaWOwJr
-	4llAa/r2Q9AnEMHh85uoKTkHYu/ftX5FAAHS4IWZv7p6MSorYAg5TWE8X1IKLZJqzygeLLaxtfW7j
-	/DR10jEKMhcBgnP3FzvA==;
+	List-Owner; bh=YlCH8jW4ZkXfhaycXKji+r5KHBpwEzT4z1a3yoEKLaA=; b=HHLHa462WwL0tL
+	Ka0QvG6a0lkN1nFZW0K1hZUp7b2GBBuFfWGmm8rqV1pUCdfhXSFoMU8xFGSqDx7PyQYGgo5AQQWHE
+	OO+ckXhGqg+Q+TJ/z+sAcESMKgEC0HljjgqyiP+iffZYwlB/ZtLCgqQdC56rWBQ1jU3kCjJOVu18x
+	54bDx4TVsIttO9iZsq//Xvd1nHhsxa+ozZmvrq9uhRIWwSYd6mXQnBG9439oXlVh2hUROEtIeilDD
+	Mo8a+g/Fw3IwHWb7D4yicBw+ylbzZKvCR8njomdnHBI462YZvv8wfmFq70NAO36J9f0SUf9uI8MS6
+	OkO86pdGPg43b5SEpCDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nLDuJ-00G0Ky-PN; Sat, 19 Feb 2022 00:47:27 +0000
-Received: from mail-oi1-x230.google.com ([2607:f8b0:4864:20::230])
+	id 1nLDuM-00G0Mf-P1; Sat, 19 Feb 2022 00:47:30 +0000
+Received: from mail-oo1-xc2e.google.com ([2607:f8b0:4864:20::c2e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nLDuD-00G0HV-BB
- for linux-riscv@lists.infradead.org; Sat, 19 Feb 2022 00:47:23 +0000
-Received: by mail-oi1-x230.google.com with SMTP id k2so1124836oia.2
- for <linux-riscv@lists.infradead.org>; Fri, 18 Feb 2022 16:47:21 -0800 (PST)
+ id 1nLDuG-00G0JP-TV
+ for linux-riscv@lists.infradead.org; Sat, 19 Feb 2022 00:47:27 +0000
+Received: by mail-oo1-xc2e.google.com with SMTP id
+ o128-20020a4a4486000000b003181707ed40so5586274ooa.11
+ for <linux-riscv@lists.infradead.org>; Fri, 18 Feb 2022 16:47:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=KzmhLvVz31vDzGMMY34u4TS6n0xBB5tfzWyXF9F+lho=;
- b=lXvzgeIW84VjTgJdYCIo+dLzmZaCO3ZzkPgwOEmtn6VOoYrBHo3GnjIJE/IeXP4uJL
- Mw7a2fbyTQ3BmDYQaL8wdMtX427VtK1mEbNnxslkVbeirG6RYxrR+mZx0kqRGfeD06oE
- 5csQBlItRhfzxNNLlUxHHLtvr8hUo1mrbA3/r/6Fet8/bvXVyd9ORXx5TsJthNdj5mB7
- oPfM3fvRozywtHc5soKa+F4ncy5ncOPX2ssZXiA6u5nBK2nwvyTBOEaFvE9NjKi/vS1W
- SvbCwGUU1mShVd+gywPr9V874Y2pc01lYedWj6DkSI+iyUh8/ve14o4bcncWlIwIQXZG
- lmtA==
+ bh=VGIzIWcYkIdrmW35zeks5wJrTjRccg/bi+P4cXlmL0g=;
+ b=W/W+IoP+iKxq6WWEUtHGQcSwcYCa+NHFbogQdYbW6yW0WVcRY03JnGGvPu2/jfoZ/V
+ 70SyCo6qlPM0yEuCgEVoY0PbBcQFC2pogeb68mJrfd2UxNLoBGkW1R+MjFzq9hcsUSg9
+ Cr5+E+nbPLzEBjAEYexu0Hw+S+UMBQL3FtYbUZO+FPZSVdQrl9WZHhX7T0Bx3QugG/2p
+ 4EMMurLkFC8AJhX+RLSjDF4MWQXGXhTG21K+xANA3r1C/GEL4s6evZC6LBkZzkqHe8XE
+ GompvOmJImFBWTq9ipjyZo+zbcqOhnxEN4EGfloIihLNlonRBDI1k0KMeIGPjNmP/B9r
+ h9FA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=KzmhLvVz31vDzGMMY34u4TS6n0xBB5tfzWyXF9F+lho=;
- b=IBka+NnB1G/lAyDj43gh0/3Oj+325CMq+yapn6s1WypMmj/umf7WL2wceUGpXFKw6/
- aejgCgfCA+n0q9HGHpkHXnEHoAXIVM1w3mhte27UEdSV5QrVpiEhODOqtSUysb4tkL7j
- kEXhFotEfHWRH/S90nXi5Yvz0rjUKx6ZdKuG1zLQfKmm5s2qFP5tO1birH4MhpsuMqCG
- OVTs4eeGjGGcLjJEwn+SKx2EGk951p85/v5UWEwoBS2IWnaDDN5HCNo6H0vhyFUwVZAM
- vKmUGj841oHb1r7zVLzfFx1AdwGyJ5gGctDGzog1/CsPl7+AJC2J+DdgocfKQjQdqrrz
- Bv7A==
-X-Gm-Message-State: AOAM533bIfjvB1ewGOqUaYtdsJuBO5LBHxG7KA/ZMdrmgebMiAJMt0O4
- oafR9qYSw8ebNVyfx45Myz/SyA==
-X-Google-Smtp-Source: ABdhPJyDev9Pc4oxIWxXyasAoZdwJfZr5R8goDRj6aWEX0l9J2Hc/U9mVA0sJ3SeJtP1S4bjHUy+/A==
-X-Received: by 2002:a05:6808:2029:b0:2d0:8e1a:14f3 with SMTP id
- q41-20020a056808202900b002d08e1a14f3mr6444328oiw.257.1645231640482; 
- Fri, 18 Feb 2022 16:47:20 -0800 (PST)
+ bh=VGIzIWcYkIdrmW35zeks5wJrTjRccg/bi+P4cXlmL0g=;
+ b=Jj2SZ/i9vztTbIB8mKuzYdxtkbPgW15ngSHXJQC7wdm7rrw5BkjK4NRIO64NwCuhRY
+ FqlYuOAUrg7YFLrQxfN6S6tS/UQY9JzArHfKwYS4IleTgf+m1dTpKHrkPUIejah7H7Df
+ z/XVHnF0djPH9FY9d2J3Ta/cAu1QZxhVqokoUr6AxAZvLbPd3vaiknxMdEAGeCkvYtrU
+ pqMu/0dWeiFwuYnRK8LM5k87589cWPYWdViOKszAotisRQsqWWNsH6zIyWOMxyjXFP+2
+ +/6AtuC/dZqvDummgOXOA2IZvxkqAc1R35n6WCN3FRHdwlE7Cd6fcmVfUMr2gJNx1TKL
+ HrHw==
+X-Gm-Message-State: AOAM532Q7guY9+B4Q6RKMQ7JyFNYNG1pC64AhwXv3/z/QESNMwhgqqHQ
+ F5+PX6W5zqt9KtY6P7NfiXp8uQ==
+X-Google-Smtp-Source: ABdhPJyk8CcA95tsMx7JmGGg6jk2i6oJAVLho3yQIpPtDKTc1jzqQkSHUnq24ntLjCTfSg2oML+nmw==
+X-Received: by 2002:a05:6870:e60b:b0:d2:bcb7:8641 with SMTP id
+ q11-20020a056870e60b00b000d2bcb78641mr3883348oag.327.1645231644016; 
+ Fri, 18 Feb 2022 16:47:24 -0800 (PST)
 Received: from rivos-atish.. (adsl-70-228-75-190.dsl.akrnoh.ameritech.net.
  [70.228.75.190])
- by smtp.gmail.com with ESMTPSA id n11sm11360794oal.1.2022.02.18.16.47.18
+ by smtp.gmail.com with ESMTPSA id n11sm11360794oal.1.2022.02.18.16.47.22
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 18 Feb 2022 16:47:20 -0800 (PST)
+ Fri, 18 Feb 2022 16:47:23 -0800 (PST)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
-Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@atishpatra.org>,
+Cc: Atish Patra <atishp@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
  Damien Le Moal <damien.lemoal@wdc.com>, devicetree@vger.kernel.org,
  Jisheng Zhang <jszhang@kernel.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
  linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
-Subject: [v6 4/9] RISC-V: Add a simple platform driver for RISC-V legacy perf
-Date: Fri, 18 Feb 2022 16:46:55 -0800
-Message-Id: <20220219004700.1973682-5-atishp@rivosinc.com>
+Subject: [v6 6/9] RISC-V: Add perf platform driver based on SBI PMU extension
+Date: Fri, 18 Feb 2022 16:46:57 -0800
+Message-Id: <20220219004700.1973682-7-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20220219004700.1973682-1-atishp@rivosinc.com>
 References: <20220219004700.1973682-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220218_164721_425328_B90A3088 
-X-CRM114-Status: GOOD (  28.59  )
+X-CRM114-CacheID: sfid-20220218_164724_997485_0C5C2961 
+X-CRM114-Status: GOOD (  23.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,229 +98,685 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Atish Patra <atish.patra@wdc.com>
 
-The old RISC-V perf implementation allowed counting of only
-cycle/instruction counters using perf. Restore that feature by implementing
-a simple platform driver under a separate config to provide backward
-compatibility. Any existing software stack will continue to work as it is.
-However, it provides an easy way out in future where we can remove the
-legacy driver.
+RISC-V SBI specification added a PMU extension that allows to configure
+start/stop any pmu counter. The RISC-V perf can use most of the generic
+perf features except interrupt overflow and event filtering based on
+privilege mode which will be added in future.
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
+It also allows to monitor a handful of firmware counters that can provide
+insights into firmware activity during a performance analysis.
+
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- drivers/perf/Kconfig            |  10 +++
- drivers/perf/Makefile           |   1 +
- drivers/perf/riscv_pmu_legacy.c | 142 ++++++++++++++++++++++++++++++++
- include/linux/perf/riscv_pmu.h  |   6 ++
- 4 files changed, 159 insertions(+)
- create mode 100644 drivers/perf/riscv_pmu_legacy.c
+ drivers/perf/Kconfig           |  10 +
+ drivers/perf/Makefile          |   1 +
+ drivers/perf/riscv_pmu.c       |   2 +
+ drivers/perf/riscv_pmu_sbi.c   | 578 +++++++++++++++++++++++++++++++++
+ include/linux/cpuhotplug.h     |   1 +
+ include/linux/perf/riscv_pmu.h |   6 +-
+ 6 files changed, 596 insertions(+), 2 deletions(-)
+ create mode 100644 drivers/perf/riscv_pmu_sbi.c
 
 diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
-index dbc0e3f98be9..386162ad858a 100644
+index 386162ad858a..5645b5615c14 100644
 --- a/drivers/perf/Kconfig
 +++ b/drivers/perf/Kconfig
-@@ -66,6 +66,16 @@ config RISCV_PMU
- 	  PMU functionalities in a core library so that different PMU drivers
- 	  can reuse it.
+@@ -76,6 +76,16 @@ config RISCV_PMU_LEGACY
+ 	  of cycle/instruction counter and doesn't support counter overflow,
+ 	  or programmable counters. It will be removed in future.
  
-+config RISCV_PMU_LEGACY
-+	depends on RISCV_PMU
-+	bool "RISC-V legacy PMU implementation"
++config RISCV_PMU_SBI
++	depends on RISCV_PMU && RISCV_SBI
++	bool "RISC-V PMU based on SBI PMU extension"
 +	default y
 +	help
-+	  Say y if you want to use the legacy CPU performance monitor
-+	  implementation on RISC-V based systems. This only allows counting
-+	  of cycle/instruction counter and doesn't support counter overflow,
-+	  or programmable counters. It will be removed in future.
++	  Say y if you want to use the CPU performance monitor
++	  using SBI PMU extension on RISC-V based systems. This option provides
++	  full perf feature support i.e. counter overflow, privilege mode
++	  filtering, counter configuration.
 +
  config ARM_PMU_ACPI
  	depends on ARM_PMU && ACPI
  	def_bool y
 diff --git a/drivers/perf/Makefile b/drivers/perf/Makefile
-index 09082dea154b..c3d3268d495b 100644
+index c3d3268d495b..f149735166e1 100644
 --- a/drivers/perf/Makefile
 +++ b/drivers/perf/Makefile
-@@ -11,6 +11,7 @@ obj-$(CONFIG_HISI_PMU) += hisilicon/
- obj-$(CONFIG_QCOM_L2_PMU)	+= qcom_l2_pmu.o
+@@ -12,6 +12,7 @@ obj-$(CONFIG_QCOM_L2_PMU)	+= qcom_l2_pmu.o
  obj-$(CONFIG_QCOM_L3_PMU) += qcom_l3_pmu.o
  obj-$(CONFIG_RISCV_PMU) += riscv_pmu.o
-+obj-$(CONFIG_RISCV_PMU_LEGACY) += riscv_pmu_legacy.o
+ obj-$(CONFIG_RISCV_PMU_LEGACY) += riscv_pmu_legacy.o
++obj-$(CONFIG_RISCV_PMU_SBI) += riscv_pmu_sbi.o
  obj-$(CONFIG_THUNDERX2_PMU) += thunderx2_pmu.o
  obj-$(CONFIG_XGENE_PMU) += xgene_pmu.o
  obj-$(CONFIG_ARM_SPE_PMU) += arm_spe_pmu.o
-diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
+diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
+index 590a5789c128..b2b8d2074ed0 100644
+--- a/drivers/perf/riscv_pmu.c
++++ b/drivers/perf/riscv_pmu.c
+@@ -15,6 +15,8 @@
+ #include <linux/printk.h>
+ #include <linux/smp.h>
+ 
++#include <asm/sbi.h>
++
+ static unsigned long csr_read_num(int csr_num)
+ {
+ #define switchcase_csr_read(__csr_num, __val)		{\
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
 new file mode 100644
-index 000000000000..342778782359
+index 000000000000..815d5c509c64
 --- /dev/null
-+++ b/drivers/perf/riscv_pmu_legacy.c
-@@ -0,0 +1,142 @@
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -0,0 +1,578 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * RISC-V performance counter support.
 + *
 + * Copyright (C) 2021 Western Digital Corporation or its affiliates.
 + *
-+ * This implementation is based on old RISC-V perf and ARM perf event code
-+ * which are in turn based on sparc64 and x86 code.
++ * This code is based on ARM perf event code which is in turn based on
++ * sparc64 and x86 code.
 + */
++
++#define pr_fmt(fmt) "riscv-pmu-sbi: " fmt
 +
 +#include <linux/mod_devicetable.h>
 +#include <linux/perf/riscv_pmu.h>
 +#include <linux/platform_device.h>
 +
-+#define RISCV_PMU_LEGACY_CYCLE		0
-+#define RISCV_PMU_LEGACY_INSTRET	1
-+#define RISCV_PMU_LEGACY_NUM_CTR	2
++#include <asm/sbi.h>
 +
-+static bool pmu_init_done;
-+
-+static int pmu_legacy_ctr_get_idx(struct perf_event *event)
-+{
-+	struct perf_event_attr *attr = &event->attr;
-+
-+	if (event->attr.type != PERF_TYPE_HARDWARE)
-+		return -EOPNOTSUPP;
-+	if (attr->config == PERF_COUNT_HW_CPU_CYCLES)
-+		return RISCV_PMU_LEGACY_CYCLE;
-+	else if (attr->config == PERF_COUNT_HW_INSTRUCTIONS)
-+		return RISCV_PMU_LEGACY_INSTRET;
-+	else
-+		return -EOPNOTSUPP;
-+}
-+
-+/* For legacy config & counter index are same */
-+static int pmu_legacy_event_map(struct perf_event *event, u64 *config)
-+{
-+	return pmu_legacy_ctr_get_idx(event);
-+}
-+
-+static u64 pmu_legacy_read_ctr(struct perf_event *event)
-+{
-+	struct hw_perf_event *hwc = &event->hw;
-+	int idx = hwc->idx;
-+	u64 val;
-+
-+	if (idx == RISCV_PMU_LEGACY_CYCLE) {
-+		val = riscv_pmu_ctr_read_csr(CSR_CYCLE);
-+		if (IS_ENABLED(CONFIG_32BIT))
-+			val = (u64)riscv_pmu_ctr_read_csr(CSR_CYCLEH) << 32 | val;
-+	} else if (idx == RISCV_PMU_LEGACY_INSTRET) {
-+		val = riscv_pmu_ctr_read_csr(CSR_INSTRET);
-+		if (IS_ENABLED(CONFIG_32BIT))
-+			val = ((u64)riscv_pmu_ctr_read_csr(CSR_INSTRETH)) << 32 | val;
-+	} else
-+		return 0;
-+
-+	return val;
-+}
-+
-+static void pmu_legacy_ctr_start(struct perf_event *event, u64 ival)
-+{
-+	struct hw_perf_event *hwc = &event->hw;
-+	u64 initial_val = pmu_legacy_read_ctr(event);
-+
-+	/**
-+	 * The legacy method doesn't really have a start/stop method.
-+	 * It also can not update the counter with a initial value.
-+	 * But we still need to set the prev_count so that read() can compute
-+	 * the delta. Just use the current counter value to set the prev_count.
-+	 */
-+	local64_set(&hwc->prev_count, initial_val);
-+}
++union sbi_pmu_ctr_info {
++	unsigned long value;
++	struct {
++		unsigned long csr:12;
++		unsigned long width:6;
++#if __riscv_xlen == 32
++		unsigned long reserved:13;
++#else
++		unsigned long reserved:45;
++#endif
++		unsigned long type:1;
++	};
++};
 +
 +/**
-+ * This is just a simple implementation to allow legacy implementations
-+ * compatible with new RISC-V PMU driver framework.
-+ * This driver only allows reading two counters i.e CYCLE & INSTRET.
-+ * However, it can not start or stop the counter. Thus, it is not very useful
-+ * will be removed in future.
++ * RISC-V doesn't have hetergenous harts yet. This need to be part of
++ * per_cpu in case of harts with different pmu counters
 + */
-+static void pmu_legacy_init(struct riscv_pmu *pmu)
-+{
-+	pr_info("Legacy PMU implementation is available\n");
++static union sbi_pmu_ctr_info *pmu_ctr_list;
 +
-+	pmu->num_counters = RISCV_PMU_LEGACY_NUM_CTR;
-+	pmu->ctr_start = pmu_legacy_ctr_start;
-+	pmu->ctr_stop = NULL;
-+	pmu->event_map = pmu_legacy_event_map;
-+	pmu->ctr_get_idx = pmu_legacy_ctr_get_idx;
-+	pmu->ctr_get_width = NULL;
-+	pmu->ctr_clear_idx = NULL;
-+	pmu->ctr_read = pmu_legacy_read_ctr;
++struct sbi_pmu_event_data {
++	union {
++		union {
++			struct hw_gen_event {
++				uint32_t event_code:16;
++				uint32_t event_type:4;
++				uint32_t reserved:12;
++			} hw_gen_event;
++			struct hw_cache_event {
++				uint32_t result_id:1;
++				uint32_t op_id:2;
++				uint32_t cache_id:13;
++				uint32_t event_type:4;
++				uint32_t reserved:12;
++			} hw_cache_event;
++		};
++		uint32_t event_idx;
++	};
++};
 +
-+	perf_pmu_register(&pmu->pmu, "cpu", PERF_TYPE_RAW);
-+}
++static const struct sbi_pmu_event_data pmu_hw_event_map[] = {
++	[PERF_COUNT_HW_CPU_CYCLES]		= {.hw_gen_event = {
++							SBI_PMU_HW_CPU_CYCLES,
++							SBI_PMU_EVENT_TYPE_HW, 0}},
++	[PERF_COUNT_HW_INSTRUCTIONS]		= {.hw_gen_event = {
++							SBI_PMU_HW_INSTRUCTIONS,
++							SBI_PMU_EVENT_TYPE_HW, 0}},
++	[PERF_COUNT_HW_CACHE_REFERENCES]	= {.hw_gen_event = {
++							SBI_PMU_HW_CACHE_REFERENCES,
++							SBI_PMU_EVENT_TYPE_HW, 0}},
++	[PERF_COUNT_HW_CACHE_MISSES]		= {.hw_gen_event = {
++							SBI_PMU_HW_CACHE_MISSES,
++							SBI_PMU_EVENT_TYPE_HW, 0}},
++	[PERF_COUNT_HW_BRANCH_INSTRUCTIONS]	= {.hw_gen_event = {
++							SBI_PMU_HW_BRANCH_INSTRUCTIONS,
++							SBI_PMU_EVENT_TYPE_HW, 0}},
++	[PERF_COUNT_HW_BRANCH_MISSES]		= {.hw_gen_event = {
++							SBI_PMU_HW_BRANCH_MISSES,
++							SBI_PMU_EVENT_TYPE_HW, 0}},
++	[PERF_COUNT_HW_BUS_CYCLES]		= {.hw_gen_event = {
++							SBI_PMU_HW_BUS_CYCLES,
++							SBI_PMU_EVENT_TYPE_HW, 0}},
++	[PERF_COUNT_HW_STALLED_CYCLES_FRONTEND]	= {.hw_gen_event = {
++							SBI_PMU_HW_STALLED_CYCLES_FRONTEND,
++							SBI_PMU_EVENT_TYPE_HW, 0}},
++	[PERF_COUNT_HW_STALLED_CYCLES_BACKEND]	= {.hw_gen_event = {
++							SBI_PMU_HW_STALLED_CYCLES_BACKEND,
++							SBI_PMU_EVENT_TYPE_HW, 0}},
++	[PERF_COUNT_HW_REF_CPU_CYCLES]		= {.hw_gen_event = {
++							SBI_PMU_HW_REF_CPU_CYCLES,
++							SBI_PMU_EVENT_TYPE_HW, 0}},
++};
 +
-+static int pmu_legacy_device_probe(struct platform_device *pdev)
-+{
-+	struct riscv_pmu *pmu = NULL;
-+
-+	pmu = riscv_pmu_alloc();
-+	if (!pmu)
-+		return -ENOMEM;
-+	pmu_legacy_init(pmu);
-+
-+	return 0;
-+}
-+
-+static struct platform_driver pmu_legacy_driver = {
-+	.probe		= pmu_legacy_device_probe,
-+	.driver		= {
-+		.name	= RISCV_PMU_LEGACY_PDEV_NAME,
++#define C(x) PERF_COUNT_HW_CACHE_##x
++static const struct sbi_pmu_event_data pmu_cache_event_map[PERF_COUNT_HW_CACHE_MAX]
++[PERF_COUNT_HW_CACHE_OP_MAX]
++[PERF_COUNT_HW_CACHE_RESULT_MAX] = {
++	[C(L1D)] = {
++		[C(OP_READ)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
++					C(OP_READ), C(L1D), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
++					C(OP_READ), C(L1D), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
++		[C(OP_WRITE)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
++					C(OP_WRITE), C(L1D), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
++					C(OP_WRITE), C(L1D), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
++		[C(OP_PREFETCH)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
++					C(OP_PREFETCH), C(L1D), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
++					C(OP_PREFETCH), C(L1D), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
++	},
++	[C(L1I)] = {
++		[C(OP_READ)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event =	{C(RESULT_ACCESS),
++					C(OP_READ), C(L1I), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS), C(OP_READ),
++					C(L1I), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
++		[C(OP_WRITE)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
++					C(OP_WRITE), C(L1I), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
++					C(OP_WRITE), C(L1I), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
++		[C(OP_PREFETCH)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
++					C(OP_PREFETCH), C(L1I), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
++					C(OP_PREFETCH), C(L1I), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
++	},
++	[C(LL)] = {
++		[C(OP_READ)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
++					C(OP_READ), C(LL), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
++					C(OP_READ), C(LL), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
++		[C(OP_WRITE)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
++					C(OP_WRITE), C(LL), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
++					C(OP_WRITE), C(LL), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
++		[C(OP_PREFETCH)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
++					C(OP_PREFETCH), C(LL), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
++					C(OP_PREFETCH), C(LL), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
++	},
++	[C(DTLB)] = {
++		[C(OP_READ)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
++					C(OP_READ), C(DTLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
++					C(OP_READ), C(DTLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
++		[C(OP_WRITE)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
++					C(OP_WRITE), C(DTLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
++					C(OP_WRITE), C(DTLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
++		[C(OP_PREFETCH)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
++					C(OP_PREFETCH), C(DTLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
++					C(OP_PREFETCH), C(DTLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
++	},
++	[C(ITLB)] = {
++		[C(OP_READ)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
++					C(OP_READ), C(ITLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
++					C(OP_READ), C(ITLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
++		[C(OP_WRITE)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
++					C(OP_WRITE), C(ITLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
++					C(OP_WRITE), C(ITLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
++		[C(OP_PREFETCH)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
++					C(OP_PREFETCH), C(ITLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
++					C(OP_PREFETCH), C(ITLB), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
++	},
++	[C(BPU)] = {
++		[C(OP_READ)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
++					C(OP_READ), C(BPU), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
++					C(OP_READ), C(BPU), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
++		[C(OP_WRITE)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
++					C(OP_WRITE), C(BPU), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
++					C(OP_WRITE), C(BPU), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
++		[C(OP_PREFETCH)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
++					C(OP_PREFETCH), C(BPU), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
++					C(OP_PREFETCH), C(BPU), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
++	},
++	[C(NODE)] = {
++		[C(OP_READ)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
++					C(OP_READ), C(NODE), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
++					C(OP_READ), C(NODE), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
++		[C(OP_WRITE)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
++					C(OP_WRITE), C(NODE), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
++					C(OP_WRITE), C(NODE), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
++		[C(OP_PREFETCH)] = {
++			[C(RESULT_ACCESS)] = {.hw_cache_event = {C(RESULT_ACCESS),
++					C(OP_PREFETCH), C(NODE), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++			[C(RESULT_MISS)] = {.hw_cache_event = {C(RESULT_MISS),
++					C(OP_PREFETCH), C(NODE), SBI_PMU_EVENT_TYPE_CACHE, 0}},
++		},
 +	},
 +};
 +
-+static int __init riscv_pmu_legacy_devinit(void)
++static int pmu_sbi_ctr_get_width(int idx)
 +{
++	return pmu_ctr_list[idx].width;
++}
++
++static bool pmu_sbi_ctr_is_fw(int cidx)
++{
++	union sbi_pmu_ctr_info *info;
++
++	info = &pmu_ctr_list[cidx];
++	if (!info)
++		return false;
++
++	return (info->type == SBI_PMU_CTR_TYPE_FW) ? true : false;
++}
++
++static int pmu_sbi_ctr_get_idx(struct perf_event *event)
++{
++	struct hw_perf_event *hwc = &event->hw;
++	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
++	struct cpu_hw_events *cpuc = this_cpu_ptr(rvpmu->hw_events);
++	struct sbiret ret;
++	int idx;
++	uint64_t cbase = 0;
++	uint64_t cmask = GENMASK_ULL(rvpmu->num_counters - 1, 0);
++	unsigned long cflags = 0;
++
++	if (event->attr.exclude_kernel)
++		cflags |= SBI_PMU_CFG_FLAG_SET_SINH;
++	if (event->attr.exclude_user)
++		cflags |= SBI_PMU_CFG_FLAG_SET_UINH;
++
++	/* retrieve the available counter index */
++	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase, cmask,
++			cflags, hwc->event_base, hwc->config, 0);
++	if (ret.error) {
++		pr_debug("Not able to find a counter for event %lx config %llx\n",
++			hwc->event_base, hwc->config);
++		return sbi_err_map_linux_errno(ret.error);
++	}
++
++	idx = ret.value;
++	if (idx >= rvpmu->num_counters || !pmu_ctr_list[idx].value)
++		return -ENOENT;
++
++	/* Additional sanity check for the counter id */
++	if (pmu_sbi_ctr_is_fw(idx)) {
++		if (!test_and_set_bit(idx, cpuc->used_fw_ctrs))
++			return idx;
++	} else {
++		if (!test_and_set_bit(idx, cpuc->used_hw_ctrs))
++			return idx;
++	}
++
++	return -ENOENT;
++}
++
++static void pmu_sbi_ctr_clear_idx(struct perf_event *event)
++{
++
++	struct hw_perf_event *hwc = &event->hw;
++	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
++	struct cpu_hw_events *cpuc = this_cpu_ptr(rvpmu->hw_events);
++	int idx = hwc->idx;
++
++	if (pmu_sbi_ctr_is_fw(idx))
++		clear_bit(idx, cpuc->used_fw_ctrs);
++	else
++		clear_bit(idx, cpuc->used_hw_ctrs);
++}
++
++static int pmu_event_find_cache(u64 config)
++{
++	unsigned int cache_type, cache_op, cache_result, ret;
++
++	cache_type = (config >>  0) & 0xff;
++	if (cache_type >= PERF_COUNT_HW_CACHE_MAX)
++		return -EINVAL;
++
++	cache_op = (config >>  8) & 0xff;
++	if (cache_op >= PERF_COUNT_HW_CACHE_OP_MAX)
++		return -EINVAL;
++
++	cache_result = (config >> 16) & 0xff;
++	if (cache_result >= PERF_COUNT_HW_CACHE_RESULT_MAX)
++		return -EINVAL;
++
++	ret = pmu_cache_event_map[cache_type][cache_op][cache_result].event_idx;
++
++	return ret;
++}
++
++static bool pmu_sbi_is_fw_event(struct perf_event *event)
++{
++	u32 type = event->attr.type;
++	u64 config = event->attr.config;
++
++	if ((type == PERF_TYPE_RAW) && ((config >> 63) == 1))
++		return true;
++	else
++		return false;
++}
++
++static int pmu_sbi_event_map(struct perf_event *event, u64 *econfig)
++{
++	u32 type = event->attr.type;
++	u64 config = event->attr.config;
++	int bSoftware;
++	u64 raw_config_val;
 +	int ret;
-+	struct platform_device *pdev;
 +
-+	if (likely(pmu_init_done))
-+		return 0;
-+
-+	ret = platform_driver_register(&pmu_legacy_driver);
-+	if (ret)
-+		return ret;
-+
-+	pdev = platform_device_register_simple(RISCV_PMU_LEGACY_PDEV_NAME, -1, NULL, 0);
-+	if (IS_ERR(pdev)) {
-+		platform_driver_unregister(&pmu_legacy_driver);
-+		return PTR_ERR(pdev);
++	switch (type) {
++	case PERF_TYPE_HARDWARE:
++		if (config >= PERF_COUNT_HW_MAX)
++			return -EINVAL;
++		ret = pmu_hw_event_map[event->attr.config].event_idx;
++		break;
++	case PERF_TYPE_HW_CACHE:
++		ret = pmu_event_find_cache(config);
++		break;
++	case PERF_TYPE_RAW:
++		/*
++		 * As per SBI specification, the upper 16 bits must be unused for
++		 * a raw event. Use the MSB (63b) to distinguish between hardware
++		 * raw event and firmware events.
++		 */
++		bSoftware = config >> 63;
++		raw_config_val = config & RISCV_PMU_RAW_EVENT_MASK;
++		if (bSoftware) {
++			if (raw_config_val < SBI_PMU_FW_MAX)
++				ret = (raw_config_val & 0xFFFF) |
++				      (SBI_PMU_EVENT_TYPE_FW << 16);
++			else
++				return -EINVAL;
++		} else {
++			ret = RISCV_PMU_RAW_EVENT_IDX;
++			*econfig = raw_config_val;
++		}
++		break;
++	default:
++		ret = -EINVAL;
++		break;
 +	}
 +
 +	return ret;
 +}
-+late_initcall(riscv_pmu_legacy_devinit);
 +
-+void riscv_pmu_legacy_skip_init(void)
++static u64 pmu_sbi_ctr_read(struct perf_event *event)
 +{
-+	pmu_init_done = true;
++	struct hw_perf_event *hwc = &event->hw;
++	int idx = hwc->idx;
++	struct sbiret ret;
++	union sbi_pmu_ctr_info info;
++	u64 val = 0;
++
++	if (pmu_sbi_is_fw_event(event)) {
++		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_FW_READ,
++				hwc->idx, 0, 0, 0, 0, 0);
++		if (!ret.error)
++			val = ret.value;
++	} else {
++		info = pmu_ctr_list[idx];
++		val = riscv_pmu_ctr_read_csr(info.csr);
++		if (IS_ENABLED(CONFIG_32BIT))
++			val = ((u64)riscv_pmu_ctr_read_csr(info.csr + 0x80)) << 31 | val;
++	}
++
++	return val;
 +}
++
++static void pmu_sbi_ctr_start(struct perf_event *event, u64 ival)
++{
++	struct sbiret ret;
++	struct hw_perf_event *hwc = &event->hw;
++	unsigned long flag = SBI_PMU_START_FLAG_SET_INIT_VALUE;
++
++	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, hwc->idx,
++			1, flag, ival, ival >> 32, 0);
++	if (ret.error && (ret.error != SBI_ERR_ALREADY_STARTED))
++		pr_err("Starting counter idx %d failed with error %d\n",
++			hwc->idx, sbi_err_map_linux_errno(ret.error));
++}
++
++static void pmu_sbi_ctr_stop(struct perf_event *event, unsigned long flag)
++{
++	struct sbiret ret;
++	struct hw_perf_event *hwc = &event->hw;
++
++	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP, hwc->idx, 1, flag, 0, 0, 0);
++	if (ret.error && (ret.error != SBI_ERR_ALREADY_STOPPED) &&
++		flag != SBI_PMU_STOP_FLAG_RESET)
++		pr_err("Stopping counter idx %d failed with error %d\n",
++			hwc->idx, sbi_err_map_linux_errno(ret.error));
++}
++
++static int pmu_sbi_find_num_ctrs(void)
++{
++	struct sbiret ret;
++
++	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_NUM_COUNTERS, 0, 0, 0, 0, 0, 0);
++	if (!ret.error)
++		return ret.value;
++	else
++		return sbi_err_map_linux_errno(ret.error);
++}
++
++static int pmu_sbi_get_ctrinfo(int nctr)
++{
++	struct sbiret ret;
++	int i, num_hw_ctr = 0, num_fw_ctr = 0;
++	union sbi_pmu_ctr_info cinfo;
++
++	pmu_ctr_list = kcalloc(nctr, sizeof(*pmu_ctr_list), GFP_KERNEL);
++	if (!pmu_ctr_list)
++		return -ENOMEM;
++
++	for (i = 0; i <= nctr; i++) {
++		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_GET_INFO, i, 0, 0, 0, 0, 0);
++		if (ret.error)
++			/* The logical counter ids are not expected to be contiguous */
++			continue;
++		cinfo.value = ret.value;
++		if (cinfo.type == SBI_PMU_CTR_TYPE_FW)
++			num_fw_ctr++;
++		else
++			num_hw_ctr++;
++		pmu_ctr_list[i].value = cinfo.value;
++	}
++
++	pr_info("%d firmware and %d hardware counters\n", num_fw_ctr, num_hw_ctr);
++
++	return 0;
++}
++
++static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
++{
++	struct riscv_pmu *pmu = hlist_entry_safe(node, struct riscv_pmu, node);
++
++	/* Enable the access for TIME csr only from the user mode now */
++	csr_write(CSR_SCOUNTEREN, 0x2);
++
++	/* Stop all the counters so that they can be enabled from perf */
++	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP,
++		  0, GENMASK_ULL(pmu->num_counters - 1, 0), 0, 0, 0, 0);
++
++	return 0;
++}
++
++static int pmu_sbi_dying_cpu(unsigned int cpu, struct hlist_node *node)
++{
++	/* Disable all counters access for user mode now */
++	csr_write(CSR_SCOUNTEREN, 0x0);
++
++	return 0;
++}
++
++static int pmu_sbi_device_probe(struct platform_device *pdev)
++{
++	struct riscv_pmu *pmu = NULL;
++	int num_counters;
++	int ret;
++
++	pr_info("SBI PMU extension is available\n");
++	pmu = riscv_pmu_alloc();
++	if (!pmu)
++		return -ENOMEM;
++
++	num_counters = pmu_sbi_find_num_ctrs();
++	if (num_counters < 0) {
++		pr_err("SBI PMU extension doesn't provide any counters\n");
++		return -ENODEV;
++	}
++
++	/* cache all the information about counters now */
++	if (pmu_sbi_get_ctrinfo(num_counters))
++		return -ENODEV;
++
++	pmu->num_counters = num_counters;
++	pmu->ctr_start = pmu_sbi_ctr_start;
++	pmu->ctr_stop = pmu_sbi_ctr_stop;
++	pmu->event_map = pmu_sbi_event_map;
++	pmu->ctr_get_idx = pmu_sbi_ctr_get_idx;
++	pmu->ctr_get_width = pmu_sbi_ctr_get_width;
++	pmu->ctr_clear_idx = pmu_sbi_ctr_clear_idx;
++	pmu->ctr_read = pmu_sbi_ctr_read;
++
++	ret = cpuhp_state_add_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
++	if (ret)
++		return ret;
++
++	ret = perf_pmu_register(&pmu->pmu, "cpu", PERF_TYPE_RAW);
++	if (ret) {
++		cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
++		return ret;
++	}
++
++	return 0;
++}
++
++static struct platform_driver pmu_sbi_driver = {
++	.probe		= pmu_sbi_device_probe,
++	.driver		= {
++		.name	= RISCV_PMU_PDEV_NAME,
++	},
++};
++
++static int __init pmu_sbi_devinit(void)
++{
++	int ret;
++	struct platform_device *pdev;
++
++	if (sbi_spec_version < sbi_mk_version(0, 3) ||
++	    sbi_probe_extension(SBI_EXT_PMU) <= 0) {
++		return 0;
++	}
++
++	ret = cpuhp_setup_state_multi(CPUHP_AP_PERF_RISCV_STARTING,
++				      "perf/riscv/pmu:starting",
++				      pmu_sbi_starting_cpu, pmu_sbi_dying_cpu);
++	if (ret) {
++		pr_err("CPU hotplug notifier could not be registered: %d\n",
++		       ret);
++		return ret;
++	}
++
++	ret = platform_driver_register(&pmu_sbi_driver);
++	if (ret)
++		return ret;
++
++	pdev = platform_device_register_simple(RISCV_PMU_PDEV_NAME, -1, NULL, 0);
++	if (IS_ERR(pdev)) {
++		platform_driver_unregister(&pmu_sbi_driver);
++		return PTR_ERR(pdev);
++	}
++
++	/* Notify legacy implementation that SBI pmu is available*/
++	riscv_pmu_legacy_skip_init();
++
++	return ret;
++}
++device_initcall(pmu_sbi_devinit)
+diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
+index 411a428ace4d..51c7e4929df7 100644
+--- a/include/linux/cpuhotplug.h
++++ b/include/linux/cpuhotplug.h
+@@ -165,6 +165,7 @@ enum cpuhp_state {
+ 	CPUHP_AP_PERF_ARM_HW_BREAKPOINT_STARTING,
+ 	CPUHP_AP_PERF_ARM_ACPI_STARTING,
+ 	CPUHP_AP_PERF_ARM_STARTING,
++	CPUHP_AP_PERF_RISCV_STARTING,
+ 	CPUHP_AP_ARM_L2X0_STARTING,
+ 	CPUHP_AP_EXYNOS4_MCT_TIMER_STARTING,
+ 	CPUHP_AP_ARM_ARCH_TIMER_STARTING,
 diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
-index 0d8979765d79..9140c491fc54 100644
+index 9140c491fc54..0f226948c0ca 100644
 --- a/include/linux/perf/riscv_pmu.h
 +++ b/include/linux/perf/riscv_pmu.h
-@@ -22,6 +22,7 @@
- #define RISCV_MAX_COUNTERS	64
- #define RISCV_OP_UNSUPP		(-EOPNOTSUPP)
- #define RISCV_PMU_PDEV_NAME	"riscv-pmu"
-+#define RISCV_PMU_LEGACY_PDEV_NAME	"riscv-pmu-legacy"
+@@ -31,8 +31,10 @@ struct cpu_hw_events {
+ 	int			n_events;
+ 	/* currently enabled events */
+ 	struct perf_event	*events[RISCV_MAX_COUNTERS];
+-	/* currently enabled counters */
+-	DECLARE_BITMAP(used_event_ctrs, RISCV_MAX_COUNTERS);
++	/* currently enabled hardware counters */
++	DECLARE_BITMAP(used_hw_ctrs, RISCV_MAX_COUNTERS);
++	/* currently enabled firmware counters */
++	DECLARE_BITMAP(used_fw_ctrs, RISCV_MAX_COUNTERS);
+ };
  
- #define RISCV_PMU_STOP_FLAG_RESET 1
- 
-@@ -58,6 +59,11 @@ unsigned long riscv_pmu_ctr_read_csr(unsigned long csr);
- int riscv_pmu_event_set_period(struct perf_event *event);
- uint64_t riscv_pmu_ctr_get_width_mask(struct perf_event *event);
- u64 riscv_pmu_event_update(struct perf_event *event);
-+#ifdef CONFIG_RISCV_PMU_LEGACY
-+void riscv_pmu_legacy_skip_init(void);
-+#else
-+static inline void riscv_pmu_legacy_skip_init(void) {};
-+#endif
- struct riscv_pmu *riscv_pmu_alloc(void);
- 
- #endif /* CONFIG_RISCV_PMU */
+ struct riscv_pmu {
 -- 
 2.30.2
 
