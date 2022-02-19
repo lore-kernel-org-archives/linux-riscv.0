@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DF47C433EF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01332C4332F
 	for <linux-riscv@archiver.kernel.org>; Sat, 19 Feb 2022 00:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,55 +12,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WPnlCbSz8PG9pvwLqjm2SfZeavcZ5uCc4GMgWn7fchM=; b=c6VhqkT6hmcYXd
-	rhAOmTE/2LnHHYWVGEZs1BTy8UWVT44fDgLKGcRTvNvSCpnzFHMMfVXK9b7r86M3v6E5igiIX3ena
-	JHE6oz6LLkijbT7q81ms9kHT/nJLDM2snJGBZsHnA5lyPJrkh3a6Ag1WBqEPIHH5ibgKb0lpzgK3B
-	DxX1fIWh9aiANERCyeLIhZTFsrhHVbapgbNcbPZnlprc5wvETTcwaxbasoMWzSP7Tezr7IGdYflKZ
-	9j+TtquC6eJqPQr+Yna+Jz8oin8OpLm3Aa3VACCqgpgqOcpWjfbFsl6JDWgPMTaqNFPEWIesrHGQD
-	reYS83Q8TB8+lduzWjIg==;
+	List-Owner; bh=Z12dj6mtNp6v+74Er28vd0V0BWLjc8mhQlLG2b7c1es=; b=wFEO+K7ziypiW3
+	Dqua6T+U3UFo2HqLfKwlCUN8tUa3ojZRcGby5AXZRMJt/S+VktGBZduK02n+ubVrcu5tY0Douuneg
+	rFTHTmEBvwr846KZF7/t8Q2BGDl91vvU0ww5l2kARcFRUEm/H58mb+PG7bnh/aKeJPL3puahUWy+s
+	FshZ+Xm0HNFq2XKB0HFKmLofv8D254UZxtiYMR3u4vM7ztvIsTTDCrdIOYWCsYTexDiOVTIaWOwJr
+	4llAa/r2Q9AnEMHh85uoKTkHYu/ftX5FAAHS4IWZv7p6MSorYAg5TWE8X1IKLZJqzygeLLaxtfW7j
+	/DR10jEKMhcBgnP3FzvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nLDuF-00G0IZ-DA; Sat, 19 Feb 2022 00:47:23 +0000
-Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
+	id 1nLDuJ-00G0Ky-PN; Sat, 19 Feb 2022 00:47:27 +0000
+Received: from mail-oi1-x230.google.com ([2607:f8b0:4864:20::230])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nLDu9-00G0GU-Tc
- for linux-riscv@lists.infradead.org; Sat, 19 Feb 2022 00:47:19 +0000
-Received: by mail-ot1-x329.google.com with SMTP id
- u17-20020a056830231100b005ad13358af9so3073086ote.11
- for <linux-riscv@lists.infradead.org>; Fri, 18 Feb 2022 16:47:17 -0800 (PST)
+ id 1nLDuD-00G0HV-BB
+ for linux-riscv@lists.infradead.org; Sat, 19 Feb 2022 00:47:23 +0000
+Received: by mail-oi1-x230.google.com with SMTP id k2so1124836oia.2
+ for <linux-riscv@lists.infradead.org>; Fri, 18 Feb 2022 16:47:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=r7d4QHjy8919ZRO4h3tQp6Y7b0B32ou2+EpX+fwfcw0=;
- b=H5zVwRUMuUl8xTvBteU92vszT+9z+34Em7K2/0F2cVdhe0MoDgAQaqvP3mHRucqsWp
- rA2/izndo3IyBWZRwfiyt0nMsK9oCF3q/PDCTZ7m461ySLC+BRbsXVJ9vvSpevCmys17
- BzedNLS9HgvioOxo3gTMvDW2TcYNY36UzgBtLV3f/A4qqW9ootmfEk5ecFf2IikTXC25
- jTy96vlOIVJATC/ScT1HAhMvCVCEa3lw98zuuu13suvXTaUaL7XtLrr4VhmnDWGqvkr2
- v0UcTqFs/ZAKjUbYY8Zslth24mIZs8u+vkQdhNF5Ot51dvdpjOAwQpmfwo1WZX3o7XfK
- 4YBg==
+ bh=KzmhLvVz31vDzGMMY34u4TS6n0xBB5tfzWyXF9F+lho=;
+ b=lXvzgeIW84VjTgJdYCIo+dLzmZaCO3ZzkPgwOEmtn6VOoYrBHo3GnjIJE/IeXP4uJL
+ Mw7a2fbyTQ3BmDYQaL8wdMtX427VtK1mEbNnxslkVbeirG6RYxrR+mZx0kqRGfeD06oE
+ 5csQBlItRhfzxNNLlUxHHLtvr8hUo1mrbA3/r/6Fet8/bvXVyd9ORXx5TsJthNdj5mB7
+ oPfM3fvRozywtHc5soKa+F4ncy5ncOPX2ssZXiA6u5nBK2nwvyTBOEaFvE9NjKi/vS1W
+ SvbCwGUU1mShVd+gywPr9V874Y2pc01lYedWj6DkSI+iyUh8/ve14o4bcncWlIwIQXZG
+ lmtA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=r7d4QHjy8919ZRO4h3tQp6Y7b0B32ou2+EpX+fwfcw0=;
- b=tqEg5uWSWEhAY+I8q3U6iYU+CAk/dGvDrz7ZNJ2FEvF30kFl2VR6OucWMpzGfxFLWv
- qZQn59LgZlYMK3zZ9DiJI0O51IXYkondH5Rt5h/i6X1eCjxUzdEBgLgc1yMNXpAuQeCB
- Fa/kkMS2rXmte1qYNaWyTlU9ldz9pzoM7CvkBA5xPvr2nHPe79GL001dHOand4wNSUNZ
- JxnzJlcAGF2A0KRSqArmjlVm2Rc7b9DfU1OX2WthV21YapaDrUi8WbB4JuoWJ7spo444
- WKu3H2A06Ydo7K+8aEvW8E9S2pc1Ywpj3mJ7PK7W1afhetn9TH1/KKMJwFLTjkbO9kpg
- 4kmQ==
-X-Gm-Message-State: AOAM532jbdV6F5oTdgeFUzy58bELgv2PsitPGlI37SYd7/cEZwM+VKbm
- DI6daXd7ToQl2RsnLOO4jC2ZVA==
-X-Google-Smtp-Source: ABdhPJz6BmwRNZxitWawKhsyA+xW3K3g0bNI73vzKxIaOxa8TFDi5IWy52wKfsY2ar7Rhy8z+SQNqw==
-X-Received: by 2002:a05:6830:43a9:b0:5a4:9dbb:645d with SMTP id
- s41-20020a05683043a900b005a49dbb645dmr3244988otv.138.1645231637078; 
- Fri, 18 Feb 2022 16:47:17 -0800 (PST)
+ bh=KzmhLvVz31vDzGMMY34u4TS6n0xBB5tfzWyXF9F+lho=;
+ b=IBka+NnB1G/lAyDj43gh0/3Oj+325CMq+yapn6s1WypMmj/umf7WL2wceUGpXFKw6/
+ aejgCgfCA+n0q9HGHpkHXnEHoAXIVM1w3mhte27UEdSV5QrVpiEhODOqtSUysb4tkL7j
+ kEXhFotEfHWRH/S90nXi5Yvz0rjUKx6ZdKuG1zLQfKmm5s2qFP5tO1birH4MhpsuMqCG
+ OVTs4eeGjGGcLjJEwn+SKx2EGk951p85/v5UWEwoBS2IWnaDDN5HCNo6H0vhyFUwVZAM
+ vKmUGj841oHb1r7zVLzfFx1AdwGyJ5gGctDGzog1/CsPl7+AJC2J+DdgocfKQjQdqrrz
+ Bv7A==
+X-Gm-Message-State: AOAM533bIfjvB1ewGOqUaYtdsJuBO5LBHxG7KA/ZMdrmgebMiAJMt0O4
+ oafR9qYSw8ebNVyfx45Myz/SyA==
+X-Google-Smtp-Source: ABdhPJyDev9Pc4oxIWxXyasAoZdwJfZr5R8goDRj6aWEX0l9J2Hc/U9mVA0sJ3SeJtP1S4bjHUy+/A==
+X-Received: by 2002:a05:6808:2029:b0:2d0:8e1a:14f3 with SMTP id
+ q41-20020a056808202900b002d08e1a14f3mr6444328oiw.257.1645231640482; 
+ Fri, 18 Feb 2022 16:47:20 -0800 (PST)
 Received: from rivos-atish.. (adsl-70-228-75-190.dsl.akrnoh.ameritech.net.
  [70.228.75.190])
- by smtp.gmail.com with ESMTPSA id n11sm11360794oal.1.2022.02.18.16.47.15
+ by smtp.gmail.com with ESMTPSA id n11sm11360794oal.1.2022.02.18.16.47.18
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 18 Feb 2022 16:47:16 -0800 (PST)
+ Fri, 18 Feb 2022 16:47:20 -0800 (PST)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>,
@@ -70,17 +69,16 @@ Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>,
  Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
  linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
-Subject: [v6 2/9] RISC-V: Add CSR encodings for all HPMCOUNTERS
-Date: Fri, 18 Feb 2022 16:46:53 -0800
-Message-Id: <20220219004700.1973682-3-atishp@rivosinc.com>
+Subject: [v6 4/9] RISC-V: Add a simple platform driver for RISC-V legacy perf
+Date: Fri, 18 Feb 2022 16:46:55 -0800
+Message-Id: <20220219004700.1973682-5-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20220219004700.1973682-1-atishp@rivosinc.com>
 References: <20220219004700.1973682-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220218_164717_979776_03583212 
-X-CRM114-Status: UNSURE (   7.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220218_164721_425328_B90A3088 
+X-CRM114-Status: GOOD (  28.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,88 +97,229 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Atish Patra <atish.patra@wdc.com>
 
-Linux kernel can directly read these counters as the HPMCOUNTERS CSRs are
-accessible in S-mode.
+The old RISC-V perf implementation allowed counting of only
+cycle/instruction counters using perf. Restore that feature by implementing
+a simple platform driver under a separate config to provide backward
+compatibility. Any existing software stack will continue to work as it is.
+However, it provides an easy way out in future where we can remove the
+legacy driver.
 
 Reviewed-by: Anup Patel <anup@brainfault.org>
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/include/asm/csr.h | 58 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 58 insertions(+)
+ drivers/perf/Kconfig            |  10 +++
+ drivers/perf/Makefile           |   1 +
+ drivers/perf/riscv_pmu_legacy.c | 142 ++++++++++++++++++++++++++++++++
+ include/linux/perf/riscv_pmu.h  |   6 ++
+ 4 files changed, 159 insertions(+)
+ create mode 100644 drivers/perf/riscv_pmu_legacy.c
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index ae711692eec9..ce493df11177 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -150,9 +150,67 @@
- #define CSR_CYCLE		0xc00
- #define CSR_TIME		0xc01
- #define CSR_INSTRET		0xc02
-+#define CSR_HPMCOUNTER3		0xc03
-+#define CSR_HPMCOUNTER4		0xc04
-+#define CSR_HPMCOUNTER5		0xc05
-+#define CSR_HPMCOUNTER6		0xc06
-+#define CSR_HPMCOUNTER7		0xc07
-+#define CSR_HPMCOUNTER8		0xc08
-+#define CSR_HPMCOUNTER9		0xc09
-+#define CSR_HPMCOUNTER10	0xc0a
-+#define CSR_HPMCOUNTER11	0xc0b
-+#define CSR_HPMCOUNTER12	0xc0c
-+#define CSR_HPMCOUNTER13	0xc0d
-+#define CSR_HPMCOUNTER14	0xc0e
-+#define CSR_HPMCOUNTER15	0xc0f
-+#define CSR_HPMCOUNTER16	0xc10
-+#define CSR_HPMCOUNTER17	0xc11
-+#define CSR_HPMCOUNTER18	0xc12
-+#define CSR_HPMCOUNTER19	0xc13
-+#define CSR_HPMCOUNTER20	0xc14
-+#define CSR_HPMCOUNTER21	0xc15
-+#define CSR_HPMCOUNTER22	0xc16
-+#define CSR_HPMCOUNTER23	0xc17
-+#define CSR_HPMCOUNTER24	0xc18
-+#define CSR_HPMCOUNTER25	0xc19
-+#define CSR_HPMCOUNTER26	0xc1a
-+#define CSR_HPMCOUNTER27	0xc1b
-+#define CSR_HPMCOUNTER28	0xc1c
-+#define CSR_HPMCOUNTER29	0xc1d
-+#define CSR_HPMCOUNTER30	0xc1e
-+#define CSR_HPMCOUNTER31	0xc1f
- #define CSR_CYCLEH		0xc80
- #define CSR_TIMEH		0xc81
- #define CSR_INSTRETH		0xc82
-+#define CSR_HPMCOUNTER3H	0xc83
-+#define CSR_HPMCOUNTER4H	0xc84
-+#define CSR_HPMCOUNTER5H	0xc85
-+#define CSR_HPMCOUNTER6H	0xc86
-+#define CSR_HPMCOUNTER7H	0xc87
-+#define CSR_HPMCOUNTER8H	0xc88
-+#define CSR_HPMCOUNTER9H	0xc89
-+#define CSR_HPMCOUNTER10H	0xc8a
-+#define CSR_HPMCOUNTER11H	0xc8b
-+#define CSR_HPMCOUNTER12H	0xc8c
-+#define CSR_HPMCOUNTER13H	0xc8d
-+#define CSR_HPMCOUNTER14H	0xc8e
-+#define CSR_HPMCOUNTER15H	0xc8f
-+#define CSR_HPMCOUNTER16H	0xc90
-+#define CSR_HPMCOUNTER17H	0xc91
-+#define CSR_HPMCOUNTER18H	0xc92
-+#define CSR_HPMCOUNTER19H	0xc93
-+#define CSR_HPMCOUNTER20H	0xc94
-+#define CSR_HPMCOUNTER21H	0xc95
-+#define CSR_HPMCOUNTER22H	0xc96
-+#define CSR_HPMCOUNTER23H	0xc97
-+#define CSR_HPMCOUNTER24H	0xc98
-+#define CSR_HPMCOUNTER25H	0xc99
-+#define CSR_HPMCOUNTER26H	0xc9a
-+#define CSR_HPMCOUNTER27H	0xc9b
-+#define CSR_HPMCOUNTER28H	0xc9c
-+#define CSR_HPMCOUNTER29H	0xc9d
-+#define CSR_HPMCOUNTER30H	0xc9e
-+#define CSR_HPMCOUNTER31H	0xc9f
+diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
+index dbc0e3f98be9..386162ad858a 100644
+--- a/drivers/perf/Kconfig
++++ b/drivers/perf/Kconfig
+@@ -66,6 +66,16 @@ config RISCV_PMU
+ 	  PMU functionalities in a core library so that different PMU drivers
+ 	  can reuse it.
  
- #define CSR_SSTATUS		0x100
- #define CSR_SIE			0x104
++config RISCV_PMU_LEGACY
++	depends on RISCV_PMU
++	bool "RISC-V legacy PMU implementation"
++	default y
++	help
++	  Say y if you want to use the legacy CPU performance monitor
++	  implementation on RISC-V based systems. This only allows counting
++	  of cycle/instruction counter and doesn't support counter overflow,
++	  or programmable counters. It will be removed in future.
++
+ config ARM_PMU_ACPI
+ 	depends on ARM_PMU && ACPI
+ 	def_bool y
+diff --git a/drivers/perf/Makefile b/drivers/perf/Makefile
+index 09082dea154b..c3d3268d495b 100644
+--- a/drivers/perf/Makefile
++++ b/drivers/perf/Makefile
+@@ -11,6 +11,7 @@ obj-$(CONFIG_HISI_PMU) += hisilicon/
+ obj-$(CONFIG_QCOM_L2_PMU)	+= qcom_l2_pmu.o
+ obj-$(CONFIG_QCOM_L3_PMU) += qcom_l3_pmu.o
+ obj-$(CONFIG_RISCV_PMU) += riscv_pmu.o
++obj-$(CONFIG_RISCV_PMU_LEGACY) += riscv_pmu_legacy.o
+ obj-$(CONFIG_THUNDERX2_PMU) += thunderx2_pmu.o
+ obj-$(CONFIG_XGENE_PMU) += xgene_pmu.o
+ obj-$(CONFIG_ARM_SPE_PMU) += arm_spe_pmu.o
+diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
+new file mode 100644
+index 000000000000..342778782359
+--- /dev/null
++++ b/drivers/perf/riscv_pmu_legacy.c
+@@ -0,0 +1,142 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * RISC-V performance counter support.
++ *
++ * Copyright (C) 2021 Western Digital Corporation or its affiliates.
++ *
++ * This implementation is based on old RISC-V perf and ARM perf event code
++ * which are in turn based on sparc64 and x86 code.
++ */
++
++#include <linux/mod_devicetable.h>
++#include <linux/perf/riscv_pmu.h>
++#include <linux/platform_device.h>
++
++#define RISCV_PMU_LEGACY_CYCLE		0
++#define RISCV_PMU_LEGACY_INSTRET	1
++#define RISCV_PMU_LEGACY_NUM_CTR	2
++
++static bool pmu_init_done;
++
++static int pmu_legacy_ctr_get_idx(struct perf_event *event)
++{
++	struct perf_event_attr *attr = &event->attr;
++
++	if (event->attr.type != PERF_TYPE_HARDWARE)
++		return -EOPNOTSUPP;
++	if (attr->config == PERF_COUNT_HW_CPU_CYCLES)
++		return RISCV_PMU_LEGACY_CYCLE;
++	else if (attr->config == PERF_COUNT_HW_INSTRUCTIONS)
++		return RISCV_PMU_LEGACY_INSTRET;
++	else
++		return -EOPNOTSUPP;
++}
++
++/* For legacy config & counter index are same */
++static int pmu_legacy_event_map(struct perf_event *event, u64 *config)
++{
++	return pmu_legacy_ctr_get_idx(event);
++}
++
++static u64 pmu_legacy_read_ctr(struct perf_event *event)
++{
++	struct hw_perf_event *hwc = &event->hw;
++	int idx = hwc->idx;
++	u64 val;
++
++	if (idx == RISCV_PMU_LEGACY_CYCLE) {
++		val = riscv_pmu_ctr_read_csr(CSR_CYCLE);
++		if (IS_ENABLED(CONFIG_32BIT))
++			val = (u64)riscv_pmu_ctr_read_csr(CSR_CYCLEH) << 32 | val;
++	} else if (idx == RISCV_PMU_LEGACY_INSTRET) {
++		val = riscv_pmu_ctr_read_csr(CSR_INSTRET);
++		if (IS_ENABLED(CONFIG_32BIT))
++			val = ((u64)riscv_pmu_ctr_read_csr(CSR_INSTRETH)) << 32 | val;
++	} else
++		return 0;
++
++	return val;
++}
++
++static void pmu_legacy_ctr_start(struct perf_event *event, u64 ival)
++{
++	struct hw_perf_event *hwc = &event->hw;
++	u64 initial_val = pmu_legacy_read_ctr(event);
++
++	/**
++	 * The legacy method doesn't really have a start/stop method.
++	 * It also can not update the counter with a initial value.
++	 * But we still need to set the prev_count so that read() can compute
++	 * the delta. Just use the current counter value to set the prev_count.
++	 */
++	local64_set(&hwc->prev_count, initial_val);
++}
++
++/**
++ * This is just a simple implementation to allow legacy implementations
++ * compatible with new RISC-V PMU driver framework.
++ * This driver only allows reading two counters i.e CYCLE & INSTRET.
++ * However, it can not start or stop the counter. Thus, it is not very useful
++ * will be removed in future.
++ */
++static void pmu_legacy_init(struct riscv_pmu *pmu)
++{
++	pr_info("Legacy PMU implementation is available\n");
++
++	pmu->num_counters = RISCV_PMU_LEGACY_NUM_CTR;
++	pmu->ctr_start = pmu_legacy_ctr_start;
++	pmu->ctr_stop = NULL;
++	pmu->event_map = pmu_legacy_event_map;
++	pmu->ctr_get_idx = pmu_legacy_ctr_get_idx;
++	pmu->ctr_get_width = NULL;
++	pmu->ctr_clear_idx = NULL;
++	pmu->ctr_read = pmu_legacy_read_ctr;
++
++	perf_pmu_register(&pmu->pmu, "cpu", PERF_TYPE_RAW);
++}
++
++static int pmu_legacy_device_probe(struct platform_device *pdev)
++{
++	struct riscv_pmu *pmu = NULL;
++
++	pmu = riscv_pmu_alloc();
++	if (!pmu)
++		return -ENOMEM;
++	pmu_legacy_init(pmu);
++
++	return 0;
++}
++
++static struct platform_driver pmu_legacy_driver = {
++	.probe		= pmu_legacy_device_probe,
++	.driver		= {
++		.name	= RISCV_PMU_LEGACY_PDEV_NAME,
++	},
++};
++
++static int __init riscv_pmu_legacy_devinit(void)
++{
++	int ret;
++	struct platform_device *pdev;
++
++	if (likely(pmu_init_done))
++		return 0;
++
++	ret = platform_driver_register(&pmu_legacy_driver);
++	if (ret)
++		return ret;
++
++	pdev = platform_device_register_simple(RISCV_PMU_LEGACY_PDEV_NAME, -1, NULL, 0);
++	if (IS_ERR(pdev)) {
++		platform_driver_unregister(&pmu_legacy_driver);
++		return PTR_ERR(pdev);
++	}
++
++	return ret;
++}
++late_initcall(riscv_pmu_legacy_devinit);
++
++void riscv_pmu_legacy_skip_init(void)
++{
++	pmu_init_done = true;
++}
+diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
+index 0d8979765d79..9140c491fc54 100644
+--- a/include/linux/perf/riscv_pmu.h
++++ b/include/linux/perf/riscv_pmu.h
+@@ -22,6 +22,7 @@
+ #define RISCV_MAX_COUNTERS	64
+ #define RISCV_OP_UNSUPP		(-EOPNOTSUPP)
+ #define RISCV_PMU_PDEV_NAME	"riscv-pmu"
++#define RISCV_PMU_LEGACY_PDEV_NAME	"riscv-pmu-legacy"
+ 
+ #define RISCV_PMU_STOP_FLAG_RESET 1
+ 
+@@ -58,6 +59,11 @@ unsigned long riscv_pmu_ctr_read_csr(unsigned long csr);
+ int riscv_pmu_event_set_period(struct perf_event *event);
+ uint64_t riscv_pmu_ctr_get_width_mask(struct perf_event *event);
+ u64 riscv_pmu_event_update(struct perf_event *event);
++#ifdef CONFIG_RISCV_PMU_LEGACY
++void riscv_pmu_legacy_skip_init(void);
++#else
++static inline void riscv_pmu_legacy_skip_init(void) {};
++#endif
+ struct riscv_pmu *riscv_pmu_alloc(void);
+ 
+ #endif /* CONFIG_RISCV_PMU */
 -- 
 2.30.2
 
