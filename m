@@ -4,82 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C942EC433FE
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Feb 2022 00:47:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FD1AC433F5
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Feb 2022 03:39:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HIQuw4dambX5pkfFZCJvVhhhIdmhOa6ufPwTEiev2JY=; b=ixJ3bmBasHynCC
-	dAwxbVkzdhura/JRDeNwp8mIuw+wu+a0ERw4+kWrJ67s/xKCdsumXynlArup7RQmsrS5mwo5Z1bxT
-	a0gCDuR28n628bcfHWgfhzq8P4ClB/jx68Uz0coqFfsL1gZoLvUO+T+INOTEJ/4pNWbrekgdf3rK3
-	4efONHe1oylHPQUKDymrSQb8DqnKyY5JqZZ17J0X2alG2MkhxGWonpAthGAyuwNLfg5EA14qBKwJz
-	uN8iXsJp8XD8G5zlL8geUguTlqgn4qo5D40T4n1xAQ5aTcQjKXh2jfJ5ocqhG8TDSBsSy/FLpeeES
-	OsWamADR9WE83O7MeeKA==;
+	List-Owner; bh=eivSiQgweXJXlyaZ7dv5DXpD/nQCxM61DJeZho5Cyro=; b=Qu4nF9jxp33kYm
+	GUJgNS4FQDXP3Bi/LNSPHthluDmsZ+tJCJZRIFodAyER/vfACdlFdalewSogsNoJqoYpqW0offwfh
+	Y8FsWdq/e+a+vV/Fb+XRUXX+8ipfm5uJFY+7tClqvE+PoZwAlNLztVp1+TBrmATnXPCfH+9kO0YEe
+	YY8MjzMXGljtlaeJ0MupEY9ew57Cm4pinUeiUQ0FZtyXTRgJs97zQYKyCge6VGw2ppJRtvvvBDa2o
+	Wm7F2Ja+01F9yDlxv11pgd6gn1YgBsfI/O0z5osieAADF1s548jUz0ECr2GS7yKdzDVy/8KMCwvaI
+	So79z47spFbC9ryeGPgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nLDua-00G0XM-79; Sat, 19 Feb 2022 00:47:44 +0000
-Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
+	id 1nLGaL-00GCW7-6v; Sat, 19 Feb 2022 03:39:01 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nLDuM-00G0MB-OX
- for linux-riscv@lists.infradead.org; Sat, 19 Feb 2022 00:47:32 +0000
-Received: by mail-oi1-x22c.google.com with SMTP id j2so4886309oie.7
- for <linux-riscv@lists.infradead.org>; Fri, 18 Feb 2022 16:47:29 -0800 (PST)
+ id 1nLGaI-00GCVo-63
+ for linux-riscv@lists.infradead.org; Sat, 19 Feb 2022 03:38:59 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id
+ x3-20020a05600c21c300b0037c01ad715bso7689115wmj.2
+ for <linux-riscv@lists.infradead.org>; Fri, 18 Feb 2022 19:38:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=c/0FNgv5lUN8jWi4HV9B3F/rz6WuSHsRs+ZuBRv8FFI=;
- b=ZiY0wwJ0SqisQuu6ArfKe03xg+2W+PovMKQyGMyksKruK698BV0tgUOmJQQczbB4Xy
- es5RPo++t4bQEgF6wzMapiJTWPReNgRTwNNnnpyDJCfbCrFvTWOcPHowU1Vwl23ky6QG
- DLN4/uaRUwaGd6Uiy3y+l0wMQJpMBa9ezEV3oMztup72dpEC+uY7NTrt5/fnJI8q9SwT
- XepPFmnUClJGgK/xmhL+gQhVMQdh5nP1IFVL0PN3g01vJ0kc/FXov1ooooas1J6O8XfN
- UX3AvR6/Kpz7g0WdEIyp4lPJ9SKAa2nSDYRPLrxuhBE571zxzuyKjTZXPQkW8/0ZFDVF
- Btqw==
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=nedZE9CYo/O4rESVv1Nf5juJloXpQE/HOA07tzdjzh4=;
+ b=Ybq8d9MVycFAHyQOoZAXdJHdp57iiyFesmQLye9XQO+8Tuzi92/XZNcHen3n2QEn7l
+ dKSl6bBRcP6IjnUSCQtc6n3sUmxOLtb+d+C4jXkuphJuwW51jF1QSG7fIx1t+mCnPK2d
+ swg1A+QvUIR8lPQ3MY+HVpejsoLRJOKxy4hz6pQA7N8+io9imHN762onltdMYUyGY4Rq
+ TxIboGOG7wUM76Lt2is70XtAD6rtXzMVcS684QF7atMz/ajYdrPohUdnFPrXiU31R/cj
+ 58MEjctQZYr/HWa5mp9M1pab0LlWRuN14hZ9DDYMh26GVxGs4wS7ItdzyBLGmz0txrVP
+ UVFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=c/0FNgv5lUN8jWi4HV9B3F/rz6WuSHsRs+ZuBRv8FFI=;
- b=6TfgDX7veUALcCEHWED9cfykKDGwHRrbsKgAMXOmYP1NR/2xKsQ6n2pZpQfqnBWmUg
- C5GLtD0XOIhZNHmSdn1O4CP9y3w6T0vYMf9sjhouLD3SkR3sNYrDP4h9W5RLoZXhsiln
- RWS3C9WxRB3oH2qKVt3LSlaLpBFy16n0gayTLkBHUdxCU7AX0MQRsa6vAC36dcT9RaKL
- mrH2FObIK+L0mcMGHW4BCOqYAGRQR5A/cJgunlHJoJu6EnFg1Nx+MPCol85zTMO7Fy1M
- r2WxBHR1jbirHFokFcPYOhrnv1lh0/6ef1oEz9ZkWPnY3PkSduKzUFy8eJHX/fGJv6e8
- z5DA==
-X-Gm-Message-State: AOAM532d4CUvH79u9F1LII8CLtJSLdnCTTYUm2YubvXAwjAamYuYEzPR
- wbhhe4stxlOKuAqOima/Mz3R0A==
-X-Google-Smtp-Source: ABdhPJzRQen7NvHhjcQNsc8zdzkieqqweNi8Zrd2NfXxhR0scCdRCj2ZIJPPYhXkW27QcvKyFYXfyg==
-X-Received: by 2002:a05:6808:190f:b0:2d4:b3c0:193a with SMTP id
- bf15-20020a056808190f00b002d4b3c0193amr1760730oib.229.1645231649091; 
- Fri, 18 Feb 2022 16:47:29 -0800 (PST)
-Received: from rivos-atish.. (adsl-70-228-75-190.dsl.akrnoh.ameritech.net.
- [70.228.75.190])
- by smtp.gmail.com with ESMTPSA id n11sm11360794oal.1.2022.02.18.16.47.27
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 18 Feb 2022 16:47:28 -0800 (PST)
-From: Atish Patra <atishp@rivosinc.com>
-To: linux-kernel@vger.kernel.org
-Cc: Atish Patra <atishp@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
- Damien Le Moal <damien.lemoal@wdc.com>, devicetree@vger.kernel.org,
- Jisheng Zhang <jszhang@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
-Subject: [v6 9/9] MAINTAINERS: Add entry for RISC-V PMU drivers
-Date: Fri, 18 Feb 2022 16:47:00 -0800
-Message-Id: <20220219004700.1973682-10-atishp@rivosinc.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20220219004700.1973682-1-atishp@rivosinc.com>
-References: <20220219004700.1973682-1-atishp@rivosinc.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=nedZE9CYo/O4rESVv1Nf5juJloXpQE/HOA07tzdjzh4=;
+ b=vVu0kcvQqYD9iVLcTTeZJddzsmINGF3rmvf4HreUInF9b3yvc3U91AskaXwSPJ2/8w
+ wwIos4RB1ALQz6rJkxlRn1OTH9kOwETVct9VvUTln6qdTG0NIH0NiHaQytH2Aw7BP3OP
+ I/aGVXzJx6fUR9zLPlO5IuoEyRi91VmUcJZSikecM5GO4OAKQsgL6R/egCwl+64eun7v
+ lYEfE3N0lOGB4+ixUCw8gj4BZFwUodTOUbt5+7hTniqD81auax2bOsnPYeSvcPoc7aFr
+ mGif6+v/i1KNATzaXjHrjTYgT2Z7X0MBiW1jBOmEIcwe4szWzxu9DbYr7TOixvBXR4BU
+ iMrg==
+X-Gm-Message-State: AOAM531PeISbH1yJjh4E07MiDXjOpSxKMycdglzBzsojRCwlT7ZAd22H
+ oNWTV0YHXq3JLVAiJyNTIHOcbyuCcCqciPMJ+NFY+g==
+X-Google-Smtp-Source: ABdhPJyq7a82/Td7K9xNfLwQ93cynMMOkx1OHfvG+rIJx4EO/sDEkBchlMpwDmwye8MsQJqbyqHXc58HTLPqaidUkk0=
+X-Received: by 2002:a7b:cb99:0:b0:34e:b056:91ed with SMTP id
+ m25-20020a7bcb99000000b0034eb05691edmr9424307wmi.137.1645241936103; Fri, 18
+ Feb 2022 19:38:56 -0800 (PST)
 MIME-Version: 1.0
+References: <20220128052505.859518-1-apatel@ventanamicro.com>
+ <20220128052505.859518-3-apatel@ventanamicro.com>
+ <063b8a5636d6372f37029946b2c3e0f4@kernel.org>
+In-Reply-To: <063b8a5636d6372f37029946b2c3e0f4@kernel.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Sat, 19 Feb 2022 09:08:43 +0530
+Message-ID: <CAAhSdy387r314f=YjvXJCxqxkvjm5q-EBOVu420giFzaVr_NYw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/6] irqchip/riscv-intc: Create domain using named
+ fwnode
+To: Marc Zyngier <maz@kernel.org>
+Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Atish Patra <atishp@atishpatra.org>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220218_164730_827418_2889F2E2 
-X-CRM114-Status: UNSURE (   7.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220218_193858_336392_900F19E0 
+X-CRM114-Status: GOOD (  34.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,39 +92,137 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Atish Patra <atish.patra@wdc.com>
+On Thu, Feb 17, 2022 at 8:42 PM Marc Zyngier <maz@kernel.org> wrote:
+>
+> On 2022-01-28 05:25, Anup Patel wrote:
+> > We should create INTC domain using a synthetic fwnode which will allow
+> > drivers (such as RISC-V SBI IPI driver, RISC-V timer driver, RISC-V
+> > PMU driver, etc) not having dedicated DT/ACPI node to directly create
+> > interrupt mapping for standard local interrupt numbers defined by the
+> > RISC-V privileged specification.
+> >
+> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> > ---
+> >  arch/riscv/include/asm/irq.h      |  2 ++
+> >  arch/riscv/kernel/irq.c           | 13 +++++++++++++
+> >  drivers/clocksource/timer-clint.c | 13 +++++++------
+> >  drivers/clocksource/timer-riscv.c | 11 ++---------
+> >  drivers/irqchip/irq-riscv-intc.c  | 12 ++++++++++--
+> >  drivers/irqchip/irq-sifive-plic.c | 19 +++++++++++--------
+> >  6 files changed, 45 insertions(+), 25 deletions(-)
+> >
+> > diff --git a/arch/riscv/include/asm/irq.h
+> > b/arch/riscv/include/asm/irq.h
+> > index e4c435509983..f85ebaf07505 100644
+> > --- a/arch/riscv/include/asm/irq.h
+> > +++ b/arch/riscv/include/asm/irq.h
+> > @@ -12,6 +12,8 @@
+> >
+> >  #include <asm-generic/irq.h>
+> >
+> > +extern struct fwnode_handle *riscv_intc_fwnode(void);
+> > +
+> >  extern void __init init_IRQ(void);
+> >
+> >  #endif /* _ASM_RISCV_IRQ_H */
+> > diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
+> > index 7207fa08d78f..f2fed78ab659 100644
+> > --- a/arch/riscv/kernel/irq.c
+> > +++ b/arch/riscv/kernel/irq.c
+> > @@ -7,9 +7,22 @@
+> >
+> >  #include <linux/interrupt.h>
+> >  #include <linux/irqchip.h>
+> > +#include <linux/irqdomain.h>
+> > +#include <linux/module.h>
+> >  #include <linux/seq_file.h>
+> >  #include <asm/smp.h>
+> >
+> > +static struct fwnode_handle *intc_fwnode;
+> > +
+> > +struct fwnode_handle *riscv_intc_fwnode(void)
+> > +{
+> > +     if (!intc_fwnode)
+> > +             intc_fwnode = irq_domain_alloc_named_fwnode("RISCV-INTC");
+> > +
+> > +     return intc_fwnode;
+> > +}
+> > +EXPORT_SYMBOL_GPL(riscv_intc_fwnode);
+>
+> Why is this created outside of the root interrupt controller driver?
+> Furthermore, why do you need to create a new fwnode the first place?
+> As far as I can tell, the INTC does have a node, and what you don't
+> have is the firmware linkage between PMU (an others) and the INTC.
 
-Add myself and Anup as maintainer for RISC-V PMU drivers.
+Fair enough, I will update this patch to not create a synthetic fwnode.
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- MAINTAINERS | 9 +++++++++
- 1 file changed, 9 insertions(+)
+The issue is not with INTC driver. We have other drivers and places
+(such as SBI IPI driver, SBI PMU driver, and KVM RISC-V AIA support)
+where we don't have a way to locate INTC fwnode.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index fca970a46e77..101a07728d5f 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -16596,6 +16596,15 @@ S:	Maintained
- F:	drivers/mtd/nand/raw/r852.c
- F:	drivers/mtd/nand/raw/r852.h
- 
-+RISC-V PMU DRIVERS
-+M:	Atish Patra <atishp@atishpatra.org>
-+R:	Anup Patel <anup@brainfault.org>
-+L:	linux-riscv@lists.infradead.org
-+S:	Supported
-+F:	drivers/perf/riscv_pmu.c
-+F:	drivers/perf/riscv_pmu_legacy.c
-+F:	drivers/perf/riscv_pmu_sbi.c
-+
- RISC-V ARCHITECTURE
- M:	Paul Walmsley <paul.walmsley@sifive.com>
- M:	Palmer Dabbelt <palmer@dabbelt.com>
--- 
-2.30.2
+>
+> what you should have instead is something like:
+>
+> static struct fwnode_handle *(*__get_root_intc_node)(void);
+> struct fwnode_handle *riscv_get_root_intc_hwnode(void)
+> {
+>          if (__get_root_intc_node)
+>                  return __get_root_intc_node();
+>
+>          return NULL;
+> }
+>
+> and the corresponding registration interface.
 
+Thanks, I will follow this suggestion. This is a much better approach
+and it will avoid touching existing drivers.
+
+>
+> But either way, something breaks: the INTC has one node per CPU, and
+> expect one irqdomain per CPU. Having a single fwnode completely breaks
+> the INTC driver (and probably the irqdomain list, as we don't check for
+> duplicate entries).
+>
+> > diff --git a/drivers/irqchip/irq-riscv-intc.c
+> > b/drivers/irqchip/irq-riscv-intc.c
+> > index b65bd8878d4f..26ed62c11768 100644
+> > --- a/drivers/irqchip/irq-riscv-intc.c
+> > +++ b/drivers/irqchip/irq-riscv-intc.c
+> > @@ -112,8 +112,16 @@ static int __init riscv_intc_init(struct
+> > device_node *node,
+> >       if (riscv_hartid_to_cpuid(hartid) != smp_processor_id())
+> >               return 0;
+> >
+> > -     intc_domain = irq_domain_add_linear(node, BITS_PER_LONG,
+> > -                                         &riscv_intc_domain_ops, NULL);
+> > +     /*
+> > +      * Create INTC domain using a synthetic fwnode which will allow
+> > +      * drivers (such as RISC-V SBI IPI driver, RISC-V timer driver,
+> > +      * RISC-V PMU driver, etc) not having dedicated DT/ACPI node to
+> > +      * directly create interrupt mapping for standard local interrupt
+> > +      * numbers defined by the RISC-V privileged specification.
+> > +      */
+> > +     intc_domain = irq_domain_create_linear(riscv_intc_fwnode(),
+> > +                                            BITS_PER_LONG,
+> > +                                            &riscv_intc_domain_ops, NULL);
+>
+> This is what I'm talking about. It is simply broken. So either you don't
+> need a per-CPU node (and the DT was bad the first place), or you
+> absolutely need
+> one (and the whole 'well-known/default domain' doesn't work at all).
+>
+> Either way, this patch is plain wrong.
+
+Okay, I will update this patch with the new approach which you suggested.
+
+Regards,
+Anup
+
+>
+>
+>          M.
+> --
+> Jazz is not dead. It just smells funny...
 
 _______________________________________________
 linux-riscv mailing list
