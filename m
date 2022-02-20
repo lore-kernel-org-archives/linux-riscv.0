@@ -4,80 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20AB7C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Feb 2022 05:10:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B4A2C433F5
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Feb 2022 09:55:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7AHa5d9FnZS/NS08lZcmylJckA6+/umy6crPdll/17w=; b=RQJqa573O5ld3q
-	YSJ48EE5yKMRoSRljMoRcphcdhLcF1yV8ryBzgXCrFtro5bg97l6a3LxeWY8ubyTqhz/Al/l7h8Pj
-	WTyGM5jLXu6Z12RmKWKgyyuFlInhG3Nowr+1aCBTOSgqyis9SB5PJJy+6KoPFzXSbAtrEZxjb9gnQ
-	kInEm0tfdkM4F3JUk+eml1Eu11GXhKITlIZl9NmZeXxbRdG/zBtG7mYpZXGOKM+fU7IMvfGm6P940
-	L9HSuj2IBTBm8sXJttC1H/jK0WQnKBan/5TEWUlH1IsDUKpQWoNM8Ee6vmlQrElR4pbzafA3AAi4h
-	4jN7ocAlGO2xeNY45Vqg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GQSNmLhjyeLrS2VcFLIkebM8FI/E/YC/ahQ9Z7gXVzM=; b=t/D9xH/jLbB9CVmwCjIyJFHj31
+	GJSFiCvxlIUWCpAoyg2TsjJIHVeJJZlfnMv3hXpE3vR6vdy2Tt52NwoQhdzzDdjTiUGafAzMt6hH0
+	6ust+tPitSOwTeArdyqangW0dd10beCnKgcwlHavcuhe7WpxVMmzANFS6dbzJMOxLx+5iYk1ySIlj
+	QF98iqO3dbVN0xXpY3DWmlfHIiCMaIfeLaL6Sn8txXrDl0ddNu/WW73PSoXjp06hQEZpmN/syE+e9
+	5dRxNozEZoYyyJbHEVbChTKCf6L30tYlIfJmJxW/CefMWFc7Hs7z7kqYjlAZcHO8fJn+NChIdYpbd
+	EqebtGjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nLeUL-000c8o-M3; Sun, 20 Feb 2022 05:10:25 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1nLivs-000yQr-9A; Sun, 20 Feb 2022 09:55:08 +0000
+Received: from jabberwock.ucw.cz ([46.255.230.98])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nLeUI-000c63-5S
- for linux-riscv@lists.infradead.org; Sun, 20 Feb 2022 05:10:23 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id b8so12027483pjb.4
- for <linux-riscv@lists.infradead.org>; Sat, 19 Feb 2022 21:10:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ventanamicro.com; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=64Kf1jBnaPXE7HWaq/CWbgAlm0Fq5kx6l/oMdBTVwE8=;
- b=gsu7vUkBTXloZBY5crdjWG0a6kF7Rp2Ufl6WjH9zPwubBpnczQgxvMINFx3UAPUdck
- KlS4IRWAqBOnHgtnkUuInOwXQgCVfVtYHHJxHv52k0eVJKxYQxmKLXKaSZSKhvyMc2lE
- 9or9uESFqi+dg0FwIWbOenYCzntChMCJuslU+vDeF1n1JbXpRtH4KTIP2hIxKZPoNNpD
- 5P8T2gz09S0UnezL0u3Zm1L+Lrjo2NjueLOme9YaubfxrWp5ht2G7aYZbQSQDF38Tucb
- bPO0/iJoo057zszFRMWRRkQECn1PxqIBbRbF6DcWu6h+ch9DPKb0MH3PyNImUQOfBFv7
- XiLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=64Kf1jBnaPXE7HWaq/CWbgAlm0Fq5kx6l/oMdBTVwE8=;
- b=l2PlP6QDcOWPxmGC8AxjmTbNrnnfgDyzyVCMaoaI0BbhJNgph98GpY/jPh6OEDpPqX
- jMYDaWTk+kKsPaKtqfvtKYWd97NJT1xR1XjPLNmEKaVTFgEmrt0kM/OOaVTCQz+0Gev+
- DCeg5oyNCqfU/ncmnLWU4JR4rGehkE/6Hg80f3giw/zmL5Fua0GdleuN6Pb4esX2ax8T
- OHbCwwbhXngCzf+Rtz0OKEQqRQwfFX7wkH6nJs+9wiQXbLGZ6PBRXQ1Nyod7rI2LPKNX
- OZE8qNygcLpsq2Sis1w0sZEvdTMnC/oCBQQIVoXnQrddgTf2rNs9VIKxn86F2vQrV+0E
- mGQQ==
-X-Gm-Message-State: AOAM532bRUpYONcXT2pPmveG/ExzWB8YzH0f1jdM++AFRU/fuKMzuilK
- KD1rz4BvOZ+0gOB7UdP/rpAAkg==
-X-Google-Smtp-Source: ABdhPJy3DExU6NKhqlkQTY+VUHkVb8Ep/VbycLbZh8/S5TbSH+UpC9xVOXzmgADpJWI3zRLlmngV/Q==
-X-Received: by 2002:a17:90b:1104:b0:1b8:b90b:22c7 with SMTP id
- gi4-20020a17090b110400b001b8b90b22c7mr15685794pjb.45.1645333821280; 
- Sat, 19 Feb 2022 21:10:21 -0800 (PST)
-Received: from localhost.localdomain ([122.162.118.38])
- by smtp.gmail.com with ESMTPSA id 84sm7602730pfx.181.2022.02.19.21.10.17
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 19 Feb 2022 21:10:20 -0800 (PST)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: Atish Patra <atishp@atishpatra.org>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH v3 6/6] RISC-V: Use IPIs for remote icache flush when possible
-Date: Sun, 20 Feb 2022 10:38:54 +0530
-Message-Id: <20220220050854.743420-7-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220220050854.743420-1-apatel@ventanamicro.com>
-References: <20220220050854.743420-1-apatel@ventanamicro.com>
+ id 1nLivp-000yPA-4K
+ for linux-riscv@lists.infradead.org; Sun, 20 Feb 2022 09:55:07 +0000
+Received: by jabberwock.ucw.cz (Postfix, from userid 1017)
+ id 16E9C1C0B77; Sun, 20 Feb 2022 10:54:59 +0100 (CET)
+Date: Sun, 20 Feb 2022 10:54:33 +0100
+From: Pavel Machek <pavel@ucw.cz>
+To: Sasha Levin <sashal@kernel.org>
+Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ Guo Ren <guoren@linux.alibaba.com>,
+ Anup Patel <anup@brainfault.org>, Marc Zyngier <maz@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Samuel Holland <samuel@sholland.org>,
+ Thomas Gleixner <tglx@linutronix.de>, paul.walmsley@sifive.com,
+ aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH AUTOSEL 4.19 03/11] irqchip/sifive-plic: Add missing
+ thead,c900-plic match string
+Message-ID: <20220220095431.GA5251@amd>
+References: <20220215153104.581786-1-sashal@kernel.org>
+ <20220215153104.581786-3-sashal@kernel.org>
 MIME-Version: 1.0
+In-Reply-To: <20220215153104.581786-3-sashal@kernel.org>
+User-Agent: Mutt/1.5.23 (2014-03-12)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220219_211022_246226_3673D21E 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20220220_015505_369473_E070D058 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,56 +58,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3597948871012090561=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If IPI calls are injected using SBI IPI calls then remote icache flush
-using SBI RFENCE calls is much faster because using IPIs for remote
-icache flush would still endup as SBI IPI calls with extra processing
-on the kernel side.
 
-It is now possible to have specialized hardware (such as RISC-V AIA
-and RISC-V ACLINT) which allows S-mode software to directly inject
-IPIs without any assistance from M-mode runtime firmware.
+--===============3597948871012090561==
+Content-Type: multipart/signed; micalg=pgp-sha1;
+	protocol="application/pgp-signature"; boundary="VbJkn9YxBvnuCH5J"
+Content-Disposition: inline
 
-This patch extends remote icache flush functions to use IPIs whenever
-underlying IPI operations are suitable for remote FENCEs.
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- arch/riscv/mm/cacheflush.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+--VbJkn9YxBvnuCH5J
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-index 6cb7d96ad9c7..7c7e44aaf791 100644
---- a/arch/riscv/mm/cacheflush.c
-+++ b/arch/riscv/mm/cacheflush.c
-@@ -18,7 +18,7 @@ void flush_icache_all(void)
- {
- 	local_flush_icache_all();
- 
--	if (IS_ENABLED(CONFIG_RISCV_SBI))
-+	if (IS_ENABLED(CONFIG_RISCV_SBI) && !riscv_use_ipi_for_rfence())
- 		sbi_remote_fence_i(NULL);
- 	else
- 		on_each_cpu(ipi_remote_fence_i, NULL, 1);
-@@ -66,7 +66,8 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
- 		 * with flush_icache_deferred().
- 		 */
- 		smp_mb();
--	} else if (IS_ENABLED(CONFIG_RISCV_SBI)) {
-+	} else if (IS_ENABLED(CONFIG_RISCV_SBI) &&
-+		   !riscv_use_ipi_for_rfence()) {
- 		sbi_remote_fence_i(&others);
- 	} else {
- 		on_each_cpu_mask(&others, ipi_remote_fence_i, NULL, 1);
--- 
-2.25.1
+Hi!
 
+> [ Upstream commit 1d4df649cbb4b26d19bea38ecff4b65b10a1bbca ]
+>=20
+> The thead,c900-plic has been used in opensbi to distinguish
+> PLIC [1]. Although PLICs have the same behaviors in Linux,
+> they are different hardware with some custom initializing in
+> firmware(opensbi).
+>=20
+> Qute opensbi patch commit-msg by Samuel:
+>=20
+>   The T-HEAD PLIC implementation requires setting a delegation bit
+>   to allow access from S-mode. Now that the T-HEAD PLIC has its own
+>   compatible string, set this bit automatically from the PLIC driver,
+>   instead of reaching into the PLIC's MMIO space from another driver.
+>=20
+> [1]: https://github.com/riscv-software-src/opensbi/commit/78c2b19218bd626=
+53b9fb31623a42ced45f38ea6
+>
+
+The "thead,c900-plic" string is added into single place in the
+kernel. This means that a) it will probably not do anything useful in
+-stable kernels and b) it is certainly missing documentation etc.
+
+In mainline, string is documented in
+Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.ya=
+ml
+
+Best regards,
+								Pavel
+--=20
+http://www.livejournal.com/~pavelmachek
+
+--VbJkn9YxBvnuCH5J
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: Digital signature
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iEYEARECAAYFAmISD9YACgkQMOfwapXb+vK9jACfQTLkUHy984y7w6PEcmacU/f5
+gl0AoMGom32Nsn9qBUIkVf8Gzsw0x861
+=5jIH
+-----END PGP SIGNATURE-----
+
+--VbJkn9YxBvnuCH5J--
+
+
+--===============3597948871012090561==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3597948871012090561==--
+
