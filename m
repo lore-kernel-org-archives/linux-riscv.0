@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6555DC433F5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14A5C433FE
 	for <linux-riscv@archiver.kernel.org>; Sun, 20 Feb 2022 05:10:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LRu685P+JW0WeA4LAOc6VU6eGYnYkf00O/g3PraA3uw=; b=bRENrYknPdyjXG
-	+hv5Dg+EVGqxpM0SNocGJhJlHp4W5zsxYxKPvTaMlYY1cW9qB2FmVDj4/pDZhDstTXuPGeuLtyRwL
-	H2dz7iVBYivccWkMauvSkAHpf5r34wRvNTiE07dfKMg6p4E28dU0NBBWbSM2Etvgum4pWrLnRIxIy
-	VLK9HLcnCSa3V6+aHYnrWPRE0ZK0FDeaqT3kSOprCVWaQaiYX8ovJFe3dnhkGTDpgA3l9q+Z970RD
-	njfI5kZy30LOVbsAZZ2dVlLBGlwGkEga7lPomwHOaSo41M1W+KmNSQaF4s6PzSBL/95W2tAsxLgaR
-	fmm8mCrjwN22UpBVyWLQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Zzst5zm1bgWyHywRPzq9t7b8IsgyNFeSsPWiO4AO/SU=; b=4wcMmGPNOp/pr/
+	9JQLqixOd+4qUBn/alnd2KlGKuyVTzjM4nmF7fvSwDibI/2aboh4Z0NGqiJlAv+ecIpnETockihw5
+	mjDTGk9jlGT1mPBWttNhbpFgz51MX+gqm4koAvuVBvEzOWdTjQW4I64LAluxYQa0pKsSV93qYxaSQ
+	BSHo73ezTg9uj8G781dcHMLYUMet6AgYN/O0ppee2WUecRgYHjy0G0m6ptF72u03Z3FS9T2c/hR5Y
+	tiAzSBpPUEDjV6OkhOuauN1G4sNaU5/C9oqMpSbmtepu9jSkp3y4go+IaDoBX6W/Fhe3r9F0D1xMG
+	Wr5i3ZbRQmfypU4MnKYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nLeTx-000bwv-NH; Sun, 20 Feb 2022 05:10:01 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1nLeU4-000byX-BQ; Sun, 20 Feb 2022 05:10:08 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nLeTu-000bvs-0j
- for linux-riscv@lists.infradead.org; Sun, 20 Feb 2022 05:09:59 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id
- q11-20020a17090a304b00b001b94d25eaecso12231384pjl.4
- for <linux-riscv@lists.infradead.org>; Sat, 19 Feb 2022 21:09:55 -0800 (PST)
+ id 1nLeU1-000bxi-Ip
+ for linux-riscv@lists.infradead.org; Sun, 20 Feb 2022 05:10:07 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id
+ t14-20020a17090a3e4e00b001b8f6032d96so12254295pjm.2
+ for <linux-riscv@lists.infradead.org>; Sat, 19 Feb 2022 21:10:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=ventanamicro.com; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=J9hsPYcteR10WA7lfsDos/ZOUyC+n8S5x6ZzrXPZlWU=;
- b=WItHiDHMImZT8YkqravV5XN9IAt8UdgYE2yTJI3gUEl7h7t4Krs79t1kMYXbckyQ3p
- Ui6Zon1OHSYH1+2I+tKYeAzSfvHJ/JuSBdRf35gnRaaSt96/E15eOCxm7TvH5CTB/Gg0
- U/cJAVAtZyWOYSPrO08c24iE6CxKOEeslduPvdoNVYhRDnHzW7z60g8F1Nk46OIs8xOO
- 7BmFSNVWmLEWDtbk7b+Uoan0jlwr5rFxY7hYfLc0ZLWmtCskcD9s2ZirwBJmQ18gQHjR
- jQ4jxZxv82L/7inw+9HddWTxiLOQ4P7eDxK4tXhlE29LnezJpTry4r8+clnvI/xMCZTW
- ElAQ==
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=CWgup5+s0NpBdPrI8o/lvYeDK7LCK1AyJL6/Cnvbp+I=;
+ b=l1nnOk+uSVryT9WPWfV5mA4fmGwv/bvudzwwVf6f/zyOIwxGrONbb7hJ+jT+dGSKS8
+ wn2ir1HXwyKaD+iGQCJ3d5a0BovwIWOk+rkG5MZZ+dO+bHE7Anh9fyXWPMI1OsJHOpxW
+ jEiZaFm/8xiLQFaguByff7tgndBncn5I/otEb948t/rlQdDBjXj+swBdQqWvKzxIU19w
+ rvG6RLnFYKTdnOSxcJ3eST/31JEuvZXebQVd+CebqMBd4HfO1jHjAzLCT3lzrw4eWiSQ
+ V+H+R9sJwkttDISJ7FQ3oSx46TTGhawhDjduixox5cuasNlq2m1eD/S7kmeh6BUs08Za
+ 4JJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=J9hsPYcteR10WA7lfsDos/ZOUyC+n8S5x6ZzrXPZlWU=;
- b=P6u7w5r/2Zi3MB+s6a16P2Z1nUQ/0yufdrDP45rd2/fLO2Cq2U8k3y7ynx+kw3zaOf
- Www3E7n1uN8YG4G3maqOxse65Bfvyiss6T+kftbWZI4hBmYOLPJTq4pr/RdbGtn+Y2d7
- Iwv5yxU+DSDXqsjbr8BbG7mhz23oNnYLZr/riNI2M8GzLrwDM3n+uM41OTq9DhgYf56h
- SVJA2p3IMtXzTvRTxtXFqpqfFGXXQg8XqpOGWVLDxIT/Ntqc6w/5QgBW5iVACMq9pKeY
- YyqyI+9PYWKc5sU5sYcaTS0hZ/TVumreMpvrlaVWrJ0UiHyFYA5xntEYBPqrXBx6KU+G
- oKCw==
-X-Gm-Message-State: AOAM5324g5fegvYDLswNOHqoiY1z57hurr7Fb6iBc8ZHerLeQN28iAtN
- vkG5a3wUmkWdMz1AjlW145zbfw==
-X-Google-Smtp-Source: ABdhPJzIIsM0NBtAQaKFWKl0r/CtXB/tsXYkX1yg2VL7Ra8z/kgM1Ps334KF1VdRvu12Umj2DbcGIg==
-X-Received: by 2002:a17:903:11cc:b0:14d:a0d5:76f with SMTP id
- q12-20020a17090311cc00b0014da0d5076fmr14104216plh.109.1645333795268; 
- Sat, 19 Feb 2022 21:09:55 -0800 (PST)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=CWgup5+s0NpBdPrI8o/lvYeDK7LCK1AyJL6/Cnvbp+I=;
+ b=ZpyURmV23ueLZ+mh8Mrwzv+YoP26xUZHXqsePDniTKZy0vcVTL+NnB/DMech3Lvr5Q
+ 8kKZbCYgEnjKMjLzzu1Q72tTPa/ORIKal9OJDb+V1z9oWdISLdhG2RyJ/2h9OYzHKdBE
+ 5vceRIcDjr7eqV6C5kXKiMTSvWxB/4B+BPPS0qSR7FdIOdQKIfPwXp7HlhsTN2UOKkbZ
+ h1sUILyG2NyykmGxmKS8OYr/QdLT2ixdXjQ+aHr+leApi/QTUvWesAfX+MvP6E2rJLu3
+ 1YqT3zX7v8ZpjgvCB7xBN2AGy8SLKEatXV+GQsvQgUpvUTlAm3hzRKTBFMSCHOJFhVKA
+ aiqw==
+X-Gm-Message-State: AOAM531MDcAF5+4LgMTYCTUrD8IlenmmqxWIRPdmojNvFo3ZPrPYFMLm
+ JfEt+P1vofyHnI5G3vxePqdifA==
+X-Google-Smtp-Source: ABdhPJwz3KXYF+aZ05CTM/caMxMstp5Q8pihJPiS1ThnZ4dObwL/F15gnHlX/qVX8xpg/RIpeC2qHQ==
+X-Received: by 2002:a17:90a:5302:b0:1b9:ba0a:27e5 with SMTP id
+ x2-20020a17090a530200b001b9ba0a27e5mr19589604pjh.91.1645333803853; 
+ Sat, 19 Feb 2022 21:10:03 -0800 (PST)
 Received: from localhost.localdomain ([122.162.118.38])
- by smtp.gmail.com with ESMTPSA id 84sm7602730pfx.181.2022.02.19.21.09.50
+ by smtp.gmail.com with ESMTPSA id 84sm7602730pfx.181.2022.02.19.21.09.59
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 19 Feb 2022 21:09:54 -0800 (PST)
+ Sat, 19 Feb 2022 21:10:03 -0800 (PST)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
@@ -69,14 +69,17 @@ Cc: Atish Patra <atishp@atishpatra.org>,
  Alistair Francis <Alistair.Francis@wdc.com>,
  Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH v3 0/6] RISC-V IPI Improvements
-Date: Sun, 20 Feb 2022 10:38:48 +0530
-Message-Id: <20220220050854.743420-1-apatel@ventanamicro.com>
+Subject: [PATCH v3 2/6] irqchip/riscv-intc: Allow drivers to directly discover
+ INTC hwnode
+Date: Sun, 20 Feb 2022 10:38:50 +0530
+Message-Id: <20220220050854.743420-3-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20220220050854.743420-1-apatel@ventanamicro.com>
+References: <20220220050854.743420-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220219_210958_090194_A48E5389 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20220219_211005_649349_035A7825 
+X-CRM114-Status: GOOD (  12.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,64 +96,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series aims to improve IPI support in Linux RISC-V in following ways:
- 1) Treat IPIs as normal per-CPU interrupts instead of having custom RISC-V
-    specific hooks. This also makes Linux RISC-V IPI support aligned with
-    other architectures.
- 2) Remote TLB flushes and icache flushes should prefer local IPIs instead
-    of SBI calls whenever we have specialized hardware (such as RISC-V AIA
-    IMSIC and RISC-V ACLINT) which allows S-mode software to directly inject
-    IPIs without any assistance from M-mode runtime firmware.
+Various RISC-V drivers (such as SBI IPI, SBI Timer, SBI PMU, and
+KVM RISC-V) don't have associated DT node but these drivers need
+standard per-CPU (local) interrupts defined by the RISC-V privileged
+specification.
 
-These patches were originally part of the "Linux RISC-V ACLINT Support"
-series but this now a separate series so that it can be merged independently
-of the "Linux RISC-V ACLINT Support" series.
-(Refer, https://lore.kernel.org/lkml/20211007123632.697666-1-anup.patel@wdc.com/)
+We add riscv_get_intc_hwnode() in arch/riscv which allows RISC-V
+drivers not having DT node to discover INTC hwnode which in-turn
+helps these drivers to map per-CPU (local) interrupts provided
+by the INTC driver.
 
-These patches are also a preparatory patches for the up-coming:
- 1) Linux RISC-V AIA support
- 2) KVM RISC-V TLB flush improvements
- 3) Linux RISC-V SWI support
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ arch/riscv/include/asm/irq.h     |  4 ++++
+ arch/riscv/kernel/irq.c          | 19 +++++++++++++++++++
+ drivers/irqchip/irq-riscv-intc.c |  7 +++++++
+ 3 files changed, 30 insertions(+)
 
-These patches can also be found in riscv_ipi_imp_v3 branch at:
-https://github.com/avpatel/linux.git
-
-Changes since v2:
- - Rebased on Linux-5.17-rc4
- - Updated PATCH2 to not create synthetic INTC fwnode and instead provide
-   a function which allows drivers to directly discover INTC fwnode
-
-Changes since v1:
- - Use synthetic fwnode for INTC instead of irq_set_default_host() in PATCH2
-
-Anup Patel (6):
-  RISC-V: Clear SIP bit only when using SBI IPI operations
-  irqchip/riscv-intc: Allow drivers to directly discover INTC hwnode
-  RISC-V: Treat IPIs as normal Linux IRQs
-  RISC-V: Allow marking IPIs as suitable for remote FENCEs
-  RISC-V: Use IPIs for remote TLB flush when possible
-  RISC-V: Use IPIs for remote icache flush when possible
-
- arch/riscv/Kconfig                |   1 +
- arch/riscv/include/asm/ipi-mux.h  |  45 ++++++
- arch/riscv/include/asm/irq.h      |   4 +
- arch/riscv/include/asm/sbi.h      |   2 +
- arch/riscv/include/asm/smp.h      |  49 +++++--
- arch/riscv/kernel/Makefile        |   1 +
- arch/riscv/kernel/cpu-hotplug.c   |   3 +-
- arch/riscv/kernel/ipi-mux.c       | 223 ++++++++++++++++++++++++++++++
- arch/riscv/kernel/irq.c           |  22 ++-
- arch/riscv/kernel/sbi.c           |  18 ++-
- arch/riscv/kernel/smp.c           | 164 +++++++++++-----------
- arch/riscv/kernel/smpboot.c       |   5 +-
- arch/riscv/mm/cacheflush.c        |   5 +-
- arch/riscv/mm/tlbflush.c          |  93 +++++++++++--
- drivers/clocksource/timer-clint.c |   8 +-
- drivers/irqchip/irq-riscv-intc.c  |  62 ++++-----
- 16 files changed, 548 insertions(+), 157 deletions(-)
- create mode 100644 arch/riscv/include/asm/ipi-mux.h
- create mode 100644 arch/riscv/kernel/ipi-mux.c
-
+diff --git a/arch/riscv/include/asm/irq.h b/arch/riscv/include/asm/irq.h
+index e4c435509983..43b9ebfbd943 100644
+--- a/arch/riscv/include/asm/irq.h
++++ b/arch/riscv/include/asm/irq.h
+@@ -12,6 +12,10 @@
+ 
+ #include <asm-generic/irq.h>
+ 
++void riscv_set_intc_hwnode_fn(struct fwnode_handle *(*fn)(void));
++
++struct fwnode_handle *riscv_get_intc_hwnode(void);
++
+ extern void __init init_IRQ(void);
+ 
+ #endif /* _ASM_RISCV_IRQ_H */
+diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
+index 7207fa08d78f..ead92432df8c 100644
+--- a/arch/riscv/kernel/irq.c
++++ b/arch/riscv/kernel/irq.c
+@@ -7,9 +7,28 @@
+ 
+ #include <linux/interrupt.h>
+ #include <linux/irqchip.h>
++#include <linux/irqdomain.h>
++#include <linux/module.h>
+ #include <linux/seq_file.h>
+ #include <asm/smp.h>
+ 
++static struct fwnode_handle *(*__get_intc_node)(void);
++
++void riscv_set_intc_hwnode_fn(struct fwnode_handle *(*fn)(void))
++{
++	__get_intc_node = fn;
++}
++EXPORT_SYMBOL_GPL(riscv_set_intc_hwnode_fn);
++
++struct fwnode_handle *riscv_get_intc_hwnode(void)
++{
++	if (__get_intc_node)
++		return __get_intc_node();
++
++	return NULL;
++}
++EXPORT_SYMBOL_GPL(riscv_get_intc_hwnode);
++
+ int arch_show_interrupts(struct seq_file *p, int prec)
+ {
+ 	show_ipi_stats(p, prec);
+diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
+index b65bd8878d4f..fa24ecd01d39 100644
+--- a/drivers/irqchip/irq-riscv-intc.c
++++ b/drivers/irqchip/irq-riscv-intc.c
+@@ -92,6 +92,11 @@ static const struct irq_domain_ops riscv_intc_domain_ops = {
+ 	.xlate	= irq_domain_xlate_onecell,
+ };
+ 
++static struct fwnode_handle *riscv_intc_hwnode(void)
++{
++	return (intc_domain) ? intc_domain->fwnode : NULL;
++}
++
+ static int __init riscv_intc_init(struct device_node *node,
+ 				  struct device_node *parent)
+ {
+@@ -119,6 +124,8 @@ static int __init riscv_intc_init(struct device_node *node,
+ 		return -ENXIO;
+ 	}
+ 
++	riscv_set_intc_hwnode_fn(riscv_intc_hwnode);
++
+ 	rc = set_handle_irq(&riscv_intc_irq);
+ 	if (rc) {
+ 		pr_err("failed to set irq handler\n");
 -- 
 2.25.1
 
