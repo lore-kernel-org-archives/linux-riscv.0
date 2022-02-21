@@ -4,82 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7065C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Feb 2022 10:23:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DE09C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Feb 2022 10:24:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F8+dgeiFKzeW2Rqzl0Vz1y/8aBgKZFVJtASCekFSV9Y=; b=GpOrbPy52JXnJF
-	tAaE5wIK3Mzwv86MfTQRF0bnql/xSP5X8Q6HxfyZU76OnviWuh4rivI8zqrgdaDJtSIoS1lW/TvjW
-	uCdjZSkJjHRTQF2zLDdP2ncpJfcMpEBX9sbbZvaBXQ0+AgEWKNjVoUfAMDJ49Kj4XpkdKB7oVhM6U
-	omo9lCj7qo7W9RJaS7/64BlE1n07wjT4DTLnOzfNuC/EugPUZWjv5+zKEAFT20XQSaqmHltuDH+/J
-	V/B5v1plqgIicbMyGEpqj/rZCiolQNBuVQjnZdRhYLkfiYEBfAbLPVWPXlY5hltbUFuKlWyxtxV0F
-	nxHhhA8Ekp/hd7FkcrwA==;
+	List-Owner; bh=Mf0o4d9oNdqFlq61s3vu1Us5qDGIwMf3d2REFRc0iuk=; b=ysD+YXnKjN0oIf
+	hCjWl/wTc40ajpdI8twYqULl2euVnorIxw/OQ0e4r/LndGLsNeYtzdjVpxM51Epcvi1QaAF6Nkk/Y
+	5yfGG3touxthd5z3GrHdSx4m8Z/tnMtoCLyBu6B75taYFnlBxc4zEg5aRj8PA6QuuEUnRdfv8p83k
+	Db8h8BWrqJGnuLzPzPE5aiJDge7Nwp3nyADMeqFLrXaGadLznY1IOSUzZB6TY7adLNTvBOnCnL/ar
+	oRVgXcNuUBi5y6FMF/+HzI12koxbA3duKCGmMQZXEjFSja7PsfBMl3Qe9DYqEAxfrOevzwyle4l7C
+	HHFGseZLJ+y6lH8xBNrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nM5qt-004t3f-ID; Mon, 21 Feb 2022 10:23:31 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1nM5rk-004tb5-8X; Mon, 21 Feb 2022 10:24:24 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nM5A1-004dkd-R3
- for linux-riscv@lists.infradead.org; Mon, 21 Feb 2022 09:39:16 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id
- p14-20020a05600c1d8e00b0037f881182a8so920582wms.2
- for <linux-riscv@lists.infradead.org>; Mon, 21 Feb 2022 01:39:12 -0800 (PST)
+ id 1nM5Et-004etM-ET
+ for linux-riscv@lists.infradead.org; Mon, 21 Feb 2022 09:44:17 +0000
+Received: by mail-wr1-x433.google.com with SMTP id k1so25967555wrd.8
+ for <linux-riscv@lists.infradead.org>; Mon, 21 Feb 2022 01:44:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20210112.gappssmtp.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=JW2Y5GL7Nvjr7eM8iAxj8FkUlXAJ3TANOl19XOvQzVo=;
- b=263y1xKnSC3rNGcpRe6lh3Sp/m/BkdSK5LIKtzgXlfmB7mfz0qshdlvc3/M2ZnEcvx
- 2QCPjk/U1ABUH84IgV1NzyC4UG8m8s+pfLiJrOHRkY/yrHFyerMU+N41qs+cMwNY+0C5
- KBlbKh1SQmFvuEtT276BAEcKhVEIITYKTknAr5XpAwg0+hso5/WVbt1lzBa8gHe/HEqS
- +iX35yXHW698x1SBlkkaPrSvYq32FYvVlJFj1svO/ywu1NI7wS3UPxsFGTw0gr5JOYVN
- unzt8Gy2rcqvNlmcTo5uYpVnrD6DEVK+YmllzF0mFXeNLtGbUMOeFegw2k6bSeldsncW
- SUFw==
+ :cc:content-transfer-encoding;
+ bh=xZF9VPY+1TXkileF1qxxCQ2LRDWtQxNEI8s6875dzs4=;
+ b=4QHLnrhlwnZcj5DJ3/G46uWsDBuCIetkwxkmd/MdlZ6iEoCOeoU5pPwLqeWW44CU7H
+ DI+LsFmwDxfHTSQRa7f0QbbmWh0NxjW1SQI7FSqmYNkRSpBiTer4JrE9sskhsIF6LM1K
+ 4j9H+gnoduOc3RvTapYELk6FotuQPAJFQWd6FDpQ375pGK+KyPita/wrYEt92iAzfotb
+ 3FwCa7el23sTY6eIO1PmTC+Kz6+8Q4nSMQXnGDrQyT4PohDuqtoTdJScZCJnWOMjM6F6
+ T+FFyrRMjdTGv889Bim0VclYZKsn6uokSai1snou9jMQhg2EOSbLaDdYEqa4IUH0IaKK
+ xCaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=JW2Y5GL7Nvjr7eM8iAxj8FkUlXAJ3TANOl19XOvQzVo=;
- b=TsrGrHvCTg4Yx8PFYLq2ciWpxKdoEJeI1rnCpNvWucZ4Krt3xNfCI+VQ6TqHCxVdtO
- f0KDXOz/2sJDOKze50ndEPBaZrFb2kxhmPS3z//xtXJQCDa+SNHbqijT+FDqRV4WNycj
- 3v+L6WBbil/U17S3idUkWqpXenk/hMwyfq/zLSPziYW7TfTDaOMAZxlKoJE3NWy8lC6h
- dMcpsa9Dj5hSlj3tYYDBqIHo8H0X/Apz1XEyEDDUFE+78HLP+slJ4iAOJfV/7ZPmcuK1
- hA3PCwKh+my91eI0+2o4X1wJgaC4iL+V+g0il3pBr/4q9u2Zg5/lsGybTf8/WupGfftD
- VUog==
-X-Gm-Message-State: AOAM531w9fXMr/kPHVePCPaxeaZ1HUv76cm2BRcxfahygNm3+y/nIsHP
- xihyi9ExBhJ9W7nf4UcbB3qPkL0dYvbsBIhTeny4Sw==
-X-Google-Smtp-Source: ABdhPJyazF9cucjhd/3gW2IwrEpSkS/eScKh5szTjG6L+JbSEYuW3IdvmkXi0fjF/9ttyRH1UcU7siximSlfeSjSpwg=
-X-Received: by 2002:a7b:cb99:0:b0:34e:b056:91ed with SMTP id
- m25-20020a7bcb99000000b0034eb05691edmr16888506wmi.137.1645436351046; Mon, 21
- Feb 2022 01:39:11 -0800 (PST)
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=xZF9VPY+1TXkileF1qxxCQ2LRDWtQxNEI8s6875dzs4=;
+ b=Ypp7iKat4FL376M96alIREW4n6bd5xhJibuHlyfP/BrXvQkgiCWgz8eLPl6U1CfoRo
+ d/eyL2dgDhDKP8IfTlW2oIqHMSFitNhR0gO2l7fqzNathPXrC01W358yZdWhglXLPzLc
+ hXHp5Mc17xXuU7pJ5scj8D+FT3aipC3HDo50IRX3ly8kinCj3JrJesCaecx3tn/UAAnd
+ 37MBtvMrAhhw8q7qw4OnrR5s3SnwdWMAIqJ5DpiUWEWBishHfSGiAdNj8ajoRIkVOL4p
+ 8d1iq1T9fNZwtfuzGlouejB1n+06heWSifOQRuUSWl23rqfHD/efzMLuXAPwHA22s/dM
+ TVkg==
+X-Gm-Message-State: AOAM533EkLZeHzcbmSRo4Jiydz6u8a3NqX16yOMrKAb5YNIuUutPMaoj
+ ODHpDrO7HXJWoODavH/d1frFFTH7YTFW3VsQXFZoYg==
+X-Google-Smtp-Source: ABdhPJzxcjh1RSAKHy35QGrgtWqpnYXvOMU3RukzoWMnRQVnYFIlPEMv40fZS1NH1VcazmtLeISGthiK/ESvhfLVWT4=
+X-Received: by 2002:a5d:6c6b:0:b0:1ea:77ea:dde8 with SMTP id
+ r11-20020a5d6c6b000000b001ea77eadde8mr162179wrz.690.1645436653537; Mon, 21
+ Feb 2022 01:44:13 -0800 (PST)
 MIME-Version: 1.0
 References: <20220128052505.859518-1-apatel@ventanamicro.com>
  <20220128052505.859518-3-apatel@ventanamicro.com>
  <063b8a5636d6372f37029946b2c3e0f4@kernel.org>
  <CAAhSdy387r314f=YjvXJCxqxkvjm5q-EBOVu420giFzaVr_NYw@mail.gmail.com>
  <31fea18e51a5021b79adb17973f9528e@kernel.org>
- <CAAhSdy0jTTDzoc+3T_8uLiWfBN3AFCWj99Ayc-Yh8FBfzUY2sQ@mail.gmail.com>
- <023bd1b9eaad001fca53f714920280aa@kernel.org>
-In-Reply-To: <023bd1b9eaad001fca53f714920280aa@kernel.org>
+ <4A07582C-80BD-41F8-AEF5-EE48EB7D2D15@jrtc27.com>
+ <87ee3w4lmz.wl-maz@kernel.org>
+In-Reply-To: <87ee3w4lmz.wl-maz@kernel.org>
 From: Anup Patel <anup@brainfault.org>
-Date: Mon, 21 Feb 2022 15:08:59 +0530
-Message-ID: <CAAhSdy00iV2hK1dSq4kBzQ1FBdtzoP-LctsUHCFUz_HiY1ZsiQ@mail.gmail.com>
+Date: Mon, 21 Feb 2022 15:14:01 +0530
+Message-ID: <CAAhSdy0LAqNerpd+qXwJj8NTTOX+Qu_CjmtpKPJFSbMH-HT_4g@mail.gmail.com>
 Subject: Re: [PATCH v2 2/6] irqchip/riscv-intc: Create domain using named
  fwnode
 To: Marc Zyngier <maz@kernel.org>
-Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>,
- Thomas Gleixner <tglx@linutronix.de>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, Atish Patra <atishp@atishpatra.org>,
- Alistair Francis <Alistair.Francis@wdc.com>,
+Cc: Jessica Clarke <jrtc27@jrtc27.com>, Anup Patel <apatel@ventanamicro.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Thomas Gleixner <tglx@linutronix.de>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Atish Patra <atishp@atishpatra.org>,
+ Alistair Francis <Alistair.Francis@wdc.com>, 
  linux-riscv <linux-riscv@lists.infradead.org>, 
  "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220221_013914_006114_11013403 
-X-CRM114-Status: GOOD (  63.97  )
+X-CRM114-CacheID: sfid-20220221_014415_525778_92E3A4A4 
+X-CRM114-Status: GOOD (  28.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,281 +93,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 21, 2022 at 2:37 PM Marc Zyngier <maz@kernel.org> wrote:
->
-> On 2022-02-19 13:03, Anup Patel wrote:
-> > On Sat, Feb 19, 2022 at 3:02 PM Marc Zyngier <maz@kernel.org> wrote:
-> >>
-> >> On 2022-02-19 03:38, Anup Patel wrote:
-> >> > On Thu, Feb 17, 2022 at 8:42 PM Marc Zyngier <maz@kernel.org> wrote:
-> >> >>
-> >> >> On 2022-01-28 05:25, Anup Patel wrote:
-> >> >> > We should create INTC domain using a synthetic fwnode which will allow
-> >> >> > drivers (such as RISC-V SBI IPI driver, RISC-V timer driver, RISC-V
-> >> >> > PMU driver, etc) not having dedicated DT/ACPI node to directly create
-> >> >> > interrupt mapping for standard local interrupt numbers defined by the
-> >> >> > RISC-V privileged specification.
-> >> >> >
-> >> >> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> >> >> > ---
-> >> >> >  arch/riscv/include/asm/irq.h      |  2 ++
-> >> >> >  arch/riscv/kernel/irq.c           | 13 +++++++++++++
-> >> >> >  drivers/clocksource/timer-clint.c | 13 +++++++------
-> >> >> >  drivers/clocksource/timer-riscv.c | 11 ++---------
-> >> >> >  drivers/irqchip/irq-riscv-intc.c  | 12 ++++++++++--
-> >> >> >  drivers/irqchip/irq-sifive-plic.c | 19 +++++++++++--------
-> >> >> >  6 files changed, 45 insertions(+), 25 deletions(-)
-> >> >> >
-> >> >> > diff --git a/arch/riscv/include/asm/irq.h
-> >> >> > b/arch/riscv/include/asm/irq.h
-> >> >> > index e4c435509983..f85ebaf07505 100644
-> >> >> > --- a/arch/riscv/include/asm/irq.h
-> >> >> > +++ b/arch/riscv/include/asm/irq.h
-> >> >> > @@ -12,6 +12,8 @@
-> >> >> >
-> >> >> >  #include <asm-generic/irq.h>
-> >> >> >
-> >> >> > +extern struct fwnode_handle *riscv_intc_fwnode(void);
-> >> >> > +
-> >> >> >  extern void __init init_IRQ(void);
-> >> >> >
-> >> >> >  #endif /* _ASM_RISCV_IRQ_H */
-> >> >> > diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
-> >> >> > index 7207fa08d78f..f2fed78ab659 100644
-> >> >> > --- a/arch/riscv/kernel/irq.c
-> >> >> > +++ b/arch/riscv/kernel/irq.c
-> >> >> > @@ -7,9 +7,22 @@
-> >> >> >
-> >> >> >  #include <linux/interrupt.h>
-> >> >> >  #include <linux/irqchip.h>
-> >> >> > +#include <linux/irqdomain.h>
-> >> >> > +#include <linux/module.h>
-> >> >> >  #include <linux/seq_file.h>
-> >> >> >  #include <asm/smp.h>
-> >> >> >
-> >> >> > +static struct fwnode_handle *intc_fwnode;
-> >> >> > +
-> >> >> > +struct fwnode_handle *riscv_intc_fwnode(void)
-> >> >> > +{
-> >> >> > +     if (!intc_fwnode)
-> >> >> > +             intc_fwnode = irq_domain_alloc_named_fwnode("RISCV-INTC");
-> >> >> > +
-> >> >> > +     return intc_fwnode;
-> >> >> > +}
-> >> >> > +EXPORT_SYMBOL_GPL(riscv_intc_fwnode);
-> >> >>
-> >> >> Why is this created outside of the root interrupt controller driver?
-> >> >> Furthermore, why do you need to create a new fwnode the first place?
-> >> >> As far as I can tell, the INTC does have a node, and what you don't
-> >> >> have is the firmware linkage between PMU (an others) and the INTC.
-> >> >
-> >> > Fair enough, I will update this patch to not create a synthetic fwnode.
-> >> >
-> >> > The issue is not with INTC driver. We have other drivers and places
-> >> > (such as SBI IPI driver, SBI PMU driver, and KVM RISC-V AIA support)
-> >> > where we don't have a way to locate INTC fwnode.
-> >>
-> >> And that's exactly what I am talking about: The INTC is OK (sort of),
-> >> but the firmware is too crap for words, and isn't even able to expose
-> >> where the various endpoints route their interrupts to.
-> >
-> > The firmware is always present at a higher privilege-level hence there
-> > is no DT node to discover the presence of firmware. The local
-> > interrupts
-> > used by the firmware for IPI, Timer and PMU are defined by the RISC-V
-> > ISA specification.
-> >
-> >>
-> >> Yes, this is probably fine today because you can describe the topology
-> >> of RISC-V systems on the surface of a post stamp. Once you get to the
-> >> complexity of a server-grade SoC (or worse, a mobile phone style SoC),
-> >> this *implicit topology* stuff doesn't fly, because there is no
-> >> guarantee
-> >> that all endpoints will always all point to the same controller.
-> >
-> > The local interrupts (per-CPU) are always managed by the INTC. The
-> > interrupt controllers to manage device interrupts (such as PLIC) can
-> > vary from platform to platform and have INTC as the parent domain.
->
-> I don't know how to make it clearer: this isn't about the situation
-> *today*. It is about what you will have two or five years from now.
->
-> Relying on a default topology is stupidly bad, and you will end-up
-> in a terrible corner eventually, because you can't have *two*
-> defaults.
->
-> >
-> > We already have high-end interrupt controllers (such as AIA) under
-> > development which are scalable for server-grade SoC, mobile SoC
-> > and various other types of SoCs.
-> >
-> > We are able to describe the topology of different types of interrupt
-> > controllers (PLIC as well as AIA) in DT.
-> >
-> > The only issue is for drivers which do not have dedicated DT node
-> > (such as SBI IPI, SBI Timer, SBI PMU, or KVM RISC-V) but the
-> > upside is that local interrupt numbers used by these drivers is
-> > clearly defined by the RISC-V ISA specification:
-> >
-> > Here are the local interrupts defined by the RISC-V ISA spec:
-> > IRQ13 => PMU overflow interrupt (used by SBI PMU driver)
-> > IRQ12 => S-mode guest external interrupt (to be used by KVM RISC-V)
-> > IRQ11 => M-mode external interrupt (used by firmware)
-> > IRQ9  => S-mode external interrupt (used by PLIC driver)
-> > IRQ7  => M-mode timer interrupt
-> > IRQ5  => S-mode timer interrupt (used by SBI Timer driver)
-> > IRQ3  => M-mode software interrupt (used by firmware)
-> > IRQ1 =>  S-mode software interrupt (used by SBI IPI driver)
->
-> Again, you are missing the point. It isn't about the interrupt
-> number (nobody gives a crap about them). It is about the entity
-> the device is connected to. No amount of copy pasting of the
-> spec changes that.
-
-The INTC CSRs are part of the RISC-V privileged specification
-and maintaining backward compatibility is of utmost importance in
-RISC-V ISA so I don't see why per-CPU INTC will be replaced
-by something totally incompatible in future.
-
->
-> >>
-> >> >> what you should have instead is something like:
-> >> >>
-> >> >> static struct fwnode_handle *(*__get_root_intc_node)(void);
-> >> >> struct fwnode_handle *riscv_get_root_intc_hwnode(void)
-> >> >> {
-> >> >>          if (__get_root_intc_node)
-> >> >>                  return __get_root_intc_node();
-> >> >>
-> >> >>          return NULL;
-> >> >> }
-> >> >>
-> >> >> and the corresponding registration interface.
-> >> >
-> >> > Thanks, I will follow this suggestion. This is a much better approach
-> >> > and it will avoid touching existing drivers.
-> >> >
-> >> >>
-> >> >> But either way, something breaks: the INTC has one node per CPU, and
-> >> >> expect one irqdomain per CPU. Having a single fwnode completely breaks
-> >> >> the INTC driver (and probably the irqdomain list, as we don't check
-> >> >> for
-> >> >> duplicate entries).
-> >> >>
-> >> >> > diff --git a/drivers/irqchip/irq-riscv-intc.c
-> >> >> > b/drivers/irqchip/irq-riscv-intc.c
-> >> >> > index b65bd8878d4f..26ed62c11768 100644
-> >> >> > --- a/drivers/irqchip/irq-riscv-intc.c
-> >> >> > +++ b/drivers/irqchip/irq-riscv-intc.c
-> >> >> > @@ -112,8 +112,16 @@ static int __init riscv_intc_init(struct
-> >> >> > device_node *node,
-> >> >> >       if (riscv_hartid_to_cpuid(hartid) != smp_processor_id())
-> >> >> >               return 0;
-> >> >> >
-> >> >> > -     intc_domain = irq_domain_add_linear(node, BITS_PER_LONG,
-> >> >> > -                                         &riscv_intc_domain_ops, NULL);
-> >> >> > +     /*
-> >> >> > +      * Create INTC domain using a synthetic fwnode which will allow
-> >> >> > +      * drivers (such as RISC-V SBI IPI driver, RISC-V timer driver,
-> >> >> > +      * RISC-V PMU driver, etc) not having dedicated DT/ACPI node to
-> >> >> > +      * directly create interrupt mapping for standard local interrupt
-> >> >> > +      * numbers defined by the RISC-V privileged specification.
-> >> >> > +      */
-> >> >> > +     intc_domain = irq_domain_create_linear(riscv_intc_fwnode(),
-> >> >> > +                                            BITS_PER_LONG,
-> >> >> > +                                            &riscv_intc_domain_ops, NULL);
-> >> >>
-> >> >> This is what I'm talking about. It is simply broken. So either you
-> >> >> don't
-> >> >> need a per-CPU node (and the DT was bad the first place), or you
-> >> >> absolutely need
-> >> >> one (and the whole 'well-known/default domain' doesn't work at all).
-> >> >>
-> >> >> Either way, this patch is plain wrong.
-> >> >
-> >> > Okay, I will update this patch with the new approach which you
-> >> > suggested.
-> >>
-> >> But how do you plan to work around the fact that everything is
-> >> currently
-> >> build around having a node (and an irqdomain) per CPU? The PLIC, for
-> >> example,
-> >> clearly has one parent per CPU, not one global parent.
-> >>
-> >> I'm sure there was a good reason for this, and I suspect merging the
-> >> domains
-> >> will simply end up breaking things.
-> >
-> > We can have multiple PLIC instances in a platform and each PLIC
-> > instance targets a subset of CPUs. Further, each PLIC instance has
-> > multiple PLIC contexts for associated CPUs.
-> >
-> > The per-CPU INTC DT nodes and the "interrupts-extended" DT
-> > property of PLIC DT node helps us describe the association
-> > between various PLIC contexts and CPUs.
-> >
-> > Here's an example PLIC DT node:
-> >
-> >     plic: interrupt-controller@c000000 {
-> >       #address-cells = <0>;
-> >       #interrupt-cells = <1>;
-> >       compatible = "sifive,fu540-c000-plic", "sifive,plic-1.0.0";
-> >       interrupt-controller;
-> >       interrupts-extended = <&cpu0_intc 11>,
-> >                             <&cpu1_intc 11>, <&cpu1_intc 9>,
-> >                             <&cpu2_intc 11>, <&cpu2_intc 9>,
-> >                             <&cpu3_intc 11>, <&cpu3_intc 9>,
-> >                             <&cpu4_intc 11>, <&cpu4_intc 9>;
-> >       reg = <0xc000000 0x4000000>;
-> >       riscv,ndev = <10>;
-> >     };
-> >
-> > In above above example, PLIC has 9 contexts and context
-> > to CPU connections are as follows:
-> > PLIC context0 => CPU0 M-mode external interrupt
-> > PLIC context1 => CPU1 M-mode external interrupt
-> > PLIC context2 => CPU1 S-mode external interrupt
-> > PLIC context3 => CPU2 M-mode external interrupt
-> > PLIC context4 => CPU2 S-mode external interrupt
-> > ....
->
-> Asymmetric interrupt routing. How lovely. How broken.
-
-This is a known issue with PLIC where contexts from the same
-PLIC can target both M-mode and S-mode. This asymmetric
-interrupt routing is not there in under-development AIA.
-
->
-> >
-> > This is just one example and we can describe any kind of
-> > PLIC context to CPU connections using "interrupts-extended"
-> > DT property.
-> >
-> > The same level of flexibility is provided by AIA interrupt
-> > controllers which are under development.
->
-> How promising. I really hope someone will eventually barge in
-> and clean this mess.
-
-The INTC DT node being per-CPU is the only strange thing
-in RISC-V but we can't change INTC DT bindings at this stage.
-
-Apart from this, I still don't see anything messy here.
-
-Regards,
-Anup
-
->
->            M.
-> --
-> Jazz is not dead. It just smells funny...
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBGZWIgMjEsIDIwMjIgYXQgMjo1NSBQTSBNYXJjIFp5bmdpZXIgPG1hekBrZXJuZWwu
+b3JnPiB3cm90ZToKPgo+IE9uIFNhdCwgMTkgRmViIDIwMjIgMTQ6NTE6MjIgKzAwMDAsCj4gSmVz
+c2ljYSBDbGFya2UgPGpydGMyN0BqcnRjMjcuY29tPiB3cm90ZToKPiA+Cj4gPiBPbiAxOSBGZWIg
+MjAyMiwgYXQgMDk6MzIsIE1hcmMgWnluZ2llciA8bWF6QGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4g
+Pgo+ID4gPiBCdXQgaG93IGRvIHlvdSBwbGFuIHRvIHdvcmsgYXJvdW5kIHRoZSBmYWN0IHRoYXQg
+ZXZlcnl0aGluZyBpcyBjdXJyZW50bHkKPiA+ID4gYnVpbGQgYXJvdW5kIGhhdmluZyBhIG5vZGUg
+KGFuZCBhbiBpcnFkb21haW4pIHBlciBDUFU/IFRoZSBQTElDLCBmb3IgZXhhbXBsZSwKPiA+ID4g
+Y2xlYXJseSBoYXMgb25lIHBhcmVudCBwZXIgQ1BVLCBub3Qgb25lIGdsb2JhbCBwYXJlbnQuCj4g
+PiA+Cj4gPiA+IEknbSBzdXJlIHRoZXJlIHdhcyBhIGdvb2QgcmVhc29uIGZvciB0aGlzLCBhbmQg
+SSBzdXNwZWN0IG1lcmdpbmcgdGhlIGRvbWFpbnMKPiA+ID4gd2lsbCBzaW1wbHkgZW5kIHVwIGJy
+ZWFraW5nIHRoaW5ncy4KPiA+Cj4gPiBPbiB0aGUgY29udHJhcnksIHRoZSBkcml2ZXJzIHJlbHkg
+b24gdGhlIGNvbnRyb2xsZXIgYmVpbmcgdGhlIHNhbWUKPiA+IGFjcm9zcyBhbGwgaGFydHMsIHdp
+dGggcmlzY3ZfaW50Y19pbml0IHNraXBwaW5nIGluaXRpYWxpc2F0aW9uIGZvciBhbGwKPiA+IGJ1
+dCB0aGUgYm9vdCBoYXJ04oCZcyBjb250cm9sbGVyLiBUaGUgYmluZGluZ3MgYXJlIGEgY29tcGxl
+dGUgcGFpbiB0bwo+ID4gZGVhbCB3aXRoIGFzIGEgcmVzdWx0LCB3aGF0IHlvdSAqd2FudCogaXMg
+bGlrZSB5b3UgaGF2ZSBpbiB0aGUgQXJtCj4gPiB3b3JsZCB3aGVyZSB0aGVyZSBpcyBqdXN0IG9u
+ZSBpbnRlcnJ1cHQgY29udHJvbGxlciBpbiB0aGUgZGV2aWNlIHRyZWUKPiA+IHdpdGggc29tZSBv
+ZiB0aGUgaW50ZXJydXB0cyBwZXItcHJvY2Vzc29yLCBidXQgaW5zdGVhZCB3ZSBoYXZlIHRoaXMK
+PiA+IG92ZXJlbmdpbmVlcmVkIG51aXNhbmNlLiBUaGUgb25seSByZWFzb24gdGhlcmUgYXJlIHBl
+ci1oYXJ0IGludGVycnVwdAo+ID4gY29udHJvbGxlcnMgaXMgYmVjYXVzZSB0aGF04oCZcyBob3cg
+dGhlIGNvbnRleHRzIGZvciB0aGUgQ0xJTlQvUExJQyBhcmUKPiA+IHNwZWNpZmllZCwgYnV0IHRo
+YXQgcmVhbGx5IHNob3VsZCBoYXZlIGJlZW4gZG9uZSBhbm90aGVyIHdheSByYXRoZXIKPiA+IHRo
+YW4gYWJ1c2luZyB0aGUgaW50ZXJydXB0cy1leHRlbmRlZCBwcm9wZXJ0eSBmb3IgdGhhdC4gSW4g
+dGhlIEZyZWVCU0QKPiA+IHdvcmxkIHdl4oCZdmUgYmVlbiB0b3RhbGx5IGlnbm9yaW5nIHRoZSBk
+ZXZpY2UgdHJlZSBub2RlcyBmb3IgdGhlIGxvY2FsCj4gPiBpbnRlcnJ1cHQgY29udHJvbGxlcnMg
+YnV0IGZvciBteSBBSUEgYW5kIEFDTElOVCBicmFuY2ggSSBzdGFydGVkIGEgZmV3Cj4gPiBtb250
+aHMgYWdvICh0aG91Z2ggQUNMSU5UJ3Mgbm93IGJlZW4gY29tcGxldGVseSBzY3Jld2VkIHVwIGJ5
+IFJWSQo+ID4gcG9saXRpY3MsIHRoaW5ncyBoYXZlIGJlZW4gcmVuYW1lZCBhbmQgc3BsaXQgdXAg
+ZGlmZmVyZW50bHkgaW4gdGhlIHBhc3QKPiA+IGZldyBkYXlzIGFuZCBzb2Z0d2FyZSBpbnRlcnJ1
+cHRzIGRlLXByaW9yaXRpc2VkIHdpdGggbm8gY3VycmVudCBwYXRoIHRvCj4gPiByYXRpZmljYXRp
+b24sIHNvIHRoYXQgd2FzIGEgd2FzdGUgb2YgbXkgdGltZSkgSSBqdXN0IGhhbmcgdGhlIGRyaXZl
+cgo+ID4gb2ZmIHRoZSBib290IGhhcnTigJlzIG5vZGUgYW5kIGxlYXZlIGFsbCB0aGUgb3RoZXJz
+IGFzIHRvdGFsbHkgaWdub3JlZAo+ID4gYW5kIGEgd2FzdGUgb2Ygc3BhY2Ugb3RoZXIgdGhhbiB0
+byBmaWd1cmUgb3V0IHRoZSBjb250ZXh0cyBmb3IgdGhlIFBMSUMKPiA+IGV0Yy4KPiA+Cj4gPiBU
+TDtEUiB5ZXMgdGhlIGJpbmRpbmdzIGFyZSBhd2Z1bCwgbm8gdGhlcmXigJlzIG5vIGlzc3VlIHdp
+dGggbWVyZ2luZyB0aGUKPiA+IGRvbWFpbnMuCj4KPiBJIGRvbid0IGtub3cgaG93IHRoYXQgZmxp
+ZXMgd2l0aCBzb21ldGhpbmcgbGlrZVsxXSwgd2hlcmUgQ1BVMCBvbmx5Cj4gZ2V0cyBpbnRlcnJ1
+cHRzIGluIE0tTW9kZSBhbmQgbm90IFMtTW9kZS4gTWF5YmUgaXQgZG9lc24ndCByZWFsbHkKPiBt
+YXR0ZXIsIGJ1dCB0aGlzIHNvcnQgb2YgYXN5bW1ldHJpYyByb3V0aW5nIGlzIHRvdGFsbHkgYmFj
+a3dhcmQuCgpUaGUgZXhhbXBsZSBQTElDIERUIG5vZGUgd2hpY2ggSSBwcm92aWRlZCBpcyBmcm9t
+IFNpRml2ZSBGVTU0MCwgd2hlcmUKd2UgaGF2ZSA1IENQVXMuIFRoZSBDUFUwIGluIEZVNTQwIGlz
+IGEgY2FjaGUtY29oZXJlbnQgbWljcm9jb250cm9sbGVyCmhhdmluZyBvbmx5IE0tbW9kZSAoaS5l
+LiBObyBNTVUgaGVuY2Ugbm90IExpbnV4IGNhcGFibGUpLgoKPgo+IEl0IHNvbWV0aW1lIGZlZWxz
+IGxpa2UgdGhlIFJWIGZvbGtzIGFyZSBhY3RpdmVseSB0cnlpbmcgdG8gbWFrZSB0aGlzCj4gYXJj
+aGl0ZWN0dXJlIGEgbWVzcy4uLiA6LS8KCldlbGwsIEkgc3RpbGwgZmFpbCB0byB1bmRlcnN0YW5k
+IHdoYXQgaXMgbWVzc3kgaGVyZS4KClJlZ2FyZHMsCkFudXAKCj4KPiAgICAgICAgIE0uCj4KPiBb
+MV0gQ0FBaFNkeTBqVFREem9jKzNUXzh1TGlXZkJOM0FGQ1dqOTlBeWMtWWg4RkJmelVZMnNRQG1h
+aWwuZ21haWwuY29tCj4KPiAtLQo+IFdpdGhvdXQgZGV2aWF0aW9uIGZyb20gdGhlIG5vcm0sIHBy
+b2dyZXNzIGlzIG5vdCBwb3NzaWJsZS4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
