@@ -4,100 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC69CC433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Feb 2022 14:34:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E15C433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Feb 2022 14:38:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gp5y1Vyt/Ddbq3cWCf9zaUhsrCLoOc+Mgm7GM7VgbPs=; b=KOenyutMCObJ5t
-	C497iYe7uDNazKocdnBJ4NY8X6lL/mZyjW+Wh73Elqm3bLz2TpQ7aqSOEn5Rdc5Mj9mRIgFnTqcxZ
-	5dkqELxtLPA6BMiRAWtBrDjkdUBfltZ6ov8004BYs6GP2uUz/PtrMHxxIthYGyp0/WgQa2n1ImQDv
-	7vpWFGAd4MI4s7eFcO4pmzfIfvWxMrSVPi+xrKpG7R3i67vLFwpLJcL3TLYwWItaz+jwSniy0uA7L
-	MjaWCtSv9Za4KQYe6Y3L64nRJom1sibMUD8sicPXaPWCsPIGLM+xOjmVpx7mMkmfXavpRRCkRrCUt
-	WOvIGfX1KBkLdN1zjNXw==;
+	List-Owner; bh=CCGopYv37QPPIvDnsnx+cPTXr7ibRj8A6GcO798TqlQ=; b=AiHwybDZ3/jtgy
+	WJ93Fo/xfWveDbISjydHUPy8vBjXi23OQSeZgNwB39yjBilH376fJVeNCCZV/SkKT5EiuJhz+VQW5
+	MeGMC4bcG4GC+T1tNLJmknurUH14gNyxAiL00s3yZ2VrAL02Ow5hkfVwLVTV8PfFK/xuNjSYCI3Yl
+	QnQRqvWrxs7HeSvFm+FccTum3oaJgKAbtweH4W8QcPdcG1YQP0kJkvC0nHibwZ+f8Xth5lG8NiPS0
+	P58Vl+J2EPzPfVlcxz7vSx1gAh5VeVvfkMuqaxcSea2HtBP5uSOlgIOv7Dh1HUe+Cp7GFyx0myxEq
+	7E/+ssRbqgc/akKGWNcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nM9lP-006ErM-Hk; Mon, 21 Feb 2022 14:34:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1nM9pR-006H59-UB; Mon, 21 Feb 2022 14:38:17 +0000
+Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nM9jF-006DUa-BG; Mon, 21 Feb 2022 14:31:54 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id CFFF161011;
- Mon, 21 Feb 2022 14:31:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2F9BC340F6;
- Mon, 21 Feb 2022 14:31:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1645453911;
- bh=12Bbx9GqAhHL6qqDyToeCYzPAWe2m8+m6+gTGV+hFTw=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=kzJ4oJ7uqkQlH8HKP59hga7BxTSd9yAv9G83J3PE9Vxo9wgwCF55WEif4JDuq66Es
- xJHgiAYKMSMrCA+rbeIjmKJKM3SV0fBLyOZsQa95vK8cdEppsgKEikoB+c9hrTgPD6
- N3/wnjEuF/+t+ByBpKQN3Dzq1OrIxHrSb4YNAPOcfEv6v4f/QcpswnD2hOYaY7e5ZR
- P2yzCaocscWCwjSY0LU/aagBUySQOBShLiiZAXM9rLdNx4Mpjcu34oGUvRfmZEBPw+
- VjJykXvvmkBWqCNmRXcJeDSqWyibRwN4/9udBAhduxi7qzsuFLGNxd5SxW6ohLqgwt
- B42/CscfKu6MA==
-Received: by mail-ej1-f52.google.com with SMTP id d10so33727515eje.10;
- Mon, 21 Feb 2022 06:31:51 -0800 (PST)
-X-Gm-Message-State: AOAM5309obQolhBT1O/AyZ7ty0qcADOLurENpo7zjbAisSwMUTmFS33+
- fJvVwl2g7BMd63gmKJaataJrAAtUsdJSBziLI/0=
-X-Google-Smtp-Source: ABdhPJwkamQNFHYmlXBqgC6u1r1MKNMeB6x6hm57ILAz8yVFLOW/Qf4lv8t2aLUhrb2kSK2FAx/PKmoUpYjfFDbRcw0=
-X-Received: by 2002:adf:90c1:0:b0:1e4:ad27:22b9 with SMTP id
- i59-20020adf90c1000000b001e4ad2722b9mr16170850wri.219.1645453899581; Mon, 21
- Feb 2022 06:31:39 -0800 (PST)
+ id 1nM9pJ-006H0p-Oz
+ for linux-riscv@lists.infradead.org; Mon, 21 Feb 2022 14:38:16 +0000
+Received: by mail-qk1-x735.google.com with SMTP id f10so12770366qkg.9
+ for <linux-riscv@lists.infradead.org>; Mon, 21 Feb 2022 06:38:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=SQkkpjsX6TpHTIkwX4rlheMVKzlTSUCBOIkGIhUmEnk=;
+ b=lFloJT5XTRR77kzfHXTKnbI4pb8ZRFszg5NJtpODh2xdLUe/I00E73ECSqJvCocxE2
+ b91NgLxHbLq2mKguKL6+A8vg59eCEqgoc3DveKrETnDLj1w3kQOwUnqmAyyMEzwuyF++
+ 1oz4fM9tYT3W1pjPYzepabrJTciPcMKBtMn9aK5T3gg7gaxtxK3qGRDfcii8PSRqH1m5
+ jTfcfIxVWzqsyre+F9ScBo3PJyTGXXcumCcPycf5oTgrENXqutdnUW36PETYhvnU0X6i
+ kE5fYBI0/0sqdCVOLbEJmColObNXJPYvXf2JzQQK0cwu9DtCZ/5LkSqn+45P9FbV6RjB
+ gqew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=SQkkpjsX6TpHTIkwX4rlheMVKzlTSUCBOIkGIhUmEnk=;
+ b=H8FnHp8yXsS+7LbCEgxgmBex67H1is/bu+jy+Hc55u4Ae0j1Cg8GmmdoQZ3bprnnPj
+ 5K5xjIfFXuY4jRVopcyxuLOpBRCtGrwdhUEATKxoKFJpGo7mcmsgJljcGZtabJrl7eUG
+ HxjiG6GR1FD3WhNCVJCU+uhq6WL9HMYPXkIyZldv9NSq88smtmMbhBqgQUY5AUUqFTJl
+ SIIZN/g5MLWUEpD5jbQ1RzHLqcfihvfnDoklsCY+UMPUCXWTrLKbViDV4qN72XubU4Ou
+ cpWNMX/QBKQnxSIKE/VU2p/YsBxWjPhC0HrJH7cYsJSLIHP8+mispVy3Sh7FtWZNYuTT
+ 1/VA==
+X-Gm-Message-State: AOAM531KhRjLe3Al7FqCt2KuY7wj9CIJrSZnhLB4ahSDj23UE+DIn7kB
+ xI4U1DZTdBpQYydEsWPmI8o=
+X-Google-Smtp-Source: ABdhPJxlKmrxFZuT/FAITTFKtimqCuPmpqJElllBfSaAREj/db8P6HZlcu9ug388nFgwdaclSsMcRA==
+X-Received: by 2002:ae9:df42:0:b0:47e:fe7b:a202 with SMTP id
+ t63-20020ae9df42000000b0047efe7ba202mr12266908qkf.256.1645454287319; 
+ Mon, 21 Feb 2022 06:38:07 -0800 (PST)
+Received: from mail.google.com ([207.246.89.135])
+ by smtp.gmail.com with ESMTPSA id bm8sm20942916qkb.25.2022.02.21.06.38.02
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 21 Feb 2022 06:38:07 -0800 (PST)
+Date: Mon, 21 Feb 2022 22:37:58 +0800
+From: Changbin Du <changbin.du@gmail.com>
+To: Changbin Du <changbin.du@gmail.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Masahiro Yamada <masahiroy@kernel.org>,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ llvm@lists.linux.dev
+Subject: Re: [PATCH] kallsyms: ignore all local labels prefixed by '.L'
+Message-ID: <20220221143758.7wln3mklyaj7mzod@mail.google.com>
+References: <20220201013257.17926-1-changbin.du@gmail.com>
 MIME-Version: 1.0
-References: <20220216131332.1489939-1-arnd@kernel.org>
- <20220216131332.1489939-10-arnd@kernel.org>
- <20220221132456.GA7139@alpha.franken.de>
-In-Reply-To: <20220221132456.GA7139@alpha.franken.de>
-From: Arnd Bergmann <arnd@kernel.org>
-Date: Mon, 21 Feb 2022 15:31:23 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a2usZWPDDDUcscwS0aVKsY6aLXFGFPqYNkm4hcDERim9w@mail.gmail.com>
-Message-ID: <CAK8P3a2usZWPDDDUcscwS0aVKsY6aLXFGFPqYNkm4hcDERim9w@mail.gmail.com>
-Subject: Re: [PATCH v2 09/18] mips: use simpler access_ok()
-To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
- Christoph Hellwig <hch@lst.de>, 
- linux-arch <linux-arch@vger.kernel.org>, Linux-MM <linux-mm@kvack.org>, 
- Linux API <linux-api@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Al Viro <viro@zeniv.linux.org.uk>, 
- Russell King - ARM Linux <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
- Guo Ren <guoren@kernel.org>, 
- Brian Cain <bcain@codeaurora.org>, Geert Uytterhoeven <geert@linux-m68k.org>, 
- Michal Simek <monstr@monstr.eu>, Nick Hu <nickhu@andestech.com>, 
- Greentime Hu <green.hu@gmail.com>, Dinh Nguyen <dinguyen@kernel.org>, 
- Stafford Horne <shorne@gmail.com>, Helge Deller <deller@gmx.de>,
- Michael Ellerman <mpe@ellerman.id.au>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Mark Rutland <mark.rutland@arm.com>, Heiko Carstens <hca@linux.ibm.com>,
- Rich Felker <dalias@libc.org>, 
- David Miller <davem@davemloft.net>, Richard Weinberger <richard@nod.at>, 
- "the arch/x86 maintainers" <x86@kernel.org>, Max Filippov <jcmvbkbc@gmail.com>,
- "Eric W . Biederman" <ebiederm@xmission.com>,
- Andrew Morton <akpm@linux-foundation.org>, 
- Ard Biesheuvel <ardb@kernel.org>, alpha <linux-alpha@vger.kernel.org>, 
- "open list:SYNOPSYS ARC ARCHITECTURE" <linux-snps-arc@lists.infradead.org>,
- linux-csky@vger.kernel.org, 
- "open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>,
- linux-ia64@vger.kernel.org, linux-m68k <linux-m68k@lists.linux-m68k.org>, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
- Openrisc <openrisc@lists.librecores.org>, 
- Parisc List <linux-parisc@vger.kernel.org>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- linux-s390 <linux-s390@vger.kernel.org>, 
- Linux-sh list <linux-sh@vger.kernel.org>,
- sparclinux <sparclinux@vger.kernel.org>, 
- linux-um <linux-um@lists.infradead.org>, 
- "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>
+Content-Disposition: inline
+In-Reply-To: <20220201013257.17926-1-changbin.du@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220221_063153_502353_A9E29B2A 
-X-CRM114-Status: GOOD (  33.01  )
+X-CRM114-CacheID: sfid-20220221_063809_851138_EAFC5570 
+X-CRM114-Status: GOOD (  19.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,67 +91,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 21, 2022 at 2:24 PM Thomas Bogendoerfer
-<tsbogend@alpha.franken.de> wrote:
-> On Wed, Feb 16, 2022 at 02:13:23PM +0100, Arnd Bergmann wrote:
-> >
-> > diff --git a/arch/mips/include/asm/uaccess.h b/arch/mips/include/asm/uaccess.h
-> > index db9a8e002b62..d7c89dc3426c 100644
->
-> this doesn't work. For every access above maximum implemented virtual address
-> space of the CPU an address error will be issued, but not a TLB miss.
-> And address error isn't able to handle this situation.
+Hi, Masahiro,
+Could you consider picking up this change if you have no objection?
 
-Ah, so the __ex_table entry only catches TLB misses?
+On Tue, Feb 01, 2022 at 09:32:57AM +0800, Changbin Du wrote:
+> The llvm compiler can generate lots of local labels ('.LBB', '.Ltmpxxx',
+> '.L__unnamed_xx', etc.). These symbols usually are useless for debugging.
+> And they might overlap with handwritten symbols.
+> 
+> Before this change, a dumpstack shows a local symbol for epc:
+> [    0.040341][    T0] Hardware name: riscv-virtio,qemu (DT)
+> [    0.040376][    T0] epc : .LBB6_14+0x22/0x6a
+> [    0.040452][    T0]  ra : restore_all+0x12/0x6e
+> 
+> The simple solution is that we can ignore all local labels prefixed by '.L'.
+> For handwritten symbols which need to be preserved should drop the '.L'
+> prefix.
+> 
+> After this change, the C defined symbol is shown so we can locate the
+> problematical code immediately:
+> [    0.035795][    T0] Hardware name: riscv-virtio,qemu (DT)
+> [    0.036332][    T0] epc : trace_hardirqs_on+0x54/0x13c
+> [    0.036567][    T0]  ra : restore_all+0x12/0x6e
+> 
+> Signed-off-by: Changbin Du <changbin.du@gmail.com>
+> ---
+>  scripts/kallsyms.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/scripts/kallsyms.c b/scripts/kallsyms.c
+> index 54ad86d13784..8caabddf817c 100644
+> --- a/scripts/kallsyms.c
+> +++ b/scripts/kallsyms.c
+> @@ -108,7 +108,7 @@ static bool is_ignored_symbol(const char *name, char type)
+>  	/* Symbol names that begin with the following are ignored.*/
+>  	static const char * const ignored_prefixes[] = {
+>  		"$",			/* local symbols for ARM, MIPS, etc. */
+> -		".LASANPC",		/* s390 kasan local symbols */
+> +		".L",			/* local labels, .LBB,.Ltmpxxx,.L__unnamed_xx,.LASANPC, etc. */
+>  		"__crc_",		/* modversions */
+>  		"__efistub_",		/* arm64 EFI stub namespace */
+>  		"__kvm_nvhe_",		/* arm64 non-VHE KVM namespace */
+> -- 
+> 2.32.0
+> 
 
-Does this mean it also traps for kernel memory accesses, or do those
-work again? If the addresses on mips64 are separate like on
-sparc64 or s390, the entire access_ok() step could be replaced
-by a fixup code in the exception handler. I suppose this depends on
-CONFIG_EVA and you still need a limit check at least when EVA is
-disabled.
-
-> With this patch
->
-> diff --git a/arch/mips/kernel/unaligned.c b/arch/mips/kernel/unaligned.c
-> index df4b708c04a9..3911f1481f3d 100644
-> --- a/arch/mips/kernel/unaligned.c
-> +++ b/arch/mips/kernel/unaligned.c
-> @@ -1480,6 +1480,13 @@ asmlinkage void do_ade(struct pt_regs *regs)
->         prev_state = exception_enter();
->         perf_sw_event(PERF_COUNT_SW_ALIGNMENT_FAULTS,
->                         1, regs, regs->cp0_badvaddr);
-> +
-> +       /* Are we prepared to handle this kernel fault?  */
-> +       if (fixup_exception(regs)) {
-> +               current->thread.cp0_baduaddr = regs->cp0_badvaddr;
-> +               return;
-> +       }
-> +
->         /*
->          * Did we catch a fault trying to load an instruction?
->          */
->
-> I at least get my simple test cases fixed, but I'm not sure this is
-> correct.
->
-> Is there a reason to not also #define TASK_SIZE_MAX   __UA_LIMIT like
-> for the 32bit case ?
->
-
-For 32-bit, the __UA_LIMIT is a compile-time constant, so the check
-ends up being trivial. On all other architectures, the same thing can
-be done after the set_fs removal, so I was hoping it would work here
-as well.
-
-I suspect doing the generic (size <= limit) && (addr <= (limit - size))
-check on mips64 with the runtime limit ends up slightly slower
-than the current code that checks a bit mask instead. If you like,
-I'll update it this way, otherwise I'd need help in form of a patch
-that changes the exception handling so __get_user/__put_user
-also return -EFAULT for an address error.
-
-       Arnd
+-- 
+Cheers,
+Changbin Du
 
 _______________________________________________
 linux-riscv mailing list
