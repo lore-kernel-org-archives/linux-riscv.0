@@ -4,84 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4BFAC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Feb 2022 15:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA143C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Feb 2022 15:49:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Fk7m//FMX7v35G9xqG60P0skKRf1V181YK6XpLSArCY=; b=Q/YlL2JDYKuIFJ
-	NIf3oqQ8XO/BurqSVelCMvY9xJGJs9ZYFnLkIRPVs2HAh/e1ExmvzVSilOM/E5AqkzlWQRcVNtt8h
-	t4gLy/ZD9NU9glkQWBW/Hwk1SRwtZzvrTHNVmqTQVPcu5Vr80HLaWmv1nSgG5Z8Sh15nuAzPFUzJR
-	cHatx05MsjMGIp4WcifJ9oivwVLUtidKqVJtTPPCJfTurzf+msCFUeamqsem/PIHIW3DWIqZz55LB
-	Oc7Se4qS1tI/LzJDPnyuvIhZNuSUZmiq6GkK7bKEy0+qbwMOd9swnCSa5UMIy6/Kwc1/EBkNlAYK2
-	iUu3lORkyxvBksfiXCJA==;
+	List-Owner; bh=obU1cJ1JvDwrOqAMCFUvTk9Tmqxf71kaoug/eBpC7EY=; b=xCCBG+cmv9pP51
+	x9xjix4m9K0VlQwH4TwseFCjEMGwggNSalNLEIhR0nP0rPFRLR2BnODiXnVFQQx8Dk4e5zqA4eLXT
+	F2UJQvbIztUq7MM4DW/lBPTfgQeFJKRZ+Mh4Nxs5ae+1+TgG+8A5DTs5/hBcQOvzHZZQHmT8QKkUy
+	y63NsJY00B7yzHOfZFxPx5t64iB47gg+8H0LgbTcuF4cqP/ZR0LMwdB1FljT2ts0jBBnh3txUw+ou
+	CllJ4bxJIPuRy5oOOKMUf3tg+Foksjothg7cVpbEeK6lSkL6cn8XKBAk0ZKgp1uQ9P8ZlQAty2Xjx
+	C336w1qNjISaRapuxexg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nMAWv-006Mwc-9h; Mon, 21 Feb 2022 15:23:13 +0000
-Received: from elvis.franken.de ([193.175.24.41])
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nMAWr-006MvD-Gh; Mon, 21 Feb 2022 15:23:11 +0000
-Received: from uucp (helo=alpha)
- by elvis.franken.de with local-bsmtp (Exim 3.36 #1)
- id 1nMAWk-00025w-00; Mon, 21 Feb 2022 16:23:02 +0100
-Received: by alpha.franken.de (Postfix, from userid 1000)
- id 22D4EC25F8; Mon, 21 Feb 2022 16:21:30 +0100 (CET)
-Date: Mon, 21 Feb 2022 16:21:30 +0100
-From: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
- Christoph Hellwig <hch@lst.de>, linux-arch <linux-arch@vger.kernel.org>,
- Linux-MM <linux-mm@kvack.org>, Linux API <linux-api@vger.kernel.org>,
- Arnd Bergmann <arnd@arndb.de>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Al Viro <viro@zeniv.linux.org.uk>,
- Russell King - ARM Linux <linux@armlinux.org.uk>,
- Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
- Brian Cain <bcain@codeaurora.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Michal Simek <monstr@monstr.eu>, Nick Hu <nickhu@andestech.com>,
- Greentime Hu <green.hu@gmail.com>, Dinh Nguyen <dinguyen@kernel.org>,
- Stafford Horne <shorne@gmail.com>, Helge Deller <deller@gmx.de>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Rich Felker <dalias@libc.org>,
- David Miller <davem@davemloft.net>, Richard Weinberger <richard@nod.at>,
- the arch/x86 maintainers <x86@kernel.org>,
- Max Filippov <jcmvbkbc@gmail.com>,
- "Eric W . Biederman" <ebiederm@xmission.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Ard Biesheuvel <ardb@kernel.org>, alpha <linux-alpha@vger.kernel.org>,
- "open list:SYNOPSYS ARC ARCHITECTURE" <linux-snps-arc@lists.infradead.org>,
- linux-csky@vger.kernel.org,
- "open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>,
- linux-ia64@vger.kernel.org, linux-m68k <linux-m68k@lists.linux-m68k.org>,
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
- Openrisc <openrisc@lists.librecores.org>,
- Parisc List <linux-parisc@vger.kernel.org>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- linux-s390 <linux-s390@vger.kernel.org>,
- Linux-sh list <linux-sh@vger.kernel.org>,
- sparclinux <sparclinux@vger.kernel.org>,
- linux-um <linux-um@lists.infradead.org>,
- "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>
-Subject: Re: [PATCH v2 09/18] mips: use simpler access_ok()
-Message-ID: <20220221152130.GA17373@alpha.franken.de>
-References: <20220216131332.1489939-1-arnd@kernel.org>
- <20220216131332.1489939-10-arnd@kernel.org>
- <20220221132456.GA7139@alpha.franken.de>
- <CAK8P3a2usZWPDDDUcscwS0aVKsY6aLXFGFPqYNkm4hcDERim9w@mail.gmail.com>
+	id 1nMAwO-006U4Q-7f; Mon, 21 Feb 2022 15:49:32 +0000
+Received: from conssluserg-03.nifty.com ([210.131.2.82])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nMAvP-006TaM-RR
+ for linux-riscv@lists.infradead.org; Mon, 21 Feb 2022 15:48:35 +0000
+Received: from mail-pf1-f176.google.com (mail-pf1-f176.google.com
+ [209.85.210.176]) (authenticated)
+ by conssluserg-03.nifty.com with ESMTP id 21LFmFTk028841
+ for <linux-riscv@lists.infradead.org>; Tue, 22 Feb 2022 00:48:15 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-03.nifty.com 21LFmFTk028841
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
+ s=dec2015msa; t=1645458495;
+ bh=Eq86KaLsmhn/jol5Cl8rzxgkWiNMVMb0uEfZ1QLZapo=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=Ts3bbvIUNhE0Y6Bzss57FFqwRvn8Wc/PkOSyPLDeypC1k78+CvrOTRlgjsEXuxEYE
+ 5NTs5N/PTQLeNrWbp4d4e58Yd2W74J89cZRrBxhyhraLmAxDlKeRQi3mhi3D/LoKx1
+ S5E92VIWwX4sB2oSs6RlucNfUIWqS27MOST4QzglE5L92ogAJhAXXFYI/UKNm9+Fq9
+ D890iCMxRvvmOj+y91+gLM4MDwZeBA1clPKkJnDvV+kkY01C97mX1Eae/JMZBqL6V0
+ 2oOAwlzGRR/FukvlPYLTJ0Z6lRj8vqk1yXYnLSh4Wy9z2vnvjMaw1snJDIDBB0dXEB
+ W7CLgcztMYI0A==
+X-Nifty-SrcIP: [209.85.210.176]
+Received: by mail-pf1-f176.google.com with SMTP id i6so9211787pfc.9
+ for <linux-riscv@lists.infradead.org>; Mon, 21 Feb 2022 07:48:15 -0800 (PST)
+X-Gm-Message-State: AOAM533kXtBvEF6rpsCOutjzFipsCSbfgDa9UEHGzaA/w6B5VHtlrpNw
+ YyBsKFFufKhcsV+rEokt+5RjoSX6FGnQgBR99vk=
+X-Google-Smtp-Source: ABdhPJyIDoa3KpkYnOJOjGfpO89oU3Wb/HC5/pM/hhJVkCzjD2oDLvQEdThWSSXmLxjexnlDDXnTVXnsngQ2AX1NiQI=
+X-Received: by 2002:a65:5341:0:b0:363:da77:99df with SMTP id
+ w1-20020a655341000000b00363da7799dfmr16423493pgr.126.1645458494757; Mon, 21
+ Feb 2022 07:48:14 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAK8P3a2usZWPDDDUcscwS0aVKsY6aLXFGFPqYNkm4hcDERim9w@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+References: <20220201013257.17926-1-changbin.du@gmail.com>
+ <20220221143758.7wln3mklyaj7mzod@mail.google.com>
+In-Reply-To: <20220221143758.7wln3mklyaj7mzod@mail.google.com>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Tue, 22 Feb 2022 00:47:36 +0900
+X-Gmail-Original-Message-ID: <CAK7LNAQtuMujS32JTmjj3kPwiHALmV+izV4_mjRtFq6szC-e2Q@mail.gmail.com>
+Message-ID: <CAK7LNAQtuMujS32JTmjj3kPwiHALmV+izV4_mjRtFq6szC-e2Q@mail.gmail.com>
+Subject: Re: [PATCH] kallsyms: ignore all local labels prefixed by '.L'
+To: Changbin Du <changbin.du@gmail.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ "open list:SIFIVE DRIVERS" <linux-riscv@lists.infradead.org>,
+ llvm@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220221_072309_921190_633F79A6 
-X-CRM114-Status: GOOD (  32.63  )
+X-CRM114-CacheID: sfid-20220221_074832_347329_805BDF56 
+X-CRM114-Status: GOOD (  23.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,65 +83,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 21, 2022 at 03:31:23PM +0100, Arnd Bergmann wrote:
-> On Mon, Feb 21, 2022 at 2:24 PM Thomas Bogendoerfer
-> <tsbogend@alpha.franken.de> wrote:
-> > On Wed, Feb 16, 2022 at 02:13:23PM +0100, Arnd Bergmann wrote:
-> > >
-> > > diff --git a/arch/mips/include/asm/uaccess.h b/arch/mips/include/asm/uaccess.h
-> > > index db9a8e002b62..d7c89dc3426c 100644
+On Mon, Feb 21, 2022 at 11:38 PM Changbin Du <changbin.du@gmail.com> wrote:
+>
+> Hi, Masahiro,
+> Could you consider picking up this change if you have no objection?
+>
+> On Tue, Feb 01, 2022 at 09:32:57AM +0800, Changbin Du wrote:
+> > The llvm compiler can generate lots of local labels ('.LBB', '.Ltmpxxx',
+> > '.L__unnamed_xx', etc.). These symbols usually are useless for debugging.
+> > And they might overlap with handwritten symbols.
 > >
-> > this doesn't work. For every access above maximum implemented virtual address
-> > space of the CPU an address error will be issued, but not a TLB miss.
-> > And address error isn't able to handle this situation.
-> 
-> Ah, so the __ex_table entry only catches TLB misses?
-
-no, but there is no __ex_table handling in address error hanlder (yet).
-
-> Does this mean it also traps for kernel memory accesses, or do those
-> work again?
-
-it will trap for every access.
-
-
-> If the addresses on mips64 are separate like on
-> sparc64 or s390, the entire access_ok() step could be replaced
-> by a fixup code in the exception handler. I suppose this depends on
-> CONFIG_EVA and you still need a limit check at least when EVA is
-> disabled.
-
-only EVA has seperate address spaces for kernel/user.
-
-> > Is there a reason to not also #define TASK_SIZE_MAX   __UA_LIMIT like
-> > for the 32bit case ?
+> > Before this change, a dumpstack shows a local symbol for epc:
+> > [    0.040341][    T0] Hardware name: riscv-virtio,qemu (DT)
+> > [    0.040376][    T0] epc : .LBB6_14+0x22/0x6a
+> > [    0.040452][    T0]  ra : restore_all+0x12/0x6e
 > >
-> 
-> For 32-bit, the __UA_LIMIT is a compile-time constant, so the check
-> ends up being trivial. On all other architectures, the same thing can
-> be done after the set_fs removal, so I was hoping it would work here
-> as well.
+> > The simple solution is that we can ignore all local labels prefixed by '.L'.
+> > For handwritten symbols which need to be preserved should drop the '.L'
+> > prefix.
+> >
+> > After this change, the C defined symbol is shown so we can locate the
+> > problematical code immediately:
+> > [    0.035795][    T0] Hardware name: riscv-virtio,qemu (DT)
+> > [    0.036332][    T0] epc : trace_hardirqs_on+0x54/0x13c
+> > [    0.036567][    T0]  ra : restore_all+0x12/0x6e
+> >
+> > Signed-off-by: Changbin Du <changbin.du@gmail.com>
 
-ic
+Now applied to linux-kbuild. Thanks.
 
-> I suspect doing the generic (size <= limit) && (addr <= (limit - size))
-> check on mips64 with the runtime limit ends up slightly slower
-> than the current code that checks a bit mask instead. If you like,
-> I'll update it this way, otherwise I'd need help in form of a patch
-> that changes the exception handling so __get_user/__put_user
-> also return -EFAULT for an address error.
 
-that's what the patch does. For aligned accesses the patch should
-do the right thing, but it breaks unaligned get_user/put_user.
-Checking if the trapping vaddr is between end of CPU VM space and
-TASK_MAX_SIZE before exception handling should do the trick. I'll
-send a patch, if this works.
 
-Thomas.
+> > ---
+> >  scripts/kallsyms.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/scripts/kallsyms.c b/scripts/kallsyms.c
+> > index 54ad86d13784..8caabddf817c 100644
+> > --- a/scripts/kallsyms.c
+> > +++ b/scripts/kallsyms.c
+> > @@ -108,7 +108,7 @@ static bool is_ignored_symbol(const char *name, char type)
+> >       /* Symbol names that begin with the following are ignored.*/
+> >       static const char * const ignored_prefixes[] = {
+> >               "$",                    /* local symbols for ARM, MIPS, etc. */
+> > -             ".LASANPC",             /* s390 kasan local symbols */
+> > +             ".L",                   /* local labels, .LBB,.Ltmpxxx,.L__unnamed_xx,.LASANPC, etc. */
+> >               "__crc_",               /* modversions */
+> >               "__efistub_",           /* arm64 EFI stub namespace */
+> >               "__kvm_nvhe_",          /* arm64 non-VHE KVM namespace */
+> > --
+> > 2.32.0
+> >
+>
+> --
+> Cheers,
+> Changbin Du
+
+
 
 -- 
-Crap can work. Given enough thrust pigs will fly, but it's not necessarily a
-good idea.                                                [ RFC1925, 2.3 ]
+Best Regards
+Masahiro Yamada
 
 _______________________________________________
 linux-riscv mailing list
