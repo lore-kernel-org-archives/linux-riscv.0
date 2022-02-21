@@ -4,33 +4,33 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9CC0C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Feb 2022 21:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32D87C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Feb 2022 21:04:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UWc8EP4whOj2mkwt/trTm3b0/UVh88L0ICVonECMqzU=; b=RtseSpObaAEq4H
-	/LibZrKx4Tc1Lp0VFFLvBdFVLj7a3UFD9wvpOyYHujPItN9ESop61Yu3z5C3IyBmDdyg+2A4vt8Ms
-	1CxDQ8/+52mVobix4UJS7BUpzpCZ24GJqKuj9LBcnLL+nNrIvFJS1IUHg7CKsttHP3+z0DwWJ8298
-	BBlNDlAWRPImJcbmJn4CzEGSRItITwqlPQckb4EnGjFXScjH513Wyt4FKw7FThfx/r+69kP4fIkyT
-	KhISxTW51mEBOkYPtj7PIVR/Invn3HutOxhPCYSeZ+2klrqOhRz457rgNh/R295k3/iprQ4lWTBD2
-	2wWVrHHiKopEdDSusBjA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=91SfMYcy0eVKjp4tTmJW18vLPPSruYHls4K/+OcSvko=; b=XVO6hJLiKZm+wr
+	rj9I58MRVAJj5S4d3pWgIBrvmkZHfbGY9ooj/cv4zi3U2UGnfG19z34Z401CZxmyEfn/iRnSBV6IE
+	6uFPFfNJHhn3faqd+BIS6rE59+XSdbz5MEMF+MF3IW2Z85UpBVmZD9iSh3fPEBxEc36eHktXtjIg5
+	3zTD8yaffKv018QE2JoETBuxraPFs/WoOlCakFIsgnjB/mCN6zIvg6XJiY3hRPKJRnSE/90sYKTvs
+	OOCmSB9lb3ePilnqY2lPjtpA95Gbr8Mte2oie/Ydp7LY+3wsSF0kAITs2umSjMrP4KKIIPxYTyX+N
+	QTXgGXbG0VC4WXyxeb7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nMFqj-007GOk-Iz; Mon, 21 Feb 2022 21:04:01 +0000
-Received: from imap2.colo.codethink.co.uk ([78.40.148.184])
+	id 1nMFqm-007GPx-C6; Mon, 21 Feb 2022 21:04:04 +0000
+Received: from imap3.hz.codethink.co.uk ([176.9.8.87])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nMFqf-007GMb-W2
- for linux-riscv@lists.infradead.org; Mon, 21 Feb 2022 21:03:59 +0000
+ id 1nMFqh-007GMd-1A
+ for linux-riscv@lists.infradead.org; Mon, 21 Feb 2022 21:04:00 +0000
 Received: from cpc152649-stkp13-2-0-cust121.10-2.cable.virginm.net
  ([86.15.83.122] helo=rainbowdash)
- by imap2.colo.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
- id 1nMFqW-0002Tl-NS; Mon, 21 Feb 2022 21:03:48 +0000
+ by imap3.hz.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
+ id 1nMFqW-0000u1-RF; Mon, 21 Feb 2022 21:03:48 +0000
 Received: from ben by rainbowdash with local (Exim 4.95)
- (envelope-from <ben@rainbowdash>) id 1nMFqW-005bIb-BU;
+ (envelope-from <ben@rainbowdash>) id 1nMFqW-005bIY-9j;
  Mon, 21 Feb 2022 21:03:48 +0000
 From: Ben Dooks <ben.dooks@codethink.co.uk>
 To: paul.walmsley@sifive.com,
@@ -39,16 +39,14 @@ Cc: lorenzo.pieralisi@arm.com, robh@kernel.org, kw@linux.com,
  bhelgaas@google.com, linux-pci@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  Ben Dooks <ben.dooks@codethink.co.uk>
-Subject: [PATCHv4 2/2] PCI: fu740: Force gen1 for initial device probe
-Date: Mon, 21 Feb 2022 21:03:47 +0000
-Message-Id: <20220221210347.1335004-2-ben.dooks@codethink.co.uk>
+Subject: [PATCHv4 1/2] PCI: fu740: fix finding GPIOs
+Date: Mon, 21 Feb 2022 21:03:46 +0000
+Message-Id: <20220221210347.1335004-1-ben.dooks@codethink.co.uk>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220221210347.1335004-1-ben.dooks@codethink.co.uk>
-References: <20220221210347.1335004-1-ben.dooks@codethink.co.uk>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220221_130358_037394_6CBE07F6 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20220221_130359_092972_A738787C 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,58 +63,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The fu740 PCIe core does not probe any devices on the SiFive Unmatched
-board without this fix from U-Boot (or having U-Boot explicitly start
-the PCIe via either boot-script or user command).
+The calls to devm_gpiod_get_optional() have the -gpios at the end of
+the name but the GPIO core code is already adding the suffix during
+the lookup. This means the PCIe driver is not finding the necessary
+reset or power lines to allow initialisation of the PCIe.
 
-The fix claims to set the link-speed to gen1 to get the probe
-to work. As this is a copy from U-Boot, the code is assumed to be
-correct and does fix the issue on the Unmatched. The code is at:
-https://source.denx.de/u-boot/u-boot/-/blob/master/drivers/pci/pcie_dw_sifive.c#L271
-
-The code has been this way since the driver was commited in:
-https://source.denx.de/u-boot/u-boot/-/commit/416395c772018c6bf52aad36aca163115001793f
+This bug has not been noticed as if U-Boot has setup the GPIO lines
+for the hardware when it does the PCIe initialisation (either by
+booting from PCIe or user command to access PCIe) then the PCIe
+will work in Linux. The U-Boot as supplied by SiFive does not by
+default initialise any PCIe component.
 
 Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
 ---
- drivers/pci/controller/dwc/pcie-fu740.c | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ drivers/pci/controller/dwc/pcie-fu740.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-fu740.c b/drivers/pci/controller/dwc/pcie-fu740.c
-index 842b7202b96e..19501ec8c487 100644
+index 00cde9a248b5..842b7202b96e 100644
 --- a/drivers/pci/controller/dwc/pcie-fu740.c
 +++ b/drivers/pci/controller/dwc/pcie-fu740.c
-@@ -177,11 +177,30 @@ static void fu740_pcie_init_phy(struct fu740_pcie *afp)
- 	fu740_phyregwrite(1, PCIEX8MGMT_PHY_LANE3_BASE, PCIEX8MGMT_PHY_INIT_VAL, afp);
- }
+@@ -259,11 +259,11 @@ static int fu740_pcie_probe(struct platform_device *pdev)
+ 		return PTR_ERR(afp->mgmt_base);
  
-+/* This is copied from u-boot. Force system to gen1 otherwise nothing probes
-+ * as found on the SiFive Unmatched board.
-+ */
-+static void fu740_pcie_force_gen1(struct dw_pcie *dw, struct fu740_pcie *afp )
-+{
-+	unsigned val;
-+
-+	dw_pcie_dbi_ro_wr_en(dw);
-+
-+	val = dw_pcie_readl_dbi(dw, 0x70 + PCI_EXP_LNKCAP);
-+	pr_info("%s: link-cap was %08x\n", __func__, val);
-+	dw_pcie_writel_dbi(dw, 0x70 + PCI_EXP_LNKCAP, val | 0xf);
-+
-+	dw_pcie_dbi_ro_wr_dis(dw);
-+}
-+
- static int fu740_pcie_start_link(struct dw_pcie *pci)
- {
- 	struct device *dev = pci->dev;
- 	struct fu740_pcie *afp = dev_get_drvdata(dev);
+ 	/* Fetch GPIOs */
+-	afp->reset = devm_gpiod_get_optional(dev, "reset-gpios", GPIOD_OUT_LOW);
++	afp->reset = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_LOW);
+ 	if (IS_ERR(afp->reset))
+ 		return dev_err_probe(dev, PTR_ERR(afp->reset), "unable to get reset-gpios\n");
  
-+	/* Force PCIe gen1 otherwise Unmatched board does not probe */
-+	fu740_pcie_force_gen1(pci, afp);
-+
- 	/* Enable LTSSM */
- 	writel_relaxed(0x1, afp->mgmt_base + PCIEX8MGMT_APP_LTSSM_ENABLE);
- 	return 0;
+-	afp->pwren = devm_gpiod_get_optional(dev, "pwren-gpios", GPIOD_OUT_LOW);
++	afp->pwren = devm_gpiod_get_optional(dev, "pwren", GPIOD_OUT_LOW);
+ 	if (IS_ERR(afp->pwren))
+ 		return dev_err_probe(dev, PTR_ERR(afp->pwren), "unable to get pwren-gpios\n");
+ 
 -- 
 2.34.1
 
