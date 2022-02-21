@@ -4,69 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA143C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Feb 2022 15:49:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DCB2C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Feb 2022 16:13:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=obU1cJ1JvDwrOqAMCFUvTk9Tmqxf71kaoug/eBpC7EY=; b=xCCBG+cmv9pP51
-	x9xjix4m9K0VlQwH4TwseFCjEMGwggNSalNLEIhR0nP0rPFRLR2BnODiXnVFQQx8Dk4e5zqA4eLXT
-	F2UJQvbIztUq7MM4DW/lBPTfgQeFJKRZ+Mh4Nxs5ae+1+TgG+8A5DTs5/hBcQOvzHZZQHmT8QKkUy
-	y63NsJY00B7yzHOfZFxPx5t64iB47gg+8H0LgbTcuF4cqP/ZR0LMwdB1FljT2ts0jBBnh3txUw+ou
-	CllJ4bxJIPuRy5oOOKMUf3tg+Foksjothg7cVpbEeK6lSkL6cn8XKBAk0ZKgp1uQ9P8ZlQAty2Xjx
-	C336w1qNjISaRapuxexg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NB5x9b1x3TD+y9AImp0qxh0UUvrMbShmpUESb78Jxi8=; b=Didovf9ILQbUvz
+	whM9xAvgglu4vnXlC8D+KHobL5SoXviXBBK4NxIpSUP8KIon5uKUe2GKXagvAwJ5pYGaCG4W/Y4Um
+	S9B/zipiXnGPdW30lpBw2WqPFLq7fFSM9mmaBX6gNUdAvEpLca/JaVsqzdhVse+uOx/VxSFZX3Lig
+	jPdsgaLNq0uKL8NK5F0EhvMaoPF3Y/xsqqyrMMc27cIc6xjWp7sYRBPA1GVJBVWXV7G/ueQCafrMo
+	IBHP0S58lG6a1Khsyu6/JXUmXORYi/1GhnG+Gkfj5Lkijc/Cs8RxUYIBegnCFgLJs1l3iVR31k0L6
+	zv50m51x3Mq2eUN85/1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nMAwO-006U4Q-7f; Mon, 21 Feb 2022 15:49:32 +0000
-Received: from conssluserg-03.nifty.com ([210.131.2.82])
+	id 1nMBJW-006bzv-9H; Mon, 21 Feb 2022 16:13:26 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nMAvP-006TaM-RR
- for linux-riscv@lists.infradead.org; Mon, 21 Feb 2022 15:48:35 +0000
-Received: from mail-pf1-f176.google.com (mail-pf1-f176.google.com
- [209.85.210.176]) (authenticated)
- by conssluserg-03.nifty.com with ESMTP id 21LFmFTk028841
- for <linux-riscv@lists.infradead.org>; Tue, 22 Feb 2022 00:48:15 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-03.nifty.com 21LFmFTk028841
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
- s=dec2015msa; t=1645458495;
- bh=Eq86KaLsmhn/jol5Cl8rzxgkWiNMVMb0uEfZ1QLZapo=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=Ts3bbvIUNhE0Y6Bzss57FFqwRvn8Wc/PkOSyPLDeypC1k78+CvrOTRlgjsEXuxEYE
- 5NTs5N/PTQLeNrWbp4d4e58Yd2W74J89cZRrBxhyhraLmAxDlKeRQi3mhi3D/LoKx1
- S5E92VIWwX4sB2oSs6RlucNfUIWqS27MOST4QzglE5L92ogAJhAXXFYI/UKNm9+Fq9
- D890iCMxRvvmOj+y91+gLM4MDwZeBA1clPKkJnDvV+kkY01C97mX1Eae/JMZBqL6V0
- 2oOAwlzGRR/FukvlPYLTJ0Z6lRj8vqk1yXYnLSh4Wy9z2vnvjMaw1snJDIDBB0dXEB
- W7CLgcztMYI0A==
-X-Nifty-SrcIP: [209.85.210.176]
-Received: by mail-pf1-f176.google.com with SMTP id i6so9211787pfc.9
- for <linux-riscv@lists.infradead.org>; Mon, 21 Feb 2022 07:48:15 -0800 (PST)
-X-Gm-Message-State: AOAM533kXtBvEF6rpsCOutjzFipsCSbfgDa9UEHGzaA/w6B5VHtlrpNw
- YyBsKFFufKhcsV+rEokt+5RjoSX6FGnQgBR99vk=
-X-Google-Smtp-Source: ABdhPJyIDoa3KpkYnOJOjGfpO89oU3Wb/HC5/pM/hhJVkCzjD2oDLvQEdThWSSXmLxjexnlDDXnTVXnsngQ2AX1NiQI=
-X-Received: by 2002:a65:5341:0:b0:363:da77:99df with SMTP id
- w1-20020a655341000000b00363da7799dfmr16423493pgr.126.1645458494757; Mon, 21
- Feb 2022 07:48:14 -0800 (PST)
+ id 1nMBJO-006bw4-FY
+ for linux-riscv@lists.infradead.org; Mon, 21 Feb 2022 16:13:23 +0000
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 21E823F1F6
+ for <linux-riscv@lists.infradead.org>; Mon, 21 Feb 2022 16:13:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1645459988;
+ bh=vRzNDqjN6ajBEKsUVpfuJLu9ktKbrLjh36kCMNlOgAc=;
+ h=From:To:Subject:Date:Message-Id:MIME-Version;
+ b=v6CNC7BZR9Ocdtvcv1jam+0lHdQ8OMUZSBLSbigY4Sf5Haf+56Ny33NqBebPNU/b3
+ +jrNnad/nQTAkNvXLVYyUtayrtFBY5sk15XC/KjvA3ERCAJ2mZa/IAdhjrOCrb+G0w
+ w/22fqlLRTgJMVQWYLOaAwUEwquVydTm8x+wrJoenMQCc7pQg5Pef7nslmdpbuXXHS
+ Sch81zexN91+e4wslSXa3qZIS+WfxpyABjNiUs0C+HcM9ZDedUNdqiswx9NmaLsLtU
+ D5pebFl8WqdKuoTBSga8sHJNzDEO2s4nxjsr3WvvDZ3fYp2i8IhX9ydfruASOUNlgC
+ 6+Jb5iPFRyUVw==
+Received: by mail-wr1-f72.google.com with SMTP id
+ k3-20020adfb343000000b001e463e6af20so7561589wrd.8
+ for <linux-riscv@lists.infradead.org>; Mon, 21 Feb 2022 08:13:08 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=vRzNDqjN6ajBEKsUVpfuJLu9ktKbrLjh36kCMNlOgAc=;
+ b=ywacw5ucx7PTq25ZqPpvZrNIkVLXCpBK+yPWCDPytJviXcupL95xRSniIlAf6uCnXZ
+ 6/mYmAN/ccoaLbvQ1BpYVnrngqRYb+erB8XQDqnQ8mkF7NaksN/hfcJDSzyfAy62OXFY
+ pUoTWnf5lBUbqzvTD7DBWmbYpNw17aQG5YIP2d1y+M0nzf33c3/jHpleBsdSI2Zi5c74
+ CfT8WW0G3LflT2QYQfUcEyjJeHjv6eK1mxdnUQR5sj/rCscrBwiGg9pebBCjtiGP+h17
+ Tp9KTFOiZh9r1Tl/EwwH1TdS0H9/IJxqgrfNLunVDo23/C8VCMlet7py9erljjvryGEN
+ si6Q==
+X-Gm-Message-State: AOAM531Unl60qqL+ZN1QK1OxbOdttBu1V2togNGqfPmo7HOITp4TSMJI
+ Q4kmv0orcy32LuAE/qiCe5fgG/fowJLuT7pWuFw1Tz2hoJz+Z/x0JoaI+XZoyY+yLk0bFpQS7a/
+ iHjxbMxgMw/3owD+ePMuJUbdSuBde7h30x1xhdvjMU1TeHQ==
+X-Received: by 2002:a5d:5546:0:b0:1e7:39f7:92b9 with SMTP id
+ g6-20020a5d5546000000b001e739f792b9mr16109067wrw.5.1645459986980; 
+ Mon, 21 Feb 2022 08:13:06 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxYARHj/Mj7yrv5G5MA7LwMLl7DKmEUB0He0crX8AOVYhpRiwKK4744czYz8Tb0FwmorU5iiQ==
+X-Received: by 2002:a5d:5546:0:b0:1e7:39f7:92b9 with SMTP id
+ g6-20020a5d5546000000b001e739f792b9mr16109052wrw.5.1645459986740; 
+ Mon, 21 Feb 2022 08:13:06 -0800 (PST)
+Received: from localhost.localdomain (lfbn-gre-1-195-1.w90-112.abo.wanadoo.fr.
+ [90.112.158.1])
+ by smtp.gmail.com with ESMTPSA id n7sm7976623wmd.30.2022.02.21.08.13.05
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 21 Feb 2022 08:13:06 -0800 (PST)
+From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>,
+ Dmitry Vyukov <dvyukov@google.com>,
+ Alexandre Ghiti <alexandre.ghiti@canonical.com>,
+ Aleksandr Nogikh <nogikh@google.com>, Nick Hu <nickhu@andestech.com>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com
+Subject: [PATCH -fixes v2 0/4] Fixes KASAN and other along the way
+Date: Mon, 21 Feb 2022 17:12:28 +0100
+Message-Id: <20220221161232.2168364-1-alexandre.ghiti@canonical.com>
+X-Mailer: git-send-email 2.32.0
 MIME-Version: 1.0
-References: <20220201013257.17926-1-changbin.du@gmail.com>
- <20220221143758.7wln3mklyaj7mzod@mail.google.com>
-In-Reply-To: <20220221143758.7wln3mklyaj7mzod@mail.google.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Tue, 22 Feb 2022 00:47:36 +0900
-X-Gmail-Original-Message-ID: <CAK7LNAQtuMujS32JTmjj3kPwiHALmV+izV4_mjRtFq6szC-e2Q@mail.gmail.com>
-Message-ID: <CAK7LNAQtuMujS32JTmjj3kPwiHALmV+izV4_mjRtFq6szC-e2Q@mail.gmail.com>
-Subject: Re: [PATCH] kallsyms: ignore all local labels prefixed by '.L'
-To: Changbin Du <changbin.du@gmail.com>
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
- Nathan Chancellor <nathan@kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- "open list:SIFIVE DRIVERS" <linux-riscv@lists.infradead.org>,
- llvm@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220221_074832_347329_805BDF56 
-X-CRM114-Status: GOOD (  23.72  )
+X-CRM114-CacheID: sfid-20220221_081318_826648_54824966 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,67 +106,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 21, 2022 at 11:38 PM Changbin Du <changbin.du@gmail.com> wrote:
->
-> Hi, Masahiro,
-> Could you consider picking up this change if you have no objection?
->
-> On Tue, Feb 01, 2022 at 09:32:57AM +0800, Changbin Du wrote:
-> > The llvm compiler can generate lots of local labels ('.LBB', '.Ltmpxxx',
-> > '.L__unnamed_xx', etc.). These symbols usually are useless for debugging.
-> > And they might overlap with handwritten symbols.
-> >
-> > Before this change, a dumpstack shows a local symbol for epc:
-> > [    0.040341][    T0] Hardware name: riscv-virtio,qemu (DT)
-> > [    0.040376][    T0] epc : .LBB6_14+0x22/0x6a
-> > [    0.040452][    T0]  ra : restore_all+0x12/0x6e
-> >
-> > The simple solution is that we can ignore all local labels prefixed by '.L'.
-> > For handwritten symbols which need to be preserved should drop the '.L'
-> > prefix.
-> >
-> > After this change, the C defined symbol is shown so we can locate the
-> > problematical code immediately:
-> > [    0.035795][    T0] Hardware name: riscv-virtio,qemu (DT)
-> > [    0.036332][    T0] epc : trace_hardirqs_on+0x54/0x13c
-> > [    0.036567][    T0]  ra : restore_all+0x12/0x6e
-> >
-> > Signed-off-by: Changbin Du <changbin.du@gmail.com>
+As reported by Aleksandr, syzbot riscv is broken since commit
+54c5639d8f50 ("riscv: Fix asan-stack clang build"). This commit actually
+breaks KASAN_INLINE which is not fixed in this series, that will come later
+when found.
 
-Now applied to linux-kbuild. Thanks.
+Nevertheless, this series fixes small things that made the syzbot
+configuration + KASAN_OUTLINE fail to boot.
 
+Note that even though the config at [1] boots fine with this series, I
+was not able to boot the small config at [2] which fails because
+kasan_poison receives a really weird address 0x4075706301000000 (maybe a
+kasan person could provide some hint about what happens below in
+do_ctors -> __asan_register_globals):
 
+Thread 2 hit Breakpoint 1, kasan_poison (addr=<optimized out>, size=<optimized out>, value=<optimized out>, init=<optimized out>) at /home/alex/work/linux/mm/kasan/shadow.c:90
+90		if (WARN_ON((unsigned long)addr & KASAN_GRANULE_MASK))
+1: x/i $pc
+=> 0xffffffff80261712 <kasan_poison>:	andi	a4,a0,7
+5: /x $a0 = 0x4075706301000000
 
-> > ---
-> >  scripts/kallsyms.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/scripts/kallsyms.c b/scripts/kallsyms.c
-> > index 54ad86d13784..8caabddf817c 100644
-> > --- a/scripts/kallsyms.c
-> > +++ b/scripts/kallsyms.c
-> > @@ -108,7 +108,7 @@ static bool is_ignored_symbol(const char *name, char type)
-> >       /* Symbol names that begin with the following are ignored.*/
-> >       static const char * const ignored_prefixes[] = {
-> >               "$",                    /* local symbols for ARM, MIPS, etc. */
-> > -             ".LASANPC",             /* s390 kasan local symbols */
-> > +             ".L",                   /* local labels, .LBB,.Ltmpxxx,.L__unnamed_xx,.LASANPC, etc. */
-> >               "__crc_",               /* modversions */
-> >               "__efistub_",           /* arm64 EFI stub namespace */
-> >               "__kvm_nvhe_",          /* arm64 non-VHE KVM namespace */
-> > --
-> > 2.32.0
-> >
->
-> --
-> Cheers,
-> Changbin Du
+Thread 2 hit Breakpoint 2, handle_exception () at /home/alex/work/linux/arch/riscv/kernel/entry.S:27
+27		csrrw tp, CSR_SCRATCH, tp
+1: x/i $pc
+=> 0xffffffff80004098 <handle_exception>:	csrrw	tp,sscratch,tp
+5: /x $a0 = 0xe80eae0b60200000
+(gdb) bt
+#0  handle_exception () at /home/alex/work/linux/arch/riscv/kernel/entry.S:27
+#1  0xffffffff80261746 in kasan_poison (addr=<optimized out>, size=<optimized out>, value=<optimized out>, init=<optimized out>)
+    at /home/alex/work/linux/mm/kasan/shadow.c:98
+#2  0xffffffff802618b4 in kasan_unpoison (addr=<optimized out>, size=<optimized out>, init=<optimized out>)
+    at /home/alex/work/linux/mm/kasan/shadow.c:138
+#3  0xffffffff80260876 in register_global (global=<optimized out>) at /home/alex/work/linux/mm/kasan/generic.c:214
+#4  __asan_register_globals (globals=<optimized out>, size=<optimized out>) at /home/alex/work/linux/mm/kasan/generic.c:226
+#5  0xffffffff8125efac in _sub_I_65535_1 ()
+#6  0xffffffff81201b32 in do_ctors () at /home/alex/work/linux/init/main.c:1156
+#7  do_basic_setup () at /home/alex/work/linux/init/main.c:1407
+#8  kernel_init_freeable () at /home/alex/work/linux/init/main.c:1613
+#9  0xffffffff81153ddc in kernel_init (unused=<optimized out>) at /home/alex/work/linux/init/main.c:1502
+#10 0xffffffff800041c0 in handle_exception () at /home/alex/work/linux/arch/riscv/kernel/entry.S:231
 
 
+Thanks again to Aleksandr for narrowing down the issues fixed here.
+
+
+[1] https://gist.github.com/a-nogikh/279c85c2d24f47efcc3e865c08844138
+[2] https://gist.github.com/AlexGhiti/a5a0cab0227e2bf38f9d12232591c0e4
+
+
+Changes in v2:
+- Fix kernel test robot failure regarding KERN_VIRT_SIZE that is
+  undefined for nommu config
+
+Alexandre Ghiti (4):
+  riscv: Fix is_linear_mapping with recent move of KASAN region
+  riscv: Fix config KASAN && SPARSEMEM && !SPARSE_VMEMMAP
+  riscv: Fix DEBUG_VIRTUAL false warnings
+  riscv: Fix config KASAN && DEBUG_VIRTUAL
+
+ arch/riscv/include/asm/page.h    | 2 +-
+ arch/riscv/include/asm/pgtable.h | 1 +
+ arch/riscv/mm/Makefile           | 3 +++
+ arch/riscv/mm/kasan_init.c       | 3 +--
+ arch/riscv/mm/physaddr.c         | 4 +---
+ 5 files changed, 7 insertions(+), 6 deletions(-)
 
 -- 
-Best Regards
-Masahiro Yamada
+2.32.0
+
 
 _______________________________________________
 linux-riscv mailing list
