@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B8A2C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Feb 2022 16:14:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47C78C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Feb 2022 16:15:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x5LobbI8Y86Io1L31MZ7LAnwTTe1SkuHeTzjPO1QQiM=; b=yVwLNHvcWk4kR9
-	BYeDJL0ISd/tTnepl6QdWNozz9mxc22zNRYREr5gDOQki4bi/SF++rtRLWs546KdjmwFi7LNFWKZj
-	3iYQ5HgQWgvB//YcHM6fKs/Q4CiBPIIeZpCDSDc7OAkCHoB8cF4sxG2TyOkk/aFw9Gfq9t0TylOyt
-	Ktg2lxtt6ESaFVGn2Z1xHcK7BkcJ3qBTQ41VAmSAuWtu6QmRj94f9YFof7ZpsHnLuz9QdlGL3E1AK
-	2+snwGItyuEc1SzXMS/+qVBNhIKQNsbEdZ7CroVUC31K+IjXKmC62xKs19f6UvGae8DL5fGFCUG5S
-	VJh4hnakqw52moYh8i3g==;
+	List-Owner; bh=fe02P35DbdCPUn9REHwiAthHOefUmjz9ur3EW1RZq/Q=; b=mRfq2cxdSn0luI
+	AoyW81dWMbEXbcUv8i8pnWQ3+3V1tC+K/szGeKv3f+xkPL6isHrd3N5sOQGmvP9daVEFMPzvt1chd
+	dfXf1oPWE97eGLk94WGMgzyYKiSWeRa2W/9QZeST4NN/tSTFbH5V9jZrGMqVFJRiQ2//n6c0K3wXz
+	/QpHS159JSQbQn+delHUS+2u/BjCfxSJDPVHou198Rpwa2ZykaLrfcPRoQdR+goI/BUJv3Al63Mzb
+	bUSMmwT4JwPi/gl1Ac28QuUyUvd9EpYlLudMgnt6ch+iOKfQbZeFAR57PyUppnxOGPtnmX9GfCqWl
+	bRNbBv3M3GJlspC1yxLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nMBKM-006cPQ-Qu; Mon, 21 Feb 2022 16:14:18 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1nMBLG-006ciR-2S; Mon, 21 Feb 2022 16:15:14 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nMBKI-006cK1-8j
- for linux-riscv@lists.infradead.org; Mon, 21 Feb 2022 16:14:17 +0000
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72])
+ id 1nMBLD-006chL-FQ
+ for linux-riscv@lists.infradead.org; Mon, 21 Feb 2022 16:15:12 +0000
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id A0AE14025B
- for <linux-riscv@lists.infradead.org>; Mon, 21 Feb 2022 16:14:08 +0000 (UTC)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 532BA3F203
+ for <linux-riscv@lists.infradead.org>; Mon, 21 Feb 2022 16:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1645460048;
- bh=PQyFtNV3tW1qRmwZ8HqaxvUDcyO7BHPqZZLC0geQ1k0=;
+ s=20210705; t=1645460109;
+ bh=5wR2inrb50SGryPV3ql5qm7RIRt9i7gNq/sby+Clcps=;
  h=From:To:Subject:Date:Message-Id:In-Reply-To:References:
  MIME-Version;
- b=Pw8zIvxw8A6Tu9811T0MQ/EKgt2aY0nsNu+pz29KErjTymjyH3xZuOREbWsZtGj1L
- BU/x6aRF6Sd0KxpS3NfSmIrth+ezrzOwZM3cgPUWzNy4iDv5A9x5dKybHFt7bsMXLm
- NG83fDsWrbvFDtL8hjVAadebzmnvKtR7LIx79MWea08Y68hZuaQYOjp0NfVuXjmUyC
- fqQeJHJbJc9f8MEOW5Kld+Q244pFQLqTRKYpAq9j836uf3g9JvAazwI+gKyD1ndmnx
- JoNM6iBvXS7PTK3wwoUTNZVYUSAsoYR0+atuHFHvRGAJNdvoyp6hSq5H1TMciAeoBp
- MBtvmiDI3o9Dw==
-Received: by mail-wr1-f72.google.com with SMTP id
- k20-20020adfc714000000b001e305cd1597so7605664wrg.19
- for <linux-riscv@lists.infradead.org>; Mon, 21 Feb 2022 08:14:08 -0800 (PST)
+ b=VN7Dhyuauh9RFyBI5ipyI8n0C4NYgAO5DDi3VIbLmt2nWXCkqkNF1wof+aCWixrsh
+ /iQaN/+hGGWRSRs3qwaFNhXGD5H6kf3XAgNRxCmC3ywbMQprU5caJ3rKqdqDYJ15xt
+ qcPVTUbbWI5yB9eHFRY+gjN+r9sJpc3AO4J+xyGKz8uo4jeYeAIs2RLjoTlG/QBVsa
+ jE7JHGHtu99yCWUNDlFJ10biaXkmKRSMgfpz+ME/ZRimaAG3IzaE6SYimmLcHDNYsO
+ tZSw9hQBd1aBo7LH8UPcCzH8sVdIGM/EBNNf462KqKilE8xpr5F81Xvoky59UHMN2P
+ E2Xc8KWvic/7Q==
+Received: by mail-wr1-f69.google.com with SMTP id
+ e11-20020adf9bcb000000b001e316b01456so7588984wrc.21
+ for <linux-riscv@lists.infradead.org>; Mon, 21 Feb 2022 08:15:09 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=PQyFtNV3tW1qRmwZ8HqaxvUDcyO7BHPqZZLC0geQ1k0=;
- b=HBTjRz+Ce1AAZW1Ykcf9pK4Nj8NUD7khe4JvDJKKbsQb649k+fgkzQIrvfXEgrIs7O
- /Ci8g0os2odnlS5GBa+z0JDMwAwtoSWLJF860Rzu/n09dmi466rwskQsb2OOmb4EFUtX
- 3JnQg+Cyfnfr2P1wI21JWlgtPtqYkjCd2tbZksmsabK0Ykck/ysvW0tUeBrIKJir01o5
- nGAlHSZDAVkZ9+vXUS0PullC3Z20FVqhujGjgYMrAZYo0KGy9eIjwCPNCfl4LpJiisKf
- Wbkg4R1cOYbfxXvS+ZVGkJWLviJ3O3na8YLjPowxyOrGGgTKCXoXqBDwSw2IkIe9E1bj
- OliQ==
-X-Gm-Message-State: AOAM533FnMD1SLi2aeBPceMIi178/WOrg1lVa1pK1FEU/VETgWYul+S4
- Cj+0y0fmxjnboaDayH/JV3pz5n+sovD+Z4JBZy609OmnhyB3DWjoH3u69p8XIPN2dLm7LlXe9n7
- ruerPJ4Jpa++zARzHw65cQwdDueVd0RaJaxHIeKkKcEB6GA==
-X-Received: by 2002:a5d:59ae:0:b0:1dd:66c3:c67b with SMTP id
- p14-20020a5d59ae000000b001dd66c3c67bmr15950154wrr.400.1645460048038; 
- Mon, 21 Feb 2022 08:14:08 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJwNwlTRPQUvSp/uTF60wmHJDYNhgiXOGL05nzjrbLdn6G2rJra00RbHGeqsfRNSqcTRx5zKzA==
-X-Received: by 2002:a5d:59ae:0:b0:1dd:66c3:c67b with SMTP id
- p14-20020a5d59ae000000b001dd66c3c67bmr15950135wrr.400.1645460047868; 
- Mon, 21 Feb 2022 08:14:07 -0800 (PST)
+ bh=5wR2inrb50SGryPV3ql5qm7RIRt9i7gNq/sby+Clcps=;
+ b=eZx4i1IIZNMR/JHT85GKCM/Cm6GVk3XigtbN0kRjJqfOQ3g2lcPIFLQrccoMWtPNyg
+ fttNj8wjXSCHPLZE39qnw5pvIrFh9Kcvxy2AKs9N23cGwLkgfYk7ebhN+oGQIc0CyOTh
+ TYSSCcaKNSe+RmZnMCGGx4qWvsDaNmxCKCDRXVliHd65Mt6SJwxPPNaA7+jKox0Sk8CD
+ vV2r3kiYr9RaxcgCd+YxQQOJGUYquOB7A0EZkUblJLit5JCdRvlenSq+njZIM6d+2fti
+ QNv6fNALizwQxwjygbWZhqeCXgFzuOhhE9Wnqh2PMo2C6Vl7zxI7iLnBDMGvaCTdkvpY
+ 9UKQ==
+X-Gm-Message-State: AOAM531IynJjcDmDQeoba5PIQy4j2R5veTRMDHeoFh1aVGHVV4ybkJ1R
+ DIZEv2aLnTz/I5J8kg0najuk/edQfWS4nriw5KHyS0hSJFD1KyXeoB7jfw0oLKXKpea4HAjMq9m
+ /MhNDMrfekMwpUzY3OpON6jzyTX4jLckykLmxQ0mGV+On2Q==
+X-Received: by 2002:adf:e952:0:b0:1e3:39ed:d990 with SMTP id
+ m18-20020adfe952000000b001e339edd990mr16495587wrn.215.1645460109056; 
+ Mon, 21 Feb 2022 08:15:09 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJw4/RK1fIWDS+henbbXZJgauSuqwElTcKvG20tpmepmsmnqy5mytufnWbPM6q+0YBF1+QKZTA==
+X-Received: by 2002:adf:e952:0:b0:1e3:39ed:d990 with SMTP id
+ m18-20020adfe952000000b001e339edd990mr16495579wrn.215.1645460108908; 
+ Mon, 21 Feb 2022 08:15:08 -0800 (PST)
 Received: from localhost.localdomain (lfbn-gre-1-195-1.w90-112.abo.wanadoo.fr.
  [90.112.158.1])
- by smtp.gmail.com with ESMTPSA id o4sm32504065wrc.52.2022.02.21.08.14.07
+ by smtp.gmail.com with ESMTPSA id 3sm49978552wrz.86.2022.02.21.08.15.08
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 21 Feb 2022 08:14:07 -0800 (PST)
+ Mon, 21 Feb 2022 08:15:08 -0800 (PST)
 From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -83,17 +83,17 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
  Aleksandr Nogikh <nogikh@google.com>, Nick Hu <nickhu@andestech.com>,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  kasan-dev@googlegroups.com
-Subject: [PATCH -fixes v2 1/4] riscv: Fix is_linear_mapping with recent move
- of KASAN region
-Date: Mon, 21 Feb 2022 17:12:29 +0100
-Message-Id: <20220221161232.2168364-2-alexandre.ghiti@canonical.com>
+Subject: [PATCH -fixes v2 2/4] riscv: Fix config KASAN && SPARSEMEM &&
+ !SPARSE_VMEMMAP
+Date: Mon, 21 Feb 2022 17:12:30 +0100
+Message-Id: <20220221161232.2168364-3-alexandre.ghiti@canonical.com>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20220221161232.2168364-1-alexandre.ghiti@canonical.com>
 References: <20220221161232.2168364-1-alexandre.ghiti@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220221_081414_487966_0741ABD0 
-X-CRM114-Status: GOOD (  14.23  )
+X-CRM114-CacheID: sfid-20220221_081511_689298_26C217F6 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,44 +110,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-KASAN region was recently moved between the linear mapping and the
-kernel mapping, is_linear_mapping used to check the validity of an
-address by using the start of the kernel mapping, which is now wrong.
+In order to get the pfn of a struct page* when sparsemem is enabled
+without vmemmap, the mem_section structures need to be initialized which
+happens in sparse_init.
 
-Fix this by using the maximum size of the physical memory.
+But kasan_early_init calls pfn_to_page way before sparse_init is called,
+which then tries to dereference a null mem_section pointer.
 
-Fixes: f7ae02333d13 ("riscv: Move KASAN mapping next to the kernel mapping")
+Fix this by removing the usage of this function in kasan_early_init.
+
+Fixes: 8ad8b72721d0 ("riscv: Add KASAN support")
 Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
 ---
- arch/riscv/include/asm/page.h    | 2 +-
- arch/riscv/include/asm/pgtable.h | 1 +
- 2 files changed, 2 insertions(+), 1 deletion(-)
+ arch/riscv/mm/kasan_init.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-index 160e3a1e8f8b..004372f8da54 100644
---- a/arch/riscv/include/asm/page.h
-+++ b/arch/riscv/include/asm/page.h
-@@ -119,7 +119,7 @@ extern phys_addr_t phys_ram_base;
- 	((x) >= kernel_map.virt_addr && (x) < (kernel_map.virt_addr + kernel_map.size))
+diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
+index f61f7ca6fe0f..85e849318389 100644
+--- a/arch/riscv/mm/kasan_init.c
++++ b/arch/riscv/mm/kasan_init.c
+@@ -202,8 +202,7 @@ asmlinkage void __init kasan_early_init(void)
  
- #define is_linear_mapping(x)	\
--	((x) >= PAGE_OFFSET && (!IS_ENABLED(CONFIG_64BIT) || (x) < kernel_map.virt_addr))
-+	((x) >= PAGE_OFFSET && (!IS_ENABLED(CONFIG_64BIT) || (x) < PAGE_OFFSET + KERN_VIRT_SIZE))
+ 	for (i = 0; i < PTRS_PER_PTE; ++i)
+ 		set_pte(kasan_early_shadow_pte + i,
+-			mk_pte(virt_to_page(kasan_early_shadow_page),
+-			       PAGE_KERNEL));
++			pfn_pte(virt_to_pfn(kasan_early_shadow_page), PAGE_KERNEL));
  
- #define linear_mapping_pa_to_va(x)	((void *)((unsigned long)(x) + kernel_map.va_pa_offset))
- #define kernel_mapping_pa_to_va(y)	({						\
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 7e949f25c933..e3549e50de95 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -13,6 +13,7 @@
- 
- #ifndef CONFIG_MMU
- #define KERNEL_LINK_ADDR	PAGE_OFFSET
-+#define KERN_VIRT_SIZE		(UL(-1))
- #else
- 
- #define ADDRESS_SPACE_END	(UL(-1))
+ 	for (i = 0; i < PTRS_PER_PMD; ++i)
+ 		set_pmd(kasan_early_shadow_pmd + i,
 -- 
 2.32.0
 
