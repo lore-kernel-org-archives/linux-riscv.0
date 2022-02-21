@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D83BC433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Feb 2022 10:33:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41A5EC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Feb 2022 10:44:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eSls2ubuUkAixD3wbN731SrxlsbLLTKDF4LS8P5M2TI=; b=qqrgWSjMeCWs1n
-	zsLZYd+/bCAGm+Gyi/EekzD5vYLBxeqVzmE0akaUJP/l2XMYx1XMKWuNgyN1TLssi53swVwuRYQzI
-	ERwb1eL9f0kRElG7gfcXGu1bfQVDDapdXYf31GEFTWdGWCukeQStzOUapaX6/Sf3QVjnX+Z/1QD5j
-	RmoN8GG/WpfIcMVOQIl8gKDY52vnxgIeKBoDXoreYxS9Pqse1ilB2XxKgB0CV1pmmlR8At6FnCjEF
-	Th6b03q3SzPWMQZ705N186d8EDpJPTghcNht82peNL3N8G5wyMY5JZ/Vwg1XYJUzqzqdNtueOtvjN
-	RFOP5a6VJgkGvdfZtBiA==;
+	List-Owner; bh=ZXyFtISJ+/AAfsmfsd2swXBAF46poVpOByahAuwc8U8=; b=isi3IV5NHA7zjF
+	eIzBlPfOWZX+1BEdeXcarnwz95ytUtwwssmjDhKv8lc4hCNO3HPvJFGDG7GK+IKxPIPsHujQv8o7O
+	gpORhzIXr1EdgqnP3gGzrY6b/4uYtK95bGimhf3FutfFw1nRbf1iFNzw8MWYdpbSodZynCnsLwrUo
+	goJ/tCLpMKWQd+8HSINBMjmPeLzr8o8aLA9HeW31bj3L1qyJzSdJB0etsFGYNTRuGy8fNOvEv7Lvn
+	euRVOWj7iiTldsu+LL0C2Ir9fwmdsj7kJPUhfxsUPXd0U5WIjDuealsTOxmAaxJcgBpAApq+Tlwa8
+	lpYWjqcAtabW4gFwJb/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nM606-004yOw-1o; Mon, 21 Feb 2022 10:33:02 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1nM6Ak-0053XJ-65; Mon, 21 Feb 2022 10:44:02 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nM5Pb-004hky-5v
- for linux-riscv@lists.infradead.org; Mon, 21 Feb 2022 09:55:20 +0000
-Received: by mail-wm1-x336.google.com with SMTP id
- az26-20020a05600c601a00b0037c078db59cso10777353wmb.4
- for <linux-riscv@lists.infradead.org>; Mon, 21 Feb 2022 01:55:18 -0800 (PST)
+ id 1nM5V5-004jqx-KM
+ for linux-riscv@lists.infradead.org; Mon, 21 Feb 2022 10:01:01 +0000
+Received: by mail-wr1-x436.google.com with SMTP id p9so26013805wra.12
+ for <linux-riscv@lists.infradead.org>; Mon, 21 Feb 2022 02:00:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20210112.gappssmtp.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=upbkN/V8cp2KI0ahaTu8tBZWU9b/chtGV7DC+f35CdY=;
- b=GS//m974QckaF3Of/zXAd7JQULr/ML9YdasdWH0NaXtNDJnOHKV2SXZYVG4M19tHOq
- hJmUX36bWgLhI8JvKY2PlIHM4uLDxh8yTN6amnE1lKQGvuGhlHdEyRpqjE6hsa+v3W2u
- TZakdaGd2vNZObRxQactg7oTZL+8n5Q4bbi+EzGBsBCgUBzboNsdJEP9OEojl0qsSsMB
- xcR2OnKNudh8FouXOjafeb61zW/AvHgnN6Wgs8dVb/SNBVNfj8/2daP4VqCCSQg9BzIe
- nJtVYrKxlZZY2oieZrGD2QQL8iIslsrMKHSRiBbzcveg4r/tTZK1IDrSZgu+8Hv2hmJV
- cfgw==
+ :cc; bh=7npSal4SAMLSZn16NnNEeHrBcHYcH9kBYIO1Ec8tAsc=;
+ b=DRpO3yTE0tJVGaIevyQWmDT4RQw4sj581lnPgma9i9lP1rhY61Bq1uu/GvtgnD3uV7
+ gIrwWki58uWVDY2GZ+5DlmBI7oqhldUaH+45qGF1HZZ1oLWNsLSFeoh3YsYnNHySFt9Y
+ fBoBdQF5sMvBRH0jZoE5mCS5Fwd1kISVZAFaYFNAtXZXvVdzne2RoiNXh1my7ulWKySy
+ wzLdcSVXjb0jU4+vCsciegp3jmfXInwK/FY5HHbt7mYZcoZeg2vqRTffm5XjM9RLpsUv
+ vyBrQq9XwoOsptZ7IZrTTrW0SIflvV21Y+LFjiSBJEGkakiWaLNWjaqEQ8+Q0xUqiNZ5
+ ryZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=upbkN/V8cp2KI0ahaTu8tBZWU9b/chtGV7DC+f35CdY=;
- b=ifjhxx+BDyecdjMuz9NQ1lcbvBuwzYV9PGr9d+6a6LPr4elWooYu3eDpEEvxmpoEFN
- bXjtRqIVjW1PCC0D4FpTTVdfkl9kfyROJBMBwgYuoQKcTmTLSRsiNnbAPDM+EYktRy+i
- 55/YPiVG5U7qzQYvqRhh1eEQYzYFVk9V2i5tLL5oktl8++DQ6aIGblA2KS+ILEYrmSAl
- LF6EQkewrm14DNxLg1ch02Ku5F8nD1EFi6k4LKJmYEg7rwgIw9BikFvxf2NJ3qbGGMXI
- 5pG7QPHroK0DqXHGvHqxR/Y+48P+hcB3DP6rcxDwAECkezUZZIF95zpWXPNu8Rv4YSQl
- MZWg==
-X-Gm-Message-State: AOAM530l5dOHPaIrXQ/baV+aobnVlWo5dI7G5K4Rj/7vz/q5I6mlCw5E
- 3Okgz7/FrrkAlOE+WmvZ4KQHg2Avh+rQ+wfnurfRUA==
-X-Google-Smtp-Source: ABdhPJyhZ16CI2TVFHhpSM7/eyLn3311gs2ig6GHEaHjYfa4Ne4UfzHF2h4fbFKVn1hsN8j+ljYfCQ9qjGGmxjJpf14=
-X-Received: by 2002:a7b:cf16:0:b0:37b:c4c9:96c6 with SMTP id
- l22-20020a7bcf16000000b0037bc4c996c6mr17352485wmg.59.1645437316963; Mon, 21
- Feb 2022 01:55:16 -0800 (PST)
+ bh=7npSal4SAMLSZn16NnNEeHrBcHYcH9kBYIO1Ec8tAsc=;
+ b=ozG+a7YeRmWFUEIxD8ivxZHtLZEAx/R1PAb+RYitPGbJ8T10y6QJJHOkc23GKIgARj
+ 5QDlRdwKXlrE10OG/qRtwiTF4dSgNZIVSFNiQVkADTFo/yPmrcfFqFPeYszngP6A2Ebe
+ aoRldOrh8FJwmPJL1HXr4c2jvcKiPnQilOC10NS3PrmNujfsePL3orU7SVlENb+6Wmmr
+ EMRAWkxdv8ZedCXgc7rjD40TB25A7pP8a1HUM+QzmlMoI+bYraA8M5DjbG1HN+ZV7X/9
+ hTf3BEWn4OK6A8vIBj1Fg6xykw70imHVsGMzfQO84bMlPkAYukoYiVXaAB2p6c0GOvE+
+ z/5A==
+X-Gm-Message-State: AOAM530UQwr4RX7rKKCvWsKCwjkBmk4/U9OP3U4mrQA6Wu23pBeB1YBi
+ gHWhodnzyVXn4PU7C/fjaOXZ7J6TmIhFyF+styNc1w==
+X-Google-Smtp-Source: ABdhPJyirlkP3M5wFmhNEqfDBiCxvzzJb4WX23P3G7dkN1Z8LtUASSB2cPoUO5TP0OREOq8+oImfrKDuUqpRPFnu/s4=
+X-Received: by 2002:a5d:6507:0:b0:1e5:eb6d:a851 with SMTP id
+ x7-20020a5d6507000000b001e5eb6da851mr15148810wru.313.1645437656564; Mon, 21
+ Feb 2022 02:00:56 -0800 (PST)
 MIME-Version: 1.0
 References: <20220220050854.743420-1-apatel@ventanamicro.com>
  <20220220050854.743420-3-apatel@ventanamicro.com>
  <87czjg4kf4.wl-maz@kernel.org>
 In-Reply-To: <87czjg4kf4.wl-maz@kernel.org>
 From: Anup Patel <anup@brainfault.org>
-Date: Mon, 21 Feb 2022 15:25:05 +0530
-Message-ID: <CAAhSdy2abxjz2GAF7dTbxDa32244wEJeYBCeuY2Ag84HK_FXow@mail.gmail.com>
+Date: Mon, 21 Feb 2022 15:30:44 +0530
+Message-ID: <CAAhSdy1nKMySggjH83JBEDxiFnfFY46DdYyGH=ib1b0D6Qn7jg@mail.gmail.com>
 Subject: Re: [PATCH v3 2/6] irqchip/riscv-intc: Allow drivers to directly
  discover INTC hwnode
 To: Marc Zyngier <maz@kernel.org>
@@ -74,8 +73,8 @@ Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>,
  linux-riscv <linux-riscv@lists.infradead.org>, 
  "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220221_015519_300698_68E38765 
-X-CRM114-Status: GOOD (  26.61  )
+X-CRM114-CacheID: sfid-20220221_020059_718482_CCFE9CF1 
+X-CRM114-Status: GOOD (  27.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,9 +151,6 @@ On Mon, Feb 21, 2022 at 3:21 PM Marc Zyngier <maz@kernel.org> wrote:
 >
 > We're talking about the root interrupt controller here. How can this
 > ever be implemented as a module?
-
-Okay, I will drop the EXPORT() from here.
-
 >
 > > +
 > > +struct fwnode_handle *riscv_get_intc_hwnode(void)
@@ -186,19 +182,13 @@ Okay, I will drop the EXPORT() from here.
 > and allocated the domain, or you haven't. But you don't register a
 > callback without having found it.
 
-We are registering this callback after creating the INTC domain.
+Okay, I will drop the check on intc_domain since we are registering
+callback after creating a single INTC domain common for all CPUs.
 
 >
 > And you have totally ignored my previous comments about the multitude
 > of irq domains for the INTC. Either you get rid of all but one and you
 > can register a single fwnode, or you stay with what you have today,
-
-Only the INTC DT nodes are per-CPU but we are creating only one
-INTC domain to manage per-CPU IRQs across all CPUs.
-
-Regards,
-Anup
-
 >
 > You can't have it both ways.
 >
@@ -206,6 +196,9 @@ Anup
 >
 > --
 > Without deviation from the norm, progress is not possible.
+
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
