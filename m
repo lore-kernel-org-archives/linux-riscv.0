@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA2A3C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Feb 2022 17:07:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47785C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Feb 2022 18:11:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=2oGeseAlkwRKQc8EBr/JYhK5Qw/1hnWuc4VA7W411lY=; b=zxuqSDBxhIs09whfayua8HHr2c
-	JoAyTNMCIYKqiAGQjY9gBiA6k8Vtte9MtJ3p45ReKttkc6kzHLR6CYfmifrNoG3Hpa1u3cWEQYqy/
-	jyvI56aWrgffwv2wzLnYdOPsv9apvqgU+hfdZoBpasnmW1sKzfieiRsffw6XYvCCKC2MInBiNgBNX
-	540JpRn6AkWVLqSsHa2saZ9lM1ms3iT+aY3HNxPvJXhXkcmZR4zUfXEnf5c1RWAheXPE1ajRzenJ4
-	L5ML2tUCdyWDQTrwICEStzczInpeJQf5oD/EU38cgXVbF5uF8X/kqARPA0wT3wPcyMGjzrt7OakIe
-	5/bJSUow==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6vUbUCPkC6Ll4O2d20I20g2NYJKGEB7Ti22sbj2Soto=; b=Cp/7s4vzUQnfDL
+	3gySxCEkEIli7Z7lfgpMycLEGv+oEyrfJj2QdtHmqVLj10v8lPyDgK1B8YYJupdeGmSJjbM1oKUWi
+	2IC44lun79j6NNiwPxvQcvhWJ1BabmHtuDECmQ1z1hacmS7K/5IelCB3JUMcHyS7qYAjNrQuc/QXf
+	GQg0y0wyD7ACYoSR+eV34TzcFbZK0SQumNOpWkOmQ/gh2ChqdHt7UNtWxJ/LnvIaQ5cgPB77mmbvN
+	i59b15szslggIn6KfojzYmdxzET0Zbf+NSJlIiM3t2ogehZ8gw2o59vP5D46S7k5/UD+UYFEiWekU
+	5MpPwu3ag5OH4rCK/+PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nMYdE-00ArSc-K3; Tue, 22 Feb 2022 17:07:20 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1nMZcn-00B9Gl-R1; Tue, 22 Feb 2022 18:10:57 +0000
+Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nMYSz-00AnaT-AT
- for linux-riscv@lists.infradead.org; Tue, 22 Feb 2022 16:56:47 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id b8so188353pjb.4
- for <linux-riscv@lists.infradead.org>; Tue, 22 Feb 2022 08:56:43 -0800 (PST)
+ id 1nMZcj-00B9FL-KY
+ for linux-riscv@lists.infradead.org; Tue, 22 Feb 2022 18:10:56 +0000
+Received: by mail-yb1-xb35.google.com with SMTP id bt13so42961651ybb.2
+ for <linux-riscv@lists.infradead.org>; Tue, 22 Feb 2022 10:10:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=sXnwIqemEC4VmrxMuG0rukm8/Qgs5rtWRkI7dl2HHXQ=;
- b=ZErSsy2XtmemzMgltOpndEBcbJNGpdqZBal2hI3LVU0c7zhqOh08YrKILnGpQln1Yi
- mDewIy3LB3YfwcJmuhLGM5tuujgcjVA0rYKlAD5QxAlNCFz5Vvy6aIhspLvEhLQCH4S/
- 4FOgRCJzZjq5gu2cIcaP1T3CCgMb9VRFzsQ91koKkcjss3QC3zoGXfeVIuVVtNrT6j5T
- qVzqv3//MpEGLtziUQ1XpfMuErG2bv/92c1CPiGN4f37+yelbOe/O9fDz+fDtErwInM3
- V90ZqhXw8oZlfv+zDq5ZzaAt4zmVoc0Vh7hdN25ypjoCzttupB5Si95j+AW83P/Q5ruV
- 5raA==
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=PodtsV3IZhfRYHA+gmyJlY7RLZtqZrXBop9ZuZOGDCM=;
+ b=n3aEmbyvo/OZ83wEt2+H0j4xE2xlGACP2BdZKSZCtkCJFegTwv9t1c2B2j2+hCcm+t
+ DuXQ8MmdB0qp3KakxPjDfhF/0Wvv1jgJE9GStoQV+AjVSbtgW+dArZTj6IrMRmL4+X7p
+ pG/oREz4HEwJCHgdGK6eHxY+ePdduQ/oj2pY8=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=sXnwIqemEC4VmrxMuG0rukm8/Qgs5rtWRkI7dl2HHXQ=;
- b=iX6z4gtZliGOkkZ7mNWnHNDwwRof95l3wbz/M8mPLnrdlnujGznW7SmquvKpWY4ZgV
- KBoqFD619eM8tJLsC2K2gfRDX+dAX4Y3ZNV/vnPNptQJOtop4xUU6DrqWJFVKG+lZ3v2
- A2cUJ9vwt76IBvaW7ITXrwFtfeEILxCA4DSTbgg5IsDzkqIMtxk8HPuc4azEHJ+xmQzS
- iFNAlCPtFwsOguDYUL/rvDeyZjvl3nq2hiGqWZClmIgPvY4vVpcADKoHA8wzkfgmIqUh
- A89+nwvvQzclDCXKdhyjHwFsfe/7KAVmG93ggPAHF8/Cco6W1t9T9GBQImyQpCTqdlNs
- E6zA==
-X-Gm-Message-State: AOAM532zqr9CSbpi8ichyXoeMwzNisQLpTtPPJMoCE+eTd/E/wm4ZUAR
- ITowqrdGhJUegRBeDL0oHiOUew==
-X-Google-Smtp-Source: ABdhPJyZQOpQ+rB+jjtMOmnLRlG8KDNzfoPLbi3mZ7nXtXFc4nnYVev3L2+NfU2W0IUbq3CGl6yXzQ==
-X-Received: by 2002:a17:903:31c8:b0:14e:db10:5b02 with SMTP id
- v8-20020a17090331c800b0014edb105b02mr23699396ple.81.1645549003167; 
- Tue, 22 Feb 2022 08:56:43 -0800 (PST)
-Received: from localhost ([12.3.194.138])
- by smtp.gmail.com with ESMTPSA id f3sm17912532pfe.137.2022.02.22.08.56.42
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 22 Feb 2022 08:56:42 -0800 (PST)
-Date: Tue, 22 Feb 2022 08:56:42 -0800 (PST)
-X-Google-Original-Date: Tue, 22 Feb 2022 08:55:55 PST (-0800)
-Subject: Re: [PATCH 00/12] Initial support for Nuclei DemoSoC w/ UX600
-In-Reply-To: <6ff70d9fbbfcde860823aa24f0ce58a0a96a1c91.camel@nucleisys.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, 
- linux-serial@vger.kernel.org, linux-spi@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: icenowy@nucleisys.com, robh+dt@kernel.org
-Message-ID: <mhng-624abf1a-c1e9-40aa-97a5-07a5b9676942@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=PodtsV3IZhfRYHA+gmyJlY7RLZtqZrXBop9ZuZOGDCM=;
+ b=R44CTBsAUexveTwHEXDg73pvaFbyCUZccrjjrxPSBczUolP+XKThY4/lYv11b52Tlp
+ DebjnvbUO5y9KR4Jf/hnblAIcwU2mxg+wOM9PPnshmF+4I7DectJ5eJHbFHG4FvlRQFc
+ HIy+drSOgLHIY+mOC/fK1NL6nl5N3CfgSNiqWh1Or5oMevVbYvpb7zg9rWONKGxzYBT4
+ x8QNcs2VmwU6QZLeFswIVRdvkNRBIrdlEU6XL8ZeFoU0VK+LiRJFwx0HSYYc+PQA9rTy
+ MjVAZlxAxWt4Fl2M9dkOqI7qCm3hgeJo0gdIeyG1xC7WZDOdXYJpHbfBR87ZIMf3NzCU
+ CHIQ==
+X-Gm-Message-State: AOAM533KSnibC7IwXB5JRvjFaJXprzwVK3ptAy0OPpCm68Uw8HAcG0ba
+ oaN1WJS+WHAmyfeh24CrnAj6EHIxROIEmv20VEjL97e2IWrG
+X-Google-Smtp-Source: ABdhPJyzwNQucE7qn2fz+dBN5gljgY+ELRL09JRS9TKhW9J3kwUKyInqXcZekfRKCO5mCMItlbKWSVAK6v6GzzqQT54=
+X-Received: by 2002:a25:d294:0:b0:61d:9809:9917 with SMTP id
+ j142-20020a25d294000000b0061d98099917mr24363735ybg.289.1645553451567; Tue, 22
+ Feb 2022 10:10:51 -0800 (PST)
+MIME-Version: 1.0
+References: <20220216002911.1219593-1-atishp@rivosinc.com>
+ <cover.1644987761.git.research_trasio@irq.a4lg.com>
+ <8d7e1937f9476d14f64a53684b11bedd6f4ff88d.1644987761.git.research_trasio@irq.a4lg.com>
+ <CAOnJCUKPBht9OY6bhHracxsX7U0w8jPKX-kFcQ5ZYkD-k7q4mQ@mail.gmail.com>
+ <32ca2b3e-3e2b-ded3-39a9-df12bb9cb416@irq.a4lg.com>
+ <CAOnJCUL_OX1NgzP_uqu4oEt3E-J1-ipdAeuuBPkByUKGAXSJTg@mail.gmail.com>
+ <eaf1421b-677f-6fa5-0d0a-4f92c5153068@irq.a4lg.com>
+In-Reply-To: <eaf1421b-677f-6fa5-0d0a-4f92c5153068@irq.a4lg.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Tue, 22 Feb 2022 10:10:37 -0800
+Message-ID: <CAOnJCU+2LQHJPP4dCLrJ-e10_6ngMcF6ZcoREqHo0Jwn7puYoA@mail.gmail.com>
+Subject: Re: [PATCH 2/2] RISC-V: Extract base ISA from device tree
+To: Tsukasa OI <research_trasio@irq.a4lg.com>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220222_085645_459018_66AF53C7 
-X-CRM114-Status: GOOD (  23.85  )
+X-CRM114-CacheID: sfid-20220222_101053_790544_C83FE3A3 
+X-CRM114-Status: GOOD (  42.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,90 +80,244 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCAxOSBGZWIgMjAyMiAwNjo0NTo0MyBQU1QgKC0wODAwKSwgaWNlbm93eUBudWNsZWlz
-eXMuY29tIHdyb3RlOgo+IOWcqCAyMDIyLTAxLTI35pif5pyf5Zub55qEIDIzOjE2ICswODAw77yM
-SWNlbm93eSBaaGVuZ+WGmemBk++8mgo+PiBUaGlzIHBhdGNoc2V0IGFkZHMgc3VwcG9ydCBmb3Ig
-TnVjbGVpIERlbW9Tb0MgKHdoaWNoIGlzIGFuIGV2YWx1YXRpb24KPj4gcGxhdGZvcm0gbWFkZSB3
-aXRoIE51Y2xlaSBDUFUgY29yZXMgYW5kIG1haW5seSBwZXJpcGhlcmFscyBpbgo+PiBvcmlnaW5h
-bAo+PiBIdW1taW5nYmlyZCBFMjAzIHByb2plY3QsIHJ1bm5pbmcgb24gRlBHQSkgd2l0aCBVWDYw
-MCBDUFUgY29yZXMuCj4+Cj4+IE1vc3QgcGF0Y2hlcyBhcmUgZm9yIERUIGJpbmRpbmdzLCB0aGUg
-cmVtYWluaW5nIG9uZXMgYXJlIGFkZGluZyBhCj4+IEtjb25maWcgb3B0aW9uIGFuZCBzb21lIERU
-Uy9EVFNJIGZpbGVzLiBUaGUgbGFzdCBvbmUgaXMgYSB3b3JrYXJvdW5kCj4+IGZvcgo+PiBhIHNl
-dmVyZSBidWcgaW4gY3VycmVudGx5IHJlbGVhc2VkIHZlcnNpb25zIG9mIFVYNjAwLCB3aGljaCBp
-cyBmb3VuZAo+PiBpbiA1LjE3IGtlcm5lbCwgaW4gd2hpY2ggU3Y0OCBzdXBwb3J0IGlzIGFkZGVk
-IHRvIExpbnV4Lgo+Pgo+PiBUd28gbm9uLXRlY2huaWNhbCBwYXRjaGVzIGFyZSBpbiB0aGlzIHBh
-dGNoc2V0IHRvbywgZm9yIE1BSU5UQUlORVJTCj4+IGFuZCAubWFpbG1hcCBpdGVtcy4KPgo+IFBp
-bmcsIGNvdWxkIGFueSBSSVNDLVYgbWFpbnRhaW5lcnMgcmV2aWV3IHRoZXNlIHBhdGNoZXMsIGVz
-cGVjaWFsbHkgdGhlCj4gU0FUUCB3b3JrYXJvdW5kIG9uZT8KClNvcnJ5LCBJIHJlbWVtYmVyIGhh
-dmluZyB3cml0dGVuIHRoaXMgYnV0IEkgZ3Vlc3MgaXQgZ290IGxvc3QuICBJSVJDIG15IAptYWlu
-IHdvcnJ5IGhlcmUgd2FzIHRoYXQsIGF0IGxlYXN0IGFzIGZhciBhcyBJIGNhbiB0ZWxsLCBEZW1v
-U09DIGlzIGFuIApGUEdBIGRldmVsb3BtZW50IGJvYXJkLiAgSWYgdGhpcyBpcyBhY3R1YWxseSBp
-biBwcm9kdWN0aW9uIHNvbWV3aGVyZSAKdGhlbiBpdCdzIGEgZGlmZmVyZW50IHN0b3J5LCBidXQg
-SUlVQyB0aGUgZ2VuZXJhbCBydWxlIGlzIG5vdCB0byBhY2NlcHQgCmNvZGUgZm9yIGRldmVsb3Bt
-ZW50IGhhcmR3YXJlIHRoYXQgY2FuIGJlIHVwZGF0ZWQuCgpBc3N1bWluZyBEZW1vU09DIGNhbiBi
-ZSB1cGRhdGVkLCBJJ2QgYWxzbyBhcmd1ZSB0aGF0IHdlIHNob3VsZCBoYXZlIHNvbWUgCnNvcnQg
-b2YgdmVyc2lvbiBhdHRhY2hlZCB0byBpdCBpbiBEVCBlbnRyaWVzLiAgV2l0aG91dCBzb21lIHZl
-cnNpb25pbmcgCndlJ2xsIGVuZCB1cCBsb3N0IHdoZW4gdHJ5aW5nIHRvIGxhdGVyIGRldGVybWlu
-ZSB3aGF0IHdlJ3JlIGFjdHVhbGx5IApydW5uaW5nIG9uLgoKQXMgZmFyIGFzIHRoZSBlcnJhdGEg
-Z29lczogaXQgbG9va3MgZmluZSB0byBtZSwgYnV0IEknZCBsaWtlIHRvIHNlZSBzb21lIApzb3J0
-IG9mIGRlc2NyaXB0aW9uIG9mIHdoYXQgdGhlIGVycmF0YSBhY3R1YWxseSBpcyAoaWUsIHNvbWUg
-CmRvY3VtZW50YXRpb24gZnJvbSB0aGUgbWFudWZhY3R1cmVyKS4gIEkga25vdyB0aGF0J3Mgbm90
-IGFsd2F5cyAKcG9zc2libGUsIGJ1dCB3aXRob3V0IHNvbWUgZGVzY2lwdGlvbiBvZiB3aGF0IHRo
-ZSBidWcgaXMgaXQgZ2V0cyB0cmlja3kgCnRvIG1haW5haW4gdGhpcyBzb3J0IG9mIHN0dWZmLiAg
-Rm9yIGV4YW1wbGU6IHdlJ3ZlIGdvdCBzdjU3IHBhdGNoZXMgCm5vdywgc28gaG93IGRvIEkga25v
-dyB3aGF0IHRvIGRvIHdpdGggdGhlbSBvbiB0aGlzIHRhcmdldD8KCj4KPj4KPj4gSWNlbm93eSBa
-aGVuZyAoMTIpOgo+PiDCoCBkdC1iaW5kaW5nczogdmVuZG9yLXByZWZpeGVzOiBhZGQgTnVjbGVp
-Cj4+IMKgIFJJU0MtVjogYWRkIE51Y2xlaSBTb0MgS2NvbmZpZyBvcHRpb24KPj4gwqAgZHQtYmlu
-ZGluZ3M6IHJpc2N2OiBhZGQgY29tcGF0aWJsZSBzdHJpbmdzIGZvciBOdWNsZWkgVVg2MDAgc2Vy
-aWVzCj4+IMKgIGR0LWJpbmRpbmdzOiB0aW1lcjogYWRkIGNvbXBhdGlibGUgZm9yIE51Y2xlaSBV
-WDYwMCBDTElOVC1jb21wYXQKPj4gdGltZXIKPj4gwqAgZHQtYmluZGluZ3M6IGludGVycnVwdC1j
-b250cm9sbGVyOiBhZGQgY29tcGF0aWJsZSBzdHJpbmcgZm9yIFVYNjAwCj4+IMKgwqDCoCBQTElD
-Cj4+IMKgIGR0LWJpbmRpbmdzOiBzZXJpYWw6IGFkZCBjb21wYXRpYmxlIHN0cmluZyBmb3IgTnVj
-bGVpIERlbW9Tb0MgVUFSVAo+PiDCoCBkdC1iaW5kaW5nczogc3BpOiBhZGQgY29tcGF0aWJsZSBz
-dHJpbmcgZm9yIE51Y2xlaSBEZW1vU29DIFNQSQo+PiDCoCBkdC1iaW5kaW5nczogcmlzY3Y6IGFk
-ZCBiaW5kaW5nIGZvciBOdWNsZWkgcGxhdGZvcm0gYm9hcmRzCj4+IMKgIHJpc2N2OiBkdHM6IGFk
-ZCBkZXZpY2UgdHJlZSBmb3IgTnVjbGVpIERlbW9Tb0Mgdy8gVVg2MDAgb24gRERSMjAwVAo+PiDC
-oCBSSVNDLVY6IHdvcmthcm91bmQgTnVjbGVpIFVYNjAwIGNvcmVzIHdpdGggYnJva2VuIFNBVFAg
-Q1NSCj4+IMKgIE1BSU5UQUlORVJTOiBhZGQgbXlzZWxmIGFzIE51Y2xlaSBTb0NzL0NQVXMgc3Vw
-cG9ydGVyCj4+IMKgIG1haWxtYXA6IGFkZCBJY2Vub3d5IFpoZW5nJ3MgTnVjbGVpIG1haWwgYWRk
-cmVzc2VzCj4+Cj4+IMKgLm1haWxtYXDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgMSArCj4+IMKgLi4u
-L3NpZml2ZSxwbGljLTEuMC4wLnlhbWzCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoCB8wqAgMSArCj4+IMKgLi4uL2RldmljZXRyZWUvYmluZGluZ3MvcmlzY3YvY3B1cy55YW1s
-wqDCoMKgwqDCoMKgIHzCoCA3ICsrCj4+IMKgLi4uL2RldmljZXRyZWUvYmluZGluZ3MvcmlzY3Yv
-bnVjbGVpLnlhbWzCoMKgwqDCoCB8IDI3ICsrKysrKysrCj4+IMKgLi4uL2JpbmRpbmdzL3Nlcmlh
-bC9zaWZpdmUtc2VyaWFsLnlhbWzCoMKgwqDCoMKgwqDCoCB8wqAgMSArCj4+IMKgLi4uL2Rldmlj
-ZXRyZWUvYmluZGluZ3Mvc3BpL3NwaS1zaWZpdmUueWFtbMKgwqAgfMKgIDEgKwo+PiDCoC4uLi9i
-aW5kaW5ncy90aW1lci9zaWZpdmUsY2xpbnQueWFtbMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgMSAr
-Cj4+IMKgLi4uL2RldmljZXRyZWUvYmluZGluZ3MvdmVuZG9yLXByZWZpeGVzLnlhbWzCoCB8wqAg
-MiArCj4+IMKgTUFJTlRBSU5FUlPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgNyArKwo+PiDCoGFyY2gvcmlzY3Yv
-S2NvbmZpZy5zb2NzwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
-fMKgIDYgKysKPj4gwqBhcmNoL3Jpc2N2L2Jvb3QvZHRzL01ha2VmaWxlwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgMSArCj4+IMKgYXJjaC9yaXNjdi9ib290L2R0cy9udWNs
-ZWkvTWFrZWZpbGXCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgMiArCj4+IMKgLi4uL2R0cy9udWNs
-ZWkvbnVjbGVpLWRlbW9zb2MtZGRyMjAwdC5kdHNpwqDCoMKgIHwgNDEgKysrKysrKysrKysrCj4+
-IMKgLi4uL251Y2xlaS9udWNsZWktZGVtb3NvYy11eDYwMC1kZHIyMDB0LmR0c8KgwqAgfCAxMyAr
-KysrCj4+IMKgLi4uL2Jvb3QvZHRzL251Y2xlaS9udWNsZWktZGVtb3NvYy11eDYwMC5kdHNpIHwg
-NDkgKysrKysrKysrKysrKysKPj4gwqAuLi4vcmlzY3YvYm9vdC9kdHMvbnVjbGVpL251Y2xlaS1k
-ZW1vc29jLmR0c2kgfCA2Nwo+PiArKysrKysrKysrKysrKysrKysrCj4+IMKgYXJjaC9yaXNjdi9p
-bmNsdWRlL2FzbS92ZW5kb3JpZF9saXN0LmjCoMKgwqDCoMKgwqDCoCB8wqAgMSArCj4+IMKgYXJj
-aC9yaXNjdi9tbS9pbml0LmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoCB8IDE3ICsrKysrCj4+IMKgMTggZmlsZXMgY2hhbmdlZCwgMjQ1IGluc2VydGlv
-bnMoKykKPj4gwqBjcmVhdGUgbW9kZSAxMDA2NDQKPj4gRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVl
-L2JpbmRpbmdzL3Jpc2N2L251Y2xlaS55YW1sCj4+IMKgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gv
-cmlzY3YvYm9vdC9kdHMvbnVjbGVpL01ha2VmaWxlCj4+IMKgY3JlYXRlIG1vZGUgMTAwNjQ0IGFy
-Y2gvcmlzY3YvYm9vdC9kdHMvbnVjbGVpL251Y2xlaS1kZW1vc29jLQo+PiBkZHIyMDB0LmR0c2kK
-Pj4gwqBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9ib290L2R0cy9udWNsZWkvbnVjbGVp
-LWRlbW9zb2MtdXg2MDAtCj4+IGRkcjIwMHQuZHRzCj4+IMKgY3JlYXRlIG1vZGUgMTAwNjQ0IGFy
-Y2gvcmlzY3YvYm9vdC9kdHMvbnVjbGVpL251Y2xlaS1kZW1vc29jLQo+PiB1eDYwMC5kdHNpCj4+
-IMKgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvYm9vdC9kdHMvbnVjbGVpL251Y2xlaS1k
-ZW1vc29jLmR0c2kKPj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+On Mon, Feb 21, 2022 at 5:42 AM Tsukasa OI <research_trasio@irq.a4lg.com> wrote:
+>
+> On 2022/02/16 16:43, Atish Patra wrote:
+> > On Tue, Feb 15, 2022 at 10:59 PM Tsukasa OI
+> > <research_trasio@irq.a4lg.com> wrote:
+> >>
+> >> On 2022/02/16 15:01, Atish Patra wrote:
+> >>> On Tue, Feb 15, 2022 at 9:04 PM Tsukasa OI <research_trasio@irq.a4lg.com> wrote:
+> >>>>
+> >>>> This commit replaces print_isa function to extract base ISA from device
+> >>>> tree ("riscv,isa").  It uses a subset of Tsukasa's riscv_fill_hwcap ISA
+> >>>> parser.
+> >>>>
+> >>>> Design choices (1):
+> >>>>
+> >>>> It constructs base ISA string from the original string (does not cut
+> >>>> the original string like Atish's).  This is to strip version numbers
+> >>>> (too minor to represent as major ISA) but this behavior may be
+> >>>> debatable.
+> >>>>
+> >>>
+> >>> A simpler solution would be to just invoke
+> >>> __riscv_isa_extension_available for all the base
+> >>> extensions (imafdc) and print the base isa string.
+> >>> We don't need to parse the ISA string again here.
+> >>
+> >> I agree that my patchset is ugly and simpler solution would be good.
+> >> (Having two parser for same string is definitely not the best idea.)
+> >> There are some testcases (some are not accepted by Spike's --isa option
+> >> and requires custom Device tree) for testing:
+> >>
+> >> *   rv64imac
+> >> *   rv64imacsu      (invalid ISA string; test QEMU workaround)
+> >> *   rv64imafdch
+> >> *   rv64imafdcsuh   (invalid ISA string; test QEMU workaround)
+> >> *   rv64imafdc_svinval_svnapot
+> >> *   rv64imafdcsvinval_svnapot
+> >> *   rv64i2p1m2a2fdcsvinval
+> >> *   rv64i2p1_m_afdcsvinval
+> >>
+> >
+> > Thanks. This is a good set of test cases that covers most of the cases.
+> >
+> >>>
+> >>>> Design choices (2):
+> >>>>
+> >>>> It skips when single-letter 'S' or 'U' is encountered.  It improves
+> >>>> familiarity with regular ISA string.
+> >>>>
+> >>>
+> >>> I don't think this is necessary because only Qemu appends 'S' & 'U' in
+> >>> the isa string.
+> >>> Your patch in Qemu will fix that for future releases of Qemu.
+> >>> All other commonly used platforms (hardware/spike) already use the
+> >>> correct ISA string.
+> >>
+> >> Yes, only QEMU.  It's not a serious problem like on cpufeature.c but would
+> >> be nice to remove them (when exposing to the usermode) to prevent confusion
+> >> on usermode side.
+> >>
+> >> If you invoke __riscv_isa_extension_available to generate base ISA string,
+> >> would you exclude 'S' and 'U'?
+> >>
+> >
+> > Yeah. That's easy. The possible valid base extensions are "IMAFHDQCBJPV".
+> > (all the possible defined bits in misa except 'S' & 'U')
+> > So we will invoke __riscv_isa_extension_available for those only.
+>
+> Order "IEMAFDQLCBKJTPVH" would be sufficient.
+> Note that some of them may be incompatible with Linux or currently has
+> no plan to be added as a single-letter extension.
+>
+> "E"**: RV32E
+>      (incompatible with Linux?)
+
+Yes. No need to check for this.
+
+> "L"**: Decimal floating point
+>      (placeholder is removed from the ISA specification)
+> "B"**: Bit manipulation
+>      (no single-letter extension plan but multiple subextensions)
+> "K"**: Cryptography
+>      (no single-letter extension plan but multiple subextensions)
+> "J"**: Extensions for dynamic languages
+>      (no single-letter extension but planned multiple subextensions)
+> "T"**: Transactional memory
+>      (placeholder is removed from the ISA specification)
+
+That's why I did not include L & T as the ISA spec doesn't talk about
+it anymore.
+I am in favor of not including right now and add it later if any
+future ratified spec includes it.
+
+> "P"  : narrow SIMD using GPR
+>      (this order is ratified but "P" is not)
+> "H"  : Hypervisor (different position compared to your post)
+>      (this order is not ratified but likely placed here
+>       for compatibility with QEMU and Spike)
+>
+
+I thought it would be after "imafdqc". I will change it as per your suggestion.
+We can always fix if the ratified spec will specify a different order.
+
+This is what base ISA extension (single letter) will look like (for now)
+
+"imafdqcbkjpvh"
+
+I will send the patch shortly.
+
+> Tsukasa
+>
+> >
+> >>>
+> >>>> This commit is intended to be squashed into Atish's isa_framework_v4
+> >>>> PATCH 6/6.
+> >>>>
+> >>>> Signed-off-by: Tsukasa OI <research_trasio@irq.a4lg.com>
+> >>>> ---
+> >>>>  arch/riscv/kernel/cpu.c | 83 ++++++++++++++++++++++++++++++++++++-----
+> >>>>  1 file changed, 74 insertions(+), 9 deletions(-)
+> >>>>
+> >>>> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> >>>> index 6f9660c0a973..3f9607a66d95 100644
+> >>>> --- a/arch/riscv/kernel/cpu.c
+> >>>> +++ b/arch/riscv/kernel/cpu.c
+> >>>> @@ -101,17 +101,82 @@ static void print_isa_ext(struct seq_file *f)
+> >>>>
+> >>>>  static void print_isa(struct seq_file *f, const char *isa)
+> >>>>  {
+> >>>> -       char *ext_start;
+> >>>> -       int isa_len = strlen(isa);
+> >>>> -       int base_isa_len = isa_len;
+> >>>> -
+> >>>> -       ext_start = strnchr(isa, isa_len, '_');
+> >>>> -       if (ext_start)
+> >>>> -               base_isa_len = isa_len - strlen(ext_start);
+> >>>> +       unsigned char parse_break = 0;
+> >>>> +       char base_isa[RISCV_ISA_EXT_BASE + 5];
+> >>>> +       char *base_isa_end = base_isa;
+> >>>> +       const char *isa_end = isa;
+> >>>> +#if IS_ENABLED(CONFIG_32BIT)
+> >>>> +       if (!strncmp(isa, "rv32", 4))
+> >>>> +               isa_end += 4;
+> >>>> +#elif IS_ENABLED(CONFIG_64BIT)
+> >>>> +       if (!strncmp(isa, "rv64", 4))
+> >>>> +               isa_end += 4;
+> >>>> +#endif
+> >>>> +       if (isa != isa_end) {
+> >>>> +               strncpy(base_isa, isa, isa_end - isa);
+> >>>> +               base_isa_end += isa_end - isa;
+> >>>> +               for (; *isa_end; ++isa_end) {
+> >>>> +                       switch (*isa_end++) {
+> >>>> +                       case 'x':
+> >>>> +                       case 'z':
+> >>>> +                               parse_break = 1;
+> >>>> +                               break;
+> >>>> +                       case 's':
+> >>>> +                               if (*isa_end != 'u') {
+> >>>> +                                       parse_break = 1;
+> >>>> +                                       break;
+> >>>> +                               }
+> >>>> +                               /**
+> >>>> +                                * Workaround for invalid single-letter 's'
+> >>>> +                                * (QEMU).  Should break for valid ISA string.
+> >>>> +                                */
+> >>>> +                               fallthrough;
+> >>>> +                       default:
+> >>>> +                               if (unlikely(!islower(isa_end[-1])
+> >>>> +                                   || base_isa_end == base_isa + sizeof(base_isa))) {
+> >>>> +                                       parse_break = 2;
+> >>>> +                                       break;
+> >>>> +                               }
+> >>>> +                               switch (isa_end[-1]) {
+> >>>> +                               case 's':
+> >>>> +                               case 'u':
+> >>>> +                                       break;
+> >>>> +                               default:
+> >>>> +                                       *base_isa_end++ = isa_end[-1];
+> >>>> +                               }
+> >>>> +                               /* Skip version number */
+> >>>> +                               if (!isdigit(*isa_end))
+> >>>> +                                       break;
+> >>>> +                               while (isdigit(*++isa_end))
+> >>>> +                                       ;
+> >>>> +                               if (*isa_end != 'p')
+> >>>> +                                       break;
+> >>>> +                               if (!isdigit(*++isa_end)) {
+> >>>> +                                       --isa_end;
+> >>>> +                                       break;
+> >>>> +                               }
+> >>>> +                               while (isdigit(*++isa_end))
+> >>>> +                                       ;
+> >>>> +                               break;
+> >>>> +                       }
+> >>>> +                       if (*isa_end != '_')
+> >>>> +                               --isa_end;
+> >>>> +                       if (parse_break)
+> >>>> +                               break;
+> >>>> +               }
+> >>>> +       }
+> >>>>
+> >>>> -       /* Print only the base ISA as it is */
+> >>>> +       /**
+> >>>> +        * Print only the base ISA
+> >>>> +        * (original ISA string as is if an error is encountered)
+> >>>> +        */
+> >>>>         seq_puts(f, "isa\t\t: ");
+> >>>> -       seq_write(f, isa, base_isa_len);
+> >>>> +       if (parse_break < 2) {
+> >>>> +               seq_write(f, base_isa, base_isa_end - base_isa);
+> >>>> +       } else {
+> >>>> +               isa_end += strlen(isa_end);
+> >>>> +               seq_write(f, isa, isa_end - isa);
+> >>>> +       }
+> >>>>         seq_puts(f, "\n");
+> >>>>  }
+> >>>>
+> >>>> --
+> >>>> 2.32.0
+> >>>>
+> >>>
+> >>>
+> >
+> >
+> >
+
+
+
+-- 
+Regards,
+Atish
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
