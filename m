@@ -4,78 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9103AC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Feb 2022 23:15:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6909C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Feb 2022 23:54:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=c76UkknOVZnvMLb+euTC3zc24aoE6az+qgMwfOziNqE=; b=WNHiJSCvZfbAoLqiw6oIK35qKA
-	TG/UF7ELQkMbGcG0twA9O+HTIpyNqHDxtADkGiwFnmzNCUQatdrF/u6ulaTbfLTOxX2lwu+OXnGDG
-	yqwhxGQRwvytDzKAVLiJkFwX6voVY2A44uBMmbN5tEHgy5cL0/lgEPgJmpJMN6XCb06iR07+UV4lM
-	jZLAzSph9FYIbzl/b3w4Cl/ir+1AFv8q4A4RI5YtWs99aYVz+Ewhr9EteYJdVLVwLE277oA6b7tlb
-	W3KLzxaW66tUv+mAlKAsqA2PVef47O5fIQKi8hItqKOEiDVC59cQ3EQChfYjb/4uENSSHqHQrvN/s
-	u4nZzjYA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sqHWlRx4e3ebdZmaiHoDHiwZQknnwmolUbPc0PJz9VA=; b=X63nrYk2Gscsuy
+	92V4BQTt4JmrifbYjQrijjdkPokVdyDTKlgubmp2iSHH9hWb8wm/NNOgUXAGgsaKUlvKHoBAWe9bY
+	Z97ITSdgSoJMCGNeHmN1+HLQAmRNZ4XAk1WtH0O7h860D19u8nPK0t/vTkzd0V5vLrzFaA6s0h8go
+	hZJU+nQBfOj3F+/byf7Ilr2sxgCl7xjz7eEcls5mrovmXxRLoxU5phVZkXmSiWH5Dhu7NuRa9FmhR
+	HK4vRAd4I57mPX5D512fcha7ndCAYwcN3VJdPV0JM/Rdp1NetvBEwH6f2dDmPPU+euf4puE1Zf+7k
+	N9oItOL0r4qZzwzqsiUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nMeNX-00Bt2j-Ul; Tue, 22 Feb 2022 23:15:31 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1nMeyo-00BxVz-8l; Tue, 22 Feb 2022 23:54:02 +0000
+Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nMeNU-00Bt23-Qb
- for linux-riscv@lists.infradead.org; Tue, 22 Feb 2022 23:15:30 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id
- nh8-20020a17090b364800b001bc023c6f34so460439pjb.3
- for <linux-riscv@lists.infradead.org>; Tue, 22 Feb 2022 15:15:28 -0800 (PST)
+ id 1nMeyl-00BxV7-OL
+ for linux-riscv@lists.infradead.org; Tue, 22 Feb 2022 23:54:01 +0000
+Received: by mail-yb1-xb2c.google.com with SMTP id g6so23198301ybe.12
+ for <linux-riscv@lists.infradead.org>; Tue, 22 Feb 2022 15:53:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=5pE50TTDWFLueJKrt7WZSWbPDAQlxEYigig8ufnxSqw=;
- b=MomlBqvzX/EV4d871QSkrxnPcNmppWaV+rJ5eU0e7Zw3bAOk01v1rBmpiWbTUT9VH5
- BOtWmYtrGqVHpApv9N2nYi7AmBk5kNAH5vhT8k7DyGgeSyDvdMfN1p7qIXDw45Nx28ps
- Yg1gWSViHyjbxkE7Y8hmm1rsMV05a3io++T+1HgLp8ZIeZgQ6zS049SyP8s2fQhV25I1
- zHNdfoR2d7nzrwqXP5+Jh88vRj/Iq8wqiLRSYSCCrClUEK20e7HvBCq+2U2zos9KtiUa
- A4u6m6iHcuGFdPCRZuS7/GeAQZIAhL61rvkByDSvMD73FkAsVvC4QF+7wxrQugiShAz7
- koPw==
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=dpzVG0KOz8Fj+NV1zL23tj2BFq6GNDaGLyfBrIVD5jE=;
+ b=PyuvmgVYjrMy43NHY161nkmfLiq4r+5QP/M/Shz+icoZQO2uxkc4Db0hbBtw0ClTlS
+ 0IgWnqOrCbCQQqeGkcvjXv8uP+NGTHWtzINHx3f726Fw+ZpgNJYYmMntVgzMqG/lz0zO
+ hC6O4gQkUYgxE7eBQgrN3fQuI8HquIa7HAgYw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=5pE50TTDWFLueJKrt7WZSWbPDAQlxEYigig8ufnxSqw=;
- b=D0KMkQ5WyQEpeublO26p3C4BZ1KuSdCn5Zxmwu+fEwEqDAmjapBmd1RMWgAIHFfu4z
- Oet+2xBzTADGin7PXX7/qU5VPlzhK9FI5LDDxEb/i+mmSjKmiXyFdWxdkGfIpo0+aeVa
- zy8Kml+B2zgx9gq4/g9wcnVXGF7ArLn2w1lRpZavrZsncJbQLdyirigeixij1TpaM9eB
- wrimQxWryFdxXGZdtoRWh/yRLTLrG3N2cR0N1K9A8Ww2nMl5PGiCVo2RPCNU8MWKv0NT
- 4HIDReAbnURVyYG0ddmvuhuhvSEVHXiTXfXBVRNH8XfzQfouQYV8OJ7vKnffTBuwF94s
- WR7Q==
-X-Gm-Message-State: AOAM531seciwKwR7vbM449W28By9eLX6cPiHi8SFfhMsaMiS3DGkbQSx
- 6oz1R2iZCzTAdt0PGWpN6H5KrXgeH41fJA==
-X-Google-Smtp-Source: ABdhPJyyATbltkiRInaszXFhi6tfmEasdHLKV+OMPMQ0rqqSD4GjJ3HZPfOe27ft9wDuT8FYyHr8ow==
-X-Received: by 2002:a17:90b:4cc6:b0:1bc:210d:b6fa with SMTP id
- nd6-20020a17090b4cc600b001bc210db6famr6416375pjb.104.1645571727708; 
- Tue, 22 Feb 2022 15:15:27 -0800 (PST)
-Received: from localhost ([12.3.194.138])
- by smtp.gmail.com with ESMTPSA id h21sm17640393pfo.12.2022.02.22.15.15.25
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 22 Feb 2022 15:15:26 -0800 (PST)
-Date: Tue, 22 Feb 2022 15:15:26 -0800 (PST)
-X-Google-Original-Date: Tue, 22 Feb 2022 15:14:36 PST (-0800)
-Subject: Re: [PATCH v2 0/7] Module relocation fixes and asm/insn.h header
-In-Reply-To: <20220131182720.236065-1-kernel@esmil.dk>
-CC: linux-riscv@lists.infradead.org, kernel@esmil.dk,
- Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- peterz@infradead.org, jpoimboe@redhat.com, 
- jbaron@akamai.com, rostedt@goodmis.org, ardb@kernel.org, alex@ghiti.fr,
- jszhang@kernel.org, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: kernel@esmil.dk
-Message-ID: <mhng-8e6926b7-c690-4398-a70a-072b11d7e6fa@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=dpzVG0KOz8Fj+NV1zL23tj2BFq6GNDaGLyfBrIVD5jE=;
+ b=mbpVyfHTXyEUa7+dyXTzooCmvSjBP04GQU28FY1PvJLv1vwACZVGM5MHMqLGTt9kB0
+ XRr8BBzH1MxUvZep9udnFqJLBPGDz2UURm8tX/W5Fk+CBVwpprMOg01IO/zUtWbCxrzV
+ Q2k8XwPe7lvmlitnHCO6o3e10yZlba+3W/4zOaqRiCRiU/z8lI37UamIvqfeTayDU1tI
+ V7qu5Dbmts1kJdtMVMFotMd34dy/XsrBf/NAQcgeRxfks3zocFmZhsOZxpPv/xmcFEwF
+ kJKVGuNJzYLLTEDJxIUo2O5MtcbScIA5gW2ZclTIsygbEu+1NKwVrxi7LIRU4MXeQCMw
+ YQoQ==
+X-Gm-Message-State: AOAM5334AJ2TgUdIELw1K4nJS82xVeQo+ITytbHPjyYeYbzcaq5qV6kS
+ h0umNMAUTqXNOLyIoxrX50Dmu2O1jmIltSNAqyqM
+X-Google-Smtp-Source: ABdhPJy6UzaGIddYbaCVbtXfioSbcvvSa1AporZq/9wCtEio4EIeXwWb/+d8dyiBe2FBgbDIAvz25JsnqNdgGunLs54=
+X-Received: by 2002:a25:d294:0:b0:61d:9809:9917 with SMTP id
+ j142-20020a25d294000000b0061d98099917mr25644565ybg.289.1645574038489; Tue, 22
+ Feb 2022 15:53:58 -0800 (PST)
+MIME-Version: 1.0
+References: <20220201082227.361967-1-apatel@ventanamicro.com>
+ <20220201082227.361967-2-apatel@ventanamicro.com>
+In-Reply-To: <20220201082227.361967-2-apatel@ventanamicro.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Tue, 22 Feb 2022 15:53:47 -0800
+Message-ID: <CAOnJCUKKHVxRUA2kdrCRD3-q=DQWP=_gAJn8UovR3jXk3N-qOw@mail.gmail.com>
+Subject: Re: [PATCH 1/6] RISC-V: KVM: Upgrade SBI spec version to v0.3
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel <anup@brainfault.org>, 
+ KVM General <kvm@vger.kernel.org>, kvm-riscv@lists.infradead.org, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220222_151528_933649_4CD24EC1 
-X-CRM114-Status: GOOD (  21.45  )
+X-CRM114-CacheID: sfid-20220222_155359_875259_E2FB5AC7 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,61 +80,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 31 Jan 2022 10:27:13 PST (-0800), kernel@esmil.dk wrote:
-> Apologies! I messed up v1. Please consider this patch set only.
+On Tue, Feb 1, 2022 at 12:23 AM Anup Patel <apatel@ventanamicro.com> wrote:
 >
-> The first patch removes a bunch of code from the asm/module.h which is
-> included in almost all drivers through linux/module.h. Next are two
-> patches to fix unaligned access when doing module relocations and do
-> proper range checks for auipc+jalr offsets.
+> We upgrade SBI spec version implemented by KVM RISC-V to v0.3 so
+> that Guest kernel can probe and use SBI extensions added by the
+> SBI v0.3 specification.
 >
-> I'm a little less confident about the following patches, so consider
-> this more of an RFC for those. The idea is to consolidate the RISC-V
-> instruction generation and manipulation similar to arm64's asm/insn.h
-> header.
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  arch/riscv/include/asm/kvm_vcpu_sbi.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> /Emil
+> diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+> index 76e4e17a3e00..04cd81f2ab5b 100644
+> --- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
+> +++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+> @@ -12,7 +12,7 @@
+>  #define KVM_SBI_IMPID 3
 >
-> Emil Renner Berthing (7):
->   riscv: Remove unneeded definitions from asm/module.h
->   riscv: Avoid unaligned access when relocating modules
->   riscv: Fix auipc+jalr relocation range checks
->   riscv: Add asm/insn.h header
->   riscv: Use asm/insn.h for module relocations
->   riscv: Use asm/insn.h to generate plt entries
->   riscv: Use asm/insn.h for jump labels
+>  #define KVM_SBI_VERSION_MAJOR 0
+> -#define KVM_SBI_VERSION_MINOR 2
+> +#define KVM_SBI_VERSION_MINOR 3
 >
->  arch/riscv/include/asm/insn.h       | 121 ++++++++++++++
->  arch/riscv/include/asm/module.h     |  87 ----------
->  arch/riscv/kernel/jump_label.c      |  12 +-
->  arch/riscv/kernel/module-sections.c |  71 +++++++++
->  arch/riscv/kernel/module.c          | 237 +++++++++++++---------------
->  5 files changed, 306 insertions(+), 222 deletions(-)
->  create mode 100644 arch/riscv/include/asm/insn.h
+>  struct kvm_vcpu_sbi_extension {
+>         unsigned long extid_start;
+> --
+> 2.25.1
+>
 
-These generally look good to me, though there's a lot of bit-field 
-twiddling so I'll take another look before merging it.  There's a 
-handful of minor issues:
 
-* There's a fix in here, mixed into the cleanups.  It's generally best 
-  to split those out.
-* There's another copy of the insn patterns in our BPF JIT, it'd be nice 
-  to clean that up too.  That can be a follow-on, though.
-* It's 2022, but there's some 2020 copyrights.  If this really is old 
-  stuff that's OK, I just wanted to check.
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
 
-I'm usually OK just re-ordering patches myself, but I figured I'd have 
-to ask about the copyright dates anyway.  LMK if you want to send a v2 
-with the fix pulled to the front, and what you want me to do about the 
-copyright dates (if you're going to send a v2 then just fix them, but if 
-you're not then just telling me is OK).
-
-Thanks!
+--
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
