@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 368C0C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Feb 2022 21:26:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 335C4C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Feb 2022 21:40:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=P8FYlqSj4+Ph2QzXAPkZwZvx/r2k/gXf2PhyalH5g64=; b=B5IBxuBsId+u4bQWpQ9wbdSCjt
-	O+ng8h5SJablDCPWozyE+dh4pmWwprgd5b3kGrV0wA6R3+oCA/EuLc151r7c6xuxhWP9VUX78KG9w
-	QeK3rchxn5bxUsMjVaj6QEhr7YFmjeCsBR2hoKp/kxfWYe8qOgdXWjggDVuAEuAhm3CzUrsenU4ch
-	WJlj67rOLeCHDSsMvwhCyxjo2Uszor046mIj2/OJPTpW/XyVoIKt8GzykiBhhC377ex+T4u1MUcoV
-	LhlUJ5dHnNokZpeH4HYDMq7+HirLRvHkGUQ90/sNY2e2EQJdcrhaKcBsoNBgEp0PnXrswwD+CJ2do
-	79U+5eow==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ETxuIwHAF3XmK2RoA7kaHCJBcpaeU8oAphrRRtMCM9c=; b=xi/sHhty0eo66i
+	pQAdoYwjKpIRKA65PRTtfE6gmoTnuLvLC9kBuo7DeC2q2uf2V5qCR7IRFB5e0MsAqD3pp31eUJpTR
+	B/K6u1v8BVFzm76hxzY0tISX+L5lsTdOJSTXWX1zxagtrs5VF/9HQvtp4F46A424SrWmzy5SpkRtY
+	nJUeFY2vKA9TEg2QOxuQsd87Si7fzd2Xtmt9Tvzbk0KtRk1bf0IigNd1zzi4U/vyYm1oy5QpSk/WZ
+	Hqpqzr6QcZwcbLXmjMWeS2XsO/Gt5v3n9RG8tNVViMY6VX+fNc8SsNJ1i2+7bAnz2QENupeSByYWe
+	IQrcXmK67fqr7xGRV/4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nMcfc-00Bf5O-CR; Tue, 22 Feb 2022 21:26:04 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1nMcsw-00Bh97-8N; Tue, 22 Feb 2022 21:39:50 +0000
+Received: from mail-oi1-f178.google.com ([209.85.167.178])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nMcfY-00Bf4i-RE
- for linux-riscv@lists.infradead.org; Tue, 22 Feb 2022 21:26:02 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id m22so880099pja.0
- for <linux-riscv@lists.infradead.org>; Tue, 22 Feb 2022 13:25:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=3GMGpmsX5Sxh9Rowtyg+q5ai/Y4YeFDXutspTo0kPIY=;
- b=DsglCOfTfDoGrxhojDR2OSvkMLectqlyMrwgCAEGegWACO8c2TO3vAZm5AvuDGbGB/
- AfwU6PLsVNUCL9sjR8OiRWGPi4w6Mzn6aTt5qLRA31Z+7Vx5g7yvzVgn/2TGDmrXwXiR
- tX9rxjEZWMPm4qrXxdcFSUA9q65lbl/3+7CWEkc1+dNLzw9Xgu9CtqgX8I0TdrWDtoZo
- Pmw8yG1ve5uOR3VxbLyZeiSfoyP2HyAaDw2y39u7pKSZHBN4E3RsPhF6wymCys+IwJX9
- 0ydnrclVrc7ceNSE2nLgoxHYLEf/goG4zfja1UxHEfgz/ElcwjHLS9z8yGLuZ+Hws1Oy
- cMDA==
+ id 1nMcst-00Bh8X-1m
+ for linux-riscv@lists.infradead.org; Tue, 22 Feb 2022 21:39:48 +0000
+Received: by mail-oi1-f178.google.com with SMTP id j24so13917591oii.11
+ for <linux-riscv@lists.infradead.org>; Tue, 22 Feb 2022 13:39:46 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=3GMGpmsX5Sxh9Rowtyg+q5ai/Y4YeFDXutspTo0kPIY=;
- b=f+rLPqtpPjkpc+BAo9WllGFAWxY2iB6lh/Y6JXHOJ9XWUjmOW8+ailXHU6fa25BG0b
- PRkxlLMm9vw70xkVNmHYw4vVTw3iapBIzFUvbBCo5xr6UM3PGJzgyvoPNhbRJ6xu6DfL
- 0wp8mHAx/fOt1tFtnJPb523iU9PTLUBlUeplPxTI4S+fnchHPDnaem7J+oV31hEcdv13
- 8z6u49AFz4S+1CaCYG2OnlY46dx0gLXESwRhaCcV7aV26hM6s3KVnWk6cTgEOMVGdgDk
- YjGWWVzaJo85JsJk6CZbQx9Lcu6XcoFMT04ZnbBiSfnVA31JHTlBqGAz/oYcvqu+G1xY
- zkdw==
-X-Gm-Message-State: AOAM533tSMEewepcNFyJtoRF1Eja36Jpmduh+eR7i43NxKQQmZtAFoZ7
- ZG0RISnh4e5ywzl57KjqHqWSew==
-X-Google-Smtp-Source: ABdhPJypI0+UnxdX0K60WGxnqqz7+VBknfaZQj1jQNbPKlMSomWbVprZfDl6vXHOVBZEQqXoDneoCQ==
-X-Received: by 2002:a17:902:6b49:b0:149:7c73:bd6f with SMTP id
- g9-20020a1709026b4900b001497c73bd6fmr24550258plt.46.1645565158855; 
- Tue, 22 Feb 2022 13:25:58 -0800 (PST)
-Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
- v22-20020a17090ad59600b001b7deb42251sm500928pju.15.2022.02.22.13.25.57
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=e2psfHnwZs5xWnyvc67xSSoWa8E4e5UoRm7fPOvRG2k=;
+ b=K2bsegpHa/+qiOtw6aYMCseSjDyn4jAZSwhVmtNo+3PvySxRAf9Ib6/llXTPoFZD3j
+ 0bIsGdfIDUCrZ2R6cMEpaXuCy52jmQHLJ+9Fp+Mhohn0UfMRloC8k4PurUz8UeGkez9v
+ xWqoD+xGybJSPkeOkrWA/qvPlwOxKKe8ErU0rSj4MBoM9OqzxBLM83mOsSbI1d1Xnr9T
+ TdnyrxcXnwO9Y9/zhh8VpYIBudJZ5EwaZpj5+zsEqWG47iqMS6pvLMZxyBusIa/5Vo7b
+ 3JLNlkcivqXFc0C3MzJyj74QP9PPzFPvAS9P408JgSkN6rU5Khya1g7gqXaqIKbBePBG
+ RbJw==
+X-Gm-Message-State: AOAM5321/LxkEz4TLZ2qsOYZ8zKSLKHyVK8JxyDjaOOhvwPITVJDIOuC
+ Hr6+iKEulxEbfsneykAaew==
+X-Google-Smtp-Source: ABdhPJzrwJuwkbQEPG+nVIKFTN4wDkORO0vQxGqMkcJcmKTnAAfMQGUYwq+TDGVA6kTamSiXcfTrIw==
+X-Received: by 2002:a05:6808:202a:b0:2d4:df36:68a4 with SMTP id
+ q42-20020a056808202a00b002d4df3668a4mr2997913oiw.16.1645565985765; 
+ Tue, 22 Feb 2022 13:39:45 -0800 (PST)
+Received: from robh.at.kernel.org (66-90-148-213.dyn.grandenetworks.net.
+ [66.90.148.213])
+ by smtp.gmail.com with ESMTPSA id r36sm9663847oiw.40.2022.02.22.13.39.43
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 22 Feb 2022 13:25:58 -0800 (PST)
-Date: Tue, 22 Feb 2022 13:25:58 -0800 (PST)
-X-Google-Original-Date: Tue, 22 Feb 2022 13:25:00 PST (-0800)
-Subject: Re: [PATCH] riscv: mm: Remove the copy operation of pmd
-In-Reply-To: <20220127100622.11856-1-hanchuanhua@oppo.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- jszhang@kernel.org, alexandre.ghiti@canonical.com, wangkefeng.wang@huawei.com, 
- zhengqi.arch@bytedance.com, ebiederm@xmission.com, liushixin2@huawei.com,
- linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, hanchuanhua@oppo.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: hanchuanhua@oppo.com
-Message-ID: <mhng-98c8a68c-ecb2-4db1-ab3e-3a35d5e764d0@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+ Tue, 22 Feb 2022 13:39:44 -0800 (PST)
+Received: (nullmailer pid 3634892 invoked by uid 1000);
+ Tue, 22 Feb 2022 21:39:43 -0000
+Date: Tue, 22 Feb 2022 15:39:43 -0600
+From: Rob Herring <robh@kernel.org>
+To: conor.dooley@microchip.com
+Cc: linux-gpio@vger.kernel.org, atishp@rivosinc.com, a.zummo@towertech.it,
+ devicetree@vger.kernel.org, robh+dt@kernel.org, paul.walmsley@sifive.com,
+ lee.jones@linaro.org, u.kleine-koenig@pengutronix.de,
+ linux-pwm@vger.kernel.org, ivan.griffin@microchip.com,
+ linus.walleij@linaro.org, brgl@bgdev.pl, daire.mcnamara@microchip.com,
+ jassisinghbrar@gmail.com, linux-rtc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ aou@eecs.berkeley.edu, krzysztof.kozlowski@canonical.com, palmer@dabbelt.com,
+ geert@linux-m68k.org, lewis.hanly@microchip.com, thierry.reding@gmail.com,
+ alexandre.belloni@bootlin.com
+Subject: Re: [PATCH v7 02/11] dt-bindings: soc/microchip: add info about
+ services to mpfs sysctrl
+Message-ID: <YhVYH6vf+b9jKeB3@robh.at.kernel.org>
+References: <20220214135840.168236-1-conor.dooley@microchip.com>
+ <20220214135840.168236-3-conor.dooley@microchip.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220214135840.168236-3-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220222_132600_929805_D8DF5A9C 
-X-CRM114-Status: GOOD (  21.28  )
+X-CRM114-CacheID: sfid-20220222_133947_135590_CDD898D3 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,81 +86,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Jan 2022 02:06:22 PST (-0800), hanchuanhua@oppo.com wrote:
-> Since all processes share the kernel address space,
-> we only need to copy pgd in case of a vmalloc page
-> fault exception, the other levels of page tables are
-> shared, so the operation of copying pmd is unnecessary.
->
-> Signed-off-by: hanchuanhua <hanchuanhua@oppo.com>
+On Mon, 14 Feb 2022 13:58:32 +0000, conor.dooley@microchip.com wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> The services actually provided by the system controller are not
+> documented so add some words about what the system controller can
+> actually do. Add a link to the oneline documentation with the specific
+> details of each individual service.
+> Also, drop the unneeded label from the example.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  arch/riscv/mm/fault.c | 10 +++-------
->  1 file changed, 3 insertions(+), 7 deletions(-)
->
-> diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-> index 4e9efbe..40694f0 100644
-> --- a/arch/riscv/mm/fault.c
-> +++ b/arch/riscv/mm/fault.c
-> @@ -102,9 +102,9 @@ static inline void bad_area(struct pt_regs *regs, struct mm_struct *mm, int code
->  static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long addr)
->  {
->         pgd_t *pgd, *pgd_k;
-> -       pud_t *pud, *pud_k;
-> -       p4d_t *p4d, *p4d_k;
-> -       pmd_t *pmd, *pmd_k;
-> +       pud_t *pud_k;
-> +       p4d_t *p4d_k;
-> +       pmd_t *pmd_k;
->         pte_t *pte_k;
->         int index;
->         unsigned long pfn;
-> @@ -132,14 +132,12 @@ static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long a
->         }
->         set_pgd(pgd, *pgd_k);
->
-> -       p4d = p4d_offset(pgd, addr);
->         p4d_k = p4d_offset(pgd_k, addr);
->         if (!p4d_present(*p4d_k)) {
->                 no_context(regs, addr);
->                 return;
->         }
->
-> -       pud = pud_offset(p4d, addr);
->         pud_k = pud_offset(p4d_k, addr);
->         if (!pud_present(*pud_k)) {
->                 no_context(regs, addr);
-> @@ -150,13 +148,11 @@ static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long a
->          * Since the vmalloc area is global, it is unnecessary
->          * to copy individual PTEs
->          */
-> -       pmd = pmd_offset(pud, addr);
->         pmd_k = pmd_offset(pud_k, addr);
->         if (!pmd_present(*pmd_k)) {
->                 no_context(regs, addr);
->                 return;
->         }
-> -       set_pmd(pmd, *pmd_k);
->
->         /*
->          * Make sure the actual PTE exists as well to
+>  .../soc/microchip/microchip,mpfs-sys-controller.yaml  | 11 ++++++++---
+>  1 file changed, 8 insertions(+), 3 deletions(-)
+> 
 
-This looks good, but "Signed off by" lines are supposed to have real 
-names associated with them and this looks like a handle to me.  There 
-also seems to be something broken with the email, as this is causing git 
-to blow up, but for a small patch like this that's OK as I can resurrect 
-it by hand.
-
-Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com> # aside from the name
-
-Please send a v2 with the proper Signed off by line, as that's not 
-something I'm supposed to just fix up myself.
-
-Thanks!
+Reviewed-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
