@@ -4,26 +4,26 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBCF6C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Feb 2022 15:37:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF70C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Feb 2022 15:38:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QF4Qy4FIuxmdyvpNb3poSSfU0bTVAYPlr85VS4RkwS0=; b=aarlDxIJg2XX8Y
-	Jk/BS+1l/DKS2GHXMCdj2GWZfbJVUlpKiz2wFUcMIWnvZL0I7TxZAbZTn/4Jo89Ad2CrnbqKc/QEM
-	qVS8L7yII/+F0kNyvgBDgFwEZi7W0gV/kPTjkqqtu0FJxljTJnIVoiyCo0W2+WFyCJjBsHg8c4hnX
-	nxN2kjKzd38oUEGlFa0ZqrOxoXIrc2gch1sNjR0pwdPBeXLLhDK+Gfu94INzk/Od2PK9CNct/mYj5
-	pEb01EnYr5p9X0nqqWqB+n1Feh9mdQP7mv/MmlnBLQh2ZbJ0dFquOSuMlJ6cyAq3F3keFv0r+4rGu
-	697zLif7KAv/jjUpB/wA==;
+	List-Owner; bh=0AwNo+roCfdsFFeLJWdmKKTp0+IqcbEdL0oi2UXFN5M=; b=y10VJf9ZPcGvTs
+	XZxb1oZfLdcms3K+ItAFw7Vt6KqRJx1AN5sr+ymdVwkIecBbyjtdgjO1Tp9SuUbNaXqe2pijTc3Lv
+	0s/y9ovykieuXNvukf6AOd4DKIAQMBdiK2Z+lWvJ1Ralxg0oBTfQbmWoc3a3fhnT28frghUkaViKt
+	OBMOjGg2LvV9wkAwKA9Tdq252b2+hR2759AARL36ncSJBxEJmqYLWAJMJvFOSMNHvczdxLJR+GiGJ
+	aB2LuLICtlW7rZV752jgo5MD8JEJNcxcbhv1qQ4EIR2/EUyCLBhg1hS278DryI79YbsXsr469y0W0
+	eruJ9IEUomqqy+p6Dk+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nMXE9-00AI3H-2j; Tue, 22 Feb 2022 15:37:21 +0000
+	id 1nMXF5-00AIjU-Eh; Tue, 22 Feb 2022 15:38:19 +0000
 Received: from [2001:4bb8:198:f8fc:c22a:ebfc:be8d:63c2] (helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nMXCH-00AGql-BP; Tue, 22 Feb 2022 15:35:25 +0000
+ id 1nMXCK-00AGsO-44; Tue, 22 Feb 2022 15:35:28 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: iommu@lists.linux-foundation.org
 Cc: x86@kernel.org, Stefano Stabellini <sstabellini@kernel.org>,
@@ -36,9 +36,9 @@ Cc: x86@kernel.org, Stefano Stabellini <sstabellini@kernel.org>,
  linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
  linux-hyperv@vger.kernel.org, tboot-devel@lists.sourceforge.net,
  linux-pci@vger.kernel.org
-Subject: [PATCH 03/11] swiotlb: simplify swiotlb_max_segment
-Date: Tue, 22 Feb 2022 16:35:06 +0100
-Message-Id: <20220222153514.593231-4-hch@lst.de>
+Subject: [PATCH 04/11] swiotlb: rename swiotlb_late_init_with_default_size
+Date: Tue, 22 Feb 2022 16:35:07 +0100
+Message-Id: <20220222153514.593231-5-hch@lst.de>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20220222153514.593231-1-hch@lst.de>
 References: <20220222153514.593231-1-hch@lst.de>
@@ -59,105 +59,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Remove the bogus Xen override that was usually larger than the actual
-size and just calculate the value on demand.  Note that
-swiotlb_max_segment still doesn't make sense as an interface and should
-eventually be removed.
+swiotlb_late_init_with_default_size is an overly verbose name that
+doesn't even catch what the function is doing, given that the size is
+not just a default but the actual requested size.
+
+Rename it to swiotlb_init_late.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- drivers/xen/swiotlb-xen.c |  2 --
- include/linux/swiotlb.h   |  1 -
- kernel/dma/swiotlb.c      | 20 +++-----------------
- 3 files changed, 3 insertions(+), 20 deletions(-)
+ arch/x86/pci/sta2x11-fixup.c | 2 +-
+ include/linux/swiotlb.h      | 2 +-
+ kernel/dma/swiotlb.c         | 6 ++----
+ 3 files changed, 4 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/xen/swiotlb-xen.c b/drivers/xen/swiotlb-xen.c
-index 47aebd98f52f5..485cd06ed39e7 100644
---- a/drivers/xen/swiotlb-xen.c
-+++ b/drivers/xen/swiotlb-xen.c
-@@ -202,7 +202,6 @@ int xen_swiotlb_init(void)
- 	rc = swiotlb_late_init_with_tbl(start, nslabs);
- 	if (rc)
- 		return rc;
--	swiotlb_set_max_segment(PAGE_SIZE);
- 	return 0;
- error:
- 	if (nslabs > 1024 && repeat--) {
-@@ -254,7 +253,6 @@ void __init xen_swiotlb_init_early(void)
- 
- 	if (swiotlb_init_with_tbl(start, nslabs, true))
- 		panic("Cannot allocate SWIOTLB buffer");
--	swiotlb_set_max_segment(PAGE_SIZE);
- }
- #endif /* CONFIG_X86 */
- 
+diff --git a/arch/x86/pci/sta2x11-fixup.c b/arch/x86/pci/sta2x11-fixup.c
+index 101081ad64b6d..e0c039a75b2db 100644
+--- a/arch/x86/pci/sta2x11-fixup.c
++++ b/arch/x86/pci/sta2x11-fixup.c
+@@ -57,7 +57,7 @@ static void sta2x11_new_instance(struct pci_dev *pdev)
+ 		int size = STA2X11_SWIOTLB_SIZE;
+ 		/* First instance: register your own swiotlb area */
+ 		dev_info(&pdev->dev, "Using SWIOTLB (size %i)\n", size);
+-		if (swiotlb_late_init_with_default_size(size))
++		if (swiotlb_init_late(size))
+ 			dev_emerg(&pdev->dev, "init swiotlb failed\n");
+ 	}
+ 	list_add(&instance->list, &sta2x11_instance_list);
 diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
-index f6c3638255d54..9fb3a568f0c51 100644
+index 9fb3a568f0c51..b48b26bfa0edb 100644
 --- a/include/linux/swiotlb.h
 +++ b/include/linux/swiotlb.h
-@@ -164,7 +164,6 @@ static inline void swiotlb_adjust_size(unsigned long size)
- #endif /* CONFIG_SWIOTLB */
+@@ -40,7 +40,7 @@ extern void swiotlb_init(int verbose);
+ int swiotlb_init_with_tbl(char *tlb, unsigned long nslabs, int verbose);
+ unsigned long swiotlb_size_or_default(void);
+ extern int swiotlb_late_init_with_tbl(char *tlb, unsigned long nslabs);
+-extern int swiotlb_late_init_with_default_size(size_t default_size);
++int swiotlb_init_late(size_t size);
+ extern void __init swiotlb_update_mem_attributes(void);
  
- extern void swiotlb_print_info(void);
--extern void swiotlb_set_max_segment(unsigned int);
- 
- #ifdef CONFIG_DMA_RESTRICTED_POOL
- struct page *swiotlb_alloc(struct device *dev, size_t size);
+ phys_addr_t swiotlb_tbl_map_single(struct device *hwdev, phys_addr_t phys,
 diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-index 36fbf1181d285..519e363097190 100644
+index 519e363097190..5f64b02fbb732 100644
 --- a/kernel/dma/swiotlb.c
 +++ b/kernel/dma/swiotlb.c
-@@ -75,12 +75,6 @@ struct io_tlb_mem io_tlb_default_mem;
- 
- phys_addr_t swiotlb_unencrypted_base;
- 
--/*
-- * Max segment that we can provide which (if pages are contingous) will
-- * not be bounced (unless SWIOTLB_FORCE is set).
-- */
--static unsigned int max_segment;
--
- static unsigned long default_nslabs = IO_TLB_DEFAULT_SIZE >> IO_TLB_SHIFT;
- 
- static int __init
-@@ -104,18 +98,12 @@ early_param("swiotlb", setup_io_tlb_npages);
- 
- unsigned int swiotlb_max_segment(void)
+@@ -290,11 +290,9 @@ swiotlb_init(int verbose)
+  * initialize the swiotlb later using the slab allocator if needed.
+  * This should be just like above, but with some error catching.
+  */
+-int
+-swiotlb_late_init_with_default_size(size_t default_size)
++int swiotlb_init_late(size_t size)
  {
--	return io_tlb_default_mem.nslabs ? max_segment : 0;
-+	if (!io_tlb_default_mem.nslabs)
-+		return 0;
-+	return rounddown(io_tlb_default_mem.nslabs << IO_TLB_SHIFT, PAGE_SIZE);
- }
- EXPORT_SYMBOL_GPL(swiotlb_max_segment);
- 
--void swiotlb_set_max_segment(unsigned int val)
--{
--	if (swiotlb_force == SWIOTLB_FORCE)
--		max_segment = 1;
--	else
--		max_segment = rounddown(val, PAGE_SIZE);
--}
--
- unsigned long swiotlb_size_or_default(void)
- {
- 	return default_nslabs << IO_TLB_SHIFT;
-@@ -267,7 +255,6 @@ int __init swiotlb_init_with_tbl(char *tlb, unsigned long nslabs, int verbose)
- 
- 	if (verbose)
- 		swiotlb_print_info();
--	swiotlb_set_max_segment(mem->nslabs << IO_TLB_SHIFT);
- 	return 0;
- }
- 
-@@ -368,7 +355,6 @@ swiotlb_late_init_with_tbl(char *tlb, unsigned long nslabs)
- 	swiotlb_init_io_tlb_mem(mem, virt_to_phys(tlb), nslabs, true);
- 
- 	swiotlb_print_info();
--	swiotlb_set_max_segment(mem->nslabs << IO_TLB_SHIFT);
- 	return 0;
- }
- 
+-	unsigned long nslabs =
+-		ALIGN(default_size >> IO_TLB_SHIFT, IO_TLB_SEGSIZE);
++	unsigned long nslabs = ALIGN(size >> IO_TLB_SHIFT, IO_TLB_SEGSIZE);
+ 	unsigned long bytes;
+ 	unsigned char *vstart = NULL;
+ 	unsigned int order;
 -- 
 2.30.2
 
