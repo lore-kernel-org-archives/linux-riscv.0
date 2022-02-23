@@ -4,72 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39BF4C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Feb 2022 13:10:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C4E6C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Feb 2022 13:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kNzQ8jvc9Tcbcm2/9aoCDB/6LD7NTlEFVa+HQG716L0=; b=LcdVcb6j07tKv3
-	p1SH2/Y98LUS7S8a9V1F0mUeiT3sHHJNpR9kcb8PUK0TcxIiq53bYURnYHt7VBMRyy/1xbZaWMb1v
-	OD3+r2bOU9fEpdcCmjuaMPgY+T1wul/QqO/tmb8+AOwrm+04t8Bqn99RhET0LDboQHdhCnT3yDrUg
-	8aAXsfVe4VMfD1pWNWyItWGZe1zKvhAkAHC1R2PkLgKfVAm1E5myyYWkULcS5kPJ466YX89vJdfxc
-	ko92iopHtZNanzj40V+xj/2gDANANqh+bG7vq0gusdJreMjRFdgoJcSvmLKawnbfHlkTK1ljUOizd
-	B46XDRX2RvaaCLERPWNA==;
+	List-Owner; bh=MEkapd6uXo59Fml7Vv1gREe2btsf8rkWL/fso+dJc10=; b=Ibfcr4YXk8hunu
+	d6+mX4js6F19G/+Of7VBUxR8nmXG+VUmCKcA8dD9MPMH4X0f8jkKnUtZiOGcDAVZ6CzdHzdMbQkzk
+	BGR8VLjVzw7vkXgMxJ5qUnfd9/qGKK7rO98DyNhuzkd9UF8wvrbqt4RtT6H3TYcmT1hAogpX0Gfkk
+	aq2gW+iK+izO4ALnRYmpfVHbuOZ0cLRpkw7b3V1t6mocgGvNOPM/DKlQhwBEbGwBHtr2Cg6tLzUdq
+	G9RiEWI7Mht6Td/sB/6J5SXUxmemV4KP23V50iFhCEVPWYZCD3BnoI+BsU128LekPNXrXC6MvHQyE
+	b3j2zHGNngvWJQk6uTKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nMrPQ-00ENNW-S1; Wed, 23 Feb 2022 13:10:20 +0000
-Received: from mout.kundenserver.de ([217.72.192.74])
+	id 1nMrTL-00EPCS-Vu; Wed, 23 Feb 2022 13:14:24 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nMrFE-00EJmb-I1
- for linux-riscv@lists.infradead.org; Wed, 23 Feb 2022 12:59:50 +0000
-Received: from mail-wm1-f54.google.com ([209.85.128.54]) by
- mrelayeu.kundenserver.de (mreue107 [213.165.67.113]) with ESMTPSA (Nemesis)
- id 1MV5KC-1nldMy0GD0-00S7WE for <linux-riscv@lists.infradead.org>; Wed, 23
- Feb 2022 13:59:46 +0100
-Received: by mail-wm1-f54.google.com with SMTP id
- o62-20020a1ca541000000b00380e3cc26b7so2890328wme.0
- for <linux-riscv@lists.infradead.org>; Wed, 23 Feb 2022 04:59:45 -0800 (PST)
-X-Gm-Message-State: AOAM53077btrmUzAgKpbRydtlWPLgMgQYeFMLQ+aZe4O6iz50AqBdDh7
- uzeMWanXnGXUzAIMBY9DEJNssicIS9lBFveLszQ=
-X-Google-Smtp-Source: ABdhPJwrXMZ2Sp+1Yv51dw7LJzOihjOcH8LsPOt8g857TtX9P2CjdxvZ6l9BpnSV+7TOp6DTTWj/oYgAaIYR4u/i5CU=
-X-Received: by 2002:a05:600c:2108:b0:34e:870:966e with SMTP id
- u8-20020a05600c210800b0034e0870966emr7466945wml.173.1645621185080; Wed, 23
- Feb 2022 04:59:45 -0800 (PST)
+ id 1nMrQI-00ENiX-TT
+ for linux-riscv@lists.infradead.org; Wed, 23 Feb 2022 13:11:21 +0000
+Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com
+ [209.85.208.71])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id C58FD3F1F3
+ for <linux-riscv@lists.infradead.org>; Wed, 23 Feb 2022 13:11:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1645621865;
+ bh=UXKLKyZvqZuicoDX6WsicwD+NuWstrOluCAJwIKeGTs=;
+ h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+ To:Cc:Content-Type;
+ b=tMaQvSmSeXv4FtciBqxBRv6hYe0jKOzX+/RfPsvfkmXDWxUOOBBXdUfe3/03saP1z
+ v5alKkvvVSxmVftqMhrUIyT8ZD3c1HZyzMuoH3PDTUO3RCVcaunZYV+duVKShz5GhC
+ sDFtHux1d746CX7tCS+5bT75p9k06pJFxlmPVrO4wYqp/CHrXAGmY8MHElq3+0KFFE
+ k/jMk027cJHyhP4QoIPeJPo8083tcjYpaXyyt4YuKQbNMfpvsz2baXYqX5pd8UTO7Q
+ z8hPr0T1RkeVSU79rX0OlB0yF7c6JcgjplqJEzNGbj8BFet27YR83ydYwLzEAF8nXf
+ X9f2oMYS0t4Tw==
+Received: by mail-ed1-f71.google.com with SMTP id
+ e10-20020a056402190a00b00410f20467abso13554673edz.14
+ for <linux-riscv@lists.infradead.org>; Wed, 23 Feb 2022 05:11:05 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=UXKLKyZvqZuicoDX6WsicwD+NuWstrOluCAJwIKeGTs=;
+ b=yA4rLeQ/sr+GMIgVG4M+O4nJRA/mnrzXciZ6q/z1QMGBJfkcPmGEw+ahECedyQwI91
+ 18iXv6FIcjI6RjNa4DvW+p0w0MyqXMKlwPGUpHcfNPm1TgHqQBBgjd1FLm51WL/jSGD2
+ 36sTAFmIG8e/8BPx8jVNnuDMjB9j3OpyvKh6SkExFbwad1p0rdhMzGsxf2JW/KIYUgMp
+ goMvRf6TkOARXsXgqbkRzvMhS4onbZEalA+zkFEXbn8g1Rm8avLgdDAPWH0yVg8T5Jyt
+ ZqTcHdcV/QtAIn1VI6Xn5hgSrn22wF93gMtkd3LuGwLG71dsfMuYTHYvchAzxIdRRc6B
+ HoOQ==
+X-Gm-Message-State: AOAM530koSDbTH8gQ9tRqI1oyP//QULgL4Vyy95jFMv5LaGOjZ0GzmbA
+ SdhmXIHwXJOM7cpBebtLGeF/x7YPR5GYqeCkhT8EceGuJ/vxUMVB5gU5AajVkebd2DYv9tN2hDV
+ XzHjv1MYCRteKr/GtO18gLX67hYTPAHd4+AjTpE/CAGEVeofeW6nS9MOnynWSbQ==
+X-Received: by 2002:a17:906:d9db:b0:6ce:8bfb:53c9 with SMTP id
+ qk27-20020a170906d9db00b006ce8bfb53c9mr22490686ejb.10.1645621865038; 
+ Wed, 23 Feb 2022 05:11:05 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJwwfwzNpAYIVgE7reRUJKUajrHRzMqRRe2Abz2bXiKaC8Mok6ZuxByqkcTiP4VdlcCzzvouoi25V+9aste03gA=
+X-Received: by 2002:a17:906:d9db:b0:6ce:8bfb:53c9 with SMTP id
+ qk27-20020a170906d9db00b006ce8bfb53c9mr22490660ejb.10.1645621864802; Wed, 23
+ Feb 2022 05:11:04 -0800 (PST)
 MIME-Version: 1.0
-References: <202202231910.H30peLyl-lkp@intel.com>
-In-Reply-To: <202202231910.H30peLyl-lkp@intel.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Wed, 23 Feb 2022 13:59:29 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a3dL3AJ31c7znroXH+hZaEJvxdqszxTU6D6Q2BgcV0Mog@mail.gmail.com>
-Message-ID: <CAK8P3a3dL3AJ31c7znroXH+hZaEJvxdqszxTU6D6Q2BgcV0Mog@mail.gmail.com>
-Subject: Re: include/linux/eventpoll.h:81:13: sparse: sparse: restricted
- __poll_t degrades to integer
-To: kernel test robot <lkp@intel.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, kbuild-all@lists.01.org, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- linux-riscv <linux-riscv@lists.infradead.org>
-X-Provags-ID: V03:K1:16CruLWUerO7eK/FIBWsDexZMYMKmW2DXIMaIsGCRw/dFc+u4eh
- S1iAO6DOCZk8oyNY4PdHE0GtHQQNfTQk+/QSCAP6E6MXkwVnczIpMmkDxdlM8k0v97RUD9b
- WsX0O9Xy/AnfatXvWEuFwCuQIEImfvmWaPM4hvNEo2L/JU3P6l4jC/PqNHEcku/jHX9HHz9
- mI2pJy9Vd4oKGG+W+h/FA==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:82ZVjInlFo4=:R8WarU+pJYKf3nanYDpJ5T
- j+sURMapulySkij3EE4Cv0UBNuafXBiv1HmnLjbDcSAFny9frI0nXewI3jOoUcNgJ7sMA0gMi
- uOx2/vAkXkpBaWDY/De1CrPx3LvwyQYGdESDT6YPrRLsoyL4F9Knt8HDJ89RV8cdgnxdQytFI
- fy08vqrP9crCE36Ic51CKsvHRXSPrbk6LYFyO/zzINN0QOxRtIwLeTWPndrS2Yl4lDfzysH/G
- ROsXP575fExKNC+2/IPziGZX+FiM9/RdJvS9Z7vk4pQr1BLuEHBWzNjDR7xffjjk9qIU6914i
- s1sTedTa7U1iY2KDcqMRtq9XLUguq1tJEXmpSW4yij6G7H1/E/1uI20ecUedymMx9ykqKCeur
- Q0wIQjdTDQ1AxuW/1KauV26PhMLnBdJV9tXsoB7QP81vytCgYh7BB5xK/qTGKjtwosa4wBFGj
- w6jVCNbdhNIupn9rqfoeHJLdu16JWxJuVkkrDBkBUNXi5hpAvtg4Pjlml49sydSVzEnI5GqUK
- NiZr+m2rBr+owbkbcpVn1VF5FhGAUj9LQdpj21hiLWdr9//AFAnyNcOBL6xQryS9jDrnUQdT7
- bZ2TTwlh9uAV9Tc9Msglx/bUFlj/snL+8dwURtLY3+/kHushTu9XrmQsiB/YZ0miEbveSEDV5
- 9rUL+5/glM/fGgU0qzUbeeBWWrL7vocB/AR96l+lK7RfPJHtOI7SFNuW/Ifa7dJJbz4k=
+References: <20220221161232.2168364-1-alexandre.ghiti@canonical.com>
+ <20220221161232.2168364-5-alexandre.ghiti@canonical.com>
+ <CANp29Y7M=wSLBE8m0-CHKtYPkqgcxNiUPEyRNv-VHeR5O2BTYQ@mail.gmail.com>
+In-Reply-To: <CANp29Y7M=wSLBE8m0-CHKtYPkqgcxNiUPEyRNv-VHeR5O2BTYQ@mail.gmail.com>
+From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Date: Wed, 23 Feb 2022 14:10:53 +0100
+Message-ID: <CA+zEjCt02Cx1Q1yDGN9V6Wvgx0+jvcqft6U56M3wsidkW5sMjg@mail.gmail.com>
+Subject: Re: [PATCH -fixes v2 4/4] riscv: Fix config KASAN && DEBUG_VIRTUAL
+To: Aleksandr Nogikh <nogikh@google.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>, 
+ Dmitry Vyukov <dvyukov@google.com>, Nick Hu <nickhu@andestech.com>, 
+ linux-riscv@lists.infradead.org, LKML <linux-kernel@vger.kernel.org>, 
+ kasan-dev <kasan-dev@googlegroups.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220223_045948_949417_D65C75F8 
-X-CRM114-Status: GOOD (  16.27  )
+X-CRM114-CacheID: sfid-20220223_051115_168218_E50C612E 
+X-CRM114-Status: GOOD (  29.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,54 +104,155 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 23, 2022 at 1:47 PM kernel test robot <lkp@intel.com> wrote:
->
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> head:   5c1ee569660d4a205dced9cb4d0306b907fb7599
-> commit: 249dbe74d3c4b568a623fb55c56cddf19fdf0b89 ARM: 9108/1: oabi-compat: rework epoll_wait/epoll_pwait emulation
-> date:   6 months ago
-> config: riscv-randconfig-s031-20220221 (https://download.01.org/0day-ci/archive/20220223/202202231910.H30peLyl-lkp@intel.com/config)
-> compiler: riscv32-linux-gcc (GCC) 11.2.0
-> reproduce:
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # apt-get install sparse
->         # sparse version: v0.6.4-dirty
->         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=249dbe74d3c4b568a623fb55c56cddf19fdf0b89
->         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
->         git fetch --no-tags linus master
->         git checkout 249dbe74d3c4b568a623fb55c56cddf19fdf0b89
->         # save the config file to linux build tree
->         mkdir build_dir
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-11.2.0 make.cross C=1 CF='-fdiagnostic-prefix -D__CHECK_ENDIAN__' O=build_dir ARCH=riscv SHELL=/bin/bash
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
->
-> sparse warnings: (new ones prefixed by >>)
->    fs/eventpoll.c: note: in included file:
-> >> include/linux/eventpoll.h:81:13: sparse: sparse: restricted __poll_t degrades to integer
-> >> include/linux/eventpoll.h:81:13: sparse: sparse: restricted __poll_t degrades to integer
->    include/linux/eventpoll.h:81:13: sparse: sparse: cast from restricted __poll_t
+Hi Aleksandr,
 
-The code is only moved from one file to another, so I don't think this
-adds a new sparse
-warning but only changes the build log contents.
+On Tue, Feb 22, 2022 at 11:28 AM Aleksandr Nogikh <nogikh@google.com> wrote:
+>
+> Hi Alexandre,
+>
+> Thanks for the series!
+>
+> However, I still haven't managed to boot the kernel. What I did:
+> 1) Checked out the riscv/fixes branch (this is the one we're using on
+> syzbot). The latest commit was
+> 6df2a016c0c8a3d0933ef33dd192ea6606b115e3.
+> 2) Applied all 4 patches.
+> 3) Used the config from the cover letter:
+> https://gist.github.com/a-nogikh/279c85c2d24f47efcc3e865c08844138
+> 4) Built with `make -j32 ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-`
+> 5) Ran with `qemu-system-riscv64 -m 2048 -smp 1 -nographic -no-reboot
+> -device virtio-rng-pci -machine virt -device
+> virtio-net-pci,netdev=net0 -netdev
+> user,id=net0,restrict=on,hostfwd=tcp:127.0.0.1:12529-:22 -device
+> virtio-blk-device,drive=hd0 -drive
+> file=~/kernel-image/riscv64,if=none,format=raw,id=hd0 -snapshot
+> -kernel ~/linux-riscv/arch/riscv/boot/Image -append "root=/dev/vda
+> console=ttyS0 earlyprintk=serial"` (this is similar to how syzkaller
+> runs qemu).
+>
+> Can you please hint at what I'm doing differently?
 
->     77  static inline struct epoll_event __user *
->     78  epoll_put_uevent(__poll_t revents, __u64 data,
->     79                   struct epoll_event __user *uevent)
->     80  {
->   > 81          if (__put_user(revents, &uevent->events) ||
->     82              __put_user(data, &uevent->data))
->     83                  return NULL;
->     84
+A short summary of what I found to keep you updated:
 
-I think the problem is the riscv __put_user() macro, this should not
-warn when storing a __poll_t into a __user*__poll_t pointer.
+I compared your command line and mine, the differences are that I use
+"smp=4" and I add "earlycon" to the kernel command line. When added to
+your command line, that allows it to boot. I understand why it helps
+but I can't explain what's wrong...Anyway, I fixed a warning that I
+had missed and that allows me to remove the "smp=4" and "earlycon".
 
-       Arnd
+But this is not over yet...Your command line still does not allow to
+reach userspace, it fails with the following stacktrace:
+
+[   11.537817][    T1] Unable to handle kernel paging request at
+virtual address fffff5eeffffc800
+[   11.539450][    T1] Oops [#1]
+[   11.539909][    T1] Modules linked in:
+[   11.540451][    T1] CPU: 0 PID: 1 Comm: swapper/0 Not tainted
+5.17.0-rc1-00007-ga68b89289e26-dirty #28
+[   11.541364][    T1] Hardware name: riscv-virtio,qemu (DT)
+[   11.542032][    T1] epc : kasan_check_range+0x96/0x13e
+[   11.542654][    T1]  ra : memset+0x1e/0x4c
+[   11.543388][    T1] epc : ffffffff8046c312 ra : ffffffff8046ca16 sp
+: ffffaf8007337b70
+[   11.544037][    T1]  gp : ffffffff85866c80 tp : ffffaf80073d8000 t0
+: 0000000000046000
+[   11.544637][    T1]  t1 : fffff5eeffffc9ff t2 : 0000000000000000 s0
+: ffffaf8007337ba0
+[   11.545409][    T1]  s1 : 0000000000001000 a0 : fffff5eeffffca00 a1
+: 0000000000001000
+[   11.546072][    T1]  a2 : 0000000000000001 a3 : ffffffff8039ef24 a4
+: ffffaf7ffffe4000
+[   11.546707][    T1]  a5 : fffff5eeffffc800 a6 : 0000004000000000 a7
+: ffffaf7ffffe4fff
+[   11.547541][    T1]  s2 : ffffaf7ffffe4000 s3 : 0000000000000000 s4
+: ffffffff8467faa8
+[   11.548277][    T1]  s5 : 0000000000000000 s6 : ffffffff85869840 s7
+: 0000000000000000
+[   11.548950][    T1]  s8 : 0000000000001000 s9 : ffffaf805a54a048
+s10: ffffffff8588d420
+[   11.549705][    T1]  s11: ffffaf7ffffe4000 t3 : 0000000000000000 t4
+: 0000000000000040
+[   11.550465][    T1]  t5 : fffff5eeffffca00 t6 : 0000000000000002
+[   11.551131][    T1] status: 0000000000000120 badaddr:
+fffff5eeffffc800 cause: 000000000000000d
+[   11.551961][    T1] [<ffffffff8039ef24>] pcpu_alloc+0x84a/0x125c
+[   11.552928][    T1] [<ffffffff8039f994>] __alloc_percpu+0x28/0x34
+[   11.553555][    T1] [<ffffffff83286954>] ip_rt_init+0x15a/0x35c
+[   11.554128][    T1] [<ffffffff83286d24>] ip_init+0x18/0x30
+[   11.554642][    T1] [<ffffffff8328844a>] inet_init+0x2a6/0x550
+[   11.555428][    T1] [<ffffffff80003220>] do_one_initcall+0x132/0x7e4
+[   11.556049][    T1] [<ffffffff83201f7a>] kernel_init_freeable+0x510/0x5b4
+[   11.556771][    T1] [<ffffffff831424e4>] kernel_init+0x28/0x21c
+[   11.557344][    T1] [<ffffffff800056a0>] ret_from_exception+0x0/0x14
+[   11.585469][    T1] ---[ end trace 0000000000000000 ]---
+
+0xfffff5eeffffc800 is a KASAN address that points to the very end of
+vmalloc address range, which is weird since KASAN_VMALLOC is not
+enabled.
+Moreover my command line does not trigger the above bug, and I'm
+trying to understand why:
+
+/home/alex/work/qemu/build/riscv64-softmmu/qemu-system-riscv64 -M virt
+-bios /home/alex/work/opensbi/build/platform/generic/firmware/fw_dynamic.bin
+-kernel /home/alex/work/kernel-build/riscv_rv64_kernel/arch/riscv/boot/Image
+-netdev user,id=net0 -device virtio-net-device,netdev=net0 -drive
+file=/home/alex/work/kernel-build/rootfs.ext2,format=raw,id=hd0
+-device virtio-blk-device,drive=hd0 -nographic -smp 4 -m 16G -s
+-append "rootwait earlycon root=/dev/vda ro earlyprintk=serial"
+
+I'm looking into all of this and will get back with a v3 soon :)
+
+Thanks,
+
+Alex
+
+
+
+
+
+
+>
+> A simple config with KASAN, KASAN_OUTLINE and DEBUG_VIRTUAL now indeed
+> leads to a booting kernel, which was not the case before.
+> make defconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
+> ./scripts/config -e KASAN -e KASAN_OUTLINE -e DEBUG_VIRTUAL
+> make olddefconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
+>
+> --
+> Best Regards,
+> Aleksandr
+>
+> On Mon, Feb 21, 2022 at 5:17 PM Alexandre Ghiti
+> <alexandre.ghiti@canonical.com> wrote:
+> >
+> > __virt_to_phys function is called very early in the boot process (ie
+> > kasan_early_init) so it should not be instrumented by KASAN otherwise it
+> > bugs.
+> >
+> > Fix this by declaring phys_addr.c as non-kasan instrumentable.
+> >
+> > Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+> > ---
+> >  arch/riscv/mm/Makefile | 3 +++
+> >  1 file changed, 3 insertions(+)
+> >
+> > diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
+> > index 7ebaef10ea1b..ac7a25298a04 100644
+> > --- a/arch/riscv/mm/Makefile
+> > +++ b/arch/riscv/mm/Makefile
+> > @@ -24,6 +24,9 @@ obj-$(CONFIG_KASAN)   += kasan_init.o
+> >  ifdef CONFIG_KASAN
+> >  KASAN_SANITIZE_kasan_init.o := n
+> >  KASAN_SANITIZE_init.o := n
+> > +ifdef CONFIG_DEBUG_VIRTUAL
+> > +KASAN_SANITIZE_physaddr.o := n
+> > +endif
+> >  endif
+> >
+> >  obj-$(CONFIG_DEBUG_VIRTUAL) += physaddr.o
+> > --
+> > 2.32.0
+> >
 
 _______________________________________________
 linux-riscv mailing list
