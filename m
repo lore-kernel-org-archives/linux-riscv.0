@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D40C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Feb 2022 06:21:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E690C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Feb 2022 07:02:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3OvcQPA08AEa4vOs7jMUcDb2Mo8jXkxxK2Y02h1FnkE=; b=wjdAOImxck3gvVRAGBj+5D4hjE
-	vmzaGUNWQR/trAErxEsuDZbNDOR+sTzhS3oDIsihT2RMbcMC5HflpZ5FVqXSdOuHqmknms5VVn38s
-	ZPJoJZov7NcP7s9ixLUJNtCQVz2Z6ufFlzTNvDjpWUjGhen2fAgMUEsPny7t9/h4Akv4kQn5HeetD
-	HOIHSubnK4MxLZNdxePLmodqcWHfPhDAdquDfeN6uFcHnSpgkd4ASz12Tv99PBCaYH/kW6eyGKRdU
-	8YWP9IRJNSakApQ7nDt5PkKlXYeHQH2HSp31/joH2hCecY6A7M8g13RcKnNjOJt2wFCWdpyL1iu51
-	awMhXZOA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=p6+ydlBk4dPjF7nqguVvL2Mtq/t9FVEbNWrsJrbEi3I=; b=x5DqggjgFVgM5T
+	fsd1W1wghTsgrtZWsAnfpgmeA852OXh4Se/aN12V1jy+UyM59V1OS2g1aJavIm1jZe4uUQFgz3Msu
+	hi1tpP9yuvU32sj0ovCRpwmbOLMRm20+4Bz20k2tvZkqbTmLg1K8tzgr0KcUxElt4f5cqiIaf8b/Q
+	tStkxHY2PDpagnf6stlpCBDFFN4cuRkE5WnopDihRtDCF/bhkfai1kQHXL49g71krLW40PO8W4wIE
+	izttBb2dkinC98A0fi670UsLtwZCHoUiewggRzF+pQ9Q60fd1QGlxyqISAUMatHOt0y+eUyE9jMDP
+	fgoQeP6d8GvGtMOVSeBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nMl1G-00Cx4L-0x; Wed, 23 Feb 2022 06:20:58 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1nMlfb-00D3xw-9g; Wed, 23 Feb 2022 07:02:39 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nMl0z-00CwyX-V2
- for linux-riscv@lists.infradead.org; Wed, 23 Feb 2022 06:20:43 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <ukl@pengutronix.de>)
- id 1nMl0k-0005Jx-7B; Wed, 23 Feb 2022 07:20:26 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
- by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
- (envelope-from <ukl@pengutronix.de>)
- id 1nMl0h-000lGz-8Y; Wed, 23 Feb 2022 07:20:22 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
- (envelope-from <ukl@pengutronix.de>)
- id 1nMl0f-004xzq-GS; Wed, 23 Feb 2022 07:20:21 +0100
-Date: Wed, 23 Feb 2022 07:20:18 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: conor.dooley@microchip.com
-Cc: linus.walleij@linaro.org, brgl@bgdev.pl, robh+dt@kernel.org,
- jassisinghbrar@gmail.com, thierry.reding@gmail.com,
- lee.jones@linaro.org, a.zummo@towertech.it,
- alexandre.belloni@bootlin.com, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, geert@linux-m68k.org,
- krzysztof.kozlowski@canonical.com, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pwm@vger.kernel.org, linux-rtc@vger.kernel.org,
- linux-riscv@lists.infradead.org, lewis.hanly@microchip.com,
- daire.mcnamara@microchip.com, ivan.griffin@microchip.com,
- atishp@rivosinc.com, Rob Herring <robh@kernel.org>,
- Palmer Dabbelt <palmer@rivosinc.com>
-Subject: Re: [PATCH v7 05/11] dt-bindings: pwm: add microchip corepwm binding
-Message-ID: <20220223062018.nbgidqxgh2soz625@pengutronix.de>
-References: <20220214135840.168236-1-conor.dooley@microchip.com>
- <20220214135840.168236-6-conor.dooley@microchip.com>
+ id 1nMlfO-00D3tk-Ql
+ for linux-riscv@lists.infradead.org; Wed, 23 Feb 2022 07:02:29 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id d3so22355235wrf.1
+ for <linux-riscv@lists.infradead.org>; Tue, 22 Feb 2022 23:02:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=oRZEca9XxWtSPuMYjIlFseYg4Esas5bKwsfEt1eCOA8=;
+ b=QIZAImlqRhQHCLYGSrjuJDOCauDvhW1Xw72lbZyNLZmlfJUmufZxFSBB8H2EoKBfKN
+ jxoSwFnND2lhvOlCrC0AidfwIohJ6YEjrVIrXGyyGzc+TWJgHAZww2WFDkbsbRxXjul8
+ qVPvMzBNI6gfzqTmYteg2xN1VqQ7fqk+Pc1po1AtwoR1q6n08ExvZHauK5YFE7VYcj0Z
+ P7U3rFT/AD4Nlw2WtttkORxq2jersjOa1mPgV6CpwJlXuQyh4yx6S86RN13NT2apUzMc
+ VKjIZnG57JmHU6woyskYANNc8Yk+LiEB0wEfmqBnv/2JpZcQP5nQaLkRkyXGn6EddG07
+ h/XQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=oRZEca9XxWtSPuMYjIlFseYg4Esas5bKwsfEt1eCOA8=;
+ b=ealtEdkDMNi/DwvPLo0n6vuXGb04lofjaVYathMhm7XL0EElvDSf2TJZsUeYDQKiat
+ FVUc9Y1e6f9rPc5yLtkEFOrsWeXE1Lr+jhbQiek4Vztzl0tCL/WivZVFR1ubwigdlsZ2
+ 2Q7xohQ6qWIYaxqeoBoD1AdiGH4UKwLk3q72bz3dMv0hkn4CBnn7OC+8cqt4aI+FzKjD
+ d88+U0KE3cvn3ZQpG2V5OVM8MabL2U2AedllNhQW29c1+FXs+V1VWoL0Ix5pHjierwvu
+ VT5V7sCWVZ2MdBDA8IGOX3j/HXq6Q8bUEliIcSZ7xxN4Wx8f+QIJaDMtsoEseQsxKUiR
+ rcnQ==
+X-Gm-Message-State: AOAM532SuacfjyxBhIQ+SrlqQjfJOWxxXFVXAfR/mcQBiKNwnv8MRLtg
+ tfHThMf8pgMDthYdU/oGgMiIXONNdGYYCLfSL9GSlA==
+X-Google-Smtp-Source: ABdhPJzIrMTIABtJTtVWuTHPjm8BpgI0RV6d0ZUOVxs96DHbAWugAxYt8PRNLPnq+EeeWflAFVTZPUTf3jvN2iH+k6Y=
+X-Received: by 2002:adf:ec47:0:b0:1e4:a380:bb73 with SMTP id
+ w7-20020adfec47000000b001e4a380bb73mr22204190wrn.86.1645599744652; Tue, 22
+ Feb 2022 23:02:24 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20220214135840.168236-6-conor.dooley@microchip.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+References: <20220210054947.170134-1-apatel@ventanamicro.com>
+ <20220210054947.170134-5-apatel@ventanamicro.com>
+In-Reply-To: <20220210054947.170134-5-apatel@ventanamicro.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 23 Feb 2022 12:32:11 +0530
+Message-ID: <CAAhSdy3jK26WFhG8Q=Up8hhHPpJCCkA09EKOi+B-Kp0U9Rwg7w@mail.gmail.com>
+Subject: Re: [PATCH v11 4/8] RISC-V: Add SBI HSM suspend related defines
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Anup Patel <apatel@ventanamicro.com>, 
+ "Rafael J . Wysocki" <rjw@rjwysocki.net>, Pavel Machek <pavel@ucw.cz>,
+ Rob Herring <robh+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
+ Sandeep Tripathy <milun.tripathy@gmail.com>, 
+ Atish Patra <atishp@atishpatra.org>,
+ Alistair Francis <Alistair.Francis@wdc.com>, 
+ Liush <liush@allwinnertech.com>, DTML <devicetree@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
+ "open list:THERMAL" <linux-pm@vger.kernel.org>, 
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ kvm-riscv@lists.infradead.org, Guo Ren <guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220222_222042_008529_F7B4E591 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20220222_230226_876884_EF66EACA 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,74 +91,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2540078847052370129=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Palmer
 
---===============2540078847052370129==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="gwgvgz5a7qk4akyl"
-Content-Disposition: inline
+On Thu, Feb 10, 2022 at 11:20 AM Anup Patel <apatel@ventanamicro.com> wrote:
+>
+> From: Anup Patel <anup.patel@wdc.com>
+>
+> We add defines related to SBI HSM suspend call and also
+> update HSM states naming as-per latest SBI specification.
+>
+> Signed-off-by: Anup Patel <anup.patel@wdc.com>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> Reviewed-by: Guo Ren <guoren@kernel.org>
 
+This patch is shared with "KVM RISC-V SBI v0.3 support".
+(https://lore.kernel.org/all/20220201082227.361967-2-apatel@ventanamicro.com/T/)
 
---gwgvgz5a7qk4akyl
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+How do you want to handle this ?
 
-On Mon, Feb 14, 2022 at 01:58:35PM +0000, conor.dooley@microchip.com wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
->=20
-> Add device tree bindings for the Microchip fpga fabric based "core" PWM
-> controller.
->=20
-> Reviewed-by: Rob Herring <robh@kernel.org>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+One option is that I take this patch through the KVM RISC-V tree
+and you can send this series (minus this patch) for 5.18 after the
+KVM RISC-V changes have been merged.
 
-I like it:
+Regards,
+Anup
 
-Acked-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
-
-nitpick: Put your S-o-b last in the commit log. (This doesn't justify a
-resend IMHO)
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---gwgvgz5a7qk4akyl
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmIV0h8ACgkQwfwUeK3K
-7AlVlggAjc/UORg1M305xP+mcUpcTjcvnX3xdiGHTYLbwN+fXq35yTpsJLWANloZ
-BC8MUWdeNvNbTXVlp04KLBbY+jRq9oMMptjH4OP5U8xa68BuWVLqWnUFuAVtneDn
-KjaMJV2rqc8wsNKyrU5oItCjuwU5bNTkH3JsicKDhVNRReoR2p6vmDGouStUlQyP
-68BNzKwNIcxR+T6jDbX21FJxc1YYOfYqu7Eabs1cf/You2yJs/fLfAMnS96znVp0
-mjAAS0RhwJfZaqy7//zM1ss/C4LfqTwkmlNG4A2OjzQ0EOfHKtN+oWYM96WdWqPk
-36F8R0cjTJKJfdpbtB31qmYxhPf+SA==
-=OU4n
------END PGP SIGNATURE-----
-
---gwgvgz5a7qk4akyl--
-
-
---===============2540078847052370129==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> ---
+>  arch/riscv/include/asm/sbi.h    | 27 ++++++++++++++++++++++-----
+>  arch/riscv/kernel/cpu_ops_sbi.c |  2 +-
+>  arch/riscv/kvm/vcpu_sbi_hsm.c   |  4 ++--
+>  3 files changed, 25 insertions(+), 8 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+> index d1c37479d828..06133b4f8e20 100644
+> --- a/arch/riscv/include/asm/sbi.h
+> +++ b/arch/riscv/include/asm/sbi.h
+> @@ -71,15 +71,32 @@ enum sbi_ext_hsm_fid {
+>         SBI_EXT_HSM_HART_START = 0,
+>         SBI_EXT_HSM_HART_STOP,
+>         SBI_EXT_HSM_HART_STATUS,
+> +       SBI_EXT_HSM_HART_SUSPEND,
+>  };
+>
+> -enum sbi_hsm_hart_status {
+> -       SBI_HSM_HART_STATUS_STARTED = 0,
+> -       SBI_HSM_HART_STATUS_STOPPED,
+> -       SBI_HSM_HART_STATUS_START_PENDING,
+> -       SBI_HSM_HART_STATUS_STOP_PENDING,
+> +enum sbi_hsm_hart_state {
+> +       SBI_HSM_STATE_STARTED = 0,
+> +       SBI_HSM_STATE_STOPPED,
+> +       SBI_HSM_STATE_START_PENDING,
+> +       SBI_HSM_STATE_STOP_PENDING,
+> +       SBI_HSM_STATE_SUSPENDED,
+> +       SBI_HSM_STATE_SUSPEND_PENDING,
+> +       SBI_HSM_STATE_RESUME_PENDING,
+>  };
+>
+> +#define SBI_HSM_SUSP_BASE_MASK                 0x7fffffff
+> +#define SBI_HSM_SUSP_NON_RET_BIT               0x80000000
+> +#define SBI_HSM_SUSP_PLAT_BASE                 0x10000000
+> +
+> +#define SBI_HSM_SUSPEND_RET_DEFAULT            0x00000000
+> +#define SBI_HSM_SUSPEND_RET_PLATFORM           SBI_HSM_SUSP_PLAT_BASE
+> +#define SBI_HSM_SUSPEND_RET_LAST               SBI_HSM_SUSP_BASE_MASK
+> +#define SBI_HSM_SUSPEND_NON_RET_DEFAULT                SBI_HSM_SUSP_NON_RET_BIT
+> +#define SBI_HSM_SUSPEND_NON_RET_PLATFORM       (SBI_HSM_SUSP_NON_RET_BIT | \
+> +                                                SBI_HSM_SUSP_PLAT_BASE)
+> +#define SBI_HSM_SUSPEND_NON_RET_LAST           (SBI_HSM_SUSP_NON_RET_BIT | \
+> +                                                SBI_HSM_SUSP_BASE_MASK)
+> +
+>  enum sbi_ext_srst_fid {
+>         SBI_EXT_SRST_RESET = 0,
+>  };
+> diff --git a/arch/riscv/kernel/cpu_ops_sbi.c b/arch/riscv/kernel/cpu_ops_sbi.c
+> index dae29cbfe550..2e16f6732cdf 100644
+> --- a/arch/riscv/kernel/cpu_ops_sbi.c
+> +++ b/arch/riscv/kernel/cpu_ops_sbi.c
+> @@ -111,7 +111,7 @@ static int sbi_cpu_is_stopped(unsigned int cpuid)
+>
+>         rc = sbi_hsm_hart_get_status(hartid);
+>
+> -       if (rc == SBI_HSM_HART_STATUS_STOPPED)
+> +       if (rc == SBI_HSM_STATE_STOPPED)
+>                 return 0;
+>         return rc;
+>  }
+> diff --git a/arch/riscv/kvm/vcpu_sbi_hsm.c b/arch/riscv/kvm/vcpu_sbi_hsm.c
+> index 2e383687fa48..1ac4b2e8e4ec 100644
+> --- a/arch/riscv/kvm/vcpu_sbi_hsm.c
+> +++ b/arch/riscv/kvm/vcpu_sbi_hsm.c
+> @@ -60,9 +60,9 @@ static int kvm_sbi_hsm_vcpu_get_status(struct kvm_vcpu *vcpu)
+>         if (!target_vcpu)
+>                 return -EINVAL;
+>         if (!target_vcpu->arch.power_off)
+> -               return SBI_HSM_HART_STATUS_STARTED;
+> +               return SBI_HSM_STATE_STARTED;
+>         else
+> -               return SBI_HSM_HART_STATUS_STOPPED;
+> +               return SBI_HSM_STATE_STOPPED;
+>  }
+>
+>  static int kvm_sbi_ext_hsm_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
+> --
+> 2.25.1
+>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2540078847052370129==--
-
