@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC90AC4321E
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Feb 2022 01:43:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58901C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Feb 2022 01:44:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=eV84M3dg/5CVmAKLowf/2frvpMnLBb+1S3dNk2rLqoY=; b=xeDc9xuPR5NKfoRzxkimdTRvz/
-	XSkApEyLZZXd/od/A4IDqRjzyYG4vD7EIPTnvdWm/c2vr+H1dvAp5MEz3hnG5it90PWmM8YFHDM5Y
-	NKPR2TkhWjj8I7UIQstG6Y8rGp8jQqXpVa7bDrsLWvXR1B6bhdYBJqxntvTsBXiVLPkEq9G4NEK+V
-	fe6+56/8zZjbzXQ6lAsvaRbnMXJ56nvOTsffcdyXTCAdYOjh+mdG0rwuEaY9JnnRC9roYZS1I4d+i
-	fvCgHoQc8aoJEYjckOMxp9Wcgip9WcPDADPvHJrqpfiqOPtxnzVwVLs0iJxhO5EIwec127rKJhCv2
-	mMU1mhKw==;
+	bh=ZKgJRLQRyR9Wwi0FN5YeJpXFC03ZZorT2JnlkZzhY48=; b=zZ8Hhu/Bg1Fwbkz+40dAL/hPAc
+	2dkz+DwCMSy6sZjKK2k9enMssumj9hHpkI9oUffFvhGmgn3uFjCQIfs3/uHkbTgbyPV0EN57GK08m
+	hNJrzhFXxBBBl16SVGXPcxQwlpjLKlBLhuHxTd0nfDqIBKmd+brJdTXIA9Z5cLVzfSieoGwIhuO8A
+	F3taTyjpIVaD++gBfQwF8Ekz9wzQV4KuC9AXXHRsJA2F6OUJeCX24CXyO7U8fMogoqBEO5qZlKep5
+	I6ZhWd1wKqts66Cvg6xgAdGKPqgFgsUdM8qYdbMUSyLhVPSaCD1rC2O+3WN9/FzeQ2jrtGVMNjUPS
+	IHbZ06bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nMggN-00C9Jf-KO; Wed, 23 Feb 2022 01:43:07 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1nMghH-00C9nI-NL; Wed, 23 Feb 2022 01:44:03 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nMgg4-00C98Z-SL
- for linux-riscv@lists.infradead.org; Wed, 23 Feb 2022 01:42:51 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 139so18546235pge.1
- for <linux-riscv@lists.infradead.org>; Tue, 22 Feb 2022 17:42:48 -0800 (PST)
+ id 1nMgg7-00C99b-Qz
+ for linux-riscv@lists.infradead.org; Wed, 23 Feb 2022 01:42:54 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id c9so5343929pll.0
+ for <linux-riscv@lists.infradead.org>; Tue, 22 Feb 2022 17:42:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=0IocTnUQr6FP+/17h4w0x+BM2h/3A2/lnyC/88qg3Bs=;
- b=R13J0wSyZZPNTQom3AZJOiGLek2zrP20pPQ688zl+tgug5wUJZShU6lCFD37V5/kJp
- JeO7jYxVmvhVcvGj1n5KL9Q5leNxho2H+q5Pxlt52gy6+FNyGIRUndYqBBW1rkixsrQn
- peDHM5f+J+9B99sOO5g+TpAf3ONqTdfm/N6vCqEZV2Svnqg/nAqf9vdSl+i+daj3vc1U
- C8XKnTn6BCH4cMwE9k/lY4QUmhsRFQAVjx+L8JdBqx9yHXc+QtTINrhhuO49G4QEA3UA
- Q/dlrczvS2rvMkquPSkn8hn19cg8tRetRtHaz1nW+sYspoWvvZRKxQo1qzIsn7yCtIBK
- sqJA==
+ bh=sgQ4pvXgGqOVO+N8moxatmc5jwRe/+fI7Xu5f8+JqZo=;
+ b=KgXpJPPMQwH9w8gozOo+zTZ1a384KP+JFjDoioBZIi6s8smONJs4TyFo+kGbejpfJD
+ AnUvVpcCwYJXDkegOkRKwenDm9Bcy1n1aQgGolNklkCPtpDxRjodlPh8ROfIoqqQGWgw
+ wc1Z3UQMXWImfkfneDskrMp1PLZpvMb2xrw9QAWiCjPSyKH5ztHVZbroTQ6dmTqG6Lc2
+ A4xkJ+LfVum26Hb76lucaasDCRzDWvpeo7LmSfqxJdE8LUVUlFGq9YldMUlujQM5YwMQ
+ 6E9ukyeoRGTs5m/d/477F+RzD75Ilmmnh/nact1JsbYH8PJzUdJ7E9F83aVz2wOyHISi
+ mxWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=0IocTnUQr6FP+/17h4w0x+BM2h/3A2/lnyC/88qg3Bs=;
- b=t5nX+PsSc32alKtFTc30orJnSyu4qio8yY4uUGuF3w2ymOyOHBt4N8X6s9UC1l+Ot5
- bT4BqOAdZRo9hQObYXRg0Nxi3b9Do2WLwgfFurnRj9anHPtPf6BPWXAF4Va6enuMTonG
- eE62KBV9csOPz3wVMz/3XP0dcFKw5YJOzmgomQMjfN/68GKppq0WVbRq7q75dWmVJC0p
- +DA0Eh+cw3awCI2EKJAzOMSrNwc0yBYsUJftZIt/byGHjk1+KmvqWnsZhniqrc425uKs
- D+Fj9kVPkqWV8m2sDGQxgW2QLJH5piBrDq4h9u5Ubrb7dt0tpBiFax05Kf3G5u9tUS8s
- YDfg==
-X-Gm-Message-State: AOAM531KbeOBsY0wFN0jWj4vDnElG5rJ27u58G6pl9xs2Kc9Sm8Gt0CD
- /9rhi67tUPBJhEP5VKG0bh072Q==
-X-Google-Smtp-Source: ABdhPJylGwlZ4pkklwCsJ/CgsKStHPUR8auG8o6qbIGMxI7Is7rM/BdMqQ7WDy6q2rxlHdpl/ppf/Q==
-X-Received: by 2002:a62:7c56:0:b0:4f0:f268:ec03 with SMTP id
- x83-20020a627c56000000b004f0f268ec03mr20977269pfc.8.1645580567591; 
- Tue, 22 Feb 2022 17:42:47 -0800 (PST)
+ bh=sgQ4pvXgGqOVO+N8moxatmc5jwRe/+fI7Xu5f8+JqZo=;
+ b=xgbgFGtk4iJzg9fakQOuHYDCld19ojzWCyuHRwLEKWANXMlC9w7xOf6ykk9j+GzxU4
+ 5jds387jXg8GsBr0b6fouh7sbdUiXEOMxSxHFPjxduLCDNOvwJBHDVM8CUXAVYcXG8Ho
+ cqMNPxdpqe6UyvdHy1fv2ZOTTr7nKC4YJ3TbETeTz+f1HzV5e0z0JcyrM+B0PDcD5Nv0
+ R8hZeByVUDqIZkVph9X9+8kFPYE5OI5mSdLX5HHyLMMozLKWvS8BzEYryzH0IseKWXhd
+ j3TzzKg42MeZouBOkOxgEXRRvQYoXxbfRx9Btbuz7nY02GHs9noRJZmPzntrrr2/lhQm
+ jp9g==
+X-Gm-Message-State: AOAM530mLBQ3USmJgwLkP5Llgdlo6YWjQazfkdCHYS3AF0of99GqUxaQ
+ CK1UgfrWnTIasuCPVR/ZEm+qxA==
+X-Google-Smtp-Source: ABdhPJxkNmlCxKcZY6Nd/iFQ4JtJcxqvcyi1rl2zS5ckqmSSgYGC4lT0zZsv8apBv/K5LTxvkvT3FA==
+X-Received: by 2002:a17:90b:197:b0:1bc:5037:7c52 with SMTP id
+ t23-20020a17090b019700b001bc50377c52mr6928726pjs.174.1645580570678; 
+ Tue, 22 Feb 2022 17:42:50 -0800 (PST)
 Received: from localhost ([12.3.194.138])
- by smtp.gmail.com with ESMTPSA id j12sm21551414pgf.63.2022.02.22.17.42.46
+ by smtp.gmail.com with ESMTPSA id o125sm17941244pfb.116.2022.02.22.17.42.49
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 22 Feb 2022 17:42:47 -0800 (PST)
-Date: Tue, 22 Feb 2022 17:42:47 -0800 (PST)
-X-Google-Original-Date: Tue, 22 Feb 2022 15:21:36 PST (-0800)
-Subject: Re: [PATCH V5 09/21] riscv: compat: Add basic compat data type
+ Tue, 22 Feb 2022 17:42:50 -0800 (PST)
+Date: Tue, 22 Feb 2022 17:42:50 -0800 (PST)
+X-Google-Original-Date: Tue, 22 Feb 2022 15:31:01 PST (-0800)
+Subject: Re: [PATCH V5 12/21] riscv: compat: syscall: Add entry.S
  implementation
-In-Reply-To: <20220201150545.1512822-10-guoren@kernel.org>
+In-Reply-To: <20220201150545.1512822-13-guoren@kernel.org>
 CC: guoren@kernel.org, Arnd Bergmann <arnd@arndb.de>, anup@brainfault.org,
  Greg KH <gregkh@linuxfoundation.org>, liush@allwinnertech.com, wefu@redhat.com,
  drew@beagleboard.org, 
@@ -78,11 +78,11 @@ CC: guoren@kernel.org, Arnd Bergmann <arnd@arndb.de>, anup@brainfault.org,
  x86@kernel.org, guoren@linux.alibaba.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: guoren@kernel.org
-Message-ID: <mhng-c74f1c06-0caa-4a71-82fa-7cf58a1ac0ca@palmer-ri-x1c9>
+Message-ID: <mhng-27e65ada-d969-45b9-aa94-e69469cdf095@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220222_174248_993966_A317816F 
-X-CRM114-Status: GOOD (  21.99  )
+X-CRM114-CacheID: sfid-20220222_174251_900503_7321F6B8 
+X-CRM114-Status: GOOD (  18.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,175 +99,80 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 01 Feb 2022 07:05:33 PST (-0800), guoren@kernel.org wrote:
+On Tue, 01 Feb 2022 07:05:36 PST (-0800), guoren@kernel.org wrote:
 > From: Guo Ren <guoren@linux.alibaba.com>
 >
-> Implement riscv asm/compat.h for struct compat_xxx,
-> is_compat_task, compat_user_regset, regset convert.
+> Implement the entry of compat_sys_call_table[] in asm. Ref to
+> riscv-privileged spec 4.1.1 Supervisor Status Register (sstatus):
 >
-> The rv64 compat.h has inherited most of the structs
-> from the generic one.
+>  BIT[32:33] = UXL[1:0]:
+>  - 1:32
+>  - 2:64
+>  - 3:128
 >
 > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 > Signed-off-by: Guo Ren <guoren@kernel.org>
 > Cc: Arnd Bergmann <arnd@arndb.de>
 > Cc: Palmer Dabbelt <palmer@dabbelt.com>
 > ---
->  arch/riscv/include/asm/compat.h      | 129 +++++++++++++++++++++++++++
->  arch/riscv/include/asm/thread_info.h |   1 +
->  2 files changed, 130 insertions(+)
->  create mode 100644 arch/riscv/include/asm/compat.h
+>  arch/riscv/include/asm/csr.h |  7 +++++++
+>  arch/riscv/kernel/entry.S    | 18 ++++++++++++++++--
+>  2 files changed, 23 insertions(+), 2 deletions(-)
 >
-> diff --git a/arch/riscv/include/asm/compat.h b/arch/riscv/include/asm/compat.h
-> new file mode 100644
-> index 000000000000..2ac955b51148
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/compat.h
-> @@ -0,0 +1,129 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +#ifndef __ASM_COMPAT_H
-> +#define __ASM_COMPAT_H
+> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> index ae711692eec9..eed96fa62d66 100644
+> --- a/arch/riscv/include/asm/csr.h
+> +++ b/arch/riscv/include/asm/csr.h
+> @@ -36,6 +36,13 @@
+>  #define SR_SD		_AC(0x8000000000000000, UL) /* FS/XS dirty */
+>  #endif
+>
+> +#ifdef CONFIG_COMPAT
+> +#define SR_UXL		_AC(0x300000000, UL) /* XLEN mask for U-mode */
+> +#define SR_UXL_32	_AC(0x100000000, UL) /* XLEN = 32 for U-mode */
+> +#define SR_UXL_64	_AC(0x200000000, UL) /* XLEN = 64 for U-mode */
+> +#define SR_UXL_SHIFT	32
+> +#endif
 > +
-> +#define COMPAT_UTS_MACHINE	"riscv\0\0"
+>  /* SATP flags */
+>  #ifndef CONFIG_64BIT
+>  #define SATP_PPN	_AC(0x003FFFFF, UL)
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index ed29e9c8f660..1951743f09b3 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -207,13 +207,27 @@ check_syscall_nr:
+>  	 * Syscall number held in a7.
+>  	 * If syscall number is above allowed value, redirect to ni_syscall.
+>  	 */
+> -	bgeu a7, t0, 1f
+> +	bgeu a7, t0, 3f
+> +#ifdef CONFIG_COMPAT
+> +	REG_L s0, PT_STATUS(sp)
+> +	srli s0, s0, SR_UXL_SHIFT
+> +	andi s0, s0, (SR_UXL >> SR_UXL_SHIFT)
+> +	li t0, (SR_UXL_32 >> SR_UXL_SHIFT)
+> +	sub t0, s0, t0
+> +	bnez t0, 1f
 > +
-> +/*
-> + * Architecture specific compatibility types
-> + */
-> +#include <linux/types.h>
-> +#include <linux/sched.h>
-> +#include <linux/sched/task_stack.h>
-> +#include <asm-generic/compat.h>
-> +
-> +static inline int is_compat_task(void)
-> +{
-> +	return test_thread_flag(TIF_32BIT);
-> +}
-> +
-> +struct compat_user_regs_struct {
-> +	compat_ulong_t pc;
-> +	compat_ulong_t ra;
-> +	compat_ulong_t sp;
-> +	compat_ulong_t gp;
-> +	compat_ulong_t tp;
-> +	compat_ulong_t t0;
-> +	compat_ulong_t t1;
-> +	compat_ulong_t t2;
-> +	compat_ulong_t s0;
-> +	compat_ulong_t s1;
-> +	compat_ulong_t a0;
-> +	compat_ulong_t a1;
-> +	compat_ulong_t a2;
-> +	compat_ulong_t a3;
-> +	compat_ulong_t a4;
-> +	compat_ulong_t a5;
-> +	compat_ulong_t a6;
-> +	compat_ulong_t a7;
-> +	compat_ulong_t s2;
-> +	compat_ulong_t s3;
-> +	compat_ulong_t s4;
-> +	compat_ulong_t s5;
-> +	compat_ulong_t s6;
-> +	compat_ulong_t s7;
-> +	compat_ulong_t s8;
-> +	compat_ulong_t s9;
-> +	compat_ulong_t s10;
-> +	compat_ulong_t s11;
-> +	compat_ulong_t t3;
-> +	compat_ulong_t t4;
-> +	compat_ulong_t t5;
-> +	compat_ulong_t t6;
-> +};
-> +
-> +static inline void regs_to_cregs(struct compat_user_regs_struct *cregs,
-> +				 struct pt_regs *regs)
-> +{
-> +	cregs->pc	= (compat_ulong_t) regs->epc;
-> +	cregs->ra	= (compat_ulong_t) regs->ra;
-> +	cregs->sp	= (compat_ulong_t) regs->sp;
-> +	cregs->gp	= (compat_ulong_t) regs->gp;
-> +	cregs->tp	= (compat_ulong_t) regs->tp;
-> +	cregs->t0	= (compat_ulong_t) regs->t0;
-> +	cregs->t1	= (compat_ulong_t) regs->t1;
-> +	cregs->t2	= (compat_ulong_t) regs->t2;
-> +	cregs->s0	= (compat_ulong_t) regs->s0;
-> +	cregs->s1	= (compat_ulong_t) regs->s1;
-> +	cregs->a0	= (compat_ulong_t) regs->a0;
-> +	cregs->a1	= (compat_ulong_t) regs->a1;
-> +	cregs->a2	= (compat_ulong_t) regs->a2;
-> +	cregs->a3	= (compat_ulong_t) regs->a3;
-> +	cregs->a4	= (compat_ulong_t) regs->a4;
-> +	cregs->a5	= (compat_ulong_t) regs->a5;
-> +	cregs->a6	= (compat_ulong_t) regs->a6;
-> +	cregs->a7	= (compat_ulong_t) regs->a7;
-> +	cregs->s2	= (compat_ulong_t) regs->s2;
-> +	cregs->s3	= (compat_ulong_t) regs->s3;
-> +	cregs->s4	= (compat_ulong_t) regs->s4;
-> +	cregs->s5	= (compat_ulong_t) regs->s5;
-> +	cregs->s6	= (compat_ulong_t) regs->s6;
-> +	cregs->s7	= (compat_ulong_t) regs->s7;
-> +	cregs->s8	= (compat_ulong_t) regs->s8;
-> +	cregs->s9	= (compat_ulong_t) regs->s9;
-> +	cregs->s10	= (compat_ulong_t) regs->s10;
-> +	cregs->s11	= (compat_ulong_t) regs->s11;
-> +	cregs->t3	= (compat_ulong_t) regs->t3;
-> +	cregs->t4	= (compat_ulong_t) regs->t4;
-> +	cregs->t5	= (compat_ulong_t) regs->t5;
-> +	cregs->t6	= (compat_ulong_t) regs->t6;
-> +};
-> +
-> +static inline void cregs_to_regs(struct compat_user_regs_struct *cregs,
-> +				 struct pt_regs *regs)
-> +{
-> +	regs->epc	= (unsigned long) cregs->pc;
-> +	regs->ra	= (unsigned long) cregs->ra;
-> +	regs->sp	= (unsigned long) cregs->sp;
-> +	regs->gp	= (unsigned long) cregs->gp;
-> +	regs->tp	= (unsigned long) cregs->tp;
-> +	regs->t0	= (unsigned long) cregs->t0;
-> +	regs->t1	= (unsigned long) cregs->t1;
-> +	regs->t2	= (unsigned long) cregs->t2;
-> +	regs->s0	= (unsigned long) cregs->s0;
-> +	regs->s1	= (unsigned long) cregs->s1;
-> +	regs->a0	= (unsigned long) cregs->a0;
-> +	regs->a1	= (unsigned long) cregs->a1;
-> +	regs->a2	= (unsigned long) cregs->a2;
-> +	regs->a3	= (unsigned long) cregs->a3;
-> +	regs->a4	= (unsigned long) cregs->a4;
-> +	regs->a5	= (unsigned long) cregs->a5;
-> +	regs->a6	= (unsigned long) cregs->a6;
-> +	regs->a7	= (unsigned long) cregs->a7;
-> +	regs->s2	= (unsigned long) cregs->s2;
-> +	regs->s3	= (unsigned long) cregs->s3;
-> +	regs->s4	= (unsigned long) cregs->s4;
-> +	regs->s5	= (unsigned long) cregs->s5;
-> +	regs->s6	= (unsigned long) cregs->s6;
-> +	regs->s7	= (unsigned long) cregs->s7;
-> +	regs->s8	= (unsigned long) cregs->s8;
-> +	regs->s9	= (unsigned long) cregs->s9;
-> +	regs->s10	= (unsigned long) cregs->s10;
-> +	regs->s11	= (unsigned long) cregs->s11;
-> +	regs->t3	= (unsigned long) cregs->t3;
-> +	regs->t4	= (unsigned long) cregs->t4;
-> +	regs->t5	= (unsigned long) cregs->t5;
-> +	regs->t6	= (unsigned long) cregs->t6;
-> +};
-> +
-> +#endif /* __ASM_COMPAT_H */
-> diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-> index 60da0dcacf14..9392e35c689d 100644
-> --- a/arch/riscv/include/asm/thread_info.h
-> +++ b/arch/riscv/include/asm/thread_info.h
-> @@ -91,6 +91,7 @@ struct thread_info {
->  #define TIF_SECCOMP		8	/* syscall secure computing */
->  #define TIF_NOTIFY_SIGNAL	9	/* signal notifications exist */
->  #define TIF_UPROBE		10	/* uprobe breakpoint or singlestep */
-> +#define TIF_32BIT		11	/* 32bit process */
+> +	/* Call compat_syscall */
+> +	la s0, compat_sys_call_table
+> +	j 2f
+> +1:
+> +#endif
+>  	/* Call syscall */
+>  	la s0, sys_call_table
+> +2:
+>  	slli t0, a7, RISCV_LGPTR
+>  	add s0, s0, t0
+>  	REG_L s0, 0(s0)
+> -1:
+> +3:
+>  	jalr s0
+>
+>  ret_from_syscall:
 
-Presumably that's just meant for 32-bit processes on rv64?  Probably 
-best to have the comment say that explicitly.
-
->  #define _TIF_SYSCALL_TRACE	(1 << TIF_SYSCALL_TRACE)
->  #define _TIF_NOTIFY_RESUME	(1 << TIF_NOTIFY_RESUME)
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
 
 _______________________________________________
 linux-riscv mailing list
