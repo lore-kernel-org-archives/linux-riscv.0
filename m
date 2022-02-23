@@ -4,48 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9798BC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Feb 2022 21:20:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6843C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Feb 2022 23:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TDNfEE4Qmj/vg3Z7uYB8K+/ks6lsdktDmqc84poOBoA=; b=FE+vkn31ozHErm
-	xX3awBI7rbUTfbv+pgXtSkAyFOCqSz3OPaJiY/o9LWLegiJOEg1DPDTYpZp0KTjZZ7VqDoGwSHLZP
-	okAR4PjxY3fgJjGFrwL5+APBJKQ8EWtT90+OpBHYWt43wvpztq6p3HhUpZVWeCzZVQxo2stdoJOIo
-	ggInwHJIoFuW8r64GzSl0RYSa/E41jcNKGPT0AaJIVzQmpzX+HAm7Zx6/uarAeNXzbrpvFSpA14XX
-	Lp35v3hVDrBcTNd0S0Y/QgwtdNprO6+24In3sFZBa05GS45L4QYpZwyyzHhK6QJ+GDa94lha5dSBp
-	SUJJ8UxQkL5AWOvZvoYw==;
+	List-Owner; bh=xzk4elnBVUsqOiALFLPxp5ehVKmgTzML3hzFbam/hKU=; b=Y8UWOEfS2jUsFk
+	6VsHQ65zW0jmkCVH5bm56zlrRvgpGHr87tAa3zqjxVWgyYtXMjFaWcCp7/2UNBaAT97/dV/XBNrJz
+	6ehtPWRZ/kxPP5vy6aqOhSYNgZbV8V90z5cKRYSPwKUeGbEl5FJ4f35H/Q4NuoQ+4UfQBxtFigQOM
+	i/tjJ/ofVlGwKnUZJwaWSEEMADpYHZbhE5VlFiKbBE+VhFLmj6YCIxpzknXSkmXBizRNtehAzzSat
+	7APQgnOWFKTM0/3evgVOKPIG3ZwhaPPo7yX4n/IbZk59qSyuMMneobigYBBkEwHxgu9nSpMsRDfIS
+	YfllftYEsQ/MagciTlSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nMz3E-00G5J9-7m; Wed, 23 Feb 2022 21:19:56 +0000
-Received: from angie.orcam.me.uk ([2001:4190:8020::34])
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nMz3A-00G5IC-TY
- for linux-riscv@lists.infradead.org; Wed, 23 Feb 2022 21:19:54 +0000
-Received: by angie.orcam.me.uk (Postfix, from userid 500)
- id 7946892009C; Wed, 23 Feb 2022 22:19:47 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
- by angie.orcam.me.uk (Postfix) with ESMTP id 7324B92009B;
- Wed, 23 Feb 2022 21:19:47 +0000 (GMT)
-Date: Wed, 23 Feb 2022 21:19:47 +0000 (GMT)
-From: "Maciej W. Rozycki" <macro@orcam.me.uk>
-To: Bjorn Helgaas <helgaas@kernel.org>
-cc: Ben Dooks <ben.dooks@codethink.co.uk>, paul.walmsley@sifive.com, 
- greentime.hu@sifive.com, lorenzo.pieralisi@arm.com, robh@kernel.org, 
- kw@linux.com, bhelgaas@google.com, linux-pci@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCHv4 2/2] PCI: fu740: Force gen1 for initial device probe
-In-Reply-To: <20220223205141.GA149346@bhelgaas>
-Message-ID: <alpine.DEB.2.21.2202232100220.27002@angie.orcam.me.uk>
-References: <20220223205141.GA149346@bhelgaas>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+	id 1nN16C-00GGPh-Rs; Wed, 23 Feb 2022 23:31:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nN16A-00GGOE-2I; Wed, 23 Feb 2022 23:31:07 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id B865561A00;
+ Wed, 23 Feb 2022 23:31:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62A8BC340E7;
+ Wed, 23 Feb 2022 23:30:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1645659061;
+ bh=lqCEQ++vi7cgL8SGDqvu6VRtg8aruPJlQBSjPBXBFVM=;
+ h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+ b=sbRe9FkUPCxCGG5QhSpQFHALisL4a0h67bCxhSLbAt1nLiwP1yIOk1Uj7FSa6KCb5
+ weBLktMX2iJ1azUVoI5qzyIPsB248hdzJqK4FY8iQs4ijX9ClxGFEG4dPQ2t94Tu+v
+ xnm83JKO7FsjVlGtupBZVZ1sGqkMArGtNnLjnEwqgMRRugYsRTn+yfOLhixpTMveFC
+ hFyJk7dTbBRw3IsZy86rcTOonVkHxoMQs0BGW96T4vsXyVidvkbPH0uwFh8RFITz5K
+ oD3k8dsNBCQPOLOspB8IOHbjF16KCCmPClOP9aOj20bxN2gTg9NdvWcdAxevymW0xQ
+ hD4A1zZdc89kw==
+Message-ID: <c6f461f1-1dd9-aec1-2c85-a3eda478a1be@kernel.org>
+Date: Wed, 23 Feb 2022 17:30:53 -0600
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.5.0
+Subject: Re: [PATCH v2 07/18] nios2: drop access_ok() check from __put_user()
+Content-Language: en-US
+To: Arnd Bergmann <arnd@kernel.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Christoph Hellwig <hch@lst.de>, linux-arch@vger.kernel.org,
+ linux-mm@kvack.org, linux-api@vger.kernel.org, arnd@arndb.de,
+ linux-kernel@vger.kernel.org, viro@zeniv.linux.org.uk
+Cc: linux@armlinux.org.uk, will@kernel.org, guoren@kernel.org,
+ bcain@codeaurora.org, geert@linux-m68k.org, monstr@monstr.eu,
+ tsbogend@alpha.franken.de, nickhu@andestech.com, green.hu@gmail.com,
+ shorne@gmail.com, deller@gmx.de, mpe@ellerman.id.au, peterz@infradead.org,
+ mingo@redhat.com, mark.rutland@arm.com, hca@linux.ibm.com, dalias@libc.org,
+ davem@davemloft.net, richard@nod.at, x86@kernel.org, jcmvbkbc@gmail.com,
+ ebiederm@xmission.com, akpm@linux-foundation.org, ardb@kernel.org,
+ linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org
+References: <20220216131332.1489939-1-arnd@kernel.org>
+ <20220216131332.1489939-8-arnd@kernel.org>
+From: Dinh Nguyen <dinguyen@kernel.org>
+In-Reply-To: <20220216131332.1489939-8-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220223_131953_159480_9DEDA459 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20220223_153106_246749_E9A46613 
+X-CRM114-Status: GOOD (  16.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,45 +86,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Feb 2022, Bjorn Helgaas wrote:
 
-> > +	dw_pcie_dbi_ro_wr_dis(dw);
-> > +}
-> > +
-> >  static int fu740_pcie_start_link(struct dw_pcie *pci)
-> >  {
-> >  	struct device *dev = pci->dev;
-> >  	struct fu740_pcie *afp = dev_get_drvdata(dev);
-> >  
-> > +	/* Force PCIe gen1 otherwise Unmatched board does not probe */
-> > +	fu740_pcie_force_gen1(pci, afp);
+
+On 2/16/22 07:13, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> I guess the "Unmatched" board is the only thing we need to care about
-> here?  Are there or will there be other boards that don't need this?
+> Unlike other architectures, the nios2 version of __put_user() has an
+> extra check for access_ok(), preventing it from being used to implement
+> __put_kernel_nofault().
+> 
+> Split up put_user() along the same lines as __get_user()/get_user()
+> 
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+>   arch/nios2/include/asm/uaccess.h | 56 +++++++++++++++++++-------------
+>   1 file changed, 33 insertions(+), 23 deletions(-)
+> 
+> diff --git a/arch/nios2/include/asm/uaccess.h b/arch/nios2/include/asm/uaccess.h
+> index ca9285a915ef..a5cbe07cf0da 100644
+> --- a/arch/nios2/include/asm/uaccess.h
+> +++ b/arch/nios2/include/asm/uaccess.h
+> @@ -167,34 +167,44 @@ do {									\
+>   	: "r" (val), "r" (ptr), "i" (-EFAULT));				\
+>   }
+>   
+> -#define put_user(x, ptr)						\
+> +#define __put_user_common(__pu_val, __pu_ptr)				\
+>   ({									\
+>   	long __pu_err = -EFAULT;					\
+> -	__typeof__(*(ptr)) __user *__pu_ptr = (ptr);			\
+> -	__typeof__(*(ptr)) __pu_val = (__typeof(*ptr))(x);		\
+> -	if (access_ok(__pu_ptr, sizeof(*__pu_ptr))) {	\
+> -		switch (sizeof(*__pu_ptr)) {				\
+> -		case 1:							\
+> -			__put_user_asm(__pu_val, "stb", __pu_ptr, __pu_err); \
+> -			break;						\
+> -		case 2:							\
+> -			__put_user_asm(__pu_val, "sth", __pu_ptr, __pu_err); \
+> -			break;						\
+> -		case 4:							\
+> -			__put_user_asm(__pu_val, "stw", __pu_ptr, __pu_err); \
+> -			break;						\
+> -		default:						\
+> -			/* XXX: This looks wrong... */			\
+> -			__pu_err = 0;					\
+> -			if (copy_to_user(__pu_ptr, &(__pu_val),		\
+> -				sizeof(*__pu_ptr)))			\
+> -				__pu_err = -EFAULT;			\
+> -			break;						\
+> -		}							\
+> +	switch (sizeof(*__pu_ptr)) {					\
+> +	case 1:								\
+> +		__put_user_asm(__pu_val, "stb", __pu_ptr, __pu_err);	\
+> +		break;							\
+> +	case 2:								\
+> +		__put_user_asm(__pu_val, "sth", __pu_ptr, __pu_err);	\
+> +		break;							\
+> +	case 4:								\
+> +		__put_user_asm(__pu_val, "stw", __pu_ptr, __pu_err);	\
+> +		break;							\
+> +	default:							\
+> +		/* XXX: This looks wrong... */				\
+> +		__pu_err = 0;						\
+> +		if (__copy_to_user(__pu_ptr, &(__pu_val),		\
+> +			sizeof(*__pu_ptr)))				\
+> +			__pu_err = -EFAULT;				\
+> +		break;							\
+>   	}								\
+>   	__pu_err;							\
+>   })
+>   
+> -#define __put_user(x, ptr) put_user(x, ptr)
+> +#define __put_user(x, ptr)						\
+> +({									\
+> +	__auto_type __pu_ptr = (ptr);					\
+> +	typeof(*__pu_ptr) __pu_val = (typeof(*__pu_ptr))(x);		\
+> +	__put_user_common(__pu_val, __pu_ptr);				\
+> +})
+> +
+> +#define put_user(x, ptr)						\
+> +({									\
+> +	__auto_type __pu_ptr = (ptr);					\
+> +	typeof(*__pu_ptr) __pu_val = (typeof(*__pu_ptr))(x);		\
+> +	access_ok(__pu_ptr, sizeof(*__pu_ptr)) ?			\
+> +		__put_user_common(__pu_val, __pu_ptr) :			\
+> +		-EFAULT;						\
+> +})
+>   
+>   #endif /* _ASM_NIOS2_UACCESS_H */
 
- I wonder if this is the other side of a supposed erratum observed here:
-
-<https://lore.kernel.org/all/alpine.DEB.2.21.2202010240190.58572@angie.orcam.me.uk/>
-
-Downstream there's the same ASMedia ASM2824 PCIe switch whose downstream 
-ports don't want to train with a Pericom part above Gen1.
-
- Of course we don't know an ASM2824 is there until we have successfully 
-negotiated the link, so we may have to generalise my proposal if we can 
-find a way similar to what I have done for U-boot that does not disturb 
-Linux's operation.  This is because there are PCIe option cards out there 
-with the ASM2824 onboard, so it could be possible for the problem to 
-trigger anywhere where the conditions for the erratum are met.
-
- Also in that case retraining should work with the cap removed to get a 
-higher final speed just as with the Pericom part.
-
-  Maciej
+Acked-by: Dinh Nguyen <dinguyen@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
