@@ -4,114 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07AD5C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Feb 2022 20:05:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAA11C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Feb 2022 20:21:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AxJxjQVgYBSqg9zRY1j6mlKXPbxiYISkNhmTbEDrUmI=; b=gGNsqwV3iYUYsC
-	D0D5TfWEO94XTbyHLtu+55w1/FtFuqPRO7exlYpwYXUNCm3mqu+06mTneIrAhTLen9wWB+kasGOwp
-	dQ1nXzzN4RfFs2R4nehsl9XoHBiu7PxOA9kb3hMzKX3rgzbMQnfOjQc+ayQ/iwXnYECmlypd1nMES
-	GKfCw9oz2qoR6yCgeZ2OPhGALE8n5ha6l3LMzRxR1YcuJQEwPF9hDRGT0TmFWNRpGD3ad4aA/Ejdo
-	UqixexowOH31w/aFezuVK30ZR5PVbYeqI1cLjJaMl6aOpXMz9tXqLf1uTryRHlWoksei8zcaofKCX
-	c2iDLzjwyQQRsfPHS1xg==;
+	List-Owner; bh=wovRidgI7c90yyrWvLOG0hwTLqNPsJf6/os1dCmIb+I=; b=MJTOixEGCoEQ55
+	9fS8oBf4aUWfRbSTohB4x3Uil2rHySe9fkfF0QW4Gpbd79LKXOnsblPipkV2n5uh4NiP0NkbYP7tJ
+	o5oBet0pxHtFS9ZFJz5a3/XNLHhl8pOQZX//M07FbYw1W5hRpcjSuwPzVYnIL+cfV9I2/kY2vxNx6
+	Uqdf9yjNsHCXOXADzt8Yc4tkcPgD+Yo5plYUaupxw8p/+zxIY3PAPGI7TE3OhYn49gP3dp7jeukOe
+	HNdfbVXVuAxTcCjbjEABtIhdSW/s4myus2c/zXuoL0dKsvT7hy82kPpd92x/sv172K9gDt3VQDioQ
+	58e3RpYXmdmh9+tBtb6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nMxtJ-00FyF5-Sh; Wed, 23 Feb 2022 20:05:37 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1nMy8I-00G0PE-5k; Wed, 23 Feb 2022 20:21:06 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nMxtH-00FyE4-6F
- for linux-riscv@lists.infradead.org; Wed, 23 Feb 2022 20:05:37 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id m3so39980914eda.10
- for <linux-riscv@lists.infradead.org>; Wed, 23 Feb 2022 12:05:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=linux-foundation.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=+S6BFzj6o5ckty5iXSThNrfkPsdFE94/fVb8NP4+aFs=;
- b=F/2f/aEUKxSuzDdCknAbug+t8clrlE0v7gj9NkhphhHftuFg6XGIjvpJXVx+ZHKhn9
- jOIdz4l7lK+/F1JhXkxR/PARyehOhzu1/S93ijWQKe7fGKOKTiRs9R81aIq3OYNVOgnf
- G4UcKLBEtMgH8cssPIzV42vV3R64/Z0YRVhdY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=+S6BFzj6o5ckty5iXSThNrfkPsdFE94/fVb8NP4+aFs=;
- b=Tji7cEzv/NNvIud/8w4OKsSayaS2nspW4r3kwyllcpjdtus1A/aHffbV36NkZlDLPU
- XC2V5woiq80sGqFLOUvfA4vLGlRqeAf8VQjp8C1MaWpyUpaJQhUJkCKMuRSYVgFAUPrJ
- nI+W4b5UYWRiIMnohFVg1xl11cpNLpqLV6jnfO45T2i+nfACKXwYPdcrV7SacYyZJyNi
- EzsykmpP94oQBs+XdW8sSpRfkhLqsBZLCfSpJjKcI/jjI86gKUdvjXr8Sb+2GeWjzW48
- hadrrV4pC1fYzPoatHr+n+LBVJ4eEy9gixL7SWwLqwIghzolABR/eu97YY0lp7gOZMd5
- fAcQ==
-X-Gm-Message-State: AOAM533ni2Q6DeqVSdG0AGzg99qDJQ00ZWA09vqHLawdwstWvI91GXsH
- 3fK9sgXlRviobAaCYFrD8O5M2fF8k+Xam0huyHc=
-X-Google-Smtp-Source: ABdhPJyeXnRgiLFGpwrLkIloeKq678RGnZvfpnGhPU5PxdOihUF5nKPseqixBsBny2GBF1Ou3XdtQg==
-X-Received: by 2002:a05:6402:90b:b0:412:a7cc:f5f9 with SMTP id
- g11-20020a056402090b00b00412a7ccf5f9mr1046280edz.136.1645646733051; 
- Wed, 23 Feb 2022 12:05:33 -0800 (PST)
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com.
- [209.85.221.52])
- by smtp.gmail.com with ESMTPSA id l2sm325892eds.28.2022.02.23.12.05.30
- for <linux-riscv@lists.infradead.org>
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Wed, 23 Feb 2022 12:05:31 -0800 (PST)
-Received: by mail-wr1-f52.google.com with SMTP id d3so25798456wrf.1
- for <linux-riscv@lists.infradead.org>; Wed, 23 Feb 2022 12:05:30 -0800 (PST)
-X-Received: by 2002:a05:6512:130b:b0:443:c2eb:399d with SMTP id
- x11-20020a056512130b00b00443c2eb399dmr822016lfu.27.1645646720244; Wed, 23 Feb
- 2022 12:05:20 -0800 (PST)
+ id 1nMy8E-00G0O8-SA
+ for linux-riscv@lists.infradead.org; Wed, 23 Feb 2022 20:21:05 +0000
+Received: (Authenticated sender: alexandre.belloni@bootlin.com)
+ by mail.gandi.net (Postfix) with ESMTPSA id 25761FF806;
+ Wed, 23 Feb 2022 20:20:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+ t=1645647659;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=Kppx7Y3HjhzvN/0jitv+VoeGh8Sofe2wA4Rh6vVi4nc=;
+ b=i/1fOodDKjajA7oMrrhNGuIu5sn0knGb8CS5vjJRRF7pgR6lo5Ax8zNhM85PKuJUiuuMMJ
+ F0ge0zIXNiPi+gichbf04LURreif0+ASM4CWWywE/KCI6lilVoJDvfZMYiuii5a4mRbP4Y
+ AUv8ltZiNhwC1Ql3jZABl97QRZdG2LeBIC7pGp17YhCDjdnwi+MxSbUwKYL84UFDGbQIgx
+ cscriGuvt8D1yBksk8WwgtAfGxiTH/2OeFLQtKidR0tQoG6rQw94NpHYVw/pgoiQ8+W72f
+ qmrsyQSEpelVR7uovNn5/lleH0xAvDpEEZO2utZV2oJeePAOqWCmWRRSuV7qVg==
+Date: Wed, 23 Feb 2022 21:20:54 +0100
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Conor.Dooley@microchip.com
+Cc: a.zummo@towertech.it, Lewis.Hanly@microchip.com,
+ Daire.McNamara@microchip.com, Ivan.Griffin@microchip.com,
+ atishp@rivosinc.com, palmer@rivosinc.com, robh@kernel.org,
+ linus.walleij@linaro.org, brgl@bgdev.pl, robh+dt@kernel.org,
+ jassisinghbrar@gmail.com, thierry.reding@gmail.com,
+ u.kleine-koenig@pengutronix.de, lee.jones@linaro.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ geert@linux-m68k.org, krzysztof.kozlowski@canonical.com,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+ linux-rtc@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v7 03/11] dt-bindings: rtc: add bindings for microchip
+ mpfs rtc
+Message-ID: <YhaXJofTTTgaoEsn@piout.net>
+References: <20220214135840.168236-1-conor.dooley@microchip.com>
+ <20220214135840.168236-4-conor.dooley@microchip.com>
+ <5b0681a0-ff46-7eb4-3644-0d1173c1f0d4@microchip.com>
+ <YhZQRqHib2+GR7Ma@piout.net>
+ <3483b6c4-67a7-5ed5-2953-728ea8ba5874@microchip.com>
 MIME-Version: 1.0
-References: <20220216131332.1489939-1-arnd@kernel.org>
- <20220216131332.1489939-10-arnd@kernel.org>
- <20220221132456.GA7139@alpha.franken.de>
-In-Reply-To: <20220221132456.GA7139@alpha.franken.de>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Wed, 23 Feb 2022 12:05:04 -0800
-X-Gmail-Original-Message-ID: <CAHk-=wjdHz6OU3M9T5zE9Fc9SNdDs52iOE+eVn-wuUT6UDpBLg@mail.gmail.com>
-Message-ID: <CAHk-=wjdHz6OU3M9T5zE9Fc9SNdDs52iOE+eVn-wuUT6UDpBLg@mail.gmail.com>
-Subject: Re: [PATCH v2 09/18] mips: use simpler access_ok()
-To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-Cc: Arnd Bergmann <arnd@kernel.org>, Christoph Hellwig <hch@lst.de>,
- linux-arch <linux-arch@vger.kernel.org>, 
- Linux-MM <linux-mm@kvack.org>, Linux API <linux-api@vger.kernel.org>, 
- Arnd Bergmann <arnd@arndb.de>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- Al Viro <viro@zeniv.linux.org.uk>,
- Russell King - ARM Linux <linux@armlinux.org.uk>, 
- Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
- Brian Cain <bcain@codeaurora.org>, 
- Geert Uytterhoeven <geert@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
- Nick Hu <nickhu@andestech.com>, 
- Greentime Hu <green.hu@gmail.com>, Dinh Nguyen <dinguyen@kernel.org>, 
- Stafford Horne <shorne@gmail.com>, Helge Deller <deller@gmx.de>,
- Michael Ellerman <mpe@ellerman.id.au>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Mark Rutland <mark.rutland@arm.com>, Heiko Carstens <hca@linux.ibm.com>,
- Rich Felker <dalias@libc.org>, 
- David Miller <davem@davemloft.net>, Richard Weinberger <richard@nod.at>, 
- "the arch/x86 maintainers" <x86@kernel.org>, Max Filippov <jcmvbkbc@gmail.com>,
- "Eric W. Biederman" <ebiederm@xmission.com>,
- Andrew Morton <akpm@linux-foundation.org>, 
- Ard Biesheuvel <ardb@kernel.org>, alpha <linux-alpha@vger.kernel.org>, 
- "open list:SYNOPSYS ARC ARCHITECTURE" <linux-snps-arc@lists.infradead.org>,
- linux-csky@vger.kernel.org, 
- linux-hexagon <linux-hexagon@vger.kernel.org>, linux-ia64@vger.kernel.org, 
- linux-m68k <linux-m68k@lists.linux-m68k.org>, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
- Openrisc <openrisc@lists.librecores.org>, 
- linux-parisc <linux-parisc@vger.kernel.org>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- linux-s390 <linux-s390@vger.kernel.org>, 
- Linux-sh list <linux-sh@vger.kernel.org>,
- linux-sparc <sparclinux@vger.kernel.org>, 
- linux-um <linux-um@lists.infradead.org>, 
- "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>
+Content-Disposition: inline
+In-Reply-To: <3483b6c4-67a7-5ed5-2953-728ea8ba5874@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220223_120535_240994_B455E27A 
-X-CRM114-Status: GOOD (  19.39  )
+X-CRM114-CacheID: sfid-20220223_122103_479490_4A996BBD 
+X-CRM114-Status: GOOD (  21.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,42 +83,125 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 21, 2022 at 5:25 AM Thomas Bogendoerfer
-<tsbogend@alpha.franken.de> wrote:
->
-> With this patch
-[ .. snip snip ..]
-> I at least get my simple test cases fixed, but I'm not sure this is
-> correct.
+On 23/02/2022 15:25:00+0000, Conor.Dooley@microchip.com wrote:
+> On 23/02/2022 15:18, Alexandre Belloni wrote:
+> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> > 
+> > On 23/02/2022 07:41:27+0000, Conor.Dooley@microchip.com wrote:
+> >> Hi Alessandro, Alexandre,
+> >> If one of you could take a look at this, that'd be great.
+> > 
+> > I actually expected someone else to apply this, what is your plan?
+> 
+> I was going to ask Palmer to take the series via riscv. Since I have
+> Rob's R-b, I was just looking for a subsystem maintainer ack/R-b before
+> actually asking him.
+> 
 
-I think you really want to do that anyway, just to get things like
-wild kernel pointers right (ie think get_kernel_nofault() and friends
-for ftrace etc).
+Rob's review is enough for a DT binding, no need to wait for me. but
+FWIW:
 
-They shouldn't happen in any normal situation, but those kinds of
-unverified pointers is why we _have_ get_kernel_nofault() in the first
-place.
+Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
 
-On x86-64, the roughly equivalent situation is that addresses that
-aren't in canonical format do not take a #PF (page fault), they take a
-#GP (general protection) fault.
 
-So I think you want to do that fixup_exception() for any possible addresses.
+> Thanks,
+> Conor.
+> 
+> > 
+> >> Thanks,
+> >> Conor.
+> >>
+> >> On 14/02/2022 13:58, conor.dooley@microchip.com wrote:
+> >>> From: Conor Dooley <conor.dooley@microchip.com>
+> >>>
+> >>> Add device tree bindings for the real time clock on
+> >>> the Microchip PolarFire SoC.
+> >>>
+> >>> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
+> >>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> >>> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+> >>> Reviewed-by: Rob Herring <robh@kernel.org>
+> >>> ---
+> >>>    .../bindings/rtc/microchip,mfps-rtc.yaml      | 58 +++++++++++++++++++
+> >>>    1 file changed, 58 insertions(+)
+> >>>    create mode 100644 Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
+> >>>
+> >>> diff --git a/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml b/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
+> >>> new file mode 100644
+> >>> index 000000000000..a2e984ea3553
+> >>> --- /dev/null
+> >>> +++ b/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
+> >>> @@ -0,0 +1,58 @@
+> >>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> >>> +%YAML 1.2
+> >>> +---
+> >>> +$id: http://devicetree.org/schemas/rtc/microchip,mfps-rtc.yaml#
+> >>> +
+> >>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> >>> +
+> >>> +title: Microchip PolarFire Soc (MPFS) RTC Device Tree Bindings
+> >>> +
+> >>> +allOf:
+> >>> +  - $ref: rtc.yaml#
+> >>> +
+> >>> +maintainers:
+> >>> +  - Daire McNamara <daire.mcnamara@microchip.com>
+> >>> +  - Lewis Hanly <lewis.hanly@microchip.com>
+> >>> +
+> >>> +properties:
+> >>> +  compatible:
+> >>> +    enum:
+> >>> +      - microchip,mpfs-rtc
+> >>> +
+> >>> +  reg:
+> >>> +    maxItems: 1
+> >>> +
+> >>> +  interrupts:
+> >>> +    items:
+> >>> +      - description: |
+> >>> +          RTC_WAKEUP interrupt
+> >>> +      - description: |
+> >>> +          RTC_MATCH, asserted when the content of the Alarm register is equal
+> >>> +          to that of the RTC's count register.
+> >>> +
+> >>> +  clocks:
+> >>> +    maxItems: 1
+> >>> +
+> >>> +  clock-names:
+> >>> +    items:
+> >>> +      - const: rtc
+> >>> +
+> >>> +required:
+> >>> +  - compatible
+> >>> +  - reg
+> >>> +  - interrupts
+> >>> +  - clocks
+> >>> +  - clock-names
+> >>> +
+> >>> +additionalProperties: false
+> >>> +
+> >>> +examples:
+> >>> +  - |
+> >>> +    rtc@20124000 {
+> >>> +        compatible = "microchip,mpfs-rtc";
+> >>> +        reg = <0x20124000 0x1000>;
+> >>> +        clocks = <&clkcfg 21>;
+> >>> +        clock-names = "rtc";
+> >>> +        interrupts = <80>, <81>;
+> >>> +    };
+> >>> +...
+> >>
+> > 
+> > --
+> > Alexandre Belloni, co-owner and COO, Bootlin
+> > Embedded Linux and Kernel engineering
+> > https://bootlin.com
+> 
 
-> Is there a reason to not also #define TASK_SIZE_MAX   __UA_LIMIT like
-> for the 32bit case ?
-
-I would suggest against using a non-constant TASK_SIZE_MAX. Being
-constant is literally one reason why it exists, when TASK_SIZE itself
-has often been about other things (ie "32-bit process").
-
-Having to load variables for things like get_user() is annoying, if
-you could do it with a simple constant instead (where that "simple"
-part is to avoid having to load big values from a constant pool -
-often constants like "high bit set" can be loaded and compared against
-more efficiently).
-
-               Linus
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 _______________________________________________
 linux-riscv mailing list
