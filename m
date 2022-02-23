@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58901C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Feb 2022 01:44:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F9C3C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Feb 2022 01:44:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=ZKgJRLQRyR9Wwi0FN5YeJpXFC03ZZorT2JnlkZzhY48=; b=zZ8Hhu/Bg1Fwbkz+40dAL/hPAc
-	2dkz+DwCMSy6sZjKK2k9enMssumj9hHpkI9oUffFvhGmgn3uFjCQIfs3/uHkbTgbyPV0EN57GK08m
-	hNJrzhFXxBBBl16SVGXPcxQwlpjLKlBLhuHxTd0nfDqIBKmd+brJdTXIA9Z5cLVzfSieoGwIhuO8A
-	F3taTyjpIVaD++gBfQwF8Ekz9wzQV4KuC9AXXHRsJA2F6OUJeCX24CXyO7U8fMogoqBEO5qZlKep5
-	I6ZhWd1wKqts66Cvg6xgAdGKPqgFgsUdM8qYdbMUSyLhVPSaCD1rC2O+3WN9/FzeQ2jrtGVMNjUPS
-	IHbZ06bw==;
+	bh=OKw7QzoKBEqbgq4uXmDZ0tvqafzUNbjqeGQ9+wDV8wI=; b=pL8QkVT+qJo7wcLtbf6+TeTbJ8
+	liELgLqVCxiJoMe7xImCTYePJOZUSOkMR/TGr4PL3AkMB3E2RNVUTUU/07XrcuJRQ2VgrHpDYWKUQ
+	Cudmg36uk/DiO9GCkRwbOM0rcRlai7FFkZiPFW03uoCPe2aPle+MIx8RXAIG+WE2EOCbztARmP535
+	C6Dqn781nz7d1HsVPp0yA9H0Sdr2Md9zYvV3ZsTXD0w19QDC87P8KmdCR0y07+qCRS3NfEsrxj4N2
+	ZkhV9zlBlGdSD3xYQ6dY0pvdEWMdeGl2O2lMMp2hKBJS1v8Feib5Z+5SlGq0UYG/sDgGDsGrVn+KA
+	LHh4z1aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nMghH-00C9nI-NL; Wed, 23 Feb 2022 01:44:03 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1nMghy-00CAAQ-0d; Wed, 23 Feb 2022 01:44:46 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nMgg7-00C99b-Qz
- for linux-riscv@lists.infradead.org; Wed, 23 Feb 2022 01:42:54 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id c9so5343929pll.0
- for <linux-riscv@lists.infradead.org>; Tue, 22 Feb 2022 17:42:51 -0800 (PST)
+ id 1nMggB-00C9Bj-EY
+ for linux-riscv@lists.infradead.org; Wed, 23 Feb 2022 01:42:58 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 139so18546388pge.1
+ for <linux-riscv@lists.infradead.org>; Tue, 22 Feb 2022 17:42:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=sgQ4pvXgGqOVO+N8moxatmc5jwRe/+fI7Xu5f8+JqZo=;
- b=KgXpJPPMQwH9w8gozOo+zTZ1a384KP+JFjDoioBZIi6s8smONJs4TyFo+kGbejpfJD
- AnUvVpcCwYJXDkegOkRKwenDm9Bcy1n1aQgGolNklkCPtpDxRjodlPh8ROfIoqqQGWgw
- wc1Z3UQMXWImfkfneDskrMp1PLZpvMb2xrw9QAWiCjPSyKH5ztHVZbroTQ6dmTqG6Lc2
- A4xkJ+LfVum26Hb76lucaasDCRzDWvpeo7LmSfqxJdE8LUVUlFGq9YldMUlujQM5YwMQ
- 6E9ukyeoRGTs5m/d/477F+RzD75Ilmmnh/nact1JsbYH8PJzUdJ7E9F83aVz2wOyHISi
- mxWQ==
+ bh=TWhgF9FeTi8dOQVI2k/1V0qT/3+zoCpboq+qKZ5bMI8=;
+ b=lhFeOPH1tXM6mZ6KGKijnCg9cWqzTSt7ZQdh4S9KiIyb9cMveL28/g42MvvbnDVtt4
+ SAZ6MhDy1zYOhxh9qzkByiw6t1xZr3DP7hmRlQw7Us5N0V6vfmWmdADfTJobhfbjYDuC
+ 4/RN7QFYswrzNG4mgmSZ+3ZFsnvJOTxoZ5e5LOhU6Sg8olj20480dX0azWETbCeaygdf
+ wJnp5lSB5MZXA1aRKe3ZE49Bz0GXYhmqNQ5jU2i9jadxR7aM75wmDig0R7cDDC5606dk
+ BGFF5Bpcu+rpjQX9S9NLcVXB4b4AwRsRuPO4Wr22oKHlFg3WcluvYcTwn0T5YOp89o2/
+ evFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=sgQ4pvXgGqOVO+N8moxatmc5jwRe/+fI7Xu5f8+JqZo=;
- b=xgbgFGtk4iJzg9fakQOuHYDCld19ojzWCyuHRwLEKWANXMlC9w7xOf6ykk9j+GzxU4
- 5jds387jXg8GsBr0b6fouh7sbdUiXEOMxSxHFPjxduLCDNOvwJBHDVM8CUXAVYcXG8Ho
- cqMNPxdpqe6UyvdHy1fv2ZOTTr7nKC4YJ3TbETeTz+f1HzV5e0z0JcyrM+B0PDcD5Nv0
- R8hZeByVUDqIZkVph9X9+8kFPYE5OI5mSdLX5HHyLMMozLKWvS8BzEYryzH0IseKWXhd
- j3TzzKg42MeZouBOkOxgEXRRvQYoXxbfRx9Btbuz7nY02GHs9noRJZmPzntrrr2/lhQm
- jp9g==
-X-Gm-Message-State: AOAM530mLBQ3USmJgwLkP5Llgdlo6YWjQazfkdCHYS3AF0of99GqUxaQ
- CK1UgfrWnTIasuCPVR/ZEm+qxA==
-X-Google-Smtp-Source: ABdhPJxkNmlCxKcZY6Nd/iFQ4JtJcxqvcyi1rl2zS5ckqmSSgYGC4lT0zZsv8apBv/K5LTxvkvT3FA==
-X-Received: by 2002:a17:90b:197:b0:1bc:5037:7c52 with SMTP id
- t23-20020a17090b019700b001bc50377c52mr6928726pjs.174.1645580570678; 
- Tue, 22 Feb 2022 17:42:50 -0800 (PST)
+ bh=TWhgF9FeTi8dOQVI2k/1V0qT/3+zoCpboq+qKZ5bMI8=;
+ b=UMcDlYqQ30zCCmQjbg8aQTxLMhgcc6Te6Dn4jpWKGt+oGwAIkBo4K4keaipxKNlxXP
+ v857xXhj846/SNvU0FVRweSOEbukHkmB+Ii0lFWU17aPvLU98afz3FRw9lSqDzW9o5l1
+ VmJV0m1lZxx+ILH0Q4YOki4OczHwV9c8VOLwZdT4Qj2RT3f68IrNKQRdQSkSL1WpZ77y
+ BsxejM5e4DJ/x77feu53DEX4u864fApJAn2zOtXbb/pHT18tLm+BlDrxSQi6U7T9RCLu
+ h9cGajnoSgG33elw8FfEF0B4J5viMltzg+wnR+tb8U8ulI6g44Rn3vKxyDbWp8hRPIIN
+ bAFQ==
+X-Gm-Message-State: AOAM530Sy2VIzcgERet+k335/e6VdBO5Fe6DI4a2Kx/cwOsZ3cW9yJio
+ giQNO5er5M2q/M964QCTzBbtQg==
+X-Google-Smtp-Source: ABdhPJxNA5reRs8r3v6c0shrIzFkO76IQZ2c1KGY/GgGhDuLP8n1xhwjgWddNUq0H+VpTDObNB+pSA==
+X-Received: by 2002:a05:6a00:1744:b0:4c4:4bd:dc17 with SMTP id
+ j4-20020a056a00174400b004c404bddc17mr27275420pfc.57.1645580573932; 
+ Tue, 22 Feb 2022 17:42:53 -0800 (PST)
 Received: from localhost ([12.3.194.138])
- by smtp.gmail.com with ESMTPSA id o125sm17941244pfb.116.2022.02.22.17.42.49
+ by smtp.gmail.com with ESMTPSA id v9sm17437449pfu.134.2022.02.22.17.42.53
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 22 Feb 2022 17:42:50 -0800 (PST)
-Date: Tue, 22 Feb 2022 17:42:50 -0800 (PST)
-X-Google-Original-Date: Tue, 22 Feb 2022 15:31:01 PST (-0800)
-Subject: Re: [PATCH V5 12/21] riscv: compat: syscall: Add entry.S
+ Tue, 22 Feb 2022 17:42:53 -0800 (PST)
+Date: Tue, 22 Feb 2022 17:42:53 -0800 (PST)
+X-Google-Original-Date: Tue, 22 Feb 2022 17:04:06 PST (-0800)
+Subject: Re: [PATCH V5 17/21] riscv: compat: vdso: Add setup additional pages
  implementation
-In-Reply-To: <20220201150545.1512822-13-guoren@kernel.org>
+In-Reply-To: <20220201150545.1512822-18-guoren@kernel.org>
 CC: guoren@kernel.org, Arnd Bergmann <arnd@arndb.de>, anup@brainfault.org,
  Greg KH <gregkh@linuxfoundation.org>, liush@allwinnertech.com, wefu@redhat.com,
  drew@beagleboard.org, 
@@ -78,11 +78,11 @@ CC: guoren@kernel.org, Arnd Bergmann <arnd@arndb.de>, anup@brainfault.org,
  x86@kernel.org, guoren@linux.alibaba.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: guoren@kernel.org
-Message-ID: <mhng-27e65ada-d969-45b9-aa94-e69469cdf095@palmer-ri-x1c9>
+Message-ID: <mhng-fda909a7-d09a-4835-94a9-90a0746f6a95@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220222_174251_900503_7321F6B8 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20220222_174255_532125_611ACEEC 
+X-CRM114-Status: GOOD (  34.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,80 +99,291 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 01 Feb 2022 07:05:36 PST (-0800), guoren@kernel.org wrote:
+On Tue, 01 Feb 2022 07:05:41 PST (-0800), guoren@kernel.org wrote:
 > From: Guo Ren <guoren@linux.alibaba.com>
 >
-> Implement the entry of compat_sys_call_table[] in asm. Ref to
-> riscv-privileged spec 4.1.1 Supervisor Status Register (sstatus):
->
->  BIT[32:33] = UXL[1:0]:
->  - 1:32
->  - 2:64
->  - 3:128
+> Reconstruct __setup_additional_pages() by appending vdso info
+> pointer argument to meet compat_vdso_info requirement. And change
+> vm_special_mapping *dm, *cm initialization into static.
 >
 > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 > Signed-off-by: Guo Ren <guoren@kernel.org>
 > Cc: Arnd Bergmann <arnd@arndb.de>
 > Cc: Palmer Dabbelt <palmer@dabbelt.com>
 > ---
->  arch/riscv/include/asm/csr.h |  7 +++++++
->  arch/riscv/kernel/entry.S    | 18 ++++++++++++++++--
->  2 files changed, 23 insertions(+), 2 deletions(-)
+>  arch/riscv/include/asm/elf.h |   5 ++
+>  arch/riscv/include/asm/mmu.h |   1 +
+>  arch/riscv/kernel/vdso.c     | 104 +++++++++++++++++++++++++----------
+>  3 files changed, 81 insertions(+), 29 deletions(-)
 >
-> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-> index ae711692eec9..eed96fa62d66 100644
-> --- a/arch/riscv/include/asm/csr.h
-> +++ b/arch/riscv/include/asm/csr.h
-> @@ -36,6 +36,13 @@
->  #define SR_SD		_AC(0x8000000000000000, UL) /* FS/XS dirty */
+> diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
+> index 3a4293dc7229..d87d3bcc758d 100644
+> --- a/arch/riscv/include/asm/elf.h
+> +++ b/arch/riscv/include/asm/elf.h
+> @@ -134,5 +134,10 @@ do {    if ((ex).e_ident[EI_CLASS] == ELFCLASS32)		\
+>  typedef compat_ulong_t			compat_elf_greg_t;
+>  typedef compat_elf_greg_t		compat_elf_gregset_t[ELF_NGREG];
+>
+> +extern int compat_arch_setup_additional_pages(struct linux_binprm *bprm,
+> +					      int uses_interp);
+> +#define compat_arch_setup_additional_pages \
+> +				compat_arch_setup_additional_pages
+> +
+>  #endif /* CONFIG_COMPAT */
+>  #endif /* _ASM_RISCV_ELF_H */
+> diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
+> index 0099dc116168..cedcf8ea3c76 100644
+> --- a/arch/riscv/include/asm/mmu.h
+> +++ b/arch/riscv/include/asm/mmu.h
+> @@ -16,6 +16,7 @@ typedef struct {
+>  	atomic_long_t id;
+>  #endif
+>  	void *vdso;
+> +	void *vdso_info;
+>  #ifdef CONFIG_SMP
+>  	/* A local icache flush is needed before user execution can resume. */
+>  	cpumask_t icache_stale_mask;
+> diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
+> index a9436a65161a..deca69524799 100644
+> --- a/arch/riscv/kernel/vdso.c
+> +++ b/arch/riscv/kernel/vdso.c
+> @@ -23,6 +23,9 @@ struct vdso_data {
 >  #endif
 >
+>  extern char vdso_start[], vdso_end[];
 > +#ifdef CONFIG_COMPAT
-> +#define SR_UXL		_AC(0x300000000, UL) /* XLEN mask for U-mode */
-> +#define SR_UXL_32	_AC(0x100000000, UL) /* XLEN = 32 for U-mode */
-> +#define SR_UXL_64	_AC(0x200000000, UL) /* XLEN = 64 for U-mode */
-> +#define SR_UXL_SHIFT	32
+> +extern char compat_vdso_start[], compat_vdso_end[];
 > +#endif
-> +
->  /* SATP flags */
->  #ifndef CONFIG_64BIT
->  #define SATP_PPN	_AC(0x003FFFFF, UL)
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index ed29e9c8f660..1951743f09b3 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -207,13 +207,27 @@ check_syscall_nr:
->  	 * Syscall number held in a7.
->  	 * If syscall number is above allowed value, redirect to ni_syscall.
->  	 */
-> -	bgeu a7, t0, 1f
-> +	bgeu a7, t0, 3f
-> +#ifdef CONFIG_COMPAT
-> +	REG_L s0, PT_STATUS(sp)
-> +	srli s0, s0, SR_UXL_SHIFT
-> +	andi s0, s0, (SR_UXL >> SR_UXL_SHIFT)
-> +	li t0, (SR_UXL_32 >> SR_UXL_SHIFT)
-> +	sub t0, s0, t0
-> +	bnez t0, 1f
-> +
-> +	/* Call compat_syscall */
-> +	la s0, compat_sys_call_table
-> +	j 2f
-> +1:
-> +#endif
->  	/* Call syscall */
->  	la s0, sys_call_table
-> +2:
->  	slli t0, a7, RISCV_LGPTR
->  	add s0, s0, t0
->  	REG_L s0, 0(s0)
-> -1:
-> +3:
->  	jalr s0
 >
->  ret_from_syscall:
+>  enum vvar_pages {
+>  	VVAR_DATA_PAGE_OFFSET,
+> @@ -30,6 +33,11 @@ enum vvar_pages {
+>  	VVAR_NR_PAGES,
+>  };
+>
+> +enum rv_vdso_map {
+> +	RV_VDSO_MAP_VVAR,
+> +	RV_VDSO_MAP_VDSO,
+> +};
+> +
+>  #define VVAR_SIZE  (VVAR_NR_PAGES << PAGE_SHIFT)
+>
+>  /*
+> @@ -52,12 +60,6 @@ struct __vdso_info {
+>  	struct vm_special_mapping *cm;
+>  };
+>
+> -static struct __vdso_info vdso_info __ro_after_init = {
+> -	.name = "vdso",
+> -	.vdso_code_start = vdso_start,
+> -	.vdso_code_end = vdso_end,
+> -};
+> -
+>  static int vdso_mremap(const struct vm_special_mapping *sm,
+>  		       struct vm_area_struct *new_vma)
+>  {
+> @@ -66,35 +68,35 @@ static int vdso_mremap(const struct vm_special_mapping *sm,
+>  	return 0;
+>  }
+>
+> -static int __init __vdso_init(void)
+> +static int __init __vdso_init(struct __vdso_info *vdso_info)
+>  {
+>  	unsigned int i;
+>  	struct page **vdso_pagelist;
+>  	unsigned long pfn;
+>
+> -	if (memcmp(vdso_info.vdso_code_start, "\177ELF", 4)) {
+> +	if (memcmp(vdso_info->vdso_code_start, "\177ELF", 4)) {
+>  		pr_err("vDSO is not a valid ELF object!\n");
+>  		return -EINVAL;
+>  	}
+>
+> -	vdso_info.vdso_pages = (
+> -		vdso_info.vdso_code_end -
+> -		vdso_info.vdso_code_start) >>
+> +	vdso_info->vdso_pages = (
+> +		vdso_info->vdso_code_end -
+> +		vdso_info->vdso_code_start) >>
+>  		PAGE_SHIFT;
+>
+> -	vdso_pagelist = kcalloc(vdso_info.vdso_pages,
+> +	vdso_pagelist = kcalloc(vdso_info->vdso_pages,
+>  				sizeof(struct page *),
+>  				GFP_KERNEL);
+>  	if (vdso_pagelist == NULL)
+>  		return -ENOMEM;
+>
+>  	/* Grab the vDSO code pages. */
+> -	pfn = sym_to_pfn(vdso_info.vdso_code_start);
+> +	pfn = sym_to_pfn(vdso_info->vdso_code_start);
+>
+> -	for (i = 0; i < vdso_info.vdso_pages; i++)
+> +	for (i = 0; i < vdso_info->vdso_pages; i++)
+>  		vdso_pagelist[i] = pfn_to_page(pfn + i);
+>
+> -	vdso_info.cm->pages = vdso_pagelist;
+> +	vdso_info->cm->pages = vdso_pagelist;
+>
+>  	return 0;
+>  }
+> @@ -116,13 +118,14 @@ int vdso_join_timens(struct task_struct *task, struct time_namespace *ns)
+>  {
+>  	struct mm_struct *mm = task->mm;
+>  	struct vm_area_struct *vma;
+> +	struct __vdso_info *vdso_info = mm->context.vdso_info;
+
+IIUC this is the only use for context.vdso_info?  If that's the case, 
+can we just switch between VDSO targets based on __is_compat_task(task)?  
+That'd save an mm_struct pointer, which is always nice.  It'd probably 
+be worth cleaning up the arm64 port too, which zaps both mappings.
+
+>
+>  	mmap_read_lock(mm);
+>
+>  	for (vma = mm->mmap; vma; vma = vma->vm_next) {
+>  		unsigned long size = vma->vm_end - vma->vm_start;
+>
+> -		if (vma_is_special_mapping(vma, vdso_info.dm))
+> +		if (vma_is_special_mapping(vma, vdso_info->dm))
+>  			zap_page_range(vma, vma->vm_start, size);
+>  	}
+>
+> @@ -187,11 +190,6 @@ static vm_fault_t vvar_fault(const struct vm_special_mapping *sm,
+>  	return vmf_insert_pfn(vma, vmf->address, pfn);
+>  }
+>
+> -enum rv_vdso_map {
+> -	RV_VDSO_MAP_VVAR,
+> -	RV_VDSO_MAP_VDSO,
+> -};
+> -
+>  static struct vm_special_mapping rv_vdso_maps[] __ro_after_init = {
+>  	[RV_VDSO_MAP_VVAR] = {
+>  		.name   = "[vvar]",
+> @@ -203,25 +201,53 @@ static struct vm_special_mapping rv_vdso_maps[] __ro_after_init = {
+>  	},
+>  };
+>
+> +static struct __vdso_info vdso_info __ro_after_init = {
+> +	.name = "vdso",
+> +	.vdso_code_start = vdso_start,
+> +	.vdso_code_end = vdso_end,
+> +	.dm = &rv_vdso_maps[RV_VDSO_MAP_VVAR],
+> +	.cm = &rv_vdso_maps[RV_VDSO_MAP_VDSO],
+> +};
+> +
+> +#ifdef CONFIG_COMPAT
+> +static struct __vdso_info compat_vdso_info __ro_after_init = {
+> +	.name = "compat_vdso",
+> +	.vdso_code_start = compat_vdso_start,
+> +	.vdso_code_end = compat_vdso_end,
+> +	.dm = &rv_vdso_maps[RV_VDSO_MAP_VVAR],
+> +	.cm = &rv_vdso_maps[RV_VDSO_MAP_VDSO],
+> +};
+> +#endif
+> +
+>  static int __init vdso_init(void)
+>  {
+> -	vdso_info.dm = &rv_vdso_maps[RV_VDSO_MAP_VVAR];
+> -	vdso_info.cm = &rv_vdso_maps[RV_VDSO_MAP_VDSO];
+> +	int ret;
+> +
+> +	ret = __vdso_init(&vdso_info);
+> +	if (ret)
+> +		goto out;
+>
+> -	return __vdso_init();
+> +#ifdef CONFIG_COMPAT
+> +	ret = __vdso_init(&compat_vdso_info);
+> +	if (ret)
+> +		goto out;
+
+It's a bit pedantic (we're just going to crash anyway), but this is 
+mising the cleanup for the first __vdso_init().
+
+> +#endif
+> +out:
+> +	return ret;
+>  }
+>  arch_initcall(vdso_init);
+>
+>  static int __setup_additional_pages(struct mm_struct *mm,
+>  				    struct linux_binprm *bprm,
+> -				    int uses_interp)
+> +				    int uses_interp,
+> +				    struct __vdso_info *vdso_info)
+>  {
+>  	unsigned long vdso_base, vdso_text_len, vdso_mapping_len;
+>  	void *ret;
+>
+>  	BUILD_BUG_ON(VVAR_NR_PAGES != __VVAR_PAGES);
+>
+> -	vdso_text_len = vdso_info.vdso_pages << PAGE_SHIFT;
+> +	vdso_text_len = vdso_info->vdso_pages << PAGE_SHIFT;
+>  	/* Be sure to map the data page */
+>  	vdso_mapping_len = vdso_text_len + VVAR_SIZE;
+>
+> @@ -232,16 +258,18 @@ static int __setup_additional_pages(struct mm_struct *mm,
+>  	}
+>
+>  	ret = _install_special_mapping(mm, vdso_base, VVAR_SIZE,
+> -		(VM_READ | VM_MAYREAD | VM_PFNMAP), vdso_info.dm);
+> +		(VM_READ | VM_MAYREAD | VM_PFNMAP), vdso_info->dm);
+>  	if (IS_ERR(ret))
+>  		goto up_fail;
+>
+>  	vdso_base += VVAR_SIZE;
+>  	mm->context.vdso = (void *)vdso_base;
+> +	mm->context.vdso_info = (void *)vdso_info;
+> +
+>  	ret =
+>  	   _install_special_mapping(mm, vdso_base, vdso_text_len,
+>  		(VM_READ | VM_EXEC | VM_MAYREAD | VM_MAYWRITE | VM_MAYEXEC),
+> -		vdso_info.cm);
+> +		vdso_info->cm);
+>
+>  	if (IS_ERR(ret))
+>  		goto up_fail;
+> @@ -253,6 +281,24 @@ static int __setup_additional_pages(struct mm_struct *mm,
+>  	return PTR_ERR(ret);
+>  }
+>
+> +#ifdef CONFIG_COMPAT
+> +int compat_arch_setup_additional_pages(struct linux_binprm *bprm,
+> +				       int uses_interp)
+> +{
+> +	struct mm_struct *mm = current->mm;
+> +	int ret;
+> +
+> +	if (mmap_write_lock_killable(mm))
+> +		return -EINTR;
+> +
+> +	ret = __setup_additional_pages(mm, bprm, uses_interp,
+> +							&compat_vdso_info);
+> +	mmap_write_unlock(mm);
+> +
+> +	return ret;
+> +}
+> +#endif
+> +
+>  int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
+>  {
+>  	struct mm_struct *mm = current->mm;
+> @@ -261,7 +307,7 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
+>  	if (mmap_write_lock_killable(mm))
+>  		return -EINTR;
+>
+> -	ret = __setup_additional_pages(mm, bprm, uses_interp);
+> +	ret = __setup_additional_pages(mm, bprm, uses_interp, &vdso_info);
+>  	mmap_write_unlock(mm);
+>
+>  	return ret;
 
 Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+
+As I don't think either of these are big enough of a deal to keep from merging
+this.
 
 _______________________________________________
 linux-riscv mailing list
