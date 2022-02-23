@@ -4,90 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C4E6C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Feb 2022 13:14:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75EF4C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Feb 2022 15:18:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MEkapd6uXo59Fml7Vv1gREe2btsf8rkWL/fso+dJc10=; b=Ibfcr4YXk8hunu
-	d6+mX4js6F19G/+Of7VBUxR8nmXG+VUmCKcA8dD9MPMH4X0f8jkKnUtZiOGcDAVZ6CzdHzdMbQkzk
-	BGR8VLjVzw7vkXgMxJ5qUnfd9/qGKK7rO98DyNhuzkd9UF8wvrbqt4RtT6H3TYcmT1hAogpX0Gfkk
-	aq2gW+iK+izO4ALnRYmpfVHbuOZ0cLRpkw7b3V1t6mocgGvNOPM/DKlQhwBEbGwBHtr2Cg6tLzUdq
-	G9RiEWI7Mht6Td/sB/6J5SXUxmemV4KP23V50iFhCEVPWYZCD3BnoI+BsU128LekPNXrXC6MvHQyE
-	b3j2zHGNngvWJQk6uTKQ==;
+	List-Owner; bh=0M+z0SGWcFZOEt6QNm9VhgwsSGMMXi0CRc+yvei7xGA=; b=CylzeNEkBsicyw
+	0Cei8K8fWzg6AzpGo8b8J5WqL9GQC25r57JN7jbxRqVAfEUmLUaxCqLyVlTVADGjb3r1HM+iKLY51
+	WnW7UWBowDqB2jEpEah+Rr/o/8LWU7rik4J7ds6BFS4Qmp+36kaezE2iq5OePAgKFmaNEPV9EDmFA
+	7vNwHWSJycsKh6Vu8XKlswBI3SGY+rfoVLZk6NwxWzGwFJFThSJbLquwgKAVJEyVGQRhuFtz/hscz
+	6R9NUnrBaW8UJPb0BR/hxhrkNvb2znUxg8DpC11RG1KlsJURcZC5+S85tf/vPjIh30WqQy0ETseHT
+	cQSXv87OBaYJMVyHvATA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nMrTL-00EPCS-Vu; Wed, 23 Feb 2022 13:14:24 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1nMtPj-00Eymy-OL; Wed, 23 Feb 2022 15:18:47 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nMrQI-00ENiX-TT
- for linux-riscv@lists.infradead.org; Wed, 23 Feb 2022 13:11:21 +0000
-Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com
- [209.85.208.71])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id C58FD3F1F3
- for <linux-riscv@lists.infradead.org>; Wed, 23 Feb 2022 13:11:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1645621865;
- bh=UXKLKyZvqZuicoDX6WsicwD+NuWstrOluCAJwIKeGTs=;
- h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
- To:Cc:Content-Type;
- b=tMaQvSmSeXv4FtciBqxBRv6hYe0jKOzX+/RfPsvfkmXDWxUOOBBXdUfe3/03saP1z
- v5alKkvvVSxmVftqMhrUIyT8ZD3c1HZyzMuoH3PDTUO3RCVcaunZYV+duVKShz5GhC
- sDFtHux1d746CX7tCS+5bT75p9k06pJFxlmPVrO4wYqp/CHrXAGmY8MHElq3+0KFFE
- k/jMk027cJHyhP4QoIPeJPo8083tcjYpaXyyt4YuKQbNMfpvsz2baXYqX5pd8UTO7Q
- z8hPr0T1RkeVSU79rX0OlB0yF7c6JcgjplqJEzNGbj8BFet27YR83ydYwLzEAF8nXf
- X9f2oMYS0t4Tw==
-Received: by mail-ed1-f71.google.com with SMTP id
- e10-20020a056402190a00b00410f20467abso13554673edz.14
- for <linux-riscv@lists.infradead.org>; Wed, 23 Feb 2022 05:11:05 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=UXKLKyZvqZuicoDX6WsicwD+NuWstrOluCAJwIKeGTs=;
- b=yA4rLeQ/sr+GMIgVG4M+O4nJRA/mnrzXciZ6q/z1QMGBJfkcPmGEw+ahECedyQwI91
- 18iXv6FIcjI6RjNa4DvW+p0w0MyqXMKlwPGUpHcfNPm1TgHqQBBgjd1FLm51WL/jSGD2
- 36sTAFmIG8e/8BPx8jVNnuDMjB9j3OpyvKh6SkExFbwad1p0rdhMzGsxf2JW/KIYUgMp
- goMvRf6TkOARXsXgqbkRzvMhS4onbZEalA+zkFEXbn8g1Rm8avLgdDAPWH0yVg8T5Jyt
- ZqTcHdcV/QtAIn1VI6Xn5hgSrn22wF93gMtkd3LuGwLG71dsfMuYTHYvchAzxIdRRc6B
- HoOQ==
-X-Gm-Message-State: AOAM530koSDbTH8gQ9tRqI1oyP//QULgL4Vyy95jFMv5LaGOjZ0GzmbA
- SdhmXIHwXJOM7cpBebtLGeF/x7YPR5GYqeCkhT8EceGuJ/vxUMVB5gU5AajVkebd2DYv9tN2hDV
- XzHjv1MYCRteKr/GtO18gLX67hYTPAHd4+AjTpE/CAGEVeofeW6nS9MOnynWSbQ==
-X-Received: by 2002:a17:906:d9db:b0:6ce:8bfb:53c9 with SMTP id
- qk27-20020a170906d9db00b006ce8bfb53c9mr22490686ejb.10.1645621865038; 
- Wed, 23 Feb 2022 05:11:05 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJwwfwzNpAYIVgE7reRUJKUajrHRzMqRRe2Abz2bXiKaC8Mok6ZuxByqkcTiP4VdlcCzzvouoi25V+9aste03gA=
-X-Received: by 2002:a17:906:d9db:b0:6ce:8bfb:53c9 with SMTP id
- qk27-20020a170906d9db00b006ce8bfb53c9mr22490660ejb.10.1645621864802; Wed, 23
- Feb 2022 05:11:04 -0800 (PST)
+ id 1nMtPf-00EykU-QQ
+ for linux-riscv@lists.infradead.org; Wed, 23 Feb 2022 15:18:46 +0000
+Received: (Authenticated sender: alexandre.belloni@bootlin.com)
+ by mail.gandi.net (Postfix) with ESMTPSA id E89AAC000A;
+ Wed, 23 Feb 2022 15:18:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+ t=1645629516;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=L8WJ1C1Tx3aKKa3O4w4oElLz8XE2ctzr9MgK1/YUoCU=;
+ b=oc+Jes6pQdZo1kzhSYkAkXsvE4s+RVTUPbPWDmF1a35hrX82st5TluCAV2C15w0eMkA6I5
+ nP4Q+Q12KrmS/7Sss8FFkJroL31r78SoKt2sw/bLzZGFDhtudEOtKMfhmDS+/0qjJ+B7yL
+ J2/IS+Z4W/TYryGG1X8Dz/Y49ypWY9CsE22lqqkz4jV2WVnpyPb9JDrEiHzzf2yyFa3jOd
+ R0ubzG96gMcXnRbrpvcpOyppNxeAFUVC0LPXkmZwmq0wqfUPITlJbx8HtOmcK+ntjSCVm5
+ lVxdfAzaWpUBonEOa73WxiVLJABsIPWjte8zqb/7KK1JEox5Lbi/c0jsv1EyAw==
+Date: Wed, 23 Feb 2022 16:18:30 +0100
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Conor.Dooley@microchip.com
+Cc: a.zummo@towertech.it, Lewis.Hanly@microchip.com,
+ Daire.McNamara@microchip.com, Ivan.Griffin@microchip.com,
+ atishp@rivosinc.com, palmer@rivosinc.com, robh@kernel.org,
+ linus.walleij@linaro.org, brgl@bgdev.pl, robh+dt@kernel.org,
+ jassisinghbrar@gmail.com, thierry.reding@gmail.com,
+ u.kleine-koenig@pengutronix.de, lee.jones@linaro.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ geert@linux-m68k.org, krzysztof.kozlowski@canonical.com,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+ linux-rtc@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v7 03/11] dt-bindings: rtc: add bindings for microchip
+ mpfs rtc
+Message-ID: <YhZQRqHib2+GR7Ma@piout.net>
+References: <20220214135840.168236-1-conor.dooley@microchip.com>
+ <20220214135840.168236-4-conor.dooley@microchip.com>
+ <5b0681a0-ff46-7eb4-3644-0d1173c1f0d4@microchip.com>
 MIME-Version: 1.0
-References: <20220221161232.2168364-1-alexandre.ghiti@canonical.com>
- <20220221161232.2168364-5-alexandre.ghiti@canonical.com>
- <CANp29Y7M=wSLBE8m0-CHKtYPkqgcxNiUPEyRNv-VHeR5O2BTYQ@mail.gmail.com>
-In-Reply-To: <CANp29Y7M=wSLBE8m0-CHKtYPkqgcxNiUPEyRNv-VHeR5O2BTYQ@mail.gmail.com>
-From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Date: Wed, 23 Feb 2022 14:10:53 +0100
-Message-ID: <CA+zEjCt02Cx1Q1yDGN9V6Wvgx0+jvcqft6U56M3wsidkW5sMjg@mail.gmail.com>
-Subject: Re: [PATCH -fixes v2 4/4] riscv: Fix config KASAN && DEBUG_VIRTUAL
-To: Aleksandr Nogikh <nogikh@google.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
- Alexander Potapenko <glider@google.com>,
- Andrey Konovalov <andreyknvl@gmail.com>, 
- Dmitry Vyukov <dvyukov@google.com>, Nick Hu <nickhu@andestech.com>, 
- linux-riscv@lists.infradead.org, LKML <linux-kernel@vger.kernel.org>, 
- kasan-dev <kasan-dev@googlegroups.com>
+Content-Disposition: inline
+In-Reply-To: <5b0681a0-ff46-7eb4-3644-0d1173c1f0d4@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220223_051115_168218_E50C612E 
-X-CRM114-Status: GOOD (  29.84  )
+X-CRM114-CacheID: sfid-20220223_071844_153049_1CFF978B 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,155 +81,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Aleksandr,
+On 23/02/2022 07:41:27+0000, Conor.Dooley@microchip.com wrote:
+> Hi Alessandro, Alexandre,
+> If one of you could take a look at this, that'd be great.
 
-On Tue, Feb 22, 2022 at 11:28 AM Aleksandr Nogikh <nogikh@google.com> wrote:
->
-> Hi Alexandre,
->
-> Thanks for the series!
->
-> However, I still haven't managed to boot the kernel. What I did:
-> 1) Checked out the riscv/fixes branch (this is the one we're using on
-> syzbot). The latest commit was
-> 6df2a016c0c8a3d0933ef33dd192ea6606b115e3.
-> 2) Applied all 4 patches.
-> 3) Used the config from the cover letter:
-> https://gist.github.com/a-nogikh/279c85c2d24f47efcc3e865c08844138
-> 4) Built with `make -j32 ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-`
-> 5) Ran with `qemu-system-riscv64 -m 2048 -smp 1 -nographic -no-reboot
-> -device virtio-rng-pci -machine virt -device
-> virtio-net-pci,netdev=net0 -netdev
-> user,id=net0,restrict=on,hostfwd=tcp:127.0.0.1:12529-:22 -device
-> virtio-blk-device,drive=hd0 -drive
-> file=~/kernel-image/riscv64,if=none,format=raw,id=hd0 -snapshot
-> -kernel ~/linux-riscv/arch/riscv/boot/Image -append "root=/dev/vda
-> console=ttyS0 earlyprintk=serial"` (this is similar to how syzkaller
-> runs qemu).
->
-> Can you please hint at what I'm doing differently?
+I actually expected someone else to apply this, what is your plan?
 
-A short summary of what I found to keep you updated:
-
-I compared your command line and mine, the differences are that I use
-"smp=4" and I add "earlycon" to the kernel command line. When added to
-your command line, that allows it to boot. I understand why it helps
-but I can't explain what's wrong...Anyway, I fixed a warning that I
-had missed and that allows me to remove the "smp=4" and "earlycon".
-
-But this is not over yet...Your command line still does not allow to
-reach userspace, it fails with the following stacktrace:
-
-[   11.537817][    T1] Unable to handle kernel paging request at
-virtual address fffff5eeffffc800
-[   11.539450][    T1] Oops [#1]
-[   11.539909][    T1] Modules linked in:
-[   11.540451][    T1] CPU: 0 PID: 1 Comm: swapper/0 Not tainted
-5.17.0-rc1-00007-ga68b89289e26-dirty #28
-[   11.541364][    T1] Hardware name: riscv-virtio,qemu (DT)
-[   11.542032][    T1] epc : kasan_check_range+0x96/0x13e
-[   11.542654][    T1]  ra : memset+0x1e/0x4c
-[   11.543388][    T1] epc : ffffffff8046c312 ra : ffffffff8046ca16 sp
-: ffffaf8007337b70
-[   11.544037][    T1]  gp : ffffffff85866c80 tp : ffffaf80073d8000 t0
-: 0000000000046000
-[   11.544637][    T1]  t1 : fffff5eeffffc9ff t2 : 0000000000000000 s0
-: ffffaf8007337ba0
-[   11.545409][    T1]  s1 : 0000000000001000 a0 : fffff5eeffffca00 a1
-: 0000000000001000
-[   11.546072][    T1]  a2 : 0000000000000001 a3 : ffffffff8039ef24 a4
-: ffffaf7ffffe4000
-[   11.546707][    T1]  a5 : fffff5eeffffc800 a6 : 0000004000000000 a7
-: ffffaf7ffffe4fff
-[   11.547541][    T1]  s2 : ffffaf7ffffe4000 s3 : 0000000000000000 s4
-: ffffffff8467faa8
-[   11.548277][    T1]  s5 : 0000000000000000 s6 : ffffffff85869840 s7
-: 0000000000000000
-[   11.548950][    T1]  s8 : 0000000000001000 s9 : ffffaf805a54a048
-s10: ffffffff8588d420
-[   11.549705][    T1]  s11: ffffaf7ffffe4000 t3 : 0000000000000000 t4
-: 0000000000000040
-[   11.550465][    T1]  t5 : fffff5eeffffca00 t6 : 0000000000000002
-[   11.551131][    T1] status: 0000000000000120 badaddr:
-fffff5eeffffc800 cause: 000000000000000d
-[   11.551961][    T1] [<ffffffff8039ef24>] pcpu_alloc+0x84a/0x125c
-[   11.552928][    T1] [<ffffffff8039f994>] __alloc_percpu+0x28/0x34
-[   11.553555][    T1] [<ffffffff83286954>] ip_rt_init+0x15a/0x35c
-[   11.554128][    T1] [<ffffffff83286d24>] ip_init+0x18/0x30
-[   11.554642][    T1] [<ffffffff8328844a>] inet_init+0x2a6/0x550
-[   11.555428][    T1] [<ffffffff80003220>] do_one_initcall+0x132/0x7e4
-[   11.556049][    T1] [<ffffffff83201f7a>] kernel_init_freeable+0x510/0x5b4
-[   11.556771][    T1] [<ffffffff831424e4>] kernel_init+0x28/0x21c
-[   11.557344][    T1] [<ffffffff800056a0>] ret_from_exception+0x0/0x14
-[   11.585469][    T1] ---[ end trace 0000000000000000 ]---
-
-0xfffff5eeffffc800 is a KASAN address that points to the very end of
-vmalloc address range, which is weird since KASAN_VMALLOC is not
-enabled.
-Moreover my command line does not trigger the above bug, and I'm
-trying to understand why:
-
-/home/alex/work/qemu/build/riscv64-softmmu/qemu-system-riscv64 -M virt
--bios /home/alex/work/opensbi/build/platform/generic/firmware/fw_dynamic.bin
--kernel /home/alex/work/kernel-build/riscv_rv64_kernel/arch/riscv/boot/Image
--netdev user,id=net0 -device virtio-net-device,netdev=net0 -drive
-file=/home/alex/work/kernel-build/rootfs.ext2,format=raw,id=hd0
--device virtio-blk-device,drive=hd0 -nographic -smp 4 -m 16G -s
--append "rootwait earlycon root=/dev/vda ro earlyprintk=serial"
-
-I'm looking into all of this and will get back with a v3 soon :)
-
-Thanks,
-
-Alex
-
-
-
-
-
-
->
-> A simple config with KASAN, KASAN_OUTLINE and DEBUG_VIRTUAL now indeed
-> leads to a booting kernel, which was not the case before.
-> make defconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
-> ./scripts/config -e KASAN -e KASAN_OUTLINE -e DEBUG_VIRTUAL
-> make olddefconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
->
-> --
-> Best Regards,
-> Aleksandr
->
-> On Mon, Feb 21, 2022 at 5:17 PM Alexandre Ghiti
-> <alexandre.ghiti@canonical.com> wrote:
-> >
-> > __virt_to_phys function is called very early in the boot process (ie
-> > kasan_early_init) so it should not be instrumented by KASAN otherwise it
-> > bugs.
-> >
-> > Fix this by declaring phys_addr.c as non-kasan instrumentable.
-> >
-> > Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+> Thanks,
+> Conor.
+> 
+> On 14/02/2022 13:58, conor.dooley@microchip.com wrote:
+> > From: Conor Dooley <conor.dooley@microchip.com>
+> > 
+> > Add device tree bindings for the real time clock on
+> > the Microchip PolarFire SoC.
+> > 
+> > Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
+> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> > Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+> > Reviewed-by: Rob Herring <robh@kernel.org>
 > > ---
-> >  arch/riscv/mm/Makefile | 3 +++
-> >  1 file changed, 3 insertions(+)
-> >
-> > diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
-> > index 7ebaef10ea1b..ac7a25298a04 100644
-> > --- a/arch/riscv/mm/Makefile
-> > +++ b/arch/riscv/mm/Makefile
-> > @@ -24,6 +24,9 @@ obj-$(CONFIG_KASAN)   += kasan_init.o
-> >  ifdef CONFIG_KASAN
-> >  KASAN_SANITIZE_kasan_init.o := n
-> >  KASAN_SANITIZE_init.o := n
-> > +ifdef CONFIG_DEBUG_VIRTUAL
-> > +KASAN_SANITIZE_physaddr.o := n
-> > +endif
-> >  endif
-> >
-> >  obj-$(CONFIG_DEBUG_VIRTUAL) += physaddr.o
-> > --
-> > 2.32.0
-> >
+> >   .../bindings/rtc/microchip,mfps-rtc.yaml      | 58 +++++++++++++++++++
+> >   1 file changed, 58 insertions(+)
+> >   create mode 100644 Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
+> > 
+> > diff --git a/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml b/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
+> > new file mode 100644
+> > index 000000000000..a2e984ea3553
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
+> > @@ -0,0 +1,58 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/rtc/microchip,mfps-rtc.yaml#
+> > +
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Microchip PolarFire Soc (MPFS) RTC Device Tree Bindings
+> > +
+> > +allOf:
+> > +  - $ref: rtc.yaml#
+> > +
+> > +maintainers:
+> > +  - Daire McNamara <daire.mcnamara@microchip.com>
+> > +  - Lewis Hanly <lewis.hanly@microchip.com>
+> > +
+> > +properties:
+> > +  compatible:
+> > +    enum:
+> > +      - microchip,mpfs-rtc
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  interrupts:
+> > +    items:
+> > +      - description: |
+> > +          RTC_WAKEUP interrupt
+> > +      - description: |
+> > +          RTC_MATCH, asserted when the content of the Alarm register is equal
+> > +          to that of the RTC's count register.
+> > +
+> > +  clocks:
+> > +    maxItems: 1
+> > +
+> > +  clock-names:
+> > +    items:
+> > +      - const: rtc
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - interrupts
+> > +  - clocks
+> > +  - clock-names
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    rtc@20124000 {
+> > +        compatible = "microchip,mpfs-rtc";
+> > +        reg = <0x20124000 0x1000>;
+> > +        clocks = <&clkcfg 21>;
+> > +        clock-names = "rtc";
+> > +        interrupts = <80>, <81>;
+> > +    };
+> > +...
+> 
+
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 _______________________________________________
 linux-riscv mailing list
