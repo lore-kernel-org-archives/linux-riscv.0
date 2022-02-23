@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 686CBC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Feb 2022 07:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56720C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Feb 2022 07:33:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h9a7VvcWhQItu1+S4bNLkbMWetPmPWCM0+nfWEM3iA8=; b=etTh9DsRKO3Zhj
-	IvY8EbkVHteAwSoFgp58GyGlpdmhnilrtoRZ2qYkdhVD1Avps1vykMY9mwpxOu6BGlR8/uB3s58Ft
-	adxDuT2hGei4RTFBK75QqpEXBXe9V9NW5UA9lbzPdaaGpqTEOQ8Y3z/TTlBISyXtF9ppkzfc/pM7I
-	Oxuf0zeksIzChmrp0U+OEkp2Q5tYXO8KRlEl8d3ZVaxPoAh2tm6/dECXNA0Vt2eyqzmRKrzk2PY/1
-	pQfFraoPHnSgQ3Rfuj+mxBPeIFfkMi+lfEwdY8uegGAb8WmfTF69JAoVDemFP2etPxJ/trCb9q6B9
-	1Mw0UsbGewZBx2r6/FmA==;
+	List-Owner; bh=rYwnzR3Q6iYV3RtZYNS3g2Ox8hd43+1EroeYEMDeJqU=; b=rX0fhFOiau5dyf
+	l1CCY9sCEziI8MX9feTIjKFi1TqIrmDQ2bWg4Bvs9w2aUc+26Z1j881S83KHUvV9PbcJV7y470tXu
+	I4b5HoJN57tb7ZwfftZuE9HhDNWlyN3Xttp2UISiFpZF1uc+xTcmIciGHFfvYyHuKS9grW/Xu5Gr3
+	IeOCm7TKb0W+wscLk3pbtVWnHJ4sUpb53J7M7xDFvVt52fmZ2BYAIanZg8OVOXpT+wH7lfLYMtXQh
+	C1zMfZ9C1qsg7VmBqLcwui2k2/RnpjT7wHMgb3qr1khv2zSvAPjIMm0G5cO4DWGtPdcfHQJ/NwuqL
+	LKAzSbPZt8Fc8yba1vpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nMlub-00D62O-3t; Wed, 23 Feb 2022 07:18:09 +0000
-Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
+	id 1nMm9h-00D8qi-AA; Wed, 23 Feb 2022 07:33:45 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nMluX-00D610-Ov
- for linux-riscv@lists.infradead.org; Wed, 23 Feb 2022 07:18:08 +0000
-Received: by mail-qv1-xf32.google.com with SMTP id e22so6799576qvf.9
- for <linux-riscv@lists.infradead.org>; Tue, 22 Feb 2022 23:18:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=N4B4mDV8JjOEepG6T/J1kqCdNA6meuh9hg3A+Zp29gE=;
- b=RdNA7DnyXJ0Kj2AabN0MN0vv3aq2M+MRO9h0RW5u2gTg9981Wf0Hca/JInQujvMgno
- EImY6M1EXq8OPeEyCmJUidLPPOOR0zBXqx3S25Tj5AXT6ASVsVQQD8UYd41UU/28JyBK
- mmzKrPRDc/QNxLqbkDJY6LQqPEv1O7FVm7zohDe0CLlg8azXbgq5LGJjDxgTORrxCdeS
- VFc8W7lAQzd3289YqTD2RO9Q1V2D7kPcsYls3xQggSCIMOATg0aUQsg9V4sJo/gaaggi
- bRm4EmAXyR5uS7vi1Orb3gGkqNxJXaJCkUI7M+4RPgbW3ivOG8hyJyJUquxu2sdTyG5V
- 6GjA==
+ id 1nMm9e-00D8oe-OC
+ for linux-riscv@lists.infradead.org; Wed, 23 Feb 2022 07:33:44 +0000
+Received: by mail-lf1-x134.google.com with SMTP id y24so17112371lfg.1
+ for <linux-riscv@lists.infradead.org>; Tue, 22 Feb 2022 23:33:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=lDlvFrajDqrQchn6w54uabpCbRnHwQwOc/C3bGmlO0U=;
+ b=dPv5BYrzN39pPB63DQ2U4vLv0nOlr98gwht+Zo4QATaTg5q7prK52shXjsR/AXna6U
+ k71RPBMDx5GsG8mV17b87tTN3iAWOTahxvggmsaI0oMlsVgEiZoXtDR87rqcGCLj6DI5
+ Msk2/lY5YZo0wR4NNR2sUeLocDFc3Kpo8TpPo23Ye2kg3mFHuHr14max0+aI3TyZvlOF
+ 8/MHL9x9RtHFgI1bjFWYygEWBld8kk8y3weK7HbCIlbe9QeLYfl/cWhrdhEiwzJh2s+d
+ gpokPBntHpV5rlru4h165pnoUlQhr32QsgOK4yvG8nWcE8dA1duH6MCTXNjLtpdQ1fOp
+ IODg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=N4B4mDV8JjOEepG6T/J1kqCdNA6meuh9hg3A+Zp29gE=;
- b=Bxupg/6onw/mrFkiGCXXsWSYwjvRu305AkjVbnQ/Iwy6ieaIPeX39wauNk2wji+QF/
- c+zSHwSyvJHy3+mnGsHGEdQtRYIzuvNlkF6Zfp9suA2JvznsgUCkLlJqjtYbCEOVeBrA
- 0K4n764IAdmK+HQh23DQs7b22L1jhx2w0nr053oB99FyaHL1YE5aAWZftstqRZvTFqz+
- itODrRCB7r/4ZqrFiUI6dx/o/44UChhijNSdhEMr4BqsJ+8YqbKWym97JnEnwNUg6e+3
- SP/cg7bbXje0ZQUQl/CR06zSII194HQ4aa7lEJGGp1qWzgej4gCP5wgRlX/9xWNZnnc9
- AobA==
-X-Gm-Message-State: AOAM531zy+suYDEJpoU8hEivdEuCRmZzz6TFVmt+sJA0OskFvrI3q8T/
- xmTM29UI8ROJ+DZbN9NX9DI=
-X-Google-Smtp-Source: ABdhPJzVtkkin3VXw+8xInWXnKF2npxYawCcZotHdHJ/NCI86+mLuRdcPM7TFAzf+eeQsR2QpBU5sw==
-X-Received: by 2002:ad4:5948:0:b0:42d:7abd:7f9c with SMTP id
- eo8-20020ad45948000000b0042d7abd7f9cmr21986732qvb.80.1645600683799; 
- Tue, 22 Feb 2022 23:18:03 -0800 (PST)
-Received: from mail.google.com ([207.246.89.135])
- by smtp.gmail.com with ESMTPSA id x134sm1246948qkb.92.2022.02.22.23.18.03
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 22 Feb 2022 23:18:03 -0800 (PST)
-Date: Wed, 23 Feb 2022 15:18:01 +0800
-From: Changbin Du <changbin.du@gmail.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: changbin.du@gmail.com, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: patch: remove lockdep assertion on lock text_mutex
-Message-ID: <20220223071801.2gyv23lyf6gumpau@mail.google.com>
-References: <20210417023532.354714-1-changbin.du@gmail.com>
- <mhng-6a0fd653-64f8-4d0d-a265-d80cecdc1b84@palmerdabbelt-glaptop>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=lDlvFrajDqrQchn6w54uabpCbRnHwQwOc/C3bGmlO0U=;
+ b=uTNnFIMDxbATMuZrsf8dgxLll1OCmLYqVVsT6T02yaGIxNvainBZ0Iwpht7AxN749d
+ qhxXQRLH9jg2J1Xhs2WUpSoO2pX/IS/F10vwoQbkAX6L3jdYNIOtPbLG3/A/YThKzOp+
+ WKqZlSUlEESVK4VjZWh0AlVKHWFgZly7nJqBGS81fJ6FaY72JIHnSkzXOZMXBNxVpmPF
+ bA5rGRznKy7ZltzLM04yNG6CkncnoeEgbq2+9HXIVi1KwslU8nzLOoBNLNsO6RlMXpER
+ yxRyxZiMPAobIgyOw/yvP0yE4PxLv4jC8Iw7g2Z+rzVcl8RjWc9H7tuvR/yFYsUnEJ8w
+ APpw==
+X-Gm-Message-State: AOAM5335NHj13bQd8eFxLtmQk4teaTWHuSJUqjh0KwnJthjpw1xEQnCg
+ kR2LBye4CCYfGszdK0snqyAzDQ78gqySsh8Jn/X5fw==
+X-Google-Smtp-Source: ABdhPJw/GJqPBESH0NTsrjpQmSPMVgGSEkmdayQA8+Ukdar13GPBEALRgM9upMK7jU0EafwCI3f8KY3Ur+qVWLFe8VA=
+X-Received: by 2002:a05:6512:710:b0:443:7fb6:5223 with SMTP id
+ b16-20020a056512071000b004437fb65223mr19200205lfs.223.1645601615597; Tue, 22
+ Feb 2022 23:33:35 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mhng-6a0fd653-64f8-4d0d-a265-d80cecdc1b84@palmerdabbelt-glaptop>
+References: <cover.1642582832.git.zong.li@sifive.com>
+ <mhng-ffd770d4-8f8a-417a-a589-f14d09f55282@palmer-ri-x1c9>
+ <CANXhq0pYHfsa4T1t=FK2=jM4OEfgXD=sDS5vVV4EKCpkwTz6og@mail.gmail.com>
+ <20220218222339.9BF5CC340E9@smtp.kernel.org>
+In-Reply-To: <20220218222339.9BF5CC340E9@smtp.kernel.org>
+From: Zong Li <zong.li@sifive.com>
+Date: Wed, 23 Feb 2022 15:33:24 +0800
+Message-ID: <CANXhq0qbjBpRPMP51cK9QsvQj-uvG_czPgLw+cjrWXhWEibcDw@mail.gmail.com>
+Subject: Re: [PATCH 0/4] Refactor the PRCI driver to reduce the complexity
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ Michael Turquette <mturquette@baylibre.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Lee Jones <lee.jones@linaro.org>, 
+ Rob Herring <robh+dt@kernel.org>, 
+ OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS <devicetree@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ linux-clk <linux-clk@vger.kernel.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220222_231805_847712_329B7B51 
-X-CRM114-Status: GOOD (  26.91  )
+X-CRM114-CacheID: sfid-20220222_233342_871138_E9A8EF22 
+X-CRM114-Status: GOOD (  32.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,92 +91,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 28, 2021 at 11:20:20PM -0700, Palmer Dabbelt wrote:
-> On Fri, 16 Apr 2021 19:35:32 PDT (-0700), changbin.du@gmail.com wrote:
-> > The function patch_insn_write() expects that the text_mutex is already
-> > held. There's a case that text_mutex is acquired by ftrace_run_update_code()
-> > under syscall context but then patch_insn_write() will be executed under the
-> > migration kthread context as we involves stop machine. So we should remove
-> > the assertion, or it can cause warning storm in kernel message.
-> > 
-> > [  104.641978] ------------[ cut here ]------------
-> > [  104.642327] WARNING: CPU: 0 PID: 13 at arch/riscv/kernel/patch.c:63 patch_insn_write+0x166/0x17c
-> > [  104.643587] Modules linked in:
-> > [  104.644691] CPU: 0 PID: 13 Comm: migration/0 Not tainted 5.12.0-rc7-00067-g9cdbf6467424 #102
-> > [  104.644907] Hardware name: riscv-virtio,qemu (DT)
-> > [  104.645068] Stopper: multi_cpu_stop+0x0/0x17e <- 0x0
-> > [  104.645349] epc : patch_insn_write+0x166/0x17c
-> > [  104.645467]  ra : patch_insn_write+0x162/0x17c
-> > [  104.645534] epc : ffffffe0000059c6 ra : ffffffe0000059c2 sp : ffffffe002a33c70
-> > [  104.645580]  gp : ffffffe0019e5518 tp : ffffffe002a232c0 t0 : ffffffe01295e8a8
-> > [  104.645622]  t1 : 0000000000000001 t2 : 0000000000000000 s0 : ffffffe002a33cc0
-> > [  104.645675]  s1 : ffffffe000007f72 a0 : 0000000000000000 a1 : ffffffffffffffff
-> > [  104.645716]  a2 : 0000000000000001 a3 : 0000000000000000 a4 : 0000000000000001
-> > [  104.645757]  a5 : ffffffe0799e45c8 a6 : 00000000000ca097 a7 : 0000000000000000
-> > [  104.645798]  s2 : 0000000000000008 s3 : 0000000000000f72 s4 : ffffffe002a33ce0
-> > [  104.645839]  s5 : 0000000000000f7a s6 : 0000000000000003 s7 : 0000000000000003
-> > [  104.645880]  s8 : 0000000000000004 s9 : 0000000000000002 s10: 0000000000000000
-> > [  104.645920]  s11: 0000000000000002 t3 : 0000000000000001 t4 : ffffffe000c615c8
-> > [  104.645958]  t5 : 0000000000007fff t6 : 0000000000000380
-> > [  104.645998] status: 0000000000000100 badaddr: 0000000000000000 cause: 0000000000000003
-> > [  104.646081] Call Trace:
-> > [  104.646147] [<ffffffe0000059c6>] patch_insn_write+0x166/0x17c
-> > [  104.646280] [<ffffffe0000059ec>] patch_text_nosync+0x10/0x32
-> > [  104.646317] [<ffffffe000007d0c>] ftrace_update_ftrace_func+0x74/0xac
-> > [  104.646352] [<ffffffe0000d338a>] ftrace_modify_all_code+0x9c/0x144
-> > [  104.646387] [<ffffffe0000d3444>] __ftrace_modify_code+0x12/0x1c
-> > [  104.646420] [<ffffffe0000c4c2c>] multi_cpu_stop+0xa8/0x17e
-> > [  104.646451] [<ffffffe0000c4474>] cpu_stopper_thread+0xb2/0x156
-> > [  104.646489] [<ffffffe00003645e>] smpboot_thread_fn+0x102/0x1ea
-> > [  104.646524] [<ffffffe0000311b0>] kthread+0x132/0x148
-> > [  104.646556] [<ffffffe000002e02>] ret_from_exception+0x0/0x14
-> > [  104.646657] ---[ end trace ccf71babb9de4d5b ]---
-> > [  104.647444] ------------[ cut here ]------------
-> > 
-> > Signed-off-by: Changbin Du <changbin.du@gmail.com>
-> > ---
-> >  arch/riscv/kernel/patch.c | 13 ++++++-------
-> >  1 file changed, 6 insertions(+), 7 deletions(-)
-> > 
-> > diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
-> > index 0b552873a577..6d2ed9c15065 100644
-> > --- a/arch/riscv/kernel/patch.c
-> > +++ b/arch/riscv/kernel/patch.c
-> > @@ -49,19 +49,18 @@ static void patch_unmap(int fixmap)
-> >  }
-> >  NOKPROBE_SYMBOL(patch_unmap);
-> > 
-> > +
-> > +/*
-> > + * Before reaching here, it was expected to lock the text_mutex
-> > + * already, so we don't need to give another lock here and could
-> > + * ensure that it was safe between each cores.
-> > + */
-> >  static int patch_insn_write(void *addr, const void *insn, size_t len)
-> >  {
-> >  	void *waddr = addr;
-> >  	bool across_pages = (((uintptr_t) addr & ~PAGE_MASK) + len) > PAGE_SIZE;
-> >  	int ret;
-> > 
-> > -	/*
-> > -	 * Before reaching here, it was expected to lock the text_mutex
-> > -	 * already, so we don't need to give another lock here and could
-> > -	 * ensure that it was safe between each cores.
-> > -	 */
-> > -	lockdep_assert_held(&text_mutex);
-> > -
-> >  	if (across_pages)
-> >  		patch_map(addr + len, FIX_TEXT_POKE1);
-> 
-> Well, we definately need the lock -- otherwise concurrent callers will
-> install conflicting maps for FIX_TEXT_POKE*, step on each other, and install
-> the wrong patch.  I just sent out a patch to use an explicit lock here, as
-> sharing text_mutex doesn't seem safe.
+On Sat, Feb 19, 2022 at 6:23 AM Stephen Boyd <sboyd@kernel.org> wrote:
+>
+> Quoting Zong Li (2022-02-06 21:21:50)
+> > On Sat, Feb 5, 2022 at 2:56 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> > >
+> > > On Wed, 19 Jan 2022 01:28:37 PST (-0800), zong.li@sifive.com wrote:
+> > > > This patch set tries to improve the PRCI driver to reduce the
+> > > > complexity, we remove the SoCs C files by putting putting all stuff in
+> > > > each SoCs header file, and include these SoCs-specific header files in
+> > > > core of PRCI. It can also avoid the W=1 kernel build warnings about
+> > > > variable defined but not used [-Wunused-const-variable=], like 'commit
+> > > > 487dc7bb6a0c ("clk: sifive:fu540-prci: Declare static const variable
+> > > > 'prci_clk_fu540' where it's used")' does.
+> > > >
+> > > > This patch set also contains the dt-bindings and dts change, because
+> > > > we change the macro name for fu540 and fu740 by adding the prefix
+> > > > respectively.
+> > > >
+> > > > Thanks all for your review and suggestions.
+> > > >
+> > > > Zong Li (4):
+> > > >   dt-bindings: change the macro name of prci in header files and example
+> > > >   riscv: dts: Change the macro name of prci in each device node
+> > > >   clk: sifive: Add SoCs prefix in each SoCs-dependent data
+> > >
+> > > IIUC these there aren't bisectable: the bindings change will break
+> > > builds of the DTs and drivers.  I'm not sure what's generally the way to
+> > > go with these, but I always try to avoid broken builds in the middle of
+> > > patch sets.
+> > >
+> > > Aside from that this generally looks good to me, but the DT and clock
+> > > folks are probably a better bet for a proper review here.  Happy to take
+> > > this through the RISC-V tree, but IMO it's a better candidate for the
+> > > clock tree so
+> > >
+> > > Acked-by: Palmer Dabbelt <palmer@rivosinc.com> # aside from breaking bisect
+> > >
+> > > Thanks!
+> > >
+> >
+> > Many thanks for your review and reminding, and yes, it seems a bit
+> > hard there since the DT binding docs and includes need to be a
+> > separate patch.
+> >
+>
+> Why not add new defines with the same numbers in a different file? Then
+> a cycle or two later the conflicting defines can be removed? The driver
+> can include the new file with the new defines while the old defines can
+> be changed in parallel?
 
-Just a note that this issue still exist on mainline. 
--- 
-Cheers,
-Changbin Du
+Hi Stephon, many thanks for your tips. I'm afraid that I don't
+completely understand, does it mean that I can create a new temporary
+file to define these numbers for the driver, and add a patch to remove
+this file in the same patch set. If I understand correctly, let me
+prepare the next version for doing that. Thanks.
 
 _______________________________________________
 linux-riscv mailing list
