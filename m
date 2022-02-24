@@ -4,86 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47EADC433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Feb 2022 13:19:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52BEFC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Feb 2022 14:23:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eK9MTTDGHq5tPpZsjn3MT2L+gJgwhs5YTA4qCd38//I=; b=sgyTivQrCFlZPFUMCluIsNBYhS
-	UdOB76Z2vPIG2eS2jPuWGYPhVAG7NJOvF2+n9M0Wv5ASqot+afTao2HvRsDlYBYtGbm1DR2wLorJ8
-	p1G+zR0h5XDd8MTmGTsYN4KRg6YfZ2DWd/fHBXC+33x17GKXUx05Gcqnto+Nqqa+XlGqb4FF5f6Uo
-	YIi5YT0ULenokY8hF4o7D/Mb04eN1WGYuVHgpmj9lypYRLP57DsbbBkOATPN0hci1p/6KwrtvEoeq
-	8UGfAVkcfmJkrFrVTKX8CBq0+q7+gc4beXjSDhYZOUkVNMSppDa4DuSpdi4KKM0rvn6ChhlkOoAgD
-	UqliLEaQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HhkSvGMFFrijv5BiwK4q10Mse6tBRKxZkvgZiyItQyE=; b=C0cQVrhsJaCVUc
+	q17RSD50qv0mR7GZib4dbqL3XFeDYBMrzfa2kGEvDb+9T86C76w9vvw5P24eaufN5ck+MSnC3Q9xF
+	DQeo+1JpgSoAwKHSYnjjpISMFbMsOzLEpkTqI08KopwKWgej0dbAbCe3VzHZ7AdseY9M/vj6P2NS2
+	WuLLRoAHScuwnisZMebvU1H8C5dU1aYWA7dmGj1qiasZ6ogVp2MUiSlIyUHGpXDPgXVIcjxjTBCWj
+	1gQDIIZ8KM+hYFx0GLZ/Je/v3nzb2yiY4odpnLT8SmcYcD/leMJYI9omYDrRsBYkUNHoU0lQGNBSt
+	gqIautLJ14LLRk7Ze45A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nNE1r-000uSp-Kv; Thu, 24 Feb 2022 13:19:31 +0000
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	id 1nNF1i-0016uH-ET; Thu, 24 Feb 2022 14:23:26 +0000
+Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nNE1o-000uRQ-Us
- for linux-riscv@lists.infradead.org; Thu, 24 Feb 2022 13:19:30 +0000
-Received: by mail-lj1-x236.google.com with SMTP id e2so2763205ljq.12
- for <linux-riscv@lists.infradead.org>; Thu, 24 Feb 2022 05:19:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to:user-agent;
- bh=tqghmzvBgkIucPk30i/1RBMKSaH511u/5cafjui8mTA=;
- b=iKFH/nCaBtENJTdm/3S9PPj+rKJPlWoG/Bdq+HV8ObixrJFQhS4z1MOzotSNJCI0nd
- ptVocWqzyJjOOYzWBHrx1rrGloth2JPJn7sKGfp69htceG3vkWOOI7ADBxyQFYlDgN2z
- NQsYce8GSPFvHIZR+DXTINmFU3dygBa1goHxH8XOUBFrPyJGVylrvRKUftxXzlFu2nmJ
- 9KTSYsAcAKaN4YUQJ/qIh2d9uViSMimGushKydp4n/EadtjRn6tXME9va1S3DH1Qc89F
- q7FH1qy92/ox3nO1WFvK2bhM3H3EW+Yg6iSaY9gLDWfSa6AYQrGsS4Abm++y4xBxQ8gV
- m9ew==
+ id 1nNF1e-0016tC-CY
+ for linux-riscv@lists.infradead.org; Thu, 24 Feb 2022 14:23:25 +0000
+Received: by mail-yw1-x1130.google.com with SMTP id
+ 00721157ae682-2d6923bca1aso26786957b3.9
+ for <linux-riscv@lists.infradead.org>; Thu, 24 Feb 2022 06:23:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=mime-version:from:date:message-id:subject:to:cc;
+ bh=GVCRdf20z2if/WXkRWAWqNzxqWMrdd3fec2HBGui9Y4=;
+ b=vpT0MGtjheNDD9UYyeQ9IF6ps2q6c5IYS7+YVX48yc4tWpxLckATwez9vl/fmKvKOu
+ Un5tTk7mFMOKmEWwBimuEknvcP6F2sB3NkCGOVULWA773CqcI2y5x05UrJOEey09Y1Qe
+ OJShbXk5oyDvWqTq2i9Ka5PCylSOR65FEwGo+hLe7OBJJig283XCAj/gVM7L7OOgVVkt
+ XNRb/aPlYGIrf3l6nSI8wk/DbPGeeiUIuLdESZg34GXkZggbWQM6xlBatPy6Dy+uJnjp
+ QWqq5zGiDQokTk0lCmwIrW6YT4xsP5OmXZCfFSVzLpNS4fCcMsnPPNCUwqQQerPw/0V7
+ QxZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=tqghmzvBgkIucPk30i/1RBMKSaH511u/5cafjui8mTA=;
- b=7JFyZWIJm/8kKPc4W0dnsenvuQ3uc9e6EpmhfrxssYf4Hi6xQq65svTiNf4F0p9a2S
- sPXgdJ0LQxq8C/crSNHw5EQgBLjtRrgKRJ252Ha6XDaHUOfhaqM6TQFAWfdIaVid+Uow
- lxFm9LH/ohdzqAtAWf7HDXEb/oHJimpMpqjCk4d0G4FWurvF+QGlrom4Iwsquf4u9TMA
- 59m7qYiVBMR+hWL6btR5fbd+kGPFT73UCzx7UjNt8JDRMBhNASuDzignvEu7jq6otv/u
- J1oLom6W9EiPfQlHhBTfC2c2Bii/2vDvyO6WqpgjKpwwPN5uZUu4aElFJ4Y76g55jFIZ
- LuuA==
-X-Gm-Message-State: AOAM531otMJdYUU2miG9GSLN6yituYZUkGkPFKIPEJEiKWYaiUEvdBzP
- yfGVld/Wu+G62zriLe9dSzw=
-X-Google-Smtp-Source: ABdhPJxOmmfqAiXnv6BDPZ68mjeGMsSCHie4qvts2pK3mFGPljn7a3XGoQ/aUJEYXFFRyqmHmevKDQ==
-X-Received: by 2002:a2e:99d6:0:b0:23a:925:6aa0 with SMTP id
- l22-20020a2e99d6000000b0023a09256aa0mr1896124ljj.110.1645708766930; 
- Thu, 24 Feb 2022 05:19:26 -0800 (PST)
-Received: from orome (p200300e41f0a6900000000000000043a.dip0.t-ipconnect.de.
- [2003:e4:1f0a:6900::43a])
- by smtp.gmail.com with ESMTPSA id n3sm205819lfq.285.2022.02.24.05.19.24
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 24 Feb 2022 05:19:25 -0800 (PST)
-Date: Thu, 24 Feb 2022 14:19:23 +0100
-From: Thierry Reding <thierry.reding@gmail.com>
-To: conor.dooley@microchip.com
-Cc: linus.walleij@linaro.org, brgl@bgdev.pl, robh+dt@kernel.org,
- jassisinghbrar@gmail.com, u.kleine-koenig@pengutronix.de,
- lee.jones@linaro.org, a.zummo@towertech.it,
- alexandre.belloni@bootlin.com, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, geert@linux-m68k.org,
- krzysztof.kozlowski@canonical.com, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pwm@vger.kernel.org, linux-rtc@vger.kernel.org,
- linux-riscv@lists.infradead.org, lewis.hanly@microchip.com,
- daire.mcnamara@microchip.com, ivan.griffin@microchip.com,
- atishp@rivosinc.com, Rob Herring <robh@kernel.org>,
- Palmer Dabbelt <palmer@rivosinc.com>
-Subject: Re: [PATCH v7 05/11] dt-bindings: pwm: add microchip corepwm binding
-Message-ID: <YheF2xMOEtuDwG0U@orome>
-References: <20220214135840.168236-1-conor.dooley@microchip.com>
- <20220214135840.168236-6-conor.dooley@microchip.com>
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc;
+ bh=GVCRdf20z2if/WXkRWAWqNzxqWMrdd3fec2HBGui9Y4=;
+ b=c09dcLmbTolowoLFPqiblSJl1loPFortcBZR5AdntD1IAL1BGNrcgJYbtNW2B00aF2
+ kxRoxBOTHVYDpD9hUM552uDBDAAWUaD17Q1UIvh5Kz3G6AfptYix/U0g9YmKAZ12B+Ok
+ LA+b6pc9EqNQX5jE4z7+mS0sJax1C1wBLl0jV3qgRrHKyPFkN+4rFe7Z/osmAzM52Yeb
+ wtJIekwKWUlzo7cZKwgT4yUZf5c+8bU0DSrVAqCuqh4VEfOIWwQ2vkbzxeNA0H1fSBJv
+ /UauL8tRcB4bqBQnfr0irO1oX4K85gZTtt4vWHNzbTNFBTmr+3RHOyHmC4hyzG0T0NrM
+ yFnQ==
+X-Gm-Message-State: AOAM530oHF0xGJPO+dGe0brwyUKfs2+47vRatePmGCI/z1JVmdN6yqL5
+ CzfScPCbdqzxr9sqhTbASTPYvfmqfLJmrOltQ/AFqA==
+X-Google-Smtp-Source: ABdhPJy/5/6AxH9eFRdpjQp6L9u+IiFuFnYk1TdAAYF24CLqBAoWxW4orYo4f65bn53WsTGYXwmnMlZI0suLijbIyQ4=
+X-Received: by 2002:a81:7812:0:b0:2d0:8c2c:5159 with SMTP id
+ t18-20020a817812000000b002d08c2c5159mr2626955ywc.120.1645712600221; Thu, 24
+ Feb 2022 06:23:20 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20220214135840.168236-6-conor.dooley@microchip.com>
-User-Agent: Mutt/2.2.1 (c8109e14) (2022-02-19)
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Thu, 24 Feb 2022 19:53:09 +0530
+Message-ID: <CA+G9fYuhipgPsHetpvBmD4GO7KGfhSRRAAgN2ZnoFUWiCKMy6Q@mail.gmail.com>
+Subject: [next] riscv/kernel/vdso.c:123:27: error: 'next' undeclared
+To: open list <linux-kernel@vger.kernel.org>, 
+ Linux-Next Mailing List <linux-next@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+Cc: "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Tong Tiangen <tongtiangen@huawei.com>, Kefeng Wang <wangkefeng.wang@huawei.com>,
+ Jisheng Zhang <jszhang@kernel.org>, Stephen Rothwell <sfr@canb.auug.org.au>,
+ lkft-triage@lists.linaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220224_051929_028973_DFEFE330 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20220224_062322_479199_ACDCFC1F 
+X-CRM114-Status: UNSURE (   8.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,74 +82,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6510051393624874066=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+[Please ignore this email if it is already reported]
 
---===============6510051393624874066==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="0UAUmyEyisF1FZUK"
-Content-Disposition: inline
+Linux next-20220223 arch riscv builds failed due to following errors.
+Build configs:
+  - riscv-gcc-9-defconfig
+  - riscv-gcc-9-defconfig
+  - riscv-gcc-10-defconfig
+  - riscv-gcc-11-defconfig
 
+metadata:
+  git_ref: master
+  git_repo: https://gitlab.com/Linaro/lkft/mirrors/next/linux-next
+  git_sha: d4a0ae62a277377de396850ed4b709b6bd9b7326
+  git_describe: next-20220223
+  arch: riscv
+  toolchain: gcc-11
 
---0UAUmyEyisF1FZUK
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Build error:
+-----------
+In file included from arch/riscv/kernel/vdso.c:10:
+arch/riscv/kernel/vdso.c: In function 'vdso_join_timens':
+arch/riscv/kernel/vdso.c:123:27: error: 'next' undeclared (first use
+in this function); did you mean 'net'?
+  123 |         for_each_vma(vmi, next) {
+      |                           ^~~~
+include/linux/mm.h:685:49: note: in definition of macro 'for_each_vma'
+  685 | #define for_each_vma(vmi, vma)          while ((vma =
+vma_next(&(vmi))) != NULL)
+      |                                                 ^~~
+arch/riscv/kernel/vdso.c:123:27: note: each undeclared identifier is
+reported only once for each function it appears in
+  123 |         for_each_vma(vmi, next) {
+      |                           ^~~~
+include/linux/mm.h:685:49: note: in definition of macro 'for_each_vma'
+  685 | #define for_each_vma(vmi, vma)          while ((vma =
+vma_next(&(vmi))) != NULL)
+      |                                                 ^~~
+make[3]: *** [scripts/Makefile.build:288: arch/riscv/kernel/vdso.o] Error 1
+make[3]: Target '__build' not remade because of errors.
+make[2]: *** [scripts/Makefile.build:614: arch/riscv/kernel] Error 2
+make[2]: Target '__build' not remade because of errors.
+make[1]: *** [Makefile:1971: arch/riscv] Error 2
 
-On Mon, Feb 14, 2022 at 01:58:35PM +0000, conor.dooley@microchip.com wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
->=20
-> Add device tree bindings for the Microchip fpga fabric based "core" PWM
-> controller.
->=20
-> Reviewed-by: Rob Herring <robh@kernel.org>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-> ---
->  .../bindings/pwm/microchip,corepwm.yaml       | 81 +++++++++++++++++++
->  1 file changed, 81 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pwm/microchip,corep=
-wm.yaml
+Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
 
-Fine with me to go through the RISC-V tree:
+Steps to reproduce:
+------------------
+# To install tuxmake on your system globally:
+# sudo pip3 install -U tuxmake
 
-Acked-by: Thierry Reding <thierry.reding@gmail.com>
+tuxmake --runtime podman --target-arch riscv --toolchain gcc-11
+--kconfig defconfig
 
---0UAUmyEyisF1FZUK
-Content-Type: application/pgp-signature; name="signature.asc"
+--
+Linaro LKFT
+https://lkft.linaro.org
 
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmIXhdgACgkQ3SOs138+
-s6G99w//bjUK/d2MUDOjWCCN+SjvFVIkEqIcEl2BOJoazBkO95myY4zU0P1kEZ6J
-mhjKjqxDg/pa5ynS7Ok+UO0q3L967NngdXeYQaexGkM9CGvcFkL7LMpvQjF8kSzW
-tz2dB3xz/NFcy62y883siihherqZb92tL4F//7+yG31PlUiTlTsZD+eYPbELTDHf
-7WAmcfr37ROA1PHsaa+qbFGCVtOnJEUkh3YRvntQiFhLM6jP2Ng9MFMxbr0VQ8Dc
-GMyS+2SbZN18FBHq+/gyV8dEVD4GEI0KzwXnyCE8Gog6Rrm0ViE0DhIC0rvfNt92
-itZH1MJxItGlqukOE0rASVZScSsmwL5cBemlNKNVv2nW0ZBuXrcVARhiMP7A9mH3
-RDrh9ryJFcyZQV55ENCZbIoqlcF54agHJdwRjDq++VHi6+7CeQEdgqzHR52nJ28Q
-+l45smPbNP6hejF0uJq+nnQ5CrmsfnjNb6CEVU48FTOFS+6SBWJiHx15a3+xQLKO
-HGGtNO7fncc3AGgbP97M8wWvGM5+cgEpKOkxLRHNu1DV676Reqo1wcagIgmjwYuQ
-e4IZPadbpRH61AVEXlo8fVnnGVGehoc8nDVs68WZa5Uq0hUqkjQhs6IBgMyxTUdo
-J3tjDezQfMxD0aigHvWyo8xWrSi0Xi89QHb6IKg+6OZgbnpb0EU=
-=wbm0
------END PGP SIGNATURE-----
-
---0UAUmyEyisF1FZUK--
-
-
---===============6510051393624874066==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+[1] https://builds.tuxbuild.com/25XO99nwfQgKrWKz4yfBPYw0wyU/
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6510051393624874066==--
-
