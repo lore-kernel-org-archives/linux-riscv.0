@@ -4,79 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 458E2C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Feb 2022 01:37:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C10E7C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Feb 2022 06:04:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cAq5XmAbNFn26L65augmmRQ+Wk9ces8K808jOO4BXcM=; b=dcXcH7775SJIoq
-	jtcj3GfgdiISs3iEMr/rjC5tIwIv289S3p+srsnpJl/dPOiGVDfcp9fnh72rrwanRdmkPFN9ZMoN8
-	fy/b3YLlu/py7HtepnxxTBsRiEVd2lVcuicdX6Cr7o12XLBmflMTDchhvzDfIHbNc1hSidZtGPyjh
-	RXuFOIDvFQSYwnqIQV2poWksDNXsy9SyD8K9KVAOayCUyIGooGuogQYVutACvi50k18tvd9MGCBJr
-	GRIeuuQSdqyPLue/LBrACFYlalUyJ5Gxq6MuXmexpv0eZLaKqMXR/9QgvWb91v8gBOk1RLwRmL+Kr
-	DqGEB+q1eNJVOiLGrLag==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HEvPNvazmdcNukkE7/vutNbtUt6qgw5ZIkYB/bWV+cw=; b=IiR7YzYyTSVGOP
+	yFMufwYUqcyQpY5MCVxKsXEhX6puTH2HtkkDI+3gNdWCZiTb4TYO0zNvk8GIZ0CYGNO4MJbC757q1
+	25yEVBQtnfR+f0NNGp6Cs/iF6F2oNwDbRGRkBFBzMv8cGv2yWotnUL6Hs7ggXDXmyRoayxOTxZ5+W
+	0FIie4koowtGbRO3ufLTYYtaa2DmRkUifrcOQS5u5QH14fkzJtMVeX6ablmiQoflN+fHv01HzREcf
+	tRK6nNnAdSNHv5R0H/qvKq9Yvj28FFJIxsst0BAnt8+xY16h4QW1EAZVHi5EWaIbwDyepHnRBq22S
+	r5IJjFJMI4zkjWEYJcSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nN34C-00GT9g-HV; Thu, 24 Feb 2022 01:37:12 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1nN7Ek-00GxG4-QM; Thu, 24 Feb 2022 06:04:22 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nN33z-00GT6G-4H; Thu, 24 Feb 2022 01:37:01 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id AE64961234;
- Thu, 24 Feb 2022 01:36:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FF81C340FB;
- Thu, 24 Feb 2022 01:36:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1645666617;
- bh=vBJAZd1CccyWPiWdf3APX0Xd0PqiwkoBmFegLWrZQO8=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=kbPswrL78sJ1gBnDWMCD95VCXVopxyZslcKIyqexkswH5CaSiC8868TnScmtZHbW3
- ngBQZdCfSttLbRPeYS56h2gtVwc3moviMuRokE13iC7pj4x5P1n95gH1QqqKx5o/w8
- 5wvW0HOJm8JmKjufoX18OB42+rI/H1tngQOhpsPXoYTYSkX+o8JWpEU7FiAgVvBXGQ
- zDfBK0hmWN6XfjH4wkbUBtHIQPEhxHZ3RzIc3wG8tSPsLjHwzjQuUl5AigbatDZwTL
- amDu3w0VDQSaaPOb7SrcY9YjQAkqGSn/tXdabGrjra+6qw5vGppWEWt9lOUi1cC51g
- rhSXVSTA1FJrg==
-Received: by mail-vs1-f50.google.com with SMTP id e26so624786vso.3;
- Wed, 23 Feb 2022 17:36:57 -0800 (PST)
-X-Gm-Message-State: AOAM533anKIrFXvDUS4r2nk8+t0rqP5I0ZRfGrDJD/+Tqvp5LaVRc/zH
- g72fzvE+J6/0sBBKDKY8iLJwQfxgXZLfD79PW6E=
-X-Google-Smtp-Source: ABdhPJx/2DTCqfUY4pU/h1e0PfREW/sDxh9qfRIGR58Ezkn5ZMZA8VEhItef44frTEcqdIbcqVdjAMZtcKnOwl3cuQs=
-X-Received: by 2002:a05:6102:c4a:b0:31a:54e6:edb1 with SMTP id
- y10-20020a0561020c4a00b0031a54e6edb1mr113668vss.51.1645666616382; Wed, 23 Feb
- 2022 17:36:56 -0800 (PST)
+ id 1nN7Eg-00GxEM-A4
+ for linux-riscv@lists.infradead.org; Thu, 24 Feb 2022 06:04:21 +0000
+Received: by mail-pf1-x432.google.com with SMTP id z15so961426pfe.7
+ for <linux-riscv@lists.infradead.org>; Wed, 23 Feb 2022 22:04:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=fBQhUdnhsD8RfcUU30uApq8m70WZYUmsL7PCUmornGQ=;
+ b=euV4TcJ4C7XWuUsWe8K/AvIu2OQaD6q8iwxN9TTOS2rnDJUK2X2vp84zXQH8nNYOqh
+ ZBsmFV/XioxweiYKrT2/r3vovVNXoCaUX00VyKdRLtcTqRpt741OCIBvnAtYZ9u4cAwt
+ /VE0GfxT8YhWO1xqsMd+A12AMl3ai738YZyYo=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=fBQhUdnhsD8RfcUU30uApq8m70WZYUmsL7PCUmornGQ=;
+ b=fGNJVhyZi7dJpnbyFsO18BKang1D9bgq4MTOUGO7uQepSJVbHpiPorrEZEHAT2MoVM
+ hOmm7fkp+OfWwGG0norLSJmwyWvu3Zu0+oWH2rpfnT3TqzlVsW6gMFlN57XSxgWCm8xs
+ 8xNjobbOyomPb7QxrTIX6X6QOYJPXKnIU2jeSkDCeDkC0xvrFVBJf0NwdegUW/yV1FsQ
+ c/kgJ/04WiJx0L7yl1Kb10sfkPrhG7VIAQ/0k4na/9W2frohclqWSmvvDcHUc+JnIOzC
+ Z0qQwuoHSBdOQV5wBUAd2knoIlTt7VfPw9NJ2sRvjhrLWMxoZqJNmMsgeUIq6nHAEtOC
+ +C4g==
+X-Gm-Message-State: AOAM531ySPhvOYVyjAqmTvy6Kp3QUH+BzkvuPjwz9cLjyea2BO9MayOv
+ LLExCmTabcX83hplLe5F5Tv/Zw==
+X-Google-Smtp-Source: ABdhPJz5zO8JdHm6dSoWSwfIO1VWInEM6QBCKhwLgEtUt+tZNNicCZ5CqCgHy1wgDXemleJIwK7ewQ==
+X-Received: by 2002:a63:2006:0:b0:364:56b6:868 with SMTP id
+ g6-20020a632006000000b0036456b60868mr1093390pgg.493.1645682657153; 
+ Wed, 23 Feb 2022 22:04:17 -0800 (PST)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+ by smtp.gmail.com with ESMTPSA id d13sm1581760pfj.205.2022.02.23.22.04.16
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 23 Feb 2022 22:04:16 -0800 (PST)
+From: Kees Cook <keescook@chromium.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Kees Cook <keescook@chromium.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Peter Zijlstra <peterz@infradead.org>,
+ Jisheng Zhang <jszhang@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Mark Rutland <mark.rutland@arm.com>, Chen Huang <chenhuang5@huawei.com>,
+ linux-riscv@lists.infradead.org, Kefeng Wang <wangkefeng.wang@huawei.com>,
+ linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
+Subject: [PATCH] riscv: Rename "sp_in_global" to "current_stack_pointer"
+Date: Wed, 23 Feb 2022 22:04:11 -0800
+Message-Id: <20220224060411.1855683-1-keescook@chromium.org>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-References: <20220201150545.1512822-18-guoren@kernel.org>
- <mhng-fda909a7-d09a-4835-94a9-90a0746f6a95@palmer-ri-x1c9>
-In-Reply-To: <mhng-fda909a7-d09a-4835-94a9-90a0746f6a95@palmer-ri-x1c9>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 24 Feb 2022 09:36:45 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSjmP4EHtBZPsct2UOxUbFXw-0PXm_HNfYd9EMntVAunA@mail.gmail.com>
-Message-ID: <CAJF2gTSjmP4EHtBZPsct2UOxUbFXw-0PXm_HNfYd9EMntVAunA@mail.gmail.com>
-Subject: Re: [PATCH V5 17/21] riscv: compat: vdso: Add setup additional pages
- implementation
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Anup Patel <anup@brainfault.org>, 
- Greg KH <gregkh@linuxfoundation.org>, liush <liush@allwinnertech.com>, 
- Wei Fu <wefu@redhat.com>, Drew Fustini <drew@beagleboard.org>, 
- Wang Junqiang <wangjunqiang@iscas.ac.cn>, Christoph Hellwig <hch@lst.de>, 
- linux-arch <linux-arch@vger.kernel.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
- linux-s390 <linux-s390@vger.kernel.org>,
- sparclinux <sparclinux@vger.kernel.org>, 
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
- Parisc List <linux-parisc@vger.kernel.org>, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2489; h=from:subject;
+ bh=2XfQlbZt/VASlkLb1MSCqElmqb6vbL4RS4z2QFk7tCM=;
+ b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBiFx/afSrkh8EYDR9D3m2YLzo8QsdHAeHLqKFsMf9L
+ Ex0rEESJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYhcf2gAKCRCJcvTf3G3AJtYID/
+ 0R5bxSy2t3cd2QP9ELfq7URD/MGmGsTdjcoofRxSpM1eQZVOiBdeDWyUE+LCujt1n3EWeG9/KLdXHX
+ /WQ95qcvvpE+17Eg+C5rUZC1nHPqEQ5TYzJhNsXY8rTBarxYZf099cwM2Wy/avRalVegpLM+goW0UV
+ OHjqi4ZqHmo5oR79DpD//6hr1R6HEDxIYm2s78ssVhOhxhENJt3LmwqRl1AvpZfRusHp60S/QlKM3X
+ XHH8Nvin/kjfTRPlr6DOGM1rcRVTBgPRTICC+upoS1B0P2v04wOCMEezgWviLq0x4URVJoik/xShCm
+ LCZxmDp9D9FEY8fjy9oGP/T5H0oTdKvJSiDOvPc9daTTskU/zyoGTJLHlfnJ3reli9mCBct2m22LtC
+ JlZ8eU/Nhhh/ja8zJghB2ag5+d0fD67sDPHNZH4jZkmbr0GY7JfRAdiWws7peBAprqURBGMslsW+q0
+ D1Qjatg8yvome9CgoujRVSBd0VznUSLKOEIYOqy9ZHT08XSHe3zWMH/xHwosPsbg5CF34jKh1uDlVE
+ YLhkHVNCLjImiNXZGAh9hAS4g4son5YFfbbPnNT1DnPvxQN6dounkk7vIKeGD41EeyRiFEV5KrON6N
+ wWEzFHPipr0uNzR4ddaOg1HZnK8+T5mGQYA0aNoK0hyBwwTGOBeYOqPaLE8A==
+X-Developer-Key: i=keescook@chromium.org; a=openpgp;
+ fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220223_173659_283466_1FDC8269 
-X-CRM114-Status: GOOD (  37.27  )
+X-CRM114-CacheID: sfid-20220223_220418_376351_02236AA9 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,303 +103,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 23, 2022 at 9:42 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->
-> On Tue, 01 Feb 2022 07:05:41 PST (-0800), guoren@kernel.org wrote:
-> > From: Guo Ren <guoren@linux.alibaba.com>
-> >
-> > Reconstruct __setup_additional_pages() by appending vdso info
-> > pointer argument to meet compat_vdso_info requirement. And change
-> > vm_special_mapping *dm, *cm initialization into static.
-> >
-> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > Signed-off-by: Guo Ren <guoren@kernel.org>
-> > Cc: Arnd Bergmann <arnd@arndb.de>
-> > Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> > ---
-> >  arch/riscv/include/asm/elf.h |   5 ++
-> >  arch/riscv/include/asm/mmu.h |   1 +
-> >  arch/riscv/kernel/vdso.c     | 104 +++++++++++++++++++++++++----------
-> >  3 files changed, 81 insertions(+), 29 deletions(-)
-> >
-> > diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
-> > index 3a4293dc7229..d87d3bcc758d 100644
-> > --- a/arch/riscv/include/asm/elf.h
-> > +++ b/arch/riscv/include/asm/elf.h
-> > @@ -134,5 +134,10 @@ do {    if ((ex).e_ident[EI_CLASS] == ELFCLASS32)                \
-> >  typedef compat_ulong_t                       compat_elf_greg_t;
-> >  typedef compat_elf_greg_t            compat_elf_gregset_t[ELF_NGREG];
-> >
-> > +extern int compat_arch_setup_additional_pages(struct linux_binprm *bprm,
-> > +                                           int uses_interp);
-> > +#define compat_arch_setup_additional_pages \
-> > +                             compat_arch_setup_additional_pages
-> > +
-> >  #endif /* CONFIG_COMPAT */
-> >  #endif /* _ASM_RISCV_ELF_H */
-> > diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
-> > index 0099dc116168..cedcf8ea3c76 100644
-> > --- a/arch/riscv/include/asm/mmu.h
-> > +++ b/arch/riscv/include/asm/mmu.h
-> > @@ -16,6 +16,7 @@ typedef struct {
-> >       atomic_long_t id;
-> >  #endif
-> >       void *vdso;
-> > +     void *vdso_info;
-> >  #ifdef CONFIG_SMP
-> >       /* A local icache flush is needed before user execution can resume. */
-> >       cpumask_t icache_stale_mask;
-> > diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
-> > index a9436a65161a..deca69524799 100644
-> > --- a/arch/riscv/kernel/vdso.c
-> > +++ b/arch/riscv/kernel/vdso.c
-> > @@ -23,6 +23,9 @@ struct vdso_data {
-> >  #endif
-> >
-> >  extern char vdso_start[], vdso_end[];
-> > +#ifdef CONFIG_COMPAT
-> > +extern char compat_vdso_start[], compat_vdso_end[];
-> > +#endif
-> >
-> >  enum vvar_pages {
-> >       VVAR_DATA_PAGE_OFFSET,
-> > @@ -30,6 +33,11 @@ enum vvar_pages {
-> >       VVAR_NR_PAGES,
-> >  };
-> >
-> > +enum rv_vdso_map {
-> > +     RV_VDSO_MAP_VVAR,
-> > +     RV_VDSO_MAP_VDSO,
-> > +};
-> > +
-> >  #define VVAR_SIZE  (VVAR_NR_PAGES << PAGE_SHIFT)
-> >
-> >  /*
-> > @@ -52,12 +60,6 @@ struct __vdso_info {
-> >       struct vm_special_mapping *cm;
-> >  };
-> >
-> > -static struct __vdso_info vdso_info __ro_after_init = {
-> > -     .name = "vdso",
-> > -     .vdso_code_start = vdso_start,
-> > -     .vdso_code_end = vdso_end,
-> > -};
-> > -
-> >  static int vdso_mremap(const struct vm_special_mapping *sm,
-> >                      struct vm_area_struct *new_vma)
-> >  {
-> > @@ -66,35 +68,35 @@ static int vdso_mremap(const struct vm_special_mapping *sm,
-> >       return 0;
-> >  }
-> >
-> > -static int __init __vdso_init(void)
-> > +static int __init __vdso_init(struct __vdso_info *vdso_info)
-> >  {
-> >       unsigned int i;
-> >       struct page **vdso_pagelist;
-> >       unsigned long pfn;
-> >
-> > -     if (memcmp(vdso_info.vdso_code_start, "\177ELF", 4)) {
-> > +     if (memcmp(vdso_info->vdso_code_start, "\177ELF", 4)) {
-> >               pr_err("vDSO is not a valid ELF object!\n");
-> >               return -EINVAL;
-> >       }
-> >
-> > -     vdso_info.vdso_pages = (
-> > -             vdso_info.vdso_code_end -
-> > -             vdso_info.vdso_code_start) >>
-> > +     vdso_info->vdso_pages = (
-> > +             vdso_info->vdso_code_end -
-> > +             vdso_info->vdso_code_start) >>
-> >               PAGE_SHIFT;
-> >
-> > -     vdso_pagelist = kcalloc(vdso_info.vdso_pages,
-> > +     vdso_pagelist = kcalloc(vdso_info->vdso_pages,
-> >                               sizeof(struct page *),
-> >                               GFP_KERNEL);
-> >       if (vdso_pagelist == NULL)
-> >               return -ENOMEM;
-> >
-> >       /* Grab the vDSO code pages. */
-> > -     pfn = sym_to_pfn(vdso_info.vdso_code_start);
-> > +     pfn = sym_to_pfn(vdso_info->vdso_code_start);
-> >
-> > -     for (i = 0; i < vdso_info.vdso_pages; i++)
-> > +     for (i = 0; i < vdso_info->vdso_pages; i++)
-> >               vdso_pagelist[i] = pfn_to_page(pfn + i);
-> >
-> > -     vdso_info.cm->pages = vdso_pagelist;
-> > +     vdso_info->cm->pages = vdso_pagelist;
-> >
-> >       return 0;
-> >  }
-> > @@ -116,13 +118,14 @@ int vdso_join_timens(struct task_struct *task, struct time_namespace *ns)
-> >  {
-> >       struct mm_struct *mm = task->mm;
-> >       struct vm_area_struct *vma;
-> > +     struct __vdso_info *vdso_info = mm->context.vdso_info;
->
-> IIUC this is the only use for context.vdso_info?  If that's the case,
-> can we just switch between VDSO targets based on __is_compat_task(task)?
-> That'd save an mm_struct pointer, which is always nice.  It'd probably
-> be worth cleaning up the arm64 port too, which zaps both mappings.
-Do you want rv32 to support HAVE_GENERIC_VDSO_NS in the future?
+To follow the existing per-arch conventions, rename "sp_in_global" to
+"current_stack_pointer". This will let it be used in non-arch places
+(like HARDENED_USERCOPY).
 
->
-> >
-> >       mmap_read_lock(mm);
-> >
-> >       for (vma = mm->mmap; vma; vma = vma->vm_next) {
-> >               unsigned long size = vma->vm_end - vma->vm_start;
-> >
-> > -             if (vma_is_special_mapping(vma, vdso_info.dm))
-> > +             if (vma_is_special_mapping(vma, vdso_info->dm))
-> >                       zap_page_range(vma, vma->vm_start, size);
-> >       }
-> >
-> > @@ -187,11 +190,6 @@ static vm_fault_t vvar_fault(const struct vm_special_mapping *sm,
-> >       return vmf_insert_pfn(vma, vmf->address, pfn);
-> >  }
-> >
-> > -enum rv_vdso_map {
-> > -     RV_VDSO_MAP_VVAR,
-> > -     RV_VDSO_MAP_VDSO,
-> > -};
-> > -
-> >  static struct vm_special_mapping rv_vdso_maps[] __ro_after_init = {
-> >       [RV_VDSO_MAP_VVAR] = {
-> >               .name   = "[vvar]",
-> > @@ -203,25 +201,53 @@ static struct vm_special_mapping rv_vdso_maps[] __ro_after_init = {
-> >       },
-> >  };
-> >
-> > +static struct __vdso_info vdso_info __ro_after_init = {
-> > +     .name = "vdso",
-> > +     .vdso_code_start = vdso_start,
-> > +     .vdso_code_end = vdso_end,
-> > +     .dm = &rv_vdso_maps[RV_VDSO_MAP_VVAR],
-> > +     .cm = &rv_vdso_maps[RV_VDSO_MAP_VDSO],
-> > +};
-> > +
-> > +#ifdef CONFIG_COMPAT
-> > +static struct __vdso_info compat_vdso_info __ro_after_init = {
-> > +     .name = "compat_vdso",
-> > +     .vdso_code_start = compat_vdso_start,
-> > +     .vdso_code_end = compat_vdso_end,
-> > +     .dm = &rv_vdso_maps[RV_VDSO_MAP_VVAR],
-> > +     .cm = &rv_vdso_maps[RV_VDSO_MAP_VDSO],
-> > +};
-> > +#endif
-> > +
-> >  static int __init vdso_init(void)
-> >  {
-> > -     vdso_info.dm = &rv_vdso_maps[RV_VDSO_MAP_VVAR];
-> > -     vdso_info.cm = &rv_vdso_maps[RV_VDSO_MAP_VDSO];
-> > +     int ret;
-> > +
-> > +     ret = __vdso_init(&vdso_info);
-> > +     if (ret)
-> > +             goto out;
-> >
-> > -     return __vdso_init();
-> > +#ifdef CONFIG_COMPAT
-> > +     ret = __vdso_init(&compat_vdso_info);
-> > +     if (ret)
-> > +             goto out;
->
-> It's a bit pedantic (we're just going to crash anyway), but this is
-> mising the cleanup for the first __vdso_init().
->
-> > +#endif
-> > +out:
-> > +     return ret;
-> >  }
-> >  arch_initcall(vdso_init);
-> >
-> >  static int __setup_additional_pages(struct mm_struct *mm,
-> >                                   struct linux_binprm *bprm,
-> > -                                 int uses_interp)
-> > +                                 int uses_interp,
-> > +                                 struct __vdso_info *vdso_info)
-> >  {
-> >       unsigned long vdso_base, vdso_text_len, vdso_mapping_len;
-> >       void *ret;
-> >
-> >       BUILD_BUG_ON(VVAR_NR_PAGES != __VVAR_PAGES);
-> >
-> > -     vdso_text_len = vdso_info.vdso_pages << PAGE_SHIFT;
-> > +     vdso_text_len = vdso_info->vdso_pages << PAGE_SHIFT;
-> >       /* Be sure to map the data page */
-> >       vdso_mapping_len = vdso_text_len + VVAR_SIZE;
-> >
-> > @@ -232,16 +258,18 @@ static int __setup_additional_pages(struct mm_struct *mm,
-> >       }
-> >
-> >       ret = _install_special_mapping(mm, vdso_base, VVAR_SIZE,
-> > -             (VM_READ | VM_MAYREAD | VM_PFNMAP), vdso_info.dm);
-> > +             (VM_READ | VM_MAYREAD | VM_PFNMAP), vdso_info->dm);
-> >       if (IS_ERR(ret))
-> >               goto up_fail;
-> >
-> >       vdso_base += VVAR_SIZE;
-> >       mm->context.vdso = (void *)vdso_base;
-> > +     mm->context.vdso_info = (void *)vdso_info;
-> > +
-> >       ret =
-> >          _install_special_mapping(mm, vdso_base, vdso_text_len,
-> >               (VM_READ | VM_EXEC | VM_MAYREAD | VM_MAYWRITE | VM_MAYEXEC),
-> > -             vdso_info.cm);
-> > +             vdso_info->cm);
-> >
-> >       if (IS_ERR(ret))
-> >               goto up_fail;
-> > @@ -253,6 +281,24 @@ static int __setup_additional_pages(struct mm_struct *mm,
-> >       return PTR_ERR(ret);
-> >  }
-> >
-> > +#ifdef CONFIG_COMPAT
-> > +int compat_arch_setup_additional_pages(struct linux_binprm *bprm,
-> > +                                    int uses_interp)
-> > +{
-> > +     struct mm_struct *mm = current->mm;
-> > +     int ret;
-> > +
-> > +     if (mmap_write_lock_killable(mm))
-> > +             return -EINTR;
-> > +
-> > +     ret = __setup_additional_pages(mm, bprm, uses_interp,
-> > +                                                     &compat_vdso_info);
-> > +     mmap_write_unlock(mm);
-> > +
-> > +     return ret;
-> > +}
-> > +#endif
-> > +
-> >  int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
-> >  {
-> >       struct mm_struct *mm = current->mm;
-> > @@ -261,7 +307,7 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
-> >       if (mmap_write_lock_killable(mm))
-> >               return -EINTR;
-> >
-> > -     ret = __setup_additional_pages(mm, bprm, uses_interp);
-> > +     ret = __setup_additional_pages(mm, bprm, uses_interp, &vdso_info);
-> >       mmap_write_unlock(mm);
-> >
-> >       return ret;
->
-> Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
->
-> As I don't think either of these are big enough of a deal to keep from merging
-> this.
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Jisheng Zhang <jszhang@kernel.org>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Chen Huang <chenhuang5@huawei.com>
+Cc: linux-riscv@lists.infradead.org
+Signed-off-by: Kees Cook <keescook@chromium.org>
+---
+ arch/riscv/Kconfig               | 1 +
+ arch/riscv/include/asm/current.h | 2 ++
+ arch/riscv/kernel/stacktrace.c   | 4 +---
+ 3 files changed, 4 insertions(+), 3 deletions(-)
 
-
-
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 5adcbd9b5e88..b120c32697af 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -16,6 +16,7 @@ config RISCV
+ 	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
+ 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+ 	select ARCH_HAS_BINFMT_FLAT
++	select ARCH_HAS_CURRENT_STACK_POINTER
+ 	select ARCH_HAS_DEBUG_VM_PGTABLE
+ 	select ARCH_HAS_DEBUG_VIRTUAL if MMU
+ 	select ARCH_HAS_DEBUG_WX
+diff --git a/arch/riscv/include/asm/current.h b/arch/riscv/include/asm/current.h
+index 1de233d8e8de..21774d868c65 100644
+--- a/arch/riscv/include/asm/current.h
++++ b/arch/riscv/include/asm/current.h
+@@ -33,6 +33,8 @@ static __always_inline struct task_struct *get_current(void)
+ 
+ #define current get_current()
+ 
++register unsigned long current_stack_pointer __asm__("sp");
++
+ #endif /* __ASSEMBLY__ */
+ 
+ #endif /* _ASM_RISCV_CURRENT_H */
+diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+index 201ee206fb57..278380e2e956 100644
+--- a/arch/riscv/kernel/stacktrace.c
++++ b/arch/riscv/kernel/stacktrace.c
+@@ -14,8 +14,6 @@
+ 
+ #include <asm/stacktrace.h>
+ 
+-register unsigned long sp_in_global __asm__("sp");
+-
+ #ifdef CONFIG_FRAME_POINTER
+ 
+ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+@@ -77,7 +75,7 @@ void notrace walk_stackframe(struct task_struct *task,
+ 		sp = user_stack_pointer(regs);
+ 		pc = instruction_pointer(regs);
+ 	} else if (task == NULL || task == current) {
+-		sp = sp_in_global;
++		sp = current_stack_pointer;
+ 		pc = (unsigned long)walk_stackframe;
+ 	} else {
+ 		/* task blocked in __switch_to */
 -- 
-Best Regards
- Guo Ren
+2.30.2
 
-ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
