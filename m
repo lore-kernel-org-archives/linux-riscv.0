@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E8D0C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Feb 2022 15:26:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FECEC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Feb 2022 15:26:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GW96CPND3IDXIlCjq1GQtuFX2I0NC7pyVKjt8cUvO/g=; b=RmI5X2tf7ep0ZY
-	xLUNo3SuQ/OoLEVdE0ZQxKgvhDGcFg+jZul+2mP7X2Rjo7F2pDrESbYM5xXaYv8Ps33sA5FemgUhI
-	7oi8FpZmg9Zm+84F0Q05lvH7i3R5HFa1LusGVIyR4wey+82Ru3juBJQFGE2iq8UCYHZk2lXfIs9xu
-	hYqHqOFHdYkZORHBLtfuLrxacaeE3OgqEiPlmi/00QcBThsdTIJI22GU9EARJzwXij4KrZB16Idb1
-	M47pW7pLy408sxU2VT4g5ansF0FCC5N9JvwVGAmOgYPI7AHiQRoYEPGTxfPJJidRzYF6OKwkwotyH
-	cZwIpTY0WHe3JXFd3Beg==;
+	List-Owner; bh=VGGEGMpYvPKEvnedgucXcLRWaBv7IyN5uKFnsxCjmLw=; b=CMMns3bCyfint9
+	+BAtmgNQRd9ZJErcJKsUUL1z+FSAzJ0edR4oeS4ye5ccEIzw948rp1brcGJvtiXeArwLZJ6UfCFx4
+	hxxoWpDp2VjGQKXjji6u2XJEiZthEJdIbl4JuoEnMw74eKBpqQ5xv83QRM661abtJ/QIgtGJoH87f
+	Fy+djobglemLpoGVKJHfAylExx1LGXpYMPY0OLyoZvm9pauZ7BuuE5Uc/WfMCct9yMAuxp7kJBoMj
+	xgJbJETthFCbePwbG/Jkhc0hJjztytP4mFX5gzV6Jhicv8LvQ5+rMitqZZ0aV+77l9NZAmijNH9Ny
+	8tI89BkGrPG+ISTkThIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nNG0N-001IMD-LM; Thu, 24 Feb 2022 15:26:07 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1nNG0X-001ISY-S8; Thu, 24 Feb 2022 15:26:17 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nNFzh-001HyH-0S
+ id 1nNFzg-001HxU-J6
  for linux-riscv@lists.infradead.org; Thu, 24 Feb 2022 15:25:29 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a8so5097580ejc.8
- for <linux-riscv@lists.infradead.org>; Thu, 24 Feb 2022 07:25:24 -0800 (PST)
+Received: by mail-ej1-x631.google.com with SMTP id bg10so5132677ejb.4
+ for <linux-riscv@lists.infradead.org>; Thu, 24 Feb 2022 07:25:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=U2McVQuv53c33dZYwtuytrfr7zhfRHKf5OwpDdiji0Q=;
- b=FeLVTuzc9wPFQH0ho6dLgoj+hWeW+fYvqEve7lVWA6cpLUDwNU3G4myXMgVZX8wV11
- OFiFwl9VXdVCJxputF6RNS9sOj5Rz0iwt+Ccsi4YLAt5xJOMf3Oct4BF7CtYgp07Hx0Z
- Px1K1NlBlRUjfC2Mf9oijmdM3U+adJmgDX0+emytZDFkGZ7pQQk7dbvzutjnDBh65znN
- 5b/Qx/uM1lZm3wLRbuoCuqBXesw3IYGN3LBVCpCJDO4LdcN3Ao+RmXaZry2BPOuGUATy
- jXxmFYAm06C186UwdZme7YcBfIHiZRSc2jmnWWkU7kTp7vht4qvOi5IS+Hrk8gT0PR2u
- rRrw==
+ bh=Uv9kZcj+SYuMKmc2v8qVWQoeoD1xbOxuZhUO9LDOn7M=;
+ b=bX8bQwwicUGsPVy4Y3mCqGccZPF/GGpbluqz317ey+zLTOQ8c1fHnPI/DfzWOV1UYh
+ trfJkNv4XTVJi09MAREd/Uj1wKpzLT7JGQ7Tt+J6DfwVsdakLY+CYarxxiaBsF6EOifX
+ G1LBOc3kKYU754bVeI8/3HceRIVewkj+qWX8iAHHYnfMLLVXVWFzlAFTkPcS705ti4HE
+ WO4bvtl6dq7IvcNWGhEv6DQnxHq9LLmKzfqxpMcaC+SWiiiMWxkgVVA9U2SE5v97t0FH
+ /ZXQPpG8O45IQmob4YkGgegJZnVWJNfRfHwTbLHoNQJfzgLF0l0XizzrW5m8vb7Gi82u
+ +AeA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:sender:from:to:cc:subject:date:message-id
  :in-reply-to:references:mime-version:content-transfer-encoding;
- bh=U2McVQuv53c33dZYwtuytrfr7zhfRHKf5OwpDdiji0Q=;
- b=YJgBnh71/x5ocoUGCnZGt6eJkISb7xhCxOWKqV1CW+5AdRWejx7Lu+P3b+NyiWsOxb
- qTOL+gPsFHC5XydDd6Lo2VPlHEsfJv6X7CRint3C43UlqxQ2S9MPcG5/allQntaX7wwR
- Fr7I8c9M/8zs3I8mPSg3aHAG3WjXvxKPcTnlH5ssEO1/bNQjZHBq+SIEZGW1bQOfThIY
- llv7ulEZuKJmpMI0gcejd4KkPJXlQ5W/BBAJ0+5Oh4+jKPp+GIIhLeo5+q1LQs1vbfBb
- g69ojP8yIlPxox6+90ckLDAZtFbbov5rYs1HqwsVP3dcZ+tn5HKz1OF+UExVfhalxk+O
- /h9g==
-X-Gm-Message-State: AOAM532Z8Qfo3KhWTYjTnclea3ZS0gmXRAq7sWBsWWyT9oBje+F3O+4t
- g87B3KMKuoOmuPDmtO3v4dJgssQBzoIJakdy
-X-Google-Smtp-Source: ABdhPJzmtg5/x9WY3qCGLphHaryu+r7YthG+HP7Rm2wRL6NLXkgnTbKEoS4nS1g0S/n8hO2ecRMJzA==
-X-Received: by 2002:a17:906:65d5:b0:6ba:3133:dfb9 with SMTP id
- z21-20020a17090665d500b006ba3133dfb9mr2818930ejn.56.1645716323553; 
- Thu, 24 Feb 2022 07:25:23 -0800 (PST)
+ bh=Uv9kZcj+SYuMKmc2v8qVWQoeoD1xbOxuZhUO9LDOn7M=;
+ b=s5VCpatO6CFpevx8CL9zVzJA7ECTEXjvrv+yspTWGR8unbxbFe9KbRutBphfxZseJj
+ p1jjf0xuKL7DADYb3eg18c9QnJKNx508U1LYQwZxaMZJihRYRimsMpm3YPBqmnUhIpLC
+ KCfb9///vGqAAnCj8bI1WxbfToj8C38GPTz0BhCbM9acHC8NtO6xkbCu+VWrX33bD+Ck
+ Pq6E+pff/lTJtrZN2GCOtThTvpPG2u6IjmepxsgGXSWQnin3amgNu0X09cFxNtQK/v/m
+ 9pj3RIip5cUt4ij/yVzwgrU28lIVUIb6OkZjbOGi3w0U9sEzCvxEzPg4Cq+V6s+zE0+d
+ CJbQ==
+X-Gm-Message-State: AOAM531fMwo928RtJSWqtfwQQ3F4WLpk1vBgAlSsIxOYOAANpv9dJMN4
+ 9LHnDjiS4YOodK0OLOUhFKsDRWYjppgVOopQ
+X-Google-Smtp-Source: ABdhPJx2BEkVsAOUtvzhxXAulZFuBAavPEG0SaUBdCmd2wQhOtBfUaEYSeBVOeUXEPdh2WkJ1Gu0yg==
+X-Received: by 2002:a17:906:39da:b0:6cf:7f09:a7bc with SMTP id
+ i26-20020a17090639da00b006cf7f09a7bcmr2769072eje.457.1645716322553; 
+ Thu, 24 Feb 2022 07:25:22 -0800 (PST)
 Received: from stitch.. (80.71.140.73.ipv4.parknet.dk. [80.71.140.73])
- by smtp.gmail.com with ESMTPSA id s11sm1509693edt.10.2022.02.24.07.25.22
+ by smtp.gmail.com with ESMTPSA id s11sm1509693edt.10.2022.02.24.07.25.21
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 24 Feb 2022 07:25:23 -0800 (PST)
+ Thu, 24 Feb 2022 07:25:22 -0800 (PST)
 From: Emil Renner Berthing <kernel@esmil.dk>
 To: linux-riscv@lists.infradead.org
 Cc: Emil Renner Berthing <kernel@esmil.dk>,
@@ -68,16 +68,16 @@ Cc: Emil Renner Berthing <kernel@esmil.dk>,
  Josh Poimboeuf <jpoimboe@redhat.com>, Jason Baron <jbaron@akamai.com>,
  Ard Biesheuvel <ardb@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
  Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org
-Subject: [PATCH v3 7/8] riscv: Use asm/insn.h for jump labels
-Date: Thu, 24 Feb 2022 16:24:55 +0100
-Message-Id: <20220224152456.493365-8-kernel@esmil.dk>
+Subject: [PATCH v3 6/8] riscv: Use asm/insn.h to generate plt entries
+Date: Thu, 24 Feb 2022 16:24:54 +0100
+Message-Id: <20220224152456.493365-7-kernel@esmil.dk>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220224152456.493365-1-kernel@esmil.dk>
 References: <20220224152456.493365-1-kernel@esmil.dk>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220224_072525_144455_D7F30E9E 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20220224_072524_684556_B0016D4B 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,48 +94,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This converts kernel/jump_label.c to use asm/insn.h to generate the
-jump/nop instructions.
+This converts kernel/module-sections.c to use asm/insn.h to generate
+the instructions in the plt entries.
 
 Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 ---
- arch/riscv/kernel/jump_label.c | 12 +++---------
- 1 file changed, 3 insertions(+), 9 deletions(-)
+ arch/riscv/kernel/module-sections.c | 27 ++++-----------------------
+ 1 file changed, 4 insertions(+), 23 deletions(-)
 
-diff --git a/arch/riscv/kernel/jump_label.c b/arch/riscv/kernel/jump_label.c
-index 20e09056d141..b5b4892c3e9e 100644
---- a/arch/riscv/kernel/jump_label.c
-+++ b/arch/riscv/kernel/jump_label.c
-@@ -9,11 +9,9 @@
- #include <linux/memory.h>
- #include <linux/mutex.h>
- #include <asm/bug.h>
+diff --git a/arch/riscv/kernel/module-sections.c b/arch/riscv/kernel/module-sections.c
+index 39d4ac681c2a..cb73399c3603 100644
+--- a/arch/riscv/kernel/module-sections.c
++++ b/arch/riscv/kernel/module-sections.c
+@@ -9,6 +9,7 @@
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/moduleloader.h>
 +#include <asm/insn.h>
- #include <asm/patch.h>
  
--#define RISCV_INSN_NOP 0x00000013U
--#define RISCV_INSN_JAL 0x0000006fU
+ struct got_entry {
+ 	unsigned long symbol_addr;	/* the real variable address */
+@@ -61,36 +62,16 @@ struct plt_entry {
+ 	u32 insn_jr;		/* jr    t1                            */
+ };
+ 
+-#define OPC_AUIPC  0x0017
+-#define OPC_LD     0x3003
+-#define OPC_JALR   0x0067
+-#define REG_T0     0x5
+-#define REG_T1     0x6
 -
- void arch_jump_label_transform(struct jump_entry *entry,
- 			       enum jump_label_type type)
+ static struct plt_entry emit_plt_entry(unsigned long val,
+ 				       unsigned long plt,
+ 				       unsigned long got_plt)
  {
-@@ -23,14 +21,10 @@ void arch_jump_label_transform(struct jump_entry *entry,
- 	if (type == JUMP_LABEL_JMP) {
- 		long offset = jump_entry_target(entry) - jump_entry_code(entry);
+-	/*
+-	 * U-Type encoding:
+-	 * +------------+----------+----------+
+-	 * | imm[31:12] | rd[11:7] | opc[6:0] |
+-	 * +------------+----------+----------+
+-	 *
+-	 * I-Type encoding:
+-	 * +------------+------------+--------+----------+----------+
+-	 * | imm[31:20] | rs1[19:15] | funct3 | rd[11:7] | opc[6:0] |
+-	 * +------------+------------+--------+----------+----------+
+-	 *
+-	 */
+ 	unsigned long offset = got_plt - plt;
+-	u32 hi20 = (offset + 0x800) & 0xfffff000;
+-	u32 lo12 = (offset - hi20);
  
--		if (WARN_ON(offset & 1 || offset < -524288 || offset >= 524288))
-+		if (WARN_ON(!riscv_insn_valid_20bit_offset(offset)))
- 			return;
+ 	return (struct plt_entry) {
+-		OPC_AUIPC | (REG_T0 << 7) | hi20,
+-		OPC_LD | (lo12 << 20) | (REG_T0 << 15) | (REG_T1 << 7),
+-		OPC_JALR | (REG_T1 << 15)
++		RISCV_INSN_AUIPC | RISCV_INSN_RD_T0 | riscv_insn_u_imm(offset + 0x800),
++		RISCV_INSN_LD    | RISCV_INSN_RD_T1 | RISCV_INSN_RS1_T0 | riscv_insn_i_imm(offset),
++		RISCV_INSN_JALR  | RISCV_INSN_RS1_T1,
+ 	};
+ }
  
--		insn = RISCV_INSN_JAL |
--			(((u32)offset & GENMASK(19, 12)) << (12 - 12)) |
--			(((u32)offset & GENMASK(11, 11)) << (20 - 11)) |
--			(((u32)offset & GENMASK(10,  1)) << (21 -  1)) |
--			(((u32)offset & GENMASK(20, 20)) << (31 - 20));
-+		insn = RISCV_INSN_JAL | riscv_insn_j_imm(offset);
- 	} else {
- 		insn = RISCV_INSN_NOP;
- 	}
 -- 
 2.35.1
 
