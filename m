@@ -4,73 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52BEFC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Feb 2022 14:23:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 017ADC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Feb 2022 15:25:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HhkSvGMFFrijv5BiwK4q10Mse6tBRKxZkvgZiyItQyE=; b=C0cQVrhsJaCVUc
-	q17RSD50qv0mR7GZib4dbqL3XFeDYBMrzfa2kGEvDb+9T86C76w9vvw5P24eaufN5ck+MSnC3Q9xF
-	DQeo+1JpgSoAwKHSYnjjpISMFbMsOzLEpkTqI08KopwKWgej0dbAbCe3VzHZ7AdseY9M/vj6P2NS2
-	WuLLRoAHScuwnisZMebvU1H8C5dU1aYWA7dmGj1qiasZ6ogVp2MUiSlIyUHGpXDPgXVIcjxjTBCWj
-	1gQDIIZ8KM+hYFx0GLZ/Je/v3nzb2yiY4odpnLT8SmcYcD/leMJYI9omYDrRsBYkUNHoU0lQGNBSt
-	gqIautLJ14LLRk7Ze45A==;
+	List-Owner; bh=FddN4P4fp/aFaiJXSzSJNkOxmTIcA4/dpSpgD/W5h9w=; b=yiifdNS+6fIf5H
+	+ZIfGP9xblHiajljVAjf0ca9BybgGje1zT16OyqZuF0Uh7xMvZOmEB537PHJg5w7/qJXVM6214HnN
+	kY7JiCdwPtC6j5KVaF7lMjkLmXqKnCIaGtIJPzxA5t4r7A9I2aYk0uWBjC0CjARhyeiT9a7c0e1pQ
+	Djphrc2C/WYkUgXg5CNQo/KE0ltJsRS/vHamsJW9O2V8sSHmWRMYJvsGns5+SplbvqYhOg6aSDdms
+	BcgPqVydDAdjeAXIz7gopMzQ1R08FwykGlF9IJwtZIqNKShHd4nk8JzYAhCTPmmijewnCddW8i2Yp
+	qxtc7l652Mqw/v9UmdZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nNF1i-0016uH-ET; Thu, 24 Feb 2022 14:23:26 +0000
-Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
+	id 1nNFzh-001Hym-Je; Thu, 24 Feb 2022 15:25:25 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nNF1e-0016tC-CY
- for linux-riscv@lists.infradead.org; Thu, 24 Feb 2022 14:23:25 +0000
-Received: by mail-yw1-x1130.google.com with SMTP id
- 00721157ae682-2d6923bca1aso26786957b3.9
- for <linux-riscv@lists.infradead.org>; Thu, 24 Feb 2022 06:23:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=mime-version:from:date:message-id:subject:to:cc;
- bh=GVCRdf20z2if/WXkRWAWqNzxqWMrdd3fec2HBGui9Y4=;
- b=vpT0MGtjheNDD9UYyeQ9IF6ps2q6c5IYS7+YVX48yc4tWpxLckATwez9vl/fmKvKOu
- Un5tTk7mFMOKmEWwBimuEknvcP6F2sB3NkCGOVULWA773CqcI2y5x05UrJOEey09Y1Qe
- OJShbXk5oyDvWqTq2i9Ka5PCylSOR65FEwGo+hLe7OBJJig283XCAj/gVM7L7OOgVVkt
- XNRb/aPlYGIrf3l6nSI8wk/DbPGeeiUIuLdESZg34GXkZggbWQM6xlBatPy6Dy+uJnjp
- QWqq5zGiDQokTk0lCmwIrW6YT4xsP5OmXZCfFSVzLpNS4fCcMsnPPNCUwqQQerPw/0V7
- QxZA==
+ id 1nNFzb-001Hsc-0X
+ for linux-riscv@lists.infradead.org; Thu, 24 Feb 2022 15:25:22 +0000
+Received: by mail-ej1-x636.google.com with SMTP id lw4so5064358ejb.12
+ for <linux-riscv@lists.infradead.org>; Thu, 24 Feb 2022 07:25:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=sender:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=8bKHwHd9wrNVqM17Oa3exsITsVuSL3cS/OZaCl9ltdU=;
+ b=Xu14nMrdL/kEer+3zNMAoJu75pcDa/4wbBn87Aq91UuLQXEwfPwsOfgSRU4uufnmA7
+ +qKlGVqeIjGlUAbmRb1cf4snlXfZmBEg1wyREArT+I18vzgOlZgPrIyiejvoLrPPlhga
+ 1+poolq+DiL1yPIQ34m7Uy7poHA9pT6p2wDh9pgdWpMFaB2J9t83hJGna8kyGbkVaI1B
+ 3wPn7yE/bueB0kzwy2+wEtLQn/oeP2TyHvvkhgUd+VRs6UZOyWU4Ts/dvlI4YxWJuouX
+ oxVktOY0T9gO2sahD52w/uNdkwU1tF2bA0zbho4nXrRHuku14R3Z2xVKoXKasOjsU2jG
+ gv6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc;
- bh=GVCRdf20z2if/WXkRWAWqNzxqWMrdd3fec2HBGui9Y4=;
- b=c09dcLmbTolowoLFPqiblSJl1loPFortcBZR5AdntD1IAL1BGNrcgJYbtNW2B00aF2
- kxRoxBOTHVYDpD9hUM552uDBDAAWUaD17Q1UIvh5Kz3G6AfptYix/U0g9YmKAZ12B+Ok
- LA+b6pc9EqNQX5jE4z7+mS0sJax1C1wBLl0jV3qgRrHKyPFkN+4rFe7Z/osmAzM52Yeb
- wtJIekwKWUlzo7cZKwgT4yUZf5c+8bU0DSrVAqCuqh4VEfOIWwQ2vkbzxeNA0H1fSBJv
- /UauL8tRcB4bqBQnfr0irO1oX4K85gZTtt4vWHNzbTNFBTmr+3RHOyHmC4hyzG0T0NrM
- yFnQ==
-X-Gm-Message-State: AOAM530oHF0xGJPO+dGe0brwyUKfs2+47vRatePmGCI/z1JVmdN6yqL5
- CzfScPCbdqzxr9sqhTbASTPYvfmqfLJmrOltQ/AFqA==
-X-Google-Smtp-Source: ABdhPJy/5/6AxH9eFRdpjQp6L9u+IiFuFnYk1TdAAYF24CLqBAoWxW4orYo4f65bn53WsTGYXwmnMlZI0suLijbIyQ4=
-X-Received: by 2002:a81:7812:0:b0:2d0:8c2c:5159 with SMTP id
- t18-20020a817812000000b002d08c2c5159mr2626955ywc.120.1645712600221; Thu, 24
- Feb 2022 06:23:20 -0800 (PST)
+ h=x-gm-message-state:sender:from:to:cc:subject:date:message-id
+ :mime-version:content-transfer-encoding;
+ bh=8bKHwHd9wrNVqM17Oa3exsITsVuSL3cS/OZaCl9ltdU=;
+ b=rluPiy6dBzXzNGIazU2IkHbuoylXEj5MPCCY0xTZjQxVPkEGRPc9ZAPHCHGWeUKnmz
+ cv8LL/o1RlZhaqD2+nsBYC5438CHuvu53hDzRqJTLzmfDl75Ax2ZArCA+Aygjxmuub1P
+ GFttoGiOpSTTmSIsKAbVfxzz2SaqacGIlFbNNR51jCvComBbI1+dl3ozHPUPA4eDsdeM
+ 0Htz5Sp68o4PopI0ZScvFFi+Qu29NriYpJHMLj58jO7OEbVRgF87AQJHPpbFv+sV1Urx
+ a3c7nJrdtz4VG9rHDf8PT+xG7vmf8nX0v+vpG3gDhIr/Ja+dhJVPpayHdFl+zclDk8tj
+ WOvA==
+X-Gm-Message-State: AOAM5324sQMjnBgUX9I/l0+xRmBTx3yVAWPndksdJmk/CheEoHqM9/dJ
+ y/ayDOdWZ3imKzSzORn1jvYPnAhQiwTMm4LP
+X-Google-Smtp-Source: ABdhPJzdcnTid5+1b8gpHvm6zGYUVRj5BmDXAL6rYfBuRhTnrWv3XXZCJSqhWEaGX1ZLmRLi86sJFA==
+X-Received: by 2002:a17:906:8d8:b0:6d2:131d:be51 with SMTP id
+ o24-20020a17090608d800b006d2131dbe51mr2612370eje.564.1645716316455; 
+ Thu, 24 Feb 2022 07:25:16 -0800 (PST)
+Received: from stitch.. (80.71.140.73.ipv4.parknet.dk. [80.71.140.73])
+ by smtp.gmail.com with ESMTPSA id s11sm1509693edt.10.2022.02.24.07.25.15
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 24 Feb 2022 07:25:16 -0800 (PST)
+From: Emil Renner Berthing <kernel@esmil.dk>
+To: linux-riscv@lists.infradead.org
+Cc: Emil Renner Berthing <kernel@esmil.dk>,
+ Steven Rostedt <rostedt@goodmis.org>, Ingo Molnar <mingo@redhat.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Josh Poimboeuf <jpoimboe@redhat.com>, Jason Baron <jbaron@akamai.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
+ Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/8] Add RISC-V asm/insn.h header
+Date: Thu, 24 Feb 2022 16:24:48 +0100
+Message-Id: <20220224152456.493365-1-kernel@esmil.dk>
+X-Mailer: git-send-email 2.35.1
 MIME-Version: 1.0
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Thu, 24 Feb 2022 19:53:09 +0530
-Message-ID: <CA+G9fYuhipgPsHetpvBmD4GO7KGfhSRRAAgN2ZnoFUWiCKMy6Q@mail.gmail.com>
-Subject: [next] riscv/kernel/vdso.c:123:27: error: 'next' undeclared
-To: open list <linux-kernel@vger.kernel.org>, 
- Linux-Next Mailing List <linux-next@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>
-Cc: "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Tong Tiangen <tongtiangen@huawei.com>, Kefeng Wang <wangkefeng.wang@huawei.com>,
- Jisheng Zhang <jszhang@kernel.org>, Stephen Rothwell <sfr@canb.auug.org.au>,
- lkft-triage@lists.linaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220224_062322_479199_ACDCFC1F 
-X-CRM114-Status: UNSURE (   8.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220224_072519_070047_868D9077 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,64 +92,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-[Please ignore this email if it is already reported]
+This series adds a RISC-V asm/insn.h header to consolidate instruction
+generation and manipulation similar to arm64's asm/insn.h.
 
-Linux next-20220223 arch riscv builds failed due to following errors.
-Build configs:
-  - riscv-gcc-9-defconfig
-  - riscv-gcc-9-defconfig
-  - riscv-gcc-10-defconfig
-  - riscv-gcc-11-defconfig
+The first three patches are preparatory patches fixing unaligned access
+in module relocations and moving unneded definitions out of asm/module.h
+and asm/ftrace.h.
+Patch 4 adds the header and the remaining patches converts module
+relocation, plt entry, jump label and dynamic ftrace code to use it.
 
-metadata:
-  git_ref: master
-  git_repo: https://gitlab.com/Linaro/lkft/mirrors/next/linux-next
-  git_sha: d4a0ae62a277377de396850ed4b709b6bd9b7326
-  git_describe: next-20220223
-  arch: riscv
-  toolchain: gcc-11
+The only obvious code left to convert is the BPF JIT(s).
 
-Build error:
------------
-In file included from arch/riscv/kernel/vdso.c:10:
-arch/riscv/kernel/vdso.c: In function 'vdso_join_timens':
-arch/riscv/kernel/vdso.c:123:27: error: 'next' undeclared (first use
-in this function); did you mean 'net'?
-  123 |         for_each_vma(vmi, next) {
-      |                           ^~~~
-include/linux/mm.h:685:49: note: in definition of macro 'for_each_vma'
-  685 | #define for_each_vma(vmi, vma)          while ((vma =
-vma_next(&(vmi))) != NULL)
-      |                                                 ^~~
-arch/riscv/kernel/vdso.c:123:27: note: each undeclared identifier is
-reported only once for each function it appears in
-  123 |         for_each_vma(vmi, next) {
-      |                           ^~~~
-include/linux/mm.h:685:49: note: in definition of macro 'for_each_vma'
-  685 | #define for_each_vma(vmi, vma)          while ((vma =
-vma_next(&(vmi))) != NULL)
-      |                                                 ^~~
-make[3]: *** [scripts/Makefile.build:288: arch/riscv/kernel/vdso.o] Error 1
-make[3]: Target '__build' not remade because of errors.
-make[2]: *** [scripts/Makefile.build:614: arch/riscv/kernel] Error 2
-make[2]: Target '__build' not remade because of errors.
-make[1]: *** [Makefile:1971: arch/riscv] Error 2
+This series depends on the module relocation range check fix here:
+https://lore.kernel.org/linux-riscv/20220223191257.143694-1-kernel@esmil.dk/
 
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+Changes since v2:
+- Split the range check fix out and send it separately.
+- Convert "if (IS_DEFINED(CONFIG_32BIT))" to #ifdef to avoid compiler
+  warning on rv32. Thanks kernel test robot!
+- Add sp register, load/store instructions and RISCV_INSN_REG_L,
+  RISCV_INSN_REG_S and RISC_INSN_SZREG macros to work on both rv32 and
+  rv64 to the asm/insn.h header.
+- Add patch moving unneded definitions out of out asm/ftrace.h and a
+  patch converting kernel/ftrace.c to use the header.
 
-Steps to reproduce:
-------------------
-# To install tuxmake on your system globally:
-# sudo pip3 install -U tuxmake
+Changes since v1:
+- Send the right patches.
 
-tuxmake --runtime podman --target-arch riscv --toolchain gcc-11
---kconfig defconfig
+Emil Renner Berthing (8):
+  riscv: Avoid unaligned access when relocating modules
+  riscv: Remove unneeded definitions from asm/module.h
+  riscv: Remove unneeded definitions from asm/ftrace.h
+  riscv: Add asm/insn.h header
+  riscv: Use asm/insn.h for module relocations
+  riscv: Use asm/insn.h to generate plt entries
+  riscv: Use asm/insn.h for jump labels
+  riscv: Use asm/insn.h for dynamic ftrace
 
---
-Linaro LKFT
-https://lkft.linaro.org
+ arch/riscv/include/asm/ftrace.h     |  35 +----
+ arch/riscv/include/asm/insn.h       | 151 ++++++++++++++++++
+ arch/riscv/include/asm/module.h     |  87 ----------
+ arch/riscv/kernel/ftrace.c          |  56 ++++---
+ arch/riscv/kernel/jump_label.c      |  12 +-
+ arch/riscv/kernel/module-sections.c |  71 +++++++++
+ arch/riscv/kernel/module.c          | 236 +++++++++++++---------------
+ 7 files changed, 364 insertions(+), 284 deletions(-)
+ create mode 100644 arch/riscv/include/asm/insn.h
 
-[1] https://builds.tuxbuild.com/25XO99nwfQgKrWKz4yfBPYw0wyU/
+-- 
+2.35.1
+
 
 _______________________________________________
 linux-riscv mailing list
