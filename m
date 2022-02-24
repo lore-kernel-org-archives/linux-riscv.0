@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0165C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Feb 2022 09:38:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 568D3C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Feb 2022 10:12:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U7hBQFegip/TW+5nC3unLl4jBIeC9kBcDWr3X3ZepvU=; b=sVqCa2OziwvkwB
-	g18LRYd4kaBVbFBpv6jKYLy4tnyAeGqZ7Ag53mqRRizlp3R8EojEqayZxfW2Fo/thum03R/oCDHpc
-	7r4Wk67of99jyTZ1pbaR5JtfRh00uoZ6v+xpAjiys/FLtSe+HJtoOP8LuNYHVoLYDF6zd41PSLPJ4
-	EeTRE5fbchdXZctyVOaXl/30BeA2ed6XxmzWSmmL1NfoOPEW4b0RZ9T6/xQbEhW3b02QUSQAIEK2k
-	Xc8TJkEfh6ARaOVv8jz7xfmFTY564jVLth9+qoa7uxwHh1VCurtlhBH5PJf7PY+Wl1G8DDZVbZ7wA
-	s1+2LpvNsTdAFL6mAJlg==;
+	List-Owner; bh=aQjUehPOU44f5UOw7L+L0Xb2uzjU3quzlfqKnLg3od4=; b=tbKpHg3ooO47cn
+	TnVdctegB/YpC040GODKacs8OVI9DvoB2M1rW97hD7Mlh38j55TtCk3XVFdaohHqA+gWbV7/flf/Z
+	UAfr6Pkut8CHrMcADUaTKfxhn3qbRVkFuYoUv8MH60NiU0QemtoqBLtOOQ/2cNoCSJslEBWQljiQI
+	IPu8D7DzK2g1wKV2fx/PB6Yjbm+W3wXpHPHo3WAxICvQX35gfyIDSt7+785Kipidaq0DhCFacHp0z
+	PlO6zk+LVhgHoClJRvTcgMXwJ07VHMrOZT2BdSzfY0kKBGg4cCVV7bJAHVPbA2sEat0aXRU45uZkz
+	Hep7xEVcUZz7t2Ire+vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nNAa7-0008fY-Nb; Thu, 24 Feb 2022 09:38:39 +0000
-Received: from mout.kundenserver.de ([217.72.192.74])
+	id 1nNB6q-000Fkr-JH; Thu, 24 Feb 2022 10:12:28 +0000
+Received: from mout.kundenserver.de ([212.227.17.10])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nNAZL-0008KJ-Gq; Thu, 24 Feb 2022 09:37:53 +0000
-Received: from mail-lf1-f48.google.com ([209.85.167.48]) by
- mrelayeu.kundenserver.de (mreue106 [213.165.67.113]) with ESMTPSA (Nemesis)
- id 1MCs9W-1nW0Fw3Wym-008qFt; Thu, 24 Feb 2022 10:37:48 +0100
-Received: by mail-lf1-f48.google.com with SMTP id m14so2819297lfu.4;
- Thu, 24 Feb 2022 01:37:46 -0800 (PST)
-X-Gm-Message-State: AOAM533HjFQixgiEP5ggWctinvdineV+3GagyJlYkx6poGef9iz/Nj2L
- kFe97dAC2IIJy3KLIfGy8/1Twzj70BakHGuK/8g=
-X-Google-Smtp-Source: ABdhPJxKnbR5fQtLrHkUQmPSDD+xkHkCuZRWZe5PlaQucJaWZYHMl1I+Wr1dE0VfS6g2+fYVY4BPWlfD5Z76idC1Sco=
-X-Received: by 2002:adf:a446:0:b0:1ed:c41b:cf13 with SMTP id
- e6-20020adfa446000000b001edc41bcf13mr1559929wra.407.1645695092672; Thu, 24
- Feb 2022 01:31:32 -0800 (PST)
+ id 1nNB6n-000FjN-5f; Thu, 24 Feb 2022 10:12:26 +0000
+Received: from mail-ej1-f47.google.com ([209.85.218.47]) by
+ mrelayeu.kundenserver.de (mreue108 [213.165.67.113]) with ESMTPSA (Nemesis)
+ id 1N6bo8-1oJ0My2dYs-0187RG; Thu, 24 Feb 2022 11:12:22 +0100
+Received: by mail-ej1-f47.google.com with SMTP id hw13so3179732ejc.9;
+ Thu, 24 Feb 2022 02:12:22 -0800 (PST)
+X-Gm-Message-State: AOAM53100DmJzrUYpTMIu/dQZYnBbgFKrrro2BEn1BNjkCgjVyBmFTMU
+ hBMUzjsuBkuZwJ/cLXcQrdOsrK70KwOBJXTd7QU=
+X-Google-Smtp-Source: ABdhPJzPVQaW1f3Bbzw+kTDiMg4Tajz+c6SJ2JtQUsJaSw6D1lJ8eGh3OG9MaDTzij1odC2MMgMswcl0VWfIMCexGbY=
+X-Received: by 2002:a5d:59aa:0:b0:1ed:9f45:c2ff with SMTP id
+ p10-20020a5d59aa000000b001ed9f45c2ffmr1412807wrr.192.1645694019453; Thu, 24
+ Feb 2022 01:13:39 -0800 (PST)
 MIME-Version: 1.0
 References: <20220224085410.399351-1-guoren@kernel.org>
- <20220224085410.399351-12-guoren@kernel.org>
-In-Reply-To: <20220224085410.399351-12-guoren@kernel.org>
+ <20220224085410.399351-17-guoren@kernel.org>
+In-Reply-To: <20220224085410.399351-17-guoren@kernel.org>
 From: Arnd Bergmann <arnd@arndb.de>
-Date: Thu, 24 Feb 2022 10:31:16 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a3wg9S_zPad74FiJzYBn0M9bQyunuKzmH3z_QQrags5ng@mail.gmail.com>
-Message-ID: <CAK8P3a3wg9S_zPad74FiJzYBn0M9bQyunuKzmH3z_QQrags5ng@mail.gmail.com>
-Subject: Re: [PATCH V6 11/20] riscv: compat: syscall: Add compat_sys_call_table
+Date: Thu, 24 Feb 2022 10:13:23 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a13_VBpTidoF_pUdV5g0MFqpSe17rgw=XUv69CCFCN0_g@mail.gmail.com>
+Message-ID: <CAK8P3a13_VBpTidoF_pUdV5g0MFqpSe17rgw=XUv69CCFCN0_g@mail.gmail.com>
+Subject: Re: [PATCH V6 16/20] riscv: compat: vdso: Add rv32 VDSO base code
  implementation
 To: Guo Ren <guoren@kernel.org>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
@@ -61,26 +61,26 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
  "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
  Linux ARM <linux-arm-kernel@lists.infradead.org>, 
  "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
-X-Provags-ID: V03:K1:NhAG98hhLBp3K+uGKDDgKZNsyZrFloo9RCHiswNbL7RKz/P+eev
- 4hUZ0T9MyjPu6WikwDe9fV8bE15Ck7aXk4BKznSTg9rKUHnwv7TWwwdTkF7A0amxA8BQFJT
- fq/tkDqOdAlzJz+0O8otcdQmiYgeFGpid4AwWkLBOX4OFGwV5nNmHcGV7u4NVljo8tCj4vi
- 6c+hak8FkN/Cd9PXOCNjA==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:4fj927yh0S4=:zh+Jpr1n6GJ3nkiiRI4cDv
- fgdQm8fCCPrq+jAdqaoRbSuWf9OZWbHbZ0kYvZkII54jOjAQ48ugp6fWXh4cNVjMLti6EY60P
- gzs3COodPwE0Vu2N0Di21r3U5p6NZuAAd2l0PyyzyCrdFupJCAu7Ny7dxAOJdpAT14/U29vys
- taQAh5D3UCHkH82NrYnOeUiAL//aifo+brYm4jLpne1A0NoMGCmuiIOgA5VMXjCMW6u/bovDF
- y//qZFt7O82vSmx/1aLMuyXnxBrLsyhWBcii1wTO15YrnGzX7+bIbFZKHsUYIizOJG2af5aZZ
- xLM1+vp7BBYo6nEj5+/PCyrRHaArVx2KBTQSh+dYG3ppY5lGtB+muhxLIysW/6vcDB0B9r0RN
- REVv7OZLSCG5Cy7WlQacEmEkV8j9hjBSMXojfSrWaU2be0nNPcLvPL5cWy6vxdIeBrWZsut7p
- wYv/CzI+72mLJBtpdGzKHrZyZ3ptOL4atHv+F0tuxm1tUonj5rqTWzhUsaLeFBvy/2s6AEQxo
- XsGoHXtaWHUbNIgrD6MwawZG7LlUbZ5GGS8LiQT9esOSTgD3pYwVQu8s6zQSpN1I1heLf5WiJ
- xCfLvgtFnjeIS47igh/ul6AON6UAMCn7Rw7O31vgadJPQRZ6/dEBFr9hCawtbyCkMvOzhT+uc
- n2Qu7o0YVVkQIKmsbR299AkN0hCVVL5Qt/NGLzr/TgStYCTqFNaUsfPXVi3m3VYbgZQuDcj5m
- XpUq7CNtVbLfRZCb3nAgNq4+JXC7L+QLdoc10ahkUF8Cs9Hl5QRESU1egQbV5Iz1HqHTRsphw
- O9VY5zDHSINLxVJZghs2s/TQI6AcYTybhUnYvh52G2JCMPG9cg=
+X-Provags-ID: V03:K1:67KnLieDZRNziBJPteu3Au9DfZEfEmQYZ+Adp4Js4iDJaBYxREb
+ HagAFx5ZhXAc49O3bUd/uIzrCBCy04fkBl4h+Bsdk9No1vMAYfKnZDY1tclspc0e+q3ZrQV
+ c90YwIVBL5mF/qCuAdJ8i3AQDrKAXAD1WW0xoW9Qq4UhSXBtd+cFfwD72Jk6d0lahVhTftc
+ 6COZ50DaRPnNcwo426aag==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:LxaivV2OH5g=:rZzesXNXXJrTs2yUGQqMoj
+ emee/7NNErGQga/QKL/ZbiUvDhyo3eqT6I4ijnZQKIcuTy7lSEe2xt3c73qVB9J4FzXaF9Xth
+ Szi3GDnqmzG9y4MAd3ozNS6q0UNArXPQccmzSYHLktl3ecDWlGgvYun+oGhKr0YOwXVjVPQZX
+ LXIJzjP42vscgfCOUJuigZcrh9cUYp3O4LexaUjeZHKDBV5jWNw6q9NHqr+r0gKtslaeZfrCr
+ zatAFEShvpi1ZyU+8KlGMdJ++wAEGO6QGUro7jVQepurVSLmymQts+aXp3NJUac1G3GWptgLJ
+ CG+O7swsxCm2R8WJi4qbXNAruk+PWSYz8Wu+x9Fy1P5kSwQDiiA05UoWcdy5/uP2z/G3Pyzy+
+ J403ekEjY78CdIn4lf8BTaxUbU9uZTbsWZ88IUaAGIddMRTN7PSAFfHUtLHF4HtjdwMQTzU5g
+ RHMIqSCrhlW/KU2KBiMnzz0J1ilsvZCZLwZJ8RCCf2cCOIz+9D1iviM2qqHeJprcMN8ZKDI0D
+ bcAkSfQndcB02mGsyv2Xe7QZl2orwk+nxZyeGamyVPVxQsV9lUMMFioL7fW1+ghzbJK7ZV6Sw
+ F8TDAavnDZ8xuYBBuopJoWZ2Sf0tIHpBrXE5ljVoLWX2bj50jR5hOFAoY4YcgydT3YNe0eahZ
+ nbIj2kh6Ve0wktweUNGSLCaL5y/VR7DtphVuHTXMAYwP2sz5bBtIOCw/hXxmX6I8g5AYbwnzG
+ 2Nsi9mAjQRFdwMJMbElMb+aqamDv+YktsUoH1p673oo4WAVlva9blSlrqKMp/S6UTlvDNhxaT
+ lsesZrOTYDIKmHfsAp+Ql9o73wXaMaKDbmGOWFcLuZoB+g2KSUUHiIoXTNWs0R1u74mTopo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220224_013751_883830_2051DAD4 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20220224_021225_538765_926AF084 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,31 +101,23 @@ On Thu, Feb 24, 2022 at 9:54 AM <guoren@kernel.org> wrote:
 >
 > From: Guo Ren <guoren@linux.alibaba.com>
 >
-> Implement compat sys_call_table and some system call functions:
-> truncate64, ftruncate64, fallocate, pread64, pwrite64,
-> sync_file_range, readahead, fadvise64_64 which need argument
-> translation.
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> There is no vgettimeofday supported in rv32 that makes simple to
+> generate rv32 vdso code which only needs riscv64 compiler. Other
+> architectures need change compiler or -m (machine parameter) to
+> support vdso32 compiling. If rv32 support vgettimeofday (which
+> cause C compile) in future, we would add CROSS_COMPILE to support
+> that makes more requirement on compiler enviornment.
 
-Here, I was hoping you'd convert some of the other architectures to use
-the same code, but the changes you did do look correct.
+I think it's just a bug that rv32 doesn't have the vdso version of the
+time syscalls. Fixing that is of course independent of the compat support,
+but I think you need that anyway, and it would be better to start
+out by building the compat vdso with the correct
+architecture level.
 
-Please at least add the missing bit for big-endian architectures here:
+At least this should be a lot easier than on arch/arm64 because you
+can assume that an rv64 compiler is able to also build rv32 output.
 
-+#if !defined(compat_arg_u64) && !defined(CONFIG_CPU_BIG_ENDIAN)
-+#define compat_arg_u64(name)           u32  name##_lo, u32  name##_hi
-+#define compat_arg_u64_dual(name)      u32, name##_lo, u32, name##_hi
-+#define compat_arg_u64_glue(name)      (((u64)name##_hi << 32) | \
-+                                        ((u64)name##_lo & 0xffffffffUL))
-+#endif
-
-with the lo/hi words swapped. With that change:
-
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+        Arnd
 
 _______________________________________________
 linux-riscv mailing list
