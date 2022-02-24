@@ -4,89 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C10E7C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Feb 2022 06:04:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B25C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Feb 2022 07:06:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HEvPNvazmdcNukkE7/vutNbtUt6qgw5ZIkYB/bWV+cw=; b=IiR7YzYyTSVGOP
-	yFMufwYUqcyQpY5MCVxKsXEhX6puTH2HtkkDI+3gNdWCZiTb4TYO0zNvk8GIZ0CYGNO4MJbC757q1
-	25yEVBQtnfR+f0NNGp6Cs/iF6F2oNwDbRGRkBFBzMv8cGv2yWotnUL6Hs7ggXDXmyRoayxOTxZ5+W
-	0FIie4koowtGbRO3ufLTYYtaa2DmRkUifrcOQS5u5QH14fkzJtMVeX6ablmiQoflN+fHv01HzREcf
-	tRK6nNnAdSNHv5R0H/qvKq9Yvj28FFJIxsst0BAnt8+xY16h4QW1EAZVHi5EWaIbwDyepHnRBq22S
-	r5IJjFJMI4zkjWEYJcSQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nHhYXxf1EgYS8swQMkLtjMg/ZW4a7loj1M2XeslbgoE=; b=LIXhImN3UxzGND
+	Fg4c9jTmy9QgBhQ1vO27SP19x+GNtiaAlVyl1881kVPack5EyPicaErbevfVzjUabmihcHMB28khL
+	PCOZjflidIdIAdx8PUWZCbg/wmR1IqtvtYvYARnO28LVUx6io4laesL5Mfx4vZptzNciULxYiPDLg
+	00WaOO7DsIfRQw4438bwJ5clqOgUuwHtTVMegpfyA72ySgxje+dzEGsDUtKVWFSQoHrmFEeCMNDgR
+	LVw/qrlMZ5OpWfwMJncT9TzCbH3SDkF5nbwKcFNh7r84tagzHh45k0KS4+2zU8rf4QV62cpEEdl2l
+	uIistIIp4CgnXz1woR2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nN7Ek-00GxG4-QM; Thu, 24 Feb 2022 06:04:22 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1nN8Cj-00H5YU-4p; Thu, 24 Feb 2022 07:06:21 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nN7Eg-00GxEM-A4
- for linux-riscv@lists.infradead.org; Thu, 24 Feb 2022 06:04:21 +0000
-Received: by mail-pf1-x432.google.com with SMTP id z15so961426pfe.7
- for <linux-riscv@lists.infradead.org>; Wed, 23 Feb 2022 22:04:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=fBQhUdnhsD8RfcUU30uApq8m70WZYUmsL7PCUmornGQ=;
- b=euV4TcJ4C7XWuUsWe8K/AvIu2OQaD6q8iwxN9TTOS2rnDJUK2X2vp84zXQH8nNYOqh
- ZBsmFV/XioxweiYKrT2/r3vovVNXoCaUX00VyKdRLtcTqRpt741OCIBvnAtYZ9u4cAwt
- /VE0GfxT8YhWO1xqsMd+A12AMl3ai738YZyYo=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=fBQhUdnhsD8RfcUU30uApq8m70WZYUmsL7PCUmornGQ=;
- b=fGNJVhyZi7dJpnbyFsO18BKang1D9bgq4MTOUGO7uQepSJVbHpiPorrEZEHAT2MoVM
- hOmm7fkp+OfWwGG0norLSJmwyWvu3Zu0+oWH2rpfnT3TqzlVsW6gMFlN57XSxgWCm8xs
- 8xNjobbOyomPb7QxrTIX6X6QOYJPXKnIU2jeSkDCeDkC0xvrFVBJf0NwdegUW/yV1FsQ
- c/kgJ/04WiJx0L7yl1Kb10sfkPrhG7VIAQ/0k4na/9W2frohclqWSmvvDcHUc+JnIOzC
- Z0qQwuoHSBdOQV5wBUAd2knoIlTt7VfPw9NJ2sRvjhrLWMxoZqJNmMsgeUIq6nHAEtOC
- +C4g==
-X-Gm-Message-State: AOAM531ySPhvOYVyjAqmTvy6Kp3QUH+BzkvuPjwz9cLjyea2BO9MayOv
- LLExCmTabcX83hplLe5F5Tv/Zw==
-X-Google-Smtp-Source: ABdhPJz5zO8JdHm6dSoWSwfIO1VWInEM6QBCKhwLgEtUt+tZNNicCZ5CqCgHy1wgDXemleJIwK7ewQ==
-X-Received: by 2002:a63:2006:0:b0:364:56b6:868 with SMTP id
- g6-20020a632006000000b0036456b60868mr1093390pgg.493.1645682657153; 
- Wed, 23 Feb 2022 22:04:17 -0800 (PST)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
- by smtp.gmail.com with ESMTPSA id d13sm1581760pfj.205.2022.02.23.22.04.16
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 23 Feb 2022 22:04:16 -0800 (PST)
-From: Kees Cook <keescook@chromium.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Kees Cook <keescook@chromium.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Peter Zijlstra <peterz@infradead.org>,
- Jisheng Zhang <jszhang@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Mark Rutland <mark.rutland@arm.com>, Chen Huang <chenhuang5@huawei.com>,
- linux-riscv@lists.infradead.org, Kefeng Wang <wangkefeng.wang@huawei.com>,
- linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: [PATCH] riscv: Rename "sp_in_global" to "current_stack_pointer"
-Date: Wed, 23 Feb 2022 22:04:11 -0800
-Message-Id: <20220224060411.1855683-1-keescook@chromium.org>
-X-Mailer: git-send-email 2.30.2
+ id 1nN8Cg-00H5Xm-1E; Thu, 24 Feb 2022 07:06:19 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 8199B61983;
+ Thu, 24 Feb 2022 07:06:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5BB1C340FB;
+ Thu, 24 Feb 2022 07:06:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1645686376;
+ bh=d3iTCnmjiWI2WfX8T3i0lRHp9N81t6Yh8Z7V7FwGN/U=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=qRHA5NqUEplN9pIxZqIsW0kBn4+MBilYUh4ACzsMgXUXNRVhSeH8k99rVs+VguAdz
+ S6nw5jZeA2U0sfghJtI+av1c041361/u33OVFn034lG4nfre1v86nWYuQmM7joS4ks
+ Agm8jI646/XZqBZpm2KUVxpK4cH1m93Yam+wbo2huzzTMAz3INUDtPU8ZxedY0sjkR
+ Q0blhmmZF3gCmqsSyWTbjENBVylQ/UtE3IYK+1xeZimaMKGdlOrqKnMJ1W0pixwOSS
+ 2onkioItET0unfSCYSyvkdtjTxUNN6BpQw2svjAg1a0ZTXaFUQp1iqBJgsEQrsP26v
+ H7DkLDPiyrc0w==
+Received: by mail-lf1-f42.google.com with SMTP id y24so2305085lfg.1;
+ Wed, 23 Feb 2022 23:06:16 -0800 (PST)
+X-Gm-Message-State: AOAM533prblXVona+CLe0OehJX6wpYgr3+OFgV1x8qjMO1ZSqN5EKHIj
+ 3ZYKdzhcxshW09Ujb9BbIL20tA5uQrugdapsYAQ=
+X-Google-Smtp-Source: ABdhPJyN7vOmEPkorPTffJc1X7o++TFchfjh5Aum2nyP+tyYB62T97KqiFOhsVfqhaexAyBFN29agtP9qBPfezDsID0=
+X-Received: by 2002:adf:a446:0:b0:1ed:c41b:cf13 with SMTP id
+ e6-20020adfa446000000b001edc41bcf13mr1075883wra.407.1645686364180; Wed, 23
+ Feb 2022 23:06:04 -0800 (PST)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2489; h=from:subject;
- bh=2XfQlbZt/VASlkLb1MSCqElmqb6vbL4RS4z2QFk7tCM=;
- b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBiFx/afSrkh8EYDR9D3m2YLzo8QsdHAeHLqKFsMf9L
- Ex0rEESJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYhcf2gAKCRCJcvTf3G3AJtYID/
- 0R5bxSy2t3cd2QP9ELfq7URD/MGmGsTdjcoofRxSpM1eQZVOiBdeDWyUE+LCujt1n3EWeG9/KLdXHX
- /WQ95qcvvpE+17Eg+C5rUZC1nHPqEQ5TYzJhNsXY8rTBarxYZf099cwM2Wy/avRalVegpLM+goW0UV
- OHjqi4ZqHmo5oR79DpD//6hr1R6HEDxIYm2s78ssVhOhxhENJt3LmwqRl1AvpZfRusHp60S/QlKM3X
- XHH8Nvin/kjfTRPlr6DOGM1rcRVTBgPRTICC+upoS1B0P2v04wOCMEezgWviLq0x4URVJoik/xShCm
- LCZxmDp9D9FEY8fjy9oGP/T5H0oTdKvJSiDOvPc9daTTskU/zyoGTJLHlfnJ3reli9mCBct2m22LtC
- JlZ8eU/Nhhh/ja8zJghB2ag5+d0fD67sDPHNZH4jZkmbr0GY7JfRAdiWws7peBAprqURBGMslsW+q0
- D1Qjatg8yvome9CgoujRVSBd0VznUSLKOEIYOqy9ZHT08XSHe3zWMH/xHwosPsbg5CF34jKh1uDlVE
- YLhkHVNCLjImiNXZGAh9hAS4g4son5YFfbbPnNT1DnPvxQN6dounkk7vIKeGD41EeyRiFEV5KrON6N
- wWEzFHPipr0uNzR4ddaOg1HZnK8+T5mGQYA0aNoK0hyBwwTGOBeYOqPaLE8A==
-X-Developer-Key: i=keescook@chromium.org; a=openpgp;
- fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
+References: <20220216131332.1489939-1-arnd@kernel.org>
+ <20220216131332.1489939-8-arnd@kernel.org>
+ <c6f461f1-1dd9-aec1-2c85-a3eda478a1be@kernel.org>
+In-Reply-To: <c6f461f1-1dd9-aec1-2c85-a3eda478a1be@kernel.org>
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Thu, 24 Feb 2022 08:05:48 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a34OBFhncvg32hO3qb1uH8cvwFb0ro1jEMT4bdOLrtfdw@mail.gmail.com>
+Message-ID: <CAK8P3a34OBFhncvg32hO3qb1uH8cvwFb0ro1jEMT4bdOLrtfdw@mail.gmail.com>
+Subject: Re: [PATCH v2 07/18] nios2: drop access_ok() check from __put_user()
+To: Dinh Nguyen <dinguyen@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+ Christoph Hellwig <hch@lst.de>, 
+ linux-arch <linux-arch@vger.kernel.org>, Linux-MM <linux-mm@kvack.org>, 
+ Linux API <linux-api@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Al Viro <viro@zeniv.linux.org.uk>, 
+ Russell King - ARM Linux <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
+ Guo Ren <guoren@kernel.org>, 
+ Brian Cain <bcain@codeaurora.org>, Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Michal Simek <monstr@monstr.eu>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>, 
+ Stafford Horne <shorne@gmail.com>, Helge Deller <deller@gmx.de>,
+ Michael Ellerman <mpe@ellerman.id.au>, 
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Mark Rutland <mark.rutland@arm.com>, Heiko Carstens <hca@linux.ibm.com>,
+ Rich Felker <dalias@libc.org>, 
+ David Miller <davem@davemloft.net>, Richard Weinberger <richard@nod.at>, 
+ "the arch/x86 maintainers" <x86@kernel.org>, Max Filippov <jcmvbkbc@gmail.com>,
+ "Eric W . Biederman" <ebiederm@xmission.com>,
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Ard Biesheuvel <ardb@kernel.org>, alpha <linux-alpha@vger.kernel.org>, 
+ "open list:SYNOPSYS ARC ARCHITECTURE" <linux-snps-arc@lists.infradead.org>,
+ linux-csky@vger.kernel.org, 
+ "open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>,
+ linux-ia64@vger.kernel.org, linux-m68k <linux-m68k@lists.linux-m68k.org>, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ Openrisc <openrisc@lists.librecores.org>, 
+ Parisc List <linux-parisc@vger.kernel.org>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ linux-s390 <linux-s390@vger.kernel.org>, 
+ Linux-sh list <linux-sh@vger.kernel.org>,
+ sparclinux <sparclinux@vger.kernel.org>, 
+ linux-um <linux-um@lists.infradead.org>, 
+ "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220223_220418_376351_02236AA9 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20220223_230618_165928_4B0EDAFF 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,76 +115,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-To follow the existing per-arch conventions, rename "sp_in_global" to
-"current_stack_pointer". This will let it be used in non-arch places
-(like HARDENED_USERCOPY).
+On Thu, Feb 24, 2022 at 12:30 AM Dinh Nguyen <dinguyen@kernel.org> wrote:
+> On 2/16/22 07:13, Arnd Bergmann wrote: From: Arnd Bergmann <arnd@arndb.de>
+> >
+> > Unlike other architectures, the nios2 version of __put_user() has an
+> > extra check for access_ok(), preventing it from being used to implement
+> > __put_kernel_nofault().
+> >
+> > Split up put_user() along the same lines as __get_user()/get_user()
+> >
+> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+>
+> Acked-by: Dinh Nguyen <dinguyen@kernel.org>
 
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Jisheng Zhang <jszhang@kernel.org>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Chen Huang <chenhuang5@huawei.com>
-Cc: linux-riscv@lists.infradead.org
-Signed-off-by: Kees Cook <keescook@chromium.org>
----
- arch/riscv/Kconfig               | 1 +
- arch/riscv/include/asm/current.h | 2 ++
- arch/riscv/kernel/stacktrace.c   | 4 +---
- 3 files changed, 4 insertions(+), 3 deletions(-)
+Thanks! Could you also have a look at patch 2 (uaccess: fix nios2 and
+microblaze get_user_8)? That one is actually more critical, and should
+be backported to stable kernels.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 5adcbd9b5e88..b120c32697af 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -16,6 +16,7 @@ config RISCV
- 	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
- 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
- 	select ARCH_HAS_BINFMT_FLAT
-+	select ARCH_HAS_CURRENT_STACK_POINTER
- 	select ARCH_HAS_DEBUG_VM_PGTABLE
- 	select ARCH_HAS_DEBUG_VIRTUAL if MMU
- 	select ARCH_HAS_DEBUG_WX
-diff --git a/arch/riscv/include/asm/current.h b/arch/riscv/include/asm/current.h
-index 1de233d8e8de..21774d868c65 100644
---- a/arch/riscv/include/asm/current.h
-+++ b/arch/riscv/include/asm/current.h
-@@ -33,6 +33,8 @@ static __always_inline struct task_struct *get_current(void)
- 
- #define current get_current()
- 
-+register unsigned long current_stack_pointer __asm__("sp");
-+
- #endif /* __ASSEMBLY__ */
- 
- #endif /* _ASM_RISCV_CURRENT_H */
-diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-index 201ee206fb57..278380e2e956 100644
---- a/arch/riscv/kernel/stacktrace.c
-+++ b/arch/riscv/kernel/stacktrace.c
-@@ -14,8 +14,6 @@
- 
- #include <asm/stacktrace.h>
- 
--register unsigned long sp_in_global __asm__("sp");
--
- #ifdef CONFIG_FRAME_POINTER
- 
- void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
-@@ -77,7 +75,7 @@ void notrace walk_stackframe(struct task_struct *task,
- 		sp = user_stack_pointer(regs);
- 		pc = instruction_pointer(regs);
- 	} else if (task == NULL || task == current) {
--		sp = sp_in_global;
-+		sp = current_stack_pointer;
- 		pc = (unsigned long)walk_stackframe;
- 	} else {
- 		/* task blocked in __switch_to */
--- 
-2.30.2
-
+       Arnd
 
 _______________________________________________
 linux-riscv mailing list
