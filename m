@@ -4,74 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00BB2C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Feb 2022 11:58:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1EE7C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Feb 2022 12:40:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DAhB1VV6RyDpW+NGNVxGaoBXWy63PvxjYkAURuriTPk=; b=RIQYSctXWTV/GU
-	ciPJhj+xGBjZf6+F/tFe7ftfX0+GxIQUrWQeNtt/KvH0X2rxhbjAjxn1E/hhLdh0KGOqW9TB0XFbr
-	5pqdY/KSF8+b6LhNF90VJsnZV4LdtwCrKqimspzEz2TNJap0CDkqs8YDIuIe7R5Kn44ctuG3s47RG
-	KcqCmpqMTPpd+/U1jH98y91KHt5Mk3oLCygSbI4XrE8Ci8sLTxLAhQRIy+M952hzU5DTbHibTkk1M
-	G/WLBcCmtHMRBl6FqQzI5T2xJQXE6dqIxo479Tc9SZNBAWHG7BNqLxyuYTdh09mpNBNtOfiUO9fp0
-	l4g0ArNoys3aS7SvAYkA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3QWFP1KFUTTa745XTeRWDk6DXJvlXkW+R3/jcjBQO9s=; b=Sc7vyaRo1s6q3E
+	N5QpC57mXxlTtQOZ8oSDd5dVv34xwF7XGT7fCXH8A8UxRsXAGNAqDDIXEdtKntcB3qnLjHJRJJ9jD
+	+b48D8b0X2mJl/9VOTsqbEGIPABH/lsXPluWvsMfuXPnHKAiqvgjDhoycZa8gt7ZGDwr8SqiY6Dnv
+	j1AIBWDf74NTBrKMnjiqrJhA84P5iFdulEE6alfFYKQLepIx16ENaWDvUtVDcebIWarAi7hsBKQwu
+	th17vRfItPwWQ6Wk4fH4UZ7tShOzHsdHGuVL8OQ7SQzXRkOOBj1SVdMUUDbcd7AyLFUxWt3xQakSH
+	RKbhOQ1xusZqb92E2Agw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nNZEf-004kEf-V5; Fri, 25 Feb 2022 11:58:10 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1nNZtJ-004sUR-To; Fri, 25 Feb 2022 12:40:09 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nNZEb-004kDx-Ki; Fri, 25 Feb 2022 11:58:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1645790285; x=1677326285;
- h=message-id:date:mime-version:subject:to:cc:references:
- from:in-reply-to:content-transfer-encoding;
- bh=jb575qz92N0qttgR0m4lb4u9YIyF2WnFBvxZuO6zb3s=;
- b=MqjQwFkby8RD0prnmO3IcnFfxjhrusqfO0hVPDUNZ1WybDpf3eL7lr6P
- 7TH39miEz0EOOgFIBSTmO330nD0dsB8XV8Dy9XT7QSG5g2vCIiK3eHNzg
- +lnCAzyaGhpj5O2u6U2P9+FjJbpwp/Hfs+vg/Zoipjd/I5g+JUG4klGnq
- MAp3t3qzZS6SrS4T8081YQyYRM0SGyJZ5wkase4LhdM3+LbpRgudKebcm
- 2bJe8KFC+2NV6TRg+Ze5F3wSZhmXwgPAKjo9lDTyc9f8r2c9MNasrLVxS
- Avq6L7RiMPjH/amA1fyXQ/uZsFVACrvHdjgyZGzIXXJfWhr8DhEzCmuFZ w==;
-X-IronPort-AV: E=Sophos;i="5.90,136,1643698800"; d="scan'208";a="150004062"
-Received: from smtpout.microchip.com (HELO email.microchip.com)
- ([198.175.253.82])
- by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 25 Feb 2022 04:57:56 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Fri, 25 Feb 2022 04:57:54 -0700
-Received: from [10.12.72.56] (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2375.17 via Frontend
- Transport; Fri, 25 Feb 2022 04:57:49 -0700
-Message-ID: <11bad796-94b8-6b3c-92df-40da19f9eadd@microchip.com>
-Date: Fri, 25 Feb 2022 12:57:48 +0100
+ id 1nNZtG-004sTP-Vz
+ for linux-riscv@lists.infradead.org; Fri, 25 Feb 2022 12:40:08 +0000
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id A97823FCA9
+ for <linux-riscv@lists.infradead.org>; Fri, 25 Feb 2022 12:39:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1645792797;
+ bh=HCBpo4PsqJUx1yHp1r7/10LuebIPFGAh3ml+5ybdqeU=;
+ h=From:To:Subject:Date:Message-Id:MIME-Version;
+ b=bjt6hy1G+KXwuPQ7NJSHRNhqfGQTCqO17qOhRBwYM4J+6nknLKWxlgjmbCI5tVH6b
+ 9Eqen2yWdwoNigzIQOgNXLX4za8BwzxnKcO0CLGH17aONXEhgukPW0DNbPhQpICKy2
+ x9FwoaxCzrd98nkQlhXTs3RO30s4zaa0snTV+r+Umfb0qNsqtaeT64TJ5TZuZK9B3N
+ KgDuy7BJ0RLwlmN2xt0MUk+gHkWamR0DwAloDIuGrOu9yDNF2mScIHuX3pD+hjr433
+ xCc/rv6iMizPK7poKnXPudq9AFfeY0PKyq1bmA5Thz/3pLWhvfC/I+Ai8XHBBigZSR
+ 2qQWAb77/p8ow==
+Received: by mail-wr1-f71.google.com with SMTP id
+ e26-20020adfa45a000000b001ea860cd35cso859094wra.4
+ for <linux-riscv@lists.infradead.org>; Fri, 25 Feb 2022 04:39:57 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=HCBpo4PsqJUx1yHp1r7/10LuebIPFGAh3ml+5ybdqeU=;
+ b=e2F8Xo2dDhrJQw1eUj38wwls400KjiBfA1EW0h/WosHcaCCA805xNgPV+HhsGb0UMZ
+ PlmMhJ64y1TLj3rlLAjJEoePeFvEHIByNZEIZe5a30YwPFn0nrYEVvEO8GXO+Kh3PUvB
+ FdXAjfgWEEjFk1Rawd9cDtAzs+U/f+BLMWwqBg9pkmWphn6Mim/PavAQgjPO6yHAIFf+
+ /pJfoiJibluyCXnDMWW9wkxq4nmUZHlnpAzdr2z3SIuFOktf41FaMayqyKl7ijIO26D6
+ JCblC98sKPrE5ZlpqolhoknYPMVVq0NpeuOjiA2MpeDnREQYfemAGcHutNCXhdzAISLV
+ 6png==
+X-Gm-Message-State: AOAM530x9hreVIjFSIEzPCIXzFnsJ6N9S6+8zI3j6qD74k1xj/0GZ2CH
+ Nr/Xtu3yUkDmJaMupNZxWnSrjGDeZXz82wE8hTIzgyhbX5vIwZyCN8M+kESKw45Ts8QlhH/3kgh
+ H2fvBRzaN0GCl0/eNJHmS3O+67/SBTAevbZpN+19aQhaP/w==
+X-Received: by 2002:a05:600c:4e8d:b0:37c:4e20:baa6 with SMTP id
+ f13-20020a05600c4e8d00b0037c4e20baa6mr2571092wmq.19.1645792796220; 
+ Fri, 25 Feb 2022 04:39:56 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJy9QofFekuLpagTizNm0Nvue0YJrwM7JnOms0+vyselmIfyGv4HfSWC7mWt/qp/V+q7KV98Kw==
+X-Received: by 2002:a05:600c:4e8d:b0:37c:4e20:baa6 with SMTP id
+ f13-20020a05600c4e8d00b0037c4e20baa6mr2571082wmq.19.1645792796034; 
+ Fri, 25 Feb 2022 04:39:56 -0800 (PST)
+Received: from localhost.localdomain (lfbn-gre-1-195-1.w90-112.abo.wanadoo.fr.
+ [90.112.158.1]) by smtp.gmail.com with ESMTPSA id
+ m1-20020adfdc41000000b001edb7520438sm2216981wrj.115.2022.02.25.04.39.55
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 25 Feb 2022 04:39:55 -0800 (PST)
+From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>,
+ Dmitry Vyukov <dvyukov@google.com>,
+ Alexandre Ghiti <alexandre.ghiti@canonical.com>,
+ Aleksandr Nogikh <nogikh@google.com>, Nick Hu <nickhu@andestech.com>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com
+Subject: [PATCH -fixes v3 0/6] Fixes KASAN and other along the way
+Date: Fri, 25 Feb 2022 13:39:47 +0100
+Message-Id: <20220225123953.3251327-1-alexandre.ghiti@canonical.com>
+X-Mailer: git-send-email 2.32.0
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.5.0
-Subject: Re: [PATCH v4 1/1] soc: add microchip polarfire soc system controller
-Content-Language: en-US
-To: <conor.dooley@microchip.com>, <aou@eecs.berkeley.edu>,
- <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <arnd@arndb.de>,
- <olof@lixom.net>, <linux-riscv@lists.infradead.org>
-CC: <robh+dt@kernel.org>, <cyril.jean@microchip.com>,
- <daire.mcnamara@microchip.com>, <lewis.hanly@microchip.com>,
- <jassisinghbrar@gmail.com>, <j.neuschaefer@gmx.net>, <sfr@canb.auug.org.au>,
- <damien.lemoal@wdc.com>, <atishp@atishpatra.org>,
- <alexandre.belloni@bootlin.com>, <claudiu.beznea@microchip.com>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20220217101349.2374873-1-conor.dooley@microchip.com>
- <20220217101349.2374873-2-conor.dooley@microchip.com>
-From: Nicolas Ferre <nicolas.ferre@microchip.com>
-Organization: microchip
-In-Reply-To: <20220217101349.2374873-2-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220225_035805_831804_99648516 
-X-CRM114-Status: GOOD (  32.42  )
+X-CRM114-CacheID: sfid-20220225_044007_191773_4BAAD28F 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,307 +101,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 17/02/2022 at 11:13, conor.dooley@microchip.com wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> This driver provides an interface for other drivers to access the
-> functions of the system controller on the Microchip PolarFire SoC.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+As reported by Aleksandr, syzbot riscv is broken since commit
+54c5639d8f50 ("riscv: Fix asan-stack clang build"). This commit actually
+breaks KASAN_INLINE which is not fixed in this series, that will come later
+when found.
 
-It looks okay to me:
-Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+Nevertheless, this series fixes small things that made the syzbot
+configuration + KASAN_OUTLINE fail to boot.
 
-As agreed with Conor, I queue it in my at91-soc branch for 5.18 which 
-will be reached via arm-soc.
+Note that even though the config at [1] boots fine with this series, I
+was not able to boot the small config at [2] which fails because
+kasan_poison receives a really weird address 0x4075706301000000 (maybe a
+kasan person could provide some hint about what happens below in
+do_ctors -> __asan_register_globals):
 
-Best regards,
-   Nicolas
+Thread 2 hit Breakpoint 1, kasan_poison (addr=<optimized out>, size=<optimized out>, value=<optimized out>, init=<optimized out>) at /home/alex/work/linux/mm/kasan/shadow.c:90
+90		if (WARN_ON((unsigned long)addr & KASAN_GRANULE_MASK))
+1: x/i $pc
+=> 0xffffffff80261712 <kasan_poison>:	andi	a4,a0,7
+5: /x $a0 = 0x4075706301000000
 
-> ---
->   drivers/soc/Kconfig                         |   1 +
->   drivers/soc/Makefile                        |   1 +
->   drivers/soc/microchip/Kconfig               |  10 +
->   drivers/soc/microchip/Makefile              |   1 +
->   drivers/soc/microchip/mpfs-sys-controller.c | 194 ++++++++++++++++++++
->   include/soc/microchip/mpfs.h                |   4 +-
->   6 files changed, 209 insertions(+), 2 deletions(-)
->   create mode 100644 drivers/soc/microchip/Kconfig
->   create mode 100644 drivers/soc/microchip/Makefile
->   create mode 100644 drivers/soc/microchip/mpfs-sys-controller.c
-> 
-> diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
-> index a8562678c437..c5aae42673d3 100644
-> --- a/drivers/soc/Kconfig
-> +++ b/drivers/soc/Kconfig
-> @@ -13,6 +13,7 @@ source "drivers/soc/imx/Kconfig"
->   source "drivers/soc/ixp4xx/Kconfig"
->   source "drivers/soc/litex/Kconfig"
->   source "drivers/soc/mediatek/Kconfig"
-> +source "drivers/soc/microchip/Kconfig"
->   source "drivers/soc/qcom/Kconfig"
->   source "drivers/soc/renesas/Kconfig"
->   source "drivers/soc/rockchip/Kconfig"
-> diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
-> index adb30c2d4fea..904eec2a7871 100644
-> --- a/drivers/soc/Makefile
-> +++ b/drivers/soc/Makefile
-> @@ -18,6 +18,7 @@ obj-y				+= ixp4xx/
->   obj-$(CONFIG_SOC_XWAY)		+= lantiq/
->   obj-$(CONFIG_LITEX_SOC_CONTROLLER) += litex/
->   obj-y				+= mediatek/
-> +obj-y				+= microchip/
->   obj-y				+= amlogic/
->   obj-y				+= qcom/
->   obj-y				+= renesas/
-> diff --git a/drivers/soc/microchip/Kconfig b/drivers/soc/microchip/Kconfig
-> new file mode 100644
-> index 000000000000..eb656b33156b
-> --- /dev/null
-> +++ b/drivers/soc/microchip/Kconfig
-> @@ -0,0 +1,10 @@
-> +config POLARFIRE_SOC_SYS_CTRL
-> +	tristate "POLARFIRE_SOC_SYS_CTRL"
-> +	depends on POLARFIRE_SOC_MAILBOX
-> +	help
-> +	  This driver adds support for the PolarFire SoC (MPFS) system controller.
-> +
-> +	  To compile this driver as a module, choose M here. the
-> +	  module will be called mpfs_system_controller.
-> +
-> +	  If unsure, say N.
-> diff --git a/drivers/soc/microchip/Makefile b/drivers/soc/microchip/Makefile
-> new file mode 100644
-> index 000000000000..14489919fe4b
-> --- /dev/null
-> +++ b/drivers/soc/microchip/Makefile
-> @@ -0,0 +1 @@
-> +obj-$(CONFIG_POLARFIRE_SOC_SYS_CTRL)	+= mpfs-sys-controller.o
-> diff --git a/drivers/soc/microchip/mpfs-sys-controller.c b/drivers/soc/microchip/mpfs-sys-controller.c
-> new file mode 100644
-> index 000000000000..2f4535929762
-> --- /dev/null
-> +++ b/drivers/soc/microchip/mpfs-sys-controller.c
-> @@ -0,0 +1,194 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Microchip PolarFire SoC (MPFS) system controller driver
-> + *
-> + * Copyright (c) 2020-2021 Microchip Corporation. All rights reserved.
-> + *
-> + * Author: Conor Dooley <conor.dooley@microchip.com>
-> + *
-> + */
-> +
-> +#include <linux/slab.h>
-> +#include <linux/kref.h>
-> +#include <linux/module.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/of_platform.h>
-> +#include <linux/mailbox_client.h>
-> +#include <linux/platform_device.h>
-> +#include <soc/microchip/mpfs.h>
-> +
-> +static DEFINE_MUTEX(transaction_lock);
-> +
-> +struct mpfs_sys_controller {
-> +	struct mbox_client client;
-> +	struct mbox_chan *chan;
-> +	struct completion c;
-> +	struct kref consumers;
-> +};
-> +
-> +int mpfs_blocking_transaction(struct mpfs_sys_controller *sys_controller, struct mpfs_mss_msg *msg)
-> +{
-> +	int ret, err;
-> +
-> +	err = mutex_lock_interruptible(&transaction_lock);
-> +	if (err)
-> +		return err;
-> +
-> +	reinit_completion(&sys_controller->c);
-> +
-> +	ret = mbox_send_message(sys_controller->chan, msg);
-> +	if (ret >= 0) {
-> +		if (wait_for_completion_timeout(&sys_controller->c, HZ)) {
-> +			ret = 0;
-> +		} else {
-> +			ret = -ETIMEDOUT;
-> +			dev_warn(sys_controller->client.dev,
-> +				 "MPFS sys controller transaction timeout\n");
-> +		}
-> +	} else {
-> +		dev_err(sys_controller->client.dev,
-> +			"mpfs sys controller transaction returned %d\n", ret);
-> +	}
-> +
-> +	mutex_unlock(&transaction_lock);
-> +
-> +	return ret;
-> +}
-> +EXPORT_SYMBOL(mpfs_blocking_transaction);
-> +
-> +static void rx_callback(struct mbox_client *client, void *msg)
-> +{
-> +	struct mpfs_sys_controller *sys_controller =
-> +		container_of(client, struct mpfs_sys_controller, client);
-> +
-> +	complete(&sys_controller->c);
-> +}
-> +
-> +static void mpfs_sys_controller_delete(struct kref *kref)
-> +{
-> +	struct mpfs_sys_controller *sys_controller = container_of(kref, struct mpfs_sys_controller,
-> +					       consumers);
-> +
-> +	mbox_free_channel(sys_controller->chan);
-> +	kfree(sys_controller);
-> +}
-> +
-> +void mpfs_sys_controller_put(void *data)
-> +{
-> +	struct mpfs_sys_controller *sys_controller = data;
-> +
-> +	kref_put(&sys_controller->consumers, mpfs_sys_controller_delete);
-> +}
-> +EXPORT_SYMBOL(mpfs_sys_controller_put);
-> +
-> +static struct platform_device subdevs[] = {
-> +	{
-> +		.name		= "mpfs-rng",
-> +		.id		= -1,
-> +	},
-> +	{
-> +		.name		= "mpfs-generic-service",
-> +		.id		= -1,
-> +	}
-> +};
-> +
-> +static int mpfs_sys_controller_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct mpfs_sys_controller *sys_controller;
-> +	int i;
-> +
-> +	sys_controller = devm_kzalloc(dev, sizeof(*sys_controller), GFP_KERNEL);
-> +	if (!sys_controller)
-> +		return -ENOMEM;
-> +
-> +	sys_controller->client.dev = dev;
-> +	sys_controller->client.rx_callback = rx_callback;
-> +	sys_controller->client.tx_block = 1U;
-> +
-> +	sys_controller->chan = mbox_request_channel(&sys_controller->client, 0);
-> +	if (IS_ERR(sys_controller->chan))
-> +		return dev_err_probe(dev, PTR_ERR(sys_controller->chan),
-> +				     "Failed to get mbox channel\n");
-> +
-> +	init_completion(&sys_controller->c);
-> +	kref_init(&sys_controller->consumers);
-> +
-> +	platform_set_drvdata(pdev, sys_controller);
-> +
-> +	dev_info(&pdev->dev, "Registered MPFS system controller\n");
-> +
-> +	for (i = 0; i < ARRAY_SIZE(subdevs); i++) {
-> +		subdevs[i].dev.parent = dev;
-> +		if (platform_device_register(&subdevs[i]))
-> +			dev_warn(dev, "Error registering sub device %s\n", subdevs[i].name);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int mpfs_sys_controller_remove(struct platform_device *pdev)
-> +{
-> +	struct mpfs_sys_controller *sys_controller = platform_get_drvdata(pdev);
-> +
-> +	mpfs_sys_controller_put(sys_controller);
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct of_device_id mpfs_sys_controller_of_match[] = {
-> +	{.compatible = "microchip,mpfs-sys-controller", },
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(of, mpfs_sys_controller_of_match);
-> +
-> +struct mpfs_sys_controller *mpfs_sys_controller_get(struct device *dev)
-> +{
-> +	const struct of_device_id *match;
-> +	struct mpfs_sys_controller *sys_controller;
-> +	int ret;
-> +
-> +	if (!dev->parent)
-> +		goto err_no_device;
-> +
-> +	match = of_match_node(mpfs_sys_controller_of_match,  dev->parent->of_node);
-> +	of_node_put(dev->parent->of_node);
-> +	if (!match)
-> +		goto err_no_device;
-> +
-> +	sys_controller = dev_get_drvdata(dev->parent);
-> +	if (!sys_controller)
-> +		goto err_bad_device;
-> +
-> +	if (!kref_get_unless_zero(&sys_controller->consumers))
-> +		goto err_bad_device;
-> +
-> +	ret = devm_add_action_or_reset(dev, mpfs_sys_controller_put, sys_controller);
-> +	if (ret)
-> +		return ERR_PTR(ret);
-> +
-> +	return sys_controller;
-> +
-> +err_no_device:
-> +	dev_dbg(dev, "Parent device was not an MPFS system controller\n");
-> +	return ERR_PTR(-ENODEV);
-> +
-> +err_bad_device:
-> +	dev_dbg(dev, "MPFS system controller found but could not register as a sub device\n");
-> +	return ERR_PTR(-EPROBE_DEFER);
-> +}
-> +EXPORT_SYMBOL(mpfs_sys_controller_get);
-> +
-> +static struct platform_driver mpfs_sys_controller_driver = {
-> +	.driver = {
-> +		.name = "mpfs-sys-controller",
-> +		.of_match_table = mpfs_sys_controller_of_match,
-> +	},
-> +	.probe = mpfs_sys_controller_probe,
-> +	.remove = mpfs_sys_controller_remove,
-> +};
-> +module_platform_driver(mpfs_sys_controller_driver);
-> +
-> +MODULE_LICENSE("GPL v2");
-> +MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
-> +MODULE_DESCRIPTION("MPFS system controller driver");
-> diff --git a/include/soc/microchip/mpfs.h b/include/soc/microchip/mpfs.h
-> index 2b64c95f3be5..6466515262bd 100644
-> --- a/include/soc/microchip/mpfs.h
-> +++ b/include/soc/microchip/mpfs.h
-> @@ -34,9 +34,9 @@ struct mpfs_mss_response {
->   
->   #if IS_ENABLED(CONFIG_POLARFIRE_SOC_SYS_CTRL)
->   
-> -int mpfs_blocking_transaction(struct mpfs_sys_controller *mpfs_client, void *msg);
-> +int mpfs_blocking_transaction(struct mpfs_sys_controller *mpfs_client, struct mpfs_mss_msg *msg);
->   
-> -struct mpfs_sys_controller *mpfs_sys_controller_get(struct device_node *mailbox_node);
-> +struct mpfs_sys_controller *mpfs_sys_controller_get(struct device *dev);
->   
->   #endif /* if IS_ENABLED(CONFIG_POLARFIRE_SOC_SYS_CTRL) */
->   
+Thread 2 hit Breakpoint 2, handle_exception () at /home/alex/work/linux/arch/riscv/kernel/entry.S:27
+27		csrrw tp, CSR_SCRATCH, tp
+1: x/i $pc
+=> 0xffffffff80004098 <handle_exception>:	csrrw	tp,sscratch,tp
+5: /x $a0 = 0xe80eae0b60200000
+(gdb) bt
+#0  handle_exception () at /home/alex/work/linux/arch/riscv/kernel/entry.S:27
+#1  0xffffffff80261746 in kasan_poison (addr=<optimized out>, size=<optimized out>, value=<optimized out>, init=<optimized out>)
+    at /home/alex/work/linux/mm/kasan/shadow.c:98
+#2  0xffffffff802618b4 in kasan_unpoison (addr=<optimized out>, size=<optimized out>, init=<optimized out>)
+    at /home/alex/work/linux/mm/kasan/shadow.c:138
+#3  0xffffffff80260876 in register_global (global=<optimized out>) at /home/alex/work/linux/mm/kasan/generic.c:214
+#4  __asan_register_globals (globals=<optimized out>, size=<optimized out>) at /home/alex/work/linux/mm/kasan/generic.c:226
+#5  0xffffffff8125efac in _sub_I_65535_1 ()
+#6  0xffffffff81201b32 in do_ctors () at /home/alex/work/linux/init/main.c:1156
+#7  do_basic_setup () at /home/alex/work/linux/init/main.c:1407
+#8  kernel_init_freeable () at /home/alex/work/linux/init/main.c:1613
+#9  0xffffffff81153ddc in kernel_init (unused=<optimized out>) at /home/alex/work/linux/init/main.c:1502
+#10 0xffffffff800041c0 in handle_exception () at /home/alex/work/linux/arch/riscv/kernel/entry.S:231
 
+
+Thanks again to Aleksandr for narrowing down the issues fixed here.
+
+
+[1] https://gist.github.com/a-nogikh/279c85c2d24f47efcc3e865c08844138
+[2] https://gist.github.com/AlexGhiti/a5a0cab0227e2bf38f9d12232591c0e4
+
+Changes in v3:
+- Add PATCH 5/6 and PATCH 6/6
+
+Changes in v2:
+- Fix kernel test robot failure regarding KERN_VIRT_SIZE that is
+  undefined for nommu config
+
+Alexandre Ghiti (6):
+  riscv: Fix is_linear_mapping with recent move of KASAN region
+  riscv: Fix config KASAN && SPARSEMEM && !SPARSE_VMEMMAP
+  riscv: Fix DEBUG_VIRTUAL false warnings
+  riscv: Fix config KASAN && DEBUG_VIRTUAL
+  riscv: Move high_memory initialization to setup_bootmem
+  riscv: Fix kasan pud population
+
+ arch/riscv/include/asm/page.h    | 2 +-
+ arch/riscv/include/asm/pgtable.h | 1 +
+ arch/riscv/mm/Makefile           | 3 +++
+ arch/riscv/mm/init.c             | 2 +-
+ arch/riscv/mm/kasan_init.c       | 8 +++++---
+ arch/riscv/mm/physaddr.c         | 4 +---
+ 6 files changed, 12 insertions(+), 8 deletions(-)
 
 -- 
-Nicolas Ferre
+2.32.0
+
 
 _______________________________________________
 linux-riscv mailing list
