@@ -4,95 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E02FFC433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Feb 2022 12:46:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F2ADC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Feb 2022 13:06:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Uxf1ZSgp966f63QNA7QgQtTKAIjaKeVgUVB0EIyg1cU=; b=VQrWsaf4fvALYU
-	Srb8X61BTpEnmKFx1hMNg5O2Xnud/zUWBMYJ777eQMdUl+dR5+oAjcaCI4ivtR/6aq0a993Qe3a5U
-	lsyTh+Z3dRJxB5U3wSeIHkQ8fFmaK8ZQH/rjG4Xaxo7hSDZ7j4o+P6EEjs5QJJggOg1KWb+iozYuI
-	mbb+X3XuWlFO3URxZkJr9yXhDo8fc1RNhb5tfpv/5IkSGsfGPnJr4MnwGpyI5KnS451XoOlOVEDOV
-	ryhqe161njSrcx580OkdkmSy1owrTBeKSpQMZalhM5gIMljqWdJYCbT6wNv2sxBCeTQGAs717YiR3
-	OdXCLG54jSuUWpxYey9g==;
+	List-Owner; bh=W611fhPhlkDTaomB6feAFIYA73vL5jBSQf28yvxgx44=; b=XN1IXJ1o1F/609
+	6H1Bqe0PyUfDMnxs4AeZ40nApd6eEkOB5iM6y3nWELwcfnnwPitbWyqsPc80/QWqADvDw0GJdQwUK
+	G0kzB8HtJ7Lmkd4D53aZgPj7ox2rrQngerrH9V9Ks5ptY8G0faBdshpw/pi4/JncdeVycY5fGf1F1
+	qxXNgPl6SIOsPcg0uP2B3ixT3e3NgqbVPUE0LFamv0cDiZfqc5wnlu/W7KtioLKms3rciBLujTnwh
+	e+TX+Iq9+jej/J1MwGNEV/VoSfu/wCqZ9bgIspDSUYrIR94yWOGfL+o5xkHCltF1j7VfAxZuUIojI
+	ULauy19Oxeg2rM8HcWFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nNZz5-004u5b-7V; Fri, 25 Feb 2022 12:46:07 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1nNaIm-004yrd-8j; Fri, 25 Feb 2022 13:06:28 +0000
+Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nNZz3-004u4w-67
- for linux-riscv@lists.infradead.org; Fri, 25 Feb 2022 12:46:06 +0000
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 016D93FCAC
- for <linux-riscv@lists.infradead.org>; Fri, 25 Feb 2022 12:46:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1645793164;
- bh=IZZDTFAqzc8aGjWg1aZGEvUIk/RV0NTNXI1qwgw2jtM=;
- h=From:To:Subject:Date:Message-Id:In-Reply-To:References:
- MIME-Version;
- b=arCbRdYZk5seUtqfpFHMcTWaLOyKd5+OpIelhJFWZJY87neb4lBCZw9T8kSVKZsY9
- e/AniF1Uv/fIuSPX6esv+MhDG9Y5lzpfwAAswU0acqt5J7Jmt08OOiwJ3ROtEtcRBO
- rZerSAoFM/Fcp526nk1oh5piNIder39elup/LfbXJUukWd8gOYxw+gvzjIf5F4L9ko
- nRqGl2XG7oK0TxA5Ko5M5b0TBVyEquDkLf5T98e5ayyexgzWOA2RHvVHhvoLzYP1PZ
- g+TCdCXMj0zYeWMK1Gb1saO7SdLZ9JUkvM1MY2i/Y0cvq+B0agYEeGnMdfUTjkF6Fa
- y24RMBd4kydKA==
-Received: by mail-wm1-f69.google.com with SMTP id
- 10-20020a1c020a000000b0037fae68fcc2so1511678wmc.8
- for <linux-riscv@lists.infradead.org>; Fri, 25 Feb 2022 04:46:03 -0800 (PST)
+ id 1nNaIi-004yqM-EJ
+ for linux-riscv@lists.infradead.org; Fri, 25 Feb 2022 13:06:26 +0000
+Received: by mail-yb1-xb32.google.com with SMTP id u12so5735880ybd.7
+ for <linux-riscv@lists.infradead.org>; Fri, 25 Feb 2022 05:06:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=91lfqerMyrhcvkt/Xxml96fIqw1rCGTngu2Yekjv2ZI=;
+ b=E+tFHAQ5pyr27wKtgDUnzIAZDktAJK1JxSFWfkF+uK5aNwQybxvr9cfZBFwUHlYZZ0
+ MK6E+8qKnHRMT2xPb+Y3izP3sho0aJIaHAWWU6WGuMItBEnSLrYkcV2CPRjJzz6ddAD8
+ J+br2bR3zJSJbZ1lAl0Zvhjwde64U/c0dbzLVJokqOYSaVRdGySmQbY+mcgRVV91wJ/S
+ S0gSuJmSMUVTB3rcIJiMxIy2B8ateNHDJ54h/N+KaemldpyDH7ioajAiIRB41VhZYbzZ
+ 2wUnoYDRvJ3UgTuByfaLZj+2wiy2OjRN7WW0Gev0AeiFZk/NzaBfeAurcujexBgjgpq9
+ dmZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=IZZDTFAqzc8aGjWg1aZGEvUIk/RV0NTNXI1qwgw2jtM=;
- b=l0RxGpczg0kORCQmUIP9Z7eB7pBZBfy+JIKlpc9P5jNtJhe2XmG3WN/Op0bmRfHo+N
- 178KPUQw4xmEKfBRxd/XLXNXQGLfnYRg0tmOY376aap6wE52kDLA37Iw4CiCHpE4InFp
- u08rlLe8MOFQzpHRicIzZZ+ps1fgnLfrMqAm5KyKSMjIspQTXcAxnPkgPxZLUi05UNHG
- aiXz38sw2BlrYSd7OynEOeIL1k1MCbeKxgDEWPP/8ClLbzMr/EpYNrbaoVihjfifZYq/
- EpaOCvxa58O2C/eWDPIbqxHWs5ZhxIzlEjOji8gSMJHTY1oYDlcwLgZ09M20Tm3q5jK9
- Y+pA==
-X-Gm-Message-State: AOAM533ZhD1uZi4dzmiQ03Z4XyGonLkvUb3TWM9IDnIiGjkfcBXunonO
- qjr80NwM3UcurVaMJpz1GJY6jxhgCZpHNyouPGUhVhcfjGAFf9LQeDUTZqhDQP52CdZo48HnSPl
- CM/+XBTjzfcZpHz2QDrRriQNLywcC4wb+09SCNAhtA3qA7g==
-X-Received: by 2002:a5d:59af:0:b0:1e4:a027:ce3b with SMTP id
- p15-20020a5d59af000000b001e4a027ce3bmr5811399wrr.318.1645793163265; 
- Fri, 25 Feb 2022 04:46:03 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJxO7k/BdZpfrSelXcnhXik1Fk/jhx3wZbS/FHtdA4vPeJI99+BzxjzzIqpykVUwH5wXXBm4Wg==
-X-Received: by 2002:a5d:59af:0:b0:1e4:a027:ce3b with SMTP id
- p15-20020a5d59af000000b001e4a027ce3bmr5811384wrr.318.1645793163068; 
- Fri, 25 Feb 2022 04:46:03 -0800 (PST)
-Received: from localhost.localdomain (lfbn-gre-1-195-1.w90-112.abo.wanadoo.fr.
- [90.112.158.1]) by smtp.gmail.com with ESMTPSA id
- e33-20020a05600c4ba100b003810c690ba2sm4741109wmp.3.2022.02.25.04.46.02
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 25 Feb 2022 04:46:02 -0800 (PST)
-From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- Alexander Potapenko <glider@google.com>,
- Andrey Konovalov <andreyknvl@gmail.com>,
- Dmitry Vyukov <dvyukov@google.com>,
- Alexandre Ghiti <alexandre.ghiti@canonical.com>,
- Aleksandr Nogikh <nogikh@google.com>, Nick Hu <nickhu@andestech.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- kasan-dev@googlegroups.com
-Subject: [PATCH -fixes v3 6/6] riscv: Fix kasan pud population
-Date: Fri, 25 Feb 2022 13:39:53 +0100
-Message-Id: <20220225123953.3251327-7-alexandre.ghiti@canonical.com>
-X-Mailer: git-send-email 2.32.0
-In-Reply-To: <20220225123953.3251327-1-alexandre.ghiti@canonical.com>
-References: <20220225123953.3251327-1-alexandre.ghiti@canonical.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=91lfqerMyrhcvkt/Xxml96fIqw1rCGTngu2Yekjv2ZI=;
+ b=WQm+mTlAhloAUFtMQX40D26NNDSdmYMh2rjuyoiRJbhI2tgi2E7y2N+cG5gRff2/b5
+ XmmEgHL+MHOu/mu/XR6F/6xzEoa3QX46H8SEA5ACyb60uQlGxE83nOjzqHGlk3GZXKCn
+ ESr6qI7zaaRewz918D1XRtON0KmepNa3h+V4oW7oLECQtXsBqG3aP+x951rZHwn0ZjD/
+ 0bzkjVTRnliG6iB698ceuFKUlgPo9o8n5y6Z7TJT0BPgTzs/5Swk8H01b9vxYrZDVH3b
+ GvThWC+pFmFJ9Oeodsyxk0NR3YO08pxI9RjrDCycdEBtusMn6/9vS3dd+ViScVp8WWyK
+ Ur5A==
+X-Gm-Message-State: AOAM533qHlBvFUSlVvM000urzREdkkF8A20rtKrIjyjWMjlRLsIoYkgf
+ DbrQ/31evVKob7t1CntkgBA+HmovtzbryKxa+DUCw2Q7U5Y=
+X-Google-Smtp-Source: ABdhPJxnv0D/Higle+O11O1DFAqioIx1d2WO7mloPNrhUPfrQPNRwDoAfE17Xn9OXd9PJjOxozfDe+0uLf3STxtqJ9A=
+X-Received: by 2002:a05:6902:2:b0:624:4cb5:fd3b with SMTP id
+ l2-20020a056902000200b006244cb5fd3bmr7286257ybh.1.1645794379723; Fri, 25 Feb
+ 2022 05:06:19 -0800 (PST)
 MIME-Version: 1.0
+References: <20220225123953.3251327-1-alexandre.ghiti@canonical.com>
+In-Reply-To: <20220225123953.3251327-1-alexandre.ghiti@canonical.com>
+From: Marco Elver <elver@google.com>
+Date: Fri, 25 Feb 2022 14:05:42 +0100
+Message-ID: <CANpmjNN304EZfFN2zobxKGXbXWXAfr92nP1KvtR7j-YqSFShvQ@mail.gmail.com>
+Subject: Re: [PATCH -fixes v3 0/6] Fixes KASAN and other along the way
+To: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>, 
+ Dmitry Vyukov <dvyukov@google.com>, Aleksandr Nogikh <nogikh@google.com>,
+ Nick Hu <nickhu@andestech.com>, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kasan-dev@googlegroups.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220225_044605_446261_B3D2974A 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20220225_050624_512415_D9490F94 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,39 +89,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In sv48, the kasan inner regions are not aligned on PGDIR_SIZE and then
-when we populate the kasan linear mapping region, we clear the kasan
-vmalloc region which is in the same PGD.
+On Fri, 25 Feb 2022 at 13:40, Alexandre Ghiti
+<alexandre.ghiti@canonical.com> wrote:
+>
+> As reported by Aleksandr, syzbot riscv is broken since commit
+> 54c5639d8f50 ("riscv: Fix asan-stack clang build"). This commit actually
+> breaks KASAN_INLINE which is not fixed in this series, that will come later
+> when found.
+>
+> Nevertheless, this series fixes small things that made the syzbot
+> configuration + KASAN_OUTLINE fail to boot.
+>
+> Note that even though the config at [1] boots fine with this series, I
+> was not able to boot the small config at [2] which fails because
+> kasan_poison receives a really weird address 0x4075706301000000 (maybe a
+> kasan person could provide some hint about what happens below in
+> do_ctors -> __asan_register_globals):
 
-Fix this by copying the content of the kasan early pud after allocating a
-new PGD for the first time.
+asan_register_globals is responsible for poisoning redzones around
+globals. As hinted by 'do_ctors', it calls constructors, and in this
+case a compiler-generated constructor that calls
+__asan_register_globals with metadata generated by the compiler. That
+metadata contains information about global variables. Note, these
+constructors are called on initial boot, but also every time a kernel
+module (that has globals) is loaded.
 
-Fixes: e8a62cc26ddf ("riscv: Implement sv48 support")
-Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
----
- arch/riscv/mm/kasan_init.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-index 85e849318389..cd1a145257b7 100644
---- a/arch/riscv/mm/kasan_init.c
-+++ b/arch/riscv/mm/kasan_init.c
-@@ -113,8 +113,11 @@ static void __init kasan_populate_pud(pgd_t *pgd,
- 		base_pud = pt_ops.get_pud_virt(pfn_to_phys(_pgd_pfn(*pgd)));
- 	} else {
- 		base_pud = (pud_t *)pgd_page_vaddr(*pgd);
--		if (base_pud == lm_alias(kasan_early_shadow_pud))
-+		if (base_pud == lm_alias(kasan_early_shadow_pud)) {
- 			base_pud = memblock_alloc(PTRS_PER_PUD * sizeof(pud_t), PAGE_SIZE);
-+			memcpy(base_pud, (void *)kasan_early_shadow_pud,
-+			       sizeof(pud_t) * PTRS_PER_PUD);
-+		}
- 	}
- 
- 	pudp = base_pud + pud_index(vaddr);
--- 
-2.32.0
-
+It may also be a toolchain issue, but it's hard to say. If you're
+using GCC to test, try Clang (11 or later), and vice-versa.
 
 _______________________________________________
 linux-riscv mailing list
