@@ -4,52 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62ED4C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Feb 2022 08:11:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81FCFC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Feb 2022 08:48:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Sgpk/U5u9bb/+M+eKufxz9GvAgU9NGSoML+9TChagys=; b=eR+REEIM7AaCy/
-	G//UL90gN91NCDFyLjpLezb//IwGfqUHGRLUNMhyD1gv+dNC28pLIq7q22dd08gUOw7NmFP9S5Q4Z
-	B+m2tli2y+MHLeR44F8OtZv+oGweKyjK7tsWIUHUI8hnZrYikuiBgHFh/gm65W5QJ3kzx5vtAsK/v
-	WUzBGZAfvj17obFCvFuMJc4kuhwuQeZa++VF41OdahCQBnbvtL2JQuOXFRQqpdRm7s7ggwlnRf+19
-	CbUrvZ6e68/kFB+yMIhoPelzsZ3Mt1ig0Omb/BNszm3Y4gaKiNHCmU4wY00sdsv/bKECTxEGPvvES
-	9oSXmAuavBJ0j1Wn02+g==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=r+qa/k6Vx32DoqBoAMQ+Z82yNQ0w1jFIJWCLDla12n8=; b=xuGQC90jTY7z7E
+	whcVBONnEl+lZHfqrZHlHvzzqH4TvCKac4qPEFq0le3v16A2lq6tpr4Gy7HyM66/w/4JsXllK+WIa
+	nUvy6netFf0kKuO9anAgOrdIBV6TP2VM4EUXSsZ4Xuh1XAyKprwsppBjhrilSH4dQkrAikJbbwIZo
+	AJqEMHLKfw3fwHSWD/pBPA/epkC7V6hxp5C23owx9EeG/Y7MqUi5Id1TdQosaCyo0bajKHH2tIF2U
+	x2cOqWBrdqY4b6gKtFojyxy9Spw6yZEu3xKisLdZHBTjNf2m5CIklDQKT35UML2Tf0K2KbJwsESzb
+	12Bekfnz30PmNaoqfnww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nNVhP-003rUn-NO; Fri, 25 Feb 2022 08:11:35 +0000
-Received: from mail.powerangels.com.pl ([45.86.209.159])
+	id 1nNWGx-00410X-9e; Fri, 25 Feb 2022 08:48:19 +0000
+Received: from verein.lst.de ([213.95.11.211])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nNVQI-003iqC-0O
- for linux-riscv@lists.infradead.org; Fri, 25 Feb 2022 07:53:55 +0000
-Received: by mail.powerangels.com.pl (Postfix, from userid 1001)
- id E4FBB83935; Fri, 25 Feb 2022 02:45:42 -0500 (EST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=powerangels.com.pl;
- s=mail; t=1645775175;
- bh=07NAgW1e0WiNB9zqagiM2BnwZfWBCpNa2E4+ccxBPgw=;
- h=Date:From:To:Subject:From;
- b=a31j5xZ5uUepm1WoIhtOv5mg5HSWdkLxCAap6DIdg77SuCJ/9+J+EEmEnmwGfU93a
- ponnN5Frm3BvZqBfsWT9xmyRoVDYsXXIPiOIruUiktcd5MpKZTP7l+7CAAPU6O2/am
- NdbkdYAW7WQEbEGdT6roVmPZg2znedICAfPyqk9rhTuiM8PK4NkPJWfMi8QVi7O5ln
- Ev58AeJv0q5s9F+9kN/MkeyBzLGQ9TQxaBixEhEhffOIhXnT/hbcNLBxEw65dO9O2w
- UTntgqvDvm/dKq95u44mmiVf7GWIC+tDdgJ4fBrfG2Unkond0I3oNfL5LivtxreIY5
- QCV7N68HNy9Eg==
-Received: by mail.powerangels.com.pl for <linux-riscv@lists.infradead.org>;
- Fri, 25 Feb 2022 07:45:40 GMT
-Message-ID: <20220225024500-0.1.j.219a.0.kgra0aocn0@powerangels.com.pl>
-Date: Fri, 25 Feb 2022 07:45:40 GMT
-From: "Jakub Daroch" <jakub.daroch@powerangels.com.pl>
-To: <linux-riscv@lists.infradead.org>
-Subject: Wycena paneli fotowoltaicznych
-X-Mailer: mail.powerangels.com.pl
+ id 1nNWGj-0040wu-8L; Fri, 25 Feb 2022 08:48:08 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+ id 364BF68AA6; Fri, 25 Feb 2022 09:47:56 +0100 (CET)
+Date: Fri, 25 Feb 2022 09:47:55 +0100
+From: Christoph Hellwig <hch@lst.de>
+To: Boris Ostrovsky <boris.ostrovsky@oracle.com>
+Cc: Christoph Hellwig <hch@lst.de>, iommu@lists.linux-foundation.org,
+ x86@kernel.org, Stefano Stabellini <sstabellini@kernel.org>,
+ Juergen Gross <jgross@suse.com>, Joerg Roedel <joro@8bytes.org>,
+ David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>,
+ Robin Murphy <robin.murphy@arm.com>, linux-arm-kernel@lists.infradead.org,
+ xen-devel@lists.xenproject.org, linux-ia64@vger.kernel.org,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, tboot-devel@lists.sourceforge.net,
+ linux-pci@vger.kernel.org
+Subject: Re: cleanup swiotlb initialization
+Message-ID: <20220225084755.GA29630@lst.de>
+References: <20220222153514.593231-1-hch@lst.de>
+ <09cb4ad3-88e7-3744-b4b8-a6d745ecea9e@oracle.com>
+ <20220224155854.GA30938@lst.de>
+ <206ba6a3-770a-70ad-96bc-76c6380da988@oracle.com>
+ <20220224163943.GA32088@lst.de>
+ <8ffd8587-7eb3-d5b6-eab0-b86df5c0ebbd@oracle.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <8ffd8587-7eb3-d5b6-eab0-b86df5c0ebbd@oracle.com>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220224_235354_149682_074463DB 
-X-CRM114-Status: UNSURE (   0.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220225_004805_469497_D7319F2D 
+X-CRM114-Status: GOOD (  16.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,16 +65,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RHppZcWEIGRvYnJ5LAoKZG9zdHJ6ZWdhbSBtb8W8bGl3b8WbxIcgd3Nww7PFgnByYWN5IHogUGHF
-hHN0d2EgZmlybcSFLgoKxZp3aWFkY3p5bXkga29tcGxla3Nvd8SFIG9ic8WCdWfEmSBpbndlc3R5
-Y2ppIHcgZm90b3dvbHRhaWvEmSwga3TDs3JhIG9ibmnFvGEga29zenR5IGVuZXJnaWkgZWxla3Ry
-eWN6bmVqIG5hd2V0IG8gOTAlLgoKQ3p5IHPEhSBQYcWEc3R3byB6YWludGVyZXNvd2FuaSB3ZXJ5
-ZmlrYWNqxIUgd3N0xJlwbnljaCBwcm9wb3p5Y2ppPwoKClBvemRyYXdpYW0sCkpha3ViIERhcm9j
-aAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Thu, Feb 24, 2022 at 12:07:26PM -0500, Boris Ostrovsky wrote:
+>>> Just to be clear: this crashes only as dom0. Boots fine as baremetal.
+>> Ah.  I can gues what this might be.  On Xen the hypervisor controls the
+>> IOMMU and we should never end up initializing it in Linux, right?
+>
+>
+> Right, we shouldn't be in that code path.
+
+Can you try the patch below on top of the series?
+
+
+diff --git a/arch/x86/kernel/pci-dma.c b/arch/x86/kernel/pci-dma.c
+index b849f11a756d0..f88c9a4a5ed12 100644
+--- a/arch/x86/kernel/pci-dma.c
++++ b/arch/x86/kernel/pci-dma.c
+@@ -47,22 +47,6 @@ static unsigned int x86_swiotlb_flags;
+  */
+ static void __init pci_swiotlb_detect_4gb(void)
+ {
+-#ifdef CONFIG_SWIOTLB_XEN
+-	if (xen_pv_domain()) {
+-		if (xen_initial_domain())
+-			x86_swiotlb_enable = true;
+-
+-		if (x86_swiotlb_enable) {
+-			dma_ops = &xen_swiotlb_dma_ops;
+-#ifdef CONFIG_PCI
+-			/* Make sure ACS will be enabled */
+-			pci_request_acs();
+-#endif
+-		}
+-		return;
+-	}
+-#endif /* CONFIG_SWIOTLB_XEN */
+-
+ 	/* don't initialize swiotlb if iommu=off (no_iommu=1) */
+ 	if (!no_iommu && max_possible_pfn > MAX_DMA32_PFN)
+ 		x86_swiotlb_enable = true;
+@@ -82,16 +66,36 @@ static inline void __init pci_swiotlb_detect_4gb(void)
+ }
+ #endif /* CONFIG_SWIOTLB */
+ 
++#ifdef CONFIG_SWIOTLB_XEN
++static void __init xen_swiotlb_init(void)
++{
++	if (!xen_initial_domain() && !x86_swiotlb_enable)
++		return;
++	x86_swiotlb_enable = true;
++	dma_ops = &xen_swiotlb_dma_ops;
++#ifdef CONFIG_PCI
++	/* Make sure ACS will be enabled */
++	pci_request_acs();
++#endif
++	swiotlb_init_remap(true, x86_swiotlb_flags, xen_swiotlb_fixup);
++}
++#else
++static inline void __init xen_swiotlb_init(void)
++{
++}
++#endif /* CONFIG_SWIOTLB_XEN */
++
+ void __init pci_iommu_alloc(void)
+ {
++	if (xen_pv_domain()) {
++		xen_swiotlb_init();
++		return;
++	}
+ 	pci_swiotlb_detect_4gb();
+ 	gart_iommu_hole_init();
+ 	amd_iommu_detect();
+ 	detect_intel_iommu();
+-#ifdef CONFIG_SWIOTLB
+-	swiotlb_init_remap(x86_swiotlb_enable, x86_swiotlb_flags,
+-			   xen_pv_domain() ? xen_swiotlb_fixup : NULL);
+-#endif
++	swiotlb_init(x86_swiotlb_enable, x86_swiotlb_flags);
+ }
+ 
+ /*
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
