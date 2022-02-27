@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8507BC433F5
-	for <linux-riscv@archiver.kernel.org>; Sun, 27 Feb 2022 16:30:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A201CC43217
+	for <linux-riscv@archiver.kernel.org>; Sun, 27 Feb 2022 16:31:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZsgS6/v17TJpNPM8I3AlSQQG/VFZPjZwhsCTRulUqr4=; b=Q835Rz09hOcLtY
-	zzFYCFsvb8MDQofvO/rnvSHeaWXpXIojGTz/hR0KxBAktyBnNjPCM2uzK/SV8FCUPHz2dzJzGWf2I
-	BJVfu6JWwzs7Hyi1zv1buP0B9FaPEy72M4NIAQ0o1b1ATlzjx6pyREVHaP1X2LKKnz/8lZDR8mdy9
-	0u98a7YufNMKI5s/9i4mYqpHmpT9CZ3hcZMR6Cp/gps/4dnp4zUXPruayWqlcQy9rFe7wmBVq9OrE
-	t6OnQEimhyT53Kzd1cDLTBGJd0ag3s/T/bRoT+WfyZW96KMhpWRfe2bpYS+k3xzozCF57LpVMHV3e
-	ohhfoiMbblwSTA1EG0GA==;
+	List-Owner; bh=fSjv8a6yrg6ncD+2nGrbaeImBZo+CPXGQFJ+UdIzk00=; b=V1brpyglUiE4ai
+	UMRWUT1CoWDVaILpEWpSGfhr70TK4SCtiClbq16Y/WdoYqxH+Lf2iITbk3b5o0n+oI3ypsNn//Yek
+	jQeJUxo+i5TZ/R4fj8dztjs09yVa++Od/U6xHtPf1ARZwW2HUZUSIuGpxU6EzOzpIXcq6Jfc3LPu2
+	Z5+z9eQVBlVZ/LJ4cOjOlxCfFJ0FNqkvsOgnOxPLBsjQt92KugUVQPYZ0uLPsOkZ5wzDvBMfevn+i
+	v2k1n1sfEdmW0uMcDticVT/5Uw60eKimfiov8diuYSFHhDDj/2HE78xE6nJTuXDLX8tRwETRCDn19
+	JAYfoSp7Nn1s6QYL+CrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nOMRd-009gYr-Tf; Sun, 27 Feb 2022 16:30:50 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1nOMSN-009gze-UD; Sun, 27 Feb 2022 16:31:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nOMQ8-009feS-Fp; Sun, 27 Feb 2022 16:29:19 +0000
+ id 1nOMQD-009fh2-Rw; Sun, 27 Feb 2022 16:29:23 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id EC19B60F7B;
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 49D7E60F8A;
+ Sun, 27 Feb 2022 16:29:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD19EC340F2;
  Sun, 27 Feb 2022 16:29:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1648C340F4;
- Sun, 27 Feb 2022 16:29:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1645979355;
- bh=vVOYAfOfRsBaLKmx9ygXmNXla/T1wGlU5of5at4ZrRM=;
+ s=k20201202; t=1645979360;
+ bh=W7iu4530nabTWQXD2mTmuctIqIwVpgCzFglD2gmX8bk=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=PBm7qV+fHR1ackBx8QekjGC1em2CNG1Yvkh0tIpk6YdSe/GOkidSRDxHwwf0TqW3w
- FB6HCoPXF4fSP1+ffojZqkLuajAERgKSRzg+J6pOa4Z2NxGO15fy9fzobpqPpMX/i3
- 3jElkl9eB484++SxR2xorq+nx4sjZt31TSl9omXBrT2JJxVEXJmr2c/SHrWSyUR9o6
- 9yUKYEqZGrgI+FoVenbRLc80mX8Ak3QEBA75WS2Vueklw48D1Uk4Tj2J0r7zvpZREA
- 9wJU7GnOem4Bx0IU+/tMCCKOsZNw2BnIwLEDAiy/HoDU5VhJCJUJSXgrcVTPP9+DUd
- I99uo98iuD/LQ==
+ b=MkDRhYJe/BGF1tIjaZP4YuDXV0vy5XnF3iD0vf7ZSz92qkGjROS2kQ+3VZzlBX9EK
+ Pkcoq+wjuZnC2RLEjSKHq7GoA6Ep22b41BZZZixhbzDjWbjSEdDSgWSQeehIpwmoYp
+ ehB+npqU5uF2ZO/2Iu7U7q1+0WMXJQwlhUHM9q8L+Wp/mQXUVP9latz05ZFB3DlE/o
+ AVEMVExN1c3DA+EPKk/sNHhL3baCTa3OX/IL/v4yJIh2ij7SLYHfxyukRsGiC4CNCP
+ ZSq4xhuuy/nV+CvU/bqD3NjE+2Qn4JqUGxwuisgr5loE+CGcswrnemdwg4Da9pasNX
+ yVzCQIEvsGM4A==
 From: guoren@kernel.org
 To: guoren@kernel.org, palmer@dabbelt.com, arnd@arndb.de, anup@brainfault.org,
  gregkh@linuxfoundation.org, liush@allwinnertech.com, wefu@redhat.com,
@@ -50,17 +50,17 @@ Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, linux-parisc@vger.kernel.org,
  linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- x86@kernel.org
-Subject: [PATCH V7 03/20] compat: consolidate the compat_flock{, 64} definition
-Date: Mon, 28 Feb 2022 00:28:14 +0800
-Message-Id: <20220227162831.674483-4-guoren@kernel.org>
+ x86@kernel.org, Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH V7 04/20] kconfig: Add SYSVIPC_COMPAT for all architectures
+Date: Mon, 28 Feb 2022 00:28:15 +0800
+Message-Id: <20220227162831.674483-5-guoren@kernel.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220227162831.674483-1-guoren@kernel.org>
 References: <20220227162831.674483-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220227_082916_629142_2F84214C 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20220227_082922_047025_43A0D5D1 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,269 +77,160 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Christoph Hellwig <hch@lst.de>
+From: Guo Ren <guoren@linux.alibaba.com>
 
-Provide a single common definition for the compat_flock and
-compat_flock64 structures using the same tricks as for the native
-variants.  Another extra define is added for the packing required on
-x86.
+The existing per-arch definitions are pretty much historic cruft.
+Move SYSVIPC_COMPAT into init/Kconfig.
 
-Signed-off-by: Christoph Hellwig <hch@lst.de>
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+Acked-by: Arnd Bergmann <arnd@arndb.de>
+Reviewed-by: Christoph Hellwig <hch@lst.de>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
 ---
- arch/arm64/include/asm/compat.h   | 16 ----------------
- arch/mips/include/asm/compat.h    | 19 ++-----------------
- arch/parisc/include/asm/compat.h  | 16 ----------------
- arch/powerpc/include/asm/compat.h | 16 ----------------
- arch/s390/include/asm/compat.h    | 16 ----------------
- arch/sparc/include/asm/compat.h   | 18 +-----------------
- arch/x86/include/asm/compat.h     | 20 +++-----------------
- include/linux/compat.h            | 31 +++++++++++++++++++++++++++++++
- 8 files changed, 37 insertions(+), 115 deletions(-)
+ arch/arm64/Kconfig   | 4 ----
+ arch/mips/Kconfig    | 5 -----
+ arch/parisc/Kconfig  | 4 ----
+ arch/powerpc/Kconfig | 5 -----
+ arch/s390/Kconfig    | 3 ---
+ arch/sparc/Kconfig   | 5 -----
+ arch/x86/Kconfig     | 4 ----
+ init/Kconfig         | 4 ++++
+ 8 files changed, 4 insertions(+), 30 deletions(-)
 
-diff --git a/arch/arm64/include/asm/compat.h b/arch/arm64/include/asm/compat.h
-index 276328765408..e0faec1984a1 100644
---- a/arch/arm64/include/asm/compat.h
-+++ b/arch/arm64/include/asm/compat.h
-@@ -65,22 +65,6 @@ struct compat_stat {
- 	compat_ulong_t	__unused4[2];
- };
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 09b885cc4db5..51fdb6e9c522 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2108,10 +2108,6 @@ config DMI
  
--struct compat_flock {
--	short		l_type;
--	short		l_whence;
--	compat_off_t	l_start;
--	compat_off_t	l_len;
--	compat_pid_t	l_pid;
--};
--
--struct compat_flock64 {
--	short		l_type;
--	short		l_whence;
--	compat_loff_t	l_start;
--	compat_loff_t	l_len;
--	compat_pid_t	l_pid;
--};
--
- struct compat_statfs {
- 	int		f_type;
- 	int		f_bsize;
-diff --git a/arch/mips/include/asm/compat.h b/arch/mips/include/asm/compat.h
-index 6a350c1f70d7..6d6e5a451f4d 100644
---- a/arch/mips/include/asm/compat.h
-+++ b/arch/mips/include/asm/compat.h
-@@ -55,23 +55,8 @@ struct compat_stat {
- 	s32		st_pad4[14];
- };
+ endmenu
  
--struct compat_flock {
--	short		l_type;
--	short		l_whence;
--	compat_off_t	l_start;
--	compat_off_t	l_len;
--	s32		l_sysid;
--	compat_pid_t	l_pid;
--	s32		pad[4];
--};
+-config SYSVIPC_COMPAT
+-	def_bool y
+-	depends on COMPAT && SYSVIPC
 -
--struct compat_flock64 {
--	short		l_type;
--	short		l_whence;
--	compat_loff_t	l_start;
--	compat_loff_t	l_len;
--	compat_pid_t	l_pid;
--};
-+#define __ARCH_COMPAT_FLOCK_EXTRA_SYSID		s32 l_sysid;
-+#define __ARCH_COMPAT_FLOCK_PAD			s32 pad[4];
+ menu "Power management options"
  
- struct compat_statfs {
- 	int		f_type;
-diff --git a/arch/parisc/include/asm/compat.h b/arch/parisc/include/asm/compat.h
-index c04f5a637c39..a1e4534d8050 100644
---- a/arch/parisc/include/asm/compat.h
-+++ b/arch/parisc/include/asm/compat.h
-@@ -53,22 +53,6 @@ struct compat_stat {
- 	u32			st_spare4[3];
- };
+ source "kernel/power/Kconfig"
+diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+index 058446f01487..91a17ad380c9 100644
+--- a/arch/mips/Kconfig
++++ b/arch/mips/Kconfig
+@@ -3170,16 +3170,12 @@ config MIPS32_COMPAT
+ config COMPAT
+ 	bool
  
--struct compat_flock {
--	short			l_type;
--	short			l_whence;
--	compat_off_t		l_start;
--	compat_off_t		l_len;
--	compat_pid_t		l_pid;
--};
+-config SYSVIPC_COMPAT
+-	bool
 -
--struct compat_flock64 {
--	short			l_type;
--	short			l_whence;
--	compat_loff_t		l_start;
--	compat_loff_t		l_len;
--	compat_pid_t		l_pid;
--};
--
- struct compat_statfs {
- 	s32		f_type;
- 	s32		f_bsize;
-diff --git a/arch/powerpc/include/asm/compat.h b/arch/powerpc/include/asm/compat.h
-index 83d8f70779cb..5ef3c7c83c34 100644
---- a/arch/powerpc/include/asm/compat.h
-+++ b/arch/powerpc/include/asm/compat.h
-@@ -44,22 +44,6 @@ struct compat_stat {
- 	u32		__unused4[2];
- };
+ config MIPS32_O32
+ 	bool "Kernel support for o32 binaries"
+ 	depends on 64BIT
+ 	select ARCH_WANT_OLD_COMPAT_IPC
+ 	select COMPAT
+ 	select MIPS32_COMPAT
+-	select SYSVIPC_COMPAT if SYSVIPC
+ 	help
+ 	  Select this option if you want to run o32 binaries.  These are pure
+ 	  32-bit binaries as used by the 32-bit Linux/MIPS port.  Most of
+@@ -3193,7 +3189,6 @@ config MIPS32_N32
+ 	select ARCH_WANT_COMPAT_IPC_PARSE_VERSION
+ 	select COMPAT
+ 	select MIPS32_COMPAT
+-	select SYSVIPC_COMPAT if SYSVIPC
+ 	help
+ 	  Select this option if you want to run n32 binaries.  These are
+ 	  64-bit binaries using 32-bit quantities for addressing and certain
+diff --git a/arch/parisc/Kconfig b/arch/parisc/Kconfig
+index 43c1c880def6..bc56759d44a2 100644
+--- a/arch/parisc/Kconfig
++++ b/arch/parisc/Kconfig
+@@ -345,10 +345,6 @@ config COMPAT
+ 	def_bool y
+ 	depends on 64BIT
  
--struct compat_flock {
--	short		l_type;
--	short		l_whence;
--	compat_off_t	l_start;
--	compat_off_t	l_len;
--	compat_pid_t	l_pid;
--};
+-config SYSVIPC_COMPAT
+-	def_bool y
+-	depends on COMPAT && SYSVIPC
 -
--struct compat_flock64 {
--	short		l_type;
--	short		l_whence;
--	compat_loff_t	l_start;
--	compat_loff_t	l_len;
--	compat_pid_t	l_pid;
--};
+ config AUDIT_ARCH
+ 	def_bool y
+ 
+diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+index b779603978e1..5a32b7f21af2 100644
+--- a/arch/powerpc/Kconfig
++++ b/arch/powerpc/Kconfig
+@@ -291,11 +291,6 @@ config COMPAT
+ 	select ARCH_WANT_OLD_COMPAT_IPC
+ 	select COMPAT_OLD_SIGACTION
+ 
+-config SYSVIPC_COMPAT
+-	bool
+-	depends on COMPAT && SYSVIPC
+-	default y
 -
- struct compat_statfs {
- 	int		f_type;
- 	int		f_bsize;
-diff --git a/arch/s390/include/asm/compat.h b/arch/s390/include/asm/compat.h
-index 0f14b3188b1b..07f04d37068b 100644
---- a/arch/s390/include/asm/compat.h
-+++ b/arch/s390/include/asm/compat.h
-@@ -102,22 +102,6 @@ struct compat_stat {
- 	u32		__unused5;
- };
+ config SCHED_OMIT_FRAME_POINTER
+ 	bool
+ 	default y
+diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
+index be9f39fd06df..80f69cafbb87 100644
+--- a/arch/s390/Kconfig
++++ b/arch/s390/Kconfig
+@@ -459,9 +459,6 @@ config COMPAT
+ 	  (and some other stuff like libraries and such) is needed for
+ 	  executing 31 bit applications.  It is safe to say "Y".
  
--struct compat_flock {
--	short		l_type;
--	short		l_whence;
--	compat_off_t	l_start;
--	compat_off_t	l_len;
--	compat_pid_t	l_pid;
--};
+-config SYSVIPC_COMPAT
+-	def_bool y if COMPAT && SYSVIPC
 -
--struct compat_flock64 {
--	short		l_type;
--	short		l_whence;
--	compat_loff_t	l_start;
--	compat_loff_t	l_len;
--	compat_pid_t	l_pid;
--};
+ config SMP
+ 	def_bool y
+ 
+diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
+index 1cab1b284f1a..15d5725bd623 100644
+--- a/arch/sparc/Kconfig
++++ b/arch/sparc/Kconfig
+@@ -488,9 +488,4 @@ config COMPAT
+ 	select ARCH_WANT_OLD_COMPAT_IPC
+ 	select COMPAT_OLD_SIGACTION
+ 
+-config SYSVIPC_COMPAT
+-	bool
+-	depends on COMPAT && SYSVIPC
+-	default y
 -
- struct compat_statfs {
- 	u32		f_type;
- 	u32		f_bsize;
-diff --git a/arch/sparc/include/asm/compat.h b/arch/sparc/include/asm/compat.h
-index 108078751bb5..d78fb44942e0 100644
---- a/arch/sparc/include/asm/compat.h
-+++ b/arch/sparc/include/asm/compat.h
-@@ -75,23 +75,7 @@ struct compat_stat64 {
- 	unsigned int	__unused5;
- };
- 
--struct compat_flock {
--	short		l_type;
--	short		l_whence;
--	compat_off_t	l_start;
--	compat_off_t	l_len;
--	compat_pid_t	l_pid;
--	short		__unused;
--};
+ source "drivers/sbus/char/Kconfig"
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 9f5bd41bf660..7d0487189f6e 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -2860,10 +2860,6 @@ config COMPAT
+ if COMPAT
+ config COMPAT_FOR_U64_ALIGNMENT
+ 	def_bool y
 -
--struct compat_flock64 {
--	short		l_type;
--	short		l_whence;
--	compat_loff_t	l_start;
--	compat_loff_t	l_len;
--	compat_pid_t	l_pid;
--	short		__unused;
--};
-+#define __ARCH_COMPAT_FLOCK_PAD		short __unused;
+-config SYSVIPC_COMPAT
+-	def_bool y
+-	depends on SYSVIPC
+ endif
  
- struct compat_statfs {
- 	int		f_type;
-diff --git a/arch/x86/include/asm/compat.h b/arch/x86/include/asm/compat.h
-index 8d19a212f4f2..de794d895866 100644
---- a/arch/x86/include/asm/compat.h
-+++ b/arch/x86/include/asm/compat.h
-@@ -50,25 +50,11 @@ struct compat_stat {
- 	u32		__unused5;
- };
+ endmenu
+diff --git a/init/Kconfig b/init/Kconfig
+index e9119bf54b1f..589ccec56571 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -386,6 +386,10 @@ config SYSVIPC_SYSCTL
+ 	depends on SYSCTL
+ 	default y
  
--struct compat_flock {
--	short		l_type;
--	short		l_whence;
--	compat_off_t	l_start;
--	compat_off_t	l_len;
--	compat_pid_t	l_pid;
--};
--
- /*
-- * IA32 uses 4 byte alignment for 64 bit quantities,
-- * so we need to pack this structure.
-+ * IA32 uses 4 byte alignment for 64 bit quantities, so we need to pack the
-+ * compat flock64 structure.
-  */
--struct compat_flock64 {
--	short		l_type;
--	short		l_whence;
--	compat_loff_t	l_start;
--	compat_loff_t	l_len;
--	compat_pid_t	l_pid;
--} __attribute__((packed));
-+#define __ARCH_NEED_COMPAT_FLOCK64_PACKED
- 
- struct compat_statfs {
- 	int		f_type;
-diff --git a/include/linux/compat.h b/include/linux/compat.h
-index 1c758b0e0359..a0481fe6c5d5 100644
---- a/include/linux/compat.h
-+++ b/include/linux/compat.h
-@@ -258,6 +258,37 @@ struct compat_rlimit {
- 	compat_ulong_t	rlim_max;
- };
- 
-+#ifdef __ARCH_NEED_COMPAT_FLOCK64_PACKED
-+#define __ARCH_COMPAT_FLOCK64_PACK	__attribute__((packed))
-+#else
-+#define __ARCH_COMPAT_FLOCK64_PACK
-+#endif
++config SYSVIPC_COMPAT
++	def_bool y
++	depends on COMPAT && SYSVIPC
 +
-+struct compat_flock {
-+	short			l_type;
-+	short			l_whence;
-+	compat_off_t		l_start;
-+	compat_off_t		l_len;
-+#ifdef __ARCH_COMPAT_FLOCK_EXTRA_SYSID
-+	__ARCH_COMPAT_FLOCK_EXTRA_SYSID
-+#endif
-+	compat_pid_t		l_pid;
-+#ifdef __ARCH_COMPAT_FLOCK_PAD
-+	__ARCH_COMPAT_FLOCK_PAD
-+#endif
-+};
-+
-+struct compat_flock64 {
-+	short		l_type;
-+	short		l_whence;
-+	compat_loff_t	l_start;
-+	compat_loff_t	l_len;
-+	compat_pid_t	l_pid;
-+#ifdef __ARCH_COMPAT_FLOCK64_PAD
-+	__ARCH_COMPAT_FLOCK64_PAD
-+#endif
-+} __ARCH_COMPAT_FLOCK64_PACK;
-+
- struct compat_rusage {
- 	struct old_timeval32 ru_utime;
- 	struct old_timeval32 ru_stime;
+ config POSIX_MQUEUE
+ 	bool "POSIX Message Queues"
+ 	depends on NET
 -- 
 2.25.1
 
