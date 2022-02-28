@@ -4,89 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAC65C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Feb 2022 13:54:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A878C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Feb 2022 15:27:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pJpD5oVTUtDQEQ9+X/8YWLre9Uc4+5tywNTQfjDq78o=; b=MxkGjoVarp0Fct
-	pdfHENmol6/kU5olsdMztXZ5ZPYHIpWVfC4D481+UYnEF9rON0pdVzztJeP+k//QdbspSrsMCEqZ0
-	8rIdWHK1Jg4s73kvP+y1gmYUZccmVKTAV5b5WW46sjlWwl2TOy1yz0dWDcpYH2RVYh0nAOuO0H5q4
-	XX2hxpNdV+4vmLUnp6kGBDr02MV/4wiqoF1SPewdn4zSgIcYDdXaTWBolDvia66nQ4DDWtJ1sgMHV
-	yL0XsIyPxMXfZ4O64WZVl4GUV5zE4RY9D6gllwQ04lQ+N3Sl43/tBYkxxsz8cA7aJNCoXzJf1r1an
-	EUqUlor34sQB7PTEM8dA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WnoSzI5Lf3armQE1CW4e7XHzSrUALhG/nj8ivomH0SM=; b=xvAkKA1bKpHLql
+	wQcx9+svoY5mgQv1WghR6GyG0W7hpuhGinBKSTYerSmPyvK0yKhU97mc5Ko/ZnOG+FqFkdItlq/nV
+	m6kcXp167XACyMVgXtVxM1jruL4j8l7SJDHbmCqQAgaQJ0L0PEAKcRqcruV6ord9G6u7YDdtgfREy
+	udYxeARIe5Jcgia8tKEipPwBcePjf1m6uXRnzpNpy6urhIWyoSTUg67JpUEhqbQCKUSb8eaO9+Py5
+	ihvlKUFC5i1OX5IyZpkfVzhEQAc5saCyPfSwGpWSRhOrsFySEnm56GMb7Ur6ljtIscCHSc70nNE57
+	tAnpis2bWq9uOCThjl+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nOgTx-00Chnc-SI; Mon, 28 Feb 2022 13:54:33 +0000
-Received: from mail-vk1-f179.google.com ([209.85.221.179])
+	id 1nOhvd-00D9PB-On; Mon, 28 Feb 2022 15:27:13 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nOgOw-00Cg8Z-0D; Mon, 28 Feb 2022 13:49:24 +0000
-Received: by mail-vk1-f179.google.com with SMTP id m195so2609855vka.5;
- Mon, 28 Feb 2022 05:49:20 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=9ZlhBssXvwBUH+DmkM+uVIB26RD/VtgYSa5UcFW0OSE=;
- b=w2KeJyPlbToh2mVN+TQoHpbKHZ4DDmVM/XsZJmUyRIzmXXVXH78QpYWquy8boISXxi
- aNrJOXpn0Up1mAK2e6MVqJxv/F2795ZCzLtbDO3lmFDMkEgZDuGyQrF3KZ+s8bSzVjIV
- 8Mam7IVHEdifLHIGL9bjc7CDOpak8R1Su7K3Sz1vxrf2O4ajF47Bsf9V8YSOZcdr4Noq
- F0VTNxrso7q4EGQdDHcpNrtqBp+sk5bhYirtNge8Z4JfwGYx5Oc/IRcX8lzDG6quKVB1
- EMlSwh0SuFq4YzJCTnzwcat2G9mGmKk8YO7tBCqwIquZ9q/dMJM5/44rQ+0XB/2TeHlD
- NNxQ==
-X-Gm-Message-State: AOAM530yMPHbEpwAV3CQSyaKJd8DJ9oYagz0TL1Yeag/9lAiYu6bUOzv
- +zNgeqWkGiNuvJfWOOXJl14jFMWW4RVpGg==
-X-Google-Smtp-Source: ABdhPJyP1HtKZ+sPxWSe6XiIiB0etnOr0tkdoDAqBSVKViq0DnvbIN2QWe7VO8l5wdegrAVcoU1jiQ==
-X-Received: by 2002:a05:6122:1079:b0:32c:a52c:88a5 with SMTP id
- k25-20020a056122107900b0032ca52c88a5mr8083980vko.19.1646056159646; 
- Mon, 28 Feb 2022 05:49:19 -0800 (PST)
-Received: from mail-vs1-f46.google.com (mail-vs1-f46.google.com.
- [209.85.217.46]) by smtp.gmail.com with ESMTPSA id
- s18-20020a05612204d200b00332f05df61bsm1363559vkn.49.2022.02.28.05.49.18
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 28 Feb 2022 05:49:18 -0800 (PST)
-Received: by mail-vs1-f46.google.com with SMTP id w4so13029669vsq.1;
- Mon, 28 Feb 2022 05:49:18 -0800 (PST)
-X-Received: by 2002:a67:af08:0:b0:31b:9451:bc39 with SMTP id
- v8-20020a67af08000000b0031b9451bc39mr7516436vsl.68.1646056157983; Mon, 28 Feb
- 2022 05:49:17 -0800 (PST)
+ id 1nOhvW-00D9Na-PJ
+ for linux-riscv@lists.infradead.org; Mon, 28 Feb 2022 15:27:12 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 2F8E060FE1;
+ Mon, 28 Feb 2022 15:27:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE0D7C340E7;
+ Mon, 28 Feb 2022 15:27:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1646062024;
+ bh=kFhWjGGPF0HOMSD41o5huv2osoCwgvTkZ3Q334nGLzY=;
+ h=From:To:Cc:Subject:Date:From;
+ b=gn3F5ZL+dou8lTgfyLNm181boVHfFi+CTyIt/fDJtEMsk00674yLi6uEWrBRqz2EC
+ rWdAi7n5FTg5oOA/k3VIZ/FlW7A9FsC0Hf99O+46B82BI5g4xxsoSl6nSB3UL+Q7ia
+ TkoyE+Ne4nSdi+OzagxH6CAJ3cSXWx9Ug3cX5aZJhEjH1ygv6VyHlWzW/msM5wEkAt
+ sn8nU/Qo2ndeTO79tMwOXgX0+xOfNWSK0B+Arpx15XZEebqLlXuVVekSt4AmbqipmY
+ 4kSMGfpqhTyXW/rrhhsI4eJ02lyEfBPwO+k1gty5GZx8XHK3aCBpwaRhrAIkJLu5Qv
+ 386CwB06NKMfQ==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Lewis Hanly <lewis.hanly@microchip.com>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Conor Dooley <conor.dooley@microchip.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, kernel test robot <lkp@intel.com>,
+ Jassi Brar <jaswinder.singh@linaro.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, llvm@lists.linux.dev
+Subject: [PATCH] SoC: polarfire: fix build warning
+Date: Mon, 28 Feb 2022 16:26:52 +0100
+Message-Id: <20220228152658.3367506-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.29.2
 MIME-Version: 1.0
-References: <1646045273-9343-1-git-send-email-anshuman.khandual@arm.com>
- <1646045273-9343-10-git-send-email-anshuman.khandual@arm.com>
- <Yhyqjo/4bozJB6j5@shell.armlinux.org.uk>
-In-Reply-To: <Yhyqjo/4bozJB6j5@shell.armlinux.org.uk>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 28 Feb 2022 14:49:06 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWve8XkqtMJCTB_BH9JRZ8C4f7ynF60D1fvx3hxaK4YzA@mail.gmail.com>
-Message-ID: <CAMuHMdWve8XkqtMJCTB_BH9JRZ8C4f7ynF60D1fvx3hxaK4YzA@mail.gmail.com>
-Subject: Re: [PATCH V3 09/30] arm/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
- Linux MM <linux-mm@kvack.org>, Andrew Morton <akpm@linux-foundation.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Christoph Hellwig <hch@infradead.org>, 
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- sparclinux <sparclinux@vger.kernel.org>, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
- linux-m68k <linux-m68k@lists.linux-m68k.org>, 
- linux-s390 <linux-s390@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- alpha <linux-alpha@vger.kernel.org>, Linux-sh list <linux-sh@vger.kernel.org>, 
- arcml <linux-snps-arc@lists.infradead.org>, linux-csky@vger.kernel.org, 
- "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>,
- Parisc List <linux-parisc@vger.kernel.org>, 
- Openrisc <openrisc@lists.librecores.org>,
- linux-um <linux-um@lists.infradead.org>, 
- "open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>, 
- "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
- Linux-Arch <linux-arch@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220228_054922_113284_2EE1FF65 
-X-CRM114-Status: GOOD (  25.68  )
+X-CRM114-CacheID: sfid-20220228_072706_886759_E38A3B70 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,41 +75,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
+From: Arnd Bergmann <arnd@arndb.de>
 
-On Mon, Feb 28, 2022 at 11:57 AM Russell King (Oracle)
-<linux@armlinux.org.uk> wrote:
-> On Mon, Feb 28, 2022 at 04:17:32PM +0530, Anshuman Khandual wrote:
-> > This defines and exports a platform specific custom vm_get_page_prot() via
-> > subscribing ARCH_HAS_VM_GET_PAGE_PROT. Subsequently all __SXXX and __PXXX
-> > macros can be dropped which are no longer needed.
->
-> What I would really like to know is why having to run _code_ to work out
-> what the page protections need to be is better than looking it up in a
-> table.
->
-> Not only is this more expensive in terms of CPU cycles, it also brings
-> additional code size with it.
->
-> I'm struggling to see what the benefit is.
+The newly added driver causes a build warning because of a missing
+prototype:
 
-I was wondering about that as well. But at least for code size on
-m68k, this didn't have much impact.  Looking at the generated code,
-the increase due to using code for the (few different) cases is offset
-by a 16-bit jump table (which is to be credited to the compiler).
+drivers/soc/microchip/mpfs-sys-controller.c:76:6: warning: no previous prototype for function 'mpfs_sys_controller_put' [-Wmissing-prototypes]
 
-In terms of CPU cycles, it's indeed worse than before.
+Link: https://lore.kernel.org/llvm/202202260947.F5T1YNao-lkp@intel.com/
+Reported-by: kernel test robot <lkp@intel.com>
+Fixes: d0054a470c33 ("soc: add microchip polarfire soc system controller")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+I've applied this to the arm/drivers branch as a fixup
 
-Gr{oetje,eeting}s,
+ include/soc/microchip/mpfs.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-                        Geert
+diff --git a/include/soc/microchip/mpfs.h b/include/soc/microchip/mpfs.h
+index 6466515262bd..969b5239521e 100644
+--- a/include/soc/microchip/mpfs.h
++++ b/include/soc/microchip/mpfs.h
+@@ -38,6 +38,8 @@ int mpfs_blocking_transaction(struct mpfs_sys_controller *mpfs_client, struct mp
+ 
+ struct mpfs_sys_controller *mpfs_sys_controller_get(struct device *dev);
+ 
++void mpfs_sys_controller_put(void *data);
++
+ #endif /* if IS_ENABLED(CONFIG_POLARFIRE_SOC_SYS_CTRL) */
+ 
+ #endif /* __SOC_MPFS_H__ */
+-- 
+2.29.2
 
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
