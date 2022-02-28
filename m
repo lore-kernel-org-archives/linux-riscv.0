@@ -4,85 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B674C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Feb 2022 12:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EAE2C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Feb 2022 13:06:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ntZKhjw91oN0ISEwoKH3tSrw9piPvhKfu0Tgko332DY=; b=u7Lrd4mTmSvqG1
-	Eeypl8Nhz+UCl4ovAJvDoosYWTkx+HhQo6EDF/ixnVblcDPZZwVRk8/y57lp4bf+gRP8tRXqRFyLQ
-	fdtm3dSEo5tMmQhlkiuFi/mdidBmWcsIIRD8Y7jfxjPVeh3keIBizEEXmWX0RihTGYUxvXD/n58QC
-	okuOvbCQk9ADGsvHleOtbqax8AaE96K6JRPy5/+cUW7MhjaYU9Bd0jtJoSjUkmUB9kUy5QBxbfMAN
-	T2XPYWE25hsCBf5USCBPninG0mk96TbuiOsu8Qoy3Xo99MfOCidES65Uq/iE+v7V1bVkyBe1wEULI
-	EVQj/vGPOTMbKAnoJAXg==;
+	List-Owner; bh=BZohNVdjuTJP1yWdeOFzFIKD5YzEmDg41S0t0T2adHs=; b=a23CxiOb7nHcun
+	R9M+EecloB8zjvwVemadUdZ0em1k6nCv4yNFC6rqfQfuxf91zdtDYHr8g9X8fxRAjtwdDjZE3sCX0
+	Z4cJ6Dahd+lkcEZsLH1pKelsMeFJEEZOPIgAKlTDoFxaycfsdvNurG17nXDyITqXUOlz2gxDhGh4I
+	Zol9zTrg4TKDR9ToeJPDED4QD0EAPNrkBOJgtfamWN9AS4lJ36xitfj3n8Ly/q5n4sWG3ju5KnJ6F
+	qZOXk5Zfs/zuP/jjskO/sIFNPAtFCvqW9sf8cSqwTwu96U3H9AyKRMHgClle8qBiqGu6bgFMDMk/L
+	qqqE2Wt3JMqALU35t5XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nOfV1-00CLbu-II; Mon, 28 Feb 2022 12:51:35 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1nOfj1-00CQqk-Jm; Mon, 28 Feb 2022 13:06:03 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nOfGV-00CFl4-2u
- for linux-riscv@lists.infradead.org; Mon, 28 Feb 2022 12:36:44 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-164--JsiAWFvP7mJeI5M5rTVpA-1; Mon, 28 Feb 2022 12:36:29 +0000
-X-MC-Unique: -JsiAWFvP7mJeI5M5rTVpA-1
-Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
- AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
- Server (TLS) id 15.0.1497.28; Mon, 28 Feb 2022 12:36:26 +0000
-Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
- AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
- 15.00.1497.028; Mon, 28 Feb 2022 12:36:26 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Guo Ren' <guoren@kernel.org>
-CC: "palmer@dabbelt.com" <palmer@dabbelt.com>, "arnd@arndb.de"
- <arnd@arndb.de>, "anup@brainfault.org" <anup@brainfault.org>,
- "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
- "liush@allwinnertech.com" <liush@allwinnertech.com>, "wefu@redhat.com"
- <wefu@redhat.com>, "drew@beagleboard.org" <drew@beagleboard.org>,
- "wangjunqiang@iscas.ac.cn" <wangjunqiang@iscas.ac.cn>, "hch@lst.de"
- <hch@lst.de>, "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
- "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
- "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "x86@kernel.org" <x86@kernel.org>
-Subject: RE: [PATCH V7 03/20] compat: consolidate the compat_flock{,64}
- definition
-Thread-Topic: [PATCH V7 03/20] compat: consolidate the compat_flock{,64}
- definition
-Thread-Index: AQHYK/ctkLOBFN5NzkqkonsQCyvC26yogbZggABZggCAAAIWoIAAA+wAgAADRgA=
-Date: Mon, 28 Feb 2022 12:36:26 +0000
-Message-ID: <75af91aff07c43f4afd1f1a024e23bd4@AcuMS.aculab.com>
-References: <20220227162831.674483-1-guoren@kernel.org>
- <20220227162831.674483-4-guoren@kernel.org>
- <b8e765910e274c0fb574ff23f88b881c@AcuMS.aculab.com>
- <CAJF2gTRQ0XWSjoEeREtEGr5PPD-rHrBKFY_i6_9uW3eEN_6muQ@mail.gmail.com>
- <e5ee4f6799704bd59b0c580157a05d2d@AcuMS.aculab.com>
- <CAJF2gTQhFK55z4juC7uHpWmHsEXSOkbMyXeid6KsnhfPRo7wqg@mail.gmail.com>
-In-Reply-To: <CAJF2gTQhFK55z4juC7uHpWmHsEXSOkbMyXeid6KsnhfPRo7wqg@mail.gmail.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+ id 1nOfPp-00CJOl-Ss
+ for linux-riscv@lists.infradead.org; Mon, 28 Feb 2022 12:46:15 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id c9so10655510pll.0
+ for <linux-riscv@lists.infradead.org>; Mon, 28 Feb 2022 04:46:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=qwzeJF2B6Di3rDERG8soz+b1Ps+s3Pm44BHmxxR7QCY=;
+ b=qtbGBSdD/gQ1lKhk5tZ6TUn/GBPJmKrm1MxIxIzCPIGJqN+39MNgxuN9sqFmhVKrzr
+ z291TCh81mpJult+1IktilWv0MmSSu6aapiTKrWFWGGSdPKbd346r3t7VNgjlXPUea5p
+ OBZAa47+FhUnEKuD8YGJN8pD4xKnXuZ0O685ncSMMID8t2cv6lbOcX7GU//AhRb3eq1G
+ HmMcE/Cy+kaNqMXQwLG6CnCPxUSixb4NiST+caV9tF9LlaEYfTlr5fH2vDrVSIeL7q8s
+ KiOohITDLb4tu0K4yFNhLziuSdflP9d3VU9MDDhyBk5zcFUtIDQMAa1IJObVt02DR+71
+ gJOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=qwzeJF2B6Di3rDERG8soz+b1Ps+s3Pm44BHmxxR7QCY=;
+ b=3wK44IpfH6mPLG+U7vZvr/4I9V3wQFF8DZkiz4BTGS31+az6TAoJ8opqqXCUfG7xwR
+ kwqyuaAlDTYtTPOQl5pnAcbiL9QUd8TvIKbjJMMWJisGAVtx79+opkbNg5r0r+md94DT
+ 77WA6xqFEGRgM3My6GT+CZmxi7aZS3YAUxToMsh3H8x7+o2Ib4Iu6X5+3GrOYmF+Eune
+ Anvl9SniDJOyrLoji8pcFhMNGfrEmPAMb/B+LWeIt0UIlU1FwgvRg9Ru9bFgjjAoMiVu
+ x8ZTHrpwuJXHDRiw2665NoEbwzdrm7UKxMXydnve+CMOQO3wrpGiYuCCIQXDspKS/+ev
+ M8Jg==
+X-Gm-Message-State: AOAM5334YuSkxrzmfyAlOK4A9Se8CDVJp9tLWmmau4aYClQiw2N2H594
+ iP8+SASsVqqyP/FfCIkonto0e/25j7dgz2oGt68=
+X-Google-Smtp-Source: ABdhPJyPl3dOQnPhGsi+4kZmEEqOlf28gc2APwLdJ138ZzdPOZ2ylsXazmS2xgNZ0Ss/gw0ULba1JMbNNCHB4ifv7ck=
+X-Received: by 2002:a17:90a:ca16:b0:1bc:16a7:e840 with SMTP id
+ x22-20020a17090aca1600b001bc16a7e840mr16442697pjt.225.1646052372123; Mon, 28
+ Feb 2022 04:46:12 -0800 (PST)
 MIME-Version: 1.0
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=C51A453 smtp.mailfrom=david.laight@aculab.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+References: <20220224152456.493365-1-kernel@esmil.dk>
+ <20220224152456.493365-2-kernel@esmil.dk>
+ <87zgme6xna.fsf@DESKTOP-5JD7O8D.localdomain>
+In-Reply-To: <87zgme6xna.fsf@DESKTOP-5JD7O8D.localdomain>
+From: Emil Renner Berthing <emil.renner.berthing@gmail.com>
+Date: Mon, 28 Feb 2022 13:46:00 +0100
+Message-ID: <CANBLGczP5OKPsVbs3Ydm9EfHkSoCd=ksYZ6NOnTdmH3Bh2e_fw@mail.gmail.com>
+Subject: Re: [PATCH v3 1/8] riscv: Avoid unaligned access when relocating
+ modules
+To: Samuel Bronson <naesten@gmail.com>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220228_043635_463501_9ACB1005 
-X-CRM114-Status: GOOD (  29.61  )
+X-CRM114-CacheID: sfid-20220228_044613_992312_E9B62A7F 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,130 +81,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren
-> Sent: 28 February 2022 12:13
-> 
-> On Mon, Feb 28, 2022 at 8:02 PM David Laight <David.Laight@aculab.com> wrote:
-> >
-> > From: Guo Ren
-> > > Sent: 28 February 2022 11:52
-> > >
-> > > On Mon, Feb 28, 2022 at 2:40 PM David Laight <David.Laight@aculab.com> wrote:
-> > > >
-> > > > From: guoren@kernel.org
-> > > > > Sent: 27 February 2022 16:28
-> > > > >
-> > > > > From: Christoph Hellwig <hch@lst.de>
-> > > > >
-> > > > > Provide a single common definition for the compat_flock and
-> > > > > compat_flock64 structures using the same tricks as for the native
-> > > > > variants.  Another extra define is added for the packing required on
-> > > > > x86.
-> > > > ...
-> > > > > diff --git a/arch/x86/include/asm/compat.h b/arch/x86/include/asm/compat.h
-> > > > ...
-> > > > >  /*
-> > > > > - * IA32 uses 4 byte alignment for 64 bit quantities,
-> > > > > - * so we need to pack this structure.
-> > > > > + * IA32 uses 4 byte alignment for 64 bit quantities, so we need to pack the
-> > > > > + * compat flock64 structure.
-> > > > >   */
-> > > > ...
-> > > > > +#define __ARCH_NEED_COMPAT_FLOCK64_PACKED
-> > > > >
-> > > > >  struct compat_statfs {
-> > > > >       int             f_type;
-> > > > > diff --git a/include/linux/compat.h b/include/linux/compat.h
-> > > > > index 1c758b0e0359..a0481fe6c5d5 100644
-> > > > > --- a/include/linux/compat.h
-> > > > > +++ b/include/linux/compat.h
-> > > > > @@ -258,6 +258,37 @@ struct compat_rlimit {
-> > > > >       compat_ulong_t  rlim_max;
-> > > > >  };
-> > > > >
-> > > > > +#ifdef __ARCH_NEED_COMPAT_FLOCK64_PACKED
-> > > > > +#define __ARCH_COMPAT_FLOCK64_PACK   __attribute__((packed))
-> > > > > +#else
-> > > > > +#define __ARCH_COMPAT_FLOCK64_PACK
-> > > > > +#endif
-> > > > ...
-> > > > > +struct compat_flock64 {
-> > > > > +     short           l_type;
-> > > > > +     short           l_whence;
-> > > > > +     compat_loff_t   l_start;
-> > > > > +     compat_loff_t   l_len;
-> > > > > +     compat_pid_t    l_pid;
-> > > > > +#ifdef __ARCH_COMPAT_FLOCK64_PAD
-> > > > > +     __ARCH_COMPAT_FLOCK64_PAD
-> > > > > +#endif
-> > > > > +} __ARCH_COMPAT_FLOCK64_PACK;
-> > > > > +
-> > > >
-> > > > Provided compat_loff_t are correctly defined with __aligned__(4)
-> > > See include/asm-generic/compat.h
-> > >
-> > > typedef s64 compat_loff_t;
-> > >
-> > > Only:
-> > > #ifdef CONFIG_COMPAT_FOR_U64_ALIGNMENT
-> > > typedef s64 __attribute__((aligned(4))) compat_s64;
-> > >
-> > > So how do you think compat_loff_t could be defined with __aligned__(4)?
-> >
-> > compat_loff_t should be compat_s64 not s64.
-> >
-> > The same should be done for all 64bit 'compat' types.
-> Changing
-> typedef s64 compat_loff_t;
-> to
-> typedef compat_s64 compat_loff_t;
-> 
-> should be another patch and it affects all architectures, I don't
-> think we should involve it in this series.
-
-Except that I think only x86 sets CONFIG_COMPAT_FOR_U64_ALIGNMENT.
-
-> look at kernel/power/user.c:
-> struct compat_resume_swap_area {
->         compat_loff_t offset;
->         u32 dev;
-> } __packed;
-
-That is a bug!
-The size should be 16 bytes on most 32bit architectures.
-So the compat code won't fault if the last 4 bytes aren't mapped
-whereas the native 32bit version will fault.
-
-Hopefully the compiler realises the on-stack item is actually
-aligned and doesn't use byte loads and shifts on (eg) sparc64.
-
-> I thnk keep "typedef s64 compat_loff_t;" is a sensible choice for
-> COMPAT support patchset series.
-
-But it is wrong :-)
-
-compat_[su]64 exist so that compat syscalls that contain 64bit
-values get the correct alignment.
-Which is exactly what you have here.
-
-AFAICT most of the uses of __packed in the kernel are wrong.
-It should only be used (on a structure) if the structure might
-be on a misaligned address.
-This can happen in data for some network protocols.
-It should not be used because the structure should have no holes.
-(Especially in ones that don't have any holes.)
-
-	David
-
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCAyOCBGZWIgMjAyMiBhdCAwMTo0NSwgU2FtdWVsIEJyb25zb24gPG5hZXN0ZW5AZ21h
+aWwuY29tPiB3cm90ZToKPgo+IEVtaWwgUmVubmVyIEJlcnRoaW5nIDxrZXJuZWxAZXNtaWwuZGs+
+IHdyaXRlczoKPgo+ID4gV2l0aCB0aGUgQy1leHRlbnNpb24gcmVndWxhciAzMmJpdCBpbnN0cnVj
+dGlvbnMgYXJlIG5vdAo+ID4gbmVjZXNzYXJpbHkgYWxpZ25lZCBvbiA0LWJ5dGUgYm91bmRhcmll
+cy4gUklTQy1WIGluc3RydWN0aW9ucwo+ID4gYXJlIGluIGZhY3QgYW4gb3JkZXJlZCBsaXN0IG9m
+IDE2Yml0IG5hdGl2ZS1lbmRpYW4KPiA+ICJwYXJjZWxzIiwgc28gYWNjZXNzIHRoZSBpbnN0cnVj
+dGlvbiBhcyBzdWNoLgo+Cj4gSG9sZCBvbiBhIG1pbnV0ZSwgdGhpcyBpcyB3aGF0IGl0IHNheXMg
+aW4gbXkgY29weSBvZiB0aGUgVW5wcml2aWxlZ2VkCj4gSVNBOgo+Cj4gLC0tLS0KPiB8IFJJU0Mt
+ViBiYXNlIElTQXMgaGF2ZSBlaXRoZXIgbGl0dGxlLWVuZGlhbiBvciBiaWctZW5kaWFuIG1lbW9y
+eSBzeXN0ZW1zLAo+IHwgd2l0aCB0aGUgcHJpdmlsZWdlZCBhcmNoaXRlY3R1cmUgZnVydGhlciBk
+ZWZpbmluZyBiaS1lbmRpYW4gb3BlcmF0aW9uLgo+IHwgSW5zdHJ1Y3Rpb25zIGFyZSBzdG9yZWQg
+aW4gbWVtb3J5IGFzIGEgc2VxdWVuY2Ugb2YgMTYtYml0ICpsaXR0bGUtZW5kaWFuKgo+IHwgcGFy
+Y2VscywgcmVnYXJkbGVzcyBvZiBtZW1vcnkgc3lzdGVtIGVuZGlhbm5lc3MuICBQYXJjZWxzIGZv
+cm1pbmcgb25lCj4gfCBpbnN0cnVjdGlvbiBhcmUgc3RvcmVkIGF0IGluY3JlYXNpbmcgaGFsZndv
+cmQgYWRkcmVzc2VzLCB3aXRoIHRoZQo+IHwgKmxvd2VzdC1hZGRyZXNzZWQgcGFyY2VsIGhvbGRp
+bmcgdGhlIGxvd2VzdC1udW1iZXJlZCBiaXRzKiBpbiB0aGUKPiB8IGluc3RydWN0aW9uIHNwZWNp
+ZmljYXRpb24uCj4gYC0tLS0KPiBbRW1waGFzaXMgbWluZS5dCj4KPiBJbiBvdGhlciB3b3Jkcywg
+dGhlIHBhcmNlbHMgYXJlIGxpdHRsZSBlbmRpYW4sIGFuZCB0aGV5J3JlIGFycmFuZ2VkIGluCj4g
+bGl0dGxlLWVuZGlhbiBvcmRlci4gIFN5c3RlbSBlbmRpYW5uZXNzIGRvZXNuJ3QgbWF0dGVyLCBp
+dCBjb2xsYXBzZXMgdG8KPiBwbGFpbiBvbGQgbGl0dGxlLWVuZGlhbi4KCldvdywgdGhpcyBhY3R1
+YWxseSBjaGFuZ2VkIHNpbmNlIEkgd3JvdGUgdGhpcyBjb2RlLCBuaWNlIGNhdGNoLiBJbgpzcGVj
+cyB1cCB1bnRpbCB0aGUgbGF0ZXN0IGl0IHVzZWQgdG8gc2F5ICJJbnN0cnVjdGlvbnMgYXJlIHN0
+b3JlZCBpbgptZW1vcnkgd2l0aCBlYWNoIDE2LWJpdCBwYXJjZWwKc3RvcmVkIGluIGEgbWVtb3J5
+IGhhbGZ3b3JkIGFjY29yZGluZyB0byB0aGUgaW1wbGVtZW50YXRpb27igJlzIG5hdHVyYWwKZW5k
+aWFubmVzcyIuIEkgaG9wZSBub29uZSBkZXNpZ25lZCBhIGJpZy1lbmRpYW4gY29yZSBiZWZvcmUg
+dGhleQpjaGFuZ2VkIGl0LgoKPiAoSSdtIHJlYWxseSBub3Qgc3VyZSB3aHkgdGhleSBkZXNjcmli
+ZSB0aGUgb3JkZXJpbmcgaW4gc3VjaCBhCj4gcm91bmQtYWJvdXQgd2F5OyBJIGFzc3VtZSB0aGF0
+J3MgdGhlIHNvdXJjZSBvZiB0aGUgY29uZnVzaW9uIGhlcmU/KQoKSSBndWVzcyB0aGUgcm91bmQt
+YWJvdXQgd2F5IGlzIGV4YWN0bHkgYmVjYXVzZSB0aGUgcGFyY2VscyB1c2VkIHRvIGJlCm5hdGl2
+ZS1lbmRpYW4sIGJ1dCB0aGUgb3JkZXIgb2YgdGhlIHBhcmNlbHMgYWxzd2F5cyBsaXR0bGUtZW5k
+aWFuLgoKL0VtaWwKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
