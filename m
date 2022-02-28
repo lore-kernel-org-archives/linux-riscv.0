@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A838C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Feb 2022 11:03:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A990C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Feb 2022 11:04:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x12vjxYv5Tc8gO+UKtxTnpsasOX3NOrOUnutprVXqV4=; b=fWCDbCnNUBA7dW
-	tbJH+cPpLUc1y25s9LJWneSE9csSXO5+brQcWMC7bEjBE4zXUNqd/giaqzXrxaIXP4vpXjXC3Babc
-	aPcfI8wyyCUsTi1ScLeONfTTBg1Pqlay4VdlTfEh7EUnr3uzxvEnb43vRMyO1iBrVjPBy0S+FddN/
-	HnxV/mVtc8YdMQTPVEPQFTMtIjuWToJuD9hAIsmo1zLxXxjqnY7tN3QX0vZuK8Yn3o2TOSQSMLvMl
-	YCPT7esuM+kUHPPw4l0PTg4trAthyWzCf65VBI/FGrxGxVpZXb0mb77vPALU/Z3vdbh+HBoCNkEsP
-	OangIICSfrfjBUcKuKIw==;
+	List-Owner; bh=IIinnK/laB2n+mO40+hwyo0kanUlru7zoRCz9yEEAA4=; b=RXAdMb+FDVeYOE
+	mfuw5cFf0m+jPSQSxEgt+R8dOlymo3M0e7qyNxKVZW2nTsUJqhVjVRgNgAo4DVLwu2fDczWpRDGAo
+	KbxT1WAtCJ/nakTC/fadtZ9C9mw+MrNMjEsC8xsmq9L7iLNuVo8nO6oXaFS7oMS7+T1jeaibNzlO+
+	j7AjImOCY+0jdoFIfKg9fT5rs1JpnGm6FcKPyBE2AsiAcF/M7qQhacRP0MxA5QULmCl9g7WoXFZYo
+	1g5ZP+ZHhZ0UtUMq140g8hOpciebRk8dcDjZpMpIsR+lbWjrmo/912gg+mrxil/1JyEsCFeP9b5tt
+	9JR5hqOJtj+yMB+XfafQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nOdo9-00Bfk3-Sa; Mon, 28 Feb 2022 11:03:14 +0000
+	id 1nOdpI-00BgIG-PE; Mon, 28 Feb 2022 11:04:24 +0000
 Received: from foss.arm.com ([217.140.110.172])
  by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nOdcE-00BYPh-3t; Mon, 28 Feb 2022 10:50:59 +0000
+ id 1nOdcM-00BYW5-KU; Mon, 28 Feb 2022 10:51:04 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2BD0311FB;
- Mon, 28 Feb 2022 02:50:53 -0800 (PST)
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0089B1063;
+ Mon, 28 Feb 2022 02:51:02 -0800 (PST)
 Received: from p8cg001049571a15.arm.com (unknown [10.163.47.185])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5C9B33F73D;
- Mon, 28 Feb 2022 02:50:45 -0800 (PST)
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BD8333F73D;
+ Mon, 28 Feb 2022 02:50:53 -0800 (PST)
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 To: linux-mm@kvack.org,
 	akpm@linux-foundation.org
@@ -44,17 +44,17 @@ Cc: linux-kernel@vger.kernel.org, geert@linux-m68k.org,
  linux-xtensa@linux-xtensa.org, linux-parisc@vger.kernel.org,
  openrisc@lists.librecores.org, linux-um@lists.infradead.org,
  linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
- linux-arch@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>
-Subject: [PATCH V3 15/30] riscv/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
-Date: Mon, 28 Feb 2022 16:17:38 +0530
-Message-Id: <1646045273-9343-16-git-send-email-anshuman.khandual@arm.com>
+ linux-arch@vger.kernel.org, Richard Henderson <rth@twiddle.net>
+Subject: [PATCH V3 16/30] alpha/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+Date: Mon, 28 Feb 2022 16:17:39 +0530
+Message-Id: <1646045273-9343-17-git-send-email-anshuman.khandual@arm.com>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1646045273-9343-1-git-send-email-anshuman.khandual@arm.com>
 References: <1646045273-9343-1-git-send-email-anshuman.khandual@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220228_025054_288542_53944DA3 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20220228_025102_804981_C71C5941 
+X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,108 +76,101 @@ This defines and exports a platform specific custom vm_get_page_prot() via
 subscribing ARCH_HAS_VM_GET_PAGE_PROT. Subsequently all __SXXX and __PXXX
 macros can be dropped which are no longer needed.
 
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv@lists.infradead.org
+Cc: Richard Henderson <rth@twiddle.net>
+Cc: linux-alpha@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
- arch/riscv/Kconfig               |  1 +
- arch/riscv/include/asm/pgtable.h | 16 ------------
- arch/riscv/mm/init.c             | 42 ++++++++++++++++++++++++++++++++
- 3 files changed, 43 insertions(+), 16 deletions(-)
+ arch/alpha/Kconfig               |  1 +
+ arch/alpha/include/asm/pgtable.h | 17 ---------------
+ arch/alpha/mm/init.c             | 37 ++++++++++++++++++++++++++++++++
+ 3 files changed, 38 insertions(+), 17 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 5adcbd9b5e88..9391742f9286 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -31,6 +31,7 @@ config RISCV
- 	select ARCH_HAS_STRICT_MODULE_RWX if MMU && !XIP_KERNEL
- 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
- 	select ARCH_HAS_UBSAN_SANITIZE_ALL
+diff --git a/arch/alpha/Kconfig b/arch/alpha/Kconfig
+index 4e87783c90ad..73e82fe5c770 100644
+--- a/arch/alpha/Kconfig
++++ b/arch/alpha/Kconfig
+@@ -2,6 +2,7 @@
+ config ALPHA
+ 	bool
+ 	default y
 +	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
- 	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
- 	select ARCH_STACKWALK
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 7e949f25c933..d2bb14cac28b 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -183,24 +183,8 @@ extern struct pt_alloc_ops pt_ops __initdata;
- extern pgd_t swapper_pg_dir[];
+ 	select ARCH_32BIT_USTAT_F_TINODE
+ 	select ARCH_MIGHT_HAVE_PC_PARPORT
+ 	select ARCH_MIGHT_HAVE_PC_SERIO
+diff --git a/arch/alpha/include/asm/pgtable.h b/arch/alpha/include/asm/pgtable.h
+index 02f0429f1068..9fb5e9d10bb6 100644
+--- a/arch/alpha/include/asm/pgtable.h
++++ b/arch/alpha/include/asm/pgtable.h
+@@ -116,23 +116,6 @@ struct vm_area_struct;
+  * arch/alpha/mm/fault.c)
+  */
+ 	/* xwr */
+-#define __P000	_PAGE_P(_PAGE_FOE | _PAGE_FOW | _PAGE_FOR)
+-#define __P001	_PAGE_P(_PAGE_FOE | _PAGE_FOW)
+-#define __P010	_PAGE_P(_PAGE_FOE)
+-#define __P011	_PAGE_P(_PAGE_FOE)
+-#define __P100	_PAGE_P(_PAGE_FOW | _PAGE_FOR)
+-#define __P101	_PAGE_P(_PAGE_FOW)
+-#define __P110	_PAGE_P(0)
+-#define __P111	_PAGE_P(0)
+-
+-#define __S000	_PAGE_S(_PAGE_FOE | _PAGE_FOW | _PAGE_FOR)
+-#define __S001	_PAGE_S(_PAGE_FOE | _PAGE_FOW)
+-#define __S010	_PAGE_S(_PAGE_FOE)
+-#define __S011	_PAGE_S(_PAGE_FOE)
+-#define __S100	_PAGE_S(_PAGE_FOW | _PAGE_FOR)
+-#define __S101	_PAGE_S(_PAGE_FOW)
+-#define __S110	_PAGE_S(0)
+-#define __S111	_PAGE_S(0)
  
- /* MAP_PRIVATE permissions: xwr (copy-on-write) */
--#define __P000	PAGE_NONE
--#define __P001	PAGE_READ
--#define __P010	PAGE_COPY
--#define __P011	PAGE_COPY
--#define __P100	PAGE_EXEC
--#define __P101	PAGE_READ_EXEC
--#define __P110	PAGE_COPY_EXEC
--#define __P111	PAGE_COPY_READ_EXEC
- 
- /* MAP_SHARED permissions: xwr */
--#define __S000	PAGE_NONE
--#define __S001	PAGE_READ
--#define __S010	PAGE_SHARED
--#define __S011	PAGE_SHARED
--#define __S100	PAGE_EXEC
--#define __S101	PAGE_READ_EXEC
--#define __S110	PAGE_SHARED_EXEC
--#define __S111	PAGE_SHARED_EXEC
- 
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
- static inline int pmd_present(pmd_t pmd)
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index c27294128e18..8cb5d1eeb287 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -1050,3 +1050,45 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
- 	return vmemmap_populate_basepages(start, end, node, NULL);
+ /*
+  * pgprot_noncached() is only for infiniband pci support, and a real
+diff --git a/arch/alpha/mm/init.c b/arch/alpha/mm/init.c
+index f6114d03357c..2e78008b2553 100644
+--- a/arch/alpha/mm/init.c
++++ b/arch/alpha/mm/init.c
+@@ -280,3 +280,40 @@ mem_init(void)
+ 	high_memory = (void *) __va(max_low_pfn * PAGE_SIZE);
+ 	memblock_free_all();
  }
- #endif
 +
-+#ifdef CONFIG_MMU
 +pgprot_t vm_get_page_prot(unsigned long vm_flags)
 +{
 +	switch (vm_flags & (VM_READ | VM_WRITE | VM_EXEC | VM_SHARED)) {
-+	/* MAP_PRIVATE permissions: xwr (copy-on-write) */
 +	case VM_NONE:
-+		return PAGE_NONE;
++		return _PAGE_P(_PAGE_FOE | _PAGE_FOW | _PAGE_FOR);
 +	case VM_READ:
-+		return PAGE_READ;
++		return _PAGE_P(_PAGE_FOE | _PAGE_FOW);
 +	case VM_WRITE:
 +	case VM_WRITE | VM_READ:
-+		return PAGE_COPY;
++		return _PAGE_P(_PAGE_FOE);
 +	case VM_EXEC:
-+		return PAGE_EXEC;
++		return _PAGE_P(_PAGE_FOW | _PAGE_FOR);
 +	case VM_EXEC | VM_READ:
-+		return PAGE_READ_EXEC;
++		return _PAGE_P(_PAGE_FOW);
 +	case VM_EXEC | VM_WRITE:
-+		return PAGE_COPY_EXEC;
 +	case VM_EXEC | VM_WRITE | VM_READ:
-+		return PAGE_COPY_READ_EXEC;
-+	/* MAP_SHARED permissions: xwr */
++		return _PAGE_P(0);
 +	case VM_SHARED:
-+		return PAGE_NONE;
++		return _PAGE_S(_PAGE_FOE | _PAGE_FOW | _PAGE_FOR);
 +	case VM_SHARED | VM_READ:
-+		return PAGE_READ;
++		return _PAGE_S(_PAGE_FOE | _PAGE_FOW);
 +	case VM_SHARED | VM_WRITE:
 +	case VM_SHARED | VM_WRITE | VM_READ:
-+		return PAGE_SHARED;
++		return _PAGE_S(_PAGE_FOE);
 +	case VM_SHARED | VM_EXEC:
-+		return PAGE_EXEC;
++		return _PAGE_S(_PAGE_FOW | _PAGE_FOR);
 +	case VM_SHARED | VM_EXEC | VM_READ:
-+		return PAGE_READ_EXEC;
++		return _PAGE_S(_PAGE_FOW);
 +	case VM_SHARED | VM_EXEC | VM_WRITE:
 +	case VM_SHARED | VM_EXEC | VM_WRITE | VM_READ:
-+		return PAGE_SHARED_EXEC;
++		return _PAGE_S(0);
 +	default:
 +		BUILD_BUG();
 +	}
 +}
 +EXPORT_SYMBOL(vm_get_page_prot);
-+#endif /* CONFIG_MMU */
 -- 
 2.25.1
 
