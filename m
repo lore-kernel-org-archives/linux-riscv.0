@@ -4,50 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D671C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Feb 2022 17:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78830C433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Feb 2022 17:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m1eQxrbM1axRruXyj5/kW6t8UsbekBV56CeTmKNfixE=; b=XElgpXsevWXhPK
-	HJY6Zkje+CvD5F/vNCtNoTbO8PgB4VVv2f0wPPDnQtNOnBqiuuSglZH6KjNDDt2hZorosUIldwX3B
-	qo4UA6yBVWHiBphEjq6KgFTWCgfe+0lmTYfAhPVRDKCY5GSY9peUTuZfff0bj2dCLlBkQRjY3LkzN
-	E1ITIqFhTofxsL6eQiKQjTIgx0qDtBHieClE+H8qCg4aB137X3UCAoLEQAX42KAXmrhR1JIERAbly
-	AA4LauPRrrwZWgf/cHmY8VMahnkq1JZ/NtMLo6RkzMrO/cZR2ZdHZ7aQ/CxDbEupKMUrZGxeF/z1q
-	xULtgYEKyqK68OBm3ZDg==;
+	List-Owner; bh=p9Mv44Ww0I4EbmqoGAb1N+56k3px15OUE5q5Bb5vjSY=; b=wDkBPqW9eVJd4q
+	2NUWMBBoOsdfB7aQSk2ZZ0x1VDbwgyH7UsbwwHvv0ruwGfAx80nzMMUG9iObM7aMaevOlCSMYFhTF
+	vDpmgJzzbQHTCXgiocH1tiKKHBoRgE2QT/Cdy68/n1CnxjMT8Baq8G4IYH2nUXicXSHoIPz+ddtch
+	ldBs8+H4A4QgsT0NhNNikixe+DdkPfibhhQPDpN9G81TAT9gSJuFMveo1cfDM4JDfdRqg6smSNO4o
+	xm0Run2JmtcHvTp8/vofuRlczWyaS1bKofd2scDNMCQ/xOHbhkNa+OWoppyIVUPTUwIXUsTdSuGCb
+	5vTuKNa4kEBRdH0CZA6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nOk67-00Db8b-In; Mon, 28 Feb 2022 17:46:11 +0000
-Received: from imap2.colo.codethink.co.uk ([78.40.148.184])
+	id 1nOkI1-00Dd5W-O6; Mon, 28 Feb 2022 17:58:29 +0000
+Received: from relay-us1.mymailcheap.com ([51.81.35.219])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nOk63-00Db5v-CK
- for linux-riscv@lists.infradead.org; Mon, 28 Feb 2022 17:46:09 +0000
-Received: from cpc152649-stkp13-2-0-cust121.10-2.cable.virginm.net
- ([86.15.83.122] helo=[192.168.0.21])
- by imap2.colo.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
- id 1nOjeo-0003hq-Jq; Mon, 28 Feb 2022 17:17:58 +0000
-Message-ID: <467c5472-25fd-2611-4bb8-d70d6b60b299@codethink.co.uk>
-Date: Mon, 28 Feb 2022 17:45:49 +0000
+ id 1nOkHy-00Dd4n-JY
+ for linux-riscv@lists.infradead.org; Mon, 28 Feb 2022 17:58:28 +0000
+Received: from relay5.mymailcheap.com (relay5.mymailcheap.com
+ [159.100.248.207])
+ by relay-us1.mymailcheap.com (Postfix) with ESMTPS id 231DC20122
+ for <linux-riscv@lists.infradead.org>; Mon, 28 Feb 2022 17:49:21 +0000 (UTC)
+Received: from relay4.mymailcheap.com (relay4.mymailcheap.com [137.74.80.156])
+ by relay5.mymailcheap.com (Postfix) with ESMTPS id 9ED98267CF
+ for <linux-riscv@lists.infradead.org>; Mon, 28 Feb 2022 17:49:14 +0000 (UTC)
+Received: from filter1.mymailcheap.com (filter1.mymailcheap.com
+ [149.56.130.247])
+ by relay4.mymailcheap.com (Postfix) with ESMTPS id D602E2000E;
+ Mon, 28 Feb 2022 17:49:04 +0000 (UTC)
+Received: from localhost (localhost [127.0.0.1])
+ by filter1.mymailcheap.com (Postfix) with ESMTP id 3E3B62A378;
+ Mon, 28 Feb 2022 17:49:04 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at filter1.mymailcheap.com
+Received: from filter1.mymailcheap.com ([127.0.0.1])
+ by localhost (filter1.mymailcheap.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id c7fNPPvqKdGq; Mon, 28 Feb 2022 17:49:03 +0000 (UTC)
+Received: from mail20.mymailcheap.com (mail20.mymailcheap.com [51.83.111.147])
+ (using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by filter1.mymailcheap.com (Postfix) with ESMTPS;
+ Mon, 28 Feb 2022 17:49:02 +0000 (UTC)
+Received: from edelgard.icenowy.info (unknown [59.41.161.107])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest
+ SHA256) (No client certificate requested)
+ by mail20.mymailcheap.com (Postfix) with ESMTPSA id 3A4FC405A4;
+ Mon, 28 Feb 2022 17:48:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=aosc.io; s=default;
+ t=1646070542; bh=LULP0zQ1ZvfvYvSVqa6XKbmkljj5l8VtkKiZl1WBvIw=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=j5krynj2l3oFWH2XX0+o56R6rdO4tC9K6Fet3VAyOm/KrYj/an3u2NQphq0BQyAqg
+ sJ+ACBugGcVBH/bRnFGq7uVbWOihxOty/50/A3U89qZSxYciouA2GhjTK6aT0tlhH4
+ kPhxodzy3jG6Q1IVetSpFjZR+rGyfCMyH0iI2WgA=
+From: Icenowy Zheng <icenowy@aosc.io>
+To: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Icenowy Zheng <icenowy@aosc.io>
+Subject: [PATCH 2/2] riscv: dts: sifive: add pwm leds for HiFive Unleashed
+Date: Tue,  1 Mar 2022 01:48:37 +0800
+Message-Id: <20220228174837.602758-2-icenowy@aosc.io>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20220228174837.602758-1-icenowy@aosc.io>
+References: <20220228174837.602758-1-icenowy@aosc.io>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.6.0
-Subject: Re: [PATCHv4 2/2] PCI: fu740: Force gen1 for initial device probe
-Content-Language: en-GB
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: paul.walmsley@sifive.com, greentime.hu@sifive.com,
- lorenzo.pieralisi@arm.com, robh@kernel.org, kw@linux.com,
- bhelgaas@google.com, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20220223205141.GA149346@bhelgaas>
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-In-Reply-To: <20220223205141.GA149346@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220228_094607_460391_EB58AF12 
-X-CRM114-Status: GOOD (  35.70  )
+X-CRM114-CacheID: sfid-20220228_095826_732558_4827EE2E 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,168 +86,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 23/02/2022 20:51, Bjorn Helgaas wrote:
-> On Mon, Feb 21, 2022 at 09:03:47PM +0000, Ben Dooks wrote:
->> The fu740 PCIe core does not probe any devices on the SiFive Unmatched
->> board without this fix from U-Boot (or having U-Boot explicitly start
->> the PCIe via either boot-script or user command).
->>
->> The fix claims to set the link-speed to gen1 to get the probe
->> to work. As this is a copy from U-Boot, the code is assumed to be
->> correct and does fix the issue on the Unmatched. The code is at:
-> 
-> Maybe something like:
-> 
->    Limit the link to Gen1 speed.
-> 
-> since "the fix claims" and "the code is assumed" is sort of
-> weasel-worded.
-> 
-> The subject says "for initial device probe," but if you change
-> PCI_EXP_LNKCAP, I assume that limits the link speed forever, even
-> after a retrain?
+The PWM0 controller of HiFive Unleashed's FU540-C000 chip is connected
+to 4 LEDs.
 
-Yes, thought I had checked this but having just gone back and booted
-things again, the following is observed:
+Add them to the device tree, with function and default trigger set from
+the triggers used in old kernels done by SiFive.
 
-- U-Boot "pci enum" and then unpatched kernel -> link 8GT/s
-- U-Boot "pci enum" and patched kernel -> link 2.5GT/s
-- U-Boot no pci and patched kernel > link 2.5 GT/s
+Signed-off-by: Icenowy Zheng <icenowy@aosc.io>
+---
+ .../boot/dts/sifive/hifive-unleashed-a00.dts  | 42 +++++++++++++++++++
+ 1 file changed, 42 insertions(+)
 
-Clearly there needs to be some fix for this, either have two rounds
-of soft-reset on the first probe, or if the device does probe at a
-degraded link, do something about it.
-
-I am not clear what the correct fix for this is.
-
-1) Detect no U-Boot initialisation and force a two stage probe
-2) If no devices on initial probe, go around and do #1
-3) Always do a two stage reset
-4) Something else.
-
-Do any other systems see this issue?
-
-I assume we need to go back and re-do this. At least this is a 100%
-reliable repeat on the Unmatched board in our test rack.
-
->> https://source.denx.de/u-boot/u-boot/-/blob/master/drivers/pci/pcie_dw_sifive.c#L271
-> 
-> Maybe use this so the link doesn't become stale when more things are
-> added to pcie_dw_sifive.c:
-> 
->   https://source.denx.de/u-boot/u-boot/-/blob/master/drivers/pci/pcie_dw_sifive.c?id=v2022.01#L271
-
-Thanks, useful to know.
-
->> The code has been this way since the driver was commited in:
->> https://source.denx.de/u-boot/u-boot/-/commit/416395c772018c6bf52aad36aca163115001793f
-> 
-> s/commited/committed/
-
-Oops,
-
-> 
->> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
->> ---
->>   drivers/pci/controller/dwc/pcie-fu740.c | 19 +++++++++++++++++++
->>   1 file changed, 19 insertions(+)
->>
->> diff --git a/drivers/pci/controller/dwc/pcie-fu740.c b/drivers/pci/controller/dwc/pcie-fu740.c
->> index 842b7202b96e..19501ec8c487 100644
->> --- a/drivers/pci/controller/dwc/pcie-fu740.c
->> +++ b/drivers/pci/controller/dwc/pcie-fu740.c
->> @@ -177,11 +177,30 @@ static void fu740_pcie_init_phy(struct fu740_pcie *afp)
->>   	fu740_phyregwrite(1, PCIEX8MGMT_PHY_LANE3_BASE, PCIEX8MGMT_PHY_INIT_VAL, afp);
->>   }
->>   
->> +/* This is copied from u-boot. Force system to gen1 otherwise nothing probes
->> + * as found on the SiFive Unmatched board.
->> + */
-> 
-> s/u-boot/U-Boot/
-> 
-> Use usual multi-line comment style.
-
-Ok.
-
-> 
->> +static void fu740_pcie_force_gen1(struct dw_pcie *dw, struct fu740_pcie *afp )
->> +{
->> +	unsigned val;
-> 
-> u32, since that's what dw_pcie_readl_dbi() returns and
-> dw_pcie_writel_dbi() expects.
-> 
->> +
->> +	dw_pcie_dbi_ro_wr_en(dw);
->> +
->> +	val = dw_pcie_readl_dbi(dw, 0x70 + PCI_EXP_LNKCAP);
-> 
-> I assume 0x70 is the offset of the PCIe Capability.  There should be a
-> #define for that.
-
-Will fix.
-
->> +	pr_info("%s: link-cap was %08x\n", __func__, val);
-> 
->    dev_info(pci->dev, "...");
-> 
->> +	dw_pcie_writel_dbi(dw, 0x70 + PCI_EXP_LNKCAP, val | 0xf);
-> 
-> I don't understand this.  Per PCIe r6.0, sec 7.5.3.6, 1111b is a
-> reserved encoding for the low four bits of PCI_EXP_LNKCAP.
-> 
-> If you want PCI_EXP_LNKCAP to advertise only 2.5 GT/s, the low four
-> bits should be 0001b to indicate Supported Link Speeds Vector field
-> bit 0, which is defined as 2.5 GT/s.
-
-Yeah, this does not make sense now. I sort of assumed it was W1C
-type thing (write-1-clear). I'm just wondering if this is now some
-sort of undefined behaviour or they originally meant to clear out
-some bits only... It does work, just shows the following from lspci;
-
-  LnkCap: Port #0, Speed unknown, Width x8, ASPM L0s L1, Exit Latency 
-L0s <4us, L1 <4us
-          ClockPM- Surprise- LLActRep+ BwNot- ASPMOptComp+
-  LnkCtl: ASPM Disabled; RCB 64 bytes, Disabled- CommClk+
-         ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
-   LnkSta: Speed 2.5GT/s (downgraded), Width x8 (ok)
-         TrErr- Train- SlotClk+ DLActive+ BWMgmt- ABWMgmt-
-
-
->> +	dw_pcie_dbi_ro_wr_dis(dw);
->> +}
->> +
->>   static int fu740_pcie_start_link(struct dw_pcie *pci)
->>   {
->>   	struct device *dev = pci->dev;
->>   	struct fu740_pcie *afp = dev_get_drvdata(dev);
->>   
->> +	/* Force PCIe gen1 otherwise Unmatched board does not probe */
->> +	fu740_pcie_force_gen1(pci, afp);
-> 
-> I guess the "Unmatched" board is the only thing we need to care about
-> here?  Are there or will there be other boards that don't need this?
-> 
->>   	/* Enable LTSSM */
->>   	writel_relaxed(0x1, afp->mgmt_base + PCIEX8MGMT_APP_LTSSM_ENABLE);
->>   	return 0;
->> -- 
->> 2.34.1
->>
-> 
-
-
+diff --git a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
+index 44824d7e50ac7..2935719ca169e 100644
+--- a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
++++ b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
+@@ -3,6 +3,8 @@
+ 
+ #include "fu540-c000.dtsi"
+ #include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/leds/common.h>
++#include <dt-bindings/pwm/pwm.h>
+ 
+ /* Clock frequency (in Hz) of the PCB crystal for rtcclk */
+ #define RTCCLK_FREQ		1000000
+@@ -32,6 +34,46 @@ hfclk: hfclk {
+ 		clock-output-names = "hfclk";
+ 	};
+ 
++	led-controller {
++		compatible = "pwm-leds";
++
++		led-0 {
++			color = <LED_COLOR_ID_GREEN>;
++			pwms = <&pwm0 0 10000000 PWM_POLARITY_INVERTED>;
++			active-low;
++			max-brightness = <255>;
++			function = LED_FUNCTION_HEARTBEAT;
++			linux,default-trigger = "heartbeat";
++		};
++
++		led-1 {
++			color = <LED_COLOR_ID_GREEN>;
++			pwms = <&pwm0 1 10000000 PWM_POLARITY_INVERTED>;
++			active-low;
++			max-brightness = <255>;
++			function = LED_FUNCTION_MTD;
++			linux,default-trigger = "mtd";
++		};
++
++		led-2 {
++			color = <LED_COLOR_ID_GREEN>;
++			pwms = <&pwm0 2 10000000 PWM_POLARITY_INVERTED>;
++			active-low;
++			max-brightness = <255>;
++			function = LED_FUNCTION_LAN;
++			linux,default-trigger = "netdev";
++		};
++
++		led-3 {
++			color = <LED_COLOR_ID_GREEN>;
++			pwms = <&pwm0 3 10000000 PWM_POLARITY_INVERTED>;
++			active-low;
++			max-brightness = <255>;
++			function = LED_FUNCTION_PANIC;
++			linux,default-trigger = "panic";
++		};
++	};
++
+ 	memory@80000000 {
+ 		device_type = "memory";
+ 		reg = <0x0 0x80000000 0x2 0x00000000>;
 -- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
+2.30.2
 
-https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
