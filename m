@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F250EC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Feb 2022 10:49:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC7D6C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Feb 2022 10:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o9JK/ou9T/7CsmFm/MRy34e7aX0LimALi2tj8OVXuuY=; b=3q2YzpxJa9d/PW
-	Nko1AW6quotcpca8VrWxdZm//8yuIMa6ZhKD7z/Q5biQ/t9VFkZlG8A7HCUkp2g/sasesO3PErCmB
-	QmL1BnFVHF+bhMbxOm70JoQwXa5TuZ3616HvYMmdLIiTNI9PZ0Dtwhg6dj9rNcmWprVsrdjZ/f+PH
-	5owMCZcButIn1K2byUYvzUZUzptdLnIlHduqHke2qWe3X33BPQgD1HKn86yXkKgwLYFwuswRc+wnA
-	CkOy/NFnttZBILUZqoxXM4XU/umwBIbthpNn2mvg1sM3Ky/jSOSDbnlezwcxfBfOtigG7+PR3heRR
-	PLjMK5SRjTuoF2x8NGyQ==;
+	List-Owner; bh=FPZPBGCDEAWh7G1iU0ZBgw3xjzRh83jyeiJRji3ROgk=; b=3CsZ9yx98DUAgi
+	mbSn+ChjJDCjC5DgBIZrjDPGI/wW7xhEpf7q4A06hEGmWo7/6fiq3jLKykBcZXKSIwxcirSy3US05
+	BwfMrLc29PruufPR3d2Ld/0CS48agAkM3YFy5QZvu+rNhHokJlgwo1F4ozH7/e30o40QOD6hIpTZ5
+	Z0dXaYM5tCXObvDgY6c1Wy+D7ji1D1HicEzjJKXMx8UNy8V2SX6XUyL4Y+YMoosZ2jciem7MbS98T
+	s6uhM4bRts8kXG9dOCqZzblUr8PpZTz9Jkc5E9aqsLoWKlabfYMfoBglmJQs9VZ752vWiQB0Ur9Kt
+	BFwbw8+CTfN/rUN99yqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nOdb3-00BXeH-V3; Mon, 28 Feb 2022 10:49:42 +0000
+	id 1nOdbp-00BY8y-1v; Mon, 28 Feb 2022 10:50:29 +0000
 Received: from foss.arm.com ([217.140.110.172])
  by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nOdaQ-00BXCx-0I; Mon, 28 Feb 2022 10:49:03 +0000
+ id 1nOdaZ-00BXIr-C8; Mon, 28 Feb 2022 10:49:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3DC2A1063;
- Mon, 28 Feb 2022 02:49:01 -0800 (PST)
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D1079106F;
+ Mon, 28 Feb 2022 02:49:09 -0800 (PST)
 Received: from p8cg001049571a15.arm.com (unknown [10.163.47.185])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C396D3F73D;
- Mon, 28 Feb 2022 02:48:52 -0800 (PST)
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B4F8C3F73D;
+ Mon, 28 Feb 2022 02:49:01 -0800 (PST)
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 To: linux-mm@kvack.org,
 	akpm@linux-foundation.org
@@ -45,16 +45,15 @@ Cc: linux-kernel@vger.kernel.org, geert@linux-m68k.org,
  openrisc@lists.librecores.org, linux-um@lists.infradead.org,
  linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
  linux-arch@vger.kernel.org
-Subject: [PATCH V3 02/30] mm/mmap: Clarify protection_map[] indices
-Date: Mon, 28 Feb 2022 16:17:25 +0530
-Message-Id: <1646045273-9343-3-git-send-email-anshuman.khandual@arm.com>
+Subject: [PATCH V3 03/30] mm/mmap: Add new config ARCH_HAS_VM_GET_PAGE_PROT
+Date: Mon, 28 Feb 2022 16:17:26 +0530
+Message-Id: <1646045273-9343-4-git-send-email-anshuman.khandual@arm.com>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1646045273-9343-1-git-send-email-anshuman.khandual@arm.com>
 References: <1646045273-9343-1-git-send-email-anshuman.khandual@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220228_024902_135621_A170F2FC 
-X-CRM114-Status: UNSURE (   8.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220228_024911_469358_38247901 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,49 +71,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-protection_map[] maps vm_flags access combinations into page protection
-value as defined by the platform via __PXXX and __SXXX macros. The array
-indices in protection_map[], represents vm_flags access combinations but
-it's not very intuitive to derive. This makes it clear and explicit.
+Add a new config ARCH_HAS_VM_GET_PAGE_PROT, which when subscribed enables a
+given platform to define its own vm_get_page_prot(). This framework will
+help remove protection_map[] dependency going forward.
 
 Cc: Andrew Morton <akpm@linux-foundation.org>
 Cc: linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+Suggested-by: Christoph Hellwig <hch@infradead.org>
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
- mm/mmap.c | 18 ++++++++++++++++--
- 1 file changed, 16 insertions(+), 2 deletions(-)
+ mm/Kconfig | 3 +++
+ mm/mmap.c  | 2 ++
+ 2 files changed, 5 insertions(+)
 
+diff --git a/mm/Kconfig b/mm/Kconfig
+index 257ed9c86de3..fa436478a94c 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -747,6 +747,9 @@ config ARCH_HAS_CACHE_LINE_SIZE
+ config ARCH_HAS_FILTER_PGPROT
+ 	bool
+ 
++config ARCH_HAS_VM_GET_PAGE_PROT
++	bool
++
+ config ARCH_HAS_PTE_DEVMAP
+ 	bool
+ 
 diff --git a/mm/mmap.c b/mm/mmap.c
-index d445c1b9d606..34000a7d7efa 100644
+index 34000a7d7efa..f2310f6e7466 100644
 --- a/mm/mmap.c
 +++ b/mm/mmap.c
-@@ -102,8 +102,22 @@ static void unmap_region(struct mm_struct *mm,
-  *								x: (yes) yes
-  */
- pgprot_t protection_map[16] __ro_after_init = {
--	__P000, __P001, __P010, __P011, __P100, __P101, __P110, __P111,
--	__S000, __S001, __S010, __S011, __S100, __S101, __S110, __S111
-+	[VM_NONE]					= __P000,
-+	[VM_READ]					= __P001,
-+	[VM_WRITE]					= __P010,
-+	[VM_WRITE | VM_READ]				= __P011,
-+	[VM_EXEC]					= __P100,
-+	[VM_EXEC | VM_READ]				= __P101,
-+	[VM_EXEC | VM_WRITE]				= __P110,
-+	[VM_EXEC | VM_WRITE | VM_READ]			= __P111,
-+	[VM_SHARED]					= __S000,
-+	[VM_SHARED | VM_READ]				= __S001,
-+	[VM_SHARED | VM_WRITE]				= __S010,
-+	[VM_SHARED | VM_WRITE | VM_READ]		= __S011,
-+	[VM_SHARED | VM_EXEC]				= __S100,
-+	[VM_SHARED | VM_EXEC | VM_READ]			= __S101,
-+	[VM_SHARED | VM_EXEC | VM_WRITE]		= __S110,
-+	[VM_SHARED | VM_EXEC | VM_WRITE | VM_READ]	= __S111
- };
+@@ -81,6 +81,7 @@ static void unmap_region(struct mm_struct *mm,
+ 		struct vm_area_struct *vma, struct vm_area_struct *prev,
+ 		unsigned long start, unsigned long end);
  
- #ifndef CONFIG_ARCH_HAS_FILTER_PGPROT
++#ifndef CONFIG_ARCH_HAS_VM_GET_PAGE_PROT
+ /* description of effects of mapping type and prot in current implementation.
+  * this is due to the limited x86 page protection hardware.  The expected
+  * behavior is in parens:
+@@ -136,6 +137,7 @@ pgprot_t vm_get_page_prot(unsigned long vm_flags)
+ 	return arch_filter_pgprot(ret);
+ }
+ EXPORT_SYMBOL(vm_get_page_prot);
++#endif	/* CONFIG_ARCH_HAS_VM_GET_PAGE_PROT */
+ 
+ static pgprot_t vm_pgprot_modify(pgprot_t oldprot, unsigned long vm_flags)
+ {
 -- 
 2.25.1
 
