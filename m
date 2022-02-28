@@ -4,87 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26657C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Feb 2022 12:39:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8B4DC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Feb 2022 12:50:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VGQWBc0US8tm9cvvhBLTx60BXZJrkfAlWJnKIzrTkAo=; b=SpTgR9zuGERT5U
-	gcTQttASgeWz2Xbb1ktJ+cX4ltpvesVx3RCv/Io1B71qsIXAFJz6q1jfPAGD1p6NSg67EdZvLsL51
-	ika7QPZWSob305AC5HhCL8M+ELCggR8x2Yv56tXI4Fz6VXMuVGufTP1+NpEiqJ97X7oQfVvpeGwGZ
-	TZ09CjK3NUlRJrcx0WRUdSfRWYoXXW/90YdCjwsC10vwBFO5P5Nz7vPQeDnt3J0hR06keooX684OA
-	heD78NPMWTgTWNUYyPqov7ZswpiC85DMEJCy/c1BcYRNebWei9VIL8cjZhSHK2ry+r2MMLkiNf+W0
-	3FJMyBTAIWgVSHtumGXA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=jnF27MFTUfsJPRXxIctxxkAzCaz4c6M21uc3uklUARw=; b=R57JIKzwJw5t95
+	042oao+I8snGubqYgh24I0PuM1TzpYCfKIis6Jga6tuhqtK4Lc1ltlXZqUv43dCoHbBqdAHs6CfFU
+	gof4KFsXpjtAme56cmrQie6HUiVqroQ0jgKaMWKreWhQKUkezlWRG0ZHLJtuXl/BxF9umB8X5OR71
+	yck3u4QAo0fHEcxJWEAVlm9sA7hyqMzJps7gzKlHmCLQYOLhEWtqmGycpk/8DWX6XSzR180jp0BUl
+	eCdVTWymitvUFZnbJIkEn+Pu8UUo0ns+jBUSRcBCY/k7I8JQso5sMinpVt5yfRzs6HUgIFjgOSIPy
+	13qqjjoh7jeYK1r5SyFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nOfJP-00CGxH-Vh; Mon, 28 Feb 2022 12:39:36 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1nOfTj-00CL2y-T4; Mon, 28 Feb 2022 12:50:16 +0000
+Received: from mail-hk2apc01on062b.outbound.protection.outlook.com
+ ([2a01:111:f400:febc::62b]
+ helo=APC01-HK2-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nOeuI-00C6kT-S1; Mon, 28 Feb 2022 12:13:42 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 75CB46111F;
- Mon, 28 Feb 2022 12:13:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC5C2C340F7;
- Mon, 28 Feb 2022 12:13:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1646050413;
- bh=m+Mr/LSWoSX8OkgGcblK1edJYBHkvQ8ETiM4gpOKC3I=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=rIMwDp96WEceKeR//qBV3hW3RflLbT7Ri6SkOJyFuYr1Umz7PSvd2tJnyGzsnCuOS
- zkRyMuoLF4OGwgS+f/Wsr1lbvrKVwKD+GgZo0lF48j2T2ja0JkL5vU+2vdoz2hSosg
- 6OQVRAqUsoJ0aCkxHUP/njxd/M/ACV6bVFgUaP4nROyg0nDWrG1O6p88Q0nPMOvat3
- zrPnrEukqvielX4IAh9Uetd+2K27NDb3zp1Ca3sodR1USsvoivi8RrwikZlQbMWRVF
- Fsv3mZNjmf5ZYFYlQ1CQ2WNC6HV9skutTKtKfLL6m3wkMUQgl4m9/NbufixetgZfFh
- dohrw6mir2x7g==
-Received: by mail-vs1-f42.google.com with SMTP id t22so12709394vsa.4;
- Mon, 28 Feb 2022 04:13:33 -0800 (PST)
-X-Gm-Message-State: AOAM53207wBJAZZB+wVSkJtKLemsW3CdohSOHAuTGUYDRNZivZfgkVMj
- ez6pwtHJuy/zSzgNLiOt4R40G18DB6GSveYOG2s=
-X-Google-Smtp-Source: ABdhPJyOu5HUo/VjwWn8/fo2A1Ybsum6GvVfDzqE4Hcq0Flfey7YjZaD85t/OqXDAvijqsqOBSTjjzgFI7EmcLKksiE=
-X-Received: by 2002:a05:6102:3a12:b0:31e:6646:b3d1 with SMTP id
- b18-20020a0561023a1200b0031e6646b3d1mr4905201vsu.51.1646050412829; Mon, 28
- Feb 2022 04:13:32 -0800 (PST)
+ id 1nOfEy-00CFCI-GU
+ for linux-riscv@lists.infradead.org; Mon, 28 Feb 2022 12:35:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=ZLVpp6O/Rp6lpPI3yz+2AMFUvllkDsh6oGRzAxXd1NLQz94sJSJszfBc7USA0S203WWZYZ5tM9Erty0iUSlL/pjpNo8c9ve9ZKlIkohYyNZRLF8a6Lv6iKvIL26Q0xWeYOXG/TDL9U/2cqJoW9UIOCx//jLqUvYELbIByefwM5/oE6kvqCgjok+iZOvgQedVvO7FuzA1i8uQDfyADJQ8uJQiUPFCsNp3DzPKjYNkPPn2OlYqFFi8W2H/Z50rVl5fxIIQwExR2gXwdteH5Xx6goiMFZtWQ/8a958rxyEgi2g2Iq3luZxMFShOxVLXaETV3WK9hWDVDAKupqBghPsDrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=am9pMlNetqPWV+XzB5Gzk+JLrkBzd1+hok1X8N3XbBQ=;
+ b=fzZdzibfJa6ur/XNnyIAcXkkaJf8MsgSJmh+hlrnSGTuCh/DQbOgzl/qp30U+yXl7Gpz338ePf3BSV4BSbWXNoEph+/OXjPvmvVNU9g+iRWYDxxF1mzUbBrX+NOO7XbF9mKK+kwnjbcjwfakxynohkAmrLlUb1N1R+djs54Ds3pJaEu23C+rAdNJ7aJCvhi/IlV9p49GBVhvgx1lQ0R2tHm9NKnbt9m/C6dpfhMGDobXaySSZ5nBTMb7RvuZ6XyQf9jsUissNb8JA98hGmv+wx0HOkWudqfal0kPe/CavhJjqm/ZaQtNm9WWg1RKCqOMVJb5c3pfaZ8aR7/OPTC53A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oppo.com; dmarc=pass action=none header.from=oppo.com;
+ dkim=pass header.d=oppo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oppo.com; s=selector1; 
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=am9pMlNetqPWV+XzB5Gzk+JLrkBzd1+hok1X8N3XbBQ=;
+ b=wTvrOXP/1CrASPyfqcmjsCojg1k5dTfN2LhwmkLVW330Do1BPwJ79qDOyjt6TLr5DlGYPdGm8TOPYVhkdE86mEmiLRBOgSurYMdHRNseBXaQ9a2e3jcu0xnGlmvXcnihlOa4Eu0zFbW6D5SUD5T98N/DGgXIbKJKbTpVzZCabf8=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oppo.com;
+Received: from SG2PR02MB5379.apcprd02.prod.outlook.com (2603:1096:4:177::10)
+ by SG2PR02MB3532.apcprd02.prod.outlook.com (2603:1096:4:4d::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5017.25; Mon, 28 Feb
+ 2022 12:34:47 +0000
+Received: from SG2PR02MB5379.apcprd02.prod.outlook.com
+ ([fe80::1cb4:8e1f:49c0:8b1]) by SG2PR02MB5379.apcprd02.prod.outlook.com
+ ([fe80::1cb4:8e1f:49c0:8b1%4]) with mapi id 15.20.5017.026; Mon, 28 Feb 2022
+ 12:34:47 +0000
+From: hanchuanhua <hanchuanhua@oppo.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: jszhang@kernel.org, alexandre.ghiti@canonical.com,
+ wangkefeng.wang@huawei.com, liushixin2@huawei.com,
+ zhengqi.arch@bytedance.com, ebiederm@xmission.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ hanchuanhua <hanchuanhua@oppo.com>
+Subject: [PATCH v2] riscv: mm: Remove the copy operation of pmd
+Date: Mon, 28 Feb 2022 20:34:07 +0800
+Message-Id: <20220228123407.939-1-hanchuanhua@oppo.com>
+X-Mailer: git-send-email 2.17.1
+X-ClientProxiedBy: HK2PR0302CA0021.apcprd03.prod.outlook.com
+ (2603:1096:202::31) To SG2PR02MB5379.apcprd02.prod.outlook.com
+ (2603:1096:4:177::10)
 MIME-Version: 1.0
-References: <20220227162831.674483-1-guoren@kernel.org>
- <20220227162831.674483-4-guoren@kernel.org>
- <b8e765910e274c0fb574ff23f88b881c@AcuMS.aculab.com>
- <CAJF2gTRQ0XWSjoEeREtEGr5PPD-rHrBKFY_i6_9uW3eEN_6muQ@mail.gmail.com>
- <e5ee4f6799704bd59b0c580157a05d2d@AcuMS.aculab.com>
-In-Reply-To: <e5ee4f6799704bd59b0c580157a05d2d@AcuMS.aculab.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 28 Feb 2022 20:13:22 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQhFK55z4juC7uHpWmHsEXSOkbMyXeid6KsnhfPRo7wqg@mail.gmail.com>
-Message-ID: <CAJF2gTQhFK55z4juC7uHpWmHsEXSOkbMyXeid6KsnhfPRo7wqg@mail.gmail.com>
-Subject: Re: [PATCH V7 03/20] compat: consolidate the compat_flock{,
- 64} definition
-To: David Laight <David.Laight@aculab.com>
-Cc: "palmer@dabbelt.com" <palmer@dabbelt.com>, "arnd@arndb.de" <arnd@arndb.de>,
- "anup@brainfault.org" <anup@brainfault.org>, 
- "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>, 
- "liush@allwinnertech.com" <liush@allwinnertech.com>,
- "wefu@redhat.com" <wefu@redhat.com>, 
- "drew@beagleboard.org" <drew@beagleboard.org>, 
- "wangjunqiang@iscas.ac.cn" <wangjunqiang@iscas.ac.cn>,
- "hch@lst.de" <hch@lst.de>, 
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>, 
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>, 
- "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>, 
- "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>, 
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, 
- "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>, 
- "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>, 
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
- "x86@kernel.org" <x86@kernel.org>
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: e89c3feb-d97c-4fef-fda1-08d9fab6b50f
+X-MS-TrafficTypeDiagnostic: SG2PR02MB3532:EE_
+X-Microsoft-Antispam-PRVS: <SG2PR02MB353225CBB184189C174E90D1DF019@SG2PR02MB3532.apcprd02.prod.outlook.com>
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: wONtEwb614xYE08++eIqWHG+RrqDZ9luW16t15cdUOM0Nh3boF7SDJLmtlmO2nnPeb4OlfwF3TuiIodnMzh/q5dBDyh6CuoPMawywdgM9SyuT/DycSiMvF0mAzjF/qD61PqEZFA52Fl5bymfWJmTTD2PFOm29zbdnvBSGMMSyCava+466kZ5ly2i88ekRK086Zoj/tCATALsBQkE+Og4swAW7Ie3pvllNbRennkxLjR4ZQ86AjC6LZ2t43BUjpCvRc7mrB+lMpgGTkCDfoGJP3opdpPpoubw9VBFcJy81M0FPwgrsqVkloo3CO5wTeUFkk8j8uAU5ZoXEIV5QH/9VDx/UOEx+gpXMjum/ql69SvO/S7Ch5duCMhVnIoMu9a3mJs5ofKXVXcfxC+3ACJfOKyKCqFlBH5e24Kj85Qz7y5pLxy6IIpePm4EqEi/ViiID/KrEaZ1Zw1UON6lDPfE+lFeIdez0darRHd4RrbwSooQhMzmUncSAg9UIKoyrCPAa5tTERcVVTTwTMpmg1RhlasZASRJEiw7YgbYfIerenuBldtoaxIBMI/di2gnW589ZC0+qOW1J7fSJP88o8XPgPwDIcaSpJapRt8bQCPQTRRmevXYrX/EOT1hnhKIHKVouCL8+B+i14G9pvwaOzD81cD/Ycu/AFj4YUF1Kdq4AwE+8hj04SeEP3NfuoHVrbmD8fLOyvMXsA4TRzCGfugJTg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:SG2PR02MB5379.apcprd02.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(13230001)(4636009)(366004)(1076003)(6486002)(5660300002)(36756003)(2616005)(38100700002)(4326008)(52116002)(8676002)(6512007)(86362001)(2906002)(6666004)(66946007)(38350700002)(66556008)(83380400001)(66476007)(508600001)(316002)(7416002)(186003)(107886003)(26005)(6506007)(8936002);
+ DIR:OUT; SFP:1101; 
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hrCpcUY2+6nn4hD1XnZBAhGIe83ZSMZkqJB7Blo7uy0Zst5CbJL4AZdbJLGx?=
+ =?us-ascii?Q?PwU0hEgqhuguFA+DQk4PgPHXnlffBS6t8U8GRgmvbMthgSrwVYB0q92Jvn/k?=
+ =?us-ascii?Q?rIBu+81v14VK0HNBKrEr72uvX1vwg8LJKkiPZm5ZtYxc4W4a8FCQf4fr5mSg?=
+ =?us-ascii?Q?KrsI6YGTggjBpbXEtW5JYvFxYvh/aUd7j/K8kwKRwgJFwm3xd1NF1npiD3gM?=
+ =?us-ascii?Q?wEl9FiXOnV6lKGKP9jBHWL3NXJBplIhjecoIS2c1ZGAQYgZBhNqy7e3+iUpt?=
+ =?us-ascii?Q?qs9e4Mas0ZP46UAlcNX/EERmoK/CIp6u61pAzAAiQU4cbPC5TJlpJ64ftNr6?=
+ =?us-ascii?Q?R/ZKGWROqXDPl7Da0Eu1RbDkF/D3yQgkH73qvstr1eaAvvWPRs0LcFwcsthd?=
+ =?us-ascii?Q?fyPUiAzmygiUM/ZsAvYQ9/MQazqMK75p0aK/4HFXcTMVo9UdPQK1sO+25WJf?=
+ =?us-ascii?Q?QbZ/0awd07pHhLWHToOkh9fmzvD2wTrlknb+vHPbYpDduwjVgGReEZjV7DvP?=
+ =?us-ascii?Q?XKrN4upz5tNPG72+w3/FC+vAKWX3hHhGvOWI8RW8f9eVPf2fSKQbZEeYObp9?=
+ =?us-ascii?Q?31zheZOrT/z5yRyBXAIiB4zmJ0Jt0ApHhvJq2WPGcmUg1tgg9N99fs7ohm1D?=
+ =?us-ascii?Q?RNO8BFAsqTskvEk/UF22vRwH6OtP1C+AkfGGbU3EAoDEFO9kbALIaWEvbIIS?=
+ =?us-ascii?Q?IbeqKJ1d6rpCkeU/zER7a62HDdujev1hZqJjtawHQCTFCFOAAgt83OOLNqAM?=
+ =?us-ascii?Q?FKA05SsEViztmHU7KnPzyYGITIAJw6EpbFRzgoiuEz9g+zDi621xcBTdoSCM?=
+ =?us-ascii?Q?1KfZh7yUtpv3dtPplm6btFJkvRpIghig69hKFQrZzFDIBLA8JF2UtPZDRnrI?=
+ =?us-ascii?Q?gvU3vnFxzRaHywCfDL9MwkhDXtNAyn2KUceY7eHQng+oNg3qewVmasC+0tL4?=
+ =?us-ascii?Q?EArQ3ELFmzPbgHAmy/XJfnl9D+aZk2qq9fP36z7FB2zRTJxwhK/y2q+7OIUs?=
+ =?us-ascii?Q?seeQBoECJE4ADIRARXxUATV8zUM2lS22K5HjB87UeV4VOlU+rxDtF/SPLTQa?=
+ =?us-ascii?Q?LsJyeF3x2KpsLUC2TDvJ6rtn7oF5CSC8ghMgk+0tuFZXQG/d7sPQNIerx96C?=
+ =?us-ascii?Q?mVca7Ynh4cszgYaZ34yX+ue+en5QK1eeCRxAFq1o76hllQRpk1wIPwx8J7gq?=
+ =?us-ascii?Q?cDbZNVtcG9Sr71L4A1Od73yTfJ59KZCjlq5hHoQuODigYkA2Uh9K5HyFUo1l?=
+ =?us-ascii?Q?6lzcHov21pdkRKQGl4mT1ZK4Yzu3GQZ9QL6AdWKS8y4qNcoKcCqkRpIPW8t4?=
+ =?us-ascii?Q?y5SLNEpPY1BJaYDPqp8Jpq+4Z9sIXN1SQuXfShcAeMbs7rv3Kg9iHTdSXqiz?=
+ =?us-ascii?Q?LaTCV8QqodLZNgLWyTM3J5gjy28gKxJpliwcjnz7kzA5pB4i3mZY62gd1+cc?=
+ =?us-ascii?Q?WT9MInhY4UtC/dQywtZv/NuEKM3ueX/hyWwplRgc21KkagSuMAFuQ6vGGjrK?=
+ =?us-ascii?Q?q6s158YDJndt8SoFz5fNyoJrVUzUVPCC30tZR6XiOPlmfQXiyWoNm1dkJ3OY?=
+ =?us-ascii?Q?TMWNN9X+iL/7UxuzPVaCaXgEKnhuWktmwYMOIPw4zj1RXDRGX6UAG3PmHIMs?=
+ =?us-ascii?Q?E8I022fATbc7679s7Bvef7c=3D?=
+X-OriginatorOrg: oppo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e89c3feb-d97c-4fef-fda1-08d9fab6b50f
+X-MS-Exchange-CrossTenant-AuthSource: SG2PR02MB5379.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Feb 2022 12:34:47.9445 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: f1905eb1-c353-41c5-9516-62b4a54b5ee6
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wXYrD1WSogPUqYG+xlQnYAFCYT8ekjPvAjr2W8iMoiwWcYGeTfQj5qouDZbsFJJ+KdLjqWod4M3a/Q/WPS8nSg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR02MB3532
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220228_041339_033487_A555B8EB 
-X-CRM114-Status: GOOD (  26.48  )
+X-CRM114-CacheID: sfid-20220228_043500_725649_18C7FB0F 
+X-CRM114-Status: UNSURE (   7.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,104 +140,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 28, 2022 at 8:02 PM David Laight <David.Laight@aculab.com> wrote:
->
-> From: Guo Ren
-> > Sent: 28 February 2022 11:52
-> >
-> > On Mon, Feb 28, 2022 at 2:40 PM David Laight <David.Laight@aculab.com> wrote:
-> > >
-> > > From: guoren@kernel.org
-> > > > Sent: 27 February 2022 16:28
-> > > >
-> > > > From: Christoph Hellwig <hch@lst.de>
-> > > >
-> > > > Provide a single common definition for the compat_flock and
-> > > > compat_flock64 structures using the same tricks as for the native
-> > > > variants.  Another extra define is added for the packing required on
-> > > > x86.
-> > > ...
-> > > > diff --git a/arch/x86/include/asm/compat.h b/arch/x86/include/asm/compat.h
-> > > ...
-> > > >  /*
-> > > > - * IA32 uses 4 byte alignment for 64 bit quantities,
-> > > > - * so we need to pack this structure.
-> > > > + * IA32 uses 4 byte alignment for 64 bit quantities, so we need to pack the
-> > > > + * compat flock64 structure.
-> > > >   */
-> > > ...
-> > > > +#define __ARCH_NEED_COMPAT_FLOCK64_PACKED
-> > > >
-> > > >  struct compat_statfs {
-> > > >       int             f_type;
-> > > > diff --git a/include/linux/compat.h b/include/linux/compat.h
-> > > > index 1c758b0e0359..a0481fe6c5d5 100644
-> > > > --- a/include/linux/compat.h
-> > > > +++ b/include/linux/compat.h
-> > > > @@ -258,6 +258,37 @@ struct compat_rlimit {
-> > > >       compat_ulong_t  rlim_max;
-> > > >  };
-> > > >
-> > > > +#ifdef __ARCH_NEED_COMPAT_FLOCK64_PACKED
-> > > > +#define __ARCH_COMPAT_FLOCK64_PACK   __attribute__((packed))
-> > > > +#else
-> > > > +#define __ARCH_COMPAT_FLOCK64_PACK
-> > > > +#endif
-> > > ...
-> > > > +struct compat_flock64 {
-> > > > +     short           l_type;
-> > > > +     short           l_whence;
-> > > > +     compat_loff_t   l_start;
-> > > > +     compat_loff_t   l_len;
-> > > > +     compat_pid_t    l_pid;
-> > > > +#ifdef __ARCH_COMPAT_FLOCK64_PAD
-> > > > +     __ARCH_COMPAT_FLOCK64_PAD
-> > > > +#endif
-> > > > +} __ARCH_COMPAT_FLOCK64_PACK;
-> > > > +
-> > >
-> > > Provided compat_loff_t are correctly defined with __aligned__(4)
-> > See include/asm-generic/compat.h
-> >
-> > typedef s64 compat_loff_t;
-> >
-> > Only:
-> > #ifdef CONFIG_COMPAT_FOR_U64_ALIGNMENT
-> > typedef s64 __attribute__((aligned(4))) compat_s64;
-> >
-> > So how do you think compat_loff_t could be defined with __aligned__(4)?
->
-> compat_loff_t should be compat_s64 not s64.
->
-> The same should be done for all 64bit 'compat' types.
-Changing
-typedef s64 compat_loff_t;
-to
-typedef compat_s64 compat_loff_t;
+Since all processes share the kernel address space,
+we only need to copy pgd in case of a vmalloc page
+fault exception, the other levels of page tables are
+shared, so the operation of copying pmd is unnecessary.
 
-should be another patch and it affects all architectures, I don't
-think we should involve it in this series.
+Signed-off-by: hanchuanhua <hanchuanhua@oppo.com>
+---
+Changes in v2:
+  -Delete incorrect default signatures.
 
-look at kernel/power/user.c:
-struct compat_resume_swap_area {
-        compat_loff_t offset;
-        u32 dev;
-} __packed;
+ arch/riscv/mm/fault.c | 10 +++-------
+ 1 file changed, 3 insertions(+), 7 deletions(-)
 
-I thnk keep "typedef s64 compat_loff_t;" is a sensible choice for
-COMPAT support patchset series.
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index 4e9efbe..40694f0 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -102,9 +102,9 @@ static inline void bad_area(struct pt_regs *regs, struct mm_struct *mm, int code
+ static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long addr)
+ {
+ 	pgd_t *pgd, *pgd_k;
+-	pud_t *pud, *pud_k;
+-	p4d_t *p4d, *p4d_k;
+-	pmd_t *pmd, *pmd_k;
++	pud_t *pud_k;
++	p4d_t *p4d_k;
++	pmd_t *pmd_k;
+ 	pte_t *pte_k;
+ 	int index;
+ 	unsigned long pfn;
+@@ -132,14 +132,12 @@ static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long a
+ 	}
+ 	set_pgd(pgd, *pgd_k);
+ 
+-	p4d = p4d_offset(pgd, addr);
+ 	p4d_k = p4d_offset(pgd_k, addr);
+ 	if (!p4d_present(*p4d_k)) {
+ 		no_context(regs, addr);
+ 		return;
+ 	}
+ 
+-	pud = pud_offset(p4d, addr);
+ 	pud_k = pud_offset(p4d_k, addr);
+ 	if (!pud_present(*pud_k)) {
+ 		no_context(regs, addr);
+@@ -150,13 +148,11 @@ static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long a
+ 	 * Since the vmalloc area is global, it is unnecessary
+ 	 * to copy individual PTEs
+ 	 */
+-	pmd = pmd_offset(pud, addr);
+ 	pmd_k = pmd_offset(pud_k, addr);
+ 	if (!pmd_present(*pmd_k)) {
+ 		no_context(regs, addr);
+ 		return;
+ 	}
+-	set_pmd(pmd, *pmd_k);
+ 
+ 	/*
+ 	 * Make sure the actual PTE exists as well to
+-- 
+2.7.4
 
->
->         David
->
-> -
-> Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-> Registration No: 1397386 (Wales)
---
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
