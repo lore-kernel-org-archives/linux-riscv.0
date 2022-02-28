@@ -4,72 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EAE2C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Feb 2022 13:06:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6044C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Feb 2022 13:11:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BZohNVdjuTJP1yWdeOFzFIKD5YzEmDg41S0t0T2adHs=; b=a23CxiOb7nHcun
-	R9M+EecloB8zjvwVemadUdZ0em1k6nCv4yNFC6rqfQfuxf91zdtDYHr8g9X8fxRAjtwdDjZE3sCX0
-	Z4cJ6Dahd+lkcEZsLH1pKelsMeFJEEZOPIgAKlTDoFxaycfsdvNurG17nXDyITqXUOlz2gxDhGh4I
-	Zol9zTrg4TKDR9ToeJPDED4QD0EAPNrkBOJgtfamWN9AS4lJ36xitfj3n8Ly/q5n4sWG3ju5KnJ6F
-	qZOXk5Zfs/zuP/jjskO/sIFNPAtFCvqW9sf8cSqwTwu96U3H9AyKRMHgClle8qBiqGu6bgFMDMk/L
-	qqqE2Wt3JMqALU35t5XQ==;
+	List-Owner; bh=S40eQbY5npRBPiTQM4K81r+cq6E+KcHDZHqJ8rCLRUI=; b=E2eheoZvzTV1yu
+	p7HCBj4awDFgtYBiz5BNRETVkTlM9PxweYOQiSlRdmtfS4z54RxLJZduNDLEuP044MT+7iEj4GPJo
+	L8LwM6VTtQ1yOwEOb8PEBFgKLse5yq+BGX9dHCWwwLueVCFXf4+iDjhPF8onK5sqrTwAEMqYUdzsp
+	TL8C1pRd5FksFuvPnny5ghOjmIIS6qQKMrBb43GXhsNExk+GcQtBue9ByBosxecjIc/GnVq6P/Tcb
+	SinxJRw4o9Rmv6su4d0Z8LTYKDOE1MRBAO3SdEcwjRQfFmVTXpk8zEyB5TFEpInWgY5IaJ2n79NtX
+	2EC9FY+JNA/CiESl6Q4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nOfj1-00CQqk-Jm; Mon, 28 Feb 2022 13:06:03 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1nOfnv-00CScm-Pa; Mon, 28 Feb 2022 13:11:07 +0000
+Received: from mout.kundenserver.de ([212.227.126.133])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nOfPp-00CJOl-Ss
- for linux-riscv@lists.infradead.org; Mon, 28 Feb 2022 12:46:15 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id c9so10655510pll.0
- for <linux-riscv@lists.infradead.org>; Mon, 28 Feb 2022 04:46:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=qwzeJF2B6Di3rDERG8soz+b1Ps+s3Pm44BHmxxR7QCY=;
- b=qtbGBSdD/gQ1lKhk5tZ6TUn/GBPJmKrm1MxIxIzCPIGJqN+39MNgxuN9sqFmhVKrzr
- z291TCh81mpJult+1IktilWv0MmSSu6aapiTKrWFWGGSdPKbd346r3t7VNgjlXPUea5p
- OBZAa47+FhUnEKuD8YGJN8pD4xKnXuZ0O685ncSMMID8t2cv6lbOcX7GU//AhRb3eq1G
- HmMcE/Cy+kaNqMXQwLG6CnCPxUSixb4NiST+caV9tF9LlaEYfTlr5fH2vDrVSIeL7q8s
- KiOohITDLb4tu0K4yFNhLziuSdflP9d3VU9MDDhyBk5zcFUtIDQMAa1IJObVt02DR+71
- gJOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=qwzeJF2B6Di3rDERG8soz+b1Ps+s3Pm44BHmxxR7QCY=;
- b=3wK44IpfH6mPLG+U7vZvr/4I9V3wQFF8DZkiz4BTGS31+az6TAoJ8opqqXCUfG7xwR
- kwqyuaAlDTYtTPOQl5pnAcbiL9QUd8TvIKbjJMMWJisGAVtx79+opkbNg5r0r+md94DT
- 77WA6xqFEGRgM3My6GT+CZmxi7aZS3YAUxToMsh3H8x7+o2Ib4Iu6X5+3GrOYmF+Eune
- Anvl9SniDJOyrLoji8pcFhMNGfrEmPAMb/B+LWeIt0UIlU1FwgvRg9Ru9bFgjjAoMiVu
- x8ZTHrpwuJXHDRiw2665NoEbwzdrm7UKxMXydnve+CMOQO3wrpGiYuCCIQXDspKS/+ev
- M8Jg==
-X-Gm-Message-State: AOAM5334YuSkxrzmfyAlOK4A9Se8CDVJp9tLWmmau4aYClQiw2N2H594
- iP8+SASsVqqyP/FfCIkonto0e/25j7dgz2oGt68=
-X-Google-Smtp-Source: ABdhPJyPl3dOQnPhGsi+4kZmEEqOlf28gc2APwLdJ138ZzdPOZ2ylsXazmS2xgNZ0Ss/gw0ULba1JMbNNCHB4ifv7ck=
-X-Received: by 2002:a17:90a:ca16:b0:1bc:16a7:e840 with SMTP id
- x22-20020a17090aca1600b001bc16a7e840mr16442697pjt.225.1646052372123; Mon, 28
- Feb 2022 04:46:12 -0800 (PST)
+ id 1nOfUr-00CLWx-9B; Mon, 28 Feb 2022 12:51:27 +0000
+Received: from mail-wr1-f46.google.com ([209.85.221.46]) by
+ mrelayeu.kundenserver.de (mreue012 [213.165.67.97]) with ESMTPSA (Nemesis) id
+ 1MidPj-1nt4Ix3hSx-00fm5O; Mon, 28 Feb 2022 13:51:20 +0100
+Received: by mail-wr1-f46.google.com with SMTP id v21so15270210wrv.5;
+ Mon, 28 Feb 2022 04:51:20 -0800 (PST)
+X-Gm-Message-State: AOAM531WrBnS4cDBf/FA6VNpw+QzJgzb7NYwpvkuSn45eImDZKaQbOAd
+ JM3LpFIZ1A42A84wx7aSPi5TZkBPKzvYOoDgpQY=
+X-Google-Smtp-Source: ABdhPJxqAXtjqyu3XGhO9l+qeiMZpUmH3VvfwpXSNlGORAG+H/kTZ6DoBe9bebMaudh7ucMT2NCbvco6L/QKSBCYl4U=
+X-Received: by 2002:a5d:63c2:0:b0:1ef:840e:e139 with SMTP id
+ c2-20020a5d63c2000000b001ef840ee139mr8301106wrw.192.1646052680182; Mon, 28
+ Feb 2022 04:51:20 -0800 (PST)
 MIME-Version: 1.0
-References: <20220224152456.493365-1-kernel@esmil.dk>
- <20220224152456.493365-2-kernel@esmil.dk>
- <87zgme6xna.fsf@DESKTOP-5JD7O8D.localdomain>
-In-Reply-To: <87zgme6xna.fsf@DESKTOP-5JD7O8D.localdomain>
-From: Emil Renner Berthing <emil.renner.berthing@gmail.com>
-Date: Mon, 28 Feb 2022 13:46:00 +0100
-Message-ID: <CANBLGczP5OKPsVbs3Ydm9EfHkSoCd=ksYZ6NOnTdmH3Bh2e_fw@mail.gmail.com>
-Subject: Re: [PATCH v3 1/8] riscv: Avoid unaligned access when relocating
- modules
-To: Samuel Bronson <naesten@gmail.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+References: <20220227162831.674483-1-guoren@kernel.org>
+ <20220227162831.674483-4-guoren@kernel.org>
+ <b8e765910e274c0fb574ff23f88b881c@AcuMS.aculab.com>
+ <CAJF2gTRQ0XWSjoEeREtEGr5PPD-rHrBKFY_i6_9uW3eEN_6muQ@mail.gmail.com>
+ <e5ee4f6799704bd59b0c580157a05d2d@AcuMS.aculab.com>
+ <CAJF2gTQhFK55z4juC7uHpWmHsEXSOkbMyXeid6KsnhfPRo7wqg@mail.gmail.com>
+In-Reply-To: <CAJF2gTQhFK55z4juC7uHpWmHsEXSOkbMyXeid6KsnhfPRo7wqg@mail.gmail.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Mon, 28 Feb 2022 13:51:03 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a0ZXuGWO+n2ghxhXmxntZAk_HPDmsk3cigdh2FBMQcKYA@mail.gmail.com>
+Message-ID: <CAK8P3a0ZXuGWO+n2ghxhXmxntZAk_HPDmsk3cigdh2FBMQcKYA@mail.gmail.com>
+Subject: Re: [PATCH V7 03/20] compat: consolidate the compat_flock{,
+ 64} definition
+To: Guo Ren <guoren@kernel.org>
+Cc: David Laight <David.Laight@aculab.com>,
+ "palmer@dabbelt.com" <palmer@dabbelt.com>, 
+ "arnd@arndb.de" <arnd@arndb.de>, "anup@brainfault.org" <anup@brainfault.org>, 
+ "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>, 
+ "liush@allwinnertech.com" <liush@allwinnertech.com>,
+ "wefu@redhat.com" <wefu@redhat.com>, 
+ "drew@beagleboard.org" <drew@beagleboard.org>, 
+ "wangjunqiang@iscas.ac.cn" <wangjunqiang@iscas.ac.cn>,
+ "hch@lst.de" <hch@lst.de>, 
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>, 
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>, 
+ "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>, 
+ "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>, 
+ "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, 
+ "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>, 
+ "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>, 
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ "x86@kernel.org" <x86@kernel.org>
+X-Provags-ID: V03:K1:Q+eNMlU2VItdky6+oDV8lM/N6wMEVquLZqGum0fB2ke+GvxIPB3
+ ndsLfiNAZWFXsTG4Y+zkQPJUZomrH6HaKQxpMbvRZ9yAlj9Ny2LJ/USV7VHsEb1vDRSAqAs
+ GbBCUGl2kSzO+DHNX7Q9Zeprsls4MJHqlnv4qlA3o/pzNdNEhKLQpk7XFoR4/8Nrv99PVtY
+ STBPT+chRHNNY4gc12WtA==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:nUJ7eIzQFH4=:v5kRJZtnkcFyCrGWPW43fo
+ lbBopdPXWkkpvoVhGNGogRNNFDq70R4WGdeTlxA3EcrLckbP6LVEDFUf3Qs56LNQwa+OaaL9O
+ zhHiJKz7UeLZKy5LjYVrV0NfOcz5KmGzoA4wnUJ5lUrB5U7GoZ+lHQ6VO7jvTGX9gs+sXi/EI
+ DpkxmaNm913QMX7xIqfWonGzRfw7nQBgRaF/M35JuP1moLVW3AcQDdb2Me6Ak7CVYGbffeqki
+ AU+O0cdU1ZsU1xM16dyTG/SUiB5h5qESImJ/jf6UrTMtP2xOv19YxNWlWRien8A/WkiU/0jTW
+ e3qwvuvMSmOvBspS3e/fDVoaHRCjmestZzM66QfbJeJNFXkMkpTtQSqFFaPqBZWXeAM7fZPUG
+ 4Jikua2pXYcvO9YpBYhC2UJ6HPPrZ6BhZl1Q0h0YCOciB0PJJvStNTIHuYYwVLXX839kqa9p0
+ dZMqQz95PpwddgNNDW9rJA0MnLFFDve76osRM93cveDR1gHSDC3X0uClMTpQBKkLYg13V1dXO
+ fNLb7mIkSOj9VygmcI7TOBJXYmuK7oKMYCMk6zDe6qTUnr55ZF6ZEkbc2pnQCka1wXwPcFFGK
+ 9GrFJ0S2sD+4LrlLLAY794fa/2zRfSyAcWDajTQ/YD2zuORgDQbwlx5k25DodC6kEHTnaKUkA
+ QAQHxZl02PKVCkUs8piDLVml81B9pOW82kCtb7cL5WmXfN4BhmCRCYR1WdxWxEW9my+lQeikc
+ CdBCuqPYPiHTj8x0seMAZMuG+Z/evipWO4TsOZXSpN3ehYtlqpmwFOqC7BZ63vwjBg2w+Ekyw
+ o17JOLC/UirdsxPo3E5CyrH5teB69lL3Zdna2Cv3cxs1fJBL4c=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220228_044613_992312_E9B62A7F 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20220228_045125_644201_7A29606E 
+X-CRM114-Status: GOOD (  19.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,42 +101,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyOCBGZWIgMjAyMiBhdCAwMTo0NSwgU2FtdWVsIEJyb25zb24gPG5hZXN0ZW5AZ21h
-aWwuY29tPiB3cm90ZToKPgo+IEVtaWwgUmVubmVyIEJlcnRoaW5nIDxrZXJuZWxAZXNtaWwuZGs+
-IHdyaXRlczoKPgo+ID4gV2l0aCB0aGUgQy1leHRlbnNpb24gcmVndWxhciAzMmJpdCBpbnN0cnVj
-dGlvbnMgYXJlIG5vdAo+ID4gbmVjZXNzYXJpbHkgYWxpZ25lZCBvbiA0LWJ5dGUgYm91bmRhcmll
-cy4gUklTQy1WIGluc3RydWN0aW9ucwo+ID4gYXJlIGluIGZhY3QgYW4gb3JkZXJlZCBsaXN0IG9m
-IDE2Yml0IG5hdGl2ZS1lbmRpYW4KPiA+ICJwYXJjZWxzIiwgc28gYWNjZXNzIHRoZSBpbnN0cnVj
-dGlvbiBhcyBzdWNoLgo+Cj4gSG9sZCBvbiBhIG1pbnV0ZSwgdGhpcyBpcyB3aGF0IGl0IHNheXMg
-aW4gbXkgY29weSBvZiB0aGUgVW5wcml2aWxlZ2VkCj4gSVNBOgo+Cj4gLC0tLS0KPiB8IFJJU0Mt
-ViBiYXNlIElTQXMgaGF2ZSBlaXRoZXIgbGl0dGxlLWVuZGlhbiBvciBiaWctZW5kaWFuIG1lbW9y
-eSBzeXN0ZW1zLAo+IHwgd2l0aCB0aGUgcHJpdmlsZWdlZCBhcmNoaXRlY3R1cmUgZnVydGhlciBk
-ZWZpbmluZyBiaS1lbmRpYW4gb3BlcmF0aW9uLgo+IHwgSW5zdHJ1Y3Rpb25zIGFyZSBzdG9yZWQg
-aW4gbWVtb3J5IGFzIGEgc2VxdWVuY2Ugb2YgMTYtYml0ICpsaXR0bGUtZW5kaWFuKgo+IHwgcGFy
-Y2VscywgcmVnYXJkbGVzcyBvZiBtZW1vcnkgc3lzdGVtIGVuZGlhbm5lc3MuICBQYXJjZWxzIGZv
-cm1pbmcgb25lCj4gfCBpbnN0cnVjdGlvbiBhcmUgc3RvcmVkIGF0IGluY3JlYXNpbmcgaGFsZndv
-cmQgYWRkcmVzc2VzLCB3aXRoIHRoZQo+IHwgKmxvd2VzdC1hZGRyZXNzZWQgcGFyY2VsIGhvbGRp
-bmcgdGhlIGxvd2VzdC1udW1iZXJlZCBiaXRzKiBpbiB0aGUKPiB8IGluc3RydWN0aW9uIHNwZWNp
-ZmljYXRpb24uCj4gYC0tLS0KPiBbRW1waGFzaXMgbWluZS5dCj4KPiBJbiBvdGhlciB3b3Jkcywg
-dGhlIHBhcmNlbHMgYXJlIGxpdHRsZSBlbmRpYW4sIGFuZCB0aGV5J3JlIGFycmFuZ2VkIGluCj4g
-bGl0dGxlLWVuZGlhbiBvcmRlci4gIFN5c3RlbSBlbmRpYW5uZXNzIGRvZXNuJ3QgbWF0dGVyLCBp
-dCBjb2xsYXBzZXMgdG8KPiBwbGFpbiBvbGQgbGl0dGxlLWVuZGlhbi4KCldvdywgdGhpcyBhY3R1
-YWxseSBjaGFuZ2VkIHNpbmNlIEkgd3JvdGUgdGhpcyBjb2RlLCBuaWNlIGNhdGNoLiBJbgpzcGVj
-cyB1cCB1bnRpbCB0aGUgbGF0ZXN0IGl0IHVzZWQgdG8gc2F5ICJJbnN0cnVjdGlvbnMgYXJlIHN0
-b3JlZCBpbgptZW1vcnkgd2l0aCBlYWNoIDE2LWJpdCBwYXJjZWwKc3RvcmVkIGluIGEgbWVtb3J5
-IGhhbGZ3b3JkIGFjY29yZGluZyB0byB0aGUgaW1wbGVtZW50YXRpb27igJlzIG5hdHVyYWwKZW5k
-aWFubmVzcyIuIEkgaG9wZSBub29uZSBkZXNpZ25lZCBhIGJpZy1lbmRpYW4gY29yZSBiZWZvcmUg
-dGhleQpjaGFuZ2VkIGl0LgoKPiAoSSdtIHJlYWxseSBub3Qgc3VyZSB3aHkgdGhleSBkZXNjcmli
-ZSB0aGUgb3JkZXJpbmcgaW4gc3VjaCBhCj4gcm91bmQtYWJvdXQgd2F5OyBJIGFzc3VtZSB0aGF0
-J3MgdGhlIHNvdXJjZSBvZiB0aGUgY29uZnVzaW9uIGhlcmU/KQoKSSBndWVzcyB0aGUgcm91bmQt
-YWJvdXQgd2F5IGlzIGV4YWN0bHkgYmVjYXVzZSB0aGUgcGFyY2VscyB1c2VkIHRvIGJlCm5hdGl2
-ZS1lbmRpYW4sIGJ1dCB0aGUgb3JkZXIgb2YgdGhlIHBhcmNlbHMgYWxzd2F5cyBsaXR0bGUtZW5k
-aWFuLgoKL0VtaWwKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+On Mon, Feb 28, 2022 at 1:13 PM Guo Ren <guoren@kernel.org> wrote:
+> On Mon, Feb 28, 2022 at 8:02 PM David Laight <David.Laight@aculab.com> wrote:
+> > From: Guo Ren Sent: 28 February 2022 11:52
+> > > On Mon, Feb 28, 2022 at 2:40 PM David Laight <David.Laight@aculab.com> wrote:
+> > > > ...
+> > > > > +struct compat_flock64 {
+> > > > > +     short           l_type;
+> > > > > +     short           l_whence;
+> > > > > +     compat_loff_t   l_start;
+> > > > > +     compat_loff_t   l_len;
+> > > > > +     compat_pid_t    l_pid;
+> > > > > +#ifdef __ARCH_COMPAT_FLOCK64_PAD
+> > > > > +     __ARCH_COMPAT_FLOCK64_PAD
+> > > > > +#endif
+> > > > > +} __ARCH_COMPAT_FLOCK64_PACK;
+> > > > > +
+> > > >
+> > > > Provided compat_loff_t are correctly defined with __aligned__(4)
+> > > See include/asm-generic/compat.h
+> > >
+> > > typedef s64 compat_loff_t;
+> > >
+> > > Only:
+> > > #ifdef CONFIG_COMPAT_FOR_U64_ALIGNMENT
+> > > typedef s64 __attribute__((aligned(4))) compat_s64;
+> > >
+> > > So how do you think compat_loff_t could be defined with __aligned__(4)?
+> >
+> > compat_loff_t should be compat_s64 not s64.
+> >
+> > The same should be done for all 64bit 'compat' types.
+> Changing
+> typedef s64 compat_loff_t;
+> to
+> typedef compat_s64 compat_loff_t;
+>
+> should be another patch and it affects all architectures, I don't
+> think we should involve it in this series.
+
+Agreed, your patch (originally from Christoph) looks fine, it correctly
+transforms the seven copies of the structure into a shared version.
+
+There is always more that can be improved, but for this series,
+I think you have already done enough.
+
+> look at kernel/power/user.c:
+> struct compat_resume_swap_area {
+>         compat_loff_t offset;
+>         u32 dev;
+> } __packed;
+>
+> I thnk keep "typedef s64 compat_loff_t;" is a sensible choice for
+> COMPAT support patchset series.
+
+The only references to compat_loff_t that we have in the kernel
+could all be simplified by defining compat_loff_t as compat_s64
+instead of s64, but it has no impact on correctness here.
+
+Let's make sure you get your series into 5.18, and then David can
+follow-up with any further cleanups after that.
+
+         Arnd
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
