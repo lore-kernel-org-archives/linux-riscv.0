@@ -4,78 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE849C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Feb 2022 10:08:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F677C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Feb 2022 10:49:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=92IE/Xiaa+/svjrOCyzcEZNINcVfArED7hk9adkLmbw=; b=TLU5887v5kM2pL
-	dhDoFNGs4UcgFbtmWfXPxFsFqGMGlRNED+qm17Fc57msIoiT2FbOSxvYoo2kFw19uypHxjkgHQFMe
-	REYkUFSYYeGgJ4h7sNZn5/5W3oZRr6w2nYguLdPhQtH7QwSUIJLYXH4mao7FMBb2/vbkHAq/Ab68f
-	FjzSGELase5guQ2X2isJufvBi8N7cuchylT29MDIdqdJ/s3LuQGOKzJSOxxRdaDyq4SG4+SlWyJLZ
-	qmdCFcgdW2BPDI8GA/SMFauQ0F/YARPlcCOWDRHSYAl5GqhoYLH/3YVWsT0ZzlJ7COF+8PHb0Qwi3
-	N6tpfQowVV9oh5QGxyrg==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kVUwFDVUIzg1m6aX9PrOWzhcGhMxeNFivlTgJv3PjLM=; b=HKDJni/WgJWf7u
+	PAyHuON5KH9jROb1xulqDB3cu3gLFXS+DjVbssOzeST/IJhiYagXlxTEzxBQ4kEWC+o2RcFXK2T+S
+	wBgIx7LYC3zXbN46ivjzv3DRyR15W/kp7lSi9AzxUpAvT94/L5fDltWextJ/smL07kjvJKELE0XeT
+	vssYGOpkWFYGqJ6fa4rtpAInQI9S3IFHihteM2BbkfeGZ8K6wCmxmjZubhRqIknW33aC4JIs4BQHj
+	eFdVz4g7m8Dc47I7cXeLvshrCRyIUDhBpdBSgth247Kye4D2vLiP9nxU9jrNIYVVkOK7NMeWGzFNG
+	Y3JStSpShzt/N1iLWoFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nOcwc-00BQuR-Nt; Mon, 28 Feb 2022 10:07:54 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nOcwZ-00BQsd-EC
- for linux-riscv@lists.infradead.org; Mon, 28 Feb 2022 10:07:52 +0000
-Received: by mail-wr1-x434.google.com with SMTP id x15so14518978wrg.8
- for <linux-riscv@lists.infradead.org>; Mon, 28 Feb 2022 02:07:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=pHItwHQRCJw3/NMLFZ4U+CA8KLZhljQy1y08UpaRHGE=;
- b=eJ4T+s0axsTzcZo2yAVf8S1U/UZXWxjtMh3dZP5HH4wb1mDPGEBIGdfpblep8Jjs69
- auBvja0pCIJ19GA/5fPSwITYytbv/iUZuJNIYV5+wkYmku5m4vYvCjirnMxcyD+jSfdf
- 4BSJwAHE3vt6Ig9o1OgHndyolDqT9jWKLI+x1hGQHHiqnq7LW8O2nwUQ+bTndl5jqyQN
- cnYbu5A+N1JuMD966rWFxbtfgL0ESbGVIFZX02EX95tJ0UX+KZtLdjpiLCG4EbNs/2xG
- dOqpfGz/BZKcW2wPb1tMk/Ab37QB1nQERmXJsePEQD27+2I7gZBg18Udyu9Ck1DddfVF
- zJMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=pHItwHQRCJw3/NMLFZ4U+CA8KLZhljQy1y08UpaRHGE=;
- b=Ck0Q1AmsTA6cfLVkhTEX21qGxcOWs5aSk5bYQphFIbTq+hFvcL+n0z+C8wdiXsfHLd
- 5QRG/llN6SnkzTz3Oe2hvwiUpHAH9d68qm31dWKhUYMdwTBCoUehsfD1zmU8pIx/NXKz
- bRX9F3hPYvD+a35W9KnqidrrdBW9GyEBVTNfP7K9F1ACoKWckI+vdW6W7rAS55TktP8M
- sb5WGRGeOqtZdvVo8r9vuF/7UJXUH24KVFxYLzFUyYfhvpbGkGVhu0BFX2HwXGmGhBm/
- adQ1hERIcFqzra0Sr/7oW6ZtdhxYGL+f01ycUNhKLfH8n1ZTfL4PiWEgYenGwCJ72ZOm
- Sb0w==
-X-Gm-Message-State: AOAM531eY9frmubUh+i/rSJGmi86o6rKWWS54UMMQr1EP1nbQWOFYWUd
- mqAwTS4Wtap3kkTniX71Z8VtFGGL6rdZe/uGIWAKvA==
-X-Google-Smtp-Source: ABdhPJwa/2mVO/hnHC1nb3fS0NE1tRwUImbMZuoSpkI70GnKbPqqIZlH8WtycBejFXxGIAXrXRdjpzDeYSnR/lrT0J4=
-X-Received: by 2002:a5d:64a8:0:b0:1ef:f99c:8c12 with SMTP id
- m8-20020a5d64a8000000b001eff99c8c12mr188308wrp.214.1646042869613; Mon, 28 Feb
- 2022 02:07:49 -0800 (PST)
-MIME-Version: 1.0
-References: <20220222204811.2281949-1-atishp@rivosinc.com>
- <20220222204811.2281949-7-atishp@rivosinc.com>
-In-Reply-To: <20220222204811.2281949-7-atishp@rivosinc.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 28 Feb 2022 15:37:31 +0530
-Message-ID: <CAAhSdy3SrHsDLt87uPwOHWDM0QtEg6Do7Zw_ymM52dOVbEz12Q@mail.gmail.com>
-Subject: Re: [PATCH v5 6/6] RISC-V: Improve /proc/cpuinfo output for ISA
- extensions
-To: Atish Patra <atishp@rivosinc.com>
-Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Heiko Stuebner <heiko@sntech.de>, 
- Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@atishpatra.org>, 
- Damien Le Moal <damien.lemoal@wdc.com>, DTML <devicetree@vger.kernel.org>, 
- Jisheng Zhang <jszhang@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
+	id 1nOdaN-00BXBp-KN; Mon, 28 Feb 2022 10:48:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nOdaA-00BX7B-8K; Mon, 28 Feb 2022 10:48:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EA0F81063;
+ Mon, 28 Feb 2022 02:48:43 -0800 (PST)
+Received: from p8cg001049571a15.arm.com (unknown [10.163.47.185])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6F2553F73D;
+ Mon, 28 Feb 2022 02:48:36 -0800 (PST)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-mm@kvack.org,
+	akpm@linux-foundation.org
+Cc: linux-kernel@vger.kernel.org, geert@linux-m68k.org,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Christoph Hellwig <hch@infradead.org>, linuxppc-dev@lists.ozlabs.org,
+ linux-arm-kernel@lists.infradead.org, sparclinux@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-s390@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-alpha@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-xtensa@linux-xtensa.org, linux-parisc@vger.kernel.org,
+ openrisc@lists.librecores.org, linux-um@lists.infradead.org,
+ linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
+ linux-arch@vger.kernel.org
+Subject: [PATCH V3 00/30] mm/mmap: Drop protection_map[] and platform's
+ __SXXX/__PXXX requirements
+Date: Mon, 28 Feb 2022 16:17:23 +0530
+Message-Id: <1646045273-9343-1-git-send-email-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220228_020751_514879_3D087CA7 
-X-CRM114-Status: GOOD (  25.94  )
+X-CRM114-CacheID: sfid-20220228_024846_419449_F78B946A 
+X-CRM114-Status: GOOD (  17.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,138 +64,221 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 23, 2022 at 2:18 AM Atish Patra <atishp@rivosinc.com> wrote:
->
-> Currently, the /proc/cpuinfo outputs the entire riscv,isa string which
-> is not ideal when we have multiple ISA extensions present in the ISA
-> string. Some of them may not be enabled in kernel as well.
-> Same goes for the single letter extensions as well which prints the
-> entire ISA string. Some of they may not be valid ISA extensions as
-> well (e.g 'su')
->
-> Parse only the valid & enabled ISA extension and print them.
->
-> Tested-by: Heiko Stuebner <heiko@sntech.de>
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+protection_map[] is an array based construct that translates given vm_flags
+combination. This array contains page protection map, which is populated by
+the platform via [__S000 .. __S111] and [__P000 .. __P111] exported macros.
+Primary usage for protection_map[] is for vm_get_page_prot(), which is used
+to determine page protection value for a given vm_flags. vm_get_page_prot()
+implementation, could again call platform overrides arch_vm_get_page_prot()
+and arch_filter_pgprot(). Some platforms override protection_map[] that was
+originally built with __SXXX/__PXXX with different runtime values.
 
-Looks good to me.
+Currently there are multiple layers of abstraction i.e __SXXX/__PXXX macros
+, protection_map[], arch_vm_get_page_prot() and arch_filter_pgprot() built
+between the platform and generic MM, finally defining vm_get_page_prot().
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
+Hence this series proposes to drop all these abstraction levels and instead
+just move the responsibility of defining vm_get_page_prot() to the platform
+itself making it clean and simple.
 
-Regards,
-Anup
+This first introduces ARCH_HAS_VM_GET_PAGE_PROT which enables the platforms
+to define custom vm_get_page_prot(). This starts converting platforms that
+either change protection_map[] or define the overrides arch_filter_pgprot()
+or arch_vm_get_page_prot() which enables for those constructs to be dropped
+off completely. This series then converts remaining platforms which enables
+for __SXXX/__PXXX constructs to be dropped off completely. Finally it drops
+the generic vm_get_page_prot() and then ARCH_HAS_VM_GET_PAGE_PROT as every
+platform now defines their own vm_get_page_prot().
 
-> ---
->  arch/riscv/include/asm/hwcap.h |  7 +++++
->  arch/riscv/kernel/cpu.c        | 51 ++++++++++++++++++++++++++++++++--
->  2 files changed, 56 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> index 170bd80da520..691fc9c8099b 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -54,6 +54,13 @@ enum riscv_isa_ext_id {
->         RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
->  };
->
-> +struct riscv_isa_ext_data {
-> +       /* Name of the extension displayed to userspace via /proc/cpuinfo */
-> +       char uprop[RISCV_ISA_EXT_NAME_LEN_MAX];
-> +       /* The logical ISA extension ID */
-> +       unsigned int isa_ext_id;
-> +};
-> +
->  unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap);
->
->  #define riscv_isa_extension_mask(ext) BIT_MASK(RISCV_ISA_EXT_##ext)
-> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> index ad0a7e9f828b..031ad15a059f 100644
-> --- a/arch/riscv/kernel/cpu.c
-> +++ b/arch/riscv/kernel/cpu.c
-> @@ -6,6 +6,7 @@
->  #include <linux/init.h>
->  #include <linux/seq_file.h>
->  #include <linux/of.h>
-> +#include <asm/hwcap.h>
->  #include <asm/smp.h>
->  #include <asm/pgtable.h>
->
-> @@ -63,12 +64,57 @@ int riscv_of_parent_hartid(struct device_node *node)
->  }
->
->  #ifdef CONFIG_PROC_FS
-> +#define __RISCV_ISA_EXT_DATA(UPROP, EXTID) \
-> +       {                                                       \
-> +               .uprop = #UPROP,                                \
-> +               .isa_ext_id = EXTID,                            \
-> +       }
-> +
-> +static struct riscv_isa_ext_data isa_ext_arr[] = {
-> +       __RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
-> +};
-> +
-> +static void print_isa_ext(struct seq_file *f)
-> +{
-> +       struct riscv_isa_ext_data *edata;
-> +       int i = 0, arr_sz;
-> +
-> +       arr_sz = ARRAY_SIZE(isa_ext_arr) - 1;
-> +
-> +       /* No extension support available */
-> +       if (arr_sz <= 0)
-> +               return;
-> +
-> +       seq_puts(f, "isa-ext\t\t: ");
-> +       for (i = 0; i <= arr_sz; i++) {
-> +               edata = &isa_ext_arr[i];
-> +               if (!__riscv_isa_extension_available(NULL, edata->isa_ext_id))
-> +                       continue;
-> +               seq_printf(f, "%s ", edata->uprop);
-> +       }
-> +       seq_puts(f, "\n");
-> +}
-> +
-> +/**
-> + * These are the only valid base (single letter) ISA extensions as per the spec.
-> + * It also specifies the canonical order in which it appears in the spec.
-> + * Some of the extension may just be a place holder for now (B, K, P, J).
-> + * This should be updated once corresponding extensions are ratified.
-> + */
-> +static const char base_riscv_exts[13] = "imafdqcbkjpvh";
->
->  static void print_isa(struct seq_file *f, const char *isa)
->  {
-> -       /* Print the entire ISA as it is */
-> +       int i;
-> +
->         seq_puts(f, "isa\t\t: ");
-> -       seq_write(f, isa, strlen(isa));
-> +       /* Print the rv[64/32] part */
-> +       seq_write(f, isa, 4);
-> +       for (i = 0; i < sizeof(base_riscv_exts); i++) {
-> +               if (__riscv_isa_extension_available(NULL, base_riscv_exts[i] - 'a'))
-> +                       /* Print only enabled the base ISA extensions */
-> +                       seq_write(f, &base_riscv_exts[i], 1);
-> +       }
->         seq_puts(f, "\n");
->  }
->
-> @@ -115,6 +161,7 @@ static int c_show(struct seq_file *m, void *v)
->         seq_printf(m, "hart\t\t: %lu\n", cpuid_to_hartid_map(cpu_id));
->         if (!of_property_read_string(node, "riscv,isa", &isa))
->                 print_isa(m, isa);
-> +       print_isa_ext(m);
->         print_mmu(m);
->         if (!of_property_read_string(node, "compatible", &compat)
->             && strcmp(compat, "riscv"))
-> --
-> 2.30.2
->
+The series has been inspired from an earlier discuss with Christoph Hellwig
+
+https://lore.kernel.org/all/1632712920-8171-1-git-send-email-anshuman.khandual@arm.com/
+
+This series applies on 5.17-rc6 after the following patch.
+
+https://lore.kernel.org/all/1643004823-16441-1-git-send-email-anshuman.khandual@arm.com/
+
+This series has been cross built for multiple platforms.
+
+- Anshuman
+
+Cc: Christoph Hellwig <hch@infradead.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: sparclinux@vger.kernel.org
+Cc: linux-mips@vger.kernel.org
+Cc: linux-m68k@lists.linux-m68k.org
+Cc: linux-s390@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-alpha@vger.kernel.org
+Cc: linux-sh@vger.kernel.org
+Cc: linux-snps-arc@lists.infradead.org
+Cc: linux-csky@vger.kernel.org
+Cc: linux-xtensa@linux-xtensa.org
+Cc: linux-parisc@vger.kernel.org
+Cc: openrisc@lists.librecores.org
+Cc: linux-um@lists.infradead.org
+Cc: linux-hexagon@vger.kernel.org
+Cc: linux-ia64@vger.kernel.org
+Cc: linux-mm@kvack.org
+Cc: linux-arch@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+
+Changes in V3:
+
+- Dropped variable 'i' from sme_early_init() on x86 platform
+- Moved CONFIG_COLDFIRE vm_get_page_prot() inside arch/m68k/mm/mcfmmu.c
+- Moved CONFIG_SUN3 vm_get_page_prot() inside arch/m68k/mm/sun3mmu.c
+- Dropped cachebits for vm_get_page_prot() inside arch/m68k/mm/motorola.c
+- Dropped PAGE_XXX_C definitions from arch/m68k/include/asm/motorola_pgtable.h
+- Used PAGE_XXX instead for vm_get_page_prot() inside arch/m68k/mm/motorola.c
+- Dropped all references to protection_map[] in the tree
+- Replaced s/extensa/xtensa/ on the patch title
+- Moved left over comments from pgtable.h into init.c on nios2 platform
+
+Changes in V2:
+
+https://lore.kernel.org/all/1645425519-9034-1-git-send-email-anshuman.khandual@arm.com/
+
+- Dropped the entire comment block in [PATCH 30/30] per Geert
+- Replaced __P010 (although commented) with __PAGE_COPY on arm platform
+- Replaced __P101 with PAGE_READONLY on um platform
+
+Changes in V1:
+
+https://lore.kernel.org/all/1644805853-21338-1-git-send-email-anshuman.khandual@arm.com/
+
+- Add white spaces around the | operators 
+- Moved powerpc_vm_get_page_prot() near vm_get_page_prot() on powerpc
+- Moved arm64_vm_get_page_prot() near vm_get_page_prot() on arm64
+- Moved sparc_vm_get_page_prot() near vm_get_page_prot() on sparc
+- Compacted vm_get_page_prot() switch cases on all platforms
+-  _PAGE_CACHE040 inclusion is dependent on CPU_IS_040_OR_060
+- VM_SHARED case should return PAGE_NONE (not PAGE_COPY) on SH platform
+- Reorganized VM_SHARED, VM_EXEC, VM_WRITE, VM_READ
+- Dropped the last patch [RFC V1 31/31] which added macros for vm_flags combinations
+  https://lore.kernel.org/all/1643029028-12710-32-git-send-email-anshuman.khandual@arm.com/
+
+Changes in RFC:
+
+https://lore.kernel.org/all/1643029028-12710-1-git-send-email-anshuman.khandual@arm.com/
+
+Anshuman Khandual (29):
+  mm/debug_vm_pgtable: Drop protection_map[] usage
+  mm/mmap: Clarify protection_map[] indices
+  mm/mmap: Add new config ARCH_HAS_VM_GET_PAGE_PROT
+  powerpc/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  arm64/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  sparc/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  mips/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  m68k/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  arm/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  mm/mmap: Drop protection_map[]
+  mm/mmap: Drop arch_filter_pgprot()
+  mm/mmap: Drop arch_vm_get_page_pgprot()
+  s390/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  riscv/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  alpha/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  sh/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  arc/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  csky/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  xtensa/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  parisc/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  openrisc/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  um/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  microblaze/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  nios2/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  hexagon/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  nds32/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  ia64/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  mm/mmap: Drop generic vm_get_page_prot()
+  mm/mmap: Drop ARCH_HAS_VM_GET_PAGE_PROT
+
+Christoph Hellwig (1):
+  x86/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+
+ arch/alpha/include/asm/pgtable.h          | 17 -----
+ arch/alpha/mm/init.c                      | 37 +++++++++++
+ arch/arc/include/asm/pgtable-bits-arcv2.h | 17 -----
+ arch/arc/mm/mmap.c                        | 41 ++++++++++++
+ arch/arm/include/asm/pgtable.h            | 20 +-----
+ arch/arm/lib/uaccess_with_memcpy.c        |  2 +-
+ arch/arm/mm/mmu.c                         | 44 +++++++++++--
+ arch/arm64/Kconfig                        |  1 -
+ arch/arm64/include/asm/memory.h           |  3 +-
+ arch/arm64/include/asm/mman.h             | 24 -------
+ arch/arm64/include/asm/pgtable-prot.h     | 18 ------
+ arch/arm64/include/asm/pgtable.h          | 11 ----
+ arch/arm64/mm/mmap.c                      | 78 +++++++++++++++++++++++
+ arch/csky/include/asm/pgtable.h           | 18 ------
+ arch/csky/mm/init.c                       | 32 ++++++++++
+ arch/hexagon/include/asm/pgtable.h        | 24 -------
+ arch/hexagon/mm/init.c                    | 67 +++++++++++++++++++
+ arch/ia64/include/asm/pgtable.h           | 17 -----
+ arch/ia64/mm/init.c                       | 41 +++++++++++-
+ arch/m68k/include/asm/mcf_pgtable.h       | 59 -----------------
+ arch/m68k/include/asm/motorola_pgtable.h  | 29 ---------
+ arch/m68k/include/asm/sun3_pgtable.h      | 22 -------
+ arch/m68k/mm/mcfmmu.c                     | 59 +++++++++++++++++
+ arch/m68k/mm/motorola.c                   | 43 ++++++++++++-
+ arch/m68k/mm/sun3mmu.c                    | 39 ++++++++++++
+ arch/microblaze/include/asm/pgtable.h     | 17 -----
+ arch/microblaze/mm/init.c                 | 41 ++++++++++++
+ arch/mips/include/asm/pgtable.h           | 22 -------
+ arch/mips/mm/cache.c                      | 60 +++++++++--------
+ arch/nds32/include/asm/pgtable.h          | 17 -----
+ arch/nds32/mm/mmap.c                      | 37 +++++++++++
+ arch/nios2/include/asm/pgtable.h          | 24 -------
+ arch/nios2/mm/init.c                      | 47 ++++++++++++++
+ arch/openrisc/include/asm/pgtable.h       | 18 ------
+ arch/openrisc/mm/init.c                   | 41 ++++++++++++
+ arch/parisc/include/asm/pgtable.h         | 20 ------
+ arch/parisc/mm/init.c                     | 40 ++++++++++++
+ arch/powerpc/include/asm/mman.h           | 12 ----
+ arch/powerpc/include/asm/pgtable.h        | 19 ------
+ arch/powerpc/mm/mmap.c                    | 59 +++++++++++++++++
+ arch/riscv/include/asm/pgtable.h          | 16 -----
+ arch/riscv/mm/init.c                      | 42 ++++++++++++
+ arch/s390/include/asm/pgtable.h           | 17 -----
+ arch/s390/mm/mmap.c                       | 33 ++++++++++
+ arch/sh/include/asm/pgtable.h             | 17 -----
+ arch/sh/mm/mmap.c                         | 38 +++++++++++
+ arch/sparc/include/asm/mman.h             |  6 --
+ arch/sparc/include/asm/pgtable_32.h       | 19 ------
+ arch/sparc/include/asm/pgtable_64.h       | 19 ------
+ arch/sparc/mm/init_32.c                   | 35 ++++++++++
+ arch/sparc/mm/init_64.c                   | 70 ++++++++++++++------
+ arch/um/include/asm/pgtable.h             | 17 -----
+ arch/um/kernel/mem.c                      | 35 ++++++++++
+ arch/x86/Kconfig                          |  1 -
+ arch/x86/include/asm/pgtable.h            |  5 --
+ arch/x86/include/asm/pgtable_types.h      | 19 ------
+ arch/x86/include/uapi/asm/mman.h          | 14 ----
+ arch/x86/mm/Makefile                      |  2 +-
+ arch/x86/mm/mem_encrypt_amd.c             |  6 --
+ arch/x86/mm/pgprot.c                      | 71 +++++++++++++++++++++
+ arch/x86/um/mem_32.c                      |  2 +-
+ arch/xtensa/include/asm/pgtable.h         | 19 ------
+ arch/xtensa/mm/init.c                     | 35 ++++++++++
+ drivers/gpu/drm/drm_vm.c                  |  4 +-
+ include/linux/mm.h                        |  6 --
+ include/linux/mman.h                      |  4 --
+ mm/Kconfig                                |  3 -
+ mm/debug_vm_pgtable.c                     | 31 +++++----
+ mm/mmap.c                                 | 44 +------------
+ 69 files changed, 1138 insertions(+), 729 deletions(-)
+ create mode 100644 arch/x86/mm/pgprot.c
+
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
