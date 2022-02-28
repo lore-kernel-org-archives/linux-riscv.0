@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27652C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Feb 2022 09:43:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9989EC433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Feb 2022 09:43:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ck08PT+hYfh1I01WJTY2nsvTlzDkLzWkai4iWdMwgvk=; b=WlUtd1F5f55gpK
-	cHao70WOLW2EpIeO1RRMF2ABJRfRT/HPz6x4lsHS+FOKNHy50xVEZYbA42OzK4Ys/DyPNrKrwAaAj
-	OzwnV57NpGhzTEzWjDyLjHimTQ2XZQ5pvCVInKtrs75ButNKE1nzJY57AnwAHKL8hJHb9vUXxuJCy
-	Rc1StWm/x3ljWdujzWDG7/UnIsRY5ILbuS+cIZzfoxNzQyqKdEqf5GWkJNSiBowe06bNaCoQD0NdP
-	j5y+YkUyjugXKVHK3uJEMCbppUTM5w3klVabqEwSzt23TUrGay6ABKYV4YC/KSDzbaI2jjFtht+4H
-	gLkmKY3okhlEtH3nrLBA==;
+	List-Owner; bh=CZNSnzWUs0CBJ+YgYY2t1nxCluA5lvg3TLEsDx3IC2M=; b=kFD5BpsiNudDhR
+	kMU613RCwSaNQbwCVmrmbCwJU/IzI/1jrRabAIuBos33vCbjazqUWyR43WNaQbr6F3SaijThkKtex
+	jJXaJukIwG26evXiyok5Gx9Nygi8OkNBTX+jLjIlI0IS5e9sgick0JvHqa1GQFCAatwdTXXPQtyiz
+	cDHHdQmaZ9jTtWRIap22zNPB2oYpajqj8inw1X4HsQqwtU6mSNLRe8XZjXezhoJc37IzF5hXXdy6e
+	ik8bA/ZLF7HJSxtss5uF5KitbwX9C7ueRT2sLkTVF0lKdd/HzBQXndVoV2AdGkbvY8rwqxIY5+/sY
+	X+EWp7ahiQYH9IO/isig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nOcYV-00BISC-6n; Mon, 28 Feb 2022 09:42:59 +0000
-Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
+	id 1nOcYY-00BIUw-Oy; Mon, 28 Feb 2022 09:43:02 +0000
+Received: from mail-oo1-xc31.google.com ([2607:f8b0:4864:20::c31])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nOcYK-00BIJf-6s
- for linux-riscv@lists.infradead.org; Mon, 28 Feb 2022 09:42:49 +0000
-Received: by mail-oi1-x22d.google.com with SMTP id j2so12623287oie.7
- for <linux-riscv@lists.infradead.org>; Mon, 28 Feb 2022 01:42:48 -0800 (PST)
+ id 1nOcYL-00BIKx-RF
+ for linux-riscv@lists.infradead.org; Mon, 28 Feb 2022 09:42:51 +0000
+Received: by mail-oo1-xc31.google.com with SMTP id
+ x6-20020a4a4106000000b003193022319cso18131855ooa.4
+ for <linux-riscv@lists.infradead.org>; Mon, 28 Feb 2022 01:42:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=nZwHRuTuQHHbyYlmVo+wQ56EPoPlbAZZW/TgYQjt6EQ=;
- b=KxbNxI6daxarqDSPoYJrgu16gYJElhaFFKqjm0lQ+eTNJ5pyfjlXpLMB50fYeDtwww
- NstSnpNuRFCiV+ymuW5x73HIl3hpt1IZKmviLs7TOxSVAlw67xkFc7ZCNpAgxhL8OD+K
- qfWdvT8xdStfW/CIHFYW3d0hvFb8JwryRbocRJrzme+9qGlQhFslkXsfixPDdCy8Tk90
- UBpC1ypuc9dxsasUJ0PMVaFw26CcB/VvAmIUhQMs+mvWnCymmgozneCHLJ8+SkDIlxop
- EE/9sxjtQUbIk4pPv5DAipCk/vgo4T86nNGNrYjQnbcIA9qe0YodJk7C4++9wugV2Lvj
- SBCQ==
+ bh=OFx1LkRnyPSZoRPt++yRCZ/X7QAcbDXb7DbJRNFpb9w=;
+ b=E/WAf0za9GRV++42YJoQEmv1RWq2LbVhjKreactOPjFdu6G631daU/9dPqnPLVnznt
+ bCPt1pXZMtrMRJIMbxTHeVyRydO7cNrFhuYktKG/FE9DMUiPVA12wYyRxQ++M6on2BoY
+ DteC19AIVn6jX9jfv5nHAPQmgPq5N+QIDpFqbxK0wczRdEZd0XLuxYwP9Ko1mO88TsA5
+ ZuDp+MRF0MLr4nb9P9dxN0lqLo+B6ZqrWGNfvweHqem44F6PsgKg0XkVMcr5gstVSY6q
+ cFwCu8x2HfVezTQ6JqnF0weCzK0oytliORDfkuUHSK/fN+sRqUbkpVDfbYiQd4X/ZykY
+ lYwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=nZwHRuTuQHHbyYlmVo+wQ56EPoPlbAZZW/TgYQjt6EQ=;
- b=Qhcm8Prt5Jm6FtjpXVUHEGL+soCgxV5NlkStM4kNoROuEsx1yRmfuJsYnIsCmWUWcj
- R2pdycmc6f0gd0lKvJ1JU8QYHXzXvoWMbROvZ8E+esrpG+SO7G1X7/lXdyZ0Z2c01Z5D
- feq608wNSdN8MPw676Vz6gWwO0spFjHl6Zoc9JoWhyVwt/itRKYuK+di0sDKqeuUqcGD
- Juc/SzWWWgvFplMsRic+pDN7fvzdkMN8GCq1Eo/LqYMLHmD86sxcnv7JHAC9La9tFMhK
- 22ntDCqnBSAiT+1DsctX1DDmP9Q7boEQa1EXuSmmcoqYMxDpYSOIBMb2S+O22Fu4bzdJ
- I1Ag==
-X-Gm-Message-State: AOAM532+LlkDbKhs+ag42SPl00vBouJSJ+PhaF0TwLUSL1aHKHegrZme
- 5IJ9F4bm/T20s3PvQbDHvJQ5Q/+oJT8MiQ==
-X-Google-Smtp-Source: ABdhPJyLIFFgNymyuMZ2b8GlMCcdf2pTdM5RU1i0+xsx0tOzZUQL6nDHFWoz72TNTT3cndvEUXQqUg==
-X-Received: by 2002:a05:6808:208b:b0:2d3:a5cc:540 with SMTP id
- s11-20020a056808208b00b002d3a5cc0540mr7723881oiw.41.1646041367488; 
- Mon, 28 Feb 2022 01:42:47 -0800 (PST)
+ bh=OFx1LkRnyPSZoRPt++yRCZ/X7QAcbDXb7DbJRNFpb9w=;
+ b=UwQYg5Kd3hdf0g7++o5HJGatrvfTMQ9lWXZisD5A5nfQmhMGqpyFyPn0ULLvhQ6s6u
+ cxa60m1mFl2fxMupGr4VBX84w17OjocCNk7rUTBTaZiEgWw6MRdsNOwHxLNO2I6NCLar
+ hbxle9to9Br1o1UInVxWN2nz/IGsqHeDLmQrNQne/NAAYCUxQ8/Jzy7DNAU1sK7NW9Js
+ 9rs7jIvmCERQ++XEdTmOtzenlHtNodfXie2uPKSPhMOsVM318qlRlNASnJH67oJLqAgX
+ ixLEes3UIFV/iSHxLgJGafstQNUc/dNR8iiTU+mqyNrXj8Bl6//uWjg48wheNUVYTcqZ
+ czOw==
+X-Gm-Message-State: AOAM530s/8PjRDyaAZMwaiOnzjsX0sM+KIzMJ/9Mck/hsv6U+Bao1lOp
+ 0tY1jJEZDcYZrQs0vg0aVMyed6m9W6aOgQ==
+X-Google-Smtp-Source: ABdhPJzhIKtfZEIAafRI4JUqKJcTAu7eH4KpEJ6cvcqwvvcRPwCt5Hxo74efVrqx/IfP4dRTJdimiw==
+X-Received: by 2002:a05:6870:b7b4:b0:d6:e56e:b85c with SMTP id
+ ed52-20020a056870b7b400b000d6e56eb85cmr7507039oab.327.1646041369323; 
+ Mon, 28 Feb 2022 01:42:49 -0800 (PST)
 Received: from rivos-atish.. (adsl-70-228-75-190.dsl.akrnoh.ameritech.net.
  [70.228.75.190]) by smtp.gmail.com with ESMTPSA id
- bx10-20020a0568081b0a00b002d70da1ac54sm5936852oib.19.2022.02.28.01.42.45
+ bx10-20020a0568081b0a00b002d70da1ac54sm5936852oib.19.2022.02.28.01.42.47
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 28 Feb 2022 01:42:47 -0800 (PST)
+ Mon, 28 Feb 2022 01:42:48 -0800 (PST)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -69,16 +70,17 @@ Cc: Atish Patra <atishp@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
  linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
-Subject: [RFC PATCH 3/6] RISC-V: Prefer sstc extension if available
-Date: Mon, 28 Feb 2022 01:42:30 -0800
-Message-Id: <20220228094234.3773153-4-atishp@rivosinc.com>
+Subject: [RFC PATCH 4/6] RISC-V: Restrict the isa field in config register to
+ base extensions
+Date: Mon, 28 Feb 2022 01:42:31 -0800
+Message-Id: <20220228094234.3773153-5-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20220228094234.3773153-1-atishp@rivosinc.com>
 References: <20220228094234.3773153-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220228_014248_296861_DA6CF36F 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20220228_014249_927790_AEE85E50 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,74 +97,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISC-V ISA has sstc extension which allows updating the next clock event
-via a CSR (stimecmp) instead of an SBI call. This should happen dynamically
-if sstc extension is available. Otherwise, it will fallback to SBI call
-to maintain backward compatibility.
+The isa field in config register is meant only for single letter base ISA
+extensions. Multi-letter extensions can not be encoded here as it will
+exceed the size of ULONG easily in future.
+
+Only allow single letter extensions (0-25) to be encoded in that field.
 
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/include/asm/timex.h    |  2 ++
- drivers/clocksource/timer-riscv.c | 22 +++++++++++++++++++++-
- 2 files changed, 23 insertions(+), 1 deletion(-)
+ arch/riscv/include/uapi/asm/kvm.h | 1 +
+ arch/riscv/kvm/vcpu.c             | 6 ++++--
+ 2 files changed, 5 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/timex.h b/arch/riscv/include/asm/timex.h
-index 507cae273bc6..dc0ffed04ea1 100644
---- a/arch/riscv/include/asm/timex.h
-+++ b/arch/riscv/include/asm/timex.h
-@@ -48,6 +48,8 @@ static inline unsigned long random_get_entropy(void)
+diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+index f808ad1ce500..aa9f5a5c57d8 100644
+--- a/arch/riscv/include/uapi/asm/kvm.h
++++ b/arch/riscv/include/uapi/asm/kvm.h
+@@ -47,6 +47,7 @@ struct kvm_sregs {
  
- #else /* CONFIG_RISCV_M_MODE */
+ /* CONFIG registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
+ struct kvm_riscv_config {
++	/* This is a bitmap of all the single letter base ISA extensions */
+ 	unsigned long isa;
+ };
  
-+extern struct static_key_false cpu_sstc_available;
-+#define cpu_sstc_ext_available static_branch_likely(&cpu_sstc_available)
- static inline cycles_t get_cycles(void)
- {
- 	return csr_read(CSR_TIME);
-diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-index 1767f8bf2013..f032da8a4272 100644
---- a/drivers/clocksource/timer-riscv.c
-+++ b/drivers/clocksource/timer-riscv.c
-@@ -23,11 +23,25 @@
- #include <asm/sbi.h>
- #include <asm/timex.h>
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index 624166004e36..7a07dba504f8 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -182,13 +182,14 @@ static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
+ 					    KVM_REG_SIZE_MASK |
+ 					    KVM_REG_RISCV_CONFIG);
+ 	unsigned long reg_val;
++	unsigned long isa_mask = GENMASK(25, 0);
  
-+DEFINE_STATIC_KEY_FALSE(cpu_sstc_available);
-+EXPORT_SYMBOL(cpu_sstc_available);
-+
- static int riscv_clock_next_event(unsigned long delta,
- 		struct clock_event_device *ce)
- {
-+	uint64_t next_tval = get_cycles64() + delta;
-+
- 	csr_set(CSR_IE, IE_TIE);
--	sbi_set_timer(get_cycles64() + delta);
-+	if (cpu_sstc_ext_available) {
-+#if __riscv_xlen == 32
-+		csr_write(CSR_STIMECMP, next_tval & 0xFFFFFFFF);
-+		csr_write(CSR_STIMECMPH, next_tval >> 32);
-+#else
-+		csr_write(CSR_STIMECMP, get_cycles64() + delta);
-+#endif
-+	} else
-+		sbi_set_timer(get_cycles64() + delta);
-+
- 	return 0;
- }
+ 	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
+ 		return -EINVAL;
  
-@@ -165,6 +179,12 @@ static int __init riscv_timer_init_dt(struct device_node *n)
- 	if (error)
- 		pr_err("cpu hp setup state failed for RISCV timer [%d]\n",
- 		       error);
-+
-+	if (riscv_isa_extension_available(NULL, SSTC)) {
-+		pr_info("S-mode timer interrupt mode is available via sstc extension\n");
-+		static_branch_enable(&cpu_sstc_available);
-+	}
-+
- 	return error;
- }
+ 	switch (reg_num) {
+ 	case KVM_REG_RISCV_CONFIG_REG(isa):
+-		reg_val = vcpu->arch.isa;
++		reg_val = vcpu->arch.isa & isa_mask;
+ 		break;
+ 	default:
+ 		return -EINVAL;
+@@ -209,6 +210,7 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
+ 					    KVM_REG_SIZE_MASK |
+ 					    KVM_REG_RISCV_CONFIG);
+ 	unsigned long reg_val;
++	unsigned long isa_mask = GENMASK(25, 0);
  
+ 	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
+ 		return -EINVAL;
+@@ -219,7 +221,7 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
+ 	switch (reg_num) {
+ 	case KVM_REG_RISCV_CONFIG_REG(isa):
+ 		if (!vcpu->arch.ran_atleast_once) {
+-			vcpu->arch.isa = reg_val;
++			vcpu->arch.isa = reg_val & isa_mask;
+ 			vcpu->arch.isa &= riscv_isa_extension_base(NULL);
+ 			vcpu->arch.isa &= KVM_RISCV_ISA_ALLOWED;
+ 			kvm_riscv_vcpu_fp_reset(vcpu);
 -- 
 2.30.2
 
