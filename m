@@ -4,26 +4,26 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF5CC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Mar 2022 10:54:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D83D1C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Mar 2022 10:54:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Od+dSRnWlhcZ6hwCyD8yQOce9UkWGfOhBfkg+sJCGKI=; b=1naxKQzrrEDFXx
-	WvNOKRQ7OydtVgLxvemuwB2/DpZlNptk05QcpxuNWerY3a5c5otPtMoyXzM3J4JTK0Quzev5lcZE3
-	tnpF3S/X5gaHr2B7nAGF1mNVXjNc83eTfQFIsQTaQcOg4aj5DAgAfrSA3ylElsAVyUIdT5jqBmDxL
-	w5XOhPWAxs7EFMrS69h0gsesAE+vtipHkrN9V1aSeI8Ct13lHDmQnPjm/fFCorLiPQi0oUv5eFRyn
-	LzUC0vQXy3RPs673CPYy5nL04Z+izCY2SPevG0QUGkPf1pYSPVhOTUX5/LvkSNyYDwg/1GhGgHzij
-	jg9YnkHtF9TDY1NpuD3A==;
+	List-Owner; bh=Gx5rsik+CnHKA2IG4nZkDMEbUIcKt/6ayeUBr0RmKao=; b=tOyJ5NPcUzP2ZJ
+	6tMfzAsTdWnPTIdjKx5FLDY/7Hqp8sY7hPy2939HBOs8HuNh4aRmgBvp4EgQuGRn6R5jZGdhUk0wR
+	q6IpLcGwg4zXRsphW1uZ1Rti1ONbUZqdINfaIXUSWN8HG7wjvRvHwWmrkAkUK9Rtky8mtHwox/hRL
+	lIp0qdSbUq4BwvoEkoxWoR+tM5mCrwm1FIJBSxX919DV4I05HMQ1rReHE+c1UPnCnlBlfnS1I3KcX
+	qMBCk1Wk8fzkt2fIkPHaL/bp8dKPxDLtEZ9vV2a52N6cohEBca/0TbOUJdS8AjTK+pefO37+TSfAD
+	WRIS8muoiMs23C3nytog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nP090-00GDbC-20; Tue, 01 Mar 2022 10:54:14 +0000
+	id 1nP09N-00GDoo-EP; Tue, 01 Mar 2022 10:54:37 +0000
 Received: from [2.53.44.23] (helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nP086-00GCwl-PS; Tue, 01 Mar 2022 10:53:19 +0000
+ id 1nP08A-00GCxm-Dw; Tue, 01 Mar 2022 10:53:23 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: iommu@lists.linux-foundation.org
 Cc: x86@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
@@ -39,9 +39,10 @@ Cc: x86@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
  linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
  linux-hyperv@vger.kernel.org, tboot-devel@lists.sourceforge.net,
  linux-pci@vger.kernel.org
-Subject: [PATCH 01/12] dma-direct: use is_swiotlb_active in dma_direct_map_page
-Date: Tue,  1 Mar 2022 12:53:00 +0200
-Message-Id: <20220301105311.885699-2-hch@lst.de>
+Subject: [PATCH 02/12] swiotlb: make swiotlb_exit a no-op if SWIOTLB_FORCE is
+ set
+Date: Tue,  1 Mar 2022 12:53:01 +0200
+Message-Id: <20220301105311.885699-3-hch@lst.de>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20220301105311.885699-1-hch@lst.de>
 References: <20220301105311.885699-1-hch@lst.de>
@@ -62,28 +63,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use the more specific is_swiotlb_active check instead of checking the
-global swiotlb_force variable.
+If force bouncing is enabled we can't release the buffers.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
- kernel/dma/direct.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ kernel/dma/swiotlb.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/kernel/dma/direct.h b/kernel/dma/direct.h
-index 4632b0f4f72eb..4dc16e08c7e1a 100644
---- a/kernel/dma/direct.h
-+++ b/kernel/dma/direct.h
-@@ -91,7 +91,7 @@ static inline dma_addr_t dma_direct_map_page(struct device *dev,
- 		return swiotlb_map(dev, phys, size, dir, attrs);
+diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+index bfc56cb217059..64b390136f9ef 100644
+--- a/kernel/dma/swiotlb.c
++++ b/kernel/dma/swiotlb.c
+@@ -378,6 +378,9 @@ void __init swiotlb_exit(void)
+ 	unsigned long tbl_vaddr;
+ 	size_t tbl_size, slots_size;
  
- 	if (unlikely(!dma_capable(dev, dma_addr, size, true))) {
--		if (swiotlb_force != SWIOTLB_NO_FORCE)
-+		if (is_swiotlb_active(dev))
- 			return swiotlb_map(dev, phys, size, dir, attrs);
++	if (swiotlb_force == SWIOTLB_FORCE)
++		return;
++
+ 	if (!mem->nslabs)
+ 		return;
  
- 		dev_WARN_ONCE(dev, 1,
 -- 
 2.30.2
 
