@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D87DC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Mar 2022 17:13:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 772F6C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Mar 2022 17:13:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tFSP6Zi9T5jclwMzpeyRQKWhI+jNot4/KfqtJCFMIrE=; b=WD6tRurq2sQxkD
-	9YzoOU0VgCoErSSsBlXfT9wk4GMFVQA+AsazDKHFIzs1SZ93NH29hS6HXRh/tHO76MjHOf8I0ym/5
-	U9AMH25TWLP7xjqlCe0Vw94VFJY5mMoeXhLJ554Cx5gQf83YG9Toev8YaicY4Hf+ClsbK+xufErDF
-	TgzK/O83M1c6HRqcyC1Cnea30JdOAoA/TgHqIdE6uhq9dIEmquiRd9T5zoYN+N5Tx7dUSQQOifBGk
-	Gk4T/4ucWqPvcwGe+QWvp4EuvbxW7+sLUZAAUpnuCEib1q4UjcVWfGm225qDI9gzWU9OjaAV3bpTD
-	b/kkaaeJBJY6kk1s9OdA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5ubgCYH4s52PLkpTTdl9EPZWfDf4PCZt3zvRR9HzauM=; b=bRm6sQeE3yNq7R
+	A6ShuCxGoPkfZINi8//RKZSThiLh7yq9phyjyksRElTUVhOObH72FRyUcIEpsNeaynyUA6GRKve0c
+	HiqtNNM0o7NyoeZs2hIihpQx3JbRZmAIje8HjI0j3XZEz6yg4hCD8nP4SHhiLgULSlWKBSHD5jG+1
+	j7vRL+IybR7Bzl/DXgRI8rM+d+oznuNohG+Ekx2M+QGugkUxcosQM6owPc02JBwu8Mb2qI2SToBLt
+	BAGCKd0P1hMry3c/aJwaFjRBaqwYrKzE2LnFqbYN8akOAaxP4UI35VoPSGpS7GuixafQIL28uFSi8
+	zUMlXGgRECrS+X+lLqBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nP644-0002g3-Fh; Tue, 01 Mar 2022 17:13:32 +0000
+	id 1nP646-0002gp-Gd; Tue, 01 Mar 2022 17:13:34 +0000
 Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nP640-0002ep-JJ
+ id 1nP641-0002f8-9U
  for linux-riscv@lists.infradead.org; Tue, 01 Mar 2022 17:13:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1646154808; x=1677690808;
- h=from:to:cc:subject:date:message-id:
- content-transfer-encoding:mime-version;
- bh=ynZcyDwAxNkjw7+e2KJIUirOFP8pe0bh1jfoTvOUny4=;
- b=XRI4C/cRZxFVQcs8dDxFSWpBfPgm8YtQdJ9JDcDg1cM3lToT7AQb1LNX
- sdwZCU/I1xdTtflyh++VqQwW3dkE5Jqag1un/ZG1cfucFLE2DVdSqlL6L
- p9AvSPgoOd5l+MEmzL/Jz+YBi9OF6BgtUHo7oLcleR16vqOVVCZolqGLp
- TtiL0MMuMI2bO9hWRzpMy4Gtrii3oDyGtbB0CR6bZG3T7iV78WeY6VWtx
- P2V2+otDHt0+z4XVhu/vz+g8MNCAo1vIpNoeOKNX1865G5H50b9cPzWUN
- vxaGPaqSJ6El9LQ5Nb4TPoJaFodesOiw61mdY1uznslYv104ds5dZwNPv w==;
-X-IronPort-AV: E=Sophos;i="5.90,146,1643644800"; d="scan'208";a="306119287"
+ t=1646154809; x=1677690809;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-transfer-encoding:mime-version;
+ bh=GzADZl6p4v5Bf+eIe7eZ6Wyz0K5c/f15GPFCDvdLy4o=;
+ b=AfA+Qf+mpbUJHj4XRJ1jVJU/QeS4jdp5KZSpdyHcVIZ1BqTgXBoFvarJ
+ KBqFKjqeyqKDPLTLM+427/NjZFRQfqbBHlkIpEXhsGbe9cC7odv+OQqYf
+ KADoKls4gBtgwOK76ygsqxGV66va8NMR+TO4PC0VwFwUFOgI02McapMW4
+ ivCY6hb2+XcqydiJqMNFk0GLuXAhztRe6v8B45ozAf1Pp+Dd9vFev0T/U
+ KfxoVNmNIjrWkfcMNfij2CxBq1t8B0uHHesFyJJTJvI9+U1kX7g+K0apc
+ 4py1cfxRiw27/11N1sR7O2yMyufya9aBq17M6eBWSO/dy4EYj3Wqt8jmn g==;
+X-IronPort-AV: E=Sophos;i="5.90,146,1643644800"; d="scan'208";a="306119290"
 Received: from mail-mw2nam10lp2102.outbound.protection.outlook.com (HELO
  NAM10-MW2-obe.outbound.protection.outlook.com) ([104.47.55.102])
- by ob1.hgst.iphmx.com with ESMTP; 02 Mar 2022 01:13:26 +0800
+ by ob1.hgst.iphmx.com with ESMTP; 02 Mar 2022 01:13:27 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=bJyQiB2byj96T6W8J3FWHHVeFrap8PvwiaW8LmJxPLiTHQh0X3+9+YM4cqPrm83dSIqyiTJJETjkaK4DSIGxB01G8DAwQ3eHSOfFB5hkxdqerU/2WEFwe9S7Ec/OgSHV1QZ9RY6AlcAxWfkOSaH2RpF4B4Xe3sXEL8erfjdGUTFk99RgmlL/qLtyHf6dhazVCKEmsyKCp83toGO83kv83cCFW2MVfK1tC/prrVYBE3JJxrCxnQnsjfYVgmbqbN2teqQFVfAoS0pUnIv4QY03sIaxGtKQbxVWckS/uphK0c53cvIpcTfXVAmkkuc0kwCZ8xxbwVWLMoYnqnbpBeUfrA==
+ b=G7EvmomishoRsJbrDdCbSQVJFmushJKbgZxM6waXRI52628YyjQVY2oY60PFOpPC3TjtVc3gFRJdgzwzQhuch2w66rzIU+5jf0y0rTTYAETNb6cmI8uuDJun6Ri1kSChMzo7br41QRZQTPNAlT/ZQimuVgemgfh+QAEYAZW+jQhXCYlk0FfpRiFLVD6FsvLRxZPpsOzSNlcC5SBgjqa49A3iFuB1SkOGjynVUy759kuWm1TWyXbfN/IlyESXqjPrOQVyz7+j4Z+ZCck3qHqxjCSYodVvkaS45LR4qw369WizDlt6t2m5DWhUIZZgWk/SJPH+bFzhErT+hmnIW1NpEQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XLXGwrvsxxtfuqpYH2mOY3uroUtwOhqtoSiwTX6go2Y=;
- b=j7GSZAigabtQ4zAuJFpWQ3EM1lqu0LU+RjI/kZzup79RdFMcxyYUL+cAWmVCL0bZhPnXirYPGq3cYyGnO1LWD23IMbyIZpwiQotKrZzS+bclg6ysM+roeTddBI9Sm5G1jM5LzCBkfy+t6HGNitcQuMIUwth0J0AABn15bECixmCMFKaQGlelfrZlu6GJmtfwXYFOuzvswyB1p/83wL/FE3T4sBI3gyqandlob/VO2MwIWR8r8M2nNj3cZAJ13VC1cKm/NDOikKLa6sLiYYc11u/WeEBb7f6WUy9u52luxQQ+jDdGtYH+JkGzIhJOyV2EHOyuwYP1v97HWZwqfAc7ig==
+ bh=h74C725stXlxTMmXvA6oNubmhl23hNClZbhBHcDOcHg=;
+ b=KDKhJ+kEFvJ8qmOru3+L2/MpqvTLkyshkartRtFfbi+58aXWPtf76F1xcsbi+mXD1lQCkcvb7vYoMGeRPjkZgc4J3kKjE6RKi5UmdsC4UJ/8Ft/0TOlMOlCLj/zciFAXg1WXJwLWRR4bj6Zo+w/T99GjFFMpoPqMTkBpCsjBitDN6DcUY47fKKBnKUNrlPRc5EboZo5szHFJlRr1beHqqd7c/S6FMS+p7IOudGYnbGB2ewW1QipeyJIsJRzl9fTgxGrCxUF9yCQV7ADv3UetAhW3s0WiTjCwS6+iiLvlYWFnvp/zp0iXXpRGQ2SjJx+GbV34rrOsZUDIviwY/F6SLQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
  header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XLXGwrvsxxtfuqpYH2mOY3uroUtwOhqtoSiwTX6go2Y=;
- b=ac5Fxk3K8EvpemsQBoeFTeZ2X/gQFT6bKo9nDqhAlJ6O/NTGmDhOXiW+GLGoXuLiP2wXm9UDCwuNGez8EaDUerOqlM9p9Go/f+Kjd0WfwWFNcURhuWipf8mre2AgyRH+7UWs53iJa7oLg5BM+qXOgBNOR3pXy86OQzhaf6k4NGg=
+ bh=h74C725stXlxTMmXvA6oNubmhl23hNClZbhBHcDOcHg=;
+ b=PeqayjUaq+UpLs7nF8FfdAu0WI0uqZcnNeZ7H+JSvpZQEi326kN2I/7qHdlKJ0Lsls4QnkZm1UOjVyJbcxAuLSkNTxvZ6gFDIJwf2s2Qn2cvYJLbGVktPTqvB2jQ+ONxAeWcafW98y/arNXgYim70m6wfGzvCrO7Wud1Zg+icz4=
 Received: from PH0PR04MB7158.namprd04.prod.outlook.com (2603:10b6:510:8::18)
  by BL0PR04MB4609.namprd04.prod.outlook.com (2603:10b6:208:4a::26) with
  Microsoft SMTP Server (version=TLS1_2,
@@ -64,19 +64,22 @@ Received: from PH0PR04MB7158.namprd04.prod.outlook.com (2603:10b6:510:8::18)
 Received: from PH0PR04MB7158.namprd04.prod.outlook.com
  ([fe80::f025:4f23:8e46:b2ed]) by PH0PR04MB7158.namprd04.prod.outlook.com
  ([fe80::f025:4f23:8e46:b2ed%2]) with mapi id 15.20.5017.027; Tue, 1 Mar 2022
- 17:13:22 +0000
+ 17:13:23 +0000
 From: Niklas Cassel <Niklas.Cassel@wdc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>
 CC: "damien.lemoal@opensource.wdc.com" <damien.lemoal@opensource.wdc.com>,
  Niklas Cassel <Niklas.Cassel@wdc.com>, "linux-riscv@lists.infradead.org"
  <linux-riscv@lists.infradead.org>
-Subject: [PATCH v2 0/2] sifive-plic minor improvements
-Thread-Topic: [PATCH v2 0/2] sifive-plic minor improvements
-Thread-Index: AQHYLY+nXoSholW7ZEy+8GZrbzQ/Ew==
-Date: Tue, 1 Mar 2022 17:13:22 +0000
-Message-ID: <20220301171317.3109161-1-Niklas.Cassel@wdc.com>
+Subject: [PATCH v2 1/2] irqchip/sifive-plic: Improve naming scheme for per
+ context offsets
+Thread-Topic: [PATCH v2 1/2] irqchip/sifive-plic: Improve naming scheme for
+ per context offsets
+Thread-Index: AQHYLY+oImNLeC6HTEyrbPuiRdyJ/g==
+Date: Tue, 1 Mar 2022 17:13:23 +0000
+Message-ID: <20220301171317.3109161-2-Niklas.Cassel@wdc.com>
+References: <20220301171317.3109161-1-Niklas.Cassel@wdc.com>
+In-Reply-To: <20220301171317.3109161-1-Niklas.Cassel@wdc.com>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
@@ -85,63 +88,62 @@ x-mailer: git-send-email 2.35.1
 authentication-results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=wdc.com;
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: cb9c17d0-21ef-46d0-ff7d-08d9fba6ca69
+x-ms-office365-filtering-correlation-id: c17829df-452e-4b6a-0585-08d9fba6caf9
 x-ms-traffictypediagnostic: BL0PR04MB4609:EE_
-x-microsoft-antispam-prvs: <BL0PR04MB46092EA5E64562EEE5D0B660F2029@BL0PR04MB4609.namprd04.prod.outlook.com>
+x-microsoft-antispam-prvs: <BL0PR04MB4609B1BBB6B0A1FB30C508D6F2029@BL0PR04MB4609.namprd04.prod.outlook.com>
 wdcipoutbound: EOP-TRUE
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: gPpATipfrqYxshStJpjqYTgXcUync2YS5JARtIb7DGlFj5eWCA4P8Ii0UuwR8WgQk1Fe+lj69OgRozQ4ygfxDluqanaeGUlyx/fz5leuS0ZjA2WbxOzSw5rvv5XozKcSmjGKDB6qxE2tFSsF0aYGhzLXMTdESjdgwqg0AymPH1RXW7e9VBwxq77bpD6qHimQR7Yy6MRL8VDAighcF2mTpYgB+jvTamww0+zXtgc2hHP8CtJBOdMZNBzrUS7pvFQ9uHtWnG39+6hCAd13Fz7U8oM4Rvr2S4DOqqPytfUhcwcrmDEBe+3h4XXmOK5FhPgOVSegF/pBkOGbkIqlyXBUpya7d74bJV9x9Nx1nCWS2+C4Znu/1sVoxW0ZVZ6YQ+fvWk0v/Wa+zTAHR9S653FzCy2nFHM+00stcvArbQSvok6OAs9g7t9ICyxlOJqhQ7loTG2TCNob3pjPx+r+JrfX+K3xOM/sFrUz0TVDuuwBV9HCFVmVosIJ3Sdg7DOybg/rBN+G5Kuy0/UdA/NQepTKXgCM+9Ax7Fc9EnfHT7ZJPstqn+AsxcwO33cd8wGzWfSCD7ae1Ztcair2WbZKbRnsKTP99Jx/1fpan/cOnYKn/jNyc/uFOqf5z1dkWd6WaBDGzzlOyjcNBoHW8tvKLVnOfVhyFv74CQoBzWaJEYDLJlbOptGmyAp5VN4HgxAUOwM/hB009aDAH40ouESEYDTheA==
+x-microsoft-antispam-message-info: s5TJ5RW7/CEdIPtO0gYekVBlQFK14m0x0nUj3DoBeQ4XRuz/RkjNIz+QubI9IpfxYSM+0bajQD5R3SEFxNbn6G5xmghUu9CyRqKZmi4mGPmBJLL2xXTm7w8aYM9YmisJHn8pWHh/iLEgmiqgpH1vn7Wyv6n2cgWO6sbTv7YqZPXM/B3ZhclAFXWEAogOlwdyXmiTz4N3c9Zfrwc+0HtpQTpCXVpGCi03Yo3+EFUZ76DOY/Ws2oO+WkNw8k2YAJn0xflf3tIl04iPtMrKwMUWcKAk0PY9iU/w+N/j/uMQmsHMA957BMo/5GfV+6bZMEQUs/UHQalGf85PE0dnFkuykbW4/jaZ0f+2NgdnKw/Fht1NT02aSR3Ib/1s1ili10Z2YPYJBIuzeXY5XlG4HquhlepRisRef/KOoXPsmr6MXrslLKa/P6aPyWNfg4S4L9qBINpAjtXO8AHkS2PgDs7DFhZ1rqEnXtAEltFnHxuZXKCXNbjzQoJKLYgNxbiJpVrI56qA7vj3PBabfq2a2hBb3ykt0UNALoSXXWOy3bxYAzehZUN1w8RB/Yve7ge71VAclsZUbak16WVAvAY4Ds728t1lePLUL8XMt47I1QeSzjC2wNVlx7UX34FGVfLIQlVL9r5vTjCVQU1RXad390oYBdVftfFVztJzbayegJ+brD6g8H+Py3a9oMltd822PxE8wIW9SWHYRcrMZ7T52LG/Ow==
 x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:PH0PR04MB7158.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(13230001)(4636009)(366004)(6512007)(38070700005)(5660300002)(316002)(1076003)(86362001)(8676002)(64756008)(66476007)(66556008)(76116006)(66946007)(2616005)(4326008)(38100700002)(91956017)(2906002)(4744005)(186003)(26005)(66446008)(36756003)(82960400001)(6506007)(6486002)(8936002)(71200400001)(122000001)(508600001)(110136005)(54906003)(83380400001);
+ SFS:(13230001)(4636009)(366004)(6512007)(38070700005)(5660300002)(316002)(1076003)(86362001)(8676002)(64756008)(66476007)(66556008)(76116006)(66946007)(2616005)(4326008)(38100700002)(91956017)(2906002)(186003)(26005)(66446008)(36756003)(82960400001)(6506007)(6486002)(8936002)(71200400001)(122000001)(508600001)(110136005)(54906003)(83380400001);
  DIR:OUT; SFP:1102; 
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?mjJjXi+c3xooGa0s5C2KX6G4uQgrLPESE0h/j12dG4adH9qNjvO4kiF/MW?=
- =?iso-8859-1?Q?knkct4VBHuvsSrnsUXUi9Ys2CaIqME+Kbi0ZeflPM0jICVLleKbizdDdN0?=
- =?iso-8859-1?Q?fdEBXGAip8++pmuuZEfc1eNWHsHAAo0i9yRWl6RoFLM+HIOxWNguSo21hb?=
- =?iso-8859-1?Q?iuDh+165LSEiPCaUSOzyyifxCV6wQlezBMWNxJZo5pM92hbryftXv1QQTh?=
- =?iso-8859-1?Q?XGXC6STnJ6mEKgVxSllFSSP/bSdn5pUwutlTAKOYYoNZmra3d8MliG+ZMB?=
- =?iso-8859-1?Q?j7EX5EycdnB5nGeQzlrvTS0lxPi4WwiBvHFG1845qTosD00rJ+lwFrqxAl?=
- =?iso-8859-1?Q?P4Lzy1lkI09GJLtG8L9rW7nlTYtw1slef97/YX6WADBzoWkMth19h+W0tl?=
- =?iso-8859-1?Q?HhgMcVKWDHO5nzkz6aKvVwWwvcXDNHzM0Uv9Zdu63uAwQT1uba3n191t9M?=
- =?iso-8859-1?Q?K+K4vf+ODDdnSpAWi8jU1KjrZcwqZfukj+uoliAlPPC9AW71lNnmXzcF+x?=
- =?iso-8859-1?Q?qcbLbdY5lClr9dt5pW0Lf3TjmUmdlI/u4YUIcq/FJqfLatgeYP+Nq1zxiv?=
- =?iso-8859-1?Q?DWRbymU6cMoAeR1f1Sd/v/NQiqN1u+pAX0mDspe+i4vADoODGSgGTzZOHy?=
- =?iso-8859-1?Q?O5SKgTuv8Wmp56dthkX5VvjFAwuQ15QmqUywbC/vqEFUx2ZDDn7s0ZVN+e?=
- =?iso-8859-1?Q?lGshzXry3XJWrFWEaJxFupiBdUmMXWBgQ2wkZbsEVQJNl1cT+YusW3j+av?=
- =?iso-8859-1?Q?vdUAeoYH/6NWPsLdiufNx8nBL+MeomNF4K7TrMg+nFh4MMUPSQ91CycTwm?=
- =?iso-8859-1?Q?hxEhyh8l4tovmNiG7s8ZUvPPk+LcNtpQJrhKvHvoWHVchC6gktBZQ1hD2I?=
- =?iso-8859-1?Q?ZNaVe0+XFm8NeuXAJ7og42qQ8QnogbMTtoNMKLJPGjg431q6VgnPwcIadF?=
- =?iso-8859-1?Q?xvQnX/rciZjoJ7Q15wt1Mc86Xesrs0YEoExhTdJITJyukXA6zQOC2TZVtS?=
- =?iso-8859-1?Q?GUv0OmShyEoX8J32D1jri1dZzYxEexYgv6n5bjRNuKONXVVhT/tIr5zn0f?=
- =?iso-8859-1?Q?buMqwcq2WceNm4f3BQEtK5RnSpdTlE8ZuuaKPoTkJqDh7MB94jhr651wgG?=
- =?iso-8859-1?Q?kCqyOdSiB2+s9EKxwO/IsglkWE2/XRoTX6UyEfwFsCRchH9wvb5gURUPfF?=
- =?iso-8859-1?Q?rFGne9i7mFUNejcxgtkT9JNzRDTsUpcD2PEEM1c+56NWAUnP93d8nN2nbG?=
- =?iso-8859-1?Q?wgdldNxJ+XYgZBKvcFPfe+Qh6ls3XMYR/u7A/xDj37oYLoPFGdltX3M2Zt?=
- =?iso-8859-1?Q?dBo3T+kCsFLuZUBRO3s0KonpfxKb7Mi1T2OrYNfTBNEhidus7g0spir0XY?=
- =?iso-8859-1?Q?phyClGQEs8ZoUz6zkhyfvEEva+bmSQRvpLXDOykoNNz2Pvc7PL+e2LvGBJ?=
- =?iso-8859-1?Q?3kqbeUWCwQW1xsNZQCBF7zETYxlM+BC3bpFr0gKOKl+Hj954d2xgO2aDoK?=
- =?iso-8859-1?Q?/2WS4bt2bnVJEZAI1zbzLo8IdGPWjyYGRQs9VQAzJV9YFIzm5ERmu6fwC4?=
- =?iso-8859-1?Q?DgIPjVKx7pFs6YSUzIWUxPJWAvn9JHnrzxvJ8w2V7Vg/jzrzT2Vrkht/WG?=
- =?iso-8859-1?Q?2dTtHqdtTPa/BCY8v3WgGdG3yVou5ogXoipxQ80jyojjYZO078j6xbodUv?=
- =?iso-8859-1?Q?sv38u+bO1AOOBV38uQyPA34kcVk4PeycoFRrb8Fq?=
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?IY1U7TFInvzhN7qsSTcalYPzD3EXpPy3obMcd+IBKeBjlsJBA/Mu5S20Pr?=
+ =?iso-8859-1?Q?7PIjN+Mu3MWxtHGAPX6Tfl37hmxFVSfuVWgN8TNNuBQzHNSsQDSrYljgRX?=
+ =?iso-8859-1?Q?WtUwr8zeaNamYTjOfHsGldG3sFFc8LjPDJYAH9T97ispEYo+WHDRcRbPrn?=
+ =?iso-8859-1?Q?ov2AS2TQfzkKRA7GB3MsEILUzEg0f7OIOFxakzPs2vZJPuSr0/ai/Jnpcp?=
+ =?iso-8859-1?Q?geOGxEu8lROcttZaFtSmDA3qq6b9R5C3A5RRWJeUjxPTINhQl2yiTdXej9?=
+ =?iso-8859-1?Q?k2TAHkAQkACnvFT45S7MpdJlrON9wIur8GPut0N5fsVN1/43Q45QrV2Imk?=
+ =?iso-8859-1?Q?EH2XeEl4UG6c2W4Sv8+kmL/aLnJ/vsHE9llkDd06xSTp7dxr4/z5/LBGUA?=
+ =?iso-8859-1?Q?l2PMrVzl1Hd6WOKHDq2gnjMGJRkDSlxndxC2WqmOqV3OyTHsJhRilAQIGQ?=
+ =?iso-8859-1?Q?JkDJD3vQtmsAEOKTcd0lJxouW2hyStVq2lFckFo0cdI2zhsquAtrXyrdJw?=
+ =?iso-8859-1?Q?eRt1aATGZqaQDgyPcxClEmf3L5y+O7HHR+ljob56Zt8hx/l7TUzrIIb8RL?=
+ =?iso-8859-1?Q?oz/6T4erLA6eSX1rbMLsPwD9hyvK5abv8sEkhF8OqEO4DpdMQ3H3R7mByU?=
+ =?iso-8859-1?Q?WBmh4T3dNr6CYkCEOIbGl9MEXNg44xdzV6feHh1T6ks4PjxvGKvvGqP8oJ?=
+ =?iso-8859-1?Q?Yn5oy0BfTYfc1hxMfMmlD/NwNzEoWeyi+X2oAh7Atewp2bGxsaH/e8ICLq?=
+ =?iso-8859-1?Q?Qd0vzmdiYFk08wuUVFBW8wr5Njwyni1tkgAp3leWTamx7BPQ7dwGzcmhso?=
+ =?iso-8859-1?Q?BlXAfQYesfg1IKbgQZUNWuMiO4rhoj7Y58df3gmCQ1gwU4MxcJi6KayP5w?=
+ =?iso-8859-1?Q?9EK1dafXvCDmZr4KhvV500gGnAByOjQefIIWixgvogBsJH4iIF0lZCIGHw?=
+ =?iso-8859-1?Q?oVYdohzAn+K/zHKKHyZ5/PWuU17x3B/+Dl0XkOb1go8NuQ55tL7WAB1Bt4?=
+ =?iso-8859-1?Q?ZHUzlSxCOLin4Akr9ZT3DCJVZAoqcuR6D6CiNMAG/hoYLo6G8tGEZcofx7?=
+ =?iso-8859-1?Q?Z82iHufXxqM3ihRwvspiHhqCV1otvp8ZI+/RKVuMfRrhcPRJgWtQmkMfjE?=
+ =?iso-8859-1?Q?3/kQJyjjc23Sq9zkdJR1dyPsHJYFtoarYld7sg1e/De5mUG5/7xno/UtWN?=
+ =?iso-8859-1?Q?16aEzuw/Qe7htOH2xFcu3VO2/JBEaelzHkIhd+gwDda3buKYPqmOJBxgbL?=
+ =?iso-8859-1?Q?ddiEd1zCXaVXNYQpgrT7kF7IlBQ0uBWYZtI/GQWOe3pMB8CSuDHymPJOLe?=
+ =?iso-8859-1?Q?5HsxmAzcBUUfnur0OeDytJH3+OoAh1k5pSIMI3WrBs6xMsoezGZEwqomgZ?=
+ =?iso-8859-1?Q?OZYRbA1czzLHTcdAh+FgdzoXVdDabCr6Jww6ed5a6U4EpbMZVNpYTCrW1N?=
+ =?iso-8859-1?Q?guiKKrDUTRxZiWUbR2oqlzWe7VhlF6mCMv9snm/oZPl4cmFQ4Gsy4enytH?=
+ =?iso-8859-1?Q?TDtleERLbGpyj0dwjcVhWKe+rGeBJcWN00K+R7CMGIaXIEHz2QnNhvc0/O?=
+ =?iso-8859-1?Q?PbfAtulMOPVpndqyO0koVmagultAjxieHZdzJWRm0r8p/t+kmlTCl/fxbz?=
+ =?iso-8859-1?Q?yvtSPBxCy8BLgf9YMVT6yKNV5C6oq/Et1T9CHjGQ15qqQ4+csol1ibB+x1?=
+ =?iso-8859-1?Q?LbPay1D/h3fxJuEAgvJ11ORSfKcn1Y17cARTqGDJ?=
 MIME-Version: 1.0
 X-OriginatorOrg: wdc.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: PH0PR04MB7158.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cb9c17d0-21ef-46d0-ff7d-08d9fba6ca69
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Mar 2022 17:13:22.6991 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c17829df-452e-4b6a-0585-08d9fba6caf9
+X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Mar 2022 17:13:23.5909 (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: IV/35FkPqjHlJMxvnwjWhkqy+hRqfKNwdb3QlkrmxyRAzBvUM4CA68xPmU/uDoL5LpauG+FFgMvddOszAbSXyw==
+X-MS-Exchange-CrossTenant-userprincipalname: kQIHluLybtlSDYMJ27z0dorHZ8MLH8Wsmt2DvCPNzi7oEunahS/eiZCgsr7khu6anlVveQNK+kmZeO8YholaNg==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL0PR04MB4609
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220301_091328_701065_1FBB6036 
-X-CRM114-Status: UNSURE (   8.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220301_091329_366857_602392B6 
+X-CRM114-Status: GOOD (  15.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,29 +162,78 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Niklas Cassel <niklas.cassel@wdc.com>
 
-Hello there,
+The PLIC supports a fixed number of contexts (15872).
+Each context has fixed register offsets in PLIC.
 
-This small series has two small improvements for the sifive-plic
-interrupt-controller driver.
+The number of contexts that we need to initialize depends on the privilege
+modes supported by each hart. Therefore, this mapping between PLIC context
+registers to hart privilege modes is platform specific, and is currently
+supplied via device tree.
 
-Thankful for reviews.
+For example, canaan,k210 has the following mapping:
+Context0: hart0 M-mode
+Context1: hart0 S-mode
+Context2: hart1 M-mode
+Context3: hart1 S-mode
 
+While sifive,fu540 has the following mapping:
+Context0: hart0 M-mode
+Context1: hart1 M-mode
+Context2: hart1 S-mode
 
-Changes since v1:
--Addressed review comments by Anup.
+Because the number of contexts per hart is not fixed, the names
+ENABLE_PER_HART and CONTEXT_PER_HART for the register offsets are quite
+confusing and might mislead the reader to think that these are fixed
+register offsets per hart.
 
+Rename the offsets to more clearly highlight that these are per PLIC
+context and not per hart.
 
-Kind regards,
-Niklas
+Signed-off-by: Niklas Cassel <niklas.cassel@wdc.com>
+---
+ drivers/irqchip/irq-sifive-plic.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
-
-Niklas Cassel (2):
-  irqchip/sifive-plic: Improve naming scheme for per context offsets
-  irqchip/sifive-plic: Disable S-mode IRQs if running in M-mode
-
- drivers/irqchip/irq-sifive-plic.c | 40 +++++++++++++++++++++----------
- 1 file changed, 28 insertions(+), 12 deletions(-)
-
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index 09cc98266d30..fc9da94eb816 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -44,8 +44,8 @@
+  * Each hart context has a vector of interrupt enable bits associated with it.
+  * There's one bit for each interrupt source.
+  */
+-#define ENABLE_BASE			0x2000
+-#define     ENABLE_PER_HART		0x80
++#define CONTEXT_ENABLE_BASE		0x2000
++#define     CONTEXT_ENABLE_SIZE		0x80
+ 
+ /*
+  * Each hart context has a set of control registers associated with it.  Right
+@@ -53,7 +53,7 @@
+  * take an interrupt, and a register to claim interrupts.
+  */
+ #define CONTEXT_BASE			0x200000
+-#define     CONTEXT_PER_HART		0x1000
++#define     CONTEXT_SIZE		0x1000
+ #define     CONTEXT_THRESHOLD		0x00
+ #define     CONTEXT_CLAIM		0x04
+ 
+@@ -361,11 +361,11 @@ static int __init plic_init(struct device_node *node,
+ 
+ 		cpumask_set_cpu(cpu, &priv->lmask);
+ 		handler->present = true;
+-		handler->hart_base =
+-			priv->regs + CONTEXT_BASE + i * CONTEXT_PER_HART;
++		handler->hart_base = priv->regs + CONTEXT_BASE +
++			i * CONTEXT_SIZE;
+ 		raw_spin_lock_init(&handler->enable_lock);
+-		handler->enable_base =
+-			priv->regs + ENABLE_BASE + i * ENABLE_PER_HART;
++		handler->enable_base = priv->regs + CONTEXT_ENABLE_BASE +
++			i * CONTEXT_ENABLE_SIZE;
+ 		handler->priv = priv;
+ done:
+ 		for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
 -- 
 2.35.1
 
