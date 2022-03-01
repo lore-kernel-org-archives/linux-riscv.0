@@ -4,73 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32BFBC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Mar 2022 17:28:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD515C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Mar 2022 17:30:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BvnDGPPNx3rwqUgxhJLWQZbE6+HGyOLP7R9vHjy2XYo=; b=Pi4egQ3qmgx6O5
-	Sn0voDxCwMhbG4gPJtEkchPkebYmD1Pg6KvsVKN1nZOer4DOyoUJ/+6DFt8asefRHK5ttD3C1rbNI
-	JH8547PuKTaz03HgqOXyqF83BIjWfwuRJ64wvNkTPGbZPCz5OODjWAvQRTrndyh8IqYZWFIBGr6+D
-	hINDqJYqyqSjuBGW54wylKK+YDezoNFK+OjfvLaePgUixWGWVkROf8Z1rQ3AQNiEioAEd2/oEjA3f
-	7HGhJtyhR7RdIt904d9aVkUXl2f+mRR3cX0O8dS9EXRb/fJeMJwsPWujdpF3307cHWQRiJV5SpL6K
-	RLb7hhA58/LxEpN/ubPA==;
+	List-Owner; bh=Y8jgrX/1bwnve3+iXc1ErDRVvu8MT8ItYg9A1QOJHwo=; b=CYEt1pdmtP/jqv
+	8s7VGOiUBGZMii85NXLNtS7of8OAOUnP9AExnXjM4yv3MhidpY2ar8PBtoejuMQI05iFlfGv284ia
+	mKm5f2sGhUMDkxV098v8A0n40tTjkvQPTsDjnmtMATuCmj63g9fQyl/+jN4oc9YcNJfUgWhKAzxv8
+	6NR4wFrmi+0FYVfuzLkdNBVnIvI8fa3VAXNWK9RbsSHIxaQ4hqFLstSa1pF4NtkuJK0BZhO80PDv7
+	RIGaffs8UKf91gojOAuW43zs8bOfPBYFqVxL7qrNxUYHGCCT+ItBUSkJ5xOrSFAgw8I7QEcKyL+XQ
+	8fqvUgz2Nf+ImM/AEBSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nP6Ij-00042F-4V; Tue, 01 Mar 2022 17:28:41 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1nP6KM-0004Ge-W4; Tue, 01 Mar 2022 17:30:23 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nP6If-000419-B6
- for linux-riscv@lists.infradead.org; Tue, 01 Mar 2022 17:28:38 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id t14so22766607ljh.8
- for <linux-riscv@lists.infradead.org>; Tue, 01 Mar 2022 09:28:36 -0800 (PST)
+ id 1nP6KF-0004Ee-NL
+ for linux-riscv@lists.infradead.org; Tue, 01 Mar 2022 17:30:21 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id
+ a5-20020a05600c224500b003832be89f25so11920wmm.2
+ for <linux-riscv@lists.infradead.org>; Tue, 01 Mar 2022 09:30:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20210112.gappssmtp.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=J6rJKFzG0mA/Y/OMzDnee9M1V5F+iSCSN1j1zlOuy/Q=;
- b=a1SSlv9Yxpi/Z4kJXvV+ATchd57NGzPtTPlC9Jx4BKUckh/3bCDih+Ub99F9tIAMcH
- pGQRFtG5NFO6U5sx6a3M/BRSyjJEogbEWKIkORBIVCe91kJjFHe7872YIaNkL+fJ3yUT
- D3n4hvPz52lOZsMih7qV5ug9YKsvcItPvNPbHIZfzN9SL35cs7bWukz+7gQk3wH/lPLv
- /ht2kyL6QU/JLF8mYERMFVEq0Sow2/RYv2PbL3jUt/bu2NBusrq1Fgild8+/uGxmjaDS
- yCkUYraW1QiqtQA47sKE63flOpY2D+DXHhn8T4HZ7k9JqELU35v9wVXUYXVEhgBmqFyY
- /WDQ==
+ :cc; bh=Uf1X1taqo4UUcx6a5rPAZwVvvrFYe2YWLcHslTeiopA=;
+ b=5reGqTutXtNz1hYcxF2qAiJkYIXvveXiP3/FHGHuivSzCmCO2WSHYshmz5FYEWw81X
+ B/sqMLMfMSZfSsZ5UC+8Z2ELjmbipX2TeJJrtBepCC9frntIIwt7YJbiDW4/d/JyizKM
+ VOflvv/P4bXZksKfWizBbEAyY7i+S5kLhzNgwLnoosTjhkx58fJbiaa1hRLQDfHpiy+t
+ WKa01P901b+DvVAOBmg7H6kn/kbNtfkzDtbVaMrgbQjCr9r1IsDBJ4f6pxsOsDzXm9Ox
+ 18KvJPl7mmLNg4WYUXOIb1NEaa1zBJZebsXICyHztwPwkZK5A0RNmFMW7axRzZOtozXi
+ j08Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=J6rJKFzG0mA/Y/OMzDnee9M1V5F+iSCSN1j1zlOuy/Q=;
- b=YLncPq9EIIpn5VEATqJkfjdpH4s1p8BbKKufjDbYKhEddSj07WAUFVni2shF1/8jua
- qmNR09ukPFWtA+aMWfxaggvScm9IWujAf+SqJ1wHV4wghzblx/Z9iuOSMEriHi1hFmPQ
- k0Eume2P+saRnDrNM4B1Yu9K3R06JBHXd9QiH1dOxJEhUBgPqO2ylhIDKqTqu1wLc62b
- a9OU6HfsBtipuFHswOQqB5ZF/b8VZP5pgN65hmuExtej5kqDBNbVFjKcJiiWjsILfUUj
- CEGZwQee09YA6GOCCqLNd8skmx3FLSQTV9ZiujE2TxXnPsPJ41WohW5Y4Eqa5/lhN17W
- lm+w==
-X-Gm-Message-State: AOAM532OB1NJLD2B8Awp7iTYGhlCtr4zOt41ovRSh5w9EFN6FYYOG56n
- ACCFUCaEhc2bYgHR6ElvfznH9jXz83TyVnGCErJkLA==
-X-Google-Smtp-Source: ABdhPJwsH5yOGUhQRtUmQNJOVYLgPmB3lFN+8/Ewnii1O6iE1Dqt1fT79u9z4AxQGt/yj5QzA5zhG96wvlrbEOXi0S0=
-X-Received: by 2002:a2e:9783:0:b0:244:dd26:c0f9 with SMTP id
- y3-20020a2e9783000000b00244dd26c0f9mr17782729lji.461.1646155715308; Tue, 01
- Mar 2022 09:28:35 -0800 (PST)
+ bh=Uf1X1taqo4UUcx6a5rPAZwVvvrFYe2YWLcHslTeiopA=;
+ b=XUM+tdes01WPILZOC0iOQODz6hseCXO62E/7fH1/uiTh8dQzZebEC6+EC9jbndY3zn
+ +vp9/nK8L3/F1iPjia9A0fODd9D2CwVRNT/KNoZyP2TJMJL/CcdTW5/jP1a45AEUEiRq
+ R7AhQdh6FmOpMY2WsuNtEdEpf26eV5iyWdw6RmO/bc3WzzTfL3gTneB4Q2CECp57fmgy
+ 0byygVb/zHL4S0jAQDlofvZ3TpvI4eGTxmZ2LyHGz/9ZMRNWfZS8oXOXZ6/ProgVgMQj
+ 3A2GgCMERK1G6+AZhdJdoTNrP7mEogAyuOoc2zfKQg9e3kQRbQykBxG7tY/FxLLihNOM
+ vwlg==
+X-Gm-Message-State: AOAM530v7Wzo1BzoRSI/towjQFZ219JomJCmvDYfh4aqD3mZ3UzxOnMy
+ 9ZROWXP7eZTnmGJvvJ35/o4N6/R98boeD41PxvzxrQ==
+X-Google-Smtp-Source: ABdhPJy1bAwFw8ns9ibhBgI3YPr68gfjPd8CNwohTq++HlnDhMEojEdZAtx1bSxt9hoBxBKea1M5wbDnZDLPMKDRI7M=
+X-Received: by 2002:a05:600c:42d6:b0:380:ed47:43e8 with SMTP id
+ j22-20020a05600c42d600b00380ed4743e8mr17756096wme.61.1646155813756; Tue, 01
+ Mar 2022 09:30:13 -0800 (PST)
 MIME-Version: 1.0
 References: <20220301171317.3109161-1-Niklas.Cassel@wdc.com>
- <20220301171317.3109161-2-Niklas.Cassel@wdc.com>
-In-Reply-To: <20220301171317.3109161-2-Niklas.Cassel@wdc.com>
+ <20220301171317.3109161-3-Niklas.Cassel@wdc.com>
+In-Reply-To: <20220301171317.3109161-3-Niklas.Cassel@wdc.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Tue, 1 Mar 2022 22:58:23 +0530
-Message-ID: <CAAhSdy1r7-iWuKN2F50RjL9uBtFy=zv2d0_OJVqiLJwLQOK-pA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] irqchip/sifive-plic: Improve naming scheme for per
- context offsets
+Date: Tue, 1 Mar 2022 23:00:01 +0530
+Message-ID: <CAAhSdy1zFVQw7Skfk7k3keOzamAKMhHL7280Rfy6EUu+jmC8Fw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] irqchip/sifive-plic: Disable S-mode IRQs if
+ running in M-mode
 To: Niklas Cassel <Niklas.Cassel@wdc.com>
 Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, 
  "damien.lemoal@opensource.wdc.com" <damien.lemoal@opensource.wdc.com>, 
  "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220301_092837_477699_FC0F13E7 
-X-CRM114-Status: GOOD (  24.40  )
+X-CRM114-CacheID: sfid-20220301_093015_794560_348E3B47 
+X-CRM114-Status: GOOD (  27.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,32 +93,23 @@ On Tue, Mar 1, 2022 at 10:43 PM Niklas Cassel <Niklas.Cassel@wdc.com> wrote:
 >
 > From: Niklas Cassel <niklas.cassel@wdc.com>
 >
-> The PLIC supports a fixed number of contexts (15872).
-> Each context has fixed register offsets in PLIC.
+> When detecting a context for a privilege mode different from the current
+> running privilege mode, we simply skip to the next context register.
 >
-> The number of contexts that we need to initialize depends on the privilege
-> modes supported by each hart. Therefore, this mapping between PLIC context
-> registers to hart privilege modes is platform specific, and is currently
-> supplied via device tree.
+> This means that we never clear the S-mode enable bits when running in
+> M-mode.
 >
-> For example, canaan,k210 has the following mapping:
-> Context0: hart0 M-mode
-> Context1: hart0 S-mode
-> Context2: hart1 M-mode
-> Context3: hart1 S-mode
+> On canaan k210, a bunch of S-mode interrupts are enabled by the bootrom.
+> These S-mode specific interrupts should never trigger, since we never set
+> the mie.SEIE bit in the parent interrupt controller (riscv-intc).
 >
-> While sifive,fu540 has the following mapping:
-> Context0: hart0 M-mode
-> Context1: hart1 M-mode
-> Context2: hart1 S-mode
+> However, we will be able to see the mip.SEIE bit set as pending.
 >
-> Because the number of contexts per hart is not fixed, the names
-> ENABLE_PER_HART and CONTEXT_PER_HART for the register offsets are quite
-> confusing and might mislead the reader to think that these are fixed
-> register offsets per hart.
+> This isn't a good default when CONFIG_RISCV_M_MODE is set, since in that
+> case we will never enter a lower privilege mode (e.g. S-mode).
 >
-> Rename the offsets to more clearly highlight that these are per PLIC
-> context and not per hart.
+> Let's clear the S-mode enable bits when running the kernel in M-mode, such
+> that we won't have a interrupt pending bit set, which we will never clear.
 >
 > Signed-off-by: Niklas Cassel <niklas.cassel@wdc.com>
 
@@ -128,49 +121,61 @@ Regards,
 Anup
 
 > ---
->  drivers/irqchip/irq-sifive-plic.c | 14 +++++++-------
->  1 file changed, 7 insertions(+), 7 deletions(-)
+>  drivers/irqchip/irq-sifive-plic.c | 26 +++++++++++++++++++++-----
+>  1 file changed, 21 insertions(+), 5 deletions(-)
 >
 > diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-> index 09cc98266d30..fc9da94eb816 100644
+> index fc9da94eb816..e6193d66c0ae 100644
 > --- a/drivers/irqchip/irq-sifive-plic.c
 > +++ b/drivers/irqchip/irq-sifive-plic.c
-> @@ -44,8 +44,8 @@
->   * Each hart context has a vector of interrupt enable bits associated with it.
->   * There's one bit for each interrupt source.
->   */
-> -#define ENABLE_BASE                    0x2000
-> -#define     ENABLE_PER_HART            0x80
-> +#define CONTEXT_ENABLE_BASE            0x2000
-> +#define     CONTEXT_ENABLE_SIZE                0x80
+> @@ -81,17 +81,23 @@ static int plic_parent_irq __ro_after_init;
+>  static bool plic_cpuhp_setup_done __ro_after_init;
+>  static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
 >
->  /*
->   * Each hart context has a set of control registers associated with it.  Right
-> @@ -53,7 +53,7 @@
->   * take an interrupt, and a register to claim interrupts.
->   */
->  #define CONTEXT_BASE                   0x200000
-> -#define     CONTEXT_PER_HART           0x1000
-> +#define     CONTEXT_SIZE               0x1000
->  #define     CONTEXT_THRESHOLD          0x00
->  #define     CONTEXT_CLAIM              0x04
+> -static inline void plic_toggle(struct plic_handler *handler,
+> -                               int hwirq, int enable)
+> +static inline void __plic_toggle(void __iomem *enable_base,
+> +                                int hwirq, int enable)
+>  {
+> -       u32 __iomem *reg = handler->enable_base + (hwirq / 32) * sizeof(u32);
+> +       u32 __iomem *reg = enable_base + (hwirq / 32) * sizeof(u32);
+>         u32 hwirq_mask = 1 << (hwirq % 32);
 >
-> @@ -361,11 +361,11 @@ static int __init plic_init(struct device_node *node,
+> -       raw_spin_lock(&handler->enable_lock);
+>         if (enable)
+>                 writel(readl(reg) | hwirq_mask, reg);
+>         else
+>                 writel(readl(reg) & ~hwirq_mask, reg);
+> +}
+> +
+> +static inline void plic_toggle(struct plic_handler *handler,
+> +                              int hwirq, int enable)
+> +{
+> +       raw_spin_lock(&handler->enable_lock);
+> +       __plic_toggle(handler->enable_base, hwirq, enable);
+>         raw_spin_unlock(&handler->enable_lock);
+>  }
 >
->                 cpumask_set_cpu(cpu, &priv->lmask);
->                 handler->present = true;
-> -               handler->hart_base =
-> -                       priv->regs + CONTEXT_BASE + i * CONTEXT_PER_HART;
-> +               handler->hart_base = priv->regs + CONTEXT_BASE +
-> +                       i * CONTEXT_SIZE;
->                 raw_spin_lock_init(&handler->enable_lock);
-> -               handler->enable_base =
-> -                       priv->regs + ENABLE_BASE + i * ENABLE_PER_HART;
-> +               handler->enable_base = priv->regs + CONTEXT_ENABLE_BASE +
-> +                       i * CONTEXT_ENABLE_SIZE;
->                 handler->priv = priv;
->  done:
->                 for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
+> @@ -324,8 +330,18 @@ static int __init plic_init(struct device_node *node,
+>                  * Skip contexts other than external interrupts for our
+>                  * privilege level.
+>                  */
+> -               if (parent.args[0] != RV_IRQ_EXT)
+> +               if (parent.args[0] != RV_IRQ_EXT) {
+> +                       /* Disable S-mode enable bits if running in M-mode. */
+> +                       if (IS_ENABLED(CONFIG_RISCV_M_MODE)) {
+> +                               void __iomem *enable_base = priv->regs +
+> +                                       CONTEXT_ENABLE_BASE +
+> +                                       i * CONTEXT_ENABLE_SIZE;
+> +
+> +                               for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
+> +                                       __plic_toggle(enable_base, hwirq, 0);
+> +                       }
+>                         continue;
+> +               }
+>
+>                 hartid = riscv_of_parent_hartid(parent.np);
+>                 if (hartid < 0) {
 > --
 > 2.35.1
 >
