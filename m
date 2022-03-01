@@ -4,146 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2DD4C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Mar 2022 00:52:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26F7CC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Mar 2022 03:01:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HUN2DmoqG3q06CTk95L7IkWJ/wy5uce7bSPaCTQqqRA=; b=EtDHc0CgafuNsT
-	Y0EpWoui3/7ietYxaBF1HAlimcKKXNvFhidN9Cr4k1655jfo8fIIr9QuZ2SPIY3uXjUPme41lDDwo
-	q4Aon0X2UCCuPXD7neQBKM7Yl8N9EWs+6gbQY5ptBRQ6HlC5NdzcFiqm7Cza2boFKlFiWj4htmk2O
-	yLyhiSRsXAZEwaKas+6chgxqQ/qpjBDsfHwA73VqE/HvrCirXcIWgd0JWeMCv3VZ56am7izLGKug7
-	sri7jLbUizL1Xcg70XJ4hPwmRVckrgbpq5bclWf1m99V4gKy8SR2fIgT3qWNFUL0uIp8q77ORo+zw
-	Sz2xTEs81YAILkrqiWOg==;
+	List-Owner; bh=w29+bhbmYtpvrPnKvUb5JC0sYKmbKFKIhglInexdGPs=; b=J3jkdeftSLwpBi
+	Q1xn+NC+x0zhnsPjiVL3+ficbAsnmX6kkcZtJyaIr0l9w7GTtyQay4tkll8QxVh0tkQJLXn2epCdK
+	Ss/+jbt2zLGf6ln1xL7Bo060UncSdBmf7q8WdFBEX6h34xD8lsHGs6S99dJbQhbuIthfVky7YVLRQ
+	DDHJMJ6eQQfhDb3YBxf7Q7H8RRPIVU2tR6+3BuiM2BmP04uLx6xKZE9/9xm3joeMv92zf7x8Af2sm
+	ZQeFDXYVo6WTaWlhMd3k/wQRJASasG8I89GMS+jthEXU+MxL6tGTg9iPyEP+SqpxXswjALe3RNXpc
+	87y1BCZ7W5BBYwdJRvrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nOqkF-00EXEH-18; Tue, 01 Mar 2022 00:52:03 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1nOslB-00Ekw8-P2; Tue, 01 Mar 2022 03:01:09 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nOqkB-00EXDH-I7
- for linux-riscv@lists.infradead.org; Tue, 01 Mar 2022 00:52:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1646095918; x=1677631918;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-transfer-encoding:mime-version;
- bh=Gl8CmiaD+oLJ84IAQAj/p5IpqHdKAYJdVlaEXxHd6No=;
- b=nf0UoUms1MZfGwe1UgBabZhQwkDkJkSwTjgxyhQqjSiSz9LCH8NccN8W
- DFGdkNer2791qOhpSAye2Tf+9NbZsdA9b47bOmtYgqLjEngm5bpvYCjp/
- /9T9N0V6hqTMPGEea5vlrixmESkhWMPqLID73oO3jMRFGVwqlxcDD5qu6
- uB9FuNYSnN9lTcVg3KT1K9mgUxN78UbD9Ner5KfOSYJXKi90mi2w9wxvc
- zPN32phJV5oaFqoTIbv18n/1Jj5ZafpZ8ekwU6UYbqm2srSe5KqAkiChw
- 4Dg4KsnRDeur6S/AAK7FeKHAuH5kuphMWRMUmYZbpvnG6ZANvbsQYoGxM Q==;
-X-IronPort-AV: E=Sophos;i="5.90,144,1643644800"; d="scan'208";a="194154181"
-Received: from mail-mw2nam10lp2109.outbound.protection.outlook.com (HELO
- NAM10-MW2-obe.outbound.protection.outlook.com) ([104.47.55.109])
- by ob1.hgst.iphmx.com with ESMTP; 01 Mar 2022 08:51:56 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=kiJALOP8XTd4FESZxNYj1tOdxCOf4uv3nP1DN+/nEdIm4YYJO9k5h3CjxquUmeA6oJGHiYut6sWCmAmZUKQ7iJ49wzFy39iwdy7NnFnrLIXXIymSmb9+P0Mm8AWRnag9vk/KDseHzafpnP3vVo0jhaUk5tSsdCXosfXA4u00Rdaiz1Nq5H9jJioqFRxCN3kDJQwG1xwCn1WOl4r6mfVNWDIvQhmDXgWzuHbQ5twPkN3HEQBAcE0qo+q4OqMJyQA3FjsHeGwaMHl/P0WsmE6M/1MmekpUXgFBrRx+tuCTbM+Sc51AohMHjyjwdMH39XWwrxL46rDyH6KHltAbo6OOPw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4ca7IKHUtluCbDKVvFNedoQ6fzy0NnEtz7cKWsBKwWM=;
- b=HJFTAAea8hhDDEyFMvDmda5zWzeYXwqWf++cO60a0f2QE7yqo/W8+PQfZHvGFGrS+1YM7C4M6n4AtUNvdtXzRgEP86k8CPq6uh9l9MGa+SYRfSzR9yyOmdN5PtrkOEt78Ym8IpVBSOqeuJunZcunDdAZKPt7zJQm6AlKTMWwa4Dq7gxPD5gdUU4KwXlnGuSyiX3Z5tznI3UEeVYJqs8O7xZwAZpxNm31QtXiWk297DxMaytHh9Ocw6DblnSxDQiI4VjOQLxD+MOIdZlPh314iVaHns1dq1gK0gpFYCaj60XJ6uY5nTGSi685FBQYCurzL0+5QE4syvlR1GHeGrCEyg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4ca7IKHUtluCbDKVvFNedoQ6fzy0NnEtz7cKWsBKwWM=;
- b=sqdLp7n1IxZB7N3a6kke5yFnMxlULJDtdL/zErCTx4azTiUYWT7+b72FYFgXyZG2Rbchk9+jQ7P6iKVq6KwRp7jxiUgI/b7dLk78letCQonf1xjCAAuELFEoRAiT1wxJWubX+Opz4Yra8Hx6lZa4NI12ZErIwvesnpk8Q8Up5OQ=
-Received: from PH0PR04MB7158.namprd04.prod.outlook.com (2603:10b6:510:8::18)
- by DM6PR04MB4604.namprd04.prod.outlook.com (2603:10b6:5:23::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5017.22; Tue, 1 Mar
- 2022 00:51:55 +0000
-Received: from PH0PR04MB7158.namprd04.prod.outlook.com
- ([fe80::f025:4f23:8e46:b2ed]) by PH0PR04MB7158.namprd04.prod.outlook.com
- ([fe80::f025:4f23:8e46:b2ed%2]) with mapi id 15.20.5017.027; Tue, 1 Mar 2022
- 00:51:55 +0000
-From: Niklas Cassel <Niklas.Cassel@wdc.com>
-To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-CC: Niklas Cassel <Niklas.Cassel@wdc.com>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>
-Subject: [PATCH 2/2] irqchip/sifive-plic: Disable S-mode IRQs if running in
- M-mode
-Thread-Topic: [PATCH 2/2] irqchip/sifive-plic: Disable S-mode IRQs if running
- in M-mode
-Thread-Index: AQHYLQaLJPTWpQA5XEukD59TAjASOA==
-Date: Tue, 1 Mar 2022 00:51:54 +0000
-Message-ID: <20220301005142.3038702-3-Niklas.Cassel@wdc.com>
-References: <20220301005142.3038702-1-Niklas.Cassel@wdc.com>
-In-Reply-To: <20220301005142.3038702-1-Niklas.Cassel@wdc.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: git-send-email 2.35.1
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=wdc.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 0d98ade1-2f76-48cf-8388-08d9fb1daee0
-x-ms-traffictypediagnostic: DM6PR04MB4604:EE_
-x-microsoft-antispam-prvs: <DM6PR04MB460413659BACF8E2FB3D7741F2029@DM6PR04MB4604.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: ReEbnqxwx+MtDYg/ANdX1B3UM1DiQv6wGjyBhq7psKxso9XgU4/zjhKVDKosqUp62lfSLpW0C54XGZCBOeJzZIM+FVFHe/zdp+OcRcCZ7EWDa3ncUwub5YqYEqBThyoQKXo4nWzurM0Knv6/wsMNANMLBTm5gpHHgdqFcwXOCe3banHa4YmiY6+1UtQ30UL5is3DE1KvqpV+QMCj9A5aAJOHyzJ1VlAd93VZQjbHBZ5t13kZBHPrnUfHB44n9CLCBOs0VNz77tcllU3O7Ij0SohAKM3k7fRNFWNvsbUfyaCKVmd3FGTTlFfsWbUJSuWc2YnKFDJ21jFgEYjwRLU9LclAkP1MsL0qDGyBd10wS+2qz3MnDvyxUksrOhSq3LXr2bAYp/4U1Qgb5Gq1rmwN+NoQPcmVRYYAmMmIP1FpL3PekceQlNcRfc/h+jYd4TPqhemxGesvvwwXTHjuMR0UHA/DhkGCg3kbztD7Nfh0zwA1CyO+QcD5FxamuGikX+IS9lwguZeesCgDotGwwep8ShWsBWHITJ+5POUYeWT3VS1qbPLJGHPFymKlOKCKx3cHjkM2IE+80uKE72pqMbE0dhL4ayHLbcyalek6uksZ+vYGCmF1W4LaGXK1znx9iyxDNfWTIq/t7Azsg1WjFWqc18Zb5zHhCO2Nl3KAyePLofKMdar4sTQzE5cEwn/r3re3xKXsFZFXzvhV3YDaITLd5w==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:PH0PR04MB7158.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(13230001)(4636009)(366004)(186003)(26005)(2616005)(66446008)(64756008)(71200400001)(66476007)(66946007)(66556008)(54906003)(86362001)(6486002)(1076003)(508600001)(91956017)(83380400001)(76116006)(36756003)(8676002)(122000001)(4326008)(6506007)(82960400001)(8936002)(6512007)(38070700005)(5660300002)(110136005)(38100700002)(316002)(2906002);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?VV8YpqDRsiZ8KTzvcD2uBSgWkke4mwiHSqMbezMLEnDR1atXSocVK0e207?=
- =?iso-8859-1?Q?I+SpDcBOnVDj3jmOxoppbmgPVVRes0CUwoGSNquveDBwSonBduCryEEpNn?=
- =?iso-8859-1?Q?rZbPziUtVpwbLWK35qCxE109jCOVrNb4hPRNB+MevjMajm1unz65qXJ7rf?=
- =?iso-8859-1?Q?GviDygpRpzx4U6lhFrM3FYFHyqOEqcnL4NqiAli3FB2QF93jwNec5nghxD?=
- =?iso-8859-1?Q?Txlxnbfh6WQ3TuanLqBO+QKKUGROBJdwh8MdGb1QolxTzhHBp9sMJeyPpE?=
- =?iso-8859-1?Q?wdRzcd66CYPl3W1hJ5m5ffQc0yHVsSIzv6ShSBhwUBozdOoxH30QPhFCE5?=
- =?iso-8859-1?Q?hm7Qh/sz7/DdbLcNF6sgE0SPsreqnjYajm5cHuwgdTSbkgBuGSseroNy5g?=
- =?iso-8859-1?Q?NuNVkEd5C6owLdYtKyVaB+d4bWo6Cx1STPTTqbyEDQ4D5SDeS2mhAEMtkc?=
- =?iso-8859-1?Q?BdWgS7UknyeCmCH8YhCaYyqXQQitfQ8rjYI5aUvv9Vm0oW3oxZ14b105Ww?=
- =?iso-8859-1?Q?5fo6R8FxDEk01IAhmxYzA3qWAUCUmbsAzpz0UnBLvUtCSnaMsvedHrPEES?=
- =?iso-8859-1?Q?lFIm/3pOr11qyx5v3IgvX6I4TH34FJifTKKur7bfjxeZA6P46fAY3tm+OI?=
- =?iso-8859-1?Q?9VeOnghqH+QQxElDuBOaojzxHiV5Ngh5wEQfDH1oV4exB3E24IH5gREGt1?=
- =?iso-8859-1?Q?KrxFzsLdeoiMHw3Zr3p5Dq8AKsLQ17sjEK5ZN9oSvin08mnygQBvOFjxSX?=
- =?iso-8859-1?Q?in9D+C4PpsW4os8EBADs7j8ZBBhztTl0oqT0Q95DwgQj8gFZUBqo1MFZlO?=
- =?iso-8859-1?Q?sAcUkWNz1zXfibYKcSPhudIhLpO/BUSbjzZOn5VdBHHXc8Q4Rzb2qtoRgv?=
- =?iso-8859-1?Q?cJWYOefgtqZ5qCk3JujFs5yJLsBEMkAN9hM7w1LWJBNOLuX6hLGHvY/3d8?=
- =?iso-8859-1?Q?hgefpXRRCAHNTNoMMAGPDhsuC5XGRj5m2fl2KkDE5QnJNFMOcPYYIfC9kp?=
- =?iso-8859-1?Q?q6xgdi9X9fU9tewCk96CezqJezvLhQrP/y+s4BEDVmjAjPYRrZ6ZzI/Fj+?=
- =?iso-8859-1?Q?6jI0pMrv2oj6qV3/DdSGpLIuZvye3mi4QRzUMHE608TQMvTFq5nDuaSWYc?=
- =?iso-8859-1?Q?SykZMmfNErOtoRxA2hyc/oRwvLhC115XBIfmTWSDWIeVV464UX3JSrKGU4?=
- =?iso-8859-1?Q?RUAh/ReI9gYDbVJKjR00LFh39eg4ObJubPjjbOo5/CmxX+gQ+2j3SMT8YL?=
- =?iso-8859-1?Q?3+8SW838zQlzK4DXtLP902wNd3wafWS98Fyyo697UlAuumgIfS9jsPQzjR?=
- =?iso-8859-1?Q?8kxyismfMPn4lM47d3eGTR4cQ1NgiYUy4B5595B7FFr7R6tIIvPA48d1/g?=
- =?iso-8859-1?Q?m/2NGSCK7Nv7Sl55OlQrsg1dsT9uRfKRfaAw5YZkTJhe2zcaxfNVZGTA+r?=
- =?iso-8859-1?Q?Gk6dFcJtGPXHy4SguGzpJGIYFU9Iv79YDpz6obtvn60jG8okZZaQSDG2Gt?=
- =?iso-8859-1?Q?Mey+FOQyu8g04ztZj8wOi/r9dy28eR9vR9BQv7A6PkLhkOIg69farSLdnP?=
- =?iso-8859-1?Q?KbWX0BIoxFrqbO0CHMbZV10j8IXIPyD4dOXFlX6QgL9SSfbhFF1yfUpTrf?=
- =?iso-8859-1?Q?mAQGqnFAOCI3hIlrHtqUpbMqU57+QpYHH3gnHMdLAjeFYi40ub+giKEerA?=
- =?iso-8859-1?Q?HALd2Xu88Se1MtdgPB8=3D?=
+ id 1nOsky-00EksS-MM; Tue, 01 Mar 2022 03:00:58 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id
+ j10-20020a17090a94ca00b001bc2a9596f6so984817pjw.5; 
+ Mon, 28 Feb 2022 19:00:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=yGn3vdANW1r5F/Ia+3L2V3BcvELrYmTYHlCTQDMODUY=;
+ b=ep9QUCPFrKQKKDYCeQZombvPSACDX5QAanOooXEIHsClagi7wvLSHLUpmEJEcOkSAp
+ i4x+uBIRBF8TmYZhMV466UK9SW6J9IcxG4qg97PuHEs8Nj1BYAsILZ7ISr//Iq1RINTh
+ K40dIR1Twn/KwTxXgneKoOpQO16AO+7fguGlE/GsT+xqRXKy681lN9yKVw6fL1fAN5Mg
+ 8egYde8mesDN4EdSYaKsOv4+iaHdjnXtd0cVZkMDaYCEl8RjkJkpojGim9lQ4FvCWcbA
+ o08PP6uifdwrB0QgCHtLEmdEdrqH1rtpjuiONmzcS9rq8Kroc0P5JmsCF6OrQaJnnJOh
+ 8eng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=yGn3vdANW1r5F/Ia+3L2V3BcvELrYmTYHlCTQDMODUY=;
+ b=Va0Vrorm7aBfa2W/ZHJhsKojSwfBPTvulVWXHTTrIoXkg7gL2oJ/rfA6USW6uVEvPc
+ ujTfCuzLbcnx8v/xLBoieQGKQgW8DhQT+thutyWZaO4OZNLG6SkaOm/MjJPgwpePct44
+ ZWbBcGOKJcIqzhe1sbg0PsBPjAP0Uh1cZxy0croiyX+chYb8tWRInr1/z/X0WYhw0qQ/
+ DnbzzLAKZFOFTLLLtcugZM3AMfgwwnOzANm4Nmp5zRRtN5WoupcBauq4zamsi+gf/Is/
+ BgjbVuKfDJtCxdq4zg59jNuUJfr3aTrZEfqJ5dAJ1iOcBppcHuUEb1n4vP9wkOkMkUYM
+ zlRA==
+X-Gm-Message-State: AOAM530Oe/H+jf5NVWnfv4vt7DmwTsaDerk7x7WKC0XasGxuLicDog66
+ JsbytG0RBKtWAd66sP8BiVo=
+X-Google-Smtp-Source: ABdhPJwrzwLsxcQUuidgmrPiWBuhODP8xX9zz34P7cXvnVYJLbgEO9+KzVp847C96T0rs95EBaonHA==
+X-Received: by 2002:a17:90a:f02:b0:1bd:ab6:42ec with SMTP id
+ 2-20020a17090a0f0200b001bd0ab642ecmr16187772pjy.18.1646103654246; 
+ Mon, 28 Feb 2022 19:00:54 -0800 (PST)
+Received: from monstilationax (41.68.233.220.static.exetel.com.au.
+ [220.233.68.41]) by smtp.gmail.com with ESMTPSA id
+ be6-20020a656e46000000b0036c7c63e915sm11135691pgb.48.2022.02.28.19.00.53
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 28 Feb 2022 19:00:53 -0800 (PST)
+From: Matt Flax <flatmax@gmail.com>
+X-Google-Original-From: Matt Flax <flatmax@flatmax.com>
+Received: by monstilationax (Postfix, from userid 1000)
+ id 8B6083848BC0; Tue,  1 Mar 2022 14:00:50 +1100 (AEDT)
+To: nsaenzjulienne@suse.de
+Cc: ardb@kernel.org, catalin.marinas@arm.com, devicetree@vger.kernel.org,
+ guohanjun@huawei.com, hch@lst.de, iommu@lists.linux-foundation.org,
+ jeremy.linton@arm.com, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+ linux-rpi-kernel@lists.infradead.org, lorenzo.pieralisi@arm.com,
+ robh+dt@kernel.org, robin.murphy@arm.com, will@kernel.org,
+ Matt Flax <flatmax@flatmax.com>
+Subject: Re: [PATCH v7 0/7] arm64: Default to 32-bit wide ZONE_DMA
+Date: Tue,  1 Mar 2022 14:00:31 +1100
+Message-Id: <20220301030031.4025282-1-flatmax@flatmax.com>
+X-Mailer: git-send-email 2.32.0
+In-Reply-To: <20201119175400.9995-1-nsaenzjulienne@suse.de>
+References: <20201119175400.9995-1-nsaenzjulienne@suse.de>
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR04MB7158.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0d98ade1-2f76-48cf-8388-08d9fb1daee0
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Mar 2022 00:51:55.4958 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: fFypKtmW32UaxCUVgO9WnKT3BgvuWX1WbPY00bVZTbodfo/lCHpxyrtTgsvpRlga+DV2Xnwku2/lb8kr1H9NVw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB4604
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220228_165159_633658_D1677958 
-X-CRM114-Status: GOOD (  18.36  )
+X-CRM114-CacheID: sfid-20220228_190056_752908_0087F2ED 
+X-CRM114-Status: UNSURE (   8.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,59 +99,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Niklas Cassel <niklas.cassel@wdc.com>
+Hi All,
 
-When detecting a hart context for a privilege mode different from the
-current running privilege mode, we simply skip to the next hart context
-register.
+It seems that the ZONE_DMA changes have broken the operation of Rochip rk3399 chipsets from v5.10.22 onwards.
 
-This means that we never clear the S-mode enable bits when running in
-M-mode.
+It isn't clear what needs to be changed to get any of these boards up and running again. Any pointers on how/what to change ?
 
-On canaan k210, a bunch of S-mode interrupts are enabled by the bootrom.
-These S-mode specific interrupts should never trigger, since we never set
-the mie.SEIE bit in the parent interrupt controller (riscv-intc).
+An easy test for debugging is to run stress :
 
-However, we will be able to see the mip.SEIE bit set as pending.
+stress --cpu 4 --io 4 --vm 2 --vm-bytes 128M
 
-This doesn't seem like a good default when CONFIG_RISCV_M_MODE is set,
-since in that case we will never enter lower privilege mode (e.g. S-mode).
+stress: info: [255] dispatching hogs: 4 cpu, 4 io, 2 vm, 0 hdd
+[    8.070280] SError Interrupt on CPU4, code 0xbf000000 -- SError
+[    8.070286] CPU: 4 PID: 261 Comm: stress Not tainted 5.10.21 #1
+[    8.070289] Hardware name: FriendlyElec NanoPi M4 (DT)
+[    8.070293] pstate: 00000005 (nzcv daif -PAN -UAO -TCO BTYPE=--)
+[    8.070296] pc : clear_page+0x14/0x28
+[    8.070298] lr : clear_subpage+0x50/0x90
+[    8.070302] sp : ffff800012abbc40
+[    8.070305] x29: ffff800012abbc40 x28: ffff000000f68000 
+[    8.070313] x27: 0000000000000000 x26: ffff000001f38e40 
+[    8.070320] x25: ffff8000114fd000 x24: 0000000000000000 
+[    8.070326] x23: 0000000000000000 x22: 0000000000001000 
+[    8.070334] x21: 0000ffffa7e00000 x20: fffffe0000010000 
+[    8.070341] x19: ffff000000f68000 x18: 0000000000000000 
+[    8.070348] x17: 0000000000000000 x16: 0000000000000000 
+[    8.070354] x15: 0000000000000002 x14: 0000000000000001 
+[    8.070361] x13: 0000000000075879 x12: 00000000000000c0 
+[    8.070368] x11: ffff80006c46a000 x10: 0000000000000200 
+[    8.070374] x9 : 0000000000000000 x8 : 0000000000000010 
+[    8.070381] x7 : ffff00007db800a0 x6 : ffff800011b899c0 
+[    8.070387] x5 : 0000000000000000 x4 : ffff00007db800f7 
+[    8.070394] x3 : 0000020000200000 x2 : 0000000000000004 
+[    8.070401] x1 : 0000000000000040 x0 : ffff0000085ff4c0 
+[    8.070409] Kernel panic - not syncing: Asynchronous SError Interrupt
+[    8.070412] CPU: 4 PID: 261 Comm: stress Not tainted 5.10.21 #1
+[    8.070415] Hardware name: FriendlyElec NanoPi M4 (DT)
+[    8.070418] Call trace:
+[    8.070420]  dump_backtrace+0x0/0x1b0
+[    8.070423]  show_stack+0x18/0x70
+[    8.070425]  dump_stack+0xd0/0x12c
+[    8.070428]  panic+0x16c/0x334
+[    8.070430]  nmi_panic+0x8c/0x90
+[    8.070433]  arm64_serror_panic+0x78/0x84
+[    8.070435]  do_serror+0x64/0x70
+[    8.070437]  el1_error+0x88/0x108
+[    8.070440]  clear_page+0x14/0x28
+[    8.070443]  clear_huge_page+0x74/0x210
+[    8.070445]  do_huge_pmd_anonymous_page+0x1b0/0x7c0
+[    8.070448]  handle_mm_fault+0xdac/0x1290
+[    8.070451]  do_page_fault+0x130/0x3a0
+[    8.070453]  do_translation_fault+0xb0/0xc0
+[    8.070456]  do_mem_abort+0x44/0xb0
+[    8.070458]  el0_da+0x28/0x40
+[    8.070461]  el0_sync_handler+0x168/0x1b0
+[    8.070464]  el0_sync+0x174/0x180
+[    8.070508] SError Interrupt on CPU0, code 0xbf000000 -- SError
+[    8.070511] CPU: 0 PID: 258 Comm: stress Not tainted 5.10.21 #1
+[    8.070515] Hardware name: FriendlyElec NanoPi M4 (DT)
+[    8.070518] pstate: 80000000 (Nzcv daif -PAN -UAO -TCO BTYPE=--)
+[    8.070520] pc : 0000aaaacec22e98
+[    8.070523] lr : 0000aaaacec22d84
+[    8.070525] sp : 0000ffffe67a8620
+[    8.070528] x29: 0000ffffe67a8620 x28: 0000000000000003 
+[    8.070534] x27: 0000aaaacec34000 x26: 0000ffffaeb42610 
+[    8.070541] x25: 0000ffffa69af010 x24: 0000aaaacec23a98 
+[    8.070547] x23: 0000aaaacec35010 x22: 0000aaaacec35000 
+[    8.070554] x21: 0000000000001000 x20: ffffffffffffffff 
+[    8.070560] x19: 0000000008000000 x18: 0000000000000000 
+[    8.070567] x17: 0000000000000000 x16: 0000000000000000 
+[    8.070573] x15: 0000000000000000 x14: 0000000000000000 
+[    8.070580] x13: 0000000000008000 x12: 0000000000000000 
+[    8.070587] x11: 0000000000000020 x10: 0000000000000030 
+[    8.070593] x9 : 000000000000000a x8 : 00000000000000de 
+[    8.070599] x7 : 0000000000200000 x6 : 000000000000021b 
+[    8.070606] x5 : 0000000000000000 x4 : ffffffffffffffff 
+[    8.070613] x3 : 0000000000000000 x2 : 0000ffffaeb47000 
+[    8.070619] x1 : 000000000000005a x0 : 0000000000a58000 
+[    8.070629] SMP: stopping secondary CPUs
+[    8.070632] Kernel Offset: disabled
+[    8.070634] CPU features: 0x0240022,6100600c
+[    8.070637] Memory Limit: none
 
-Let's clear the S-mode enable bits when running the kernel in M-mode, such
-that we won't have a interrupt pending bit set, which we will never clear.
 
-Signed-off-by: Niklas Cassel <niklas.cassel@wdc.com>
----
- drivers/irqchip/irq-sifive-plic.c | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index 211bcb10aa93..46caeb11a114 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -326,8 +326,19 @@ static int __init plic_init(struct device_node *node,
- 		 * Skip contexts other than external interrupts for our
- 		 * privilege level.
- 		 */
--		if (parent.args[0] != RV_IRQ_EXT)
-+		if (parent.args[0] != RV_IRQ_EXT) {
-+			/* Disable S-mode enable bits if running in M-mode. */
-+			if (IS_ENABLED(CONFIG_RISCV_M_MODE)) {
-+				struct plic_handler tmp_handler = {};
-+
-+				raw_spin_lock_init(&tmp_handler.enable_lock);
-+				tmp_handler.enable_base = priv->regs +
-+					ENABLE_BASE + i * ENABLE_PER_HART_CTX;
-+				for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
-+					plic_toggle(&tmp_handler, hwirq, 0);
-+			}
- 			continue;
-+		}
- 
- 		hartid = riscv_of_parent_hartid(parent.np);
- 		if (hartid < 0) {
 -- 
-2.35.1
+2.32.0
+
 
 _______________________________________________
 linux-riscv mailing list
