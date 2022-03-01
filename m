@@ -4,48 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE036C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Mar 2022 11:02:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81952C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Mar 2022 11:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aKVVUPkGsbxkejBRXVht2MpjGqZkJ9isZQBwxVviNqA=; b=pn7JwM98ovZWv3
-	x5d0zQDpnNRkQprT0qrF+WEu20aP72Tf7f4uss7h403SE9zzT+eRx4sTBqP47Qf0WXA8VqlLZoMcx
-	5y507tM5PQ892GTZ3b2l0+pbSAlIbNhvACJiszwyp+OFK8Q1tzpZ4i80c1Sfgo5jzPes14NVG44Vh
-	efaDtMXuMaPzcskeGtceBVI8nSPp4yyZ46IQM7un9YCh140bgwDlA9veVr5rpnAtizCTZx2NfoULm
-	hoiclIc8/Bm6yYrvCxIpVGj4I5DSMCDr7WeJtGKeZFLGToSKCj1jMXTlaWA/lY/P6CQezsPSDkzuh
-	MusRLx3L9tzkUOlEHsWg==;
+	List-Owner; bh=7g2zJxc+VzgfNAsHO4wzqdDkfACPFgl4IHS+RYAFDuk=; b=QWBopD5IAizGEA
+	0TbPxzHnVCsZRONNB9OZcB7bV+PQhASG2mp/eugrmBND8qR65+gcrNDuTJjLLnVpq2wbsG/4z9smm
+	eROmTHSifmYKVOdvyvtJGI0IeHfA7Lie+k1H+D/3taF1qbXF5ZKaas1MCTkjFD+u/aleFQVRw2Sas
+	dez9CCTpFe1Pku8/4i/L50K4NdUtbNbDbJCurToFXWrM9SV6FgUPh9XxWtSCeUUoTKgr0W699sseZ
+	iUxcVj9/6YEORPWIy7lRNstwmM6Vpl3VtdQxibmIfnQaP9+rAmkz63KRIPyvEjwyELZpVsJ1wDrQB
+	5fSDcl8E6mDyPtPAMMjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nP0Gv-00GIR0-Fo; Tue, 01 Mar 2022 11:02:25 +0000
-Received: from [2.53.44.23] (helo=localhost)
- by bombadil.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nP08m-00GDNp-DY; Tue, 01 Mar 2022 10:54:01 +0000
-From: Christoph Hellwig <hch@lst.de>
-To: iommu@lists.linux-foundation.org
-Cc: x86@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
- Tom Lendacky <thomas.lendacky@amd.com>,
- Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>,
- Stefano Stabellini <sstabellini@kernel.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- Juergen Gross <jgross@suse.com>, Joerg Roedel <joro@8bytes.org>,
- David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>,
- Robin Murphy <robin.murphy@arm.com>, linux-arm-kernel@lists.infradead.org,
- xen-devel@lists.xenproject.org, linux-ia64@vger.kernel.org,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-hyperv@vger.kernel.org, tboot-devel@lists.sourceforge.net,
- linux-pci@vger.kernel.org
-Subject: [PATCH 12/12] x86: remove cruft from <asm/dma-mapping.h>
-Date: Tue,  1 Mar 2022 12:53:11 +0200
-Message-Id: <20220301105311.885699-13-hch@lst.de>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20220301105311.885699-1-hch@lst.de>
-References: <20220301105311.885699-1-hch@lst.de>
+	id 1nP0Ke-00GKDg-Hm; Tue, 01 Mar 2022 11:06:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nP0Aw-00GEt8-Rr; Tue, 01 Mar 2022 10:56:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F7FBED1;
+ Tue,  1 Mar 2022 02:56:13 -0800 (PST)
+Received: from [10.57.39.47] (unknown [10.57.39.47])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 701873F73D;
+ Tue,  1 Mar 2022 02:56:10 -0800 (PST)
+Message-ID: <4e4bb61a-377e-1ec9-5998-214055ef0a78@arm.com>
+Date: Tue, 1 Mar 2022 10:56:05 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101
+ Thunderbird/91.6.1
+Subject: Re: [PATCH v7 0/7] arm64: Default to 32-bit wide ZONE_DMA
+Content-Language: en-GB
+To: Matt Flax <flatmax@gmail.com>, nsaenzjulienne@suse.de
+Cc: ardb@kernel.org, catalin.marinas@arm.com, devicetree@vger.kernel.org,
+ guohanjun@huawei.com, hch@lst.de, iommu@lists.linux-foundation.org,
+ jeremy.linton@arm.com, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+ linux-rpi-kernel@lists.infradead.org, lorenzo.pieralisi@arm.com,
+ robh+dt@kernel.org, will@kernel.org, Matt Flax <flatmax@flatmax.com>
+References: <20201119175400.9995-1-nsaenzjulienne@suse.de>
+ <20220301030031.4025282-1-flatmax@flatmax.com>
+From: Robin Murphy <robin.murphy@arm.com>
+In-Reply-To: <20220301030031.4025282-1-flatmax@flatmax.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20220301_025615_079111_497F95B0 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,58 +63,110 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-<asm/dma-mapping.h> gets pulled in by all drivers using the DMA API.
-Remove x86 internal variables and unnecessary includes from it.
+Hi Matt,
 
-Signed-off-by: Christoph Hellwig <hch@lst.de>
----
- arch/x86/include/asm/dma-mapping.h | 11 -----------
- arch/x86/include/asm/iommu.h       |  2 ++
- 2 files changed, 2 insertions(+), 11 deletions(-)
+On 2022-03-01 03:00, Matt Flax wrote:
+> Hi All,
+> 
+> It seems that the ZONE_DMA changes have broken the operation of Rochip rk3399 chipsets from v5.10.22 onwards.
+> 
+> It isn't clear what needs to be changed to get any of these boards up and running again. Any pointers on how/what to change ?
 
-diff --git a/arch/x86/include/asm/dma-mapping.h b/arch/x86/include/asm/dma-mapping.h
-index 256fd8115223d..1c66708e30623 100644
---- a/arch/x86/include/asm/dma-mapping.h
-+++ b/arch/x86/include/asm/dma-mapping.h
-@@ -2,17 +2,6 @@
- #ifndef _ASM_X86_DMA_MAPPING_H
- #define _ASM_X86_DMA_MAPPING_H
- 
--/*
-- * IOMMU interface. See Documentation/core-api/dma-api-howto.rst and
-- * Documentation/core-api/dma-api.rst for documentation.
-- */
--
--#include <linux/scatterlist.h>
--#include <asm/io.h>
--
--extern int iommu_merge;
--extern int panic_on_overflow;
--
- extern const struct dma_map_ops *dma_ops;
- 
- static inline const struct dma_map_ops *get_arch_dma_ops(struct bus_type *bus)
-diff --git a/arch/x86/include/asm/iommu.h b/arch/x86/include/asm/iommu.h
-index dba89ed40d38d..0bef44d30a278 100644
---- a/arch/x86/include/asm/iommu.h
-+++ b/arch/x86/include/asm/iommu.h
-@@ -8,6 +8,8 @@
- 
- extern int force_iommu, no_iommu;
- extern int iommu_detected;
-+extern int iommu_merge;
-+extern int panic_on_overflow;
- 
- #ifdef CONFIG_SWIOTLB
- extern bool x86_swiotlb_enable;
--- 
-2.30.2
+Your firmware/bootloader setup is mismatched. If you're using the 
+downstream Rockchip blob for BL31, you need to reserve or remove the 
+memory range 0x8400000-0x9600000 to match the behaviour of the original 
+Android BSP U-Boot. The downstream firmware firewalls this memory off 
+for the Secure world such that any attempt to touch it from Linux 
+results in a fatal SError fault as below. Any apparent correlation with 
+the ZONE_DMA changes will simply be because they've affected the 
+behaviour of the page allocator, such that it's more likely to reach 
+into the affected range of memory.
 
+Cheers,
+Robin.
+
+> An easy test for debugging is to run stress :
+> 
+> stress --cpu 4 --io 4 --vm 2 --vm-bytes 128M
+> 
+> stress: info: [255] dispatching hogs: 4 cpu, 4 io, 2 vm, 0 hdd
+> [    8.070280] SError Interrupt on CPU4, code 0xbf000000 -- SError
+> [    8.070286] CPU: 4 PID: 261 Comm: stress Not tainted 5.10.21 #1
+> [    8.070289] Hardware name: FriendlyElec NanoPi M4 (DT)
+> [    8.070293] pstate: 00000005 (nzcv daif -PAN -UAO -TCO BTYPE=--)
+> [    8.070296] pc : clear_page+0x14/0x28
+> [    8.070298] lr : clear_subpage+0x50/0x90
+> [    8.070302] sp : ffff800012abbc40
+> [    8.070305] x29: ffff800012abbc40 x28: ffff000000f68000
+> [    8.070313] x27: 0000000000000000 x26: ffff000001f38e40
+> [    8.070320] x25: ffff8000114fd000 x24: 0000000000000000
+> [    8.070326] x23: 0000000000000000 x22: 0000000000001000
+> [    8.070334] x21: 0000ffffa7e00000 x20: fffffe0000010000
+> [    8.070341] x19: ffff000000f68000 x18: 0000000000000000
+> [    8.070348] x17: 0000000000000000 x16: 0000000000000000
+> [    8.070354] x15: 0000000000000002 x14: 0000000000000001
+> [    8.070361] x13: 0000000000075879 x12: 00000000000000c0
+> [    8.070368] x11: ffff80006c46a000 x10: 0000000000000200
+> [    8.070374] x9 : 0000000000000000 x8 : 0000000000000010
+> [    8.070381] x7 : ffff00007db800a0 x6 : ffff800011b899c0
+> [    8.070387] x5 : 0000000000000000 x4 : ffff00007db800f7
+> [    8.070394] x3 : 0000020000200000 x2 : 0000000000000004
+> [    8.070401] x1 : 0000000000000040 x0 : ffff0000085ff4c0
+> [    8.070409] Kernel panic - not syncing: Asynchronous SError Interrupt
+> [    8.070412] CPU: 4 PID: 261 Comm: stress Not tainted 5.10.21 #1
+> [    8.070415] Hardware name: FriendlyElec NanoPi M4 (DT)
+> [    8.070418] Call trace:
+> [    8.070420]  dump_backtrace+0x0/0x1b0
+> [    8.070423]  show_stack+0x18/0x70
+> [    8.070425]  dump_stack+0xd0/0x12c
+> [    8.070428]  panic+0x16c/0x334
+> [    8.070430]  nmi_panic+0x8c/0x90
+> [    8.070433]  arm64_serror_panic+0x78/0x84
+> [    8.070435]  do_serror+0x64/0x70
+> [    8.070437]  el1_error+0x88/0x108
+> [    8.070440]  clear_page+0x14/0x28
+> [    8.070443]  clear_huge_page+0x74/0x210
+> [    8.070445]  do_huge_pmd_anonymous_page+0x1b0/0x7c0
+> [    8.070448]  handle_mm_fault+0xdac/0x1290
+> [    8.070451]  do_page_fault+0x130/0x3a0
+> [    8.070453]  do_translation_fault+0xb0/0xc0
+> [    8.070456]  do_mem_abort+0x44/0xb0
+> [    8.070458]  el0_da+0x28/0x40
+> [    8.070461]  el0_sync_handler+0x168/0x1b0
+> [    8.070464]  el0_sync+0x174/0x180
+> [    8.070508] SError Interrupt on CPU0, code 0xbf000000 -- SError
+> [    8.070511] CPU: 0 PID: 258 Comm: stress Not tainted 5.10.21 #1
+> [    8.070515] Hardware name: FriendlyElec NanoPi M4 (DT)
+> [    8.070518] pstate: 80000000 (Nzcv daif -PAN -UAO -TCO BTYPE=--)
+> [    8.070520] pc : 0000aaaacec22e98
+> [    8.070523] lr : 0000aaaacec22d84
+> [    8.070525] sp : 0000ffffe67a8620
+> [    8.070528] x29: 0000ffffe67a8620 x28: 0000000000000003
+> [    8.070534] x27: 0000aaaacec34000 x26: 0000ffffaeb42610
+> [    8.070541] x25: 0000ffffa69af010 x24: 0000aaaacec23a98
+> [    8.070547] x23: 0000aaaacec35010 x22: 0000aaaacec35000
+> [    8.070554] x21: 0000000000001000 x20: ffffffffffffffff
+> [    8.070560] x19: 0000000008000000 x18: 0000000000000000
+> [    8.070567] x17: 0000000000000000 x16: 0000000000000000
+> [    8.070573] x15: 0000000000000000 x14: 0000000000000000
+> [    8.070580] x13: 0000000000008000 x12: 0000000000000000
+> [    8.070587] x11: 0000000000000020 x10: 0000000000000030
+> [    8.070593] x9 : 000000000000000a x8 : 00000000000000de
+> [    8.070599] x7 : 0000000000200000 x6 : 000000000000021b
+> [    8.070606] x5 : 0000000000000000 x4 : ffffffffffffffff
+> [    8.070613] x3 : 0000000000000000 x2 : 0000ffffaeb47000
+> [    8.070619] x1 : 000000000000005a x0 : 0000000000a58000
+> [    8.070629] SMP: stopping secondary CPUs
+> [    8.070632] Kernel Offset: disabled
+> [    8.070634] CPU features: 0x0240022,6100600c
+> [    8.070637] Memory Limit: none
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
