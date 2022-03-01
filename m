@@ -4,54 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81952C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Mar 2022 11:06:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5003C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Mar 2022 11:11:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7g2zJxc+VzgfNAsHO4wzqdDkfACPFgl4IHS+RYAFDuk=; b=QWBopD5IAizGEA
-	0TbPxzHnVCsZRONNB9OZcB7bV+PQhASG2mp/eugrmBND8qR65+gcrNDuTJjLLnVpq2wbsG/4z9smm
-	eROmTHSifmYKVOdvyvtJGI0IeHfA7Lie+k1H+D/3taF1qbXF5ZKaas1MCTkjFD+u/aleFQVRw2Sas
-	dez9CCTpFe1Pku8/4i/L50K4NdUtbNbDbJCurToFXWrM9SV6FgUPh9XxWtSCeUUoTKgr0W699sseZ
-	iUxcVj9/6YEORPWIy7lRNstwmM6Vpl3VtdQxibmIfnQaP9+rAmkz63KRIPyvEjwyELZpVsJ1wDrQB
-	5fSDcl8E6mDyPtPAMMjg==;
+	List-Owner; bh=LprBXpAsTVxiFmLqkJ3hVlZCR6Mwi3VYKdCmzjylA5A=; b=mz5edCJnPsKmKq
+	7sHmaCgFFRQ9O+l8Yzk1lECydiJSD/aK+DWjIVDAaoMWIWsTaEyBScZrrYBr1tfcqVLGbpbq3Fltz
+	k5Bb1Ic6IHYxmZjE/IrQXb32C5bcX4QNmo98rjEjlr9WcGM/CvBfnvkghBI4H7dhFaDJ9ywtRmiJV
+	R6J2GSq0HWyinW3i0uQk9/3dAeZC65L+XMQ6e0mJhQA/ghWkprnYdZwcDRPKo2vE4LpkdxnZSpQGg
+	TQ1JokHYg9+N6+Mjna55KudHqwWcud5LKcLiRqAYlTk0WqEvEMEi7Uegsp0mK/wBr2LYBe10XmOyb
+	6/q9MwrMX9vXLupw6K3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nP0Ke-00GKDg-Hm; Tue, 01 Mar 2022 11:06:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nP0Aw-00GEt8-Rr; Tue, 01 Mar 2022 10:56:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F7FBED1;
- Tue,  1 Mar 2022 02:56:13 -0800 (PST)
-Received: from [10.57.39.47] (unknown [10.57.39.47])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 701873F73D;
- Tue,  1 Mar 2022 02:56:10 -0800 (PST)
-Message-ID: <4e4bb61a-377e-1ec9-5998-214055ef0a78@arm.com>
-Date: Tue, 1 Mar 2022 10:56:05 +0000
+	id 1nP0P5-00GLvF-Cg; Tue, 01 Mar 2022 11:10:51 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nP0On-00GLoR-FJ
+ for linux-riscv@lists.infradead.org; Tue, 01 Mar 2022 11:10:35 +0000
+Received: by mail-lf1-x130.google.com with SMTP id m14so26242752lfu.4
+ for <linux-riscv@lists.infradead.org>; Tue, 01 Mar 2022 03:10:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ventanamicro.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=FGtzsM+YsIYexEht9IDOGPEe+7a/Lc3XHl4HOIJcQ70=;
+ b=F24ivVkC9IONhfuQRrDKy7tc3vZRySIEHeHSe07XnZbV0sUJsGeTFwb+OrA6x6MIZW
+ l9UOPB1Nv8O4CYrFG7lIfzGf1gSLNO007kH9e8aFZZy+v3zf9IR1F+qc9nS/6LuGOKMQ
+ pvVH2WfjAjEytte5CCABcbVwvEJlSo0Ticn+oeZXNtCffknZvDfa3Bg9f3X8dcils3oe
+ OptZuY1ENKKjd1j6yZPTBBo4A+munvI0GvSK7wMI0jNuxZkXzW+zwz+QOzrvClYCkK7n
+ iPoxs0q7PSWZgNZSXWgLmCoZbpd5IoYEMlVFbrsAUk3S1Elbx23Q215o5tk2PFNlxs5r
+ nN2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=FGtzsM+YsIYexEht9IDOGPEe+7a/Lc3XHl4HOIJcQ70=;
+ b=ukGtatBrgn0mO3NCRQVggDcA3xs3c4MIWiTiQAgP2vtCX1Z1VN5sjbexNpyhUzm6ts
+ +AYd+ogy4/sQ9uDY49cfmhniUmiuazRZ03tqG+tA8w5qz/9GAU09c3jl9ysAiOjFN1SS
+ 5mjaCB8QzrpZoBHdD89QXHiBTMJR4qczH4Jl/zu0Cw4YIxcbGHso/fDbOQ7WzuMIYdNu
+ oBsCh94nZS5JJhSVXDFIz2j7GGX7rwMcACF/kMwg7LRPpvskiV5RqXuOUr2I0EbthHHo
+ zj85xa2mg3/0gSRYO2Mg35VPsXi+Yr4co9kmfl5dNdJEtKMyzknJdwVvEY/q6mp5y/FE
+ D6ow==
+X-Gm-Message-State: AOAM532L9rwpgcRvDEzixX/BP2rWjmFUmVXL++mhNA7CSmk/6KDARpHT
+ ZKmfddzkOCZa6JAiIwaDKe6c6Wzjhywj5To6VbhXMLMdEmhjHg==
+X-Google-Smtp-Source: ABdhPJyOopWU59h202O3zf1NQLrScUq5/haA4MZvxD++LFCIFOAEbia3TTPV3GNMe9BPFoPTSgxdIWMqbIN/uPutw98=
+X-Received: by 2002:ac2:4146:0:b0:441:efd2:365d with SMTP id
+ c6-20020ac24146000000b00441efd2365dmr15822898lfi.100.1646133031240; Tue, 01
+ Mar 2022 03:10:31 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101
- Thunderbird/91.6.1
-Subject: Re: [PATCH v7 0/7] arm64: Default to 32-bit wide ZONE_DMA
-Content-Language: en-GB
-To: Matt Flax <flatmax@gmail.com>, nsaenzjulienne@suse.de
-Cc: ardb@kernel.org, catalin.marinas@arm.com, devicetree@vger.kernel.org,
- guohanjun@huawei.com, hch@lst.de, iommu@lists.linux-foundation.org,
- jeremy.linton@arm.com, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, linux-riscv@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org, lorenzo.pieralisi@arm.com,
- robh+dt@kernel.org, will@kernel.org, Matt Flax <flatmax@flatmax.com>
-References: <20201119175400.9995-1-nsaenzjulienne@suse.de>
- <20220301030031.4025282-1-flatmax@flatmax.com>
-From: Robin Murphy <robin.murphy@arm.com>
-In-Reply-To: <20220301030031.4025282-1-flatmax@flatmax.com>
+References: <20220301005142.3038702-1-Niklas.Cassel@wdc.com>
+ <20220301005142.3038702-2-Niklas.Cassel@wdc.com>
+ <CAAhSdy1=EtZS9Pjn6VDaan1_aRQ-TgJ35zgH8v1VwC8uon5NEg@mail.gmail.com>
+ <Yh3h4+eVcPIfPiD7@x1-carbon>
+In-Reply-To: <Yh3h4+eVcPIfPiD7@x1-carbon>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Tue, 1 Mar 2022 16:40:19 +0530
+Message-ID: <CAK9=C2XQjSfE3n=rRP=iW7aYP5PV-dbvQixf69TLG6N-M+o1+w@mail.gmail.com>
+Subject: Re: [PATCH 1/2] irqchip/sifive-plic: Improve naming scheme for per
+ context offsets
+To: Niklas Cassel <Niklas.Cassel@wdc.com>
+Cc: Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@linutronix.de>, 
+ Marc Zyngier <maz@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220301_025615_079111_497F95B0 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20220301_031033_571185_294DE184 
+X-CRM114-Status: GOOD (  48.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,110 +84,199 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Matt,
+On Tue, Mar 1, 2022 at 2:36 PM Niklas Cassel <Niklas.Cassel@wdc.com> wrote:
+>
+> On Tue, Mar 01, 2022 at 09:42:46AM +0530, Anup Patel wrote:
+> > On Tue, Mar 1, 2022 at 6:22 AM Niklas Cassel <Niklas.Cassel@wdc.com> wrote:
+> > >
+> > > From: Niklas Cassel <niklas.cassel@wdc.com>
+> > >
+> > > A hart context is a given privilege mode on a given hart.
+> > > The PLIC supports a fixed number of hart contexts (15872).
+> > > Each hart context has fixed register offsets in PLIC.
+> > >
+> > > The number of hart contexts for each hart depends on the privilege modes
+> > > supported by each hart. Therefore, this mapping between hart context to
+> > > hart id is platform specific, and is currently supplied via device tree.
+> > >
+> > > For example, canaan,k210 has the following mapping:
+> > > Context0: hart0 M-mode
+> > > Context1: hart0 S-mode
+> > > Context2: hart1 M-mode
+> > > Context3: hart1 S-mode
+> > >
+> > > While sifive,fu540 has the following mapping:
+> > > Context0: hart0 M-mode
+> > > Context1: hart1 M-mode
+> > > Context2: hart1 S-mode
+> > >
+> > > Because the number of hart contexts per hart is not fixed, the names
+> > > ENABLE_PER_HART and CONTEXT_PER_HART for the register offsets are quite
+> > > confusing and might mislead the reader to think that these are fixed
+> > > register offsets per hart.
+> > >
+> > > Rename the offsets to more clearly highlight that they are per hart
+> > > _context_ and not per hart.
+> > >
+> > > Signed-off-by: Niklas Cassel <niklas.cassel@wdc.com>
+> > > ---
+> > >  drivers/irqchip/irq-sifive-plic.c | 10 ++++++----
+> > >  1 file changed, 6 insertions(+), 4 deletions(-)
+> > >
+> > > diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> > > index 09cc98266d30..211bcb10aa93 100644
+> > > --- a/drivers/irqchip/irq-sifive-plic.c
+> > > +++ b/drivers/irqchip/irq-sifive-plic.c
+> > > @@ -41,19 +41,21 @@
+> > >  #define     PRIORITY_PER_ID            4
+> > >
+> > >  /*
+> > > + * A hart context is a given privilege mode on a given hart.
+> > >   * Each hart context has a vector of interrupt enable bits associated with it.
+> > >   * There's one bit for each interrupt source.
+> > >   */
+> > >  #define ENABLE_BASE                    0x2000
+> > > -#define     ENABLE_PER_HART            0x80
+> > > +#define     ENABLE_PER_HART_CTX                0x80
+> >
+> > These are enable registers for each plic-context and we have multiple
+> > plic-context associated with each HART.
+> > (Refer, https://github.com/riscv/riscv-plic-spec/blob/master/riscv-plic.adoc)
+> >
+> > Correct name would be ENABLE_PER_CONTEXT instead of
+> > ENABLE_PER_HART_CTX.
+>
+> Hello Anup,
+>
+> If you look at the RISC-V Privileged Spec v1.11-draft:
+> https://github.com/riscv/riscv-isa-manual/releases/download/draft-20181201-5449851/riscv-privileged.pdf
 
-On 2022-03-01 03:00, Matt Flax wrote:
-> Hi All,
-> 
-> It seems that the ZONE_DMA changes have broken the operation of Rochip rk3399 chipsets from v5.10.22 onwards.
-> 
-> It isn't clear what needs to be changed to get any of these boards up and running again. Any pointers on how/what to change ?
+Clearly, you are referring to a very old draft version of the specification.
 
-Your firmware/bootloader setup is mismatched. If you're using the 
-downstream Rockchip blob for BL31, you need to reserve or remove the 
-memory range 0x8400000-0x9600000 to match the behaviour of the original 
-Android BSP U-Boot. The downstream firmware firewalls this memory off 
-for the Secure world such that any attempt to touch it from Linux 
-results in a fatal SError fault as below. Any apparent correlation with 
-the ZONE_DMA changes will simply be because they've affected the 
-behaviour of the page allocator, such that it's more likely to reach 
-into the affected range of memory.
+>
+> They do use the wording "hart context" all the time.
+>
+> See e.g. 7.3 Interrupt Targets and Hart Contexts
+>
+> "Interrupt targets are usually hart contexts, where a hart context is a given privilege mode on a
+> given hart (though there are other possible interrupt targets, such as DMA engines). Not all hart
+> contexts need be interrupt targets, in particular, if a processor core does not support delegating
+> external interrupts to lower-privilege modes, then the lower-privilege hart contexts will not be
+> interrupt targets."
 
-Cheers,
-Robin.
+The latest ratified RISC-V Privileged Spec v1.12 has no such section.
 
-> An easy test for debugging is to run stress :
-> 
-> stress --cpu 4 --io 4 --vm 2 --vm-bytes 128M
-> 
-> stress: info: [255] dispatching hogs: 4 cpu, 4 io, 2 vm, 0 hdd
-> [    8.070280] SError Interrupt on CPU4, code 0xbf000000 -- SError
-> [    8.070286] CPU: 4 PID: 261 Comm: stress Not tainted 5.10.21 #1
-> [    8.070289] Hardware name: FriendlyElec NanoPi M4 (DT)
-> [    8.070293] pstate: 00000005 (nzcv daif -PAN -UAO -TCO BTYPE=--)
-> [    8.070296] pc : clear_page+0x14/0x28
-> [    8.070298] lr : clear_subpage+0x50/0x90
-> [    8.070302] sp : ffff800012abbc40
-> [    8.070305] x29: ffff800012abbc40 x28: ffff000000f68000
-> [    8.070313] x27: 0000000000000000 x26: ffff000001f38e40
-> [    8.070320] x25: ffff8000114fd000 x24: 0000000000000000
-> [    8.070326] x23: 0000000000000000 x22: 0000000000001000
-> [    8.070334] x21: 0000ffffa7e00000 x20: fffffe0000010000
-> [    8.070341] x19: ffff000000f68000 x18: 0000000000000000
-> [    8.070348] x17: 0000000000000000 x16: 0000000000000000
-> [    8.070354] x15: 0000000000000002 x14: 0000000000000001
-> [    8.070361] x13: 0000000000075879 x12: 00000000000000c0
-> [    8.070368] x11: ffff80006c46a000 x10: 0000000000000200
-> [    8.070374] x9 : 0000000000000000 x8 : 0000000000000010
-> [    8.070381] x7 : ffff00007db800a0 x6 : ffff800011b899c0
-> [    8.070387] x5 : 0000000000000000 x4 : ffff00007db800f7
-> [    8.070394] x3 : 0000020000200000 x2 : 0000000000000004
-> [    8.070401] x1 : 0000000000000040 x0 : ffff0000085ff4c0
-> [    8.070409] Kernel panic - not syncing: Asynchronous SError Interrupt
-> [    8.070412] CPU: 4 PID: 261 Comm: stress Not tainted 5.10.21 #1
-> [    8.070415] Hardware name: FriendlyElec NanoPi M4 (DT)
-> [    8.070418] Call trace:
-> [    8.070420]  dump_backtrace+0x0/0x1b0
-> [    8.070423]  show_stack+0x18/0x70
-> [    8.070425]  dump_stack+0xd0/0x12c
-> [    8.070428]  panic+0x16c/0x334
-> [    8.070430]  nmi_panic+0x8c/0x90
-> [    8.070433]  arm64_serror_panic+0x78/0x84
-> [    8.070435]  do_serror+0x64/0x70
-> [    8.070437]  el1_error+0x88/0x108
-> [    8.070440]  clear_page+0x14/0x28
-> [    8.070443]  clear_huge_page+0x74/0x210
-> [    8.070445]  do_huge_pmd_anonymous_page+0x1b0/0x7c0
-> [    8.070448]  handle_mm_fault+0xdac/0x1290
-> [    8.070451]  do_page_fault+0x130/0x3a0
-> [    8.070453]  do_translation_fault+0xb0/0xc0
-> [    8.070456]  do_mem_abort+0x44/0xb0
-> [    8.070458]  el0_da+0x28/0x40
-> [    8.070461]  el0_sync_handler+0x168/0x1b0
-> [    8.070464]  el0_sync+0x174/0x180
-> [    8.070508] SError Interrupt on CPU0, code 0xbf000000 -- SError
-> [    8.070511] CPU: 0 PID: 258 Comm: stress Not tainted 5.10.21 #1
-> [    8.070515] Hardware name: FriendlyElec NanoPi M4 (DT)
-> [    8.070518] pstate: 80000000 (Nzcv daif -PAN -UAO -TCO BTYPE=--)
-> [    8.070520] pc : 0000aaaacec22e98
-> [    8.070523] lr : 0000aaaacec22d84
-> [    8.070525] sp : 0000ffffe67a8620
-> [    8.070528] x29: 0000ffffe67a8620 x28: 0000000000000003
-> [    8.070534] x27: 0000aaaacec34000 x26: 0000ffffaeb42610
-> [    8.070541] x25: 0000ffffa69af010 x24: 0000aaaacec23a98
-> [    8.070547] x23: 0000aaaacec35010 x22: 0000aaaacec35000
-> [    8.070554] x21: 0000000000001000 x20: ffffffffffffffff
-> [    8.070560] x19: 0000000008000000 x18: 0000000000000000
-> [    8.070567] x17: 0000000000000000 x16: 0000000000000000
-> [    8.070573] x15: 0000000000000000 x14: 0000000000000000
-> [    8.070580] x13: 0000000000008000 x12: 0000000000000000
-> [    8.070587] x11: 0000000000000020 x10: 0000000000000030
-> [    8.070593] x9 : 000000000000000a x8 : 00000000000000de
-> [    8.070599] x7 : 0000000000200000 x6 : 000000000000021b
-> [    8.070606] x5 : 0000000000000000 x4 : ffffffffffffffff
-> [    8.070613] x3 : 0000000000000000 x2 : 0000ffffaeb47000
-> [    8.070619] x1 : 000000000000005a x0 : 0000000000a58000
-> [    8.070629] SMP: stopping secondary CPUs
-> [    8.070632] Kernel Offset: disabled
-> [    8.070634] CPU features: 0x0240022,6100600c
-> [    8.070637] Memory Limit: none
-> 
-> 
+>
+>
+> Also see the DT binding, which also uses the term hart context:
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml?h=v5.17-rc6
+
+I am referring to the RISC-V PLIC spec which simply names these
+registers as "interrupt enable" registers.
+
+>
+>
+> And the existing comments in the driver also uses hart context:
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/irqchip/irq-sifive-plic.c?h=v5.17-rc6#n44
+>
+>
+> I'm not sure why:
+> https://github.com/riscv/riscv-plic-spec/blob/master/riscv-plic.adoc
+> Seems to have done search/replace on "hart context" with "context"
+> in all places except one. Almost looks like some kind of revisionism ;)
+
+The PLIC context output connects to the external interrupt of a specific
+privilege mode in HART. If a HART supports both M and S modes then
+we will have separate PLIC contexts for HART M-mode external interrupt
+and HART S-mode external interrupt.
+
+Clearly, the term "context" is defined by PLIC spec and not the RISC-V
+privilege spec.
+
+We also have a new RISC-V AIA specification which has totally different
+terminology.
+
+>
+>
+> I would say that "hart context" seems to be slightly more correct,
+> and it is already used in many places, dt binding, comments, etc.
+>
+>
+> However, if you feel that I should search/replace "hart context" with
+> "context" inside the PLIC driver, to better match the current github spec,
+> I can do that. It is only used in two places.
+> (I don't think we should touch the DT binding though. It defines "hart
+> context", then uses "context".)
+>
+>
+> If we use ENABLE_PER_CONTEXT, like you suggest, do you have a better
+> suggestion for CONTEXT_PER_HART_CTX as well?
+> I don't think we can keep the CONTEXT_ prefix.
+> And in that case, we probably shouldn't keep the ENABLE_ prefix either.
+>
+> How about:
+> PER_CONTEXT_ENABLE_OFFSET and PER_CONTEXT_CTRL_OFFSET?
+
+We just need three renaming:
+1) Rename ENABLE_BASE to CONTEXT_ENABLE_BASE
+2) Rename ENABLE_PER_HART to CONTEXT_ENABLE_SIZE
+3) Rename CONTEXT_PER_HART to CONTEXT_SIZE
+
+Regards,
+Anup
+
+>
+>
+> Kind regards,
+> Niklas
+>
+>
+> >
+> > Regards,
+> > Anup
+> >
+> > >
+> > >  /*
+> > > + * A hart context is a given privilege mode on a given hart.
+> > >   * Each hart context has a set of control registers associated with it.  Right
+> > >   * now there's only two: a source priority threshold over which the hart will
+> > >   * take an interrupt, and a register to claim interrupts.
+> > >   */
+> > >  #define CONTEXT_BASE                   0x200000
+> > > -#define     CONTEXT_PER_HART           0x1000
+> > > +#define     CONTEXT_PER_HART_CTX       0x1000
+> > >  #define     CONTEXT_THRESHOLD          0x00
+> > >  #define     CONTEXT_CLAIM              0x04
+> > >
+> > > @@ -362,10 +364,10 @@ static int __init plic_init(struct device_node *node,
+> > >                 cpumask_set_cpu(cpu, &priv->lmask);
+> > >                 handler->present = true;
+> > >                 handler->hart_base =
+> > > -                       priv->regs + CONTEXT_BASE + i * CONTEXT_PER_HART;
+> > > +                       priv->regs + CONTEXT_BASE + i * CONTEXT_PER_HART_CTX;
+> > >                 raw_spin_lock_init(&handler->enable_lock);
+> > >                 handler->enable_base =
+> > > -                       priv->regs + ENABLE_BASE + i * ENABLE_PER_HART;
+> > > +                       priv->regs + ENABLE_BASE + i * ENABLE_PER_HART_CTX;
+> > >                 handler->priv = priv;
+> > >  done:
+> > >                 for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
+> > > --
+> > > 2.35.1
+> > >
+> > > _______________________________________________
+> > > linux-riscv mailing list
+> > > linux-riscv@lists.infradead.org
+> > > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
