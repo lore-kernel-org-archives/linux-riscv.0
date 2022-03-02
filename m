@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9B45C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Mar 2022 02:31:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 725BEC433FE
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Mar 2022 02:56:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kT3pzhrvkUsMYhrOMj4meV7YJGvvdD0IUbZubpL8YI4=; b=lMpOct9nRIgjWK
-	/S7YECPD999seuD2b1CYIRxjot1k8IdNgW5l6sYYgtga0PVlzazTvDFkDTec9P1MbFpigtjxpxUAT
-	23r0F88X5YBF3Qp2iA3e8LTlCmK76/MTgviSCVhCXsr6hZlQbA24Thgys4wWcrXyNady563t8H+a5
-	lKCGT6oM25zR1TE7AyN65ejd1+YvwCYvdwiomAPd+YRbd6Htiee3+ck2GSf5QbjwWWbNRj/Jhtl4h
-	b0ExeWvSH9wLvg9H7z2jDKBfU3EyWbNDrucetNGpo1+PStTRM7nb4rQR3PJPUgHBOpdD7CLAcQZL/
-	Ofx2BOTSaGeKnW+Rstcg==;
+	List-Owner; bh=qKflgUzRxnBk0VgjldcNUHC3Vkd5oOUyqgUKqYzUs2Q=; b=yxAtXwNaqwMyiE
+	eT7Uvw3PApUUZs1U2gdHALUSaWrCwJZr23jrG0hb78xUHuNLSzMB+fb/nDsbe6Psa0yTQ1tJInMIX
+	7X4Zn++j0bHUMmBSaT7zemGx6id51Hq8lszfpuaQI8girNAlhWvk4ta1ENCdU5qX/XLzInsGcr+j5
+	axx6pFG5PFyL0vyMSXzeU0bGtOdkt6l6czB3pSgqXegl7mN6ffNZRuxhAkkGSNpH7yndQPJ2iVVsZ
+	FUQLg4FpuKevAaDemHferWkcP1wXcuJ4snzEWH87KBM5Kl5lYOctvMmraq43uQwcHVqf1PpkKUfYu
+	0ewXxObt6jE9LIC7Xukw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nPEll-0016Xj-Kr; Wed, 02 Mar 2022 02:31:13 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1nPF9s-001CXY-1d; Wed, 02 Mar 2022 02:56:08 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nPElf-0016W0-LR
- for linux-riscv@lists.infradead.org; Wed, 02 Mar 2022 02:31:11 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id b8so518822pjb.4
- for <linux-riscv@lists.infradead.org>; Tue, 01 Mar 2022 18:31:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=wNIYOz24psi2fweRzOyMaDKCXr92/NEmBEXIKd0ELCY=;
- b=jT8+HjH5S7HZ7AaS9hb3Xki44SUo0cDlGoe4JIHfJ5Uud4ryODLMg18wzkicDRFVcg
- kGACnKEfusJARf+QuB0DtUYE5BlUaHOAh04oAaIovW58sV+nIGajFGYp8xZLoCsAi6ra
- 0Z3RfXZgiCumlifnIHnujuSefB0LVrUw+i6Vmeed59NGl5D12iD4SFTg3y5qO+37RbVk
- qJq2cc7LAOArf6iGbrZWXEM+rWxBt3J9cd/TV3haPBoBhWZ7HRPQNsTWoQuDyJFleBZy
- rya638D6a9dQpitU79Zjr9ty0o4fAsBP2yW0wgFKvlq54g6sgG1Ii5ZrbL9pmLUuYUzS
- hI3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references;
- bh=wNIYOz24psi2fweRzOyMaDKCXr92/NEmBEXIKd0ELCY=;
- b=itDzTguuobGqmus1ytj2pZZY2frOUUWpPFcknigZCS369xML2wHWrEnhN+vOrwq0Cr
- bebMXSo9DgklciLebXd/ZlGsCS55q0bHFXYSx4B1zXKz8PE0+G9KFLh81Q1SG/RXkANW
- eWjWHLEGyTEi1t4OxfTRL+MJWIHwDETMD+MmaODt6rxG2lAzJEXMMJ+1RWWOQkbOELR5
- +hzjHCeteyT/q81/QK4P+139DR7M7O32Q0RzO55ktbg2oB+h0j9PASV2IQFiMeBJo3LX
- sg2UUY9RpDcnufsamNTxpDZKEPkKgEow0z+3npz296h6yG54Yu6eOWFf1LlH0cju4n33
- a6wg==
-X-Gm-Message-State: AOAM532mSspbodGA9ywIpcBZu2ERL+IAy3ElPzAgd8ZvCbUvlh4wMULf
- o4k1m3Py/XHXqc7dArztfQWoog==
-X-Google-Smtp-Source: ABdhPJyg7o7dM6ql8tFrMddn7mf0bzmahRyrQIMzcr836+8adJc+GdFve+QCnjuMZWlenGUvyqxC8A==
-X-Received: by 2002:a17:902:6a84:b0:14f:c378:51b9 with SMTP id
- n4-20020a1709026a8400b0014fc37851b9mr27599134plk.125.1646188266760; 
- Tue, 01 Mar 2022 18:31:06 -0800 (PST)
-Received: from VincentChen-ThinkPad-T480s.internal.sifive.com
- (36-227-186-14.dynamic-ip.hinet.net. [36.227.186.14])
- by smtp.gmail.com with ESMTPSA id
- f7-20020a056a0022c700b004e11d3d0459sm19376809pfj.65.2022.03.01.18.31.05
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 01 Mar 2022 18:31:06 -0800 (PST)
-From: Vincent Chen <vincent.chen@sifive.com>
-To: palmer@dabbelt.com,
-	mathieu.desnoyers@efficios.com
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- Vincent Chen <vincent.chen@sifive.com>
-Subject: [PATCH v3 2/2] rseq/selftests: Add support for RISC-V
-Date: Wed,  2 Mar 2022 10:30:48 +0800
-Message-Id: <20220302023048.6140-3-vincent.chen@sifive.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20220302023048.6140-1-vincent.chen@sifive.com>
-References: <20220302023048.6140-1-vincent.chen@sifive.com>
+ id 1nPF9d-001CTe-8a; Wed, 02 Mar 2022 02:55:57 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id B8666B81D71;
+ Wed,  2 Mar 2022 02:55:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CC18C340EE;
+ Wed,  2 Mar 2022 02:55:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1646189749;
+ bh=+9ELN9vs62ISIoM03rj0HMh2JUdciOzBOCDhQI6QFPc=;
+ h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+ b=Yz8AyEKVJasXFNiZ8rmTZeX76EMZyQ9CVYri7P9h7/S6WH9S/TTWf9kmuC58xl0bP
+ mus56AWm7bIQY4S0dK37bXzdJOBeuDInue9pq0+mJyGOgcGtQIEnZx+s+LXo23HRDZ
+ /PEi9o40pO8LM0kcvJs9PBB1dZRgZszDafnAf7iGlSdzQZcvH2k+svZKIJTdAs+/KZ
+ hXm39T9r/qhKfL/Pz2mDOxaOXNjAFXBV3zv0efwV5hO5pCIVKQk+xft7XixOHGVUnB
+ ZdypAI3gDK0oWKrimsGXDtsXlzWMDbUxd3xqxDtM+7nBlpjzO31ACN1Qpfy1nPC0WO
+ 6tKIbg7mY2UFw==
+Date: Tue, 1 Mar 2022 18:55:47 -0800 (PST)
+From: Stefano Stabellini <sstabellini@kernel.org>
+X-X-Sender: sstabellini@ubuntu-linux-20-04-desktop
+To: Christoph Hellwig <hch@lst.de>
+cc: iommu@lists.linux-foundation.org, x86@kernel.org, 
+ Anshuman Khandual <anshuman.khandual@arm.com>, 
+ Tom Lendacky <thomas.lendacky@amd.com>, 
+ Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>, 
+ Stefano Stabellini <sstabellini@kernel.org>, 
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, 
+ Juergen Gross <jgross@suse.com>, Joerg Roedel <joro@8bytes.org>, 
+ David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>, 
+ Robin Murphy <robin.murphy@arm.com>, linux-arm-kernel@lists.infradead.org, 
+ xen-devel@lists.xenproject.org, linux-ia64@vger.kernel.org, 
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+ linux-hyperv@vger.kernel.org, tboot-devel@lists.sourceforge.net, 
+ linux-pci@vger.kernel.org
+Subject: Re: [PATCH 11/12] swiotlb: merge swiotlb-xen initialization into
+ swiotlb
+In-Reply-To: <20220301105311.885699-12-hch@lst.de>
+Message-ID: <alpine.DEB.2.22.394.2203011720150.3261@ubuntu-linux-20-04-desktop>
+References: <20220301105311.885699-1-hch@lst.de>
+ <20220301105311.885699-12-hch@lst.de>
+User-Agent: Alpine 2.22 (DEB 394 2020-01-19)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220301_183107_738538_2BCA04BE 
-X-CRM114-Status: GOOD (  16.17  )
+X-CRM114-CacheID: sfid-20220301_185553_685573_5726E5B0 
+X-CRM114-Status: GOOD (  40.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,755 +81,541 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for RISC-V in the rseq selftests, which covers both
-64-bit and 32-bit ISA with little endian mode.
+On Tue, 1 Mar 2022, Christoph Hellwig wrote:
+> Allow to pass a remap argument to the swiotlb initialization functions
+> to handle the Xen/x86 remap case.  ARM/ARM64 never did any remapping
+> from xen_swiotlb_fixup, so we don't even need that quirk.
+> 
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
+> ---
+>  arch/arm/xen/mm.c               |  23 +++---
+>  arch/x86/include/asm/xen/page.h |   5 --
+>  arch/x86/kernel/pci-dma.c       |  19 +++--
+>  arch/x86/pci/sta2x11-fixup.c    |   2 +-
+>  drivers/xen/swiotlb-xen.c       | 128 +-------------------------------
+>  include/linux/swiotlb.h         |   7 +-
+>  include/xen/arm/page.h          |   1 -
+>  include/xen/swiotlb-xen.h       |   8 +-
+>  kernel/dma/swiotlb.c            | 120 +++++++++++++++---------------
+>  9 files changed, 96 insertions(+), 217 deletions(-)
+> 
+> diff --git a/arch/arm/xen/mm.c b/arch/arm/xen/mm.c
+> index a7e54a087b802..58b40f87617d3 100644
+> --- a/arch/arm/xen/mm.c
+> +++ b/arch/arm/xen/mm.c
+> @@ -23,22 +23,20 @@
+>  #include <asm/xen/hypercall.h>
+>  #include <asm/xen/interface.h>
+>  
+> -unsigned long xen_get_swiotlb_free_pages(unsigned int order)
+> +static gfp_t xen_swiotlb_gfp(void)
+>  {
+>  	phys_addr_t base;
+> -	gfp_t flags = __GFP_NOWARN|__GFP_KSWAPD_RECLAIM;
+>  	u64 i;
+>  
+>  	for_each_mem_range(i, &base, NULL) {
+>  		if (base < (phys_addr_t)0xffffffff) {
+>  			if (IS_ENABLED(CONFIG_ZONE_DMA32))
+> -				flags |= __GFP_DMA32;
+> -			else
+> -				flags |= __GFP_DMA;
+> -			break;
+> +				return __GFP_DMA32;
+> +			return __GFP_DMA;
+>  		}
+>  	}
+> -	return __get_free_pages(flags, order);
+> +
+> +	return GFP_KERNEL;
+>  }
 
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
----
- tools/testing/selftests/rseq/param_test.c |  23 +
- tools/testing/selftests/rseq/rseq-riscv.h | 676 ++++++++++++++++++++++
- tools/testing/selftests/rseq/rseq.h       |   2 +
- 3 files changed, 701 insertions(+)
- create mode 100644 tools/testing/selftests/rseq/rseq-riscv.h
+Unrelated to this specific patch series: now that I think about it, if
+io_tlb_default_mem.nslabs is already allocated by the time xen_mm_init
+is called, wouldn't we potentially have an issue with the GFP flags used
+for the earlier allocation (e.g. GFP_DMA32 not used)? Maybe something
+for another day.
 
-diff --git a/tools/testing/selftests/rseq/param_test.c b/tools/testing/selftests/rseq/param_test.c
-index 699ad5f93c34..0a6b8eafd444 100644
---- a/tools/testing/selftests/rseq/param_test.c
-+++ b/tools/testing/selftests/rseq/param_test.c
-@@ -207,6 +207,29 @@ unsigned int yield_mod_cnt, nr_abort;
- 	"addiu " INJECT_ASM_REG ", -1\n\t" \
- 	"bnez " INJECT_ASM_REG ", 222b\n\t" \
- 	"333:\n\t"
-+#elif defined(__riscv)
-+
-+#define RSEQ_INJECT_INPUT \
-+	, [loop_cnt_1]"m"(loop_cnt[1]) \
-+	, [loop_cnt_2]"m"(loop_cnt[2]) \
-+	, [loop_cnt_3]"m"(loop_cnt[3]) \
-+	, [loop_cnt_4]"m"(loop_cnt[4]) \
-+	, [loop_cnt_5]"m"(loop_cnt[5]) \
-+	, [loop_cnt_6]"m"(loop_cnt[6])
-+
-+#define INJECT_ASM_REG	"t1"
-+
-+#define RSEQ_INJECT_CLOBBER \
-+	, INJECT_ASM_REG
-+
-+#define RSEQ_INJECT_ASM(n)					\
-+	"lw " INJECT_ASM_REG ", %[loop_cnt_" #n "]\n\t"		\
-+	"beqz " INJECT_ASM_REG ", 333f\n\t"			\
-+	"222:\n\t"						\
-+	"addi  " INJECT_ASM_REG "," INJECT_ASM_REG ", -1\n\t"	\
-+	"bnez " INJECT_ASM_REG ", 222b\n\t"			\
-+	"333:\n\t"
-+
- 
- #else
- #error unsupported target
-diff --git a/tools/testing/selftests/rseq/rseq-riscv.h b/tools/testing/selftests/rseq/rseq-riscv.h
-new file mode 100644
-index 000000000000..845ec7d0f2ed
---- /dev/null
-+++ b/tools/testing/selftests/rseq/rseq-riscv.h
-@@ -0,0 +1,676 @@
-+/* SPDX-License-Identifier: LGPL-2.1 OR MIT */
-+/*
-+ * Select the instruction "csrw mhartid, x0" as the RSEQ_SIG. Unlike
-+ * other architecture, the ebreak instruction has no immediate field for
-+ * distinguishing purposes. Hence, ebreak is not suitable as RSEQ_SIG.
-+ * "csrw mhartid, x0" can also satisfy the RSEQ requirement because it
-+ * is an uncommon instruction and will raise an illegal instruction
-+ * exception when executed in all modes.
-+ */
-+
-+#if __ORDER_LITTLE_ENDIAN__ == 1234
-+#define RSEQ_SIG   0xf1401073  /* csrr mhartid, x0 */
-+#else
-+#error "Currently, RSEQ only supports Little-Endian version"
-+#endif
-+
-+#if __riscv_xlen == 64
-+#define __REG_SEL(a, b)	a
-+#elif __riscv_xlen == 32
-+#define __REG_SEL(a, b)	b
-+#endif
-+
-+#define REG_L	__REG_SEL("ld ", "lw ")
-+#define REG_S	__REG_SEL("sd ", "sw ")
-+
-+#define RISCV_FENCE(p, s) \
-+	__asm__ __volatile__ ("fence " #p "," #s : : : "memory")
-+#define rseq_smp_mb()	RISCV_FENCE(rw, rw)
-+#define rseq_smp_rmb()	RISCV_FENCE(r, r)
-+#define rseq_smp_wmb()	RISCV_FENCE(w, w)
-+#define RSEQ_ASM_TMP_REG_1	"t6"
-+#define RSEQ_ASM_TMP_REG_2	"t5"
-+#define RSEQ_ASM_TMP_REG_3	"t4"
-+#define RSEQ_ASM_TMP_REG_4	"t3"
-+
-+#define rseq_smp_load_acquire(p)					\
-+__extension__ ({							\
-+	__typeof(*(p)) ____p1 = RSEQ_READ_ONCE(*(p));			\
-+	RISCV_FENCE(r, rw)						\
-+	____p1;								\
-+})
-+
-+#define rseq_smp_acquire__after_ctrl_dep()	rseq_smp_rmb()
-+
-+#define rseq_smp_store_release(p, v)					\
-+do {									\
-+	RISCV_FENCE(rw, w);						\
-+	RSEQ_WRITE_ONCE(*(p), v);						\
-+} while (0)
-+
-+#ifdef RSEQ_SKIP_FASTPATH
-+#include "rseq-skip.h"
-+#else /* !RSEQ_SKIP_FASTPATH */
-+
-+#define __RSEQ_ASM_DEFINE_TABLE(label, version, flags, start_ip,	\
-+				post_commit_offset, abort_ip)		\
-+	".pushsection	__rseq_cs, \"aw\"\n"				\
-+	".balign	32\n"						\
-+	__rseq_str(label) ":\n"						\
-+	".long	" __rseq_str(version) ", " __rseq_str(flags) "\n"	\
-+	".quad	" __rseq_str(start_ip) ", "				\
-+			  __rseq_str(post_commit_offset) ", "		\
-+			  __rseq_str(abort_ip) "\n"			\
-+	".popsection\n\t"						\
-+	".pushsection __rseq_cs_ptr_array, \"aw\"\n"			\
-+	".quad " __rseq_str(label) "b\n"				\
-+	".popsection\n"
-+
-+#define RSEQ_ASM_DEFINE_TABLE(label, start_ip, post_commit_ip, abort_ip) \
-+	__RSEQ_ASM_DEFINE_TABLE(label, 0x0, 0x0, start_ip,		 \
-+				((post_commit_ip) - (start_ip)), abort_ip)
-+
-+/*
-+ * Exit points of a rseq critical section consist of all instructions outside
-+ * of the critical section where a critical section can either branch to or
-+ * reach through the normal course of its execution. The abort IP and the
-+ * post-commit IP are already part of the __rseq_cs section and should not be
-+ * explicitly defined as additional exit points. Knowing all exit points is
-+ * useful to assist debuggers stepping over the critical section.
-+ */
-+#define RSEQ_ASM_DEFINE_EXIT_POINT(start_ip, exit_ip)			\
-+	".pushsection __rseq_exit_point_array, \"aw\"\n"		\
-+	".quad " __rseq_str(start_ip) ", " __rseq_str(exit_ip) "\n"	\
-+	".popsection\n"
-+
-+#define RSEQ_ASM_STORE_RSEQ_CS(label, cs_label, rseq_cs)		\
-+	RSEQ_INJECT_ASM(1)						\
-+	"la	"RSEQ_ASM_TMP_REG_1 ", " __rseq_str(cs_label) "\n"	\
-+	REG_S	RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(rseq_cs) "]\n"	\
-+	__rseq_str(label) ":\n"
-+
-+#define RSEQ_ASM_DEFINE_ABORT(label, abort_label)			\
-+	"j	222f\n"							\
-+	".balign	4\n"						\
-+	".long "	__rseq_str(RSEQ_SIG) "\n"			\
-+	__rseq_str(label) ":\n"						\
-+	"j	%l[" __rseq_str(abort_label) "]\n"			\
-+	"222:\n"
-+
-+#define RSEQ_ASM_OP_STORE(value, var)					\
-+	REG_S	"%[" __rseq_str(value) "], %[" __rseq_str(var) "]\n"
-+
-+#define RSEQ_ASM_OP_CMPEQ(var, expect, label)				\
-+	REG_L	RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(var) "]\n"		\
-+	"bne	"RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(expect) "] ,"	\
-+		  __rseq_str(label) "\n"
-+
-+#define RSEQ_ASM_OP_CMPEQ32(var, expect, label)				\
-+	"lw	"RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(var) "]\n"	\
-+	"bne	"RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(expect) "] ,"	\
-+		  __rseq_str(label) "\n"
-+
-+#define RSEQ_ASM_OP_CMPNE(var, expect, label)				\
-+	REG_L	RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(var) "]\n"		\
-+	"beq	"RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(expect) "] ,"	\
-+		  __rseq_str(label) "\n"
-+
-+#define RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, label)		\
-+	RSEQ_INJECT_ASM(2)						\
-+	RSEQ_ASM_OP_CMPEQ32(current_cpu_id, cpu_id, label)
-+
-+#define RSEQ_ASM_OP_R_LOAD(var)						\
-+	REG_L	RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(var) "]\n"
-+
-+#define RSEQ_ASM_OP_R_STORE(var)					\
-+	REG_S	RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(var) "]\n"
-+
-+#define RSEQ_ASM_OP_R_LOAD_OFF(offset)					\
-+	"add	"RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(offset) "], "	\
-+		 RSEQ_ASM_TMP_REG_1 "\n"				\
-+	REG_L	RSEQ_ASM_TMP_REG_1 ", (" RSEQ_ASM_TMP_REG_1 ")\n"
-+
-+#define RSEQ_ASM_OP_R_ADD(count)					\
-+	"add	"RSEQ_ASM_TMP_REG_1 ", " RSEQ_ASM_TMP_REG_1		\
-+		", %[" __rseq_str(count) "]\n"
-+
-+#define RSEQ_ASM_OP_FINAL_STORE(value, var, post_commit_label)		\
-+	RSEQ_ASM_OP_STORE(value, var)					\
-+	__rseq_str(post_commit_label) ":\n"
-+
-+#define RSEQ_ASM_OP_FINAL_STORE_RELEASE(value, var, post_commit_label)	\
-+	"fence	rw, w\n"						\
-+	RSEQ_ASM_OP_STORE(value, var)					\
-+	__rseq_str(post_commit_label) ":\n"
-+
-+#define RSEQ_ASM_OP_R_FINAL_STORE(var, post_commit_label)		\
-+	REG_S	RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(var) "]\n"		\
-+	__rseq_str(post_commit_label) ":\n"
-+
-+#define RSEQ_ASM_OP_R_BAD_MEMCPY(dst, src, len)				\
-+	"beqz	%[" __rseq_str(len) "], 333f\n"				\
-+	"mv	" RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(len) "]\n"	\
-+	"mv	" RSEQ_ASM_TMP_REG_2 ", %[" __rseq_str(src) "]\n"	\
-+	"mv	" RSEQ_ASM_TMP_REG_3 ", %[" __rseq_str(dst) "]\n"	\
-+	"222:\n"							\
-+	"lb	" RSEQ_ASM_TMP_REG_4 ", 0(" RSEQ_ASM_TMP_REG_2 ")\n"	\
-+	"sb	" RSEQ_ASM_TMP_REG_4 ", 0(" RSEQ_ASM_TMP_REG_3 ")\n"	\
-+	"addi	" RSEQ_ASM_TMP_REG_1 ", " RSEQ_ASM_TMP_REG_1 ", -1\n"	\
-+	"addi	" RSEQ_ASM_TMP_REG_2 ", " RSEQ_ASM_TMP_REG_2 ", 1\n"	\
-+	"addi	" RSEQ_ASM_TMP_REG_3 ", " RSEQ_ASM_TMP_REG_3 ", 1\n"	\
-+	"bnez	" RSEQ_ASM_TMP_REG_1 ", 222b\n"				\
-+	"333:\n"
-+
-+#define RSEQ_ASM_OP_R_DEREF_ADDV(ptr, off, post_commit_label)		\
-+	"mv	" RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(ptr) "]\n"	\
-+	RSEQ_ASM_OP_R_ADD(off)						\
-+	"ld	" RSEQ_ASM_TMP_REG_1 ", 0(" RSEQ_ASM_TMP_REG_1 ")\n"	\
-+	RSEQ_ASM_OP_R_ADD(inc)						\
-+	__rseq_str(post_commit_label) ":\n"
-+
-+static inline __always_inline
-+int rseq_cmpeqv_storev(intptr_t *v, intptr_t expect, intptr_t newv, int cpu)
-+{
-+	RSEQ_INJECT_C(9)
-+
-+	__asm__ __volatile__ goto(RSEQ_ASM_DEFINE_TABLE(1, 2f, 3f, 4f)
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[cmpfail]")
-+#ifdef RSEQ_COMPARE_TWICE
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error1]")
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error2]")
-+#endif
-+				  RSEQ_ASM_STORE_RSEQ_CS(2, 1b, rseq_cs)
-+				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, 4f)
-+				  RSEQ_INJECT_ASM(3)
-+				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[cmpfail]")
-+				  RSEQ_INJECT_ASM(4)
-+#ifdef RSEQ_COMPARE_TWICE
-+				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, "%l[error1]")
-+				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[error2]")
-+#endif
-+				  RSEQ_ASM_OP_FINAL_STORE(newv, v, 3)
-+				  RSEQ_INJECT_ASM(5)
-+				  RSEQ_ASM_DEFINE_ABORT(4, abort)
-+				  : /* gcc asm goto does not allow outputs */
-+				  : [cpu_id]		"r" (cpu),
-+				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
-+				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-+				    [v]			"m" (*v),
-+				    [expect]		"r" (expect),
-+				    [newv]		"r" (newv)
-+				    RSEQ_INJECT_INPUT
-+				  : "memory", RSEQ_ASM_TMP_REG_1
-+				    RSEQ_INJECT_CLOBBER
-+				  : abort, cmpfail
-+#ifdef RSEQ_COMPARE_TWICE
-+				    , error1, error2
-+#endif
-+	);
-+
-+	return 0;
-+abort:
-+	RSEQ_INJECT_FAILED
-+	return -1;
-+cmpfail:
-+	return 1;
-+#ifdef RSEQ_COMPARE_TWICE
-+error1:
-+	rseq_bug("cpu_id comparison failed");
-+error2:
-+	rseq_bug("expected value comparison failed");
-+#endif
-+}
-+
-+static inline __always_inline
-+int rseq_cmpnev_storeoffp_load(intptr_t *v, intptr_t expectnot,
-+			       off_t voffp, intptr_t *load, int cpu)
-+{
-+	RSEQ_INJECT_C(9)
-+
-+	__asm__ __volatile__ goto(RSEQ_ASM_DEFINE_TABLE(1, 2f, 3f, 4f)
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[cmpfail]")
-+#ifdef RSEQ_COMPARE_TWICE
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error1]")
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error2]")
-+#endif
-+				  RSEQ_ASM_STORE_RSEQ_CS(2, 1b, rseq_cs)
-+				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, 4f)
-+				  RSEQ_INJECT_ASM(3)
-+				  RSEQ_ASM_OP_CMPNE(v, expectnot, "%l[cmpfail]")
-+				  RSEQ_INJECT_ASM(4)
-+#ifdef RSEQ_COMPARE_TWICE
-+				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, "%l[error1]")
-+				  RSEQ_ASM_OP_CMPNE(v, expectnot, "%l[error2]")
-+#endif
-+				  RSEQ_ASM_OP_R_LOAD(v)
-+				  RSEQ_ASM_OP_R_STORE(load)
-+				  RSEQ_ASM_OP_R_LOAD_OFF(voffp)
-+				  RSEQ_ASM_OP_R_FINAL_STORE(v, 3)
-+				  RSEQ_INJECT_ASM(5)
-+				  RSEQ_ASM_DEFINE_ABORT(4, abort)
-+				  : /* gcc asm goto does not allow outputs */
-+				  : [cpu_id]		"r" (cpu),
-+				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
-+				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-+				    [v]			"m" (*v),
-+				    [expectnot]		"r" (expectnot),
-+				    [load]		"m" (*load),
-+				    [voffp]		"r" (voffp)
-+				    RSEQ_INJECT_INPUT
-+				  : "memory", RSEQ_ASM_TMP_REG_1
-+				    RSEQ_INJECT_CLOBBER
-+				  : abort, cmpfail
-+#ifdef RSEQ_COMPARE_TWICE
-+				    , error1, error2
-+#endif
-+	);
-+	return 0;
-+abort:
-+	RSEQ_INJECT_FAILED
-+	return -1;
-+cmpfail:
-+	return 1;
-+#ifdef RSEQ_COMPARE_TWICE
-+error1:
-+	rseq_bug("cpu_id comparison failed");
-+error2:
-+	rseq_bug("expected value comparison failed");
-+#endif
-+}
-+
-+static inline __always_inline
-+int rseq_addv(intptr_t *v, intptr_t count, int cpu)
-+{
-+	RSEQ_INJECT_C(9)
-+
-+	__asm__ __volatile__ goto(RSEQ_ASM_DEFINE_TABLE(1, 2f, 3f, 4f)
-+#ifdef RSEQ_COMPARE_TWICE
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error1]")
-+#endif
-+				  RSEQ_ASM_STORE_RSEQ_CS(2, 1b, rseq_cs)
-+				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, 4f)
-+				  RSEQ_INJECT_ASM(3)
-+#ifdef RSEQ_COMPARE_TWICE
-+				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, "%l[error1]")
-+#endif
-+				  RSEQ_ASM_OP_R_LOAD(v)
-+				  RSEQ_ASM_OP_R_ADD(count)
-+				  RSEQ_ASM_OP_R_FINAL_STORE(v, 3)
-+				  RSEQ_INJECT_ASM(4)
-+				  RSEQ_ASM_DEFINE_ABORT(4, abort)
-+				  : /* gcc asm goto does not allow outputs */
-+				  : [cpu_id]		"r" (cpu),
-+				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
-+				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-+				    [v]			"m" (*v),
-+				    [count]		"r" (count)
-+				    RSEQ_INJECT_INPUT
-+				  : "memory", RSEQ_ASM_TMP_REG_1
-+				    RSEQ_INJECT_CLOBBER
-+				  : abort
-+#ifdef RSEQ_COMPARE_TWICE
-+				    , error1
-+#endif
-+	);
-+	return 0;
-+abort:
-+	RSEQ_INJECT_FAILED
-+	return -1;
-+#ifdef RSEQ_COMPARE_TWICE
-+error1:
-+	rseq_bug("cpu_id comparison failed");
-+#endif
-+}
-+
-+static inline __always_inline
-+int rseq_cmpeqv_trystorev_storev(intptr_t *v, intptr_t expect,
-+				 intptr_t *v2, intptr_t newv2,
-+				 intptr_t newv, int cpu)
-+{
-+	RSEQ_INJECT_C(9)
-+
-+	__asm__ __volatile__ goto(RSEQ_ASM_DEFINE_TABLE(1, 2f, 3f, 4f)
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[cmpfail]")
-+#ifdef RSEQ_COMPARE_TWICE
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error1]")
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error2]")
-+#endif
-+				  RSEQ_ASM_STORE_RSEQ_CS(2, 1b, rseq_cs)
-+				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, 4f)
-+				  RSEQ_INJECT_ASM(3)
-+				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[cmpfail]")
-+				  RSEQ_INJECT_ASM(4)
-+#ifdef RSEQ_COMPARE_TWICE
-+				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, "%l[error1]")
-+				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[error2]")
-+#endif
-+				  RSEQ_ASM_OP_STORE(newv2, v2)
-+				  RSEQ_INJECT_ASM(5)
-+				  RSEQ_ASM_OP_FINAL_STORE(newv, v, 3)
-+				  RSEQ_INJECT_ASM(6)
-+				  RSEQ_ASM_DEFINE_ABORT(4, abort)
-+				  : /* gcc asm goto does not allow outputs */
-+				  : [cpu_id]		"r" (cpu),
-+				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
-+				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-+				    [expect]		"r" (expect),
-+				    [v]			"m" (*v),
-+				    [newv]		"r" (newv),
-+				    [v2]			"m" (*v2),
-+				    [newv2]		"r" (newv2)
-+				    RSEQ_INJECT_INPUT
-+				  : "memory", RSEQ_ASM_TMP_REG_1
-+				    RSEQ_INJECT_CLOBBER
-+				  : abort, cmpfail
-+#ifdef RSEQ_COMPARE_TWICE
-+				    , error1, error2
-+#endif
-+	);
-+
-+	return 0;
-+abort:
-+	RSEQ_INJECT_FAILED
-+	return -1;
-+cmpfail:
-+	return 1;
-+#ifdef RSEQ_COMPARE_TWICE
-+error1:
-+	rseq_bug("cpu_id comparison failed");
-+error2:
-+	rseq_bug("expected value comparison failed");
-+#endif
-+}
-+
-+static inline __always_inline
-+int rseq_cmpeqv_trystorev_storev_release(intptr_t *v, intptr_t expect,
-+					 intptr_t *v2, intptr_t newv2,
-+					 intptr_t newv, int cpu)
-+{
-+	RSEQ_INJECT_C(9)
-+
-+	__asm__ __volatile__ goto(RSEQ_ASM_DEFINE_TABLE(1, 2f, 3f, 4f)
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[cmpfail]")
-+#ifdef RSEQ_COMPARE_TWICE
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error1]")
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error2]")
-+#endif
-+				  RSEQ_ASM_STORE_RSEQ_CS(2, 1b, rseq_cs)
-+				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, 4f)
-+				  RSEQ_INJECT_ASM(3)
-+				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[cmpfail]")
-+				  RSEQ_INJECT_ASM(4)
-+#ifdef RSEQ_COMPARE_TWICE
-+				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, "%l[error1]")
-+				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[error2]")
-+#endif
-+				  RSEQ_ASM_OP_STORE(newv2, v2)
-+				  RSEQ_INJECT_ASM(5)
-+				  RSEQ_ASM_OP_FINAL_STORE_RELEASE(newv, v, 3)
-+				  RSEQ_INJECT_ASM(6)
-+				  RSEQ_ASM_DEFINE_ABORT(4, abort)
-+				  : /* gcc asm goto does not allow outputs */
-+				  : [cpu_id]		"r" (cpu),
-+				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
-+				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-+				    [expect]		"r" (expect),
-+				    [v]			"m" (*v),
-+				    [newv]		"r" (newv),
-+				    [v2]			"m" (*v2),
-+				    [newv2]		"r" (newv2)
-+				    RSEQ_INJECT_INPUT
-+				  : "memory", RSEQ_ASM_TMP_REG_1
-+				    RSEQ_INJECT_CLOBBER
-+				  : abort, cmpfail
-+#ifdef RSEQ_COMPARE_TWICE
-+				    , error1, error2
-+#endif
-+	);
-+
-+	return 0;
-+abort:
-+	RSEQ_INJECT_FAILED
-+	return -1;
-+cmpfail:
-+	return 1;
-+#ifdef RSEQ_COMPARE_TWICE
-+error1:
-+	rseq_bug("cpu_id comparison failed");
-+error2:
-+	rseq_bug("expected value comparison failed");
-+#endif
-+}
-+
-+static inline __always_inline
-+int rseq_cmpeqv_cmpeqv_storev(intptr_t *v, intptr_t expect,
-+			      intptr_t *v2, intptr_t expect2,
-+			      intptr_t newv, int cpu)
-+{
-+	RSEQ_INJECT_C(9)
-+
-+	__asm__ __volatile__ goto(RSEQ_ASM_DEFINE_TABLE(1, 2f, 3f, 4f)
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[cmpfail]")
-+#ifdef RSEQ_COMPARE_TWICE
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error1]")
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error2]")
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error3]")
-+#endif
-+				  RSEQ_ASM_STORE_RSEQ_CS(2, 1b, rseq_cs)
-+				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, 4f)
-+				  RSEQ_INJECT_ASM(3)
-+				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[cmpfail]")
-+				  RSEQ_INJECT_ASM(4)
-+				  RSEQ_ASM_OP_CMPEQ(v2, expect2, "%l[cmpfail]")
-+				  RSEQ_INJECT_ASM(5)
-+#ifdef RSEQ_COMPARE_TWICE
-+				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, "%l[error1]")
-+				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[error2]")
-+				  RSEQ_ASM_OP_CMPEQ(v2, expect2, "%l[error3]")
-+#endif
-+				  RSEQ_ASM_OP_FINAL_STORE(newv, v, 3)
-+				  RSEQ_INJECT_ASM(6)
-+				  RSEQ_ASM_DEFINE_ABORT(4, abort)
-+				  : /* gcc asm goto does not allow outputs */
-+				  : [cpu_id]		"r" (cpu),
-+				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
-+				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-+				    [v]			"m" (*v),
-+				    [expect]		"r" (expect),
-+				    [v2]			"m" (*v2),
-+				    [expect2]		"r" (expect2),
-+				    [newv]		"r" (newv)
-+				    RSEQ_INJECT_INPUT
-+				  : "memory", RSEQ_ASM_TMP_REG_1
-+				    RSEQ_INJECT_CLOBBER
-+				  : abort, cmpfail
-+#ifdef RSEQ_COMPARE_TWICE
-+				    , error1, error2, error3
-+#endif
-+	);
-+
-+	return 0;
-+abort:
-+	RSEQ_INJECT_FAILED
-+	return -1;
-+cmpfail:
-+	return 1;
-+#ifdef RSEQ_COMPARE_TWICE
-+error1:
-+	rseq_bug("cpu_id comparison failed");
-+error2:
-+	rseq_bug("expected value comparison failed");
-+error3:
-+	rseq_bug("2nd expected value comparison failed");
-+#endif
-+}
-+
-+static inline __always_inline
-+int rseq_cmpeqv_trymemcpy_storev(intptr_t *v, intptr_t expect,
-+				 void *dst, void *src, size_t len,
-+				 intptr_t newv, int cpu)
-+{
-+	RSEQ_INJECT_C(9)
-+	__asm__ __volatile__ goto(RSEQ_ASM_DEFINE_TABLE(1, 2f, 3f, 4f)
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[cmpfail]")
-+#ifdef RSEQ_COMPARE_TWICE
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error1]")
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error2]")
-+#endif
-+				  RSEQ_ASM_STORE_RSEQ_CS(2, 1b, rseq_cs)
-+				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, 4f)
-+				  RSEQ_INJECT_ASM(3)
-+				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[cmpfail]")
-+				  RSEQ_INJECT_ASM(4)
-+#ifdef RSEQ_COMPARE_TWICE
-+				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, "%l[error1]")
-+				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[error2]")
-+#endif
-+				  RSEQ_ASM_OP_R_BAD_MEMCPY(dst, src, len)
-+				  RSEQ_INJECT_ASM(5)
-+				  RSEQ_ASM_OP_FINAL_STORE(newv, v, 3)
-+				  RSEQ_INJECT_ASM(6)
-+				  RSEQ_ASM_DEFINE_ABORT(4, abort)
-+				  : /* gcc asm goto does not allow outputs */
-+				  : [cpu_id]		"r" (cpu),
-+				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
-+				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-+				    [expect]		"r" (expect),
-+				    [v]			"m" (*v),
-+				    [newv]		"r" (newv),
-+				    [dst]			"r" (dst),
-+				    [src]			"r" (src),
-+				    [len]			"r" (len)
-+				    RSEQ_INJECT_INPUT
-+				  : "memory", RSEQ_ASM_TMP_REG_1, RSEQ_ASM_TMP_REG_2,
-+				    RSEQ_ASM_TMP_REG_3, RSEQ_ASM_TMP_REG_4
-+				    RSEQ_INJECT_CLOBBER
-+				  : abort, cmpfail
-+#ifdef RSEQ_COMPARE_TWICE
-+				    , error1, error2
-+#endif
-+	);
-+
-+	return 0;
-+abort:
-+	RSEQ_INJECT_FAILED
-+	return -1;
-+cmpfail:
-+	return 1;
-+#ifdef RSEQ_COMPARE_TWICE
-+error1:
-+	rseq_bug("cpu_id comparison failed");
-+error2:
-+	rseq_bug("expected value comparison failed");
-+#endif
-+}
-+
-+static inline __always_inline
-+int rseq_cmpeqv_trymemcpy_storev_release(intptr_t *v, intptr_t expect,
-+					 void *dst, void *src, size_t len,
-+					 intptr_t newv, int cpu)
-+{
-+	RSEQ_INJECT_C(9)
-+
-+	__asm__ __volatile__ goto(RSEQ_ASM_DEFINE_TABLE(1, 2f, 3f, 4f)
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[cmpfail]")
-+#ifdef RSEQ_COMPARE_TWICE
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error1]")
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error2]")
-+#endif
-+				  RSEQ_ASM_STORE_RSEQ_CS(2, 1b, rseq_cs)
-+				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, 4f)
-+				  RSEQ_INJECT_ASM(3)
-+				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[cmpfail]")
-+				  RSEQ_INJECT_ASM(4)
-+#ifdef RSEQ_COMPARE_TWICE
-+				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, "%l[error1]")
-+				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[error2]")
-+#endif
-+				  RSEQ_ASM_OP_R_BAD_MEMCPY(dst, src, len)
-+				  RSEQ_INJECT_ASM(5)
-+				  RSEQ_ASM_OP_FINAL_STORE_RELEASE(newv, v, 3)
-+				  RSEQ_INJECT_ASM(6)
-+				  RSEQ_ASM_DEFINE_ABORT(4, abort)
-+				  : /* gcc asm goto does not allow outputs */
-+				  : [cpu_id]		"r" (cpu),
-+				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
-+				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-+				    [expect]		"r" (expect),
-+				    [v]			"m" (*v),
-+				    [newv]		"r" (newv),
-+				    [dst]			"r" (dst),
-+				    [src]			"r" (src),
-+				    [len]			"r" (len)
-+				    RSEQ_INJECT_INPUT
-+				  : "memory", RSEQ_ASM_TMP_REG_1, RSEQ_ASM_TMP_REG_2,
-+				    RSEQ_ASM_TMP_REG_3, RSEQ_ASM_TMP_REG_4
-+				    RSEQ_INJECT_CLOBBER
-+				  : abort, cmpfail
-+#ifdef RSEQ_COMPARE_TWICE
-+				    , error1, error2
-+#endif
-+	);
-+
-+	return 0;
-+abort:
-+	RSEQ_INJECT_FAILED
-+	return -1;
-+cmpfail:
-+	return 1;
-+#ifdef RSEQ_COMPARE_TWICE
-+error1:
-+	rseq_bug("cpu_id comparison failed");
-+error2:
-+	rseq_bug("expected value comparison failed");
-+#endif
-+}
-+
-+#define RSEQ_ARCH_HAS_OFFSET_DEREF_ADDV
-+
-+/*
-+ *   pval = *(ptr+off)
-+ *  *pval += inc;
-+ */
-+static inline __always_inline
-+int rseq_offset_deref_addv(intptr_t *ptr, off_t off, intptr_t inc, int cpu)
-+{
-+	RSEQ_INJECT_C(9)
-+
-+	__asm__ __volatile__ goto(RSEQ_ASM_DEFINE_TABLE(1, 2f, 3f, 4f)
-+#ifdef RSEQ_COMPARE_TWICE
-+				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error1]")
-+#endif
-+				  RSEQ_ASM_STORE_RSEQ_CS(2, 1b, rseq_cs)
-+				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, 4f)
-+				  RSEQ_INJECT_ASM(3)
-+#ifdef RSEQ_COMPARE_TWICE
-+				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, "%l[error1]")
-+#endif
-+				  RSEQ_ASM_OP_R_DEREF_ADDV(ptr, off, 3)
-+				  RSEQ_INJECT_ASM(4)
-+				  RSEQ_ASM_DEFINE_ABORT(4, abort)
-+				  : /* gcc asm goto does not allow outputs */
-+				  : [cpu_id]		"r" (cpu),
-+				    [current_cpu_id]      "m" (__rseq_abi.cpu_id),
-+				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-+				    [ptr]			"r" (ptr),
-+				    [off]			"er" (off),
-+				    [inc]			"er" (inc)
-+				    RSEQ_INJECT_INPUT
-+				  : "memory", RSEQ_ASM_TMP_REG_1
-+				    RSEQ_INJECT_CLOBBER
-+				  : abort
-+#ifdef RSEQ_COMPARE_TWICE
-+				    , error1
-+#endif
-+	);
-+	return 0;
-+abort:
-+	RSEQ_INJECT_FAILED
-+	return -1;
-+#ifdef RSEQ_COMPARE_TWICE
-+error1:
-+	rseq_bug("cpu_id comparison failed");
-+#endif
-+}
-+
-+#endif /* !RSEQ_SKIP_FASTPATH */
-diff --git a/tools/testing/selftests/rseq/rseq.h b/tools/testing/selftests/rseq/rseq.h
-index 3f63eb362b92..72efb6d3d84e 100644
---- a/tools/testing/selftests/rseq/rseq.h
-+++ b/tools/testing/selftests/rseq/rseq.h
-@@ -79,6 +79,8 @@ extern int __rseq_handled;
- #include <rseq-mips.h>
- #elif defined(__s390__)
- #include <rseq-s390.h>
-+#elif defined(__riscv)
-+#include <rseq-riscv.h>
- #else
- #error unsupported target
- #endif
--- 
-2.17.1
 
+>  static bool hypercall_cflush = false;
+> @@ -143,10 +141,15 @@ static int __init xen_mm_init(void)
+>  	if (!xen_swiotlb_detect())
+>  		return 0;
+>  
+> -	rc = xen_swiotlb_init();
+>  	/* we can work with the default swiotlb */
+> -	if (rc < 0 && rc != -EEXIST)
+> -		return rc;
+> +	if (!io_tlb_default_mem.nslabs) {
+> +		if (!xen_initial_domain())
+> +			return -EINVAL;
+
+I don't think we need this xen_initial_domain() check. It is all
+already sorted out by the xen_swiotlb_detect() check above.
+
+Aside from that the rest looks OK. Also, you can add my:
+
+Tested-by: Stefano Stabellini <sstabellini@kernel.org>
+
+
+> +		rc = swiotlb_init_late(swiotlb_size_or_default(),
+> +				       xen_swiotlb_gfp(), NULL);
+> +		if (rc < 0)
+> +			return rc;
+> +	}
+>  
+>  	cflush.op = 0;
+>  	cflush.a.dev_bus_addr = 0;
+> diff --git a/arch/x86/include/asm/xen/page.h b/arch/x86/include/asm/xen/page.h
+> index e989bc2269f54..1fc67df500145 100644
+> --- a/arch/x86/include/asm/xen/page.h
+> +++ b/arch/x86/include/asm/xen/page.h
+> @@ -357,9 +357,4 @@ static inline bool xen_arch_need_swiotlb(struct device *dev,
+>  	return false;
+>  }
+>  
+> -static inline unsigned long xen_get_swiotlb_free_pages(unsigned int order)
+> -{
+> -	return __get_free_pages(__GFP_NOWARN, order);
+> -}
+> -
+>  #endif /* _ASM_X86_XEN_PAGE_H */
+> diff --git a/arch/x86/kernel/pci-dma.c b/arch/x86/kernel/pci-dma.c
+> index e0def4b1c3181..2f2c468acb955 100644
+> --- a/arch/x86/kernel/pci-dma.c
+> +++ b/arch/x86/kernel/pci-dma.c
+> @@ -71,15 +71,12 @@ static inline void __init pci_swiotlb_detect(void)
+>  #endif /* CONFIG_SWIOTLB */
+>  
+>  #ifdef CONFIG_SWIOTLB_XEN
+> -static bool xen_swiotlb;
+> -
+>  static void __init pci_xen_swiotlb_init(void)
+>  {
+>  	if (!xen_initial_domain() && !x86_swiotlb_enable)
+>  		return;
+>  	x86_swiotlb_enable = false;
+> -	xen_swiotlb = true;
+> -	xen_swiotlb_init_early();
+> +	swiotlb_init_remap(true, x86_swiotlb_flags, xen_swiotlb_fixup);
+>  	dma_ops = &xen_swiotlb_dma_ops;
+>  	if (IS_ENABLED(CONFIG_PCI))
+>  		pci_request_acs();
+> @@ -87,14 +84,16 @@ static void __init pci_xen_swiotlb_init(void)
+>  
+>  int pci_xen_swiotlb_init_late(void)
+>  {
+> -	int rc;
+> -
+> -	if (xen_swiotlb)
+> +	if (dma_ops == &xen_swiotlb_dma_ops)
+>  		return 0;
+>  
+> -	rc = xen_swiotlb_init();
+> -	if (rc)
+> -		return rc;
+> +	/* we can work with the default swiotlb */
+> +	if (!io_tlb_default_mem.nslabs) {
+> +		int rc = swiotlb_init_late(swiotlb_size_or_default(),
+> +					   GFP_KERNEL, xen_swiotlb_fixup);
+> +		if (rc < 0)
+> +			return rc;
+> +	}
+>  
+>  	/* XXX: this switches the dma ops under live devices! */
+>  	dma_ops = &xen_swiotlb_dma_ops;
+> diff --git a/drivers/xen/swiotlb-xen.c b/drivers/xen/swiotlb-xen.c
+> index c2da3eb4826e8..df8085b50df10 100644
+> --- a/drivers/xen/swiotlb-xen.c
+> +++ b/drivers/xen/swiotlb-xen.c
+> @@ -104,7 +104,7 @@ static int is_xen_swiotlb_buffer(struct device *dev, dma_addr_t dma_addr)
+>  	return 0;
+>  }
+>  
+> -static int xen_swiotlb_fixup(void *buf, unsigned long nslabs)
+> +int xen_swiotlb_fixup(void *buf, unsigned long nslabs)
+>  {
+>  	int rc;
+>  	unsigned int order = get_order(IO_TLB_SEGSIZE << IO_TLB_SHIFT);
+> @@ -130,132 +130,6 @@ static int xen_swiotlb_fixup(void *buf, unsigned long nslabs)
+>  	return 0;
+>  }
+>  
+> -enum xen_swiotlb_err {
+> -	XEN_SWIOTLB_UNKNOWN = 0,
+> -	XEN_SWIOTLB_ENOMEM,
+> -	XEN_SWIOTLB_EFIXUP
+> -};
+> -
+> -static const char *xen_swiotlb_error(enum xen_swiotlb_err err)
+> -{
+> -	switch (err) {
+> -	case XEN_SWIOTLB_ENOMEM:
+> -		return "Cannot allocate Xen-SWIOTLB buffer\n";
+> -	case XEN_SWIOTLB_EFIXUP:
+> -		return "Failed to get contiguous memory for DMA from Xen!\n"\
+> -		    "You either: don't have the permissions, do not have"\
+> -		    " enough free memory under 4GB, or the hypervisor memory"\
+> -		    " is too fragmented!";
+> -	default:
+> -		break;
+> -	}
+> -	return "";
+> -}
+> -
+> -int xen_swiotlb_init(void)
+> -{
+> -	enum xen_swiotlb_err m_ret = XEN_SWIOTLB_UNKNOWN;
+> -	unsigned long bytes = swiotlb_size_or_default();
+> -	unsigned long nslabs = bytes >> IO_TLB_SHIFT;
+> -	unsigned int order, repeat = 3;
+> -	int rc = -ENOMEM;
+> -	char *start;
+> -
+> -	if (io_tlb_default_mem.nslabs) {
+> -		pr_warn("swiotlb buffer already initialized\n");
+> -		return -EEXIST;
+> -	}
+> -
+> -retry:
+> -	m_ret = XEN_SWIOTLB_ENOMEM;
+> -	order = get_order(bytes);
+> -
+> -	/*
+> -	 * Get IO TLB memory from any location.
+> -	 */
+> -#define SLABS_PER_PAGE (1 << (PAGE_SHIFT - IO_TLB_SHIFT))
+> -#define IO_TLB_MIN_SLABS ((1<<20) >> IO_TLB_SHIFT)
+> -	while ((SLABS_PER_PAGE << order) > IO_TLB_MIN_SLABS) {
+> -		start = (void *)xen_get_swiotlb_free_pages(order);
+> -		if (start)
+> -			break;
+> -		order--;
+> -	}
+> -	if (!start)
+> -		goto exit;
+> -	if (order != get_order(bytes)) {
+> -		pr_warn("Warning: only able to allocate %ld MB for software IO TLB\n",
+> -			(PAGE_SIZE << order) >> 20);
+> -		nslabs = SLABS_PER_PAGE << order;
+> -		bytes = nslabs << IO_TLB_SHIFT;
+> -	}
+> -
+> -	/*
+> -	 * And replace that memory with pages under 4GB.
+> -	 */
+> -	rc = xen_swiotlb_fixup(start, nslabs);
+> -	if (rc) {
+> -		free_pages((unsigned long)start, order);
+> -		m_ret = XEN_SWIOTLB_EFIXUP;
+> -		goto error;
+> -	}
+> -	rc = swiotlb_late_init_with_tbl(start, nslabs);
+> -	if (rc)
+> -		return rc;
+> -	return 0;
+> -error:
+> -	if (nslabs > 1024 && repeat--) {
+> -		/* Min is 2MB */
+> -		nslabs = max(1024UL, ALIGN(nslabs >> 1, IO_TLB_SEGSIZE));
+> -		bytes = nslabs << IO_TLB_SHIFT;
+> -		pr_info("Lowering to %luMB\n", bytes >> 20);
+> -		goto retry;
+> -	}
+> -exit:
+> -	pr_err("%s (rc:%d)\n", xen_swiotlb_error(m_ret), rc);
+> -	return rc;
+> -}
+> -
+> -#ifdef CONFIG_X86
+> -void __init xen_swiotlb_init_early(void)
+> -{
+> -	unsigned long bytes = swiotlb_size_or_default();
+> -	unsigned long nslabs = bytes >> IO_TLB_SHIFT;
+> -	unsigned int repeat = 3;
+> -	char *start;
+> -	int rc;
+> -
+> -retry:
+> -	/*
+> -	 * Get IO TLB memory from any location.
+> -	 */
+> -	start = memblock_alloc(PAGE_ALIGN(bytes),
+> -			       IO_TLB_SEGSIZE << IO_TLB_SHIFT);
+> -	if (!start)
+> -		panic("%s: Failed to allocate %lu bytes\n",
+> -		      __func__, PAGE_ALIGN(bytes));
+> -
+> -	/*
+> -	 * And replace that memory with pages under 4GB.
+> -	 */
+> -	rc = xen_swiotlb_fixup(start, nslabs);
+> -	if (rc) {
+> -		memblock_free(start, PAGE_ALIGN(bytes));
+> -		if (nslabs > 1024 && repeat--) {
+> -			/* Min is 2MB */
+> -			nslabs = max(1024UL, ALIGN(nslabs >> 1, IO_TLB_SEGSIZE));
+> -			bytes = nslabs << IO_TLB_SHIFT;
+> -			pr_info("Lowering to %luMB\n", bytes >> 20);
+> -			goto retry;
+> -		}
+> -		panic("%s (rc:%d)", xen_swiotlb_error(XEN_SWIOTLB_EFIXUP), rc);
+> -	}
+> -
+> -	if (swiotlb_init_with_tbl(start, nslabs, SWIOTLB_VERBOSE))
+> -		panic("Cannot allocate SWIOTLB buffer");
+> -}
+> -#endif /* CONFIG_X86 */
+> -
+>  static void *
+>  xen_swiotlb_alloc_coherent(struct device *hwdev, size_t size,
+>  			   dma_addr_t *dma_handle, gfp_t flags,
+> diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
+> index ee655f2e4d28b..919cf82ed978e 100644
+> --- a/include/linux/swiotlb.h
+> +++ b/include/linux/swiotlb.h
+> @@ -34,10 +34,11 @@ struct scatterlist;
+>  /* default to 64MB */
+>  #define IO_TLB_DEFAULT_SIZE (64UL<<20)
+>  
+> -int swiotlb_init_with_tbl(char *tlb, unsigned long nslabs, unsigned int flags);
+>  unsigned long swiotlb_size_or_default(void);
+> -extern int swiotlb_late_init_with_tbl(char *tlb, unsigned long nslabs);
+> -int swiotlb_init_late(size_t size, gfp_t gfp_mask);
+> +int swiotlb_init_late(size_t size, gfp_t gfp_mask,
+> +		int (*remap)(void *tlb, unsigned long nslabs));
+> +void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
+> +		int (*remap)(void *tlb, unsigned long nslabs));
+>  extern void __init swiotlb_update_mem_attributes(void);
+>  
+>  phys_addr_t swiotlb_tbl_map_single(struct device *hwdev, phys_addr_t phys,
+> diff --git a/include/xen/arm/page.h b/include/xen/arm/page.h
+> index ac1b654705631..7e199c6656b90 100644
+> --- a/include/xen/arm/page.h
+> +++ b/include/xen/arm/page.h
+> @@ -115,6 +115,5 @@ static inline bool set_phys_to_machine(unsigned long pfn, unsigned long mfn)
+>  bool xen_arch_need_swiotlb(struct device *dev,
+>  			   phys_addr_t phys,
+>  			   dma_addr_t dev_addr);
+> -unsigned long xen_get_swiotlb_free_pages(unsigned int order);
+>  #endif /* _ASM_ARM_XEN_PAGE_H */
+> diff --git a/include/xen/swiotlb-xen.h b/include/xen/swiotlb-xen.h
+> index b3e647f86e3e2..590ceb923f0c8 100644
+> --- a/include/xen/swiotlb-xen.h
+> +++ b/include/xen/swiotlb-xen.h
+> @@ -10,8 +10,12 @@ void xen_dma_sync_for_cpu(struct device *dev, dma_addr_t handle,
+>  void xen_dma_sync_for_device(struct device *dev, dma_addr_t handle,
+>  			     size_t size, enum dma_data_direction dir);
+>  
+> -int xen_swiotlb_init(void);
+> -void __init xen_swiotlb_init_early(void);
+> +#ifdef CONFIG_SWIOTLB_XEN
+> +int xen_swiotlb_fixup(void *buf, unsigned long nslabs);
+> +#else
+> +#define xen_swiotlb_fixup NULL
+> +#endif
+> +
+>  extern const struct dma_map_ops xen_swiotlb_dma_ops;
+>  
+>  #endif /* __LINUX_SWIOTLB_XEN_H */
+> diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+> index 77cf73dc20a78..128363dc9b5bb 100644
+> --- a/kernel/dma/swiotlb.c
+> +++ b/kernel/dma/swiotlb.c
+> @@ -234,40 +234,17 @@ static void swiotlb_init_io_tlb_mem(struct io_tlb_mem *mem, phys_addr_t start,
+>  	return;
+>  }
+>  
+> -int __init swiotlb_init_with_tbl(char *tlb, unsigned long nslabs,
+> -		unsigned int flags)
+> -{
+> -	struct io_tlb_mem *mem = &io_tlb_default_mem;
+> -	size_t alloc_size;
+> -
+> -	if (swiotlb_force_disable)
+> -		return 0;
+> -
+> -	/* protect against double initialization */
+> -	if (WARN_ON_ONCE(mem->nslabs))
+> -		return -ENOMEM;
+> -
+> -	alloc_size = PAGE_ALIGN(array_size(sizeof(*mem->slots), nslabs));
+> -	mem->slots = memblock_alloc(alloc_size, PAGE_SIZE);
+> -	if (!mem->slots)
+> -		panic("%s: Failed to allocate %zu bytes align=0x%lx\n",
+> -		      __func__, alloc_size, PAGE_SIZE);
+> -
+> -	swiotlb_init_io_tlb_mem(mem, __pa(tlb), nslabs, false);
+> -	mem->force_bounce = flags & SWIOTLB_FORCE;
+> -
+> -	if (flags & SWIOTLB_VERBOSE)
+> -		swiotlb_print_info();
+> -	return 0;
+> -}
+> -
+>  /*
+>   * Statically reserve bounce buffer space and initialize bounce buffer data
+>   * structures for the software IO TLB used to implement the DMA API.
+>   */
+> -void __init swiotlb_init(bool addressing_limit, unsigned int flags)
+> +void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
+> +		int (*remap)(void *tlb, unsigned long nslabs))
+>  {
+> -	size_t bytes = PAGE_ALIGN(default_nslabs << IO_TLB_SHIFT);
+> +	struct io_tlb_mem *mem = &io_tlb_default_mem;
+> +	unsigned long nslabs = default_nslabs;
+> +	size_t alloc_size = PAGE_ALIGN(array_size(sizeof(*mem->slots), nslabs));
+> +	size_t bytes;
+>  	void *tlb;
+>  
+>  	if (!addressing_limit && !swiotlb_force_bounce)
+> @@ -275,23 +252,48 @@ void __init swiotlb_init(bool addressing_limit, unsigned int flags)
+>  	if (swiotlb_force_disable)
+>  		return;
+>  
+> +	/* protect against double initialization */
+> +	if (WARN_ON_ONCE(mem->nslabs))
+> +		return;
+> +
+>  	/*
+>  	 * By default allocate the bonuce buffer memory from low memory.
+>  	 */
+> +retry:
+> +	bytes = PAGE_ALIGN(default_nslabs << IO_TLB_SHIFT);
+>  	if (flags & SWIOTLB_ANY)
+>  		tlb = memblock_alloc(bytes, PAGE_SIZE);
+>  	else
+>  		tlb = memblock_alloc_low(bytes, PAGE_SIZE);
+>  	if (!tlb)
+> -		goto fail;
+> -	if (swiotlb_init_with_tbl(tlb, default_nslabs, flags))
+> -		goto fail_free_mem;
+> -	return;
+> +		panic("%s: failed to allocate tlb structure\n", __func__);
+> +
+> +	if (remap && remap(tlb, nslabs) < 0) {
+> +		memblock_free(tlb, PAGE_ALIGN(bytes));
+> +
+> +		/* Min is 2MB */
+> +		if (nslabs <= 1024)
+> +			panic("%s: Failed to remap %zu bytes\n",
+> +			      __func__, bytes);
+> +		nslabs = max(1024UL, ALIGN(nslabs >> 1, IO_TLB_SEGSIZE));
+> +		goto retry;
+> +	}
+> +
+> +	mem->slots = memblock_alloc(alloc_size, PAGE_SIZE);
+> +	if (!mem->slots)
+> +		panic("%s: Failed to allocate %zu bytes align=0x%lx\n",
+> +		      __func__, alloc_size, PAGE_SIZE);
+>  
+> -fail_free_mem:
+> -	memblock_free(tlb, bytes);
+> -fail:
+> -	pr_warn("Cannot allocate buffer");
+> +	swiotlb_init_io_tlb_mem(mem, __pa(tlb), default_nslabs, false);
+> +	mem->force_bounce = flags & SWIOTLB_FORCE;
+> +
+> +	if (flags & SWIOTLB_VERBOSE)
+> +		swiotlb_print_info();
+> +}
+> +
+> +void __init swiotlb_init(bool addressing_limit, unsigned int flags)
+> +{
+> +	return swiotlb_init_remap(addressing_limit, flags, NULL);
+>  }
+>  
+>  /*
+> @@ -299,8 +301,10 @@ void __init swiotlb_init(bool addressing_limit, unsigned int flags)
+>   * initialize the swiotlb later using the slab allocator if needed.
+>   * This should be just like above, but with some error catching.
+>   */
+> -int swiotlb_init_late(size_t size, gfp_t gfp_mask)
+> +int swiotlb_init_late(size_t size, gfp_t gfp_mask,
+> +		int (*remap)(void *tlb, unsigned long nslabs))
+>  {
+> +	struct io_tlb_mem *mem = &io_tlb_default_mem;
+>  	unsigned long nslabs = ALIGN(size >> IO_TLB_SHIFT, IO_TLB_SEGSIZE);
+>  	unsigned long bytes;
+>  	unsigned char *vstart = NULL;
+> @@ -310,9 +314,14 @@ int swiotlb_init_late(size_t size, gfp_t gfp_mask)
+>  	if (swiotlb_force_disable)
+>  		return 0;
+>  
+> +	/* protect against double initialization */
+> +	if (WARN_ON_ONCE(mem->nslabs))
+> +		return -ENOMEM;
+> +
+>  	/*
+>  	 * Get IO TLB memory from the low pages
+>  	 */
+> +retry:
+>  	order = get_order(nslabs << IO_TLB_SHIFT);
+>  	nslabs = SLABS_PER_PAGE << order;
+>  	bytes = nslabs << IO_TLB_SHIFT;
+> @@ -333,33 +342,28 @@ int swiotlb_init_late(size_t size, gfp_t gfp_mask)
+>  			(PAGE_SIZE << order) >> 20);
+>  		nslabs = SLABS_PER_PAGE << order;
+>  	}
+> -	rc = swiotlb_late_init_with_tbl(vstart, nslabs);
+> -	if (rc)
+> -		free_pages((unsigned long)vstart, order);
+> -
+> -	return rc;
+> -}
+> -
+> -int
+> -swiotlb_late_init_with_tbl(char *tlb, unsigned long nslabs)
+> -{
+> -	struct io_tlb_mem *mem = &io_tlb_default_mem;
+> -	unsigned long bytes = nslabs << IO_TLB_SHIFT;
+>  
+> -	if (swiotlb_force_disable)
+> -		return 0;
+> +	if (remap)
+> +		rc = remap(vstart, nslabs);
+> +	if (rc) {
+> +		free_pages((unsigned long)vstart, order);
+>  
+> -	/* protect against double initialization */
+> -	if (WARN_ON_ONCE(mem->nslabs))
+> -		return -ENOMEM;
+> +		/* Min is 2MB */
+> +		if (nslabs <= 1024)
+> +			return rc;
+> +		nslabs = max(1024UL, ALIGN(nslabs >> 1, IO_TLB_SEGSIZE));
+> +		goto retry;
+> +	}
+>  
+>  	mem->slots = (void *)__get_free_pages(GFP_KERNEL | __GFP_ZERO,
+>  		get_order(array_size(sizeof(*mem->slots), nslabs)));
+> -	if (!mem->slots)
+> +	if (!mem->slots) {
+> +		free_pages((unsigned long)vstart, order);
+>  		return -ENOMEM;
+> +	}
+>  
+> -	set_memory_decrypted((unsigned long)tlb, bytes >> PAGE_SHIFT);
+> -	swiotlb_init_io_tlb_mem(mem, virt_to_phys(tlb), nslabs, true);
+> +	set_memory_decrypted((unsigned long)vstart, bytes >> PAGE_SHIFT);
+> +	swiotlb_init_io_tlb_mem(mem, virt_to_phys(vstart), nslabs, true);
+>  
+>  	swiotlb_print_info();
+>  	return 0;
+> -- 
+> 2.30.2
+> 
+> 
+> _______________________________________________
+> linux-arm-kernel mailing list
+> linux-arm-kernel@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
+> 
 
 _______________________________________________
 linux-riscv mailing list
