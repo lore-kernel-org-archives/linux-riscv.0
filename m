@@ -4,112 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FBEBC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Mar 2022 19:05:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0FA0C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Mar 2022 20:45:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Cc:References:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0ZeOjwPrE1B1VzdPeZntwb7GJaTRLQmNNyIu9BrfUgI=; b=LA84MAnAhJWRRm
-	bEuBfR1rt5VbbYSoHQeYEyTdMBR7b3ioZ4b8wlHggBTEQnlyu3xq2rOYUiJXAgMK8NnhB14F7a6y6
-	d4X1PASmXvb8Yo1Qb5gzzLEBXGBRqpqQ23UFMMVJufxp6UsI0idaFRjYxdZIco108v2uv20KguQ1u
-	h1RjNg+UsdvPzJT9knv//9OO0g/7PHFmVaT6o6ZhjyKuTw6mmCF017er0HUx3dk1rYQ4++P7w21Jo
-	nhV3z5C1eSW7G+bhVzpbTfNHL7m6+OZ7MIvEViz0N+mI6jkYFyg9G8xXosWt7BVBd8miHDuiQ0nfh
-	rhdL2CZfS5kya/G2JXTg==;
+	List-Owner; bh=/SIQgxcHVH9CZYZfYGbVW6YrkjRrBVtYTgFq2lcV3ag=; b=rhBGrienlq7Kij
+	Bm4+PCCz8fCXnqbqMskZQ7db8yGinR0/dpuwi5qpaFas4y0e6p1ZjXQcbczlshEQrbbEmDl/Dkjz9
+	EgVD8oU5P5XfHdiVkwgJ3jGY4U9Lu0OQ+ieiN6oj7nLQu5ibyfgSorj2Bwg1IwBsEDhuZooEJa/R2
+	81zMLok51fRN2/QLTpbJLtMZXR/t/3W/igHBGfiBVlln1RyvSdJimppGB54hy+lzRIQzD86TAodqj
+	A+RDe0b7nA1/ueTf8TeOkz5P76ZD4dQDWR7l3cQ/MnO6soK+tGkrjJ04QmL4gU0cWpXgdag+Q9sfm
+	092plglQAg5b9ae7+sKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nPUHU-003uRu-3b; Wed, 02 Mar 2022 19:05:00 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1nPVr1-0047Y0-Fu; Wed, 02 Mar 2022 20:45:47 +0000
+Received: from mail-yb1-xb36.google.com ([2607:f8b0:4864:20::b36])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nPUHR-003uRN-MC
- for linux-riscv@lists.infradead.org; Wed, 02 Mar 2022 19:04:59 +0000
-Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com
- [209.85.208.71])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 834DA3F610
- for <linux-riscv@lists.infradead.org>; Wed,  2 Mar 2022 19:04:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1646247890;
- bh=o/gq2zH0XhC0PaitqVD/LagQpkqLCpBFDwRKMGbmd0w=;
- h=Message-ID:Date:MIME-Version:Subject:To:References:Cc:From:
- In-Reply-To:Content-Type;
- b=VX5E2GTk3XaX1klJGyfzuzvzJhPWgNbJ65jFDYpMxrC0weEhXY+s3plrO8WZWxZC9
- FPkEz5MJ18M4nQTrn+3FzU3H+fY3QFJ0cqMqUyoR7yj2bfe1TwTYQb6VLz3H4Mz/ze
- cq9QJtMQWMxBmaEk589oylobcyXTKA5vBeFa9rM1Ow4vCG0eyM5armtlt2uhjzfvNH
- hfVi8H42m7POM3iyB/ZS7nSAw0ItWvrcKwdl19nB6Xn9fW5KaF1qojzaWQx3sKuDhu
- tQ44XJvTw/MSH9+Nv6/Xr5AVOxPhOT0D8wxKi8rMpDux3NJChuVVmMQE5U4u7PB/E+
- aQB1zUkEZ+1VA==
-Received: by mail-ed1-f71.google.com with SMTP id
- l14-20020a056402344e00b0041593c729adso1499701edc.18
- for <linux-riscv@lists.infradead.org>; Wed, 02 Mar 2022 11:04:50 -0800 (PST)
+ id 1nPVqp-0047VP-1c; Wed, 02 Mar 2022 20:45:36 +0000
+Received: by mail-yb1-xb36.google.com with SMTP id x200so5881390ybe.6;
+ Wed, 02 Mar 2022 12:45:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=Y6qqvHc/+bg7logl0Wqx5hN0gsT9pLtg+9GuBdEyV/s=;
+ b=N6mzMrvWJ3NnD3ZyiJjMdVcsCSd17WTZeB6K7pfo5O4CTlaCF/zVdybZv+jhlTrmxe
+ uPhSjCcemXAPPjSrv6Mt5HWt3iMD5ymv09MAlL+oTjIdHYCdg/0ssExCUuNBW85SJtyL
+ 6OeZi79DSlqdlABdL8kngO2BoTutu+xJFXugejEjTOelpI2a+1M4P6YxOlDkDUJyF29p
+ PgdD7Ic+/VgjKaC6I7tmOHYd0tLr5EfPZX9OcETMEavgE8GzKwipHdx6ClJQBP2rXN9f
+ EGUY3EVA/3aCTBVmeMF2lzsoXWVLoxju/7BmHfIIowzLDvJ2L+u3IWbGBpTNizOgCwuq
+ xi8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:references:cc:from:in-reply-to
- :content-transfer-encoding;
- bh=o/gq2zH0XhC0PaitqVD/LagQpkqLCpBFDwRKMGbmd0w=;
- b=ZpivKJQA+3lI4yLvVTr6Z2RUpuV/Ca0jahNtTQTALsO645CyzI8DR2AzTUxYGF054G
- 2MfQ3ThDXcXj5r0z5NL4TFQ0Cugpzd+e2IR/OrVzaJ99kl8YLAKKbfaFzpF3swvZPoSS
- KwWAUDIawjB4iN7gFFlYTuCROF9bNtvKsv7sMl9Wdw3vzI1zQxgH9IobeJfSW5VYO6jQ
- ZZmyINhjVzClvSc3qyw0QVGzyR1rgPogIdfVc5WKCurb4oaqry9hFT6cyIxScodkvt4m
- XS3R3jbm1N20ycwuHNx8aw/dBLxUWPJxCcHIQrBuAyXm5Ky8pkn3AR43t/Vp4EuVxIaP
- eTkQ==
-X-Gm-Message-State: AOAM530cVr59fJfhQwKwn/dQkjCHokiyIDQATJ8HBPARjXBhckUuMCb7
- 8W22w5YlXrkL93jNGTHITLpGYehPufCtnrm8jSFSwGyCt8f5rv6ipdvxcJhP7OwoQavi8yAWUyr
- Uatm5Iv/UFgdY+E70k3NWFAGd4pff/y3wa2LYZ3zPBmuYOw==
-X-Received: by 2002:a05:6402:26cb:b0:3fa:3817:1f78 with SMTP id
- x11-20020a05640226cb00b003fa38171f78mr30654856edd.219.1646247889889; 
- Wed, 02 Mar 2022 11:04:49 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJy5ud+uzIs5hvG4Gs8CgEyL9Hzob7WkoDzIJWUkIA9MRmpeL5TH6uATTuuggM0eZzWdPfuGEw==
-X-Received: by 2002:a05:6402:26cb:b0:3fa:3817:1f78 with SMTP id
- x11-20020a05640226cb00b003fa38171f78mr30654817edd.219.1646247889629; 
- Wed, 02 Mar 2022 11:04:49 -0800 (PST)
-Received: from [192.168.0.137] (xdsl-188-155-181-108.adslplus.ch.
- [188.155.181.108]) by smtp.gmail.com with ESMTPSA id
- t14-20020a170906608e00b006d1455acc62sm6630349ejj.74.2022.03.02.11.04.45
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Wed, 02 Mar 2022 11:04:46 -0800 (PST)
-Message-ID: <211b3d35-1d8d-b71c-996a-b185324815f7@canonical.com>
-Date: Wed, 2 Mar 2022 20:04:45 +0100
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=Y6qqvHc/+bg7logl0Wqx5hN0gsT9pLtg+9GuBdEyV/s=;
+ b=Tos5KRDNRn1/d0zQ896PWKHKpVmnkIoEB0v1HcJP8qVhgivjo3XW2Z/GosiJCNycvP
+ 8USLmE7XL84MucdyZ7LpP94XHmvzKxfWOlHmpwP7vsRQB/Ej8rFthEAcyzsYF0VPiEyS
+ E8I2PG4UDkML0QOzCER7IXvnV5kV6YwW1bzJyYL5TOAgqeDRv5nIbFbWkslBs8mOFX+5
+ 3FaZpsfGtebWKllwwI4bm7eSQz7cq/sv5tuGdb5SNMjEvlDB9ePyuzSAgKwNX9/Fm+3L
+ NeXAELvAbcA1GBPUKeX9xg+zAvqD9sGC5/L3I4PUHfWCt9f4gFMFRlpjM4bEFjkZas1+
+ qOzw==
+X-Gm-Message-State: AOAM532VwzGOx+JFPizT+G+qlTYNlbrNextPyjObzqteS4YaWxLVoHRN
+ lFHQft8XDA3GL1gWNrhc1G1C+Hvkc0gHQT1mGdRr2z+YcWVN7Q==
+X-Google-Smtp-Source: ABdhPJzRUMWLpsd+tQeqMe+lON1YrQZx9JkRO/Ga9/nynwkkheUILhBEVszCKkAbAE9UfTyjpoKk7tOUpMQSERi2HWM=
+X-Received: by 2002:a25:23d2:0:b0:628:771a:9d3 with SMTP id
+ j201-20020a2523d2000000b00628771a09d3mr10191498ybj.215.1646253932161; Wed, 02
+ Mar 2022 12:45:32 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.5.0
-Subject: Re: [PATCH v2 00/15] pwm: dt-bindings: Include generic pwm schema
-Content-Language: en-US
-To: Thierry Reding <thierry.reding@gmail.com>,
- =?UTF-8?Q?Uwe_Kleine-K=c3=b6nig?= <u.kleine-koenig@pengutronix.de>,
- Lee Jones <lee.jones@linaro.org>
-References: <20220214212154.8853-1-krzysztof.kozlowski@canonical.com>
-Cc: Chen-Yu Tsai <wens@csie.org>, Florian Fainelli <f.fainelli@gmail.com>,
- bcm-kernel-feedback-list@broadcom.com, Heiko Stuebner <heiko@sntech.de>,
- Palmer Dabbelt <palmer@dabbelt.com>, Shawn Guo <shawnguo@kernel.org>,
- Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Yash Shah <yash.shah@sifive.com>,
- Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
- Vijayakannan Ayyathurai <vijayakannan.ayyathurai@intel.com>,
- Vignesh R <vigneshr@ti.com>,
- Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
- Anson Huang <anson.huang@nxp.com>, Rahul Tanwar <rtanwar@maxlinear.com>,
- Rob Herring <robh+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Jeff LaBundy <jeff@labundy.com>, Sagar Kadam <sagar.kadam@sifive.com>,
- linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
- linux-rockchip@lists.infradead.org
-From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-In-Reply-To: <20220214212154.8853-1-krzysztof.kozlowski@canonical.com>
+References: <alpine.DEB.2.21.2202141955550.34636@angie.orcam.me.uk>
+In-Reply-To: <alpine.DEB.2.21.2202141955550.34636@angie.orcam.me.uk>
+From: Sudip Mukherjee <sudipm.mukherjee@gmail.com>
+Date: Wed, 2 Mar 2022 20:44:56 +0000
+Message-ID: <CADVatmP4sPwyqi6vKPm3QOFD=47w1LwXtsUynhecY4wMYGhXmw@mail.gmail.com>
+Subject: Re: [PATCH v2] parport_pc: Also enable driver for PCI systems
+To: "Maciej W. Rozycki" <macro@orcam.me.uk>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, Jeff Dike <jdike@addtoit.com>, 
+ Richard Weinberger <richard@nod.at>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+ Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+ linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org, 
+ linux-kernel <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220302_110457_954625_9BA03971 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20220302_124535_123194_298BD8E2 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,22 +94,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 14/02/2022 22:21, Krzysztof Kozlowski wrote:
-> Hi,
-> 
-> Changes since v1:
-> 1. Add tags.
-> 2. Adjust subject (Uwe).
-> 
+On Mon, Feb 14, 2022 at 8:16 PM Maciej W. Rozycki <macro@orcam.me.uk> wrote:
+>
+> Nowadays PC-style parallel ports come in the form of PCI and PCIe option
+> cards and there are some combined parallel/serial option cards as well
+> that we handle in the parport subsystem.  There is nothing in particular
+> that would prevent them from being used in any system equipped with PCI
+> or PCIe connectivity, except that we do not permit the PARPORT_PC config
+> option to be selected for platforms for which ARCH_MIGHT_HAVE_PC_PARPORT
+> has not been set for.
+>
+> The only PCI platforms that actually can't make use of PC-style parallel
+> port hardware are those newer PCIe systems that have no support for I/O
+> cycles in the host bridge, required by such parallel ports.  Notably,
+> this includes the s390 arch, which has port I/O accessors that cause
+> compilation warnings (promoted to errors with `-Werror'), and there are
+> other cases such as the POWER9 PHB4 device, though this one has variable
+> port I/O accessors that depend on the particular system.  Also it is not
+> clear whether the serial port side of devices enabled by PARPORT_SERIAL
+> uses port I/O or MMIO.  Finally Super I/O solutions are always either
+> ISA or platform devices.
+>
+> Make the PARPORT_PC option selectable also for PCI systems then, except
+> for the s390 arch, however limit the availability of PARPORT_PC_SUPERIO
+> to platforms that enable ARCH_MIGHT_HAVE_PC_PARPORT.  Update platforms
+> accordingly for the required <asm/parport.h> header.
+>
+> Signed-off-by: Maciej W. Rozycki <macro@orcam.me.uk>
 
-Hi Thierry, Uwe and Lee,
+Acked-by: Sudip Mukherjee <sudipm.mukherjee@gmail.com>
 
-Any comments here? Rob acked all these, so these are clear to go via PWM
-tree.
+Usually parport patches goes via Greg's tree. Adding Greg.
 
-
-Best regards,
-Krzysztof
+-- 
+Regards
+Sudip
 
 _______________________________________________
 linux-riscv mailing list
