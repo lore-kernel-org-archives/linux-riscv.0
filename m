@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6267AC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Mar 2022 10:57:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01231C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Mar 2022 10:59:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U1bxVMITiYZftPAUc0B692jrfecqpRRCCKiNkewR3mo=; b=JxmM7iA4usshKw
-	1i3iOtLIYU+GYnfZX7r9jtAsUtt60vWl+BnnBG8zpKz6jT5P2PhLukD9D3u+xPpBkTX9DJTNJA8cv
-	ymGnNoyrwGF42fB6lVKlkm/ebva5+01LAmbijWTfYCLKakn98vIJO9Jl2bXQxjnRh2TDfyCUrg4yb
-	0O3KO+prEP/dUfYw9rZzIMc3X8snNJdnGhYS1ZehqAAnEwITtOhcKs5JtfTMkOsnzbKOyVoDxMnUS
-	FpRsSxgEza4DZ1REmuSF8WECFgKoogfnePdgIfqHypKrzUQa1CnDdcbcbNIan2pCUD6ONJ/GPTBDR
-	o3JZGLcivYDwjmgNm2tQ==;
+	List-Owner; bh=qojDbXRcoLTRm3khHdesA2uHghO/B0/n4d8YqRaDzSY=; b=J/EmGNfQZia3Z7
+	ufY8mAgT6G8ickOt7wp9HQqNgy1OOoZfoYAvAoyRUuLK6kBKJJ9ehQ2y3DNFGKdGHsm2IP4lKknmH
+	LhhCumaxx09ZCya0RmcfNQKD/hXzEevcAPSn9giNrS4+rgH/QL19hHYaDixGYkgbOnMieaIZUkGVN
+	7XeEDffMRniAzmYjh41qffTcYa5/1J0KoWccd3F/ldXLI8FxpD/zmo+NmAUuRHkMjZZ0EvhEXvsRj
+	VxWIw+oSTgRawhKEY73LgJOvQHM2KMCOzofIyGb/lQ8XTYuQB7LyxjgfesTYp1KqEYax+V7+a0Ted
+	FFwdt7FKtFkV9xXD/IYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nPj9G-0068AI-Bq; Thu, 03 Mar 2022 10:57:30 +0000
+	id 1nPjBV-0068oN-1e; Thu, 03 Mar 2022 10:59:49 +0000
 Received: from verein.lst.de ([213.95.11.211])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nPj94-00686U-99; Thu, 03 Mar 2022 10:57:19 +0000
+ id 1nPjBH-0068hq-L0; Thu, 03 Mar 2022 10:59:37 +0000
 Received: by verein.lst.de (Postfix, from userid 2407)
- id C476A68AFE; Thu,  3 Mar 2022 11:57:14 +0100 (CET)
-Date: Thu, 3 Mar 2022 11:57:14 +0100
+ id DB58D68AFE; Thu,  3 Mar 2022 11:59:31 +0100 (CET)
+Date: Thu, 3 Mar 2022 11:59:31 +0100
 From: Christoph Hellwig <hch@lst.de>
-To: Boris Ostrovsky <boris.ostrovsky@oracle.com>
-Cc: Stefano Stabellini <sstabellini@kernel.org>,
- Christoph Hellwig <hch@lst.de>, iommu@lists.linux-foundation.org,
+To: Stefano Stabellini <sstabellini@kernel.org>
+Cc: Christoph Hellwig <hch@lst.de>, iommu@lists.linux-foundation.org,
  x86@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
  Tom Lendacky <thomas.lendacky@amd.com>,
  Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>,
  Juergen Gross <jgross@suse.com>, Joerg Roedel <joro@8bytes.org>,
  David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>,
  Robin Murphy <robin.murphy@arm.com>, linux-arm-kernel@lists.infradead.org,
@@ -44,18 +44,19 @@ Cc: Stefano Stabellini <sstabellini@kernel.org>,
  linux-pci@vger.kernel.org
 Subject: Re: [PATCH 11/12] swiotlb: merge swiotlb-xen initialization into
  swiotlb
-Message-ID: <20220303105714.GB15103@lst.de>
+Message-ID: <20220303105931.GA15137@lst.de>
 References: <20220301105311.885699-1-hch@lst.de>
  <20220301105311.885699-12-hch@lst.de>
  <alpine.DEB.2.22.394.2203011720150.3261@ubuntu-linux-20-04-desktop>
- <ca748512-12bb-7d75-13f1-8d5ec9703e26@oracle.com>
+ <20220302081500.GB23075@lst.de>
+ <alpine.DEB.2.22.394.2203021709470.3261@ubuntu-linux-20-04-desktop>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ca748512-12bb-7d75-13f1-8d5ec9703e26@oracle.com>
+In-Reply-To: <alpine.DEB.2.22.394.2203021709470.3261@ubuntu-linux-20-04-desktop>
 User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220303_025718_491854_9BA7ACAF 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20220303_025935_843551_FC887E22 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,18 +73,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 02, 2022 at 08:15:03AM -0500, Boris Ostrovsky wrote:
-> Not for me, I fail to boot with
->
-> [   52.202000] bnxt_en 0000:31:00.0: swiotlb buffer is full (sz: 256 bytes), total 0 (slots), used 0 (slots)
->
-> (this is iscsi root so I need the NIC).
->
->
-> I bisected it to "x86: remove the IOMMU table infrastructure" but haven't actually looked at the code yet.
+On Wed, Mar 02, 2022 at 05:25:10PM -0800, Stefano Stabellini wrote:
+> Thinking more about it we actually need to drop the xen_initial_domain()
+> check otherwise some cases won't be functional (Dom0 not 1:1 mapped, or
+> DomU 1:1 mapped).
 
-Thanks. Looks like the sizing is going wrong.  Just to confirm, this is
-dom0 on x86 and no special command line options?
+Hmm, but that would be the case even before this series, right?
 
 _______________________________________________
 linux-riscv mailing list
