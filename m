@@ -4,80 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0FA0C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Mar 2022 20:45:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF1A2C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Mar 2022 01:25:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/SIQgxcHVH9CZYZfYGbVW6YrkjRrBVtYTgFq2lcV3ag=; b=rhBGrienlq7Kij
-	Bm4+PCCz8fCXnqbqMskZQ7db8yGinR0/dpuwi5qpaFas4y0e6p1ZjXQcbczlshEQrbbEmDl/Dkjz9
-	EgVD8oU5P5XfHdiVkwgJ3jGY4U9Lu0OQ+ieiN6oj7nLQu5ibyfgSorj2Bwg1IwBsEDhuZooEJa/R2
-	81zMLok51fRN2/QLTpbJLtMZXR/t/3W/igHBGfiBVlln1RyvSdJimppGB54hy+lzRIQzD86TAodqj
-	A+RDe0b7nA1/ueTf8TeOkz5P76ZD4dQDWR7l3cQ/MnO6soK+tGkrjJ04QmL4gU0cWpXgdag+Q9sfm
-	092plglQAg5b9ae7+sKA==;
+	List-Owner; bh=ZlIHzn0AflJI7wqvTs4Eiepp8xVA8jabl3bmjcKYkAw=; b=M7L5M6hRV1MpLv
+	QSqAF5zrTmDIqrDFuBzyQYE8eFSD79n3Bukym//rBTDe+pUURmjsuDRIpIqDlGBvJhmcSh1PDqfes
+	2WCriJJ6zH19S4EFbrcnG822A1HQP3Sj1J1tUcaxXV2oSabmAszayT03d/DrCfRlKaB+/rmE+xdtH
+	lhzyrMRJgn9PwvIfIzVWJt1O0f7ddr1NojKZQRhIr36awimG90EJrVR3CVkquew3cdPcl+LIYi/y1
+	eJLfPGq73L/ZFZMxzXdELwdB6GC4bQwn4O3iH4fNpgMrdl2UPoBSaEI/5LI95PEDgq37oQ9M5Yyek
+	SApKUeRJYaWuIfl6Ul3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nPVr1-0047Y0-Fu; Wed, 02 Mar 2022 20:45:47 +0000
-Received: from mail-yb1-xb36.google.com ([2607:f8b0:4864:20::b36])
+	id 1nPaDg-004ud6-7v; Thu, 03 Mar 2022 01:25:28 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nPVqp-0047VP-1c; Wed, 02 Mar 2022 20:45:36 +0000
-Received: by mail-yb1-xb36.google.com with SMTP id x200so5881390ybe.6;
- Wed, 02 Mar 2022 12:45:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=Y6qqvHc/+bg7logl0Wqx5hN0gsT9pLtg+9GuBdEyV/s=;
- b=N6mzMrvWJ3NnD3ZyiJjMdVcsCSd17WTZeB6K7pfo5O4CTlaCF/zVdybZv+jhlTrmxe
- uPhSjCcemXAPPjSrv6Mt5HWt3iMD5ymv09MAlL+oTjIdHYCdg/0ssExCUuNBW85SJtyL
- 6OeZi79DSlqdlABdL8kngO2BoTutu+xJFXugejEjTOelpI2a+1M4P6YxOlDkDUJyF29p
- PgdD7Ic+/VgjKaC6I7tmOHYd0tLr5EfPZX9OcETMEavgE8GzKwipHdx6ClJQBP2rXN9f
- EGUY3EVA/3aCTBVmeMF2lzsoXWVLoxju/7BmHfIIowzLDvJ2L+u3IWbGBpTNizOgCwuq
- xi8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=Y6qqvHc/+bg7logl0Wqx5hN0gsT9pLtg+9GuBdEyV/s=;
- b=Tos5KRDNRn1/d0zQ896PWKHKpVmnkIoEB0v1HcJP8qVhgivjo3XW2Z/GosiJCNycvP
- 8USLmE7XL84MucdyZ7LpP94XHmvzKxfWOlHmpwP7vsRQB/Ej8rFthEAcyzsYF0VPiEyS
- E8I2PG4UDkML0QOzCER7IXvnV5kV6YwW1bzJyYL5TOAgqeDRv5nIbFbWkslBs8mOFX+5
- 3FaZpsfGtebWKllwwI4bm7eSQz7cq/sv5tuGdb5SNMjEvlDB9ePyuzSAgKwNX9/Fm+3L
- NeXAELvAbcA1GBPUKeX9xg+zAvqD9sGC5/L3I4PUHfWCt9f4gFMFRlpjM4bEFjkZas1+
- qOzw==
-X-Gm-Message-State: AOAM532VwzGOx+JFPizT+G+qlTYNlbrNextPyjObzqteS4YaWxLVoHRN
- lFHQft8XDA3GL1gWNrhc1G1C+Hvkc0gHQT1mGdRr2z+YcWVN7Q==
-X-Google-Smtp-Source: ABdhPJzRUMWLpsd+tQeqMe+lON1YrQZx9JkRO/Ga9/nynwkkheUILhBEVszCKkAbAE9UfTyjpoKk7tOUpMQSERi2HWM=
-X-Received: by 2002:a25:23d2:0:b0:628:771a:9d3 with SMTP id
- j201-20020a2523d2000000b00628771a09d3mr10191498ybj.215.1646253932161; Wed, 02
- Mar 2022 12:45:32 -0800 (PST)
-MIME-Version: 1.0
-References: <alpine.DEB.2.21.2202141955550.34636@angie.orcam.me.uk>
-In-Reply-To: <alpine.DEB.2.21.2202141955550.34636@angie.orcam.me.uk>
-From: Sudip Mukherjee <sudipm.mukherjee@gmail.com>
-Date: Wed, 2 Mar 2022 20:44:56 +0000
-Message-ID: <CADVatmP4sPwyqi6vKPm3QOFD=47w1LwXtsUynhecY4wMYGhXmw@mail.gmail.com>
-Subject: Re: [PATCH v2] parport_pc: Also enable driver for PCI systems
-To: "Maciej W. Rozycki" <macro@orcam.me.uk>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Sven Schnelle <svens@linux.ibm.com>, Jeff Dike <jdike@addtoit.com>, 
- Richard Weinberger <richard@nod.at>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
- Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>, 
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
+ id 1nPaDS-004uZj-Sa; Thu, 03 Mar 2022 01:25:16 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 7F309B82358;
+ Thu,  3 Mar 2022 01:25:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2074AC340F2;
+ Thu,  3 Mar 2022 01:25:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1646270712;
+ bh=OIWkR7Zp9BS5KcWgPGvH+7lGxsauASKPDzT5dWHRzcg=;
+ h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+ b=fyTcnY079RGVSWj1/bqnWf9UBPrXZmiZ32cJHGCuHKFrvhhlGSoeO8XnjyAULGbxy
+ xuEeYIRqhVQfty7l070VwdiiUBm+vhQMOyp1/UPCRCwJW1H8chwVFdTWSqF8JxQ7i6
+ pmngu4i/qw99iSRs7nF8V/KUQPfZMnX0OhdBfoyB3K0uXmVGkSCue1VhFC37hRyoHl
+ lqT9JrJPLf0sbQoGpagSmC+bBJdDfAOOQZXY1qQ2kFojarLkPJJigndyp3UGVx/CEp
+ 1XnqlJ8dDyOAxVpGwUR+l8DwgqcaHVrJmCy/f+O96VijhpAG5o/2FbsTqBKQIZTLrT
+ qEo+TADXZ7B8A==
+Date: Wed, 2 Mar 2022 17:25:10 -0800 (PST)
+From: Stefano Stabellini <sstabellini@kernel.org>
+X-X-Sender: sstabellini@ubuntu-linux-20-04-desktop
+To: Christoph Hellwig <hch@lst.de>
+cc: Stefano Stabellini <sstabellini@kernel.org>, 
+ iommu@lists.linux-foundation.org, x86@kernel.org, 
+ Anshuman Khandual <anshuman.khandual@arm.com>, 
+ Tom Lendacky <thomas.lendacky@amd.com>, 
+ Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>, 
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, 
+ Juergen Gross <jgross@suse.com>, Joerg Roedel <joro@8bytes.org>, 
+ David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>, 
+ Robin Murphy <robin.murphy@arm.com>, linux-arm-kernel@lists.infradead.org, 
+ xen-devel@lists.xenproject.org, linux-ia64@vger.kernel.org, 
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
  linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
- linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org, 
- linux-kernel <linux-kernel@vger.kernel.org>
+ linux-hyperv@vger.kernel.org, tboot-devel@lists.sourceforge.net, 
+ linux-pci@vger.kernel.org
+Subject: Re: [PATCH 11/12] swiotlb: merge swiotlb-xen initialization into
+ swiotlb
+In-Reply-To: <20220302081500.GB23075@lst.de>
+Message-ID: <alpine.DEB.2.22.394.2203021709470.3261@ubuntu-linux-20-04-desktop>
+References: <20220301105311.885699-1-hch@lst.de>
+ <20220301105311.885699-12-hch@lst.de>
+ <alpine.DEB.2.22.394.2203011720150.3261@ubuntu-linux-20-04-desktop>
+ <20220302081500.GB23075@lst.de>
+User-Agent: Alpine 2.22 (DEB 394 2020-01-19)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220302_124535_123194_298BD8E2 
-X-CRM114-Status: GOOD (  17.76  )
+X-CRM114-CacheID: sfid-20220302_172515_271604_716C42AE 
+X-CRM114-Status: GOOD (  31.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,41 +88,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 14, 2022 at 8:16 PM Maciej W. Rozycki <macro@orcam.me.uk> wrote:
->
-> Nowadays PC-style parallel ports come in the form of PCI and PCIe option
-> cards and there are some combined parallel/serial option cards as well
-> that we handle in the parport subsystem.  There is nothing in particular
-> that would prevent them from being used in any system equipped with PCI
-> or PCIe connectivity, except that we do not permit the PARPORT_PC config
-> option to be selected for platforms for which ARCH_MIGHT_HAVE_PC_PARPORT
-> has not been set for.
->
-> The only PCI platforms that actually can't make use of PC-style parallel
-> port hardware are those newer PCIe systems that have no support for I/O
-> cycles in the host bridge, required by such parallel ports.  Notably,
-> this includes the s390 arch, which has port I/O accessors that cause
-> compilation warnings (promoted to errors with `-Werror'), and there are
-> other cases such as the POWER9 PHB4 device, though this one has variable
-> port I/O accessors that depend on the particular system.  Also it is not
-> clear whether the serial port side of devices enabled by PARPORT_SERIAL
-> uses port I/O or MMIO.  Finally Super I/O solutions are always either
-> ISA or platform devices.
->
-> Make the PARPORT_PC option selectable also for PCI systems then, except
-> for the s390 arch, however limit the availability of PARPORT_PC_SUPERIO
-> to platforms that enable ARCH_MIGHT_HAVE_PC_PARPORT.  Update platforms
-> accordingly for the required <asm/parport.h> header.
->
-> Signed-off-by: Maciej W. Rozycki <macro@orcam.me.uk>
+On Wed, 2 Mar 2022, Christoph Hellwig wrote:
+> On Tue, Mar 01, 2022 at 06:55:47PM -0800, Stefano Stabellini wrote:
+> > Unrelated to this specific patch series: now that I think about it, if
+> > io_tlb_default_mem.nslabs is already allocated by the time xen_mm_init
+> > is called, wouldn't we potentially have an issue with the GFP flags used
+> > for the earlier allocation (e.g. GFP_DMA32 not used)? Maybe something
+> > for another day.
+> 
+> swiotlb_init allocates low memory from meblock, which is roughly
+> equivalent to GFP_DMA allocations, so we'll be fine.
+> 
+> > > @@ -143,10 +141,15 @@ static int __init xen_mm_init(void)
+> > >  	if (!xen_swiotlb_detect())
+> > >  		return 0;
+> > >  
+> > > -	rc = xen_swiotlb_init();
+> > >  	/* we can work with the default swiotlb */
+> > > -	if (rc < 0 && rc != -EEXIST)
+> > > -		return rc;
+> > > +	if (!io_tlb_default_mem.nslabs) {
+> > > +		if (!xen_initial_domain())
+> > > +			return -EINVAL;
+> > 
+> > I don't think we need this xen_initial_domain() check. It is all
+> > already sorted out by the xen_swiotlb_detect() check above.
+> 
+> Is it?
+> 
+> static inline int xen_swiotlb_detect(void)
+> {
+> 	if (!xen_domain())
+> 		return 0;
+> 	if (xen_feature(XENFEAT_direct_mapped))
+> 		return 1;
+> 	/* legacy case */
+> 	if (!xen_feature(XENFEAT_not_direct_mapped) && xen_initial_domain())
+> 		return 1;
+> 	return 0;
+> }
 
-Acked-by: Sudip Mukherjee <sudipm.mukherjee@gmail.com>
+It used to be that we had a
 
-Usually parport patches goes via Greg's tree. Adding Greg.
+  if (!xen_initial_domain())
+      return -EINVAL;
 
--- 
-Regards
-Sudip
+check in the initialization of swiotlb-xen on ARM. Then we replaced it
+with the more sophisticated xen_swiotlb_detect().
+
+The reason is that swiotlb-xen on ARM relies on Dom0 being 1:1 mapped
+(guest physical addresses == physical addresses). Recent changes in Xen
+allowed also DomUs to be 1:1 mapped. Changes still under discussion will
+allow Dom0 not to be 1:1 mapped.
+
+So, before all the Xen-side changes, knowing what was going to happen, I
+introduced a clearer interface: XENFEAT_direct_mapped and
+XENFEAT_not_direct_mapped tell us whether the guest (Linux) is 1:1
+mapped or not. If it is 1:1 mapped then Linux can take advantage of
+swiotlb-xen. Now xen_swiotlb_detect() returns true if Linux is 1:1
+mapped.
+
+Then of course there is the legacy case. That's taken care of by:
+
+ 	if (!xen_feature(XENFEAT_not_direct_mapped) && xen_initial_domain())
+ 		return 1;
+
+The intention is to say that if
+XENFEAT_direct_mapped/XENFEAT_not_direct_mapped are not present, then
+use xen_initial_domain() like we did before.
+
+So if xen_swiotlb_detect() returns true we know that Linux is either
+dom0 (xen_initial_domain() == true) or we have very good reasons to
+think we should initialize swiotlb-xen anyway
+(xen_feature(XENFEAT_direct_mapped) == true).
+
+
+> I think I'd keep it as-is for now, as my planned next step would be to
+> fold xen-swiotlb into swiotlb entirely.
+
+Thinking more about it we actually need to drop the xen_initial_domain()
+check otherwise some cases won't be functional (Dom0 not 1:1 mapped, or
+DomU 1:1 mapped).
 
 _______________________________________________
 linux-riscv mailing list
