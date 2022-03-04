@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74A82C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Mar 2022 09:11:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2B7CC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Mar 2022 09:13:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MyNri3uHRGotlqSZAYECQ3u8sAbJaxCS7jRO27VMtrg=; b=EFCtSV3yREzkBq
-	PatHfUQA5Kll8U/nyFfg8+g2XOTYRgs7CqEnAqx2zteYmnOLdKdeGrk+ImrIehdx0o9cxwFnx9R/x
-	nUHjzlEnTOQlnCnwPW0hDPT/29LMU31eXEAVQ65VvRQlFGgOSPmTs7Vbq14OIH4AfUHyzwY/7kB9e
-	VKpLqvW88tVFAXAkIpcsSe2DApbyV6T7asRKokAw92h+ejYpbHZkV51AjX3BAZduSO6sHtu28TvyY
-	Y8p0PaLHHAN/fpyidgpDWSCSAOaR/yKkm3igoOR4Swzz7KVGMapHJ6qmqH/3PbqIF/WIEPrkGT/Du
-	UP//YoeA2uR4Ty0UDIEw==;
+	List-Owner; bh=wGrrcrCxRAe6AyVCKW9JL06V2GNq6o2o16ShzjbJMMA=; b=a7N88psINoqExS
+	iy0ov/lKP0jVG8wj75JJ2tJUQOBvKfBw0C6qckxvlcy5+RptnkXozhHU9olTqrugVwfgS88uSnd2Y
+	KJBXZBaQGJxqsHuWrrLbtcQ3LxexlOIhfaXkZGzncJhidQxFrHhM5l94TRLohW/ARqxuhh0UyDOHh
+	dLrG9kX9xCFIIx9jDT5Dver6ju8vyTBd67AMB4ayqX093XsnteI0Gr6lSjMilyGjwSoJ+tTf/oDh7
+	hhUT8+a/ouDo+ps9cj9+ydYI+wPzFoHE192By3EkN3TrJyc5t8QTU1ePbNcgChpJcauqtgfZZMDwY
+	AeITghfoQhD9v5RIxRjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nQ3xr-009DM0-IB; Fri, 04 Mar 2022 09:11:07 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1nQ404-009DvQ-OM; Fri, 04 Mar 2022 09:13:24 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nQ3Wl-0095wE-Jo
- for linux-riscv@lists.infradead.org; Fri, 04 Mar 2022 08:43:09 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id
- mv5-20020a17090b198500b001bf2a039831so757257pjb.5
- for <linux-riscv@lists.infradead.org>; Fri, 04 Mar 2022 00:43:06 -0800 (PST)
+ id 1nQ3Wp-0095y0-5c
+ for linux-riscv@lists.infradead.org; Fri, 04 Mar 2022 08:43:13 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id e2so7127825pls.10
+ for <linux-riscv@lists.infradead.org>; Fri, 04 Mar 2022 00:43:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=uBjY8RLSr4Wf/RqUjGw1XSvLuEMUT8Kxzt7XGrbbTA4=;
- b=LBoOjG64D/UMKqjjSUSfIyY9paBrboCxsj/Gk30Ux0Yb8y2kWr8kPSLbNzGy9XG2XZ
- jJKBTfU6YXbux6peglEz/OoYAgwv5D7xs3apAmtrKkzbjAt9B2ES3SJA7604uFndWa+p
- GUaLKENTUVnG3n1zgZcMa9GA9rMGA0wnwIq+DQCI7UjWacOD8kH8QkyF6o0aTMgP7mp2
- 0JjHtm0FN65X88abSM4OcXgWdEzFFOE9nC9+ah0WVYNODF01angmKItlODyivzSO7ypR
- lj7XJxlv87EAfbZ/E5AEKz8ScT1O0caqrF6EfKajxxRpjtIywTJoQLKQ0Lg+nErySjqK
- sb9A==
+ bh=O3fmm4nvalmQleWa1byPzKYwRMYCW7Pxtk8Gk5epwAE=;
+ b=DdaVsAKprHzLmoEOoj7hXNT+Eeasjy3ANt5B6k52rePYudsdXjfR8CCclb5wZdHnEf
+ /jgBudJsh2wvZwJw/OERuUAIO60Ri0ua4fo10FGa9AKcX0TraqEZMf51mbPB2qQGJ+jv
+ 6Xyr8BUa2AlZdrDwLWnGWhQMXdKQy7P5i5iEb8tQaZSTQaSjx3NvKxb/aZmDKQ6cpbzS
+ rXEG9L4VFJyCl/9o7NzDXvMMnKnLK6aPGyfM8c6sVy0RolXmpNs2BcVj/vuDgag8Dvkj
+ Y2prHnlitDZDPD+7urtYUWiaqPYLxQrHiJOk4qlLK3IP2wbBi81rhE7aMy2DN051H+1R
+ /YAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=uBjY8RLSr4Wf/RqUjGw1XSvLuEMUT8Kxzt7XGrbbTA4=;
- b=VWY0ZrltuPZDFx5s1Be860vNhvApEd4R4W/exwavHCAKhoJzr57VcLh5q4mWOvDI4f
- d/ztwXc7qxTDbguvYiKL7M7h0W3l14b5vPT6YGKMtUwVqKxtXnHrT5ijZ/E0YoqoT3LQ
- 0nrU06puuWHuVzVxWFvfLrU68rHEjE5DdS+3ybdzqrNcumX3bcDKRlFgtvugddanuSUe
- HImTkfbHsH5hng2VT8jfb3i1944ZZ+Ys46vqx+TPko1e2AlDc74f3/aWvIJudGtDUkl1
- XEk3CqT+IozJVvSILGY75zZHe6vH37apBLYF9k3/o5dRQE4itBZKxh13X+h1W5xQeC71
- yMhg==
-X-Gm-Message-State: AOAM530cvEuTTk4hp++qJxmDOwAj+7hTCrDu229s5GC7n3jPNeUUj6Ey
- vWfGq7UVAoA3w+cdhIgHLxPo7ZLCbaZYXQ==
-X-Google-Smtp-Source: ABdhPJwogdPTQWP1HP1Zd+7+fIG0Cal3Ojoq8ZMgoufYmc6w15ueqOAsSeXr5UrPaoE8WU/Z25lopA==
-X-Received: by 2002:a17:90b:1809:b0:1bf:59c:d20b with SMTP id
- lw9-20020a17090b180900b001bf059cd20bmr9506145pjb.220.1646383386342; 
- Fri, 04 Mar 2022 00:43:06 -0800 (PST)
+ bh=O3fmm4nvalmQleWa1byPzKYwRMYCW7Pxtk8Gk5epwAE=;
+ b=OyaE9iMfv6z5HlXTfW2v6IHZkzAvgTdjVOaTy1faVjNxWMDCquZbeLE0L7WjORIeoc
+ b1Q3QE29h6S6v/fUOovgQs649mNdSqzfFKIdlZoYIeKPE6pakTgbkFcKTUAHL8MYyFwY
+ JeHG/VD22kB2O/KUGRtKQ4jJf9J5wHncwYZPCPt9/Sfb5LfPS68Ks5RqVOEYCojeT8SC
+ 2ygFBYi2DY0881pDD6ROcbS2d7hG1ji5p+BR5z6103uD+HoMkWQAhk5TbtA5P8Pi1jCh
+ dmP9WZymLAqnPASBrVzjWHzmM5t1wLwZEEDPRaV5uefDnq6XHxAWig3SVLZIZd9bYjA7
+ SpJA==
+X-Gm-Message-State: AOAM532kvXQtrCRkfq5o0DTkvTNReD7TybuVXK0QDT7qgfRe9it8PH+i
+ rA9q3z/ETI8dkcB6E7r70Ox3Bw==
+X-Google-Smtp-Source: ABdhPJzDQYRRNKtWR17zpM/+FYK3UlyVp5mrA7EmJm310J0T55vcLfD40IjArzY41WnCFi9Aw5b5gg==
+X-Received: by 2002:a17:902:b602:b0:14f:e42b:d547 with SMTP id
+ b2-20020a170902b60200b0014fe42bd547mr40717392pls.91.1646383389827; 
+ Fri, 04 Mar 2022 00:43:09 -0800 (PST)
 Received: from hsinchu16.internal.sifive.com
  (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
  by smtp.gmail.com with ESMTPSA id
- mu1-20020a17090b388100b001bedddf2000sm4245191pjb.14.2022.03.04.00.43.03
+ mu1-20020a17090b388100b001bedddf2000sm4245191pjb.14.2022.03.04.00.43.06
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 04 Mar 2022 00:43:05 -0800 (PST)
+ Fri, 04 Mar 2022 00:43:09 -0800 (PST)
 From: Zong Li <zong.li@sifive.com>
 To: robh+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
  aou@eecs.berkeley.edu, krzysztof.kozlowski@canonical.com,
@@ -68,19 +67,20 @@ To: robh+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
  green.wan@sifive.com, vkoul@kernel.org, dmaengine@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org
-Cc: Zong Li <zong.li@sifive.com>, Palmer Dabbelt <palmer@rivosinc.com>,
- Rob Herring <robh@kernel.org>
-Subject: [PATCH v6 1/3] dt-bindings: Add dma-channels property and modify
+Cc: Zong Li <zong.li@sifive.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>
+Subject: [PATCH v6 2/3] riscv: dts: Add dma-channels property and modify
  compatible
-Date: Fri,  4 Mar 2022 16:42:55 +0800
-Message-Id: <12cff3b68de1bd02a8915bd70999bb4edafaca1b.1646383150.git.zong.li@sifive.com>
+Date: Fri,  4 Mar 2022 16:42:56 +0800
+Message-Id: <df3a3e170af82070b0bfaa03e66b6570718dea77.1646383150.git.zong.li@sifive.com>
 X-Mailer: git-send-email 2.31.1
 In-Reply-To: <cover.1646383150.git.zong.li@sifive.com>
 References: <cover.1646383150.git.zong.li@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220304_004307_692277_891A607F 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20220304_004311_270041_FB46FB9C 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,63 +98,54 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 Add dma-channels property, then we can determine how many channels there
-by device tree, rather than statically defining it in PDMA driver.
-In addition, we also modify the compatible for PDMA versioning scheme.
+by device tree, in addition, we add the pdma versioning scheme for
+compatible.
 
 Signed-off-by: Zong Li <zong.li@sifive.com>
-Suggested-by: Palmer Dabbelt <palmer@rivosinc.com>
-Reviewed-by: Rob Herring <robh@kernel.org>
 Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
 Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../bindings/dma/sifive,fu540-c000-pdma.yaml  | 19 +++++++++++++++++--
- 1 file changed, 17 insertions(+), 2 deletions(-)
+ arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi | 3 ++-
+ arch/riscv/boot/dts/sifive/fu540-c000.dtsi        | 3 ++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml b/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
-index 75ad898c59bc..92f410f54d72 100644
---- a/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
-+++ b/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
-@@ -25,7 +25,15 @@ description: |
- properties:
-   compatible:
-     items:
--      - const: sifive,fu540-c000-pdma
-+      - enum:
-+          - sifive,fu540-c000-pdma
-+      - const: sifive,pdma0
-+    description:
-+      Should be "sifive,<chip>-pdma" and "sifive,pdma<version>".
-+      Supported compatible strings are -
-+      "sifive,fu540-c000-pdma" for the SiFive PDMA v0 as integrated onto the
-+      SiFive FU540 chip resp and "sifive,pdma0" for the SiFive PDMA v0 IP block
-+      with no chip integration tweaks.
+diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+index 869aaf0d5c06..d8869ec99945 100644
+--- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+@@ -187,11 +187,12 @@ plic: interrupt-controller@c000000 {
+ 		};
  
-   reg:
-     maxItems: 1
-@@ -34,6 +42,12 @@ properties:
-     minItems: 1
-     maxItems: 8
+ 		dma@3000000 {
+-			compatible = "sifive,fu540-c000-pdma";
++			compatible = "sifive,fu540-c000-pdma", "sifive,pdma0";
+ 			reg = <0x0 0x3000000 0x0 0x8000>;
+ 			interrupt-parent = <&plic>;
+ 			interrupts = <23>, <24>, <25>, <26>, <27>, <28>, <29>,
+ 				     <30>;
++			dma-channels = <4>;
+ 			#dma-cells = <1>;
+ 		};
  
-+  dma-channels:
-+    description: For backwards-compatibility, the default value is 4
-+    minimum: 1
-+    maximum: 4
-+    default: 4
-+
-   '#dma-cells':
-     const: 1
- 
-@@ -48,8 +62,9 @@ additionalProperties: false
- examples:
-   - |
-     dma@3000000 {
--      compatible = "sifive,fu540-c000-pdma";
-+      compatible = "sifive,fu540-c000-pdma", "sifive,pdma0";
-       reg = <0x3000000 0x8000>;
-+      dma-channels = <4>;
-       interrupts = <23>, <24>, <25>, <26>, <27>, <28>, <29>, <30>;
-       #dma-cells = <1>;
-     };
+diff --git a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
+index 3eef52b1a59b..6a3011180846 100644
+--- a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
++++ b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
+@@ -168,11 +168,12 @@ uart0: serial@10010000 {
+ 			status = "disabled";
+ 		};
+ 		dma: dma@3000000 {
+-			compatible = "sifive,fu540-c000-pdma";
++			compatible = "sifive,fu540-c000-pdma", "sifive,pdma0";
+ 			reg = <0x0 0x3000000 0x0 0x8000>;
+ 			interrupt-parent = <&plic0>;
+ 			interrupts = <23>, <24>, <25>, <26>, <27>, <28>, <29>,
+ 				     <30>;
++			dma-channels = <4>;
+ 			#dma-cells = <1>;
+ 		};
+ 		uart1: serial@10011000 {
 -- 
 2.31.1
 
