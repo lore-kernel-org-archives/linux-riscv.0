@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2450C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Mar 2022 20:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22330C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Mar 2022 20:11:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ze3Gf2PbALfA6HGsyRQyIjxpUAYQrmzMV36jllx+n44=; b=mRBSDRqB/ywjjG
-	0Y17sCCllkKQ3m6CVoBcri8Gax22vhofX5iOzvmzMf1T9wSaU2LSNSFpC0MiDwn7zG9quxgcx9jwC
-	RgAOw7PESxasWcwwUnWSsK7C8iJUUzYzKw4aDhTOJhHivHEmwOkDLANQesGYUzBwABQMg0WQIa2Lm
-	xqUbimtk3nofbyNOdj8baRTRL2JGFCphAyblw7KE+bNuCBwjaRZWlx8QlKIwyaCYR/Wn/fuZhrOGb
-	7/wEZ+ThVdoaql2VjaoA05g7EjEwqkHkD/yhNy952p9cmyUFd2IsvUQ4c1OmYSek7ridhqB8FehF1
-	qi1uP36KUTIGLlQ4I8YA==;
+	List-Owner; bh=MovOKnYOheE1yZUI5HOvdTDg4Qo7wO9+aNYmldNw9OE=; b=NgeZ0BFOF/xkvj
+	a5wW9qyg7qUXECnfIyjSyg5YbzKA6oBSpYuSHpRNsUw2mDBkgv1MxgbxFqy14pZn7wGStexG9i7wg
+	pObTKgcBSp1YEbwehAqE9Q7YZcnNijJD7jgsOvmfxTiEWE07R6JECkGRU7MEr6D1bkAfCxflA/kDD
+	CYmpb5uCIlu+oysl8tP7UOF/EV207u3NSNFdcnOVVA0BPb3xUdbpC4ycvu7O9djVRxKHCx0N/Nvj1
+	PoVKIViW7uJGYQelHVqbo6Q3scXEUfq1cnwXXma40URY/3jB5NyPKM+msK9j7+9W59NNe52D/0RkM
+	EEBLuJ1paB1VGIenYvLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nQEGT-00BtNk-Iv; Fri, 04 Mar 2022 20:11:01 +0000
-Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
+	id 1nQEGY-00BtSj-JK; Fri, 04 Mar 2022 20:11:06 +0000
+Received: from mail-qv1-xf2c.google.com ([2607:f8b0:4864:20::f2c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nQEGG-00BtBw-NG
- for linux-riscv@lists.infradead.org; Fri, 04 Mar 2022 20:10:51 +0000
-Received: by mail-qk1-x72d.google.com with SMTP id j78so7349263qke.2
- for <linux-riscv@lists.infradead.org>; Fri, 04 Mar 2022 12:10:48 -0800 (PST)
+ id 1nQEGI-00BtDo-KG
+ for linux-riscv@lists.infradead.org; Fri, 04 Mar 2022 20:10:52 +0000
+Received: by mail-qv1-xf2c.google.com with SMTP id p8so4480138qvg.12
+ for <linux-riscv@lists.infradead.org>; Fri, 04 Mar 2022 12:10:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=VGU3lDVBq59QqjYsyRxQH4/VHY2UtoMa8BpyGMZ/FLo=;
- b=ogou+8r1Nf1Cv1Sqo2avgI+ufHZcUQqdvKyABGfz/Jgc+M/SCWUFQ0E9dIfKtMXMSR
- 2NCi9Iv5Kpn5fzA3h8CIk/bNHWE8Pd3sJFOVKnlj7MJz78TxbTRnE5g4Mcc+97U5oUKg
- YsSPgos3H5hG5PVLOeekfix7+oR8CaU/8TXW+4p6m9nrW0hwiLMccODAxdIO5ktxqlRZ
- bq+2ViShK8qFFgqxSRwbWKq9b342rrny35pRQuSHIYK6CthnEhj/yd246vKtmYptSbkn
- jGrrst+bhQetTjyhauFJIwklZA6Do1cl2pH1QzrR0SQexPffkJrEqVl0xMQN+lqPhZUb
- C3rg==
+ bh=2wru3M1yMPyEFqwSTOW5mW4tskJC8ZDyyBoca3oJyRA=;
+ b=G/n2GmKp91RxjtIcKoNLY3aPhTFHRvaWNSNT7e+Poso3oCfU9EFH09jY3oilnkw8g5
+ IR98aMxBJmioNNveW4kY5u+tBXMIuNob15L+GTIDhOcwcTMsqaDK+ba/Ta/9EF8cnUxR
+ IJs7MHMrlNMJLjBv/JYaupxcYL5KWOw/ps/jjsPN5IExdCksxTIcUzr8AtoyhEXDdgOS
+ Iv5xSBvJLu+dQdg6YwgiA8cDcevodKMMDW+0VcQSM1h6k5JSoQVBBrkmRGzq8ax7Royo
+ IbZ6BWtkqOcv4ebACg12b9tJSAduqWWbn8DJolDpaxw/Yyd7WqZn6rb2tQ/I+7ojiPAH
+ +/fA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=VGU3lDVBq59QqjYsyRxQH4/VHY2UtoMa8BpyGMZ/FLo=;
- b=I7RZS5ePq4O4vlWXE2ssQ+v72MOlbUhSxjtcnCrB2cDDu9GZ9CnQ6HxUNsf/VqAoW7
- Z3HytUEV8PvBrfGwmKPrEkV8QkQ9OjuH3xuDHsnWuKiK4p0I4OinVX5k3frI13KDxztG
- DgdhuXMMhXP63RUWDKQO4+F6HJGfzmmhTtKYGY7Z7XZxFiKDbm86Z+4yD2pDUMtP/hMo
- E5KWW1UIgp76wHcVlCrRZa5nNLmobUQM5NxUoFSG0idKY4bsmoZGhT2QMEtZ1ApQS43S
- FuAjSk7kVvnrG3eW/vuHtXfu7yvB3XeplkcX3aNhg4Dq2NySG9DiVeUKbrXa/zzRP726
- MMxA==
-X-Gm-Message-State: AOAM533U7vzHoeNJETKS+l/d86AaTOlcKwCum4qe5aS9BRWj/0YtLHnY
- VP554Yw5rjjCjJYtiyTmkE/TxA==
-X-Google-Smtp-Source: ABdhPJziAT+GkcoKPwD8VK1mQG+Q81feZ7J2fFcV4cs55xPUicqo70tLtaLMRp0qMRbF9AiUkgGugw==
-X-Received: by 2002:a37:c06:0:b0:49b:7a31:cd54 with SMTP id
- 6-20020a370c06000000b0049b7a31cd54mr230310qkm.358.1646424647390; 
- Fri, 04 Mar 2022 12:10:47 -0800 (PST)
+ bh=2wru3M1yMPyEFqwSTOW5mW4tskJC8ZDyyBoca3oJyRA=;
+ b=nHIEplMDhY7WD6dDF5y9UiOEfLNzRmTokGtDhgs8c8VTnFcCKDVqQ64moIRnpzprRG
+ wVxyQf3qBjFEGKQJt04ddTR4Zriwro/X3VIllW39P0M2/iO5vb5hsZJMG9uij1Npj1UY
+ YCXgXzZ3/kB3m3LIc/KXS2Rzg0ubz4XvTnhMIDQVaQfI9gBV4Cg/nDEXDesbZDqzWAuW
+ BZ+4btvzFV015PvQ1//mp1809jE7XQoyn4vuDbYIEVEm9f2pdcRv4lOwO/wBhPU/av7M
+ kJ4yR8EMdX166Pf5xt+ZgndxVfGno5TD5OsVoA7i31rOlfvmbAZyqcaTvCitCin91LJT
+ ooTw==
+X-Gm-Message-State: AOAM533c3cOtQwPPeBVVqaAnSPML6p/BJMf65OnPnxoIMWowYMG6Qbus
+ SQ/mrAaiV58cx5G3wAN3yUN4QA==
+X-Google-Smtp-Source: ABdhPJwZyBYqJUXAuZTvlZXfoYOfmgkICsgs3Sp5Nz6XMt3sMwLXKzPOsJ8HcqSp+EhZ40MSNHpD4g==
+X-Received: by 2002:ad4:44a8:0:b0:435:16c8:76bb with SMTP id
+ n8-20020ad444a8000000b0043516c876bbmr46624qvt.117.1646424649236; 
+ Fri, 04 Mar 2022 12:10:49 -0800 (PST)
 Received: from rivos-atish.. (adsl-70-228-75-190.dsl.akrnoh.ameritech.net.
  [70.228.75.190]) by smtp.gmail.com with ESMTPSA id
- 20-20020ac84e94000000b002de8f564305sm4605481qtp.1.2022.03.04.12.10.45
+ 20-20020ac84e94000000b002de8f564305sm4605481qtp.1.2022.03.04.12.10.47
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 04 Mar 2022 12:10:46 -0800 (PST)
+ Fri, 04 Mar 2022 12:10:48 -0800 (PST)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>, Atish Patra <atishp@atishpatra.org>,
@@ -69,17 +69,16 @@ Cc: Atish Patra <atishp@rivosinc.com>, Atish Patra <atishp@atishpatra.org>,
  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
  Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
-Subject: [RFC PATCH v2 5/7] RISC-V: KVM: Restrict the extensions that can be
- disabled
-Date: Fri,  4 Mar 2022 12:10:18 -0800
-Message-Id: <20220304201020.810380-6-atishp@rivosinc.com>
+Subject: [RFC PATCH v2 6/7] RISC-V: KVM: Introduce ISA extension register
+Date: Fri,  4 Mar 2022 12:10:19 -0800
+Message-Id: <20220304201020.810380-7-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20220304201020.810380-1-atishp@rivosinc.com>
 References: <20220304201020.810380-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220304_121048_832524_12155A2B 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20220304_121050_744673_8D432D73 
+X-CRM114-Status: GOOD (  22.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,57 +95,190 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, the config reg register allows to disable all allowed
-single letter ISA extensions. It shouldn't be the case as vmm
-shouldn't be able disable base extensions (imac).
-These extensions should always be enabled as long as they are enabled
-in the host ISA.
+Currently, there is no provision for vmm (qemu-kvm or kvmtool) to
+query about multiple-letter ISA extensions. The config register
+is only used for base single letter ISA extensions.
+
+A new ISA extension register is added that will allow the vmm
+to query about any ISA extension one at a time. It is enabled for
+both single letter or multi-letter ISA extensions. The ISA extension
+register is useful to if the vmm requires to retrieve/set single
+extension while the config register should be used if all the base
+ISA extension required to retrieve or set.
+
+For any multi-letter ISA extensions, the new register interface
+must be used.
 
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/kvm/vcpu.c | 21 +++++++++++++--------
- 1 file changed, 13 insertions(+), 8 deletions(-)
+ arch/riscv/include/uapi/asm/kvm.h |  20 ++++++
+ arch/riscv/kvm/vcpu.c             | 101 ++++++++++++++++++++++++++++++
+ 2 files changed, 121 insertions(+)
 
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index 3ae545e7b398..388e83857ced 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -38,12 +38,16 @@ const struct kvm_stats_header kvm_vcpu_stats_header = {
- 		       sizeof(kvm_vcpu_stats_desc),
+diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+index f808ad1ce500..92bd469e2ba6 100644
+--- a/arch/riscv/include/uapi/asm/kvm.h
++++ b/arch/riscv/include/uapi/asm/kvm.h
+@@ -82,6 +82,23 @@ struct kvm_riscv_timer {
+ 	__u64 state;
  };
  
--#define KVM_RISCV_ISA_ALLOWED	(riscv_isa_extension_mask(a) | \
--				 riscv_isa_extension_mask(c) | \
--				 riscv_isa_extension_mask(d) | \
--				 riscv_isa_extension_mask(f) | \
--				 riscv_isa_extension_mask(i) | \
--				 riscv_isa_extension_mask(m))
-+#define KVM_RISCV_ISA_DISABLE_ALLOWED	(riscv_isa_extension_mask(d) | \
-+					riscv_isa_extension_mask(f))
++/**
++ * ISA extension IDs specific to KVM. This is not the same as the host ISA
++ * extension IDs as that is internal to the host and should not be exposed
++ * to the guest. This should always be contiguous to keep the mapping simple
++ * in KVM implementation.
++ */
++enum KVM_RISCV_ISA_EXT_ID {
++	KVM_RISCV_ISA_EXT_A = 0,
++	KVM_RISCV_ISA_EXT_C,
++	KVM_RISCV_ISA_EXT_D,
++	KVM_RISCV_ISA_EXT_F,
++	KVM_RISCV_ISA_EXT_H,
++	KVM_RISCV_ISA_EXT_I,
++	KVM_RISCV_ISA_EXT_M,
++	KVM_RISCV_ISA_EXT_MAX,
++};
 +
-+#define KVM_RISCV_ISA_DISABLE_NOT_ALLOWED	(riscv_isa_extension_mask(a) | \
-+						riscv_isa_extension_mask(c) | \
-+						riscv_isa_extension_mask(i) | \
-+						riscv_isa_extension_mask(m))
-+
-+#define KVM_RISCV_ISA_ALLOWED (KVM_RISCV_ISA_DISABLE_ALLOWED | \
-+			       KVM_RISCV_ISA_DISABLE_NOT_ALLOWED)
+ /* Possible states for kvm_riscv_timer */
+ #define KVM_RISCV_TIMER_STATE_OFF	0
+ #define KVM_RISCV_TIMER_STATE_ON	1
+@@ -123,6 +140,9 @@ struct kvm_riscv_timer {
+ #define KVM_REG_RISCV_FP_D_REG(name)	\
+ 		(offsetof(struct __riscv_d_ext_state, name) / sizeof(__u64))
  
- static void kvm_riscv_reset_vcpu(struct kvm_vcpu *vcpu)
++/* ISA Extension registers are mapped as type 7 */
++#define KVM_REG_RISCV_ISA_EXT		(0x07 << KVM_REG_RISCV_TYPE_SHIFT)
++
+ #endif
+ 
+ #endif /* __LINUX_KVM_RISCV_H */
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index 388e83857ced..a3ae7042c696 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -365,6 +365,103 @@ static int kvm_riscv_vcpu_set_reg_csr(struct kvm_vcpu *vcpu,
+ 	return 0;
+ }
+ 
++/* Mapping between KVM ISA Extension ID & Host ISA extension ID */
++static unsigned long kvm_isa_ext_arr[] = {
++	RISCV_ISA_EXT_a,
++	RISCV_ISA_EXT_c,
++	RISCV_ISA_EXT_d,
++	RISCV_ISA_EXT_f,
++	RISCV_ISA_EXT_h,
++	RISCV_ISA_EXT_i,
++	RISCV_ISA_EXT_m,
++};
++
++static int kvm_riscv_vcpu_get_reg_isa_ext(struct kvm_vcpu *vcpu,
++					  const struct kvm_one_reg *reg)
++{
++	unsigned long __user *uaddr =
++			(unsigned long __user *)(unsigned long)reg->addr;
++	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
++					    KVM_REG_SIZE_MASK |
++					    KVM_REG_RISCV_ISA_EXT);
++	unsigned long reg_val = 0;
++	unsigned long host_isa_ext;
++
++	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
++		return -EINVAL;
++
++	if (reg_num >= KVM_RISCV_ISA_EXT_MAX || reg_num >= ARRAY_SIZE(kvm_isa_ext_arr))
++		return -EINVAL;
++
++	host_isa_ext = kvm_isa_ext_arr[reg_num];
++	if (__riscv_isa_extension_available(NULL, host_isa_ext))
++		reg_val = 1; /* Mark the given extension as available */
++
++	if (copy_to_user(uaddr, &reg_val, KVM_REG_SIZE(reg->id)))
++		return -EFAULT;
++
++	return 0;
++}
++
++static int kvm_riscv_vcpu_set_reg_isa_ext(struct kvm_vcpu *vcpu,
++					  const struct kvm_one_reg *reg)
++{
++	unsigned long __user *uaddr =
++			(unsigned long __user *)(unsigned long)reg->addr;
++	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
++					    KVM_REG_SIZE_MASK |
++					    KVM_REG_RISCV_ISA_EXT);
++	unsigned long reg_val;
++	unsigned long host_isa_ext;
++	unsigned long host_isa_ext_mask;
++
++	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
++		return -EINVAL;
++
++	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
++		return -EINVAL;
++
++	if (reg_num >= KVM_RISCV_ISA_EXT_MAX || reg_num >= ARRAY_SIZE(kvm_isa_ext_arr))
++		return -EINVAL;
++
++	if (copy_from_user(&reg_val, uaddr, KVM_REG_SIZE(reg->id)))
++		return -EFAULT;
++
++	host_isa_ext = kvm_isa_ext_arr[reg_num];
++	if (!__riscv_isa_extension_available(NULL, host_isa_ext))
++		return	-EOPNOTSUPP;
++
++	if (host_isa_ext >= RISCV_ISA_EXT_BASE &&
++	    host_isa_ext < RISCV_ISA_EXT_MAX) {
++		/** Multi-letter ISA extension. Currently there is no provision
++		 * to enable/disable the multi-letter ISA extensions for guests.
++		 * Return success if the request is to enable any ISA extension
++		 * that is available in the hardware.
++		 * Return -EOPNOTSUPP otherwise.
++		 */
++		if (!reg_val)
++			return -EOPNOTSUPP;
++		else
++			return 0;
++	}
++
++	/* Single letter base ISA extension */
++	if (!vcpu->arch.ran_atleast_once) {
++		host_isa_ext_mask = BIT_MASK(host_isa_ext);
++		if (!reg_val && (host_isa_ext_mask & KVM_RISCV_ISA_DISABLE_ALLOWED))
++			vcpu->arch.isa &= ~host_isa_ext_mask;
++		else
++			vcpu->arch.isa |= host_isa_ext_mask;
++		vcpu->arch.isa &= riscv_isa_extension_base(NULL);
++		vcpu->arch.isa &= KVM_RISCV_ISA_ALLOWED;
++		kvm_riscv_vcpu_fp_reset(vcpu);
++	} else {
++		return -EOPNOTSUPP;
++	}
++
++	return 0;
++}
++
+ static int kvm_riscv_vcpu_set_reg(struct kvm_vcpu *vcpu,
+ 				  const struct kvm_one_reg *reg)
  {
-@@ -217,9 +221,10 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
- 	switch (reg_num) {
- 	case KVM_REG_RISCV_CONFIG_REG(isa):
- 		if (!vcpu->arch.ran_atleast_once) {
--			vcpu->arch.isa = reg_val;
-+			/* Ignore the disable request for these extensions */
-+			vcpu->arch.isa = reg_val | KVM_RISCV_ISA_DISABLE_NOT_ALLOWED;
- 			vcpu->arch.isa &= riscv_isa_extension_base(NULL);
--			vcpu->arch.isa &= KVM_RISCV_ISA_ALLOWED;
-+			vcpu->arch.isa &= KVM_RISCV_ISA_DISABLE_ALLOWED;
- 			kvm_riscv_vcpu_fp_reset(vcpu);
- 		} else {
- 			return -EOPNOTSUPP;
+@@ -382,6 +479,8 @@ static int kvm_riscv_vcpu_set_reg(struct kvm_vcpu *vcpu,
+ 	else if ((reg->id & KVM_REG_RISCV_TYPE_MASK) == KVM_REG_RISCV_FP_D)
+ 		return kvm_riscv_vcpu_set_reg_fp(vcpu, reg,
+ 						 KVM_REG_RISCV_FP_D);
++	else if ((reg->id & KVM_REG_RISCV_TYPE_MASK) == KVM_REG_RISCV_ISA_EXT)
++		return kvm_riscv_vcpu_set_reg_isa_ext(vcpu, reg);
+ 
+ 	return -EINVAL;
+ }
+@@ -403,6 +502,8 @@ static int kvm_riscv_vcpu_get_reg(struct kvm_vcpu *vcpu,
+ 	else if ((reg->id & KVM_REG_RISCV_TYPE_MASK) == KVM_REG_RISCV_FP_D)
+ 		return kvm_riscv_vcpu_get_reg_fp(vcpu, reg,
+ 						 KVM_REG_RISCV_FP_D);
++	else if ((reg->id & KVM_REG_RISCV_TYPE_MASK) == KVM_REG_RISCV_ISA_EXT)
++		return kvm_riscv_vcpu_get_reg_isa_ext(vcpu, reg);
+ 
+ 	return -EINVAL;
+ }
 -- 
 2.30.2
 
