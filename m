@@ -4,97 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4217CC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Mar 2022 09:34:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F6D0C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Mar 2022 10:03:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f4HhlQzh72RnE3kMcHySobipUWLnj+2mJm09xLspi2I=; b=YYvUH3pKJUy+40
-	rq7ItL2SLiyMdGF/oigXETor70Ojme/CInDAKiCG074eNLvvJ7vKKUtlaDdNeHNu083DUuWC/nsqZ
-	YTsIK7D+c42t7jlI1glnhRWxIOtavG914kjtiDyEXHxWDMwN83unZw2qE24Pj1LqdxWp3wY5/ojQm
-	VPp8KupJUAnhem7dluOQ18oNjVz2fSGaWk41EwPem2n92+ECaK9yrE8IecNNiDxOGIbjslk+EvnMA
-	YtKUWKSbSpbPnkztGxtMfP6NwEOypf5zw//0cRG8aIWqZMZOLHyhs7VUw2elBtxSTyYG3EABqlhLi
-	KJZZ0M0ghg7jo3vfGLig==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=r/mbIhm7EAqTHV5mlEIdgpoPJYWbaRts806AsPJl8Lo=; b=C+iJRg6DpENG66
+	Ojzv7sB2s72C+1BevPYE7NYvzGNmPjrYUj22l6m/yO91KLl90Ai3fP46I57Gm1eMOKhRItawMeecT
+	A1pmv3pB7gmq2guZ7jFlx9KbzcwygY/oVxVCULheIGPXLQ2BJ9qQWAd4KqRk71uhvskDxETftjhWr
+	E1holR6aw2NTB67bZWebtjFmsNXW63A0jxctiiN9gCbz2jActk1qZ1NAQXqSzmz4s42p5yEVSikXn
+	VYt98WJkRILbr0xpa/jH83UAXJgTUsTacg31z3kITqKnboPTJb8Zk/hr3VkA5HC0szC+KUHhUvb7p
+	uWzULSnJK6qEHd1DNhrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nQ4Kj-009JXO-Gt; Fri, 04 Mar 2022 09:34:45 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1nQ4mZ-009TG4-AB; Fri, 04 Mar 2022 10:03:31 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nQ3w6-009Cv4-1y
- for linux-riscv@lists.infradead.org; Fri, 04 Mar 2022 09:09:19 +0000
-Received: from mail-ed1-f72.google.com (mail-ed1-f72.google.com
- [209.85.208.72])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 3830F3F5FC
- for <linux-riscv@lists.infradead.org>; Fri,  4 Mar 2022 09:09:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1646384953;
- bh=RTZPALBXRdkEKxlmwBNBI927r6kcbqzn0JImmuscASw=;
- h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
- In-Reply-To:Content-Type;
- b=g2SviGZfMtfmvWGXnBkFDitDyKKO/kMOLXzjCznCqd3TqS70fI507KbuXDWpwfSfU
- 0kFpNFB5H75zsYss2Zflew/kkKpWPUd4tI9q+yibNykuN4iFh3pLwnMXbgqZ6LCWZT
- /Qrzdt174JlC5/ye+4YCY13QC5SkO+gn1dBmt+BOa6KUFDOLbjSAt+TGGWHBWXvivy
- 2TxEFC0g7hFA0feXyogND31NIHu85D/bIac1k3zROjd1tqG+PHFnp7QPuQ0BpOkgHA
- pU2hasod23K2Wkeugz37j6E00gPanxPvyrj8uWU4AVBCC8dfFbCCOnP+k6SJ7aVGfP
- WbQxUKL5NR0Fw==
-Received: by mail-ed1-f72.google.com with SMTP id
- u28-20020a50d51c000000b004159ffb8f24so4295477edi.4
- for <linux-riscv@lists.infradead.org>; Fri, 04 Mar 2022 01:09:13 -0800 (PST)
+ id 1nQ4mW-009TEP-05
+ for linux-riscv@lists.infradead.org; Fri, 04 Mar 2022 10:03:29 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 195so7109853pgc.6
+ for <linux-riscv@lists.infradead.org>; Fri, 04 Mar 2022 02:03:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=Y54ktKd4wc7WsH7lw6nZsgyvKLTv134GmA+zY8xdjj4=;
+ b=SGZDKXJePqBrV0sAxLu6XG0/dxI/VUB1sBhx4bWpguzOlmVucZuK0rU+0cKa9NS2nf
+ n0sxUh4eQaRX+dqRtbhOrpQ/QA6FqjiEVrcfZfsR1pOvX9RZkuoWwkNWZ/xgta1WZJrC
+ oDSL2R8LL9Bj8aHcuzxidIZbjYixL/+j6+RO/5Tko/G4gi4k8EmJAizUZr02yXFwW7E0
+ K8nk4bqEMywWkdPm2XEQUKSZTRIQkzsEOxeJUAUZsTylV4ccum9INs3WPCtgTKZBsUUP
+ GbFzmTbpr8Yn/UpFMp+DacXIE2/oFxZ4BPsAhKJJO4VpgDT+okw5+w9eJsKno9Oc0x0l
+ MUYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:cc:references:from:in-reply-to
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
  :content-transfer-encoding;
- bh=RTZPALBXRdkEKxlmwBNBI927r6kcbqzn0JImmuscASw=;
- b=6+XXsVrPUmgbAqAq3eE54a7QoEeNM6QRtOPnKY32d/GdR61AaVRfLXUZ9Kvs+CMIjr
- QlRNKsypvFIqranQEWZU88mofqvRDKCJKIDkrzm7CPTEWAo0EqK5txb++gAI7F+UTrzS
- CVMo+D6wmj3dmzm2d3DHI5/B1W5AKbr3nO99DwKOG9r5I//NWCBB3XAr8KKkDqUJa9BD
- bDj1AVz8wYRaQ1F0CpU+oHJYOazN3ASdwZ6txJ8wUgyYMRoBC8zLqn9irHrILLXKuw6a
- PVZUwwn8wFK/CyL6Yp+Ts8yCT3ndkA+dkM5yaWBTTTRjKIhS7Aqei8Nan0hPCK4xB71O
- P4xg==
-X-Gm-Message-State: AOAM531q36wRqTB+K2PEU/K8sf6SJLUZYh3jiJm88KS5je6SzroxaBKl
- QVAqrRGM/k8/Ix+juXgFJK5BVwmxZPS3vU9U8Fz9EbcP+gzXGjRUsWaDEo8x+lGnxdO7+7zEENL
- Rni7UBujaWcdQNmXzkzPUB8HRtkFlTtCLl7IL8t1LsJqj5w==
-X-Received: by 2002:a05:6402:42c9:b0:415:e324:c211 with SMTP id
- i9-20020a05640242c900b00415e324c211mr6137377edc.234.1646384952687; 
- Fri, 04 Mar 2022 01:09:12 -0800 (PST)
-X-Google-Smtp-Source: ABdhPJxXgyrNgfR/FnZmmPxYM01MW37vjWNK7AzoWWi8OQyY16xhXHNchbX5Jg3tWX4OAVkVq58unA==
-X-Received: by 2002:a05:6402:42c9:b0:415:e324:c211 with SMTP id
- i9-20020a05640242c900b00415e324c211mr6137362edc.234.1646384952492; 
- Fri, 04 Mar 2022 01:09:12 -0800 (PST)
-Received: from [192.168.0.138] (xdsl-188-155-181-108.adslplus.ch.
- [188.155.181.108]) by smtp.gmail.com with ESMTPSA id
- l9-20020a170906078900b006dac5f336f8sm137442ejc.124.2022.03.04.01.09.11
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Fri, 04 Mar 2022 01:09:11 -0800 (PST)
-Message-ID: <1664de3d-8e33-596e-19ff-4fb174f2a178@canonical.com>
-Date: Fri, 4 Mar 2022 10:09:10 +0100
+ bh=Y54ktKd4wc7WsH7lw6nZsgyvKLTv134GmA+zY8xdjj4=;
+ b=gmOE1Ih/F41Vf0fuVFpGzvw9DTShvdJE41eBeqz369jBqvHixAD9U1+H9bdVBy4FCM
+ ZfvhKNWTpcSvVP9T4HLc7c68M1MaFDdQEc2iB/sT8EjUZ1KhDYEZ9mPmJwNxNw6dNSeZ
+ Mdh6+UnTIhUoCHQv/5QFcpiGr5RmW2lmLBwx6J6d2ua0Nh4cu6Et7caEQ7+sN+jmJFM2
+ tp7jpQdkDpZJGJKjRunAqDxCozHJnvzcRiHGbRLrEcV1J/1TrcXEuscLeVJc2RlDMaOd
+ wSaHsbDvQ2YLZQaz/RT6QVqcDH7uP0vGfYhbXJ9IuHwBNhdKeEMDrRqBj3oNDsRupS+6
+ UxAw==
+X-Gm-Message-State: AOAM533KuanWjfO+1mAHFWyAzUTU+L8fGOg7YUca8hJjDn6ZZwhtQ5O8
+ SEBrclYR31HcNHuReyg5JRxfEA==
+X-Google-Smtp-Source: ABdhPJwbdj2tEKA67YJ7rF/2kNeOsmHdJCZ/olVb/rnSSwnSH/sL0zqFgLqTs1dIeVm8a7KlmHDaww==
+X-Received: by 2002:a05:6a00:887:b0:4f2:6d3f:5b53 with SMTP id
+ q7-20020a056a00088700b004f26d3f5b53mr43055145pfj.21.1646388206921; 
+ Fri, 04 Mar 2022 02:03:26 -0800 (PST)
+Received: from hsinchu16.internal.sifive.com
+ (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+ by smtp.gmail.com with ESMTPSA id
+ j8-20020a056a00174800b004f26d3f5b03sm5461605pfc.39.2022.03.04.02.03.24
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 04 Mar 2022 02:03:26 -0800 (PST)
+From: Zong Li <zong.li@sifive.com>
+To: mturquette@baylibre.com, sboyd@kernel.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, lee.jones@linaro.org, robh+dt@kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: Zong Li <zong.li@sifive.com>
+Subject: [PATCH v2 0/5] Refactor the PRCI driver to reduce the complexity
+Date: Fri,  4 Mar 2022 18:03:16 +0800
+Message-Id: <cover.1646388139.git.zong.li@sifive.com>
+X-Mailer: git-send-email 2.31.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.5.0
-Subject: Re: [PATCH v6 1/3] dt-bindings: Add dma-channels property and modify
- compatible
-Content-Language: en-US
-To: Zong Li <zong.li@sifive.com>, robh+dt@kernel.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- conor.dooley@microchip.com, geert@linux-m68k.org, bin.meng@windriver.com,
- green.wan@sifive.com, vkoul@kernel.org, dmaengine@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, Rob Herring <robh@kernel.org>
-References: <cover.1646383150.git.zong.li@sifive.com>
- <12cff3b68de1bd02a8915bd70999bb4edafaca1b.1646383150.git.zong.li@sifive.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-In-Reply-To: <12cff3b68de1bd02a8915bd70999bb4edafaca1b.1646383150.git.zong.li@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220304_010918_445302_D5ED5F1B 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20220304_020328_143582_E89FAF39 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,28 +90,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 04/03/2022 09:42, Zong Li wrote:
-> Add dma-channels property, then we can determine how many channels there
-> by device tree, rather than statically defining it in PDMA driver.
-> In addition, we also modify the compatible for PDMA versioning scheme.
-> 
-> Signed-off-by: Zong Li <zong.li@sifive.com>
-> Suggested-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Reviewed-by: Rob Herring <robh@kernel.org>
-> Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-> ---
->  .../bindings/dma/sifive,fu540-c000-pdma.yaml  | 19 +++++++++++++++++--
->  1 file changed, 17 insertions(+), 2 deletions(-)
-> 
+This patch set tries to improve the PRCI driver to reduce the
+complexity, we remove the SoCs C files by putting putting all stuff in
+each SoCs header file, and include these SoCs-specific header files in
+core of PRCI. It can also avoid the W=1 kernel build warnings about
+variable defined but not used [-Wunused-const-variable=], like 'commit
+487dc7bb6a0c ("clk: sifive:fu540-prci: Declare static const variable
+'prci_clk_fu540' where it's used")' does.
 
-Can you add subystem/driver prefix to the subject? In current form it
-looks generic, but it is actually specific, so:
+This patch set also contains the dt-bindings and dts change, because
+we change the macro name for fu540 and fu740 by adding the prefix
+respectively.
 
-dt-bindings: dma-engine: sifive,fu540:
+Thanks all for your review and suggestions.
 
-Best regards,
-Krzysztof
+Changed in v2:
+ - Rebase on v5.17-rc6
+ - Add a temporary patch for avoiding breaking git bisect
+
+Zong Li (5):
+  clk: sifive: duplicate the macro definitions for the time being
+  dt-bindings: change the macro name of prci in header files and example
+  riscv: dts: Change the macro name of prci in each device node
+  clk: sifive: Add SoCs prefix in each SoCs-dependent data
+  clk: sifive: Move all stuff into SoCs header files from C files
+
+ .../devicetree/bindings/gpio/sifive,gpio.yaml |   2 +-
+ .../bindings/pci/sifive,fu740-pcie.yaml       |   2 +-
+ .../bindings/serial/sifive-serial.yaml        |   2 +-
+ arch/riscv/boot/dts/sifive/fu540-c000.dtsi    |  22 +--
+ arch/riscv/boot/dts/sifive/fu740-c000.dtsi    |  26 ++--
+ drivers/clk/sifive/Makefile                   |   2 +-
+ drivers/clk/sifive/fu540-prci.c               |  89 ------------
+ drivers/clk/sifive/fu540-prci.h               |  91 +++++++++++-
+ drivers/clk/sifive/fu740-prci.c               | 134 ------------------
+ drivers/clk/sifive/fu740-prci.h               | 130 ++++++++++++++++-
+ drivers/clk/sifive/sifive-prci.c              |   5 -
+ include/dt-bindings/clock/sifive-fu540-prci.h |   8 +-
+ include/dt-bindings/clock/sifive-fu740-prci.h |  18 +--
+ 13 files changed, 254 insertions(+), 277 deletions(-)
+ delete mode 100644 drivers/clk/sifive/fu540-prci.c
+ delete mode 100644 drivers/clk/sifive/fu740-prci.c
+
+-- 
+2.31.1
+
 
 _______________________________________________
 linux-riscv mailing list
