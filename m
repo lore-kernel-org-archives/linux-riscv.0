@@ -4,54 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89999C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Mar 2022 07:38:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E5AC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Mar 2022 08:08:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9pAYnk+Fqw6P7NbXlWl/tTumTfYMBiMox7t9ISaq2NY=; b=kiZa/547JZEOh0
-	C/MtmpLvVMdtXyA6dz2pTrTZ03TQwfReHBlvPS2vZHBn+XvK5muy+A1YJGdZNIcBrpXgKVkoR8OYk
-	AXsEywbIefgSOajsuXJZVt9XbgIINOn2B0X7uR63tpft9REO3+Ocz+Q08bxQZUwWWtabmb5gj+Hpv
-	BSeKKSDiODutnoFIYsopkXO9MBo8Efnea2FKWvO8wRL8iOktRfYlLlLUxIZxom9ESSa+QZRLvEcG1
-	ieUXiSXjewclai8MQESzJMImGyiVmHRc7h6267eqj76EBKPChSXDPiWaKGm5wAAy9Re2/FtUymjw7
-	WAnuL7bokWeTiKWZPGOw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=R0GHxqyZ2n+aHXHozmIlfNZerdDQhwt/ydOIbisCYGg=; b=GwhHoRyTLnSPAf
+	h+SnhAIjU3Rubj8aN5W+lJKEUU16OPhC/UvQC85N6+WIzWGWRf3OYO27dQsJmA3PFMYyKhZWroYrU
+	NRMSDZbCWLdsPKwqxZweyM5Nx+kn66pmMhW2SS3UFb4r96hYrFs6tgbeWEVFOCGJuNRq96VGszjGZ
+	sDztJfQchaW7O1ZByXBbeyRig1kAMPeqmylenoggtAIEBaVFYrkQjpWqBHM8enyEqk+DkoWqhm244
+	SpemsR7ek3NQqFehcfs0uwofW7XjoKfjk63h2fniwse5qhST3EDW412fTtcxtBzQRLIKLQoJ0gcjx
+	yumvwx0j2M4kTTbwwIPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nQ2WL-008oFR-9s; Fri, 04 Mar 2022 07:38:37 +0000
-Received: from smtpbg501.qq.com ([203.205.250.101])
+	id 1nQ2z6-008wAq-9G; Fri, 04 Mar 2022 08:08:20 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nQ2WD-008o2H-OB
- for linux-riscv@lists.infradead.org; Fri, 04 Mar 2022 07:38:35 +0000
-X-QQ-mid: bizesmtp88t1646379480thce95hs
-Received: from localhost.localdomain ( [113.89.247.79])
- by bizesmtp.qq.com (ESMTP) with 
- id ; Fri, 04 Mar 2022 15:37:55 +0800 (CST)
-X-QQ-SSF: 01100000002000Z0Z000B00A0000000
-X-QQ-FEAT: o1V3RKE2+JA/6mQ65kb1/r5r/rAihR6c+aQM9M3jcTRPQ53MIKmu4ebIi1jed
- cqrqQouLUT01GUzzbsl7XpPASifUYJ2RiMQKpv/h8NqJeh2YzMUaLzH87M2w1yBOf6Hdy6o
- ai0YvPe832aOs2xztcoigC+S//wDNXkik0EwPsqXB0IxUwaZnmBRDn/bdCvG/GjsLDVSe70
- JGpGrFj53/2fetH7nWSZGFMh8sn7ij+4VyjncQJIwBVbSky8WWSw+hK6akutoqMmNVOV0se
- RmZQCijMONRhzrgIPSp9tdnITpeQRi+U44lX+MzxR0vTa+rOreHK5iMEtTZdElKX6PUQ==
-X-QQ-GoodBg: 0
-From: zepan <zepan@sipeed.com>
-To: palmer@dabbelt.com
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- Wu Caize <zepan@sipeed.com>
-Subject: [PATCH] kernel module: fix apply_r_riscv_rcv_branch_rela typo
-Date: Fri,  4 Mar 2022 15:37:31 +0800
-Message-Id: <20220304073730.48759-1-zepan@sipeed.com>
-X-Mailer: git-send-email 2.25.1
-MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:sipeed.com:qybgforeign:qybgforeign5
-X-QQ-Bgrelay: 1
+ id 1nQ2vm-008um5-32
+ for linux-riscv@lists.infradead.org; Fri, 04 Mar 2022 08:04:55 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 89B28603E0;
+ Fri,  4 Mar 2022 08:04:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F6E2C340F1;
+ Fri,  4 Mar 2022 08:04:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1646381093;
+ bh=l69ZdbW1Spjoj7wr618Laos+FDuTVKY39Zk8tBMS2QY=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+ b=bk9VbTH2K3/BZQBDbeVDta+ZSANz6J5FDeJmGA5qGCV7nT0vqRTZ2drLlkicJeO+9
+ 3b/4KuLwManSyKKfpUUniBQyGXlD2eOsHndEmzzPHhM1d4FubO2N1kIj9B9cjYqp0q
+ 9auHvc05jxVOCFnCxKlDBewYT5hRlPoo0lK59VOfwbyYBRQ4hBiRBNhTuBCC8rUU10
+ yM1K7yuBWE1ZK1onTyLQj0kWM1xJabE4wsFKzpsqruAeQsBKmFl4zzhBkZJCHsz2XJ
+ r85t9GC7BhiAC+HsjMcqp6ZuZymLYshpqvmYArreUGfLFu9DmwZ7i+Frs0JGEj3Vl7
+ o+wsezaa6h+Hw==
+Received: from ip-185-104-136-29.ptr.icomera.net ([185.104.136.29]
+ helo=billy-the-mountain.misterjones.org)
+ by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
+ (envelope-from <maz@kernel.org>)
+ id 1nQ2vj-00C9OH-1u; Fri, 04 Mar 2022 08:04:51 +0000
+Date: Fri, 04 Mar 2022 08:04:48 +0000
+Message-ID: <87ee3ita73.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Anup Patel <anup@brainfault.org>
+Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Atish Patra <atishp@atishpatra.org>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v4 3/6] RISC-V: Treat IPIs as normal Linux IRQs
+In-Reply-To: <CAAhSdy3ACa-447MrLs=5GLjSSWKiKyR585RFWP_ycM3RZ+RTQg@mail.gmail.com>
+References: <20220301042722.401113-1-apatel@ventanamicro.com>
+ <20220301042722.401113-4-apatel@ventanamicro.com>
+ <87czj53fjq.wl-maz@kernel.org>
+ <CAAhSdy3ACa-447MrLs=5GLjSSWKiKyR585RFWP_ycM3RZ+RTQg@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.104.136.29
+X-SA-Exim-Rcpt-To: anup@brainfault.org, apatel@ventanamicro.com,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, tglx@linutronix.de,
+ daniel.lezcano@linaro.org, atishp@atishpatra.org, Alistair.Francis@wdc.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
+ SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220303_233830_139994_280FCB5B 
-X-CRM114-Status: UNSURE (   8.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220304_000454_249723_94DF51C1 
+X-CRM114-Status: GOOD (  28.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,41 +97,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Wu Caize <zepan@sipeed.com>
+On Tue, 01 Mar 2022 17:40:55 +0000,
+Anup Patel <anup@brainfault.org> wrote:
+> 
+> On Tue, Mar 1, 2022 at 8:07 PM Marc Zyngier <maz@kernel.org> wrote:
+> > > +struct ipi_mux {
+> > > +     struct irq_domain *domain;
+> > > +     int parent_virq;
+> > > +     void (*clear_ipi)(void);
+> > > +     void (*send_ipi)(const struct cpumask *mask);
+> > > +};
+> >
+> > Why do you need this in the arch code? It really looks like something
+> > that is irqchip specific (single IPI signal on which actual IPIs are
+> > overlayed). It is also something that other irqchips are already
+> > implementing, so there is potential for consolidation.
+> 
+> I agree we can share the IPI muxing among irqchip drivers.
+> 
+> I was not sure where to place this IPI muxing so I made it
+> RISC-V specific initially.
+> 
+> Can we place a simplified IPI muxing (with no RISC-V specific
+> stuff) under drivers/irqchip or kernel/irq ??
 
-This patch fix typo: apply_r_riscv_rcv_branch_rela -> apply_r_riscv_rvc_branch_rela
+We already have IPI-specific code in kernel/irq, so it should probably
+live there.
 
----
- arch/riscv/kernel/module.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+> > > +struct irq_domain *riscv_ipi_mux_create(bool use_soft_irq,
+> > > +                     void (*clear_ipi)(void),
+> > > +                     void (*send_ipi)(const struct cpumask *mask))
+> > > +{
+> >
+> > There really shouldn't be a need for such a registration interface
+> > anyway (the current idiom is to allocate IPIs in the root irqchip, and
+> > pass them to the arch code).
+> >
+> > Why can't you model it after the existing architectures?
+> 
+> I ended up with a lot of duplicate code between SBI IPI driver and
+> SiFive CLINT driver so I factored out the IPI muxing as separate
+> sources. We also have RISC-V AIA drivers using the same IPI muxing.
+> 
+> If we simplify the IPI muxing and move it out of arch/riscv then
+> changes in this patch are straight forward to review.
 
-diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-index 68a9e3d1fe16..b92e93f2aac3 100644
---- a/arch/riscv/kernel/module.c
-+++ b/arch/riscv/kernel/module.c
-@@ -56,7 +56,7 @@ static int apply_r_riscv_jal_rela(struct module *me, u32 *location,
- 	return 0;
- }
- 
--static int apply_r_riscv_rcv_branch_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_rvc_branch_rela(struct module *me, u32 *location,
- 					 Elf_Addr v)
- {
- 	ptrdiff_t offset = (void *)v - (void *)location;
-@@ -290,7 +290,7 @@ static int (*reloc_handlers_rela[]) (struct module *me, u32 *location,
- 	[R_RISCV_64]			= apply_r_riscv_64_rela,
- 	[R_RISCV_BRANCH]		= apply_r_riscv_branch_rela,
- 	[R_RISCV_JAL]			= apply_r_riscv_jal_rela,
--	[R_RISCV_RVC_BRANCH]		= apply_r_riscv_rcv_branch_rela,
-+	[R_RISCV_RVC_BRANCH]		= apply_r_riscv_rvc_branch_rela,
- 	[R_RISCV_RVC_JUMP]		= apply_r_riscv_rvc_jump_rela,
- 	[R_RISCV_PCREL_HI20]		= apply_r_riscv_pcrel_hi20_rela,
- 	[R_RISCV_PCREL_LO12_I]		= apply_r_riscv_pcrel_lo12_i_rela,
+It isn't only about making things easier to review. It is about having
+consistent interfaces across architecture and reducing the amount of
+glue between arch code and random drivers. If there is a lot of
+similar code between your various irqchips, then it can be made common
+between the irqchips. But the interface between arch code and those
+should not be arch-specific.
+
+	M.
+
 -- 
-2.25.1
-
-
-
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
