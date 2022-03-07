@@ -4,79 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EB54C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Mar 2022 13:40:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64CD3C433FE
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Mar 2022 14:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:References:
-	In-Reply-To:Message-ID:Cc:To:From:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=2OqatKRTz54CZ5YjzyZDyU2tVvJ6OyMwiZ5LzrWOGdU=; b=UWsjmyjhOa+7yQErcEe3GkpDiv
-	OrdPpev3ifXx/QMAIm16SXNobldDPEqr0nG4alvTDedG7PWfK9yc+ePyzPlU2OaLVmgQIxOUWF0u+
-	h6EBOOE1j/2wmGe1QkeS0o6kCcH9jGawx2irDItSQr9WK8RtVst+K2DnmbyWQAjgaOL4yCdFK3TQc
-	QGg38Oo1XBxCevBQ1ZSOdkntHkftaEEpqUCQ8NltBsW3OmyQrou2cwQu6LrXFYZKyahAiofCTB2lt
-	9vgAtjDEyCI/QF/MJKXnvbMybL638Nb2cWpsHY4bHfCr5/bEkvJ4jC3pfDURiOgTCNyIbHOBEcneO
-	yq6LDhgQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=36B5z80RljVweCVe8Cjm3EPST2AKFUMF/+SgWH+m2N0=; b=FkGu3gZG37eSEn
+	uAI5c2plUTkqxe4BA543cquCF7zlm/cqsDxkf5BJrOJsmlDSVfsp5lfmi3PbmQv1lAD3bPEjOwN86
+	FnPgN0/JPBRZEUOZnFa0M1xcbYiikZagL26511rBnK2XJdrg8vs/3qK/mJHxTghxpKxglwz0emyZ3
+	aBPJXnKIsvrC4qloEti2nQYLA+tZ5jNI2yAiSzKtxvuWLa22DFheq+zLYkksZBmPSYDuTc0B/9976
+	gFd8YUPGuICeC8ZgXKmm0p+T2cb+YbXjYPTgblU4cvGPrA8daBDUBZaeO01kMftK2HeoHMBnp9ARB
+	Z1SnvDaCy1JRMNtF13pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nRDbI-000HiJ-7A; Mon, 07 Mar 2022 13:40:36 +0000
-Received: from mail.efficios.com ([167.114.26.124])
+	id 1nRE9j-000LIj-Fg; Mon, 07 Mar 2022 14:16:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nRDbF-000Hf2-56
- for linux-riscv@lists.infradead.org; Mon, 07 Mar 2022 13:40:34 +0000
-Received: from localhost (localhost [127.0.0.1])
- by mail.efficios.com (Postfix) with ESMTP id E7E7634A695;
- Mon,  7 Mar 2022 08:40:26 -0500 (EST)
-Received: from mail.efficios.com ([127.0.0.1])
- by localhost (mail03.efficios.com [127.0.0.1]) (amavisd-new, port 10032)
- with ESMTP id 117-nDLaEQpb; Mon,  7 Mar 2022 08:40:26 -0500 (EST)
-Received: from localhost (localhost [127.0.0.1])
- by mail.efficios.com (Postfix) with ESMTP id 6167C34A822;
- Mon,  7 Mar 2022 08:40:26 -0500 (EST)
-DKIM-Filter: OpenDKIM Filter v2.10.3 mail.efficios.com 6167C34A822
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=default; t=1646660426;
- bh=X8i6ab58es2dQvix8peZ5UYpyKLFLj4FtosoeTa2fwE=;
- h=Date:From:To:Message-ID:MIME-Version;
- b=atOEJCotlyIjaLwtQVnmCQgVkNJ8Q78Qj3DCZjbT/Z1IJJ7qpqkOs5ovt5YXRX6hy
- eJRm2AQDV7scZ8D5Lo8Yxko+TXClCfuVINoupzMxeTfq8ID7wjGax8Z155H3cpWucO
- yo2GwGp61WRNK1itcTfwX5lOIKHzE7MbMxXhWlKZa+P60330mSRT0F32M3oaWqpoqo
- WxxuClxTPEHZ5bB/p+nR1j9GgjC/cFhJfkQ/pcZdB52crNGBFtdsb2F2FhTx848aF3
- OhofRY6YwWs5lZeNL2sT/CnlyuxoD+owq7S1S+2gnfx3kPc8+mXSvO7jzaVgLpYM3B
- JjuMfgsOQomVA==
-X-Virus-Scanned: amavisd-new at efficios.com
-Received: from mail.efficios.com ([127.0.0.1])
- by localhost (mail03.efficios.com [127.0.0.1]) (amavisd-new, port 10026)
- with ESMTP id DPENuyEUmBDY; Mon,  7 Mar 2022 08:40:26 -0500 (EST)
-Received: from mail03.efficios.com (mail03.efficios.com [167.114.26.124])
- by mail.efficios.com (Postfix) with ESMTP id 537FB34A5D6;
- Mon,  7 Mar 2022 08:40:26 -0500 (EST)
-Date: Mon, 7 Mar 2022 08:40:26 -0500 (EST)
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-To: Vincent Chen <vincent.chen@sifive.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>
-Message-ID: <1732504666.125429.1646660426220.JavaMail.zimbra@efficios.com>
-In-Reply-To: <CABvJ_xjStvTRF3LDraLADaBY01aUgsjEv6aArFgDv3uh9V9wXQ@mail.gmail.com>
-References: <20220302023048.6140-1-vincent.chen@sifive.com>
- <20220302023048.6140-3-vincent.chen@sifive.com>
- <529535828.117301.1646239106382.JavaMail.zimbra@efficios.com>
- <CABvJ_xiSreWvQ5c+_XW8RWSWUvx69qNc7pwrKVWspg0C9Sy2NQ@mail.gmail.com>
- <214245560.121082.1646344238921.JavaMail.zimbra@efficios.com>
- <CABvJ_xjZ+jdNCrnFvDaP=4qczstMv=PbVemN6VA7MiNWbFa+Zw@mail.gmail.com>
- <CABvJ_xjStvTRF3LDraLADaBY01aUgsjEv6aArFgDv3uh9V9wXQ@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] rseq/selftests: Add support for RISC-V
+ id 1nRE9f-000LHj-Uq
+ for linux-riscv@lists.infradead.org; Mon, 07 Mar 2022 14:16:09 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id D9782611F3;
+ Mon,  7 Mar 2022 14:16:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDA35C340E9;
+ Mon,  7 Mar 2022 14:16:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1646662566;
+ bh=e56qHnE/crraAFadekrO9GdXE8m+dDcJ1YGP+JayrC4=;
+ h=From:To:Cc:Subject:Date:From;
+ b=GLHpAPatZyjvshLTeZBOdovrLRsU0vP6W/fVBeJvZigGpzCIcS8sxMCU0ZbleGBpg
+ 4Ew2NmlQJfO2pA1SX+uOZPAFPbat/bbAhGBKNiC0/uQ0pgPOHr4LJ4sfQY3GF3wW7w
+ d9tlhg8sYy7immPFqvZrS2O91zJrydGx1p2earByys2ehO1xghgHBMmlj14mQ7lpX3
+ eUujHGZTImI+5Ak7G/PIordXEDAT7OIk+j3JJ4ywb2j13GBQ1X41w0Fn7E3mMjfuvc
+ okpQ6t3fiNNNdmFphdhOxRCmyzGIVuAcLd/o+Ft4TpefzLccDZN9NLNrdI2hrfq2zQ
+ 9AgOWBnPz9cDw==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] riscv: add irq stack support
+Date: Mon,  7 Mar 2022 22:08:04 +0800
+Message-Id: <20220307140804.1400-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-Originating-IP: [167.114.26.124]
-X-Mailer: Zimbra 8.8.15_GA_4203 (zclient/8.8.15_GA_4203)
-Thread-Topic: rseq/selftests: Add support for RISC-V
-Thread-Index: T0iypHpgvGQ5+EV274L4uIIxZE8x8Q==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220307_054033_345960_7A832A7A 
-X-CRM114-Status: GOOD (  18.94  )
+X-CRM114-CacheID: sfid-20220307_061608_127714_7C7F0A10 
+X-CRM114-Status: GOOD (  19.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,89 +71,148 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Currently, IRQs are still handled on the kernel stack of the current
+task on riscv platforms. If the task has a deep call stack at the time
+of interrupt, and handling the interrupt also requires a deep stack,
+it's possible to see stack overflow.
 
------ Vincent Chen <vincent.chen@sifive.com> wrote:
-> On Fri, Mar 4, 2022 at 2:50 PM Vincent Chen <vincent.chen@sifive.com> wrote:
-> >
-> > On Fri, Mar 4, 2022 at 5:50 AM Mathieu Desnoyers
-> > <mathieu.desnoyers@efficios.com> wrote:
-> > >
-> > > ----- On Mar 3, 2022, at 2:16 AM, Vincent Chen vincent.chen@sifive.com wrote:
-> > >
-> > > > On Thu, Mar 3, 2022 at 12:38 AM Mathieu Desnoyers
-> > > > <mathieu.desnoyers@efficios.com> wrote:
-> > > >>
-> > > [...]
-> > >
-> > > >> > +#if __ORDER_LITTLE_ENDIAN__ == 1234
-> > > >>
-> > > >> I think we'll want to standardize on this for endianness checking (same as
-> > > >> the updated uapi rseq.h):
-> > > >>
-> > > >> #if defined(__BYTE_ORDER) ? (__BYTE_ORDER == __LITTLE_ENDIAN) :
-> > > >> defined(__LITTLE_ENDIAN)
-> > > >>
-> > > >> We may have to change rseq-mips.h in the rseq selftests to do the same as well
-> > > >> rather than
-> > > >> using "# ifdef __BIG_ENDIAN".
-> > > >>
-> > > >
-> > > > OK, I can follow it. However, I found the endianness checking in
-> > > > include/uapi/linux/rseq.h is
-> > > > #if (defined(__BYTE_ORDER) && (__BYTE_ORDER == __BIG_ENDIAN)) ||
-> > > > defined(__BIG_ENDIAN)
-> > > >
-> > > > It is a little different than what you mentioned early. Should I
-> > > > follow the format in include/uapi/linux/rseq.h? or both formats are
-> > > > OK?
-> > > >
-> > >
-> > > The form "#if (defined(__BYTE_ORDER) && (__BYTE_ORDER == __BIG_ENDIAN)) || defined(__BIG_ENDIAN)
-> > > is completely buggy. Don't use that.
-> > >
-> > > I've sent the fix to Peter to remove the offending #if here:
-> > >
-> > > https://lore.kernel.org/lkml/1445357149.71067.1643137248305.JavaMail.zimbra@efficios.com/T/#mbbad3961494feefb98cb6d092879e3ea41b33df8
-> > >
-> > > Please use the correct non-bogus form instead:
-> > >
-> > > #if defined(__BYTE_ORDER) ? (__BYTE_ORDER == __LITTLE_ENDIAN) : defined(__LITTLE_ENDIAN)
-> > >
-> > > Thanks,
-> > >
-> > > Mathieu
-> > >
-> >
-> > I understood. By the way, IIUC, the __BYTE_ORDER and __LITTLE_ENDIAN
-> > are defined in the glibc endian.h. However, I find that no file in the
-> > rseq folder includes the endian.h. Does it means I should include
-> > <endian.h> in the rseq-riscv.h?
-> 
-> After tracing the hierarchy of include files, I found that endian.h is
-> included by pthread.h, and pthread.h is included by param_test.c.
-> Therefore, rseq-riscv.h can exclude endian.h. I will follow your
-> suggestions to modify my next version patch. Thank you.
+Before this patch, the stack_max_size of a v5.17-rc1 kernel running on
+a lichee RV board gave:
+~ # cat /sys/kernel/debug/tracing/stack_max_size
+3736
 
-You should include what you use. Please include endian.h from the riscv header as well.
+After this patch,
+~ # cat /sys/kernel/debug/tracing/stack_max_size
+3176
 
-Thanks,
+We reduce the max kernel stack usage by 560 bytes!
 
-Mathieu
+From another side, after this patch, it's possible to reduce the
+THREAD_SIZE to 8KB for RV64 platforms. This is especially useful for
+those systems with small memory size, e.g the Allwinner D1S platform
+which is RV64 but only has 64MB DDR.
 
-> 
-> >
-> > Thanks,
-> > Vincent
-> > >
-> > > --
-> > > Mathieu Desnoyers
-> > > EfficiOS Inc.
-> > > http://www.efficios.com
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+since v1:
+ - add __ro_after_init to the irq_stack[] array.
 
+ arch/riscv/include/asm/thread_info.h |  1 +
+ arch/riscv/kernel/asm-offsets.c      |  2 ++
+ arch/riscv/kernel/entry.S            | 33 +++++++++++++++++++++++++---
+ arch/riscv/kernel/irq.c              | 16 ++++++++++++++
+ 4 files changed, 49 insertions(+), 3 deletions(-)
+
+diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+index 60da0dcacf14..67387a8bcb34 100644
+--- a/arch/riscv/include/asm/thread_info.h
++++ b/arch/riscv/include/asm/thread_info.h
+@@ -19,6 +19,7 @@
+ #endif
+ #define THREAD_SIZE		(PAGE_SIZE << THREAD_SIZE_ORDER)
+ 
++#define IRQ_STACK_SIZE		THREAD_SIZE
+ /*
+  * By aligning VMAP'd stacks to 2 * THREAD_SIZE, we can detect overflow by
+  * checking sp & (1 << THREAD_SHIFT), which we can do cheaply in the entry
+diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+index df0519a64eaf..9619398a69e1 100644
+--- a/arch/riscv/kernel/asm-offsets.c
++++ b/arch/riscv/kernel/asm-offsets.c
+@@ -36,6 +36,8 @@ void asm_offsets(void)
+ 	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
+ 	OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
+ 	OFFSET(TASK_TI_USER_SP, task_struct, thread_info.user_sp);
++	OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
++	OFFSET(TASK_STACK, task_struct, stack);
+ 
+ 	OFFSET(TASK_THREAD_F0,  task_struct, thread.fstate.f[0]);
+ 	OFFSET(TASK_THREAD_F1,  task_struct, thread.fstate.f[1]);
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index ed29e9c8f660..57c9b64e16a5 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -126,12 +126,39 @@ skip_context_tracking:
+ 	 */
+ 	bge s4, zero, 1f
+ 
+-	la ra, ret_from_exception
++	/* preserve the sp */
++	move s0, sp
+ 
+-	/* Handle interrupts */
+ 	move a0, sp /* pt_regs */
++
++	/*
++	 * Compare sp with the base of the task stack.
++	 * If the top ~(THREAD_SIZE - 1) bits match, we are on a task stack,
++	 * and should switch to the irq stack.
++	 */
++	REG_L t0, TASK_STACK(tp)
++	xor t0, t0, s0
++	li t1, ~(THREAD_SIZE - 1)
++	and t0, t0, t1
++	bnez t0, 2f
++
++	la t1, irq_stack
++	REG_L t2, TASK_TI_CPU(tp)
++	slli t2, t2, RISCV_LGPTR
++	add t1, t1, t2
++	REG_L t2, 0(t1)
++	li t1, IRQ_STACK_SIZE
++	/* switch to the irq stack */
++	add sp, t2, t1
++
++2:
++	/* Handle interrupts */
+ 	la a1, generic_handle_arch_irq
+-	jr a1
++	jalr a1
++
++	/* Restore sp */
++	move sp, s0
++	j ret_from_exception
+ 1:
+ 	/*
+ 	 * Exceptions run with interrupts enabled or disabled depending on the
+diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
+index 7207fa08d78f..f20cbfd42e82 100644
+--- a/arch/riscv/kernel/irq.c
++++ b/arch/riscv/kernel/irq.c
+@@ -10,6 +10,8 @@
+ #include <linux/seq_file.h>
+ #include <asm/smp.h>
+ 
++void *irq_stack[NR_CPUS] __ro_after_init;
++
+ int arch_show_interrupts(struct seq_file *p, int prec)
+ {
+ 	show_ipi_stats(p, prec);
+@@ -18,7 +20,21 @@ int arch_show_interrupts(struct seq_file *p, int prec)
+ 
+ void __init init_IRQ(void)
+ {
++	int cpu;
++
+ 	irqchip_init();
+ 	if (!handle_arch_irq)
+ 		panic("No interrupt controller found.");
++
++	for_each_possible_cpu(cpu) {
++#ifdef CONFIG_VMAP_STACK
++		void *s = __vmalloc_node(IRQ_STACK_SIZE, THREAD_ALIGN,
++					 THREADINFO_GFP, cpu_to_node(cpu),
++					 __builtin_return_address(0));
++#else
++		void *s = (void *)__get_free_pages(GFP_KERNEL, get_order(IRQ_STACK_SIZE));
++#endif
++
++		irq_stack[cpu] = s;
++	}
+ }
 -- 
-Mathieu Desnoyers
-EfficiOS Inc.
-http://www.efficios.com
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
