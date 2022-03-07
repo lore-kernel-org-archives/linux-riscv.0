@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30F7EC433FE
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Mar 2022 20:53:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83947C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Mar 2022 20:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=F6Zgpstap8mb/gbY7i4eS1qBcm63DmElH/CDQ6pd/UQ=; b=FpB45N2SkQEfyT
-	NaU8JJaikzLFewEaPpRNmIegZgESfWChgJoJb2pxRmUx3AWlhWsn8UoWqHB2xrcbg/jWvLo/VzhYg
-	Yclv5OqjJBjoVxVxfIhqYferfrdiNbBdIRFsPB9mgXwUhHipSjvbnZybCJOougLDLCUSQVDjrJy8w
-	HU7Mdu3YdLCIkFalU2CfBPYgAP9geIfCIP36QhljWek5Ll2LqbgSEmVP3VCMIFV/XyKcYs5qWtdw1
-	pZKuo1c6q6EzUA+l+1tIRr7XjX696dseVYckbDrx6PnqX2EKA0t5LuFrNUnDpGIWBtIQJ/HfLRt6c
-	tgO6KwGo87cMU26J6xDg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nIUQjucV/NE+fIAh50QCQkdU8C+cBiM/z0fN14m8E80=; b=sULqJJKatbLlZy
+	ijkkxgeF1EYfAVQbEx8v46iy4ZuLBxgBeFQM5VJ3cVF+rHKyTHsHLvjn+DoJ1X4njKAKB89cKbgHY
+	pB4VOKev1G9XKo164mzwLlwuZQZVRMdALE7L683xrPRC4qavEgFn3ganbbswtePal9m2E26V+E6CT
+	GutX9w3jCcK6GJAbdW8+C4ItLyCuPFCYTd6A7hp92l2g2bgoMBqKB8guVx9+VI+6kYREG4NuephVd
+	ekVf9h8ihVzrtcT1QDMB2YIcVnrzKd/bKMXLdY5qxy8p5lXxkkrCTIo7x0H/tuJKYmdGYi+/cJqJt
+	x5vlo4eNsopLtJl9gmNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nRKMC-001XA3-BR; Mon, 07 Mar 2022 20:53:28 +0000
+	id 1nRKMF-001XBI-O4; Mon, 07 Mar 2022 20:53:31 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nRKM6-001X5R-SG
- for linux-riscv@lists.infradead.org; Mon, 07 Mar 2022 20:53:24 +0000
+ id 1nRKM6-001X5P-SB
+ for linux-riscv@lists.infradead.org; Mon, 07 Mar 2022 20:53:25 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
  helo=phil.lan)
  by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
  (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1nRKLy-0002DJ-0f; Mon, 07 Mar 2022 21:53:14 +0100
+ id 1nRKLz-0002DJ-MT; Mon, 07 Mar 2022 21:53:15 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: palmer@dabbelt.com,
 	paul.walmsley@sifive.com,
@@ -43,14 +43,17 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  jscheid@ventanamicro.com, rtrauben@gmail.com, samuel@sholland.org,
  cmuellner@linux.com, philipp.tomsich@vrull.eu,
  Heiko Stuebner <heiko@sntech.de>
-Subject: [PATCH v7 00/13] riscv: support for Svpbmt and D1 memory types
-Date: Mon,  7 Mar 2022 21:52:57 +0100
-Message-Id: <20220307205310.1905628-1-heiko@sntech.de>
+Subject: [PATCH v7 02/13] riscv: integrate alternatives better into the main
+ architecture
+Date: Mon,  7 Mar 2022 21:52:59 +0100
+Message-Id: <20220307205310.1905628-3-heiko@sntech.de>
 X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20220307205310.1905628-1-heiko@sntech.de>
+References: <20220307205310.1905628-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220307_125323_007571_8DE9FED5 
-X-CRM114-Status: GOOD (  21.21  )
+X-CRM114-CacheID: sfid-20220307_125323_011840_2ECF1379 
+X-CRM114-Status: GOOD (  17.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,115 +70,170 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Svpbmt is an extension defining "Supervisor-mode: page-based memory types"
-for things like non-cacheable pages or I/O memory pages.
+Right now the alternatives need to be explicitly enabled and
+erratas are limited to SiFive ones.
 
+Over time with more SoCs and additional RiscV extensions, many more
+erratas or other patch-worthy features will emerge, so it doesn't
+really make sense to have the core alternatives able to get
+deactivated.
 
-So this is my 2nd try at implementing Svpbmt (and the diverging D1 memory
-types) using the alternatives framework.
+So make it part of the core RiscV kernel and drop the main
+RISCV_ERRATA_ALTERNATIVES config symbol.
 
-This includes a number of changes to the alternatives mechanism itself.
-The biggest one being the move to a more central location, as I expect
-in the future, nearly every chip needing some sort of patching, be it
-either for erratas or for optional features (svpbmt or others).
+This mimics how i.e. arm64 handles its alternatives implementation.
 
-Detection of the svpbmt functionality is done via Atish's isa extension
-handling series [0] and thus does not need any dt-parsing of its own
-anymore.
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/riscv/Kconfig.erratas                  | 10 ----------
+ arch/riscv/Kconfig.socs                     |  1 -
+ arch/riscv/Makefile                         |  2 +-
+ arch/riscv/errata/Makefile                  |  1 -
+ arch/riscv/include/asm/alternative-macros.h | 22 ---------------------
+ arch/riscv/kernel/Makefile                  |  1 +
+ arch/riscv/{errata => kernel}/alternative.c |  0
+ arch/riscv/kernel/smpboot.c                 |  2 --
+ arch/riscv/kernel/traps.c                   |  2 +-
+ 9 files changed, 3 insertions(+), 38 deletions(-)
+ rename arch/riscv/{errata => kernel}/alternative.c (100%)
 
-The series also introduces support for the memory types of the D1
-which are implemented differently to svpbmt. But when patching anyway
-it's pretty clean to add the D1 variant via ALTERNATIVE_2 to the same
-location.
-
-The only slightly bigger difference is that the "normal" type is not 0
-as with svpbmt, so kernel patches for this PMA type need to be applied
-even before the MMU is brought up, so the series introduces a separate
-stage for that.
-
-
-In theory this series is 3 parts:
-- sbi cache-flush / null-ptr
-- alternatives improvements
-- svpbmt+d1
-
-So expecially patches from the first 2 areas could be applied when
-deemed ready, I just thought to keep it together to show-case where
-the end-goal is and not requiring jumping between different series.
-
-
-I picked the recipient list from the previous versions, hopefully
-I didn't forget anybody.
-
-changes in v7:
-- fix typo in patch1 (Atish)
-- moved to Atish's isa-extension framework
-- and therefore move regular boot-alternatives directly behind fill_hwcaps
-- change T-Head errata Kconfig text (Atish)
-
-changes in v6:
-- rebase onto 5.17-rc1
-- handle sbi null-ptr differently
-- improve commit messages
-- use riscv,mmu as property name
-
-changes in v5:
-- move to use alternatives for runtime-patching
-- add D1 variant
-
-
-[0] https://lore.kernel.org/r/20220222204811.2281949-2-atishp@rivosinc.com
-
-
-Heiko Stuebner (12):
-  riscv: prevent null-pointer dereference with sbi_remote_fence_i
-  riscv: integrate alternatives better into the main architecture
-  riscv: allow different stages with alternatives
-  riscv: implement module alternatives
-  riscv: implement ALTERNATIVE_2 macro
-  riscv: extend concatenated alternatives-lines to the same length
-  riscv: prevent compressed instructions in alternatives
-  riscv: move boot alternatives to after fill_hwcap
-  riscv: Fix accessing pfn bits in PTEs for non-32bit variants
-  riscv: add cpufeature handling via alternatives
-  riscv: remove FIXMAP_PAGE_IO and fall back to its default value
-  riscv: add memory-type errata for T-Head
-
-Wei Fu (1):
-  riscv: add RISC-V Svpbmt extension support
-
- arch/riscv/Kconfig.erratas                  |  29 +++--
- arch/riscv/Kconfig.socs                     |   1 -
- arch/riscv/Makefile                         |   2 +-
- arch/riscv/errata/Makefile                  |   2 +-
- arch/riscv/errata/sifive/errata.c           |  17 ++-
- arch/riscv/errata/thead/Makefile            |   1 +
- arch/riscv/errata/thead/errata.c            |  85 +++++++++++++++
- arch/riscv/include/asm/alternative-macros.h | 114 +++++++++++---------
- arch/riscv/include/asm/alternative.h        |  16 ++-
- arch/riscv/include/asm/errata_list.h        |  52 +++++++++
- arch/riscv/include/asm/fixmap.h             |   2 -
- arch/riscv/include/asm/hwcap.h              |   1 +
- arch/riscv/include/asm/pgtable-32.h         |  17 +++
- arch/riscv/include/asm/pgtable-64.h         |  79 +++++++++++++-
- arch/riscv/include/asm/pgtable-bits.h       |  10 --
- arch/riscv/include/asm/pgtable.h            |  53 +++++++--
- arch/riscv/include/asm/vendorid_list.h      |   1 +
- arch/riscv/kernel/Makefile                  |   1 +
- arch/riscv/{errata => kernel}/alternative.c |  48 +++++++--
- arch/riscv/kernel/cpu.c                     |   1 +
- arch/riscv/kernel/cpufeature.c              |  80 +++++++++++++-
- arch/riscv/kernel/module.c                  |  29 +++++
- arch/riscv/kernel/sbi.c                     |  10 +-
- arch/riscv/kernel/setup.c                   |   2 +
- arch/riscv/kernel/smpboot.c                 |   4 -
- arch/riscv/kernel/traps.c                   |   2 +-
- arch/riscv/mm/init.c                        |   1 +
- 27 files changed, 546 insertions(+), 114 deletions(-)
- create mode 100644 arch/riscv/errata/thead/Makefile
- create mode 100644 arch/riscv/errata/thead/errata.c
- rename arch/riscv/{errata => kernel}/alternative.c (59%)
-
+diff --git a/arch/riscv/Kconfig.erratas b/arch/riscv/Kconfig.erratas
+index b44d6ecdb46e..d18be8ff0245 100644
+--- a/arch/riscv/Kconfig.erratas
++++ b/arch/riscv/Kconfig.erratas
+@@ -1,17 +1,7 @@
+ menu "CPU errata selection"
+ 
+-config RISCV_ERRATA_ALTERNATIVE
+-	bool "RISC-V alternative scheme"
+-	default y
+-	help
+-	  This Kconfig allows the kernel to automatically patch the
+-	  errata required by the execution platform at run time. The
+-	  code patching is performed once in the boot stages. It means
+-	  that the overhead from this mechanism is just taken once.
+-
+ config ERRATA_SIFIVE
+ 	bool "SiFive errata"
+-	depends on RISCV_ERRATA_ALTERNATIVE
+ 	help
+ 	  All SiFive errata Kconfig depend on this Kconfig. Disabling
+ 	  this Kconfig will disable all SiFive errata. Please say "Y"
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 6ec44a22278a..3df7f7ed0d81 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -14,7 +14,6 @@ config SOC_SIFIVE
+ 	select CLK_SIFIVE
+ 	select CLK_SIFIVE_PRCI
+ 	select SIFIVE_PLIC
+-	select RISCV_ERRATA_ALTERNATIVE
+ 	select ERRATA_SIFIVE
+ 	help
+ 	  This enables support for SiFive SoC platform hardware.
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 7d81102cffd4..a7ed47ce9311 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -103,7 +103,7 @@ endif
+ 
+ head-y := arch/riscv/kernel/head.o
+ 
+-core-$(CONFIG_RISCV_ERRATA_ALTERNATIVE) += arch/riscv/errata/
++core-y += arch/riscv/errata/
+ core-$(CONFIG_KVM) += arch/riscv/kvm/
+ 
+ libs-y += arch/riscv/lib/
+diff --git a/arch/riscv/errata/Makefile b/arch/riscv/errata/Makefile
+index b8f8740a3e44..0ca1c5281a2d 100644
+--- a/arch/riscv/errata/Makefile
++++ b/arch/riscv/errata/Makefile
+@@ -1,2 +1 @@
+-obj-y	+= alternative.o
+ obj-$(CONFIG_ERRATA_SIFIVE) += sifive/
+diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
+index 67406c376389..92da6b3920a3 100644
+--- a/arch/riscv/include/asm/alternative-macros.h
++++ b/arch/riscv/include/asm/alternative-macros.h
+@@ -2,8 +2,6 @@
+ #ifndef __ASM_ALTERNATIVE_MACROS_H
+ #define __ASM_ALTERNATIVE_MACROS_H
+ 
+-#ifdef CONFIG_RISCV_ERRATA_ALTERNATIVE
+-
+ #ifdef __ASSEMBLY__
+ 
+ .macro ALT_ENTRY oldptr newptr vendor_id errata_id new_len
+@@ -76,26 +74,6 @@
+ 
+ #endif /* __ASSEMBLY__ */
+ 
+-#else /* !CONFIG_RISCV_ERRATA_ALTERNATIVE*/
+-#ifdef __ASSEMBLY__
+-
+-.macro __ALTERNATIVE_CFG old_c
+-	\old_c
+-.endm
+-
+-#define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k) \
+-	__ALTERNATIVE_CFG old_c
+-
+-#else /* !__ASSEMBLY__ */
+-
+-#define __ALTERNATIVE_CFG(old_c)  \
+-	old_c "\n"
+-
+-#define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k) \
+-	__ALTERNATIVE_CFG(old_c)
+-
+-#endif /* __ASSEMBLY__ */
+-#endif /* CONFIG_RISCV_ERRATA_ALTERNATIVE */
+ /*
+  * Usage:
+  *   ALTERNATIVE(old_content, new_content, vendor_id, errata_id, CONFIG_k)
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index ffc87e76b1dd..b02142517f7f 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -18,6 +18,7 @@ extra-y += head.o
+ extra-y += vmlinux.lds
+ 
+ obj-y	+= soc.o
++obj-y	+= alternative.o
+ obj-y	+= cpu.o
+ obj-y	+= cpufeature.o
+ obj-y	+= entry.o
+diff --git a/arch/riscv/errata/alternative.c b/arch/riscv/kernel/alternative.c
+similarity index 100%
+rename from arch/riscv/errata/alternative.c
+rename to arch/riscv/kernel/alternative.c
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index 622f226454d5..a6d13dca1403 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -41,9 +41,7 @@ static DECLARE_COMPLETION(cpu_running);
+ void __init smp_prepare_boot_cpu(void)
+ {
+ 	init_cpu_topology();
+-#ifdef CONFIG_RISCV_ERRATA_ALTERNATIVE
+ 	apply_boot_alternatives();
+-#endif
+ }
+ 
+ void __init smp_prepare_cpus(unsigned int max_cpus)
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index fe92e119e6a3..9984c8622c3b 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -86,7 +86,7 @@ static void do_trap_error(struct pt_regs *regs, int signo, int code,
+ 	}
+ }
+ 
+-#if defined (CONFIG_XIP_KERNEL) && defined (CONFIG_RISCV_ERRATA_ALTERNATIVE)
++#if defined (CONFIG_XIP_KERNEL)
+ #define __trap_section		__section(".xip.traps")
+ #else
+ #define __trap_section
 -- 
 2.30.2
 
