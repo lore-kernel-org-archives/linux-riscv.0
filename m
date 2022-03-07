@@ -4,70 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A27AC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Mar 2022 19:20:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30F7EC433FE
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Mar 2022 20:53:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AHKKvOVl/jTiLBy6pW5Eaoj5yF1d+2lkRP2p37WHS1E=; b=ND8o2dYbsfbiTU
-	M7ZYJixTazY1kMkGyqGHhqq2TVAeXXkNsUyfPrdsfLlbgnEqMFUFh4dbYio9vh4wj9ZkHzJnEkCt6
-	EXWjBijc3JIYemoUCQAAAJ5bK4oSbHg8s+mQPUyJmgFOwjtPJvqaHzd/UvXAVI2QE4sKYSap1z806
-	w8aAAzkrj2LU/vSxaFoASH2VJyz+6iznqUxrEiUDlW++n4OUj5YFYB+ODJp4dt3I9HPEqqXpa9auV
-	CbWwvkI4WxoEjNIyioYYGgGf+etAioEUdFlKF1SHD1aFq7UEpAmYmXGZfFynQm9wvLgcy7s4nppP6
-	c8eB8mHLLM6xdUeSvolQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=F6Zgpstap8mb/gbY7i4eS1qBcm63DmElH/CDQ6pd/UQ=; b=FpB45N2SkQEfyT
+	NaU8JJaikzLFewEaPpRNmIegZgESfWChgJoJb2pxRmUx3AWlhWsn8UoWqHB2xrcbg/jWvLo/VzhYg
+	Yclv5OqjJBjoVxVxfIhqYferfrdiNbBdIRFsPB9mgXwUhHipSjvbnZybCJOougLDLCUSQVDjrJy8w
+	HU7Mdu3YdLCIkFalU2CfBPYgAP9geIfCIP36QhljWek5Ll2LqbgSEmVP3VCMIFV/XyKcYs5qWtdw1
+	pZKuo1c6q6EzUA+l+1tIRr7XjX696dseVYckbDrx6PnqX2EKA0t5LuFrNUnDpGIWBtIQJ/HfLRt6c
+	tgO6KwGo87cMU26J6xDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nRItu-001M39-Ru; Mon, 07 Mar 2022 19:20:10 +0000
-Received: from mout.kundenserver.de ([217.72.192.74])
+	id 1nRKMC-001XA3-BR; Mon, 07 Mar 2022 20:53:28 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nRItj-001Lxx-FR
- for linux-riscv@lists.infradead.org; Mon, 07 Mar 2022 19:20:01 +0000
-Received: from mail-wr1-f51.google.com ([209.85.221.51]) by
- mrelayeu.kundenserver.de (mreue106 [213.165.67.113]) with ESMTPSA (Nemesis)
- id 1MysBI-1oLzys3De6-00vypy for <linux-riscv@lists.infradead.org>; Mon, 07
- Mar 2022 20:19:52 +0100
-Received: by mail-wr1-f51.google.com with SMTP id j26so14574158wrb.1
- for <linux-riscv@lists.infradead.org>; Mon, 07 Mar 2022 11:19:52 -0800 (PST)
-X-Gm-Message-State: AOAM532iSyqNyRgXpvoaaUtYuBMz5IeVeim57+iBctZg+vo9sEXTRAKU
- TQH17IuApvYZV4vv33jeGxEnuzmCh3ZCsKI64eA=
-X-Google-Smtp-Source: ABdhPJzugW3wqq7bgZleIsw6WIjwPuqv53jTQLFcNaq6BqgwsHEjfMrkyX4v0qxF4jXII18ANWrsX5DUh0KlJJ9XJac=
-X-Received: by 2002:adf:e181:0:b0:1f7:7d5e:c3bb with SMTP id
- az1-20020adfe181000000b001f77d5ec3bbmr2691351wrb.12.1646680791862; Mon, 07
- Mar 2022 11:19:51 -0800 (PST)
+ id 1nRKM6-001X5R-SG
+ for linux-riscv@lists.infradead.org; Mon, 07 Mar 2022 20:53:24 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
+ helo=phil.lan)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1nRKLy-0002DJ-0f; Mon, 07 Mar 2022 21:53:14 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	aou@eecs.berkeley.edu
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ wefu@redhat.com, liush@allwinnertech.com, guoren@kernel.org,
+ atishp@atishpatra.org, anup@brainfault.org, drew@beagleboard.org,
+ hch@lst.de, arnd@arndb.de, wens@csie.org, maxime@cerno.tech,
+ gfavor@ventanamicro.com, andrea.mondelli@huawei.com, behrensj@mit.edu,
+ xinhaoqu@huawei.com, mick@ics.forth.gr, allen.baum@esperantotech.com,
+ jscheid@ventanamicro.com, rtrauben@gmail.com, samuel@sholland.org,
+ cmuellner@linux.com, philipp.tomsich@vrull.eu,
+ Heiko Stuebner <heiko@sntech.de>
+Subject: [PATCH v7 00/13] riscv: support for Svpbmt and D1 memory types
+Date: Mon,  7 Mar 2022 21:52:57 +0100
+Message-Id: <20220307205310.1905628-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-References: <20220307140804.1400-1-jszhang@kernel.org>
-In-Reply-To: <20220307140804.1400-1-jszhang@kernel.org>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Mon, 7 Mar 2022 20:19:35 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a33aPwi0hBAyFREqM-BKVJwin=O9cOR4NzWPtr1j2pLiA@mail.gmail.com>
-Message-ID: <CAK8P3a33aPwi0hBAyFREqM-BKVJwin=O9cOR4NzWPtr1j2pLiA@mail.gmail.com>
-Subject: Re: [PATCH v2] riscv: add irq stack support
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-X-Provags-ID: V03:K1:lxqTXW05I9DHhAZ00bd5J7CjyhhVxCfu76FOl3CvfJ2OMscXw/s
- 51eog03aqvA8OH/0Ro8buNqeuiU3kn8/K1CYZeu9wxdSNUnJZPkpdxG/401Q4SmwZ4qNepj
- EeRwcmlVkkdTUXywHIKjs1izvp8AP87AcTbRvFpcn9snegTGXQvCBSr8tlvHDKAy1mKcsJf
- 9mFE4s51bT3y1O4FZ49Cg==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:XFglmFe8hnU=:BrDPKpD2ZxJfcexTtTWa2D
- fyUkcZkg31VMhANxVJ2ij9hFR31IlSb7vesRs89tbuBWCuWQo4Lhz4ERQIcB5MF1VUf1dO3fP
- 2MPQ6uwL4ho9eAlXVJtu67a0lK12XTjYCXa6B4RT8j50CxygmeG5P2OgrP99Uyr66cqAdqJ/V
- 9WIytPMkTAB2tEEQugECTmgTI4kp2/JgWh9eQDAgw26OyVJVSvnIxnv9JkUBtU//tzjXlUF9A
- djUtq825gVxqcBloyyEA+5RbIOFwsxcMsMUE3evT5yBrmP92uWHoGdFcqNW7pQGP48ETzAoZZ
- 4nbWUFTSy13k7gEKuTMpCogSNQpOaWgCHTvzn96lMcSXcxO6o++TCcuyxEY8xQ0cCsXga+7ze
- SnnqzFhn30a7fCB1JstLMbvyyQwqpAZygzie4jMf+vUtXeACR/y60+Cr79VJdYmt1qnJGH/Wy
- CTPC9q9ANnHyzTkinzVIgN65BEfQrtufxa+SHug1kBbv6qZWj52LNNM8EazSSeUdXbqaCclQa
- KOIxqXWw7XFtA5Jg7xUwLSmUyTXSIp3/7h3ApTSpy2mYvAxexZ9j3qZjmSW3mD9CSlPIFs6qB
- o7wkm2HkxCAF/2knTCmN/AJnXj/3eS04IjVM3fTA8zFIP9QO18e5wsd5W9yMUkL+JR6L/k/MA
- hnyjarWNngYjPKiYctMpGatRAF95HxUQPPtyLIo9+arbnMg+3oSAbEEGr3aYy4s/sQCQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220307_111959_853597_8B941209 
-X-CRM114-Status: GOOD (  29.94  )
+X-CRM114-CacheID: sfid-20220307_125323_007571_8DE9FED5 
+X-CRM114-Status: GOOD (  21.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,94 +67,118 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 7, 2022 at 3:08 PM Jisheng Zhang <jszhang@kernel.org> wrote:
->
-> Currently, IRQs are still handled on the kernel stack of the current
-> task on riscv platforms. If the task has a deep call stack at the time
-> of interrupt, and handling the interrupt also requires a deep stack,
-> it's possible to see stack overflow.
->
-> Before this patch, the stack_max_size of a v5.17-rc1 kernel running on
-> a lichee RV board gave:
-> ~ # cat /sys/kernel/debug/tracing/stack_max_size
-> 3736
->
-> After this patch,
-> ~ # cat /sys/kernel/debug/tracing/stack_max_size
-> 3176
->
-> We reduce the max kernel stack usage by 560 bytes!
->
-> From another side, after this patch, it's possible to reduce the
-> THREAD_SIZE to 8KB for RV64 platforms. This is especially useful for
-> those systems with small memory size, e.g the Allwinner D1S platform
-> which is RV64 but only has 64MB DDR.
->
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Svpbmt is an extension defining "Supervisor-mode: page-based memory types"
+for things like non-cacheable pages or I/O memory pages.
 
-Very nice!
 
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index ed29e9c8f660..57c9b64e16a5 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -126,12 +126,39 @@ skip_context_tracking:
->          */
->         bge s4, zero, 1f
->
-> -       la ra, ret_from_exception
-> +       /* preserve the sp */
-> +       move s0, sp
->
-> -       /* Handle interrupts */
->         move a0, sp /* pt_regs */
-> +
-> +       /*
-> +        * Compare sp with the base of the task stack.
-> +        * If the top ~(THREAD_SIZE - 1) bits match, we are on a task stack,
-> +        * and should switch to the irq stack.
-> +        */
-> +       REG_L t0, TASK_STACK(tp)
-> +       xor t0, t0, s0
-> +       li t1, ~(THREAD_SIZE - 1)
-> +       and t0, t0, t1
-> +       bnez t0, 2f
-> +
-> +       la t1, irq_stack
-> +       REG_L t2, TASK_TI_CPU(tp)
-> +       slli t2, t2, RISCV_LGPTR
-> +       add t1, t1, t2
-> +       REG_L t2, 0(t1)
-> +       li t1, IRQ_STACK_SIZE
-> +       /* switch to the irq stack */
-> +       add sp, t2, t1
-> +
-> +2:
+So this is my 2nd try at implementing Svpbmt (and the diverging D1 memory
+types) using the alternatives framework.
 
-What is the benefit of doing this in assembler? Is it measurably faster?
+This includes a number of changes to the alternatives mechanism itself.
+The biggest one being the move to a more central location, as I expect
+in the future, nearly every chip needing some sort of patching, be it
+either for erratas or for optional features (svpbmt or others).
 
-I see that arm64 does the same thing in C code, and it would be best to
-have a common implementation for doing this, in terms of maintainability.
+Detection of the svpbmt functionality is done via Atish's isa extension
+handling series [0] and thus does not need any dt-parsing of its own
+anymore.
 
-> +
-> +       for_each_possible_cpu(cpu) {
-> +#ifdef CONFIG_VMAP_STACK
-> +               void *s = __vmalloc_node(IRQ_STACK_SIZE, THREAD_ALIGN,
-> +                                        THREADINFO_GFP, cpu_to_node(cpu),
-> +                                        __builtin_return_address(0));
-> +#else
-> +               void *s = (void *)__get_free_pages(GFP_KERNEL, get_order(IRQ_STACK_SIZE));
-> +#endif
+The series also introduces support for the memory types of the D1
+which are implemented differently to svpbmt. But when patching anyway
+it's pretty clean to add the D1 variant via ALTERNATIVE_2 to the same
+location.
 
-On a related topic: is there a reason to still keep the non-VMAP_STACK
-code path around? I see that it currently is optional for 64-bit with MMU,
-but not available otherwise. The benefits should still outweigh the downside
-(virtual address space usage mainly) on 32-bit, especially when this allows
-a common implementation. Not sure about NOMMU, but I would guess
-that it's not a big issue to use the same code there as well, since nommu
-vmalloc just turns into a kmalloc as well.
+The only slightly bigger difference is that the "normal" type is not 0
+as with svpbmt, so kernel patches for this PMA type need to be applied
+even before the MMU is brought up, so the series introduces a separate
+stage for that.
 
-         Arnd
+
+In theory this series is 3 parts:
+- sbi cache-flush / null-ptr
+- alternatives improvements
+- svpbmt+d1
+
+So expecially patches from the first 2 areas could be applied when
+deemed ready, I just thought to keep it together to show-case where
+the end-goal is and not requiring jumping between different series.
+
+
+I picked the recipient list from the previous versions, hopefully
+I didn't forget anybody.
+
+changes in v7:
+- fix typo in patch1 (Atish)
+- moved to Atish's isa-extension framework
+- and therefore move regular boot-alternatives directly behind fill_hwcaps
+- change T-Head errata Kconfig text (Atish)
+
+changes in v6:
+- rebase onto 5.17-rc1
+- handle sbi null-ptr differently
+- improve commit messages
+- use riscv,mmu as property name
+
+changes in v5:
+- move to use alternatives for runtime-patching
+- add D1 variant
+
+
+[0] https://lore.kernel.org/r/20220222204811.2281949-2-atishp@rivosinc.com
+
+
+Heiko Stuebner (12):
+  riscv: prevent null-pointer dereference with sbi_remote_fence_i
+  riscv: integrate alternatives better into the main architecture
+  riscv: allow different stages with alternatives
+  riscv: implement module alternatives
+  riscv: implement ALTERNATIVE_2 macro
+  riscv: extend concatenated alternatives-lines to the same length
+  riscv: prevent compressed instructions in alternatives
+  riscv: move boot alternatives to after fill_hwcap
+  riscv: Fix accessing pfn bits in PTEs for non-32bit variants
+  riscv: add cpufeature handling via alternatives
+  riscv: remove FIXMAP_PAGE_IO and fall back to its default value
+  riscv: add memory-type errata for T-Head
+
+Wei Fu (1):
+  riscv: add RISC-V Svpbmt extension support
+
+ arch/riscv/Kconfig.erratas                  |  29 +++--
+ arch/riscv/Kconfig.socs                     |   1 -
+ arch/riscv/Makefile                         |   2 +-
+ arch/riscv/errata/Makefile                  |   2 +-
+ arch/riscv/errata/sifive/errata.c           |  17 ++-
+ arch/riscv/errata/thead/Makefile            |   1 +
+ arch/riscv/errata/thead/errata.c            |  85 +++++++++++++++
+ arch/riscv/include/asm/alternative-macros.h | 114 +++++++++++---------
+ arch/riscv/include/asm/alternative.h        |  16 ++-
+ arch/riscv/include/asm/errata_list.h        |  52 +++++++++
+ arch/riscv/include/asm/fixmap.h             |   2 -
+ arch/riscv/include/asm/hwcap.h              |   1 +
+ arch/riscv/include/asm/pgtable-32.h         |  17 +++
+ arch/riscv/include/asm/pgtable-64.h         |  79 +++++++++++++-
+ arch/riscv/include/asm/pgtable-bits.h       |  10 --
+ arch/riscv/include/asm/pgtable.h            |  53 +++++++--
+ arch/riscv/include/asm/vendorid_list.h      |   1 +
+ arch/riscv/kernel/Makefile                  |   1 +
+ arch/riscv/{errata => kernel}/alternative.c |  48 +++++++--
+ arch/riscv/kernel/cpu.c                     |   1 +
+ arch/riscv/kernel/cpufeature.c              |  80 +++++++++++++-
+ arch/riscv/kernel/module.c                  |  29 +++++
+ arch/riscv/kernel/sbi.c                     |  10 +-
+ arch/riscv/kernel/setup.c                   |   2 +
+ arch/riscv/kernel/smpboot.c                 |   4 -
+ arch/riscv/kernel/traps.c                   |   2 +-
+ arch/riscv/mm/init.c                        |   1 +
+ 27 files changed, 546 insertions(+), 114 deletions(-)
+ create mode 100644 arch/riscv/errata/thead/Makefile
+ create mode 100644 arch/riscv/errata/thead/errata.c
+ rename arch/riscv/{errata => kernel}/alternative.c (59%)
+
+-- 
+2.30.2
+
 
 _______________________________________________
 linux-riscv mailing list
