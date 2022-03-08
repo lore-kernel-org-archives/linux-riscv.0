@@ -4,85 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39006C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Mar 2022 00:47:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CBC9C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Mar 2022 01:04:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=xp2FxT95gicYGHklVOOoivFHxwXlsuMF1C2+4LjsZpk=; b=a+tbnYrPgmZOpYL0sJHkP7YTRA
-	4bhuQyesq6da3KYjcDPRckLdn6TLr+73G+xzv31H5A4JpX6wYTWa6eFmX8hNS9nVM0llMtcYzFakH
-	L6CNUeHmS8dcPBNbDt72jzg5p6cNDM1EL4m7CjcoXrl85zRD9V0otvHMexeP/LI3wFzuqTH7i4P9q
-	qv1sxGUaxynfRTZ688vQ497IvhuWvRpte9oZf1qII62xtME16QNVXbdZSeRXoJ7VkwnbU36Tt2cQc
-	GPH2t7RD8BcGhzg7uYGYPbnRDXuCdGiAeus16GUW6/rvYRTsOgXhGfpmjsb+laM6WXoHsqYN6bHqn
-	zaYvK5+A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=824brkl/SRznrkh/JMM7yAv2x5a7PT7iSEd6r228RM4=; b=WK7+Sth1skKQ8I
+	eC0ZmaJ1MbGGVCmRM3CUks6+upBBRB4Cc5fTMBLycMdSWS0EWSe7FfHK6HxrRcnEDpeBh0DBnDVV2
+	ThU6OFkL0gq7MgWS7s+JAFXc65muEn3fO2zChHGGeu1R+dCHqPuNA9KP5LrxPWe1RrdHy2DQs6nKS
+	GJZDzCTbHPTcX7UjEDcwd43JaY8xhM6zxJwHDPQ9l/5tBDK1jj1ISVnkxaZ9hCOoz+AOThWQDC4je
+	EjJrDPn/BOv0jswhIWRCRW5dnZ9EHZY8CQeoZky7F/JE+mEMwZhnkac6WcgvTLTt7K2hnOUNFXZ+d
+	RD/Q3ove55ji8vkYOL3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nRO0j-002D2x-7U; Tue, 08 Mar 2022 00:47:33 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1nROGm-002GQH-Ds; Tue, 08 Mar 2022 01:04:08 +0000
+Received: from m228-6.mailgun.net ([159.135.228.6])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nRO0c-002Cze-C1
- for linux-riscv@lists.infradead.org; Tue, 08 Mar 2022 00:47:29 +0000
-Received: by mail-pf1-x433.google.com with SMTP id t5so15926669pfg.4
- for <linux-riscv@lists.infradead.org>; Mon, 07 Mar 2022 16:47:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=Z3vRo10Wl+7jtROQ3NcA2/Sz6dcGf3qK3XrF5dhiTp8=;
- b=Fk5e2IOgLbFQibmbcrQzBi3ZvXg2L+NFmP0X9uMd2tV3cqc33VFQOdUl6HPs7/zjTa
- f3TQdU6FBt9txnkiRlDQYjFgIoob0IwPWj/yrwHehgHYXSnKOEDNnqzYw+X4jm9rKadH
- jntJPxS+XBdlmURV3EW+SKgpEHjSgo3TA7X3r3LXJJiXUO7QEAvBt+YTBxMLnmPWGbpB
- 51RUPWFWuDQxDhRgwi9vxWzZO6mR75P4uWGUamUXxJQKGZ98EcxSsJ+51R2JNRPSQ5rn
- Hveav6mNiYYWEOIqQqmHrE0T+kCO+IerKBs8uRnac1kmh/2XDksXr0gV5PQQ5739MXBg
- NfhQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=Z3vRo10Wl+7jtROQ3NcA2/Sz6dcGf3qK3XrF5dhiTp8=;
- b=J1IOI2DW8J6UvvlEQtfe9FRr0fvH20v9IYg191PKF7K8HqAsBH4XAg5M3dWyBtvmEU
- l3DzrQMpcIQiePWBc6TcalXLi4ioCXGz0QX53BAtPnzMZ4i0iQFU/LkHVztqMvVzRiGX
- OO7PQ7EV4awgOWt8PBhLzul10iMD40XvyRxYfcHeG+5kRQTp14jKkMKauKWIBB3nHTYx
- iGXwyTUEw/iadokj+Dxv+wk3jbwmnms3fwKlhfw1OmJvKLfvwZm+CN7ogklJefGBuPza
- 9YwMc8kTz+bdR693GyYHgOdJNIgzsN62KNng1bEnH2T2GMOcNgILPZBdPtHr6L9/apJR
- o9mA==
-X-Gm-Message-State: AOAM533nU169vj/bQDmtT1zagvisBh7Q6QrzpzO0ZwTy2D8dFeuWn4SF
- KJ1gxGFcSgdkatdxS3Cb5ZoPvQ==
-X-Google-Smtp-Source: ABdhPJzszLD2yh8rubnAl7Yhc3hCEakyc528uDFLXyLuuCacFlly/z/Ep3la37EzfRgTGgakY1lW4A==
-X-Received: by 2002:a63:6ac1:0:b0:37c:9116:ae5a with SMTP id
- f184-20020a636ac1000000b0037c9116ae5amr12098557pgc.249.1646700445593; 
- Mon, 07 Mar 2022 16:47:25 -0800 (PST)
-Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
- f9-20020a056a00228900b004f3ba7d177csm16821180pfe.54.2022.03.07.16.47.24
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 07 Mar 2022 16:47:25 -0800 (PST)
-Date: Mon, 07 Mar 2022 16:47:25 -0800 (PST)
-X-Google-Original-Date: Mon, 07 Mar 2022 16:46:33 PST (-0800)
-Subject: Re: [PATCH v7 00/13] riscv: support for Svpbmt and D1 memory types
-In-Reply-To: <20220307205310.1905628-1-heiko@sntech.de>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, wefu@redhat.com,
- liush@allwinnertech.com, 
- guoren@kernel.org, atishp@atishpatra.org, anup@brainfault.org,
- drew@beagleboard.org, 
- Christoph Hellwig <hch@lst.de>, Arnd Bergmann <arnd@arndb.de>, wens@csie.org,
- maxime@cerno.tech, 
- gfavor@ventanamicro.com, andrea.mondelli@huawei.com, behrensj@mit.edu,
- xinhaoqu@huawei.com, 
- mick@ics.forth.gr, allen.baum@esperantotech.com, jscheid@ventanamicro.com,
- rtrauben@gmail.com, 
- samuel@sholland.org, cmuellner@linux.com, philipp.tomsich@vrull.eu,
- heiko@sntech.de
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: heiko@sntech.de
-Message-ID: <mhng-4052f547-4a01-44ca-9286-97cc57819fbc@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+ id 1nROGj-002GNv-4M
+ for linux-riscv@lists.infradead.org; Tue, 08 Mar 2022 01:04:07 +0000
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=michaelkloos.com;
+ q=dns/txt; 
+ s=k1; t=1646701439; h=Content-Transfer-Encoding: MIME-Version:
+ Message-Id: Date: Subject: Subject: Cc: To: To: From: From: Sender:
+ Sender; bh=FC7M1KTJ8iPFQChXs0XaASSTL/1irJHxpNAp8ekHczk=;
+ b=Ltmgzbv+UfvdAP677KvCVW0Ijn++nw01FgIlQFVzHIBQHT3koXMbIVAzrhogXFPoyHcGapkR
+ FMcK1Ych8GCeMraoGVYbgrUE6LP1/t7brEEJMMonjEkxKWmVv0PbuxY/pptolt5J+TibI22+
+ DiuToTgOAVNp3aENpBucKXfQOxU=
+X-Mailgun-Sending-Ip: 159.135.228.6
+X-Mailgun-Sid: WyIxOGJjMSIsICJsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnIiwgIjQ4Y2MwIl0=
+Received: from drop1.michaelkloos.com (drop1.michaelkloos.com
+ [67.205.190.89]) by smtp-out-n01.prod.us-east-1.postgun.com with SMTP id
+ 6226ab7d2f1b1e8f7951c169 (version=TLS1.3, cipher=TLS_AES_128_GCM_SHA256);
+ Tue, 08 Mar 2022 01:03:57 GMT
+Received: from qpc.home.michaelkloos.com
+ (cpe-173-88-115-50.columbus.res.rr.com [173.88.115.50])
+ by drop1.michaelkloos.com (Postfix) with ESMTPSA id B3A03400EC;
+ Tue,  8 Mar 2022 01:03:56 +0000 (UTC)
+From: "Michael T. Kloos" <michael@michaelkloos.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ "Michael T. Kloos" <michael@michaelkloos.com>
+Subject: [PATCH v6] riscv: Fixed misaligned memory access. Fixed pointer
+ comparison.
+Date: Mon,  7 Mar 2022 20:03:21 -0500
+Message-Id: <20220308010321.6123-1-michael@michaelkloos.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220307_164726_439487_54A38D10 
-X-CRM114-Status: GOOD (  42.05  )
+X-CRM114-CacheID: sfid-20220307_170405_295113_64C3391A 
+X-CRM114-Status: GOOD (  38.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,157 +68,463 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 07 Mar 2022 12:52:57 PST (-0800), heiko@sntech.de wrote:
-> Svpbmt is an extension defining "Supervisor-mode: page-based memory types"
-> for things like non-cacheable pages or I/O memory pages.
->
->
-> So this is my 2nd try at implementing Svpbmt (and the diverging D1 memory
-> types) using the alternatives framework.
->
-> This includes a number of changes to the alternatives mechanism itself.
-> The biggest one being the move to a more central location, as I expect
-> in the future, nearly every chip needing some sort of patching, be it
-> either for erratas or for optional features (svpbmt or others).
->
-> Detection of the svpbmt functionality is done via Atish's isa extension
-> handling series [0] and thus does not need any dt-parsing of its own
-> anymore.
->
-> The series also introduces support for the memory types of the D1
-> which are implemented differently to svpbmt. But when patching anyway
-> it's pretty clean to add the D1 variant via ALTERNATIVE_2 to the same
-> location.
->
-> The only slightly bigger difference is that the "normal" type is not 0
-> as with svpbmt, so kernel patches for this PMA type need to be applied
-> even before the MMU is brought up, so the series introduces a separate
-> stage for that.
->
->
-> In theory this series is 3 parts:
-> - sbi cache-flush / null-ptr
+Rewrote the RISC-V memmove() assembly implementation.  The
+previous implementation did not check memory alignment and it
+compared 2 pointers with a signed comparison.  The misaligned
+memory access would cause the kernel to crash on systems that
+did not emulate it in firmware and did not support it in hardware.
+Firmware emulation is slow and may not exist.  The RISC-V spec
+does not guarantee that support for misaligned memory accesses
+will exist.  It should not be depended on.
 
-That first patch looks like an acceptable candidate for fixes.  If 
-there's a regression that manifests I'm happy to take it, but if it's 
-only possible to manifest a crash with the new stuff then I'm OK just 
-holding off until the merge window.
+This patch now checks for XLEN granularity of co-alignment between
+the pointers.  Failing that, copying is done by loading from the 2
+contiguous and naturally aligned XLEN memory locations containing
+the overlapping XLEN sized data to be copied.  The data is shifted
+into the correct place and binary or'ed together on each
+iteration.  The result is then stored into the corresponding
+naturally aligned XLEN sized location in the destination.  For
+unaligned data at the terminations of the regions to be copied
+or for copies less than (2 * XLEN) in size, byte copy is used.
 
-> - alternatives improvements
-> - svpbmt+d1
->
-> So expecially patches from the first 2 areas could be applied when
-> deemed ready, I just thought to keep it together to show-case where
-> the end-goal is and not requiring jumping between different series.
->
->
-> I picked the recipient list from the previous versions, hopefully
-> I didn't forget anybody.
->
-> changes in v7:
-> - fix typo in patch1 (Atish)
-> - moved to Atish's isa-extension framework
-> - and therefore move regular boot-alternatives directly behind fill_hwcaps
-> - change T-Head errata Kconfig text (Atish)
+This patch also now uses unsigned comparison for the pointers and
+migrates to the newer assembler annotations from the now deprecated
+ones.
 
-I was just poking around v6, so I have some minor comments there.  None 
-of those need to block merging this, but I am getting a bunch of build 
-failures under allmodconfig
+[v3]
 
-    $ make.riscv allmodconfig
-    #
-    # configuration written to .config
-    #
-    $ make.riscv mm/kasan/init.o
-      SYNC    include/config/auto.conf.cmd
-      CALL    scripts/atomic/check-atomics.sh
-      CC      arch/riscv/kernel/asm-offsets.s
-      CALL    scripts/checksyscalls.sh
-      CC      mm/kasan/init.o
-    ./arch/riscv/include/asm/pgtable.h: Assembler messages:
-    ./arch/riscv/include/asm/pgtable.h:323: Error: attempt to move .org backwards
-    make[2]: *** [scripts/Makefile.build:288: mm/kasan/init.o] Error 1
-    make[1]: *** [scripts/Makefile.build:550: mm/kasan] Error 2
-    make: *** [Makefile:1831: mm] Error 2
+Fixed the build issue reported by the test robot.  Changed the
+copy implementation based on the suggestion by David Laight.
 
-Unfortunately my build box just blew up so I haven't had time to confim 
-this still exists on v7, but nothing's jumping out as a fix.  I've put 
-this on the riscv-d1 branch at kernel.org/palmer/linux, not sure exactly 
-what's going on but I'm guessing one of the macros has gone off the 
-rails.  I'm going to look at something else (as this one at least 
-depends on Atish's patches), but LMK if you've got the time to look into 
-this or if I should.
+One change that could potentially still be made is to roll one
+of the values loaded in the copy loop into the next iteration
+of the fixup loop, rather than reloading both values from memory
+on each iteration.  It would require some more logic and I'm
+really not sure that it is worth it.  It could be added in a
+later patch.  For now, this fixes the issues I set out to fix.
 
-Thanks!
+[v4]
 
->
-> changes in v6:
-> - rebase onto 5.17-rc1
-> - handle sbi null-ptr differently
-> - improve commit messages
-> - use riscv,mmu as property name
->
-> changes in v5:
-> - move to use alternatives for runtime-patching
-> - add D1 variant
->
->
-> [0] https://lore.kernel.org/r/20220222204811.2281949-2-atishp@rivosinc.com
->
->
-> Heiko Stuebner (12):
->   riscv: prevent null-pointer dereference with sbi_remote_fence_i
->   riscv: integrate alternatives better into the main architecture
->   riscv: allow different stages with alternatives
->   riscv: implement module alternatives
->   riscv: implement ALTERNATIVE_2 macro
->   riscv: extend concatenated alternatives-lines to the same length
->   riscv: prevent compressed instructions in alternatives
->   riscv: move boot alternatives to after fill_hwcap
->   riscv: Fix accessing pfn bits in PTEs for non-32bit variants
->   riscv: add cpufeature handling via alternatives
->   riscv: remove FIXMAP_PAGE_IO and fall back to its default value
->   riscv: add memory-type errata for T-Head
->
-> Wei Fu (1):
->   riscv: add RISC-V Svpbmt extension support
->
->  arch/riscv/Kconfig.erratas                  |  29 +++--
->  arch/riscv/Kconfig.socs                     |   1 -
->  arch/riscv/Makefile                         |   2 +-
->  arch/riscv/errata/Makefile                  |   2 +-
->  arch/riscv/errata/sifive/errata.c           |  17 ++-
->  arch/riscv/errata/thead/Makefile            |   1 +
->  arch/riscv/errata/thead/errata.c            |  85 +++++++++++++++
->  arch/riscv/include/asm/alternative-macros.h | 114 +++++++++++---------
->  arch/riscv/include/asm/alternative.h        |  16 ++-
->  arch/riscv/include/asm/errata_list.h        |  52 +++++++++
->  arch/riscv/include/asm/fixmap.h             |   2 -
->  arch/riscv/include/asm/hwcap.h              |   1 +
->  arch/riscv/include/asm/pgtable-32.h         |  17 +++
->  arch/riscv/include/asm/pgtable-64.h         |  79 +++++++++++++-
->  arch/riscv/include/asm/pgtable-bits.h       |  10 --
->  arch/riscv/include/asm/pgtable.h            |  53 +++++++--
->  arch/riscv/include/asm/vendorid_list.h      |   1 +
->  arch/riscv/kernel/Makefile                  |   1 +
->  arch/riscv/{errata => kernel}/alternative.c |  48 +++++++--
->  arch/riscv/kernel/cpu.c                     |   1 +
->  arch/riscv/kernel/cpufeature.c              |  80 +++++++++++++-
->  arch/riscv/kernel/module.c                  |  29 +++++
->  arch/riscv/kernel/sbi.c                     |  10 +-
->  arch/riscv/kernel/setup.c                   |   2 +
->  arch/riscv/kernel/smpboot.c                 |   4 -
->  arch/riscv/kernel/traps.c                   |   2 +-
->  arch/riscv/mm/init.c                        |   1 +
->  27 files changed, 546 insertions(+), 114 deletions(-)
->  create mode 100644 arch/riscv/errata/thead/Makefile
->  create mode 100644 arch/riscv/errata/thead/errata.c
->  rename arch/riscv/{errata => kernel}/alternative.c (59%)
+I could not resist implementing the optimization I mentioned in
+my v3 notes.  I have implemented the roll over of data by cpu
+register in the misaligned fixup copy loops.  Now, only one load
+from memory is required per iteration of the loop.
+
+[v5]
+
+Optimized copy loops by replacing the unconditional jumps to
+conditional branches with conditional branches themselves,
+spaced loads and the use of the loaded data to minimize pipeline
+stalling on in-order CPUs, and unrolled the misaligned copy loop
+by one iteration.
+
+[v6]
+
+I have reverted to alphanumeric labels for easier reading per
+the request of Palmer Dabbelt.  My idea in using numbers was to
+minimize polution of the symbol tables in the kernel elf file.
+But that really doesn't matter much and this makes debugging and
+code reading easier when viewing an objdump of the kernel elf.
+
+I have also made one additial minor optimization.  I changed the
+forward src index counter from register a3 to register a1.  This
+means that we don't have to copy the value from a1 to a3 in the
+start of this implementation.  I put it off until the end because
+it only removed 1 one-time-use instruction at the cost of
+decreased readability.
+
+Signed-off-by: Michael T. Kloos <michael@michaelkloos.com>
+---
+ arch/riscv/lib/memmove.S | 368 +++++++++++++++++++++++++++++++++------
+ 1 file changed, 310 insertions(+), 58 deletions(-)
+
+diff --git a/arch/riscv/lib/memmove.S b/arch/riscv/lib/memmove.S
+index 07d1d2152ba5..e0609e1f0864 100644
+--- a/arch/riscv/lib/memmove.S
++++ b/arch/riscv/lib/memmove.S
+@@ -1,64 +1,316 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2022 Michael T. Kloos <michael@michaelkloos.com>
++ */
+ 
+ #include <linux/linkage.h>
+ #include <asm/asm.h>
+ 
+-ENTRY(__memmove)
+-WEAK(memmove)
+-        move    t0, a0
+-        move    t1, a1
+-
+-        beq     a0, a1, exit_memcpy
+-        beqz    a2, exit_memcpy
+-        srli    t2, a2, 0x2
+-
+-        slt     t3, a0, a1
+-        beqz    t3, do_reverse
+-
+-        andi    a2, a2, 0x3
+-        li      t4, 1
+-        beqz    t2, byte_copy
+-
+-word_copy:
+-        lw      t3, 0(a1)
+-        addi    t2, t2, -1
+-        addi    a1, a1, 4
+-        sw      t3, 0(a0)
+-        addi    a0, a0, 4
+-        bnez    t2, word_copy
+-        beqz    a2, exit_memcpy
+-        j       byte_copy
+-
+-do_reverse:
+-        add     a0, a0, a2
+-        add     a1, a1, a2
+-        andi    a2, a2, 0x3
+-        li      t4, -1
+-        beqz    t2, reverse_byte_copy
+-
+-reverse_word_copy:
+-        addi    a1, a1, -4
+-        addi    t2, t2, -1
+-        lw      t3, 0(a1)
+-        addi    a0, a0, -4
+-        sw      t3, 0(a0)
+-        bnez    t2, reverse_word_copy
+-        beqz    a2, exit_memcpy
+-
+-reverse_byte_copy:
+-        addi    a0, a0, -1
+-        addi    a1, a1, -1
++SYM_FUNC_START(__memmove)
++SYM_FUNC_START_WEAK(memmove)
++	/*
++	 * Returns
++	 *   a0 - dest
++	 *
++	 * Parameters
++	 *   a0 - Inclusive first byte of dest
++	 *   a1 - Inclusive first byte of src
++	 *   a2 - Length of copy n
++	 *
++	 * Because the return matches the parameter register a0,
++	 * we will not clobber or modify that register.
++	 *
++	 * Note: This currently only works on little-endian.
++	 * To port to big-endian, reverse the direction of shifts
++	 * in the 2 misaligned fixup copy loops.
++	 */
+ 
++	/* Return if nothing to do */
++	beq a0, a1, return_from_memmove
++	beqz a2, return_from_memmove
++
++	/*
++	 * Register Uses
++	 *      Forward Copy: a1 - Index counter of src
++	 *      Reverse Copy: a4 - Index counter of src
++	 *      Forward Copy: t3 - Index counter of dest
++	 *      Reverse Copy: t4 - Index counter of dest
++	 *   Both Copy Modes: t5 - Inclusive first multibyte/aligned of dest
++	 *   Both Copy Modes: t6 - Non-Inclusive last multibyte/aligned of dest
++	 *   Both Copy Modes: t0 - Link / Temporary for load-store
++	 *   Both Copy Modes: t1 - Temporary for load-store
++	 *   Both Copy Modes: t2 - Temporary for load-store
++	 *   Both Copy Modes: a5 - dest to src alignment offset
++	 *   Both Copy Modes: a6 - Shift ammount
++	 *   Both Copy Modes: a7 - Inverse Shift ammount
++	 *   Both Copy Modes: a2 - Alternate breakpoint for unrolled loops
++	 */
++
++	/*
++	 * Solve for some register values now.
++	 * Byte copy does not need t5 or t6.
++	 */
++	mv   t3, a0
++	add  t4, a0, a2
++	add  a4, a1, a2
++
++	/*
++	 * Byte copy if copying less than (2 * SZREG) bytes. This can
++	 * cause problems with the bulk copy implementation and is
++	 * small enough not to bother.
++	 */
++	andi t0, a2, -(2 * SZREG)
++	beqz t0, byte_copy
++
++	/*
++	 * Now solve for t5 and t6.
++	 */
++	andi t5, t3, -SZREG
++	andi t6, t4, -SZREG
++	/*
++	 * If dest(Register t3) rounded down to the nearest naturally
++	 * aligned SZREG address, does not equal dest, then add SZREG
++	 * to find the low-bound of SZREG alignment in the dest memory
++	 * region.  Note that this could overshoot the dest memory
++	 * region if n is less than SZREG.  This is one reason why
++	 * we always byte copy if n is less than SZREG.
++	 * Otherwise, dest is already naturally aligned to SZREG.
++	 */
++	beq  t5, t3, 1f
++		addi t5, t5, SZREG
++	1:
++
++	/*
++	 * If the dest and src are co-aligned to SZREG, then there is
++	 * no need for the full rigmarole of a full misaligned fixup copy.
++	 * Instead, do a simpler co-aligned copy.
++	 */
++	xor  t0, a0, a1
++	andi t1, t0, (SZREG - 1)
++	beqz t1, coaligned_copy
++	/* Fall through to misaligned fixup copy */
++
++misaligned_fixup_copy:
++	bltu a1, a0, misaligned_fixup_copy_reverse
++
++misaligned_fixup_copy_forward:
++	jal  t0, byte_copy_until_aligned_forward
++
++	andi a5, a1, (SZREG - 1) /* Find the alignment offset of src (a1) */
++	slli a6, a5, 3 /* Multiply by 8 to convert that to bits to shift */
++	sub  a5, a1, t3 /* Find the difference between src and dest */
++	andi a1, a1, -SZREG /* Align the src pointer */
++	addi a2, t6, SZREG /* The other breakpoint for the unrolled loop*/
++
++	/*
++	 * Compute The Inverse Shift
++	 * a7 = XLEN - a6 = XLEN + -a6
++	 * 2s complement negation to find the negative: -a6 = ~a6 + 1
++	 * Add that to XLEN.  XLEN = SZREG * 8.
++	 */
++	not  a7, a6
++	addi a7, a7, (SZREG * 8 + 1)
++
++	/*
++	 * Fix Misalignment Copy Loop - Forward
++	 * load_val0 = load_ptr[0];
++	 * do {
++	 * 	load_val1 = load_ptr[1];
++	 * 	store_ptr += 2;
++	 * 	store_ptr[0 - 2] = (load_val0 >> {a6}) | (load_val1 << {a7});
++	 *
++	 * 	if (store_ptr == {a2})
++	 * 		break;
++	 *
++	 * 	load_val0 = load_ptr[2];
++	 * 	load_ptr += 2;
++	 * 	store_ptr[1 - 2] = (load_val1 >> {a6}) | (load_val0 << {a7});
++	 *
++	 * } while (store_ptr != store_ptr_end);
++	 * store_ptr = store_ptr_end;
++	 */
++
++	REG_L t0, (0 * SZREG)(a1)
++	1:
++	REG_L t1, (1 * SZREG)(a1)
++	addi  t3, t3, (2 * SZREG)
++	srl   t0, t0, a6
++	sll   t2, t1, a7
++	or    t2, t0, t2
++	REG_S t2, ((0 * SZREG) - (2 * SZREG))(t3)
++
++	beq   t3, a2, 2f
++
++	REG_L t0, (2 * SZREG)(a1)
++	addi  a1, a1, (2 * SZREG)
++	srl   t1, t1, a6
++	sll   t2, t0, a7
++	or    t2, t1, t2
++	REG_S t2, ((1 * SZREG) - (2 * SZREG))(t3)
++
++	bne   t3, t6, 1b
++	2:
++	mv    t3, t6 /* Fix the dest pointer in case the loop was broken */
++
++	add  a1, t3, a5 /* Restore the src pointer */
++	j byte_copy_forward /* Copy any remaining bytes */
++
++misaligned_fixup_copy_reverse:
++	jal  t0, byte_copy_until_aligned_reverse
++
++	andi a5, a4, (SZREG - 1) /* Find the alignment offset of src (a4) */
++	slli a6, a5, 3 /* Multiply by 8 to convert that to bits to shift */
++	sub  a5, a4, t4 /* Find the difference between src and dest */
++	andi a4, a4, -SZREG /* Align the src pointer */
++	addi a2, t5, -SZREG /* The other breakpoint for the unrolled loop*/
++
++	/*
++	 * Compute The Inverse Shift
++	 * a7 = XLEN - a6 = XLEN + -a6
++	 * 2s complement negation to find the negative: -a6 = ~a6 + 1
++	 * Add that to XLEN.  XLEN = SZREG * 8.
++	 */
++	not  a7, a6
++	addi a7, a7, (SZREG * 8 + 1)
++
++	/*
++	 * Fix Misalignment Copy Loop - Reverse
++	 * load_val1 = load_ptr[0];
++	 * do {
++	 * 	load_val0 = load_ptr[-1];
++	 * 	store_ptr -= 2;
++	 * 	store_ptr[1] = (load_val0 >> {a6}) | (load_val1 << {a7});
++	 *
++	 * 	if (store_ptr == {a2})
++	 * 		break;
++	 *
++	 * 	load_val1 = load_ptr[-2];
++	 * 	load_ptr -= 2;
++	 * 	store_ptr[0] = (load_val1 >> {a6}) | (load_val0 << {a7});
++	 *
++	 * } while (store_ptr != store_ptr_end);
++	 * store_ptr = store_ptr_end;
++	 */
++
++	REG_L t1, ( 0 * SZREG)(a4)
++	1:
++	REG_L t0, (-1 * SZREG)(a4)
++	addi  t4, t4, (-2 * SZREG)
++	sll   t1, t1, a7
++	srl   t2, t0, a6
++	or    t2, t1, t2
++	REG_S t2, ( 1 * SZREG)(t4)
++
++	beq   t4, a2, 2f
++
++	REG_L t1, (-2 * SZREG)(a4)
++	addi  a4, a4, (-2 * SZREG)
++	sll   t0, t0, a7
++	srl   t2, t1, a6
++	or    t2, t0, t2
++	REG_S t2, ( 0 * SZREG)(t4)
++
++	bne   t4, t5, 1b
++	2:
++	mv    t4, t5 /* Fix the dest pointer in case the loop was broken */
++
++	add  a4, t4, a5 /* Restore the src pointer */
++	j byte_copy_reverse /* Copy any remaining bytes */
++
++/*
++ * Simple copy loops for SZREG co-aligned memory locations.
++ * These also make calls to do byte copies for any unaligned
++ * data at their terminations.
++ */
++coaligned_copy:
++	bltu a1, a0, coaligned_copy_reverse
++
++coaligned_copy_forward:
++	jal t0, byte_copy_until_aligned_forward
++
++	1:
++	REG_L t1, ( 0 * SZREG)(a1)
++	addi  a1, a1, SZREG
++	addi  t3, t3, SZREG
++	REG_S t1, (-1 * SZREG)(t3)
++	bne   t3, t6, 1b
++
++	j byte_copy_forward /* Copy any remaining bytes */
++
++coaligned_copy_reverse:
++	jal t0, byte_copy_until_aligned_reverse
++
++	1:
++	REG_L t1, (-1 * SZREG)(a4)
++	addi  a4, a4, -SZREG
++	addi  t4, t4, -SZREG
++	REG_S t1, ( 0 * SZREG)(t4)
++	bne   t4, t5, 1b
++
++	j byte_copy_reverse /* Copy any remaining bytes */
++
++/*
++ * These are basically sub-functions within the function.  They
++ * are used to byte copy until the dest pointer is in alignment.
++ * At which point, a bulk copy method can be used by the
++ * calling code.  These work on the same registers as the bulk
++ * copy loops.  Therefore, the register values can be picked
++ * up from where they were left and we avoid code duplication
++ * without any overhead except the call in and return jumps.
++ */
++byte_copy_until_aligned_forward:
++	beq  t3, t5, 2f
++	1:
++	lb   t1,  0(a1)
++	addi a1, a1, 1
++	addi t3, t3, 1
++	sb   t1, -1(t3)
++	bne  t3, t5, 1b
++	2:
++	jalr zero, 0x0(t0) /* Return to multibyte copy loop */
++
++byte_copy_until_aligned_reverse:
++	beq  t4, t6, 2f
++	1:
++	lb   t1, -1(a4)
++	addi a4, a4, -1
++	addi t4, t4, -1
++	sb   t1,  0(t4)
++	bne  t4, t6, 1b
++	2:
++	jalr zero, 0x0(t0) /* Return to multibyte copy loop */
++
++/*
++ * Simple byte copy loops.
++ * These will byte copy until they reach the end of data to copy.
++ * At that point, they will call to return from memmove.
++ */
+ byte_copy:
+-        lb      t3, 0(a1)
+-        addi    a2, a2, -1
+-        sb      t3, 0(a0)
+-        add     a1, a1, t4
+-        add     a0, a0, t4
+-        bnez    a2, byte_copy
+-
+-exit_memcpy:
+-        move a0, t0
+-        move a1, t1
+-        ret
+-END(__memmove)
++	bltu a1, a0, byte_copy_reverse
++
++byte_copy_forward:
++	beq  t3, t4, 2f
++	1:
++	lb   t1,  0(a1)
++	addi a1, a1, 1
++	addi t3, t3, 1
++	sb   t1, -1(t3)
++	bne  t3, t4, 1b
++	2:
++	ret
++
++byte_copy_reverse:
++	beq  t4, t3, 2f
++	1:
++	lb   t1, -1(a4)
++	addi a4, a4, -1
++	addi t4, t4, -1
++	sb   t1,  0(t4)
++	bne  t4, t3, 1b
++	2:
++
++return_from_memmove:
++	ret
++
++SYM_FUNC_END(memmove)
++SYM_FUNC_END(__memmove)
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
