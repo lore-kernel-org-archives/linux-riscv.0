@@ -4,74 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC320C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Mar 2022 15:24:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 898CAC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Mar 2022 21:39:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:References:
-	In-Reply-To:Message-ID:Cc:To:From:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=vb9GePxKnXzmmcYAvkwdxU5WNBPgQV7EjbwaXse2yew=; b=U5Jdn1MH95UwR3weoxb4zpxCUi
-	8Y+X/4mGWx67enX9g/MvqxFMHP/L5hG9yEGlyBfO5MMuh0SnK6kU4r+kGQaruIggpd9YZRtMUtATY
-	YkHt8S8blbCCnnSjfo8ShopF6ypMF6NxNrmeKDVthN8Q7lKtU3MUv2HC/sk3nY3xt7Va/Ojts65bS
-	aeQyet1EsNxuJt7JhHLp2ozcQCrVU6l+vB47uzzF+wjQSMXgJJJgcChDmO8eBMvRJkzE+Mdw6QYa/
-	oiCY14+i1A7o73NicG0eAhU4NagQ5sImgnHgeRjp80JxwZPvdo4sq+DpaepErFbp0uH57dPCDuIB/
-	vbDrjDZA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gXDJ25b2tL+t7LqnHzhMXvdkHFlhyJM9dSIHEnXgLR4=; b=NqcemwQUN3xA1mkplo0LvIo8uT
+	LxDRDwdksktfUOvvNqQ156WgHOW2D6N+FBQbOF7967dH3ql97WGJoRRFyBQcybdtcgerNxiNQGViM
+	ta4Q21jY7giiYdjryQBmzf+eauThVsmH9IA+kN2+2pufdbxu0MpOx4IZQDXZgvTF2/Zur3mNDylDt
+	dlSD6M8rEwx/yyk9NWMjk6Hbg+yxnpzweB93G2j5Lqrg2FfaS8v7l1XpsK0Q0UYUpy4GBSYU6cfAB
+	OL1MA8XYNjwGxKbCNll/D5qzCWlQ+IKGAV5uXYdJOLeSKiuByxVXilmM788B+jyGRL9HMwDnZNcqX
+	wz6DT6jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nRbhb-004wk5-SV; Tue, 08 Mar 2022 15:24:43 +0000
-Received: from mail.efficios.com ([167.114.26.124])
+	id 1nRhXq-006LO3-RR; Tue, 08 Mar 2022 21:39:02 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nRbhW-004wiS-Pp
- for linux-riscv@lists.infradead.org; Tue, 08 Mar 2022 15:24:42 +0000
-Received: from localhost (localhost [127.0.0.1])
- by mail.efficios.com (Postfix) with ESMTP id 173AF366DCD;
- Tue,  8 Mar 2022 10:24:24 -0500 (EST)
-Received: from mail.efficios.com ([127.0.0.1])
- by localhost (mail03.efficios.com [127.0.0.1]) (amavisd-new, port 10032)
- with ESMTP id igyof5UwexL3; Tue,  8 Mar 2022 10:24:22 -0500 (EST)
-Received: from localhost (localhost [127.0.0.1])
- by mail.efficios.com (Postfix) with ESMTP id A1C6B366DCC;
- Tue,  8 Mar 2022 10:24:22 -0500 (EST)
-DKIM-Filter: OpenDKIM Filter v2.10.3 mail.efficios.com A1C6B366DCC
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=default; t=1646753062;
- bh=4FRKHdYdmNcnCUe/UkTZQDYNX5JmjNIKPyx4NB+1KSY=;
- h=Date:From:To:Message-ID:MIME-Version;
- b=CoJQWLjQLfY+q/zlgB+wygl5aROb0WH/3dM3HgiPlb5sQEpYAVa6CXZUrpYuerBRl
- cWZthLbS+dYEvW5KsOz1faVxOeS3HrLlV9hIYGQGoNIIZeni+3PdXxtZIVyNJ4d2Rn
- FzmV1cbDrZyVzzM4tjSWuZxYWiEfqQVyyti1C32UsNCRcfG351r0shd3cHz6PMgWe8
- ggeDnDFLRincC2RTifNTh9f9vdQo3LpDb2l13yhQIY74fjb83ufeO+S6LBhHGoo4vv
- RgAN1mpwIbSGFg1Dm+n0zg06rBzy60L3GYEhNq5aSQp+wxzo3JmoCzcHRJzcl5Twpk
- MwnP+mUwpdHdQ==
-X-Virus-Scanned: amavisd-new at efficios.com
-Received: from mail.efficios.com ([127.0.0.1])
- by localhost (mail03.efficios.com [127.0.0.1]) (amavisd-new, port 10026)
- with ESMTP id cCvo8SHDdntL; Tue,  8 Mar 2022 10:24:22 -0500 (EST)
-Received: from mail03.efficios.com (mail03.efficios.com [167.114.26.124])
- by mail.efficios.com (Postfix) with ESMTP id 89ACE366D57;
- Tue,  8 Mar 2022 10:24:22 -0500 (EST)
-Date: Tue, 8 Mar 2022 10:24:22 -0500 (EST)
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-To: Vincent Chen <vincent.chen@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>
-Message-ID: <610121666.129430.1646753062429.JavaMail.zimbra@efficios.com>
-In-Reply-To: <20220308083253.12285-3-vincent.chen@sifive.com>
-References: <20220308083253.12285-1-vincent.chen@sifive.com>
- <20220308083253.12285-3-vincent.chen@sifive.com>
-Subject: Re: [PATCH v4 2/2] rseq/selftests: Add support for RISC-V
+ id 1nRhXm-006LN0-RD; Tue, 08 Mar 2022 21:39:00 +0000
+Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
+ by mx0b-00069f02.pphosted.com (8.16.1.2/8.16.1.2) with SMTP id 228LDuVo027923; 
+ Tue, 8 Mar 2022 21:38:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
+ h=message-id : date :
+ subject : to : cc : references : from : in-reply-to : content-type :
+ content-transfer-encoding : mime-version; s=corp-2021-07-09;
+ bh=DhFtv67WuVLsRFNLT222tZVmBbgE3btJpR6JDsNZ8QI=;
+ b=F7g+Ykh4y2SAP+9SwGCDIwemS8we9hH5tG+VkEC9K3yRz2WB9SfQ6ZzmfDJ+SQ6pt35p
+ 7PTEbFF8xivElUrKRDWDlmc6AamyVC8WJNyu3qzb1epAV96jHU0ZpzwX5SqUzlALettP
+ K3vStBpQTfZfODZzReCRi/G9SpNT5MQUkiBork64AIOBBPKOQuj47TrbpZv+T/nKeeEK
+ fbnsrRovHQLjS/3Vlu0F61lJcCncYN+SzsKStVmZaRJTfLVbDjbEJ/R5uUUZhf6c16af
+ b34sWpT5W0aZzdfX5Dg+wJYA/4nX5zN2mircGRKSOsfeMX/V6o0G6f5FY1kAhhQRKLQR Cg== 
+Received: from userp3030.oracle.com (userp3030.oracle.com [156.151.31.80])
+ by mx0b-00069f02.pphosted.com with ESMTP id 3ekxn2gc2b-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Tue, 08 Mar 2022 21:38:36 +0000
+Received: from pps.filterd (userp3030.oracle.com [127.0.0.1])
+ by userp3030.oracle.com (8.16.1.2/8.16.1.2) with SMTP id 228LaPoO120217;
+ Tue, 8 Mar 2022 21:38:35 GMT
+Received: from nam11-bn8-obe.outbound.protection.outlook.com
+ (mail-bn8nam11lp2177.outbound.protection.outlook.com [104.47.58.177])
+ by userp3030.oracle.com with ESMTP id 3ekvyv9uh4-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Tue, 08 Mar 2022 21:38:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=B4eUYEiuVLxfAIFoLTUKkT6HBej2c7szDrRteYJhwqZG7ul4gy2G8IWCtOgy5wYYJTSPsdwiW52UIjvk7Y/Vww7s0fEicgrl/S27DIWHzrTUEf8fhL6tBbG54R4zmozFWb3UPdQKpo/Y25/1tV5l1aahmaGw2MgsjU9RtFlI9MZiXpQuPjsalG1ykwa67flbHKLtBfXFkIozcVAeki6Q6cvBZRuqoC7ntJJMvjqhd/1YvCqyOE2Qe3SQpi/3jFb9e5v1SHObU4K7q8fQEvA5SDuz/Uuo108jEkYwkntjVN0P3s66aFE464dNVSbwDlZvNLwUiRVMTK0hLvlYHcUhVw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DhFtv67WuVLsRFNLT222tZVmBbgE3btJpR6JDsNZ8QI=;
+ b=ORl8TmJJ5gQ34Fw4sklC1lmnScrYpHAAZGpfhSKsUme+lYH6isd7FKfBi8j/iDnlZHGc/HqX071HUBS04NUPYITMVo9JlwyV/CEvc3KJFPc/oOpJrPUeWQMlPxFp/AsEaH8F642DgkgLSXNdmBtS8/d66iUwyFU8KqFnhiz6j6W8A6HrFocvjmbyzKFPT8rzhAc9GmaYQp5yt4316miKX+/kZebFtbYj85vHMVCrtVyg2ypSH3HWoETHqZkw2UntUQKmLFWfCmFjYAE6vusjKy96mjajBLFOyxEppW2o30pXDP81983MjvtCrbwln1yezuGpgBHeveEVKa6zplp7cg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DhFtv67WuVLsRFNLT222tZVmBbgE3btJpR6JDsNZ8QI=;
+ b=dweFUTWPrTn8YHb6QoS3/Czf8M9GYhX8dEH8+GYE7n/9g4TDEDKfJS08X6Ki8oBC7iDsxStZtBpeKd1O1fwcBGgTsB4fPbh3q4nGJ7FtV/WJj0fVhTd/KVNoxw6PEE/Kea6MwCrf/dlzZJy9EwuP5SBuJ8IZSmup7uZaIA3HybA=
+Received: from BLAPR10MB5009.namprd10.prod.outlook.com (2603:10b6:208:321::10)
+ by BYAPR10MB2710.namprd10.prod.outlook.com (2603:10b6:a02:b5::27)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5038.19; Tue, 8 Mar
+ 2022 21:38:31 +0000
+Received: from BLAPR10MB5009.namprd10.prod.outlook.com
+ ([fe80::6d20:6694:a16:56f7]) by BLAPR10MB5009.namprd10.prod.outlook.com
+ ([fe80::6d20:6694:a16:56f7%3]) with mapi id 15.20.5038.027; Tue, 8 Mar 2022
+ 21:38:31 +0000
+Message-ID: <6a22ea1e-4823-5c3b-97ee-a29155404a0d@oracle.com>
+Date: Tue, 8 Mar 2022 16:38:21 -0500
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:91.0)
+ Gecko/20100101 Thunderbird/91.6.1
+Subject: Re: [PATCH 11/12] swiotlb: merge swiotlb-xen initialization into
+ swiotlb
+Content-Language: en-US
+To: Christoph Hellwig <hch@lst.de>, iommu@lists.linux-foundation.org
+Cc: x86@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
+ Tom Lendacky <thomas.lendacky@amd.com>,
+ Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>,
+ Stefano Stabellini <sstabellini@kernel.org>, Juergen Gross
+ <jgross@suse.com>, Joerg Roedel <joro@8bytes.org>,
+ David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>,
+ Robin Murphy <robin.murphy@arm.com>,
+ linux-arm-kernel@lists.infradead.org, xen-devel@lists.xenproject.org,
+ linux-ia64@vger.kernel.org, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-hyperv@vger.kernel.org,
+ tboot-devel@lists.sourceforge.net, linux-pci@vger.kernel.org
+References: <20220301105311.885699-1-hch@lst.de>
+ <20220301105311.885699-12-hch@lst.de>
+From: Boris Ostrovsky <boris.ostrovsky@oracle.com>
+In-Reply-To: <20220301105311.885699-12-hch@lst.de>
+X-ClientProxiedBy: BYAPR01CA0036.prod.exchangelabs.com (2603:10b6:a02:80::49)
+ To BLAPR10MB5009.namprd10.prod.outlook.com
+ (2603:10b6:208:321::10)
 MIME-Version: 1.0
-X-Originating-IP: [167.114.26.124]
-X-Mailer: Zimbra 8.8.15_GA_4203 (ZimbraWebClient - FF97 (Linux)/8.8.15_GA_4232)
-Thread-Topic: rseq/selftests: Add support for RISC-V
-Thread-Index: qHp4Rw5yuXPbCTr+4VHUTQZvS4GZJg==
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: a5497499-5231-4669-a72e-08da014bfd50
+X-MS-TrafficTypeDiagnostic: BYAPR10MB2710:EE_
+X-Microsoft-Antispam-PRVS: <BYAPR10MB2710B19FF89408863850F5508A099@BYAPR10MB2710.namprd10.prod.outlook.com>
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: zpm3AbzfYsLIS6+hWgb7lSGWLoUo1jjusiM9Dxdnt2alpTe5MIqdooOVzcypscvRXFXYT5XvkVs3wjlfX8hhxILJMcSS8pm5Kbi1R5FemDfmpAN6Xt+QJ//J/vl0uDqPkDJ8kQ1IkxkRJFDlYaeluUj5V/uFX1LHh1OpF1iyPyuShjZAbF9H1sbjPb5uls0L0On2QoC6iygNOMQCxjrPzUrnXJ2O5NLibqo6pfYfLyEtDfaWHjFof6mL9pbkromai8bcBVKXMEAneJh1KbrD45unTbaU2sWJFHe4S+lZZzEeWT2Mrd72MbqQW8moZNh2r60f2RUMSHiBJJ+ic7vwOrexl46la5NDWu7D40kVJBpIPJyIMznXbaqx3HvnPqQlAIkLM8okwfc+TY8X7KsgyJNtqIDpLL3Ku0sqY8P6qJ0ijhwpMIeStG7rNqvMvXAN01s9BDB49ewXQzvzDsl9IOE832NuBxHz13uyjrUnSomOats+erEGFDSwalj/49/X0IbdfNFWlGUE1EkjL8nAQMhTjSiY1Lt94AJ35ARg+hrImBVFWSZhgFRdm5t5Kae8uZM7mMWxqP6AJ/XqhBCPOjzBpza2eNtz1qhgB/KwGU2RUCQkECiJjeBG9YAQo0N76fJJ03npK3D1ZvUhOlyDU/yTxjIwfr5SgdLoqjpS3+zpGsvepOBGT6HA29aYoGHPeU1Z/WZvlbtVsyW4ZsdOKnqtFG5kQxcVOxyz8ETljFU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:BLAPR10MB5009.namprd10.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(13230001)(366004)(53546011)(54906003)(31696002)(6666004)(86362001)(8676002)(66946007)(66476007)(66556008)(5660300002)(508600001)(7416002)(4326008)(6512007)(44832011)(316002)(8936002)(6506007)(6486002)(38100700002)(2616005)(26005)(31686004)(186003)(36756003)(83380400001)(2906002)(45980500001)(43740500002);
+ DIR:OUT; SFP:1101; 
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZEs5MDBsbXY4eU9GSCtNNmRhaFNsK05lM1BCVEpNMmI2KzkyUUdKY2RWRWUv?=
+ =?utf-8?B?Z01DaVc5UG4vWWNiSzBXK2VEVnZvU2k2OEZjOCsrRFJUL2g3NkFKdjFGcVdC?=
+ =?utf-8?B?ZFd5Q3VNWUxaMHlyenVkNk1oU0Nrb3RqVUlwaGpTYlZOd2wwR1liYW5abmlz?=
+ =?utf-8?B?cHlKYUxzNFNteVFjZkl2OG1sVXl2VlpuZmplRDYyTWZ2V1dZNmkvNVlsWDBa?=
+ =?utf-8?B?SE5qSnNzZTFRMFdpajdTWUtGSk9RNzJPOTdOcitQQzc4dzNVelNJY000RW15?=
+ =?utf-8?B?ZndjdmJ5Z2l4RjhzemVwRWM0RHNkY0o5c0FXRnJhS25jVlJZbzhVNUxPT2E4?=
+ =?utf-8?B?ZjFyTkxLN21mTTJESFBLWnA3UzA4MnZMdjBhdEpIMUxNLy90WDZ2ZUNja3VW?=
+ =?utf-8?B?M1h0eWNpbnU0bXBaNGVFK2Z0TUNnSklUZXRER2huLzZWb0ZqelZrVFBGZHVo?=
+ =?utf-8?B?T1kxWjNmZ3V1SUIzUmptNmZXVDFBeG9hNzlvUW9VdXZzV2oxcy9Nck1UZElL?=
+ =?utf-8?B?aVh5VTlhVHJLUGtYUVhoQVpMRVV4NmpDaHp3dktXRlRZcUxISnY0eEFiQUl1?=
+ =?utf-8?B?QlBFSWN5VGg1ZUhxVEtwNEhtSGNtOUlSaVhNakZjNDYwRGpMSkRVMXlKSTZH?=
+ =?utf-8?B?YVk1MHVmRHhZSWZDSTdLcXdRdDkxNklWTUlQeURkQWRReDRuNERCTGh2ejVp?=
+ =?utf-8?B?RUcwckQvdTdsZXdaTDJJanExMFZCaWRHcVh1bjVVcCs3VVFzZitablpBQ1RM?=
+ =?utf-8?B?WFRKN01EcWtEK3dHWklROU85OWJjcEhTMUNnejJ4U2JMRXJPUnJjUFJnL2Ju?=
+ =?utf-8?B?aEw1ekhvbHJpYy9kckVHbTBITHQ1RFFzQTczM1JFTFluSlpEeHBRa1l6emJ5?=
+ =?utf-8?B?MHFJYVVKYUEyODVVZEFmTHRjZCtOVkxWRUNoRUdldGF6ZXVRL1dJODVEcVpq?=
+ =?utf-8?B?cklUK3R4K2w2U24vd04vVEJlVlplblhYZHNRL1FwRm9aaXpGR09mT1FnSUZ3?=
+ =?utf-8?B?SENxZVZkRWw2bFJMbHFEYVJzSTBLbkZGTU9KOWdPbU4xc0o1dUxkOHgrcXpw?=
+ =?utf-8?B?bEFLRm8vRk81SFMyem1USkZUUERoaGVodldicXl1VHc2UG9ISUNtMUJSRDBE?=
+ =?utf-8?B?UnBiWjZjWU1qeXJyYmZiZHdieGQvZktCOFc2Sko5ZWtra1U0cWZwQUYwQUd0?=
+ =?utf-8?B?eHZtaWJmbUdyRFR4c2FuZmt5NTN3TkVNcnM4SG53OXFQOHZSQWxKWjRGZFdZ?=
+ =?utf-8?B?bE9RbXdnUEJXZWM3RkMvQU9RWDRXaTFDeWlKaFE5TTVDc0dIU05UTHN3YnNX?=
+ =?utf-8?B?NmQ2NExrL0swUTlsWDZPbWFPbEROREZ2ekk3cGt6T1RWakl0K0NSejYvQlJq?=
+ =?utf-8?B?THBCU0s3VXgvOW1QR1kzTzVIN29NTGZjWERaKzV5dGJ2SHE4VDk0VzBrS1d0?=
+ =?utf-8?B?SWVFYmhHblVvdys5OGM1dkhETTdBOHJOVzZrSFgxREQ5b0V3NFJBb1Z4dnIy?=
+ =?utf-8?B?dlFBTHZYZ0JaS0xQbE1IT0l1OTVDUlM2Z3NDRkJ4QmROTjEvcDdrNlk5UC8r?=
+ =?utf-8?B?MGFLWmthOHJrR21BVnRWTTJqclR6eUFXMjh5Q3d1NG40d2FyZmFwOFRMYkYz?=
+ =?utf-8?B?NS81ZHgxNkU4bEFjWHlPZzZhbnFNNUZuV1pzL09RQm5mbG9mZzdXUXVSL3ZI?=
+ =?utf-8?B?bDVWRkZJQWVsMXM3NVNUd0lGbzQzc1RtaXZXUlpCZmhRRGd6VCtCMVZNR3Vk?=
+ =?utf-8?B?SHl3WmRUbjM2ZVNndlB4MnQyelJMRVpwL0tQY1pPa0VqTTFWdStNdXQ2UTh0?=
+ =?utf-8?B?RE9KMVlHVGJqWkpSTjkxbmdYS1o1bmJHbnU1TUg5bnBMbWVuek5MMWlXOUQ2?=
+ =?utf-8?B?aFcycHpoYmNaQ0dQdllwb05YM3c5QTNsZy9YcmRpdlZDanZNMCswUUV3dFJM?=
+ =?utf-8?B?a1BDZXdSRE1DY25IR0ZLb0xyRTJRQmVTNHBRSkphalU1KzJIei8reUxMZVM2?=
+ =?utf-8?B?bGszTVpxY2xsMXVmcURFdWxUdENCUHlxSEVucGh3V1JxbFNBak56QmVQbkJI?=
+ =?utf-8?B?Z1hQKzRhNGJkdmR2eGErQzBWZGpFYUkzYU81RHlhZFhmWnByanIvbkRoTU9p?=
+ =?utf-8?B?dnE2SWFldGdRYkJVNStmR2pFMys2cllGQytMRkd5NTZpQUxHZnVUaXdINkhU?=
+ =?utf-8?B?V0R4ajlSMW5tMUZjeEdpdklGb1ZXWi82dXFYSDUwcytUdUpHcS9MRnpwRzd1?=
+ =?utf-8?B?T242c2tIcmZ5WkNkNXpNUitWNS9RPT0=?=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a5497499-5231-4669-a72e-08da014bfd50
+X-MS-Exchange-CrossTenant-AuthSource: BLAPR10MB5009.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Mar 2022 21:38:31.2786 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vb92VElZb1vD5AEwKvnEjGDwvHfwNocegSuRX2xflLeDODXD1huAuFsmO0Pa3qhKq4HDCzfnKvJCrt0pwrw1AeQHidhPaPQDQ0TN3abVtA8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR10MB2710
+X-Proofpoint-Virus-Version: vendor=nai engine=6300 definitions=10280
+ signatures=690848
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 malwarescore=0
+ mlxscore=0
+ suspectscore=0 bulkscore=0 mlxlogscore=769 adultscore=0 spamscore=0
+ phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2202240000 definitions=main-2203080110
+X-Proofpoint-ORIG-GUID: IPRsMW4fSjoQvfjcYGaso-sG-LdxRZL7
+X-Proofpoint-GUID: IPRsMW4fSjoQvfjcYGaso-sG-LdxRZL7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220308_072439_323613_5A8F8DB5 
-X-CRM114-Status: GOOD (  19.97  )
+X-CRM114-CacheID: sfid-20220308_133859_016205_AB8F4A24 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,772 +185,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
------ On Mar 8, 2022, at 3:32 AM, Vincent Chen vincent.chen@sifive.com wrote:
 
-> Add support for RISC-V in the rseq selftests, which covers both
-> 64-bit and 32-bit ISA with little endian mode.
+On 3/1/22 5:53 AM, Christoph Hellwig wrote:
+> Allow to pass a remap argument to the swiotlb initialization functions
+> to handle the Xen/x86 remap case.  ARM/ARM64 never did any remapping
+> from xen_swiotlb_fixup, so we don't even need that quirk.
 
-Considering that AFAIU there is no way to build a big endian riscv Linux kernel
-today, only testing little endian riscv seems fine.
 
-Reviewed-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Any chance this patch could be split? Lots of things are happening here and it's somewhat hard to review. (Patch 7 too BTW but I think I managed to get through it)
 
-> 
-> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-> Tested-by: Eric Lin <eric.lin@sifive.com>
-> ---
-> tools/testing/selftests/rseq/param_test.c |  23 +
-> tools/testing/selftests/rseq/rseq-riscv.h | 677 ++++++++++++++++++++++
-> tools/testing/selftests/rseq/rseq.h       |   2 +
-> 3 files changed, 702 insertions(+)
-> create mode 100644 tools/testing/selftests/rseq/rseq-riscv.h
-> 
-> diff --git a/tools/testing/selftests/rseq/param_test.c
-> b/tools/testing/selftests/rseq/param_test.c
-> index 699ad5f93c34..0a6b8eafd444 100644
-> --- a/tools/testing/selftests/rseq/param_test.c
-> +++ b/tools/testing/selftests/rseq/param_test.c
-> @@ -207,6 +207,29 @@ unsigned int yield_mod_cnt, nr_abort;
-> 	"addiu " INJECT_ASM_REG ", -1\n\t" \
-> 	"bnez " INJECT_ASM_REG ", 222b\n\t" \
-> 	"333:\n\t"
-> +#elif defined(__riscv)
-> +
-> +#define RSEQ_INJECT_INPUT \
-> +	, [loop_cnt_1]"m"(loop_cnt[1]) \
-> +	, [loop_cnt_2]"m"(loop_cnt[2]) \
-> +	, [loop_cnt_3]"m"(loop_cnt[3]) \
-> +	, [loop_cnt_4]"m"(loop_cnt[4]) \
-> +	, [loop_cnt_5]"m"(loop_cnt[5]) \
-> +	, [loop_cnt_6]"m"(loop_cnt[6])
-> +
-> +#define INJECT_ASM_REG	"t1"
-> +
-> +#define RSEQ_INJECT_CLOBBER \
-> +	, INJECT_ASM_REG
-> +
-> +#define RSEQ_INJECT_ASM(n)					\
-> +	"lw " INJECT_ASM_REG ", %[loop_cnt_" #n "]\n\t"		\
-> +	"beqz " INJECT_ASM_REG ", 333f\n\t"			\
-> +	"222:\n\t"						\
-> +	"addi  " INJECT_ASM_REG "," INJECT_ASM_REG ", -1\n\t"	\
-> +	"bnez " INJECT_ASM_REG ", 222b\n\t"			\
-> +	"333:\n\t"
-> +
-> 
-> #else
-> #error unsupported target
-> diff --git a/tools/testing/selftests/rseq/rseq-riscv.h
-> b/tools/testing/selftests/rseq/rseq-riscv.h
-> new file mode 100644
-> index 000000000000..b86642f90d7f
-> --- /dev/null
-> +++ b/tools/testing/selftests/rseq/rseq-riscv.h
-> @@ -0,0 +1,677 @@
-> +/* SPDX-License-Identifier: LGPL-2.1 OR MIT */
-> +/*
-> + * Select the instruction "csrw mhartid, x0" as the RSEQ_SIG. Unlike
-> + * other architectures, the ebreak instruction has no immediate field for
-> + * distinguishing purposes. Hence, ebreak is not suitable as RSEQ_SIG.
-> + * "csrw mhartid, x0" can also satisfy the RSEQ requirement because it
-> + * is an uncommon instruction and will raise an illegal instruction
-> + * exception when executed in all modes.
-> + */
-> +#include <endian.h>
-> +
-> +#if defined(__BYTE_ORDER) ? (__BYTE_ORDER == __LITTLE_ENDIAN) :
-> defined(__LITTLE_ENDIAN)
-> +#define RSEQ_SIG   0xf1401073  /* csrr mhartid, x0 */
-> +#else
-> +#error "Currently, RSEQ only supports Little-Endian version"
-> +#endif
-> +
-> +#if __riscv_xlen == 64
-> +#define __REG_SEL(a, b)	a
-> +#elif __riscv_xlen == 32
-> +#define __REG_SEL(a, b)	b
-> +#endif
-> +
-> +#define REG_L	__REG_SEL("ld ", "lw ")
-> +#define REG_S	__REG_SEL("sd ", "sw ")
-> +
-> +#define RISCV_FENCE(p, s) \
-> +	__asm__ __volatile__ ("fence " #p "," #s : : : "memory")
-> +#define rseq_smp_mb()	RISCV_FENCE(rw, rw)
-> +#define rseq_smp_rmb()	RISCV_FENCE(r, r)
-> +#define rseq_smp_wmb()	RISCV_FENCE(w, w)
-> +#define RSEQ_ASM_TMP_REG_1	"t6"
-> +#define RSEQ_ASM_TMP_REG_2	"t5"
-> +#define RSEQ_ASM_TMP_REG_3	"t4"
-> +#define RSEQ_ASM_TMP_REG_4	"t3"
-> +
-> +#define rseq_smp_load_acquire(p)					\
-> +__extension__ ({							\
-> +	__typeof(*(p)) ____p1 = RSEQ_READ_ONCE(*(p));			\
-> +	RISCV_FENCE(r, rw)						\
-> +	____p1;								\
-> +})
-> +
-> +#define rseq_smp_acquire__after_ctrl_dep()	rseq_smp_rmb()
-> +
-> +#define rseq_smp_store_release(p, v)					\
-> +do {									\
-> +	RISCV_FENCE(rw, w);						\
-> +	RSEQ_WRITE_ONCE(*(p), v);						\
-> +} while (0)
-> +
-> +#ifdef RSEQ_SKIP_FASTPATH
-> +#include "rseq-skip.h"
-> +#else /* !RSEQ_SKIP_FASTPATH */
-> +
-> +#define __RSEQ_ASM_DEFINE_TABLE(label, version, flags, start_ip,	\
-> +				post_commit_offset, abort_ip)		\
-> +	".pushsection	__rseq_cs, \"aw\"\n"				\
-> +	".balign	32\n"						\
-> +	__rseq_str(label) ":\n"						\
-> +	".long	" __rseq_str(version) ", " __rseq_str(flags) "\n"	\
-> +	".quad	" __rseq_str(start_ip) ", "				\
-> +			  __rseq_str(post_commit_offset) ", "		\
-> +			  __rseq_str(abort_ip) "\n"			\
-> +	".popsection\n\t"						\
-> +	".pushsection __rseq_cs_ptr_array, \"aw\"\n"			\
-> +	".quad " __rseq_str(label) "b\n"				\
-> +	".popsection\n"
-> +
-> +#define RSEQ_ASM_DEFINE_TABLE(label, start_ip, post_commit_ip, abort_ip) \
-> +	__RSEQ_ASM_DEFINE_TABLE(label, 0x0, 0x0, start_ip,		 \
-> +				((post_commit_ip) - (start_ip)), abort_ip)
-> +
-> +/*
-> + * Exit points of a rseq critical section consist of all instructions outside
-> + * of the critical section where a critical section can either branch to or
-> + * reach through the normal course of its execution. The abort IP and the
-> + * post-commit IP are already part of the __rseq_cs section and should not be
-> + * explicitly defined as additional exit points. Knowing all exit points is
-> + * useful to assist debuggers stepping over the critical section.
-> + */
-> +#define RSEQ_ASM_DEFINE_EXIT_POINT(start_ip, exit_ip)			\
-> +	".pushsection __rseq_exit_point_array, \"aw\"\n"		\
-> +	".quad " __rseq_str(start_ip) ", " __rseq_str(exit_ip) "\n"	\
-> +	".popsection\n"
-> +
-> +#define RSEQ_ASM_STORE_RSEQ_CS(label, cs_label, rseq_cs)		\
-> +	RSEQ_INJECT_ASM(1)						\
-> +	"la	"RSEQ_ASM_TMP_REG_1 ", " __rseq_str(cs_label) "\n"	\
-> +	REG_S	RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(rseq_cs) "]\n"	\
-> +	__rseq_str(label) ":\n"
-> +
-> +#define RSEQ_ASM_DEFINE_ABORT(label, abort_label)			\
-> +	"j	222f\n"							\
-> +	".balign	4\n"						\
-> +	".long "	__rseq_str(RSEQ_SIG) "\n"			\
-> +	__rseq_str(label) ":\n"						\
-> +	"j	%l[" __rseq_str(abort_label) "]\n"			\
-> +	"222:\n"
-> +
-> +#define RSEQ_ASM_OP_STORE(value, var)					\
-> +	REG_S	"%[" __rseq_str(value) "], %[" __rseq_str(var) "]\n"
-> +
-> +#define RSEQ_ASM_OP_CMPEQ(var, expect, label)				\
-> +	REG_L	RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(var) "]\n"		\
-> +	"bne	"RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(expect) "] ,"	\
-> +		  __rseq_str(label) "\n"
-> +
-> +#define RSEQ_ASM_OP_CMPEQ32(var, expect, label)				\
-> +	"lw	"RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(var) "]\n"	\
-> +	"bne	"RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(expect) "] ,"	\
-> +		  __rseq_str(label) "\n"
-> +
-> +#define RSEQ_ASM_OP_CMPNE(var, expect, label)				\
-> +	REG_L	RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(var) "]\n"		\
-> +	"beq	"RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(expect) "] ,"	\
-> +		  __rseq_str(label) "\n"
-> +
-> +#define RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, label)		\
-> +	RSEQ_INJECT_ASM(2)						\
-> +	RSEQ_ASM_OP_CMPEQ32(current_cpu_id, cpu_id, label)
-> +
-> +#define RSEQ_ASM_OP_R_LOAD(var)						\
-> +	REG_L	RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(var) "]\n"
-> +
-> +#define RSEQ_ASM_OP_R_STORE(var)					\
-> +	REG_S	RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(var) "]\n"
-> +
-> +#define RSEQ_ASM_OP_R_LOAD_OFF(offset)					\
-> +	"add	"RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(offset) "], "	\
-> +		 RSEQ_ASM_TMP_REG_1 "\n"				\
-> +	REG_L	RSEQ_ASM_TMP_REG_1 ", (" RSEQ_ASM_TMP_REG_1 ")\n"
-> +
-> +#define RSEQ_ASM_OP_R_ADD(count)					\
-> +	"add	"RSEQ_ASM_TMP_REG_1 ", " RSEQ_ASM_TMP_REG_1		\
-> +		", %[" __rseq_str(count) "]\n"
-> +
-> +#define RSEQ_ASM_OP_FINAL_STORE(value, var, post_commit_label)		\
-> +	RSEQ_ASM_OP_STORE(value, var)					\
-> +	__rseq_str(post_commit_label) ":\n"
-> +
-> +#define RSEQ_ASM_OP_FINAL_STORE_RELEASE(value, var, post_commit_label)	\
-> +	"fence	rw, w\n"						\
-> +	RSEQ_ASM_OP_STORE(value, var)					\
-> +	__rseq_str(post_commit_label) ":\n"
-> +
-> +#define RSEQ_ASM_OP_R_FINAL_STORE(var, post_commit_label)		\
-> +	REG_S	RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(var) "]\n"		\
-> +	__rseq_str(post_commit_label) ":\n"
-> +
-> +#define RSEQ_ASM_OP_R_BAD_MEMCPY(dst, src, len)				\
-> +	"beqz	%[" __rseq_str(len) "], 333f\n"				\
-> +	"mv	" RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(len) "]\n"	\
-> +	"mv	" RSEQ_ASM_TMP_REG_2 ", %[" __rseq_str(src) "]\n"	\
-> +	"mv	" RSEQ_ASM_TMP_REG_3 ", %[" __rseq_str(dst) "]\n"	\
-> +	"222:\n"							\
-> +	"lb	" RSEQ_ASM_TMP_REG_4 ", 0(" RSEQ_ASM_TMP_REG_2 ")\n"	\
-> +	"sb	" RSEQ_ASM_TMP_REG_4 ", 0(" RSEQ_ASM_TMP_REG_3 ")\n"	\
-> +	"addi	" RSEQ_ASM_TMP_REG_1 ", " RSEQ_ASM_TMP_REG_1 ", -1\n"	\
-> +	"addi	" RSEQ_ASM_TMP_REG_2 ", " RSEQ_ASM_TMP_REG_2 ", 1\n"	\
-> +	"addi	" RSEQ_ASM_TMP_REG_3 ", " RSEQ_ASM_TMP_REG_3 ", 1\n"	\
-> +	"bnez	" RSEQ_ASM_TMP_REG_1 ", 222b\n"				\
-> +	"333:\n"
-> +
-> +#define RSEQ_ASM_OP_R_DEREF_ADDV(ptr, off, post_commit_label)		\
-> +	"mv	" RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(ptr) "]\n"	\
-> +	RSEQ_ASM_OP_R_ADD(off)						\
-> +	REG_L	  RSEQ_ASM_TMP_REG_1 ", 0(" RSEQ_ASM_TMP_REG_1 ")\n"	\
-> +	RSEQ_ASM_OP_R_ADD(inc)						\
-> +	__rseq_str(post_commit_label) ":\n"
-> +
-> +static inline __always_inline
-> +int rseq_cmpeqv_storev(intptr_t *v, intptr_t expect, intptr_t newv, int cpu)
-> +{
-> +	RSEQ_INJECT_C(9)
-> +
-> +	__asm__ __volatile__ goto(RSEQ_ASM_DEFINE_TABLE(1, 2f, 3f, 4f)
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[cmpfail]")
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error1]")
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error2]")
-> +#endif
-> +				  RSEQ_ASM_STORE_RSEQ_CS(2, 1b, rseq_cs)
-> +				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, 4f)
-> +				  RSEQ_INJECT_ASM(3)
-> +				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[cmpfail]")
-> +				  RSEQ_INJECT_ASM(4)
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, "%l[error1]")
-> +				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[error2]")
-> +#endif
-> +				  RSEQ_ASM_OP_FINAL_STORE(newv, v, 3)
-> +				  RSEQ_INJECT_ASM(5)
-> +				  RSEQ_ASM_DEFINE_ABORT(4, abort)
-> +				  : /* gcc asm goto does not allow outputs */
-> +				  : [cpu_id]		"r" (cpu),
-> +				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
-> +				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-> +				    [v]			"m" (*v),
-> +				    [expect]		"r" (expect),
-> +				    [newv]		"r" (newv)
-> +				    RSEQ_INJECT_INPUT
-> +				  : "memory", RSEQ_ASM_TMP_REG_1
-> +				    RSEQ_INJECT_CLOBBER
-> +				  : abort, cmpfail
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				    , error1, error2
-> +#endif
-> +	);
-> +
-> +	return 0;
-> +abort:
-> +	RSEQ_INJECT_FAILED
-> +	return -1;
-> +cmpfail:
-> +	return 1;
-> +#ifdef RSEQ_COMPARE_TWICE
-> +error1:
-> +	rseq_bug("cpu_id comparison failed");
-> +error2:
-> +	rseq_bug("expected value comparison failed");
-> +#endif
-> +}
-> +
-> +static inline __always_inline
-> +int rseq_cmpnev_storeoffp_load(intptr_t *v, intptr_t expectnot,
-> +			       off_t voffp, intptr_t *load, int cpu)
-> +{
-> +	RSEQ_INJECT_C(9)
-> +
-> +	__asm__ __volatile__ goto(RSEQ_ASM_DEFINE_TABLE(1, 2f, 3f, 4f)
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[cmpfail]")
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error1]")
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error2]")
-> +#endif
-> +				  RSEQ_ASM_STORE_RSEQ_CS(2, 1b, rseq_cs)
-> +				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, 4f)
-> +				  RSEQ_INJECT_ASM(3)
-> +				  RSEQ_ASM_OP_CMPNE(v, expectnot, "%l[cmpfail]")
-> +				  RSEQ_INJECT_ASM(4)
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, "%l[error1]")
-> +				  RSEQ_ASM_OP_CMPNE(v, expectnot, "%l[error2]")
-> +#endif
-> +				  RSEQ_ASM_OP_R_LOAD(v)
-> +				  RSEQ_ASM_OP_R_STORE(load)
-> +				  RSEQ_ASM_OP_R_LOAD_OFF(voffp)
-> +				  RSEQ_ASM_OP_R_FINAL_STORE(v, 3)
-> +				  RSEQ_INJECT_ASM(5)
-> +				  RSEQ_ASM_DEFINE_ABORT(4, abort)
-> +				  : /* gcc asm goto does not allow outputs */
-> +				  : [cpu_id]		"r" (cpu),
-> +				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
-> +				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-> +				    [v]			"m" (*v),
-> +				    [expectnot]		"r" (expectnot),
-> +				    [load]		"m" (*load),
-> +				    [voffp]		"r" (voffp)
-> +				    RSEQ_INJECT_INPUT
-> +				  : "memory", RSEQ_ASM_TMP_REG_1
-> +				    RSEQ_INJECT_CLOBBER
-> +				  : abort, cmpfail
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				    , error1, error2
-> +#endif
-> +	);
-> +	return 0;
-> +abort:
-> +	RSEQ_INJECT_FAILED
-> +	return -1;
-> +cmpfail:
-> +	return 1;
-> +#ifdef RSEQ_COMPARE_TWICE
-> +error1:
-> +	rseq_bug("cpu_id comparison failed");
-> +error2:
-> +	rseq_bug("expected value comparison failed");
-> +#endif
-> +}
-> +
-> +static inline __always_inline
-> +int rseq_addv(intptr_t *v, intptr_t count, int cpu)
-> +{
-> +	RSEQ_INJECT_C(9)
-> +
-> +	__asm__ __volatile__ goto(RSEQ_ASM_DEFINE_TABLE(1, 2f, 3f, 4f)
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error1]")
-> +#endif
-> +				  RSEQ_ASM_STORE_RSEQ_CS(2, 1b, rseq_cs)
-> +				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, 4f)
-> +				  RSEQ_INJECT_ASM(3)
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, "%l[error1]")
-> +#endif
-> +				  RSEQ_ASM_OP_R_LOAD(v)
-> +				  RSEQ_ASM_OP_R_ADD(count)
-> +				  RSEQ_ASM_OP_R_FINAL_STORE(v, 3)
-> +				  RSEQ_INJECT_ASM(4)
-> +				  RSEQ_ASM_DEFINE_ABORT(4, abort)
-> +				  : /* gcc asm goto does not allow outputs */
-> +				  : [cpu_id]		"r" (cpu),
-> +				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
-> +				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-> +				    [v]			"m" (*v),
-> +				    [count]		"r" (count)
-> +				    RSEQ_INJECT_INPUT
-> +				  : "memory", RSEQ_ASM_TMP_REG_1
-> +				    RSEQ_INJECT_CLOBBER
-> +				  : abort
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				    , error1
-> +#endif
-> +	);
-> +	return 0;
-> +abort:
-> +	RSEQ_INJECT_FAILED
-> +	return -1;
-> +#ifdef RSEQ_COMPARE_TWICE
-> +error1:
-> +	rseq_bug("cpu_id comparison failed");
-> +#endif
-> +}
-> +
-> +static inline __always_inline
-> +int rseq_cmpeqv_trystorev_storev(intptr_t *v, intptr_t expect,
-> +				 intptr_t *v2, intptr_t newv2,
-> +				 intptr_t newv, int cpu)
-> +{
-> +	RSEQ_INJECT_C(9)
-> +
-> +	__asm__ __volatile__ goto(RSEQ_ASM_DEFINE_TABLE(1, 2f, 3f, 4f)
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[cmpfail]")
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error1]")
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error2]")
-> +#endif
-> +				  RSEQ_ASM_STORE_RSEQ_CS(2, 1b, rseq_cs)
-> +				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, 4f)
-> +				  RSEQ_INJECT_ASM(3)
-> +				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[cmpfail]")
-> +				  RSEQ_INJECT_ASM(4)
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, "%l[error1]")
-> +				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[error2]")
-> +#endif
-> +				  RSEQ_ASM_OP_STORE(newv2, v2)
-> +				  RSEQ_INJECT_ASM(5)
-> +				  RSEQ_ASM_OP_FINAL_STORE(newv, v, 3)
-> +				  RSEQ_INJECT_ASM(6)
-> +				  RSEQ_ASM_DEFINE_ABORT(4, abort)
-> +				  : /* gcc asm goto does not allow outputs */
-> +				  : [cpu_id]		"r" (cpu),
-> +				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
-> +				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-> +				    [expect]		"r" (expect),
-> +				    [v]			"m" (*v),
-> +				    [newv]		"r" (newv),
-> +				    [v2]			"m" (*v2),
-> +				    [newv2]		"r" (newv2)
-> +				    RSEQ_INJECT_INPUT
-> +				  : "memory", RSEQ_ASM_TMP_REG_1
-> +				    RSEQ_INJECT_CLOBBER
-> +				  : abort, cmpfail
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				    , error1, error2
-> +#endif
-> +	);
-> +
-> +	return 0;
-> +abort:
-> +	RSEQ_INJECT_FAILED
-> +	return -1;
-> +cmpfail:
-> +	return 1;
-> +#ifdef RSEQ_COMPARE_TWICE
-> +error1:
-> +	rseq_bug("cpu_id comparison failed");
-> +error2:
-> +	rseq_bug("expected value comparison failed");
-> +#endif
-> +}
-> +
-> +static inline __always_inline
-> +int rseq_cmpeqv_trystorev_storev_release(intptr_t *v, intptr_t expect,
-> +					 intptr_t *v2, intptr_t newv2,
-> +					 intptr_t newv, int cpu)
-> +{
-> +	RSEQ_INJECT_C(9)
-> +
-> +	__asm__ __volatile__ goto(RSEQ_ASM_DEFINE_TABLE(1, 2f, 3f, 4f)
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[cmpfail]")
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error1]")
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error2]")
-> +#endif
-> +				  RSEQ_ASM_STORE_RSEQ_CS(2, 1b, rseq_cs)
-> +				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, 4f)
-> +				  RSEQ_INJECT_ASM(3)
-> +				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[cmpfail]")
-> +				  RSEQ_INJECT_ASM(4)
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, "%l[error1]")
-> +				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[error2]")
-> +#endif
-> +				  RSEQ_ASM_OP_STORE(newv2, v2)
-> +				  RSEQ_INJECT_ASM(5)
-> +				  RSEQ_ASM_OP_FINAL_STORE_RELEASE(newv, v, 3)
-> +				  RSEQ_INJECT_ASM(6)
-> +				  RSEQ_ASM_DEFINE_ABORT(4, abort)
-> +				  : /* gcc asm goto does not allow outputs */
-> +				  : [cpu_id]		"r" (cpu),
-> +				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
-> +				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-> +				    [expect]		"r" (expect),
-> +				    [v]			"m" (*v),
-> +				    [newv]		"r" (newv),
-> +				    [v2]			"m" (*v2),
-> +				    [newv2]		"r" (newv2)
-> +				    RSEQ_INJECT_INPUT
-> +				  : "memory", RSEQ_ASM_TMP_REG_1
-> +				    RSEQ_INJECT_CLOBBER
-> +				  : abort, cmpfail
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				    , error1, error2
-> +#endif
-> +	);
-> +
-> +	return 0;
-> +abort:
-> +	RSEQ_INJECT_FAILED
-> +	return -1;
-> +cmpfail:
-> +	return 1;
-> +#ifdef RSEQ_COMPARE_TWICE
-> +error1:
-> +	rseq_bug("cpu_id comparison failed");
-> +error2:
-> +	rseq_bug("expected value comparison failed");
-> +#endif
-> +}
-> +
-> +static inline __always_inline
-> +int rseq_cmpeqv_cmpeqv_storev(intptr_t *v, intptr_t expect,
-> +			      intptr_t *v2, intptr_t expect2,
-> +			      intptr_t newv, int cpu)
-> +{
-> +	RSEQ_INJECT_C(9)
-> +
-> +	__asm__ __volatile__ goto(RSEQ_ASM_DEFINE_TABLE(1, 2f, 3f, 4f)
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[cmpfail]")
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error1]")
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error2]")
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error3]")
-> +#endif
-> +				  RSEQ_ASM_STORE_RSEQ_CS(2, 1b, rseq_cs)
-> +				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, 4f)
-> +				  RSEQ_INJECT_ASM(3)
-> +				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[cmpfail]")
-> +				  RSEQ_INJECT_ASM(4)
-> +				  RSEQ_ASM_OP_CMPEQ(v2, expect2, "%l[cmpfail]")
-> +				  RSEQ_INJECT_ASM(5)
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, "%l[error1]")
-> +				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[error2]")
-> +				  RSEQ_ASM_OP_CMPEQ(v2, expect2, "%l[error3]")
-> +#endif
-> +				  RSEQ_ASM_OP_FINAL_STORE(newv, v, 3)
-> +				  RSEQ_INJECT_ASM(6)
-> +				  RSEQ_ASM_DEFINE_ABORT(4, abort)
-> +				  : /* gcc asm goto does not allow outputs */
-> +				  : [cpu_id]		"r" (cpu),
-> +				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
-> +				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-> +				    [v]			"m" (*v),
-> +				    [expect]		"r" (expect),
-> +				    [v2]			"m" (*v2),
-> +				    [expect2]		"r" (expect2),
-> +				    [newv]		"r" (newv)
-> +				    RSEQ_INJECT_INPUT
-> +				  : "memory", RSEQ_ASM_TMP_REG_1
-> +				    RSEQ_INJECT_CLOBBER
-> +				  : abort, cmpfail
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				    , error1, error2, error3
-> +#endif
-> +	);
-> +
-> +	return 0;
-> +abort:
-> +	RSEQ_INJECT_FAILED
-> +	return -1;
-> +cmpfail:
-> +	return 1;
-> +#ifdef RSEQ_COMPARE_TWICE
-> +error1:
-> +	rseq_bug("cpu_id comparison failed");
-> +error2:
-> +	rseq_bug("expected value comparison failed");
-> +error3:
-> +	rseq_bug("2nd expected value comparison failed");
-> +#endif
-> +}
-> +
-> +static inline __always_inline
-> +int rseq_cmpeqv_trymemcpy_storev(intptr_t *v, intptr_t expect,
-> +				 void *dst, void *src, size_t len,
-> +				 intptr_t newv, int cpu)
-> +{
-> +	RSEQ_INJECT_C(9)
-> +	__asm__ __volatile__ goto(RSEQ_ASM_DEFINE_TABLE(1, 2f, 3f, 4f)
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[cmpfail]")
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error1]")
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error2]")
-> +#endif
-> +				  RSEQ_ASM_STORE_RSEQ_CS(2, 1b, rseq_cs)
-> +				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, 4f)
-> +				  RSEQ_INJECT_ASM(3)
-> +				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[cmpfail]")
-> +				  RSEQ_INJECT_ASM(4)
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, "%l[error1]")
-> +				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[error2]")
-> +#endif
-> +				  RSEQ_ASM_OP_R_BAD_MEMCPY(dst, src, len)
-> +				  RSEQ_INJECT_ASM(5)
-> +				  RSEQ_ASM_OP_FINAL_STORE(newv, v, 3)
-> +				  RSEQ_INJECT_ASM(6)
-> +				  RSEQ_ASM_DEFINE_ABORT(4, abort)
-> +				  : /* gcc asm goto does not allow outputs */
-> +				  : [cpu_id]		"r" (cpu),
-> +				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
-> +				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-> +				    [expect]		"r" (expect),
-> +				    [v]			"m" (*v),
-> +				    [newv]		"r" (newv),
-> +				    [dst]			"r" (dst),
-> +				    [src]			"r" (src),
-> +				    [len]			"r" (len)
-> +				    RSEQ_INJECT_INPUT
-> +				  : "memory", RSEQ_ASM_TMP_REG_1, RSEQ_ASM_TMP_REG_2,
-> +				    RSEQ_ASM_TMP_REG_3, RSEQ_ASM_TMP_REG_4
-> +				    RSEQ_INJECT_CLOBBER
-> +				  : abort, cmpfail
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				    , error1, error2
-> +#endif
-> +	);
-> +
-> +	return 0;
-> +abort:
-> +	RSEQ_INJECT_FAILED
-> +	return -1;
-> +cmpfail:
-> +	return 1;
-> +#ifdef RSEQ_COMPARE_TWICE
-> +error1:
-> +	rseq_bug("cpu_id comparison failed");
-> +error2:
-> +	rseq_bug("expected value comparison failed");
-> +#endif
-> +}
-> +
-> +static inline __always_inline
-> +int rseq_cmpeqv_trymemcpy_storev_release(intptr_t *v, intptr_t expect,
-> +					 void *dst, void *src, size_t len,
-> +					 intptr_t newv, int cpu)
-> +{
-> +	RSEQ_INJECT_C(9)
-> +
-> +	__asm__ __volatile__ goto(RSEQ_ASM_DEFINE_TABLE(1, 2f, 3f, 4f)
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[cmpfail]")
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error1]")
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error2]")
-> +#endif
-> +				  RSEQ_ASM_STORE_RSEQ_CS(2, 1b, rseq_cs)
-> +				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, 4f)
-> +				  RSEQ_INJECT_ASM(3)
-> +				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[cmpfail]")
-> +				  RSEQ_INJECT_ASM(4)
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, "%l[error1]")
-> +				  RSEQ_ASM_OP_CMPEQ(v, expect, "%l[error2]")
-> +#endif
-> +				  RSEQ_ASM_OP_R_BAD_MEMCPY(dst, src, len)
-> +				  RSEQ_INJECT_ASM(5)
-> +				  RSEQ_ASM_OP_FINAL_STORE_RELEASE(newv, v, 3)
-> +				  RSEQ_INJECT_ASM(6)
-> +				  RSEQ_ASM_DEFINE_ABORT(4, abort)
-> +				  : /* gcc asm goto does not allow outputs */
-> +				  : [cpu_id]		"r" (cpu),
-> +				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
-> +				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-> +				    [expect]		"r" (expect),
-> +				    [v]			"m" (*v),
-> +				    [newv]		"r" (newv),
-> +				    [dst]			"r" (dst),
-> +				    [src]			"r" (src),
-> +				    [len]			"r" (len)
-> +				    RSEQ_INJECT_INPUT
-> +				  : "memory", RSEQ_ASM_TMP_REG_1, RSEQ_ASM_TMP_REG_2,
-> +				    RSEQ_ASM_TMP_REG_3, RSEQ_ASM_TMP_REG_4
-> +				    RSEQ_INJECT_CLOBBER
-> +				  : abort, cmpfail
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				    , error1, error2
-> +#endif
-> +	);
-> +
-> +	return 0;
-> +abort:
-> +	RSEQ_INJECT_FAILED
-> +	return -1;
-> +cmpfail:
-> +	return 1;
-> +#ifdef RSEQ_COMPARE_TWICE
-> +error1:
-> +	rseq_bug("cpu_id comparison failed");
-> +error2:
-> +	rseq_bug("expected value comparison failed");
-> +#endif
-> +}
-> +
-> +#define RSEQ_ARCH_HAS_OFFSET_DEREF_ADDV
-> +
-> +/*
-> + *   pval = *(ptr+off)
-> + *  *pval += inc;
-> + */
-> +static inline __always_inline
-> +int rseq_offset_deref_addv(intptr_t *ptr, off_t off, intptr_t inc, int cpu)
-> +{
-> +	RSEQ_INJECT_C(9)
-> +
-> +	__asm__ __volatile__ goto(RSEQ_ASM_DEFINE_TABLE(1, 2f, 3f, 4f)
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				  RSEQ_ASM_DEFINE_EXIT_POINT(2f, "%l[error1]")
-> +#endif
-> +				  RSEQ_ASM_STORE_RSEQ_CS(2, 1b, rseq_cs)
-> +				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, 4f)
-> +				  RSEQ_INJECT_ASM(3)
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, "%l[error1]")
-> +#endif
-> +				  RSEQ_ASM_OP_R_DEREF_ADDV(ptr, off, 3)
-> +				  RSEQ_INJECT_ASM(4)
-> +				  RSEQ_ASM_DEFINE_ABORT(4, abort)
-> +				  : /* gcc asm goto does not allow outputs */
-> +				  : [cpu_id]		"r" (cpu),
-> +				    [current_cpu_id]      "m" (__rseq_abi.cpu_id),
-> +				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-> +				    [ptr]			"r" (ptr),
-> +				    [off]			"er" (off),
-> +				    [inc]			"er" (inc)
-> +				    RSEQ_INJECT_INPUT
-> +				  : "memory", RSEQ_ASM_TMP_REG_1
-> +				    RSEQ_INJECT_CLOBBER
-> +				  : abort
-> +#ifdef RSEQ_COMPARE_TWICE
-> +				    , error1
-> +#endif
-> +	);
-> +	return 0;
-> +abort:
-> +	RSEQ_INJECT_FAILED
-> +	return -1;
-> +#ifdef RSEQ_COMPARE_TWICE
-> +error1:
-> +	rseq_bug("cpu_id comparison failed");
-> +#endif
-> +}
-> +
-> +#endif /* !RSEQ_SKIP_FASTPATH */
-> diff --git a/tools/testing/selftests/rseq/rseq.h
-> b/tools/testing/selftests/rseq/rseq.h
-> index 3f63eb362b92..72efb6d3d84e 100644
-> --- a/tools/testing/selftests/rseq/rseq.h
-> +++ b/tools/testing/selftests/rseq/rseq.h
-> @@ -79,6 +79,8 @@ extern int __rseq_handled;
-> #include <rseq-mips.h>
-> #elif defined(__s390__)
-> #include <rseq-s390.h>
-> +#elif defined(__riscv)
-> +#include <rseq-riscv.h>
-> #else
-> #error unsupported target
-> #endif
-> --
-> 2.17.1
 
--- 
-Mathieu Desnoyers
-EfficiOS Inc.
-http://www.efficios.com
+> diff --git a/arch/x86/kernel/pci-dma.c b/arch/x86/kernel/pci-dma.c
+> index e0def4b1c3181..2f2c468acb955 100644
+> --- a/arch/x86/kernel/pci-dma.c
+> +++ b/arch/x86/kernel/pci-dma.c
+> @@ -71,15 +71,12 @@ static inline void __init pci_swiotlb_detect(void)
+>   #endif /* CONFIG_SWIOTLB */
+>   
+>   #ifdef CONFIG_SWIOTLB_XEN
+> -static bool xen_swiotlb;
+> -
+>   static void __init pci_xen_swiotlb_init(void)
+>   {
+>   	if (!xen_initial_domain() && !x86_swiotlb_enable)
+>   		return;
+
+
+Now that there is a single call site for this routine I think this check can be dropped. We are only called here for xen_initial_domain()==true.
+
+
+-boris
 
 _______________________________________________
 linux-riscv mailing list
