@@ -4,176 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 898CAC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Mar 2022 21:39:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E18BAC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Mar 2022 04:38:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gXDJ25b2tL+t7LqnHzhMXvdkHFlhyJM9dSIHEnXgLR4=; b=NqcemwQUN3xA1mkplo0LvIo8uT
-	LxDRDwdksktfUOvvNqQ156WgHOW2D6N+FBQbOF7967dH3ql97WGJoRRFyBQcybdtcgerNxiNQGViM
-	ta4Q21jY7giiYdjryQBmzf+eauThVsmH9IA+kN2+2pufdbxu0MpOx4IZQDXZgvTF2/Zur3mNDylDt
-	dlSD6M8rEwx/yyk9NWMjk6Hbg+yxnpzweB93G2j5Lqrg2FfaS8v7l1XpsK0Q0UYUpy4GBSYU6cfAB
-	OL1MA8XYNjwGxKbCNll/D5qzCWlQ+IKGAV5uXYdJOLeSKiuByxVXilmM788B+jyGRL9HMwDnZNcqX
-	wz6DT6jA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=C7gYYbis2mFo6TAtSoyUy813kc/Z4x8Nlu7qvQyfV3A=; b=y3knQ0737QlGHE
+	FbJppmthohrgL37mn97TX+KI6t0xHOTYC0va6IrCAv7smFb8OHN34bcE3Qgq7Ek8wLYEwVw51l6yN
+	xdaxPeMc1fi+Xe4LsZBq1T2IRZsg/mCXl7h5+UE+3j9iF9OdVz8dwGMzr8gwn48QIOxQDjaVUzTsS
+	VKzCwuAeRhk+lr1opleyzBN2Wa67DQ6gzNqi3TQXxMgHM7J9kCfjpD93UAr9pQUGCeEhVXww6FI8M
+	h0lF7xXPxbomJwz1YLxU415YugozdSuFmGmCp8PSac7zToZxK3wAyiyfgEZ/dEHVTyMPdBcqKpANb
+	kOvZqcHaNUiwCvH7qpkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nRhXq-006LO3-RR; Tue, 08 Mar 2022 21:39:02 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1nRo5q-007Ibf-7P; Wed, 09 Mar 2022 04:38:34 +0000
+Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nRhXm-006LN0-RD; Tue, 08 Mar 2022 21:39:00 +0000
-Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
- by mx0b-00069f02.pphosted.com (8.16.1.2/8.16.1.2) with SMTP id 228LDuVo027923; 
- Tue, 8 Mar 2022 21:38:36 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
- h=message-id : date :
- subject : to : cc : references : from : in-reply-to : content-type :
- content-transfer-encoding : mime-version; s=corp-2021-07-09;
- bh=DhFtv67WuVLsRFNLT222tZVmBbgE3btJpR6JDsNZ8QI=;
- b=F7g+Ykh4y2SAP+9SwGCDIwemS8we9hH5tG+VkEC9K3yRz2WB9SfQ6ZzmfDJ+SQ6pt35p
- 7PTEbFF8xivElUrKRDWDlmc6AamyVC8WJNyu3qzb1epAV96jHU0ZpzwX5SqUzlALettP
- K3vStBpQTfZfODZzReCRi/G9SpNT5MQUkiBork64AIOBBPKOQuj47TrbpZv+T/nKeeEK
- fbnsrRovHQLjS/3Vlu0F61lJcCncYN+SzsKStVmZaRJTfLVbDjbEJ/R5uUUZhf6c16af
- b34sWpT5W0aZzdfX5Dg+wJYA/4nX5zN2mircGRKSOsfeMX/V6o0G6f5FY1kAhhQRKLQR Cg== 
-Received: from userp3030.oracle.com (userp3030.oracle.com [156.151.31.80])
- by mx0b-00069f02.pphosted.com with ESMTP id 3ekxn2gc2b-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Tue, 08 Mar 2022 21:38:36 +0000
-Received: from pps.filterd (userp3030.oracle.com [127.0.0.1])
- by userp3030.oracle.com (8.16.1.2/8.16.1.2) with SMTP id 228LaPoO120217;
- Tue, 8 Mar 2022 21:38:35 GMT
-Received: from nam11-bn8-obe.outbound.protection.outlook.com
- (mail-bn8nam11lp2177.outbound.protection.outlook.com [104.47.58.177])
- by userp3030.oracle.com with ESMTP id 3ekvyv9uh4-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Tue, 08 Mar 2022 21:38:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=B4eUYEiuVLxfAIFoLTUKkT6HBej2c7szDrRteYJhwqZG7ul4gy2G8IWCtOgy5wYYJTSPsdwiW52UIjvk7Y/Vww7s0fEicgrl/S27DIWHzrTUEf8fhL6tBbG54R4zmozFWb3UPdQKpo/Y25/1tV5l1aahmaGw2MgsjU9RtFlI9MZiXpQuPjsalG1ykwa67flbHKLtBfXFkIozcVAeki6Q6cvBZRuqoC7ntJJMvjqhd/1YvCqyOE2Qe3SQpi/3jFb9e5v1SHObU4K7q8fQEvA5SDuz/Uuo108jEkYwkntjVN0P3s66aFE464dNVSbwDlZvNLwUiRVMTK0hLvlYHcUhVw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DhFtv67WuVLsRFNLT222tZVmBbgE3btJpR6JDsNZ8QI=;
- b=ORl8TmJJ5gQ34Fw4sklC1lmnScrYpHAAZGpfhSKsUme+lYH6isd7FKfBi8j/iDnlZHGc/HqX071HUBS04NUPYITMVo9JlwyV/CEvc3KJFPc/oOpJrPUeWQMlPxFp/AsEaH8F642DgkgLSXNdmBtS8/d66iUwyFU8KqFnhiz6j6W8A6HrFocvjmbyzKFPT8rzhAc9GmaYQp5yt4316miKX+/kZebFtbYj85vHMVCrtVyg2ypSH3HWoETHqZkw2UntUQKmLFWfCmFjYAE6vusjKy96mjajBLFOyxEppW2o30pXDP81983MjvtCrbwln1yezuGpgBHeveEVKa6zplp7cg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DhFtv67WuVLsRFNLT222tZVmBbgE3btJpR6JDsNZ8QI=;
- b=dweFUTWPrTn8YHb6QoS3/Czf8M9GYhX8dEH8+GYE7n/9g4TDEDKfJS08X6Ki8oBC7iDsxStZtBpeKd1O1fwcBGgTsB4fPbh3q4nGJ7FtV/WJj0fVhTd/KVNoxw6PEE/Kea6MwCrf/dlzZJy9EwuP5SBuJ8IZSmup7uZaIA3HybA=
-Received: from BLAPR10MB5009.namprd10.prod.outlook.com (2603:10b6:208:321::10)
- by BYAPR10MB2710.namprd10.prod.outlook.com (2603:10b6:a02:b5::27)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5038.19; Tue, 8 Mar
- 2022 21:38:31 +0000
-Received: from BLAPR10MB5009.namprd10.prod.outlook.com
- ([fe80::6d20:6694:a16:56f7]) by BLAPR10MB5009.namprd10.prod.outlook.com
- ([fe80::6d20:6694:a16:56f7%3]) with mapi id 15.20.5038.027; Tue, 8 Mar 2022
- 21:38:31 +0000
-Message-ID: <6a22ea1e-4823-5c3b-97ee-a29155404a0d@oracle.com>
-Date: Tue, 8 Mar 2022 16:38:21 -0500
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:91.0)
- Gecko/20100101 Thunderbird/91.6.1
-Subject: Re: [PATCH 11/12] swiotlb: merge swiotlb-xen initialization into
- swiotlb
-Content-Language: en-US
-To: Christoph Hellwig <hch@lst.de>, iommu@lists.linux-foundation.org
-Cc: x86@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
- Tom Lendacky <thomas.lendacky@amd.com>,
- Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>,
- Stefano Stabellini <sstabellini@kernel.org>, Juergen Gross
- <jgross@suse.com>, Joerg Roedel <joro@8bytes.org>,
- David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>,
- Robin Murphy <robin.murphy@arm.com>,
- linux-arm-kernel@lists.infradead.org, xen-devel@lists.xenproject.org,
- linux-ia64@vger.kernel.org, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-hyperv@vger.kernel.org,
- tboot-devel@lists.sourceforge.net, linux-pci@vger.kernel.org
-References: <20220301105311.885699-1-hch@lst.de>
- <20220301105311.885699-12-hch@lst.de>
-From: Boris Ostrovsky <boris.ostrovsky@oracle.com>
-In-Reply-To: <20220301105311.885699-12-hch@lst.de>
-X-ClientProxiedBy: BYAPR01CA0036.prod.exchangelabs.com (2603:10b6:a02:80::49)
- To BLAPR10MB5009.namprd10.prod.outlook.com
- (2603:10b6:208:321::10)
+ id 1nRo5n-007Ib8-1R
+ for linux-riscv@lists.infradead.org; Wed, 09 Mar 2022 04:38:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1646800712; x=1678336712;
+ h=message-id:date:mime-version:subject:to:cc:references:
+ from:in-reply-to:content-transfer-encoding;
+ bh=OSaPAy2Y2iAJhLNxMchb2w/Lfbz/1Dfnsnnrlz8Sf8g=;
+ b=Dh3TUvn6WRjU9+UzaNvoB+EvSq3PIEiWlt4wcIApd0vIQjKBwNw3XvSH
+ SFHxegHnkPf5WX/xV/qD4n0cmwy8MGT2TR0XSQD6MWDJgZlCvJFXaTeMy
+ WxEBMXFnvrPxjdZxtxTQEeCOsFLiJZGw4WuQQUWrASX7xcb75FYw7Dfnr
+ LYS2QHocRcyLcFD1YlSJHiUB4Y2dj1wIpIts/MSppFhjAZJBCHYjnt91p
+ rRvDt7UQHz8ddEDJc0GAZH2puYPTlcWcgQhAli0/7DzJuvR2eyMy3U6NI
+ ozJuToFO9jDMzRvawoQPe0ZxmZs1qVv0yjnEh5F58XyIsZWaWGAmrTX97 A==;
+X-IronPort-AV: E=Sophos;i="5.90,166,1643644800"; d="scan'208";a="195777824"
+Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 09 Mar 2022 12:38:30 +0800
+IronPort-SDR: gV6mNB57sOgO5qixX6dJq1A5WwJ11KJH3W95V1R7xSdKKzF9CWsZRFmqgHfUSZK64qyCw25cav
+ 8uusmn4TLHYn4l4UBZc/3Hs1Ak2OCxmR0byMEBUyPqyEq0M6KrUTZaonssJP0R4TwjsKKM+MYr
+ 6/mSi770mljHkRqUBVxKMMbDadHYuuzdrxY78UQ8IkGlGChfoUpxLjucaog1fQtSFre6hT9Fws
+ IiumJOtxdsRLWD+FCSDP/zJCk83cPMens55uLRGB2r0zBlyWFBkMvNzZuKog5Qe49vAw7eG0Pq
+ Wa+haeRYAnk/n4F1HYpmX6LV
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 08 Mar 2022 20:10:45 -0800
+IronPort-SDR: pVPC0EXln/RqXNYEXvdmqzCMlt/Dq4HHrNTs1ndZe5tzPRQHcWZ+QPKbGiOS5cqXVvypnLCeZ+
+ jSRPBRrcqbpB21Qde8KjrddD/b5n6MtnSpnV+89rqNhcVaEq6HGwGv560iYxJ03NLGB76Hp7as
+ 41EmEXxDEBxlm7YINHIy5mMZ4IQh0CKFD8bjSpRNvfZzsyz11xyxX9I0jChx/0GObVUCb8UyFQ
+ UJVWpe2VSTyXGf7hhRlo8y8Co/3xEJcmT7CqLvgoYMNWiCa1C2dPmFbf3kgW0wOvEhaw4kL/e+
+ 8YA=
+WDCIronportException: Internal
+Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
+ by uls-op-cesaip02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 08 Mar 2022 20:38:30 -0800
+Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4KCzwN6jvyz1SVp1
+ for <linux-riscv@lists.infradead.org>; Tue,  8 Mar 2022 20:38:28 -0800 (PST)
+Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
+ reason="pass (just generated, assumed good)"
+ header.d=opensource.wdc.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
+ opensource.wdc.com; h=content-transfer-encoding:content-type
+ :in-reply-to:organization:from:references:to:content-language
+ :subject:user-agent:mime-version:date:message-id; s=dkim; t=
+ 1646800690; x=1649392691; bh=OSaPAy2Y2iAJhLNxMchb2w/Lfbz/1Dfnsnn
+ rlz8Sf8g=; b=KDYIk3R3+Ny/eXfGZGRSE+/hSASBkdVOgNhRZcMYySwlW3L+C5e
+ gZhcuL28LQH9tYn7YCVqVhOzmseQTZKVGb+qf+NFsgDCj4drjcYylfQG4y7AYMNQ
+ zb1WftXDK+fLbvN7Rbf1SQ9v9S/UKPRnG7qcehvziC+BZuyUn/v5g9nJrctelGGS
+ a+gCLOoA12P77M+DYCJXTjz4KCvMKajV3bbR3kdic8fKPs4iSudC4y4vSvJ7irFZ
+ updJC8kDXGyRVokrAlKkHADyHO8F/l8SpjLni/GN3RwcUi/d6j/SDrGcm7XsTKrq
+ aQqwh8Y4pdT/6qwRAS2GcMXdCAxeXyhqsjg==
+X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
+Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
+ by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new,
+ port 10026)
+ with ESMTP id MYYbzldtZ2Xh for <linux-riscv@lists.infradead.org>;
+ Tue,  8 Mar 2022 20:38:10 -0800 (PST)
+Received: from [10.225.163.91] (unknown [10.225.163.91])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4KCzw124Dgz1Rvlx;
+ Tue,  8 Mar 2022 20:38:09 -0800 (PST)
+Message-ID: <373656f5-63d8-6ee5-4f1f-ea7477b98b63@opensource.wdc.com>
+Date: Wed, 9 Mar 2022 13:38:07 +0900
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: a5497499-5231-4669-a72e-08da014bfd50
-X-MS-TrafficTypeDiagnostic: BYAPR10MB2710:EE_
-X-Microsoft-Antispam-PRVS: <BYAPR10MB2710B19FF89408863850F5508A099@BYAPR10MB2710.namprd10.prod.outlook.com>
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: zpm3AbzfYsLIS6+hWgb7lSGWLoUo1jjusiM9Dxdnt2alpTe5MIqdooOVzcypscvRXFXYT5XvkVs3wjlfX8hhxILJMcSS8pm5Kbi1R5FemDfmpAN6Xt+QJ//J/vl0uDqPkDJ8kQ1IkxkRJFDlYaeluUj5V/uFX1LHh1OpF1iyPyuShjZAbF9H1sbjPb5uls0L0On2QoC6iygNOMQCxjrPzUrnXJ2O5NLibqo6pfYfLyEtDfaWHjFof6mL9pbkromai8bcBVKXMEAneJh1KbrD45unTbaU2sWJFHe4S+lZZzEeWT2Mrd72MbqQW8moZNh2r60f2RUMSHiBJJ+ic7vwOrexl46la5NDWu7D40kVJBpIPJyIMznXbaqx3HvnPqQlAIkLM8okwfc+TY8X7KsgyJNtqIDpLL3Ku0sqY8P6qJ0ijhwpMIeStG7rNqvMvXAN01s9BDB49ewXQzvzDsl9IOE832NuBxHz13uyjrUnSomOats+erEGFDSwalj/49/X0IbdfNFWlGUE1EkjL8nAQMhTjSiY1Lt94AJ35ARg+hrImBVFWSZhgFRdm5t5Kae8uZM7mMWxqP6AJ/XqhBCPOjzBpza2eNtz1qhgB/KwGU2RUCQkECiJjeBG9YAQo0N76fJJ03npK3D1ZvUhOlyDU/yTxjIwfr5SgdLoqjpS3+zpGsvepOBGT6HA29aYoGHPeU1Z/WZvlbtVsyW4ZsdOKnqtFG5kQxcVOxyz8ETljFU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:BLAPR10MB5009.namprd10.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(13230001)(366004)(53546011)(54906003)(31696002)(6666004)(86362001)(8676002)(66946007)(66476007)(66556008)(5660300002)(508600001)(7416002)(4326008)(6512007)(44832011)(316002)(8936002)(6506007)(6486002)(38100700002)(2616005)(26005)(31686004)(186003)(36756003)(83380400001)(2906002)(45980500001)(43740500002);
- DIR:OUT; SFP:1101; 
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZEs5MDBsbXY4eU9GSCtNNmRhaFNsK05lM1BCVEpNMmI2KzkyUUdKY2RWRWUv?=
- =?utf-8?B?Z01DaVc5UG4vWWNiSzBXK2VEVnZvU2k2OEZjOCsrRFJUL2g3NkFKdjFGcVdC?=
- =?utf-8?B?ZFd5Q3VNWUxaMHlyenVkNk1oU0Nrb3RqVUlwaGpTYlZOd2wwR1liYW5abmlz?=
- =?utf-8?B?cHlKYUxzNFNteVFjZkl2OG1sVXl2VlpuZmplRDYyTWZ2V1dZNmkvNVlsWDBa?=
- =?utf-8?B?SE5qSnNzZTFRMFdpajdTWUtGSk9RNzJPOTdOcitQQzc4dzNVelNJY000RW15?=
- =?utf-8?B?ZndjdmJ5Z2l4RjhzemVwRWM0RHNkY0o5c0FXRnJhS25jVlJZbzhVNUxPT2E4?=
- =?utf-8?B?ZjFyTkxLN21mTTJESFBLWnA3UzA4MnZMdjBhdEpIMUxNLy90WDZ2ZUNja3VW?=
- =?utf-8?B?M1h0eWNpbnU0bXBaNGVFK2Z0TUNnSklUZXRER2huLzZWb0ZqelZrVFBGZHVo?=
- =?utf-8?B?T1kxWjNmZ3V1SUIzUmptNmZXVDFBeG9hNzlvUW9VdXZzV2oxcy9Nck1UZElL?=
- =?utf-8?B?aVh5VTlhVHJLUGtYUVhoQVpMRVV4NmpDaHp3dktXRlRZcUxISnY0eEFiQUl1?=
- =?utf-8?B?QlBFSWN5VGg1ZUhxVEtwNEhtSGNtOUlSaVhNakZjNDYwRGpMSkRVMXlKSTZH?=
- =?utf-8?B?YVk1MHVmRHhZSWZDSTdLcXdRdDkxNklWTUlQeURkQWRReDRuNERCTGh2ejVp?=
- =?utf-8?B?RUcwckQvdTdsZXdaTDJJanExMFZCaWRHcVh1bjVVcCs3VVFzZitablpBQ1RM?=
- =?utf-8?B?WFRKN01EcWtEK3dHWklROU85OWJjcEhTMUNnejJ4U2JMRXJPUnJjUFJnL2Ju?=
- =?utf-8?B?aEw1ekhvbHJpYy9kckVHbTBITHQ1RFFzQTczM1JFTFluSlpEeHBRa1l6emJ5?=
- =?utf-8?B?MHFJYVVKYUEyODVVZEFmTHRjZCtOVkxWRUNoRUdldGF6ZXVRL1dJODVEcVpq?=
- =?utf-8?B?cklUK3R4K2w2U24vd04vVEJlVlplblhYZHNRL1FwRm9aaXpGR09mT1FnSUZ3?=
- =?utf-8?B?SENxZVZkRWw2bFJMbHFEYVJzSTBLbkZGTU9KOWdPbU4xc0o1dUxkOHgrcXpw?=
- =?utf-8?B?bEFLRm8vRk81SFMyem1USkZUUERoaGVodldicXl1VHc2UG9ISUNtMUJSRDBE?=
- =?utf-8?B?UnBiWjZjWU1qeXJyYmZiZHdieGQvZktCOFc2Sko5ZWtra1U0cWZwQUYwQUd0?=
- =?utf-8?B?eHZtaWJmbUdyRFR4c2FuZmt5NTN3TkVNcnM4SG53OXFQOHZSQWxKWjRGZFdZ?=
- =?utf-8?B?bE9RbXdnUEJXZWM3RkMvQU9RWDRXaTFDeWlKaFE5TTVDc0dIU05UTHN3YnNX?=
- =?utf-8?B?NmQ2NExrL0swUTlsWDZPbWFPbEROREZ2ekk3cGt6T1RWakl0K0NSejYvQlJq?=
- =?utf-8?B?THBCU0s3VXgvOW1QR1kzTzVIN29NTGZjWERaKzV5dGJ2SHE4VDk0VzBrS1d0?=
- =?utf-8?B?SWVFYmhHblVvdys5OGM1dkhETTdBOHJOVzZrSFgxREQ5b0V3NFJBb1Z4dnIy?=
- =?utf-8?B?dlFBTHZYZ0JaS0xQbE1IT0l1OTVDUlM2Z3NDRkJ4QmROTjEvcDdrNlk5UC8r?=
- =?utf-8?B?MGFLWmthOHJrR21BVnRWTTJqclR6eUFXMjh5Q3d1NG40d2FyZmFwOFRMYkYz?=
- =?utf-8?B?NS81ZHgxNkU4bEFjWHlPZzZhbnFNNUZuV1pzL09RQm5mbG9mZzdXUXVSL3ZI?=
- =?utf-8?B?bDVWRkZJQWVsMXM3NVNUd0lGbzQzc1RtaXZXUlpCZmhRRGd6VCtCMVZNR3Vk?=
- =?utf-8?B?SHl3WmRUbjM2ZVNndlB4MnQyelJMRVpwL0tQY1pPa0VqTTFWdStNdXQ2UTh0?=
- =?utf-8?B?RE9KMVlHVGJqWkpSTjkxbmdYS1o1bmJHbnU1TUg5bnBMbWVuek5MMWlXOUQ2?=
- =?utf-8?B?aFcycHpoYmNaQ0dQdllwb05YM3c5QTNsZy9YcmRpdlZDanZNMCswUUV3dFJM?=
- =?utf-8?B?a1BDZXdSRE1DY25IR0ZLb0xyRTJRQmVTNHBRSkphalU1KzJIei8reUxMZVM2?=
- =?utf-8?B?bGszTVpxY2xsMXVmcURFdWxUdENCUHlxSEVucGh3V1JxbFNBak56QmVQbkJI?=
- =?utf-8?B?Z1hQKzRhNGJkdmR2eGErQzBWZGpFYUkzYU81RHlhZFhmWnByanIvbkRoTU9p?=
- =?utf-8?B?dnE2SWFldGdRYkJVNStmR2pFMys2cllGQytMRkd5NTZpQUxHZnVUaXdINkhU?=
- =?utf-8?B?V0R4ajlSMW5tMUZjeEdpdklGb1ZXWi82dXFYSDUwcytUdUpHcS9MRnpwRzd1?=
- =?utf-8?B?T242c2tIcmZ5WkNkNXpNUitWNS9RPT0=?=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a5497499-5231-4669-a72e-08da014bfd50
-X-MS-Exchange-CrossTenant-AuthSource: BLAPR10MB5009.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Mar 2022 21:38:31.2786 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vb92VElZb1vD5AEwKvnEjGDwvHfwNocegSuRX2xflLeDODXD1huAuFsmO0Pa3qhKq4HDCzfnKvJCrt0pwrw1AeQHidhPaPQDQ0TN3abVtA8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR10MB2710
-X-Proofpoint-Virus-Version: vendor=nai engine=6300 definitions=10280
- signatures=690848
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 malwarescore=0
- mlxscore=0
- suspectscore=0 bulkscore=0 mlxlogscore=769 adultscore=0 spamscore=0
- phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2202240000 definitions=main-2203080110
-X-Proofpoint-ORIG-GUID: IPRsMW4fSjoQvfjcYGaso-sG-LdxRZL7
-X-Proofpoint-GUID: IPRsMW4fSjoQvfjcYGaso-sG-LdxRZL7
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.5.0
+Subject: Re: [PATCH v2] riscv: dts: canaan: Fix SPI3 bus width
+Content-Language: en-US
+To: Niklas Cassel <Niklas.Cassel@wdc.com>, Rob Herring <robh+dt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20220308132806.96095-1-Niklas.Cassel@wdc.com>
+From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+Organization: Western Digital Research
+In-Reply-To: <20220308132806.96095-1-Niklas.Cassel@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220308_133859_016205_AB8F4A24 
-X-CRM114-Status: GOOD (  18.77  )
+X-CRM114-CacheID: sfid-20220308_203831_731110_386E06D5 
+X-CRM114-Status: GOOD (  20.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,41 +113,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 3/8/22 22:28, Niklas Cassel wrote:
+> From: Niklas Cassel <niklas.cassel@wdc.com>
+> 
+> According to the K210 Standalone SDK Programming guide:
+> https://canaan-creative.com/wp-content/uploads/2020/03/kendryte_standalone_programming_guide_20190311144158_en.pdf
+> 
+> Section 15.4.3.3:
+> SPI0 and SPI1 supports: standard, dual, quad and octal transfers.
+> SPI3 supports: standard, dual and quad transfers (octal is not supported).
+> 
+> In order to support quad transfers (Quad SPI), SPI3 must have four IO wires
+> connected to the SPI flash.
+> 
+> Update the device tree to specify the correct bus width.
+> 
+> Tested on maix bit, maix dock and maixduino, which all have the same
+> SPI flash (gd25lq128d) connected to SPI3. maix go is untested, but it
+> would not make sense for this k210 board to be designed differently.
+> 
+> Signed-off-by: Niklas Cassel <niklas.cassel@wdc.com>
 
-On 3/1/22 5:53 AM, Christoph Hellwig wrote:
-> Allow to pass a remap argument to the swiotlb initialization functions
-> to handle the Xen/x86 remap case.  ARM/ARM64 never did any remapping
-> from xen_swiotlb_fixup, so we don't even need that quirk.
+Looks OK to me.
+
+Reviewed-by: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+
+> ---
+> Changes since v1:
+> -Add the new properties directly after spi-max-frequency for all DT board
+>  files.
+> 
+>  arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts  | 2 ++
+>  arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts | 2 ++
+>  arch/riscv/boot/dts/canaan/sipeed_maix_go.dts   | 2 ++
+>  arch/riscv/boot/dts/canaan/sipeed_maixduino.dts | 2 ++
+>  4 files changed, 8 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts b/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
+> index 984872f3d3a9..b9e30df127fe 100644
+> --- a/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
+> +++ b/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
+> @@ -203,6 +203,8 @@ flash@0 {
+>  		compatible = "jedec,spi-nor";
+>  		reg = <0>;
+>  		spi-max-frequency = <50000000>;
+> +		spi-tx-bus-width = <4>;
+> +		spi-rx-bus-width = <4>;
+>  		m25p,fast-read;
+>  		broken-flash-reset;
+>  	};
+> diff --git a/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts b/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
+> index 7ba99b4da304..8d23401b0bbb 100644
+> --- a/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
+> +++ b/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
+> @@ -205,6 +205,8 @@ flash@0 {
+>  		compatible = "jedec,spi-nor";
+>  		reg = <0>;
+>  		spi-max-frequency = <50000000>;
+> +		spi-tx-bus-width = <4>;
+> +		spi-rx-bus-width = <4>;
+>  		m25p,fast-read;
+>  		broken-flash-reset;
+>  	};
+> diff --git a/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts b/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
+> index be9b12c9b374..24fd83b43d9d 100644
+> --- a/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
+> +++ b/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
+> @@ -213,6 +213,8 @@ flash@0 {
+>  		compatible = "jedec,spi-nor";
+>  		reg = <0>;
+>  		spi-max-frequency = <50000000>;
+> +		spi-tx-bus-width = <4>;
+> +		spi-rx-bus-width = <4>;
+>  		m25p,fast-read;
+>  		broken-flash-reset;
+>  	};
+> diff --git a/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts b/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
+> index 031c0c28f819..25341f38292a 100644
+> --- a/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
+> +++ b/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
+> @@ -178,6 +178,8 @@ flash@0 {
+>  		compatible = "jedec,spi-nor";
+>  		reg = <0>;
+>  		spi-max-frequency = <50000000>;
+> +		spi-tx-bus-width = <4>;
+> +		spi-rx-bus-width = <4>;
+>  		m25p,fast-read;
+>  		broken-flash-reset;
+>  	};
 
 
-Any chance this patch could be split? Lots of things are happening here and it's somewhat hard to review. (Patch 7 too BTW but I think I managed to get through it)
-
-
-> diff --git a/arch/x86/kernel/pci-dma.c b/arch/x86/kernel/pci-dma.c
-> index e0def4b1c3181..2f2c468acb955 100644
-> --- a/arch/x86/kernel/pci-dma.c
-> +++ b/arch/x86/kernel/pci-dma.c
-> @@ -71,15 +71,12 @@ static inline void __init pci_swiotlb_detect(void)
->   #endif /* CONFIG_SWIOTLB */
->   
->   #ifdef CONFIG_SWIOTLB_XEN
-> -static bool xen_swiotlb;
-> -
->   static void __init pci_xen_swiotlb_init(void)
->   {
->   	if (!xen_initial_domain() && !x86_swiotlb_enable)
->   		return;
-
-
-Now that there is a single call site for this routine I think this check can be dropped. We are only called here for xen_initial_domain()==true.
-
-
--boris
+-- 
+Damien Le Moal
+Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
