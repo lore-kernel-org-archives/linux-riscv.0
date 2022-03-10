@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D2B3C43219
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB360C4167B
 	for <linux-riscv@archiver.kernel.org>; Thu, 10 Mar 2022 07:34:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
@@ -12,68 +12,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=HyyG6QRhIMA7EWBOosDAQLrMvUPbBsJ3W8jBVeWT+h0=; b=hG2i0ghFhhn0K16MsYQMjbK2Ul
-	7bXK0ahswxipqPvu53hPZBUwF/ZB52lZ4Q8uW9yIwkWpXSZFkByxhBermOy81HVdrMncqgBMvZs44
-	7TZUIcCgWkr+MD1nSS0Q6YoRcdPFFEYm84wActBoLjEZXwlTmRjhuLG0kXvpuRia4BGdaJ99qyiQt
-	BV4eoJobxcCo9Fsl3xhudfAkUVBL68kFtMzJAneA6FcK7vy8qI7v2KxHIN2ZV9k2wvdXZqO9EfVGF
-	3J9LnpaUX/91R2cn2oAkJWA7v+HRHJJYoliJgzyfKGV8uWXto9DDt4Gd99YqpLZR2uV5PZKsqUJfO
-	u4yLpSHg==;
+	bh=XNjzKPn+JmkUbtRuVnkOwQgeCH92fXjc18BV0cGGF4U=; b=OYVuQWezBd+csB59FLFgu0Y/vo
+	fRKOPArCSf1L4Gr6R5CB0flTTC2ZD14vKitW7tNU/rygHwFFxwe0HEHeZaSDyleRaKeERM54ZFHaE
+	V2tuM9HDloSswHGUsfpgreQ96ekC0wg9ub6Us/rnuZWZK2XhYNOMObdb6vMlLoMJI8nG/J9t6St8i
+	0DbuY82Sl8a0l3GtIsm49ynD0+pNRPhM69GZ0z/5sF2EjE8GyLwaEvGU+pmIC1NO7OoCyoGtOx/Et
+	2ZMKqdxyDOMBE1CfeZtze4zszTey3cupw70m+EB8NBTchUZ7B1bAUrnitTGxAJjtygt0LHVBFAip4
+	ScdqZ9Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nSDJf-00BlbK-AJ; Thu, 10 Mar 2022 07:34:31 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1nSDJh-00Blbx-3u; Thu, 10 Mar 2022 07:34:33 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nSDJb-00BlZS-Ih
- for linux-riscv@lists.infradead.org; Thu, 10 Mar 2022 07:34:28 +0000
-Received: by mail-pg1-x530.google.com with SMTP id z4so4009279pgh.12
- for <linux-riscv@lists.infradead.org>; Wed, 09 Mar 2022 23:34:26 -0800 (PST)
+ id 1nSDJc-00BlaF-TR
+ for linux-riscv@lists.infradead.org; Thu, 10 Mar 2022 07:34:30 +0000
+Received: by mail-pl1-x635.google.com with SMTP id n15so4143720plh.2
+ for <linux-riscv@lists.infradead.org>; Wed, 09 Mar 2022 23:34:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=/cRXQiSJ5rIWf1RgUsbCqPw2RjGrtPdegUrxegBFwDg=;
- b=drrvyjXC5GTw4mGN3hjmCpR4QqGXIdZSM8NzuvaH9FuH+GTzewAH4wwF4CgXUGxcdJ
- 5TnxSaZKkOGH5yGtGUUzB37aeaMs9mvj0uLtZ2ganFOtQa86at1qEmdYMYvzfUDN/GIO
- O4rhe3+a/Z7sFLYsq+h9w3AKpTJ9SpNVv3H1Aw1kwhHo+JG4+LuTXBUBYY0rqWQghPpQ
- bWHTyxzC+O9Np97hHOAC1dk329FWk4V4ijry9Wgxj/8gGRCP8o0laEBybE37BQO+j3Cy
- vajQqKyd7NcfoUaPMrXhgQqD8m5o7M6z4UNC3YyZb4gb4MgpoUSVbZn41VMgICH7+oeN
- rNcw==
+ bh=pB6gK1JUXPe0uL+qrSzcwuxnE8NCS9QIX0sZYbeurTo=;
+ b=lAb20Kihrehyn5GddRYNlLZde6SVbtLD6FzerIMv7eZvtL3sbdj+73S+tLhpNmw5UJ
+ tshNHs/Mi7cANEP1Zj80aQ/N5B0sz2O5kjImG8/+T3cwq+8FG2XPkFmaHqa6/9chZ7g8
+ /nOihdYxiR7PaKacSgWlLKnP207Jz1eV2gEFGOiGLn/I6vzc+PrfyUx+6/GNK9XFM73f
+ r97IA57ckoafcvjVae9/dGfBjF2FeWg5v/Io4Cgwhgsompar72JizyqqaqRszXs+wYz/
+ Hp9Cb3jtY2nMfID2JLvQRcs/WJdmvo2czFLzJQXcB1SgseLV+79NKd+T/7EjuUJzpXRp
+ fgZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=/cRXQiSJ5rIWf1RgUsbCqPw2RjGrtPdegUrxegBFwDg=;
- b=bq/T24wUOcwEyXheKVjZfSLx2Qp+bPzZJlVnrFQl1sDjriiVr8UxpDtTxGzEiSaHez
- 6+5nnqwKerbIuB3zyzKH3QdopcchKE/dpyTqaEZI3bc0+1uZrFLsa9nTNCYDMyzlIFGo
- 93vjtMVTq8pJKGgLYF6tUqSLdf+w7ILHufl4zUQMObCxQ07CMq085DAGHMBQcDrgtpAD
- N9b4occq7iGdaj3HKVjjuSW/pAGKR+Ks9dEAT6vf+h0tUYblFzz7Q9uJunShb9rAC+MR
- iGDoCc8sziWF4fkP3ilHXE1V78mCxaHzQjPop0eYPSqXyMT6YUKXOhvaKo1SvepWUnB2
- L6vg==
-X-Gm-Message-State: AOAM530gb22TuQP/12LXoaWtjpNazuFvHtNGYaoU8CAmnCunLpmkUrG4
- 6e+YpAVDjWwsDELP5fN3NTGJiY+MJijwoQ==
-X-Google-Smtp-Source: ABdhPJxc+q7DDbxs0t4/P+31ptJrnup2lYJR0GZZf7c/akfYD1VQ0loaR35m7vzsGzW58v1D87rQwQ==
-X-Received: by 2002:a05:6a00:2444:b0:4f7:73bb:7582 with SMTP id
- d4-20020a056a00244400b004f773bb7582mr2011116pfj.39.1646897666298; 
- Wed, 09 Mar 2022 23:34:26 -0800 (PST)
+ bh=pB6gK1JUXPe0uL+qrSzcwuxnE8NCS9QIX0sZYbeurTo=;
+ b=7uI1HQiLgLia4SsAmIrOLYLd454eKWTj50Vl5pTCi/5m2Y7SXw1DCCa6B8nFXqSFo4
+ kQpAa9JA16iwEJFgefgkWDb1lGpdayZrPXbgSU3/sbfplVQzJGwuaaSYgdh6qEsJVAs+
+ hiaPrlaRy1Q6PNL9p/ve4OHupgyBG0lfJ3NORnNGO+w1hU1o+8s17YJzGqfSr5orcCrB
+ eILVFiNc/YjXm2jQCELcEXAyU/oTKpO32HlYzUJrO4IxdMyVyyFZDBLSRvFUH/TX3hom
+ G+PeCF5YkyV/OMaSvdCZtyP1adUTJmK+F9NbA35akokiOb08SX9QF6UCWPOU4uflFHSP
+ 5UCA==
+X-Gm-Message-State: AOAM5322GRZnvY1/5MORnIJjekLHwof2xgGnAy+eplXsl8uxExzOq4Oc
+ tZkB1KkOYxhYaFb9ShJl7OUSZA==
+X-Google-Smtp-Source: ABdhPJz3jbz0Ao1c1aN34ZBdfv3vtjWtKrnKEumeNN4OD89F9XtIYbdZBYzODo25zFpeltVWYBT47A==
+X-Received: by 2002:a17:902:cf08:b0:151:9d28:f46f with SMTP id
+ i8-20020a170902cf0800b001519d28f46fmr3544457plg.53.1646897667710; 
+ Wed, 09 Mar 2022 23:34:27 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223]) by smtp.gmail.com with ESMTPSA id
- j16-20020a63e750000000b00373598b8cbfsm4482675pgk.74.2022.03.09.23.34.25
+ e4-20020a17090ab38400b001bf9519fe8bsm7946653pjr.38.2022.03.09.23.34.26
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 09 Mar 2022 23:34:25 -0800 (PST)
-Date: Wed, 09 Mar 2022 23:34:25 -0800 (PST)
-X-Google-Original-Date: Wed, 09 Mar 2022 23:21:11 PST (-0800)
+ Wed, 09 Mar 2022 23:34:27 -0800 (PST)
+Date: Wed, 09 Mar 2022 23:34:27 -0800 (PST)
+X-Google-Original-Date: Wed, 09 Mar 2022 23:33:55 PST (-0800)
 Subject: Re: [PATCH] riscv: Work to remove kernel dependence on the M-extension
-In-Reply-To: <YimjbmdACoQOk+hj@infradead.org>
+In-Reply-To: <CAK8P3a2Mr_z6h7eg1O8ZN5_qE-o+8KFFBum3CxyuDYeF50s1dw@mail.gmail.com>
 CC: michael@michaelkloos.com, Paul Walmsley <paul.walmsley@sifive.com>,
  aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Christoph Hellwig <hch@infradead.org>
-Message-ID: <mhng-08a28047-b563-41f4-b705-f27b88554f2c@palmer-mbp2014>
+To: Arnd Bergmann <arnd@arndb.de>
+Message-ID: <mhng-1ed81282-b17a-43ef-9030-fc538d96892b@palmer-mbp2014>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220309_233427_663011_D8D2C0AB 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20220309_233428_997258_EE2F5354 
+X-CRM114-Status: GOOD (  25.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,29 +90,54 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 09 Mar 2022 23:06:22 PST (-0800), Christoph Hellwig wrote:
-> Why?
+On Wed, 09 Mar 2022 02:02:27 PST (-0800), Arnd Bergmann wrote:
+> On Wed, Mar 9, 2022 at 6:28 AM Michael T. Kloos
+> <michael@michaelkloos.com> wrote:
+>>
+>> Added a new config symbol RISCV_ISA_M to enable the usage of the
+>> multiplication, division, and remainder (modulus) instructions
+>> from the M-extension.  This configures the march build flag to
+>> either include or omit it.
+>>
+>> I didn't find any assembly using any of the instructions from
+>> the M-extension.  However, the BPF JIT is a complicating factor.
+>> Currently, it emits M-extension instructions to implement various
+>> BPF operations.  For now, I have made HAVE_EBPF_JIT depend on
+>> CONFIG_RISCV_ISA_M.
+>>
+>> I have added the supplementary integer arithmetic functions in
+>> the file "arch/riscv/lib/ext_m_supplement.c".  All the code
+>> contained in this file is wrapped in an ifndef contingent on the
+>> presence of CONFIG_RISCV_ISA_M.
+>>
+>> Signed-off-by: Michael T. Kloos <michael@michaelkloos.com>
+>
+> The patch looks fine to me, but I increasingly get the feeling that the
+> entire platform feature selection in Kconfig should be guarded with
+> a global flag that switches between "fully generic" and "fully custom"
+> builds, where the generic kernel assumes that all the standard
+> features (64-bit, C, M, FPU, MMU, UEFI, ...) are present, the
+> incompatible options (XIP, PHYS_RAM_BASE_FIXED,
+> CMDLINE_FORCE, BUILTIN_DTB, ...) are force-disabled,
+> and all optional features (V/B/P/H extensions, custom instructions,
+> platform specific device drivers, ...) are runtime detected.
 
-I have no idea, but this has come up a few times before.
+That'd be wonderful, but unfortunately we're trending the other way -- 
+we're at the point where "words in the specification have meaning" is 
+controversial, so trying to talk about which flavors of the 
+specification are standard is just meaningless.  I obviously hope that 
+gets sorted out, as we've clearly been pointed straight off a cliff for 
+a while now, but LMKL isn't the place to have that discussion.  We've 
+all seen this before, nobody needs to be convinced this leads to a mess.
 
-IIRC the original port had a no-M flavor (don't remember if it even made 
-it to the original patch submission, but it was around for a bit).  We 
-decided to drop this under the theory that nobody would use it: 
-essentially, if you can afford the handful of MiB of memory required to 
-run Linux then you've probably got a multiplier.
+Until we get to the point where "I wrote 'RISC-V' on that potato I found 
+in my couch" can be conclusively determined not compliant with the spec, 
+it's just silly to try and talk about what is.
 
-If someone has hardware that lacks M and users care about running Linux 
-on that then I'm happy to support it.  I'll still point out the 
-silliness of that decision, but if it's too late to change things then 
-I'd rather support the hardware.  If it's one of these "fill out every 
-possible allowed ISA flavor, even if nobody has one that runs Linux" 
-then I don't see a reason to bother -- there's an infinite amount of 
-allowable RISC-V implementations, we'll all go crazy chasing them 
-around.
-
-FWIW: to a first order, that applies to the no-A stuff as well (though 
-that got dropped because the Arm folks pointed out a way to support that 
-was way better than ours).
+> At the moment, those three types are listed at the same level,
+> which gives the impression that they can be freely mixed.
+>
+>          Arnd
 
 _______________________________________________
 linux-riscv mailing list
