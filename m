@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD551C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Mar 2022 17:03:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C280CC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Mar 2022 17:18:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=KHnHuKCMWCMG8gaEJXD4LUa454132q0pXzBGDd+jarM=; b=ik/V+8jrsL56/L
-	Z8chveJJz8yjAs9BBk4Ff9/pvLT6vHpwJas25Bo5a8GnhlmWzo9Hqbj92Xw5sBDzHMJHvtjIu8JkQ
-	jm/fM6gCmVIRczpuyyAzb4/9LRDMaihQz/c+Asr/tZbSYjB1TQumnRqVjpHCdXgkZ0KE/TNtpM7Pn
-	TYhbEB7GuPDxIsQ9Zb4uODOAL5QIEfBrb6I5mFMaIsaFHg9x04jnR323vTRvVgtHsc+vz9MWPM/9o
-	H1B+jJ4nhU8+6lEMyJwVAYew1OvVDWsJ8L7lokZW7RqW0om4wnKeGCoiL2zrYWZ/t+l6ddWS4LE7I
-	XC/iSiQ2LlLsPvX/U6Xw==;
+	List-Owner; bh=wFVzxzSFi9AGK7rVAg9fS8bt+eLmpRot4lvP3U3S1zc=; b=PhzKBhCDHAeJbL
+	c9r0Osw+l3bWiT01yOMPUvowMWsg2UHnr6Ls7tqzLiOT/S17Q+4hNsVpyhuY4/PMAq5kNtfaABREC
+	J1mlbzrlQpNbe5LVUY9xBDkHeEAA8sApBMIn6Dac46mm/Nt1ZGkAWeGsVwS18wF9Q0F9TeMnR8HZJ
+	DcDYh6WvzoCTB2BHYfChXzKAdloxdEsjAta4ABQvCiRVnlqfn/S9PnMl2PGtVloKJp/SFxGYaqUvX
+	mmL3ttOPI8Q0QBjrlIVjZcz1JV5Hbk0f9DmyPVAZIJRbZom/NydmGEN6WLEe9mMhhw9JHN3oyvbzw
+	od8AbAKosXpPI7cYyKvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nSifp-00HR52-Bp; Fri, 11 Mar 2022 17:03:29 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1nSiu8-00HTgH-G2; Fri, 11 Mar 2022 17:18:16 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nSifl-00HR2y-5h
- for linux-riscv@lists.infradead.org; Fri, 11 Mar 2022 17:03:27 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id i8so13885728wrr.8
- for <linux-riscv@lists.infradead.org>; Fri, 11 Mar 2022 09:03:23 -0800 (PST)
+ id 1nSiu5-00HTfl-Je
+ for linux-riscv@lists.infradead.org; Fri, 11 Mar 2022 17:18:15 +0000
+Received: by mail-pf1-x430.google.com with SMTP id s42so8421167pfg.0
+ for <linux-riscv@lists.infradead.org>; Fri, 11 Mar 2022 09:18:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:from:date:message-id:subject:to:cc;
- bh=Z2RgviTYIZSAoeoSoZxGUfnoAr9FmSUYXi9nHDkZWgY=;
- b=cLEKknK0f96mkMugQvjuNQuHilpDZVA8Slm6pVfk7JDYDMWePNqvPJ+e1x/2yYbw/5
- RBHUmhWhoZW/bT1gfKrDZ3haGmfU27uJU9TqXumQOmWQqijGLt/3lMSkTDQtMJg9ujXt
- +sqHBx9RJRkMfeTM5Z5OSlr6d3qTVKK23gqaofyLBeKAJtuv6ABWFoZ76zkvWWg4tUSa
- YjSPW2uF0BQSe+JT45LeGHnmsx+HFilOI7/pJLD3TpXPxre7Wz+UGJvuN5vds/tNWx4V
- ADDt1psGp3xHmVInjgHjQ+HjOAgCF9YHA7RFnzNG7i2brw6xKJ940uLI3+d6Zr0eBR1z
- 1WUQ==
+ d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:cc:from:to:message-id;
+ bh=/vAMVQ4S4rG50aDrpEZgzM1DrWkgQMPidGWj+MF7bA4=;
+ b=ldXEpgleUADdcyKGiAURlNlkwwL/8MDZLJ8RxYVwdoB3ipWBEYxgGC+oDApYJe1giz
+ WhptnF633qvGSRwsPogNwQcfvNiLz77Ba7ImzxEb9Qz/t6e5+3aPfMrcWOpxXKD0pzp5
+ jwPMY0qWYb8e4M/+AkQCGU6/CG8XBAHZ1OtqDGm8Mg8MryqAyTyaWtBa+FYzJED+J9q5
+ 1pzY8SC/NGSfNY1GhXhubWfqUi3fpqVj1rx80FT2xOPglEZdjeVeLzEmkhAzYYK938Qv
+ acuy8/WuUB4NV2v10hZG1EpW+p6Ss1dsc24xvlbimnDq8lr7BSYtrwpU0xxdDJWuS33q
+ nhlQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc;
- bh=Z2RgviTYIZSAoeoSoZxGUfnoAr9FmSUYXi9nHDkZWgY=;
- b=bTl5MHuL7TkiY9l5e5wyZrCLF4RdsJlLhA8dk+BFcTDm74NGKAnVaCWSEhLnYKV/4R
- 0+GEoSc6Cv6lsVX+v3HFZ1UK+dc3S7RG3n19N6bAd0V5oc0RHp4GNfM5L77s8UqAMv2f
- 5O03KHgIOvtj7qilpabVYDrzm4R+yJf9gz27PFalpWjifxK99LwfZry5cXySwuv2v4Ze
- iQ7ZYBSQq5sJMR7J0Jv2oVQne2M5tJ3MyCU76/vkReXZ1o1QzRqDVIrvjDbjWEQhd5Aq
- NRm+4XQllPWRbsfqDSAoPGJ5TboK84Faf9CkapAFlQ9VVeDhP5alBk4+4Z8hKdnYMMsB
- ZGIQ==
-X-Gm-Message-State: AOAM532wT5dKcSRfCwgmV1+PEUIsGsPqP0HBR0PFeFZorMZEvmq20Kge
- r0oju/M75hFUCgh90dXWavtrHE7m9S62AqPYKnCS9g==
-X-Google-Smtp-Source: ABdhPJwtBuBh9botUSDk+ZE9VzKRYN5PSQSI4Uqz0ueKBFDKzsQYk/VB0JaBXk8o6O1rpw8RWftQkv2ggH30b8GcS50=
-X-Received: by 2002:adf:b60c:0:b0:1f0:227d:bce with SMTP id
- f12-20020adfb60c000000b001f0227d0bcemr7933148wre.313.1647018202363; Fri, 11
- Mar 2022 09:03:22 -0800 (PST)
-MIME-Version: 1.0
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 11 Mar 2022 22:32:25 +0530
-Message-ID: <CAAhSdy1cBkGqBLN7iZY-FUx2BFGoXmxd4WZJemPSRKz6my8cZQ@mail.gmail.com>
-Subject: [GIT PULL] KVM/riscv changes for 5.18
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, 
- KVM General <kvm@vger.kernel.org>, kvm-riscv@lists.infradead.org, 
- linux-riscv <linux-riscv@lists.infradead.org>
+ h=x-gm-message-state:date:subject:cc:from:to:message-id;
+ bh=/vAMVQ4S4rG50aDrpEZgzM1DrWkgQMPidGWj+MF7bA4=;
+ b=0BVw9Lq/MzHm+WmRNC3SIUeb955roJNWepynVCM3531MePh2GZiXy3EgNHTvEj1aJb
+ OeAS6O6WsNrTl602lHOEMh1EtdOllUWi2ZAqpXvCyW5BEoujOv2Ad8leSokCi2jvkUXd
+ CkwCYTlsJUE4dyXJ0zfjI7aB3+zDW6/TvvSxQtPzE/6Wmrpauj8j3wjj9mBv8414Qb/U
+ zr/0/RbcJXvJ960zYA8b8Fkhd0ksGzRb5pqoDI+f6Q1ogmh2oFu1u9FABiiwpVkEVYCU
+ hskVqsRYo5M8IawGt8sFvaFEiMvlrUdebdwP+4MzwrYmYXEEI4YXo1LQWY9xKrnodi64
+ z4Vg==
+X-Gm-Message-State: AOAM5313YPWMYBHsdPb15+BTDWyw7IUYogHnQLAFg3m0+6BjvT1bsYIe
+ ZlPifMineeUZuReUghpC+/aUjuopj//QCA==
+X-Google-Smtp-Source: ABdhPJyU9YbKB8/oleGqNbhXYfvTE58OeXWtoh7DpJIPNpXHhCOBSo5+IZAgxcuSScJzJw0Yy+o+eA==
+X-Received: by 2002:aa7:88d5:0:b0:4f7:1b6a:8673 with SMTP id
+ k21-20020aa788d5000000b004f71b6a8673mr11236281pff.5.1647019092209; 
+ Fri, 11 Mar 2022 09:18:12 -0800 (PST)
+Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
+ l13-20020a056a00140d00b004e13da93eaasm11202260pfu.62.2022.03.11.09.18.11
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 11 Mar 2022 09:18:12 -0800 (PST)
+Date: Fri, 11 Mar 2022 09:18:12 -0800 (PST)
+X-Google-Original-Date: Fri, 11 Mar 2022 08:59:17 PST (-0800)
+Subject: [GIT PULL] RISC-V Fixes for 5.17-rc8
+CC: linux-kernel@vger.kernel.org,         linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-1484f557-fd58-4fe3-afce-a630fac5c8b3@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220311_090325_317253_8A9F5DDD 
-X-CRM114-Status: UNSURE (   5.06  )
+X-CRM114-CacheID: sfid-20220311_091813_715413_9F5AE6C0 
+X-CRM114-Status: UNSURE (   9.47  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,75 +79,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Paolo,
+The following changes since commit 74583f1b92cb3bbba1a3741cea237545c56f506c:
 
-We have three KVM RISC-V changes for 5.18 which are:
-1) Prevent KVM_COMPAT from being selected
-2) Refine __kvm_riscv_switch_to() implementation
-3) RISC-V SBI v0.3 support
-
-I don't expect any other KVM RISC-V changes for 5.18.
-
-Please pull.
-
-Regards,
-Anup
-
-The following changes since commit 4a204f7895878363ca8211f50ec610408c8c70aa:
-
-  KVM: SVM: Allow AVIC support on system w/ physical APIC ID > 255
-(2022-03-08 10:59:12 -0500)
+  riscv: dts: k210: fix broken IRQs on hart1 (2022-03-03 20:04:21 -0800)
 
 are available in the Git repository at:
 
-  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-5.18-1
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.17-rc8
 
-for you to fetch changes up to 763c8bed8c05ffcce8cba882e69cd6b03df07019:
+for you to fetch changes up to 0966d385830de3470b7131db8e86c0c5bc9c52dc:
 
-  RISC-V: KVM: Implement SBI HSM suspend call (2022-03-11 19:02:39 +0530)
-
-----------------------------------------------------------------
-KVM/riscv changes for 5.18
-
-- Prevent KVM_COMPAT from being selected
-- Refine __kvm_riscv_switch_to() implementation
-- RISC-V SBI v0.3 support
+  riscv: Fix auipc+jalr relocation range checks (2022-03-10 20:37:44 -0800)
 
 ----------------------------------------------------------------
-Anup Patel (6):
-      RISC-V: KVM: Upgrade SBI spec version to v0.3
-      RISC-V: KVM: Add common kvm_riscv_vcpu_sbi_system_reset() function
-      RISC-V: KVM: Implement SBI v0.3 SRST extension
-      RISC-V: Add SBI HSM suspend related defines
-      RISC-V: KVM: Add common kvm_riscv_vcpu_wfi() function
-      RISC-V: KVM: Implement SBI HSM suspend call
+RISC-V Fixes for 5.17-rc8
 
-Guo Ren (1):
-      KVM: compat: riscv: Prevent KVM_COMPAT from being selected
+* A fix to prevent users from enabling the alternatives framework (and
+  thus errata handling) on XIP kernels, where runtime code patching does
+  not function correctly.
+* A fix to properly detect offset overflow for AUIPC-based relocations
+  in modules.  This may manifest as modules calling arbitrary invalid
+  addresses, depending on the address allocated when a module is loaded.
 
-Vincent Chen (1):
-      RISC-V: KVM: Refine __kvm_riscv_switch_to() implementation
+----------------------------------------------------------------
+I know it's pretty late, so no big deal if these don't make it for 5.17.
 
-Yang Li (1):
-      RISC-V: KVM: remove unneeded semicolon
+The module issue is particularly ugly: itcould manifest for the majority of
+users, and depends on a bunch of long-term runtime behavior so won't get caught
+by simple tests.  The bug has been around forever, though, and it'll likely get
+backported either way -- figured there's no reason to wait, though.
 
- arch/riscv/include/asm/kvm_host.h     |  1 +
- arch/riscv/include/asm/kvm_vcpu_sbi.h |  5 ++-
- arch/riscv/include/asm/sbi.h          | 27 +++++++++++++---
- arch/riscv/kernel/cpu_ops_sbi.c       |  2 +-
- arch/riscv/kvm/vcpu_exit.c            | 22 +++++++++----
- arch/riscv/kvm/vcpu_sbi.c             | 19 +++++++++++
- arch/riscv/kvm/vcpu_sbi_hsm.c         | 18 +++++++++--
- arch/riscv/kvm/vcpu_sbi_replace.c     | 44 +++++++++++++++++++++++++
- arch/riscv/kvm/vcpu_sbi_v01.c         | 20 ++----------
- arch/riscv/kvm/vcpu_switch.S          | 60 ++++++++++++++++++++---------------
- virt/kvm/Kconfig                      |  2 +-
- 11 files changed, 161 insertions(+), 59 deletions(-)
+----------------------------------------------------------------
+Emil Renner Berthing (1):
+      riscv: Fix auipc+jalr relocation range checks
+
+Jisheng Zhang (1):
+      riscv: alternative only works on !XIP_KERNEL
+
+ arch/riscv/Kconfig.erratas |  1 +
+ arch/riscv/Kconfig.socs    |  4 ++--
+ arch/riscv/kernel/module.c | 21 ++++++++++++++++-----
+ 3 files changed, 19 insertions(+), 7 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
