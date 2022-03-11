@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFB93C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Mar 2022 02:38:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7A03C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Mar 2022 03:15:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Sw5fFl4NLHT+ej/84VD8i/Ez1es91F0a2OJ/bXDogRQ=; b=l5r0RMIxmhJ9ji
-	SxqMwM+Se/x+qRgwl6WUp4k4HzrGi7YIwCZhctPlnFlCJ59eKt7ykkGGnz9M27CeI6KvfIWyl61cd
-	JUwvj65RdQ+ifEiKhRYd34Jn7axNmSIrHJbxnJ5RXPAHLkLGKP0Z3Qnhz8ykh2Kwy7aT5tzhdNzbD
-	c6AF+z3jDDh0QLTufJ5u6sDA9k/Y+RnQDQJgpqfXw8PDmLzL/w9ZCE0svBQcHnYEgSCv/1QeI4QyI
-	nSbdF5LmLza0JsxdR4qyIjvPJ8Zx4A4QEYptuNaFBzy1bhiryoJ6rDZcqx+JtXfR0w3rzKSwtqoZR
-	jt4mh6KIbZzKFZIrqGbQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=z2mf0CxzmCRsfyXAZBfHsZPlaDxhkTHqRieP779xkMY=; b=yV8iMs2e0ppzTJmoN9XxoBtSLD
+	e1mu2r4BAPP3qhjx+HvgIL55ZIMmprxC3TQ9/sM84FJq6pdHsBJNc2bfC9CtSzxY6W/gQ28DfUkmT
+	17zTqhjXt/pkwYqSQfagyFsaf8XA6oj+3Z4E52Z4UAZUQX05P4lFIeQ4azMnbUyT19enCLccy3dNv
+	jgUMagT5uLQfRMQOU9urdArQurJ3On2suSzp8tsz9jQSw0Q8AOlRxqyHsYWHIoxUQL6adAAf/cmjD
+	MO9PeW5w/D9Y+voAqevM1c14ZV5a8u0wiQ53JJj46XO+Z833wbTnEhNTo+zqxQK2Q0OD2koEmykt7
+	POBPlWzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nSVAq-00EmjD-U9; Fri, 11 Mar 2022 02:38:36 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1nSVk5-00Erzh-QG; Fri, 11 Mar 2022 03:15:01 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nSVAf-00EmgS-3B; Fri, 11 Mar 2022 02:38:26 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id B4C15B829B5;
- Fri, 11 Mar 2022 02:38:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C079FC340F9;
- Fri, 11 Mar 2022 02:38:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1646966301;
- bh=Jl8zmUlue4qqSpvupSe770nwEDFbxuYU+7Bv15ArLNk=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=lSDH6JbZLjCrBKwhP5l06T0OkCO9oN/A8aEEjauCFSKrSGqZSLjhPkfyba8lYXT8b
- qYNbLTfBYoaFYS9/EdstBjbcmkW1UfcrGbXKAA3XzivX2N/X7M8/MG2dJGhgzUj1xe
- JwIgADZuHHJQV+vkPugE9tLJ05ZgR4K+s7Tqg3OYy0S0d/gkDWxZGRTQdcVyEyVTta
- XcdW+bJU/6F0zGvwFWhD4c7+eaOFthHqbXVWvY103F1BoVPLPmpdBFX9VrRB9dX0cQ
- RFdNXU0aoXtMTFwXmsyOd8jEdA/NcC/+rOGDrpxxb7LrGBkBTS5gvraGhc0yhF8ir3
- 59IUblFQhb99Q==
-Received: by mail-vs1-f43.google.com with SMTP id u82so8193324vsu.0;
- Thu, 10 Mar 2022 18:38:21 -0800 (PST)
-X-Gm-Message-State: AOAM532r5GgooZIZtnVQzKVdGb7EdhZD6MpIk4w/6lz8g75yUY0D9B3l
- /A17J+FxRkS6JFWDmX6edorvaiCnF/V3IapwZ/Q=
-X-Google-Smtp-Source: ABdhPJzYUvUjuAFq8XvtZ71Qsvionf8y5EprAZIyEokbvQbCG5RE3xULelpIsGE/d8q0ktAquLt4SKjjcxqaZOgU8Ls=
-X-Received: by 2002:a05:6102:806:b0:31e:2206:f1c with SMTP id
- g6-20020a056102080600b0031e22060f1cmr3912870vsb.59.1646966300562; Thu, 10 Mar
- 2022 18:38:20 -0800 (PST)
-MIME-Version: 1.0
-References: <20220227162831.674483-1-guoren@kernel.org>
- <20220227162831.674483-14-guoren@kernel.org>
-In-Reply-To: <20220227162831.674483-14-guoren@kernel.org>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 11 Mar 2022 10:38:09 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSJFMg1YJ=dbaNyemNV4sc_3P=+_PrS=RD_Y2_xz3TzPA@mail.gmail.com>
-Message-ID: <CAJF2gTSJFMg1YJ=dbaNyemNV4sc_3P=+_PrS=RD_Y2_xz3TzPA@mail.gmail.com>
-Subject: Re: [PATCH V7 13/20] riscv: compat: process: Add UXL_32 support in
- start_thread
-To: Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Arnd Bergmann <arnd@arndb.de>, Anup Patel <anup@brainfault.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- liush <liush@allwinnertech.com>, Wei Fu <wefu@redhat.com>, 
- Drew Fustini <drew@beagleboard.org>, Wang Junqiang <wangjunqiang@iscas.ac.cn>, 
- Christoph Hellwig <hch@lst.de>
-Cc: linux-arch <linux-arch@vger.kernel.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
- linux-s390 <linux-s390@vger.kernel.org>,
- sparclinux <sparclinux@vger.kernel.org>, 
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
- Parisc List <linux-parisc@vger.kernel.org>, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- "the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
+ id 1nSVjt-00ErvZ-1s
+ for linux-riscv@lists.infradead.org; Fri, 11 Mar 2022 03:14:50 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id e2so6602583pls.10
+ for <linux-riscv@lists.infradead.org>; Thu, 10 Mar 2022 19:14:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=2FqWSjkXuo5S9mesJxoz3NDkdM5WB3sWHU6io9eY7fk=;
+ b=JQ83gMdtJ8abAR5h7+idsAWzxiZol4eLzOdZjVDWrebCaG/Vbex5HMwHcvgDRvL1lk
+ d87AF/jaKWvGGVRtKm/QeQQJSiQaR+zx/ykXsPAhYGD0wYvTwkcGOjLTLX8IIgcACB3E
+ glTddo1PAPLJZG29IEdnATCiBAGXdCsO8RwWmjBNridFgRXsguSxBGUM5fhuysu6qCcN
+ NuHVBGL3a5XX+io/Gp1e3KpizUVYVAWMYFxxRHw5qQXGeirIJCMJLCCaQt4uQpI0rcCI
+ Cs1rm8fGOW3lqkvPIVoWmeWhSsOAAzfMdnYbVqoaqM0+XwdnBqOj73G4my/kVvFuZ+p2
+ wnjw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=2FqWSjkXuo5S9mesJxoz3NDkdM5WB3sWHU6io9eY7fk=;
+ b=Szdqz1FJZNGCN2Gh//w/c81tpIAiLE02BF5s4qtNuLcQHFFlgMg9XYgz7yM1o56L16
+ JzCK2cB/rFH6b8vgucZM+v3J+i2yo+LncyfqE3nuNGz921LclCtF9+mLfb+RLzLQsYmn
+ FPP8MFmkKbaZn7eEuiuPdoRhdzlkb8H3S8EqUXTvpfb6Q6Rcq/kDAz1oo+mf904VhHgD
+ O+Mn/vdPH9Ib1BCPekPtEIyQqmr0YQ8ROElybQSypdENHGJBusAu3OVXKe8VIz1LMaqE
+ HmCSXbGWPDZL2FvMBnc8G0c86m8E0kIvMC+sM4d+CNx/Vr/Kk7bo9318xNWh29UYTY9o
+ eh7w==
+X-Gm-Message-State: AOAM530JbNki+BRLOk/oKw7uDsHvtdrIQpHn86u6331/XyiC49TcB7pv
+ cxS3hGc52wq7eEL4bKA1BfKUCw==
+X-Google-Smtp-Source: ABdhPJxDNSPztcFWbjAxP2vLau7vxHCY/ogScAPVFQ6aIwReOrOag3ZvU3eB4x2JYdPBlmhtuOZCSQ==
+X-Received: by 2002:a17:902:b189:b0:14d:6f87:7c25 with SMTP id
+ s9-20020a170902b18900b0014d6f877c25mr8505020plr.31.1646968487048; 
+ Thu, 10 Mar 2022 19:14:47 -0800 (PST)
+Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
+ l9-20020a655609000000b0037589f4337dsm6865189pgs.78.2022.03.10.19.14.46
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 10 Mar 2022 19:14:46 -0800 (PST)
+Date: Thu, 10 Mar 2022 19:14:46 -0800 (PST)
+X-Google-Original-Date: Thu, 10 Mar 2022 15:54:41 PST (-0800)
+Subject: Re: [PATCH] MAINTAINERS: sifive: drop Yash Shah
+In-Reply-To: <20220214082349.162973-1-krzysztof.kozlowski@canonical.com>
+CC: linus.walleij@linaro.org, brgl@bgdev.pl, robh+dt@kernel.org,
+ krzysztof.kozlowski@canonical.com, Paul Walmsley <paul.walmsley@sifive.com>,
+ thierry.reding@gmail.com, 
+ u.kleine-koenig@pengutronix.de, lee.jones@linaro.org, aou@eecs.berkeley.edu,
+ p.zabel@pengutronix.de, 
+ sagar.kadam@sifive.com, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pwm@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: krzysztof.kozlowski@canonical.com
+Message-ID: <mhng-b01b9acc-de77-4d1d-9cdc-f3830a6c569a@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220310_183825_432755_36B79C08 
-X-CRM114-Status: GOOD (  19.66  )
+X-CRM114-CacheID: sfid-20220310_191449_121118_6B9FAF74 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,63 +89,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
-
-On Mon, Feb 28, 2022 at 12:30 AM <guoren@kernel.org> wrote:
+On Mon, 14 Feb 2022 00:23:49 PST (-0800), krzysztof.kozlowski@canonical.com wrote:
+> Emails to Yash Shah bounce with "The email account that you tried to
+> reach does not exist.", so drop him from all maintainer entries.
 >
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> If the current task is in COMPAT mode, set SR_UXL_32 in status for
-> returning userspace. We need CONFIG _COMPAT to prevent compiling
-> errors with rv32 defconfig.
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 > ---
->  arch/riscv/kernel/process.c | 5 +++++
->  1 file changed, 5 insertions(+)
+>  Documentation/devicetree/bindings/gpio/sifive,gpio.yaml     | 1 -
+>  Documentation/devicetree/bindings/pwm/pwm-sifive.yaml       | 1 -
+>  .../devicetree/bindings/riscv/sifive-l2-cache.yaml          | 1 -
+>  MAINTAINERS                                                 | 6 ------
+>  4 files changed, 9 deletions(-)
 >
-> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-> index 03ac3aa611f5..54787ca9806a 100644
-> --- a/arch/riscv/kernel/process.c
-> +++ b/arch/riscv/kernel/process.c
-> @@ -97,6 +97,11 @@ void start_thread(struct pt_regs *regs, unsigned long pc,
->         }
->         regs->epc = pc;
->         regs->sp = sp;
-> +
-FIxup:
-
-+ #ifdef CONFIG_COMPAT
-> +       if (is_compat_task())
-> +               regs->status = (regs->status & ~SR_UXL) | SR_UXL_32;
-> +       else
-> +               regs->status = (regs->status & ~SR_UXL) | SR_UXL_64;
-+ #endif
-
-We still need "#ifdef CONFIG_COMPAT" here, because for rv32 we can't
-set SR_UXL at all. SR_UXL is BIT[32, 33].
-
->  }
+> diff --git a/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml b/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
+> index e04349567eeb..427c5873f96a 100644
+> --- a/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
+> +++ b/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
+> @@ -7,7 +7,6 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  title: SiFive GPIO controller
 >
->  void flush_thread(void)
-> --
-> 2.25.1
+>  maintainers:
+> -  - Yash Shah <yash.shah@sifive.com>
+>    - Paul Walmsley <paul.walmsley@sifive.com>
 >
+>  properties:
+> diff --git a/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml b/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml
+> index 676b2160bada..605c1766dba8 100644
+> --- a/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml
+> +++ b/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml
+> @@ -8,7 +8,6 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  title: SiFive PWM controller
+>
+>  maintainers:
+> -  - Yash Shah <yash.shah@sifive.com>
+>    - Sagar Kadam <sagar.kadam@sifive.com>
+>    - Paul Walmsley <paul.walmsley@sifive.com>
+>
+> diff --git a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+> index 2b1f91603897..e2d330bd4608 100644
+> --- a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+> @@ -9,7 +9,6 @@ title: SiFive L2 Cache Controller
+>
+>  maintainers:
+>    - Sagar Kadam <sagar.kadam@sifive.com>
+> -  - Yash Shah <yash.shah@sifive.com>
+>    - Paul Walmsley  <paul.walmsley@sifive.com>
+>
+>  description:
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index ebf7a75a6bec..87eeac970ca2 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -7090,12 +7090,6 @@ L:	linux-edac@vger.kernel.org
+>  S:	Maintained
+>  F:	drivers/edac/sb_edac.c
+>
+> -EDAC-SIFIVE
+> -M:	Yash Shah <yash.shah@sifive.com>
+> -L:	linux-edac@vger.kernel.org
+> -S:	Supported
+> -F:	drivers/edac/sifive_edac.c
 
+Looks like that leaves this unmaintained?  I'm happy to volunteer, I've 
+got the boards lying around somewhere and sort of feel on the hook to 
+keep this stuff alive given that whatever's in there is partially my 
+fault.  That said, I'm happy to stay out of it so if it's OK to have 
+otherwise unmaintained EDAC drivers that works for me so
 
--- 
-Best Regards
- Guo Ren
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-ML: https://lore.kernel.org/linux-csky/
+Thanks!
+
+> -
+>  EDAC-SKYLAKE
+>  M:	Tony Luck <tony.luck@intel.com>
+>  L:	linux-edac@vger.kernel.org
 
 _______________________________________________
 linux-riscv mailing list
