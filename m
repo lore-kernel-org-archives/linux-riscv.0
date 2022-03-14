@@ -4,79 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07E0BC433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Mar 2022 12:05:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B53C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Mar 2022 20:39:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4agQ3/S7jtLuCLgkgvW2UqM3jCbRYX9Bs3nEXKZ4jYA=; b=aaUe57WghXO+cM
-	HPctHMeU8y73rP/HFTyxuHpx8/PyRpTuJ5PEfJ3fVAefph61f1P/HU5w9FvlrOUTNIwntGxUzX8Zb
-	qPcWfzTnP09qb4TuZaEr7NwHGNQzd3srmPcdsSOAEsP1MJwRLy8e8Vpit03kndCBpJnFgT903r4kN
-	OheGnR9rAAn3Ajk8xdJAkF2SIGDEQzVC5S6BeBBnsgEiYI8IkxBpSv1TA9gXNwFp1i7s3ns47Ji/2
-	fBCpq1ITX4G/srj3eXwte9hHpu1fZlR+yLtIt+6Q2Q/WnENi0V9dJKguxfPnoRJdQIzkbfuJq3qDU
-	wR4H2JxgW6RL/7G/B8Lw==;
+	List-Owner; bh=lD6tZTu7mHG4STAf9AXLdzM7otdiqd1tqQkiiy7t09o=; b=aJWEACX9WkTZhT
+	RkesszrtrpmbZSHmee8TI7g1hk2E+7zdfs/zEBXKR2CpGCvsG7UlSrJZAeKBhNwdEw92iIDfNLuK9
+	0nenrl9cxZUJgYNe0PQyuWokmM6yBFZx+rCRLlFnMmZhdHDBqlPERnM/IAga1t1bIdcEuhrFVfa6A
+	0GxLsuAdBq6kVEhVHamTSxodgm5OnpoL8JRPSFLIYq62HHl6sh/iHbk9mAueegsvYIRTxwyfJWnXB
+	//2DyeeL9RwEMeKmKNjyb4twaW5szzovs2uB9lTAKj6FidTKp3IOLO2Gyl1HXAgYmXzeRMkImXxjK
+	qMlKKHrzfZJy9J/Aj30w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nTjS0-005KHY-Jh; Mon, 14 Mar 2022 12:05:24 +0000
-Received: from mail-oo1-xc34.google.com ([2607:f8b0:4864:20::c34])
+	id 1nTrT8-006or6-Ri; Mon, 14 Mar 2022 20:39:06 +0000
+Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nTjRw-005KFr-BU
- for linux-riscv@lists.infradead.org; Mon, 14 Mar 2022 12:05:23 +0000
-Received: by mail-oo1-xc34.google.com with SMTP id
- h16-20020a4a6f10000000b00320507b9ccfso19868098ooc.7
- for <linux-riscv@lists.infradead.org>; Mon, 14 Mar 2022 05:05:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=pU9uPGpxANVVIsgcKvz7K/tE4whMaqHpIgoLY54UlzI=;
- b=fFBE2zBqOW+xujSQr8CaSD78WW9sRE+zJEFn/EDFTxjhCNW8VpKV1g41OMj7TiyZAu
- iUBbomn/izP5EZEVMdsumuc+XGcHrI8+CXNdDRIkO/IfB0/qUbYNEEnFtwHIise1Q/vA
- wauwo733B8lvPOUUr/EyBpPbLxW4CdGY2FGT8DD9eMEI2XpqTLLU4UDnKSY7A4ZNgfcW
- czck7SIybF6Vq99KSErtsu6tlPRmIJZ4X8fXMdfTxDQKKi0RplLWE/fkatQ+kuc13vzF
- +1hkviP8Dl/j26McxJW9pXn3pNPfA/SHfFoX8el8wOlQsg/YzI8NJi3rImz7uoTq1EfH
- HREw==
+ id 1nTrT5-006opL-Ax
+ for linux-riscv@lists.infradead.org; Mon, 14 Mar 2022 20:39:04 +0000
+Received: by mail-qk1-x72c.google.com with SMTP id h196so13838698qke.12
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Mar 2022 13:39:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=iS9w0OaNOwq2lVntX7Egw8nvc58/BIqmU/Sn5pstZMs=;
+ b=J1u1mo5RTmgXNbrfgwFkTpTBTCeG52RUdgQLYIOwlkQUNknzurIy6+GGvvcZXSWiLj
+ 258uDYkHGO11XTf8680JctynowTt+FLeqeGfy/ic1OP1weDl7Y0vYg+Ztpxl8I9lJoh4
+ +6VB2xfNOq2j1lXC+uvSbeNWsEII1X668sYtnPAIIOPfDTItK+mxrg0krcuPqpiI0r2j
+ zq81+lWc1U+Jj70SklpzoXnlFdQ9Nj+w/dTSSobJgYtpzmw6pzFB3maNdWQqej5UxR1U
+ y9CNXLH6DHZnZelBEg8/HTIjMZSuJpMfwEv7niu2i8l2J+yZNLWqrR2uNUvFFmXToFfT
+ a4fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=pU9uPGpxANVVIsgcKvz7K/tE4whMaqHpIgoLY54UlzI=;
- b=uFsXi8vEUnZjUWEDf689eu1uVj1umV5flpluo4PQDwC04vUxBsT4adWjFJPJ3hbaMx
- TdiOZAWuhuBaCoRQ2RTncWMrg7EFNkHfM+aX14aSOsHiPTI9a8ZDwVbd3pXNVCEYZHzo
- 7wN62edwDtg4xrAldUFiSvvluHaKpQ4kfvC1ouuNLNsiXAWxHWVRKsGRp8HoDfMDYdaS
- +8OJZ8V/w8MPDVfG3Ha7+xVb9LRW3+ypl5mScvxEaZCKCLdO/E0Zi34verkeO6LWjf5i
- BIRTq10FBk6Muw6+7h6G7e/b/3BawSF9VHgobu50q103YOli0S2B7eer4MB3EyY4mpym
- qnzA==
-X-Gm-Message-State: AOAM533XStQuH7ngoumU5htLsXN1eBT29pZKyFhmJMdql74lxDud4eqK
- AOACwmlpFGFLgi8wX0JZ1DjxcFLTBzpSV5jDVE5W9g==
-X-Google-Smtp-Source: ABdhPJw1RA8znJT/hN+bAS4MYap2EO+2EYDpBtnfmfEOGkxzFMtWAaxnlgzhcuEKmiInZcwpRIjPFkYbZvZ8lhZbGiI=
-X-Received: by 2002:a05:6870:d254:b0:db:12b5:da3 with SMTP id
- h20-20020a056870d25400b000db12b50da3mr2285214oac.211.1647259518800; Mon, 14
- Mar 2022 05:05:18 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=iS9w0OaNOwq2lVntX7Egw8nvc58/BIqmU/Sn5pstZMs=;
+ b=zXjoHF9s9KfC8JzrX3JGoM39vWwc7lQkTpb7aQ388WmSYPK1gnjG/TqqJtevfcktaa
+ dQewT9POnl12ZcnkrpH1hha1CqQK5fkUYf8Bi8OigNdrd48p1M1msp4vRg5GFhOw4+zC
+ hvoZjCl6LrnD8PXu2hi6dNOOosu8sjeM7bmoolXEVDoEeJPztoCb2j9vOai6I9lG/daC
+ +vbxfmpy9Q2EIA9XYqvh1A3Be4E96AG9HAHAgk0bYGFlrxrU6UAbWTUyTzmA+CAluoeQ
+ C1RdmLpuuviYOBoXWELoStPkKd7AEW1DusgdZSLtuthMDWzIgCHMwiREa1DEs7wz92ds
+ J6GA==
+X-Gm-Message-State: AOAM5323mClaQfVaB3Usk5AWSSWZclbPzMa6Zpn3nGLNmCLvLYdum+F7
+ Pd0lRNWMH2B9Kf+qRULY9caHIQ==
+X-Google-Smtp-Source: ABdhPJxrS2xKMXQ+tv4b7WMBRUbarbEhVo8VEZIHtn5sm7hXQlKPDFFUdcpLOluZu44tq7mq8ulN/w==
+X-Received: by 2002:a05:620a:2584:b0:67b:3209:96ec with SMTP id
+ x4-20020a05620a258400b0067b320996ecmr15883646qko.755.1647290341311; 
+ Mon, 14 Mar 2022 13:39:01 -0700 (PDT)
+Received: from rivos-atish.ba.rivosinc.com
+ (adsl-70-228-75-190.dsl.akrnoh.ameritech.net. [70.228.75.190])
+ by smtp.gmail.com with ESMTPSA id
+ j188-20020a3755c5000000b0067d1c76a09fsm8597023qkb.74.2022.03.14.13.38.58
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 14 Mar 2022 13:39:00 -0700 (PDT)
+From: Atish Patra <atishp@rivosinc.com>
+To: linux-kernel@vger.kernel.org
+Cc: Tsukasa OI <research_trasio@irq.a4lg.com>,
+ Anup Patel <anup@brainfault.org>, Heiko Stuebner <heiko@sntech.de>,
+ Atish Patra <atishp@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Atish Patra <atishp@atishpatra.org>,
+ Damien Le Moal <damien.lemoal@wdc.com>, devicetree@vger.kernel.org,
+ Jisheng Zhang <jszhang@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
+Subject: [PATCH v6 1/6] RISC-V: Correctly print supported extensions
+Date: Mon, 14 Mar 2022 13:38:40 -0700
+Message-Id: <20220314203845.832648-2-atishp@rivosinc.com>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20220314203845.832648-1-atishp@rivosinc.com>
+References: <20220314203845.832648-1-atishp@rivosinc.com>
 MIME-Version: 1.0
-References: <0000000000008ec53005da294fe9@google.com>
- <CACT4Y+YXzBGuj4mn2fnBWw4szbb4MsAvNScbyNXi1S21MXm8ig@mail.gmail.com>
- <CACT4Y+a1AvU4ZA3BXPpQMQ15A2T0CT_mrNTXv0NttJ0B06fH=w@mail.gmail.com>
- <fb12b19d57c34928895e0faa8067f64c@AcuMS.aculab.com>
-In-Reply-To: <fb12b19d57c34928895e0faa8067f64c@AcuMS.aculab.com>
-From: Dmitry Vyukov <dvyukov@google.com>
-Date: Mon, 14 Mar 2022 13:05:07 +0100
-Message-ID: <CACT4Y+ae7WRhnmiTuFg6zrL7z_8rUrmWzopOGMZv6f0ONmd3yg@mail.gmail.com>
-Subject: Re: [syzbot] kernel panic: corrupted stack end in rtnl_newlink
-To: David Laight <David.Laight@aculab.com>
-Cc: syzbot <syzbot+0600986d88e2d4d7ebb8@syzkaller.appspotmail.com>, 
- "davem@davemloft.net" <davem@davemloft.net>,
- "dsahern@kernel.org" <dsahern@kernel.org>, 
- "kuba@kernel.org" <kuba@kernel.org>, 
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>, 
- "syzkaller-bugs@googlegroups.com" <syzkaller-bugs@googlegroups.com>, 
- "yoshfuji@linux-ipv6.org" <yoshfuji@linux-ipv6.org>,
- linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220314_050520_429979_23BA9DBC 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20220314_133903_400643_9F95F911 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,43 +98,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 14 Mar 2022 at 11:44, David Laight <David.Laight@aculab.com> wrote:
->
-> From: Dmitry Vyukov
-> > Sent: 14 March 2022 09:09
-> >
-> > On Mon, 14 Mar 2022 at 09:22, Dmitry Vyukov <dvyukov@google.com> wrote:
-> > >
-> > > On Mon, 14 Mar 2022 at 09:17, syzbot
-> > > <syzbot+0600986d88e2d4d7ebb8@syzkaller.appspotmail.com> wrote:
-> > > >
-> > > > Hello,
-> > > >
-> > > > syzbot found the following issue on:
-> > > >
-> > > > HEAD commit:    0966d385830d riscv: Fix auipc+jalr relocation range checks
-> > > > git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
-> > > > console output: https://syzkaller.appspot.com/x/log.txt?x=17fe80c5700000
-> > > > kernel config:  https://syzkaller.appspot.com/x/.config?x=6295d67591064921
-> > > > dashboard link: https://syzkaller.appspot.com/bug?extid=0600986d88e2d4d7ebb8
-> > > > compiler:       riscv64-linux-gnu-gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU Binutils for
-> > Debian) 2.35.2
-> > > > userspace arch: riscv64
-> > >
-> > > +linux-riscv
-> > >
-> > > Riscv needs to increase stack size under KASAN.
-> > > I will send a patch.
->
-> With vmalloc()ed stacks is it possible to allocate an extra page
-> of KVA that isn't backed by memory as a 'guard page' so that
-> stack overflow faults immediately?
->
-> Probably worth enforcing for KASAN builds where the compilers
-> have a nasty habit of using lot more stack space that might
-> be expected.
+From: Tsukasa OI <research_trasio@irq.a4lg.com>
 
-Yes, this would be useful. At least for x86 we use and rely on this.
+This commit replaces BITS_PER_LONG with number of alphabet letters.
+
+Current ISA pretty-printing code expects extension 'a' (bit 0) through
+'z' (bit 25).  Although bit 26 and higher is not currently used (thus never
+cause an issue in practice), it will be an annoying problem if we start to
+use those in the future.
+
+This commit disables printing high bits for now.
+
+Reviewed-by: Anup Patel <anup@brainfault.org>
+Tested-by: Heiko Stuebner <heiko@sntech.de>
+Signed-off-by: Tsukasa OI <research_trasio@irq.a4lg.com>
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+---
+ arch/riscv/kernel/cpufeature.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index d959d207a40d..dd3d57eb4eea 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -13,6 +13,8 @@
+ #include <asm/smp.h>
+ #include <asm/switch_to.h>
+ 
++#define NUM_ALPHA_EXTS ('z' - 'a' + 1)
++
+ unsigned long elf_hwcap __read_mostly;
+ 
+ /* Host ISA bitmap */
+@@ -63,7 +65,7 @@ void __init riscv_fill_hwcap(void)
+ {
+ 	struct device_node *node;
+ 	const char *isa;
+-	char print_str[BITS_PER_LONG + 1];
++	char print_str[NUM_ALPHA_EXTS + 1];
+ 	size_t i, j, isa_len;
+ 	static unsigned long isa2hwcap[256] = {0};
+ 
+@@ -133,13 +135,13 @@ void __init riscv_fill_hwcap(void)
+ 	}
+ 
+ 	memset(print_str, 0, sizeof(print_str));
+-	for (i = 0, j = 0; i < BITS_PER_LONG; i++)
++	for (i = 0, j = 0; i < NUM_ALPHA_EXTS; i++)
+ 		if (riscv_isa[0] & BIT_MASK(i))
+ 			print_str[j++] = (char)('a' + i);
+ 	pr_info("riscv: ISA extensions %s\n", print_str);
+ 
+ 	memset(print_str, 0, sizeof(print_str));
+-	for (i = 0, j = 0; i < BITS_PER_LONG; i++)
++	for (i = 0, j = 0; i < NUM_ALPHA_EXTS; i++)
+ 		if (elf_hwcap & BIT_MASK(i))
+ 			print_str[j++] = (char)('a' + i);
+ 	pr_info("riscv: ELF capabilities %s\n", print_str);
+-- 
+2.30.2
+
 
 _______________________________________________
 linux-riscv mailing list
