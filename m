@@ -4,26 +4,26 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68C11C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Mar 2022 07:32:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C19DC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Mar 2022 07:33:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jer4+VIzMQikLvszWSZ9a93PvewXfOgKeahZaQk8ZwE=; b=LZUC4XBIBMmisZ
-	TdpJ83Wii63c4kPLWt6/OyqYo/Oqg7Jq4pF2am6vGCfE4F0BxaYke4mX2Zak7UwEEPlbJbuQBYehN
-	hP9C+hDE2yfk/HKXnpxkyFal8ml7B+QwNjf5NcJufA3TOiY+RwKG2scWkMPEi+p5IfaHiY0QHhcrE
-	drm9gLkoxOkMp4/SkNSJTZVKMymfX3N+CQ6VO8ZR4A0ZznY3w+hoyWyErmvm+gV31qMXl5VBFlyQT
-	0ob5f5810TaTX+QkciE7YYUGzwLVJ9k3VAlhjgkrn5pk8Py62oBuzCTMpRewD/1k40pZAebqkQeWJ
-	iWcKUTj0oWYJcm6N5l/w==;
+	List-Owner; bh=3vrXgB07bkeC3ouZZBomdfsKwQ2WuMdmwEp/o3M3AdE=; b=4ceW2dtfIZbpyq
+	w3tZ5X/H4OwjmpYF675Iy8424yMDyUVik6uQB/dS4pRfpy5U6PGRkmLggwLH4C9hik2kKBn0fOpWQ
+	/Beoj6EESb+WRWwngI4sXhKX3gB1mZLwpI/S9e/5rEZhQbjbMnsc7kZlU1fegLSTowuiZURBkcoDs
+	E1JkRDa+CWZJ5cppj182HWWfTbkhRCwf1FVoIuTxxid/ueKCmdUrdS08O9Y1huHGK/+8GWH8L/qle
+	488Skavo5cXOJsrfQPwdNSpSgZcUIjcxtQuFy2P0WrxCjNUvVNc84tHD8ekLuG+iDoq8SaRpNsAHg
+	T6ajj67s6yNvVs2wvtWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nTfCE-0045M7-Q6; Mon, 14 Mar 2022 07:32:50 +0000
+	id 1nTfCW-0045ZI-KI; Mon, 14 Mar 2022 07:33:08 +0000
 Received: from [46.140.54.162] (helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nTfB4-0044TV-Ja; Mon, 14 Mar 2022 07:31:39 +0000
+ id 1nTfB7-0044Us-O5; Mon, 14 Mar 2022 07:31:42 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: iommu@lists.linux-foundation.org
 Cc: x86@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
@@ -39,10 +39,9 @@ Cc: x86@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
  linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
  linux-hyperv@vger.kernel.org, tboot-devel@lists.sourceforge.net,
  linux-pci@vger.kernel.org
-Subject: [PATCH 02/15] swiotlb: make swiotlb_exit a no-op if SWIOTLB_FORCE is
- set
-Date: Mon, 14 Mar 2022 08:31:16 +0100
-Message-Id: <20220314073129.1862284-3-hch@lst.de>
+Subject: [PATCH 03/15] swiotlb: simplify swiotlb_max_segment
+Date: Mon, 14 Mar 2022 08:31:17 +0100
+Message-Id: <20220314073129.1862284-4-hch@lst.de>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20220314073129.1862284-1-hch@lst.de>
 References: <20220314073129.1862284-1-hch@lst.de>
@@ -63,27 +62,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If force bouncing is enabled we can't release the buffers.
+Remove the bogus Xen override that was usually larger than the actual
+size and just calculate the value on demand.  Note that
+swiotlb_max_segment still doesn't make sense as an interface and should
+eventually be removed.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
- kernel/dma/swiotlb.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/xen/swiotlb-xen.c |  2 --
+ include/linux/swiotlb.h   |  1 -
+ kernel/dma/swiotlb.c      | 20 +++-----------------
+ 3 files changed, 3 insertions(+), 20 deletions(-)
 
+diff --git a/drivers/xen/swiotlb-xen.c b/drivers/xen/swiotlb-xen.c
+index 47aebd98f52f5..485cd06ed39e7 100644
+--- a/drivers/xen/swiotlb-xen.c
++++ b/drivers/xen/swiotlb-xen.c
+@@ -202,7 +202,6 @@ int xen_swiotlb_init(void)
+ 	rc = swiotlb_late_init_with_tbl(start, nslabs);
+ 	if (rc)
+ 		return rc;
+-	swiotlb_set_max_segment(PAGE_SIZE);
+ 	return 0;
+ error:
+ 	if (nslabs > 1024 && repeat--) {
+@@ -254,7 +253,6 @@ void __init xen_swiotlb_init_early(void)
+ 
+ 	if (swiotlb_init_with_tbl(start, nslabs, true))
+ 		panic("Cannot allocate SWIOTLB buffer");
+-	swiotlb_set_max_segment(PAGE_SIZE);
+ }
+ #endif /* CONFIG_X86 */
+ 
+diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
+index f6c3638255d54..9fb3a568f0c51 100644
+--- a/include/linux/swiotlb.h
++++ b/include/linux/swiotlb.h
+@@ -164,7 +164,6 @@ static inline void swiotlb_adjust_size(unsigned long size)
+ #endif /* CONFIG_SWIOTLB */
+ 
+ extern void swiotlb_print_info(void);
+-extern void swiotlb_set_max_segment(unsigned int);
+ 
+ #ifdef CONFIG_DMA_RESTRICTED_POOL
+ struct page *swiotlb_alloc(struct device *dev, size_t size);
 diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-index 908eac2527cb1..af9d257501a64 100644
+index af9d257501a64..b75943c2a0a0e 100644
 --- a/kernel/dma/swiotlb.c
 +++ b/kernel/dma/swiotlb.c
-@@ -369,6 +369,9 @@ void __init swiotlb_exit(void)
- 	unsigned long tbl_vaddr;
- 	size_t tbl_size, slots_size;
+@@ -68,12 +68,6 @@ struct io_tlb_mem io_tlb_default_mem;
  
-+	if (swiotlb_force == SWIOTLB_FORCE)
-+		return;
-+
- 	if (!mem->nslabs)
- 		return;
+ phys_addr_t swiotlb_unencrypted_base;
+ 
+-/*
+- * Max segment that we can provide which (if pages are contingous) will
+- * not be bounced (unless SWIOTLB_FORCE is set).
+- */
+-static unsigned int max_segment;
+-
+ static unsigned long default_nslabs = IO_TLB_DEFAULT_SIZE >> IO_TLB_SHIFT;
+ 
+ static int __init
+@@ -97,18 +91,12 @@ early_param("swiotlb", setup_io_tlb_npages);
+ 
+ unsigned int swiotlb_max_segment(void)
+ {
+-	return io_tlb_default_mem.nslabs ? max_segment : 0;
++	if (!io_tlb_default_mem.nslabs)
++		return 0;
++	return rounddown(io_tlb_default_mem.nslabs << IO_TLB_SHIFT, PAGE_SIZE);
+ }
+ EXPORT_SYMBOL_GPL(swiotlb_max_segment);
+ 
+-void swiotlb_set_max_segment(unsigned int val)
+-{
+-	if (swiotlb_force == SWIOTLB_FORCE)
+-		max_segment = 1;
+-	else
+-		max_segment = rounddown(val, PAGE_SIZE);
+-}
+-
+ unsigned long swiotlb_size_or_default(void)
+ {
+ 	return default_nslabs << IO_TLB_SHIFT;
+@@ -258,7 +246,6 @@ int __init swiotlb_init_with_tbl(char *tlb, unsigned long nslabs, int verbose)
+ 
+ 	if (verbose)
+ 		swiotlb_print_info();
+-	swiotlb_set_max_segment(mem->nslabs << IO_TLB_SHIFT);
+ 	return 0;
+ }
+ 
+@@ -359,7 +346,6 @@ swiotlb_late_init_with_tbl(char *tlb, unsigned long nslabs)
+ 	swiotlb_init_io_tlb_mem(mem, virt_to_phys(tlb), nslabs, true);
+ 
+ 	swiotlb_print_info();
+-	swiotlb_set_max_segment(mem->nslabs << IO_TLB_SHIFT);
+ 	return 0;
+ }
  
 -- 
 2.30.2
