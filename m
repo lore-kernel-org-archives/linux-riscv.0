@@ -4,84 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B53C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Mar 2022 20:39:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B73C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Mar 2022 20:39:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lD6tZTu7mHG4STAf9AXLdzM7otdiqd1tqQkiiy7t09o=; b=aJWEACX9WkTZhT
-	RkesszrtrpmbZSHmee8TI7g1hk2E+7zdfs/zEBXKR2CpGCvsG7UlSrJZAeKBhNwdEw92iIDfNLuK9
-	0nenrl9cxZUJgYNe0PQyuWokmM6yBFZx+rCRLlFnMmZhdHDBqlPERnM/IAga1t1bIdcEuhrFVfa6A
-	0GxLsuAdBq6kVEhVHamTSxodgm5OnpoL8JRPSFLIYq62HHl6sh/iHbk9mAueegsvYIRTxwyfJWnXB
-	//2DyeeL9RwEMeKmKNjyb4twaW5szzovs2uB9lTAKj6FidTKp3IOLO2Gyl1HXAgYmXzeRMkImXxjK
-	qMlKKHrzfZJy9J/Aj30w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Z4s73tHzElxeawAc/D9ixDAZiL9k/N5uGc5iMJuOjpM=; b=bjP4MA8oMqKEF0
+	bekg/rv+epixVp4wdu1DUpNJtkxqvOKP8KJijiBq4pmUDHM5eryipiE54ih6lnQ8WrtJ3kJBjXsME
+	forSqxH6s2MHAeeSEFz2BmIrmGAJO+wR6Uhel/smgvxTdhbaZ3qb7Is34Kx3QwndU9130PgqZhuJn
+	wd3IIvfvwOFoERxtdlvgltOX4DSaBqEk5cxX54Brqr2IPyOGLuClPj4n5pdD552n2hgByuL+2WpFW
+	bfiVhchUN+X3QirZRtjY5/nUBq8S+KWr3fSo7MJ+J7iGGCEwBncO8zJ0TOx27qikgYvybtfn4S3fb
+	ifx+Ycz3dTH1i41Z8HSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nTrT8-006or6-Ri; Mon, 14 Mar 2022 20:39:06 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1nTrT6-006oq7-S3; Mon, 14 Mar 2022 20:39:04 +0000
+Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nTrT5-006opL-Ax
- for linux-riscv@lists.infradead.org; Mon, 14 Mar 2022 20:39:04 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id h196so13838698qke.12
- for <linux-riscv@lists.infradead.org>; Mon, 14 Mar 2022 13:39:02 -0700 (PDT)
+ id 1nTrT3-006ood-6E
+ for linux-riscv@lists.infradead.org; Mon, 14 Mar 2022 20:39:03 +0000
+Received: by mail-qt1-x836.google.com with SMTP id i8so2324738qtx.6
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Mar 2022 13:38:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=iS9w0OaNOwq2lVntX7Egw8nvc58/BIqmU/Sn5pstZMs=;
- b=J1u1mo5RTmgXNbrfgwFkTpTBTCeG52RUdgQLYIOwlkQUNknzurIy6+GGvvcZXSWiLj
- 258uDYkHGO11XTf8680JctynowTt+FLeqeGfy/ic1OP1weDl7Y0vYg+Ztpxl8I9lJoh4
- +6VB2xfNOq2j1lXC+uvSbeNWsEII1X668sYtnPAIIOPfDTItK+mxrg0krcuPqpiI0r2j
- zq81+lWc1U+Jj70SklpzoXnlFdQ9Nj+w/dTSSobJgYtpzmw6pzFB3maNdWQqej5UxR1U
- y9CNXLH6DHZnZelBEg8/HTIjMZSuJpMfwEv7niu2i8l2J+yZNLWqrR2uNUvFFmXToFfT
- a4fg==
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=6w3smz0Oju2eB1A2qrt4ZKtokvH1F+OKqqamdL7L7P4=;
+ b=pdMnUTk+FxlOr0gcR6zu3Q3yrpEn5lHgpsJ7lD6tENqImWy+nWDQ07qXGibnvAZczi
+ W6tj7yTDQv1Ba/F7OQUNHNehdhKHCuw3xUJxj4SIaMvSARglSlK7TFbieFmzMdMMIE63
+ vivff60xvi2SY4dAPo8Whzm0S1NtIjb5NwzSuPWk4XhVHGZ2fYCoQE0+GroYxBaR/r+H
+ Rg4dQprmKpEKwAGYNlkkTjxqyLZTHR5pWxX4bOtYj07JrjnUlHFsoZMDglcnFGHNrsmn
+ fIq42izBdQmHAGMMbHbjyhFaGvKtJ5ibxOsaLaNyJKjP4RglNZMQTCCIYNUJqonJVPUB
+ 2ETQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=iS9w0OaNOwq2lVntX7Egw8nvc58/BIqmU/Sn5pstZMs=;
- b=zXjoHF9s9KfC8JzrX3JGoM39vWwc7lQkTpb7aQ388WmSYPK1gnjG/TqqJtevfcktaa
- dQewT9POnl12ZcnkrpH1hha1CqQK5fkUYf8Bi8OigNdrd48p1M1msp4vRg5GFhOw4+zC
- hvoZjCl6LrnD8PXu2hi6dNOOosu8sjeM7bmoolXEVDoEeJPztoCb2j9vOai6I9lG/daC
- +vbxfmpy9Q2EIA9XYqvh1A3Be4E96AG9HAHAgk0bYGFlrxrU6UAbWTUyTzmA+CAluoeQ
- C1RdmLpuuviYOBoXWELoStPkKd7AEW1DusgdZSLtuthMDWzIgCHMwiREa1DEs7wz92ds
- J6GA==
-X-Gm-Message-State: AOAM5323mClaQfVaB3Usk5AWSSWZclbPzMa6Zpn3nGLNmCLvLYdum+F7
- Pd0lRNWMH2B9Kf+qRULY9caHIQ==
-X-Google-Smtp-Source: ABdhPJxrS2xKMXQ+tv4b7WMBRUbarbEhVo8VEZIHtn5sm7hXQlKPDFFUdcpLOluZu44tq7mq8ulN/w==
-X-Received: by 2002:a05:620a:2584:b0:67b:3209:96ec with SMTP id
- x4-20020a05620a258400b0067b320996ecmr15883646qko.755.1647290341311; 
- Mon, 14 Mar 2022 13:39:01 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=6w3smz0Oju2eB1A2qrt4ZKtokvH1F+OKqqamdL7L7P4=;
+ b=4TpYRSqyUpZbwPyFO/PklpMxF3ycAnOjuQyPtnKn6kG8czoPAJoqI5vtX6CfWTn6Vr
+ kg026u5w3UX+d3n2HzpG2KWeAC+iPW+R3QtfCbzkB3srAa+2X52042z3Svjo8I6pcnSx
+ X6WRcfV4B3jp3VHoZcyJtkAsU3tFh5i9XrFNSMV4w/B/aLD7Vn4GvQdNMZMYLYrTruUa
+ z0dvRINk7rvwjEoRto2DA6Ry7DbX2vUcgJrYpaTXUWq4zcybhVMv4Uxo/xDAbz7FVwW5
+ kZVTc7gJWbBe83kFipguaaw44HlPeP6l0+bfi4cQYIdPfAVU356hVMy3zzBVXGEtBavI
+ 0PmA==
+X-Gm-Message-State: AOAM530CCVzNtd+SKHhkwhJBK0HMc9XLkdhzmobYthXwsk5m/iX3qMNv
+ vs19hPrQq36K7rF6L0gW6nPcBw==
+X-Google-Smtp-Source: ABdhPJxyW2l2usP1ZOY52mIonUGrofBK+pSm3Mhgd20xiZA5yLrupJH1m3OokcczYouwyYK0t92Xqw==
+X-Received: by 2002:a05:622a:1647:b0:2e0:6f65:c54d with SMTP id
+ y7-20020a05622a164700b002e06f65c54dmr20443570qtj.193.1647290338403; 
+ Mon, 14 Mar 2022 13:38:58 -0700 (PDT)
 Received: from rivos-atish.ba.rivosinc.com
  (adsl-70-228-75-190.dsl.akrnoh.ameritech.net. [70.228.75.190])
  by smtp.gmail.com with ESMTPSA id
- j188-20020a3755c5000000b0067d1c76a09fsm8597023qkb.74.2022.03.14.13.38.58
+ j188-20020a3755c5000000b0067d1c76a09fsm8597023qkb.74.2022.03.14.13.38.55
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 14 Mar 2022 13:39:00 -0700 (PDT)
+ Mon, 14 Mar 2022 13:38:57 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
-Cc: Tsukasa OI <research_trasio@irq.a4lg.com>,
- Anup Patel <anup@brainfault.org>, Heiko Stuebner <heiko@sntech.de>,
- Atish Patra <atishp@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Atish Patra <atishp@atishpatra.org>,
+Cc: Atish Patra <atishp@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
  Damien Le Moal <damien.lemoal@wdc.com>, devicetree@vger.kernel.org,
  Jisheng Zhang <jszhang@kernel.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
  linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
-Subject: [PATCH v6 1/6] RISC-V: Correctly print supported extensions
-Date: Mon, 14 Mar 2022 13:38:40 -0700
-Message-Id: <20220314203845.832648-2-atishp@rivosinc.com>
+Subject: [PATCH v6 0/6] Provide a fraemework for RISC-V ISA extensions 
+Date: Mon, 14 Mar 2022 13:38:39 -0700
+Message-Id: <20220314203845.832648-1-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20220314203845.832648-1-atishp@rivosinc.com>
-References: <20220314203845.832648-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220314_133903_400643_9F95F911 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20220314_133901_320070_BB85F4AC 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,64 +94,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Tsukasa OI <research_trasio@irq.a4lg.com>
+This series implements a generic framework to parse multi-letter ISA
+extensions. This series is based on Tsukasa's v3 isa extension improvement
+series[1]. I have fixed few bugs and improved comments from that series
+(PATCH1-3). I have not used PATCH 4 from that series as we are not using
+ISA extension versioning as of now. We can add that later if required.
 
-This commit replaces BITS_PER_LONG with number of alphabet letters.
+PATCH 4 allows the probing of multi-letter extensions via a macro.
+It continues to use the common isa extensions between all the harts.
+Thus hetergenous hart systems will only see the common ISA extensions.
 
-Current ISA pretty-printing code expects extension 'a' (bit 0) through
-'z' (bit 25).  Although bit 26 and higher is not currently used (thus never
-cause an issue in practice), it will be an annoying problem if we start to
-use those in the future.
+PATCH 6 improves the /proc/cpuinfo interface for the available ISA extensions
+via /proc/cpuinfo.
 
-This commit disables printing high bits for now.
+Here is the example output of /proc/cpuinfo:
+(with debug patches in Qemu and Linux kernel)
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Tested-by: Heiko Stuebner <heiko@sntech.de>
-Signed-off-by: Tsukasa OI <research_trasio@irq.a4lg.com>
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- arch/riscv/kernel/cpufeature.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+/ # cat /proc/cpuinfo 
+processor	: 0
+hart		: 0
+isa		: rv64imafdch_svpbmt_svnapot_svinval
+mmu		: sv48
 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index d959d207a40d..dd3d57eb4eea 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -13,6 +13,8 @@
- #include <asm/smp.h>
- #include <asm/switch_to.h>
- 
-+#define NUM_ALPHA_EXTS ('z' - 'a' + 1)
-+
- unsigned long elf_hwcap __read_mostly;
- 
- /* Host ISA bitmap */
-@@ -63,7 +65,7 @@ void __init riscv_fill_hwcap(void)
- {
- 	struct device_node *node;
- 	const char *isa;
--	char print_str[BITS_PER_LONG + 1];
-+	char print_str[NUM_ALPHA_EXTS + 1];
- 	size_t i, j, isa_len;
- 	static unsigned long isa2hwcap[256] = {0};
- 
-@@ -133,13 +135,13 @@ void __init riscv_fill_hwcap(void)
- 	}
- 
- 	memset(print_str, 0, sizeof(print_str));
--	for (i = 0, j = 0; i < BITS_PER_LONG; i++)
-+	for (i = 0, j = 0; i < NUM_ALPHA_EXTS; i++)
- 		if (riscv_isa[0] & BIT_MASK(i))
- 			print_str[j++] = (char)('a' + i);
- 	pr_info("riscv: ISA extensions %s\n", print_str);
- 
- 	memset(print_str, 0, sizeof(print_str));
--	for (i = 0, j = 0; i < BITS_PER_LONG; i++)
-+	for (i = 0, j = 0; i < NUM_ALPHA_EXTS; i++)
- 		if (elf_hwcap & BIT_MASK(i))
- 			print_str[j++] = (char)('a' + i);
- 	pr_info("riscv: ELF capabilities %s\n", print_str);
--- 
+processor	: 1
+hart		: 1
+isa		: rv64imafdch_svpbmt_svnapot_svinval
+mmu		: sv48
+
+processor	: 2
+hart		: 2
+isa		: rv64imafdch_svpbmt_svnapot_svinval
+mmu		: sv48
+
+processor	: 3
+hart		: 3
+isa		: rv64imafdch_svpbmt_svnapot_svinval
+mmu		: sv48
+
+Anybody adding support for any new multi-letter extensions should add an
+entry to the riscv_isa_ext_id and the isa extension array. 
+E.g. The patch[2] adds the support for various ISA extensions.
+
+[1] https://lore.kernel.org/all/0f568515-a05e-8204-aae3-035975af3ee8@irq.a4lg.com/T/
+[2] https://github.com/atishp04/linux/commit/e9e240c9a854dceb434ceb53bdbe82a657bee5f2 
+
+Changes from v5->v6:
+1. Changed the isa extension format from separate row to single row that follows
+   RISC-V spec naming standards.
+
+2. Removed the redundant extension detection log.
+
+Changes from v4->v5:
+1. Improved the /proc/cpuinfo to include only valid & enabled extensions
+2. Improved the multi-letter parsing by skipping the 'su' modes generated in
+   Qemu as suggested by Tsukasa.
+
+Changes from v3->v4:
+1. Changed temporary variable for current hart isa to a bitmap
+2. Added reviewed-by tags.
+3. Improved comments
+
+Changes from v2->v3:
+1. Updated comments to mark clearly a fix required for Qemu only.
+2. Fixed a bug where the 1st multi-letter extension can be present without _
+3. Added Tested by tags. 
+
+Changes from v1->v2:
+1. Instead of adding a separate DT property use the riscv,isa property.
+2. Based on Tsukasa's v3 isa extension improvement series.
+
+Atish Patra (3):
+RISC-V: Implement multi-letter ISA extension probing framework
+RISC-V: Do no continue isa string parsing without correct XLEN
+RISC-V: Improve /proc/cpuinfo output for ISA extensions
+
+Tsukasa OI (3):
+RISC-V: Correctly print supported extensions
+RISC-V: Minimal parser for "riscv, isa" strings
+RISC-V: Extract multi-letter extension names from "riscv, isa"
+
+arch/riscv/include/asm/hwcap.h |  25 +++++++
+arch/riscv/kernel/cpu.c        |  65 ++++++++++++++++-
+arch/riscv/kernel/cpufeature.c | 128 +++++++++++++++++++++++++++------
+3 files changed, 195 insertions(+), 23 deletions(-)
+
+--
 2.30.2
 
 
