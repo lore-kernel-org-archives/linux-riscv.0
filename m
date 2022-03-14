@@ -4,26 +4,26 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7FDDC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Mar 2022 07:33:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E358C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Mar 2022 07:34:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dm6g3beK3cNDLGLPEO7DE408lhmN8uGj7o4214BpX7U=; b=lTjcoS5qWfdmkH
-	pG+dnd9ge+yMgZqY4LjlEp7vxOr894sDhLKt1b/pJAIAiOI93PUW6oDTPMEXIMAi8jIRbLZP5i9W9
-	WvD+VOhIiD7rE1HzForHmJINlKGbFJkj/Y5XDpYNk3OKIPJu73EwsbjhoJ/ClCeOLFcJFOOR47IJW
-	R5qTp2DdD19oewUrWsvbZsI7OIuVQX4AKQadMcFHE0WBX2c4hnrNU/Bzys/2vu+SO0KW1rE6kniOI
-	qJ9w9AI9RJr4NxKlV03IW3CBHt00Qj18AWGx61BldUGp7CPtphsT00LnNx7S64ZCzaz0Lr3MgrEqC
-	AH5POCXQ5QjxzLYye/KQ==;
+	List-Owner; bh=paQ+zT/cqtlD0vhkdIBQVNgj6t/pMVmMe+3NjcnWvB4=; b=aX7CaB4dIWgIYl
+	OcqjMl5v2YRLcbSC0uuX9qxVo4+QS8U5rZRlR92ChxlhVH4oDYJs0lSSWXdKTX7F0Z30hyEGaYl5/
+	TFz7GCfklMedjCdkjFEK9QRdAanTRmQJbK7cRE7+kvhFrbhNlSVZEjEGWwDKRhH8J/DzkA9lniKh2
+	cpFn9WuDqa2QpSz8q4gBehTYn95KeXi0u18AmU0O1EiDPc8B0NVYjVGE9dJePpETGyAt1UOj2HFSM
+	EIJDtWSdX6g7pfbi9K7sbfrhWENqZmTTRgzbnh73sTgfmlZ3MCXNw9n9bmozAtUHcyinyvxzilvkG
+	FHM3cOWuH6iYOxTnUZ5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nTfCp-0045nh-Pg; Mon, 14 Mar 2022 07:33:27 +0000
+	id 1nTfDG-00467W-Lo; Mon, 14 Mar 2022 07:33:54 +0000
 Received: from [46.140.54.162] (helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nTfBB-0044WZ-0Z; Mon, 14 Mar 2022 07:31:45 +0000
+ id 1nTfBE-0044YU-6n; Mon, 14 Mar 2022 07:31:48 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: iommu@lists.linux-foundation.org
 Cc: x86@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
@@ -38,10 +38,12 @@ Cc: x86@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
  linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
  linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
  linux-hyperv@vger.kernel.org, tboot-devel@lists.sourceforge.net,
- linux-pci@vger.kernel.org
-Subject: [PATCH 04/15] swiotlb: rename swiotlb_late_init_with_default_size
-Date: Mon, 14 Mar 2022 08:31:18 +0100
-Message-Id: <20220314073129.1862284-5-hch@lst.de>
+ linux-pci@vger.kernel.org,
+ Stefano Stabellini <stefano.stabellini@xilinx.com>
+Subject: [PATCH 05/15] arm/xen: don't check for xen_initial_domain() in
+ xen_create_contiguous_region
+Date: Mon, 14 Mar 2022 08:31:19 +0100
+Message-Id: <20220314073129.1862284-6-hch@lst.de>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20220314073129.1862284-1-hch@lst.de>
 References: <20220314073129.1862284-1-hch@lst.de>
@@ -62,64 +64,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-swiotlb_late_init_with_default_size is an overly verbose name that
-doesn't even catch what the function is doing, given that the size is
-not just a default but the actual requested size.
+From: Stefano Stabellini <sstabellini@kernel.org>
 
-Rename it to swiotlb_init_late.
+It used to be that Linux enabled swiotlb-xen when running a dom0 on ARM.
+Since f5079a9a2a31 "xen/arm: introduce XENFEAT_direct_mapped and
+XENFEAT_not_direct_mapped", Linux detects whether to enable or disable
+swiotlb-xen based on the new feature flags: XENFEAT_direct_mapped and
+XENFEAT_not_direct_mapped.
 
+However, there is still a leftover xen_initial_domain() check in
+xen_create_contiguous_region. Remove the check as
+xen_create_contiguous_region is only called by swiotlb-xen during
+initialization. If xen_create_contiguous_region is called, we know Linux
+is running 1:1 mapped so there is no need for additional checks.
+
+Also update the in-code comment.
+
+Signed-off-by: Stefano Stabellini <stefano.stabellini@xilinx.com>
 Signed-off-by: Christoph Hellwig <hch@lst.de>
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
- arch/x86/pci/sta2x11-fixup.c | 2 +-
- include/linux/swiotlb.h      | 2 +-
- kernel/dma/swiotlb.c         | 6 ++----
- 3 files changed, 4 insertions(+), 6 deletions(-)
+ arch/arm/xen/mm.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
-diff --git a/arch/x86/pci/sta2x11-fixup.c b/arch/x86/pci/sta2x11-fixup.c
-index 101081ad64b6d..e0c039a75b2db 100644
---- a/arch/x86/pci/sta2x11-fixup.c
-+++ b/arch/x86/pci/sta2x11-fixup.c
-@@ -57,7 +57,7 @@ static void sta2x11_new_instance(struct pci_dev *pdev)
- 		int size = STA2X11_SWIOTLB_SIZE;
- 		/* First instance: register your own swiotlb area */
- 		dev_info(&pdev->dev, "Using SWIOTLB (size %i)\n", size);
--		if (swiotlb_late_init_with_default_size(size))
-+		if (swiotlb_init_late(size))
- 			dev_emerg(&pdev->dev, "init swiotlb failed\n");
- 	}
- 	list_add(&instance->list, &sta2x11_instance_list);
-diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
-index 9fb3a568f0c51..b48b26bfa0edb 100644
---- a/include/linux/swiotlb.h
-+++ b/include/linux/swiotlb.h
-@@ -40,7 +40,7 @@ extern void swiotlb_init(int verbose);
- int swiotlb_init_with_tbl(char *tlb, unsigned long nslabs, int verbose);
- unsigned long swiotlb_size_or_default(void);
- extern int swiotlb_late_init_with_tbl(char *tlb, unsigned long nslabs);
--extern int swiotlb_late_init_with_default_size(size_t default_size);
-+int swiotlb_init_late(size_t size);
- extern void __init swiotlb_update_mem_attributes(void);
- 
- phys_addr_t swiotlb_tbl_map_single(struct device *hwdev, phys_addr_t phys,
-diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-index b75943c2a0a0e..14e08fa9621c2 100644
---- a/kernel/dma/swiotlb.c
-+++ b/kernel/dma/swiotlb.c
-@@ -281,11 +281,9 @@ swiotlb_init(int verbose)
-  * initialize the swiotlb later using the slab allocator if needed.
-  * This should be just like above, but with some error catching.
-  */
--int
--swiotlb_late_init_with_default_size(size_t default_size)
-+int swiotlb_init_late(size_t size)
+diff --git a/arch/arm/xen/mm.c b/arch/arm/xen/mm.c
+index a7e54a087b802..28c2070602535 100644
+--- a/arch/arm/xen/mm.c
++++ b/arch/arm/xen/mm.c
+@@ -122,10 +122,7 @@ int xen_create_contiguous_region(phys_addr_t pstart, unsigned int order,
+ 				 unsigned int address_bits,
+ 				 dma_addr_t *dma_handle)
  {
--	unsigned long nslabs =
--		ALIGN(default_size >> IO_TLB_SHIFT, IO_TLB_SEGSIZE);
-+	unsigned long nslabs = ALIGN(size >> IO_TLB_SHIFT, IO_TLB_SEGSIZE);
- 	unsigned long bytes;
- 	unsigned char *vstart = NULL;
- 	unsigned int order;
+-	if (!xen_initial_domain())
+-		return -EINVAL;
+-
+-	/* we assume that dom0 is mapped 1:1 for now */
++	/* the domain is 1:1 mapped to use swiotlb-xen */
+ 	*dma_handle = pstart;
+ 	return 0;
+ }
 -- 
 2.30.2
 
