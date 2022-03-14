@@ -4,82 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCBD2C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Mar 2022 20:39:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9588AC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Mar 2022 22:40:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y1b9v3ctPV8iyTs2KXaX06Z+lomUYJ8Qk3Bf91iu/DQ=; b=GGmxdoTViYBlHT
-	vVGLIhmv3aZDb6YyhXaHhnaD07fD2bRxolvtpEaYIqwtqNr0gHxDlEjWBdG9cp1yRlfKLalsGF6do
-	ftewBma7YUexAG4zvf2/R2Vj4PTR02EseFVCJgpZM1GSNvYh7/sJYM1Kst6ymrvERW5tuWN+Eab8z
-	OMoeVNISNYKZtyWsU5D5xbyLDJBcL31H2c8X1QUchV1HfWbZEZWNCwGHu6gtPrBEz2Gpt0hQtqpMQ
-	Dt/mRsYZEzgRfi9UjGHpCPZwDbMfEadfBvd+MF0HVJROSyKOBP7YvYXKKhbKSQk+64xJZ/Ld2ehZB
-	rM/0k+rylp2TKs0Ony2Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FOqUDKuttTvZ9DRaDKYLkvxGCT6IyXn4f9XTopL7w8E=; b=ayK9LcjHKj6JUpA7A/jfCz7Vya
+	rQXkNa6DNLbk5Uyc4JAcUSkVBMzQcq9mLvj5UiOi+0AqhGAS0Keqwictda97yZGTxq4Or456R/U/f
+	o6b5r5eqMQ+Ssq4BHkVbEozdfPKXGB6GYPjrnydqkHotjlnEilVijKdqZERSvidw6MSaGgWLiXuQ9
+	u88+O1neNPIHtspTmvlrc7pyi5C1MYUH0ujV4AhsKXDqgDmcgOdYoXiYJHTlxpRCWmxVEeJmM270+
+	CLPG4vBeNTLQG76EK4OWhkjPIqr8Nu2S6Zy2tj5jWXzHu2aKpjOYpXqT9Yhfv9M+T5iL4/EdnfIjC
+	0IfGvNhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nTrTO-006p1j-Gu; Mon, 14 Mar 2022 20:39:22 +0000
-Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
+	id 1nTtMG-0073ip-Bc; Mon, 14 Mar 2022 22:40:08 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nTrTK-006oz2-To
- for linux-riscv@lists.infradead.org; Mon, 14 Mar 2022 20:39:20 +0000
-Received: by mail-qk1-x72d.google.com with SMTP id z66so13858491qke.10
- for <linux-riscv@lists.infradead.org>; Mon, 14 Mar 2022 13:39:18 -0700 (PDT)
+ id 1nTtME-0073iD-Cm; Mon, 14 Mar 2022 22:40:07 +0000
+Received: from pps.filterd (m0246617.ppops.net [127.0.0.1])
+ by mx0b-00069f02.pphosted.com (8.16.1.2/8.16.1.2) with SMTP id 22EKrrsg003078; 
+ Mon, 14 Mar 2022 22:39:41 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
+ h=message-id : date :
+ subject : to : cc : references : from : in-reply-to : content-type :
+ content-transfer-encoding : mime-version; s=corp-2021-07-09;
+ bh=YUB3eyOnJQjBJ29CUuL6JrbNLuLwNjWuywF7K5wFCzg=;
+ b=wcT5+HWZUtlaqV9xbhwbwgjKtgxbYWoJpxJsmyNRy1cu9NIyDDl84ZcmQxAV1jAxG/lb
+ 2A9pq25IdVO2RJKktbnxBgnLZRc8zrwMpYRVWFBRc9SrZNKBYijoyH+UMUgfShOvK8Xx
+ ZcHz/a4/nmS/T8TzE9O+ANjNUy1sUKXKKG5zPIgivN6mmGzd1YVHuZKaJoipqQBkcrsQ
+ OlKlGXEyzVs/rpR9k71yYnAAX0xMiiGccxFU3vky2HwJKpwPTLAMfnhRUMdLJtiqHPiO
+ 8eGZul6SK4gHUoNLusiJCeDlgWhbx8yZN1dcly2SJw51YzTfbHwtpIvatiOa+RJWjY7T 6Q== 
+Received: from aserp3020.oracle.com (aserp3020.oracle.com [141.146.126.70])
+ by mx0b-00069f02.pphosted.com with ESMTP id 3et5fu1pce-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Mon, 14 Mar 2022 22:39:41 +0000
+Received: from pps.filterd (aserp3020.oracle.com [127.0.0.1])
+ by aserp3020.oracle.com (8.16.1.2/8.16.1.2) with SMTP id 22EMVjAR111023;
+ Mon, 14 Mar 2022 22:39:40 GMT
+Received: from nam10-bn7-obe.outbound.protection.outlook.com
+ (mail-bn7nam10lp2109.outbound.protection.outlook.com [104.47.70.109])
+ by aserp3020.oracle.com with ESMTP id 3et64jgy7h-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Mon, 14 Mar 2022 22:39:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=lND4Kd5AF0MzEjgziIBmsPBR9ab6DWR+ODdTU9sJhmxd/aW+3lqhHgJlwEybqQcK5wvka/pgU4wQ8iLTjtkbcZLLlA3jSb0guuhALqD27c6Uqs6w4kNPkKlM9fYrrBWnKLARUKBwg7XYHZxCYmlODD1U4wv/scj41QqukCAzbH4T3UIvWBTLW3Zzql3PfWryzsPgGbGeri4NgFns2RgStoI4hPn9BR01crulKlhol52YRZzWnPodfnx8bJJDQrIrnrraHp0Lu0cSUmgoqiX7ZcQRl7ChOx9ZG3X44m8tVJX+ZrKsX/dRrHJ+Whxz/hSbulV3fBWgZBtgP7FB7gg2HA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YUB3eyOnJQjBJ29CUuL6JrbNLuLwNjWuywF7K5wFCzg=;
+ b=O0+zzUGW9wpSqP6kbMqJ0x4bUcxLQX6e6tiExVq9iAAa2Rb0E37dlE24qNL5hxsqvS9O88dG6PMnzEmBp/yjBCwMoEfkYwm2SwwOHp3P+R9X3AaIRKK76eNSvun8ploaJybrAwRX62v3Zz2fIHxs+qu73BhB4A4l30cgHu4qocWJXOOEZH3VvK2WwoAq2WsYeDpA+KjLXi3Ek5f8pEuysRQ2bzJvRHdj7K9rDZWHCZUREjvQeo6Je1RQPurY15iArQA7Fch0Rtix2qEwUsNdKJaszIe7Va1wL4tjPMNVOcU6HrOb+9h0Rn9ftSjeF4G8r52iVRuG6jvuBhG6TFveZw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=NrEmpomOHclDV+kQuj0wjvwONyoQAm3AKPhEX1ax17s=;
- b=H5jqZD+ybOPj9jvOGT1khK8EOCXznxHjM7UW3eRCvg1JuQYYgw/3R+pQmi8EHWtWzc
- 4KI9pDN1Ghpgzgglw9kOBN+tyh9VPInf28WNsFo9MJkp6FZEh4EV90UWqAixUqe5AnMZ
- 1+v+ds82XgLi03xfOBbcZP9UOu/4sComMDe2Bg46lqGZvcETO8YitlTCtzcPbdFDhbQb
- J+q0GWqnlKQ8IlgA1niXGO2RItdxbWCu0XlAs0qWE1Eyg6hJSj61YiRQrW65+heH/PJp
- N6QGyveZbHaXwuxcQUa2jHIsF+4n5IsjQo/Rx8DlP92qM3JzpfdBFx/ecoLTWvDYPUH+
- zAgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=NrEmpomOHclDV+kQuj0wjvwONyoQAm3AKPhEX1ax17s=;
- b=19Q/4APfDqjZkGLfRH+V4Lqb/V2hjcVjSGuFqO/xaRoBojmty8Ez6FpHVnh47+IzkW
- 1ZpZM1HewOPtVHR+DWhOOelHUuW545Xfd3dmdeI3KvLQtaaOFCyYuCitAztV6sEpNUH2
- hreYuFjtZkDei1xNTWH8dqe1Dbip/GIS8ixqlupq/PPaDggasIMZH+sncT72wcI23Ky/
- nirnVkZ/GvN8ehwZkUjTnodVOoEQzKLFv4uapQ01jhuOC8jXMVV7l8zjy0O4Q3arFdlf
- /HYEFJs5iX6LuuCALK3oVwLrD8KPOjIN2v1gH9z/MyGKLSCLJgSGxFGoqi3yBYWZJBMD
- a7cg==
-X-Gm-Message-State: AOAM530GnUfUstJMAu6h/uYd2RV0G5bZLE5RT9dMIwFESAqEgrLcsJuV
- QvvF4Mf2uaTZZgvSrJlHXCz7mw==
-X-Google-Smtp-Source: ABdhPJwVXuvZmuG1IiPfArhVLDTUd60rYoPE5F9UgA8JVB+HYCUAnjh6XvDRJvRl58UiYBwc2HxQgw==
-X-Received: by 2002:a05:620a:28c4:b0:67d:c400:a9d7 with SMTP id
- l4-20020a05620a28c400b0067dc400a9d7mr5186069qkp.369.1647290357916; 
- Mon, 14 Mar 2022 13:39:17 -0700 (PDT)
-Received: from rivos-atish.ba.rivosinc.com
- (adsl-70-228-75-190.dsl.akrnoh.ameritech.net. [70.228.75.190])
- by smtp.gmail.com with ESMTPSA id
- j188-20020a3755c5000000b0067d1c76a09fsm8597023qkb.74.2022.03.14.13.39.15
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 14 Mar 2022 13:39:17 -0700 (PDT)
-From: Atish Patra <atishp@rivosinc.com>
-To: linux-kernel@vger.kernel.org
-Cc: Atish Patra <atishp@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>,
- Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@atishpatra.org>,
- Anup Patel <anup@brainfault.org>, Damien Le Moal <damien.lemoal@wdc.com>,
- devicetree@vger.kernel.org, Jisheng Zhang <jszhang@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
-Subject: [PATCH v6 6/6] RISC-V: Improve /proc/cpuinfo output for ISA extensions
-Date: Mon, 14 Mar 2022 13:38:45 -0700
-Message-Id: <20220314203845.832648-7-atishp@rivosinc.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20220314203845.832648-1-atishp@rivosinc.com>
-References: <20220314203845.832648-1-atishp@rivosinc.com>
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YUB3eyOnJQjBJ29CUuL6JrbNLuLwNjWuywF7K5wFCzg=;
+ b=mpN+wyd3xPOapE4hcyl/a0BoNEn233/KW75faPdYP8gGdiriezxx+vnRAPE7Uxkc7qK0AR0UCJroOOVy/38GKYfkwL8tgG+FSaST2mkmhLIB14o8lZx16lae7QAJN4RliEa8ORTen/vB2MDqDJZFWABNFG+5vj1tlLUreb9gK2A=
+Received: from CH0PR10MB5020.namprd10.prod.outlook.com (2603:10b6:610:c0::22)
+ by CH0PR10MB5115.namprd10.prod.outlook.com (2603:10b6:610:c4::16)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5061.22; Mon, 14 Mar
+ 2022 22:39:38 +0000
+Received: from CH0PR10MB5020.namprd10.prod.outlook.com
+ ([fe80::e52b:dcd7:84b9:cbd0]) by CH0PR10MB5020.namprd10.prod.outlook.com
+ ([fe80::e52b:dcd7:84b9:cbd0%9]) with mapi id 15.20.5061.028; Mon, 14 Mar 2022
+ 22:39:38 +0000
+Message-ID: <4d800aa8-5e38-1ad9-284f-1754c83d0f8a@oracle.com>
+Date: Mon, 14 Mar 2022 18:39:21 -0400
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:91.0)
+ Gecko/20100101 Thunderbird/91.7.0
+Subject: Re: [PATCH 12/15] swiotlb: provide swiotlb_init variants that remap
+ the buffer
+Content-Language: en-US
+To: Christoph Hellwig <hch@lst.de>, iommu@lists.linux-foundation.org
+Cc: x86@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
+ Tom Lendacky <thomas.lendacky@amd.com>,
+ Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>,
+ Stefano Stabellini <sstabellini@kernel.org>, Juergen Gross
+ <jgross@suse.com>, Joerg Roedel <joro@8bytes.org>,
+ David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>,
+ Robin Murphy <robin.murphy@arm.com>,
+ linux-arm-kernel@lists.infradead.org, xen-devel@lists.xenproject.org,
+ linux-ia64@vger.kernel.org, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-hyperv@vger.kernel.org,
+ tboot-devel@lists.sourceforge.net, linux-pci@vger.kernel.org
+References: <20220314073129.1862284-1-hch@lst.de>
+ <20220314073129.1862284-13-hch@lst.de>
+From: Boris Ostrovsky <boris.ostrovsky@oracle.com>
+In-Reply-To: <20220314073129.1862284-13-hch@lst.de>
+X-ClientProxiedBy: BYAPR05CA0010.namprd05.prod.outlook.com
+ (2603:10b6:a03:c0::23) To CH0PR10MB5020.namprd10.prod.outlook.com
+ (2603:10b6:610:c0::22)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 10731717-0988-4e71-1982-08da060b8564
+X-MS-TrafficTypeDiagnostic: CH0PR10MB5115:EE_
+X-Microsoft-Antispam-PRVS: <CH0PR10MB51153240CDB5265CD0BA78358A0F9@CH0PR10MB5115.namprd10.prod.outlook.com>
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: J3bgRFBLV/4FRgN5UplzfxvwakHV2UmmO8g0f87nGPRZfXHD4NSaijqc7RoHFmRaqtX49TpKjWOpbouoB2SGc+RrfYZzX8bQWvabweaYhGYYB9PpA5Pbz0M8t0DiMqr/zNY3Zq34XRrmqONoaEMoX76Ng8hYOPxd6/CJFTQU8PKXF4AGEjsJ5oZzJxQ+eucZ1464gVpUNWczWBsX/r+O1IcRejrf/58Dmb8tAA65sJfEyi9bFvpbZVQNjVjt8gV4TTChzDSAcKRSb2k9MgrY+Tney28oF4YtrVPVJRUwMOHusls5WPYum2IWzNXr7wtWpJU+2JTsceAHTmomPKvtbk5VXKZe/62ggyDoOFgqW7Lorki3EtKfSz4iJl+8NZHsNP4W/vWshmi2mqPiSrV9qWejkBLcQtwBxOlqPoTnslyFTVGExp1f2j673XerQl49ljAFhHModZOzcQG92ZT4GyMf0tMFs1hqfqAx0pQ3/u8EFhZeEKMOpFHRZjNFH9vR5y1H2tSbhe/zYdye5GVy6lj6DmrhfUqZeZe7LB55GYwvwvtjc/4Fj1pey6OHDiUkQErKbU3LUXPY4JGOi4yRkz9gzNICM6g9z3/kGGVo0EAAiWVzesHtWSXDCYbTQPA6Wi9lPJ3x8ODVBGiqsY8ipJg1zBDO1XdyC474qq0xUx6JdkqG+VuYGaGgOoIKB3xIrehaUE5U3+qi6YckknYJKO1NFl/hSBP1wiO8DfDloBW4M0AmVhrpkkx4GoEHA8rp
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:CH0PR10MB5020.namprd10.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(13230001)(366004)(54906003)(38100700002)(316002)(66946007)(31686004)(66476007)(66556008)(8676002)(36756003)(4326008)(31696002)(5660300002)(83380400001)(6666004)(8936002)(44832011)(6486002)(86362001)(6512007)(6506007)(2616005)(53546011)(186003)(26005)(2906002)(508600001)(7416002)(43740500002)(45980500001);
+ DIR:OUT; SFP:1101; 
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WU1oQzdxaGo2Snp3b0RmZ3h3d3BzSk9GSlQ1SHNDSUZ3ellic0Exb2xZWkNP?=
+ =?utf-8?B?YWQrMzJHT01ZWGt1WmRJdTA1L2ZtQldybjJ1NDFCTjJVOFZrcGNCTlNrVWxM?=
+ =?utf-8?B?ampXdmNsdVlldWxaUUR3WDlkZ0FlQ0hXemdyaEx3Si9IR0NKZU9FaFlKbnll?=
+ =?utf-8?B?dHRIZFJ4ZXNFNUpXUVk1b2pVMTUybHhwSW5PVHhEMnV5cUs5UmRoeVFFcENx?=
+ =?utf-8?B?VGNydmcycXAyQ0w4L2lmQkdYSDNGSzZIdE11OW5saU5TOE1OYllOcHJLOVBq?=
+ =?utf-8?B?MkhuNk1ZOHBMcjdtQmt3YTY1eWQvSWh3Sm1vZG8vSzB0SjZzOXBVUjgrakpB?=
+ =?utf-8?B?T0E3MGdQek55T21kUllyOWdDWS8veTJrRTdMNDdtaGRSN0FDbVVRNHdSRnhC?=
+ =?utf-8?B?eTJCVmtoYTlmVDgzY0tOajhEK29lTENlUkxwY2xFTkJ6eDRFdmJBYUROMURC?=
+ =?utf-8?B?OXFKVmhWWXp4QmtsdGY3UlU0ZldhNG1VVVZXZmwvUSthK0VlNlpoWERiUGJL?=
+ =?utf-8?B?VjlRSjY2MDNnbVh5STN5U2FXUmVRQXBYVTlYcUtHb0xJclZrOE43d2pFNmFR?=
+ =?utf-8?B?cHQ0bjhoeitCbk5EVXU3bk9EeGlQQ3JLdSswSFl0dWZPblRxaHcwbmo2UWJ3?=
+ =?utf-8?B?b1psYm94enlpK3orUWFFb2FFUXBocUw1S2sweURFKzMxU0YyWmZaMUdscVZ4?=
+ =?utf-8?B?NU1zTWVnSWdTRE9vdXArUnZCa2Y3Q1VkZzVGc1hYT2R0VU9ySnVGRFhFUmdF?=
+ =?utf-8?B?NUNidzRoa0h0WStVYTlHVWcyRE1HR3NhSWVsZTArcjJVYXV1dzRkcWVkRXhQ?=
+ =?utf-8?B?Z01KSytUUWJ1Ykh4V052dWYyMmo0NStqdURRbWNpSEZOV001aG1Jb3JMNHk0?=
+ =?utf-8?B?Q2FLZmJzV3pDVnVZMHdWaFg3TUs4RDZUR3N1b1BhRVRWMTVHdEY3NjFoREc0?=
+ =?utf-8?B?RFhzS2RsdCtLWFVSUWdCdHZUdmNkU1Q0NTFudk15RndtdG8ybkNFNUVjVUxU?=
+ =?utf-8?B?MEJoaTNtSCs3N1dZQmRjZzB3R0xsL2MySWM0QXBkZTgwYWRoSy9nc2JvQnFE?=
+ =?utf-8?B?MG5NMjEyeGhkWWRCMmNja2dST0svQlFQMHdhWlRQMk9Fd2Q3WUltdnR6SFRq?=
+ =?utf-8?B?WkF0Z2N6R2JUMk5GUVlYTkZRYTZTUFk1UlppdUpvRGZIVk5MRENla0pmck9E?=
+ =?utf-8?B?b3pGRllCcjZWVHZIMjd6NUJZWElJM0hQUDNBTVZ3cndOTzU5aTcvS1BMRFpn?=
+ =?utf-8?B?YVFadk5NTUh5emE3Rkt1UGVVQ05OU1g4RzBXbUptTWVpN28zZmpmN2VXYlpw?=
+ =?utf-8?B?akN0R3NKRDlpdHpMZmQzSmhDd2xGTVVqbDZyakxVV0w3V1oyU0VqSDIzVjZB?=
+ =?utf-8?B?dXRQUE5WMWpqTkpGcjdiWC9La0x1bTF2SU16SXl2R2U5ZkpVTHRVYlFHY1Fy?=
+ =?utf-8?B?QnB2a084VWdmRjQxcXZXbnlHMHA0dGpXOTRlQUM3SkZkajRSdVpWRUJqSEIr?=
+ =?utf-8?B?VjFpUlZyN3Bkbzl3dUpLNklNdDR3a0ZhQW5RR3ZBSGUxazF4YlVLL01FdFlB?=
+ =?utf-8?B?ZzhDdnhvaDF1SnlPMjNMODlBdjR1bXNJN0ZLMm45bk9Oc2tkRENYRGtNWG1P?=
+ =?utf-8?B?S1R0ZUpCQTVXamVmSEdrMk1WQS9vUVZmdDhKUm5jUmZiVEhpL0NRZ0V6SDVV?=
+ =?utf-8?B?Um9NQ3N6VXdvT25Rb0tralQvT3ZQdjFKM1l4bkVzTGNoS3RHVm1ibEVXbHdV?=
+ =?utf-8?B?cm5Nb1BXTHlsZmo5Ykk1c0dpUVhob2FrVWZoYVpnV3RkSnpyQzhGNmFTbjNG?=
+ =?utf-8?B?NGZXeXVlWVJibzBVaXQ3c25zek9xbmR6VjVxQVBIOUdkWFpxeWNFa0UwUk5w?=
+ =?utf-8?B?b3VoSWdJZjBhRy9yZnA1SEVsRFZSOWVTZExiUHp0R3dEYW5CVG5TTVNLbTlu?=
+ =?utf-8?B?emZVekYrVnM5aXNQUTQxWXRxK2I1dldVcmFDZFhVTm5VREFVbVFPQ1VWMHVp?=
+ =?utf-8?B?RkUzbGMyVzBRPT0=?=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 10731717-0988-4e71-1982-08da060b8564
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR10MB5020.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Mar 2022 22:39:38.0870 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: WvgZpS9smdVuPGmXNwQvWZfoQLLUQM2dYH7gq67QBBhZq4r3Lxl10xnErMBwsSzsIwoKaDtLJgBNkQpT6hIV5pwkkHyVpny1eCaQiJ8Nblk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR10MB5115
+X-Proofpoint-Virus-Version: vendor=nai engine=6300 definitions=10286
+ signatures=693139
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0
+ phishscore=0
+ malwarescore=0 mlxscore=0 suspectscore=0 spamscore=0 bulkscore=0
+ mlxlogscore=999 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2202240000 definitions=main-2203140128
+X-Proofpoint-GUID: M_Ojeg5hmnV_qlJcsebHEPBLHVZta-Ao
+X-Proofpoint-ORIG-GUID: M_Ojeg5hmnV_qlJcsebHEPBLHVZta-Ao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220314_133919_015399_A9AFF136 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20220314_154006_459736_7CBBF28E 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,135 +181,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, the /proc/cpuinfo outputs the entire riscv,isa string which
-is not ideal when we have multiple ISA extensions present in the ISA
-string. Some of them may not be enabled in kernel as well.
-Same goes for the single letter extensions as well which prints the
-entire ISA string. Some of they may not be valid ISA extensions as
-well (e.g 'su')
 
-Parse only the valid & enabled ISA extension and print them.
+On 3/14/22 3:31 AM, Christoph Hellwig wrote:
+> -void __init swiotlb_init(bool addressing_limit, unsigned int flags)
+> +void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
+> +		int (*remap)(void *tlb, unsigned long nslabs))
+>   {
+> -	size_t bytes = PAGE_ALIGN(default_nslabs << IO_TLB_SHIFT);
+> +	unsigned long nslabs = default_nslabs;
+> +	size_t bytes;
+>   	void *tlb;
+>   
+>   	if (!addressing_limit && !swiotlb_force_bounce)
+> @@ -271,12 +273,24 @@ void __init swiotlb_init(bool addressing_limit, unsigned int flags)
+>   	 * allow to pick a location everywhere for hypervisors with guest
+>   	 * memory encryption.
+>   	 */
+> +retry:
+> +	bytes = PAGE_ALIGN(default_nslabs << IO_TLB_SHIFT);
+>   	if (flags & SWIOTLB_ANY)
+>   		tlb = memblock_alloc(bytes, PAGE_SIZE);
+>   	else
+>   		tlb = memblock_alloc_low(bytes, PAGE_SIZE);
+>   	if (!tlb)
+>   		goto fail;
+> +	if (remap && remap(tlb, nslabs) < 0) {
+> +		memblock_free(tlb, PAGE_ALIGN(bytes));
+> +
+> +		/* Min is 2MB */
+> +		if (nslabs <= 1024)
 
-Tested-by: Heiko Stuebner <heiko@sntech.de>
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- arch/riscv/include/asm/hwcap.h |  7 ++++
- arch/riscv/kernel/cpu.c        | 65 ++++++++++++++++++++++++++++++++--
- 2 files changed, 70 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index 170bd80da520..691fc9c8099b 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -54,6 +54,13 @@ enum riscv_isa_ext_id {
- 	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
- };
- 
-+struct riscv_isa_ext_data {
-+	/* Name of the extension displayed to userspace via /proc/cpuinfo */
-+	char uprop[RISCV_ISA_EXT_NAME_LEN_MAX];
-+	/* The logical ISA extension ID */
-+	unsigned int isa_ext_id;
-+};
-+
- unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap);
- 
- #define riscv_isa_extension_mask(ext) BIT_MASK(RISCV_ISA_EXT_##ext)
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index ad0a7e9f828b..fc115e307ef5 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -6,6 +6,7 @@
- #include <linux/init.h>
- #include <linux/seq_file.h>
- #include <linux/of.h>
-+#include <asm/hwcap.h>
- #include <asm/smp.h>
- #include <asm/pgtable.h>
- 
-@@ -63,12 +64,72 @@ int riscv_of_parent_hartid(struct device_node *node)
- }
- 
- #ifdef CONFIG_PROC_FS
-+#define __RISCV_ISA_EXT_DATA(UPROP, EXTID) \
-+	{							\
-+		.uprop = #UPROP,				\
-+		.isa_ext_id = EXTID,				\
-+	}
-+/**
-+ * Here are the ordering rules of extension naming defined by RISC-V
-+ * specification :
-+ * 1. All extensions should be separated from other multi-letter extensions
-+ *    from other multi-letter extensions by an underscore.
-+ * 2. The first letter following the 'Z' conventionally indicates the most
-+ *    closely related alphabetical extension category, IMAFDQLCBKJTPVH.
-+ *    If multiple 'Z' extensions are named, they should be ordered first
-+ *    by category, then alphabetically within a category.
-+ * 3. Standard supervisor-level extensions (starts with 'S') should be
-+ *    listed after standard unprivileged extensions.  If multiple
-+ *    supervisor-level extensions are listed, they should be ordered
-+ *    alphabetically.
-+ * 4. Non-standard extensions (starts with 'X') must be listed after all
-+ *    standard extensions. They must be separated from other multi-letter
-+ *    extensions by an underscore.
-+ */
-+static struct riscv_isa_ext_data isa_ext_arr[] = {
-+	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
-+};
-+
-+static void print_isa_ext(struct seq_file *f)
-+{
-+	struct riscv_isa_ext_data *edata;
-+	int i = 0, arr_sz;
-+
-+	arr_sz = ARRAY_SIZE(isa_ext_arr) - 1;
-+
-+	/* No extension support available */
-+	if (arr_sz <= 0)
-+		return;
-+
-+	for (i = 0; i <= arr_sz; i++) {
-+		edata = &isa_ext_arr[i];
-+		if (!__riscv_isa_extension_available(NULL, edata->isa_ext_id))
-+			continue;
-+		seq_printf(f, "_%s", edata->uprop);
-+	}
-+}
-+
-+/**
-+ * These are the only valid base (single letter) ISA extensions as per the spec.
-+ * It also specifies the canonical order in which it appears in the spec.
-+ * Some of the extension may just be a place holder for now (B, K, P, J).
-+ * This should be updated once corresponding extensions are ratified.
-+ */
-+static const char base_riscv_exts[13] = "imafdqcbkjpvh";
- 
- static void print_isa(struct seq_file *f, const char *isa)
- {
--	/* Print the entire ISA as it is */
-+	int i;
-+
- 	seq_puts(f, "isa\t\t: ");
--	seq_write(f, isa, strlen(isa));
-+	/* Print the rv[64/32] part */
-+	seq_write(f, isa, 4);
-+	for (i = 0; i < sizeof(base_riscv_exts); i++) {
-+		if (__riscv_isa_extension_available(NULL, base_riscv_exts[i] - 'a'))
-+			/* Print only enabled the base ISA extensions */
-+			seq_write(f, &base_riscv_exts[i], 1);
-+	}
-+	print_isa_ext(f);
- 	seq_puts(f, "\n");
- }
- 
--- 
-2.30.2
+This is IO_TLB_MIN_SLABS, isn't it? (Xen code didn't say so but that's what it meant to say I believe)
 
+
+> +			panic("%s: Failed to remap %zu bytes\n",
+> +			      __func__, bytes);
+> +		nslabs = max(1024UL, ALIGN(nslabs >> 1, IO_TLB_SEGSIZE));
+> +		goto retry;
+> +	}
+>
+> @@ -303,6 +323,7 @@ int swiotlb_init_late(size_t size, gfp_t gfp_mask)
+>   	if (swiotlb_force_disable)
+>   		return 0;
+>   
+> +retry:
+>   	order = get_order(nslabs << IO_TLB_SHIFT);
+>   	nslabs = SLABS_PER_PAGE << order;
+>   	bytes = nslabs << IO_TLB_SHIFT;
+> @@ -317,6 +338,17 @@ int swiotlb_init_late(size_t size, gfp_t gfp_mask)
+>   
+>   	if (!vstart)
+>   		return -ENOMEM;
+> +	if (remap)
+> +		rc = remap(vstart, nslabs);
+> +	if (rc) {
+> +		free_pages((unsigned long)vstart, order);
+> +
+> +		/* Min is 2MB */
+> +		if (nslabs <= 1024)
+
+
+Same here.
+
+
+-boris
+
+
+> +			return rc;
+> +		nslabs = max(1024UL, ALIGN(nslabs >> 1, IO_TLB_SEGSIZE));
+> +		goto retry;
+> +	}
+>   
+>   	if (order != get_order(bytes)) {
+>   		pr_warn("only able to allocate %ld MB\n",
 
 _______________________________________________
 linux-riscv mailing list
