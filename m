@@ -4,48 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32E14C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Mar 2022 07:41:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2F5FC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Mar 2022 08:39:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aKVVUPkGsbxkejBRXVht2MpjGqZkJ9isZQBwxVviNqA=; b=nfm3FhiToGjUYk
-	8qCAsppW516Njr3R8fddFrZlrsP9ZPtrzTVTbKXDy96VoXY8YdVS0mZvcjTK73BdM2/tIqbx3+srS
-	YDM8kZxkQ9rBcKIuiExxBuc2CdR0G/sghp4ZyuVsMIIQon4ZROicXtD7BjxfI7LyRTGM4cD7P9RLQ
-	OdQj8hIu6daCdLehVNaY0BKkdp9oPM9xuhrSYId6eXQ9/TUoVj2YXbvwG3jUme7VZ9NXbA1sADxdN
-	t7QMk3DXB7gABvRxnJ8VOXtMxoIkCtu9kOFi2vQKdsrc2qSCsdiJyQnjG+6hgBN2cdSEeM+ykYKor
-	l+fhKZ2CH4rhIrXBc27A==;
+	List-Owner; bh=gM5IbViJrNK/DlKXfz6PBdNZVsNkVxxhPwT5eYyyxUs=; b=DFSLK8hKwJ/ot/
+	9WQSd6zB/rm7nfj3z4oKjIJ+S5RWvLjjb1yvpJWln9b0y4HavMG44gbmsF9hyXxFRbMK6JzHVG9Do
+	fGzHCmpbH+msr1OYvhZbKj9TAORr6pbT61cSevMuJs5OL1tNyarQ2sZMBNQYtFtGF9UbOdW31MpkG
+	msHkUM/4eCQb8Z80pvFgDJykBzoOho0wS7Ll5u+heGaBXwq5mOFB6s1dZrcfHXqmTy4z/wiPsfu8Z
+	P6CEzBVJjefw8QOEpxEQg7sTXFtzQc2DNZ7/ZGb8luvfUiNU2Vmx2ncUlCgE6BpOy5jpsJQL3v+8p
+	BzLfQPTyROjqUFVCYHVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nTfKb-004B2c-6U; Mon, 14 Mar 2022 07:41:29 +0000
-Received: from [46.140.54.162] (helo=localhost)
- by bombadil.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nTfBi-0044wm-QZ; Mon, 14 Mar 2022 07:32:19 +0000
-From: Christoph Hellwig <hch@lst.de>
-To: iommu@lists.linux-foundation.org
-Cc: x86@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
- Tom Lendacky <thomas.lendacky@amd.com>,
- Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>,
- Stefano Stabellini <sstabellini@kernel.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- Juergen Gross <jgross@suse.com>, Joerg Roedel <joro@8bytes.org>,
- David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>,
- Robin Murphy <robin.murphy@arm.com>, linux-arm-kernel@lists.infradead.org,
- xen-devel@lists.xenproject.org, linux-ia64@vger.kernel.org,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-hyperv@vger.kernel.org, tboot-devel@lists.sourceforge.net,
- linux-pci@vger.kernel.org
-Subject: [PATCH 15/15] x86: remove cruft from <asm/dma-mapping.h>
-Date: Mon, 14 Mar 2022 08:31:29 +0100
-Message-Id: <20220314073129.1862284-16-hch@lst.de>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20220314073129.1862284-1-hch@lst.de>
-References: <20220314073129.1862284-1-hch@lst.de>
+	id 1nTgEE-004Xwy-9u; Mon, 14 Mar 2022 08:38:58 +0000
+Received: from mail-oo1-xc2b.google.com ([2607:f8b0:4864:20::c2b])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nTfyO-004RZ5-El
+ for linux-riscv@lists.infradead.org; Mon, 14 Mar 2022 08:22:42 +0000
+Received: by mail-oo1-xc2b.google.com with SMTP id
+ h16-20020a4a6f10000000b00320507b9ccfso19210435ooc.7
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Mar 2022 01:22:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=8vQvcGyy0rYgftx2Yc2XT0ACGiuR9Ihxe6RDNdNUfwc=;
+ b=PjqrIeT55pkgaDGrJFtDFNm1BV+gY0tiKCY44bf81YF9E5HmgxfigjJ1D5teDB6Zer
+ o3MR/iuP1UCvqSXGwD/OVKb0A3qO4cf2knVrLg6L1CQn5xdroz2YZc8t1Yjrs/TcF/Y7
+ WdUGa/8G7442N+Oe7LKJqZ6G2Wt/szuJugRic4rq3iqAgtAHNxvayecGVgq1VUHkALwz
+ N7BbKs8cGmMcaUgUO2qOYN95iN+pmsGql+ITow3SNsFRBwq+P4IQeYLj1naoJGWI46OA
+ D7neZ1VUDT+bmdemAvQBU9OmP1sg3iXyDsB6/2zd2Z97iP1WYkh7Te598CX9j4vnlAwz
+ bP7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=8vQvcGyy0rYgftx2Yc2XT0ACGiuR9Ihxe6RDNdNUfwc=;
+ b=ntGNbx+FNlqKooNHWUXeN/PhmWAT2mnesU5BzLlWRTFrISq2JOY8PPtzZGBudYneki
+ lHuC3mqYUpuavgo8o3px8lzFS4p6x6DlPFJ6B1et0HOh/VnAkN9IYI9P05W5KliPYP9Z
+ C57oD1dRpNQzZYzY8YTicAhzpLyld7seJFZQL4IJwj+SZFql6bKa7V9Y3LE4CTQQLcs8
+ q2uFaNnulVpfcrjqxXOhD54st4yZmyTJ5oBhOHwkOQ94e8bqZOepKx7BhUE69b0GpxrD
+ ra0DVI7Ty5Dag7XP/RkuOuI4eMNV2AsNQ2otZ7x4zQDIXuLQZHZdC1gPqlDe31drWpgl
+ d7VA==
+X-Gm-Message-State: AOAM532FaYL/R6ZKTwgHvG6sJt0ReAw9cZjp95lm+HExqryVFGuqB2cj
+ 6sLe4gmHFIkQ9fPbk/7o11r8hTLeUvTnJA22s38EIA==
+X-Google-Smtp-Source: ABdhPJz0UxEmWlSuhZ60ezH0GRVg2JGo08gwnzrMt1/E0BNBdoaDgSQ5ZC75HqIKpPbr8+cMq/2KyiB+UTmAfKi44ik=
+X-Received: by 2002:a05:6870:d254:b0:db:12b5:da3 with SMTP id
+ h20-20020a056870d25400b000db12b50da3mr1871730oac.211.1647246153379; Mon, 14
+ Mar 2022 01:22:33 -0700 (PDT)
 MIME-Version: 1.0
+References: <0000000000008ec53005da294fe9@google.com>
+In-Reply-To: <0000000000008ec53005da294fe9@google.com>
+From: Dmitry Vyukov <dvyukov@google.com>
+Date: Mon, 14 Mar 2022 09:22:22 +0100
+Message-ID: <CACT4Y+YXzBGuj4mn2fnBWw4szbb4MsAvNScbyNXi1S21MXm8ig@mail.gmail.com>
+Subject: Re: [syzbot] kernel panic: corrupted stack end in rtnl_newlink
+To: syzbot <syzbot+0600986d88e2d4d7ebb8@syzkaller.appspotmail.com>
+Cc: davem@davemloft.net, dsahern@kernel.org, kuba@kernel.org, 
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+ syzkaller-bugs@googlegroups.com, yoshfuji@linux-ipv6.org, 
+ linux-riscv <linux-riscv@lists.infradead.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20220314_012236_548917_FBCC3947 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,53 +85,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-<asm/dma-mapping.h> gets pulled in by all drivers using the DMA API.
-Remove x86 internal variables and unnecessary includes from it.
+On Mon, 14 Mar 2022 at 09:17, syzbot
+<syzbot+0600986d88e2d4d7ebb8@syzkaller.appspotmail.com> wrote:
+>
+> Hello,
+>
+> syzbot found the following issue on:
+>
+> HEAD commit:    0966d385830d riscv: Fix auipc+jalr relocation range checks
+> git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
+> console output: https://syzkaller.appspot.com/x/log.txt?x=17fe80c5700000
+> kernel config:  https://syzkaller.appspot.com/x/.config?x=6295d67591064921
+> dashboard link: https://syzkaller.appspot.com/bug?extid=0600986d88e2d4d7ebb8
+> compiler:       riscv64-linux-gnu-gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU Binutils for Debian) 2.35.2
+> userspace arch: riscv64
 
-Signed-off-by: Christoph Hellwig <hch@lst.de>
----
- arch/x86/include/asm/dma-mapping.h | 11 -----------
- arch/x86/include/asm/iommu.h       |  2 ++
- 2 files changed, 2 insertions(+), 11 deletions(-)
++linux-riscv
 
-diff --git a/arch/x86/include/asm/dma-mapping.h b/arch/x86/include/asm/dma-mapping.h
-index 256fd8115223d..1c66708e30623 100644
---- a/arch/x86/include/asm/dma-mapping.h
-+++ b/arch/x86/include/asm/dma-mapping.h
-@@ -2,17 +2,6 @@
- #ifndef _ASM_X86_DMA_MAPPING_H
- #define _ASM_X86_DMA_MAPPING_H
- 
--/*
-- * IOMMU interface. See Documentation/core-api/dma-api-howto.rst and
-- * Documentation/core-api/dma-api.rst for documentation.
-- */
--
--#include <linux/scatterlist.h>
--#include <asm/io.h>
--
--extern int iommu_merge;
--extern int panic_on_overflow;
--
- extern const struct dma_map_ops *dma_ops;
- 
- static inline const struct dma_map_ops *get_arch_dma_ops(struct bus_type *bus)
-diff --git a/arch/x86/include/asm/iommu.h b/arch/x86/include/asm/iommu.h
-index dba89ed40d38d..0bef44d30a278 100644
---- a/arch/x86/include/asm/iommu.h
-+++ b/arch/x86/include/asm/iommu.h
-@@ -8,6 +8,8 @@
- 
- extern int force_iommu, no_iommu;
- extern int iommu_detected;
-+extern int iommu_merge;
-+extern int panic_on_overflow;
- 
- #ifdef CONFIG_SWIOTLB
- extern bool x86_swiotlb_enable;
--- 
-2.30.2
+Riscv needs to increase stack size under KASAN.
+I will send a patch.
 
+> Unfortunately, I don't have any reproducer for this issue yet.
+>
+> IMPORTANT: if you fix the issue, please add the following tag to the commit:
+> Reported-by: syzbot+0600986d88e2d4d7ebb8@syzkaller.appspotmail.com
+>
+> Kernel panic - not syncing: corrupted stack end detected inside scheduler
+> CPU: 0 PID: 2049 Comm: syz-executor.0 Not tainted 5.17.0-rc1-syzkaller-00002-g0966d385830d #0
+> Hardware name: riscv-virtio,qemu (DT)
+> Call Trace:
+> [<ffffffff8000a228>] dump_backtrace+0x2e/0x3c arch/riscv/kernel/stacktrace.c:113
+> [<ffffffff831668cc>] show_stack+0x34/0x40 arch/riscv/kernel/stacktrace.c:119
+> [<ffffffff831756ba>] __dump_stack lib/dump_stack.c:88 [inline]
+> [<ffffffff831756ba>] dump_stack_lvl+0xe4/0x150 lib/dump_stack.c:106
+> [<ffffffff83175742>] dump_stack+0x1c/0x24 lib/dump_stack.c:113
+> [<ffffffff83166fa8>] panic+0x24a/0x634 kernel/panic.c:233
+> [<ffffffff831a688a>] schedule_debug kernel/sched/core.c:5541 [inline]
+> [<ffffffff831a688a>] schedule+0x0/0x14c kernel/sched/core.c:6187
+> [<ffffffff831a6b00>] preempt_schedule_common+0x4e/0xde kernel/sched/core.c:6462
+> [<ffffffff831a6bc4>] preempt_schedule+0x34/0x36 kernel/sched/core.c:6487
+> [<ffffffff831afd78>] __raw_spin_unlock_irqrestore include/linux/spinlock_api_smp.h:152 [inline]
+> [<ffffffff831afd78>] _raw_spin_unlock_irqrestore+0x8c/0x98 kernel/locking/spinlock.c:194
+> [<ffffffff80b09fdc>] __debug_check_no_obj_freed lib/debugobjects.c:1002 [inline]
+> [<ffffffff80b09fdc>] debug_check_no_obj_freed+0x14c/0x24a lib/debugobjects.c:1023
+> [<ffffffff80410994>] free_pages_prepare mm/page_alloc.c:1358 [inline]
+> [<ffffffff80410994>] free_pcp_prepare+0x24e/0x45e mm/page_alloc.c:1404
+> [<ffffffff804142fe>] free_unref_page_prepare mm/page_alloc.c:3325 [inline]
+> [<ffffffff804142fe>] free_unref_page+0x6a/0x31e mm/page_alloc.c:3404
+> [<ffffffff8041471e>] free_the_page mm/page_alloc.c:706 [inline]
+> [<ffffffff8041471e>] __free_pages+0xe2/0x112 mm/page_alloc.c:5474
+> [<ffffffff8046d728>] __free_slab+0x122/0x27c mm/slub.c:2028
+> [<ffffffff8046d8ce>] free_slab mm/slub.c:2043 [inline]
+> [<ffffffff8046d8ce>] discard_slab+0x4c/0x7a mm/slub.c:2049
+> [<ffffffff8046deec>] __unfreeze_partials+0x16a/0x18e mm/slub.c:2536
+> [<ffffffff8046e006>] put_cpu_partial+0xf6/0x162 mm/slub.c:2612
+> [<ffffffff8046d0ec>] __slab_free+0x166/0x29c mm/slub.c:3378
+> [<ffffffff8047258c>] do_slab_free mm/slub.c:3497 [inline]
+> [<ffffffff8047258c>] ___cache_free+0x17c/0x354 mm/slub.c:3516
+> [<ffffffff8047692e>] qlink_free mm/kasan/quarantine.c:157 [inline]
+> [<ffffffff8047692e>] qlist_free_all+0x7c/0x132 mm/kasan/quarantine.c:176
+> [<ffffffff80476ed4>] kasan_quarantine_reduce+0x14c/0x1c8 mm/kasan/quarantine.c:283
+> [<ffffffff804742b2>] __kasan_slab_alloc+0x5c/0x98 mm/kasan/common.c:446
+> [<ffffffff8046fa8a>] kasan_slab_alloc include/linux/kasan.h:260 [inline]
+> [<ffffffff8046fa8a>] slab_post_alloc_hook mm/slab.h:732 [inline]
+> [<ffffffff8046fa8a>] slab_alloc_node mm/slub.c:3230 [inline]
+> [<ffffffff8046fa8a>] slab_alloc mm/slub.c:3238 [inline]
+> [<ffffffff8046fa8a>] __kmalloc+0x156/0x318 mm/slub.c:4420
+> [<ffffffff82bde908>] kmalloc include/linux/slab.h:586 [inline]
+> [<ffffffff82bde908>] kzalloc include/linux/slab.h:715 [inline]
+> [<ffffffff82bde908>] fib_create_info+0xade/0x2d8e net/ipv4/fib_semantics.c:1464
+> [<ffffffff82becedc>] fib_table_insert+0x1a0/0xebe net/ipv4/fib_trie.c:1224
+> [<ffffffff82bd1222>] fib_magic+0x3f4/0x438 net/ipv4/fib_frontend.c:1087
+> [<ffffffff82bd6178>] fib_add_ifaddr+0xd2/0x2e2 net/ipv4/fib_frontend.c:1109
+> [<ffffffff82bd66ea>] fib_netdev_event+0x362/0x4b0 net/ipv4/fib_frontend.c:1466
+> [<ffffffff800aac84>] notifier_call_chain+0xb8/0x188 kernel/notifier.c:84
+> [<ffffffff800aad7e>] raw_notifier_call_chain+0x2a/0x38 kernel/notifier.c:392
+> [<ffffffff8271d086>] call_netdevice_notifiers_info+0x9e/0x10c net/core/dev.c:1919
+> [<ffffffff827422c8>] call_netdevice_notifiers_extack net/core/dev.c:1931 [inline]
+> [<ffffffff827422c8>] call_netdevice_notifiers net/core/dev.c:1945 [inline]
+> [<ffffffff827422c8>] __dev_notify_flags+0x108/0x1fa net/core/dev.c:8179
+> [<ffffffff827436f6>] dev_change_flags+0x9c/0xba net/core/dev.c:8215
+> [<ffffffff82767e16>] do_setlink+0x5d6/0x21c4 net/core/rtnetlink.c:2729
+> [<ffffffff8276a6a2>] __rtnl_newlink+0x99e/0xfa0 net/core/rtnetlink.c:3412
+> [<ffffffff8276ad04>] rtnl_newlink+0x60/0x8c net/core/rtnetlink.c:3527
+> [<ffffffff8276b46c>] rtnetlink_rcv_msg+0x338/0x9a0 net/core/rtnetlink.c:5592
+> [<ffffffff8296ded2>] netlink_rcv_skb+0xf8/0x2be net/netlink/af_netlink.c:2494
+> [<ffffffff827624f4>] rtnetlink_rcv+0x26/0x30 net/core/rtnetlink.c:5610
+> [<ffffffff8296cbcc>] netlink_unicast_kernel net/netlink/af_netlink.c:1317 [inline]
+> [<ffffffff8296cbcc>] netlink_unicast+0x40e/0x5fe net/netlink/af_netlink.c:1343
+> [<ffffffff8296d29c>] netlink_sendmsg+0x4e0/0x994 net/netlink/af_netlink.c:1919
+> [<ffffffff826d264e>] sock_sendmsg_nosec net/socket.c:705 [inline]
+> [<ffffffff826d264e>] sock_sendmsg+0xa0/0xc4 net/socket.c:725
+> [<ffffffff826d7026>] __sys_sendto+0x1f2/0x2e0 net/socket.c:2040
+> [<ffffffff826d7152>] __do_sys_sendto net/socket.c:2052 [inline]
+> [<ffffffff826d7152>] sys_sendto+0x3e/0x52 net/socket.c:2048
+> [<ffffffff80005716>] ret_from_syscall+0x0/0x2
+> SMP: stopping secondary CPUs
+> Rebooting in 86400 seconds..
+>
+>
+> ---
+> This report is generated by a bot. It may contain errors.
+> See https://goo.gl/tpsmEJ for more information about syzbot.
+> syzbot engineers can be reached at syzkaller@googlegroups.com.
+>
+> syzbot will keep track of this issue. See:
+> https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
 
 _______________________________________________
 linux-riscv mailing list
