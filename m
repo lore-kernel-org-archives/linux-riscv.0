@@ -4,26 +4,26 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27D56C433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Mar 2022 07:40:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32E14C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Mar 2022 07:41:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Kt0XmzOqPWJ4FjAYMN+i88VNZp6wzwmtxlHJhXhHPtg=; b=iL0yiLuluAuJMp
-	QHTXQunUJ7fcK/daZwmu4rg4vX5ZslhxpgMZX9KDxjNpO+s1kalgCrxgwreEV+ucb/sUSm9W9n2LF
-	Ih26Jr3o/JEpsoYJME6FYil29IXZvWoIr3cyk4HutriduCMMou614msrzrIfKCCo3WOGz1NyLFet5
-	A0iR9IaaR0W0Yo02wubL+ZMvnb04694lcWL0+JAQFkXpXVBLYvRawdasdA55eFuXiLOfAY7Z2x0Td
-	t5GBjJVuzCOQJekiYha5/rE4/bTDtMzi+zapULHilC2OGdYIM90hFkLay+ZsfaqK2GaxIlqAOfak7
-	A2+DeVbPjkjmLVfTBYQQ==;
+	List-Owner; bh=aKVVUPkGsbxkejBRXVht2MpjGqZkJ9isZQBwxVviNqA=; b=nfm3FhiToGjUYk
+	8qCAsppW516Njr3R8fddFrZlrsP9ZPtrzTVTbKXDy96VoXY8YdVS0mZvcjTK73BdM2/tIqbx3+srS
+	YDM8kZxkQ9rBcKIuiExxBuc2CdR0G/sghp4ZyuVsMIIQon4ZROicXtD7BjxfI7LyRTGM4cD7P9RLQ
+	OdQj8hIu6daCdLehVNaY0BKkdp9oPM9xuhrSYId6eXQ9/TUoVj2YXbvwG3jUme7VZ9NXbA1sADxdN
+	t7QMk3DXB7gABvRxnJ8VOXtMxoIkCtu9kOFi2vQKdsrc2qSCsdiJyQnjG+6hgBN2cdSEeM+ykYKor
+	l+fhKZ2CH4rhIrXBc27A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nTfJg-004ASX-Qi; Mon, 14 Mar 2022 07:40:32 +0000
+	id 1nTfKb-004B2c-6U; Mon, 14 Mar 2022 07:41:29 +0000
 Received: from [46.140.54.162] (helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nTfBg-0044uH-2E; Mon, 14 Mar 2022 07:32:16 +0000
+ id 1nTfBi-0044wm-QZ; Mon, 14 Mar 2022 07:32:19 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: iommu@lists.linux-foundation.org
 Cc: x86@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
@@ -39,10 +39,9 @@ Cc: x86@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
  linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
  linux-hyperv@vger.kernel.org, tboot-devel@lists.sourceforge.net,
  linux-pci@vger.kernel.org
-Subject: [PATCH 14/15] swiotlb: remove swiotlb_init_with_tbl and
- swiotlb_init_late_with_tbl
-Date: Mon, 14 Mar 2022 08:31:28 +0100
-Message-Id: <20220314073129.1862284-15-hch@lst.de>
+Subject: [PATCH 15/15] x86: remove cruft from <asm/dma-mapping.h>
+Date: Mon, 14 Mar 2022 08:31:29 +0100
+Message-Id: <20220314073129.1862284-16-hch@lst.de>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20220314073129.1862284-1-hch@lst.de>
 References: <20220314073129.1862284-1-hch@lst.de>
@@ -63,172 +62,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-No users left.
+<asm/dma-mapping.h> gets pulled in by all drivers using the DMA API.
+Remove x86 internal variables and unnecessary includes from it.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- include/linux/swiotlb.h |  2 -
- kernel/dma/swiotlb.c    | 85 +++++++++++++++--------------------------
- 2 files changed, 30 insertions(+), 57 deletions(-)
+ arch/x86/include/asm/dma-mapping.h | 11 -----------
+ arch/x86/include/asm/iommu.h       |  2 ++
+ 2 files changed, 2 insertions(+), 11 deletions(-)
 
-diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
-index 7b50c82f84ce9..7ed35dd3de6e7 100644
---- a/include/linux/swiotlb.h
-+++ b/include/linux/swiotlb.h
-@@ -34,13 +34,11 @@ struct scatterlist;
- /* default to 64MB */
- #define IO_TLB_DEFAULT_SIZE (64UL<<20)
+diff --git a/arch/x86/include/asm/dma-mapping.h b/arch/x86/include/asm/dma-mapping.h
+index 256fd8115223d..1c66708e30623 100644
+--- a/arch/x86/include/asm/dma-mapping.h
++++ b/arch/x86/include/asm/dma-mapping.h
+@@ -2,17 +2,6 @@
+ #ifndef _ASM_X86_DMA_MAPPING_H
+ #define _ASM_X86_DMA_MAPPING_H
  
--int swiotlb_init_with_tbl(char *tlb, unsigned long nslabs, unsigned int flags);
- unsigned long swiotlb_size_or_default(void);
- void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
- 	int (*remap)(void *tlb, unsigned long nslabs));
- int swiotlb_init_late(size_t size, gfp_t gfp_mask,
- 	int (*remap)(void *tlb, unsigned long nslabs));
--extern int swiotlb_late_init_with_tbl(char *tlb, unsigned long nslabs);
- extern void __init swiotlb_update_mem_attributes(void);
- 
- phys_addr_t swiotlb_tbl_map_single(struct device *hwdev, phys_addr_t phys,
-diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-index 88ea7b9bce6e9..d04bacdb0905b 100644
---- a/kernel/dma/swiotlb.c
-+++ b/kernel/dma/swiotlb.c
-@@ -225,33 +225,6 @@ static void swiotlb_init_io_tlb_mem(struct io_tlb_mem *mem, phys_addr_t start,
- 	return;
- }
- 
--int __init swiotlb_init_with_tbl(char *tlb, unsigned long nslabs,
--		unsigned int flags)
--{
--	struct io_tlb_mem *mem = &io_tlb_default_mem;
--	size_t alloc_size;
+-/*
+- * IOMMU interface. See Documentation/core-api/dma-api-howto.rst and
+- * Documentation/core-api/dma-api.rst for documentation.
+- */
 -
--	if (swiotlb_force_disable)
--		return 0;
+-#include <linux/scatterlist.h>
+-#include <asm/io.h>
 -
--	/* protect against double initialization */
--	if (WARN_ON_ONCE(mem->nslabs))
--		return -ENOMEM;
+-extern int iommu_merge;
+-extern int panic_on_overflow;
 -
--	alloc_size = PAGE_ALIGN(array_size(sizeof(*mem->slots), nslabs));
--	mem->slots = memblock_alloc(alloc_size, PAGE_SIZE);
--	if (!mem->slots)
--		panic("%s: Failed to allocate %zu bytes align=0x%lx\n",
--		      __func__, alloc_size, PAGE_SIZE);
--
--	swiotlb_init_io_tlb_mem(mem, __pa(tlb), nslabs, false);
--	mem->force_bounce = flags & SWIOTLB_FORCE;
--
--	if (flags & SWIOTLB_VERBOSE)
--		swiotlb_print_info();
--	return 0;
--}
--
- /*
-  * Statically reserve bounce buffer space and initialize bounce buffer data
-  * structures for the software IO TLB used to implement the DMA API.
-@@ -259,7 +232,9 @@ int __init swiotlb_init_with_tbl(char *tlb, unsigned long nslabs,
- void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
- 		int (*remap)(void *tlb, unsigned long nslabs))
- {
-+	struct io_tlb_mem *mem = &io_tlb_default_mem;
- 	unsigned long nslabs = default_nslabs;
-+	size_t alloc_size = PAGE_ALIGN(array_size(sizeof(*mem->slots), nslabs));
- 	size_t bytes;
- 	void *tlb;
+ extern const struct dma_map_ops *dma_ops;
  
-@@ -280,7 +255,8 @@ void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
- 	else
- 		tlb = memblock_alloc_low(bytes, PAGE_SIZE);
- 	if (!tlb)
--		goto fail;
-+		panic("%s: failed to allocate tlb structure\n", __func__);
-+
- 	if (remap && remap(tlb, nslabs) < 0) {
- 		memblock_free(tlb, PAGE_ALIGN(bytes));
+ static inline const struct dma_map_ops *get_arch_dma_ops(struct bus_type *bus)
+diff --git a/arch/x86/include/asm/iommu.h b/arch/x86/include/asm/iommu.h
+index dba89ed40d38d..0bef44d30a278 100644
+--- a/arch/x86/include/asm/iommu.h
++++ b/arch/x86/include/asm/iommu.h
+@@ -8,6 +8,8 @@
  
-@@ -291,14 +267,17 @@ void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
- 		nslabs = max(1024UL, ALIGN(nslabs >> 1, IO_TLB_SEGSIZE));
- 		goto retry;
- 	}
--	if (swiotlb_init_with_tbl(tlb, default_nslabs, flags))
--		goto fail_free_mem;
--	return;
+ extern int force_iommu, no_iommu;
+ extern int iommu_detected;
++extern int iommu_merge;
++extern int panic_on_overflow;
  
--fail_free_mem:
--	memblock_free(tlb, bytes);
--fail:
--	pr_warn("Cannot allocate buffer");
-+	mem->slots = memblock_alloc(alloc_size, PAGE_SIZE);
-+	if (!mem->slots)
-+		panic("%s: Failed to allocate %zu bytes align=0x%lx\n",
-+		      __func__, alloc_size, PAGE_SIZE);
-+
-+	swiotlb_init_io_tlb_mem(mem, __pa(tlb), default_nslabs, false);
-+	mem->force_bounce = flags & SWIOTLB_FORCE;
-+
-+	if (flags & SWIOTLB_VERBOSE)
-+		swiotlb_print_info();
- }
- 
- void __init swiotlb_init(bool addressing_limit, unsigned int flags)
-@@ -314,6 +293,7 @@ void __init swiotlb_init(bool addressing_limit, unsigned int flags)
- int swiotlb_init_late(size_t size, gfp_t gfp_mask,
- 		int (*remap)(void *tlb, unsigned long nslabs))
- {
-+	struct io_tlb_mem *mem = &io_tlb_default_mem;
- 	unsigned long nslabs = ALIGN(size >> IO_TLB_SHIFT, IO_TLB_SEGSIZE);
- 	unsigned long bytes;
- 	unsigned char *vstart = NULL;
-@@ -355,33 +335,28 @@ int swiotlb_init_late(size_t size, gfp_t gfp_mask,
- 			(PAGE_SIZE << order) >> 20);
- 		nslabs = SLABS_PER_PAGE << order;
- 	}
--	rc = swiotlb_late_init_with_tbl(vstart, nslabs);
--	if (rc)
--		free_pages((unsigned long)vstart, order);
--
--	return rc;
--}
--
--int
--swiotlb_late_init_with_tbl(char *tlb, unsigned long nslabs)
--{
--	struct io_tlb_mem *mem = &io_tlb_default_mem;
--	unsigned long bytes = nslabs << IO_TLB_SHIFT;
- 
--	if (swiotlb_force_disable)
--		return 0;
-+	if (remap)
-+		rc = remap(vstart, nslabs);
-+	if (rc) {
-+		free_pages((unsigned long)vstart, order);
- 
--	/* protect against double initialization */
--	if (WARN_ON_ONCE(mem->nslabs))
--		return -ENOMEM;
-+		/* Min is 2MB */
-+		if (nslabs <= 1024)
-+			return rc;
-+		nslabs = max(1024UL, ALIGN(nslabs >> 1, IO_TLB_SEGSIZE));
-+		goto retry;
-+	}
- 
- 	mem->slots = (void *)__get_free_pages(GFP_KERNEL | __GFP_ZERO,
- 		get_order(array_size(sizeof(*mem->slots), nslabs)));
--	if (!mem->slots)
-+	if (!mem->slots) {
-+		free_pages((unsigned long)vstart, order);
- 		return -ENOMEM;
-+	}
- 
--	set_memory_decrypted((unsigned long)tlb, bytes >> PAGE_SHIFT);
--	swiotlb_init_io_tlb_mem(mem, virt_to_phys(tlb), nslabs, true);
-+	set_memory_decrypted((unsigned long)vstart, bytes >> PAGE_SHIFT);
-+	swiotlb_init_io_tlb_mem(mem, virt_to_phys(vstart), nslabs, true);
- 
- 	swiotlb_print_info();
- 	return 0;
+ #ifdef CONFIG_SWIOTLB
+ extern bool x86_swiotlb_enable;
 -- 
 2.30.2
 
