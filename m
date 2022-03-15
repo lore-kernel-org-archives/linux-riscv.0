@@ -4,58 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83060C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Mar 2022 17:19:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA4BC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Mar 2022 21:22:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FA7zSrWEf26s/RT4I8l/Df6J/zfRiX2mKGhBfkoMueU=; b=MITWXoVvOPdIY6
-	yOdq3bEvQcGhwlscOmKd6d0wIbk64OTkQw2qGUggUiAeNwWxYtJ0bx1tCkVmblAfiA9CwPzcfLDkl
-	cUyrzaT5kI4a5qTE9g0qSCYyYTF4GQ2yDXAYN8Z/pEUYsKP5w21h8lI9EX3j6hqONSr/ykJQ3Rcdu
-	3nZMIZgToFAdMFrUy0o5gQtKMDlV2J5hxWiOVHW4DAGJEeamjobndEVCuFk2I8LDQGy+cC/UFfz3v
-	AH3coyF0bQZoSUsLwnIzd/o0vizBIdPdKfiEevBVYg4w092G24NC79oY8XFol1665UcQI8VoOD1Ax
-	2ldByBFHe1wXODOE3n+A==;
+	List-Owner; bh=LxdyLJAs9feykyaKS+TyO5AudEw3qF+bVT50RYBt8C8=; b=q0sVnRPLL6UGxW
+	UXbmm+djfAO1s59iGTFjsI+8iu7PPdeTv8NazfB/K/Mz9K1+9WeBFtel9XLch+k5i9DinuIPY7GHd
+	HmxRB1aln56pSdqtCmtaUz6CjtTlj19oEIWl1sEJgHImzXwnte+zXAsKp6NPe8rL8ebRy0TH/WKEn
+	ceiL48Mv8bxoItqnD6m7lzX4W2DlY2NpVpwARZYlOCUkS8gHNuporapZ2fKEZC94NKhV+VA+OvJfV
+	DSlvcVfEWKYejwZbBjJunupc+4nH29COMcRuwyE+MXd5VLFpeyxs7cQgzBaMNddU2hHVG45w0M8AN
+	kzljOXbhY4PE2ez7ZTww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nUApd-00A32C-4c; Tue, 15 Mar 2022 17:19:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nUApQ-00A2yq-PF; Tue, 15 Mar 2022 17:19:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B8D01474;
- Tue, 15 Mar 2022 10:19:21 -0700 (PDT)
-Received: from [192.168.178.6] (unknown [172.31.20.19])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9E2273F73D;
- Tue, 15 Mar 2022 10:19:17 -0700 (PDT)
-Message-ID: <68df2f49-9b74-7ea2-0178-be55824b3c89@arm.com>
-Date: Tue, 15 Mar 2022 18:18:59 +0100
+	id 1nUEcE-00AeX1-BF; Tue, 15 Mar 2022 21:22:02 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nUEc1-00AeMh-Hc
+ for linux-riscv@lists.infradead.org; Tue, 15 Mar 2022 21:21:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1647379306;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=NXuCGWU9zewjDGKsl7YtKtE7zLqAQ3xKq0SzE1COLFI=;
+ b=hhB9nHxLQEwtWL62R+4m6jiOygR4V0/IZUWg88fHyxe+0wCqhT1C1rrpNAHlNd6S9QoLMN
+ jI4Lq5jlEF0uBB2iXFgTa74uD1XnC4yB7PbRWiUiG9SogA2TGL5xrBMmUk5z1l7a+B735z
+ W7EO4Etv5T3Vu4Xxkm+Yd1PDng04GWI=
+Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com
+ [209.85.208.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-353-NpIaI3KvNq-xnyZZpKpMnQ-1; Tue, 15 Mar 2022 17:21:43 -0400
+X-MC-Unique: NpIaI3KvNq-xnyZZpKpMnQ-1
+Received: by mail-ed1-f69.google.com with SMTP id
+ b24-20020a50e798000000b0041631767675so159741edn.23
+ for <linux-riscv@lists.infradead.org>; Tue, 15 Mar 2022 14:21:43 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+ :content-language:to:cc:references:from:in-reply-to
+ :content-transfer-encoding;
+ bh=NXuCGWU9zewjDGKsl7YtKtE7zLqAQ3xKq0SzE1COLFI=;
+ b=5S9BfnFBsY9Tw6upHeyvkay4MnfBQfpV/trPmRdVdmgdIQAfMKSFMuO4cUoM7ZkJF+
+ 7hCtf67sHzzoHiorqJvYurT4jLfpA7o38WV8EuJlUzY+AGAjiYFy59O190GTg8q4nBye
+ hq4vjGR4avMkQ5ZQBXDK2HWlI+63smnFjUWiDV+tNEaMCZhoy05166Wo6Gwts3sF1AVz
+ 25fRwlZcsSmK0RR5K5+8lhpt9so43o+eqHgcIBLGQjC365o6IGLvHILiB1JDyKl6VbG3
+ w4btNkV/W08Fzj1ECV7/gKrsvF8hkuJ2/LrxayaSlVjWASfYsoiWlrA/oXJMUD2kOGi6
+ 9S0w==
+X-Gm-Message-State: AOAM532hQo+fxa6sU2Uihvd0fqcDYsvp0fobMGwZPX8ZaapTbxo+N4v3
+ Hk+0H1/rt1SQSrvxxTQ3q0R2oR+bPBBcQho8Nv/DTMV87uSDwgsWkMFsWUigVgeCE7xVG8Grq7v
+ RZb+bLN0Trfqf6uo1O7s8wIgbSCLA
+X-Received: by 2002:a17:906:4fc7:b0:6da:92b2:f572 with SMTP id
+ i7-20020a1709064fc700b006da92b2f572mr24103918ejw.184.1647379301826; 
+ Tue, 15 Mar 2022 14:21:41 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJye+k2UJTgNQv/poK+0J3x/pPcB5kz1U3x1hR6oTFFyJZjNE3X2xHxa3ovb3ZV592gAJ2VXfg==
+X-Received: by 2002:a17:906:4fc7:b0:6da:92b2:f572 with SMTP id
+ i7-20020a1709064fc700b006da92b2f572mr24103902ejw.184.1647379301596; 
+ Tue, 15 Mar 2022 14:21:41 -0700 (PDT)
+Received: from ?IPV6:2001:b07:6468:f312:63a7:c72e:ea0e:6045?
+ ([2001:b07:6468:f312:63a7:c72e:ea0e:6045])
+ by smtp.googlemail.com with ESMTPSA id
+ q15-20020a1709060e4f00b006cdf4535cf2sm77812eji.67.2022.03.15.14.21.40
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Tue, 15 Mar 2022 14:21:41 -0700 (PDT)
+Message-ID: <47f64c5e-fa36-9e87-763b-4e7385713e76@redhat.com>
+Date: Tue, 15 Mar 2022 22:21:39 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.5.0
-Subject: Re: [PATCH] sched: dynamic config sd_flags if described in DT
+Subject: Re: [GIT PULL] KVM/riscv changes for 5.18
+To: Anup Patel <anup@brainfault.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, 
+ KVM General <kvm@vger.kernel.org>, kvm-riscv@lists.infradead.org,
+ linux-riscv <linux-riscv@lists.infradead.org>
+References: <CAAhSdy1cBkGqBLN7iZY-FUx2BFGoXmxd4WZJemPSRKz6my8cZQ@mail.gmail.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+In-Reply-To: <CAAhSdy1cBkGqBLN7iZY-FUx2BFGoXmxd4WZJemPSRKz6my8cZQ@mail.gmail.com>
+Authentication-Results: relay.mimecast.com;
+ auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=pbonzini@redhat.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-To: Qing Wang <wangqing@vivo.com>, Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Sudeep Holla <sudeep.holla@arm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
- Mel Gorman <mgorman@suse.de>, Daniel Bristot de Oliveira
- <bristot@redhat.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <1647331137-69890-1-git-send-email-wangqing@vivo.com>
-From: Dietmar Eggemann <dietmar.eggemann@arm.com>
-In-Reply-To: <1647331137-69890-1-git-send-email-wangqing@vivo.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220315_101924_898794_86F1E268 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20220315_142149_693223_C3B37BD2 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,58 +103,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 15/03/2022 08:58, Qing Wang wrote:
-> From: Wang Qing <wangqing@vivo.com>
+On 3/11/22 18:02, Anup Patel wrote:
+> Hi Paolo,
+> 
+> We have three KVM RISC-V changes for 5.18 which are:
+> 1) Prevent KVM_COMPAT from being selected
+> 2) Refine __kvm_riscv_switch_to() implementation
+> 3) RISC-V SBI v0.3 support
+> 
+> I don't expect any other KVM RISC-V changes for 5.18.
+> 
+> Please pull.
+> 
+> Regards,
+> Anup
+> 
+> The following changes since commit 4a204f7895878363ca8211f50ec610408c8c70aa:
+> 
+>    KVM: SVM: Allow AVIC support on system w/ physical APIC ID > 255
+> (2022-03-08 10:59:12 -0500)
+> 
+> are available in the Git repository at:
+> 
+>    https://github.com/kvm-riscv/linux.git tags/kvm-riscv-5.18-1
+> 
+> for you to fetch changes up to 763c8bed8c05ffcce8cba882e69cd6b03df07019:
+> 
+>    RISC-V: KVM: Implement SBI HSM suspend call (2022-03-11 19:02:39 +0530)
+> 
+> ----------------------------------------------------------------
+> KVM/riscv changes for 5.18
+> 
+> - Prevent KVM_COMPAT from being selected
+> - Refine __kvm_riscv_switch_to() implementation
+> - RISC-V SBI v0.3 support
 
-(1) Can you share more information about your CPU topology?
+Pulled, thanks.
 
-I guess it is a single DSU (DynamIQ Shared Unit) ARMv9 system with 8
-CPUs? So L3 spans over [CPU0..CPU7].
+Paolo
 
-You also mentioned complexes. Am I right in assuming that [CPU0..CPU3]
-are Cortex-A510 cores where each 2 CPUs share a complex?
+> 
+> ----------------------------------------------------------------
+> Anup Patel (6):
+>        RISC-V: KVM: Upgrade SBI spec version to v0.3
+>        RISC-V: KVM: Add common kvm_riscv_vcpu_sbi_system_reset() function
+>        RISC-V: KVM: Implement SBI v0.3 SRST extension
+>        RISC-V: Add SBI HSM suspend related defines
+>        RISC-V: KVM: Add common kvm_riscv_vcpu_wfi() function
+>        RISC-V: KVM: Implement SBI HSM suspend call
+> 
+> Guo Ren (1):
+>        KVM: compat: riscv: Prevent KVM_COMPAT from being selected
+> 
+> Vincent Chen (1):
+>        RISC-V: KVM: Refine __kvm_riscv_switch_to() implementation
+> 
+> Yang Li (1):
+>        RISC-V: KVM: remove unneeded semicolon
+> 
+>   arch/riscv/include/asm/kvm_host.h     |  1 +
+>   arch/riscv/include/asm/kvm_vcpu_sbi.h |  5 ++-
+>   arch/riscv/include/asm/sbi.h          | 27 +++++++++++++---
+>   arch/riscv/kernel/cpu_ops_sbi.c       |  2 +-
+>   arch/riscv/kvm/vcpu_exit.c            | 22 +++++++++----
+>   arch/riscv/kvm/vcpu_sbi.c             | 19 +++++++++++
+>   arch/riscv/kvm/vcpu_sbi_hsm.c         | 18 +++++++++--
+>   arch/riscv/kvm/vcpu_sbi_replace.c     | 44 +++++++++++++++++++++++++
+>   arch/riscv/kvm/vcpu_sbi_v01.c         | 20 ++----------
+>   arch/riscv/kvm/vcpu_switch.S          | 60 ++++++++++++++++++++---------------
+>   virt/kvm/Kconfig                      |  2 +-
+>   11 files changed, 161 insertions(+), 59 deletions(-)
+> 
 
-What kind of uarch are the CPUs in [CPU4..CPU7]? Are they Cortex-A510's
-as well? I'm not sure after reading your email:
-
-https://lkml.kernel.org/r/SL2PR06MB30828CF9FF2879AFC9DC53D2BD0C9@SL2PR06MB3082.apcprd06.prod.outlook.com
-
-You might run into the issue that individual CPUs of your system see a
-different SD hierarchy in case that [CPU4..CPU7] aren't Cortex-A510's,
-i.e. CPUs not sharing complexes.
-
-(2) Related to your MC Sched Domain (SD) layer:
-
-If you have a single DSU ARMv9 system, then in Linux kernel mainline you
-shouldn't have sub-clustering of [CPU0..CPU3] and [CPU4...CPU7].
-
-I.e. the cpu-map entry in your dts file should only list cores, not
-clusters.
-
-I know that in Android the cluster entries are used to sub-group
-different uarch CPUs in an asymmetric CPU capacity system (a.k.a. Arm
-DynamIQ and Phantom domains) but this is eclipsing the true L3 (LLC)
-information and is not "supported" (in the sense of "used") in mainline.
-
-But I have a hard time to see what [CPU0..CPU3] or [CPU4..CPU7] are
-shareing in your system.
-
-(3) Why do you want this different SD hierarchy?
-
-I assume in mainline your system will have a single SD which is MC (w/o
-the Phantom domain approach from Android).
-
-You mentioned cpus_share_cache(). Or is it the extra SD level which
-changes the behaviour of CFS load-balancing? I'm just wondering since
-EAS wouldn't be affected here. I'm sure I can understand this better
-once we know more about your CPU topology.
-
-[...]
 
 _______________________________________________
 linux-riscv mailing list
