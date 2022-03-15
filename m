@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12BC6C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Mar 2022 11:52:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20870C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Mar 2022 13:28:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9JXLD3wBVDr9SQcdIttn6rplou/HSwCrudxBIxheCBI=; b=nBh9pNgE3F3hsP
-	/uUuDlWkHE3hWiQuKxDgOX0qyJ0V+CuIJUQRdmnp7g4Je4FtPHm7EkLmWdswy6shSyv6rPD9fDrxS
-	ZkU1P45xRGr0SHcbOooapZFL479vIHixb4ogefLs4rpTWacaAoWas4aExRi24HN6LxmNyGNr1R9RV
-	CmlrrhpBJja6aj8ppXsuasLlN1UcPAZnZFpuyP3kinOGH69hQpssQ2effBc7bnFoO8bnR//bhR/Sh
-	aZPWu9+ySJy2PGZw1VNfYNRE5efWoINLKaBKLVbS5bUWsnarJyjj581lVClf4v5x3kueAVOyVZ850
-	l7wWkwUm8R7ybG7a3Hsw==;
+	List-Owner; bh=413uYm7TzHkjtWkpXwts0EJo58gxlZIYw+wjfSC5qU0=; b=S0zq1pXcjhws8e
+	XiFByoOKHun5ggYSDPKcBK4iDQObxM8iOuVGha1QeIwKIw/BVt4AVTEOZp8Z1cIsB+PPsKlSFtf7r
+	2tHhJZRTutgXuD/HNdL9rd1dYSQOURzJuDTUGU4HPGDUZU/R9oHVpFboM9UXzi7N6OWsGn8QSnliH
+	e7/ERzNDKi+k1AV5V7nbmz7tIqr27EOFSwlCFeNDSaFRSuAfKNkcSG0wxOMewWkUHnQ14UctYv5WL
+	UPTbHuPmm35SUD8p4po1UtWTVNdvvnh2rjhr8NjlqP7MHJ1G2tAJ3K0QQQsTuA63/4n0TJGPUuKwu
+	PTt6wKYp2rTLryXIkExg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nU5jM-008vnf-5r; Tue, 15 Mar 2022 11:52:48 +0000
-Received: from mga14.intel.com ([192.55.52.115])
+	id 1nU7DW-009C5f-0r; Tue, 15 Mar 2022 13:28:02 +0000
+Received: from mga12.intel.com ([192.55.52.136])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nU5j8-008vj0-DM; Tue, 15 Mar 2022 11:52:36 +0000
+ id 1nU7BZ-009BHh-GF; Tue, 15 Mar 2022 13:26:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1647345154; x=1678881154;
+ t=1647350761; x=1678886761;
  h=date:from:to:cc:subject:message-id:references:
  mime-version:in-reply-to;
- bh=Cq4Pk617PcjJPsbbqjl+pk5hh/VfPh2oGmmkdgt4sWc=;
- b=hW/lBPbz03LWbd28ZLr1wphAD6cwNMkBSQ+F0qKdOTKs7vdu8gA7FkYj
- XqOKR3Qa4TkAESRge4oFo2E+NqKmuGol/tS6osotnwnV8U5xIO3+0si03
- dxPh3G7dl4jc5WBBF0yPDmPfI94X62llilgO5bCFRNIn67n7MsY2phVjD
- LpZ84YizzM9h+zoZcTuqFFfk0MmMBOwn1PUL6rafArfso8Kg1gp7SpdCL
- w0qZOaeYA0wsNxkuM9nNuCJ3FIrcoauVv/8+ck+QHJz3sJRyYMIXAC/x7
- RA5M96edPlahyf0zvYEtSQE4yfJbDywvsB6qudZvkxwo7VTweFaydSr2M A==;
-X-IronPort-AV: E=McAfee;i="6200,9189,10286"; a="256468401"
-X-IronPort-AV: E=Sophos;i="5.90,183,1643702400"; d="scan'208";a="256468401"
-Received: from fmsmga005.fm.intel.com ([10.253.24.32])
- by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 15 Mar 2022 04:52:33 -0700
+ bh=DUJkbhEMYFfC7vCg5ediYDdzNR4Ys1q6v/5bpfUlhlo=;
+ b=ldyBJymT44HD7cLPTGQ9hqxOHQiMRGL8YbRGSM86J6PvxiSyG3YRp1OS
+ PqkFgqFWrTjoFmCIthoDg7hMMzf3nOxNVPWc0cTeamf5YZyo3tz4ATKdc
+ oEd81U4hLPZqBkCD7w1vE93Gmj52kavcY6HFppQH1lf4cMCGWWwOdWF4+
+ JtR4xe/T5PY7lBxDU01i8DLphp01Gq7IIDuP3H2td2mAnkjmOOEoWi8rB
+ 0ZK8w/Bv85FRww3+EsqgYbqCtxXZv5ZBU969iQQO3EP+47kCdZQEiBT+3
+ VFw3GcZlyJ8GmDBKzcCvAE1ddz0CI9+K/zc34uug+mLGe+fFic+0BX4IZ A==;
+X-IronPort-AV: E=McAfee;i="6200,9189,10286"; a="236243914"
+X-IronPort-AV: E=Sophos;i="5.90,183,1643702400"; d="scan'208";a="236243914"
+Received: from orsmga006.jf.intel.com ([10.7.209.51])
+ by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 15 Mar 2022 06:26:00 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.90,183,1643702400"; d="scan'208";a="819749449"
+X-IronPort-AV: E=Sophos;i="5.90,183,1643702400"; d="scan'208";a="515864016"
 Received: from lkp-server02.sh.intel.com (HELO 89b41b6ae01c) ([10.239.97.151])
- by fmsmga005.fm.intel.com with ESMTP; 15 Mar 2022 04:52:29 -0700
+ by orsmga006.jf.intel.com with ESMTP; 15 Mar 2022 06:25:54 -0700
 Received: from kbuild by 89b41b6ae01c with local (Exim 4.92)
  (envelope-from <lkp@intel.com>)
- id 1nU5j2-000AuR-QF; Tue, 15 Mar 2022 11:52:28 +0000
-Date: Tue, 15 Mar 2022 19:52:09 +0800
+ id 1nU7BS-000B1u-5i; Tue, 15 Mar 2022 13:25:54 +0000
+Date: Tue, 15 Mar 2022 21:24:52 +0800
 From: kernel test robot <lkp@intel.com>
 To: Qing Wang <wangqing@vivo.com>, Russell King <linux@armlinux.org.uk>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
@@ -65,17 +65,18 @@ To: Qing Wang <wangqing@vivo.com>, Russell King <linux@armlinux.org.uk>,
  Daniel Bristot de Oliveira <bristot@redhat.com>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org
-Cc: kbuild-all@lists.01.org, Wang Qing <wangqing@vivo.com>
+Cc: llvm@lists.linux.dev, kbuild-all@lists.01.org,
+ Wang Qing <wangqing@vivo.com>
 Subject: Re: [PATCH] sched: dynamic config sd_flags if described in DT
-Message-ID: <202203151939.NI7Rsold-lkp@intel.com>
+Message-ID: <202203152145.vPr4Qv42-lkp@intel.com>
 References: <1647331137-69890-1-git-send-email-wangqing@vivo.com>
 MIME-Version: 1.0
 Content-Disposition: inline
 In-Reply-To: <1647331137-69890-1-git-send-email-wangqing@vivo.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220315_045234_501518_D3BEDBE1 
-X-CRM114-Status: GOOD (  18.86  )
+X-CRM114-CacheID: sfid-20220315_062601_621710_495A9C67 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,29 +105,33 @@ https://git-scm.com/docs/git-format-patch]
 
 url:    https://github.com/0day-ci/linux/commits/Qing-Wang/sched-dynamic-config-sd_flags-if-described-in-DT/20220315-160039
 base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
-config: riscv-nommu_k210_sdcard_defconfig (https://download.01.org/0day-ci/archive/20220315/202203151939.NI7Rsold-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 11.2.0
+config: riscv-randconfig-r025-20220314 (https://download.01.org/0day-ci/archive/20220315/202203152145.vPr4Qv42-lkp@intel.com/config)
+compiler: clang version 15.0.0 (https://github.com/llvm/llvm-project a6b2f50fb47da3baeee10b1906da6e30ac5d26ec)
 reproduce (this is a W=1 build):
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
+        # install riscv cross compiling tool for clang build
+        # apt-get install binutils-riscv64-linux-gnu
         # https://github.com/0day-ci/linux/commit/3322560249c42b0a3e719b19842a3ace7d5ffb6a
         git remote add linux-review https://github.com/0day-ci/linux
         git fetch --no-tags linux-review Qing-Wang/sched-dynamic-config-sd_flags-if-described-in-DT/20220315-160039
         git checkout 3322560249c42b0a3e719b19842a3ace7d5ffb6a
         # save the config file to linux build tree
         mkdir build_dir
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-11.2.0 make.cross O=build_dir ARCH=riscv SHELL=/bin/bash drivers/base/
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 O=build_dir ARCH=riscv SHELL=/bin/bash drivers/base/
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
-   drivers/base/arch_topology.c: In function 'cpus_share_self_cache':
->> drivers/base/arch_topology.c:648:37: error: 'cpu' undeclared (first use in this function)
-     648 |                 if (!cache_topology[cpu][cache_level])
-         |                                     ^~~
-   drivers/base/arch_topology.c:648:37: note: each undeclared identifier is reported only once for each function it appears in
+>> drivers/base/arch_topology.c:648:23: error: use of undeclared identifier 'cpu'
+                   if (!cache_topology[cpu][cache_level])
+                                       ^
+   drivers/base/arch_topology.c:654:23: error: use of undeclared identifier 'cpu'
+                           if (cache_topology[cpu][cache_level] == cache_topology[cpu_id][cache_level]) {
+                                              ^
+   2 errors generated.
 
 
 vim +/cpu +648 drivers/base/arch_topology.c
