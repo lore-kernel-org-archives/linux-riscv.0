@@ -4,78 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B4ACC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Mar 2022 03:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 517F1C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Mar 2022 06:36:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ow/dYUU0U1+kY2bulOfq+KOm/W/BfSuEcsna7WhQCZs=; b=dPtBoqRxmZyHeI
-	0PF/QzjN/vtHQ9BLzilrYT3j6XVj697IlDk+3OdY85s5GIkTymQfHYJPwHYVTtmrqYc5CgvChe4U2
-	F+94DREhpsdyKkUZ6lff2vlpF+rj2P+lrmF1XEeuOGOTZ5Kyaq1EifCz/rQd02x1gT+a5JgK17v6K
-	PNj0/I7u6zZ9qgjAHBrCaT6oQvV/OW0Fa/+X8gsqcSRZqGdy6C9MZBtt4CKdLp06y/CUCKB6q+xJw
-	Zx0weBeL94cptLYE8Rss25cm4MRHnxZiHoqERqDRyVOGi+Fu7SpQfn8tFlbrluuVasA/SHUNRlUnP
-	Od5aj1fuACQxWzrrwEMw==;
+	List-Owner; bh=CitxLr0Vwn0wSBLJP6K51r+BFEebp1SXia+V81whtvw=; b=Wzval3dLGKubLM
+	LXNkX+xRYcsQ/azGwQ4hFSUV3fq/uRUqlawOFTpxp0sLUVZNyj5upShFbBrQpVjIGsH66okDhJjs1
+	vxuq2rWanK2K16zOHhbl1J2C/5d8+MaQdVQ/iie2LFbtD5yKICfGqhDnHt+vVLJ+Psw6FjhLjo4P0
+	oeKxLvuwCll5BKX2grk7ctbeTYb2ZpXYp1XpiUNbYjkgpq4PVTIrIo7l9eSvyjR/z3ZHI3cJwSCW2
+	AO9KwYlnM3hN26efPoD5kF2NMmRxOJHjlHgfY4OqdnI0VMiPDjp3InkF70flExinadAlcegh4PB54
+	rjFW7tJvnKwkZw4Zg+Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nTxaw-007bO4-Sg; Tue, 15 Mar 2022 03:11:34 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1nU0nO-007zgd-4T; Tue, 15 Mar 2022 06:36:38 +0000
+Received: from verein.lst.de ([213.95.11.211])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nTxau-007bNB-2z
- for linux-riscv@lists.infradead.org; Tue, 15 Mar 2022 03:11:33 +0000
-Received: by mail-wr1-x431.google.com with SMTP id e24so26881944wrc.10
- for <linux-riscv@lists.infradead.org>; Mon, 14 Mar 2022 20:11:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=ZMzCXIdLqAyGtaz7rlkDmeg46RvpOTj0ly0PLz7MJt0=;
- b=pSKVP9N5ahguUkJjtp7SxHsAXpLuCZX3IzElc4APDhBQsxOEXiyyWYYhsQMCx1pn3p
- WjBzJiqcjzR4STI2FP9gEUCgiLqx5P6Z+2dW6+ReTpSvYzO85sRWMiyzHpYnciB3gp28
- 3CzPGZVh8N4wYM5T1mkRCtBJ36HYMNxpOOGrciPAIUmZiSuMkcmCXjXWCDNIPM5R2sMA
- BBkzJhO7qv6q4i8g5z/YdRKu2eBdLuX5zgnXCyXMJPqlBMXVTkHPqEXXSi06dvJLpFFP
- 9dY+nJlGFAuURVBJ9kusniyDn3+pCYLynm+0bOX4HKoDXACeBivq9Ac5b6TmOu1KWqZg
- X82w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=ZMzCXIdLqAyGtaz7rlkDmeg46RvpOTj0ly0PLz7MJt0=;
- b=qmsPjYBqiSbnqOdALTNYSLlZGCYa12sgQuOA2/eAe76L7bzxpmPtnvgH8+u726HlTj
- CGN2Xb1pwrEEr+LvEyEP/7Cx/hA8b3n/N9SXJFSWk+I2uKHQ5uS/KT5jTbb9gBkBXdib
- 4awFqkIZX6T25m5DESTYjd56HO6kZuI6nL4TXK6BeK7lqNWauzXewCyCHO2pYrdC93qg
- yg+sPPV4Ooux4wpuZjt1GTcG565m+OZTP4MTAOyo6WAbgc022mM767E2oE/l5XiiOUgg
- +vL8ldRnQ0GnkS39Npz5hf0XxnijNnCI8AfTNpIVgGT2+8FTdpiXZCql94xzLwaoqBor
- XAfw==
-X-Gm-Message-State: AOAM533YsxK5mxK0ojYI/gBd9gZmZYTzu8t4hodxG2xOV4M9d7uAUdpI
- 3E2u22b0fUv1xiZZ1lejzv0+oE6P/mGXxvqJ3kTQfA==
-X-Google-Smtp-Source: ABdhPJzZF6NSEHadRn0WzLtO/L7BqiZdjpJJvaXSM7RzJ7jse3Mp+YFHB8JDzSCI/CLynk6yoB+T9SfDP4fW/wOsDP4=
-X-Received: by 2002:adf:b645:0:b0:1e3:bab:7594 with SMTP id
- i5-20020adfb645000000b001e30bab7594mr18998652wre.346.1647313890542; Mon, 14
- Mar 2022 20:11:30 -0700 (PDT)
+ id 1nU0nB-007zeB-AV; Tue, 15 Mar 2022 06:36:27 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+ id 2BC5468AFE; Tue, 15 Mar 2022 07:36:18 +0100 (CET)
+Date: Tue, 15 Mar 2022 07:36:18 +0100
+From: Christoph Hellwig <hch@lst.de>
+To: Boris Ostrovsky <boris.ostrovsky@oracle.com>
+Cc: Christoph Hellwig <hch@lst.de>, iommu@lists.linux-foundation.org,
+ x86@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
+ Tom Lendacky <thomas.lendacky@amd.com>,
+ Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ Juergen Gross <jgross@suse.com>, Joerg Roedel <joro@8bytes.org>,
+ David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>,
+ Robin Murphy <robin.murphy@arm.com>, linux-arm-kernel@lists.infradead.org,
+ xen-devel@lists.xenproject.org, linux-ia64@vger.kernel.org,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, tboot-devel@lists.sourceforge.net,
+ linux-pci@vger.kernel.org
+Subject: Re: [PATCH 12/15] swiotlb: provide swiotlb_init variants that
+ remap the buffer
+Message-ID: <20220315063618.GA1244@lst.de>
+References: <20220314073129.1862284-1-hch@lst.de>
+ <20220314073129.1862284-13-hch@lst.de>
+ <4d800aa8-5e38-1ad9-284f-1754c83d0f8a@oracle.com>
 MIME-Version: 1.0
-References: <20220314203845.832648-1-atishp@rivosinc.com>
- <20220314203845.832648-7-atishp@rivosinc.com>
-In-Reply-To: <20220314203845.832648-7-atishp@rivosinc.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 15 Mar 2022 08:41:17 +0530
-Message-ID: <CAAhSdy1SvpAOX063OyE3iZwfAwND_QVxTNeLsB0hQtJWH4o9tw@mail.gmail.com>
-Subject: Re: [PATCH v6 6/6] RISC-V: Improve /proc/cpuinfo output for ISA
- extensions
-To: Atish Patra <atishp@rivosinc.com>
-Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Heiko Stuebner <heiko@sntech.de>, 
- Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@atishpatra.org>, 
- Damien Le Moal <damien.lemoal@wdc.com>, DTML <devicetree@vger.kernel.org>, 
- Jisheng Zhang <jszhang@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <4d800aa8-5e38-1ad9-284f-1754c83d0f8a@oracle.com>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220314_201132_156830_F10FC628 
-X-CRM114-Status: GOOD (  28.94  )
+X-CRM114-CacheID: sfid-20220314_233625_706040_92D0C5B8 
+X-CRM114-Status: GOOD (  25.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,138 +71,152 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 15, 2022 at 2:09 AM Atish Patra <atishp@rivosinc.com> wrote:
->
-> Currently, the /proc/cpuinfo outputs the entire riscv,isa string which
-> is not ideal when we have multiple ISA extensions present in the ISA
-> string. Some of them may not be enabled in kernel as well.
-> Same goes for the single letter extensions as well which prints the
-> entire ISA string. Some of they may not be valid ISA extensions as
-> well (e.g 'su')
->
-> Parse only the valid & enabled ISA extension and print them.
->
-> Tested-by: Heiko Stuebner <heiko@sntech.de>
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+On Mon, Mar 14, 2022 at 06:39:21PM -0400, Boris Ostrovsky wrote:
+> This is IO_TLB_MIN_SLABS, isn't it? (Xen code didn't say so but that's what it meant to say I believe)
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
+Yes, that makes much more sense.  I've switched the patch to use
+IO_TLB_MIN_SLABS and drop the 2MB comment in both places.
 
-Regards,
-Anup
+Can I get a review with that fixed up?
 
-> ---
->  arch/riscv/include/asm/hwcap.h |  7 ++++
->  arch/riscv/kernel/cpu.c        | 65 ++++++++++++++++++++++++++++++++--
->  2 files changed, 70 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> index 170bd80da520..691fc9c8099b 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -54,6 +54,13 @@ enum riscv_isa_ext_id {
->         RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
->  };
->
-> +struct riscv_isa_ext_data {
-> +       /* Name of the extension displayed to userspace via /proc/cpuinfo */
-> +       char uprop[RISCV_ISA_EXT_NAME_LEN_MAX];
-> +       /* The logical ISA extension ID */
-> +       unsigned int isa_ext_id;
-> +};
-> +
->  unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap);
->
->  #define riscv_isa_extension_mask(ext) BIT_MASK(RISCV_ISA_EXT_##ext)
-> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> index ad0a7e9f828b..fc115e307ef5 100644
-> --- a/arch/riscv/kernel/cpu.c
-> +++ b/arch/riscv/kernel/cpu.c
-> @@ -6,6 +6,7 @@
->  #include <linux/init.h>
->  #include <linux/seq_file.h>
->  #include <linux/of.h>
-> +#include <asm/hwcap.h>
->  #include <asm/smp.h>
->  #include <asm/pgtable.h>
->
-> @@ -63,12 +64,72 @@ int riscv_of_parent_hartid(struct device_node *node)
->  }
->
->  #ifdef CONFIG_PROC_FS
-> +#define __RISCV_ISA_EXT_DATA(UPROP, EXTID) \
-> +       {                                                       \
-> +               .uprop = #UPROP,                                \
-> +               .isa_ext_id = EXTID,                            \
-> +       }
-> +/**
-> + * Here are the ordering rules of extension naming defined by RISC-V
-> + * specification :
-> + * 1. All extensions should be separated from other multi-letter extensions
-> + *    from other multi-letter extensions by an underscore.
-> + * 2. The first letter following the 'Z' conventionally indicates the most
-> + *    closely related alphabetical extension category, IMAFDQLCBKJTPVH.
-> + *    If multiple 'Z' extensions are named, they should be ordered first
-> + *    by category, then alphabetically within a category.
-> + * 3. Standard supervisor-level extensions (starts with 'S') should be
-> + *    listed after standard unprivileged extensions.  If multiple
-> + *    supervisor-level extensions are listed, they should be ordered
-> + *    alphabetically.
-> + * 4. Non-standard extensions (starts with 'X') must be listed after all
-> + *    standard extensions. They must be separated from other multi-letter
-> + *    extensions by an underscore.
-> + */
-> +static struct riscv_isa_ext_data isa_ext_arr[] = {
-> +       __RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
-> +};
-> +
-> +static void print_isa_ext(struct seq_file *f)
-> +{
-> +       struct riscv_isa_ext_data *edata;
-> +       int i = 0, arr_sz;
-> +
-> +       arr_sz = ARRAY_SIZE(isa_ext_arr) - 1;
-> +
-> +       /* No extension support available */
-> +       if (arr_sz <= 0)
-> +               return;
-> +
-> +       for (i = 0; i <= arr_sz; i++) {
-> +               edata = &isa_ext_arr[i];
-> +               if (!__riscv_isa_extension_available(NULL, edata->isa_ext_id))
-> +                       continue;
-> +               seq_printf(f, "_%s", edata->uprop);
-> +       }
-> +}
-> +
-> +/**
-> + * These are the only valid base (single letter) ISA extensions as per the spec.
-> + * It also specifies the canonical order in which it appears in the spec.
-> + * Some of the extension may just be a place holder for now (B, K, P, J).
-> + * This should be updated once corresponding extensions are ratified.
-> + */
-> +static const char base_riscv_exts[13] = "imafdqcbkjpvh";
->
->  static void print_isa(struct seq_file *f, const char *isa)
->  {
-> -       /* Print the entire ISA as it is */
-> +       int i;
-> +
->         seq_puts(f, "isa\t\t: ");
-> -       seq_write(f, isa, strlen(isa));
-> +       /* Print the rv[64/32] part */
-> +       seq_write(f, isa, 4);
-> +       for (i = 0; i < sizeof(base_riscv_exts); i++) {
-> +               if (__riscv_isa_extension_available(NULL, base_riscv_exts[i] - 'a'))
-> +                       /* Print only enabled the base ISA extensions */
-> +                       seq_write(f, &base_riscv_exts[i], 1);
-> +       }
-> +       print_isa_ext(f);
->         seq_puts(f, "\n");
->  }
->
-> --
-> 2.30.2
->
+---
+From 153085bf3e6e69d676bef0fb96395a86fb8122f5 Mon Sep 17 00:00:00 2001
+From: Christoph Hellwig <hch@lst.de>
+Date: Mon, 14 Mar 2022 08:02:57 +0100
+Subject: swiotlb: provide swiotlb_init variants that remap the buffer
+
+To shared more code between swiotlb and xen-swiotlb, offer a
+swiotlb_init_remap interface and add a remap callback to
+swiotlb_init_late that will allow Xen to remap the buffer the
+buffer without duplicating much of the logic.
+
+Signed-off-by: Christoph Hellwig <hch@lst.de>
+---
+ arch/x86/pci/sta2x11-fixup.c |  2 +-
+ include/linux/swiotlb.h      |  5 ++++-
+ kernel/dma/swiotlb.c         | 36 +++++++++++++++++++++++++++++++++---
+ 3 files changed, 38 insertions(+), 5 deletions(-)
+
+diff --git a/arch/x86/pci/sta2x11-fixup.c b/arch/x86/pci/sta2x11-fixup.c
+index c7e6faf59a861..7368afc039987 100644
+--- a/arch/x86/pci/sta2x11-fixup.c
++++ b/arch/x86/pci/sta2x11-fixup.c
+@@ -57,7 +57,7 @@ static void sta2x11_new_instance(struct pci_dev *pdev)
+ 		int size = STA2X11_SWIOTLB_SIZE;
+ 		/* First instance: register your own swiotlb area */
+ 		dev_info(&pdev->dev, "Using SWIOTLB (size %i)\n", size);
+-		if (swiotlb_init_late(size, GFP_DMA))
++		if (swiotlb_init_late(size, GFP_DMA, NULL))
+ 			dev_emerg(&pdev->dev, "init swiotlb failed\n");
+ 	}
+ 	list_add(&instance->list, &sta2x11_instance_list);
+diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
+index ee655f2e4d28b..7b50c82f84ce9 100644
+--- a/include/linux/swiotlb.h
++++ b/include/linux/swiotlb.h
+@@ -36,8 +36,11 @@ struct scatterlist;
+ 
+ int swiotlb_init_with_tbl(char *tlb, unsigned long nslabs, unsigned int flags);
+ unsigned long swiotlb_size_or_default(void);
++void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
++	int (*remap)(void *tlb, unsigned long nslabs));
++int swiotlb_init_late(size_t size, gfp_t gfp_mask,
++	int (*remap)(void *tlb, unsigned long nslabs));
+ extern int swiotlb_late_init_with_tbl(char *tlb, unsigned long nslabs);
+-int swiotlb_init_late(size_t size, gfp_t gfp_mask);
+ extern void __init swiotlb_update_mem_attributes(void);
+ 
+ phys_addr_t swiotlb_tbl_map_single(struct device *hwdev, phys_addr_t phys,
+diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+index 79641c446d284..b3d4f24fb5f5e 100644
+--- a/kernel/dma/swiotlb.c
++++ b/kernel/dma/swiotlb.c
+@@ -256,9 +256,11 @@ int __init swiotlb_init_with_tbl(char *tlb, unsigned long nslabs,
+  * Statically reserve bounce buffer space and initialize bounce buffer data
+  * structures for the software IO TLB used to implement the DMA API.
+  */
+-void __init swiotlb_init(bool addressing_limit, unsigned int flags)
++void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
++		int (*remap)(void *tlb, unsigned long nslabs))
+ {
+-	size_t bytes = PAGE_ALIGN(default_nslabs << IO_TLB_SHIFT);
++	unsigned long nslabs = default_nslabs;
++	size_t bytes;
+ 	void *tlb;
+ 
+ 	if (!addressing_limit && !swiotlb_force_bounce)
+@@ -271,12 +273,23 @@ void __init swiotlb_init(bool addressing_limit, unsigned int flags)
+ 	 * allow to pick a location everywhere for hypervisors with guest
+ 	 * memory encryption.
+ 	 */
++retry:
++	bytes = PAGE_ALIGN(default_nslabs << IO_TLB_SHIFT);
+ 	if (flags & SWIOTLB_ANY)
+ 		tlb = memblock_alloc(bytes, PAGE_SIZE);
+ 	else
+ 		tlb = memblock_alloc_low(bytes, PAGE_SIZE);
+ 	if (!tlb)
+ 		goto fail;
++	if (remap && remap(tlb, nslabs) < 0) {
++		memblock_free(tlb, PAGE_ALIGN(bytes));
++
++		if (nslabs <= IO_TLB_MIN_SLABS)
++			panic("%s: Failed to remap %zu bytes\n",
++			      __func__, bytes);
++		nslabs = max(1024UL, ALIGN(nslabs >> 1, IO_TLB_SEGSIZE));
++		goto retry;
++	}
+ 	if (swiotlb_init_with_tbl(tlb, default_nslabs, flags))
+ 		goto fail_free_mem;
+ 	return;
+@@ -287,12 +300,18 @@ void __init swiotlb_init(bool addressing_limit, unsigned int flags)
+ 	pr_warn("Cannot allocate buffer");
+ }
+ 
++void __init swiotlb_init(bool addressing_limit, unsigned int flags)
++{
++	return swiotlb_init_remap(addressing_limit, flags, NULL);
++}
++
+ /*
+  * Systems with larger DMA zones (those that don't support ISA) can
+  * initialize the swiotlb later using the slab allocator if needed.
+  * This should be just like above, but with some error catching.
+  */
+-int swiotlb_init_late(size_t size, gfp_t gfp_mask)
++int swiotlb_init_late(size_t size, gfp_t gfp_mask,
++		int (*remap)(void *tlb, unsigned long nslabs))
+ {
+ 	unsigned long nslabs = ALIGN(size >> IO_TLB_SHIFT, IO_TLB_SEGSIZE);
+ 	unsigned long bytes;
+@@ -303,6 +322,7 @@ int swiotlb_init_late(size_t size, gfp_t gfp_mask)
+ 	if (swiotlb_force_disable)
+ 		return 0;
+ 
++retry:
+ 	order = get_order(nslabs << IO_TLB_SHIFT);
+ 	nslabs = SLABS_PER_PAGE << order;
+ 	bytes = nslabs << IO_TLB_SHIFT;
+@@ -317,6 +337,16 @@ int swiotlb_init_late(size_t size, gfp_t gfp_mask)
+ 
+ 	if (!vstart)
+ 		return -ENOMEM;
++	if (remap)
++		rc = remap(vstart, nslabs);
++	if (rc) {
++		free_pages((unsigned long)vstart, order);
++ 
++		if (IO_TLB_MIN_SLABS <= 1024)
++			return rc;
++		nslabs = max(1024UL, ALIGN(nslabs >> 1, IO_TLB_SEGSIZE));
++		goto retry;
++	}
+ 
+ 	if (order != get_order(bytes)) {
+ 		pr_warn("only able to allocate %ld MB\n",
+-- 
+2.30.2
+
 
 _______________________________________________
 linux-riscv mailing list
