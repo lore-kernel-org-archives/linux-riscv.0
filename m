@@ -4,58 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 161A2C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Mar 2022 06:48:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D7BCC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Mar 2022 08:00:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9rxEIJWPoMXGMxCaZNCZlgW583ftW0cd2p/g1VKDa1M=; b=JmWrhMj52Po7EwV4+edk2IbRNb
-	XhV5C5lI6SWSafqiCBEgRRdcDcTw0iCMOBLSDOjruUEguYNW9twKSbkQY1gne50GEnZsHEVsB4KLf
-	0V7sqODPhxMTLFGVYM78MpMI7JnQgpj/K7GP5JYWiI9GoGXlyV56ngDo0mhnaMRuEtblDEjeISV04
-	8ajdzph+gNVbNlxwdaKraXtWETsl6zp95fa85jru1Ki4Aim7uxcEO69HpH7piSChRMoElfyoqeib/
-	yzNlk3aDjXlPkplA61I3ancyZg6NaEy19bV6a8GVka0c+NxetcHCQQXtJjX9b+BRggAHmsLKEY82r
-	8+M+5XBg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Vy+C7FGTG92nyh+QIJJmqnYdsKyk4IE0WT9l89AZu9s=; b=OZZ0tnRfznHgCa
+	E4Dg5tZE/CX2aLbmNpvF5Ye7aP1NqqHoSp9PHP5VRNDP/qlSOr1B08dxYA0KhMOk7ah0ifWwergyS
+	6fHPccDfhqNPh8RUx3ns7EaVPipTpPyUr3Aj+eWkIfK4WB4OiVQ+FCbb0CQeDOKh7J0IrFzVzvlPq
+	HhxSaPm/j6IBLGIpco4NNP+6m6kaLcnUkdGnFovZYOdi13zGRg3PyVDsLlcMLZZNqpeTTNgKiPrjo
+	scfZs7qh1nsDxeF0s7EOOhIfwpIn9OFEHRMdi7cu0SDm/PALrZHHLYm49VOxBxcTwSf0gv5lYiW1y
+	0i2HIw1aDQxl8Aghk1zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nU0z5-0081F6-Qq; Tue, 15 Mar 2022 06:48:43 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1nU25w-008Ch6-Bw; Tue, 15 Mar 2022 07:59:52 +0000
+Received: from mail-sgaapc01on2070a.outbound.protection.outlook.com
+ ([2a01:111:f400:feab::70a]
+ helo=APC01-SG2-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nU0ys-0081BQ-8a; Tue, 15 Mar 2022 06:48:33 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
- id 5D2E468AFE; Tue, 15 Mar 2022 07:48:26 +0100 (CET)
-Date: Tue, 15 Mar 2022 07:48:26 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Boris Ostrovsky <boris.ostrovsky@oracle.com>
-Cc: Christoph Hellwig <hch@lst.de>, iommu@lists.linux-foundation.org,
- x86@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
- Tom Lendacky <thomas.lendacky@amd.com>,
- Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>,
- Stefano Stabellini <sstabellini@kernel.org>,
- Juergen Gross <jgross@suse.com>, Joerg Roedel <joro@8bytes.org>,
- David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>,
- Robin Murphy <robin.murphy@arm.com>, linux-arm-kernel@lists.infradead.org,
- xen-devel@lists.xenproject.org, linux-ia64@vger.kernel.org,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-hyperv@vger.kernel.org, tboot-devel@lists.sourceforge.net,
- linux-pci@vger.kernel.org
-Subject: Re: [PATCH 13/15] swiotlb: merge swiotlb-xen initialization into
- swiotlb
-Message-ID: <20220315064826.GA1508@lst.de>
-References: <20220314073129.1862284-1-hch@lst.de>
- <20220314073129.1862284-14-hch@lst.de>
- <6a43380c-b873-3f8e-5d5b-4a066ee57ac2@oracle.com>
+ id 1nU25j-008Cea-Gg; Tue, 15 Mar 2022 07:59:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=AtRXVB5LWeRZ4+l8SwvV7sfVqvoqBAc3zESYnkOMN/ByVUZ4LzYNnOm7e6ZrdO+17GsCi80LJ17GUhHcKpdNqAP+9ii5lQpG5xgQAhdDUbO0C2PdOG1ITTC8jEOEu3HbBR+dPgFJdcxYd977/OFQZJaYH/2LXK936kE1oPnuTw1HelcRjA1RJMh5SnVialmGMAsjg74CmgbUTt7F5RfyyNM7+kzaILxF9cHhboLjYb/S0KHydu2C2m1BoJXB8/IFWe7mDE6FYKl+3TgpKPnIgdCC3UxFM8Y+U+z60/3mDee4CDjZZHzGrV3gxfQNQTMjRDO6fkTV0jo5x6CidZ9hMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NVENytnd0DY4upwZTTub86qNF/K0XZ1OFm9Gb0yxNhI=;
+ b=nlDFCqzsMsBM2iQtaPL5EB9TfFvbmiIel6zY4fznA26QVl6TdtZhL6PeGVcFFmcfYKJGctIbbX3ppHtZiQTRzP3KCwHScS9AsIPUs0zIYjQI8g9O9qmSiokH67EOat/OvufCkwgyKZVHLzcmgQ+yMwiNtLbIHRWUdie5o8PggDLFBLGkv/AIDfNdqYLz89fjv6qkLeB/3Y0dYGowrz2Ee4gENMTF4SMe7J1Sup5Es5XOrnREU/+foIK4x9DzwE+wrAqQIy8I27qTj/jEtTlKbvyJxAyKrwARCLnBhopxEV687EoiVV/cGiXcrSdCBxDuGaXbZbH5yEXGNpBh3pVtjw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo0.onmicrosoft.com; 
+ s=selector2-vivo0-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NVENytnd0DY4upwZTTub86qNF/K0XZ1OFm9Gb0yxNhI=;
+ b=PTmyuyOPc6CpEwat/0ghA2iDpEqYM+SDT+3us+7MoDFh4TK2Af8bXFoXJHfgUivz3jQ+XeV0YT8tooO6BT4joocmcFz2yH0rQYkdueUth2J+IFTDgKOQeBuZUudtL+3A6hm6dvLo9aCSGH8fXA3168GjM6h1Itt5FbP1radyzrw=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from SL2PR06MB3082.apcprd06.prod.outlook.com (2603:1096:100:37::17)
+ by HK0PR06MB3650.apcprd06.prod.outlook.com (2603:1096:203:ad::19)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5061.22; Tue, 15 Mar
+ 2022 07:59:33 +0000
+Received: from SL2PR06MB3082.apcprd06.prod.outlook.com
+ ([fe80::49ef:baa:8c3b:cb3d]) by SL2PR06MB3082.apcprd06.prod.outlook.com
+ ([fe80::49ef:baa:8c3b:cb3d%5]) with mapi id 15.20.5061.028; Tue, 15 Mar 2022
+ 07:59:33 +0000
+From: Qing Wang <wangqing@vivo.com>
+To: Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Sudeep Holla <sudeep.holla@arm.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+ Mel Gorman <mgorman@suse.de>,
+ Daniel Bristot de Oliveira <bristot@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Cc: Wang Qing <wangqing@vivo.com>
+Subject: [PATCH] sched: dynamic config sd_flags if described in DT
+Date: Tue, 15 Mar 2022 00:58:54 -0700
+Message-Id: <1647331137-69890-1-git-send-email-wangqing@vivo.com>
+X-Mailer: git-send-email 2.7.4
+X-ClientProxiedBy: SG2PR02CA0129.apcprd02.prod.outlook.com
+ (2603:1096:4:188::19) To SL2PR06MB3082.apcprd06.prod.outlook.com
+ (2603:1096:100:37::17)
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="WYTEVAkct0FjGQmd"
-Content-Disposition: inline
-In-Reply-To: <6a43380c-b873-3f8e-5d5b-4a066ee57ac2@oracle.com>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: acd76b9c-e1e0-4e25-72b5-08da0659bd84
+X-MS-TrafficTypeDiagnostic: HK0PR06MB3650:EE_
+X-Microsoft-Antispam-PRVS: <HK0PR06MB36509A699763F9FFEB00F5AEBD109@HK0PR06MB3650.apcprd06.prod.outlook.com>
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: cwxRa1a+x+OVA61bsPhvCMoAPrTCc4yBPgTwMntRKHYuYxIX6jaJQP5TfpbZC+eW0rMfKBMZedfbzB+tc9MGjMc334Po3pVx2Yc83JIU4CBwpherv5fGCjaQJszaZW/uGraF4qwBTiaz4KwmjIroSTSCojLkCzYnzD4cqKBCpPvl0kfn0IRoFx/098maCkw6yqewBdnnGGLOO6+FGtUkhx6j02B6gVh9ESVcW4Uj1kD7AJ6MkIJW66ySkEbStxuCfFfbZFjY7pTD5uYU4kX1LuFKrZsvQto7Bvgz9Hp6bl/Z3KDPWR1yTLrvjtN1ooYyrqyuID/HHbRhmWzE8papo0Mibt4leq3D48yT9lfra20LepT9EPI7N7z+ZCTiZRgqbcAd5JSoeujODA/iyZHxpm34rJVBVJr2sNXy0FbYvTYs5Yd1lnsl3AmF6J8xZPX+L/3L2X2xw37ZWRHm0Up0UVxVGS7JNwW7YvzoQKGVWG7X4X7q2bb+kUaK7g5wfOKdSDMTb7ibacIM1roeXRy34j0Hr/zkeJv3eGjICDDLadQLtFxFKuR7LvB3j9gBi2tsJ2NyrkOZs2dAPo4R+AGZRSQ87IBY2vIjA26MZM9GY3Y5i+8q2yThY7iF+gSFYWyN5mbL8JcdGO4bNT8UUE1vXhgGKsOTsIHo6EX27sfolFd2rmvOm4uLeqwwVMDJKosUMees8nYKJTRzDAhZg3LH/DQ9RSwiDtv8SIVkbArOjmM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:SL2PR06MB3082.apcprd06.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(13230001)(4636009)(366004)(86362001)(38100700002)(921005)(38350700002)(66476007)(66946007)(66556008)(4326008)(8676002)(316002)(110136005)(2906002)(7416002)(5660300002)(8936002)(26005)(107886003)(2616005)(186003)(6486002)(508600001)(6506007)(6512007)(52116002)(36756003)(6666004);
+ DIR:OUT; SFP:1102; 
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?SGVly2sLk7K1EB3wQcw7yQrB+amL+gzqpD13rU9kEXtD7JOBM6l7slBHK0dj?=
+ =?us-ascii?Q?qhS1QN+AKYRef13vDJVRGkwAaN3xz+lVJFCCiGuZKNPQuVjo/DtPVwDDIJhf?=
+ =?us-ascii?Q?87V2qfGe+WzHA8QritS+4Gu/8RqDZ3Vorz638VjTykb3b0VZIE0gCC769fhd?=
+ =?us-ascii?Q?TiJXFoz0om05G2WeSYFdveMhDfuB1usuUFZhaSZdZ7HArE8sERGkUo9iDYqY?=
+ =?us-ascii?Q?Do02vv1DJoC5xHD5ncqjd313+TLR17a/6MX9T7ocF2FGw7ejU1Frg3jDqJQf?=
+ =?us-ascii?Q?QAPn4qGHylDI3FVg+kjm/IlHmrz8BywGpbkPCSTx+sKjT8i5whleXPFmbZOX?=
+ =?us-ascii?Q?4sZ3/DsPpcfy/QX/R9z72olX/6lYLi6VfYQP7NCbb+ur+3KoeYGzjuRaQwzq?=
+ =?us-ascii?Q?l2Uw7jfhdH/93el6kgeF3JKzE91rQE5xAx7JqsoAbybMiOGP9vKV277dfC8K?=
+ =?us-ascii?Q?0pE7vUjQy5g8SZObyLFLOfbxUWXF+nSZ06Ro1GezRaXB+vK4yNlwiRtF5PgE?=
+ =?us-ascii?Q?eNdvlKq1xd5AcxlKGJ6gHUwLF+dV4+R+RSHhKEowcoQMXAGcerXwFZE1JD3P?=
+ =?us-ascii?Q?AyirKlVnXS8m4jxvmwBpLXJWonUSXWMdsutVdvnr0mai9eLxrRrkyx1cyhrI?=
+ =?us-ascii?Q?wrN0wg2ARFPIcws9xGzX1VwzZ2iaEnf5XN/xweCt5Mcx1ijgW712NWXV2UKj?=
+ =?us-ascii?Q?b8qMb4b+uVSiUlQFZYatS0mHuDMT5t5xj08p9sYBwKtNOFguR0TKaWIy6HUX?=
+ =?us-ascii?Q?shkPvCsN45R7gZqYT8HL0wieY2jG8l850BJX0e/vdGHPCHQOU9yfZNZK3CXF?=
+ =?us-ascii?Q?Ueyo6H1wOXQnm705UA9yOmZXcWiXaIoI8g28TK0wf4YfY++hYWYohXPTwvo6?=
+ =?us-ascii?Q?rNszYRPlaTL6D4GJ0PCJWciu10fwzxLY7tyFLDCJx0jm1rPWjvp4M9n914f+?=
+ =?us-ascii?Q?0x4dOOvQNzAo8as9CarodIzmCH3QSFGRMGG13hFJ4Va8/+yYUZlxelVaRQaL?=
+ =?us-ascii?Q?OfpSMQsTZrtSOiXoK0q2dZmQmy/UW27vylo5kXBDB7Y1FAoHKd0LFryES8qX?=
+ =?us-ascii?Q?6UHZLPSibfokUmBlW4O7P3ifKYRj62HZ2YuMkuAZ+2D0bLHT/5qJ491uXoAT?=
+ =?us-ascii?Q?ti6o4GJvjTd/wsiHzsAHzcawAJ4P2+zZfmw9VSOoCPKwncGYWyOhF/xV/yEN?=
+ =?us-ascii?Q?Rj4jplMBWW68vTnOUUDGyutBm9wsEv2BKalOAD3ju5PzmTlFxWWtUTWYxOu8?=
+ =?us-ascii?Q?gVtE7qGNiU3WoZu9TWnWiPHFGL+fsWYtmvvABh/4aJAjYu0NqwLG3ISVdfiq?=
+ =?us-ascii?Q?svLDG/ldX49J/ZQdxzVqI8+WltTvuo/bqAoFPBYsDddmq4TxAYB9cI3vuIbv?=
+ =?us-ascii?Q?LpkaH0JTXMvyaSFglFxkdkHg5u6if03MSGFT2w0vjlRV0OU1SI6UgFStYrs7?=
+ =?us-ascii?Q?q6dqdGr5LAKzKqFBbZAdak8jpib3TvPY?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: acd76b9c-e1e0-4e25-72b5-08da0659bd84
+X-MS-Exchange-CrossTenant-AuthSource: SL2PR06MB3082.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Mar 2022 07:59:33.0276 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ldSsjBMDiWujWafJJbR0Hp8j61e7r7PauMlKcRaJCU+1Pkiog103ySL3UJ5DdsPvrxl82AGghei3yb5h6vTRww==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: HK0PR06MB3650
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220314_234830_636554_E2AED4A8 
-X-CRM114-Status: GOOD (  38.81  )
+X-CRM114-CacheID: sfid-20220315_005939_659534_E434D038 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,660 +139,178 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Wang Qing <wangqing@vivo.com>
 
---WYTEVAkct0FjGQmd
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+The device tree can describe cache topology by "next-level-cache",
+Prefer configuring SD_SHARE_PKG_RESOURCES from DT instead of default value.
 
-On Mon, Mar 14, 2022 at 07:07:44PM -0400, Boris Ostrovsky wrote:
->> +	swiotlb_init_remap(true, x86_swiotlb_flags, xen_swiotlb_fixup);
->
->
-> I think we need to have SWIOTLB_ANY set in x86_swiotlb_flags here.
-
-Yes.
-
-> Notice that we don't do remap() after final update to nslabs. We should.
-
-Indeed.  I've pushed the fixed patches to the git tree and attached
-the patches 12, 13 and 14 in case that is easier:
-
---WYTEVAkct0FjGQmd
-Content-Type: text/x-patch; charset=us-ascii
-Content-Disposition: attachment; filename="0012-swiotlb-provide-swiotlb_init-variants-that-remap-the.patch"
-
-From 6d72b98620281984ae778659cedeb369e82af8d8 Mon Sep 17 00:00:00 2001
-From: Christoph Hellwig <hch@lst.de>
-Date: Mon, 14 Mar 2022 08:02:57 +0100
-Subject: swiotlb: provide swiotlb_init variants that remap the buffer
-
-To shared more code between swiotlb and xen-swiotlb, offer a
-swiotlb_init_remap interface and add a remap callback to
-swiotlb_init_late that will allow Xen to remap the buffer the
-buffer without duplicating much of the logic.
-
-Signed-off-by: Christoph Hellwig <hch@lst.de>
+Signed-off-by: Wang Qing <wangqing@vivo.com>
 ---
- arch/x86/pci/sta2x11-fixup.c |  2 +-
- include/linux/swiotlb.h      |  5 ++++-
- kernel/dma/swiotlb.c         | 36 +++++++++++++++++++++++++++++++++---
- 3 files changed, 38 insertions(+), 5 deletions(-)
+ arch/arm/kernel/smp.c         |  1 +
+ arch/arm64/kernel/smp.c       |  1 +
+ arch/riscv/kernel/smpboot.c   |  1 +
+ drivers/base/arch_topology.c  | 59 +++++++++++++++++++++++++++++++++++++++++++
+ include/linux/arch_topology.h |  2 ++
+ kernel/sched/topology.c       | 10 ++++++++
+ 6 files changed, 74 insertions(+)
 
-diff --git a/arch/x86/pci/sta2x11-fixup.c b/arch/x86/pci/sta2x11-fixup.c
-index c7e6faf59a861..7368afc039987 100644
---- a/arch/x86/pci/sta2x11-fixup.c
-+++ b/arch/x86/pci/sta2x11-fixup.c
-@@ -57,7 +57,7 @@ static void sta2x11_new_instance(struct pci_dev *pdev)
- 		int size = STA2X11_SWIOTLB_SIZE;
- 		/* First instance: register your own swiotlb area */
- 		dev_info(&pdev->dev, "Using SWIOTLB (size %i)\n", size);
--		if (swiotlb_init_late(size, GFP_DMA))
-+		if (swiotlb_init_late(size, GFP_DMA, NULL))
- 			dev_emerg(&pdev->dev, "init swiotlb failed\n");
- 	}
- 	list_add(&instance->list, &sta2x11_instance_list);
-diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
-index ee655f2e4d28b..7b50c82f84ce9 100644
---- a/include/linux/swiotlb.h
-+++ b/include/linux/swiotlb.h
-@@ -36,8 +36,11 @@ struct scatterlist;
+diff --git a/arch/arm/kernel/smp.c b/arch/arm/kernel/smp.c
+index 73fc645..62bbd9a
+--- a/arch/arm/kernel/smp.c
++++ b/arch/arm/kernel/smp.c
+@@ -508,6 +508,7 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
+ 	unsigned int ncores = num_possible_cpus();
  
- int swiotlb_init_with_tbl(char *tlb, unsigned long nslabs, unsigned int flags);
- unsigned long swiotlb_size_or_default(void);
-+void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
-+	int (*remap)(void *tlb, unsigned long nslabs));
-+int swiotlb_init_late(size_t size, gfp_t gfp_mask,
-+	int (*remap)(void *tlb, unsigned long nslabs));
- extern int swiotlb_late_init_with_tbl(char *tlb, unsigned long nslabs);
--int swiotlb_init_late(size_t size, gfp_t gfp_mask);
- extern void __init swiotlb_update_mem_attributes(void);
+ 	init_cpu_topology();
++	init_cpu_cache_topology();
  
- phys_addr_t swiotlb_tbl_map_single(struct device *hwdev, phys_addr_t phys,
-diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-index 79641c446d284..c37fd3d1c97f7 100644
---- a/kernel/dma/swiotlb.c
-+++ b/kernel/dma/swiotlb.c
-@@ -256,9 +256,11 @@ int __init swiotlb_init_with_tbl(char *tlb, unsigned long nslabs,
-  * Statically reserve bounce buffer space and initialize bounce buffer data
-  * structures for the software IO TLB used to implement the DMA API.
-  */
--void __init swiotlb_init(bool addressing_limit, unsigned int flags)
-+void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
-+		int (*remap)(void *tlb, unsigned long nslabs))
+ 	smp_store_cpu_info(smp_processor_id());
+ 
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 27df5c1..94cf649
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -723,6 +723,7 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
+ 	unsigned int this_cpu;
+ 
+ 	init_cpu_topology();
++	init_cpu_cache_topology();
+ 
+ 	this_cpu = smp_processor_id();
+ 	store_cpu_topology(this_cpu);
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index 622f226..4f5a8b7
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -41,6 +41,7 @@ static DECLARE_COMPLETION(cpu_running);
+ void __init smp_prepare_boot_cpu(void)
  {
--	size_t bytes = PAGE_ALIGN(default_nslabs << IO_TLB_SHIFT);
-+	unsigned long nslabs = default_nslabs;
-+	size_t bytes;
- 	void *tlb;
+ 	init_cpu_topology();
++	init_cpu_cache_topology();
+ #ifdef CONFIG_RISCV_ERRATA_ALTERNATIVE
+ 	apply_boot_alternatives();
+ #endif
+diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+index 9761541..127f540
+--- a/drivers/base/arch_topology.c
++++ b/drivers/base/arch_topology.c
+@@ -609,6 +609,65 @@ static int __init parse_dt_topology(void)
+ #endif
  
- 	if (!addressing_limit && !swiotlb_force_bounce)
-@@ -271,12 +273,23 @@ void __init swiotlb_init(bool addressing_limit, unsigned int flags)
- 	 * allow to pick a location everywhere for hypervisors with guest
- 	 * memory encryption.
- 	 */
-+retry:
-+	bytes = PAGE_ALIGN(default_nslabs << IO_TLB_SHIFT);
- 	if (flags & SWIOTLB_ANY)
- 		tlb = memblock_alloc(bytes, PAGE_SIZE);
- 	else
- 		tlb = memblock_alloc_low(bytes, PAGE_SIZE);
- 	if (!tlb)
- 		goto fail;
-+	if (remap && remap(tlb, nslabs) < 0) {
-+		memblock_free(tlb, PAGE_ALIGN(bytes));
+ /*
++ * cpu cache topology table
++ */
++#define MAX_CACHE_LEVEL 7
++struct device_node *cache_topology[NR_CPUS][MAX_CACHE_LEVEL];
 +
-+		if (nslabs <= IO_TLB_MIN_SLABS)
-+			panic("%s: Failed to remap %zu bytes\n",
-+			      __func__, bytes);
-+		nslabs = max(1024UL, ALIGN(nslabs >> 1, IO_TLB_SEGSIZE));
-+		goto retry;
-+	}
- 	if (swiotlb_init_with_tbl(tlb, default_nslabs, flags))
- 		goto fail_free_mem;
- 	return;
-@@ -287,12 +300,18 @@ void __init swiotlb_init(bool addressing_limit, unsigned int flags)
- 	pr_warn("Cannot allocate buffer");
- }
- 
-+void __init swiotlb_init(bool addressing_limit, unsigned int flags)
++void init_cpu_cache_topology(void)
 +{
-+	return swiotlb_init_remap(addressing_limit, flags, NULL);
++	struct device_node *node_cpu, *node_cache;
++	int cpu, level;
++
++	for_each_possible_cpu(cpu) {
++		node_cpu = of_get_cpu_node(cpu, NULL);
++		if (!node_cpu)
++			continue;
++
++		level = 0;
++		node_cache = node_cpu;
++		while (level < MAX_CACHE_LEVEL) {
++			node_cache = of_parse_phandle(node_cache, "next-level-cache", 0);
++			if (!node_cache)
++				break;
++
++			cache_topology[cpu][level++] = node_cache;
++		}
++		of_node_put(node_cpu);
++	}
 +}
 +
- /*
-  * Systems with larger DMA zones (those that don't support ISA) can
-  * initialize the swiotlb later using the slab allocator if needed.
-  * This should be just like above, but with some error catching.
-  */
--int swiotlb_init_late(size_t size, gfp_t gfp_mask)
-+int swiotlb_init_late(size_t size, gfp_t gfp_mask,
-+		int (*remap)(void *tlb, unsigned long nslabs))
- {
- 	unsigned long nslabs = ALIGN(size >> IO_TLB_SHIFT, IO_TLB_SEGSIZE);
- 	unsigned long bytes;
-@@ -303,6 +322,7 @@ int swiotlb_init_late(size_t size, gfp_t gfp_mask)
- 	if (swiotlb_force_disable)
- 		return 0;
- 
-+retry:
- 	order = get_order(nslabs << IO_TLB_SHIFT);
- 	nslabs = SLABS_PER_PAGE << order;
- 	bytes = nslabs << IO_TLB_SHIFT;
-@@ -323,6 +343,16 @@ int swiotlb_init_late(size_t size, gfp_t gfp_mask)
- 			(PAGE_SIZE << order) >> 20);
- 		nslabs = SLABS_PER_PAGE << order;
- 	}
-+	if (remap)
-+		rc = remap(vstart, nslabs);
-+	if (rc) {
-+		free_pages((unsigned long)vstart, order);
-+ 
-+		if (IO_TLB_MIN_SLABS <= 1024)
-+			return rc;
-+		nslabs = max(1024UL, ALIGN(nslabs >> 1, IO_TLB_SEGSIZE));
-+		goto retry;
-+	}
- 	rc = swiotlb_late_init_with_tbl(vstart, nslabs);
- 	if (rc)
- 		free_pages((unsigned long)vstart, order);
--- 
-2.30.2
-
-
---WYTEVAkct0FjGQmd
-Content-Type: text/x-patch; charset=us-ascii
-Content-Disposition: attachment; filename="0013-swiotlb-merge-swiotlb-xen-initialization-into-swiotl.patch"
-
-From abfe30ed0a7cd3ca97824d9062a655215ddee7f2 Mon Sep 17 00:00:00 2001
-From: Christoph Hellwig <hch@lst.de>
-Date: Mon, 14 Mar 2022 07:58:45 +0100
-Subject: swiotlb: merge swiotlb-xen initialization into swiotlb
-
-Reuse the generic swiotlb initialization for xen-swiotlb.  For ARM/ARM64
-this works trivially, while for x86 xen_swiotlb_fixup needs to be passed
-as the remap argument to swiotlb_init_remap/swiotlb_init_late.
-
-Signed-off-by: Christoph Hellwig <hch@lst.de>
-Reviewed-by: Stefano Stabellini <sstabellini@kernel.org>
----
- arch/arm/xen/mm.c               |  21 +++---
- arch/x86/include/asm/xen/page.h |   5 --
- arch/x86/kernel/pci-dma.c       |  20 ++---
- drivers/xen/swiotlb-xen.c       | 128 +-------------------------------
- include/xen/arm/page.h          |   1 -
- include/xen/swiotlb-xen.h       |   8 +-
- 6 files changed, 28 insertions(+), 155 deletions(-)
-
-diff --git a/arch/arm/xen/mm.c b/arch/arm/xen/mm.c
-index 28c2070602535..ff05a7899cb86 100644
---- a/arch/arm/xen/mm.c
-+++ b/arch/arm/xen/mm.c
-@@ -23,22 +23,20 @@
- #include <asm/xen/hypercall.h>
- #include <asm/xen/interface.h>
- 
--unsigned long xen_get_swiotlb_free_pages(unsigned int order)
-+static gfp_t xen_swiotlb_gfp(void)
- {
- 	phys_addr_t base;
--	gfp_t flags = __GFP_NOWARN|__GFP_KSWAPD_RECLAIM;
- 	u64 i;
- 
- 	for_each_mem_range(i, &base, NULL) {
- 		if (base < (phys_addr_t)0xffffffff) {
- 			if (IS_ENABLED(CONFIG_ZONE_DMA32))
--				flags |= __GFP_DMA32;
--			else
--				flags |= __GFP_DMA;
--			break;
-+				return __GFP_DMA32;
-+			return __GFP_DMA;
- 		}
- 	}
--	return __get_free_pages(flags, order);
++int cpus_share_self_cache(const struct cpumask *cpu_map)
++{
++	int cache_level, cpu_id;
++	int first, last;
++	int id = cpumask_first(cpu_map);
++	int size = cpumask_weight(cpu_map);
 +
-+	return GFP_KERNEL;
- }
- 
- static bool hypercall_cflush = false;
-@@ -140,10 +138,13 @@ static int __init xen_mm_init(void)
- 	if (!xen_swiotlb_detect())
- 		return 0;
- 
--	rc = xen_swiotlb_init();
- 	/* we can work with the default swiotlb */
--	if (rc < 0 && rc != -EEXIST)
--		return rc;
-+	if (!io_tlb_default_mem.nslabs) {
-+		rc = swiotlb_init_late(swiotlb_size_or_default(),
-+				       xen_swiotlb_gfp(), NULL);
-+		if (rc < 0)
-+			return rc;
++	for (cache_level = 0; cache_level < MAX_CACHE_LEVEL; cache_level++) {
++		if (!cache_topology[cpu][cache_level])
++			return -1;
++
++		first = -1;
++		last = id;
++		for (cpu_id = 0; cpu_id < NR_CPUS; cpu_id++) {
++			if (cache_topology[cpu][cache_level] == cache_topology[cpu_id][cache_level]) {
++				if (cpu_id < id || cpu_id >= id + size)
++					return 0;
++
++				first = (first == -1)?cpu_id:first;
++				last = cpu_id;
++			}
++		}
++
++		if (first == id && last == id + size)
++			return 1;
 +	}
++
++	return 0;
++}
++
++/*
+  * cpu topology table
+  */
+ struct cpu_topology cpu_topology[NR_CPUS];
+diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
+index cce6136b..862e584
+--- a/include/linux/arch_topology.h
++++ b/include/linux/arch_topology.h
+@@ -82,6 +82,8 @@ extern struct cpu_topology cpu_topology[NR_CPUS];
+ #define topology_cluster_cpumask(cpu)	(&cpu_topology[cpu].cluster_sibling)
+ #define topology_llc_cpumask(cpu)	(&cpu_topology[cpu].llc_sibling)
+ void init_cpu_topology(void);
++void init_cpu_cache_topology(void);
++int cpus_share_self_cache(const struct cpumask *cpu_map);
+ void store_cpu_topology(unsigned int cpuid);
+ const struct cpumask *cpu_coregroup_mask(int cpu);
+ const struct cpumask *cpu_clustergroup_mask(int cpu);
+diff --git a/kernel/sched/topology.c b/kernel/sched/topology.c
+index d201a70..8264e2d
+--- a/kernel/sched/topology.c
++++ b/kernel/sched/topology.c
+@@ -1527,6 +1527,7 @@ sd_init(struct sched_domain_topology_level *tl,
+ 	struct sched_domain *sd = *per_cpu_ptr(sdd->sd, cpu);
+ 	int sd_id, sd_weight, sd_flags = 0;
+ 	struct cpumask *sd_span;
++	int ret;
  
- 	cflush.op = 0;
- 	cflush.a.dev_bus_addr = 0;
-diff --git a/arch/x86/include/asm/xen/page.h b/arch/x86/include/asm/xen/page.h
-index e989bc2269f54..1fc67df500145 100644
---- a/arch/x86/include/asm/xen/page.h
-+++ b/arch/x86/include/asm/xen/page.h
-@@ -357,9 +357,4 @@ static inline bool xen_arch_need_swiotlb(struct device *dev,
- 	return false;
- }
+ #ifdef CONFIG_NUMA
+ 	/*
+@@ -1539,6 +1540,15 @@ sd_init(struct sched_domain_topology_level *tl,
  
--static inline unsigned long xen_get_swiotlb_free_pages(unsigned int order)
--{
--	return __get_free_pages(__GFP_NOWARN, order);
--}
--
- #endif /* _ASM_X86_XEN_PAGE_H */
-diff --git a/arch/x86/kernel/pci-dma.c b/arch/x86/kernel/pci-dma.c
-index a705a199bf8a3..30bbe4abb5d61 100644
---- a/arch/x86/kernel/pci-dma.c
-+++ b/arch/x86/kernel/pci-dma.c
-@@ -72,15 +72,13 @@ static inline void __init pci_swiotlb_detect(void)
- #endif /* CONFIG_SWIOTLB */
- 
- #ifdef CONFIG_SWIOTLB_XEN
--static bool xen_swiotlb;
--
- static void __init pci_xen_swiotlb_init(void)
- {
- 	if (!xen_initial_domain() && !x86_swiotlb_enable)
- 		return;
- 	x86_swiotlb_enable = true;
--	xen_swiotlb = true;
--	xen_swiotlb_init_early();
-+	x86_swiotlb_flags |= SWIOTLB_ANY;
-+	swiotlb_init_remap(true, x86_swiotlb_flags, xen_swiotlb_fixup);
- 	dma_ops = &xen_swiotlb_dma_ops;
- 	if (IS_ENABLED(CONFIG_PCI))
- 		pci_request_acs();
-@@ -88,14 +86,16 @@ static void __init pci_xen_swiotlb_init(void)
- 
- int pci_xen_swiotlb_init_late(void)
- {
--	int rc;
--
--	if (xen_swiotlb)
-+	if (dma_ops == &xen_swiotlb_dma_ops)
- 		return 0;
- 
--	rc = xen_swiotlb_init();
--	if (rc)
--		return rc;
-+	/* we can work with the default swiotlb */
-+	if (!io_tlb_default_mem.nslabs) {
-+		int rc = swiotlb_init_late(swiotlb_size_or_default(),
-+					   GFP_KERNEL, xen_swiotlb_fixup);
-+		if (rc < 0)
-+			return rc;
-+	}
- 
- 	/* XXX: this switches the dma ops under live devices! */
- 	dma_ops = &xen_swiotlb_dma_ops;
-diff --git a/drivers/xen/swiotlb-xen.c b/drivers/xen/swiotlb-xen.c
-index c2da3eb4826e8..df8085b50df10 100644
---- a/drivers/xen/swiotlb-xen.c
-+++ b/drivers/xen/swiotlb-xen.c
-@@ -104,7 +104,7 @@ static int is_xen_swiotlb_buffer(struct device *dev, dma_addr_t dma_addr)
- 	return 0;
- }
- 
--static int xen_swiotlb_fixup(void *buf, unsigned long nslabs)
-+int xen_swiotlb_fixup(void *buf, unsigned long nslabs)
- {
- 	int rc;
- 	unsigned int order = get_order(IO_TLB_SEGSIZE << IO_TLB_SHIFT);
-@@ -130,132 +130,6 @@ static int xen_swiotlb_fixup(void *buf, unsigned long nslabs)
- 	return 0;
- }
- 
--enum xen_swiotlb_err {
--	XEN_SWIOTLB_UNKNOWN = 0,
--	XEN_SWIOTLB_ENOMEM,
--	XEN_SWIOTLB_EFIXUP
--};
--
--static const char *xen_swiotlb_error(enum xen_swiotlb_err err)
--{
--	switch (err) {
--	case XEN_SWIOTLB_ENOMEM:
--		return "Cannot allocate Xen-SWIOTLB buffer\n";
--	case XEN_SWIOTLB_EFIXUP:
--		return "Failed to get contiguous memory for DMA from Xen!\n"\
--		    "You either: don't have the permissions, do not have"\
--		    " enough free memory under 4GB, or the hypervisor memory"\
--		    " is too fragmented!";
--	default:
--		break;
--	}
--	return "";
--}
--
--int xen_swiotlb_init(void)
--{
--	enum xen_swiotlb_err m_ret = XEN_SWIOTLB_UNKNOWN;
--	unsigned long bytes = swiotlb_size_or_default();
--	unsigned long nslabs = bytes >> IO_TLB_SHIFT;
--	unsigned int order, repeat = 3;
--	int rc = -ENOMEM;
--	char *start;
--
--	if (io_tlb_default_mem.nslabs) {
--		pr_warn("swiotlb buffer already initialized\n");
--		return -EEXIST;
--	}
--
--retry:
--	m_ret = XEN_SWIOTLB_ENOMEM;
--	order = get_order(bytes);
--
--	/*
--	 * Get IO TLB memory from any location.
--	 */
--#define SLABS_PER_PAGE (1 << (PAGE_SHIFT - IO_TLB_SHIFT))
--#define IO_TLB_MIN_SLABS ((1<<20) >> IO_TLB_SHIFT)
--	while ((SLABS_PER_PAGE << order) > IO_TLB_MIN_SLABS) {
--		start = (void *)xen_get_swiotlb_free_pages(order);
--		if (start)
--			break;
--		order--;
--	}
--	if (!start)
--		goto exit;
--	if (order != get_order(bytes)) {
--		pr_warn("Warning: only able to allocate %ld MB for software IO TLB\n",
--			(PAGE_SIZE << order) >> 20);
--		nslabs = SLABS_PER_PAGE << order;
--		bytes = nslabs << IO_TLB_SHIFT;
--	}
--
--	/*
--	 * And replace that memory with pages under 4GB.
--	 */
--	rc = xen_swiotlb_fixup(start, nslabs);
--	if (rc) {
--		free_pages((unsigned long)start, order);
--		m_ret = XEN_SWIOTLB_EFIXUP;
--		goto error;
--	}
--	rc = swiotlb_late_init_with_tbl(start, nslabs);
--	if (rc)
--		return rc;
--	return 0;
--error:
--	if (nslabs > 1024 && repeat--) {
--		/* Min is 2MB */
--		nslabs = max(1024UL, ALIGN(nslabs >> 1, IO_TLB_SEGSIZE));
--		bytes = nslabs << IO_TLB_SHIFT;
--		pr_info("Lowering to %luMB\n", bytes >> 20);
--		goto retry;
--	}
--exit:
--	pr_err("%s (rc:%d)\n", xen_swiotlb_error(m_ret), rc);
--	return rc;
--}
--
--#ifdef CONFIG_X86
--void __init xen_swiotlb_init_early(void)
--{
--	unsigned long bytes = swiotlb_size_or_default();
--	unsigned long nslabs = bytes >> IO_TLB_SHIFT;
--	unsigned int repeat = 3;
--	char *start;
--	int rc;
--
--retry:
--	/*
--	 * Get IO TLB memory from any location.
--	 */
--	start = memblock_alloc(PAGE_ALIGN(bytes),
--			       IO_TLB_SEGSIZE << IO_TLB_SHIFT);
--	if (!start)
--		panic("%s: Failed to allocate %lu bytes\n",
--		      __func__, PAGE_ALIGN(bytes));
--
--	/*
--	 * And replace that memory with pages under 4GB.
--	 */
--	rc = xen_swiotlb_fixup(start, nslabs);
--	if (rc) {
--		memblock_free(start, PAGE_ALIGN(bytes));
--		if (nslabs > 1024 && repeat--) {
--			/* Min is 2MB */
--			nslabs = max(1024UL, ALIGN(nslabs >> 1, IO_TLB_SEGSIZE));
--			bytes = nslabs << IO_TLB_SHIFT;
--			pr_info("Lowering to %luMB\n", bytes >> 20);
--			goto retry;
--		}
--		panic("%s (rc:%d)", xen_swiotlb_error(XEN_SWIOTLB_EFIXUP), rc);
--	}
--
--	if (swiotlb_init_with_tbl(start, nslabs, SWIOTLB_VERBOSE))
--		panic("Cannot allocate SWIOTLB buffer");
--}
--#endif /* CONFIG_X86 */
--
- static void *
- xen_swiotlb_alloc_coherent(struct device *hwdev, size_t size,
- 			   dma_addr_t *dma_handle, gfp_t flags,
-diff --git a/include/xen/arm/page.h b/include/xen/arm/page.h
-index ac1b654705631..7e199c6656b90 100644
---- a/include/xen/arm/page.h
-+++ b/include/xen/arm/page.h
-@@ -115,6 +115,5 @@ static inline bool set_phys_to_machine(unsigned long pfn, unsigned long mfn)
- bool xen_arch_need_swiotlb(struct device *dev,
- 			   phys_addr_t phys,
- 			   dma_addr_t dev_addr);
--unsigned long xen_get_swiotlb_free_pages(unsigned int order);
- 
- #endif /* _ASM_ARM_XEN_PAGE_H */
-diff --git a/include/xen/swiotlb-xen.h b/include/xen/swiotlb-xen.h
-index b3e647f86e3e2..590ceb923f0c8 100644
---- a/include/xen/swiotlb-xen.h
-+++ b/include/xen/swiotlb-xen.h
-@@ -10,8 +10,12 @@ void xen_dma_sync_for_cpu(struct device *dev, dma_addr_t handle,
- void xen_dma_sync_for_device(struct device *dev, dma_addr_t handle,
- 			     size_t size, enum dma_data_direction dir);
- 
--int xen_swiotlb_init(void);
--void __init xen_swiotlb_init_early(void);
-+#ifdef CONFIG_SWIOTLB_XEN
-+int xen_swiotlb_fixup(void *buf, unsigned long nslabs);
-+#else
-+#define xen_swiotlb_fixup NULL
+ 	if (tl->sd_flags)
+ 		sd_flags = (*tl->sd_flags)();
++
++#ifdef CONFIG_GENERIC_ARCH_TOPOLOGY
++	ret = cpus_share_self_cache(cpu_map);
++	if (ret == 1)
++		sd_flags |= SD_SHARE_PKG_RESOURCES;
++	else if (ret == 0)
++		sd_flags &= ~SD_SHARE_PKG_RESOURCES;
 +#endif
 +
- extern const struct dma_map_ops xen_swiotlb_dma_ops;
- 
- #endif /* __LINUX_SWIOTLB_XEN_H */
+ 	if (WARN_ONCE(sd_flags & ~TOPOLOGY_SD_FLAGS,
+ 			"wrong sd_flags in topology description\n"))
+ 		sd_flags &= TOPOLOGY_SD_FLAGS;
 -- 
-2.30.2
+2.7.4
 
-
---WYTEVAkct0FjGQmd
-Content-Type: text/x-patch; charset=us-ascii
-Content-Disposition: attachment; filename="0014-swiotlb-remove-swiotlb_init_with_tbl-and-swiotlb_ini.patch"
-
-From 2e7a39f16760d3c0076691a3358d3c7499805687 Mon Sep 17 00:00:00 2001
-From: Christoph Hellwig <hch@lst.de>
-Date: Tue, 15 Mar 2022 07:41:04 +0100
-Subject: swiotlb: remove swiotlb_init_with_tbl and swiotlb_init_late_with_tbl
-
-No users left.
-
-Signed-off-by: Christoph Hellwig <hch@lst.de>
----
- include/linux/swiotlb.h |  2 --
- kernel/dma/swiotlb.c    | 77 +++++++++++------------------------------
- 2 files changed, 20 insertions(+), 59 deletions(-)
-
-diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
-index 7b50c82f84ce9..7ed35dd3de6e7 100644
---- a/include/linux/swiotlb.h
-+++ b/include/linux/swiotlb.h
-@@ -34,13 +34,11 @@ struct scatterlist;
- /* default to 64MB */
- #define IO_TLB_DEFAULT_SIZE (64UL<<20)
- 
--int swiotlb_init_with_tbl(char *tlb, unsigned long nslabs, unsigned int flags);
- unsigned long swiotlb_size_or_default(void);
- void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
- 	int (*remap)(void *tlb, unsigned long nslabs));
- int swiotlb_init_late(size_t size, gfp_t gfp_mask,
- 	int (*remap)(void *tlb, unsigned long nslabs));
--extern int swiotlb_late_init_with_tbl(char *tlb, unsigned long nslabs);
- extern void __init swiotlb_update_mem_attributes(void);
- 
- phys_addr_t swiotlb_tbl_map_single(struct device *hwdev, phys_addr_t phys,
-diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-index c37fd3d1c97f7..cb930d064e813 100644
---- a/kernel/dma/swiotlb.c
-+++ b/kernel/dma/swiotlb.c
-@@ -225,33 +225,6 @@ static void swiotlb_init_io_tlb_mem(struct io_tlb_mem *mem, phys_addr_t start,
- 	return;
- }
- 
--int __init swiotlb_init_with_tbl(char *tlb, unsigned long nslabs,
--		unsigned int flags)
--{
--	struct io_tlb_mem *mem = &io_tlb_default_mem;
--	size_t alloc_size;
--
--	if (swiotlb_force_disable)
--		return 0;
--
--	/* protect against double initialization */
--	if (WARN_ON_ONCE(mem->nslabs))
--		return -ENOMEM;
--
--	alloc_size = PAGE_ALIGN(array_size(sizeof(*mem->slots), nslabs));
--	mem->slots = memblock_alloc(alloc_size, PAGE_SIZE);
--	if (!mem->slots)
--		panic("%s: Failed to allocate %zu bytes align=0x%lx\n",
--		      __func__, alloc_size, PAGE_SIZE);
--
--	swiotlb_init_io_tlb_mem(mem, __pa(tlb), nslabs, false);
--	mem->force_bounce = flags & SWIOTLB_FORCE;
--
--	if (flags & SWIOTLB_VERBOSE)
--		swiotlb_print_info();
--	return 0;
--}
--
- /*
-  * Statically reserve bounce buffer space and initialize bounce buffer data
-  * structures for the software IO TLB used to implement the DMA API.
-@@ -259,7 +232,9 @@ int __init swiotlb_init_with_tbl(char *tlb, unsigned long nslabs,
- void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
- 		int (*remap)(void *tlb, unsigned long nslabs))
- {
-+	struct io_tlb_mem *mem = &io_tlb_default_mem;
- 	unsigned long nslabs = default_nslabs;
-+	size_t alloc_size = PAGE_ALIGN(array_size(sizeof(*mem->slots), nslabs));
- 	size_t bytes;
- 	void *tlb;
- 
-@@ -280,7 +255,8 @@ void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
- 	else
- 		tlb = memblock_alloc_low(bytes, PAGE_SIZE);
- 	if (!tlb)
--		goto fail;
-+		panic("%s: failed to allocate tlb structure\n", __func__);
-+
- 	if (remap && remap(tlb, nslabs) < 0) {
- 		memblock_free(tlb, PAGE_ALIGN(bytes));
- 
-@@ -290,14 +266,17 @@ void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
- 		nslabs = max(1024UL, ALIGN(nslabs >> 1, IO_TLB_SEGSIZE));
- 		goto retry;
- 	}
--	if (swiotlb_init_with_tbl(tlb, default_nslabs, flags))
--		goto fail_free_mem;
--	return;
- 
--fail_free_mem:
--	memblock_free(tlb, bytes);
--fail:
--	pr_warn("Cannot allocate buffer");
-+	mem->slots = memblock_alloc(alloc_size, PAGE_SIZE);
-+	if (!mem->slots)
-+		panic("%s: Failed to allocate %zu bytes align=0x%lx\n",
-+		      __func__, alloc_size, PAGE_SIZE);
-+
-+	swiotlb_init_io_tlb_mem(mem, __pa(tlb), default_nslabs, false);
-+	mem->force_bounce = flags & SWIOTLB_FORCE;
-+
-+	if (flags & SWIOTLB_VERBOSE)
-+		swiotlb_print_info();
- }
- 
- void __init swiotlb_init(bool addressing_limit, unsigned int flags)
-@@ -313,6 +292,7 @@ void __init swiotlb_init(bool addressing_limit, unsigned int flags)
- int swiotlb_init_late(size_t size, gfp_t gfp_mask,
- 		int (*remap)(void *tlb, unsigned long nslabs))
- {
-+	struct io_tlb_mem *mem = &io_tlb_default_mem;
- 	unsigned long nslabs = ALIGN(size >> IO_TLB_SHIFT, IO_TLB_SEGSIZE);
- 	unsigned long bytes;
- 	unsigned char *vstart = NULL;
-@@ -353,33 +333,16 @@ int swiotlb_init_late(size_t size, gfp_t gfp_mask,
- 		nslabs = max(1024UL, ALIGN(nslabs >> 1, IO_TLB_SEGSIZE));
- 		goto retry;
- 	}
--	rc = swiotlb_late_init_with_tbl(vstart, nslabs);
--	if (rc)
--		free_pages((unsigned long)vstart, order);
--
--	return rc;
--}
--
--int
--swiotlb_late_init_with_tbl(char *tlb, unsigned long nslabs)
--{
--	struct io_tlb_mem *mem = &io_tlb_default_mem;
--	unsigned long bytes = nslabs << IO_TLB_SHIFT;
--
--	if (swiotlb_force_disable)
--		return 0;
--
--	/* protect against double initialization */
--	if (WARN_ON_ONCE(mem->nslabs))
--		return -ENOMEM;
- 
- 	mem->slots = (void *)__get_free_pages(GFP_KERNEL | __GFP_ZERO,
- 		get_order(array_size(sizeof(*mem->slots), nslabs)));
--	if (!mem->slots)
-+	if (!mem->slots) {
-+		free_pages((unsigned long)vstart, order);
- 		return -ENOMEM;
-+	}
- 
--	set_memory_decrypted((unsigned long)tlb, bytes >> PAGE_SHIFT);
--	swiotlb_init_io_tlb_mem(mem, virt_to_phys(tlb), nslabs, true);
-+	set_memory_decrypted((unsigned long)vstart, bytes >> PAGE_SHIFT);
-+	swiotlb_init_io_tlb_mem(mem, virt_to_phys(vstart), nslabs, true);
- 
- 	swiotlb_print_info();
- 	return 0;
--- 
-2.30.2
-
-
---WYTEVAkct0FjGQmd
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---WYTEVAkct0FjGQmd--
-
