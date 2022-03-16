@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C650CC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Mar 2022 23:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD95DC4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Mar 2022 23:28:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
 	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I3BveWqhYo/+kmlES4y408sMG0mYWY3v06WHMyr26gw=; b=MKgOF6muyOElsP
-	4WkV/JZG2CnlUypB5xG/sjfJrQFUHKun5Cc2FdQwHISET4qRw5eN2qg1gpq9sbuC/oEq58odOZuOI
-	E2k1LZoSZQ1HW0O6njE/DEatVY+YeS1gztxMqqYHw8rT42jISQ4SSI/6eoApIIW/XgOT//V1gSoEc
-	QcQy6jVwN39yZuAg7RNOokBk9PNwrjoH2MuE+eMSNDi4f6e20LzOYxVimPmjSVL7ZHH19XejSHsEo
-	6aN9qz7Orh2MXJUH21VFF2V7COzZWLkUq0OkuRqbYWx77wxMyudcpiWrXDhPD1QP3Q39JWCYI+Bg4
-	A1zWb7GqYqi8d5XYzwBw==;
+	List-Owner; bh=2vQ6pmLKEutJFy0k2NGjbASdYQ3jEtUi8s/zEnv4D9A=; b=z0Cw5p5+nHNki4
+	xkyZJeMbmao1HWXfCIT9ZvbVjkyYTV8QOf5qLmZ+055YBsTiY+kL+WqiAqkoM8xo3+tq1ywDEEOBE
+	dGJJ6dhJhkSUxcn0WpvKTzSeiE4NF1j3rp8mG4HCYq4jTFYbgSUlJuszQnJMPMjrNfa3x+awI61yF
+	n9ylDYIKXrk0CeHxsxVKJoheoDAi2HOAZzTS18c0X55pNhecuQRvSP1sx5/7M9HdVEiJ2ym0tRBRi
+	LNM6T9ydvYsaRImnooAtjk2Vx76jTlyH3SG0tlV2VjymI64ifTw5DOxCpZsEaIf2sRgFYNcX4qS55
+	IXTjMaC8Q2CR9U9HNHjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nUd4B-00EUAM-1V; Wed, 16 Mar 2022 23:28:31 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1nUd4F-00EUCl-Mw; Wed, 16 Mar 2022 23:28:35 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nUd46-00EU6h-DG
- for linux-riscv@lists.infradead.org; Wed, 16 Mar 2022 23:28:27 +0000
-Received: by mail-pf1-x435.google.com with SMTP id l8so5421685pfu.1
- for <linux-riscv@lists.infradead.org>; Wed, 16 Mar 2022 16:28:26 -0700 (PDT)
+ id 1nUd49-00EU8H-UE
+ for linux-riscv@lists.infradead.org; Wed, 16 Mar 2022 23:28:31 +0000
+Received: by mail-pf1-x430.google.com with SMTP id s11so5328140pfu.13
+ for <linux-riscv@lists.infradead.org>; Wed, 16 Mar 2022 16:28:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
  h=subject:date:message-id:in-reply-to:references:mime-version
  :content-transfer-encoding:cc:from:to;
- bh=ofUFlPn1fFr6Pz05IWJLvQM8LyheEnwZgHIcbcC4aPw=;
- b=S5EoqvKolpNViVFVC6Nzsj4aBgAWTlxXUWEEMY7p3wEb0057ehZpzaUnP8f4GDTFJs
- zse0vx0vaol845GXW+EPh58H5hafan3CLwS2NebIMBjef8U0HNWEx3yRz3jPiV3uJlEC
- YXWJrMiwVe+oiaYZPhnxkOPG0gNmZ72sB2JgKC7u3KkkHP6Mrza8LqpBn+wgIhU0+wXO
- eiGMxzeY0dkF1fMYunyzzQlM6whMlxgT8yXppR7Shy3VF4INxmMTGDdTecXUZiBbWpJi
- KxadBRMOObu8VavJ+IpQtZPAu2dQ5o1nwyDfes8oJeqdvEAFgSJuP+TqCD4jDajWtIKl
- w7BQ==
+ bh=TemgJXj/dxR4o9xjuRPFVAtvCpC+RuCkyAl1o75jaTw=;
+ b=5NAASYUylgaEPqqdOEpfJYNUGMgV0gFaeMRax5C5dSSZLOGAdqEJZnhq0wtD7zPoW0
+ G5ob4+N2yFpwbpch0DWhTknq6SOGVQuAlyx5O3Q4z+CabPYf0Q0nUxJYIRUm+1UXldia
+ CUfn33UFTj/UQ6niZ6ytLeUqcODuQ8vUjiiE5/y4Cga4QKby77CDm6r7N0bPNRi39KC4
+ O/zvHvMm0khtUBVhRQ1vvm59igRk3I3+zGiCD9QZkEZ4zSYXLICNZRMaGnxXlOOI5pc8
+ 96R6MSsMUafEA9jSOCcTsTp6f+fYDXiBsUqlxz1cBR4CM7sz772W9JvY9llYBqeaxTjL
+ 2xnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding:cc:from:to;
- bh=ofUFlPn1fFr6Pz05IWJLvQM8LyheEnwZgHIcbcC4aPw=;
- b=eYaTmHkFH45dsld3Ndgev9Ut1tvbJu88uEOYYwCGsxRLh9ZTeSq/t/B+y1oV/5fpIU
- GR8tdIghuWyLOxYP7f5SqebNGWJJ7edWyL6oeIiKna13h7YVBJeUgYp4unAN8te1utwW
- vHXmzXD5vD5MEIMHWMEO/qP16NCqHJwLCCDyhY/Mx2PI2+cmhbRiGlVBps+SlXUnPvAs
- m1umVNuupN9XZPpZd4svS2txzTo5ahCGFY8fRBuV4hGPTRMzNwwd8qliYtA33h2diQWM
- M4XKTJoY7VT70ly0CMJb45oWnhqh/t2pfmWMmxLpCRQ+GWyP2SL4q/A7dkfJzhkeNvGP
- jMMg==
-X-Gm-Message-State: AOAM532h21nQQE8eut/JY9iQ6r0hG5KpoWlSr+x7jZjymc08bWr9dmdN
- ZectRqjowRNLPhyivgofJJPRHw==
-X-Google-Smtp-Source: ABdhPJxYRrhM5pW5WVasmxAVWyXeEsoX5VSiHkFO1pWtO6NNC1CxKjdOixv6tMKvEgnHK4ZptvG9zQ==
-X-Received: by 2002:a63:5855:0:b0:380:a9f7:e373 with SMTP id
- i21-20020a635855000000b00380a9f7e373mr1418979pgm.557.1647473305604; 
- Wed, 16 Mar 2022 16:28:25 -0700 (PDT)
+ bh=TemgJXj/dxR4o9xjuRPFVAtvCpC+RuCkyAl1o75jaTw=;
+ b=smNz1bghFcP5BJfpS8bC1+/MY6rUW9FpNam4InOPhSU/gUo5HZTojQkvDy3kWDHsg2
+ FtlrwRL8BrSMJ5Sl7+xGVFtKr55yw05FScDbKnRkeM7RocuqMwG4/wXmhWpQ3Fxxjmha
+ VZ+m+fFxLffXaXzEYDFHFet7nuVkK11n3z5hVyNWGMFHoORrY2ToJ5bjpvBIruA7BjSN
+ 3C4T3MooA9PG+fcMIHp2hKeiiuZOfdludJdUeBid78TwNxsrZ4qVSeAYVlPry1h3zKFU
+ rtRw4n0qcXMx1QUx7H4jmot6Wk4h3FMGfoQW45EeaPT3Igl91czkT+B6tEO0HDFFdldE
+ 4MYA==
+X-Gm-Message-State: AOAM531nIP3OJXTYKx4+C9W2Bq7tEBgckEZB15/vovDakEYEEm8bJIN+
+ TQEMsQ7ALHhye0N4aGgs+YOtRA==
+X-Google-Smtp-Source: ABdhPJzu2zL3dDL4hiAgSK4z9Dcw0idEICTak8foXBS3lSnxmO9pbBmuyGxzNgKWSyVr5slYVp3eQg==
+X-Received: by 2002:a05:6a00:1a89:b0:4f7:b90b:17ee with SMTP id
+ e9-20020a056a001a8900b004f7b90b17eemr2233942pfv.46.1647473308139; 
+ Wed, 16 Mar 2022 16:28:28 -0700 (PDT)
 Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
- l186-20020a633ec3000000b003820485172asm145763pga.65.2022.03.16.16.28.25
+ d16-20020a056a00245000b004f7728a4346sm4436763pfj.79.2022.03.16.16.28.27
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 16 Mar 2022 16:28:25 -0700 (PDT)
-Subject: [PATCH 1/5] asm-generic: qspinlock: Indicate the use of mixed-size
- atomics
-Date: Wed, 16 Mar 2022 16:25:56 -0700
-Message-Id: <20220316232600.20419-2-palmer@rivosinc.com>
+ Wed, 16 Mar 2022 16:28:27 -0700 (PDT)
+Subject: [PATCH 3/5] openrisc: Move to ticket-spinlock
+Date: Wed, 16 Mar 2022 16:25:58 -0700
+Message-Id: <20220316232600.20419-4-palmer@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20220316232600.20419-1-palmer@rivosinc.com>
 References: <20220316232600.20419-1-palmer@rivosinc.com>
@@ -79,8 +78,8 @@ Cc: jonas@southpole.se, stefan.kristiansson@saunalahti.fi, shorne@gmail.com,
 From: Palmer Dabbelt <palmer@rivosinc.com>
 To: linux-riscv@lists.infradead.org, peterz@infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220316_162826_475781_5B3BA3EC 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20220316_162830_056388_53E83AED 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,13 +98,8 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Peter Zijlstra <peterz@infradead.org>
 
-The qspinlock implementation depends on having well behaved mixed-size
-atomics.  This is true on the more widely-used platforms, but these
-requirements are somewhat subtle and may not be satisfied by all the
-platforms that qspinlock is used on.
-
-Document these requirements, so ports that use qspinlock can more easily
-determine if they meet these requirements.
+We have no indications that openrisc meets the qspinlock requirements,
+so move to ticket-spinlock as that is more likey to be correct.
 
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 
@@ -116,50 +110,67 @@ original patch
 <https://lore.kernel.org/lkml/YHbBBuVFNnI4kjj3@hirez.programming.kicks-ass.net/>
 without one.
 ---
- include/asm-generic/qspinlock.h | 30 ++++++++++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+ arch/openrisc/Kconfig                      | 1 -
+ arch/openrisc/include/asm/Kbuild           | 5 ++---
+ arch/openrisc/include/asm/spinlock.h       | 3 +--
+ arch/openrisc/include/asm/spinlock_types.h | 2 +-
+ 4 files changed, 4 insertions(+), 7 deletions(-)
 
-diff --git a/include/asm-generic/qspinlock.h b/include/asm-generic/qspinlock.h
-index d74b13825501..a7a1296b0b4d 100644
---- a/include/asm-generic/qspinlock.h
-+++ b/include/asm-generic/qspinlock.h
-@@ -2,6 +2,36 @@
- /*
-  * Queued spinlock
-  *
-+ * A 'generic' spinlock implementation that is based on MCS locks. An
-+ * architecture that's looking for a 'generic' spinlock, please first consider
-+ * ticket-lock.h and only come looking here when you've considered all the
-+ * constraints below and can show your hardware does actually perform better
-+ * with qspinlock.
-+ *
-+ *
-+ * It relies on atomic_*_release()/atomic_*_acquire() to be RCsc (or no weaker
-+ * than RCtso if you're power), where regular code only expects atomic_t to be
-+ * RCpc.
-+ *
-+ * It relies on a far greater (compared to ticket-lock.h) set of atomic
-+ * operations to behave well together, please audit them carefully to ensure
-+ * they all have forward progress. Many atomic operations may default to
-+ * cmpxchg() loops which will not have good forward progress properties on
-+ * LL/SC architectures.
-+ *
-+ * One notable example is atomic_fetch_or_acquire(), which x86 cannot (cheaply)
-+ * do. Carefully read the patches that introduced queued_fetch_set_pending_acquire().
-+ *
-+ * It also heavily relies on mixed size atomic operations, in specific it
-+ * requires architectures to have xchg16; something which many LL/SC
-+ * architectures need to implement as a 32bit and+or in order to satisfy the
-+ * forward progress guarantees mentioned above.
-+ *
-+ * Further reading on mixed size atomics that might be relevant:
-+ *
-+ *   http://www.cl.cam.ac.uk/~pes20/popl17/mixed-size.pdf
-+ *
-+ *
-  * (C) Copyright 2013-2015 Hewlett-Packard Development Company, L.P.
-  * (C) Copyright 2015 Hewlett-Packard Enterprise Development LP
-  *
+diff --git a/arch/openrisc/Kconfig b/arch/openrisc/Kconfig
+index f724b3f1aeed..f5fa226362f6 100644
+--- a/arch/openrisc/Kconfig
++++ b/arch/openrisc/Kconfig
+@@ -30,7 +30,6 @@ config OPENRISC
+ 	select HAVE_DEBUG_STACKOVERFLOW
+ 	select OR1K_PIC
+ 	select CPU_NO_EFFICIENT_FFS if !OPENRISC_HAVE_INST_FF1
+-	select ARCH_USE_QUEUED_SPINLOCKS
+ 	select ARCH_USE_QUEUED_RWLOCKS
+ 	select OMPIC if SMP
+ 	select ARCH_WANT_FRAME_POINTERS
+diff --git a/arch/openrisc/include/asm/Kbuild b/arch/openrisc/include/asm/Kbuild
+index ca5987e11053..cb260e7d73db 100644
+--- a/arch/openrisc/include/asm/Kbuild
++++ b/arch/openrisc/include/asm/Kbuild
+@@ -1,9 +1,8 @@
+ # SPDX-License-Identifier: GPL-2.0
+ generic-y += extable.h
+ generic-y += kvm_para.h
+-generic-y += mcs_spinlock.h
+-generic-y += qspinlock_types.h
+-generic-y += qspinlock.h
++generic-y += ticket-lock.h
++generic-y += ticket-lock-types.h
+ generic-y += qrwlock_types.h
+ generic-y += qrwlock.h
+ generic-y += user.h
+diff --git a/arch/openrisc/include/asm/spinlock.h b/arch/openrisc/include/asm/spinlock.h
+index 264944a71535..40e4c9fdc349 100644
+--- a/arch/openrisc/include/asm/spinlock.h
++++ b/arch/openrisc/include/asm/spinlock.h
+@@ -15,8 +15,7 @@
+ #ifndef __ASM_OPENRISC_SPINLOCK_H
+ #define __ASM_OPENRISC_SPINLOCK_H
+ 
+-#include <asm/qspinlock.h>
+-
++#include <asm/ticket-lock.h>
+ #include <asm/qrwlock.h>
+ 
+ #define arch_spin_relax(lock)	cpu_relax()
+diff --git a/arch/openrisc/include/asm/spinlock_types.h b/arch/openrisc/include/asm/spinlock_types.h
+index 7c6fb1208c88..58ea31fa65ce 100644
+--- a/arch/openrisc/include/asm/spinlock_types.h
++++ b/arch/openrisc/include/asm/spinlock_types.h
+@@ -1,7 +1,7 @@
+ #ifndef _ASM_OPENRISC_SPINLOCK_TYPES_H
+ #define _ASM_OPENRISC_SPINLOCK_TYPES_H
+ 
+-#include <asm/qspinlock_types.h>
++#include <asm/ticket-lock-types.h>
+ #include <asm/qrwlock_types.h>
+ 
+ #endif /* _ASM_OPENRISC_SPINLOCK_TYPES_H */
 -- 
 2.34.1
 
