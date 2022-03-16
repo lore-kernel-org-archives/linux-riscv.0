@@ -4,52 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 561E8C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Mar 2022 14:39:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2191C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Mar 2022 18:46:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AygNGREPu1pAnjdPLN4Xc+dQciZI9RxUMLazlaB8dAo=; b=wyQ1TWJa24sFH7
-	YhULwvBvkjN1eJDRKUf0oFsK0agQYUUzDLKqgMEl8LaoK5H6jCV8nQ6wkBtPzjaugwoGkck2bQQ/N
-	evhH/ybq7roQcyO5AK1dE7+/MODT/86ztrcPuRFZV3QVSD5iIB7PjcqGzsf7n+togUW2oMSOi+iNJ
-	BcCVkdH+2CWMP8zsb3AyLq5b/bhS/hEvcbeLh2Fa5RAPDBiFTO38l8Z2innNpWD35TPV6H7aDRFZp
-	Gu71KlOxwPSMqght27Da1S1uYwRXhafSbVzmZGXtEJNW7Zv0dGYt0Lht0uLxxk/7WmlfiKbhqp22j
-	Tt8ZEjnt33OggB5bpcrA==;
+	List-Owner; bh=VJHJce+OfFlCVQjg80Hl9ibQSMiNRBfZ634YDXK9zWo=; b=kzVb28VBmcL/LB
+	hYin3Jr+CaCzqeGI9+zQhkrZPp3JutuVzzVKfgx210gJCq9B3frromqfQEs+06i/7WVRNmv2PSNRf
+	DQuRDZKiBfx7XUs+39TRkU8GKzLD4r119uROwENaY3BSu8l+AHcZ8YJFw+jINOjNzJAe4uMxQKdrV
+	RdWOlb6PNT970vxx8bNyZDc9QogYziO0pP+jJSI0YRYh6+A3MocAwtkAs0qv8SkgnRjha5MntoPtC
+	w2HHHP40FRpFjb6pU+sWv+Dy84VnzU8ljYivQKbfuXJFZumv93+QOOHvuUcS4CWduYOdF5UtcmFXA
+	Na9Ls+eQ80oECOIrVzJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nUUny-00DIPw-C8; Wed, 16 Mar 2022 14:39:14 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nUUnl-00DIN1-Pa; Wed, 16 Mar 2022 14:39:03 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by sin.source.kernel.org (Postfix) with ESMTPS id 5B04DCE1FE1;
- Wed, 16 Mar 2022 14:38:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B930C340EC;
- Wed, 16 Mar 2022 14:38:55 +0000 (UTC)
-Date: Wed, 16 Mar 2022 14:38:51 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: guoren@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-xtensa@linux-xtensa.org, Guo Ren <guoren@linux.alibaba.com>,
- Max Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Masami Hiramatsu <mhiramat@kernel.org>,
- Chris Zankel <chris@zankel.net>, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH V2] arch: patch_text: Fixup last cpu should be master
-Message-ID: <YjH2e4bfTl+0/+yc@arm.com>
-References: <20220313012221.1755483-1-guoren@kernel.org>
+	id 1nUYes-00E7Bu-TJ; Wed, 16 Mar 2022 18:46:06 +0000
+Received: from angie.orcam.me.uk ([2001:4190:8020::34])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nUYee-00E78U-Ci; Wed, 16 Mar 2022 18:45:54 +0000
+Received: by angie.orcam.me.uk (Postfix, from userid 500)
+ id AFA5D92009C; Wed, 16 Mar 2022 19:45:45 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+ by angie.orcam.me.uk (Postfix) with ESMTP id AC40D92009B;
+ Wed, 16 Mar 2022 18:45:45 +0000 (GMT)
+Date: Wed, 16 Mar 2022 18:45:45 +0000 (GMT)
+From: "Maciej W. Rozycki" <macro@orcam.me.uk>
+To: Sudip Mukherjee <sudipm.mukherjee@gmail.com>
+cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, Jeff Dike <jdike@addtoit.com>, 
+ Richard Weinberger <richard@nod.at>, 
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+ Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+ linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org, 
+ linux-kernel <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] parport_pc: Also enable driver for PCI systems
+In-Reply-To: <CADVatmP4sPwyqi6vKPm3QOFD=47w1LwXtsUynhecY4wMYGhXmw@mail.gmail.com>
+Message-ID: <alpine.DEB.2.21.2203161837130.24248@angie.orcam.me.uk>
+References: <alpine.DEB.2.21.2202141955550.34636@angie.orcam.me.uk>
+ <CADVatmP4sPwyqi6vKPm3QOFD=47w1LwXtsUynhecY4wMYGhXmw@mail.gmail.com>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220313012221.1755483-1-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220316_073902_042967_E14BA0FF 
-X-CRM114-Status: GOOD (  20.22  )
+X-CRM114-CacheID: sfid-20220316_114552_608167_29D40233 
+X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,45 +74,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 13, 2022 at 09:22:21AM +0800, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
+On Wed, 2 Mar 2022, Sudip Mukherjee wrote:
+
+> > Make the PARPORT_PC option selectable also for PCI systems then, except
+> > for the s390 arch, however limit the availability of PARPORT_PC_SUPERIO
+> > to platforms that enable ARCH_MIGHT_HAVE_PC_PARPORT.  Update platforms
+> > accordingly for the required <asm/parport.h> header.
+> >
+> > Signed-off-by: Maciej W. Rozycki <macro@orcam.me.uk>
 > 
-> These patch_text implementations are using stop_machine_cpuslocked
-> infrastructure with atomic cpu_count. The original idea: When the
-> master CPU patch_text, the others should wait for it.
+> Acked-by: Sudip Mukherjee <sudipm.mukherjee@gmail.com>
+> 
+> Usually parport patches goes via Greg's tree. Adding Greg.
 
-I couldn't find the original intent in the commit logs (at least not in
-the arm64 logs). Maybe the intention was for the CPUs to wait for the
-text patching to complete rather than the master CPU to wait for the
-others to enter the cpu_relax() loop before patching.
+ Thank you.  I have since been able to move my parport card to my RISC-V 
+machine, and the result is as follows:
 
-I think your patch makes sense anyway, the master CPU would wait for all
-the others to enter the cpu_relax() loop before patching and releasing
-them with another increment. You probably wouldn't see any issues in
-practice unless you insert probes in the multi_stop_cpu() function (or
-we could mark this function as __kprobes and get rid of the extra loops
-entirely).
+parport_pc 0000:07:00.0: enabling device (0000 -> 0001)
+PCI parallel port detected: 1415:c118, I/O at 0x8(0x4), IRQ 38
+parport0: PC-style at 0x8 (0x4), irq 38, using FIFO [PCSPP,TRISTATE,COMPAT,EPP,ECP]
+lp0: using parport0 (interrupt-driven).
 
-> --- a/arch/arm64/kernel/patching.c
-> +++ b/arch/arm64/kernel/patching.c
-> @@ -117,8 +117,8 @@ static int __kprobes aarch64_insn_patch_text_cb(void *arg)
->  	int i, ret = 0;
->  	struct aarch64_insn_patch *pp = arg;
->  
-> -	/* The first CPU becomes master */
-> -	if (atomic_inc_return(&pp->cpu_count) == 1) {
-> +	/* The last CPU becomes master */
-> +	if (atomic_inc_return(&pp->cpu_count) == num_online_cpus()) {
->  		for (i = 0; ret == 0 && i < pp->insn_cnt; i++)
->  			ret = aarch64_insn_patch_text_nosync(pp->text_addrs[i],
->  							     pp->new_insns[i]);
+with the patch from:
 
-For arm64:
+<https://lore.kernel.org/lkml/alpine.DEB.2.21.2202260044180.25061@angie.orcam.me.uk/>
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+also applied so as to prevent I/O port 0 from being assigned by PCI code 
+that wouldn't actually work (so allocation for the two BARs is at 0x4 and 
+0x8 instead).
 
--- 
-Catalin
+  Maciej
 
 _______________________________________________
 linux-riscv mailing list
