@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 209E1C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Mar 2022 11:59:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 655AAC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Mar 2022 12:04:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MfI3oGM5+U4Rt9HD9eH4CPWfS497CLi9Wur6lEbmZLM=; b=JLoo+TqGNXdUZA
-	HbvbYwv178mgubluu4wgcXkpvDWmvkompc/N4RmflHvUN8MeMx7SEFbC+rxT80u2PF3RK20MEKil/
-	MwuzB/nE1DgO6soUFVMJZw+/QQ0BxDsEukNqGuW9VZpcu2mXCtHNPUz1bnVDGUsYskiTyXRAfnGpe
-	hJ/AmKKixSvDdMsExjM1qK1wIrBKPurWTchTOcZBDZ603UTbG+c/QlUbTOLCxUQcvkh9qoog8DJkT
-	LJEXQUoOSz6V88Fu1+Js4Vw7mSBH1KTv3JWIDvESZINYmNvDrqhExMDzbhN0nGv364a4a+AmypLG7
-	dJA6Tp4J58YF3TBjPTxQ==;
+	List-Owner; bh=5o9igm3EcbdfZ1/vdl5cUf9sbP4weM+Tkp0RqGmgXNI=; b=DpOkh7ubap4nQx
+	5D1JW6cxwKaLIVW8B2uOW7r3DWjlgpjHrzxS52DCY+GNIVH7q32KLpFN2LXk2r6yMRL2+n0yqTqNk
+	IgJqZO/Ds5V/+gGGdYUINDEbxMJwsFhyd0gAdInFtbSsf3lAfRplUjO7Kq3GWvah3o3koSc2NcTFL
+	egRw/JRp8pCnPQX/Ix5HAXaB1Fa1Fcc39V0CgONKaKWFADvrQLifzgJeWRErM44K33r//ElvKznDV
+	NTbV+ahGLWaDfb0QfSTBcn0V+pMOEdK1C1fIuZhyVFQljhjVFsWsNXWxtm75kA5ddiWd0ZsvnJasD
+	QCoHYLk90g+uBrpS5cZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nUon4-00Ftso-3J; Thu, 17 Mar 2022 11:59:38 +0000
+	id 1nUorS-00FvxT-55; Thu, 17 Mar 2022 12:04:10 +0000
 Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nUol3-00Fsg8-Kw
- for linux-riscv@lists.infradead.org; Thu, 17 Mar 2022 11:57:35 +0000
-Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com
- [209.85.218.71])
+ id 1nUolB-00Fsls-FL
+ for linux-riscv@lists.infradead.org; Thu, 17 Mar 2022 11:57:45 +0000
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 6D3EE3F619
- for <linux-riscv@lists.infradead.org>; Thu, 17 Mar 2022 11:57:32 +0000 (UTC)
+ by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 0A5433F312
+ for <linux-riscv@lists.infradead.org>; Thu, 17 Mar 2022 11:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1647518252;
- bh=BPmH+sTMtK9KvdlWBUTtE4tsLSFnUjRMwkwF+kfhktM=;
+ s=20210705; t=1647518260;
+ bh=q6L0pTvWqCbYxp4ud2xHQC7gNboKzwtZb8Qa+W91MLY=;
  h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
  MIME-Version;
- b=nJ7VQH0veyn8T4Hi3l4Fqjh3qVH/K4BmHG4AwiJQTBC27QPlhkbMYoQrMYIzxslrD
- upQgbC9qGOprYO2u6lcAYZSkD6FNJP4pU0YyFOynUVnauSZ2FO0R85i3lcLAYxTRRJ
- Geoy4xgOh831N8vcnWvCx6mxYKLHGaCRfsxnaP5wZLKsOIb3wpmFYzo8Q87HGmKvIC
- WHM2PicacX7AUW5AeU/sV0UhKyudQ0Ud40kvV0GUToRJSRCcNJGiZRGwv7452xQOrt
- H99pz7Eu0o6kSJ5zP7zNcCpiSpu1qoUca36gRY1UF0MexMbH+4fBjh0kAnFUA/T6W+
- QxRefIiBJ1qYg==
-Received: by mail-ej1-f71.google.com with SMTP id
- my14-20020a1709065a4e00b006df7cbf896cso2642608ejc.5
- for <linux-riscv@lists.infradead.org>; Thu, 17 Mar 2022 04:57:32 -0700 (PDT)
+ b=HV1q8bCdtubr6CRRllojHHBQI+5/WG+up146VgLklw8c6uGjnI2JNOyOIs+EMU4at
+ HHWfC/zqxDDHZrCapKsTeFkC4C/S5OSEvgfAqwqqE899FMT1XNm8rrlD06gNXzKf+i
+ q046TjCpG/rq4YZvKobHpdiO9GYOu7fuG9J4abfn3YgOB9HAF3YmBDx2k6ek2mVI5a
+ p4PNkoBvJn4gluB13FWF/insR+HVmOqlxi3tEZOeyEDkNMC6U+Y5JgyCg/Z0FOw+6i
+ JaYTYXf6tf3Lvhh8s5Mm9T8jyhQT+DcdsZhnVvWYxMkv4n71vrvgKagvzHkq/E+pzg
+ pez+u+njWCSvQ==
+Received: by mail-wr1-f72.google.com with SMTP id
+ o9-20020adfca09000000b001ea79f7edf8so1465531wrh.16
+ for <linux-riscv@lists.infradead.org>; Thu, 17 Mar 2022 04:57:40 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=BPmH+sTMtK9KvdlWBUTtE4tsLSFnUjRMwkwF+kfhktM=;
- b=PGxpuV7G7+wqkZcuVy8iJPh5PY0x5i01VAgBEg4HeDz+zWaDYrDpS7f19/AX+y1STB
- G95oVVZBJ5TTtr7EOb4OkGkah1da6jq9963tylljKSE/l8g63/7ygTYsaSNOt4C2i+hn
- 9FC16g5Mu9b/OpiLfaBo3bP+YkJS1ejSFhYlwT/2s6MviAFNL919ndRG4oTdA9y4XNBn
- BDELYhb6JYu0youzlV23mITVcg3Bi4uZMEy6NSdGsgB4ELWVNh1OrCrkp7NSSdIPsy/6
- aokAb8VNCEmmpJonOd7TwdCHJj4WtT4OD1CgsMS94GiX1TFlytVdhdyWFCjjYnL1tBtc
- Zqpg==
-X-Gm-Message-State: AOAM531yLCS/UZSOfnE9+cwAvPGLALcW6RKi9cbE0zuyGZQabyCmd0ce
- RktNY6mHUzuPpLUaiPLbYNxKBBULw0glIUgYWze76uE1h2HjHAkHefeT0tvDu1j0LN6WhTiBn3D
- lGbRT8qH0qxr1SwK1o/mB/lJPDJuHX7RvH6imoDm/RUcO7A==
-X-Received: by 2002:adf:e746:0:b0:1ef:8476:dab3 with SMTP id
- c6-20020adfe746000000b001ef8476dab3mr3772435wrn.449.1647518240643; 
- Thu, 17 Mar 2022 04:57:20 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJxQHNNPp+cT6LCWfeTjsbKn2oDv2UQ8R2ucYLdbIGsLwf9N7IdLuy6eC+hFFDvk8H5WgkaZvQ==
-X-Received: by 2002:adf:e746:0:b0:1ef:8476:dab3 with SMTP id
- c6-20020adfe746000000b001ef8476dab3mr3772388wrn.449.1647518240413; 
- Thu, 17 Mar 2022 04:57:20 -0700 (PDT)
+ bh=q6L0pTvWqCbYxp4ud2xHQC7gNboKzwtZb8Qa+W91MLY=;
+ b=gmiR1DeMyyz2Ms4siiR6DkuvarI/lEZuzDhySwbez2VUVo0Yo2/CbpIot61R9tlkYs
+ t9BMfyPSJvjZvtWnDLb/gR3v07rNQ5fL+haDhX62XBP5talo1hV3G+jRSc0VUEDqRPJT
+ XOSaQa69k8JnnY415IzRZRp/zaZmhsHG7YK3++1SpHD/qXn0dMBYnKpzmuGwxYczLyWz
+ PvtbfhdYJR94RXlPm/K7OwO+aj2/509Ma40hmFPvWOWIldekoojhJq/awMlAFUbYlUSo
+ E/16Peoci6W54hg7sUXpFqpX9lGjSveyTEs4JUnT+erg/8JRsi32+zRiwXWW00CHvUAt
+ uuig==
+X-Gm-Message-State: AOAM530mcyGZPJkyH/4J0Mjs2+5bwSxQikUyVXxXJMJH6SUsfmmc84O7
+ j+B5pmJRq7+EqunZCLaT5W63OeP5yaJLw+8AWvr7lLBTF2GkRnF+JqiAXQ90U7KWSXfZoZr6FgW
+ huzf9yxrnlbktd/qj8F0tSr9Mw9F4GVMrOjlGQMNiTK91lw==
+X-Received: by 2002:a1c:f219:0:b0:38c:782c:3bb with SMTP id
+ s25-20020a1cf219000000b0038c782c03bbmr2376124wmc.94.1647518249488; 
+ Thu, 17 Mar 2022 04:57:29 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxX1jxnKZiD0NuCgy5RBXKK6my/n/GYxN3iuUU96hXmDCoERczZgFOzB2MQI7Nkvxk6j0Zexw==
+X-Received: by 2002:a1c:f219:0:b0:38c:782c:3bb with SMTP id
+ s25-20020a1cf219000000b0038c782c03bbmr2376082wmc.94.1647518249282; 
+ Thu, 17 Mar 2022 04:57:29 -0700 (PDT)
 Received: from krzk-bin.. (78-11-189-27.static.ip.netia.com.pl. [78.11.189.27])
  by smtp.gmail.com with ESMTPSA id
- r65-20020a1c4444000000b0038c48dd23b9sm5824900wma.5.2022.03.17.04.57.18
+ r65-20020a1c4444000000b0038c48dd23b9sm5824900wma.5.2022.03.17.04.57.27
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 17 Mar 2022 04:57:20 -0700 (PDT)
+ Thu, 17 Mar 2022 04:57:28 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
  Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -102,16 +102,17 @@ To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
  linux-actions@lists.infradead.org, openbmc@lists.ozlabs.org,
  linux-riscv@lists.infradead.org, linux-oxnas@groups.io
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-Subject: [PATCH 05/18] dt-bindings: irqchip: fsl: include generic schema
-Date: Thu, 17 Mar 2022 12:56:52 +0100
-Message-Id: <20220317115705.450427-4-krzysztof.kozlowski@canonical.com>
+Subject: [PATCH 08/18] dt-bindings: irqchip: kontron,
+ sl28cpld: include generic schema
+Date: Thu, 17 Mar 2022 12:56:55 +0100
+Message-Id: <20220317115705.450427-7-krzysztof.kozlowski@canonical.com>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20220317115542.450032-1-krzysztof.kozlowski@canonical.com>
 References: <20220317115542.450032-1-krzysztof.kozlowski@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220317_045733_857339_EE5065DB 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20220317_045741_688351_CBAD89B4 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,56 +134,29 @@ naming and other generic properties.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 ---
- .../devicetree/bindings/interrupt-controller/fsl,intmux.yaml | 5 ++++-
- .../bindings/interrupt-controller/fsl,irqsteer.yaml          | 5 ++++-
- 2 files changed, 8 insertions(+), 2 deletions(-)
+ .../bindings/interrupt-controller/kontron,sl28cpld-intc.yaml | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/fsl,intmux.yaml b/Documentation/devicetree/bindings/interrupt-controller/fsl,intmux.yaml
-index 1d6e0f64a807..5ead6b7dcb42 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/fsl,intmux.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/fsl,intmux.yaml
-@@ -9,6 +9,9 @@ title: Freescale INTMUX interrupt multiplexer
- maintainers:
-   - Joakim Zhang <qiangqing.zhang@nxp.com>
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/kontron,sl28cpld-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/kontron,sl28cpld-intc.yaml
+index e8dfa6507f64..1d0939390631 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/kontron,sl28cpld-intc.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/kontron,sl28cpld-intc.yaml
+@@ -29,6 +29,9 @@ description: |
+     7  n/a           not used
+   ==== ============= ==================================
  
 +allOf:
 +  - $ref: /schemas/interrupt-controller.yaml#
 +
  properties:
    compatible:
-     const: fsl,imx-intmux
-@@ -45,7 +48,7 @@ required:
-   - clocks
-   - clock-names
+     enum:
+@@ -51,4 +54,4 @@ required:
+   - "#interrupt-cells"
+   - interrupt-controller
  
 -additionalProperties: false
 +unevaluatedProperties: false
- 
- examples:
-   - |
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml b/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml
-index bcb5e20fa9ca..4b5080f754ea 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml
-@@ -9,6 +9,9 @@ title: Freescale IRQSTEER Interrupt Multiplexer
- maintainers:
-   - Lucas Stach <l.stach@pengutronix.de>
- 
-+allOf:
-+  - $ref: /schemas/interrupt-controller.yaml#
-+
- properties:
-   compatible:
-     oneOf:
-@@ -70,7 +73,7 @@ required:
-   - fsl,channel
-   - fsl,num-irqs
- 
--additionalProperties: false
-+unevaluatedProperties: false
- 
- examples:
-   - |
 -- 
 2.32.0
 
