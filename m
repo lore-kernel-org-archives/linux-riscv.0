@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DBD3C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Mar 2022 12:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B115C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Mar 2022 12:11:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MEuQFavCNeERJ7gY1N13QCVs08PwhZPscR2mz/FejNw=; b=0IUFMwXGCk9h0j
-	hYxFvdcKtt48+9p2QQ2bGhPdQ3wI5Qn44P+dpq2tV6piqE4qym4MaW+z2i3Qk6VtgWt3cSqhArosJ
-	RGWx8AkMuMiqLVKPUFKrXfXzyw/gHhYd5pkBTPkHYSIWC7rYbXX3EHOSSC7tG4s9kByrsITkWuQUr
-	rsqSzYiGWiDyjP2GNIm9CR81VhWN8TQSFNry8UKiimGx+c23oL0s4S+vQosvCYv+apCaAgEbnpSgg
-	nFSNw98JgR8r3+Ch5ECvI9dqB6agBxh8zj+UOp5fYRpZ8KkhVg4UqeF8U3DfdAmVL++NLADqLq+iv
-	XiK0edR9i/ROneM25ahQ==;
+	List-Owner; bh=Gw/CNUD1C3AGycReUfVWPH2BdcQnSiPBqogI3jczq7w=; b=vUIVKN0JiL15jy
+	m7lW9E+rA81eo3VJBeB3mE0jEbpbb1bhz+TjuUZVxKl5V/jWzhx12jGCOWCfkMPoQJis6JL1LWrxJ
+	yYJzlUOX0hBgbZGOu7dd5lQcDOlKio309AH+gtmeFWB2iuiX6+GvLf5kMawti640vsxh8cap5iazZ
+	DXwnFBA4JE7iF6VNfFi6pnNVh4z0z3ySXEB/J26Sg/ZIzSMVDPgOr5cPzMsP56HkaxLX/x/7Xdsd2
+	3k4YaIL5IpZkAgCS8/T+yFu4W2A15k5/4QN6YCL1QlnCNiyQomhLNz20x+IuZuLo3PcVSvH80uXvs
+	juy1hwqbyDJPOemAYu7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nUoya-00FyeY-E4; Thu, 17 Mar 2022 12:11:32 +0000
+	id 1nUoyk-00FyiR-Kx; Thu, 17 Mar 2022 12:11:42 +0000
 Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nUolS-00FsyF-2S
- for linux-riscv@lists.infradead.org; Thu, 17 Mar 2022 11:58:00 +0000
-Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com
- [209.85.218.71])
+ id 1nUolW-00Ft27-Sl
+ for linux-riscv@lists.infradead.org; Thu, 17 Mar 2022 11:58:04 +0000
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 01A2C3FE02
- for <linux-riscv@lists.infradead.org>; Thu, 17 Mar 2022 11:57:53 +0000 (UTC)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id EC61B3FFD3
+ for <linux-riscv@lists.infradead.org>; Thu, 17 Mar 2022 11:57:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1647518273;
- bh=rPrab2m6ZRJ1Nq2pMdTzGXWaaBF6CBXynVgpKRpBOdQ=;
+ s=20210705; t=1647518276;
+ bh=KFmifwXJp5W4UT7dzRYgwV6FTL9sctX1thCEx5C+nkM=;
  h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
  MIME-Version;
- b=ccBXCkrOhjmETSLAuHMu0QytNkXVBit0oXorw50W+rt/X6f8cvM6InmZ4CUoGCt99
- jm99T9FcwsNdln9pevesd1NbE49j7gqVFn7BYSbRfWzND4xoVSDB7n5RM1bIJp+6I6
- AqEe5ZYMNS6jsjzHdoj2OPl1lt/qEKHA+vem+trwmRLnYgDgSBKvaJOQ9EROFNwmJ0
- l1HBuOXVqVh0LhInJ1zV2xhyIDj8tCMVLKKZlKSD5SZg1H+1+r7HbV/RftOFMdqoZn
- U+2XLhAqulfVNqOMYbtpsnt0A+drvb4WNaF6+b9bPx0UNz3kcRT2gjLsDOJIBQnx4f
- ktvyUkWCcs9fw==
-Received: by mail-ej1-f71.google.com with SMTP id
- zd21-20020a17090698d500b006df778721f7so2784073ejb.3
- for <linux-riscv@lists.infradead.org>; Thu, 17 Mar 2022 04:57:52 -0700 (PDT)
+ b=uAZySwa+94JUOmbeRBa83DQ1M8Uv4aSCzoloaoS5A+WbsuddyeIi+uQ0/BSxVBegi
+ 0sXeiDZBmv5dd+rh4FQn2ERuZ11TcE6eiX86V2ytjv9NhgjfOoUyVtb7m+r+h4VJ9J
+ vReHmRFs/adn2At51s/L1iVYvy3TfHbUVxwJ10CwEFcLx8whasThu8T12WNVfjcR8n
+ SG49/LT0E5swjqg0h1ILtGMN/tifJtLoH5Zmz8tLpWatfBXnmH3QMXW/xKtT2y0Drh
+ bUMyTWAvCc3tSKMAb0lQq5k+Y+MRHl8lxLQlj/eb4mwVvhrS/LqqxzNteBYzCoOGoQ
+ /g/vNQTfHJGaQ==
+Received: by mail-wr1-f70.google.com with SMTP id
+ f18-20020adf9f52000000b00203d86759beso1476526wrg.11
+ for <linux-riscv@lists.infradead.org>; Thu, 17 Mar 2022 04:57:56 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=rPrab2m6ZRJ1Nq2pMdTzGXWaaBF6CBXynVgpKRpBOdQ=;
- b=KWe+oFC51vYLqr8TaIuooZRuoZi4P0q7scNWKKER3LySST9HUGeChhUFTOou0KL8TH
- wxrYv3M+TWyDPqREPRpTN3wRlbOqqVXuVQxdTm9ipaqHFKcUkMwqtzj5ta/CHAy3pBDs
- tB84ssblJ/qGqfRZjaVRqF9StXGMWqhzek7eebm4OT9yMLzFq33wd7xy2bn1sRWmAyDs
- gytJ+GL+vSD/3Im1I/WKHR4Tpuyma2uMWqZ4Ia05SfnuMSmAkaT5vNJHTaUaxTdoscH/
- OAJ5zGeJTn5YdGbpuxTYEW4znOXXJe3bQgCEvGfFnJeqnhqx04mQEuFE4Pe164MmUm6j
- 79SQ==
-X-Gm-Message-State: AOAM533SIQ4pNjApA6848mhkW60XMqd/2QZIAac/4Sy8Oz1xgVyjVT0S
- jKiXz2hIj0vqsGhvGGz8ybq9XLeujTBXfzORBnqjI3Pk+Rq0HysvxMbXaIDIix3UxeCqG0OaXvZ
- amL6N7YCNmGY9UgvVh/yyLv8IWJcr+tNzthGnAg5AApBevQ==
-X-Received: by 2002:a5d:6d0c:0:b0:203:8aec:9676 with SMTP id
- e12-20020a5d6d0c000000b002038aec9676mr3866426wrq.601.1647518258336; 
- Thu, 17 Mar 2022 04:57:38 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJwCFbJKUv1ZFo1+EZDHVZjNF5kTsPX4saRLzzvod+Y5Qcc436Gbn7v60O8I+x1+ugbTJ8av2Q==
-X-Received: by 2002:a5d:6d0c:0:b0:203:8aec:9676 with SMTP id
- e12-20020a5d6d0c000000b002038aec9676mr3866374wrq.601.1647518258073; 
- Thu, 17 Mar 2022 04:57:38 -0700 (PDT)
+ bh=KFmifwXJp5W4UT7dzRYgwV6FTL9sctX1thCEx5C+nkM=;
+ b=URA6R+qDk4D0RAMyx234Q7l/QFBWv4eJtyOXz8g+j+/Q1r1MyMveYIAeZ2dHzkYjw8
+ qu6+Ej6oDFoeY8/wybYrVs03JVPjpnj4J0ITfFRTCXJa+NfzN6G0LN7G2YXmkG3+jHFT
+ UANS+KFaOZwlb5HBbn5NuKgGJINGSt/xnyBddS4ZuCZdzdeNSNxeCFiBrO9bcFISv4su
+ cBFgGRKnWe9E6mbq09kHlroWhftY8oVS4h+OzJ/Q0nugQQA7Wxiq5G2SrY5tcCXDRBs0
+ m0INQnX76SKFqM7SJbDXmU98iTPUVxCkdOLdlYFE1xYo2FXMgVb1YUdU8EzHblAPRL14
+ uRLw==
+X-Gm-Message-State: AOAM533r2J72fDGREEPnhY8iVXpsXet/z/XvgPBZg5jHjWBsmDkjBMaw
+ bR7R/ftJxKnGgts72igpzpeBp5oHCAL9cobJsa/D+kBjHvaMBb2Z0GlC4nMbJmLbRKNcI2v7/S+
+ HSli8hZkXHk/UxN59zaoqI6Dgc/4ktgFzvdi5OAdz+m835A==
+X-Received: by 2002:a05:6000:15c1:b0:1f0:73d6:b716 with SMTP id
+ y1-20020a05600015c100b001f073d6b716mr3663295wry.293.1647518274485; 
+ Thu, 17 Mar 2022 04:57:54 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwQvKKHcnhZqthCpzLO2USNLVXIsLYfJdNKGccVKarN3fEhfI5+MqhVsRHbxfF78ndbEuW0XA==
+X-Received: by 2002:a05:6000:15c1:b0:1f0:73d6:b716 with SMTP id
+ y1-20020a05600015c100b001f073d6b716mr3663274wry.293.1647518274258; 
+ Thu, 17 Mar 2022 04:57:54 -0700 (PDT)
 Received: from krzk-bin.. (78-11-189-27.static.ip.netia.com.pl. [78.11.189.27])
  by smtp.gmail.com with ESMTPSA id
- r65-20020a1c4444000000b0038c48dd23b9sm5824900wma.5.2022.03.17.04.57.35
+ r65-20020a1c4444000000b0038c48dd23b9sm5824900wma.5.2022.03.17.04.57.52
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 17 Mar 2022 04:57:37 -0700 (PDT)
+ Thu, 17 Mar 2022 04:57:53 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
  Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -102,16 +102,16 @@ To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
  linux-actions@lists.infradead.org, openbmc@lists.ozlabs.org,
  linux-riscv@lists.infradead.org, linux-oxnas@groups.io
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-Subject: [PATCH 11/18] dt-bindings: irqchip: mrvl, intc: include generic schema
-Date: Thu, 17 Mar 2022 12:56:58 +0100
-Message-Id: <20220317115705.450427-10-krzysztof.kozlowski@canonical.com>
+Subject: [PATCH 17/18] dt-bindings: irqchip: sifive: include generic schema
+Date: Thu, 17 Mar 2022 12:57:04 +0100
+Message-Id: <20220317115705.450427-16-krzysztof.kozlowski@canonical.com>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20220317115542.450032-1-krzysztof.kozlowski@canonical.com>
 References: <20220317115542.450032-1-krzysztof.kozlowski@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220317_045758_302913_C9B9A967 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20220317_045803_086399_91945F74 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,24 +133,26 @@ naming and other generic properties.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 ---
- .../devicetree/bindings/interrupt-controller/mrvl,intc.yaml    | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml     | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/mrvl,intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/mrvl,intc.yaml
-index 372ccbfae771..75d49c9e956f 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/mrvl,intc.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/mrvl,intc.yaml
-@@ -13,6 +13,7 @@ maintainers:
-   - Rob Herring <robh+dt@kernel.org>
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+index 27092c6a86c4..e3c08cff89d2 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+@@ -44,6 +44,9 @@ maintainers:
+   - Paul Walmsley  <paul.walmsley@sifive.com>
+   - Palmer Dabbelt <palmer@dabbelt.com>
  
- allOf:
++allOf:
 +  - $ref: /schemas/interrupt-controller.yaml#
-   - if:
-       properties:
-         compatible:
-@@ -101,7 +102,7 @@ required:
-   - reg
-   - interrupt-controller
++
+ properties:
+   compatible:
+     oneOf:
+@@ -91,7 +94,7 @@ required:
+   - interrupts-extended
+   - riscv,ndev
  
 -additionalProperties: false
 +unevaluatedProperties: false
