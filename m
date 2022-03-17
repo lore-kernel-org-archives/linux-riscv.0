@@ -4,50 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F3B6C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Mar 2022 08:44:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 083E5C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Mar 2022 09:16:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BHYv1HYQoPJ+9lT6tq4vTCHg2AA+FmiM8lfxFBmhiqw=; b=CZl2LA4YzNb3Ac
-	lWj0IMeixaWKpzZJOWICWlU5m2OMjaLN1tE1QbjrDP/sGbgQXQeIwglMDc5aybqrZpXhIZ7cBv7bW
-	p5vyN1B/tFL4HuauMDJEZmFsx+Uq4ffriD6xxMrUoUtQgf3K1/rsZUcPUwfjXQWsKw21DFXw0onF7
-	Bd8XKiXDJzrSULhgpvG5+TsskwCj+p2H2s9HD2XoRqKr1uKM+dgcJ+0dC7rGuV4nVYFgOpI9hV2Jp
-	vJqwtrbw2snaaWki/q3OunQ8Ih6CP7e+Qcav+9sQA/3px8Tmyy4PNwDyiKZnYCFIMTJOU2x/8Dsxo
-	Dw6nxK5jy+nbEPQukQ5w==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zITpVW9hR0VAN5I37KNPRN9YAPQRSLad57yP7fxf5Ug=; b=myaRo07CXa+QYZ
+	6qI/I/0Xs/L0D3gt1/OjERRu1jU1m/b/4W/dmCXZB3bQyzKNAyUatP4ycUUlgivhin3g0fvvfON2j
+	j4H0Ura7AEdX12oxkd5wbjIUC/qdNUrWwRs+qpxgyRxZpjSad+P1o3SqMVbV5vcVa1Qxhi2+ss86y
+	QleQBJdLxtlGAM8aZDg7ewT9vTbqbh44OoYWgQGhzMlgtiX6wK1v6YxRpnLFLvW5zZL9lw0r7YjFY
+	Q7fdCBwWLK5VfW0jRQ0G+RBQ/VZQNJVvCkgSIVp2D4e619YInJ7VXO1UXDvxDdM6uxHGE+EgljI0S
+	W9m5bULLP4kyyPMADgjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nUljm-00FPRg-K6; Thu, 17 Mar 2022 08:44:02 +0000
-Received: from mail.olerise.pl ([46.183.184.59])
+	id 1nUmEl-00FUnp-VY; Thu, 17 Mar 2022 09:16:04 +0000
+Received: from mga06.intel.com ([134.134.136.31])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nUljc-00FPNi-7K
- for linux-riscv@lists.infradead.org; Thu, 17 Mar 2022 08:43:53 +0000
-Received: by mail.olerise.pl (Postfix, from userid 1001)
- id 651B14477D; Thu, 17 Mar 2022 09:41:06 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=olerise.pl; s=mail;
- t=1647506541; bh=ZNYiuZLXlxCdAPtstEG/gwJieB5RBwA/cHj1SZ3Mpl0=;
- h=Date:From:To:Subject:From;
- b=B81Rp1/WQsLGDbUhpW7+/Mr81x7P+8r5fNAqQjMKyTdjNa5DjGyjsx9P+NfEfoRIa
- 2KoApDgh/wFxK15DYyXxdXxQFldQM8yjwiPM/OGsjlXBA0VKmp6i+PfgEl2E2fvqUp
- l2fMH/vsNYCdmxmHNctfmr+WGAEyof8W4G6uhEDH/rYJnGnfGR5LudHj80wOcS47kt
- SJldKDQw7A7o4PCzadZD+cMOys9tAcIIocamDbn3trGZODJBOmPT74jgYTbY8egqay
- RDmbnj2Uvu/xLJte+W8lCKUkW7asaPkJnW0JUhsnLQ0zDL4F7YeZhsfPh7RsytERnF
- Ntx/cGX+V/vWQ==
-Received: by mail.olerise.pl for <linux-riscv@lists.infradead.org>;
- Thu, 17 Mar 2022 08:40:21 GMT
-Message-ID: <20220317084500-0.1.2d.rufj.0.w5kzc4f221@olerise.pl>
-Date: Thu, 17 Mar 2022 08:40:21 GMT
-From: =?UTF-8?Q?"Miko=C5=82aj_Rudzik"?= <mikolaj.rudzik@olerise.pl>
-To: <linux-riscv@lists.infradead.org>
-Subject: =?UTF-8?Q?Nap=C5=82yw_Klient=C3=B3w_ze_strony?=
-X-Mailer: mail.olerise.pl
+ id 1nUmEi-00FUmM-5y; Thu, 17 Mar 2022 09:16:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+ d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+ t=1647508560; x=1679044560;
+ h=date:from:to:cc:subject:message-id:references:
+ mime-version:in-reply-to;
+ bh=AgYkRzO8ksOYyWWAS/gpvfK0lt7Rzm9dkVzVmq0l0/w=;
+ b=Bs0cFtW3GGgWk3eo569IEg6ZJCgONhPamSoOvx7LGexv3Y6gbwOOMkfQ
+ LL7sY4w67U3K+daOc5hSbvEJn42iZSRP2jUPUwqjaYohfiNwXUCDeWnGO
+ ctDhKqw1KzvllA1goaaurzEHs9ZIKOxUrw+fHl9cdFxh+2zcS2kN+txWm
+ PZw7XbGb42JoHmGYheRD20nC1LCey9gJwnnrAgZC1WbXFjb9f2D+KIbh7
+ DkIdEU4jOgSBrcyHYWEyoggDHb7Gb6G4QOEr2jAUC4WkIL+nmW+bNADzN
+ Dc1FSJW4d8fGQriJsEmehq8GTgB5wdOCs822FpnOADSkntcJxNH3+uuea A==;
+X-IronPort-AV: E=McAfee;i="6200,9189,10288"; a="317541104"
+X-IronPort-AV: E=Sophos;i="5.90,188,1643702400"; d="scan'208";a="317541104"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+ by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 17 Mar 2022 02:15:57 -0700
+X-IronPort-AV: E=Sophos;i="5.90,188,1643702400"; d="scan'208";a="557852602"
+Received: from gao-cwp.sh.intel.com (HELO gao-cwp) ([10.239.159.23])
+ by orsmga008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 17 Mar 2022 02:15:44 -0700
+Date: Thu, 17 Mar 2022 17:15:41 +0800
+From: Chao Gao <chao.gao@intel.com>
+To: seanjc@google.com, maz@kernel.org, kvm@vger.kernel.org,
+ pbonzini@redhat.com, kevin.tian@intel.com, tglx@linutronix.de
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+ Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Andrew Jones <drjones@redhat.com>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <atishp@atishpatra.org>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Bharata B Rao <bharata@linux.ibm.com>, Borislav Petkov <bp@alien8.de>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ "Darrick J. Wong" <djwong@kernel.org>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>, Eric Auger <eric.auger@redhat.com>,
+ Hector Martin <marcan@marcan.st>, Heiko Carstens <hca@linux.ibm.com>,
+ "H. Peter Anvin" <hpa@zytor.com>,
+ Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ James Morse <james.morse@arm.com>,
+ Janosch Frank <frankja@linux.ibm.com>, Jia He <justin.he@arm.com>,
+ Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
+ John Garry <john.garry@huawei.com>, Juergen Gross <jgross@suse.com>,
+ kvmarm@lists.cs.columbia.edu, kvm-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ "Maciej S. Szmigiero" <maciej.szmigiero@oracle.com>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Nathan Chancellor <nathan@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Mackerras <paulus@samba.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Qi Liu <liuqi115@huawei.com>,
+ Shaokun Zhang <zhangshaokun@hisilicon.com>,
+ Sumanth Korikkar <sumanthk@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Thomas Richter <tmricht@linux.ibm.com>,
+ Tom Zanussi <tom.zanussi@linux.intel.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, Vitaly Kuznetsov <vkuznets@redhat.com>,
+ Wanpeng Li <wanpengli@tencent.com>, Will Deacon <will@kernel.org>,
+ x86@kernel.org
+Subject: Re: [PATCH v4 0/6] Improve KVM's interaction with CPU hotplug
+Message-ID: <20220317091539.GA7257@gao-cwp>
+References: <20220216031528.92558-1-chao.gao@intel.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220216031528.92558-1-chao.gao@intel.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220317_014352_436312_FAC1C400 
-X-CRM114-Status: UNSURE (   0.97  )
+X-CRM114-CacheID: sfid-20220317_021600_324333_0D6DBD02 
+X-CRM114-Status: UNSURE (   4.08  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -60,18 +112,16 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RHppZcWEIGRvYnJ5LAoKY2hjaWHFgmJ5bSBwb2luZm9ybW93YcSHIFBhxYRzdHdhIG8gbW/FvGxp
-d2/Fm2NpIHBvenlza2FuaWEgbm93eWNoIHpsZWNlxYQgemUgc3Ryb255IHd3dy4KCldpZHppbXkg
-emFpbnRlcmVzb3dhbmllIHBvdGVuY2phbG55Y2ggS2xpZW50w7N3IFBhxYRzdHdhIGZpcm3EhSwg
-ZGxhdGVnbyBjaMSZdG5pZSBwb21vxbxlbXkgUGHFhHN0d3UgZG90cnplxIcgeiBvZmVydMSFIGRv
-IHdpxJlrc3plZ28gZ3JvbmEgb2RiaW9yY8OzdyBwb3ByemV6IGVmZWt0eXduZSBtZXRvZHkgcG96
-eWNqb25vd2FuaWEgc3Ryb255IHcgR29vZ2xlLgoKQ3p5IG3Ds2fFgmJ5bSBsaWN6ecSHIG5hIGtv
-bnRha3Qgendyb3RueT8KCgpQb3pkcmF3aWFtCk1pa2/FgmFqIFJ1ZHppawoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Ping. Anyone can help to review this series (particularly patch 3-5)?
+
+FYI, Sean gave his Reviewed-by to patch 1,2,5 and 6.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
