@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B8D9C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Mar 2022 11:56:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31490C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Mar 2022 11:56:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ArRm7T0pYKCBK1X1JxnG6/18p/xbyEdMzMzmhbGsW+M=; b=bqGtG9DsIbIFbB
-	RGUigrbJRZkCiecI04q3caPYreGvdlC1G287eUxWPT6AMeO1fpJUxdd3igcu3MpOFFxwjT7/Kviy8
-	MnKOFJpWKziF/5lXvvet2WDGIPR7Ucd8TFpaUA+MTyciuKoAryO3mgsDCNfHqC6afiqdjQXjazyge
-	2FgzBaR5XMmb7WiUrYoWvnLeHM0Cl92VD8ltt2CnmdCCGM3owW+U3yyTnrZTRTq369IGTZntOk4+y
-	Sf57afedlX9fFC4VTg9ga6VrFxS0o8HxrvaQGXSUJHIxVSkz4D2Y9OQ8jRUMEUFWKFqt3jgTZKlR5
-	/i0MT4zCwOcRx/W0zGZw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=O3aYaBVBFu2UsDDVAWnfh1catb9Yfw1ALSevDCGYSCw=; b=axBljefnLA5/tx
+	l/7CL7kT7lk1rjoHrvqpwE/xN7StUDbU2pq5tCd9cye/4j8nk6BAmETKBRvL8jfCWjPFGhMKBl3TP
+	BpjOy9mNmqXLOa6HglHQQnXH9o5e1gnmBMCqw1Gv+xF5PGg/ei9qmHlGMUcmKWKfulxsb9s5CfwTG
+	as4aurl3hEm16g9c7a+9ntgVhokJuBNtqaau8HbDoLDFS6fE7CyO9uR4aLdIeD2bMxW7zGpbZwMTe
+	27erwnntvDVzJJsnHevb1je1bDCU6SQmUkO/BYG/+Ug247ZLqv8mWYVv3gJecS4aIpvkU4ABPENOe
+	t3N4s8rjtLg70uGWl0yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nUojq-00Fs0h-4Q; Thu, 17 Mar 2022 11:56:18 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1nUojs-00Fs1H-4l; Thu, 17 Mar 2022 11:56:20 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nUojT-00Frsn-Ei
- for linux-riscv@lists.infradead.org; Thu, 17 Mar 2022 11:55:57 +0000
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71])
+ id 1nUojX-00Fruk-JT
+ for linux-riscv@lists.infradead.org; Thu, 17 Mar 2022 11:56:02 +0000
+Received: from mail-lf1-f72.google.com (mail-lf1-f72.google.com
+ [209.85.167.72])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id A21CA3F4BE
- for <linux-riscv@lists.infradead.org>; Thu, 17 Mar 2022 11:55:53 +0000 (UTC)
+ by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 577D23F60E
+ for <linux-riscv@lists.infradead.org>; Thu, 17 Mar 2022 11:55:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1647518153;
- bh=NNkRDkWPiveTHGJJVi4+4/ORT85T+y0AcSaoWSMmS+o=;
- h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
- MIME-Version;
- b=IeOC1mnkrGD411j8WAYv/Hs4pk8zSXNjNDva9Z8g3K08CdOjrg9rZkCvWkuZAkwIK
- laCT4zuX2cpgbPrUB0meI/2Bq+75tmqs9WcFGLEYbyNwgXMv1qQneSeIG+M+DQhYXz
- LEpqhk7l/YCBodbAi6yZzipeoJ3h8gpIYJ/SB7Zfz3ZDNdWQD2/dsC+9eHs5KoAFGk
- GbFnILnHN0QzrQ6K0uFjBTBYaKAR6vqrcRkJ1GGTvf2bzgsG8VmvwcAElmLJTW7sf5
- ubZ6NgBj13gt/YUAJIFbc8ugW8xlwbCXXzt57lF7T9QW9t4ZCJqEIwo479zA+15spn
- LUHpE8FBvS9qA==
-Received: by mail-wm1-f71.google.com with SMTP id
- i6-20020a05600c354600b0038be262d9d9so3024582wmq.8
- for <linux-riscv@lists.infradead.org>; Thu, 17 Mar 2022 04:55:53 -0700 (PDT)
+ s=20210705; t=1647518158;
+ bh=FcFbQHcGNFkpGdda+W/UDbbdrtmD52pzfetu6Zdta/c=;
+ h=From:To:Cc:Subject:Date:Message-Id:MIME-Version;
+ b=YSBANethy5bTOoX7MUgNJga7ferOKQ0LZqfLrin7/ME6gzfoJvs2TEXCOe/twPkLs
+ 5uJ6fqU/bityCy4eDzv3K9M/K7c4DnIbxjdYDqj/3Afcv3GdnJzdMxW8j39bGF/TDI
+ vdyeVmomJMKVmlxWvNVesf7fNZ0Xfw/cwSqDE4m01KYiWwO0bx+lwlkp0btWGaXoUk
+ dHNnQ0XdRgQxF9kTTH51ym1Bu9PVQ2inD6PZbcF9bXEpZftqrySQUSM2IrbgwGbYOP
+ zkiUlzcD34hJdGzroaEbdg6emHAkGrX7nExaTjPPsX9K5zjdJlsKKHlA2ROGDjwPpM
+ 6hTORohwos/zw==
+Received: by mail-lf1-f72.google.com with SMTP id
+ l20-20020ac24314000000b00448816d7753so1733051lfh.18
+ for <linux-riscv@lists.infradead.org>; Thu, 17 Mar 2022 04:55:58 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=NNkRDkWPiveTHGJJVi4+4/ORT85T+y0AcSaoWSMmS+o=;
- b=PIsXqLIHXEAsmb0Kf2FPo0YzTl7a60Jbrg4kaipQ3QumkSO+R6O49TR4E3s3fV8LrG
- XqMeEzeALBApfYHh5V4hrrxiKJaqv0aui19tAkK4BQlTZNYj2OJwqeX3DsuW8yTJE7yg
- bRgNidYrLxhPbEm6qCm6oGqw33PsPvBzDPvKddBc7v32m6HmRjivnF4Aw5G+sc9hv+Qw
- YiuBUczXfujDFUc6sqoW2W32EwZ8pDODK15J4kfRQfMXQ8Q4rgV7F4JbC79nxFpf7859
- 7zeTNcu9kdLpN2mm+3P7WVAp7+/+MB91lGBnrswpUrZHk3jFWFS/RiLGwlRBg8wKcTBy
- bqAA==
-X-Gm-Message-State: AOAM533kO6byGbmnVXAcHXJlr6CcmEnfijLIdsCwPGRNQeAuKBpOI7K5
- cHIo+vCOTWF3tfguIoVUQ4rui4jqa+o3DxM+/2c88g49NxfMExczQ/148UhGcE2k7LieZKgIcOm
- 8tRey8vBP1LuqZbxQ1oZ/JYmmXTcZTio+NSYjpoNPxTJCzA==
-X-Received: by 2002:adf:e7c2:0:b0:203:e177:f93f with SMTP id
- e2-20020adfe7c2000000b00203e177f93fmr3811100wrn.671.1647518149323; 
- Thu, 17 Mar 2022 04:55:49 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJzluksm2ijGbV1ETbB+BHuJenpk8meaKL2FHMzBNsHmttg1+/DKcyqO/YoDEeWrnQIt4k8a0g==
-X-Received: by 2002:adf:e7c2:0:b0:203:e177:f93f with SMTP id
- e2-20020adfe7c2000000b00203e177f93fmr3811087wrn.671.1647518149108; 
- Thu, 17 Mar 2022 04:55:49 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=FcFbQHcGNFkpGdda+W/UDbbdrtmD52pzfetu6Zdta/c=;
+ b=T30INhUFOObpZhKSLIDJmSpZjcubRn87WUmIKVW/oFPSt1lmLl8U2jjZArpwjr+B1E
+ SvOeh087dM4iTle09t64epUKpatEz9FfN+MwkT4Bsg0x4ZGxCVnMjy7Fon8klZuZVC+Y
+ gTZkac8fpHq8dEJZTdkHxmy4vwCTWSEQ7MBi7ACQ7pgczXmSl0D1bDNhzTxMnYbLGTgX
+ kF2krWCxM94t6F5DQieuoq4iZ0Y5CEFkwlhjtKEFYxbdXWVNUnpnj/GfY1QUsqdt0PUt
+ HUEPx5Z6jEDeaXCMSPHANJK/BKIqvH/ezW/FhmRJp7Lsd7kaiKZw+FHV4O/8Yw6UwxB8
+ TsuQ==
+X-Gm-Message-State: AOAM532hkxuSGGvPkccWQ/a3hw6RwIw0pyUKTliHXNYXzJ6IxWal24RI
+ gsXrWDs5UG++w+4WatvOViCYOa+U63WPKgYh9UesR32rC54se6y39+puwgYbFFnVq5EgGAIqUfc
+ FJxT6xU1EOKEVQObCirg4o/lYMRIb+s+k2tyETrR3BExVXQ==
+X-Received: by 2002:adf:ebc3:0:b0:203:da35:a9c1 with SMTP id
+ v3-20020adfebc3000000b00203da35a9c1mr3846125wrn.610.1647518147146; 
+ Thu, 17 Mar 2022 04:55:47 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwo+9tYsHqgUbTsMitSzq8mwjoiBGte5RGn6KnSHAj4SsmoojLzUqarbdnwawIw9oRk9oUklg==
+X-Received: by 2002:adf:ebc3:0:b0:203:da35:a9c1 with SMTP id
+ v3-20020adfebc3000000b00203da35a9c1mr3846069wrn.610.1647518146894; 
+ Thu, 17 Mar 2022 04:55:46 -0700 (PDT)
 Received: from krzk-bin.. (78-11-189-27.static.ip.netia.com.pl. [78.11.189.27])
  by smtp.gmail.com with ESMTPSA id
- j34-20020a05600c1c2200b0038995cb915fsm11462862wms.9.2022.03.17.04.55.47
+ j34-20020a05600c1c2200b0038995cb915fsm11462862wms.9.2022.03.17.04.55.44
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 17 Mar 2022 04:55:48 -0700 (PDT)
+ Thu, 17 Mar 2022 04:55:46 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
  Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -102,17 +101,14 @@ To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
  linux-actions@lists.infradead.org, openbmc@lists.ozlabs.org,
  linux-riscv@lists.infradead.org, linux-oxnas@groups.io
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-Subject: [PATCH 01/18] ARM: dts: nspire: use lower case hex addresses in node
- unit addresses
-Date: Thu, 17 Mar 2022 12:55:25 +0100
-Message-Id: <20220317115542.450032-2-krzysztof.kozlowski@canonical.com>
+Subject: [PATCH 00/18] dt-bindings: irqchip: include generic schema
+Date: Thu, 17 Mar 2022 12:55:24 +0100
+Message-Id: <20220317115542.450032-1-krzysztof.kozlowski@canonical.com>
 X-Mailer: git-send-email 2.32.0
-In-Reply-To: <20220317115542.450032-1-krzysztof.kozlowski@canonical.com>
-References: <20220317115542.450032-1-krzysztof.kozlowski@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220317_045555_635747_3FBB6DF0 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20220317_045559_806435_68702FAB 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,228 +125,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Convert all hex addresses in node unit addresses to lower case to fix
-dt_binding_check and dtc W=1 warnings.
+Hi,
 
-Conversion was done using sed:
+The DTS patches can be picked up independently.
 
-  $ sed -e 's/@\([a-zA-Z0-9_-]*\) {/@\L\1 {/' -i arch/arm/boot/dts/nspire*
-  $ sed -e 's/<0x\([a-zA-Z0-9_-]*\) /<0x\L\1 /g' -i arch/arm/boot/dts/nspire*
+Best regards,
+Krzysztof
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
----
- arch/arm/boot/dts/nspire-classic.dtsi | 10 ++---
- arch/arm/boot/dts/nspire-cx.dts       |  4 +-
- arch/arm/boot/dts/nspire.dtsi         | 60 +++++++++++++--------------
- 3 files changed, 37 insertions(+), 37 deletions(-)
+Krzysztof Kozlowski (18):
+  ARM: dts: nspire: use lower case hex addresses in node unit addresses
+  ARM: dts: ox820: align interrupt controller node name with dtschema
+  ARM: dts: socfpga: align interrupt controller node name with dtschema
+  dt-bindings: irqchip: actions,owl-sirq: include generic schema
+  dt-bindings: irqchip: fsl: include generic schema
+  dt-bindings: irqchip: ingenic: include generic schema
+  dt-bindings: irqchip: intel,ixp4xx: include generic schema
+  dt-bindings: irqchip: kontron,sl28cpld: include generic schema
+  dt-bindings: irqchip: loongson: include generic schema
+  dt-bindings: irqchip: microchip,eic: include generic schema
+  dt-bindings: irqchip: mrvl,intc: include generic schema
+  dt-bindings: irqchip: mstar,mst-intc: include generic schema
+  dt-bindings: irqchip: mti,gic: include generic schema
+  dt-bindings: irqchip: nuvoton,wpcm450-aic: include generic schema
+  dt-bindings: irqchip: realtek,rtl-intc: include generic schema
+  dt-bindings: irqchip: renesas: include generic schema
+  dt-bindings: irqchip: sifive: include generic schema
+  dt-bindings: irqchip: ti: include generic schema
 
-diff --git a/arch/arm/boot/dts/nspire-classic.dtsi b/arch/arm/boot/dts/nspire-classic.dtsi
-index 41744cc2bc72..01e1bb7c3c6c 100644
---- a/arch/arm/boot/dts/nspire-classic.dtsi
-+++ b/arch/arm/boot/dts/nspire-classic.dtsi
-@@ -17,7 +17,7 @@ clcd_pads: endpoint {
- 
- &fast_timer {
- 	/* compatible = "lsi,zevio-timer"; */
--	reg = <0x90010000 0x1000>, <0x900A0010 0x8>;
-+	reg = <0x90010000 0x1000>, <0x900a0010 0x8>;
- };
- 
- &uart {
-@@ -30,12 +30,12 @@ &uart {
- 
- &timer0 {
- 	/* compatible = "lsi,zevio-timer"; */
--	reg = <0x900C0000 0x1000>, <0x900A0018 0x8>;
-+	reg = <0x900c0000 0x1000>, <0x900a0018 0x8>;
- };
- 
- &timer1 {
- 	compatible = "lsi,zevio-timer";
--	reg = <0x900D0000 0x1000>, <0x900A0020 0x8>;
-+	reg = <0x900d0000 0x1000>, <0x900a0020 0x8>;
- };
- 
- &keypad {
-@@ -66,10 +66,10 @@ ahb {
- 		#address-cells = <1>;
- 		#size-cells = <1>;
- 
--		intc: interrupt-controller@DC000000 {
-+		intc: interrupt-controller@dc000000 {
- 			compatible = "lsi,zevio-intc";
- 			interrupt-controller;
--			reg = <0xDC000000 0x1000>;
-+			reg = <0xdc000000 0x1000>;
- 			#interrupt-cells = <1>;
- 		};
- 	};
-diff --git a/arch/arm/boot/dts/nspire-cx.dts b/arch/arm/boot/dts/nspire-cx.dts
-index 0c16b04e2744..590b7dff6ae5 100644
---- a/arch/arm/boot/dts/nspire-cx.dts
-+++ b/arch/arm/boot/dts/nspire-cx.dts
-@@ -92,10 +92,10 @@ ahb {
- 		#address-cells = <1>;
- 		#size-cells = <1>;
- 
--		intc: interrupt-controller@DC000000 {
-+		intc: interrupt-controller@dc000000 {
- 			compatible = "arm,pl190-vic";
- 			interrupt-controller;
--			reg = <0xDC000000 0x1000>;
-+			reg = <0xdc000000 0x1000>;
- 			#interrupt-cells = <1>;
- 		};
- 
-diff --git a/arch/arm/boot/dts/nspire.dtsi b/arch/arm/boot/dts/nspire.dtsi
-index 90e033d9141f..bb240e6a3a6f 100644
---- a/arch/arm/boot/dts/nspire.dtsi
-+++ b/arch/arm/boot/dts/nspire.dtsi
-@@ -20,9 +20,9 @@ bootrom: bootrom@0 {
- 		reg = <0x00000000 0x80000>;
- 	};
- 
--	sram: sram@A4000000 {
-+	sram: sram@a4000000 {
- 		device = "memory";
--		reg = <0xA4000000 0x20000>;
-+		reg = <0xa4000000 0x20000>;
- 	};
- 
- 	timer_clk: timer_clk {
-@@ -33,12 +33,12 @@ timer_clk: timer_clk {
- 
- 	base_clk: base_clk {
- 		#clock-cells = <0>;
--		reg = <0x900B0024 0x4>;
-+		reg = <0x900b0024 0x4>;
- 	};
- 
- 	ahb_clk: ahb_clk {
- 		#clock-cells = <0>;
--		reg = <0x900B0024 0x4>;
-+		reg = <0x900b0024 0x4>;
- 		clocks = <&base_clk>;
- 	};
- 
-@@ -71,28 +71,28 @@ ahb {
- 		#size-cells = <1>;
- 		ranges;
- 
--		spi: spi@A9000000 {
--			reg = <0xA9000000 0x1000>;
-+		spi: spi@a9000000 {
-+			reg = <0xa9000000 0x1000>;
- 		};
- 
--		usb0: usb@B0000000 {
-+		usb0: usb@b0000000 {
- 			compatible = "lsi,zevio-usb";
--			reg = <0xB0000000 0x1000>;
-+			reg = <0xb0000000 0x1000>;
- 			interrupts = <8>;
- 
- 			usb-phy = <&usb_phy>;
- 			vbus-supply = <&vbus_reg>;
- 		};
- 
--		usb1: usb@B4000000 {
--			reg = <0xB4000000 0x1000>;
-+		usb1: usb@b4000000 {
-+			reg = <0xb4000000 0x1000>;
- 			interrupts = <9>;
- 			status = "disabled";
- 		};
- 
--		lcd: lcd@C0000000 {
-+		lcd: lcd@c0000000 {
- 			compatible = "arm,pl111", "arm,primecell";
--			reg = <0xC0000000 0x1000>;
-+			reg = <0xc0000000 0x1000>;
- 			interrupts = <21>;
- 
- 			/*
-@@ -105,17 +105,17 @@ lcd: lcd@C0000000 {
- 			clock-names = "clcdclk", "apb_pclk";
- 		};
- 
--		adc: adc@C4000000 {
--			reg = <0xC4000000 0x1000>;
-+		adc: adc@c4000000 {
-+			reg = <0xc4000000 0x1000>;
- 			interrupts = <11>;
- 		};
- 
--		tdes: crypto@C8010000 {
--			reg = <0xC8010000 0x1000>;
-+		tdes: crypto@c8010000 {
-+			reg = <0xc8010000 0x1000>;
- 		};
- 
--		sha256: crypto@CC000000 {
--			reg = <0xCC000000 0x1000>;
-+		sha256: crypto@cc000000 {
-+			reg = <0xcc000000 0x1000>;
- 		};
- 
- 		apb@90000000 {
-@@ -143,16 +143,16 @@ uart: serial@90020000 {
- 				interrupts = <1>;
- 			};
- 
--			timer0: timer@900C0000 {
--				reg = <0x900C0000 0x1000>;
-+			timer0: timer@900c0000 {
-+				reg = <0x900c0000 0x1000>;
- 				clocks = <&timer_clk>, <&timer_clk>,
- 					 <&timer_clk>;
- 				clock-names = "timer0clk", "timer1clk",
- 					      "apb_pclk";
- 			};
- 
--			timer1: timer@900D0000 {
--				reg = <0x900D0000 0x1000>;
-+			timer1: timer@900d0000 {
-+				reg = <0x900d0000 0x1000>;
- 				interrupts = <19>;
- 				clocks = <&timer_clk>, <&timer_clk>,
- 					 <&timer_clk>;
-@@ -171,18 +171,18 @@ rtc: rtc@90090000 {
- 				interrupts = <4>;
- 			};
- 
--			misc: misc@900A0000 {
--				reg = <0x900A0000 0x1000>;
-+			misc: misc@900a0000 {
-+				reg = <0x900a0000 0x1000>;
- 			};
- 
--			pwr: pwr@900B0000 {
--				reg = <0x900B0000 0x1000>;
-+			pwr: pwr@900b0000 {
-+				reg = <0x900b0000 0x1000>;
- 				interrupts = <15>;
- 			};
- 
--			keypad: input@900E0000 {
-+			keypad: input@900e0000 {
- 				compatible = "ti,nspire-keypad";
--				reg = <0x900E0000 0x1000>;
-+				reg = <0x900e0000 0x1000>;
- 				interrupts = <16>;
- 
- 				scan-interval = <1000>;
-@@ -191,8 +191,8 @@ keypad: input@900E0000 {
- 				clocks = <&apb_pclk>;
- 			};
- 
--			contrast: contrast@900F0000 {
--				reg = <0x900F0000 0x1000>;
-+			contrast: contrast@900f0000 {
-+				reg = <0x900f0000 0x1000>;
- 			};
- 
- 			led: led@90110000 {
+ .../actions,owl-sirq.yaml                     |  5 +-
+ .../interrupt-controller/fsl,intmux.yaml      |  5 +-
+ .../interrupt-controller/fsl,irqsteer.yaml    |  5 +-
+ .../interrupt-controller/ingenic,intc.yaml    |  5 +-
+ .../intel,ixp4xx-interrupt.yaml               |  5 +-
+ .../kontron,sl28cpld-intc.yaml                |  5 +-
+ .../interrupt-controller/loongson,htvec.yaml  |  5 +-
+ .../loongson,pch-msi.yaml                     |  5 +-
+ .../loongson,pch-pic.yaml                     |  5 +-
+ .../interrupt-controller/microchip,eic.yaml   |  5 +-
+ .../interrupt-controller/mrvl,intc.yaml       |  3 +-
+ .../interrupt-controller/mstar,mst-intc.yaml  |  5 +-
+ .../interrupt-controller/mti,gic.yaml         |  5 +-
+ .../nuvoton,wpcm450-aic.yaml                  |  7 ++-
+ .../realtek,rtl-intc.yaml                     |  5 +-
+ .../renesas,intc-irqpin.yaml                  | 28 +++++----
+ .../interrupt-controller/renesas,irqc.yaml    |  5 +-
+ .../sifive,plic-1.0.0.yaml                    |  5 +-
+ .../interrupt-controller/ti,pruss-intc.yaml   |  5 +-
+ .../interrupt-controller/ti,sci-inta.yaml     |  1 +
+ .../interrupt-controller/ti,sci-intr.yaml     |  3 +-
+ arch/arm/boot/dts/nspire-classic.dtsi         | 10 ++--
+ arch/arm/boot/dts/nspire-cx.dts               |  4 +-
+ arch/arm/boot/dts/nspire.dtsi                 | 60 +++++++++----------
+ arch/arm/boot/dts/ox820.dtsi                  |  2 +-
+ arch/arm/boot/dts/socfpga.dtsi                |  2 +-
+ arch/arm/boot/dts/socfpga_arria10.dtsi        |  2 +-
+ 27 files changed, 129 insertions(+), 73 deletions(-)
+
 -- 
 2.32.0
 
