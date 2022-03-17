@@ -4,111 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F7CDC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Mar 2022 15:35:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 239D2C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Mar 2022 16:03:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O7V7GTpgxJirBNEn6Rms3GPMt/iR+UvA75WLHWK6r9k=; b=nFYWkxW5smk9mN
-	UtDMmPAxpD4xnSpk7vMtjimiu4ol9qns99vKpqZhyWr97CX7kKo5udqPquaw6btON6vOU/mRPS7Mc
-	tBOdvfZpF1XkiUe4e7/zvACT34O8pGV+b6DTctCCfpQ44XYs6f46LejeX5xLgc+1N7tQGVi6DQ0UO
-	8m6FSWRXYhkUwVDPYfOMUFXAlAfEBc1Jg8MZnznhjtnTJx3V1hY7ZtXURrgZ5zGRLEldxNAOdyo2k
-	XudYILJmyPeS9+JChRzvRXVztYJ/CARMl5U2P3YaAA5qjQXtyl9Iz9vZOqT4oEN2G7z1WDRuve/vU
-	7c22RuSZkZiyyg3y+4aw==;
+	List-Owner; bh=r/N8RSN2YMKU3zLAABEfPypMpwo3v9Q9EKoxT2/DnB4=; b=3C17DECzQ5/+CY
+	l2VukP3us3Q21UdGUdjxJ38inyHsBsD7RN3mysvGw62y03wCSdU7EC4Bgt1AWDuWR2V5zRiZvDc92
+	M9C1KbUlpjRnSKd9Xi0jFh5Ebtw7hrcVmjoUsZcdAFXhvmiXGMNOVb4EJ60wasNCS/qC8De/DhknA
+	kptKXwB5n0z1U256xkxR60Ffk44QexhcSxwvBe8+4/B61+laqJ6hYZ7H6RZ7r/C/fSCsLS9JEAL6t
+	a0eLed/+5UP+MgheCL8YSle0QZXJhD/37REak3lFYucdf4E4GGT1/Sm+EOJwEADXEszTbxtPEktTa
+	eGNlcJtE8T3L0j2o8qZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nUs9O-00GdwO-V6; Thu, 17 Mar 2022 15:34:55 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1nUsbG-00Ggw5-Q5; Thu, 17 Mar 2022 16:03:42 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nUs9N-00GdvC-3h
- for linux-riscv@lists.infradead.org; Thu, 17 Mar 2022 15:34:54 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id q194so4616327qke.5
- for <linux-riscv@lists.infradead.org>; Thu, 17 Mar 2022 08:34:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=qtliUzkRIUdjqjO0W+fikeYFFq5bQx8hw1n4Uq6lPAg=;
- b=qZRRueAnOHjaHMRHQ+QIIoDnWulYAUxCMJ1f9PLJOiXq+diWU/Nsh3HRXjKTOHUm89
- FdVU4EnrCVLmv+jdu1vwRuH5xMQyCKdw/F0Qk4dOA5DQSO/zfZ7fqVB+ZiP20rwRTgL2
- Tx1no5rGcZqDfFMOdohpUGHQxgvf4P+eQQVo07wTPTbk6zai1gX84K5lqBJB+7ICayuN
- be5wo9BbPg8ZE/axbhzenv08W3Rzfbbd1dZ3GoXVU9f0y3NwzmnLpdrAkYx8ephYpXeP
- 05w3fv1bqTdhGsZYxLe1PqWeeUS7hccm0sxAy0O9cbJcJBo1HrIV21wQxYRxMJDyHngu
- 3Y/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=qtliUzkRIUdjqjO0W+fikeYFFq5bQx8hw1n4Uq6lPAg=;
- b=7pRHOR5lSxKM2iQYayn1eTRKYXfD0nm7Y0EavmiTzf3Z4awt2Mlc2fjxektQ3aZgCZ
- ltKPpPhwsVMMdmo7rSQQWLio7NU16U8EBSEmO6/dhaVMfL0HFiCeQgxLxtta9OGUcFZ+
- bKHlzdgW9tPnItSMD8nU8AcRHKzqXe4BtyopLvvDkJpMVHozBiX+CPDZmj4r9SsoqAgB
- 73lKsr2rDIGVQJiCc2YCIqx2z/LRIbyPMX5QMKVpNP6wz5J2jKN30KXvGY6UAYFIBTin
- udvGcGoS6/DE43lpFa3prf+dHMkclj4Ub2G/1ehEkVb3u2JyHuhetpZpvqWyJ8EkYaUg
- 4FUw==
-X-Gm-Message-State: AOAM533LpYmXMNizvDpfJ23h/f/gjb9VIL9PWi+kwKEaqJiqBGabDKpo
- vjsg8NGewTopZjGGK5+Bd7M=
-X-Google-Smtp-Source: ABdhPJx8dXv4UXQyiWK4n7wEDfULbNQbnJsKlVOxYDBmUuKOSaCsRNCIvmR7bFavxrrEy4dWi4VA8A==
-X-Received: by 2002:a05:620a:28c4:b0:67d:c400:a9d7 with SMTP id
- l4-20020a05620a28c400b0067dc400a9d7mr3231420qkp.369.1647531290494; 
- Thu, 17 Mar 2022 08:34:50 -0700 (PDT)
-Received: from auth2-smtp.messagingengine.com (auth2-smtp.messagingengine.com.
- [66.111.4.228]) by smtp.gmail.com with ESMTPSA id
- k1-20020ac85fc1000000b002e1c6420790sm3840883qta.40.2022.03.17.08.34.49
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 17 Mar 2022 08:34:49 -0700 (PDT)
-Received: from compute2.internal (compute2.nyi.internal [10.202.2.46])
- by mailauth.nyi.internal (Postfix) with ESMTP id C3AFC27C0054;
- Thu, 17 Mar 2022 11:34:45 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
- by compute2.internal (MEProxy); Thu, 17 Mar 2022 11:34:48 -0400
-X-ME-Sender: <xms:FFUzYvYeHB8UgJLpkpjGoO87Dhu0M5cz9KeoEWrnjVktCEfb1vUgmw>
- <xme:FFUzYuZOiKnmJ9UPGFPz4T8kLq-7OgnWaYZQ3_YQiP4jKERtQl_YhT2meotSV3qM3
- n-PA6boLk5hbLP7wQ>
-X-ME-Received: <xmr:FFUzYh-UVM2fTmsTdkWHiKYdFTe43WEYk361olaw-wwkAqtLNKQRGT7kKQ4>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvvddrudefgedgjeejucetufdoteggodetrfdotf
- fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
- uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
- cujfgurhepfffhvffukfhfgggtuggjsehttdertddttddvnecuhfhrohhmpeeuohhquhhn
- ucfhvghnghcuoegsohhquhhnrdhfvghnghesghhmrghilhdrtghomheqnecuggftrfgrth
- htvghrnhepvdelieegudfggeevjefhjeevueevieetjeeikedvgfejfeduheefhffggedv
- geejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepsg
- hoqhhunhdomhgvshhmthhprghuthhhphgvrhhsohhnrghlihhthidqieelvdeghedtieeg
- qddujeejkeehheehvddqsghoqhhunhdrfhgvnhhgpeepghhmrghilhdrtghomhesfhhigi
- hmvgdrnhgrmhgv
-X-ME-Proxy: <xmx:FFUzYlpXjh1DBe_h89xavc8SP5ArO-AFfAUabR_Rm9M1SOFWb5QB5Q>
- <xmx:FFUzYqrRUUeB5Tk3Yl3nSEtpNiuzFix1x61nNAGT5NoGdrxgBJYFvw>
- <xmx:FFUzYrSd0xVQNCjGqzNwy83mxeIizp-GUgA4qMhUkwGPis5Jmoo2Hw>
- <xmx:FVUzYt80E1fXaJ1tXGQtXLBz1Dc4KYT1JWMoG6alobFQJ9QsAHALhS8RthE>
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 17 Mar 2022 11:34:44 -0400 (EDT)
-Date: Thu, 17 Mar 2022 23:34:18 +0800
-From: Boqun Feng <boqun.feng@gmail.com>
-To: Waiman Long <longman@redhat.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org,
- peterz@infradead.org, jonas@southpole.se,
- stefan.kristiansson@saunalahti.fi, shorne@gmail.com,
- mingo@redhat.com, Will Deacon <will@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu,
- Arnd Bergmann <arnd@arndb.de>, jszhang@kernel.org,
- wangkefeng.wang@huawei.com, openrisc@lists.librecores.org,
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
-Subject: Re: [PATCH 2/5] asm-generic: ticket-lock: New generic ticket-based
- spinlock
-Message-ID: <YjNU+tj5YJrYtwtK@boqun-archlinux>
-References: <20220316232600.20419-1-palmer@rivosinc.com>
- <20220316232600.20419-3-palmer@rivosinc.com>
- <YjM+P32I4fENIqGV@boqun-archlinux>
- <364c72a9-64ca-592a-510b-d48a963121aa@redhat.com>
+ id 1nUsau-00Ggnb-2k; Thu, 17 Mar 2022 16:03:21 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id EEFD760C95;
+ Thu, 17 Mar 2022 16:03:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60226C340E9;
+ Thu, 17 Mar 2022 16:03:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1647532998;
+ bh=NGiQFPVnfDqZ1ROyWh9ETbUs7TxBnFHdgwPh/4n9jkA=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=rh3zXpgLbT6SxqOATKmV9Yg1s5i3qEYz1c57woGTPEB9HVQOvoNJg27Eh+Vpr5bnB
+ 9l5P2ZTbDZaUyjAkAuW69dtO6pyULM2UcfPOa/ltFPnPz77RHcuBH0PVA5FQJ12/RC
+ Vk505u32UA7dKFDT0dy2VxMqKGqWACf/31xxW4OqezMnTHpxYCMn1KQiwkY/kCWZjl
+ tez2KzHX0g5xYLn7LOcGj9kCZD3N5v3/Q8DWhareckpREHZplQyMPK0Lacqa+cRkYa
+ +F+S5yDxaEib1+Rm48oukLIWleLtwPzHRjq6T+UmUWe4bisqNoOKNa4rHPwNTuLNGA
+ 61hyjnnLNxwhA==
+Received: by mail-ua1-f43.google.com with SMTP id v20so1931256uat.9;
+ Thu, 17 Mar 2022 09:03:18 -0700 (PDT)
+X-Gm-Message-State: AOAM530vWnOoCKj6iwPICJFqlG774vMXTH8w1kCmVYeltZPCfj2MDO+n
+ yn7VFNjoKA6bbEg7zBuhqTckGRpK+Ws1vvM0Tsk=
+X-Google-Smtp-Source: ABdhPJx56mP1yBItNhpbrH5BO1aKkva0leBOvED1GBx+mkRa6thFGwJA/RpUKcskkXEWf9nO8JBbTl9WVNeKe2iBtLA=
+X-Received: by 2002:ab0:3785:0:b0:350:c22e:9908 with SMTP id
+ d5-20020ab03785000000b00350c22e9908mr1907268uav.114.1647532997252; Thu, 17
+ Mar 2022 09:03:17 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <364c72a9-64ca-592a-510b-d48a963121aa@redhat.com>
+References: <20220313012221.1755483-1-guoren@kernel.org>
+ <YjH2e4bfTl+0/+yc@arm.com>
+In-Reply-To: <YjH2e4bfTl+0/+yc@arm.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Fri, 18 Mar 2022 00:03:06 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQmix3hc5-EntHZ_cTpp6XeCmDfOD4vHCd8Y+svUjPgGA@mail.gmail.com>
+Message-ID: <CAJF2gTQmix3hc5-EntHZ_cTpp6XeCmDfOD4vHCd8Y+svUjPgGA@mail.gmail.com>
+Subject: Re: [PATCH V2] arch: patch_text: Fixup last cpu should be master
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>,
+ Guo Ren <guoren@linux.alibaba.com>, 
+ Max Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
+ Chris Zankel <chris@zankel.net>, Arnd Bergmann <arnd@arndb.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220317_083453_188088_0E6B441E 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20220317_090320_249152_C9EDDDF8 
+X-CRM114-Status: GOOD (  27.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,47 +87,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 17, 2022 at 11:03:40AM -0400, Waiman Long wrote:
-[...]
-> > > + * It also relies on atomic_fetch_add() being safe vs smp_store_release() on a
-> > > + * sub-word of the value. This is generally true for anything LL/SC although
-> > > + * you'd be hard pressed to find anything useful in architecture specifications
-> > > + * about this. If your architecture cannot do this you might be better off with
-> > > + * a test-and-set.
-> > > + *
-> > > + * It further assumes atomic_*_release() + atomic_*_acquire() is RCpc and hence
-> > > + * uses atomic_fetch_add() which is SC to create an RCsc lock.
-> > > + *
-> > Probably it's better to use "fully-ordered" instead of "SC", because our
-> > atomic documents never use "SC" or "Sequential Consisteny" to describe
-> > the semantics, further I'm not sure our "fully-ordered" is equivalent to
-> > SC, better not cause misunderstanding in the future here.
-> 
-> The terms RCpc, RCsc comes from academia. I believe we can keep this but add
+On Wed, Mar 16, 2022 at 10:38 PM Catalin Marinas
+<catalin.marinas@arm.com> wrote:
+>
+> On Sun, Mar 13, 2022 at 09:22:21AM +0800, guoren@kernel.org wrote:
+> > From: Guo Ren <guoren@linux.alibaba.com>
+> >
+> > These patch_text implementations are using stop_machine_cpuslocked
+> > infrastructure with atomic cpu_count. The original idea: When the
+> > master CPU patch_text, the others should wait for it.
+>
+> I couldn't find the original intent in the commit logs (at least not in
+> the arm64 logs). Maybe the intention was for the CPUs to wait for the
+> text patching to complete rather than the master CPU to wait for the
+> others to enter the cpu_relax() loop before patching.
+>
+> I think your patch makes sense anyway, the master CPU would wait for all
+> the others to enter the cpu_relax() loop before patching and releasing
+> them with another increment. You probably wouldn't see any issues in
+> practice unless you insert probes in the multi_stop_cpu() function (or
+> we could mark this function as __kprobes and get rid of the extra loops
+> entirely).
+That could depend on micro-arch, trigger other harts' IPI is not
+guaranteed by hw.
 
-I'm not saying we cannot keep "RCpc" and "RCsc", and we actually use
-them to describe the memory ordering attributes of our lock or atomic
-primitives. These terms are well defined.
+>
+> > --- a/arch/arm64/kernel/patching.c
+> > +++ b/arch/arm64/kernel/patching.c
+> > @@ -117,8 +117,8 @@ static int __kprobes aarch64_insn_patch_text_cb(void *arg)
+> >       int i, ret = 0;
+> >       struct aarch64_insn_patch *pp = arg;
+> >
+> > -     /* The first CPU becomes master */
+> > -     if (atomic_inc_return(&pp->cpu_count) == 1) {
+> > +     /* The last CPU becomes master */
+> > +     if (atomic_inc_return(&pp->cpu_count) == num_online_cpus()) {
+> >               for (i = 0; ret == 0 && i < pp->insn_cnt; i++)
+> >                       ret = aarch64_insn_patch_text_nosync(pp->text_addrs[i],
+> >                                                            pp->new_insns[i]);
+>
+> For arm64:
+>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Thx
 
-The thing is that instead of "SC" we use "fully-ordered" to describe the
-memory ordering semantics of atomics like cmpxchg(), and IIUC the
-definition of "SC" isn't equivalent to "fully-ordered", in other words,
-there is no "SC" atomic in Linux kernel right now. So using "SC" here
-is not quite right. Just say "...which is fully-ordered to create an
-RCsc lock."
+>
+> --
+> Catalin
 
-But yes, maybe I'm wrong, and "SC" can be used exchangably with
-"fully-ordered", but at least some reasoning is needed.
 
-Regards,
-Boqun
 
-> more comment to elaborate what they are and what do they mean for the
-> average kernel engineer.
-> 
-> Cheers,
-> Longman
-> 
+-- 
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
