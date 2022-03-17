@@ -4,51 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B72FC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Mar 2022 11:10:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B8D9C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Mar 2022 11:56:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1zyvLJ/2lMjZX36vWDyjFhEGE6w01uKfEoIvZiLfvcU=; b=DcIRSJEjlgKBfu
-	I8DHWS1QJqPkP6WL3XTFhUnJaO9crrNmGF4+tup2NC+avzI8b/wHMhEsDze7qlFR8F1hua+q8cdk8
-	3bPyLb2AS3o2HuhWjOF095yQlNksZl/TR5hlJOj659q92opT7y3JLqlbYiiexRmR+9agWny71v2iq
-	LsFRfXwvz4iXJOF9KhhEYHfxjm9Pc8FjvFdR0M06IQnNEmodG/3QqyZkCmInY+Hxle6zl5ebSoBWH
-	UIc2yaXvbMdugnOR0izE0H7b4bDMg/o6kw7pjeQar+wGRS1BqUTtLQPqCN5rRslPAZ22wDEag5qLu
-	E4JbaIn22ac+19adOqnw==;
+	List-Owner; bh=ArRm7T0pYKCBK1X1JxnG6/18p/xbyEdMzMzmhbGsW+M=; b=bqGtG9DsIbIFbB
+	RGUigrbJRZkCiecI04q3caPYreGvdlC1G287eUxWPT6AMeO1fpJUxdd3igcu3MpOFFxwjT7/Kviy8
+	MnKOFJpWKziF/5lXvvet2WDGIPR7Ucd8TFpaUA+MTyciuKoAryO3mgsDCNfHqC6afiqdjQXjazyge
+	2FgzBaR5XMmb7WiUrYoWvnLeHM0Cl92VD8ltt2CnmdCCGM3owW+U3yyTnrZTRTq369IGTZntOk4+y
+	Sf57afedlX9fFC4VTg9ga6VrFxS0o8HxrvaQGXSUJHIxVSkz4D2Y9OQ8jRUMEUFWKFqt3jgTZKlR5
+	/i0MT4zCwOcRx/W0zGZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nUo1I-00Fmkp-B8; Thu, 17 Mar 2022 11:10:16 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1nUojq-00Fs0h-4Q; Thu, 17 Mar 2022 11:56:18 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nUo1F-00FmkT-CQ
- for linux-riscv@lists.infradead.org; Thu, 17 Mar 2022 11:10:14 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
- helo=diego.localnet)
- by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1nUo0i-0007fY-TN; Thu, 17 Mar 2022 12:09:40 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: linux-riscv@lists.infradead.org, peterz@infradead.org
-Cc: jonas@southpole.se, stefan.kristiansson@saunalahti.fi, shorne@gmail.com,
- mingo@redhat.com, Will Deacon <will@kernel.org>, longman@redhat.com,
- boqun.feng@gmail.com, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu,
- Arnd Bergmann <arnd@arndb.de>, jszhang@kernel.org, wangkefeng.wang@huawei.com,
- openrisc@lists.librecores.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
- Palmer Dabbelt <palmer@rivosinc.com>
-Subject: Re: [PATCH 0/5] Generic Ticket Spinlocks
-Date: Thu, 17 Mar 2022 12:09:39 +0100
-Message-ID: <11364105.8ZH9dyz9j6@diego>
-In-Reply-To: <20220316232600.20419-1-palmer@rivosinc.com>
-References: <20220316232600.20419-1-palmer@rivosinc.com>
+ id 1nUojT-00Frsn-Ei
+ for linux-riscv@lists.infradead.org; Thu, 17 Mar 2022 11:55:57 +0000
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id A21CA3F4BE
+ for <linux-riscv@lists.infradead.org>; Thu, 17 Mar 2022 11:55:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1647518153;
+ bh=NNkRDkWPiveTHGJJVi4+4/ORT85T+y0AcSaoWSMmS+o=;
+ h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
+ MIME-Version;
+ b=IeOC1mnkrGD411j8WAYv/Hs4pk8zSXNjNDva9Z8g3K08CdOjrg9rZkCvWkuZAkwIK
+ laCT4zuX2cpgbPrUB0meI/2Bq+75tmqs9WcFGLEYbyNwgXMv1qQneSeIG+M+DQhYXz
+ LEpqhk7l/YCBodbAi6yZzipeoJ3h8gpIYJ/SB7Zfz3ZDNdWQD2/dsC+9eHs5KoAFGk
+ GbFnILnHN0QzrQ6K0uFjBTBYaKAR6vqrcRkJ1GGTvf2bzgsG8VmvwcAElmLJTW7sf5
+ ubZ6NgBj13gt/YUAJIFbc8ugW8xlwbCXXzt57lF7T9QW9t4ZCJqEIwo479zA+15spn
+ LUHpE8FBvS9qA==
+Received: by mail-wm1-f71.google.com with SMTP id
+ i6-20020a05600c354600b0038be262d9d9so3024582wmq.8
+ for <linux-riscv@lists.infradead.org>; Thu, 17 Mar 2022 04:55:53 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=NNkRDkWPiveTHGJJVi4+4/ORT85T+y0AcSaoWSMmS+o=;
+ b=PIsXqLIHXEAsmb0Kf2FPo0YzTl7a60Jbrg4kaipQ3QumkSO+R6O49TR4E3s3fV8LrG
+ XqMeEzeALBApfYHh5V4hrrxiKJaqv0aui19tAkK4BQlTZNYj2OJwqeX3DsuW8yTJE7yg
+ bRgNidYrLxhPbEm6qCm6oGqw33PsPvBzDPvKddBc7v32m6HmRjivnF4Aw5G+sc9hv+Qw
+ YiuBUczXfujDFUc6sqoW2W32EwZ8pDODK15J4kfRQfMXQ8Q4rgV7F4JbC79nxFpf7859
+ 7zeTNcu9kdLpN2mm+3P7WVAp7+/+MB91lGBnrswpUrZHk3jFWFS/RiLGwlRBg8wKcTBy
+ bqAA==
+X-Gm-Message-State: AOAM533kO6byGbmnVXAcHXJlr6CcmEnfijLIdsCwPGRNQeAuKBpOI7K5
+ cHIo+vCOTWF3tfguIoVUQ4rui4jqa+o3DxM+/2c88g49NxfMExczQ/148UhGcE2k7LieZKgIcOm
+ 8tRey8vBP1LuqZbxQ1oZ/JYmmXTcZTio+NSYjpoNPxTJCzA==
+X-Received: by 2002:adf:e7c2:0:b0:203:e177:f93f with SMTP id
+ e2-20020adfe7c2000000b00203e177f93fmr3811100wrn.671.1647518149323; 
+ Thu, 17 Mar 2022 04:55:49 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzluksm2ijGbV1ETbB+BHuJenpk8meaKL2FHMzBNsHmttg1+/DKcyqO/YoDEeWrnQIt4k8a0g==
+X-Received: by 2002:adf:e7c2:0:b0:203:e177:f93f with SMTP id
+ e2-20020adfe7c2000000b00203e177f93fmr3811087wrn.671.1647518149108; 
+ Thu, 17 Mar 2022 04:55:49 -0700 (PDT)
+Received: from krzk-bin.. (78-11-189-27.static.ip.netia.com.pl. [78.11.189.27])
+ by smtp.gmail.com with ESMTPSA id
+ j34-20020a05600c1c2200b0038995cb915fsm11462862wms.9.2022.03.17.04.55.47
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 17 Mar 2022 04:55:48 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ =?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
+ Manivannan Sadhasivam <mani@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ Imre Kaloz <kaloz@openwrt.org>, Krzysztof Halasa <khalasa@piap.pl>,
+ Michael Walle <michael@walle.cc>, Mark-PK Tsai <mark-pk.tsai@mediatek.com>,
+ Daniel Palmer <daniel@thingy.jp>,
+ =?UTF-8?q?Jonathan=20Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Nishanth Menon <nm@ti.com>,
+ Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
+ Neil Armstrong <narmstrong@baylibre.com>,
+ Dinh Nguyen <dinguyen@kernel.org>,
+ Cristian Ciocaltea <cristian.ciocaltea@gmail.com>,
+ Joakim Zhang <qiangqing.zhang@nxp.com>,
+ Lucas Stach <l.stach@pengutronix.de>, Paul Cercueil <paul@crapouillou.net>,
+ Jiaxun Yang <jiaxun.yang@flygoat.com>,
+ Claudiu Beznea <claudiu.beznea@microchip.com>,
+ Jason Cooper <jason@lakedaemon.net>, Paul Burton <paulburton@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Birger Koblitz <mail@birger-koblitz.de>, Bert Vermeulen <bert@biot.com>,
+ John Crispin <john@phrozen.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Sagar Kadam <sagar.kadam@sifive.com>, Suman Anna <s-anna@ti.com>,
+ Lokesh Vutla <lokeshvutla@ti.com>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-actions@lists.infradead.org, openbmc@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-oxnas@groups.io
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+Subject: [PATCH 01/18] ARM: dts: nspire: use lower case hex addresses in node
+ unit addresses
+Date: Thu, 17 Mar 2022 12:55:25 +0100
+Message-Id: <20220317115542.450032-2-krzysztof.kozlowski@canonical.com>
+X-Mailer: git-send-email 2.32.0
+In-Reply-To: <20220317115542.450032-1-krzysztof.kozlowski@canonical.com>
+References: <20220317115542.450032-1-krzysztof.kozlowski@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220317_041013_436126_32EB378C 
-X-CRM114-Status: GOOD (  21.67  )
+X-CRM114-CacheID: sfid-20220317_045555_635747_3FBB6DF0 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,58 +124,235 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Convert all hex addresses in node unit addresses to lower case to fix
+dt_binding_check and dtc W=1 warnings.
 
-Am Donnerstag, 17. M=E4rz 2022, 00:25:55 CET schrieb Palmer Dabbelt:
-> Peter sent an RFC out about a year ago
-> <https://lore.kernel.org/lkml/YHbBBuVFNnI4kjj3@hirez.programming.kicks-as=
-s.net/>,
-> but after a spirited discussion it looks like we lost track of things.
-> IIRC there was broad consensus on this being the way to go, but there
-> was a lot of discussion so I wasn't sure.  Given that it's been a year,
-> I figured it'd be best to just send this out again formatted a bit more
-> explicitly as a patch.
-> =
+Conversion was done using sed:
 
-> This has had almost no testing (just a build test on RISC-V defconfig),
-> but I wanted to send it out largely as-is because I didn't have a SOB
-> from Peter on the code.  I had sent around something sort of similar in
-> spirit, but this looks completely re-written.  Just to play it safe I
-> wanted to send out almost exactly as it was posted.  I'd probably rename
-> this tspinlock and tspinlock_types, as the mis-match kind of makes my
-> eyes go funny, but I don't really care that much.  I'll also go through
-> the other ports and see if there's any more candidates, I seem to
-> remember there having been more than just OpenRISC but it's been a
-> while.
-> =
+  $ sed -e 's/@\([a-zA-Z0-9_-]*\) {/@\L\1 {/' -i arch/arm/boot/dts/nspire*
+  $ sed -e 's/<0x\([a-zA-Z0-9_-]*\) /<0x\L\1 /g' -i arch/arm/boot/dts/nspire*
 
-> I'm in no big rush for this and given the complex HW dependencies I
-> think it's best to target it for 5.19, that'd give us a full merge
-> window for folks to test/benchmark it on their systems to make sure it's
-> OK.  RISC-V has a forward progress guarantee so we should be safe, but
-> these can always trip things up.
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+---
+ arch/arm/boot/dts/nspire-classic.dtsi | 10 ++---
+ arch/arm/boot/dts/nspire-cx.dts       |  4 +-
+ arch/arm/boot/dts/nspire.dtsi         | 60 +++++++++++++--------------
+ 3 files changed, 37 insertions(+), 37 deletions(-)
 
-I've tested this on both the Qemu-Virt machine as well as the
-Allwinner Nezha board (with a D1 SoC).
-
-Both of those are of course not necessarily the best platforms
-for benchmarks I guess, as from what I gathered before I'd need
-need multiple cores to actually get interesting measurements when
-comparing different implementations. But at least everything that
-worked before still works with this series ;-)
-
-
-So, Series
-Tested-by: Heiko Stuebner <heiko@sntech.de>
-
-
-Heiko
-
+diff --git a/arch/arm/boot/dts/nspire-classic.dtsi b/arch/arm/boot/dts/nspire-classic.dtsi
+index 41744cc2bc72..01e1bb7c3c6c 100644
+--- a/arch/arm/boot/dts/nspire-classic.dtsi
++++ b/arch/arm/boot/dts/nspire-classic.dtsi
+@@ -17,7 +17,7 @@ clcd_pads: endpoint {
+ 
+ &fast_timer {
+ 	/* compatible = "lsi,zevio-timer"; */
+-	reg = <0x90010000 0x1000>, <0x900A0010 0x8>;
++	reg = <0x90010000 0x1000>, <0x900a0010 0x8>;
+ };
+ 
+ &uart {
+@@ -30,12 +30,12 @@ &uart {
+ 
+ &timer0 {
+ 	/* compatible = "lsi,zevio-timer"; */
+-	reg = <0x900C0000 0x1000>, <0x900A0018 0x8>;
++	reg = <0x900c0000 0x1000>, <0x900a0018 0x8>;
+ };
+ 
+ &timer1 {
+ 	compatible = "lsi,zevio-timer";
+-	reg = <0x900D0000 0x1000>, <0x900A0020 0x8>;
++	reg = <0x900d0000 0x1000>, <0x900a0020 0x8>;
+ };
+ 
+ &keypad {
+@@ -66,10 +66,10 @@ ahb {
+ 		#address-cells = <1>;
+ 		#size-cells = <1>;
+ 
+-		intc: interrupt-controller@DC000000 {
++		intc: interrupt-controller@dc000000 {
+ 			compatible = "lsi,zevio-intc";
+ 			interrupt-controller;
+-			reg = <0xDC000000 0x1000>;
++			reg = <0xdc000000 0x1000>;
+ 			#interrupt-cells = <1>;
+ 		};
+ 	};
+diff --git a/arch/arm/boot/dts/nspire-cx.dts b/arch/arm/boot/dts/nspire-cx.dts
+index 0c16b04e2744..590b7dff6ae5 100644
+--- a/arch/arm/boot/dts/nspire-cx.dts
++++ b/arch/arm/boot/dts/nspire-cx.dts
+@@ -92,10 +92,10 @@ ahb {
+ 		#address-cells = <1>;
+ 		#size-cells = <1>;
+ 
+-		intc: interrupt-controller@DC000000 {
++		intc: interrupt-controller@dc000000 {
+ 			compatible = "arm,pl190-vic";
+ 			interrupt-controller;
+-			reg = <0xDC000000 0x1000>;
++			reg = <0xdc000000 0x1000>;
+ 			#interrupt-cells = <1>;
+ 		};
+ 
+diff --git a/arch/arm/boot/dts/nspire.dtsi b/arch/arm/boot/dts/nspire.dtsi
+index 90e033d9141f..bb240e6a3a6f 100644
+--- a/arch/arm/boot/dts/nspire.dtsi
++++ b/arch/arm/boot/dts/nspire.dtsi
+@@ -20,9 +20,9 @@ bootrom: bootrom@0 {
+ 		reg = <0x00000000 0x80000>;
+ 	};
+ 
+-	sram: sram@A4000000 {
++	sram: sram@a4000000 {
+ 		device = "memory";
+-		reg = <0xA4000000 0x20000>;
++		reg = <0xa4000000 0x20000>;
+ 	};
+ 
+ 	timer_clk: timer_clk {
+@@ -33,12 +33,12 @@ timer_clk: timer_clk {
+ 
+ 	base_clk: base_clk {
+ 		#clock-cells = <0>;
+-		reg = <0x900B0024 0x4>;
++		reg = <0x900b0024 0x4>;
+ 	};
+ 
+ 	ahb_clk: ahb_clk {
+ 		#clock-cells = <0>;
+-		reg = <0x900B0024 0x4>;
++		reg = <0x900b0024 0x4>;
+ 		clocks = <&base_clk>;
+ 	};
+ 
+@@ -71,28 +71,28 @@ ahb {
+ 		#size-cells = <1>;
+ 		ranges;
+ 
+-		spi: spi@A9000000 {
+-			reg = <0xA9000000 0x1000>;
++		spi: spi@a9000000 {
++			reg = <0xa9000000 0x1000>;
+ 		};
+ 
+-		usb0: usb@B0000000 {
++		usb0: usb@b0000000 {
+ 			compatible = "lsi,zevio-usb";
+-			reg = <0xB0000000 0x1000>;
++			reg = <0xb0000000 0x1000>;
+ 			interrupts = <8>;
+ 
+ 			usb-phy = <&usb_phy>;
+ 			vbus-supply = <&vbus_reg>;
+ 		};
+ 
+-		usb1: usb@B4000000 {
+-			reg = <0xB4000000 0x1000>;
++		usb1: usb@b4000000 {
++			reg = <0xb4000000 0x1000>;
+ 			interrupts = <9>;
+ 			status = "disabled";
+ 		};
+ 
+-		lcd: lcd@C0000000 {
++		lcd: lcd@c0000000 {
+ 			compatible = "arm,pl111", "arm,primecell";
+-			reg = <0xC0000000 0x1000>;
++			reg = <0xc0000000 0x1000>;
+ 			interrupts = <21>;
+ 
+ 			/*
+@@ -105,17 +105,17 @@ lcd: lcd@C0000000 {
+ 			clock-names = "clcdclk", "apb_pclk";
+ 		};
+ 
+-		adc: adc@C4000000 {
+-			reg = <0xC4000000 0x1000>;
++		adc: adc@c4000000 {
++			reg = <0xc4000000 0x1000>;
+ 			interrupts = <11>;
+ 		};
+ 
+-		tdes: crypto@C8010000 {
+-			reg = <0xC8010000 0x1000>;
++		tdes: crypto@c8010000 {
++			reg = <0xc8010000 0x1000>;
+ 		};
+ 
+-		sha256: crypto@CC000000 {
+-			reg = <0xCC000000 0x1000>;
++		sha256: crypto@cc000000 {
++			reg = <0xcc000000 0x1000>;
+ 		};
+ 
+ 		apb@90000000 {
+@@ -143,16 +143,16 @@ uart: serial@90020000 {
+ 				interrupts = <1>;
+ 			};
+ 
+-			timer0: timer@900C0000 {
+-				reg = <0x900C0000 0x1000>;
++			timer0: timer@900c0000 {
++				reg = <0x900c0000 0x1000>;
+ 				clocks = <&timer_clk>, <&timer_clk>,
+ 					 <&timer_clk>;
+ 				clock-names = "timer0clk", "timer1clk",
+ 					      "apb_pclk";
+ 			};
+ 
+-			timer1: timer@900D0000 {
+-				reg = <0x900D0000 0x1000>;
++			timer1: timer@900d0000 {
++				reg = <0x900d0000 0x1000>;
+ 				interrupts = <19>;
+ 				clocks = <&timer_clk>, <&timer_clk>,
+ 					 <&timer_clk>;
+@@ -171,18 +171,18 @@ rtc: rtc@90090000 {
+ 				interrupts = <4>;
+ 			};
+ 
+-			misc: misc@900A0000 {
+-				reg = <0x900A0000 0x1000>;
++			misc: misc@900a0000 {
++				reg = <0x900a0000 0x1000>;
+ 			};
+ 
+-			pwr: pwr@900B0000 {
+-				reg = <0x900B0000 0x1000>;
++			pwr: pwr@900b0000 {
++				reg = <0x900b0000 0x1000>;
+ 				interrupts = <15>;
+ 			};
+ 
+-			keypad: input@900E0000 {
++			keypad: input@900e0000 {
+ 				compatible = "ti,nspire-keypad";
+-				reg = <0x900E0000 0x1000>;
++				reg = <0x900e0000 0x1000>;
+ 				interrupts = <16>;
+ 
+ 				scan-interval = <1000>;
+@@ -191,8 +191,8 @@ keypad: input@900E0000 {
+ 				clocks = <&apb_pclk>;
+ 			};
+ 
+-			contrast: contrast@900F0000 {
+-				reg = <0x900F0000 0x1000>;
++			contrast: contrast@900f0000 {
++				reg = <0x900f0000 0x1000>;
+ 			};
+ 
+ 			led: led@90110000 {
+-- 
+2.32.0
 
 
 _______________________________________________
