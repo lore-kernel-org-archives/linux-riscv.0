@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DE74C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Mar 2022 09:46:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE43CC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Mar 2022 09:47:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G+LgZEhSiNjfhkTUZ+k1QifvcT/0+MZ+eVhRBQGgzlY=; b=pr9oaFg2aIy5Rt
-	y/rYn8qF4iANWhF4HGG4uq8b8iXNeSiIh1XS3r/nVFzOzk3TOUnT/AzIPgNJOJ3FSO+Eyl5LBYphZ
-	K8NRkfanJd81qqzQ09st1HL423iw79fjYbDQ5KLQvbTGL920LfJutqnK2o6kl6wyiyguwGyJysqFV
-	AH9poEr9uqPjqNpRnunz9ryv9ArSrcHIgtleaDUbq4KWDiv0TERK7eUclzOfqrtiayRV6dwv8JxYh
-	TjkJR4oZK0wHY5Vv32RonSb9FW8DzOlWOyk9BL3/53+Crt2N7aNg/WN//Fte3ZcaLqFO/zEhlo09O
-	5MbQGKjZOR/7i8JO8gVA==;
+	List-Owner; bh=6oD45kYD5txudbfhPanc+mGLo7GuBMQClU2Srmh3jqw=; b=QUsCqr88OwTc+C
+	zerO7pOj5pj/HAXz+iE0O+aBwpmM/oCSUEt62xMsMPI/rHcbvlEqVIJoo8qTw/xR4bcey6FxAuA6C
+	78xEjrGvL9QjzNbO2E1ithnfI3SSMFJ6nOGldUoD4TYKUkurwZeJEWhGv3oQ0BrU6mieggEWS4IwJ
+	CVVFw7PJrQ1gYvjPGj2p4LGp5Cs8LNU0dPwIixzXnPZQuQN8DPnsdRWHdh235GrhjPnqPwZMMR77H
+	7C7xj5s6duPacdlj0U9JqCwJPRWcH+RRHUkZE733kPwEcUsxXFU1rTMhAsAWhcRcbKWTMQt5QvGIN
+	8LPeag39jcX0iFdaRt4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nUmiK-00FZTN-4s; Thu, 17 Mar 2022 09:46:36 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1nUmjT-00FZvd-Oc; Thu, 17 Mar 2022 09:47:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nUmiI-00FZT0-Cs
- for linux-riscv@bombadil.infradead.org; Thu, 17 Mar 2022 09:46:34 +0000
+ id 1nUmjR-00FZtq-Jm
+ for linux-riscv@bombadil.infradead.org; Thu, 17 Mar 2022 09:47:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+ d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
  References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
  Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=+qA6MENEtbOnKxLxQVOH0ud0BbLlTVGZKx9qSfsjh7M=; b=gkygt28PPeixJWqoCdDEjatxVm
- EB4DflH8ok/qCvuqnejlHsxty4rwOyj9OSE49mLDz2vhgxO62t4tGyg6YrefluQiwtrsuO/bnKLFv
- ir1Z5YuDFUXMn1l2bA9ibju+jHG2AiJHVAN9/mbiZEwN0+61eOkcI9Hbm50HVuRT+aTvY+K4sWbWo
- gHi9ySkYyAvzIp+7diY5expc5fDs+ThTsnMlyRx7+PzgvAvSyXBCXQjOmKs2bVQ1/xmJr4LofnL1F
- HbT5ALLebqxJ3wUy2TgdgTt+o562eCoPFfB/1XEnk3ZSJfnG8BvhUQC2aaC/boNo18l2PUX4axprz
- cshy4y1A==;
+ bh=yicCny8nHaglYevrNfwan/4wAlISyppq00h0F352WzQ=; b=ZP/S7WXk4z47FcQpOt16Es+QV/
+ mHBHwX5fKFAqB8OgbZx6AiTNt2RxYoE7tq5GQMY90fLYxK6/+nm9tykIoDW6vqVP4G2ukcTEADEBt
+ xTLqFxudQwo2nW6cZU+XiilIkB+IDfwTxFFUn6Mt4IkcHz/l2pEAptD8I3aZS29muBfzLygCcMLX3
+ 1Kb+fFyLIhNjMo0ZetK9ycqowu+OHIRYtXuPYuf9udj0ItwyLBisExr02IE0e3JrCp1LalMULVDbJ
+ ZTWlZtcgsXUjWkVG8EH0OFTk1/yBNApnj5Ov6khXYYCURE8gsJPglhG4z8rbwVPPubCILUaopumkh
+ t7Zr+Wsw==;
 Received: from j217100.upc-j.chello.nl ([24.132.217.100]
  helo=noisy.programming.kicks-ass.net)
- by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nUmiG-006qcM-TH; Thu, 17 Mar 2022 09:46:33 +0000
+ by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nUmjJ-001qtK-La; Thu, 17 Mar 2022 09:47:37 +0000
 Received: from hirez.programming.kicks-ass.net
  (hirez.programming.kicks-ass.net [192.168.1.225])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (4096 bits))
  (Client did not present a certificate)
- by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 525613001EA;
- Thu, 17 Mar 2022 10:46:32 +0100 (CET)
+ by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id CC7883001EA;
+ Thu, 17 Mar 2022 10:47:35 +0100 (CET)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
- id 42268201CD1C3; Thu, 17 Mar 2022 10:46:32 +0100 (CET)
-Date: Thu, 17 Mar 2022 10:46:32 +0100
+ id BD191201CD1C3; Thu, 17 Mar 2022 10:47:35 +0100 (CET)
+Date: Thu, 17 Mar 2022 10:47:35 +0100
 From: Peter Zijlstra <peterz@infradead.org>
 To: Palmer Dabbelt <palmer@rivosinc.com>
 Cc: linux-riscv@lists.infradead.org, jonas@southpole.se,
@@ -59,13 +59,13 @@ Cc: linux-riscv@lists.infradead.org, jonas@southpole.se,
  Arnd Bergmann <arnd@arndb.de>, jszhang@kernel.org,
  wangkefeng.wang@huawei.com, openrisc@lists.librecores.org,
  linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
-Subject: Re: [PATCH 3/5] openrisc: Move to ticket-spinlock
-Message-ID: <YjMDeKw/3qxclCJf@hirez.programming.kicks-ass.net>
+Subject: Re: [PATCH 5/5] RISC-V: Move to queued RW locks
+Message-ID: <YjMDt8BgtIZZH8IY@hirez.programming.kicks-ass.net>
 References: <20220316232600.20419-1-palmer@rivosinc.com>
- <20220316232600.20419-4-palmer@rivosinc.com>
+ <20220316232600.20419-6-palmer@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220316232600.20419-4-palmer@rivosinc.com>
+In-Reply-To: <20220316232600.20419-6-palmer@rivosinc.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,17 +82,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 16, 2022 at 04:25:58PM -0700, Palmer Dabbelt wrote:
-> From: Peter Zijlstra <peterz@infradead.org>
+On Wed, Mar 16, 2022 at 04:26:00PM -0700, Palmer Dabbelt wrote:
+> From: Palmer Dabbelt <palmer@rivosinc.com>
 > 
-> We have no indications that openrisc meets the qspinlock requirements,
-> so move to ticket-spinlock as that is more likey to be correct.
-> 
+> With the move to fair spinlocks, we might as well move to fair rwlocks.
 
-Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+s/might as well/can/ ?
+
+Note that qrwlock relies on spinlock to be/provide fairness.
 
 > Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-
 
 _______________________________________________
 linux-riscv mailing list
