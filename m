@@ -4,60 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C816C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Mar 2022 17:18:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E9AFC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Mar 2022 17:22:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EFz6fC25LXXsEJKk2JQTMfnSc8+mqqOxhd4lABalEuI=; b=wptteNks/ZNqdP
-	WaPL5NSXwhAGCs2TAdWZIHTv6uclSRSezMA26ymXfvd79JkOIe4cn0RKKV+hBxDuIIgy0eWiILlnA
-	iH6IOjEXgz7c/MahTX+IO0XKTvJeZb01tskIbsKb4g5vtwg7zRX228fiPw9Z60GRxSqS6pR82T5u8
-	3kX27bpl0gy+2U/GcWyT7BMhbqTnWGoKXonTnRkBxksADLVYwtjLksbaGIi2EFVLFvVet+OSDjMdd
-	HCLh1XyPvG+Ew6m25raA/nZ6Dqj3MaVw8W1mQmddwePR7mmDvSAOSKNkKzsXYwj+itX72BohdyUFn
-	725ekEzp4Hea+iSTA/fQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=BldsbtyC/2UDoLNbCTF/q7fQejb1OBhAmzsTaApmxBw=; b=aZBc45f7+2zdV3
+	XAHhwztml6N0Yd4kF+tIIefRbwAXpGu1RssekYokdDdkRj33y9e1S3EESISQ0F9DcXe6djyGnKIzr
+	82zVPi9TZm55Bm8+3Hy6HzEuWFVPTxuram9959OUWcEaW7vhxskpl4Qu6xcCNrlSwxw/6ggE7LZIx
+	e8EROn1ZbhCWtZZKiB89PP5rBPUfX6Ks8BZJef78/IdqpkyRBjGuG/ZZkXznqY/3Nt87ydQRyH9Ue
+	JfEpo2HKLd0nV65ogA5m5/7ofdNmI8zuzNy5u3Pw2LmDmUr3T1/I+QhB6kOy/HqWCZOhGgV3INii5
+	1gr1qMLieUZm6f0G46Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nVGFJ-002TY7-5o; Fri, 18 Mar 2022 17:18:37 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1nVGJJ-002UDJ-Ch; Fri, 18 Mar 2022 17:22:45 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nVGF6-002TVL-Ru; Fri, 18 Mar 2022 17:18:26 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 54A7D619B6;
- Fri, 18 Mar 2022 17:18:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80BEDC340E8;
- Fri, 18 Mar 2022 17:18:20 +0000 (UTC)
-Date: Fri, 18 Mar 2022 17:18:16 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Tong Tiangen <tongtiangen@huawei.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>, Will Deacon <will@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH -next 3/4] arm64: mm: add support for page table check
-Message-ID: <YjS+2FVpq8D4Gx0S@arm.com>
-References: <20220317141203.3646253-1-tongtiangen@huawei.com>
- <20220317141203.3646253-4-tongtiangen@huawei.com>
- <YjOFNEvj7EfBasCI@arm.com>
- <cb91532b-c0cd-034c-2f93-4f76fabf5fc1@huawei.com>
+ id 1nVGJG-002UC5-AW
+ for linux-riscv@lists.infradead.org; Fri, 18 Mar 2022 17:22:43 +0000
+Received: by mail-wm1-x336.google.com with SMTP id
+ j13-20020a05600c1c0d00b0038c8f94aac2so813962wms.3
+ for <linux-riscv@lists.infradead.org>; Fri, 18 Mar 2022 10:22:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=conchuod-ie.20210112.gappssmtp.com; s=20210112;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=l9534a34/AgA9Z2/apBy/6pemIM2g3WRkNrlI/px40Y=;
+ b=tXreencTQidCxFJwd7ZQo1jGUzWbf0nCUjUIqXUSF7i3hJfuCQ0V7CPqRWjm+Nuz50
+ /qavkdFCiypMZP72TOcIbMqOZJMQTktJtIZKZ7ZmoTae5kkCRyYfJsNeI9mZ29DJb/hR
+ roQd1SU9ozXdiB3m6/VFzVjdGz/7ZktT6T6KdW+9rgtxwH7zhNXqEKbICUfutKAOurhy
+ DfV3NbmdDkUuBjfB+Kwjs7unJCbdh2zLFV7E5MqXT/fUTP7LqdjG5TtDbjshPpKP4TG+
+ Vw2GYiMzgUoJsbR7f0v48T2vEIvdoOuB1T3pcBB3T/pSyhezrtFdt2jt67I18t3BgArX
+ 3u9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=l9534a34/AgA9Z2/apBy/6pemIM2g3WRkNrlI/px40Y=;
+ b=zJluLDYirg+8yeUDVbgFmY/ACXHp5Cp12GBmAwxRDx26Dxh6xMwBS6sj/dwDrx0x88
+ 9Xbpnv9BmS7UTXLLWVhweMBPcuSKtYQmcxRki6tdAYMDZHMn2Ov5o8ANVHn299uu2BOR
+ ijsLl+dAei5QyFpBfwjVuzpCgcW0RI8DfBafu/0JqpWrh2xwpr/Y4E/VKviTfB4gkcDG
+ XTq06jr1dVESKkTCote4qnb3tEwTJy+714X+yBJ7znObi/uRfp9g4B/cMhM8KbrIHoPr
+ hi9EZt4dbKhLkxEIBg/+FrMV+1/Dn8MVnHbQAn9raQlLTPcFuj+L08HqOwFsHb3LULuB
+ sh2w==
+X-Gm-Message-State: AOAM5302BURRe6fhpc5q3xWAE7zXwDsoo0ywuZQp1lLGFAsO2MVPpXbJ
+ 6/J7n3s8ux11dWjY9YZR5NohEEGYsir0gMc0
+X-Google-Smtp-Source: ABdhPJyDh+usVz8Tot9VRPesh6vbKBHRpScfPgpbIJG9Ob8LkCUY+dHJCAsexSYsHfP04rSLP8rHQw==
+X-Received: by 2002:a1c:7517:0:b0:38c:8722:9bc6 with SMTP id
+ o23-20020a1c7517000000b0038c87229bc6mr4644093wmc.2.1647624160384; 
+ Fri, 18 Mar 2022 10:22:40 -0700 (PDT)
+Received: from spud.. ([109.76.4.19]) by smtp.gmail.com with ESMTPSA id
+ r13-20020adfbb0d000000b00203e0efdd3bsm6556874wrg.107.2022.03.18.10.22.39
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 18 Mar 2022 10:22:39 -0700 (PDT)
+From: Conor Dooley <mail@conchuod.ie>
+To: nicolas.ferre@microchip.com,
+	arnd@arndb.de
+Cc: olof@lixom.net, conor.dooley@microchip.com,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ kernel test robot <lkp@intel.com>, Conor Dooley <mail@conchuod.ie>
+Subject: [PATCH] soc/microchip: fix invalid free in mpfs_sys_controller_delete
+Date: Fri, 18 Mar 2022 17:21:08 +0000
+Message-Id: <20220318172107.1599399-1-mail@conchuod.ie>
+X-Mailer: git-send-email 2.32.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <cb91532b-c0cd-034c-2f93-4f76fabf5fc1@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220318_101824_970560_BBA23A76 
-X-CRM114-Status: GOOD (  19.15  )
+X-CRM114-CacheID: sfid-20220318_102242_440535_015DDC1C 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,39 +85,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBNYXIgMTgsIDIwMjIgYXQgMTE6NTg6MjJBTSArMDgwMCwgVG9uZyBUaWFuZ2VuIHdy
-b3RlOgo+IOWcqCAyMDIyLzMvMTggMzowMCwgQ2F0YWxpbiBNYXJpbmFzIOWGmemBkzoKPiA+IE9u
-IFRodSwgTWFyIDE3LCAyMDIyIGF0IDAyOjEyOjAyUE0gKzAwMDAsIFRvbmcgVGlhbmdlbiB3cm90
-ZToKPiA+ID4gQEAgLTYyOCw2ICs2NDcsMjUgQEAgc3RhdGljIGlubGluZSB1bnNpZ25lZCBsb25n
-IHBtZF9wYWdlX3ZhZGRyKHBtZF90IHBtZCkKPiA+ID4gICAjZGVmaW5lIHB1ZF9sZWFmKHB1ZCkJ
-CXB1ZF9zZWN0KHB1ZCkKPiA+ID4gICAjZGVmaW5lIHB1ZF92YWxpZChwdWQpCQlwdGVfdmFsaWQo
-cHVkX3B0ZShwdWQpKQo+ID4gPiArI2lmZGVmIENPTkZJR19QQUdFX1RBQkxFX0NIRUNLCj4gPiA+
-ICtzdGF0aWMgaW5saW5lIGJvb2wgcHRlX3VzZXJfYWNjZXNzaWJsZV9wYWdlKHB0ZV90IHB0ZSkK
-PiA+ID4gK3sKPiA+ID4gKwlyZXR1cm4gKHB0ZV92YWwocHRlKSAmIFBURV9WQUxJRCkgJiYgKHB0
-ZV92YWwocHRlKSAmIFBURV9VU0VSKTsKPiA+ID4gK30KWy4uLl0KPiA+IERvIHdlIGNhcmUgYWJv
-dXQgUFJPVF9OT05FIG1hcHBpbmdzIGhlcmU/IFRoZXkgaGF2ZSB0aGUgdmFsaWQgYml0Cj4gPiBj
-bGVhcmVkIGJ1dCBwdGVfcHJlc2VudCgpIGlzIHRydWUuCj4gPiAKPiAKPiBQVEMgd2lsbCBub3Qg
-Y2hlY2sgdGhpcyBzcGVjaWFsIHR5cGUoUFJPVF9OT05FKSBvZiBwYWdlLgoKUFJPVF9OT05FIGlz
-IGp1c3QgYSBwZXJtaXNzaW9uIGJ1dCBzaW5jZSB3ZSBkb24ndCBoYXZlIGluZGVwZW5kZW50IHJl
-YWQKYW5kIHdyaXRlIGJpdHMgaW4gdGhlIHB0ZSwgd2UgaW1wbGVtZW50IGl0IGFzIGFuIGludmFs
-aWQgcHRlIChiaXQgMApjbGVhcmVkKS4gVGhlIG90aGVyIGNvbnRlbnQgb2YgdGhlIHB0ZSBpcyBm
-aW5lLCBzbyBwdGVfcGZuKCkgc2hvdWxkCnN0aWxsIHdvcmsuIFBUQyBjb3VsZCBhcyB3ZWxsIGNo
-ZWNrIHRoaXMsIEkgZG9uJ3QgdGhpbmsgaXQgaHVydHMuCgo+ID4gPiArc3RhdGljIGlubGluZSBi
-b29sIHBtZF91c2VyX2FjY2Vzc2libGVfcGFnZShwbWRfdCBwbWQpCj4gPiA+ICt7Cj4gPiA+ICsJ
-cmV0dXJuIHBtZF9sZWFmKHBtZCkgJiYgKHBtZF92YWwocG1kKSAmIFBURV9WQUxJRCkgJiYKPiA+
-ID4gKwkJKHBtZF92YWwocG1kKSAmIFBURV9VU0VSKTsKPiA+ID4gK30KPiA+IAo+ID4gcG1kX2xl
-YWYoKSBpbXBsaWVzIHZhbGlkLCBzbyB5b3UgY2FuIHNraXAgaXQgaWYgdGhhdCdzIHRoZSBhaW0u
-Cj4gCj4gUFRDIG9ubHkgY2hlY2tzIHdoZXRoZXIgdGhlIG1lbW9yeSBibG9jayBjb3JyZXNwb25k
-aW5nIHRvIHRoZSBwbWRfbGVhZiB0eXBlCj4gY2FuIGFjY2VzcywgZm9yICFwbWRfbGVhZiwgUFRD
-IGNoZWNrcyBhdCB0aGUgcHRlIGxldmVsLiBTbyBpIHRoaW5rIHRoaXMgaXMKPiBuZWNlc3Nhcnku
-CgpNeSBwb2ludCBpcyB0aGF0IHRoZSAocG1kX3ZhbChwbWQpICYgUFRFX1ZBTElEKSBjaGVjayBp
-cyBzdXBlcmZsdW91cwpzaW5jZSB0aGF0J3MgY292ZXJlZCBieSBwbWRfbGVhZigpIGFscmVhZHku
-CgotLSAKQ2F0YWxpbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+From: Conor Dooley <conor.dooley@microchip.com>
+
+Fix an invalid kfree in mpfs_sys_controller_delete, by replacing the
+devm_kzalloc with a regular kzalloc. Change the error handling in the
+probe function to free the sys_controller struct if the probe fails.
+
+> cocci warnings: (new ones prefixed by >>)
+> >> drivers/soc/microchip/mpfs-sys-controller.c:73:1-6: WARNING: invalid free of devm_ allocated data
+Link: https://lore.kernel.org/linux-mm/202203180259.lgIylRZV-lkp@intel.com/
+
+Fixes: d0054a470c33 ("soc: add microchip polarfire soc system controller")
+Reported-by: kernel test robot <lkp@intel.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Conor Dooley <mail@conchuod.ie>
+---
+ drivers/soc/microchip/mpfs-sys-controller.c | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/soc/microchip/mpfs-sys-controller.c b/drivers/soc/microchip/mpfs-sys-controller.c
+index 31f3f29fc1ae..6e20207b5756 100644
+--- a/drivers/soc/microchip/mpfs-sys-controller.c
++++ b/drivers/soc/microchip/mpfs-sys-controller.c
+@@ -95,9 +95,9 @@ static int mpfs_sys_controller_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+ 	struct mpfs_sys_controller *sys_controller;
+-	int i;
++	int i, ret;
+ 
+-	sys_controller = devm_kzalloc(dev, sizeof(*sys_controller), GFP_KERNEL);
++	sys_controller = kzalloc(sizeof(*sys_controller), GFP_KERNEL);
+ 	if (!sys_controller)
+ 		return -ENOMEM;
+ 
+@@ -106,9 +106,12 @@ static int mpfs_sys_controller_probe(struct platform_device *pdev)
+ 	sys_controller->client.tx_block = 1U;
+ 
+ 	sys_controller->chan = mbox_request_channel(&sys_controller->client, 0);
+-	if (IS_ERR(sys_controller->chan))
+-		return dev_err_probe(dev, PTR_ERR(sys_controller->chan),
+-				     "Failed to get mbox channel\n");
++	if (IS_ERR(sys_controller->chan)) {
++		ret = dev_err_probe(dev, PTR_ERR(sys_controller->chan),
++				    "Failed to get mbox channel\n");
++		kfree(sys_controller);
++		return ret;
++	}
+ 
+ 	init_completion(&sys_controller->c);
+ 	kref_init(&sys_controller->consumers);
+-- 
+2.32.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
