@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECF44C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Mar 2022 15:21:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FB4DC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Mar 2022 15:24:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kENJj++Uo1T1wFs4CnamZ4YnLFSc0UEng454eD2dgGI=; b=QPr7eG1uhrDMfX
-	MBzGTaD6YuppzRtNr2DRamU0x/tOK+hLB8E05CVopzSUkaG8l1PITzAal41jvR0MmlBomEUaDKF8A
-	hih5wn0SdhK0TYDR6VMmmPJ6EsGo+QeElKlKw/s2vb3vC2bE+WehHYYPJyyeYIFA7Jfgw1f4UV6VP
-	toZKWaKr1UIWTxwuK2mlZP0q6kzoyBJRDUguzUPKWMGuNaoKc1LgJBm7fhXR2sRXIE58RzuM19yzr
-	/HJ3Cz+EB5FNPf4QX894dp0d2G30J+EVn1ocWZtW07JAM2eQuT3HI+yjoW89oquFa/fxPcshuvyiu
-	j1UIma3vGzuqbT1yb6Aw==;
+	List-Owner; bh=y6EGvLsYbwBgTZ4uRaLwkyFzGVEKS8NnM9L6/NcH7Oo=; b=SzAWERDknul4df
+	ObraYixcBrprBRuv3Bxa27wn8DRl9aFNLU7q91vVdu+MaDIUb6LeObcGWi7/VoRLQYkThPfy8YAnC
+	iE29iICs2LjNtOy0hkMHsMTBROwg/oIbu6cWlgxK6NzTaaSgGgVqYV5fRGuqFGhosgFsDcLUEQq58
+	dla7d6HbxysV2xOAl7bNpF8fuk4xb4p6Va72Wi9COxMwfZORLeJimlbqfqnQb8gsf6CYRUZy0DZYb
+	ZGsI1N818ChdNI+Edc5PV7XGKTRwApOqaeQr+XsoaoB/xVzrn5/gpckhgZAIQ0lrmxmoqpXTY9ZXy
+	7xj5QbYyC06M4iBEpKeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nVEPi-002G7L-UZ; Fri, 18 Mar 2022 15:21:14 +0000
+	id 1nVET0-002GYx-6g; Fri, 18 Mar 2022 15:24:38 +0000
 Received: from imap3.hz.codethink.co.uk ([176.9.8.87])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nVEPg-002G6L-2n
- for linux-riscv@lists.infradead.org; Fri, 18 Mar 2022 15:21:13 +0000
+ id 1nVESv-002GXW-3C
+ for linux-riscv@lists.infradead.org; Fri, 18 Mar 2022 15:24:36 +0000
 Received: from cpc152649-stkp13-2-0-cust121.10-2.cable.virginm.net
  ([86.15.83.122] helo=rainbowdash)
  by imap3.hz.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
- id 1nVEPb-00055J-6L; Fri, 18 Mar 2022 15:21:07 +0000
+ id 1nVESt-0005AT-HY; Fri, 18 Mar 2022 15:24:31 +0000
 Received: from ben by rainbowdash with local (Exim 4.95)
- (envelope-from <ben@rainbowdash>) id 1nVEPa-002CnF-Er;
- Fri, 18 Mar 2022 15:21:06 +0000
+ (envelope-from <ben@rainbowdash>) id 1nVESt-002CvF-2s;
+ Fri, 18 Mar 2022 15:24:31 +0000
 From: Ben Dooks <ben.dooks@codethink.co.uk>
 To: linux-pci@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
@@ -41,15 +41,15 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  Greentime Hu <greentime.hu@sifive.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
  Ben Dooks <ben.dooks@codethink.co.uk>
-Subject: [PATCH] PCI: fu740: Drop to 2.5GT/s to fix initial device probing on
+Subject: [V3] PCI: fu740: Drop to 2.5GT/s to fix initial device probing on
  some boards
-Date: Fri, 18 Mar 2022 15:21:05 +0000
-Message-Id: <20220318152105.525824-1-ben.dooks@codethink.co.uk>
+Date: Fri, 18 Mar 2022 15:24:30 +0000
+Message-Id: <20220318152430.526320-1-ben.dooks@codethink.co.uk>
 X-Mailer: git-send-email 2.35.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220318_082112_166841_B8B60724 
-X-CRM114-Status: GOOD (  17.10  )
+X-CRM114-CacheID: sfid-20220318_082433_154241_09256D58 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,14 +87,14 @@ v2:
 - updated comment on the initial probe
 - run tests with both uninitialised and initialsed pcie from uboot
 ---
- drivers/pci/controller/dwc/pcie-fu740.c | 51 ++++++++++++++++++++++++-
- 1 file changed, 50 insertions(+), 1 deletion(-)
+ drivers/pci/controller/dwc/pcie-fu740.c | 52 ++++++++++++++++++++++++-
+ 1 file changed, 51 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-fu740.c b/drivers/pci/controller/dwc/pcie-fu740.c
-index 842b7202b96e..6f653c9e5b49 100644
+index 842b7202b96e..ecac0364178a 100644
 --- a/drivers/pci/controller/dwc/pcie-fu740.c
 +++ b/drivers/pci/controller/dwc/pcie-fu740.c
-@@ -181,10 +181,59 @@ static int fu740_pcie_start_link(struct dw_pcie *pci)
+@@ -181,10 +181,60 @@ static int fu740_pcie_start_link(struct dw_pcie *pci)
  {
  	struct device *dev = pci->dev;
  	struct fu740_pcie *afp = dev_get_drvdata(dev);
@@ -105,8 +105,9 @@ index 842b7202b96e..6f653c9e5b49 100644
 +	/*
 +	 * Force 2.5GT/s when starting the link, due to some devices not
 +	 * probing at higher speeds. This happens with the PCIe switch
-+	 * on the Unmatched board. The fix in U-Boot is to force 2.5GT/s
-+	 * and hope later resets will set the default back.
++	 * on the Unmatched board when U-Boot has not initialised the PCIe.
++	 * The fix in U-Boot is to force 2.5GT/s, which then gets cleared
++	 * by the soft reset does by this driver.
 +	 */
 +
 +	dev_dbg(dev, "cap_exp at %x\n", cap_exp);
