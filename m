@@ -4,74 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D190C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Mar 2022 15:14:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECF44C433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Mar 2022 15:21:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G/qr2Sn8qxeOXe6piddzmGsu46IFvZo8+k+81Gdyvtg=; b=I5AJfMUSnYZ+nQ
-	YAUd8zvtFl4XVKWSHRCRrYBuQIWlBTegsypt0SlphIx0ik9QiDfI3yKluKf3ysYFpaoNdYSR/eN8p
-	RkOx8v3D+PwDbSKwXZq1cuG34dXgmCUkXTsi8s7Y6N1XhIoMJ3+TJIKjKSTTU0bO/G/HF/RhYS5pj
-	QKjbFSnulxoZGs1XoH1vP6F764zNBlvV3IkejtGtCL//oIQ6VTRcWI3eB9M1Z0kw8IdN35Unehwak
-	kEixoHZb12J4cWcsTnJ6F0lbV4zEhgZ2zQtZAdfGE8wShJwjmcrlFa4jsbwpJNw9Mp8Rh8drgBxg7
-	ZqemFXT9ZGLy+gyomIUg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kENJj++Uo1T1wFs4CnamZ4YnLFSc0UEng454eD2dgGI=; b=QPr7eG1uhrDMfX
+	MBzGTaD6YuppzRtNr2DRamU0x/tOK+hLB8E05CVopzSUkaG8l1PITzAal41jvR0MmlBomEUaDKF8A
+	hih5wn0SdhK0TYDR6VMmmPJ6EsGo+QeElKlKw/s2vb3vC2bE+WehHYYPJyyeYIFA7Jfgw1f4UV6VP
+	toZKWaKr1UIWTxwuK2mlZP0q6kzoyBJRDUguzUPKWMGuNaoKc1LgJBm7fhXR2sRXIE58RzuM19yzr
+	/HJ3Cz+EB5FNPf4QX894dp0d2G30J+EVn1ocWZtW07JAM2eQuT3HI+yjoW89oquFa/fxPcshuvyiu
+	j1UIma3vGzuqbT1yb6Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nVEJW-002FNV-OP; Fri, 18 Mar 2022 15:14:50 +0000
-Received: from mout.kundenserver.de ([212.227.126.133])
+	id 1nVEPi-002G7L-UZ; Fri, 18 Mar 2022 15:21:14 +0000
+Received: from imap3.hz.codethink.co.uk ([176.9.8.87])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nVEJR-002FKi-MK
- for linux-riscv@lists.infradead.org; Fri, 18 Mar 2022 15:14:48 +0000
-Received: from mail-wm1-f49.google.com ([209.85.128.49]) by
- mrelayeu.kundenserver.de (mreue012 [213.165.67.97]) with ESMTPSA (Nemesis) id
- 1N2SXX-1oF3tf3Ndv-013sPC for <linux-riscv@lists.infradead.org>; Fri, 18 Mar
- 2022 16:14:40 +0100
-Received: by mail-wm1-f49.google.com with SMTP id
- k8-20020a05600c1c8800b003899c7ac55dso4755627wms.1
- for <linux-riscv@lists.infradead.org>; Fri, 18 Mar 2022 08:14:40 -0700 (PDT)
-X-Gm-Message-State: AOAM533gic95uxXmc6SzlsDx9COtKuLqCNdZVDAh6/1uv2o4rUp/JKai
- k7/+EbWHJiQRz1oyuhUoUJJgSgiPveIfoxzxhXY=
-X-Google-Smtp-Source: ABdhPJyG75Va4ian/qtyVs0DtDxDOdXf1Kw2qjsALgoDol5bS7vxyzqlPO2dsFv+pN1cEkBXYiX3AvgM1nzPhb5pvtw=
-X-Received: by 2002:a1c:f20b:0:b0:389:c99a:4360 with SMTP id
- s11-20020a1cf20b000000b00389c99a4360mr16133111wmc.174.1647616480413; Fri, 18
- Mar 2022 08:14:40 -0700 (PDT)
-MIME-Version: 1.0
-References: <20220317035542.272547-1-apatel@ventanamicro.com>
- <f1079093-54db-bd20-3342-b06d069c5d1f@codethink.co.uk>
-In-Reply-To: <f1079093-54db-bd20-3342-b06d069c5d1f@codethink.co.uk>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Fri, 18 Mar 2022 16:14:24 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a0Gt7TOT2zpNw7YNR=MNLBWVAADL5dBgY15ZL8sDW20HQ@mail.gmail.com>
-Message-ID: <CAK8P3a0Gt7TOT2zpNw7YNR=MNLBWVAADL5dBgY15ZL8sDW20HQ@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: Increase range and default value of NR_CPUS
-To: Ben Dooks <ben.dooks@codethink.co.uk>
-Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ id 1nVEPg-002G6L-2n
+ for linux-riscv@lists.infradead.org; Fri, 18 Mar 2022 15:21:13 +0000
+Received: from cpc152649-stkp13-2-0-cust121.10-2.cable.virginm.net
+ ([86.15.83.122] helo=rainbowdash)
+ by imap3.hz.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
+ id 1nVEPb-00055J-6L; Fri, 18 Mar 2022 15:21:07 +0000
+Received: from ben by rainbowdash with local (Exim 4.95)
+ (envelope-from <ben@rainbowdash>) id 1nVEPa-002CnF-Er;
+ Fri, 18 Mar 2022 15:21:06 +0000
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+To: linux-pci@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Bjorn Helgaas <bhelgaas@google.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Rob Herring <robh@kernel.org>,
+ Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+ Greentime Hu <greentime.hu@sifive.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
- Atish Patra <atishp@atishpatra.org>, 
- Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel <anup@brainfault.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-X-Provags-ID: V03:K1:fd1u9rHgAd7ToAYCKAdlJ4LCx3GahbXy9XIuK0MQqYNkMyrJeMl
- LGDLECuqwPF34CHkdjHj1Yo88wFDHPkoq7tKLuDmLF6hudBCiWdjRJtN4sWwy+2thrEZUUi
- ISc/BZvnjYNtysuzRk7lirr+JIjnnN6xZ5OtxC0uNnyRvfyP362wi7jP3PD+tE7jqrrvBam
- tqqMganULKV3Kn5dIdBqg==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:OtIA9/y0lYQ=:RLpa9gRwX5LOw2Zqak2tia
- FbOiMS5ENFeaSTloGaj/A/GnOtayVPKRx6mmEpqcxNgJDFo8Ed2SbtteisXwz4zgBqwuNJ0fL
- hFjVAGTS5bGP6BAyQIG7QDetjsK9hKiMfBSLNpUw/xy/TnTcLypEo0b4NrKVsmKNyiFmbOnCR
- dwPSxYY64TcNsF7SIQF5FCxaKTB2w4ND1gpXx4lBasbUDcU1ZSaQHqJKIEAypMFVjDy18w09s
- /G2WsoykAFlUkSKyTsVTrXUMJLQWtCVvB5HyZ4GfTShqq8wwfp1jwQ/WRiqmkrMe83G7oh3fs
- hTRYb3weksX+MhSzNI/AkjK4LxqLeSshZTu3J+IKnlV5AVza4UBrMyPUPevxLUb4D0kKcy5U+
- WkJRjZP1lICcpobbWIiqCiKUEB9cvkuKOwAUmytvLxFYjEwTxyvPvaGMSJn+KHKAZ+xRk2inS
- XErMLvQ+tZIhOIAFifZM1Ivae0YSMKAMBQks61yrs1tbLDmZWsVRDhvjJadnc1kMip8iQGR7I
- 2NlaQp0zm4UAyxn8xdvfAr4Ux2tFZkxlTt9vtUBWcv5V3JJ5kXEATcR6RlG9LW3M8szxO5Mkh
- Nzk9PtyhVGsSoFXXCnWCylir8AMJV9peXK/uEZhmut85Xm3Ce/vIEFJdZtgg8ItAsz3vUcTt5
- HoK7Kw13OUJqI49mklU1IYGlZ+Qphht4jF40EeTXqqNCYBCAugP0e3zZM/YhIHsZB3Sg=
+ Ben Dooks <ben.dooks@codethink.co.uk>
+Subject: [PATCH] PCI: fu740: Drop to 2.5GT/s to fix initial device probing on
+ some boards
+Date: Fri, 18 Mar 2022 15:21:05 +0000
+Message-Id: <20220318152105.525824-1-ben.dooks@codethink.co.uk>
+X-Mailer: git-send-email 2.35.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220318_081446_082863_E5DAA9EA 
-X-CRM114-Status: GOOD (  15.80  )
+X-CRM114-CacheID: sfid-20220318_082112_166841_B8B60724 
+X-CRM114-Status: GOOD (  17.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,40 +66,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 18, 2022 at 3:46 PM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
->
-> On 17/03/2022 03:55, Anup Patel wrote:
-> > Currently, the range and default value of NR_CPUS is too restrictive
-> > for high-end RISC-V systems with large number of HARTs. The latest
-> > QEMU virt machine supports upto 512 CPUs so the current NR_CPUS is
-> > restrictive for QEMU as well.
+The fu740 PCIe core does not probe any devices on the SiFive Unmatched
+board without this fix (or having U-Boot explicitly start the PCIe via
+either boot-script or user command). The fix is to start the link at
+2.5GT/s speeds and once the link is up then change the maximum speed back
+to the default.
 
-If qemu allows 512, what is the reason for limiting the kernel to 256?
+The U-Boot driver claims to set the link-speed to 2.5GT/s to get the probe
+to work (and U-Boot does print link up at 2.5GT/s) in the following code:
+https://source.denx.de/u-boot/u-boot/-/blob/master/drivers/pci/pcie_dw_sifive.c?id=v2022.01#L271
 
-> > Other major architectures (such as
-> > ARM64, x86_64, MIPS, etc) have a much higher range and default
-> > value of NR_CPUS.
->
-> What's the memory overhead for increasing this?
+Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+--
+Note, this patch has had significant re-work since the previous 4
+sets, including trying to fix style, message, reliance on the U-Boot
+fix and the comments about usage of LINK_CAP and reserved fields.
 
-It's supposed to be very small, I would expect three main sources of overhead:
+v2:
+- fix issues with Gen1/2.5GTs
+- updated comment on the initial probe
+- run tests with both uninitialised and initialsed pcie from uboot
+---
+ drivers/pci/controller/dwc/pcie-fu740.c | 51 ++++++++++++++++++++++++-
+ 1 file changed, 50 insertions(+), 1 deletion(-)
 
-- cpumask_t variables, those grow once you go beyond the size of
-   an unsigned long (32 or 64 bits), so with the default just on the limit, this
-   makes no difference.
-   Note that you can run out of stack space with NR_CPUS values if
-   CONFIG_CPUMASK_OFFSTACK is disabled. Should not be
-   a problem for 512 or below.
+diff --git a/drivers/pci/controller/dwc/pcie-fu740.c b/drivers/pci/controller/dwc/pcie-fu740.c
+index 842b7202b96e..6f653c9e5b49 100644
+--- a/drivers/pci/controller/dwc/pcie-fu740.c
++++ b/drivers/pci/controller/dwc/pcie-fu740.c
+@@ -181,10 +181,59 @@ static int fu740_pcie_start_link(struct dw_pcie *pci)
+ {
+ 	struct device *dev = pci->dev;
+ 	struct fu740_pcie *afp = dev_get_drvdata(dev);
++	u8 cap_exp = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
++	int ret;
++	u32 orig, tmp;
++
++	/*
++	 * Force 2.5GT/s when starting the link, due to some devices not
++	 * probing at higher speeds. This happens with the PCIe switch
++	 * on the Unmatched board. The fix in U-Boot is to force 2.5GT/s
++	 * and hope later resets will set the default back.
++	 */
++
++	dev_dbg(dev, "cap_exp at %x\n", cap_exp);
++	dw_pcie_dbi_ro_wr_en(pci);
++
++	tmp = dw_pcie_readl_dbi(pci, cap_exp + PCI_EXP_LNKCAP);
++	orig = tmp & PCI_EXP_LNKCAP_SLS;
++	tmp &= ~PCI_EXP_LNKCAP_SLS;
++	tmp |= PCI_EXP_LNKCAP_SLS_2_5GB;
++	dw_pcie_writel_dbi(pci, cap_exp + PCI_EXP_LNKCAP, tmp);
+ 
+ 	/* Enable LTSSM */
+ 	writel_relaxed(0x1, afp->mgmt_base + PCIEX8MGMT_APP_LTSSM_ENABLE);
+-	return 0;
++
++	ret = dw_pcie_wait_for_link(pci);
++	if (ret) {
++		dev_err(dev, "error: link did not start\n");
++		goto err;
++	}
++
++	tmp = dw_pcie_readl_dbi(pci, cap_exp + PCI_EXP_LNKCAP);
++	if ((tmp & PCI_EXP_LNKCAP_SLS) != orig) {
++		dev_dbg(dev, "changing speed back to original\n");
++
++		tmp &= ~PCI_EXP_LNKCAP_SLS;
++		tmp |= orig;
++		dw_pcie_writel_dbi(pci, cap_exp + PCI_EXP_LNKCAP, tmp);
++
++		tmp = dw_pcie_readl_dbi(pci, PCIE_LINK_WIDTH_SPEED_CONTROL);
++		tmp |= PORT_LOGIC_SPEED_CHANGE;
++		dw_pcie_writel_dbi(pci, PCIE_LINK_WIDTH_SPEED_CONTROL, tmp);
++
++		ret = dw_pcie_wait_for_link(pci);
++		if (ret) {
++			dev_err(dev, "error: link did not start at new speed\n");
++			goto err;
++		}
++	}
++
++	ret = 0;
++err:
++	WARN_ON(ret);	/* we assume that errors will be very rare */
++	dw_pcie_dbi_ro_wr_dis(pci);
++	return ret;
+ }
+ 
+ static int fu740_pcie_host_init(struct pcie_port *pp)
+-- 
+2.35.1
 
-- percpu variables: these are dynamically allocated based on the number of
-  CPUs at boot time, so they should not have any real impact.
-
-- NR_CPUS sized arrays, these are sometimes used in place of
-  percpu data. This is only a problem if the array members individually
-  are more than a few bytes. There are not too many of these in the kernel,
-  as using those is discouraged.
-
-      Arnd
 
 _______________________________________________
 linux-riscv mailing list
