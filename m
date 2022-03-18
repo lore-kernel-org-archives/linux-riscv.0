@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A97C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Mar 2022 03:10:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2511CC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Mar 2022 03:26:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=C0Q0xb0rAC3Otqc/devkdakeHratj8n6xafQZDjJS60=; b=pUJpaWC3UqiSAcXXKZB0Pu3Li6
-	bjq9uksTgJup2kONtn+uJp8vwH/0gqgfF4jb83bEjKgdHoXh3MTXCw+U5pem4puWidV4QrwLngArI
-	XKTcYMwVrJ6nvsNbKe4UaqQCUrnrTcVJLNN1TBsZCNelEjBMG/1SwtSv+6Wq3qRQ85giZrpMGCL9b
-	0OQYgOPXGn8CWtjMx9oYWNJpLz28CU/orwKGtSSuGuakHBEJLRclaBGPlXzXUAdWFpk6uMX2AZ3EG
-	MzQOm++a/6u1JwCXY2e/zHInFxZcfOCJ/FC858n6oXu5dP3X1gJ5/dNkxXF6OVkkv1h1jB2Pb0s3A
-	2Lv+7kIw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=u2+lV/8memu5y+x3ZK5lVWW42XuKRCI+A2MOfjs7b5I=; b=yVxZUlpyetJYUo
+	70xBgc9/Rvt8T6Z5sYx+gd0lu6VRpxG5q3ClBy66J02JToZQZTkV6+8qXap8Z2a4H8yytDiiUgyMF
+	j72YGH+x3eTBMtwveH8F8shuxUCcCr6KB81FJP5m/HddCfpuZYUjMyJjwGbU2EgAx0v0iPdIWDW/e
+	zeHj5uJLl3aW3M2duJMKiStIZwEZwzeUivx5+CrK0QbKc3LvCBbqv1PfSmlvGKgpBQXUnOuwrB0kr
+	4iKwEwzF2dQxKLbDJ09/iDKX68JCAu5rS0bn4HskRUWIyS1TLQtbcs7beuD5slVUogw2bZO0L+8HM
+	C45adbj3jdOsh94PVY/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nV30F-000FTz-G0; Fri, 18 Mar 2022 03:10:11 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1nV3Fk-000GNL-RD; Fri, 18 Mar 2022 03:26:12 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nV30C-000FTA-4y
- for linux-riscv@lists.infradead.org; Fri, 18 Mar 2022 03:10:09 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id
- mj15-20020a17090b368f00b001c637aa358eso9404546pjb.0
- for <linux-riscv@lists.infradead.org>; Thu, 17 Mar 2022 20:10:07 -0700 (PDT)
+ id 1nV3Fi-000GMU-Av
+ for linux-riscv@lists.infradead.org; Fri, 18 Mar 2022 03:26:11 +0000
+Received: by mail-wm1-x333.google.com with SMTP id
+ 7-20020a05600c228700b00385fd860f49so4217410wmf.0
+ for <linux-riscv@lists.infradead.org>; Thu, 17 Mar 2022 20:26:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=0gHHt1JqAwoF17n7ibUdigU8aOOB90AJhCP1mUVeFZ0=;
- b=FDuPFlnro/v7DXousZSsjlciLEaFw16Qy6oNf8MBtRjYOOpDeua9725z8H1lpk3eSe
- ZnbC0/XzxQLo0uxR4r23aZhletg3h0JOs8lmCtbgCbZtKxqqQhthNERb1n0eU8ZkK/lW
- l51Lu9hzIHva346QmSvSHI6i/wDKFlvLk5fvjD3mxkcZH7LKeJbkPdDWSclNsa1dEYjh
- iiR5qtSD4c9RqfKUbprJUclvtg/rycXbrPG3uclSvZNqjgOzinWsyfvDuby/W6peo6Ny
- yhaLTEHNN1yjAtSPZI/xL5lFHB+ycsarYpFwFGc0pHjl699pWuV1GKTMh/lKKVsGHEGm
- m0hw==
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=CDuSjmRhr8MOV1rhbEGNhveI41ON6vxVElre6la9kK4=;
+ b=gQPTka+LUuoi8LUTzV1fKgYIUHP3QdXLh7Rb+5kWyfTZdWiB6/SAIHDcj0/kSCEZgJ
+ 2gw+Z40Fyf5lKxwBcUFYZEjUrDgrbX879AxVss/Xj0uqEMfm90GbdI4SRvh2YkhQ1YNY
+ P+9uCZE6nF6x4E/j3zI0lur7fFO058AYty+26RtTAelygMkaKxgtO5N41P/Tnz7hGsxA
+ V3FBMhHMqKk8cWn93Da5qzFkwIyv0sG7VjFHpKYZ0Pv5PIMziBkMSQZJCYhEvwm5JFeZ
+ BLkcSTw7m0760UWmBbWK4aj0MoYoXVKU4DqnDqeDRY0wKOkH0bAvhtb7pVWFU6LP9/Ha
+ MNqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=0gHHt1JqAwoF17n7ibUdigU8aOOB90AJhCP1mUVeFZ0=;
- b=RInLqyOfV/IfpQTWxwWU4hz8l0s2ceQ+Ec3yOz0j3cdUDL+EUi5RBYXjrhTmrvAkFb
- IN1FPiV7BAfh//oEj4o/R9tdNkt30hqHg3Mo2uQC1g/aHzyOprnDnt1vCdNyTuwEXo/0
- iUnxcjNttXRcN9ksGr8NBM3j9lA0EiwRzhKOvYW8e02L8J0M6TXoJMYCkAspKnWlDblW
- 4s7rNAM9EWJDtaYGuWsmUNQyB227nF6z0/XyrUk+bYHKO9cyGvGo6ZEivHfPh3q+xCfG
- FHGeD69JDiXSRlJgfbbJBupx7zNs5ZCMjAQ4Do4Q8NLwUJ7FVasAOSR1OppoGwHuu2z1
- Nc7A==
-X-Gm-Message-State: AOAM531VfWVnBgPtFYHdnZ2gP7m0fygZuk0kMBHwKtRQ6FO5bgw+srQX
- 9Qwt+8Ov822fYiFwwFzUs4+Se2DgW2/f/w==
-X-Google-Smtp-Source: ABdhPJyVOUAUDfkDhGgRehhK3QSKTVmspbipFfnEk7FylPiNOrWPrYGssWn5GpLCRkFMjS29CjXERA==
-X-Received: by 2002:a17:90b:3807:b0:1bf:6c8e:f9b7 with SMTP id
- mq7-20020a17090b380700b001bf6c8ef9b7mr8995968pjb.16.1647573006636; 
- Thu, 17 Mar 2022 20:10:06 -0700 (PDT)
-Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
- g28-20020a63111c000000b00374646abc42sm6271571pgl.36.2022.03.17.20.10.05
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 17 Mar 2022 20:10:05 -0700 (PDT)
-Date: Thu, 17 Mar 2022 20:10:05 -0700 (PDT)
-X-Google-Original-Date: Thu, 17 Mar 2022 20:10:03 PDT (-0700)
-Subject: Re: [PATCH v6 0/6] Provide a fraemework for RISC-V ISA extensions 
-In-Reply-To: <20220314203845.832648-1-atishp@rivosinc.com>
-CC: linux-kernel@vger.kernel.org, Atish Patra <atishp@rivosinc.com>,
- aou@eecs.berkeley.edu, atishp@atishpatra.org, anup@brainfault.org,
- damien.lemoal@wdc.com, devicetree@vger.kernel.org, jszhang@kernel.org,
- krzysztof.kozlowski@canonical.com, 
- linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
- robh+dt@kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=CDuSjmRhr8MOV1rhbEGNhveI41ON6vxVElre6la9kK4=;
+ b=x7pgpDktbd3WIOIbfaEjKFPDNaaFNKXF/x7aNGVSkAxaM18dxDzV0+7qcMl1xjxzLx
+ mTEVZeyyYooKiHIEMHwT5MDOgXJ91Ht3mz8XXDu10NeThUwVjo8mbbzZRnAw62SaKZP8
+ cKD6CxDSBPcSgkB6AICncBTkEqBvjXFfzjOmsGrf/T8uQ6Z0U479IS/eog6wKGKZIOgU
+ 4r+SNHeekEa1xzQTCjiOM4F05JoLGszDXJsqsp+drsmImjO9ok3to7zraLu8Ir1rYKhs
+ c0YCA9ah5pWk/8r2g0/qvpIYVSltgiZ5ia+8hTICKKdo/VVMeQ3TiX+v/eKlQeSlXzFn
+ 2tGw==
+X-Gm-Message-State: AOAM530nzURzDoa9nsnZFIZesSAy4B2qymTSxqcarJ7HaFiNU/VB7fgI
+ uf1cXWTZYn9H/2gLAUimMTdqfcsnm95U5249v3IFrQ==
+X-Google-Smtp-Source: ABdhPJyTHL26FWcH9VnnHBMM+mTieR7VP1cfwTA4HSK/6ggJqBpHpzhFEL9yEYep6RtE18lyOJhN+b6nTxldom/V5Y0=
+X-Received: by 2002:a05:600c:3516:b0:389:f9aa:f821 with SMTP id
+ h22-20020a05600c351600b00389f9aaf821mr14115817wmq.73.1647573967585; Thu, 17
+ Mar 2022 20:26:07 -0700 (PDT)
+MIME-Version: 1.0
+References: <20220304201020.810380-1-atishp@rivosinc.com>
+ <20220304201020.810380-5-atishp@rivosinc.com>
+In-Reply-To: <20220304201020.810380-5-atishp@rivosinc.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 18 Mar 2022 08:55:56 +0530
+Message-ID: <CAAhSdy3bPuhqcZWpZpDP_DGiMEc97aMEjspum4K9k0D=24fYsg@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 4/7] RISC-V: KVM: Remove 's' & 'u' as valid ISA
+ extension
 To: Atish Patra <atishp@rivosinc.com>
-Message-ID: <mhng-596cc82d-51af-448c-bd04-51b517fe79c7@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Atish Patra <atishp@atishpatra.org>, 
+ Damien Le Moal <damien.lemoal@wdc.com>, DTML <devicetree@vger.kernel.org>, 
+ Jisheng Zhang <jszhang@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ kvm-riscv@lists.infradead.org, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220317_201008_274313_A6EB4BAE 
-X-CRM114-Status: GOOD (  22.15  )
+X-CRM114-CacheID: sfid-20220317_202610_445432_A9DC5BC9 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,97 +88,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 14 Mar 2022 13:38:39 PDT (-0700), Atish Patra wrote:
-> This series implements a generic framework to parse multi-letter ISA
-> extensions. This series is based on Tsukasa's v3 isa extension improvement
-> series[1]. I have fixed few bugs and improved comments from that series
-> (PATCH1-3). I have not used PATCH 4 from that series as we are not using
-> ISA extension versioning as of now. We can add that later if required.
+On Sat, Mar 5, 2022 at 1:40 AM Atish Patra <atishp@rivosinc.com> wrote:
 >
-> PATCH 4 allows the probing of multi-letter extensions via a macro.
-> It continues to use the common isa extensions between all the harts.
-> Thus hetergenous hart systems will only see the common ISA extensions.
+> There are no ISA extension defined as 's' & 'u' in RISC-V specifications.
+> The misa register defines 's' & 'u' bit as Supervisor/User privilege mode
+> enabled. But it should not appear in the ISA extension in the device tree.
 >
-> PATCH 6 improves the /proc/cpuinfo interface for the available ISA extensions
-> via /proc/cpuinfo.
+> Remove those from the allowed ISA extension for kvm.
 >
-> Here is the example output of /proc/cpuinfo:
-> (with debug patches in Qemu and Linux kernel)
->
-> / # cat /proc/cpuinfo
-> processor	: 0
-> hart		: 0
-> isa		: rv64imafdch_svpbmt_svnapot_svinval
-> mmu		: sv48
->
-> processor	: 1
-> hart		: 1
-> isa		: rv64imafdch_svpbmt_svnapot_svinval
-> mmu		: sv48
->
-> processor	: 2
-> hart		: 2
-> isa		: rv64imafdch_svpbmt_svnapot_svinval
-> mmu		: sv48
->
-> processor	: 3
-> hart		: 3
-> isa		: rv64imafdch_svpbmt_svnapot_svinval
-> mmu		: sv48
->
-> Anybody adding support for any new multi-letter extensions should add an
-> entry to the riscv_isa_ext_id and the isa extension array.
-> E.g. The patch[2] adds the support for various ISA extensions.
->
-> [1] https://lore.kernel.org/all/0f568515-a05e-8204-aae3-035975af3ee8@irq.a4lg.com/T/
-> [2] https://github.com/atishp04/linux/commit/e9e240c9a854dceb434ceb53bdbe82a657bee5f2
->
-> Changes from v5->v6:
-> 1. Changed the isa extension format from separate row to single row that follows
->    RISC-V spec naming standards.
->
-> 2. Removed the redundant extension detection log.
->
-> Changes from v4->v5:
-> 1. Improved the /proc/cpuinfo to include only valid & enabled extensions
-> 2. Improved the multi-letter parsing by skipping the 'su' modes generated in
->    Qemu as suggested by Tsukasa.
->
-> Changes from v3->v4:
-> 1. Changed temporary variable for current hart isa to a bitmap
-> 2. Added reviewed-by tags.
-> 3. Improved comments
->
-> Changes from v2->v3:
-> 1. Updated comments to mark clearly a fix required for Qemu only.
-> 2. Fixed a bug where the 1st multi-letter extension can be present without _
-> 3. Added Tested by tags.
->
-> Changes from v1->v2:
-> 1. Instead of adding a separate DT property use the riscv,isa property.
-> 2. Based on Tsukasa's v3 isa extension improvement series.
->
-> Atish Patra (3):
-> RISC-V: Implement multi-letter ISA extension probing framework
-> RISC-V: Do no continue isa string parsing without correct XLEN
-> RISC-V: Improve /proc/cpuinfo output for ISA extensions
->
-> Tsukasa OI (3):
-> RISC-V: Correctly print supported extensions
-> RISC-V: Minimal parser for "riscv, isa" strings
-> RISC-V: Extract multi-letter extension names from "riscv, isa"
->
-> arch/riscv/include/asm/hwcap.h |  25 +++++++
-> arch/riscv/kernel/cpu.c        |  65 ++++++++++++++++-
-> arch/riscv/kernel/cpufeature.c | 128 +++++++++++++++++++++++++++------
-> 3 files changed, 195 insertions(+), 23 deletions(-)
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
 
-Thanks, this is on for-next.
+Both PATCH4 and PATCH5, fix the "isa" config register of one_reg interface.
+
+Can you send PATCH4 (i.e. this patch) and PATCH5 separately with the
+"Fixes:" tag so that we can have these patches as RC fixes ?
+
+Regards,
+Anup
+
+
+> ---
+>  arch/riscv/kvm/vcpu.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
+>
+> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+> index 624166004e36..3ae545e7b398 100644
+> --- a/arch/riscv/kvm/vcpu.c
+> +++ b/arch/riscv/kvm/vcpu.c
+> @@ -43,9 +43,7 @@ const struct kvm_stats_header kvm_vcpu_stats_header = {
+>                                  riscv_isa_extension_mask(d) | \
+>                                  riscv_isa_extension_mask(f) | \
+>                                  riscv_isa_extension_mask(i) | \
+> -                                riscv_isa_extension_mask(m) | \
+> -                                riscv_isa_extension_mask(s) | \
+> -                                riscv_isa_extension_mask(u))
+> +                                riscv_isa_extension_mask(m))
+>
+>  static void kvm_riscv_reset_vcpu(struct kvm_vcpu *vcpu)
+>  {
+> --
+> 2.30.2
+>
 
 _______________________________________________
 linux-riscv mailing list
