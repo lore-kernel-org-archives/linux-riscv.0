@@ -4,49 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AC3CC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Mar 2022 15:06:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D190C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Mar 2022 15:14:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I5OGRl5yTuyP+Ir3v986p080zbhs2B3e1pGLvZPoMdk=; b=OajtNM6Z7A88i3
-	Ok915Wb7RMSOuj2N5WCKbRe8rycgV40P2S4fiVCKBhKvsGhM0sk7JnHzvpTvQ1O6Lunhn3ULnjSor
-	fwpVzc3WcNdRVKcIwKgsCGnfGoFSKC6x6oq3MtRdpwh2qWlGQKGol/sphnCowJY4mAgnwdIeHslcB
-	V/4GZ3IonPzvN5alqywyaYiObYTbIAAM3fYifCF4kcWZobG4Tf5ja4HU9QhOgHTucPpZ378Le1zcd
-	cDa/IPgfEoO8T4/P2z4wUEtxZYqRx/iOBq16PUvDaSWZj6nMCBRL65TTa0aLPRprqk7HzZc6nwDyB
-	Gj/awG2Ie+7nPlAU9vUg==;
+	List-Owner; bh=G/qr2Sn8qxeOXe6piddzmGsu46IFvZo8+k+81Gdyvtg=; b=I5AJfMUSnYZ+nQ
+	YAUd8zvtFl4XVKWSHRCRrYBuQIWlBTegsypt0SlphIx0ik9QiDfI3yKluKf3ysYFpaoNdYSR/eN8p
+	RkOx8v3D+PwDbSKwXZq1cuG34dXgmCUkXTsi8s7Y6N1XhIoMJ3+TJIKjKSTTU0bO/G/HF/RhYS5pj
+	QKjbFSnulxoZGs1XoH1vP6F764zNBlvV3IkejtGtCL//oIQ6VTRcWI3eB9M1Z0kw8IdN35Unehwak
+	kEixoHZb12J4cWcsTnJ6F0lbV4zEhgZ2zQtZAdfGE8wShJwjmcrlFa4jsbwpJNw9Mp8Rh8drgBxg7
+	ZqemFXT9ZGLy+gyomIUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nVEBi-002BzT-RV; Fri, 18 Mar 2022 15:06:46 +0000
-Received: from imap2.colo.codethink.co.uk ([78.40.148.184])
+	id 1nVEJW-002FNV-OP; Fri, 18 Mar 2022 15:14:50 +0000
+Received: from mout.kundenserver.de ([212.227.126.133])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nVE21-0026qU-7q
- for linux-riscv@lists.infradead.org; Fri, 18 Mar 2022 14:56:47 +0000
-Received: from cpc152649-stkp13-2-0-cust121.10-2.cable.virginm.net
- ([86.15.83.122] helo=[192.168.0.21])
- by imap2.colo.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
- id 1nVE1r-0000kv-ND; Fri, 18 Mar 2022 14:56:35 +0000
-Message-ID: <cd90c33d-d4ea-de8a-9634-24d0cd394fe1@codethink.co.uk>
-Date: Fri, 18 Mar 2022 14:56:35 +0000
+ id 1nVEJR-002FKi-MK
+ for linux-riscv@lists.infradead.org; Fri, 18 Mar 2022 15:14:48 +0000
+Received: from mail-wm1-f49.google.com ([209.85.128.49]) by
+ mrelayeu.kundenserver.de (mreue012 [213.165.67.97]) with ESMTPSA (Nemesis) id
+ 1N2SXX-1oF3tf3Ndv-013sPC for <linux-riscv@lists.infradead.org>; Fri, 18 Mar
+ 2022 16:14:40 +0100
+Received: by mail-wm1-f49.google.com with SMTP id
+ k8-20020a05600c1c8800b003899c7ac55dso4755627wms.1
+ for <linux-riscv@lists.infradead.org>; Fri, 18 Mar 2022 08:14:40 -0700 (PDT)
+X-Gm-Message-State: AOAM533gic95uxXmc6SzlsDx9COtKuLqCNdZVDAh6/1uv2o4rUp/JKai
+ k7/+EbWHJiQRz1oyuhUoUJJgSgiPveIfoxzxhXY=
+X-Google-Smtp-Source: ABdhPJyG75Va4ian/qtyVs0DtDxDOdXf1Kw2qjsALgoDol5bS7vxyzqlPO2dsFv+pN1cEkBXYiX3AvgM1nzPhb5pvtw=
+X-Received: by 2002:a1c:f20b:0:b0:389:c99a:4360 with SMTP id
+ s11-20020a1cf20b000000b00389c99a4360mr16133111wmc.174.1647616480413; Fri, 18
+ Mar 2022 08:14:40 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.6.2
-Subject: Re: [PATCH] i2c: add support for microchip fpga i2c controllers
-Content-Language: en-GB
-To: Conor Dooley <conor.dooley@microchip.com>, wsa@kernel.org,
- linux-i2c@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- daire.mcnamara@microchip.com
-References: <20220315153206.833291-1-conor.dooley@microchip.com>
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-In-Reply-To: <20220315153206.833291-1-conor.dooley@microchip.com>
+References: <20220317035542.272547-1-apatel@ventanamicro.com>
+ <f1079093-54db-bd20-3342-b06d069c5d1f@codethink.co.uk>
+In-Reply-To: <f1079093-54db-bd20-3342-b06d069c5d1f@codethink.co.uk>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Fri, 18 Mar 2022 16:14:24 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a0Gt7TOT2zpNw7YNR=MNLBWVAADL5dBgY15ZL8sDW20HQ@mail.gmail.com>
+Message-ID: <CAK8P3a0Gt7TOT2zpNw7YNR=MNLBWVAADL5dBgY15ZL8sDW20HQ@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: Increase range and default value of NR_CPUS
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Atish Patra <atishp@atishpatra.org>, 
+ Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel <anup@brainfault.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+X-Provags-ID: V03:K1:fd1u9rHgAd7ToAYCKAdlJ4LCx3GahbXy9XIuK0MQqYNkMyrJeMl
+ LGDLECuqwPF34CHkdjHj1Yo88wFDHPkoq7tKLuDmLF6hudBCiWdjRJtN4sWwy+2thrEZUUi
+ ISc/BZvnjYNtysuzRk7lirr+JIjnnN6xZ5OtxC0uNnyRvfyP362wi7jP3PD+tE7jqrrvBam
+ tqqMganULKV3Kn5dIdBqg==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:OtIA9/y0lYQ=:RLpa9gRwX5LOw2Zqak2tia
+ FbOiMS5ENFeaSTloGaj/A/GnOtayVPKRx6mmEpqcxNgJDFo8Ed2SbtteisXwz4zgBqwuNJ0fL
+ hFjVAGTS5bGP6BAyQIG7QDetjsK9hKiMfBSLNpUw/xy/TnTcLypEo0b4NrKVsmKNyiFmbOnCR
+ dwPSxYY64TcNsF7SIQF5FCxaKTB2w4ND1gpXx4lBasbUDcU1ZSaQHqJKIEAypMFVjDy18w09s
+ /G2WsoykAFlUkSKyTsVTrXUMJLQWtCVvB5HyZ4GfTShqq8wwfp1jwQ/WRiqmkrMe83G7oh3fs
+ hTRYb3weksX+MhSzNI/AkjK4LxqLeSshZTu3J+IKnlV5AVza4UBrMyPUPevxLUb4D0kKcy5U+
+ WkJRjZP1lICcpobbWIiqCiKUEB9cvkuKOwAUmytvLxFYjEwTxyvPvaGMSJn+KHKAZ+xRk2inS
+ XErMLvQ+tZIhOIAFifZM1Ivae0YSMKAMBQks61yrs1tbLDmZWsVRDhvjJadnc1kMip8iQGR7I
+ 2NlaQp0zm4UAyxn8xdvfAr4Ux2tFZkxlTt9vtUBWcv5V3JJ5kXEATcR6RlG9LW3M8szxO5Mkh
+ Nzk9PtyhVGsSoFXXCnWCylir8AMJV9peXK/uEZhmut85Xm3Ce/vIEFJdZtgg8ItAsz3vUcTt5
+ HoK7Kw13OUJqI49mklU1IYGlZ+Qphht4jF40EeTXqqNCYBCAugP0e3zZM/YhIHsZB3Sg=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220318_075645_351208_CF0F74C1 
-X-CRM114-Status: GOOD (  23.78  )
+X-CRM114-CacheID: sfid-20220318_081446_082863_E5DAA9EA 
+X-CRM114-Status: GOOD (  15.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,192 +83,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 15/03/2022 15:32, Conor Dooley wrote:
-> Add Microchip CoreI2C i2c controller support. This driver supports the
-> "hard" i2c controller on the Microchip PolarFire SoC & the basic feature
-> set for "soft" i2c controller implemtations in the FPGA fabric.
-> 
-> Co-developed-by: Daire McNamara <daire.mcnamara@microchip.com>
-> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->   drivers/i2c/busses/Kconfig              |  11 +
->   drivers/i2c/busses/Makefile             |   1 +
->   drivers/i2c/busses/i2c-microchip-core.c | 487 ++++++++++++++++++++++++
->   3 files changed, 499 insertions(+)
->   create mode 100644 drivers/i2c/busses/i2c-microchip-core.c
-> 
-> diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
-> index a1bae59208e3..3d4d8e0e9de7 100644
-> --- a/drivers/i2c/busses/Kconfig
-> +++ b/drivers/i2c/busses/Kconfig
-> @@ -781,6 +781,17 @@ config I2C_MESON
->   	  If you say yes to this option, support will be included for the
->   	  I2C interface on the Amlogic Meson family of SoCs.
->   
+On Fri, Mar 18, 2022 at 3:46 PM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
+>
+> On 17/03/2022 03:55, Anup Patel wrote:
+> > Currently, the range and default value of NR_CPUS is too restrictive
+> > for high-end RISC-V systems with large number of HARTs. The latest
+> > QEMU virt machine supports upto 512 CPUs so the current NR_CPUS is
+> > restrictive for QEMU as well.
 
-snip
+If qemu allows 512, what is the reason for limiting the kernel to 256?
 
-> +
-> +static void mchp_corei2c_core_disable(struct mchp_corei2c_dev *idev)
-> +{
-> +	u8 ctrl = readl(idev->base + CORE_I2C_CTRL);
-> +
-> +	ctrl &= ~CTRL_ENS1;
-> +	writel(ctrl, idev->base + CORE_I2C_CTRL);
-> +}
-> +
-> +static void mchp_corei2c_core_enable(struct mchp_corei2c_dev *idev)
-> +{
-> +	u8 ctrl = readl(idev->base + CORE_I2C_CTRL);
-> +
-> +	ctrl |= CTRL_ENS1;
-> +	writel(ctrl, idev->base + CORE_I2C_CTRL);
-> +}
+> > Other major architectures (such as
+> > ARM64, x86_64, MIPS, etc) have a much higher range and default
+> > value of NR_CPUS.
+>
+> What's the memory overhead for increasing this?
 
-Not sure why you would use readl/writel with an u8, surely an
-readb/writeb be better?
+It's supposed to be very small, I would expect three main sources of overhead:
 
+- cpumask_t variables, those grow once you go beyond the size of
+   an unsigned long (32 or 64 bits), so with the default just on the limit, this
+   makes no difference.
+   Note that you can run out of stack space with NR_CPUS values if
+   CONFIG_CPUMASK_OFFSTACK is disabled. Should not be
+   a problem for 512 or below.
 
-> +static irqreturn_t mchp_corei2c_handle_isr(struct mchp_corei2c_dev *idev)
-> +{
-> +	u32 status = idev->isr_status;
-> +	u8 ctrl;
-> +
-> +	if (!idev->buf) {
-> +		dev_warn(idev->dev, "unexpected interrupt\n");
-> +		return IRQ_HANDLED;
-> +	}
+- percpu variables: these are dynamically allocated based on the number of
+  CPUs at boot time, so they should not have any real impact.
 
-is IRQ_HANDLED correct here?
+- NR_CPUS sized arrays, these are sometimes used in place of
+  percpu data. This is only a problem if the array members individually
+  are more than a few bytes. There are not too many of these in the kernel,
+  as using those is discouraged.
 
-> +
-> +static int mchp_corei2c_probe(struct platform_device *pdev)
-> +{
-> +	struct mchp_corei2c_dev *idev = NULL;
-> +	struct resource *res;
-> +	int irq, ret;
-> +	u32 val;
-> +
-> +	idev = devm_kzalloc(&pdev->dev, sizeof(*idev), GFP_KERNEL);
-> +	if (!idev)
-> +		return -ENOMEM;
-> +
-> +	idev->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-> +	if (IS_ERR(idev->base))
-> +		return PTR_ERR(idev->base);
-> +
-> +	irq = platform_get_irq(pdev, 0);
-> +	if (irq < 0)
-> +		return dev_err_probe(&pdev->dev, irq,
-> +				     "missing interrupt resource\n");
-> +
-> +	idev->i2c_clk = devm_clk_get(&pdev->dev, NULL);
-> +	if (IS_ERR(idev->i2c_clk))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(idev->i2c_clk),
-> +				     "missing clock\n");
-> +
-> +	idev->dev = &pdev->dev;
-> +	init_completion(&idev->msg_complete);
-> +	spin_lock_init(&idev->lock);
-> +
-> +	val = device_property_read_u32(idev->dev, "clock-frequency",
-> +				       &idev->bus_clk_rate);
-> +	if (val) {
-> +		dev_info(&pdev->dev, "default to 100kHz\n");
-> +		idev->bus_clk_rate = 100000;
-> +	}
-> +
-> +	if (idev->bus_clk_rate > 400000)
-> +		return dev_err_probe(&pdev->dev, -EINVAL,
-> +				     "clock-frequency too high: %d\n",
-> +				     idev->bus_clk_rate);
-> +
-> +	ret = devm_request_irq(&pdev->dev, irq, mchp_corei2c_isr, IRQF_SHARED,
-> +			       pdev->name, idev);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret,
-> +				     "failed to claim irq %d\n", irq);
-> +
-> +	ret = clk_prepare_enable(idev->i2c_clk);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret,
-> +				     "failed to enable clock\n");
-> +
-> +	ret = mchp_corei2c_init(idev);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret,
-> +				     "failed to program clock divider\n");
-
-going to leak a prepared clock from here on?
-
-> +	i2c_set_adapdata(&idev->adapter, idev);
-> +	snprintf(idev->adapter.name, sizeof(idev->adapter.name),
-> +		 "Microchip I2C hw bus");
-> +	idev->adapter.owner = THIS_MODULE;
-> +	idev->adapter.algo = &mchp_corei2c_algo;
-> +	idev->adapter.dev.parent = &pdev->dev;
-> +	idev->adapter.dev.of_node = pdev->dev.of_node;
-> +
-> +	platform_set_drvdata(pdev, idev);
-> +
-> +	ret = i2c_add_adapter(&idev->adapter);
-> +	if (ret) {
-> +		clk_disable_unprepare(idev->i2c_clk);
-> +		return ret;
-> +	}
-> +
-> +	dev_info(&pdev->dev, "Microchip I2C Probe Complete\n");
-
-not sure if necessary, doesn't the i2c core also announce?
-
-> +	return 0;
-> +}
-> +
-> +static int mchp_corei2c_remove(struct platform_device *pdev)
-> +{
-> +	struct mchp_corei2c_dev *idev = platform_get_drvdata(pdev);
-> +
-> +	clk_disable_unprepare(idev->i2c_clk);
-> +	i2c_del_adapter(&idev->adapter);
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct of_device_id mchp_corei2c_of_match[] = {
-> +	{ .compatible = "microchip,mpfs-i2c" },
-> +	{ .compatible = "microchip,corei2c-rtl-v7" },
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(of, mchp_corei2c_of_match);
-> +
-> +static struct platform_driver mchp_corei2c_driver = {
-> +	.probe = mchp_corei2c_probe,
-> +	.remove = mchp_corei2c_remove,
-> +	.driver = {
-> +		.name = "microchip-corei2c",
-> +		.of_match_table = mchp_corei2c_of_match,
-> +	},
-> +};
-> +
-> +module_platform_driver(mchp_corei2c_driver);
-> +
-> +MODULE_DESCRIPTION("Microchip CoreI2C bus driver");
-> +MODULE_AUTHOR("Daire McNamara <daire.mcnamara@microchip.com>");
-> +MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
-> +MODULE_LICENSE("GPL v2");
-
-
--- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
-
-https://www.codethink.co.uk/privacy.html
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
