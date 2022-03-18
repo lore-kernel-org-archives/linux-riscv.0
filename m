@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BC73C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Mar 2022 16:21:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B90F2C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Mar 2022 16:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DtM71VNYb/N7RfP18VT93fRLHjvbfWSy3Ehcdd3l4ec=; b=2J3qH/7dz1TA7u
-	nbbZGjUXedWB5pV9nA+Z/mgsFr6rCLbki6kHKliRzRz0liM9ZbzD1yO9k9IY8HKP1IUBeyscaY4G2
-	bsfFiLbSG+hRMZYxdqEGaF2ECSh274P5S/I9UXCZKFk1/uvr/bj2QN30IG/X1Gs14EjPTj8hg4vLq
-	4qqEQNWvSQqcztirNBF+sesppgtaVoP4rQ7zPPXTOWQ9KGlhKtTMq6qU5/lUkjAz8a7wtXOCAVui9
-	HsCLGI7ajUhPe9g61LkfT8fIuN2JaUnDbH7QWa9qbCXCvdVIgq2kmCN25uUQri2DJdTTqrfSomV8e
-	EFC/y4se8pCRHRFLNnNQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2VvsdyrqBLCsMkMEptUt3zLYgtQkNUWu16GBB95EMDA=; b=XBJ6babNJ61fkV
+	w/LqvGTY8RXrjmeH4Rq75G1OUhKWV9L7GCQw21hsnfP1t/4Hd+6BV8lJZGpO9sGlREb8axaifa7+X
+	ccTLSNMCN2jkWZI55vOkWiQ7Q4Ps5xV88Y3cZebze8WKg4iCdSCHSPwJdeWxbGAtrZfD4Pt0Ga4N4
+	SetHMB3JNaXif7agGK58z84ORNSn0bOkXqATIT56nrnAzmZWJOUEWKUQq538ZYm3FgB9USx9F/CM9
+	39lTnWl6YUyRDnX34JarBtT6Arf9+kvN6jWqHNou3+TkmUB4YcUGEVhi8RRcmBu2jyv1peYoNATGL
+	2ifUfnWMFUxCXJ+METDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nVFM9-002O1Z-8e; Fri, 18 Mar 2022 16:21:37 +0000
+	id 1nVFMB-002O2R-4e; Fri, 18 Mar 2022 16:21:39 +0000
 Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nVFM6-002Nxc-0K
+ id 1nVFM5-002Nxb-Uy
  for linux-riscv@lists.infradead.org; Fri, 18 Mar 2022 16:21:35 +0000
 Received: from mail-lj1-f197.google.com (mail-lj1-f197.google.com
  [209.85.208.197])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
  key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 9E7B93F211
- for <linux-riscv@lists.infradead.org>; Fri, 18 Mar 2022 16:21:26 +0000 (UTC)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id E7DD23F223
+ for <linux-riscv@lists.infradead.org>; Fri, 18 Mar 2022 16:21:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1647620486;
- bh=2W0HN5RRkNZ3VABX+Cwv7ixmrYLder+VG35wSKi/d+A=;
- h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
- MIME-Version;
- b=nH0HR9aJrCmvmMX5Ho9jW/f4aTPPR+eZiQ1dglYZpsYMpaEThGfjoYpaTN6kGq1fp
- pe7rxJbovYZYqkWNlcdQTCtNBumEklOnhtbbfYZIcZR5aj4uvHlUDxtIHa7TSDvF4L
- Oz7LqoHmYdmJtsHZ7BWWKbGdAhzRuKBnDd+buYLjygMGarfV2VltO4NpfLD9VKbRqa
- nS1ixRVPLs2Z6CNjkFOMQZMT8FClTPjDTE0joOK9RyQCAPoEF8XHKo+jQjfBgm89x8
- q37mYSPaFa/I9kgEfOaxUkXuTvGOKUYFNuNaYRy2go+iLOrVX9eDD+7t62xkUDNn7o
- 5Rg9CRFqpNDTA==
+ s=20210705; t=1647620483;
+ bh=O5YEItFojELUQ2ZVAdFWmd7QnNJFa0nT8LdWFM6nccM=;
+ h=From:To:Cc:Subject:Date:Message-Id:MIME-Version;
+ b=c/fOo4zU9mb8jCYfW0YF/+tCrIWepDwaZCTXRnDu6eiyG+GMG/LwSvrSA4coqCzdX
+ mg7q6D75Um+FkhqFAIUY35qd5QhMq9aD6Eb9C3DwF+JxR1Fd8/Xw0mAwo4ZLIvfEZo
+ X6FDhgpw0rf3V0jchz4aEYOliC4+7nXzlN/WoxHxGBWsEyfnMJMLH4Wwlfm/NwPCL4
+ yz1IVWkY98rlMSYgkNvbOPDJxov9ZXke2OSTkMMQ40XlHkG4uzKzTSw6o/3ilQkfMk
+ 3hq5AvlqlrRzVSzT3UT+X/0vvs+POxCZPNCSb1mb7Z9/mAmojgnIZ+XOUgBO6BihGz
+ H0IIZ/wiRq0xA==
 Received: by mail-lj1-f197.google.com with SMTP id
- 20-20020a05651c009400b002462f08f8d2so3610397ljq.2
- for <linux-riscv@lists.infradead.org>; Fri, 18 Mar 2022 09:21:26 -0700 (PDT)
+ 76-20020a2e054f000000b00249606fea4fso2277631ljf.19
+ for <linux-riscv@lists.infradead.org>; Fri, 18 Mar 2022 09:21:23 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=2W0HN5RRkNZ3VABX+Cwv7ixmrYLder+VG35wSKi/d+A=;
- b=eyu4W2o4wrNucBelEj2xAmIo0j9Ek1k9YOktqtHtl4fW71qH+OIqCAUqK1fGJA53w9
- M8xGvlcOu0+PX0dQCDrMUvwnZnM7Odt+vcxf900tm2BnP4quFu6bZfqyqMsMZJATS0ga
- aADRtRFasg36poZqQx9kps9rOQQ6IukZRKOGJAe7dLl/KCHJ5INR2olTIa6GM3ItD1F/
- T3f9WhHiNRGyyqeaURGVAf0SPWG1jGokawIu/uDyhJd7JiZQJq9bpHvFjcP1aEs0Qv15
- LrnQjtpJOrUNzKmLhiNJ+ZTBTIxEfpbW1pi5E8oh8YlD1hvQ8Qi3K5WBYMb3RPe43wgG
- 9Gjg==
-X-Gm-Message-State: AOAM533mnh27WHktprk8RgIi9aVuKp5kiJ75rLATTL0dC9G4I3lX1v2R
- lel1HzEaM7W/6LokaLaZrx/0iTMUSZzHACfibfyLkpAEyUWc0tkb8+fAyBXe1GFZ2rhhCqid6wF
- s/dLm3x2QTZNH03uMv5QzAV5jejXMLEA+l6T/nbbZXkYR2g==
-X-Received: by 2002:ac2:44a5:0:b0:448:27fb:f11b with SMTP id
- c5-20020ac244a5000000b0044827fbf11bmr6761057lfm.72.1647620485593; 
- Fri, 18 Mar 2022 09:21:25 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJxxYnFRtdU22BR20+/ugHHxzULrSzy0BJHNZ4eqdyKUJs4Bzk00wOL775ew90uRhXAX1YOExQ==
-X-Received: by 2002:ac2:44a5:0:b0:448:27fb:f11b with SMTP id
- c5-20020ac244a5000000b0044827fbf11bmr6761036lfm.72.1647620485407; 
- Fri, 18 Mar 2022 09:21:25 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=O5YEItFojELUQ2ZVAdFWmd7QnNJFa0nT8LdWFM6nccM=;
+ b=2p0PM4BBpsrNaw4AeP3mi0dExv13bGfeMCo9vtpAJqNexxxn3nvtm2nRDLskjKZ9KB
+ nfrFN4R/AYjNWrcr7tb/07vROwM0QxcOtDazxeGYT/cLKNCK7SOgND9ae2R89jW5wjgf
+ rnCt9DKKMVH2i80jrNpHxNEGC2cXKMdLOrafnU12UnRwqu7FPaNw+D3+wDcGAdlojIjq
+ Yt+gx5SPTkb9uiJhUfKSqVALbVgHEPb8YAJp5l81CspbaBBmuuQQgNABPnK7jm+svH0y
+ uLp97HGJCxf2KGAcoRFXSN0w3a8npskhph5WZxDR3fpr3bOR6ySn3hYlNzJRm8KCcuig
+ 7ZNg==
+X-Gm-Message-State: AOAM5311pc+ixAuN5FHj9muWAe7YHu5dZ1xy8CuhplKs9Mis59e/dbFP
+ P/ONpqw/Aj4Jfj91vsBCQvBwiBe05aofW+h4Nr7JAmr9p5rY3mFW14bEN81or5nXLj0gY6xP+fk
+ w0FJ9d+7aOCCboU9psWYd9G8r7lEu89LWhpX99SvP0dLTPw==
+X-Received: by 2002:a05:6512:6c1:b0:448:6291:f135 with SMTP id
+ u1-20020a05651206c100b004486291f135mr6405503lff.451.1647620483087; 
+ Fri, 18 Mar 2022 09:21:23 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJz7IhRjpip8ZxqWpdk/rNDzwPEQOlG6V0utFUzBi0pEzxIv6O5tJhNXTUklIfs5QHZNcJq1TQ==
+X-Received: by 2002:a05:6512:6c1:b0:448:6291:f135 with SMTP id
+ u1-20020a05651206c100b004486291f135mr6405475lff.451.1647620482814; 
+ Fri, 18 Mar 2022 09:21:22 -0700 (PDT)
 Received: from localhost.localdomain (78-11-189-27.static.ip.netia.com.pl.
  [78.11.189.27]) by smtp.gmail.com with ESMTPSA id
- h5-20020a197005000000b00448287d1275sm906913lfc.298.2022.03.18.09.21.22
+ h5-20020a197005000000b00448287d1275sm906913lfc.298.2022.03.18.09.21.20
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 18 Mar 2022 09:21:24 -0700 (PDT)
+ Fri, 18 Mar 2022 09:21:22 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 To: Green Wan <green.wan@sifive.com>, Vinod Koul <vkoul@kernel.org>,
  Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -83,17 +82,16 @@ To: Green Wan <green.wan@sifive.com>, Vinod Koul <vkoul@kernel.org>,
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-Subject: [PATCH 2/2] riscv: dts: sifive: fu540-c000: align dma node name with
- dtschema
-Date: Fri, 18 Mar 2022 17:20:44 +0100
-Message-Id: <20220318162044.169350-2-krzysztof.kozlowski@canonical.com>
+Subject: [PATCH 1/2] dt-bindings: dmaengine: sifive,
+ fu540-c000: include generic schema
+Date: Fri, 18 Mar 2022 17:20:43 +0100
+Message-Id: <20220318162044.169350-1-krzysztof.kozlowski@canonical.com>
 X-Mailer: git-send-email 2.32.0
-In-Reply-To: <20220318162044.169350-1-krzysztof.kozlowski@canonical.com>
-References: <20220318162044.169350-1-krzysztof.kozlowski@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220318_092134_310157_C66CA6C8 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20220318_092134_309558_D88D23BC 
+X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,28 +108,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Fixes dtbs_check warnings like:
-
-  dma@3000000: $nodename:0: 'dma@3000000' does not match '^dma-controller(@.*)?$'
+Include generic dma-controller.yaml schema, which enforces node naming
+and other generic properties.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
 ---
- arch/riscv/boot/dts/sifive/fu540-c000.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml   | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
-index 3eef52b1a59b..fd93fdadd28c 100644
---- a/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
-+++ b/arch/riscv/boot/dts/sifive/fu540-c000.dtsi
-@@ -167,7 +167,7 @@ uart0: serial@10010000 {
- 			clocks = <&prci PRCI_CLK_TLCLK>;
- 			status = "disabled";
- 		};
--		dma: dma@3000000 {
-+		dma: dma-controller@3000000 {
- 			compatible = "sifive,fu540-c000-pdma";
- 			reg = <0x0 0x3000000 0x0 0x8000>;
- 			interrupt-parent = <&plic0>;
+diff --git a/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml b/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
+index 75ad898c59bc..47c46af25536 100644
+--- a/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
++++ b/Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
+@@ -22,6 +22,9 @@ description: |
+ 
+   https://static.dev.sifive.com/FU540-C000-v1.0.pdf
+ 
++allOf:
++  - $ref: "dma-controller.yaml#"
++
+ properties:
+   compatible:
+     items:
+@@ -41,13 +44,12 @@ required:
+   - compatible
+   - reg
+   - interrupts
+-  - '#dma-cells'
+ 
+-additionalProperties: false
++unevaluatedProperties: false
+ 
+ examples:
+   - |
+-    dma@3000000 {
++    dma-controller@3000000 {
+       compatible = "sifive,fu540-c000-pdma";
+       reg = <0x3000000 0x8000>;
+       interrupts = <23>, <24>, <25>, <26>, <27>, <28>, <29>, <30>;
 -- 
 2.32.0
 
