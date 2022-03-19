@@ -4,61 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5787C433F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Mar 2022 03:55:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72F22C433F5
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Mar 2022 03:55:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MicWDSCoSx+7PuTZaIQIoOGBMGL9WGZloO3KkDxbQcw=; b=blTAKSTD+dJHXp
-	IVS+nuel1G5deWnkDrt6yB4tsZZ1s24QREF+104lidYnSr6hFtOpB5ez6DeRSGaff/HjLEvKQAJzz
-	lcPB5TGWdoegEEOHlK17sAZ135IqrRW1uYymVXXrC3C3H3PfnV+Jbzs7GZFVHiXVOlZ3Mof7lbzdi
-	Geetm8KHNHMMMMubBJVbPaob8eYhQqWCfHLMZfbkTzgO3X90E58EKHLHLdF69LInARw8heMkbFpxL
-	a8ab9ij//tEdS9McMUOzAT83P+kJkuCKpoydPEVio7Ur1Wd2qqyGib+agSJWxflgPOOL6x5spEJoF
-	pA/vtLVJykbNPM5NEeFg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XTtdbIOoqH9Vn5/zwre0xwHSjAoFBclZywUqVhZNGGk=; b=S+lQAL8U7wHiUM
+	Fc5FPk4E/qfpfnivITF609FwPYpiGGGeor6YehA4L/Ljt1URCk+eUxZkL3vBQSs8addJDPjA5wY2e
+	6sFE2o8JVrXvltIYmkrEZrQkjKmc1DcoMK190U+ERE4qHjf4qMnm7lTeb3vbRfoRnaY/gqcBozvKt
+	eNtkaKnQJJSfSlz+VJzoT67jwwWl2GxVMBrwTdpvkbxDLZtiuoUFDAsU9Q/G5jj1IAKB9VAvYXvMi
+	sJ5YBErVPbV2iiUBK0qiugdCBqw3h/di20Ph93KfK0aAGZ/uxb2cd8mz6QxIpRY+aONCfXQ1EKBwI
+	eMSF33IA0r0ry2q1+3Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nVQBc-003BN4-O6; Sat, 19 Mar 2022 03:55:28 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1nVQBT-003BJ6-PU; Sat, 19 Mar 2022 03:55:19 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nVQBa-003BLV-3i
- for linux-riscv@lists.infradead.org; Sat, 19 Mar 2022 03:55:28 +0000
+ id 1nVQBQ-003BHj-Fk
+ for linux-riscv@lists.infradead.org; Sat, 19 Mar 2022 03:55:18 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id B6FBEB82603;
- Sat, 19 Mar 2022 03:55:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63DDBC340EE;
- Sat, 19 Mar 2022 03:55:20 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id C60BD617DE;
+ Sat, 19 Mar 2022 03:55:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AB0EC340EC;
+ Sat, 19 Mar 2022 03:55:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1647662123;
- bh=94ul4sY+mwnjxOkYK9GbTixjNIKfz+vE6/QiryjPo4c=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=q2AB8rAS9FMDRAKWlccqOMMxPVlXmvcDzD8ZQvNl2qU3FIrQpwYECanOe2OTLNB8Q
- cc/1wkpKde8lCMA5ZvLVwB50z+idgJI8VH4mz7mDLI8axirL1HiP//dVBObu7sbRtV
- UQPmZD+4lbRWlksZTeCH2MjJZeN5DRlRN7YRKHbrvxbC+zEdb5BMj5OPIstHztTdQv
- d2/A4s2vduhgSPrU32IpecvVX0wZVYI9BoZaY0mEL5vIJjRifNq5Qmbb73YVz4EJjC
- AOCtiotdpOGbZF0Vl8FpmOcEp7k/4+TJJXPVHVhEw2JZ3xjK6Iyemp1+2MNnQs41NI
- SfPaEkk8tprcw==
+ s=k20201202; t=1647662113;
+ bh=YTk93zwuaGZlbGJYQpGVX2DQwDayvasBfkPYcHh8gIk=;
+ h=From:To:Cc:Subject:Date:From;
+ b=nKlhwcjbrbTFviWdQBTu3WNloG1jgLcDtDoTMwafpkUo0Wb84lOTYscr2NuACdEA7
+ TZkKNzeVChhvA35+Ku/YlGkd8r7mIqpVTmtozurPhoWQQrGiFRInRRxoBSAXoIabeh
+ Ix14wd0/aTu0OlnjrcGwqx+RRsvx1NlR8T0kx/Hv+GOoyW9S/KhCMcPbLJDmdNxFtc
+ /s50rZmR5fC1vJ1YHqyIg0J1dGzOIBNthyLLoxyjJ99FbY93Y7CtdFfn2U3PFiovGB
+ fKnsz5EUUnJGzuiKpsLj3VtAVyxzJZlj/a1DfpfrVdXrSuxpZ+xERjuUT+eJDpNuFv
+ 8f/K8jPnqs0+Q==
 From: guoren@kernel.org
 To: guoren@kernel.org, palmer@dabbelt.com, arnd@arndb.de, boqun.feng@gmail.com,
  longman@redhat.com, peterz@infradead.org
 Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-csky@vger.kernel.org,
- openrisc@lists.librecores.org, Guo Ren <guoren@linux.alibaba.com>,
- Palmer Dabbelt <palmer@rivosinc.com>
-Subject: [PATCH V2 3/5] csky: Move to generic ticket-spinlock
-Date: Sat, 19 Mar 2022 11:54:55 +0800
-Message-Id: <20220319035457.2214979-4-guoren@kernel.org>
+ openrisc@lists.librecores.org, Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH V2 0/5] Generic Ticket Spinlocks
+Date: Sat, 19 Mar 2022 11:54:52 +0800
+Message-Id: <20220319035457.2214979-1-guoren@kernel.org>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220319035457.2214979-1-guoren@kernel.org>
-References: <20220319035457.2214979-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220318_205526_439459_B86C0796 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20220318_205516_657908_49893A62 
+X-CRM114-Status: GOOD (  20.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,160 +74,81 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-There is no benefit from custom implementation for ticket-spinlock,
-so move to generic ticket-spinlock for easy maintenance.
+Palmer:
+Peter sent an RFC out about a year ago
+<https://lore.kernel.org/lkml/YHbBBuVFNnI4kjj3@hirez.programming.kicks-ass.net/>,
+but after a spirited discussion it looks like we lost track of things.
+IIRC there was broad consensus on this being the way to go, but there
+was a lot of discussion so I wasn't sure.  Given that it's been a year,
+I figured it'd be best to just send this out again formatted a bit more
+explicitly as a patch.
 
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>
----
- arch/csky/include/asm/Kbuild           |  3 +-
- arch/csky/include/asm/spinlock.h       | 89 --------------------------
- arch/csky/include/asm/spinlock_types.h | 27 --------
- 3 files changed, 2 insertions(+), 117 deletions(-)
+This has had almost no testing (just a build test on RISC-V defconfig),
+but I wanted to send it out largely as-is because I didn't have a SOB
+from Peter on the code.  I had sent around something sort of similar in
+spirit, but this looks completely re-written.  Just to play it safe I
+wanted to send out almost exactly as it was posted.  I'd probably rename
+this tspinlock and tspinlock_types, as the mis-match kind of makes my
+eyes go funny, but I don't really care that much.  I'll also go through
+the other ports and see if there's any more candidates, I seem to
+remember there having been more than just OpenRISC but it's been a
+while.
+
+I'm in no big rush for this and given the complex HW dependencies I
+think it's best to target it for 5.19, that'd give us a full merge
+window for folks to test/benchmark it on their systems to make sure it's
+OK.  RISC-V has a forward progress guarantee so we should be safe, but
+these can always trip things up.
+
+Guo:
+Update V2 with Arnd's suggestion [1].
+
+[1] https://lore.kernel.org/linux-arch/CAK8P3a0NMPVGVw7===uEOtNnu1hr1GqimMbZT+Kea1CUxRvPmw@mail.gmail.com/raw
+
+Changes in V2:
+ - Follow Arnd suggestion to make the patch series more generic.
+ - Add csky in the series.
+ - Combine RISC-V's two patches into one.
+ - Modify openrisc's patch to suit the new generic version.
+
+Guo Ren (1):
+  csky: Move to generic ticket-spinlock
+
+Palmer Dabbelt (1):
+  RISC-V: Move to ticket-spinlocks & RW locks
+
+Peter Zijlstra (3):
+  asm-generic: ticket-lock: New generic ticket-based spinlock
+  asm-generic: qspinlock: Indicate the use of mixed-size atomics
+  openrisc: Move to ticket-spinlock
+
+ arch/csky/include/asm/Kbuild               |   3 +-
+ arch/csky/include/asm/spinlock.h           |  89 --------------
+ arch/csky/include/asm/spinlock_types.h     |  27 -----
+ arch/openrisc/Kconfig                      |   1 -
+ arch/openrisc/include/asm/Kbuild           |   7 +-
+ arch/openrisc/include/asm/spinlock.h       |  27 -----
+ arch/openrisc/include/asm/spinlock_types.h |   7 --
+ arch/riscv/Kconfig                         |   1 +
+ arch/riscv/include/asm/Kbuild              |   2 +
+ arch/riscv/include/asm/spinlock.h          | 135 ---------------------
+ arch/riscv/include/asm/spinlock_types.h    |  25 ----
+ include/asm-generic/qspinlock.h            |  30 +++++
+ include/asm-generic/spinlock.h             |  11 +-
+ include/asm-generic/spinlock_types.h       |  15 +++
+ include/asm-generic/ticket-lock-types.h    |  11 ++
+ include/asm-generic/ticket-lock.h          |  86 +++++++++++++
+ 16 files changed, 157 insertions(+), 320 deletions(-)
  delete mode 100644 arch/csky/include/asm/spinlock.h
  delete mode 100644 arch/csky/include/asm/spinlock_types.h
+ delete mode 100644 arch/openrisc/include/asm/spinlock.h
+ delete mode 100644 arch/openrisc/include/asm/spinlock_types.h
+ delete mode 100644 arch/riscv/include/asm/spinlock.h
+ delete mode 100644 arch/riscv/include/asm/spinlock_types.h
+ create mode 100644 include/asm-generic/spinlock_types.h
+ create mode 100644 include/asm-generic/ticket-lock-types.h
+ create mode 100644 include/asm-generic/ticket-lock.h
 
-diff --git a/arch/csky/include/asm/Kbuild b/arch/csky/include/asm/Kbuild
-index 904a18a818be..056625619c19 100644
---- a/arch/csky/include/asm/Kbuild
-+++ b/arch/csky/include/asm/Kbuild
-@@ -3,6 +3,7 @@ generic-y += asm-offsets.h
- generic-y += extable.h
- generic-y += gpio.h
- generic-y += kvm_para.h
--generic-y += qrwlock.h
-+generic-y += spinlock_types.h
-+generic-y += spinlock.h
- generic-y += user.h
- generic-y += vmlinux.lds.h
-diff --git a/arch/csky/include/asm/spinlock.h b/arch/csky/include/asm/spinlock.h
-deleted file mode 100644
-index 69f5aa249c5f..000000000000
---- a/arch/csky/include/asm/spinlock.h
-+++ /dev/null
-@@ -1,89 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--
--#ifndef __ASM_CSKY_SPINLOCK_H
--#define __ASM_CSKY_SPINLOCK_H
--
--#include <linux/spinlock_types.h>
--#include <asm/barrier.h>
--
--/*
-- * Ticket-based spin-locking.
-- */
--static inline void arch_spin_lock(arch_spinlock_t *lock)
--{
--	arch_spinlock_t lockval;
--	u32 ticket_next = 1 << TICKET_NEXT;
--	u32 *p = &lock->lock;
--	u32 tmp;
--
--	asm volatile (
--		"1:	ldex.w		%0, (%2) \n"
--		"	mov		%1, %0	 \n"
--		"	add		%0, %3	 \n"
--		"	stex.w		%0, (%2) \n"
--		"	bez		%0, 1b   \n"
--		: "=&r" (tmp), "=&r" (lockval)
--		: "r"(p), "r"(ticket_next)
--		: "cc");
--
--	while (lockval.tickets.next != lockval.tickets.owner)
--		lockval.tickets.owner = READ_ONCE(lock->tickets.owner);
--
--	smp_mb();
--}
--
--static inline int arch_spin_trylock(arch_spinlock_t *lock)
--{
--	u32 tmp, contended, res;
--	u32 ticket_next = 1 << TICKET_NEXT;
--	u32 *p = &lock->lock;
--
--	do {
--		asm volatile (
--		"	ldex.w		%0, (%3)   \n"
--		"	movi		%2, 1	   \n"
--		"	rotli		%1, %0, 16 \n"
--		"	cmpne		%1, %0     \n"
--		"	bt		1f         \n"
--		"	movi		%2, 0	   \n"
--		"	add		%0, %0, %4 \n"
--		"	stex.w		%0, (%3)   \n"
--		"1:				   \n"
--		: "=&r" (res), "=&r" (tmp), "=&r" (contended)
--		: "r"(p), "r"(ticket_next)
--		: "cc");
--	} while (!res);
--
--	if (!contended)
--		smp_mb();
--
--	return !contended;
--}
--
--static inline void arch_spin_unlock(arch_spinlock_t *lock)
--{
--	smp_mb();
--	WRITE_ONCE(lock->tickets.owner, lock->tickets.owner + 1);
--}
--
--static inline int arch_spin_value_unlocked(arch_spinlock_t lock)
--{
--	return lock.tickets.owner == lock.tickets.next;
--}
--
--static inline int arch_spin_is_locked(arch_spinlock_t *lock)
--{
--	return !arch_spin_value_unlocked(READ_ONCE(*lock));
--}
--
--static inline int arch_spin_is_contended(arch_spinlock_t *lock)
--{
--	struct __raw_tickets tickets = READ_ONCE(lock->tickets);
--
--	return (tickets.next - tickets.owner) > 1;
--}
--#define arch_spin_is_contended	arch_spin_is_contended
--
--#include <asm/qrwlock.h>
--
--#endif /* __ASM_CSKY_SPINLOCK_H */
-diff --git a/arch/csky/include/asm/spinlock_types.h b/arch/csky/include/asm/spinlock_types.h
-deleted file mode 100644
-index db87a12c3827..000000000000
---- a/arch/csky/include/asm/spinlock_types.h
-+++ /dev/null
-@@ -1,27 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--
--#ifndef __ASM_CSKY_SPINLOCK_TYPES_H
--#define __ASM_CSKY_SPINLOCK_TYPES_H
--
--#ifndef __LINUX_SPINLOCK_TYPES_RAW_H
--# error "please don't include this file directly"
--#endif
--
--#define TICKET_NEXT	16
--
--typedef struct {
--	union {
--		u32 lock;
--		struct __raw_tickets {
--			/* little endian */
--			u16 owner;
--			u16 next;
--		} tickets;
--	};
--} arch_spinlock_t;
--
--#define __ARCH_SPIN_LOCK_UNLOCKED	{ { 0 } }
--
--#include <asm-generic/qrwlock_types.h>
--
--#endif /* __ASM_CSKY_SPINLOCK_TYPES_H */
 -- 
 2.25.1
 
