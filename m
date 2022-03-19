@@ -4,77 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E30FDC433F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Mar 2022 12:12:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B17EEC433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Mar 2022 12:40:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=joO0f/Xc6d7UbXwejxE56tegRBdASOYniZlzgjkBekI=; b=jKMIAQR+RSS7pS
-	hHBY2UL4KTGYi/dhv85npAxOBXfbTJl7NrUlkY8MuUA7KQlhMiCMo/jH7Rc2ydc1p2k1Rq6EK902h
-	msyRANvEsfRBk+awPszZEm0o2YxbDqgZArtb4nOi6Bbh0O/Yt7HO2i+5Gcvrsq/TOXI17Go6pXFBF
-	ejbfVJ14P4qus8YS2YVoQbL779V0WXHT17L1F5FJ6FMDDopr9aDWlcOpvsIISxuMMEo5NdPZ/J7EW
-	BDRrrKr6+JOCoacpHmO0hbLSVXLa0fUrsgQ0TWaeTdaKuckpUbDb2WkJjbkCcpCqPKNk1CE2DBglm
-	W68+lUgHLbeYPvCSeZWQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=onvElIy3MX5eRUTctL/8LO6lkqdvOYK6GON5EtrArmA=; b=Qsuk2kBntDzNkG
+	wUX6ohLDk2mYn/l7OSIJx6HGEelDSwhMx212u8sku88LhLi9UH4WxkiZv5NJ+Z+iJzVoxZsZq3tuz
+	QJmhe/4AbVY9VwG6cSdrKO0EDaADU4FyO6P154oVH8SDBvZcToxbBXJ9v4lQyIepKIMkb+BTrigl2
+	T/sOFxA+5NvxXnypJjb/HjfsCfyVhs9m5bXZ2zxyTO6/PI/QMOnE1OWeq6QGHAm2l0jq9es2KJMiQ
+	CO4RCxksttpr3fj50ckOSXu7ePbB5livXhjDkuzocRAw0gIZESmbOP01T8jOynlQN9/1RIyzMpUIi
+	HxV6o7UtfDZ9gniGTJjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nVXwR-003l4O-7K; Sat, 19 Mar 2022 12:12:19 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1nVYNX-003mvh-Ck; Sat, 19 Mar 2022 12:40:19 +0000
+Received: from imap2.colo.codethink.co.uk ([78.40.148.184])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nVXwO-003l3g-9G
- for linux-riscv@lists.infradead.org; Sat, 19 Mar 2022 12:12:17 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 6so6945748pgg.0
- for <linux-riscv@lists.infradead.org>; Sat, 19 Mar 2022 05:12:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ventanamicro.com; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=e3X2tV+keGbsYSbHq09ZXywcQX5PSv7w44lhkAPv5lw=;
- b=BjHsw0mvLUvarLSC8WSX/z2bDCV9Ys0dIKCBECBHrwoAVRHgDqcB4hewr0fxb5bc4Z
- k7AbAL00hQGqtFXBm9ksabyMIl0CPtsIbnMbIcyte5tX7UaHxOtIFokBg5apXwHwgiM6
- YJoCjviQg4zD4Bsc3CkauV9irEFh+UQ5PhUrqYdYWD3PHIKN7JvKypD7/6N3aqw4F1yC
- VSsFZAHkxWoWxx/fca2/k6sc0RAm1DL3LFmTm+7crrE8GicKOq6/oAsO3Lcp/k+KHEzW
- yCi93exj3LdJWp50theehgjfx3XuksAcwpjoXXRclHe3khT/D0toBbXjtbln26pUSZgI
- mj/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=e3X2tV+keGbsYSbHq09ZXywcQX5PSv7w44lhkAPv5lw=;
- b=WD4i9CgivACmj3GVG6NIB1RBkKakqcatG2vALIA14Oaytbw0wsmhPHO6FIAE2o45XN
- 0iRgrAqlQWbosKOeuTZM+pmD+JBKGBWSq9y6DYwuubV96WzOmvezkwtztK5cuun9skqy
- A9chpykNgw1tNF9Ine2LjaEMCd5G3JYBT2p5mIcDHvmwdo3KTEkxKLBV3FHfUjh4KCCm
- kTJN2YzF02sgjW7JlEqs+qXOkrh40MZi2fm6mzGKGc2t0UCO3xV/nWGWz00xKijjeI0i
- DRprz29362qSB7n0KnWSQAPez+K/XLNCnjepqnfvw50RqBwwwtkpB4C06Xz08QhmCYzS
- GB/Q==
-X-Gm-Message-State: AOAM533afQjWBOFKsAG9lBY+44fvsMHGduWFr8RmhqPFjpZYi+dp8607
- D3BcwXYqWWkbYfFRTB4Lo6l8jw==
-X-Google-Smtp-Source: ABdhPJypAFKeWc4pTz3U+RtY8y8FZ46cOZnnU3lPnAP+NuKamOo8h3FNBLpurSzehAOlyuDfISU3cQ==
-X-Received: by 2002:a05:6a00:815:b0:4f6:ee04:30af with SMTP id
- m21-20020a056a00081500b004f6ee0430afmr14593413pfk.15.1647691935126; 
- Sat, 19 Mar 2022 05:12:15 -0700 (PDT)
-Received: from localhost.localdomain ([122.167.7.108])
- by smtp.gmail.com with ESMTPSA id
- pg5-20020a17090b1e0500b001bf48f8904fsm16192254pjb.49.2022.03.19.05.12.11
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 19 Mar 2022 05:12:14 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Atish Patra <atishp@atishpatra.org>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH v2] RISC-V: Increase range and default value of NR_CPUS
-Date: Sat, 19 Mar 2022 17:42:06 +0530
-Message-Id: <20220319121206.95919-1-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.25.1
+ id 1nVYNT-003mv8-Ms
+ for linux-riscv@lists.infradead.org; Sat, 19 Mar 2022 12:40:17 +0000
+Received: from cpc152649-stkp13-2-0-cust121.10-2.cable.virginm.net
+ ([86.15.83.122] helo=[192.168.0.21])
+ by imap2.colo.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
+ id 1nVYNP-0001Oy-P6; Sat, 19 Mar 2022 12:40:11 +0000
+Message-ID: <9cc22be4-abba-ef75-a340-af7afb08f480@codethink.co.uk>
+Date: Sat, 19 Mar 2022 12:40:10 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.6.2
+Subject: Re: [V3] PCI: fu740: Drop to 2.5GT/s to fix initial device probing on
+ some boards
+Content-Language: en-GB
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, bhelgaas@google.com, robh@kernel.org,
+ lorenzo.pieralisi@arm.com, greentime.hu@sifive.com,
+ Paul Walmsley <paul.walmsley@sifive.com>
+References: <mhng-0c8e7e26-5480-4573-b7f6-27b09f06de59@palmer-ri-x1c9>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+In-Reply-To: <mhng-0c8e7e26-5480-4573-b7f6-27b09f06de59@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220319_051216_366515_C44CA459 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20220319_054015_776448_B9D9B46B 
+X-CRM114-Status: GOOD (  30.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,54 +60,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, the range and default value of NR_CPUS is too restrictive
-for high-end RISC-V systems with large number of HARTs. The latest
-QEMU virt machine supports upto 512 CPUs so the current NR_CPUS is
-restrictive for QEMU as well. Other major architectures (such as
-ARM64, x86_64, MIPS, etc) have a much higher range and default
-value of NR_CPUS.
-
-This patch increases NR_CPUS range to 2-512 and default value to
-XLEN (i.e. 32 for RV32 and 64 for RV64).
-
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
-Changes since v1:
- - Updated NR_CPUS range to 2-512 which reflects maximum number of
-   CPUs supported by QEMU virt machine.
----
- arch/riscv/Kconfig | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 5adcbd9b5e88..423ac17f598c 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -274,10 +274,11 @@ config SMP
- 	  If you don't know what to do here, say N.
- 
- config NR_CPUS
--	int "Maximum number of CPUs (2-32)"
--	range 2 32
-+	int "Maximum number of CPUs (2-512)"
-+	range 2 512
- 	depends on SMP
--	default "8"
-+	default "32" if 32BIT
-+	default "64" if 64BIT
- 
- config HOTPLUG_CPU
- 	bool "Support for hot-pluggable CPUs"
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMTgvMDMvMjAyMiAyMzowMywgUGFsbWVyIERhYmJlbHQgd3JvdGU6Cj4gT24gRnJpLCAxOCBN
+YXIgMjAyMiAwODoyNDozMCBQRFQgKC0wNzAwKSwgYmVuLmRvb2tzQGNvZGV0aGluay5jby51ayB3
+cm90ZToKPj4gVGhlIGZ1NzQwIFBDSWUgY29yZSBkb2VzIG5vdCBwcm9iZSBhbnkgZGV2aWNlcyBv
+biB0aGUgU2lGaXZlIFVubWF0Y2hlZAo+PiBib2FyZCB3aXRob3V0IHRoaXMgZml4IChvciBoYXZp
+bmcgVS1Cb290IGV4cGxpY2l0bHkgc3RhcnQgdGhlIFBDSWUgdmlhCj4+IGVpdGhlciBib290LXNj
+cmlwdCBvciB1c2VyIGNvbW1hbmQpLiBUaGUgZml4IGlzIHRvIHN0YXJ0IHRoZSBsaW5rIGF0Cj4+
+IDIuNUdUL3Mgc3BlZWRzIGFuZCBvbmNlIHRoZSBsaW5rIGlzIHVwIHRoZW4gY2hhbmdlIHRoZSBt
+YXhpbXVtIHNwZWVkIGJhY2sKPj4gdG8gdGhlIGRlZmF1bHQuCj4+Cj4+IFRoZSBVLUJvb3QgZHJp
+dmVyIGNsYWltcyB0byBzZXQgdGhlIGxpbmstc3BlZWQgdG8gMi41R1QvcyB0byBnZXQgdGhlIAo+
+PiBwcm9iZQo+PiB0byB3b3JrIChhbmQgVS1Cb290IGRvZXMgcHJpbnQgbGluayB1cCBhdCAyLjVH
+VC9zKSBpbiB0aGUgZm9sbG93aW5nIGNvZGU6Cj4+IGh0dHBzOi8vc291cmNlLmRlbnguZGUvdS1i
+b290L3UtYm9vdC8tL2Jsb2IvbWFzdGVyL2RyaXZlcnMvcGNpL3BjaWVfZHdfc2lmaXZlLmM/aWQ9
+djIwMjIuMDEjTDI3MSAKPj4KPj4KPj4gU2lnbmVkLW9mZi1ieTogQmVuIERvb2tzIDxiZW4uZG9v
+a3NAY29kZXRoaW5rLmNvLnVrPgo+PiAtLSAKPiAKPiBBICItLSIgdHJpZ2dlcnMgc29tZSBtYWls
+IGhhbmRsZXMgdG8gdGhpbmsgdGhlIHJlc3Qgb2YgdGhpcyBpcyBhIAo+IHNpZ25hdHVyZSwgZ2l0
+IGZvbGtzIHVzdWFsbHkgdXNlIGEgIi0tLSIgdG8gaW5kaWNhdGUgYSBjb21tZW50IHRoYXQgCj4g
+c2hvdWxkbid0IGJlIHBhcnQgb2Ygd2hhdCdzIGV2ZW50dWFsbHkgbWVyZ2VkIChsaWtlIHRoaXMg
+Y2hhbmdlbG9nIHN0dWZmKS4KPiAKPj4gTm90ZSwgdGhpcyBwYXRjaCBoYXMgaGFkIHNpZ25pZmlj
+YW50IHJlLXdvcmsgc2luY2UgdGhlIHByZXZpb3VzIDQKPj4gc2V0cywgaW5jbHVkaW5nIHRyeWlu
+ZyB0byBmaXggc3R5bGUsIG1lc3NhZ2UsIHJlbGlhbmNlIG9uIHRoZSBVLUJvb3QKPj4gZml4IGFu
+ZCB0aGUgY29tbWVudHMgYWJvdXQgdXNhZ2Ugb2YgTElOS19DQVAgYW5kIHJlc2VydmVkIGZpZWxk
+cy4KPj4KPj4gdjI6Cj4+IC0gZml4IGlzc3VlcyB3aXRoIEdlbjEvMi41R1RzCj4+IC0gdXBkYXRl
+ZCBjb21tZW50IG9uIHRoZSBpbml0aWFsIHByb2JlCj4+IC0gcnVuIHRlc3RzIHdpdGggYm90aCB1
+bmluaXRpYWxpc2VkIGFuZCBpbml0aWFsc2VkIHBjaWUgZnJvbSB1Ym9vdAo+PiAtLS0KPj4gwqBk
+cml2ZXJzL3BjaS9jb250cm9sbGVyL2R3Yy9wY2llLWZ1NzQwLmMgfCA1MiArKysrKysrKysrKysr
+KysrKysrKysrKystCj4+IMKgMSBmaWxlIGNoYW5nZWQsIDUxIGluc2VydGlvbnMoKyksIDEgZGVs
+ZXRpb24oLSkKPj4KPj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvcGNpL2NvbnRyb2xsZXIvZHdjL3Bj
+aWUtZnU3NDAuYyAKPj4gYi9kcml2ZXJzL3BjaS9jb250cm9sbGVyL2R3Yy9wY2llLWZ1NzQwLmMK
+Pj4gaW5kZXggODQyYjcyMDJiOTZlLi5lY2FjMDM2NDE3OGEgMTAwNjQ0Cj4+IC0tLSBhL2RyaXZl
+cnMvcGNpL2NvbnRyb2xsZXIvZHdjL3BjaWUtZnU3NDAuYwo+PiArKysgYi9kcml2ZXJzL3BjaS9j
+b250cm9sbGVyL2R3Yy9wY2llLWZ1NzQwLmMKPj4gQEAgLTE4MSwxMCArMTgxLDYwIEBAIHN0YXRp
+YyBpbnQgZnU3NDBfcGNpZV9zdGFydF9saW5rKHN0cnVjdCBkd19wY2llIAo+PiAqcGNpKQo+IAo+
+IElzIHRoZXJlIGFuIGVycmF0YT/CoCBJSVVDIHRoaXMgd2lsbCB0cmlnZ2VyIHRoZSB3b3JrYXJv
+dW5kIG9uIGFsbCAKPiBGVTc0MHMsIGJ1dCBmcm9tIHRoZSBkZXNjcmlwdGlvbiBpdCBzZWVtcyBs
+aWtlIG1vcmUgb2YgYSBib2FyZCBidWcgdGhhbiAKPiBhIGNoaXAgYnVnLsKgIFRoZSBkaXN0aW5j
+dGlvbiBkb2Vzbid0IHJlYWxseSBtYXR0ZXIsIGFzIHRoZXJlJ3Mgb25seSBvbmUgCj4gYm9hcmQg
+Zm9yIHRoaXMgY2hpcCAoYW5kIEknbSBhc3N1bWluZyB0aGF0J2xsIGFsd2F5cyBiZSB0aGUgY2Fz
+ZSksIGJ1dCAKPiBpZiB0aGVyZSdzIGFuIGVycmF0YSAob3IgYW55IHdheSB0aGlzIGlzIGRvY3Vt
+ZW50ZWQpIGl0IG1pZ2h0IG1ha2UgCj4gdGhpbmdzIGEgYml0IGVhc2llciB0byBzb3J0IG91dCBp
+ZiB3ZSBlbmQgdXAgd2l0aCBhbm90aGVyIHNpbWlsYXIgCj4gY2hpcC9ib2FyZC4KPiAKPiBFaXRo
+ZXIgd2F5Cj4gCj4gQWNrZWQtYnk6IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29t
+Pgo+IAo+IEknbSBhc3N1bWluZyB5b3UsIG9yIHNvbWVvbmUgZWxzZSwgaGFzIHRlc3RlZCB0aGlz
+IG9uIHRoZSBib2FyZD/CoCBJJ20gCj4gcHJldHR5IHN1cmUgSSd2ZSBnb3Qgb25lIGx5aW5nIGFy
+b3VuZCBzb21ld2hlcmUsIGJ1dCBJIGRvbid0IHJlZ3VsYXJseSAKPiB1c2UgaXQuwqAgSSBjYW4g
+ZHVzdCBpdCBvZmYgaWYgbm9ib2R5IGVsc2UgaGFzIHRyaWVkIHRoaXMsIGJ1dCBoYXBweSB0byAK
+PiBhdm9pZCB0aGUgbmVlZCB0byBkbyBzby4KCgpJJ3ZlIGJlZW4gdHJ5aW5nIHRoaXMgb24gbXkg
+b3duIFVubWF0Y2hlZCBib2FyZCwgd2hlcmUgSSBvZnRlbiB1c2UKbmV0d29yayBib290LiBXZSBo
+YXZlIGFsc28gdGVzdGVkIHdpdGggYSBuZXctaXNoIFUtQm9vdCAoMjAyMi4wMSBJCnRoaW5rKSB3
+aXRoIGJvdGggInBjaSBlbnVtIiBhbmQgbm90LiBJdCBoYXMgYmVlbiBvbiBvdXIgdGVzdCBib2Fy
+ZApmb3Igb3ZlciBhIHdlZWsgd2l0aG91dCBhbiBpc3N1ZS4KCkkgd2lsbCBoYXZlIGEgbG9vayBm
+b3IgdjQgYWJvdXQgY2hhbmdpbmcgdGhlIFdBUk5fT04oKSB0byBzb21ldGhpbmcKbW9yZSB1c2Vm
+dWwuCgoKLS0gCkJlbiBEb29rcwkJCQlodHRwOi8vd3d3LmNvZGV0aGluay5jby51ay8KU2VuaW9y
+IEVuZ2luZWVyCQkJCUNvZGV0aGluayAtIFByb3ZpZGluZyBHZW5pdXMKCmh0dHBzOi8vd3d3LmNv
+ZGV0aGluay5jby51ay9wcml2YWN5Lmh0bWwKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
