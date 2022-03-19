@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3732FC433FE
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Mar 2022 11:52:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E30FDC433F5
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Mar 2022 12:12:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JiG6xNI1wT5g5pYarONeANDeNZJSPkE8rHaBKsAeUYk=; b=2724ZzRm28tuiT
-	ibVMrjIlMbtVYN2uucaC8PgWMo0IWY1axKx3A6LS6+9P3Yupp720QNEWERuI544/lm+/J2guYCVby
-	XOTQNAjSHthhKYk2+NdxcORXvzuAYmz1vBYmPyFmoxjocs5RPzx3yWnytv6x/p7c9OzL46he8EoGd
-	IXOM419wyVHvB2g88ii+Wbhlai78MrkpNhqZejmjDCZHpXWgxiGwodCq6UDyJiKhpP6o6+NwcTPsX
-	WyBDyy0dnWQhjL/ZiBFGUwRh/x/tASXzFqDuMG1neBptFL/r72IgXLSFUrH18YxPZB2ga3rtojAeX
-	nI1REieGxvT30qRC3X6A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=joO0f/Xc6d7UbXwejxE56tegRBdASOYniZlzgjkBekI=; b=jKMIAQR+RSS7pS
+	hHBY2UL4KTGYi/dhv85npAxOBXfbTJl7NrUlkY8MuUA7KQlhMiCMo/jH7Rc2ydc1p2k1Rq6EK902h
+	msyRANvEsfRBk+awPszZEm0o2YxbDqgZArtb4nOi6Bbh0O/Yt7HO2i+5Gcvrsq/TOXI17Go6pXFBF
+	ejbfVJ14P4qus8YS2YVoQbL779V0WXHT17L1F5FJ6FMDDopr9aDWlcOpvsIISxuMMEo5NdPZ/J7EW
+	BDRrrKr6+JOCoacpHmO0hbLSVXLa0fUrsgQ0TWaeTdaKuckpUbDb2WkJjbkCcpCqPKNk1CE2DBglm
+	W68+lUgHLbeYPvCSeZWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nVXdN-003i16-8D; Sat, 19 Mar 2022 11:52:37 +0000
-Received: from mout.kundenserver.de ([212.227.17.10])
+	id 1nVXwR-003l4O-7K; Sat, 19 Mar 2022 12:12:19 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nVXdD-003htH-RT
- for linux-riscv@lists.infradead.org; Sat, 19 Mar 2022 11:52:29 +0000
-Received: from mail-wr1-f53.google.com ([209.85.221.53]) by
- mrelayeu.kundenserver.de (mreue106 [213.165.67.113]) with ESMTPSA (Nemesis)
- id 1MC3L9-1nNc4C3LGH-00CPpS for <linux-riscv@lists.infradead.org>; Sat, 19
- Mar 2022 12:52:25 +0100
-Received: by mail-wr1-f53.google.com with SMTP id q8so3529322wrc.0
- for <linux-riscv@lists.infradead.org>; Sat, 19 Mar 2022 04:52:25 -0700 (PDT)
-X-Gm-Message-State: AOAM532mnxsvigMaoWvzN4btGqCcciQq+Bmq4CRooTY8xxXf0N00/x4k
- alMMaaT18jAoXTtsvk8apf30iTbWXJJtjY+ndTI=
-X-Google-Smtp-Source: ABdhPJzOqE/Bj2845oGYA9I/vUafx6lRNFhtD7eJ9j8Ek6fjOIipAB1M/2KUUME6tL7BmWOlQ180nTuXODQbbfNP21U=
-X-Received: by 2002:a5d:66ca:0:b0:203:fb72:a223 with SMTP id
- k10-20020a5d66ca000000b00203fb72a223mr4299612wrw.12.1647690745320; Sat, 19
- Mar 2022 04:52:25 -0700 (PDT)
+ id 1nVXwO-003l3g-9G
+ for linux-riscv@lists.infradead.org; Sat, 19 Mar 2022 12:12:17 +0000
+Received: by mail-pg1-x531.google.com with SMTP id 6so6945748pgg.0
+ for <linux-riscv@lists.infradead.org>; Sat, 19 Mar 2022 05:12:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ventanamicro.com; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=e3X2tV+keGbsYSbHq09ZXywcQX5PSv7w44lhkAPv5lw=;
+ b=BjHsw0mvLUvarLSC8WSX/z2bDCV9Ys0dIKCBECBHrwoAVRHgDqcB4hewr0fxb5bc4Z
+ k7AbAL00hQGqtFXBm9ksabyMIl0CPtsIbnMbIcyte5tX7UaHxOtIFokBg5apXwHwgiM6
+ YJoCjviQg4zD4Bsc3CkauV9irEFh+UQ5PhUrqYdYWD3PHIKN7JvKypD7/6N3aqw4F1yC
+ VSsFZAHkxWoWxx/fca2/k6sc0RAm1DL3LFmTm+7crrE8GicKOq6/oAsO3Lcp/k+KHEzW
+ yCi93exj3LdJWp50theehgjfx3XuksAcwpjoXXRclHe3khT/D0toBbXjtbln26pUSZgI
+ mj/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=e3X2tV+keGbsYSbHq09ZXywcQX5PSv7w44lhkAPv5lw=;
+ b=WD4i9CgivACmj3GVG6NIB1RBkKakqcatG2vALIA14Oaytbw0wsmhPHO6FIAE2o45XN
+ 0iRgrAqlQWbosKOeuTZM+pmD+JBKGBWSq9y6DYwuubV96WzOmvezkwtztK5cuun9skqy
+ A9chpykNgw1tNF9Ine2LjaEMCd5G3JYBT2p5mIcDHvmwdo3KTEkxKLBV3FHfUjh4KCCm
+ kTJN2YzF02sgjW7JlEqs+qXOkrh40MZi2fm6mzGKGc2t0UCO3xV/nWGWz00xKijjeI0i
+ DRprz29362qSB7n0KnWSQAPez+K/XLNCnjepqnfvw50RqBwwwtkpB4C06Xz08QhmCYzS
+ GB/Q==
+X-Gm-Message-State: AOAM533afQjWBOFKsAG9lBY+44fvsMHGduWFr8RmhqPFjpZYi+dp8607
+ D3BcwXYqWWkbYfFRTB4Lo6l8jw==
+X-Google-Smtp-Source: ABdhPJypAFKeWc4pTz3U+RtY8y8FZ46cOZnnU3lPnAP+NuKamOo8h3FNBLpurSzehAOlyuDfISU3cQ==
+X-Received: by 2002:a05:6a00:815:b0:4f6:ee04:30af with SMTP id
+ m21-20020a056a00081500b004f6ee0430afmr14593413pfk.15.1647691935126; 
+ Sat, 19 Mar 2022 05:12:15 -0700 (PDT)
+Received: from localhost.localdomain ([122.167.7.108])
+ by smtp.gmail.com with ESMTPSA id
+ pg5-20020a17090b1e0500b001bf48f8904fsm16192254pjb.49.2022.03.19.05.12.11
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sat, 19 Mar 2022 05:12:14 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Atish Patra <atishp@atishpatra.org>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH v2] RISC-V: Increase range and default value of NR_CPUS
+Date: Sat, 19 Mar 2022 17:42:06 +0530
+Message-Id: <20220319121206.95919-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20220319035457.2214979-1-guoren@kernel.org>
- <20220319035457.2214979-2-guoren@kernel.org>
-In-Reply-To: <20220319035457.2214979-2-guoren@kernel.org>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Sat, 19 Mar 2022 12:52:09 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a3wMJv6-fGo_i4DnFMigj=ko4DN1XTe8oa1HzWLiX50yw@mail.gmail.com>
-Message-ID: <CAK8P3a3wMJv6-fGo_i4DnFMigj=ko4DN1XTe8oa1HzWLiX50yw@mail.gmail.com>
-Subject: Re: [PATCH V2 1/5] asm-generic: ticket-lock: New generic ticket-based
- spinlock
-To: Guo Ren <guoren@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
- Boqun Feng <boqun.feng@gmail.com>, 
- Waiman Long <longman@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
- linux-arch <linux-arch@vger.kernel.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
- Openrisc <openrisc@lists.librecores.org>, Palmer Dabbelt <palmer@rivosinc.com>
-X-Provags-ID: V03:K1:QBM0YlKAiVXNRtq3iV+g3RPcbBzHPXKldBOWDDs/D3h3fUIb4Go
- kHdCFmdF8Sjesw70S7Eb6yWSDWWt6VKdkvCZ+cyAhsJ8nkveaDyWenBhS0szxYwBHt7oO+U
- n5ivgXSvMZyvQjNQp5fS6+xroqZ0yJ0paQugdCLznFuu/u3wXop5oUWSZDspztHt4ab0aGg
- dbs/JdQFGTXAUyVDdgxiA==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:fWNgjA8UAT0=:uFaVhc/WZ9PbRjVq6j8U8J
- vDdUj1ktMqxvho+FVzM6npeEoug9/wWkbI2vc5WnJGanAD5FA9hNceuR75pEIIPkLvMfPJjVV
- qZyoWSxbJqPyPZCEdNV+4jGCkigP2v6DX8fISJOBPSVr+TQvV3ea6h/eLADk7IlKWLid/Qrti
- 65njS9SZTJG9MusFNnwE2bOMauMK5T37iVYtvZUMW8nuEYgkfEKDf2TU/i77yFO0rbNcw2sSn
- fE0JMzkbnerz67xudJidPZLhRS/n+MiWjzaknWD7cRxxG2UXWJgc5eXWFq6Jhmj3NRH5xm3BB
- rkvpqLu3Qpslspune15FQTuSLI2WkRJn/OT0PSk4ilDiSi/yl4AoAyGSidX923Z2a8icSIKZ+
- fQyuBr7oQpngrDsHpqaSHWwbdJytDSt1K1lg8ctJ3VV1x6BE22b8CoyfESX5i0KekIUnNu+x8
- lvsYnEdrATmrltbZ+zcPTkajD5TW3JkS1LwPeUvorhbFAmJYcLHJHSix5Ph9Vj8M1cc/G7B2P
- Vk3j+BpHiljXnf9Z7MjV0TdQyxTndpiB8RYU8HjaPNlhPA1ev0uVUQ0UKkfCDXbRcTrExpteL
- Y+HpGGVrean2ycd6OPEnMvQfqHOxQ/XBm1PqJVaBxsBXwGNxf8aka8KEKsoVlQrcZpAj5hx+G
- vueW4SNkNw7rzlvCj11DZ+72wfS5FRWUuFs3tKHktZLZtBlfqIq9ruDU32FMcoX5YsAgrgjnQ
- DNWL/zOf1jVJD83p069prl7v1wreV+1AJKRfR3RjFyBBDyx8dhTZSJlvMkPHAHLndyObqEYhR
- GzbSLPp9VINkdwK1bzZNpJfZIUujZp9nFSuWTLpfaUAn95rHmY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220319_045228_232358_E4C0B48E 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20220319_051216_366515_C44CA459 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,34 +91,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 19, 2022 at 4:54 AM <guoren@kernel.org> wrote:
->  /*
-> - * You need to implement asm/spinlock.h for SMP support. The generic
-> - * version does not handle SMP.
-> + * Using ticket-spinlock.h as generic for SMP support.
->   */
->  #ifdef CONFIG_SMP
-> -#error need an architecture specific asm/spinlock.h
-> +#include <asm-generic/ticket-lock.h>
-> +#ifdef CONFIG_QUEUED_RWLOCKS
-> +#include <asm-generic/qrwlock.h>
-> +#else
-> +#error Please select ARCH_USE_QUEUED_RWLOCKS in architecture Kconfig
-> +#endif
->  #endif
+Currently, the range and default value of NR_CPUS is too restrictive
+for high-end RISC-V systems with large number of HARTs. The latest
+QEMU virt machine supports upto 512 CPUs so the current NR_CPUS is
+restrictive for QEMU as well. Other major architectures (such as
+ARM64, x86_64, MIPS, etc) have a much higher range and default
+value of NR_CPUS.
 
-There is no need for the !CONFIG_SMP case, as asm/spinlock.h only ever
-gets included for SMP builds in the first place. This was already a mistake
-in the existing code, but your change would be the time to fix it.
+This patch increases NR_CPUS range to 2-512 and default value to
+XLEN (i.e. 32 for RV32 and 64 for RV64).
 
-I would also drop the !CONFIG_QUEUED_RWLOCKS case, just include
-it unconditionally. If any architecture wants the ticket spinlock in
-combination with a custom rwlock, they can simply include the
-asm-generic/ticket-lock.h from their asm/spinlock.h, but more
-likely any architecture that can use the ticket spinlock will also
-want the qrwlock anyway.
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+Changes since v1:
+ - Updated NR_CPUS range to 2-512 which reflects maximum number of
+   CPUs supported by QEMU virt machine.
+---
+ arch/riscv/Kconfig | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-     Arnd
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 5adcbd9b5e88..423ac17f598c 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -274,10 +274,11 @@ config SMP
+ 	  If you don't know what to do here, say N.
+ 
+ config NR_CPUS
+-	int "Maximum number of CPUs (2-32)"
+-	range 2 32
++	int "Maximum number of CPUs (2-512)"
++	range 2 512
+ 	depends on SMP
+-	default "8"
++	default "32" if 32BIT
++	default "64" if 64BIT
+ 
+ config HOTPLUG_CPU
+ 	bool "Support for hot-pluggable CPUs"
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
