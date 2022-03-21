@@ -4,62 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18F81C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Mar 2022 20:33:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2C96C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Mar 2022 21:29:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=yMk6qf+NHD0AVDL2H81ZsnCDkwy1FyMYP/lZniuzZtg=; b=2GS+1dywHnjam5
-	0jefMjP/xCcIkZdvUKwmlNFo3wWlUhAZfMpTz36AOHFFVuAXlQBZoXs3fJxxPuEdkMCq244HWCzTv
-	J0u542/RuKwKJ9ofatmgUeH4/3DeQkN7HHemO39faqSztSQ5gyzGLaymmOc1ONIWH12WN5mdSFrjH
-	ge2bsm/0Yin+Se+lmrGOepqHEmtt0vJxzg5ksG3KBGSwG3C3k6GCHyx4x8ELNpub49hutK0ghP3AP
-	ykWhLa7cg4yUiO5ROToNamBe8Gbs7TuMEN4SNf6fRxnYqVdRONFxkCcw2qPdfgUFz3M5JqTzYib8a
-	xNy0tgrccTaWilPKpoIA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YYD9HiQBhmjLDkU7MXQUwCIG2+52mc1TLb5kmOry3SA=; b=AfBC5r7okBXZQE
+	jgpO2eF1QjwygMNbXaTkHZaVL+4hkXS8aL6r2Zql54g0g7UWemXdkDRY782ENZHdf8OL4hgJqMlPz
+	/Vaz7e86JDbDbMXnpVsdLJLqQBD9WEf8Orffwj9c+unHS8uzvKrPAGn4xE5ZesJQh4BUuD4CWCZZA
+	N5SfZvLWzPYkiavi2+GYrpHEPAsz39DnXjM4QGhu1SvCh60M8oA4xB/KSJs/7/E+2my3pHpRa0/rG
+	88fHs9YT08tS61AfkFuMpYZQl+gGAqlelUkxsm6LiW4XPQ60lg4yjQjTp5mVUbFbs32lXOktjVfxq
+	EvqpcuSui7126/d+9E6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nWOic-0095do-Sl; Mon, 21 Mar 2022 20:33:34 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1nWPat-009AbR-RR; Mon, 21 Mar 2022 21:29:39 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nWOeV-00943V-Hz
- for linux-riscv@lists.infradead.org; Mon, 21 Mar 2022 20:29:21 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id A44C8B819D9;
- Mon, 21 Mar 2022 20:29:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D08E6C36AE5;
- Mon, 21 Mar 2022 20:29:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1647894554;
- bh=0t3di4frHw4wef47Rc5l5X8PkzcS5T+5paso1xex7hs=;
- h=Date:From:To:Cc:Subject:In-Reply-To:From;
- b=ptM/44lFY5Xmt/PQ4iD4vJ6Xn1vhW/pwoPjQPSaBTDmnnKqih2lNfjkUsqWB5FMLt
- PvjW3onauXv6V9oi3raECGxU7o7OrNA0R7RuRvNa2YoQg8UPDKMrt0Ql+U/a8EKptH
- hE3dM1xl8s/6oPs+zSvtKmMGNHhM3V00FZInZO3juH9OXLwo07uD/2DJVsR2q0ZvZa
- 2UWZdMKgeuxhsWjO/Zr5JRjQ045fUAP9I+Yymuiuguq6THcKS6Vl2MFrzaDY9hqcs1
- wDsJH2sxFZv93XOgd0V3o5oHuzlljP8Wg9dLhXaGcSLCq7k3ceC3gKfeJ4gnXG4fRW
- V5lzDyAtxVgRg==
-Date: Mon, 21 Mar 2022 15:29:12 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Ben Dooks <ben.dooks@codethink.co.uk>
-Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Bjorn Helgaas <bhelgaas@google.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>,
- Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
- Greentime Hu <greentime.hu@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [V3] PCI: fu740: Drop to 2.5GT/s to fix initial device probing
- on some boards
-Message-ID: <20220321202912.GA1120443@bhelgaas>
+ id 1nWPaq-009AaX-EW
+ for linux-riscv@lists.infradead.org; Mon, 21 Mar 2022 21:29:38 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id q5so4615214plg.3
+ for <linux-riscv@lists.infradead.org>; Mon, 21 Mar 2022 14:29:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=yfL5LeF6JfPCL0schiZdmyWW7c787PjB4OtVneDCy3c=;
+ b=QhAWgb+/5JdbSBoLdH7esy8uG93AEHe0BHi15RUZLTvr16o/lrpZsqzU/LUwnszd4m
+ Gwii0x8PzhQYgztwYNKNwt9mShLBku+glqAY+stlLpvyb/2z2eHokbyVOqWV7fZgcU72
+ jh62NsG9ViL9N/GGyLROzk82FLbf+/QmqhOIVYkn33bZY4ZS8z9OjiD0ovmxGTeR6x4a
+ Wtq3tvZovdF4bRLgd8yedPRMPGVDD3SO/kJtIjT5Q6IDc3J9dunrMe08+QNM3pX5sTey
+ 2a994whC/jzsVWPJC6j7bSqBF/87YCr84BiQEDgYY7Dj4QtShmrWYxszHfY/MFB+V/1J
+ nvnQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=yfL5LeF6JfPCL0schiZdmyWW7c787PjB4OtVneDCy3c=;
+ b=INtTubpqAtRPGnnVpy0hz3u2SxpshjbcUwuSjG3oUzIBre360rLvOOyWA3pRTCtlKv
+ GrDxJlSd4DGlsMdeGDNCiMc430oxSfEyan+1Y+5VAyJeMRAX/GBy1zoAlh6TpqOx3H7I
+ DIiZO+vCRp+xLMOMbA/KrJ5/dlthorxxUJ2Fe3MWfgSjzEzn99Ir++vWwyKiM/t/eLFe
+ NiMzycNsnw3d8cF60aaypTYK1PXYw4xG6+xOsDVZQQGnQxAyx1qCZzi1Jei18cYMoH0S
+ Th0t8J6zeAdmuSZ+Jlw2tbw2O3FpbjlYtRqPqGPkjjNSTDcZFa6avqA2v2/prHw4FTNn
+ 03dA==
+X-Gm-Message-State: AOAM530poKDHnj0SXHnP/lyl/iwczmNly7icXiBdxNCF98auzyx5vt8E
+ z8+dTNObytvlcl4Z4N01b3M=
+X-Google-Smtp-Source: ABdhPJz6u4FytOk5yk0PMbnP4+YRKP6yRDpS687V5wmoHiqna7r44cXJVLkVo3FJIYxARw+3CpcLsw==
+X-Received: by 2002:a17:90b:1d0e:b0:1bf:2a24:2716 with SMTP id
+ on14-20020a17090b1d0e00b001bf2a242716mr1184969pjb.60.1647898173687; 
+ Mon, 21 Mar 2022 14:29:33 -0700 (PDT)
+Received: from localhost ([2409:10:24a0:4700:e8ad:216a:2a9d:6d0c])
+ by smtp.gmail.com with ESMTPSA id
+ y3-20020a17090a8b0300b001c735089cc2sm341034pjn.54.2022.03.21.14.29.31
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 21 Mar 2022 14:29:33 -0700 (PDT)
+Date: Tue, 22 Mar 2022 06:29:29 +0900
+From: Stafford Horne <shorne@gmail.com>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, peterz@infradead.org,
+ jonas@southpole.se, stefan.kristiansson@saunalahti.fi,
+ mingo@redhat.com, Will Deacon <will@kernel.org>, longman@redhat.com,
+ boqun.feng@gmail.com, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu,
+ Arnd Bergmann <arnd@arndb.de>, jszhang@kernel.org,
+ wangkefeng.wang@huawei.com, openrisc@lists.librecores.org,
+ linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
+Subject: Re: [PATCH 3/5] openrisc: Move to ticket-spinlock
+Message-ID: <YjjuOZMzQlnqfLDJ@antec>
+References: <20220316232600.20419-1-palmer@rivosinc.com>
+ <20220316232600.20419-4-palmer@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220318152430.526320-1-ben.dooks@codethink.co.uk>
+In-Reply-To: <20220316232600.20419-4-palmer@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220321_132919_958312_99CBB854 
-X-CRM114-Status: GOOD (  33.44  )
+X-CRM114-CacheID: sfid-20220321_142936_518132_0396692B 
+X-CRM114-Status: GOOD (  21.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,111 +96,181 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 18, 2022 at 03:24:30PM +0000, Ben Dooks wrote:
-> The fu740 PCIe core does not probe any devices on the SiFive Unmatched
-> board without this fix (or having U-Boot explicitly start the PCIe via
-> either boot-script or user command). The fix is to start the link at
-> 2.5GT/s speeds and once the link is up then change the maximum speed back
-> to the default.
+On Wed, Mar 16, 2022 at 04:25:58PM -0700, Palmer Dabbelt wrote:
+> From: Peter Zijlstra <peterz@infradead.org>
 > 
-> The U-Boot driver claims to set the link-speed to 2.5GT/s to get the probe
-> to work (and U-Boot does print link up at 2.5GT/s) in the following code:
-> https://source.denx.de/u-boot/u-boot/-/blob/master/drivers/pci/pcie_dw_sifive.c?id=v2022.01#L271
+> We have no indications that openrisc meets the qspinlock requirements,
+> so move to ticket-spinlock as that is more likey to be correct.
 > 
-> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
-
-Lorenzo has an old version of this patch on his pci/fu740 branch.
-
-Since we're now in the merge window, I applied this V3 patch to my
-pci/host/fu740 branch so we can try to get this in for v5.18.
-
-> --
-> Note, this patch has had significant re-work since the previous 4
-> sets, including trying to fix style, message, reliance on the U-Boot
-> fix and the comments about usage of LINK_CAP and reserved fields.
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 > 
-> v2:
-> - fix issues with Gen1/2.5GTs
-> - updated comment on the initial probe
-> - run tests with both uninitialised and initialsed pcie from uboot
 > ---
->  drivers/pci/controller/dwc/pcie-fu740.c | 52 ++++++++++++++++++++++++-
->  1 file changed, 51 insertions(+), 1 deletion(-)
 > 
-> diff --git a/drivers/pci/controller/dwc/pcie-fu740.c b/drivers/pci/controller/dwc/pcie-fu740.c
-> index 842b7202b96e..ecac0364178a 100644
-> --- a/drivers/pci/controller/dwc/pcie-fu740.c
-> +++ b/drivers/pci/controller/dwc/pcie-fu740.c
-> @@ -181,10 +181,60 @@ static int fu740_pcie_start_link(struct dw_pcie *pci)
->  {
->  	struct device *dev = pci->dev;
->  	struct fu740_pcie *afp = dev_get_drvdata(dev);
-> +	u8 cap_exp = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
-> +	int ret;
-> +	u32 orig, tmp;
-> +
-> +	/*
-> +	 * Force 2.5GT/s when starting the link, due to some devices not
-> +	 * probing at higher speeds. This happens with the PCIe switch
-> +	 * on the Unmatched board when U-Boot has not initialised the PCIe.
-> +	 * The fix in U-Boot is to force 2.5GT/s, which then gets cleared
-> +	 * by the soft reset does by this driver.
-> +	 */
-> +
-> +	dev_dbg(dev, "cap_exp at %x\n", cap_exp);
-> +	dw_pcie_dbi_ro_wr_en(pci);
-> +
-> +	tmp = dw_pcie_readl_dbi(pci, cap_exp + PCI_EXP_LNKCAP);
-> +	orig = tmp & PCI_EXP_LNKCAP_SLS;
-> +	tmp &= ~PCI_EXP_LNKCAP_SLS;
-> +	tmp |= PCI_EXP_LNKCAP_SLS_2_5GB;
-> +	dw_pcie_writel_dbi(pci, cap_exp + PCI_EXP_LNKCAP, tmp);
+> I have specifically not included Peter's SOB on this, as he sent his
+> original patch
+> <https://lore.kernel.org/lkml/YHbBBuVFNnI4kjj3@hirez.programming.kicks-ass.net/>
+> without one.
+> ---
+>  arch/openrisc/Kconfig                      | 1 -
+>  arch/openrisc/include/asm/Kbuild           | 5 ++---
+>  arch/openrisc/include/asm/spinlock.h       | 3 +--
+>  arch/openrisc/include/asm/spinlock_types.h | 2 +-
+>  4 files changed, 4 insertions(+), 7 deletions(-)
+
+Hello,
+
+This series breaks SMP support on OpenRISC.  I haven't traced it down yet, it
+seems trivial but I have a few places to check.
+
+I replied to this on a kbuild warning thread, but also going to reply here with
+more information.
+
+ https://lore.kernel.org/lkml/YjeY7CfaFKjr8IUc@antec/#R
+
+So far this is what I see:
+
+  * ticket_lock is stuck trying to lock console_sem
+  * it is stuck on atomic_cond_read_acquire
+    reading lock value: returns 0    (*lock is 0x10000)
+    ticket value: is 1
+  * possible issues:
+    - OpenRISC is big endian, that seems to impact ticket_unlock, it looks
+      like we are failing on the first call to ticket_lock though
+
+Backtrace:
+    (gdb) target remote :10001
+    Remote debugging using :10001
+    ticket_lock (lock=0xc049e078 <console_sem>) at include/asm-generic/ticket-lock.h:39
+    39              atomic_cond_read_acquire(lock, ticket == (u16)VAL);
+    (gdb) bt
+    #0  ticket_lock (lock=0xc049e078 <console_sem>) at include/asm-generic/ticket-lock.h:39
+    #1  do_raw_spin_lock (lock=0xc049e078 <console_sem>) at include/linux/spinlock.h:185
+    #2  __raw_spin_lock_irqsave (lock=0xc049e078 <console_sem>) at include/linux/spinlock_api_smp.h:111
+    #3  _raw_spin_lock_irqsave (lock=0xc049e078 <console_sem>) at kernel/locking/spinlock.c:162
+    Backtrace stopped: Cannot access memory at address 0xc0491ee8
+
+Code:
+
+    31      static __always_inline void ticket_lock(arch_spinlock_t *lock)
+    32      {
+    33              u32 val = atomic_fetch_add(1<<16, lock); /* SC, gives us RCsc */
+    34              u16 ticket = val >> 16;
+    35
+    36              if (ticket == (u16)val)
+    37                      return;
+    38
+    39              atomic_cond_read_acquire(lock, ticket == (u16)VAL); <--- stuck here
+    40      }
+
+Assembly:
+
+    c04232ac <_raw_spin_lock_irqsave>:
+    c04232ac:       9c 21 ff f0     l.addi r1,r1,-16
+    c04232b0:       d4 01 10 08     l.sw 8(r1),r2
+    c04232b4:       9c 41 00 10     l.addi r2,r1,16
+    c04232b8:       d4 01 80 00     l.sw 0(r1),r16
+    c04232bc:       d4 01 90 04     l.sw 4(r1),r18
+    c04232c0:       d4 01 48 0c     l.sw 12(r1),r9
+    c04232c4:       07 ef 8b 35     l.jal c0005f98 <arch_local_save_flags>
+    c04232c8:       e2 03 18 04     l.or r16,r3,r3
+    c04232cc:       18 60 00 00     l.movhi r3,0x0
+    c04232d0:       07 ef 8b 3c     l.jal c0005fc0 <arch_local_irq_restore>
+    c04232d4:       e2 4b 58 04     l.or r18,r11,r11
+    c04232d8:       1a 60 00 01     l.movhi r19,0x1
+atomic_fetch_add:
+    c04232dc:       6e 30 00 00     l.lwa r17,0(r16)
+    c04232e0:       e2 31 98 00     l.add r17,r17,r19
+    c04232e4:       cc 10 88 00     l.swa 0(r16),r17
+    c04232e8:       0f ff ff fd     l.bnf c04232dc <_raw_spin_lock_irqsave+0x30>
+    c04232ec:       15 00 00 00      l.nop 0x0
+u16 ticket = val >> 16;
+    c04232f0:       ba 71 00 50     l.srli r19,r17,0x10
+    c04232f4:       a6 31 ff ff     l.andi r17,r17,0xffff
+    c04232f8:       e4 13 88 00     l.sfeq r19,r17
+    c04232fc:       10 00 00 0e     l.bf c0423334 <_raw_spin_lock_irqsave+0x88>
+    c0423300:       e1 72 90 04      l.or r11,r18,r18
+if (ticket == (u16)val):
+    c0423304:       86 30 00 00     l.lwz r17,0(r16)
+    c0423308:       a6 31 ff ff     l.andi r17,r17,0xffff
+    c042330c:       e4 11 98 00     l.sfeq r17,r19
+    c0423310:       10 00 00 07     l.bf c042332c <_raw_spin_lock_irqsave+0x80>
+    c0423314:       15 00 00 00      l.nop 0x0
+atomic_cond_read_acquire:
+    c0423318:       86 30 00 00     l.lwz r17,0(r16)
+    c042331c:       a6 31 ff ff     l.andi r17,r17,0xffff
+    c0423320:       e4 33 88 00     l.sfne r19,r17
+    c0423324:       13 ff ff fd     l.bf c0423318 <_raw_spin_lock_irqsave+0x6c>
+    c0423328:       15 00 00 00      l.nop 0x0
+    c042332c:       22 00 00 00     l.msync
+    c0423330:       e1 72 90 04     l.or r11,r18,r18
+    c0423334:       86 01 00 00     l.lwz r16,0(r1)
+    c0423338:       86 41 00 04     l.lwz r18,4(r1)
+    c042333c:       84 41 00 08     l.lwz r2,8(r1)
+    c0423340:       85 21 00 0c     l.lwz r9,12(r1)
+    c0423344:       44 00 48 00     l.jr r9
+    c0423348:       9c 21 00 10     l.addi r1,r1,16
+
+
+-Stafford
+
+> diff --git a/arch/openrisc/Kconfig b/arch/openrisc/Kconfig
+> index f724b3f1aeed..f5fa226362f6 100644
+> --- a/arch/openrisc/Kconfig
+> +++ b/arch/openrisc/Kconfig
+> @@ -30,7 +30,6 @@ config OPENRISC
+>  	select HAVE_DEBUG_STACKOVERFLOW
+>  	select OR1K_PIC
+>  	select CPU_NO_EFFICIENT_FFS if !OPENRISC_HAVE_INST_FF1
+> -	select ARCH_USE_QUEUED_SPINLOCKS
+>  	select ARCH_USE_QUEUED_RWLOCKS
+>  	select OMPIC if SMP
+>  	select ARCH_WANT_FRAME_POINTERS
+> diff --git a/arch/openrisc/include/asm/Kbuild b/arch/openrisc/include/asm/Kbuild
+> index ca5987e11053..cb260e7d73db 100644
+> --- a/arch/openrisc/include/asm/Kbuild
+> +++ b/arch/openrisc/include/asm/Kbuild
+> @@ -1,9 +1,8 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  generic-y += extable.h
+>  generic-y += kvm_para.h
+> -generic-y += mcs_spinlock.h
+> -generic-y += qspinlock_types.h
+> -generic-y += qspinlock.h
+> +generic-y += ticket-lock.h
+> +generic-y += ticket-lock-types.h
+>  generic-y += qrwlock_types.h
+>  generic-y += qrwlock.h
+>  generic-y += user.h
+> diff --git a/arch/openrisc/include/asm/spinlock.h b/arch/openrisc/include/asm/spinlock.h
+> index 264944a71535..40e4c9fdc349 100644
+> --- a/arch/openrisc/include/asm/spinlock.h
+> +++ b/arch/openrisc/include/asm/spinlock.h
+> @@ -15,8 +15,7 @@
+>  #ifndef __ASM_OPENRISC_SPINLOCK_H
+>  #define __ASM_OPENRISC_SPINLOCK_H
 >  
->  	/* Enable LTSSM */
->  	writel_relaxed(0x1, afp->mgmt_base + PCIEX8MGMT_APP_LTSSM_ENABLE);
-> -	return 0;
-> +
-> +	ret = dw_pcie_wait_for_link(pci);
-> +	if (ret) {
-> +		dev_err(dev, "error: link did not start\n");
-> +		goto err;
-> +	}
-> +
-> +	tmp = dw_pcie_readl_dbi(pci, cap_exp + PCI_EXP_LNKCAP);
-> +	if ((tmp & PCI_EXP_LNKCAP_SLS) != orig) {
-> +		dev_dbg(dev, "changing speed back to original\n");
-> +
-> +		tmp &= ~PCI_EXP_LNKCAP_SLS;
-> +		tmp |= orig;
-> +		dw_pcie_writel_dbi(pci, cap_exp + PCI_EXP_LNKCAP, tmp);
-> +
-> +		tmp = dw_pcie_readl_dbi(pci, PCIE_LINK_WIDTH_SPEED_CONTROL);
-> +		tmp |= PORT_LOGIC_SPEED_CHANGE;
-> +		dw_pcie_writel_dbi(pci, PCIE_LINK_WIDTH_SPEED_CONTROL, tmp);
-> +
-> +		ret = dw_pcie_wait_for_link(pci);
-> +		if (ret) {
-> +			dev_err(dev, "error: link did not start at new speed\n");
-> +			goto err;
-> +		}
-> +	}
-> +
-> +	ret = 0;
-> +err:
-> +	WARN_ON(ret);	/* we assume that errors will be very rare */
-> +	dw_pcie_dbi_ro_wr_dis(pci);
-> +	return ret;
->  }
+> -#include <asm/qspinlock.h>
+> -
+> +#include <asm/ticket-lock.h>
+>  #include <asm/qrwlock.h>
 >  
->  static int fu740_pcie_host_init(struct pcie_port *pp)
+>  #define arch_spin_relax(lock)	cpu_relax()
+> diff --git a/arch/openrisc/include/asm/spinlock_types.h b/arch/openrisc/include/asm/spinlock_types.h
+> index 7c6fb1208c88..58ea31fa65ce 100644
+> --- a/arch/openrisc/include/asm/spinlock_types.h
+> +++ b/arch/openrisc/include/asm/spinlock_types.h
+> @@ -1,7 +1,7 @@
+>  #ifndef _ASM_OPENRISC_SPINLOCK_TYPES_H
+>  #define _ASM_OPENRISC_SPINLOCK_TYPES_H
+>  
+> -#include <asm/qspinlock_types.h>
+> +#include <asm/ticket-lock-types.h>
+>  #include <asm/qrwlock_types.h>
+>  
+>  #endif /* _ASM_OPENRISC_SPINLOCK_TYPES_H */
 > -- 
-> 2.35.1
+> 2.34.1
 > 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
