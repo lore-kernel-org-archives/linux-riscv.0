@@ -4,74 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F53DC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Mar 2022 13:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5CEEC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Mar 2022 14:26:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WSYF6JA+LPvM+NJM6bH4K6ehCesUGPX9CFbsaYzMJic=; b=wJq5hXFfxVM25f
-	OAiSCrp9YyQBvj1ngdcMjs7XxwpheZqZPw0iS2ft5l8s3uCPyWUV0gkFYjT3pIsm6dGNITqYnx27c
-	5OKJ47THM+UYn5k1MXFkTFlFbMXJsDdxRAUtnl1OWhixa7LDWOAYRjwyHVLMqkVg5obqZjm4Ikt0T
-	9mbO4QtMO6Hw+ACFhTSR5a9GOag06XKKJRWQx8eJjlhApfpER6hxvuIu6LHI+WS2eWA1bcE/2PwVM
-	dOlQCT8BWnHDvNF1lbER8Gg3IlxkhhYR4Hn0aQWUPgsT63nXvvbCVxJl12340FYnf/MBPeC4FPn7v
-	CVV7O7c0KYtHlzRsuojw==;
+	List-Owner; bh=olIq+MoD/MKfkEa4AfC5tZRiRQ4Deux64vtnNl1+GfQ=; b=VgqU+9Nlixv2Sw
+	SURjhsbw7XbDXBPT5NzTzGC8WYDzEBvJf1BZwCgkg1RVoa1qiR1bsTnFb3nHmrFj5WeDHVjuqj0tX
+	O9QE/HHR6hVw4bQQQpn1bE40DNB/I9M7vdQPBLV94mlCkRrSbSVeA6/glEyUJpl6Zfl0nTGBb1VEk
+	hJD3ypzyzof7bttQxtB8fUq/HCecRiIwHv0+Am1MhpRTCV4xkkH3ag/pKMj7Cp95vKJWRubTlWI0X
+	UjJ30UPGPmJGtJ3mL+nnDLB1jdHzDuLE1iKxV1KTvWxwhFQ5gtIzqgc7B5BqgZgO6cZz6IDso7+Tk
+	ytbhpEXii5uPVB+nUwpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nWeZi-00B4Wp-64; Tue, 22 Mar 2022 13:29:26 +0000
-Received: from mailgate.ics.forth.gr ([139.91.1.2])
+	id 1nWfSf-00BCV4-Gc; Tue, 22 Mar 2022 14:26:13 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nWeZe-00B4VE-KO
- for linux-riscv@lists.infradead.org; Tue, 22 Mar 2022 13:29:24 +0000
-Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
- by mailgate.ics.forth.gr (8.15.2/ICS-FORTH/V10-1.8-GATE) with ESMTP id
- 22MDT0Ki001060
- for <linux-riscv@lists.infradead.org>; Tue, 22 Mar 2022 15:29:00 +0200 (EET)
-DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
- q=dns/txt; i=@ics.forth.gr; t=1647955736; x=1650547736;
- h=From:Sender:Reply-To:Subject:Date:Message-Id:To:Cc:MIME-Version:Content-Type:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:Resent-From:
- Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=c2YIwja29O1WBS129ebO6CkccAwpqLVJQ1HQcp3TXN0=;
- b=EFoyRNR4AObZg/WhT450pv9k9/cyaQZXT0c/TCKa7WxdhcYAL0g87FiwAMhDRlKi
- gibP9NTTskZ/DXQN87gDte0mZ39qgtYPWjAxasfQWHBF5izs30Jh77tomqTNEE67
- uMsOy0Qu0GwyqXtCoDPORtpdaZ855ANoJ11+ovJ0AuTKsOFGYYZ1BeUBvyZxNqDy
- f4lY/kv45l8UuLlJgUjuiRK8kcjUbzGtIF4kEQbY31FeTo+//3N0dU4HD46tucS5
- ku2SV0SpMVBiJKoL6nSvTTOaFKV/ytGo6vZFosN+hgtxABArWKOlYsbhCxUN9zuL
- xhx6ff+32Ko8q3TVWZQbJw==;
-X-AuditID: 8b5b014d-f0a8d700000035db-42-6239cf1827f6
-Received: from enigma.ics.forth.gr (webmail.ics.forth.gr [139.91.151.35])
- by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id
- 68.A4.13787.81FC9326; Tue, 22 Mar 2022 15:28:56 +0200 (EET)
-X-ICS-AUTH-INFO: Authenticated user: mick@ics.forth.gr at ics.forth.gr
-From: Nick Kossifidis <mick@ics.forth.gr>
-To: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Nick Kossifidis <mick@ics.forth.gr>
-Subject: [PATCH] RISC-V-fixes: relocate DTB if it's outside memory region
-Date: Tue, 22 Mar 2022 15:28:39 +0200
-Message-Id: <20220322132839.3653682-1-mick@ics.forth.gr>
-X-Mailer: git-send-email 2.34.1
+ id 1nWfSS-00BCOJ-1l; Tue, 22 Mar 2022 14:26:01 +0000
+Received: from kwepemi100001.china.huawei.com (unknown [172.30.72.57])
+ by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4KNDKx2LLzzcbFF;
+ Tue, 22 Mar 2022 22:25:41 +0800 (CST)
+Received: from kwepemm600017.china.huawei.com (7.193.23.234) by
+ kwepemi100001.china.huawei.com (7.221.188.215) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2308.21; Tue, 22 Mar 2022 22:25:48 +0800
+Received: from localhost.localdomain (10.175.112.125) by
+ kwepemm600017.china.huawei.com (7.193.23.234) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2308.21; Tue, 22 Mar 2022 22:25:47 +0800
+From: Tong Tiangen <tongtiangen@huawei.com>
+To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Pasha Tatashin
+ <pasha.tatashin@soleen.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+CC: <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+ Tong Tiangen <tongtiangen@huawei.com>
+Subject: [PATCH -next v2 0/4]mm: page_table_check: add support on arm64 and
+ riscv
+Date: Tue, 22 Mar 2022 14:44:43 +0000
+Message-ID: <20220322144447.3563146-1-tongtiangen@huawei.com>
+X-Mailer: git-send-email 2.18.0.huawei.25
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFupiluLIzCtJLcpLzFFi42Lpjp6urCtx3jLJoPGvmMXW37PYLS7vmsNm
- se1zC5tF87tz7BYvL/cwW7TN4ndg83jz8iWLx+GOL+weDzddYvLYvKTe41LzdXaPz5vkAtii
- uGxSUnMyy1KL9O0SuDJmrDUsOChQMfX5D5YGxuu8XYycHBICJhJ9u9rZuhi5OIQEjjJKNF/a
- zQ6RcJO4fX8nK4jNJqApMf/SQRYQW0TAXWL15D9MIDazQL7Eti/nmEFsYQFPie27f4D1sgio
- SsxauYQRxOYVsJDYu/o/I8RMeYn9B88yQ8QFJU7OfMICMUdeonnrbOYJjDyzkKRmIUktYGRa
- xSiQWGasl5lcrJeWX1SSoZdetIkRHFyMvjsYb29+q3eIkYmD8RCjBAezkgjvv9/GSUK8KYmV
- ValF+fFFpTmpxYcYpTlYlMR5Wa7JJAkJpCeWpGanphakFsFkmTg4pRqYuIPyDi+Y9UCNo/Hu
- uZPGlhda3acaf5UM3CZwpTfsfZnFvg+hFx1sVx7+N+Pay6CEuV3Sct/fN61a8L4ydQWbgHn9
- AcGz6hzC0bM5mYPe6Tzam3ni4j15OR82/gNGRy1Eup9Iz42O4clcEbp9hbFhuOG93kO6XafK
- d9kLydl+uugtdNy1P/hZmHxt2ISNmg9FmV1mev2NdZA68eWoZHjPu01/Nzl8XFckpPKrxiNC
- dSdf8Pob6+pl4kU2XpslPv+Pw7S0ebXr+e20zliyLvzwpjPxU/zX48/XtETyRy17FBG84Z+U
- iNKMCtuCWfP0Dttr9axcz3+6a42Y2dLF/7ftlE58fsroTk7ifa+Aw0G+SizFGYmGWsxFxYkA
- rj6lgJ0CAAA=
+X-Originating-IP: [10.175.112.125]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ kwepemm600017.china.huawei.com (7.193.23.234)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220322_062923_081400_F310BDF8 
-X-CRM114-Status: GOOD (  15.83  )
+X-CRM114-CacheID: sfid-20220322_072600_325190_F55A67D1 
+X-CRM114-Status: UNSURE (   8.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,54 +76,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In case the DTB provided by the bootloader/BootROM is before the kernel
-image or outside /memory, we won't be able to access it through the
-linear mapping, and get a segfault on setup_arch(). Currently OpenSBI
-relocates DTB but that's not always the case (e.g. if FW_JUMP_FDT_ADDR
-is not specified), and it's also not the most portable approach since
-the default FW_JUMP_FDT_ADDR of the generic platform relocates the DTB
-at a specific offset that may not be available. To avoid this situation
-copy DTB so that it's visible through the linear mapping.
+Page table check performs extra verifications at the time when new
+pages become accessible from the userspace by getting their page
+table entries (PTEs PMDs etc.) added into the table. It is supported
+on X86[1].
 
-Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
----
- arch/riscv/mm/init.c | 21 +++++++++++++++++++--
- 1 file changed, 19 insertions(+), 2 deletions(-)
+This patchset made some simple changes and make it easier to support
+new architecture, then we support this feature on ARM64 and RISCV.
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 0d588032d..697a9aed4 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -206,8 +206,25 @@ static void __init setup_bootmem(void)
- 	 * early_init_fdt_reserve_self() since __pa() does
- 	 * not work for DTB pointers that are fixmap addresses
- 	 */
--	if (!IS_ENABLED(CONFIG_BUILTIN_DTB))
--		memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
-+	if (!IS_ENABLED(CONFIG_BUILTIN_DTB)) {
-+		/*
-+		 * In case the DTB is not located in a memory region we won't
-+		 * be able to locate it later on via the linear mapping and
-+		 * get a segfault when accessing it via __va(dtb_early_pa).
-+		 * To avoid this situation copy DTB to a memory region.
-+		 * Note that memblock_phys_alloc will also reserve DTB region.
-+		 */
-+		if (!memblock_is_memory(dtb_early_pa)) {
-+			size_t fdt_size = fdt_totalsize(dtb_early_va);
-+			phys_addr_t new_dtb_early_pa = memblock_phys_alloc(fdt_size, PAGE_SIZE);
-+			void *new_dtb_early_va = early_memremap(new_dtb_early_pa, fdt_size);
-+
-+			memcpy(new_dtb_early_va, dtb_early_va, fdt_size);
-+			early_memunmap(new_dtb_early_va, fdt_size);
-+			_dtb_early_pa = new_dtb_early_pa;
-+		} else
-+			memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
-+	}
- 
- 	early_init_fdt_scan_reserved_mem();
- 	dma_contiguous_reserve(dma32_phys_limit);
+[1]https://lore.kernel.org/lkml/20211123214814.3756047-1-pasha.tatashin@soleen.com/
+
+v1 -> v2:
+  1. Fix arm64's pte/pmd/pud_user_accessible_page() according to the the
+     suggestions of Catalin.
+  2. Also fix riscv's pte_pmd_pud_user_accessible_page(). 
+
+Kefeng Wang (2):
+  mm: page_table_check: move pxx_user_accessible_page into x86
+  arm64: mm: add support for page table check
+
+Tong Tiangen (2):
+  mm: page_table_check: add hooks to public helpers
+  riscv: mm: add support for page table check
+
+ arch/arm64/Kconfig               |  1 +
+ arch/arm64/include/asm/pgtable.h | 65 ++++++++++++++++++++++++---
+ arch/riscv/Kconfig               |  1 +
+ arch/riscv/include/asm/pgtable.h | 77 +++++++++++++++++++++++++++++---
+ arch/x86/include/asm/pgtable.h   | 29 +++++++-----
+ include/linux/pgtable.h          | 27 +++++++----
+ mm/page_table_check.c            | 25 ++++-------
+ 7 files changed, 179 insertions(+), 46 deletions(-)
+
 -- 
-2.34.1
+2.18.0.huawei.25
 
 
 _______________________________________________
