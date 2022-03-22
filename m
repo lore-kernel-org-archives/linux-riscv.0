@@ -4,73 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07B61C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Mar 2022 15:55:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F95FC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Mar 2022 16:09:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ql6JzlBWdqT1WTzRNKD1Yrvcw81MuAPXU8PBf8NGawc=; b=LiNiLdihFdU1ib
-	T4MiZMo75dG77zo5hvCDhFrC9JGX38AhE85UK8/ZbC10O3saEoKMux1/LIG5S8363EHjSI4rP8tNB
-	D9/pVvGtdhNzoe+I1PPYuYQFa6YYPI45pOh8GDWlvwkA2xxnOGRGRfuISgvUcYl8jkH+T70fRL2PO
-	z1jl3g8H+IkTl6NStAWR78GgsZoWgpfoD0ovDldQ0m0ZkYTQvgrjr8qqmq6zmEPZH6BitbjeBGNku
-	aAW0PBMj8bihMTxRGBh44x3R4tNCewqS+7D/nyxntV8vmthwMpF/tUW15qmxxy/Qd9nWNNttE07wM
-	0ViB0JS2Wld6nArOkSwA==;
+	List-Owner; bh=iQAvDl/mL7akAiuheXywDqGVtqUtAuBr1XrqgblJ9AE=; b=gYNDW+pps890jP
+	7SxMn3IB63455cILTScICIVFnVGgj+O6MZBS6bPHPmsgEv493vLO1+W/HA3JgtpyrMISz8weB/JgJ
+	JwipOBDvpW3HwZqABOVd6w5WtQmDJ9MrApRjFWziuE8LGaNQCnVy3NaSDXcP1CePA3wET0uRuEFRB
+	Lf2xpkylzS9BxfaFoWyYaxpBciYD3ngq5RGPernQLT+fSPfteqzoKDs3UvrHftwqH3MqxWtjLC2Uv
+	H0CmOWJLCO90X35zOBmcGfjZ9PytZC8DZZots2YlYv/r3oYS9xelC3S86cZBEK/P7TIUounmoDfhd
+	eE8h6uTXvdthYlnpUSHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nWgqP-00BaRs-GE; Tue, 22 Mar 2022 15:54:49 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1nWh4V-00BcKX-6n; Tue, 22 Mar 2022 16:09:23 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nWgqL-00BaQH-KC
- for linux-riscv@lists.infradead.org; Tue, 22 Mar 2022 15:54:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1647964484;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=bhnT3KW2N7nGUFmNkySnEopkUtzZ8brHDUQP8GeFjGo=;
- b=US2MxyWsyB3+4ufCqnt2P8fqB8gOLPFsfnexkcJ1mfI9c3exHdrqAAg1FhvDtfcB8KC13I
- o2nAmzyBVvgD0ImCd4koStkKFqxMkZ4MbWCX6CdV1Iaxs9zP1TnL2RPWZTTK5Y+X2OoB35
- AF2fHf3XkqIl6jgJAXISJx9WEFLG3vY=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-428-j0LrWmyDNnym6QHTL5OVNg-1; Tue, 22 Mar 2022 11:54:39 -0400
-X-MC-Unique: j0LrWmyDNnym6QHTL5OVNg-1
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com
- [10.11.54.9])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0F6EE29ABA2E;
- Tue, 22 Mar 2022 15:54:38 +0000 (UTC)
-Received: from [10.18.17.215] (dhcp-17-215.bos.redhat.com [10.18.17.215])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 99C5A4229D0;
- Tue, 22 Mar 2022 15:54:37 +0000 (UTC)
-Message-ID: <54d6221d-0c4f-9329-042d-4f74c4ea288f@redhat.com>
-Date: Tue, 22 Mar 2022 11:54:37 -0400
+ id 1nWh4Q-00BcJh-Ny
+ for linux-riscv@lists.infradead.org; Tue, 22 Mar 2022 16:09:21 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
+ helo=diego.localnet)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1nWh4D-0004b8-9H; Tue, 22 Mar 2022 17:09:05 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Palmer Dabbelt <palmer@dabbelt.com>, anup@brainfault.org
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, wefu@redhat.com,
+ liush@allwinnertech.com, guoren@kernel.org, atishp@atishpatra.org,
+ drew@beagleboard.org, Christoph Hellwig <hch@lst.de>,
+ Arnd Bergmann <arnd@arndb.de>, wens@csie.org, maxime@cerno.tech,
+ gfavor@ventanamicro.com, andrea.mondelli@huawei.com, behrensj@mit.edu,
+ xinhaoqu@huawei.com, mick@ics.forth.gr, allen.baum@esperantotech.com,
+ jscheid@ventanamicro.com, rtrauben@gmail.com, samuel@sholland.org,
+ cmuellner@linux.com, philipp.tomsich@vrull.eu
+Subject: Re: [PATCH v7 00/13] riscv: support for Svpbmt and D1 memory types
+Date: Tue, 22 Mar 2022 17:09:04 +0100
+Message-ID: <1720848.VLH7GnMWUR@diego>
+In-Reply-To: <mhng-108635f6-7bf6-492e-9aeb-680cddf1e37d@palmer-ri-x1c9>
+References: <mhng-108635f6-7bf6-492e-9aeb-680cddf1e37d@palmer-ri-x1c9>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.5.0
-Subject: Re: [OpenRISC] [PATCH V2 1/5] asm-generic: ticket-lock: New generic
- ticket-based spinlock
-Content-Language: en-US
-To: Stafford Horne <shorne@gmail.com>, guoren@kernel.org
-Cc: palmer@dabbelt.com, arnd@arndb.de, boqun.feng@gmail.com,
- peterz@infradead.org, linux-arch@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
- openrisc@lists.librecores.org, Palmer Dabbelt <palmer@rivosinc.com>,
- linux-riscv@lists.infradead.org
-References: <20220319035457.2214979-1-guoren@kernel.org>
- <20220319035457.2214979-2-guoren@kernel.org> <Yjk+LGwhc50zvsk2@antec>
-From: Waiman Long <longman@redhat.com>
-In-Reply-To: <Yjk+LGwhc50zvsk2@antec>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220322_085445_755114_6B737F67 
-X-CRM114-Status: GOOD (  25.02  )
+X-CRM114-CacheID: sfid-20220322_090919_130308_6C69B917 
+X-CRM114-Status: GOOD (  67.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,92 +61,518 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/21/22 23:10, Stafford Horne wrote:
-> Hello,
->
-> There is a problem with this patch on Big Endian machines, see below.
->
-> On Sat, Mar 19, 2022 at 11:54:53AM +0800, guoren@kernel.org wrote:
->> From: Peter Zijlstra <peterz@infradead.org>
->>
->> This is a simple, fair spinlock.  Specifically it doesn't have all the
->> subtle memory model dependencies that qspinlock has, which makes it more
->> suitable for simple systems as it is more likely to be correct.
->>
->> [Palmer: commit text]
->> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
->>
->> --
->>
->> I have specifically not included Peter's SOB on this, as he sent his
->> original patch
->> <https://lore.kernel.org/lkml/YHbBBuVFNnI4kjj3@hirez.programming.kicks-ass.net/>
->> without one.
->> ---
->>   include/asm-generic/spinlock.h          | 11 +++-
->>   include/asm-generic/spinlock_types.h    | 15 +++++
->>   include/asm-generic/ticket-lock-types.h | 11 ++++
->>   include/asm-generic/ticket-lock.h       | 86 +++++++++++++++++++++++++
->>   4 files changed, 120 insertions(+), 3 deletions(-)
->>   create mode 100644 include/asm-generic/spinlock_types.h
->>   create mode 100644 include/asm-generic/ticket-lock-types.h
->>   create mode 100644 include/asm-generic/ticket-lock.h
->>
->> diff --git a/include/asm-generic/ticket-lock.h b/include/asm-generic/ticket-lock.h
->> new file mode 100644
->> index 000000000000..59373de3e32a
->> --- /dev/null
->> +++ b/include/asm-generic/ticket-lock.h
-> ...
->
->> +static __always_inline void ticket_unlock(arch_spinlock_t *lock)
->> +{
->> +	u16 *ptr = (u16 *)lock + __is_defined(__BIG_ENDIAN);
-> As mentioned, this patch series breaks SMP on OpenRISC.  I traced it to this
-> line.  The above `__is_defined(__BIG_ENDIAN)`  does not return 1 as expected
-> even on BIG_ENDIAN machines.  This works:
->
->
-> diff --git a/include/asm-generic/ticket-lock.h b/include/asm-generic/ticket-lock.h
-> index 59373de3e32a..52b5dc9ffdba 100644
-> --- a/include/asm-generic/ticket-lock.h
-> +++ b/include/asm-generic/ticket-lock.h
-> @@ -26,6 +26,7 @@
->   #define __ASM_GENERIC_TICKET_LOCK_H
->   
->   #include <linux/atomic.h>
-> +#include <linux/kconfig.h>
->   #include <asm-generic/ticket-lock-types.h>
->   
->   static __always_inline void ticket_lock(arch_spinlock_t *lock)
-> @@ -51,7 +52,7 @@ static __always_inline bool ticket_trylock(arch_spinlock_t *lock)
->   
->   static __always_inline void ticket_unlock(arch_spinlock_t *lock)
->   {
-> -       u16 *ptr = (u16 *)lock + __is_defined(__BIG_ENDIAN);
-> +       u16 *ptr = (u16 *)lock + IS_ENABLED(CONFIG_CPU_BIG_ENDIAN);
->          u32 val = atomic_read(lock);
->   
->          smp_store_release(ptr, (u16)val + 1);
->
->
->> +	u32 val = atomic_read(lock);
->> +
->> +	smp_store_release(ptr, (u16)val + 1);
->> +}
->> +
+Am Freitag, 18. M=E4rz 2022, 22:50:05 CET schrieb Palmer Dabbelt:
+> On Fri, 18 Mar 2022 09:22:29 PDT (-0700), heiko@sntech.de wrote:
+> > Hi Palmer,
+> >
+> > Am Freitag, 18. M=E4rz 2022, 04:40:23 CET schrieb Palmer Dabbelt:
+> >> On Wed, 09 Mar 2022 14:06:55 PST (-0800), heiko@sntech.de wrote:
+> >> > Am Dienstag, 8. M=E4rz 2022, 12:56:20 CET schrieb Heiko St=FCbner:
+> >> >> Hi Palmer,
+> >> >> =
 
-__BIG_ENDIAN is defined in <linux/kconfig.h>. I believe that if you 
-include <linux/kconfig.h>, the second hunk is not really needed and vice 
-versa.
+> >> >> Am Dienstag, 8. M=E4rz 2022, 01:47:25 CET schrieb Palmer Dabbelt:
+> >> >> > On Mon, 07 Mar 2022 12:52:57 PST (-0800), heiko@sntech.de wrote:
+> >> >> > > Svpbmt is an extension defining "Supervisor-mode: page-based me=
+mory types"
+> >> >> > > for things like non-cacheable pages or I/O memory pages.
+> >> >> > >
+> >> >> > >
+> >> >> > > So this is my 2nd try at implementing Svpbmt (and the diverging=
+ D1 memory
+> >> >> > > types) using the alternatives framework.
+> >> >> > >
+> >> >> > > This includes a number of changes to the alternatives mechanism=
+ itself.
+> >> >> > > The biggest one being the move to a more central location, as I=
+ expect
+> >> >> > > in the future, nearly every chip needing some sort of patching,=
+ be it
+> >> >> > > either for erratas or for optional features (svpbmt or others).
+> >> >> > >
+> >> >> > > Detection of the svpbmt functionality is done via Atish's isa e=
+xtension
+> >> >> > > handling series [0] and thus does not need any dt-parsing of it=
+s own
+> >> >> > > anymore.
+> >> >> > >
+> >> >> > > The series also introduces support for the memory types of the =
+D1
+> >> >> > > which are implemented differently to svpbmt. But when patching =
+anyway
+> >> >> > > it's pretty clean to add the D1 variant via ALTERNATIVE_2 to th=
+e same
+> >> >> > > location.
+> >> >> > >
+> >> >> > > The only slightly bigger difference is that the "normal" type i=
+s not 0
+> >> >> > > as with svpbmt, so kernel patches for this PMA type need to be =
+applied
+> >> >> > > even before the MMU is brought up, so the series introduces a s=
+eparate
+> >> >> > > stage for that.
+> >> >> > >
+> >> >> > >
+> >> >> > > In theory this series is 3 parts:
+> >> >> > > - sbi cache-flush / null-ptr
+> >> >> > =
 
-Cheers,
-Longman
+> >> >> > That first patch looks like an acceptable candidate for fixes.  I=
+f =
+
+> >> >> > there's a regression that manifests I'm happy to take it, but if =
+it's =
+
+> >> >> > only possible to manifest a crash with the new stuff then I'm OK =
+just =
+
+> >> >> > holding off until the merge window.
+> >> >> =
+
+> >> >> While right now only my poking around the early init via alternativ=
+es
+> >> >> is affected, the problem exists for everyone.
+> >> >> =
+
+> >> >> I.e. I do consider flush_icache_all() to be generic enough that we
+> >> >> should expect someone trying to call this in some early code-path
+> >> >> as well.
+> >> >> =
+
+> >> >> But any call to flush_icache_all() before sbi_init() ran will cause=
+ the
+> >> >> breakage that is fixed by patch1 .
+> >> >> =
+
+> >> >> =
+
+> >> >> So it doesn't look like any _current_ code path has that issue, but
+> >> >> it might be good to just pick patch1 for the next merge window
+> >> >> individually?
+> >> >> =
+
+> >> >> =
+
+> >> >> =
+
+> >> >> > > - alternatives improvements
+> >> >> > > - svpbmt+d1
+> >> >> > >
+> >> >> > > So expecially patches from the first 2 areas could be applied w=
+hen
+> >> >> > > deemed ready, I just thought to keep it together to show-case w=
+here
+> >> >> > > the end-goal is and not requiring jumping between different ser=
+ies.
+> >> >> > >
+> >> >> > >
+> >> >> > > I picked the recipient list from the previous versions, hopeful=
+ly
+> >> >> > > I didn't forget anybody.
+> >> >> > >
+> >> >> > > changes in v7:
+> >> >> > > - fix typo in patch1 (Atish)
+> >> >> > > - moved to Atish's isa-extension framework
+> >> >> > > - and therefore move regular boot-alternatives directly behind =
+fill_hwcaps
+> >> >> > > - change T-Head errata Kconfig text (Atish)
+> >> >> > =
+
+> >> >> > I was just poking around v6, so I have some minor comments there.=
+  None =
+
+> >> >> > of those need to block merging this, but I am getting a bunch of =
+build =
+
+> >> >> > failures under allmodconfig
+> >> >> > =
+
+> >> >> >     $ make.riscv allmodconfig
+> >> >> >     #
+> >> >> >     # configuration written to .config
+> >> >> >     #
+> >> >> >     $ make.riscv mm/kasan/init.o
+> >> >> >       SYNC    include/config/auto.conf.cmd
+> >> >> >       CALL    scripts/atomic/check-atomics.sh
+> >> >> >       CC      arch/riscv/kernel/asm-offsets.s
+> >> >> >       CALL    scripts/checksyscalls.sh
+> >> >> >       CC      mm/kasan/init.o
+> >> >> >     ./arch/riscv/include/asm/pgtable.h: Assembler messages:
+> >> >> >     ./arch/riscv/include/asm/pgtable.h:323: Error: attempt to mov=
+e .org backwards
+> >> >> >     make[2]: *** [scripts/Makefile.build:288: mm/kasan/init.o] Er=
+ror 1
+> >> >> >     make[1]: *** [scripts/Makefile.build:550: mm/kasan] Error 2
+> >> >> >     make: *** [Makefile:1831: mm] Error 2
+> >> >> > =
+
+> >> >> > Unfortunately my build box just blew up so I haven't had time to =
+confim =
+
+> >> >> > this still exists on v7, but nothing's jumping out as a fix.  I'v=
+e put =
+
+> >> >> > this on the riscv-d1 branch at kernel.org/palmer/linux, not sure =
+exactly =
+
+> >> >> > what's going on but I'm guessing one of the macros has gone off t=
+he =
+
+> >> >> > rails.  I'm going to look at something else (as this one at least =
+
+> >> >> > depends on Atish's patches), but LMK if you've got the time to lo=
+ok into =
+
+> >> >> > this or if I should.
+> >> >> =
+
+> >> >> Yeah, we now depend on Atish's isa-extension parsing (same for my c=
+mo
+> >> >> series and some more series I saw on the list), so getting that int=
+o a
+> >> >> mergeable position would be really great :-)
+> >> >> =
+
+> >> >> "attempt to move .org backwards" seems to be the telltale sign of t=
+he
+> >> >> alternatives blocks not matching up in size. While I definitly didn=
+'t see
+> >> >> anything like this in my tests on qemu + d1, I'll try to investigat=
+e where
+> >> >> that comes from.
+> >> >
+> >> > Hmm, looking at your branch [0] it seems that you're missing
+> >> > patch7 that introduces the no-compressed-instruction thingy
+> >> > for alternatives.
+> >> >
+> >> > And missing that patch will of course cause the size issue.
+> >> >
+> >> > The patch has made its way to the actual mailing lists [1], so I gue=
+ss
+> >> > it "just" somehow didn't reach your inbox due to some mail hickup?
+> >> =
+
+> >> Sorry about that, I'm not sure what happened.
+> >
+> > no worries :-) . And I also have no clue where the hickup happened
+> > but am thankful that there is no general problem with mails.
+> >
+> >
+> >> Unfortunately I'm now getting some even trickier failures: a handful o=
+f =
+
+> >> configurations are failing very early in boot.  There doesn't seem to =
+be =
+
+> >> much pattern to the configs that fail, but at least rv32 defconfig (on =
+
+> >> QEMU's virt board) is doing so.  I've tried poking around a bit and =
+
+> >> can't figure out what's going on.  I'll try and look again tomorrow =
+
+> >> morning.
+> =
+
+> (I guess morning means 2pm these days...)
+> =
+
+> > Hmm, really strange especially as the whole thing is somewhat
+> > limited to 64bit anyway.
+> >
+> > I guess it would be interesting if it's in the alternative-basics
+> > part of the svpbmt implementation.
+> =
+
+> Oddly enough it seems to be hanging as soon as I call into any of the =
+
+> m*id SBI routines, but I'm not entierly sure what's up and I've been =
+
+> bouncing between things so I might just be crazy.
+
+You're defintily not crazy here :-) .
+
+I.e. I didn't notice your reply from friday until now and so did the same
+stepping through the code myself as well, after finally getting a rv32
+build working.
+
+Similarly I ended up at sbi_get_mvendorid() being the first failing functio=
+n.
+
+_But_ ... sbi isn't at fault here. What is causing the issue is the writes
+to the static global variables. And I guess that will also be the issue
+you saw on the other platforms.
+
+The early-alternatives-mechanism runs before the kernel relocation,
+so likely triggers some memory protection, which I didn't think of.
+
+I'll just rework the code to not use static variables for storing both
+the architecture-ids as well as the patch-func, which I think should
+solve that issue for all platforms.
+
+
+Heiko
+
+
+> I did bisect the rv32-defconfig failure down to the last patch.
+> =
+
+> >
+> > My short try on getting a (any) rv32 kernel boot in qemu wasn't sucessf=
+ul
+> > yet, so I'll need to poke that more next week.
+> =
+
+> There's a bunch of failing cases, not just rv32, but I can't figure out =
+
+> what logic there is behind the failing cases.  They're all in my =
+
+> riscv-system-ci repo, it's a mess but should at least build.  I see the =
+
+> following hang:
+> =
+
+>     qemu/install/bin/qemu-system-riscv32 -M virt -m 1G -smp 4 -cpu rv32 -=
+kernel check/qemu-rv32gc-virt-smp4/halt-strict_rwx/kernel -initrd check/qem=
+u-rv32gc-virt-smp4/halt-strict_rwx/initrd -serial mon:pipe:/tmp/tmp.BM8zYJC=
+KKZ/guest -bios default -nographic
+>     qemu/install/bin/qemu-system-riscv32 -M virt -m 1G -smp 4 -cpu rv32 -=
+kernel check/qemu-rv32gc-virt-smp4/halt-slab_freelist_random/kernel -initrd=
+ check/qemu-rv32gc-virt-smp4/halt-slab_freelist_random/initrd -serial mon:p=
+ipe:/tmp/tmp.x7BL4Y1UsX/guest -bios default -nographic
+>     qemu/install/bin/qemu-system-riscv32 -M virt -m 1G -smp 4 -cpu rv32 -=
+kernel check/qemu-rv32gc-virt-smp4/halt-medlow/kernel -initrd check/qemu-rv=
+32gc-virt-smp4/halt-medlow/initrd -serial mon:pipe:/tmp/tmp.I9NZ3ow1GY/gues=
+t -bios default -nographic
+>     qemu/install/bin/qemu-system-riscv32 -M virt -m 1G -smp 4 -cpu rv32 -=
+kernel check/qemu-rv32gc-virt-smp4/halt-kasan_sparsemem_novmemmmap/kernel -=
+initrd check/qemu-rv32gc-virt-smp4/halt-kasan_sparsemem_novmemmmap/initrd -=
+serial mon:pipe:/tmp/tmp.c9UPXaNcfR/guest -bios default -nographic
+>     qemu/install/bin/qemu-system-riscv32 -M virt -m 1G -smp 4 -cpu rv32 -=
+kernel check/qemu-rv32gc-virt-smp4/halt-kasan_vmalloc/kernel -initrd check/=
+qemu-rv32gc-virt-smp4/halt-kasan_vmalloc/initrd -serial mon:pipe:/tmp/tmp.A=
+kLFnd3IDt/guest -bios default -nographic
+>     qemu/install/bin/qemu-system-riscv32 -M virt -m 1G -smp 4 -cpu rv32 -=
+kernel check/qemu-rv32gc-virt-smp4/halt-kasan/kernel -initrd check/qemu-rv3=
+2gc-virt-smp4/halt-kasan/initrd -serial mon:pipe:/tmp/tmp.TbUWlXHDtO/guest =
+-bios default -nographic
+>     qemu/install/bin/qemu-system-riscv32 -M virt -m 1G -smp 4 -cpu rv32 -=
+kernel check/qemu-rv32gc-virt-smp4/halt-kasan_sparsemem_vmemmmap/kernel -in=
+itrd check/qemu-rv32gc-virt-smp4/halt-kasan_sparsemem_vmemmmap/initrd -seri=
+al mon:pipe:/tmp/tmp.E4h3Gw5Ecv/guest -bios default -nographic
+>     qemu/install/bin/qemu-system-riscv32 -M virt -m 1G -smp 4 -cpu rv32 -=
+kernel check/qemu-rv32gc-virt-smp4/halt-slab/kernel -initrd check/qemu-rv32=
+gc-virt-smp4/halt-slab/initrd -serial mon:pipe:/tmp/tmp.anq8X90A1C/guest -b=
+ios default -nographic
+>     qemu/install/bin/qemu-system-riscv32 -M virt -m 1G -smp 4 -cpu rv32 -=
+kernel check/qemu-rv32gc-virt-smp4/halt-legacy_sbi/kernel -initrd check/qem=
+u-rv32gc-virt-smp4/halt-legacy_sbi/initrd -serial mon:pipe:/tmp/tmp.4MK3Xys=
+4YL/guest -bios default -nographic
+>     qemu/install/bin/qemu-system-riscv32 -M virt -m 1G -smp 4 -cpu rv32 -=
+kernel check/qemu-rv32gc-virt-smp4/halt-vmap_stack/kernel -initrd check/qem=
+u-rv32gc-virt-smp4/halt-vmap_stack/initrd -serial mon:pipe:/tmp/tmp.fC0b16u=
+Upo/guest -bios default -nographic
+>     qemu/install/bin/qemu-system-riscv64 -M virt -m 8G -smp 8 -cpu rv64 -=
+kernel check/qemu-rv64gc-virt-smp8/halt-medlow/kernel -initrd check/qemu-rv=
+64gc-virt-smp8/halt-medlow/initrd -serial mon:pipe:/tmp/tmp.t8nlK1Cvkk/gues=
+t -bios default -nographic
+>     qemu/install/bin/qemu-system-riscv64 -M virt -m 8G -smp 8 -cpu rv64 -=
+kernel check/qemu-rv64gc-virt-smp8/halt-kasan_sparsemem_novmemmmap/kernel -=
+initrd check/qemu-rv64gc-virt-smp8/halt-kasan_sparsemem_novmemmmap/initrd -=
+serial mon:pipe:/tmp/tmp.stV634slMi/guest -bios default -nographic
+>     qemu/install/bin/qemu-system-riscv64 -M virt -m 8G -smp 8 -cpu rv64 -=
+kernel check/qemu-rv64gc-virt-smp8/halt-kasan_vmalloc/kernel -initrd check/=
+qemu-rv64gc-virt-smp8/halt-kasan_vmalloc/initrd -serial mon:pipe:/tmp/tmp.D=
+0M6BSjwo2/guest -bios default -nographic
+>     qemu/install/bin/qemu-system-riscv64 -M virt -m 8G -smp 8 -cpu rv64 -=
+kernel check/qemu-rv64gc-virt-smp8/halt-kasan/kernel -initrd check/qemu-rv6=
+4gc-virt-smp8/halt-kasan/initrd -serial mon:pipe:/tmp/tmp.x9AoOydj6h/guest =
+-bios default -nographic
+>     qemu/install/bin/qemu-system-riscv64 -M virt -m 8G -smp 8 -cpu rv64 -=
+kernel check/qemu-rv64gc-virt-smp8/halt-kasan_sparsemem_vmemmmap/kernel -in=
+itrd check/qemu-rv64gc-virt-smp8/halt-kasan_sparsemem_vmemmmap/initrd -seri=
+al mon:pipe:/tmp/tmp.cYwEP0Xod2/guest -bios default -nographic
+>     qemu/install/bin/qemu-system-riscv64 -M virt -m 2G -smp 1 -cpu rv64 -=
+kernel check/qemu-rv64gc-virt-m2g/halt-medlow/kernel -initrd check/qemu-rv6=
+4gc-virt-m2g/halt-medlow/initrd -serial mon:pipe:/tmp/tmp.EmYY46ZyFw/guest =
+-bios default -nographic
+>     qemu/install/bin/qemu-system-riscv64 -M virt -m 2G -smp 1 -cpu rv64 -=
+kernel check/qemu-rv64gc-virt-m2g/halt-kasan_sparsemem_novmemmmap/kernel -i=
+nitrd check/qemu-rv64gc-virt-m2g/halt-kasan_sparsemem_novmemmmap/initrd -se=
+rial mon:pipe:/tmp/tmp.UGF8OoNOXr/guest -bios default -nographic
+>     qemu/install/bin/qemu-system-riscv64 -M virt -m 2G -smp 1 -cpu rv64 -=
+kernel check/qemu-rv64gc-virt-m2g/halt-kasan_vmalloc/kernel -initrd check/q=
+emu-rv64gc-virt-m2g/halt-kasan_vmalloc/initrd -serial mon:pipe:/tmp/tmp.E54=
+0ImVMDZ/guest -bios default -nographic
+>     qemu/install/bin/qemu-system-riscv64 -M virt -m 2G -smp 1 -cpu rv64 -=
+kernel check/qemu-rv64gc-virt-m2g/halt-kasan/kernel -initrd check/qemu-rv64=
+gc-virt-m2g/halt-kasan/initrd -serial mon:pipe:/tmp/tmp.Hg8iJhkm2R/guest -b=
+ios default -nographic
+>     qemu/install/bin/qemu-system-riscv64 -M virt -m 2G -smp 1 -cpu rv64 -=
+kernel check/qemu-rv64gc-virt-m2g/halt-kasan_sparsemem_vmemmmap/kernel -ini=
+trd check/qemu-rv64gc-virt-m2g/halt-kasan_sparsemem_vmemmmap/initrd -serial=
+ mon:pipe:/tmp/tmp.4KQh2WmFWc/guest -bios default -nographic
+>     qemu/install/bin/qemu-system-riscv64 -M spike -m 1G -smp 1 -cpu rv64 =
+-kernel check/qemu-rv64gc-spike/halt-legacy_sbi/kernel -initrd check/qemu-r=
+v64gc-spike/halt-legacy_sbi/initrd -serial mon:pipe:/tmp/tmp.Ore2LcgxNR/gue=
+st -bios default -nographic -append console=3Dhvc0
+>     qemu/install/bin/qemu-system-riscv64 -M virt -m 8G -smp 4 -cpu rv64 -=
+kernel check/qemu-rv64gc-virt-smp4/halt-kasan/kernel -initrd check/qemu-rv6=
+4gc-virt-smp4/halt-kasan/initrd -serial mon:pipe:/tmp/tmp.jnvHnbSJKT/guest =
+-bios default -nographic
+>     qemu/install/bin/qemu-system-riscv64 -M virt -m 8G -smp 4 -cpu rv64 -=
+kernel check/qemu-rv64gc-virt-smp4/halt-medlow/kernel -initrd check/qemu-rv=
+64gc-virt-smp4/halt-medlow/initrd -serial mon:pipe:/tmp/tmp.30Kl16f7mY/gues=
+t -bios default -nographic
+>     qemu/install/bin/qemu-system-riscv64 -M virt -m 8G -smp 4 -cpu rv64 -=
+kernel check/qemu-rv64gc-virt-smp4/halt-kasan_sparsemem_novmemmmap/kernel -=
+initrd check/qemu-rv64gc-virt-smp4/halt-kasan_sparsemem_novmemmmap/initrd -=
+serial mon:pipe:/tmp/tmp.ojW4EsFqOX/guest -bios default -nographic
+>     qemu/install/bin/qemu-system-riscv64 -M virt -m 8G -smp 4 -cpu rv64 -=
+kernel check/qemu-rv64gc-virt-smp4/halt-kasan_vmalloc/kernel -initrd check/=
+qemu-rv64gc-virt-smp4/halt-kasan_vmalloc/initrd -serial mon:pipe:/tmp/tmp.i=
+Krvig4P7H/guest -bios default -nographic
+>     qemu/install/bin/qemu-system-riscv64 -M virt -m 8G -smp 4 -cpu rv64 -=
+kernel check/qemu-rv64gc-virt-smp4/halt-kasan_sparsemem_vmemmmap/kernel -in=
+itrd check/qemu-rv64gc-virt-smp4/halt-kasan_sparsemem_vmemmmap/initrd -seri=
+al mon:pipe:/tmp/tmp.LGrpnHKQXO/guest -bios default -nographic
+>     qemu/install/bin/qemu-system-riscv32 -M virt -m 1G -smp 4 -cpu rv32 -=
+kernel check/qemu-rv32gc-virt-smp4/cpuinfo-defconfig/kernel -initrd check/q=
+emu-rv32gc-virt-smp4/cpuinfo-defconfig/initrd -serial mon:pipe:/tmp/tmp.0RO=
+7a4EUiB/guest -bios default -nographic
+>     qemu/install/bin/qemu-system-riscv32 -M virt -m 1G -smp 4 -cpu rv32 -=
+kernel check/qemu-rv32gc-virt-smp4/halt-defconfig/kernel -initrd check/qemu=
+-rv32gc-virt-smp4/halt-defconfig/initrd -serial mon:pipe:/tmp/tmp.Ltd1s19Hq=
+T/guest -bios default -nographic
+> =
+
+> rv32 defconfig seemed like the simplest, but there's a bunch of rv64 =
+
+> configs that fail too (though not defconfig, and the earlycon configs =
+
+> don't hang).
+> =
+
+> I'm going to go look at that other stuff I wanted to, but I'll try and =
+
+> find some time this weekend if nobody else can figure out what's up.
+> =
+
+> =
+
+> >
+> > Heiko
+> >
+> >
+> >> I've put my somewhat messy merged test branch at =
+
+> >> kernel.org/palmer/riscv-d1-merge .  Happy to hear if you have any =
+
+> >> insights, otherwise I'l give it another shot (possibly after looking a=
+t =
+
+> >> some other patches, there's quite a bit of a queue for this late).
+> >> =
+
+> >> >
+> >> >
+> >> > Heiko
+> >> >
+> >> >
+> >> > [0] https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git=
+/log/?h=3Driscv-d1
+> >> > [1] https://lore.kernel.org/all/20220307205310.1905628-8-heiko@sntec=
+h.de/
+> >> >
+> >> >
+> >> >> > > changes in v6:
+> >> >> > > - rebase onto 5.17-rc1
+> >> >> > > - handle sbi null-ptr differently
+> >> >> > > - improve commit messages
+> >> >> > > - use riscv,mmu as property name
+> >> >> > >
+> >> >> > > changes in v5:
+> >> >> > > - move to use alternatives for runtime-patching
+> >> >> > > - add D1 variant
+> >> >> > >
+> >> >> > >
+> >> >> > > [0] https://lore.kernel.org/r/20220222204811.2281949-2-atishp@r=
+ivosinc.com
+> >> >> > >
+> >> >> > >
+> >> >> > > Heiko Stuebner (12):
+> >> >> > >   riscv: prevent null-pointer dereference with sbi_remote_fence=
+_i
+> >> >> > >   riscv: integrate alternatives better into the main architectu=
+re
+> >> >> > >   riscv: allow different stages with alternatives
+> >> >> > >   riscv: implement module alternatives
+> >> >> > >   riscv: implement ALTERNATIVE_2 macro
+> >> >> > >   riscv: extend concatenated alternatives-lines to the same len=
+gth
+> >> >> > >   riscv: prevent compressed instructions in alternatives
+> >> >> > >   riscv: move boot alternatives to after fill_hwcap
+> >> >> > >   riscv: Fix accessing pfn bits in PTEs for non-32bit variants
+> >> >> > >   riscv: add cpufeature handling via alternatives
+> >> >> > >   riscv: remove FIXMAP_PAGE_IO and fall back to its default val=
+ue
+> >> >> > >   riscv: add memory-type errata for T-Head
+> >> >> > >
+> >> >> > > Wei Fu (1):
+> >> >> > >   riscv: add RISC-V Svpbmt extension support
+> >> >> > >
+> >> >> > >  arch/riscv/Kconfig.erratas                  |  29 +++--
+> >> >> > >  arch/riscv/Kconfig.socs                     |   1 -
+> >> >> > >  arch/riscv/Makefile                         |   2 +-
+> >> >> > >  arch/riscv/errata/Makefile                  |   2 +-
+> >> >> > >  arch/riscv/errata/sifive/errata.c           |  17 ++-
+> >> >> > >  arch/riscv/errata/thead/Makefile            |   1 +
+> >> >> > >  arch/riscv/errata/thead/errata.c            |  85 ++++++++++++=
++++
+> >> >> > >  arch/riscv/include/asm/alternative-macros.h | 114 +++++++++++-=
+--------
+> >> >> > >  arch/riscv/include/asm/alternative.h        |  16 ++-
+> >> >> > >  arch/riscv/include/asm/errata_list.h        |  52 +++++++++
+> >> >> > >  arch/riscv/include/asm/fixmap.h             |   2 -
+> >> >> > >  arch/riscv/include/asm/hwcap.h              |   1 +
+> >> >> > >  arch/riscv/include/asm/pgtable-32.h         |  17 +++
+> >> >> > >  arch/riscv/include/asm/pgtable-64.h         |  79 ++++++++++++=
++-
+> >> >> > >  arch/riscv/include/asm/pgtable-bits.h       |  10 --
+> >> >> > >  arch/riscv/include/asm/pgtable.h            |  53 +++++++--
+> >> >> > >  arch/riscv/include/asm/vendorid_list.h      |   1 +
+> >> >> > >  arch/riscv/kernel/Makefile                  |   1 +
+> >> >> > >  arch/riscv/{errata =3D> kernel}/alternative.c |  48 +++++++--
+> >> >> > >  arch/riscv/kernel/cpu.c                     |   1 +
+> >> >> > >  arch/riscv/kernel/cpufeature.c              |  80 ++++++++++++=
++-
+> >> >> > >  arch/riscv/kernel/module.c                  |  29 +++++
+> >> >> > >  arch/riscv/kernel/sbi.c                     |  10 +-
+> >> >> > >  arch/riscv/kernel/setup.c                   |   2 +
+> >> >> > >  arch/riscv/kernel/smpboot.c                 |   4 -
+> >> >> > >  arch/riscv/kernel/traps.c                   |   2 +-
+> >> >> > >  arch/riscv/mm/init.c                        |   1 +
+> >> >> > >  27 files changed, 546 insertions(+), 114 deletions(-)
+> >> >> > >  create mode 100644 arch/riscv/errata/thead/Makefile
+> >> >> > >  create mode 100644 arch/riscv/errata/thead/errata.c
+> >> >> > >  rename arch/riscv/{errata =3D> kernel}/alternative.c (59%)
+> >> >> > =
+
+> >> >> =
+
+> >> >> =
+
+> >> =
+
+> =
+
+
+
+
 
 
 _______________________________________________
