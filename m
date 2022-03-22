@@ -4,85 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 120CCC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Mar 2022 18:18:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EFBDC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Mar 2022 18:36:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bbgrxq8H2hqwKEcYvmsQ/vHlWU8GyJL19thnvZ1sR8I=; b=3qy12/LQe99B02
-	GUkJP8fYiQvBNDj2c1qcnx2LAqXOeLu2MQq8r9I2RacWkD4w4uqehfmITtsfIhizG+/BPJ9/WeZT3
-	2Mmz+EAsEvzqTqk9FWtC1S7cMJONtJ/k4YNlDZp9VAWNyF02LEDD4PV9Bn1gzo0ttD0BCsOfzH24g
-	zFUI6gAJWMwIPFMUkYozpmV3lQkqc+74wPOYkA9DgGcVMVHVC9c8KB9C2f0qa9y1WTVMQT1PzdJd8
-	KxynTj4LkV08JOj1En13dvnFxNbiuSrgCXn5TyLyjmSUPKYDZEhNbVGJkksTaQrHVdnNPZByqOaFZ
-	c3g0E+9ZcMeMUlbLl2MA==;
+	List-Owner; bh=aMsRyApcmBFDP6BYE301DlyqpUX6RBsOmwkZiz48udQ=; b=Zqlyg2pjDIAhrh
+	YUCdLVMe6e6krPBAHe1KatsdeYM4udLfabwdQB6e5rbEz87WPGvmcC5o4hrjkm4I5GFcQsjisyAVP
+	ul+Py+1ukarjTlWE5K4VL3GTRV8Kj4HVdfjJrCNsFkNnEF+MWUndQNH2yJtDJzm3u81yxlAd3VqZZ
+	GIxgJohwuI+r9uLhO2Wu1lHGbz6ZkuMewfzD/2iXojvbVDSVP/yrOt16uJjZIyVDG/mbOqTvG4sUv
+	Pfyrhr+P2hfnXvYSmOLM/RLg/plPYb4BJ1K623Vx0gegJdMrwCL5y2RHQ0SIbdMb6mG6BgeEP8wvE
+	M3HnFd6M5VZa6dRrQr9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nWj5O-00BqwE-Lr; Tue, 22 Mar 2022 18:18:26 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1nWjN2-00Bt8y-S7; Tue, 22 Mar 2022 18:36:41 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nWj5L-00BqvJ-OL
- for linux-riscv@lists.infradead.org; Tue, 22 Mar 2022 18:18:25 +0000
-Received: by mail-wr1-x433.google.com with SMTP id u16so23612263wru.4
- for <linux-riscv@lists.infradead.org>; Tue, 22 Mar 2022 11:18:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=conchuod-ie.20210112.gappssmtp.com; s=20210112;
- h=message-id:date:mime-version:user-agent:subject:content-language:to
- :cc:references:from:in-reply-to:content-transfer-encoding;
- bh=Au0wuGbmyZQRc3YRooDi+lrIszQt6rNnlcrfEDXqtwM=;
- b=mXhuIMjn3uChtCcb9K8CZhFjjPYtbSBGn8NMsUNFxDideafXuSwJUpedM6R5NkuD41
- FWodwy/Zvv2BSJCJ6e32JpS18fFx7FY0lvk37TkItGCwdtB+yU5idyhXuiemVKE18V0C
- l0QquQJW2o06l3mJTYCKgD3MpzmwURJInuRHOM7HTvRdIxV6/dKbwY9BEuIJdlyqLswQ
- yu7D6bN6COkQhTMw+tRbDgkQycyMvHZLHG/AH8r/GHfE9g148SbWHA7YERGAvqYSLwn3
- v0FU5xXPaWOTSku+mt5Szj0T2gQQXoVEKOnOWDR7bAukdFSUyKm3n3XOLAHcO2q3zcsw
- dfoA==
+ id 1nWjMy-00Bt5h-0w
+ for linux-riscv@lists.infradead.org; Tue, 22 Mar 2022 18:36:38 +0000
+Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com
+ [209.85.218.72])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id AA5FA3F94C
+ for <linux-riscv@lists.infradead.org>; Tue, 22 Mar 2022 18:36:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1647974194;
+ bh=5jtpXxEom/a/jiH/sFwvBmFkIoAoceZfaQ8rDmnOzv8=;
+ h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
+ In-Reply-To:Content-Type;
+ b=o79mDLORM2nA8Epl2qL9p2El4lPMXlCz0ngDd1wsJfuU9PkrtMXdV2mp7aMyBSvXB
+ eFnOdt47JGKzN7TttxrefIuL49kZO3GD5OyX0glAqB+hHcTT9u/jUp9dRo5M0JKHnN
+ /55EcfsQNWsUAWFWWtgdzqo2i0JKNKuyCl3f3yasYgCzea2PfUO0zGh/borlLeVG5b
+ DKRLsAIDd0VRUS8/wgHLdcUw3gAoiFieoAiG/j29NPG1YrIQaubp/kV3g3B6KEyG7/
+ 8HsCDC85gUPF5FrmX8WjlSB1kiDXRF0PL305GbwSRogr1Ce53/u5HhrYdFWNtrdJq3
+ 3yiQfvK612dhQ==
+Received: by mail-ej1-f72.google.com with SMTP id
+ jx2-20020a170907760200b006dfc374c502so5203611ejc.7
+ for <linux-riscv@lists.infradead.org>; Tue, 22 Mar 2022 11:36:34 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
  :content-language:to:cc:references:from:in-reply-to
  :content-transfer-encoding;
- bh=Au0wuGbmyZQRc3YRooDi+lrIszQt6rNnlcrfEDXqtwM=;
- b=7SBPSYWQTlH59A3esF3x6kRBydEcbRrfkkTQPSe5wyFjBk7JpV90EznkRzQpbmxwF3
- 3p/nMO2d6ZezjCW53xJ+llZ9GUYVINPTQtsdqULC7ri5rrJb1xrmSSLKdZt7fxpP3FH/
- dWuen7ChZN1GezHqK/RhOKHLOo4qBI1+zQD651VdJJyHeAUmebTqRMRnXrTYKUpZy2Fr
- NLqLAccjTvnQe1LwWGX1ED0YjNELNkpMye4F3ov4TExgPE/BEgh2ngvlHswhHttzSHrv
- 95AENZiKEMnpmGZSkF0ebCopUHVmAIl9rhLxlBl2ARwQ/d8s/wvSwTQ0bW9dfo6/ztIa
- ejFw==
-X-Gm-Message-State: AOAM533fKTIFxOhkhvnjeyarby3VVWsFuPVPJmL7ZLYuiQTWs6voUS6H
- C6qrIYiHsmkUQkk3Gr5ZD2MwLw==
-X-Google-Smtp-Source: ABdhPJzo+v251N7F/kHeIIlbL9L7OkMaXL6JiW+aiVCl9WMXHup3N+5Shv6bcH5nGjpVfy+o5CVcdw==
-X-Received: by 2002:adf:fe8d:0:b0:203:e02e:c6c7 with SMTP id
- l13-20020adffe8d000000b00203e02ec6c7mr23986364wrr.37.1647973101291; 
- Tue, 22 Mar 2022 11:18:21 -0700 (PDT)
-Received: from [192.168.2.116] ([109.76.4.19])
- by smtp.gmail.com with ESMTPSA id
- z13-20020a5d440d000000b00203f2b010b1sm11796069wrq.44.2022.03.22.11.18.19
+ bh=5jtpXxEom/a/jiH/sFwvBmFkIoAoceZfaQ8rDmnOzv8=;
+ b=niYrmuphT2Hv+KFnlgT1bad+EHRX73jdmLs7qyb53jQQBsKZAOjW7meVs47VoyRk1I
+ unBqsjVWbej16RJO16pNxd1uY3nwLh5DWFbgAhYAqLlDJ8pFq4kHDEsD3/3lrGeqUIl5
+ y8ufdYQkavLXbaE6KgDpiaFNHF3W/BYsyj5ATJ9NOmOQNKaDB6SjK41bhqsNevOM0eHB
+ Nv49qpAUwglYDZVVWFh50sBOhowKqoNn/tUjNhiiD2eAMt0MDrcN530ERfy3RA7rJ6/c
+ 2T4thI2Bgc9yyaj2A1Mkf5s7qHUr5Dd/+dr5mRL7htV6nWpoQVqG1CrrSD3/imGcLcAq
+ p0Uw==
+X-Gm-Message-State: AOAM530d3vb6usxGJ/jxhLQIVaPENFVrA45umaEMEVnvbliuI2tUj+3Q
+ mzCB1FRA5GtyKaE/majWsuj7jt/It2FTHR1AcqGwcuu5ScFCEqlnpH3Upm6A0UFwxhX+gihPIwB
+ gLdcHbd7sy3vEPKlJKC95ssHQ1SlW5LTJFYxdYf6X5cuw4g==
+X-Received: by 2002:a05:6402:1941:b0:413:2555:53e3 with SMTP id
+ f1-20020a056402194100b00413255553e3mr30164488edz.164.1647974184167; 
+ Tue, 22 Mar 2022 11:36:24 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxXjJuzBLH9hbRDSjsXFrbLCVkaIICKYGv+IQ5EfXGkXfhv1U2vMFYP/O//lEDRT2Fv/Gfc1w==
+X-Received: by 2002:a05:6402:1941:b0:413:2555:53e3 with SMTP id
+ f1-20020a056402194100b00413255553e3mr30164440edz.164.1647974183906; 
+ Tue, 22 Mar 2022 11:36:23 -0700 (PDT)
+Received: from [192.168.0.17] (78-11-189-27.static.ip.netia.com.pl.
+ [78.11.189.27]) by smtp.gmail.com with ESMTPSA id
+ d4-20020a1709067a0400b006d6e3ca9f71sm8816466ejo.198.2022.03.22.11.36.21
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 22 Mar 2022 11:18:20 -0700 (PDT)
-Message-ID: <c0328672-6dd1-b65b-1e2f-6f2562084f2d@conchuod.ie>
-Date: Tue, 22 Mar 2022 18:18:18 +0000
+ Tue, 22 Mar 2022 11:36:23 -0700 (PDT)
+Message-ID: <ff8da126-8eac-7b72-c992-3b4223f2b077@canonical.com>
+Date: Tue, 22 Mar 2022 19:36:21 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.7.0
-Subject: Re: [PATCH 0/5] Generic Ticket Spinlocks
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.5.0
+Subject: Re: [PATCH 00/18] dt-bindings: irqchip: include generic schema
 Content-Language: en-US
-To: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org
-Cc: jonas@southpole.se, stefan.kristiansson@saunalahti.fi, shorne@gmail.com,
- mingo@redhat.com, Will Deacon <will@kernel.org>, longman@redhat.com,
- boqun.feng@gmail.com, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu,
- Arnd Bergmann <arnd@arndb.de>, jszhang@kernel.org,
- wangkefeng.wang@huawei.com, openrisc@lists.librecores.org,
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- peterz@infradead.org
-References: <20220316232600.20419-1-palmer@rivosinc.com>
-From: Conor Dooley <mail@conchuod.ie>
-In-Reply-To: <20220316232600.20419-1-palmer@rivosinc.com>
+To: Rob Herring <robh@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, =?UTF-8?Q?Andreas_F=c3=a4rber?=
+ <afaerber@suse.de>, Manivannan Sadhasivam <mani@kernel.org>,
+ Linus Walleij <linusw@kernel.org>, Imre Kaloz <kaloz@openwrt.org>,
+ Krzysztof Halasa <khalasa@piap.pl>, Michael Walle <michael@walle.cc>,
+ Mark-PK Tsai <mark-pk.tsai@mediatek.com>, Daniel Palmer <daniel@thingy.jp>,
+ =?UTF-8?Q?Jonathan_Neusch=c3=a4fer?= <j.neuschaefer@gmx.net>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Nishanth Menon <nm@ti.com>,
+ Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
+ Neil Armstrong <narmstrong@baylibre.com>, Dinh Nguyen <dinguyen@kernel.org>,
+ Cristian Ciocaltea <cristian.ciocaltea@gmail.com>,
+ Joakim Zhang <qiangqing.zhang@nxp.com>, Lucas Stach
+ <l.stach@pengutronix.de>, Paul Cercueil <paul@crapouillou.net>,
+ Jiaxun Yang <jiaxun.yang@flygoat.com>,
+ Claudiu Beznea <claudiu.beznea@microchip.com>,
+ Jason Cooper <jason@lakedaemon.net>, Paul Burton <paulburton@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Birger Koblitz <mail@birger-koblitz.de>, Bert Vermeulen <bert@biot.com>,
+ John Crispin <john@phrozen.org>, Geert Uytterhoeven
+ <geert+renesas@glider.be>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Suman Anna <s-anna@ti.com>, Lokesh Vutla <lokeshvutla@ti.com>,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-actions@lists.infradead.org,
+ openbmc@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-oxnas@groups.io
+References: <20220317115542.450032-1-krzysztof.kozlowski@canonical.com>
+ <YjjJpxLWJ/YOe0OX@robh.at.kernel.org>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+In-Reply-To: <YjjJpxLWJ/YOe0OX@robh.at.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220322_111823_895506_8723A581 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20220322_113636_235866_80682C80 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,44 +125,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 16/03/2022 23:25, Palmer Dabbelt wrote:
-> Peter sent an RFC out about a year ago
-> <https://lore.kernel.org/lkml/YHbBBuVFNnI4kjj3@hirez.programming.kicks-ass.net/>,
-> but after a spirited discussion it looks like we lost track of things.
-> IIRC there was broad consensus on this being the way to go, but there
-> was a lot of discussion so I wasn't sure.  Given that it's been a year,
-> I figured it'd be best to just send this out again formatted a bit more
-> explicitly as a patch.
+On 21/03/2022 19:53, Rob Herring wrote:
+> On Thu, Mar 17, 2022 at 12:55:24PM +0100, Krzysztof Kozlowski wrote:
+>> Hi,
+>>
+>> The DTS patches can be picked up independently.
+>>
+>> Best regards,
+>> Krzysztof
+>>
+>> Krzysztof Kozlowski (18):
+>>   ARM: dts: nspire: use lower case hex addresses in node unit addresses
+>>   ARM: dts: ox820: align interrupt controller node name with dtschema
+>>   ARM: dts: socfpga: align interrupt controller node name with dtschema
+>>   dt-bindings: irqchip: actions,owl-sirq: include generic schema
+>>   dt-bindings: irqchip: fsl: include generic schema
+>>   dt-bindings: irqchip: ingenic: include generic schema
+>>   dt-bindings: irqchip: intel,ixp4xx: include generic schema
+>>   dt-bindings: irqchip: kontron,sl28cpld: include generic schema
+>>   dt-bindings: irqchip: loongson: include generic schema
+>>   dt-bindings: irqchip: microchip,eic: include generic schema
+>>   dt-bindings: irqchip: mrvl,intc: include generic schema
+>>   dt-bindings: irqchip: mstar,mst-intc: include generic schema
+>>   dt-bindings: irqchip: mti,gic: include generic schema
+>>   dt-bindings: irqchip: nuvoton,wpcm450-aic: include generic schema
+>>   dt-bindings: irqchip: realtek,rtl-intc: include generic schema
+>>   dt-bindings: irqchip: renesas: include generic schema
+>>   dt-bindings: irqchip: sifive: include generic schema
+>>   dt-bindings: irqchip: ti: include generic schema
 > 
-> This has had almost no testing (just a build test on RISC-V defconfig),
-> but I wanted to send it out largely as-is because I didn't have a SOB
-> from Peter on the code.  I had sent around something sort of similar in
-> spirit, but this looks completely re-written.  Just to play it safe I
-> wanted to send out almost exactly as it was posted.  I'd probably rename
-> this tspinlock and tspinlock_types, as the mis-match kind of makes my
-> eyes go funny, but I don't really care that much.  I'll also go through
-> the other ports and see if there's any more candidates, I seem to
-> remember there having been more than just OpenRISC but it's been a
-> while.
+> I'm somewhat on the fence about these. Originally only devices with a 
+> bus or child nodes included a common schema. For 'simple' providers 
+> with mainly a '#<provider>-cells' property, we had to set the 
+> constraints on the number of cells anyways, so referencing another 
+> schema doesn't save anything. It is nice to declare the 'class' of the 
+> device though.
 > 
-> I'm in no big rush for this and given the complex HW dependencies I
-> think it's best to target it for 5.19, that'd give us a full merge
-> window for folks to test/benchmark it on their systems to make sure it's
-> OK.
+> It makes the schema be applied twice (if the node name matches). That's 
+> not all bad because it finds cases of wrong node name. However, 
+> sometimes we have devices which are multiple providers and can't set the 
+> node name. So those can't reference interrupt-controller.yaml.
 
-Is there a specific way you have been testing/benching things, or is it 
-just a case of test what we ourselves care about?
+Indeed there were cases of MSI and interrupt controller.
 
-Thanks,
-Conor.
+> 
+> It also means that 'interrupt-map' for example is now valid. That could 
+> be fixed by splitting 'interrupt-map' related properties to its own 
+> schema. 
 
-> RISC-V has a forward progress guarantee so we should be safe, but
-> these can always trip things up.
+Yes, that's a side effect. Maybe my series should be abandoned.
+
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
