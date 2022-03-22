@@ -4,67 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12FFAC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Mar 2022 03:07:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7866C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Mar 2022 03:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bQ0HNscLVuCcU+7//hlf3MbRsca6quZmdi1rR+WtG3s=; b=nasDCZpMP90uQq
-	A/PWnsIYTvOXJ7oWucKh5bGUhKxIWfgA8rWx5bAtFCxHDFX9xwrxZUQBjOUOMql0EyhaoZxEylvUI
-	ATeD1MY6fGHS74FljRljlVh4Ez02yGsGa496/6g7sUzI/FDokdLkH936ORkE94L01fjGT+Hkvly0u
-	OXUJdFjMAOV8dtBsgWtC8hJC5O/om2rnbBoC1Y8Bjnu9Pq2jYMbzoK+7rvNBXGsuZQV/Zv2mT0sfE
-	oxrMAL86qRqGXTYvmHkHb6oMKPNjK5LO/rTd3WFXsLeV7W9fVyBfnxcAOT6zdg1O3TP0g8C35jxpF
-	QdcrVYxOBTyTvdlvOArw==;
+	List-Owner; bh=SVmE5vLzNA+qqYbHVwDvG1gkf0+9TYyQdTPokpKIklk=; b=iETj79HUcE2UeT
+	9Xj5r0yvaFf/+Cv5+0QlzjEx571vACj+Oa1Zstfm4BtZoBapubzpC5UYk+yEUfkI0ac7Zd5mzQWOL
+	YRvdYa/s8WvTw6jD5dYee9cjjB+3yVEAc6PhGO6dFOh7ki6FaajEjPmEcAdTaISmE0XTTkoJzhbyG
+	dXrLzQvOhXYGdeTTj5a/P2oD3J3bZVDEqzDwT5/94M6CqKdFwBgSi727G8khp4tnIbIWxBKwy1dXM
+	l51krKZqY0sJ1HhIw6ImUzzzUXV40CD9XxuwcGK+AzUGJBMbyjWFeXRj2Louqk+xE9yaV8zruH0dw
+	mU9Jf6Me4vRE3uaAnMuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nWUs5-009pmg-D8; Tue, 22 Mar 2022 03:07:45 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+	id 1nWUv0-009qXY-M9; Tue, 22 Mar 2022 03:10:46 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nWUrr-009pgt-Ao; Tue, 22 Mar 2022 03:07:33 +0000
-Received: from kwepemi100001.china.huawei.com (unknown [172.30.72.57])
- by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4KMxHB2qKtz1GCpk;
- Tue, 22 Mar 2022 11:07:18 +0800 (CST)
-Received: from kwepemm600017.china.huawei.com (7.193.23.234) by
- kwepemi100001.china.huawei.com (7.221.188.215) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.21; Tue, 22 Mar 2022 11:07:24 +0800
-Received: from [10.174.179.234] (10.174.179.234) by
- kwepemm600017.china.huawei.com (7.193.23.234) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.21; Tue, 22 Mar 2022 11:07:23 +0800
-Message-ID: <d5c5e2fa-a09b-bf1b-295b-8ed99fc85e57@huawei.com>
-Date: Tue, 22 Mar 2022 11:07:22 +0800
+ id 1nWUuw-009qWI-7d
+ for linux-riscv@lists.infradead.org; Tue, 22 Mar 2022 03:10:44 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id bx5so14577780pjb.3
+ for <linux-riscv@lists.infradead.org>; Mon, 21 Mar 2022 20:10:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=Hh+l+cDJOH+rmHGFl5Z8Zd7K4dLUYHJocdz9v2HO6zA=;
+ b=DjtmHKskX4TxeKbVb7A93JrGp2xt18gLwaV/CfU6iNuYFEdrAE1RP9ngjSmWlQq13X
+ yHAxabQDUqqWL45RtLOICtJf40+Gw0+ps6Y9Uq1uM+L7l1QUKvFRirvhaJOrT/kAg/9X
+ wNvXOLCWc4HE2YMGhHYgJ8xDGCbuo1qWdoXBThR4yz4nKi3EbI10zq7VCWwUZP44Znq5
+ Ht1vQtGaa9S25e03tNwBJ5eR8sbMM2GdHdFFgFD8RHjkpInfUCZ1l+WWPm7viu8CUe5C
+ aGh+Dea1u2wzHcWT4ZdW1u6zquKoTRTy4hix8MEkUKRaOqMESjh5vkUuC7SFEKzSVR4X
+ hysA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=Hh+l+cDJOH+rmHGFl5Z8Zd7K4dLUYHJocdz9v2HO6zA=;
+ b=6L0Ciy6FoDqn9gRHL3z8NuohO21P5yaFqD8Dzv/8bIfIc9tyZQ3VuWD6KTbKjMqlz8
+ X4WlqTQOMU8dBVPVilXgHA7XhSv8VkVanqzIw0Dfr7rSX3yUOSVGisq3lkKrzc5fK8a/
+ fHvUHRoUXWVJvMb7AreyarYwfTL7KVNYDvz1HsOPmEss+cNFvJ5kZJjc50/9zJJxYQnw
+ yjV0BaXCn4Ib37EjR9dpKTE7vVhniS8CMXxhuB54MWOIhnEhd5BiWBslV4ot/MV+9ZSs
+ 7H7ucf0x6xjGFKma4G3P+ErVWKy371dJwgqN+00wTQtHJ5fprw9ak8fu0bn9ghFJfI1X
+ xQkg==
+X-Gm-Message-State: AOAM532rRLHEd+gWmg+rZpt0/jg7I2Y4UgoCjcxrodXvhKqnaVBlBfuK
+ Jc5SjPDPd9DSFL0CO0HFoLY=
+X-Google-Smtp-Source: ABdhPJzg61lhXH43T0oAx2tFK5dMDO7rgoTBBFqYh0KY+3YN04A1J1laQWvkvScPHw0opdbB0iyBtg==
+X-Received: by 2002:a17:902:e9d3:b0:154:6dd6:2521 with SMTP id
+ 19-20020a170902e9d300b001546dd62521mr5289232plk.59.1647918641193; 
+ Mon, 21 Mar 2022 20:10:41 -0700 (PDT)
+Received: from localhost ([2409:10:24a0:4700:e8ad:216a:2a9d:6d0c])
+ by smtp.gmail.com with ESMTPSA id
+ s141-20020a632c93000000b0038134d09219sm16260355pgs.55.2022.03.21.20.10.37
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 21 Mar 2022 20:10:37 -0700 (PDT)
+Date: Tue, 22 Mar 2022 12:10:36 +0900
+From: Stafford Horne <shorne@gmail.com>
+To: guoren@kernel.org
+Cc: palmer@dabbelt.com, arnd@arndb.de, boqun.feng@gmail.com,
+ longman@redhat.com, peterz@infradead.org,
+ linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-csky@vger.kernel.org, openrisc@lists.librecores.org,
+ Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org
+Subject: Re: [OpenRISC] [PATCH V2 1/5] asm-generic: ticket-lock: New generic
+ ticket-based spinlock
+Message-ID: <Yjk+LGwhc50zvsk2@antec>
+References: <20220319035457.2214979-1-guoren@kernel.org>
+ <20220319035457.2214979-2-guoren@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.6.1
-Subject: Re: [PATCH -next 3/4] arm64: mm: add support for page table check
-To: Catalin Marinas <catalin.marinas@arm.com>
-CC: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Pasha Tatashin
- <pasha.tatashin@soleen.com>, Andrew Morton <akpm@linux-foundation.org>, "Will
- Deacon" <will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Palmer Dabbelt <palmerdabbelt@google.com>,
- Albert Ou <aou@eecs.berkeley.edu>, <linux-kernel@vger.kernel.org>,
- <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-riscv@lists.infradead.org>
-References: <20220317141203.3646253-1-tongtiangen@huawei.com>
- <20220317141203.3646253-4-tongtiangen@huawei.com> <YjOFNEvj7EfBasCI@arm.com>
- <cb91532b-c0cd-034c-2f93-4f76fabf5fc1@huawei.com> <YjS+2FVpq8D4Gx0S@arm.com>
- <d3006048-f737-439e-b985-cfbab69c4167@huawei.com> <Yjiqm6tQB5To5Jd9@arm.com>
-From: Tong Tiangen <tongtiangen@huawei.com>
-In-Reply-To: <Yjiqm6tQB5To5Jd9@arm.com>
-X-Originating-IP: [10.174.179.234]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- kwepemm600017.china.huawei.com (7.193.23.234)
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <20220319035457.2214979-2-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220321_200731_558693_E2094601 
-X-CRM114-Status: UNSURE (   7.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220321_201042_304965_1A3CFB7C 
+X-CRM114-Status: GOOD (  20.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,33 +89,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgrlnKggMjAyMi8zLzIyIDA6NDAsIENhdGFsaW4gTWFyaW5hcyDlhpnpgZM6Cj4gT24gTW9uLCBN
-YXIgMjEsIDIwMjIgYXQgMDI6MTU6MzZQTSArMDgwMCwgVG9uZyBUaWFuZ2VuIHdyb3RlOgo+PiBD
-b25zaWRlcmluZyBhbGwgeW91ciBzdWdnZXN0aW9ucywgVGhlIGZpbmFsIGxvZ2ljIHNob3VsZCBi
-ZToKPj4KPj4gKyNkZWZpbmUgcHRlX3VzZXIocHRlKSAgICAgICAgICAoISEocHRlX3ZhbChwdGUp
-ICYgUFRFX1VTRVIpKQo+Pgo+PiArI2RlZmluZSBwbWRfdXNlcihwbWQpCQlwdGVfdXNlcihwbWRf
-cHRlKHBtZCkpCj4+ICsjZGVmaW5lIHBtZF91c2VyX2V4ZWMocG1kKQlwdGVfdXNlcl9leGVjKHBt
-ZF9wdGUocG1kKSkKPj4KPj4gKyNkZWZpbmUgcHVkX3VzZXIocHVkKSAgICAgICAgICBwdGVfdXNl
-cihwdWRfcHRlKHB1ZCkpCj4+Cj4+ICtzdGF0aWMgaW5saW5lIGJvb2wgcHRlX3VzZXJfYWNjZXNz
-aWJsZV9wYWdlKHB0ZV90IHB0ZSkKPj4gK3sKPj4gKwlyZXR1cm4gcHRlX3ByZXNlbnQocHRlKSAm
-JiAocHRlX3VzZXIocHRlKXx8IHB0ZV91c2VyX2V4ZWMocHRlKSk7Cj4+ICt9Cj4gCj4gVGhpcyBp
-cyBmaW5lLgo+IAo+PiArc3RhdGljIGlubGluZSBib29sIHBtZF91c2VyX2FjY2Vzc2libGVfcGFn
-ZShwbWRfdCBwbWQpCj4+ICt7Cj4+ICsJcmV0dXJuIHBtZF9wcmVzZW50KHBtZCkgJiYgKHBtZF91
-c2VyKHBtZCl8fCBwbWRfdXNlcl9leGVjKHBtZCkpOwo+PiArfQo+IAo+IFRoYXQncyBmaW5lIGFz
-IHdlbGwgYXNzdW1pbmcgdGhhdCB0aGUgZnVuY3Rpb24gaXMgb25seSBjYWxsZWQgb24gdGhlCj4g
-c2V0X3BtZF9hdCgpIHBhdGggd2hlcmUgd2Uga25vdyB0aGF0IHRoZSBwbWQgd291bGQgYmUgYSBi
-bG9jayBtYXBwaW5nCj4gKGh1Z2UgcGFnZSkuIEkgdGhpbmsgdGhhdCdzIHRoZSBjYXNlIGZyb20g
-YSBxdWljayBsb29rIGF0IHRoZSBjdXJyZW50Cj4geDg2IGltcGxlbWVudGF0aW9uLgoKWWVhaCwg
-UFRDIG9ubHkgY2hlY2sgcG1kIGJsb2NrIG1hcHBpbmcoaHVnZSBwYWdlKSBhbmQgcHVkIGlzIHNp
-bWlsYXIuClRoZXNlIGNvZGUgbG9naWMgd2lsbCBiZSBpbmNsdWRlZCBpbiBWMi4KClRoYW5rcy4K
-Cj4gCj4+ICtzdGF0aWMgaW5saW5lIGJvb2wgcHVkX3VzZXJfYWNjZXNzaWJsZV9wYWdlKHB1ZF90
-IHB1ZCkKPj4gK3sKPj4gKwlyZXR1cm4gcHVkX3ByZXNlbnQocHVkKSAmJiBwdWRfdXNlcihwdWQp
-Owo+PiArfQo+IAo+IFNhbWUgaGVyZS4KPiAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+Hello,
+
+There is a problem with this patch on Big Endian machines, see below.
+
+On Sat, Mar 19, 2022 at 11:54:53AM +0800, guoren@kernel.org wrote:
+> From: Peter Zijlstra <peterz@infradead.org>
+> 
+> This is a simple, fair spinlock.  Specifically it doesn't have all the
+> subtle memory model dependencies that qspinlock has, which makes it more
+> suitable for simple systems as it is more likely to be correct.
+> 
+> [Palmer: commit text]
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> 
+> --
+> 
+> I have specifically not included Peter's SOB on this, as he sent his
+> original patch
+> <https://lore.kernel.org/lkml/YHbBBuVFNnI4kjj3@hirez.programming.kicks-ass.net/>
+> without one.
+> ---
+>  include/asm-generic/spinlock.h          | 11 +++-
+>  include/asm-generic/spinlock_types.h    | 15 +++++
+>  include/asm-generic/ticket-lock-types.h | 11 ++++
+>  include/asm-generic/ticket-lock.h       | 86 +++++++++++++++++++++++++
+>  4 files changed, 120 insertions(+), 3 deletions(-)
+>  create mode 100644 include/asm-generic/spinlock_types.h
+>  create mode 100644 include/asm-generic/ticket-lock-types.h
+>  create mode 100644 include/asm-generic/ticket-lock.h
+> 
+> diff --git a/include/asm-generic/ticket-lock.h b/include/asm-generic/ticket-lock.h
+> new file mode 100644
+> index 000000000000..59373de3e32a
+> --- /dev/null
+> +++ b/include/asm-generic/ticket-lock.h
+
+...
+
+> +static __always_inline void ticket_unlock(arch_spinlock_t *lock)
+> +{
+> +	u16 *ptr = (u16 *)lock + __is_defined(__BIG_ENDIAN);
+
+As mentioned, this patch series breaks SMP on OpenRISC.  I traced it to this
+line.  The above `__is_defined(__BIG_ENDIAN)`  does not return 1 as expected
+even on BIG_ENDIAN machines.  This works:
+
+
+diff --git a/include/asm-generic/ticket-lock.h b/include/asm-generic/ticket-lock.h
+index 59373de3e32a..52b5dc9ffdba 100644
+--- a/include/asm-generic/ticket-lock.h
++++ b/include/asm-generic/ticket-lock.h
+@@ -26,6 +26,7 @@
+ #define __ASM_GENERIC_TICKET_LOCK_H
+ 
+ #include <linux/atomic.h>
++#include <linux/kconfig.h>
+ #include <asm-generic/ticket-lock-types.h>
+ 
+ static __always_inline void ticket_lock(arch_spinlock_t *lock)
+@@ -51,7 +52,7 @@ static __always_inline bool ticket_trylock(arch_spinlock_t *lock)
+ 
+ static __always_inline void ticket_unlock(arch_spinlock_t *lock)
+ {
+-       u16 *ptr = (u16 *)lock + __is_defined(__BIG_ENDIAN);
++       u16 *ptr = (u16 *)lock + IS_ENABLED(CONFIG_CPU_BIG_ENDIAN);
+        u32 val = atomic_read(lock);
+ 
+        smp_store_release(ptr, (u16)val + 1);
+
+
+> +	u32 val = atomic_read(lock);
+> +
+> +	smp_store_release(ptr, (u16)val + 1);
+> +}
+> +
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
