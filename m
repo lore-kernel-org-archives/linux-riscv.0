@@ -4,79 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27347C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Mar 2022 00:31:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13380C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Mar 2022 01:26:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=r7Ew775SDC1OxYrn+0VP1poVtv4FW5uChSGoah7+ppc=; b=Ncq71T1KEnna/rDiuohI3fkbT8
-	Ur4aqOrolwTPRFedU9fwOIvJC+jcopOL2zsEdPZSPEIkjT3zj2i1cpVmuS9nmw7XBV4uhPHoddoQp
-	QFVx1ApOeON4Mc/Dx5HJo0v9Ueu0+26XyKhOz3vLpY1MGYuixmVjNXuYxXVQCKV+QcnriELwVlJYG
-	c7bKVjBTOMPCmd5zlA9WoYeLK8M/dCXG0t5SWzumV03p30KTYoQato7YWSLxnzwesLIH75ikaao/B
-	MCt8IrrArK2gy32BO9UvDEZATkPqg/tVqN9zd9fX8hndp1J8W+KspTVIus1Ga0iNzL01mZsOZ5aMF
-	/AipALFQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:References:
+	Mime-Version:Message-Id:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=LBeT6kJaxqsQl5kXUF5/OJeosuRKvT0bRqFyCn1p11g=; b=32CEu5sfKQ5/NYWWfKX2jMVa/I
+	PHXOMci/0uGHDas6v4KNujXtMqNM9WUnJyk6pFJMxsdOuqpcn7EzjV5CC71d83Qkj5bVNS8lmPc4O
+	D05yNmZxf9mdJo5pryMPekyvZxOv3zD3DPPC4a8MXWm4bPJvl5hK/2AJ/LRgkK+zKewvBUWbHsHxC
+	jqnNDuCkt11mtNKrF52w+R91n1voCSJF2NFhpwJykBgXfrEZI8Ddk3UD1F8GFG/g3PymEDaUm5nbw
+	RraDx0ZHKAnKU7LY3qM3kZznESAXjjXHRW6xNkxdt4wvPMbkykUxny1B7HUNW73E481MdSo0Ipxvg
+	b3OO8iHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nWSQh-009WDW-B6; Tue, 22 Mar 2022 00:31:19 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1nWTI2-009aul-TP; Tue, 22 Mar 2022 01:26:26 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nWSQd-009WCV-6n
- for linux-riscv@lists.infradead.org; Tue, 22 Mar 2022 00:31:17 +0000
-Received: by mail-pg1-x531.google.com with SMTP id o8so11468681pgf.9
- for <linux-riscv@lists.infradead.org>; Mon, 21 Mar 2022 17:31:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=XM+TgxL8NHgpPQL8bNe7xChjlBYLCqdsfBPXoOydz/4=;
- b=s0Fu9HWt/+zWpGu6X8LA5mlRPC2raz0O4wG31dfI7nUvlDL2JyI/6eG2SfoilMIQeP
- lIt+3IRsR7pVtUmx4lATqbzn2hxjETQo3aHqxVfmbngEo/nEHMLfbhL3zEk/MS59fuyx
- iNf5UU8g4GEL9+4zTuIjJk6sJLKPsR2hmCKFBsjbmWtSv23OOInMbj1tfjN/Y9cSD6vl
- ewtGEB6JK6D4eWQOgHc5GI4ANOdgFiLWQ6w4uKssd7XSNcal1uz8qb2ywUgvxkFXTXRi
- AhZUG7/LE82C1zlMGtoQkoWedXeMKAGXd5wTBgmQACiG7XvTixbV4b/tNffzdkNVfRch
- 2RAA==
+ id 1nWTHz-009auB-Da
+ for linux-riscv@lists.infradead.org; Tue, 22 Mar 2022 01:26:25 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id
+ 00721157ae682-2e6479e153dso26073347b3.10
+ for <linux-riscv@lists.infradead.org>; Mon, 21 Mar 2022 18:26:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=date:in-reply-to:message-id:mime-version:references:subject:from:to
+ :cc; bh=Zcfus1hr4rL4+XSk7ZeSMnR2CKTg6P0EKLP3F7c9nb8=;
+ b=i8x6bw63C8CnBwNWToBn1ejwhs1I5sT+Qt9rGn8CdzD2q5bI6ajCe3oOQ78/3FZGIs
+ qmXDGKtcf8+1xdLslk9ffOSueyPzSySWMSsk5Yq8Ly0Wd5PeXu0lxN1YBt84AS2iny0Q
+ A0fzfbjqIHB/yamvOOvVSOO6Nx+KjZdAEe39VS4o1cjeZId+2Y0ZnFkqrcKqcS99Xlrs
+ Y79QpCoATrBt4sBO6s619f0NsNV3loVUEwp9wTNb0aPu41sSSH+jhAKIOjE1W9ELy2l3
+ Adh+H7EmKMo9H0/LyE/2qeSEKHxHjskBU9fCJeJ1yYdC3WyJDhOm4FnonjpV0MsT/W3m
+ vaXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=XM+TgxL8NHgpPQL8bNe7xChjlBYLCqdsfBPXoOydz/4=;
- b=MB79zuBuTvFlu2BnnTN7ucj9iIIp4wM7kGq2GkEqFKIO3MUP4b7dF0I6kJtOYoJ94i
- pdpD/g+8nIUMyClYz89NdsFMwpnMZ4ahQhVJncUBqRur+opPeyrBoSSI0BTnjZ8HmUvo
- EolVzn8z3wga2wnBj1mkOny3quoHRBlviyt+NlglL/P42oiEkNg46xdZg5veJiVOq8Pv
- hhMVxXxCsWndqQZJrwPYVeu8QxkltNfyGqgRf+T066FVBSYFQHAK9wdaK1mWOGO7JPnD
- eMloC9skUXwqv+5kO7dSIA0o9u3wrbPDlslBOfCVRVMGVY3hdE7IM5kqKRTPlE7ZnZ6d
- teCA==
-X-Gm-Message-State: AOAM532SVDKithjZLIrWvwSQrOzZ3UMEmatosPtbH9fCsq88s4YBVo2p
- SrADwQmDXafX7QRS7PeAGv+a+scPQnpfUg==
-X-Google-Smtp-Source: ABdhPJxf8rrrAYGNrfInbsQntDvoeDQOh3KjS8VS/BtItwV2lILWmyam/HWUReGDbcNmSPGzvmDCwA==
-X-Received: by 2002:a63:1248:0:b0:381:54c9:1a1a with SMTP id
- 8-20020a631248000000b0038154c91a1amr19652958pgs.185.1647909074036; 
- Mon, 21 Mar 2022 17:31:14 -0700 (PDT)
-Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
- lp4-20020a17090b4a8400b001bedba2df04sm535823pjb.30.2022.03.21.17.31.12
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 21 Mar 2022 17:31:13 -0700 (PDT)
-Date: Mon, 21 Mar 2022 17:31:13 -0700 (PDT)
-X-Google-Original-Date: Mon, 21 Mar 2022 17:31:11 PDT (-0700)
-Subject: Re: [PATCH] MAINTAINERS: sifive: drop Yash Shah
-In-Reply-To: <ef965982-0c21-9cc7-1e5a-69726671ba1f@canonical.com>
-CC: linus.walleij@linaro.org, brgl@bgdev.pl, robh+dt@kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>, thierry.reding@gmail.com,
- u.kleine-koenig@pengutronix.de, lee.jones@linaro.org, 
- aou@eecs.berkeley.edu, p.zabel@pengutronix.de, sagar.kadam@sifive.com,
- linux-gpio@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: krzysztof.kozlowski@canonical.com
-Message-ID: <mhng-9e915473-a905-42ef-908d-2d84b08a3023@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+ h=x-gm-message-state:date:in-reply-to:message-id:mime-version
+ :references:subject:from:to:cc;
+ bh=Zcfus1hr4rL4+XSk7ZeSMnR2CKTg6P0EKLP3F7c9nb8=;
+ b=Rhc3wVeZ3BMXME6yPtLIOIrtVuTULdkSaa/9Qtk1K+fOzWo2NKZY8doNBYBQ+lzQaW
+ ycEX7zwXyiBP2UU6IfBDiVPONgrEkplV5U+J6vQpaSftU1K83OPnqagKuRbtfh2OG1Iv
+ eJosRGFcJzlcw8o6TmgmBuFCq9l34g6HRrbZ9PDGD9E8c5gTvQRgk8qSn+kDy2TnNOeX
+ M9biaft/TxhPo+jamNxEPJylcSGmi3+zWDYjzzZAurfOk/OWTTb0yV7lljlka8AdV01D
+ m1EO8a6gi7/X91Ttpd442umoOPiRXBkXzFGgN3a2haBHzhUS6uO9lidws4IvDjgezFPF
+ vrpQ==
+X-Gm-Message-State: AOAM5316HqOpBhnzO4haTrOcpG8wByHWJ94Vq+9G4XWtGmkkQrY7Z5/9
+ cNdmzlEQMYm6QdgVjF0vqWgZhVaRrWA8
+X-Google-Smtp-Source: ABdhPJxWQf3SqgA1tT/yCHPjgY7eRo1TW3y0rLfi2WTbwvt3o1LIklSxiCpYdgBDhAGwzIqiHVsde/KU8+bJ
+X-Received: from maskray1.svl.corp.google.com
+ ([2620:15c:2ce:200:b489:622a:ba50:950a])
+ (user=maskray job=sendgmr) by 2002:a25:dd87:0:b0:628:e822:bd with SMTP id
+ u129-20020a25dd87000000b00628e82200bdmr24014508ybg.505.1647912380832; Mon, 21
+ Mar 2022 18:26:20 -0700 (PDT)
+Date: Mon, 21 Mar 2022 18:26:17 -0700
+In-Reply-To: <mhng-7fe2c5d9-a8e6-4123-ac5c-0c9190792520@palmer-ri-x1c9>
+Message-Id: <20220322012617.3517297-1-maskray@google.com>
+Mime-Version: 1.0
+References: <mhng-7fe2c5d9-a8e6-4123-ac5c-0c9190792520@palmer-ri-x1c9>
+Subject: [PATCH v2] riscv module: remove (NOLOAD)
+From: Fangrui Song <maskray@google.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
+Cc: Nathan Chancellor <nathan@kernel.org>, linux-kernel@vger.kernel.org,
+ llvm@lists.linux.dev, Fangrui Song <maskray@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220321_173115_273314_41C5964D 
-X-CRM114-Status: GOOD (  17.96  )
+X-CRM114-CacheID: sfid-20220321_182623_511094_8093D4A9 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,101 +82,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 10 Mar 2022 23:33:54 PST (-0800), krzysztof.kozlowski@canonical.com wrote:
-> On 11/03/2022 04:14, Palmer Dabbelt wrote:
->> On Mon, 14 Feb 2022 00:23:49 PST (-0800), krzysztof.kozlowski@canonical.com wrote:
->>> Emails to Yash Shah bounce with "The email account that you tried to
->>> reach does not exist.", so drop him from all maintainer entries.
->>>
->>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
->>> ---
->>>  Documentation/devicetree/bindings/gpio/sifive,gpio.yaml     | 1 -
->>>  Documentation/devicetree/bindings/pwm/pwm-sifive.yaml       | 1 -
->>>  .../devicetree/bindings/riscv/sifive-l2-cache.yaml          | 1 -
->>>  MAINTAINERS                                                 | 6 ------
->>>  4 files changed, 9 deletions(-)
->>>
->>> diff --git a/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml b/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
->>> index e04349567eeb..427c5873f96a 100644
->>> --- a/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
->>> +++ b/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
->>> @@ -7,7 +7,6 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
->>>  title: SiFive GPIO controller
->>>
->>>  maintainers:
->>> -  - Yash Shah <yash.shah@sifive.com>
->>>    - Paul Walmsley <paul.walmsley@sifive.com>
->>>
->>>  properties:
->>> diff --git a/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml b/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml
->>> index 676b2160bada..605c1766dba8 100644
->>> --- a/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml
->>> +++ b/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml
->>> @@ -8,7 +8,6 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
->>>  title: SiFive PWM controller
->>>
->>>  maintainers:
->>> -  - Yash Shah <yash.shah@sifive.com>
->>>    - Sagar Kadam <sagar.kadam@sifive.com>
->>>    - Paul Walmsley <paul.walmsley@sifive.com>
->>>
->>> diff --git a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
->>> index 2b1f91603897..e2d330bd4608 100644
->>> --- a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
->>> +++ b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
->>> @@ -9,7 +9,6 @@ title: SiFive L2 Cache Controller
->>>
->>>  maintainers:
->>>    - Sagar Kadam <sagar.kadam@sifive.com>
->>> -  - Yash Shah <yash.shah@sifive.com>
->>>    - Paul Walmsley  <paul.walmsley@sifive.com>
->>>
->>>  description:
->>> diff --git a/MAINTAINERS b/MAINTAINERS
->>> index ebf7a75a6bec..87eeac970ca2 100644
->>> --- a/MAINTAINERS
->>> +++ b/MAINTAINERS
->>> @@ -7090,12 +7090,6 @@ L:	linux-edac@vger.kernel.org
->>>  S:	Maintained
->>>  F:	drivers/edac/sb_edac.c
->>>
->>> -EDAC-SIFIVE
->>> -M:	Yash Shah <yash.shah@sifive.com>
->>> -L:	linux-edac@vger.kernel.org
->>> -S:	Supported
->>> -F:	drivers/edac/sifive_edac.c
->>
->> Looks like that leaves this unmaintained?  I'm happy to volunteer, I've
->> got the boards lying around somewhere and sort of feel on the hook to
->> keep this stuff alive given that whatever's in there is partially my
->> fault.  That said, I'm happy to stay out of it so if it's OK to have
->> otherwise unmaintained EDAC drivers that works for me so
->>
->> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
->
-> The patch was already merged. EDAC SiFive is now covered by generic EDAC
-> and SIFIVE entries. Feel free to restore the entry with yourself.
+On ELF, (NOLOAD) sets the section type to SHT_NOBITS[1]. It is conceptually
+inappropriate for .plt, .got, and .got.plt sections which are always
+SHT_PROGBITS.
 
-Sorry for being vague there, I'd seen it get merged.
+In GNU ld, if PLT entries are needed, .plt will be SHT_PROGBITS anyway
+and (NOLOAD) will be essentially ignored. In ld.lld, since
+https://reviews.llvm.org/D118840 ("[ELF] Support (TYPE=<value>) to
+customize the output section type"), ld.lld will report a `section type
+mismatch` error (later changed to a warning). Just remove (NOLOAD) to
+fix the warning.
 
-If having it covered via some generic MAINTAINERS entries is OK for the 
-EDAC folks then that's fine with me, I just don't want to get into a 
-spot where this driver is going to get removed because nobody's more 
-explicitly maintaining it.  These SiFive boards are still the only ones 
-that run a normal-smelling upstream Linux (at least until we can get the 
-D1 issues sorted out, which is hopefully soon) and I'd hate to start 
-dropping stuff if we don't need to.
+[1] https://lld.llvm.org/ELF/linker_script.html As of today, "The
+section should be marked as not loadable" on
+https://sourceware.org/binutils/docs/ld/Output-Section-Type.html is
+outdated for ELF.
 
-So if it's fine for the EDAC forks to have things in the state the are 
-after this patch was merged, that's great for me.
+Link: https://github.com/ClangBuiltLinux/linux/issues/1597
+Fixes: ab1ef68e5401 ("RISC-V: Add sections of PLT and GOT for kernel module")
+Reported-by: Nathan Chancellor <nathan@kernel.org>
+Signed-off-by: Fangrui Song <maskray@google.com>
+---
+ arch/riscv/include/asm/module.lds.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-> Best regards,
-> Krzysztof
+diff --git a/arch/riscv/include/asm/module.lds.h b/arch/riscv/include/asm/module.lds.h
+index 4254ff2ff049..1075beae1ac6 100644
+--- a/arch/riscv/include/asm/module.lds.h
++++ b/arch/riscv/include/asm/module.lds.h
+@@ -2,8 +2,8 @@
+ /* Copyright (C) 2017 Andes Technology Corporation */
+ #ifdef CONFIG_MODULE_SECTIONS
+ SECTIONS {
+-	.plt (NOLOAD) : { BYTE(0) }
+-	.got (NOLOAD) : { BYTE(0) }
+-	.got.plt (NOLOAD) : { BYTE(0) }
++	.plt : { BYTE(0) }
++	.got : { BYTE(0) }
++	.got.plt : { BYTE(0) }
+ }
+ #endif
+-- 
+2.35.1.894.gb6a874cedc-goog
+
 
 _______________________________________________
 linux-riscv mailing list
