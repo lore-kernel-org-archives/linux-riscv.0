@@ -4,79 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD243C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Mar 2022 17:22:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A0EC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Mar 2022 17:35:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+8xijGcm+PeCGBLy5sX9M7l2MeqscKL1qgS1s9cjnGs=; b=qWZdkf6jbU1PTY
-	/bCOIUKx0YJJhIO8e79Bi1aJyZVnE34dC7SIgBDe9X2EJ8ZVQcjq5MfuN2iFYUNpoJV3Wu1XXQD/L
-	F5ILUJ04y1om48w7FcVDj/UFdrlAsHiYFXhhXKBxfKqnlkdwmgEUzuNAZH3A7XLJeFFkt28Mjvwwr
-	l+U2VKO/0rPpGiNDeWPGrbMqikTvRo/GBmdqHg/6mOD4Ssem1FwZfaillAt7PAqxPViOLyFO9MHXE
-	Q92q0S/yB2vAPGV9T1kmoMYyAyIIU3dCm9n0TWxoyLAwDOQpUXpDQkOE+QY8AD1/RYXNVez3Y3Nm0
-	Pr16xkjbjK+p4BmFeLNA==;
+	List-Owner; bh=5fHYgpi+sbUebaLcVq/Cc1OsAERrhZtkRmOvQgEqmmU=; b=vL+Sisw2QhsDGq
+	Q65CWISvNw+nltH2rlqPxivXVkDJi+mwVxmr9zXVRd9hXohG6QoQJT+t1i6kIMpe56+C/Q2sJK/dS
+	p+tlNSgXw7qmVpuOxfuvBkSf4m0IB9DdwA07syo8JopyLOpDYJIZGfykWF9l927eULnBcg38YiGOY
+	TnSvcwtQJaL1Z1K4pjSP4IqslKsoF+rU+0WR7ML7BV97hRlVi98xrS1yDUblXFKqXJlW8A7F2Ct8J
+	9fh2le+9JBA+HRa7xqYsxLEXpn8qa7gyiBsSW6xr6/7K+u6mqfWAD0TmX4OpXUGrbJlA/Nalpv8tX
+	Me8dxQGS5x9xvOtXpDgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nX4gH-00EQ2q-Uw; Wed, 23 Mar 2022 17:21:58 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1nX4sy-00ETJm-QZ; Wed, 23 Mar 2022 17:35:04 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nX4gE-00EQ1P-Pr
- for linux-riscv@lists.infradead.org; Wed, 23 Mar 2022 17:21:56 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id w4so3083735wrg.12
- for <linux-riscv@lists.infradead.org>; Wed, 23 Mar 2022 10:21:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=conchuod-ie.20210112.gappssmtp.com; s=20210112;
- h=message-id:date:mime-version:user-agent:subject:content-language:to
- :cc:references:from:in-reply-to:content-transfer-encoding;
- bh=6sXiDJvv69n8sHq+JRwL0P1DmaR1Tz5cYXPQWGXC/Qo=;
- b=1g7KaD85BOYVRTcTLkv82FEI1SnFXurp/HCBpDNBoifcWmL2FLh94HOkNvc+yM5TYk
- HzIxMTbi1Lo41Av8/q50o2zOggWUXcv1owiCnBBRVeUtxuTgaBHylbAhoay1NGLhY+mF
- J+U+kqC2lkNKQ0KKTpzB328D/LBABX+dLfuyeR69bix7E3f+eMtS60wTRBDNtWcqFhwY
- vUoEgoleh0sfr33THUkiwo2gGYYznwdMAxcIkDvLjYvvV5XJas1vIt/FRfy9k8v1HBCE
- uepBzEQr/9nuiC4jt6H4JjqzfkDyVN6ame6htBFrJ9+VrxZADd0lYQD8AoT0MiQgHTLj
- jN2A==
+ id 1nX4sn-00ETDm-Qw
+ for linux-riscv@lists.infradead.org; Wed, 23 Mar 2022 17:34:55 +0000
+Received: by mail-ej1-x630.google.com with SMTP id pv16so4388362ejb.0
+ for <linux-riscv@lists.infradead.org>; Wed, 23 Mar 2022 10:34:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=soleen.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=sSwzHlwSz23lvNtLo13bFAIrxFRCXX53K/CMQWwbRmc=;
+ b=eho+7tpnDRTL+44l04LLUo+wv1fUtZvszL0rupuFXL6S5K4e00IplNblrGZ2/VchBC
+ gAMGRJMGn7oXIS+0Yoye69b87Qa71Wn1Yzl+EcrdS3AUHzHmmj1cfTjhvNYalkB8vw3h
+ 6Pors1dQZGvTMTBn10VggfVLiF1jcfUjH9O/iDrPsa11zUyp46c9DPy735KBLmK0IEfL
+ b13VH8xR90mm0/t93esJsccRYWVw9gVImdAQH+zw632De5CmgjTeLPtzVRD++RMILX3X
+ dkWE4Wqg2XTF0Q4DrBzQSBuIrMJjjuugqAcpe1RhM6drRKWw/1WyP53oowoLbuAw8sQG
+ viHw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:cc:references:from:in-reply-to
- :content-transfer-encoding;
- bh=6sXiDJvv69n8sHq+JRwL0P1DmaR1Tz5cYXPQWGXC/Qo=;
- b=dsRb2rkuIWXUhnHUCXaJc51zcohkXrWNqDvYetW1NqtHaCNY3ujfMRQhW+GIrhzezD
- BLU4UlrhTlelutHMyU3obzIUKaktsELxoWQumX8ZSe/rpjTuXiAoW4Lowyx79F+9Aq10
- ZOc8KCOrAE+qxNLg2C6qrHt01/V3F/DpjrpkGiEbGiR1d/wddAsBCCIQjP7GmRxNCWyd
- vJMccjfgVjt1n7ZOnST/V19uWSs1d+Zo2Mi9EKv7y4jxWUhwmgdxEqTGnDtXIomVshgF
- e9CDMDmTx+g3Pmkt/is386hRi/KcWSmQSZIY4EwtPV/IcWAzEMMa9oxQ3Sp0SznTYn3u
- U+MA==
-X-Gm-Message-State: AOAM5330sU0sGVoJC93eOjX9nvhOihlp6ivtOJu0exQPFadHd7s9xdPk
- Y5YYSjs6lnitFNXkgKPXxIE4oA==
-X-Google-Smtp-Source: ABdhPJxBjkif7aQVExZrGrjt/c8OcfPCG2t36WRW88q14eWB1N0M36x34ibCL3UHx+Bv6adSvS7GPQ==
-X-Received: by 2002:a05:6000:15c2:b0:205:922e:3aa2 with SMTP id
- y2-20020a05600015c200b00205922e3aa2mr436873wry.411.1648056112963; 
- Wed, 23 Mar 2022 10:21:52 -0700 (PDT)
-Received: from [192.168.2.222] ([109.76.4.19])
- by smtp.gmail.com with ESMTPSA id
- u11-20020a5d6acb000000b002058148822bsm487374wrw.63.2022.03.23.10.21.52
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Wed, 23 Mar 2022 10:21:52 -0700 (PDT)
-Message-ID: <329d26b2-14d1-d8c7-ccbd-ddbb0c011370@conchuod.ie>
-Date: Wed, 23 Mar 2022 17:21:51 +0000
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=sSwzHlwSz23lvNtLo13bFAIrxFRCXX53K/CMQWwbRmc=;
+ b=JRhI7ca+06yZeSl5anuMj38Ye13XavMa9sxLCtDnfjQFW9glesDg83hT2aeb/9apFv
+ m9hTJBMo0OJHfKqNa2vgmGTVi9ZVSYRmyy4vPefasP0i9dtC8kBpyebKsouOArQAExVE
+ 6ufUOugVpyab8ZlQPBngfKSVqtVldBLSjcIju12Xt9mMPwmDbAQiJHYC8DPBOJVd2wWX
+ CpJEIxNvl8673yGybkgomzDl6u2zt+IxxxmhICgggT2nklTD2evno/ofOFcSNeW7lg95
+ HevtF2A38UawMch48nwNGsck2NF/GuqUF+2SkwYLxUEVt6gEfaV5tRqKm8Bmids9gGMV
+ KFJA==
+X-Gm-Message-State: AOAM531bCcWi89g2GnCHvdgc7qj24siRHY+gxHXFlUGd8wFmQ+KNcntc
+ oUxqvuZNb0sJMrasztlnWUqVHhUxB9ll2McUvgFY8A==
+X-Google-Smtp-Source: ABdhPJwz8c++mc+m2Cqc/41NOOuHOiA6+RTyfPiOBMGZtngJZJD0Xv8B5WGZ85z3FwLIjo9C7ItQfgASkZAORNo6RGw=
+X-Received: by 2002:a17:906:4a96:b0:6c5:5ea9:5366 with SMTP id
+ x22-20020a1709064a9600b006c55ea95366mr1199621eju.473.1648056891284; Wed, 23
+ Mar 2022 10:34:51 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.5.0
-Subject: Re: [PATCH] RISC-V-fixes: relocate DTB if it's outside memory region
-Content-Language: en-US
-To: Nick Kossifidis <mick@ics.forth.gr>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com
-References: <20220322132839.3653682-1-mick@ics.forth.gr>
-From: Conor Dooley <mail@conchuod.ie>
-In-Reply-To: <20220322132839.3653682-1-mick@ics.forth.gr>
+References: <20220322144447.3563146-1-tongtiangen@huawei.com>
+ <20220322144447.3563146-2-tongtiangen@huawei.com>
+In-Reply-To: <20220322144447.3563146-2-tongtiangen@huawei.com>
+From: Pasha Tatashin <pasha.tatashin@soleen.com>
+Date: Wed, 23 Mar 2022 13:34:14 -0400
+Message-ID: <CA+CK2bAPiMbdv441+B+_4aGyPeAgyyaZ=n5ni3WgfyDP3bEADA@mail.gmail.com>
+Subject: Re: [PATCH -next v2 1/4] mm: page_table_check: move
+ pxx_user_accessible_page into x86
+To: Tong Tiangen <tongtiangen@huawei.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, 
+ Andrew Morton <akpm@linux-foundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ LKML <linux-kernel@vger.kernel.org>, linux-mm <linux-mm@kvack.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220323_102154_944928_1E319AAF 
-X-CRM114-Status: GOOD (  25.19  )
+X-CRM114-CacheID: sfid-20220323_103454_038871_BF1ED82C 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,65 +90,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 22/03/2022 13:28, Nick Kossifidis wrote:
-> In case the DTB provided by the bootloader/BootROM is before the kernel
-> image or outside /memory, we won't be able to access it through the
-> linear mapping, and get a segfault on setup_arch(). Currently OpenSBI
-> relocates DTB but that's not always the case (e.g. if FW_JUMP_FDT_ADDR
-> is not specified), and it's also not the most portable approach since
-> the default FW_JUMP_FDT_ADDR of the generic platform relocates the DTB
-> at a specific offset that may not be available. To avoid this situation
-> copy DTB so that it's visible through the linear mapping.
+On Tue, Mar 22, 2022 at 10:25 AM Tong Tiangen <tongtiangen@huawei.com> wrote:
+>
+> From: Kefeng Wang <wangkefeng.wang@huawei.com>
+>
+> The pxx_user_accessible_page() check the PTE bit, it's
+> architecture-specific code, move them into x86's pgtable.h,
+> also add default PMD/PUD_PAGE_SIZE definition, it's prepare
+> for support page table check feature on new architecture.
+>
+> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 
-Ran into the same issue & have been carrying a hack for it, this looks 
-*a lot* cleaner. I'll dig out the offending configuration tomorrow and 
-try to give you a tested-by.
-Thanks,
-Conor.
+Acked-by: Pasha Tatashin <pasha.tatashin@soleen.com>
 
-> 
-> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
-> ---
->   arch/riscv/mm/init.c | 21 +++++++++++++++++++--
->   1 file changed, 19 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 0d588032d..697a9aed4 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -206,8 +206,25 @@ static void __init setup_bootmem(void)
->   	 * early_init_fdt_reserve_self() since __pa() does
->   	 * not work for DTB pointers that are fixmap addresses
->   	 */
-> -	if (!IS_ENABLED(CONFIG_BUILTIN_DTB))
-> -		memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
-> +	if (!IS_ENABLED(CONFIG_BUILTIN_DTB)) {
-> +		/*
-> +		 * In case the DTB is not located in a memory region we won't
-> +		 * be able to locate it later on via the linear mapping and
-> +		 * get a segfault when accessing it via __va(dtb_early_pa).
-> +		 * To avoid this situation copy DTB to a memory region.
-> +		 * Note that memblock_phys_alloc will also reserve DTB region.
-> +		 */
-> +		if (!memblock_is_memory(dtb_early_pa)) {
-> +			size_t fdt_size = fdt_totalsize(dtb_early_va);
-> +			phys_addr_t new_dtb_early_pa = memblock_phys_alloc(fdt_size, PAGE_SIZE);
-> +			void *new_dtb_early_va = early_memremap(new_dtb_early_pa, fdt_size);
-> +
-> +			memcpy(new_dtb_early_va, dtb_early_va, fdt_size);
-> +			early_memunmap(new_dtb_early_va, fdt_size);
-> +			_dtb_early_pa = new_dtb_early_pa;
-> +		} else
-> +			memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
-> +	}
->   
->   	early_init_fdt_scan_reserved_mem();
->   	dma_contiguous_reserve(dma32_phys_limit);
+Thank you for this work!
 
 _______________________________________________
 linux-riscv mailing list
