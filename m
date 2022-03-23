@@ -4,70 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F318CC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Mar 2022 16:34:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37175C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Mar 2022 16:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OxyiJbWQpBefuA9JHLHmUkT0auZkn1vI0kZDmpQB3p8=; b=2qwZ+um1xIUWQA
-	6nVvB5lsttf3hKjL3QeCbDAZfLfKRwgNLxm4kuI4dm2/RG0WiadikEeRNwK+NR2LvzdvS4RexJ3Wu
-	t58sXzonmDgBpA9CuinXo0hJGySNc2tKqwZX+KDFdUPMJQXCF765EfQVfTLLUhwM3eY0KkbPKjKS/
-	rjGlhbEfOQ+4rn2pvnFrhXsPWDVqTPWhuB3vvYfKU8B/gzIf08YBTX7DlNH6t6YHHcnkEU220H9t6
-	rukBZK5NDtAHdj6gP2HRYwZFprEfdRTip+2g865RCEJN+8bGeO8Vdf5DqVQM2QBQIjqpEzFVV3ruu
-	070IwicARECGdq8t2IeA==;
+	List-Owner; bh=UTc+HKkUOEn/szH3iww4ZgEQn9jRZoN7FVxBsIojIFQ=; b=ii66JSBknz+NhZ
+	F29V4oBwCRw7bBiJTBdzKgnF4NEADlcHDyySRXssupIdXwKwZuGycuTG8YfaX3cERT7C8IekKq0rs
+	14mzNHNLQPQqSIdbgnD8yEpIL14d+3pFc6zlbRicIFGn3DwCmr8N79s5hrATOupOymn6ud06M1hiu
+	RfCgx2NP1UTwYB1IoC+5WGZ5w4nWn+TAfYlY4c2bZRhAOwxl/sGSF6Pd7+D2eDmLL6TpeSOWCh2zV
+	ow1QEKFokafxCWtvps/8ueKoJIBOtEmGMfB9B+yPzMOZvXL5G6rmdo8hKFPx62GJgZJxfg9AfPrHj
+	axCT5YD4prkYRY7wNdMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nX3wS-00EGax-8s; Wed, 23 Mar 2022 16:34:36 +0000
-Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
+	id 1nX4Cl-00EIxh-IQ; Wed, 23 Mar 2022 16:51:27 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nX3wP-00EGZw-TO
- for linux-riscv@lists.infradead.org; Wed, 23 Mar 2022 16:34:35 +0000
-Received: by mail-yw1-x1134.google.com with SMTP id
- 00721157ae682-2e5e176e1b6so23395027b3.13
- for <linux-riscv@lists.infradead.org>; Wed, 23 Mar 2022 09:34:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=NsarPkHuGeFkbQel0o4+0RcyfI8xstErqBIS8KS/Ntw=;
- b=Ie9SURJ+WwJExRiIyK+Wr/0sZ31m21FhWNtFkjAiPuYrXfg/1kGtv3rrpUc8L/PpQO
- 9mhZWwld3idegmmwzni7iu0rGwkANjHHgWT9El38MUc2WK4v6I7h4jvkNiFS4FcaAgty
- CSgjTPJCYcrLiZbJsZhFM1DKvWB5ldTAiwUD0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=NsarPkHuGeFkbQel0o4+0RcyfI8xstErqBIS8KS/Ntw=;
- b=LIm9p7F8PxKXgZDE6Hm5wxAHLwcKykng3Kq1sgb16mhylkfNukaXobwu3FZFZGYSjA
- VfiguBESXEiMq+W9Cltc8HhPkhLTRQKHPNubeXuXYLdzLxGXF2AwXXy4VHMk0gLOgJyf
- XFoyEu8zkV1VSUW/4t8WhznD44TqSZAsVWmOWSKaf/FX38RILm5T/ebnsoXBj6+/AqHO
- akuffseZOrSNGGWKDP9Zb6GNbh1ds0LhNoEdb1uMB9Oc5QHrIIfnkZ+1jLzzpQINnXv5
- 2xc7O0W0mGgMETY4CZlutqnCnVy6AThqO5ahrOhBkuBUMTnLEx8HB7R9Ar6U3c/z232P
- jrAg==
-X-Gm-Message-State: AOAM533asrrLq32N+d/vdcpEjKobvGIOKikDdfHIXLdtP6pE/vWCs9kK
- llxNgUqjE88CvS99fIVLJlH4DOwrZJnZtITVcYyj
-X-Google-Smtp-Source: ABdhPJxaM+MZkmiR0g3HVuavrnd/W8psTlbP613L1+wgEjxxagwXshb/UYlewlXEuonm84qo2hfaDwDCG+8xangS4T0=
-X-Received: by 2002:a81:19d7:0:b0:2e3:aa2:2b0e with SMTP id
- 206-20020a8119d7000000b002e30aa22b0emr716227ywz.249.1648053272611; Wed, 23
- Mar 2022 09:34:32 -0700 (PDT)
+ id 1nX4Ci-00EIxD-RI
+ for linux-riscv@lists.infradead.org; Wed, 23 Mar 2022 16:51:26 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
+ helo=diego.localnet)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1nX4Cb-000381-K5; Wed, 23 Mar 2022 17:51:17 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, robh+dt@kernel.org, wefu@redhat.com,
+ liush@allwinnertech.com, guoren@kernel.org, atishp@atishpatra.org,
+ anup@brainfault.org, drew@beagleboard.org, Christoph Hellwig <hch@lst.de>,
+ Arnd Bergmann <arnd@arndb.de>, wens@csie.org, maxime@cerno.tech,
+ gfavor@ventanamicro.com, andrea.mondelli@huawei.com, behrensj@mit.edu,
+ xinhaoqu@huawei.com, huffman@cadence.com, mick@ics.forth.gr,
+ allen.baum@esperantotech.com, jscheid@ventanamicro.com, rtrauben@gmail.com,
+ samuel@sholland.org, cmuellner@linux.com, philipp.tomsich@vrull.eu
+Subject: Re: [PATCH v6 08/14] riscv: move boot alternatives to a slightly
+ earlier position
+Date: Wed, 23 Mar 2022 17:51:16 +0100
+Message-ID: <2695327.BEx9A2HvPv@diego>
+In-Reply-To: <mhng-3d591628-2c87-40c7-91e4-407ad313a4aa@palmer-ri-x1c9>
+References: <mhng-3d591628-2c87-40c7-91e4-407ad313a4aa@palmer-ri-x1c9>
 MIME-Version: 1.0
-References: <20220323090025.546808-1-apatel@ventanamicro.com>
-In-Reply-To: <20220323090025.546808-1-apatel@ventanamicro.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Wed, 23 Mar 2022 09:34:22 -0700
-Message-ID: <CAOnJCUJnc3VJq3PRn+wTMTbf2N5VdJs_uPjRyWTs-EKuC_190w@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: Enable perf events by default
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel <anup@brainfault.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220323_093434_025036_98F05D12 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20220323_095124_914136_9A4845FF 
+X-CRM114-Status: GOOD (  28.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,56 +63,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 23, 2022 at 2:00 AM Anup Patel <apatel@ventanamicro.com> wrote:
->
-> Let us enable perf events by default in RV32 and RV64 defconfigs
-> so that we can use RISC-V PMU drivers on various RISC-V platforms.
->
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  arch/riscv/configs/defconfig      | 1 +
->  arch/riscv/configs/rv32_defconfig | 1 +
->  2 files changed, 2 insertions(+)
->
-> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> index f120fcc43d0a..57aaedc7cf74 100644
-> --- a/arch/riscv/configs/defconfig
-> +++ b/arch/riscv/configs/defconfig
-> @@ -15,6 +15,7 @@ CONFIG_CHECKPOINT_RESTORE=y
->  CONFIG_BLK_DEV_INITRD=y
->  CONFIG_EXPERT=y
->  # CONFIG_SYSFS_SYSCALL is not set
-> +CONFIG_PERF_EVENTS=y
->  CONFIG_SOC_MICROCHIP_POLARFIRE=y
->  CONFIG_SOC_SIFIVE=y
->  CONFIG_SOC_VIRT=y
-> diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-> index 8b56a7f1eb06..21d422e740d5 100644
-> --- a/arch/riscv/configs/rv32_defconfig
-> +++ b/arch/riscv/configs/rv32_defconfig
-> @@ -15,6 +15,7 @@ CONFIG_CHECKPOINT_RESTORE=y
->  CONFIG_BLK_DEV_INITRD=y
->  CONFIG_EXPERT=y
->  # CONFIG_SYSFS_SYSCALL is not set
-> +CONFIG_PERF_EVENTS=y
->  CONFIG_SOC_SIFIVE=y
->  CONFIG_SOC_VIRT=y
->  CONFIG_ARCH_RV32I=y
-> --
-> 2.25.1
->
+Am Dienstag, 8. M=E4rz 2022, 01:47:23 CET schrieb Palmer Dabbelt:
+> On Wed, 09 Feb 2022 04:37:54 PST (-0800), heiko@sntech.de wrote:
+> > Move the application of boot alternatives to soc_early_init().
+> > This allows to catch more generic cases of code needing patches
+> > than doing it in smp_prepare_boot_cpu() and also makes it actually
+> > work if CONFIG_SMP is disabled for whatever reason.
+> >
+> > The position is chosen mainly as it is before the actual soc early
+> > init runs but also already allows accessing the devicetree
+> > via fdt_* functions.
+> =
 
-I think it is better to enable perf events by adding CONFIG_PROFILING
-to the defconfig similar to other ISAs.
+> I think this is OK, but it warrants testing on the K210 -- specifically =
 
--- 
-Regards,
-Atish
+> the system is in an odd state before soc_early_init (IIRC some of memory =
+
+> doesn't work right) so I'm always a bit worried about calling stuff =
+
+> there.  I don't have a K210 (or at least a working one), so I'm not =
+
+> going to be able to test it.
+
+just to finalize this partial thread, v7 and onward doesn't move
+the alternative-application this early but instead actually behind
+fill_hwcaps to be able to read available extensions.
+
+So nothing to do for this - for people reading along, and me if
+I don't remember this in the future ;-)
+
+> > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> > ---
+> >  arch/riscv/kernel/head.S    | 2 ++
+> >  arch/riscv/kernel/smpboot.c | 2 --
+> >  2 files changed, 2 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+> > index 2363b43312fc..0e1bb97f9749 100644
+> > --- a/arch/riscv/kernel/head.S
+> > +++ b/arch/riscv/kernel/head.S
+> > @@ -10,6 +10,7 @@
+> >  #include <asm/thread_info.h>
+> >  #include <asm/page.h>
+> >  #include <asm/pgtable.h>
+> > +#include <asm/alternative.h>
+> >  #include <asm/csr.h>
+> >  #include <asm/cpu_ops_sbi.h>
+> >  #include <asm/hwcap.h>
+> > @@ -341,6 +342,7 @@ clear_bss_done:
+> >  	call kasan_early_init
+> >  #endif
+> >  	/* Start the kernel */
+> > +	call apply_boot_alternatives
+> >  	call soc_early_init
+> >  	tail start_kernel
+> >
+> > diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+> > index a6d13dca1403..f1e4948a4b52 100644
+> > --- a/arch/riscv/kernel/smpboot.c
+> > +++ b/arch/riscv/kernel/smpboot.c
+> > @@ -32,7 +32,6 @@
+> >  #include <asm/sections.h>
+> >  #include <asm/sbi.h>
+> >  #include <asm/smp.h>
+> > -#include <asm/alternative.h>
+> >
+> >  #include "head.h"
+> >
+> > @@ -41,7 +40,6 @@ static DECLARE_COMPLETION(cpu_running);
+> >  void __init smp_prepare_boot_cpu(void)
+> >  {
+> >  	init_cpu_topology();
+> > -	apply_boot_alternatives();
+> >  }
+> >
+> >  void __init smp_prepare_cpus(unsigned int max_cpus)
+> =
+
+
+
+
+
 
 _______________________________________________
 linux-riscv mailing list
