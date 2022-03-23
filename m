@@ -4,72 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1205DC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Mar 2022 16:25:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA639C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Mar 2022 16:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zmLB0ubF4UKrB5ppN5d6nmvuAT8kK3ibBa435ea9EVc=; b=QI/YvAbi/1INlv
-	RlgXinXJwfqWAd1te+y7Us6LRg2bKt98X7aVVDSwf/fzry6x/e6Nepdu4+aKGtkXkmaGyYRVmo+CB
-	r2vbyPWZSkoyVHvMiHrJZDROXkszpeSNvppiuorYUnsYHfRSJcoGh0/bhdeEZftQvPSd/Sq8fhdrG
-	yXdSisKl9eMyiCrpue7exRseymvCk5QJJ/H401WsgTSWOZg4p1UgBHXSBps4iZqLTCIul9bO6OkCU
-	YUYZtu6SNl7kEy15EozZy9snoDWH7J02CSnNZ1icZBoOBMVdGgqgPRvQ5lzijledg8bqHnSLTTJVu
-	DiuzufnQuXUO4T3nysBA==;
+	List-Owner; bh=Rpgv6SAjURSNEL13Dz48rqLPzWd+RHiZpHxQ4dyt9Cc=; b=pMItpxNU/HFOOE
+	CU2edQLGzPvyOl3sFBVbW23X62zojwwy17Rqy07N3ZeNxA1bIn/yIIbwmIMg5ni2lvSvmSraFX6vH
+	FmXEnAXBaDs/1RZm+vRiPXtEngPF1jbOG/P08jPi4mWSBSnQlTyz2ml0rybK+TdNbZ2xRfIn2Eh2H
+	ifz/YDRgLIx/IpTruhOSNNVPkVcIRcUaWD+reOiF/ekSU+YrCKK64LcZnPH1qs6+ywh0HxVU1JBeE
+	jpvOlbihMzndNOyrsk94n6Lvd7ODLth9fIO2uIZUfATTQh7QfdDZIUYTp6y7bF3EfefAhQ5zJtFsf
+	K3Kk8tdOxur59Kv6KNvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nX3ng-00EEnT-1D; Wed, 23 Mar 2022 16:25:32 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1nX3q6-00EFAR-Cq; Wed, 23 Mar 2022 16:28:02 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nX3nc-00EEma-Fc
- for linux-riscv@lists.infradead.org; Wed, 23 Mar 2022 16:25:30 +0000
-Received: by mail-wr1-x434.google.com with SMTP id a1so2864292wrh.10
- for <linux-riscv@lists.infradead.org>; Wed, 23 Mar 2022 09:25:24 -0700 (PDT)
+ id 1nX3q2-00EF9S-KW
+ for linux-riscv@lists.infradead.org; Wed, 23 Mar 2022 16:28:00 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id
+ mr5-20020a17090b238500b001c67366ae93so6889281pjb.4
+ for <linux-riscv@lists.infradead.org>; Wed, 23 Mar 2022 09:27:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=Zux2DSMFds7jNsOmIxre0BZd99zkEKB0BbI/vQzRfsM=;
- b=ZL6SIc8QgB4vo2AaILu7W03eB96SloGUo76GWLZw298dw6/iPQe/clKe0AXygyH+pJ
- 5wX2g4zimIwhXDD7m1iKeN7uAT/U4FUXK+IJVQB5YAAMu382wgc1BMRXq4Gn76OlHXlP
- UudOdDxygk1GPUl+2sGk7rwUJ1ko6EYEAo7ckdshO8vyDIlPyBVhgygKjd3NNw5yzGcl
- 4ZiMKlSs5oy3Ob66y8Tp5LlZcFlOujKowIesq/6fUsZ2UnSKRKPNHckIa33o/wTpm3Hv
- /UieAEnETtzSpKdtcdMyhs51Ten8hAp4lcsAjlKUzMXPGrTn78VUpZSCiBZjH7HnIWx5
- BhCw==
+ d=ventanamicro.com; s=google;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=+GkM0EsIpmPEs+2fEuWOpfnSs20UxwWfYqecrAXhXLY=;
+ b=QF3UUYiCGO0ViS4CuMlDVBr4REmIM+Fg/874L9K8EsFLMZEcwyY66S3OiF/Sn8CmlN
+ w510dTQHFNL79JLWdyeXLg8qwMWPV12BBrShW3e+KTsIvOcs7iMKTFMgTCnXuhFctgsS
+ tKyyhZVL0h9ZmrSWpJWI0iaKhHoBy6Lm3tz6Sm2YaOSb8VWG4jZA3qjllYGm8Xbd27/7
+ dBKb36Brw6auML+vARie2pdIEzTRmZGcvkaX6150GSjin1Qh8gbhhGmrpIUKwRCFsaJ1
+ GvVRKp2/SejAxChhSj+W7RAmlSX+Mhrz3KFmuqOL5H6+dX8pNuZb/XH+oM6wM3wzWg0c
+ 9CKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=Zux2DSMFds7jNsOmIxre0BZd99zkEKB0BbI/vQzRfsM=;
- b=iprUzM0ApBGHtkEbGZXm2lUtyj/hPIEe6WbfnMd6BON2pruxoYQG2p/oQWYEC2FzKO
- +3PJsr5Rl4oRGgujkmT+42SqjloZZq8UsDMUhoVUfPl+NGsCsLW5WvL0eOZX9ASY21wZ
- VkLcilnVa9THMcDAwAiw4A4YZfAafNXRbL5WtFFR66iIPP5XJEFT0+0CGtrjeqrWe0TS
- qQSnZzmoD/VCgT6LEjVph9DPKB1JZmtIeMpaXd97GsrmARdWy7j9ILG8TqBUkwy/iwok
- uugivjejOo/BLyorCQpwfoPVktM1WlCrMa/hyVY528jyl1LD+UCkLyPIlBqk2qI2rU2o
- Lfeg==
-X-Gm-Message-State: AOAM532O/vYhLg4fgDB/VIZtZ+pimB7bP++ggu3BbXTc7veStVNjA3Xi
- 8L6I6MzriZTFYc4bjoe5JUTtioIC7FXouY6OZUxkeQ==
-X-Google-Smtp-Source: ABdhPJx6FwYw9GL9+ToBwFPA/+4ufe9trV2zBnIK4kXoRtmCiXBwujVjRQmxPal/vhHUz95WmSUs/rBIqM6x7NOnFIY=
-X-Received: by 2002:a5d:6ac9:0:b0:203:de0b:295f with SMTP id
- u9-20020a5d6ac9000000b00203de0b295fmr619983wrw.86.1648052723385; Wed, 23 Mar
- 2022 09:25:23 -0700 (PDT)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=+GkM0EsIpmPEs+2fEuWOpfnSs20UxwWfYqecrAXhXLY=;
+ b=Ve36ba5yiJN8XizIqk+UX7K+GJ0kl87x4mKdUX9XYCbX0uz+JIIPe2vCDMz9R6Gj8a
+ Q+W0TK0UqGfYZ9DYHuL7D3Vl74se2EIwA/MLl2+UdbEdtu8n6OcZuPRElc03RbRKEL+k
+ mPGx4UhFAD4HxVqa+P4qsEHUKh92Xhfv1TglhjkxiTzHWMOcoRw2Kh6fCh0TgGgR1sPn
+ 1oh/e2DftHcrVNCw4IuQ1xBOLm3s/lRKwplatkJlpap3+DbYr6PE4Fgy8gDYFUjDcmK9
+ l/CZWgUDlernzdQyPU+zrLUBOwNXh8NADTPQwRbzKLFwwnifXziu20chVbE6KkRjWPWp
+ sJKA==
+X-Gm-Message-State: AOAM530hWlSFDlS6eWMaixrrNAWHg/Vu6qzEWGbrgZI8vmlnDHH/KJ/P
+ E7Z30DzDG8ZbjsvK0uEdeAwFBA==
+X-Google-Smtp-Source: ABdhPJxdyw30bh2pKE+3hwkGOES/bE/U5B9N1OxqWylkElPtex6mxLZrmYAnSavkrnoUSGgDJYnPog==
+X-Received: by 2002:a17:902:d48d:b0:153:a517:6ff2 with SMTP id
+ c13-20020a170902d48d00b00153a5176ff2mr756437plg.141.1648052878061; 
+ Wed, 23 Mar 2022 09:27:58 -0700 (PDT)
+Received: from sunil-laptop ([49.206.7.17]) by smtp.gmail.com with ESMTPSA id
+ r1-20020a63b101000000b00380989bcb1bsm289959pgf.5.2022.03.23.09.27.52
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 23 Mar 2022 09:27:57 -0700 (PDT)
+Date: Wed, 23 Mar 2022 21:57:48 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: ardb@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ aou@eecs.berkeley.edu, heinrich.schuchardt@canonical.com,
+ Atish Patra <atishp@rivosinc.com>, apatel@ventanamicro.com,
+ abner.chang@hpe.com, jrtc27@jrtc27.com, linux-efi@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [RFC PATCH V2 0/1] RISCV_EFI_BOOT_PROTOCOL support in linux
+Message-ID: <20220323162748.GA55066@sunil-laptop>
+References: <20220303145944.307321-1-sunilvl@ventanamicro.com>
+ <mhng-5eb23850-e2a9-43d3-8093-2f588c71de00@palmer-ri-x1c9>
 MIME-Version: 1.0
-References: <20220323161604.GA54531@sunil-laptop>
-In-Reply-To: <20220323161604.GA54531@sunil-laptop>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 23 Mar 2022 21:55:10 +0530
-Message-ID: <CAAhSdy2n0Mf4ZAPH1cL6nZS3AGPOUhMdRtQe4o+vFe=fVNa-Ag@mail.gmail.com>
-Subject: Re: [RISC-V] [tech-unixplatformspec] Public review of RISC-V UEFI
- Protocol Specification
-To: RISC-V SW Dev <sw-dev@groups.riscv.org>,
- RISC-V ISA Dev <isa-dev@groups.riscv.org>
-Cc: tech-unixplatformspec <tech-unixplatformspec@lists.riscv.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Sunil V L <sunilvl@ventanamicro.com>
+Content-Disposition: inline
+In-Reply-To: <mhng-5eb23850-e2a9-43d3-8093-2f588c71de00@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220323_092528_611649_2DCA9A8C 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20220323_092758_694676_370823F6 
+X-CRM114-Status: GOOD (  25.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,61 +94,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-(Resending for RISC-V ISA-DEV and RISC-V SW-DEV because previous email
-was not received on these lists.)
+On Tue, Mar 22, 2022 at 06:32:22PM -0700, Palmer Dabbelt wrote:
+> On Thu, 03 Mar 2022 06:59:43 PST (-0800), sunilvl@ventanamicro.com wrote:
+> > This patch adds support for getting the boot hart ID using new
+> > RISCV_EFI_BOOT_PROTOCOL in linux efi stub. While there is an existing
+> > solution of passing the boot hart ID through Device Tree, it doesn't work
+> > for ACPI. Hence an EFI protocol protocol is recommended which works for
+> > both DT and ACPI based platforms.
+> > 
+> > The latest draft spec of this new protocol is available at
+> > https://github.com/riscv-non-isa/riscv-uefi/releases/download/1.0-rc2/RISCV_UEFI_PROTOCOL-spec.pdf
+> 
+> This looks fine to me, but we need the spec folk to commit to this being a
+> stable interface before we can start using it.  Historically that's been
+> "frozen" for RISC-V specs, but I'm not sure how that all fits together in
+> EFI land as IIUC we also have to follow the UEFI forum's process.  Last I
+> checked you guys understood that better than I did, so
 
-On Wed, Mar 23, 2022 at 9:46 PM Sunil V L <sunilvl@ventanamicro.com> wrote:
->
-> This is to announce the start of the public review period for
-> the RISC-V UEFI Protocol specification. This specification is
-> considered as frozen now as per the RISC-V International policies.
->
-> The review period begins today, Wednesday March 23, and ends on Friday
-> May 6 (inclusive).
->
-> The specification can be found here
-> https://github.com/riscv-non-isa/riscv-uefi/releases/download/1.0-rc3/RISCV_UEFI_PROTOCOL-spec.pdf
->
-> which was generated from the source available in the following GitHub
-> repo:
-> https://github.com/riscv-non-isa/riscv-uefi
->
-> The specification is also attached in this email.
->
-> To respond to the public review, please either reply to this email or
-> send comments to the platform mailing list[1] or add issues to the
-> GitHub repo[2]. We welcome all input and appreciate your time and
-> effort in helping us by reviewing the specification.
->
-> During the public review period, corrections, comments, and
-> suggestions, will be gathered for review by the Platform HSC members.
-> Any minor corrections and/or uncontroversial changes will be
-> incorporated into the specification. Any remaining issues or proposed changes
-> will be addressed in the public review summary report. If there are no
-> issues that require incompatible changes to the public review
-> specification, the platform HSC will recommend the updated
-> specifications be approved and ratified by the RISC-V Technical
-> Steering Committee and the RISC-V Board of Directors.
->
-> Thanks to all the contributors for all their hard work.
->
-> [1] tech-unixplatformspec@lists.riscv.org
-> [2] https://github.com/riscv-non-isa/riscv-uefi/issues
->
-> Regards
-> Sunil
->
->
->
-> -=-=-=-=-=-=-=-=-=-=-=-
-> Links: You receive all messages sent to this group.
-> View/Reply Online (#1694): https://lists.riscv.org/g/tech-unixplatformspec/message/1694
-> Mute This Topic: https://lists.riscv.org/mt/89979471/6366717
-> Group Owner: tech-unixplatformspec+owner@lists.riscv.org
-> Unsubscribe: https://lists.riscv.org/g/tech-unixplatformspec/unsub [anup@brainfault.org]
-> -=-=-=-=-=-=-=-=-=-=-=-
->
->
+Thank you Palmer. The specification is in frozen state now. 
+http://lists.infradead.org/pipermail/linux-riscv/2022-March/013431.html.
+
+Thanks
+Sunil
+> 
+> Acked-by: Palmer Dabbelt <palmer@rivosinc.com> # pending spec freeze
+> 
+> I had a minor comment about the error message, as well.
+> 
+> Thanks!
+> 
+> > This linux ptach can be found in:
+> > riscv_boot_protocol_rfc_v2 branch at
+> > https://github.com/vlsunil/linux.git
+> > 
+> > This is tested in qemu with u-boot 2022.04.rc3.
+> > 
+> > Changes since V1:
+> >   - Rebased to get the "Fix get_boot_hartid_from_fdt() return value"
+> >     patch
+> >   - Removed mixed_mode member
+> >   - Separated return value and status.
+> > 
+> > Sunil V L (1):
+> >   riscv/efi_stub: Add support for RISCV_EFI_BOOT_PROTOCOL
+> > 
+> >  drivers/firmware/efi/libstub/efistub.h    |  7 ++++++
+> >  drivers/firmware/efi/libstub/riscv-stub.c | 29 +++++++++++++++++++----
+> >  include/linux/efi.h                       |  1 +
+> >  3 files changed, 32 insertions(+), 5 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
