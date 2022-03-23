@@ -4,74 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAD36C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Mar 2022 00:55:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DC05C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Mar 2022 01:16:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=NELYH+hOhra8crxXoJAGgxFm5AjZOYZLJSD2AE0L/KY=; b=izlqVq+W2ReUQ+Nje5/ce8yDRw
-	P/dofo56/zqPXik3iw+fk5MzyicYPOL+h6fZw74Mrlc1gkjJq/9KDgqJrz93xVBl3Sz2US3CvaRLL
-	wSaLrKfG4P6HNcGTNHtw/5HFLWzrcnykScrHUgKFv329EnilrVpscyIVdSKbeldQRMfs1TXNgOSq2
-	L9t66zCi+jxscz+kYux9Wm6LdkzANDeZMWlo4foxQ3LHC0v5DZaBaaFr7gSWU8kzDv9Q9ifhDaNnX
-	zywCs+X+2+ix2zK6Kjn538dmmNu2u9JLuYg51/C+hphvD/sxt46lTaMWhjbbkmF/5ILosYPkfYLOg
-	K6jm/CCw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uE0P4dihGLyV7M1LQxTzprgRp8mVxGlyhohB/3T5xis=; b=MvW+YaS+VXD/Mk
+	EnO6qFUfTvT/H2txuIH57PNZ4DX9PS6dFSltpfnM4qfOylUC1oS/yp3Mk9/lgY9ShkBKDzURnZ3+X
+	Xq7sphzSZGfkQmyqsdXeFNzeekH/HPc1Jx4EJnDEvDcsdcNerw2wHUvGwhqHY24cLaulV2WtxboXR
+	dGsYa0kOvfnC1IyT2qKIo8flL/yeNITiAThkuhTeDAjeER5D+7lB4bniyLsChiE8SqWrMQlj826PI
+	nIf0xf/FaG/nlwIvv2GkzlenLJK9Jhi1O4N07bSvFVpjWakq2ggYU+fIRJmaDFAOH1UpvkXnjT272
+	i0xZJS1bjsHXom60ymtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nWpH1-00CWHG-9g; Wed, 23 Mar 2022 00:54:51 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1nWpcC-00CYEg-Oy; Wed, 23 Mar 2022 01:16:44 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nWpGy-00CWGm-Cr
- for linux-riscv@lists.infradead.org; Wed, 23 Mar 2022 00:54:50 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id gb19so226354pjb.1
- for <linux-riscv@lists.infradead.org>; Tue, 22 Mar 2022 17:54:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=+7wy3Ia+NV1VbKjVeUtuzmPhGU89pjqnf00x6o0e8BE=;
- b=O2XAnRXlkFoz98SoqkRNGEIDaNlQfIbYVlynj7glodBX8qISP4s8IVixE5AEwyW5wj
- OsUZgaMBGTtultqLPNw0jd75eGWhRgZ8bsMDjzJtR3h0bpyuSYgASN7ITCq08Rqo7wna
- GSyk1d+db2T05r0hDLLJryn3ezZ/JtY90wSY9FpVGAnco0yPOKHCszB7mrSAdcK10K5v
- fF6CDZWPyUWDvqZAca6lDBwS5lwxriu1l7pQXrKsRgzRDKXCbrxSIIQebEsX8MSUAUAr
- 5x4yuUmuLqdP+DY1+8TGxhDtd4pW0KPG7+Dh4EEuycgbvd5tbPcWP9XRdceuankwUUJy
- FONw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=+7wy3Ia+NV1VbKjVeUtuzmPhGU89pjqnf00x6o0e8BE=;
- b=VhWkO4BG+wIdfazt9iPpNwQlENszCC1HstivxvslSKV/qNwmcfglWy8y8HSfnYFtLO
- SHiDvIkR0obrXnYJoc6r+fjR+S6VisrMmEirN5lXXSPTHPci5EudjKgdiZAHg15igIVP
- 6IcxAjwaPaoiDTx/rb4/TjYo9PNkoapmgVyOlT3izETlSYnnLGZBtjQFd9xp1dU5drMn
- btYMPMpSleSZcazl+XE3TQLGk9QPsH6PaabUydFeYv3Ue1XKPxf27JOYiMmztssBQIsV
- uqRh2Q9bGWOFwxdaFqrNxDqxdKUXm9oiuUyHwukq+ZyK8etWxmmqFATp4Xe3LvI+Alv5
- zzog==
-X-Gm-Message-State: AOAM530IW9VwMzc27YxjsKuynV7JwLMIlhhsK8BGi4eeLL7BP9IfAMC7
- PaLYhB1jPMWNLGzI7/bQUm+sSA==
-X-Google-Smtp-Source: ABdhPJy3ErzZv9tFWjiPX/5S/fzetUx4xDZypXvoivlDResD3gxzcCuCbFYdx+9y+LTyXuf1IGWiHQ==
-X-Received: by 2002:a17:902:f60f:b0:151:4f66:55b4 with SMTP id
- n15-20020a170902f60f00b001514f6655b4mr20991553plg.127.1647996886237; 
- Tue, 22 Mar 2022 17:54:46 -0700 (PDT)
-Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
- s12-20020a056a00194c00b004f7c1da7dd5sm24832737pfk.1.2022.03.22.17.54.45
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 22 Mar 2022 17:54:45 -0700 (PDT)
-Date: Tue, 22 Mar 2022 17:54:45 -0700 (PDT)
-X-Google-Original-Date: Tue, 22 Mar 2022 16:19:35 PDT (-0700)
-Subject: Re: [PATCH v4 0/2] RISC-V: add support for restartable sequence
-In-Reply-To: <20220308083253.12285-1-vincent.chen@sifive.com>
-CC: mathieu.desnoyers@efficios.com, linux-riscv@lists.infradead.org,
- Paul Walmsley <paul.walmsley@sifive.com>, vincent.chen@sifive.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: vincent.chen@sifive.com
-Message-ID: <mhng-feffd224-1ed1-4238-a791-a6b625d3d202@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+ id 1nWpbz-00CYCS-ML; Wed, 23 Mar 2022 01:16:33 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id E5C7FB81DD5;
+ Wed, 23 Mar 2022 01:16:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50787C340EC;
+ Wed, 23 Mar 2022 01:16:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1647998188;
+ bh=mFKEtWHuxkNWJc8vLNfiNEHzB7uUaB2obyZl0VhLYU8=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+ b=NBBmuEhONx1+zNHHqhu8AUFqH0G32b4X5LKrDbAplue+3frWC1yzLqL4m1lvGt2g9
+ cXXlL/gSMzrT9lT+B5FC2qkmFIxLLPwpCecwH+4FG7zGC4B0rUWJw4mawqoUTtTD4V
+ 7gv4JaZJBytFedX3HqyRF5/7Z1zIotrbCZc7ZGUyWWZPZbkMJ6PuOVNIM7SM2SLNdW
+ xlce72TxzWWBHNKDJ4PpKBnGvjxRW6XUo+GmL1m+udW1gJgW/GuoHZfWZd3nWgzdOS
+ Sujj9i/hW6fM8gsLZMHjh2nilq6BZkWTcwJhw8EF9phwiOsoPBvdj/+tqBNUhC5jxm
+ x3A7uX0Yi6fBA==
+Date: Wed, 23 Mar 2022 10:16:24 +0900
+From: Masami Hiramatsu <mhiramat@kernel.org>
+To: guoren@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-xtensa@linux-xtensa.org, Guo Ren <guoren@linux.alibaba.com>, Max
+ Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>, Chris Zankel <chris@zankel.net>,
+ Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH V2] arch: patch_text: Fixup last cpu should be master
+Message-Id: <20220323101624.60a5d74d45b3215be343e04d@kernel.org>
+In-Reply-To: <20220313012221.1755483-1-guoren@kernel.org>
+References: <20220313012221.1755483-1-guoren@kernel.org>
+X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220322_175448_553047_996400C2 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20220322_181632_065292_73F400E8 
+X-CRM114-Status: GOOD (  27.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,43 +71,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 08 Mar 2022 00:32:51 PST (-0800), vincent.chen@sifive.com wrote:
->
-> Add RSEQ, restartable sequence, support and related selftest to RISCV.
->
-> The relevant RSEQ tests in kselftest require the binutils patch "RISC-V:
-> Fix linker problems with TLS copy relocs" to avoid placing
-> PREINIT_ARRAY and TLS variable of librseq.so at the same address.
-> https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;a=commit;h=3e7bd7f24146f162565edf878840449f36a8d974
-> A segmental fault will happen if binutils misses this patch.
->
-> Changes since v3:
-> 1. Modify the endianness checking.
-> 2. Fix a bug encountered in 32bit environment.
->
-> Changes since v2:
-> 1. Move rseq_signal_deliver() after syscall restart handling.
-> 2. Add rseq_offset_deref_addv() to support memory barrier tests.
->
-> Vincent Chen (2):
->   RISC-V: Add support for restartable sequence
->   rseq/selftests: Add support for RISC-V
->
->  arch/riscv/Kconfig                        |   1 +
->  arch/riscv/kernel/entry.S                 |   4 +
->  arch/riscv/kernel/signal.c                |   2 +
->  tools/testing/selftests/rseq/param_test.c |  23 +
->  tools/testing/selftests/rseq/rseq-riscv.h | 677 ++++++++++++++++++++++
->  tools/testing/selftests/rseq/rseq.h       |   2 +
->  6 files changed, 709 insertions(+)
->  create mode 100644 tools/testing/selftests/rseq/rseq-riscv.h
+On Sun, 13 Mar 2022 09:22:21 +0800
+guoren@kernel.org wrote:
 
-Thanks, this is on for-next.
+> From: Guo Ren <guoren@linux.alibaba.com>
+> 
+> These patch_text implementations are using stop_machine_cpuslocked
+> infrastructure with atomic cpu_count. The original idea: When the
+> master CPU patch_text, the others should wait for it. But current
+> implementation is using the first CPU as master, which couldn't
+> guarantee the remaining CPUs are waiting. This patch changes the
+> last CPU as the master to solve the potential risk.
+> 
+
+This looks good to me. And maybe we'd better backport to stable branch
+this since this can cause self-modification in wrong timing.
+
+Reviewed-by: Masami Hiramatsu <mhiramat@kernel.org>
+
+Thank you,
+
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> Reviewed-by: Max Filippov <jcmvbkbc@gmail.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Peter Zijlstra <peterz@infradead.org
+> Cc: Masami Hiramatsu <mhiramat@kernel.org>
+> Cc: Chris Zankel <chris@zankel.net>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> 
+> ---
+> Changes in V2:
+>  - Fixup last cpu should be num_online_cpus() by Max Filippov
+>  - Fixup typos found by Max Filippov
+> ---
+>  arch/arm64/kernel/patching.c      | 4 ++--
+>  arch/csky/kernel/probes/kprobes.c | 2 +-
+>  arch/riscv/kernel/patch.c         | 2 +-
+>  arch/xtensa/kernel/jump_label.c   | 2 +-
+>  4 files changed, 5 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/patching.c b/arch/arm64/kernel/patching.c
+> index 771f543464e0..33e0fabc0b79 100644
+> --- a/arch/arm64/kernel/patching.c
+> +++ b/arch/arm64/kernel/patching.c
+> @@ -117,8 +117,8 @@ static int __kprobes aarch64_insn_patch_text_cb(void *arg)
+>  	int i, ret = 0;
+>  	struct aarch64_insn_patch *pp = arg;
+>  
+> -	/* The first CPU becomes master */
+> -	if (atomic_inc_return(&pp->cpu_count) == 1) {
+> +	/* The last CPU becomes master */
+> +	if (atomic_inc_return(&pp->cpu_count) == num_online_cpus()) {
+>  		for (i = 0; ret == 0 && i < pp->insn_cnt; i++)
+>  			ret = aarch64_insn_patch_text_nosync(pp->text_addrs[i],
+>  							     pp->new_insns[i]);
+> diff --git a/arch/csky/kernel/probes/kprobes.c b/arch/csky/kernel/probes/kprobes.c
+> index 42920f25e73c..34ba684d5962 100644
+> --- a/arch/csky/kernel/probes/kprobes.c
+> +++ b/arch/csky/kernel/probes/kprobes.c
+> @@ -30,7 +30,7 @@ static int __kprobes patch_text_cb(void *priv)
+>  	struct csky_insn_patch *param = priv;
+>  	unsigned int addr = (unsigned int)param->addr;
+>  
+> -	if (atomic_inc_return(&param->cpu_count) == 1) {
+> +	if (atomic_inc_return(&param->cpu_count) == num_online_cpus()) {
+>  		*(u16 *) addr = cpu_to_le16(param->opcode);
+>  		dcache_wb_range(addr, addr + 2);
+>  		atomic_inc(&param->cpu_count);
+> diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
+> index 0b552873a577..765004b60513 100644
+> --- a/arch/riscv/kernel/patch.c
+> +++ b/arch/riscv/kernel/patch.c
+> @@ -104,7 +104,7 @@ static int patch_text_cb(void *data)
+>  	struct patch_insn *patch = data;
+>  	int ret = 0;
+>  
+> -	if (atomic_inc_return(&patch->cpu_count) == 1) {
+> +	if (atomic_inc_return(&patch->cpu_count) == num_online_cpus()) {
+>  		ret =
+>  		    patch_text_nosync(patch->addr, &patch->insn,
+>  					    GET_INSN_LENGTH(patch->insn));
+> diff --git a/arch/xtensa/kernel/jump_label.c b/arch/xtensa/kernel/jump_label.c
+> index 61cf6497a646..b67efcd7e32c 100644
+> --- a/arch/xtensa/kernel/jump_label.c
+> +++ b/arch/xtensa/kernel/jump_label.c
+> @@ -40,7 +40,7 @@ static int patch_text_stop_machine(void *data)
+>  {
+>  	struct patch *patch = data;
+>  
+> -	if (atomic_inc_return(&patch->cpu_count) == 1) {
+> +	if (atomic_inc_return(&patch->cpu_count) == num_online_cpus()) {
+>  		local_patch_text(patch->addr, patch->data, patch->sz);
+>  		atomic_inc(&patch->cpu_count);
+>  	} else {
+> -- 
+> 2.25.1
+> 
+
+
+-- 
+Masami Hiramatsu <mhiramat@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
