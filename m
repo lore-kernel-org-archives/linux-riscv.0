@@ -4,57 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19493C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Mar 2022 10:40:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F3B3C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Mar 2022 13:41:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ipXG78gJ7A/Vw+U9kEnfUJvJIk99gPhZK3l3k+Zm9ng=; b=WeeJqK1WL12vw7
-	GvL9Y+tq3X2V5ZA6qttxammZPVke8ad1KUQtsgCu2W4FFb9dRfG7G0Ep7+QT30/fVWaNmFENJMq9G
-	rSLkInEUFwI7bFX6z+5+JGVBm0y2gXwsEDiUV17cPfQ2MorZ0FM+5Fq+qwsK6AOYuPL2aE22aHaL1
-	NljDVAHlIdugdGxjIxy1x4bqGqQBPbF1pxOCgWY2qKJeyNG6Be3IGNEfqBcuYpeaE5EajvYa2O4yD
-	iC3BASa8dNkvz5kcsfw5WoM12vP/sdIRiU6mIFG+bVz3IoYc92IN+f1wdVS2gxYspQU+RYmbYhD+n
-	lRsWS4djM2ObskHcvP4w==;
+	List-Owner; bh=agKtH2TpvOAaXU8EeOcZEvg8Fc9c7uDXNEpduf7PJ3k=; b=RsOQqVmnxcr2kd
+	jckFGsNbYOdhhkzWO29Seu4DzkT2ZwW92Vo5eD3/rV6TSyWXgjHY6VSMLQd/29FJcr92N+dhTcADG
+	kRauK810JMYr2I8l463u3SFs3IRrnGFo5Mmmqcod8rDCD7FuaXlB77Wac/3OkwWItqZWlA+CtWG99
+	XS89BAALrsIDChB1I1rqAdonyCJs9rSZkPNS5euXfYk8XSNJI9TChuIvXOzzUM9JAJbOaUh4JlrXX
+	uzF87h7nQI5vTyzCa7KMCwIKcXs4in11/lZy5SK1li4Of4XKZdo8+BZeNA2Lk9H4FcZqNwaKr2Yx3
+	bhZNSrfKBI50JKraxrZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nWyPm-00DLmb-5k; Wed, 23 Mar 2022 10:40:30 +0000
-Received: from imap2.colo.codethink.co.uk ([78.40.148.184])
+	id 1nX1EC-00DkS3-RX; Wed, 23 Mar 2022 13:40:44 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nWyPi-00DLjY-SK
- for linux-riscv@lists.infradead.org; Wed, 23 Mar 2022 10:40:28 +0000
-Received: from cpc152649-stkp13-2-0-cust121.10-2.cable.virginm.net
- ([86.15.83.122] helo=[192.168.0.21])
- by imap2.colo.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
- id 1nWyPV-0006wD-F7; Wed, 23 Mar 2022 10:40:13 +0000
-Message-ID: <bded4b1e-3404-6bcd-3289-dc8d5b4d713a@codethink.co.uk>
-Date: Wed, 23 Mar 2022 10:40:11 +0000
+ id 1nX1Dy-00DkON-Hb; Wed, 23 Mar 2022 13:40:33 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 6FE4FB81F13;
+ Wed, 23 Mar 2022 13:40:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A3B7C340E9;
+ Wed, 23 Mar 2022 13:40:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1648042827;
+ bh=tfAJdIq2+RYdVHZ38GzSMwiGmA3mYSLGoPCsYK/Ay0o=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=uURvrSQYWoBDbOJ1HJhmy4zq35Wx1u92YfhAJjselJu+G8KZl4y/4epaPOKQFhp86
+ e8VZNnOBbO/ktj6k+JKr407It53apzOQA52t2ZaWuP2k6XTZ52oSFeFqKqdKrBnI79
+ e+h+GlWqbJCvNW/dJFFTun/pfdlihLnlSfevvfRe8Od2DiA5PPC58S/Sw2CT7LaGgx
+ vRPmWwBDcfmb6lBwS6yGFY5dtq/AtP+pJPVEtbuDPfgiy7V7e/BvAXEOBbDuxjBTSy
+ WeSKZsuamgmFXT84rsRMyZYU/5UL1M8XpQPabdxZhi+QVjhbD0odc//B58wz5CV33+
+ tsFxE8jN2V55Q==
+Received: by mail-vk1-f170.google.com with SMTP id n135so843246vkf.6;
+ Wed, 23 Mar 2022 06:40:27 -0700 (PDT)
+X-Gm-Message-State: AOAM530Uo4l1qukMDS1Rj/Cnb6pw6x3lDCiIq4nlRgofitiOu3fPMVdy
+ uuYSeBj8bCFvq+LCrljUPudg795ilqBC02jYLKs=
+X-Google-Smtp-Source: ABdhPJwacFP88rQle1BS8Fl0WkwH/yl7QzXYYyv8GMnk2rx9FSXhwtYXtlbmIrv2UbeMrdZOjlC8mGra51uCgccxAVo=
+X-Received: by 2002:a05:6122:c85:b0:33f:ab27:5f5d with SMTP id
+ ba5-20020a0561220c8500b0033fab275f5dmr626464vkb.2.1648042826087; Wed, 23 Mar
+ 2022 06:40:26 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.7.0
-Subject: Re: [V3] PCI: fu740: Drop to 2.5GT/s to fix initial device probing on
- some boards
-Content-Language: en-GB
-To: Alexandre Ghiti <alex@ghiti.fr>, linux-pci@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Bjorn Helgaas <bhelgaas@google.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Rob Herring <robh@kernel.org>, Lorenzo Pieralisi
- <lorenzo.pieralisi@arm.com>, Greentime Hu <greentime.hu@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "Maciej W. Rozycki" <macro@orcam.me.uk>,
- David Abdurachmanov <david.abdurachmanov@sifive.com>,
- Neill Whillans <neill.whillans@codethink.co.uk>
-References: <20220318152430.526320-1-ben.dooks@codethink.co.uk>
- <2442936e-a53e-59bf-488f-95eac26d1252@ghiti.fr>
- <85e864fd-762e-0780-f829-bfbb178ab24e@ghiti.fr>
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-In-Reply-To: <85e864fd-762e-0780-f829-bfbb178ab24e@ghiti.fr>
+References: <20220322144003.2357128-1-guoren@kernel.org>
+ <20220322144003.2357128-12-guoren@kernel.org>
+In-Reply-To: <20220322144003.2357128-12-guoren@kernel.org>
+From: Guo Ren <guoren@kernel.org>
+Date: Wed, 23 Mar 2022 21:40:14 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQnnEDbXCe142tbVzNENS+HTRDNkKy5qDzNMOdTdoDBJg@mail.gmail.com>
+Message-ID: <CAJF2gTQnnEDbXCe142tbVzNENS+HTRDNkKy5qDzNMOdTdoDBJg@mail.gmail.com>
+Subject: Re: [PATCH V9 11/20] riscv: compat: syscall: Add compat_sys_call_table
+ implementation
+To: Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
+ Christoph Hellwig <hch@lst.de>
+Cc: linux-arch <linux-arch@vger.kernel.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
+ linux-s390 <linux-s390@vger.kernel.org>,
+ sparclinux <sparclinux@vger.kernel.org>, 
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ Parisc List <linux-parisc@vger.kernel.org>, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+ "the arch/x86 maintainers" <x86@kernel.org>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220323_034026_921357_E5A9262C 
-X-CRM114-Status: GOOD (  15.17  )
+X-CRM114-CacheID: sfid-20220323_064030_940365_8DB73FAD 
+X-CRM114-Status: GOOD (  28.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,40 +87,373 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjMvMDMvMjAyMiAxMDozNiwgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+IE9uIDMvMjEvMjIg
-MTQ6NDksIEFsZXhhbmRyZSBHaGl0aSB3cm90ZToKPj4gSGkgQmVuLAo+Pgo+PiBPbiAzLzE4LzIy
-IDE2OjI0LCBCZW4gRG9va3Mgd3JvdGU6Cj4+PiBUaGUgZnU3NDAgUENJZSBjb3JlIGRvZXMgbm90
-IHByb2JlIGFueSBkZXZpY2VzIG9uIHRoZSBTaUZpdmUgVW5tYXRjaGVkCj4+PiBib2FyZCB3aXRo
-b3V0IHRoaXMgZml4IChvciBoYXZpbmcgVS1Cb290IGV4cGxpY2l0bHkgc3RhcnQgdGhlIFBDSWUg
-dmlhCj4+PiBlaXRoZXIgYm9vdC1zY3JpcHQgb3IgdXNlciBjb21tYW5kKS4gVGhlIGZpeCBpcyB0
-byBzdGFydCB0aGUgbGluayBhdAo+Pj4gMi41R1QvcyBzcGVlZHMgYW5kIG9uY2UgdGhlIGxpbmsg
-aXMgdXAgdGhlbiBjaGFuZ2UgdGhlIG1heGltdW0gc3BlZWQgCj4+PiBiYWNrCj4+PiB0byB0aGUg
-ZGVmYXVsdC4KPj4+Cj4+PiBUaGUgVS1Cb290IGRyaXZlciBjbGFpbXMgdG8gc2V0IHRoZSBsaW5r
-LXNwZWVkIHRvIDIuNUdUL3MgdG8gZ2V0IHRoZSAKPj4+IHByb2JlCj4+PiB0byB3b3JrIChhbmQg
-VS1Cb290IGRvZXMgcHJpbnQgbGluayB1cCBhdCAyLjVHVC9zKSBpbiB0aGUgZm9sbG93aW5nIAo+
-Pj4gY29kZToKPj4+IGh0dHBzOi8vc291cmNlLmRlbnguZGUvdS1ib290L3UtYm9vdC8tL2Jsb2Iv
-bWFzdGVyL2RyaXZlcnMvcGNpL3BjaWVfZHdfc2lmaXZlLmM/aWQ9djIwMjIuMDEjTDI3MSAKPj4+
-Cj4+Pgo+Pj4gU2lnbmVkLW9mZi1ieTogQmVuIERvb2tzIDxiZW4uZG9va3NAY29kZXRoaW5rLmNv
-LnVrPgoKCltzbmlwXQoKPj4+IMKgIMKgIHN0YXRpYyBpbnQgZnU3NDBfcGNpZV9ob3N0X2luaXQo
-c3RydWN0IHBjaWVfcG9ydCAqcHApCj4+Cj4+ICtjYyBNYWNpZWogYW5kIERhdmlkIGFzIHRoZXJl
-IGlzIHRoaXMgb3RoZXIgZml4IHRoYXQgc2VlbXMgdG8gZG8gdGhlIAo+PiBzYW1lIGJ1dCBkaWZm
-ZXJlbnRseSwgaXQncyBiZWVuIHVuZGVyIHJldmlldyBmb3Igc29tZSB0aW1lIG5vdzogCj4+IGh0
-dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDIyMDMwMjAwMDA0My5HQTY2MjUyM0BiaGVsZ2Fh
-cy90Lwo+PgoKSSBkaWQgaGF2ZSBhIHF1aWNrIGxvb2ssIGJ1dCBJIHRoaW5rIGJlY2F1c2Ugd2Ug
-ZG9uJ3QgZ2V0IGFueSBQQ0llCnByb2JpbmcgYXQtYWxsIHdlIGRvbid0IGV2ZW4gaGF2ZSBhIGRl
-dmljZSB0byBhdHRhY2ggdG8uCgo+PiBJIGZlbGwgb250byB0aGlzIGlzc3VlIHJlY2VudGx5LCBJ
-J2xsIGdpdmUgeW91ciBwYXRjaCBhbmQgdGhlIGFib3ZlIGEgCj4+IHRyeSBzb29uLgo+IAo+IAo+
-IEZXSVcsIEkgaGF2ZSB0ZXN0ZWQgdGhpcyBhbmQgaXQgc29sdmVkIG15IGlzc3VlIHdpdGggbnZt
-ZSBub3QgYmVpbmcgCj4gcHJvYmVkLCBzbzoKPiAKPiBUZXN0ZWQtYnk6IEFsZXhhbmRyZSBHaGl0
-aSA8YWxleGFuZHJlLmdoaXRpQGNhbm9uaWNhbC5jb20+CgpPaywgZ3JlYXQuIE91ciB0ZXN0IHJp
-ZyBzZWVtcyB0byBiZSBzdGlsbCB3b3JraW5nIHdpdGggdGhpcy4KCgotLSAKQmVuIERvb2tzCQkJ
-CWh0dHA6Ly93d3cuY29kZXRoaW5rLmNvLnVrLwpTZW5pb3IgRW5naW5lZXIJCQkJQ29kZXRoaW5r
-IC0gUHJvdmlkaW5nIEdlbml1cwoKaHR0cHM6Ly93d3cuY29kZXRoaW5rLmNvLnVrL3ByaXZhY3ku
-aHRtbAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Palmer & Arnd,
+
+Fixup fadvise64_64 arguments problem.
+
+On Tue, Mar 22, 2022 at 10:41 PM <guoren@kernel.org> wrote:
+>
+> From: Guo Ren <guoren@linux.alibaba.com>
+>
+> Implement compat sys_call_table and some system call functions:
+> truncate64, ftruncate64, fallocate, pread64, pwrite64,
+> sync_file_range, readahead, fadvise64_64 which need argument
+> translation.
+>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+> Tested-by: Heiko Stuebner <heiko@sntech.de>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> ---
+>  arch/riscv/include/asm/syscall.h         |  1 +
+>  arch/riscv/include/asm/unistd.h          | 11 +++++++
+>  arch/riscv/include/uapi/asm/unistd.h     |  2 +-
+>  arch/riscv/kernel/Makefile               |  1 +
+>  arch/riscv/kernel/compat_syscall_table.c | 19 ++++++++++++
+>  arch/riscv/kernel/sys_riscv.c            |  6 ++--
+>  fs/open.c                                | 24 +++++++++++++++
+>  fs/read_write.c                          | 16 ++++++++++
+>  fs/sync.c                                |  9 ++++++
+>  include/asm-generic/compat.h             |  7 +++++
+>  include/linux/compat.h                   | 37 ++++++++++++++++++++++++
+>  mm/fadvise.c                             | 11 +++++++
+>  mm/readahead.c                           |  7 +++++
+>  13 files changed, 148 insertions(+), 3 deletions(-)
+>  create mode 100644 arch/riscv/kernel/compat_syscall_table.c
+>
+> diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
+> index 7ac6a0e275f2..384a63b86420 100644
+> --- a/arch/riscv/include/asm/syscall.h
+> +++ b/arch/riscv/include/asm/syscall.h
+> @@ -16,6 +16,7 @@
+>
+>  /* The array of function pointers for syscalls. */
+>  extern void * const sys_call_table[];
+> +extern void * const compat_sys_call_table[];
+>
+>  /*
+>   * Only the low 32 bits of orig_r0 are meaningful, so we return int.
+> diff --git a/arch/riscv/include/asm/unistd.h b/arch/riscv/include/asm/unistd.h
+> index 6c316093a1e5..5ddac412b578 100644
+> --- a/arch/riscv/include/asm/unistd.h
+> +++ b/arch/riscv/include/asm/unistd.h
+> @@ -11,6 +11,17 @@
+>  #define __ARCH_WANT_SYS_CLONE
+>  #define __ARCH_WANT_MEMFD_SECRET
+>
+> +#ifdef CONFIG_COMPAT
+> +#define __ARCH_WANT_COMPAT_TRUNCATE64
+> +#define __ARCH_WANT_COMPAT_FTRUNCATE64
+> +#define __ARCH_WANT_COMPAT_FALLOCATE
+> +#define __ARCH_WANT_COMPAT_PREAD64
+> +#define __ARCH_WANT_COMPAT_PWRITE64
+> +#define __ARCH_WANT_COMPAT_SYNC_FILE_RANGE
+> +#define __ARCH_WANT_COMPAT_READAHEAD
+> +#define __ARCH_WANT_COMPAT_FADVISE64_64
+> +#endif
+> +
+>  #include <uapi/asm/unistd.h>
+>
+>  #define NR_syscalls (__NR_syscalls)
+> diff --git a/arch/riscv/include/uapi/asm/unistd.h b/arch/riscv/include/uapi/asm/unistd.h
+> index 8062996c2dfd..c9e50eed14aa 100644
+> --- a/arch/riscv/include/uapi/asm/unistd.h
+> +++ b/arch/riscv/include/uapi/asm/unistd.h
+> @@ -15,7 +15,7 @@
+>   * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+>   */
+>
+> -#ifdef __LP64__
+> +#if defined(__LP64__) && !defined(__SYSCALL_COMPAT)
+>  #define __ARCH_WANT_NEW_STAT
+>  #define __ARCH_WANT_SET_GET_RLIMIT
+>  #endif /* __LP64__ */
+> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+> index ffc87e76b1dd..3b3e425aadd2 100644
+> --- a/arch/riscv/kernel/Makefile
+> +++ b/arch/riscv/kernel/Makefile
+> @@ -68,3 +68,4 @@ obj-$(CONFIG_CRASH_DUMP)      += crash_dump.o
+>  obj-$(CONFIG_JUMP_LABEL)       += jump_label.o
+>
+>  obj-$(CONFIG_EFI)              += efi.o
+> +obj-$(CONFIG_COMPAT)           += compat_syscall_table.o
+> diff --git a/arch/riscv/kernel/compat_syscall_table.c b/arch/riscv/kernel/compat_syscall_table.c
+> new file mode 100644
+> index 000000000000..651f2b009c28
+> --- /dev/null
+> +++ b/arch/riscv/kernel/compat_syscall_table.c
+> @@ -0,0 +1,19 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +
+> +#define __SYSCALL_COMPAT
+> +
+> +#include <linux/compat.h>
+> +#include <linux/syscalls.h>
+> +#include <asm-generic/mman-common.h>
+> +#include <asm-generic/syscalls.h>
+> +#include <asm/syscall.h>
+> +
+> +#undef __SYSCALL
+> +#define __SYSCALL(nr, call)      [nr] = (call),
+> +
+> +asmlinkage long compat_sys_rt_sigreturn(void);
+> +
+> +void * const compat_sys_call_table[__NR_syscalls] = {
+> +       [0 ... __NR_syscalls - 1] = sys_ni_syscall,
+> +#include <asm/unistd.h>
+> +};
+> diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+> index 12f8a7fce78b..9c0194f176fc 100644
+> --- a/arch/riscv/kernel/sys_riscv.c
+> +++ b/arch/riscv/kernel/sys_riscv.c
+> @@ -33,7 +33,9 @@ SYSCALL_DEFINE6(mmap, unsigned long, addr, unsigned long, len,
+>  {
+>         return riscv_sys_mmap(addr, len, prot, flags, fd, offset, 0);
+>  }
+> -#else
+> +#endif
+> +
+> +#if defined(CONFIG_32BIT) || defined(CONFIG_COMPAT)
+>  SYSCALL_DEFINE6(mmap2, unsigned long, addr, unsigned long, len,
+>         unsigned long, prot, unsigned long, flags,
+>         unsigned long, fd, off_t, offset)
+> @@ -44,7 +46,7 @@ SYSCALL_DEFINE6(mmap2, unsigned long, addr, unsigned long, len,
+>          */
+>         return riscv_sys_mmap(addr, len, prot, flags, fd, offset, 12);
+>  }
+> -#endif /* !CONFIG_64BIT */
+> +#endif
+>
+>  /*
+>   * Allows the instruction cache to be flushed from userspace.  Despite RISC-V
+> diff --git a/fs/open.c b/fs/open.c
+> index 9ff2f621b760..b25613f7c0a7 100644
+> --- a/fs/open.c
+> +++ b/fs/open.c
+> @@ -224,6 +224,21 @@ SYSCALL_DEFINE2(ftruncate64, unsigned int, fd, loff_t, length)
+>  }
+>  #endif /* BITS_PER_LONG == 32 */
+>
+> +#if defined(CONFIG_COMPAT) && defined(__ARCH_WANT_COMPAT_TRUNCATE64)
+> +COMPAT_SYSCALL_DEFINE3(truncate64, const char __user *, pathname,
+> +                      compat_arg_u64_dual(length))
+> +{
+> +       return ksys_truncate(pathname, compat_arg_u64_glue(length));
+> +}
+> +#endif
+> +
+> +#if defined(CONFIG_COMPAT) && defined(__ARCH_WANT_COMPAT_FTRUNCATE64)
+> +COMPAT_SYSCALL_DEFINE3(ftruncate64, unsigned int, fd,
+> +                      compat_arg_u64_dual(length))
+> +{
+> +       return ksys_ftruncate(fd, compat_arg_u64_glue(length));
+> +}
+> +#endif
+>
+>  int vfs_fallocate(struct file *file, int mode, loff_t offset, loff_t len)
+>  {
+> @@ -339,6 +354,15 @@ SYSCALL_DEFINE4(fallocate, int, fd, int, mode, loff_t, offset, loff_t, len)
+>         return ksys_fallocate(fd, mode, offset, len);
+>  }
+>
+> +#if defined(CONFIG_COMPAT) && defined(__ARCH_WANT_COMPAT_FALLOCATE)
+> +COMPAT_SYSCALL_DEFINE6(fallocate, int, fd, int, mode, compat_arg_u64_dual(offset),
+> +                      compat_arg_u64_dual(len))
+> +{
+> +       return ksys_fallocate(fd, mode, compat_arg_u64_glue(offset),
+> +                             compat_arg_u64_glue(len));
+> +}
+> +#endif
+> +
+>  /*
+>   * access() needs to use the real uid/gid, not the effective uid/gid.
+>   * We do this by temporarily clearing all FS-related capabilities and
+> diff --git a/fs/read_write.c b/fs/read_write.c
+> index 0074afa7ecb3..548657c462e8 100644
+> --- a/fs/read_write.c
+> +++ b/fs/read_write.c
+> @@ -681,6 +681,14 @@ SYSCALL_DEFINE4(pread64, unsigned int, fd, char __user *, buf,
+>         return ksys_pread64(fd, buf, count, pos);
+>  }
+>
+> +#if defined(CONFIG_COMPAT) && defined(__ARCH_WANT_COMPAT_PREAD64)
+> +COMPAT_SYSCALL_DEFINE5(pread64, unsigned int, fd, char __user *, buf,
+> +                      size_t, count, compat_arg_u64_dual(pos))
+> +{
+> +       return ksys_pread64(fd, buf, count, compat_arg_u64_glue(pos));
+> +}
+> +#endif
+> +
+>  ssize_t ksys_pwrite64(unsigned int fd, const char __user *buf,
+>                       size_t count, loff_t pos)
+>  {
+> @@ -707,6 +715,14 @@ SYSCALL_DEFINE4(pwrite64, unsigned int, fd, const char __user *, buf,
+>         return ksys_pwrite64(fd, buf, count, pos);
+>  }
+>
+> +#if defined(CONFIG_COMPAT) && defined(__ARCH_WANT_COMPAT_PWRITE64)
+> +COMPAT_SYSCALL_DEFINE5(pwrite64, unsigned int, fd, const char __user *, buf,
+> +                      size_t, count, compat_arg_u64_dual(pos))
+> +{
+> +       return ksys_pwrite64(fd, buf, count, compat_arg_u64_glue(pos));
+> +}
+> +#endif
+> +
+>  static ssize_t do_iter_readv_writev(struct file *filp, struct iov_iter *iter,
+>                 loff_t *ppos, int type, rwf_t flags)
+>  {
+> diff --git a/fs/sync.c b/fs/sync.c
+> index c7690016453e..dc725914e1ed 100644
+> --- a/fs/sync.c
+> +++ b/fs/sync.c
+> @@ -373,6 +373,15 @@ SYSCALL_DEFINE4(sync_file_range, int, fd, loff_t, offset, loff_t, nbytes,
+>         return ksys_sync_file_range(fd, offset, nbytes, flags);
+>  }
+>
+> +#if defined(CONFIG_COMPAT) && defined(__ARCH_WANT_COMPAT_SYNC_FILE_RANGE)
+> +COMPAT_SYSCALL_DEFINE6(sync_file_range, int, fd, compat_arg_u64_dual(offset),
+> +                      compat_arg_u64_dual(nbytes), unsigned int, flags)
+> +{
+> +       return ksys_sync_file_range(fd, compat_arg_u64_glue(offset),
+> +                                   compat_arg_u64_glue(nbytes), flags);
+> +}
+> +#endif
+> +
+>  /* It would be nice if people remember that not all the world's an i386
+>     when they introduce new system calls */
+>  SYSCALL_DEFINE4(sync_file_range2, int, fd, unsigned int, flags,
+> diff --git a/include/asm-generic/compat.h b/include/asm-generic/compat.h
+> index 11653d6846cc..d06308a2a7a8 100644
+> --- a/include/asm-generic/compat.h
+> +++ b/include/asm-generic/compat.h
+> @@ -14,6 +14,13 @@
+>  #define COMPAT_OFF_T_MAX       0x7fffffff
+>  #endif
+>
+> +#if !defined(compat_arg_u64) && !defined(CONFIG_CPU_BIG_ENDIAN)
+> +#define compat_arg_u64(name)           u32  name##_lo, u32  name##_hi
+> +#define compat_arg_u64_dual(name)      u32, name##_lo, u32, name##_hi
+> +#define compat_arg_u64_glue(name)      (((u64)name##_lo & 0xffffffffUL) | \
+> +                                        ((u64)name##_hi << 32))
+> +#endif
+> +
+>  /* These types are common across all compat ABIs */
+>  typedef u32 compat_size_t;
+>  typedef s32 compat_ssize_t;
+> diff --git a/include/linux/compat.h b/include/linux/compat.h
+> index a0481fe6c5d5..8779e283a1e9 100644
+> --- a/include/linux/compat.h
+> +++ b/include/linux/compat.h
+> @@ -926,6 +926,43 @@ asmlinkage long compat_sys_sigaction(int sig,
+>  /* obsolete: net/socket.c */
+>  asmlinkage long compat_sys_socketcall(int call, u32 __user *args);
+>
+> +#ifdef __ARCH_WANT_COMPAT_TRUNCATE64
+> +asmlinkage long compat_sys_truncate64(const char __user *pathname, compat_arg_u64(len));
+> +#endif
+> +
+> +#ifdef __ARCH_WANT_COMPAT_FTRUNCATE64
+> +asmlinkage long compat_sys_ftruncate64(unsigned int fd, compat_arg_u64(len));
+> +#endif
+> +
+> +#ifdef __ARCH_WANT_COMPAT_FALLOCATE
+> +asmlinkage long compat_sys_fallocate(int fd, int mode, compat_arg_u64(offset),
+> +                                    compat_arg_u64(len));
+> +#endif
+> +
+> +#ifdef __ARCH_WANT_COMPAT_PREAD64
+> +asmlinkage long compat_sys_pread64(unsigned int fd, char __user *buf, size_t count,
+> +                                  compat_arg_u64(pos));
+> +#endif
+> +
+> +#ifdef __ARCH_WANT_COMPAT_PWRITE64
+> +asmlinkage long compat_sys_pwrite64(unsigned int fd, const char __user *buf, size_t count,
+> +                                   compat_arg_u64(pos));
+> +#endif
+> +
+> +#ifdef __ARCH_WANT_COMPAT_SYNC_FILE_RANGE
+> +asmlinkage long compat_sys_sync_file_range(int fd, compat_arg_u64(pos),
+> +                                          compat_arg_u64(nbytes), unsigned int flags);
+> +#endif
+> +
+> +#ifdef __ARCH_WANT_COMPAT_FADVISE64_64
+> +asmlinkage long compat_sys_fadvise64_64(int fd, int advice, compat_arg_u64(pos),
+> +                                       compat_arg_u64(len));
+This should be:
++asmlinkage long compat_sys_fadvise64_64(int fd, compat_arg_u64(pos),
++                                        compat_arg_u64(len), int advice);
+
+> +#endif
+> +
+> +#ifdef __ARCH_WANT_COMPAT_READAHEAD
+> +asmlinkage long compat_sys_readahead(int fd, compat_arg_u64(offset), size_t count);
+> +#endif
+> +
+>  #endif /* CONFIG_ARCH_HAS_SYSCALL_WRAPPER */
+>
+>  /**
+> diff --git a/mm/fadvise.c b/mm/fadvise.c
+> index d6baa4f451c5..8950f7c05d20 100644
+> --- a/mm/fadvise.c
+> +++ b/mm/fadvise.c
+> @@ -215,5 +215,16 @@ SYSCALL_DEFINE4(fadvise64, int, fd, loff_t, offset, size_t, len, int, advice)
+>         return ksys_fadvise64_64(fd, offset, len, advice);
+>  }
+>
+> +#endif
+> +
+> +#if defined(CONFIG_COMPAT) && defined(__ARCH_WANT_COMPAT_FADVISE64_64)
+> +
+> +COMPAT_SYSCALL_DEFINE6(fadvise64_64, int, fd, int, advice, compat_arg_u64_dual(offset),
+> +                      compat_arg_u64_dual(len))
+Ditto, this should be.
+
++COMPAT_SYSCALL_DEFINE6(fadvise64_64, int, fd, compat_arg_u64_dual(offset),
++                      compat_arg_u64_dual(len), int, advice)
+
+> +{
+> +       return ksys_fadvise64_64(fd, compat_arg_u64_glue(offset),
+> +                                compat_arg_u64_glue(len), advice);
+> +}
+> +
+>  #endif
+>  #endif
+> diff --git a/mm/readahead.c b/mm/readahead.c
+> index cf0dcf89eb69..9adf57044299 100644
+> --- a/mm/readahead.c
+> +++ b/mm/readahead.c
+> @@ -640,6 +640,13 @@ SYSCALL_DEFINE3(readahead, int, fd, loff_t, offset, size_t, count)
+>         return ksys_readahead(fd, offset, count);
+>  }
+>
+> +#if defined(CONFIG_COMPAT) && defined(__ARCH_WANT_COMPAT_READAHEAD)
+> +COMPAT_SYSCALL_DEFINE4(readahead, int, fd, compat_arg_u64_dual(offset), size_t, count)
+> +{
+> +       return ksys_readahead(fd, compat_arg_u64_glue(offset), count);
+> +}
+> +#endif
+> +
+>  /**
+>   * readahead_expand - Expand a readahead request
+>   * @ractl: The request to be expanded
+> --
+> 2.25.1
+>
+
+
+-- 
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
