@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E800C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Mar 2022 17:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24593C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Mar 2022 17:19:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v+mKwmGk0CoVBGmmxG5gjWMSmEGdvdBQom6pYu1te0g=; b=s3d210bRNvDpvX
-	p/l5nmhX5FicEmP+PECpWQlid9PzY2y6/1X0GrYsilIf1uXL7n3a3rR+/jLuSGtxgs1DU1mtAP4xW
-	uv1hqI2ATLTJIZ11NSI4+M762nt5hy45Ci6JL7wheCXjW0GMZC9O5wQExUaN7CItmdnYZR6/WAjX0
-	V3bEcYGLXDGRNfhNTjAe164YqmZh27770mVomSug7XFSbHO2BVfEYekbHEPW3t8qoNGDVpziPZ+mz
-	HZSyw7ZRdA8hSlMgOCWuXo2FCSVB/OPSwEElUGZejhWN3L9o6M19he+YTwIaIIdMWQd4k/b8Tx2Yj
-	xGzyAbZ2D4yP1BSbvbCg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6NNGrep72lBHAaleOf0liAB6vjpiG3mecmtfYwxhwH4=; b=pshvZn/m8ai5iz
+	HiJDqdFhgaORZgbvjQ/tfYnIQNboSvp8L+0e9OPHm+oPE/Nq0gRw5HSX555dKiV7Q+Q8xwrXCJUX0
+	MGUF+Ksw/8H/1A48LLqjg28YDzBYuHHRoGR+JOlIWzOLgi/y0DHbGy3naS2h2J6P+IYbyTFRwvutL
+	FtZsBCYqnJoNiUJYDLr2YbsrAM58XDa1uqTxR86OEEs1RCLu56SkhxXdc9nC373SAyi5/GPpHZazs
+	5jYYdb0ppnNKsPy64MJC8pJnTM2nWblBuObaJUkQjjhcjfC8PS4YhH1a0+yKwse64RaH5r3utWOcr
+	NUXS8Muz7kRcD2NawaJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nX4MG-00ELV8-Vx; Wed, 23 Mar 2022 17:01:17 +0000
-Received: from smtp-relay-canonical-0.canonical.com ([185.125.188.120])
+	id 1nX4dS-00EOx5-FP; Wed, 23 Mar 2022 17:19:02 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nX4ME-00ELUE-5q
- for linux-riscv@lists.infradead.org; Wed, 23 Mar 2022 17:01:15 +0000
-Received: from workstation5.fritz.box
- (ip-088-152-144-107.um26.pools.vodafone-ip.de [88.152.144.107])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-relay-canonical-0.canonical.com (Postfix) with ESMTPSA id A898C3F1B9; 
- Wed, 23 Mar 2022 17:01:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1648054865;
- bh=VKgkHWla7OPzmk0IPjqkq6YWVZrY8zHcMZMSEH61OSY=;
- h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
- MIME-Version;
- b=vx4S+/NBUweSnkdARAwVcnQjLg6/v4u2ucRkREYdXbs/EMTGFgciLKXOMRc+jOp/a
- 9nvlEe39JoCVxX275KJmg15iEWJ9LRCRWKE/HsBajGdxU0a0Caz0FY+qc6SDY6//J1
- bE7scMbHZ08H3TS2qnlK8EaVG1eJdG+nKWj4Xk0kjnWwjabcdW1CRtGBRJhYktUI2E
- xf5eA67I6j1twhjX9wrn0lIZpiiNRTgTWTulUvicocjGW0fZyyjOYqifYUXBiApIlO
- NwON3m57ItZ7JhEj8gZ3mk6+nYIwYu6twYU4FlzbIJuZQAQQRGt5rceRoWgIt7j4f0
- vpBYLUrSwESCw==
-From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: Anup Patel <anup@brainfault.org>, RISC-V SW Dev <sw-dev@groups.riscv.org>,
- RISC-V ISA Dev <isa-dev@groups.riscv.org>,
- tech-unixplatformspec <tech-unixplatformspec@lists.riscv.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Subject: [PATCH] Fix typos in introduction for RISCV_EFI_BOOT_PROTOCOL
-Date: Wed, 23 Mar 2022 18:00:48 +0100
-Message-Id: <20220323170048.371365-1-heinrich.schuchardt@canonical.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220323161604.GA54531@sunil-laptop>
-References: <20220323161604.GA54531@sunil-laptop>
+ id 1nX4dP-00EOvF-6v
+ for linux-riscv@lists.infradead.org; Wed, 23 Mar 2022 17:19:00 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d19so1979183pfv.7
+ for <linux-riscv@lists.infradead.org>; Wed, 23 Mar 2022 10:18:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=aUhE442Chh0VE73xSyuaumajE/w5XLbPiioPvB11NGk=;
+ b=7pjMO3GVK+ZW7atuxQR6ijXrvohpgOt+NoFs1nGisTNVLrarZcCGq2tgaMGkkMkLRY
+ CuIPLaDoebffi7nHz8osTESDZ+gfKymOObyQQX7IOhQG+YOrMW9MKZoKho3adIBED71/
+ QIStW4PjAz0uDneoiisP/VjaZBfJuPLqgrOqSlIR9GwH+RQhRKsWlg29R3TR7WijPof/
+ KatIfaWoSLxeTPF94f9/YIsFkTCGWY0YNJW5yUgDmR9eN0ZhCAlKQZADrml8qbC5Br7R
+ 0GSQqyCI58nhVts3KB7gLmjLYLiuN56tYQk49MYjPoRhUfyuakalm1pqnnhodJ2rNEWG
+ CmCA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=aUhE442Chh0VE73xSyuaumajE/w5XLbPiioPvB11NGk=;
+ b=KAp157HlXY4mei6tmWfevoptU+zN7rN1F3fR3MZLxpSy21zOOd6i3+7D3Xn2+eGYUc
+ P5Pb0iJx1b3z2/MbVr6NseXtF9ofsMkmQjO3W1t+r/Fn4P+78uhKPiGoJKz17ZdV0Y75
+ fRd2VP/l6q4fg+jjZNHuUGyCLXZTxXGHoQ5qDoM1ZQcaH2UzFnk+XJ4omikh2awGah+G
+ 6faAOc1cXW3HXMeLGs7+yL1yehLJKcGNU+X2r7UWLJqDznx5Ejyno/gWLH2bTLaMW+qk
+ cabj4WhsSijfJr/dVYnoExfOg9fFPz8m2oq3GRVgcHXoRqYkDRR5UDpGEuU9GX2rTkGu
+ /1Rg==
+X-Gm-Message-State: AOAM530ezqHHvg2p3cxtjvMi8Z+NN+Dr8tfuH97WNlOip9shfSvDQ4BE
+ aRcNlj2rmpghzZhYkVKiEpJI2A==
+X-Google-Smtp-Source: ABdhPJwiUO6omSax6cgN0DHF/2aBUy3wNyRywh27FzWP2RZbe9jd0lms0/eROJU0CEYJ9QnJBNtovw==
+X-Received: by 2002:a62:1407:0:b0:4fa:6d31:1056 with SMTP id
+ 7-20020a621407000000b004fa6d311056mr775126pfu.7.1648055937273; 
+ Wed, 23 Mar 2022 10:18:57 -0700 (PDT)
+Received: from atishp.ba.rivosinc.com ([66.220.2.162])
+ by smtp.gmail.com with ESMTPSA id
+ p128-20020a622986000000b004e1366dd88esm444524pfp.160.2022.03.23.10.18.55
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 23 Mar 2022 10:18:56 -0700 (PDT)
+From: Atish Patra <atishp@rivosinc.com>
+To: linux-kernel@vger.kernel.org
+Cc: Atish Patra <atishp@rivosinc.com>, kernel test robot <lkp@intel.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@atishpatra.org>,
+ Anup Patel <anup@brainfault.org>, Damien Le Moal <damien.lemoal@wdc.com>,
+ devicetree@vger.kernel.org, Jisheng Zhang <jszhang@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
+Subject: [PATCH] RISC-V: Declare per cpu boot data as static
+Date: Wed, 23 Mar 2022 10:17:26 -0700
+Message-Id: <20220323171726.1303706-1-atishp@rivosinc.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220323_100114_532640_6EA0FE99 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20220323_101859_332781_46E81F4E 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,56 +94,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UEFI uses to talk of configuration tables not of firmware tables.
+The per cpu boot data is only used within the cpu_ops_sbi.c. It can
+be delcared as static.
 
-Add missing 'the', 'and'.
+Fixes: 9a2451f18663 ("RISC-V: Avoid using per cpu array for ordered booting")
 
-Enhance readability of sentence concerning ExitBootServices().
-
-Signed-off-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Reported-by: kernel test robot <lkp@intel.com>
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- boot_protocol.adoc | 15 ++++++++-------
- 1 file changed, 8 insertions(+), 7 deletions(-)
+ arch/riscv/kernel/cpu_ops_sbi.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/boot_protocol.adoc b/boot_protocol.adoc
-index 12846b6..5c56edd 100644
---- a/boot_protocol.adoc
-+++ b/boot_protocol.adoc
-@@ -1,7 +1,7 @@
- [[boot_protocol]]
- == RISCV_EFI_BOOT_PROTOCOL
- Either Device Tree (DT) or Advanced Configuration and Power Interface (ACPI)
--firmware tables are used to convey the information about hardware to the
-+configuration tables are used to convey the information about hardware to the
- Operating Systems. Some of the information are known only at boot time and
- needed very early before the Operating Systems/boot loaders can parse the
- firmware tables. 
-@@ -9,16 +9,17 @@ firmware tables.
- One example is the boot hartid on RISC-V systems. On non-UEFI systems, this is
- typically passed as an argument to the kernel (in a0). However, UEFI systems need
- to follow UEFI application calling conventions and hence it can not be passed in
--a0. There is an existing solution which uses /chosen node in DT based systems to
--pass this information. However, this solution doesn't work for ACPI based
-+a0. There is an existing solution which uses the /chosen node in DT based systems
-+to pass this information. However, this solution doesn't work for ACPI based
- systems. Hence, a UEFI protocol is preferred for both DT and ACPI based systems.
+diff --git a/arch/riscv/kernel/cpu_ops_sbi.c b/arch/riscv/kernel/cpu_ops_sbi.c
+index dae29cbfe550..7f2ad008274f 100644
+--- a/arch/riscv/kernel/cpu_ops_sbi.c
++++ b/arch/riscv/kernel/cpu_ops_sbi.c
+@@ -21,7 +21,7 @@ const struct cpu_operations cpu_ops_sbi;
+  * be invoked from multiple threads in parallel. Define a per cpu data
+  * to handle that.
+  */
+-DEFINE_PER_CPU(struct sbi_hart_boot_data, boot_data);
++static DEFINE_PER_CPU(struct sbi_hart_boot_data, boot_data);
  
- This UEFI protocol for RISC-V systems provides early information to the
--bootloaders or Operating Systems. Firmwares like EDK2/u-boot need to implement
--this protocol on RISC-V UEFI systems.
-+bootloaders or Operating Systems. Firmwares like EDK2 and u-boot need to
-+implement this protocol on RISC-V UEFI systems.
- 
--This protocol is typically used by the bootloaders before *ExitBootServices()*
--call and pass the information to the Operating Systems.
-+This protocol is typically called by the bootloaders before invoking
-+*ExitBootServices()*. They then pass the information to the Operating
-+Systems.
- 
- The version of RISCV_EFI_BOOT_PROTOCOL specified by this specification is
- 0x00010000. All future revisions must be backwards compatible. If a new version
+ static int sbi_hsm_hart_start(unsigned long hartid, unsigned long saddr,
+ 			      unsigned long priv)
 -- 
-2.34.1
+2.25.1
 
 
 _______________________________________________
