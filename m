@@ -4,55 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 768FAC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Mar 2022 00:12:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 044E4C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Mar 2022 01:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/z30vmjIqP5OzvA3fwZZFVKG3vi3cwGs9Z1G+Tg8k3E=; b=d8cnkEbPM20S9y
-	qUyNGNK0bEIt2tE4sqb6/Kn44rIbC1oJlu1/ck+oLiqI2dBTjz2NoGV9SMTZTxHcpw4aW2/3xrm0N
-	5Ad1Kd5DGy1gBN02m6076CTOYsQkMMOKnKQT4T5sHOlbmE6DD8JQr2Y69dUjhkVDEhlgjeFG11RnK
-	vOmkvkcM+Mh0+LFjoWTHAnQLkuJDLDzvPwTYRNge7BU37JcAAwVknGGpS9/n9Rf80ZXN1CmxnXHoB
-	wzmmRcpufU0ZWmFgsV4v3DMleidNPVwobuX4VfrKZbQ2f2iCMByx9GvK0rSexxKgLhRckzzGEmePv
-	SdxSWjHDxKS2L60jtP2Q==;
+	List-Owner; bh=veiq1HsSIGiYYaFbYuxylYS1/y/Ms5CeODpXqCyi+tU=; b=UQn6BeIKJUgXyG
+	nHB6V7YZWsSnw/5LO7eTcPWXlrUiTBBAt8jE8zqniG66TV+0MGJq+2SpI7fPjglvURERVjGubBmty
+	vOpBPzFVz6LJxyQ3VhpcFtzRKBprc5wfRGcGoXIQVbQ2ULZlJ3Mv07yd5o2wav4SzguYJGoF7Xgam
+	tOr3ycsXc7+RHsZbQXibEx7BYoaH8fJMXv8lUiMPfdRV6ZUuo6adLbyTrOvBmIC1/pycz6sJOFnb8
+	+GK/FLa0McTIOBP+G01sccP87klJ92bu7z2UgEiTG29F/p/hH/+mRBbifWI6vYAuj8Q3vQN/CkcXv
+	SR/MSeuFCxysnT5DL8rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nXB5E-00FBRV-0a; Thu, 24 Mar 2022 00:12:08 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nXB5A-00FBQW-6I
- for linux-riscv@lists.infradead.org; Thu, 24 Mar 2022 00:12:06 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
- helo=phil.lan)
- by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1nXB0v-00055s-0z; Thu, 24 Mar 2022 01:07:41 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	aou@eecs.berkeley.edu
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- wefu@redhat.com, liush@allwinnertech.com, guoren@kernel.org,
- atishp@atishpatra.org, anup@brainfault.org, drew@beagleboard.org,
- hch@lst.de, arnd@arndb.de, wens@csie.org, maxime@cerno.tech,
- gfavor@ventanamicro.com, andrea.mondelli@huawei.com, behrensj@mit.edu,
- xinhaoqu@huawei.com, mick@ics.forth.gr, allen.baum@esperantotech.com,
- jscheid@ventanamicro.com, rtrauben@gmail.com, samuel@sholland.org,
- cmuellner@linux.com, philipp.tomsich@vrull.eu,
- Heiko Stuebner <heiko@sntech.de>
-Subject: [PATCH v8 14/14] riscv: add memory-type errata for T-Head
-Date: Thu, 24 Mar 2022 01:07:10 +0100
-Message-Id: <20220324000710.575331-15-heiko@sntech.de>
-X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20220324000710.575331-1-heiko@sntech.de>
-References: <20220324000710.575331-1-heiko@sntech.de>
+	id 1nXCQS-00FJzl-QN; Thu, 24 Mar 2022 01:38:08 +0000
+Received: from [94.125.187.43] (helo=mail.baikalelectronics.ru)
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nXCQB-00FJyR-TP; Thu, 24 Mar 2022 01:37:56 +0000
+Received: from mail.baikalelectronics.ru (unknown [192.168.51.25])
+ by mail.baikalelectronics.ru (Postfix) with ESMTP id E8D6439CB7F;
+ Thu, 24 Mar 2022 04:37:48 +0300 (MSK)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.baikalelectronics.ru E8D6439CB7F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=baikalelectronics.ru; s=mail; t=1648085869;
+ bh=m8ge0j6w4fRAgO0H2GK3vu1XJo7cjeYZ3gyjCgKpYsU=;
+ h=From:To:CC:Subject:Date:In-Reply-To:References:From;
+ b=DH/Rx6Dv2DjwVmAzQqG46IqfTWJFJbqbJLmjGn+drbXwkWlxHSkMBKmjLEWxxnrN9
+ +kt2hd3Mn9d4anaXG9Eepiw5ctJkwQgParNUXPoPYhh8KxlNiatNhPHVvOWhNkKyQR
+ xDamXL1osg6JfoTJSeuMVdoAW93Rh9ryX+rvXaVg=
+Received: from localhost (192.168.168.10) by mail (192.168.51.25) with
+ Microsoft SMTP Server (TLS) id 15.0.1395.4; Thu, 24 Mar 2022 04:37:48 +0300
+From: Serge Semin <Sergey.Semin@baikalelectronics.ru>
+To: Jingoo Han <jingoohan1@gmail.com>, Gustavo Pimentel
+ <gustavo.pimentel@synopsys.com>, Bjorn Helgaas <bhelgaas@google.com>, Richard
+ Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, Rob Herring
+ <robh+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
+ Xiaowei Song <songxiaowei@hisilicon.com>, Binghui Wang
+ <wangbinghui@hisilicon.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Greentime Hu <greentime.hu@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
+CC: Serge Semin <Sergey.Semin@baikalelectronics.ru>, Serge Semin
+ <fancer.lancer@gmail.com>, Alexey Malahov
+ <Alexey.Malahov@baikalelectronics.ru>, Pavel Parkhomenko
+ <Pavel.Parkhomenko@baikalelectronics.ru>, Lorenzo Pieralisi
+ <lorenzo.pieralisi@arm.com>, Rob Herring <robh@kernel.org>,
+ =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>, Frank Li
+ <Frank.Li@nxp.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+ <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-riscv@lists.infradead.org>
+Subject: [PATCH 01/16] dt-bindings: PCI: dwc: Define generic and native DT
+ bindings
+Date: Thu, 24 Mar 2022 04:37:19 +0300
+Message-ID: <20220324013734.18234-2-Sergey.Semin@baikalelectronics.ru>
+In-Reply-To: <20220324013734.18234-1-Sergey.Semin@baikalelectronics.ru>
+References: <20220324013734.18234-1-Sergey.Semin@baikalelectronics.ru>
 MIME-Version: 1.0
+X-ClientProxiedBy: MAIL.baikal.int (192.168.51.25) To mail (192.168.51.25)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220323_171204_551054_163C8E03 
-X-CRM114-Status: GOOD (  28.46  )
+X-CRM114-CacheID: sfid-20220323_183752_362267_08D4D21A 
+X-CRM114-Status: GOOD (  36.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,424 +85,872 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some current cpus based on T-Head cores implement memory-types
-way different than described in the svpbmt spec even going
-so far as using PTE bits marked as reserved.
+Currently both DW PCIe Root Port and End-point DT bindings are too generic
+to be used as a descriptive set the device properties. Yes, it's very handy
+to have them that way so the DT-schemas could be used to evaluate as many
+DW PCIe-related DT-nodes as possible. But at the same time they don't
+provide well defined DW PCIe RP/EP DT interface description thus leaving
+too much flexibility for the new platforms, no encouraging the developers
+to preserve a compatible interface.
 
-Add the T-Head vendor-id and necessary errata code to
-replace the affected instructions.
+Instead of currently implemented approach we suggest to be more
+restrictive and yet preserve some level of flexibility in the DW PCIe
+DT-bindings description. The device tree DT-schema is split up into
+three parts: a common YAML-schema applicable for both DWC Root Port and
+End-point controller configs, DWC PCIe Root Port-specific YAML-schema
+and DWC PCIe End-point-specific YAML-schema, where
+1) pci/snps,dw-pcie-common.yaml - The common DT-schema describes the most
+generic constraints of the "reg", "interrupts", "clocks", "resets" and
+"phys" properties together with a set of common for both device types
+PCIe/AXI bus properties like a maximum number of lanes or a maximum link
+speed, number of inbound and outbound iATU windows. In addition to that a
+set of schema definitions declared under the "$defs" property with "reg",
+"interrupt", "clock" and "reset" names common for DWC PCIe Root Port and
+End-point devices. They can be used by the successive DT-schemas in case
+they are supposed to be compatible with the generic DWC PCIe controller
+DT-bindings.
+2) pci/snps,dw-pcie.yaml, pci/snps,dw-pcie-ep.yaml - generic DW PCIe Root
+Port and End-point DT-bindings which aside with the device-specific
+properties set also contain more restrictive constraints. All new DW PCIe
+platforms are supposed to be compatible with one of these bindings by
+using "allOf: " property and additionally defining their own constraints
+to close up the DT-bindings set.
 
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-Tested-by: Samuel Holland <samuel@sholland.org>
+So to speak in case if a DW PCIe-based device for some reason has too many
+specific properties or it's bindings have already been defined in a
+non-generic way, it's DT-schema is supposed to include 1) YAML-file and
+provide its own constraints. Otherwise the ready-to-use bindings from 2)
+should be utilized. There only two DT-schemas compatible with 2) at the
+moment are samsung,axynos-pcie.yaml and intel-gw-pcie.yaml. The
+rest of the DW PCIe-related DT-schemas are supposed to use more generic
+DW PCIe DT-bindings - pci/snps,dw-pcie-common.yaml.
+
+Note the provided here generic properties and their possible values are
+derived from the DW PCIe RC/EP hardware manuals and from the interface
+implemented in the driver. The DT-bindings schemas are created to be as
+full as possible with detailed properties/names description for the
+easier interface comprehension and new platforms bindings development.
+
+Also note since there are no generic DT-nodes can be found in the kernel
+dts-es which would have a pure "snps,dw-pcie" compatible string, these
+DT-bindings have been created to not be selected by default for
+evaluation. They are supposed to be used by the new vendor-specific
+DT-schemas to at least stop adding new bindings for the same set of DWC
+PCIe signals or properties.
+
+Signed-off-by: Serge Semin <Sergey.Semin@baikalelectronics.ru>
+
 ---
- arch/riscv/Kconfig.erratas             | 19 ++++++
- arch/riscv/errata/Makefile             |  1 +
- arch/riscv/errata/sifive/errata.c      |  7 ++-
- arch/riscv/errata/thead/Makefile       |  1 +
- arch/riscv/errata/thead/errata.c       | 82 ++++++++++++++++++++++++++
- arch/riscv/include/asm/alternative.h   |  5 ++
- arch/riscv/include/asm/errata_list.h   | 47 +++++++++++++--
- arch/riscv/include/asm/pgtable-64.h    | 18 +++++-
- arch/riscv/include/asm/pgtable.h       | 18 +++++-
- arch/riscv/include/asm/vendorid_list.h |  1 +
- arch/riscv/kernel/alternative.c        | 12 ++++
- arch/riscv/kernel/cpufeature.c         |  7 ++-
- arch/riscv/mm/init.c                   |  1 +
- 13 files changed, 209 insertions(+), 10 deletions(-)
- create mode 100644 arch/riscv/errata/thead/Makefile
- create mode 100644 arch/riscv/errata/thead/errata.c
 
-diff --git a/arch/riscv/Kconfig.erratas b/arch/riscv/Kconfig.erratas
-index 15cdeeb4151f..8221c5df8da8 100644
---- a/arch/riscv/Kconfig.erratas
-+++ b/arch/riscv/Kconfig.erratas
-@@ -32,4 +32,23 @@ config ERRATA_SIFIVE_CIP_1200
+Rob, if you comment the "select: false" line out you'll get a lot of "'*'
+is not of type 'array'" errors on the dt_bindings_check command execution.
+I have spend tons of time trying to figure out what was wrong, but still
+failed to find out a solution. For some reason the "$ref"-ed schemas
+defined under the "$defs" basic property are considered by the parser as
+defining an array. No matter whether I specified the "type: string"
+keyword or not, as long as there is "enum" or "oneOf" keyword used in the
+"*-names" property definition in "$defs" it's considered as describing an
+array thus causing the errors like:
+
+>  DTC     Documentation/devicetree/bindings/pci/snps,dw-pcie.example.dt.yaml
+>  CHECK   Documentation/devicetree/bindings/pci/snps,dw-pcie.example.dt.yaml
+> /.../snps,dw-pcie.example.dt.yaml: pcie@1f052000: reg-names:0: 'oneOf' conditional failed, one must be fixed:
+>        'dbi' is not of type 'array'
+>        From schema: /.../snps,dw-pcie.yaml
+> /.../snps,dw-pcie.example.dt.yaml: pcie@1f052000: reg-names:1: 'oneOf' conditional failed, one must be fixed:
+>         'config' is not of type 'array'
+>         From schema: /.../snps,dw-pcie.yaml
+> /.../snps,dw-pcie.example.dt.yaml: pcie@1f052000: interrupt-names:0: 'anyOf' conditional failed, one must be fixed:
+>         /.../snps,dw-pcie.example.dt.yaml: pcie@1f052000: interrupt-names:0: 'oneOf' conditional failed, one must be fixed:
+>                 'msi' is not of type 'array'
+>         /../snps,dw-pcie.example.dt.yaml: pcie@1f052000: interrupt-names:0: 'oneOf' conditional failed, one must be fixed:
+>                 'msi' is not of type 'array'
+>         From schema: /.../snps,dw-pcie.yaml
+
+As soon as I manually moved the same "$defs"-schemas into the places they
+are referenced to, the errors disappeared and the DT-schemas validation
+worked as expected by the semantics.
+
+As I see it there must be some bug in the parser, otherwise I am out of
+ideas how to implement the suggested in this patch design pattern. Rob,
+could you take a look at the DT-schemas and help me out with debugging the
+problem described above?
+---
+ .../bindings/pci/fsl,imx6q-pcie.yaml          |   5 +-
+ .../bindings/pci/hisilicon,kirin-pcie.yaml    |   4 +-
+ .../bindings/pci/sifive,fu740-pcie.yaml       |   4 +-
+ .../bindings/pci/snps,dw-pcie-common.yaml     | 298 ++++++++++++++++++
+ .../bindings/pci/snps,dw-pcie-ep.yaml         | 143 ++++++---
+ .../devicetree/bindings/pci/snps,dw-pcie.yaml | 189 +++++++----
+ .../bindings/pci/toshiba,visconti-pcie.yaml   |   2 +-
+ 7 files changed, 524 insertions(+), 121 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
+
+diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+index 643a6333b07b..ccb5cfdf869f 100644
+--- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+@@ -12,10 +12,11 @@ maintainers:
  
- 	  If you don't know what to do here, say "Y".
+ description: |+
+   This PCIe host controller is based on the Synopsys DesignWare PCIe IP
+-  and thus inherits all the common properties defined in snps,dw-pcie.yaml.
++  and thus inherits all the common properties defined in
++  snps,dw-pcie-common.yaml.
  
-+config ERRATA_THEAD
-+	bool "T-HEAD errata"
-+	help
-+	  All T-HEAD errata Kconfig depend on this Kconfig. Disabling
-+	  this Kconfig will disable all T-HEAD errata. Please say "Y"
-+	  here if your platform uses T-HEAD CPU cores.
-+
-+	  Otherwise, please say "N" here to avoid unnecessary overhead.
-+
-+config ERRATA_THEAD_PBMT
-+	bool "Apply T-Head memory type errata"
-+	depends on ERRATA_THEAD && 64BIT
-+	default y
-+	help
-+	  This will apply the memory type errata to handle the non-standard
-+	  memory type bits in page-table-entries on T-Head SoCs.
-+
-+	  If you don't know what to do here, say "Y".
-+
- endmenu
-diff --git a/arch/riscv/errata/Makefile b/arch/riscv/errata/Makefile
-index 0ca1c5281a2d..a1055965fbee 100644
---- a/arch/riscv/errata/Makefile
-+++ b/arch/riscv/errata/Makefile
-@@ -1 +1,2 @@
- obj-$(CONFIG_ERRATA_SIFIVE) += sifive/
-+obj-$(CONFIG_ERRATA_THEAD) += thead/
-diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
-index 42457efcaaa3..0b14d5475573 100644
---- a/arch/riscv/errata/sifive/errata.c
-+++ b/arch/riscv/errata/sifive/errata.c
-@@ -85,10 +85,15 @@ void __init_or_module sifive_errata_patch_func(struct alt_entry *begin, struct a
- 				     unsigned int stage)
- {
- 	struct alt_entry *alt;
--	u32 cpu_req_errata = sifive_errata_probe(archid, impid);
-+	u32 cpu_req_errata;
- 	u32 cpu_apply_errata = 0;
- 	u32 tmp;
+ allOf:
+-  - $ref: /schemas/pci/snps,dw-pcie.yaml#
++  - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
  
-+	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
-+		return;
-+
-+	cpu_req_errata = sifive_errata_probe(archid, impid);
-+
- 	for (alt = begin; alt < end; alt++) {
- 		if (alt->vendor_id != SIFIVE_VENDOR_ID)
- 			continue;
-diff --git a/arch/riscv/errata/thead/Makefile b/arch/riscv/errata/thead/Makefile
+ properties:
+   compatible:
+diff --git a/Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.yaml b/Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.yaml
+index c9f04999c9cf..879d9ec41cb7 100644
+--- a/Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.yaml
+@@ -14,10 +14,10 @@ description: |
+   Kirin PCIe host controller is based on the Synopsys DesignWare PCI core.
+   It shares common functions with the PCIe DesignWare core driver and
+   inherits common properties defined in
+-  Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml.
++  Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml.
+ 
+ allOf:
+-  - $ref: /schemas/pci/snps,dw-pcie.yaml#
++  - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
+ 
+ properties:
+   compatible:
+diff --git a/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml b/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
+index 392f0ab488c2..437614257935 100644
+--- a/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
+@@ -10,14 +10,14 @@ description: |+
+   SiFive FU740 PCIe host controller is based on the Synopsys DesignWare
+   PCI core. It shares common features with the PCIe DesignWare core and
+   inherits common properties defined in
+-  Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml.
++  Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml.
+ 
+ maintainers:
+   - Paul Walmsley <paul.walmsley@sifive.com>
+   - Greentime Hu <greentime.hu@sifive.com>
+ 
+ allOf:
+-  - $ref: /schemas/pci/snps,dw-pcie.yaml#
++  - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
+ 
+ properties:
+   compatible:
+diff --git a/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml b/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
 new file mode 100644
-index 000000000000..2d644e19caef
+index 000000000000..27fe1f5c450f
 --- /dev/null
-+++ b/arch/riscv/errata/thead/Makefile
-@@ -0,0 +1 @@
-+obj-y += errata.o
-diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
-new file mode 100644
-index 000000000000..e5d75270b99c
---- /dev/null
-+++ b/arch/riscv/errata/thead/errata.c
-@@ -0,0 +1,82 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2021 Heiko Stuebner <heiko@sntech.de>
-+ */
++++ b/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
+@@ -0,0 +1,298 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pci/snps,dw-pcie-common.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+#include <linux/bug.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/string.h>
-+#include <linux/uaccess.h>
-+#include <asm/alternative.h>
-+#include <asm/cacheflush.h>
-+#include <asm/errata_list.h>
-+#include <asm/patch.h>
-+#include <asm/vendorid_list.h>
++title: Synopsys DWC PCIe RP/EP controller
 +
-+struct errata_info {
-+	char name[ERRATA_STRING_LENGTH_MAX];
-+	bool (*check_func)(unsigned long arch_id, unsigned long impid);
-+	unsigned int stage;
-+};
++maintainers:
++  - Jingoo Han <jingoohan1@gmail.com>
++  - Gustavo Pimentel <gustavo.pimentel@synopsys.com>
 +
-+static bool errata_mt_check_func(unsigned long  arch_id, unsigned long impid)
-+{
-+	if (arch_id != 0 || impid != 0)
-+		return false;
-+	return true;
-+}
++properties:
++  reg:
++    description:
++      DWC PCIe CSR space is normally accessed over the dedicated Data Bus
++      Interface - DBI. In accordance with the reference manual the register
++      configuration space belongs to the Configuration-Dependent Module (CDM)
++      and is split up into several sub-parts Standard PCIe configuration
++      space, Port Logic Registers (PL), Shadow Config-space Registers,
++      iATU/eDMA registers. The particular sub-space is selected by the
++      CDM/ELBI (dbi_cs) and CS2 (dbi_cs2) signals (selector bits). Such
++      configuration provides a flexible interface for the system engineers to
++      either map the particular space at a desired MMIO address or just leave
++      them in a contiguous memory space if pure Native or AXI Bridge DBI access
++      is selected. Note the PCIe CFG-space, PL and Shadow registers are
++      specific to each activated function, while the rest of the sub-spaces
++      are common for all of them (if there are more than one).
++    minItems: 2
++    maxItems: 6
 +
-+static const struct errata_info errata_list[ERRATA_THEAD_NUMBER] = {
-+	{
-+		.name = "memory-types",
-+		.stage = RISCV_ALTERNATIVES_EARLY_BOOT,
-+		.check_func = errata_mt_check_func
-+	},
-+};
++  interrupts:
++    description:
++      There are two main sub-blocks which are normally capable of
++      generating interrupts. It's System Information Interface and MSI
++      interface. While the former one has some common for the Host and
++      End-point controllers IRQ-signals, the later interface is obviously
++      Root Complex specific since it's responsible for the incoming MSI
++      messages signalling. The System Information IRQ signals are mainly
++      responsible for reporting the generic PCIe hierarchy and Root
++      Complex events like VPD IO request, general AER, PME, Hot-plug, link
++      bandwidth change, link equalization request, INTx asserted/deasserted
++      Message detection, embedded DMA Tx/Rx/Error.
++    minItems: 1
++    maxItems: 26
 +
-+static u32 thead_errata_probe(unsigned int stage, unsigned long archid, unsigned long impid)
-+{
-+	const struct errata_info *info;
-+	u32 cpu_req_errata = 0;
-+	int idx;
++  clocks:
++    description:
++      DWC PCIe reference manual explicitly defines a set of the clocks required
++      to get the controller working correctly. In general all of them can
++      be divided into two groups':' application and core clocks. Note the
++      platforms may have some of the clock sources unspecified in case if the
++      corresponding domains are fed up from a common clock source.
++    minItems: 1
++    maxItems: 7
 +
-+	for (idx = 0; idx < ERRATA_THEAD_NUMBER; idx++) {
-+		info = &errata_list[idx];
++  resets:
++    description:
++      DWC PCIe reference manual explicitly defines a set of the reset
++      signals required to be de-asserted to properly activate the controller
++      sub-parts. All of these signals can be divided into two sub-groups':'
++      application and core resets with respect to the main sub-domains they
++      are supposed to reset. Note the platforms may have some of these signals
++      unspecified in case if they are automatically handled or aggregated into
++      a comprehensive control module.
++    minItems: 1
++    maxItems: 10
 +
-+		if ((stage == RISCV_ALTERNATIVES_MODULE ||
-+		     info->stage == stage) && info->check_func(archid, impid))
-+			cpu_req_errata |= (1U << idx);
-+	}
++  reset-gpio:
++    deprecated: true
++    description:
++      Reference to the GPIO-controlled PERST# signal. It is used to reset all
++      the peripheral devices available on the PCIe bus.
++    maxItems: 1
 +
-+	return cpu_req_errata;
-+}
++  reset-gpios:
++    description:
++      Reference to the GPIO-controlled PERST# signal. It is used to reset all
++      the peripheral devices available on the PCIe bus.
++    maxItems: 1
 +
-+void __init_or_module thead_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
-+					      unsigned long archid, unsigned long impid,
-+					      unsigned int stage)
-+{
-+	struct alt_entry *alt;
-+	u32 cpu_req_errata = thead_errata_probe(stage, archid, impid);
-+	u32 tmp;
++  phys:
++    description:
++      There can be up to number of possible lanes PHYs specified.
++      Obviously each specified PHY is supposed to be able to work in the
++      PCIe mode with a speed implied by the DWC PCIe controller it is
++      attached to.
++    minItems: 1
++    maxItems: 16
 +
-+	for (alt = begin; alt < end; alt++) {
-+		if (alt->vendor_id != THEAD_VENDOR_ID)
-+			continue;
-+		if (alt->errata_id >= ERRATA_THEAD_NUMBER)
-+			continue;
++  phy-names:
++    minItems: 1
++    maxItems: 16
++    items:
++      pattern: '^pcie([0-9]+|-?phy)?$'
 +
-+		tmp = (1U << alt->errata_id);
-+		if (cpu_req_errata & tmp) {
-+			/* On vm-alternatives, the mmu isn't running yet */
-+			if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
-+				memcpy((void *)__pa_symbol(alt->old_ptr),
-+				       (void *)__pa_symbol(alt->alt_ptr), alt->alt_len);
-+			else
-+				patch_text_nosync(alt->old_ptr, alt->alt_ptr, alt->alt_len);
-+		}
-+	}
++  num-lanes:
++    maximum: 16
 +
-+	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
-+		local_flush_icache_all();
-+}
-diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
-index cf3b22173834..d1154c91ab03 100644
---- a/arch/riscv/include/asm/alternative.h
-+++ b/arch/riscv/include/asm/alternative.h
-@@ -19,8 +19,10 @@
++  max-link-speed:
++    maximum: 4
++
++  num-ob-windows:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    deprecated: true
++    description:
++      Number of outbound address translation windows. This parameter can be
++      auto-detected based on the iATU memory writability. So there is no
++      point in having a dedicated DT-property for it.
++    maximum: 256
++
++  num-ib-windows:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    deprecated: true
++    description:
++      Number of inbound address translation windows. In the same way as
++      for the outbound AT windows, this parameter can be auto-detected based
++      on the iATU memory writability. There is no point having a dedicated
++      DT-property for it either.
++    maximum: 256
++
++  num-viewport:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    deprecated: true
++    description:
++      Number of outbound view ports configured in hardware. It's the same as
++      the number of outbound AT windows.
++    maximum: 256
++
++  snps,enable-cdm-check:
++    $ref: /schemas/types.yaml#/definitions/flag
++    description:
++      Enable automatic checking of CDM (Configuration Dependent Module)
++      registers for data corruption. CDM registers include standard PCIe
++      configuration space registers, Port Logic registers, DMA and iATU
++      registers. This feature has been available since DWC PCIe v4.80a.
++
++additionalProperties: true
++
++$defs:
++  reg-names:
++    description:
++      CSR space names common for the DWC PCIe Root Port and End-point
++      controllers.
++    oneOf:
++      - description:
++          Basic DWC PCIe controller configuration-space accessible over
++          the DBI interface. This memory space is either activated with
++          the CDM/ELBI = 0 and CS2 = 0 or is a contiguous memory region
++          with all spaces. Note iATU/eDMA CSRs are indirectly accessible
++          via the PL viewports on the DWC PCIe controllers older than
++          v4.80a.
++        const: dbi
++      - description:
++          Shadow DWC PCIe config-space registers. This space is selected
++          by setting CDM/ELBI = 0 and CS2 = 1. This is an intermix of
++          the PCI-SIG PCIe CFG-space with the shadow registers for some
++          PCI Header space, PCI Standard and Extended Structures. It's
++          mainly relevant for the end-point controller configuration,
++          but still there are some shadow registers available for the
++          Root Port mode too.
++        const: dbi2
++      - description:
++          External Local Bus registers. It's an application-dependent
++          registers normally defined by the platform engineers, which
++          are selected by setting CDM/ELBI = 1 and CS2 = 0.
++        enum: [ elbi, appl, app ]
++      - description:
++          iATU/eDMA registers common for all device functions. It's an
++          unrolled memory space with the internal Address Translation
++          Unit and Enhanced DMA, which is selected by setting CDM/ELBI = 1
++          and CS2 = 1. For IP-core releases prior v4.80a, these registers
++          have been programmed via an indirect addressing scheme using a
++          set of viewport CSRs mapped into the PL space. Note iATU is
++          normally mapped to the 0x0 address of this region, while eDMA
++          is available at 0x80000 base address.
++        enum: [ atu, atu_dma ]
++      - description:
++          Outbound iATU-available memory-region which usage scenario
++          depends on the DWC PCIe controller being either Root Port or
++          End-point. If it's Root Port then the register space shall
++          have the "config" name and it will be used to access the
++          peripheral PCIe devices configuration space. If it's PCIe
++          end-point controller, then the region shall be named as
++          "addr_space" and it will be used to generate various traffic
++          on the PCIe bus hierarchy. It's usage scenario depends on the
++          end-point functionality, for instance it can be used to create
++          MSI(X) messages.
++        enum: [ config, addr_space ]
++      - description:
++          PHY/PCS configuration registers. Some platforms can have the
++          PCS and PHY CSRs accessible over a dedicated memory mapped
++          region, but mainly these registers are indirectly accessible
++          either by means of the embedded PHY viewport schema or by some
++          platform-specific method.
++        enum: [ link, phy ]
++
++  interrupt-names:
++    description:
++      IRQ signal names common for the DWC PCIe Root Port and End-point
++      controllers.
++    oneOf:
++      - description:
++          Controller request to read or write virtual product data
++          from/to the VPD capability registers.
++        const: vpd
++      - description:
++          Link Equalization Request flag is set in the Link Status 2
++          register (applicable if the corresponding IRQ is enabled in
++          the Link Control 3 register).
++        const: l_eq
++      - description:
++          Indicates that the eDMA Tx/Rx transfer is complete or that an
++          error has occurred on the corresponding channel. eDMA can have
++          eight Tx (Write) and Rx (Read) eDMA channels thus supporting up
++          to 16 IRQ signals all together. Write eDMA channels shall go
++          first in the ordered row as per default edma_int[*] bus setup.
++        pattern: '^dma([0-9]|1[0-5])?$'
++      - description:
++          PCIe protocol correctable error or a Data Path protection
++          correctable error is detected by the automotive/safety
++          feature.
++        const: sft_ce
++      - description:
++          Indicates that the internal safety mechanism detected and
++          uncorrectable error.
++        const: sft_ue
++
++  clock-names:
++    description:
++      Reference clock names common for the DWC PCIe Root Port and End-point
++      controllers.
++    anyOf:
++      - description:
++          Data Bus Interface (DBI) clock. Clock signal for the AXI-bus
++          interface of the Configuration-Dependent Module, which is
++          basically the set of the controller CSRs.
++        enum: [ dbi, pcie ]
++      - description:
++          Application AXI-bus Master interface clock. Basically this is
++          a clock for the controller DMA interface (PCI-to-CPU).
++        enum: [ mstr, pcie_bus ]
++      - description:
++          Application AXI-bus Slave interface clock. This is a clock for
++          the CPU-to-PCI memory IO interface.
++        enum: [ slv, pcie_bus ]
++      - description:
++          Controller Core-PCS PIPE interface clock. It's normally
++          supplied by an external PCS-PHY.
++        const: pipe
++      - description:
++          Controller Primary clock. It's assumed that all controller input
++          signals (except resets) are synchronous to this clock.
++        const: core
++      - description:
++          Auxiliary clock for the controller PMC domain. The controller
++          partitioning implies having some parts to operate with this
++          clock in some power management states.
++        const: aux
++      - description:
++          Generic reference clock. In case if there are several
++          interfaces fed up with a common clock source it's advisable to
++          define it with this name (for instance pipe, core and aux can
++          be connected to a single source of the periodic signal).
++        const: ref
++      - description:
++          Clock for the PHY registers interface. Originally this is
++          a PHY-viewport-based interface, but some platform may have
++          specifically designed one.
++        const: phy_reg
++
++  reset-names:
++    description:
++      Reset signal names common for the DWC PCIe Root Port and End-point
++      controllers.
++    anyOf:
++      - description: Data Bus Interface (DBI) domain reset
++        const: dbi
++      - description: AXI-bus Master interface reset
++        const: mstr
++      - description: AXI-bus Slave interface reset
++        const: slv
++      - description: Controller Non-sticky CSR flags reset
++        const: non-sticky
++      - description: Controller sticky CSR flags reset
++        const: sticky
++      - description: PIPE-interface (Core-PCS) logic reset
++        const: pipe
++      - description:
++          Controller primary reset (resets everything except PMC module)
++        const: core
++      - description: PCS/PHY block reset
++        const: phy
++      - description: PMC hot reset signal
++        const: hot
++      - description: Cold reset signal
++        const: pwr
++...
+diff --git a/Documentation/devicetree/bindings/pci/snps,dw-pcie-ep.yaml b/Documentation/devicetree/bindings/pci/snps,dw-pcie-ep.yaml
+index e59059ab5be0..c3bbe90264dc 100644
+--- a/Documentation/devicetree/bindings/pci/snps,dw-pcie-ep.yaml
++++ b/Documentation/devicetree/bindings/pci/snps,dw-pcie-ep.yaml
+@@ -13,74 +13,115 @@ maintainers:
+ description: |
+   Synopsys DesignWare PCIe host controller endpoint
  
- #define RISCV_ALTERNATIVES_BOOT		0 /* alternatives applied during regular boot */
- #define RISCV_ALTERNATIVES_MODULE	1 /* alternatives applied during module-init */
-+#define RISCV_ALTERNATIVES_EARLY_BOOT	2 /* alternatives applied before mmu start */
- 
- void __init apply_boot_alternatives(void);
-+void __init apply_early_boot_alternatives(void);
- void apply_module_alternatives(void *start, size_t length);
- 
- struct alt_entry {
-@@ -39,6 +41,9 @@ struct errata_checkfunc_id {
- void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
- 			      unsigned long archid, unsigned long impid,
- 			      unsigned int stage);
-+void thead_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
-+			     unsigned long archid, unsigned long impid,
-+			     unsigned int stage);
- 
- void riscv_cpufeature_patch_func(struct alt_entry *begin, struct alt_entry *end,
- 				 unsigned int stage);
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index a4a9b0842922..4fac46b82c16 100644
---- a/arch/riscv/include/asm/errata_list.h
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -14,6 +14,11 @@
- #define	ERRATA_SIFIVE_NUMBER 2
- #endif
- 
-+#ifdef CONFIG_ERRATA_THEAD
-+#define	ERRATA_THEAD_PBMT 0
-+#define	ERRATA_THEAD_NUMBER 1
-+#endif
++# Please create a separate DT-schema for the particular DWC PCIe End-point
++# controller and make sure it's assigned with the vendor-specific
++# compatible string together with the generic Synopsys DWC PCIe strings so
++# the bindings would be successfully evaluated against this schema.
++select: false
 +
- #define	CPUFEATURE_SVPBMT 0
- #define	CPUFEATURE_NUMBER 1
+ allOf:
+   - $ref: /schemas/pci/pci-ep.yaml#
++  - $ref: snps,dw-pcie-common.yaml#
  
-@@ -42,10 +47,44 @@ asm(ALTERNATIVE("sfence.vma %0", "sfence.vma", SIFIVE_VENDOR_ID,	\
-  * in the default case.
-  */
- #define ALT_SVPBMT_SHIFT 61
--#define ALT_SVPBMT(_val, prot)						\
--asm(ALTERNATIVE("li %0, 0\t\nnop", "li %0, %1\t\nslli %0,%0,%2", 0,	\
--		CPUFEATURE_SVPBMT, CONFIG_64BIT)			\
--		: "=r"(_val) : "I"(prot##_SVPBMT >> ALT_SVPBMT_SHIFT), "I"(ALT_SVPBMT_SHIFT))
-+#define ALT_THEAD_PBMT_SHIFT 59
-+#define ALT_SVPBMT(_val, prot)								\
-+asm(ALTERNATIVE_2("li %0, 0\t\nnop",							\
-+		  "li %0, %1\t\nslli %0,%0,%3", 0, CPUFEATURE_SVPBMT, CONFIG_64BIT,	\
-+		  "li %0, %2\t\nslli %0,%0,%4", THEAD_VENDOR_ID, ERRATA_THEAD_PBMT,	\
-+						CONFIG_ERRATA_THEAD_PBMT)		\
-+		: "=r"(_val) : "I"(prot##_SVPBMT >> ALT_SVPBMT_SHIFT),			\
-+			       "I"(prot##_THEAD >> ALT_THEAD_PBMT_SHIFT),		\
-+			       "I"(ALT_SVPBMT_SHIFT), "I"(ALT_THEAD_PBMT_SHIFT))
+ properties:
+   compatible:
+-    anyOf:
+-      - {}
+-      - const: snps,dw-pcie-ep
++    contains:
++      oneOf:
++        - description:
++            DWC PCIe End-point controller (IP-core version is explicitly
++            specified in the additional compatible string)
++          items:
++            - pattern: '^snps,dw-pcie-ep-[0-9]+\.[0-9]+a?$'
++            - const: snps,dw-pcie-ep
++        - description:
++            DWC PCIe End-point controller (IP-core version is either unknown
++            or can be read from the PCIe version register of the PL reg-space)
++          const: snps,dw-pcie-ep
+ 
+   reg:
+-    description: |
+-      It should contain Data Bus Interface (dbi) and config registers for all
+-      versions.
+-      For designware core version >= 4.80, it may contain ATU address space.
+-    minItems: 2
+-    maxItems: 4
++    description:
++      DBI, DBI2 reg-spaces and outbound memory window are required for the
++      normal controller functioning. iATU memory IO region is also required
++      if the space is unrolled (IP-core version >= 4.80a).
++    minItems: 3
++    maxItems: 5
+ 
+   reg-names:
+-    minItems: 2
+-    maxItems: 4
++    minItems: 3
++    maxItems: 5
+     items:
+-      enum: [dbi, dbi2, config, atu, addr_space, link, atu_dma, appl]
+-
+-  reset-gpio:
+-    description: GPIO pin number of PERST# signal
+-    maxItems: 1
+-    deprecated: true
+-
+-  reset-gpios:
+-    description: GPIO controlled connection to PERST# signal
+-    maxItems: 1
+-
+-  snps,enable-cdm-check:
+-    type: boolean
+-    description: |
+-      This is a boolean property and if present enables
+-      automatic checking of CDM (Configuration Dependent Module) registers
+-      for data corruption. CDM registers include standard PCIe configuration
+-      space registers, Port Logic registers, DMA and iATU (internal Address
+-      Translation Unit) registers.
+-
+-  num-ib-windows:
+-    description: number of inbound address translation windows
+-    maxItems: 1
+-    deprecated: true
+-
+-  num-ob-windows:
+-    description: number of outbound address translation windows
+-    maxItems: 1
+-    deprecated: true
++      $ref: snps,dw-pcie-common.yaml#/$defs/reg-names
++    allOf:
++      - contains:
++          const: dbi
++      - contains:
++          const: dbi2
++      - contains:
++          const: addr_space
 +
-+#ifdef CONFIG_ERRATA_THEAD_PBMT
-+/*
-+ * IO/NOCACHE memory types are handled together with svpbmt,
-+ * so on T-Head chips, check if no other memory type is set,
-+ * and set the non-0 PMA type if applicable.
-+ */
-+#define ALT_THEAD_PMA(_val)								\
-+asm volatile(ALTERNATIVE(								\
-+	"nop\n\t"									\
-+	"nop\n\t"									\
-+	"nop\n\t"									\
-+	"nop\n\t"									\
-+	"nop\n\t"									\
-+	"nop\n\t"									\
-+	"nop",										\
-+	"li      t3, %2\n\t"								\
-+	"slli    t3, t3, %4\n\t"							\
-+	"and     t3, %0, t3\n\t"							\
-+	"bne     t3, zero, 2f\n\t"							\
-+	"li      t3, %3\n\t"								\
-+	"slli    t3, t3, %4\n\t"							\
-+	"or      %0, %0, t3\n\t"							\
-+	"2:",  THEAD_VENDOR_ID, ERRATA_THEAD_PBMT, CONFIG_ERRATA_THEAD_PBMT)		\
-+	: "+r"(_val) : "0"(_val), "I"(_PAGE_MTMASK_THEAD >> ALT_THEAD_PBMT_SHIFT),	\
-+		       "I"(_PAGE_PMA_THEAD >> ALT_THEAD_PBMT_SHIFT),  "I"(ALT_THEAD_PBMT_SHIFT))
-+#else
-+#define ALT_THEAD_PMA(_val)
-+#endif
- 
- #endif /* __ASSEMBLY__ */
- 
-diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-index 07ba3416cb19..6d59e4695200 100644
---- a/arch/riscv/include/asm/pgtable-64.h
-+++ b/arch/riscv/include/asm/pgtable-64.h
-@@ -69,6 +69,18 @@ typedef struct {
- #define _PAGE_IO_SVPBMT		(1UL << 62)
- #define _PAGE_MTMASK_SVPBMT	(_PAGE_NOCACHE_SVPBMT | _PAGE_IO_SVPBMT)
- 
-+/*
-+ * [63:59] T-Head Memory Type definitions:
-+ *
-+ * 00000 - NC   Weakly-ordered, Non-cacheable, Non-bufferable, Non-shareable, Non-trustable
-+ * 01110 - PMA  Weakly-ordered, Cacheable, Bufferable, Shareable, Non-trustable
-+ * 10000 - IO   Strongly-ordered, Non-cacheable, Non-bufferable, Non-shareable, Non-trustable
-+ */
-+#define _PAGE_PMA_THEAD		((1UL << 62) | (1UL << 61) | (1UL << 60))
-+#define _PAGE_NOCACHE_THEAD	0UL
-+#define _PAGE_IO_THEAD		(1UL << 63)
-+#define _PAGE_MTMASK_THEAD	(_PAGE_PMA_THEAD | _PAGE_IO_THEAD | (1UL << 59))
++  interrupts:
++    description:
++      There is no mandatory IRQ signals for the normal controller functioning,
++      but in addition to the native set the platforms may have a link- or
++      PM-related IRQs specified.
++    minItems: 1
++    maxItems: 20
 +
- static inline u64 riscv_page_mtmask(void)
- {
- 	u64 val;
-@@ -167,7 +179,11 @@ static inline bool mm_pud_folded(struct mm_struct *mm)
- 
- static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
- {
--	return __pmd((pfn << _PAGE_PFN_SHIFT) | pgprot_val(prot));
-+	unsigned long prot_val = pgprot_val(prot);
++  interrupt-names:
++    minItems: 1
++    maxItems: 20
++    items:
++      $ref: snps,dw-pcie-common.yaml#/$defs/interrupt-names
 +
-+	ALT_THEAD_PMA(prot_val);
++  clocks:
++    minItems: 1
++    maxItems: 7
 +
-+	return __pmd((pfn << _PAGE_PFN_SHIFT) | prot_val);
- }
- 
- static inline unsigned long _pmd_pfn(pmd_t pmd)
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 009a17f94b86..e2658a25f06d 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -246,7 +246,11 @@ static inline void pmd_clear(pmd_t *pmdp)
- 
- static inline pgd_t pfn_pgd(unsigned long pfn, pgprot_t prot)
- {
--	return __pgd((pfn << _PAGE_PFN_SHIFT) | pgprot_val(prot));
-+	unsigned long prot_val = pgprot_val(prot);
++  clock-names:
++    minItems: 1
++    maxItems: 7
++    items:
++      $ref: snps,dw-pcie-common.yaml#/$defs/clock-names
 +
-+	ALT_THEAD_PMA(prot_val);
++  resets:
++    minItems: 1
++    maxItems: 10
 +
-+	return __pgd((pfn << _PAGE_PFN_SHIFT) | prot_val);
- }
- 
- static inline unsigned long _pgd_pfn(pgd_t pgd)
-@@ -285,7 +289,11 @@ static inline unsigned long pte_pfn(pte_t pte)
- /* Constructs a page table entry */
- static inline pte_t pfn_pte(unsigned long pfn, pgprot_t prot)
- {
--	return __pte((pfn << _PAGE_PFN_SHIFT) | pgprot_val(prot));
-+	unsigned long prot_val = pgprot_val(prot);
++  reset-names:
++    minItems: 1
++    maxItems: 10
++    items:
++      $ref: snps,dw-pcie-common.yaml#/$defs/reset-names
 +
-+	ALT_THEAD_PMA(prot_val);
++  max-functions:
++    maximum: 32
+ 
+ required:
++  - compatible
+   - reg
+   - reg-names
+-  - compatible
+ 
+ additionalProperties: true
+ 
+ examples:
+   - |
+-    bus {
+-      #address-cells = <1>;
+-      #size-cells = <1>;
+-      pcie-ep@dfd00000 {
+-        compatible = "snps,dw-pcie-ep";
+-        reg = <0xdfc00000 0x0001000>, /* IP registers 1 */
+-              <0xdfc01000 0x0001000>, /* IP registers 2 */
+-              <0xd0000000 0x2000000>; /* Configuration space */
+-        reg-names = "dbi", "dbi2", "addr_space";
+-      };
++    pcie-ep@1f052000 {
++      compatible = "vendor,soc-pcie", "snps,dw-pcie-ep-4.60a", "snps,dw-pcie-ep";
++      reg = <0x66000000 0x1000>, <0x66010000 0x10000>, <0x67000000 0x400000>;
++      reg-names = "dbi", "dbi2", "addr_space";
 +
-+	return __pte((pfn << _PAGE_PFN_SHIFT) | prot_val);
- }
- 
- #define mk_pte(page, prot)       pfn_pte(page_to_pfn(page), prot)
-@@ -394,7 +402,11 @@ static inline int pmd_protnone(pmd_t pmd)
- /* Modify page protection bits */
- static inline pte_t pte_modify(pte_t pte, pgprot_t newprot)
- {
--	return __pte((pte_val(pte) & _PAGE_CHG_MASK) | pgprot_val(newprot));
-+	unsigned long newprot_val = pgprot_val(newprot);
++      clocks = <&sys_clk 12>, <&sys_clk 24>;
++      clock-names = "dbi", "ref";
 +
-+	ALT_THEAD_PMA(newprot_val);
++      resets = <&sys_rst 12>, <&sys_rst 24>;
++      reset-names = "dbi", "phy";
 +
-+	return __pte((pte_val(pte) & _PAGE_CHG_MASK) | newprot_val);
- }
- 
- #define pgd_ERROR(e) \
-diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
-index 9d934215b3c8..cb89af3f0704 100644
---- a/arch/riscv/include/asm/vendorid_list.h
-+++ b/arch/riscv/include/asm/vendorid_list.h
-@@ -6,5 +6,6 @@
- #define ASM_VENDOR_LIST_H
- 
- #define SIFIVE_VENDOR_ID	0x489
-+#define THEAD_VENDOR_ID		0x5b7
- 
- #endif
-diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
-index 27f722ae452b..e7980bf17e8b 100644
---- a/arch/riscv/kernel/alternative.c
-+++ b/arch/riscv/kernel/alternative.c
-@@ -42,6 +42,11 @@ static void __init_or_module riscv_fill_cpu_mfr_info(struct cpu_manufacturer_inf
- 	case SIFIVE_VENDOR_ID:
- 		cpu_mfr_info->vendor_patch_func = sifive_errata_patch_func;
- 		break;
-+#endif
-+#ifdef CONFIG_ERRATA_THEAD
-+	case THEAD_VENDOR_ID:
-+		cpu_mfr_info->vendor_patch_func = thead_errata_patch_func;
-+		break;
- #endif
- 	default:
- 		cpu_mfr_info->vendor_patch_func = NULL;
-@@ -82,6 +87,13 @@ void __init apply_boot_alternatives(void)
- 			    RISCV_ALTERNATIVES_BOOT);
- }
- 
-+void __init apply_early_boot_alternatives(void)
-+{
-+	_apply_alternatives((struct alt_entry *)__alt_start,
-+			    (struct alt_entry *)__alt_end,
-+			    RISCV_ALTERNATIVES_EARLY_BOOT);
-+}
++      phys = <&pcie_phy>;
++      phy-names = "pcie-phy";
 +
- #ifdef CONFIG_MODULES
- void apply_module_alternatives(void *start, size_t length)
- {
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index fab9c5367949..564c1917c8aa 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -254,7 +254,12 @@ static bool __init_or_module cpufeature_svpbmt_check_func(unsigned int stage)
- 	bool ret = false;
++      num-lanes = <4>;
++      max-link-speed = <4>;
++      num-ib-windows = <16>;
++      num-ob-windows = <16>;
+     };
++...
+diff --git a/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml b/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
+index a5345c494744..6c397ae3c71a 100644
+--- a/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
+@@ -13,20 +13,36 @@ maintainers:
+ description: |
+   Synopsys DesignWare PCIe host controller
  
- #if defined(CONFIG_MMU) && defined(CONFIG_64BIT)
--	return riscv_isa_extension_available(NULL, SVPBMT);
-+	switch (stage) {
-+	case RISCV_ALTERNATIVES_EARLY_BOOT:
-+		return false;
-+	default:
-+		return riscv_isa_extension_available(NULL, SVPBMT);
-+	}
- #endif
++# Please create a separate DT-schema for the particular DWC PCIe Root Port
++# controller and make sure it's assigned with the vendor-specific
++# compatible string together with the generic Synopsys DWC PCIe strings so
++# the bindings would be successfully evaluated against this schema.
++select: false
++
+ allOf:
+   - $ref: /schemas/pci/pci-bus.yaml#
++  - $ref: snps,dw-pcie-common.yaml#
  
- 	return ret;
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 0d588032d6e6..245d54a3616c 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -821,6 +821,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- 	BUG_ON((kernel_map.virt_addr + kernel_map.size) > ADDRESS_SPACE_END - SZ_4K);
- #endif
+ properties:
+   compatible:
+-    anyOf:
+-      - {}
+-      - const: snps,dw-pcie
++    contains:
++      oneOf:
++        - description:
++            DWC PCIe Root Port controller (IP-core version is explicitly
++            specified in the additional compatible string)
++          items:
++            - pattern: '^snps,dw-pcie-[0-9]+\.[0-9]+a?$'
++            - const: snps,dw-pcie
++        - description:
++            DWC PCIe Root Port controller (IP-core version is either unknown
++            or can be read from the PCIe version register of the PL reg-space)
++          const: snps,dw-pcie
  
-+	apply_early_boot_alternatives();
- 	pt_ops_set_early();
+   reg:
+-    description: |
+-      It should contain Data Bus Interface (dbi) and config registers for all
+-      versions.
+-      For designware core version >= 4.80, it may contain ATU address space.
++    description:
++      At least DBI reg-space and peripheral devices CFG-space outbound window
++      are required for the normal controller work. iATU memory IO region is
++      also required if the space is unrolled (IP-core version >= 4.80a).
+     minItems: 2
+     maxItems: 5
  
- 	/* Setup early PGD for fixmap */
+@@ -34,69 +50,116 @@ properties:
+     minItems: 2
+     maxItems: 5
+     items:
+-      enum: [ dbi, dbi2, config, atu, app, elbi, mgmt, ctrl, parf, cfg, link,
+-              ulreg, smu, mpu, apb, phy ]
+-
+-  num-lanes:
+-    description: |
+-      number of lanes to use (this property should be specified unless
+-      the link is brought already up in firmware)
+-    maximum: 16
+-
+-  reset-gpio:
+-    description: GPIO pin number of PERST# signal
+-    maxItems: 1
+-    deprecated: true
+-
+-  reset-gpios:
+-    description: GPIO controlled connection to PERST# signal
+-    maxItems: 1
+-
+-  interrupts: true
+-
+-  interrupt-names: true
+-
+-  clocks: true
+-
+-  snps,enable-cdm-check:
+-    type: boolean
+-    description: |
+-      This is a boolean property and if present enables
+-      automatic checking of CDM (Configuration Dependent Module) registers
+-      for data corruption. CDM registers include standard PCIe configuration
+-      space registers, Port Logic registers, DMA and iATU (internal Address
+-      Translation Unit) registers.
++      $ref: snps,dw-pcie-common.yaml#/$defs/reg-names
++    allOf:
++      - contains:
++          const: dbi
++      - contains:
++          const: config
++
++  interrupts:
++    description:
++      At least MSI interrupt signal is supposed to be specified for
++      the DWC PCIe host controller.
++    minItems: 1
++    maxItems: 26
++
++  interrupt-names:
++    minItems: 1
++    maxItems: 26
++    items:
++      anyOf:
++        - $ref: snps,dw-pcie-common.yaml#/$defs/interrupt-names
++        - $ref: '#/$defs/interrupt-names'
++    allOf:
++      - contains:
++          const: msi
++
++  clocks:
++    minItems: 1
++    maxItems: 7
++
++  clock-names:
++    minItems: 1
++    maxItems: 7
++    items:
++      $ref: snps,dw-pcie-common.yaml#/$defs/clock-names
+ 
+-  num-viewport:
+-    description: |
+-      number of view ports configured in hardware. If a platform
+-      does not specify it, the driver autodetects it.
+-    deprecated: true
++  resets:
++    minItems: 1
++    maxItems: 10
+ 
+-additionalProperties: true
++  reset-names:
++    minItems: 1
++    maxItems: 10
++    items:
++      $ref: snps,dw-pcie-common.yaml#/$defs/reset-names
+ 
+ required:
++  - compatible
+   - reg
+   - reg-names
+-  - compatible
++  - interrupts
++  - interrupt-names
++
++additionalProperties: true
++
++$defs:
++  interrupt-names:
++    description:
++      DWC PCIe Root Port/Complex specific IRQ signal names.
++    oneOf:
++      - description:
++          DSP AXI MSI Interrupt detected. It gets de-asserted when there is
++          no more MSI interrupt pending. The interrupt is relevant to the
++          iMSI-RX - Integrated MSI Receiver (AXI bridge).
++        const: msi
++      - description:
++          Error condition detected and a bit is set in the Root Error Status
++          register of the AER capability. It's asserted when the RC
++          internally generated an error or an error message is received by
++          the RC.
++        const: aer
++      - description:
++          PME message is received by the port. That means having the PME
++          status bit set in the Root Status register (the event is
++          supposed to be unmasked in the Root Control register).
++        const: pme
++      - description:
++          Hot-plug event is detected. That is a bit has been set in the
++          Slot Status register and the corresponding event is enabled in
++          the Slot Control register.
++        const: hp
++      - description:
++          Link Autonomous Bandwidth Status flag has been set in the Link
++          Status register (the event is supposed to be unmasked in the
++          Link Control register).
++        const: bw_au
++      - description:
++          Bandwidth Management Status flag has been set in the Link
++          Status register (the event is supposed to be unmasked in the
++          Link Control register).
++        const: bw_mg
+ 
+ examples:
+   - |
+-    bus {
+-      #address-cells = <1>;
+-      #size-cells = <1>;
+-      pcie@dfc00000 {
+-        device_type = "pci";
+-        compatible = "snps,dw-pcie";
+-        reg = <0xdfc00000 0x0001000>, /* IP registers */
+-              <0xd0000000 0x0002000>; /* Configuration space */
+-        reg-names = "dbi", "config";
+-        #address-cells = <3>;
+-        #size-cells = <2>;
+-        ranges = <0x81000000 0 0x00000000 0xde000000 0 0x00010000>,
+-                 <0x82000000 0 0xd0400000 0xd0400000 0 0x0d000000>;
+-        interrupts = <25>, <24>;
+-        #interrupt-cells = <1>;
+-        num-lanes = <1>;
+-      };
++    pcie@1f052000 {
++      compatible = "vendor,soc-pcie", "snps,dw-pcie-4.60a", "snps,dw-pcie";
++      device_type = "pci";
++      reg = <0x1f052000 0x1000>, <0x1bdbf000 0x1000>;
++      reg-names = "dbi", "config";
++      #address-cells = <3>;
++      #size-cells = <2>;
++      ranges = <0x81000000 0 0x00000000 0x1bdb0000 0 0x00008000>,
++               <0x82000000 0 0x20000000 0x08000000 0 0x13db0000>;
++      bus-range = <0x0 0xff>;
++
++      interrupts = <0 80 4>;
++      interrupt-names = "msi";
++
++      reset-gpios = <&port0 0 1>;
++
++      num-lanes = <4>;
++      max-link-speed = <3>;
+     };
++...
+diff --git a/Documentation/devicetree/bindings/pci/toshiba,visconti-pcie.yaml b/Documentation/devicetree/bindings/pci/toshiba,visconti-pcie.yaml
+index 30b6396d83c8..f0a3c436c6d1 100644
+--- a/Documentation/devicetree/bindings/pci/toshiba,visconti-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/toshiba,visconti-pcie.yaml
+@@ -13,7 +13,7 @@ description:
+   Toshiba Visconti5 SoC PCIe host controller is based on the Synopsys DesignWare PCIe IP.
+ 
+ allOf:
+-  - $ref: /schemas/pci/snps,dw-pcie.yaml#
++  - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
+ 
+ properties:
+   compatible:
 -- 
 2.35.1
 
