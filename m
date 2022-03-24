@@ -4,79 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF2FBC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Mar 2022 18:38:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71931C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Mar 2022 00:07:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F6CEl82NnQGqhZkDWUAfXBR01ISOUEEKXfubXG/WclE=; b=MyKuxayPjWOb5t
-	u1WfTkAcNaUkHoIQ8ETJ+NVT7icRM2AVRg1VVDNwlqp7YHhec75oKu/RaiufPPUZnkUq+q8HUpNrB
-	vrFIIGRTspNHrA2/V/00M2M3vPR3m53KNXyJ5yoRutqUC/YkQkzuVLwH02dSW3BzUgadQY5rdgr+2
-	538+9VwRII0v6zesOxMGtTR2JBILFwHx8ufRiS5KtyhhR/U7ULTr+XCv6nJ0C10r4SdonTDrCpYoK
-	wR5eqCUGkfEW6ZHleiOKgvkdDe5W5zqrUuzvusIqYGZWove/2yRNnLCxd/WpKEmInC57UrfB1gpWp
-	OsOPuibF5b04RKS/rdmg==;
+	List-Owner; bh=l0RC/OgFQ4j6rmnmoxQmR0X0vVySW4/Dqd9qMcyi5Yk=; b=hKSHPATMOoXSaz
+	04K8ssfXRQSJQP6Gjz5pdrtzduV6GNomVo31mYQRani7slhvvkgkQuNDlWwl5ygJ3jrGkY7NxlyNd
+	maPNIgJvq0+lmSPrnv9echPiIsCfUG4dnPqmtFG60+2+LeCPql7tZaceZw+rBLVpOAPGyek2Ik7qx
+	tSXGu9vGec5s//lQoRJw14tt9u81yor4lLdc0WcAAek04w/JBsdVphkJBOsPsFIpF9oM6osYelBf7
+	rxjCnVgWGHarrm4R8PER23OqaNMdQBkoF1XjLHZRbj1Mykrek4xxkS94gGteWKRMw+a1v86oM6n0t
+	PGd7reR1x7f4lvxUT1lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nX5s7-00Eb8L-Ue; Wed, 23 Mar 2022 18:38:15 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1nXB0z-00F9fL-Dg; Thu, 24 Mar 2022 00:07:45 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nX5s5-00Eb6q-3v
- for linux-riscv@lists.infradead.org; Wed, 23 Mar 2022 18:38:14 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id dr20so4649867ejc.6
- for <linux-riscv@lists.infradead.org>; Wed, 23 Mar 2022 11:38:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=soleen.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=JsH2SIUTrsYJX8zmjcQSu5hxXE5Ybek62ru5rVjSD7A=;
- b=eZkOyr5ipSOEyIaKi0RWFAaNJ6zbGXp8L0jzeF10aH5B4vhrsB9UpLMn7mQmn+dQn5
- wMkGvPw+1qRPsVxG/Ug6yNmt5/Kepqq3YzzD0RVmt3KPRryxnF0eE6qx6PaQfy3P3n0u
- 8WT2X7IgjBlZG112zAKt1B96P4bbzh/u7jBUUIIrC5Wi9Ft23Us/+XHbQGgf6lxb0BCP
- yTqX5wfdvLCBEDKTdGpCT1T85ke+il9XVbUENQHF2kBATRBpOjAMfX6dg70jbIpq9Gps
- wTDzqVolirKFCPH5CLgnzfW/YBzltdd3pS4jviyozQhjcthcAF/nNnOhWlxsJRMm7WDj
- C8hQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=JsH2SIUTrsYJX8zmjcQSu5hxXE5Ybek62ru5rVjSD7A=;
- b=YdV5Nd1s6PU2rk0GLHNGwxOkSeKNSW7lyuR1SjJdhSA5Dzj7jdkys+1QGdxWOVcBvR
- USJglFhwpSqSaiokRnPTWq6U9k1FnXbLch7AOO6bE/LDY6tmCdIdMNgauriVI3gbbqTT
- 26tHKi3nZxeMmkUt+uToTr49/nRqPgOSnCXJUIK5sr3x3KbSPy9I0sutEEB9RHywActg
- fNboaY3MAVXE1/h8OdFLAA8LfKf5Piho2Gvhx3xjhuu8A/qkw5RywqlUIo/MNpROQ5BI
- KgPDS3ojXem//yLOtv2CYcUhDfy/c63kVh2IK8LJOkBq1rWOoxWpcIjz99mVHS3ztWAP
- 4wZA==
-X-Gm-Message-State: AOAM532z9EZtPJInua9Jztipo0fN+dttyd7m8x+/VeznpZNvSlrSfFWw
- o/erT2n+zRb6QJk5cvtgDgxmwt5Zeae/cwihr4eTNA==
-X-Google-Smtp-Source: ABdhPJyBBF/hTWA2LGiY86ag+BZL5f9TnZ6rcxh1EVMGytKL9CE/oPbM43JdHk6KoChnnPqBvP/t5NTH6fzCJauVAG4=
-X-Received: by 2002:a17:907:9602:b0:6df:e82c:f84 with SMTP id
- gb2-20020a170907960200b006dfe82c0f84mr1587691ejc.590.1648060691197; Wed, 23
- Mar 2022 11:38:11 -0700 (PDT)
+ id 1nXB0s-00F9bS-EV
+ for linux-riscv@lists.infradead.org; Thu, 24 Mar 2022 00:07:41 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
+ helo=phil.lan)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1nXB0p-00055s-EF; Thu, 24 Mar 2022 01:07:35 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	aou@eecs.berkeley.edu
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ wefu@redhat.com, liush@allwinnertech.com, guoren@kernel.org,
+ atishp@atishpatra.org, anup@brainfault.org, drew@beagleboard.org,
+ hch@lst.de, arnd@arndb.de, wens@csie.org, maxime@cerno.tech,
+ gfavor@ventanamicro.com, andrea.mondelli@huawei.com, behrensj@mit.edu,
+ xinhaoqu@huawei.com, mick@ics.forth.gr, allen.baum@esperantotech.com,
+ jscheid@ventanamicro.com, rtrauben@gmail.com, samuel@sholland.org,
+ cmuellner@linux.com, philipp.tomsich@vrull.eu,
+ Heiko Stuebner <heiko@sntech.de>
+Subject: [PATCH v8 07/14] riscv: prevent compressed instructions in
+ alternatives
+Date: Thu, 24 Mar 2022 01:07:03 +0100
+Message-Id: <20220324000710.575331-8-heiko@sntech.de>
+X-Mailer: git-send-email 2.35.1
+In-Reply-To: <20220324000710.575331-1-heiko@sntech.de>
+References: <20220324000710.575331-1-heiko@sntech.de>
 MIME-Version: 1.0
-References: <20220322144447.3563146-1-tongtiangen@huawei.com>
- <20220322144447.3563146-5-tongtiangen@huawei.com>
-In-Reply-To: <20220322144447.3563146-5-tongtiangen@huawei.com>
-From: Pasha Tatashin <pasha.tatashin@soleen.com>
-Date: Wed, 23 Mar 2022 14:37:34 -0400
-Message-ID: <CA+CK2bAUKB0SM3dBM0WauGp1WVKVzouQwOy8Z+a4CD38TZctpQ@mail.gmail.com>
-Subject: Re: [PATCH -next v2 4/4] riscv: mm: add support for page table check
-To: Tong Tiangen <tongtiangen@huawei.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
- "H. Peter Anvin" <hpa@zytor.com>, 
- Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- LKML <linux-kernel@vger.kernel.org>, linux-mm <linux-mm@kvack.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220323_113813_180416_D681E8C9 
-X-CRM114-Status: UNSURE (   8.05  )
+X-CRM114-CacheID: sfid-20220323_170738_617399_6A66AC79 
+X-CRM114-Status: UNSURE (   9.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,18 +71,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 22, 2022 at 10:26 AM Tong Tiangen <tongtiangen@huawei.com> wrote:
->
-> As commit d283d422c6c4 ("x86: mm: add x86_64 support for page table
-> check"), add some necessary page table check hooks into routines that
-> modify user page tables.
->
-> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
+Instructions are opportunistically compressed by the RISC-V assembler
+when possible, but in alternatives-blocks both the old and new content
+need to be the same size, so having the toolchain do somewhat random
+optimizations will cause strange side-effects like
+"attempt to move .org backwards" compile-time errors.
 
-Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+Already a simple "and" used in alternatives assembly will cause these
+mismatched code sizes.
 
-Thanks,
-Pasha
+So prevent compressed instructions to be generated in alternatives-
+code and use option-push and -pop to only limit this to the relevant
+code blocks
+
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/riscv/include/asm/alternative-macros.h | 24 +++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+
+diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
+index 25b4559d743b..3c12396e247c 100644
+--- a/arch/riscv/include/asm/alternative-macros.h
++++ b/arch/riscv/include/asm/alternative-macros.h
+@@ -21,7 +21,11 @@
+ 	.popsection
+ 	.subsection 1
+ 888 :
++	.option push
++	.option norvc
++	.option norelax
+ 	\new_c
++	.option pop
+ 889 :
+ 	.previous
+ 	.org    . - (889b - 888b) + (887b - 886b)
+@@ -31,7 +35,11 @@
+ 
+ .macro __ALTERNATIVE_CFG old_c, new_c, vendor_id, errata_id, enable
+ 886 :
++	.option push
++	.option norvc
++	.option norelax
+ 	\old_c
++	.option pop
+ 887 :
+ 	ALT_NEW_CONTENT \vendor_id, \errata_id, \enable, \new_c
+ .endm
+@@ -42,7 +50,11 @@
+ .macro __ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, enable_1, \
+ 				  new_c_2, vendor_id_2, errata_id_2, enable_2
+ 886 :
++	.option push
++	.option norvc
++	.option norelax
+ 	\old_c
++	.option pop
+ 887 :
+ 	ALT_NEW_CONTENT \vendor_id_1, \errata_id_1, \enable_1, \new_c_1
+ 	ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
+@@ -72,7 +84,11 @@
+ 	".popsection\n"							\
+ 	".subsection 1\n"						\
+ 	"888 :\n"							\
++	".option push\n"						\
++	".option norvc\n"						\
++	".option norelax\n"						\
+ 	new_c "\n"							\
++	".option pop\n"							\
+ 	"889 :\n"							\
+ 	".previous\n"							\
+ 	".org	. - (887b - 886b) + (889b - 888b)\n"			\
+@@ -81,7 +97,11 @@
+ 
+ #define __ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, enable)	\
+ 	"886 :\n"							\
++	".option push\n"						\
++	".option norvc\n"						\
++	".option norelax\n"						\
+ 	old_c "\n"							\
++	".option pop\n"							\
+ 	"887 :\n"							\
+ 	ALT_NEW_CONTENT(vendor_id, errata_id, enable, new_c)
+ 
+@@ -91,7 +111,11 @@
+ #define __ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1, enable_1, \
+ 				  new_c_2, vendor_id_2, errata_id_2, enable_2) \
+ 	"886 :\n"							\
++	".option push\n"						\
++	".option norvc\n"						\
++	".option norelax\n"						\
+ 	old_c "\n"							\
++	".option pop\n"							\
+ 	"887 :\n"							\
+ 	ALT_NEW_CONTENT(vendor_id_1, errata_id_1, enable_1, new_c_1)	\
+ 	ALT_NEW_CONTENT(vendor_id_2, errata_id_2, enable_2, new_c_2)
+-- 
+2.35.1
+
 
 _______________________________________________
 linux-riscv mailing list
