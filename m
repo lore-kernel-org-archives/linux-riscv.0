@@ -4,84 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C06C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Mar 2022 12:16:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C3E1C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Mar 2022 14:17:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i8HhIsFr8Ht8TxuVIdiwVpmsYRdq5UZC8Proscrg9BY=; b=oqcV58U2vIrbfQ
-	77VPBADAQf6AQvMeUeOki4mGSW/tvr/pNwJyu2Qa3+4OohI+cU8Caz65eHAuXO9Km6VK1Ncwj3KRJ
-	bqq611I3deuT2B8YhN+571hvxNh/QhncCRxCywwQNRIw+fmBMGsCMeL2Rs6fnbyQbKdF4ZrqLqFZ2
-	aE36j1qqC9/6hc0JN1fm5P1J9JFuM2JgTcwshiqK62xuBq0vNWVZnK206P5LQv2nOE6cZcTfwlUZN
-	O3LrUYM5dVGKmEhlult6AcElDPQYmBr+SlTvsMp1RAb48aVw8smOM3+AJF8EvyScuyb6qDbJI1K2y
-	dk8SdxdpVe0/w1AqX5OQ==;
+	List-Owner; bh=wocvYvKfDvHLbXwUtossQxlRHqI4KjapZT+jiy1dk5o=; b=KXDIC47JGxoCSI
+	5PxcZ6K4nzT8daz6fnyNlVsDh6E3ijKAT8S02N8d7qL5l0wjgqJr4Hpahfog9QCu5pHVSZWAMLBZa
+	TsWREY2u1RihohXGuw4Xmq6uH6lgG/1tHVh58jnZJvnLhfYE59kk2PIkk9nuQ2qqKvXsJWGIr7UyT
+	MGN4OWcqJnbfTu2t+TAus4mSsmRqpC4tgqYJWsdnNPQR5JgcTFbue+CAh4BhUNVlCLFuUhkTCsA+S
+	+j/lE4Wn7CWcQNVVUQHaBH8fxGjo3bRoK8p/vF4nWXSeBXbCEiJXraf/9msgzu2gOi0kQcf+9UlZ1
+	i4W1oH2bZihH+7aQTQ6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nXMOU-00GS1g-6d; Thu, 24 Mar 2022 12:16:46 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1nXOH3-00Gp25-Cj; Thu, 24 Mar 2022 14:17:13 +0000
+Received: from mail-oi1-x229.google.com ([2607:f8b0:4864:20::229])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nXMOQ-00GS0z-Tt
- for linux-riscv@lists.infradead.org; Thu, 24 Mar 2022 12:16:44 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id u22so3843956pfg.6
- for <linux-riscv@lists.infradead.org>; Thu, 24 Mar 2022 05:16:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ventanamicro.com; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=VsMoQ6a5yHypTrD9qrKDAaRCbFUvI6woBhxzZufr/gQ=;
- b=QeMdmwBAlF5KAuarUQclZ5ZRvKv4i2+eqIGN32O/mxGN1JFuvF6NKTCjK8FPf1WzMe
- Ccoj0wKaHA5Tn0fyll0sjCTzlYSuUdlO5uggegLDtuEfNtbXmobAT3+sR4HNGn0SWb/s
- VdjvJS6kwWytLJP7tdHxrKw/myZYZkoeK926dU1WWAQX3n8/iw3Cbes5lTqO9ThGYFFZ
- kpZVgIcbn1l63M72c1q7L3wl3w/T9zCXvdchwpllRy5JRRWP+CT9fdiQ54Fzr+pSiCBh
- f0hL/WBAb6KslNlK5zbMIvWDia6Xq70KlyN8M3A9/PCD215Fqdajzgxaq8jf/3PpUZxZ
- QUFQ==
+ id 1nXOH0-00Goxx-1B
+ for linux-riscv@lists.infradead.org; Thu, 24 Mar 2022 14:17:11 +0000
+Received: by mail-oi1-x229.google.com with SMTP id v75so5029982oie.1
+ for <linux-riscv@lists.infradead.org>; Thu, 24 Mar 2022 07:16:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=7IwhRmQLD4pp4REKGSz+HZGQaSrUkXBhHYyruYo/qME=;
+ b=ENyBI7OHrQ9U1iGH+RFRx4UF+zqisNu3doWA8azwBOYOu3TtAGgBzzB4sXSOK2rTcV
+ UewH9o32bIcY3EYoxmDeKl0ESim0eDlKgk35w9KUsPPYIiLqkvTx0C73zmO52gvWYIVg
+ 9Dg67nyKuYVldVU5tHrxReAXwJ//p0tEg2SGend/NoFPNO2YxKVrzJ35ojxZYYQRvUsa
+ LEdn2mSbuBcjbV090AT+oynrbfNjp9w/J1KnAmDztakJT6QWYysSZdw4VHxpvDjyP1iW
+ Ky2RXmnVcKuh9NGZlqjS28cuGvFZG5kfsWJGIWmCdc1kS+UoIgrU1gb4hpRnzE5lWQP+
+ MXNg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=VsMoQ6a5yHypTrD9qrKDAaRCbFUvI6woBhxzZufr/gQ=;
- b=d8JxZT151+2NL87t33KQlgbaAnZbu3P7oFr3ul6NbTWNP2fyCdmjtHghcgDeeHU/rs
- oR0/CrN7cN6CAkqc92MFh3AGJOemnOAbHSf/9D7FmE312KfKon4O3D9rH2mm554eT31F
- +AvivOtbL9iz/mMYZEKUY0RyUW8WoecMx8snK3uw4HTUoJZFeyU5BSnyra62TzB0ysDZ
- Tn+uBj7k7zxc2lSG+HU5pF0HkXly5ILu7W8t7Rw0BsLABGWtlma6bhuoRHkx2txBiG0J
- /ueeRjUeOCiINV9TwNnkq+4JQSnVbgxqViJe23p1PxcXA/1u04P7VjklZdFcGPyR5Y3b
- R4CA==
-X-Gm-Message-State: AOAM533Q1i6r7jT5BZcQl4/0oHoqp8g7x2KkEyiHUlu2cWKxnJ7BEBX6
- uaWcDJ7TDAAQ4JNuxcmf9+2saw==
-X-Google-Smtp-Source: ABdhPJypoVx1bf/+/f0PU9KTcPgh58skt21jmyiixnpzbP1eozq/x0NuCqhl1yY7OBtxWORA63nZDQ==
-X-Received: by 2002:a63:1f55:0:b0:382:65eb:3073 with SMTP id
- q21-20020a631f55000000b0038265eb3073mr3839199pgm.624.1648124201594; 
- Thu, 24 Mar 2022 05:16:41 -0700 (PDT)
-Received: from sunil-laptop ([49.206.7.17]) by smtp.gmail.com with ESMTPSA id
- s30-20020a056a001c5e00b004f75773f3fcsm3295399pfw.119.2022.03.24.05.16.36
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 24 Mar 2022 05:16:41 -0700 (PDT)
-Date: Thu, 24 Mar 2022 17:46:31 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Cc: Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>,
- Jessica Clarke <jrtc27@jrtc27.com>,
- Abner Chang <abner.chang@hpe.com>, linux-efi@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Palmer Dabbelt <palmer@rivosinc.com>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH 1/1] riscv/efi_stub: Add support for
- RISCV_EFI_BOOT_PROTOCOL
-Message-ID: <20220324121631.GA39769@sunil-laptop>
-References: <20220324112534.209959-1-sunilvl@ventanamicro.com>
- <20220324112534.209959-2-sunilvl@ventanamicro.com>
- <14f87d29-ebc9-51a3-020c-353878bcb1ba@canonical.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=7IwhRmQLD4pp4REKGSz+HZGQaSrUkXBhHYyruYo/qME=;
+ b=s9pbhCW8LrHj5Ie5s+8HkZ/i0Lq7Oob7bNQIJFAP9z0SdA+kT/qF9ICI6147WTdAY4
+ bVyjpogVUbJgoulRbYOsLdb/QmlcBAn9APO+jvlZE3KGVJfSCN57ujbFlspdiIRxF2/Z
+ JunpkOAW+qXVI6pIC4bsY2tseF9IhxyRItW94QvDAjUGCUKNMv9qEOEK4TyKRG0nx0F8
+ HZMJAlov6dnHA6bxAi6heDxv7NBaQ9EFfBc01sGeuNRnXObgv9VMNHTJAnYoMffjrwqb
+ 1E3EJPX9Ztls4ytudNti46yhV4e4FfUm3xpk5KX9yURbhQ0ecFFcrMLcCw5xC9jLvlNU
+ BZPA==
+X-Gm-Message-State: AOAM533VawCT2aGwMZyBBfYsCGsSHgTMYxiF45cF7Sea61+77B/y6iV5
+ PbfrWx/SAeTsLrXrThLbrc0IuaXGOPDBE6AiXCjzrg==
+X-Google-Smtp-Source: ABdhPJw4KMNpkELCzWuWWIZqap4aNQL9WmccQBs/OANy5gYAA71/5r+3JUclC7+zoNhjg/9kJrvMPTk5XJL0sbCLsQI=
+X-Received: by 2002:a05:6808:16a4:b0:2f7:1fd1:f48 with SMTP id
+ bb36-20020a05680816a400b002f71fd10f48mr1156736oib.163.1648131413996; Thu, 24
+ Mar 2022 07:16:53 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <14f87d29-ebc9-51a3-020c-353878bcb1ba@canonical.com>
+References: <000000000000644f1a05daf71983@google.com>
+In-Reply-To: <000000000000644f1a05daf71983@google.com>
+From: Dmitry Vyukov <dvyukov@google.com>
+Date: Thu, 24 Mar 2022 15:16:42 +0100
+Message-ID: <CACT4Y+bSazxGmb=F4ouAEK+N=fTrwTpZHasPo2i_E6eqRPfAzg@mail.gmail.com>
+Subject: Re: [syzbot] KMSAN: uninit-value in do_user_addr_fault (3)
+To: syzbot <syzbot+6684a9d1b4d61d0b8f3e@syzkaller.appspotmail.com>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>
+Cc: akpm@linux-foundation.org, elver@google.com, glider@google.com, 
+ linux-kernel@vger.kernel.org, syzkaller-bugs@googlegroups.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220324_051642_992505_543CA967 
-X-CRM114-Status: GOOD (  25.05  )
+X-CRM114-CacheID: sfid-20220324_071710_090309_AF61665C 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,116 +84,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 24, 2022 at 12:46:12PM +0100, Heinrich Schuchardt wrote:
-> On 3/24/22 12:25, Sunil V L wrote:
-> > This patch adds the support for getting the boot hart ID in
-> > Linux EFI stub using RISCV_EFI_BOOT_PROTOCOL. This protocol
-> > is preferred method over existing DT based solution since it
-> > works irrespective of DT or ACPI.
-> > 
-> > The specification of the protocol is hosted at:
-> > https://github.com/riscv-non-isa/riscv-uefi
-> > 
-> > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> > Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-> 
-> This seems to be v3 of the patch. v2 is available in
-> https://lore.kernel.org/all/20220303145944.307321-2-sunilvl@ventanamicro.com/
-> 
-> v3 replaces a message in efi_status_t check_platform_features():
-> 
-> <+   efi_err("/chosen/boot-hartid missing or invalid!\n");
-> >+   efi_err("Failed to get boot hartid!\n");
+On Thu, 24 Mar 2022 at 14:48, syzbot
+<syzbot+6684a9d1b4d61d0b8f3e@syzkaller.appspotmail.com> wrote:
+>
+> Hello,
+>
+> syzbot found the following issue on:
+>
+> HEAD commit:    724946410067 x86: kmsan: enable KMSAN builds for x86
+> git tree:       https://github.com/google/kmsan.git master
+> console output: https://syzkaller.appspot.com/x/log.txt?x=1734f916700000
+> kernel config:  https://syzkaller.appspot.com/x/.config?x=76f99026248b24e4
+> dashboard link: https://syzkaller.appspot.com/bug?extid=6684a9d1b4d61d0b8f3e
+> compiler:       clang version 14.0.0 (/usr/local/google/src/llvm-git-monorepo 2b554920f11c8b763cd9ed9003f4e19b919b8e1f), GNU ld (GNU Binutils for Debian) 2.35.2
+> syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=14b1cbf2700000
+> C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=131d38a6700000
+>
+> IMPORTANT: if you fix the issue, please add the following tag to the commit:
+> Reported-by: syzbot+6684a9d1b4d61d0b8f3e@syzkaller.appspotmail.com
 
-Yes, that's correct. Sorry I missed the version. I resent the patch with
-version and your RB tag added.
++linux-riscv as there are some riscv bugs bucketed here as well:
 
-Thanks!
-Sunil
-> 
-> Reviewed-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-> 
-> > ---
-> >   drivers/firmware/efi/libstub/efistub.h    |  7 ++++++
-> >   drivers/firmware/efi/libstub/riscv-stub.c | 29 +++++++++++++++++++----
-> >   include/linux/efi.h                       |  1 +
-> >   3 files changed, 32 insertions(+), 5 deletions(-)
-> > 
-> > diff --git a/drivers/firmware/efi/libstub/efistub.h b/drivers/firmware/efi/libstub/efistub.h
-> > index edb77b0621ea..aced62a0907e 100644
-> > --- a/drivers/firmware/efi/libstub/efistub.h
-> > +++ b/drivers/firmware/efi/libstub/efistub.h
-> > @@ -720,6 +720,13 @@ union efi_tcg2_protocol {
-> >   	} mixed_mode;
-> >   };
-> > +struct riscv_efi_boot_protocol {
-> > +	u64 revision;
-> > +
-> > +	efi_status_t (__efiapi * get_boot_hartid)(struct riscv_efi_boot_protocol *this,
-> > +						  size_t *boot_hartid);
-> > +};
-> > +
-> >   typedef union efi_load_file_protocol efi_load_file_protocol_t;
-> >   typedef union efi_load_file_protocol efi_load_file2_protocol_t;
-> > diff --git a/drivers/firmware/efi/libstub/riscv-stub.c b/drivers/firmware/efi/libstub/riscv-stub.c
-> > index 9c460843442f..012504f6f9a4 100644
-> > --- a/drivers/firmware/efi/libstub/riscv-stub.c
-> > +++ b/drivers/firmware/efi/libstub/riscv-stub.c
-> > @@ -23,7 +23,7 @@
-> >   typedef void __noreturn (*jump_kernel_func)(unsigned int, unsigned long);
-> > -static u32 hartid;
-> > +static size_t hartid;
-> >   static int get_boot_hartid_from_fdt(void)
-> >   {
-> > @@ -47,14 +47,33 @@ static int get_boot_hartid_from_fdt(void)
-> >   	return 0;
-> >   }
-> > +static efi_status_t get_boot_hartid_from_efi(void)
-> > +{
-> > +	efi_guid_t boot_protocol_guid = RISCV_EFI_BOOT_PROTOCOL_GUID;
-> > +	efi_status_t status;
-> > +	struct riscv_efi_boot_protocol *boot_protocol;
-> > +
-> > +	status = efi_bs_call(locate_protocol, &boot_protocol_guid, NULL,
-> > +			     (void **)&boot_protocol);
-> > +	if (status == EFI_SUCCESS) {
-> > +		status = efi_call_proto(boot_protocol,
-> > +					get_boot_hartid, &hartid);
-> > +	}
-> > +	return status;
-> > +}
-> > +
-> >   efi_status_t check_platform_features(void)
-> >   {
-> >   	int ret;
-> > +	efi_status_t status;
-> > -	ret = get_boot_hartid_from_fdt();
-> > -	if (ret) {
-> > -		efi_err("/chosen/boot-hartid missing or invalid!\n");
-> > -		return EFI_UNSUPPORTED;
-> > +	status = get_boot_hartid_from_efi();
-> > +	if (status != EFI_SUCCESS) {
-> > +		ret = get_boot_hartid_from_fdt();
-> > +		if (ret) {
-> > +			efi_err("Failed to get boot hartid!\n");
-> > +			return EFI_UNSUPPORTED;
-> > +		}
-> >   	}
-> >   	return EFI_SUCCESS;
-> >   }
-> > diff --git a/include/linux/efi.h b/include/linux/efi.h
-> > index ccd4d3f91c98..9822c730207c 100644
-> > --- a/include/linux/efi.h
-> > +++ b/include/linux/efi.h
-> > @@ -380,6 +380,7 @@ void efi_native_runtime_setup(void);
-> >   #define EFI_CONSOLE_OUT_DEVICE_GUID		EFI_GUID(0xd3b36f2c, 0xd551, 0x11d4,  0x9a, 0x46, 0x00, 0x90, 0x27, 0x3f, 0xc1, 0x4d)
-> >   #define APPLE_PROPERTIES_PROTOCOL_GUID		EFI_GUID(0x91bd12fe, 0xf6c3, 0x44fb,  0xa5, 0xb7, 0x51, 0x22, 0xab, 0x30, 0x3a, 0xe0)
-> >   #define EFI_TCG2_PROTOCOL_GUID			EFI_GUID(0x607f766c, 0x7455, 0x42be,  0x93, 0x0b, 0xe4, 0xd7, 0x6d, 0xb2, 0x72, 0x0f)
-> > +#define RISCV_EFI_BOOT_PROTOCOL_GUID		EFI_GUID(0xccd15fec, 0x6f73, 0x4eec,  0x83, 0x95, 0x3e, 0x69, 0xe4, 0xb9, 0x40, 0xbf)
-> >   #define EFI_LOAD_FILE_PROTOCOL_GUID		EFI_GUID(0x56ec3091, 0x954c, 0x11d2,  0x8e, 0x3f, 0x00, 0xa0, 0xc9, 0x69, 0x72, 0x3b)
-> >   #define EFI_LOAD_FILE2_PROTOCOL_GUID		EFI_GUID(0x4006c0c1, 0xfcb3, 0x403e,  0x99, 0x6d, 0x4a, 0x6c, 0x87, 0x24, 0xe0, 0x6d)
-> >   #define EFI_RT_PROPERTIES_TABLE_GUID		EFI_GUID(0xeb66918a, 0x7eef, 0x402a,  0x84, 0x2e, 0x93, 0x1d, 0x21, 0xc3, 0x8a, 0xe9)
-> 
+BUG: KASAN: slab-out-of-bounds in walk_stackframe+0x11c/0x260
+arch/riscv/kernel/stacktrace.c:57
+Read of size 8 at addr ffffaf800bd53d60 by task syz-executor.0/2044
+
+CPU: 0 PID: 2044 Comm: syz-executor.0 Not tainted
+5.17.0-rc1-syzkaller-00002-g0966d385830d #0
+Hardware name: riscv-virtio,qemu (DT)
+Call Trace:
+[<ffffffff8000a228>] dump_backtrace+0x2e/0x3c arch/riscv/kernel/stacktrace.c:113
+[<ffffffff831668cc>] show_stack+0x34/0x40 arch/riscv/kernel/stacktrace.c:119
+[<ffffffff831756ba>] __dump_stack lib/dump_stack.c:88 [inline]
+[<ffffffff831756ba>] dump_stack_lvl+0xe4/0x150 lib/dump_stack.c:106
+[<ffffffff8047479e>] print_address_description.constprop.0+0x2a/0x330
+mm/kasan/report.c:255
+[<ffffffff80474d4c>] __kasan_report mm/kasan/report.c:442 [inline]
+[<ffffffff80474d4c>] kasan_report+0x184/0x1e0 mm/kasan/report.c:459
+[<ffffffff80475b20>] check_region_inline mm/kasan/generic.c:183 [inline]
+[<ffffffff80475b20>] __asan_load8+0x6e/0x96 mm/kasan/generic.c:256
+[<ffffffff8000a052>] walk_stackframe+0x11c/0x260
+arch/riscv/kernel/stacktrace.c:57
+[<ffffffff8000a4a4>] arch_stack_walk+0x2c/0x3c
+arch/riscv/kernel/stacktrace.c:146
+[<ffffffff80162ac8>] stack_trace_save+0xa6/0xd8 kernel/stacktrace.c:122
+[<ffffffff80473abe>] kasan_save_stack+0x2c/0x58 mm/kasan/common.c:38
+
+If risc-v stack walking is intentionally imprecise, then it needs
+kasan annotations as other arches do for async stack walking. Or
+otherwise it looks like a stack walking precision bug.
+
+
+
+
+
+> =====================================================
+> BUG: KMSAN: uninit-value in arch_stack_walk+0x1ad/0x3c0 arch/x86/kernel/stacktrace.c:21
+>  arch_stack_walk+0x1ad/0x3c0 arch/x86/kernel/stacktrace.c:21
+>  stack_trace_save+0x43/0x60 kernel/stacktrace.c:122
+>  kmsan_save_stack_with_flags mm/kmsan/core.c:80 [inline]
+>  kmsan_internal_chain_origin+0xa9/0x110 mm/kmsan/core.c:217
+>  kmsan_internal_memmove_metadata+0x1f2/0x2e0 mm/kmsan/core.c:165
+>  __msan_memcpy+0x65/0x90 mm/kmsan/instrumentation.c:127
+>  sock_write_iter+0x605/0x690 net/socket.c:1062
+>  do_iter_readv_writev+0xa7f/0xc70
+>  do_iter_write+0x52c/0x1500 fs/read_write.c:851
+>  vfs_writev fs/read_write.c:924 [inline]
+>  do_writev+0x645/0xe00 fs/read_write.c:967
+>  __do_sys_writev fs/read_write.c:1040 [inline]
+>  __se_sys_writev fs/read_write.c:1037 [inline]
+>  __x64_sys_writev+0xe5/0x120 fs/read_write.c:1037
+>  do_syscall_x64 arch/x86/entry/common.c:51 [inline]
+>  do_syscall_64+0x54/0xd0 arch/x86/entry/common.c:82
+>  entry_SYSCALL_64_after_hwframe+0x44/0xae
+>
+> Local variable regs created at:
+>  __bpf_prog_run32+0x84/0x180 kernel/bpf/core.c:1796
+>  bpf_dispatcher_nop_func include/linux/bpf.h:785 [inline]
+>  __bpf_prog_run include/linux/filter.h:626 [inline]
+>  bpf_prog_run include/linux/filter.h:633 [inline]
+>  __bpf_prog_run_save_cb+0x168/0x580 include/linux/filter.h:756
+>
+> CPU: 1 PID: 3474 Comm: syz-executor178 Not tainted 5.17.0-rc4-syzkaller #0
+> Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 01/01/2011
+> =====================================================
+>
+>
+> ---
+> This report is generated by a bot. It may contain errors.
+> See https://goo.gl/tpsmEJ for more information about syzbot.
+> syzbot engineers can be reached at syzkaller@googlegroups.com.
+>
+> syzbot will keep track of this issue. See:
+> https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+> syzbot can test patches for this issue, for details see:
+> https://goo.gl/tpsmEJ#testing-patches
 
 _______________________________________________
 linux-riscv mailing list
