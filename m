@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B58C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Mar 2022 00:08:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10905C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Mar 2022 00:08:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=RbOjm1L+1nT92iW12+Q9KH1R9woEgMTR38rwi79F/qo=; b=cJ6tiexvHtIlbx
-	G7KesURZ1gTLk+EeTOJQ/hUQrThz1eWG5ZAuAQ7cl4qrs67TZhPIgTa8hpqWvtlaFvjoQ3sbM1YYc
-	mYpfqG0csZdaz6Rd0EpbnWacgqlUGP3H3hj9L6osfPZBBTEc29ubONtwabzbfmagyYti/NCtERnrG
-	XIFxErInIFmViFw3LLns+81LfD/PQ3DqTjMSfgQkrnfdfWfS8vXgxmSOuHyjPilqzcW/1qGtxao7a
-	yqXbwzoiXuHyzZMvrZ9ZCxisifZNvd7xutObv9UpXz4XXGmc4RQUL5aM8+BhS9L/yJWOo8e4Kd4Uw
-	f9ZqTV3Fw1k9nYka8KAw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xDRt0GvDyWRst0k7OMhrZIiNbd3N2/mGGf+UXFioPsI=; b=UZ/e8cC6CYG+bc
+	t/yDRWh2371nLfNRh9+UFi3LMqligMV+bLNSRz/Jbh6dYFQwyL3gV0I1HD/k+bk9zy7cEf7rk+z+h
+	SaXUM3uD+ATWCPvmir5jwt5Z9rAvvFzhpodQHPf2zHRA+cUt8ZzipdH3r9bqqqQxjgufiAOB2JKK8
+	5rkA8X+kxgU2xUj3UzYFhyXlOpPAgrNqlFce5+l8HbpaZhVsmR68biVsSk8dWxTwKiEnmPXxJTTAb
+	hmbhX5oJW3iixszPOs7ekAZ9R0mTarfFhcVWlX664bS5Tzj6ci3n4PV1V7ptc5bxCUeWzfnqdBz9W
+	HCMQcaEJd6DZU0EeV6IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nXB17-00F9j2-Ir; Thu, 24 Mar 2022 00:07:53 +0000
+	id 1nXB15-00F9hc-FV; Thu, 24 Mar 2022 00:07:51 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nXB0s-00F9b4-ET
+ id 1nXB0s-00F9b3-EW
  for linux-riscv@lists.infradead.org; Thu, 24 Mar 2022 00:07:41 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
  helo=phil.lan)
  by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
  (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1nXB0k-00055s-4Z; Thu, 24 Mar 2022 01:07:30 +0100
+ id 1nXB0n-00055s-5z; Thu, 24 Mar 2022 01:07:33 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: palmer@dabbelt.com,
 	paul.walmsley@sifive.com,
@@ -43,14 +43,16 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  jscheid@ventanamicro.com, rtrauben@gmail.com, samuel@sholland.org,
  cmuellner@linux.com, philipp.tomsich@vrull.eu,
  Heiko Stuebner <heiko@sntech.de>
-Subject: [PATCH v8 00/14] riscv: support for Svpbmt and D1 memory types
-Date: Thu, 24 Mar 2022 01:06:56 +0100
-Message-Id: <20220324000710.575331-1-heiko@sntech.de>
+Subject: [PATCH v8 04/14] riscv: implement module alternatives
+Date: Thu, 24 Mar 2022 01:07:00 +0100
+Message-Id: <20220324000710.575331-5-heiko@sntech.de>
 X-Mailer: git-send-email 2.35.1
+In-Reply-To: <20220324000710.575331-1-heiko@sntech.de>
+References: <20220324000710.575331-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220323_170738_594620_916E9B18 
-X-CRM114-Status: GOOD (  23.16  )
+X-CRM114-CacheID: sfid-20220323_170738_653516_E1D4D64C 
+X-CRM114-Status: GOOD (  18.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,128 +69,169 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Svpbmt is an extension defining "Supervisor-mode: page-based memory types"
-for things like non-cacheable pages or I/O memory pages.
+This allows alternatives to also be applied when loading modules
+and follows the implementation of other architectures (e.g. arm64).
 
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/riscv/errata/sifive/errata.c    |  7 ++++---
+ arch/riscv/include/asm/alternative.h |  3 ++-
+ arch/riscv/kernel/alternative.c      | 18 +++++++++++++----
+ arch/riscv/kernel/module.c           | 29 ++++++++++++++++++++++++++++
+ 4 files changed, 49 insertions(+), 8 deletions(-)
 
-So this is my 2nd try at implementing Svpbmt (and the diverging D1 memory
-types) using the alternatives framework.
-
-This includes a number of changes to the alternatives mechanism itself.
-The biggest one being the move to a more central location, as I expect
-in the future, nearly every chip needing some sort of patching, be it
-either for erratas or for optional features (svpbmt or others).
-
-Detection of the svpbmt functionality is done via Atish's isa extension
-handling series [0] and thus does not need any dt-parsing of its own
-anymore.
-
-The series also introduces support for the memory types of the D1
-which are implemented differently to svpbmt. But when patching anyway
-it's pretty clean to add the D1 variant via ALTERNATIVE_2 to the same
-location.
-
-The only slightly bigger difference is that the "normal" type is not 0
-as with svpbmt, so kernel patches for this PMA type need to be applied
-even before the MMU is brought up, so the series introduces a separate
-stage for that.
-
-
-In theory this series is 3 parts:
-- sbi cache-flush / null-ptr
-- alternatives improvements
-- svpbmt+d1
-
-So expecially patches from the first 2 areas could be applied when
-deemed ready, I just thought to keep it together to show-case where
-the end-goal is and not requiring jumping between different series.
-
-
-I picked the recipient list from the previous versions, hopefully
-I didn't forget anybody.
-
-changes in v8:
-- rebase onto 5.17-final + isa extension series
-  We're halfway through the merge-window, so this series
-  should be merge after that
-- adapt to fix limiting alternatives to non-xip-kernels
-- add .norelax option for alternatives
-- fix unused cpu_apply_errata in thead errata
-- don't use static globals to store cpu-manufacturer data
-  as it makes machines hang if done too early
-
-changes in v7:
-- fix typo in patch1 (Atish)
-- moved to Atish's isa-extension framework
-- and therefore move regular boot-alternatives directly behind fill_hwcaps
-- change T-Head errata Kconfig text (Atish)
-
-changes in v6:
-- rebase onto 5.17-rc1
-- handle sbi null-ptr differently
-- improve commit messages
-- use riscv,mmu as property name
-
-changes in v5:
-- move to use alternatives for runtime-patching
-- add D1 variant
-
-
-[0] https://lore.kernel.org/r/20220222204811.2281949-2-atishp@rivosinc.com
-
-
-Heiko Stuebner (13):
-  riscv: prevent null-pointer dereference with sbi_remote_fence_i
-  riscv: integrate alternatives better into the main architecture
-  riscv: allow different stages with alternatives
-  riscv: implement module alternatives
-  riscv: implement ALTERNATIVE_2 macro
-  riscv: extend concatenated alternatives-lines to the same length
-  riscv: prevent compressed instructions in alternatives
-  riscv: move boot alternatives to after fill_hwcap
-  riscv: Fix accessing pfn bits in PTEs for non-32bit variants
-  riscv: add cpufeature handling via alternatives
-  riscv: remove FIXMAP_PAGE_IO and fall back to its default value
-  riscv: don't use global static vars to store alternative data
-  riscv: add memory-type errata for T-Head
-
-Wei Fu (1):
-  riscv: add RISC-V Svpbmt extension support
-
- arch/riscv/Kconfig.erratas                  |  31 +++--
- arch/riscv/Kconfig.socs                     |   1 -
- arch/riscv/Makefile                         |   2 +-
- arch/riscv/errata/Makefile                  |   2 +-
- arch/riscv/errata/alternative.c             |  75 ------------
- arch/riscv/errata/sifive/errata.c           |  17 ++-
- arch/riscv/errata/thead/Makefile            |   1 +
- arch/riscv/errata/thead/errata.c            |  82 +++++++++++++
- arch/riscv/include/asm/alternative-macros.h | 121 ++++++++++++++------
- arch/riscv/include/asm/alternative.h        |  16 ++-
- arch/riscv/include/asm/errata_list.h        |  52 +++++++++
- arch/riscv/include/asm/fixmap.h             |   2 -
- arch/riscv/include/asm/hwcap.h              |   1 +
- arch/riscv/include/asm/pgtable-32.h         |  17 +++
- arch/riscv/include/asm/pgtable-64.h         |  79 ++++++++++++-
- arch/riscv/include/asm/pgtable-bits.h       |  10 --
- arch/riscv/include/asm/pgtable.h            |  53 +++++++--
- arch/riscv/include/asm/vendorid_list.h      |   1 +
- arch/riscv/kernel/Makefile                  |   1 +
- arch/riscv/kernel/alternative.c             | 104 +++++++++++++++++
- arch/riscv/kernel/cpu.c                     |   1 +
- arch/riscv/kernel/cpufeature.c              |  80 ++++++++++++-
- arch/riscv/kernel/module.c                  |  29 +++++
- arch/riscv/kernel/sbi.c                     |  10 +-
- arch/riscv/kernel/setup.c                   |   2 +
- arch/riscv/kernel/smpboot.c                 |   4 -
- arch/riscv/kernel/traps.c                   |   2 +-
- arch/riscv/mm/init.c                        |   1 +
- 28 files changed, 629 insertions(+), 168 deletions(-)
- delete mode 100644 arch/riscv/errata/alternative.c
- create mode 100644 arch/riscv/errata/thead/Makefile
- create mode 100644 arch/riscv/errata/thead/errata.c
- create mode 100644 arch/riscv/kernel/alternative.c
-
+diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
+index 4fe03ac41fd7..42457efcaaa3 100644
+--- a/arch/riscv/errata/sifive/errata.c
++++ b/arch/riscv/errata/sifive/errata.c
+@@ -4,6 +4,7 @@
+  */
+ 
+ #include <linux/kernel.h>
++#include <linux/module.h>
+ #include <linux/string.h>
+ #include <linux/bug.h>
+ #include <asm/patch.h>
+@@ -54,7 +55,7 @@ static struct errata_info_t errata_list[ERRATA_SIFIVE_NUMBER] = {
+ 	},
+ };
+ 
+-static u32 __init sifive_errata_probe(unsigned long archid, unsigned long impid)
++static u32 __init_or_module sifive_errata_probe(unsigned long archid, unsigned long impid)
+ {
+ 	int idx;
+ 	u32 cpu_req_errata = 0;
+@@ -66,7 +67,7 @@ static u32 __init sifive_errata_probe(unsigned long archid, unsigned long impid)
+ 	return cpu_req_errata;
+ }
+ 
+-static void __init warn_miss_errata(u32 miss_errata)
++static void __init_or_module warn_miss_errata(u32 miss_errata)
+ {
+ 	int i;
+ 
+@@ -79,7 +80,7 @@ static void __init warn_miss_errata(u32 miss_errata)
+ 	pr_warn("----------------------------------------------------------------\n");
+ }
+ 
+-void __init sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
++void __init_or_module sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+ 				     unsigned long archid, unsigned long impid,
+ 				     unsigned int stage)
+ {
+diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
+index 811bdd8027db..f0657b1b3174 100644
+--- a/arch/riscv/include/asm/alternative.h
++++ b/arch/riscv/include/asm/alternative.h
+@@ -18,8 +18,10 @@
+ #include <asm/hwcap.h>
+ 
+ #define RISCV_ALTERNATIVES_BOOT		0 /* alternatives applied during regular boot */
++#define RISCV_ALTERNATIVES_MODULE	1 /* alternatives applied during module-init */
+ 
+ void __init apply_boot_alternatives(void);
++void apply_module_alternatives(void *start, size_t length);
+ 
+ struct alt_entry {
+ 	void *old_ptr;		 /* address of original instruciton or data  */
+@@ -37,6 +39,5 @@ struct errata_checkfunc_id {
+ void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+ 			      unsigned long archid, unsigned long impid,
+ 			      unsigned int stage);
+-
+ #endif
+ #endif
+diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
+index 02db62f55bac..223770b3945c 100644
+--- a/arch/riscv/kernel/alternative.c
++++ b/arch/riscv/kernel/alternative.c
+@@ -7,6 +7,7 @@
+  */
+ 
+ #include <linux/init.h>
++#include <linux/module.h>
+ #include <linux/cpu.h>
+ #include <linux/uaccess.h>
+ #include <asm/alternative.h>
+@@ -23,7 +24,7 @@ static struct cpu_manufacturer_info_t {
+ 
+ static void (*vendor_patch_func)(struct alt_entry *begin, struct alt_entry *end,
+ 				 unsigned long archid, unsigned long impid,
+-				 unsigned int stage) __initdata;
++				 unsigned int stage) __initdata_or_module;
+ 
+ static inline void __init riscv_fill_cpu_mfr_info(void)
+ {
+@@ -58,9 +59,9 @@ static void __init init_alternative(void)
+  * a feature detect on the boot CPU). No need to worry about other CPUs
+  * here.
+  */
+-static void __init _apply_alternatives(struct alt_entry *begin,
+-				       struct alt_entry *end,
+-				       unsigned int stage)
++static void __init_or_module _apply_alternatives(struct alt_entry *begin,
++						 struct alt_entry *end,
++						 unsigned int stage)
+ {
+ 	if (!vendor_patch_func)
+ 		return;
+@@ -81,3 +82,12 @@ void __init apply_boot_alternatives(void)
+ 			    (struct alt_entry *)__alt_end,
+ 			    RISCV_ALTERNATIVES_BOOT);
+ }
++
++#ifdef CONFIG_MODULES
++void apply_module_alternatives(void *start, size_t length)
++{
++	_apply_alternatives((struct alt_entry *)start,
++			    (struct alt_entry *)(start + length),
++			    RISCV_ALTERNATIVES_MODULE);
++}
++#endif
+diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+index 4a48287513c3..823b7ad47c9a 100644
+--- a/arch/riscv/kernel/module.c
++++ b/arch/riscv/kernel/module.c
+@@ -11,6 +11,7 @@
+ #include <linux/vmalloc.h>
+ #include <linux/sizes.h>
+ #include <linux/pgtable.h>
++#include <asm/alternative.h>
+ #include <asm/sections.h>
+ 
+ /*
+@@ -427,3 +428,31 @@ void *module_alloc(unsigned long size)
+ 				    __builtin_return_address(0));
+ }
+ #endif
++
++static const Elf_Shdr *find_section(const Elf_Ehdr *hdr,
++				    const Elf_Shdr *sechdrs,
++				    const char *name)
++{
++	const Elf_Shdr *s, *se;
++	const char *secstrs = (void *)hdr + sechdrs[hdr->e_shstrndx].sh_offset;
++
++	for (s = sechdrs, se = sechdrs + hdr->e_shnum; s < se; s++) {
++		if (strcmp(name, secstrs + s->sh_name) == 0)
++			return s;
++	}
++
++	return NULL;
++}
++
++int module_finalize(const Elf_Ehdr *hdr,
++		    const Elf_Shdr *sechdrs,
++		    struct module *me)
++{
++	const Elf_Shdr *s;
++
++	s = find_section(hdr, sechdrs, ".alternative");
++	if (s)
++		apply_module_alternatives((void *)s->sh_addr, s->sh_size);
++
++	return 0;
++}
 -- 
 2.35.1
 
