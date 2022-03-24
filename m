@@ -4,73 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AEBEC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Mar 2022 05:26:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 157F3C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Mar 2022 05:31:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UdD5sykjvj1dwnq5tQW7I/e0GQTved0kCjPnbOLathU=; b=zR8ZYJK9eSJNoB
-	wmm8caPmsho10mu6QoQVeysiQPS9XTFgbyDWwB3j2JNseAkTw1bVNlEQ7dCJ9yIxi9ckZBmNxsoWu
-	3VpvbI1w/S6tnjnXcEVPvhOgey9qGSIjVIRJbfkdT/4OJ6jafgzp11WcLhVksqmg4uZIuwtx2oM+m
-	M1+goGhkRprNU1YAy+Laj1OBIOWbMRwFA9IRZtrSa/f9Ll/hCDbctDEdGLg9pfNq3vDkuB4mnb8EX
-	+Jb/GHbPsJ71CrnyGAd/rKzkdawGOfRAwJC9Vd9QnzSTP12DFxckVaY7qwOaFO31aBAvTmOZPeEZw
-	LkP+CXbLnxD51TqPgBuQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GacnYM2RZWKpBtrKrhSlS7AknyGLQ9Og6Y6XlA7YgCc=; b=VBV3yw4TmN0ope
+	WgugdZtBiKYVxIu5mzBKbzoCq6Ehin2e0mdi8qiNrLc8tPm7a2QjbXw0Ytg1mAZ0z7fZlp6RdZzah
+	srS/eIMwBp8o4I/opoXh+FUM+31jMQ7SUPDx9kcrk6TJs22zvUOmZsuLPDG9J6EQaE4REp2LmFMV1
+	/HGUuU2q+IE3G3O0NASGfpdQ7Y5kFsMYaGXdDiIqgKPb36IHXb/JRAp8MLgQbXgPaqgh6ljnoD4qX
+	cftUDG6O90xNDORuA369db5WqQLpxNZ4qpiZsHj52p+RqEhwMVS8Pa1V7n1Lhvg51jsnUpzs37Ihs
+	SNzZCuBvt1SgakKQ+d8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nXFzb-00FdAr-8U; Thu, 24 Mar 2022 05:26:39 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1nXG4E-00Fdjb-9b; Thu, 24 Mar 2022 05:31:26 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nXFzY-00FdA9-IV
- for linux-riscv@lists.infradead.org; Thu, 24 Mar 2022 05:26:38 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id u3so5019749wrg.3
- for <linux-riscv@lists.infradead.org>; Wed, 23 Mar 2022 22:26:36 -0700 (PDT)
+ id 1nXG4C-00Fdii-5e
+ for linux-riscv@lists.infradead.org; Thu, 24 Mar 2022 05:31:25 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id
+ o3-20020a17090a3d4300b001c6bc749227so4072062pjf.1
+ for <linux-riscv@lists.infradead.org>; Wed, 23 Mar 2022 22:31:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=UPHKSpU1uD0rrViGw+MJCaYsmsBqORLnJdi+EK4GXp4=;
- b=4erF0JJbyt2usIgCKQ+imVSaTwbCFuBUBSGC3nf3baGYXKVVnqcBre/vafj4XWaU/G
- XnT5YQsjvDnYmtg0ZOjzSlQV/ibKnYYjeu5Rah+WHNBj8QOT6ejLJ9ldrp3YsgU52hOl
- vT2/5QBVuiYhOK05YbvSgODYIO/mPAOvWwNVinxg11KAJSqJ+xfrKlFCjLT7hEfG7f3E
- 9diC7FDnPlwJW8PMl9tHm5RX41GmhV8r0OFzLlNnksrcoz5tL/3kwlbuMWgCmmdGACWA
- rmL98RDvkILYLzFhUFiZz6QdnTddy/EM1BluEwHFcFeODsfvxsFhXQyKj5VeFbm29xz/
- NZ1A==
+ d=ventanamicro.com; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=QipneOKTQA94tj99xDqNJKu1O2H8ssVgZVHFopSbC+M=;
+ b=C5mGlEIKX4AWJlHVpauTVvB1V3nbesh9rYgkVht4cmoudIeXr83jAVOCcnuKjdxCj3
+ ll6uI1LWyqz3e65iD7SYEM8zrl5aYpvlCJ6TGQwUXDcbAAoidQNq5iTUKrs8n0g67oaw
+ Plp3VhPSPaz/Za9aKPahuqpkO327MUBmFDn9gaHk7o2EmdtCcHLG47R7o11CLVeV+0Lz
+ UdXdh7WdHp0vZI07iDNxk4lqGsgOWSKxBkYf/vGfvVaEmj5jOkRMy+OC8/a8J5qAw09p
+ ifCLQBeNwtED603uCRuD1ackl/Jnt9fzxJJBw9Artkzm7vuiTc5Sob1SXiHu5bHfDpuG
+ 8ksA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=UPHKSpU1uD0rrViGw+MJCaYsmsBqORLnJdi+EK4GXp4=;
- b=EPOeqUWQkVQr8YocWHtE3B3lndn52Nsw5LG+Nosbh8QyKfm/fxZPijJH5UxtlkelTV
- UQDbv9OxsOP1DwXTAiWrHMjXwgGrh3d72aFGSUz6z//8wvwsnCmC1FFX/cmJDmxfmfO+
- RYAxbiJ+LkcE+kfDidQBkQIoTMjI9EstuuxUtRHY/j2WzewvDVMIenBcx/pAEZT7UTZg
- dhzHUPx3EdflEzCu+8M77qk+bYs2SWMS+eMiZBWxhk9kPCueIsliN5c3JDxZU52d7Cq2
- vVSxkzODH+hcUC39DA8W65AS5METLUb5etL6iwzjRkY+N4X013uG3sBsQJnXerSmsuKQ
- CGLQ==
-X-Gm-Message-State: AOAM533k8gUiZJy441neUqgLh2YY2yrDxOISmWCHe8fFEP7iWmGA21Ho
- UffX7n+m9k/r7L6OGhczpHW1To2LdEx37w6jmGI1y7drdUA=
-X-Google-Smtp-Source: ABdhPJz3Mtc/BV9i1Kk0ZAafNaEBUtgYnsIvkd3WulJaS+i+A9mMD6+aniomgb2QMiOyr0HCbldKqPciea7+9bXnEtA=
-X-Received: by 2002:a5d:6ac9:0:b0:203:de0b:295f with SMTP id
- u9-20020a5d6ac9000000b00203de0b295fmr3003827wrw.86.1648099594672; Wed, 23 Mar
- 2022 22:26:34 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=QipneOKTQA94tj99xDqNJKu1O2H8ssVgZVHFopSbC+M=;
+ b=pNzgIRED1rACnPVVKRvAbNkaKrloaRAwzAzdp5uL15sShI78rzLvYC+zTuDKO619ag
+ g+1pQ6M35HomiWI3IIFkepZAFDeF6dhNfvAEq1k2ojrCzCwlIODhc2PIrd8XvyDLgPU8
+ ay7f5Nlag63mdmVYwt6A5iueQ0q0q90oeswLbxaOOWdVe0bNkh0tCgKkowU36fv1dBw6
+ TUXxB2ceBf8bg/CsyPBtbf0e1bvESSY+5Hfprnw2cMSs7oFKYMguC5jTrdwrhgO7KqEp
+ CMdEm02YwnapfIVR7x1pi0nsCyndAt4P0tywC0ivpqXJVH6EvV30MoRGEuaH9QqPYXfi
+ me6w==
+X-Gm-Message-State: AOAM533/pGRX9kiiq5A+EOFoTaMMlYGPvBEKffpeQkQAsC7UPi1Bv780
+ bS3QROMRH3w0G7p2VQ3J3NybKA==
+X-Google-Smtp-Source: ABdhPJzJ23XG52EA/bmvEIHgik5fGswJ/31WIMHu5gBxwc/4KUviZwOOxTxAZQRkGfjJNyveMriTjA==
+X-Received: by 2002:a17:903:281:b0:14c:f3b3:209b with SMTP id
+ j1-20020a170903028100b0014cf3b3209bmr3906079plr.87.1648099883419; 
+ Wed, 23 Mar 2022 22:31:23 -0700 (PDT)
+Received: from localhost.localdomain ([122.171.187.87])
+ by smtp.gmail.com with ESMTPSA id
+ c4-20020a056a00248400b004faad8c81bcsm1705069pfv.127.2022.03.23.22.31.20
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 23 Mar 2022 22:31:22 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Atish Patra <atishp@atishpatra.org>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH v2] RISC-V: Enable profiling by default
+Date: Thu, 24 Mar 2022 11:00:20 +0530
+Message-Id: <20220324053020.606637-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20220323090025.546808-1-apatel@ventanamicro.com>
- <CAOnJCUJnc3VJq3PRn+wTMTbf2N5VdJs_uPjRyWTs-EKuC_190w@mail.gmail.com>
-In-Reply-To: <CAOnJCUJnc3VJq3PRn+wTMTbf2N5VdJs_uPjRyWTs-EKuC_190w@mail.gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Thu, 24 Mar 2022 10:56:21 +0530
-Message-ID: <CAAhSdy0_9kL-TLCiB-tJ0bzRCmbaahyUKj09Jone6CipZvZ9Pg@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: Enable perf events by default
-To: Atish Patra <atishp@atishpatra.org>
-Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>,
- Alistair Francis <Alistair.Francis@wdc.com>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220323_222636_675192_617B4E4B 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20220323_223124_242374_C72D9084 
+X-CRM114-Status: UNSURE (   7.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,59 +93,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 23, 2022 at 10:04 PM Atish Patra <atishp@atishpatra.org> wrote:
->
-> On Wed, Mar 23, 2022 at 2:00 AM Anup Patel <apatel@ventanamicro.com> wrote:
-> >
-> > Let us enable perf events by default in RV32 and RV64 defconfigs
-> > so that we can use RISC-V PMU drivers on various RISC-V platforms.
-> >
-> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> > ---
-> >  arch/riscv/configs/defconfig      | 1 +
-> >  arch/riscv/configs/rv32_defconfig | 1 +
-> >  2 files changed, 2 insertions(+)
-> >
-> > diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> > index f120fcc43d0a..57aaedc7cf74 100644
-> > --- a/arch/riscv/configs/defconfig
-> > +++ b/arch/riscv/configs/defconfig
-> > @@ -15,6 +15,7 @@ CONFIG_CHECKPOINT_RESTORE=y
-> >  CONFIG_BLK_DEV_INITRD=y
-> >  CONFIG_EXPERT=y
-> >  # CONFIG_SYSFS_SYSCALL is not set
-> > +CONFIG_PERF_EVENTS=y
-> >  CONFIG_SOC_MICROCHIP_POLARFIRE=y
-> >  CONFIG_SOC_SIFIVE=y
-> >  CONFIG_SOC_VIRT=y
-> > diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-> > index 8b56a7f1eb06..21d422e740d5 100644
-> > --- a/arch/riscv/configs/rv32_defconfig
-> > +++ b/arch/riscv/configs/rv32_defconfig
-> > @@ -15,6 +15,7 @@ CONFIG_CHECKPOINT_RESTORE=y
-> >  CONFIG_BLK_DEV_INITRD=y
-> >  CONFIG_EXPERT=y
-> >  # CONFIG_SYSFS_SYSCALL is not set
-> > +CONFIG_PERF_EVENTS=y
-> >  CONFIG_SOC_SIFIVE=y
-> >  CONFIG_SOC_VIRT=y
-> >  CONFIG_ARCH_RV32I=y
-> > --
-> > 2.25.1
-> >
->
-> I think it is better to enable perf events by adding CONFIG_PROFILING
-> to the defconfig similar to other ISAs.
+Let us enable profiling by default in RV32 and RV64 defconfigs so
+that we can use RISC-V PMU drivers on various RISC-V platforms.
 
-Sure, I will update this patch like you suggested.
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+Changes since v1:
+ - Enable CONFIG_PROFILING instead of CONFIG_PREF_EVENTS in defconfigs
+---
+ arch/riscv/configs/defconfig      | 1 +
+ arch/riscv/configs/rv32_defconfig | 1 +
+ 2 files changed, 2 insertions(+)
 
-Regards,
-Anup
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index f120fcc43d0a..bfebee46784c 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -15,6 +15,7 @@ CONFIG_CHECKPOINT_RESTORE=y
+ CONFIG_BLK_DEV_INITRD=y
+ CONFIG_EXPERT=y
+ # CONFIG_SYSFS_SYSCALL is not set
++CONFIG_PROFILING=y
+ CONFIG_SOC_MICROCHIP_POLARFIRE=y
+ CONFIG_SOC_SIFIVE=y
+ CONFIG_SOC_VIRT=y
+diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
+index 8b56a7f1eb06..2b68b1bd2559 100644
+--- a/arch/riscv/configs/rv32_defconfig
++++ b/arch/riscv/configs/rv32_defconfig
+@@ -15,6 +15,7 @@ CONFIG_CHECKPOINT_RESTORE=y
+ CONFIG_BLK_DEV_INITRD=y
+ CONFIG_EXPERT=y
+ # CONFIG_SYSFS_SYSCALL is not set
++CONFIG_PROFILING=y
+ CONFIG_SOC_SIFIVE=y
+ CONFIG_SOC_VIRT=y
+ CONFIG_ARCH_RV32I=y
+-- 
+2.25.1
 
->
-> --
-> Regards,
-> Atish
 
 _______________________________________________
 linux-riscv mailing list
