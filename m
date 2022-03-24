@@ -4,66 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A47C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Mar 2022 02:08:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79D39C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Mar 2022 02:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D2C7TUrq9P6nk2nyztwPuyU0dMjx6MvDS4HA/Gqt3Dg=; b=z+ILMBf4CHg5d0
-	NhC/PCZ2+Vk7sY5WzvHTchoN74hRuPOGCanxF39vE6xPrrVcC0gLzzPeadwf3W/bUMbvVwCqWZkcd
-	38WUShGeYtkwa0ObQ7w3KcIEja+2QgKjLS9lNOFyP7clSVeepuXPR0PKcoIPnsupBg8sZECad+FfA
-	IZi2aE/wc4/1UDaETsE4FrcVAWzj+qRisuzT3bkPulqnSOvBXilXsAvhfePSSk9wtouJ2fJeh3waB
-	1mmxuKCrskHoQtxedB39B448G9pY37BBt4TOW4coF/AtAwNFuJZBR8qkFnYjA5dpgWEkhUByWggNB
-	FwKrD9ViuzXOfAeh+caA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=5yts5FXJsNnzXIIgAylf/skZG9l7eRBSWITfC57QuCs=; b=GTNPEGNFblk+n8
+	nMhjWlcJL906QM9C5ATV9KtCz2qwntf+OnHdmFxuLwXg8YM+pguPhqD9p/JwOmk3QVcLZLL3PqDT5
+	p6xGhpFY17xs+ayWW+QaRFIfzWwbhC08nA5nkeBaODYdSjQYBaqIolwpt0Q71zXYBMbQoZFPowPKA
+	lsyNdF8QF6Usce5+pSZtdqlbd1D0e2+VzpIlctg2QIUbR1vECCT81pXoyxidW/XiyERGANToggI9F
+	nc4I+dD0XEDR1pvidCyH6ai6mFCXBl8Xh1+42sCACf7QgGpu27FkwDfGgehd1VOW1iyXFPFdwDMkR
+	XdQW5SF0IyDQTpPclDng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nXCtc-00FOLi-4B; Thu, 24 Mar 2022 02:08:16 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1nXCvn-00FPEG-G8; Thu, 24 Mar 2022 02:10:31 +0000
+Received: from smtpbgsg2.qq.com ([54.254.200.128])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nXCtN-00FOEw-6b; Thu, 24 Mar 2022 02:08:03 +0000
-Received: from kwepemi500008.china.huawei.com (unknown [172.30.72.55])
- by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4KP7qD2mtszCqsq;
- Thu, 24 Mar 2022 10:05:44 +0800 (CST)
-Received: from kwepemm600017.china.huawei.com (7.193.23.234) by
- kwepemi500008.china.huawei.com (7.221.188.139) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.21; Thu, 24 Mar 2022 10:07:51 +0800
-Received: from [10.174.179.234] (10.174.179.234) by
- kwepemm600017.china.huawei.com (7.193.23.234) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.21; Thu, 24 Mar 2022 10:07:50 +0800
-Message-ID: <0c95c24d-b980-a8b3-9c68-e10d16e05e10@huawei.com>
-Date: Thu, 24 Mar 2022 10:07:49 +0800
+ id 1nXCvi-00FP37-2M
+ for linux-riscv@lists.infradead.org; Thu, 24 Mar 2022 02:10:28 +0000
+X-QQ-mid: bizesmtp69t1648087793tem9om0e
+Received: from localhost.localdomain ( [14.154.29.68])
+ by bizesmtp.qq.com (ESMTP) with 
+ id ; Thu, 24 Mar 2022 10:09:47 +0800 (CST)
+X-QQ-SSF: 01100000000000Z0Z000000A0000000
+X-QQ-FEAT: FXvDfBZI5O7DQYVnCSxfxVkH5JHUv6JfVW0hU3Mkt4qquhubmBRWPO1nirMx9
+ mhLh6/G2aSYe8XMAE4e2CrJ6DIvweG0yQonWX8Nl7vsro0H4NW4V/KKUt7nU+gCfiP5UqCj
+ fmV02kf6gL2GS6Z1garaiXCqzvBvyYtdTyvbc9WskDdUHsizjZDOiw3Bo6G56TuU8zOMv+m
+ 7HimLKHdI0dSq0Zi51Qle5GrBIjKlTuQ+ZOiMrxqptZVjpF6wv7ZBwYs+Uj92Ny36q9pMJe
+ a/2o13YVagPVvAyTe1UTCDYJvs2j1Dfc1Lt6jR6DwwEULvP0HDxugOqyS2uEwmuReTG/dhZ
+ 35d+mw62afa1IsJ0Cw=
+X-QQ-GoodBg: 0
+From: Wu Caize <zepan@sipeed.com>
+To: palmer@dabbelt.com
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ Wu Caize <zepan@sipeed.com>
+Subject: [PATCH v2] kernel module: fix apply_r_riscv_rcv_branch_rela typo
+Date: Thu, 24 Mar 2022 10:09:21 +0800
+Message-Id: <20220324020920.651419-1-zepan@sipeed.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.6.1
-Subject: Re: [PATCH -next v2 2/4] mm: page_table_check: add hooks to public
- helpers
-To: Pasha Tatashin <pasha.tatashin@soleen.com>
-CC: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, "H. Peter
- Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>, "Catalin
- Marinas" <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Paul
- Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, LKML <linux-kernel@vger.kernel.org>,
- linux-mm <linux-mm@kvack.org>, Linux ARM
- <linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>
-References: <20220322144447.3563146-1-tongtiangen@huawei.com>
- <20220322144447.3563146-3-tongtiangen@huawei.com>
- <CA+CK2bAa96oE0FbtJUjAJ=vpuzQsW3R60K9SUhca6mZ3BL1f8w@mail.gmail.com>
-From: Tong Tiangen <tongtiangen@huawei.com>
-In-Reply-To: <CA+CK2bAa96oE0FbtJUjAJ=vpuzQsW3R60K9SUhca6mZ3BL1f8w@mail.gmail.com>
-X-Originating-IP: [10.174.179.234]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- kwepemm600017.china.huawei.com (7.193.23.234)
-X-CFilter-Loop: Reflected
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:sipeed.com:qybgforeign:qybgforeign3
+X-QQ-Bgrelay: 1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220323_190801_635656_89027A6B 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20220323_191026_546481_D384AB4B 
+X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,72 +64,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgrlnKggMjAyMi8zLzI0IDE6NDIsIFBhc2hhIFRhdGFzaGluIOWGmemBkzoKPiBPbiBUdWUsIE1h
-ciAyMiwgMjAyMiBhdCAxMDoyNSBBTSBUb25nIFRpYW5nZW4gPHRvbmd0aWFuZ2VuQGh1YXdlaS5j
-b20+IHdyb3RlOgo+Pgo+PiBNb3ZlIHB0ZXBfY2xlYXIoKSB0byB0aGUgaW5jbHVkZS9saW51eC9w
-Z3RhYmxlLmggYW5kIGFkZCBwYWdlIHRhYmxlIGNoZWNrCj4+IHJlbGF0ZSBob29rcyB0byBzb21l
-IGhlbHBlcnMsIGl0J3MgcHJlcGFyZSBmb3Igc3VwcG9ydCBwYWdlIHRhYmxlIGNoZWNrCj4+IGZl
-YXR1cmUgb24gbmV3IGFyY2hpdGVjdHVyZS4KPj4KPj4gU2lnbmVkLW9mZi1ieTogVG9uZyBUaWFu
-Z2VuIDx0b25ndGlhbmdlbkBodWF3ZWkuY29tPgo+PiAtLS0KPj4gICBhcmNoL3g4Ni9pbmNsdWRl
-L2FzbS9wZ3RhYmxlLmggfCAxMCAtLS0tLS0tLS0tCj4+ICAgaW5jbHVkZS9saW51eC9wZ3RhYmxl
-LmggICAgICAgIHwgMjcgKysrKysrKysrKysrKysrKysrKy0tLS0tLS0tCj4+ICAgMiBmaWxlcyBj
-aGFuZ2VkLCAxOSBpbnNlcnRpb25zKCspLCAxOCBkZWxldGlvbnMoLSkKPj4KPj4gZGlmZiAtLWdp
-dCBhL2FyY2gveDg2L2luY2x1ZGUvYXNtL3BndGFibGUuaCBiL2FyY2gveDg2L2luY2x1ZGUvYXNt
-L3BndGFibGUuaAo+PiBpbmRleCA4Y2Q2NTE0ZTMwNTIuLjhjODVmMmVhYmJhYSAxMDA2NDQKPj4g
-LS0tIGEvYXJjaC94ODYvaW5jbHVkZS9hc20vcGd0YWJsZS5oCj4+ICsrKyBiL2FyY2gveDg2L2lu
-Y2x1ZGUvYXNtL3BndGFibGUuaAo+PiBAQCAtMTA3NywxNiArMTA3Nyw2IEBAIHN0YXRpYyBpbmxp
-bmUgcHRlX3QgcHRlcF9nZXRfYW5kX2NsZWFyX2Z1bGwoc3RydWN0IG1tX3N0cnVjdCAqbW0sCj4+
-ICAgICAgICAgIHJldHVybiBwdGU7Cj4+ICAgfQo+Pgo+PiAtI2RlZmluZSBfX0hBVkVfQVJDSF9Q
-VEVQX0NMRUFSCj4+IC1zdGF0aWMgaW5saW5lIHZvaWQgcHRlcF9jbGVhcihzdHJ1Y3QgbW1fc3Ry
-dWN0ICptbSwgdW5zaWduZWQgbG9uZyBhZGRyLAo+PiAtICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICBwdGVfdCAqcHRlcCkKPj4gLXsKPj4gLSAgICAgICBpZiAoSVNfRU5BQkxFRChDT05GSUdf
-UEFHRV9UQUJMRV9DSEVDSykpCj4+IC0gICAgICAgICAgICAgICBwdGVwX2dldF9hbmRfY2xlYXIo
-bW0sIGFkZHIsIHB0ZXApOwo+PiAtICAgICAgIGVsc2UKPj4gLSAgICAgICAgICAgICAgIHB0ZV9j
-bGVhcihtbSwgYWRkciwgcHRlcCk7Cj4+IC19Cj4+IC0KPj4gICAjZGVmaW5lIF9fSEFWRV9BUkNI
-X1BURVBfU0VUX1dSUFJPVEVDVAo+PiAgIHN0YXRpYyBpbmxpbmUgdm9pZCBwdGVwX3NldF93cnBy
-b3RlY3Qoc3RydWN0IG1tX3N0cnVjdCAqbW0sCj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgIHVuc2lnbmVkIGxvbmcgYWRkciwgcHRlX3QgKnB0ZXApCj4+IGRpZmYgLS1n
-aXQgYS9pbmNsdWRlL2xpbnV4L3BndGFibGUuaCBiL2luY2x1ZGUvbGludXgvcGd0YWJsZS5oCj4+
-IGluZGV4IGY0ZjQwNzdiOTdhYS4uZDI3ZmQwZWQ4NGE5IDEwMDY0NAo+PiAtLS0gYS9pbmNsdWRl
-L2xpbnV4L3BndGFibGUuaAo+PiArKysgYi9pbmNsdWRlL2xpbnV4L3BndGFibGUuaAo+PiBAQCAt
-MTIsNiArMTIsNyBAQAo+PiAgICNpbmNsdWRlIDxsaW51eC9idWcuaD4KPj4gICAjaW5jbHVkZSA8
-bGludXgvZXJybm8uaD4KPj4gICAjaW5jbHVkZSA8YXNtLWdlbmVyaWMvcGd0YWJsZV91ZmZkLmg+
-Cj4+ICsjaW5jbHVkZSA8bGludXgvcGFnZV90YWJsZV9jaGVjay5oPgo+Pgo+PiAgICNpZiA1IC0g
-ZGVmaW5lZChfX1BBR0VUQUJMRV9QNERfRk9MREVEKSAtIGRlZmluZWQoX19QQUdFVEFCTEVfUFVE
-X0ZPTERFRCkgLSBcCj4+ICAgICAgICAgIGRlZmluZWQoX19QQUdFVEFCTEVfUE1EX0ZPTERFRCkg
-IT0gQ09ORklHX1BHVEFCTEVfTEVWRUxTCj4+IEBAIC0yNTksMTQgKzI2MCw2IEBAIHN0YXRpYyBp
-bmxpbmUgaW50IHBtZHBfY2xlYXJfZmx1c2hfeW91bmcoc3RydWN0IHZtX2FyZWFfc3RydWN0ICp2
-bWEsCj4+ICAgI2VuZGlmIC8qIENPTkZJR19UUkFOU1BBUkVOVF9IVUdFUEFHRSAqLwo+PiAgICNl
-bmRpZgo+Pgo+PiAtI2lmbmRlZiBfX0hBVkVfQVJDSF9QVEVQX0NMRUFSCj4+IC1zdGF0aWMgaW5s
-aW5lIHZvaWQgcHRlcF9jbGVhcihzdHJ1Y3QgbW1fc3RydWN0ICptbSwgdW5zaWduZWQgbG9uZyBh
-ZGRyLAo+PiAtICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwdGVfdCAqcHRlcCkKPj4gLXsK
-Pj4gLSAgICAgICBwdGVfY2xlYXIobW0sIGFkZHIsIHB0ZXApOwo+PiAtfQo+PiAtI2VuZGlmCj4+
-IC0KPj4gICAjaWZuZGVmIF9fSEFWRV9BUkNIX1BURVBfR0VUX0FORF9DTEVBUgo+PiAgIHN0YXRp
-YyBpbmxpbmUgcHRlX3QgcHRlcF9nZXRfYW5kX2NsZWFyKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLAo+
-PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdW5zaWduZWQgbG9uZyBh
-ZGRyZXNzLAo+PiBAQCAtMjc0LDEwICsyNjcsMjMgQEAgc3RhdGljIGlubGluZSBwdGVfdCBwdGVw
-X2dldF9hbmRfY2xlYXIoc3RydWN0IG1tX3N0cnVjdCAqbW0sCj4+ICAgewo+PiAgICAgICAgICBw
-dGVfdCBwdGUgPSAqcHRlcDsKPj4gICAgICAgICAgcHRlX2NsZWFyKG1tLCBhZGRyZXNzLCBwdGVw
-KTsKPj4gKyAgICAgICBwYWdlX3RhYmxlX2NoZWNrX3B0ZV9jbGVhcihtbSwgYWRkcmVzcywgcHRl
-KTsKPj4gICAgICAgICAgcmV0dXJuIHB0ZTsKPj4gICB9Cj4+ICAgI2VuZGlmCj4+Cj4+ICsjaWZu
-ZGVmIF9fSEFWRV9BUkNIX1BURVBfQ0xFQVIKPj4gK3N0YXRpYyBpbmxpbmUgdm9pZCBwdGVwX2Ns
-ZWFyKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLCB1bnNpZ25lZCBsb25nIGFkZHIsCj4+ICsgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgIHB0ZV90ICpwdGVwKQo+PiArewo+PiArI2lmZGVmIENPTkZJ
-R19QQUdFX1RBQkxFX0NIRUNLCj4+ICsgICAgICAgcHRlcF9nZXRfYW5kX2NsZWFyKG1tLCBhZGRy
-LCBwdGVwKTsKPj4gKyNlbHNlCj4+ICsgICAgICAgcHRlX2NsZWFyKG1tLCBhZGRyLCBwdGVwKTsK
-Pj4gKyNlbmRpZgo+IAo+IEkgaGF2ZSBhIHByZWZlcmVuY2UgdG8gdXNlIGlmIChJU19FTkFCTEVE
-KENPTkZJR19QQUdFX1RBQkxFX0NIRUNLKSkKPiBpbnN0ZWFkIG9mICNpZmRlZi4gVGhlIGVuZCBy
-ZXN1bHQgaXMgdGhlIHNhbWUuIE90aGVyd2lzZSBpdCBsb29rcwo+IGdvb2QuCj4gCj4gVGhhbmtz
-LAo+IFBhc2hhCj4gLgoKSSBoYXZlIGEgbGl0dGxlIGhlc2l0YXRpb24gd2hlbiBtYWtpbmcgdGhp
-cyBjaGFuZ2UgLCBpbiB0aGVvcnksIGFkZCBpZiAKaGVyZSBtYXkgYWZmZWN0IHRoZSBwZXJmb3Jt
-YW5jZSBhIGxpdHRsZSBpbiBzb21lIHNjZW5hcmlvcy4gSG93ZXZlciwgdGhlIAppbXBhY3Qgb24g
-dGhlIHdob2xlIGNhbGwgcGF0aCBzaG91bGQgYmUgc21hbGwuCgpJIHdpbGwgc2VuZCB2MyB1c2lu
-ZyBpZiAoSVNfRU5BQkxFRChDT05GSUdfUEFHRV9UQUJMRV9DSEVDSykpLgoKVGhhbmtzLgpUb25n
-Ci4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
-LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+This patch fix typo: apply_r_riscv_rcv_branch_rela -> apply_r_riscv_rvc_branch_rela
+
+Signed-off-by: Wu Caize <zepan@sipeed.com>
+---
+ arch/riscv/kernel/module.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+index 68a9e3d1fe16..b92e93f2aac3 100644
+--- a/arch/riscv/kernel/module.c
++++ b/arch/riscv/kernel/module.c
+@@ -56,7 +56,7 @@ static int apply_r_riscv_jal_rela(struct module *me, u32 *location,
+ 	return 0;
+ }
+ 
+-static int apply_r_riscv_rcv_branch_rela(struct module *me, u32 *location,
++static int apply_r_riscv_rvc_branch_rela(struct module *me, u32 *location,
+ 					 Elf_Addr v)
+ {
+ 	ptrdiff_t offset = (void *)v - (void *)location;
+@@ -290,7 +290,7 @@ static int (*reloc_handlers_rela[]) (struct module *me, u32 *location,
+ 	[R_RISCV_64]			= apply_r_riscv_64_rela,
+ 	[R_RISCV_BRANCH]		= apply_r_riscv_branch_rela,
+ 	[R_RISCV_JAL]			= apply_r_riscv_jal_rela,
+-	[R_RISCV_RVC_BRANCH]		= apply_r_riscv_rcv_branch_rela,
++	[R_RISCV_RVC_BRANCH]		= apply_r_riscv_rvc_branch_rela,
+ 	[R_RISCV_RVC_JUMP]		= apply_r_riscv_rvc_jump_rela,
+ 	[R_RISCV_PCREL_HI20]		= apply_r_riscv_pcrel_hi20_rela,
+ 	[R_RISCV_PCREL_LO12_I]		= apply_r_riscv_pcrel_lo12_i_rela,
+-- 
+2.25.1
+
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
