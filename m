@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1527EC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Mar 2022 12:07:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 293E1C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Mar 2022 16:15:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6CkNCZK49A5WrC0BXNhKWxF4yEhP/2UXImurU2cMYJY=; b=2scBGLMXQthtRi
-	MUkUeOGk5cbqLfkvFrEn0Xe0wfIkFKjxCXvLnKxtiZWjmOgA1I8y4qHz069x3lkn+ZJXwgCF5u62v
-	/gL2glpgVHuhslhKCGzyLOz+NFDPx3pX5NK0yl76XXESmh0d/kZxCcwhyMp5YESF77uQxbjiHEQ/T
-	36pHcGQj52WjjC7wQ1Y6HD+Xe33vSOgMWQtGPyXMpGbLNp5qtxsifxZZlOxexhqd19Zs2I+g/cwRJ
-	uqdEt1YEe++1fMWyXCag61PmRxwsMsORqJxppWd/a+MS7Zvc5PUHNQ2RmoQKMZTXmaT7KnqjtyNAX
-	QGl6u5Y8tt/oSCRsbVtg==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=B6Y1cRK+lkglBOEGPu/fMwngNVvtNvlJV8D2gHtLZZ0=; b=iTzJs1mfYDN2Is
+	/fZky1o29tsdYTJrvFdXutIDv0LD5k7dNM787DkVYuULPwqQXVGPRkWahu0XVucJdlftM3I+HXiGs
+	7yTWXL4Dr22jYqLiujB0UIPHSLZ2mJaKP8vjSXhUigS0fXoDfs+/yrMbBlgFMz6zPKdOhVc//LPLe
+	wWbkTSMzLqP5ZOU2KxjA+uq/lJEsC4vvcO97gMV69Um3DCW2GtFuwADglJ4tkyg51TwRPtXzVsv5y
+	43UZLTN7mm1BuEddGr8DqLNi1TDOTU4p00c2OPg97nNluu/nADFC0ldr2LcTULNl62y4yHhJelGTe
+	jLVJOFwWSmF7e4k+m6pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nXiiW-001yj6-D9; Fri, 25 Mar 2022 12:06:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nXiiD-001ycH-7w; Fri, 25 Mar 2022 12:06:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CC2DE12FC;
- Fri, 25 Mar 2022 05:06:33 -0700 (PDT)
-Received: from [192.168.1.16] (unknown [172.31.20.19])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5712E3F73B;
- Fri, 25 Mar 2022 05:06:30 -0700 (PDT)
-Message-ID: <df54651e-ecd9-5812-70aa-138190fa7426@arm.com>
-Date: Fri, 25 Mar 2022 13:06:28 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.5.0
-Subject: Re: [PATCH] sched: dynamic config sd_flags if described in DT
-Content-Language: en-US
-To: =?UTF-8?B?546L5pOO?= <wangqing@vivo.com>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Sudeep Holla <sudeep.holla@arm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
- Mel Gorman <mgorman@suse.de>, Daniel Bristot de Oliveira
- <bristot@redhat.com>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-References: <1647331137-69890-1-git-send-email-wangqing@vivo.com>
- <68df2f49-9b74-7ea2-0178-be55824b3c89@arm.com>
- <SL2PR06MB3082DBB58303601F73FB77D3BD119@SL2PR06MB3082.apcprd06.prod.outlook.com>
- <73b491fe-b5e8-ebca-081e-fa339cc903e1@arm.com>
- <SL2PR06MB3082FAA7900ED3664838B48CBD189@SL2PR06MB3082.apcprd06.prod.outlook.com>
-From: Dietmar Eggemann <dietmar.eggemann@arm.com>
-In-Reply-To: <SL2PR06MB3082FAA7900ED3664838B48CBD189@SL2PR06MB3082.apcprd06.prod.outlook.com>
+	id 1nXmaM-002aTW-C1; Fri, 25 Mar 2022 16:14:46 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nXmaI-002aSa-Gy
+ for linux-riscv@lists.infradead.org; Fri, 25 Mar 2022 16:14:44 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id v4so7955815pjh.2
+ for <linux-riscv@lists.infradead.org>; Fri, 25 Mar 2022 09:14:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:cc:from:to:message-id;
+ bh=/J3ZSura8UYnQkEtUNyN05EeOp8uC8XsehkUYYVu7hc=;
+ b=Yz7UZWgyzK8BJWrcAbbloqTm4nqij/XFViIuJS1a4mJAyy6FP3vMCoe2NQZK1xF2mO
+ VBSicpqlNAvmOC9pPhqCxGyF0po774m8vrM2xESN3lOSTlPHtl+B0fJCpg8U9Q7vbRQ3
+ AHxQ7x235808lNeJ65hlfEGmLLEKxz+P6f1JFXCGCiXth9n6TlUd0F1WdJ7th9cQ8LWN
+ dHW88zuQaDq9vPsKHa6DU/exLfeUb0TMlPcx0aL3KS5GhIlwau0cSMVoiAp0WyH88bU6
+ G1wi54fILVxiNJkN5xLbXkm8dt6AeLb69rgxMrSQS1arYtLacuIcsjoTtz1KLhwmKrSo
+ aS8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:subject:cc:from:to:message-id;
+ bh=/J3ZSura8UYnQkEtUNyN05EeOp8uC8XsehkUYYVu7hc=;
+ b=3RlLfyNUhVAGoaTF7SbEOG4IG2UcTzYg/yaT7Ti4GQSKew9fQrn571eLX+H0P5EQR4
+ bhgKgS+w1CRLmZ95En1JWD1lTtWm9vGcYu9uK/96qb3j8ZNpfwUNYLnoSVncUOEzzkuU
+ 3R0G6knkv0JYwJwD4XeUWfvEpZBbKTyFt/uNOSi3PNXVkPL24YUYJLs3poY+6pADfwCe
+ sMmHDUjbX+DilujV9vgLiH2w6Cr42oeZEGopUKFGpERrFP2XF1K/Ne2mYCJTCZ9BbVLw
+ 5gkN4H2d3viNpFej0ffMClKOxsarqhh13ZoUC4D+RsBqbjz+qLbCl3UpF6M30PYSeqnq
+ MguA==
+X-Gm-Message-State: AOAM532EQ3W/BJSQ8+/AQJd7K4WCfmIs+cUuiUbxNfEdt8yXYLmMIAtg
+ HQ5r6q2AK6Hp45Bai5sy4DFXEWxnT76WaQ==
+X-Google-Smtp-Source: ABdhPJxnPyi0T+WZ4F2PU9/Xn+sjZ9aQ1D80QCL90ndV0kfW9N8KGj/ii1yUnaqk2DcIjp5kwxBt6Q==
+X-Received: by 2002:a17:902:d48d:b0:153:a517:6ff2 with SMTP id
+ c13-20020a170902d48d00b00153a5176ff2mr12515140plg.141.1648224880795; 
+ Fri, 25 Mar 2022 09:14:40 -0700 (PDT)
+Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
+ f4-20020aa782c4000000b004f6f0334a51sm6863378pfn.126.2022.03.25.09.14.40
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 25 Mar 2022 09:14:40 -0700 (PDT)
+Date: Fri, 25 Mar 2022 09:14:40 -0700 (PDT)
+X-Google-Original-Date: Fri, 25 Mar 2022 09:14:32 PDT (-0700)
+Subject: [GIT PULL] RISC-V Patches for the 5.18 Merge Window, Part 1
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-d6e408db-0c83-4358-9cef-831a694d582e@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220325_050637_415843_1BFAD5F7 
-X-CRM114-Status: GOOD (  17.72  )
+X-CRM114-CacheID: sfid-20220325_091442_645977_2A2837DE 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,54 +78,205 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjMvMDMvMjAyMiAwNzo0NSwg546L5pOOIHdyb3RlOgoKWy4uLl0KCj4+IE5vdywgaWYgeW91
-IHdhbnQgdG8gbW92ZSBTaFBSIGZyb20gTUMgdG8gRElFIHRoZW4gYSBjdXN0b20gdG9wb2xvZ3kK
-Pj4gdGFibGUgc2hvdWxkIGRvIGl0LCBpLmUuIHlvdSBkb24ndCBoYXZlIHRvIGNoYW5nZSBhbnkg
-Z2VuZXJpYyB0YXNrCj4+IHNjaGVkdWxlciBjb2RlLgo+Pgo+PiBzdGF0aWMgaW5saW5lIGludCBj
-cHVfY3B1X2ZsYWdzKHZvaWQpCj4+IHsKPj4gwqDCoMKgwqDCoMKgIHJldHVybiBTRF9TSEFSRV9Q
-S0dfUkVTT1VSQ0VTOwo+PiB9Cj4+Cj4+IHN0YXRpYyBzdHJ1Y3Qgc2NoZWRfZG9tYWluX3RvcG9s
-b2d5X2xldmVsIGN1c3RvbV90b3BvbG9neVtdID0gewo+PiAjaWZkZWYgQ09ORklHX1NDSEVEX1NN
-VAo+PiDCoMKgwqDCoMKgwqDCoCB7IGNwdV9zbXRfbWFzaywgY3B1X3NtdF9mbGFncywgU0RfSU5J
-VF9OQU1FKFNNVCkgfSwKPj4gI2VuZGlmCj4+Cj4+ICNpZmRlZiBDT05GSUdfU0NIRURfQ0xVU1RF
-Ugo+PiDCoMKgwqDCoMKgwqDCoCB7IGNwdV9jbHVzdGVyZ3JvdXBfbWFzaywgY3B1X2NsdXN0ZXJf
-ZmxhZ3MsIFNEX0lOSVRfTkFNRShDTFMpIH0sCj4+ICNlbmRpZgo+Pgo+PiAjaWZkZWYgQ09ORklH
-X1NDSEVEX01DCj4+IMKgwqDCoMKgwqDCoMKgIHsgY3B1X2NvcmVncm91cF9tYXNrLCBTRF9JTklU
-X05BTUUoTUMpIH0sCj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoCBeXl5eCj4+ICNlbmRpZgo+PiDCoMKgwqDCoMKgwqDCoCB7IGNwdV9jcHVf
-bWFzaywgY3B1X2NwdV9mbGFncywgU0RfSU5JVF9OQU1FKERJRSkgfSwKPj4gwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBeXl5eXl5eXl5eXl5eCj4+IMKgwqDC
-oMKgwqDCoMKgIHsgTlVMTCwgfSwKPj4gfTsKPj4KPj4gc2V0X3NjaGVkX3RvcG9sb2d5KGN1c3Rv
-bV90b3BvbG9neSk7Cj4gCj4gSG93ZXZlciwgZHVlIHRvIHRoZSBsaW1pdGF0aW9uIG9mIEdLSSwg
-d2UgY2Fubm90IGNoYW5nZSB0aGUgc2QgdG9wb2xvZ3kKPiBieSBvdXJzZWx2ZXMuIEJ1dCB3ZSBj
-YW4gY29uZmlndXJlIENQVSBhbmQgY2FjaGUgdG9wb2xvZ3kgdGhyb3VnaCBEVC4KCklNSE8sIG1h
-aW5saW5lIGNhbid0IGRvIGFueXRoaW5nIGhlcmUuIFlvdSBzaG91bGQgdGFsayB0byB5b3VyIEFu
-ZHJvaWQKcGxhdGZvcm0gcHJvdmlkZXIgaW4gdGhpcyBjYXNlLiBBbmRyb2lkIGNvbmNlcHRzIGxp
-a2UgR2VuZXJpYyBLZXJuZWwKSW1hZ2UgKEdLSSkgYXJlIG5vcm1hbGx5IG5vdCBkaXNjdXNzZWQg
-aGVyZS4KCkZyb20gbWFpbmxpbmUgcGVyc3BlY3RpdmUgd2UncmUgT0sgd2l0aCBzY2hlZHVsaW5n
-IHN1Y2ggYSBzeXN0ZW0gZmxhdCwKZS5nLiBvbmx5IHdpdGggYSBzaW5nbGUgTUMgU0QgW0NQVTAu
-LkNQVTddIGZvciBlYWNoIENQVS4KSXQgY291bGQgYmUgdGhhdCB0aGUgUGhhbnRvbSBTRCBpcyBz
-dGlsbCBuZWVkZWQgZm9yIGFkZGl0aW9uYWwKcHJvcHJpZXRhcnkgb3IgQW5kcm9pZCBhZGQtb25z
-IHRob3VnaD8KCkluIGNhc2UgeW91IHdvdWxkIHJlbW92ZSBgY2x1c3RlclhgIGZyb20geW91ciBE
-VCBjcHUtbWFwIChQaGFudG9tIFNECmluZm9ybWF0aW9uLCBpLmUuIHRoZSByZWFzb24gZm9yIHdo
-eSB5b3UgaGF2ZSBlLmcuIGZvciBDUFUwOiBgTUMgKFNoUFIpCltDUFUwLi5DUFUzXSBhbmQgRElF
-IFtDUFUwLi5DUFU3XWApICwgeW91IHNob3VsZCBzZWUgdGhlIG5hdHVyYWwKdG9wb2xvZ3k6IG9u
-bHkgYE1DIChTaFBSKSBbQ1BVMC4uQ1BVN11gLgoKPiBTbyB3aHkgbm90IGdldCB0aGUgU2hQUiBm
-cm9tIERUIGZpcnN0PyBJZiBub3QgY29uZmlndXJlZCwgdXNlIHRoZSBkZWZhdWx0LgoKSSdtIG5v
-dCBjb252aW5jZWQgdGhhdCBtYWlubGluZSB3aWxsIGFjY2VwdCBhIGNoYW5nZSB3aGljaCBpcyBu
-ZWNlc3NhcnkKZm9yIGEgb3V0LW9mLXRyZWUgdHdlYWsgKFBoYW50b20gU0QpLgoKPj4+ICpDTFNb
-MC0xXVsyLTNdKFNEX1NIQVJFX1BLR19SRVNPVVJDRVMpCj4+Cj4+IEJ1dCB3aHkgZG8geW91IHdh
-bnQgdG8gaGF2ZSB5ZXQgYW5vdGhlciBTRCB1bmRlcm5lYXRoIE1DIGZvciBDUFUwLUNQVTM/Cj4+
-IHNkX2xsYyBpcyBhc3NpZ25lZCB0byB0aGUgaGlnaGVzdCBTaFBSIFNELCB3aGljaCB3b3VsZCBi
-ZSBESUUuCj4gCj4gV2Ugd2FudCBkbyBzb21ldGhpbmcgZnJvbSB0aGUgc2hhcmVkIEwyIGNhY2hl
-KGZvciBjb21wbGV4LCBsaWtlIHdhbHQpLCAKPiB5b3UgY2FuIGlnbm9yZSBpdCBoZXJlIGFuZCB0
-YWxrIGFib3V0IGl0IHdoZW4gd2UgZG9uZS4KCkkgYXNzdW1lIHlvdSByZWZlciB0byB0aGUgcHJv
-cHJpZXRhcnkgbG9hZC10cmFja2luZyBtZWNoYW5pc20gYFdpbmRvdwpBc3Npc3RlZCBMb2FkIFRy
-YWNraW5nYCAoV0FMVCkgaGVyZT8gSXQncyBhbHNvIG5vdCBpbiBtYWlubGluZS4KCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+The following changes since commit e783362eb54cd99b2cac8b3a9aeac942e6f6ac07:
+
+  Linux 5.17-rc1 (2022-01-23 10:12:53 +0200)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.18-mw0
+
+for you to fetch changes up to bbde015227e89f1da21bd3b84523d62c4a445c06:
+
+  RISC-V: add support for restartable sequences (2022-03-22 16:20:37 -0700)
+
+----------------------------------------------------------------
+RISC-V Patches for the 5.18 Merge Window, Part 1
+
+* Support for Sv57-based virtual memory.
+* Various improvements for the MicroChip PolarFire SOC and the
+  associated Icicle dev board, which should allow upstream kernels to
+  boot without any additional modifications.
+* An improved memmove() implementation.
+* Support for the new Ssconfpmf and SBI PMU extensions, which allows for
+  a much more useful perf implementation on RISC-V systems.
+* Support for restartable sequences.
+
+----------------------------------------------------------------
+There will almost certainly be a part 2: there are at least a handful of
+fixes/cleanups that have already started to show up, and there's still some
+larger patch sets that minor issues I hope can be resolved.
+
+There are a handful of merge conflicts, once again between this and my fixes
+tree.  Here's how I resolved them, for reference:
+
+diff --cc arch/riscv/kernel/Makefile
+index ffc87e76b1dd,fb63b462ff85..e0133d113216
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@@ -51,9 -51,6 +51,8 @@@ obj-$(CONFIG_MODULE_SECTIONS) += module
+  obj-$(CONFIG_FUNCTION_TRACER) += mcount.o ftrace.o
+  obj-$(CONFIG_DYNAMIC_FTRACE)  += mcount-dyn.o
+
+ +obj-$(CONFIG_TRACE_IRQFLAGS)  += trace_irq.o
+ +
+- obj-$(CONFIG_RISCV_BASE_PMU)  += perf_event.o
+  obj-$(CONFIG_PERF_EVENTS)     += perf_callchain.o
+  obj-$(CONFIG_HAVE_PERF_REGS)  += perf_regs.o
+  obj-$(CONFIG_RISCV_SBI)               += sbi.o
+diff --cc arch/riscv/mm/kasan_init.c
+index cd1a145257b7,3c99b24c9adf..a22e418dbd82
+--- a/arch/riscv/mm/kasan_init.c
++++ b/arch/riscv/mm/kasan_init.c
+@@@ -111,13 -111,12 +111,15 @@@ static void __init kasan_populate_pud(p
+                 * pt_ops facility.
+                 */
+                base_pud = pt_ops.get_pud_virt(pfn_to_phys(_pgd_pfn(*pgd)));
++       } else if (pgd_none(*pgd)) {
++               base_pud = memblock_alloc(PTRS_PER_PUD * sizeof(pud_t), PAGE_SIZE);
+        } else {
+                base_pud = (pud_t *)pgd_page_vaddr(*pgd);
+ -              if (base_pud == lm_alias(kasan_early_shadow_pud))
+ +              if (base_pud == lm_alias(kasan_early_shadow_pud)) {
+                        base_pud = memblock_alloc(PTRS_PER_PUD * sizeof(pud_t), PAGE_SIZE);
+ +                      memcpy(base_pud, (void *)kasan_early_shadow_pud,
+ +                             sizeof(pud_t) * PTRS_PER_PUD);
+ +              }
+        }
+
+        pudp = base_pud + pud_index(vaddr);
+
+----------------------------------------------------------------
+Atish Patra (12):
+      RISC-V: Implement multi-letter ISA extension probing framework
+      RISC-V: Do no continue isa string parsing without correct XLEN
+      RISC-V: Improve /proc/cpuinfo output for ISA extensions
+      RISC-V: Remove the current perf implementation
+      RISC-V: Add CSR encodings for all HPMCOUNTERS
+      RISC-V: Add a perf core library for pmu drivers
+      RISC-V: Add a simple platform driver for RISC-V legacy perf
+      RISC-V: Add RISC-V SBI PMU extension definitions
+      RISC-V: Add perf platform driver based on SBI PMU extension
+      RISC-V: Add sscofpmf extension support
+      Documentation: riscv: Remove the old documentation
+      MAINTAINERS: Add entry for RISC-V PMU drivers
+
+Conor Dooley (11):
+      dt-bindings: soc/microchip: update syscontroller compatibles
+      dt-bindings: soc/microchip: add info about services to mpfs sysctrl
+      dt-bindings: rtc: add bindings for microchip mpfs rtc
+      dt-bindings: gpio: add bindings for microchip mpfs gpio
+      dt-bindings: pwm: add microchip corepwm binding
+      riscv: dts: microchip: use clk defines for icicle kit
+      riscv: dts: microchip: add fpga fabric section to icicle kit
+      riscv: dts: microchip: refactor icicle kit device tree
+      riscv: dts: microchip: update peripherals in icicle kit device tree
+      riscv: dts: microchip: add new peripherals to icicle kit device tree
+      MAINTAINERS: update riscv/microchip entry
+
+Daire McNamara (1):
+      dt-bindings: clk: microchip: Add Microchip PolarFire host binding
+
+Jisheng Zhang (1):
+      riscv: mm: init: mark satp_mode __ro_after_init
+
+Mayuresh Chitale (1):
+      riscv: defconfig: enable hugetlbfs option
+
+Michael T. Kloos (1):
+      riscv: Fixed misaligned memory access. Fixed pointer comparison.
+
+Palmer Dabbelt (5):
+      RISC-V: Add Sv57 page table support
+      Update the Icicle Kit device tree
+      RISC-V: Provide a fraemework for RISC-V ISA extensions
+      perf: RISC-V: Add support for SBI PMU and Sscofpmf
+      RISC-V: add support for restartable sequences
+
+Qinglin Pan (4):
+      riscv: mm: Control p4d's folding by pgtable_l5_enabled
+      riscv: mm: Prepare pt_ops helper functions for sv57
+      riscv: mm: Set sv57 on defaultly
+      riscv: mm: Support kasan for sv57
+
+Tsukasa OI (3):
+      RISC-V: Correctly print supported extensions
+      RISC-V: Minimal parser for "riscv, isa" strings
+      RISC-V: Extract multi-letter extension names from "riscv, isa"
+
+Vincent Chen (2):
+      RISC-V: Add support for restartable sequence
+      rseq/selftests: Add support for RISC-V
+
+ .../devicetree/bindings/clock/microchip,mpfs.yaml  |  58 ++
+ .../bindings/gpio/microchip,mpfs-gpio.yaml         |  79 +++
+ ...oc-mailbox.yaml => microchip,mpfs-mailbox.yaml} |   6 +-
+ .../devicetree/bindings/pwm/microchip,corepwm.yaml |  81 +++
+ .../bindings/rtc/microchip,mfps-rtc.yaml           |  58 ++
+ .../microchip/microchip,mpfs-sys-controller.yaml   |  40 ++
+ .../microchip,polarfire-soc-sys-controller.yaml    |  35 -
+ Documentation/riscv/pmu.rst                        | 255 -------
+ MAINTAINERS                                        |  11 +
+ arch/riscv/Kconfig                                 |  18 +-
+ .../boot/dts/microchip/microchip-mpfs-fabric.dtsi  |  25 +
+ .../dts/microchip/microchip-mpfs-icicle-kit.dts    | 115 ++-
+ arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi  | 254 +++++--
+ arch/riscv/configs/defconfig                       |   1 +
+ arch/riscv/configs/rv32_defconfig                  |   1 +
+ arch/riscv/include/asm/csr.h                       |  67 +-
+ arch/riscv/include/asm/fixmap.h                    |   1 +
+ arch/riscv/include/asm/hwcap.h                     |  26 +
+ arch/riscv/include/asm/page.h                      |   1 +
+ arch/riscv/include/asm/perf_event.h                |  72 --
+ arch/riscv/include/asm/pgalloc.h                   |  49 ++
+ arch/riscv/include/asm/pgtable-64.h                | 106 ++-
+ arch/riscv/include/asm/pgtable.h                   |   6 +-
+ arch/riscv/include/asm/sbi.h                       |  95 +++
+ arch/riscv/kernel/Makefile                         |   1 -
+ arch/riscv/kernel/cpu.c                            |  70 +-
+ arch/riscv/kernel/cpufeature.c                     | 130 +++-
+ arch/riscv/kernel/entry.S                          |   4 +
+ arch/riscv/kernel/perf_event.c                     | 485 -------------
+ arch/riscv/kernel/signal.c                         |   2 +
+ arch/riscv/lib/memmove.S                           | 368 ++++++++--
+ arch/riscv/mm/init.c                               | 168 ++++-
+ arch/riscv/mm/kasan_init.c                         | 155 +++-
+ drivers/perf/Kconfig                               |  30 +
+ drivers/perf/Makefile                              |   3 +
+ drivers/perf/riscv_pmu.c                           | 324 +++++++++
+ drivers/perf/riscv_pmu_legacy.c                    | 142 ++++
+ drivers/perf/riscv_pmu_sbi.c                       | 790 +++++++++++++++++++++
+ include/dt-bindings/clock/microchip,mpfs-clock.h   |  45 ++
+ include/linux/cpuhotplug.h                         |   1 +
+ include/linux/perf/riscv_pmu.h                     |  75 ++
+ tools/testing/selftests/rseq/param_test.c          |  23 +
+ tools/testing/selftests/rseq/rseq-riscv.h          | 677 ++++++++++++++++++
+ tools/testing/selftests/rseq/rseq.h                |   2 +
+ 44 files changed, 3900 insertions(+), 1055 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/microchip,mpfs.yaml
+ create mode 100644 Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
+ rename Documentation/devicetree/bindings/mailbox/{microchip,polarfire-soc-mailbox.yaml => microchip,mpfs-mailbox.yaml} (82%)
+ create mode 100644 Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml
+ create mode 100644 Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
+ create mode 100644 Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
+ delete mode 100644 Documentation/devicetree/bindings/soc/microchip/microchip,polarfire-soc-sys-controller.yaml
+ delete mode 100644 Documentation/riscv/pmu.rst
+ create mode 100644 arch/riscv/boot/dts/microchip/microchip-mpfs-fabric.dtsi
+ delete mode 100644 arch/riscv/kernel/perf_event.c
+ create mode 100644 drivers/perf/riscv_pmu.c
+ create mode 100644 drivers/perf/riscv_pmu_legacy.c
+ create mode 100644 drivers/perf/riscv_pmu_sbi.c
+ create mode 100644 include/dt-bindings/clock/microchip,mpfs-clock.h
+ create mode 100644 include/linux/perf/riscv_pmu.h
+ create mode 100644 tools/testing/selftests/rseq/rseq-riscv.h
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
