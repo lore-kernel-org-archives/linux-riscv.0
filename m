@@ -4,81 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77E9DC433F5
-	for <linux-riscv@archiver.kernel.org>; Sun, 27 Mar 2022 08:52:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71CBFC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Mar 2022 01:35:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:Subject:Cc:To:From
-	:Date:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5qCqth8Z4FkD5jvop9o1VP1mQQPxyvw1L2eWV7OotvY=; b=VYSzhK/DWKvxWYaiJoxFFPJKHP
-	g4WUHYcBKVML9BWkNUvxkLY4YHkyNdMCGN5vp0GFuBv4IyHLDceXQHen/Azl4rUPCI2YBCry2jc++
-	Ek2hhIOsos43spHVwuZPShZMdWdk9UNICKMJfVuDDzLXhq07m+k32cYFheH5eoPBUiPnr+1pzlCG6
-	Jv+FmBgBJp9lAsHmbD3Cwd3GxtY9WcoqFLa7amt3fu8HHGyry6iJuntmYyGkDOfKjuC1fnpaA5ljV
-	URp9e6MPFQqO6SuFL06GilzsZM3GTcJLnuRrLaFWv1cZDPHyhIXJ9dMtPWEA6/LCDjUtVKLzxaUtj
-	Fe73fz1g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0eVArs5jlUTYDsJm0ZoQh8KTcJgzHv+KQ7zVEN8ZMw4=; b=qerfbOImcH0OtZ
+	H68DM5TW1S0x9q+8i4Hq15Tq4E+dJDBQO1jCEMnjcqYXVz02HbAINb75D/6DHFwvDPzvyu6sHc2Hm
+	QdH1QmXQJH3xYlq1DU5gRM3v6tnn0OdCp+07dLQaoDDXQ5oKZubAtD1A5F0tk+o4ljKfJpif4OCLI
+	dpLifCnyGOtcSL67fvH2/Vwgp8TPIEu5iLKSzDZsebQ8EIeCnsUmJp1k2X75gkVBCPGi0K2iF4SWu
+	bXAHPQClFsFNnFyD/fNI5Dlm+Kzs3BeYFlSIs+y3SuTU6nAaLk05KAI15S4MIvD0wPzWI1y84LwkE
+	q6W+gaGBFCqKRRYfAOUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nYOdU-005NPP-42; Sun, 27 Mar 2022 08:52:32 +0000
-Received: from mailgate.ics.forth.gr ([139.91.1.2])
+	id 1nYeHN-006zA9-OM; Mon, 28 Mar 2022 01:34:45 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nYOdR-005NNi-Ls
- for linux-riscv@lists.infradead.org; Sun, 27 Mar 2022 08:52:31 +0000
-Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
- by mailgate.ics.forth.gr (8.15.2/ICS-FORTH/V10-1.8-GATE) with ESMTP id
- 22R8qHNe047403
- for <linux-riscv@lists.infradead.org>; Sun, 27 Mar 2022 11:52:17 +0300 (EEST)
-DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
- q=dns/txt; i=@ics.forth.gr; t=1648371132; x=1650963132;
- h=From:Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:Resent-From:
- Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=O7kXkCdvhvkq/xOJDYOOrEuPdlDIk8ke1X+ujPivqOc=;
- b=ElHHF3EcNDRUAW8hyeIYHGqck2a8/UujzBMHet2ql7Jkpr7oaB7w6OJPGoBg1W11
- Bq9vVLj4YGbWEwT/utY5bhVE1q8FKEwPtvn0FaO5z4n6UPuZiIpU2wuu6p5jACpP
- pMKbx0K91DiNP2LLKyBdCdDkLJpr56qm8dN/02fVOQeffXkSWt0CUGD8mzk+KN9x
- 19HYd7WToHqmVXRlmag/YX36IqQ//wYgflQ9gUc2G9roqxZgKu8dqvocBqjqQ3gn
- LruNfrpxPo26b0VrhVX8YhEqQ/caigpMilCOA20AdiM0YFKtlOxEVPDvLVHgUE2B
- 6crZP2Kf7jCCMVIKWpD+LA==;
-X-AuditID: 8b5b014d-f2ab27000000641e-21-624025bc924b
-Received: from enigma.ics.forth.gr (webmail.ics.forth.gr [139.91.151.35])
- by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id
- 66.EE.25630.CB520426; Sun, 27 Mar 2022 11:52:12 +0300 (EEST)
-X-ICS-AUTH-INFO: Authenticated user:  at ics.forth.gr
+ id 1nYeGl-006ysl-UJ; Mon, 28 Mar 2022 01:34:09 +0000
+Received: from kwepemi500021.china.huawei.com (unknown [172.30.72.55])
+ by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4KRZwQ1lDZzcZyg;
+ Mon, 28 Mar 2022 09:33:42 +0800 (CST)
+Received: from kwepemm600017.china.huawei.com (7.193.23.234) by
+ kwepemi500021.china.huawei.com (7.221.188.245) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Mon, 28 Mar 2022 09:33:56 +0800
+Received: from localhost.localdomain (10.175.112.125) by
+ kwepemm600017.china.huawei.com (7.193.23.234) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2308.21; Mon, 28 Mar 2022 09:33:55 +0800
+From: Tong Tiangen <tongtiangen@huawei.com>
+To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Pasha Tatashin
+ <pasha.tatashin@soleen.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+CC: <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+ Tong Tiangen <tongtiangen@huawei.com>
+Subject: [PATCH -next v3 0/4]mm: page_table_check: add support on arm64 and
+ riscv
+Date: Mon, 28 Mar 2022 01:52:38 +0000
+Message-ID: <20220328015242.1136836-1-tongtiangen@huawei.com>
+X-Mailer: git-send-email 2.18.0.huawei.25
 MIME-Version: 1.0
-Date: Sun, 27 Mar 2022 11:52:11 +0300
-From: Nick Kossifidis <mick@ics.forth.gr>
-To: Conor.Dooley@microchip.com
-Cc: mick@ics.forth.gr, palmer@dabbelt.com, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, paul.walmsley@sifive.com,
- aou@eecs.berkeley.edu
-Subject: Re: [PATCH] RISC-V-fixes: relocate DTB if it's outside memory region
-Organization: FORTH
-In-Reply-To: <ebaa9b4e-9e37-e2f4-2bee-37d324e7302b@microchip.com>
-References: <20220322132839.3653682-1-mick@ics.forth.gr>
- <ebaa9b4e-9e37-e2f4-2bee-37d324e7302b@microchip.com>
-Message-ID: <941622f4f76ecd5bc071e310479b3ad3@mailhost.ics.forth.gr>
-X-Sender: mick@mailhost.ics.forth.gr
-User-Agent: Roundcube Webmail/1.3.16
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrNLMWRmVeSWpSXmKPExsXSHT1dWXePqkOSwdmVYhZbf89it5iyaQe7
- xeVdc9gstn1uYbNofneO3eLl5R5mi7ZZ/A7sHm9evmTxONzxhd3j4aZLTB6bl9R73PmxlNHj
- UvN1do/Pm+QC2KO4bFJSczLLUov07RK4MhoXCRdM5qhY8GY/SwPjKbYuRk4OCQETiQu7JrB2
- MXJxCAkcY5Q4s3IFK0TCVGL23k5GEJtXQFDi5MwnLCA2s4CFxNQr+xkhbHmJ5q2zmUFsFgFV
- iTdNG9hBbDYBTYn5lw6C1YsIyEn8/3WGGWQBs8BqRomJk1rBFggL+EpMWrkDzOYXEJb4dPci
- mM0p4Chxuq0B6DoOoIvyJSY+jYO4wUXi2rbJUEerSHz4/YAdpEQUyN48V2kCo+AsJJfOQnLp
- LCSXLmBkXsUokFhmrJeZXKyXll9UkqGXXrSJERz+jL47GG9vfqt3iJGJg/EQowQHs5IIr+xZ
- +yQh3pTEyqrUovz4otKc1OJDjNIcLErivCzXZJKEBNITS1KzU1MLUotgskwcnFINTBN3/iw5
- P3PJO7kv0fZr3044xx8/f/ejIrMXxTfFM6N+VjSfjUxbdFb8y+zE7J0f33dyeAQ7H7b4eknm
- 6+Jq03fTBXdI60sseCd34EvRO86jiZerLk99/ic80+zL7B0F3BeWe36q6Fu4Qa1Kq/LLJZ+I
- i10dvdsjjCfOTPv3wnzrY7Owg9dLN7Dbavdznjj/+PjmedfZNmz1jmRdbnb6vHu4TW/M27PS
- sX4e11s72mR4F3OtPKGjluI4ax+b1vLIj7FpoiKN/96kMwfm6SzxUH9ZLR6WuWzZ7W8hbRfs
- rAXyXi6bsvOD/VOhRQLf563cfOgmb4LUga401q83RNLDp917lJeSNbvyxoXCVRffvZdVYinO
- SDTUYi4qTgQAbcQ2iu4CAAA=
+X-Originating-IP: [10.175.112.125]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ kwepemm600017.china.huawei.com (7.193.23.234)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220327_015230_107919_D169B308 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20220327_183408_180412_DA0EDC7A 
+X-CRM114-Status: UNSURE (   8.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,29 +71,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-zqPPhM65z4IgMjAyMi0wMy0yNCAxMTozNywgQ29ub3IuRG9vbGV5QG1pY3JvY2hpcC5jb20gzq3O
-s8+BzrHPiM61Ogo+IE9uIDIyLzAzLzIwMjIgMTM6MjgsIE5pY2sgS29zc2lmaWRpcyB3cm90ZToK
-Pj4gSW4gY2FzZSB0aGUgRFRCIHByb3ZpZGVkIGJ5IHRoZSBib290bG9hZGVyL0Jvb3RST00gaXMg
-YmVmb3JlIHRoZSAKPj4ga2VybmVsCj4+IGltYWdlIG9yIG91dHNpZGUgL21lbW9yeSwgd2Ugd29u
-J3QgYmUgYWJsZSB0byBhY2Nlc3MgaXQgdGhyb3VnaCB0aGUKPj4gbGluZWFyIG1hcHBpbmcsIGFu
-ZCBnZXQgYSBzZWdmYXVsdCBvbiBzZXR1cF9hcmNoKCkuIEN1cnJlbnRseSBPcGVuU0JJCj4+IHJl
-bG9jYXRlcyBEVEIgYnV0IHRoYXQncyBub3QgYWx3YXlzIHRoZSBjYXNlIChlLmcuIGlmIEZXX0pV
-TVBfRkRUX0FERFIKPj4gaXMgbm90IHNwZWNpZmllZCksIGFuZCBpdCdzIGFsc28gbm90IHRoZSBt
-b3N0IHBvcnRhYmxlIGFwcHJvYWNoIHNpbmNlCj4+IHRoZSBkZWZhdWx0IEZXX0pVTVBfRkRUX0FE
-RFIgb2YgdGhlIGdlbmVyaWMgcGxhdGZvcm0gcmVsb2NhdGVzIHRoZSBEVEIKPj4gYXQgYSBzcGVj
-aWZpYyBvZmZzZXQgdGhhdCBtYXkgbm90IGJlIGF2YWlsYWJsZS4gVG8gYXZvaWQgdGhpcyAKPj4g
-c2l0dWF0aW9uCj4+IGNvcHkgRFRCIHNvIHRoYXQgaXQncyB2aXNpYmxlIHRocm91Z2ggdGhlIGxp
-bmVhciBtYXBwaW5nLgo+PiAKPj4gU2lnbmVkLW9mZi1ieTogTmljayBLb3NzaWZpZGlzIDxtaWNr
-QGljcy5mb3J0aC5ncj4KPiAKPiBBbGJlaXQgaW4gYSBiYWNrcG9ydCwgSSB0ZXN0ZWQgdGhpcyBv
-biBhIFBvbGFyRmlyZSBTb0MgYmFzZWQgYm9hcmQuCj4gU28gSSBndWVzcywgVGVzdGVkLWJ5OiBD
-b25vciBEb29sZXkgPGNvbm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPgo+IAo+IEFuZCBhIGxvdCBj
-bGVhbmVyIHRoYW4gdXNpbmcgY3JlYXRlX3BnZF9tYXBwaW5nIGluIHNldHVwX3ZtX2ZpbmFsIHRv
-IGRvIAo+IGl0IDopCj4gCj4gVGhhbmtzLAo+IENvbm9yLgo+IAoKVGhhbmtzICEKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Page table check performs extra verifications at the time when new
+pages become accessible from the userspace by getting their page
+table entries (PTEs PMDs etc.) added into the table. It is supported
+on X86[1].
+
+This patchset made some simple changes and make it easier to support
+new architecture, then we support this feature on ARM64 and RISCV.
+
+[1]https://lore.kernel.org/lkml/20211123214814.3756047-1-pasha.tatashin@soleen.com/
+
+v2 -> v3:
+  2. Modify ptep_clear() in include/linux/pgtable.h, using IS_ENABLED 
+     according to the suggestions of Pasha.
+
+v1 -> v2:
+  1. Fix arm64's pte/pmd/pud_user_accessible_page() according to the
+     suggestions of Catalin.
+  2. Also fix riscv's pte_pmd_pud_user_accessible_page().
+
+Kefeng Wang (2):
+  mm: page_table_check: move pxx_user_accessible_page into x86
+  arm64: mm: add support for page table check
+
+Tong Tiangen (2):
+  mm: page_table_check: add hooks to public helpers
+  riscv: mm: add support for page table check
+
+ arch/arm64/Kconfig               |  1 +
+ arch/arm64/include/asm/pgtable.h | 65 ++++++++++++++++++++++++---
+ arch/riscv/Kconfig               |  1 +
+ arch/riscv/include/asm/pgtable.h | 77 +++++++++++++++++++++++++++++---
+ arch/x86/include/asm/pgtable.h   | 29 +++++++-----
+ include/linux/pgtable.h          | 26 +++++++----
+ mm/page_table_check.c            | 25 ++++-------
+ 7 files changed, 178 insertions(+), 46 deletions(-)
+
+-- 
+2.18.0.huawei.25
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
