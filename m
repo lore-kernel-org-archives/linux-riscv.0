@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B77B8C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Mar 2022 07:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24428C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Mar 2022 08:44:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fVwYg60wC4dH6yjvqXdHyBU4DWw7TDwWJLrlWrA2OlM=; b=O7pist8LhODhjj
-	nf6xe16Rmo4N4SQEaDGDI341TJeUeV/XYrIdhvILXHrECWyN4Y9fPCQugLdxb1FPF5yhJMUo7RMNT
-	iJLdhp/VW7UK3erFuDCWGZFkB4JW25t14rZK2ocqrUaYr9GcMyfgRadY0+QRAkEUbOxLyqcvgGfhy
-	2MtziyLAWSK+zPynESrlLlhx9OIboVOBDBdEyA0fYPDqUTTSUT4N/xLHyVoBAfCAp2i/qdktNQXPC
-	IivEoTUEX4909TifgUXlVTGpbx4Qdu94crSvpbK5mYVaiOIHeoNUdb0P2MW+HOZZ9MB4KbZgd90jD
-	umnWgC6yz5n5jBancINw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bGDoerwV6mZa/WOuSt4EIkVCSyRLuVfLuEb9YdzTA0c=; b=Y6P5u6Ba/lTzEQ
+	46Dwwk5BOAnFGa48XO14dn39n94WeY34qPxsnz7imsjN/ZIejQtGIXAZCbw2PWOFZER6QLDH/rhGf
+	ILd+V7oA6gt8qnTxCQdRlDPdP+f2kY+c5S1PfyBJfWcKo5z43oa6KzW9opxr8lPbPSlzC38hCQ5nG
+	dGyyvV96DQysr3DFEGG6KmpBCfRGkdfxxT3XjxWsqE8A8WUXd8k7qtV7FyrwFXqFDj7pHwTprh+en
+	wgFS7Xr0IL58r0FJo74Krtf/SetclvBlVaE1AOIBqEOatqGDfyYpC0sgHRKRzuvP46PThTF0am6D2
+	a8IFl4/L9o0QPcrdYiLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nZ6IU-00BKGi-FS; Tue, 29 Mar 2022 07:29:46 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1nZ7T3-00BUkz-Ih; Tue, 29 Mar 2022 08:44:45 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nZ6IQ-00BKDp-PI
- for linux-riscv@lists.infradead.org; Tue, 29 Mar 2022 07:29:44 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id gb19so16577265pjb.1
- for <linux-riscv@lists.infradead.org>; Tue, 29 Mar 2022 00:29:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ventanamicro.com; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=6rXr5EFnwcPfvG4wwHcp5gBTd13vVk723LJlXrxEIl0=;
- b=JUEfuj4EGIOyLkV/IXA9H+MaweDOMgrZPy7qZw8Pyng5lrFo1g12sEgAvyyDoeI+/Z
- YPk2gGUnDX7efP5RkgRPk4mRgN8A2gGZmlzNHpPC9HvA2qQU9wBS+bdi8sfIjs/DsP/w
- xSUYVR13TsKBRnGeCYKcLnwTjvV48fHV5QJ2MB0uRDjihOxUpVGbWsPNpSJkZPwie9pO
- j41Itpr2BFG30RoEPPqklTH4OzYeRSKIMIrDTeaSALBCOyv8omF7HVz6pZOdi8H157h0
- qA2PW3g5DT19eO2KsOy7Dh0jldHhgbiK/7Oq0zHx0pAh1DUrUhFFRjOB4Y4XYBt2n5Ms
- /f0Q==
+ id 1nZ7T0-00BUkM-PK
+ for linux-riscv@lists.infradead.org; Tue, 29 Mar 2022 08:44:44 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id p8so15291215pfh.8
+ for <linux-riscv@lists.infradead.org>; Tue, 29 Mar 2022 01:44:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=Bl9cvCOl2JsstIJeBTKBLK/6QRxHIhdaBkcmq7o09pQ=;
+ b=iYpODQl0mjzOo7uUwTlz/c0sB/UJyUUKf0ObUBob9thwUmNV8OhzmJtBk15vBcG2nJ
+ crtxxKWXrMYHXEdeJUxJaqbFDd7aTawyF4jSWc+Kpf3tX2SmZ+zXtOj4vpT9XznKRsU/
+ y4MndpIGP4FJat1V2YR2Qu1MQgEo530Ppfd7X/aw09aQG0O+pBpI9nYr/wzQ98M2gd46
+ Pw5U6CEAT9+v36zc6SxkS0aB92U/+1nS2WOjsUBiSVzZAgXsvFbmD2XEOqORHGrKq516
+ 00b5btUDJE4X7P3te+l+MUkGiXtEt52CqlR+skuvAPPH0Up62qsxXuK8SPITPXygXvxj
+ deBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=6rXr5EFnwcPfvG4wwHcp5gBTd13vVk723LJlXrxEIl0=;
- b=x7zvDEtLHRHYQSkcZSwQ7u0+RhSJJvDR3vbtCWYV0BBTDQHIXAsXY52ptOqRzEZcdf
- CamEwWR5CnCQNa6LMPNsVuch9CPg2skelLITsm+2KXEjfeO6UahZKvjDowegHFd96YHP
- zoet0EaW639TQ90oXIatDeEP9DeQ6Vc7bJoCZFei7gUHowntExzhUdbUh5Nr4+dfnmI3
- 9Z7VuJ4Oqzs1uvFjbjX3rXkOExWx4C4ziaMJ50Fm+wsZ4GBfdVR6GQ95HqE26GHH4Zvl
- cvaIepEZCFhgnA7B/44M0iSJy864Rzy7giiSwtKlrLTJ+IvjkwHjV5xcVVPmsSkpuNcN
- IDYw==
-X-Gm-Message-State: AOAM530ErDqXlAa8VV7Cnhhq/QlFkbw/7AdvZk4g3qpZgkcQRRifsaXY
- jlojVOc/iRrc08zy4IUTZzSY7Q==
-X-Google-Smtp-Source: ABdhPJyQsJ0ZlUOLuEkiaRQqfOzbwaJd1hT2x05o7Ql9dQ+kWwo1Qx58V2AZp5og6pJtenzmq+sD/A==
-X-Received: by 2002:a17:902:9a98:b0:155:f634:5f37 with SMTP id
- w24-20020a1709029a9800b00155f6345f37mr14193551plp.86.1648538982243; 
- Tue, 29 Mar 2022 00:29:42 -0700 (PDT)
-Received: from localhost.localdomain ([122.171.166.231])
- by smtp.gmail.com with ESMTPSA id
- z6-20020a056a00240600b004e17ab23340sm19440564pfh.177.2022.03.29.00.29.37
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=Bl9cvCOl2JsstIJeBTKBLK/6QRxHIhdaBkcmq7o09pQ=;
+ b=CaBQk4fbTlDJnIQLHiaEHPoeuY20A1jkSH9KdgsXMbrjtRfvVpdeiReHJaTo3Y4XkN
+ Pl6TbDrW7NDt48i4IiXo1a4eK0BuDoIV6sUAnhXsP7JXu20yPDjbrDR5h18iwzt2hv4l
+ 1TGV+8d7RaRXC8Y91f7UPHssMzDSsSGSDq+u/LvGcUSxjsXzr7LId0UXnZE8kp1Lhscg
+ m8q2ImOdJq/MA/Pu5A36XV9kZzfNxjRXVAir81/Yc5gSbvp/Wku3QxqUsgbVNdOkPW1i
+ 2Ij8B5cR6Tij8GyTL6Sx4bzWBYYJbzX0uDflaD0XP/jyYgz+TUUqJ1GvZ3TKoCFrjGd9
+ E0+A==
+X-Gm-Message-State: AOAM531pB0YN4TdDNt4SHWAQj0gIwPRfRCewI5/EpWL4VpM/xITPMHEJ
+ O/KV/a1oNZzV6gmpyCG49OQ5p6Ble64IrUcK
+X-Google-Smtp-Source: ABdhPJy4YxKPspAhcyCCA4hkOFGK0e0KzBesKL2CsRvCVyLxQB+WAQCCxCBEvJ4sul5l4GY6/KX7ZA==
+X-Received: by 2002:a63:18f:0:b0:37c:4671:a2ce with SMTP id
+ 137-20020a63018f000000b0037c4671a2cemr1271439pgb.429.1648543480977; 
+ Tue, 29 Mar 2022 01:44:40 -0700 (PDT)
+Received: from ubuntu.mate (subs03-180-214-233-75.three.co.id.
+ [180.214.233.75]) by smtp.gmail.com with ESMTPSA id
+ q10-20020a056a00088a00b004f7ceff389esm20320601pfj.152.2022.03.29.01.44.36
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 29 Mar 2022 00:29:41 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Paolo Bonzini <pbonzini@redhat.com>,
-	Atish Patra <atishp@atishpatra.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 3/3] KVM: selftests: riscv: Improve unexpected guest trap
- handling
-Date: Tue, 29 Mar 2022 12:59:11 +0530
-Message-Id: <20220329072911.1692766-4-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220329072911.1692766-1-apatel@ventanamicro.com>
-References: <20220329072911.1692766-1-apatel@ventanamicro.com>
+ Tue, 29 Mar 2022 01:44:39 -0700 (PDT)
+From: Bagas Sanjaya <bagasdotme@gmail.com>
+To: linux-doc@vger.kernel.org
+Cc: Bagas Sanjaya <bagasdotme@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul@pwsan.com>, Atish Patra <atish.patra@wdc.com>,
+ Atish Patra <atishp@atishpatra.org>, Atish Patra <atishp@rivosinc.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Linux Next Mailing List <linux-next@vger.kernel.org>,
+ linux-riscv@lists.infradead.org, Stephen Rothwell <sfr@canb.auug.org.au>
+Subject: [PATCH] Documentation: riscv: remove non-existent document from table
+ of contents
+Date: Tue, 29 Mar 2022 15:44:28 +0700
+Message-Id: <20220329084428.376003-1-bagasdotme@gmail.com>
+X-Mailer: git-send-email 2.35.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220329_002942_874830_D3A478E0 
-X-CRM114-Status: GOOD (  12.85  )
+X-CRM114-CacheID: sfid-20220329_014442_844459_18C2DC95 
+X-CRM114-Status: UNSURE (   8.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,125 +93,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, we simply hang using "while (1) ;" upon any unexpected
-guest traps because the default guest trap handler is guest_hang().
+Remove reference to non-existent pmu.rst from table of contents tree
+in Documentation/riscv/index.rst.
 
-The above approach is not useful to anyone because KVM selftests
-users will only see a hung application upon any unexpected guest
-trap.
-
-This patch improves unexpected guest trap handling for KVM RISC-V
-selftests by doing the following:
-1) Return to host user-space
-2) Dump VCPU registers
-3) Die using TEST_ASSERT(0, ...)
-
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+Fixes: 23b1f18326ec ("Documentation: riscv: Remove the old
+documentation")
+Link: https://lore.kernel.org/linux-next/20220329133412.591d6882@canb.auug.org.au/
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Paul Walmsley <paul@pwsan.com>
+Cc: Atish Patra <atish.patra@wdc.com>
+Cc: Atish Patra <atishp@atishpatra.org>
+Cc: Atish Patra <atishp@rivosinc.com>
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Cc: Linux Next Mailing List <linux-next@vger.kernel.org>
+Cc: linux-riscv@lists.infradead.org
+Reported-by: Stephen Rothwell <sfr@canb.auug.org.au>
+Signed-off-by: Bagas Sanjaya <bagasdotme@gmail.com>
 ---
- .../selftests/kvm/include/riscv/processor.h   |  8 +++--
- .../selftests/kvm/lib/riscv/processor.c       |  9 +++---
- tools/testing/selftests/kvm/lib/riscv/ucall.c | 31 +++++++++++++------
- 3 files changed, 31 insertions(+), 17 deletions(-)
+ Documentation/riscv/index.rst | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
-index eca5c622efd2..4fcfd1c0389d 100644
---- a/tools/testing/selftests/kvm/include/riscv/processor.h
-+++ b/tools/testing/selftests/kvm/include/riscv/processor.h
-@@ -119,10 +119,12 @@ static inline void set_reg(struct kvm_vm *vm, uint32_t vcpuid, uint64_t id,
- #define SATP_ASID_SHIFT				44
- #define SATP_ASID_MASK				_AC(0xFFFF, UL)
+diff --git a/Documentation/riscv/index.rst b/Documentation/riscv/index.rst
+index ea915c1960488a..e23b876ad6ebb6 100644
+--- a/Documentation/riscv/index.rst
++++ b/Documentation/riscv/index.rst
+@@ -7,7 +7,6 @@ RISC-V architecture
  
--#define SBI_EXT_EXPERIMENTAL_START	0x08000000
--#define SBI_EXT_EXPERIMENTAL_END	0x08FFFFFF
-+#define SBI_EXT_EXPERIMENTAL_START		0x08000000
-+#define SBI_EXT_EXPERIMENTAL_END		0x08FFFFFF
+     boot-image-header
+     vm-layout
+-    pmu
+     patch-acceptance
  
--#define KVM_RISCV_SELFTESTS_SBI_EXT	SBI_EXT_EXPERIMENTAL_END
-+#define KVM_RISCV_SELFTESTS_SBI_EXT		SBI_EXT_EXPERIMENTAL_END
-+#define KVM_RISCV_SELFTESTS_SBI_UCALL		0
-+#define KVM_RISCV_SELFTESTS_SBI_UNEXP		1
- 
- struct sbiret {
- 	long error;
-diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
-index 3961487a4870..56e4705f7744 100644
---- a/tools/testing/selftests/kvm/lib/riscv/processor.c
-+++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
-@@ -268,10 +268,11 @@ void vcpu_dump(FILE *stream, struct kvm_vm *vm, uint32_t vcpuid, uint8_t indent)
- 		core.regs.t3, core.regs.t4, core.regs.t5, core.regs.t6);
- }
- 
--static void __aligned(16) guest_hang(void)
-+static void __aligned(16) guest_unexp_trap(void)
- {
--	while (1)
--		;
-+	sbi_ecall(KVM_RISCV_SELFTESTS_SBI_EXT,
-+		  KVM_RISCV_SELFTESTS_SBI_UNEXP,
-+		  0, 0, 0, 0, 0, 0);
- }
- 
- void vm_vcpu_add_default(struct kvm_vm *vm, uint32_t vcpuid, void *guest_code)
-@@ -310,7 +311,7 @@ void vm_vcpu_add_default(struct kvm_vm *vm, uint32_t vcpuid, void *guest_code)
- 
- 	/* Setup default exception vector of guest */
- 	set_reg(vm, vcpuid, RISCV_CSR_REG(stvec),
--		(unsigned long)guest_hang);
-+		(unsigned long)guest_unexp_trap);
- }
- 
- void vcpu_args_set(struct kvm_vm *vm, uint32_t vcpuid, unsigned int num, ...)
-diff --git a/tools/testing/selftests/kvm/lib/riscv/ucall.c b/tools/testing/selftests/kvm/lib/riscv/ucall.c
-index 9e42d8248fa6..8550f424d093 100644
---- a/tools/testing/selftests/kvm/lib/riscv/ucall.c
-+++ b/tools/testing/selftests/kvm/lib/riscv/ucall.c
-@@ -60,8 +60,9 @@ void ucall(uint64_t cmd, int nargs, ...)
- 		uc.args[i] = va_arg(va, uint64_t);
- 	va_end(va);
- 
--	sbi_ecall(KVM_RISCV_SELFTESTS_SBI_EXT, 0, (vm_vaddr_t)&uc,
--		  0, 0, 0, 0, 0);
-+	sbi_ecall(KVM_RISCV_SELFTESTS_SBI_EXT,
-+		  KVM_RISCV_SELFTESTS_SBI_UCALL,
-+		  (vm_vaddr_t)&uc, 0, 0, 0, 0, 0);
- }
- 
- uint64_t get_ucall(struct kvm_vm *vm, uint32_t vcpu_id, struct ucall *uc)
-@@ -73,14 +74,24 @@ uint64_t get_ucall(struct kvm_vm *vm, uint32_t vcpu_id, struct ucall *uc)
- 		memset(uc, 0, sizeof(*uc));
- 
- 	if (run->exit_reason == KVM_EXIT_RISCV_SBI &&
--	    run->riscv_sbi.extension_id == KVM_RISCV_SELFTESTS_SBI_EXT &&
--	    run->riscv_sbi.function_id == 0) {
--		memcpy(&ucall, addr_gva2hva(vm, run->riscv_sbi.args[0]),
--			sizeof(ucall));
--
--		vcpu_run_complete_io(vm, vcpu_id);
--		if (uc)
--			memcpy(uc, &ucall, sizeof(ucall));
-+	    run->riscv_sbi.extension_id == KVM_RISCV_SELFTESTS_SBI_EXT) {
-+		switch (run->riscv_sbi.function_id) {
-+		case KVM_RISCV_SELFTESTS_SBI_UCALL:
-+			memcpy(&ucall, addr_gva2hva(vm,
-+			       run->riscv_sbi.args[0]), sizeof(ucall));
-+
-+			vcpu_run_complete_io(vm, vcpu_id);
-+			if (uc)
-+				memcpy(uc, &ucall, sizeof(ucall));
-+
-+			break;
-+		case KVM_RISCV_SELFTESTS_SBI_UNEXP:
-+			vcpu_dump(stderr, vm, vcpu_id, 2);
-+			TEST_ASSERT(0, "Unexpected trap taken by guest");
-+			break;
-+		default:
-+			break;
-+		}
- 	}
- 
- 	return ucall.cmd;
+     features
+
+base-commit: 1930a6e739c4b4a654a69164dbe39e554d228915
 -- 
-2.25.1
+An old man doll... just what I always wanted! - Clara
 
 
 _______________________________________________
