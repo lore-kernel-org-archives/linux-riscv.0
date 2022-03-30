@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AA45C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Mar 2022 16:48:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD8F3C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Mar 2022 00:21:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
-	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gzVZeOSg8OwnWez9QAqSTew/wMsGxpfzygSY0D7HTQU=; b=dd5nmp60np6p0b
-	h+6aP3r1ZVPrezVoVpv94NdDo/KoULmL/cnJRnjQKbxUPYdo/BadHeqWEevqeJg1blhn3pV6XkAlS
-	d+jYkNlvZHpLXaYqQq8HpQAoq43GF8uAc2hc0wBuw2VDHwb1CR9pRZ3asJWL87wm6JmUNe/D4rLqD
-	L28vsoXdyYL1NHCO/NVEWzS14Nv7QqOdwZiKzNdpyfaVDd/0gFdqydlAPmgWy7oC3gPwCh3vUmb6F
-	n7qhPEaqwQY8Yt1YETHQ7TDC+VnVw/wTyoTwtqPDfO3sxqg79bZKFXI+BmgnRKxK/ZF92M0equouF
-	QnVKSaMHsLagVepyX+QQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=7vYFv4/agzYZ8xAPM9bQ5WyZflBczahb52bOa+KNWqI=; b=1CezQkp2cfLd21IcK8Xmh5HSy9
+	kn6OsnliQCLaaWdoeBGQBSzuZ4y56wKGi0+v5JxOuG6lO7xVA62tR/UmSxtr4q2tEcQsQDcOITBy7
+	98IONkjzvogHKL3kI67x0B2xmXF8qKmiosyHcirOCI8WKgYy7VRfN98HiDsd2s+Qu6Mu9TUtSu1eW
+	bc1sfJuvXlFCip80Q19QSNrPseBC/xPMzYBG5YPdFnZoqsUlVW04qo1T5ScFY/7SbnXIng/LuVA0Y
+	DuwdYTOwGMAgyhKjCm5BnbkIg/LYJLaShc3+b7m/6XtJ2f5KPUphlYLCa06QTvlaDZyOzfzeruEGT
+	TnF5cA5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nZF0Y-00CwrC-Py; Tue, 29 Mar 2022 16:47:51 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1nZM5i-00DqCC-I1; Wed, 30 Mar 2022 00:21:38 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nZEzk-00CwQf-94
- for linux-riscv@lists.infradead.org; Tue, 29 Mar 2022 16:47:02 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id o8so15313932pgf.9
- for <linux-riscv@lists.infradead.org>; Tue, 29 Mar 2022 09:46:56 -0700 (PDT)
+ id 1nZM5f-00DqBm-GX
+ for linux-riscv@lists.infradead.org; Wed, 30 Mar 2022 00:21:37 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id
+ a16-20020a17090a6d9000b001c7d6c1bb13so4564584pjk.4
+ for <linux-riscv@lists.infradead.org>; Tue, 29 Mar 2022 17:21:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
- h=subject:date:message-id:mime-version:content-transfer-encoding:cc
- :from:to; bh=mjUJmj4POHLc72j+uESMrPipTUvziFqTLssOqNZTKng=;
- b=16bvm3mK5BVPEq0QsKQh8+GZ+eE3roFJbDhcdsWwz8Ho+JKpMBeJgHQBc5vEXGZTl5
- MyoYHuyex5gP78CXssjDemtj7S6fPfK7X8eP3FYhNjPAf3AI5lE0tnJANGvwoZzqP/Pw
- WxmltKzSxZV1WZB8zTh3uOTnae0eIbiGn+1aSmAZsDV/311oVeTG/Bgc1ltg8bJ+0fAN
- vp4pJaVXVGunFXuZZzGlPrAs7OxLKBy17is1ZCMJTGsvR8LfDSyu54kgns9+5vH0Z8eQ
- luAFgyJnoyCxTYL+/zKEBfV/IF3hV/kSxOHalp6TjtfIIehSJ5o099fb+cko7bEnMX7+
- 9LEQ==
+ d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=7iLxch5y6RIgvR/T0zWqMEJ+cpUfEurleqixAHzR59g=;
+ b=d6l2S7X6ubR/3qtqSf1gEAmewrLprB360r1t8kyD8au6PP6Uw3qtG3LFOeEsaJuH0a
+ Uosk+2PV7kD+ZX41oUKqASL7vtobWwWbrZJvt2qsw6/kKgMSkxy7Lq84FNozbqUYHRO2
+ YT7MYq8O8bUwbqTIN42fVMirVmIwOvEoQttWZbrfSjMBhzCfXvgLFxOX3i4/k5Nw+6KK
+ rKsSsKvqZokfFUXKFzNJtCqZW7J1WLvA9xJaPpccQmHui9c8uOmKXzNTQKgFMa987eml
+ aZ6D+6PIJZayCZT3qTHhE0yfQFYCmZ2Z+gfvHJDE1AtWZQKN3bGIedg0RDDF8j4CozAR
+ cRjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:subject:date:message-id:mime-version
- :content-transfer-encoding:cc:from:to;
- bh=mjUJmj4POHLc72j+uESMrPipTUvziFqTLssOqNZTKng=;
- b=2qNsOV21U7Q/p9dmCcx4Q4QBU1GwRESPDitTUg48oGEo1MQMOwoBFtyUit2lyR653O
- 6JcZ1Ppa8uNFH02dF0dtZQZZ2NMhmYFyBG2FxnGxLhxIiTUIcXjIF8KG/z7aeaAIKrIQ
- TDb6NbAHENkXm0XuGIOLSxMjRqVAA0yBAUAtOdiiUWl9berjXrQS2PxSGczD1s+CH+dg
- lIIKu4ToiYtLRyFo6gMM6FqFx4scDvbT09QCtn2RIip1t6Da0g1ItKTwZzXg7LYVPNiW
- sf5Ml+oePsbp4mUbYVL1lU7z6KDwJHtoxzQ5sHQ6sibngXvyMmCb1kaRXzBUhCxZiu9s
- sYWA==
-X-Gm-Message-State: AOAM5300iqcNg5RiUkfbi3CPLVaOtOFNJXEyCLJlaZc23v9RBbI45Zv/
- bVcJRGBknr0qK3sthiK48GeFwETtDMzcFQ==
-X-Google-Smtp-Source: ABdhPJxTUNdlC9idt9aofzdeF/SqBgQafoUThLB6TuhkEmYTEqzNhlqRyTH3BuFi+mQCqEe8rTs57Q==
-X-Received: by 2002:a62:4e4e:0:b0:4fa:b1d4:3405 with SMTP id
- c75-20020a624e4e000000b004fab1d43405mr28627061pfb.71.1648572415934; 
- Tue, 29 Mar 2022 09:46:55 -0700 (PDT)
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=7iLxch5y6RIgvR/T0zWqMEJ+cpUfEurleqixAHzR59g=;
+ b=SmSnhBmsPpq7Q3e+zAB4HrXHTS/dQLs0l2/5zshUS7S++YDuLyLOljkh7MNEM7vN8S
+ G4NExoDFYlbi8BKgUd2kBTFxv/LTexI1HswexFG9MfOjSqNX6ay04OCvLVOdgLxoLvmP
+ pdScV8iOeyet+h1ULROeXohLo+5DAG48kfgU6koApy1KZde0rA1ra234MEB61mVL2RRK
+ vq5e+wccet9VtlnJoYWsjNYUkBspBvong/a2HHvBWTHr5+Vl2FQaeWG95ywIzMJpvjJ+
+ 5MSVhtEsueS3zGeoPgzOTVmtsOXN35i7IjlqoAvwdeRZrdeGy6SsVWA7mZxznvllJoOA
+ spIw==
+X-Gm-Message-State: AOAM5312yB+fkCwP6OkeydKEh6h75/49Llx1STFodkdoVgu2FJAxJrxW
+ lCfUKcjQIy/uVQb5UwHQ4ze8wQ==
+X-Google-Smtp-Source: ABdhPJxEvni5Sq3KIcfnKaN2LY52DfkeM+nZCKa8T5kJ161E/ZTfTMkikxIcAWzUNAuNKmyxa8oPgw==
+X-Received: by 2002:a17:902:7205:b0:156:1a0a:2c39 with SMTP id
+ ba5-20020a170902720500b001561a0a2c39mr9686710plb.88.1648599693682; 
+ Tue, 29 Mar 2022 17:21:33 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223]) by smtp.gmail.com with ESMTPSA id
- e12-20020a056a001a8c00b004fab88d7de8sm20243658pfv.132.2022.03.29.09.46.52
+ p15-20020a056a000a0f00b004f7c63cba5asm21702403pfh.21.2022.03.29.17.21.31
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 29 Mar 2022 09:46:52 -0700 (PDT)
-Subject: [PATCH] doc: RISC-V: Remove pmu/ from the toctree
-Date: Tue, 29 Mar 2022 09:45:44 -0700
-Message-Id: <20220329164544.29367-1-palmer@rivosinc.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
-Cc: corbet@lwn.net, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu, alex@ghiti.fr,
- linux-doc@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Palmer Dabbelt <palmer@rivosinc.com>
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: linux-riscv@lists.infradead.org, Stephen Rothwell <sfr@canb.auug.org.au>
+ Tue, 29 Mar 2022 17:21:32 -0700 (PDT)
+Date: Tue, 29 Mar 2022 17:21:32 -0700 (PDT)
+X-Google-Original-Date: Tue, 29 Mar 2022 14:36:59 PDT (-0700)
+Subject: Re: [PATCH v2] riscv module: remove (NOLOAD)
+In-Reply-To: <20220322012617.3517297-1-maskray@google.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, 
+ nathan@kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
+ maskray@google.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: maskray@google.com
+Message-ID: <mhng-891192a6-d537-444f-b092-5ae92620b233@palmer-mbp2014>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220329_094700_354010_D23EB03C 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220329_172135_628340_2CBD0B41 
+X-CRM114-Status: GOOD (  21.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,39 +86,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Palmer Dabbelt <palmer@rivosinc.com>
+On Mon, 21 Mar 2022 18:26:17 PDT (-0700), maskray@google.com wrote:
+> On ELF, (NOLOAD) sets the section type to SHT_NOBITS[1]. It is conceptually
+> inappropriate for .plt, .got, and .got.plt sections which are always
+> SHT_PROGBITS.
+>
+> In GNU ld, if PLT entries are needed, .plt will be SHT_PROGBITS anyway
+> and (NOLOAD) will be essentially ignored. In ld.lld, since
+> https://reviews.llvm.org/D118840 ("[ELF] Support (TYPE=<value>) to
+> customize the output section type"), ld.lld will report a `section type
+> mismatch` error (later changed to a warning). Just remove (NOLOAD) to
+> fix the warning.
+>
+> [1] https://lld.llvm.org/ELF/linker_script.html As of today, "The
+> section should be marked as not loadable" on
+> https://sourceware.org/binutils/docs/ld/Output-Section-Type.html is
+> outdated for ELF.
+>
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1597
+> Fixes: ab1ef68e5401 ("RISC-V: Add sections of PLT and GOT for kernel module")
+> Reported-by: Nathan Chancellor <nathan@kernel.org>
+> Signed-off-by: Fangrui Song <maskray@google.com>
+> ---
+>  arch/riscv/include/asm/module.lds.h | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/module.lds.h b/arch/riscv/include/asm/module.lds.h
+> index 4254ff2ff049..1075beae1ac6 100644
+> --- a/arch/riscv/include/asm/module.lds.h
+> +++ b/arch/riscv/include/asm/module.lds.h
+> @@ -2,8 +2,8 @@
+>  /* Copyright (C) 2017 Andes Technology Corporation */
+>  #ifdef CONFIG_MODULE_SECTIONS
+>  SECTIONS {
+> -	.plt (NOLOAD) : { BYTE(0) }
+> -	.got (NOLOAD) : { BYTE(0) }
+> -	.got.plt (NOLOAD) : { BYTE(0) }
+> +	.plt : { BYTE(0) }
+> +	.got : { BYTE(0) }
+> +	.got.plt : { BYTE(0) }
+>  }
+>  #endif
 
-This subdir no longer exists: it was there to document some of the
-quirks and paths forward for handling them, but those have been dealt
-with as of Atish's recent patch set.
-
-Fixes: 23b1f18326ec ("Documentation: riscv: Remove the old documentation")
-Reported-by: Stephen Rothwell <sfr@canb.auug.org.au>
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
----
- Documentation/riscv/index.rst | 1 -
- 1 file changed, 1 deletion(-)
-
-diff --git a/Documentation/riscv/index.rst b/Documentation/riscv/index.rst
-index ea915c196048..e23b876ad6eb 100644
---- a/Documentation/riscv/index.rst
-+++ b/Documentation/riscv/index.rst
-@@ -7,7 +7,6 @@ RISC-V architecture
- 
-     boot-image-header
-     vm-layout
--    pmu
-     patch-acceptance
- 
-     features
--- 
-2.34.1
-
+Thanks, this is on for-next (it'd be OK for fixes as well, but it's the 
+merge window so I'm just on one branch).
 
 _______________________________________________
 linux-riscv mailing list
