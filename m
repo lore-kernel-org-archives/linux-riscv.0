@@ -4,82 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF20BC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Mar 2022 22:42:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C10CC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Mar 2022 23:03:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=RzDH9/FK3iv464ak0+Oe11LNRb3RmyMBk+dd0ePc+rg=; b=4QnjKbR/aXcSeqtFbb/a3EToVe
-	2+Gfiqggl/6/Vs733bJJot1RPYVL4rYwnBKGYxpXuq1Mkh9LdEHMPjfpcJNzU4GNWpOh6BhFpp0h+
-	07s5LKX35iTGtwubHBSxFxdBB5dKK2pGwz/I6GgPKJnCRUtW3RtEP720IP4fbd04/TIaUfkZ3VpOC
-	uIZseV4KJ3t8mdNyUvEji1VFozetXO8SVbt59rEjUp0y9lPXbyIFdu516arR0dr3DIdT3b+r6TnG1
-	pfAA9K4FJiMGR7V5aMr4AQtTeimH6TCTU6ke5EQvvoM6Z3FPK7R0B2W7rI/RRFRimlZVg74h3mcUm
-	hReNyA+A==;
+	bh=31tu1qkAmPrpECw88Z2B650wQwwqC9AnbwsuAzPFang=; b=HtLs1TjCAU5ulWZhlcmqDVJP62
+	YqQnofR3v9+VcgmaOLXwvTJC2PTiUE8rqbXXGWwlvkv0c4uWkSiCFEjFU3TVc0pPtYgD9YvOU2CU0
+	/q4AcfPFDktL6AdvSCek+1dctKHcUycokLSg5yP6ETF6U+UfgDeYbQvu1os/m21GlcD1kipKg/BhX
+	de0ZOID2miBeydX+uI4p0KB5mjK0FduhSXKCiWaTOfdktiotpUMYX/SiSR58fo3HzrfhUpIgiGBD8
+	tTGl4slUdRBVCd+jx3ZwyDVBqNjtHG7AkKWBxaBlVQQxQ7fIXu9NrV4OQGEeM5q2HjtZ6xEenDvdD
+	983QvpEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1na3UW-003sPW-8K; Thu, 31 Mar 2022 22:42:08 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1na3p5-003uoF-Qr; Thu, 31 Mar 2022 23:03:23 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1na3UR-003sOJ-UK
- for linux-riscv@lists.infradead.org; Thu, 31 Mar 2022 22:42:05 +0000
-Received: by mail-pl1-x629.google.com with SMTP id c23so942736plo.0
- for <linux-riscv@lists.infradead.org>; Thu, 31 Mar 2022 15:42:02 -0700 (PDT)
+ id 1na3p2-003unL-2M
+ for linux-riscv@lists.infradead.org; Thu, 31 Mar 2022 23:03:21 +0000
+Received: by mail-pg1-x532.google.com with SMTP id t4so961875pgc.1
+ for <linux-riscv@lists.infradead.org>; Thu, 31 Mar 2022 16:03:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=yv9Wzw03+NukkaSaVZZG3A+e/UbaRsd8qeLIgoxYYGI=;
- b=aLtSxaTzBBfLrrs6Yqf07PKFqBsmzaPzZr4oCPxsKElf8kiRNH12fyraf+9osQPlA6
- nWW0TdKR12qeZa5fqH+vC9HP/3odKQ6hI1oAxbayxR9vaf3F1KGyttkH5lX4i6VksxXu
- 0xTvzKY3GYCmzhee9Cl/y5RMFqT1DmqCZRziWA8NF3naBvhnmTQWsjPxf6EmQPRB3k44
- yPQc8Z2d9rbZTnN7tnNdq3BqES9JSP/Gno/o8Rc1w4eD3F0uNfqj6mCScR/H9U9Xbbes
- e0CBI6ZpomHJG4s4WiA4H1eBQuW+kw1whOvqnA0jEoZ7imEhea5GKa5Uo6qClnjrplAr
- vJyA==
+ bh=2CCcpvh2XGWbPM9M/zpJ8AlaZY9fUK8zkZbsqG9HonQ=;
+ b=c+4JbtLZYQfpp4UUgiLn3PRoYFBp+b8pB/W22noI8XHsYu2tKZTpcijcrwlgpONvdZ
+ C8hXgdKeRLr296aZiEjBMD4bps+jh+QWTYiMLzKZDm/kQ4kMhrpUcLmJqclVGbGIIiTR
+ IKhmrBgq9FOwVWkZcBdUe27S23txXiKM/M7d4M9LdmIR9uDRc3bzmz2fmhbwsMwdqJUV
+ uhqhsYaPoKK4AneGaXXDun/VrVJK/c6YeELYU8wf0XoXxva4WRij1vNphunQ56c07TDY
+ FgJELbeMNeiARCVqD8ATyh2c2VZunm9SR6tsr9HDK7Q5RkAvBfi93io8IHinEX0AJege
+ qcAQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=yv9Wzw03+NukkaSaVZZG3A+e/UbaRsd8qeLIgoxYYGI=;
- b=ucvolDpe1LIXZwojRlNIP3ZT8NowPq0xHvvRSTKUBOgiXaqVuE5NPBPPpWB12h+g6/
- ceLewfpuyz4hyUBr1/PZ1QiVxB6g5UXjFqF6kmwoKo5sNG+z0730qSJGxz5VqLq6N4lb
- KOrD9dMXLpC/hvTa4clc8M1xToJGJWDbfTCtnEuTeh65FAIjREWwrooj3L9NvVqeBKx4
- qC8MRmRlSa3VJkJX1HNdRlMFf/bkFS54Ba3MSLWFI//KxQatRJx9djOFUbOYwE5jVBle
- s0dgztNnkdp/9r3aHmobWZF+LOeEkGNlSNMfK3o1M/dSmNx968YVxvBPoxfwXAFR2wu3
- YkBg==
-X-Gm-Message-State: AOAM531pPC0ojZX6O9LrvjKdBLkGhX6UN+u1VUcCX0Z+kNA+jZJ0jakp
- CvOTrAcjZneJHLRsv5q+cESd2g==
-X-Google-Smtp-Source: ABdhPJxnnPsasTSwvvvGeMWLk7XXYDekjDntq0m5UMM6IsliYxKEdKVMexqOiT84oCZZ+WVMGKn/sg==
-X-Received: by 2002:a17:903:18c:b0:154:9ee:cedc with SMTP id
- z12-20020a170903018c00b0015409eecedcmr44211037plg.123.1648766522196; 
- Thu, 31 Mar 2022 15:42:02 -0700 (PDT)
+ bh=2CCcpvh2XGWbPM9M/zpJ8AlaZY9fUK8zkZbsqG9HonQ=;
+ b=3XKwBWHbUq9CDsMVBR0VkRfOhXj8CGfNviduKKMIE9zIYVfVn+7p1QmZkzwut4rzDm
+ hAKosqszrW1J+B5xKUYO/scuGtFesNlwv1MIdFfZRxOun6l4XcWlMDqb9YDvwV7gVhUr
+ Qwz/DcztVTuISAegj4WmlGcZXcX/wx1US0CMsO6nSWrS2kI2yCpET03cMNG7jYf6LEmS
+ o+SB1YBfDPVJApN0TqOXWaCd3JNUPSk8ZtkFF8ONWC6lr2XkpNZ4SWk1a8Nezcr62Euo
+ t3YLvBq9Jtq4p6g8IashMDpu3xca89RqiPlQvz+CWxeISLvZGo04wuEHxaNZNtTpe6IB
+ or6w==
+X-Gm-Message-State: AOAM531sZtC/YGHz7AXhWhWNnQ5HUz1SI6x57sFg8xgpSrwlPzjolU9b
+ YwxV1LhKc9B7o0D99yW7YAAdvQ==
+X-Google-Smtp-Source: ABdhPJwSN9YSkiKKWl6PHeYQKi/nk8XbJ4c2EzJfl0Ti/Mqi8zawqKbBU3ZPhgP71CyixCULa+DM+Q==
+X-Received: by 2002:a05:6a00:13a4:b0:4fd:acb9:8ea4 with SMTP id
+ t36-20020a056a0013a400b004fdacb98ea4mr7401523pfg.85.1648767798489; 
+ Thu, 31 Mar 2022 16:03:18 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223]) by smtp.gmail.com with ESMTPSA id
- u11-20020a056a00158b00b004fb07effe2esm510368pfk.130.2022.03.31.15.42.00
+ b124-20020a633482000000b00382347caeeasm392635pga.22.2022.03.31.16.03.17
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 31 Mar 2022 15:42:00 -0700 (PDT)
-Date: Thu, 31 Mar 2022 15:42:00 -0700 (PDT)
-X-Google-Original-Date: Thu, 31 Mar 2022 15:41:57 PDT (-0700)
-Subject: Re: [PATCH v8 0/4] Determine the number of DMA channels by
- 'dma-channels' property
-In-Reply-To: <mhng-c6a04a4f-1e85-49e9-baee-b56b0e78c602@palmer-ri-x1c9>
-CC: zong.li@sifive.com, robh+dt@kernel.org,
+ Thu, 31 Mar 2022 16:03:17 -0700 (PDT)
+Date: Thu, 31 Mar 2022 16:03:17 -0700 (PDT)
+X-Google-Original-Date: Thu, 31 Mar 2022 16:02:53 PDT (-0700)
+Subject: Re: [PATCH] riscv: cpu.c: don't use kernel-doc markers for comments
+In-Reply-To: <20220328220417.25675-1-rdunlap@infradead.org>
+CC: linux-kernel@vger.kernel.org, rdunlap@infradead.org, lkp@intel.com,
+ Atish Patra <atishp@rivosinc.com>, anup@brainfault.org,
  Paul Walmsley <paul.walmsley@sifive.com>, 
- aou@eecs.berkeley.edu, krzysztof.kozlowski@canonical.com,
- conor.dooley@microchip.com, 
- geert@linux-m68k.org, bin.meng@windriver.com, green.wan@sifive.com,
- dmaengine@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
+ aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: vkoul@kernel.org
-Message-ID: <mhng-5afad1be-9b06-4cd1-95e3-c21605b9086a@palmer-mbp2014>
+To: rdunlap@infradead.org
+Message-ID: <mhng-2a49da2a-fd67-4655-9302-3f44030b7863@palmer-mbp2014>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220331_154204_019630_7C938164 
-X-CRM114-Status: GOOD (  22.14  )
+X-CRM114-CacheID: sfid-20220331_160320_136273_5D19F1FF 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,68 +91,48 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 30 Mar 2022 22:54:47 PDT (-0700), Palmer Dabbelt wrote:
-> On Wed, 30 Mar 2022 22:21:56 PDT (-0700), vkoul@kernel.org wrote:
->> On 30-03-22, 20:15, Palmer Dabbelt wrote:
->>> On Mon, 28 Mar 2022 02:52:21 PDT (-0700), zong.li@sifive.com wrote:
->>> > The PDMA driver currently assumes there are four channels by default, it
->>> > might cause the error if there is actually less than four channels.
->>> > Change that by getting number of channel dynamically from device tree.
->>> > For backwards-compatible, it uses the default value (i.e. 4) when there
->>> > is no 'dma-channels' information in dts.
->>> >
->>> > This patch set contains the dts and dt-bindings change.
->>> >
->>> > Changed in v8:
->>> >  - Rebase on master
->>> >  - Remove modification of microchip-mpfs.dtsi
->>> >  - Rename DMA node name of fu540-c000.dtsi
->>> >
->>> > Changed in v7:
->>> >  - Rebase on tag v5.17-rc7
->>> >  - Modify the subject of patch
->>> >
->>> > Changed in v6:
->>> >  - Rebase on tag v5.17-rc6
->>> >  - Change sf_pdma.chans[] to a flexible array member.
->>> >
->>> > Changed in v5:
->>> >  - Rebase on tag v5.17-rc3
->>> >  - Fix typo in dt-bindings and commit message
->>> >  - Add PDMA versioning scheme for compatible
->>> >
->>> > Changed in v4:
->>> >  - Remove cflags of debug use reported-by: kernel test robot <lkp@intel.com>
->>> >
->>> > Changed in v3:
->>> >  - Fix allocating wrong size
->>> >  - Return error if 'dma-channels' is larger than maximum
->>> >
->>> > Changed in v2:
->>> >  - Rebase on tag v5.16
->>> >  - Use 4 as default value of dma-channels
->>> >
->>> > Zong Li (4):
->>> >   dt-bindings: dma-engine: sifive,fu540: Add dma-channels property and
->>> >     modify compatible
->>> >   riscv: dts: Add dma-channels property and modify compatible
->>> >   riscv: dts: rename the node name of dma
->>> >   dmaengine: sf-pdma: Get number of channel by device tree
->>> >
->>> >  .../bindings/dma/sifive,fu540-c000-pdma.yaml  | 19 +++++++++++++--
->>> >  arch/riscv/boot/dts/sifive/fu540-c000.dtsi    |  5 ++--
->>> >  drivers/dma/sf-pdma/sf-pdma.c                 | 24 ++++++++++++-------
->>> >  drivers/dma/sf-pdma/sf-pdma.h                 |  8 ++-----
->>> >  4 files changed, 38 insertions(+), 18 deletions(-)
->>>
->>> Thanks, these are on for-next.
->>
->> The drivers/dma/ should go thru dmaengine tree. During merge window I
->> dont apply the patches
+On Mon, 28 Mar 2022 15:04:17 PDT (-0700), rdunlap@infradead.org wrote:
+> Repair kernel-doc build warnings caused by using "/**" kernel-doc
+> markers for comments that are not in kernel-doc format:
 >
-> OK, I can drop this from my tree if you'd like?
+> cpu.c:89: warning: cannot understand function prototype: 'struct riscv_isa_ext_data isa_ext_arr[] = '
+> cpu.c:114: warning: This comment starts with '/**', but isn't a kernel-doc comment. Refer Documentation/doc-guide/kernel-doc.rst
+>
+> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+> Reported-by: kernel test robot <lkp@intel.com>
+> Cc: Atish Patra <atishp@rivosinc.com>
+> Cc: Palmer Dabbelt <palmer@rivosinc.com>
+> Cc: Anup Patel <anup@brainfault.org>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: linux-riscv@lists.infradead.org
+> ---
+>  arch/riscv/kernel/cpu.c |    4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> --- linux-next-20220328.orig/arch/riscv/kernel/cpu.c
+> +++ linux-next-20220328/arch/riscv/kernel/cpu.c
+> @@ -69,7 +69,7 @@ int riscv_of_parent_hartid(struct device
+>  		.uprop = #UPROP,				\
+>  		.isa_ext_id = EXTID,				\
+>  	}
+> -/**
+> +/*
+>   * Here are the ordering rules of extension naming defined by RISC-V
+>   * specification :
+>   * 1. All extensions should be separated from other multi-letter extensions
+> @@ -110,7 +110,7 @@ static void print_isa_ext(struct seq_fil
+>  	}
+>  }
+>
+> -/**
+> +/*
+>   * These are the only valid base (single letter) ISA extensions as per the spec.
+>   * It also specifies the canonical order in which it appears in the spec.
+>   * Some of the extension may just be a place holder for now (B, K, P, J).
 
-Just to follow up from IRC: I'm dropping these from my tree.
+Thanks, this is on for-next (still for this merge window for me).
 
 _______________________________________________
 linux-riscv mailing list
