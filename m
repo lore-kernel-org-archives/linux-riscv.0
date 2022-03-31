@@ -4,77 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79307C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Mar 2022 04:59:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA339C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Mar 2022 05:14:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=41jWqkGjxSBFDpJneGRDOtHnuCTY9tER7LacL8iBHck=; b=rH+CSwBWuohT/u
-	9HdpAPav1c+TKgSZVm8AE+V7RRc9Dzmyhz0/Hg7drRc4D4FNkxUilwR+iVsfGIQQLEWb9cYzPHjSe
-	OcllFUqCa4Q0DCGvkU5lb8gZTk46DJ43RStVJQ38BJMJTK0GxoUOQBwKH8KwL+0Fs25Xd06yhTiB+
-	WZ+VavgPdEoWjH6saPtruokaYcnt8fKiBKP1/tT/O2BkL2iwB6dXoBaql9uRn0XNWKLYDYNA8W0UY
-	grhq5g72t6rid5/+Wah8IlL6Lcz2n8vm92te1dVv6wD1YZ+CRc3a1NIZUGRoymmjyE5AKJki51LLI
-	gJLmtt0AQ9DN5m1zalvQ==;
+	List-Owner; bh=CCLybAibdje/i0x00Wg8HEBH+qrhPpHvjDHPERNUysA=; b=DyKaPiPNAP8MGo
+	i579p/IlPty3y7k/bzrmBBxAm8rRlffhjrMzClaggH/tbVlo9thnadV7mmJlwlsC9kQHOE5RBdFhq
+	ZCHyXNMvAS9XV9JEuaMJkcvq+yTG20UZu7Dxrf0tSGsN1ToK5vCMQi8gKRWtFhz4fui8XSU+SP++P
+	itcBMNV2Y9LnmBvxOzD7iww/8Wvjt4kT203UeZgGnlRa+88q6YbUsblkjtSgrzyD3MLDVTJEWoVRE
+	qXD9Ordax2TcqmGFT74YVqCylA3zO+ZhXrEBXICxMC0FDHicI42pgip4KMTHmiuwpkfyMKFkXumjQ
+	nZJGbT578CeiSDyFMVng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nZmuM-000eoP-UO; Thu, 31 Mar 2022 04:59:42 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1nZn8K-000fy6-EH; Thu, 31 Mar 2022 05:14:08 +0000
+Received: from mail-il1-x130.google.com ([2607:f8b0:4864:20::130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nZmuJ-000enm-PL
- for linux-riscv@lists.infradead.org; Thu, 31 Mar 2022 04:59:41 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id
- mr5-20020a17090b238500b001c67366ae93so1564582pjb.4
- for <linux-riscv@lists.infradead.org>; Wed, 30 Mar 2022 21:59:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=hTYTSPjKmzj+vmHdHXYX/HkA6CH3798g482prT8jYOE=;
- b=MATa/EhuSiC9n3rxQZYaexkAJx1IL7RS74xROe1UGfyh9/+YHkY19RkVlXFU07jDNZ
- B5WYTcQ+0j5Kuoo4IdmLNGorMPNy0UQzPZhO5l8cZ46kGKbSNU87AVO1dX1buGQpUNS2
- kjnkeBT/Flc5LEWtnUnIjiUUB6IdCRicUXktQ=
+ id 1nZn8H-000fxc-SY
+ for linux-riscv@lists.infradead.org; Thu, 31 Mar 2022 05:14:07 +0000
+Received: by mail-il1-x130.google.com with SMTP id j15so15965438ila.13
+ for <linux-riscv@lists.infradead.org>; Wed, 30 Mar 2022 22:14:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=/e7BHUn7ZHGxvo80hqqfbGEa/QzB5qbcKyyziRHWvOk=;
+ b=SKNwHY4u581WKoinmdmsZ1MwhelyXUh4Gto8OamBKUfAdb20teGxg8HcJYRUU+rgKy
+ i23CGX8Oewn6TDC/r99K9j9Bp+6KIqt7gGCc8s1m9jKZHfYT3KmPuOJQm6DlRykByCSH
+ a6QPplDyOCNJJQDz3ffscpbJkNrUo8Ih4hvJLRV62okuSjcjuo/Mg09xPiH54HhuvFE/
+ sy8j1O5W+Fzy9oUb3cs3nrSlUK/CTJNFsUmKpuXxkQC8ac6Aw/SqkCdQyKwSu+zDW7NK
+ ioOvJx5p6hzB8v5pqxtX4/TFA25rVG6wW06iwFTovHDjQrBbJkwMaxN+zsvSA/XiJU3W
+ OQYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=hTYTSPjKmzj+vmHdHXYX/HkA6CH3798g482prT8jYOE=;
- b=QND6Tl63iQByK+Y8jnCt45C2SWEpoJG6m2SkM4B6FCiezsWLTiWUp6GYzEwuFy/N5o
- yWeQ5anZKiuiLvMGuN700Dze/xK95hUXdLkP3Rd7OKdCsTSaks0zXfTaNmXtKEnHtBNK
- aajrJ/L4pkqZK8fkKxvOTeWar0xQM55EabjfTEAJWSPUD74ECpE3Dbih3EHAWUEKkMe2
- E1EaFh1iyz6/nL1aVEUCWPit7oKnW1eKOV/lH4PPKSh2FTb0uL291hS9dIQ0hBVNDlOD
- oFT2Erxrwns5d6SkVnB64s1sQXioupmMlD+fbrHBVWC5jrjOua+FYxaXUkGyKQyMbDiU
- AZdA==
-X-Gm-Message-State: AOAM531xKbKYeHhjG8BHtjhiBb9d/hh6KrlNjSaONQID0dyezhljrJ5w
- AIlmBUdQUZuSV3O+SmUuPwMTDg==
-X-Google-Smtp-Source: ABdhPJw1+av0IyouZw0UTvETMJ5/EYcy0Xubc+iK03x43onqNQ6IIiYW18l9Dvy8z/Jtsv1yJKQF3Q==
-X-Received: by 2002:a17:902:db0f:b0:154:665e:af75 with SMTP id
- m15-20020a170902db0f00b00154665eaf75mr39355836plx.147.1648702778027; 
- Wed, 30 Mar 2022 21:59:38 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
- by smtp.gmail.com with ESMTPSA id
- n4-20020a637204000000b00398522203a2sm10728411pgc.80.2022.03.30.21.59.37
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 30 Mar 2022 21:59:37 -0700 (PDT)
-Date: Wed, 30 Mar 2022 21:59:37 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- peterz@infradead.org, jszhang@kernel.org, geert@linux-m68k.org,
- mark.rutland@arm.com, chenhuang5@huawei.com,
- linux-riscv@lists.infradead.org, wangkefeng.wang@huawei.com,
- linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH] riscv: Rename "sp_in_global" to "current_stack_pointer"
-Message-ID: <202203302159.8FA7A6C@keescook>
-References: <mhng-00315cbb-3685-4918-8ea0-539cda5fbc36@palmer-ri-x1c9>
- <mhng-82a6e73b-c0b7-4625-8a79-ed481f8b2cf1@palmer-ri-x1c9>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=/e7BHUn7ZHGxvo80hqqfbGEa/QzB5qbcKyyziRHWvOk=;
+ b=IXtoJk/cUgenacqFU+KfqLBiJXKs1slbeGox5NMO2a+Re5ESamrBU2SJjKkM88UaFV
+ +kbnl9UtPo4dW3rjUF4H4ugFvIYkHprGQlG7yWr81ReoaQSAVPVJ5fyyBGBk3++AS/VK
+ E6sNZxMGihRZDzqfB7ijFAd1AfVewAb7WcNa2jTOhsZBPi28UBRH4cOKo4J9iVs7yUDJ
+ h9oC+F1fpp/GGXX5/T4B7zJjkizqkAk/lS/g+8uxu93kvPlSepScYn5p4dIXsZJ4vGZf
+ ERqwNx3WFMehxDLpOCavogK2HTUGrjnxYIKY1oZV6eB1w8DaGWgRPVIZ7g1C1N61xQnM
+ kwCQ==
+X-Gm-Message-State: AOAM533vAVJHJzfwZ50wMLNJlqcjv58lPvfDJ/4x5iLfqkpbHwyFRTO3
+ xuqLj6epV8NeSThK40ftw7wNGuf6+I0xOgCwlLM=
+X-Google-Smtp-Source: ABdhPJxkPmOpqA0C22ahyk8Lv82MBr/+gzTT+dJagWxWcoL9yN/P4aK4Np5nynqq/IfzhJJVGyDzRz/NHnLR2Ad5CrY=
+X-Received: by 2002:a05:6e02:1c2a:b0:2c9:defa:d061 with SMTP id
+ m10-20020a056e021c2a00b002c9defad061mr4506973ilh.260.1648703645018; Wed, 30
+ Mar 2022 22:14:05 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mhng-82a6e73b-c0b7-4625-8a79-ed481f8b2cf1@palmer-ri-x1c9>
+References: <CAKmqyKNzQELfs4SQhRJ_XDcFNvFyp5PLA-2qWfBciKN3nCDJHw@mail.gmail.com>
+ <mhng-252c93bc-7d59-4169-9dc4-3792ef995e4e@palmer-ri-x1c9>
+In-Reply-To: <mhng-252c93bc-7d59-4169-9dc4-3792ef995e4e@palmer-ri-x1c9>
+From: Alistair Francis <alistair23@gmail.com>
+Date: Thu, 31 Mar 2022 15:13:39 +1000
+Message-ID: <CAKmqyKMsG6d7jaS2gxXxh+qONWkWGbHFwLK9tYb2q7eeQe77uw@mail.gmail.com>
+Subject: Re: Re: [PATCH] target/riscv: Exit current TB after an sfence.vma
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Idan Horowitz <idan.horowitz@gmail.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "open list:RISC-V" <qemu-riscv@nongnu.org>, phantom@zju.edu.cn, 
+ Alistair Francis <Alistair.Francis@wdc.com>, 
+ "qemu-devel@nongnu.org Developers" <qemu-devel@nongnu.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220330_215940_049441_1B953D89 
-X-CRM114-Status: GOOD (  34.07  )
+X-CRM114-CacheID: sfid-20220330_221405_952686_10EEB6C2 
+X-CRM114-Status: GOOD (  34.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,172 +86,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 30, 2022 at 04:12:18PM -0700, Palmer Dabbelt wrote:
-> On Tue, 22 Mar 2022 19:16:28 PDT (-0700), Palmer Dabbelt wrote:
-> > On Wed, 23 Feb 2022 22:04:11 PST (-0800), keescook@chromium.org wrote:
-> >> To follow the existing per-arch conventions, rename "sp_in_global" to
-> >> "current_stack_pointer". This will let it be used in non-arch places
-> >> (like HARDENED_USERCOPY).
+On Thu, Mar 31, 2022 at 2:36 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>
+> On Wed, 30 Mar 2022 20:23:21 PDT (-0700), alistair23@gmail.com wrote:
+> > On Thu, Mar 31, 2022 at 3:11 AM Idan Horowitz <idan.horowitz@gmail.com> wrote:
 > >>
-> >> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> >> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> >> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> >> Cc: Peter Zijlstra <peterz@infradead.org>
-> >> Cc: Jisheng Zhang <jszhang@kernel.org>
-> >> Cc: Geert Uytterhoeven <geert@linux-m68k.org>
-> >> Cc: Mark Rutland <mark.rutland@arm.com>
-> >> Cc: Chen Huang <chenhuang5@huawei.com>
-> >> Cc: linux-riscv@lists.infradead.org
-> >> Signed-off-by: Kees Cook <keescook@chromium.org>
-> >> ---
-> >>  arch/riscv/Kconfig               | 1 +
-> >>  arch/riscv/include/asm/current.h | 2 ++
-> >>  arch/riscv/kernel/stacktrace.c   | 4 +---
-> >>  3 files changed, 4 insertions(+), 3 deletions(-)
+> >> On Wed, 30 Mar 2022 at 19:11, Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> >> >
+> >> >
+> >> > Presumably you mean "revert" here?  That might be the right way to go,
+> >> > just to avoid breaking users (even if we fix the kernel bug, it'll take
+> >> > a while to get everyone to update).  That said, this smells like the
+> >> > sort of thing that's going to crop up at arbitrary times in dynamic
+> >> > systems so while a revert looks like it'd work around the boot issue we
+> >> > might be making more headaches for folks down the road.
+> >> >
 > >>
-> >> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> >> index 5adcbd9b5e88..b120c32697af 100644
-> >> --- a/arch/riscv/Kconfig
-> >> +++ b/arch/riscv/Kconfig
-> >> @@ -16,6 +16,7 @@ config RISCV
-> >>  	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
-> >>  	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
-> >>  	select ARCH_HAS_BINFMT_FLAT
-> >> +	select ARCH_HAS_CURRENT_STACK_POINTER
-> >>  	select ARCH_HAS_DEBUG_VM_PGTABLE
-> >>  	select ARCH_HAS_DEBUG_VIRTUAL if MMU
-> >>  	select ARCH_HAS_DEBUG_WX
-> >> diff --git a/arch/riscv/include/asm/current.h b/arch/riscv/include/asm/current.h
-> >> index 1de233d8e8de..21774d868c65 100644
-> >> --- a/arch/riscv/include/asm/current.h
-> >> +++ b/arch/riscv/include/asm/current.h
-> >> @@ -33,6 +33,8 @@ static __always_inline struct task_struct *get_current(void)
-> >>
-> >>  #define current get_current()
-> >>
-> >> +register unsigned long current_stack_pointer __asm__("sp");
-> >> +
-> >>  #endif /* __ASSEMBLY__ */
-> >>
-> >>  #endif /* _ASM_RISCV_CURRENT_H */
-> >> diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-> >> index 201ee206fb57..278380e2e956 100644
-> >> --- a/arch/riscv/kernel/stacktrace.c
-> >> +++ b/arch/riscv/kernel/stacktrace.c
-> >> @@ -14,8 +14,6 @@
-> >>
-> >>  #include <asm/stacktrace.h>
-> >>
-> >> -register unsigned long sp_in_global __asm__("sp");
-> >> -
-> >>  #ifdef CONFIG_FRAME_POINTER
-> >>
-> >>  void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
-> >> @@ -77,7 +75,7 @@ void notrace walk_stackframe(struct task_struct *task,
-> >>  		sp = user_stack_pointer(regs);
-> >>  		pc = instruction_pointer(regs);
-> >>  	} else if (task == NULL || task == current) {
-> >> -		sp = sp_in_global;
-> >> +		sp = current_stack_pointer;
-> >>  		pc = (unsigned long)walk_stackframe;
-> >>  	} else {
-> >>  		/* task blocked in __switch_to */
+> >> The opposite in fact, I did not suggest to revert it, but rather undo
+> >> the revert (as Alistair already removed it from the apply-next tree),
+> >> since my original patch fixes buggy behaviour that is blocking the
+> >> testing of some embedded software on QEMU.
+>
+> Ah, sorry -- the QEMU tree I was looking at still had the patch in
+> there, must have just been an old one.
+>
+> > So, this is a little tricky.
 > >
-> > Sorry to be slow on this one.  This looks good, but another use of
-> > sp_in_global snuck into fixes and I don't merge fixes into for-next so
-> > that makes this a bit of a headache.
+> > We want to apply the fix, but that will break current users.
 > >
-> > There's a bunch of stuff in flight, so I'm going to hold off on this
-> > until after my first week's merge window PR.  I intend on merging the
-> > following, which is at palmer/riscv-sp for now (I'll probably just
-> > cherry-pick that, I usually start basing stuff on Linus' merge of my PR
-> > and just cherry-pick in single patches).
-> >
-> >    commit 7c4f6bb6fb352cfa6028191c2888356b9157a332
-> >    gpg: Signature made Tue 22 Mar 2022 11:12:19 AM PDT
-> >    gpg:                using RSA key 2B3C3747446843B24A943A7A2E1319F35FBB1889
-> >    gpg:                issuer "palmer@dabbelt.com"
-> >    gpg: Good signature from "Palmer Dabbelt <palmer@dabbelt.com>" [ultimate]
-> >    gpg:                 aka "Palmer Dabbelt <palmer@rivosinc.com>" [ultimate]
-> >    Author: Kees Cook <keescook@chromium.org>
-> >    Date:   Wed Feb 23 22:04:11 2022 -0800
-> >
-> >        riscv: Rename "sp_in_global" to "current_stack_pointer"
-> >
-> >        To follow the existing per-arch conventions, rename "sp_in_global" to
-> >        "current_stack_pointer". This will let it be used in non-arch places
-> >        (like HARDENED_USERCOPY).
-> >
-> >        Signed-off-by: Kees Cook <keescook@chromium.org>
-> >        Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> >
-> >    diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> >    index 5adcbd9b5e88..b120c32697af 100644
-> >    --- a/arch/riscv/Kconfig
-> >    +++ b/arch/riscv/Kconfig
-> >    @@ -16,6 +16,7 @@ config RISCV
-> >     	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
-> >     	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
-> >     	select ARCH_HAS_BINFMT_FLAT
-> >    +	select ARCH_HAS_CURRENT_STACK_POINTER
-> >     	select ARCH_HAS_DEBUG_VM_PGTABLE
-> >     	select ARCH_HAS_DEBUG_VIRTUAL if MMU
-> >     	select ARCH_HAS_DEBUG_WX
-> >    diff --git a/arch/riscv/include/asm/current.h b/arch/riscv/include/asm/current.h
-> >    index 1de233d8e8de..21774d868c65 100644
-> >    --- a/arch/riscv/include/asm/current.h
-> >    +++ b/arch/riscv/include/asm/current.h
-> >    @@ -33,6 +33,8 @@ static __always_inline struct task_struct *get_current(void)
-> >
-> >     #define current get_current()
-> >
-> >    +register unsigned long current_stack_pointer __asm__("sp");
-> >    +
-> >     #endif /* __ASSEMBLY__ */
-> >
-> >     #endif /* _ASM_RISCV_CURRENT_H */
-> >    diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-> >    index 14d2b53ec322..08d11a53f39e 100644
-> >    --- a/arch/riscv/kernel/stacktrace.c
-> >    +++ b/arch/riscv/kernel/stacktrace.c
-> >    @@ -14,8 +14,6 @@
-> >
-> >     #include <asm/stacktrace.h>
-> >
-> >    -register unsigned long sp_in_global __asm__("sp");
-> >    -
-> >     #ifdef CONFIG_FRAME_POINTER
-> >
-> >     void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
-> >    @@ -30,7 +28,7 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
-> >     		pc = instruction_pointer(regs);
-> >     	} else if (task == NULL || task == current) {
-> >     		fp = (unsigned long)__builtin_frame_address(0);
-> >    -		sp = sp_in_global;
-> >    +		sp = current_stack_pointer;
-> >     		pc = (unsigned long)walk_stackframe;
-> >     	} else {
-> >     		/* task blocked in __switch_to */
-> >    @@ -78,7 +76,7 @@ void notrace walk_stackframe(struct task_struct *task,
-> >     		sp = user_stack_pointer(regs);
-> >     		pc = instruction_pointer(regs);
-> >     	} else if (task == NULL || task == current) {
-> >    -		sp = sp_in_global;
-> >    +		sp = current_stack_pointer;
-> >     		pc = (unsigned long)walk_stackframe;
-> >     	} else {
-> >     		/* task blocked in __switch_to */
-> >
-> > Thanks!
-> 
-> Thanks, this is on for-next.  I put HARDENED_USERCOPY=y test in for SLAB 
-> and SLUB, not sure if there's anything else that's interesting to test 
-> (we're missing some bits needed for STACKLEAK).
+> > Once the fix is merged into Linux we can apply it here. That should
+> > hopefully be right at the start of the 7.1 QEMU development window,
+> > which should give time for the fix to propagate into stable kernels
+> > and not break too many people by the time QEMU is released.
+>
+> If you think this is a Linux bug then that makes sense, but I think this
+> is a QEMU bug -- I sent a patch, not sure if it went through as it didn't
+> make it to lore.
 
-Excellent; thank you!
+Ah whoops. I saw the patch but didn't read it, then I assumed it was a
+Linux bug from your diff earlier.
 
--- 
-Kees Cook
+>
+> I also think the bug will manifest without the TB exit patch, maybe in
+> single-step mode and definately if we happen to exit the TB at that
+> point for other reasons.  Assuming my reasoning is correct in that
+> patch, we may also be hitting this as arbitrary corruption anywhere.
+> I'd started to write up a "QEMU errata" Linux patch for this, but then
+> convinced myself that just adding the sfence.vma was insufficient.
+
+Yeah, looking at it now I agree, I'll send a PR for 7.0.
+
+Alistair
 
 _______________________________________________
 linux-riscv mailing list
