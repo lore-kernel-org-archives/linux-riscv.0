@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EACCAC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Mar 2022 19:42:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDBA2C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Mar 2022 19:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=VIKnsDC4KQcbeXmyw/CoSfwsejx8aMjeyNNNMrH6MOo=; b=rtRMK2VAA9h12VEW054bU/E9LZ
-	apY2acmu6U1833yUn7/SOfFSKWtID7R1V513xeDBfKDPmQziIlx2YQgoA3TyJJIR2IOECdfCkcf1J
-	xAmXPFco/X5CIfuMeoYTx7wO42Nd4gjYxLATHb5UGtGG2gFtMpUpmBY2+j+/cNDIDTA5HlA0Fohg7
-	n69naUKvsnsnzAAL8YRwsofEmasKW3xu2EJRHQ0EM7oWq2S+WYBG+dLnSwgRdNqZrr6r8qEjMIkx5
-	l//YvziE7eN4w3MhpE54nz7D+wsISPRYWRO1MBAQPpx1QVeXbDsUvRX6TVhVVdjey1PdcycDWNmF/
-	3ysAXGfA==;
+	bh=pDY60A9oBaLyf0hgdqOn6RSjbw8Uf9ZAPWPZYXEFFGE=; b=e3cG2hEl29zs2EgcEpsxjsZeKv
+	5Ts16mdNpF1SflttauqJKijXkaPX5W7PalCZ4eATFO2mT3K4b/utfhDDgEsJV9dK5qxtIkPThJhoM
+	cc67bb2rFeHiltnJw5TkOcSXlEA/PmVD2g46iRu00QGsFkcdZJL+7NMpoC0OIsJ1Bl1AwKwNWF0R1
+	Ha7nBYiu3U/miGt1Abk7mY+k6VO8r7Z0mJntsSVtujGY3dkUr1dcdnMc85WNjLiYa3jf5TbThMell
+	h8JyFCN3AwWZV1agTLLoSkiNju5rudsk52d+aajgtZnQhdmx2wOf05Nojkl5Sc5IZJGNVCUWDP9Dd
+	68vyotXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1na0gq-003Sxg-FN; Thu, 31 Mar 2022 19:42:40 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1na0gz-003Szv-65; Thu, 31 Mar 2022 19:42:49 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1na0gm-003SxJ-QY
- for linux-riscv@lists.infradead.org; Thu, 31 Mar 2022 19:42:38 +0000
-Received: by mail-pf1-x435.google.com with SMTP id t2so517952pfj.10
- for <linux-riscv@lists.infradead.org>; Thu, 31 Mar 2022 12:42:36 -0700 (PDT)
+ id 1na0gw-003Sxa-VZ
+ for linux-riscv@lists.infradead.org; Thu, 31 Mar 2022 19:42:48 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id d30so445617pjk.0
+ for <linux-riscv@lists.infradead.org>; Thu, 31 Mar 2022 12:42:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=qEPi6DppYoxU2evZZ00sDfEbEQwJezvupzY4bXgJJvE=;
- b=Qp2w4QzXAGQcQb2QyAc3nBMAFCSeUx76gQmZDosS+jKF7BpXGCT6LbReoC97lWREGw
- sNi6rgxHqqmrU/2aDpVIu0WJ1VNKxZIteBrcpUILZrFroLwxpnc4MvCnNskS3Wlxljdl
- GtWF2YK8rRCio8mJpu5gygNrl/88fy21roa7bzD2oSLL2Faji9RiW2hOMYGiT3N61jKt
- BYA0VgZoILLcQjDJrhvru95osHwJ6cMKsUJDsAKEPAibflN6tpanKHydJkFa4z9Bmlzp
- j8R/gjHNvXMKqg0oRIryiGeVyt1hTp5tZV4Ohw2ND6mBOGbOsI4nHCfiy33yozmcPkZ7
- lbnQ==
+ bh=FLmyF/ADmt/SVOlekhuzZ5m0Y9Svgpyvb8XZ74qoiUI=;
+ b=pD5w7XtghtGzZsLNW7+14BYv/55evR2ezIh8Iq4+xg6pZOAnWHAiX9ZRBAu0XS59Wf
+ N74V4845Tv6DT+5Dm0o+pl3vuVQhHgw4cU5/HMOhaaoznrq5Hw2C32QqBfTAwa8MARTd
+ ywo04mo3WS6B4A3l358e75e/CyMVVMxAEgCdCbsWZWfkJEVwqyWNWTnzCJh65WGHttNZ
+ P3PDq6ZYQ7bvnFUniZ2NB67FbZmFgD95V8kqLwtvOyGU2Vtg2UAWl31CBNCyBZyOgaTM
+ 4J5tj9IrSs6JLK7mJiXkDy+g5HAlbFgO7fPSUUhfcS1SkngyOhlzj8LcWQMJNHsKluL+
+ rrWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=qEPi6DppYoxU2evZZ00sDfEbEQwJezvupzY4bXgJJvE=;
- b=YmQCFffg7CmC7LpWANaCu8ko+oS4guSQYmqJT2Gbe9Z2+eJ9Fb/GdRPHiVw9YQGv7v
- zjil6gx88CoZJMkeK2Lxnr3Y6bjx5rCSmxOgMZrxAuBWcCuplqy/4NCVGrYRRtnAuUV7
- pafm8UifeORHfUoL5o178foDGaDfHCHcGUhkOJvvScB1l79s4wxyw1b1yvPAYWAX1cKT
- QYQ3H7Oqsh8pe8jT/RjgnGbe7hQo0BIUd5katg/PH/tAh+3Wt+Or+CEjpR3UjutaE9/X
- VOPl2PlIeQNHiKl1O2bEwZvHnVqT2JZAQ1l56WpyTlKcMh44tBDVN5uTqoHJmp0pI4kV
- 5VvA==
-X-Gm-Message-State: AOAM532+KxaWxOuh9y0WwNIPpvSjwZ47jWe/eLeuZdS5PwhtZZeQHr+7
- hIT/ucSLgZFPf6Eftf3LyFuqrw==
-X-Google-Smtp-Source: ABdhPJxOP0vT3aSLvEQxxYn+4QTXcAAgQOlP3eNSJqVjCYYlah9s+sO3FQhgnfu6MpB47iCXqhK4+g==
-X-Received: by 2002:a65:4503:0:b0:382:aad5:ad7d with SMTP id
- n3-20020a654503000000b00382aad5ad7dmr12186621pgq.488.1648755755822; 
- Thu, 31 Mar 2022 12:42:35 -0700 (PDT)
+ bh=FLmyF/ADmt/SVOlekhuzZ5m0Y9Svgpyvb8XZ74qoiUI=;
+ b=BQPF+hYM/lQp1pTYuTGx12J7xo4AisYIMIe3ECVXaTa9zoVgML+HDfJ3KZIIdjp5Dg
+ pJV8JT3qsRSql7NWVnrRCON7s865kuhVdFCF7hundpWn9TBhgSttdFibo0yPH5QDM1xi
+ 3YVrLr49tMvtb8lhJzEtTb/SjfYhAcMY2pU2sLpbNyLXqBP94HlycA6YyZ/t8M0doV4z
+ esOe4Pwu6ec0IOjpCzDih+SR+obSAaJDWrk/pmdoyks8aJsa6RqkpYtftBQOOeZ5iHTm
+ GASQgNV/uEESTwkEUF1TSP9aVIdC0544G/v7+ipPgXQ/ikF3n7asU0lN8fSIGob+eDNb
+ q7/Q==
+X-Gm-Message-State: AOAM531JkTsjWNsN+ehrKOxIWgo3eg+ja2QNMh5Vanwn2QPxqQ3caUFI
+ bWUtgKyKjAoWfZ7t3vtDonpFHw==
+X-Google-Smtp-Source: ABdhPJxaGZz1vhPYU1kLfpDIJMLn2dWkfNb3LGwg9IPLvlr/r2wlcOtYuaK9JMWEpE/iAoqv3DfpXQ==
+X-Received: by 2002:a17:90b:2242:b0:1c6:80e3:71b6 with SMTP id
+ hk2-20020a17090b224200b001c680e371b6mr7866471pjb.152.1648755757630; 
+ Thu, 31 Mar 2022 12:42:37 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223]) by smtp.gmail.com with ESMTPSA id
- u204-20020a6279d5000000b004fa58625a80sm278641pfc.53.2022.03.31.12.42.34
+ r8-20020a17090a0ac800b001c9e35d3a3asm155420pje.24.2022.03.31.12.42.36
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 31 Mar 2022 12:42:34 -0700 (PDT)
-Date: Thu, 31 Mar 2022 12:42:34 -0700 (PDT)
-X-Google-Original-Date: Thu, 31 Mar 2022 11:37:08 PDT (-0700)
-Subject: Re: [PATCH v2] RISC-V: Increase range and default value of NR_CPUS
-In-Reply-To: <20220319121206.95919-1-apatel@ventanamicro.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Arnd Bergmann <arnd@arndb.de>,
- atishp@atishpatra.org, Alistair Francis <Alistair.Francis@wdc.com>,
- anup@brainfault.org, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- apatel@ventanamicro.com
+ Thu, 31 Mar 2022 12:42:36 -0700 (PDT)
+Date: Thu, 31 Mar 2022 12:42:36 -0700 (PDT)
+X-Google-Original-Date: Thu, 31 Mar 2022 12:42:29 PDT (-0700)
+Subject: Re: [PATCH] riscv: fix build with binutils 2.38
+In-Reply-To: <CAHk-=wjnuMD091mNbY=fRm-qFyhMjbtfiwkAFKyFehyR8bPB5A@mail.gmail.com>
+CC: mkl@pengutronix.de, aurelien@aurel32.net, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, Kito Cheng <kito.cheng@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
+ linux-sparse@vger.kernel.org, 
+ ukl@pengutronix.de, luc.vanoostenryck@gmail.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: apatel@ventanamicro.com
-Message-ID: <mhng-9cbb2a46-8bcb-4bfe-b927-0ed469dbd3a6@palmer-mbp2014>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-7e447636-2324-406b-9cfc-e5cf766b1737@palmer-mbp2014>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220331_124237_092597_17C59141 
-X-CRM114-Status: GOOD (  24.91  )
+X-CRM114-CacheID: sfid-20220331_124247_040283_98D7128C 
+X-CRM114-Status: GOOD (  17.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,56 +93,44 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 19 Mar 2022 05:12:06 PDT (-0700), apatel@ventanamicro.com wrote:
-> Currently, the range and default value of NR_CPUS is too restrictive
-> for high-end RISC-V systems with large number of HARTs. The latest
-> QEMU virt machine supports upto 512 CPUs so the current NR_CPUS is
-> restrictive for QEMU as well. Other major architectures (such as
-> ARM64, x86_64, MIPS, etc) have a much higher range and default
-> value of NR_CPUS.
->
-> This patch increases NR_CPUS range to 2-512 and default value to
-> XLEN (i.e. 32 for RV32 and 64 for RV64).
->
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
-> Changes since v1:
->  - Updated NR_CPUS range to 2-512 which reflects maximum number of
->    CPUs supported by QEMU virt machine.
-> ---
->  arch/riscv/Kconfig | 7 ++++---
->  1 file changed, 4 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 5adcbd9b5e88..423ac17f598c 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -274,10 +274,11 @@ config SMP
->  	  If you don't know what to do here, say N.
->
->  config NR_CPUS
-> -	int "Maximum number of CPUs (2-32)"
-> -	range 2 32
-> +	int "Maximum number of CPUs (2-512)"
-> +	range 2 512
->  	depends on SMP
-> -	default "8"
-> +	default "32" if 32BIT
-> +	default "64" if 64BIT
->
->  config HOTPLUG_CPU
->  	bool "Support for hot-pluggable CPUs"
+On Thu, 31 Mar 2022 11:16:53 PDT (-0700), Linus Torvalds wrote:
+> On Thu, Mar 31, 2022 at 3:51 AM Marc Kleine-Budde <mkl@pengutronix.de> wrote:
+>>
+>> Cc += linux-sparse, Uwe, Luc Van Oostenryck
+>>
+>> tl;dr:
+>>
+>> A recent change in the kernel regarding the riscv -march handling breaks
+>> current sparse.
 
-I'm getting all sorts of boot issues with more than 32 CPUs, even on the 
-latest QEMU master.  I'm not opposed to increasing the CPU count in 
-theory, but if we're going to have a setting that goes up to a huge 
-number it needs to at least boot.  I've got 64 host threads, so it 
-shouldn't just be a scheduling thing.
+Sorry about that, looks like I'm not running sparse as part of my 
+testing.  I'll add it, but it might take a bit as I'm assuming there 
+will be a bunch of issues it points out.
 
-If there was some hardware that actually boots on these I'd be happy to 
-take it, but given that it's just QEMU I'd prefer to sort out the bugs 
-first.  It's probably just latent bugs somewhere, but allowing users to 
-turn on configs we know don't work just seems like the wrong way to go.
+> Gaah. Normally sparse doesn't even look at the -march flag, but for
+> riscv it does, because it's meaningful for the predefined macros.
+>
+> Maybe that 'die()' shouldn't be so fatal. And maybe add a few more
+> extensions (but ignore them) to the parsing.
+>
+> Something ENTIRELY UNTESTED like the attached.
+
+Converting this to a warning seems reasonable to me, as then we're not 
+as coupled to the sparse version.  The current crop of extensions don't 
+set anything exciting for Linux, but there are some on the horizon that 
+likely will -- hopefully having sparse in my test setup should be 
+sufficient to dig those up, though.
+
+As far as the new extension go: "Counters" isn't an ISA extension, and 
+"e" defines "__riscv_32e".  It'd also be slightly saner to match on 
+"_Zifencei", but that probably doesn't matter (GCC is sufficiently 
+strict here).  Looks like there's also some oddities in the sparse ISA 
+string parsing, I'll go clean them up as I get it running locally.
+
+We could also stop relying on the compiler's defines, which would avoid 
+this problem entirely, but IIRC that was discussed when decided to 
+modify sparse in the first place and we went this way (though I don't 
+remember why).  That would keep everything inside the kernel.
 
 _______________________________________________
 linux-riscv mailing list
