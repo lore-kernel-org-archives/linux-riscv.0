@@ -4,76 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F407BC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Mar 2022 05:53:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7749C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Mar 2022 05:53:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=Q3ekXPI70YIYtqxGwjASH/Q8Z4OFerJiFADOqysIzZ0=; b=PIkeoa6MfyiLixk0+nPzamnuwH
-	ZNzScCfoX3vkW2zBDv1MSb/IGQl5ZrfjpJDyF+zezzykjwEnhCW8oRy0PxxsjfSpJM16u/TespCun
-	EFUE1tmLbWYScF7IuUCb5CfF8N0GvGBygxcwQLH/jMg4ZZyz/3Z0L9BN3PQmX+vgJdXpdiL7Ul9W8
-	nLTZhzO9tfQHh2p4dU8+5meX7bzYpxYijZWqK8JXMhYA5Xn5lB+AR0PYTXxp2KI7pG9W6DPJiQnbI
-	qYZW0DJWXTTJWhnzdHc6/5FUWiUJWzc4150g81WO4z420zWbkEBFpIcKdQeZfZF2VvTSE4faoLNqg
-	i7YA1rZg==;
+	bh=wcDlkESucuKckWjPM5HtpEW6bEUT4RJxJxuJbDpBtAc=; b=Af40OpubVEEKwVPgoQmZpxsSEq
+	iwH6p0uAlJ2RnFfepRl8mAhLQOkz5lJS5Z0sxOlOrMijW46fChbeUBpfhGapqRvy7V9s6qjxPKv2C
+	+iTIyhdi6htjV5kqayaK2dJezaZ5ooYJw70ijjM9vRfz6dIv2mdkTHuqM6+BRYdy8qEdGSrh04PJ6
+	2u1qOn3WmJxa5B0DkdIuWelnoP2ie1CmMngwPr32Dx/vli7ufpouq1Nox48ccyUZhOddfO6hQc8gP
+	CfYdRJRkhCpAEZ4MrASPPaSq+T/sDLeURmU6b5N1+VrQv8qU/pDQHAOn+lV06qySQwSYKupwPlLFP
+	mOVvHb1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nZnk0-000lPR-St; Thu, 31 Mar 2022 05:53:04 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1nZnk9-000lV5-D9; Thu, 31 Mar 2022 05:53:13 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nZnjq-000lK9-Gs
- for linux-riscv@lists.infradead.org; Thu, 31 Mar 2022 05:52:56 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id w8so22464055pll.10
- for <linux-riscv@lists.infradead.org>; Wed, 30 Mar 2022 22:52:54 -0700 (PDT)
+ id 1nZnk6-000lSZ-Ld
+ for linux-riscv@lists.infradead.org; Thu, 31 Mar 2022 05:53:12 +0000
+Received: by mail-pf1-x429.google.com with SMTP id w7so18277588pfu.11
+ for <linux-riscv@lists.infradead.org>; Wed, 30 Mar 2022 22:53:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=IBamUaj9YrgQoUbRaPWrU7o5ZQ6M8T/P4ePIRI4QM34=;
- b=zJcpbuOej6gZTZJPWaEzzkrlN5H7zYi/tfZLPl5QcNA5MOpFxQ5bpfEpOWC19kkDIQ
- o95XAGxPbCJuut3OL93cgHLImqrj5tQw4RnXTAxrh46dZ0trQ2lQE68dCAV1VD52ChB4
- 6j/+8K5dNuPIHOAJkt0HJCGsrMqbPmjjDRP6QCpg442u0HsCNmVYdzwXV5tmwY/md7gc
- g2YQvbRpQu3dbCqYg4UpMe5X6DQRTBlO/f+Em8Ju1z2XRC3npyuYaPaKGsA87r+yNUfH
- q2JhDEoe0d2ALVFSB31HCbqGy+3dAaol5DyNIvhbdvMFnUCijLm8a3WsXVccdmfXLAlw
- 6N4g==
+ bh=BrVp20BmQjd9WSbsMvWT5kt24UKCTLgZvgR7hPflW5I=;
+ b=J0orAsxOAk3R3htaeofa12dEY09G1ZOT6xFMUw8eRPdblGAX+zKgalF+zG53xNIBfN
+ JIdsxH0KeXhELtsIMEfbGGS8jMDN+ePq9zcaypxHtex4s+/DgPdLpCaI+/6Q6+GgWWKs
+ KJEdpD76ISx4i9sPdkdNTpnORTU/yyvxrRPlPLbAYPe0AeCjVdFf7yGjU2RhRFTgms2/
+ 0RYnJfjAzMGceWUdQXG5RxDGdiaQYO94yuq3nKHFmfxpcOlFbLUCujyc7JzsG35ovPBW
+ OeK74pluni7ZWl5BfCWtd2/Z/cENsuT48GSGZFcv3nsYh3EjxsvjTQNwnxUySCiQeBAn
+ eTgQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=IBamUaj9YrgQoUbRaPWrU7o5ZQ6M8T/P4ePIRI4QM34=;
- b=xDZk/wFUKDCMZ5/BxfCpVc4VIQIFXkpA2UAkFv44fDB1DAXyDbKJRvXrx3Wk8SHkai
- 3zFelkJw81XzYb/SMpHxGvu3aRTaCyY9zbXzz719NXfcXrWaNu/cClJnsdnzzSI6aw0L
- J+dY/cvJLSEWcXIDe2QzDcf86UZPi2kfOxIPoBbX4Hg1yCzo4P8cCMRy7NKqQiy4Owz4
- AFPCoJfDDKWvl58+79rQ31ax2UNDkjUKpSlwmpviNPk2x1ZoDWQJb7sMXuN9/KfjDGiT
- CgBCzLE/ve93Dqtdt0rhq0JZFsFgTpCH/8SqTJeJjglu1GV3sfrbtnLKXLZEsRvxptdK
- n3Ew==
-X-Gm-Message-State: AOAM531szBrkYyf1wpYZam93xo5CHz9E4djJpqk9hRy+aBnkVdKS4mT5
- 8E2r0Ke556vRH4WlKiQSquhh8g==
-X-Google-Smtp-Source: ABdhPJxatwbY0eiFFqqr4kfADTBSUPWRHFUvVXS1GEzij3x70XU/UukTdZF6PlEkpcpm6uH9deBUDw==
-X-Received: by 2002:a17:902:82cc:b0:153:cc6e:fac1 with SMTP id
- u12-20020a17090282cc00b00153cc6efac1mr3414756plz.138.1648705973585; 
- Wed, 30 Mar 2022 22:52:53 -0700 (PDT)
+ bh=BrVp20BmQjd9WSbsMvWT5kt24UKCTLgZvgR7hPflW5I=;
+ b=7K1zpUaOTE+657VTvoEsFy9e6FhOD7rLLQKbzZhaygum5bDWFwMW/dhs4N28m14TUu
+ piRlyUA4i/94m6bf76hhfoCJTGf3VwW0Yz87SiZkoyIaFo+Xt1X18BKnxzJs+/0cUxwI
+ VNyns1NmMiCGFd1czUaVniX0q95Vx0YujKskJf5QV/Eh9q5y825Zl0S4LvhhFEy/VR+C
+ qCyensbLm+2fpItq/HIh/n4WZgXNi2PJYrItBy8dqLIE/26Ds1kS+F9HdidrhReSdtzQ
+ 7eQXgdMXoKcCLrg6UU5y+5j36d1ZlCR/RWwCCHAgp39WREbXl+QDqSO3eJ5CKKCHS3Jh
+ s1jg==
+X-Gm-Message-State: AOAM531w3TtBA2R94VhJCIBuw3JDYq7CI38yYaf+pytX1tfVqyIcR0B5
+ cKk1BNR9y8dfH0hSeApgkCSTvw==
+X-Google-Smtp-Source: ABdhPJwpnANsxo4xZlJjPDa54Tplqd+KoCrSUKkTKC74/0HoCkJtQWqclS4PEP1Ao1Wh7C3CzDf7gg==
+X-Received: by 2002:a63:6f44:0:b0:398:31d6:e37f with SMTP id
+ k65-20020a636f44000000b0039831d6e37fmr9285910pgc.177.1648705990089; 
+ Wed, 30 Mar 2022 22:53:10 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223]) by smtp.gmail.com with ESMTPSA id
- p10-20020a056a0026ca00b004fb44e0cb17sm15616555pfw.116.2022.03.30.22.52.52
+ n18-20020a056a0007d200b004fdac35672fsm1695461pfu.68.2022.03.30.22.53.09
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 30 Mar 2022 22:52:52 -0700 (PDT)
-Date: Wed, 30 Mar 2022 22:52:52 -0700 (PDT)
-X-Google-Original-Date: Wed, 30 Mar 2022 22:52:09 PDT (-0700)
-Subject: Re: question about arch/riscv/kvm/mmu.c
-In-Reply-To: <alpine.DEB.2.22.394.2203162205550.3177@hadrien>
-CC: kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
- linux-riscv@lists.infradead.org
+ Wed, 30 Mar 2022 22:53:09 -0700 (PDT)
+Date: Wed, 30 Mar 2022 22:53:09 -0700 (PDT)
+X-Google-Original-Date: Wed, 30 Mar 2022 21:15:09 PDT (-0700)
+Subject: Re: [PATCH] riscv: Fix fill_callchain return value
+In-Reply-To: <20220311065815.9985-1-nikita.shubin@maquefel.me>
+CC: linux@yadro.com, n.shubin@yadro.com, peterz@infradead.org, mingo@redhat.com,
+ acme@kernel.org, mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
+ jolsa@kernel.org, 
+ namhyung@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ aou@eecs.berkeley.edu, 
+ han_mao@c-sky.com, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: julia.lawall@inria.fr, anup@brainfault.org,
- Atish Patra <atishp@rivosinc.com>
-Message-ID: <mhng-9835bc56-8f99-4fd6-bccc-262b642a2ccb@palmer-ri-x1c9>
+To: nikita.shubin@maquefel.me
+Message-ID: <mhng-d348c041-9628-4aa2-af10-51604edbe48c@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220330_225254_613800_6A521FC4 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20220330_225310_741320_B0F770B7 
+X-CRM114-Status: GOOD (  16.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,46 +94,35 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 16 Mar 2022 14:10:06 PDT (-0700), julia.lawall@inria.fr wrote:
-> Hello,
+On Thu, 10 Mar 2022 22:58:15 PST (-0800), nikita.shubin@maquefel.me wrote:
+> From: Nikita Shubin <n.shubin@yadro.com>
 >
-> The function kvm_riscv_stage2_map contains the code:
+> perf_callchain_store return 0 on success, -1 otherwise,
+> fix fill_callchain to return correct bool value.
 >
-> mmu_seq = kvm->mmu_notifier_seq;
+> Fixes: dbeb90b0c1eb ("riscv: Add perf callchain support")
+> Signed-off-by: Nikita Shubin <n.shubin@yadro.com>
+> ---
+>  arch/riscv/kernel/perf_callchain.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> I noticed that in every other place in the kernel where the
-> mmu_notifier_seq field is read, there is a read barrier after it.  Is
-> there some reason why it is not necessary here?
+> diff --git a/arch/riscv/kernel/perf_callchain.c b/arch/riscv/kernel/perf_callchain.c
+> index 1fc075b8f764..7aca6a238173 100644
+> --- a/arch/riscv/kernel/perf_callchain.c
+> +++ b/arch/riscv/kernel/perf_callchain.c
+> @@ -68,7 +68,7 @@ void perf_callchain_user(struct perf_callchain_entry_ctx *entry,
+>
+>  static bool fill_callchain(void *entry, unsigned long pc)
+>  {
+> -	return perf_callchain_store(entry, pc);
+> +	return perf_callchain_store(entry, pc) == 0;
+>  }
+>
+>  void perf_callchain_kernel(struct perf_callchain_entry_ctx *entry,
 
-I guess that's a better question for Atish and Anup, but certainly 
-nothing jumps out at me.  There's a pretty good comment in the arm64 
-port about their barrier:
-
-        mmu_seq = vcpu->kvm->mmu_notifier_seq;
-        /*
-         * Ensure the read of mmu_notifier_seq happens before we call
-         * gfn_to_pfn_prot (which calls get_user_pages), so that we don't risk
-         * the page we just got a reference to gets unmapped before we have a
-         * chance to grab the mmu_lock, which ensure that if the page gets
-         * unmapped afterwards, the call to kvm_unmap_gfn will take it away
-         * from us again properly. This smp_rmb() interacts with the smp_wmb()
-         * in kvm_mmu_notifier_invalidate_<page|range_end>.
-         *
-         * Besides, __gfn_to_pfn_memslot() instead of gfn_to_pfn_prot() is
-         * used to avoid unnecessary overhead introduced to locate the memory
-         * slot because it's always fixed even @gfn is adjusted for huge pages.
-         */
-        smp_rmb();
-
-I don't see anything that would invalidate that reasoning for us.  My 
-guess is that we should have a similar barrier (and coment, and maybe 
-call __gfn_to_pfn_memslot() too).  There's a handful of other 
-interesting-looking differences between the riscv and arm64 ports around 
-here that might be worth looking into as well.
-
-Might also be worth updating that comment to indicate that the actual 
-wmb() is in kvm_dec_notifier_count()?  Also, to make it sound less like 
-arm64 is calling gfn_to_pfn_prot()...
+Thanks, this is on for-next.  Looks like we share some of this code with 
+at least arm64, it might be worth refactoring this into something 
+generic.
 
 _______________________________________________
 linux-riscv mailing list
