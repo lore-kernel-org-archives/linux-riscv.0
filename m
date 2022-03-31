@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B67CC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Mar 2022 01:06:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E706C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Mar 2022 02:16:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=p5UqEhouGvMe1mc7G3QGuoyEuWmIx1xihS587wLfr90=; b=pjxC278pVP6CszhSZFS/k7L7Tf
-	inWoX8mC+P+joWYXdrvC4oWaqMx4AdWHC3A84giibNfYAtTUQl2szTNxorie+TRuKBBwGRjTec2mz
-	R2R7+B0FbM+laoL8VhdoMe7TrtmI6F7qV6t+uISMmdrQFzUcLuykrBzpv6D0WP+hUj1T4h0qXBEuB
-	C61BfkhiLaFJXapOOxinLcSDRwOwH0ON3rnj8Tk8krIMD87Cif5/nrsE6uxWl9tbDXH2AD3naxq1R
-	pYwEDnurYnfsnXM1K3E+WUSooKZHqubGtLPV06G0YUW6/RGWDbotM6kOtPyBerl4YSkX8c0NX35LP
-	VyJF84Zw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=P+nmtgaKg2oYGyPNYhTgMWr0OgDhIwk6cp6oNQjXihE=; b=uUEMS2EXFsCXeNEwEyQqPddvU9
+	72qlKtM3dreeZKOme2sBW2xslhDa8wHcnlQMVs6D+Vs1zCSHvJTb3lPJcstVMsvzkFaQ5GE+C/+97
+	rIpzjFfp5rkfJPkz2O/UYK3sZTZJYERRcr58Os8u6tNssdaizXH5ZdG1rf0z83zKYkGDhMYPKVXdK
+	5WgxelI4135Yalt7UMpuqTi8DU+QuPM3VZ44xnRvZy47oC3fBrFcdyiSUO/MgJVnx6DjgzMbhWg4o
+	ArN+yEaARr34gRsyDXdtpzaWz3Vf++rZWmJwvbuJzgdIWK7Q3oQuZqvnumC5+9lgyguRtpqpzEvTD
+	omr5rnog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nZjGp-000EWl-6m; Thu, 31 Mar 2022 01:06:39 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1nZkMO-000HaM-Rl; Thu, 31 Mar 2022 02:16:28 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nZjGl-000EVt-VS
- for linux-riscv@lists.infradead.org; Thu, 31 Mar 2022 01:06:37 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id w7so38773427lfd.6
- for <linux-riscv@lists.infradead.org>; Wed, 30 Mar 2022 18:06:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
- bh=pQin6zzGAuRacO9FVhrB5u1rqYNKK0HG35yvZRfDw/0=;
- b=LoZF0VUPCeyR0nPwrZ7ben+plaiet+DBjQmDF1p7B+WWSESHbWu9AsK7Zc43BNgN/w
- 9AdEkpPqx5fOG+1e/cyBfU/ZYawfrMeJp95XaDhxSMkxVQXpqVmt4uq2hSevQzxorIA9
- wmZlE2Esg9QY3W6cjtFed7CZRvYiSKgDcIfnPCq+bKP3rj0M4V3IVZ6/OfiPyApAzmpF
- OafI3BTBfz0QF5VovF7+W35/N0qXM9WfYzYOpufuFo0RDKDgA7lsUQNv8WFuE3NCbA9+
- K2kEJTmO+4d89le22vJNdOXGCvFYybh3xqSMLzhQ6qRNuRno8rDIDiMCNbvcrSUceuC/
- qXAw==
+ id 1nZkML-000Ha2-6A
+ for linux-riscv@lists.infradead.org; Thu, 31 Mar 2022 02:16:26 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id gb19so22655054pjb.1
+ for <linux-riscv@lists.infradead.org>; Wed, 30 Mar 2022 19:16:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=/Wq8pDzbR7CUsnr4sdt91dwx6hh1W9+nP/weoDPwRHk=;
+ b=ALRpTGH8SD7ag77B6dbqoLafs6OdKxiQbdVsqhuEw9qFf/oYaqv3HxQQRWhAIx1Dt9
+ ftKdvsgia6lDm13mxCIeU9dTjRm3SWTgcyGq78N9SFHvf6VtE6sJHDSzKI8oE1G8D0TG
+ 9g7k7owgDo/5TxT1mHfelbks5a1bJ+UosjTKY09AGVjljM3XcosaDvjGqUayor2RdN/u
+ c/4YsRMc/lRyOq2JlbWey6W/SXDQ8SDh3+sX9OBgMBghK2Gw0+yiC9LGeg8vST5xbaYe
+ dUytlP3/TKOsU3bkow7XUT318kNwCmMeW7gPyXg1SPwBQr4KX+15TB+yUC9pCeOMibTi
+ taYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to;
- bh=pQin6zzGAuRacO9FVhrB5u1rqYNKK0HG35yvZRfDw/0=;
- b=VSj5iyFvoFXg4cGBCUjFy4SeHwFSsMNxBIBfGnEUVQoWlK7WEQKH23VoZgg972CnnG
- QAn/XsxcrUetb1lstWyobWtpLNeJYqmV5w2r+L48OMw6A93VdaTlmSSMWoH2lnq6zBGd
- ov40mRztdS34RIorc0Q56D30LMyLBFUVlVDg9MAJpS2C5+GD5KC70bKvOZBTmFEYDT5Z
- YOVdSbWBc436Wqt+v+TRncep3EJ1tvoFp1bpEqHc3wMeWmVolJN3MC0XizRCPXTfeE2c
- JNp/FqtYxWKyntTAOPZWMAY1yvNNEtOTHxup9d7oXlOzm6lowz9cdqHJ1L0vJ9LOhfZZ
- 6Ojg==
-X-Gm-Message-State: AOAM531ZM72tdlAxbt1XHEUx6Bc0Zx/NzFKHyMmvolaIn0YQP6PiK5ou
- KXJu0wPIBvfnXuUho1kXaH1Xzieg1pW4njXLnKCxTw==
-X-Google-Smtp-Source: ABdhPJwRI/M8FbLpqXsPZDNWG2rFpgPuua67WqFCLmYKJgq6Z/6FsQGUHVJQ/05ReOq1eRD1RvJQ664QpAYl0Yz3Fus=
-X-Received: by 2002:a19:c20e:0:b0:44a:375c:6eb0 with SMTP id
- l14-20020a19c20e000000b0044a375c6eb0mr8919131lfc.5.1648688793121; Wed, 30 Mar
- 2022 18:06:33 -0700 (PDT)
-MIME-Version: 1.0
-References: <cover.1648461096.git.zong.li@sifive.com>
-In-Reply-To: <cover.1648461096.git.zong.li@sifive.com>
-From: Zong Li <zong.li@sifive.com>
-Date: Thu, 31 Mar 2022 09:06:22 +0800
-Message-ID: <CANXhq0oRB6dEHM8of6pySWM-6CkJ3WZVsqDC5J1fKuFzJnVJKw@mail.gmail.com>
-Subject: Re: [PATCH v8 0/4] Determine the number of DMA channels by
- 'dma-channels' property
-To: Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Conor Dooley <conor.dooley@microchip.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>, 
- Bin Meng <bin.meng@windriver.com>, Green Wan <green.wan@sifive.com>,
- Vinod <vkoul@kernel.org>, dmaengine <dmaengine@vger.kernel.org>, 
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@rivosinc.com>
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=/Wq8pDzbR7CUsnr4sdt91dwx6hh1W9+nP/weoDPwRHk=;
+ b=i8CDYWoJT4nM7UhWOW4DgFCa/gtToc3T1CZEBTxjooRbhg63SfLC93LwfgbrBQeaKF
+ R0YL1Mw/FSFdAs/6ZaCOP2AeuHFfaAe+r7PxtcQYErNrVf7U/AuWM9L9FRGPbh99hjn7
+ jftTSz43N+uK41oorwBBJqz6ajTT4QD08FUPFXhSIcs6FfEVoW3+4p6rC1VFsDjWlaew
+ 1Gwios1TdKuv6Sq/G0PpiMBtoJye+DjzK4om/nSmGFNU6oqjyGwAFjE4EkCqxPiYyK7g
+ 3opw4Z+aGN1EIGlfeTeyEzWu400afP7kPN8E+9KVigaCxFrS4I65rrhP69sxofF1+RiH
+ f5gA==
+X-Gm-Message-State: AOAM530/L2cqHqENioKYZdH018NCD0r3zQbBJ6oR5iu8uxGRaH3r39aE
+ aEZJoYB4atmNJxb7cwqQGaDYdMLhjZi9RA==
+X-Google-Smtp-Source: ABdhPJwoWJyLQ6QPp5H5+Zi0bn4XlidZVPYpOFyufA+MeJTtbd6qNo/vK9YqdyQGm6YZAjsao2QpsA==
+X-Received: by 2002:a17:903:2c5:b0:14f:4a29:1f64 with SMTP id
+ s5-20020a17090302c500b0014f4a291f64mr3022071plk.90.1648692982901; 
+ Wed, 30 Mar 2022 19:16:22 -0700 (PDT)
+Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
+ d24-20020a637358000000b003823aefde04sm20680836pgn.86.2022.03.30.19.16.21
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 30 Mar 2022 19:16:22 -0700 (PDT)
+Date: Wed, 30 Mar 2022 19:16:22 -0700 (PDT)
+X-Google-Original-Date: Wed, 30 Mar 2022 19:16:20 PDT (-0700)
+Subject: Re: [PATCH 2/3] RISC-V: K210 defconfigs: Drop redundant MEMBARRIER=n
+In-Reply-To: <d8a35bea-f4a0-b54d-9d2a-d1cc9b3d3e53@opensource.wdc.com>
+CC: linux-riscv@lists.infradead.org, Niklas.Cassel@wdc.com,
+ Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ anup@brainfault.org, heinrich.schuchardt@canonical.com, 
+ atishp@atishpatra.org, mchitale@ventanamicro.com, alexandre.ghiti@canonical.com,
+ axboe@kernel.dk, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: damien.lemoal@opensource.wdc.com
+Message-ID: <mhng-5bb87384-f841-4793-8f1a-fabd5c13a181@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220330_180636_070374_866C9F63 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20220330_191625_306151_682ED7F2 
+X-CRM114-Status: GOOD (  23.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,70 +86,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Vinod and Palmer,
-This patchset got some reviewed-by and acked-by, if it is good to you
-as well, are you willing to help me to pick them? Thanks.
+On Wed, 30 Mar 2022 17:26:45 PDT (-0700), damien.lemoal@opensource.wdc.com wrote:
+> On 3/31/22 08:47, Palmer Dabbelt wrote:
+>> From: Palmer Dabbelt <palmer@rivosinc.com>
+>>
+>> As of 93917ad50972 ("RISC-V: Add support for restartable sequence") we
+>> have support for restartable sequences, which default to enabled.  These
+>> select MEMBARRIER, so disabling it is now redundant.
+>>
+>> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+>>
+>> ---
+>>
+>> I'm not actually sure this is the right way to go: presumably the K210
+>> defconfigs had MEMBARRIER=n for a reason (maybe just size?), so we might
+>> actually want to move to RSEQ=n instead?  As usual: I don't test on the
+>> K210, so I'm not exactly sure what the constraints are.
+>
+> Not sure either. It is like this now because I think this was the default
+> at the time the config was created.
+>
+> Niklas,
+>
+> Can you test this please ?
 
-On Mon, Mar 28, 2022 at 5:52 PM Zong Li <zong.li@sifive.com> wrote:
+Thanks.  I'm OK either way, I guess I'd learn towards turning on the 
+features if they work/fit.  I'll hold off on merging this one for a bit, 
+I don't see any rush (it's just a defconfig) and if what was there is 
+broken then we can take it as a fix.  Otherwise it'll just get rolled up 
+into the next round of these, which I'll hopefully remember to do 
+earlier next time.
+
 >
-> The PDMA driver currently assumes there are four channels by default, it
-> might cause the error if there is actually less than four channels.
-> Change that by getting number of channel dynamically from device tree.
-> For backwards-compatible, it uses the default value (i.e. 4) when there
-> is no 'dma-channels' information in dts.
->
-> This patch set contains the dts and dt-bindings change.
->
-> Changed in v8:
->  - Rebase on master
->  - Remove modification of microchip-mpfs.dtsi
->  - Rename DMA node name of fu540-c000.dtsi
->
-> Changed in v7:
->  - Rebase on tag v5.17-rc7
->  - Modify the subject of patch
->
-> Changed in v6:
->  - Rebase on tag v5.17-rc6
->  - Change sf_pdma.chans[] to a flexible array member.
->
-> Changed in v5:
->  - Rebase on tag v5.17-rc3
->  - Fix typo in dt-bindings and commit message
->  - Add PDMA versioning scheme for compatible
->
-> Changed in v4:
->  - Remove cflags of debug use reported-by: kernel test robot <lkp@intel.com>
->
-> Changed in v3:
->  - Fix allocating wrong size
->  - Return error if 'dma-channels' is larger than maximum
->
-> Changed in v2:
->  - Rebase on tag v5.16
->  - Use 4 as default value of dma-channels
->
-> Zong Li (4):
->   dt-bindings: dma-engine: sifive,fu540: Add dma-channels property and
->     modify compatible
->   riscv: dts: Add dma-channels property and modify compatible
->   riscv: dts: rename the node name of dma
->   dmaengine: sf-pdma: Get number of channel by device tree
->
->  .../bindings/dma/sifive,fu540-c000-pdma.yaml  | 19 +++++++++++++--
->  arch/riscv/boot/dts/sifive/fu540-c000.dtsi    |  5 ++--
->  drivers/dma/sf-pdma/sf-pdma.c                 | 24 ++++++++++++-------
->  drivers/dma/sf-pdma/sf-pdma.h                 |  8 ++-----
->  4 files changed, 38 insertions(+), 18 deletions(-)
->
-> --
-> 2.35.1
->
+>> ---
+>>  arch/riscv/configs/nommu_k210_defconfig        | 1 -
+>>  arch/riscv/configs/nommu_k210_sdcard_defconfig | 1 -
+>>  arch/riscv/configs/nommu_virt_defconfig        | 1 -
+>>  3 files changed, 3 deletions(-)
+>>
+>> diff --git a/arch/riscv/configs/nommu_k210_defconfig b/arch/riscv/configs/nommu_k210_defconfig
+>> index 3f42ed87dde8..2438fa39f8ae 100644
+>> --- a/arch/riscv/configs/nommu_k210_defconfig
+>> +++ b/arch/riscv/configs/nommu_k210_defconfig
+>> @@ -21,7 +21,6 @@ CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+>>  # CONFIG_AIO is not set
+>>  # CONFIG_IO_URING is not set
+>>  # CONFIG_ADVISE_SYSCALLS is not set
+>> -# CONFIG_MEMBARRIER is not set
+>>  # CONFIG_KALLSYMS is not set
+>>  CONFIG_EMBEDDED=y
+>>  # CONFIG_VM_EVENT_COUNTERS is not set
+>> diff --git a/arch/riscv/configs/nommu_k210_sdcard_defconfig b/arch/riscv/configs/nommu_k210_sdcard_defconfig
+>> index af64b95e88cc..9a133e63ae5b 100644
+>> --- a/arch/riscv/configs/nommu_k210_sdcard_defconfig
+>> +++ b/arch/riscv/configs/nommu_k210_sdcard_defconfig
+>> @@ -13,7 +13,6 @@ CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+>>  # CONFIG_AIO is not set
+>>  # CONFIG_IO_URING is not set
+>>  # CONFIG_ADVISE_SYSCALLS is not set
+>> -# CONFIG_MEMBARRIER is not set
+>>  # CONFIG_KALLSYMS is not set
+>>  CONFIG_EMBEDDED=y
+>>  # CONFIG_VM_EVENT_COUNTERS is not set
+>> diff --git a/arch/riscv/configs/nommu_virt_defconfig b/arch/riscv/configs/nommu_virt_defconfig
+>> index e1c9864b6237..5269fbb6b4fc 100644
+>> --- a/arch/riscv/configs/nommu_virt_defconfig
+>> +++ b/arch/riscv/configs/nommu_virt_defconfig
+>> @@ -19,7 +19,6 @@ CONFIG_EXPERT=y
+>>  # CONFIG_AIO is not set
+>>  # CONFIG_IO_URING is not set
+>>  # CONFIG_ADVISE_SYSCALLS is not set
+>> -# CONFIG_MEMBARRIER is not set
+>>  # CONFIG_KALLSYMS is not set
+>>  # CONFIG_VM_EVENT_COUNTERS is not set
+>>  # CONFIG_COMPAT_BRK is not set
 
 _______________________________________________
 linux-riscv mailing list
