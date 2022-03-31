@@ -4,81 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B42FC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Mar 2022 00:17:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32D42C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Mar 2022 00:27:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=URer0RulWsdJYF4d+R+pVIIy3qV0uLis8yBhaU1RPtM=; b=JVaf4noO9M6o4JixNE22aiUJ3I
-	vq6dJcKEFCnNHDlo2Wx/thi9MMRO01mB0S8mRBtN1kI17XfEqPIkXL0Fz3LQN0Yx1mwFSI8bdxKJD
-	5AqUL86R31ZZkLXvUeQpqTWJvNpk7hH1Axj99ToxWfn7buWzCzqNG+e9faipdnYJvj413Ki46ThY5
-	94SExaZg8yXnXUgmpJB+7FQ6GjNZAMHqQaJIs78jFgACW6ek5GgZZUWTBDVHHJKKG2hIlceesKLGx
-	E8CJynuW+jDIo9hCe1vzb+mgKGzULU4Dnsu6P5SuBpSIqUTieV8cvYUZZWlOPUiLs3OtUUxG+uQRU
-	63OG4bLA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yTILwla9jSfy8Tqmb1E1mqSZC+t2P5LqXWjwptevjQ0=; b=xgB8y/mOSGm5Gc
+	KSMQ4tAXLapmjxg1ZjvoTn+ZCTQuBr99AjoiZYNftn+Wbx6Zdfj+xBhdMH0niqOJrmHfvmBX796OS
+	KeV5PZpsLSCJOl7T1FFDR11xs9fLHdxAwpb73kiBgplG4IKGu/6atLtpiOB8nzHbL/bkqGvk7aHyA
+	b9zMZcag3SgZFh7YeJXtgQE7x4zPeqzkRKw0yEgcZdGJlQ6rk/JcWDd0/RoeKgsSTFxht/U6E41sL
+	aY2o7x0LcSVWhzP1qOJ9t9029GcuxbdIefb9HDwNChkvsQPGpavnfgyFIyOI7LryBKgd8P8+xKvPQ
+	AhDzoMP4eX13IuKn3XrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nZiUl-000BeO-CA; Thu, 31 Mar 2022 00:16:59 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1nZieN-000CW3-PP; Thu, 31 Mar 2022 00:26:55 +0000
+Received: from esa4.hgst.iphmx.com ([216.71.154.42])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nZiUY-000Bah-BO
- for linux-riscv@lists.infradead.org; Thu, 31 Mar 2022 00:16:49 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id a16so5035919plh.13
- for <linux-riscv@lists.infradead.org>; Wed, 30 Mar 2022 17:16:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=hV5Vaha8m52Fl/sbC+q84uMk9aQkw6LUqtUCcgndF8M=;
- b=CV+r1o6zChs5P5InM9X1qElR7wUi9znFVzk+BTEw9wbkC5GpnAL32a0JlFZ5IDVGEs
- VX2dMQ+caneEvjqT0ygPK6CJf2NcwPcVFDb9GtiAYvNrHg1ZDhFz72fD34Y1a8hbQ6RI
- nL2QkUrZrHGMidBFNqIBJdRoKs0Zy261sw1wIyJ9CJngYZCqaX+WVLtzebLvwAe2pHYw
- 5Y5mAuJGZPm6WtoZzG7mpZahhtAS8MS8TSND9TArgR+796jXSrne0Lh6wgDOmPulJYNl
- ozTTy8BOxKZ1SSj/if+fYPGeZhmUpBi7gD2PZF1hx9FQk6uFLTkDrLwRMEv3o1Ggo8gH
- JDAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=hV5Vaha8m52Fl/sbC+q84uMk9aQkw6LUqtUCcgndF8M=;
- b=rYeU7p0tZUL6Xa0BjQUZAXJKC3GgZX+5TmxZIdNia1/Es8kxMdb9N74zYP7D7jiTjw
- PbUyQ6TBq4CAapLKOlD1A8l89KpYvw7+AJ+kGeTdNgajikJhtzo7rdcz2AUkZSyb4c79
- MM84LZwsZMkElf8RUMSovddPq7QWE8opoD9OYAwFJg0PWG4lyP7HWDHbWvYi1VdRVIcX
- sc0geAfBnDvZ9hJJVBOMwyIUZlQZLL8KIcG3YVLgt8ZAi7QlstR7gVybze735Ojt1mup
- IMWS1gKbyVeQV2LhIoeN7CFLy1+3ZkFLIxZGE2dmdQClhmQT+IvS1Qgi1pPZcMU24D8d
- l3hQ==
-X-Gm-Message-State: AOAM5338IDg6JBE3AScH0vgXNy0c5CBSZrkJ6dUgBLGHT5WVRcMnLaDD
- z5WseuOsV/JIhF3nTO1csXsEvw==
-X-Google-Smtp-Source: ABdhPJz3Vbz6dsNGCNsUCpmIHgTM0rvC4Z04UHGBv/6dn0xozsPKDxJlOJ9mtUs2fY8yqbbfl4uTuQ==
-X-Received: by 2002:a17:903:206:b0:153:ebab:a52f with SMTP id
- r6-20020a170903020600b00153ebaba52fmr2479213plh.118.1648685805530; 
- Wed, 30 Mar 2022 17:16:45 -0700 (PDT)
-Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
- b2-20020a056a000a8200b004f1111c66afsm27292172pfl.148.2022.03.30.17.16.44
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 30 Mar 2022 17:16:44 -0700 (PDT)
-Date: Wed, 30 Mar 2022 17:16:44 -0700 (PDT)
-X-Google-Original-Date: Wed, 30 Mar 2022 17:16:33 PDT (-0700)
-Subject: Re: [PATCH v11 0/8] RISC-V CPU Idle Support
-In-Reply-To: <20220210054947.170134-1-apatel@ventanamicro.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- daniel.lezcano@linaro.org, ulf.hansson@linaro.org, rjw@rjwysocki.net,
- pavel@ucw.cz, robh+dt@kernel.org, 
- milun.tripathy@gmail.com, atishp@atishpatra.org,
- Alistair Francis <Alistair.Francis@wdc.com>, 
- liush@allwinnertech.com, anup@brainfault.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, kvm-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: apatel@ventanamicro.com
-Message-ID: <mhng-ed3c61a2-45a5-4cc4-b1ec-26e25f92c0a3@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+ id 1nZieL-000CVH-6z
+ for linux-riscv@lists.infradead.org; Thu, 31 Mar 2022 00:26:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1648686412; x=1680222412;
+ h=message-id:date:mime-version:subject:to:cc:references:
+ from:in-reply-to:content-transfer-encoding;
+ bh=MAEmACm8JL0agnrolT58m2LejPScBLQM6qttzu2LRgs=;
+ b=omitOGv6I4iGrLMzat13EgiL13UAeUi3DhzfcdigS0HVCVJ2jdZp2Sui
+ zlpyyAngyPSka5dXXnkVdhRvGdj0Tr85aL5OrWJGRsou4P5pZ0whGOhNz
+ V93Lg95oR2EiyuyEQk7PzF+uZ3q/pRy8UdJQifFeIJabWoKF7feay90EO
+ MoxYXcM2/UDQ1FEIQSqorZ+q0tIlHQsWSwo45d/hc2b1GPNONcuhERqVJ
+ BZNAo9tsz1QpXEipJUBmR9Ba3L7PfxPiUKF6XxXjckCpyBaWS4f5Q2BZP
+ QzoJzqOKdDmFjR4RjNn9NSycDR+j4qIr4sk8J3rHbU1WM+kc9G7bMW6Iz A==;
+X-IronPort-AV: E=Sophos;i="5.90,223,1643644800"; d="scan'208";a="195566409"
+Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 31 Mar 2022 08:26:50 +0800
+IronPort-SDR: IOCOTmX19EPCM595VBhieuOnyQnhNB3uztTZZGJyJEqchMNk/4PdnDsRy0bk/doUmFb2F1tRAT
+ 0LnlZgJHCMBoIcBkmWluVwDa0Y+heaOVURkORTX01tM9S77oGjsEEM8f9KeJnSwHm/9DrdQmCH
+ jNgISWAvZVJCl21lIuyk2y7AiYxc+SY2EmMl6cIcxEYSONp0j65XtlPTuTqQlKP9Agk2A433x1
+ S3aO71JdyeBg/N32KvBytLIIKsauxJYOZwNRkFMT4DKGWu98cFM6XMkhS+aT7LXTuLzOetFGfj
+ 8Ssgl4MXCBOEuApmSNTj1dPk
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+ by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;
+ 30 Mar 2022 16:58:31 -0700
+IronPort-SDR: 8ZQpgXKZahpHNFgyqBMVxGe82J4vm4wy2U0CzTp8FLLrIJlbK183rm/ndFGTOPyhaxIWIwijme
+ QSb4JT8gdAiMOMQ7RuGfJgBRzL04n36fRYiuHKMpYCwb2C4xsgqKqmXdsD45YHsC9CVyEEGEyr
+ k4xuAbGizVOkc0MufLVdFovxaTZKMwuEJ4AK4WlgMqt90DhfA1cpfGYcNdxA32qhB5/coJoKra
+ 6XEewjESUPLeI5BGu3Y1PKaEVB6ignRuSXOE2pn520f94HBRD2Y+ByJAaTEjLRbh/6PaDF3mdi
+ WNk=
+WDCIronportException: Internal
+Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
+ by uls-op-cesaip01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;
+ 30 Mar 2022 17:26:50 -0700
+Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4KTPHs75Qyz1SVp6
+ for <linux-riscv@lists.infradead.org>; Wed, 30 Mar 2022 17:26:49 -0700 (PDT)
+Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
+ reason="pass (just generated, assumed good)"
+ header.d=opensource.wdc.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
+ opensource.wdc.com; h=content-transfer-encoding:content-type
+ :in-reply-to:organization:from:references:to:content-language
+ :subject:user-agent:mime-version:date:message-id; s=dkim; t=
+ 1648686409; x=1651278410; bh=MAEmACm8JL0agnrolT58m2LejPScBLQM6qt
+ tzu2LRgs=; b=qxj2JM1oqz6ef2yg3vL9qh1vgfRq6qU0Di8N8SBh1TcBte6a++U
+ ZpHWB4ue5q9sorZiD0QV/xA0QJhQFI1PBrGLF6w9gvBARO3ZTfDktkrA2KlEMc36
+ 8lFNT17fn5TbSOEiIo6DFExIUQ+SXrOnEMTkCdxTgBT1rWvgB0CU3/VtuwtHyLEp
+ WZ3sFad7gbszGMoySo5S9xqlscKX9u0AWrbY2CKfuNWmYROhVRITYiNvNAFnGJEB
+ +a6vwYKZmmU48PBIFYYc+9rDUqaoLSsV8HkXl04m70aaC+G8r84sj5Be43AVn8vP
+ tFgpawLFR/EIlSx0sGB3VpfBDCJkQDG/6SQ==
+X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
+Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
+ by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new,
+ port 10026)
+ with ESMTP id i5jTlzukCMws for <linux-riscv@lists.infradead.org>;
+ Wed, 30 Mar 2022 17:26:49 -0700 (PDT)
+Received: from [10.225.163.121] (unknown [10.225.163.121])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4KTPHp5RGLz1Rvlx;
+ Wed, 30 Mar 2022 17:26:46 -0700 (PDT)
+Message-ID: <d8a35bea-f4a0-b54d-9d2a-d1cc9b3d3e53@opensource.wdc.com>
+Date: Thu, 31 Mar 2022 09:26:45 +0900
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.7.0
+Subject: Re: [PATCH 2/3] RISC-V: K210 defconfigs: Drop redundant MEMBARRIER=n
+Content-Language: en-US
+To: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org,
+ Niklas Cassel <Niklas.Cassel@wdc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu,
+ anup@brainfault.org, heinrich.schuchardt@canonical.com,
+ atishp@atishpatra.org, mchitale@ventanamicro.com,
+ alexandre.ghiti@canonical.com, axboe@kernel.dk, linux-kernel@vger.kernel.org
+References: <20220330234739.1956-1-palmer@rivosinc.com>
+ <20220330234739.1956-2-palmer@rivosinc.com>
+From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+Organization: Western Digital Research
+In-Reply-To: <20220330234739.1956-2-palmer@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220330_171646_498024_622213B8 
-X-CRM114-Status: GOOD (  23.90  )
+X-CRM114-CacheID: sfid-20220330_172653_429713_1FAF6A01 
+X-CRM114-Status: GOOD (  23.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,135 +117,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 09 Feb 2022 21:49:39 PST (-0800), apatel@ventanamicro.com wrote:
-> From: Anup Patel <anup.patel@wdc.com>
->
-> This series adds RISC-V CPU Idle support using SBI HSM suspend function.
-> The RISC-V SBI CPU idle driver added by this series is highly inspired
-> from the ARM PSCI CPU idle driver.
->
-> At high-level, this series includes the following changes:
-> 1) Preparatory arch/riscv patches (Patches 1 to 3)
-> 2) Defines for RISC-V SBI HSM suspend (Patch 4)
-> 3) Preparatory patch to share code between RISC-V SBI CPU idle driver
->    and ARM PSCI CPU idle driver (Patch 5)
-> 4) RISC-V SBI CPU idle driver and related DT bindings (Patches 6 to 7)
->
-> These patches can be found in riscv_sbi_hsm_suspend_v11 branch of
-> https://github.com/avpatel/linux.git
->
-> Special thanks Sandeep Tripathy for providing early feeback on SBI HSM
-> support in all above projects (RISC-V SBI specification, OpenSBI, and
-> Linux RISC-V).
->
-> Changes since v10:
->  - Rebased on Linux-5.17-rc3
->  - Typo fix in commit description of PATCH6
->
-> Changes since v9:
->  - Rebased on Linux-5.17-rc1
->
-> Changes since v8:
->  - Rebased on Linux-5.15-rc5
->  - Fixed DT schema check errors in PATCH7
->
-> Changes since v7:
->  - Rebased on Linux-5.15-rc3
->  - Renamed cpuidle-sbi.c to cpuidle-riscv-sbi.c in PATCH6
->
-> Changes since v6:
->  - Fixed error reported by "make DT_CHECKER_FLAGS=-m dt_binding_check"
->
-> Changes since v5:
->  - Rebased on Linux-5.13-rc5
->  - Removed unnecessary exports from PATCH5
->  - Removed stray ";" from PATCH5
->  - Moved sbi_cpuidle_pd_power_off() under "#ifdef CONFIG_DT_IDLE_GENPD"
->    in PATCH6
->
-> Changes since v4:
->  - Rebased on Linux-5.13-rc2
->  - Renamed all dt_idle_genpd functions to have "dt_idle_" prefix
->  - Added MAINTAINERS file entry for dt_idle_genpd
->
-> Changes since v3:
->  - Rebased on Linux-5.13-rc2
->  - Fixed __cpu_resume_enter() which was broken due to XIP kernel support
->  - Removed "struct dt_idle_genpd_ops" abstraction which simplifies code
->    sharing between ARM PSCI and RISC-V SBI drivers in PATCH5
->
-> Changes since v2:
->  - Rebased on Linux-5.12-rc3
->  - Updated PATCH7 to add common DT bindings for both ARM and RISC-V
->    idle states
->  - Added "additionalProperties = false" for both idle-states node and
->    child nodes in PATCH7
->
-> Changes since v1:
->  - Fixex minor typo in PATCH1
->  - Use just "idle-states" as DT node name for CPU idle states
->  - Added documentation for "cpu-idle-states" DT property in
->    devicetree/bindings/riscv/cpus.yaml
->  - Added documentation for "riscv,sbi-suspend-param" DT property in
->    devicetree/bindings/riscv/idle-states.yaml
->
-> Anup Patel (8):
->   RISC-V: Enable CPU_IDLE drivers
->   RISC-V: Rename relocate() and make it global
->   RISC-V: Add arch functions for non-retentive suspend entry/exit
->   RISC-V: Add SBI HSM suspend related defines
->   cpuidle: Factor-out power domain related code from PSCI domain driver
->   cpuidle: Add RISC-V SBI CPU idle driver
->   dt-bindings: Add common bindings for ARM and RISC-V idle states
->   RISC-V: Enable RISC-V SBI CPU Idle driver for QEMU virt machine
->
->  .../bindings/arm/msm/qcom,idle-state.txt      |   2 +-
->  .../devicetree/bindings/arm/psci.yaml         |   2 +-
->  .../bindings/{arm => cpu}/idle-states.yaml    | 228 ++++++-
->  .../devicetree/bindings/riscv/cpus.yaml       |   6 +
->  MAINTAINERS                                   |  14 +
->  arch/riscv/Kconfig                            |   7 +
->  arch/riscv/Kconfig.socs                       |   3 +
->  arch/riscv/configs/defconfig                  |   2 +
->  arch/riscv/configs/rv32_defconfig             |   2 +
->  arch/riscv/include/asm/asm.h                  |  27 +
->  arch/riscv/include/asm/cpuidle.h              |  24 +
->  arch/riscv/include/asm/sbi.h                  |  27 +-
->  arch/riscv/include/asm/suspend.h              |  36 +
->  arch/riscv/kernel/Makefile                    |   2 +
->  arch/riscv/kernel/asm-offsets.c               |   3 +
->  arch/riscv/kernel/cpu_ops_sbi.c               |   2 +-
->  arch/riscv/kernel/head.S                      |  28 +-
->  arch/riscv/kernel/process.c                   |   3 +-
->  arch/riscv/kernel/suspend.c                   |  87 +++
->  arch/riscv/kernel/suspend_entry.S             | 124 ++++
->  arch/riscv/kvm/vcpu_sbi_hsm.c                 |   4 +-
->  drivers/cpuidle/Kconfig                       |   9 +
->  drivers/cpuidle/Kconfig.arm                   |   1 +
->  drivers/cpuidle/Kconfig.riscv                 |  15 +
->  drivers/cpuidle/Makefile                      |   5 +
->  drivers/cpuidle/cpuidle-psci-domain.c         | 138 +---
->  drivers/cpuidle/cpuidle-psci.h                |  15 +-
->  drivers/cpuidle/cpuidle-riscv-sbi.c           | 627 ++++++++++++++++++
->  drivers/cpuidle/dt_idle_genpd.c               | 178 +++++
->  drivers/cpuidle/dt_idle_genpd.h               |  50 ++
->  30 files changed, 1484 insertions(+), 187 deletions(-)
->  rename Documentation/devicetree/bindings/{arm => cpu}/idle-states.yaml (74%)
->  create mode 100644 arch/riscv/include/asm/cpuidle.h
->  create mode 100644 arch/riscv/include/asm/suspend.h
->  create mode 100644 arch/riscv/kernel/suspend.c
->  create mode 100644 arch/riscv/kernel/suspend_entry.S
->  create mode 100644 drivers/cpuidle/Kconfig.riscv
->  create mode 100644 drivers/cpuidle/cpuidle-riscv-sbi.c
->  create mode 100644 drivers/cpuidle/dt_idle_genpd.c
->  create mode 100644 drivers/cpuidle/dt_idle_genpd.h
+On 3/31/22 08:47, Palmer Dabbelt wrote:
+> From: Palmer Dabbelt <palmer@rivosinc.com>
+> 
+> As of 93917ad50972 ("RISC-V: Add support for restartable sequence") we
+> have support for restartable sequences, which default to enabled.  These
+> select MEMBARRIER, so disabling it is now redundant.
+> 
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> 
+> ---
+> 
+> I'm not actually sure this is the right way to go: presumably the K210
+> defconfigs had MEMBARRIER=n for a reason (maybe just size?), so we might
+> actually want to move to RSEQ=n instead?  As usual: I don't test on the
+> K210, so I'm not exactly sure what the constraints are.
 
-Thanks, these are on for-next.
+Not sure either. It is like this now because I think this was the default
+at the time the config was created.
+
+Niklas,
+
+Can you test this please ?
+
+> ---
+>  arch/riscv/configs/nommu_k210_defconfig        | 1 -
+>  arch/riscv/configs/nommu_k210_sdcard_defconfig | 1 -
+>  arch/riscv/configs/nommu_virt_defconfig        | 1 -
+>  3 files changed, 3 deletions(-)
+> 
+> diff --git a/arch/riscv/configs/nommu_k210_defconfig b/arch/riscv/configs/nommu_k210_defconfig
+> index 3f42ed87dde8..2438fa39f8ae 100644
+> --- a/arch/riscv/configs/nommu_k210_defconfig
+> +++ b/arch/riscv/configs/nommu_k210_defconfig
+> @@ -21,7 +21,6 @@ CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+>  # CONFIG_AIO is not set
+>  # CONFIG_IO_URING is not set
+>  # CONFIG_ADVISE_SYSCALLS is not set
+> -# CONFIG_MEMBARRIER is not set
+>  # CONFIG_KALLSYMS is not set
+>  CONFIG_EMBEDDED=y
+>  # CONFIG_VM_EVENT_COUNTERS is not set
+> diff --git a/arch/riscv/configs/nommu_k210_sdcard_defconfig b/arch/riscv/configs/nommu_k210_sdcard_defconfig
+> index af64b95e88cc..9a133e63ae5b 100644
+> --- a/arch/riscv/configs/nommu_k210_sdcard_defconfig
+> +++ b/arch/riscv/configs/nommu_k210_sdcard_defconfig
+> @@ -13,7 +13,6 @@ CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+>  # CONFIG_AIO is not set
+>  # CONFIG_IO_URING is not set
+>  # CONFIG_ADVISE_SYSCALLS is not set
+> -# CONFIG_MEMBARRIER is not set
+>  # CONFIG_KALLSYMS is not set
+>  CONFIG_EMBEDDED=y
+>  # CONFIG_VM_EVENT_COUNTERS is not set
+> diff --git a/arch/riscv/configs/nommu_virt_defconfig b/arch/riscv/configs/nommu_virt_defconfig
+> index e1c9864b6237..5269fbb6b4fc 100644
+> --- a/arch/riscv/configs/nommu_virt_defconfig
+> +++ b/arch/riscv/configs/nommu_virt_defconfig
+> @@ -19,7 +19,6 @@ CONFIG_EXPERT=y
+>  # CONFIG_AIO is not set
+>  # CONFIG_IO_URING is not set
+>  # CONFIG_ADVISE_SYSCALLS is not set
+> -# CONFIG_MEMBARRIER is not set
+>  # CONFIG_KALLSYMS is not set
+>  # CONFIG_VM_EVENT_COUNTERS is not set
+>  # CONFIG_COMPAT_BRK is not set
+
+
+-- 
+Damien Le Moal
+Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
