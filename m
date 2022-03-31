@@ -4,67 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C822C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Mar 2022 10:51:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78DC4C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Mar 2022 12:19:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k5/Vz9s/+e64emoAw1k5jXXjHfcbL0yAac7uXIF0Kew=; b=oSzc+TlAwAFs9gn0jfYkIvZy8/
-	aNpnC9SQ/IW8pHxefeDwiPUFzMoGoRJd8ADtJ+ABEWRS5Vaq0rvCgr5QekFsSXb3qzMv/lB8/Wr/H
-	PNeci0gubYP0t/oe6BPVupP6Pjqrg6wRyEOK72f9VJTEE1TeKvjrag80hqGzBnKTcJzo+iDSL+wiB
-	J4eNVmg7px45cfomXtNzaInXa2Wk1g65XLS8syEXexCEKEDjdyWtMA/AhrWh/afQERFfnIStiut5M
-	ELeHjspZyasvz2PBNn+h5gE0F3To25/V5GYsZHzrNrVlmcmb5uKffkljx9XFOIjqNZKAmFixFOxXH
-	B9dOKoaw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RfeWMofy4rECxnMWYOT9iZ+ky8wCB/KCzHMI425+4Io=; b=fIuxx4cxqwxpYr
+	Ydh1RPieKLe3dRPChwhOk4eT0b8OvduPqLqXYOomr26MBgIIB/0ohDvqPuPsbVvFsB4Tihcy3YJZd
+	hLpzkgTolSYFzvmQZNv1OZ07GHOKAoph+yg5sUCI47hsAoxov3grxUri78OChtqNFVJydoV2S+/EU
+	L66z/q4PJF0/vUfuVfV5vqRf8kpSatJURqPYwuNnUdRLczDf+Bo8DHDZs3cnGBL0wP0X1A5qHyVWr
+	8xYerq6mXD60Vami3aGCZLKmayy7jM2WELSYHQvca2ggEqAqt1C8J5ZblONapLqAQYXEJZmsCu3LV
+	xtdwXxAsPTttZogxxNrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nZsOf-001ukk-Mu; Thu, 31 Mar 2022 10:51:21 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1nZtm4-002C3W-Fj; Thu, 31 Mar 2022 12:19:36 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nZsOc-001ujf-46
- for linux-riscv@lists.infradead.org; Thu, 31 Mar 2022 10:51:19 +0000
-Received: from gallifrey.ext.pengutronix.de
- ([2001:67c:670:201:5054:ff:fe8d:eefb] helo=bjornoya.blackshift.org)
- by metis.ext.pengutronix.de with esmtps
- (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <mkl@pengutronix.de>)
- id 1nZsOX-00078k-A6; Thu, 31 Mar 2022 12:51:13 +0200
-Received: from pengutronix.de
- (2a03-f580-87bc-d400-ffcf-bd2e-518f-8dbf.ip6.dokom21.de
- [IPv6:2a03:f580:87bc:d400:ffcf:bd2e:518f:8dbf])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest
- SHA256) (Client did not present a certificate)
- (Authenticated sender: mkl-all@blackshift.org)
- by smtp.blackshift.org (Postfix) with ESMTPSA id 670AD57B86;
- Thu, 31 Mar 2022 10:51:12 +0000 (UTC)
-Date: Thu, 31 Mar 2022 12:51:12 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Aurelien Jarno <aurelien@aurel32.net>
-Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- Kito Cheng <kito.cheng@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
- linux-sparse@vger.kernel.org, ukl@pengutronix.de,
- Luc Van Oostenryck <luc.vanoostenryck@gmail.com>
-Subject: Re: [PATCH] riscv: fix build with binutils 2.38
-Message-ID: <20220331105112.7t3qgtilhortkiq4@pengutronix.de>
-References: <20220126171442.1338740-1-aurelien@aurel32.net>
- <20220331103247.y33wvkxk5vfbqohf@pengutronix.de>
- <20220331103913.2vlneq6clnheuty6@pengutronix.de>
+ id 1nZtlv-002C0I-JS
+ for linux-riscv@lists.infradead.org; Thu, 31 Mar 2022 12:19:29 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
+ helo=diego.localnet)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1nZtlk-0000k8-GV; Thu, 31 Mar 2022 14:19:16 +0200
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Christoph Hellwig <hch@lst.de>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, wefu@redhat.com,
+ liush@allwinnertech.com, guoren@kernel.org, atishp@atishpatra.org,
+ anup@brainfault.org, drew@beagleboard.org, hch@lst.de, arnd@arndb.de,
+ wens@csie.org, maxime@cerno.tech, gfavor@ventanamicro.com,
+ andrea.mondelli@huawei.com, behrensj@mit.edu, xinhaoqu@huawei.com,
+ mick@ics.forth.gr, allen.baum@esperantotech.com, jscheid@ventanamicro.com,
+ rtrauben@gmail.com, samuel@sholland.org, cmuellner@linux.com,
+ philipp.tomsich@vrull.eu, Wei Wu <lazyparser@gmail.com>,
+ Daniel Lustig <dlustig@nvidia.com>, Bill Huffman <huffman@cadence.com>
+Subject: Re: [PATCH v8 11/14] riscv: add RISC-V Svpbmt extension support
+Date: Thu, 31 Mar 2022 14:19:15 +0200
+Message-ID: <1700398.X513TT2pbd@diego>
+In-Reply-To: <20220331100337.GH23422@lst.de>
+References: <20220324000710.575331-1-heiko@sntech.de>
+ <20220324000710.575331-12-heiko@sntech.de> <20220331100337.GH23422@lst.de>
 MIME-Version: 1.0
-In-Reply-To: <20220331103913.2vlneq6clnheuty6@pengutronix.de>
-X-SA-Exim-Connect-IP: 2001:67c:670:201:5054:ff:fe8d:eefb
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220331_035118_199998_F1E4879D 
-X-CRM114-Status: GOOD (  23.94  )
+X-CRM114-CacheID: sfid-20220331_051927_687233_5436C802 
+X-CRM114-Status: UNSURE (   6.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,138 +64,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4052222298958496994=="
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Christoph,
 
---===============4052222298958496994==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="y7e5q426lci6cphx"
-Content-Disposition: inline
-
-
---y7e5q426lci6cphx
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Cc +=3D linux-sparse, Uwe, Luc Van Oostenryck
-
-tl;dr:
-
-A recent change in the kernel regarding the riscv -march handling breaks
-current sparse.
-
-On 31.03.2022 12:39:14, Marc Kleine-Budde wrote:
-> On 31.03.2022 12:32:47, Marc Kleine-Budde wrote:
-> > On 26.01.2022 18:14:42, Aurelien Jarno wrote:
-> > > From version 2.38, binutils default to ISA spec version 20191213. This
-> > > means that the csr read/write (csrr*/csrw*) instructions and fence.i
-> > > instruction has separated from the `I` extension, become two standalo=
-ne
-> > > extensions: Zicsr and Zifencei. As the kernel uses those instruction,
-> > > this causes the following build failure:
-> > >=20
-> > >   CC      arch/riscv/kernel/vdso/vgettimeofday.o
-> > >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h: Assembler =
-messages:
-> > >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error: =
-unrecognized opcode `csrr a5,0xc01'
-> > >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error: =
-unrecognized opcode `csrr a5,0xc01'
-> > >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error: =
-unrecognized opcode `csrr a5,0xc01'
-> > >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error: =
-unrecognized opcode `csrr a5,0xc01'
-> > >=20
-> > > The fix is to specify those extensions explicitely in -march. However=
- as
-> > > older binutils version do not support this, we first need to detect
-> > > that.
-> > >=20
-> > > Cc: stable@vger.kernel.org # 4.15+
-> > > Cc: Kito Cheng <kito.cheng@gmail.com>
-> > > Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
-> > > ---
-> > >  arch/riscv/Makefile | 6 ++++++
-> > >  1 file changed, 6 insertions(+)
-> > >=20
-> > > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> > > index 8a107ed18b0d..7d81102cffd4 100644
-> > > --- a/arch/riscv/Makefile
-> > > +++ b/arch/riscv/Makefile
-> > > @@ -50,6 +50,12 @@ riscv-march-$(CONFIG_ARCH_RV32I)	:=3D rv32ima
-> > >  riscv-march-$(CONFIG_ARCH_RV64I)	:=3D rv64ima
-> > >  riscv-march-$(CONFIG_FPU)		:=3D $(riscv-march-y)fd
-> > >  riscv-march-$(CONFIG_RISCV_ISA_C)	:=3D $(riscv-march-y)c
-> > > +
-> > > +# Newer binutils versions default to ISA spec version 20191213 which=
- moves some
-> > > +# instructions from the I extension to the Zicsr and Zifencei extens=
-ions.
-> > > +toolchain-need-zicsr-zifencei :=3D $(call cc-option-yn, -march=3D$(r=
-iscv-march-y)_zicsr_zifencei)
-> > > +riscv-march-$(toolchain-need-zicsr-zifencei) :=3D $(riscv-march-y)_z=
-icsr_zifencei
-> > > +
-> > >  KBUILD_CFLAGS +=3D -march=3D$(subst fd,,$(riscv-march-y))
-> > >  KBUILD_AFLAGS +=3D -march=3D$(riscv-march-y)
-> >=20
-> > I'm on current linus/master, this change breaks on current Debian
-> > testing with:
-> >=20
-> > | make: Leaving directory 'linux'
-> > |   SYNC    include/config/auto.conf.cmd
-> > |   GEN     Makefile
-> > |   GEN     Makefile
-> > |   CC      scripts/mod/empty.o
-> > |   CHECK   linux/scripts/mod/empty.c
->       ^^^^^
-> It's actually "sparse" that breaks
->      =20
-> > | invalid argument to '-march': '_zicsr_zifencei'
->=20
-> | $ sparse --version
-> | 0.6.4 (Debian: 0.6.4-2)
-
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde           |
-Embedded Linux                   | https://www.pengutronix.de  |
-Vertretung West/Dortmund         | Phone: +49-231-2826-924     |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-5555 |
-
---y7e5q426lci6cphx
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEBsvAIBsPu6mG7thcrX5LkNig010FAmJFh5wACgkQrX5LkNig
-013oyQgApEAGaNeYbcnBksclgOHXyRB9XqcWrrQVGYKkT0FziLqGCsxU30J3T4Rh
-HRyf/cB3aJ1vsHwnz2wyT7ylEoeD6V2gozxE2rKl0ZIw74gCrQO09Yn31SvRxuUz
-+CtJnkbrapsLGxZ8a7a08YU/9DSLkhvefR7vhgVMcjYYY/iceBjvdi1rJZGHI4iV
-PMG1oDT6nm8i6GtYQ8KmRuFs7iyCCL92nnoYSxd3CjCUzvYzVaL3hiM7gpEr1c9+
-SrVM13phszf/JPOUaZ1gRr2lnN5DXagyRH0S/ySN5fJ1+kJYq5HrRM6+NO01+5mN
-q9mwLpS5NvsBOIhnxolvuCOS0Yth/Q==
-=TEkc
------END PGP SIGNATURE-----
-
---y7e5q426lci6cphx--
+Am Donnerstag, 31. M=E4rz 2022, 12:03:37 CEST schrieb Christoph Hellwig:
+> =
 
 
---===============4052222298958496994==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+looks like this mail somehow lost its content.
+
+At first I assumed some issue on my end, but lore [0] agrees
+that this mail somehow was empty.
+
+
+Heiko
+
+[0] https://lore.kernel.org/all/20220331100337.GH23422@lst.de/
+
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4052222298958496994==--
-
