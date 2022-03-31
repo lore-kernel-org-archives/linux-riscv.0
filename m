@@ -4,77 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3732DC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Mar 2022 19:54:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55FF4C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Mar 2022 20:28:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=UNDx9Pt/ofwED7VZBddtuPk+2+GEiXJb3vRNcjL5Xso=; b=xhtggsO/NtQ0RzrG7AHnjnugOr
-	cPVQ302DdfOeTe1Y43xI+WqkDGib68TrEF6NLzt7/87R2t75FebqrOdElifbsZGKFg1ocD/E4Gqj5
-	LFu+u6Yt2prb3xVvw0QL3EOCGX0kEX4Ai1hsOArnrU5PRbCnBOZ34cczI6eIwhyDa55L1DAMq8GlL
-	Lew6XBh20Z040e/7bazh8JQ41nXDfv0YqdUIegR951ZelfSK9iPhUCkBjCsy+2vWlbZtuCANBdQI8
-	5ZBPdnEsU2J6j+sCEIuAu0j1Xg5RFLaLi4taJA+J69O+SXvbmU4pP3fxmVO3gRpclobcpOCfcbsLf
-	gvZkUqKQ==;
+	bh=xE3VWkc/nn76jSS5+jkaeRi8lYo4lW4Gr/IyiFhDtCk=; b=DZkD3kxnvt4SNxc7jts7MjYsvg
+	t/isJpJ9wiaMoSG75Jbosuv8hAvUFP7EiYN6CaMhogBYNgu7QtMjsLvC0DsoFQhpaPD8hrW14sVE5
+	r5tAeV9MmIIXqE6OGvffpYIo/CMjy/Exg7Psyl5TbXmm4bcwIeU/97wCnUGk32oCLsDM61q0DoJ+4
+	6AWSXNYQlJ5Xk/VSoVB/RGDaFh3fRN8haRQBBRVJoCwIkizdGR7grILvMTC7iwBkmSzC95a07zMH7
+	NhoLPyQlzPhr+4UnEGe2d87+Ne+bHN9wHYvCR5nEv0yqMMs1xssAyiMRTK/1p1E2zndwR8muvKfC+
+	8LeIH3AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1na0sF-003UrL-J3; Thu, 31 Mar 2022 19:54:27 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1na1Oy-003aFA-81; Thu, 31 Mar 2022 20:28:16 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1na0sC-003UqS-EI
- for linux-riscv@lists.infradead.org; Thu, 31 Mar 2022 19:54:25 +0000
-Received: by mail-pl1-x635.google.com with SMTP id p17so531714plo.9
- for <linux-riscv@lists.infradead.org>; Thu, 31 Mar 2022 12:54:23 -0700 (PDT)
+ id 1na1Ot-003aBt-BJ
+ for linux-riscv@lists.infradead.org; Thu, 31 Mar 2022 20:28:14 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id
+ h23-20020a17090a051700b001c9c1dd3acbso517671pjh.3
+ for <linux-riscv@lists.infradead.org>; Thu, 31 Mar 2022 13:28:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=8uJ7V2Lk5b43qtRmyNKIxduM/i4ZvkhkfMVtcSMTHLc=;
- b=FU4YJeOWM6yJOftdRdppJkqAphiFFHBDWUUenEYTDla3AjR/9XyWUZ7NZrML9kP99Z
- rqVOzKX0OfynEviPak2SUeMa0Jxf+lrS9EClU7ZqMwKR3W/DNIVrESqbp+0eIEVkrIBM
- M2axkYIj+R7nx0w3lyY4eEihxCsjEfF2rwwm4ERkBmFL3F2/vYC+dG+rn5028ncqt8cj
- SlsMm9LggdTPgKMEVRPSqQNUJJCSU9RceECfCtuPpey4sagbpN/5/PCyVkitJ13aPlA3
- YdQ3O527QYaVl7OfKeTFGDfExvfTRBdEKXr5OeP9UNh/o1LsqwQB9z32d0VsYvZtWzn+
- VywQ==
+ bh=bnq3RGPMzBMV/g9aWknvx9FGXd6IFr5H5AAWOs4ymHk=;
+ b=1uYsPp4Tl1AUltqW3P44nhWS7GvP4CJgKOhn+4VSW6tjebojOna8+DqcXGZ9k0L/qg
+ /kFWpO1A9VCxXURXGLxWREhOlFDrf7SGsxEcHzf+/1uE2v7LBC1dWVqweOKhApxLgw9D
+ amggZOnWK8/4wpWGOGhiK4cjY2SQMXyCD0VEruU0dGq6NnWYK88rwYoSegTMJzw1+tk3
+ HxcB/8JTpf60c1hpvFHq7hYKJ2LX9yB1v55R/v8Dni9DydCTumhK63hi5FUT8HXbvn5w
+ bDcJd/qTfwfOiArpTbcdXfkKKBEw5RYSV5PG8FRRIY48vM4BJn5dkI4bFNb4KeQt435X
+ zj9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=8uJ7V2Lk5b43qtRmyNKIxduM/i4ZvkhkfMVtcSMTHLc=;
- b=t8Eane7aGlueM8e+1mTcJ2hQSPDvGYKiW4US0PiMuYbnvBaBcan756PF8cLENzlpfY
- PO5Blq4h6j1lg5epdNub8Rrrg1G9r21KUW3dkJTGBpNA8aRHdS7QFPZW8pxgpB6vjyR9
- SVdi+TYbnOx17otxyEQLxOxb/I7jQgAcWYbWp4Q/WwNJCHJm/IzY9HMrw0wCOraKrMU/
- O+iPXz6oAULLbc0qGfZEi6VmMWlK1WOIp1jSLLZ1N6cMl5YBruEYc5CNWjG9zeQ84JRI
- sxsrqro4GskXc9K/01GwlMCtjdPsM7xrNPG+268DF+4RDRVXgQxyIn4DjTT5GwZi0K5X
- yqlA==
-X-Gm-Message-State: AOAM532r2gTTGCwtwNRVL4vhffnJnSWPXelobWiq1wiSevKPydrUD1z5
- wYhh4AhjiRWausF803C7VC2y8g==
-X-Google-Smtp-Source: ABdhPJw7JKGfhtf3xhglvwKuCf7tiq5byULmqZPX/onK7gDxOwmiShZCnNHHKkZbJwIlhjSsWTfaDg==
-X-Received: by 2002:a17:903:32c7:b0:154:4156:f384 with SMTP id
- i7-20020a17090332c700b001544156f384mr6965753plr.34.1648756463019; 
- Thu, 31 Mar 2022 12:54:23 -0700 (PDT)
+ bh=bnq3RGPMzBMV/g9aWknvx9FGXd6IFr5H5AAWOs4ymHk=;
+ b=p6Xa0/oeaIlgHuVE6Ilmds43KrouGx2XbzJnXVjYiKyf6/BdWVASuc/VZz0zdHL45x
+ qBS/Vwc2K6E+5Wt1M9tsthqxx0GE3+Vpqq8mlWhc8tro6hQMHmHzbnH54BQqqEXsSlqQ
+ qN8PpdItmU3iMAehDifCPajqFq/M/5UkSM9GPIX4n3r1WVK8ayGK8Oh+yZ7Q1pYHSivx
+ KptrBnAixGTzm8O6hi1FxEh6feu7+FD8A5N4OJR3gPBVBeI8ZOubWUvOQcq9rmfCmWfL
+ Ef0+ZwxXOPsYWdyIRrsDcgYDrX+cW91Jy+GBFHhMYvbOjRp6+PG3Gh8YMSXSzEAFjS7J
+ wiHw==
+X-Gm-Message-State: AOAM531wmq8evBEFyoDZRVtao7vGYa2RI0ubabEaAerVZ8TXJBD0HNtW
+ FV3B5meDbfNnE0hppd0gNcLYpg==
+X-Google-Smtp-Source: ABdhPJz8WAGQPMzQnR1/kKYbzZSKsNbVNJ28AVKuGN4my5flJHiGhwEnQ3iZcV5Chnf26dEqytnXVg==
+X-Received: by 2002:a17:902:f544:b0:154:5ecb:eb24 with SMTP id
+ h4-20020a170902f54400b001545ecbeb24mr7143398plf.11.1648758487456; 
+ Thu, 31 Mar 2022 13:28:07 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223]) by smtp.gmail.com with ESMTPSA id
- b10-20020a056a00114a00b004f784ba5e6asm323970pfm.17.2022.03.31.12.54.21
+ y13-20020a17090a390d00b001c995e0a481sm203407pjb.30.2022.03.31.13.28.06
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 31 Mar 2022 12:54:22 -0700 (PDT)
-Date: Thu, 31 Mar 2022 12:54:22 -0700 (PDT)
-X-Google-Original-Date: Thu, 31 Mar 2022 12:54:20 PDT (-0700)
-Subject: Re: Re: [PATCH] target/riscv: Exit current TB after an sfence.vma
-In-Reply-To: <CAKmqyKMsG6d7jaS2gxXxh+qONWkWGbHFwLK9tYb2q7eeQe77uw@mail.gmail.com>
-CC: idan.horowitz@gmail.com, linux-riscv@lists.infradead.org,
- qemu-riscv@nongnu.org, 
- phantom@zju.edu.cn, Alistair Francis <Alistair.Francis@wdc.com>,
- qemu-devel@nongnu.org
+ Thu, 31 Mar 2022 13:28:06 -0700 (PDT)
+Date: Thu, 31 Mar 2022 13:28:06 -0700 (PDT)
+X-Google-Original-Date: Thu, 31 Mar 2022 13:04:31 PDT (-0700)
+Subject: Re: [PATCH] RISC-V: Declare per cpu boot data as static
+In-Reply-To: <20220323171726.1303706-1-atishp@rivosinc.com>
+CC: linux-kernel@vger.kernel.org, Atish Patra <atishp@rivosinc.com>,
+ lkp@intel.com, 
+ aou@eecs.berkeley.edu, atishp@atishpatra.org, anup@brainfault.org,
+ damien.lemoal@wdc.com, devicetree@vger.kernel.org, jszhang@kernel.org,
+ krzysztof.kozlowski@canonical.com, 
+ linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ robh+dt@kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: alistair23@gmail.com
-Message-ID: <mhng-beb640a4-0833-45b9-a57d-1e98464152f5@palmer-mbp2014>
+To: Atish Patra <atishp@rivosinc.com>
+Message-ID: <mhng-00dae2b9-e45c-43c7-a67d-75c937215a19@palmer-mbp2014>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220331_125424_516072_1299EFD6 
-X-CRM114-Status: GOOD (  32.56  )
+X-CRM114-CacheID: sfid-20220331_132811_459025_71AD4FB4 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,62 +95,33 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 30 Mar 2022 22:13:39 PDT (-0700), alistair23@gmail.com wrote:
-> On Thu, Mar 31, 2022 at 2:36 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->>
->> On Wed, 30 Mar 2022 20:23:21 PDT (-0700), alistair23@gmail.com wrote:
->> > On Thu, Mar 31, 2022 at 3:11 AM Idan Horowitz <idan.horowitz@gmail.com> wrote:
->> >>
->> >> On Wed, 30 Mar 2022 at 19:11, Palmer Dabbelt <palmer@dabbelt.com> wrote:
->> >> >
->> >> >
->> >> > Presumably you mean "revert" here?  That might be the right way to go,
->> >> > just to avoid breaking users (even if we fix the kernel bug, it'll take
->> >> > a while to get everyone to update).  That said, this smells like the
->> >> > sort of thing that's going to crop up at arbitrary times in dynamic
->> >> > systems so while a revert looks like it'd work around the boot issue we
->> >> > might be making more headaches for folks down the road.
->> >> >
->> >>
->> >> The opposite in fact, I did not suggest to revert it, but rather undo
->> >> the revert (as Alistair already removed it from the apply-next tree),
->> >> since my original patch fixes buggy behaviour that is blocking the
->> >> testing of some embedded software on QEMU.
->>
->> Ah, sorry -- the QEMU tree I was looking at still had the patch in
->> there, must have just been an old one.
->>
->> > So, this is a little tricky.
->> >
->> > We want to apply the fix, but that will break current users.
->> >
->> > Once the fix is merged into Linux we can apply it here. That should
->> > hopefully be right at the start of the 7.1 QEMU development window,
->> > which should give time for the fix to propagate into stable kernels
->> > and not break too many people by the time QEMU is released.
->>
->> If you think this is a Linux bug then that makes sense, but I think this
->> is a QEMU bug -- I sent a patch, not sure if it went through as it didn't
->> make it to lore.
+On Wed, 23 Mar 2022 10:17:26 PDT (-0700), Atish Patra wrote:
+> The per cpu boot data is only used within the cpu_ops_sbi.c. It can
+> be delcared as static.
 >
-> Ah whoops. I saw the patch but didn't read it, then I assumed it was a
-> Linux bug from your diff earlier.
-
-No problem, that was the first thing I sent in the morning so I doubt it 
-made any sense.
-
+> Fixes: 9a2451f18663 ("RISC-V: Avoid using per cpu array for ordered booting")
 >
->>
->> I also think the bug will manifest without the TB exit patch, maybe in
->> single-step mode and definately if we happen to exit the TB at that
->> point for other reasons.  Assuming my reasoning is correct in that
->> patch, we may also be hitting this as arbitrary corruption anywhere.
->> I'd started to write up a "QEMU errata" Linux patch for this, but then
->> convinced myself that just adding the sfence.vma was insufficient.
+> Reported-by: kernel test robot <lkp@intel.com>
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>  arch/riscv/kernel/cpu_ops_sbi.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> Yeah, looking at it now I agree, I'll send a PR for 7.0.
+> diff --git a/arch/riscv/kernel/cpu_ops_sbi.c b/arch/riscv/kernel/cpu_ops_sbi.c
+> index dae29cbfe550..7f2ad008274f 100644
+> --- a/arch/riscv/kernel/cpu_ops_sbi.c
+> +++ b/arch/riscv/kernel/cpu_ops_sbi.c
+> @@ -21,7 +21,7 @@ const struct cpu_operations cpu_ops_sbi;
+>   * be invoked from multiple threads in parallel. Define a per cpu data
+>   * to handle that.
+>   */
+> -DEFINE_PER_CPU(struct sbi_hart_boot_data, boot_data);
+> +static DEFINE_PER_CPU(struct sbi_hart_boot_data, boot_data);
+>
+>  static int sbi_hsm_hart_start(unsigned long hartid, unsigned long saddr,
+>  			      unsigned long priv)
 
-Thanks!
+Thanks, this is on for-next.
 
 _______________________________________________
 linux-riscv mailing list
