@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E800FC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Mar 2022 08:44:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A487C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Mar 2022 09:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yKR/fx8JX0P90Hx6hV8+vt5r0UVoTEy9UCH1shPK73c=; b=KApF6T2EXKJTXw
-	2LuO1Ij03OYWlonUo10qUDErh/k8aouBGa+Yc4q3XlpCqZsZKvB3HYO/UJn2FRtLqmRHq0PPrMp++
-	IqpU4VGkePXJVeYVqrKR76/tPsy8WKCj17xZAa8Tzcji/N156uHsbSdPFaF/wXoZLLNfwOVpc0dxK
-	4kA9k6sqeArKiakkmAvsCMw42k9uiv5eMNJmsMU8Zrqj/dAYjKKf3L1iJDvtl5xFWYNvcdv25+dyK
-	ChQpvD42bNRLg4VAuulZO78868Az2FWa4jwZ1mGmI0myRrZqMgfrLwxK358oNR6ge7zdlo0IW11YJ
-	CGJPnngRikGqr1J4IWPA==;
+	List-Owner; bh=Z0+hH0zMIgh/qAOvNB0uuCdyKZOADMkORTsewoGAGJo=; b=HX/ge5+LtXnCar
+	t2QqTeVpaKdkwKiyUztettplJ0uCGF/JlkcJr86f9O5vSKhPEOKLj32GabOIPbpEA6wot2cDs1j5a
+	QYiATqJd0Ip316CN2fnurRzEtgDLlQQbTFPVU7ZD0a6xIsJsiHQbSLFogqsEYttB7MMkjVGwPjgpJ
+	DPMnZkttFUYyhbl4JEnPnAndZEyBfbfuz+oPdoDr9WiojqcSY7qICF4gsCrfCPc4UtpwuWER0g/DZ
+	Ys+Md3D4tp1VMf2v44PgTa4skNtgH4eCXAx0+6RGTOlshyeAhTSXRv8RhLBoJNcParQdV7NlplvWr
+	oNV3sylBdSrbsLWuqRWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nZqPT-001Kpf-Iq; Thu, 31 Mar 2022 08:44:03 +0000
-Received: from mout.kundenserver.de ([212.227.126.135])
+	id 1nZrNU-001XwN-HD; Thu, 31 Mar 2022 09:46:04 +0000
+Received: from mga11.intel.com ([192.55.52.93])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nZqPQ-001Kmt-2I
- for linux-riscv@lists.infradead.org; Thu, 31 Mar 2022 08:44:02 +0000
-Received: from mail-wr1-f46.google.com ([209.85.221.46]) by
- mrelayeu.kundenserver.de (mreue012 [213.165.67.97]) with ESMTPSA (Nemesis) id
- 1MAchM-1nknhr2Hzk-00B6ca for <linux-riscv@lists.infradead.org>; Thu, 31 Mar
- 2022 10:43:55 +0200
-Received: by mail-wr1-f46.google.com with SMTP id u16so32688974wru.4
- for <linux-riscv@lists.infradead.org>; Thu, 31 Mar 2022 01:43:55 -0700 (PDT)
-X-Gm-Message-State: AOAM530U3mZ/tl3HF4R4bxOuVjNWWhrC5utUwdWN9BHoEft8ejLA0VU1
- 7Tlzmh0Urpa7x8Ib5mKFSoCBeY9QR7jKIhxGtAA=
-X-Google-Smtp-Source: ABdhPJyrtpQlBduGdImQtwl3TfY7OVK8ndVvnJ/5XRBmxDFBRN2DthMS2Ieu+gTrPWm1ExwDF53U+Xfq7QQVJM2Ifeo=
-X-Received: by 2002:adf:d081:0:b0:1ef:9378:b7cc with SMTP id
- y1-20020adfd081000000b001ef9378b7ccmr3269024wrh.407.1648716231569; Thu, 31
- Mar 2022 01:43:51 -0700 (PDT)
+ id 1nZrNR-001XvO-Kg
+ for linux-riscv@lists.infradead.org; Thu, 31 Mar 2022 09:46:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+ d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+ t=1648719961; x=1680255961;
+ h=date:from:to:cc:subject:message-id:references:
+ mime-version:in-reply-to;
+ bh=nzqSovEaB1+9yVRKn8HXLbqr/ZdlhWVFtpWNH7LPBF4=;
+ b=gpL+YlU3Gb6EM5QeAQswwGFu3TjTKLlzEeIShu0cI9GKMNfXdnM58mBo
+ 8SXlRb9CgL57nqttu+qi1HyqlGyxkOFQAS8qnyIdPF5lJXUE1K93rXNFI
+ +yM/h280JlWsYzrpzWLe0cCzv7+gK5khRwjJeNoY5jHu9Bum/JB9uDIPg
+ tlZsfgx13qOTx1QTanEP/r8Jl/tMurU1wcacuqTTTXD6ozcgqGfjYuey8
+ IJRdQYF6QuGdHaD+2khsigte9STkZQ6AjvIZyw5q/QmGZrcMdfk+QAfHt
+ UwFYklj1OYDwh3Fa0dzb6AsWvz8e+DKpLJoWSY4qnS7WO94sQePe/7hJU Q==;
+X-IronPort-AV: E=McAfee;i="6200,9189,10302"; a="257361307"
+X-IronPort-AV: E=Sophos;i="5.90,225,1643702400"; d="scan'208";a="257361307"
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+ by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 31 Mar 2022 02:45:59 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.90,225,1643702400"; d="scan'208";a="503675581"
+Received: from lkp-server02.sh.intel.com (HELO 3231c491b0e2) ([10.239.97.151])
+ by orsmga003.jf.intel.com with ESMTP; 31 Mar 2022 02:45:56 -0700
+Received: from kbuild by 3231c491b0e2 with local (Exim 4.95)
+ (envelope-from <lkp@intel.com>) id 1nZrNL-00008e-He;
+ Thu, 31 Mar 2022 09:45:55 +0000
+Date: Thu, 31 Mar 2022 17:45:05 +0800
+From: kernel test robot <lkp@intel.com>
+To: Alistair Francis <alistair.francis@opensource.wdc.com>,
+ aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
+ palmer@dabbelt.com, paul.walmsley@sifive.com
+Cc: kbuild-all@lists.01.org, atishp@rivosinc.com, anup@brainfault.org,
+ guoren@kernel.org, alistair23@gmail.com, linux-kernel@vger.kernel.org,
+ Alistair Francis <alistair.francis@wdc.com>
+Subject: Re: [PATCH v3] riscv: Ensure only ASIDLEN is used for sfence.vma
+Message-ID: <202203311731.xi8xw0gy-lkp@intel.com>
+References: <20220331055906.3552337-1-alistair.francis@opensource.wdc.com>
 MIME-Version: 1.0
-References: <202203281004.InhLOFxn-lkp@intel.com>
-In-Reply-To: <202203281004.InhLOFxn-lkp@intel.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Thu, 31 Mar 2022 10:43:35 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a0ShMf+QCHWishO9DbvRrJ5x9f=9cS9kwm_tkBqwyWtEw@mail.gmail.com>
-Message-ID: <CAK8P3a0ShMf+QCHWishO9DbvRrJ5x9f=9cS9kwm_tkBqwyWtEw@mail.gmail.com>
-Subject: Re: drivers/pci/proc.c:150:17: sparse: sparse: restricted __le16
- degrades to integer
-To: kernel test robot <lkp@intel.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, kbuild-all@lists.01.org, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Christoph Hellwig <hch@lst.de>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Openrisc <openrisc@lists.librecores.org>, 
- Stafford Horne <shorne@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>
-X-Provags-ID: V03:K1:WhKDSMmnUGRVwmpFF+YvPEiIMGLlsIpJNJxO6wuyYpP2eogH4ue
- x4Gxc4BfVKdX4u8ujFwAzUrN5/i8W+6B0r7vDxgzphN9UtQPo0HpJS+EER5G9d3k+/gL9Wl
- C/KFr3Mln/DdLcdRXJb4TbIAfIt8cUgENZdQ7NjVL5y7z1NhcIYtQ6iB2yGQIa+IjRpz/ec
- CoDhFuh1hE1omkb67A02w==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:BytufjHdzIQ=:Q5xSV0/0RlVbD32IMMIWW2
- R2pUlDhcUXAFSX2yncoMZuMnBuxM8HvSA9IJ1cQUQmTHmSB+4HdXCN9h+IfMPY0tSh3UONgTn
- M+vmNofHDwafg9Nc3gm2xeqsCeuaDzQiDGCQFhbSkwcQ1HU/eO+3HtVNDglLYWJuf0hZ1qCu3
- YbOLBlksiHnERZmJNtJzKEYClieuB2cG9OxFSeGVQfDAfBMV3Y24tJmDnJyhJe9SOaQMbGz4R
- oAvySjw/7Vu6FiZFZUZgbn44alDSinCpuNf1uVfR+c5CoLHEbs1Mcaf0kuWgqh4ACdEW4G6Yi
- f3kb8bzHAXU/5rr1WNjbvoyzmH/SxfGItSp+SRf8J3TakvYNz4VQc6/dMxbeGSPAdEOqD+Y0v
- tpVy+KhspuRd9DbYazSUXy0RzfyM0A4iK7M55Di3BmBPh7hV9oBGoeWhZ6oF6FnXuDgTm+LiE
- 6RATQlvtbaZP6spObIdBIAyHThzmC/NGC2bjUuK1nBZGTQ8M5MZ9oDgfWQyEFPE1ygvhKKnJ+
- 24dKyF/5eLIylhpY05dDXGvjT+ic4evXIQ8ASG0Gx3XnNuovigz+gYZ0JN3nAtEp56c8OgCXW
- N5QsyBLV1VfJmA/jfFOUrH+eEawrzKHzb/xYZ2DlshzPeRTzIB40o9BYO7Spn5RGp9RpWhX7W
- YQmUd5vd5iUvnwvV5YGA8xU4xAfJwxc+dEuLzrn20a096JzU+o5z8JrLkjSw0ad6kjhB583Bs
- 0IfXQpQj493GdpF2CPEj8i2I03y95mRB0g0dYnZmqAP3gKKxD3yxUnZk6Ys/VFcpD4ASzFu8F
- LeaVyU0TvwnPn//t/PrVZ56GUjfHD/34EGbkZpFcHnMENjC4Xw=
+Content-Disposition: inline
+In-Reply-To: <20220331055906.3552337-1-alistair.francis@opensource.wdc.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220331_014400_450146_3EAD5365 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20220331_024601_751322_FE8CA4FF 
+X-CRM114-Status: GOOD (  18.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,56 +83,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 28, 2022 at 5:04 AM kernel test robot <lkp@intel.com> wrote:
->
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> head:   f82da161ea75dc4db21b2499e4b1facd36dab275
-> commit: a97b693c3712f040c5802f32b2d685352e08cefa uaccess: fix nios2 and microblaze get_user_8()
-> date:   4 weeks ago
-> config: microblaze-randconfig-s032-20220328 (https://download.01.org/0day-ci/archive/20220328/202203281004.InhLOFxn-lkp@intel.com/config)
-> compiler: microblaze-linux-gcc (GCC) 11.2.0
-> reproduce:
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # apt-get install sparse
->         # sparse version: v0.6.4-dirty
->         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a97b693c3712f040c5802f32b2d685352e08cefa
->         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
->         git fetch --no-tags linus master
->         git checkout a97b693c3712f040c5802f32b2d685352e08cefa
->         # save the config file to linux build tree
->         mkdir build_dir
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-11.2.0 make.cross C=1 CF='-fdiagnostic-prefix -D__CHECK_ENDIAN__' O=build_dir ARCH=microblaze SHELL=/bin/bash drivers/pci/
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
->
-> sparse warnings: (new ones prefixed by >>)
-> >> drivers/pci/proc.c:150:17: sparse: sparse: restricted __le16 degrades to integer
-> >> drivers/pci/proc.c:150:17: sparse: sparse: restricted __le16 degrades to integer
->    drivers/pci/proc.c:150:17: sparse: sparse: cast to restricted __le16
-> >> drivers/pci/proc.c:159:17: sparse: sparse: restricted __le32 degrades to integer
-> >> drivers/pci/proc.c:159:17: sparse: sparse: restricted __le32 degrades to integer
->    drivers/pci/proc.c:159:17: sparse: sparse: cast to restricted __le32
->    drivers/pci/proc.c:168:17: sparse: sparse: restricted __le16 degrades to integer
->    drivers/pci/proc.c:168:17: sparse: sparse: restricted __le16 degrades to integer
->    drivers/pci/proc.c:168:17: sparse: sparse: cast to restricted __le16
+Hi Alistair,
 
-On Tue, Mar 29, 2022 at 8:56 AM Christoph Hellwig <hch@lst.de> wrote:
->
-> Looks like new uaccess code doesn't handle sparse __bitwise annotations.
+Thank you for the patch! Yet something to improve:
 
-Right. I copied the line that caused this from 32-bit riscv, which has the same
-issue, same on openrisc after d877322bc1ad ("openrisc: Fix issue with
-get_user for
-64-bit values").
+[auto build test ERROR on linus/master]
+[also build test ERROR on v5.17 next-20220331]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch]
 
-It sounds like we should fix all three of these the same way, any
-suggestion which
-architecture to copy from?
+url:    https://github.com/intel-lab-lkp/linux/commits/Alistair-Francis/riscv-Ensure-only-ASIDLEN-is-used-for-sfence-vma/20220331-140116
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git 787af64d05cd528aac9ad16752d11bb1c6061bb9
+config: riscv-nommu_k210_defconfig (https://download.01.org/0day-ci/archive/20220331/202203311731.xi8xw0gy-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 11.2.0
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # https://github.com/intel-lab-lkp/linux/commit/162147030f410152d028af446a7383e3c9410f55
+        git remote add linux-review https://github.com/intel-lab-lkp/linux
+        git fetch --no-tags linux-review Alistair-Francis/riscv-Ensure-only-ASIDLEN-is-used-for-sfence-vma/20220331-140116
+        git checkout 162147030f410152d028af446a7383e3c9410f55
+        # save the config file to linux build tree
+        mkdir build_dir
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-11.2.0 make.cross O=build_dir ARCH=riscv SHELL=/bin/bash arch/riscv/mm/
 
-       Arnd
+If you fix the issue, kindly add following tag as appropriate
+Reported-by: kernel test robot <lkp@intel.com>
+
+All errors (new ones prefixed by >>):
+
+   arch/riscv/mm/context.c: In function 'get_mm_asid':
+>> arch/riscv/mm/context.c:307:45: error: 'mm_context_t' has no member named 'id'
+     307 |         return atomic_long_read(&mm->context.id) & asid_mask;
+         |                                             ^
+>> arch/riscv/mm/context.c:307:52: error: 'asid_mask' undeclared (first use in this function); did you mean 'pid_task'?
+     307 |         return atomic_long_read(&mm->context.id) & asid_mask;
+         |                                                    ^~~~~~~~~
+         |                                                    pid_task
+   arch/riscv/mm/context.c:307:52: note: each undeclared identifier is reported only once for each function it appears in
+   arch/riscv/mm/context.c:308:1: error: control reaches end of non-void function [-Werror=return-type]
+     308 | }
+         | ^
+   cc1: some warnings being treated as errors
+
+
+vim +307 arch/riscv/mm/context.c
+
+   304	
+   305	unsigned long get_mm_asid(struct mm_struct *mm)
+   306	{
+ > 307		return atomic_long_read(&mm->context.id) & asid_mask;
+   308	}
+   309	
+
+-- 
+0-DAY CI Kernel Test Service
+https://01.org/lkp
 
 _______________________________________________
 linux-riscv mailing list
