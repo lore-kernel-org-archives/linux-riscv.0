@@ -4,74 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 991E0C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Mar 2022 06:39:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8267C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Mar 2022 07:25:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2JlNIW+2qi6GmCUMgKxqNIjH/djnBEhbc2OL3/B0RMQ=; b=oK8gK/PZ6WOt1K
-	EIXBCObltYMJCwZdItxhaF3qoYMe8aR7lpo8QG+YcIloZSrmof4hmyLskHo28YTRiqfVanwSXgVj4
-	d5bwqBji58/AjAoy7KUwb6W3+blUcbxof9/7tyYpYeoCMAbAWHEQ8sK17eBAOgk76LtvxCSS6SRFl
-	C7224xU35ItTCYnStZRdalXXWdu2iR3NFXEUXTGUd2OAsukAFMv0PSEW/qi9JKM8iCpBbkiu0JKzf
-	r0+az0T2isM/iiyZ96DMu1MTMZ0L2Yx7yPtAr+9gHSL8H2VbGjeYN7AFdVIPYyh5ET3mlkbx6oJNE
-	VfX+2y23PjHd71XYkrxA==;
+	List-Owner; bh=q5uD9q3+FfvOt+LP3UHvi/wumfD8qbQMtwaDV4Oa/2U=; b=SqvlFoSlomFv82
+	GgXnLloy7vC6CX0SceVjYxkpxxKRrOLdEo6llDOqug4vah04ADm9vW9HsC1yDJRI3rRRIw/e22Al/
+	N1r9YxID4ElTxdkBxq9hnDoH1J3IOak10ptPRXnSY+iYkpM0zCjF22zLolGGfJZzOH9K899exAqqI
+	uwVErppJYGIQoaqNEr8ugpnJhZy/4g2XTIygXviCWJUXN8wxpyHngxIQ3jt2gI/mKEm1MJuU+sTQR
+	vR1Qmwnrep+KxMxnFthXcCkuiSgUxjDJ9UUJ6Ehh3GwtW62bm+8yJU6o7uVON0Kt7O+oCqc9aizSw
+	enqUSQwtMx3CKASlnKAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nZoSG-000uZk-VE; Thu, 31 Mar 2022 06:38:49 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1nZpBd-0014Z6-Cc; Thu, 31 Mar 2022 07:25:41 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nZoSE-000uYp-JO
- for linux-riscv@lists.infradead.org; Thu, 31 Mar 2022 06:38:48 +0000
-Received: by mail-wr1-x434.google.com with SMTP id w4so32189559wrg.12
- for <linux-riscv@lists.infradead.org>; Wed, 30 Mar 2022 23:38:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=fhsMrvk7uoSjbTi4vii+Njn16yDljzTavXJfNLTXs1o=;
- b=0ppl6HuIIj0tw0lDLORVxtX2zZnf26iCrPXAxb68pdWIbUs81VAAJysnKZeS5eg3jq
- zM1sheRcfHZDrOChqEYoG6zmardBGPyQ+ECl5K1kS/QrdwgmBWFpb2GKCKs0ufibNU0E
- i3+dSZKBudhlzaDRDgLf/KNNGutgJwNfZiZEPqGYYdScZLscVZPLDE6NUCeMjIMGBqKf
- kwVVHHLC2bP6DNKqZGocacSSO7K7zckXgSnu3RHWD2tBr617FArpzhyWgcRc20Hql/gA
- BOw1YP0ny3y7IomoeYwEyCbb9PIoKJcENTEWj4/+fUmud9dbUMP3QazF4xQxruWQWP5u
- f1zg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=fhsMrvk7uoSjbTi4vii+Njn16yDljzTavXJfNLTXs1o=;
- b=MlRpVPL14/FfbYWJTnU94Ff9Ns2VBBSdmlpl4vRKrswd9xUDnPPFLMTS1gilN9OfHG
- TzzRNDfDDzDOgZTpaTmw+nUNH9traMw1h2UncDZPQJcRCfHBhsxDJuHJe3g/qecvomjG
- Ae6CIdrLUZ5I2rf52JFhyZ2R5U+lavHP+QijplKEK8EJyjgqt5LRvxq/IzpfB92+QWpb
- XFQ1+e94kW2F2f8901+0LCnuAKQCakvyl8AM/zMgn20LwzIQKb+0R8k1jA4zQg5ltMaY
- 8ahVrAHgLXmoDYgHZZlDnoy/qMz5uJpeSDVRtQ3vLA8CNx+x1+wi4A+PpSIZPOSfre7K
- L+Dg==
-X-Gm-Message-State: AOAM530oR2wjex7YZpIbjfBZM3TMw9TkNsF2quVGQlIPdfJcb3tZgMQG
- RFV4lqKJudfnz8BNje4ofqiSCah1cSnebcLiEmINug==
-X-Google-Smtp-Source: ABdhPJwlPo2k2le77MErbra2MKKkIRFso47zu94yk0HG7fNt9Z/GkOHIkGqo3ifUCE8gI1xks+gWOFda3GWyy5NDxpc=
-X-Received: by 2002:a5d:6e54:0:b0:204:635:42ba with SMTP id
- j20-20020a5d6e54000000b00204063542bamr2831853wrz.214.1648708724508; Wed, 30
- Mar 2022 23:38:44 -0700 (PDT)
+ id 1nZpBa-0014Wz-4k
+ for linux-riscv@lists.infradead.org; Thu, 31 Mar 2022 07:25:40 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id F2B0AB81E99
+ for <linux-riscv@lists.infradead.org>; Thu, 31 Mar 2022 07:25:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28234C34115
+ for <linux-riscv@lists.infradead.org>; Thu, 31 Mar 2022 07:25:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1648711534;
+ bh=eajfDk2PxxORKuK6D9C/olyzCdI8ODkvwRz1UyNl0uQ=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=UZwyOugygCu5H09FFjoTn0PUWeyo15QC+KuxrwjHj48XdN9dJhTghg4tlCt/+ATBw
+ 6+P1FzEuHs3SQj47op+AiyrDso1VH5CFhw8UB0F194/oNHwYx0gkUcb9+HJajc7Od5
+ tL6l8svGZTws2fD09K/d+gkDRkUbKJgVpShhg0WXBQrVpw+WE64M3ga3jZGE0D0N+T
+ YjdD8DsUhe94tMIm4OTXVi/lYAbu+MTXVeTEiHPAHR+29A6VJWBU8Id6j9FSJik7YY
+ d/4X6aubRsytihn8hGYAA9KNch2Q6R8d9086P/KP7mADa6OOLVEFtKzD2rM1nbv9dX
+ 1rtCCI4BrJnTw==
+Received: by mail-vs1-f44.google.com with SMTP id i10so11317170vsr.6
+ for <linux-riscv@lists.infradead.org>; Thu, 31 Mar 2022 00:25:34 -0700 (PDT)
+X-Gm-Message-State: AOAM533tBFJaHeJpMiDKX+QGmJDxbJaJ3KV3MG1BEyGV/w2cApon1lxK
+ z/o0esSh5aMNeCYylCgBBdayE3aQchysKR7lgm4=
+X-Google-Smtp-Source: ABdhPJxRVUu+qPZuYA2iZSx9UwOk2xJTzzgsQGHBUfgrhQpELKkCPD/+kQeG2rRSnilUEFiPLQadA039p2U2GWSeLb4=
+X-Received: by 2002:a05:6102:dd1:b0:325:80a9:b5d7 with SMTP id
+ e17-20020a0561020dd100b0032580a9b5d7mr15446572vst.51.1648711532929; Thu, 31
+ Mar 2022 00:25:32 -0700 (PDT)
 MIME-Version: 1.0
 References: <20220331055906.3552337-1-alistair.francis@opensource.wdc.com>
 In-Reply-To: <20220331055906.3552337-1-alistair.francis@opensource.wdc.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Thu, 31 Mar 2022 12:08:31 +0530
-Message-ID: <CAAhSdy2S26jCmUJES3_63jZbn=0uO78=3kob-AAf0a==4d_seA@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Thu, 31 Mar 2022 15:25:22 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTSHhy95p8LhO7yGCgbCdrxxfRQnb+gBmRK4HkM3YskgxA@mail.gmail.com>
+Message-ID: <CAJF2gTSHhy95p8LhO7yGCgbCdrxxfRQnb+gBmRK4HkM3YskgxA@mail.gmail.com>
 Subject: Re: [PATCH v3] riscv: Ensure only ASIDLEN is used for sfence.vma
 To: Alistair Francis <alistair.francis@opensource.wdc.com>
 Cc: Albert Ou <aou@eecs.berkeley.edu>,
  linux-riscv <linux-riscv@lists.infradead.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Atish Patra <atishp@rivosinc.com>, Guo Ren <guoren@kernel.org>, 
- Alistair Francis <alistair23@gmail.com>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ atishp@rivosinc.com, 
+ Anup Patel <anup@brainfault.org>, Alistair Francis <alistair23@gmail.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
  Alistair Francis <alistair.francis@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220330_233846_705338_960691F4 
-X-CRM114-Status: GOOD (  26.75  )
+X-CRM114-CacheID: sfid-20220331_002538_517521_E27C76CA 
+X-CRM114-Status: GOOD (  29.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,7 +85,9 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 31, 2022 at 11:29 AM Alistair Francis
+Reviewed-by: Guo Ren <guoren@kernel.org>
+
+On Thu, Mar 31, 2022 at 1:59 PM Alistair Francis
 <alistair.francis@opensource.wdc.com> wrote:
 >
 > From: Alistair Francis <alistair.francis@wdc.com>
@@ -118,14 +117,6 @@ On Thu, Mar 31, 2022 at 11:29 AM Alistair Francis
 >
 > Fixes: 3f1e782998cd ("riscv: add ASID-based tlbflushing methods")
 > Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
-
-Looks good to me.
-
-Reviewed-by: Anup Patel <anup@brainfault.org>
-
-Regards,
-Anup
-
 > ---
 > v3:
 >  - Use helper function
@@ -182,6 +173,13 @@ Anup
 > --
 > 2.35.1
 >
+
+
+-- 
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
