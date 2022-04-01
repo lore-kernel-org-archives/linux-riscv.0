@@ -4,64 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C079CC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Apr 2022 14:50:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F500C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Apr 2022 16:42:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XIZkRiO53dnTEwj7DzRzChzd40GPgvFyR6ho0xuImG4=; b=QooNqMn3xXQAcp
-	mvyplF4x7EvOq4fw9xl9ARObJADSBB2KrN6IKWqd9xpvX3kBJQPtmZUhe/PnorhdgWQWgfSbDxtZl
-	T/wQAAMod3KJ4A8u8Tmi04bKX+v8pAWdlV0aSGhl0WTSPdmUq00l68ZHqcbV+MQHi+oG5Lia41dpg
-	+x9PVQ0Iu7m9d+go/FUs61Ua/WW7wP0HU9+SwedgZ1kfOx+D/kJLag9FqTJEEC5Z0a51jdbAjw1ur
-	HCXHQbFuMHy1ozK+G+q6mdkQVze9Maava8dQG6MeG5kSj4yCLwsfX0rvlZzK2oOu7V0uQIhD/VZQo
-	+Kx9vePE2vRqMEULo68A==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=S1Iq606BlMg/WrwAR62bwC7DUbiomyUe9/VN1nDRXXA=; b=cNZMJOrauk91Hb
+	D4l64kyARD6Z14QFLte7bdK07mw+AOwmrogCTYs0+ZrKE2iDrPuQ328Tr8R6EGeK8jYoi68rb1CMM
+	IvLbmOI5lTVMMtPh1zRwBPAXUej9zmoLAFT8422NZ1kDVsQEyJHlxjs4/CR8iQk5Uv4M5dwxCncTZ
+	KUsQySqvjwJu8tIqq8390/BsljbGWxs4Pfur6oilaYgbSsSgcLYOVKSOKRoI4SGyIRxQajWVjus9o
+	X6qo1tlM+lOWkMp2iBI3vXwZBFX4wOnFy2EoGglRHzhKptQBYSYJM7g64VL2GEpCDBMOEQcEHSK4q
+	uTVIi9jMIU2BAr++b3OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1naIbl-006EAe-GG; Fri, 01 Apr 2022 14:50:37 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1naKLS-006aLF-HP; Fri, 01 Apr 2022 16:41:54 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1naISv-0069A0-5v
- for linux-riscv@lists.infradead.org; Fri, 01 Apr 2022 14:41:31 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 6DF8060A64;
- Fri,  1 Apr 2022 14:41:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D66B2C340F2;
- Fri,  1 Apr 2022 14:41:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1648824087;
- bh=aXdBUmeYj7xLL1w/h5tF7wvJEPsFBhS+z1UfUPL+4NA=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=KaLgWOmUO/yjz4arjajfN1ELcfLXzZMWfqSZMiSa0auiZ9v+c3gPgVt98LkZwKjMA
- LnEdRasLxwwxh1cSsKu7iyl8K44Bqr43aiK9Hjiu97DGvRWIqnWQnnpp/uopZcAKsN
- 9NrJhodpk7F9oGPZ5NO/HZQ9OT1yFpAgmtHiHvzQI45fjW70zCyBza1VBtylMXuBDU
- 4W4LS1BAX6lXU3hHmJQImkbJaqLGzYxI3vokC4HGD3zcLi77t4NC0sxh9hMLcxn5bl
- dTwmev+g51dN8IsDzW3oD2MQ1CdgRwydWUXi85xtXXww0jejcca4fNKtZAm9QF+5Mj
- jImWtFdwd8r3Q==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: "Michael T. Kloos" <michael@michaelkloos.com>,
- Palmer Dabbelt <palmer@rivosinc.com>, Sasha Levin <sashal@kernel.org>,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.15 81/98] riscv: Fixed misaligned memory access.
- Fixed pointer comparison.
-Date: Fri,  1 Apr 2022 10:37:25 -0400
-Message-Id: <20220401143742.1952163-81-sashal@kernel.org>
+ id 1naKLP-006aK7-Ul
+ for linux-riscv@lists.infradead.org; Fri, 01 Apr 2022 16:41:53 +0000
+Received: by mail-pg1-x530.google.com with SMTP id q19so2811221pgm.6
+ for <linux-riscv@lists.infradead.org>; Fri, 01 Apr 2022 09:41:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+ h=subject:date:message-id:mime-version:content-transfer-encoding:cc
+ :from:to; bh=qFBAvnSg79zoT3+JHM3vRs2zXL9WFcit8FJyzU3capc=;
+ b=Us9JNrHb8FSQA4yTPo9jEb5jZcr9MnUGvOzX0HJAQCEJXT/eL24QXIXcLjAkg8q6Kl
+ HeCP8i0HPITMmBTyTOiKz4oxtxFFmv23M8iIV7Y+Bkq8/Tjkt3enC2MT03L9eVRCjhGv
+ WK/EbevIn/hV3WIBoDuxL1zntTpJdCVehsc053Ajjx6LlY4LcaGAhj87+Kpy0e1vaCG7
+ KVaRkPKD/4KYlvT97s1lFo+8gQtO5ne2j91rbWGKqL5WZRFgve4EdR7buLFyxj/YzNJ3
+ 0UGgPy4Sp+hXDWYd/ObktV48tCsv4pMsUQuTbUSvxdX3VI3W5YFXOah8r6FuSGtHy0DI
+ YqXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:subject:date:message-id:mime-version
+ :content-transfer-encoding:cc:from:to;
+ bh=qFBAvnSg79zoT3+JHM3vRs2zXL9WFcit8FJyzU3capc=;
+ b=3NWoEzTmha67G/oIxj0tFptJKOFbNdea1R5JvVQrHeoSZvPMkVMg1n/UOiBoe5jAUP
+ iqK7Xhs95qZ+mfgJHYvrLN8v9/YwUH3+tjRC3NMpoPrICRsVmxWPCNhXpWFiobIEe+Ty
+ oV7H92vNdu5+6lJ6W3WPdCiZLDhKcYwxaiEVayFWCHYVMuD73AJqOlCR3wxE93J9pMFC
+ Af/Lt0vOc4jwKNkSoZPGi/5CzA/ltiGcjIe33iYzIQBbFYnw9wY6bLGjcv0EnJSRNhia
+ +DKh9mVeOBgtHofVR0JTCGO4UdpXtmmhdYXOfN8Qc7XSzl931BinIyPGwAeUM3nTp178
+ QCmQ==
+X-Gm-Message-State: AOAM531Msc8YL+xRkHmftvRdM4QZJvRxfZNftrxfKzNi+k/HgaWVH1+6
+ Sbxd6dqTL2sNEl35ij9W6ElNOmK/Cdi/+oE5
+X-Google-Smtp-Source: ABdhPJwes6GB4QofFG33x08DcMvHD/tGHasWxDQKJg/phGDL3vN9pemPhlXzw0y3X93EX8EhZ203Hw==
+X-Received: by 2002:a05:6a00:b87:b0:4fa:a79a:72e7 with SMTP id
+ g7-20020a056a000b8700b004faa79a72e7mr11808231pfj.68.1648831309069; 
+ Fri, 01 Apr 2022 09:41:49 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223]) by smtp.gmail.com with ESMTPSA id
+ m7-20020a056a00080700b004fb28fafc4csm3812953pfk.97.2022.04.01.09.41.48
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 01 Apr 2022 09:41:48 -0700 (PDT)
+Subject: [PATCH] habanalabs: Elide a warning on 32-bit targets
+Date: Fri,  1 Apr 2022 09:39:09 -0700
+Message-Id: <20220401163909.20343-1-palmer@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220401143742.1952163-1-sashal@kernel.org>
-References: <20220401143742.1952163-1-sashal@kernel.org>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
+Cc: ogabbay@kernel.org, Arnd Bergmann <arnd@arndb.de>,
+ Greg KH <gregkh@linuxfoundation.org>, ynudelman@habana.ai, obitton@habana.ai,
+ fkassabri@habana.ai, 
+ daniel.vetter@ffwll.ch, ttayar@habana.ai, sozeri@habana.ai, bjauhari@habana.ai,
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220401_074129_310672_7E555680 
-X-CRM114-Status: GOOD (  31.44  )
+X-CRM114-CacheID: sfid-20220401_094152_253788_B2AF3584 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,429 +85,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: "Michael T. Kloos" <michael@michaelkloos.com>
-
-[ Upstream commit 9d1f0ec9f71780e69ceb9d91697600c747d6e02e ]
-
-Rewrote the RISC-V memmove() assembly implementation.  The
-previous implementation did not check memory alignment and it
-compared 2 pointers with a signed comparison.  The misaligned
-memory access would cause the kernel to crash on systems that
-did not emulate it in firmware and did not support it in hardware.
-Firmware emulation is slow and may not exist.  The RISC-V spec
-does not guarantee that support for misaligned memory accesses
-will exist.  It should not be depended on.
-
-This patch now checks for XLEN granularity of co-alignment between
-the pointers.  Failing that, copying is done by loading from the 2
-contiguous and naturally aligned XLEN memory locations containing
-the overlapping XLEN sized data to be copied.  The data is shifted
-into the correct place and binary or'ed together on each
-iteration.  The result is then stored into the corresponding
-naturally aligned XLEN sized location in the destination.  For
-unaligned data at the terminations of the regions to be copied
-or for copies less than (2 * XLEN) in size, byte copy is used.
-
-This patch also now uses unsigned comparison for the pointers and
-migrates to the newer assembler annotations from the now deprecated
-ones.
-
-Signed-off-by: Michael T. Kloos <michael@michaelkloos.com>
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- arch/riscv/lib/memmove.S | 368 +++++++++++++++++++++++++++++++++------
- 1 file changed, 310 insertions(+), 58 deletions(-)
-
-diff --git a/arch/riscv/lib/memmove.S b/arch/riscv/lib/memmove.S
-index 07d1d2152ba5..e0609e1f0864 100644
---- a/arch/riscv/lib/memmove.S
-+++ b/arch/riscv/lib/memmove.S
-@@ -1,64 +1,316 @@
--/* SPDX-License-Identifier: GPL-2.0 */
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2022 Michael T. Kloos <michael@michaelkloos.com>
-+ */
- 
- #include <linux/linkage.h>
- #include <asm/asm.h>
- 
--ENTRY(__memmove)
--WEAK(memmove)
--        move    t0, a0
--        move    t1, a1
--
--        beq     a0, a1, exit_memcpy
--        beqz    a2, exit_memcpy
--        srli    t2, a2, 0x2
--
--        slt     t3, a0, a1
--        beqz    t3, do_reverse
--
--        andi    a2, a2, 0x3
--        li      t4, 1
--        beqz    t2, byte_copy
--
--word_copy:
--        lw      t3, 0(a1)
--        addi    t2, t2, -1
--        addi    a1, a1, 4
--        sw      t3, 0(a0)
--        addi    a0, a0, 4
--        bnez    t2, word_copy
--        beqz    a2, exit_memcpy
--        j       byte_copy
--
--do_reverse:
--        add     a0, a0, a2
--        add     a1, a1, a2
--        andi    a2, a2, 0x3
--        li      t4, -1
--        beqz    t2, reverse_byte_copy
--
--reverse_word_copy:
--        addi    a1, a1, -4
--        addi    t2, t2, -1
--        lw      t3, 0(a1)
--        addi    a0, a0, -4
--        sw      t3, 0(a0)
--        bnez    t2, reverse_word_copy
--        beqz    a2, exit_memcpy
--
--reverse_byte_copy:
--        addi    a0, a0, -1
--        addi    a1, a1, -1
-+SYM_FUNC_START(__memmove)
-+SYM_FUNC_START_WEAK(memmove)
-+	/*
-+	 * Returns
-+	 *   a0 - dest
-+	 *
-+	 * Parameters
-+	 *   a0 - Inclusive first byte of dest
-+	 *   a1 - Inclusive first byte of src
-+	 *   a2 - Length of copy n
-+	 *
-+	 * Because the return matches the parameter register a0,
-+	 * we will not clobber or modify that register.
-+	 *
-+	 * Note: This currently only works on little-endian.
-+	 * To port to big-endian, reverse the direction of shifts
-+	 * in the 2 misaligned fixup copy loops.
-+	 */
- 
-+	/* Return if nothing to do */
-+	beq a0, a1, return_from_memmove
-+	beqz a2, return_from_memmove
-+
-+	/*
-+	 * Register Uses
-+	 *      Forward Copy: a1 - Index counter of src
-+	 *      Reverse Copy: a4 - Index counter of src
-+	 *      Forward Copy: t3 - Index counter of dest
-+	 *      Reverse Copy: t4 - Index counter of dest
-+	 *   Both Copy Modes: t5 - Inclusive first multibyte/aligned of dest
-+	 *   Both Copy Modes: t6 - Non-Inclusive last multibyte/aligned of dest
-+	 *   Both Copy Modes: t0 - Link / Temporary for load-store
-+	 *   Both Copy Modes: t1 - Temporary for load-store
-+	 *   Both Copy Modes: t2 - Temporary for load-store
-+	 *   Both Copy Modes: a5 - dest to src alignment offset
-+	 *   Both Copy Modes: a6 - Shift ammount
-+	 *   Both Copy Modes: a7 - Inverse Shift ammount
-+	 *   Both Copy Modes: a2 - Alternate breakpoint for unrolled loops
-+	 */
-+
-+	/*
-+	 * Solve for some register values now.
-+	 * Byte copy does not need t5 or t6.
-+	 */
-+	mv   t3, a0
-+	add  t4, a0, a2
-+	add  a4, a1, a2
-+
-+	/*
-+	 * Byte copy if copying less than (2 * SZREG) bytes. This can
-+	 * cause problems with the bulk copy implementation and is
-+	 * small enough not to bother.
-+	 */
-+	andi t0, a2, -(2 * SZREG)
-+	beqz t0, byte_copy
-+
-+	/*
-+	 * Now solve for t5 and t6.
-+	 */
-+	andi t5, t3, -SZREG
-+	andi t6, t4, -SZREG
-+	/*
-+	 * If dest(Register t3) rounded down to the nearest naturally
-+	 * aligned SZREG address, does not equal dest, then add SZREG
-+	 * to find the low-bound of SZREG alignment in the dest memory
-+	 * region.  Note that this could overshoot the dest memory
-+	 * region if n is less than SZREG.  This is one reason why
-+	 * we always byte copy if n is less than SZREG.
-+	 * Otherwise, dest is already naturally aligned to SZREG.
-+	 */
-+	beq  t5, t3, 1f
-+		addi t5, t5, SZREG
-+	1:
-+
-+	/*
-+	 * If the dest and src are co-aligned to SZREG, then there is
-+	 * no need for the full rigmarole of a full misaligned fixup copy.
-+	 * Instead, do a simpler co-aligned copy.
-+	 */
-+	xor  t0, a0, a1
-+	andi t1, t0, (SZREG - 1)
-+	beqz t1, coaligned_copy
-+	/* Fall through to misaligned fixup copy */
-+
-+misaligned_fixup_copy:
-+	bltu a1, a0, misaligned_fixup_copy_reverse
-+
-+misaligned_fixup_copy_forward:
-+	jal  t0, byte_copy_until_aligned_forward
-+
-+	andi a5, a1, (SZREG - 1) /* Find the alignment offset of src (a1) */
-+	slli a6, a5, 3 /* Multiply by 8 to convert that to bits to shift */
-+	sub  a5, a1, t3 /* Find the difference between src and dest */
-+	andi a1, a1, -SZREG /* Align the src pointer */
-+	addi a2, t6, SZREG /* The other breakpoint for the unrolled loop*/
-+
-+	/*
-+	 * Compute The Inverse Shift
-+	 * a7 = XLEN - a6 = XLEN + -a6
-+	 * 2s complement negation to find the negative: -a6 = ~a6 + 1
-+	 * Add that to XLEN.  XLEN = SZREG * 8.
-+	 */
-+	not  a7, a6
-+	addi a7, a7, (SZREG * 8 + 1)
-+
-+	/*
-+	 * Fix Misalignment Copy Loop - Forward
-+	 * load_val0 = load_ptr[0];
-+	 * do {
-+	 * 	load_val1 = load_ptr[1];
-+	 * 	store_ptr += 2;
-+	 * 	store_ptr[0 - 2] = (load_val0 >> {a6}) | (load_val1 << {a7});
-+	 *
-+	 * 	if (store_ptr == {a2})
-+	 * 		break;
-+	 *
-+	 * 	load_val0 = load_ptr[2];
-+	 * 	load_ptr += 2;
-+	 * 	store_ptr[1 - 2] = (load_val1 >> {a6}) | (load_val0 << {a7});
-+	 *
-+	 * } while (store_ptr != store_ptr_end);
-+	 * store_ptr = store_ptr_end;
-+	 */
-+
-+	REG_L t0, (0 * SZREG)(a1)
-+	1:
-+	REG_L t1, (1 * SZREG)(a1)
-+	addi  t3, t3, (2 * SZREG)
-+	srl   t0, t0, a6
-+	sll   t2, t1, a7
-+	or    t2, t0, t2
-+	REG_S t2, ((0 * SZREG) - (2 * SZREG))(t3)
-+
-+	beq   t3, a2, 2f
-+
-+	REG_L t0, (2 * SZREG)(a1)
-+	addi  a1, a1, (2 * SZREG)
-+	srl   t1, t1, a6
-+	sll   t2, t0, a7
-+	or    t2, t1, t2
-+	REG_S t2, ((1 * SZREG) - (2 * SZREG))(t3)
-+
-+	bne   t3, t6, 1b
-+	2:
-+	mv    t3, t6 /* Fix the dest pointer in case the loop was broken */
-+
-+	add  a1, t3, a5 /* Restore the src pointer */
-+	j byte_copy_forward /* Copy any remaining bytes */
-+
-+misaligned_fixup_copy_reverse:
-+	jal  t0, byte_copy_until_aligned_reverse
-+
-+	andi a5, a4, (SZREG - 1) /* Find the alignment offset of src (a4) */
-+	slli a6, a5, 3 /* Multiply by 8 to convert that to bits to shift */
-+	sub  a5, a4, t4 /* Find the difference between src and dest */
-+	andi a4, a4, -SZREG /* Align the src pointer */
-+	addi a2, t5, -SZREG /* The other breakpoint for the unrolled loop*/
-+
-+	/*
-+	 * Compute The Inverse Shift
-+	 * a7 = XLEN - a6 = XLEN + -a6
-+	 * 2s complement negation to find the negative: -a6 = ~a6 + 1
-+	 * Add that to XLEN.  XLEN = SZREG * 8.
-+	 */
-+	not  a7, a6
-+	addi a7, a7, (SZREG * 8 + 1)
-+
-+	/*
-+	 * Fix Misalignment Copy Loop - Reverse
-+	 * load_val1 = load_ptr[0];
-+	 * do {
-+	 * 	load_val0 = load_ptr[-1];
-+	 * 	store_ptr -= 2;
-+	 * 	store_ptr[1] = (load_val0 >> {a6}) | (load_val1 << {a7});
-+	 *
-+	 * 	if (store_ptr == {a2})
-+	 * 		break;
-+	 *
-+	 * 	load_val1 = load_ptr[-2];
-+	 * 	load_ptr -= 2;
-+	 * 	store_ptr[0] = (load_val1 >> {a6}) | (load_val0 << {a7});
-+	 *
-+	 * } while (store_ptr != store_ptr_end);
-+	 * store_ptr = store_ptr_end;
-+	 */
-+
-+	REG_L t1, ( 0 * SZREG)(a4)
-+	1:
-+	REG_L t0, (-1 * SZREG)(a4)
-+	addi  t4, t4, (-2 * SZREG)
-+	sll   t1, t1, a7
-+	srl   t2, t0, a6
-+	or    t2, t1, t2
-+	REG_S t2, ( 1 * SZREG)(t4)
-+
-+	beq   t4, a2, 2f
-+
-+	REG_L t1, (-2 * SZREG)(a4)
-+	addi  a4, a4, (-2 * SZREG)
-+	sll   t0, t0, a7
-+	srl   t2, t1, a6
-+	or    t2, t0, t2
-+	REG_S t2, ( 0 * SZREG)(t4)
-+
-+	bne   t4, t5, 1b
-+	2:
-+	mv    t4, t5 /* Fix the dest pointer in case the loop was broken */
-+
-+	add  a4, t4, a5 /* Restore the src pointer */
-+	j byte_copy_reverse /* Copy any remaining bytes */
-+
-+/*
-+ * Simple copy loops for SZREG co-aligned memory locations.
-+ * These also make calls to do byte copies for any unaligned
-+ * data at their terminations.
-+ */
-+coaligned_copy:
-+	bltu a1, a0, coaligned_copy_reverse
-+
-+coaligned_copy_forward:
-+	jal t0, byte_copy_until_aligned_forward
-+
-+	1:
-+	REG_L t1, ( 0 * SZREG)(a1)
-+	addi  a1, a1, SZREG
-+	addi  t3, t3, SZREG
-+	REG_S t1, (-1 * SZREG)(t3)
-+	bne   t3, t6, 1b
-+
-+	j byte_copy_forward /* Copy any remaining bytes */
-+
-+coaligned_copy_reverse:
-+	jal t0, byte_copy_until_aligned_reverse
-+
-+	1:
-+	REG_L t1, (-1 * SZREG)(a4)
-+	addi  a4, a4, -SZREG
-+	addi  t4, t4, -SZREG
-+	REG_S t1, ( 0 * SZREG)(t4)
-+	bne   t4, t5, 1b
-+
-+	j byte_copy_reverse /* Copy any remaining bytes */
-+
-+/*
-+ * These are basically sub-functions within the function.  They
-+ * are used to byte copy until the dest pointer is in alignment.
-+ * At which point, a bulk copy method can be used by the
-+ * calling code.  These work on the same registers as the bulk
-+ * copy loops.  Therefore, the register values can be picked
-+ * up from where they were left and we avoid code duplication
-+ * without any overhead except the call in and return jumps.
-+ */
-+byte_copy_until_aligned_forward:
-+	beq  t3, t5, 2f
-+	1:
-+	lb   t1,  0(a1)
-+	addi a1, a1, 1
-+	addi t3, t3, 1
-+	sb   t1, -1(t3)
-+	bne  t3, t5, 1b
-+	2:
-+	jalr zero, 0x0(t0) /* Return to multibyte copy loop */
-+
-+byte_copy_until_aligned_reverse:
-+	beq  t4, t6, 2f
-+	1:
-+	lb   t1, -1(a4)
-+	addi a4, a4, -1
-+	addi t4, t4, -1
-+	sb   t1,  0(t4)
-+	bne  t4, t6, 1b
-+	2:
-+	jalr zero, 0x0(t0) /* Return to multibyte copy loop */
-+
-+/*
-+ * Simple byte copy loops.
-+ * These will byte copy until they reach the end of data to copy.
-+ * At that point, they will call to return from memmove.
-+ */
- byte_copy:
--        lb      t3, 0(a1)
--        addi    a2, a2, -1
--        sb      t3, 0(a0)
--        add     a1, a1, t4
--        add     a0, a0, t4
--        bnez    a2, byte_copy
--
--exit_memcpy:
--        move a0, t0
--        move a1, t1
--        ret
--END(__memmove)
-+	bltu a1, a0, byte_copy_reverse
-+
-+byte_copy_forward:
-+	beq  t3, t4, 2f
-+	1:
-+	lb   t1,  0(a1)
-+	addi a1, a1, 1
-+	addi t3, t3, 1
-+	sb   t1, -1(t3)
-+	bne  t3, t4, 1b
-+	2:
-+	ret
-+
-+byte_copy_reverse:
-+	beq  t4, t3, 2f
-+	1:
-+	lb   t1, -1(a4)
-+	addi a4, a4, -1
-+	addi t4, t4, -1
-+	sb   t1,  0(t4)
-+	bne  t4, t3, 1b
-+	2:
-+
-+return_from_memmove:
-+	ret
-+
-+SYM_FUNC_END(memmove)
-+SYM_FUNC_END(__memmove)
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogUGFsbWVyIERhYmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+CgpUaGlzIGRvdWJsZS1j
+YXN0IHBhdHRlcm4gbG9va3MgYSBiaXQgYXdrd2FyZCwgYnV0IGl0IGFscmVhZHkgZXhpc3RzCmVs
+c2V3aGVyZSBpbiB0aGUgZHJpdmVyLiAgV2l0aG91dCB0aGlzIHBhdGNoIEkgZ2V0Cgpkcml2ZXJz
+L21pc2MvaGFiYW5hbGFicy9jb21tb24vbWVtb3J5LmM6IEluIGZ1bmN0aW9uIOKAmGFsbG9jX2Rl
+dmljZV9tZW1vcnnigJk6CmRyaXZlcnMvbWlzYy9oYWJhbmFsYWJzL2NvbW1vbi9tZW1vcnkuYzox
+NTM6NDk6IHdhcm5pbmc6IGNhc3QgZnJvbSBwb2ludGVyIHRvIGludGVnZXIgb2YgZGlmZmVyZW50
+IHNpemUgWy1XcG9pbnRlci10by1pbnQtY2FzdF0KICAxNTMgfCAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAodTY0KSBnZW5fcG9vbF9kbWFfYWxsb2NfYWxp
+Z24odm0tPmRyYW1fcGdfcG9vbCwKICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICBeCgp3aGljaCBlbmRzIHVwIHByb21vdGVkIHRvIGEgYnVpbGQg
+ZXJyb3IgaW4gbXkgdGVzdCBzZXR1cC4KClNpZ25lZC1vZmYtYnk6IFBhbG1lciBEYWJiZWx0IDxw
+YWxtZXJAcml2b3NpbmMuY29tPgoKLS0tCgpJIGRvbid0IGtub3cgYW55dGhpbmcgYWJvdXQgdGhp
+cyBkcml2ZXIsIEknbSBqdXN0IHBhdHRlcm4tbWF0Y2hpbmcgdGhlCndhcm5pbmcgYXdheS4KLS0t
+CiBkcml2ZXJzL21pc2MvaGFiYW5hbGFicy9jb21tb24vbWVtb3J5LmMgfCAxMCArKysrKy0tLS0t
+CiAxIGZpbGUgY2hhbmdlZCwgNSBpbnNlcnRpb25zKCspLCA1IGRlbGV0aW9ucygtKQoKZGlmZiAt
+LWdpdCBhL2RyaXZlcnMvbWlzYy9oYWJhbmFsYWJzL2NvbW1vbi9tZW1vcnkuYyBiL2RyaXZlcnMv
+bWlzYy9oYWJhbmFsYWJzL2NvbW1vbi9tZW1vcnkuYwppbmRleCBlMDA4ZDgyZTRiYTMuLmYxZmM3
+OWMxZmMxMCAxMDA2NDQKLS0tIGEvZHJpdmVycy9taXNjL2hhYmFuYWxhYnMvY29tbW9uL21lbW9y
+eS5jCisrKyBiL2RyaXZlcnMvbWlzYy9oYWJhbmFsYWJzL2NvbW1vbi9tZW1vcnkuYwpAQCAtMTUw
+LDEyICsxNTAsMTIgQEAgc3RhdGljIGludCBhbGxvY19kZXZpY2VfbWVtb3J5KHN0cnVjdCBobF9j
+dHggKmN0eCwgc3RydWN0IGhsX21lbV9pbiAqYXJncywKIAkJZm9yIChpID0gMCA7IGkgPCBudW1f
+cGdzIDsgaSsrKSB7CiAJCQlpZiAoaXNfcG93ZXJfb2ZfMihwYWdlX3NpemUpKQogCQkJCXBoeXNf
+cGdfcGFjay0+cGFnZXNbaV0gPQotCQkJCQkJKHU2NCkgZ2VuX3Bvb2xfZG1hX2FsbG9jX2FsaWdu
+KHZtLT5kcmFtX3BnX3Bvb2wsCi0JCQkJCQkJCQkJcGFnZV9zaXplLCBOVUxMLAotCQkJCQkJCQkJ
+CXBhZ2Vfc2l6ZSk7CisJCQkJCQkodTY0KSAodWludHB0cl90KSBnZW5fcG9vbF9kbWFfYWxsb2Nf
+YWxpZ24odm0tPmRyYW1fcGdfcG9vbCwKKwkJCQkJCQkJCQkJICAgcGFnZV9zaXplLCBOVUxMLAor
+CQkJCQkJCQkJCQkgICBwYWdlX3NpemUpOwogCQkJZWxzZQotCQkJCXBoeXNfcGdfcGFjay0+cGFn
+ZXNbaV0gPSAodTY0KSBnZW5fcG9vbF9hbGxvYyh2bS0+ZHJhbV9wZ19wb29sLAotCQkJCQkJCQkJ
+CXBhZ2Vfc2l6ZSk7CisJCQkJcGh5c19wZ19wYWNrLT5wYWdlc1tpXSA9ICh1NjQpICh1aW50cHRy
+X3QpIGdlbl9wb29sX2FsbG9jKHZtLT5kcmFtX3BnX3Bvb2wsCisJCQkJCQkJCQkJCSAgcGFnZV9z
+aXplKTsKIAkJCWlmICghcGh5c19wZ19wYWNrLT5wYWdlc1tpXSkgewogCQkJCWRldl9lcnIoaGRl
+di0+ZGV2LAogCQkJCQkiRmFpbGVkIHRvIGFsbG9jYXRlIGRldmljZSBtZW1vcnkgKG91dCBvZiBt
+ZW1vcnkpXG4iKTsKLS0gCjIuMzQuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
