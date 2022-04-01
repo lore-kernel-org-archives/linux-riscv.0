@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E596BC43217
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Apr 2022 14:33:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B051C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Apr 2022 14:44:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XIZkRiO53dnTEwj7DzRzChzd40GPgvFyR6ho0xuImG4=; b=Di8H94RQpnrawI
-	06ffG2R+LkXsct4kcvxtv+8AfMOvFjtRTbL8LyEGctyAfqb1Hmlvrmw/dDvqMUkoQ0Qtjdd+9jE9l
-	uqPr0JxInrL59hXYk/DUcWkOLbQpg/dD2Nx3Byh6GBsFOvCJue3T/BcjPAft/CmfTiWyYJz1jaQgg
-	EQYLDv+pnoB5W7LxtPtQ+PEisFklVfKnHGts2D0cBhDw+/LfppZJ1jGjeo5g9f4RjOwaNeqQotemw
-	/WyawTwkjCQR2Z5ofQZQmF/Sdqa1VqoM3JY6KNqb3znwcUY2SadcYTCWdYGhT0yYMGbo3j/4tRFjX
-	Jf3d41B5NxSqn9jr29aw==;
+	List-Owner; bh=XIZkRiO53dnTEwj7DzRzChzd40GPgvFyR6ho0xuImG4=; b=K8cu1ovQLSk8l/
+	3hECaREM9V6jEbY227NVxv806lA5ONWv0hMDsi+WfrvPtIF7RXHMFL4xpf6XpIfgnnymssVInyAF6
+	whs/7kk+Nu+xYzmeY6qR77CgdSwR5PZFjxlVz39dw+Wu/ngM9wijw8Q1ByEj4lJwvPYg9CARPTrcP
+	AoGpYB2IIF5FKC1GWaN9hTveLIh81G24JkfkMevA1yXSe5qNXWAa8S3dzLivLJpn0VGkw6q8NxJgE
+	xptaCki1FS1Y7geNKLanhtyIPP0Ti1HCqAG2TbIDmS7dVACfxM+Krvs559N4F3YpCJK5Z40t3zTf2
+	HQCC76ENd0ZbeeSy+BIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1naIL7-0064Sl-CI; Fri, 01 Apr 2022 14:33:25 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1naIW0-006Aij-Ew; Fri, 01 Apr 2022 14:44:40 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1naIJr-0063aq-EH
- for linux-riscv@lists.infradead.org; Fri, 01 Apr 2022 14:32:09 +0000
+ id 1naIOc-0066xG-6z
+ for linux-riscv@lists.infradead.org; Fri, 01 Apr 2022 14:37:05 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id DCC4261CC9;
- Fri,  1 Apr 2022 14:32:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DED9C340F2;
- Fri,  1 Apr 2022 14:32:05 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 9D16A60DC7;
+ Fri,  1 Apr 2022 14:37:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7502AC2BBE4;
+ Fri,  1 Apr 2022 14:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1648823526;
+ s=k20201202; t=1648823821;
  bh=aXdBUmeYj7xLL1w/h5tF7wvJEPsFBhS+z1UfUPL+4NA=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=d/cOGABOpz1mZVqVB1rHlRHBW/KOf18nXlGcCYP/kUeaSL3v3EQaqXj4L2BRqmfFE
- xv95EcVehP0GXjyUTLRGyIuwDBA5nAwvV1Ljx/acfxHfHmf7O7L1Sg2WuhDnrdqGnE
- WXL9tEnQOmEieQ8HoBKRNuOM74iC6v2Lo3mQzN70eV+WfES7MwcStNSSu0RW726vZe
- 4qjkoTohXtVbjD8WqvgPjbvx14E/sCaE2XDWoRGSm0k6kSITr9u9PPvoGqJVrs5uTU
- QScdLF3I/5JmJqRepKu5DpYKEn2cg8AvBoE8nAqbsxv6pkUZrRrkaZwSk4u3fo+vya
- YiqJyDP1qUZ7g==
+ b=jMHQRqE0vVmIU6VS9eZp3kctm1g4kvr+bYBn3b/JZNUfP0evLLp906UPmJaBCzuwc
+ eslPuDtQ9C0vGF0RCCHQIDnH2JRxSC6LnpaOCJtpuLjtTKRUSaKl4diYuWcPRRJW4z
+ qCOROBm7Gt+3kuj9fBfo8YAYiT8KKThORTaUpEPsjp6Sya48LeJBa2T39kMU+3wMFE
+ wW38V42iQ8PwFbO68IDbd7ffRZbcxj1a6cV1MWs4qGWDsOyPlcsUmp7ty66BujBetH
+ x362FF9ta4DVomj0FNYhNeRPNZaqva9672KpCyKndqv0nFJrmcMfaLmiz0RDd6v2gM
+ cvtWuzuQaxwPA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -49,18 +49,18 @@ Cc: "Michael T. Kloos" <michael@michaelkloos.com>,
  Palmer Dabbelt <palmer@rivosinc.com>, Sasha Levin <sashal@kernel.org>,
  paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
  linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.17 129/149] riscv: Fixed misaligned memory access.
+Subject: [PATCH AUTOSEL 5.16 091/109] riscv: Fixed misaligned memory access.
  Fixed pointer comparison.
-Date: Fri,  1 Apr 2022 10:25:16 -0400
-Message-Id: <20220401142536.1948161-129-sashal@kernel.org>
+Date: Fri,  1 Apr 2022 10:32:38 -0400
+Message-Id: <20220401143256.1950537-91-sashal@kernel.org>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220401142536.1948161-1-sashal@kernel.org>
-References: <20220401142536.1948161-1-sashal@kernel.org>
+In-Reply-To: <20220401143256.1950537-1-sashal@kernel.org>
+References: <20220401143256.1950537-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220401_073207_608383_E44221F1 
+X-CRM114-CacheID: sfid-20220401_073702_432185_3F105635 
 X-CRM114-Status: GOOD (  31.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
