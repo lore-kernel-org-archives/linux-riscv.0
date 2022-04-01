@@ -4,78 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EE11C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Apr 2022 02:37:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68FE0C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Apr 2022 02:43:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=3lBB3MfAe1s3iRQcUbGDwOYVZwNueQUSGCLl6RiVE9o=; b=KdjREObexMOfJmQ2Cz//B7WQkL
-	lFiihYsyZcLwvzu8hlGMAtqDUr/t1d9sIPH7DUoJdQrvlYkH+pP9n7MW3No3ed6Z5S5mDhbHxNmih
-	bg/dbpK/TdAvI+gYMvGXnn1DXPhnmrlkEr0LO+ae1u1hBDQoPVVzoqHSzjrIP5yeTL1N5G6S0XC9M
-	x8R3dj52sMSioW3LEuwKF9RDIq0NXycxaZtc772uOAzrwKvSpQzV6ufN7uzENLUohAQCkjGIVllGp
-	lmNoPI1WllbAEURTptzV8gbxkba2smulcNs8URvD6SEBKN7Eo1YnNYyRhhXxH/Tqqhk8aDWNtTU7V
-	OVyUykog==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=i8PEG1pZx/560UrWpPsQ4iVYhtVH3Uqx4mO9k+6wunU=; b=04AAMrOqj/u6Zp
+	44YmIrTsYF1w0a06GrZ0Hu9Z/MGQZq3bBP+5+lddS3PBMwQncLBTlRJ7Q/h4adNUzA728Q17WrtXv
+	AbQM08OlhPKlBg9tBCmgKuM+8B7f5gWnhsieJxuZ4c0cs1RZ0IIcvbCHghPke596CH+Z/Fj5TjsTl
+	XSTBbkqdTgA6oTzFT30JxJBuo4RtoQaBQg4q1LKzwQn8OegaNTCx7pY4RiuTVo/PfRdZdka4AT+U1
+	KmS14XVxeJLeBklSun6Uv/Amuak2vYM24i7d+KxXWXEjjtrqZDMVAQTkzqlgoHBw1rz4K7osp9/yF
+	/B4PO+MAO7TTn8rYcJvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1na7AZ-004IZm-Ub; Fri, 01 Apr 2022 02:37:47 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1na7GM-004JiT-2l; Fri, 01 Apr 2022 02:43:46 +0000
+Received: from mail-psaapc01on20630.outbound.protection.outlook.com
+ ([2a01:111:f400:feae::630]
+ helo=APC01-PSA-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1na7AT-004IVt-N5
- for linux-riscv@lists.infradead.org; Fri, 01 Apr 2022 02:37:44 +0000
-Received: by mail-pl1-x631.google.com with SMTP id p17so1262423plo.9
- for <linux-riscv@lists.infradead.org>; Thu, 31 Mar 2022 19:37:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=dSzGnbquoGpvfekF3+JSElEXmIkzDvN1jgGM1Sss5ik=;
- b=73XfenG3pR4e8k8WwYXUCm8KRLeDyor4l/6dcX7PWZNA+ExQFPnSHDIhjhG+y2n654
- a4Z3/UzKFxj34A3uUWV18T1VXixwPAHicLiu1Udgb6OPffWPSebu4S2cOZ8CebJWNOE4
- SOF3AUgAnBQB28yl/J9ephB7PZE8vsR/xUJo0HNkbp+/2VAqu9SaTL1QMmToskhKw/yM
- qY1yOyElMmqwmlZNdRI5bqReAzvO4tx0vXhUSQqoFGospj8PmpmPWpjttCUW429uhaWN
- RvzKaHBA/flY2MggApnpNXhyJoGugk+bdvxQMOkQ6PiSafFQPfKgiap4pkcrEtPGkJP4
- nHZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=dSzGnbquoGpvfekF3+JSElEXmIkzDvN1jgGM1Sss5ik=;
- b=SD5DuPD/UCFWUaqRS44vOHgqwSa11nOhM1DGlxzHs/uONLJgrudqklA6aN10Tur+LN
- oJOTftgBI2pflshF3jNzWSQ8hNMfT1PfeDnhsCysrUNCtxOv81U8kmO9rc3CULYooqnV
- W6s9rVwKLdenolit3/OrUF9hYGDqmBM0o6HRLEYkZUMryucGJ5edD9wWpmaSZ01HHlOw
- x/3zE3iES20rdq1kPRAtRobnhkrSmEtXdImvvAoxUOYy+q6tcSR6+ExZHXOt2JRgHbgN
- 1TwXPvntzNuPI7geIAc3tY2Az7vNvrMyTyG5qgtmUBjjCTRCECrb/RCW6hEzcMprndLu
- vxKA==
-X-Gm-Message-State: AOAM532OKyNemz0rMk5v13Eq9jSuPabbjUtappquH2m37PAfhIkKqz8i
- Ae/udTThGdZlrN7y5o1zdjqgVw==
-X-Google-Smtp-Source: ABdhPJxAXkMECDqCbVJu0jvPhm8GCAbKB5MwB4XPjx0E3ipQetCmEarl4Afe2ZOldds0saCiXbn3jQ==
-X-Received: by 2002:a17:903:41d0:b0:154:de5:a240 with SMTP id
- u16-20020a17090341d000b001540de5a240mr8464375ple.32.1648780656632; 
- Thu, 31 Mar 2022 19:37:36 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223]) by smtp.gmail.com with ESMTPSA id
- il7-20020a17090b164700b001c779d50699sm12130159pjb.55.2022.03.31.19.37.35
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 31 Mar 2022 19:37:36 -0700 (PDT)
-Date: Thu, 31 Mar 2022 19:37:36 -0700 (PDT)
-X-Google-Original-Date: Thu, 31 Mar 2022 17:49:16 PDT (-0700)
-Subject: Re: [PATCH 1/3] RISC-V: defconfig: Drop redundant SBI HVC and earlycon
-In-Reply-To: <20220330234739.1956-1-palmer@rivosinc.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- anup@brainfault.org, heinrich.schuchardt@canonical.com, atishp@atishpatra.org, 
- mchitale@ventanamicro.com, alexandre.ghiti@canonical.com,
- damien.lemoal@opensource.wdc.com, 
- axboe@kernel.dk, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: linux-riscv@lists.infradead.org
-Message-ID: <mhng-6019c9cc-b2f0-405c-91de-981ce90dd9d9@palmer-mbp2014>
-Mime-Version: 1.0 (MHng)
+ id 1na7GI-004JhZ-Sy
+ for linux-riscv@lists.infradead.org; Fri, 01 Apr 2022 02:43:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Le/8xqEglvE/PedpztSlb15L5bIjW0RztcyLYJlCBXSOlWda1lMzLzAif3oPAQXBgG83OkzHAAWXWEx+t6vQYvcMVRu/rPbTynrmzliABvLlbe743GwwRnVSkNu5K1KCsUiUF83C479FRlUqhjNUCHITYpLH1lCDeljMktztsyZreDKDyciu6FIrcy2hOYR1OLxpriu3gEa2JSDy3ZFYirmBdkqBphtUMDhJO6Zy6zcy1NxCvCWeeE646M0udfFGMRp9y7M7Fz0z/3mmC6H4xVIbwpnnpT3NOSyS0p3vGpLYfuPpCQfAIIAekYHzcyWw5E1BXstbJXR/sN9iwvKFVw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Nh+Jk8UbGRHOv2ZMhzYZG7dD2fF/TU29e8UnBQl04fo=;
+ b=PxPNrVv1gO37CMOL1epuVyU8tkJ4c/ibFbfp/dhccZtU6exggzn089bHzgkFAor4RsTru1eV8VKexOoAnSSYRm8FwI1okmWhr+toYEw505WK25NWHq3V+OVpwrlkluOOTOBuHPtxp8jvAsmcB/ng8z3QZW+GvcvOf3w+fY0jxYQtOA0spiZG+OlsDeWKP0aPzhNgaZGCWa+BihiVQk8g6auYm1Ft2EHCGnenRx0hfyh3KAwBxjX9XZ9MkjjDMLd7xKKs6fPXiX6anUaZwf6afZyqcn5Ggm+qGcK/zAuf585c1EvYznRbQvA14Ftyq6Y0sSt34zz6TFoo0E0oVCa7sQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oppo.com; dmarc=pass action=none header.from=oppo.com;
+ dkim=pass header.d=oppo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oppo.com; s=selector1; 
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Nh+Jk8UbGRHOv2ZMhzYZG7dD2fF/TU29e8UnBQl04fo=;
+ b=XSTDFFJh6eNQpR6IoklMWAMgcuFI86YbwT0cubL6gOn69o71F9m3YPkrAlUsA6cJxgAfoeLbIPf4LY6W8gO9H3GrPJY6yYtoWMrO4OKvQp1hyEqYjRdGER3+YlXS6akgn1hWXbfCc0ZDoshrCsrNapjpI/aMESQYnbXOZ3oT53I=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oppo.com;
+Received: from SG2PR02MB5379.apcprd02.prod.outlook.com (2603:1096:4:177::10)
+ by PSBPR02MB4408.apcprd02.prod.outlook.com (2603:1096:301:a::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5123.25; Fri, 1 Apr
+ 2022 02:43:34 +0000
+Received: from SG2PR02MB5379.apcprd02.prod.outlook.com
+ ([fe80::84ba:7c96:f19f:85ec]) by SG2PR02MB5379.apcprd02.prod.outlook.com
+ ([fe80::84ba:7c96:f19f:85ec%6]) with mapi id 15.20.5123.025; Fri, 1 Apr 2022
+ 02:43:34 +0000
+From: Chuanhua Han <hanchuanhua@oppo.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: alexandre.ghiti@canonical.com, jszhang@kernel.org, mhiramat@kernel.org,
+ akpm@linux-foundation.org, zhengqi.arch@bytedance.com,
+ ebiederm@xmission.com, liushixin2@huawei.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Chuanhua Han <hanchuanhua@oppo.com>
+Subject: [PATCH v4] riscv: mm: Remove the copy operation of pmd
+Date: Thu, 31 Mar 2022 19:43:20 -0700
+Message-Id: <20220401024320.98510-1-hanchuanhua@oppo.com>
+X-Mailer: git-send-email 2.25.1
+X-ClientProxiedBy: TY2PR06CA0030.apcprd06.prod.outlook.com
+ (2603:1096:404:2e::18) To SG2PR02MB5379.apcprd02.prod.outlook.com
+ (2603:1096:4:177::10)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: d1cc67ef-1a28-43e6-b097-08da13896a1f
+X-MS-TrafficTypeDiagnostic: PSBPR02MB4408:EE_
+X-Microsoft-Antispam-PRVS: <PSBPR02MB4408962BBBD6A121B2232E0ADFE09@PSBPR02MB4408.apcprd02.prod.outlook.com>
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: Z88OophW7l44OR1zR0nLwyMQjzdmdrbB2chepbxz9wqry5m7kI+OD9TCzTb17nuO7eNhSjLUzvDVy4eEco6+qlcZN/ZykFpwz8BCHJx1RB/8wNdVoMxkazGzxhybhNsvN020hqWY0pnkds4Q6YCw4PGHXrahkQKaHgipXKJzpEAqe443wVcUawf7UK68ZHGF+6YifE9Kh4K0CMC4AwIZsKEDrYzKkWjViOUYRr0ipjkn9hlyNSpXhMwnVeXNjMt4dcOEt+lK6r2TwgvwFutowMgmZtVlsTGaCbTuWtUg1Oa8iKc/1dR9nnoa8oy0nd8JH5oFXjxQ3q7e2TZzoIyGLZ6GJJERq0CwuINxIa4Bwsd0rWTOYawjp2t+g28cSNw/d/xwtDXOOPKwEUpuepQ1UurPMPDrN7Rb7+oDTQgaYkGxGK7odhTgwvpgQqEXv5YbJFHZgJs3jJ6Ko3HaV2D9Zgb5qhP9BbcElUR1BjAYPQJ8qU77kkcIY6AEqmsUNtdTX1Z2c5DSlj7hoVddY/NzRNM3JFEuGGqIivfF2GruA8IhyDCsv+RjwnGCSvf1LQ8g5pNceGJYUJgU0C6yGrlQSmdPfvSRfbUGnvA/5XKXSKTB6Sbd9CU2Yz6EhNELYAF/5U4WtXRMXAF7NI1aUj5HUh5Z3n2mDwNO1/x3WwrPRmEuUsxiJ43F9YHvFQllPTpG2lRPgac8V3E1x4V0Rf+v6Q==
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:SG2PR02MB5379.apcprd02.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(13230001)(4636009)(366004)(52116002)(6512007)(8936002)(83380400001)(6506007)(6666004)(2616005)(1076003)(186003)(8676002)(107886003)(38100700002)(26005)(38350700002)(86362001)(5660300002)(7416002)(6486002)(36756003)(66476007)(2906002)(66556008)(66946007)(508600001)(316002)(4326008);
+ DIR:OUT; SFP:1101; 
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?B83byt4q5dRf5B5G8PcUgozCNYHUWgfVNSXPSyhMrguS22M5C96ovV6Cj7Dq?=
+ =?us-ascii?Q?+/F3N+zHXEVwXmRLlMi6ri4wrMeIfsrzUABey3lhfTZ13ixnL0qrymG31B24?=
+ =?us-ascii?Q?3vxoyQfMTadER+RAZ2Llq7FJZgcHRQYdmNGt8ySLeyxyeBfitAj8hC+5VE9w?=
+ =?us-ascii?Q?te9y3ET/dH/vFkpqTG2cMLQxvx/XGUI2YomsE+bbG4Zxl8F3EVGMUw1Gw+Fg?=
+ =?us-ascii?Q?ESvnrnOrM/ZR9noi2t4n1jsArkmkduqAswf0HL7l+LWG921gjM4gmRP+F5rX?=
+ =?us-ascii?Q?QgYOYFezCOK1GLZNYp9aLW/PHMgBxvpDdMAunzOYp6YnS18GNYHCJSg1ThRo?=
+ =?us-ascii?Q?6SnG9+SawWQhw2Pqz0qJMWZU5n43CGfX8xuvOBzbEWPFmUwJDxogMvd+NoOI?=
+ =?us-ascii?Q?3PBvP1T4Sq3KMGyiWiM6vWLvoA4sZ8u/bB3bZ4OzsR1NBx8wtT9Ixd203sY9?=
+ =?us-ascii?Q?GCJBSscM5K2GpctMnTRTWtQbajo1SubO6gGGxFtAZsoWwTut4Hq+7pVjuYi8?=
+ =?us-ascii?Q?ePdUt37mZB5PWkN2iRXN3YwEQNoNDpCpNsbHILcNqvstM+8H++/NgfahLSvh?=
+ =?us-ascii?Q?LZUuR4n3zYsrFzAmNb1tmk3jSlFeLuxVAFfDHOZWAVQibpJLk5L3UA3CZ5bX?=
+ =?us-ascii?Q?uY9ZWuaTBnJeCjfedZCFd97Wv8ctp8yHZpoYhD/i81ps/elM1vEPri08UHh0?=
+ =?us-ascii?Q?UvZc9uhHdA9KnrFcNPiiofqGheoIrQquuC6GhhuBEyz+5X8+7X4+J6M+08cu?=
+ =?us-ascii?Q?lr01qZlzs4JfXxdtQKeJ/v+NK6gzpr0U5cNw/N54UOdxVeUrzUQiyPI9Z4kO?=
+ =?us-ascii?Q?EfPuP2XJfpHY9u9lBBHyVob2RZIfIWlFxvxBrUj6bfBcH6ZMh34hY+LfdSAv?=
+ =?us-ascii?Q?6OmN7ogFNlzTZFMDQrrHRdncIIDIAaDTQ7tjTV6fuNGjzryaXifQJA/fOsgW?=
+ =?us-ascii?Q?Nn18mjkLWLkcCa0FVhgOtARqvYHq/PqxQZ/8gRPbd2ykQqVCdqhBTIvuwcvN?=
+ =?us-ascii?Q?hPcHvWh+BiY1OhQZGQmabONDrxYiT7AeaNPGuzEYFCefR2NiKiFS6gLdUXp0?=
+ =?us-ascii?Q?aXXVwaJ8A/mbn7sfX8SDa3z63+d41UCcdYVwKn6qbx8DANNRx2tISt+K/lRk?=
+ =?us-ascii?Q?mWvzMhVrU/G5HGm4OXULxwvBKXVXw/TwwhU5YRyLOCCr+SpzTuzEgsOF//zh?=
+ =?us-ascii?Q?fLUGliz8HOZ4v589u0RUh2N+QMCqJ0s3nRLum4h0HtwSCvYBF7+hKylu2dos?=
+ =?us-ascii?Q?ATaX/dI96zwvyRmKnkdMLRVNi3gXxyzMaJUfOZCA3oNWmYPTZzP+MBvBCutF?=
+ =?us-ascii?Q?QZWNUJuvZvSSjQMRqRULXJUeM+Vr7oLFmwhAlHuKQvSxl2UTt6jDRrRH2OLS?=
+ =?us-ascii?Q?k3kLiLiRPxBFv8LSM3CtCKvSGb/WMIt4o0o3voeQTlf3MCCq8pYfiQSzTS4T?=
+ =?us-ascii?Q?WJswIMQT0WmOF5NoKzRq7kilD3lVZl/NncXwadvq6eph3YojSwYVfkcrVMsS?=
+ =?us-ascii?Q?na3x0m7rSgTHXl3Lkdqc28YFZ8qJ16eMuW8YZF+8bTgT9PHF3aO6AWulPtcK?=
+ =?us-ascii?Q?5fuTuL+JWO87ldgYPOgd48O5BXa9G3SNlmHhK/Ri7u2jWOtYK+VIQP7UZB1l?=
+ =?us-ascii?Q?kvUvih2mN9B16OFYwdzu8iFZ7xJaadvmhLVVOtieWliP1SZMGiwkiNQAnLzx?=
+ =?us-ascii?Q?TLVwin7rLfrZ6qHpf7jJIPYPZtu8/teb/aeN24B51FQ2WYK4ue8OK1ogZb+j?=
+ =?us-ascii?Q?WgwFjkxoXOny+7/b8QAtKj9BALGTM/8=3D?=
+X-OriginatorOrg: oppo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d1cc67ef-1a28-43e6-b097-08da13896a1f
+X-MS-Exchange-CrossTenant-AuthSource: SG2PR02MB5379.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2022 02:43:33.9985 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: f1905eb1-c353-41c5-9516-62b4a54b5ee6
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: SDq4MuSJ1o7YbSlWu89d3xEXtfx7U+0jOkHfINSlalZovUknuWouPGfTcAKAaKy6f2nKaMvRWsOT0p61BO/5VQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PSBPR02MB4408
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220331_193741_979937_1A1077AC 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20220331_194343_275857_4B6CE17C 
+X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,53 +137,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 30 Mar 2022 16:47:37 PDT (-0700), Palmer Dabbelt wrote:
-> From: Palmer Dabbelt <palmer@rivosinc.com>
->
-> As of 3938d5a2f936 ("riscv: default to CONFIG_RISCV_SBI_V01=n") we no
-> longer default to enabling SBI-0.1 support, so these dependent configs
-> no longer have any effect.  Remove them to avoid clutter.
->
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> ---
->  arch/riscv/configs/defconfig      | 2 --
->  arch/riscv/configs/rv32_defconfig | 2 --
->  2 files changed, 4 deletions(-)
->
-> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> index 7cd10ded7bf8..74df9e1dd2d2 100644
-> --- a/arch/riscv/configs/defconfig
-> +++ b/arch/riscv/configs/defconfig
-> @@ -64,8 +64,6 @@ CONFIG_INPUT_MOUSEDEV=y
->  CONFIG_SERIAL_8250=y
->  CONFIG_SERIAL_8250_CONSOLE=y
->  CONFIG_SERIAL_OF_PLATFORM=y
-> -CONFIG_SERIAL_EARLYCON_RISCV_SBI=y
-> -CONFIG_HVC_RISCV_SBI=y
->  CONFIG_VIRTIO_CONSOLE=y
->  CONFIG_HW_RANDOM=y
->  CONFIG_HW_RANDOM_VIRTIO=y
-> diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-> index e0e5c7c09ab8..cabfd6a5b47b 100644
-> --- a/arch/riscv/configs/rv32_defconfig
-> +++ b/arch/riscv/configs/rv32_defconfig
-> @@ -62,8 +62,6 @@ CONFIG_INPUT_MOUSEDEV=y
->  CONFIG_SERIAL_8250=y
->  CONFIG_SERIAL_8250_CONSOLE=y
->  CONFIG_SERIAL_OF_PLATFORM=y
-> -CONFIG_SERIAL_EARLYCON_RISCV_SBI=y
-> -CONFIG_HVC_RISCV_SBI=y
->  CONFIG_VIRTIO_CONSOLE=y
->  CONFIG_HW_RANDOM=y
->  CONFIG_HW_RANDOM_VIRTIO=y
+Since all processes share the kernel address space,
+we only need to copy pgd in case of a vmalloc page
+fault exception, the other levels of page tables are
+shared, so the operation of copying pmd is unnecessary.
 
-This and #3 are on for-next, I'm holding off on #2 pending testing on 
-the K210.
+Signed-off-by: Chuanhua Han <hanchuanhua@oppo.com>
+---
+Changes in v4:
+  -Modify incorrect author name.
+
+Changes in v3:
+  -Change the real name of signed-off-by.
+
+Changes in v2:
+  -Delete incorrect default signatures.
+
+
+ arch/riscv/mm/fault.c | 10 +++-------
+ 1 file changed, 3 insertions(+), 7 deletions(-)
+
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index 4e9efbe46d5f..40694f0cab9e 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -102,9 +102,9 @@ static inline void bad_area(struct pt_regs *regs, struct mm_struct *mm, int code
+ static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long addr)
+ {
+ 	pgd_t *pgd, *pgd_k;
+-	pud_t *pud, *pud_k;
+-	p4d_t *p4d, *p4d_k;
+-	pmd_t *pmd, *pmd_k;
++	pud_t *pud_k;
++	p4d_t *p4d_k;
++	pmd_t *pmd_k;
+ 	pte_t *pte_k;
+ 	int index;
+ 	unsigned long pfn;
+@@ -132,14 +132,12 @@ static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long a
+ 	}
+ 	set_pgd(pgd, *pgd_k);
+ 
+-	p4d = p4d_offset(pgd, addr);
+ 	p4d_k = p4d_offset(pgd_k, addr);
+ 	if (!p4d_present(*p4d_k)) {
+ 		no_context(regs, addr);
+ 		return;
+ 	}
+ 
+-	pud = pud_offset(p4d, addr);
+ 	pud_k = pud_offset(p4d_k, addr);
+ 	if (!pud_present(*pud_k)) {
+ 		no_context(regs, addr);
+@@ -150,13 +148,11 @@ static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long a
+ 	 * Since the vmalloc area is global, it is unnecessary
+ 	 * to copy individual PTEs
+ 	 */
+-	pmd = pmd_offset(pud, addr);
+ 	pmd_k = pmd_offset(pud_k, addr);
+ 	if (!pmd_present(*pmd_k)) {
+ 		no_context(regs, addr);
+ 		return;
+ 	}
+-	set_pmd(pmd, *pmd_k);
+ 
+ 	/*
+ 	 * Make sure the actual PTE exists as well to
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
