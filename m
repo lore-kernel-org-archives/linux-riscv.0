@@ -4,79 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13484C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Apr 2022 05:51:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8B3AC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Apr 2022 06:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w2Xas4b5/+I9pbbT5xHMSOj5SWfgTQ8ftIkzmrgwHmk=; b=sNpfsuIERxM5CT
-	3knY4jO3YgslS843Ix6XLrmE2kSzZJpNyUkViDOlFomyp6+vmDTeEgv1zOh8RRQ/JiwnyxdOVle3F
-	EPYN896jVDtSSj3iQBl9g3ZbNZXAbIMa2YX3qJjr0AIsc3ym52lg3FV2rzSR9omMgZ4kTCglHxCQl
-	/5exQ9JkGVcLcPOd2pcxw/pHsurwyLkhMbf2nYuZrXH3aNY8ogtnCUO2ynWXsh2yiEBa1fF2Sj2g+
-	VYOkeziiEORENl0nC4M3BV2sDfHyJkOYUhRhM/jDIeKDwC05OW89PKECD1kg/q9Ay5jl7SZ8myv4J
-	YJ5hNKerExMFygBPJxkg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U7AGg7x0D1/TO01M4oWZJ3udc5iJK8Yd8xoacGKwGuA=; b=v4XEsUxwkBshT4wbLBqdHHJn/V
+	khn86ggY5eXQ1TowTbfVO4+aeox4QF+vOYEJKod3AdYE8dfQxCnfEYWQ6xWV/Hg/c0EcSqjjoCq+H
+	OZR9LB2oaLCLq+bbxqm5ofdZbaFKte4DH8NbbeW9+WZhXoQCMxAql+xnVVKTDhE+bEwmUvcqOYbza
+	BPIbCjCFUHPPC3tbjtutYThFG+oJLXHUY3556SSUmuJG96RkW51xL3WIoChTiz9H1RhSO8O7SnCO4
+	ElLeqlZvcrWzJb9Yavi4NfI1xxiSmGn5lhakdEvcPxVNWDJQKsRJAekB6fbCUDLlD18nQsqqTEmVR
+	T8EJWsSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1naABh-004b8e-OX; Fri, 01 Apr 2022 05:51:09 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1naB9t-004ho8-Rh; Fri, 01 Apr 2022 06:53:21 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1naABf-004b85-Aj
- for linux-riscv@lists.infradead.org; Fri, 01 Apr 2022 05:51:08 +0000
-Received: by mail-lf1-x135.google.com with SMTP id k21so2950557lfe.4
- for <linux-riscv@lists.infradead.org>; Thu, 31 Mar 2022 22:51:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=qA1v0A7dc3FV4RuMv5ZQV+qnRwKmp9V+QFkq5cmpENY=;
- b=RMf4MzqPShODxLhq+sO4cUVTL3s/BrBvRG/EaMjOanqT3bAMiyKedu7D3sCrExpRdk
- nYKSZHJq3Y3KMEff96G8lFu3QcAjZT0UNIGroLdVSmjshBRp3CQ/VIgP+wZtFK73kk5Y
- 1Gr1qpQNLItoN5zU/4GjpZlzsKTMTduLnNfTxZ/F6Y2GOiQPkeb/5071tQGXYLH2e5iQ
- Hlps5YemK2FlkjzWe0fmiMtXBDFUpmwsCqVPY8oTlM8hFaIRi42+tbLBP68BWhiIf+kH
- 9pVGm4jItuyZf7pyIMruxC/4uuZSRvpMuGpySvAHCtN0fT58BvcfJQmUBmyG3Lls5Wml
- 93Gw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=qA1v0A7dc3FV4RuMv5ZQV+qnRwKmp9V+QFkq5cmpENY=;
- b=ZRR4JuCKN29amnI19dgdsFAcmXuTaZHMorhKuJs6WDkWfD5FIGy5OJp2VC5T1bnM3I
- DPb0t4YxQ8WKC0dNEs5WVPsirYrJy1JVKG+793AsOgaETniDXMa+dASVni+L/lkboD6I
- uASM1pWq51522jwbzI+fqlJIDfmgTaCPJWyIJeu4AXyhkek0oTXVyWWd17R6fUQG+W4K
- YSmrR282vvB3PeKD47XvPTCxfeF6NKaOfivWCC+mBlykCaPWAQJiDdYoMz9QaRWyPDV+
- GnXaavDAmX2qi0oYwocoi5N/om52cIual0lNiIIItwh8PER3uZ1sRySQHR9G1lr5yWZo
- 3Yjw==
-X-Gm-Message-State: AOAM531L9XMSnbF6JT1cOdYX7ZwWM02GAlSgk7bxF0bUVAEtwYEwamXH
- KWnBfSfqFrwkRGOnss4Vm14F3dNi6dbsgEZxVn0wBA==
-X-Google-Smtp-Source: ABdhPJzV5rjeNDxGrh06Y6/j6ua7W2u+B+s3R9VuN1ozC2fonLH2ANgH5N2/XarDXlE09XwQEepCNwQd97y3piadpjo=
-X-Received: by 2002:a05:6512:1051:b0:44a:5dcb:3a74 with SMTP id
- c17-20020a056512105100b0044a5dcb3a74mr12761841lfb.51.1648792261524; Thu, 31
- Mar 2022 22:51:01 -0700 (PDT)
+ id 1naB9r-004hnh-O5
+ for linux-riscv@lists.infradead.org; Fri, 01 Apr 2022 06:53:21 +0000
+Received: from gallifrey.ext.pengutronix.de
+ ([2001:67c:670:201:5054:ff:fe8d:eefb] helo=bjornoya.blackshift.org)
+ by metis.ext.pengutronix.de with esmtps
+ (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <mkl@pengutronix.de>)
+ id 1naB9k-00025p-1L; Fri, 01 Apr 2022 08:53:12 +0200
+Received: from pengutronix.de
+ (2a03-f580-87bc-d400-a2e4-7752-b370-a958.ip6.dokom21.de
+ [IPv6:2a03:f580:87bc:d400:a2e4:7752:b370:a958])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest
+ SHA256) (Client did not present a certificate)
+ (Authenticated sender: mkl-all@blackshift.org)
+ by smtp.blackshift.org (Postfix) with ESMTPSA id 1B3C458411;
+ Fri,  1 Apr 2022 06:53:10 +0000 (UTC)
+Date: Fri, 1 Apr 2022 08:53:09 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Aurelien Jarno <aurelien@aurel32.net>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ stable <stable@vger.kernel.org>, Kito Cheng <kito.cheng@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+ Sparse Mailing-list <linux-sparse@vger.kernel.org>, ukl@pengutronix.de,
+ Luc Van Oostenryck <luc.vanoostenryck@gmail.com>
+Subject: Re: [PATCH] riscv: fix build with binutils 2.38
+Message-ID: <20220401065309.dizbkleyw44auhbo@pengutronix.de>
+References: <20220126171442.1338740-1-aurelien@aurel32.net>
+ <20220331103247.y33wvkxk5vfbqohf@pengutronix.de>
+ <20220331103913.2vlneq6clnheuty6@pengutronix.de>
+ <20220331105112.7t3qgtilhortkiq4@pengutronix.de>
+ <CAHk-=wjnuMD091mNbY=fRm-qFyhMjbtfiwkAFKyFehyR8bPB5A@mail.gmail.com>
 MIME-Version: 1.0
-References: <mhng-c6a04a4f-1e85-49e9-baee-b56b0e78c602@palmer-ri-x1c9>
- <mhng-5afad1be-9b06-4cd1-95e3-c21605b9086a@palmer-mbp2014>
-In-Reply-To: <mhng-5afad1be-9b06-4cd1-95e3-c21605b9086a@palmer-mbp2014>
-From: Zong Li <zong.li@sifive.com>
-Date: Fri, 1 Apr 2022 13:50:50 +0800
-Message-ID: <CANXhq0oJKRVV2QyzJ2WV1fjcw3piyoKeiR5U-=DqsyDayixTGA@mail.gmail.com>
-Subject: Re: [PATCH v8 0/4] Determine the number of DMA channels by
- 'dma-channels' property
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Vinod <vkoul@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
- Conor Dooley <conor.dooley@microchip.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>, 
- Bin Meng <bin.meng@windriver.com>, Green Wan <green.wan@sifive.com>, 
- dmaengine <dmaengine@vger.kernel.org>, 
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>
+In-Reply-To: <CAHk-=wjnuMD091mNbY=fRm-qFyhMjbtfiwkAFKyFehyR8bPB5A@mail.gmail.com>
+X-SA-Exim-Connect-IP: 2001:67c:670:201:5054:ff:fe8d:eefb
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
+ SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220331_225107_422104_3261605F 
-X-CRM114-Status: GOOD (  24.65  )
+X-CRM114-CacheID: sfid-20220331_235319_820543_169B3A60 
+X-CRM114-Status: GOOD (  14.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,81 +79,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2076525477480664606=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 1, 2022 at 6:42 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->
-> On Wed, 30 Mar 2022 22:54:47 PDT (-0700), Palmer Dabbelt wrote:
-> > On Wed, 30 Mar 2022 22:21:56 PDT (-0700), vkoul@kernel.org wrote:
-> >> On 30-03-22, 20:15, Palmer Dabbelt wrote:
-> >>> On Mon, 28 Mar 2022 02:52:21 PDT (-0700), zong.li@sifive.com wrote:
-> >>> > The PDMA driver currently assumes there are four channels by default, it
-> >>> > might cause the error if there is actually less than four channels.
-> >>> > Change that by getting number of channel dynamically from device tree.
-> >>> > For backwards-compatible, it uses the default value (i.e. 4) when there
-> >>> > is no 'dma-channels' information in dts.
-> >>> >
-> >>> > This patch set contains the dts and dt-bindings change.
-> >>> >
-> >>> > Changed in v8:
-> >>> >  - Rebase on master
-> >>> >  - Remove modification of microchip-mpfs.dtsi
-> >>> >  - Rename DMA node name of fu540-c000.dtsi
-> >>> >
-> >>> > Changed in v7:
-> >>> >  - Rebase on tag v5.17-rc7
-> >>> >  - Modify the subject of patch
-> >>> >
-> >>> > Changed in v6:
-> >>> >  - Rebase on tag v5.17-rc6
-> >>> >  - Change sf_pdma.chans[] to a flexible array member.
-> >>> >
-> >>> > Changed in v5:
-> >>> >  - Rebase on tag v5.17-rc3
-> >>> >  - Fix typo in dt-bindings and commit message
-> >>> >  - Add PDMA versioning scheme for compatible
-> >>> >
-> >>> > Changed in v4:
-> >>> >  - Remove cflags of debug use reported-by: kernel test robot <lkp@intel.com>
-> >>> >
-> >>> > Changed in v3:
-> >>> >  - Fix allocating wrong size
-> >>> >  - Return error if 'dma-channels' is larger than maximum
-> >>> >
-> >>> > Changed in v2:
-> >>> >  - Rebase on tag v5.16
-> >>> >  - Use 4 as default value of dma-channels
-> >>> >
-> >>> > Zong Li (4):
-> >>> >   dt-bindings: dma-engine: sifive,fu540: Add dma-channels property and
-> >>> >     modify compatible
-> >>> >   riscv: dts: Add dma-channels property and modify compatible
-> >>> >   riscv: dts: rename the node name of dma
-> >>> >   dmaengine: sf-pdma: Get number of channel by device tree
-> >>> >
-> >>> >  .../bindings/dma/sifive,fu540-c000-pdma.yaml  | 19 +++++++++++++--
-> >>> >  arch/riscv/boot/dts/sifive/fu540-c000.dtsi    |  5 ++--
-> >>> >  drivers/dma/sf-pdma/sf-pdma.c                 | 24 ++++++++++++-------
-> >>> >  drivers/dma/sf-pdma/sf-pdma.h                 |  8 ++-----
-> >>> >  4 files changed, 38 insertions(+), 18 deletions(-)
-> >>>
-> >>> Thanks, these are on for-next.
-> >>
-> >> The drivers/dma/ should go thru dmaengine tree. During merge window I
-> >> dont apply the patches
-> >
-> > OK, I can drop this from my tree if you'd like?
->
-> Just to follow up from IRC: I'm dropping these from my tree.
 
-Hi Palmer and Vinod,
-Many thanks for your help. As all you suggested, let's go this
-patchset by the dmaengine tree. Thanks a lot!
+--===============2076525477480664606==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="5jl2rqq57omr4yri"
+Content-Disposition: inline
+
+
+--5jl2rqq57omr4yri
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On 31.03.2022 11:16:53, Linus Torvalds wrote:
+> On Thu, Mar 31, 2022 at 3:51 AM Marc Kleine-Budde <mkl@pengutronix.de> wr=
+ote:
+> >
+> > Cc +=3D linux-sparse, Uwe, Luc Van Oostenryck
+> >
+> > tl;dr:
+> >
+> > A recent change in the kernel regarding the riscv -march handling breaks
+> > current sparse.
+>=20
+> Gaah. Normally sparse doesn't even look at the -march flag, but for
+> riscv it does, because it's meaningful for the predefined macros.
+>=20
+> Maybe that 'die()' shouldn't be so fatal. And maybe add a few more
+> extensions (but ignore them) to the parsing.
+>=20
+> Something ENTIRELY UNTESTED like the attached.
+
+Works-for-me:
+
+|   CHECK   /srv/work/frogger/socketcan/linux/drivers/net/can/usb/etas_es58=
+x/es58x_core.c
+| WARNING: invalid argument to '-march': 'zicsr_zifencei'
+
+Tested-by: Marc Kleine-Budde <mkl@pengutronix.de>
+
+Regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde           |
+Embedded Linux                   | https://www.pengutronix.de  |
+Vertretung West/Dortmund         | Phone: +49-231-2826-924     |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-5555 |
+
+--5jl2rqq57omr4yri
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEBsvAIBsPu6mG7thcrX5LkNig010FAmJGoVIACgkQrX5LkNig
+0131+gf+OoP5mBIuthsyF3cauP7RO1sSa7VFXUnlth9PI5r6HwTL7dHAjry4lXfJ
+x4Dl/7p024mbaQcCTKyUVStHaSIVd6aze/8pCsjmBTARtMe86P9rOyWGaLcES5P7
+tp/DjsYxQrYrOt+5Fs7+UrqZP5vnXuPYrKfYz0/VP3fLoA6gFGYTvlTXgiYFj7vL
+2xdpRvS1pbZhExvNlkKnJSzKZwE6L841k292RtWWOCzogsPt5YwUlkn/Zb4FbHwR
+y8BbMJhcGHG6T+DkgQA6amREXr6Y0Z5z4vzPDZMRpTFdVVmAUaYgqO7sncdEoyDL
+qv7LdfZg11z7bYVLbk/Z7Y5oXcsG8A==
+=1XuF
+-----END PGP SIGNATURE-----
+
+--5jl2rqq57omr4yri--
+
+
+--===============2076525477480664606==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2076525477480664606==--
+
