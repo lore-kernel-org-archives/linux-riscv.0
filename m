@@ -4,94 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B712BC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Apr 2022 01:06:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E9B5C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Apr 2022 02:29:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=ZRmiax55pSi6CsoRRHqHUXDfFA6GIJ2qhqpeh1cET9g=; b=GkCa6hq/fR2cpU7/ADIsE47aLh
-	7Aw+yGZT1dWF6XYryEKJEFbH61e0AeUAqyqXqHYkDrHzregKjpTQAa9nhk9Lxr2SZfyrotq9GJozt
-	zSTKtAqWcoUJv5Bt+G2lGtOiDbCBY3Yx43EmOR/lehrvlnZP/gf1zusAGcFnqqOxx+B/1hhQi7VpS
-	N5E+V6PGsJIOFv3tEDO5V399gT4cxU3Hq2o/UzMohxx5mQQdstu7kvjhC8iEcUQbc/Tk0okn9jQgw
-	C9BAINXAs/EvTHQ8SJ18BZRuGFdxpcD8HbZtTdW8Sm/UnY0Xaa2pLc5ZPTdSvN1+bblGjgrX8JN0V
-	mFXp46Ew==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IOgub9F2II20N963aNf6p0tPIc5rUMP6jdLWie5532U=; b=bMQplzoYtMW+Bn
+	AgbBTz/hOk+zI4I9V1jgvKk2k2Y6pZWoRyL/MHVCOD4/i8HlWiMyMlODMXHrecB8Lxhh2JoR15CBM
+	Mkxl8qZFcpYpASncWxbvYIe0Cb/bRYfkjqW/YlHYFWMW19VpZSHjrAf08D6d372rf6/hH8uknL/Z/
+	U8UZcN3HV0jvDA6dnE5u9o1/JFCsZV3rw5WP2oZW3R6uYeZQYBtbmyvKm4abSKP987aR5ZkeHk+Hu
+	gg8HdMijSVV7ftH2x8abYAGFyA+Dx+FI0gqpZcB7grTfgW5UFkyzvforFceE99eVLZ86ZN92oWq3x
+	bw/JEgIDbITJCeT37JRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1na5jl-0047LZ-CE; Fri, 01 Apr 2022 01:06:01 +0000
-Received: from wout3-smtp.messagingengine.com ([64.147.123.19])
+	id 1na72b-004H3u-2g; Fri, 01 Apr 2022 02:29:33 +0000
+Received: from mail-sgaapc01on20626.outbound.protection.outlook.com
+ ([2a01:111:f400:feab::626]
+ helo=APC01-SG2-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1na5jh-0047LA-Vx
- for linux-riscv@lists.infradead.org; Fri, 01 Apr 2022 01:05:59 +0000
-Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
- by mailout.west.internal (Postfix) with ESMTP id A8F533201D7C;
- Thu, 31 Mar 2022 21:05:51 -0400 (EDT)
-Received: from mailfrontend2 ([10.202.2.163])
- by compute1.internal (MEProxy); Thu, 31 Mar 2022 21:05:52 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
- cc:cc:content-transfer-encoding:content-type:date:date:from:from
- :in-reply-to:in-reply-to:message-id:mime-version:references
- :reply-to:sender:subject:subject:to:to; s=fm2; bh=JFPUhEjYt2T4y/
- GMkEpZ62RhA982gs20GEDWtE6vuw0=; b=Teg/IxXO072MtZ6w8wqKTQ9jMwRRwb
- JUC32kpiUh4om79WZpOd89UU5CrAZI6eb1EKMnUHlWsJ60pqBUF1PlTOKM9ejmeI
- POc52d8FfoSuYLKw46I+VuE/AWv2N4uIsNMQ9l2mHkj3NOlsLqxcfQ4FvWha0+eG
- r/cAkk2CueW+4ndElt1PrTIPDnyZAKIejtS5MLjfNcbfjhhhEDvUy71+SMcU/iUj
- d4a+OgbtLDYDICUq4/SIzXrbIFLdNWfLQLzlS/QtTuNNzlgJIqJCIR7Kz9unMfXh
- T6Uql2Ut3AngcQ+jGtyvj7JFzu1Ak7TMDhex9z8HFP/G9YGCq2qO9z2w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:cc:content-transfer-encoding
- :content-type:date:date:from:from:in-reply-to:in-reply-to
- :message-id:mime-version:references:reply-to:sender:subject
- :subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
- :x-sasl-enc; s=fm3; bh=JFPUhEjYt2T4y/GMkEpZ62RhA982gs20GEDWtE6vu
- w0=; b=N5Sw/NgUAzNkar8BRLk7ziFMiwX+6SAXPG3RX9oigAjmMrdgACzZqSX8U
- TEHcgKyuWBzf5kEdhaTz+/7//vDWqhytXsBqDjYGLzL5RF1QZWT+mfcC34qAM9pt
- Yqm0nJ8ASo7avMmCYlqua5QUgZnQtByKau9ZfaIChoVB/eclQQvbA03VYDQwYFFQ
- 0/JPOghF7TDl94+8jIQKmV/9AifUUk4QTvMluyGMAXuXSxKonxYSy7lErHF71weJ
- AaJBQ2EFadevYrg9l8E+zQ7vVV6uvgRh9ze/6maPHdwdFm/4K/jNbWyrXOUgbWNE
- FqAmccExgEtD9CBeEJ9ONa/q3GHSQ==
-X-ME-Sender: <xms:7k9GYg_v06RsvtEt-tnNH5a3trqEzlHB_VgLWVuy6_80Qh8nD_j5cg>
- <xme:7k9GYotfzkJYN8TW1azCeI0FVT1sUNSw6yxmGlLTuQwpNVlHH-XOeBzelxl92qU_E
- mK8GH1K8W8YrleVKA>
-X-ME-Received: <xmr:7k9GYmDoOXEVD3Q0JgRwfRrxTb_WlXUvTC1F98vIaOUQUwFcjh19MKDL5MZDSwbdmmSHgjhmq6jvXgYztUndS2Pw_7eZ9F1a7L3lRKtdeH4m-yvz5hsaKQ4u9g>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvvddrudeihedggeduucetufdoteggodetrfdotf
- fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
- uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
- cujfgurhepuffvfhfhkffffgggjggtgfesthejredttdefjeenucfhrhhomhepufgrmhhu
- vghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqnecugg
- ftrfgrthhtvghrnhepgfevffetleehffejueekvdekvdeitdehveegfeekheeuieeiueet
- uefgtedtgeegnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrh
- homhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
-X-ME-Proxy: <xmx:7k9GYged0fk-Mm9VRkcAVGZgdqDhwy69nQsl9mAebzlxFytEqdesCA>
- <xmx:7k9GYlPqC8JNO1dQD2MYfLz3CWPDj-DGre8VyZh3rlefGIRL84X4MQ>
- <xmx:7k9GYqnzA9OI5FnFHbTGDE4W4S-RB0HjHCR3lRJvG3Rv1sw1R8SaLg>
- <xmx:709GYmG33Tqsn1PrchZiTVQfdRsYiVXqflubtw5id1SuimpkPRthYA>
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 31 Mar 2022 21:05:49 -0400 (EDT)
-Subject: Re: [PATCH 2/2] riscv: implement cache-management errata for T-Head
- SoCs
-To: Heiko Stuebner <heiko@sntech.de>, palmer@dabbelt.com,
- paul.walmsley@sifive.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- wefu@redhat.com, guoren@kernel.org, atishp@atishpatra.org,
- anup@brainfault.org, mick@ics.forth.gr, cmuellner@linux.com,
- philipp.tomsich@vrull.eu
-References: <20220307224620.1933061-1-heiko@sntech.de>
- <20220307224620.1933061-3-heiko@sntech.de>
-From: Samuel Holland <samuel@sholland.org>
-Message-ID: <ab119a0a-3434-dd76-7af1-4e8b296896f6@sholland.org>
-Date: Thu, 31 Mar 2022 20:05:48 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+ id 1na72Y-004H3O-1F
+ for linux-riscv@lists.infradead.org; Fri, 01 Apr 2022 02:29:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Sdc0SezCqnB9Ib3urjMvxbWDRxTYY9ATsjnUCjNIdiaQm/3NqpbyyavUB4Z7wkukcSgcM1o6s3/Uc1uHvs++L8pZ6dxOIz6Olbat6nvyH6wyJQ+dGApRgRTnESgOIqiGhCSv+NhMFH0WbYYI8YurIlfYKtnyCkGiRlEjldqgJVdQtxPQsE8vI4N6G4/VfRcBjLtSfqnwpk75hOZWFdHfGWxwL2s6i8bTWjSPGtsHLol4cce9Pj36mgPTVx4mNvnqilWecbZuMTuji0mFfaHo9N9k+j5ELUwWXtxNHu+7lGJ4z+BDckbqJHHLRjURysfm+ItB8tOQHf9Eei9nE/Jh3g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fL3wSU78u1gR1aZucXLTlCzfJGnqDvtH4mS7knnBepc=;
+ b=lN95JzJMmsIEbJyx5VM4VgI0gbz4S8dHw07cvTJQlw/0zWg3QPSwrNnuzGdYHmBbllw+cZ7EbymTXLEQbiTQLATOYMPvB1RWbW7B1v5WL4fzDaz8QH7aJ7zN1Il3vQe3wPok6gtcmfq9j3gxJtH5XAGfiHoPsctri4BJvKZ9QEjYWbwEXWB4y48GFS0hAhaTiXt7Hnc+lPSWdstAa8jN5wP5Lyot4n6ISsxmss924q6ppZvNsaSmQ88Ihm5iGR1brWd+hpG0Rvg3nUdgm1pjXxrMhU3TUJZt5pjmtgmn5S6U0dgElUfKKAyn8VP90Qb7z/zNUcNg0JCibrvKkj7TVA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oppo.com; dmarc=pass action=none header.from=oppo.com;
+ dkim=pass header.d=oppo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oppo.com; s=selector1; 
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fL3wSU78u1gR1aZucXLTlCzfJGnqDvtH4mS7knnBepc=;
+ b=U9nwlDpQwsZ044DAC8yjyEveMT5PVXbZKaHvTuIvVo+a1b/qiCDTgEjSZz9cHn45P/19YDVnsnAvftqtafWdP7pdnOKpTHXyyPxFapFqbfoc5DFvshWbTayvgSWRmFVwI2gNX7/1YnPs8wFh2AXxOMyWmy9MXxd+35nYp50V61I=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oppo.com;
+Received: from SG2PR02MB5379.apcprd02.prod.outlook.com (2603:1096:4:177::10)
+ by TY0PR02MB5873.apcprd02.prod.outlook.com (2603:1096:400:21f::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5123.25; Fri, 1 Apr
+ 2022 02:29:19 +0000
+Received: from SG2PR02MB5379.apcprd02.prod.outlook.com
+ ([fe80::84ba:7c96:f19f:85ec]) by SG2PR02MB5379.apcprd02.prod.outlook.com
+ ([fe80::84ba:7c96:f19f:85ec%6]) with mapi id 15.20.5123.025; Fri, 1 Apr 2022
+ 02:29:19 +0000
+From: Chuanhua Han <hanchuanhua@oppo.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: alexandre.ghiti@canonical.com, jszhang@kernel.org, mhiramat@kernel.org,
+ akpm@linux-foundation.org, zhengqi.arch@bytedance.com,
+ ebiederm@xmission.com, liushixin2@huawei.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ hanchuanhua <hanchuanhua@oppo.com>
+Subject: [PATCH v3] riscv: mm: Remove the copy operation of pmd
+Date: Thu, 31 Mar 2022 19:29:06 -0700
+Message-Id: <20220401022906.97710-1-hanchuanhua@oppo.com>
+X-Mailer: git-send-email 2.25.1
+X-ClientProxiedBy: TYCPR01CA0003.jpnprd01.prod.outlook.com (2603:1096:405::15)
+ To SG2PR02MB5379.apcprd02.prod.outlook.com
+ (2603:1096:4:177::10)
 MIME-Version: 1.0
-In-Reply-To: <20220307224620.1933061-3-heiko@sntech.de>
-Content-Language: en-US
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 045f2653-e6e8-456a-bb12-08da13876c9e
+X-MS-TrafficTypeDiagnostic: TY0PR02MB5873:EE_
+X-Microsoft-Antispam-PRVS: <TY0PR02MB587330974DBEF4B871F7F86ADFE09@TY0PR02MB5873.apcprd02.prod.outlook.com>
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: ZtGx/ayWM3gxDmXVWQEom9l3qe13e3ABXhh/3DBkiNbUGQW8YgJ438jgeb2Jakl2/AgW2RF+DvMm/F8bPg65cyoU5ISRjKSJudjyohfH+MqaAUhYgkUL+1g8OUCa7BKU7pnwPOoSivem9VfTFdn5QhHzA+2GrIvM34/pJCd1IxAQ9Zay66+rphPDmnn9s5RD/hIOdUV5FoK8ijcArdH8sT66O0rIFdWEkehk3p4NhRSbFdeYkuTBETylPiBya4ajkqSOvm6hyMhS5vzDSxLPCwdmbHAHgKZmlHbE5Y+Ag0pnBwJf8VrEtcdT4uDT7vjQCBAGHpRZyIV5dgK32G5w1ycQeAeoVnDKsthI/+7WfIWay3hQaviMZa/6GqeVwLdYwhvgr4lkvhsWHJMvZpF/N8xgpW++freSQoPEN+tqkkQHbyRImDvgoodaBUko/SQyCJIMLAqqZ+1Gsm/TkIWp9RdvWOixPjHuCjBnsxmlMkGDxSo4XwIxj3QIl6Gi8rb8Ku7KpMX4MpMpyukFxtWNCiVQrBOBPdV3B44rtYM4DMi0OT0HAi1gIqfiirqfaZndExXzXxDrMhke7k7JVR6olPQ7NAfRNTvFifxP7jP7f/tJAfs+4JwjgWk3jqVX43jKLXizT+AhhaIOdKaieijS4qUNCLh7eAFjR41dQufwwacME3//umGDVTjUZHlUnHXbmFd7bkk+vpc24U4+KdT8Zg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:SG2PR02MB5379.apcprd02.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(13230001)(4636009)(366004)(66476007)(4326008)(83380400001)(6506007)(316002)(52116002)(8676002)(36756003)(86362001)(66556008)(66946007)(2906002)(5660300002)(7416002)(38350700002)(1076003)(38100700002)(8936002)(508600001)(6666004)(6486002)(6512007)(186003)(2616005)(107886003)(26005);
+ DIR:OUT; SFP:1101; 
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?It2KJXXParcAiRVAc7vvM07gG/HroFki3iJTa11RxwN+zMvxAi1PevjwEhI3?=
+ =?us-ascii?Q?bXeqO/GovWB3P1CW7n/G7MWN0ecHJ/ump3oq/srjFZ0Y3tuonJBqR3RJjMct?=
+ =?us-ascii?Q?CXqETIetNlTWxZmng9XHSzimCP+3nF+qrqIvZDb6KAR381P2ZViV0cYxsVty?=
+ =?us-ascii?Q?ytOl8I2i60WAOJPieTVDEpELnpLWbnlm+WtVzmfVkKfducsXWXnrho4KG2If?=
+ =?us-ascii?Q?PCbODrdW642Rd8uwrhLxQj+K/+h9cLxp6VIgNbExfS7Cuk+6FERZvZGW1kDF?=
+ =?us-ascii?Q?3lQXwS0p52pQoAjP+CP/qmOZrMq+WMlqFi4snh46RLF2W9pKZ+QZOv5X77gq?=
+ =?us-ascii?Q?JqWXEumvuaSoVczmaMc79fI0LNGWtUDMOe14FlGA4BF6zcuF+i4lAX0pUVVm?=
+ =?us-ascii?Q?oq31eEFwMRf35CnrisWQWz1pSqkxe1gNSYzl7nWFnNBJ7V0/nSx35UiqXevq?=
+ =?us-ascii?Q?Bs3klls1tc5s27WqN2jCL+5fY4LuPxZPRvnTkes9sMxeQ5kCa7sqfXbzKSoe?=
+ =?us-ascii?Q?LTGO8tiWv5888FKLJ5RoS5spYVS4Oe532xxeXTlAgMIAGiEVBWKrJgIH1vHs?=
+ =?us-ascii?Q?5yy4WAaVLzn4e0pRcFuvqkWIWTW+i5UQWtiOblAPyvFfaEQszOlpA5H1Y/nO?=
+ =?us-ascii?Q?orgJZq0cRRIB+oi9Exro+78CxCIf5Ixbl+Te3OX2OUSArj+A/28czt74xV4k?=
+ =?us-ascii?Q?4Q/VksiJZlGLTpXZdZDRMOpwbsKc+UhqWKLwKRUWQmPzhWICW3BVLw8oBMDa?=
+ =?us-ascii?Q?vyYIlLtUFWy3Of8n7Q4AHqDB60F3AyDUKUwwHkV16AUKL9lxUOeTBYtSPKog?=
+ =?us-ascii?Q?P5qufMC6WhH9xzzNduwH94J9/mJlMJREMRwD4obk5cz9pZFYYJV7U75Nn8uP?=
+ =?us-ascii?Q?JS199KgpB3gWUlqgwb33Av4dDsS9YrXcnMzaY25/Vryn7fkUVzVBK4CYdAb1?=
+ =?us-ascii?Q?cnbvDyyb2vpfzyZAEP65JAlyoXrQmqJXCcZN/hrTJxLOYaS9oTYUKnWl6Tnh?=
+ =?us-ascii?Q?azeec4ozLvfkuIzbN2fyjsu/7Gh3++/mnTaPBvWJfjrsz9lDs8E01xP/U+hJ?=
+ =?us-ascii?Q?Ps8pswgAlEzyjULA9aC+IUD2vzgAbNlitRnuuz0DrfV3ASJJVQlKwNSHaY3v?=
+ =?us-ascii?Q?5g1Doua3kM5F1IbRFEd5/1VF0txG80BSDBD0FlL/UfyEHDlfBWF5kf4BOi7v?=
+ =?us-ascii?Q?+RJdRSH7RqP5bwq5av1JACF3EKzvLpPDmw0NGM0WtcJF5bKyiHJEshVOinSX?=
+ =?us-ascii?Q?moDQ9PztfteJcIoWh/1iJ3oT72UtIoxyeuBEB3uclbeA5SI6sGTvFa9RGnoC?=
+ =?us-ascii?Q?6htMNg+VRX+Mea/EjZz0H4CJyLFSr1ZGzQgnAqAi4flmHBt7IuMxXx42JRRA?=
+ =?us-ascii?Q?9fAd31jtaEmAK0tGJcHuZ1u8ce2/NsHIdj1XvP4H7MGb/1NT4mK3PO4R6pJ+?=
+ =?us-ascii?Q?F6N/xk0F52Pu9aq3xuUgs3n5a3w1RfpEtl0gUzmhKy1BcQlcclfsCDvShzRZ?=
+ =?us-ascii?Q?AN9nIXz8u6oGOCczSw0R3py9WtG82NWeuxNA0hZfGpO4aQEkE2b6nuBFiHxQ?=
+ =?us-ascii?Q?IHwoorYnXSQkYcactw8p2mk1/pYO6itQ/nE5ZRZ72zAT0nuHmaaiMruquF5W?=
+ =?us-ascii?Q?j4ysCEPnxNeWKiyuFKDJwcNAEU0wpalkVrh8Hbw6B95ROgCls3uhVKCLfT4y?=
+ =?us-ascii?Q?fy25kNnDez+dURuCoQWdiZ3vVf8WP2PYusbpvIs4Q5COrq9uuFwlG1t2AZz6?=
+ =?us-ascii?Q?seRRdfMHD8BPWwzjWgEzFI/D3c15zko=3D?=
+X-OriginatorOrg: oppo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 045f2653-e6e8-456a-bb12-08da13876c9e
+X-MS-Exchange-CrossTenant-AuthSource: SG2PR02MB5379.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2022 02:29:19.1763 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: f1905eb1-c353-41c5-9516-62b4a54b5ee6
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6Rs3GjvFimtVVDzsEd+WCqHBdsGoK8swR7Bh6qUA5o2qjUQcIGegRIRxBf3nzPN3WE55+DmGn0yxLA/9ARJu2w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR02MB5873
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220331_180558_414219_09866764 
-X-CRM114-Status: GOOD (  21.63  )
+X-CRM114-CacheID: sfid-20220331_192930_551520_58D494C3 
+X-CRM114-Status: UNSURE (   8.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,137 +142,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/7/22 4:46 PM, Heiko Stuebner wrote:
-> The T-Head C906 and C910 implement a scheme for handling
-> cache operations different from the generic Zicbom extension.
-> 
-> Add an errata for it next to the generic dma coherency ops.
-> 
-> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+From: hanchuanhua <hanchuanhua@oppo.com>
 
-Tested-by: Samuel Holland <samuel@sholland.org>
+Since all processes share the kernel address space,
+we only need to copy pgd in case of a vmalloc page
+fault exception, the other levels of page tables are
+shared, so the operation of copying pmd is unnecessary.
 
-With this option disabled, MMC and USB are broken on D1 boards:
+Signed-off-by: Chuanhua Han <hanchuanhua@oppo.com>
+---
+Changes in v3:
+  -Change the real name of signed-off-by.
 
-[    3.021326] Waiting for root device /dev/mmcblk0p1...
-[    3.219727] usb 4-1: new full-speed USB device number 2 using ohci-platform
-[   18.703736] usb 4-1: device descriptor read/64, error -110
+Changes in v2:
+  -Delete incorrect default signatures.
 
-With the option enabled, MMC, USB, and Ethernet all work fine.
+ arch/riscv/mm/fault.c | 10 +++-------
+ 1 file changed, 3 insertions(+), 7 deletions(-)
 
-> ---
->  arch/riscv/Kconfig.erratas           | 10 +++++++
->  arch/riscv/errata/thead/errata.c     |  5 ++++
->  arch/riscv/include/asm/errata_list.h | 45 ++++++++++++++++++++++++++--
->  3 files changed, 57 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/riscv/Kconfig.erratas b/arch/riscv/Kconfig.erratas
-> index de4002baa1d0..89a6dcb8ac2a 100644
-> --- a/arch/riscv/Kconfig.erratas
-> +++ b/arch/riscv/Kconfig.erratas
-> @@ -50,4 +50,14 @@ config ERRATA_THEAD_PBMT
->  
->  	  If you don't know what to do here, say "Y".
->  
-> +config ERRATA_THEAD_CMO
-> +	bool "Apply T-Head cache management errata"
-> +	depends on ERRATA_THEAD && RISCV_DMA_NONCOHERENT
-> +	default y
-> +	help
-> +	  This will apply the cache management errata to handle the
-> +	  non-standard handling on non-coherent operations on T-Head SoCs.
-> +
-> +	  If you don't know what to do here, say "Y".
-> +
->  endmenu
-> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
-> index fd8e0538a3f0..11c26c37425f 100644
-> --- a/arch/riscv/errata/thead/errata.c
-> +++ b/arch/riscv/errata/thead/errata.c
-> @@ -33,6 +33,11 @@ static const struct errata_info errata_list[ERRATA_THEAD_NUMBER] = {
->  		.stage = RISCV_ALTERNATIVES_EARLY_BOOT,
->  		.check_func = errata_mt_check_func
->  	},
-> +	{
-> +		.name = "cache-management",
-> +		.stage = RISCV_ALTERNATIVES_BOOT,
-> +		.check_func = errata_mt_check_func
-> +	},
->  };
->  
->  static u32 thead_errata_probe(unsigned int stage, unsigned long archid, unsigned long impid)
-> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-> index 7a2dd61af24d..f7c6805daeab 100644
-> --- a/arch/riscv/include/asm/errata_list.h
-> +++ b/arch/riscv/include/asm/errata_list.h
-> @@ -16,7 +16,8 @@
->  
->  #ifdef CONFIG_ERRATA_THEAD
->  #define	ERRATA_THEAD_PBMT 0
-> -#define	ERRATA_THEAD_NUMBER 1
-> +#define	ERRATA_THEAD_CMO 1
-> +#define	ERRATA_THEAD_NUMBER 2
->  #endif
->  
->  #define	CPUFEATURE_SVPBMT 0
-> @@ -104,8 +105,37 @@ asm volatile(ALTERNATIVE(								\
->  #define CBO_CLEAN_A0	".long 0x25200F"
->  #define CBO_FLUSH_A0	".long 0x05200F"
->  
-> +/*
-> + * dcache.ipa rs1 (invalidate, physical address)
-> + * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-> + *   0000001    01010      rs1       000      00000  0001011
-> + * dache.iva rs1 (invalida, virtual address)
-> + *   0000001    00110      rs1       000      00000  0001011
-> + *
-> + * dcache.cpa rs1 (clean, physical address)
-> + * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-> + *   0000001    01001      rs1       000      00000  0001011
-> + * dcache.cva rs1 (clean, virtual address)
-> + *   0000001    00100      rs1       000      00000  0001011
-> + *
-> + * dcache.cipa rs1 (clean then invalidate, physical address)
-> + * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-> + *   0000001    01011      rs1       000      00000  0001011
-> + * dcache.civa rs1 (... virtual address)
-> + *   0000001    00111      rs1       000      00000  0001011
-> + *
-> + * sync.s (make sure all cache operations finished)
-> + * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-> + *   0000000    11001     00000      000      00000  0001011
-> + */
-> +#define THEAD_INVAL_A0	".long 0x0265000b"
-> +#define THEAD_CLEAN_A0	".long 0x0245000b"
-> +#define THEAD_FLUSH_A0	".long 0x0275000b"
-> +#define THEAD_SYNC_S	".long 0x0190000b"
-> +
->  #define ALT_CMO_OP(_op, _start, _size)							\
-> -asm volatile(ALTERNATIVE(								\
-> +asm volatile(ALTERNATIVE_2(								\
-> +	"nop\n\t"									\
->  	"nop\n\t"									\
->  	"nop\n\t"									\
->  	"nop\n\t"									\
-> @@ -117,7 +147,16 @@ asm volatile(ALTERNATIVE(								\
->  	CBO_##_op##_A0 "\n\t"								\
->  	"addi a0, a0, %0\n\t"								\
->  	"2:\n\t"									\
-> -	"bltu a0, %2, 3b\n\t", 0, CPUFEATURE_CMO, CONFIG_RISCV_DMA_NONCOHERENT)		\
-> +	"bltu a0, %2, 3b\n\t"								\
-> +	"nop", 0, CPUFEATURE_CMO, CONFIG_RISCV_DMA_NONCOHERENT,				\
-> +	"mv a0, %1\n\t"									\
-> +	"j 2f\n\t"									\
-> +	"3:\n\t"									\
-> +	THEAD_##_op##_A0 "\n\t"								\
-> +	"addi a0, a0, %0\n\t"								\
-> +	"2:\n\t"									\
-> +	"bltu a0, %2, 3b\n\t"								\
-> +	THEAD_SYNC_S, THEAD_VENDOR_ID, ERRATA_THEAD_CMO, CONFIG_ERRATA_THEAD_CMO)	\
->  	: : "I"(L1_CACHE_BYTES), "r"((_start) & ~(L1_CACHE_BYTES - 1)),			\
->  	    "r"(ALIGN((_start) + (_size), L1_CACHE_BYTES)))
->  
-> 
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index 4e9efbe46d5f..40694f0cab9e 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -102,9 +102,9 @@ static inline void bad_area(struct pt_regs *regs, struct mm_struct *mm, int code
+ static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long addr)
+ {
+ 	pgd_t *pgd, *pgd_k;
+-	pud_t *pud, *pud_k;
+-	p4d_t *p4d, *p4d_k;
+-	pmd_t *pmd, *pmd_k;
++	pud_t *pud_k;
++	p4d_t *p4d_k;
++	pmd_t *pmd_k;
+ 	pte_t *pte_k;
+ 	int index;
+ 	unsigned long pfn;
+@@ -132,14 +132,12 @@ static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long a
+ 	}
+ 	set_pgd(pgd, *pgd_k);
+ 
+-	p4d = p4d_offset(pgd, addr);
+ 	p4d_k = p4d_offset(pgd_k, addr);
+ 	if (!p4d_present(*p4d_k)) {
+ 		no_context(regs, addr);
+ 		return;
+ 	}
+ 
+-	pud = pud_offset(p4d, addr);
+ 	pud_k = pud_offset(p4d_k, addr);
+ 	if (!pud_present(*pud_k)) {
+ 		no_context(regs, addr);
+@@ -150,13 +148,11 @@ static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long a
+ 	 * Since the vmalloc area is global, it is unnecessary
+ 	 * to copy individual PTEs
+ 	 */
+-	pmd = pmd_offset(pud, addr);
+ 	pmd_k = pmd_offset(pud_k, addr);
+ 	if (!pmd_present(*pmd_k)) {
+ 		no_context(regs, addr);
+ 		return;
+ 	}
+-	set_pmd(pmd, *pmd_k);
+ 
+ 	/*
+ 	 * Make sure the actual PTE exists as well to
+-- 
+2.25.1
 
 
 _______________________________________________
