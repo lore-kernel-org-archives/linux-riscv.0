@@ -4,77 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A2E1C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Apr 2022 18:14:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE38C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Apr 2022 18:14:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JVFdxl4mnXzsJBnK8UsUeaC1agK1ShJyDaibZQNRh0I=; b=nZxyxo/3hbZ0sL
-	mwCBfFYiCm5FzUQu9VC2NhempHfcly0kvtUjHK+cnv7Yyv1KZHnj1kuXr7rHnVbZBXwEOVMb2ThUd
-	MS9AJ0/SpeBG0/XDegQ/mOOxxiMM8Qa9m33uknBob1RUXqdyr6tk86gSvxGl1t2fiZxqHCEJ6xZNo
-	lUKDkiLSBhjc0n39oy/HgseG3gO97NOHw7T8qQPy7cCWYSoYaC9MEw1h6Cxg7iez1iZBHbcEgRZmv
-	0W1WZusRk8+iU9o/tso1zK+H3w7WsSf4MqnCKkOvyryZTdCUcZy8Lebi91PfhRETJQuAkHHVQYJsR
-	j7IHwcAqoDS57BOCHTDg==;
+	List-Owner; bh=s2oeY4rHCvQ1SUdjrkLbtkf/an1A+2M03dIhANSDsfM=; b=5BnV3UFi1z+mWM
+	f22fh7Y+GpjBDT6dag9cGTeJbYXqUMEke6rViJjcWP7e0SnyuoCcsLUKi3SAxXFYi0etlX8peKw0e
+	H/Dau9NxQKxceQxVwJjYO+q/lpT0JqX+H/cE64vJxc09bIjyZleaFLMjQP0qbo9+q4gYbMYmkc3py
+	YIX2XNuBpK6zQU0acmy7EkV7XpQUUhhDykt7nPPiJEZn8AcbuDYkSI8VBoE+HpCY+GAwhOdZWN1Y1
+	QUm9NfU5qzrgubhjMCqSrQCaMPwA5O1ZUa57Rs6Nj+JnsdgFsOSEpPOnrqgZr6rI3rkISzzaLgZvk
+	MBXdb9x0eS+I4Vovijvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1naLmY-006o8I-T0; Fri, 01 Apr 2022 18:13:58 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1naLmv-006oBZ-Jr; Fri, 01 Apr 2022 18:14:21 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1naLmM-006o5h-HO; Fri, 01 Apr 2022 18:13:48 +0000
+ id 1naLms-006oAv-Rw
+ for linux-riscv@lists.infradead.org; Fri, 01 Apr 2022 18:14:20 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 34E6D60C89;
- Fri,  1 Apr 2022 18:13:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2727AC3411A;
- Fri,  1 Apr 2022 18:13:44 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id BC577B824FA
+ for <linux-riscv@lists.infradead.org>; Fri,  1 Apr 2022 18:14:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EEE0C36AE5
+ for <linux-riscv@lists.infradead.org>; Fri,  1 Apr 2022 18:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1648836824;
- bh=uoOd6CO2s8wnGOmWFjDw4Oy54lOS4D8lxWnZseuhhQk=;
+ s=k20201202; t=1648836855;
+ bh=kqU9j86Fp20yiuk8kX7VoDCOGTK2BPuNyNh6eBUBXXQ=;
  h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=VF0zRjYoc+rvxniRdQ5zldtCBf+Hfwx7skowS/pb3bZJ/5bgbZ6KbBhlkAIphjOzM
- KuP0KqHZ38g/OoAoOplBgl6CEGS4KQLkUTMYs7ccVK1vjibu+bC/7ABqCW94Y3xnev
- oc72HTRkDQPci/kZZkrMs5Xl9u7TyXAOPiLJs6hLjAfhMQ5B1Rw5HP0GvPNAIf8cwn
- yt0dN8851li8FfoeIEryDXiK3Co6s47/mo95UXRSm/YU3n9N/gn0Pkx8F0qcwRt9Ol
- NleTc1R5JeACuKcQwJOhWUPXwTeLR3kF1hKf85KANjJo4+jcRxVXVWWhJczOQJg8vx
- bjXeB+7Uc9yIQ==
-Received: by mail-il1-f174.google.com with SMTP id j15so2495677ila.13;
- Fri, 01 Apr 2022 11:13:44 -0700 (PDT)
-X-Gm-Message-State: AOAM530rF4zy3zel/8QyvBX/quKbziTPUni0wwK1AfUnSNzQ+IR488Wo
- mP+FDplcins7YqSPtv5CfYFDFnZmZ79qB6cObA==
-X-Google-Smtp-Source: ABdhPJxH/7RXtrmtXxGbu7SQhQXm0osyvvJV67d2HyO3RNnqSa5dtuQj7CsDlGT7RYcOrzRvz+yysf0tDaubJ7OIxOs=
-X-Received: by 2002:a92:cd8c:0:b0:2c7:e86b:5139 with SMTP id
- r12-20020a92cd8c000000b002c7e86b5139mr535860ilb.144.1648836823077; Fri, 01
- Apr 2022 11:13:43 -0700 (PDT)
+ b=HWRpGX4VIciF/GlnmQv6GJXgQ+OyVRdB2wgg9us7F85HQm/c2I0dS4nRq0y4Vw9QM
+ tr9hwIO63BWy3fyu7nlMXBlo1IcVkWB1myDWpWUmoGewxy9PJW2RSzNOu3HwE2/6ZV
+ POhh64oogsyLx9uRWiB7tWJ6QGnEzg2zLU+5M0DvHlhJbhVLNFXh1ul9N8HJdXqi+1
+ xWQXW68UtibXGdJGKREna7V522YPtYDR4XKJQOAIbC80rc61gOytRUYD/SDVXnKt6l
+ p8kKnk48sQvs6rmnHcbgLqi3c3Wfe8PQ3Coy3OChuWrywMtDglBcwDxWhpz/IaVSE1
+ 7sFHryACB157w==
+Received: by mail-yw1-f173.google.com with SMTP id
+ 00721157ae682-2e612af95e3so41637917b3.9
+ for <linux-riscv@lists.infradead.org>; Fri, 01 Apr 2022 11:14:15 -0700 (PDT)
+X-Gm-Message-State: AOAM531yiS/6rB2Dp8iS29AhkcBYkUznPRf/pmHWvJQbYtMPOfNR7wyb
+ hZLxRi6WwrIdyw/M3G6whJz+1gYGhZL6UKCyZtA=
+X-Google-Smtp-Source: ABdhPJxX72PNJDxsBPPdOyCYcv5vbaFnbRnCdQFgmooWJ9gguxs2v2t8FmJaG5mRQzA59s9ZS0nSEuJvmAPfj2gW8xo=
+X-Received: by 2002:a0d:d912:0:b0:2e6:4099:b34f with SMTP id
+ b18-20020a0dd912000000b002e64099b34fmr11356518ywe.46.1648836854617; Fri, 01
+ Apr 2022 11:14:14 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220210054947.170134-1-apatel@ventanamicro.com>
- <mhng-ed3c61a2-45a5-4cc4-b1ec-26e25f92c0a3@palmer-ri-x1c9>
-In-Reply-To: <mhng-ed3c61a2-45a5-4cc4-b1ec-26e25f92c0a3@palmer-ri-x1c9>
-From: Rob Herring <robh+dt@kernel.org>
-Date: Fri, 1 Apr 2022 13:13:32 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqJm7kz1LTrTBMB3rd-K48e2584v6Nn3LwmnLzH8rk_D2w@mail.gmail.com>
-Message-ID: <CAL_JsqJm7kz1LTrTBMB3rd-K48e2584v6Nn3LwmnLzH8rk_D2w@mail.gmail.com>
-Subject: Re: [PATCH v11 0/8] RISC-V CPU Idle Support
-To: Palmer Dabbelt <palmer@dabbelt.com>, apatel@ventanamicro.com
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, 
- "Rafael J. Wysocki" <rjw@rjwysocki.net>, Pavel Machek <pavel@ucw.cz>, 
- Sandeep Tripathy <milun.tripathy@gmail.com>,
- Atish Patra <atishp@atishpatra.org>, 
- Alistair Francis <Alistair.Francis@wdc.com>, Liush <liush@allwinnertech.com>, 
- Anup Patel <anup@brainfault.org>, devicetree@vger.kernel.org, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
- "open list:THERMAL" <linux-pm@vger.kernel.org>, 
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- kvm-riscv@lists.infradead.org
+References: <20220401163909.20343-1-palmer@rivosinc.com>
+In-Reply-To: <20220401163909.20343-1-palmer@rivosinc.com>
+From: Oded Gabbay <ogabbay@kernel.org>
+Date: Fri, 1 Apr 2022 21:13:48 +0300
+X-Gmail-Original-Message-ID: <CAFCwf13-o=kUR61xjWt=F-Q-Vfy=kF6fpMP7iB+83Gfqw7+2HA@mail.gmail.com>
+Message-ID: <CAFCwf13-o=kUR61xjWt=F-Q-Vfy=kF6fpMP7iB+83Gfqw7+2HA@mail.gmail.com>
+Subject: Re: [PATCH] habanalabs: Elide a warning on 32-bit targets
+To: Palmer Dabbelt <palmer@rivosinc.com>, Greg KH <gregkh@linuxfoundation.org>
+Cc: linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
+ "Linux-Kernel@Vger. Kernel. Org" <linux-kernel@vger.kernel.org>,
+ Ohad Sharabi <osharabi@habana.ai>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220401_111346_700723_C0B9702C 
-X-CRM114-Status: GOOD (  29.37  )
+X-CRM114-CacheID: sfid-20220401_111419_240864_9D3FE2B2 
+X-CRM114-Status: GOOD (  24.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,162 +77,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 30, 2022 at 7:16 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->
-> On Wed, 09 Feb 2022 21:49:39 PST (-0800), apatel@ventanamicro.com wrote:
-> > From: Anup Patel <anup.patel@wdc.com>
-> >
-> > This series adds RISC-V CPU Idle support using SBI HSM suspend function.
-> > The RISC-V SBI CPU idle driver added by this series is highly inspired
-> > from the ARM PSCI CPU idle driver.
-> >
-> > At high-level, this series includes the following changes:
-> > 1) Preparatory arch/riscv patches (Patches 1 to 3)
-> > 2) Defines for RISC-V SBI HSM suspend (Patch 4)
-> > 3) Preparatory patch to share code between RISC-V SBI CPU idle driver
-> >    and ARM PSCI CPU idle driver (Patch 5)
-> > 4) RISC-V SBI CPU idle driver and related DT bindings (Patches 6 to 7)
-> >
-> > These patches can be found in riscv_sbi_hsm_suspend_v11 branch of
-> > https://github.com/avpatel/linux.git
-> >
-> > Special thanks Sandeep Tripathy for providing early feeback on SBI HSM
-> > support in all above projects (RISC-V SBI specification, OpenSBI, and
-> > Linux RISC-V).
-> >
-> > Changes since v10:
-> >  - Rebased on Linux-5.17-rc3
-> >  - Typo fix in commit description of PATCH6
-> >
-> > Changes since v9:
-> >  - Rebased on Linux-5.17-rc1
-> >
-> > Changes since v8:
-> >  - Rebased on Linux-5.15-rc5
-> >  - Fixed DT schema check errors in PATCH7
-> >
-> > Changes since v7:
-> >  - Rebased on Linux-5.15-rc3
-> >  - Renamed cpuidle-sbi.c to cpuidle-riscv-sbi.c in PATCH6
-> >
-> > Changes since v6:
-> >  - Fixed error reported by "make DT_CHECKER_FLAGS=-m dt_binding_check"
-> >
-> > Changes since v5:
-> >  - Rebased on Linux-5.13-rc5
-> >  - Removed unnecessary exports from PATCH5
-> >  - Removed stray ";" from PATCH5
-> >  - Moved sbi_cpuidle_pd_power_off() under "#ifdef CONFIG_DT_IDLE_GENPD"
-> >    in PATCH6
-> >
-> > Changes since v4:
-> >  - Rebased on Linux-5.13-rc2
-> >  - Renamed all dt_idle_genpd functions to have "dt_idle_" prefix
-> >  - Added MAINTAINERS file entry for dt_idle_genpd
-> >
-> > Changes since v3:
-> >  - Rebased on Linux-5.13-rc2
-> >  - Fixed __cpu_resume_enter() which was broken due to XIP kernel support
-> >  - Removed "struct dt_idle_genpd_ops" abstraction which simplifies code
-> >    sharing between ARM PSCI and RISC-V SBI drivers in PATCH5
-> >
-> > Changes since v2:
-> >  - Rebased on Linux-5.12-rc3
-> >  - Updated PATCH7 to add common DT bindings for both ARM and RISC-V
-> >    idle states
-> >  - Added "additionalProperties = false" for both idle-states node and
-> >    child nodes in PATCH7
-> >
-> > Changes since v1:
-> >  - Fixex minor typo in PATCH1
-> >  - Use just "idle-states" as DT node name for CPU idle states
-> >  - Added documentation for "cpu-idle-states" DT property in
-> >    devicetree/bindings/riscv/cpus.yaml
-> >  - Added documentation for "riscv,sbi-suspend-param" DT property in
-> >    devicetree/bindings/riscv/idle-states.yaml
-> >
-> > Anup Patel (8):
-> >   RISC-V: Enable CPU_IDLE drivers
-> >   RISC-V: Rename relocate() and make it global
-> >   RISC-V: Add arch functions for non-retentive suspend entry/exit
-> >   RISC-V: Add SBI HSM suspend related defines
-> >   cpuidle: Factor-out power domain related code from PSCI domain driver
-> >   cpuidle: Add RISC-V SBI CPU idle driver
-> >   dt-bindings: Add common bindings for ARM and RISC-V idle states
-> >   RISC-V: Enable RISC-V SBI CPU Idle driver for QEMU virt machine
-> >
-> >  .../bindings/arm/msm/qcom,idle-state.txt      |   2 +-
-> >  .../devicetree/bindings/arm/psci.yaml         |   2 +-
-> >  .../bindings/{arm => cpu}/idle-states.yaml    | 228 ++++++-
-> >  .../devicetree/bindings/riscv/cpus.yaml       |   6 +
-> >  MAINTAINERS                                   |  14 +
-> >  arch/riscv/Kconfig                            |   7 +
-> >  arch/riscv/Kconfig.socs                       |   3 +
-> >  arch/riscv/configs/defconfig                  |   2 +
-> >  arch/riscv/configs/rv32_defconfig             |   2 +
-> >  arch/riscv/include/asm/asm.h                  |  27 +
-> >  arch/riscv/include/asm/cpuidle.h              |  24 +
-> >  arch/riscv/include/asm/sbi.h                  |  27 +-
-> >  arch/riscv/include/asm/suspend.h              |  36 +
-> >  arch/riscv/kernel/Makefile                    |   2 +
-> >  arch/riscv/kernel/asm-offsets.c               |   3 +
-> >  arch/riscv/kernel/cpu_ops_sbi.c               |   2 +-
-> >  arch/riscv/kernel/head.S                      |  28 +-
-> >  arch/riscv/kernel/process.c                   |   3 +-
-> >  arch/riscv/kernel/suspend.c                   |  87 +++
-> >  arch/riscv/kernel/suspend_entry.S             | 124 ++++
-> >  arch/riscv/kvm/vcpu_sbi_hsm.c                 |   4 +-
-> >  drivers/cpuidle/Kconfig                       |   9 +
-> >  drivers/cpuidle/Kconfig.arm                   |   1 +
-> >  drivers/cpuidle/Kconfig.riscv                 |  15 +
-> >  drivers/cpuidle/Makefile                      |   5 +
-> >  drivers/cpuidle/cpuidle-psci-domain.c         | 138 +---
-> >  drivers/cpuidle/cpuidle-psci.h                |  15 +-
-> >  drivers/cpuidle/cpuidle-riscv-sbi.c           | 627 ++++++++++++++++++
-> >  drivers/cpuidle/dt_idle_genpd.c               | 178 +++++
-> >  drivers/cpuidle/dt_idle_genpd.h               |  50 ++
-> >  30 files changed, 1484 insertions(+), 187 deletions(-)
-> >  rename Documentation/devicetree/bindings/{arm => cpu}/idle-states.yaml (74%)
-> >  create mode 100644 arch/riscv/include/asm/cpuidle.h
-> >  create mode 100644 arch/riscv/include/asm/suspend.h
-> >  create mode 100644 arch/riscv/kernel/suspend.c
-> >  create mode 100644 arch/riscv/kernel/suspend_entry.S
-> >  create mode 100644 drivers/cpuidle/Kconfig.riscv
-> >  create mode 100644 drivers/cpuidle/cpuidle-riscv-sbi.c
-> >  create mode 100644 drivers/cpuidle/dt_idle_genpd.c
-> >  create mode 100644 drivers/cpuidle/dt_idle_genpd.h
->
-> Thanks, these are on for-next.
-
-For 5.18? You are not supposed to put new material into linux-next
-during the merge window.
-
-In any case, this now cause warnings on 'cpu-idle-states':
-
-/builds/robherring/linux-dt/Documentation/devicetree/bindings/cpu/idle-states.example.dtb:
-cpu@0: cpu-idle-states:0: [1, 2, 3, 4] is too long
-From schema: /builds/robherring/linux-dt/Documentation/devicetree/bindings/arm/cpus.yaml
-/builds/robherring/linux-dt/Documentation/devicetree/bindings/cpu/idle-states.example.dtb:
-cpu@1: cpu-idle-states:0: [1, 2, 3, 4] is too long
-From schema: /builds/robherring/linux-dt/Documentation/devicetree/bindings/arm/cpus.yaml
-/builds/robherring/linux-dt/Documentation/devicetree/bindings/cpu/idle-states.example.dtb:
-cpu@100: cpu-idle-states:0: [1, 2, 3, 4] is too long
-From schema: /builds/robherring/linux-dt/Documentation/devicetree/bindings/arm/cpus.yaml
-/builds/robherring/linux-dt/Documentation/devicetree/bindings/cpu/idle-states.example.dtb:
-cpu@101: cpu-idle-states:0: [1, 2, 3, 4] is too long
-From schema: /builds/robherring/linux-dt/Documentation/devicetree/bindings/arm/cpus.yaml
-
-See commit 39bd2b6a3783 ("dt-bindings: Improve phandle-array schemas")
-for how to fix.
-
-Rob
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBBcHIgMSwgMjAyMiBhdCA3OjQxIFBNIFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2
+b3NpbmMuY29tPiB3cm90ZToKPgo+IEZyb206IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3Np
+bmMuY29tPgo+Cj4gVGhpcyBkb3VibGUtY2FzdCBwYXR0ZXJuIGxvb2tzIGEgYml0IGF3a3dhcmQs
+IGJ1dCBpdCBhbHJlYWR5IGV4aXN0cwo+IGVsc2V3aGVyZSBpbiB0aGUgZHJpdmVyLiAgV2l0aG91
+dCB0aGlzIHBhdGNoIEkgZ2V0Cj4KPiBkcml2ZXJzL21pc2MvaGFiYW5hbGFicy9jb21tb24vbWVt
+b3J5LmM6IEluIGZ1bmN0aW9uIOKAmGFsbG9jX2RldmljZV9tZW1vcnnigJk6Cj4gZHJpdmVycy9t
+aXNjL2hhYmFuYWxhYnMvY29tbW9uL21lbW9yeS5jOjE1Mzo0OTogd2FybmluZzogY2FzdCBmcm9t
+IHBvaW50ZXIgdG8gaW50ZWdlciBvZiBkaWZmZXJlbnQgc2l6ZSBbLVdwb2ludGVyLXRvLWludC1j
+YXN0XQo+ICAgMTUzIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgKHU2NCkgZ2VuX3Bvb2xfZG1hX2FsbG9jX2FsaWduKHZtLT5kcmFtX3BnX3Bvb2wsCj4g
+ICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBe
+Cj4KPiB3aGljaCBlbmRzIHVwIHByb21vdGVkIHRvIGEgYnVpbGQgZXJyb3IgaW4gbXkgdGVzdCBz
+ZXR1cC4KPgo+IFNpZ25lZC1vZmYtYnk6IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMu
+Y29tPgo+Cj4gLS0tCj4KPiBJIGRvbid0IGtub3cgYW55dGhpbmcgYWJvdXQgdGhpcyBkcml2ZXIs
+IEknbSBqdXN0IHBhdHRlcm4tbWF0Y2hpbmcgdGhlCj4gd2FybmluZyBhd2F5Lgo+IC0tLQo+ICBk
+cml2ZXJzL21pc2MvaGFiYW5hbGFicy9jb21tb24vbWVtb3J5LmMgfCAxMCArKysrKy0tLS0tCj4g
+IDEgZmlsZSBjaGFuZ2VkLCA1IGluc2VydGlvbnMoKyksIDUgZGVsZXRpb25zKC0pCj4KPiBkaWZm
+IC0tZ2l0IGEvZHJpdmVycy9taXNjL2hhYmFuYWxhYnMvY29tbW9uL21lbW9yeS5jIGIvZHJpdmVy
+cy9taXNjL2hhYmFuYWxhYnMvY29tbW9uL21lbW9yeS5jCj4gaW5kZXggZTAwOGQ4MmU0YmEzLi5m
+MWZjNzljMWZjMTAgMTAwNjQ0Cj4gLS0tIGEvZHJpdmVycy9taXNjL2hhYmFuYWxhYnMvY29tbW9u
+L21lbW9yeS5jCj4gKysrIGIvZHJpdmVycy9taXNjL2hhYmFuYWxhYnMvY29tbW9uL21lbW9yeS5j
+Cj4gQEAgLTE1MCwxMiArMTUwLDEyIEBAIHN0YXRpYyBpbnQgYWxsb2NfZGV2aWNlX21lbW9yeShz
+dHJ1Y3QgaGxfY3R4ICpjdHgsIHN0cnVjdCBobF9tZW1faW4gKmFyZ3MsCj4gICAgICAgICAgICAg
+ICAgIGZvciAoaSA9IDAgOyBpIDwgbnVtX3BncyA7IGkrKykgewo+ICAgICAgICAgICAgICAgICAg
+ICAgICAgIGlmIChpc19wb3dlcl9vZl8yKHBhZ2Vfc2l6ZSkpCj4gICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICBwaHlzX3BnX3BhY2stPnBhZ2VzW2ldID0KPiAtICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAodTY0KSBnZW5fcG9vbF9kbWFfYWxsb2Nf
+YWxpZ24odm0tPmRyYW1fcGdfcG9vbCwKPiAtICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBhZ2Vfc2l6
+ZSwgTlVMTCwKPiAtICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBhZ2Vfc2l6ZSk7Cj4gKyAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKHU2NCkgKHVpbnRwdHJfdCkg
+Z2VuX3Bvb2xfZG1hX2FsbG9jX2FsaWduKHZtLT5kcmFtX3BnX3Bvb2wsCj4gKyAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIHBhZ2Vfc2l6ZSwgTlVMTCwKPiArICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgcGFnZV9zaXplKTsKPiAgICAgICAgICAgICAgICAgICAgICAgICBl
+bHNlCj4gLSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwaHlzX3BnX3BhY2stPnBhZ2Vz
+W2ldID0gKHU2NCkgZ2VuX3Bvb2xfYWxsb2Modm0tPmRyYW1fcGdfcG9vbCwKPiAtICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIHBhZ2Vfc2l6ZSk7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICBwaHlzX3BnX3BhY2stPnBhZ2VzW2ldID0gKHU2NCkgKHVpbnRwdHJfdCkgZ2VuX3Bvb2xfYWxs
+b2Modm0tPmRyYW1fcGdfcG9vbCwKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBw
+YWdlX3NpemUpOwo+ICAgICAgICAgICAgICAgICAgICAgICAgIGlmICghcGh5c19wZ19wYWNrLT5w
+YWdlc1tpXSkgewo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGV2X2VycihoZGV2
+LT5kZXYsCj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJGYWlsZWQg
+dG8gYWxsb2NhdGUgZGV2aWNlIG1lbW9yeSAob3V0IG9mIG1lbW9yeSlcbiIpOwo+IC0tCj4gMi4z
+NC4xCj4KClRoaXMgcGF0Y2ggaXM6ClJldmlld2VkLWJ5OiBPZGVkIEdhYmJheSA8b2dhYmJheUBr
+ZXJuZWwub3JnPgoKR3JlZywKQ291bGQgeW91IHBsZWFzZSBhcHBseSB0aGlzIGRpcmVjdGx5IHRv
+IHlvdXIgbWlzYyB0cmVlIGFuZCBzZW5kIGl0IHRvCkxpbnVzIGF0IHlvdXIgbmV4dCBwdWxsIHJl
+cXVlc3QgPwpJIGRvbid0IGhhdmUgYW55IG90aGVyIGZpeGVzIHBlbmRpbmcgZm9yIDUuMTguCgpG
+b3IgNS4xOSB3ZSB3aWxsIGRvIGEgbW9yZSBlbGVnYW50IHNvbHV0aW9uIHRoYXQgQXJuZCBoYXMg
+cmVjb21tZW5kZWQuCgpUaGFua3MsCk9kZWQKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
