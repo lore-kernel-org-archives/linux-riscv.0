@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F227BC433EF
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 Apr 2022 13:45:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC15C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 Apr 2022 13:46:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GQgcw4U8lumLP/7uiUh9tiqyZHLCrg6L2kCA/ZhU32U=; b=uvGL20BKQSw6NP
-	9XGft7H+E9acUfQPaLfi0HRqQH2pE4fZl7dSojp/1scgXOOznugL03dUn65zkvqS15Wnoetlf8rdm
-	GYW4NGLIa27ysANO83ntxzPkiikbPWMbXb+uWjXGGNxsiQ5okotq3dBtOTe2h+oBKsmfFDocxYeqv
-	0TNy0ICz+VS6ggyqwU6/sF+yVk0MK2p4edZuJt9wuYk6tm9uL4hs/i0a7qKRZ8aGiQsz3fnzdWx7S
-	GLQAt5SNFSMkvgXswVwsLsXXwDg1s4XUD26CJHqDB3cLt9Pdy5kZoO0V7HhjzW3Ium0s+AM1OcPCO
-	/sVmmr5TfS8hEBs8/yRg==;
+	List-Owner; bh=fIs7DdGIDlAGgbOVE1WC/UdJdQBth+9BViYqJzqfKXo=; b=fLFVeWlfYCPzxw
+	ftvNw3glSLh09g7M+qLTSv1xjs1AoMTzd5ErOdPuGD1nYOMMitHFK1Ij9L4NjxmClAbtVMCb1LIyx
+	BNFfNi1H4XR/dHHrMyjGOifIiVSSku5zUD4I3b45QpyK8odQiZ4RXaGponl8U0OnVHh8MfbogakiL
+	zPHokvIbkjGNhuBWFK0KEqHDk/GLWOdXai1BJE0A5lRlUx8o7Ui/N8WD9oxiQ2C/3jH0ENWw7Ykxt
+	VevhiEgk0df7bxZa2fiz188wxjOyKmxkCDF3aWj6pa7P6STUV/fEBbSIaD6VizZng+XhR1Dih9u14
+	/fsi3Q6NJdgzA3sQd0MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nae49-008y6A-Uk; Sat, 02 Apr 2022 13:45:22 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1nae5C-008yd2-VY; Sat, 02 Apr 2022 13:46:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nadwG-008tI2-Sv; Sat, 02 Apr 2022 13:37:15 +0000
+ id 1nadwM-008tMD-Em; Sat, 02 Apr 2022 13:37:19 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 7C517B808BD;
- Sat,  2 Apr 2022 13:37:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DEC5C340EC;
- Sat,  2 Apr 2022 13:37:03 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 047D2614DC;
+ Sat,  2 Apr 2022 13:37:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B852CC340F3;
+ Sat,  2 Apr 2022 13:37:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1648906630;
- bh=kPBdsSZwAFo7vna7h4jVnZjxy4XlzYkfwZ49VTpvuBU=;
+ s=k20201202; t=1648906635;
+ bh=a1P2DNQDu+Nr0wIsMe45GFTAoBbxFKExa639SNMT8Ac=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=Ez9jgkiEAX8F8VX/Je3YKP1oXgz3877xwMQ14BVKWFzZLuwS/2V8o2OMk70EtvuZt
- joRZdicOdSeBSIa4PB1CM7KREuqjTLcsgDKJXguho3vpzDx0i8hg53wySRLo60VqE9
- GFHK8Urj6HDdwxtxK/P5gdGpZCB5foh0ZuIeTX5bN4RXppmpsUYOFMTVbacP4AV4Jq
- gdnuY4lvlCnT9Z4YZ8a7aD6wxrkKBXFObuwdTwV7rae0HmPwZvdmJXtO7dDhmnxb7Q
- 2K+tr5UNKsnwNS0JgIiWr+FCazFPSnf29LJ4EvxGoDHhhyIlJ5btDFCxT6arqItIlZ
- YxwJvby6mSK8A==
+ b=cyQZ3Bm1qMeblYIlnKtF30RiyV1kX6Qvl2iYty4hZAS6+OBEcejdBJfWkU4aazjpK
+ v41zg5iNFowhMx+lvMe/1q87m5CoUFUTYkcWhtPkc6rWMHADlNhwcMj5Nm/SB+1Pag
+ 5ALBxpzixdVq5onJEE1+RXJd+mBYQPZ1Mtjnm23jDUElK1wGa6p/ZWmwt93/lLWLIH
+ yQA2trYrFa0wKBIaZwAMcUTtkkynDd/xh+lHvcaejmKPOiPRN0iG7lqQy8wxk7PtOd
+ u/yFMkACOkAkFwK+Ijsqo4r+A7llKAfII8TiVclDw1tdMMGU3UtcOuZlOpw7IwIwZv
+ Q9g/Nqfg3+16Q==
 From: guoren@kernel.org
 To: guoren@kernel.org, palmer@dabbelt.com, arnd@arndb.de,
  gregkh@linuxfoundation.org, hch@lst.de
@@ -49,18 +49,19 @@ Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, linux-parisc@vger.kernel.org,
  linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- x86@kernel.org, heiko@sntech.de, Guo Ren <guoren@linux.alibaba.com>,
- Palmer Dabbelt <palmer@rivosinc.com>
-Subject: [PATCH V10 12/20] riscv: compat: syscall: Add entry.S implementation
-Date: Sat,  2 Apr 2022 21:35:36 +0800
-Message-Id: <20220402133544.2690231-13-guoren@kernel.org>
+ x86@kernel.org, heiko@sntech.de, Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH V10 13/20] riscv: compat: process: Add UXL_32 support in
+ start_thread
+Date: Sat,  2 Apr 2022 21:35:37 +0800
+Message-Id: <20220402133544.2690231-14-guoren@kernel.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220402133544.2690231-1-guoren@kernel.org>
 References: <20220402133544.2690231-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220402_063713_123093_07E32967 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20220402_063718_611134_61D8F510 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,76 +80,39 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Implement the entry of compat_sys_call_table[] in asm. Ref to
-riscv-privileged spec 4.1.1 Supervisor Status Register (sstatus):
-
- BIT[32:33] = UXL[1:0]:
- - 1:32
- - 2:64
- - 3:128
+If the current task is in COMPAT mode, set SR_UXL_32 in status for
+returning userspace. We need CONFIG _COMPAT to prevent compiling
+errors with rv32 defconfig.
 
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
-Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
 Tested-by: Heiko Stuebner <heiko@sntech.de>
 Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
 ---
- arch/riscv/include/asm/csr.h |  7 +++++++
- arch/riscv/kernel/entry.S    | 18 ++++++++++++++++--
- 2 files changed, 23 insertions(+), 2 deletions(-)
+ arch/riscv/kernel/process.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index ae711692eec9..7f05c65654c8 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -36,6 +36,13 @@
- #define SR_SD		_AC(0x8000000000000000, UL) /* FS/XS dirty */
- #endif
- 
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index 03ac3aa611f5..8c7665481a9f 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -97,6 +97,15 @@ void start_thread(struct pt_regs *regs, unsigned long pc,
+ 	}
+ 	regs->epc = pc;
+ 	regs->sp = sp;
++
 +#ifdef CONFIG_64BIT
-+#define SR_UXL		_AC(0x300000000, UL) /* XLEN mask for U-mode */
-+#define SR_UXL_32	_AC(0x100000000, UL) /* XLEN = 32 for U-mode */
-+#define SR_UXL_64	_AC(0x200000000, UL) /* XLEN = 64 for U-mode */
-+#define SR_UXL_SHIFT	32
-+#endif
++	regs->status &= ~SR_UXL;
 +
- /* SATP flags */
- #ifndef CONFIG_64BIT
- #define SATP_PPN	_AC(0x003FFFFF, UL)
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index d6a46ed0bf05..d4a1ad4edbc6 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -207,13 +207,27 @@ check_syscall_nr:
- 	 * Syscall number held in a7.
- 	 * If syscall number is above allowed value, redirect to ni_syscall.
- 	 */
--	bgeu a7, t0, 1f
-+	bgeu a7, t0, 3f
-+#ifdef CONFIG_COMPAT
-+	REG_L s0, PT_STATUS(sp)
-+	srli s0, s0, SR_UXL_SHIFT
-+	andi s0, s0, (SR_UXL >> SR_UXL_SHIFT)
-+	li t0, (SR_UXL_32 >> SR_UXL_SHIFT)
-+	sub t0, s0, t0
-+	bnez t0, 1f
-+
-+	/* Call compat_syscall */
-+	la s0, compat_sys_call_table
-+	j 2f
-+1:
++	if (is_compat_task())
++		regs->status |= SR_UXL_32;
++	else
++		regs->status |= SR_UXL_64;
 +#endif
- 	/* Call syscall */
- 	la s0, sys_call_table
-+2:
- 	slli t0, a7, RISCV_LGPTR
- 	add s0, s0, t0
- 	REG_L s0, 0(s0)
--1:
-+3:
- 	jalr s0
+ }
  
- ret_from_syscall:
+ void flush_thread(void)
 -- 
 2.25.1
 
