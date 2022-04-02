@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26120C433EF
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 Apr 2022 14:11:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72335C433F5
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 Apr 2022 14:11:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2jYeI1JDTSb2mUuafIUwkDkySGNvjikWRJvfH4OuW/g=; b=LeYIuLKCinmSl3
-	/e5ZtHRNKQqby383B+UqNTnOURTV4Pwmf6brIDYuPifJnEt4lprgQSjodAlgZPPSt77sEDXBz1hfC
-	hKHXzTg/4pBU3a2CwDMsH4CQ4P9JfC4CQ4OhWkPfkqsGEcQe1VXWVr85IBdwIMN0YoSM1L3hD0RL2
-	QOOQ/ED9cBhkk6uouClSDraf2En9jW9+Xec+8jjFduwhyH7YHOPDiUMpKH+IfiC0d0nGCH6R40Sjj
-	OLdASBs6Vs5hcma3oVYL74vFsnwgno7Bo1OvJFAGYxPnex90+tZjfoc+itb52IDVd2mNUS1Qnp2wK
-	VBnaUzxaVMV6CPIwKFfQ==;
+	List-Owner; bh=GQgcw4U8lumLP/7uiUh9tiqyZHLCrg6L2kCA/ZhU32U=; b=q3i3FBA1h6qrGB
+	RCB4thKZfO3yuftVRg2RiNbVNeoMoS/JPH/SCk3V44Tp96NguhDek1P2rjsn8ziLEpg71QCWHw+zb
+	p5tuQfZNsUJRAmSrZGfJah6vdYOnYqQxyvBsgOsX938631Km49rh/okV3QOeA45C68dV369A3cAOU
+	vZ10/siIsXGg5Q/DLWI5H4LC8BMV4R5ujumZDm7QrZkco9xytKd63/7Lhm0PVKGPshbIFsI2SDU4r
+	GHYvb7f4LGZfyL8I8pZ9TxH02w/2onMKR9ebvCj249O2Bdx0GhQXU55VWU/q+5mLfoBuOkOWvOzF/
+	6itKh4hNKebkPIAkRHvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1naeT6-009AY5-Uf; Sat, 02 Apr 2022 14:11:08 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1naeTE-009AbZ-08; Sat, 02 Apr 2022 14:11:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1naeCi-0092X6-UH; Sat, 02 Apr 2022 13:54:18 +0000
+ id 1naeCl-0092bH-CW; Sat, 02 Apr 2022 13:54:20 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by sin.source.kernel.org (Postfix) with ESMTPS id 568BBCE0969;
- Sat,  2 Apr 2022 13:54:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F4E1C340EE;
- Sat,  2 Apr 2022 13:53:59 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id B63D361541;
+ Sat,  2 Apr 2022 13:54:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9502FC36AE5;
+ Sat,  2 Apr 2022 13:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1648907643;
- bh=mPzTkgatSK8CCYcJZRjjnRIhaMHdvygHIPXND8TxesM=;
+ s=k20201202; t=1648907654;
+ bh=kPBdsSZwAFo7vna7h4jVnZjxy4XlzYkfwZ49VTpvuBU=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=aqyg1+SuT47jW0l0Z95gDGTCWRx0sbbee6U5vQdylwsfXlX0GVU7N7EANgaKwWAzk
- PhQu7eBbPpwFQxnsa0h1PWbUrGbIZ9fHVcD6zSC40lS0IS6YhYEgAwc+fRShN4wPIE
- 5SmkcKUvT1m7959oBzosRRky8DCiitQ7pIIlWMx63//7Lk+vzIBiMB7OAxeXFc/3Ce
- 0VkxcGF+lRuIE7BWMnx8LDMzAcc3mDfO/ztazSidmPOWD2v4F6Yn3i5YB5w2kB81bq
- 7mJsZvnVUD5LqDuAexqkWJZq1mKvi9Wg+iHDI0G8MOGOSKxm3V7zYART6SG2yhMLlj
- 5rbrosHcu4URQ==
+ b=GjjXIQ4SZPksqZUberIl3l2bEnDD/L+MKfjyo66BL4yl4580WMCd9UHw2FQCXFMHZ
+ YwzDuMKWeHsWOsmB4suIO6KxK0C63csPUGzuJnVC7ljrKET8hyz3WzB+UZ2/u/tGXI
+ QiAje/bzwM2QslVpXWNdrHsx631xvK/IPNmYqw5gKpkE4vA6WCRr9h7g/J64ZDHx6o
+ eYsIhr8c56FJLsynyelcNS9uixhRvE5IVBbxeoZDe9WUJ79beVS/Fa0uawkb5jTB1p
+ V2b2P8cHmr5icIpmyThplg7IHuXyGxMOL5sTOJv0sigfgrWaybO7YQykLWhDTPMRKa
+ 6SXnCBf2oldYQ==
 From: guoren@kernel.org
 To: guoren@kernel.org, palmer@dabbelt.com, arnd@arndb.de,
  gregkh@linuxfoundation.org, hch@lst.de
@@ -49,17 +49,18 @@ Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, linux-parisc@vger.kernel.org,
  linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- x86@kernel.org, heiko@sntech.de, Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH V11 10/20] riscv: compat: Support TASK_SIZE for compat mode
-Date: Sat,  2 Apr 2022 21:52:46 +0800
-Message-Id: <20220402135256.2691868-11-guoren@kernel.org>
+ x86@kernel.org, heiko@sntech.de, Guo Ren <guoren@linux.alibaba.com>,
+ Palmer Dabbelt <palmer@rivosinc.com>
+Subject: [PATCH V11 12/20] riscv: compat: syscall: Add entry.S implementation
+Date: Sat,  2 Apr 2022 21:52:48 +0800
+Message-Id: <20220402135256.2691868-13-guoren@kernel.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220402135256.2691868-1-guoren@kernel.org>
 References: <20220402135256.2691868-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220402_065414_371082_1949A261 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20220402_065419_056574_030C4DFC 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,51 +72,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgoKTWFrZSBUQVNLX1NJWkUg
-ZnJvbSBjb25zdCB0byBkeW5hbWljIGRldGVjdCBUSUZfMzJCSVQgZmxhZwpmdW5jdGlvbi4gUmVm
-ZXIgdG8gYXJtNjQgdG8gaW1wbGVtZW50IERFRkFVTFRfTUFQX1dJTkRPV182NCBmb3IKZWZpLXN0
-dWIuCgpMaW1pdCAzMi1iaXQgY29tcGF0aWJsZSBwcm9jZXNzIGluIDAtMkdCIHZpcnR1YWwgYWRk
-cmVzcyByYW5nZQood2hpY2ggaXMgZW5vdWdoIGZvciByZWFsIHNjZW5hcmlvcyksIGJlY2F1c2Ug
-aXQgY291bGQgYXZvaWQKYWRkcmVzcyBzaWduIGV4dGVuZCBwcm9ibGVtIHdoZW4gMzItYml0IGVu
-dGVyIDY0LWJpdCBhbmQgZWFzZQpzb2Z0d2FyZSBkZXNpZ24uCgpUaGUgc3RhbmRhcmQgMzItYml0
-IFRBU0tfU0laRSBpcyAweDlkYzAwMDAwOkZJWEFERFJfU1RBUlQsIGFuZApjb21wYXJlZCB0byBh
-IGNvbXBhdGlibGUgMzItYml0LCBpdCBpbmNyZWFzZXMgNDc2TUIgZm9yIHRoZQphcHBsaWNhdGlv
-bidzIHZpcnR1YWwgYWRkcmVzcy4KClNpZ25lZC1vZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBsaW51
-eC5hbGliYWJhLmNvbT4KU2lnbmVkLW9mZi1ieTogR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+
-ClJldmlld2VkLWJ5OiBBcm5kIEJlcmdtYW5uIDxhcm5kQGFybmRiLmRlPgpUZXN0ZWQtYnk6IEhl
-aWtvIFN0dWVibmVyIDxoZWlrb0BzbnRlY2guZGU+Ci0tLQogYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9wZ3RhYmxlLmggICB8IDEzICsrKysrKysrKysrLS0KIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20v
-cHJvY2Vzc29yLmggfCAgNiArKysrKy0KIDIgZmlsZXMgY2hhbmdlZCwgMTYgaW5zZXJ0aW9ucygr
-KSwgMyBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Bn
-dGFibGUuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS5oCmluZGV4IGUzNTQ5ZTUw
-ZGU5NS4uYWZkYzllY2UyYmE0IDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Bn
-dGFibGUuaAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaApAQCAtNzA1LDgg
-KzcwNSwxNyBAQCBzdGF0aWMgaW5saW5lIHBtZF90IHBtZHBfZXN0YWJsaXNoKHN0cnVjdCB2bV9h
-cmVhX3N0cnVjdCAqdm1hLAogICogNjPigJM0OCBhbGwgZXF1YWwgdG8gYml0IDQ3LCBvciBlbHNl
-IGEgcGFnZS1mYXVsdCBleGNlcHRpb24gd2lsbCBvY2N1ci4iCiAgKi8KICNpZmRlZiBDT05GSUdf
-NjRCSVQKLSNkZWZpbmUgVEFTS19TSVpFICAgICAgKFBHRElSX1NJWkUgKiBQVFJTX1BFUl9QR0Qg
-LyAyKQotI2RlZmluZSBUQVNLX1NJWkVfTUlOICAoUEdESVJfU0laRV9MMyAqIFBUUlNfUEVSX1BH
-RCAvIDIpCisjZGVmaW5lIFRBU0tfU0laRV82NAkoUEdESVJfU0laRSAqIFBUUlNfUEVSX1BHRCAv
-IDIpCisjZGVmaW5lIFRBU0tfU0laRV9NSU4JKFBHRElSX1NJWkVfTDMgKiBQVFJTX1BFUl9QR0Qg
-LyAyKQorCisjaWZkZWYgQ09ORklHX0NPTVBBVAorI2RlZmluZSBUQVNLX1NJWkVfMzIJKF9BQygw
-eDgwMDAwMDAwLCBVTCkgLSBQQUdFX1NJWkUpCisjZGVmaW5lIFRBU0tfU0laRQkodGVzdF90aHJl
-YWRfZmxhZyhUSUZfMzJCSVQpID8gXAorCQkJIFRBU0tfU0laRV8zMiA6IFRBU0tfU0laRV82NCkK
-KyNlbHNlCisjZGVmaW5lIFRBU0tfU0laRQlUQVNLX1NJWkVfNjQKKyNlbmRpZgorCiAjZWxzZQog
-I2RlZmluZSBUQVNLX1NJWkUJRklYQUREUl9TVEFSVAogI2RlZmluZSBUQVNLX1NJWkVfTUlOCVRB
-U0tfU0laRQpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaCBi
-L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvY2Vzc29yLmgKaW5kZXggMDc0OTkyNGQ5ZTU1Li4y
-MWM4MDcyZGNlMTcgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvY2Vzc29y
-LmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaApAQCAtMTksNyArMTks
-MTEgQEAKICNkZWZpbmUgVEFTS19VTk1BUFBFRF9CQVNFCVBBR0VfQUxJR04oVEFTS19TSVpFIC8g
-MykKIAogI2RlZmluZSBTVEFDS19UT1AJCVRBU0tfU0laRQotI2RlZmluZSBTVEFDS19UT1BfTUFY
-CQlTVEFDS19UT1AKKyNpZmRlZiBDT05GSUdfNjRCSVQKKyNkZWZpbmUgU1RBQ0tfVE9QX01BWAkJ
-VEFTS19TSVpFXzY0CisjZWxzZQorI2RlZmluZSBTVEFDS19UT1BfTUFYCQlUQVNLX1NJWkUKKyNl
-bmRpZgogI2RlZmluZSBTVEFDS19BTElHTgkJMTYKIAogI2lmbmRlZiBfX0FTU0VNQkxZX18KLS0g
-CjIuMjUuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+From: Guo Ren <guoren@linux.alibaba.com>
+
+Implement the entry of compat_sys_call_table[] in asm. Ref to
+riscv-privileged spec 4.1.1 Supervisor Status Register (sstatus):
+
+ BIT[32:33] = UXL[1:0]:
+ - 1:32
+ - 2:64
+ - 3:128
+
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+Tested-by: Heiko Stuebner <heiko@sntech.de>
+Cc: Arnd Bergmann <arnd@arndb.de>
+---
+ arch/riscv/include/asm/csr.h |  7 +++++++
+ arch/riscv/kernel/entry.S    | 18 ++++++++++++++++--
+ 2 files changed, 23 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index ae711692eec9..7f05c65654c8 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -36,6 +36,13 @@
+ #define SR_SD		_AC(0x8000000000000000, UL) /* FS/XS dirty */
+ #endif
+ 
++#ifdef CONFIG_64BIT
++#define SR_UXL		_AC(0x300000000, UL) /* XLEN mask for U-mode */
++#define SR_UXL_32	_AC(0x100000000, UL) /* XLEN = 32 for U-mode */
++#define SR_UXL_64	_AC(0x200000000, UL) /* XLEN = 64 for U-mode */
++#define SR_UXL_SHIFT	32
++#endif
++
+ /* SATP flags */
+ #ifndef CONFIG_64BIT
+ #define SATP_PPN	_AC(0x003FFFFF, UL)
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index d6a46ed0bf05..d4a1ad4edbc6 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -207,13 +207,27 @@ check_syscall_nr:
+ 	 * Syscall number held in a7.
+ 	 * If syscall number is above allowed value, redirect to ni_syscall.
+ 	 */
+-	bgeu a7, t0, 1f
++	bgeu a7, t0, 3f
++#ifdef CONFIG_COMPAT
++	REG_L s0, PT_STATUS(sp)
++	srli s0, s0, SR_UXL_SHIFT
++	andi s0, s0, (SR_UXL >> SR_UXL_SHIFT)
++	li t0, (SR_UXL_32 >> SR_UXL_SHIFT)
++	sub t0, s0, t0
++	bnez t0, 1f
++
++	/* Call compat_syscall */
++	la s0, compat_sys_call_table
++	j 2f
++1:
++#endif
+ 	/* Call syscall */
+ 	la s0, sys_call_table
++2:
+ 	slli t0, a7, RISCV_LGPTR
+ 	add s0, s0, t0
+ 	REG_L s0, 0(s0)
+-1:
++3:
+ 	jalr s0
+ 
+ ret_from_syscall:
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
