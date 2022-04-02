@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D82FAC433F5
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 Apr 2022 12:53:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C08A3C433F5
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 Apr 2022 13:17:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H4V5AaBEzDs+QO3ofz/c9rfuJ7NYTwXlk1akZ4F0I28=; b=PIBBEfSs79H2F5
-	Kn1+Gh0jcrRj5b93oq9Rak3GCjbZgSpY68yU0fhLyPag2xC2/8V81Q9rWpEZGiyd8veyxf0fKmEaN
-	qkZ1d0fDaT1TA/alvtIqjnalkT/Cozc3tLVr/cAKYZPzZsnnihASmA/MDs0kZkW5A2EPgoX9KDeyc
-	CmntUI6vqEm4nwwgDcbjIeytnYjSRdU2Zy6VRYNI/GAR5emXyw3JcOQL5e3k2mTj0wRDxquXMi5rp
-	/KDJsSrcOCWlcb7buPvqef1yicuiyonjALQLlmMMlWOpRvUg4bSGxbDn14vqlwxs8VCudDrYRih67
-	pa1BEQa7W4LlzwQEEBwg==;
+	List-Owner; bh=PPSuJm7YRAJgfmMh6lGq8mAtM5GBs+AdXIKjKi9KRUA=; b=V9Cs6Ok3dyxOl9
+	PQmIEMpAOTRRckxD95KqGTuI+RHiBxAMrZBUWkpiCsLD49QghM7kUUIwiUXH6TBWzROLEO04kOxLP
+	Awrao7uD3/IuPGSJNJLcLoi4tAJz4gHkY9DRr6jgKZM+Uz0vQCEbhrG/0J+1u3iXk4JyOMxkaoBMi
+	Q9Au9NVVw9gAKWy1hq283cf9YaoTVLj72bpPIP/8Is0LX7y74KOHBCar8vS51C/Cg+49M4EVO5Bw3
+	FwIfHubu0YWof0ObtzDdWjrw2UsxaEbnwP4QY6fKmkfvptBs3jYdztoVu7+YPkfAaL6SpdOtHYsY/
+	O0eFVDSFxp1KPhOnlBYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nadG3-008mGJ-MQ; Sat, 02 Apr 2022 12:53:35 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1nadck-008qVf-9v; Sat, 02 Apr 2022 13:17:02 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nadFo-008mAO-Iy; Sat, 02 Apr 2022 12:53:23 +0000
+ id 1nadcW-008qTy-SA; Sat, 02 Apr 2022 13:16:52 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 83C93B8087F;
- Sat,  2 Apr 2022 12:53:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E92B8C34116;
- Sat,  2 Apr 2022 12:53:15 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 30260614CB;
+ Sat,  2 Apr 2022 13:16:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BFFEC34114;
+ Sat,  2 Apr 2022 13:16:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1648903996;
- bh=gYOsO4mzfScUywaqXs21pDP9BXr2aeD8g7LFzkr2dPo=;
+ s=k20201202; t=1648905407;
+ bh=OzpeRmBoW/cHQuamv6r4EcA8ZOHAF8WFj6J1uXZnexA=;
  h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=PPzg1ud33eEAgeGwuB4HBQra13ZP/AwvC11n4mpxgtcKR1yGsySaQvPjJyHgeyWek
- CtY+sOY+ZDhwd0Qcijq3pY4uoPXfDjB4WYMXDO+vQCUl1H+I1YPsM4fXhGtSst5+p0
- o5L/cu3M9qoOcodJfIQ1Wrjl5OjGSbbjcHfdr807LaMeU6Eh1woqehtqjnLk/l1dSQ
- 6cnIWM74Qm91UQAoHGHQuZoEMmOKQhScDI6wtJSXCidvlB6hN/PxNPDPbjx5pWKYd1
- P5GvGkUMYVEFKWA+OIxH+a3ET+2sUi1Hkd16OMZnpKNq1JwMjCCmJEDTWyEnNGB2PX
- 0cVhD0X+Ra9sQ==
-Received: by mail-vk1-f180.google.com with SMTP id w189so2686168vke.10;
- Sat, 02 Apr 2022 05:53:15 -0700 (PDT)
-X-Gm-Message-State: AOAM531ANBBb9PUZeh/VR0yB+L5QveXgShDR4Yn1qi4Ic2Da33VGxHVZ
- E+FmQoyfYzTF4QoZAQ+yL4OpZcu5GwzKqOX2fxY=
-X-Google-Smtp-Source: ABdhPJwJ//kZWeHlmKGgHhke24HYrAAjy+SjqhVGS+J42Q638RNKOMZZi72FQOTDJ9syCeTHPMwZbKkb24UsaOPOmmM=
-X-Received: by 2002:a1f:f283:0:b0:33f:5e3e:921b with SMTP id
- q125-20020a1ff283000000b0033f5e3e921bmr5358804vkh.2.1648903994522; Sat, 02
- Apr 2022 05:53:14 -0700 (PDT)
+ b=R9i210tp6gvfiyR6Bj0tdVEu9HsFaGiFvvZIZVgHA0dVPF6IcOdwOs2FRbpXrPopA
+ ECuPGoiMNWY66xAO/o6ZqY7tqmpuBCIHBG6/ngWOLfOQzX2MFjO79vLy04mIvo67qE
+ zlwOLZgJUZ0nrduAfbiX4tY/7O5CCT7iMOzkUmYZEz1/8Doo6krYKxJpMTzBGBlR39
+ 4Xf/qXWG6GeFxfMp4xaQEbf11UiqhPxK4kmRMftej+Wcgm3IKphnMEvhGyobGlrUgU
+ slbjU2WkYHvF3dySzzG7HKmqUGrPua+5fK0iHmgk6XL2I70qq7IbttNrV/C5twBJgf
+ IKivcGOd7+d9A==
+Received: by mail-vs1-f46.google.com with SMTP id a127so5109488vsa.3;
+ Sat, 02 Apr 2022 06:16:47 -0700 (PDT)
+X-Gm-Message-State: AOAM532YmgA2zCV4Mj6G/XbSyrEMzthba+PCPnEMmCogtIoXRT+/U727
+ r8MR/LR09QDPuX3RFPN5pPC0KD0rao5HsldjsM0=
+X-Google-Smtp-Source: ABdhPJxdrYIL27QVyxK4VMRzQAm8SHC4pm7KbcFgm14pBmn2AN4SVsp/KDE3MPzii39FXUpa77kdXh+KnE4swytKbYI=
+X-Received: by 2002:a05:6102:38d1:b0:325:aff9:358 with SMTP id
+ k17-20020a05610238d100b00325aff90358mr16520776vst.8.1648905406285; Sat, 02
+ Apr 2022 06:16:46 -0700 (PDT)
 MIME-Version: 1.0
 References: <20220322144003.2357128-1-guoren@kernel.org>
  <mhng-b8d03c4e-ca8e-4220-a132-6d40a3ace231@palmer-ri-x1c9>
-In-Reply-To: <mhng-b8d03c4e-ca8e-4220-a132-6d40a3ace231@palmer-ri-x1c9>
+ <CAJF2gTSMR2GTZeUPRiu64+pK+Fifyoiah8d-yiC=6bMpSJfe0A@mail.gmail.com>
+In-Reply-To: <CAJF2gTSMR2GTZeUPRiu64+pK+Fifyoiah8d-yiC=6bMpSJfe0A@mail.gmail.com>
 From: Guo Ren <guoren@kernel.org>
-Date: Sat, 2 Apr 2022 20:53:03 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSMR2GTZeUPRiu64+pK+Fifyoiah8d-yiC=6bMpSJfe0A@mail.gmail.com>
-Message-ID: <CAJF2gTSMR2GTZeUPRiu64+pK+Fifyoiah8d-yiC=6bMpSJfe0A@mail.gmail.com>
+Date: Sat, 2 Apr 2022 21:16:34 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQ31aqtOC+css2mn7BWLXf+Wsj1X88Dm4_SwYHGAthOag@mail.gmail.com>
+Message-ID: <CAJF2gTQ31aqtOC+css2mn7BWLXf+Wsj1X88Dm4_SwYHGAthOag@mail.gmail.com>
 Subject: Re: [PATCH V9 00/20] riscv: compat: Add COMPAT Kbuild skeletal support
 To: Palmer Dabbelt <palmer@dabbelt.com>
 Cc: Arnd Bergmann <arnd@arndb.de>, Greg KH <gregkh@linuxfoundation.org>, 
@@ -73,8 +74,8 @@ Cc: Arnd Bergmann <arnd@arndb.de>, Greg KH <gregkh@linuxfoundation.org>,
  =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
  Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220402_055320_946064_4EBA0EDE 
-X-CRM114-Status: GOOD (  19.83  )
+X-CRM114-CacheID: sfid-20220402_061649_047439_A97B3C44 
+X-CRM114-Status: GOOD (  24.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,456 +87,475 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 23, 2022 at 5:00 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->
-> On Tue, 22 Mar 2022 07:39:43 PDT (-0700), guoren@kernel.org wrote:
-> > From: Guo Ren <guoren@linux.alibaba.com>
-> >
-> > Currently, most 64-bit architectures (x86, parisc, powerpc, arm64,
-> > s390, mips, sparc) have supported COMPAT mode. But they all have
-> > history issues and can't use standard linux unistd.h. RISC-V would
-> > be first standard __SYSCALL_COMPAT user of include/uapi/asm-generic
-> > /unistd.h.
-> >
-> > The patchset are based on v5.17-rc8, you can compare rv64-compat
-> > v.s. rv32-native in qemu with following steps:
-> >
-> >  - Prepare rv32 rootfs & fw_jump.bin by buildroot.org
-> >    $ git clone git://git.busybox.net/buildroot
-> >    $ cd buildroot
-> >    $ make qemu_riscv32_virt_defconfig O=qemu_riscv32_virt_defconfig
-> >    $ make -C qemu_riscv32_virt_defconfig
-> >    $ make qemu_riscv64_virt_defconfig O=qemu_riscv64_virt_defconfig
-> >    $ make -C qemu_riscv64_virt_defconfig
-> >    (Got fw_jump.bin & rootfs.ext2 in qemu_riscvXX_virt_defconfig/images)
-> >
-> >  - Prepare Linux rv32 & rv64 Image
-> >    $ git clone git@github.com:c-sky/csky-linux.git -b riscv_compat_v8 linux
-> >    $ cd linux
-> >    $ echo "CONFIG_STRICT_KERNEL_RWX=n" >> arch/riscv/configs/defconfig
-> >    $ echo "CONFIG_STRICT_MODULE_RWX=n" >> arch/riscv/configs/defconfig
-> >    $ make ARCH=riscv CROSS_COMPILE=riscv32-buildroot-linux-gnu- O=../build-rv32/ rv32_defconfig
-> >    $ make ARCH=riscv CROSS_COMPILE=riscv32-buildroot-linux-gnu- O=../build-rv32/ Image
-> >    $ make ARCH=riscv CROSS_COMPILE=riscv64-buildroot-linux-gnu- O=../build-rv64/ defconfig
-> >    $ make ARCH=riscv CROSS_COMPILE=riscv64-buildroot-linux-gnu- O=../build-rv64/ Image
-> >
-> >  - Prepare Qemu:
-> >    $ git clone https://gitlab.com/qemu-project/qemu.git -b master linux
-> >    $ cd qemu
-> >    $ ./configure --target-list="riscv64-softmmu riscv32-softmmu"
-> >    $ make
-> >
-> > Now let's compare rv64-compat with rv32-native memory footprint with almost the same
-> > defconfig, rootfs, opensbi in one qemu.
-> >
-> >  - Run rv64 with rv32 rootfs in compat mode:
-> >    $ ./build/qemu-system-riscv64 -cpu rv64 -M virt -m 64m -nographic -bios qemu_riscv64_virt_defconfig/images/fw_jump.bin -kernel build-rv64/Image -drive file qemu_riscv32_virt_defconfig/images/rootfs.ext2,format=raw,id=hd0 -device virtio-blk-device,drive=hd0 -append "rootwait root=/dev/vda ro console=ttyS0 earlycon=sbi" -netdev user,id=net0 -device virtio-net-device,netdev=net0
-> >
-> > QEMU emulator version 6.2.50 (v6.2.0-29-g196d7182c8)
-> > OpenSBI v0.9
-> > [    0.000000] Linux version 5.16.0-rc6-00017-g750f87086bdd-dirty (guoren@guoren-Z87-HD3) (riscv64-unknown-linux-gnu-gcc (GCC) 10.2.0, GNU ld (GNU Binutils) 2.37) #96 SMP Tue Dec 28 21:01:55 CST 2021
-> > [    0.000000] OF: fdt: Ignoring memory range 0x80000000 - 0x80200000
-> > [    0.000000] Machine model: riscv-virtio,qemu
-> > [    0.000000] earlycon: sbi0 at I/O port 0x0 (options '')
-> > [    0.000000] printk: bootconsole [sbi0] enabled
-> > [    0.000000] efi: UEFI not found.
-> > [    0.000000] Zone ranges:
-> > [    0.000000]   DMA32    [mem 0x0000000080200000-0x0000000083ffffff]
-> > [    0.000000]   Normal   empty
-> > [    0.000000] Movable zone start for each node
-> > [    0.000000] Early memory node ranges
-> > [    0.000000]   node   0: [mem 0x0000000080200000-0x0000000083ffffff]
-> > [    0.000000] Initmem setup node 0 [mem 0x0000000080200000-0x0000000083ffffff]
-> > [    0.000000] SBI specification v0.2 detected
-> > [    0.000000] SBI implementation ID=0x1 Version=0x9
-> > [    0.000000] SBI TIME extension detected
-> > [    0.000000] SBI IPI extension detected
-> > [    0.000000] SBI RFENCE extension detected
-> > [    0.000000] SBI v0.2 HSM extension detected
-> > [    0.000000] riscv: ISA extensions acdfhimsu
-> > [    0.000000] riscv: ELF capabilities acdfim
-> > [    0.000000] percpu: Embedded 17 pages/cpu s30696 r8192 d30744 u69632
-> > [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 15655
-> > [    0.000000] Kernel command line: rootwait root=/dev/vda ro console=ttyS0 earlycon=sbi
-> > [    0.000000] Dentry cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
-> > [    0.000000] Inode-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
-> > [    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
-> > [    0.000000] Virtual kernel memory layout:
-> > [    0.000000]       fixmap : 0xffffffcefee00000 - 0xffffffceff000000   (2048 kB)
-> > [    0.000000]       pci io : 0xffffffceff000000 - 0xffffffcf00000000   (  16 MB)
-> > [    0.000000]      vmemmap : 0xffffffcf00000000 - 0xffffffcfffffffff   (4095 MB)
-> > [    0.000000]      vmalloc : 0xffffffd000000000 - 0xffffffdfffffffff   (65535 MB)
-> > [    0.000000]       lowmem : 0xffffffe000000000 - 0xffffffe003e00000   (  62 MB)
-> > [    0.000000]       kernel : 0xffffffff80000000 - 0xffffffffffffffff   (2047 MB)
-> > [    0.000000] Memory: 52788K/63488K available (6184K kernel code, 888K rwdata, 1917K rodata, 294K init, 297K bss, 10700K reserved, 0K cma-reserved)
-> > [    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
-> > [    0.000000] rcu: Hierarchical RCU implementation.
-> > [    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=1.
-> > [    0.000000] rcu:     RCU debug extended QS entry/exit.
-> > [    0.000000]  Tracing variant of Tasks RCU enabled.
-> > [    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
-> > [    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
-> > [    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
-> > [    0.000000] riscv-intc: 64 local interrupts mapped
-> > [    0.000000] plic: plic@c000000: mapped 53 interrupts with 1 handlers for 2 contexts.
-> > ...
-> > Welcome to Buildroot
-> > buildroot login: root
-> > # cat /proc/cpuinfo
-> > processor       : 0
-> > hart            : 0
-> > isa             : rv64imafdcsuh
-> > mmu             : sv48
-> >
-> > # file /bin/busybox
-> > /bin/busybox: setuid ELF 32-bit LSB shared object, UCB RISC-V, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-riscv32-ilp32d.so.1, for GNU/Linux 5.15.0, stripped
-> > # ca[   78.386630] random: fast init done
-> > # cat /proc/meminfo
-> > MemTotal:          53076 kB
-> > MemFree:           40264 kB
-> > MemAvailable:      40244 kB
-> > Buffers:             236 kB
-> > Cached:             1560 kB
-> > SwapCached:            0 kB
-> > Active:             1700 kB
-> > Inactive:            516 kB
-> > Active(anon):         40 kB
-> > Inactive(anon):      424 kB
-> > Active(file):       1660 kB
-> > Inactive(file):       92 kB
-> > Unevictable:           0 kB
-> > Mlocked:               0 kB
-> > SwapTotal:             0 kB
-> > SwapFree:              0 kB
-> > Dirty:                 0 kB
-> > Writeback:             0 kB
-> > AnonPages:           444 kB
-> > Mapped:             1188 kB
-> > Shmem:                44 kB
-> > KReclaimable:        952 kB
-> > Slab:               5744 kB
-> > SReclaimable:        952 kB
-> > SUnreclaim:         4792 kB
-> > KernelStack:         624 kB
-> > PageTables:          156 kB
-> > NFS_Unstable:          0 kB
-> > Bounce:                0 kB
-> > WritebackTmp:          0 kB
-> > CommitLimit:       26536 kB
-> > Committed_AS:       1748 kB
-> > VmallocTotal:   67108863 kB
-> > VmallocUsed:         652 kB
-> > VmallocChunk:          0 kB
-> > Percpu:               80 kB
-> > #
-> >
-> >  - Run rv32 with rv32 rootfs:
-> >    $ ./build/qemu-system-riscv32 -cpu rv32 -M virt -m 64m -nographic -bios qemu_riscv32_virt_defconfig/images/fw_jump.bin -kernel build-rv32/Image -drive file qemu_riscv32_virt_defconfig/images/rootfs.ext2,format=raw,id=hd0 -device virtio-blk-device,drive=hd0 -append "rootwait root=/dev/vda ro console=ttyS0 earlycon=sbi" -netdev user,id=net0 -device virtio-net-device,netdev=net0
-> >
-> > QEMU emulator version 6.2.50 (v6.2.0-29-g196d7182c8)
-> > OpenSBI v0.9
-> > [    0.000000] Linux version 5.16.0-rc6-00017-g750f87086bdd-dirty (guoren@guoren-Z87-HD3) (riscv32-buildroot-linux-gnu-gcc.br_real (Buildroot 2021.11-201-g7600ca7960-dirty) 10.3.0, GNU ld (GNU Binutils) 2.36.1) #7 SMP Tue Dec 28 21:02:21 CST 2021
-> > [    0.000000] OF: fdt: Ignoring memory range 0x80000000 - 0x80400000
-> > [    0.000000] Machine model: riscv-virtio,qemu
-> > [    0.000000] earlycon: sbi0 at I/O port 0x0 (options '')
-> > [    0.000000] printk: bootconsole [sbi0] enabled
-> > [    0.000000] efi: UEFI not found.
-> > [    0.000000] Zone ranges:
-> > [    0.000000]   Normal   [mem 0x0000000080400000-0x0000000083ffffff]
-> > [    0.000000] Movable zone start for each node
-> > [    0.000000] Early memory node ranges
-> > [    0.000000]   node   0: [mem 0x0000000080400000-0x0000000083ffffff]
-> > [    0.000000] Initmem setup node 0 [mem 0x0000000080400000-0x0000000083ffffff]
-> > [    0.000000] SBI specification v0.2 detected
-> > [    0.000000] SBI implementation ID=0x1 Version=0x9
-> > [    0.000000] SBI TIME extension detected
-> > [    0.000000] SBI IPI extension detected
-> > [    0.000000] SBI RFENCE extension detected
-> > [    0.000000] SBI v0.2 HSM extension detected
-> > [    0.000000] riscv: ISA extensions acdfhimsu
-> > [    0.000000] riscv: ELF capabilities acdfim
-> > [    0.000000] percpu: Embedded 12 pages/cpu s16600 r8192 d24360 u49152
-> > [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 15240
-> > [    0.000000] Kernel command line: rootwait root=/dev/vda ro console=ttyS0 earlycon=sbi
-> > [    0.000000] Dentry cache hash table entries: 8192 (order: 3, 32768 bytes, linear)
-> > [    0.000000] Inode-cache hash table entries: 4096 (order: 2, 16384 bytes, linear)
-> > [    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
-> > [    0.000000] Virtual kernel memory layout:
-> > [    0.000000]       fixmap : 0x9dc00000 - 0x9e000000   (4096 kB)
-> > [    0.000000]       pci io : 0x9e000000 - 0x9f000000   (  16 MB)
-> > [    0.000000]      vmemmap : 0x9f000000 - 0x9fffffff   (  15 MB)
-> > [    0.000000]      vmalloc : 0xa0000000 - 0xbfffffff   ( 511 MB)
-> > [    0.000000]       lowmem : 0xc0000000 - 0xc3c00000   (  60 MB)
-> > [    0.000000] Memory: 51924K/61440K available (6117K kernel code, 695K rwdata, 1594K rodata, 255K init, 241K bss, 9516K reserved, 0K cma-reserved)
-> > [    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
-> > [    0.000000] rcu: Hierarchical RCU implementation.
-> > [    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=1.
-> > [    0.000000] rcu:     RCU debug extended QS entry/exit.
-> > [    0.000000]  Tracing variant of Tasks RCU enabled.
-> > [    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
-> > [    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
-> > [    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
-> > [    0.000000] riscv-intc: 32 local interrupts mapped
-> > [    0.000000] plic: plic@c000000: mapped 53 interrupts with 1 handlers for 2 contexts.
-> > ...
-> > Welcome to Buildroot
-> > buildroot login: root
-> > # cat /proc/cpuinfo
-> > processor       : 0
-> > hart            : 0
-> > isa             : rv32imafdcsuh
-> > mmu             : sv32
-> >
-> > # file /bin/busybox
-> > /bin/busybox: setuid ELF 32-bit LSB shared object, UCB RISC-V, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-riscv32-ilp32d.so.1, for GNU/Linux 5.15.0, stripped
-> > [   79.320589] random: fast init done
-> > # cat /proc/meminfo
-> > MemTotal:          52176 kB
-> > MemFree:           41012 kB
-> > MemAvailable:      42176 kB
-> > Buffers:             644 kB
-> > Cached:             2724 kB
-> > SwapCached:            0 kB
-> > Active:             3128 kB
-> > Inactive:            752 kB
-> > Active(anon):         40 kB
-> > Inactive(anon):      516 kB
-> > Active(file):       3088 kB
-> > Inactive(file):      236 kB
-> > Unevictable:           0 kB
-> > Mlocked:               0 kB
-> > SwapTotal:             0 kB
-> > SwapFree:              0 kB
-> > Dirty:                 4 kB
-> > Writeback:             0 kB
-> > AnonPages:           556 kB
-> > Mapped:             2172 kB
-> > Shmem:                44 kB
-> > KReclaimable:        656 kB
-> > Slab:               3684 kB
-> > SReclaimable:        656 kB
-> > SUnreclaim:         3028 kB
-> > KernelStack:         312 kB
-> > PageTables:           88 kB
-> > NFS_Unstable:          0 kB
-> > Bounce:                0 kB
-> > WritebackTmp:          0 kB
-> > CommitLimit:       26088 kB
-> > Committed_AS:       2088 kB
-> > VmallocTotal:     524287 kB
-> > VmallocUsed:          12 kB
-> > VmallocChunk:          0 kB
-> > Percpu:               60 kB
-> > #
-> >
-> >  Some conclusions:
-> >  - kernel statics:
-> >    64: Memory: 52788K/63488K available (6184K kernel code, 888K rwdata, 1917K rodata, 294K init, 297K bss, 10700K reserved)
-> >    32: Memory: 51924K/61440K available (6117K kernel code, 695K rwdata, 1594K rodata, 255K init, 241K bss,  9516K reserved)
-> >    rv32 better than rv64:                  1%               22%           17%          13%        19%         11%
-> >    The code size is very similar, but data size rv32 would be better.
-> >
-> >  - rv32 kernel runtime KernelStack, Slab... are smaller,
-> >    rv64: MemTotal: 53076 kB,        MemFree: 40264 kB
-> >    rv32: MemTotal: 52176 + 2048 kB, MemFree: 41012  + 2048 kB
-> >    rv32 better than rv64:       2%                         6%
-> >
-> >    (Because opensbi problem, we could add another 2MB for rv32.)
-> >    Overall in 64MB memory situation, rv64-compat is 6% worse than rv32-native
-> >    at memory footprint. If the userspace memory usage increases, I think
-> >    the gap will be further reduced.
-> >
-> > Changes in v9:
-> >  - Fixup rv32 call rv64 segment fault
-> >  - Ready for 5.18
->
-> Thanks.  I'd also seen some arm64 autobuilder failures, not sure if
-> those got fixed as I don't see anything specificlly listed in here
-> (sorry if I just missed it).
->
-> I've gone ahead and put this on palmer/riscv-compat, I'm going to let it
-> sit at least overnight before putting it on for-next proper.  It's a
-> big one and the autobuilders seem to find stuff over there, I don't want
-> to break any of the other ports.  IIRC you were getting CC'd on the
-> build failures I was seeing.
-I couldn't find that, could you give me a link, thank you.
-
->
-> If it's clean I'll merge it into for-next propely.  It's passing my
-> staging merge tests, but I don't yet have anything specifically for
-> compat -- at least it's not causing any regressions, though.
->
-> >
-> > Changes in v8:
-> >  - Enhanced elf_check_arch with EI_CLASS
-> >  - Fixup SR_UXL doesn't exist in CONFIG_32BIT
-> >  - Add Tested-by with Heiko
-> >  - Update qemu compile tips with upstream repo
-> >
-> > Changes in v7:
-> >  - Re-construct compat_vdso/Makefile
-> >  - Fixup disable COMPAT compile error by csr.h's macro.
-> >  - Optimize coding convention for lo/hi in compat.h
-> >
-> > Changes in v6:
-> >  - Rebase on linux-5.17-rc5
-> >  - Optimize hw capability check for elf
-> >  - Optimize comment in thread_info.h
-> >  - Optimize start_thread with SR_UXL setting
-> >  - Optimize vdso.c with direct panic
-> >
-> > Changes in v5:
-> >  - Rebase on linux-5.17-rc2
-> >  - Include consolidate the fcntl patches by Christoph Hellwig
-> >  - Remove F_GETLK64/F_SETLK64/F_SETLKW64 from asm/compat.h
-> >  - Change COMPAT_RLIM_INFINITY from 0x7fffffff to 0xffffffff
-> >  - Bring back "Add hw-cap detect in setup_arch patch" in v1
-> >
-> > Changes in v4:
-> >  - Rebase on linux-5.17-rc1
-> >  - Optimize compat_sys_call_table implementation with Arnd's advice
-> >  - Add reviewed-by for Arnd. Thx :)
-> >  - Remove FIXME comment in elf.h
-> >  - Optimize Cleanup duplicate definitions in compat.h with Arnd's advice
-> >
-> > Changes in v3:
-> >  - Rebase on newest master (pre linux-5.17-rc1)
-> >  - Using newest qemu version v7 for test
-> >  - Remove fcntl common modification
-> >  - Fixup SET_PERSONALITY in elf.h by Arnd
-> >  - Fixup KVM Kconfig
-> >  - Update Acked-by & Reviewed-by
-> >
-> > Changes in v2:
-> >  - Add __ARCH_WANT_COMPAT_STAT suggested
-> >  - Cleanup fcntl compatduplicate definitions
-> >  - Cleanup compat.h
-> >  - Move rv32_defconfig into Makefile
-> >  - Fixup rv64 rootfs boot failed, remove hw_compat_mode_detect
-> >  - Move SYSVIPC_COMPAT into init/Kconfig
-> >  - Simplify compat_elf_check
-> >
-> > Christoph Hellwig (3):
-> >   uapi: simplify __ARCH_FLOCK{,64}_PAD a little
-> >   uapi: always define F_GETLK64/F_SETLK64/F_SETLKW64 in fcntl.h
-> >   compat: consolidate the compat_flock{,64} definition
-> >
-> > Guo Ren (17):
-> >   kconfig: Add SYSVIPC_COMPAT for all architectures
-> >   fs: stat: compat: Add __ARCH_WANT_COMPAT_STAT
-> >   asm-generic: compat: Cleanup duplicate definitions
-> >   syscalls: compat: Fix the missing part for __SYSCALL_COMPAT
-> >   riscv: Fixup difference with defconfig
-> >   riscv: compat: Add basic compat data type implementation
-> >   riscv: compat: Re-implement TASK_SIZE for COMPAT_32BIT
-> >   riscv: compat: syscall: Add compat_sys_call_table implementation
-> >   riscv: compat: syscall: Add entry.S implementation
-> >   riscv: compat: process: Add UXL_32 support in start_thread
-> >   riscv: compat: Add elf.h implementation
-> >   riscv: compat: Add hw capability check for elf
-> >   riscv: compat: vdso: Add COMPAT_VDSO base code implementation
-> >   riscv: compat: vdso: Add setup additional pages implementation
-> >   riscv: compat: signal: Add rt_frame implementation
-> >   riscv: compat: ptrace: Add compat_arch_ptrace implement
-> >   riscv: compat: Add COMPAT Kbuild skeletal support
-> >
-> >  arch/arm64/Kconfig                            |   4 -
-> >  arch/arm64/include/asm/compat.h               |  91 +------
-> >  arch/arm64/include/asm/unistd.h               |   1 +
-> >  arch/mips/Kconfig                             |   5 -
-> >  arch/mips/include/asm/compat.h                |  41 +--
-> >  arch/mips/include/asm/unistd.h                |   2 +
-> >  arch/mips/include/uapi/asm/fcntl.h            |  30 +--
-> >  arch/parisc/Kconfig                           |   4 -
-> >  arch/parisc/include/asm/compat.h              |  45 +---
-> >  arch/parisc/include/asm/unistd.h              |   1 +
-> >  arch/powerpc/Kconfig                          |   5 -
-> >  arch/powerpc/include/asm/compat.h             |  50 +---
-> >  arch/powerpc/include/asm/unistd.h             |   1 +
-> >  arch/riscv/Kconfig                            |  19 ++
-> >  arch/riscv/Makefile                           |   9 +
-> >  arch/riscv/configs/rv32_defconfig             | 135 ----------
-> >  arch/riscv/include/asm/compat.h               | 129 ++++++++++
-> >  arch/riscv/include/asm/csr.h                  |   7 +
-> >  arch/riscv/include/asm/elf.h                  |  50 +++-
-> >  arch/riscv/include/asm/mmu.h                  |   1 +
-> >  arch/riscv/include/asm/pgtable.h              |  13 +-
-> >  arch/riscv/include/asm/processor.h            |   6 +-
-> >  arch/riscv/include/asm/syscall.h              |   1 +
-> >  arch/riscv/include/asm/thread_info.h          |   1 +
-> >  arch/riscv/include/asm/unistd.h               |  11 +
-> >  arch/riscv/include/asm/vdso.h                 |   9 +
-> >  arch/riscv/include/uapi/asm/unistd.h          |   2 +-
-> >  arch/riscv/kernel/Makefile                    |   3 +
-> >  arch/riscv/kernel/compat_signal.c             | 243 ++++++++++++++++++
-> >  arch/riscv/kernel/compat_syscall_table.c      |  19 ++
-> >  arch/riscv/kernel/compat_vdso/.gitignore      |   2 +
-> >  arch/riscv/kernel/compat_vdso/Makefile        |  78 ++++++
-> >  arch/riscv/kernel/compat_vdso/compat_vdso.S   |   8 +
-> >  .../kernel/compat_vdso/compat_vdso.lds.S      |   3 +
-> >  arch/riscv/kernel/compat_vdso/flush_icache.S  |   3 +
-> >  .../compat_vdso/gen_compat_vdso_offsets.sh    |   5 +
-> >  arch/riscv/kernel/compat_vdso/getcpu.S        |   3 +
-> >  arch/riscv/kernel/compat_vdso/note.S          |   3 +
-> >  arch/riscv/kernel/compat_vdso/rt_sigreturn.S  |   3 +
-> >  arch/riscv/kernel/entry.S                     |  18 +-
-> >  arch/riscv/kernel/process.c                   |  37 +++
-> >  arch/riscv/kernel/ptrace.c                    |  87 ++++++-
-> >  arch/riscv/kernel/signal.c                    |  13 +-
-> >  arch/riscv/kernel/sys_riscv.c                 |   6 +-
-> >  arch/riscv/kernel/vdso.c                      | 105 +++++---
-> >  arch/riscv/kernel/vdso/vdso.S                 |   6 +-
-> >  arch/s390/Kconfig                             |   3 -
-> >  arch/s390/include/asm/compat.h                |  99 +------
-> >  arch/s390/include/asm/unistd.h                |   1 +
-> >  arch/sparc/Kconfig                            |   5 -
-> >  arch/sparc/include/asm/compat.h               |  61 ++---
-> >  arch/sparc/include/asm/unistd.h               |   1 +
-> >  arch/x86/Kconfig                              |   4 -
-> >  arch/x86/include/asm/compat.h                 | 104 ++------
-> >  arch/x86/include/asm/unistd.h                 |   1 +
-> >  fs/open.c                                     |  24 ++
-> >  fs/read_write.c                               |  16 ++
-> >  fs/stat.c                                     |   2 +-
-> >  fs/sync.c                                     |   9 +
-> >  include/asm-generic/compat.h                  | 113 ++++++++
-> >  include/linux/compat.h                        |  68 +++++
-> >  include/uapi/asm-generic/fcntl.h              |  23 +-
-> >  include/uapi/asm-generic/unistd.h             |   4 +-
-> >  init/Kconfig                                  |   4 +
-> >  mm/fadvise.c                                  |  11 +
-> >  mm/readahead.c                                |   7 +
-> >  tools/include/uapi/asm-generic/fcntl.h        |  21 +-
-> >  tools/include/uapi/asm-generic/unistd.h       |   4 +-
-> >  68 files changed, 1205 insertions(+), 698 deletions(-)
-> >  delete mode 100644 arch/riscv/configs/rv32_defconfig
-> >  create mode 100644 arch/riscv/include/asm/compat.h
-> >  create mode 100644 arch/riscv/kernel/compat_signal.c
-> >  create mode 100644 arch/riscv/kernel/compat_syscall_table.c
-> >  create mode 100644 arch/riscv/kernel/compat_vdso/.gitignore
-> >  create mode 100644 arch/riscv/kernel/compat_vdso/Makefile
-> >  create mode 100644 arch/riscv/kernel/compat_vdso/compat_vdso.S
-> >  create mode 100644 arch/riscv/kernel/compat_vdso/compat_vdso.lds.S
-> >  create mode 100644 arch/riscv/kernel/compat_vdso/flush_icache.S
-> >  create mode 100755 arch/riscv/kernel/compat_vdso/gen_compat_vdso_offsets.sh
-> >  create mode 100644 arch/riscv/kernel/compat_vdso/getcpu.S
-> >  create mode 100644 arch/riscv/kernel/compat_vdso/note.S
-> >  create mode 100644 arch/riscv/kernel/compat_vdso/rt_sigreturn.S
-
-
-
---
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SSBnb3QgdGhhdC4gSSBmaXhlZCB1cCBpdCBpbiB2MTAuCgpDQyAgICAgIGFyY2gvYXJtNjQva2Vy
+bmVsL2FzbS1vZmZzZXRzLnMKSW4gZmlsZSBpbmNsdWRlZCBmcm9tCi9ob21lL2d1b3Jlbi9zb3Vy
+Y2Uva2VybmVsL3Jpc2N2LWxpbnV4L2FyY2gvYXJtNjQvaW5jbHVkZS9hc20vc3RhdC5oOjEzLAog
+ICAgICAgICAgICAgICAgIGZyb20KL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvcmlzY3YtbGlu
+dXgvaW5jbHVkZS9saW51eC9zdGF0Lmg6NiwKICAgICAgICAgICAgICAgICBmcm9tCi9ob21lL2d1
+b3Jlbi9zb3VyY2Uva2VybmVsL3Jpc2N2LWxpbnV4L2luY2x1ZGUvbGludXgvc3lzZnMuaDoyMiwK
+ICAgICAgICAgICAgICAgICBmcm9tCi9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL3Jpc2N2LWxp
+bnV4L2luY2x1ZGUvbGludXgva29iamVjdC5oOjIwLAogICAgICAgICAgICAgICAgIGZyb20KL2hv
+bWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvcmlzY3YtbGludXgvaW5jbHVkZS9saW51eC9vZi5oOjE3
+LAogICAgICAgICAgICAgICAgIGZyb20KL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvcmlzY3Yt
+bGludXgvaW5jbHVkZS9saW51eC9pcnFkb21haW4uaDozNSwKICAgICAgICAgICAgICAgICBmcm9t
+Ci9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL3Jpc2N2LWxpbnV4L2luY2x1ZGUvbGludXgvYWNw
+aS5oOjEzLAogICAgICAgICAgICAgICAgIGZyb20KL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwv
+cmlzY3YtbGludXgvaW5jbHVkZS9hY3BpL2FwZWkuaDo5LAogICAgICAgICAgICAgICAgIGZyb20K
+L2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvcmlzY3YtbGludXgvaW5jbHVkZS9hY3BpL2doZXMu
+aDo1LAogICAgICAgICAgICAgICAgIGZyb20KL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvcmlz
+Y3YtbGludXgvaW5jbHVkZS9saW51eC9hcm1fc2RlaS5oOjgsCiAgICAgICAgICAgICAgICAgZnJv
+bQovaG9tZS9ndW9yZW4vc291cmNlL2tlcm5lbC9yaXNjdi1saW51eC9hcmNoL2FybTY0L2tlcm5l
+bC9hc20tb2Zmc2V0cy5jOjEwOgovaG9tZS9ndW9yZW4vc291cmNlL2tlcm5lbC9yaXNjdi1saW51
+eC9hcmNoL2FybTY0L2luY2x1ZGUvYXNtL2NvbXBhdC5oOjY5Ojg6CmVycm9yOiByZWRlZmluaXRp
+b24gb2Yg4oCYc3RydWN0IGNvbXBhdF9zdGF0ZnPigJkKICAgNjkgfCBzdHJ1Y3QgY29tcGF0X3N0
+YXRmcyB7CiAgICAgIHwgICAgICAgIF5+fn5+fn5+fn5+fn4KSW4gZmlsZSBpbmNsdWRlZCBmcm9t
+Ci9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL3Jpc2N2LWxpbnV4L2FyY2gvYXJtNjQvaW5jbHVk
+ZS9hc20vY29tcGF0Lmg6MTgsCiAgICAgICAgICAgICAgICAgZnJvbQovaG9tZS9ndW9yZW4vc291
+cmNlL2tlcm5lbC9yaXNjdi1saW51eC9hcmNoL2FybTY0L2luY2x1ZGUvYXNtL3N0YXQuaDoxMywK
+ICAgICAgICAgICAgICAgICBmcm9tCi9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL3Jpc2N2LWxp
+bnV4L2luY2x1ZGUvbGludXgvc3RhdC5oOjYsCiAgICAgICAgICAgICAgICAgZnJvbQovaG9tZS9n
+dW9yZW4vc291cmNlL2tlcm5lbC9yaXNjdi1saW51eC9pbmNsdWRlL2xpbnV4L3N5c2ZzLmg6MjIs
+CiAgICAgICAgICAgICAgICAgZnJvbQovaG9tZS9ndW9yZW4vc291cmNlL2tlcm5lbC9yaXNjdi1s
+aW51eC9pbmNsdWRlL2xpbnV4L2tvYmplY3QuaDoyMCwKICAgICAgICAgICAgICAgICBmcm9tCi9o
+b21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL3Jpc2N2LWxpbnV4L2luY2x1ZGUvbGludXgvb2YuaDox
+NywKICAgICAgICAgICAgICAgICBmcm9tCi9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL3Jpc2N2
+LWxpbnV4L2luY2x1ZGUvbGludXgvaXJxZG9tYWluLmg6MzUsCiAgICAgICAgICAgICAgICAgZnJv
+bQovaG9tZS9ndW9yZW4vc291cmNlL2tlcm5lbC9yaXNjdi1saW51eC9pbmNsdWRlL2xpbnV4L2Fj
+cGkuaDoxMywKICAgICAgICAgICAgICAgICBmcm9tCi9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVs
+L3Jpc2N2LWxpbnV4L2luY2x1ZGUvYWNwaS9hcGVpLmg6OSwKICAgICAgICAgICAgICAgICBmcm9t
+Ci9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL3Jpc2N2LWxpbnV4L2luY2x1ZGUvYWNwaS9naGVz
+Lmg6NSwKICAgICAgICAgICAgICAgICBmcm9tCi9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL3Jp
+c2N2LWxpbnV4L2luY2x1ZGUvbGludXgvYXJtX3NkZWkuaDo4LAogICAgICAgICAgICAgICAgIGZy
+b20KL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvcmlzY3YtbGludXgvYXJjaC9hcm02NC9rZXJu
+ZWwvYXNtLW9mZnNldHMuYzoxMDoKL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvcmlzY3YtbGlu
+dXgvaW5jbHVkZS9hc20tZ2VuZXJpYy9jb21wYXQuaDo4Nzo4Ogpub3RlOiBvcmlnaW5hbGx5IGRl
+ZmluZWQgaGVyZQogICA4NyB8IHN0cnVjdCBjb21wYXRfc3RhdGZzIHsKICAgICAgfCAgICAgICAg
+Xn5+fn5+fn5+fn5+fgptYWtlWzJdOiAqKiogWy9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL3Jp
+c2N2LWxpbnV4L3NjcmlwdHMvTWFrZWZpbGUuYnVpbGQ6MTIxOgphcmNoL2FybTY0L2tlcm5lbC9h
+c20tb2Zmc2V0cy5zXSBFcnJvciAxCm1ha2VbMV06ICoqKiBbL2hvbWUvZ3VvcmVuL3NvdXJjZS9r
+ZXJuZWwvcmlzY3YtbGludXgvTWFrZWZpbGU6MTE5MToKcHJlcGFyZTBdIEVycm9yIDIKbWFrZVsx
+XTogTGVhdmluZyBkaXJlY3RvcnkgJy9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL2J1aWxkLWFy
+bTY0JwoKT24gU2F0LCBBcHIgMiwgMjAyMiBhdCA4OjUzIFBNIEd1byBSZW4gPGd1b3JlbkBrZXJu
+ZWwub3JnPiB3cm90ZToKPgo+IE9uIFdlZCwgTWFyIDIzLCAyMDIyIGF0IDU6MDAgQU0gUGFsbWVy
+IERhYmJlbHQgPHBhbG1lckBkYWJiZWx0LmNvbT4gd3JvdGU6Cj4gPgo+ID4gT24gVHVlLCAyMiBN
+YXIgMjAyMiAwNzozOTo0MyBQRFQgKC0wNzAwKSwgZ3VvcmVuQGtlcm5lbC5vcmcgd3JvdGU6Cj4g
+PiA+IEZyb206IEd1byBSZW4gPGd1b3JlbkBsaW51eC5hbGliYWJhLmNvbT4KPiA+ID4KPiA+ID4g
+Q3VycmVudGx5LCBtb3N0IDY0LWJpdCBhcmNoaXRlY3R1cmVzICh4ODYsIHBhcmlzYywgcG93ZXJw
+YywgYXJtNjQsCj4gPiA+IHMzOTAsIG1pcHMsIHNwYXJjKSBoYXZlIHN1cHBvcnRlZCBDT01QQVQg
+bW9kZS4gQnV0IHRoZXkgYWxsIGhhdmUKPiA+ID4gaGlzdG9yeSBpc3N1ZXMgYW5kIGNhbid0IHVz
+ZSBzdGFuZGFyZCBsaW51eCB1bmlzdGQuaC4gUklTQy1WIHdvdWxkCj4gPiA+IGJlIGZpcnN0IHN0
+YW5kYXJkIF9fU1lTQ0FMTF9DT01QQVQgdXNlciBvZiBpbmNsdWRlL3VhcGkvYXNtLWdlbmVyaWMK
+PiA+ID4gL3VuaXN0ZC5oLgo+ID4gPgo+ID4gPiBUaGUgcGF0Y2hzZXQgYXJlIGJhc2VkIG9uIHY1
+LjE3LXJjOCwgeW91IGNhbiBjb21wYXJlIHJ2NjQtY29tcGF0Cj4gPiA+IHYucy4gcnYzMi1uYXRp
+dmUgaW4gcWVtdSB3aXRoIGZvbGxvd2luZyBzdGVwczoKPiA+ID4KPiA+ID4gIC0gUHJlcGFyZSBy
+djMyIHJvb3RmcyAmIGZ3X2p1bXAuYmluIGJ5IGJ1aWxkcm9vdC5vcmcKPiA+ID4gICAgJCBnaXQg
+Y2xvbmUgZ2l0Oi8vZ2l0LmJ1c3lib3gubmV0L2J1aWxkcm9vdAo+ID4gPiAgICAkIGNkIGJ1aWxk
+cm9vdAo+ID4gPiAgICAkIG1ha2UgcWVtdV9yaXNjdjMyX3ZpcnRfZGVmY29uZmlnIE89cWVtdV9y
+aXNjdjMyX3ZpcnRfZGVmY29uZmlnCj4gPiA+ICAgICQgbWFrZSAtQyBxZW11X3Jpc2N2MzJfdmly
+dF9kZWZjb25maWcKPiA+ID4gICAgJCBtYWtlIHFlbXVfcmlzY3Y2NF92aXJ0X2RlZmNvbmZpZyBP
+PXFlbXVfcmlzY3Y2NF92aXJ0X2RlZmNvbmZpZwo+ID4gPiAgICAkIG1ha2UgLUMgcWVtdV9yaXNj
+djY0X3ZpcnRfZGVmY29uZmlnCj4gPiA+ICAgIChHb3QgZndfanVtcC5iaW4gJiByb290ZnMuZXh0
+MiBpbiBxZW11X3Jpc2N2WFhfdmlydF9kZWZjb25maWcvaW1hZ2VzKQo+ID4gPgo+ID4gPiAgLSBQ
+cmVwYXJlIExpbnV4IHJ2MzIgJiBydjY0IEltYWdlCj4gPiA+ICAgICQgZ2l0IGNsb25lIGdpdEBn
+aXRodWIuY29tOmMtc2t5L2Nza3ktbGludXguZ2l0IC1iIHJpc2N2X2NvbXBhdF92OCBsaW51eAo+
+ID4gPiAgICAkIGNkIGxpbnV4Cj4gPiA+ICAgICQgZWNobyAiQ09ORklHX1NUUklDVF9LRVJORUxf
+UldYPW4iID4+IGFyY2gvcmlzY3YvY29uZmlncy9kZWZjb25maWcKPiA+ID4gICAgJCBlY2hvICJD
+T05GSUdfU1RSSUNUX01PRFVMRV9SV1g9biIgPj4gYXJjaC9yaXNjdi9jb25maWdzL2RlZmNvbmZp
+Zwo+ID4gPiAgICAkIG1ha2UgQVJDSD1yaXNjdiBDUk9TU19DT01QSUxFPXJpc2N2MzItYnVpbGRy
+b290LWxpbnV4LWdudS0gTz0uLi9idWlsZC1ydjMyLyBydjMyX2RlZmNvbmZpZwo+ID4gPiAgICAk
+IG1ha2UgQVJDSD1yaXNjdiBDUk9TU19DT01QSUxFPXJpc2N2MzItYnVpbGRyb290LWxpbnV4LWdu
+dS0gTz0uLi9idWlsZC1ydjMyLyBJbWFnZQo+ID4gPiAgICAkIG1ha2UgQVJDSD1yaXNjdiBDUk9T
+U19DT01QSUxFPXJpc2N2NjQtYnVpbGRyb290LWxpbnV4LWdudS0gTz0uLi9idWlsZC1ydjY0LyBk
+ZWZjb25maWcKPiA+ID4gICAgJCBtYWtlIEFSQ0g9cmlzY3YgQ1JPU1NfQ09NUElMRT1yaXNjdjY0
+LWJ1aWxkcm9vdC1saW51eC1nbnUtIE89Li4vYnVpbGQtcnY2NC8gSW1hZ2UKPiA+ID4KPiA+ID4g
+IC0gUHJlcGFyZSBRZW11Ogo+ID4gPiAgICAkIGdpdCBjbG9uZSBodHRwczovL2dpdGxhYi5jb20v
+cWVtdS1wcm9qZWN0L3FlbXUuZ2l0IC1iIG1hc3RlciBsaW51eAo+ID4gPiAgICAkIGNkIHFlbXUK
+PiA+ID4gICAgJCAuL2NvbmZpZ3VyZSAtLXRhcmdldC1saXN0PSJyaXNjdjY0LXNvZnRtbXUgcmlz
+Y3YzMi1zb2Z0bW11Igo+ID4gPiAgICAkIG1ha2UKPiA+ID4KPiA+ID4gTm93IGxldCdzIGNvbXBh
+cmUgcnY2NC1jb21wYXQgd2l0aCBydjMyLW5hdGl2ZSBtZW1vcnkgZm9vdHByaW50IHdpdGggYWxt
+b3N0IHRoZSBzYW1lCj4gPiA+IGRlZmNvbmZpZywgcm9vdGZzLCBvcGVuc2JpIGluIG9uZSBxZW11
+Lgo+ID4gPgo+ID4gPiAgLSBSdW4gcnY2NCB3aXRoIHJ2MzIgcm9vdGZzIGluIGNvbXBhdCBtb2Rl
+Ogo+ID4gPiAgICAkIC4vYnVpbGQvcWVtdS1zeXN0ZW0tcmlzY3Y2NCAtY3B1IHJ2NjQgLU0gdmly
+dCAtbSA2NG0gLW5vZ3JhcGhpYyAtYmlvcyBxZW11X3Jpc2N2NjRfdmlydF9kZWZjb25maWcvaW1h
+Z2VzL2Z3X2p1bXAuYmluIC1rZXJuZWwgYnVpbGQtcnY2NC9JbWFnZSAtZHJpdmUgZmlsZSBxZW11
+X3Jpc2N2MzJfdmlydF9kZWZjb25maWcvaW1hZ2VzL3Jvb3Rmcy5leHQyLGZvcm1hdD1yYXcsaWQ9
+aGQwIC1kZXZpY2UgdmlydGlvLWJsay1kZXZpY2UsZHJpdmU9aGQwIC1hcHBlbmQgInJvb3R3YWl0
+IHJvb3Q9L2Rldi92ZGEgcm8gY29uc29sZT10dHlTMCBlYXJseWNvbj1zYmkiIC1uZXRkZXYgdXNl
+cixpZD1uZXQwIC1kZXZpY2UgdmlydGlvLW5ldC1kZXZpY2UsbmV0ZGV2PW5ldDAKPiA+ID4KPiA+
+ID4gUUVNVSBlbXVsYXRvciB2ZXJzaW9uIDYuMi41MCAodjYuMi4wLTI5LWcxOTZkNzE4MmM4KQo+
+ID4gPiBPcGVuU0JJIHYwLjkKPiA+ID4gWyAgICAwLjAwMDAwMF0gTGludXggdmVyc2lvbiA1LjE2
+LjAtcmM2LTAwMDE3LWc3NTBmODcwODZiZGQtZGlydHkgKGd1b3JlbkBndW9yZW4tWjg3LUhEMykg
+KHJpc2N2NjQtdW5rbm93bi1saW51eC1nbnUtZ2NjIChHQ0MpIDEwLjIuMCwgR05VIGxkIChHTlUg
+QmludXRpbHMpIDIuMzcpICM5NiBTTVAgVHVlIERlYyAyOCAyMTowMTo1NSBDU1QgMjAyMQo+ID4g
+PiBbICAgIDAuMDAwMDAwXSBPRjogZmR0OiBJZ25vcmluZyBtZW1vcnkgcmFuZ2UgMHg4MDAwMDAw
+MCAtIDB4ODAyMDAwMDAKPiA+ID4gWyAgICAwLjAwMDAwMF0gTWFjaGluZSBtb2RlbDogcmlzY3Yt
+dmlydGlvLHFlbXUKPiA+ID4gWyAgICAwLjAwMDAwMF0gZWFybHljb246IHNiaTAgYXQgSS9PIHBv
+cnQgMHgwIChvcHRpb25zICcnKQo+ID4gPiBbICAgIDAuMDAwMDAwXSBwcmludGs6IGJvb3Rjb25z
+b2xlIFtzYmkwXSBlbmFibGVkCj4gPiA+IFsgICAgMC4wMDAwMDBdIGVmaTogVUVGSSBub3QgZm91
+bmQuCj4gPiA+IFsgICAgMC4wMDAwMDBdIFpvbmUgcmFuZ2VzOgo+ID4gPiBbICAgIDAuMDAwMDAw
+XSAgIERNQTMyICAgIFttZW0gMHgwMDAwMDAwMDgwMjAwMDAwLTB4MDAwMDAwMDA4M2ZmZmZmZl0K
+PiA+ID4gWyAgICAwLjAwMDAwMF0gICBOb3JtYWwgICBlbXB0eQo+ID4gPiBbICAgIDAuMDAwMDAw
+XSBNb3ZhYmxlIHpvbmUgc3RhcnQgZm9yIGVhY2ggbm9kZQo+ID4gPiBbICAgIDAuMDAwMDAwXSBF
+YXJseSBtZW1vcnkgbm9kZSByYW5nZXMKPiA+ID4gWyAgICAwLjAwMDAwMF0gICBub2RlICAgMDog
+W21lbSAweDAwMDAwMDAwODAyMDAwMDAtMHgwMDAwMDAwMDgzZmZmZmZmXQo+ID4gPiBbICAgIDAu
+MDAwMDAwXSBJbml0bWVtIHNldHVwIG5vZGUgMCBbbWVtIDB4MDAwMDAwMDA4MDIwMDAwMC0weDAw
+MDAwMDAwODNmZmZmZmZdCj4gPiA+IFsgICAgMC4wMDAwMDBdIFNCSSBzcGVjaWZpY2F0aW9uIHYw
+LjIgZGV0ZWN0ZWQKPiA+ID4gWyAgICAwLjAwMDAwMF0gU0JJIGltcGxlbWVudGF0aW9uIElEPTB4
+MSBWZXJzaW9uPTB4OQo+ID4gPiBbICAgIDAuMDAwMDAwXSBTQkkgVElNRSBleHRlbnNpb24gZGV0
+ZWN0ZWQKPiA+ID4gWyAgICAwLjAwMDAwMF0gU0JJIElQSSBleHRlbnNpb24gZGV0ZWN0ZWQKPiA+
+ID4gWyAgICAwLjAwMDAwMF0gU0JJIFJGRU5DRSBleHRlbnNpb24gZGV0ZWN0ZWQKPiA+ID4gWyAg
+ICAwLjAwMDAwMF0gU0JJIHYwLjIgSFNNIGV4dGVuc2lvbiBkZXRlY3RlZAo+ID4gPiBbICAgIDAu
+MDAwMDAwXSByaXNjdjogSVNBIGV4dGVuc2lvbnMgYWNkZmhpbXN1Cj4gPiA+IFsgICAgMC4wMDAw
+MDBdIHJpc2N2OiBFTEYgY2FwYWJpbGl0aWVzIGFjZGZpbQo+ID4gPiBbICAgIDAuMDAwMDAwXSBw
+ZXJjcHU6IEVtYmVkZGVkIDE3IHBhZ2VzL2NwdSBzMzA2OTYgcjgxOTIgZDMwNzQ0IHU2OTYzMgo+
+ID4gPiBbICAgIDAuMDAwMDAwXSBCdWlsdCAxIHpvbmVsaXN0cywgbW9iaWxpdHkgZ3JvdXBpbmcg
+b24uICBUb3RhbCBwYWdlczogMTU2NTUKPiA+ID4gWyAgICAwLjAwMDAwMF0gS2VybmVsIGNvbW1h
+bmQgbGluZTogcm9vdHdhaXQgcm9vdD0vZGV2L3ZkYSBybyBjb25zb2xlPXR0eVMwIGVhcmx5Y29u
+PXNiaQo+ID4gPiBbICAgIDAuMDAwMDAwXSBEZW50cnkgY2FjaGUgaGFzaCB0YWJsZSBlbnRyaWVz
+OiA4MTkyIChvcmRlcjogNCwgNjU1MzYgYnl0ZXMsIGxpbmVhcikKPiA+ID4gWyAgICAwLjAwMDAw
+MF0gSW5vZGUtY2FjaGUgaGFzaCB0YWJsZSBlbnRyaWVzOiA0MDk2IChvcmRlcjogMywgMzI3Njgg
+Ynl0ZXMsIGxpbmVhcikKPiA+ID4gWyAgICAwLjAwMDAwMF0gbWVtIGF1dG8taW5pdDogc3RhY2s6
+b2ZmLCBoZWFwIGFsbG9jOm9mZiwgaGVhcCBmcmVlOm9mZgo+ID4gPiBbICAgIDAuMDAwMDAwXSBW
+aXJ0dWFsIGtlcm5lbCBtZW1vcnkgbGF5b3V0Ogo+ID4gPiBbICAgIDAuMDAwMDAwXSAgICAgICBm
+aXhtYXAgOiAweGZmZmZmZmNlZmVlMDAwMDAgLSAweGZmZmZmZmNlZmYwMDAwMDAgICAoMjA0OCBr
+QikKPiA+ID4gWyAgICAwLjAwMDAwMF0gICAgICAgcGNpIGlvIDogMHhmZmZmZmZjZWZmMDAwMDAw
+IC0gMHhmZmZmZmZjZjAwMDAwMDAwICAgKCAgMTYgTUIpCj4gPiA+IFsgICAgMC4wMDAwMDBdICAg
+ICAgdm1lbW1hcCA6IDB4ZmZmZmZmY2YwMDAwMDAwMCAtIDB4ZmZmZmZmY2ZmZmZmZmZmZiAgICg0
+MDk1IE1CKQo+ID4gPiBbICAgIDAuMDAwMDAwXSAgICAgIHZtYWxsb2MgOiAweGZmZmZmZmQwMDAw
+MDAwMDAgLSAweGZmZmZmZmRmZmZmZmZmZmYgICAoNjU1MzUgTUIpCj4gPiA+IFsgICAgMC4wMDAw
+MDBdICAgICAgIGxvd21lbSA6IDB4ZmZmZmZmZTAwMDAwMDAwMCAtIDB4ZmZmZmZmZTAwM2UwMDAw
+MCAgICggIDYyIE1CKQo+ID4gPiBbICAgIDAuMDAwMDAwXSAgICAgICBrZXJuZWwgOiAweGZmZmZm
+ZmZmODAwMDAwMDAgLSAweGZmZmZmZmZmZmZmZmZmZmYgICAoMjA0NyBNQikKPiA+ID4gWyAgICAw
+LjAwMDAwMF0gTWVtb3J5OiA1Mjc4OEsvNjM0ODhLIGF2YWlsYWJsZSAoNjE4NEsga2VybmVsIGNv
+ZGUsIDg4OEsgcndkYXRhLCAxOTE3SyByb2RhdGEsIDI5NEsgaW5pdCwgMjk3SyBic3MsIDEwNzAw
+SyByZXNlcnZlZCwgMEsgY21hLXJlc2VydmVkKQo+ID4gPiBbICAgIDAuMDAwMDAwXSBTTFVCOiBI
+V2FsaWduPTY0LCBPcmRlcj0wLTMsIE1pbk9iamVjdHM9MCwgQ1BVcz0xLCBOb2Rlcz0xCj4gPiA+
+IFsgICAgMC4wMDAwMDBdIHJjdTogSGllcmFyY2hpY2FsIFJDVSBpbXBsZW1lbnRhdGlvbi4KPiA+
+ID4gWyAgICAwLjAwMDAwMF0gcmN1OiAgICAgUkNVIHJlc3RyaWN0aW5nIENQVXMgZnJvbSBOUl9D
+UFVTPTggdG8gbnJfY3B1X2lkcz0xLgo+ID4gPiBbICAgIDAuMDAwMDAwXSByY3U6ICAgICBSQ1Ug
+ZGVidWcgZXh0ZW5kZWQgUVMgZW50cnkvZXhpdC4KPiA+ID4gWyAgICAwLjAwMDAwMF0gIFRyYWNp
+bmcgdmFyaWFudCBvZiBUYXNrcyBSQ1UgZW5hYmxlZC4KPiA+ID4gWyAgICAwLjAwMDAwMF0gcmN1
+OiBSQ1UgY2FsY3VsYXRlZCB2YWx1ZSBvZiBzY2hlZHVsZXItZW5saXN0bWVudCBkZWxheSBpcyAy
+NSBqaWZmaWVzLgo+ID4gPiBbICAgIDAuMDAwMDAwXSByY3U6IEFkanVzdGluZyBnZW9tZXRyeSBm
+b3IgcmN1X2Zhbm91dF9sZWFmPTE2LCBucl9jcHVfaWRzPTEKPiA+ID4gWyAgICAwLjAwMDAwMF0g
+TlJfSVJRUzogNjQsIG5yX2lycXM6IDY0LCBwcmVhbGxvY2F0ZWQgaXJxczogMAo+ID4gPiBbICAg
+IDAuMDAwMDAwXSByaXNjdi1pbnRjOiA2NCBsb2NhbCBpbnRlcnJ1cHRzIG1hcHBlZAo+ID4gPiBb
+ICAgIDAuMDAwMDAwXSBwbGljOiBwbGljQGMwMDAwMDA6IG1hcHBlZCA1MyBpbnRlcnJ1cHRzIHdp
+dGggMSBoYW5kbGVycyBmb3IgMiBjb250ZXh0cy4KPiA+ID4gLi4uCj4gPiA+IFdlbGNvbWUgdG8g
+QnVpbGRyb290Cj4gPiA+IGJ1aWxkcm9vdCBsb2dpbjogcm9vdAo+ID4gPiAjIGNhdCAvcHJvYy9j
+cHVpbmZvCj4gPiA+IHByb2Nlc3NvciAgICAgICA6IDAKPiA+ID4gaGFydCAgICAgICAgICAgIDog
+MAo+ID4gPiBpc2EgICAgICAgICAgICAgOiBydjY0aW1hZmRjc3VoCj4gPiA+IG1tdSAgICAgICAg
+ICAgICA6IHN2NDgKPiA+ID4KPiA+ID4gIyBmaWxlIC9iaW4vYnVzeWJveAo+ID4gPiAvYmluL2J1
+c3lib3g6IHNldHVpZCBFTEYgMzItYml0IExTQiBzaGFyZWQgb2JqZWN0LCBVQ0IgUklTQy1WLCB2
+ZXJzaW9uIDEgKFNZU1YpLCBkeW5hbWljYWxseSBsaW5rZWQsIGludGVycHJldGVyIC9saWIvbGQt
+bGludXgtcmlzY3YzMi1pbHAzMmQuc28uMSwgZm9yIEdOVS9MaW51eCA1LjE1LjAsIHN0cmlwcGVk
+Cj4gPiA+ICMgY2FbICAgNzguMzg2NjMwXSByYW5kb206IGZhc3QgaW5pdCBkb25lCj4gPiA+ICMg
+Y2F0IC9wcm9jL21lbWluZm8KPiA+ID4gTWVtVG90YWw6ICAgICAgICAgIDUzMDc2IGtCCj4gPiA+
+IE1lbUZyZWU6ICAgICAgICAgICA0MDI2NCBrQgo+ID4gPiBNZW1BdmFpbGFibGU6ICAgICAgNDAy
+NDQga0IKPiA+ID4gQnVmZmVyczogICAgICAgICAgICAgMjM2IGtCCj4gPiA+IENhY2hlZDogICAg
+ICAgICAgICAgMTU2MCBrQgo+ID4gPiBTd2FwQ2FjaGVkOiAgICAgICAgICAgIDAga0IKPiA+ID4g
+QWN0aXZlOiAgICAgICAgICAgICAxNzAwIGtCCj4gPiA+IEluYWN0aXZlOiAgICAgICAgICAgIDUx
+NiBrQgo+ID4gPiBBY3RpdmUoYW5vbik6ICAgICAgICAgNDAga0IKPiA+ID4gSW5hY3RpdmUoYW5v
+bik6ICAgICAgNDI0IGtCCj4gPiA+IEFjdGl2ZShmaWxlKTogICAgICAgMTY2MCBrQgo+ID4gPiBJ
+bmFjdGl2ZShmaWxlKTogICAgICAgOTIga0IKPiA+ID4gVW5ldmljdGFibGU6ICAgICAgICAgICAw
+IGtCCj4gPiA+IE1sb2NrZWQ6ICAgICAgICAgICAgICAgMCBrQgo+ID4gPiBTd2FwVG90YWw6ICAg
+ICAgICAgICAgIDAga0IKPiA+ID4gU3dhcEZyZWU6ICAgICAgICAgICAgICAwIGtCCj4gPiA+IERp
+cnR5OiAgICAgICAgICAgICAgICAgMCBrQgo+ID4gPiBXcml0ZWJhY2s6ICAgICAgICAgICAgIDAg
+a0IKPiA+ID4gQW5vblBhZ2VzOiAgICAgICAgICAgNDQ0IGtCCj4gPiA+IE1hcHBlZDogICAgICAg
+ICAgICAgMTE4OCBrQgo+ID4gPiBTaG1lbTogICAgICAgICAgICAgICAgNDQga0IKPiA+ID4gS1Jl
+Y2xhaW1hYmxlOiAgICAgICAgOTUyIGtCCj4gPiA+IFNsYWI6ICAgICAgICAgICAgICAgNTc0NCBr
+Qgo+ID4gPiBTUmVjbGFpbWFibGU6ICAgICAgICA5NTIga0IKPiA+ID4gU1VucmVjbGFpbTogICAg
+ICAgICA0NzkyIGtCCj4gPiA+IEtlcm5lbFN0YWNrOiAgICAgICAgIDYyNCBrQgo+ID4gPiBQYWdl
+VGFibGVzOiAgICAgICAgICAxNTYga0IKPiA+ID4gTkZTX1Vuc3RhYmxlOiAgICAgICAgICAwIGtC
+Cj4gPiA+IEJvdW5jZTogICAgICAgICAgICAgICAgMCBrQgo+ID4gPiBXcml0ZWJhY2tUbXA6ICAg
+ICAgICAgIDAga0IKPiA+ID4gQ29tbWl0TGltaXQ6ICAgICAgIDI2NTM2IGtCCj4gPiA+IENvbW1p
+dHRlZF9BUzogICAgICAgMTc0OCBrQgo+ID4gPiBWbWFsbG9jVG90YWw6ICAgNjcxMDg4NjMga0IK
+PiA+ID4gVm1hbGxvY1VzZWQ6ICAgICAgICAgNjUyIGtCCj4gPiA+IFZtYWxsb2NDaHVuazogICAg
+ICAgICAgMCBrQgo+ID4gPiBQZXJjcHU6ICAgICAgICAgICAgICAgODAga0IKPiA+ID4gIwo+ID4g
+Pgo+ID4gPiAgLSBSdW4gcnYzMiB3aXRoIHJ2MzIgcm9vdGZzOgo+ID4gPiAgICAkIC4vYnVpbGQv
+cWVtdS1zeXN0ZW0tcmlzY3YzMiAtY3B1IHJ2MzIgLU0gdmlydCAtbSA2NG0gLW5vZ3JhcGhpYyAt
+YmlvcyBxZW11X3Jpc2N2MzJfdmlydF9kZWZjb25maWcvaW1hZ2VzL2Z3X2p1bXAuYmluIC1rZXJu
+ZWwgYnVpbGQtcnYzMi9JbWFnZSAtZHJpdmUgZmlsZSBxZW11X3Jpc2N2MzJfdmlydF9kZWZjb25m
+aWcvaW1hZ2VzL3Jvb3Rmcy5leHQyLGZvcm1hdD1yYXcsaWQ9aGQwIC1kZXZpY2UgdmlydGlvLWJs
+ay1kZXZpY2UsZHJpdmU9aGQwIC1hcHBlbmQgInJvb3R3YWl0IHJvb3Q9L2Rldi92ZGEgcm8gY29u
+c29sZT10dHlTMCBlYXJseWNvbj1zYmkiIC1uZXRkZXYgdXNlcixpZD1uZXQwIC1kZXZpY2Ugdmly
+dGlvLW5ldC1kZXZpY2UsbmV0ZGV2PW5ldDAKPiA+ID4KPiA+ID4gUUVNVSBlbXVsYXRvciB2ZXJz
+aW9uIDYuMi41MCAodjYuMi4wLTI5LWcxOTZkNzE4MmM4KQo+ID4gPiBPcGVuU0JJIHYwLjkKPiA+
+ID4gWyAgICAwLjAwMDAwMF0gTGludXggdmVyc2lvbiA1LjE2LjAtcmM2LTAwMDE3LWc3NTBmODcw
+ODZiZGQtZGlydHkgKGd1b3JlbkBndW9yZW4tWjg3LUhEMykgKHJpc2N2MzItYnVpbGRyb290LWxp
+bnV4LWdudS1nY2MuYnJfcmVhbCAoQnVpbGRyb290IDIwMjEuMTEtMjAxLWc3NjAwY2E3OTYwLWRp
+cnR5KSAxMC4zLjAsIEdOVSBsZCAoR05VIEJpbnV0aWxzKSAyLjM2LjEpICM3IFNNUCBUdWUgRGVj
+IDI4IDIxOjAyOjIxIENTVCAyMDIxCj4gPiA+IFsgICAgMC4wMDAwMDBdIE9GOiBmZHQ6IElnbm9y
+aW5nIG1lbW9yeSByYW5nZSAweDgwMDAwMDAwIC0gMHg4MDQwMDAwMAo+ID4gPiBbICAgIDAuMDAw
+MDAwXSBNYWNoaW5lIG1vZGVsOiByaXNjdi12aXJ0aW8scWVtdQo+ID4gPiBbICAgIDAuMDAwMDAw
+XSBlYXJseWNvbjogc2JpMCBhdCBJL08gcG9ydCAweDAgKG9wdGlvbnMgJycpCj4gPiA+IFsgICAg
+MC4wMDAwMDBdIHByaW50azogYm9vdGNvbnNvbGUgW3NiaTBdIGVuYWJsZWQKPiA+ID4gWyAgICAw
+LjAwMDAwMF0gZWZpOiBVRUZJIG5vdCBmb3VuZC4KPiA+ID4gWyAgICAwLjAwMDAwMF0gWm9uZSBy
+YW5nZXM6Cj4gPiA+IFsgICAgMC4wMDAwMDBdICAgTm9ybWFsICAgW21lbSAweDAwMDAwMDAwODA0
+MDAwMDAtMHgwMDAwMDAwMDgzZmZmZmZmXQo+ID4gPiBbICAgIDAuMDAwMDAwXSBNb3ZhYmxlIHpv
+bmUgc3RhcnQgZm9yIGVhY2ggbm9kZQo+ID4gPiBbICAgIDAuMDAwMDAwXSBFYXJseSBtZW1vcnkg
+bm9kZSByYW5nZXMKPiA+ID4gWyAgICAwLjAwMDAwMF0gICBub2RlICAgMDogW21lbSAweDAwMDAw
+MDAwODA0MDAwMDAtMHgwMDAwMDAwMDgzZmZmZmZmXQo+ID4gPiBbICAgIDAuMDAwMDAwXSBJbml0
+bWVtIHNldHVwIG5vZGUgMCBbbWVtIDB4MDAwMDAwMDA4MDQwMDAwMC0weDAwMDAwMDAwODNmZmZm
+ZmZdCj4gPiA+IFsgICAgMC4wMDAwMDBdIFNCSSBzcGVjaWZpY2F0aW9uIHYwLjIgZGV0ZWN0ZWQK
+PiA+ID4gWyAgICAwLjAwMDAwMF0gU0JJIGltcGxlbWVudGF0aW9uIElEPTB4MSBWZXJzaW9uPTB4
+OQo+ID4gPiBbICAgIDAuMDAwMDAwXSBTQkkgVElNRSBleHRlbnNpb24gZGV0ZWN0ZWQKPiA+ID4g
+WyAgICAwLjAwMDAwMF0gU0JJIElQSSBleHRlbnNpb24gZGV0ZWN0ZWQKPiA+ID4gWyAgICAwLjAw
+MDAwMF0gU0JJIFJGRU5DRSBleHRlbnNpb24gZGV0ZWN0ZWQKPiA+ID4gWyAgICAwLjAwMDAwMF0g
+U0JJIHYwLjIgSFNNIGV4dGVuc2lvbiBkZXRlY3RlZAo+ID4gPiBbICAgIDAuMDAwMDAwXSByaXNj
+djogSVNBIGV4dGVuc2lvbnMgYWNkZmhpbXN1Cj4gPiA+IFsgICAgMC4wMDAwMDBdIHJpc2N2OiBF
+TEYgY2FwYWJpbGl0aWVzIGFjZGZpbQo+ID4gPiBbICAgIDAuMDAwMDAwXSBwZXJjcHU6IEVtYmVk
+ZGVkIDEyIHBhZ2VzL2NwdSBzMTY2MDAgcjgxOTIgZDI0MzYwIHU0OTE1Mgo+ID4gPiBbICAgIDAu
+MDAwMDAwXSBCdWlsdCAxIHpvbmVsaXN0cywgbW9iaWxpdHkgZ3JvdXBpbmcgb24uICBUb3RhbCBw
+YWdlczogMTUyNDAKPiA+ID4gWyAgICAwLjAwMDAwMF0gS2VybmVsIGNvbW1hbmQgbGluZTogcm9v
+dHdhaXQgcm9vdD0vZGV2L3ZkYSBybyBjb25zb2xlPXR0eVMwIGVhcmx5Y29uPXNiaQo+ID4gPiBb
+ICAgIDAuMDAwMDAwXSBEZW50cnkgY2FjaGUgaGFzaCB0YWJsZSBlbnRyaWVzOiA4MTkyIChvcmRl
+cjogMywgMzI3NjggYnl0ZXMsIGxpbmVhcikKPiA+ID4gWyAgICAwLjAwMDAwMF0gSW5vZGUtY2Fj
+aGUgaGFzaCB0YWJsZSBlbnRyaWVzOiA0MDk2IChvcmRlcjogMiwgMTYzODQgYnl0ZXMsIGxpbmVh
+cikKPiA+ID4gWyAgICAwLjAwMDAwMF0gbWVtIGF1dG8taW5pdDogc3RhY2s6b2ZmLCBoZWFwIGFs
+bG9jOm9mZiwgaGVhcCBmcmVlOm9mZgo+ID4gPiBbICAgIDAuMDAwMDAwXSBWaXJ0dWFsIGtlcm5l
+bCBtZW1vcnkgbGF5b3V0Ogo+ID4gPiBbICAgIDAuMDAwMDAwXSAgICAgICBmaXhtYXAgOiAweDlk
+YzAwMDAwIC0gMHg5ZTAwMDAwMCAgICg0MDk2IGtCKQo+ID4gPiBbICAgIDAuMDAwMDAwXSAgICAg
+ICBwY2kgaW8gOiAweDllMDAwMDAwIC0gMHg5ZjAwMDAwMCAgICggIDE2IE1CKQo+ID4gPiBbICAg
+IDAuMDAwMDAwXSAgICAgIHZtZW1tYXAgOiAweDlmMDAwMDAwIC0gMHg5ZmZmZmZmZiAgICggIDE1
+IE1CKQo+ID4gPiBbICAgIDAuMDAwMDAwXSAgICAgIHZtYWxsb2MgOiAweGEwMDAwMDAwIC0gMHhi
+ZmZmZmZmZiAgICggNTExIE1CKQo+ID4gPiBbICAgIDAuMDAwMDAwXSAgICAgICBsb3dtZW0gOiAw
+eGMwMDAwMDAwIC0gMHhjM2MwMDAwMCAgICggIDYwIE1CKQo+ID4gPiBbICAgIDAuMDAwMDAwXSBN
+ZW1vcnk6IDUxOTI0Sy82MTQ0MEsgYXZhaWxhYmxlICg2MTE3SyBrZXJuZWwgY29kZSwgNjk1SyBy
+d2RhdGEsIDE1OTRLIHJvZGF0YSwgMjU1SyBpbml0LCAyNDFLIGJzcywgOTUxNksgcmVzZXJ2ZWQs
+IDBLIGNtYS1yZXNlcnZlZCkKPiA+ID4gWyAgICAwLjAwMDAwMF0gU0xVQjogSFdhbGlnbj02NCwg
+T3JkZXI9MC0zLCBNaW5PYmplY3RzPTAsIENQVXM9MSwgTm9kZXM9MQo+ID4gPiBbICAgIDAuMDAw
+MDAwXSByY3U6IEhpZXJhcmNoaWNhbCBSQ1UgaW1wbGVtZW50YXRpb24uCj4gPiA+IFsgICAgMC4w
+MDAwMDBdIHJjdTogICAgIFJDVSByZXN0cmljdGluZyBDUFVzIGZyb20gTlJfQ1BVUz04IHRvIG5y
+X2NwdV9pZHM9MS4KPiA+ID4gWyAgICAwLjAwMDAwMF0gcmN1OiAgICAgUkNVIGRlYnVnIGV4dGVu
+ZGVkIFFTIGVudHJ5L2V4aXQuCj4gPiA+IFsgICAgMC4wMDAwMDBdICBUcmFjaW5nIHZhcmlhbnQg
+b2YgVGFza3MgUkNVIGVuYWJsZWQuCj4gPiA+IFsgICAgMC4wMDAwMDBdIHJjdTogUkNVIGNhbGN1
+bGF0ZWQgdmFsdWUgb2Ygc2NoZWR1bGVyLWVubGlzdG1lbnQgZGVsYXkgaXMgMjUgamlmZmllcy4K
+PiA+ID4gWyAgICAwLjAwMDAwMF0gcmN1OiBBZGp1c3RpbmcgZ2VvbWV0cnkgZm9yIHJjdV9mYW5v
+dXRfbGVhZj0xNiwgbnJfY3B1X2lkcz0xCj4gPiA+IFsgICAgMC4wMDAwMDBdIE5SX0lSUVM6IDY0
+LCBucl9pcnFzOiA2NCwgcHJlYWxsb2NhdGVkIGlycXM6IDAKPiA+ID4gWyAgICAwLjAwMDAwMF0g
+cmlzY3YtaW50YzogMzIgbG9jYWwgaW50ZXJydXB0cyBtYXBwZWQKPiA+ID4gWyAgICAwLjAwMDAw
+MF0gcGxpYzogcGxpY0BjMDAwMDAwOiBtYXBwZWQgNTMgaW50ZXJydXB0cyB3aXRoIDEgaGFuZGxl
+cnMgZm9yIDIgY29udGV4dHMuCj4gPiA+IC4uLgo+ID4gPiBXZWxjb21lIHRvIEJ1aWxkcm9vdAo+
+ID4gPiBidWlsZHJvb3QgbG9naW46IHJvb3QKPiA+ID4gIyBjYXQgL3Byb2MvY3B1aW5mbwo+ID4g
+PiBwcm9jZXNzb3IgICAgICAgOiAwCj4gPiA+IGhhcnQgICAgICAgICAgICA6IDAKPiA+ID4gaXNh
+ICAgICAgICAgICAgIDogcnYzMmltYWZkY3N1aAo+ID4gPiBtbXUgICAgICAgICAgICAgOiBzdjMy
+Cj4gPiA+Cj4gPiA+ICMgZmlsZSAvYmluL2J1c3lib3gKPiA+ID4gL2Jpbi9idXN5Ym94OiBzZXR1
+aWQgRUxGIDMyLWJpdCBMU0Igc2hhcmVkIG9iamVjdCwgVUNCIFJJU0MtViwgdmVyc2lvbiAxIChT
+WVNWKSwgZHluYW1pY2FsbHkgbGlua2VkLCBpbnRlcnByZXRlciAvbGliL2xkLWxpbnV4LXJpc2N2
+MzItaWxwMzJkLnNvLjEsIGZvciBHTlUvTGludXggNS4xNS4wLCBzdHJpcHBlZAo+ID4gPiBbICAg
+NzkuMzIwNTg5XSByYW5kb206IGZhc3QgaW5pdCBkb25lCj4gPiA+ICMgY2F0IC9wcm9jL21lbWlu
+Zm8KPiA+ID4gTWVtVG90YWw6ICAgICAgICAgIDUyMTc2IGtCCj4gPiA+IE1lbUZyZWU6ICAgICAg
+ICAgICA0MTAxMiBrQgo+ID4gPiBNZW1BdmFpbGFibGU6ICAgICAgNDIxNzYga0IKPiA+ID4gQnVm
+ZmVyczogICAgICAgICAgICAgNjQ0IGtCCj4gPiA+IENhY2hlZDogICAgICAgICAgICAgMjcyNCBr
+Qgo+ID4gPiBTd2FwQ2FjaGVkOiAgICAgICAgICAgIDAga0IKPiA+ID4gQWN0aXZlOiAgICAgICAg
+ICAgICAzMTI4IGtCCj4gPiA+IEluYWN0aXZlOiAgICAgICAgICAgIDc1MiBrQgo+ID4gPiBBY3Rp
+dmUoYW5vbik6ICAgICAgICAgNDAga0IKPiA+ID4gSW5hY3RpdmUoYW5vbik6ICAgICAgNTE2IGtC
+Cj4gPiA+IEFjdGl2ZShmaWxlKTogICAgICAgMzA4OCBrQgo+ID4gPiBJbmFjdGl2ZShmaWxlKTog
+ICAgICAyMzYga0IKPiA+ID4gVW5ldmljdGFibGU6ICAgICAgICAgICAwIGtCCj4gPiA+IE1sb2Nr
+ZWQ6ICAgICAgICAgICAgICAgMCBrQgo+ID4gPiBTd2FwVG90YWw6ICAgICAgICAgICAgIDAga0IK
+PiA+ID4gU3dhcEZyZWU6ICAgICAgICAgICAgICAwIGtCCj4gPiA+IERpcnR5OiAgICAgICAgICAg
+ICAgICAgNCBrQgo+ID4gPiBXcml0ZWJhY2s6ICAgICAgICAgICAgIDAga0IKPiA+ID4gQW5vblBh
+Z2VzOiAgICAgICAgICAgNTU2IGtCCj4gPiA+IE1hcHBlZDogICAgICAgICAgICAgMjE3MiBrQgo+
+ID4gPiBTaG1lbTogICAgICAgICAgICAgICAgNDQga0IKPiA+ID4gS1JlY2xhaW1hYmxlOiAgICAg
+ICAgNjU2IGtCCj4gPiA+IFNsYWI6ICAgICAgICAgICAgICAgMzY4NCBrQgo+ID4gPiBTUmVjbGFp
+bWFibGU6ICAgICAgICA2NTYga0IKPiA+ID4gU1VucmVjbGFpbTogICAgICAgICAzMDI4IGtCCj4g
+PiA+IEtlcm5lbFN0YWNrOiAgICAgICAgIDMxMiBrQgo+ID4gPiBQYWdlVGFibGVzOiAgICAgICAg
+ICAgODgga0IKPiA+ID4gTkZTX1Vuc3RhYmxlOiAgICAgICAgICAwIGtCCj4gPiA+IEJvdW5jZTog
+ICAgICAgICAgICAgICAgMCBrQgo+ID4gPiBXcml0ZWJhY2tUbXA6ICAgICAgICAgIDAga0IKPiA+
+ID4gQ29tbWl0TGltaXQ6ICAgICAgIDI2MDg4IGtCCj4gPiA+IENvbW1pdHRlZF9BUzogICAgICAg
+MjA4OCBrQgo+ID4gPiBWbWFsbG9jVG90YWw6ICAgICA1MjQyODcga0IKPiA+ID4gVm1hbGxvY1Vz
+ZWQ6ICAgICAgICAgIDEyIGtCCj4gPiA+IFZtYWxsb2NDaHVuazogICAgICAgICAgMCBrQgo+ID4g
+PiBQZXJjcHU6ICAgICAgICAgICAgICAgNjAga0IKPiA+ID4gIwo+ID4gPgo+ID4gPiAgU29tZSBj
+b25jbHVzaW9uczoKPiA+ID4gIC0ga2VybmVsIHN0YXRpY3M6Cj4gPiA+ICAgIDY0OiBNZW1vcnk6
+IDUyNzg4Sy82MzQ4OEsgYXZhaWxhYmxlICg2MTg0SyBrZXJuZWwgY29kZSwgODg4SyByd2RhdGEs
+IDE5MTdLIHJvZGF0YSwgMjk0SyBpbml0LCAyOTdLIGJzcywgMTA3MDBLIHJlc2VydmVkKQo+ID4g
+PiAgICAzMjogTWVtb3J5OiA1MTkyNEsvNjE0NDBLIGF2YWlsYWJsZSAoNjExN0sga2VybmVsIGNv
+ZGUsIDY5NUsgcndkYXRhLCAxNTk0SyByb2RhdGEsIDI1NUsgaW5pdCwgMjQxSyBic3MsICA5NTE2
+SyByZXNlcnZlZCkKPiA+ID4gICAgcnYzMiBiZXR0ZXIgdGhhbiBydjY0OiAgICAgICAgICAgICAg
+ICAgIDElICAgICAgICAgICAgICAgMjIlICAgICAgICAgICAxNyUgICAgICAgICAgMTMlICAgICAg
+ICAxOSUgICAgICAgICAxMSUKPiA+ID4gICAgVGhlIGNvZGUgc2l6ZSBpcyB2ZXJ5IHNpbWlsYXIs
+IGJ1dCBkYXRhIHNpemUgcnYzMiB3b3VsZCBiZSBiZXR0ZXIuCj4gPiA+Cj4gPiA+ICAtIHJ2MzIg
+a2VybmVsIHJ1bnRpbWUgS2VybmVsU3RhY2ssIFNsYWIuLi4gYXJlIHNtYWxsZXIsCj4gPiA+ICAg
+IHJ2NjQ6IE1lbVRvdGFsOiA1MzA3NiBrQiwgICAgICAgIE1lbUZyZWU6IDQwMjY0IGtCCj4gPiA+
+ICAgIHJ2MzI6IE1lbVRvdGFsOiA1MjE3NiArIDIwNDgga0IsIE1lbUZyZWU6IDQxMDEyICArIDIw
+NDgga0IKPiA+ID4gICAgcnYzMiBiZXR0ZXIgdGhhbiBydjY0OiAgICAgICAyJSAgICAgICAgICAg
+ICAgICAgICAgICAgICA2JQo+ID4gPgo+ID4gPiAgICAoQmVjYXVzZSBvcGVuc2JpIHByb2JsZW0s
+IHdlIGNvdWxkIGFkZCBhbm90aGVyIDJNQiBmb3IgcnYzMi4pCj4gPiA+ICAgIE92ZXJhbGwgaW4g
+NjRNQiBtZW1vcnkgc2l0dWF0aW9uLCBydjY0LWNvbXBhdCBpcyA2JSB3b3JzZSB0aGFuIHJ2MzIt
+bmF0aXZlCj4gPiA+ICAgIGF0IG1lbW9yeSBmb290cHJpbnQuIElmIHRoZSB1c2Vyc3BhY2UgbWVt
+b3J5IHVzYWdlIGluY3JlYXNlcywgSSB0aGluawo+ID4gPiAgICB0aGUgZ2FwIHdpbGwgYmUgZnVy
+dGhlciByZWR1Y2VkLgo+ID4gPgo+ID4gPiBDaGFuZ2VzIGluIHY5Ogo+ID4gPiAgLSBGaXh1cCBy
+djMyIGNhbGwgcnY2NCBzZWdtZW50IGZhdWx0Cj4gPiA+ICAtIFJlYWR5IGZvciA1LjE4Cj4gPgo+
+ID4gVGhhbmtzLiAgSSdkIGFsc28gc2VlbiBzb21lIGFybTY0IGF1dG9idWlsZGVyIGZhaWx1cmVz
+LCBub3Qgc3VyZSBpZgo+ID4gdGhvc2UgZ290IGZpeGVkIGFzIEkgZG9uJ3Qgc2VlIGFueXRoaW5n
+IHNwZWNpZmljbGx5IGxpc3RlZCBpbiBoZXJlCj4gPiAoc29ycnkgaWYgSSBqdXN0IG1pc3NlZCBp
+dCkuCj4gPgo+ID4gSSd2ZSBnb25lIGFoZWFkIGFuZCBwdXQgdGhpcyBvbiBwYWxtZXIvcmlzY3Yt
+Y29tcGF0LCBJJ20gZ29pbmcgdG8gbGV0IGl0Cj4gPiBzaXQgYXQgbGVhc3Qgb3Zlcm5pZ2h0IGJl
+Zm9yZSBwdXR0aW5nIGl0IG9uIGZvci1uZXh0IHByb3Blci4gIEl0J3MgYQo+ID4gYmlnIG9uZSBh
+bmQgdGhlIGF1dG9idWlsZGVycyBzZWVtIHRvIGZpbmQgc3R1ZmYgb3ZlciB0aGVyZSwgSSBkb24n
+dCB3YW50Cj4gPiB0byBicmVhayBhbnkgb2YgdGhlIG90aGVyIHBvcnRzLiAgSUlSQyB5b3Ugd2Vy
+ZSBnZXR0aW5nIENDJ2Qgb24gdGhlCj4gPiBidWlsZCBmYWlsdXJlcyBJIHdhcyBzZWVpbmcuCj4g
+SSBjb3VsZG4ndCBmaW5kIHRoYXQsIGNvdWxkIHlvdSBnaXZlIG1lIGEgbGluaywgdGhhbmsgeW91
+Lgo+Cj4gPgo+ID4gSWYgaXQncyBjbGVhbiBJJ2xsIG1lcmdlIGl0IGludG8gZm9yLW5leHQgcHJv
+cGVseS4gIEl0J3MgcGFzc2luZyBteQo+ID4gc3RhZ2luZyBtZXJnZSB0ZXN0cywgYnV0IEkgZG9u
+J3QgeWV0IGhhdmUgYW55dGhpbmcgc3BlY2lmaWNhbGx5IGZvcgo+ID4gY29tcGF0IC0tIGF0IGxl
+YXN0IGl0J3Mgbm90IGNhdXNpbmcgYW55IHJlZ3Jlc3Npb25zLCB0aG91Z2guCj4gPgo+ID4gPgo+
+ID4gPiBDaGFuZ2VzIGluIHY4Ogo+ID4gPiAgLSBFbmhhbmNlZCBlbGZfY2hlY2tfYXJjaCB3aXRo
+IEVJX0NMQVNTCj4gPiA+ICAtIEZpeHVwIFNSX1VYTCBkb2Vzbid0IGV4aXN0IGluIENPTkZJR18z
+MkJJVAo+ID4gPiAgLSBBZGQgVGVzdGVkLWJ5IHdpdGggSGVpa28KPiA+ID4gIC0gVXBkYXRlIHFl
+bXUgY29tcGlsZSB0aXBzIHdpdGggdXBzdHJlYW0gcmVwbwo+ID4gPgo+ID4gPiBDaGFuZ2VzIGlu
+IHY3Ogo+ID4gPiAgLSBSZS1jb25zdHJ1Y3QgY29tcGF0X3Zkc28vTWFrZWZpbGUKPiA+ID4gIC0g
+Rml4dXAgZGlzYWJsZSBDT01QQVQgY29tcGlsZSBlcnJvciBieSBjc3IuaCdzIG1hY3JvLgo+ID4g
+PiAgLSBPcHRpbWl6ZSBjb2RpbmcgY29udmVudGlvbiBmb3IgbG8vaGkgaW4gY29tcGF0LmgKPiA+
+ID4KPiA+ID4gQ2hhbmdlcyBpbiB2NjoKPiA+ID4gIC0gUmViYXNlIG9uIGxpbnV4LTUuMTctcmM1
+Cj4gPiA+ICAtIE9wdGltaXplIGh3IGNhcGFiaWxpdHkgY2hlY2sgZm9yIGVsZgo+ID4gPiAgLSBP
+cHRpbWl6ZSBjb21tZW50IGluIHRocmVhZF9pbmZvLmgKPiA+ID4gIC0gT3B0aW1pemUgc3RhcnRf
+dGhyZWFkIHdpdGggU1JfVVhMIHNldHRpbmcKPiA+ID4gIC0gT3B0aW1pemUgdmRzby5jIHdpdGgg
+ZGlyZWN0IHBhbmljCj4gPiA+Cj4gPiA+IENoYW5nZXMgaW4gdjU6Cj4gPiA+ICAtIFJlYmFzZSBv
+biBsaW51eC01LjE3LXJjMgo+ID4gPiAgLSBJbmNsdWRlIGNvbnNvbGlkYXRlIHRoZSBmY250bCBw
+YXRjaGVzIGJ5IENocmlzdG9waCBIZWxsd2lnCj4gPiA+ICAtIFJlbW92ZSBGX0dFVExLNjQvRl9T
+RVRMSzY0L0ZfU0VUTEtXNjQgZnJvbSBhc20vY29tcGF0LmgKPiA+ID4gIC0gQ2hhbmdlIENPTVBB
+VF9STElNX0lORklOSVRZIGZyb20gMHg3ZmZmZmZmZiB0byAweGZmZmZmZmZmCj4gPiA+ICAtIEJy
+aW5nIGJhY2sgIkFkZCBody1jYXAgZGV0ZWN0IGluIHNldHVwX2FyY2ggcGF0Y2giIGluIHYxCj4g
+PiA+Cj4gPiA+IENoYW5nZXMgaW4gdjQ6Cj4gPiA+ICAtIFJlYmFzZSBvbiBsaW51eC01LjE3LXJj
+MQo+ID4gPiAgLSBPcHRpbWl6ZSBjb21wYXRfc3lzX2NhbGxfdGFibGUgaW1wbGVtZW50YXRpb24g
+d2l0aCBBcm5kJ3MgYWR2aWNlCj4gPiA+ICAtIEFkZCByZXZpZXdlZC1ieSBmb3IgQXJuZC4gVGh4
+IDopCj4gPiA+ICAtIFJlbW92ZSBGSVhNRSBjb21tZW50IGluIGVsZi5oCj4gPiA+ICAtIE9wdGlt
+aXplIENsZWFudXAgZHVwbGljYXRlIGRlZmluaXRpb25zIGluIGNvbXBhdC5oIHdpdGggQXJuZCdz
+IGFkdmljZQo+ID4gPgo+ID4gPiBDaGFuZ2VzIGluIHYzOgo+ID4gPiAgLSBSZWJhc2Ugb24gbmV3
+ZXN0IG1hc3RlciAocHJlIGxpbnV4LTUuMTctcmMxKQo+ID4gPiAgLSBVc2luZyBuZXdlc3QgcWVt
+dSB2ZXJzaW9uIHY3IGZvciB0ZXN0Cj4gPiA+ICAtIFJlbW92ZSBmY250bCBjb21tb24gbW9kaWZp
+Y2F0aW9uCj4gPiA+ICAtIEZpeHVwIFNFVF9QRVJTT05BTElUWSBpbiBlbGYuaCBieSBBcm5kCj4g
+PiA+ICAtIEZpeHVwIEtWTSBLY29uZmlnCj4gPiA+ICAtIFVwZGF0ZSBBY2tlZC1ieSAmIFJldmll
+d2VkLWJ5Cj4gPiA+Cj4gPiA+IENoYW5nZXMgaW4gdjI6Cj4gPiA+ICAtIEFkZCBfX0FSQ0hfV0FO
+VF9DT01QQVRfU1RBVCBzdWdnZXN0ZWQKPiA+ID4gIC0gQ2xlYW51cCBmY250bCBjb21wYXRkdXBs
+aWNhdGUgZGVmaW5pdGlvbnMKPiA+ID4gIC0gQ2xlYW51cCBjb21wYXQuaAo+ID4gPiAgLSBNb3Zl
+IHJ2MzJfZGVmY29uZmlnIGludG8gTWFrZWZpbGUKPiA+ID4gIC0gRml4dXAgcnY2NCByb290ZnMg
+Ym9vdCBmYWlsZWQsIHJlbW92ZSBod19jb21wYXRfbW9kZV9kZXRlY3QKPiA+ID4gIC0gTW92ZSBT
+WVNWSVBDX0NPTVBBVCBpbnRvIGluaXQvS2NvbmZpZwo+ID4gPiAgLSBTaW1wbGlmeSBjb21wYXRf
+ZWxmX2NoZWNrCj4gPiA+Cj4gPiA+IENocmlzdG9waCBIZWxsd2lnICgzKToKPiA+ID4gICB1YXBp
+OiBzaW1wbGlmeSBfX0FSQ0hfRkxPQ0t7LDY0fV9QQUQgYSBsaXR0bGUKPiA+ID4gICB1YXBpOiBh
+bHdheXMgZGVmaW5lIEZfR0VUTEs2NC9GX1NFVExLNjQvRl9TRVRMS1c2NCBpbiBmY250bC5oCj4g
+PiA+ICAgY29tcGF0OiBjb25zb2xpZGF0ZSB0aGUgY29tcGF0X2Zsb2Nreyw2NH0gZGVmaW5pdGlv
+bgo+ID4gPgo+ID4gPiBHdW8gUmVuICgxNyk6Cj4gPiA+ICAga2NvbmZpZzogQWRkIFNZU1ZJUENf
+Q09NUEFUIGZvciBhbGwgYXJjaGl0ZWN0dXJlcwo+ID4gPiAgIGZzOiBzdGF0OiBjb21wYXQ6IEFk
+ZCBfX0FSQ0hfV0FOVF9DT01QQVRfU1RBVAo+ID4gPiAgIGFzbS1nZW5lcmljOiBjb21wYXQ6IENs
+ZWFudXAgZHVwbGljYXRlIGRlZmluaXRpb25zCj4gPiA+ICAgc3lzY2FsbHM6IGNvbXBhdDogRml4
+IHRoZSBtaXNzaW5nIHBhcnQgZm9yIF9fU1lTQ0FMTF9DT01QQVQKPiA+ID4gICByaXNjdjogRml4
+dXAgZGlmZmVyZW5jZSB3aXRoIGRlZmNvbmZpZwo+ID4gPiAgIHJpc2N2OiBjb21wYXQ6IEFkZCBi
+YXNpYyBjb21wYXQgZGF0YSB0eXBlIGltcGxlbWVudGF0aW9uCj4gPiA+ICAgcmlzY3Y6IGNvbXBh
+dDogUmUtaW1wbGVtZW50IFRBU0tfU0laRSBmb3IgQ09NUEFUXzMyQklUCj4gPiA+ICAgcmlzY3Y6
+IGNvbXBhdDogc3lzY2FsbDogQWRkIGNvbXBhdF9zeXNfY2FsbF90YWJsZSBpbXBsZW1lbnRhdGlv
+bgo+ID4gPiAgIHJpc2N2OiBjb21wYXQ6IHN5c2NhbGw6IEFkZCBlbnRyeS5TIGltcGxlbWVudGF0
+aW9uCj4gPiA+ICAgcmlzY3Y6IGNvbXBhdDogcHJvY2VzczogQWRkIFVYTF8zMiBzdXBwb3J0IGlu
+IHN0YXJ0X3RocmVhZAo+ID4gPiAgIHJpc2N2OiBjb21wYXQ6IEFkZCBlbGYuaCBpbXBsZW1lbnRh
+dGlvbgo+ID4gPiAgIHJpc2N2OiBjb21wYXQ6IEFkZCBodyBjYXBhYmlsaXR5IGNoZWNrIGZvciBl
+bGYKPiA+ID4gICByaXNjdjogY29tcGF0OiB2ZHNvOiBBZGQgQ09NUEFUX1ZEU08gYmFzZSBjb2Rl
+IGltcGxlbWVudGF0aW9uCj4gPiA+ICAgcmlzY3Y6IGNvbXBhdDogdmRzbzogQWRkIHNldHVwIGFk
+ZGl0aW9uYWwgcGFnZXMgaW1wbGVtZW50YXRpb24KPiA+ID4gICByaXNjdjogY29tcGF0OiBzaWdu
+YWw6IEFkZCBydF9mcmFtZSBpbXBsZW1lbnRhdGlvbgo+ID4gPiAgIHJpc2N2OiBjb21wYXQ6IHB0
+cmFjZTogQWRkIGNvbXBhdF9hcmNoX3B0cmFjZSBpbXBsZW1lbnQKPiA+ID4gICByaXNjdjogY29t
+cGF0OiBBZGQgQ09NUEFUIEtidWlsZCBza2VsZXRhbCBzdXBwb3J0Cj4gPiA+Cj4gPiA+ICBhcmNo
+L2FybTY0L0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgIDQgLQo+ID4gPiAg
+YXJjaC9hcm02NC9pbmNsdWRlL2FzbS9jb21wYXQuaCAgICAgICAgICAgICAgIHwgIDkxICstLS0t
+LS0KPiA+ID4gIGFyY2gvYXJtNjQvaW5jbHVkZS9hc20vdW5pc3RkLmggICAgICAgICAgICAgICB8
+ICAgMSArCj4gPiA+ICBhcmNoL21pcHMvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgfCAgIDUgLQo+ID4gPiAgYXJjaC9taXBzL2luY2x1ZGUvYXNtL2NvbXBhdC5oICAgICAgICAg
+ICAgICAgIHwgIDQxICstLQo+ID4gPiAgYXJjaC9taXBzL2luY2x1ZGUvYXNtL3VuaXN0ZC5oICAg
+ICAgICAgICAgICAgIHwgICAyICsKPiA+ID4gIGFyY2gvbWlwcy9pbmNsdWRlL3VhcGkvYXNtL2Zj
+bnRsLmggICAgICAgICAgICB8ICAzMCArLS0KPiA+ID4gIGFyY2gvcGFyaXNjL0tjb25maWcgICAg
+ICAgICAgICAgICAgICAgICAgICAgICB8ICAgNCAtCj4gPiA+ICBhcmNoL3BhcmlzYy9pbmNsdWRl
+L2FzbS9jb21wYXQuaCAgICAgICAgICAgICAgfCAgNDUgKy0tLQo+ID4gPiAgYXJjaC9wYXJpc2Mv
+aW5jbHVkZS9hc20vdW5pc3RkLmggICAgICAgICAgICAgIHwgICAxICsKPiA+ID4gIGFyY2gvcG93
+ZXJwYy9LY29uZmlnICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgNSAtCj4gPiA+ICBhcmNo
+L3Bvd2VycGMvaW5jbHVkZS9hc20vY29tcGF0LmggICAgICAgICAgICAgfCAgNTAgKy0tLQo+ID4g
+PiAgYXJjaC9wb3dlcnBjL2luY2x1ZGUvYXNtL3VuaXN0ZC5oICAgICAgICAgICAgIHwgICAxICsK
+PiA+ID4gIGFyY2gvcmlzY3YvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAx
+OSArKwo+ID4gPiAgYXJjaC9yaXNjdi9NYWtlZmlsZSAgICAgICAgICAgICAgICAgICAgICAgICAg
+IHwgICA5ICsKPiA+ID4gIGFyY2gvcmlzY3YvY29uZmlncy9ydjMyX2RlZmNvbmZpZyAgICAgICAg
+ICAgICB8IDEzNSAtLS0tLS0tLS0tCj4gPiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NvbXBh
+dC5oICAgICAgICAgICAgICAgfCAxMjkgKysrKysrKysrKwo+ID4gPiAgYXJjaC9yaXNjdi9pbmNs
+dWRlL2FzbS9jc3IuaCAgICAgICAgICAgICAgICAgIHwgICA3ICsKPiA+ID4gIGFyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vZWxmLmggICAgICAgICAgICAgICAgICB8ICA1MCArKystCj4gPiA+ICBhcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL21tdS5oICAgICAgICAgICAgICAgICAgfCAgIDEgKwo+ID4gPiAg
+YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmggICAgICAgICAgICAgIHwgIDEzICstCj4g
+PiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nlc3Nvci5oICAgICAgICAgICAgfCAgIDYg
+Ky0KPiA+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3lzY2FsbC5oICAgICAgICAgICAgICB8
+ICAgMSArCj4gPiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3RocmVhZF9pbmZvLmggICAgICAg
+ICAgfCAgIDEgKwo+ID4gPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS91bmlzdGQuaCAgICAgICAg
+ICAgICAgIHwgIDExICsKPiA+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmRzby5oICAgICAg
+ICAgICAgICAgICB8ICAgOSArCj4gPiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20vdW5p
+c3RkLmggICAgICAgICAgfCAgIDIgKy0KPiA+ID4gIGFyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxl
+ICAgICAgICAgICAgICAgICAgICB8ICAgMyArCj4gPiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9jb21w
+YXRfc2lnbmFsLmMgICAgICAgICAgICAgfCAyNDMgKysrKysrKysrKysrKysrKysrCj4gPiA+ICBh
+cmNoL3Jpc2N2L2tlcm5lbC9jb21wYXRfc3lzY2FsbF90YWJsZS5jICAgICAgfCAgMTkgKysKPiA+
+ID4gIGFyY2gvcmlzY3Yva2VybmVsL2NvbXBhdF92ZHNvLy5naXRpZ25vcmUgICAgICB8ICAgMiAr
+Cj4gPiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9jb21wYXRfdmRzby9NYWtlZmlsZSAgICAgICAgfCAg
+NzggKysrKysrCj4gPiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9jb21wYXRfdmRzby9jb21wYXRfdmRz
+by5TICAgfCAgIDggKwo+ID4gPiAgLi4uL2tlcm5lbC9jb21wYXRfdmRzby9jb21wYXRfdmRzby5s
+ZHMuUyAgICAgIHwgICAzICsKPiA+ID4gIGFyY2gvcmlzY3Yva2VybmVsL2NvbXBhdF92ZHNvL2Zs
+dXNoX2ljYWNoZS5TICB8ICAgMyArCj4gPiA+ICAuLi4vY29tcGF0X3Zkc28vZ2VuX2NvbXBhdF92
+ZHNvX29mZnNldHMuc2ggICAgfCAgIDUgKwo+ID4gPiAgYXJjaC9yaXNjdi9rZXJuZWwvY29tcGF0
+X3Zkc28vZ2V0Y3B1LlMgICAgICAgIHwgICAzICsKPiA+ID4gIGFyY2gvcmlzY3Yva2VybmVsL2Nv
+bXBhdF92ZHNvL25vdGUuUyAgICAgICAgICB8ICAgMyArCj4gPiA+ICBhcmNoL3Jpc2N2L2tlcm5l
+bC9jb21wYXRfdmRzby9ydF9zaWdyZXR1cm4uUyAgfCAgIDMgKwo+ID4gPiAgYXJjaC9yaXNjdi9r
+ZXJuZWwvZW50cnkuUyAgICAgICAgICAgICAgICAgICAgIHwgIDE4ICstCj4gPiA+ICBhcmNoL3Jp
+c2N2L2tlcm5lbC9wcm9jZXNzLmMgICAgICAgICAgICAgICAgICAgfCAgMzcgKysrCj4gPiA+ICBh
+cmNoL3Jpc2N2L2tlcm5lbC9wdHJhY2UuYyAgICAgICAgICAgICAgICAgICAgfCAgODcgKysrKysr
+LQo+ID4gPiAgYXJjaC9yaXNjdi9rZXJuZWwvc2lnbmFsLmMgICAgICAgICAgICAgICAgICAgIHwg
+IDEzICstCj4gPiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9zeXNfcmlzY3YuYyAgICAgICAgICAgICAg
+ICAgfCAgIDYgKy0KPiA+ID4gIGFyY2gvcmlzY3Yva2VybmVsL3Zkc28uYyAgICAgICAgICAgICAg
+ICAgICAgICB8IDEwNSArKysrKy0tLQo+ID4gPiAgYXJjaC9yaXNjdi9rZXJuZWwvdmRzby92ZHNv
+LlMgICAgICAgICAgICAgICAgIHwgICA2ICstCj4gPiA+ICBhcmNoL3MzOTAvS2NvbmZpZyAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCAgIDMgLQo+ID4gPiAgYXJjaC9zMzkwL2luY2x1ZGUv
+YXNtL2NvbXBhdC5oICAgICAgICAgICAgICAgIHwgIDk5ICstLS0tLS0KPiA+ID4gIGFyY2gvczM5
+MC9pbmNsdWRlL2FzbS91bmlzdGQuaCAgICAgICAgICAgICAgICB8ICAgMSArCj4gPiA+ICBhcmNo
+L3NwYXJjL0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgIDUgLQo+ID4gPiAg
+YXJjaC9zcGFyYy9pbmNsdWRlL2FzbS9jb21wYXQuaCAgICAgICAgICAgICAgIHwgIDYxICsrLS0t
+Cj4gPiA+ICBhcmNoL3NwYXJjL2luY2x1ZGUvYXNtL3VuaXN0ZC5oICAgICAgICAgICAgICAgfCAg
+IDEgKwo+ID4gPiAgYXJjaC94ODYvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IHwgICA0IC0KPiA+ID4gIGFyY2gveDg2L2luY2x1ZGUvYXNtL2NvbXBhdC5oICAgICAgICAgICAg
+ICAgICB8IDEwNCArKy0tLS0tLQo+ID4gPiAgYXJjaC94ODYvaW5jbHVkZS9hc20vdW5pc3RkLmgg
+ICAgICAgICAgICAgICAgIHwgICAxICsKPiA+ID4gIGZzL29wZW4uYyAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICB8ICAyNCArKwo+ID4gPiAgZnMvcmVhZF93cml0ZS5jICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDE2ICsrCj4gPiA+ICBmcy9zdGF0LmMgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgIDIgKy0KPiA+ID4gIGZzL3N5bmMuYyAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgOSArCj4gPiA+ICBpbmNsdWRl
+L2FzbS1nZW5lcmljL2NvbXBhdC5oICAgICAgICAgICAgICAgICAgfCAxMTMgKysrKysrKysKPiA+
+ID4gIGluY2x1ZGUvbGludXgvY29tcGF0LmggICAgICAgICAgICAgICAgICAgICAgICB8ICA2OCAr
+KysrKwo+ID4gPiAgaW5jbHVkZS91YXBpL2FzbS1nZW5lcmljL2ZjbnRsLmggICAgICAgICAgICAg
+IHwgIDIzICstCj4gPiA+ICBpbmNsdWRlL3VhcGkvYXNtLWdlbmVyaWMvdW5pc3RkLmggICAgICAg
+ICAgICAgfCAgIDQgKy0KPiA+ID4gIGluaXQvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICB8ICAgNCArCj4gPiA+ICBtbS9mYWR2aXNlLmMgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgfCAgMTEgKwo+ID4gPiAgbW0vcmVhZGFoZWFkLmMgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIHwgICA3ICsKPiA+ID4gIHRvb2xzL2luY2x1ZGUvdWFwaS9hc20t
+Z2VuZXJpYy9mY250bC5oICAgICAgICB8ICAyMSArLQo+ID4gPiAgdG9vbHMvaW5jbHVkZS91YXBp
+L2FzbS1nZW5lcmljL3VuaXN0ZC5oICAgICAgIHwgICA0ICstCj4gPiA+ICA2OCBmaWxlcyBjaGFu
+Z2VkLCAxMjA1IGluc2VydGlvbnMoKyksIDY5OCBkZWxldGlvbnMoLSkKPiA+ID4gIGRlbGV0ZSBt
+b2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2NvbmZpZ3MvcnYzMl9kZWZjb25maWcKPiA+ID4gIGNyZWF0
+ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NvbXBhdC5oCj4gPiA+ICBjcmVh
+dGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9rZXJuZWwvY29tcGF0X3NpZ25hbC5jCj4gPiA+ICBj
+cmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9rZXJuZWwvY29tcGF0X3N5c2NhbGxfdGFibGUu
+Ywo+ID4gPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yva2VybmVsL2NvbXBhdF92ZHNv
+Ly5naXRpZ25vcmUKPiA+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC9j
+b21wYXRfdmRzby9NYWtlZmlsZQo+ID4gPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yv
+a2VybmVsL2NvbXBhdF92ZHNvL2NvbXBhdF92ZHNvLlMKPiA+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0
+NCBhcmNoL3Jpc2N2L2tlcm5lbC9jb21wYXRfdmRzby9jb21wYXRfdmRzby5sZHMuUwo+ID4gPiAg
+Y3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yva2VybmVsL2NvbXBhdF92ZHNvL2ZsdXNoX2lj
+YWNoZS5TCj4gPiA+ICBjcmVhdGUgbW9kZSAxMDA3NTUgYXJjaC9yaXNjdi9rZXJuZWwvY29tcGF0
+X3Zkc28vZ2VuX2NvbXBhdF92ZHNvX29mZnNldHMuc2gKPiA+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0
+NCBhcmNoL3Jpc2N2L2tlcm5lbC9jb21wYXRfdmRzby9nZXRjcHUuUwo+ID4gPiAgY3JlYXRlIG1v
+ZGUgMTAwNjQ0IGFyY2gvcmlzY3Yva2VybmVsL2NvbXBhdF92ZHNvL25vdGUuUwo+ID4gPiAgY3Jl
+YXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yva2VybmVsL2NvbXBhdF92ZHNvL3J0X3NpZ3JldHVy
+bi5TCj4KPgo+Cj4gLS0KPiBCZXN0IFJlZ2FyZHMKPiAgR3VvIFJlbgo+Cj4gTUw6IGh0dHBzOi8v
+bG9yZS5rZXJuZWwub3JnL2xpbnV4LWNza3kvCgoKCi0tIApCZXN0IFJlZ2FyZHMKIEd1byBSZW4K
+Ck1MOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1jc2t5LwoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
