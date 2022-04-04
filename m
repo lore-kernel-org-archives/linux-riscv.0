@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A917C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Apr 2022 09:06:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC786C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Apr 2022 09:59:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=U+LKw2n5PTSKT5zLQDbzTdQQnJ0q12wY9ay8I/U5yDU=; b=Ru53SE2WI8c07U
-	BChl7JtJqQ9HPmww/1wJDnN755V/g4uz36vBwyPVwtVo1Jxc2mUYMijdIV8pWTyh0QERqxq1D4jCv
-	Y6H/rd56XuL5yCiuCPv1TzEuXoVgqGP4qLqkiJZTc+kyvm6bI9NHKBeR/dtGekORFdF2wnExyK+Hh
-	N7ndHPOvduzVWmNC8yNbLILHQTaCVN2fQMtvbaTKjjeyyxcmYbwS1B47li5+q0FMXf9lXezbUPZIO
-	CB7DPReOxHZvpMGtfhxGi7eTcvldTbwouO/myBZP6tvc3brLVh3AVO/t+6LjIjkWoYqmeoq4OzB1Y
-	DpsfMNuLOtgVytrkhrcA==;
+	List-Owner; bh=B+hhUAH62Q0HZh04dRFOwzixiHRTQO4Q+TSez8kf3w4=; b=G+ZaCDH6QhVfwp
+	Jj5BdBzGJ3eYm//WXIZ3D3FKMISyjJsCgnWSCiIsw0LNUeKCfqnzbbRA4E5lCZZRZ0wsxKETL1vKQ
+	Y6AD1O23M5pTRS5llRN2wopzxUH5ATEYWHbB2ifdJsTtwPDVmpO/OHPR3I+2QqiEBKmfGgizaa8AS
+	gDLFz89bfpBfmAbOnBDynE0Lp8a52s/Zz09wo3qnIpWfBs4BXQJEGb6Oh4ELGjUKQii29xbN4IknT
+	jKSc/oM+dVSw2tuhvwvNO4pVGD9oQBYc+INBtHuz2UV7IZic1IoKWWJ0FqYvkBz2aNKb6Tyj+6rf1
+	7cuh7p3JYoBAo40MnLPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nbIf3-00E3Jy-IV; Mon, 04 Apr 2022 09:06:09 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93]
- helo=mx07-00178001.pphosted.com)
+	id 1nbJUF-00EK7s-TD; Mon, 04 Apr 2022 09:59:03 +0000
+Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nbIey-00E3H2-8x
- for linux-riscv@lists.infradead.org; Mon, 04 Apr 2022 09:06:07 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
- by mx07-00178001.pphosted.com (8.16.1.2/8.16.1.2) with ESMTP id 2348XLNH031939;
- Mon, 4 Apr 2022 11:06:01 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- h=from : to : cc :
- subject : date : message-id : mime-version : content-transfer-encoding :
- content-type; s=selector1;
- bh=O+gcTxP8Y7/69E7pLornS/X2ErAQMSV70Z+BZNSQjeM=;
- b=4C0obPbxainwH3jY/z7OwKk/dV2tPb2NRod8y3P1i/6M/wRVI6x3FwacnEUVCQvTptA0
- SPKWy2XI9Chw1QGzkY2ZIbJcIBtP1k9tMVAC8MYLQMSXRPOUIZGCWP/XETueYZZ1pAsR
- FzlE2+Ee8MzfKM6kl55jN9C37xU6lyPZ6sjsQouI71FKwmQ6VtbmoO0K+E7tny++0/Y5
- FpwfYIk+jJ6cOuy9nHUxJFtUiHX2Unf3/lFgKODnxOVe57+zL1dRfhJ4pO1ssG/wNnuf
- v9zi8whcU5Cjj3t7G/ibRWptPI6GE9RuTThBtv76qjLrD4/mMSMCDHDkbjFAtheWUB+K ZA== 
-Received: from beta.dmz-eu.st.com (beta.dmz-eu.st.com [164.129.1.35])
- by mx07-00178001.pphosted.com (PPS) with ESMTPS id 3f7a91vusa-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Mon, 04 Apr 2022 11:06:01 +0200
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
- by beta.dmz-eu.st.com (STMicroelectronics) with ESMTP id B27DB10002A;
- Mon,  4 Apr 2022 11:06:00 +0200 (CEST)
-Received: from Webmail-eu.st.com (sfhdag2node2.st.com [10.75.127.5])
- by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 28F4C2138EE;
- Mon,  4 Apr 2022 11:06:00 +0200 (CEST)
-Received: from localhost (10.75.127.47) by SFHDAG2NODE2.st.com (10.75.127.5)
- with Microsoft SMTP Server (TLS) id 15.0.1497.26; Mon, 4 Apr 2022 11:05:59
- +0200
-From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, <linux-riscv@lists.infradead.org>, Bjorn Andersson
- <bjorn.andersson@linaro.org>, Mathieu Poirier <mathieu.poirier@linaro.org>
-CC: <arnaud.pouliquen@foss.st.com>, <linux-kernel@vger.kernel.org>,
- <linux-remoteproc@vger.kernel.org>, Anup Patel <anup@brainfault.org>
-Subject: [PATCH] RISC-V: configs: Configs that had RPMSG_CHAR now get
- RPMSG_CTRL
-Date: Mon, 4 Apr 2022 11:05:27 +0200
-Message-ID: <20220404090527.582217-1-arnaud.pouliquen@foss.st.com>
-X-Mailer: git-send-email 2.25.1
+ id 1nbJU6-00EJzy-ST
+ for linux-riscv@lists.infradead.org; Mon, 04 Apr 2022 09:58:56 +0000
+Received: by mail-yw1-x112e.google.com with SMTP id
+ 00721157ae682-2e5e31c34bfso92428307b3.10
+ for <linux-riscv@lists.infradead.org>; Mon, 04 Apr 2022 02:58:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=mime-version:from:date:message-id:subject:to:cc;
+ bh=BSO0kFh3YEWrUECL7RSnVqkqACtkuW55j7gZPsyRTko=;
+ b=ax8AZ1pm4ofTW+s0FnLRVMNYlqHoNDED5O0kTeYCr19DQHGTWUrgy54PtSPmwsxEr0
+ CugW/TfIWmE5ZrEaHDHmkXvKL/KlXAbkXRbaq1h6hvgSS4zIGu/ugQjHbhlRQcc+qXYK
+ JiTr2Yr4m2w4C87NSpvzhpLhe+tX875Fhog4L0K398FAbtph3dAs1+29F7HViZ8llf4/
+ SNoYtYW7EoQudSJ8Et6LSW6s+fVN19jj6y+TVk7j4+CNHNQ5iesSEG9igyq3uggL7Hhq
+ yYglHofcVo2rkMaDar9g6lsNEgI1UEvgnviQKcb2hSn88aGKvntd9MJS6iGDXtpFuEc6
+ F7vA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc;
+ bh=BSO0kFh3YEWrUECL7RSnVqkqACtkuW55j7gZPsyRTko=;
+ b=NZnUy0DzwOHiHt084cgUxFD6DRSLgWQ0Wagidq/41K1nBiezoXWAWp7p6hRfV2PJpN
+ JVdrh5w7qx2T7vyMVBMVRWSWhgYAoZcpt3cVtO1Kf8ZWOC3UBxg3gPaV4Yql1L4BdjFk
+ A+7ppSO1Or9cnQWpCIchrZt7ju57PvG+VDNjmUuaoq312+4vIfUMM/DjZqxswumPDqkf
+ 4fJr4XSSD1Ja57DxBYaNac1+OTah5kIor4IWp3kkuJNdsNOjyU0GpSV38fpMVDTCSow1
+ tr4k1XlOkTHXQLK6xirNNNMXA5OD3k5mx5aNeDYhBrp0ISsksjunq29ZkW/hpn7gg3Pq
+ qZBg==
+X-Gm-Message-State: AOAM530YFKlouB6bGNIqSXBbn81AuE90WSPxy11qXWGvPY3bb/a+PMvo
+ PmEDZHUekiNEfkCsYlpKS1OVSJcyzExcwgJokj3nsQpk/hMjeltw
+X-Google-Smtp-Source: ABdhPJyFL3cKn7V7sre/I6PQA8Oqq4hzE7C9nhhnTPXZUCObFfK1+FNV4saECxlTNxJ/XzfZ+W6EaQDzGSl+ASXQgsw=
+X-Received: by 2002:a0d:ffc3:0:b0:2eb:2327:3361 with SMTP id
+ p186-20020a0dffc3000000b002eb23273361mr13812616ywf.36.1649066332945; Mon, 04
+ Apr 2022 02:58:52 -0700 (PDT)
 MIME-Version: 1.0
-X-Originating-IP: [10.75.127.47]
-X-ClientProxiedBy: SFHDAG2NODE2.st.com (10.75.127.5) To SFHDAG2NODE2.st.com
- (10.75.127.5)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.205,Aquarius:18.0.850,Hydra:6.0.425,FMLib:17.11.64.514
- definitions=2022-04-04_03,2022-03-31_01,2022-02-23_01
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Mon, 4 Apr 2022 15:28:41 +0530
+Message-ID: <CA+G9fYu_ZHOeOPDiwzXGL6Re8aFYW3K+JSL2Dozw=VHwaUFxyQ@mail.gmail.com>
+Subject: [next] riscv: Linux next-20220404 riscv defconfig builds failed.
+To: Linux-Next Mailing List <linux-next@vger.kernel.org>,
+ open list <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, lkft-triage@lists.linaro.org, 
+ regressions@lists.linux.dev
+Cc: Stephen Rothwell <sfr@canb.auug.org.au>, Guo Ren <guoren@linux.alibaba.com>,
+ Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmer@rivosinc.com>, 
+ Heiko Stuebner <heiko@sntech.de>, Arnd Bergmann <arnd@arndb.de>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220404_020604_735931_828200EF 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20220404_025855_031131_C4FACF1D 
+X-CRM114-Status: UNSURE (   5.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,51 +86,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In the patch 617d32938d1b: "rpmsg: Move the rpmsg control device
-from rpmsg_char to rpmsg_ctrl", we split the rpmsg_char driver in two.
-By default give everyone who had the old driver enabled the rpmsg_ctrl
-driver too.
+Linux next-20220404 riscv defconfig builds failed.
 
-Fixes: 617d32938d1b ("rpmsg: Move the rpmsg control device from rpmsg_char to rpmsg_ctrl", 2022-01-24)
-Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
----
-this patch is extracted from the series [1] that has been partially
-integrated in the Linux Kernel 5.18-rc1.
+Regressions found on riscv:
+   - riscv-riscv-clang-14-defconfig
+   - riscv-riscv-gcc-10-defconfig
+   - riscv-riscv-clang-13-defconfig
+   - riscv-riscv-clang-12-defconfig
+   - riscv-riscv-clang-11-defconfig
+   - riscv-riscv-gcc-11-defconfig
+   - riscv-riscv-gcc-8-defconfig
+   - riscv-riscv-gcc-9-defconfig
+   - riscv-riscv-clang-nightly-defconfig
 
-[1]https://lore.kernel.org/lkml/15be2f08-ba03-2b80-6f53-2056359d5c41@gmail.com/T/
----
- arch/riscv/configs/defconfig      | 1 +
- arch/riscv/configs/rv32_defconfig | 1 +
- 2 files changed, 2 insertions(+)
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 30e3017f22bc..0cc17db8aaba 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -101,6 +101,7 @@ CONFIG_VIRTIO_BALLOON=y
- CONFIG_VIRTIO_INPUT=y
- CONFIG_VIRTIO_MMIO=y
- CONFIG_RPMSG_CHAR=y
-+CONFIG_RPMSG_CTRL=y
- CONFIG_RPMSG_VIRTIO=y
- CONFIG_EXT4_FS=y
- CONFIG_EXT4_FS_POSIX_ACL=y
-diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-index 7e5efdc3829d..6cd9d84d3e13 100644
---- a/arch/riscv/configs/rv32_defconfig
-+++ b/arch/riscv/configs/rv32_defconfig
-@@ -93,6 +93,7 @@ CONFIG_VIRTIO_BALLOON=y
- CONFIG_VIRTIO_INPUT=y
- CONFIG_VIRTIO_MMIO=y
- CONFIG_RPMSG_CHAR=y
-+CONFIG_RPMSG_CTRL=y
- CONFIG_RPMSG_VIRTIO=y
- CONFIG_EXT4_FS=y
- CONFIG_EXT4_FS_POSIX_ACL=y
--- 
-2.25.1
+arch/riscv/kernel/compat_signal.c:7:10: fatal error:
+linux/tracehook.h: No such file or directory
+  7 | #include <linux/tracehook.h>
+    |          ^~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[3]: *** [scripts/Makefile.build:289:
+arch/riscv/kernel/compat_signal.o] Error 1
 
+
+Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+
+metadata:
+    git_describe: next-20220404
+    git_repo: https://gitlab.com/Linaro/lkft/mirrors/next/linux-next
+    git_sha: 696206280c5e5c028caf9fd259999cb72b1f6127
+    kconfig: defconfig
+    target_arch: riscv
+    toolchain: gcc-11
+
+steps to reproduce:
+  # To install tuxmake on your system globally:
+  # sudo pip3 install -U tuxmake
+  #
+
+  tuxmake --runtime podman --target-arch riscv --toolchain gcc-11
+--kconfig defconfig
+
+
+--
+Linaro LKFT
+https://lkft.linaro.org
+
+
+[1]  https://builds.tuxbuild.com/27JdBBUbSHIhFJ9Wsq3Z6ssitb6/
 
 _______________________________________________
 linux-riscv mailing list
