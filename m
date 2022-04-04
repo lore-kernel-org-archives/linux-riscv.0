@@ -4,76 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 847D7C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Apr 2022 12:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0B5DC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Apr 2022 13:07:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZcgU5WEgW+KRoGsoIYvGwQGhLRoLEc6oQGSdA+bpT6I=; b=q3CbZ2aawkgWoh
-	vHoCaZGeHiyGFOtfAGomYx5EyYB5e/IUStYzg5nlUjp6tyrtVvJMZAKviidW7hi56tp5KeM4z37ec
-	RnkfAeaNq3Db51M3hM0tedTGvIpXKVt730fxIb+a52dgBc2oSJb4bAEVb3R0GKwTfR2XtsfKqspn/
-	WIr3IEnHnsfoRQjQf1eTbBiKRDUN/dhLhoWKgLkuFMxGVoTXgK/ys5UJzQAUZNJE67wTpX9Cj+oe5
-	ZPLbeYL4tcUmSR+kCTeE2S0aoC8Rd9Swm2dCu0fKm997m2LwjTzahdUlp5uP2z+FX4mM92zGf/YFU
-	oBySTlViGZw4PMS6E5GA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XvaOsmruZ0iiJbnHvm681px/hDJVmxU+djWb7nb/ytE=; b=rya/X3J0ACxzpV
+	tuXb7eWcfMM1ZKx47CZ/Nn3FR2qVwKLbqFP2jNhchoVA29aVQyDcktGZCXbocIzYBmMW2XUk75fqx
+	bf1v3nAIn6s9Zl0xuYCQ9UZk6yZjaw5O3AvYmbKZlQUPynTBjaKcvg2oTiqFkYjPB1SMXfcOD9hxN
+	pSoM9QLC5opQ170sR960Smv9WQozUMV2Y//nBiZPCvd26lfi/2d6itKhRCyGbdSsmTOpJuIS2bhns
+	PYtn8wcbNYpQKBaRIETxVyddfd/JAALFt2Ds5fRdu+nZvQr5nwRkKCuClsUEUCNPLgjg4T10hl2/A
+	1SfvJUHBzr7lcbGecXRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nbMC7-00Ezdt-Bt; Mon, 04 Apr 2022 12:52:31 +0000
-Received: from smtp-out2.suse.de ([195.135.220.29])
+	id 1nbMQd-00F28t-4Z; Mon, 04 Apr 2022 13:07:31 +0000
+Received: from mout.kundenserver.de ([217.72.192.74])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nbMBf-00EzQO-KJ; Mon, 04 Apr 2022 12:52:05 +0000
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
- (No client certificate requested)
- by smtp-out2.suse.de (Postfix) with ESMTPS id 4FA4C1F383;
- Mon,  4 Apr 2022 12:51:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
- t=1649076716; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version: content-transfer-encoding:content-transfer-encoding;
- bh=LpwuEfIs2cgjcVOl0/eZAJ55mes8AUF/9lxT/njPa6s=;
- b=xlM7j3wuVAXjLaFbvkQYvTRMZCdZ//+Ilkj1a20gP1I1M9bak5V7MPL8nxOhBAotnvfOCL
- sey7BXCtH2TL8uCcmT9SVnIDflznC0ACgd7H6Ccc43YrW3kHM8fH43/Pm8exxPBxjHOkgp
- j2DLIldBOJ6bb2ZwqcxOsYy7AuMDiss=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
- s=susede2_ed25519; t=1649076716;
- h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version: content-transfer-encoding:content-transfer-encoding;
- bh=LpwuEfIs2cgjcVOl0/eZAJ55mes8AUF/9lxT/njPa6s=;
- b=MRSh4tzIp4uV7H/grQTZ5TpXRgcVOEALU5NtzUk/IMb3RSpdf7AxeT8WNU+dNPupOL9Vn+
- 1V8TL+pdcnEjgcBA==
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
- (No client certificate requested)
- by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 25D8412FC5;
- Mon,  4 Apr 2022 12:51:56 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([192.168.254.65])
- by imap2.suse-dmz.suse.de with ESMTPSA id h+b6COzpSmJ5DQAAMHmgww
- (envelope-from <iivanov@suse.de>); Mon, 04 Apr 2022 12:51:56 +0000
-From: "Ivan T. Ivanov" <iivanov@suse.de>
-To: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>,
- Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Florian Fainelli <f.fainelli@gmail.com>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>,
- bcm-kernel-feedback-list@broadcom.com,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: "Ivan T. Ivanov" <iivanov@suse.de>, Phil Elwell <phil@raspberrypi.org>,
- kernel test robot <lkp@intel.com>, linux-clk@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: [PATCH v2] clk: bcm2835: Round UART input clock up
-Date: Mon,  4 Apr 2022 15:51:13 +0300
-Message-Id: <20220404125113.80239-1-iivanov@suse.de>
-X-Mailer: git-send-email 2.26.2
+ id 1nbMQY-00F27D-0R
+ for linux-riscv@lists.infradead.org; Mon, 04 Apr 2022 13:07:29 +0000
+Received: from mail-wr1-f43.google.com ([209.85.221.43]) by
+ mrelayeu.kundenserver.de (mreue107 [213.165.67.113]) with ESMTPSA (Nemesis)
+ id 1M3DaN-1naWPf3skf-003aKQ for <linux-riscv@lists.infradead.org>; Mon, 04
+ Apr 2022 15:07:22 +0200
+Received: by mail-wr1-f43.google.com with SMTP id b19so14394633wrh.11
+ for <linux-riscv@lists.infradead.org>; Mon, 04 Apr 2022 06:07:22 -0700 (PDT)
+X-Gm-Message-State: AOAM531r2HMi29vFlZn4w+JirpUJTmsqTo3YFS4cztJa8Xeg6PBqM4d1
+ wewgCB8X5oxKm+NS4RMiHPPdpdWt/0A1TH12wWI=
+X-Google-Smtp-Source: ABdhPJw/K8sYYGcKUcFc4yTdlw9+SOONHXxVgL1yKBMYbeG+8L+jnCtk7Gvh9Q0ehBPBsNK344bb2OH5nTaXtmbK2/w=
+X-Received: by 2002:adf:d081:0:b0:1ef:9378:b7cc with SMTP id
+ y1-20020adfd081000000b001ef9378b7ccmr17503109wrh.407.1649077642251; Mon, 04
+ Apr 2022 06:07:22 -0700 (PDT)
 MIME-Version: 1.0
+References: <Yib9F5SqKda/nH9c@infradead.org>
+ <CAK8P3a1dUVsZzhAe81usLSkvH29zHgiV9fhEkWdq7_W+nQBWbg@mail.gmail.com>
+ <YkmWh2tss8nXKqc5@infradead.org>
+In-Reply-To: <YkmWh2tss8nXKqc5@infradead.org>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Mon, 4 Apr 2022 15:07:06 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a0QdFOJbM72geYTWOKumeKPSCVD8Nje5pBpZWazX0GEnQ@mail.gmail.com>
+Message-ID: <CAK8P3a0QdFOJbM72geYTWOKumeKPSCVD8Nje5pBpZWazX0GEnQ@mail.gmail.com>
+Subject: Re: [RFC PULL] remove arch/h8300
+To: Christoph Hellwig <hch@infradead.org>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+ Linus Torvalds <torvalds@linux-foundation.org>, 
+ Yoshinori Sato <ysato@users.sourceforge.jp>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-arch <linux-arch@vger.kernel.org>, 
+ "moderated list:H8/300 ARCHITECTURE" <uclinux-h8-devel@lists.sourceforge.jp>, 
+ "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>,
+ Max Filippov <jcmvbkbc@gmail.com>, 
+ Linux-sh list <linux-sh@vger.kernel.org>,
+ linux-m68k <linux-m68k@lists.linux-m68k.org>, 
+ Greg Ungerer <gerg@linux-m68k.org>, Damien Le Moal <damien.lemoal@wdc.com>, 
+ linux-riscv <linux-riscv@lists.infradead.org>
+X-Provags-ID: V03:K1:mJ+au8FQ+D9HCkusVrcVGffUfp1wZFurs9AlrFBSwYKgH3hl4g+
+ fsPRADNHzmLD561b6/zp3xJiEhMoVHuuXU8svjt38kx8UmV+g+Itw5slHoASTGH+owIVOUw
+ EXlGDxeFLiW3nQq7eDcC17GS75xxGeU0TxPWQ2TCDkcE1AcdJ7MnUk6keCkIksjGWGf+CUN
+ ze6Unq1O//BhEXp6mamqw==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:0TMOM2P4UyY=:OH0CuIMPYymsjLtlVoMkF9
+ rlEi0ysXDnRXoCz1zsi+d2/GMf3hDwWrMu23nyUeAdZaEVD3ss2LPNKaBGIbHR/54nT+MHBTD
+ K3X13J3A1G4G97bDbOC8YFEQnUhnKg7gOKdTfgOEH9WXRTBs6Pfh6VuSuln9t794EW2Rx0Hir
+ KMZ2w0RGPFWuw5q3kmg1SEhUNKV8Fmr3D0OmrsyiR+BjQaL9ZaEdXCm4hPzTanggUcMiHh1Cq
+ pErPXMw1Kt0I24ealEoauaaOkfy5R0+gHqT42GszNTs8R+0SpXbI4RNmj1+XeoaA+TdZ0xxT2
+ DDC663nlCNJ6wr8Em0zFHPkdF61KHiP/5nZio+P0kF/qWF1ivoYe2P24s1uLn6rNvanT8bXKi
+ fxNv2ckxh80b0V7NJBnPOqfHjIIoEnPwqdTUrQu51Ded7cOpMsf2XnNlfVQzNgMxUa/3yKRfP
+ pPPd0knHxRpJxlGszoCB0N5ZAjI7SObVnr8h/dMcM6XeC8mlR6MsKUho9QPfyrewPjTldqjmU
+ bmsd8CLLDOCngLoro0jGrCRGaFLExQN2HwdgMt4PJkKehp3GJiS/6wra8+1ZCM3RZa5J/NFNR
+ QzNy5MYDYtcTcS5YyD9ot7Szdfzy6Nx34nk0ysWL/iWF4AciSFtWSB2uJhXofZfXNspk/FXnq
+ DNRc89aErMTLPF1qPdY6ZdP+tbDuaMo++QwISg78+sjnwfDJrFIbpmehRu0IrzNlPOxBT23CQ
+ 6bNzwvQjINnLTqbL1scJV0Xb5Ryo/RQWdusgsuyZOevsCOYZAILhkkJ23/+9GfDanjss3226T
+ kiwY2jIx0VDxs8Z0ZHCxTkerP7VCbrshG93zwGN6DFxIzL4Js0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220404_055203_827161_09B0B4C6 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20220404_060726_371256_B050ACEB 
+X-CRM114-Status: GOOD (  19.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,102 +96,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The UART clock is initialised to be as close to the requested
-frequency as possible without exceeding it. Now that there is a
-clock manager that returns the actual frequencies, an expected
-48MHz clock is reported as 47999625. If the requested baudrate
-== requested clock/16, there is no headroom and the slight
-reduction in actual clock rate results in failure.
+On Sun, Apr 3, 2022 at 2:43 PM Christoph Hellwig <hch@infradead.org> wrote:
+>
+> On Tue, Mar 08, 2022 at 09:19:16AM +0100, Arnd Bergmann wrote:
+> > If there are no other objections, I'll just queue this up for 5.18 in
+> > the asm-generic
+> > tree along with the nds32 removal.
+>
+> So it is the last day of te merge window and arch/h8300 is till there.
+> And checking nw the removal has also not made it to linux-next.  Looks
+> like it is so stale that even the removal gets ignored :(
 
-If increasing a clock by less than 0.1% changes it from ..999..
-to ..000.., round it up.
+I was really hoping that someone else would at least comment.
+I've queued it up now for 5.19.
 
-This is reworked version of a downstream fix:
-https://github.com/raspberrypi/linux/commit/ab3f1b39537f6d3825b8873006fbe2fc5ff057b7
+Should we garbage-collect some of the other nommu platforms where
+we're here? Some of them are just as stale:
 
-Cc: Phil Elwell <phil@raspberrypi.org>
-Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
----
-Changes since v1
-Make bcm2835_clock_round() static to fix following warning
-when compiling for riscv:
-drivers/clk/bcm/clk-bcm2835.c:997:15: warning: no previous prototype for 'bcm2835_clock_round' [-Wmissing-prototypes]
-Reported-by: kernel test robot <lkp@intel.com>
+1. xtensa nommu has does not compile in mainline and as far as I can
+tell never did
+   (there was https://github.com/jcmvbkbc/linux-xtensa/tree/xtensa-5.6-esp32,
+which
+   worked at some point, but I don't think there was enough interest
+to get in merged)
 
- drivers/clk/bcm/clk-bcm2835.c | 30 ++++++++++++++++++++++++++++--
- 1 file changed, 28 insertions(+), 2 deletions(-)
+2. arch/sh Hitachi/Renesas sh2 (non-j2) support appears to be in a similar state
+    to h8300, I don't think anyone would miss it
 
-diff --git a/drivers/clk/bcm/clk-bcm2835.c b/drivers/clk/bcm/clk-bcm2835.c
-index 3ad20e75fd23..c29b643d1bf5 100644
---- a/drivers/clk/bcm/clk-bcm2835.c
-+++ b/drivers/clk/bcm/clk-bcm2835.c
-@@ -502,6 +502,8 @@ struct bcm2835_clock_data {
- 	bool low_jitter;
- 
- 	u32 tcnt_mux;
-+
-+	bool round_up;
- };
- 
- struct bcm2835_gate_data {
-@@ -992,12 +994,30 @@ static long bcm2835_clock_rate_from_divisor(struct bcm2835_clock *clock,
- 	return temp;
- }
- 
-+static unsigned long bcm2835_clock_round(unsigned long clk)
-+{
-+	unsigned long scaler;
-+
-+	/*
-+	 * If increasing a clock by less than 0.1% changes it
-+	 * from ..999.. to ..000.., round up.
-+	 */
-+	scaler = 1;
-+	while (scaler * 100000 < clk)
-+		scaler *= 10;
-+	if ((clk + scaler - 1) / scaler % 1000 == 0)
-+		clk = (clk / scaler + 1) * scaler;
-+
-+	return clk;
-+}
-+
- static unsigned long bcm2835_clock_get_rate(struct clk_hw *hw,
- 					    unsigned long parent_rate)
- {
- 	struct bcm2835_clock *clock = bcm2835_clock_from_hw(hw);
- 	struct bcm2835_cprman *cprman = clock->cprman;
- 	const struct bcm2835_clock_data *data = clock->data;
-+	unsigned long rate;
- 	u32 div;
- 
- 	if (data->int_bits == 0 && data->frac_bits == 0)
-@@ -1005,7 +1025,12 @@ static unsigned long bcm2835_clock_get_rate(struct clk_hw *hw,
- 
- 	div = cprman_read(cprman, data->div_reg);
- 
--	return bcm2835_clock_rate_from_divisor(clock, parent_rate, div);
-+	rate = bcm2835_clock_rate_from_divisor(clock, parent_rate, div);
-+
-+	if (data->round_up)
-+		rate = bcm2835_clock_round(rate);
-+
-+	return rate;
- }
- 
- static void bcm2835_clock_wait_busy(struct bcm2835_clock *clock)
-@@ -2142,7 +2167,8 @@ static const struct bcm2835_clk_desc clk_desc_array[] = {
- 		.div_reg = CM_UARTDIV,
- 		.int_bits = 10,
- 		.frac_bits = 12,
--		.tcnt_mux = 28),
-+		.tcnt_mux = 28,
-+		.round_up = true),
- 
- 	/* TV encoder clock.  Only operating frequency is 108Mhz.  */
- 	[BCM2835_CLOCK_VEC]	= REGISTER_PER_CLK(
--- 
-2.26.2
+8<----- This may we where we want to draw the line ----
 
+3. arch/sh j2 support was added in 2016 and doesn't see a lot of
+changes, but I think
+    Rich still cares about it and wants to add J32 support (with MMU)
+in the future
+
+4. m68k Dragonball, Coldfire v2 and Coldfire v3 are just as obsolete as SH2 as
+   hardware is concerned, but Greg Ungerer keeps maintaining it, along with the
+   newer Coldfire v4 (with MMU)
+
+5. K210 was added in 2020. I assume you still want to keep it.
+
+7. Arm32 has several Cortex-M based platforms that are mainly kept for
+    legacy users (in particular stm32) or educational value.
+
+
+       Arnd
 
 _______________________________________________
 linux-riscv mailing list
