@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69CCEC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Apr 2022 03:51:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BFE6C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Apr 2022 04:12:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T8Lv5ikOR+KVjGjN4D4DfGmop+foY7v2gWMFOZ1jRiU=; b=I1vevbie/tca1R
-	xD2uWmRwOw8O36OYxTzvN2/JzmpjiqyF/6AbIbFxnaFo5vEqS8eSNNHF2ki1AclXWlkeTAqDP4Yxh
-	A/aIcsuygTGIhynmwpLMB1ob/OHecNuGBhnxFb2evPtnhyOdj4r3NTF57oc1dSV0TGTi+/1CybSZv
-	80h1EBhHf2aeyDtspnolR9dn/8clw3rcIMBbyxv5yDy6C49z+mHaYUv0TKCb/oaCcrKeRjVNB1Jq0
-	ZdpoHdmgCcN3ZjRSRyWDjB1yIzZ4hzPtZ/tLSwfcKTIpyOX7Nvkcdy3IJ5lnUy435TjD05Hh5xmcb
-	TjgardpflN7q0bhNGelQ==;
+	List-Owner; bh=XFEbsLWJkKkFgsy2yUQj0aHWK4OtHngUCX0CEcZlcwA=; b=pEnQbtw3Z46HGn
+	u1zzRrvTa8F/Al9nq0BXeY0Ly3GVy9JZKox9GYuQ0ZbIZEHBmh9VxxrYqR2rS6Xq5Sv4Qx/Loij1e
+	SdZqKRY47yCTpGJXgGC5tmVDHxUs7qSvI7Fo/gxPcyqqNJYWj/jCjmwBWlTByiAgmzeDgZTr1mvDn
+	/BNX7k+a7qg5rvxH/89fa6dOudFiuQnpc4X4yM1QWRhQoSnSCJRHG66SufO9jTfmbEYoGWbkKHuFE
+	0n8Qc5btc9XYyEKQiZahFCnwrLYu0qN9jPUMbNLiASJFkci4RTTrkBI9P3zjoJBkkJg/fyIfPFSMh
+	DzxOyVj8ZVOcflUYbJVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nbDkl-00Cvwy-BN; Mon, 04 Apr 2022 03:51:43 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1nbE4u-00D08R-UM; Mon, 04 Apr 2022 04:12:32 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nbDki-00CvwI-M4
- for linux-riscv@lists.infradead.org; Mon, 04 Apr 2022 03:51:42 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id q19so5576002wrc.6
- for <linux-riscv@lists.infradead.org>; Sun, 03 Apr 2022 20:51:38 -0700 (PDT)
+ id 1nbE4q-00D03b-PF
+ for linux-riscv@lists.infradead.org; Mon, 04 Apr 2022 04:12:30 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id b17so7262523lfv.3
+ for <linux-riscv@lists.infradead.org>; Sun, 03 Apr 2022 21:12:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ d=ventanamicro.com; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=r5K6b0sc6oOdX9PQxMtrYXV8USG1YlONAxoBoZNU3l4=;
- b=KK3qDVtl6tM1RC0vWJnjyjAOaBy9HeE8/J3cKTugiWs6TNndA8Vg82MGSJiu79ETZ9
- X+G314yykqvPYI2h4vxy4qqe0E8bDEu6Pk23l8xjJMUNi4sSsIUwyXUPZb3codKUinnS
- 7eLz56OFMh+1h+AdCdVcpMxwkT0tCike5pComkqD4oMYKXMz8k3wGwwT7UrbveBFjtRV
- Ql3xXEdAWWyf/cRgLKSfwCvFdjvS0exmaL4XX1iOCKrs/N84Me5KcmEyAJsWdb4YGTs4
- 8yDSipiD22wqji5E7+BXbjOGj1jhfghTr1RjRNbedQ0BdvxbxVt2GRKJULuUKAon/jNy
- T/Zw==
+ :cc; bh=WFqQvpKwz9t3MY+vODy7R6BwTMReD9EdP51jpYbflnM=;
+ b=ZCKSOsE9fWMUmrSdwyyh4jD0q/OpYUH/QL2SGajWsM7FyBvZRcWnoBFFLEyb6//gy7
+ xDoghElluMymqnJk7EtAkzfN1G7LsjBEA96ENW/BTeTClIugzQHyTzi1mHTE2sy83eob
+ yLHXP6PoNhvGEzTi0TyBVnZR9bKLwwgF3MiMGPNIySFyYkdeO5IL59o0act2GAvKlxo0
+ EtgPgILqxaGDU69VXLnG4iw2UGQEOTQUy6BPYGV2y0C37/eKGJYFaOyOCfGQ0fVGj0zy
+ aqoU1quVMMvGtJ6XRxJi6f5lQX3vcnfB6bHHAm65w687o5MCbNeX5bgQs+LdwbadFljW
+ OZTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=r5K6b0sc6oOdX9PQxMtrYXV8USG1YlONAxoBoZNU3l4=;
- b=8F7dR7qO44qcWGHRuk8OeHWG0I8LuXSd8pblzE8icEheKUDOgPjjHgKQYyfrKX+bUK
- j3C1f3PA4ZihLrjkH/aSYAWIoXgkQGYOgKpdUG2tugAuFza08deublUXlo1VxMyQGv2y
- Kh5M5rt0HSBfhqVMNHllnVQY/gdl0YhvunAMV9yPUdQsZJXy+lvykJODZrYrnDeBhl2z
- 6I8ifchrzoqs5OyV79LbD5h1QhdKghKTb28KfWuwJJak2qjOPX7zz7A43c9UmDnHPAr5
- KpUXEo2CgfabhyKu/j9Bns0m8TWfA8CkinSbpsRzOKA5CCi706Ypdp4z1NceqBu1mB1A
- wE0Q==
-X-Gm-Message-State: AOAM532SUpFsiCsZDKTf/z3sRaAPPhg8FRriCM53BBnrkR9Hj7tz8Ja4
- moaUhcgEOfAGWEKfe2koLDcXjPVGlLrIxNDpcicv0w==
-X-Google-Smtp-Source: ABdhPJy03E7/LbI9hh3U5hDa7d5BQW5aEeRI/tPy/1Eq7sLg6T5XYwIswOiGCVJ6FybEoaUugQyf7PY6NWQ6q5tyzFU=
-X-Received: by 2002:a5d:6c6b:0:b0:1ea:77ea:dde8 with SMTP id
- r11-20020a5d6c6b000000b001ea77eadde8mr15660633wrz.690.1649044297423; Sun, 03
- Apr 2022 20:51:37 -0700 (PDT)
+ bh=WFqQvpKwz9t3MY+vODy7R6BwTMReD9EdP51jpYbflnM=;
+ b=G6uerUPTuGECrGnyzQGyFO37ehqI66NYL+Es3hKevZe0b7ET3LrXkDzEsDrOaewuK/
+ y501dy8VTU71STbS1UVYam+bl4qvwsyyGtaOrvGHG3cuwyDhLeE6P6MYxjhkvN2D3UF5
+ bu8YB82oC47sq7pOyY/JgHpm1lE1JUWpGOLf4we+SF154HjyGxmOM5ycMRfzFcfMJsLQ
+ 4c9gLlr3oTDrNabFL12hCs4oXrLuFML2vx8zSDujJ+3qOa1/xIy+pn/lzoxXLqrelmVQ
+ mfKHzfJGimujxr0d0iHSHrhvilPB/Qlo0swMERVHsnPELwUmjx8zz2Q0WkrZk7P4hLSj
+ uFPA==
+X-Gm-Message-State: AOAM531AQNjkFk8EdkxAt8YwO+UHhNwbIdFe68/W6SiAfJdroH34x6XM
+ n8kii/Tg3ggJJzOIUmVBPdtR60Mwpcivfu2Pz6oJUw==
+X-Google-Smtp-Source: ABdhPJyinho72oQzNrsFqpzY5lxEeLn5p7+NZqaJLckd4I6rzYec05uSBjtN9ScpP9d9s378wpp70bZ4EoRuAGjAbxs=
+X-Received: by 2002:a05:6512:3ca9:b0:44a:fe96:fe0e with SMTP id
+ h41-20020a0565123ca900b0044afe96fe0emr3042289lfv.77.1649045538414; Sun, 03
+ Apr 2022 21:12:18 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220317035521.272486-1-apatel@ventanamicro.com>
-In-Reply-To: <20220317035521.272486-1-apatel@ventanamicro.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 4 Apr 2022 09:20:27 +0530
-Message-ID: <CAAhSdy35a5PrdSzonK6EeH0nynFxvvUzScaYRPeA=CmG5yuz+Q@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: KVM: Don't clear hgatp CSR in kvm_arch_vcpu_put()
+References: <20220329072911.1692766-1-apatel@ventanamicro.com>
+In-Reply-To: <20220329072911.1692766-1-apatel@ventanamicro.com>
+From: Mayuresh Chitale <mchitale@ventanamicro.com>
+Date: Mon, 4 Apr 2022 09:41:42 +0530
+Message-ID: <CAN37VV4qnjyf96EA-uo7bs1jRavh-oB+eUk08i-6f0RiqCDC-Q@mail.gmail.com>
+Subject: Re: [PATCH 0/3] Unexpected guest trap handling for KVM RISC-V
+ selftests
 To: Anup Patel <apatel@ventanamicro.com>
 Cc: Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atishp@atishpatra.org>, 
  Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, 
  Albert Ou <aou@eecs.berkeley.edu>, Alistair Francis <Alistair.Francis@wdc.com>,
- KVM General <kvm@vger.kernel.org>, 
- "open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)"
- <kvm-riscv@lists.infradead.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- stable@vger.kernel.org
+ Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220403_205141_184039_89B8E6ED 
-X-CRM114-Status: GOOD (  15.76  )
+X-CRM114-CacheID: sfid-20220403_211228_875209_3701C1B1 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,49 +89,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 17, 2022 at 9:25 AM Anup Patel <apatel@ventanamicro.com> wrote:
+On Tue, Mar 29, 2022 at 1:00 PM Anup Patel <apatel@ventanamicro.com> wrote:
 >
-> We might have RISC-V systems (such as QEMU) where VMID is not part
-> of the TLB entry tag so these systems will have to flush all TLB
-> entries upon any change in hgatp.VMID.
+> Getting unexpected guest traps while running KVM RISC-V selftests should
+> cause the test to fail appropriately with VCPU register dump. This series
+> improves handling of unexpected traps along these lines.
 >
-> Currently, we zero-out hgatp CSR in kvm_arch_vcpu_put() and we
-> re-program hgatp CSR in kvm_arch_vcpu_load(). For above described
-> systems, this will flush all TLB entries whenever VCPU exits to
-> user-space hence reducing performance.
+> These patches can also be found in riscv_kvm_selftests_unexp_trap_v1 branch
+> at: https://github.com/avpatel/linux.git
 >
-> This patch fixes above described performance issue by not clearing
-> hgatp CSR in kvm_arch_vcpu_put().
+> Anup Patel (3):
+>   KVM: selftests: riscv: Set PTE A and D bits in VS-stage page table
+>   KVM: selftests: riscv: Fix alignment of the guest_hang() function
+>   KVM: selftests: riscv: Improve unexpected guest trap handling
 >
-> Fixes: 34bde9d8b9e6 ("RISC-V: KVM: Implement VCPU world-switch")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-
-I have queued this patch for RC fixes.
-
-Thanks,
-Anup
-
-> ---
->  arch/riscv/kvm/vcpu.c | 2 --
->  1 file changed, 2 deletions(-)
+>  .../selftests/kvm/include/riscv/processor.h   | 12 ++++---
+>  .../selftests/kvm/lib/riscv/processor.c       |  9 +++---
+>  tools/testing/selftests/kvm/lib/riscv/ucall.c | 31 +++++++++++++------
+>  3 files changed, 34 insertions(+), 18 deletions(-)
 >
-> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> index 624166004e36..6785aef4cbd4 100644
-> --- a/arch/riscv/kvm/vcpu.c
-> +++ b/arch/riscv/kvm/vcpu.c
-> @@ -653,8 +653,6 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
->                                      vcpu->arch.isa);
->         kvm_riscv_vcpu_host_fp_restore(&vcpu->arch.host_context);
->
-> -       csr_write(CSR_HGATP, 0);
-> -
->         csr->vsstatus = csr_read(CSR_VSSTATUS);
->         csr->vsie = csr_read(CSR_VSIE);
->         csr->vstvec = csr_read(CSR_VSTVEC);
 > --
 > 2.25.1
 >
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+I have tested the series on Qemu.
+
+Tested-by: Mayuresh Chitale <mchitale@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
