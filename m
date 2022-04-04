@@ -4,39 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B148C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Apr 2022 19:45:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F28A3C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Apr 2022 20:48:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SNvVd+p695JCY3Dd+WF8EA2j5vkSKC9ykHheD7SirTM=; b=h/Kk522Dfk8ulp
-	WSQ46yRAid/IffjKSlFfE2TLBEw9xR23WE3HJ+H8ABJg9PjR1e+8sVjHRuVzCxIR3p4hwhwuxlePx
-	UxVlYkwDluW6jnTPalPL4Mw7IXEyKIgXlozVL7WRkdr5gB6iNEFeh+BlyFW9VVAAuk+hgBKgRaPP0
-	XTktj9VhN7UdeP/4PIyJkBko+8laY4M2pJCDDlmj9zq6f3EqdXhwqP0NSKaIPvCcYy0G54jHkizIv
-	nzPcnuUd+n4A0Ua+dx8dp3ApL8lGv+n6Ey1ItmmbcVeNgDS5sLFSw2r5ojrz+bAvYs3/DKtyW0GB2
-	/OWA5iLlyW+UUKhClakg==;
+	List-Owner; bh=wLqxSTaCyR9ORMfSma4HLQ0z9DX3ey2uI/0R/Jo7c/o=; b=g5P82ZTiibNgAx
+	UNj6OZ19ix4y/nB1w/jH0dR58Xxlj/fdEF5Ojh8Br3d6NPRLjehkRTCcb4lNH4+sKUQejPtpyLdZ2
+	A2RAJAYrupI+MHzzDEITgJhQr3KaOjMh1vYfzyzOx7twRletZlDBiTVqyppJCknOOsU2kxYXxGTC7
+	TFeZFRJV5xAd7QWQdX7nuyMAYSXPtxLa3GqJL1cM4IyFyEripfbQ3hFQ7SF2bKMnFRPJtVWZ+hB0z
+	vKmeFYLl0bau2D8MSb/Pk56UWGMeEJygtnhEiWFnLX/MjIP8ImDsBkzkkq+1uwv2jt/eWyqoUrBDQ
+	vtNspxn7xYAkBjZszV/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nbSdD-00GInZ-Ot; Mon, 04 Apr 2022 19:44:55 +0000
-Received: from mout.kundenserver.de ([212.227.126.130])
+	id 1nbTcn-00GOJr-BL; Mon, 04 Apr 2022 20:48:33 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nbSdA-00GImX-Bv
- for linux-riscv@lists.infradead.org; Mon, 04 Apr 2022 19:44:54 +0000
-Received: from mail-wr1-f42.google.com ([209.85.221.42]) by
- mrelayeu.kundenserver.de (mreue010 [213.165.67.97]) with ESMTPSA (Nemesis) id
- 1MdvVu-1oBLbv3zF8-00b5sW for <linux-riscv@lists.infradead.org>; Mon, 04 Apr
- 2022 21:44:45 +0200
-Received: by mail-wr1-f42.google.com with SMTP id r13so16106915wrr.9
- for <linux-riscv@lists.infradead.org>; Mon, 04 Apr 2022 12:44:45 -0700 (PDT)
-X-Gm-Message-State: AOAM532hAm/OnAQ0WCh2a8NuoNoLB8qSnLwVSiJzYt/Iig2+BwstQ6ug
- J86MimJCaH1Z4dxWW03ZUzjsCqsjzMWrC26EJ1Y=
-X-Google-Smtp-Source: ABdhPJyRqH0qibkfjPRGnJDcURrE8ZPrQIGLNSwn/9l1FUg/Sz1o5iKs76jxTh4W551VdZ+S32lMVfdTx28z5w2iC30=
-X-Received: by 2002:a05:6000:10c7:b0:206:135e:c84e with SMTP id
- b7-20020a05600010c700b00206135ec84emr984244wrx.12.1649101485314; Mon, 04 Apr
- 2022 12:44:45 -0700 (PDT)
+ id 1nbTcj-00GOIq-VZ
+ for linux-riscv@lists.infradead.org; Mon, 04 Apr 2022 20:48:31 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id f18so7515969edc.5
+ for <linux-riscv@lists.infradead.org>; Mon, 04 Apr 2022 13:48:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=Hwk8wNBo32OmqYHy/lorDp6jxAIWbUvyfxVID6NQWMs=;
+ b=MgQmlEUX2awo9FGSPrgoUcYWe7XJZtfBcbV29fxnVVbjc3fXXrfVTWrbf2FEFcWonc
+ f0aKsGNt8xLswvAf+ZPhMd5j5QzbyREtH5EG01bJE669ZjjMFoCvsLGPKRLoJVuom9dZ
+ kYDVGColrzu6iRkzxv5ZReRUd9ML2sggd3BMjTtGMEkH1295xZhX2QGenYIfKlQxetMx
+ wEl7pjgvYdNikY+mO/2Nm0tMPt7LhohPkX3Rwa6Aslkud3EOtvKb96eSd5wNJblieh0R
+ 40OeE78e2N7TGKbSRYTN0wXN/vb0WgldQS9luj+/MJkrgEZ2kqq3FNMc4ahhO48f2+pr
+ C7Tg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=Hwk8wNBo32OmqYHy/lorDp6jxAIWbUvyfxVID6NQWMs=;
+ b=tMtf3scs9bQDWDGbv1etnjip+HwUnLkU4Terh9//+cEuWqW5AIYIZi9aHVRVr+pCb5
+ c/5Mnap/Ox27i2iK7Gmse7pbHDobQd8wJZRDS3MslItNuPS10HIxuWRs6cV8hANFvxQW
+ 7OB+DXpummWjCyWQSVyv+VUJJlKlmD2vYwRfZnNwcwmJxd15YdlR7NW17YFxViZBJkYl
+ 4UthE5zASH3wG/oX/b9m0cORimoGXcHy4x3rx3E7rkA4lWvo8+mbQu6RtiM9BPFRyKIa
+ 66uod9/vHkn2+eV6VvxixQFrYrOBGb5ySW4AXKK0JdbbUhOwbIKX2j5ASyaHB8UI0Z7V
+ Pt4w==
+X-Gm-Message-State: AOAM533MVbjf/NRGAhTc77ZdY5Q7TqGEouKDrDHqeDBBtgRN1xnU4qoZ
+ plM02ODtRLBIkiEZI8YRHqSH87eUVOlbuZCab/4=
+X-Google-Smtp-Source: ABdhPJwcTZ56W4jcHhaPz18ivbz2Gd1BIwaysH0yZIitWtcgDhHrV8MgH68GVFQRRYpSZqIgJE5hbn6sHjvo6V1CGTw=
+X-Received: by 2002:a05:6402:27d0:b0:419:5184:58ae with SMTP id
+ c16-20020a05640227d000b00419518458aemr4939ede.314.1649105307534; Mon, 04 Apr
+ 2022 13:48:27 -0700 (PDT)
 MIME-Version: 1.0
 References: <Yib9F5SqKda/nH9c@infradead.org>
  <CAK8P3a1dUVsZzhAe81usLSkvH29zHgiV9fhEkWdq7_W+nQBWbg@mail.gmail.com>
@@ -47,14 +63,13 @@ References: <Yib9F5SqKda/nH9c@infradead.org>
  <CAMo8BfLT8vMw3aGQPs1+9ry7W63SQphmDc4Tt4A3JvADHJhxiQ@mail.gmail.com>
  <CAK8P3a3iFb+ZacZ40d8PC_xcJpLVFXT0Qc-oYEZNkFqXdsfNZw@mail.gmail.com>
 In-Reply-To: <CAK8P3a3iFb+ZacZ40d8PC_xcJpLVFXT0Qc-oYEZNkFqXdsfNZw@mail.gmail.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Mon, 4 Apr 2022 21:44:29 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a1goN3c772xiFtz13kHZs0XEDSxfXX=ub7OH3S98Mddsw@mail.gmail.com>
-Message-ID: <CAK8P3a1goN3c772xiFtz13kHZs0XEDSxfXX=ub7OH3S98Mddsw@mail.gmail.com>
+From: Max Filippov <jcmvbkbc@gmail.com>
+Date: Mon, 4 Apr 2022 13:48:15 -0700
+Message-ID: <CAMo8BfJJXTTbeiUSgU=FLoDMM89fjybjKO+sPz2wu4f=2obAxg@mail.gmail.com>
 Subject: Re: [RFC PULL] remove arch/h8300
 To: Arnd Bergmann <arnd@arndb.de>
-Cc: Max Filippov <jcmvbkbc@gmail.com>, Christoph Hellwig <hch@infradead.org>, 
- Linus Torvalds <torvalds@linux-foundation.org>,
+Cc: Christoph Hellwig <hch@infradead.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>, 
  Yoshinori Sato <ysato@users.sourceforge.jp>, 
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
  linux-arch <linux-arch@vger.kernel.org>, 
@@ -65,26 +80,9 @@ Cc: Max Filippov <jcmvbkbc@gmail.com>, Christoph Hellwig <hch@infradead.org>,
  Greg Ungerer <gerg@linux-m68k.org>, 
  Damien Le Moal <damien.lemoal@wdc.com>,
  linux-riscv <linux-riscv@lists.infradead.org>
-X-Provags-ID: V03:K1:HLmPiCJNILnsMZbwCCxIR4rOJ0pxT9lJw57hNvDETcUjV7nX6ob
- pilbrM2/4SIcBplk1dgVaZMgPMq+jPW7Um8TTYNGIqaT+OvHC9CuhjDWR5nS6Rs9fD4BaPi
- KTppP45++Yoz2yhDY4OWUu/qNAv49KpLL8PglDUaoLDl5VMjlu9P4zLAl41SVF/r9PXRxbH
- 5vcit+Q7XlWPVzp30f6nA==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:8IPYSvYfThk=:aFClFtYRmVDrVr6iUAJqgF
- 4B0ociZwgkm0ZpgZQviYbdIjrnPPdIM9BsG6/kHQkbftrxAOjw8885vlnj24u/GxzDTyWJ0pD
- gR2cvMBK6TWCxfYq1BJMbd6e/v3cFHjepdCoSxwa9Aaq00n7SnXNLjBYlCKIal/4P2lwj1KiM
- 374XSv4VRkJIyS0aGsXHr/howtX7dkrXMCiIIT1YComGvfgZvYic5TGuOnFyV0/Sru2C1r25M
- 64qRJbykAwTLAtq1XTTTnri+nwiSCt4hci74HLoZQS+Qn7h1N6/XOiikXkfRN13d8bnTx+WZr
- Hbq21U9Fx8XsTAtq9rK4ljNPJ7pjD9ygjsQKcyHFbOIo1pJpyiQa5+UFtcEl27E8lUkISCrt8
- CBsjGynlJL0Sp/Kb6x2L79VBEETaOiCEuGlEloZ1vRUQ7cp2oCRHribCgw5wq4CfAMHcsTIkE
- bXdndsGbjzeEFeIy25BbY37yF7u0TOXjDDSfc3xkxPuyX8eaWjoiVfMDoYvgI4pJJ7F5CQZwQ
- sUuHapVPWXl/P2M03HIY8z2Frbfmu0/SULu6YODee33TKeRYeGSPX/Leyy17s1vHw78yQRsXB
- 27A0wacIu1s4zKoQe28Q+Zk860TGPVueVBsozA/qmDpzY1Xj1XP+Tf5mGOWV7maDq2RRXdKFP
- KQTAuLP5+1YTZVkYYJf5CLqCSQijuTKie2VqH1S8/qn+lUTAc2iyIVo2k7cw73UAuvJ05l7Hj
- aCC+lS+GM3re6hxA7S+rHenVj0E8CKtb+hs8d3ERvwRmkd4waeJ4mr50Lxp9DJGaGbmwRA4bd
- fuLD6M6k4jWj05792sS7Nsaj1cQl7dRPYh0NujVntlsppQwPGU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220404_124452_722551_4AE33E83 
-X-CRM114-Status: GOOD (  22.07  )
+X-CRM114-CacheID: sfid-20220404_134830_073423_5FFB22EE 
+X-CRM114-Status: GOOD (  21.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,8 +99,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 4, 2022 at 9:35 PM Arnd Bergmann <arnd@arndb.de> wrote:
->
+On Mon, Apr 4, 2022 at 12:36 PM Arnd Bergmann <arnd@arndb.de> wrote:
 > On Mon, Apr 4, 2022 at 9:14 PM Max Filippov <jcmvbkbc@gmail.com> wrote:
 > > On Mon, Apr 4, 2022 at 12:01 PM Arnd Bergmann <arnd@arndb.de> wrote:
 > > > On Mon, Apr 4, 2022 at 7:57 PM Max Filippov <jcmvbkbc@gmail.com> wrote:
@@ -132,25 +129,19 @@ On Mon, Apr 4, 2022 at 9:35 PM Arnd Bergmann <arnd@arndb.de> wrote:
 > on the kernel config. You can't normally rely on the compiler defaults
 > for kernel builds.
 
-FWIW, the compiler I used is the one I built for kernel.org [1] using unmodified
-upstream sources The config I used for this is
+It's not just the defaults. The binary instruction encoding is configurable
+on the xtensa architecture, configuration overlay replaces parts of
+the toolchain that do that.
+The additional CPU state is configurable and the kernel gets customized
+with the code that loads and stores this state when someone builds it for
+a specific xtensa core.
+These customizations are done by the users of the xtensa architecture and
+there are hundreds of configurations in existence. The toolchain has never
+been supposed to support all of them at once.
 
-${SRCTREE}/configure ../log-gcc-configure /home/arnd/git/gcc/configure
---target=xtensa-linux --enable-targets=all
---prefix=/home/arnd/cross/x86_64/gcc-11.1.0-nolibc/xtensa-linux
---enable-languages=c --without-headers --disable-bootstrap
---disable-nls --disable-threads --disable-shared --disable-libmudflap
---disable-libssp --disable-libgomp --disable-decimal-float
---disable-libquadmath --disable-libatomic --disable-libcc1
---disable-libmpx --enable-checking=release
-
-Let me know if I need to enable additional options to get a compiler
-that works for all xtensa targets. Usually the --enable-targets=all
-is meant to be sufficient.
-
-        Arnd
-
-[1] https://mirrors.edge.kernel.org/pub/tools/crosstool/files/bin/x86_64/11.1.0/
+-- 
+Thanks.
+-- Max
 
 _______________________________________________
 linux-riscv mailing list
