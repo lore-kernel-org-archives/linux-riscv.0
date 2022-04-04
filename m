@@ -4,61 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E04BC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Apr 2022 17:53:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E880C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Apr 2022 17:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=81ATaaVQLXAdFZgL4+JZM8WC1QXy+6bflgQ2GhQTsBA=; b=KRSrA+7Krb0wjnv285dSVjII7I
-	Dnk6ZTmzQL4+Eiho+/kXFKCRUywVV8x1LyEKyCRgvZZc22zWxLMn+pw6+MAoHler7jvYflRE10w2W
-	/mhQ0AoMTRO6UfQPdnbg7NiCGAcrj9rDi4ZWia+8SwlXZwMrJgHLvO5mhbKDlaq6r+qO1cnqfQwWx
-	evLi6d4s9AuBEXIesr/QQAlYaPTzEt4ZdaTLY9SKqRugbIisGOPqL87bJct62StQuj7+0O/PeryV3
-	pQoZ776KiCOJOu5bl0UuCm9OmMB29EqNoCVY06rhkWRNW95CJK4S8IQLrkQ2Ym8b2R1Dy93g4jpF5
-	UoCF9Khw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sxvATG8lL9BqxdN7QD/N25IUZ2QcEqghJvuIf346KuM=; b=1km0YbO88b4MGp
+	yQWN6Tz6WMF3yfe9LlQ/CKkjPMAsmk0byGicVSmp4Hd8npyQ0z40gB2NUoDAoGt2t5S0YYSyYks6L
+	W3d1SKfYa7hpVe+cTtr3qH1wRlqcWOR9c3ExKYCFL5I7RssKJ1Ae9rqwBy4wKKlqJmA4OkBFbtAuF
+	Iwrt+XMWn9X+DsDDTeWWCiA7u4kA/D/hUiZLP/0jYM/7JAtr1+2KNK+Pt/B4f3Y1BI7VbdquvFYaZ
+	qEhX2cMgJZ9IUwt79+YkThOTcNtCsPvkwQ+TjiGgH9RgKndqP+K+9EsBQlS5RIFziGXC2qxWwx+K9
+	/kG28COrQJ8N42/KFXbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nbQt0-00G3nA-VT; Mon, 04 Apr 2022 17:53:06 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1nbQx5-00G4O5-42; Mon, 04 Apr 2022 17:57:19 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nbQsx-00G3l7-Cr
- for linux-riscv@lists.infradead.org; Mon, 04 Apr 2022 17:53:05 +0000
-Received: from gallifrey.ext.pengutronix.de
- ([2001:67c:670:201:5054:ff:fe8d:eefb] helo=bjornoya.blackshift.org)
- by metis.ext.pengutronix.de with esmtps
- (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <mkl@pengutronix.de>)
- id 1nbQsp-00040x-Io; Mon, 04 Apr 2022 19:52:55 +0200
-Received: from pengutronix.de
- (2a03-f580-87bc-d400-3524-91ca-8473-ba45.ip6.dokom21.de
- [IPv6:2a03:f580:87bc:d400:3524:91ca:8473:ba45])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest
- SHA256) (Client did not present a certificate)
- (Authenticated sender: mkl-all@blackshift.org)
- by smtp.blackshift.org (Postfix) with ESMTPSA id 2B2945A36D;
- Mon,  4 Apr 2022 17:52:54 +0000 (UTC)
-Date: Mon, 4 Apr 2022 19:52:53 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: linux-sparse@vger.kernel.org, Kito Cheng <kito.cheng@gmail.com>,
- linux-riscv@lists.infradead.org, aurelien@aurel32.net,
- Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [PATCH v1 0/6] RISC-V -march handling improvements
-Message-ID: <20220404175253.dgwhy5ibodrn2lyz@pengutronix.de>
-References: <20220402050041.21302-1-palmer@rivosinc.com>
+ id 1nbQx2-00G4NM-KW
+ for linux-riscv@lists.infradead.org; Mon, 04 Apr 2022 17:57:17 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a6so10687877ejk.0
+ for <linux-riscv@lists.infradead.org>; Mon, 04 Apr 2022 10:57:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=LbauJjsyWfyUgbBcVSH3nfrWUAPSnEOj9xP8Lf2uMQc=;
+ b=UG944lrMDFa46xw5mJXf3ez+C/4ds1SQUW0we6U55dMyhEZZ7nlsdZThXtaE9WVYzw
+ Jfy65lB6zabNtWssWwmJd9J4VR9M1BfJ3erzVCwXOfMJvwO00IoZn6aX0ZU8yKagMGIT
+ m/2efF5EDkOSKH0VH5qjuwCWsiLJzSMR4adJbiFDFKN/kHS+ytNGd9JEIUJq19xGg53J
+ v1ltJfw45hvtfnHqx3K3wH9zjB7RDEdktgzKQk1rnDUvWEpt6DLklfwHBAJ+DIePeLH+
+ MY/AkXEjvBAlDwOi3r2ud91AVrcXv7wmi2UD5ZZ37GjYD6yw1xgCIhWoiGcMF3s7g6z7
+ +EDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=LbauJjsyWfyUgbBcVSH3nfrWUAPSnEOj9xP8Lf2uMQc=;
+ b=1Xu9rEg0fvEFijnXPGhmAOXbfx4CNLsiLnUWl3M9Y08ypgDpQx4uMVInKKIh3lybsy
+ zRmgOf5YGgWayedeh6uZzdz//OKTAUFTjEYfTBmEt0i+FoMRNt4dLwRddTt8v00FTFj0
+ Qg1Ub7MXDIN2H2Zx32gDswFANYD0nnNMs+6BrD5xmAnNZ+jvMa3eDGw0t/QXWow2Ozne
+ lycrpJ40V7GzXfH6qfMpf+L2/+3JzPAyY23MSt9lu/xf4z7HtybVbSmb/0JipRyf9JGa
+ ogZUIKVwk2BkYNs3fmKDLb8rS5d50CspmcEFEVR3zUnsqJoBFdBArOku3iJUhABrZ09y
+ VuzA==
+X-Gm-Message-State: AOAM533nFgDINMGi/IUadBWz9bG06zZqYIz0I3Lo5PF9rsNaOGeBlPhu
+ kXsFD59fZ3kNeldfggvLGoulBZWiiceJv0ca3oY=
+X-Google-Smtp-Source: ABdhPJz6VPW+goa8wHgWwkrJ9LveFINVQNnHYtPycIFT9TB7eAJpR4uYm/cUBC6mR+k35uivnhYmWtrACl6sZDox9MU=
+X-Received: by 2002:a17:906:64ca:b0:6e0:1648:571c with SMTP id
+ p10-20020a17090664ca00b006e01648571cmr1191237ejn.477.1649095032585; Mon, 04
+ Apr 2022 10:57:12 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20220402050041.21302-1-palmer@rivosinc.com>
-X-SA-Exim-Connect-IP: 2001:67c:670:201:5054:ff:fe8d:eefb
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+References: <Yib9F5SqKda/nH9c@infradead.org>
+ <CAK8P3a1dUVsZzhAe81usLSkvH29zHgiV9fhEkWdq7_W+nQBWbg@mail.gmail.com>
+ <YkmWh2tss8nXKqc5@infradead.org>
+ <CAK8P3a0QdFOJbM72geYTWOKumeKPSCVD8Nje5pBpZWazX0GEnQ@mail.gmail.com>
+In-Reply-To: <CAK8P3a0QdFOJbM72geYTWOKumeKPSCVD8Nje5pBpZWazX0GEnQ@mail.gmail.com>
+From: Max Filippov <jcmvbkbc@gmail.com>
+Date: Mon, 4 Apr 2022 10:57:01 -0700
+Message-ID: <CAMo8BfKgn0T5RtUTb89fPvygNJJYLy7r1=RZTmTTm=jiDfx1hQ@mail.gmail.com>
+Subject: Re: [RFC PULL] remove arch/h8300
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Christoph Hellwig <hch@infradead.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>, 
+ Yoshinori Sato <ysato@users.sourceforge.jp>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-arch <linux-arch@vger.kernel.org>, 
+ "moderated list:H8/300 ARCHITECTURE" <uclinux-h8-devel@lists.sourceforge.jp>, 
+ "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>,
+ Linux-sh list <linux-sh@vger.kernel.org>, 
+ linux-m68k <linux-m68k@lists.linux-m68k.org>,
+ Greg Ungerer <gerg@linux-m68k.org>, 
+ Damien Le Moal <damien.lemoal@wdc.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220404_105303_478505_F1CCD4D5 
-X-CRM114-Status: GOOD (  33.17  )
+X-CRM114-CacheID: sfid-20220404_105716_699298_76824EFA 
+X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,117 +91,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0046639042082002599=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Arnd,
 
---===============0046639042082002599==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="uhvf2hc27jz5qxsc"
-Content-Disposition: inline
+On Mon, Apr 4, 2022 at 6:07 AM Arnd Bergmann <arnd@arndb.de> wrote:
+> 1. xtensa nommu has does not compile in mainline and as far as I can
+> tell never did
 
+I have a different picture here. If you look at the logs at
+  https://kerneltests.org/builders/qemu-xtensa-master/
 
---uhvf2hc27jz5qxsc
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+there's a line for noMMU config in every one of them:
+  Building xtensa:de212:kc705-nommu:nommu_kc705_defconfig ... running
+............ passed
 
-On 01.04.2022 22:00:35, Palmer Dabbelt wrote:
-> As pointed out recently [1], sparse is parsing -march on RISC-V in order
-> to obtain the default set of preprocessor macros to use.  Back when this
-> was written ISA string was a simple affair, but these days it's a lot
-> more complicated.  It's going to be a big chunk of work to get a proper
-> ISA string parser into sparse, but we can at least fix the breakages for
-> the subset of legal ISA strings that Linux currently uses (and are
-> breaking users).
->=20
-> This patch set does three things:
->=20
-> * Stops die()ing on unknown ISA strings, unless the user has passed
->   -Wsparse-error.  This prints a warning and guesses at the macros to
->   use, which is probably fine for Linux.
-> * Cleans up some of the differences between GCC's -march parsing and
->   sparse's.  None of this should really matter for Linux, as GCC will
->   blow up on bad ISA strings, but it just seemed worth doing when I was
->   in there.
-> * Adds support for the Zicsr and Zifencei extensions, which were
->   recently enabled.  With these the unknown ISA string warning goes away
->   for Linux builds.
->=20
-> They're all sort of independent (and happen in this order), but they're
-> all touching the same code so I'm just sending it as a series.  It's my
-> first time touching sparse.
->=20
-> I've poked around with the first patch on its own and it seems to
-> largely work as expected: I'm still getting a bunch of sparse-related
-> warnings when I turn on sparse in my builds, but at least I don't get an
-> error (after updating to a binutils that supports the new arguments, so
-> Linux detects them).  I tried CF=3D"-Wsparse-error", which also behaves as
-> expected (that trinary boolean tripped me up for a bit).
->=20
-> The first patch alone should be a sufficient band-aid for systems that
-> are actively broken right now, the rest are cleanups -- these may be
-> necessary to get the RISC-V port sparse-clean, but that's a WIP so there
-> might be more.  I'm going to play around with that, but just looking at
-> the volume of spew it's probably going to take a while.  I gave these
-> patches a bit of testing one-by-one, but not nearly as much as the
-> first.
->=20
-> I just spun up a sparse repo [2] at kernel.org, these are on the riscv
-> branch if that helps for anyone.  I've also started messing around with
-> parsing a few more of the multi-letter extensions, but there's so much
-> coupling I got fed up -- it's on riscv-wip, but I definitely don't like
-> that last patch.  I figured it's better to send out these bits, as they
-> look solid to me and builds are broken.  The new stuff (B, K, and V) are
-> all in GCC-12 anyway, so we have a bit of time before they're useful.
->=20
-> [1]: https://lore.kernel.org/linux-sparse/mhng-c280d48c-477d-4589-baee-25=
-5c774b5a51@palmer-mbp2014/T/#maef705f448e4a1f12d853c0d8bc756f037ce1ce0
-> [2]: https://git.kernel.org/pub/scm/linux/kernel/git/palmer/sparse.git
+Please let me know if you observe any specific build/runtime issues.
 
-Works without warnings on Debian testing, with gcc-riscv64-linux-gnu
-4:11.2.0--1.
-
-Tested-by: Marc Kleine-Budde <mkl@pengutronix.de>
-
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde           |
-Embedded Linux                   | https://www.pengutronix.de  |
-Vertretung West/Dortmund         | Phone: +49-231-2826-924     |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-5555 |
-
---uhvf2hc27jz5qxsc
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEBsvAIBsPu6mG7thcrX5LkNig010FAmJLMHIACgkQrX5LkNig
-013LiAgAlQvlYUkzHjVw5s32PRnPkbsxooJOXYzr28LqRfmAxMp5oRg3LlhkMexP
-btK0AZccaa5tHAIExbaJazLRf7YAW/bjL281OnFWubgmt9oI2rEwmEPJmC8kk5tE
-9u7s++ys0cOH17JtbGDZ+NNxyiBRti3yN7T0KnXTHDo7AOHL74sA0XHhdYXo4g8d
-z/zVVjxzFGbYdsysb8W2JVe06ppgxVGk1BE3ZUAxzBDASL0B2yCsgV3iK2hShKZ3
-1scNLdWFHXsiwT0HZEnEvWIJoh7X9XNORlUtI/t9WiyR7kKGWljsooT1cxXaVbI2
-pE00Si8mP2OEqScXZ7dkgvcugqz+Ig==
-=/UZg
------END PGP SIGNATURE-----
-
---uhvf2hc27jz5qxsc--
-
-
---===============0046639042082002599==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Thanks.
+-- Max
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0046639042082002599==--
-
