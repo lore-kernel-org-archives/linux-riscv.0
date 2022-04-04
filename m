@@ -4,78 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 623B5C433F5
-	for <linux-riscv@archiver.kernel.org>; Sun,  3 Apr 2022 06:58:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A3A1C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Apr 2022 03:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LxBSCFGG4fhZ7Zgvr/Ubb80t7sKAjASiuxb5A5uY56E=; b=dKPJibM6JzkjU5
-	M/rNjjq5+7k6n4liXlX7tzFa2IixVhGdtd7ISN4rbBQmDAJcmXD6kBQF+2d9CX8eN6CVukMFYPoHV
-	BI2fxtKIdicbYrftMW3X4EbLCOJE5bVlOSsKImREFJsC9jyyDpTtKKHg+1G8o9tm4C265N+HdGp6a
-	ga5rCQg75ZgrzelnwHYXeqIPWpDM26GFSm0ODI7lVtgv2/K+qdtTghbloeJigG5AYp7JTcq0Hpzsk
-	fXL7MSru+GCZSbSHCw35xjLrVpj5YRm3zcndc9wl8blcXe30GL8OppzqMi2QGoE8PER5SN5RM1+Te
-	WB2Z4S2mokppih8inToA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pHwqZnShIRC3dH9s0402uN7YX5gHjhnbxOkvnVSNVCQ=; b=KFXkGxhBrw4ykM
+	FAtA70QYeXHhTW5z+3bUcWwP2JgGRrfN/ffR/nsu1yaHJ0JEjDuYqxQ+zt24MmejRF8WN+IWUvvtW
+	pIzac2fMQP3MagIf1ue3og3wUuj+pAOI+NXdzMntPad05Hm+BU1wIMk71Emsk+vC4pvXVNL/HPnh+
+	1UlnGGt2Fc7h/CNVNSCgF+ZhwZXdIvma3pvqdyrOfGF1iJCXa9mhszAnMim11WNelAO1FmZ9TgZBd
+	wQqmy7CgVXOAkW0oe/isPzWvFFCZxtttZCa0YoXttBDt3vVk4LStCHNuFiZn6sZDJwXXqDR8NQFat
+	1rRFy+UzX0krO/zTHufw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nauBW-00Atp3-2r; Sun, 03 Apr 2022 06:58:02 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1nbD2G-00Cqz9-MZ; Mon, 04 Apr 2022 03:05:44 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nauBT-00AtoM-Pu
- for linux-riscv@lists.infradead.org; Sun, 03 Apr 2022 06:58:01 +0000
-Received: by mail-pg1-x529.google.com with SMTP id q19so5762231pgm.6
- for <linux-riscv@lists.infradead.org>; Sat, 02 Apr 2022 23:57:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=VB4BowOKcVjDMzaFI2q1TdcawJXQCYjd9zAqRkqdqfo=;
- b=G0niXPXzEWlRviSWcbVBuBoDbthSi30PCxNELYi6MmbdCJy43ME8ZsxfPVG2hP3NYN
- aoi4ZZvpx57Na3PaFPWmyfDIpqaaIMwGEb/NhYXKoUPvpFkWEvhsPnVhK4uaWKtSKBXJ
- jJ4K0TwkIO316hnyPjn5rbahKj5aIiGedBynlkaCRvXDNjLorKirU9tK0C5cXGUrAzn+
- kDVW4O2SQyCtTxBhXnX2m2zCrwCtZvJgvScXEEguAMNcG9zwE2MOCVxQqv4po5TGonXU
- JGqPLmN+r4DgjDvaIc/O5DetEwtFR03lu1nP7NAEksDa0T5OEpekcqB4yyJTBjo2WU6p
- L63Q==
+ id 1nbD2D-00Cqxm-0p
+ for linux-riscv@lists.infradead.org; Mon, 04 Apr 2022 03:05:42 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id w21so12462413wra.2
+ for <linux-riscv@lists.infradead.org>; Sun, 03 Apr 2022 20:05:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=Zd1t2Pkuz698pTtgUjJwnowpfooSne/24mXVqKShj+c=;
+ b=NWiwe7Qw5ka9+CSZ1/qW67wTbrDFP0cDPbwGe/J6FWhHkb5Sxt4n4xmacvf/7NvIH8
+ 3w6RbfIRqVnT0UVbdtZeYqpV++c6S7BJnbyeh3/r9cnceCAZ9bWsutuz1HNLVXV+B8uo
+ WhUgw+dUJeLh2DaqquPfW5OTuHBZzGhP/etJ8eNt/CBog7GE5wgIna9JPIVP12BBtc9a
+ j7hLtaTWSsgqX/RtFKbXHtAuOSFuiYC7ZkffF+ba1HIzMvzzjjKqxoxGTvAOU77ohyFv
+ ccKHaokZjQ8KLKN9m4xBNPzefa9WxtUlnoU6N9iFI2xzCtFbZ767HuPX9Hv2vykF46/q
+ YduA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=VB4BowOKcVjDMzaFI2q1TdcawJXQCYjd9zAqRkqdqfo=;
- b=uTIyguoozns3cVfMHWt3vE2K4gK48XzzKMbJyXJ3S8NrN+h6IafvnmjxXx1sRUoczl
- hAyV5gdmW51kXwNGHcc2BygPMN1gZNRVWUIXnC7CMr0Eo+iCTrzGzQnWq/S91p1AF0rQ
- 1DME+rsp+7OzYSNoeMy7ZufK/0CGxlR9wW4HCUpvGx3zyoot99iaTL+A/PgzEEowmJcy
- 2zgY23Ra3Alc3yE70/Gz/xvPmFSftVlThezNJwoHaIk9C7B3ADcZdbICKqL0j8lcm+tv
- 9a/I+DsmIKvOohLA7Rv0AtvGaYc3uyoFvHIVw664JUmMbpDunZGHmz19Uz/8Rf1/f8TE
- 6ntg==
-X-Gm-Message-State: AOAM530gl4o/ZPv8TiUg7JkLstalyIJETb6955M+Dz9vhnvDOJKhSVYu
- x/D8EkxCJy3+kq+5iJ1vhSw=
-X-Google-Smtp-Source: ABdhPJwSBLxoxI5PkLY2KMc/MKylwInJtYBAp6BxcAs6CfGnjoINlGlRb4+5gL8MvusBS6kHu3iSaQ==
-X-Received: by 2002:a65:694c:0:b0:398:fd64:7422 with SMTP id
- w12-20020a65694c000000b00398fd647422mr4191685pgq.503.1648969077955; 
- Sat, 02 Apr 2022 23:57:57 -0700 (PDT)
-Received: from ubuntu.mate (subs02-180-214-232-68.three.co.id.
- [180.214.232.68]) by smtp.gmail.com with ESMTPSA id
- ds15-20020a17090b08cf00b001c6a4974b45sm17077143pjb.40.2022.04.02.23.57.53
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 02 Apr 2022 23:57:57 -0700 (PDT)
-From: Bagas Sanjaya <bagasdotme@gmail.com>
-To: linux-doc@vger.kernel.org
-Cc: Bagas Sanjaya <bagasdotme@gmail.com>, Anup Patel <anup.patel@wdc.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: [PATCH RESEND] Documentation: kvm: Add missing line break in api.rst
-Date: Sun,  3 Apr 2022 13:57:36 +0700
-Message-Id: <20220403065735.23859-1-bagasdotme@gmail.com>
-X-Mailer: git-send-email 2.35.1
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=Zd1t2Pkuz698pTtgUjJwnowpfooSne/24mXVqKShj+c=;
+ b=UaAn9WfKNwNXZM1rIneA+068hEmdjahAFCeeC2NuQcfiZbtSK/BS9OjlK4HxRVnKjd
+ ua8fHv9aNRmkfqCAtq+4yZmIi5yseAhtxbfD8IsdFk74KbfFo4p7MdZapbTXG/rSCq8E
+ 7NZLZmPVafVFQJIvnJ3PyBIdIaFuZ3Qsav2t1XZsv3dbR5pIC43D9TKHzBrkeF/QTQdo
+ s8pfoC4IHs2K9ZUNBZiq6zXHawGrMaqTPcrxmAfdGhWnDTZORfpDaOD3rRyoquQ6L7jP
+ TVKeeUCDJJX2VFEXwhPDFQGfMVscWhzH9lbT3Ew90dRberHwK4nuVhu8+Q3x4agsUZYf
+ WcVw==
+X-Gm-Message-State: AOAM5313p7/uEhP/zsUzzoqeNOlH+zKSxRNns3M29DM4QMpWndZgUW2i
+ 1LE66rqSpsfR7y5suG50q3cId4ZjHQfayJFph+rP3w==
+X-Google-Smtp-Source: ABdhPJyGYpZSUqo724IzShlVtF1ee3pTpacTkhreTLjXWB9AK2Sv6hBJilqv9BLYZ4/IwHSaMW2EmCu5gefIZKnIk60=
+X-Received: by 2002:a5d:6e54:0:b0:204:635:42ba with SMTP id
+ j20-20020a5d6e54000000b00204063542bamr15548840wrz.214.1649041531815; Sun, 03
+ Apr 2022 20:05:31 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220403031355.20894-1-rdunlap@infradead.org>
+In-Reply-To: <20220403031355.20894-1-rdunlap@infradead.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 4 Apr 2022 08:35:19 +0530
+Message-ID: <CAAhSdy2CJMeD_JhvwkEKShtYxyLGVRme8rE4cmCcDFfO90_D-Q@mail.gmail.com>
+Subject: Re: [PATCH -next] cpuidle: riscv: support non-SMP config
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ kernel test robot <lkp@intel.com>, 
+ Anup Patel <apatel@ventanamicro.com>, Atish Patra <atishp@rivosinc.com>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ "open list:THERMAL" <linux-pm@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Palmer Dabbelt <palmer@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220402_235759_896640_C991E6A0 
-X-CRM114-Status: UNSURE (   9.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220403_200541_501379_B6A09B59 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,44 +90,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add missing line break separator between literal block and description
-of KVM_EXIT_RISCV_SBI.
+(Removed my WDC email because it does not exist anymore)
 
-This fixes:
-</path/to/linux>/Documentation/virt/kvm/api.rst:6118: WARNING: Literal block ends without a blank line; unexpected unindent.
+On Sun, Apr 3, 2022 at 8:44 AM Randy Dunlap <rdunlap@infradead.org> wrote:
+>
+> Add <asm/smp.h> for cpuid_to_hartid_map etc.
+> This is needed for both SMP and non-SMP builds, but not having it
+> causes a build error for non-SMP:
+>
+> drivers/cpuidle/cpuidle-riscv-sbi.c: In function 'sbi_cpuidle_init_cpu':
+> drivers/cpuidle/cpuidle-riscv-sbi.c:350:26: error: implicit declaration of function 'cpuid_to_hartid_map' [-Werror=implicit-function-declaration]
+>
+> Fixes: 6abf32f1d9c5 ("cpuidle: Add RISC-V SBI CPU idle driver")
+> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+> Reported-by: kernel test robot <lkp@intel.com>
+> Cc: Anup Patel <anup.patel@wdc.com>
+> Cc: Anup Patel <anup@brainfault.org>
+> Cc: Anup Patel <apatel@ventanamicro.com>
+> Cc: Atish Patra <atishp@rivosinc.com>
+> Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
+> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+> Cc: linux-pm@vger.kernel.org
+> Cc: linux-riscv@lists.infradead.org
+> Cc: Palmer Dabbelt <palmer@rivosinc.com>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> ---
+>  drivers/cpuidle/cpuidle-riscv-sbi.c |    1 +
+>  1 file changed, 1 insertion(+)
+>
+> --- linux-next-20220401.orig/drivers/cpuidle/cpuidle-riscv-sbi.c
+> +++ linux-next-20220401/drivers/cpuidle/cpuidle-riscv-sbi.c
+> @@ -22,6 +22,7 @@
+>  #include <linux/pm_runtime.h>
+>  #include <asm/cpuidle.h>
+>  #include <asm/sbi.h>
+> +#include <asm/smp.h>
 
-Fixes: da40d85805937d (RISC-V: KVM: Document RISC-V specific parts of KVM API, 2021-09-27)
-Cc: Anup Patel <anup.patel@wdc.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Jonathan Corbet <corbet@lwn.net>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: kvm@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-riscv@lists.infradead.org
-Signed-off-by: Bagas Sanjaya <bagasdotme@gmail.com>
----
- Documentation/virt/kvm/api.rst | 1 +
- 1 file changed, 1 insertion(+)
+I suggest include linux/smp.h here instead of asm/smp.h
 
-diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-index 9f3172376ec3a6..a529f94b61edcd 100644
---- a/Documentation/virt/kvm/api.rst
-+++ b/Documentation/virt/kvm/api.rst
-@@ -6115,6 +6115,7 @@ Valid values for 'type' are:
- 			unsigned long args[6];
- 			unsigned long ret[2];
- 		} riscv_sbi;
-+
- If exit reason is KVM_EXIT_RISCV_SBI then it indicates that the VCPU has
- done a SBI call which is not handled by KVM RISC-V kernel module. The details
- of the SBI call are available in 'riscv_sbi' member of kvm_run structure. The
+Otherwise it looks good to me.
 
-base-commit: f443e374ae131c168a065ea1748feac6b2e76613
--- 
-An old man doll... just what I always wanted! - Clara
+Reviewed-by: Anup Patel <anup@brainfault.org>
 
+Regards,
+Anup
+
+>  #include <asm/suspend.h>
+>
+>  #include "dt_idle_states.h"
 
 _______________________________________________
 linux-riscv mailing list
