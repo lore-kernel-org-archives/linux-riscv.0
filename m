@@ -4,151 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E336CC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Apr 2022 17:01:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E04BC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Apr 2022 17:53:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sQaWLaMyXPivHeLgOBnwiunh1UDgywCo5UCwxj+hjHQ=; b=ucyTElUsxvzEan
-	fNeUhX4xs1k4VK2VMYDxm8nLKtnHnq7Ldb9ObckqFzy8Cijf3mZCbtZ5xCo4UCpkDfBLro35nFirz
-	hsJ0L1OQMvwZAXjSVEyoWx0ifEL7XKvdXcyo5BCGgoUaQkjleyJj80wkXv//T38ay87QFzqplAyuU
-	bytRYSofZdu0SOBiNSrCrwzeMUzodiLvN+618FItEIcOFVUGK/j00SYxQXlf2HMr4RBN7varFeWMP
-	GUxcXf+zaxmqz+pB0ILSjKckXjTKI54E0Bhgbzp/H3MVxuUebfoPJxdt2NJg3kK/3Wq1wd9NkbxFl
-	xB4+XLbFIPYfJC1ztY2w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=81ATaaVQLXAdFZgL4+JZM8WC1QXy+6bflgQ2GhQTsBA=; b=KRSrA+7Krb0wjnv285dSVjII7I
+	Dnk6ZTmzQL4+Eiho+/kXFKCRUywVV8x1LyEKyCRgvZZc22zWxLMn+pw6+MAoHler7jvYflRE10w2W
+	/mhQ0AoMTRO6UfQPdnbg7NiCGAcrj9rDi4ZWia+8SwlXZwMrJgHLvO5mhbKDlaq6r+qO1cnqfQwWx
+	evLi6d4s9AuBEXIesr/QQAlYaPTzEt4ZdaTLY9SKqRugbIisGOPqL87bJct62StQuj7+0O/PeryV3
+	pQoZ776KiCOJOu5bl0UuCm9OmMB29EqNoCVY06rhkWRNW95CJK4S8IQLrkQ2Ym8b2R1Dy93g4jpF5
+	UoCF9Khw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nbQ4W-00FsTt-JX; Mon, 04 Apr 2022 17:00:56 +0000
-Received: from mail-cusazlp170110003.outbound.protection.outlook.com
- ([2a01:111:f403:c111::3] helo=na01-obe.outbound.protection.outlook.com)
+	id 1nbQt0-00G3nA-VT; Mon, 04 Apr 2022 17:53:06 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nbQ4I-00FsQV-QV; Mon, 04 Apr 2022 17:00:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=TACXj0m5hlmQg63whxFwyL+531Il1rQSzay6Lg3zbQ793OSXDONDtIcP3yxKCeOLzNq+a9nKCfS9oGNhGHTdQOZFhLr0KmLkUNGu1Uv9G4mGtsChcsixeehYuPXpDPcN6geLHzVOd7PNYcVQHqYn5a1oDjOZdIs3/5uGOY/L//It7L+pBhSzgOHw/Uqu93QEDFMdQDTi7n63kE3QHv2FtOxH6qvcl7vDmpOC1fRWEPK0A5Itp/Jhic1b0LOXv+ekzPO4ny5Qm8fvwvQ1cc2WSUQpmUGYnfbw9Jz4xvUncA8cS/PVNCoA6HzlqD/hny61mT3WcKWWTBkvO3+mYshGWA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LwWuMUnDqeO5LcJCMJgId+ohHq7d05qbPMrinxsEVd4=;
- b=g98GTQnZ0+iEKqpX4LwakFK0l6OOYr09Og7Zm7ASbL/gvuUrGd69foMk91LSmc1oNRllnfGUzcvPKBHachYxEyQrllIuJDwI25Bbzm6Pw2qdc+1VEw8oK+Y16ohuPVQKhflKlHeaDuOaukA1tkkrAiyZXIE153oQ1TnG3veDVNGzRcAaXprJdkYo/0u3cICDWfqoIkhoYORcnJ+a8vk/Dp02VU3mUOfk27bpwZnYYiLr7sBJmOIDoxX8UDAMCZxRcPuyCPPDXRHX5z5lIP91b9es/N82pcxWD3Xxux5eQALby9BCErhXg0DNrVdkSpm/YzWOmYLZGUE9ZRSqqCBRYQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microsoft.com; dmarc=pass action=none
- header.from=microsoft.com; dkim=pass header.d=microsoft.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LwWuMUnDqeO5LcJCMJgId+ohHq7d05qbPMrinxsEVd4=;
- b=DW0RX7WdAbBMowT/ezuRthE5lySFbX1fxtjO+bW2AHly9LSwHQ+FR+JEX4AJuQO9qIbIjZp2v8nc+GT2pM1++nwECkOhYDNpoKMgcSXHaZvt1/K3OlXgiyExeHvg/HhQoRa2cbxt51yuwzTxd9A/cm0+3deTV7+J77fk20XcsEI=
-Received: from PH0PR21MB3025.namprd21.prod.outlook.com (2603:10b6:510:d2::21)
- by SA0PR21MB1881.namprd21.prod.outlook.com (2603:10b6:806:e6::19)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5164.2; Mon, 4 Apr
- 2022 17:00:34 +0000
-Received: from PH0PR21MB3025.namprd21.prod.outlook.com
- ([fe80::e516:76e:5421:5b22]) by PH0PR21MB3025.namprd21.prod.outlook.com
- ([fe80::e516:76e:5421:5b22%5]) with mapi id 15.20.5144.011; Mon, 4 Apr 2022
- 17:00:34 +0000
-From: "Michael Kelley (LINUX)" <mikelley@microsoft.com>
-To: Christoph Hellwig <hch@lst.de>, "iommu@lists.linux-foundation.org"
- <iommu@lists.linux-foundation.org>
-CC: "x86@kernel.org" <x86@kernel.org>, Anshuman Khandual
- <anshuman.khandual@arm.com>, Tom Lendacky <thomas.lendacky@amd.com>, Konrad
- Rzeszutek Wilk <konrad.wilk@oracle.com>, Stefano Stabellini
- <sstabellini@kernel.org>, Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- Juergen Gross <jgross@suse.com>, Joerg Roedel <joro@8bytes.org>, David
- Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>, Robin
- Murphy <robin.murphy@arm.com>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "xen-devel@lists.xenproject.org"
- <xen-devel@lists.xenproject.org>, "linux-ia64@vger.kernel.org"
- <linux-ia64@vger.kernel.org>, "linux-mips@vger.kernel.org"
- <linux-mips@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
- <linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>, "linux-s390@vger.kernel.org"
- <linux-s390@vger.kernel.org>, "linux-hyperv@vger.kernel.org"
- <linux-hyperv@vger.kernel.org>, "tboot-devel@lists.sourceforge.net"
- <tboot-devel@lists.sourceforge.net>, "linux-pci@vger.kernel.org"
- <linux-pci@vger.kernel.org>
-Subject: RE: [PATCH 09/15] swiotlb: make the swiotlb_init interface more useful
-Thread-Topic: [PATCH 09/15] swiotlb: make the swiotlb_init interface more
- useful
-Thread-Index: AQHYR+HYUbt0/GHOLkW0vuXDGPTqsKzf+nXQ
-Date: Mon, 4 Apr 2022 17:00:34 +0000
-Message-ID: <PH0PR21MB3025EED7E82FCD8595D82540D7E59@PH0PR21MB3025.namprd21.prod.outlook.com>
-References: <20220404050559.132378-1-hch@lst.de>
- <20220404050559.132378-10-hch@lst.de>
-In-Reply-To: <20220404050559.132378-10-hch@lst.de>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_ActionId=e3951091-16ea-4d78-8883-633f622913fb;
- MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_ContentBits=0;
- MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Enabled=true;
- MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Method=Standard;
- MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Name=Internal;
- MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_SetDate=2022-04-04T16:57:47Z;
- MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_SiteId=72f988bf-86f1-41af-91ab-2d7cd011db47;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microsoft.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: f0587c4a-b78c-488f-e1c2-08da165ca264
-x-ms-traffictypediagnostic: SA0PR21MB1881:EE_
-x-ms-exchange-atpmessageproperties: SA|SL
-x-microsoft-antispam-prvs: <SA0PR21MB1881564FA196CBC2EE6D4CB0D7E59@SA0PR21MB1881.namprd21.prod.outlook.com>
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: ZaeLbJqs81svlLk+SlzjXdK7N2xVa7rka5ocDDrJe7kYTlmEWQqOr77Y02NWVd6f4KSqvGEPZjh+AmKuA0l7K7ojZUO1ujvYu0k8Nwk9Wy065JNPaW/NzkP3Ngm+NQdZl/CjUL/PjbkZZZ+72dZU/vKVvHONW5BHUrl4Zhgzp2qjZt+hsmysFmAfUUWAvi7OONsRTHdUplzvrj+yH8KGZwKCvNYoj7WcA6TW2CTf4113p9U+O7G7ReFmEN+GATkvqLiwjNJV9Elpu4lVuuIh7FG7rqfbHilExATXSNIUChS4146eWKnVfjJLcNklN0BfSdIZ6hPZObDWNOAA/RpmiZUcq+R4artc4lpJmfBl9CTeY7VkJeWYpW4ogBSadjp54jWFa2P0WQ7XsqxbKAWczvO8J/r5nV6wXIrRQFrGluPshTMfkO1yNXiXF3WkM/K5HiRMIEvDuMzWmw+6brTkjEp5nqvRhSWusBpGMzFeoAQIEfIJUA3L7ocLltefNjErIUqCzyTkCUFoAY2UZiVHC2t3KLWKH9qkZENQRBsn3BCWhzXMWQfDu9ut+wKT4yY3n98yu56vkJLJ1roaR/3dwY9gju3iGLAESd7wBmC5r6oH2d6GMgdsrI+0WSddwtcv5SiGqKNFuwxDffVPPXNATfxQQ0aqtVsglftTipfX+zbel0uCBZXLuNGuqkuK13RpZVVsqbL7cw5Kh0XiTBuRMqBPe6MTOQFfzT9iIasd/vt+HoI3Dnywo2GFpT+dvKwr
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:PH0PR21MB3025.namprd21.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(13230001)(4636009)(366004)(451199009)(54906003)(7696005)(10290500003)(38100700002)(2906002)(6506007)(83380400001)(8990500004)(110136005)(38070700005)(86362001)(55016003)(26005)(186003)(5660300002)(9686003)(66946007)(64756008)(66446008)(52536014)(82960400001)(82950400001)(7416002)(8936002)(71200400001)(4326008)(316002)(66556008)(66476007)(8676002)(30864003)(76116006)(122000001)(508600001)(33656002);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?+wiONLzmu/b4DtrUgGfyKUS9rf6Ok+jmTeOrdw4Y9aWQ1QWdS8RDUXqgt2NO?=
- =?us-ascii?Q?6RChP/etz+tW4uco3CM4EdCb5Jh1F/VM/nW0IIm++P0jlcwlL4KBxdOeBTvG?=
- =?us-ascii?Q?hzK5FFbmUa6AjxN34Izya3qjZ9BKPBogUcVV8/u6RL+IDA7Ouvhalq6Yg4hF?=
- =?us-ascii?Q?s1VQ1DPbtjBP6WlRoeckQdR413O4x7c0FeOyYZwhNEWSGOb3Pt0SNLo1BYTj?=
- =?us-ascii?Q?hZHZIOx7LAGje+3gemGY9xpj6DhjsvAD4oq16NGQVS0In+rV3qpyC6J8jS/A?=
- =?us-ascii?Q?Sp5I2hL+SLbQsOTJ0KiXebpEA/RYusPfKj3VjlIRc5Hvb66OTqiX392rQBGL?=
- =?us-ascii?Q?pbRqSUGDegGez0JPiaUtkGwKLU8OdJTeiRVljzCBE4e363nc9oyh6RNYDI8z?=
- =?us-ascii?Q?22HxXyRM6yFGhBCTsxj3QQPWp0kSilO5VcwbSjnbtOkmb7teU2XTPxNCiz2G?=
- =?us-ascii?Q?bz9l7WHYjO9CgOZ119O/HHPlUCevrD/tZgG0W7WaAvS5QKUtSVdcPMcskIVX?=
- =?us-ascii?Q?TDXdaugh00DSLOQSSB1MwvLAJL4vR1bw3u/5Yj1MdLfC1h538Um7blHWh9C9?=
- =?us-ascii?Q?O0i9hhVoZwkfbd+JzA7RG3bTCpHlsXvI48YE5gtBvz98/h1Fsmx60yHRbvjg?=
- =?us-ascii?Q?j2CXWPgiEZOGHMjQ8v5Kmnr/yrtOftnZ5bUr71EdjEQzYW+gXW/ocL1rdQbY?=
- =?us-ascii?Q?Yq4u4Xd11ocY5OUVat1IUO02aKeKif77CUUEzssbmc8VISRg0QcnrcU2a6u3?=
- =?us-ascii?Q?BbMRbBegAmFt7umIB1EoMKtYbBtFwjKKvcHhtc3vDxFa+CD11nPQy4w/dVlQ?=
- =?us-ascii?Q?DgrOkmjafrm2Eavxby7gMTbaN0CH70G1zq7138FJIxg9rESmDA1rXQr27bvL?=
- =?us-ascii?Q?T7hxoChQij7HGGEnHqOdI8wU8ccYC4IYp5b5TV2ss/6UhBYCvMNUHz8N9C0I?=
- =?us-ascii?Q?JXsC08yWJ+ratznHhqIjFIJjUnHWyoWzcmRueJnx6vPIGUZjhqhGKLBl6kA6?=
- =?us-ascii?Q?jH7HECVOygO2pk8eP99metWf4cCeL/h7AfXePjtml++bOtpystg1+KbVy0H8?=
- =?us-ascii?Q?XxTFK81uOQrWnCED9EZDlk/ZGocqsIc04rZyN4z7KpBb8N76udfU+CTfmF4b?=
- =?us-ascii?Q?2kCaime8tRk/swF1jB53NJ6ez3b38uY4mWcvUwr/pKrElN5Y6a2i7g4RdgHd?=
- =?us-ascii?Q?DX+ii7nDbiea7eDutJaf1JkEc27D4+EnP7vfBUvhtrYiYgv2ipx/ZfsMmVG2?=
- =?us-ascii?Q?Rs7gYKc7dOI+NSKTA1E/3yR1kkMKaqlcSFMmVoGFnwU1wQb2vl25th8Lt14v?=
- =?us-ascii?Q?APnKMVQ2PTZiEATHkfdtL9ViMXqTdFRWOc8npwny94btoEBL836OUrLJYyMZ?=
- =?us-ascii?Q?zVupnUUaQj4zy3P9Mip7dbHFDWAmzQP12NUoy3mj1GTt9vlKjba9vPfMIzzl?=
- =?us-ascii?Q?ZgUWsWtsKkZi/UYm54ky3kGcKXZDNM0bV6w9MSyx/1U0GMF9juzTjlIlm2p0?=
- =?us-ascii?Q?aulKnI8VGHtCiHWQ7ceMlYAUN2F2VY5GHDTE8zkeQVGT3hkr0Xb2drM8o+53?=
- =?us-ascii?Q?AZLLXVDFeOimziMU++B018eU0i0+NYPYK4ODz0CO6PiS2L6TZJQ+OkxxzUTO?=
- =?us-ascii?Q?j5VGjXik4oqhh8Y8topFs2KSo8bAYUhcCxCESmb4cxAOMYXh0wUFM83k0QUa?=
- =?us-ascii?Q?niA7L0p8gL3ZKD2VceZHD9JlPB69PNigh/aUrKAZAPwz1PrROeUPr//KC+nY?=
- =?us-ascii?Q?PH+vuAetdEv3PjoCRv66yZXIjt/uDFk=3D?=
+ id 1nbQsx-00G3l7-Cr
+ for linux-riscv@lists.infradead.org; Mon, 04 Apr 2022 17:53:05 +0000
+Received: from gallifrey.ext.pengutronix.de
+ ([2001:67c:670:201:5054:ff:fe8d:eefb] helo=bjornoya.blackshift.org)
+ by metis.ext.pengutronix.de with esmtps
+ (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <mkl@pengutronix.de>)
+ id 1nbQsp-00040x-Io; Mon, 04 Apr 2022 19:52:55 +0200
+Received: from pengutronix.de
+ (2a03-f580-87bc-d400-3524-91ca-8473-ba45.ip6.dokom21.de
+ [IPv6:2a03:f580:87bc:d400:3524:91ca:8473:ba45])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest
+ SHA256) (Client did not present a certificate)
+ (Authenticated sender: mkl-all@blackshift.org)
+ by smtp.blackshift.org (Postfix) with ESMTPSA id 2B2945A36D;
+ Mon,  4 Apr 2022 17:52:54 +0000 (UTC)
+Date: Mon, 4 Apr 2022 19:52:53 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-sparse@vger.kernel.org, Kito Cheng <kito.cheng@gmail.com>,
+ linux-riscv@lists.infradead.org, aurelien@aurel32.net,
+ Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [PATCH v1 0/6] RISC-V -march handling improvements
+Message-ID: <20220404175253.dgwhy5ibodrn2lyz@pengutronix.de>
+References: <20220402050041.21302-1-palmer@rivosinc.com>
 MIME-Version: 1.0
-X-OriginatorOrg: microsoft.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR21MB3025.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f0587c4a-b78c-488f-e1c2-08da165ca264
-X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Apr 2022 17:00:34.0892 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 72f988bf-86f1-41af-91ab-2d7cd011db47
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: IZAEkQFQsq5F0lsmoSa6iO94AzGRANX+uCVWnkau3YyCHVWt/RxSfMF+G5QUjGXqlJ+zNi4C/JRH/ac02l43Z+Hf9OyTroP8i5QaFk/7fCY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR21MB1881
+In-Reply-To: <20220402050041.21302-1-palmer@rivosinc.com>
+X-SA-Exim-Connect-IP: 2001:67c:670:201:5054:ff:fe8d:eefb
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
+ SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220404_100043_283367_502F9B17 
-X-CRM114-Status: GOOD (  23.65  )
+X-CRM114-CacheID: sfid-20220404_105303_478505_F1CCD4D5 
+X-CRM114-Status: GOOD (  33.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,511 +70,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0046639042082002599=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Christoph Hellwig <hch@lst.de> Sent: Sunday, April 3, 2022 10:06 PM
-> 
-> Pass a bool to pass if swiotlb needs to be enabled based on the
 
-Wording problems.  I'm not sure what you meant to say.
+--===============0046639042082002599==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="uhvf2hc27jz5qxsc"
+Content-Disposition: inline
 
-> addressing needs and replace the verbose argument with a set of
-> flags, including one to force enable bounce buffering.
-> 
-> Note that this patch removes the possibility to force xen-swiotlb
-> use using swiotlb=force on the command line on x86 (arm and arm64
-> never supported that), but this interface will be restored shortly.
-> 
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
-> ---
->  arch/arm/mm/init.c                     |  6 +----
->  arch/arm64/mm/init.c                   |  6 +----
->  arch/ia64/mm/init.c                    |  4 +--
->  arch/mips/cavium-octeon/dma-octeon.c   |  2 +-
->  arch/mips/loongson64/dma.c             |  2 +-
->  arch/mips/sibyte/common/dma.c          |  2 +-
->  arch/powerpc/mm/mem.c                  |  3 ++-
->  arch/powerpc/platforms/pseries/setup.c |  3 ---
->  arch/riscv/mm/init.c                   |  8 +-----
->  arch/s390/mm/init.c                    |  3 +--
->  arch/x86/kernel/pci-dma.c              | 15 ++++++-----
->  drivers/xen/swiotlb-xen.c              |  4 +--
->  include/linux/swiotlb.h                | 15 ++++++-----
->  include/trace/events/swiotlb.h         | 29 ++++++++-------------
->  kernel/dma/swiotlb.c                   | 35 ++++++++++++++------------
->  15 files changed, 55 insertions(+), 82 deletions(-)
-> 
-> diff --git a/arch/arm/mm/init.c b/arch/arm/mm/init.c
-> index fe249ea919083..ce64bdb55a16b 100644
-> --- a/arch/arm/mm/init.c
-> +++ b/arch/arm/mm/init.c
-> @@ -271,11 +271,7 @@ static void __init free_highpages(void)
->  void __init mem_init(void)
->  {
->  #ifdef CONFIG_ARM_LPAE
-> -	if (swiotlb_force == SWIOTLB_FORCE ||
-> -	    max_pfn > arm_dma_pfn_limit)
-> -		swiotlb_init(1);
-> -	else
-> -		swiotlb_force = SWIOTLB_NO_FORCE;
-> +	swiotlb_init(max_pfn > arm_dma_pfn_limit, SWIOTLB_VERBOSE);
->  #endif
-> 
->  	set_max_mapnr(pfn_to_page(max_pfn) - mem_map);
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index 8ac25f19084e8..7b6ea4d6733d6 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -398,11 +398,7 @@ void __init bootmem_init(void)
->   */
->  void __init mem_init(void)
->  {
-> -	if (swiotlb_force == SWIOTLB_FORCE ||
-> -	    max_pfn > PFN_DOWN(arm64_dma_phys_limit))
-> -		swiotlb_init(1);
-> -	else if (!xen_swiotlb_detect())
-> -		swiotlb_force = SWIOTLB_NO_FORCE;
-> +	swiotlb_init(max_pfn > PFN_DOWN(arm64_dma_phys_limit),
-> SWIOTLB_VERBOSE);
-> 
->  	/* this will put all unused low memory onto the freelists */
->  	memblock_free_all();
-> diff --git a/arch/ia64/mm/init.c b/arch/ia64/mm/init.c
-> index 5d165607bf354..3c3e15b22608f 100644
-> --- a/arch/ia64/mm/init.c
-> +++ b/arch/ia64/mm/init.c
-> @@ -437,9 +437,7 @@ mem_init (void)
->  		if (iommu_detected)
->  			break;
->  #endif
-> -#ifdef CONFIG_SWIOTLB
-> -		swiotlb_init(1);
-> -#endif
-> +		swiotlb_init(true, SWIOTLB_VERBOSE);
->  	} while (0);
-> 
->  #ifdef CONFIG_FLATMEM
-> diff --git a/arch/mips/cavium-octeon/dma-octeon.c b/arch/mips/cavium-octeon/dma-
-> octeon.c
-> index fb7547e217263..9fbba6a8fa4c5 100644
-> --- a/arch/mips/cavium-octeon/dma-octeon.c
-> +++ b/arch/mips/cavium-octeon/dma-octeon.c
-> @@ -235,5 +235,5 @@ void __init plat_swiotlb_setup(void)
->  #endif
-> 
->  	swiotlb_adjust_size(swiotlbsize);
-> -	swiotlb_init(1);
-> +	swiotlb_init(true, SWIOTLB_VERBOSE);
->  }
-> diff --git a/arch/mips/loongson64/dma.c b/arch/mips/loongson64/dma.c
-> index 364f2f27c8723..8220a1bc0db64 100644
-> --- a/arch/mips/loongson64/dma.c
-> +++ b/arch/mips/loongson64/dma.c
-> @@ -24,5 +24,5 @@ phys_addr_t dma_to_phys(struct device *dev, dma_addr_t
-> daddr)
-> 
->  void __init plat_swiotlb_setup(void)
->  {
-> -	swiotlb_init(1);
-> +	swiotlb_init(true, SWIOTLB_VERBOSE);
->  }
-> diff --git a/arch/mips/sibyte/common/dma.c b/arch/mips/sibyte/common/dma.c
-> index eb47a94f3583e..c5c2c782aff68 100644
-> --- a/arch/mips/sibyte/common/dma.c
-> +++ b/arch/mips/sibyte/common/dma.c
-> @@ -10,5 +10,5 @@
-> 
->  void __init plat_swiotlb_setup(void)
->  {
-> -	swiotlb_init(1);
-> +	swiotlb_init(true, SWIOTLB_VERBOSE);
->  }
-> diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
-> index 8e301cd8925b2..e1519e2edc656 100644
-> --- a/arch/powerpc/mm/mem.c
-> +++ b/arch/powerpc/mm/mem.c
-> @@ -17,6 +17,7 @@
->  #include <linux/suspend.h>
->  #include <linux/dma-direct.h>
-> 
-> +#include <asm/swiotlb.h>
->  #include <asm/machdep.h>
->  #include <asm/rtas.h>
->  #include <asm/kasan.h>
-> @@ -251,7 +252,7 @@ void __init mem_init(void)
->  	if (is_secure_guest())
->  		svm_swiotlb_init();
->  	else
-> -		swiotlb_init(0);
-> +		swiotlb_init(ppc_swiotlb_enable, 0);
->  #endif
-> 
->  	high_memory = (void *) __va(max_low_pfn * PAGE_SIZE);
-> diff --git a/arch/powerpc/platforms/pseries/setup.c
-> b/arch/powerpc/platforms/pseries/setup.c
-> index 069d7b3bb142e..c6e06d91b6602 100644
-> --- a/arch/powerpc/platforms/pseries/setup.c
-> +++ b/arch/powerpc/platforms/pseries/setup.c
-> @@ -838,9 +838,6 @@ static void __init pSeries_setup_arch(void)
->  	}
-> 
->  	ppc_md.pcibios_root_bridge_prepare = pseries_root_bridge_prepare;
-> -
-> -	if (swiotlb_force == SWIOTLB_FORCE)
-> -		ppc_swiotlb_enable = 1;
->  }
-> 
->  static void pseries_panic(char *str)
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 9535bea8688c0..181ffd322eafa 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -120,13 +120,7 @@ void __init mem_init(void)
->  	BUG_ON(!mem_map);
->  #endif /* CONFIG_FLATMEM */
-> 
-> -#ifdef CONFIG_SWIOTLB
-> -	if (swiotlb_force == SWIOTLB_FORCE ||
-> -	    max_pfn > PFN_DOWN(dma32_phys_limit))
-> -		swiotlb_init(1);
-> -	else
-> -		swiotlb_force = SWIOTLB_NO_FORCE;
-> -#endif
-> +	swiotlb_init(max_pfn > PFN_DOWN(dma32_phys_limit), SWIOTLB_VERBOSE);
->  	memblock_free_all();
-> 
->  	print_vm_layout();
-> diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
-> index 86ffd0d51fd59..6fb6bf64326f9 100644
-> --- a/arch/s390/mm/init.c
-> +++ b/arch/s390/mm/init.c
-> @@ -185,8 +185,7 @@ static void pv_init(void)
->  		return;
-> 
->  	/* make sure bounce buffers are shared */
-> -	swiotlb_force = SWIOTLB_FORCE;
-> -	swiotlb_init(1);
-> +	swiotlb_init(true, SWIOTLB_FORCE | SWIOTLB_VERBOSE);
->  	swiotlb_update_mem_attributes();
->  }
-> 
-> diff --git a/arch/x86/kernel/pci-dma.c b/arch/x86/kernel/pci-dma.c
-> index 04140e20ef1a3..a705a199bf8a3 100644
-> --- a/arch/x86/kernel/pci-dma.c
-> +++ b/arch/x86/kernel/pci-dma.c
-> @@ -39,6 +39,7 @@ int iommu_detected __read_mostly = 0;
-> 
->  #ifdef CONFIG_SWIOTLB
->  bool x86_swiotlb_enable;
-> +static unsigned int x86_swiotlb_flags;
-> 
->  static void __init pci_swiotlb_detect(void)
->  {
-> @@ -58,16 +59,16 @@ static void __init pci_swiotlb_detect(void)
->  	 * bounce buffers as the hypervisor can't access arbitrary VM memory
->  	 * that is not explicitly shared with it.
->  	 */
-> -	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
-> -		swiotlb_force = SWIOTLB_FORCE;
-> -
-> -	if (swiotlb_force == SWIOTLB_FORCE)
-> +	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)) {
->  		x86_swiotlb_enable = true;
-> +		x86_swiotlb_flags |= SWIOTLB_FORCE;
-> +	}
->  }
->  #else
->  static inline void __init pci_swiotlb_detect(void)
->  {
->  }
-> +#define x86_swiotlb_flags 0
->  #endif /* CONFIG_SWIOTLB */
-> 
->  #ifdef CONFIG_SWIOTLB_XEN
-> @@ -75,8 +76,7 @@ static bool xen_swiotlb;
-> 
->  static void __init pci_xen_swiotlb_init(void)
->  {
-> -	if (!xen_initial_domain() && !x86_swiotlb_enable &&
-> -	    swiotlb_force != SWIOTLB_FORCE)
-> +	if (!xen_initial_domain() && !x86_swiotlb_enable)
->  		return;
->  	x86_swiotlb_enable = true;
->  	xen_swiotlb = true;
-> @@ -120,8 +120,7 @@ void __init pci_iommu_alloc(void)
->  	gart_iommu_hole_init();
->  	amd_iommu_detect();
->  	detect_intel_iommu();
-> -	if (x86_swiotlb_enable)
-> -		swiotlb_init(0);
-> +	swiotlb_init(x86_swiotlb_enable, x86_swiotlb_flags);
->  }
-> 
->  /*
-> diff --git a/drivers/xen/swiotlb-xen.c b/drivers/xen/swiotlb-xen.c
-> index 485cd06ed39e7..c2da3eb4826e8 100644
-> --- a/drivers/xen/swiotlb-xen.c
-> +++ b/drivers/xen/swiotlb-xen.c
-> @@ -251,7 +251,7 @@ void __init xen_swiotlb_init_early(void)
->  		panic("%s (rc:%d)", xen_swiotlb_error(XEN_SWIOTLB_EFIXUP), rc);
->  	}
-> 
-> -	if (swiotlb_init_with_tbl(start, nslabs, true))
-> +	if (swiotlb_init_with_tbl(start, nslabs, SWIOTLB_VERBOSE))
->  		panic("Cannot allocate SWIOTLB buffer");
->  }
->  #endif /* CONFIG_X86 */
-> @@ -376,7 +376,7 @@ static dma_addr_t xen_swiotlb_map_page(struct device *dev,
-> struct page *page,
->  	/*
->  	 * Oh well, have to allocate and map a bounce buffer.
->  	 */
-> -	trace_swiotlb_bounced(dev, dev_addr, size, swiotlb_force);
-> +	trace_swiotlb_bounced(dev, dev_addr, size);
-> 
->  	map = swiotlb_tbl_map_single(dev, phys, size, size, 0, dir, attrs);
->  	if (map == (phys_addr_t)DMA_MAPPING_ERROR)
-> diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
-> index b48b26bfa0edb..ae0407173e845 100644
-> --- a/include/linux/swiotlb.h
-> +++ b/include/linux/swiotlb.h
-> @@ -13,11 +13,8 @@ struct device;
->  struct page;
->  struct scatterlist;
-> 
-> -enum swiotlb_force {
-> -	SWIOTLB_NORMAL,		/* Default - depending on HW DMA mask etc.
-> */
-> -	SWIOTLB_FORCE,		/* swiotlb=force */
-> -	SWIOTLB_NO_FORCE,	/* swiotlb=noforce */
-> -};
-> +#define SWIOTLB_VERBOSE	(1 << 0) /* verbose initialization */
-> +#define SWIOTLB_FORCE	(1 << 1) /* force bounce buffering */
-> 
->  /*
->   * Maximum allowable number of contiguous slabs to map,
-> @@ -36,8 +33,7 @@ enum swiotlb_force {
->  /* default to 64MB */
->  #define IO_TLB_DEFAULT_SIZE (64UL<<20)
-> 
-> -extern void swiotlb_init(int verbose);
-> -int swiotlb_init_with_tbl(char *tlb, unsigned long nslabs, int verbose);
-> +int swiotlb_init_with_tbl(char *tlb, unsigned long nslabs, unsigned int flags);
->  unsigned long swiotlb_size_or_default(void);
->  extern int swiotlb_late_init_with_tbl(char *tlb, unsigned long nslabs);
->  int swiotlb_init_late(size_t size);
-> @@ -126,13 +122,16 @@ static inline bool is_swiotlb_force_bounce(struct device
-> *dev)
->  	return mem && mem->force_bounce;
->  }
-> 
-> +void swiotlb_init(bool addressing_limited, unsigned int flags);
->  void __init swiotlb_exit(void);
->  unsigned int swiotlb_max_segment(void);
->  size_t swiotlb_max_mapping_size(struct device *dev);
->  bool is_swiotlb_active(struct device *dev);
->  void __init swiotlb_adjust_size(unsigned long size);
->  #else
-> -#define swiotlb_force SWIOTLB_NO_FORCE
-> +static inline void swiotlb_init(bool addressing_limited, unsigned int flags)
-> +{
-> +}
->  static inline bool is_swiotlb_buffer(struct device *dev, phys_addr_t paddr)
->  {
->  	return false;
-> diff --git a/include/trace/events/swiotlb.h b/include/trace/events/swiotlb.h
-> index 705be43b71ab0..da05c9ebd224a 100644
-> --- a/include/trace/events/swiotlb.h
-> +++ b/include/trace/events/swiotlb.h
-> @@ -8,20 +8,15 @@
->  #include <linux/tracepoint.h>
-> 
->  TRACE_EVENT(swiotlb_bounced,
-> -
-> -	TP_PROTO(struct device *dev,
-> -		 dma_addr_t dev_addr,
-> -		 size_t size,
-> -		 enum swiotlb_force swiotlb_force),
-> -
-> -	TP_ARGS(dev, dev_addr, size, swiotlb_force),
-> +	TP_PROTO(struct device *dev, dma_addr_t dev_addr, size_t size),
-> +	TP_ARGS(dev, dev_addr, size),
-> 
->  	TP_STRUCT__entry(
-> -		__string(	dev_name,	dev_name(dev)		)
-> -		__field(	u64,	dma_mask			)
-> -		__field(	dma_addr_t,	dev_addr		)
-> -		__field(	size_t,	size				)
-> -		__field(	enum swiotlb_force,	swiotlb_force	)
-> +		__string(dev_name, dev_name(dev))
-> +		__field(u64, dma_mask)
-> +		__field(dma_addr_t, dev_addr)
-> +		__field(size_t, size)
-> +		__field(bool, force)
->  	),
-> 
->  	TP_fast_assign(
-> @@ -29,19 +24,15 @@ TRACE_EVENT(swiotlb_bounced,
->  		__entry->dma_mask = (dev->dma_mask ? *dev->dma_mask : 0);
->  		__entry->dev_addr = dev_addr;
->  		__entry->size = size;
-> -		__entry->swiotlb_force = swiotlb_force;
-> +		__entry->force = is_swiotlb_force_bounce(dev);
->  	),
-> 
-> -	TP_printk("dev_name: %s dma_mask=%llx dev_addr=%llx "
-> -		"size=%zu %s",
-> +	TP_printk("dev_name: %s dma_mask=%llx dev_addr=%llx size=%zu %s",
->  		__get_str(dev_name),
->  		__entry->dma_mask,
->  		(unsigned long long)__entry->dev_addr,
->  		__entry->size,
-> -		__print_symbolic(__entry->swiotlb_force,
-> -			{ SWIOTLB_NORMAL,	"NORMAL" },
-> -			{ SWIOTLB_FORCE,	"FORCE" },
-> -			{ SWIOTLB_NO_FORCE,	"NO_FORCE" }))
-> +		__entry->force ? "FORCE" : "NORMAL")
->  );
-> 
->  #endif /*  _TRACE_SWIOTLB_H */
-> diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-> index 9a4fe6e48a074..86e877a96b828 100644
-> --- a/kernel/dma/swiotlb.c
-> +++ b/kernel/dma/swiotlb.c
-> @@ -62,7 +62,8 @@
-> 
->  #define INVALID_PHYS_ADDR (~(phys_addr_t)0)
-> 
-> -enum swiotlb_force swiotlb_force;
-> +static bool swiotlb_force_bounce;
-> +static bool swiotlb_force_disable;
-> 
->  struct io_tlb_mem io_tlb_default_mem;
-> 
-> @@ -81,9 +82,9 @@ setup_io_tlb_npages(char *str)
->  	if (*str == ',')
->  		++str;
->  	if (!strcmp(str, "force"))
-> -		swiotlb_force = SWIOTLB_FORCE;
-> +		swiotlb_force_bounce = true;
->  	else if (!strcmp(str, "noforce"))
-> -		swiotlb_force = SWIOTLB_NO_FORCE;
-> +		swiotlb_force_disable = true;
-> 
->  	return 0;
->  }
-> @@ -202,7 +203,7 @@ static void swiotlb_init_io_tlb_mem(struct io_tlb_mem *mem,
-> phys_addr_t start,
->  	mem->index = 0;
->  	mem->late_alloc = late_alloc;
-> 
-> -	if (swiotlb_force == SWIOTLB_FORCE)
-> +	if (swiotlb_force_bounce)
->  		mem->force_bounce = true;
-> 
->  	spin_lock_init(&mem->lock);
-> @@ -224,12 +225,13 @@ static void swiotlb_init_io_tlb_mem(struct io_tlb_mem
-> *mem, phys_addr_t start,
->  	return;
->  }
-> 
-> -int __init swiotlb_init_with_tbl(char *tlb, unsigned long nslabs, int verbose)
-> +int __init swiotlb_init_with_tbl(char *tlb, unsigned long nslabs,
-> +		unsigned int flags)
->  {
->  	struct io_tlb_mem *mem = &io_tlb_default_mem;
->  	size_t alloc_size;
-> 
-> -	if (swiotlb_force == SWIOTLB_NO_FORCE)
-> +	if (swiotlb_force_disable)
->  		return 0;
-> 
->  	/* protect against double initialization */
-> @@ -243,8 +245,9 @@ int __init swiotlb_init_with_tbl(char *tlb, unsigned long nslabs,
-> int verbose)
->  		      __func__, alloc_size, PAGE_SIZE);
-> 
->  	swiotlb_init_io_tlb_mem(mem, __pa(tlb), nslabs, false);
-> +	mem->force_bounce = flags & SWIOTLB_FORCE;
-> 
-> -	if (verbose)
-> +	if (flags & SWIOTLB_VERBOSE)
->  		swiotlb_print_info();
->  	return 0;
->  }
-> @@ -253,20 +256,21 @@ int __init swiotlb_init_with_tbl(char *tlb, unsigned long
-> nslabs, int verbose)
->   * Statically reserve bounce buffer space and initialize bounce buffer data
->   * structures for the software IO TLB used to implement the DMA API.
->   */
-> -void  __init
-> -swiotlb_init(int verbose)
-> +void __init swiotlb_init(bool addressing_limit, unsigned int flags)
->  {
->  	size_t bytes = PAGE_ALIGN(default_nslabs << IO_TLB_SHIFT);
->  	void *tlb;
-> 
-> -	if (swiotlb_force == SWIOTLB_NO_FORCE)
-> +	if (!addressing_limit && !swiotlb_force_bounce)
-> +		return;
-> +	if (swiotlb_force_disable)
->  		return;
-> 
->  	/* Get IO TLB memory from the low pages */
->  	tlb = memblock_alloc_low(bytes, PAGE_SIZE);
->  	if (!tlb)
->  		goto fail;
-> -	if (swiotlb_init_with_tbl(tlb, default_nslabs, verbose))
-> +	if (swiotlb_init_with_tbl(tlb, default_nslabs, flags))
->  		goto fail_free_mem;
->  	return;
-> 
-> @@ -289,7 +293,7 @@ int swiotlb_init_late(size_t size)
->  	unsigned int order;
->  	int rc = 0;
-> 
-> -	if (swiotlb_force == SWIOTLB_NO_FORCE)
-> +	if (swiotlb_force_disable)
->  		return 0;
-> 
->  	/*
-> @@ -328,7 +332,7 @@ swiotlb_late_init_with_tbl(char *tlb, unsigned long nslabs)
->  	struct io_tlb_mem *mem = &io_tlb_default_mem;
->  	unsigned long bytes = nslabs << IO_TLB_SHIFT;
-> 
-> -	if (swiotlb_force == SWIOTLB_NO_FORCE)
-> +	if (swiotlb_force_disable)
->  		return 0;
-> 
->  	/* protect against double initialization */
-> @@ -353,7 +357,7 @@ void __init swiotlb_exit(void)
->  	unsigned long tbl_vaddr;
->  	size_t tbl_size, slots_size;
-> 
-> -	if (swiotlb_force == SWIOTLB_FORCE)
-> +	if (swiotlb_force_bounce)
->  		return;
-> 
->  	if (!mem->nslabs)
-> @@ -704,8 +708,7 @@ dma_addr_t swiotlb_map(struct device *dev, phys_addr_t
-> paddr, size_t size,
->  	phys_addr_t swiotlb_addr;
->  	dma_addr_t dma_addr;
-> 
-> -	trace_swiotlb_bounced(dev, phys_to_dma(dev, paddr), size,
-> -			      swiotlb_force);
-> +	trace_swiotlb_bounced(dev, phys_to_dma(dev, paddr), size);
-> 
->  	swiotlb_addr = swiotlb_tbl_map_single(dev, paddr, size, size, 0, dir,
->  			attrs);
-> --
-> 2.30.2
 
+--uhvf2hc27jz5qxsc
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On 01.04.2022 22:00:35, Palmer Dabbelt wrote:
+> As pointed out recently [1], sparse is parsing -march on RISC-V in order
+> to obtain the default set of preprocessor macros to use.  Back when this
+> was written ISA string was a simple affair, but these days it's a lot
+> more complicated.  It's going to be a big chunk of work to get a proper
+> ISA string parser into sparse, but we can at least fix the breakages for
+> the subset of legal ISA strings that Linux currently uses (and are
+> breaking users).
+>=20
+> This patch set does three things:
+>=20
+> * Stops die()ing on unknown ISA strings, unless the user has passed
+>   -Wsparse-error.  This prints a warning and guesses at the macros to
+>   use, which is probably fine for Linux.
+> * Cleans up some of the differences between GCC's -march parsing and
+>   sparse's.  None of this should really matter for Linux, as GCC will
+>   blow up on bad ISA strings, but it just seemed worth doing when I was
+>   in there.
+> * Adds support for the Zicsr and Zifencei extensions, which were
+>   recently enabled.  With these the unknown ISA string warning goes away
+>   for Linux builds.
+>=20
+> They're all sort of independent (and happen in this order), but they're
+> all touching the same code so I'm just sending it as a series.  It's my
+> first time touching sparse.
+>=20
+> I've poked around with the first patch on its own and it seems to
+> largely work as expected: I'm still getting a bunch of sparse-related
+> warnings when I turn on sparse in my builds, but at least I don't get an
+> error (after updating to a binutils that supports the new arguments, so
+> Linux detects them).  I tried CF=3D"-Wsparse-error", which also behaves as
+> expected (that trinary boolean tripped me up for a bit).
+>=20
+> The first patch alone should be a sufficient band-aid for systems that
+> are actively broken right now, the rest are cleanups -- these may be
+> necessary to get the RISC-V port sparse-clean, but that's a WIP so there
+> might be more.  I'm going to play around with that, but just looking at
+> the volume of spew it's probably going to take a while.  I gave these
+> patches a bit of testing one-by-one, but not nearly as much as the
+> first.
+>=20
+> I just spun up a sparse repo [2] at kernel.org, these are on the riscv
+> branch if that helps for anyone.  I've also started messing around with
+> parsing a few more of the multi-letter extensions, but there's so much
+> coupling I got fed up -- it's on riscv-wip, but I definitely don't like
+> that last patch.  I figured it's better to send out these bits, as they
+> look solid to me and builds are broken.  The new stuff (B, K, and V) are
+> all in GCC-12 anyway, so we have a bit of time before they're useful.
+>=20
+> [1]: https://lore.kernel.org/linux-sparse/mhng-c280d48c-477d-4589-baee-25=
+5c774b5a51@palmer-mbp2014/T/#maef705f448e4a1f12d853c0d8bc756f037ce1ce0
+> [2]: https://git.kernel.org/pub/scm/linux/kernel/git/palmer/sparse.git
+
+Works without warnings on Debian testing, with gcc-riscv64-linux-gnu
+4:11.2.0--1.
+
+Tested-by: Marc Kleine-Budde <mkl@pengutronix.de>
+
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde           |
+Embedded Linux                   | https://www.pengutronix.de  |
+Vertretung West/Dortmund         | Phone: +49-231-2826-924     |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-5555 |
+
+--uhvf2hc27jz5qxsc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEBsvAIBsPu6mG7thcrX5LkNig010FAmJLMHIACgkQrX5LkNig
+013LiAgAlQvlYUkzHjVw5s32PRnPkbsxooJOXYzr28LqRfmAxMp5oRg3LlhkMexP
+btK0AZccaa5tHAIExbaJazLRf7YAW/bjL281OnFWubgmt9oI2rEwmEPJmC8kk5tE
+9u7s++ys0cOH17JtbGDZ+NNxyiBRti3yN7T0KnXTHDo7AOHL74sA0XHhdYXo4g8d
+z/zVVjxzFGbYdsysb8W2JVe06ppgxVGk1BE3ZUAxzBDASL0B2yCsgV3iK2hShKZ3
+1scNLdWFHXsiwT0HZEnEvWIJoh7X9XNORlUtI/t9WiyR7kKGWljsooT1cxXaVbI2
+pE00Si8mP2OEqScXZ7dkgvcugqz+Ig==
+=/UZg
+-----END PGP SIGNATURE-----
+
+--uhvf2hc27jz5qxsc--
+
+
+--===============0046639042082002599==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0046639042082002599==--
+
