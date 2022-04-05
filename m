@@ -4,117 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67286C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Apr 2022 23:34:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEA3DC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Apr 2022 00:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=//kvbgbZ2PoWlji7L/u2Nf/q3jMR64YfqVebOgtFj6A=; b=zUbpH1NqxAKiKD
-	aQWbElA/CEgMfzoi4IsanoY+Ii/UygqCwHEpbPewAM5K42IbWjsZQKlYOoQWLKO5jE3xkkbr4J6Zd
-	3RCRUxGNpmT83Y/pw2ZcyFj3H8DLqrxRjNeKJdnC6kkqroF3A8A5XMh+C9A1f/gz0DlP17WAvFDIl
-	WA8eyI+LDC5E6mRsHv7DCnxup0t9m33x86jMlsUivLP4vrOUUG2HI4x5JdBBPIrRR78H5cd7jfZ0a
-	Wcs1oqvcCKw4TK5RHzoqHPdInKSVfOVHnxRQeTdp8YyxcVJLf3qt28S8kjzAaN8j/h/0JCkfioxAD
-	RCv735/sR7f2SrcV4hxg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=vqRuXtSU56iTdV4u/NKBL0vtZJ3OEohccdL9Rkzs/bc=; b=Mf1iMyvUERM2FufvfpufqkyagC
+	bg0LaraK8/50QiBB9o74RRwL3J5cmVT3NWyeCx2IEnM4HATN84Jqb/QEevw1v2PIHI6QCMobfZaBm
+	CXfwA1V+jHaecBnKd9ioOcCfuZBTWJPfvCJWVdqleDvhsrzifLsx1cCa3IJgpaUECsZSPzZg1pUUy
+	9yOBLdMUhFzlPKNXA0XTCKzsyJw6/y7EJjCBPx8dXLJm0GljyfHtO/tzNRWCyhEF+KKglqLEMekjY
+	cdG7vFDWTZjVLOAcN19rqX0SsJjlR/DAm1QYP/A6bfT/CIAH6IdpG9DNaRVRpAvucnivRcBpbQ2NE
+	+/6fTQbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nbWDR-00Gh6k-Uw; Mon, 04 Apr 2022 23:34:33 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1nbXHz-00GlIt-Us; Tue, 05 Apr 2022 00:43:19 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nbWDO-00Gh5b-IB
- for linux-riscv@lists.infradead.org; Mon, 04 Apr 2022 23:34:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1649115270; x=1680651270;
- h=message-id:date:mime-version:subject:to:cc:references:
- from:in-reply-to:content-transfer-encoding;
- bh=+5MMmPyU6ZJJ0lTiy81U+nJ/FsY36S456cHlcxHKPSc=;
- b=mJWyRjYFbc/VyZM6MyYXc9lGHn9T1eSwjcf6CeCcrJSet+b6+rI5TdYl
- 0viSP3sPTKOyep4m+yMLPZHt4CIigzvtXwl2C3shtDYafyKAwMM1OKy/+
- yBc+idoXOqrZ5pCCwTIBxah5RGGnkR5DpVNwMo1WWNBApk2WuaEaZLxmW
- yY30Xh0xznYS6/U6oD951M+fiE5kRWVREr54jVvccqNxP5jJkNhgNfBXp
- Quli4W+N/hJ2YVujJTNGdUEOQvc6hULwHxUz9bwAmMvdRmhhC4rHTiHws
- U8qeEbQ3kBMZ0Rlj3PEdRY3EblId11G/g76rYMtmUies8FGlh2y8Ac3oG g==;
-X-IronPort-AV: E=Sophos;i="5.90,235,1643644800"; d="scan'208";a="197084032"
-Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 05 Apr 2022 07:34:28 +0800
-IronPort-SDR: jczkTfjaqolA7lOeel+1p7vB/YyFcwpXyr8kTREL1JlH/wnTod6YfxX6KTVz21GmM/O4oUCGIR
- ffUrvz7svUq+hW/nONQYzGHPcuBvtdbD/E6QKoPhloH315Vpla8tT5SGGujamintjuM+P3snYt
- W4Y97S9jFvAZO189TJTo2NOIQkTPAoAO91X4PF3Dq+pNljC880Ud2Nd6Z23ojt5VZOmYpcs4Uw
- IhEJALPUsPgo0mtSNmCkaQA/kehCSr3qTDAA49lD4MFCS8HZSxey/eTCQuaI7hf4shlEmsm3Av
- sS7nQfXeVPlo41ePJCInv2Z6
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;
- 04 Apr 2022 16:06:00 -0700
-IronPort-SDR: j9hKbCF8GPI8d+YAWWfZfztMz6suZhqOx9vj81C10UqlzcmTWn/+/s+RFoECybLDjr/jhRhQ/r
- AdC0/B6aH/JxMMDTUvjuW9qV9TXcY/88oBWvlzxDKmjFMnJH/o/4G6WMEWa/4vVYf51djGZM3g
- wymZdMI4AKTrVQOfbPd3CHLL+d0O75EC6gKSj+J7Oo5IusUISDnhLVyIHssMLRc0nioFA/m1a3
- rpkHIUu74J2nBX6p0wRxn1pxrzazujVoa4VlTMG+Vn4wh7oGqDrxYU/AD0Ox6W2334SHF8+rKi
- U8c=
-WDCIronportException: Internal
-Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
- by uls-op-cesaip01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;
- 04 Apr 2022 16:34:26 -0700
-Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
- by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4KXRv54Zmhz1SVp2
- for <linux-riscv@lists.infradead.org>; Mon,  4 Apr 2022 16:34:25 -0700 (PDT)
-Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
- reason="pass (just generated, assumed good)"
- header.d=opensource.wdc.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
- opensource.wdc.com; h=content-transfer-encoding:content-type
- :in-reply-to:organization:from:references:to:content-language
- :subject:user-agent:mime-version:date:message-id; s=dkim; t=
- 1649115264; x=1651707265; bh=+5MMmPyU6ZJJ0lTiy81U+nJ/FsY36S456cH
- lcxHKPSc=; b=NmXGSpihtKJypsJDwlOSBugs5bzoYpMuuBDgh/oBqIn+/Eb8mMq
- lI6D/MptbIBjXUVDl/UMgUaRdw4yZZvwum/7IJjbVyOrmgTT+k/7Pf/TIW2Szu6k
- gc7mfbb8PoLSzmV7Wh2r1w3TskdGFURxSc8XADmTZENiyab6u+3Ep2eTIOdqdSF6
- NWkS2OD25F1vSAjy1UWzi5Cy3L1OuNi1q6ge7xGAumKL2x02HwBUCiLi9eXMfRNm
- SiZfFUOR8TizSU1svfJKmtFfvy1CHmvgomNA5aLGazPZojpQLhdHYFwFf34/zQHz
- XYUG2Wmpho9kURuveUVhewHi9fGM2cECXOw==
-X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
-Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
- by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new,
- port 10026)
- with ESMTP id pwFzErMkOE9n for <linux-riscv@lists.infradead.org>;
- Mon,  4 Apr 2022 16:34:24 -0700 (PDT)
-Received: from [10.225.163.2] (unknown [10.225.163.2])
- by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4KXRv20dN1z1Rvlx;
- Mon,  4 Apr 2022 16:34:21 -0700 (PDT)
-Message-ID: <5245096f-6003-39a9-6e5e-db2fc4f567fd@opensource.wdc.com>
-Date: Tue, 5 Apr 2022 08:34:20 +0900
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.7.0
-Subject: Re: [RFC PULL] remove arch/h8300
-Content-Language: en-US
-To: Geert Uytterhoeven <geert@linux-m68k.org>, Arnd Bergmann <arnd@arndb.de>
-Cc: Christoph Hellwig <hch@infradead.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Yoshinori Sato <ysato@users.sourceforge.jp>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-arch <linux-arch@vger.kernel.org>,
- "moderated list:H8/300 ARCHITECTURE"
- <uclinux-h8-devel@lists.sourceforge.jp>,
- "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>,
- Max Filippov <jcmvbkbc@gmail.com>, Linux-sh list <linux-sh@vger.kernel.org>,
- linux-m68k <linux-m68k@lists.linux-m68k.org>,
- Greg Ungerer <gerg@linux-m68k.org>, Damien Le Moal <damien.lemoal@wdc.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, Rich Felker <dalias@libc.org>
-References: <Yib9F5SqKda/nH9c@infradead.org>
- <CAK8P3a1dUVsZzhAe81usLSkvH29zHgiV9fhEkWdq7_W+nQBWbg@mail.gmail.com>
- <YkmWh2tss8nXKqc5@infradead.org>
- <CAK8P3a0QdFOJbM72geYTWOKumeKPSCVD8Nje5pBpZWazX0GEnQ@mail.gmail.com>
- <CAMuHMdWcg+171ggdVC4gwbQ=RUf+cYrX3o9uSpDxo-XXEJ5Qgw@mail.gmail.com>
-From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
-Organization: Western Digital Research
-In-Reply-To: <CAMuHMdWcg+171ggdVC4gwbQ=RUf+cYrX3o9uSpDxo-XXEJ5Qgw@mail.gmail.com>
+ id 1nbXHw-00GlHz-5X
+ for linux-riscv@lists.infradead.org; Tue, 05 Apr 2022 00:43:18 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id fu5so4605241pjb.1
+ for <linux-riscv@lists.infradead.org>; Mon, 04 Apr 2022 17:43:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=IYK3K9Qzm8D7qoFu9FVNO7TkU85kFi6QdHt/GErFbBQ=;
+ b=IQD+x35fF25Pz8QsjrzaiGqr+OrPtU2AEXaT+5jVjPtiyLsJYfHE07knAkxhy0OkK5
+ SSBbSCqNCoRFSZ0ox+W10cBtf5dmrX4rwZdYnEEOw/N/4sNbJEa9qrgwGRwhxbIco8GY
+ IKK8KtkHlZR+0DjZ25Vvm+vF4wedAP1E0rs0EQKlBriCV7zuNT0wZJjszp5yq5AFv2co
+ nJpZc7HAovnqs4v1+UA791eiDoHZkKqYndP6gy88IwUUoPo9+8esFVmVrXrx4i1Vm6XY
+ OwJyg41wJJeYytAwrW1ajYcZvDUE3TR2PX+w+ihYayWZy3xNote9eGFH4GHAIfewCcYR
+ Mp1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=IYK3K9Qzm8D7qoFu9FVNO7TkU85kFi6QdHt/GErFbBQ=;
+ b=Am5YU2s6cnbkn50ITia9Rbq9xmxXTwu569SW6mNFYYi2anGC7OR5JLI3X/1cZxrXHB
+ wagktD2G+dAlN0zwnvD/G3EntaO6sakc1XaV/kLjCyh4JnMidkjisEjIk3N+Y4lHf1y9
+ vUGw2yTtdx+D2u05CWGu0EyKhHB8fyg0Y/QNgpfQB0LhRwANUgxXmcQ+Fw0pk1V1zx+P
+ +zMe7bL7oNnVwBoISy2LxziaDQkk1cKX5kBe3ubAiGtEKz4N+ZewoyFYeRlGxt50BaYZ
+ NEo/MDknD4Z4hGuEKPMLMAmKlLIMmJ+XOLaoHcUKXEKGoL8W9kxNUcZKWbZsQh4a2TIy
+ KAeg==
+X-Gm-Message-State: AOAM530Fv9DSbZktTENO5uEpxjbLvJ2r0HBY+jUH8c3TZ/wf8wV2mg7q
+ ngbDxdBTROfcD4krx21AYTjrtA==
+X-Google-Smtp-Source: ABdhPJzml31dkYouSC4L26dpRKz7DxXfFMkmyars/Rma+Ccuzdev21G3/VPOlitgjCa7LjCLFR5vsg==
+X-Received: by 2002:a17:90a:7d10:b0:1c9:7939:c70 with SMTP id
+ g16-20020a17090a7d1000b001c979390c70mr1051208pjl.203.1649119389101; 
+ Mon, 04 Apr 2022 17:43:09 -0700 (PDT)
+Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
+ a17-20020a62e211000000b004faa5233213sm12619660pfi.101.2022.04.04.17.43.08
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 04 Apr 2022 17:43:08 -0700 (PDT)
+Date: Mon, 04 Apr 2022 17:43:08 -0700 (PDT)
+X-Google-Original-Date: Mon, 04 Apr 2022 17:43:07 PDT (-0700)
+Subject: Re: [PATCH] habanalabs: Elide a warning on 32-bit targets
+In-Reply-To: <YksIkY0l8k7mmnzJ@kroah.com>
+CC: ogabbay@kernel.org, linux-riscv@lists.infradead.org,
+ Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org, osharabi@habana.ai
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Greg KH <gregkh@linuxfoundation.org>
+Message-ID: <mhng-2927288f-0f89-4f03-b3a2-35b92fd9d51e@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220404_163430_636475_517711BD 
-X-CRM114-Status: GOOD (  23.62  )
+X-CRM114-CacheID: sfid-20220404_174316_476500_7B26041D 
+X-CRM114-Status: GOOD (  32.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,57 +83,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/4/22 22:22, Geert Uytterhoeven wrote:
-> Hi Arnd,
-> 
-> On Mon, Apr 4, 2022 at 3:09 PM Arnd Bergmann <arnd@arndb.de> wrote:
->> On Sun, Apr 3, 2022 at 2:43 PM Christoph Hellwig <hch@infradead.org> wrote:
->>> On Tue, Mar 08, 2022 at 09:19:16AM +0100, Arnd Bergmann wrote:
->>>> If there are no other objections, I'll just queue this up for 5.18 in
->>>> the asm-generic
->>>> tree along with the nds32 removal.
->>>
->>> So it is the last day of te merge window and arch/h8300 is till there.
->>> And checking nw the removal has also not made it to linux-next.  Looks
->>> like it is so stale that even the removal gets ignored :(
->>
->> I was really hoping that someone else would at least comment.
-> 
-> Doh, I hadn't seen this patch before ;-)
-> Nevertheless, I do not have access to H8/300 hardware.
-> 
->> 3. arch/sh j2 support was added in 2016 and doesn't see a lot of
->> changes, but I think
->>     Rich still cares about it and wants to add J32 support (with MMU)
->> in the future
-> 
-> Yep, when the SH4 patents will have expired.
-> I believe that's planned for 2016 (Islamic calendar? ;-)
-> 
-> BTW, the unresponsiveness of the SH maintainers is also annoying.
-> Patches are sent to the list (sometimes multiple people are solving
-> the same recurring issue), but ignored.
-> 
-> Anyway, I do regular boot tests on SH4.
-> 
->> 5. K210 was added in 2020. I assume you still want to keep it.
-> 
-> FTR, I do regular boot tests on K210.
-
-FYI, we identified the problem that makes userspace execution unreliable.
-Working on a fix.
-
-
--- 
-Damien Le Moal
-Western Digital Research
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCAwNCBBcHIgMjAyMiAwODowMjo0MSBQRFQgKC0wNzAwKSwgR3JlZyBLSCB3cm90ZToK
+PiBPbiBGcmksIEFwciAwMSwgMjAyMiBhdCAxMTozNjo1M0FNIC0wNzAwLCBQYWxtZXIgRGFiYmVs
+dCB3cm90ZToKPj4gT24gRnJpLCAwMSBBcHIgMjAyMiAxMToxMzo0OCBQRFQgKC0wNzAwKSwgb2dh
+YmJheUBrZXJuZWwub3JnIHdyb3RlOgo+PiA+IE9uIEZyaSwgQXByIDEsIDIwMjIgYXQgNzo0MSBQ
+TSBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4+ID4gPgo+PiA+
+ID4gRnJvbTogUGFsbWVyIERhYmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+Cj4+ID4gPgo+PiA+
+ID4gVGhpcyBkb3VibGUtY2FzdCBwYXR0ZXJuIGxvb2tzIGEgYml0IGF3a3dhcmQsIGJ1dCBpdCBh
+bHJlYWR5IGV4aXN0cwo+PiA+ID4gZWxzZXdoZXJlIGluIHRoZSBkcml2ZXIuICBXaXRob3V0IHRo
+aXMgcGF0Y2ggSSBnZXQKPj4gPiA+Cj4+ID4gPiBkcml2ZXJzL21pc2MvaGFiYW5hbGFicy9jb21t
+b24vbWVtb3J5LmM6IEluIGZ1bmN0aW9uIOKAmGFsbG9jX2RldmljZV9tZW1vcnnigJk6Cj4+ID4g
+PiBkcml2ZXJzL21pc2MvaGFiYW5hbGFicy9jb21tb24vbWVtb3J5LmM6MTUzOjQ5OiB3YXJuaW5n
+OiBjYXN0IGZyb20gcG9pbnRlciB0byBpbnRlZ2VyIG9mIGRpZmZlcmVudCBzaXplIFstV3BvaW50
+ZXItdG8taW50LWNhc3RdCj4+ID4gPiAgIDE1MyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICh1NjQpIGdlbl9wb29sX2RtYV9hbGxvY19hbGlnbih2bS0+
+ZHJhbV9wZ19wb29sLAo+PiA+ID4gICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICBeCj4+ID4gPgo+PiA+ID4gd2hpY2ggZW5kcyB1cCBwcm9tb3Rl
+ZCB0byBhIGJ1aWxkIGVycm9yIGluIG15IHRlc3Qgc2V0dXAuCj4+ID4gPgo+PiA+ID4gU2lnbmVk
+LW9mZi1ieTogUGFsbWVyIERhYmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+Cj4+ID4gPgo+PiA+
+ID4gLS0tCj4+ID4gPgo+PiA+ID4gSSBkb24ndCBrbm93IGFueXRoaW5nIGFib3V0IHRoaXMgZHJp
+dmVyLCBJJ20ganVzdCBwYXR0ZXJuLW1hdGNoaW5nIHRoZQo+PiA+ID4gd2FybmluZyBhd2F5Lgo+
+PiA+ID4gLS0tCj4+ID4gPiAgZHJpdmVycy9taXNjL2hhYmFuYWxhYnMvY29tbW9uL21lbW9yeS5j
+IHwgMTAgKysrKystLS0tLQo+PiA+ID4gIDEgZmlsZSBjaGFuZ2VkLCA1IGluc2VydGlvbnMoKyks
+IDUgZGVsZXRpb25zKC0pCj4+ID4gPgo+PiA+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbWlzYy9o
+YWJhbmFsYWJzL2NvbW1vbi9tZW1vcnkuYyBiL2RyaXZlcnMvbWlzYy9oYWJhbmFsYWJzL2NvbW1v
+bi9tZW1vcnkuYwo+PiA+ID4gaW5kZXggZTAwOGQ4MmU0YmEzLi5mMWZjNzljMWZjMTAgMTAwNjQ0
+Cj4+ID4gPiAtLS0gYS9kcml2ZXJzL21pc2MvaGFiYW5hbGFicy9jb21tb24vbWVtb3J5LmMKPj4g
+PiA+ICsrKyBiL2RyaXZlcnMvbWlzYy9oYWJhbmFsYWJzL2NvbW1vbi9tZW1vcnkuYwo+PiA+ID4g
+QEAgLTE1MCwxMiArMTUwLDEyIEBAIHN0YXRpYyBpbnQgYWxsb2NfZGV2aWNlX21lbW9yeShzdHJ1
+Y3QgaGxfY3R4ICpjdHgsIHN0cnVjdCBobF9tZW1faW4gKmFyZ3MsCj4+ID4gPiAgICAgICAgICAg
+ICAgICAgZm9yIChpID0gMCA7IGkgPCBudW1fcGdzIDsgaSsrKSB7Cj4+ID4gPiAgICAgICAgICAg
+ICAgICAgICAgICAgICBpZiAoaXNfcG93ZXJfb2ZfMihwYWdlX3NpemUpKQo+PiA+ID4gICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICBwaHlzX3BnX3BhY2stPnBhZ2VzW2ldID0KPj4gPiA+
+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICh1NjQpIGdl
+bl9wb29sX2RtYV9hbGxvY19hbGlnbih2bS0+ZHJhbV9wZ19wb29sLAo+PiA+ID4gLSAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICBwYWdlX3NpemUsIE5VTEwsCj4+ID4gPiAtICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIHBhZ2Vfc2l6ZSk7Cj4+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAodTY0KSAodWludHB0cl90KSBnZW5fcG9vbF9kbWFfYWxsb2NfYWxpZ24o
+dm0tPmRyYW1fcGdfcG9vbCwKPj4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICBwYWdlX3NpemUsIE5VTEwsCj4+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgcGFnZV9zaXplKTsKPj4gPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIGVsc2UKPj4gPiA+
+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcGh5c19wZ19wYWNrLT5wYWdlc1tpXSA9
+ICh1NjQpIGdlbl9wb29sX2FsbG9jKHZtLT5kcmFtX3BnX3Bvb2wsCj4+ID4gPiAtICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIHBhZ2Vfc2l6ZSk7Cj4+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIHBoeXNfcGdfcGFjay0+cGFnZXNbaV0gPSAodTY0KSAodWludHB0cl90KSBnZW5fcG9v
+bF9hbGxvYyh2bS0+ZHJhbV9wZ19wb29sLAo+PiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgcGFnZV9zaXplKTsKPj4gPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIGlmICgh
+cGh5c19wZ19wYWNrLT5wYWdlc1tpXSkgewo+PiA+ID4gICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICBkZXZfZXJyKGhkZXYtPmRldiwKPj4gPiA+ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAiRmFpbGVkIHRvIGFsbG9jYXRlIGRldmljZSBtZW1vcnkgKG91dCBv
+ZiBtZW1vcnkpXG4iKTsKPj4gPiA+IC0tCj4+ID4gPiAyLjM0LjEKPj4gPiA+Cj4+ID4KPj4gPiBU
+aGlzIHBhdGNoIGlzOgo+PiA+IFJldmlld2VkLWJ5OiBPZGVkIEdhYmJheSA8b2dhYmJheUBrZXJu
+ZWwub3JnPgo+PiA+Cj4+ID4gR3JlZywKPj4gPiBDb3VsZCB5b3UgcGxlYXNlIGFwcGx5IHRoaXMg
+ZGlyZWN0bHkgdG8geW91ciBtaXNjIHRyZWUgYW5kIHNlbmQgaXQgdG8KPj4gPiBMaW51cyBhdCB5
+b3VyIG5leHQgcHVsbCByZXF1ZXN0ID8KPj4gPiBJIGRvbid0IGhhdmUgYW55IG90aGVyIGZpeGVz
+IHBlbmRpbmcgZm9yIDUuMTguCj4+ID4KPj4gPiBGb3IgNS4xOSB3ZSB3aWxsIGRvIGEgbW9yZSBl
+bGVnYW50IHNvbHV0aW9uIHRoYXQgQXJuZCBoYXMgcmVjb21tZW5kZWQuCj4+Cj4+IFRoYW5rcy4K
+Pj4KPj4gQXNzdW1pbmcgdGhpcyBpcyB0b28gbGF0ZSBmb3IgcmMxLCB3b3VsZCBpdCBiZSBwb3Nz
+aWJlIHRvIGhhdmUgaXQgaW4KPj4gc29tZXRoaW5nIEkgY2FuIHRha2UgaW50byBteSBmaXhlcy9m
+b3ItbmV4dCB3aXRob3V0IHRvbyBtdWNoIGRpZmY/ICBJIHB1dAo+PiB0aGlzIG9uIHRvcCBvZiB0
+aGUgb2ZmZW5kaW5nIGNvbW1pdCB3aXRoIGEKPj4KPj4gRml4ZXM6IGU4NDU4ZTIwZTBhMyAoImhh
+YmFuYWxhYnM6IG1ha2Ugc3VyZSBkZXZpY2UgbWVtIGFsbG9jIGlzIHBhZ2UgYWxpZ25lZCIpCj4+
+Cj4+IGF0IGtlcm5lbC5vcmcvcGFsbWVyL2hhYmFuYSAsIGlmIHRoYXQgaGVscHMgYW55LiAgTm8g
+YmlnIGRlYWwgaWYgaXQgZ29lcyBpbgo+PiBhbm90aGVyIHdheSwgaXQncyBqdXN0IG5pY2UgdG8g
+a2VlcCBhbGx5ZXNjb25maWcgYnVpbGRpbmcgb24gbXkgYnJhbmNoZXMKPj4gZGlyZWN0bHkuCj4K
+PiBMb29rcyBsaWtlIEd1ZW50ZXIgc2VudCBpbiBhICJtb3JlIGNvbXBsZXRlIiB2ZXJzaW9uIG9m
+IHRoaXMuICBJJ2xsCj4gcXVldWUgaXQgdXAgdG8gbXkgdHJlZSBhbmQgZ2V0IGl0IHRvIExpbnVz
+IGZvciAtcmMyLgoKSSdtIGZpbmUgd2l0aCBhbnl0aGluZyBoZXJlLCBhcyBsb25nIGFzIGl0IGZp
+eGVzIG15IGJ1aWxkIGVycm9ycyA7KS4KCkRvIHlvdSBtaW5kIGdpdmluZyBtZSBhIHBvaW50ZXI/
+ICBUaGF0IHdheSBJIGNhbiB1c2UgZXhhY3RseSB3aGF0J3MgCmdvaW5nIHVwc3RyZWFtLCByYXRo
+ZXIgdGhhdCBrZWVwaW5nIGFyb3VuZCB0aGlzIG5vdy1kZWFkLWVuZCBkaWZmIChJIApwb2tlZCBh
+cm91bmQgeW91ciBrZXJuZWwub3JnIHRyZWVzIGFuZCBjb3VsZG4ndCBmaW5kIGFueXRoaW5nLCBi
+dXQgSSd2ZSAKbm90IGRvbmUgdGhhdCBiZWZvcmUpLgoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
