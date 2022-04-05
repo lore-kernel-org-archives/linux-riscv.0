@@ -4,75 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40352C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Apr 2022 16:56:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5F6AC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Apr 2022 16:59:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=yStN4+zRYbn9zvOGFzCoFbLbXVVhRnVcC50yMI33KDM=; b=uDcdHaGi+rX5QG3USs0O9ZNfiU
-	iBdLtXwMGzGQnqitfVMolqHD7GlNBkMjeS+4x37ibn0cN2EAT52tbzSqUkq1DdHJAOVvPhSnf62VF
-	ShQa+gK4u6pctn5cpfnhyV5PXrIvzcRpMgDXC+XO6S/23IKBsJst05yBgn1dBgLsNv6JzExgrvRWE
-	kTrSPNtGalesxl5JUa42XzoQVRpEYPlaKOtzXnL0I9aDQ1KQggphC9b+7APJi9kvqr95FXqkcL69F
-	Av8nY9hoWQWgqMCrz8NOY+qwmKfugPExKlB8FiEiZafnwSs/4sx0wHinTVDGkwsO5hzx8cI/7Q2tp
-	uRLPKBkA==;
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=E4lmLeOZ1zK7SrmarsH0rUYbk2m+EkvDXx9SHdAmtnA=; b=xUldHCKWSl5m8P
+	QF3KIbFCI5SpISoaeLO93AsI688NgaxMm5qDWe8fFcD2jZ1v/Kxa/HgNg1zimBvsvE9b+h/ZfSsLm
+	PgGrzwBFisLbOVg1We15Seh6S8+zv1u/aC2NUbGifpanOWD1C5/PX7Ag5BnJC0rRUcWJ6DUNpyMPO
+	U+bOHN2kkgavuUox6GG9R1BkF0PwfK8O6wZuSfTZ8ipS3l+l4A2tczs6DjAvSd/jk1/BakXMO6q1D
+	9+4XzmEdKY4JIQ3KXQv1RzyKL6mnEYWOjt8O+2twzOuPbajiYX+K21ZsKsCVHqNrqvXUYtGpveTNI
+	NH4cZDdGyJuZ0EJbCVmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nbmTc-00221j-W8; Tue, 05 Apr 2022 16:56:21 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1nbmWA-0022R8-LY; Tue, 05 Apr 2022 16:58:58 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nbmTZ-00220o-IA
- for linux-riscv@lists.infradead.org; Tue, 05 Apr 2022 16:56:19 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id i11so11364639plg.12
- for <linux-riscv@lists.infradead.org>; Tue, 05 Apr 2022 09:56:15 -0700 (PDT)
+ id 1nbmW7-0022Ps-40
+ for linux-riscv@lists.infradead.org; Tue, 05 Apr 2022 16:58:56 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id j12so12680360wrb.5
+ for <linux-riscv@lists.infradead.org>; Tue, 05 Apr 2022 09:58:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=pD9fPwmVTM/jGE8ljozcqxyf1v/JIowTzA8YgXdXgLo=;
- b=6Yhc3GQ5D13EfpCiyxWdY9ATp+e66X5WPXMk58IseiYggOh8EF4zh770E/Bk7DRo51
- p4h4+pm4+wXMgBLs7qhYW6r1vVN2Wm7Iva6ruTUNUbuSqXPQ14wKHV8caf3YtyNS2Lzu
- Kveambm80gsiXG3DrJFesbT6dQs5tecj4kseuZoRyGhEDF0QpghcROkKwiOozw0IonrY
- cFQp7Fy2dYV4yttfGd+tA5dCEWgo4daS5HamfxZ1aTcDAeoqoOlCSQkeSBOmIT+3oI3o
- n27q25I2PMjmmtWPK+zyETaS0EMrgPC0vQ+07cBMFsDLQXUr/NREnSNOapE4gsNk4ftz
- tSMg==
+ d=conchuod-ie.20210112.gappssmtp.com; s=20210112;
+ h=message-id:date:mime-version:user-agent:subject:content-language:to
+ :cc:references:from:in-reply-to:content-transfer-encoding;
+ bh=8aHjdrzxvuuwSECjwvJEnyfmwIs0wnZS2SDA3RmFL94=;
+ b=72YUET14s8SEElAjSW0t3i7Yg1P7m27US94euc+B33qxKztjfcGXWvx5NmgLNsPFPt
+ NUtwyeaPm0bEEKvJfJJ3dXbf8AwIYARvwG++ClpEOZ2H4hdjKtMD4NuuQ2h5jsJjUrGN
+ VpJrvhQOF8FP9ygCyEBB9ZE856r3d6Nat+AmmD0WS8tvqUAnFRfNq8laLiCRToRcbQsY
+ tD9CyQ1lmY4Z0vyt8FGthgoX3rhMa/nzzmjplRK0zP23F9UmfcRidP9oKmHsER2Pwr6V
+ BgtsZUo6I2/RV02DWXU6bnUqtu62K/wn829LFg5RVq6dFNAeoc/LfhIJoowRY2cPev6p
+ J/Lw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=pD9fPwmVTM/jGE8ljozcqxyf1v/JIowTzA8YgXdXgLo=;
- b=w4xTgXg+TsMZtk5BQDv5HYPjphGJXvqe5qhQJ2GCd/aQZuS4FRVmQv4IqsJTy+oObF
- RTykz+sGzpjW9B/+WPoffQ8pza8bxS4IflQAhDVrxCoY6qXuGztCiPSWU8ES8Zk4Znq5
- ZqHtz1qG4dDKHZeFEgukwsfOTu4Pc6/Xt0bs/OTcR5mrtFel4ebCAxors9oseZ0lQeK6
- VRmyR1s/99LpBRUR/XUGyyGcqIPHAMvoJJqBHBVRJ3HtVrr5XjpXD6uyoHDVBkpBqRU4
- Zo1zz5zRb64/qIJSYU7UuLRryMfD6dHifD/+C7cuOHRQhr0CeB/sp0e/jhudoxaCSwwJ
- uN5Q==
-X-Gm-Message-State: AOAM532sJ87U/nKa3mGcUyCmVxcxGMS66kKuAgR60WxHAt6xR8WtQOyN
- Z4uhv+XFP5BLrE+LlYl+Jib9Og==
-X-Google-Smtp-Source: ABdhPJxURqOrvjUNTuGDdXp9QzgwB0B9A/Tn2x7b4aAfTIkHHSa8BmZtjlyBr0mLrouMcWOZ+7cwhQ==
-X-Received: by 2002:a17:90a:7841:b0:1c7:e8ad:ea25 with SMTP id
- y1-20020a17090a784100b001c7e8adea25mr5206129pjl.25.1649177774636; 
- Tue, 05 Apr 2022 09:56:14 -0700 (PDT)
-Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
- p18-20020a17090ad31200b001cab747e864sm2785950pju.43.2022.04.05.09.56.13
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 05 Apr 2022 09:56:13 -0700 (PDT)
-Date: Tue, 05 Apr 2022 09:56:13 -0700 (PDT)
-X-Google-Original-Date: Tue, 05 Apr 2022 09:56:11 PDT (-0700)
+ h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+ :content-language:to:cc:references:from:in-reply-to
+ :content-transfer-encoding;
+ bh=8aHjdrzxvuuwSECjwvJEnyfmwIs0wnZS2SDA3RmFL94=;
+ b=FhEAFAV4fdp0ccwI7z6MVAHwQpQSx5gLy50nRqXeVtcSaffiH1/vnyyLNEDgjOSF0D
+ O2nocNLgOLORCkwkF6fMYzP2fTNT+XHYLjkUqx7t/Eycu1vzzINtf7Vm+pR+Q+nNPuAE
+ QMU9kJ8fbo7PGYlN1TajitZOdxyY/wjy978DhoAosNoxQCMJkHsi0hEw5eSUsO5ifRTv
+ IPL6tFbCdpoyTTThHxynfaSFEB1k5O/MWho3ExPTT1s/1LmuI/4pPivkyvkGqMRHwHkg
+ CBh3q0EKAf9bNR9PY3zCVjgDQbTr36fYvIV3rJ/rQOdS/U/Sucj3xTKviny6j3oJQ/V7
+ +XhQ==
+X-Gm-Message-State: AOAM53152xCSIMLDm2Rcr02d54JrijswwntDnTffvSxx6hDAgML1+CwH
+ kwuvFUMMyv3giKNL0zPP5FdG7w==
+X-Google-Smtp-Source: ABdhPJzjFdsPWmaS5MX3p/c9EvEWmyhF7l9YbAzv9tGV0wm6kHYJ1M5CL8YrSb98zEk1M6MVwxm2IQ==
+X-Received: by 2002:a5d:6505:0:b0:205:9a98:e184 with SMTP id
+ x5-20020a5d6505000000b002059a98e184mr3238708wru.317.1649177931194; 
+ Tue, 05 Apr 2022 09:58:51 -0700 (PDT)
+Received: from [192.168.2.116] ([51.37.209.28])
+ by smtp.gmail.com with ESMTPSA id
+ s1-20020adfb781000000b002060d4a8bd9sm7578666wre.17.2022.04.05.09.58.50
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Tue, 05 Apr 2022 09:58:50 -0700 (PDT)
+Message-ID: <0415ff44-34fd-2f00-833d-fbcea3a967cb@conchuod.ie>
+Date: Tue, 5 Apr 2022 17:58:50 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.7.0
 Subject: Re: riscv defconfig CONFIG_PM/macb/generic PHY regression in v5.18-rc1
-In-Reply-To: <Ykxl4m1uPPDktZnD@shell.armlinux.org.uk>
-CC: Conor.Dooley@microchip.com, apatel@ventanamicro.com, netdev@vger.kernel.org,
+Content-Language: en-US
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>, Conor.Dooley@microchip.com
+Cc: palmer@rivosinc.com, apatel@ventanamicro.com, netdev@vger.kernel.org,
  Nicolas.Ferre@microchip.com, Claudiu.Beznea@microchip.com, andrew@lunn.ch,
  hkallweit1@gmail.com, linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: linux@armlinux.org.uk
-Message-ID: <mhng-524fe1b1-ca51-43a6-ac0f-7ea325da8b6a@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+References: <9f4b057d-1985-5fd3-65c0-f944161c7792@microchip.com>
+ <Ykxl4m1uPPDktZnD@shell.armlinux.org.uk>
+From: Conor Dooley <mail@conchuod.ie>
+In-Reply-To: <Ykxl4m1uPPDktZnD@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220405_095617_632908_99419C0A 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20220405_095855_214082_1546348F 
+X-CRM114-Status: GOOD (  15.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,7 +95,9 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 05 Apr 2022 08:53:06 PDT (-0700), linux@armlinux.org.uk wrote:
+
+
+On 05/04/2022 16:53, Russell King (Oracle) wrote:
 > On Tue, Apr 05, 2022 at 01:05:12PM +0000, Conor.Dooley@microchip.com wrote:
 >> Hey,
 >> I seem to have come across a regression in the default riscv defconfig
@@ -98,44 +106,36 @@ On Tue, 05 Apr 2022 08:53:06 PDT (-0700), linux@armlinux.org.uk wrote:
 >> machine") which causes the ethernet phy to not come up on my Icicle kit:
 >> [ 3.179864] macb 20112000.ethernet eth0: validation of sgmii with support 0000000,00000000,00006280 and advertisement 0000000,00000000,00004280 failed: -EINVAL
 >> [ 3.194490] macb 20112000.ethernet eth0: Could not attach PHY (-22)
->
+> 
 > I don't think that would be related to the idle driver. This looks like
 > the PHY hasn't filled in the supported mask at probe time - do you have
 > the driver for the PHY built-in or the PHY driver module loaded?
 
-IIRC we had a bunch of issues with the PHY on the HiFive Unleashed, 
-there was a quirky reset sequence that it wouldn't even probe 
-correctly without.  We have a 
+Hey Russel,
+The idle stuff enabled CONFIG_PM=y though in the default riscv
+defconfig, so it is not confined to just QEMU.
 
-    &eth0 {
-            status = "okay";
-            phy-mode = "gmii";
-            phy-handle = <&phy0>;
-            phy0: ethernet-phy@0 {
-                    compatible = "ethernet-phy-id0007.0771";
-                    reg = <0>;
-            };
-    };
+I am not sure what the symbol for the generic phy & I am not at work
+to properly check, so I hope this is the relevant part of the config:
 
-in the Unleashed DT, but I can't find anything similar in the Icicle DT
+CONFIG_PHYLINK=y
+CONFIG_PHYLIB=y
+CONFIG_SWPHY=y
+CONFIG_FIXED_PHY=y
 
-    &mac1 {
-            status = "okay";
-            phy-mode = "sgmii";
-            phy-handle = <&phy1>;
-            phy1: ethernet-phy@9 {
-                    reg = <9>;
-                    ti,fifo-depth = <0x1>;
-            };
-            phy0: ethernet-phy@8 {
-                    reg = <8>;
-                    ti,fifo-depth = <0x1>;
-            };
-    };
+If it isn't, you should be able to generate the config I used to cause
+the error with:
+make ARCH=RISCV defconfig
 
-I seem to remember picking that specific phy because it was similar to 
-the one that was POR for the Icicle at the time we decided, maybe you 
-have a similar phy with a similar quirk and need a similar workaround?
+If you look at my response to Andrew [1] you'll see that my problems
+are not isolated to just the Generic PHY driver as a builtin Vitesse
+driver has issues too (although validation appears to have passed).
+
+Thanks,
+Conor.
+
+[1] 
+https://lore.kernel.org/linux-riscv/60fd1eb7-a2ce-9084-c567-721e975e7e86@microchip.com/
 
 _______________________________________________
 linux-riscv mailing list
