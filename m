@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6673CC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Apr 2022 07:30:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C0AC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Apr 2022 07:30:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y9Rrmw7zE6JBNH4+u6Dic09etWkwmiaaLw3d0DZvAt0=; b=kp2gKd6DMHciBV
-	Tl+ABz8CiezS2zBCgdgX/6xbXB9aYg+HxkkxdbYzFjv1FztSWTrv9UW+KceRcnqbC5fauDdWZfuQv
-	fhEf7civ22wjqFGQ9qMCTrYT3ToW8pNm6ZyYatCKC7nt4xSIqHNtYrmSTd5rtqCv5EGmR3WBrlxPI
-	aFR1uLFF2s8sMKFOlb+JkXQVwFAFz7UeJSmtr906CIwhOPrhmbJKqDRuICE1NRDhnTIHi5h2MZTAk
-	EHCZ5FjkXeRQVj6TjNiG3AVtDBJB2ar6vlO4M3zBj5bjONQqR8tFnMsOTGfXiT3Qt2l8cFNkpF6yI
-	A3PsSRlnmZSaVFuziVLA==;
+	List-Owner; bh=Vmx2gPtlhITMTNcF9so+JHlVBIZ526JtvRbftN32rZs=; b=hiw/Us1Ae8mT5D
+	UBPY2VVFjxdQ+LfXL1bkyl+43a/W5J1bJdmQ88qC21rTFEPaLenaG+1NcQlyCBo3jyPQKRfRRsBgF
+	y8rAgdRySTGbjypL6opveEfxmcj+5lHgz7S3kIXdqC8/z4R8WjHJ/ljpNIEgfs90cULpj3o9qvGCP
+	iqdRsDKWALOnasAjneijFtAYr3IjEu41mDK3wvBbX1yGEdyN4rnAEOdfBvB1UrVnq4kMbPs4TFNTo
+	XxDjpissHguyCPnytdlcyjY6Se3yUs28U/XLpdvXg82njbfzhdrRaMGdzlRGoPud5FROGrDjzEqOe
+	eOXme8z5T/YxYL365r4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nbde2-00HXlS-Qt; Tue, 05 Apr 2022 07:30:31 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1nbdeB-00HXrK-Dx; Tue, 05 Apr 2022 07:30:39 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nbdSH-00HRrT-89
- for linux-riscv@lists.infradead.org; Tue, 05 Apr 2022 07:18:23 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id
- v64-20020a1cac43000000b0038cfd1b3a6dso945623wme.5
- for <linux-riscv@lists.infradead.org>; Tue, 05 Apr 2022 00:18:17 -0700 (PDT)
+ id 1nbdSi-00HS4Y-Jj
+ for linux-riscv@lists.infradead.org; Tue, 05 Apr 2022 07:18:49 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id k23so5299329wrd.8
+ for <linux-riscv@lists.infradead.org>; Tue, 05 Apr 2022 00:18:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20210112.gappssmtp.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=j5tZD+8M1iPFQIpWPsYamWZAVUcin+PVrYzA4YmgT9M=;
- b=fwxyiskvlIWhb4yoz+2d8DfK/fDF9kpIsj1v16e5zIvUjuTsRqhCJOFl05KNjnR1dw
- oonmm9pVay2hFWOiOFAbJ7dn7AHRarZUB51K/rDMrO52UGnRsj0lSzd2lgRxtb+OxIRl
- IgpXfxAnPI2wpb+5qJeC0MuWD3RZGoIQEZ+ogFkEYpSYTVQw4ABKMBca0ZXnLKFMvEQz
- QdhofkXfbLPxcHl4i2KJqdCwUeO5sC1D7G1h/tn68KmMvPa0ZOVhXIkAy7QphAYkTazb
- USrRPCFfrjAaMOaC2mAVwXLODZM++PjK43MI+M9Q3aTBfmuFw1YJzwLkykwbNCFn9o1+
- X6WQ==
+ :cc; bh=SWmIF7kdZQxOjvhVF27iSPZYouYPyeTWvrXCvBCoo6M=;
+ b=0J2XyiFI8hdOaU2qz1ah0ep9G8tAOnRKLZ6ukhI9wkUUo5KnuOQbgSO39MPE+PxSaB
+ 9fcCB22vkp4p2Jdpl7epatdu/IwwsG9xRFG2SwyTCN+cpHriPBOGT/AKUPpuWy7fEuiY
+ FzcMI0o+dtoUMfwOq08y1Kw7kpkXYyUZOrIpMNT1feIrO+Rh7tighQYA7aaD6T7QiiSq
+ 9DY2OOtK0QP/SEvUIQDPuB8zsSZ0Em0pmi8MMmHCPVlZCGQa75UypwxrnnT+r5toac+U
+ FgCrpJLlWeg1dgw8SkcY9FbRtdnJvx/Upq8B+DHwAntkGhm7NtuJppmAqEy2SBCRcBcZ
+ bHOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=j5tZD+8M1iPFQIpWPsYamWZAVUcin+PVrYzA4YmgT9M=;
- b=j/iRpdsv1j4PHZqdQp50gx9zG7a64/PL8X2js6ee046kgelSOCHM/9oU1kWdZz0FW0
- zdYLU6ceb03tiDcFyhPZkTBz3MM9DNoDX1T9QSGBhQD8Ll/ctC7BMLizfMMDAf6KmJ+B
- qXsrZhxNvcxv7nwXiEKAFNlP2A+CHRs9lvRUsKr/IhuZHe+O5jFKQp/mi9Zpx6UxJkBU
- V8zZNSlNUZge0XcqhhtGONiO8VoGOCrF8fRqfBSKJ4mKhf0M3buq5rDHM4R4C2sAa/sO
- Czgu1QUBHSEcddzOp5mHJ9VOTISBjXkAqKV7uhixPmY9paGfLT3o3ZW9b+1xrF1NC6SV
- UR+w==
-X-Gm-Message-State: AOAM5325U1QPjPOPTGA7aW9guO5T7dQXFKVu9Vr8nbc5fUy0HonAdJMq
- rd/8EsPLyvQWwl8q1u7Ai2W3RcwnDdMtq5S7jU19og==
-X-Google-Smtp-Source: ABdhPJwdmM8TCHa4eoVn8sKC+Sod0b/E/a9HSoTDWMUxnS9+yZz84ZdrIE85cb44FScPTht6hP0nLp3dojxP605Lpt4=
-X-Received: by 2002:a05:600c:3c9b:b0:38e:4c59:68b9 with SMTP id
- bg27-20020a05600c3c9b00b0038e4c5968b9mr1754749wmb.105.1649143096491; Tue, 05
- Apr 2022 00:18:16 -0700 (PDT)
+ bh=SWmIF7kdZQxOjvhVF27iSPZYouYPyeTWvrXCvBCoo6M=;
+ b=Pyy2ojfGE05T+iCb0nr4QLC+oHJ1Tf//uIotdyhdNnrIJCql8zu/h1Q0Hh4ZRJYWta
+ oacV3VZ1Vv8s+0YRJNo+OlqMIHLYBp+TqpHh2BEfKNNk48BpKyW8MNoQ+ZcGkEpLsnlb
+ 6aE8MFX1nNIjvc3ENuHH6UwvK2ClqSOPWirtcxUIDpbZRr2TiZLEzPiW6MOX5rpVAh4Y
+ 0QeyGxVmUi70TP1HQOZl0RRbMXqb7lAj/jmcHj7LLs4lbc0ri/By/mcunvRMNIF4B2lN
+ jpdi77ICRdMvyqu9HDGQKmOCO9RrYUZL2OOpdAtBj6rSBHNaAxDB6YFLoaJBXFVp82go
+ hl5A==
+X-Gm-Message-State: AOAM532EWN0qlcBKw5kTqe2t1+vbwjXfKTn2Al2MmM2OdlS0ZKwA2lfQ
+ mHCfySEfqp+SrMW0Hbib2JytVB6KxsAK+NKbXlBqCA==
+X-Google-Smtp-Source: ABdhPJxEY7vXcjMbr9oQrtXXmbTMIbRAKE4OTBjGL+A63xeISLJrnIJ5bBgyZuPVxJhL+9+JmuYgJizmKmiifNf9NNM=
+X-Received: by 2002:adf:f88e:0:b0:206:ce5:af99 with SMTP id
+ u14-20020adff88e000000b002060ce5af99mr1455734wrp.313.1649143121363; Tue, 05
+ Apr 2022 00:18:41 -0700 (PDT)
 MIME-Version: 1.0
 References: <20220329072911.1692766-1-apatel@ventanamicro.com>
- <20220329072911.1692766-2-apatel@ventanamicro.com>
-In-Reply-To: <20220329072911.1692766-2-apatel@ventanamicro.com>
+ <20220329072911.1692766-3-apatel@ventanamicro.com>
+In-Reply-To: <20220329072911.1692766-3-apatel@ventanamicro.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Tue, 5 Apr 2022 12:48:03 +0530
-Message-ID: <CAAhSdy2=q4u9UR7zYks5A-3k1q4srOqk14O3+a14sUS5Qa+Ppg@mail.gmail.com>
-Subject: Re: [PATCH 1/3] KVM: selftests: riscv: Set PTE A and D bits in
- VS-stage page table
+Date: Tue, 5 Apr 2022 12:48:28 +0530
+Message-ID: <CAAhSdy0ZZAVPr68VK2k+0HQDZHyaCGTv1FgQKHqh2=T1wYzZtg@mail.gmail.com>
+Subject: Re: [PATCH 2/3] KVM: selftests: riscv: Fix alignment of the
+ guest_hang() function
 To: Anup Patel <apatel@ventanamicro.com>
 Cc: Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atishp@atishpatra.org>, 
  Palmer Dabbelt <palmer@dabbelt.com>,
@@ -75,8 +74,8 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atishp@atishpatra.org>,
  linux-riscv <linux-riscv@lists.infradead.org>, 
  "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220405_001821_322244_495E977C 
-X-CRM114-Status: GOOD (  19.01  )
+X-CRM114-CacheID: sfid-20220405_001848_680677_8A10C282 
+X-CRM114-Status: GOOD (  17.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,18 +94,11 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Tue, Mar 29, 2022 at 12:59 PM Anup Patel <apatel@ventanamicro.com> wrote:
 >
-> Supporting hardware updates of PTE A and D bits is optional for any
-> RISC-V implementation so current software strategy is to always set
-> these bits in both G-stage (hypervisor) and VS-stage (guest kernel).
->
-> If PTE A and D bits are not set by software (hypervisor or guest)
-> then RISC-V implementations not supporting hardware updates of these
-> bits will cause traps even for perfectly valid PTEs.
->
-> Based on above explanation, the VS-stage page table created by various
-> KVM selftest applications is not correct because PTE A and D bits are
-> not set. This patch fixes VS-stage page table programming of PTE A and
-> D bits for KVM selftests.
+> The guest_hang() function is used as the default exception handler
+> for various KVM selftests applications by setting it's address in
+> the vstvec CSR. The vstvec CSR requires exception handler base address
+> to be at least 4-byte aligned so this patch fixes alignment of the
+> guest_hang() function.
 >
 > Fixes: 3e06cdf10520 ("KVM: selftests: Add initial support for RISC-V
 > 64-bit")
@@ -118,24 +110,22 @@ Thanks,
 Anup
 
 > ---
->  tools/testing/selftests/kvm/include/riscv/processor.h | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
+>  tools/testing/selftests/kvm/lib/riscv/processor.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
-> index dc284c6bdbc3..eca5c622efd2 100644
-> --- a/tools/testing/selftests/kvm/include/riscv/processor.h
-> +++ b/tools/testing/selftests/kvm/include/riscv/processor.h
-> @@ -101,7 +101,9 @@ static inline void set_reg(struct kvm_vm *vm, uint32_t vcpuid, uint64_t id,
->  #define PGTBL_PTE_WRITE_SHIFT                  2
->  #define PGTBL_PTE_READ_MASK                    0x0000000000000002ULL
->  #define PGTBL_PTE_READ_SHIFT                   1
-> -#define PGTBL_PTE_PERM_MASK                    (PGTBL_PTE_EXECUTE_MASK | \
-> +#define PGTBL_PTE_PERM_MASK                    (PGTBL_PTE_ACCESSED_MASK | \
-> +                                                PGTBL_PTE_DIRTY_MASK | \
-> +                                                PGTBL_PTE_EXECUTE_MASK | \
->                                                  PGTBL_PTE_WRITE_MASK | \
->                                                  PGTBL_PTE_READ_MASK)
->  #define PGTBL_PTE_VALID_MASK                   0x0000000000000001ULL
+> diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
+> index d377f2603d98..3961487a4870 100644
+> --- a/tools/testing/selftests/kvm/lib/riscv/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
+> @@ -268,7 +268,7 @@ void vcpu_dump(FILE *stream, struct kvm_vm *vm, uint32_t vcpuid, uint8_t indent)
+>                 core.regs.t3, core.regs.t4, core.regs.t5, core.regs.t6);
+>  }
+>
+> -static void guest_hang(void)
+> +static void __aligned(16) guest_hang(void)
+>  {
+>         while (1)
+>                 ;
 > --
 > 2.25.1
 >
