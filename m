@@ -4,94 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2433C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Apr 2022 21:22:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46999C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Apr 2022 23:00:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dETcOzWhku1GPjHVoz66swuYL8nibhepwwq6jCs9pOo=; b=of8MLm7bs4ZelY
-	FheBHHc8tI6Z+OvZDxmNWwGjs8XBfZTkQd4dZmfVWD4HjZociiV6aXWo9SIy4erLmSWJzRdCJg4h0
-	+nLftan3p6/qW75QL9VqqSiD/h4lBGsbenMYV/CwV/CQShEvz6XG7WSRPVh27+yMs7YP3K3ownP0G
-	Dw2D3wItcKD1RSq3/6kA+nwLldVu5PEjuDQp2/CSg0pBbHzaa8HIE7+s6ik4yVRMBAr8FOTd50sSm
-	wLfzMFyPuNuIVqG8sQr6aPfhs+jbS20jlCPP8B7VetGbYHN0gsztkz8D74VdCnaYgFhvXC7NXPpKv
-	7loDzuppvoQAv7E+FguQ==;
+	List-Owner; bh=KcGlx4sDvVdGcAkVgtS+WaVFzrcfBhHdgbTp/7hWqxE=; b=ROelmU4x6Dv0tL
+	wdYarq8fVlO/Lf4TmzUzutdfHD0kCTpRkTYlwaBrmSxudBYLuDZt1vxNWXOLNoLgNk5oTt7P3INr4
+	JPFAq/oiyxAQ064Is7ncqaciyl5OhnYkB7D+iqvQhuUA++K2EF2gtcVLVGIxOSFJ8/uS2+A3uoxRC
+	x7Y76sod8Dj+KIYQCrliZ8WPi5FsnutBRVUpI/JRDqzYRcPKUPVYhYu/qOvwp9EuaMgDdj5vP5q3m
+	ORMXI7wtFQvCRT2kJbdCUDk99sKB6Uljvf5zWuOF3SJH011ElKmxuNMp5jSkyRCYhgsrudfQwKPaY
+	iEI45hAT/tepy7ZFX6XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ncD6C-00800N-3E; Wed, 06 Apr 2022 21:21:56 +0000
-Received: from mail-ot1-x330.google.com ([2607:f8b0:4864:20::330])
+	id 1ncEdn-008BLn-F1; Wed, 06 Apr 2022 23:00:43 +0000
+Received: from mail-yb1-xb29.google.com ([2607:f8b0:4864:20::b29])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ncD68-007zxE-Bi
- for linux-riscv@lists.infradead.org; Wed, 06 Apr 2022 21:21:54 +0000
-Received: by mail-ot1-x330.google.com with SMTP id
- b17-20020a0568301df100b005ce0456a9efso2579111otj.9
- for <linux-riscv@lists.infradead.org>; Wed, 06 Apr 2022 14:21:49 -0700 (PDT)
+ id 1ncEdj-008BKh-OS
+ for linux-riscv@lists.infradead.org; Wed, 06 Apr 2022 23:00:41 +0000
+Received: by mail-yb1-xb29.google.com with SMTP id l36so6593665ybj.12
+ for <linux-riscv@lists.infradead.org>; Wed, 06 Apr 2022 16:00:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=landley-net.20210112.gappssmtp.com; s=20210112;
- h=message-id:date:mime-version:user-agent:subject:content-language:to
- :cc:references:from:in-reply-to:content-transfer-encoding;
- bh=HfFrcmd70k7cFbm2ZXnWFiX/H5FhSCRXyrLZ2pjFPSI=;
- b=JWAdKKIGlR2GXRY2EyBHJpOHb12AGoA/GSAiazO0z3sUuJl2pbLq3y8f2LLZRiK7ag
- jF0pPAE80m/StQPAn0HI9Jocd1N932K40FWD3K+6jyCPxSDW85yi+b5RM+j3udvxF4+j
- 4zvhIFli6DskhDlP9Zev4QI97hRqVRtIMcyyKrm7nX3owwnxPNDHJhwIikd2t2FloXmA
- Wk/pQwPT1sVLvBHFuFUW6X+vOB/f3di+0I5KpQAE5mktFyy59esdv+bNVlWExchHjewr
- ahjX/NWsjkK4v6+AkxwjmUhoWZbdfC6ilBaig9EYYETbKicXqqZULA+yUUodPHV8EKDI
- QR8g==
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=REjKncLjp1nMKQiEVjK+/uhj8//u0cu6B7KXtRM9r0I=;
+ b=MJPDFk9xgUfUcoxyHGRS04ucddscvQEz6AdsQIvm761bw9DkU77tscCfmzvO8eMGEw
+ hPOQ+KzEf58oJ57iItjoMirP1fti/p1Zxx2SlFFhcSxaO0Meql0WcuaIGuIZdl2rJT++
+ TEh4SJH8up9i4QL7p/UZQZJBUXXvb6rk2R/jE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:cc:references:from:in-reply-to
- :content-transfer-encoding;
- bh=HfFrcmd70k7cFbm2ZXnWFiX/H5FhSCRXyrLZ2pjFPSI=;
- b=70p1mmlG78MxD386asgNPSg5ZQd5UCg1Bu5uV0eZYq1vVv4LbiHZZQaHcF8J6dWE+Z
- 7bUKOywRDU4Ne0BnI7pXQIL0wdTjJt579H8ZdcnSZSmKMvhLZQLy3xzDzAUN5s8zRec9
- nzyO4imw9FkcdXN0ltiO5S3jD4NIuk76EGBC0v2Vyh6WZJz7dOAUtV982liW38a+yhEk
- uPryInC+wuxyehXC2ZmKrc+8j8u+ABNRcmGG1my1hBieS0h/tvUljkZpHrRFkHKSVIWE
- GgvvgvBUcmFDjKl9tuHwb7WPwysAcdFS/r3mTeuE3Ov0Dg8oFlCXnulWtfYQ4Jh7+uYX
- 5QwQ==
-X-Gm-Message-State: AOAM532/GE9fMIXnMn2bzGiFIags0pRDCFR/E7Zxj2L6BuKrEYQAJ2qk
- tlKHDCChpSTXA3eYOJIdrt93tw==
-X-Google-Smtp-Source: ABdhPJxZn7W+k8uRxWVFozQX95YWH7+EoUvtnn2OqSRwx2HUCEvYG912nG22JE+OWDU4RAdahCRb6g==
-X-Received: by 2002:a9d:4d12:0:b0:5c9:4997:452c with SMTP id
- n18-20020a9d4d12000000b005c94997452cmr3741105otf.127.1649280109270; 
- Wed, 06 Apr 2022 14:21:49 -0700 (PDT)
-Received: from [192.168.86.186] ([136.62.4.88])
- by smtp.gmail.com with ESMTPSA id
- e12-20020a4aa60c000000b00324bb45d7ecsm6352052oom.48.2022.04.06.14.21.48
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Wed, 06 Apr 2022 14:21:48 -0700 (PDT)
-Message-ID: <c3e7ee64-68fc-ed53-4a90-9f9296583d7c@landley.net>
-Date: Wed, 6 Apr 2022 16:25:48 -0500
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=REjKncLjp1nMKQiEVjK+/uhj8//u0cu6B7KXtRM9r0I=;
+ b=yAx0/P8szucPlEYn6f10PkYso2MoInWbTPkvDzVg8wZq9RwZQg3zgGSPLE7XeeWTDc
+ SqnQftl+0YKhcWiXbTRcOyt2fkoESLKQg+hJNsWumlp9nqVJAHGZ7RgfXVQbbb/T5h48
+ KVciy7KMXuDnSVyGPofw8KjEiMewwC9SJt86Ibib9ZRcb0EslMnbqKaYWeI49xtE0dms
+ 1a96RKPBmh8QGOx1qslKn7leNEb9DYH1lMEel8HwfFBq+t2SGZu2bztXDNXr5cNYxY+E
+ +Ts8sSndUol0VK5psi2Y1lArF6Zix8i5bB09K9az1PNW+fWBGDDyBw7iBLd/yn2wFLV6
+ UnkA==
+X-Gm-Message-State: AOAM533zMfZgVkRfeufE/Ym+XY7eyt+lD+iuDI33xRqoomzpkbXu48Qc
+ a4ND/A6ItciBZ0+/7B/GxO3D+emAbikB0+TL+jYb
+X-Google-Smtp-Source: ABdhPJx7Chr0rGxiUnrjypds2chKs2NOIkH2YmsqX59fMJZsjyQFVpluGZPATnKXNHyatQVrQDsVUDosstbC6rqlzeI=
+X-Received: by 2002:a5b:803:0:b0:633:749f:9acd with SMTP id
+ x3-20020a5b0803000000b00633749f9acdmr8257311ybp.236.1649286037416; Wed, 06
+ Apr 2022 16:00:37 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.6.2
-Subject: Re: [RFC PULL] remove arch/h8300
-Content-Language: en-US
-To: Geert Uytterhoeven <geert@linux-m68k.org>, Arnd Bergmann <arnd@arndb.de>
-Cc: Christoph Hellwig <hch@infradead.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Yoshinori Sato <ysato@users.sourceforge.jp>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-arch <linux-arch@vger.kernel.org>,
- "moderated list:H8/300 ARCHITECTURE"
- <uclinux-h8-devel@lists.sourceforge.jp>,
- "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>,
- Max Filippov <jcmvbkbc@gmail.com>, Linux-sh list <linux-sh@vger.kernel.org>,
- linux-m68k <linux-m68k@lists.linux-m68k.org>,
- Greg Ungerer <gerg@linux-m68k.org>, Damien Le Moal <damien.lemoal@wdc.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, Rich Felker <dalias@libc.org>
-References: <Yib9F5SqKda/nH9c@infradead.org>
- <CAK8P3a1dUVsZzhAe81usLSkvH29zHgiV9fhEkWdq7_W+nQBWbg@mail.gmail.com>
- <YkmWh2tss8nXKqc5@infradead.org>
- <CAK8P3a0QdFOJbM72geYTWOKumeKPSCVD8Nje5pBpZWazX0GEnQ@mail.gmail.com>
- <CAMuHMdWcg+171ggdVC4gwbQ=RUf+cYrX3o9uSpDxo-XXEJ5Qgw@mail.gmail.com>
-From: Rob Landley <rob@landley.net>
-In-Reply-To: <CAMuHMdWcg+171ggdVC4gwbQ=RUf+cYrX3o9uSpDxo-XXEJ5Qgw@mail.gmail.com>
+References: <mhng-9cbb2a46-8bcb-4bfe-b927-0ed469dbd3a6@palmer-mbp2014>
+ <cd8d6641-4a29-7deb-49ae-a80baab0344f@canonical.com>
+In-Reply-To: <cd8d6641-4a29-7deb-49ae-a80baab0344f@canonical.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Wed, 6 Apr 2022 16:00:26 -0700
+Message-ID: <CAOnJCUKDWBhphwvOc=waPiwFr5nT7otohJKr-yhoLYM=UBubQA@mail.gmail.com>
+Subject: Re: [PATCH v2] RISC-V: Increase range and default value of NR_CPUS
+To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Alistair Francis <Alistair.Francis@wdc.com>, 
+ Anup Patel <anup@brainfault.org>, linux-riscv <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Anup Patel <apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220406_142152_692643_1AD5E1EB 
-X-CRM114-Status: GOOD (  37.06  )
+X-CRM114-CacheID: sfid-20220406_160040_086668_7F6854D3 
+X-CRM114-Status: GOOD (  39.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,112 +85,119 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/4/22 08:22, Geert Uytterhoeven wrote:
-> Hi Arnd,
-> 
-> On Mon, Apr 4, 2022 at 3:09 PM Arnd Bergmann <arnd@arndb.de> wrote:
->> On Sun, Apr 3, 2022 at 2:43 PM Christoph Hellwig <hch@infradead.org> wrote:
->> > On Tue, Mar 08, 2022 at 09:19:16AM +0100, Arnd Bergmann wrote:
->> > > If there are no other objections, I'll just queue this up for 5.18 in
->> > > the asm-generic
->> > > tree along with the nds32 removal.
->> >
->> > So it is the last day of te merge window and arch/h8300 is till there.
->> > And checking nw the removal has also not made it to linux-next.  Looks
->> > like it is so stale that even the removal gets ignored :(
->>
->> I was really hoping that someone else would at least comment.
-> 
-> Doh, I hadn't seen this patch before ;-)
-> Nevertheless, I do not have access to H8/300 hardware.
+On Wed, Apr 6, 2022 at 2:55 AM Heinrich Schuchardt
+<heinrich.schuchardt@canonical.com> wrote:
+>
+> On 3/31/22 21:42, Palmer Dabbelt wrote:
+> > On Sat, 19 Mar 2022 05:12:06 PDT (-0700), apatel@ventanamicro.com wrote:
+> >> Currently, the range and default value of NR_CPUS is too restrictive
+> >> for high-end RISC-V systems with large number of HARTs. The latest
+> >> QEMU virt machine supports upto 512 CPUs so the current NR_CPUS is
+> >> restrictive for QEMU as well. Other major architectures (such as
+> >> ARM64, x86_64, MIPS, etc) have a much higher range and default
+> >> value of NR_CPUS.
+> >>
+> >> This patch increases NR_CPUS range to 2-512 and default value to
+> >> XLEN (i.e. 32 for RV32 and 64 for RV64).
+> >>
+> >> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> >> ---
+> >> Changes since v1:
+> >>  - Updated NR_CPUS range to 2-512 which reflects maximum number of
+> >>    CPUs supported by QEMU virt machine.
+> >> ---
+> >>  arch/riscv/Kconfig | 7 ++++---
+> >>  1 file changed, 4 insertions(+), 3 deletions(-)
+> >>
+> >> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> >> index 5adcbd9b5e88..423ac17f598c 100644
+> >> --- a/arch/riscv/Kconfig
+> >> +++ b/arch/riscv/Kconfig
+> >> @@ -274,10 +274,11 @@ config SMP
+> >>        If you don't know what to do here, say N.
+> >>
+> >>  config NR_CPUS
+> >> -    int "Maximum number of CPUs (2-32)"
+> >> -    range 2 32
+> >> +    int "Maximum number of CPUs (2-512)"
+> >> +    range 2 512
+>
+> For SBI_V01=y there seems to be a hard constraint to XLEN bits.
+> See __sbi_v01_cpumask_to_hartmask() in rch/riscv/kernel/sbi.c.
+>
+> So shouldn't this be something like:
+>
+> range 2 512 !SBI_V01
+> range 2 32 SBI_V01 && 32BIT
+> range 2 64 SBI_V01 && 64BIT
+>
 
-The 8300 never got qemu support but I had lunch with the maintainer in Tokyo a
-few years back and he showed me how to use gdb to simulate it, which included
-booting Linux under the gdb simulation (built-in initramfs talking to serial
-console). Here's somebody else using gdb simulation for h8/300:
+Yes. In addition to that, we should disable RISCV_BOOT_SPINWAIT as well
+so that you don't end up in  case where -smp argument in Qemu < NR_CPUs
 
-https://www4.cs.fau.de/~felser/RCXSimulator/
+Palmer already has a patch for that.
+https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git/commit/?h=riscv-spinwait
 
-I'm interested in H8300 because it's a tiny architecture (under 6k lines total,
-in 93 files) and thus a good way to see what a minimal Linux port looks like. If
-somebody would like to suggest a different one for that...
+> >>      depends on SMP
+> >> -    default "8"
+> >> +    default "32" if 32BIT
+> >> +    default "64" if 64BIT
+> >>
+> >>  config HOTPLUG_CPU
+> >>      bool "Support for hot-pluggable CPUs"
+> >
+> > I'm getting all sorts of boot issues with more than 32 CPUs, even on the
+> > latest QEMU master.  I'm not opposed to increasing the CPU count in
+> > theory, but if we're going to have a setting that goes up to a huge
+> > number it needs to at least boot.  I've got 64 host threads, so it
+> > shouldn't just be a scheduling thing.
+>
+> Currently high performing hardware for RISC-V is missing. So it makes
+> sense to build software via QEMU on x86_64 or arm64 with as many
+> hardware threads as available (128 is not uncommon).
+>
+> OpenSBI currently is limited to 128 threads:
+> include/sbi/sbi_hartmask.h:22:
+> #define SBI_HARTMASK_MAX_BITS 128
+> This is just an arbitrary value we can be modified.
+>
+> U-Boot v2022.04 qemu-riscv64_smode_defconfig has a value of
+> CONFIG_SYS_MALLOC_F_LEN that is to low. This leads to a boot failure for
+> more than 16 harts. A patch to correct this is pending:
+> [PATCH v2 1/1] riscv: alloc space exhausted
+> https://lore.kernel.org/u-boot/CAN5B=eKt=tFLZ2z3aNHJqsnJzpdA0oikcrC2i1_=ZDD=f+M0jA@mail.gmail.com/T/#t
+>
+> With QEMU 7.0 and the U-Boot fix booting into a 5.17 defconfig kernel
+> with 64 virtual cores worked fine for me.
+>
 
->> 3. arch/sh j2 support was added in 2016 and doesn't see a lot of
->> changes, but I think
->>     Rich still cares about it and wants to add J32 support (with MMU)
->> in the future
-> 
-> Yep, when the SH4 patents will have expired.
+For me, OpenSBI -> Linux path works for 128 harts for bunch of configs from here
 
-They've had a working J32 on FPGA for a while now, the problem is porting Linux
-to it. The MMU design they went with wasn't compatible with sh3/sh4. (Userspace
-is, kernel side needs some tweaking.) And they don't want to finalize the design
-until they have proper test loads running on it, and then they went off to do
-VPN hardware and such during the pandemic...
+https://github.com/palmer-dabbelt/riscv-systems-ci/tree/master/configs/linux
 
-> I believe that's planned for 2016 (Islamic calendar? ;-)
+with RISCV_BOOT_SPINWAIT disabled.
 
-The website's kind of archived and needs to be completely redone. (It moved
-hosts and I lost access to update it for a while, and I got sucked into other
-projects since. The mailing list server is also mothballed. Ask Jeff, I brought
-it up every weekly call for 6 months...)
+> Best regards
+>
+> Heinrich
+>
+> >
+> > If there was some hardware that actually boots on these I'd be happy to
+> > take it, but given that it's just QEMU I'd prefer to sort out the bugs
+> > first.  It's probably just latent bugs somewhere, but allowing users to
+> > turn on configs we know don't work just seems like the wrong way to go.
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> >
+>
 
-Jeff's team is working on making a J2 asic this year (through sky130), and
-everything else is queued up after that. They've been grabbing various I/O
-subsystems (like the GPS correlators and crypto engine and such) and doing work
-on them to make go/no-go decisions for the asic inclusion. (Lots of activity
-goes by on the Signal channel, but I can't even get cut and paste to work in
-that thing's Android app, and I don't really have the domain expertise to help
-out with that part.)
 
-> BTW, the unresponsiveness of the SH maintainers is also annoying.
-> Patches are sent to the list (sometimes multiple people are solving
-> the same recurring issue), but ignored.
-
-I mailed four or five turtle boards out to people last year, in hopes of getting
-wider testing, but everybody I sent one to seems to have vanished. (The pandemic
-chip shortage kinda derailed plans to productize that...)
-
-I tested 5.17 on J2 FPGA when it came out, and it booted with two local patches:
-
-1) Commit 790eb67374 needs to be reverted or the j2 boot just hangs before
-producing any console output. Dunno why, it seems COMPLETELY unrelated, and yet.
-(Wild guess: disturbs the alignment of some important piece of data? Rich knows
-and it's in queue.)
-
-2) This patch from Rich stops the j2 boot messages from being a thousand lines
-of IRQ warnings, but he called it a hack when he sent it to me and I have no
-clue what a "proper" fix would look like (or why that isn't)?
-
-diff --git a/drivers/irqchip/irq-jcore-aic.c b/drivers/irqchip/irq-jcore-aic.c
-index 5f47d8ee4ae3..730252cb7b08 100644
---- a/drivers/irqchip/irq-jcore-aic.c
-+++ b/drivers/irqchip/irq-jcore-aic.c
-@@ -68,6 +68,7 @@ static int __init aic_irq_of_init(struct device_node *node,
- 	unsigned min_irq = JCORE_AIC2_MIN_HWIRQ;
- 	unsigned dom_sz = JCORE_AIC_MAX_HWIRQ+1;
- 	struct irq_domain *domain;
-+	int rc;
-
- 	pr_info("Initializing J-Core AIC\n");
-
-@@ -100,6 +101,11 @@ static int __init aic_irq_of_init(struct device_node *node,
- 	jcore_aic.irq_unmask = noop;
- 	jcore_aic.name = "AIC";
-
-+	rc = irq_alloc_descs(min_irq, min_irq, dom_sz - min_irq,
-+			     of_node_to_nid(node));
-+	if (rc < 0)
-+		pr_info("Cannot allocate irq_descs @ IRQ%d, assuming pre-allocated\n",
-+			min_irq);
- 	domain = irq_domain_add_legacy(node, dom_sz - min_irq, min_irq, min_irq,
- 				       &jcore_aic_irqdomain_ops,
- 				       &jcore_aic);
-
-I'm spinning too many plates to reliably reply to stuff, but I try to check in
-as often as I can, and at LEAST regression test each new release.
-
-Rob
+-- 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
