@@ -4,81 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6847C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Apr 2022 14:27:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD18BC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Apr 2022 18:14:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Tb4QR4UrjoCt8A5L/5/+hGPBUOjainAjPhuJWCC9ZVs=; b=JQB2YdsYJa5nEE
-	FU88FGBZEA+MqCvhs4gci3FnYL1g6YxRmtJ19/Wwfex98c/75X+TZ6asgB+n39iKOKE5UjtgugZPF
-	mp0R6Kk5PcsD914uJtZTkN6zlLbSXYzkOkynVrDZnL6+HPsidgNXJdXY2mLi4jp7QsPaOwwnEerGt
-	1Nk8oA90EWJUGhXhyRjxWxTUIezvm7lUM52SKYqlaoLAqYT8PbyVJHhGQOM1RA7UvabjuzW8T62sG
-	zekMs/+pV+WKvy9h6GMmT/oTEoP8hLFA69QDfQgU7A1eJ3gHPBNG5EcZs9mqWazWLVVDWvAIQvWxq
-	vUdI9m43Dc5ixeI7HWww==;
+	List-Owner; bh=6YxsSCEis4XK3DkR94D7D6FPgbD/hKzEZKVOtAInwJY=; b=B1bEuUBBiJs4Jr
+	ioLEcAHh+hKTRIi6qM+JZ+ExM3fuSmOYeBR1WlQrDHz8DhteOwzKR1x/vKhJPfHz+xSsWa2DHQX1L
+	i79kdA69daC1NTSjNvU8brokHXmEwfHCjJtA4uCzU/+K8BSo1Q5NaAZOoyH1MhLe0T9MC346L1JaX
+	UjFI2F+ohdOqjeHo9/w3c9uDYXuhM/TeAlnmon5DkVqSSoA6JZqEcAXQ8K3I6Tcv6NLYfP2kCVwxa
+	ERvkhCoJ/t46tGxV6YcJ6QTMRlKQsmokl1ogR9O4AJzkvemfJ5BZEvj3SsYcS/Hb67R66bS5+xmni
+	QhjTUSobGxb1hld+fhvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nc6cn-006V8Z-HA; Wed, 06 Apr 2022 14:27:09 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1ncAA5-007U9V-HR; Wed, 06 Apr 2022 18:13:45 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nc6cl-006V4p-1G
- for linux-riscv@lists.infradead.org; Wed, 06 Apr 2022 14:27:08 +0000
-Received: by mail-pf1-x432.google.com with SMTP id x16so2583228pfa.10
- for <linux-riscv@lists.infradead.org>; Wed, 06 Apr 2022 07:26:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=BlaHLYunH8lWogXwwfxKssKzGVm1nfRpO2uSQYLbmK4=;
- b=AycY1YVxDa54nJpBch0AKnr4fQqh/ofZJHis8/uZ7wWJOSQexNGu/TkhQXKuTapuXC
- Oe0RTNTVoKpp9diugvrz243dFZbkcxw/T8tMGwStdU+fCK+j2Ng2TYLu1+PiyS/gV1Wv
- pPHe7/3wW0TWlMBi2i4VpHd/+8ByOIIEpavuN48UycUL5rHNxoliDoxgMBz0j5xkeUby
- u/USPSXfwuWum/duFYlfBDvSJTNM8tLjjX+o3LNlFaLkBgY9VeFNWY5BslVxu2rjmiln
- 9DUlBRuW4kl95PYl2NIQkQk0dmE9KaAMyNbVThROAJEVvAq7eOeUYsRJFkfyJywlASMs
- oN7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=BlaHLYunH8lWogXwwfxKssKzGVm1nfRpO2uSQYLbmK4=;
- b=yG1RYPI6eH7q4sEZ8jmwK7SnoFT3PkOMa0j7QDQfOHP/86MpJiEiy6vtCxxyc6pfUl
- cdOykXEsSQo0lLewtfkYL2V17PR1lsiK5r7vXSK3E3MEIgPtC8547FOIw+fhxvaarsym
- T2bkAKz7D+2oR6QEewemLT7t+zwPXYR/bxJEsN/uPgg3Db39tj+kUUt+hW30lUK7m1wc
- TJ3zek7/H/j+ieLDHgXTTlFJcUDBEhKXbcZ69FYtftNceW8N278vZm/kb8KusZ4gYrGh
- GWDlveMTj+4rnBtMzXd0HVr4sIh6hvNcmkuhK5BwINm3PkfvyR+zuX5qus3rL8yjbkBY
- lu8g==
-X-Gm-Message-State: AOAM5326zUp5bXd60JtjepEgmB+caHrVbT0KSPChT9kxTHIOG68lFbzM
- zuZgOLtuOOKyogLhZLlDSoyKQA==
-X-Google-Smtp-Source: ABdhPJwaAJtnGiRN+5RAf/ZIeJzHbeGqbgF7hWd3RWch1tryvglddvyOCvMokwbAKr+NAy0lWkH8pw==
-X-Received: by 2002:a63:f10c:0:b0:382:623b:3bb9 with SMTP id
- f12-20020a63f10c000000b00382623b3bb9mr7287904pgi.97.1649255218336; 
- Wed, 06 Apr 2022 07:26:58 -0700 (PDT)
-Received: from hsinchu16.internal.sifive.com
- (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
- by smtp.gmail.com with ESMTPSA id
- k137-20020a633d8f000000b0039800918b00sm16424151pga.77.2022.04.06.07.26.54
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 06 Apr 2022 07:26:57 -0700 (PDT)
-From: Eric Lin <eric.lin@sifive.com>
-To: peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
- mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org,
- namhyung@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- iii@linux.ibm.com, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Cc: paul.walmsley@sifive.com, greentime.hu@sifive.com,
- Eric Lin <eric.lin@sifive.com>
-Subject: [PATCH 1/1] perf jitdump: Add riscv64 support.
-Date: Wed,  6 Apr 2022 22:26:06 +0800
-Message-Id: <20220406142606.18464-2-eric.lin@sifive.com>
-X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20220406142606.18464-1-eric.lin@sifive.com>
-References: <20220406142606.18464-1-eric.lin@sifive.com>
+ id 1ncAA2-007U8V-QL
+ for linux-riscv@lists.infradead.org; Wed, 06 Apr 2022 18:13:44 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 2BAA1B82004;
+ Wed,  6 Apr 2022 18:13:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 555C0C385A3;
+ Wed,  6 Apr 2022 18:13:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+ s=korg; t=1649268819;
+ bh=QMVfExX2amMvHMtMH2GP6BV4ahQ74qFyqqVQ9KVADKw=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=nVLUe7kjQEhu47BJhERVDSXy36Yev3KQsjVkpGHx4Xhpkkjbfpx+xmOXrE0vwvRH1
+ izDi+3ku6R7AFPmW3NTCcJkcIWmMPWwHpQi5D65PUOkQaTLvTVm9zcgMF1Hzqcdrv/
+ apzPtGjoyfCVSk3vOs4spS75LuzT+ireuOcoiQ84=
+Date: Wed, 6 Apr 2022 20:13:36 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: guoren@kernel.org
+Cc: arnd@arndb.de, palmer@dabbelt.com, linux-arch@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Guo Ren <guoren@linux.alibaba.com>, Palmer Dabbelt <palmer@rivosinc.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>, stable@vger.kernel.org
+Subject: Re: [PATCH V3] riscv: patch_text: Fixup last cpu should be master
+Message-ID: <Yk3YUFfvEszb+cXT@kroah.com>
+References: <20220406141649.728971-1-guoren@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220406141649.728971-1-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220406_072707_115018_AC94F4AE 
-X-CRM114-Status: UNSURE (   7.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220406_111343_037884_B6A05BA4 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,37 +71,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Signed-off-by: Eric Lin <eric.lin@sifive.com>
----
- tools/perf/arch/riscv/Makefile | 1 +
- tools/perf/util/genelf.h       | 3 +++
- 2 files changed, 4 insertions(+)
+On Wed, Apr 06, 2022 at 10:16:49PM +0800, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
+> 
+> These patch_text implementations are using stop_machine_cpuslocked
+> infrastructure with atomic cpu_count. The original idea: When the
+> master CPU patch_text, the others should wait for it. But current
+> implementation is using the first CPU as master, which couldn't
+> guarantee the remaining CPUs are waiting. This patch changes the
+> last CPU as the master to solve the potential risk.
+> 
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+> Reviewed-by: Masami Hiramatsu <mhiramat@kernel.org>
+> Cc: <stable@vger.kernel.org>
+> ---
+>  arch/riscv/kernel/patch.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/tools/perf/arch/riscv/Makefile b/tools/perf/arch/riscv/Makefile
-index 1aa9dd772489..a8d25d005207 100644
---- a/tools/perf/arch/riscv/Makefile
-+++ b/tools/perf/arch/riscv/Makefile
-@@ -2,3 +2,4 @@ ifndef NO_DWARF
- PERF_HAVE_DWARF_REGS := 1
- endif
- PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET := 1
-+PERF_HAVE_JITDUMP := 1
-diff --git a/tools/perf/util/genelf.h b/tools/perf/util/genelf.h
-index 3db3293213a9..ae138afe6c56 100644
---- a/tools/perf/util/genelf.h
-+++ b/tools/perf/util/genelf.h
-@@ -38,6 +38,9 @@ int jit_add_debug_info(Elf *e, uint64_t code_addr, void *debug, int nr_debug_ent
- #elif defined(__s390x__)
- #define GEN_ELF_ARCH	EM_S390
- #define GEN_ELF_CLASS	ELFCLASS64
-+#elif defined(__riscv) && __riscv_xlen == 64
-+#define GEN_ELF_ARCH	EM_RISCV
-+#define GEN_ELF_CLASS	ELFCLASS64
- #else
- #error "unsupported architecture"
- #endif
--- 
-2.35.1
+What commit id does this change fix?
 
 
 _______________________________________________
