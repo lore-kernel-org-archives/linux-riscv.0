@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC58C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Apr 2022 06:33:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59F35C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Apr 2022 06:36:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g1ZMoEaE3n/tPY6QS8OVMemOMpfgnA95JePxZBzwW7w=; b=DxNK8s3xd1v0N8
-	BGvtZRoxfJTXd+tmNdOhEeJ0iNWgsT1N8YaaA97JEFxQOWjMjm1W2EnVSEkYUPmszxyaUA5BvQpoi
-	KJEW9nbOTICTWzjemJNF+Vt+v4hgoEXdLtHotl1P85Kh1hxpfFX1vt9UKfc+2NcM423jJVPNTIca3
-	PFt8k33pjBb+0hS/S/fQrvMstHaIUvxGb8vanxxzF87f+txX5Il8TIYEUQBxXvuNhEVGIURgfGdrn
-	2KvfF4MKQbtf6aTtyEqC1aAmJdG9VhP17Dhh9bOQihxs0y5lEgbvb3KlZnsJYQLoYsImjTRl4vq8/
-	10L5YP95i7llDJ43IfEQ==;
+	List-Owner; bh=WAqTK6BSRfo/JKDGPZ1ujoYQoUthd8W97sV8mu3QqZg=; b=U38oywsxqwFx37
+	d4P6Kj28dhEW5SMdRiPFw2gUlcYbXlHVZqMtXI0Q23+HNK6+41u6sUkUVCwxrpGXd1kbqk82YTpru
+	Bn96pmdMf5qV/C9A6U8Oxf+EUF+V5uGr2Kep6WOYCxB+yZ/lOjqiJCwHDKs6cbfFG3CX1OwTudXV+
+	ofQ1jxC9NgYXLMuzAvoq+CruyPT6/tPs+pW+T9bYdW0bMK3Gq4nuMwsd/TF9YF2PzHzK+Kq4Y7b1X
+	zVNMqnGRuQyMwXO+tUqHNTljQbGY192NrDVcjLS8d4n+cqacS6rVWJbEiZx0FETUQW2YsZkpzc1LH
+	gcNlzYy/e8BQrTJCHxPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ncLi3-009hFT-Be; Thu, 07 Apr 2022 06:33:35 +0000
+	id 1ncLl4-009i6v-He; Thu, 07 Apr 2022 06:36:42 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ncLhz-009hDw-Jw
- for linux-riscv@lists.infradead.org; Thu, 07 Apr 2022 06:33:33 +0000
+ id 1ncLl1-009i4f-Cm
+ for linux-riscv@lists.infradead.org; Thu, 07 Apr 2022 06:36:41 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 7D60661D50
- for <linux-riscv@lists.infradead.org>; Thu,  7 Apr 2022 06:33:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57A54C385AB
- for <linux-riscv@lists.infradead.org>; Thu,  7 Apr 2022 06:33:29 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id E1EF461CDD
+ for <linux-riscv@lists.infradead.org>; Thu,  7 Apr 2022 06:36:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CDA3C385A8
+ for <linux-riscv@lists.infradead.org>; Thu,  7 Apr 2022 06:36:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1649313209;
- bh=sDANlglzy7xVa8qGoxcrgCLEkRlQHE1kd8mStA7Kz0c=;
+ s=k20201202; t=1649313398;
+ bh=y8Hzh6X4ov/pWCwdyVdXH8J0X9JbXxB31XioMauX8I0=;
  h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=Q0EHT5pnwshFeUDmtz85bKrE/NAtBkY1SyxftEQ+3zRMyhbEqMn331qKHMfCHknO2
- /eKy55yCqS3/cnwKSYncJEYLWeMoXNzHjJieYuNYosu3o/3AE5wwf4/dGIlqvIH92E
- TCQ1lch8dSL5pr3JDvT11dqPE3HME8uWGkNmn678PJNs04mbQLEgmrchE1ldjvAH6b
- LpMiv8l+x+FiIxY/VlyANEPnLmmcXht4AYdrUwVBQTaPcmxphV4y48hJRAgffJeSGH
- CJJGAEHjPDfPvvedIGboghdIltzlyaMVa1k9OPT6wE/CoPvQM2NxK5Dyt3GEUPGww0
- OwHjJtonlDkLA==
-Received: by mail-vk1-f182.google.com with SMTP id q10so578843vkh.0
- for <linux-riscv@lists.infradead.org>; Wed, 06 Apr 2022 23:33:29 -0700 (PDT)
-X-Gm-Message-State: AOAM5326dJ3/yswtWR93apZovgUw+kRD4SChUTJQunUeye907BKvjNw9
- Srmi14hUppUP13tC3Wm7INTZS+jb4280UN29IVc=
-X-Google-Smtp-Source: ABdhPJzMCqMoT2Gd6QJ5rs+cItH1+UtCvIzkKAHZRFSnh1VzJk3cciLCRxgzeP2vyn9dXGYHTrgGhuFB+wbWj19KRm8=
-X-Received: by 2002:a1f:bd96:0:b0:33f:6185:f723 with SMTP id
- n144-20020a1fbd96000000b0033f6185f723mr4303359vkf.28.1649313208175; Wed, 06
- Apr 2022 23:33:28 -0700 (PDT)
+ b=gSRWIyM3zCcHxW0KEvgIQOePA23ryzGrMJh6y33avUH9lLcLrtTQbZxSylSSYUeVE
+ gQWdDTSap7/UqEXOOufd5NcOPqgdymPNRdXk7dKn8L5FGrktzXbDwNt0VF0+dN7z9L
+ cy6o+LnitEiQm+05Itm9yK6HOOVzirB+SWsPD1QS4g02xD2fvLXJu6pnJNznL8w4y8
+ G3AF5EPP8SW3SMZKuGyFOeWEFraKTJM3h/U92wkO8GNTwwoQMlMp/s4kAinGXaLlIY
+ wK//amQjSkVwz786YWzyA9xQ9hlxTrjPKBCMSRBXe36441jcNImZXJVN4bNTQOg2v/
+ j5lylyQFMb16g==
+Received: by mail-ua1-f48.google.com with SMTP id 63so3119256uaw.10
+ for <linux-riscv@lists.infradead.org>; Wed, 06 Apr 2022 23:36:38 -0700 (PDT)
+X-Gm-Message-State: AOAM533hJ5qJJm4+bYQr6/JmyRTywuUBb1rqrj9OkHtg4Wj5MBVQ0pFq
+ G0Q7TDnpyvboQqEQ70E1On6rtVmc7uGQR5GGKWw=
+X-Google-Smtp-Source: ABdhPJydzCgTxScgqH3neRJgDnYZjHcS9lgL73MhlBIqhRB6tjH5OZPFpm4siyD9r6yxEwjcjdMCGPb4oXGfY4egEzI=
+X-Received: by 2002:a9f:2048:0:b0:352:9b4f:ac98 with SMTP id
+ 66-20020a9f2048000000b003529b4fac98mr3551530uam.12.1649313397262; Wed, 06 Apr
+ 2022 23:36:37 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220406141649.728971-1-guoren@kernel.org>
- <Yk3YUFfvEszb+cXT@kroah.com>
-In-Reply-To: <Yk3YUFfvEszb+cXT@kroah.com>
+References: <Yk3YUFfvEszb+cXT@kroah.com>
+ <mhng-492e449b-ad90-4725-86a0-d5d84e4c35be@palmer-mbp2014>
+In-Reply-To: <mhng-492e449b-ad90-4725-86a0-d5d84e4c35be@palmer-mbp2014>
 From: Guo Ren <guoren@kernel.org>
-Date: Thu, 7 Apr 2022 14:33:17 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQH-cnTx_x3xO=UZRTrhewb0damO_cqtPxhxoZe6bxr8g@mail.gmail.com>
-Message-ID: <CAJF2gTQH-cnTx_x3xO=UZRTrhewb0damO_cqtPxhxoZe6bxr8g@mail.gmail.com>
+Date: Thu, 7 Apr 2022 14:36:26 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTS_W6NyA4mhHm4fsCsbAGaEb8XN-k=Aq=SCdOEP-kuy9g@mail.gmail.com>
+Message-ID: <CAJF2gTS_W6NyA4mhHm4fsCsbAGaEb8XN-k=Aq=SCdOEP-kuy9g@mail.gmail.com>
 Subject: Re: [PATCH V3] riscv: patch_text: Fixup last cpu should be master
-To: Greg KH <gregkh@linuxfoundation.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Greg KH <gregkh@linuxfoundation.org>, Arnd Bergmann <arnd@arndb.de>, 
  linux-arch <linux-arch@vger.kernel.org>, 
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
  linux-riscv <linux-riscv@lists.infradead.org>,
  Guo Ren <guoren@linux.alibaba.com>, 
- Palmer Dabbelt <palmer@rivosinc.com>, Masami Hiramatsu <mhiramat@kernel.org>,
- stable@vger.kernel.org
+ Masami Hiramatsu <mhiramat@kernel.org>, stable@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220406_233331_731088_6D8B8922 
-X-CRM114-Status: GOOD (  19.56  )
+X-CRM114-CacheID: sfid-20220406_233639_548513_F6EBBCC6 
+X-CRM114-Status: GOOD (  27.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,32 +85,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 7, 2022 at 2:13 AM Greg KH <gregkh@linuxfoundation.org> wrote:
+On Thu, Apr 7, 2022 at 3:06 AM Palmer Dabbelt <palmer@rivosinc.com> wrote:
 >
-> On Wed, Apr 06, 2022 at 10:16:49PM +0800, guoren@kernel.org wrote:
-> > From: Guo Ren <guoren@linux.alibaba.com>
+> On Wed, 06 Apr 2022 11:13:36 PDT (-0700), Greg KH wrote:
+> > On Wed, Apr 06, 2022 at 10:16:49PM +0800, guoren@kernel.org wrote:
+> >> From: Guo Ren <guoren@linux.alibaba.com>
+> >>
+> >> These patch_text implementations are using stop_machine_cpuslocked
+> >> infrastructure with atomic cpu_count. The original idea: When the
+> >> master CPU patch_text, the others should wait for it. But current
+> >> implementation is using the first CPU as master, which couldn't
+> >> guarantee the remaining CPUs are waiting. This patch changes the
+> >> last CPU as the master to solve the potential risk.
+> >>
+> >> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> >> Signed-off-by: Guo Ren <guoren@kernel.org>
+> >> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+> >> Reviewed-by: Masami Hiramatsu <mhiramat@kernel.org>
+> >> Cc: <stable@vger.kernel.org>
+> >> ---
+> >>  arch/riscv/kernel/patch.c | 2 +-
+> >>  1 file changed, 1 insertion(+), 1 deletion(-)
 > >
-> > These patch_text implementations are using stop_machine_cpuslocked
-> > infrastructure with atomic cpu_count. The original idea: When the
-> > master CPU patch_text, the others should wait for it. But current
-> > implementation is using the first CPU as master, which couldn't
-> > guarantee the remaining CPUs are waiting. This patch changes the
-> > last CPU as the master to solve the potential risk.
-> >
-> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > Signed-off-by: Guo Ren <guoren@kernel.org>
-> > Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-> > Reviewed-by: Masami Hiramatsu <mhiramat@kernel.org>
-> > Cc: <stable@vger.kernel.org>
-> > ---
-> >  arch/riscv/kernel/patch.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > What commit id does this change fix?
 >
-> What commit id does this change fix?
-Thx for pointing this out, I would follow the rule to add Cc:
-<stable@vger.kernel.org>.
+> I think it's been there since the beginning of our text patching, so
+>
+> Fixes: 043cb41a85de ("riscv: introduce interfaces to patch kernel code")
+Yes, it the riscv origin.
 
 >
+> seems like the best bet, but I'll go take another look before merging
+> it.  That's confusing here, as I acked it, but that was for an earlier
+> version that touched more than one arch so it was more ambiguous as to
+> which tree it was going through (IIRC I said one of those "LMK if you
+> want it through my tree, but here's an Ack in case someone else wants to
+> take it" sort of things, as I usually do when it's ambiguous).
+Thx for the clarification, I would remove the acked in the next version.
+
+>
+> Without a changelog, cover letter, or the other patches in the set it's
+> kind of hard to tell, though ;)
+Okay, I should add a changelog for the patch with cover letter.
 
 
 -- 
