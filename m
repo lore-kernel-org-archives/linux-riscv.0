@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D9E8C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Apr 2022 07:36:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20210C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Apr 2022 07:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i+fvAqfT2+s0Yri++G5Lgq4qUb4cGQmms2UDLEkmjU4=; b=udBgojUkXZsfrQ
-	ZwiFYb0/qwpXCh3YbkIpoej1yqdZNvo0oGid3fB2PplsjEe59VQDN8K5oSIDWkd3iZoVpq5YG8mc9
-	9hwqsjMZ2nfzoU9r9ATzaMk51p9s91gv5qKZyF4y2gg+QIctWyvbvpoCU9LYuU9TaYR7zuU8MQfTm
-	4HiB4pdP5ykvTfnUcWghIStLVhnAIdowjM505ZYDW3kfzyv/uZCOQYWPSzC9OmNflexph8JmhYjlh
-	/r19WlehBwFjM078cqzdQhdXOAiwbhvS4B8guVVTS52zz9gRtFl+TeFOy8iP1weNATpoVRmAi3W4u
-	/kKYz4wz6eopBT4wNsQA==;
+	List-Owner; bh=7Mf/4tTlELpnT5N/xVH/WIFQjDeUFUgvH7cZpqq3eJA=; b=KOVtygrJAIddU8
+	vG5yVEKvS6xeW1NU1n4QVHrHnpxFK/+z+XxEtNEt3/X37uA/LEcoLURhD1cR6PhxqJufMWBnDJOvT
+	znW7DGs5urla5IYHhY67oDYpcX1yG7uEFkImASAy58AUK+PYFBP/GQen7ai1MYGIjHmP1m9Fti08y
+	KsSWebfipD61DyLzhXNwHq1hsx4849dqt2Vcfjq1D3qzNjtDbmxiwWy3He3T1n68v/g2IurAl2aA3
+	lxzRU3/SnHqjAU2GetMPFQl7fDOA2szMkxAPNwHeawCpzpNFH4MVqDaUAkcBcd+2+okD0hNyp5XnZ
+	ciJnBevaPYWcWqccJdWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ncMgw-00A1VT-Lz; Thu, 07 Apr 2022 07:36:30 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ncMsR-00A6Ns-0x; Thu, 07 Apr 2022 07:48:23 +0000
+Received: from outpost1.zedat.fu-berlin.de ([130.133.4.66])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ncMf4-00A0TG-Mi; Thu, 07 Apr 2022 07:34:36 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 2F6EF61E14;
- Thu,  7 Apr 2022 07:34:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1673CC385A4;
- Thu,  7 Apr 2022 07:34:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1649316873;
- bh=1ucMhnW8irziJNfuECEH3MHXjDK0nSaVyUwaETtw+gM=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=KelGW/uTUVx5N9Sv2N8w8R9JRf21b8/HoKoyaUYPNOJgWfIKzQiF7OA1rp6QJv+BJ
- ytq/FiqmKFGSs0Sfa/N6mEuTZZcNJZCxF2cXvcwjhXcqSOTZQOSw+U0ZP4WPx9hrTG
- Igt3l6DJxAD6TkFv//g0cb7uzlxGM9LBCU/dDhX1u+m2/qq5O7bjJE8Kir697/BF/C
- gPykEqhRL5iAJtMqzxMZC1C51u9klzBs0AiIiqvKs+dxQdsK35GL29VVfT3QNbarg4
- 8fcYqEARmNuNjvOoZkd1vpBFpU1v2Bx7dFPjVeYLo38goAcOYyknOr6/WuWAhMceSM
- MC/wBEJ5daT5A==
-From: guoren@kernel.org
-To: guoren@kernel.org,
-	arnd@arndb.de,
-	gregkh@linuxfoundation.org
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, linux-xtensa@linux-xtensa.org,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- Guo Ren <guoren@linux.alibaba.com>, Masami Hiramatsu <mhiramat@kernel.org>,
- stable@vger.kernel.org
-Subject: [PATCH V4 4/4] csky: patch_text: Fixup last cpu should be master
-Date: Thu,  7 Apr 2022 15:33:23 +0800
-Message-Id: <20220407073323.743224-5-guoren@kernel.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220407073323.743224-1-guoren@kernel.org>
-References: <20220407073323.743224-1-guoren@kernel.org>
+ id 1ncMrt-00A5we-6n
+ for linux-riscv@lists.infradead.org; Thu, 07 Apr 2022 07:47:50 +0000
+Received: from inpost2.zedat.fu-berlin.de ([130.133.4.69])
+ by outpost.zedat.fu-berlin.de (Exim 4.95) with esmtps (TLS1.3)
+ tls TLS_AES_256_GCM_SHA384
+ (envelope-from <glaubitz@zedat.fu-berlin.de>)
+ id 1ncMrC-002Ka1-JA; Thu, 07 Apr 2022 09:47:06 +0200
+Received: from p57bd9828.dip0.t-ipconnect.de ([87.189.152.40]
+ helo=[192.168.178.81]) by inpost2.zedat.fu-berlin.de (Exim 4.95)
+ with esmtpsa (TLS1.3) tls TLS_AES_128_GCM_SHA256
+ (envelope-from <glaubitz@physik.fu-berlin.de>)
+ id 1ncMrC-002YIr-CA; Thu, 07 Apr 2022 09:47:06 +0200
+Message-ID: <04c0374f-0044-c84d-1820-d743a4061906@physik.fu-berlin.de>
+Date: Thu, 7 Apr 2022 09:47:04 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.7.0
+Subject: Re: [RFC PULL] remove arch/h8300
+Content-Language: en-US
+To: Arnd Bergmann <arnd@arndb.de>, Rob Landley <rob@landley.net>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Christoph Hellwig <hch@infradead.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-arch <linux-arch@vger.kernel.org>,
+ "moderated list:H8/300 ARCHITECTURE"
+ <uclinux-h8-devel@lists.sourceforge.jp>,
+ "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>,
+ Max Filippov <jcmvbkbc@gmail.com>, Linux-sh list <linux-sh@vger.kernel.org>,
+ linux-m68k <linux-m68k@lists.linux-m68k.org>,
+ Greg Ungerer <gerg@linux-m68k.org>, Damien Le Moal <damien.lemoal@wdc.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, Rich Felker <dalias@libc.org>
+References: <Yib9F5SqKda/nH9c@infradead.org>
+ <CAK8P3a1dUVsZzhAe81usLSkvH29zHgiV9fhEkWdq7_W+nQBWbg@mail.gmail.com>
+ <YkmWh2tss8nXKqc5@infradead.org>
+ <CAK8P3a0QdFOJbM72geYTWOKumeKPSCVD8Nje5pBpZWazX0GEnQ@mail.gmail.com>
+ <CAMuHMdWcg+171ggdVC4gwbQ=RUf+cYrX3o9uSpDxo-XXEJ5Qgw@mail.gmail.com>
+ <c3e7ee64-68fc-ed53-4a90-9f9296583d7c@landley.net>
+ <CAK8P3a14b6djqPw8Dea5uW2PPEABbe0pNXV5EX0529oDrW1ZAg@mail.gmail.com>
+From: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+In-Reply-To: <CAK8P3a14b6djqPw8Dea5uW2PPEABbe0pNXV5EX0529oDrW1ZAg@mail.gmail.com>
+X-Original-Sender: glaubitz@physik.fu-berlin.de
+X-Originating-IP: 87.189.152.40
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220407_003434_813156_221FC5FD 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20220407_004749_415004_C19FB6D0 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,39 +86,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+On 4/7/22 09:17, Arnd Bergmann wrote:
+> On Wed, Apr 6, 2022 at 11:25 PM Rob Landley <rob@landley.net> wrote:
+> 
+>> I'm interested in H8300 because it's a tiny architecture (under 6k lines total,
+>> in 93 files) and thus a good way to see what a minimal Linux port looks like. If
+>> somebody would like to suggest a different one for that...
+> 
+> Anything that is maintained is usually a better example, and it helps when the
+> code is not old enough to have accumulated a lot of historic baggage.
 
-These patch_text implementations are using stop_machine_cpuslocked
-infrastructure with atomic cpu_count. The original idea: When the
-master CPU patch_text, the others should wait for it. But current
-implementation is using the first CPU as master, which couldn't
-guarantee the remaining CPUs are waiting. This patch changes the
-last CPU as the master to solve the potential risk.
+But if it's not a lot of code, would it really accumulate a lot of cruft?
 
-Fixes: 33e53ae1ce41 ("csky: Add kprobes supported")
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
-Reviewed-by: Masami Hiramatsu <mhiramat@kernel.org>
-Cc: <stable@vger.kernel.org>
----
- arch/csky/kernel/probes/kprobes.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+If the code just works as is and doesn't need much attention to keep it working
+why not keep it? As long as the code doesn't break anything else what's the
+problem with keeping it?
 
-diff --git a/arch/csky/kernel/probes/kprobes.c b/arch/csky/kernel/probes/kprobes.c
-index 42920f25e73c..34ba684d5962 100644
---- a/arch/csky/kernel/probes/kprobes.c
-+++ b/arch/csky/kernel/probes/kprobes.c
-@@ -30,7 +30,7 @@ static int __kprobes patch_text_cb(void *priv)
- 	struct csky_insn_patch *param = priv;
- 	unsigned int addr = (unsigned int)param->addr;
- 
--	if (atomic_inc_return(&param->cpu_count) == 1) {
-+	if (atomic_inc_return(&param->cpu_count) == num_online_cpus()) {
- 		*(u16 *) addr = cpu_to_le16(param->opcode);
- 		dcache_wb_range(addr, addr + 2);
- 		atomic_inc(&param->cpu_count);
+FWIW, the H8 backend in GCC was just recently modernized and improved and converted
+to MODE_CC.
+
+Adrian
+
 -- 
-2.25.1
+ .''`.  John Paul Adrian Glaubitz
+: :' :  Debian Developer - glaubitz@debian.org
+`. `'   Freie Universitaet Berlin - glaubitz@physik.fu-berlin.de
+  `-    GPG: 62FF 8A75 84E0 2956 9546  0006 7426 3B37 F5B5 F913
 
 
 _______________________________________________
