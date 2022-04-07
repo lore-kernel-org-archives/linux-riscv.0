@@ -4,94 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC77C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Apr 2022 09:02:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B0BC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Apr 2022 12:34:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vvBcFcKluE9THgM6tP62k5/rkJE2W/XTHmTBU4W5RbQ=; b=sKt8LVmFNCt36J
-	f4fgVmwP3OfqAu3wuu8EBD8WiuAUx5RQXTS/vDGfqxlJLwO84auOomyXK9ha8oxChYgjMVlxXDrAU
-	pm3kOoHJE0r8q6wG/cePLBSRZpx9/lleSD5V1kKKc6oip5AEc52bwSX90yMeHXzJWq0EZ2XP8k72Q
-	8zF1mNhoN9ogCBfcu4lF29tV1EnKNjQNx/WsIAeuYM2Brvz4Y2NtJLZxbknOK3s9Fl8fqeU8NOxsG
-	zDwg+bvcK0BCm4qY3/aPHiFRznY7l3QCWMx8uOwJ3iQZiN7zQIFDJtAv6RsSza+D43BH6lAaJSDVF
-	nnLKkIzpI2IWjC8GNOVQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=p7nl4jOrfUVc6ouvFzW2OhHibOkRt6Nt+eZBz1vIhQ8=; b=VnyA3XGOVkcaFV
+	50Uhb720KSAXZCgE7QfyU6Ci1GrTjY3sqFU1N0QI5XyOvtBmBsmK59AWQIq3EzFVlX3R5IuLv/t16
+	dABSmtZPvnsKSEQ/FFjgV5jw9+1hsRn+AnNwaoZX0nOfrGRaOeAzYMS0FzHIgIcwdaGXg6RhLOzoo
+	zuVIKlDeWiuvUk+6UWOT4yVHb6g8loHOKR0l1uGr6UvfNtL7wTq2iTymXAeIDA5rH2cypuyZrtYqK
+	yrM96HrM7Sd15dk9hbE0H1HooH1PaORfLA41yqVhxHmiyyqXJpYYCBJvFVEhXGs1kx2VOTnvLVesq
+	1mhyZhAYOOs0Q9XpWYQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ncO1Q-00Af1w-LC; Thu, 07 Apr 2022 09:01:44 +0000
-Received: from wout1-smtp.messagingengine.com ([64.147.123.24])
+	id 1ncRKl-00BsRW-Gp; Thu, 07 Apr 2022 12:33:55 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ncNaz-00ASHu-JX
- for linux-riscv@lists.infradead.org; Thu, 07 Apr 2022 08:34:27 +0000
-Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
- by mailout.west.internal (Postfix) with ESMTP id A93533201D51;
- Thu,  7 Apr 2022 04:34:20 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
- by compute1.internal (MEProxy); Thu, 07 Apr 2022 04:34:22 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:cc:content-type:date:date:from:from
- :in-reply-to:in-reply-to:message-id:mime-version:references
- :reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
- :x-me-sender:x-me-sender:x-sasl-enc; s=fm3; bh=OrAVdtI06jlWzu77P
- ZjIBfUVfDfo5qupQAsNYfVHmic=; b=REyfza793XvLwCmAbyDR3j41ku76wmjj9
- t8ZPCQN8csyCmQMKvB42XV1AmWwt4wNNrxmwPC81RF5b8fAADR0pQalFI8qXYPT0
- 7/q14rkEhdtYWx6Ir/coc19eP4KQ2iDLO5MNs9cjC74Tfci0AMnCeGRILehn1Tbg
- zdS1YIVs1JnZtUmSbl0qDXyVGx7RDN2AtppERAi3Ke56NSptXrFZhqEyJaH0jf/o
- R7Q19bQDBPRh9KMpteNmIHQXlpkVdxrVY6aYJfkMqCrUCBayiLSBrdr/ZXf3zR2b
- tu/TkEybMrURbop9YitH5hmy4TK32Gu+HMKnytWHiS9lprsHPdZhg==
-X-ME-Sender: <xms:C6JOYtK2DPSocN3KHcYO1iOuhmb_8QucNUitWsEdflBe5SjkWL3z7w>
- <xme:C6JOYpKfOENfQGi6p5TQEf0B56wNDQN0OEWecppa37hMLlUM4UeTRwUsN7v5_uWR_
- gdivHGWAWTeZwKzFeM>
-X-ME-Received: <xmr:C6JOYlt1cSyCTnjfVsxU4pZWO98PYUdKI639jzGKmXtOWFI39-wzOshV4dfyZO2-z4mumNSVWnPG-KabALraSf6EYOe47AA-Ns0>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvvddrudejkedgtdehucetufdoteggodetrfdotf
- fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
- uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
- cujfgurhepfffhvffujgfkfhggtgesthdtredttddtvdenucfhrhhomhephfhinhhnucfv
- hhgrihhnuceofhhthhgrihhnsehlihhnuhigqdhmieekkhdrohhrgheqnecuggftrfgrth
- htvghrnhepffduhfegfedvieetudfgleeugeehkeekfeevfffhieevteelvdfhtdevffet
- uedunecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepfh
- hthhgrihhnsehlihhnuhigqdhmieekkhdrohhrgh
-X-ME-Proxy: <xmx:C6JOYuYlhjomGYyc5L-B0gj8YiRk3ocqfwcnhRXyBdTdBjBsqf4E2Q>
- <xmx:C6JOYkaLdhGJWMS4ZendpX0uu_pT9copGfWauEd59dUXQNsKrfWXUA>
- <xmx:C6JOYiDNCIq3SX3-pZu8JnT1DvO4ImNd48uhrFtgNYCkYCD6b3A6Qg>
- <xmx:DKJOYhL6uTbYkgTwgpQB8D8qsnBrmU8mlCw4mwAwA48dlrIgR419LQ>
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 7 Apr 2022 04:34:17 -0400 (EDT)
-Date: Thu, 7 Apr 2022 18:34:15 +1000 (AEST)
-From: Finn Thain <fthain@linux-m68k.org>
-To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-cc: Arnd Bergmann <arnd@arndb.de>, Rob Landley <rob@landley.net>, 
- Geert Uytterhoeven <geert@linux-m68k.org>, 
- Christoph Hellwig <hch@infradead.org>, 
- Linus Torvalds <torvalds@linux-foundation.org>, 
- Yoshinori Sato <ysato@users.sourceforge.jp>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-arch <linux-arch@vger.kernel.org>, 
- "moderated list:H8/300 ARCHITECTURE" <uclinux-h8-devel@lists.sourceforge.jp>, 
- "open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>, 
- Max Filippov <jcmvbkbc@gmail.com>, 
- Linux-sh list <linux-sh@vger.kernel.org>, 
- linux-m68k <linux-m68k@lists.linux-m68k.org>, 
- Greg Ungerer <gerg@linux-m68k.org>, Damien Le Moal <damien.lemoal@wdc.com>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- Rich Felker <dalias@libc.org>
-Subject: Re: [RFC PULL] remove arch/h8300
-In-Reply-To: <04c0374f-0044-c84d-1820-d743a4061906@physik.fu-berlin.de>
-Message-ID: <ca79546d-4e64-b8a-b63a-dfd0ebce8fed@linux-m68k.org>
-References: <Yib9F5SqKda/nH9c@infradead.org>
- <CAK8P3a1dUVsZzhAe81usLSkvH29zHgiV9fhEkWdq7_W+nQBWbg@mail.gmail.com>
- <YkmWh2tss8nXKqc5@infradead.org>
- <CAK8P3a0QdFOJbM72geYTWOKumeKPSCVD8Nje5pBpZWazX0GEnQ@mail.gmail.com>
- <CAMuHMdWcg+171ggdVC4gwbQ=RUf+cYrX3o9uSpDxo-XXEJ5Qgw@mail.gmail.com>
- <c3e7ee64-68fc-ed53-4a90-9f9296583d7c@landley.net>
- <CAK8P3a14b6djqPw8Dea5uW2PPEABbe0pNXV5EX0529oDrW1ZAg@mail.gmail.com>
- <04c0374f-0044-c84d-1820-d743a4061906@physik.fu-berlin.de>
+ id 1ncRKi-00BsNn-OZ
+ for linux-riscv@lists.infradead.org; Thu, 07 Apr 2022 12:33:54 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id s21so311167pgv.13
+ for <linux-riscv@lists.infradead.org>; Thu, 07 Apr 2022 05:33:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=oHuMdd+Tso54IS24zoaKEo7ZF3a1oq8FNtueInQMuKg=;
+ b=TP5m84milVRvG/vEdfXwdoGsaBa4DtHBo313pRzo5ALpNwKykawRcbsU4JHBwG928X
+ n5jRakad5YjG9eFkh+7QyNsQRSSkBceUG9GxSLvPM9ydqymcYFGa8t+cT16wAFVYtn5E
+ Tm0FxsfLb3ONv418/WLIsSgHsnwWPtYG1P7XhsyJBo1/YupRo+2Y1caU5ReQn2FTD9KR
+ oEfNV/qbGhraydqt6xDfrmotxOVI99RtQARty2IARenhNTZHIJ1pa2l7r4GamI/2KkDq
+ BmlszCrdY1v32v0rEq223xFv4QRc6SK6IN5w3cwfPHdg+hY2B1LoYIdhmzMBJnKAfFdl
+ yM+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=oHuMdd+Tso54IS24zoaKEo7ZF3a1oq8FNtueInQMuKg=;
+ b=K4hkATlUJqBlnmDVkrlIgKLJkSD2eHD7WJl1nHkBus+GE06lkhutjMoe4vPNrwKQjA
+ aNZSo+0zx8aRSzJim6Ks6mgNzNsyxhYyklbAcw4yxvHsSh8TBo7OBXHJV/YqbIe7uYac
+ I9axSrxyz9CgdRQpA9VJCxAav43vx/2Sn/b0ZCSvHxRZITn2i67py++1HVNXWZFJDY/q
+ i7ZzlHtqiEKdiJz3+0HxYdQaTlnbdVchwrF9R3SxDm/NFk2juqn26WKygH4pGkS6pRet
+ SE8NsQbN47i2ezqR5/mZp1VR8Gu/gQCpXuzhxcgqcuGWc8t4KkYtkBiCk5i4VOvuNhMw
+ XyMQ==
+X-Gm-Message-State: AOAM532gnG8vaMTjqZQUOGmRowJyvm2vQIw34j5OEM8Jzd1dHxpj74zj
+ D/oq3j/KVke/X6/PvevQdyE=
+X-Google-Smtp-Source: ABdhPJxaB7S5JM7L1Nse63e3q13TrwKZX/zgN6E55DEv72DlYwSESD8Cwg7AsnUwV84IfHCk/CWwgQ==
+X-Received: by 2002:a63:7f50:0:b0:386:2b5c:9d16 with SMTP id
+ p16-20020a637f50000000b003862b5c9d16mr11244153pgn.153.1649334829156; 
+ Thu, 07 Apr 2022 05:33:49 -0700 (PDT)
+Received: from ubuntu.mate (subs03-180-214-233-65.three.co.id.
+ [180.214.233.65]) by smtp.gmail.com with ESMTPSA id
+ nv11-20020a17090b1b4b00b001c71b0bf18bsm9484966pjb.11.2022.04.07.05.33.45
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 07 Apr 2022 05:33:48 -0700 (PDT)
+From: Bagas Sanjaya <bagasdotme@gmail.com>
+To: linux-doc@vger.kernel.org
+Cc: Stephen Rothwell <sfr@canb.auug.org.au>, KVM <kvm@vger.kernel.org>,
+ Linux Next Mailing List <linux-next@vger.kernel.org>,
+ Bagas Sanjaya <bagasdotme@gmail.com>, Anup Patel <anup.patel@wdc.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: [PATCH v2] Documentation: kvm: Add missing line break in api.rst
+Date: Thu,  7 Apr 2022 19:33:27 +0700
+Message-Id: <20220407123327.159079-1-bagasdotme@gmail.com>
+X-Mailer: git-send-email 2.35.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220407_013425_699410_94947F5B 
-X-CRM114-Status: GOOD (  15.79  )
+X-CRM114-CacheID: sfid-20220407_053352_869990_41BF9E24 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,30 +92,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 7 Apr 2022, John Paul Adrian Glaubitz wrote:
+Add missing line break separator between literal block and description
+of KVM_EXIT_RISCV_SBI.
 
-> On 4/7/22 09:17, Arnd Bergmann wrote:
-> > On Wed, Apr 6, 2022 at 11:25 PM Rob Landley wrote:
-> > 
-> >> I'm interested in H8300 because it's a tiny architecture (under 6k 
-> >> lines total, in 93 files) and thus a good way to see what a minimal 
-> >> Linux port looks like. If somebody would like to suggest a different 
-> >> one for that...
-> > 
-> > Anything that is maintained is usually a better example, and it helps 
-> > when the code is not old enough to have accumulated a lot of historic 
-> > baggage.
-> 
-> But if it's not a lot of code, would it really accumulate a lot of 
-> cruft?
-> 
+This fixes:
+</path/to/linux>/Documentation/virt/kvm/api.rst:6118: WARNING: Literal block ends without a blank line; unexpected unindent.
 
-Where you see "TODO" in Documentation/features/*/*/arch-support.txt it may 
-mean that an architecture is preventing the removal of an old API.
+Fixes: da40d85805937d ("RISC-V: KVM: Document RISC-V specific parts of KVM API")
+Cc: Anup Patel <anup.patel@wdc.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Jonathan Corbet <corbet@lwn.net>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: kvm@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Signed-off-by: Bagas Sanjaya <bagasdotme@gmail.com>
+---
+ Changes since v1 [1]:
+   - Rebased on v5.18-rc1
+   - Address Fixes tag problems reported by Stephen Rothwell [2] by
+     removing date and quote the original commit
 
-You're quite right, though, it is incorrect to call this an "accumulation" 
-of baggage. It is actually the failure to remove cruft. (OTOH, shiny new 
-things can be said to "accumulate". That's how cruft gets made.)
+ [1]: https://lore.kernel.org/linux-doc/20220403065735.23859-1-bagasdotme@gmail.com/
+ [2]: https://lore.kernel.org/linux-next/20220407074844.110f9285@canb.auug.org.au/
+
+ Documentation/virt/kvm/api.rst | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index d13fa66004672c..85c7abc51af521 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -6190,6 +6190,7 @@ Valid values for 'type' are:
+ 			unsigned long args[6];
+ 			unsigned long ret[2];
+ 		} riscv_sbi;
++
+ If exit reason is KVM_EXIT_RISCV_SBI then it indicates that the VCPU has
+ done a SBI call which is not handled by KVM RISC-V kernel module. The details
+ of the SBI call are available in 'riscv_sbi' member of kvm_run structure. The
+
+base-commit: 3123109284176b1532874591f7c81f3837bbdc17
+-- 
+An old man doll... just what I always wanted! - Clara
+
 
 _______________________________________________
 linux-riscv mailing list
