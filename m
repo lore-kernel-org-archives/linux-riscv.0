@@ -4,56 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3438DC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Apr 2022 10:12:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6F97C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Apr 2022 13:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y5uycyzgNMqx4+9p5eNelXhJQEjcYVPIxUQZMyiKJzs=; b=mitA5leoMiWu8r
-	M5JgKM+Gno5Duwe112cIti4mzZVEcdp+Jlgo1pkn6R0nVV0Y+ugCWWMGMPGgI8irvCD4BY25DHlDw
-	X3Y+nL23DOOmY8YuVptHNYSyaCcSGRCtENXIQZ1duZgfIXiLsMIlAC0kgZYEULMMCXwylXpG3apHv
-	qFMbK/MRJiTwyNsEvI1xY48nJGzxkc0iISSeD70/5+YyUWYcfMzp5adhGZIgtx2D5nIK8VrDVIPf5
-	Ui/cRYR1Bx30CACDuWV1f8qS0E054NCuuDkzt4RooyWtsWSzCpmm+WthOe4BUs1iSG6nebnBPYj23
-	S0ZfSuzvlDM+yoLf8mZg==;
+	List-Owner; bh=AZfSAJ2D8I6Xwn2eWnVOwNCQAUrOWKUUvsaeuktpbd8=; b=rW6jbE4qP/9u0j
+	WQcKuKUtI6WB0sZRmCVPTCJSd9jemAMi6t0qek36+oQoLasmGJozDGz3bDSPvqVArPYztEs+Tfv8C
+	qnjiubSqmWpI1SUdtgDTgFX1Lpi3QD7IbktWT7yfz6vprizp8AEWkps4LVgLzMGJ2BY0KavjV6irA
+	9SoTpSrFkaUSNk6fLJDpmr868PhvortBQ6GLLdPQCnn6UbCvquicBdfWSRpiH+WUpmXmYPnQTPPT4
+	yYgASCXPc49jcLKCQgw57DesxrwHNkbDP+ACuZZ8OrFXTFNZpgErf1yRC8lQHqUupGOOhhFW5PRnm
+	UzrYuDnBMVqOuoGU8ODQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nclbR-00GJ7Z-GI; Fri, 08 Apr 2022 10:12:29 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1ncoR9-00HJ16-52; Fri, 08 Apr 2022 13:14:03 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nclbI-00GHea-6l; Fri, 08 Apr 2022 10:12:22 +0000
-Received: from kwepemi500014.china.huawei.com (unknown [172.30.72.53])
- by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4KZYmK4QSrzBsCF;
- Fri,  8 Apr 2022 18:05:53 +0800 (CST)
-Received: from huawei.com (10.67.174.157) by kwepemi500014.china.huawei.com
- (7.221.188.232) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.24; Fri, 8 Apr
- 2022 18:10:05 +0800
-From: Li Zhengyu <lizhengyu3@huawei.com>
-To: <palmer@dabbelt.com>, <liaochang1@huawei.com>
-CC: <alex@ghiti.fr>, <aou@eecs.berkeley.edu>, <bjorn.topel@gmail.com>,
- <ebiederm@xmission.com>, <guoren@linux.alibaba.com>, <jszhang@kernel.org>,
- <kexec@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <mick@ics.forth.gr>,
- <paul.walmsley@sifive.com>, <penberg@kernel.org>, <sunnanyong@huawei.com>,
- <wangkefeng.wang@huawei.com>
-Subject: [PATCH v3 -next 1/6] kexec_file: Fix kexec_file.c build error for
- riscv platform
-Date: Fri, 8 Apr 2022 18:09:09 +0800
-Message-ID: <20220408100914.150110-2-lizhengyu3@huawei.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20220408100914.150110-1-lizhengyu3@huawei.com>
-References: <20220408100914.150110-1-lizhengyu3@huawei.com>
+ id 1ncoR5-00HIyY-B2
+ for linux-riscv@lists.infradead.org; Fri, 08 Apr 2022 13:14:01 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 0D5FEB829FB;
+ Fri,  8 Apr 2022 13:13:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2550C385A3;
+ Fri,  8 Apr 2022 13:13:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1649423635;
+ bh=I/sH4Z0xGBHI7ug7PEjQLDL6PwxzNs+O40t2lamCdAg=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=paAnEef7FXGw6SkN1DeZazjXUrTrWnlbuIJA94cEwMqCo1IXh+54ziV2wF9jVRxkh
+ 2rtH68RCh5WkgigE98L/t4ZJkq84YuezuRojX3GjZzmehMFAcbTmN2mdVhKZwF9Os9
+ NI2WOlC5G0TEEzbflWsHJTOUqXReVfLCHZAzrmSwBzdpiQP4d72gD+3phSXPOnRjfU
+ HrbYWXk/ZxNoD1MyIuRfJztA5O9b5uijKt4qrLAb1Q5AiGEvy/CAiE021Xd5D6+tva
+ gZqPI2C763XA9HDx7EqiIlFTD0nReUXKhM7znAtF9MyX/BAxZajj5cmDGBPoBiNuJ2
+ 9pJ1Pl73QIyzw==
+Date: Fri, 8 Apr 2022 18:43:51 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Zong Li <zong.li@sifive.com>
+Cc: robh+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, krzysztof.kozlowski@canonical.com,
+ conor.dooley@microchip.com, geert@linux-m68k.org,
+ bin.meng@windriver.com, green.wan@sifive.com,
+ dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v8 0/4] Determine the number of DMA channels by
+ 'dma-channels' property
+Message-ID: <YlA1DwdIMoQ1dXZS@matsya>
+References: <cover.1648461096.git.zong.li@sifive.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.67.174.157]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- kwepemi500014.china.huawei.com (7.221.188.232)
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <cover.1648461096.git.zong.li@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220408_031220_625978_55ABE43B 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20220408_061359_545273_FE2B16D0 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,78 +78,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Liao Chang <liaochang1@huawei.com>
+On 28-03-22, 17:52, Zong Li wrote:
+> The PDMA driver currently assumes there are four channels by default, it
+> might cause the error if there is actually less than four channels.
+> Change that by getting number of channel dynamically from device tree.
+> For backwards-compatible, it uses the default value (i.e. 4) when there
+> is no 'dma-channels' information in dts.
 
-When CONFIG_KEXEC_FILE is set for riscv platform, the compilation of
-kernel/kexec_file.c generate build error:
+Applied patch 1 & 4 to dmaengine-next, thanks
 
-kernel/kexec_file.c: In function 'crash_prepare_elf64_headers':
-./arch/riscv/include/asm/page.h:110:71: error: request for member 'virt_addr' in something not a structure or union
-  110 |  ((x) >= PAGE_OFFSET && (!IS_ENABLED(CONFIG_64BIT) || (x) < kernel_map.virt_addr))
-      |                                                                       ^
-./arch/riscv/include/asm/page.h:131:2: note: in expansion of macro 'is_linear_mapping'
-  131 |  is_linear_mapping(_x) ?       \
-      |  ^~~~~~~~~~~~~~~~~
-./arch/riscv/include/asm/page.h:140:31: note: in expansion of macro '__va_to_pa_nodebug'
-  140 | #define __phys_addr_symbol(x) __va_to_pa_nodebug(x)
-      |                               ^~~~~~~~~~~~~~~~~~
-./arch/riscv/include/asm/page.h:143:24: note: in expansion of macro '__phys_addr_symbol'
-  143 | #define __pa_symbol(x) __phys_addr_symbol(RELOC_HIDE((unsigned long)(x), 0))
-      |                        ^~~~~~~~~~~~~~~~~~
-kernel/kexec_file.c:1327:36: note: in expansion of macro '__pa_symbol'
- 1327 |   phdr->p_offset = phdr->p_paddr = __pa_symbol(_text);
-
-This occurs is because the "kernel_map" referenced in macro
-is_linear_mapping()  is suppose to be the one of struct kernel_mapping
-defined in arch/riscv/mm/init.c, but the 2nd argument of
-crash_prepare_elf64_header() has same symbol name, in expansion of macro
-is_linear_mapping in function crash_prepare_elf64_header(), "kernel_map"
-actually is the local variable.
-
-Signed-off-by: Liao Chang <liaochang1@huawei.com>
----
- include/linux/kexec.h | 2 +-
- kernel/kexec_file.c   | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/include/linux/kexec.h b/include/linux/kexec.h
-index 58d1b58a971e..ebb1bffbf068 100644
---- a/include/linux/kexec.h
-+++ b/include/linux/kexec.h
-@@ -227,7 +227,7 @@ struct crash_mem {
- extern int crash_exclude_mem_range(struct crash_mem *mem,
- 				   unsigned long long mstart,
- 				   unsigned long long mend);
--extern int crash_prepare_elf64_headers(struct crash_mem *mem, int kernel_map,
-+extern int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_map,
- 				       void **addr, unsigned long *sz);
- #endif /* CONFIG_KEXEC_FILE */
- 
-diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
-index 8347fc158d2b..331a4f0f10f5 100644
---- a/kernel/kexec_file.c
-+++ b/kernel/kexec_file.c
-@@ -1260,7 +1260,7 @@ int crash_exclude_mem_range(struct crash_mem *mem,
- 	return 0;
- }
- 
--int crash_prepare_elf64_headers(struct crash_mem *mem, int kernel_map,
-+int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_map,
- 			  void **addr, unsigned long *sz)
- {
- 	Elf64_Ehdr *ehdr;
-@@ -1324,7 +1324,7 @@ int crash_prepare_elf64_headers(struct crash_mem *mem, int kernel_map,
- 	phdr++;
- 
- 	/* Prepare PT_LOAD type program header for kernel text region */
--	if (kernel_map) {
-+	if (need_kernel_map) {
- 		phdr->p_type = PT_LOAD;
- 		phdr->p_flags = PF_R|PF_W|PF_X;
- 		phdr->p_vaddr = (unsigned long) _text;
 -- 
-2.17.1
-
+~Vinod
 
 _______________________________________________
 linux-riscv mailing list
