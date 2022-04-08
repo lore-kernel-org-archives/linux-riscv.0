@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A189C433FE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9998C433F5
 	for <linux-riscv@archiver.kernel.org>; Fri,  8 Apr 2022 14:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,43 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l3UsyZq91i79YqjDRzQpDaQm6CEhifhtAh/cFYG8bws=; b=Y0EuJ+SfmzzsWc
-	BgG9Zl3FnONVy0LHFfY9a2EhOwk78+yWGhTxPT+anTPHDKAZ66uBwzUf17ilPtbHknRF2ZIGAYKk3
-	OuG0x2SDxAttVs/YK6tHIpagaL6+PWNxfd6/7lit9cu8OvJFrExbpopNie3Z6hjPv47Nxgj9nt1jy
-	72phTr9S0VWsvKRG7Cr12qL3FVcBVhQyFq9toaCbRyiFbTGPHQTzIxVnwupnPJk7J/y4c42b0GE5d
-	ns7+HtGBZQ+glJLJdvlqPasVLS6Sm5gx0as9BPHI+vWq4ogi8NSOCjI9L1jnfBFJ2eXDByT/+NFCn
-	RJzXjrgEyTHH5/GaJdEQ==;
+	List-Owner; bh=YmRBDqzYavqJXyBmh5Ypgle8J7V7hXNUzq7cJZeAQMc=; b=ir2CSHS9ulUZyw
+	2DheJCBpJtkH08DV4FI7cy7v9E2qn5b13dNBwuAgE409CUm4LS5Xp/KQOEYuGAjjcrBJnB/zgNmKE
+	l9Uzzzu5C3ypsNRwTWA8TvZJs9Vt4bpJMNvqVXpW5I0uEoCt7+yOoMRE8wMT7f8Mearq83tfDwPcK
+	07GMjK2NY7CEXwoOzCdAoSOwKHPeKl3FxE1oWACqVEFqQ3Lz8vZfj2AOcEiILwo4aR6vSYXsjCTb3
+	Hy3ZeajPi+CDpL0yxZjIljnLLT5JuyMlpqxfkavqkYIqruu49HXRMBLNV61pUB3OxOCA426EUzKYz
+	50eBzY+kDamOxGsOmdPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ncpkM-0000hk-LM; Fri, 08 Apr 2022 14:37:58 +0000
+	id 1ncpkK-0000gW-IH; Fri, 08 Apr 2022 14:37:56 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ncpkH-0000dt-9T
- for linux-riscv@lists.infradead.org; Fri, 08 Apr 2022 14:37:54 +0000
+ id 1ncpkE-0000dE-TY
+ for linux-riscv@lists.infradead.org; Fri, 08 Apr 2022 14:37:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1649428673; x=1680964673;
+ t=1649428670; x=1680964670;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=RVSiySLuyH36Oge4rtu7xhraomGEeU6vHquQBOWopMw=;
- b=rvva9Is8riJL6jI/klLavxEASAdY8hsmy54wGjv9vb1EbBFZERNS7YQ2
- mb1OIB1Kxlfv77BlsKa1OEH2xWMotdL26zYcIECBjOoirdmSexZbPQb8z
- Kp5JBoBso5GSIL5DhKB1Cviq/nkdmySq+lsB5OBXvOh/OjHdqCY976lbZ
- 0VBzAODBCu8cSDpp78DzM5sVbLhQQRfRbO/3FV5qXGyJXXZbDf9YRxcBB
- fHW6LIwTQVv9VyDeCj3SYxqarVGuP9DK4m/1s24JeJ95gswuJgKnDq6dY
- SKm5DFlxCrqi78D8W9fofHR+eOMAHu436ICEI4OvQERa6EZeEL1PcB2QF w==;
-X-IronPort-AV: E=Sophos;i="5.90,245,1643698800"; d="scan'208";a="91773250"
+ bh=Z2Bl5qGTo3dfoTtGTbFb0RM34Y/R4subC/+ygZpA6i0=;
+ b=2FbMk+pDFICKvsWN2pRlixOQ8CZafx1dQPaok08xB6eJ6s+Rvoc50YIO
+ AX/ZDOcHbFVbXSMgXZZB629xIYFIwAL2+CWbm/pQeQSPfVi8oSAi095md
+ BBcC7FREAYhx0z7+puYAaZgzShgGa+qq4e+fjfB2ONE72VxPiNem0qRLC
+ dl3TVrLhzN1FNAceBvmlOFugUNAc2DDP5k7ubDEUei/fcWyOgMTOnMk1m
+ GuGsnAfgv630NEOF/UzH9sQKsT3f9xmZoHexN1cjfsfQpGKBjaurYFdzF
+ 9tbg8RUILhGRHFUrggSAUZcYjVeiIobEoHP9VM3nz47NFihh1FQrmGHLP Q==;
+X-IronPort-AV: E=Sophos;i="5.90,245,1643698800"; d="scan'208";a="154925644"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
- by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 08 Apr 2022 07:37:52 -0700
+ by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 08 Apr 2022 07:37:49 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Fri, 8 Apr 2022 07:37:52 -0700
+ 15.1.2375.17; Fri, 8 Apr 2022 07:37:48 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
  (10.10.85.143) with Microsoft SMTP Server id 15.1.2375.17 via
- Frontend Transport; Fri, 8 Apr 2022 07:37:49 -0700
+ Frontend Transport; Fri, 8 Apr 2022 07:37:45 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <aou@eecs.berkeley.edu>,
  <paul.walmsley@sifive.com>, <palmer@rivosinc.com>, <a.zummo@towertech.it>,
@@ -56,16 +56,16 @@ To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <aou@eecs.berkeley.edu>,
 CC: <daire.mcnamara@microchip.com>, <linux-rtc@vger.kernel.org>,
  <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
  <linux-riscv@lists.infradead.org>, Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v1 3/7] dt-bindings: rtc: add refclk to mpfs-rtc
-Date: Fri, 8 Apr 2022 14:36:43 +0000
-Message-ID: <20220408143646.3693104-4-conor.dooley@microchip.com>
+Subject: [PATCH v1 2/7] dt-bindings: clk: mpfs: add defines for two new clocks
+Date: Fri, 8 Apr 2022 14:36:42 +0000
+Message-ID: <20220408143646.3693104-3-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220408143646.3693104-1-conor.dooley@microchip.com>
 References: <20220408143646.3693104-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220408_073753_427154_0679737D 
-X-CRM114-Status: UNSURE (   8.25  )
+X-CRM114-CacheID: sfid-20220408_073751_051166_3F89942C 
+X-CRM114-Status: UNSURE (   8.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,55 +83,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The rtc on PolarFire SoC does not use the AHB clock as its reference
-frequency, but rather a 1 MHz refclk that it shares with MTIMER. Add
-this second clock to the binding as a required property.
+The RTC reference and MSSPLL were previously not documented or defined,
+as they were unused. Add their defines to the PolarFire SoC header.
 
 Reviewed-by: Daire McNamara <daire.mcnamara@microchip.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../bindings/rtc/microchip,mfps-rtc.yaml           | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
+ include/dt-bindings/clock/microchip,mpfs-clock.h | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml b/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
-index a2e984ea3553..1ffd97dbe6b9 100644
---- a/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
-+++ b/Documentation/devicetree/bindings/rtc/microchip,mfps-rtc.yaml
-@@ -31,11 +31,18 @@ properties:
-           to that of the RTC's count register.
+diff --git a/include/dt-bindings/clock/microchip,mpfs-clock.h b/include/dt-bindings/clock/microchip,mpfs-clock.h
+index 73f2a9324857..3cba46b9191f 100644
+--- a/include/dt-bindings/clock/microchip,mpfs-clock.h
++++ b/include/dt-bindings/clock/microchip,mpfs-clock.h
+@@ -1,15 +1,18 @@
+ /* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+ /*
+  * Daire McNamara,<daire.mcnamara@microchip.com>
+- * Copyright (C) 2020 Microchip Technology Inc.  All rights reserved.
++ * Copyright (C) 2020-2022 Microchip Technology Inc.  All rights reserved.
+  */
  
-   clocks:
--    maxItems: 1
-+    items:
-+      - description: |
-+          AHB clock
-+      - description: |
-+          Reference clock: divided by the prescaler to create a time-based strobe (typically 1 Hz)
-+          for the calendar counter. By default, the rtc on the PolarFire SoC shares it's reference
-+          with MTIMER so this will be a 1 MHz clock.
+ #ifndef _DT_BINDINGS_CLK_MICROCHIP_MPFS_H_
+ #define _DT_BINDINGS_CLK_MICROCHIP_MPFS_H_
  
-   clock-names:
-     items:
-       - const: rtc
-+      - const: rtcref
++#define CLK_MSSPLL	34
++
+ #define CLK_CPU		0
+ #define CLK_AXI		1
+ #define CLK_AHB		2
++#define CLK_RTCREF	33
  
- required:
-   - compatible
-@@ -48,11 +55,12 @@ additionalProperties: false
- 
- examples:
-   - |
-+    #include "dt-bindings/clock/microchip,mpfs-clock.h"
-     rtc@20124000 {
-         compatible = "microchip,mpfs-rtc";
-         reg = <0x20124000 0x1000>;
--        clocks = <&clkcfg 21>;
--        clock-names = "rtc";
-+        clocks = <&clkcfg CLK_RTC>, <&clkcfg CLK_RTCREF>;
-+        clock-names = "rtc", "rtcref";
-         interrupts = <80>, <81>;
-     };
- ...
+ #define CLK_ENVM	3
+ #define CLK_MAC0	4
 -- 
 2.35.1
 
