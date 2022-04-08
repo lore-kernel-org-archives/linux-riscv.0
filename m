@@ -4,68 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7EE3C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Apr 2022 14:38:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C69C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Apr 2022 14:55:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5VRaBiNRwicaiASp0f3rmpsC/jFFnWHXmayMQfxG8as=; b=Ix07qrScuiFZWW
-	uQXQq13daLGK/ZpYhi78EZUIihPOUw+vEHUfEPqOOQGPer7pE97YmBF3UA230Yms9Afkl/csfWjSp
-	wG3cmH7MNSXfOLAMP5hdKuVAZG0gVH5+b8+0fL6U/56XK06kpUU2hXLgezj/CY9n72eBKnz+sOkEM
-	F3JTNzEn5JzyseqjeNNlEhM0HkcoTcn+LFo/2KKvMptzYKMblidpxErkS2rs0a0jnVKqXT685xHdD
-	cFXOiOZz0OS0GXp9v4VQtoRWUYY4nYEVALXIhmIh4Fn5WCanSdxldxRc+QidBWaBRpmbNaVBzPRwq
-	Z+479R2NC0WPKAVF05LQ==;
+	List-Owner; bh=3sqiJYETQIa34pZ5JWTWjX7YnS8C26Q3R/NGwQsw4Gw=; b=cTirAkzW/jeiXD
+	x1ePfewWKSXDousf/L+Camj1ZwCEHs9gRtHcLsmzUFcppgW+OVtRfYzkiuJcD7gWkp/RsVJka2NJD
+	ChY1fD3sG9U3by6/RKze041w9EcwD7NwoMG6eK5Vac3rbzElEtRjX+K/mhHpnO/smKcQk/tV3o6WL
+	vBFyt1wQVabKfnVlpcR1JRoPbJpSQDPAsVL3eQrJUCplhwLhz8waGwdJmPW5Sgs+7hEuk8OeLRALA
+	v4QZk6pq7L1JHVU0FzSw5VWIS5YG5q/8MkJT9+UNR6x/owB7GBxiul9CBaDvmnSNit3bcp3HNGKOi
+	YttCKgim/BNbTkwhkUkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ncpkd-0000rY-3M; Fri, 08 Apr 2022 14:38:15 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1ncq0v-0006Yt-E7; Fri, 08 Apr 2022 14:55:05 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ncpkN-0000dE-St
- for linux-riscv@lists.infradead.org; Fri, 08 Apr 2022 14:38:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1649428679; x=1680964679;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=ooZZ+ZTqJwMh290JL9lbt0QfWALbJVpmgRpSeNwWcbk=;
- b=wREYQ8cX6FtapKKKmZHOytYHZzWUouGk6Bp1bTnOHpwM8T1HCNkVZhaA
- ACUDKL0NjkfBS2kveud5LQjXHl7GbNNxWqAKjiFjM841hvm8yobLsgRub
- mZwtZnfKDttt6fd+P9dj62r4FFGtp/U9fhZb2Gz6XCUfSi9wYNgruImvz
- El0P7oc4Psdnj+lV8nu1a6paSbK1oNJI7gnXYl4r0TvZocMTxtiZdCNJG
- no4L1z9O5PMCB8KkirVwPuDoEIRVn11JMgD/GQiFXhoOPSkygCEueuSJd
- StdEqyXPgJL0ynIGcrMvKftvwsPqUKJhOZaeKqUMzL+YMjHLQOM/+JwdQ g==;
-X-IronPort-AV: E=Sophos;i="5.90,245,1643698800"; d="scan'208";a="154925662"
-Received: from smtpout.microchip.com (HELO email.microchip.com)
- ([198.175.253.82])
- by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 08 Apr 2022 07:37:59 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Fri, 8 Apr 2022 07:37:59 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2375.17 via
- Frontend Transport; Fri, 8 Apr 2022 07:37:56 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <aou@eecs.berkeley.edu>,
- <paul.walmsley@sifive.com>, <palmer@rivosinc.com>, <a.zummo@towertech.it>,
- <alexandre.belloni@bootlin.com>, <robh+dt@kernel.org>, <krzk+dt@kernel.org>
-CC: <daire.mcnamara@microchip.com>, <linux-rtc@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v1 5/7] clk: microchip: mpfs: rename sys_base to base
-Date: Fri, 8 Apr 2022 14:36:45 +0000
-Message-ID: <20220408143646.3693104-6-conor.dooley@microchip.com>
-X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20220408143646.3693104-1-conor.dooley@microchip.com>
-References: <20220408143646.3693104-1-conor.dooley@microchip.com>
+ id 1ncq0s-0006X1-Uf
+ for linux-riscv@lists.infradead.org; Fri, 08 Apr 2022 14:55:04 +0000
+Received: by mail-ed1-x531.google.com with SMTP id v15so302956edb.12
+ for <linux-riscv@lists.infradead.org>; Fri, 08 Apr 2022 07:55:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=message-id:date:mime-version:user-agent:subject:content-language:to
+ :cc:references:from:in-reply-to:content-transfer-encoding;
+ bh=09k0cdXExIXi2nZQGUowL8FTPg31pRqik4f6jmnnO2w=;
+ b=MpbglDaS3k4EI/fk+SJWAT/f1sz20SJeI9EtjdiqXMiihqP1mS3ENkAO9g8FRFAN9J
+ b30/PEOhU/Z2Gtcj3XsCAWwjN/8ZGJc2KoR8PPSyGLSibIx2jqdhtEWw7xfxdAsj/B2A
+ UuvK26k322/fI+NzVLdyaJh95QBE09uVgbcDJjwVg7+3NmXytaRgvsAgX5RBMVGwkLhb
+ WlidJYMNyaTKZNGXJbHAycABGs1gHPhEjA7s7pfjSQd5usRl3n9mlhJg9yQJVkSDd7/S
+ n9DbZ/gShKAr3Bs8IllyEzXi2vIIo58F88IExJ6FEUL+YBowSMaQ6VH4hYAboT5Y55nA
+ M16g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+ :content-language:to:cc:references:from:in-reply-to
+ :content-transfer-encoding;
+ bh=09k0cdXExIXi2nZQGUowL8FTPg31pRqik4f6jmnnO2w=;
+ b=BOYCAD2SCRKw9Dh2gD0mH30Y9Zig0bNrnX3cJynBWz2VUjKr4PfbcMjXysJmtBTX5K
+ bSFMF1fpVdlCLj3lR75M8vzXvSYXMlS/V5DUuZ6Bg0XYfxfb2pWXbPVuHqTFJQyjDRMl
+ wd/H14ND1oPNesGao7mNrSCxqu/UkeZ9q3PrRmGCcuDMK+YOr09EQDQ/UKgv2sA/c/wc
+ SPPxND7OK/FEyIv77qAvJvL6qIXb+ILQl3XLqzrDdKAAyNVI3X4sGojMv8cyx/Gvjapi
+ B6AwUDNivuJxgsn34MVXRC1FMkfd3H5BOHMelDxJWAaGaH8yXNIsKr+hyxG/rTPkW2By
+ XFgg==
+X-Gm-Message-State: AOAM5321LXGV/6UAs066JO8YC7r9FxYYKQLFH0ldS8AU3/XdXkTi0wtn
+ VrygGn5fmGGIG4RsMXq6FLFCVw==
+X-Google-Smtp-Source: ABdhPJwHlNeuxcQeuAi8hDLAkT+emovtzwN0HxRAZ5hQ7o8XUVx4+YFAgDy29RKu/t3/uNC1/OGIWw==
+X-Received: by 2002:a05:6402:278d:b0:419:3794:de39 with SMTP id
+ b13-20020a056402278d00b004193794de39mr19787666ede.137.1649429699052; 
+ Fri, 08 Apr 2022 07:54:59 -0700 (PDT)
+Received: from [192.168.0.188] (xdsl-188-155-201-27.adslplus.ch.
+ [188.155.201.27]) by smtp.gmail.com with ESMTPSA id
+ j22-20020a50ed16000000b00419366b2146sm10878381eds.43.2022.04.08.07.54.58
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Fri, 08 Apr 2022 07:54:58 -0700 (PDT)
+Message-ID: <d4a182e8-9469-6dfb-af97-6e570d4c5ab1@linaro.org>
+Date: Fri, 8 Apr 2022 16:54:57 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.7.0
+Subject: Re: [PATCH v1 1/7] dt-bindings: clk: mpfs document msspll dri
+ registers
+Content-Language: en-US
+To: Conor Dooley <conor.dooley@microchip.com>, mturquette@baylibre.com,
+ sboyd@kernel.org, aou@eecs.berkeley.edu, paul.walmsley@sifive.com,
+ palmer@rivosinc.com, a.zummo@towertech.it, alexandre.belloni@bootlin.com,
+ robh+dt@kernel.org, krzk+dt@kernel.org
+Cc: daire.mcnamara@microchip.com, linux-rtc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20220408143646.3693104-1-conor.dooley@microchip.com>
+ <20220408143646.3693104-2-conor.dooley@microchip.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20220408143646.3693104-2-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220408_073800_052252_D9417194 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20220408_075503_049562_BD6C8C1D 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,144 +99,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Having added a second set of registers for the msspll, sys_base no longer
-really makes sense as a variable name. Renaming it to base will make it
-consistent with mpfs_clock_data & several function arguments.
+On 08/04/2022 16:36, Conor Dooley wrote:
+> As there are two sections of registers that are responsible for clock
+> configuration on the PolarFire SoC: add the dynamic reconfiguration
+> interface section to the binding & describe what each of the sections
+> are used for.
 
-Reviewed-by: Daire McNamara <daire.mcnamara@microchip.com>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- drivers/clk/microchip/clk-mpfs.c | 30 +++++++++++++++---------------
- 1 file changed, 15 insertions(+), 15 deletions(-)
+(...)
 
-diff --git a/drivers/clk/microchip/clk-mpfs.c b/drivers/clk/microchip/clk-mpfs.c
-index 66251a5f4a03..f22d4b40ef28 100644
---- a/drivers/clk/microchip/clk-mpfs.c
-+++ b/drivers/clk/microchip/clk-mpfs.c
-@@ -55,7 +55,7 @@ struct mpfs_cfg_clock {
- 
- struct mpfs_cfg_hw_clock {
- 	struct mpfs_cfg_clock cfg;
--	void __iomem *sys_base;
-+	void __iomem *base;
- 	struct clk_hw hw;
- 	struct clk_init_data init;
- };
-@@ -69,7 +69,7 @@ struct mpfs_periph_clock {
- 
- struct mpfs_periph_hw_clock {
- 	struct mpfs_periph_clock periph;
--	void __iomem *sys_base;
-+	void __iomem *base;
- 	struct clk_hw hw;
- };
- 
-@@ -168,7 +168,7 @@ static unsigned long mpfs_cfg_clk_recalc_rate(struct clk_hw *hw, unsigned long p
- {
- 	struct mpfs_cfg_hw_clock *cfg_hw = to_mpfs_cfg_clk(hw);
- 	struct mpfs_cfg_clock *cfg = &cfg_hw->cfg;
--	void __iomem *base_addr = cfg_hw->sys_base;
-+	void __iomem *base_addr = cfg_hw->base;
- 	u32 val;
- 
- 	val = readl_relaxed(base_addr + cfg->reg_offset) >> cfg->shift;
-@@ -189,7 +189,7 @@ static int mpfs_cfg_clk_set_rate(struct clk_hw *hw, unsigned long rate, unsigned
- {
- 	struct mpfs_cfg_hw_clock *cfg_hw = to_mpfs_cfg_clk(hw);
- 	struct mpfs_cfg_clock *cfg = &cfg_hw->cfg;
--	void __iomem *base_addr = cfg_hw->sys_base;
-+	void __iomem *base_addr = cfg_hw->base;
- 	unsigned long flags;
- 	u32 val;
- 	int divider_setting;
-@@ -236,9 +236,9 @@ static struct mpfs_cfg_hw_clock mpfs_cfg_clks[] = {
- };
- 
- static int mpfs_clk_register_cfg(struct device *dev, struct mpfs_cfg_hw_clock *cfg_hw,
--				 void __iomem *sys_base)
-+				 void __iomem *base)
- {
--	cfg_hw->sys_base = sys_base;
-+	cfg_hw->base = base;
- 
- 	return devm_clk_hw_register(dev, &cfg_hw->hw);
- }
-@@ -246,14 +246,14 @@ static int mpfs_clk_register_cfg(struct device *dev, struct mpfs_cfg_hw_clock *c
- static int mpfs_clk_register_cfgs(struct device *dev, struct mpfs_cfg_hw_clock *cfg_hws,
- 				  unsigned int num_clks, struct mpfs_clock_data *data)
- {
--	void __iomem *sys_base = data->base;
-+	void __iomem *base = data->base;
- 	unsigned int i, id;
- 	int ret;
- 
- 	for (i = 0; i < num_clks; i++) {
- 		struct mpfs_cfg_hw_clock *cfg_hw = &cfg_hws[i];
- 
--		ret = mpfs_clk_register_cfg(dev, cfg_hw, sys_base);
-+		ret = mpfs_clk_register_cfg(dev, cfg_hw, base);
- 		if (ret)
- 			return dev_err_probe(dev, ret, "failed to register clock id: %d\n",
- 					     cfg_hw->cfg.id);
-@@ -273,7 +273,7 @@ static int mpfs_periph_clk_enable(struct clk_hw *hw)
- {
- 	struct mpfs_periph_hw_clock *periph_hw = to_mpfs_periph_clk(hw);
- 	struct mpfs_periph_clock *periph = &periph_hw->periph;
--	void __iomem *base_addr = periph_hw->sys_base;
-+	void __iomem *base_addr = periph_hw->base;
- 	u32 reg, val;
- 	unsigned long flags;
- 
-@@ -292,7 +292,7 @@ static void mpfs_periph_clk_disable(struct clk_hw *hw)
- {
- 	struct mpfs_periph_hw_clock *periph_hw = to_mpfs_periph_clk(hw);
- 	struct mpfs_periph_clock *periph = &periph_hw->periph;
--	void __iomem *base_addr = periph_hw->sys_base;
-+	void __iomem *base_addr = periph_hw->base;
- 	u32 reg, val;
- 	unsigned long flags;
- 
-@@ -309,7 +309,7 @@ static int mpfs_periph_clk_is_enabled(struct clk_hw *hw)
- {
- 	struct mpfs_periph_hw_clock *periph_hw = to_mpfs_periph_clk(hw);
- 	struct mpfs_periph_clock *periph = &periph_hw->periph;
--	void __iomem *base_addr = periph_hw->sys_base;
-+	void __iomem *base_addr = periph_hw->base;
- 	u32 reg;
- 
- 	reg = readl_relaxed(base_addr + REG_SUBBLK_CLOCK_CR);
-@@ -379,9 +379,9 @@ static struct mpfs_periph_hw_clock mpfs_periph_clks[] = {
- };
- 
- static int mpfs_clk_register_periph(struct device *dev, struct mpfs_periph_hw_clock *periph_hw,
--				    void __iomem *sys_base)
-+				    void __iomem *base)
- {
--	periph_hw->sys_base = sys_base;
-+	periph_hw->base = base;
- 
- 	return devm_clk_hw_register(dev, &periph_hw->hw);
- }
-@@ -389,14 +389,14 @@ static int mpfs_clk_register_periph(struct device *dev, struct mpfs_periph_hw_cl
- static int mpfs_clk_register_periphs(struct device *dev, struct mpfs_periph_hw_clock *periph_hws,
- 				     int num_clks, struct mpfs_clock_data *data)
- {
--	void __iomem *sys_base = data->base;
-+	void __iomem *base = data->base;
- 	unsigned int i, id;
- 	int ret;
- 
- 	for (i = 0; i < num_clks; i++) {
- 		struct mpfs_periph_hw_clock *periph_hw = &periph_hws[i];
- 
--		ret = mpfs_clk_register_periph(dev, periph_hw, sys_base);
-+		ret = mpfs_clk_register_periph(dev, periph_hw, base);
- 		if (ret)
- 			return dev_err_probe(dev, ret, "failed to register clock id: %d\n",
- 					     periph_hw->periph.id);
--- 
-2.35.1
+>  
+>    reg:
+> -    maxItems: 1
+> +    items:
+> +      - description: |
+> +          clock config registers:
+> +          These registers contain enable, reset & divider tables for the, cpu, axi, ahb and
+> +          rtc/mtimer reference clocks as well as enable and reset for the peripheral clocks.
+> +      - description: |
+> +          mss pll dri registers:
+> +          Block of registers responsible for dynamic reconfiguration of the mss pll
+>  
 
+This breaks all of DTS - in and out of tree.
+
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
