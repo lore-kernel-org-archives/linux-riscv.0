@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B59C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Apr 2022 18:22:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A804C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Apr 2022 18:22:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3MRGpGtm2yDfmbemQqM+RPqc9m8xNpVmoSTS8Tchj5A=; b=ej1UPJRsJzTsVk
-	cmbvKeDMDGXqqWKM1/RqU/XrHf7O0zkUEvpUlt6/pQviKzjkFLjXcNvuI0OjDmFdFc9yIMQkjipFh
-	EMoTJOiIO3qCwBZBsYWbEBbFhn8v/vd2wt/+tuFs1LKn0eaJiEo2+65DkHbZjYJpWGlXnQO4TszPw
-	B6hdnqNnFYCN91OoQtUUK7pZPMur44joZMY7rKa5nxF9/eIP533Oenxh8IABYGVVfvQGyzSc/zAdy
-	1w4Tj5EsLWRFUMzke9zHeGxWCb9YOWedi3iXxuApUHtmI2eJP2i87uqHtGwXx3VRQivKZQxhM3CBy
-	N4LEszwxZSZineh5wGjQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7Eigxrh7hi4ZyG9rjc7sHXuzwL5ywih/EJEKafbs1y4=; b=I1ZF4vjYZcYAzI
+	lEhcwAQLRFbYGtbO7wI+YIQiQvl9P30wl5vDbY8z/49ztGd/QX9wO/qgDxw8KBJwLMo2pVHXtxutC
+	zwJ5B0wfoR1GHPQoXhPcB5L0y9GLr/6Q0Ynn/E7NGswCX3y2njPXQI1J0K6zsH7MSE8ITpma4AXuy
+	ClZXSI86csOI75ApDSuVXlpOvjdQx/gsg+d+lEQyW2qeYZ3VV8pw3GPB5/bNz2tk1nEgCJiWuLict
+	L76Auckj48Yp8dRQTq6bY/5+CJkORatv/3Yb3dVt0Bdhjc9Kp8Jxz0hhAPt3ds6mkxwZIPRx7mn7o
+	6crROEdGceLzcBeEj/gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nctFe-000rZ4-43; Fri, 08 Apr 2022 18:22:30 +0000
+	id 1nctFq-000rec-CF; Fri, 08 Apr 2022 18:22:42 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nctFQ-000rOg-1k; Fri, 08 Apr 2022 18:22:19 +0000
+ id 1nctFV-000rWZ-U5; Fri, 08 Apr 2022 18:22:23 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 7F727B82CDA;
- Fri,  8 Apr 2022 18:22:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1447C385A3;
- Fri,  8 Apr 2022 18:22:06 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 8F473B82A89;
+ Fri,  8 Apr 2022 18:22:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96822C385BB;
+ Fri,  8 Apr 2022 18:22:15 +0000 (UTC)
 Authentication-Results: smtp.kernel.org;
  dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com
- header.b="dfKB5qQm"
+ header.b="jcpLG88Y"
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105; 
- t=1649442124;
+ t=1649442134;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:
- content-transfer-encoding:content-transfer-encoding;
- bh=ZAwWpf2mSTFfhh0jtk2ioJcnGUl1ovRW108xPWCiP1A=;
- b=dfKB5qQmsNNVKpwxv9Cbr2s7qEWtNQzkgJC2RD/cQl+Kg5yaPqQUUxVrp4hQsx7Gr34f8r
- QDaPPI2uQBsYvxEeqkoO1FDW72vygWpLLLY0z7DPDI7fQP2fMh2qAq13X+NIGhh5UufkXE
- UHg7p8K+xKHRdLFGuG+/VvaayEztZPI=
-Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 4b54fd79
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=bKnGziADgzlHYNafG897CPxh8A5i6JayWbcFusMVF+o=;
+ b=jcpLG88YHHP6AloS0heU9nwr6NJdw/JKwkHxnAETctCFQ01GcKhEazXCv1l8LYoXkmFxRD
+ ftX1/Z6lNxkT70S7kwuImsr0xpjUDcs5HuIyBEDxSRaDq4wzLA6+sbCA5e6UpziDcyropk
+ fx7n4JcOruZvQmUQLel+8lYi/eG+/LU=
+Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id e268004a
  (TLSv1.3:AEAD-AES256-GCM-SHA384:256:NO); 
- Fri, 8 Apr 2022 18:22:04 +0000 (UTC)
+ Fri, 8 Apr 2022 18:22:14 +0000 (UTC)
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 To: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, arnd@arndb.de
 Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>, Theodore Ts'o <tytso@mit.edu>,
@@ -68,14 +69,16 @@ Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>, Theodore Ts'o <tytso@mit.edu>,
  linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
  linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org,
  linux-um@lists.infradead.org, x86@kernel.org, linux-xtensa@linux-xtensa.org
-Subject: [PATCH RFC v1 00/10] archs/random: fallback to using sched_clock() if
- no cycle counter
-Date: Fri,  8 Apr 2022 20:21:35 +0200
-Message-Id: <20220408182145.142506-1-Jason@zx2c4.com>
+Subject: [PATCH RFC v1 01/10] random: use sched_clock() for
+ random_get_entropy() if no get_cycles()
+Date: Fri,  8 Apr 2022 20:21:36 +0200
+Message-Id: <20220408182145.142506-2-Jason@zx2c4.com>
+In-Reply-To: <20220408182145.142506-1-Jason@zx2c4.com>
+References: <20220408182145.142506-1-Jason@zx2c4.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220408_112216_444930_7C3549AE 
-X-CRM114-Status: GOOD (  25.54  )
+X-CRM114-CacheID: sfid-20220408_112222_302195_818F4610 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,126 +95,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
+In the event that a given arch does not define get_cycles(), falling
+back to the get_cycles() default implementation that returns 0 is really
+not the best we can do. Instead, at least calling sched_clock() would be
+preferable, because that always needs to return _something_, even
+falling back to jiffies eventually. It's not as though sched_clock() is
+super high precision or guaranteed to be entropic, but basically
+anything that's not zero all the time is better than returning zero all
+the time.
 
-The RNG uses a function called random_get_entropy() basically anytime
-that it needs to timestamp an event. For example, an interrupt comes in,
-and we mix a random_get_entropy() into the entropy pool somehow.
-Somebody mashes their keyboard or moves their mouse around? We mix a
-random_get_entropy() into the entropy pool. It's one of the main
-varieties of input.
-
-Unfortunately, it's always 0 on a few platforms. The RNG has accumulated
-various hacks to deal with this, but in general it's not great. Surely
-we can do better than 0. In fact, *anything* that's not the same exact
-value all the time would be better than 0. Even a counter that
-increments once per hour would be better than 0! I think you get the
-idea.
-
-On most platforms, random_get_entropy() is aliased to get_cycles(),
-which makes sense for platforms where get_cycles() is defined. RDTSC,
-for example, has all the characteristics we care about for this
-function: it's fast to acquire (i.e. acceptable in an irq handler),
-pretty high precision, available, forms a 2-monotone distribution, etc.
-But for platforms without that, what is the next best thing?
-
-Sometimes the next best thing is architecture-defined. For example,
-really old MIPS has the CP0 random register, which isn't a cycle
-counter, but is at least something. However, some platforms don't even
-have an architecture-defined fallback. In that case, what are we left
-with?
-
-By my first guess, we have ktime_get_boottime_ns(), jiffies, and
-sched_clock(). It seems like sched_clock() has already done a lot of
-work in being always available with some incrementing value, falling
-back to jiffies as necessary. So this series goes with that as a
-fallback, for when the architecture doesn't define random_get_entropy in
-its own way and when there's no working cycle counter.
-
-Another option would be falling back to different things on different
-platforms. For example, Arnd mentioned to me that on m68k,
-ktime_get_ns() might be better than sched_clock(), because it doesn't
-use CONFIG_GENERIC_SCHED_CLOCK and therefore is only as good as jiffies.
-Maybe there are other considerations there as well.
-
-This is a bit involved with plumbing asm/ headers, which is why this is
-an RFC. There are a few ways of skinning that cat. The patchset also
-tries to fill in the various cases where an arch only sometimes has a
-cycle counter and sometimes doesn't. When possible, it tries to make the
-decisions at compile time, but sometimes runtime decisions are
-necessary.
-
-Please let me know if you think this is sane. And if you have a
-different candidate than sched_clock(), I'd be interested to learn about
-that. In particular, I'd value input here from Thomas or somebody else
-who has looked at timekeeping across less common platforms.
-
-Finally, note that this series isn't about "jitter entropy" or other
-ways of initializing the RNG. That's a different topic for a different
-thread. Please don't let this discussion veer off into that. Here, I'm
-just trying to find a good fallback counter/timer for platforms without
-get_cycles(), a question with limited scope.
-
-Thanks,
-Jason
-
+Cc: Thomas Gleixner <tglx@linutronix.de>
 Cc: Arnd Bergmann <arnd@arndb.de>
 Cc: Theodore Ts'o <tytso@mit.edu>
-Cc: Dominik Brodowski <linux@dominikbrodowski.net>
-Cc: Russell King <linux@armlinux.org.uk>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: David S. Miller <davem@davemloft.net>
-Cc: Richard Weinberger <richard@nod.at>
-Cc: Anton Ivanov <anton.ivanov@cambridgegreys.com>
-Cc: Johannes Berg <johannes@sipsolutions.net>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: Borislav Petkov <bp@alien8.de>
-Cc: Dave Hansen <dave.hansen@linux.intel.com>
-Cc: H. Peter Anvin <hpa@zytor.com>
-Cc: Chris Zankel <chris@zankel.net>
-Cc: Max Filippov <jcmvbkbc@gmail.com>
-Cc: John Stultz <john.stultz@linaro.org>
-Cc: Stephen Boyd <sboyd@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-m68k@lists.linux-m68k.org
-Cc: linux-mips@vger.kernel.org
-Cc: linux-riscv@lists.infradead.org
-Cc: sparclinux@vger.kernel.org
-Cc: linux-um@lists.infradead.org
-Cc: x86@kernel.org
-Cc: linux-xtensa@linux-xtensa.org
+Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+---
+ include/linux/timex.h | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Jason A. Donenfeld (10):
-  random: use sched_clock() for random_get_entropy() if no get_cycles()
-  m68k: use sched_clock() for random_get_entropy() instead of zero
-  riscv: use sched_clock() for random_get_entropy() instead of zero
-  mips: use sched_clock() for random_get_entropy() instead of zero
-  arm: use sched_clock() for random_get_entropy() instead of zero
-  x86: use sched_clock() for random_get_entropy() instead of zero
-  arm64: use sched_clock() for random_get_entropy() instead of zero
-  um: use sched_clock() for random_get_entropy() instead of zero
-  sparc: use sched_clock() for random_get_entropy() instead of zero
-  xtensa: use sched_clock() for random_get_entropy() instead of zero
-
- arch/arm/include/asm/timex.h      | 11 +++++++++++
- arch/arm64/include/asm/timex.h    |  9 +++++++++
- arch/m68k/include/asm/timex.h     |  4 +++-
- arch/mips/include/asm/timex.h     |  3 ++-
- arch/riscv/include/asm/timex.h    |  3 ++-
- arch/sparc/include/asm/timex_32.h |  4 +---
- arch/um/include/asm/timex.h       |  9 ++-------
- arch/x86/include/asm/tsc.h        | 11 +++++++++++
- arch/xtensa/include/asm/timex.h   |  6 ++----
- include/linux/timex.h             |  6 ++++++
- 10 files changed, 49 insertions(+), 17 deletions(-)
-
+diff --git a/include/linux/timex.h b/include/linux/timex.h
+index 5745c90c8800..bd78f784762e 100644
+--- a/include/linux/timex.h
++++ b/include/linux/timex.h
+@@ -61,6 +61,7 @@
+ #include <linux/compiler.h>
+ #include <linux/types.h>
+ #include <linux/param.h>
++#include <linux/sched/clock.h>
+ 
+ #include <asm/timex.h>
+ 
+@@ -74,8 +75,13 @@
+  *
+  * By default we use get_cycles() for this purpose, but individual
+  * architectures may override this in their asm/timex.h header file.
++ * If a given arch does not have get_cycles(), then we fallback to
++ * using sched_clock().
+  */
++#ifdef get_cycles
+ #define random_get_entropy()	((unsigned long)get_cycles())
++#else
++#define random_get_entropy()	((unsigned long)sched_clock())
+ #endif
+ 
+ /*
 -- 
 2.35.1
 
