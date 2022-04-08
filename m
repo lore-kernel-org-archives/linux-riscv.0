@@ -4,165 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0401C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Apr 2022 14:17:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B3D1C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Apr 2022 14:38:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hqyCmt4CiZzxjH9xoAWcKPjOsfKN0uOQ/QldKB0p1ho=; b=k18hZSEuzM83qh
-	XQiKO4yZaaY4SZE68w8j/gfT/ePy0S1NMmZWMmQxVccP1fXbvYXhwDs1F6TAn6t/E7GxXBHlemdCq
-	K6JTP1BTUaGdnWZmP/ZppKc7ZozWj7aG18bomc+7pmPjv30wcceAkpaRGJ5xaVrtlcQP9bJncH1oJ
-	7j2/LLjcE8lPl+vOjUK2P1OUbXIiNqEdmWr81Afhrqhae3zwGWICAmM5DXJSPJn307q4NYHBck4PL
-	d/30WTPjqjl1EHi0YhToKnc4R5nKA96TARc8IOs/syDXjPOuKN/4cu0cprJ2lE67FQSzZA7jknTj6
-	5KelcKn3CBY4tP3LOCQg==;
+	List-Owner; bh=4Ilcsbj9e3hbBJK9XIOIsnPm11TZ2KgYzQpBdPcMdE0=; b=eHohWsCKQH1olA
+	4VYRATwPuzek3A15dKgtwGEIvEcPC9rVVtjRVhSEmYX6C3MpKlUhPqU0+o+BKzTo0wG+E6xWcLGKI
+	G4F7jCJe5VYf4MmXZNU3PkaloBfJLRC1f+GQlX974fwCWsxQreEdXEkob13lz3fwHX4QqpJQS9WGx
+	rFIg5HqstonHnYmhycMjN1LAKVistfSSU/bDgsiFMH8DfpnjB8ZV7O1L2k7vtekUCJPz/BgdRhycU
+	RMrNqLY0vh5DJE3f817MFGqK+IPb7VXj4eyRJZ7IG8UBlF1gtQdY7UcCORFNKUz1ZN053AKRBRvej
+	IqTduAOZ+Uy1tOOR2HSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ncpPu-00HYXX-Pp; Fri, 08 Apr 2022 14:16:50 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1ncpkG-0000dh-CR; Fri, 08 Apr 2022 14:37:52 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ncpPr-00HYWn-Nt
- for linux-riscv@lists.infradead.org; Fri, 08 Apr 2022 14:16:49 +0000
+ id 1ncpkD-0000bY-09
+ for linux-riscv@lists.infradead.org; Fri, 08 Apr 2022 14:37:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1649427407; x=1680963407;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-id:content-transfer-encoding: mime-version;
- bh=Sbe2+ING/E4CCYJxUlK24TJ7/QUfQIMtlQmmC4xYBfg=;
- b=XTfWpBFmmxn4XKzw9XC9smKJbCvkdFHUb99QHfytB0W0BLGtYVsxebFO
- d91KRYpg0+VSuyMR5CrS3u+bWGALDR4Ur/aX1xi5N+kjshdJ1yjCHQXnp
- F81xenhS9yHXDV/DK6XNsNESG6TWqAyRVM9RrYf+q+mWFc3gfGNufakHM
- 19CaVyQZIShUM1qRchi8kmPNonQbOhS2CJGxLhtgrQN88DwHRdePJqORP
- CG3AhE/KupRveOvLdMcYaEjTGB84gVbCmvRPB6HrQAOf70zajoSLfmdB1
- jXPpLWz4jrE+7+3bwuRhiT/z+Ff4whjUJ84qa0c5WCVJ8jSm6+bhD+X5/ A==;
-X-IronPort-AV: E=Sophos;i="5.90,245,1643698800"; d="scan'208";a="159869713"
+ t=1649428669; x=1680964669;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=BVZx33NKupiZCfwz779hCCkPFx236F041juK4+XrqfM=;
+ b=pWPX84O5PBjo5WMLTv1Dr2IwgQWmrSj5138Paqjzz2zxaaBKcMiN5eD5
+ HVxlWRKTLvaqZR5gz5eKTL7OF5KKZ16tj62W9BfBZVzWcAnKNGq/aUues
+ gk+rbXC/GA2/31BgSdNmDpBp5yJDflybhlDWJdODdm0e1conXFCvCsZKK
+ HvVZure2PDYE15wzGM4MrAp+56uDpD7RlSzJTFOeb7DDE60mlT3iUEUlM
+ aQbRN+pAb1i5S13OoFfnLP4EwuSecYYoKXV6ZnekJ/gVqCv/OZE/9nzdM
+ gIIg/46iyhcVICyxf+uF/JjJbNNsqv0zqlsf+Ci8TWc9H7BLapAv8oTnc g==;
+X-IronPort-AV: E=Sophos;i="5.90,245,1643698800"; d="scan'208";a="152027968"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
- by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 08 Apr 2022 07:16:44 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 08 Apr 2022 07:37:45 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Fri, 8 Apr 2022 07:16:44 -0700
-Received: from NAM10-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17 via Frontend Transport; Fri, 8 Apr 2022 07:16:43 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=MiHWzcaR8JXNdgeO/BB8XHz6XlIyjwCQccC9ZPlqshrh7KWfLhG3dFxjb5iARs/xlKAJDtkh6Rsjj48ACTH/AIUOyCc3Ej+tz73Omy3I+1jJMsr3wWludJ59WsZ+Q20m3oP7h7lb01cUlPaQSsJPq1wNyPtEyURd09Vz555wYl4wYyntA6pTjjDd921vq0UdiTS7zsoANQRKVCGk/ouT2lVPcWlbdz6vi9NMdfLLuMpWeAbXacKwiw+mF8WdOljDesJos+/2wplqZ8nLQ5fsS4wAEhD9HBG3Nqe/DCgrMpTRNnU0hu51+VXEHgQy5gRyG10G4uvm2mXTxG8eX9ukww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Sbe2+ING/E4CCYJxUlK24TJ7/QUfQIMtlQmmC4xYBfg=;
- b=Z25UmtSwQ9xYUql63yMD0MjGAg9gG9GnRxe6ZHbX6ix+MQUmCDV8G4fRv9ugwDf2jxtjNjCdk/SyvygcO7v3gHWH5KFbCAwmVI8mOB1+6Qj1lZ0k3Do1LTQ5jD/JklAeee8zf+4MCrpmNORIfA/5OUm7vn4jXJ+0Eddk+BE9bPAdL/WWeBJ9gUxm1RjOSsQdgd1d87o5gLd/uzMwCC5ugJfDnpOi9FyuO1UkkJ0eVaVRNv0Op+Lv8H75Dr7BX91UB8Q2rYn2aRa/9NQKxp07amsatzlL7wuuHI61+UMiyjbb+OUe8q2ahkXBU+FVnD9ahCaBShDnc0F2pSgi6a2LRQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Sbe2+ING/E4CCYJxUlK24TJ7/QUfQIMtlQmmC4xYBfg=;
- b=WA1fB3roM7PVl4OVAe+z5L2xN9/fbf86yYeadlTqtjNR0JrbWkzuRVzMc4sad/aIMFXmbiAisFHyJq7dVD0cGCR4PYAmxgD5ai904HnTguRXUV28kXaRU3Ywb5ZTg6OLTI8/OylccCqra/Vs3qr6UOzuuYNY/L6mPtj3dIej8Ro=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:95::7)
- by SA2PR11MB5100.namprd11.prod.outlook.com (2603:10b6:806:119::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5144.22; Fri, 8 Apr
- 2022 14:16:42 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::dc95:437b:6564:f220]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::dc95:437b:6564:f220%8]) with mapi id 15.20.5144.026; Fri, 8 Apr 2022
- 14:16:42 +0000
-From: <Conor.Dooley@microchip.com>
-To: <andrew@lunn.ch>
-CC: <mturquette@baylibre.com>, <sboyd@kernel.org>,
- <linux-clk@vger.kernel.org>, <Daire.McNamara@microchip.com>,
- <linux-riscv@lists.infradead.org>, <palmer@rivosinc.com>,
- <linux@armlinux.org.uk>
-Subject: Re: [PATCH v1] clk: microchip: mpfs: don't reset disabled peripherals
-Thread-Topic: [PATCH v1] clk: microchip: mpfs: don't reset disabled peripherals
-Thread-Index: AQHYS0qp5nLbv82Rzkqpqwk2Zn/CP6zmClsAgAAFfoA=
-Date: Fri, 8 Apr 2022 14:16:42 +0000
-Message-ID: <4d840171-b483-7a0e-f078-b701fc858421@microchip.com>
-References: <20220408131352.3421559-1-conor.dooley@microchip.com>
- <YlA/GEA0uai/s0g4@lunn.ch>
-In-Reply-To: <YlA/GEA0uai/s0g4@lunn.ch>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.7.0
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 0ccc547f-d136-4d8a-12be-08da196a67b6
-x-ms-traffictypediagnostic: SA2PR11MB5100:EE_
-x-microsoft-antispam-prvs: <SA2PR11MB51003CDEAB9BAFF084505BD998E99@SA2PR11MB5100.namprd11.prod.outlook.com>
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: IaEvxyZ0DS0Dv/pOPzNOFFQsRQY3fbtFLPqI5WetNoG7JmXjuNcSfa32M3t2OalDCQyt0IX9yZbgOxJYVwmoOuOV+RRHjmvWkgZSHcLkqFDF4bapBKQJCyyUlBhpxN95cYpdAgMnoR+lnsoRe7xC3g0dTCIvjaswiqAQvUBmYWUbeVfMegxKtHA0WQTrGdRYj93MbPVpqB42ecOVmw12dflsZEBOz8V3OpXcLYH6EdFTzJk5IgGkXDtNZMeI6UTo7Jn7VApIJfNK0Qh9ulg72W9eb2Ll0e2J6RYyzYzzw/Fog7RVotZPNm8n5vejWGM1T7til6ndWd7WmSL8vRlJQSqZlmoWjndzakpEL6uMpNSWzZaDzt48XRUSlxgSU85wbJ3p41tiF2jgNRlHPfxdJ1Dp1Vw1Z2AAzMAITFX70YI1jSxmqDhAZFaLmgfF8oOeppbkWia8LYzbng6oM/qfky84FtvoRaO+JAEzRVUWhlejD0yjT91LmruR8oFsU4v3Iu6tcc4QFGTgmxVuEjCWsCu/kDRQbpnbFyqAnF+4FZCuRdtOA6QzqxdzPg3Lul8vxl0wSUzdqUKMJpZb8UqPXrrwEy9U2+Jrh55fCcaa3HRONdEPaHEBYIfLxAgn+xFj9qMDVdxWjg5g75d+nh9YsF+zarBPnL2xmuhP/zRepUCf4eIQKfBKgeaR/h94o5TAhBQd0vFTPCbFoiVfNYLCDuRkyuUtEIXjqO0H/CQeE9jXNfj5vfd7JJd1DHMDzkFndK2Jiru/lUcHGrAv0YYVw2wuUryOTHKoN3QbVk6MGtd4fnuOa12D3AbAyddGRkX06NLcQyj4HVWE/8Vka5MLr+Kc6SR28w9rhWoj2fqF4vc=
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:CO1PR11MB5154.namprd11.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(13230001)(366004)(6512007)(122000001)(38100700002)(6506007)(2616005)(26005)(2906002)(31686004)(36756003)(8936002)(5660300002)(186003)(53546011)(83380400001)(54906003)(6916009)(76116006)(64756008)(31696002)(8676002)(66946007)(66446008)(66476007)(4326008)(66556008)(86362001)(316002)(6486002)(966005)(91956017)(38070700005)(71200400001)(508600001)(43740500002)(45980500001);
- DIR:OUT; SFP:1101; 
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?UDZidUY5SmRpLzlUUnRQUWhRalRqTERVTWh4dVVUeU5JSXZ6ZVNiTlFabi9P?=
- =?utf-8?B?blBaTjRMcy94WnhvMU9tVm03Z0RaMmJvdEFvdjJwcFNhSGxIdjRpY2NyNDNC?=
- =?utf-8?B?YkJPL21KZGN5amZkVmVRWDRKM3pRRDFjUDRta08yQW90Y291RnJBMXdZU0pP?=
- =?utf-8?B?ME1JeDRsUlNxK2JYM0paczFOWmFETFdyaXBod3MwWVhtaEFQeHlocG12UXA5?=
- =?utf-8?B?S3UvRkd4OTNkYkRnbTV4V1A5NzlpRVpoYjlLQjF5L3M0WHQwenFvS2JGWTl5?=
- =?utf-8?B?VWpUY1dtUjRaMFNXb1RpMCs5VjU1WlJOcGNzYXltOWs5VkhsN0dEOVRUWEZH?=
- =?utf-8?B?cEVSZ2lkUk9EemNiUFBnajY5bXRTK2UrU0ZEbFI4YUFxcHRWVUxKVzRGMmUv?=
- =?utf-8?B?elBsZG94aUtnSXhkM0k5c1pqMStZUFBHUjl5WXB2Qit3YytXUEVoTERuL2pZ?=
- =?utf-8?B?R0Y5NGpETEJjUTNwcjhUakRPYlo0VjdFY0tBUk8wcWY0WlRWQWo4NjU5WEs3?=
- =?utf-8?B?anJrNnBVNWkrUWZnL3hIbzRlTFdrbnE3Ukp4UFQvSmFFamlkb1FwOUFWMUpp?=
- =?utf-8?B?RDdYN3g4RDJWa0VjSGFtS3ROakJhVHFpQXN5WFJZT0g0WGdyTkoxMjB0Ymt4?=
- =?utf-8?B?dExnZFBCTHJQczJzK1RnczJYdFVFT0lhYjJTbzYzNi91SW50VU1ESm5yN1ox?=
- =?utf-8?B?eVZaSkVXb3JVZ1VBY0d2cTJGMjBSemVzUzB6cC9MZnlkblk0NDU4cEF1QTgr?=
- =?utf-8?B?WFk0YW96U0d5cnNsS250UndHN3RWZDVYUllxREZOOVcySGlWQlNGbGFoaE9h?=
- =?utf-8?B?T2plVENpSGJSZHFPQzV0cXVxcjdQVkRKcURhMUk1YlJ3elRaT0hyMFZ1YjBQ?=
- =?utf-8?B?Ymg4TmZNbWV1bWdtTEtIVlJNQXVBNXhUamxCMGtPdnFmNUZFZkY3V1VsTE9q?=
- =?utf-8?B?UkFqWjBtK2QveWFzYzIxVkNtV0FkZi9Sc2I3elN5LzhqOXpoRC9vZExxMnRM?=
- =?utf-8?B?NEduU2tMNWRtWnBMQW8raVJ5Y3I3NWwzbDN6SUpBUzlWNjJJTEp2RFJkSXd4?=
- =?utf-8?B?bEhKNlUxRStYV3hWQ0Q1R1ZBZ2J4RHVab0x0MDNlVjRHK3FkclBIdW1XVzU4?=
- =?utf-8?B?SDBEQVdrSnB6amlUWjhWME9Dam04SlNzS1FWUXQ0YnJ6bjJ1UGRvK0RqZWps?=
- =?utf-8?B?YlN2WTdZQi9nQ3JIMmhYVy82VUpJVHlwSXRjREVNVVhmTHZLRjZrUXlxMmRk?=
- =?utf-8?B?NFZyczRWcFcvcUlCbUhsS0NnWnJ1Ym1xeU9NQ1NTdU5WQitla0g1Si9EOUNB?=
- =?utf-8?B?Vk1RdmpMWnovTHJMcC94ZHR6STUxVmhubzNUQzB3My9hbHVRdUdhczVLcG4x?=
- =?utf-8?B?QW82ZmxsZzBkdG9VVjVmQkRRQVNYM3BKTUVHTGNDMG43MDNSc2E0bVN1Yyt6?=
- =?utf-8?B?bGsyQ0ZXWi9DN1BKWmlTRm5odlBlejdrcGlvR1l0WG5vSFFESWM1Q2kvNUZp?=
- =?utf-8?B?NG1nQS9CZjRQd0p0Y0RDbmd4OTZpdHc5SXpCekpHeUE1L25BWDZSUkQzRE50?=
- =?utf-8?B?YURqTE9ENHMvdUozdVd6bzB1cWwxS2FaODlMYUNNdUZ5NE4wZjJKamUwcXVW?=
- =?utf-8?B?UjRicEdnMzdKUjFmQXpWTnFveitNNVl1R1pwTWNmd0Z2YmszV01nc3FKWEgr?=
- =?utf-8?B?ZHVKeVYrVjNHSGk4dU5kZ0pjbGNsTTdmMGx0L3lyUUV3T1RHNWZUdnU5Ynh6?=
- =?utf-8?B?bUdqNlBoZ0RJRU43bXdoWDc4WHBkNTJ3QlpLc24wdlM5QzNITmVVaG5OTzhw?=
- =?utf-8?B?SGszeFpHYlRCNXJPNzZRK3MveXh2THNPeE91RFZZNEwxV29rVkdsbDJ2Z1k2?=
- =?utf-8?B?QXZnRkczS21QcUxTKzZFVHhrS2VkYmxzQ3dCYk5kK3p0aTl0QjQ3c1hmTW5q?=
- =?utf-8?B?bEVnSElDZDdFaVprc2JtWjlmTlZObVNTbkNHVzlXU0hhMW94dmRzYjZ1Ylp6?=
- =?utf-8?B?MEFydlMreThaemhGTE15WmwrTHNBQ1BwcTh2RW1TeUh1OXl4K2FFRGdNVFRL?=
- =?utf-8?B?aWxpVnpRWURrR3gydGNJaWJSUDUrRzVZb3JySjgvU2N0SlhYUkJsOVJYa1NK?=
- =?utf-8?B?UEh3MGhMOXJBbGVjQjA4cXQremN2L2thKzdTbDlKYk4xcjNuaU9oa1RNUkdl?=
- =?utf-8?B?eXhHSGJXL1lvaWc0aUExV3FkbGxSUWdSeU1aUU5kOURsTXFGakFSMVFxSDhO?=
- =?utf-8?B?Q1FFNnlLdmlDK3B6R0NHL0pnR2tsMnFUVGFkL3NFUHV0cnlqU1B4VURYbGNx?=
- =?utf-8?B?N2lXOFc2TXZ6RXB4VXFyb0ozcDVra3VSYnNxTGoxL21TTkQxMHVJdz09?=
-Content-ID: <B531C59B5498B943AFDAFFDD4AF7F742@namprd11.prod.outlook.com>
+ 15.1.2375.17; Fri, 8 Apr 2022 07:37:45 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2375.17 via
+ Frontend Transport; Fri, 8 Apr 2022 07:37:41 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <aou@eecs.berkeley.edu>,
+ <paul.walmsley@sifive.com>, <palmer@rivosinc.com>, <a.zummo@towertech.it>,
+ <alexandre.belloni@bootlin.com>, <robh+dt@kernel.org>, <krzk+dt@kernel.org>
+CC: <daire.mcnamara@microchip.com>, <linux-rtc@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v1 1/7] dt-bindings: clk: mpfs document msspll dri registers
+Date: Fri, 8 Apr 2022 14:36:41 +0000
+Message-ID: <20220408143646.3693104-2-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.35.1
+In-Reply-To: <20220408143646.3693104-1-conor.dooley@microchip.com>
+References: <20220408143646.3693104-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0ccc547f-d136-4d8a-12be-08da196a67b6
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Apr 2022 14:16:42.2466 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: QEBO/EFDKnxohkbwHygnjiiiKlMzSD1ao/yNNbj/wLEXaoRKs7Pa7kVxkx9VX3LGH+ahXpNlKt03T3EsnkzCa52UrnQKtDEUcN3JOD7b6NQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR11MB5100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220408_071648_054685_578DE432 
-X-CRM114-Status: GOOD (  19.55  )
+X-CRM114-CacheID: sfid-20220408_073749_127525_B2BCF2E7 
+X-CRM114-Status: UNSURE (   7.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,46 +83,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+As there are two sections of registers that are responsible for clock
+configuration on the PolarFire SoC: add the dynamic reconfiguration
+interface section to the binding & describe what each of the sections
+are used for.
+
+Reviewed-by: Daire McNamara <daire.mcnamara@microchip.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ .../devicetree/bindings/clock/microchip,mpfs.yaml     | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/clock/microchip,mpfs.yaml b/Documentation/devicetree/bindings/clock/microchip,mpfs.yaml
+index 0c15afa2214c..42919df322ab 100644
+--- a/Documentation/devicetree/bindings/clock/microchip,mpfs.yaml
++++ b/Documentation/devicetree/bindings/clock/microchip,mpfs.yaml
+@@ -22,7 +22,14 @@ properties:
+     const: microchip,mpfs-clkcfg
+ 
+   reg:
+-    maxItems: 1
++    items:
++      - description: |
++          clock config registers:
++          These registers contain enable, reset & divider tables for the, cpu, axi, ahb and
++          rtc/mtimer reference clocks as well as enable and reset for the peripheral clocks.
++      - description: |
++          mss pll dri registers:
++          Block of registers responsible for dynamic reconfiguration of the mss pll
+ 
+   clocks:
+     maxItems: 1
+@@ -51,7 +58,7 @@ examples:
+             #size-cells = <2>;
+             clkcfg: clock-controller@20002000 {
+                 compatible = "microchip,mpfs-clkcfg";
+-                reg = <0x0 0x20002000 0x0 0x1000>;
++                reg = <0x0 0x20002000 0x0 0x1000>, <0x0 0x3E001000 0x0 0x1000>;
+                 clocks = <&ref>;
+                 #clock-cells = <1>;
+         };
+-- 
+2.35.1
 
 
-On 08/04/2022 13:56, Andrew Lunn wrote:
-> On Fri, Apr 08, 2022 at 01:13:53PM +0000, Conor Dooley wrote:
->> The current clock driver for PolarFire SoC puts the hardware behind
->> "periph" clocks into reset if their clock is disabled. CONFIG_PM was
->> recently added to the riscv defconfig and exposed issues caused by this
->> behaviour, where the Cadence GEM was being put into reset between its
->> bringup & the PHY bringup:
->>
->> https://lore.kernel.org/linux-riscv/9f4b057d-1985-5fd3-65c0-f944161c7792@microchip.com/
->>
->> Fix this by removing the reset enable/disable code from the driver &
->> rely (for now) on the bootloader bringing peripherals out of reset
->> during boot.
-> 
-> Maybe you should keep the clock enable -> disable reset part, and only
-> remove the clock disable -> assert reset part. You are making the
-> assumption that the bootloader disables reset on everything, when in
-> fact it could only disable resets on peripherals it needs, and it
-> needs the ethernet for TPTP boot.
-
-Yeah, I made that assumption because everything supported by mainline
-currently are taken out of reset by the first stage bootloader.
-I will double check & make sure that this is extended to all peripherals.
-
-> What is your long term fix? It seems like you need to add a reset
-> controller. The macb already seems to support that:
-> 
-> macb_main.c:	/* Fully reset GEM controller at hardware level using zynqmp-reset driver,
-> macb_main.c:	ret = device_reset_optional(&pdev->dev);
-> 
-> So once you have it, it should be easy to wire up for this
-> peripheral. Once you have them all using the reset controller, you can
-> then remove all the reset code from the clock driver.
-
-Yeah, adding a reset controller is the plan.
-
-Thanks,
-Conor.
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
