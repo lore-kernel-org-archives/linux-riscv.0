@@ -4,53 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E8ABC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Apr 2022 13:57:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D578C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Apr 2022 13:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Bisq/oiSYgyuvqR+pHzDurDm8fTEY4hv6wlJMYpBnko=; b=q1nTLYz3OX6Kbg
-	PYkLs5ppc8KCWI3mxH/xk/AudLUml21lofxFo/9QWzBjem3BjNiu6GZw2rtIeLF2Lkgx8xoftFT7d
-	RmiC8RmomQp6KuS5O8F7OMZa+37hj+D9veWxpTTlvc1Wd6QTljCV6fkgAYCGDMuvv/KYIR4ctVxKX
-	dMWEaX/7fxD4IW+sjBQHth3tc+kTnqlV5P+EbHjLD1v6E/WCek3Kt5k0yGkj0ffTU6AZRKIhVZLf6
-	TCw1qJGOtp8fVoVK0/h0Tjmcls8RGMkO4Sv8r8EEYKqtXRTjCMFiKlu55VFuPh9y9qZaJ3+ek8+dF
-	QcSlBOeBRLPwINE1HNKw==;
+	List-Owner; bh=LuapEhl0Jdoh2xHqSxP54Jm0GmsOHdAnu/forf6/ca0=; b=dH+k1ErKhOD5VT
+	Pm17DJz/AyGbImSpLLXuqu8kKh2arjXM7vTwoNOFwJlKvbikBufjFNba2TXav0cwa44xDxW5+hEif
+	xJ4solE288l82iE1JM7PvMOE387KKiNlyMeoyGvEBdVbv0y/10rIAuJba01ZQOMwB/I3NL25G/MWK
+	g3Xbt/F+3Bq9AwE6Z7QmGbRjo0tlUzQ7/b93AJGyHvkOYydmTuM9vGesztW9pOegPyADzbUV6+HZN
+	NBLMk7dL9hXMCE6WXfwF4ZAQehsxnGBaWDgIPEZ+ba/EXR3+eJI2kKhAyJYBQ47uX5pSFIvLoinrV
+	x42tukO17B1wQKmVQCbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ncp6Z-00HVm5-Cm; Fri, 08 Apr 2022 13:56:51 +0000
-Received: from vps0.lunn.ch ([185.16.172.187])
+	id 1ncp8u-00HWDX-Ek; Fri, 08 Apr 2022 13:59:16 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ncp6W-00HVlg-Bf
- for linux-riscv@lists.infradead.org; Fri, 08 Apr 2022 13:56:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
- s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
- Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
- Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
- bh=dngIcVIDwXBGuNu1rq593+iPVa4YStJsJHog+HHb5xU=; b=wkK8yny5rMKMJPLI7an5XIOtnY
- OjG1u+YDWkCx0n4aizW/8y44T4ZdpkE1hBbGEAkKixf560sYFXst8jWC3mIfPuZtASACaqP2xMNU+
- aMQYVnGCwdsi0cwwHnq6LXizkyrBaUeDGUnCRiaIHMYOFNflV74nldy94BY5XfPtyLa0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
- (envelope-from <andrew@lunn.ch>)
- id 1ncp6O-00EpxS-Bb; Fri, 08 Apr 2022 15:56:40 +0200
-Date: Fri, 8 Apr 2022 15:56:40 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, linux-clk@vger.kernel.org,
- daire.mcnamara@microchip.com, linux-riscv@lists.infradead.org,
- palmer@rivosinc.com, linux@armlinux.org.uk
-Subject: Re: [PATCH v1] clk: microchip: mpfs: don't reset disabled peripherals
-Message-ID: <YlA/GEA0uai/s0g4@lunn.ch>
-References: <20220408131352.3421559-1-conor.dooley@microchip.com>
+ id 1ncp8g-00HW3m-VP; Fri, 08 Apr 2022 13:59:05 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 70FABB82B6F;
+ Fri,  8 Apr 2022 13:58:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8110C385AA;
+ Fri,  8 Apr 2022 13:58:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1649426335;
+ bh=bDBwdys85RCakFFbygvOdphtQTA9miuiqFibn2MIMFE=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=OeA26bBevVgo6sbJzPJXamDO8E3ns/pz20ZNfr/4yRgmVpFBvscC184viL/LX11hU
+ CD7+aJE00Kjo9bk1ElwXNi+skHXiJ+iskOUp+OMkltZaxXxTTbfQFqxbL/k7/OSSZN
+ N+uMGu37NDp/7VhbOex7Iyhc36pjZYZEjVMsnR23nQy3HLdYE1lLONI3vTtBMweeWI
+ PAs2Y0Y+9ghBS7PrZtAc7B5mZRRvCAw8bIi9He0MU67mtZQulVPCrja/esFrjYYuvA
+ yrsaXkDTlAvZy+wqrxspiwEm/OT1rSxyL0bGt88Psnktz2ujzjTVPFTrnohVgMCCrD
+ 6KdtWv3cu8fLQ==
+From: Will Deacon <will@kernel.org>
+To: gregkh@linuxfoundation.org,
+	guoren@kernel.org,
+	arnd@arndb.de
+Cc: catalin.marinas@arm.com, kernel-team@android.com,
+ Will Deacon <will@kernel.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-arch@vger.kernel.org, linux-xtensa@linux-xtensa.org,
+ Guo Ren <guoren@linux.alibaba.com>, linux-csky@vger.kernel.org
+Subject: Re: [PATCH V4 0/4] arch: patch_text: Fixup last cpu should be master
+Date: Fri,  8 Apr 2022 14:58:45 +0100
+Message-Id: <164941462755.3967238.7784714539452982763.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20220407073323.743224-1-guoren@kernel.org>
+References: <20220407073323.743224-1-guoren@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220408131352.3421559-1-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220408_065648_437515_3D81BB13 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20220408_065903_188656_7ECF7012 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,36 +76,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 08, 2022 at 01:13:53PM +0000, Conor Dooley wrote:
-> The current clock driver for PolarFire SoC puts the hardware behind
-> "periph" clocks into reset if their clock is disabled. CONFIG_PM was
-> recently added to the riscv defconfig and exposed issues caused by this
-> behaviour, where the Cadence GEM was being put into reset between its
-> bringup & the PHY bringup:
+On Thu, 7 Apr 2022 15:33:19 +0800, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
 > 
-> https://lore.kernel.org/linux-riscv/9f4b057d-1985-5fd3-65c0-f944161c7792@microchip.com/
+> These patch_text implementations are using stop_machine_cpuslocked
+> infrastructure with atomic cpu_count. The original idea: When the
+> master CPU patch_text, the others should wait for it. But current
+> implementation is using the first CPU as master, which couldn't
+> guarantee the remaining CPUs are waiting. This patch changes the
+> last CPU as the master to solve the potential risk.
 > 
-> Fix this by removing the reset enable/disable code from the driver &
-> rely (for now) on the bootloader bringing peripherals out of reset
-> during boot.
+> [...]
 
-Maybe you should keep the clock enable -> disable reset part, and only
-remove the clock disable -> assert reset part. You are making the
-assumption that the bootloader disables reset on everything, when in
-fact it could only disable resets on peripherals it needs, and it
-needs the ethernet for TPTP boot.
+Applied first patch only to arm64 (for-next/fixes), thanks!
 
-What is your long term fix? It seems like you need to add a reset
-controller. The macb already seems to support that:
+[1/4] arm64: patch_text: Fixup last cpu should be master
+      https://git.kernel.org/arm64/c/31a099dbd91e
 
-macb_main.c:	/* Fully reset GEM controller at hardware level using zynqmp-reset driver,
-macb_main.c:	ret = device_reset_optional(&pdev->dev);
+Cheers,
+-- 
+Will
 
-So once you have it, it should be easy to wire up for this
-peripheral. Once you have them all using the reset controller, you can
-then remove all the reset code from the clock driver.
-
-   Andrew
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
 _______________________________________________
 linux-riscv mailing list
