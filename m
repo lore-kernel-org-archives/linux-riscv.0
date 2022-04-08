@@ -4,76 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E81ADC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Apr 2022 16:45:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B59C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Apr 2022 18:22:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M/c1iJXwa2qeRRGlGRzCTwhVTk8R+LYM9V0TuY6aEuo=; b=4adUGaRaxFKcVM
-	8HNO53z9Kzt0WCP0nHgHWJ0Hfo19hI8OjXvUlfyPmMk+Ve/AAIjgcnt03fGT++az7LmSP25OEdQpO
-	TSSlJ90FCHhB7KnU7vqB1lVcGMOo9zIlJ44kHuiJqwOHS3nnh4dqvSFozlAUnM7vYFshu1dV0LM5u
-	ZMpLjjXz3bH5h7GoL3doHRIuLS1P6SZ1ILWPLe+8/SFhzearT6B8LrUadTjWN5tUlZrBb3sYmlsil
-	MlLx3VNTgvPWVpo539WTnsSMAER14w57C712POVIvFAKt2gMeDmhjJQY9czSpDeXeEf6cHw7rBFuT
-	e8A8wMweTuEbOehYsPsg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3MRGpGtm2yDfmbemQqM+RPqc9m8xNpVmoSTS8Tchj5A=; b=ej1UPJRsJzTsVk
+	cmbvKeDMDGXqqWKM1/RqU/XrHf7O0zkUEvpUlt6/pQviKzjkFLjXcNvuI0OjDmFdFc9yIMQkjipFh
+	EMoTJOiIO3qCwBZBsYWbEBbFhn8v/vd2wt/+tuFs1LKn0eaJiEo2+65DkHbZjYJpWGlXnQO4TszPw
+	B6hdnqNnFYCN91OoQtUUK7pZPMur44joZMY7rKa5nxF9/eIP533Oenxh8IABYGVVfvQGyzSc/zAdy
+	1w4Tj5EsLWRFUMzke9zHeGxWCb9YOWedi3iXxuApUHtmI2eJP2i87uqHtGwXx3VRQivKZQxhM3CBy
+	N4LEszwxZSZineh5wGjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ncrk2-000c9x-20; Fri, 08 Apr 2022 16:45:46 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1nctFe-000rZ4-43; Fri, 08 Apr 2022 18:22:30 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ncrjy-000c7Q-Dp
- for linux-riscv@lists.infradead.org; Fri, 08 Apr 2022 16:45:44 +0000
-Received: by mail-wm1-x330.google.com with SMTP id q20so5919478wmq.1
- for <linux-riscv@lists.infradead.org>; Fri, 08 Apr 2022 09:45:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=hsR6O4eaICB82MEVDSEX7922LD8DveH/xZVqwX1N9p0=;
- b=FNc8Ik0xlX5AtoqvO7t5QzfYSYm1tFKhUPWfqGcvpLN+Iyb4AuBPU8dKAKeuMDmvNK
- E4soatlGoTsa9KvwA9Pqf45pnAjIn3y8YY1lYMlcgPxjoPwolUV5Q4BUovjz8R2l6KbT
- AvR1xvgJSMujYhLH0ymY6iyI6rb9NPFeZLvVvv0PV66LEgNOKH9XHwdU3GIyJKsOxHt/
- AQ/mZb1a1PnEBNSVf2bi5y9fzro7k26lx6uqUlnT0PgXN5hsuK0M4A31BM4dBXAzcM7T
- XLdLn2BnVzj0+R8iMjaRntnmYFqEViBr1x+Q547ktC3WXzpdGmFVKLU67VHn6BUIGN+5
- /l3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=hsR6O4eaICB82MEVDSEX7922LD8DveH/xZVqwX1N9p0=;
- b=oyHGTaWuylOnD9VenJUlI+3xMipH/JBdJNKUvQwvDTC6zku5Mh3ZllIg/mkL1s1HSO
- MEro7JTyoEPNvZS/j4fWN68MmdN615Lbz+kWmbqsGOwaFpUsK2u0RUrVhb+c0XjqDlo5
- 40NyPMYyOwV4mEwismViW0KqnJcZOJXWvoZsjz4pPGlAR/l0gPaNwImpgxgDTIbkKj3s
- YinxmA3AtThEe/eZnCg14r4c6eKqp4BuiuREW+7UR+BBSgUZrFzTZRUJsGYJ2VvwIQXa
- qphx5oazUsCe3ECC1Rzekz9xmIKcmw+e5WUeZ4cDhn7tQfK4eA8WZkWjX7EaThJWGJKt
- fvaw==
-X-Gm-Message-State: AOAM5327hp/IpZ8k27jyBEMR/2xhB6wJ2GG7MAU+XBWfbVJn+ZAsVbdh
- yci5lJzFoPThURFUdFyE4tP2H8Ur3KWB2T4555KVTA==
-X-Google-Smtp-Source: ABdhPJzglzfwkwV1bsPSu0gplUQ3D3k4WOJBKUIVsafnJiQlstnKUiizZCpvp5Vh3HAPd9PWbPlDHgYSbikkg2K1eSc=
-X-Received: by 2002:a05:600c:1d04:b0:38c:ba2f:88ba with SMTP id
- l4-20020a05600c1d0400b0038cba2f88bamr17835133wms.137.1649436337643; Fri, 08
- Apr 2022 09:45:37 -0700 (PDT)
+ id 1nctFQ-000rOg-1k; Fri, 08 Apr 2022 18:22:19 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 7F727B82CDA;
+ Fri,  8 Apr 2022 18:22:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1447C385A3;
+ Fri,  8 Apr 2022 18:22:06 +0000 (UTC)
+Authentication-Results: smtp.kernel.org;
+ dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com
+ header.b="dfKB5qQm"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105; 
+ t=1649442124;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:
+ content-transfer-encoding:content-transfer-encoding;
+ bh=ZAwWpf2mSTFfhh0jtk2ioJcnGUl1ovRW108xPWCiP1A=;
+ b=dfKB5qQmsNNVKpwxv9Cbr2s7qEWtNQzkgJC2RD/cQl+Kg5yaPqQUUxVrp4hQsx7Gr34f8r
+ QDaPPI2uQBsYvxEeqkoO1FDW72vygWpLLLY0z7DPDI7fQP2fMh2qAq13X+NIGhh5UufkXE
+ UHg7p8K+xKHRdLFGuG+/VvaayEztZPI=
+Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 4b54fd79
+ (TLSv1.3:AEAD-AES256-GCM-SHA384:256:NO); 
+ Fri, 8 Apr 2022 18:22:04 +0000 (UTC)
+From: "Jason A. Donenfeld" <Jason@zx2c4.com>
+To: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, arnd@arndb.de
+Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>, Theodore Ts'o <tytso@mit.edu>,
+ Dominik Brodowski <linux@dominikbrodowski.net>,
+ Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "David S . Miller" <davem@davemloft.net>,
+ Richard Weinberger <richard@nod.at>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "H . Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
+ Max Filippov <jcmvbkbc@gmail.com>, John Stultz <john.stultz@linaro.org>,
+ Stephen Boyd <sboyd@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, x86@kernel.org, linux-xtensa@linux-xtensa.org
+Subject: [PATCH RFC v1 00/10] archs/random: fallback to using sched_clock() if
+ no cycle counter
+Date: Fri,  8 Apr 2022 20:21:35 +0200
+Message-Id: <20220408182145.142506-1-Jason@zx2c4.com>
 MIME-Version: 1.0
-References: <mhng-9cbb2a46-8bcb-4bfe-b927-0ed469dbd3a6@palmer-mbp2014>
- <cd8d6641-4a29-7deb-49ae-a80baab0344f@canonical.com>
- <CAK9=C2Xh_DQ3ybj7nAE-LNrSc9sPy0H8jq_FU09io+wE_yypRg@mail.gmail.com>
- <b907f6c8-968b-7e1e-bc83-1d54c7e0b448@canonical.com>
-In-Reply-To: <b907f6c8-968b-7e1e-bc83-1d54c7e0b448@canonical.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 8 Apr 2022 22:15:25 +0530
-Message-ID: <CAAhSdy1ovEziSSu6x2kESYTbimDLXCHmmOqMLyGKzsj1DHLrLg@mail.gmail.com>
-Subject: Re: [PATCH v2] RISC-V: Increase range and default value of NR_CPUS
-To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Arnd Bergmann <arnd@arndb.de>, 
- Atish Patra <atishp@atishpatra.org>,
- Alistair Francis <Alistair.Francis@wdc.com>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220408_094542_750505_9659F08C 
-X-CRM114-Status: GOOD (  43.40  )
+X-CRM114-CacheID: sfid-20220408_112216_444930_7C3549AE 
+X-CRM114-Status: GOOD (  25.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,141 +92,129 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 8, 2022 at 10:08 PM Heinrich Schuchardt
-<heinrich.schuchardt@canonical.com> wrote:
->
-> On 4/6/22 12:10, Anup Patel wrote:
-> > On Wed, Apr 6, 2022 at 3:25 PM Heinrich Schuchardt
-> > <heinrich.schuchardt@canonical.com> wrote:
-> >>
-> >> On 3/31/22 21:42, Palmer Dabbelt wrote:
-> >>> On Sat, 19 Mar 2022 05:12:06 PDT (-0700), apatel@ventanamicro.com wrote:
-> >>>> Currently, the range and default value of NR_CPUS is too restrictive
-> >>>> for high-end RISC-V systems with large number of HARTs. The latest
-> >>>> QEMU virt machine supports upto 512 CPUs so the current NR_CPUS is
-> >>>> restrictive for QEMU as well. Other major architectures (such as
-> >>>> ARM64, x86_64, MIPS, etc) have a much higher range and default
-> >>>> value of NR_CPUS.
-> >>>>
-> >>>> This patch increases NR_CPUS range to 2-512 and default value to
-> >>>> XLEN (i.e. 32 for RV32 and 64 for RV64).
-> >>>>
-> >>>> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> >>>> ---
-> >>>> Changes since v1:
-> >>>>   - Updated NR_CPUS range to 2-512 which reflects maximum number of
-> >>>>     CPUs supported by QEMU virt machine.
-> >>>> ---
-> >>>>   arch/riscv/Kconfig | 7 ++++---
-> >>>>   1 file changed, 4 insertions(+), 3 deletions(-)
-> >>>>
-> >>>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> >>>> index 5adcbd9b5e88..423ac17f598c 100644
-> >>>> --- a/arch/riscv/Kconfig
-> >>>> +++ b/arch/riscv/Kconfig
-> >>>> @@ -274,10 +274,11 @@ config SMP
-> >>>>         If you don't know what to do here, say N.
-> >>>>
-> >>>>   config NR_CPUS
-> >>>> -    int "Maximum number of CPUs (2-32)"
-> >>>> -    range 2 32
-> >>>> +    int "Maximum number of CPUs (2-512)"
-> >>>> +    range 2 512
-> >>
-> >> For SBI_V01=y there seems to be a hard constraint to XLEN bits.
-> >> See __sbi_v01_cpumask_to_hartmask() in rch/riscv/kernel/sbi.c.
-> >>
-> >> So shouldn't this be something like:
-> >>
-> >> range 2 512 !SBI_V01
-> >> range 2 32 SBI_V01 && 32BIT
-> >> range 2 64 SBI_V01 && 64BIT
-> >
-> > This is just making it unnecessarily complicated for supporting
-> > SBI v0.1
-> >
-> > How about removing SBI v0.1 support and the spin-wait CPU
-> > operations from arch/riscv ?
->
-> The SBI v0.1 specification was only a draft. Only the v1.0 version has
-> ever been ratified.
->
-> It would be good to remove this legacy code from Linux and U-Boot.
->
-> By the way, why does upstream OpenSBI claim to be conformant to SBI v0.3
-> and not to v1.0?
+Hi folks,
 
-The ratification process for SBI v1.0 was in early stages when OpenSBI v1.0
-was being released so we decided to keep the SBI v0.3 spec version. The
-next OpenSBI v1.1 release (due in June 2022) will change to SBI v1.0
+The RNG uses a function called random_get_entropy() basically anytime
+that it needs to timestamp an event. For example, an interrupt comes in,
+and we mix a random_get_entropy() into the entropy pool somehow.
+Somebody mashes their keyboard or moves their mouse around? We mix a
+random_get_entropy() into the entropy pool. It's one of the main
+varieties of input.
 
-Regards,
-Anup
+Unfortunately, it's always 0 on a few platforms. The RNG has accumulated
+various hacks to deal with this, but in general it's not great. Surely
+we can do better than 0. In fact, *anything* that's not the same exact
+value all the time would be better than 0. Even a counter that
+increments once per hour would be better than 0! I think you get the
+idea.
 
->
-> include/sbi/sbi_ecall.h:16:
->
-> #define SBI_ECALL_VERSION_MAJOR 0
-> #define SBI_ECALL_VERSION_MINOR 3
->
-> Best regards
->
-> Heinrich
->
-> >
-> >>
-> >>>>       depends on SMP
-> >>>> -    default "8"
-> >>>> +    default "32" if 32BIT
-> >>>> +    default "64" if 64BIT
-> >>>>
-> >>>>   config HOTPLUG_CPU
-> >>>>       bool "Support for hot-pluggable CPUs"
-> >>>
-> >>> I'm getting all sorts of boot issues with more than 32 CPUs, even on the
-> >>> latest QEMU master.  I'm not opposed to increasing the CPU count in
-> >>> theory, but if we're going to have a setting that goes up to a huge
-> >>> number it needs to at least boot.  I've got 64 host threads, so it
-> >>> shouldn't just be a scheduling thing.
-> >>
-> >> Currently high performing hardware for RISC-V is missing. So it makes
-> >> sense to build software via QEMU on x86_64 or arm64 with as many
-> >> hardware threads as available (128 is not uncommon).
-> >>
-> >> OpenSBI currently is limited to 128 threads:
-> >> include/sbi/sbi_hartmask.h:22:
-> >> #define SBI_HARTMASK_MAX_BITS 128
-> >> This is just an arbitrary value we can be modified.
-> >
-> > Yes, this limit will be gradually increased with some improvements
-> > to optimize runtime memory used by OpenSBI.
-> >
-> >>
-> >> U-Boot v2022.04 qemu-riscv64_smode_defconfig has a value of
-> >> CONFIG_SYS_MALLOC_F_LEN that is to low. This leads to a boot failure for
-> >> more than 16 harts. A patch to correct this is pending:
-> >> [PATCH v2 1/1] riscv: alloc space exhausted
-> >> https://lore.kernel.org/u-boot/CAN5B=eKt=tFLZ2z3aNHJqsnJzpdA0oikcrC2i1_=ZDD=f+M0jA@mail.gmail.com/T/#t
-> >>
-> >> With QEMU 7.0 and the U-Boot fix booting into a 5.17 defconfig kernel
-> >> with 64 virtual cores worked fine for me.
-> >
-> > Thanks for trying this patch.
-> >
-> > Regards,
-> > Anup
-> >
-> >>
-> >> Best regards
-> >>
-> >> Heinrich
-> >>
-> >>>
-> >>> If there was some hardware that actually boots on these I'd be happy to
-> >>> take it, but given that it's just QEMU I'd prefer to sort out the bugs
-> >>> first.  It's probably just latent bugs somewhere, but allowing users to
-> >>> turn on configs we know don't work just seems like the wrong way to go.
-> >>>
+On most platforms, random_get_entropy() is aliased to get_cycles(),
+which makes sense for platforms where get_cycles() is defined. RDTSC,
+for example, has all the characteristics we care about for this
+function: it's fast to acquire (i.e. acceptable in an irq handler),
+pretty high precision, available, forms a 2-monotone distribution, etc.
+But for platforms without that, what is the next best thing?
+
+Sometimes the next best thing is architecture-defined. For example,
+really old MIPS has the CP0 random register, which isn't a cycle
+counter, but is at least something. However, some platforms don't even
+have an architecture-defined fallback. In that case, what are we left
+with?
+
+By my first guess, we have ktime_get_boottime_ns(), jiffies, and
+sched_clock(). It seems like sched_clock() has already done a lot of
+work in being always available with some incrementing value, falling
+back to jiffies as necessary. So this series goes with that as a
+fallback, for when the architecture doesn't define random_get_entropy in
+its own way and when there's no working cycle counter.
+
+Another option would be falling back to different things on different
+platforms. For example, Arnd mentioned to me that on m68k,
+ktime_get_ns() might be better than sched_clock(), because it doesn't
+use CONFIG_GENERIC_SCHED_CLOCK and therefore is only as good as jiffies.
+Maybe there are other considerations there as well.
+
+This is a bit involved with plumbing asm/ headers, which is why this is
+an RFC. There are a few ways of skinning that cat. The patchset also
+tries to fill in the various cases where an arch only sometimes has a
+cycle counter and sometimes doesn't. When possible, it tries to make the
+decisions at compile time, but sometimes runtime decisions are
+necessary.
+
+Please let me know if you think this is sane. And if you have a
+different candidate than sched_clock(), I'd be interested to learn about
+that. In particular, I'd value input here from Thomas or somebody else
+who has looked at timekeeping across less common platforms.
+
+Finally, note that this series isn't about "jitter entropy" or other
+ways of initializing the RNG. That's a different topic for a different
+thread. Please don't let this discussion veer off into that. Here, I'm
+just trying to find a good fallback counter/timer for platforms without
+get_cycles(), a question with limited scope.
+
+Thanks,
+Jason
+
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Theodore Ts'o <tytso@mit.edu>
+Cc: Dominik Brodowski <linux@dominikbrodowski.net>
+Cc: Russell King <linux@armlinux.org.uk>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: David S. Miller <davem@davemloft.net>
+Cc: Richard Weinberger <richard@nod.at>
+Cc: Anton Ivanov <anton.ivanov@cambridgegreys.com>
+Cc: Johannes Berg <johannes@sipsolutions.net>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: H. Peter Anvin <hpa@zytor.com>
+Cc: Chris Zankel <chris@zankel.net>
+Cc: Max Filippov <jcmvbkbc@gmail.com>
+Cc: John Stultz <john.stultz@linaro.org>
+Cc: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-m68k@lists.linux-m68k.org
+Cc: linux-mips@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: sparclinux@vger.kernel.org
+Cc: linux-um@lists.infradead.org
+Cc: x86@kernel.org
+Cc: linux-xtensa@linux-xtensa.org
+
+Jason A. Donenfeld (10):
+  random: use sched_clock() for random_get_entropy() if no get_cycles()
+  m68k: use sched_clock() for random_get_entropy() instead of zero
+  riscv: use sched_clock() for random_get_entropy() instead of zero
+  mips: use sched_clock() for random_get_entropy() instead of zero
+  arm: use sched_clock() for random_get_entropy() instead of zero
+  x86: use sched_clock() for random_get_entropy() instead of zero
+  arm64: use sched_clock() for random_get_entropy() instead of zero
+  um: use sched_clock() for random_get_entropy() instead of zero
+  sparc: use sched_clock() for random_get_entropy() instead of zero
+  xtensa: use sched_clock() for random_get_entropy() instead of zero
+
+ arch/arm/include/asm/timex.h      | 11 +++++++++++
+ arch/arm64/include/asm/timex.h    |  9 +++++++++
+ arch/m68k/include/asm/timex.h     |  4 +++-
+ arch/mips/include/asm/timex.h     |  3 ++-
+ arch/riscv/include/asm/timex.h    |  3 ++-
+ arch/sparc/include/asm/timex_32.h |  4 +---
+ arch/um/include/asm/timex.h       |  9 ++-------
+ arch/x86/include/asm/tsc.h        | 11 +++++++++++
+ arch/xtensa/include/asm/timex.h   |  6 ++----
+ include/linux/timex.h             |  6 ++++++
+ 10 files changed, 49 insertions(+), 17 deletions(-)
+
+-- 
+2.35.1
+
 
 _______________________________________________
 linux-riscv mailing list
