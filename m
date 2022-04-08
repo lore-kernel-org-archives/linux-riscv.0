@@ -4,33 +4,33 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 007D9C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Apr 2022 10:12:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3438DC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Apr 2022 10:12:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YfJ9o0LVQpOzmgJ+GaWjsnrFIkHyKDXEvSrstzFDIIs=; b=Aq2QAfFr90Psq3
-	m16JY8jsJ6ve/yxAAQOQt7b3SENj+t4tLsJ6Krl++RuQSn42qiPs1zFg4wpwFt8TuJ+gt2PmzyEpc
-	DvLUHAGuHHGCbSunSPsNLNUQu8SS7pslJze0Rb0t4siZGGF8GUjcTtcf1Zoo552naELTws1iQuWff
-	K5Wnjn9dFEYpq8ilzioRVqQR1+XlwMvsi1LzOfhux2hSgTtohJuY9o18lsFEkUVbyClCk3oUeovYe
-	H0OOB8HspRjWe1sBYNw777O7r8Z+K9OON03wtQqlJLcYrecmiAad3yHQQ4P1I99ncIEU9kzG06yuG
-	ctUN0ckjwmYbwpP/C3/g==;
+	List-Owner; bh=Y5uycyzgNMqx4+9p5eNelXhJQEjcYVPIxUQZMyiKJzs=; b=mitA5leoMiWu8r
+	M5JgKM+Gno5Duwe112cIti4mzZVEcdp+Jlgo1pkn6R0nVV0Y+ugCWWMGMPGgI8irvCD4BY25DHlDw
+	X3Y+nL23DOOmY8YuVptHNYSyaCcSGRCtENXIQZ1duZgfIXiLsMIlAC0kgZYEULMMCXwylXpG3apHv
+	qFMbK/MRJiTwyNsEvI1xY48nJGzxkc0iISSeD70/5+YyUWYcfMzp5adhGZIgtx2D5nIK8VrDVIPf5
+	Ui/cRYR1Bx30CACDuWV1f8qS0E054NCuuDkzt4RooyWtsWSzCpmm+WthOe4BUs1iSG6nebnBPYj23
+	S0ZfSuzvlDM+yoLf8mZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nclbN-00GJ52-FJ; Fri, 08 Apr 2022 10:12:25 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1nclbR-00GJ7Z-GI; Fri, 08 Apr 2022 10:12:29 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nclbH-00GHeg-Uh; Fri, 08 Apr 2022 10:12:22 +0000
-Received: from kwepemi500014.china.huawei.com (unknown [172.30.72.57])
- by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4KZYpV2GTBzFpXh;
- Fri,  8 Apr 2022 18:07:46 +0800 (CST)
+ id 1nclbI-00GHea-6l; Fri, 08 Apr 2022 10:12:22 +0000
+Received: from kwepemi500014.china.huawei.com (unknown [172.30.72.53])
+ by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4KZYmK4QSrzBsCF;
+ Fri,  8 Apr 2022 18:05:53 +0800 (CST)
 Received: from huawei.com (10.67.174.157) by kwepemi500014.china.huawei.com
  (7.221.188.232) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.24; Fri, 8 Apr
- 2022 18:10:06 +0800
+ 2022 18:10:05 +0800
 From: Li Zhengyu <lizhengyu3@huawei.com>
 To: <palmer@dabbelt.com>, <liaochang1@huawei.com>
 CC: <alex@ghiti.fr>, <aou@eecs.berkeley.edu>, <bjorn.topel@gmail.com>,
@@ -39,9 +39,10 @@ CC: <alex@ghiti.fr>, <aou@eecs.berkeley.edu>, <bjorn.topel@gmail.com>,
  <linux-riscv@lists.infradead.org>, <mick@ics.forth.gr>,
  <paul.walmsley@sifive.com>, <penberg@kernel.org>, <sunnanyong@huawei.com>,
  <wangkefeng.wang@huawei.com>
-Subject: [PATCH v3 -next 2/6] RISC-V: use memcpy for kexec_file mode
-Date: Fri, 8 Apr 2022 18:09:10 +0800
-Message-ID: <20220408100914.150110-3-lizhengyu3@huawei.com>
+Subject: [PATCH v3 -next 1/6] kexec_file: Fix kexec_file.c build error for
+ riscv platform
+Date: Fri, 8 Apr 2022 18:09:09 +0800
+Message-ID: <20220408100914.150110-2-lizhengyu3@huawei.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20220408100914.150110-1-lizhengyu3@huawei.com>
 References: <20220408100914.150110-1-lizhengyu3@huawei.com>
@@ -51,8 +52,8 @@ X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
  kwepemi500014.china.huawei.com (7.221.188.232)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220408_031220_233474_E6820319 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20220408_031220_625978_55ABE43B 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,43 +72,73 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Liao Chang <liaochang1@huawei.com>
 
-The pointer to buffer loading kernel binaries is in kernel space for
-kexec_fil mode, When copy_from_user copies data from pointer to a block
-of memory, it checkes that the pointer is in the user space range, on
-RISCV-V that is:
+When CONFIG_KEXEC_FILE is set for riscv platform, the compilation of
+kernel/kexec_file.c generate build error:
 
-static inline bool __access_ok(unsigned long addr, unsigned long size)
-{
-	return size <= TASK_SIZE && addr <= TASK_SIZE - size;
-}
+kernel/kexec_file.c: In function 'crash_prepare_elf64_headers':
+./arch/riscv/include/asm/page.h:110:71: error: request for member 'virt_addr' in something not a structure or union
+  110 |  ((x) >= PAGE_OFFSET && (!IS_ENABLED(CONFIG_64BIT) || (x) < kernel_map.virt_addr))
+      |                                                                       ^
+./arch/riscv/include/asm/page.h:131:2: note: in expansion of macro 'is_linear_mapping'
+  131 |  is_linear_mapping(_x) ?       \
+      |  ^~~~~~~~~~~~~~~~~
+./arch/riscv/include/asm/page.h:140:31: note: in expansion of macro '__va_to_pa_nodebug'
+  140 | #define __phys_addr_symbol(x) __va_to_pa_nodebug(x)
+      |                               ^~~~~~~~~~~~~~~~~~
+./arch/riscv/include/asm/page.h:143:24: note: in expansion of macro '__phys_addr_symbol'
+  143 | #define __pa_symbol(x) __phys_addr_symbol(RELOC_HIDE((unsigned long)(x), 0))
+      |                        ^~~~~~~~~~~~~~~~~~
+kernel/kexec_file.c:1327:36: note: in expansion of macro '__pa_symbol'
+ 1327 |   phdr->p_offset = phdr->p_paddr = __pa_symbol(_text);
 
-and TASK_SIZE is 0x4000000000 for 64-bits, which now causes
-copy_from_user to reject the access of the field 'buf' of struct
-kexec_segment that is in range [CONFIG_PAGE_OFFSET - VMALLOC_SIZE,
-CONFIG_PAGE_OFFSET), is invalid user space pointer.
-
-This patch fixes this issue by skipping access_ok(), use mempcy() instead.
+This occurs is because the "kernel_map" referenced in macro
+is_linear_mapping()  is suppose to be the one of struct kernel_mapping
+defined in arch/riscv/mm/init.c, but the 2nd argument of
+crash_prepare_elf64_header() has same symbol name, in expansion of macro
+is_linear_mapping in function crash_prepare_elf64_header(), "kernel_map"
+actually is the local variable.
 
 Signed-off-by: Liao Chang <liaochang1@huawei.com>
 ---
- arch/riscv/kernel/machine_kexec.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ include/linux/kexec.h | 2 +-
+ kernel/kexec_file.c   | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
-index cbef0fc73afa..df8e24559035 100644
---- a/arch/riscv/kernel/machine_kexec.c
-+++ b/arch/riscv/kernel/machine_kexec.c
-@@ -65,7 +65,9 @@ machine_kexec_prepare(struct kimage *image)
- 		if (image->segment[i].memsz <= sizeof(fdt))
- 			continue;
+diff --git a/include/linux/kexec.h b/include/linux/kexec.h
+index 58d1b58a971e..ebb1bffbf068 100644
+--- a/include/linux/kexec.h
++++ b/include/linux/kexec.h
+@@ -227,7 +227,7 @@ struct crash_mem {
+ extern int crash_exclude_mem_range(struct crash_mem *mem,
+ 				   unsigned long long mstart,
+ 				   unsigned long long mend);
+-extern int crash_prepare_elf64_headers(struct crash_mem *mem, int kernel_map,
++extern int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_map,
+ 				       void **addr, unsigned long *sz);
+ #endif /* CONFIG_KEXEC_FILE */
  
--		if (copy_from_user(&fdt, image->segment[i].buf, sizeof(fdt)))
-+		if (image->file_mode)
-+			memcpy(&fdt, image->segment[i].buf, sizeof(fdt));
-+		else if (copy_from_user(&fdt, image->segment[i].buf, sizeof(fdt)))
- 			continue;
+diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
+index 8347fc158d2b..331a4f0f10f5 100644
+--- a/kernel/kexec_file.c
++++ b/kernel/kexec_file.c
+@@ -1260,7 +1260,7 @@ int crash_exclude_mem_range(struct crash_mem *mem,
+ 	return 0;
+ }
  
- 		if (fdt_check_header(&fdt))
+-int crash_prepare_elf64_headers(struct crash_mem *mem, int kernel_map,
++int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_map,
+ 			  void **addr, unsigned long *sz)
+ {
+ 	Elf64_Ehdr *ehdr;
+@@ -1324,7 +1324,7 @@ int crash_prepare_elf64_headers(struct crash_mem *mem, int kernel_map,
+ 	phdr++;
+ 
+ 	/* Prepare PT_LOAD type program header for kernel text region */
+-	if (kernel_map) {
++	if (need_kernel_map) {
+ 		phdr->p_type = PT_LOAD;
+ 		phdr->p_flags = PF_R|PF_W|PF_X;
+ 		phdr->p_vaddr = (unsigned long) _text;
 -- 
 2.17.1
 
