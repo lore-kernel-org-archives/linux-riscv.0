@@ -4,79 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E14BCC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Apr 2022 08:07:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60E9BC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Apr 2022 08:31:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vS4VMcVFnLNYmAEi80Kfjm7WE6550bar7AUxlSpFL8M=; b=hCu2jlo4CHc0Jj
-	EgBZZuxnGlcU2iG8AWITDdgRWFnYNE6qU59pTy1oU272n6mE88IGrOugU64XKeNg94PuTmfHUh4YN
-	j+uHB2f3PrKGuMGOAHA4GJb0tUeEQdAqTc/kzkVJnQBOyXLELqQmOXTeu50P13z//lGMnN65MsppE
-	CC5d5wk6Rjssjry9gY7+w1IDdU6dvE5JMQwWHcT8bOQNZuUuCX2GHgBVIncXdKEU0CM2rkQQWoKBn
-	qQ2+LHjs8ap3cM2V30rX827tF0RLYbFg8PbIRKWJBceif9ZYchaqfIKDsJ/BgkpAhOTyUqbG8bOo9
-	ZS4WX4W/wjTT+7+eM71A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WO5cmixTskMFt150nxq5cP8iZCbPG0YXJHYCPW4F4qQ=; b=mv+EbAORq74//o
+	RakuRrcHVJ+GysO+yPFchGyev0j869DKnZzBDdTtY2EXJJuZon41OHa9ZdgYQLrGe6oAVJiiCd1uq
+	zVzVnJhHYT2+GaBpBeYutBA1ydDD6eFpT7XeTYuF7YjqQa1ElfZU2vCg19uXMYDw10JG298ipcaK1
+	qjantqPyulHojAm5CJDQDb9b29Ryj64pvv/VsoGSulpg3CWE99AqU12RSQYbFlRQyBYUnDEajy9yT
+	AsIbtxEJB9BaEtGq6DFxF2Cx6pEmSNrguYYRpzfs/w4zFG+xyBPi9zMbsyHQmJLAQ25danzt2nDXG
+	ML+khCmyZUFU0v+z2lcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ncjel-00FjaN-Is; Fri, 08 Apr 2022 08:07:47 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1nck1c-00Ft3X-B8; Fri, 08 Apr 2022 08:31:24 +0000
+Received: from mail-sgaapc01on2071d.outbound.protection.outlook.com
+ ([2a01:111:f400:feab::71d]
+ helo=APC01-SG2-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ncjah-00FhcQ-9F
- for linux-riscv@lists.infradead.org; Fri, 08 Apr 2022 08:03:36 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id x17so4576815lfa.10
- for <linux-riscv@lists.infradead.org>; Fri, 08 Apr 2022 01:03:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=J1QVpP3nerTWKa1cyXGMgzBZ9LJVJEdqC7pjfww4Eh0=;
- b=IeHertmL2Qe+vuZ8bL1egILsY7UVK9i7WmMVBevq7VhIsjazs1pJ+Ube2AyCXTxyLx
- kPIMhbh0ndj9+nSc9CyU7BM9LpmGocVAs1rADnKyDy8c6JuYZ+cKpmbwwLq3sIQjW4xG
- 2WqhW5ZdCysAjQZtB6lo1phb0nqgzgv6uVjFnREhiOttLuIKWNk1mSvSPx061KIJJgVQ
- 9JDvEoyEJV5+YdTQPoficS4rT+6Rsd9Llr2uKJ7lwes/Nir2gNcr5XPsU8rc94bWOCHQ
- 4NSR1q6+Tenym6U0iGBZigdZPrnYdalm9sEJUnagjyHXi+oocrTVrRqx3TRq2Gkq/bSZ
- gEuA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=J1QVpP3nerTWKa1cyXGMgzBZ9LJVJEdqC7pjfww4Eh0=;
- b=Mq9zkxyEQkFmq8xWoI3BFxxMz+soQSRldczd8ioRaP/4ORF3SNIRHS1fq3crNLd4A8
- N1R1q9QgFxV8QBkZaHlr8v2NDW8vvSA5Q95jBkIliI28VsXfgZxz+MnwzRrlKNd+d+9J
- 0ARKyIAWzOVwNMCWke6j5ha2A87tjVkPmCuwQBXiKf1QTvPc0SpCY8KriGubWcKPIiac
- 0SdfBRmt+tscZ86wAMCy4Z6JTMra6Uw46OHp0HVB8Q/kNKcZ9YTGd/gHt2xirtPtFYcZ
- /v5QRYPu8P5t1v4k5E/2Er5tAccmf6hNpQ1/WCST/AUhCKb0zt2r7oMDfnFav9aXBQqS
- yWbw==
-X-Gm-Message-State: AOAM530loi1I5yhtn3jT5JfoEjKshtrYXin+ZocxDFUxqCt9mtF8QlPc
- Yl8rHGJCWmJoJXGKJgYMHdN7Q6fJlnWgwsH0OciPiQ==
-X-Google-Smtp-Source: ABdhPJytOGV4FV7cxGl9JWBImAtlMB4k8mvHiIAddgBXq11/Fmeb9upmp/zsxOMs5V3rbsnaBv4P8xhZXt/X//ewaMk=
-X-Received: by 2002:ac2:4834:0:b0:45d:519d:933 with SMTP id
- 20-20020ac24834000000b0045d519d0933mr12035301lft.5.1649405012705; Fri, 08 Apr
- 2022 01:03:32 -0700 (PDT)
+ id 1nck0z-00FsVR-W2
+ for linux-riscv@lists.infradead.org; Fri, 08 Apr 2022 08:30:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=SC9FW1Jblr27ZuUkylE6a8znNe43PQfQ2cAf/UVRHnGxrwqqZttcXZDTQ7LuZVVEJq0UXu6fgvSsoDH+H7WRn6q39AFHoZBWtz/9Duj3aVRKhudsqAeLF7u78r4ABIKJlEXwUAZsqLJZ8GqjsEgIs07hQFtlOteNb4G4WJq4WjJ//rDB1pv/aR+LkWXay99pHerba7CFKwOTKmb1s3u9kT1ky/Mv7UwIX/dP9X0ZH4XD8sEGwnAxTlVMK4jo+pSsRtPGIcRf4YCXihZTOr6PidIRF9+/Q+Lll0V3jjP0l9yTdht8/g0g7ZdkhWOXOdCjoTlXya8bMEGVqb3spWQIiA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EMqtZfCNaXj9pgBly/AccvT6sl6GXJl/C3HVADh6MRo=;
+ b=T45AUm5TJTm3hhxq7CtJ/IW1vwAYWI6o+bNm1FHqjroI+Z/WVSmLIcIl+jNx1MjagWkT/itAT9cHVuMw0T3lGhru+XWBnmqV5em77azW0mopTwyMLZQIWIkrVuEt1XUsJQNbRGUr29vIxDzDGkN719uG4mMsrg2iTvZsvvjd6U5w9n8qWxjz2CA8rtSjUKk/zM+E4QCM0q1mvsRa8wpGAli+o32L5Pe1uXU3um1e0RDZghyQCeI+ijPd1vmwRv1eMOt/Q6D5Po062l28yYjWWWLKypWNtdrW+fbX+tYDGgIB4jWVXnfbycRcSP3j3pGJ+cIzde16sLRCksIqtVaHfA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo0.onmicrosoft.com; 
+ s=selector2-vivo0-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EMqtZfCNaXj9pgBly/AccvT6sl6GXJl/C3HVADh6MRo=;
+ b=ITRMbLObvAKbAK6imT4MEzqvkKKaCyRMiJfpTER4jFhggYVBpaNsJiqCZ0DMCZ5u2kjjWj+j4jDTTtX0xwQYugl3ajoy7GJmr5jXZ1bfN1jTeVPJe+f1Ggv5qhreuwBBZGQTIDkMVYVP6IJB3zBLx3ojzwywXhOtDNWpreQorVk=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from SG2PR06MB3367.apcprd06.prod.outlook.com (2603:1096:4:78::19) by
+ KL1PR0601MB4966.apcprd06.prod.outlook.com (2603:1096:820:95::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5144.22; Fri, 8 Apr
+ 2022 08:30:37 +0000
+Received: from SG2PR06MB3367.apcprd06.prod.outlook.com
+ ([fe80::74ea:8357:f542:4881]) by SG2PR06MB3367.apcprd06.prod.outlook.com
+ ([fe80::74ea:8357:f542:4881%4]) with mapi id 15.20.5144.022; Fri, 8 Apr 2022
+ 08:30:37 +0000
+From: Wan Jiabing <wanjiabing@vivo.com>
+To: Thierry Reding <thierry.reding@gmail.com>,
+ =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+ Lee Jones <lee.jones@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-pwm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Wan Jiabing <wanjiabing@vivo.com>
+Subject: [PATCH] pwm: sifive: simplify if-if to if-else
+Date: Fri,  8 Apr 2022 16:30:07 +0800
+Message-Id: <20220408083007.41538-1-wanjiabing@vivo.com>
+X-Mailer: git-send-email 2.35.1
+X-ClientProxiedBy: HKAPR04CA0015.apcprd04.prod.outlook.com
+ (2603:1096:203:d0::25) To SG2PR06MB3367.apcprd06.prod.outlook.com
+ (2603:1096:4:78::19)
 MIME-Version: 1.0
-References: <cover.1648461096.git.zong.li@sifive.com>
- <mhng-6ddf988e-9f86-4f3e-8b6a-6be65f384829@palmer-ri-x1c9>
- <YkU6dPFNPkD0Jay+@matsya>
-In-Reply-To: <YkU6dPFNPkD0Jay+@matsya>
-From: Zong Li <zong.li@sifive.com>
-Date: Fri, 8 Apr 2022 16:03:22 +0800
-Message-ID: <CANXhq0oz_zNHJEaWxk9QFy=sDf1cKmrJROn3pEfQWo0AF2Cetw@mail.gmail.com>
-Subject: Re: [PATCH v8 0/4] Determine the number of DMA channels by
- 'dma-channels' property
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Conor Dooley <conor.dooley@microchip.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>, 
- Bin Meng <bin.meng@windriver.com>, Green Wan <green.wan@sifive.com>, 
- dmaengine <dmaengine@vger.kernel.org>, 
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 49a604e0-245c-4632-d783-08da193a0e39
+X-MS-TrafficTypeDiagnostic: KL1PR0601MB4966:EE_
+X-Microsoft-Antispam-PRVS: <KL1PR0601MB49664CED1C8F21BA1C26BB79ABE99@KL1PR0601MB4966.apcprd06.prod.outlook.com>
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 5LxpflR5H6YAwOQgTrWzY39SbRhDh4DO4jzZRyiWCCAiOGnKDVWAALy3GfXVisQkB3hc9ou087dnPQlFD502RQ5qqj11hueMQh5MLCRXuhCNq0+eF9Na57s8mKhU0vT0ijrJTlfySbRIzgfIndLlx7rUQSccXpixkcxohENNbFryM3Mh9IPTkj/ffctZ/SXFDkhm7DBHtgP+rLJ2CO4C0rRyW6bZWuDCPhLn8amaoWlbwXgF5QBBf5aeG0yrIDPF4YX073Sp3u9VdQqQ9L0Krm7fGO8b8hudrgYsIc6DSrppVIkofGYINyGmuJKm0cfUm3H+dH0CC1B0vgoBRwoxH+kcqFYjJc1vLGjVCuDXpGQ/2/c3FGMCB4MDD/aUk58vfl7f7CQpPuzNQVDqyYY4z9TaOrszgVmWpeFe6qc9UoRhG50yiETC6ygbXedPKb15fp3wInBl2n+CfslblDJhrhdbh863qt2ftrp/MOeCotXbyIlzX4gfmpomycKpPUgNXvaJXNGLh0zrq5A2iD4XeyF49TE44qgtfCjeY0lwFkSeRq48BojqKW+KmKL900YnGB3YDibBWtjH6V70uOAqqxAGxNP05EOmfDElPQIvsCVxCwY+hfFybeqOcqLoDXPBJka/rH6IWB4z4eoGSV+NPMUG6qqt+FcFG7w6nDtgQBGjg/zgV7H9qof6wVdHUmwVLXIIw0ihKXdG2V6CuAfE6Q==
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:SG2PR06MB3367.apcprd06.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(13230001)(4636009)(366004)(2906002)(5660300002)(6506007)(186003)(38350700002)(36756003)(52116002)(6512007)(316002)(4744005)(38100700002)(107886003)(26005)(8936002)(86362001)(8676002)(4326008)(66946007)(83380400001)(66556008)(1076003)(66476007)(110136005)(6666004)(6486002)(508600001)(2616005);
+ DIR:OUT; SFP:1102; 
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9bP6K7fbbJ8DkBRkqrR+UjkKFPW/NI7TH5YU08C7fIX2c7VRO+Lq6tj1fLsS?=
+ =?us-ascii?Q?5AP2uhFbZ4dH97HQs2YFj949mFmmfKAVnX1DT0TyFvPhiLkke5PuQJzyEEbv?=
+ =?us-ascii?Q?+EXjl3R1ur5K0XaJ5RjvnoelaXs2cdxIDOpG31qKlZlinGLWb7G4msv833x7?=
+ =?us-ascii?Q?bzK6W6pbXASUW7FEoew46UD1S5RHxMhKkPN8aBUEQoE085Sg3waFa/zCSK+K?=
+ =?us-ascii?Q?G4kvGN9srvt059j8jWrJjHxrL1fytSGZKh5Nn6TVzC/F7fk0ENC45OgvRdww?=
+ =?us-ascii?Q?AGzPpJIpEwRAwkDDi0aSnBFya4YT/eliet3zAFA1dI4D/Pi0Fu02kfJjVmC1?=
+ =?us-ascii?Q?xYsgQHNzhVx0NZAOqqZJg6eMSGnCKiicshVTQU+BD5W8hESFczLceAQbxgn7?=
+ =?us-ascii?Q?OLfSPRte0M1kc1DF4TN58TMU5odNQlqTlqp2KdoZ+k8deFeCiID5dmTG3khw?=
+ =?us-ascii?Q?h6HdDrS2qSUvCc/o6euSUq4TkQeCUuuA+gMgl31q45fgo2DHsOdFE0WuwSGl?=
+ =?us-ascii?Q?VR4kFSvlpnB2D1OlAM+3XtjuHoBTMeXjGL7/jbnGwg1mipQOvvBDj59UJh+c?=
+ =?us-ascii?Q?eZm/xiQmi+yB1fBHj66N69t62ODqxqf5YvBRlG+vC/+DMwmXh83+ggwar2if?=
+ =?us-ascii?Q?0TPZERZTRaQHWz7+9ul88TyfFS6pT5kHzK63WmtmUNt723Bu6MWq2ul2eilh?=
+ =?us-ascii?Q?3hYa4fJiSZxLPeheEadbrQoKlUoffrG8WJyD4tNdKKm7zVqm8NfdFUESlOsE?=
+ =?us-ascii?Q?An2Eff1u1nIr5W62cbQc1evE/dHy+ebQxoAZVS1Sd+G03xW6IJlOZZhdNr+G?=
+ =?us-ascii?Q?ZTHSsnHvflhR74XrFdUCiU6wEbn6t5KhrHkF0YCm6EjISbxgEFXWZBGVEF7e?=
+ =?us-ascii?Q?y35SiLRJXaQbAQt5VM8diOjElsB6fXuarGYh0iItyUOL/6cQLCWpPlcV9Qc/?=
+ =?us-ascii?Q?V9ANjKsWATojIO78H+QG4drND/XqRG00IDoPXvc5THMsYK/CSVtvg3XUkRcm?=
+ =?us-ascii?Q?0k+RImSR8vzFkGtKacz3HTs+mnUFJN3Wz07UMNQtAR3T3WhND8WJoZEmqJTo?=
+ =?us-ascii?Q?FlubqKHJgaZNgEZpGtYNlK8ubHklUnOKEeE4moxtAM1vr4n8e4GkhtRZ8TAO?=
+ =?us-ascii?Q?GlCYzG+HhUAViPiehG4Qd/k89xrgZAhGw8Xcns9z7ZmJLcBOxPmf+xs0+SIw?=
+ =?us-ascii?Q?Hn+Pc9XDliRYxSe/v5zTB0YmnEj6ZiyS+xhwk1oUW7IRUAJ/GU5K4TqIDRJ0?=
+ =?us-ascii?Q?btGgKxbx3cUJulVkJyvQ5rxH/5nCbhAwfr0SBmkOyYrgr74yM0HBFZezpxnP?=
+ =?us-ascii?Q?6g4Ja19IDZBPd4gWdQkw/okrqFDVJqPZz0PQgbi12jqg8zdx7egqz9gFZzA9?=
+ =?us-ascii?Q?3zZDWE9ZXh+/qboSCwX38Ikbk6uo8dBS/8wEdBjhfzmpEKQQcTeu258YiYZ/?=
+ =?us-ascii?Q?VCHQMeF+9h/SfwhLgUjgymd+zDB5b/FVKV2u0LdxVHBkodLX/sQnicOT+wN6?=
+ =?us-ascii?Q?dhGlPJT+c7S+8Pb9sfX7GI2E53BOzWV+ffuYP+84NiY7cXC6Zzm44Nr9gT99?=
+ =?us-ascii?Q?a6jEuFwT7EfP4qKVnVh7MtLZSPl7UiF8A6DgLXDoXSHFX/WPqrNcwKkzKJQN?=
+ =?us-ascii?Q?5yDBe1YTtFvgu2lTA61zzWhUIp25Oq2KlcIzuPT5VLmzkcaEt4GJeCKoYyn9?=
+ =?us-ascii?Q?VOYuynudgmKM11yJW8sum/uHVRWwpjHCv5hbrEcPSlacyImdEGdPfs6Yj3Wk?=
+ =?us-ascii?Q?u0cm+ABn5A=3D=3D?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 49a604e0-245c-4632-d783-08da193a0e39
+X-MS-Exchange-CrossTenant-AuthSource: SG2PR06MB3367.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Apr 2022 08:30:36.7878 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0fzTMbEZ9sZ+1bDofz7Cj+SsapSYRGG6Sn5hOV9vgtNRVFiPWkmnGJau9LcLzgQhO/nl7c3iTEiQ6CnfQkXcGg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR0601MB4966
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220408_010335_391340_D206AFBC 
-X-CRM114-Status: GOOD (  24.73  )
+X-CRM114-CacheID: sfid-20220408_013046_078064_D6F8176F 
+X-CRM114-Status: UNSURE (   7.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,71 +141,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 31, 2022 at 1:22 PM Vinod Koul <vkoul@kernel.org> wrote:
->
-> On 30-03-22, 20:15, Palmer Dabbelt wrote:
-> > On Mon, 28 Mar 2022 02:52:21 PDT (-0700), zong.li@sifive.com wrote:
-> > > The PDMA driver currently assumes there are four channels by default, it
-> > > might cause the error if there is actually less than four channels.
-> > > Change that by getting number of channel dynamically from device tree.
-> > > For backwards-compatible, it uses the default value (i.e. 4) when there
-> > > is no 'dma-channels' information in dts.
-> > >
-> > > This patch set contains the dts and dt-bindings change.
-> > >
-> > > Changed in v8:
-> > >  - Rebase on master
-> > >  - Remove modification of microchip-mpfs.dtsi
-> > >  - Rename DMA node name of fu540-c000.dtsi
-> > >
-> > > Changed in v7:
-> > >  - Rebase on tag v5.17-rc7
-> > >  - Modify the subject of patch
-> > >
-> > > Changed in v6:
-> > >  - Rebase on tag v5.17-rc6
-> > >  - Change sf_pdma.chans[] to a flexible array member.
-> > >
-> > > Changed in v5:
-> > >  - Rebase on tag v5.17-rc3
-> > >  - Fix typo in dt-bindings and commit message
-> > >  - Add PDMA versioning scheme for compatible
-> > >
-> > > Changed in v4:
-> > >  - Remove cflags of debug use reported-by: kernel test robot <lkp@intel.com>
-> > >
-> > > Changed in v3:
-> > >  - Fix allocating wrong size
-> > >  - Return error if 'dma-channels' is larger than maximum
-> > >
-> > > Changed in v2:
-> > >  - Rebase on tag v5.16
-> > >  - Use 4 as default value of dma-channels
-> > >
-> > > Zong Li (4):
-> > >   dt-bindings: dma-engine: sifive,fu540: Add dma-channels property and
-> > >     modify compatible
-> > >   riscv: dts: Add dma-channels property and modify compatible
-> > >   riscv: dts: rename the node name of dma
-> > >   dmaengine: sf-pdma: Get number of channel by device tree
-> > >
-> > >  .../bindings/dma/sifive,fu540-c000-pdma.yaml  | 19 +++++++++++++--
-> > >  arch/riscv/boot/dts/sifive/fu540-c000.dtsi    |  5 ++--
-> > >  drivers/dma/sf-pdma/sf-pdma.c                 | 24 ++++++++++++-------
-> > >  drivers/dma/sf-pdma/sf-pdma.h                 |  8 ++-----
-> > >  4 files changed, 38 insertions(+), 18 deletions(-)
-> >
-> > Thanks, these are on for-next.
->
-> The drivers/dma/ should go thru dmaengine tree. During merge window I
-> dont apply the patches
->
-> --
-> ~Vinod
+use if and else instead of if(A) and if (!A).
 
-Hi Vinod,
-Many thanks for considering this patchset :)  Could I know if there is
-an opportunity to pick this into the following few -rc kernels?
+Signed-off-by: Wan Jiabing <wanjiabing@vivo.com>
+---
+ drivers/pwm/pwm-sifive.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
+index 253c4a17d255..e6d05a329002 100644
+--- a/drivers/pwm/pwm-sifive.c
++++ b/drivers/pwm/pwm-sifive.c
+@@ -138,10 +138,9 @@ static int pwm_sifive_enable(struct pwm_chip *chip, bool enable)
+ 			dev_err(ddata->chip.dev, "Enable clk failed\n");
+ 			return ret;
+ 		}
+-	}
+-
+-	if (!enable)
++	} else {
+ 		clk_disable(ddata->clk);
++	}
+ 
+ 	return 0;
+ }
+-- 
+2.35.1
+
 
 _______________________________________________
 linux-riscv mailing list
