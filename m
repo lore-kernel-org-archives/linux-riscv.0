@@ -4,86 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79EAAC433F5
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Apr 2022 07:15:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8056C4332F
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Apr 2022 10:45:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qbam5CL9ZtkLgzxkIYH2HZvFOpGrJoZKmNaNl8JfMq0=; b=JoBnwWfmmIyB2n
-	5GCUO1NwyRKNiPGE/zbNHihU079yzmXmP2Wzphfh+yQiA775CBM9F9WlMdT40CIHneYR7pYd20nPY
-	htCEWQcoLz57KpDt19Np1Ezts+wnQEtiwdr8J90gQ6VoRS1Go6MVVQpewOzL3B2uvxSdWJ4P5dJ3G
-	XkkSAqrTVWlpgUAh9xxA08sW8O+rFsdvWzyIWDhA2jcVh03M8fprxQXm5twxbJ+8B0vvaxeYz6fNt
-	mlUOrfSHrkO0cgWdyhiqAV4x+GpF/rqS4fWcn4wzam1k6sLVODHeiHlFtZdDQufXZJVIvhJoYu4Qa
-	w+Yp+oGoO4IQVIzQn2jQ==;
+	List-Owner; bh=39HuwTaJYmf12uvaapt9iARipopK2phRzGRcJT4K7Ms=; b=NSRd4yzcTHlkTz
+	RIWi28kRe8Dlk2u4g/yTdz8Jxhvm+52serRwYVkR00c9kc9TltAmoRtT2OXg4sxCCZUZo4twFwHbL
+	DcRMrDkn1zvSGlH1vnm8lUwmS1bkXn3Dx1Jh0Zn14/zn95sueZSsiqEoNuFywMDv9lKoDeVeUFQYV
+	79QPzCSf0+qkdWalrbMCshd8ohoPl129EYRbNqvHL9FqgTGEXPKUMkYTvgVZFg/q+9KnjaETO1ouV
+	34FBuzm11/EhERzqhLFLZG8TLp1ayQSC0LnoO2h5+wMX5FNy6V9oI1jM4YFGHZuhmM9AcBl5xOXrL
+	b3wQ5YP2+vXOQprh2ozQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nd5JB-002Uez-5W; Sat, 09 Apr 2022 07:14:57 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1nd8ak-002qxI-Ar; Sat, 09 Apr 2022 10:45:18 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nd5J7-002UeS-Ar
- for linux-riscv@lists.infradead.org; Sat, 09 Apr 2022 07:14:55 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id d3so15911799wrb.7
- for <linux-riscv@lists.infradead.org>; Sat, 09 Apr 2022 00:14:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=conchuod-ie.20210112.gappssmtp.com; s=20210112;
- h=message-id:date:mime-version:user-agent:subject:content-language
- :from:to:cc:references:in-reply-to:content-transfer-encoding;
- bh=HzhZ3bjU1PEmPe2hwuJeZrkyDW35jm9x4B5yGB0bqZ0=;
- b=z/2PBvrci46A223ORsA3V1EMb1SgPUGSYjUx8bqkYUtMjKLlNT9vW3686rNO95bISM
- NBpMrc5lWZtIAnyF9nmuGlfUaNLZwZnZVIts+jaGKWlkLNe7BxchFAtC8bSXcJt9CgBh
- ZiOOiGuYnx90JPeO6OtVMScIrtMjBLulN1Ng1lZVKp4Y8etWGeICrX3gHcZFo2AbMGe3
- gR9r4qUqOomrJ+H2nvAvrIw4X/vHMkMXhWnuflaktRS08th5U36rXXHYNT+s5sJWkk3m
- NqMFm4FNho9ug898GALI4OEsB/Q/nEqCw8qksj8vf5gHb1L7OPCR502UwGOPnR+9dxsm
- zf2g==
+ id 1nd8ah-002qwL-BL
+ for linux-riscv@lists.infradead.org; Sat, 09 Apr 2022 10:45:16 +0000
+Received: by mail-ej1-x632.google.com with SMTP id dr20so21727115ejc.6
+ for <linux-riscv@lists.infradead.org>; Sat, 09 Apr 2022 03:45:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=message-id:date:mime-version:user-agent:subject:content-language:to
+ :cc:references:from:in-reply-to:content-transfer-encoding;
+ bh=frRIq19w6WV8+V8P0b/MeZBdiHuZnJaDLS8GaGxMM0g=;
+ b=UJKPFzFkhPlU90x+FAxJJAUNeeH7VdTNuVjumrMlXey8GJyRr4IboTWF7O6V6QH40P
+ BzyiQXGoEKMJK3ZbHmBlBWCO+juOwXZH/mkNUv22tE1wCwBQsw+t02oKkvNrbiY2v4Xo
+ C/ASq7GQpYnkpIA7XL1FkY16BvA3JDnP/+yiEL5EqONnzfa8KSfFHU8aDEl9bvmPwHXn
+ bnB54ppjFcjxIfYI3vVKVIUerU1fvwgej/6xrtwIgIIVp41TBM/F8+v7fr3AXH22t+BI
+ SnfxhcJ+Lc92ACx7uzqRSyA31P7d0c4NDbPF3XJ2UfKkKE6A0uHAgVlRQcCJ6V9dN/sz
+ a33w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:from:to:cc:references:in-reply-to
+ :content-language:to:cc:references:from:in-reply-to
  :content-transfer-encoding;
- bh=HzhZ3bjU1PEmPe2hwuJeZrkyDW35jm9x4B5yGB0bqZ0=;
- b=Q7D+FOxL+4Ws9/nrp1kRgaBn/QjCDwknfJbpGCpmOMTKdpoRJU2JvSBsb1rrj2bEnT
- jV6Yue6liC4E59yr2YOKHtvKd7mGdn6VGPCcCKLL0Snlw4ZP8iCk3JCIhBOcAgRZMJmB
- 3LYKCjYqI0h6b37JxrF38eUjgo+0QG9x8Ls/xvJ0j+ZAHPXGfqRI3hEqkVG49N+numBq
- M2eFCIPaegMy16cCJhiMMfUxUbp16jafNeCGJK7boeWGBfD+y2VqJ27AAzDWcrYN3tv2
- DV27BVJMxRycZwmkBMmvezXnHxgAfLG220oliJN7r8aJrcez1djB/cWzFUM+swhG3TgO
- YhMA==
-X-Gm-Message-State: AOAM5326mL0JaRNsGlc0nj6d+VJjMN8pGnxNhBhB+M7PsEH+PwX/7l3U
- q9/i3Hl67DE1sT8YntvGVxuEAA==
-X-Google-Smtp-Source: ABdhPJzZvbXk47Qg+XFtSusWdXHB93I7ufry+eUoPOyQxqyPD1Klc1Q6spp6YTEFUje/wE6rXPgNjA==
-X-Received: by 2002:a5d:44d0:0:b0:207:9ac8:2c3b with SMTP id
- z16-20020a5d44d0000000b002079ac82c3bmr3792006wrr.688.1649488490827; 
- Sat, 09 Apr 2022 00:14:50 -0700 (PDT)
-Received: from [192.168.2.222] ([51.37.209.28])
- by smtp.gmail.com with ESMTPSA id
- f8-20020a5d50c8000000b002061622ec88sm13207416wrt.105.2022.04.09.00.14.49
+ bh=frRIq19w6WV8+V8P0b/MeZBdiHuZnJaDLS8GaGxMM0g=;
+ b=W5Le/DlLCJLP51boXLY1YT+ch8VE1GX1QGuRqVLv1WzkA2KHb4glvqbJawF3F05HVi
+ 5NaKy0PKtn0ontG0ThxEYpO1wV3xXXz/VPwwgKXibKraEh24Mc0Mi/rQ1A1xXCjfcpNd
+ z/M3m2aFGnqMLj+1eOJAf9i2sMWsugd4LQe5dyJD7zGBJQHjr0zAvIirr6VtCw1jubLL
+ ScGTDfjddJYu/L12Yi/12QdGo+F/M6yO28jEq2H9KQS323BG8I9LSUIvi0XWcvs/Pr4R
+ 69QZjqOgp1/ZS9r3LkO3QiPnsgI0lso5NAqPRJk7s1DlSzFnT71nRvfqGS+yJv9Ztd3B
+ OsWg==
+X-Gm-Message-State: AOAM531QaVGaJDypIZOTOBYtuKOaKXvitzsRHS0fEuWgM3jZIX3Lf3Bh
+ ggRMVDsh1Uh+xxlB6U7Uu/jcBw==
+X-Google-Smtp-Source: ABdhPJxlR4hBksawdCpREkWQEPy67NZX6AedykSUBJPPbm/DVuEiWOgbyGYtSdaFc3O1DPxEQo63kQ==
+X-Received: by 2002:a17:906:2991:b0:6cf:1fd4:39a3 with SMTP id
+ x17-20020a170906299100b006cf1fd439a3mr22171598eje.21.1649501113359; 
+ Sat, 09 Apr 2022 03:45:13 -0700 (PDT)
+Received: from [192.168.0.188] (xdsl-188-155-201-27.adslplus.ch.
+ [188.155.201.27]) by smtp.gmail.com with ESMTPSA id
+ mp19-20020a1709071b1300b006dfdfe15cf8sm9810278ejc.196.2022.04.09.03.45.11
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Sat, 09 Apr 2022 00:14:50 -0700 (PDT)
-Message-ID: <98026c4a-a065-3965-27f0-71de29cdb264@conchuod.ie>
-Date: Sat, 9 Apr 2022 08:14:48 +0100
+ Sat, 09 Apr 2022 03:45:12 -0700 (PDT)
+Message-ID: <ed73017f-54d0-b303-1557-b6086ce2d155@linaro.org>
+Date: Sat, 9 Apr 2022 12:45:11 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.7.0
 Subject: Re: [PATCH v1 0/7] Add rtc refclk support for PolarFire SoC
 Content-Language: en-US
-From: Conor Dooley <mail@conchuod.ie>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Conor Dooley <conor.dooley@microchip.com>, sboyd@kernel.org,
+To: Conor Dooley <mail@conchuod.ie>, Conor Dooley
+ <conor.dooley@microchip.com>, mturquette@baylibre.com, sboyd@kernel.org,
  aou@eecs.berkeley.edu, paul.walmsley@sifive.com, palmer@rivosinc.com,
  a.zummo@towertech.it, alexandre.belloni@bootlin.com, robh+dt@kernel.org,
- krzk+dt@kernel.org, mturquette@baylibre.com
+ krzk+dt@kernel.org
 Cc: daire.mcnamara@microchip.com, linux-rtc@vger.kernel.org,
  devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-riscv@lists.infradead.org
 References: <20220408143646.3693104-1-conor.dooley@microchip.com>
  <1fa15b36-7a84-e0ac-2c56-d6a2bec566ff@linaro.org>
  <cc11d576-3670-ff0a-e0a1-e92780a04c2a@conchuod.ie>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 In-Reply-To: <cc11d576-3670-ff0a-e0a1-e92780a04c2a@conchuod.ie>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220409_001453_643071_92BC98E5 
-X-CRM114-Status: GOOD (  19.27  )
+X-CRM114-CacheID: sfid-20220409_034515_446851_0B8F8CC9 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,14 +94,12 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 08/04/2022 16:29, Conor Dooley wrote:
+On 08/04/2022 17:29, Conor Dooley wrote:
 > 
 > 
 > On 08/04/2022 15:57, Krzysztof Kozlowski wrote:
@@ -139,19 +136,16 @@ On 08/04/2022 16:29, Conor Dooley wrote:
 > 
 > The second option seems far more sensible to me, do you agree?
 
-Having thought some more about it, patches 2, 3 and the rtc part of 7
-should be moved into [0] since they're fixing a binding that only
-arrived in 5.18-rc1.
-For the rest, make the second part of the reg optional and if it doesnt
-exist just return prate for the msspll clock?
+I think ate part of my sentence... it should be:
+"Usually ABI breakage, even if accepted, should NOT be tagged as fix..."
 
-Thanks,
-Conor.
+So usually it should not be a fix.
 
+The binding actually could be backported, because the driver changes
+bring the real ABI breakage.
 
-
-[0] 
-https://lore.kernel.org/linux-riscv/20220408133543.3537118-1-conor.dooley@microchip.com/
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
