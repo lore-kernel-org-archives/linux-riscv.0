@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D55CC433FE
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Apr 2022 21:52:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E39CC433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Apr 2022 21:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JasyJQM0h8tQHE8Dpio/s0zPq8Ogb7CbwRNGkuJATms=; b=LQvvIiPVQzjTm5
-	jbGpg6pGRSizmS+kwb1BlDPN0sZ521VWTJ/6aANY9Ifb4YfuBpVQMQt5UEI5luVqidPrRVamAbLl3
-	PTo7zjXRQcxDjvzl4kLhGTxI3/2LMBHPt1EyI8mw2E6MYPt3pQmnegaqjITZc1lpVeWTuVIhWhfEQ
-	6FGs4o964hTeCATWKy0twIUZOS/jPj7RooDnnWPPNoB7JPF5K/t46X3bWVTv6WV0eFi+rR5yYSX5D
-	zwIqEQ09H4lCf6lY1k2hjIgtbq+q7MZ4snBfy/G7KCgxI0KS5HrjIF0cCNX8SguXUiRLbvRmbVsqe
-	TGvTXoFKRGw14fOjushA==;
+	List-Owner; bh=W5ZWyNimzLPuias1yS5QpBot278IKpe58Pul+08Hp2g=; b=Fbd4zsrtC2fvNN
+	dmxWhS4/JByjcqR24pW41OEa0iwE6NIVFKMKxogAKHL3rT2ZUNqO10404kpgee8Ut+5yTGnyUt5fj
+	m2jemXn3F+VOxyPHXHUNJMz3rahiK6UbsaL+fTcEHZlXfWZihenHKr7aSXVN9s6svWY68oN/nTMNJ
+	1VSRGxBV4CdAP6SbVR76XtBF9aHkhdrQfLv6Z0TkLTHLwF4h2hGQuTbNpqC3hr9a6dxKUO8WKFUF1
+	mttIw4SeHSzSJGWiKspMtfj/3AeIg9r6mB8BCRNWKetOHCSgN+zsvI5TmpDXTdbERc6CmY4zv8ySa
+	sdppr2befVxy+uuP7Jaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ndfTS-005bVY-7x; Sun, 10 Apr 2022 21:51:58 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1ndfTr-005bmV-4i; Sun, 10 Apr 2022 21:52:23 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ndfSA-005aat-Qn; Sun, 10 Apr 2022 21:50:40 +0000
+ id 1ndfSH-005ack-0n; Sun, 10 Apr 2022 21:50:47 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 6534DB80ECC;
- Sun, 10 Apr 2022 21:50:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7ACCC385A4;
- Sun, 10 Apr 2022 21:50:32 +0000 (UTC)
+ by sin.source.kernel.org (Postfix) with ESMTPS id 1A763CE1157;
+ Sun, 10 Apr 2022 21:50:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4752FC385A4;
+ Sun, 10 Apr 2022 21:50:38 +0000 (UTC)
 Authentication-Results: smtp.kernel.org;
  dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com
- header.b="S3d7wENi"
+ header.b="EoEiRPi7"
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105; 
- t=1649627431;
+ t=1649627437;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:
  content-transfer-encoding:content-transfer-encoding:
  in-reply-to:in-reply-to:references:references;
- bh=ZT7A550eKHvOIQqOwZYiKReOcnqasZBfHDcS1LUIZrE=;
- b=S3d7wENiCKMNM6111ZHRtIkrh53yfcj1ZUbdrqkIB83Vw6NMGZrjAOVRDU3FQf5ApnQVw3
- 51v7rAatX/tVw9Wg0sQ6Xp2F2wRnrEqjRoE4Lvh38tb1RlFGb2YSUOBE1misGoswqxFVtv
- fEB4OR0u/B9fNSNEFSHuj55k0l8VdUI=
-Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id b58be70e
+ bh=sejvMdltPCXTzEKFmNj/gkozCnvR+ZhNjcilYgDYs/4=;
+ b=EoEiRPi7bM3YMtpflGeHRv7J7AFQ0XVuLlQurjsdYVJcVAxP5wqdVA0wUOlrZ4G2fY4uTU
+ /x0DKnZUf5qImTM6Dm9c1oqi9HGF9/ZbLtd7Tnmf6WKT9TjzeLvt1qNqXN9PoULJRa5XOv
+ CMo7MBwGXlZwAxg2G2ZghuGe8iN2KtQ=
+Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 440d167a
  (TLSv1.3:AEAD-AES256-GCM-SHA384:256:NO); 
- Sun, 10 Apr 2022 21:50:31 +0000 (UTC)
+ Sun, 10 Apr 2022 21:50:37 +0000 (UTC)
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 To: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
  tglx@linutronix.de, arnd@arndb.de
@@ -70,16 +70,16 @@ Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>, Theodore Ts'o <tytso@mit.edu>,
  linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
  sparclinux@vger.kernel.org, linux-um@lists.infradead.org, x86@kernel.org,
  linux-xtensa@linux-xtensa.org
-Subject: [PATCH v2 04/11] riscv: use ktime_read_raw_clock() for
+Subject: [PATCH v2 05/11] mips: use ktime_read_raw_clock() for
  random_get_entropy() instead of zero
-Date: Sun, 10 Apr 2022 23:49:44 +0200
-Message-Id: <20220410214951.55294-5-Jason@zx2c4.com>
+Date: Sun, 10 Apr 2022 23:49:45 +0200
+Message-Id: <20220410214951.55294-6-Jason@zx2c4.com>
 In-Reply-To: <20220410214951.55294-1-Jason@zx2c4.com>
 References: <20220410214951.55294-1-Jason@zx2c4.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220410_145039_449980_89901A06 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20220410_145045_471257_62CABFF8 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,26 +106,25 @@ that's not zero all the time is better than returning zero all the time.
 
 Cc: Thomas Gleixner <tglx@linutronix.de>
 Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
 Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
 ---
- arch/riscv/include/asm/timex.h | 2 +-
+ arch/mips/include/asm/timex.h | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/timex.h b/arch/riscv/include/asm/timex.h
-index 507cae273bc6..b320afede88a 100644
---- a/arch/riscv/include/asm/timex.h
-+++ b/arch/riscv/include/asm/timex.h
-@@ -41,7 +41,7 @@ static inline u32 get_cycles_hi(void)
- static inline unsigned long random_get_entropy(void)
- {
- 	if (unlikely(clint_time_val == NULL))
--		return 0;
-+		return ktime_read_raw_clock();
- 	return get_cycles();
+diff --git a/arch/mips/include/asm/timex.h b/arch/mips/include/asm/timex.h
+index b05bb70a2e46..fa6a5ca20b46 100644
+--- a/arch/mips/include/asm/timex.h
++++ b/arch/mips/include/asm/timex.h
+@@ -94,7 +94,7 @@ static inline unsigned long random_get_entropy(void)
+ 	else if (likely(imp != PRID_IMP_R6000 && imp != PRID_IMP_R6000A))
+ 		return read_c0_random();
+ 	else
+-		return 0;	/* no usable register */
++		return ktime_read_raw_clock();	/* no usable register */
  }
- #define random_get_entropy()	random_get_entropy()
+ #define random_get_entropy random_get_entropy
+ 
 -- 
 2.35.1
 
