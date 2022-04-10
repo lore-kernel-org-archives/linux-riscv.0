@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83EB6C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Apr 2022 20:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E30BAC433F5
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Apr 2022 20:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=78b0PLgYPqVwhs2Aw/3tdcpmMbCWps/iELbfdlopguU=; b=fNBeMPZNvoxoK7
-	X5jrTZAEma4SnfoMMecJeqsnUIo8MRXMFbLfSxwP5X7J0Qla0Cjmn5mW7ORG1RY05d1KYgYbGbwRY
-	OMS2Xltu3cw6euMk1ZxBzzkf/3FP558Si2MGl9n0SV/LHN+5412pnKzRvjblNDpHqCXRc9EpOZg4h
-	flGcXJSNnYJl2EZJd1/Nkph7v/W5NXXszw0D6clQtTWYUrujF1gSKfItCon7FzWnxbAU9lVX9snMM
-	3lrOSiWH3YGCsUoNfGm8q6QxI4DykIrjdelGAZ0lRfWeYAI4slYxNV/cVbZqYoy/N//dVismUm8LZ
-	uJBPWnbb5B1uUIgu90MA==;
+	List-Owner; bh=9SpY14f4WUJFFPdPaNijcIZJQsQrRK7pW4ZEYl/ePYk=; b=qE0fUcKB2cwDMF
+	iaOFveCeoSJwmS6kNKC1Zbt6nGcGXIg1sHzGz0n/pfWRh6RC/Bw4cprK0cmLeKgTvOXHEbUFAbVMH
+	B3hB8+7pTjjom3e9WenwbyTykTJLKvELzXJ+hqbzQ7szpfpIBMFrswzqTICbgX69eJJK1NHsJvE/a
+	OYyZE2gl5b9pUe3VeLvIek227aOammIILuflrFFlurfSyWew829spiC77LE5rwfDHWJ2H2kD74Enx
+	SuOWvATibxGW6TjIyV90qOPXbX3oPCro1r0tcuQV8EU+4iTCaGQgTDVIH45xAlLAKjKfFwOCjjmIk
+	wsV7w8p0w3HGmq46CLCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nddtv-005Pvv-6E; Sun, 10 Apr 2022 20:11:11 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1ndecY-005Uwj-F3; Sun, 10 Apr 2022 20:57:18 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nddtp-005Pv1-QW
- for linux-riscv@lists.infradead.org; Sun, 10 Apr 2022 20:11:10 +0000
+ id 1ndecN-005Usy-1Y; Sun, 10 Apr 2022 20:57:08 +0000
 From: Thomas Gleixner <tglx@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
- s=2020; t=1649621461;
+ s=2020; t=1649624223;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
  in-reply-to:in-reply-to:references:references;
- bh=CFZiyRoAkzbPk9Xvd26+tVM4kSwgrt9e2TSeylQenK4=;
- b=qRv5q4FMwx8M4ExgvLlNWs5Qm8N3vPR7Ygnmrx2ov+/OqkpaI0A0ecU01kxDfCmcS8fYLl
- DEx3wul4edO+FhL2wjWKS4gpGXCzY+BwD3P1uFPMOC92cMj4UvBw9tFWyQljWhnmhMVJkX
- 9A3MPK3zttKpW/lNI+NW0zDDPklavVUPGXN8prMGhT98k/Aglbv7294K7FGYv4uze1pEk/
- k+7y2SVzlV07pZb1GGY2xNiZtU2KYAlgidkHYIE2jKKJr0qtQo3+lDWujhiYsJKoV247A7
- jBaeu9DceUZrX6QWrwWZKnVwJ4GttHYot4ckrcgY+RTw8BsXXzHLCkF/bVbXzw==
+ bh=hE+Xcw0JizEU8Wnq0ZP70KLvw79L4CjFSDQ+JeFdg1E=;
+ b=wcxdyIRUujqol7xM6/jNUaTiJK9LjQ2TxNswzkFqW9IdoCXdLl06LKnKcZu+/PhgcujoFD
+ 4BL6UvqV2KyZxKcXAHyaYhKgWh+hW7kmtVsrR50bN2kEyItTRS4qenN4xdW+pqDVD/EBQJ
+ FRBUDZAXAnKdCAGLESQsbxyitf9btYLvPr88J6g6SWQULeVv1+BpRryz8V4vlo0Sxn5A1B
+ B7jn62NOZrsua6pLpW1KUXCpCdbVHaodhuhDNbeQMQoqpedjr6x5wCT5mekwEWTjKpLkBQ
+ ZhVOGqfjVtVh2uqjxiB4TKZirCwCtL5e55pMSWAO2Ry+8zKLnyd7j8EtVVFiMg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
- s=2020e; t=1649621461;
+ s=2020e; t=1649624223;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
  in-reply-to:in-reply-to:references:references;
- bh=CFZiyRoAkzbPk9Xvd26+tVM4kSwgrt9e2TSeylQenK4=;
- b=pyNbIVhNc1r6Uv7vn9aefZj+wTHPs26UmgzeP3aRxEYpceoMrD9ydhW1eAh+cZB2DTbji8
- OBWcQheUTykh5hBg==
-To: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Marc
- Zyngier <maz@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: Atish Patra <atishp@atishpatra.org>, Alistair Francis
- <Alistair.Francis@wdc.com>, Anup Patel <anup@brainfault.org>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Anup Patel
- <apatel@ventanamicro.com>
-Subject: Re: [PATCH v5 3/7] genirq: Add mechanism to multiplex a single HW IPI
-In-Reply-To: <20220324151258.943896-4-apatel@ventanamicro.com>
-References: <20220324151258.943896-1-apatel@ventanamicro.com>
- <20220324151258.943896-4-apatel@ventanamicro.com>
-Date: Sun, 10 Apr 2022 22:11:01 +0200
-Message-ID: <87a6cshf6y.ffs@tglx>
+ bh=hE+Xcw0JizEU8Wnq0ZP70KLvw79L4CjFSDQ+JeFdg1E=;
+ b=WYkLY0CPXnB/0QIxOUzf7pdAwpOuVx9Tljat/8ZOy+GrRKgqIku37SjusWmBW3We4uxu9x
+ QGtzsFUk86/12iAg==
+To: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+ arnd@arndb.de, Theodore Ts'o <tytso@mit.edu>, Dominik Brodowski
+ <linux@dominikbrodowski.net>, Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "David S . Miller" <davem@davemloft.net>, Richard Weinberger
+ <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes
+ Berg <johannes@sipsolutions.net>, Ingo Molnar <mingo@redhat.com>, Borislav
+ Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "H .
+ Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>, Max
+ Filippov <jcmvbkbc@gmail.com>, John Stultz <john.stultz@linaro.org>,
+ Stephen Boyd <sboyd@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, x86@kernel.org, linux-xtensa@linux-xtensa.org
+Subject: Re: [PATCH RFC v1 00/10] archs/random: fallback to using
+ sched_clock() if no cycle counter
+In-Reply-To: <YlLo8JVOS6FDmWUM@zx2c4.com>
+References: <20220408182145.142506-1-Jason@zx2c4.com> <87wnfxhm3n.ffs@tglx>
+ <YlLo8JVOS6FDmWUM@zx2c4.com>
+Date: Sun, 10 Apr 2022 22:57:02 +0200
+Message-ID: <877d7whd29.ffs@tglx>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220410_131106_234879_2CE42EA0 
-X-CRM114-Status: GOOD (  29.99  )
+X-CRM114-CacheID: sfid-20220410_135707_266391_2E8AFEDD 
+X-CRM114-Status: GOOD (  21.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,194 +89,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Anup,
+Jason,
 
-On Thu, Mar 24 2022 at 20:42, Anup Patel wrote:
-> All RISC-V platforms have a single HW IPI provided by the INTC local
-> interrupt controller. The HW method to trigger INTC IPI can be through
-> external irqchip (e.g. RISC-V AIA), through platform specific device
-> (e.g. SiFive CLINT timer), or through firmware (e.g. SBI IPI call).
+On Sun, Apr 10 2022 at 16:25, Jason A. Donenfeld wrote:
+> On Sun, Apr 10, 2022 at 01:29:32AM +0200, Thomas Gleixner wrote:
+>> But the below uncompiled hack gives you access to the 'best' clocksource
+>> of a machine, i.e. the one which the platform decided to be the one
+>> which is giving the best resolution. The minimal bitwidth of that is
+>> AFAICT 20 bits. In the jiffies case this will at least advance every
+>> tick.
 >
-> To support multiple IPIs on RISC-V, we need a generic mechanism to
-> create multiple per-CPU vIRQs using a single HW IPI hence this patch.
+> Oh, huh, that's pretty cool. I can try to make a commit out of that. Are
+> you suggesting I use this as the fallback for all platforms that
+> currently return zero, or just for m68k per Arnd's suggestion, and then
+> use sched_clock() for the others? It sounds to me like you're saying
+> this would be best for all of them. If so, that'd be quite nice.
 
-git grep 'This patch' Documentation/process
+It's the best in terms of timekeeping. Not the fastest :)
 
-> The generic IPI multiplex mechanism added by this patch can also be
-> useful to other architectures.
+>> The price, e.g. on x86 would be that RDTSC would be invoked via an
+>> indirect function call. Not the end of the world...
+>
+> Well on x86, random_get_entropy() is overridden in the arch/ code to
+> call get_cycles(). So this would really just be for 486 and for other
+> architectures with no cycle counter that are currently returning zero.
+> However, this brings up a good point: if your proposed
+> ktime_read_raw_clock() function really is so nice, should it be used
+> everywhere unconditionally with no arch-specific overrides? On x86, is
+> it really guaranteed to be RDTSC, and not, say, some off-core HPET
+> situation? And is this acceptable to call from the hard irq handler?
 
-Which ones? Sane architectures have more than one IPI.
+No, that's the sad part. On system where TSC is unstable (for whatever
+reason) this might fallback to some off-core clock (HPET, PMTIMER).
+The good news is that this is mostly affecting older systems. After 20+
+years of complaining the hardware people seem to have figured out that a
+fast accessible and realiable clocksource is something useful. :)
 
-> diff --git a/include/linux/irq.h b/include/linux/irq.h
-> index 848e1e12c5c6..cdce7eae2f37 100644
-> --- a/include/linux/irq.h
-> +++ b/include/linux/irq.h
-> @@ -1248,6 +1248,34 @@ int __ipi_send_mask(struct irq_desc *desc, const struct cpumask *dest);
->  int ipi_send_single(unsigned int virq, unsigned int cpu);
->  int ipi_send_mask(unsigned int virq, const struct cpumask *dest);
->  
-> +#define IPI_MUX_NR_IRQS		BITS_PER_LONG
-> +struct ipi_mux_ops {
+> Not yet having too much knowledge, I'm tentatively leaning toward the
+> safe side, of just using ktime_read_raw_clock() in the current places
+> that return zero all the time -- that is, for the purpose this patchset
+> has.
 
-This is unreadable. Newlines exist for a reason.
-
-> +	void (*ipi_mux_clear)(unsigned int parent_virq);
-> +	void (*ipi_mux_send)(unsigned int parent_virq,
-> +			     const struct cpumask *mask);
-> +};
-> +
-> +/* Process multiplexed IPIs */
-> +void ipi_mux_process(void);
-> +
-> +/*
-> + * Create multiple IPIs (total IPI_MUX_NR_IRQS) multiplexed on top of a
-> + * single parent IPI.
-> + *
-> + * If the parent IPI > 0 then ipi_mux_process() will be automatically
-> + * called via chained handler.
-> + *
-> + * If the parent IPI <= 0 then it is responsiblity of irqchip drivers
-> + * to explicitly call ipi_mux_process() for processing muxed
-> + * IPIs.
-> + *
-> + * Returns first virq of the muxed IPIs upon success or <=0 upon failure
-> + */
-> +int ipi_mux_create(unsigned int parent_virq, const struct ipi_mux_ops *ops);
-
-While it is kinda sensible to have the documentation near the
-declaration, I prefer it to be near the code because thats where it
-matters and also has a higher chance to be updated when the code
-changes.
-
-Please use proper kernel doc while at it.
-
-> +static unsigned int ipi_mux_parent_virq;
-> +static struct irq_domain *ipi_mux_domain;
-> +static const struct  ipi_mux_ops *ipi_mux_ops;
-> +static DEFINE_PER_CPU(unsigned long, ipi_mux_bits);
-> +
-> +static void ipi_mux_dummy(struct irq_data *d)
-> +{
-> +}
-> +
-> +static void ipi_mux_send_mask(struct irq_data *d, const struct cpumask *mask)
-> +{
-> +	int cpu;
-> +
-> +	/* Barrier before doing atomic bit update to IPI bits */
-> +	smp_mb__before_atomic();
-> +
-> +	for_each_cpu(cpu, mask)
-> +		set_bit(d->hwirq, per_cpu_ptr(&ipi_mux_bits, cpu));
-> +
-> +	/* Barrier after doing atomic bit update to IPI bits */
-> +	smp_mb__after_atomic();
-> +
-> +	/* Trigger the parent IPI */
-> +	ipi_mux_ops->ipi_mux_send(ipi_mux_parent_virq, mask);
-> +}
-> +
-> +static struct irq_chip ipi_mux_chip = {
-> +	.name		= "RISC-V IPI Mux",
-
-RISC-V IPI Mux is a truly generic name :)
-
-> +	.irq_mask	= ipi_mux_dummy,
-> +	.irq_unmask	= ipi_mux_dummy,
-> +	.ipi_send_mask	= ipi_mux_send_mask,
-> +};
-> +
-> +static int ipi_mux_domain_map(struct irq_domain *d, unsigned int irq,
-> +			      irq_hw_number_t hwirq)
-> +{
-> +	irq_set_percpu_devid(irq);
-> +	irq_domain_set_info(d, irq, hwirq, &ipi_mux_chip, d->host_data,
-> +			    handle_percpu_devid_irq, NULL, NULL);
-> +
-> +	return 0;
-> +}
-> +
-> +static int ipi_mux_domain_alloc(struct irq_domain *d, unsigned int virq,
-> +				unsigned int nr_irqs, void *arg)
-> +{
-> +	int i, ret;
-> +	irq_hw_number_t hwirq;
-> +	unsigned int type = IRQ_TYPE_NONE;
-> +	struct irq_fwspec *fwspec = arg;
-
-  Documentation/process/maintainer-tip.rst #coding-style-notes
-
-> +	ret = irq_domain_translate_onecell(d, fwspec, &hwirq, &type);
-> +	if (ret)
-> +		return ret;
-> +
-> +	for (i = 0; i < nr_irqs; i++) {
-> +		ret = ipi_mux_domain_map(d, virq + i, hwirq + i);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct irq_domain_ops ipi_mux_domain_ops = {
-> +	.translate	= irq_domain_translate_onecell,
-> +	.alloc		= ipi_mux_domain_alloc,
-> +	.free		= irq_domain_free_irqs_top,
-> +};
-> +
-> +void ipi_mux_process(void)
-> +{
-> +	int err;
-> +	unsigned long irqs, *bits = this_cpu_ptr(&ipi_mux_bits);
-> +	irq_hw_number_t hwirq;
-> +
-> +	while (true) {
-> +		/* Clear the parent IPI */
-> +		ipi_mux_ops->ipi_mux_clear(ipi_mux_parent_virq);
-
-This being in a loop smells fishy at least without a comment. And the
-more I read all of this the less I'm convinced that this code can be
-used by anything else than RISCV.
-
-> +		/* Order bit clearing and data access. */
-> +		mb();
-
-This mb() pairs with what? Memory barriers have a counterpart and it's
-mandatory to document that in the comment.
-
-> +		irqs = xchg(bits, 0);
-> +		if (!irqs)
-> +			break;
-> +
-> +		for_each_set_bit(hwirq, &irqs, IPI_MUX_NR_IRQS) {
-> +			err = generic_handle_domain_irq(ipi_mux_domain,
-> +							hwirq);
-> +			if (unlikely(err))
-> +				pr_warn_ratelimited(
-> +					"can't find mapping for hwirq %lu\n",
-> +					hwirq);
-> +		}
-> +	}
-> +}
-> +
-> +
-> +void ipi_mux_destroy(void)
-
-Seriously? You provide a function to rip the IPI mechanism out in a
-running system? What's that for?
-
-> +{
-> +	if (!ipi_mux_domain)
-> +		return;
-> +
-> +	irq_domain_remove(ipi_mux_domain);
-> +	ipi_mux_domain = NULL;
-> +	ipi_mux_parent_virq = 0;
-
-If it would be useful, then this would leak the hotplug callbacks, but
-the good news is that after tearing down the IPI domain hotplug does not
-work anymore :)
+That's probably a good approach and it's init/runtime discoverable.
 
 Thanks,
 
