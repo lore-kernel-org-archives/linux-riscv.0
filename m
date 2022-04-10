@@ -4,56 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF23C433F5
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Apr 2022 09:44:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25A2BC433F5
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Apr 2022 14:26:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8S7p/zBdyVx9BTKYrzZGmGuRlNQ6DGoHm3rdavYhEas=; b=qZQY06Aiqpy+YK
-	ZPJ59ZmdP9X6I5F2dtbLaIO8zWilGNkLkyO3S28oyGIYGhIOZNJSAWKst21v0Xt+LdXyBXL3yFE4J
-	JyfncSlCXYPh7IlIZn5ZjSSYJyhlfO1dqE2VTOZX6Z5jBuE2Lv+REGJXJFFfgKQ4ElFZ/LJAKgL9u
-	DuDjKvpbqY0v7ZUCbF9kJHA7VzQ5JG6XZ4MDJXtwfvaqwGfyNrxg6iH9roBsoDXYEABAYy2lQIyEW
-	xwULbIGT23xOMtChnpubLA+xC3Uw5aOi9qL7KOQGjJ3PhGcsVXsHdxacs4sTCtodR6VI564ujrMvZ
-	FyWdT9Otr6leLaI+4yyg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pXKE3Et/1f1VqRjXOEp3CKBzrgS/QogoORb0bNKgjkk=; b=qnPB5eDSFXTqc4
+	7aZNBdP0qGM+YpZUyHWL6iwjwDOshgFsPxUlJwzs7eBqNwXc8iy0HbKmkaevS6lSmZebljr9vRfU2
+	/FpUSogDobCYwr+bA3IxsCwYej8Zt5odrbnOfoXbYAlCICvCKgrbnvERwSA4aPBCuPMQGpl1f6my1
+	eea6MFRQ3axvVbNzj1fFX0f1VO0NstTef7ZHe1WpRfetWZE8MtS82cau7wWNDnv3+Fxgxgu1e5T/2
+	Mv0FWd7YvvVqL5rk7HT9KPp06WLc+RishNNCDc6Gp6gzgSoQkxX85SoUkjtQIPv3ONPEJJhCNmgk5
+	KI4nPSyLk3+Ty7auFI/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ndU6v-004aed-2g; Sun, 10 Apr 2022 09:43:57 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1ndYWG-004y7M-Cz; Sun, 10 Apr 2022 14:26:24 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ndU6r-004adI-2O
- for linux-riscv@lists.infradead.org; Sun, 10 Apr 2022 09:43:55 +0000
-Received: from dggpemm500022.china.huawei.com (unknown [172.30.72.53])
- by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4Kbn7c1l3LzgYQL;
- Sun, 10 Apr 2022 17:41:48 +0800 (CST)
-Received: from dggpemm500019.china.huawei.com (7.185.36.180) by
- dggpemm500022.china.huawei.com (7.185.36.162) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Sun, 10 Apr 2022 17:43:35 +0800
-Received: from k04.huawei.com (10.67.174.115) by
- dggpemm500019.china.huawei.com (7.185.36.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Sun, 10 Apr 2022 17:43:35 +0800
-From: Pu Lehui <pulehui@huawei.com>
-To: <bpf@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-CC: <bjorn@kernel.org>, <ast@kernel.org>, <daniel@iogearbox.net>,
- <andrii@kernel.org>, <luke.r.nels@gmail.com>, <xi.wang@gmail.com>,
- <kafai@fb.com>, <songliubraving@fb.com>, <yhs@fb.com>,
- <john.fastabend@gmail.com>, <kpsingh@kernel.org>, <pulehui@huawei.com>
-Subject: [PATCH bpf-next] riscv, bpf: Implement more atomic operations for RV64
-Date: Sun, 10 Apr 2022 18:12:46 +0800
-Message-ID: <20220410101246.232875-1-pulehui@huawei.com>
-X-Mailer: git-send-email 2.25.1
+ id 1ndYW4-004y4n-Gd; Sun, 10 Apr 2022 14:26:14 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 12ED66097C;
+ Sun, 10 Apr 2022 14:26:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C1C7C385A4;
+ Sun, 10 Apr 2022 14:26:06 +0000 (UTC)
+Authentication-Results: smtp.kernel.org;
+ dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com
+ header.b="Xd0Enayl"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105; 
+ t=1649600764;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=ACW34jCdChesB8O9mr3A3gFQd+fZkgemUpW2KIQGTs8=;
+ b=Xd0Enayl8UdMOLK8hb+p9ElFGR/nkOk182JQ3t/5PAWGrTN3GF03N95qlf3rrZl/Mt+RZI
+ 7g+OoLToQKHdL9+kdXKajZ1a3hsadEW5sVaIiDYC9L5V8y9LrnjV28ZvqwgrOh6rFPazES
+ NrUCO3Ev2CsBJg7e3SN1A3lzDB/MMQU=
+Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 8a808d78
+ (TLSv1.3:AEAD-AES256-GCM-SHA384:256:NO); 
+ Sun, 10 Apr 2022 14:26:04 +0000 (UTC)
+Date: Sun, 10 Apr 2022 16:25:52 +0200
+From: "Jason A. Donenfeld" <Jason@zx2c4.com>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+ arnd@arndb.de, Theodore Ts'o <tytso@mit.edu>,
+ Dominik Brodowski <linux@dominikbrodowski.net>,
+ Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "David S . Miller" <davem@davemloft.net>,
+ Richard Weinberger <richard@nod.at>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "H . Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
+ Max Filippov <jcmvbkbc@gmail.com>, John Stultz <john.stultz@linaro.org>,
+ Stephen Boyd <sboyd@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, x86@kernel.org, linux-xtensa@linux-xtensa.org
+Subject: Re: [PATCH RFC v1 00/10] archs/random: fallback to using
+ sched_clock() if no cycle counter
+Message-ID: <YlLo8JVOS6FDmWUM@zx2c4.com>
+References: <20220408182145.142506-1-Jason@zx2c4.com>
+ <87wnfxhm3n.ffs@tglx>
 MIME-Version: 1.0
-X-Originating-IP: [10.67.174.115]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- dggpemm500019.china.huawei.com (7.185.36.180)
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <87wnfxhm3n.ffs@tglx>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220410_024353_482878_025C89BC 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20220410_072612_878574_D1F22340 
+X-CRM114-Status: GOOD (  19.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,243 +97,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch implement more bpf atomic operations for RV64.
-The added operations are shown below:
+Hi Thomas,
 
-atomic[64]_[fetch_]add
-atomic[64]_[fetch_]and
-atomic[64]_[fetch_]or
-atomic[64]_xchg
-atomic[64]_cmpxchg
+On Sun, Apr 10, 2022 at 01:29:32AM +0200, Thomas Gleixner wrote:
+> But the below uncompiled hack gives you access to the 'best' clocksource
+> of a machine, i.e. the one which the platform decided to be the one
+> which is giving the best resolution. The minimal bitwidth of that is
+> AFAICT 20 bits. In the jiffies case this will at least advance every
+> tick.
 
-Since riscv specification does not provide AMO instruction for
-CAS operation, we use lr/sc instruction for cmpxchg operation,
-and AMO instructions for the rest ops. Tests "test_bpf.ko" and
-"test_progs -t atomic" have passed, as well as "test_verifier"
-with no new failure ceses.
+Oh, huh, that's pretty cool. I can try to make a commit out of that. Are
+you suggesting I use this as the fallback for all platforms that
+currently return zero, or just for m68k per Arnd's suggestion, and then
+use sched_clock() for the others? It sounds to me like you're saying
+this would be best for all of them. If so, that'd be quite nice.
 
-Signed-off-by: Pu Lehui <pulehui@huawei.com>
----
- arch/riscv/net/bpf_jit.h        |  67 +++++++++++++++++++
- arch/riscv/net/bpf_jit_comp64.c | 110 +++++++++++++++++++++++++-------
- 2 files changed, 153 insertions(+), 24 deletions(-)
 
-diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
-index f42d9cd3b..2a3715bf2 100644
---- a/arch/riscv/net/bpf_jit.h
-+++ b/arch/riscv/net/bpf_jit.h
-@@ -535,6 +535,43 @@ static inline u32 rv_amoadd_w(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
- 	return rv_amo_insn(0, aq, rl, rs2, rs1, 2, rd, 0x2f);
- }
- 
-+static inline u32 rv_amoand_w(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
-+{
-+	return rv_amo_insn(0xc, aq, rl, rs2, rs1, 2, rd, 0x2f);
-+}
-+
-+static inline u32 rv_amoor_w(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
-+{
-+	return rv_amo_insn(0x8, aq, rl, rs2, rs1, 2, rd, 0x2f);
-+}
-+
-+static inline u32 rv_amoxor_w(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
-+{
-+	return rv_amo_insn(0x4, aq, rl, rs2, rs1, 2, rd, 0x2f);
-+}
-+
-+static inline u32 rv_amoswap_w(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
-+{
-+	return rv_amo_insn(0x1, aq, rl, rs2, rs1, 2, rd, 0x2f);
-+}
-+
-+static inline u32 rv_lr_w(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
-+{
-+	return rv_amo_insn(0x2, aq, rl, rs2, rs1, 2, rd, 0x2f);
-+}
-+
-+static inline u32 rv_sc_w(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
-+{
-+	return rv_amo_insn(0x3, aq, rl, rs2, rs1, 2, rd, 0x2f);
-+}
-+
-+static inline u32 rv_fence(u8 pred, u8 succ)
-+{
-+	u16 imm11_0 = pred << 4 | succ;
-+
-+	return rv_i_insn(imm11_0, 0, 0, 0, 0xf);
-+}
-+
- /* RVC instrutions. */
- 
- static inline u16 rvc_addi4spn(u8 rd, u32 imm10)
-@@ -753,6 +790,36 @@ static inline u32 rv_amoadd_d(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
- 	return rv_amo_insn(0, aq, rl, rs2, rs1, 3, rd, 0x2f);
- }
- 
-+static inline u32 rv_amoand_d(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
-+{
-+	return rv_amo_insn(0xc, aq, rl, rs2, rs1, 3, rd, 0x2f);
-+}
-+
-+static inline u32 rv_amoor_d(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
-+{
-+	return rv_amo_insn(0x8, aq, rl, rs2, rs1, 3, rd, 0x2f);
-+}
-+
-+static inline u32 rv_amoxor_d(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
-+{
-+	return rv_amo_insn(0x4, aq, rl, rs2, rs1, 3, rd, 0x2f);
-+}
-+
-+static inline u32 rv_amoswap_d(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
-+{
-+	return rv_amo_insn(0x1, aq, rl, rs2, rs1, 3, rd, 0x2f);
-+}
-+
-+static inline u32 rv_lr_d(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
-+{
-+	return rv_amo_insn(0x2, aq, rl, rs2, rs1, 3, rd, 0x2f);
-+}
-+
-+static inline u32 rv_sc_d(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
-+{
-+	return rv_amo_insn(0x3, aq, rl, rs2, rs1, 3, rd, 0x2f);
-+}
-+
- /* RV64-only RVC instructions. */
- 
- static inline u16 rvc_ld(u8 rd, u32 imm8, u8 rs1)
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index 0bcda99d1..00df3a8f9 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -455,6 +455,90 @@ static int emit_call(bool fixed, u64 addr, struct rv_jit_context *ctx)
- 	return 0;
- }
- 
-+static void emit_atomic(u8 rd, u8 rs, s16 off, s32 imm, bool is64,
-+			struct rv_jit_context *ctx)
-+{
-+	u8 r0;
-+	int jmp_offset;
-+
-+	if (off) {
-+		if (is_12b_int(off)) {
-+			emit_addi(RV_REG_T1, rd, off, ctx);
-+		} else {
-+			emit_imm(RV_REG_T1, off, ctx);
-+			emit_add(RV_REG_T1, RV_REG_T1, rd, ctx);
-+		}
-+		rd = RV_REG_T1;
-+	}
-+
-+	switch (imm) {
-+	/* lock *(u32/u64 *)(dst_reg + off16) <op>= src_reg */
-+	case BPF_ADD:
-+		emit(is64 ? rv_amoadd_d(RV_REG_ZERO, rs, rd, 0, 0) :
-+		     rv_amoadd_w(RV_REG_ZERO, rs, rd, 0, 0), ctx);
-+		break;
-+	case BPF_AND:
-+		emit(is64 ? rv_amoand_d(RV_REG_ZERO, rs, rd, 0, 0) :
-+		     rv_amoand_w(RV_REG_ZERO, rs, rd, 0, 0), ctx);
-+		break;
-+	case BPF_OR:
-+		emit(is64 ? rv_amoor_d(RV_REG_ZERO, rs, rd, 0, 0) :
-+		     rv_amoor_w(RV_REG_ZERO, rs, rd, 0, 0), ctx);
-+		break;
-+	case BPF_XOR:
-+		emit(is64 ? rv_amoxor_d(RV_REG_ZERO, rs, rd, 0, 0) :
-+		     rv_amoxor_w(RV_REG_ZERO, rs, rd, 0, 0), ctx);
-+		break;
-+	/* src_reg = atomic_fetch_<op>(dst_reg + off16, src_reg) */
-+	case BPF_ADD | BPF_FETCH:
-+		emit(is64 ? rv_amoadd_d(rs, rs, rd, 0, 0) :
-+		     rv_amoadd_w(rs, rs, rd, 0, 0), ctx);
-+		if (!is64)
-+			emit_zext_32(rs, ctx);
-+		break;
-+	case BPF_AND | BPF_FETCH:
-+		emit(is64 ? rv_amoand_d(rs, rs, rd, 0, 0) :
-+		     rv_amoand_w(rs, rs, rd, 0, 0), ctx);
-+		if (!is64)
-+			emit_zext_32(rs, ctx);
-+		break;
-+	case BPF_OR | BPF_FETCH:
-+		emit(is64 ? rv_amoor_d(rs, rs, rd, 0, 0) :
-+		     rv_amoor_w(rs, rs, rd, 0, 0), ctx);
-+		if (!is64)
-+			emit_zext_32(rs, ctx);
-+		break;
-+	case BPF_XOR | BPF_FETCH:
-+		emit(is64 ? rv_amoxor_d(rs, rs, rd, 0, 0) :
-+		     rv_amoxor_w(rs, rs, rd, 0, 0), ctx);
-+		if (!is64)
-+			emit_zext_32(rs, ctx);
-+		break;
-+	/* src_reg = atomic_xchg(dst_reg + off16, src_reg); */
-+	case BPF_XCHG:
-+		emit(is64 ? rv_amoswap_d(rs, rs, rd, 0, 0) :
-+		     rv_amoswap_w(rs, rs, rd, 0, 0), ctx);
-+		if (!is64)
-+			emit_zext_32(rs, ctx);
-+		break;
-+	/* r0 = atomic_cmpxchg(dst_reg + off16, r0, src_reg); */
-+	case BPF_CMPXCHG:
-+		r0 = bpf_to_rv_reg(BPF_REG_0, ctx);
-+		emit(is64 ? rv_addi(RV_REG_T2, r0, 0) :
-+		     rv_addiw(RV_REG_T2, r0, 0), ctx);
-+		emit(is64 ? rv_lr_d(r0, 0, rd, 0, 0) :
-+		     rv_lr_w(r0, 0, rd, 0, 0), ctx);
-+		jmp_offset = ninsns_rvoff(8);
-+		emit(rv_bne(RV_REG_T2, r0, jmp_offset >> 1), ctx);
-+		emit(is64 ? rv_sc_d(RV_REG_T3, rs, rd, 0, 0) :
-+		     rv_sc_w(RV_REG_T3, rs, rd, 0, 0), ctx);
-+		jmp_offset = ninsns_rvoff(-6);
-+		emit(rv_bne(RV_REG_T3, 0, jmp_offset >> 1), ctx);
-+		emit(rv_fence(0x3, 0x3), ctx);
-+		break;
-+	}
-+}
-+
- #define BPF_FIXUP_OFFSET_MASK   GENMASK(26, 0)
- #define BPF_FIXUP_REG_MASK      GENMASK(31, 27)
- 
-@@ -1146,30 +1230,8 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 		break;
- 	case BPF_STX | BPF_ATOMIC | BPF_W:
- 	case BPF_STX | BPF_ATOMIC | BPF_DW:
--		if (insn->imm != BPF_ADD) {
--			pr_err("bpf-jit: not supported: atomic operation %02x ***\n",
--			       insn->imm);
--			return -EINVAL;
--		}
--
--		/* atomic_add: lock *(u32 *)(dst + off) += src
--		 * atomic_add: lock *(u64 *)(dst + off) += src
--		 */
--
--		if (off) {
--			if (is_12b_int(off)) {
--				emit_addi(RV_REG_T1, rd, off, ctx);
--			} else {
--				emit_imm(RV_REG_T1, off, ctx);
--				emit_add(RV_REG_T1, RV_REG_T1, rd, ctx);
--			}
--
--			rd = RV_REG_T1;
--		}
--
--		emit(BPF_SIZE(code) == BPF_W ?
--		     rv_amoadd_w(RV_REG_ZERO, rs, rd, 0, 0) :
--		     rv_amoadd_d(RV_REG_ZERO, rs, rd, 0, 0), ctx);
-+		emit_atomic(rd, rs, off, imm,
-+			    BPF_SIZE(code) == BPF_DW, ctx);
- 		break;
- 	default:
- 		pr_err("bpf-jit: unknown opcode %02x\n", code);
--- 
-2.25.1
+> The price, e.g. on x86 would be that RDTSC would be invoked via an
+> indirect function call. Not the end of the world...
 
+Well on x86, random_get_entropy() is overridden in the arch/ code to
+call get_cycles(). So this would really just be for 486 and for other
+architectures with no cycle counter that are currently returning zero.
+However, this brings up a good point: if your proposed
+ktime_read_raw_clock() function really is so nice, should it be used
+everywhere unconditionally with no arch-specific overrides? On x86, is
+it really guaranteed to be RDTSC, and not, say, some off-core HPET
+situation? And is this acceptable to call from the hard irq handler?
+
+Not yet having too much knowledge, I'm tentatively leaning toward the
+safe side, of just using ktime_read_raw_clock() in the current places
+that return zero all the time -- that is, for the purpose this patchset
+has.
+
+Jason
 
 _______________________________________________
 linux-riscv mailing list
