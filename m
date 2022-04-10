@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25A2BC433F5
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Apr 2022 14:26:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F1B6C433F5
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Apr 2022 15:15:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pXKE3Et/1f1VqRjXOEp3CKBzrgS/QogoORb0bNKgjkk=; b=qnPB5eDSFXTqc4
-	7aZNBdP0qGM+YpZUyHWL6iwjwDOshgFsPxUlJwzs7eBqNwXc8iy0HbKmkaevS6lSmZebljr9vRfU2
-	/FpUSogDobCYwr+bA3IxsCwYej8Zt5odrbnOfoXbYAlCICvCKgrbnvERwSA4aPBCuPMQGpl1f6my1
-	eea6MFRQ3axvVbNzj1fFX0f1VO0NstTef7ZHe1WpRfetWZE8MtS82cau7wWNDnv3+Fxgxgu1e5T/2
-	Mv0FWd7YvvVqL5rk7HT9KPp06WLc+RishNNCDc6Gp6gzgSoQkxX85SoUkjtQIPv3ONPEJJhCNmgk5
-	KI4nPSyLk3+Ty7auFI/A==;
+	List-Owner; bh=sjTaJdoiKSe/1jmheFrkT6KgsvGxsl/Idb/a7lgGdrg=; b=EgFuteFDpX1VQE
+	A5qYIkfaO/ix4v8X1oEh7m3Cipz2Bdeg10w0aJrJ2yyI48hAXQK+e/MQfsJG5innAPFoRVTgtNc4R
+	WUsYyeBVok8rV80wcnDCHLko5ngqkBIAzS3vKGz+U3Mpkys6zkWfxU1rbIzFLFPD/GVJELp1AyofW
+	OY4c8vQovKD9tf5a06bvL6KBDrSVRh1WkPF5ceqgDQuhHLUq0OkMDMSonepsL81UwOqGPFPKeNnJM
+	kEQqZIxKfUJeE1YDXvobLDvTRvncASm13FKbeDgokhaugJQh98L+5khac0hOrgnWNljM383YycI2e
+	CMhb3TZND37aa2kFqI2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ndYWG-004y7M-Cz; Sun, 10 Apr 2022 14:26:24 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ndZHa-0052gy-2j; Sun, 10 Apr 2022 15:15:18 +0000
+Received: from mail-oa1-x33.google.com ([2001:4860:4864:20::33])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ndYW4-004y4n-Gd; Sun, 10 Apr 2022 14:26:14 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 12ED66097C;
- Sun, 10 Apr 2022 14:26:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C1C7C385A4;
- Sun, 10 Apr 2022 14:26:06 +0000 (UTC)
-Authentication-Results: smtp.kernel.org;
- dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com
- header.b="Xd0Enayl"
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105; 
- t=1649600764;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=ACW34jCdChesB8O9mr3A3gFQd+fZkgemUpW2KIQGTs8=;
- b=Xd0Enayl8UdMOLK8hb+p9ElFGR/nkOk182JQ3t/5PAWGrTN3GF03N95qlf3rrZl/Mt+RZI
- 7g+OoLToQKHdL9+kdXKajZ1a3hsadEW5sVaIiDYC9L5V8y9LrnjV28ZvqwgrOh6rFPazES
- NrUCO3Ev2CsBJg7e3SN1A3lzDB/MMQU=
-Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 8a808d78
- (TLSv1.3:AEAD-AES256-GCM-SHA384:256:NO); 
- Sun, 10 Apr 2022 14:26:04 +0000 (UTC)
-Date: Sun, 10 Apr 2022 16:25:52 +0200
-From: "Jason A. Donenfeld" <Jason@zx2c4.com>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
- arnd@arndb.de, Theodore Ts'o <tytso@mit.edu>,
- Dominik Brodowski <linux@dominikbrodowski.net>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "David S . Miller" <davem@davemloft.net>,
- Richard Weinberger <richard@nod.at>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Johannes Berg <johannes@sipsolutions.net>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "H . Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
- Max Filippov <jcmvbkbc@gmail.com>, John Stultz <john.stultz@linaro.org>,
- Stephen Boyd <sboyd@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org, x86@kernel.org, linux-xtensa@linux-xtensa.org
-Subject: Re: [PATCH RFC v1 00/10] archs/random: fallback to using
- sched_clock() if no cycle counter
-Message-ID: <YlLo8JVOS6FDmWUM@zx2c4.com>
-References: <20220408182145.142506-1-Jason@zx2c4.com>
- <87wnfxhm3n.ffs@tglx>
+ id 1ndZHW-0052g1-W6
+ for linux-riscv@lists.infradead.org; Sun, 10 Apr 2022 15:15:16 +0000
+Received: by mail-oa1-x33.google.com with SMTP id
+ 586e51a60fabf-de3ca1efbaso14708630fac.9
+ for <linux-riscv@lists.infradead.org>; Sun, 10 Apr 2022 08:15:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=AykdxVkfek06fjXsLB9I2IRHzCOJ6nIrMbEtU2HTEq0=;
+ b=A/nT1N5myhjcL/iH9Bw8eSo2yqIZp8xF1pBJy3wtyHqPNG0WBG5cVpRDBWUYwMadtc
+ b6qXuao0UknR6L+QodumzaDlSmugfdvmQP65aTADnopUAQXHTAOPV0n5bGv3V96CxbbR
+ V7P3W3C0wdGHBaxOMjM5uS1J1SN5DIw0YcSgR7XqrtddyoBNzZgcTQBQvdE/DQxMLYn/
+ up01o53v/D+e1NyNX24m3Ff3TVZxISLbThUtbw7CnWvIPL36ujBBVMqKm9CwPuNnMJbN
+ SzW9907FEjhnSyXOfFmBNbSiD1OxjakTAJsNxqr6cE6JXGrwYQdSRcegbFqdhUXYJdyE
+ YGJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=AykdxVkfek06fjXsLB9I2IRHzCOJ6nIrMbEtU2HTEq0=;
+ b=Ozli7xGBW1vIeYzu/KcvdNkX7OqmPH97i8aRQ0e6tU3PHHhCAHwe0ibgYAQ43+Mr4c
+ baObxAX9tJm0GEK1eBS7gkFx3Out096PMC4IzBfE5Lb014VfK7z6QxJQZXopTvME4MBx
+ 3N+U/5NLjmHe2lkHX5htRnUqjWiiIsZgvPnJa6noXg176qdftdOZ2Pt7OinKq8cLiKi/
+ IlFOdp6JWfoO0kLrsS/LC3nuqCRrFRJBUOS05vBkSqRrRv/RSS8oioTMRN7WxtUm3sP7
+ TEs56V65wILotT/6ia5c0Ozas4I9oS6aAJp1K1Ebnl/AhyvZOzg65Gs7127rbv+DnG7G
+ nKug==
+X-Gm-Message-State: AOAM530tb5UpPb3R563XF2iKg00YyDidtP+KZnK8rTYSRkU35w3Q6JSv
+ 9muNv8Ca8TE2DLLDHq0UTsSIFFnY72rlW1K71Th9KA==
+X-Google-Smtp-Source: ABdhPJw4JlX7XrQmjaKV9AkjsvEklgyp/+SYdmSxL3OSV1KqjDA84a+/qb1G0521cTO8XAEfbAt1IhBKhpUfEDvvMME=
+X-Received: by 2002:a05:6870:b021:b0:e1:dc43:9000 with SMTP id
+ y33-20020a056870b02100b000e1dc439000mr12076705oae.172.1649603713127; Sun, 10
+ Apr 2022 08:15:13 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <87wnfxhm3n.ffs@tglx>
+References: <20220406142606.18464-1-eric.lin@sifive.com>
+ <20220406142606.18464-2-eric.lin@sifive.com>
+ <YlGgro3TupbOEnJC@kernel.org>
+In-Reply-To: <YlGgro3TupbOEnJC@kernel.org>
+From: Eric Lin <eric.lin@sifive.com>
+Date: Sun, 10 Apr 2022 23:15:01 +0800
+Message-ID: <CAPqJEFrh71h-UZF1=TQKWTrsL84R=nzoBTieAw6rtoyBbu7kRQ@mail.gmail.com>
+Subject: Re: [PATCH 1/1] perf jitdump: Add riscv64 support.
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, jolsa@kernel.org, 
+ Namhyung Kim <namhyung@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ aou@eecs.berkeley.edu, 
+ iii@linux.ibm.com, linux-perf-users@vger.kernel.org, 
+ linux-kernel <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Greentime Hu <greentime.hu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220410_072612_878574_D1F22340 
-X-CRM114-Status: GOOD (  19.37  )
+X-CRM114-CacheID: sfid-20220410_081515_112222_D489D7DC 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,40 +93,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas,
+Hi Arnaldo,
 
-On Sun, Apr 10, 2022 at 01:29:32AM +0200, Thomas Gleixner wrote:
-> But the below uncompiled hack gives you access to the 'best' clocksource
-> of a machine, i.e. the one which the platform decided to be the one
-> which is giving the best resolution. The minimal bitwidth of that is
-> AFAICT 20 bits. In the jiffies case this will at least advance every
-> tick.
+On Sat, Apr 9, 2022 at 11:05 PM Arnaldo Carvalho de Melo
+<acme@kernel.org> wrote:
+>
+> Em Wed, Apr 06, 2022 at 10:26:06PM +0800, Eric Lin escreveu:
+> > Signed-off-by: Eric Lin <eric.lin@sifive.com>
+>
+> Can you plese provide some series of commands demonstrating the usage of
+> this functionality on riscv?
+>
+> A dump, for instance.
+>
+> - Arnaldo
+>
 
-Oh, huh, that's pretty cool. I can try to make a commit out of that. Are
-you suggesting I use this as the fallback for all platforms that
-currently return zero, or just for m68k per Arnd's suggestion, and then
-use sched_clock() for the others? It sounds to me like you're saying
-this would be best for all of them. If so, that'd be quite nice.
+OK, I got it. I'll show the series of commands in the commit message
+in v2 patch.
+Thanks.
 
-
-> The price, e.g. on x86 would be that RDTSC would be invoked via an
-> indirect function call. Not the end of the world...
-
-Well on x86, random_get_entropy() is overridden in the arch/ code to
-call get_cycles(). So this would really just be for 486 and for other
-architectures with no cycle counter that are currently returning zero.
-However, this brings up a good point: if your proposed
-ktime_read_raw_clock() function really is so nice, should it be used
-everywhere unconditionally with no arch-specific overrides? On x86, is
-it really guaranteed to be RDTSC, and not, say, some off-core HPET
-situation? And is this acceptable to call from the hard irq handler?
-
-Not yet having too much knowledge, I'm tentatively leaning toward the
-safe side, of just using ktime_read_raw_clock() in the current places
-that return zero all the time -- that is, for the purpose this patchset
-has.
-
-Jason
+> > ---
+> >  tools/perf/arch/riscv/Makefile | 1 +
+> >  tools/perf/util/genelf.h       | 3 +++
+> >  2 files changed, 4 insertions(+)
+> >
+> > diff --git a/tools/perf/arch/riscv/Makefile b/tools/perf/arch/riscv/Makefile
+> > index 1aa9dd772489..a8d25d005207 100644
+> > --- a/tools/perf/arch/riscv/Makefile
+> > +++ b/tools/perf/arch/riscv/Makefile
+> > @@ -2,3 +2,4 @@ ifndef NO_DWARF
+> >  PERF_HAVE_DWARF_REGS := 1
+> >  endif
+> >  PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET := 1
+> > +PERF_HAVE_JITDUMP := 1
+> > diff --git a/tools/perf/util/genelf.h b/tools/perf/util/genelf.h
+> > index 3db3293213a9..ae138afe6c56 100644
+> > --- a/tools/perf/util/genelf.h
+> > +++ b/tools/perf/util/genelf.h
+> > @@ -38,6 +38,9 @@ int jit_add_debug_info(Elf *e, uint64_t code_addr, void *debug, int nr_debug_ent
+> >  #elif defined(__s390x__)
+> >  #define GEN_ELF_ARCH EM_S390
+> >  #define GEN_ELF_CLASS        ELFCLASS64
+> > +#elif defined(__riscv) && __riscv_xlen == 64
+> > +#define GEN_ELF_ARCH EM_RISCV
+> > +#define GEN_ELF_CLASS        ELFCLASS64
+> >  #else
+> >  #error "unsupported architecture"
+> >  #endif
+> > --
+> > 2.35.1
+>
+> --
+>
+> - Arnaldo
 
 _______________________________________________
 linux-riscv mailing list
