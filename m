@@ -4,79 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F1B6C433F5
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Apr 2022 15:15:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83EB6C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Apr 2022 20:11:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sjTaJdoiKSe/1jmheFrkT6KgsvGxsl/Idb/a7lgGdrg=; b=EgFuteFDpX1VQE
-	A5qYIkfaO/ix4v8X1oEh7m3Cipz2Bdeg10w0aJrJ2yyI48hAXQK+e/MQfsJG5innAPFoRVTgtNc4R
-	WUsYyeBVok8rV80wcnDCHLko5ngqkBIAzS3vKGz+U3Mpkys6zkWfxU1rbIzFLFPD/GVJELp1AyofW
-	OY4c8vQovKD9tf5a06bvL6KBDrSVRh1WkPF5ceqgDQuhHLUq0OkMDMSonepsL81UwOqGPFPKeNnJM
-	kEQqZIxKfUJeE1YDXvobLDvTRvncASm13FKbeDgokhaugJQh98L+5khac0hOrgnWNljM383YycI2e
-	CMhb3TZND37aa2kFqI2g==;
+	List-Owner; bh=78b0PLgYPqVwhs2Aw/3tdcpmMbCWps/iELbfdlopguU=; b=fNBeMPZNvoxoK7
+	X5jrTZAEma4SnfoMMecJeqsnUIo8MRXMFbLfSxwP5X7J0Qla0Cjmn5mW7ORG1RY05d1KYgYbGbwRY
+	OMS2Xltu3cw6euMk1ZxBzzkf/3FP558Si2MGl9n0SV/LHN+5412pnKzRvjblNDpHqCXRc9EpOZg4h
+	flGcXJSNnYJl2EZJd1/Nkph7v/W5NXXszw0D6clQtTWYUrujF1gSKfItCon7FzWnxbAU9lVX9snMM
+	3lrOSiWH3YGCsUoNfGm8q6QxI4DykIrjdelGAZ0lRfWeYAI4slYxNV/cVbZqYoy/N//dVismUm8LZ
+	uJBPWnbb5B1uUIgu90MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ndZHa-0052gy-2j; Sun, 10 Apr 2022 15:15:18 +0000
-Received: from mail-oa1-x33.google.com ([2001:4860:4864:20::33])
+	id 1nddtv-005Pvv-6E; Sun, 10 Apr 2022 20:11:11 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ndZHW-0052g1-W6
- for linux-riscv@lists.infradead.org; Sun, 10 Apr 2022 15:15:16 +0000
-Received: by mail-oa1-x33.google.com with SMTP id
- 586e51a60fabf-de3ca1efbaso14708630fac.9
- for <linux-riscv@lists.infradead.org>; Sun, 10 Apr 2022 08:15:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=AykdxVkfek06fjXsLB9I2IRHzCOJ6nIrMbEtU2HTEq0=;
- b=A/nT1N5myhjcL/iH9Bw8eSo2yqIZp8xF1pBJy3wtyHqPNG0WBG5cVpRDBWUYwMadtc
- b6qXuao0UknR6L+QodumzaDlSmugfdvmQP65aTADnopUAQXHTAOPV0n5bGv3V96CxbbR
- V7P3W3C0wdGHBaxOMjM5uS1J1SN5DIw0YcSgR7XqrtddyoBNzZgcTQBQvdE/DQxMLYn/
- up01o53v/D+e1NyNX24m3Ff3TVZxISLbThUtbw7CnWvIPL36ujBBVMqKm9CwPuNnMJbN
- SzW9907FEjhnSyXOfFmBNbSiD1OxjakTAJsNxqr6cE6JXGrwYQdSRcegbFqdhUXYJdyE
- YGJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=AykdxVkfek06fjXsLB9I2IRHzCOJ6nIrMbEtU2HTEq0=;
- b=Ozli7xGBW1vIeYzu/KcvdNkX7OqmPH97i8aRQ0e6tU3PHHhCAHwe0ibgYAQ43+Mr4c
- baObxAX9tJm0GEK1eBS7gkFx3Out096PMC4IzBfE5Lb014VfK7z6QxJQZXopTvME4MBx
- 3N+U/5NLjmHe2lkHX5htRnUqjWiiIsZgvPnJa6noXg176qdftdOZ2Pt7OinKq8cLiKi/
- IlFOdp6JWfoO0kLrsS/LC3nuqCRrFRJBUOS05vBkSqRrRv/RSS8oioTMRN7WxtUm3sP7
- TEs56V65wILotT/6ia5c0Ozas4I9oS6aAJp1K1Ebnl/AhyvZOzg65Gs7127rbv+DnG7G
- nKug==
-X-Gm-Message-State: AOAM530tb5UpPb3R563XF2iKg00YyDidtP+KZnK8rTYSRkU35w3Q6JSv
- 9muNv8Ca8TE2DLLDHq0UTsSIFFnY72rlW1K71Th9KA==
-X-Google-Smtp-Source: ABdhPJw4JlX7XrQmjaKV9AkjsvEklgyp/+SYdmSxL3OSV1KqjDA84a+/qb1G0521cTO8XAEfbAt1IhBKhpUfEDvvMME=
-X-Received: by 2002:a05:6870:b021:b0:e1:dc43:9000 with SMTP id
- y33-20020a056870b02100b000e1dc439000mr12076705oae.172.1649603713127; Sun, 10
- Apr 2022 08:15:13 -0700 (PDT)
+ id 1nddtp-005Pv1-QW
+ for linux-riscv@lists.infradead.org; Sun, 10 Apr 2022 20:11:10 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+ s=2020; t=1649621461;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=CFZiyRoAkzbPk9Xvd26+tVM4kSwgrt9e2TSeylQenK4=;
+ b=qRv5q4FMwx8M4ExgvLlNWs5Qm8N3vPR7Ygnmrx2ov+/OqkpaI0A0ecU01kxDfCmcS8fYLl
+ DEx3wul4edO+FhL2wjWKS4gpGXCzY+BwD3P1uFPMOC92cMj4UvBw9tFWyQljWhnmhMVJkX
+ 9A3MPK3zttKpW/lNI+NW0zDDPklavVUPGXN8prMGhT98k/Aglbv7294K7FGYv4uze1pEk/
+ k+7y2SVzlV07pZb1GGY2xNiZtU2KYAlgidkHYIE2jKKJr0qtQo3+lDWujhiYsJKoV247A7
+ jBaeu9DceUZrX6QWrwWZKnVwJ4GttHYot4ckrcgY+RTw8BsXXzHLCkF/bVbXzw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+ s=2020e; t=1649621461;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=CFZiyRoAkzbPk9Xvd26+tVM4kSwgrt9e2TSeylQenK4=;
+ b=pyNbIVhNc1r6Uv7vn9aefZj+wTHPs26UmgzeP3aRxEYpceoMrD9ydhW1eAh+cZB2DTbji8
+ OBWcQheUTykh5hBg==
+To: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Marc
+ Zyngier <maz@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: Atish Patra <atishp@atishpatra.org>, Alistair Francis
+ <Alistair.Francis@wdc.com>, Anup Patel <anup@brainfault.org>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Anup Patel
+ <apatel@ventanamicro.com>
+Subject: Re: [PATCH v5 3/7] genirq: Add mechanism to multiplex a single HW IPI
+In-Reply-To: <20220324151258.943896-4-apatel@ventanamicro.com>
+References: <20220324151258.943896-1-apatel@ventanamicro.com>
+ <20220324151258.943896-4-apatel@ventanamicro.com>
+Date: Sun, 10 Apr 2022 22:11:01 +0200
+Message-ID: <87a6cshf6y.ffs@tglx>
 MIME-Version: 1.0
-References: <20220406142606.18464-1-eric.lin@sifive.com>
- <20220406142606.18464-2-eric.lin@sifive.com>
- <YlGgro3TupbOEnJC@kernel.org>
-In-Reply-To: <YlGgro3TupbOEnJC@kernel.org>
-From: Eric Lin <eric.lin@sifive.com>
-Date: Sun, 10 Apr 2022 23:15:01 +0800
-Message-ID: <CAPqJEFrh71h-UZF1=TQKWTrsL84R=nzoBTieAw6rtoyBbu7kRQ@mail.gmail.com>
-Subject: Re: [PATCH 1/1] perf jitdump: Add riscv64 support.
-To: Arnaldo Carvalho de Melo <acme@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, jolsa@kernel.org, 
- Namhyung Kim <namhyung@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- aou@eecs.berkeley.edu, 
- iii@linux.ibm.com, linux-perf-users@vger.kernel.org, 
- linux-kernel <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Greentime Hu <greentime.hu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220410_081515_112222_D489D7DC 
-X-CRM114-Status: GOOD (  17.46  )
+X-CRM114-CacheID: sfid-20220410_131106_234879_2CE42EA0 
+X-CRM114-Status: GOOD (  29.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,60 +78,198 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Arnaldo,
+Anup,
 
-On Sat, Apr 9, 2022 at 11:05 PM Arnaldo Carvalho de Melo
-<acme@kernel.org> wrote:
+On Thu, Mar 24 2022 at 20:42, Anup Patel wrote:
+> All RISC-V platforms have a single HW IPI provided by the INTC local
+> interrupt controller. The HW method to trigger INTC IPI can be through
+> external irqchip (e.g. RISC-V AIA), through platform specific device
+> (e.g. SiFive CLINT timer), or through firmware (e.g. SBI IPI call).
 >
-> Em Wed, Apr 06, 2022 at 10:26:06PM +0800, Eric Lin escreveu:
-> > Signed-off-by: Eric Lin <eric.lin@sifive.com>
->
-> Can you plese provide some series of commands demonstrating the usage of
-> this functionality on riscv?
->
-> A dump, for instance.
->
-> - Arnaldo
->
+> To support multiple IPIs on RISC-V, we need a generic mechanism to
+> create multiple per-CPU vIRQs using a single HW IPI hence this patch.
 
-OK, I got it. I'll show the series of commands in the commit message
-in v2 patch.
-Thanks.
+git grep 'This patch' Documentation/process
 
-> > ---
-> >  tools/perf/arch/riscv/Makefile | 1 +
-> >  tools/perf/util/genelf.h       | 3 +++
-> >  2 files changed, 4 insertions(+)
-> >
-> > diff --git a/tools/perf/arch/riscv/Makefile b/tools/perf/arch/riscv/Makefile
-> > index 1aa9dd772489..a8d25d005207 100644
-> > --- a/tools/perf/arch/riscv/Makefile
-> > +++ b/tools/perf/arch/riscv/Makefile
-> > @@ -2,3 +2,4 @@ ifndef NO_DWARF
-> >  PERF_HAVE_DWARF_REGS := 1
-> >  endif
-> >  PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET := 1
-> > +PERF_HAVE_JITDUMP := 1
-> > diff --git a/tools/perf/util/genelf.h b/tools/perf/util/genelf.h
-> > index 3db3293213a9..ae138afe6c56 100644
-> > --- a/tools/perf/util/genelf.h
-> > +++ b/tools/perf/util/genelf.h
-> > @@ -38,6 +38,9 @@ int jit_add_debug_info(Elf *e, uint64_t code_addr, void *debug, int nr_debug_ent
-> >  #elif defined(__s390x__)
-> >  #define GEN_ELF_ARCH EM_S390
-> >  #define GEN_ELF_CLASS        ELFCLASS64
-> > +#elif defined(__riscv) && __riscv_xlen == 64
-> > +#define GEN_ELF_ARCH EM_RISCV
-> > +#define GEN_ELF_CLASS        ELFCLASS64
-> >  #else
-> >  #error "unsupported architecture"
-> >  #endif
-> > --
-> > 2.35.1
->
-> --
->
-> - Arnaldo
+> The generic IPI multiplex mechanism added by this patch can also be
+> useful to other architectures.
+
+Which ones? Sane architectures have more than one IPI.
+
+> diff --git a/include/linux/irq.h b/include/linux/irq.h
+> index 848e1e12c5c6..cdce7eae2f37 100644
+> --- a/include/linux/irq.h
+> +++ b/include/linux/irq.h
+> @@ -1248,6 +1248,34 @@ int __ipi_send_mask(struct irq_desc *desc, const struct cpumask *dest);
+>  int ipi_send_single(unsigned int virq, unsigned int cpu);
+>  int ipi_send_mask(unsigned int virq, const struct cpumask *dest);
+>  
+> +#define IPI_MUX_NR_IRQS		BITS_PER_LONG
+> +struct ipi_mux_ops {
+
+This is unreadable. Newlines exist for a reason.
+
+> +	void (*ipi_mux_clear)(unsigned int parent_virq);
+> +	void (*ipi_mux_send)(unsigned int parent_virq,
+> +			     const struct cpumask *mask);
+> +};
+> +
+> +/* Process multiplexed IPIs */
+> +void ipi_mux_process(void);
+> +
+> +/*
+> + * Create multiple IPIs (total IPI_MUX_NR_IRQS) multiplexed on top of a
+> + * single parent IPI.
+> + *
+> + * If the parent IPI > 0 then ipi_mux_process() will be automatically
+> + * called via chained handler.
+> + *
+> + * If the parent IPI <= 0 then it is responsiblity of irqchip drivers
+> + * to explicitly call ipi_mux_process() for processing muxed
+> + * IPIs.
+> + *
+> + * Returns first virq of the muxed IPIs upon success or <=0 upon failure
+> + */
+> +int ipi_mux_create(unsigned int parent_virq, const struct ipi_mux_ops *ops);
+
+While it is kinda sensible to have the documentation near the
+declaration, I prefer it to be near the code because thats where it
+matters and also has a higher chance to be updated when the code
+changes.
+
+Please use proper kernel doc while at it.
+
+> +static unsigned int ipi_mux_parent_virq;
+> +static struct irq_domain *ipi_mux_domain;
+> +static const struct  ipi_mux_ops *ipi_mux_ops;
+> +static DEFINE_PER_CPU(unsigned long, ipi_mux_bits);
+> +
+> +static void ipi_mux_dummy(struct irq_data *d)
+> +{
+> +}
+> +
+> +static void ipi_mux_send_mask(struct irq_data *d, const struct cpumask *mask)
+> +{
+> +	int cpu;
+> +
+> +	/* Barrier before doing atomic bit update to IPI bits */
+> +	smp_mb__before_atomic();
+> +
+> +	for_each_cpu(cpu, mask)
+> +		set_bit(d->hwirq, per_cpu_ptr(&ipi_mux_bits, cpu));
+> +
+> +	/* Barrier after doing atomic bit update to IPI bits */
+> +	smp_mb__after_atomic();
+> +
+> +	/* Trigger the parent IPI */
+> +	ipi_mux_ops->ipi_mux_send(ipi_mux_parent_virq, mask);
+> +}
+> +
+> +static struct irq_chip ipi_mux_chip = {
+> +	.name		= "RISC-V IPI Mux",
+
+RISC-V IPI Mux is a truly generic name :)
+
+> +	.irq_mask	= ipi_mux_dummy,
+> +	.irq_unmask	= ipi_mux_dummy,
+> +	.ipi_send_mask	= ipi_mux_send_mask,
+> +};
+> +
+> +static int ipi_mux_domain_map(struct irq_domain *d, unsigned int irq,
+> +			      irq_hw_number_t hwirq)
+> +{
+> +	irq_set_percpu_devid(irq);
+> +	irq_domain_set_info(d, irq, hwirq, &ipi_mux_chip, d->host_data,
+> +			    handle_percpu_devid_irq, NULL, NULL);
+> +
+> +	return 0;
+> +}
+> +
+> +static int ipi_mux_domain_alloc(struct irq_domain *d, unsigned int virq,
+> +				unsigned int nr_irqs, void *arg)
+> +{
+> +	int i, ret;
+> +	irq_hw_number_t hwirq;
+> +	unsigned int type = IRQ_TYPE_NONE;
+> +	struct irq_fwspec *fwspec = arg;
+
+  Documentation/process/maintainer-tip.rst #coding-style-notes
+
+> +	ret = irq_domain_translate_onecell(d, fwspec, &hwirq, &type);
+> +	if (ret)
+> +		return ret;
+> +
+> +	for (i = 0; i < nr_irqs; i++) {
+> +		ret = ipi_mux_domain_map(d, virq + i, hwirq + i);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct irq_domain_ops ipi_mux_domain_ops = {
+> +	.translate	= irq_domain_translate_onecell,
+> +	.alloc		= ipi_mux_domain_alloc,
+> +	.free		= irq_domain_free_irqs_top,
+> +};
+> +
+> +void ipi_mux_process(void)
+> +{
+> +	int err;
+> +	unsigned long irqs, *bits = this_cpu_ptr(&ipi_mux_bits);
+> +	irq_hw_number_t hwirq;
+> +
+> +	while (true) {
+> +		/* Clear the parent IPI */
+> +		ipi_mux_ops->ipi_mux_clear(ipi_mux_parent_virq);
+
+This being in a loop smells fishy at least without a comment. And the
+more I read all of this the less I'm convinced that this code can be
+used by anything else than RISCV.
+
+> +		/* Order bit clearing and data access. */
+> +		mb();
+
+This mb() pairs with what? Memory barriers have a counterpart and it's
+mandatory to document that in the comment.
+
+> +		irqs = xchg(bits, 0);
+> +		if (!irqs)
+> +			break;
+> +
+> +		for_each_set_bit(hwirq, &irqs, IPI_MUX_NR_IRQS) {
+> +			err = generic_handle_domain_irq(ipi_mux_domain,
+> +							hwirq);
+> +			if (unlikely(err))
+> +				pr_warn_ratelimited(
+> +					"can't find mapping for hwirq %lu\n",
+> +					hwirq);
+> +		}
+> +	}
+> +}
+> +
+> +
+> +void ipi_mux_destroy(void)
+
+Seriously? You provide a function to rip the IPI mechanism out in a
+running system? What's that for?
+
+> +{
+> +	if (!ipi_mux_domain)
+> +		return;
+> +
+> +	irq_domain_remove(ipi_mux_domain);
+> +	ipi_mux_domain = NULL;
+> +	ipi_mux_parent_virq = 0;
+
+If it would be useful, then this would leak the hotplug callbacks, but
+the good news is that after tearing down the IPI domain hotplug does not
+work anymore :)
+
+Thanks,
+
+        tglx
 
 _______________________________________________
 linux-riscv mailing list
