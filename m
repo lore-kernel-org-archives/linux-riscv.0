@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E8BBC433F5
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Apr 2022 21:51:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6147C433F5
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Apr 2022 21:51:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=82lh7LSb+/Jl+dZXhw9lMa1wRLflqcpD6SgLAzhV0Yo=; b=q51WZ+dQWXkX7l
-	o1L2Dwphl9PR1mi1WQvqpHJu+QqNDt5aLTnT5jIR1HnyLRIYnHwDMonx4GqJcbALnlQyzRoSAQMtu
-	T4AESjV+JP0FcWjOV/WPcGtPCnUxgx80UHIEkM1ROi+z88NB0GoFCoH3AjKSTv+bOvEnlIyO58/GQ
-	5/GmLDH79i3ZxDj7CNn4E9EWNlK/33uX48LEZ+sKqaCo6UAaNCDb+D/+1t2mr2ciQHZXEG5qUKaO7
-	cWpjZfQLH/FW0lu5qYNtVpZlVZFK1vLgQALK6jmjdKKD4kVnVKa4BqUTgliH21SL0I8u8M7UT3VeI
-	aV2TRtk5KgC9a8GjtPYA==;
+	List-Owner; bh=2xxb+7qejani7Mi2V8QkEgSRNsxb5pvqK0p5cwdjcco=; b=jB/db9Iy2pzbwO
+	1K8WpffC8/sm9DoPm8YNUt/3CdRUnk8lZtl5NxOG2+1+kFLxQqz4E1JyWUXQccFa9D6TIz7hRbZO5
+	JhKFOJKEnh+hlCj0I0brU2o2pHEShxiSwKPI05w7KZB0t40kZ2FoVY364bDVkmvch0V8dlJWJ3ZJc
+	ehfLbkEWffP2AZB7vlkCkH5Glp/rs95pjICbdx9DsAHGYyXDNtLO62+JFVL/eX894ly1v/H3AEd0H
+	GtdqvhXkpQMkzNaNUJmGG+oR3AMJtZIp/9yxU3i8h9g+If10zBpxo3kb1oeU/3cjo5CUQ15huSDsQ
+	ec35Z3nN2rI1C0y903tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ndfSU-005ans-OW; Sun, 10 Apr 2022 21:50:58 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ndfT1-005bA7-Lu; Sun, 10 Apr 2022 21:51:31 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ndfRx-005aWU-Vr; Sun, 10 Apr 2022 21:50:27 +0000
+ id 1ndfS5-005aYi-2S; Sun, 10 Apr 2022 21:50:34 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 94ED160C49;
- Sun, 10 Apr 2022 21:50:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA2B4C385A1;
- Sun, 10 Apr 2022 21:50:21 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id A57D3B80CD2;
+ Sun, 10 Apr 2022 21:50:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 475E3C385A4;
+ Sun, 10 Apr 2022 21:50:27 +0000 (UTC)
 Authentication-Results: smtp.kernel.org;
  dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com
- header.b="mljTD4lD"
+ header.b="F711I4MV"
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105; 
- t=1649627421;
+ t=1649627426;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:
  content-transfer-encoding:content-transfer-encoding:
  in-reply-to:in-reply-to:references:references;
- bh=JyQJDqG7G7qoM6gKahWfWcpxoWg/Hr8hXOQQlij0UbM=;
- b=mljTD4lDHrPCpdKRHHsPWTFR14XiiWdhvN87TPRANPmZWfc+MO66VyuX/rXcSG22A4eyEP
- dnVOLtFaU6Sq0fucK3TI1wZEKw8xT1SKDR6YeAoPoyixF1BUW3rFAxNA+gC8iEtzcWxwSM
- 5HC0l2Iwg27gXOb6sTJlPKYcF+fyEVo=
-Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 2f5fc337
+ bh=lzoxsJsBsi/VeA4T3KBOBfZZh94BpAt9k+SLscl3Id0=;
+ b=F711I4MVzDb5425/gxQhBAIdgL7zWPn1f0VOu4iDdVTWS9xd83zi9lln+p5radGdxzVMSr
+ vWuROQMwu/GkZg/TFmnbZnHSkgB0Adb9qte1ITjaYJjzV6rS9cntsmY+bcuWLVDpezIxYs
+ jXkpmQZb4uaGdkVoJRSfzdhZXuHchU8=
+Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id aba84008
  (TLSv1.3:AEAD-AES256-GCM-SHA384:256:NO); 
- Sun, 10 Apr 2022 21:50:20 +0000 (UTC)
+ Sun, 10 Apr 2022 21:50:26 +0000 (UTC)
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 To: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
  tglx@linutronix.de, arnd@arndb.de
@@ -70,16 +70,16 @@ Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>, Theodore Ts'o <tytso@mit.edu>,
  linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
  sparclinux@vger.kernel.org, linux-um@lists.infradead.org, x86@kernel.org,
  linux-xtensa@linux-xtensa.org
-Subject: [PATCH v2 02/11] timekeeping: use ktime_read_raw_clock() for
- random_get_entropy() if no get_cycles()
-Date: Sun, 10 Apr 2022 23:49:42 +0200
-Message-Id: <20220410214951.55294-3-Jason@zx2c4.com>
+Subject: [PATCH v2 03/11] m68k: use ktime_read_raw_clock() for
+ random_get_entropy() instead of zero
+Date: Sun, 10 Apr 2022 23:49:43 +0200
+Message-Id: <20220410214951.55294-4-Jason@zx2c4.com>
 In-Reply-To: <20220410214951.55294-1-Jason@zx2c4.com>
 References: <20220410214951.55294-1-Jason@zx2c4.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220410_145026_137591_A742B898 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20220410_145033_459631_E3CABE36 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,42 +96,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In the event that a given arch does not define get_cycles(), falling
-back to the get_cycles() default implementation that returns 0 is really
-not the best we can do. Instead, at least calling ktime_read_raw_clock()
-would be preferable, because that always needs to return _something_,
-even falling back to jiffies eventually. It's not as though
-ktime_read_raw_clock() is super high precision or guaranteed to be
-entropic, but basically anything that's not zero all the time is better
-than returning zero all the time.
+In the event that random_get_entropy() can't access a cycle counter or
+similar, falling back to returning 0 is really not the best we can do.
+Instead, at least calling ktime_read_raw_clock() would be preferable,
+because that always needs to return _something_, even falling back to
+jiffies eventually. It's not as though ktime_read_raw_clock() is super
+high precision or guaranteed to be entropic, but basically anything
+that's not zero all the time is better than returning zero all the time.
 
 Cc: Thomas Gleixner <tglx@linutronix.de>
 Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Theodore Ts'o <tytso@mit.edu>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>
 Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
 ---
- include/linux/timex.h | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/m68k/include/asm/timex.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/include/linux/timex.h b/include/linux/timex.h
-index 56502b338287..4050f68c34cb 100644
---- a/include/linux/timex.h
-+++ b/include/linux/timex.h
-@@ -76,8 +76,14 @@ extern u64 ktime_read_raw_clock(void);
-  *
-  * By default we use get_cycles() for this purpose, but individual
-  * architectures may override this in their asm/timex.h header file.
-+ * If a given arch does not have get_cycles(), then we fallback to
-+ * using sched_clock().
-  */
-+#ifdef get_cycles
- #define random_get_entropy()	((unsigned long)get_cycles())
-+#else
-+#define random_get_entropy()	((unsigned long)ktime_read_raw_clock())
-+#endif
- #endif
+diff --git a/arch/m68k/include/asm/timex.h b/arch/m68k/include/asm/timex.h
+index 6a21d9358280..5351b10e1b18 100644
+--- a/arch/m68k/include/asm/timex.h
++++ b/arch/m68k/include/asm/timex.h
+@@ -35,7 +35,7 @@ static inline unsigned long random_get_entropy(void)
+ {
+ 	if (mach_random_get_entropy)
+ 		return mach_random_get_entropy();
+-	return 0;
++	return ktime_read_raw_clock();
+ }
+ #define random_get_entropy	random_get_entropy
  
- /*
 -- 
 2.35.1
 
