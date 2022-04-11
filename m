@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA14AC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Apr 2022 23:39:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2138C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Apr 2022 23:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PazdHZSKjoFmGLlZUsyvAzA65g9L60sOwlJT2EYqmFU=; b=fQtq/a9dvobW0+
-	9R7kUsrJ8wUpn708dYJ8DD78Irz6fooguPXv6zK95x8u3mDUX60u/d/QCRErYJQcM6AoHr0t367VW
-	slwHgYrBHc6yGGewEqad3XM8lQAPpDyCqA1AwsKcbkP7GeF0jTcPRQTKhayP6SqEz0ldeIlRHwLtJ
-	VfhSLvnUX7Le2lFAOp3J521bGGBZyjiMkOLuXFBGWfDw6TYHhbWW96OQqMw/e6jgpR6Zix0ajSldq
-	IG9xXaLWFBykvT8TLvQdR8GNBR9s/D8Cspm6KrvZsCzjaRWAChLxfFTMfMahlFoSldSeVcgQCKT1v
-	snq2jDHIt9ZxIqoa5d4A==;
+	List-Owner; bh=JzSvIYtz413CaUiDy5N8x1HKYn9Uy8EVdKmhlY4vKzo=; b=vWSsYh6iSXL6aT
+	KKn5q4a3Jbb1qIfIwbYJ19TJeRBcyKNI9xDDRolzoLsZsBKV+/vJ44b0gfBNkZH+rf16qm35Car4L
+	Pjs5TBgKz4s6TMJvmiFu+efwVSwD+rK3xn+OZSuSxWbVMK2miEFloaDFEEJOUA7sx2fpQLmBshgjk
+	eg88LzeQIIqu7X7yQElk3TaXkGX0HhiES03k86qmM61yqenluA7yvvaWZ7EXg218Yk1tk5WscDOLP
+	Ulq4qYZsk3HVJC5IXe/eTZXOg4txIjk4lzq1xP6VkMUOu6/HF6aouXl2rR6OMGNN0UVqeaeH79X8G
+	SH6PTOAuESqLv1si8DJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ne3cy-00ApQO-P8; Mon, 11 Apr 2022 23:39:24 +0000
-Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
+	id 1ne3d1-00ApSf-A6; Mon, 11 Apr 2022 23:39:27 +0000
+Received: from bhuna.collabora.co.uk ([46.235.227.227])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ne3cv-00ApNJ-IS
- for linux-riscv@lists.infradead.org; Mon, 11 Apr 2022 23:39:23 +0000
+ id 1ne3cz-00ApQK-8T
+ for linux-riscv@lists.infradead.org; Mon, 11 Apr 2022 23:39:26 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
- (Authenticated sender: dmitry.osipenko) with ESMTPSA id 0E2FC1F42DB1
+ (Authenticated sender: dmitry.osipenko) with ESMTPSA id 364501F42DB6
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
- s=mail; t=1649720360;
- bh=pRtQqsaYfvoJzmisEka7OPXajhyNLIAv+QAu0QyZDnc=;
+ s=mail; t=1649720364;
+ bh=4rdbLD2+Iag77JMwmchrPYamych2367V1MeouFpjB0E=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=ZfHrkdNRBQ8J2hkiBY4/dHsQzt/m7SysRdtrvIMp09xuqkvYIJnMbbf70/j5ltuED
- 2XUiE7IC0pQeOlkFJh1HxIjoldBG+V+5aKdjx28DerDyXXvDXqKthN6m+1kctJFJOJ
- a0XSMZZcTjZQz2xyBAunrmTbFxvU4giIVvM9vOqGQt0zA42VeqBT8iuiLdSW9YJLE/
- h06w6159Zl1BE6jWsyxGHdKkD6oQ4z0ZrepwVFG52gqDGW+j8+Hk2TWeg51QkITTEh
- asdSeYQV9i9jrB1/CrqHBVvpg4IH8lVkzL9yoQRGBNrw80R84lPhA2NCUWicE4H3e1
- 0OGEUHzRUW6Rw==
+ b=WrJUgpTL2mz0b1tdWs+lbZHp4sOmPNiAkwDR5byRZ/kPUsqROAg+WnoC5wo3UwSA9
+ he3WggK2Db9XGe0m3cnXP4wqgvFZ5RxXFLPP7ysL4VVRXmA+1VzIhk0tnONuLD9Hk0
+ oIfdUC4QinyWbAv9M6Fb9K0d9xMo7zMuZxdgFPU73e8EMh+hwR/NoQjJwKd+ps+mD6
+ 1raKm3fvYtzK7w7vIsIFJ5wwOqDnth413yqDdNteedrYUgskO9lJ7+yeTYwNSWnc8d
+ kOFPQB6PLs2P7T4PDuqwUxE99sUZoWWJRfixny2gvzijMd3lw/0qSUxi9UuueN4qPA
+ 2Sw8FUE8ZkpNQ==
 From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>,
@@ -79,16 +79,16 @@ Cc: linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
  xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: [PATCH v7 06/20] csky: Use do_kernel_power_off()
-Date: Tue, 12 Apr 2022 02:38:18 +0300
-Message-Id: <20220411233832.391817-7-dmitry.osipenko@collabora.com>
+Subject: [PATCH v7 07/20] riscv: Use do_kernel_power_off()
+Date: Tue, 12 Apr 2022 02:38:19 +0300
+Message-Id: <20220411233832.391817-8-dmitry.osipenko@collabora.com>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220411233832.391817-1-dmitry.osipenko@collabora.com>
 References: <20220411233832.391817-1-dmitry.osipenko@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220411_163921_793316_1C71BACC 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20220411_163925_461304_11EDF072 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,35 +110,37 @@ that invokes chained power-off handlers. It also invokes legacy
 pm_power_off() for now, which will be removed once all drivers will
 be converted to the new power-off API.
 
-Acked-by: Guo Ren <guoren@kernel.org>
+Acked-by: Palmer Dabbelt <palmer@dabbelt.com>
 Signed-off-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 ---
- arch/csky/kernel/power.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ arch/riscv/kernel/reset.c | 12 ++++--------
+ 1 file changed, 4 insertions(+), 8 deletions(-)
 
-diff --git a/arch/csky/kernel/power.c b/arch/csky/kernel/power.c
-index 923ee4e381b8..86ee202906f8 100644
---- a/arch/csky/kernel/power.c
-+++ b/arch/csky/kernel/power.c
-@@ -9,16 +9,14 @@ EXPORT_SYMBOL(pm_power_off);
- void machine_power_off(void)
- {
- 	local_irq_disable();
--	if (pm_power_off)
--		pm_power_off();
-+	do_kernel_power_off();
- 	asm volatile ("bkpt");
- }
+diff --git a/arch/riscv/kernel/reset.c b/arch/riscv/kernel/reset.c
+index 9c842c41684a..912288572226 100644
+--- a/arch/riscv/kernel/reset.c
++++ b/arch/riscv/kernel/reset.c
+@@ -23,16 +23,12 @@ void machine_restart(char *cmd)
  
  void machine_halt(void)
  {
- 	local_irq_disable();
--	if (pm_power_off)
+-	if (pm_power_off != NULL)
 -		pm_power_off();
+-	else
+-		default_power_off();
 +	do_kernel_power_off();
- 	asm volatile ("bkpt");
++	default_power_off();
  }
  
+ void machine_power_off(void)
+ {
+-	if (pm_power_off != NULL)
+-		pm_power_off();
+-	else
+-		default_power_off();
++	do_kernel_power_off();
++	default_power_off();
+ }
 -- 
 2.35.1
 
