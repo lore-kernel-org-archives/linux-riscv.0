@@ -4,77 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A2E2C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Apr 2022 08:18:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 051E7C4167D
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Apr 2022 09:00:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9RK0kLWsYQw5khUjQvc+kuHxdqsVkZRssGrd/dQyUuM=; b=VPcZQ0skSoipcn
-	wpmdsDIk03dQS/YKcQymC3Jl2x3B6l/05QBvppk4NEPo/Nul1qFHnGALkRklxEV9fUCAlAHoMKuDt
-	nnUydHk6E15zEBJQFJM2XJyAaSHxOJjWJZw2umTe1NXbCWs8NJhbpy89fEv8Eb38Rjg5PYfXeXC7z
-	3LFsBrENYgYhx059XxENJqGeIqWcItgDpRLx+pN0P17jAjymEqia18Y1lL8ZII73wwsWlU0bg5HK2
-	dJLv8iwdvSozVWEUTxjLrJXy4mxqtB1SMBOsaZvIdrtoyJJFJ6J9svx4hol8J35anxYMGbqwA3cjJ
-	Gk1yXB8QIoKgfP5R5sjw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3n5jVOcJx0Gkz9jLvGgjjCY4my9U2zpBDiKdKngL4Ks=; b=SIV70I8IfRe8m7
+	l0gDYWVKjnf8+uwcgaVkPfZFlNs4twILjKNbn1ASTefBmKCzpljXFhKldE5lxtFDBQgpXPNi+jfQ4
+	UDrjS6k8uh2zj7h9Q1Ksivn5m5j7NVsEseE6woZVTasE+fpDfhYOctrp4zsIaJEGTT1R9CJqcBaZq
+	Q2tVYT4Ru9eeKEl9Se1Sv+ojJyASj/FT79valmjyPZRaKN+dc6ek2suIiiEeuafmJWM0443bggbLb
+	UyaoNYsjay6jFlgEHdqW8gQw7BFbJpubUSgUPpP8i9Q/Yrtcci6QBxyPK2UmGcwc7tFmFqWgux8pP
+	Fr/3dufr/DgP6R+pyfbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ndpG1-007V0T-Fr; Mon, 11 Apr 2022 08:18:45 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1ndpuP-007hXo-E6; Mon, 11 Apr 2022 09:00:29 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ndpFp-007Uvv-3s; Mon, 11 Apr 2022 08:18:34 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
- s=2020; t=1649665111;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=xjhhzRNcm78JGgGtLG6mgwaGj8Cww0Tlt26NaB6GyE8=;
- b=bQRUSKc6DEfWq2JW4zBYVX9dk6BAlFAOz8ziZI1nuAr8ThUSn9e4Pp4TH0bz7ykDdAbytZ
- 7E1JFmxLLPSA9yL/pLdV+Narb8ojwoUuHfRpcDWF7RSs/XNw8NP/mtP12PhEDKsDgxWdwX
- vj1X7Tk9jubTJlEIAMDexIL70/zM+Ev13+w45xEIm/Pg10UwmbczcL33LQfaYjkFbjCAwR
- nWRv8uLzxf0uwY7wWrnhC9hKJv5hsVxGhFPLc//BILYIvle9sl9xbz+4/B2WaiAREmOlO7
- QMeWCwYxU6fvIGepcveLrvpqjGJJ/UVr5H5Gu5FcUTDSJ2ZLo6XAuABFlQLZ3A==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
- s=2020e; t=1649665111;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=xjhhzRNcm78JGgGtLG6mgwaGj8Cww0Tlt26NaB6GyE8=;
- b=dYt2Xa6X2UETGYKSaI3sFGG38t3wto/bY9ksZnmh+Jh5QgkWcPQfA5MzFrnWyF0a21HHlJ
- MeANaRegf0On2MDw==
-To: "Jason A. Donenfeld" <Jason@zx2c4.com>, linux-kernel@vger.kernel.org,
- linux-crypto@vger.kernel.org, arnd@arndb.de
-Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>, Theodore Ts'o <tytso@mit.edu>,
- Dominik Brodowski <linux@dominikbrodowski.net>, Russell King
- <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, "David S . Miller" <davem@davemloft.net>, Richard
- Weinberger <richard@nod.at>, Anton Ivanov
- <anton.ivanov@cambridgegreys.com>, Johannes Berg
- <johannes@sipsolutions.net>, Ingo Molnar <mingo@redhat.com>, Borislav
- Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "H .
- Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>, Max
- Filippov <jcmvbkbc@gmail.com>, John Stultz <john.stultz@linaro.org>,
- Stephen Boyd <sboyd@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
- sparclinux@vger.kernel.org, linux-um@lists.infradead.org, x86@kernel.org,
- linux-xtensa@linux-xtensa.org
-Subject: Re: [PATCH v2 03/11] m68k: use ktime_read_raw_clock() for
- random_get_entropy() instead of zero
-In-Reply-To: <20220410214951.55294-4-Jason@zx2c4.com>
-References: <20220410214951.55294-1-Jason@zx2c4.com>
- <20220410214951.55294-4-Jason@zx2c4.com>
-Date: Mon, 11 Apr 2022 10:18:30 +0200
-Message-ID: <87sfqkf2y1.ffs@tglx>
+ id 1ndpuD-007hOY-Cd
+ for linux-riscv@lists.infradead.org; Mon, 11 Apr 2022 09:00:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1649667617; x=1681203617;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=T06nj3C4zK53ubNESpfjuEmkjYS5wovCXqlWWYBK/yc=;
+ b=WcHtTHAdABOBuAVhIz5Kv+SZXN89P9H8Ckgqa5s5ieBxHE9mxZq98wQQ
+ baUwcgjW/JS2mT8/yN4Bo5UQc9ssyspqOqX5ACmGAqWZb0b+xvcIva2nY
+ 7YcqMVRGvh4wOsdTJGtR8Cb4mzQ7bXF/ibQ9+D87wgBE3JzLR2NgMD7Jy
+ V0k+NRG+M/pZuW54BOLoJNP0Hg//n2lbkV5cB+9EqiNmxVwRkOyVlgGq5
+ NtEhwxKFXUP9QkS0ddI6il9xL1S+Tt6u1zEAzbqmZRsMefjBOJ/01uI0q
+ Ke5G+MM3K4ndxNSkhtICnRuNR/xtlPINNziMmCS0CKNcIkch7UugthUQv A==;
+X-IronPort-AV: E=Sophos;i="5.90,251,1643698800"; d="scan'208";a="159622642"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 11 Apr 2022 02:00:16 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Mon, 11 Apr 2022 02:00:16 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2375.17 via
+ Frontend Transport; Mon, 11 Apr 2022 02:00:13 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <aou@eecs.berkeley.edu>,
+ <paul.walmsley@sifive.com>, <palmer@rivosinc.com>, <a.zummo@towertech.it>,
+ <alexandre.belloni@bootlin.com>, <robh+dt@kernel.org>, <krzk+dt@kernel.org>
+CC: <daire.mcnamara@microchip.com>, <linux-rtc@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v2 0/9] More PolarFire SoC Fixes for 5.18
+Date: Mon, 11 Apr 2022 09:59:08 +0100
+Message-ID: <20220411085916.941433-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.35.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220411_011833_342042_B42B2C99 
-X-CRM114-Status: GOOD (  22.20  )
+X-CRM114-CacheID: sfid-20220411_020017_476351_959679A4 
+X-CRM114-Status: GOOD (  19.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,50 +80,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 10 2022 at 23:49, Jason A. Donenfeld wrote:
+Hey all,
+After the clock driver for the PolarFire SoC was accepted I started work
+on the onboard RTC & found out that the reference clock for the rtc was
+actually missing from the clock driver.
 
-> In the event that random_get_entropy() can't access a cycle counter or
-> similar, falling back to returning 0 is really not the best we can do.
-> Instead, at least calling ktime_read_raw_clock() would be preferable,
-> because that always needs to return _something_, even falling back to
-> jiffies eventually. It's not as though ktime_read_raw_clock() is super
-> high precision or guaranteed to be entropic, but basically anything
-> that's not zero all the time is better than returning zero all the time.
->
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Geert Uytterhoeven <geert@linux-m68k.org>
-> Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
-> ---
->  arch/m68k/include/asm/timex.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/m68k/include/asm/timex.h b/arch/m68k/include/asm/timex.h
-> index 6a21d9358280..5351b10e1b18 100644
-> --- a/arch/m68k/include/asm/timex.h
-> +++ b/arch/m68k/include/asm/timex.h
-> @@ -35,7 +35,7 @@ static inline unsigned long random_get_entropy(void)
->  {
->  	if (mach_random_get_entropy)
->  		return mach_random_get_entropy();
-> -	return 0;
-> +	return ktime_read_raw_clock();
+While restructuring the clock driver to add support for the rtc
+reference, I also noticed that there were some problems with how the FIC
+clocks were being used. The FIC clocks are the cpu side inputs to the
+AXI fabric interconnections & are not the clocks for any peripherals.
 
-I'd rather do something like this in a common header:
+This first three patches in this series fixes the problems with the FICs:
+- the fic clocks incorrectly had the AHB clock as their parents
+- the last fic, named differently to the others, had not been set as
+  a critical clock
+- some peripherals on the fabric side were incorrectly using the cpu
+  side fic clocks, resulting in incorrect rates.
 
-unsigned long random_get_entropy_fallback(void);
+The second part of the series fixes the missing rtc reference clock.
+There are three main changes:
+- Changing the reference clock in the dt to the external 125 MHz
+  oscillator rather than using the output of an internal pll. This has
+  the added benefit of not requiring changes to the device tree if this
+  part of the bitstream changes.
+- Adding a new clock into the driver that sits above the existing
+  configurable clocks & has the external reference as a parent. The new
+  clock provides the parent for the AHB/AXI clocks which formerly came
+  from the device tree.
+- Adding the rtc reference clock to the dt bindings, device tree and
+  clock driver at the configurable clock level, alongside AXI and AHB.
 
-and use random_get_entropy_fallback() in the architecture specific
-files.
+I kept series separate from [0] since that's tied to the CONFIG_PM stuff
+& fixes a specific problem.
 
-That way you can encapsulate the fallback implementation in the random
-code and if it turns out that ktime_read_raw_clock() is a stupid idea or
-someone has a better idea then you have to change exactly one place and
-not patch the whole tree again.
+Changes since v1:
+After speaking with Krzysztof, I have merged the rtc reference changes
+[1] with these fixes for 5.18. This was done since the relevant drivers
+and bindings only arrived in v5.18 & there'll now be no issue with
+breaking the ABI.
+Backwards compatiblity with the device tree from before 5.18 will be
+broken by these changes, but the board did not boot then anyway... If
+that is not okay, please lmk.
+
+The patch renaming sys_base was dropped since that's not a fix.
+
+Version 1 would not apply without [0] & that should be fixed too.
 
 Thanks,
+Conor.
 
-        tglx
+[0] https://lore.kernel.org/linux-riscv/20220408143646.3693104-1-conor.dooley@microchip.com
+[1] https://lore.kernel.org/linux-riscv/20220411072340.740981-1-conor.dooley@microchip.com
+
+
+Conor Dooley (9):
+  clk: microchip: mpfs: fix parents for FIC clocks
+  clk: microchip: mpfs: mark CLK_ATHENA as critical
+  riscv: dts: microchip: fix usage of fic clocks on mpfs
+  dt-bindings: clk: mpfs document msspll dri registers
+  dt-bindings: clk: mpfs: add defines for two new clocks
+  dt-bindings: rtc: add refclk to mpfs-rtc
+  clk: microchip: mpfs: re-parent the configurable clocks
+  clk: microchip: mpfs: add RTCREF clock control
+  riscv: dts: microchip: reparent mpfs clocks
+
+ .../bindings/clock/microchip,mpfs.yaml        |  11 +-
+ .../bindings/rtc/microchip,mfps-rtc.yaml      |  14 +-
+ .../dts/microchip/microchip-mpfs-fabric.dtsi  |  16 +-
+ .../microchip/microchip-mpfs-icicle-kit.dts   |   2 +-
+ .../boot/dts/microchip/microchip-mpfs.dtsi    |  10 +-
+ drivers/clk/microchip/clk-mpfs.c              | 191 +++++++++++++++---
+ .../dt-bindings/clock/microchip,mpfs-clock.h  |   5 +-
+ 7 files changed, 208 insertions(+), 41 deletions(-)
+
+-- 
+2.35.1
+
 
 _______________________________________________
 linux-riscv mailing list
