@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 795F1C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Apr 2022 14:16:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53ED7C433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Apr 2022 14:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3aDHmetn+a7XPIcy7XDxboY3O0XsmyLj31Ce/wnfc7g=; b=nGo2tdg5JH5+FG
-	W56op0X20uLaLqm6GAZvfH6reBv3Kr4BaIPv034nnCjdN4/urckvX4jK1pxk++uN6d6FV0t1nLSiH
-	xCmdJqpq3fsHEZB8tHfe3YOGHcezmc/e5KnWI3ASMG6SFFpE2iy0QXW9XEJOyLvZ6kRsbKvbf1j+h
-	Ni/1vYVG9rEsJBu9q+ypMjdgcWiHVqItQ4yfGGe56J1coV+Ab+Ap+/DPqXBEMo0MfAO9d4loeAjgH
-	9JlBWtOD/XY0mY9VrdxopxoulChz0WBwW07EVebYVfmaGV/9MnSnLuciGcigrHqQfqQVyjCWx/Bbq
-	285YfIBst4FsWQ1o1cHQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fFTmrFhyXgxd5zR/lfMXD1JsyosV6pateoPlP1DiQTk=; b=4udr/7M4d0t5Ov
+	TF+k5Z/ljt73QkIbYMGWV8BfY/Gzxf3Z4Znzq/EYDyWIshRFK68yD4Njm5bwww7ZBKuvhKm3cVSte
+	74fjtoUgDH0dzM2DkOdK/7y12czO0Xgod33kizG1VvJURRHjnfH8wXBlXIycEqod+xIE5tsPoyzpN
+	81J94dFGr5miLrj+EU/teuZLn1ccojw36ZsF6DF5lVaxLtr4eK50/rgB63lan7CyDdZr/4IAwd2wb
+	q/TZ5w3Bn/HTmVGb/LE2mHPScBCxRk1CciQflvb9pQ+++h65P5xexRsaHlnBXEacHNfQmVgr1jzXw
+	YA5z8lnJc2byhY+xX6SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ndupq-009L7e-Pr; Mon, 11 Apr 2022 14:16:06 +0000
+	id 1ndupw-009L9X-CF; Mon, 11 Apr 2022 14:16:12 +0000
 Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
  by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ndupj-009L4I-VD
- for linux-riscv@lists.infradead.org; Mon, 11 Apr 2022 14:16:02 +0000
+ id 1ndupk-009L4j-8A
+ for linux-riscv@lists.infradead.org; Mon, 11 Apr 2022 14:16:05 +0000
 Received: from localhost.localdomain (unknown [124.16.141.248])
- by APP-05 (Coremail) with SMTP id zQCowAAnxaUUOFRil9sMAQ--.30543S2;
- Mon, 11 Apr 2022 22:15:49 +0800 (CST)
+ by APP-05 (Coremail) with SMTP id zQCowAAnxaUUOFRil9sMAQ--.30543S5;
+ Mon, 11 Apr 2022 22:15:55 +0800 (CST)
 From: panqinglin2020@iscas.ac.cn
 To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
  linux-riscv@lists.infradead.org
 Cc: jeff@riscv.org, xuyinan@ict.ac.cn, Qinglin Pan <panqinglin2020@iscas.ac.cn>
-Subject: [PATCH v1 0/4] riscv: mm: add Svnapot support
-Date: Mon, 11 Apr 2022 22:15:32 +0800
-Message-Id: <20220411141536.2461073-1-panqinglin2020@iscas.ac.cn>
+Subject: [PATCH v1 3/4] mm: support Svnapot in hugetlb page
+Date: Mon, 11 Apr 2022 22:15:35 +0800
+Message-Id: <20220411141536.2461073-4-panqinglin2020@iscas.ac.cn>
 X-Mailer: git-send-email 2.35.1
+In-Reply-To: <20220411141536.2461073-1-panqinglin2020@iscas.ac.cn>
+References: <20220411141536.2461073-1-panqinglin2020@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowAAnxaUUOFRil9sMAQ--.30543S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Kw1rZw17WFW7Gw18WF1ftFb_yoW8Xr43pF
- W3GrnxKF98GryfAr1agryv9rW5tr4S9Fyaqw17J34UA39xAayUZwnYyFs8Aa48JF4fJFy0
- kF4Ygry3uas8X3JanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
- 9KBjDU0xBIdaVrnRJUUUvm14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
- rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
- 1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
- 6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
- Cq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
- 0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
- 1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IE
- rcIFxwAKzVCY07xG64k0F24l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
- 1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
- 14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
- IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWrZr1j6s0DMIIF0xvE
- x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnU
- UI43ZEXa7VUbSApUUUUUU==
+X-CM-TRANSID: zQCowAAnxaUUOFRil9sMAQ--.30543S5
+X-Coremail-Antispam: 1UD129KBjvJXoWfGFWUAr4xJw43urykZr4UXFb_yoWDWrWUpF
+ W7Cwn8ZrW3tw18Gw4Iqr15J3s8twnxu348JF97JFWFvr1Iq398Xas7GrWayr17CrWkX3yx
+ CrWfKFn8Ary7Xw7anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUUPq14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+ rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
+ x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+ Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l84
+ ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2vY
+ z4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c
+ 02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE
+ 4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4
+ kE6xkIj40Ew7xC0wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s02
+ 6c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF
+ 0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvE
+ c7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14
+ v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x
+ 0JU9Z23UUUUU=
 X-Originating-IP: [124.16.141.248]
 X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220411_071600_417452_972E2481 
-X-CRM114-Status: UNSURE (   8.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220411_071600_751581_8BBA7DBA 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,41 +80,371 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
 
-Svnapot is a RISC-V extension for marking contiguous 4K pages as a non-4K
-page. This patch set is for using Svnapot in Linux Kernel's boot process
-and hugetlb fs.
+Svnapot can be used to support 64KB hugetlb page, so it can become a new
+option when using hugetlbfs. This patch adds a basic implementation of
+hugetlb page, and support 64KB as a size in it by using Svnapot.
 
-Since Svnapot is just stable recently, and there seems no official way to
-determine if the CPU supports Svnapot at runtime. This patchset adds a Kconfig
-item for using Svnapot in "Platform type"->"Svnapot support". Its default value
-is off, and people can set it on when their CPU supports Svnapot.
+For test, boot kernel with command line contains "default_hugepagesz=64K
+hugepagesz=64K hugepages=20" and run a simple test like this:
 
-Qemu support for Svnapot has been accepted but still not merged into master.
-So the qemu which we use to test this patchset is current in this repo (it
-contains qemu Svnapot patchset):
-https://github.com/plctlab/plct-qemu/tree/plct-virtmem-dev
+int main() {
+	void *addr;
+	addr = mmap(NULL, 64 * 1024, PROT_WRITE | PROT_READ,
+			MAP_PRIVATE | MAP_ANONYMOUS | MAP_HUGETLB | MAP_HUGE_64KB, -1, 0);
+	printf("back from mmap \n");
+	long *ptr = (long *)addr;
+	unsigned int i = 0;
+	for(; i < 8 * 1024;i += 512) {
+		printf("%lp \n", ptr);
+		*ptr = 0xdeafabcd12345678;
+		ptr += 512;
+	}
+	ptr = (long *)addr;
+	i = 0;
+	for(; i < 8 * 1024;i += 512) {
+		if (*ptr != 0xdeafabcd12345678) {
+			printf("failed! 0x%lx \n", *ptr);
+			break;
+		}
+		ptr += 512;
+	}
+	if(i == 8 * 1024)
+		printf("simple test passed!\n");
+}
 
-Tested on:
-  - qemu rv64 with "Svnapot support" off.
-  - plct-qemu rv64 with "Svnapot support" on.
+And it should be passed.
 
+Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
 
-Qinglin Pan (4):
-  mm: modify pte format for Svnapot
-  mm: support Svnapot in physical page linear-mapping
-  mm: support Svnapot in hugetlb page
-  mm: support Svnapot in huge vmap
-
- arch/riscv/Kconfig                    |  10 +-
- arch/riscv/include/asm/hugetlb.h      |  31 +++-
- arch/riscv/include/asm/page.h         |   2 +-
- arch/riscv/include/asm/pgtable-bits.h |  31 ++++
- arch/riscv/include/asm/pgtable.h      |  68 ++++++++
- arch/riscv/include/asm/vmalloc.h      |  20 +++
- arch/riscv/mm/hugetlbpage.c           | 236 +++++++++++++++++++++++++-
- arch/riscv/mm/init.c                  |  29 +++-
- 8 files changed, 416 insertions(+), 11 deletions(-)
-
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index b86033f67610..490d52228997 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -41,7 +41,7 @@ config RISCV
+ 	select ARCH_USE_MEMTEST
+ 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+ 	select ARCH_WANT_FRAME_POINTERS
+-	select ARCH_WANT_GENERAL_HUGETLB
++	select ARCH_WANT_GENERAL_HUGETLB if !SVNAPOT
+ 	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
+ 	select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
+ 	select BUILDTIME_TABLE_SORT if MMU
+diff --git a/arch/riscv/include/asm/hugetlb.h b/arch/riscv/include/asm/hugetlb.h
+index a5c2ca1d1cd8..8aec4a04dda9 100644
+--- a/arch/riscv/include/asm/hugetlb.h
++++ b/arch/riscv/include/asm/hugetlb.h
+@@ -2,7 +2,36 @@
+ #ifndef _ASM_RISCV_HUGETLB_H
+ #define _ASM_RISCV_HUGETLB_H
+ 
+-#include <asm-generic/hugetlb.h>
+ #include <asm/page.h>
+ 
++#ifdef CONFIG_SVNAPOT
++extern pte_t arch_make_huge_pte(pte_t entry, unsigned int shift,
++				       vm_flags_t flags);
++#define arch_make_huge_pte arch_make_huge_pte
++#define __HAVE_ARCH_HUGE_SET_HUGE_PTE_AT
++extern void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
++			    pte_t *ptep, pte_t pte);
++#define __HAVE_ARCH_HUGE_PTEP_GET_AND_CLEAR
++extern pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
++				     unsigned long addr, pte_t *ptep);
++#define __HAVE_ARCH_HUGE_PTEP_CLEAR_FLUSH
++extern void huge_ptep_clear_flush(struct vm_area_struct *vma,
++				  unsigned long addr, pte_t *ptep);
++#define __HAVE_ARCH_HUGE_PTEP_SET_ACCESS_FLAGS
++extern int huge_ptep_set_access_flags(struct vm_area_struct *vma,
++				      unsigned long addr, pte_t *ptep,
++				      pte_t pte, int dirty);
++#define __HAVE_ARCH_HUGE_PTEP_SET_WRPROTECT
++extern void huge_ptep_set_wrprotect(struct mm_struct *mm,
++				    unsigned long addr, pte_t *ptep);
++#define __HAVE_ARCH_HUGE_PTE_CLEAR
++extern void huge_pte_clear(struct mm_struct *mm, unsigned long addr,
++			   pte_t *ptep, unsigned long sz);
++#define set_huge_swap_pte_at riscv_set_huge_swap_pte_at
++extern void riscv_set_huge_swap_pte_at(struct mm_struct *mm, unsigned long addr,
++				 pte_t *ptep, pte_t pte, unsigned long sz);
++#endif /*CONFIG_SVNAPOT*/
++
++#include <asm-generic/hugetlb.h>
++
+ #endif /* _ASM_RISCV_HUGETLB_H */
+diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+index 1526e410e802..ef40ba329709 100644
+--- a/arch/riscv/include/asm/page.h
++++ b/arch/riscv/include/asm/page.h
+@@ -17,7 +17,7 @@
+ #define PAGE_MASK	(~(PAGE_SIZE - 1))
+ 
+ #ifdef CONFIG_64BIT
+-#define HUGE_MAX_HSTATE		2
++#define HUGE_MAX_HSTATE		3
+ #else
+ #define HUGE_MAX_HSTATE		1
+ #endif
+diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
+index 932dadfdca54..371e35b5b334 100644
+--- a/arch/riscv/mm/hugetlbpage.c
++++ b/arch/riscv/mm/hugetlbpage.c
+@@ -2,6 +2,226 @@
+ #include <linux/hugetlb.h>
+ #include <linux/err.h>
+ 
++#ifdef CONFIG_SVNAPOT
++pte_t *huge_pte_alloc(struct mm_struct *mm, struct vm_area_struct *vma,
++			unsigned long addr, unsigned long sz)
++{
++	pgd_t *pgdp = pgd_offset(mm, addr);
++	p4d_t *p4dp = p4d_alloc(mm, pgdp, addr);
++	pud_t *pudp = pud_alloc(mm, p4dp, addr);
++	pmd_t *pmdp = pmd_alloc(mm, pudp, addr);
++
++	if (sz == NAPOT_CONT64KB_SIZE) {
++		if (!pmdp)
++			return NULL;
++		WARN_ON(addr & (sz - 1));
++		return pte_alloc_map(mm, pmdp, addr);
++	}
++
++	return NULL;
++}
++
++pte_t *huge_pte_offset(struct mm_struct *mm,
++		       unsigned long addr, unsigned long sz)
++{
++	pgd_t *pgdp;
++	p4d_t *p4dp;
++	pud_t *pudp;
++	pmd_t *pmdp;
++	pte_t *ptep = NULL;
++
++	pgdp = pgd_offset(mm, addr);
++	if (!pgd_present(READ_ONCE(*pgdp)))
++		return NULL;
++
++	p4dp = p4d_offset(pgdp, addr);
++	if (!p4d_present(READ_ONCE(*p4dp)))
++		return NULL;
++
++	pudp = pud_offset(p4dp, addr);
++	if (!pud_present(READ_ONCE(*pudp)))
++		return NULL;
++
++	pmdp = pmd_offset(pudp, addr);
++	if (!pmd_present(READ_ONCE(*pmdp)))
++		return NULL;
++
++	if (sz == NAPOT_CONT64KB_SIZE)
++		ptep = pte_offset_kernel(pmdp, (addr & ~NAPOT_CONT64KB_MASK));
++
++	return ptep;
++}
++
++int napot_pte_num(pte_t pte)
++{
++	if (!(pte_val(pte) & NAPOT_64KB_MASK))
++		return NAPOT_64KB_PTE_NUM;
++
++	pr_warn("%s: unrecognized napot pte size 0x%lx\n",
++		__func__, pte_val(pte));
++	return 1;
++}
++
++static pte_t get_clear_flush(struct mm_struct *mm,
++			     unsigned long addr,
++			     pte_t *ptep,
++			     unsigned long pte_num)
++{
++	pte_t orig_pte = huge_ptep_get(ptep);
++	bool valid = pte_val(orig_pte);
++	unsigned long i, saddr = addr;
++
++	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++) {
++		pte_t pte = ptep_get_and_clear(mm, addr, ptep);
++
++		if (pte_dirty(pte))
++			orig_pte = pte_mkdirty(orig_pte);
++
++		if (pte_young(pte))
++			orig_pte = pte_mkyoung(orig_pte);
++	}
++
++	if (valid) {
++		struct vm_area_struct vma = TLB_FLUSH_VMA(mm, 0);
++
++		flush_tlb_range(&vma, saddr, addr);
++	}
++	return orig_pte;
++}
++
++static void clear_flush(struct mm_struct *mm,
++			     unsigned long addr,
++			     pte_t *ptep,
++			     unsigned long pte_num)
++{
++	struct vm_area_struct vma = TLB_FLUSH_VMA(mm, 0);
++	unsigned long i, saddr = addr;
++
++	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
++		pte_clear(mm, addr, ptep);
++
++	flush_tlb_range(&vma, saddr, addr);
++}
++
++pte_t arch_make_huge_pte(pte_t entry, unsigned int shift,
++				       vm_flags_t flags)
++{
++	if (shift == NAPOT_CONT64KB_SHIFT)
++		entry = pte_mknapot(entry, NAPOT_CONT64KB_SHIFT - PAGE_SHIFT);
++
++	return entry;
++}
++
++void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
++			    pte_t *ptep, pte_t pte)
++{
++	int i;
++	int pte_num;
++
++	if (!pte_napot(pte)) {
++		set_pte_at(mm, addr, ptep, pte);
++		return;
++	}
++
++	pte_num = napot_pte_num(pte);
++	for (i = 0; i < pte_num; i++, ptep++, addr += PAGE_SIZE)
++		set_pte_at(mm, addr, ptep, pte);
++}
++
++int huge_ptep_set_access_flags(struct vm_area_struct *vma,
++				      unsigned long addr, pte_t *ptep,
++				      pte_t pte, int dirty)
++{
++	pte_t orig_pte;
++	int i;
++	int pte_num;
++
++	if (!pte_napot(pte))
++		return ptep_set_access_flags(vma, addr, ptep, pte, dirty);
++
++	pte_num = napot_pte_num(pte);
++	ptep = huge_pte_offset(vma->vm_mm, addr, NAPOT_CONT64KB_SIZE);
++	orig_pte = huge_ptep_get(ptep);
++
++	if (pte_dirty(orig_pte))
++		pte = pte_mkdirty(pte);
++
++	if (pte_young(orig_pte))
++		pte = pte_mkyoung(pte);
++
++	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
++		ptep_set_access_flags(vma, addr, ptep, pte, dirty);
++
++	return true;
++}
++
++pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
++				     unsigned long addr, pte_t *ptep)
++{
++	int pte_num;
++	pte_t orig_pte = huge_ptep_get(ptep);
++
++	if (!pte_napot(orig_pte))
++		return ptep_get_and_clear(mm, addr, ptep);
++
++	pte_num = napot_pte_num(orig_pte);
++	return get_clear_flush(mm, addr, ptep, pte_num);
++}
++
++void huge_ptep_set_wrprotect(struct mm_struct *mm,
++				    unsigned long addr, pte_t *ptep)
++{
++	int i;
++	int pte_num;
++	pte_t pte = READ_ONCE(*ptep);
++
++	if (!pte_napot(pte))
++		return ptep_set_wrprotect(mm, addr, ptep);
++
++	pte_num = napot_pte_num(pte);
++	ptep = huge_pte_offset(mm, addr, NAPOT_CONT64KB_SIZE);
++
++	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
++		ptep_set_wrprotect(mm, addr, ptep);
++}
++
++void huge_ptep_clear_flush(struct vm_area_struct *vma,
++				  unsigned long addr, pte_t *ptep)
++{
++	int pte_num;
++	pte_t pte = READ_ONCE(*ptep);
++
++	if (!pte_napot(pte)) {
++		ptep_clear_flush(vma, addr, ptep);
++		return;
++	}
++
++	pte_num = napot_pte_num(pte);
++	clear_flush(vma->vm_mm, addr, ptep, pte_num);
++}
++
++void huge_pte_clear(struct mm_struct *mm, unsigned long addr,
++			   pte_t *ptep, unsigned long sz)
++{
++	int i, pte_num;
++
++	pte_num = napot_pte_num(READ_ONCE(*ptep));
++	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
++		pte_clear(mm, addr, ptep);
++}
++
++void riscv_set_huge_swap_pte_at(struct mm_struct *mm, unsigned long addr,
++				 pte_t *ptep, pte_t pte, unsigned long sz)
++{
++	int i, pte_num;
++
++	pte_num = napot_pte_num(READ_ONCE(*ptep));
++
++	for (i = 0; i < pte_num; i++, ptep++)
++		set_pte(ptep, pte);
++}
++#endif /*CONFIG_SVNAPOT*/
++
+ int pud_huge(pud_t pud)
+ {
+ 	return pud_leaf(pud);
+@@ -18,17 +238,25 @@ bool __init arch_hugetlb_valid_size(unsigned long size)
+ 		return true;
+ 	else if (IS_ENABLED(CONFIG_64BIT) && size == PUD_SIZE)
+ 		return true;
++#ifdef CONFIG_SVNAPOT
++	else if (size == NAPOT_CONT64KB_SIZE)
++		return true;
++#endif /*CONFIG_SVNAPOT*/
+ 	else
+ 		return false;
+ }
+ 
+-#ifdef CONFIG_CONTIG_ALLOC
+-static __init int gigantic_pages_init(void)
++static __init int hugetlbpage_init(void)
+ {
++#ifdef CONFIG_CONTIG_ALLOC
+ 	/* With CONTIG_ALLOC, we can allocate gigantic pages at runtime */
+ 	if (IS_ENABLED(CONFIG_64BIT))
+ 		hugetlb_add_hstate(PUD_SHIFT - PAGE_SHIFT);
++#endif /*CONFIG_CONTIG_ALLOC*/
++	hugetlb_add_hstate(PMD_SHIFT - PAGE_SHIFT);
++#ifdef CONFIG_SVNAPOT
++	hugetlb_add_hstate(NAPOT_CONT64KB_SHIFT - PAGE_SHIFT);
++#endif /*CONFIG_SVNAPOT*/
+ 	return 0;
+ }
+-arch_initcall(gigantic_pages_init);
+-#endif
++arch_initcall(hugetlbpage_init);
 -- 
 2.35.1
 
