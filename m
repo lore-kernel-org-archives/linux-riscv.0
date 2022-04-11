@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28482C4321E
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Apr 2022 23:39:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 977F9C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Apr 2022 23:39:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J816tWMbrJEmbuaGENgP+r3AAsCMg8Mmw9yHN9QS5X0=; b=ShVF+ZibpaUCq9
-	hMKiR2NXauefzHSWvrhE2LCXjAogyJJUuA16e0Igte+T0wgwnxX+xL1+zz9G1IkPLY7OIjUGIRHF+
-	VqM6czFrjERpk+SuazDV+P8oAlas6PhWQwZyfjTAO9+mwZzsHBeumicheZHv/2RRLX0Iby2cjmeU0
-	Zxeiz1itYl0vRcU/ihrM3ujuI1KG7BXqooY7GCVB0Kj2I2J0SeGCU/su/8kWZCFxpL7CGH00Y68G0
-	pdwJG0ZByL5oxO5t+ei9TxVBrnkYQdsVXggBzY2gCN2en3rTI/eUsGuLsDZqZPjuDP7hi5hQpHFo0
-	v4U6dtR7Phq3iQD1/YSQ==;
+	List-Owner; bh=EnWqHNFqLEMHj2VoX909UyedJtrKx9lTFCKu78m/0QM=; b=wYdjWn15M5zn4u
+	HSj+cM/VhWid03Hk8gFkjCJFtF79EEit1LfscsHejOIF9fzIevKZHYrEToqA/a1pgh8AAYDW94RvL
+	co1ClpUUntzFWwH9wklkSj4mNOx7TnG83pU1F2wptdaLNk6e2OKQXM/Khmj1gn7Z7P4wMDB0Cr/O2
+	YDmGLYRNo8c3vTUz2ctBGRPJL9PAvAAIE2HLAWBSAXPvPt70rKTVF2dTyEQGIMugs3tx8sjOqop8H
+	+huyKOYZx0vNQaVO2xdOTi876R/JGeRTMujixzrEaV35H7m5saBwcXyNGZGu51uJHRVwY7Dz0s4VF
+	6vE8v6hDy0LzxOhUCDHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ne3dG-00AphS-7i; Mon, 11 Apr 2022 23:39:42 +0000
+	id 1ne3dM-00ApnD-J0; Mon, 11 Apr 2022 23:39:48 +0000
 Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ne3dB-00ApcC-JU
- for linux-riscv@lists.infradead.org; Mon, 11 Apr 2022 23:39:39 +0000
+ id 1ne3dF-00Apg8-Jp
+ for linux-riscv@lists.infradead.org; Mon, 11 Apr 2022 23:39:43 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
- (Authenticated sender: dmitry.osipenko) with ESMTPSA id 915191F43D1A
+ (Authenticated sender: dmitry.osipenko) with ESMTPSA id 909861F43D1D
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
- s=mail; t=1649720376;
- bh=/6N1NqWTzjqffsr0MYGq4IYVUQskqSynn6Y334kzapg=;
+ s=mail; t=1649720380;
+ bh=AnjrhaHENsX+9TktlKasoiUkGDZC8u25pvM/oDIQuBM=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=mQsjTJIn+P3/qMm6CgQ+bPQ7EleJ40FaGcgtLTxE/ao4KfvFaQYrjidT8XaGySRfW
- LtMhTqRxWtDelluYdNNnvCF2SHtqFrhbTq6SQjR/wYerXvArxXHqIe46wUNgoMmR75
- e5GuMQ+FN0MnaxSGFHmBAxERZcEN6zLzn9MNxkwOchkm5cUvhvFF3WsvMyY+Wvj/Bf
- FZ61MdojqgQMFK3VHKf9XPK7pidFdgqxhl15dckSHVqGqULXhOrHjm1H0/aTJSki+S
- 2lHLWe0gcmF+BXemoi+m6zGClffgIvI5J5rTM647heG7g0c1/HMiTMFnNnbbpJz5I+
- S9piQ2GTV7bFg==
+ b=mCs0xXKXBGwKhSNizz+CrsN6ijBgTwnfXqn6tYSvyJZmHSD5olRTei4LE/G7coxYf
+ CdB+dreJDhlfyN9XCDD4SviS0SmWim/cg7mtN04vs2oHnCtGBVPT6ckS3CZtoWmbEA
+ I/gc8aKseKuzeqxAjIsqUT+GOOhAiTI3UhnDIbn6WTaQ5HgsqbEwXHY1aJyLFAveRz
+ nKPagL8xhkJk3dLCpGc+JnYLWLB19jnsaWShwat50U3lRK/VSm8lo8REWhKYt0uv5+
+ WvePNPqDKrlZanfab8M+cTo/qPdH4ci3OwDczmWuAhAKwJRpU2wR8ZAyEQyeG2SlI6
+ aILbZj82gIeeQ==
 From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>,
@@ -79,16 +79,16 @@ Cc: linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
  xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: [PATCH v7 10/20] xen/x86: Use do_kernel_power_off()
-Date: Tue, 12 Apr 2022 02:38:22 +0300
-Message-Id: <20220411233832.391817-11-dmitry.osipenko@collabora.com>
+Subject: [PATCH v7 11/20] powerpc: Use do_kernel_power_off()
+Date: Tue, 12 Apr 2022 02:38:23 +0300
+Message-Id: <20220411233832.391817-12-dmitry.osipenko@collabora.com>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220411233832.391817-1-dmitry.osipenko@collabora.com>
 References: <20220411233832.391817-1-dmitry.osipenko@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220411_163937_801674_8E4C4D8A 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20220411_163941_826004_B5C4745F 
+X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,32 +110,40 @@ that invokes chained power-off handlers. It also invokes legacy
 pm_power_off() for now, which will be removed once all drivers will
 be converted to the new power-off API.
 
-Acked-by: Juergen Gross <jgross@suse.com>
+Acked-by: Michael Ellerman <mpe@ellerman.id.au>
 Signed-off-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 ---
- arch/x86/xen/enlighten_pv.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/powerpc/kernel/setup-common.c | 4 +---
+ arch/powerpc/xmon/xmon.c           | 3 +--
+ 2 files changed, 2 insertions(+), 5 deletions(-)
 
-diff --git a/arch/x86/xen/enlighten_pv.c b/arch/x86/xen/enlighten_pv.c
-index 5038edb79ad5..af1f6e886225 100644
---- a/arch/x86/xen/enlighten_pv.c
-+++ b/arch/x86/xen/enlighten_pv.c
-@@ -31,6 +31,7 @@
- #include <linux/gfp.h>
- #include <linux/edd.h>
- #include <linux/objtool.h>
-+#include <linux/reboot.h>
- 
- #include <xen/xen.h>
- #include <xen/events.h>
-@@ -1071,8 +1072,7 @@ static void xen_machine_halt(void)
- 
- static void xen_machine_power_off(void)
+diff --git a/arch/powerpc/kernel/setup-common.c b/arch/powerpc/kernel/setup-common.c
+index 518ae5aa9410..1b586577e75b 100644
+--- a/arch/powerpc/kernel/setup-common.c
++++ b/arch/powerpc/kernel/setup-common.c
+@@ -161,9 +161,7 @@ void machine_restart(char *cmd)
+ void machine_power_off(void)
  {
+ 	machine_shutdown();
 -	if (pm_power_off)
 -		pm_power_off();
+-
 +	do_kernel_power_off();
- 	xen_reboot(SHUTDOWN_poweroff);
+ 	smp_send_stop();
+ 	machine_hang();
+ }
+diff --git a/arch/powerpc/xmon/xmon.c b/arch/powerpc/xmon/xmon.c
+index fd72753e8ad5..c916bf250796 100644
+--- a/arch/powerpc/xmon/xmon.c
++++ b/arch/powerpc/xmon/xmon.c
+@@ -1243,8 +1243,7 @@ static void bootcmds(void)
+ 	} else if (cmd == 'h') {
+ 		ppc_md.halt();
+ 	} else if (cmd == 'p') {
+-		if (pm_power_off)
+-			pm_power_off();
++		do_kernel_power_off();
+ 	}
  }
  
 -- 
