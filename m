@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A4FC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Apr 2022 23:40:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08934C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Apr 2022 23:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n8d6OqyODHYg646TxBlntSiMqC1EL/SRWNwSrYM9jf8=; b=DsQxoJTZ5BM8iV
-	wIhLEwc5dfvHktEkLmJ4eGFeTnL7Slc7YPqqQl5kft5bgZmuy4i5UVL0grfehpBqPXSxPv+AzAzKQ
-	KjlFIMnnMptDP6VoiZBFhTlMhoE+XcQkdg4lLkjw8E391TiX24CJvTwjj+eZF7/Fi2ecwSJaAPbql
-	y4M4UmewVkVV+3CBxJC2jn1wb9EoE4wPrnVyol+NAoTrDj51tod1KGZJQOnOHA/3pwibXEtDJUfnW
-	shZCa9j11hH/hUXQfYs1eLpg/qwQrnbSadUrYrvquP1CTFKjQ9yUK4tllyuGVtnMkdXX171iF3Z+H
-	w/5xDF9WeXXuyKH+jFzA==;
+	List-Owner; bh=fi40DqO+YSwA/omNgoIgxYWV05bBc1f2ixo+2qpXI/I=; b=i7VK66f7wOzaFK
+	0J8E/VFbcmkjDC3sR5gn4uHnp6oWeF1J1+cm3r3YAMy77FfVfRmvmtuKDtpVBdAAd6jcAs6Gnj/qh
+	Ylw46qnrgLBnncFXGl8QqsOnXCraoixWUhxIgPxmfPGm12UeEEeVeF2J5kI93xw7sW8U3XsqJ95fB
+	09+xY7duDRyNSqfRSJ4jvTLrUnIVBqsYE1WyBFZIlDy1DSH7S8aHw+vvXQT7+zTbJZyJKPP4gQ3j7
+	+Bhd6lflNBEQV39JRYjWTs45vT29bX9WTkuNReGi/id30cfXEcovis36VFNRlT7RnKzQz/owsfCaC
+	rJPypyXuPw522swVO2KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ne3dm-00AqAH-Lg; Mon, 11 Apr 2022 23:40:14 +0000
-Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
+	id 1ne3dw-00AqJm-G9; Mon, 11 Apr 2022 23:40:24 +0000
+Received: from bhuna.collabora.co.uk ([46.235.227.227])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ne3dR-00Aprh-Nr
- for linux-riscv@lists.infradead.org; Mon, 11 Apr 2022 23:39:55 +0000
+ id 1ne3dV-00Apv3-RQ
+ for linux-riscv@lists.infradead.org; Mon, 11 Apr 2022 23:39:59 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
- (Authenticated sender: dmitry.osipenko) with ESMTPSA id BFDD81F43D2C
+ (Authenticated sender: dmitry.osipenko) with ESMTPSA id C22131F43D41
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
- s=mail; t=1649720392;
- bh=8DI/pNc1jm1iacYnzYdS4F0mtDCAezqY1CKyhFh83pw=;
+ s=mail; t=1649720396;
+ bh=q9Yf4GNWQPgB4nxS09DeBdyHcEPdoAJWJbky4/Jndjk=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=fS0vsdoKA3qVdtkvxx6egdlyVBefRJJa46jHeytiuTAjNPQUBJMF62vPUdGtisFwS
- qjzC5P4vm9t5HPl6XIK606FQTz2W1iczXe2hK1eUx5sJ8oPsz2i0llPMjwphKSznxD
- yf+DUB+FsRolLvqURjnT0+EqjmQmrEN7Ddzm8dBJLMnAlTFqfSJBAq6HbPOxu03hKS
- kVHAfsAgZcO/GIyeo95AaDCgaJEyINKOFXU5yKVE69NHRt4KmyfIjKBeZVC+A88xMt
- 6sOQ55lrq1POSM6qN3Jpff5rofgLRYh8EMxCe8D5kB1qjKD/WlIBuBKk37qrnk6rxr
- AS5GTvCeO4CqA==
+ b=je3kexK773qB+4WpfzyIaOS9CgDMJs107rHeLhbbXQaPz+2ZNqz8DsKQWs23dL/6w
+ aALYOeT9nixOO/CUWFE4fEDW+ZmLW8gn6Gfh+8qf8jH4kvav4N+gd3WoBnAsSrBfgz
+ HYoq1pOUkrElMMer+9+6WC8VG0ArCBAo4YPZjenknw80lsJRT8UeuUar7vprf/dtrc
+ 2Juz+3EjLXTLUe8kIITLEyVn267yLf+8ZWtzKhly8RHfHmQK/b/owv6jZ5Y2HirTYT
+ s6amgwxvVYqfsPq9HkmgzjL/JhQgStFmW7KxiCeVTc56Fip0EJ8iqlHMojz/ZZWJWe
+ TvR0bqk4J0+yQ==
 From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>,
@@ -79,16 +79,16 @@ Cc: linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
  xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: [PATCH v7 14/20] x86: Use do_kernel_power_off()
-Date: Tue, 12 Apr 2022 02:38:26 +0300
-Message-Id: <20220411233832.391817-15-dmitry.osipenko@collabora.com>
+Subject: [PATCH v7 15/20] ia64: Use do_kernel_power_off()
+Date: Tue, 12 Apr 2022 02:38:27 +0300
+Message-Id: <20220411233832.391817-16-dmitry.osipenko@collabora.com>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220411233832.391817-1-dmitry.osipenko@collabora.com>
 References: <20220411233832.391817-1-dmitry.osipenko@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220411_163953_937570_FCD79A03 
-X-CRM114-Status: GOOD (  15.23  )
+X-CRM114-CacheID: sfid-20220411_163958_099055_611B75BC 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,26 +112,31 @@ be converted to the new power-off API.
 
 Signed-off-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 ---
- arch/x86/kernel/reboot.c | 4 ++--
+ arch/ia64/kernel/process.c | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/x86/kernel/reboot.c b/arch/x86/kernel/reboot.c
-index fa700b46588e..c3636ea4aa71 100644
---- a/arch/x86/kernel/reboot.c
-+++ b/arch/x86/kernel/reboot.c
-@@ -739,10 +739,10 @@ static void native_machine_halt(void)
- 
- static void native_machine_power_off(void)
+diff --git a/arch/ia64/kernel/process.c b/arch/ia64/kernel/process.c
+index d7a256bd9d6b..89025e3b3f61 100644
+--- a/arch/ia64/kernel/process.c
++++ b/arch/ia64/kernel/process.c
+@@ -19,6 +19,7 @@
+ #include <linux/module.h>
+ #include <linux/notifier.h>
+ #include <linux/personality.h>
++#include <linux/reboot.h>
+ #include <linux/sched.h>
+ #include <linux/sched/debug.h>
+ #include <linux/sched/hotplug.h>
+@@ -599,8 +600,7 @@ machine_halt (void)
+ void
+ machine_power_off (void)
  {
--	if (pm_power_off) {
-+	if (kernel_can_power_off()) {
- 		if (!reboot_force)
- 			machine_shutdown();
+-	if (pm_power_off)
 -		pm_power_off();
-+		do_kernel_power_off();
- 	}
- 	/* A fallback in case there is no PM info available */
- 	tboot_shutdown(TB_SHUTDOWN_HALT);
++	do_kernel_power_off();
+ 	machine_halt();
+ }
+ 
 -- 
 2.35.1
 
