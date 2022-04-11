@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37861C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Apr 2022 23:40:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61B09C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Apr 2022 23:40:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jw/BqfClzBaqwRe5ZoMrGwwhGy8AnkO+E21DAAg9hz8=; b=BZN8p7C4qLtv4G
-	oVuVWT0UQOnKwAVFIjy2YpMAblCG6lRS65EOVfaIKPHgq6kLY1js8dxJvWO7p4uVJSakt7zsRMS1T
-	HLdbKhrSgbr2Z9DkPdE6REm2rqhE/lxPoL2IqQIx56G4dr0RTBI7oCyFFaGcdujjPydet+BWQrhTY
-	KYAaiIqBTTrOO4iiJhDosvYEWcmKenZDJczbLy0SKxZ83cZaN8m1KN0sEEf9rIekwvCxoh80SLXPM
-	hg5TVCo7RX/7gmeWlP8zDlwaZrIUrVk5urY1qTCHkB2MyoM630dVWe1agsNKcAKwvB9oOmM4/QKnO
-	sLDKXAcqkkPbRaivUkeg==;
+	List-Owner; bh=sYkvaxRSsbFJXMzyUv/tw/+ftecj53HHzZvfxn16lMA=; b=M5BorVkgJawITX
+	ePnQ5V847XCirqZvQ6loEQbP0/2MbzKUbBgMmpYrJJyMuCR9DB7MAGzz+i6uMdSPiOUrlk40nhk55
+	DWl+rCiAYRbgRTiaI879xW3qBkZLVw0NnR5oeO6t1Qn6S+a4snaIpKjsxX6//kdzYoe7ompPy/wbX
+	QrAylDr6K/rSg6njU3Ch3UpN1APoOjlPPiKmysJcprt0ZhAew9Vao4W4l5SD25vrwcu7ERcaQjwgz
+	xh1PmYGXvCPXt2ddmqh+jQyyDQyOCJVoN4obLO4unimMsOubNQ/SSVvbCSqaFy05j/NbEvNcwIGoO
+	5Gvu4Z4D8oPwODK9S3sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ne3dU-00ApuW-Iq; Mon, 11 Apr 2022 23:39:56 +0000
+	id 1ne3dc-00Aq1k-ML; Mon, 11 Apr 2022 23:40:04 +0000
 Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ne3dJ-00Apk9-Jm
- for linux-riscv@lists.infradead.org; Mon, 11 Apr 2022 23:39:47 +0000
+ id 1ne3dN-00Apo3-Od
+ for linux-riscv@lists.infradead.org; Mon, 11 Apr 2022 23:39:51 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
- (Authenticated sender: dmitry.osipenko) with ESMTPSA id A8ED81F43D21
+ (Authenticated sender: dmitry.osipenko) with ESMTPSA id AD56B1F43D26
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
- s=mail; t=1649720384;
- bh=3jxNCr50hXMiuQKPY6aSTyDwgW9MB8tpZKXxC2xIhis=;
+ s=mail; t=1649720388;
+ bh=GqegTH1d3tMqHPbUQWr88cV7jN0COVH27sIz9pT1gAo=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=R6Pz+NW8C1nY5ThJ2I8cAwEUAIBn3TF8sggu7KSDpBA2Ut/0exz6Xps+3/DnVgwBN
- qp6Lqyx7CPyAYk+qZkUxz2KCm7SnCRJ4eOYnawabjYhGt6nRnQa9Y02z/Ytkv2jXpZ
- wEcsyt2MDHlC1WX/nw52J0c857HvVJOhLeDrY7yRKznEzlbGj2ZC8hDBsKt1V+pZeP
- zbdktiCEBi99v8s5+GasfGckA5YJsjqZH0zL18RDx2s4TE9tXf9pP/XNP1Ahm7vU8u
- u3DSr1rfrTs/d19jgQcujhTQ+xjiQHnAYsKAqXTDcAVEVHrQCWORpLx/uihf64AFFO
- sfXLGACDgXMIg==
+ b=oNiifi7dKhRBJqlGqEGJN6kAbfl8D4gCFwyVEi2cbtQeDKacFGHrwrDqFrDieN4wA
+ WhU41Hw3FPE2AYgfpN+3OIBTLyDM6SATFLFgianFO+wlHnAZJ7DQGXWLQfkL9dJkaT
+ mB39pfoWli1fA81DJ8zLGK9wjZabPOgGwSSryJ+aE2QaqRXwuzGuq7Z1JX90KJJAAn
+ BKO/88PeAen8MwGhUWEcBs8eDaefezxNcymSAruqMCHCNlKwOD7WTRW6jTC+W8qLzu
+ ZDQ/PYjaYqEgi+LYSYEmG3SZyxk7xquxfA6vSz5KC0WdP1SUt4TzNPONt3aIqIrOCj
+ 2bJE2XBftWM2g==
 From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>,
@@ -79,16 +79,16 @@ Cc: linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
  xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: [PATCH v7 12/20] m68k: Switch to new sys-off handler API
-Date: Tue, 12 Apr 2022 02:38:24 +0300
-Message-Id: <20220411233832.391817-13-dmitry.osipenko@collabora.com>
+Subject: [PATCH v7 13/20] sh: Use do_kernel_power_off()
+Date: Tue, 12 Apr 2022 02:38:25 +0300
+Message-Id: <20220411233832.391817-14-dmitry.osipenko@collabora.com>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220411233832.391817-1-dmitry.osipenko@collabora.com>
 References: <20220411233832.391817-1-dmitry.osipenko@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220411_163945_951672_29976D36 
-X-CRM114-Status: GOOD (  18.90  )
+X-CRM114-CacheID: sfid-20220411_163949_972521_C1185E92 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,133 +105,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Kernel now supports chained power-off handlers. Use
-register_power_off_handler() that registers power-off handlers and
-do_kernel_power_off() that invokes chained power-off handlers. Legacy
-pm_power_off() will be removed once all drivers will be converted to
-the new power-off API.
+Kernel now supports chained power-off handlers. Use do_kernel_power_off()
+that invokes chained power-off handlers. It also invokes legacy
+pm_power_off() for now, which will be removed once all drivers will
+be converted to the new power-off API.
 
-Normally arch code should adopt only the do_kernel_power_off() at first,
-but m68k is a special case because it uses pm_power_off() "inside out",
-i.e. pm_power_off() invokes machine_power_off() [in fact it does nothing],
-while it's machine_power_off() that should invoke the pm_power_off(), and
-thus, we can't convert platforms to the new API separately. There are only
-two platforms changed here, so it's not a big deal.
-
-Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
 Signed-off-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 ---
- arch/m68k/emu/natfeat.c         | 3 ++-
- arch/m68k/include/asm/machdep.h | 1 -
- arch/m68k/kernel/process.c      | 5 ++---
- arch/m68k/kernel/setup_mm.c     | 1 -
- arch/m68k/kernel/setup_no.c     | 1 -
- arch/m68k/mac/config.c          | 4 +++-
- 6 files changed, 7 insertions(+), 8 deletions(-)
+ arch/sh/kernel/reboot.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/arch/m68k/emu/natfeat.c b/arch/m68k/emu/natfeat.c
-index 71b78ecee75c..b19dc00026d9 100644
---- a/arch/m68k/emu/natfeat.c
-+++ b/arch/m68k/emu/natfeat.c
-@@ -15,6 +15,7 @@
- #include <linux/string.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
-+#include <linux/reboot.h>
- #include <linux/io.h>
- #include <asm/machdep.h>
- #include <asm/natfeat.h>
-@@ -90,5 +91,5 @@ void __init nf_init(void)
- 	pr_info("NatFeats found (%s, %lu.%lu)\n", buf, version >> 16,
- 		version & 0xffff);
+diff --git a/arch/sh/kernel/reboot.c b/arch/sh/kernel/reboot.c
+index 5c33f036418b..e8eeedc9b182 100644
+--- a/arch/sh/kernel/reboot.c
++++ b/arch/sh/kernel/reboot.c
+@@ -46,8 +46,7 @@ static void native_machine_shutdown(void)
  
--	mach_power_off = nf_poweroff;
-+	register_platform_power_off(nf_poweroff);
- }
-diff --git a/arch/m68k/include/asm/machdep.h b/arch/m68k/include/asm/machdep.h
-index 8fd80ef1b77e..8d8c3ee2069f 100644
---- a/arch/m68k/include/asm/machdep.h
-+++ b/arch/m68k/include/asm/machdep.h
-@@ -24,7 +24,6 @@ extern int (*mach_get_rtc_pll)(struct rtc_pll_info *);
- extern int (*mach_set_rtc_pll)(struct rtc_pll_info *);
- extern void (*mach_reset)( void );
- extern void (*mach_halt)( void );
--extern void (*mach_power_off)( void );
- extern unsigned long (*mach_hd_init) (unsigned long, unsigned long);
- extern void (*mach_hd_setup)(char *, int *);
- extern void (*mach_heartbeat) (int);
-diff --git a/arch/m68k/kernel/process.c b/arch/m68k/kernel/process.c
-index a6030dbaa089..e160a7c57bd3 100644
---- a/arch/m68k/kernel/process.c
-+++ b/arch/m68k/kernel/process.c
-@@ -67,12 +67,11 @@ void machine_halt(void)
- 
- void machine_power_off(void)
+ static void native_machine_power_off(void)
  {
--	if (mach_power_off)
--		mach_power_off();
+-	if (pm_power_off)
+-		pm_power_off();
 +	do_kernel_power_off();
- 	for (;;);
  }
  
--void (*pm_power_off)(void) = machine_power_off;
-+void (*pm_power_off)(void);
- EXPORT_SYMBOL(pm_power_off);
- 
- void show_regs(struct pt_regs * regs)
-diff --git a/arch/m68k/kernel/setup_mm.c b/arch/m68k/kernel/setup_mm.c
-index 8f94feed969c..47d55541612f 100644
---- a/arch/m68k/kernel/setup_mm.c
-+++ b/arch/m68k/kernel/setup_mm.c
-@@ -98,7 +98,6 @@ EXPORT_SYMBOL(mach_get_rtc_pll);
- EXPORT_SYMBOL(mach_set_rtc_pll);
- void (*mach_reset)( void );
- void (*mach_halt)( void );
--void (*mach_power_off)( void );
- #ifdef CONFIG_HEARTBEAT
- void (*mach_heartbeat) (int);
- EXPORT_SYMBOL(mach_heartbeat);
-diff --git a/arch/m68k/kernel/setup_no.c b/arch/m68k/kernel/setup_no.c
-index 5e4104f07a44..00bf82258233 100644
---- a/arch/m68k/kernel/setup_no.c
-+++ b/arch/m68k/kernel/setup_no.c
-@@ -55,7 +55,6 @@ int (*mach_hwclk) (int, struct rtc_time*);
- /* machine dependent reboot functions */
- void (*mach_reset)(void);
- void (*mach_halt)(void);
--void (*mach_power_off)(void);
- 
- #ifdef CONFIG_M68000
- #if defined(CONFIG_M68328)
-diff --git a/arch/m68k/mac/config.c b/arch/m68k/mac/config.c
-index 65d124ec80bb..382f656c29ea 100644
---- a/arch/m68k/mac/config.c
-+++ b/arch/m68k/mac/config.c
-@@ -12,6 +12,7 @@
- 
- #include <linux/errno.h>
- #include <linux/module.h>
-+#include <linux/reboot.h>
- #include <linux/types.h>
- #include <linux/mm.h>
- #include <linux/tty.h>
-@@ -140,7 +141,6 @@ void __init config_mac(void)
- 	mach_hwclk = mac_hwclk;
- 	mach_reset = mac_reset;
- 	mach_halt = mac_poweroff;
--	mach_power_off = mac_poweroff;
- #if IS_ENABLED(CONFIG_INPUT_M68K_BEEP)
- 	mach_beep = mac_mksound;
- #endif
-@@ -160,6 +160,8 @@ void __init config_mac(void)
- 
- 	if (macintosh_config->ident == MAC_MODEL_IICI)
- 		mach_l2_flush = via_l2_flush;
-+
-+	register_platform_power_off(mac_poweroff);
- }
- 
- 
+ static void native_machine_halt(void)
 -- 
 2.35.1
 
