@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61B09C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Apr 2022 23:40:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A4FC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Apr 2022 23:40:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sYkvaxRSsbFJXMzyUv/tw/+ftecj53HHzZvfxn16lMA=; b=M5BorVkgJawITX
-	ePnQ5V847XCirqZvQ6loEQbP0/2MbzKUbBgMmpYrJJyMuCR9DB7MAGzz+i6uMdSPiOUrlk40nhk55
-	DWl+rCiAYRbgRTiaI879xW3qBkZLVw0NnR5oeO6t1Qn6S+a4snaIpKjsxX6//kdzYoe7ompPy/wbX
-	QrAylDr6K/rSg6njU3Ch3UpN1APoOjlPPiKmysJcprt0ZhAew9Vao4W4l5SD25vrwcu7ERcaQjwgz
-	xh1PmYGXvCPXt2ddmqh+jQyyDQyOCJVoN4obLO4unimMsOubNQ/SSVvbCSqaFy05j/NbEvNcwIGoO
-	5Gvu4Z4D8oPwODK9S3sQ==;
+	List-Owner; bh=n8d6OqyODHYg646TxBlntSiMqC1EL/SRWNwSrYM9jf8=; b=DsQxoJTZ5BM8iV
+	wIhLEwc5dfvHktEkLmJ4eGFeTnL7Slc7YPqqQl5kft5bgZmuy4i5UVL0grfehpBqPXSxPv+AzAzKQ
+	KjlFIMnnMptDP6VoiZBFhTlMhoE+XcQkdg4lLkjw8E391TiX24CJvTwjj+eZF7/Fi2ecwSJaAPbql
+	y4M4UmewVkVV+3CBxJC2jn1wb9EoE4wPrnVyol+NAoTrDj51tod1KGZJQOnOHA/3pwibXEtDJUfnW
+	shZCa9j11hH/hUXQfYs1eLpg/qwQrnbSadUrYrvquP1CTFKjQ9yUK4tllyuGVtnMkdXX171iF3Z+H
+	w/5xDF9WeXXuyKH+jFzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ne3dc-00Aq1k-ML; Mon, 11 Apr 2022 23:40:04 +0000
+	id 1ne3dm-00AqAH-Lg; Mon, 11 Apr 2022 23:40:14 +0000
 Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ne3dN-00Apo3-Od
- for linux-riscv@lists.infradead.org; Mon, 11 Apr 2022 23:39:51 +0000
+ id 1ne3dR-00Aprh-Nr
+ for linux-riscv@lists.infradead.org; Mon, 11 Apr 2022 23:39:55 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
- (Authenticated sender: dmitry.osipenko) with ESMTPSA id AD56B1F43D26
+ (Authenticated sender: dmitry.osipenko) with ESMTPSA id BFDD81F43D2C
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
- s=mail; t=1649720388;
- bh=GqegTH1d3tMqHPbUQWr88cV7jN0COVH27sIz9pT1gAo=;
+ s=mail; t=1649720392;
+ bh=8DI/pNc1jm1iacYnzYdS4F0mtDCAezqY1CKyhFh83pw=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=oNiifi7dKhRBJqlGqEGJN6kAbfl8D4gCFwyVEi2cbtQeDKacFGHrwrDqFrDieN4wA
- WhU41Hw3FPE2AYgfpN+3OIBTLyDM6SATFLFgianFO+wlHnAZJ7DQGXWLQfkL9dJkaT
- mB39pfoWli1fA81DJ8zLGK9wjZabPOgGwSSryJ+aE2QaqRXwuzGuq7Z1JX90KJJAAn
- BKO/88PeAen8MwGhUWEcBs8eDaefezxNcymSAruqMCHCNlKwOD7WTRW6jTC+W8qLzu
- ZDQ/PYjaYqEgi+LYSYEmG3SZyxk7xquxfA6vSz5KC0WdP1SUt4TzNPONt3aIqIrOCj
- 2bJE2XBftWM2g==
+ b=fS0vsdoKA3qVdtkvxx6egdlyVBefRJJa46jHeytiuTAjNPQUBJMF62vPUdGtisFwS
+ qjzC5P4vm9t5HPl6XIK606FQTz2W1iczXe2hK1eUx5sJ8oPsz2i0llPMjwphKSznxD
+ yf+DUB+FsRolLvqURjnT0+EqjmQmrEN7Ddzm8dBJLMnAlTFqfSJBAq6HbPOxu03hKS
+ kVHAfsAgZcO/GIyeo95AaDCgaJEyINKOFXU5yKVE69NHRt4KmyfIjKBeZVC+A88xMt
+ 6sOQ55lrq1POSM6qN3Jpff5rofgLRYh8EMxCe8D5kB1qjKD/WlIBuBKk37qrnk6rxr
+ AS5GTvCeO4CqA==
 From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>,
@@ -79,16 +79,16 @@ Cc: linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
  xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: [PATCH v7 13/20] sh: Use do_kernel_power_off()
-Date: Tue, 12 Apr 2022 02:38:25 +0300
-Message-Id: <20220411233832.391817-14-dmitry.osipenko@collabora.com>
+Subject: [PATCH v7 14/20] x86: Use do_kernel_power_off()
+Date: Tue, 12 Apr 2022 02:38:26 +0300
+Message-Id: <20220411233832.391817-15-dmitry.osipenko@collabora.com>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220411233832.391817-1-dmitry.osipenko@collabora.com>
 References: <20220411233832.391817-1-dmitry.osipenko@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220411_163949_972521_C1185E92 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20220411_163953_937570_FCD79A03 
+X-CRM114-Status: GOOD (  15.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,23 +112,26 @@ be converted to the new power-off API.
 
 Signed-off-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 ---
- arch/sh/kernel/reboot.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ arch/x86/kernel/reboot.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/sh/kernel/reboot.c b/arch/sh/kernel/reboot.c
-index 5c33f036418b..e8eeedc9b182 100644
---- a/arch/sh/kernel/reboot.c
-+++ b/arch/sh/kernel/reboot.c
-@@ -46,8 +46,7 @@ static void native_machine_shutdown(void)
+diff --git a/arch/x86/kernel/reboot.c b/arch/x86/kernel/reboot.c
+index fa700b46588e..c3636ea4aa71 100644
+--- a/arch/x86/kernel/reboot.c
++++ b/arch/x86/kernel/reboot.c
+@@ -739,10 +739,10 @@ static void native_machine_halt(void)
  
  static void native_machine_power_off(void)
  {
--	if (pm_power_off)
+-	if (pm_power_off) {
++	if (kernel_can_power_off()) {
+ 		if (!reboot_force)
+ 			machine_shutdown();
 -		pm_power_off();
-+	do_kernel_power_off();
- }
- 
- static void native_machine_halt(void)
++		do_kernel_power_off();
+ 	}
+ 	/* A fallback in case there is no PM info available */
+ 	tboot_shutdown(TB_SHUTDOWN_HALT);
 -- 
 2.35.1
 
