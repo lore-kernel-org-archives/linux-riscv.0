@@ -4,82 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B803C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Apr 2022 10:09:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12295C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Apr 2022 11:48:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PZUdubYY54HPPLLrt9LkCvga0KUWsRZGE6mPDVSTVSo=; b=EbqxBQVwhMcoKk
-	SsLuh+vwQRw98d5joBDL35ecKunqygfOwts7DDRV1PfjxWXE0UHYAym0nsEVlW/Qa6OibIABIC1rH
-	ud3//XxpJjGwdqk4ZEBbkwLt0xxnI4JRatcT411BsJ1tnL4DZOEZyIqf0cZThbTwpaGk+Yc0Y0qRk
-	bEjcYCRR0FfFiEYuuLtUj4XAt95m+JzY3BKHVxIpde11YS0Cj7zo5aAb5vDFn2GSBm8W+GeR+06Pt
-	yaxrzh93bGA+zCUQEVxfLZf2LHTbTHNckBfbnFWv20nGtMW1AUdbZxxWUmnmSUicN0exZjRrPTROL
-	uFkml/nzQG/5FB6IADgg==;
+	List-Owner; bh=4SwmDPEPsC+LDXuhaj+38BbyO6dyDkrjLFVVi5Ozs4M=; b=BsTRH4l+I4NBhc
+	rF2lBk/sxqll0oqNaHjli1yHAWRiO2V+2eEitHJzzJUKU6H3BNwmlYHirFGqhHd9pD+/CQ1bKxeak
+	V6bCzzUE2Wh6R2vZr73idqAF/7zEFmlahaGbHydDivJ99KCOc3rpQ1mnIa7QtMYhKUzUWiVzufuYF
+	wcokyqyF9NGPQl8yFdIZCvA6zvQswyHSYi8Qp/08wyM1JtBFfCrZXBNLAITzg5zUOIZfXDD5ugcDO
+	XXP9v8h/SIkgVers0EUDHQo5NyI56ZMCEJuHKqKbsY5IbNFeAS+ox8K4odYz9QSyPA0kotpKxPwzs
+	mIl/SMl7MeVCfxj4OEYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1neDSg-00DB4G-0B; Tue, 12 Apr 2022 10:09:26 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1neEzj-00DpAs-2l; Tue, 12 Apr 2022 11:47:39 +0000
+Received: from esa4.hgst.iphmx.com ([216.71.154.42])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1neDSB-00DAhd-AP
- for linux-riscv@lists.infradead.org; Tue, 12 Apr 2022 10:09:00 +0000
-Received: by mail-pf1-x429.google.com with SMTP id z16so17078503pfh.3
- for <linux-riscv@lists.infradead.org>; Tue, 12 Apr 2022 03:08:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ventanamicro.com; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=yXtNQf1O3SKUPSpa9YMRsp47BPaP+h4RQyOydNIm7O4=;
- b=ikLO936EH9QhrnQ1zw0CeSj2VX45d86cFav9inAh9URTyohi5V0aOLuPDPVdPMGnbG
- h45tzCFKVNKWXtjD8+HNXHbOq8p/VIvJnzJbLGY6ngwfsL/MAKUVaJpjLRsm2tqyrVEa
- bSbzNXszjBfqqmfxrdXnocEC0jJ3ha+6GdBqQn/Oq39XTHdcJmzrOH7fNgamQBe+BAzC
- vQIA4dsTK/riEDaw/+62diEYLPtztDGN3lJv+LhyYcQ2PLrmID75s7MCYbdRhT79b3xX
- NlS1d5mcoHBiQI/uOuxz4CO8u5zvdE8furvdRDC1vVv6e/OOp+1gPZU2herh+rFqLteN
- XJ4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=yXtNQf1O3SKUPSpa9YMRsp47BPaP+h4RQyOydNIm7O4=;
- b=7FL4CAwMTqgF2XpH1cP6lQ0SJVWVUKXC1qEQ9pGwmr9ASWBEPvVPyM6CQgDmcM6Rgy
- iC6baH0mPeSH1WflMURX59sr6eCNzjyt0wS4xFzxvepbMrxQVMl8q2OxlX1yYmdlIyH2
- 6QMatyugjQaebJLECJfO21wA4C/BvFHNXtA3GT/gBEZXT52r607m34lrIg47LBviOyiH
- nyuK4bwJaDC95iLcucSVMcnZD35WGCwN8iIno/4t2jOO+e3LRhPGK9SGVhcMqzZ2l3ES
- s09ZowsR9SiC4oIVu/U/eUWVs0DpLSh4O6PaMlimU/EMQPyqP800K1jfdBs2/JTRJbII
- Kn9w==
-X-Gm-Message-State: AOAM530YMet6N3bepNQlCUJ64vzlbOpgeZ/gSTYtCtR97M8RnjyAbgog
- 8fQovZY8DgVRRMXgrKsRGLILwg==
-X-Google-Smtp-Source: ABdhPJyeff3n1WyoFaR/EAh90XNAqPsiytK5NCRevafwUxcU5s9+y/uOHexJvc52q0Nw4XKoaQR28A==
-X-Received: by 2002:a63:1f21:0:b0:39d:1ee8:784e with SMTP id
- f33-20020a631f21000000b0039d1ee8784emr12199761pgf.591.1649758132044; 
- Tue, 12 Apr 2022 03:08:52 -0700 (PDT)
-Received: from localhost.localdomain ([122.182.197.47])
- by smtp.gmail.com with ESMTPSA id
- j9-20020a056a00130900b004f73df40914sm37515088pfu.82.2022.04.12.03.08.48
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 12 Apr 2022 03:08:51 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Paolo Bonzini <pbonzini@redhat.com>,
-	Atish Patra <atishp@atishpatra.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 6/6] RISC-V: KVM: Add remote HFENCE functions based on VCPU
- requests
-Date: Tue, 12 Apr 2022 15:37:13 +0530
-Message-Id: <20220412100713.1415094-7-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220412100713.1415094-1-apatel@ventanamicro.com>
-References: <20220412100713.1415094-1-apatel@ventanamicro.com>
+ id 1neEsu-00DmDL-US
+ for linux-riscv@lists.infradead.org; Tue, 12 Apr 2022 11:40:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1649763637; x=1681299637;
+ h=message-id:date:mime-version:subject:to:cc:references:
+ from:in-reply-to:content-transfer-encoding;
+ bh=CEPm7umbMupxMebiwkuP+fJcBJ3QXrLrjof4l//fGl0=;
+ b=eeWNJ68u+wtPl0SOkcXHH1//R1RfhZZrmZq/dZH3hTI9eM8LhHjCpoft
+ tORAuf/4aQB0gqYGmoz4rrDmGgl9aHcjRv1KoljDLpfLgXDZDbWhJqYzN
+ 6q0lVwvbz5+MjH5JI19hE6Opwl56ps/sSnuv+WfK7QSVeaTrm9i4gQ7cG
+ BLyIIPN81Wkggb0zf0e1RwsVRT4FOeKUTX9NGTo6aFNlR02y6B7iz6L0W
+ AWA6Aq2XRcYFUhITyuSMB0fhkGAD03TnM2cSIpn0Y9sxmy6mp/icu2RIl
+ YKKW59jcEsoeNmRo8pO7mBUmsGAp2HUmhDpvTHjC32wi/7SdnKpscbDmq g==;
+X-IronPort-AV: E=Sophos;i="5.90,253,1643644800"; d="scan'208";a="196589480"
+Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 12 Apr 2022 19:40:33 +0800
+IronPort-SDR: Ae0JffKKrLli6cSmYxcKFp21oo8vswx2Dg4WNe9Hl3BCsXMgH+oguSNqLEBgvnG2vZ5w6E/sfI
+ Wx9m7l2lF4DUic/T2OjpmuzyN/4xDF9f4g+8UvuqBjDg1TpC+ERtd2/2HipmqjEFowiLzSzMar
+ AqyrTOhQrp23RDAN02b66HEGk4j5AV07VkmHn3/1T+gFzACkloBfboKWH0PcNOJFouxAzCSmKp
+ K+XyzbOfesFdGMXfMoFfWC50Otywh6AA3zz6BDuIxSARYgp4Gv0d0R59av6+MuLbNJpCndT6HW
+ wnmakl/HJlKB8dF/r0XS/zeI
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;
+ 12 Apr 2022 04:11:49 -0700
+IronPort-SDR: yS3fvuDqDZPZRkUBmel/4t0E5hLle0XNIk77k6cGSnL/46wGvZtGujf6RbyrN48MOlXMRoi2hb
+ 9idfV0EOT0XDOw66t5wwkClqJjtYazp+0WAKbSa0XnhI5Sb7xqgJZtXXWBW/W2bRNn0y2JAUBx
+ i0fgMfiFUTKKOiHWM9Sn7N2ehjHGPdHVTDiEgqLcM1DLPNA9Tdp1pBPE59L6slmXvKkYZ6DduK
+ sdZkBC+rqOk4XM9T6JbeJWZn7BqMXZiteXUQqO4iarZV5IFMJ6KzNaSZQhEL3g1H1+JtRlbZ0K
+ tsQ=
+WDCIronportException: Internal
+Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
+ by uls-op-cesaip02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;
+ 12 Apr 2022 04:40:33 -0700
+Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4Kd3gj0ClKz1SVp2
+ for <linux-riscv@lists.infradead.org>; Tue, 12 Apr 2022 04:40:32 -0700 (PDT)
+Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
+ reason="pass (just generated, assumed good)"
+ header.d=opensource.wdc.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
+ opensource.wdc.com; h=content-transfer-encoding:content-type
+ :in-reply-to:organization:from:references:to:content-language
+ :subject:user-agent:mime-version:date:message-id; s=dkim; t=
+ 1649763631; x=1652355632; bh=CEPm7umbMupxMebiwkuP+fJcBJ3QXrLrjof
+ 4l//fGl0=; b=ShLvYqbc7ZlHbuJKbi61QqHOdYGpOLufVFi1DysgrX71oT87qkj
+ ewEx4EutPBOvmS7DJDUVH2F6XZqqHh5jCJtICuraBHfciXIYOkZ7oj2ak8/fIgdT
+ 1F8tP4ATGMn/Gvu08lL/cMemk0XoWWqMSWuzL84LVJ9izxB5FV6Q3Gj7YlvYeuE9
+ vefWPDyp1VznyAEoqUCadqDk66N4A9uTlRA/YjFuHw+5Vsr4//N6gyEtYCHlMSpE
+ 0jAyJ3uJccWfVPlAfk274gvtro6vaQgvNTWjMEANmAj9HTRCxUZ+YpNDdI10cIBa
+ xzXotA80k5/mMN9oVq4GwxGIw3JT+4pl9Zw==
+X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
+Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
+ by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new,
+ port 10026)
+ with ESMTP id YWQ-WcfBmkU8 for <linux-riscv@lists.infradead.org>;
+ Tue, 12 Apr 2022 04:40:31 -0700 (PDT)
+Received: from [10.225.163.9] (unknown [10.225.163.9])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4Kd3gd37GCz1Rvlx;
+ Tue, 12 Apr 2022 04:40:29 -0700 (PDT)
+Message-ID: <9437ce7f-0553-3688-5695-69add6b2971c@opensource.wdc.com>
+Date: Tue, 12 Apr 2022 20:40:27 +0900
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.7.0
+Subject: Re: [PATCH] binfmt_flat: do not stop relocating GOT entries
+ prematurely
+Content-Language: en-US
+To: Niklas Cassel <niklas.cassel@wdc.com>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Eric Biederman <ebiederm@xmission.com>, Kees Cook <keescook@chromium.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Greg Ungerer <gerg@linux-m68k.org>, Mike Frysinger <vapier@gentoo.org>,
+ stable@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org
+References: <20220412100338.437308-1-niklas.cassel@wdc.com>
+From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+Organization: Western Digital Research
+In-Reply-To: <20220412100338.437308-1-niklas.cassel@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220412_030855_411960_29261CE1 
-X-CRM114-Status: GOOD (  27.32  )
+X-CRM114-CacheID: sfid-20220412_044037_093828_50F5A19D 
+X-CRM114-Status: GOOD (  34.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,640 +123,107 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The generic KVM has support for VCPU requests which can be used
-to do arch-specific work in the run-loop. We introduce remote
-HFENCE functions which will internally use VCPU requests instead
-of host SBI calls.
+On 4/12/22 19:03, Niklas Cassel wrote:
+> bFLT binaries are usually created using elf2flt.
+> 
+> The linker script used by elf2flt has defined the .data section like the
+> following for the last 19 years:
+> 
+> .data : {
+> 	_sdata = . ;
+> 	__data_start = . ;
+> 	data_start = . ;
+> 	*(.got.plt)
+> 	*(.got)
+> 	FILL(0) ;
+> 	. = ALIGN(0x20) ;
+> 	LONG(-1)
+> 	. = ALIGN(0x20) ;
+> 	...
+> }
+> 
+> It places the .got.plt input section before the .got input section.
+> The same is true for the default linker script (ld --verbose) on most
+> architectures except x86/x86-64.
+> 
+> The binfmt_flat loader should relocate all GOT entries until it encounters
+> a -1 (the LONG(-1) in the linker script).
+> 
+> The problem is that the .got.plt input section starts with a GOTPLT header
+> that has the first word (two u32 entries for 64-bit archs) set to -1.
+> See e.g. the binutils implementation for architectures [1] [2] [3] [4].
+> 
+> This causes the binfmt_flat loader to stop relocating GOT entries
+> prematurely and thus causes the application to crash when running.
+> 
+> Fix this by ignoring -1 in the first two u32 entries in the .data section.
+> 
+> A -1 will only be ignored for the first two entries for bFLT binaries with
+> FLAT_FLAG_GOTPIC set, which is unconditionally set by elf2flt if the
+> supplied ELF binary had the symbol _GLOBAL_OFFSET_TABLE_ defined, therefore
+> ELF binaries without a .got input section should remain unaffected.
+> 
+> Tested on RISC-V Canaan Kendryte K210 and RISC-V QEMU nommu_virt_defconfig.
+> 
+> [1] https://sourceware.org/git/?p=binutils-gdb.git;a=blob;f=bfd/elfnn-riscv.c;hb=binutils-2_38#l3275
+> [2] https://sourceware.org/git/?p=binutils-gdb.git;a=blob;f=bfd/elfxx-tilegx.c;hb=binutils-2_38#l4023
+> [3] https://sourceware.org/git/?p=binutils-gdb.git;a=blob;f=bfd/elf32-tilepro.c;hb=binutils-2_38#l3633
+> [4] https://sourceware.org/git/?p=binutils-gdb.git;a=blob;f=bfd/elfnn-loongarch.c;hb=binutils-2_38#l2978
+> 
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Niklas Cassel <niklas.cassel@wdc.com>
+> ---
+> RISC-V elf2flt patches are still not merged, they can be found here:
+> https://github.com/floatious/elf2flt/tree/riscv
+> 
+> buildroot branch for k210 nommu (including this patch and elf2flt patches):
+> https://github.com/floatious/buildroot/tree/k210-v14
+> 
+>  fs/binfmt_flat.c | 11 ++++++++++-
+>  1 file changed, 10 insertions(+), 1 deletion(-)
+> 
+> diff --git a/fs/binfmt_flat.c b/fs/binfmt_flat.c
+> index 626898150011..b80009e6392e 100644
+> --- a/fs/binfmt_flat.c
+> +++ b/fs/binfmt_flat.c
+> @@ -793,8 +793,17 @@ static int load_flat_file(struct linux_binprm *bprm,
+>  			u32 addr, rp_val;
+>  			if (get_user(rp_val, rp))
+>  				return -EFAULT;
+> -			if (rp_val == 0xffffffff)
+> +			/*
+> +			 * The first word in the GOTPLT header is -1 on certain
+> +			 * architechtures. (On 64-bit, that is two u32 entries.)
+> +			 * Ignore these entries, so that we stop relocating GOT
+> +			 * entries first when we encounter the -1 after the GOT.
+> +			 */
 
-Advantages of doing remote HFENCEs as VCPU requests are:
-1) Multiple VCPUs of a Guest may be running on different Host CPUs
-   so it is not always possible to determine the Host CPU mask for
-   doing Host SBI call. For example, when VCPU X wants to do HFENCE
-   on VCPU Y, it is possible that VCPU Y is blocked or in user-space
-   (i.e. vcpu->cpu < 0).
-2) To support nested virtualization, we will be having a separate
-   shadow G-stage for each VCPU and a common host G-stage for the
-   entire Guest/VM. The VCPU requests based remote HFENCEs helps
-   us easily synchronize the common host G-stage and shadow G-stage
-   of each VCPU without any additional IPI calls.
+		/*
+		 * The first word in the GOTPLT header is -1 on certain
+		 * architectures (on 64-bit, that is two u32 entries).
+		 * Ignore these entries so that we stop relocating GOT
+		 * entries when we encounter the first -1 entry after
+		 * the GOTPLT header.
+		 */
 
-This is also a preparatory patch for upcoming nested virtualization
-support where we will be having a shadow G-stage page table for
-each Guest VCPU.
+> +			if (rp_val == 0xffffffff) {
+> +				if (rp - (u32 __user *)datapos < 2)
+> +					continue;
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- arch/riscv/include/asm/kvm_host.h |  59 ++++++++
- arch/riscv/kvm/mmu.c              |  33 +++--
- arch/riscv/kvm/tlb.c              | 227 +++++++++++++++++++++++++++++-
- arch/riscv/kvm/vcpu.c             |  24 +++-
- arch/riscv/kvm/vcpu_sbi_replace.c |  34 ++---
- arch/riscv/kvm/vcpu_sbi_v01.c     |  35 +++--
- arch/riscv/kvm/vmid.c             |  10 +-
- 7 files changed, 369 insertions(+), 53 deletions(-)
+Would it be safer to check that the following rp_val is also -1 ? Also,
+does this work with 32-bits arch ? Shouldn't the "< 2" be "< 1" for
+32-bits arch ?
 
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index 61d8b40e3d82..a40e88a9481c 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -12,6 +12,7 @@
- #include <linux/types.h>
- #include <linux/kvm.h>
- #include <linux/kvm_types.h>
-+#include <linux/spinlock.h>
- #include <asm/csr.h>
- #include <asm/kvm_vcpu_fp.h>
- #include <asm/kvm_vcpu_timer.h>
-@@ -26,6 +27,31 @@
- 	KVM_ARCH_REQ_FLAGS(0, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
- #define KVM_REQ_VCPU_RESET		KVM_ARCH_REQ(1)
- #define KVM_REQ_UPDATE_HGATP		KVM_ARCH_REQ(2)
-+#define KVM_REQ_FENCE_I			\
-+	KVM_ARCH_REQ_FLAGS(3, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
-+#define KVM_REQ_HFENCE_GVMA_VMID_ALL	KVM_REQ_TLB_FLUSH
-+#define KVM_REQ_HFENCE_VVMA_ALL		\
-+	KVM_ARCH_REQ_FLAGS(4, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
-+#define KVM_REQ_HFENCE			\
-+	KVM_ARCH_REQ_FLAGS(5, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
-+
-+enum kvm_riscv_hfence_type {
-+	KVM_RISCV_HFENCE_UNKNOWN = 0,
-+	KVM_RISCV_HFENCE_GVMA_VMID_GPA,
-+	KVM_RISCV_HFENCE_VVMA_ASID_GVA,
-+	KVM_RISCV_HFENCE_VVMA_ASID_ALL,
-+	KVM_RISCV_HFENCE_VVMA_GVA,
-+};
-+
-+struct kvm_riscv_hfence {
-+	enum kvm_riscv_hfence_type type;
-+	unsigned long asid;
-+	unsigned long order;
-+	gpa_t addr;
-+	gpa_t size;
-+};
-+
-+#define KVM_RISCV_VCPU_MAX_HFENCE	64
- 
- struct kvm_vm_stat {
- 	struct kvm_vm_stat_generic generic;
-@@ -178,6 +204,12 @@ struct kvm_vcpu_arch {
- 	/* VCPU Timer */
- 	struct kvm_vcpu_timer timer;
- 
-+	/* HFENCE request queue */
-+	spinlock_t hfence_lock;
-+	unsigned long hfence_head;
-+	unsigned long hfence_tail;
-+	struct kvm_riscv_hfence hfence_queue[KVM_RISCV_VCPU_MAX_HFENCE];
-+
- 	/* MMIO instruction details */
- 	struct kvm_mmio_decode mmio_decode;
- 
-@@ -224,6 +256,33 @@ void kvm_riscv_local_hfence_vvma_gva(unsigned long vmid,
- 				     unsigned long order);
- void kvm_riscv_local_hfence_vvma_all(unsigned long vmid);
- 
-+void kvm_riscv_fence_i_process(struct kvm_vcpu *vcpu);
-+void kvm_riscv_hfence_gvma_vmid_all_process(struct kvm_vcpu *vcpu);
-+void kvm_riscv_hfence_vvma_all_process(struct kvm_vcpu *vcpu);
-+void kvm_riscv_hfence_process(struct kvm_vcpu *vcpu);
-+
-+void kvm_riscv_fence_i(struct kvm *kvm,
-+		       unsigned long hbase, unsigned long hmask);
-+void kvm_riscv_hfence_gvma_vmid_gpa(struct kvm *kvm,
-+				    unsigned long hbase, unsigned long hmask,
-+				    gpa_t gpa, gpa_t gpsz,
-+				    unsigned long order);
-+void kvm_riscv_hfence_gvma_vmid_all(struct kvm *kvm,
-+				    unsigned long hbase, unsigned long hmask);
-+void kvm_riscv_hfence_vvma_asid_gva(struct kvm *kvm,
-+				    unsigned long hbase, unsigned long hmask,
-+				    unsigned long gva, unsigned long gvsz,
-+				    unsigned long order, unsigned long asid);
-+void kvm_riscv_hfence_vvma_asid_all(struct kvm *kvm,
-+				    unsigned long hbase, unsigned long hmask,
-+				    unsigned long asid);
-+void kvm_riscv_hfence_vvma_gva(struct kvm *kvm,
-+			       unsigned long hbase, unsigned long hmask,
-+			       unsigned long gva, unsigned long gvsz,
-+			       unsigned long order);
-+void kvm_riscv_hfence_vvma_all(struct kvm *kvm,
-+			       unsigned long hbase, unsigned long hmask);
-+
- int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
- 			 struct kvm_memory_slot *memslot,
- 			 gpa_t gpa, unsigned long hva, bool is_write);
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 1e07603c905b..1c00695ebee7 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -18,7 +18,6 @@
- #include <asm/csr.h>
- #include <asm/page.h>
- #include <asm/pgtable.h>
--#include <asm/sbi.h>
- 
- #ifdef CONFIG_64BIT
- static unsigned long gstage_mode = (HGATP_MODE_SV39X4 << HGATP_MODE_SHIFT);
-@@ -73,13 +72,25 @@ static int gstage_page_size_to_level(unsigned long page_size, u32 *out_level)
- 	return -EINVAL;
- }
- 
--static int gstage_level_to_page_size(u32 level, unsigned long *out_pgsize)
-+static int gstage_level_to_page_order(u32 level, unsigned long *out_pgorder)
- {
- 	if (gstage_pgd_levels < level)
- 		return -EINVAL;
- 
--	*out_pgsize = 1UL << (12 + (level * gstage_index_bits));
-+	*out_pgorder = 12 + (level * gstage_index_bits);
-+	return 0;
-+}
- 
-+static int gstage_level_to_page_size(u32 level, unsigned long *out_pgsize)
-+{
-+	int rc;
-+	unsigned long page_order = PAGE_SHIFT;
-+
-+	rc = gstage_level_to_page_order(level, &page_order);
-+	if (rc)
-+		return rc;
-+
-+	*out_pgsize = BIT(page_order);
- 	return 0;
- }
- 
-@@ -114,21 +125,13 @@ static bool gstage_get_leaf_entry(struct kvm *kvm, gpa_t addr,
- 
- static void gstage_remote_tlb_flush(struct kvm *kvm, u32 level, gpa_t addr)
- {
--	unsigned long size = PAGE_SIZE;
--	struct kvm_vmid *vmid = &kvm->arch.vmid;
-+	unsigned long order = PAGE_SHIFT;
- 
--	if (gstage_level_to_page_size(level, &size))
-+	if (gstage_level_to_page_order(level, &order))
- 		return;
--	addr &= ~(size - 1);
-+	addr &= ~(BIT(order) - 1);
- 
--	/*
--	 * TODO: Instead of cpu_online_mask, we should only target CPUs
--	 * where the Guest/VM is running.
--	 */
--	preempt_disable();
--	sbi_remote_hfence_gvma_vmid(cpu_online_mask, addr, size,
--				    READ_ONCE(vmid->vmid));
--	preempt_enable();
-+	kvm_riscv_hfence_gvma_vmid_gpa(kvm, -1UL, 0, addr, BIT(order), order);
- }
- 
- static int gstage_set_pte(struct kvm *kvm, u32 level,
-diff --git a/arch/riscv/kvm/tlb.c b/arch/riscv/kvm/tlb.c
-index f817d3921973..9b5dacd44b56 100644
---- a/arch/riscv/kvm/tlb.c
-+++ b/arch/riscv/kvm/tlb.c
-@@ -3,11 +3,14 @@
-  * Copyright (c) 2022 Ventana Micro Systems Inc.
-  */
- 
--#include <linux/bitops.h>
-+#include <linux/bitmap.h>
-+#include <linux/cpumask.h>
- #include <linux/errno.h>
- #include <linux/err.h>
- #include <linux/module.h>
-+#include <linux/smp.h>
- #include <linux/kvm_host.h>
-+#include <asm/cacheflush.h>
- #include <asm/csr.h>
- 
- /* Page sizes supported in G-stage TLB entries */
-@@ -229,3 +232,225 @@ void kvm_riscv_local_hfence_vvma_all(unsigned long vmid)
- 
- 	csr_write(CSR_HGATP, hgatp);
- }
-+
-+void kvm_riscv_fence_i_process(struct kvm_vcpu *vcpu)
-+{
-+	local_flush_icache_all();
-+}
-+
-+void kvm_riscv_hfence_gvma_vmid_all_process(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_vmid *vmid;
-+
-+	vmid = &vcpu->kvm->arch.vmid;
-+	kvm_riscv_local_hfence_gvma_vmid_all(READ_ONCE(vmid->vmid));
-+}
-+
-+void kvm_riscv_hfence_vvma_all_process(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_vmid *vmid;
-+
-+	vmid = &vcpu->kvm->arch.vmid;
-+	kvm_riscv_local_hfence_vvma_all(READ_ONCE(vmid->vmid));
-+}
-+
-+static bool vcpu_hfence_dequeue(struct kvm_vcpu *vcpu,
-+				struct kvm_riscv_hfence *out_data)
-+{
-+	bool ret = false;
-+	struct kvm_vcpu_arch *varch = &vcpu->arch;
-+
-+	spin_lock(&varch->hfence_lock);
-+
-+	if (varch->hfence_queue[varch->hfence_head].type) {
-+		memcpy(out_data, &varch->hfence_queue[varch->hfence_head],
-+		       sizeof(*out_data));
-+		varch->hfence_queue[varch->hfence_head].type = 0;
-+
-+		varch->hfence_head++;
-+		if (varch->hfence_head == KVM_RISCV_VCPU_MAX_HFENCE)
-+			varch->hfence_head = 0;
-+
-+		ret = true;
-+	}
-+
-+	spin_unlock(&varch->hfence_lock);
-+
-+	return ret;
-+}
-+
-+static bool vcpu_hfence_enqueue(struct kvm_vcpu *vcpu,
-+				const struct kvm_riscv_hfence *data)
-+{
-+	bool ret = false;
-+	struct kvm_vcpu_arch *varch = &vcpu->arch;
-+
-+	spin_lock(&varch->hfence_lock);
-+
-+	if (!varch->hfence_queue[varch->hfence_tail].type) {
-+		memcpy(&varch->hfence_queue[varch->hfence_tail],
-+		       data, sizeof(*data));
-+
-+		varch->hfence_tail++;
-+		if (varch->hfence_tail == KVM_RISCV_VCPU_MAX_HFENCE)
-+			varch->hfence_tail = 0;
-+
-+		ret = true;
-+	}
-+
-+	spin_unlock(&varch->hfence_lock);
-+
-+	return ret;
-+}
-+
-+void kvm_riscv_hfence_process(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_riscv_hfence d = { 0 };
-+	struct kvm_vmid *v = &vcpu->kvm->arch.vmid;
-+
-+	while (vcpu_hfence_dequeue(vcpu, &d)) {
-+		switch (d.type) {
-+		case KVM_RISCV_HFENCE_UNKNOWN:
-+			break;
-+		case KVM_RISCV_HFENCE_GVMA_VMID_GPA:
-+			kvm_riscv_local_hfence_gvma_vmid_gpa(
-+						READ_ONCE(v->vmid),
-+						d.addr, d.size, d.order);
-+			break;
-+		case KVM_RISCV_HFENCE_VVMA_ASID_GVA:
-+			kvm_riscv_local_hfence_vvma_asid_gva(
-+						READ_ONCE(v->vmid), d.asid,
-+						d.addr, d.size, d.order);
-+			break;
-+		case KVM_RISCV_HFENCE_VVMA_ASID_ALL:
-+			kvm_riscv_local_hfence_vvma_asid_all(
-+						READ_ONCE(v->vmid), d.asid);
-+			break;
-+		case KVM_RISCV_HFENCE_VVMA_GVA:
-+			kvm_riscv_local_hfence_vvma_gva(
-+						READ_ONCE(v->vmid),
-+						d.addr, d.size, d.order);
-+			break;
-+		default:
-+			break;
-+		}
-+	}
-+}
-+
-+static void make_xfence_request(struct kvm *kvm,
-+				unsigned long hbase, unsigned long hmask,
-+				unsigned int req, unsigned int fallback_req,
-+				const struct kvm_riscv_hfence *data)
-+{
-+	unsigned long i;
-+	struct kvm_vcpu *vcpu;
-+	unsigned int actual_req = req;
-+	DECLARE_BITMAP(vcpu_mask, KVM_MAX_VCPUS);
-+
-+	bitmap_clear(vcpu_mask, 0, KVM_MAX_VCPUS);
-+	kvm_for_each_vcpu(i, vcpu, kvm) {
-+		if (hbase != -1UL) {
-+			if (vcpu->vcpu_id < hbase)
-+				continue;
-+			if (!(hmask & (1UL << (vcpu->vcpu_id - hbase))))
-+				continue;
-+		}
-+
-+		bitmap_set(vcpu_mask, i, 1);
-+
-+		if (!data || !data->type)
-+			continue;
-+
-+		/*
-+		 * Enqueue hfence data to VCPU hfence queue. If we don't
-+		 * have space in the VCPU hfence queue then fallback to
-+		 * a more conservative hfence request.
-+		 */
-+		if (!vcpu_hfence_enqueue(vcpu, data))
-+			actual_req = fallback_req;
-+	}
-+
-+	kvm_make_vcpus_request_mask(kvm, actual_req, vcpu_mask);
-+}
-+
-+void kvm_riscv_fence_i(struct kvm *kvm,
-+		       unsigned long hbase, unsigned long hmask)
-+{
-+	make_xfence_request(kvm, hbase, hmask, KVM_REQ_FENCE_I,
-+			    KVM_REQ_FENCE_I, NULL);
-+}
-+
-+void kvm_riscv_hfence_gvma_vmid_gpa(struct kvm *kvm,
-+				    unsigned long hbase, unsigned long hmask,
-+				    gpa_t gpa, gpa_t gpsz,
-+				    unsigned long order)
-+{
-+	struct kvm_riscv_hfence data;
-+
-+	data.type = KVM_RISCV_HFENCE_GVMA_VMID_GPA;
-+	data.asid = 0;
-+	data.addr = gpa;
-+	data.size = gpsz;
-+	data.order = order;
-+	make_xfence_request(kvm, hbase, hmask, KVM_REQ_HFENCE,
-+			    KVM_REQ_HFENCE_GVMA_VMID_ALL, &data);
-+}
-+
-+void kvm_riscv_hfence_gvma_vmid_all(struct kvm *kvm,
-+				    unsigned long hbase, unsigned long hmask)
-+{
-+	make_xfence_request(kvm, hbase, hmask, KVM_REQ_HFENCE_GVMA_VMID_ALL,
-+			    KVM_REQ_HFENCE_GVMA_VMID_ALL, NULL);
-+}
-+
-+void kvm_riscv_hfence_vvma_asid_gva(struct kvm *kvm,
-+				    unsigned long hbase, unsigned long hmask,
-+				    unsigned long gva, unsigned long gvsz,
-+				    unsigned long order, unsigned long asid)
-+{
-+	struct kvm_riscv_hfence data;
-+
-+	data.type = KVM_RISCV_HFENCE_VVMA_ASID_GVA;
-+	data.asid = asid;
-+	data.addr = gva;
-+	data.size = gvsz;
-+	data.order = order;
-+	make_xfence_request(kvm, hbase, hmask, KVM_REQ_HFENCE,
-+			    KVM_REQ_HFENCE_VVMA_ALL, &data);
-+}
-+
-+void kvm_riscv_hfence_vvma_asid_all(struct kvm *kvm,
-+				    unsigned long hbase, unsigned long hmask,
-+				    unsigned long asid)
-+{
-+	struct kvm_riscv_hfence data;
-+
-+	data.type = KVM_RISCV_HFENCE_VVMA_ASID_ALL;
-+	data.asid = asid;
-+	data.addr = data.size = data.order = 0;
-+	make_xfence_request(kvm, hbase, hmask, KVM_REQ_HFENCE,
-+			    KVM_REQ_HFENCE_VVMA_ALL, &data);
-+}
-+
-+void kvm_riscv_hfence_vvma_gva(struct kvm *kvm,
-+			       unsigned long hbase, unsigned long hmask,
-+			       unsigned long gva, unsigned long gvsz,
-+			       unsigned long order)
-+{
-+	struct kvm_riscv_hfence data;
-+
-+	data.type = KVM_RISCV_HFENCE_VVMA_GVA;
-+	data.asid = 0;
-+	data.addr = gva;
-+	data.size = gvsz;
-+	data.order = order;
-+	make_xfence_request(kvm, hbase, hmask, KVM_REQ_HFENCE,
-+			    KVM_REQ_HFENCE_VVMA_ALL, &data);
-+}
-+
-+void kvm_riscv_hfence_vvma_all(struct kvm *kvm,
-+			       unsigned long hbase, unsigned long hmask)
-+{
-+	make_xfence_request(kvm, hbase, hmask, KVM_REQ_HFENCE_VVMA_ALL,
-+			    KVM_REQ_HFENCE_VVMA_ALL, NULL);
-+}
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index dbf6b8d73e23..6d81c0a30ef3 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -76,6 +76,10 @@ static void kvm_riscv_reset_vcpu(struct kvm_vcpu *vcpu)
- 	WRITE_ONCE(vcpu->arch.irqs_pending, 0);
- 	WRITE_ONCE(vcpu->arch.irqs_pending_mask, 0);
- 
-+	vcpu->arch.hfence_head = 0;
-+	vcpu->arch.hfence_tail = 0;
-+	memset(vcpu->arch.hfence_queue, 0, sizeof(vcpu->arch.hfence_queue));
-+
- 	/* Reset the guest CSRs for hotplug usecase */
- 	if (loaded)
- 		kvm_arch_vcpu_load(vcpu, smp_processor_id());
-@@ -99,6 +103,9 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
- 	/* Setup ISA features available to VCPU */
- 	vcpu->arch.isa = riscv_isa_extension_base(NULL) & KVM_RISCV_ISA_ALLOWED;
- 
-+	/* Setup VCPU hfence queue */
-+	spin_lock_init(&vcpu->arch.hfence_lock);
-+
- 	/* Setup reset state of shadow SSTATUS and HSTATUS CSRs */
- 	cntx = &vcpu->arch.guest_reset_context;
- 	cntx->sstatus = SR_SPP | SR_SPIE;
-@@ -689,8 +696,21 @@ static void kvm_riscv_check_vcpu_requests(struct kvm_vcpu *vcpu)
- 		if (kvm_check_request(KVM_REQ_UPDATE_HGATP, vcpu))
- 			kvm_riscv_gstage_update_hgatp(vcpu);
- 
--		if (kvm_check_request(KVM_REQ_TLB_FLUSH, vcpu))
--			kvm_riscv_local_hfence_gvma_all();
-+		if (kvm_check_request(KVM_REQ_FENCE_I, vcpu))
-+			kvm_riscv_fence_i_process(vcpu);
-+
-+		/*
-+		 * The generic KVM_REQ_TLB_FLUSH is same as
-+		 * KVM_REQ_HFENCE_GVMA_VMID_ALL
-+		 */
-+		if (kvm_check_request(KVM_REQ_HFENCE_GVMA_VMID_ALL, vcpu))
-+			kvm_riscv_hfence_gvma_vmid_all_process(vcpu);
-+
-+		if (kvm_check_request(KVM_REQ_HFENCE_VVMA_ALL, vcpu))
-+			kvm_riscv_hfence_vvma_all_process(vcpu);
-+
-+		if (kvm_check_request(KVM_REQ_HFENCE, vcpu))
-+			kvm_riscv_hfence_process(vcpu);
- 	}
- }
- 
-diff --git a/arch/riscv/kvm/vcpu_sbi_replace.c b/arch/riscv/kvm/vcpu_sbi_replace.c
-index 3c1dcd38358e..4c034d8a606a 100644
---- a/arch/riscv/kvm/vcpu_sbi_replace.c
-+++ b/arch/riscv/kvm/vcpu_sbi_replace.c
-@@ -81,37 +81,31 @@ static int kvm_sbi_ext_rfence_handler(struct kvm_vcpu *vcpu, struct kvm_run *run
- 				      struct kvm_cpu_trap *utrap, bool *exit)
- {
- 	int ret = 0;
--	unsigned long i;
--	struct cpumask cm;
--	struct kvm_vcpu *tmp;
- 	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
- 	unsigned long hmask = cp->a0;
- 	unsigned long hbase = cp->a1;
- 	unsigned long funcid = cp->a6;
- 
--	cpumask_clear(&cm);
--	kvm_for_each_vcpu(i, tmp, vcpu->kvm) {
--		if (hbase != -1UL) {
--			if (tmp->vcpu_id < hbase)
--				continue;
--			if (!(hmask & (1UL << (tmp->vcpu_id - hbase))))
--				continue;
--		}
--		if (tmp->cpu < 0)
--			continue;
--		cpumask_set_cpu(tmp->cpu, &cm);
--	}
--
- 	switch (funcid) {
- 	case SBI_EXT_RFENCE_REMOTE_FENCE_I:
--		ret = sbi_remote_fence_i(&cm);
-+		kvm_riscv_fence_i(vcpu->kvm, hbase, hmask);
- 		break;
- 	case SBI_EXT_RFENCE_REMOTE_SFENCE_VMA:
--		ret = sbi_remote_hfence_vvma(&cm, cp->a2, cp->a3);
-+		if (cp->a2 == 0 && cp->a3 == 0)
-+			kvm_riscv_hfence_vvma_all(vcpu->kvm, hbase, hmask);
-+		else
-+			kvm_riscv_hfence_vvma_gva(vcpu->kvm, hbase, hmask,
-+						  cp->a2, cp->a3, PAGE_SHIFT);
- 		break;
- 	case SBI_EXT_RFENCE_REMOTE_SFENCE_VMA_ASID:
--		ret = sbi_remote_hfence_vvma_asid(&cm, cp->a2,
--						  cp->a3, cp->a4);
-+		if (cp->a2 == 0 && cp->a3 == 0)
-+			kvm_riscv_hfence_vvma_asid_all(vcpu->kvm,
-+						       hbase, hmask, cp->a4);
-+		else
-+			kvm_riscv_hfence_vvma_asid_gva(vcpu->kvm,
-+						       hbase, hmask,
-+						       cp->a2, cp->a3,
-+						       PAGE_SHIFT, cp->a4);
- 		break;
- 	case SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA:
- 	case SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA_VMID:
-diff --git a/arch/riscv/kvm/vcpu_sbi_v01.c b/arch/riscv/kvm/vcpu_sbi_v01.c
-index da4d6c99c2cf..8a91a14e7139 100644
---- a/arch/riscv/kvm/vcpu_sbi_v01.c
-+++ b/arch/riscv/kvm/vcpu_sbi_v01.c
-@@ -23,7 +23,6 @@ static int kvm_sbi_ext_v01_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 	int i, ret = 0;
- 	u64 next_cycle;
- 	struct kvm_vcpu *rvcpu;
--	struct cpumask cm;
- 	struct kvm *kvm = vcpu->kvm;
- 	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
- 
-@@ -80,19 +79,29 @@ static int kvm_sbi_ext_v01_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 		if (utrap->scause)
- 			break;
- 
--		cpumask_clear(&cm);
--		for_each_set_bit(i, &hmask, BITS_PER_LONG) {
--			rvcpu = kvm_get_vcpu_by_id(vcpu->kvm, i);
--			if (rvcpu->cpu < 0)
--				continue;
--			cpumask_set_cpu(rvcpu->cpu, &cm);
--		}
- 		if (cp->a7 == SBI_EXT_0_1_REMOTE_FENCE_I)
--			ret = sbi_remote_fence_i(&cm);
--		else if (cp->a7 == SBI_EXT_0_1_REMOTE_SFENCE_VMA)
--			ret = sbi_remote_hfence_vvma(&cm, cp->a1, cp->a2);
--		else
--			ret = sbi_remote_hfence_vvma_asid(&cm, cp->a1, cp->a2, cp->a3);
-+			kvm_riscv_fence_i(vcpu->kvm, 0, hmask);
-+		else if (cp->a7 == SBI_EXT_0_1_REMOTE_SFENCE_VMA) {
-+			if (cp->a1 == 0 && cp->a2 == 0)
-+				kvm_riscv_hfence_vvma_all(vcpu->kvm,
-+							  0, hmask);
-+			else
-+				kvm_riscv_hfence_vvma_gva(vcpu->kvm,
-+							  0, hmask,
-+							  cp->a1, cp->a2,
-+							  PAGE_SHIFT);
-+		} else {
-+			if (cp->a1 == 0 && cp->a2 == 0)
-+				kvm_riscv_hfence_vvma_asid_all(vcpu->kvm,
-+							       0, hmask,
-+							       cp->a3);
-+			else
-+				kvm_riscv_hfence_vvma_asid_gva(vcpu->kvm,
-+							       0, hmask,
-+							       cp->a1, cp->a2,
-+							       PAGE_SHIFT,
-+							       cp->a3);
-+		}
- 		break;
- 	default:
- 		ret = -EINVAL;
-diff --git a/arch/riscv/kvm/vmid.c b/arch/riscv/kvm/vmid.c
-index 8987e76aa6db..9f764df125db 100644
---- a/arch/riscv/kvm/vmid.c
-+++ b/arch/riscv/kvm/vmid.c
-@@ -11,9 +11,9 @@
- #include <linux/errno.h>
- #include <linux/err.h>
- #include <linux/module.h>
-+#include <linux/smp.h>
- #include <linux/kvm_host.h>
- #include <asm/csr.h>
--#include <asm/sbi.h>
- 
- static unsigned long vmid_version = 1;
- static unsigned long vmid_next;
-@@ -63,6 +63,11 @@ bool kvm_riscv_gstage_vmid_ver_changed(struct kvm_vmid *vmid)
- 			READ_ONCE(vmid_version));
- }
- 
-+static void __local_hfence_gvma_all(void *info)
-+{
-+	kvm_riscv_local_hfence_gvma_all();
-+}
-+
- void kvm_riscv_gstage_vmid_update(struct kvm_vcpu *vcpu)
- {
- 	unsigned long i;
-@@ -101,7 +106,8 @@ void kvm_riscv_gstage_vmid_update(struct kvm_vcpu *vcpu)
- 		 * running, we force VM exits on all host CPUs using IPI and
- 		 * flush all Guest TLBs.
- 		 */
--		sbi_remote_hfence_gvma(cpu_online_mask, 0, 0);
-+		on_each_cpu_mask(cpu_online_mask, __local_hfence_gvma_all,
-+				 NULL, 1);
- 	}
- 
- 	vmid->vmid = vmid_next;
+>  				break;
+> +			}
+>  			if (rp_val) {
+>  				addr = calc_reloc(rp_val, libinfo, id, 0);
+>  				if (addr == RELOC_FAILED) {
+
+
 -- 
-2.25.1
-
+Damien Le Moal
+Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
