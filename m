@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B27EC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Apr 2022 10:09:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F0CBC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Apr 2022 10:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/X3f+IMuS+g3zcQgFl46sg8zUrTS87TZgdbjz6kpYmo=; b=cuWrZvsnEeBnG3
-	zx+qAO0H2az9yHUtViqIAq7TLbKo9tVSf/v6OE0kokquE/dC5oirHTjT32IIM9BwvMakhN4u+WNKV
-	OS32yp07XJoGeyN8znE2ph8aqHMxqNMXu+Nj9N5WioI56LWOD+oAfSrVRFKNMvlRjOXHMp24Y3NJW
-	nmEklmRFsypR+ovq7HEP+c4xeoJu1ep9qokGEbsz/STLcmj1mtRFQHobrbofot3MI0cUUjm/2wxrA
-	TwKsBrYQF5D/vn3h+RAkPrrGX9nEnEF7UX1vMXU/Zh5h8/fl5in+w9S3Rm5P4PJiK5DYSJNZeFBUj
-	hf+6JX4KFBI3/7XLN8eQ==;
+	List-Owner; bh=CTVPfDryZneCJ1HFQBqxqwwVqALzQQqe88LTqV0TeiY=; b=Sfb4ZwoWUVXJuk
+	BYwv2b3CuVE7NGKsVHwSRRON92ZwCVGMBBDF9CIMsCRl6jfh2eN9/jMu1Q0/X6qlOYzHCbQiIFHlA
+	ozVhoER7P6HCBantOlxB/wLDcsSPuhDnm1MVVyg345xzAm+ETEqdDF9jcBIVCmYznrENfu3PG3ZfK
+	kRfRTpVyr9vgavzuPSBtAXP+xKcTdHLQLg7dzZH+tfI0BN4QrsRvuYObXr3gOVpf/ncs+9d0KhsCZ
+	ChhsGVpM6PTPCHSZZAmTzDJ7luwYXIOoe+3zKq3B3um2W0IweZyka2Dj28NEQNsbOE41VRHFq7xTC
+	85SzlbUCC04Isx0MRtRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1neDSM-00DAqC-75; Tue, 12 Apr 2022 10:09:06 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1neDSR-00DAu9-M9; Tue, 12 Apr 2022 10:09:11 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1neDRy-00DAbM-Hd
- for linux-riscv@lists.infradead.org; Tue, 12 Apr 2022 10:08:46 +0000
-Received: by mail-pf1-x431.google.com with SMTP id a21so2135878pfv.10
- for <linux-riscv@lists.infradead.org>; Tue, 12 Apr 2022 03:08:39 -0700 (PDT)
+ id 1neDS1-00DAdH-SI
+ for linux-riscv@lists.infradead.org; Tue, 12 Apr 2022 10:08:49 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id c23so16402755plo.0
+ for <linux-riscv@lists.infradead.org>; Tue, 12 Apr 2022 03:08:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=ventanamicro.com; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=5aKqoFa3PS3ofFsonmsRpILD1LHcN5f7ZDBzSGfsEbM=;
- b=ipNGq4iM0/5nlKBcJA0RfUYvp9Rr6U2GBDVhfGzDbwMM7QRqxO3tkO71gzVyoaVmyw
- pxYq72frVesdN580nWmwdlgZjtdbjkHgDPRknZvPvC77QqSIPucZ3kzcs1iduI71F9VD
- CJuegbEDoSDKgK4VR/rjXyqXmEcsk2DgX+ILLvm86Q0Bh1BaVgux/GspmTOI+cb5pEjI
- pxDAf5zVkqsYVX2BwgHBGLurHEQXOUE2Thu28cfE0yA5NfkFaKHm2Tj7ynpHHaMVos5Q
- eeaNbwd5u3GbYkrSh8PslJkhe7B1bvA14msLKO6BZE18MLW3Iuwk3h3bp1834tybWMuk
- CGHw==
+ bh=4BLqfQ8siB3oyyirx/Q6XOmmWZNcRGX2Ml/u/L0vfnE=;
+ b=f334+N3ZXg3QF7DHzCmfZ3+9hsvVr/sM0B9ggzuRXDZJMydU4Jq++1pCwdCd2tUtEK
+ UmLGnYnaShqLfunH0TdM4dqUgwhlbxAFkDcJ6HC/5fT58RjUI/Z7UCTNtpg3gVftUL17
+ 6ZV+vBxNuenkIFt6DJEc9Jas3wUfC5wlePYm7IB/PAuDHoj6Hi+nKJmNf09bDdftLnCe
+ ITt2EpVs6ukkUb5WMytw9/85y2L55TVliftBoUVOValAseoQTgEcuarSSvR284prEwQE
+ QPBFJ/78kx61mWxfGX69mZYNrzHN5q3sZd8OJ4rJWRGtpj01pAaqunFlPVu7CjORcwp3
+ 4KvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=5aKqoFa3PS3ofFsonmsRpILD1LHcN5f7ZDBzSGfsEbM=;
- b=ZAVhmut9Nu5eiXPhEQfFln1wMgEw4cuzAGMA6H2ap+wBC2qixNyQsVndWXNG7AkKpJ
- 7GypusIuT1jwMBdCCqkM7BLxWTZycNW60oPn1pjrxCO/LUrHLrYRcGn7RsO0AvsCHQ12
- a8JvCShL2xY+UDP70g0fPo3ayziszC1Xu10JL5WBXkpjzJqA5Kw1iT1fcQm49rLoKbIq
- iuDyCbdhXRXxMt+Q3sdC3gG1kkFc+WKtNEVcc0Mey9/IjnyxY+jfj5eZ4w7sizVlLCBR
- DRaSkfvJK7QDK9mbSB1YVDR96k8k9fOdJo/0M9Tkp6XS9oXm+723DVDyPWHmbTQAyc6A
- y79Q==
-X-Gm-Message-State: AOAM5314pF2R+mBC1Fpbs0mtvxuyzfyuvhXbbPJKwXKtqCSnjTsDgz/A
- 0Q4ybhtLAvUa0cRYG3bLR1YDjw==
-X-Google-Smtp-Source: ABdhPJwMUMajCWSxEXnVkYfknKU+dGYsenmvrM0qkhhwA3pG3r6bUDiyxS+dtaTDRrgSBmM0/+q7sg==
-X-Received: by 2002:aa7:88ca:0:b0:505:d092:16c8 with SMTP id
- k10-20020aa788ca000000b00505d09216c8mr6642112pff.22.1649758119472; 
- Tue, 12 Apr 2022 03:08:39 -0700 (PDT)
+ bh=4BLqfQ8siB3oyyirx/Q6XOmmWZNcRGX2Ml/u/L0vfnE=;
+ b=QnmyCw9XFv2fuhy64705uh8tbixiYtdpiHdBb0RskNLmELpDd+0TPon4YRcrsapx+l
+ DqEFfVIvVqXvcoQvN+GxqxMcQtzM7vmflXh/TlTo479RacykHErNgKEcwBxms7E2Vc4C
+ xWbMHBFMNNc/2Q7jA3s1+ROrtpTZcFYPjboNZ7sPZSgHdvPiJrwm7A2PHlwFVfiI6TEJ
+ PIgGlNFnIT3syp5EmCIYQpfuHMNFndKMMR6RHRb1PnF6txb9liCWwDYKYkurPHE2veXS
+ Bfi50AO5olaOIgTTwUK07Wx/rS9NsSIH1WuJQkkqcRfrKmccPkZF7j//mdiMauftN1kZ
+ P0yQ==
+X-Gm-Message-State: AOAM532RUl4Z6hdePai27uJjoJCyLnhIHRcOObrj3X+A1yRFn97+NDvA
+ wxziwW34PKytsUzFNXHn6z4W7A==
+X-Google-Smtp-Source: ABdhPJwGSnnSuyzv6KjTl6vQszyjpXPpZ8WSxcUlyy520b0Rg3QFO37u8LneJ05yckPijIVyWGcvkw==
+X-Received: by 2002:a17:90b:812:b0:1cb:afe4:e418 with SMTP id
+ bk18-20020a17090b081200b001cbafe4e418mr4041310pjb.53.1649758123636; 
+ Tue, 12 Apr 2022 03:08:43 -0700 (PDT)
 Received: from localhost.localdomain ([122.182.197.47])
  by smtp.gmail.com with ESMTPSA id
- j9-20020a056a00130900b004f73df40914sm37515088pfu.82.2022.04.12.03.08.35
+ j9-20020a056a00130900b004f73df40914sm37515088pfu.82.2022.04.12.03.08.39
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 12 Apr 2022 03:08:38 -0700 (PDT)
+ Tue, 12 Apr 2022 03:08:43 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Atish Patra <atishp@atishpatra.org>
@@ -69,16 +69,16 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
  Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 3/6] RISC-V: KVM: Treat SBI HFENCE calls as NOPs
-Date: Tue, 12 Apr 2022 15:37:10 +0530
-Message-Id: <20220412100713.1415094-4-apatel@ventanamicro.com>
+Subject: [PATCH 4/6] RISC-V: KVM: Introduce range based local HFENCE functions
+Date: Tue, 12 Apr 2022 15:37:11 +0530
+Message-Id: <20220412100713.1415094-5-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220412100713.1415094-1-apatel@ventanamicro.com>
 References: <20220412100713.1415094-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220412_030842_665735_8BAD9638 
-X-CRM114-Status: GOOD (  10.11  )
+X-CRM114-CacheID: sfid-20220412_030846_032017_40D72663 
+X-CRM114-Status: GOOD (  19.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,32 +95,428 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We should treat SBI HFENCE calls as NOPs until nested virtualization
-is supported by KVM RISC-V. This will help us test booting a hypervisor
-under KVM RISC-V.
+Various  __kvm_riscv_hfence_xyz() functions implemented in the
+kvm/tlb.S are equivalent to corresponding HFENCE.GVMA instructions
+and we don't have range based local HFENCE functions.
+
+This patch provides complete set of local HFENCE functions which
+supports range based TLB invalidation and supports HFENCE.VVMA
+based functions. This is also a preparatory patch for upcoming
+Svinval support in KVM RISC-V.
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- arch/riscv/kvm/vcpu_sbi_replace.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ arch/riscv/include/asm/kvm_host.h |  25 +++-
+ arch/riscv/kvm/mmu.c              |   4 +-
+ arch/riscv/kvm/tlb.S              |  74 ----------
+ arch/riscv/kvm/tlb.c              | 231 ++++++++++++++++++++++++++++++
+ arch/riscv/kvm/vcpu.c             |   2 +-
+ arch/riscv/kvm/vmid.c             |   2 +-
+ 6 files changed, 255 insertions(+), 83 deletions(-)
+ delete mode 100644 arch/riscv/kvm/tlb.S
+ create mode 100644 arch/riscv/kvm/tlb.c
 
-diff --git a/arch/riscv/kvm/vcpu_sbi_replace.c b/arch/riscv/kvm/vcpu_sbi_replace.c
-index 0f217365c287..3c1dcd38358e 100644
---- a/arch/riscv/kvm/vcpu_sbi_replace.c
-+++ b/arch/riscv/kvm/vcpu_sbi_replace.c
-@@ -117,7 +117,11 @@ static int kvm_sbi_ext_rfence_handler(struct kvm_vcpu *vcpu, struct kvm_run *run
- 	case SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA_VMID:
- 	case SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA:
- 	case SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA_ASID:
--	/* TODO: implement for nested hypervisor case */
+diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+index 3e2cbbd7d1c9..806f74dc0bfc 100644
+--- a/arch/riscv/include/asm/kvm_host.h
++++ b/arch/riscv/include/asm/kvm_host.h
+@@ -204,11 +204,26 @@ static inline void kvm_arch_sched_in(struct kvm_vcpu *vcpu, int cpu) {}
+ 
+ #define KVM_ARCH_WANT_MMU_NOTIFIER
+ 
+-void __kvm_riscv_hfence_gvma_vmid_gpa(unsigned long gpa_divby_4,
+-				      unsigned long vmid);
+-void __kvm_riscv_hfence_gvma_vmid(unsigned long vmid);
+-void __kvm_riscv_hfence_gvma_gpa(unsigned long gpa_divby_4);
+-void __kvm_riscv_hfence_gvma_all(void);
++#define KVM_RISCV_GSTAGE_TLB_MIN_ORDER		12
++
++void kvm_riscv_local_hfence_gvma_vmid_gpa(unsigned long vmid,
++					  gpa_t gpa, gpa_t gpsz,
++					  unsigned long order);
++void kvm_riscv_local_hfence_gvma_vmid_all(unsigned long vmid);
++void kvm_riscv_local_hfence_gvma_gpa(gpa_t gpa, gpa_t gpsz,
++				     unsigned long order);
++void kvm_riscv_local_hfence_gvma_all(void);
++void kvm_riscv_local_hfence_vvma_asid_gva(unsigned long vmid,
++					  unsigned long asid,
++					  unsigned long gva,
++					  unsigned long gvsz,
++					  unsigned long order);
++void kvm_riscv_local_hfence_vvma_asid_all(unsigned long vmid,
++					  unsigned long asid);
++void kvm_riscv_local_hfence_vvma_gva(unsigned long vmid,
++				     unsigned long gva, unsigned long gvsz,
++				     unsigned long order);
++void kvm_riscv_local_hfence_vvma_all(unsigned long vmid);
+ 
+ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
+ 			 struct kvm_memory_slot *memslot,
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 8823eb32dcde..1e07603c905b 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -745,7 +745,7 @@ void kvm_riscv_gstage_update_hgatp(struct kvm_vcpu *vcpu)
+ 	csr_write(CSR_HGATP, hgatp);
+ 
+ 	if (!kvm_riscv_gstage_vmid_bits())
+-		__kvm_riscv_hfence_gvma_all();
++		kvm_riscv_local_hfence_gvma_all();
+ }
+ 
+ void kvm_riscv_gstage_mode_detect(void)
+@@ -768,7 +768,7 @@ void kvm_riscv_gstage_mode_detect(void)
+ skip_sv48x4_test:
+ 
+ 	csr_write(CSR_HGATP, 0);
+-	__kvm_riscv_hfence_gvma_all();
++	kvm_riscv_local_hfence_gvma_all();
+ #endif
+ }
+ 
+diff --git a/arch/riscv/kvm/tlb.S b/arch/riscv/kvm/tlb.S
+deleted file mode 100644
+index 899f75d60bad..000000000000
+--- a/arch/riscv/kvm/tlb.S
++++ /dev/null
+@@ -1,74 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-/*
+- * Copyright (C) 2019 Western Digital Corporation or its affiliates.
+- *
+- * Authors:
+- *     Anup Patel <anup.patel@wdc.com>
+- */
+-
+-#include <linux/linkage.h>
+-#include <asm/asm.h>
+-
+-	.text
+-	.altmacro
+-	.option norelax
+-
+-	/*
+-	 * Instruction encoding of hfence.gvma is:
+-	 * HFENCE.GVMA rs1, rs2
+-	 * HFENCE.GVMA zero, rs2
+-	 * HFENCE.GVMA rs1
+-	 * HFENCE.GVMA
+-	 *
+-	 * rs1!=zero and rs2!=zero ==> HFENCE.GVMA rs1, rs2
+-	 * rs1==zero and rs2!=zero ==> HFENCE.GVMA zero, rs2
+-	 * rs1!=zero and rs2==zero ==> HFENCE.GVMA rs1
+-	 * rs1==zero and rs2==zero ==> HFENCE.GVMA
+-	 *
+-	 * Instruction encoding of HFENCE.GVMA is:
+-	 * 0110001 rs2(5) rs1(5) 000 00000 1110011
+-	 */
+-
+-ENTRY(__kvm_riscv_hfence_gvma_vmid_gpa)
+-	/*
+-	 * rs1 = a0 (GPA >> 2)
+-	 * rs2 = a1 (VMID)
+-	 * HFENCE.GVMA a0, a1
+-	 * 0110001 01011 01010 000 00000 1110011
+-	 */
+-	.word 0x62b50073
+-	ret
+-ENDPROC(__kvm_riscv_hfence_gvma_vmid_gpa)
+-
+-ENTRY(__kvm_riscv_hfence_gvma_vmid)
+-	/*
+-	 * rs1 = zero
+-	 * rs2 = a0 (VMID)
+-	 * HFENCE.GVMA zero, a0
+-	 * 0110001 01010 00000 000 00000 1110011
+-	 */
+-	.word 0x62a00073
+-	ret
+-ENDPROC(__kvm_riscv_hfence_gvma_vmid)
+-
+-ENTRY(__kvm_riscv_hfence_gvma_gpa)
+-	/*
+-	 * rs1 = a0 (GPA >> 2)
+-	 * rs2 = zero
+-	 * HFENCE.GVMA a0
+-	 * 0110001 00000 01010 000 00000 1110011
+-	 */
+-	.word 0x62050073
+-	ret
+-ENDPROC(__kvm_riscv_hfence_gvma_gpa)
+-
+-ENTRY(__kvm_riscv_hfence_gvma_all)
+-	/*
+-	 * rs1 = zero
+-	 * rs2 = zero
+-	 * HFENCE.GVMA
+-	 * 0110001 00000 00000 000 00000 1110011
+-	 */
+-	.word 0x62000073
+-	ret
+-ENDPROC(__kvm_riscv_hfence_gvma_all)
+diff --git a/arch/riscv/kvm/tlb.c b/arch/riscv/kvm/tlb.c
+new file mode 100644
+index 000000000000..f817d3921973
+--- /dev/null
++++ b/arch/riscv/kvm/tlb.c
+@@ -0,0 +1,231 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2022 Ventana Micro Systems Inc.
++ */
++
++#include <linux/bitops.h>
++#include <linux/errno.h>
++#include <linux/err.h>
++#include <linux/module.h>
++#include <linux/kvm_host.h>
++#include <asm/csr.h>
++
++/* Page sizes supported in G-stage TLB entries */
++static unsigned long gstage_tlb_pgsize_bitmap =
++			BIT(KVM_RISCV_GSTAGE_TLB_MIN_ORDER);
++
++#define hfence_update_order(__order)				\
++do {								\
++	if (!(BIT(__order) & gstage_tlb_pgsize_bitmap))		\
++		(__order) = KVM_RISCV_GSTAGE_TLB_MIN_ORDER;	\
++} while (0)
++
++/*
++ * Instruction encoding of hfence.gvma is:
++ * HFENCE.GVMA rs1, rs2
++ * HFENCE.GVMA zero, rs2
++ * HFENCE.GVMA rs1
++ * HFENCE.GVMA
++ *
++ * rs1!=zero and rs2!=zero ==> HFENCE.GVMA rs1, rs2
++ * rs1==zero and rs2!=zero ==> HFENCE.GVMA zero, rs2
++ * rs1!=zero and rs2==zero ==> HFENCE.GVMA rs1
++ * rs1==zero and rs2==zero ==> HFENCE.GVMA
++ *
++ * Instruction encoding of HFENCE.GVMA is:
++ * 0110001 rs2(5) rs1(5) 000 00000 1110011
++ */
++
++void kvm_riscv_local_hfence_gvma_vmid_gpa(unsigned long vmid,
++					  gpa_t gpa, gpa_t gpsz,
++					  unsigned long order)
++{
++	gpa_t pos;
++
++	hfence_update_order(order);
++
++	if (PTRS_PER_PTE < (gpsz >> order)) {
++		kvm_riscv_local_hfence_gvma_vmid_all(vmid);
++		return;
++	}
++
++	for (pos = gpa; pos < (gpa + gpsz); pos += BIT(order)) {
 +		/*
-+		 * Until nested virtualization is implemented, the
-+		 * SBI HFENCE calls should be treated as NOPs
++		 * rs1 = a0 (GPA >> 2)
++		 * rs2 = a1 (VMID)
++		 * HFENCE.GVMA a0, a1
++		 * 0110001 01011 01010 000 00000 1110011
 +		 */
-+		break;
- 	default:
- 		ret = -EOPNOTSUPP;
++		asm volatile ("srli a0, %0, 2\n"
++			      "add a1, %1, zero\n"
++			      ".word 0x62b50073\n"
++			      :: "r" (pos), "r" (vmid)
++			      : "a0", "a1", "memory");
++	}
++}
++
++void kvm_riscv_local_hfence_gvma_vmid_all(unsigned long vmid)
++{
++	/*
++	 * rs1 = zero
++	 * rs2 = a0 (VMID)
++	 * HFENCE.GVMA zero, a0
++	 * 0110001 01010 00000 000 00000 1110011
++	 */
++	asm volatile ("add a0, %0, zero\n"
++		      ".word 0x62a00073\n"
++		      :: "r" (vmid) : "a0", "memory");
++}
++
++void kvm_riscv_local_hfence_gvma_gpa(gpa_t gpa, gpa_t gpsz,
++				     unsigned long order)
++{
++	gpa_t pos;
++
++	hfence_update_order(order);
++
++	if (PTRS_PER_PTE < (gpsz >> order)) {
++		kvm_riscv_local_hfence_gvma_all();
++		return;
++	}
++
++	for (pos = gpa; pos < (gpa + gpsz); pos += BIT(order)) {
++		/*
++		 * rs1 = a0 (GPA >> 2)
++		 * rs2 = zero
++		 * HFENCE.GVMA a0
++		 * 0110001 00000 01010 000 00000 1110011
++		 */
++		asm volatile ("srli a0, %0, 2\n"
++			      ".word 0x62050073\n"
++			      :: "r" (pos) : "a0", "memory");
++	}
++}
++
++void kvm_riscv_local_hfence_gvma_all(void)
++{
++	/*
++	 * rs1 = zero
++	 * rs2 = zero
++	 * HFENCE.GVMA
++	 * 0110001 00000 00000 000 00000 1110011
++	 */
++	asm volatile (".word 0x62000073" ::: "memory");
++}
++
++/*
++ * Instruction encoding of hfence.gvma is:
++ * HFENCE.VVMA rs1, rs2
++ * HFENCE.VVMA zero, rs2
++ * HFENCE.VVMA rs1
++ * HFENCE.VVMA
++ *
++ * rs1!=zero and rs2!=zero ==> HFENCE.VVMA rs1, rs2
++ * rs1==zero and rs2!=zero ==> HFENCE.VVMA zero, rs2
++ * rs1!=zero and rs2==zero ==> HFENCE.VVMA rs1
++ * rs1==zero and rs2==zero ==> HFENCE.VVMA
++ *
++ * Instruction encoding of HFENCE.VVMA is:
++ * 0010001 rs2(5) rs1(5) 000 00000 1110011
++ */
++
++void kvm_riscv_local_hfence_vvma_asid_gva(unsigned long vmid,
++					  unsigned long asid,
++					  unsigned long gva,
++					  unsigned long gvsz,
++					  unsigned long order)
++{
++	unsigned long pos, hgatp;
++
++	hfence_update_order(order);
++
++	if (PTRS_PER_PTE < (gvsz >> order)) {
++		kvm_riscv_local_hfence_vvma_asid_all(vmid, asid);
++		return;
++	}
++
++	hgatp = csr_swap(CSR_HGATP, vmid << HGATP_VMID_SHIFT);
++
++	for (pos = gva; pos < (gva + gvsz); pos += BIT(order)) {
++		/*
++		 * rs1 = a0 (GVA)
++		 * rs2 = a1 (ASID)
++		 * HFENCE.VVMA a0, a1
++		 * 0010001 01011 01010 000 00000 1110011
++		 */
++		asm volatile ("add a0, %0, zero\n"
++			      "add a1, %1, zero\n"
++			      ".word 0x22b50073\n"
++			      :: "r" (pos), "r" (asid)
++			      : "a0", "a1", "memory");
++	}
++
++	csr_write(CSR_HGATP, hgatp);
++}
++
++void kvm_riscv_local_hfence_vvma_asid_all(unsigned long vmid,
++					  unsigned long asid)
++{
++	unsigned long hgatp;
++
++	hgatp = csr_swap(CSR_HGATP, vmid << HGATP_VMID_SHIFT);
++
++	/*
++	 * rs1 = zero
++	 * rs2 = a0 (ASID)
++	 * HFENCE.VVMA zero, a0
++	 * 0010001 01010 00000 000 00000 1110011
++	 */
++	asm volatile ("add a0, %0, zero\n"
++		      ".word 0x22a00073\n"
++		      :: "r" (asid) : "a0", "memory");
++
++	csr_write(CSR_HGATP, hgatp);
++}
++
++void kvm_riscv_local_hfence_vvma_gva(unsigned long vmid,
++				     unsigned long gva, unsigned long gvsz,
++				     unsigned long order)
++{
++	unsigned long pos, hgatp;
++
++	hfence_update_order(order);
++
++	if (PTRS_PER_PTE < (gvsz >> order)) {
++		kvm_riscv_local_hfence_vvma_all(vmid);
++		return;
++	}
++
++	hgatp = csr_swap(CSR_HGATP, vmid << HGATP_VMID_SHIFT);
++
++	for (pos = gva; pos < (gva + gvsz); pos += BIT(order)) {
++		/*
++		 * rs1 = a0 (GVA)
++		 * rs2 = zero
++		 * HFENCE.VVMA a0
++		 * 0010001 00000 01010 000 00000 1110011
++		 */
++		asm volatile ("add a0, %0, zero\n"
++			      ".word 0x22050073\n"
++			      :: "r" (pos) : "a0", "memory");
++	}
++
++	csr_write(CSR_HGATP, hgatp);
++}
++
++void kvm_riscv_local_hfence_vvma_all(unsigned long vmid)
++{
++	unsigned long hgatp;
++
++	hgatp = csr_swap(CSR_HGATP, vmid << HGATP_VMID_SHIFT);
++
++	/*
++	 * rs1 = zero
++	 * rs2 = zero
++	 * HFENCE.VVMA
++	 * 0010001 00000 00000 000 00000 1110011
++	 */
++	asm volatile (".word 0x22000073" ::: "memory");
++
++	csr_write(CSR_HGATP, hgatp);
++}
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index 0b8073374ed7..dbf6b8d73e23 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -690,7 +690,7 @@ static void kvm_riscv_check_vcpu_requests(struct kvm_vcpu *vcpu)
+ 			kvm_riscv_gstage_update_hgatp(vcpu);
+ 
+ 		if (kvm_check_request(KVM_REQ_TLB_FLUSH, vcpu))
+-			__kvm_riscv_hfence_gvma_all();
++			kvm_riscv_local_hfence_gvma_all();
  	}
+ }
+ 
+diff --git a/arch/riscv/kvm/vmid.c b/arch/riscv/kvm/vmid.c
+index 01fdc342ad76..8987e76aa6db 100644
+--- a/arch/riscv/kvm/vmid.c
++++ b/arch/riscv/kvm/vmid.c
+@@ -33,7 +33,7 @@ void kvm_riscv_gstage_vmid_detect(void)
+ 	csr_write(CSR_HGATP, old);
+ 
+ 	/* We polluted local TLB so flush all guest TLB */
+-	__kvm_riscv_hfence_gvma_all();
++	kvm_riscv_local_hfence_gvma_all();
+ 
+ 	/* We don't use VMID bits if they are not sufficient */
+ 	if ((1UL << vmid_bits) < num_possible_cpus())
 -- 
 2.25.1
 
