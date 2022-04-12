@@ -4,60 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E160C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Apr 2022 03:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5690C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Apr 2022 06:21:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/VCLxkBzKAv1En/JZxd/3LoAEeSjnSJmk6/wcUWQNWU=; b=08EPFGTDPo5kam
-	4kHwl4p6ENWJZ9dTsHZeQp0FiIFy8tj7G5P2tNlr9rHtAOUbIDG4jkCnasWeF1ThKXoyV6jM2P7gI
-	V1ofkLViD1dSgVaSeePisqam/9P7MGaKaIcaYSehgP/K33LNkzoQne4e+r1RB7+xRhmYbr0eSYp2F
-	EJ8m8L1I5Pt8oJWcznIQ+KwGOjmPSJG+KYqC3QYv820h12GwGwLOfRBlJFcEaMN5Ik5kEihT3pFzc
-	lY3HC+n6od/ocFJIsW+tb8eEq13jl7ypWXu3pdhArBmFAra7G19hlIjKDOoOkEApamqXQu9PJisH6
-	8BsBb5EWN2xf3CMNZc0Q==;
+	List-Owner; bh=XASgtAgdHqsGc0anKVrqO+vQdUMHiIrbUhSs5KqxsHU=; b=2udiSx+0btXqnp
+	9LZ0e1q8cq1MY4FKXznTLo5X7pMtMwKDOjBpzrs4AhpM3nkngCjGoAv5ryziCrcszXkl0P3K41R5a
+	6SJeEHyzDl/Xdmysu+M7a0zltbNrdB0ZaRMavMJl5CIbwC6c7K9cj2UyBwGezp7puM88owdkfCs3p
+	xLx2ZVnd8LO1n6LKAMPvBrU7bel9RaOT5AgWJcbvWYtMK3O+YJcvexFEUa3/HRc9cdsketeqDkTvi
+	gXS+242KhCbhd+4EvJplG6vIXmrB6eGz5a2uQvxViL4EXWAscIUpYmU8GMwWz/SBURwgqSwvlkLgK
+	4oAwQVaHjvhOTRuCyohw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ne7Xx-00BSgv-D9; Tue, 12 Apr 2022 03:50:29 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ne9uF-00BqbJ-Ey; Tue, 12 Apr 2022 06:21:39 +0000
+Received: from verein.lst.de ([213.95.11.211])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ne7Xu-00BSeX-8s
- for linux-riscv@lists.infradead.org; Tue, 12 Apr 2022 03:50:27 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id CBF376174A;
- Tue, 12 Apr 2022 03:50:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6078C385AC;
- Tue, 12 Apr 2022 03:50:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1649735425;
- bh=O2y3teAL9Rp1btL3NXWebprGsFA2ymLi02cTCI1njfs=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=HgFIXpXyatOm2DaTaDUeoy8YS8nwMT4zsGyWUanxympfGxzA5PYMcFivgLiBKduNV
- 4igcn0Ao59VrB7hYFUE5IV3dG4AwItsdQynQSoeG2ruRqmCCO58LOCYO7IspPFIQdq
- hNalsA3hzgd8FPUa9tsIEzzo3SCoFZ51MyJGB053SVIH1DqA5cDueGnYvPhXwBtING
- MBqEaGm9U8IWiiXJNNeXGsdsT053jQiAkZqUoAd4ObFISo+VCsXBTvSnHC7uT8Pu4F
- b81ICNG1Kd2Bef52wjyJIMuvmqDxX1FU7qKyLo3zwPSg1oNB43eHA2H3buN6dbpCAi
- sAj2KGP15xZ1A==
-From: guoren@kernel.org
-To: guoren@kernel.org, arnd@arndb.de, palmer@dabbelt.com, mark.rutland@arm.com,
- will@kernel.org, peterz@infradead.org, boqun.feng@gmail.com
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH V2 3/3] riscv: atomic: Optimize memory barrier semantics of
- LRSC-pairs
-Date: Tue, 12 Apr 2022 11:49:57 +0800
-Message-Id: <20220412034957.1481088-4-guoren@kernel.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220412034957.1481088-1-guoren@kernel.org>
-References: <20220412034957.1481088-1-guoren@kernel.org>
+ id 1ne9u4-00BqYA-0Q; Tue, 12 Apr 2022 06:21:29 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+ id CD9FC68AA6; Tue, 12 Apr 2022 08:21:20 +0200 (CEST)
+Date: Tue, 12 Apr 2022 08:21:20 +0200
+From: Christoph Hellwig <hch@lst.de>
+To: Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>
+Cc: Christoph Hellwig <hch@lst.de>, iommu@lists.linux-foundation.org,
+ x86@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>,
+ Tom Lendacky <thomas.lendacky@amd.com>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+ Juergen Gross <jgross@suse.com>, Joerg Roedel <joro@8bytes.org>,
+ David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>,
+ Robin Murphy <robin.murphy@arm.com>, linux-arm-kernel@lists.infradead.org,
+ xen-devel@lists.xenproject.org, linux-ia64@vger.kernel.org,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, tboot-devel@lists.sourceforge.net,
+ linux-pci@vger.kernel.org
+Subject: Re: [PATCH 10/15] swiotlb: add a SWIOTLB_ANY flag to lift the low
+ memory restriction
+Message-ID: <20220412062120.GA7796@lst.de>
+References: <20220404050559.132378-1-hch@lst.de>
+ <20220404050559.132378-11-hch@lst.de> <Yk4vfAd0J5u+wUsq@char.us.oracle.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <Yk4vfAd0J5u+wUsq@char.us.oracle.com>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220411_205026_452891_817CAB82 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20220411_232128_235380_9F0BBCD8 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,128 +70,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+On Wed, Apr 06, 2022 at 08:25:32PM -0400, Konrad Rzeszutek Wilk wrote:
+> > diff --git a/arch/powerpc/platforms/pseries/svm.c b/arch/powerpc/platforms/pseries/svm.c
+> > index c5228f4969eb2..3b4045d508ec8 100644
+> > --- a/arch/powerpc/platforms/pseries/svm.c
+> > +++ b/arch/powerpc/platforms/pseries/svm.c
+> > @@ -28,7 +28,7 @@ static int __init init_svm(void)
+> >  	 * need to use the SWIOTLB buffer for DMA even if dma_capable() says
+> >  	 * otherwise.
+> >  	 */
+> > -	swiotlb_force = SWIOTLB_FORCE;
+> > +	ppc_swiotlb_flags |= SWIOTLB_ANY | SWIOTLB_FORCE;
+> 
+> This is the only place you set the ppc_swiotlb_flags.. so I wonder why
+> the '|=' instead of just '=' ?
 
-The current implementation is the same with 8e86f0b409a4 ("arm64:
-atomics: fix use of acquire + release for full barrier semantics").
-RISC-V could combine acquire and release into the AMO instructions
-and it could reduce the cost of instruction in performance. Here
-are the reasons for optimization:
- - Reduce one extra fence instruction
- - The "LR/SC" instruction with "acquire and release" operation is
-   less cost than ACQUIRE_BARRIER/RELEASE_BARRIER which used
-   precedes-loads/subsequent-stores prohibit to protect only LR/SC
-   self-instruction.
- - Putting acquire/release barrier into the loop shouldn't cost
-   extra performance problems from the micro-arch design view.
-   Because LR and SC are sequential in the loop by RVWMO rules.
-
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
----
- arch/riscv/include/asm/atomic.h  |  6 ++----
- arch/riscv/include/asm/cmpxchg.h | 18 ++++++------------
- 2 files changed, 8 insertions(+), 16 deletions(-)
-
-diff --git a/arch/riscv/include/asm/atomic.h b/arch/riscv/include/asm/atomic.h
-index 20ce8b83bc18..4aaf5b01e7c6 100644
---- a/arch/riscv/include/asm/atomic.h
-+++ b/arch/riscv/include/asm/atomic.h
-@@ -382,9 +382,8 @@ static __always_inline int arch_atomic_sub_if_positive(atomic_t *v, int offset)
- 		"0:	lr.w     %[p],  %[c]\n"
- 		"	sub      %[rc], %[p], %[o]\n"
- 		"	bltz     %[rc], 1f\n"
--		"	sc.w.rl  %[rc], %[rc], %[c]\n"
-+		"	sc.w.aqrl %[rc], %[rc], %[c]\n"
- 		"	bnez     %[rc], 0b\n"
--		"	fence    rw, rw\n"
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		: [o]"r" (offset)
-@@ -404,9 +403,8 @@ static __always_inline s64 arch_atomic64_sub_if_positive(atomic64_t *v, s64 offs
- 		"0:	lr.d     %[p],  %[c]\n"
- 		"	sub      %[rc], %[p], %[o]\n"
- 		"	bltz     %[rc], 1f\n"
--		"	sc.d.rl  %[rc], %[rc], %[c]\n"
-+		"	sc.d.aqrl %[rc], %[rc], %[c]\n"
- 		"	bnez     %[rc], 0b\n"
--		"	fence    rw, rw\n"
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		: [o]"r" (offset)
-diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
-index 1af8db92250b..dfb51c98324d 100644
---- a/arch/riscv/include/asm/cmpxchg.h
-+++ b/arch/riscv/include/asm/cmpxchg.h
-@@ -215,9 +215,8 @@
- 		__asm__ __volatile__ (					\
- 			"0:	lr.w %0, %2\n"				\
- 			"	bne  %0, %z3, 1f\n"			\
--			"	sc.w %1, %z4, %2\n"			\
-+			"	sc.w.aq %1, %z4, %2\n"			\
- 			"	bnez %1, 0b\n"				\
--			RISCV_ACQUIRE_BARRIER				\
- 			"1:\n"						\
- 			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
- 			: "rJ" ((long)__old), "rJ" (__new)		\
-@@ -227,9 +226,8 @@
- 		__asm__ __volatile__ (					\
- 			"0:	lr.d %0, %2\n"				\
- 			"	bne %0, %z3, 1f\n"			\
--			"	sc.d %1, %z4, %2\n"			\
-+			"	sc.d.aq %1, %z4, %2\n"			\
- 			"	bnez %1, 0b\n"				\
--			RISCV_ACQUIRE_BARRIER				\
- 			"1:\n"						\
- 			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
- 			: "rJ" (__old), "rJ" (__new)			\
-@@ -259,8 +257,7 @@
- 	switch (size) {							\
- 	case 4:								\
- 		__asm__ __volatile__ (					\
--			RISCV_RELEASE_BARRIER				\
--			"0:	lr.w %0, %2\n"				\
-+			"0:	lr.w.rl %0, %2\n"			\
- 			"	bne  %0, %z3, 1f\n"			\
- 			"	sc.w %1, %z4, %2\n"			\
- 			"	bnez %1, 0b\n"				\
-@@ -271,8 +268,7 @@
- 		break;							\
- 	case 8:								\
- 		__asm__ __volatile__ (					\
--			RISCV_RELEASE_BARRIER				\
--			"0:	lr.d %0, %2\n"				\
-+			"0:	lr.d.rl %0, %2\n"			\
- 			"	bne %0, %z3, 1f\n"			\
- 			"	sc.d %1, %z4, %2\n"			\
- 			"	bnez %1, 0b\n"				\
-@@ -307,9 +303,8 @@
- 		__asm__ __volatile__ (					\
- 			"0:	lr.w %0, %2\n"				\
- 			"	bne  %0, %z3, 1f\n"			\
--			"	sc.w.rl %1, %z4, %2\n"			\
-+			"	sc.w.aqrl %1, %z4, %2\n"		\
- 			"	bnez %1, 0b\n"				\
--			"	fence rw, rw\n"				\
- 			"1:\n"						\
- 			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
- 			: "rJ" ((long)__old), "rJ" (__new)		\
-@@ -319,9 +314,8 @@
- 		__asm__ __volatile__ (					\
- 			"0:	lr.d %0, %2\n"				\
- 			"	bne %0, %z3, 1f\n"			\
--			"	sc.d.rl %1, %z4, %2\n"			\
-+			"	sc.d.aqrl %1, %z4, %2\n"		\
- 			"	bnez %1, 0b\n"				\
--			"	fence rw, rw\n"				\
- 			"1:\n"						\
- 			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
- 			: "rJ" (__old), "rJ" (__new)			\
--- 
-2.25.1
-
+Preparing for setting others and not clobbering the value.
 
 _______________________________________________
 linux-riscv mailing list
