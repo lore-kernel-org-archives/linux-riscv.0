@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A598FC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Apr 2022 03:03:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BC4BC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Apr 2022 03:03:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XD48g5qEGNaMqudHPjmkOvhl0010iksdXW4hC25gyZ0=; b=HLAqa4KdwU3fAP
-	oKj0lQt7ALGqMBT/YFuUvzjUNVSn6Iwqt4w/B20DYfDboB/iwFM7Oz3xurS2vYSGCK3TV5M4rH80s
-	ASE/HwJ0VazOXZsLQlU+pV+0pCewNKa173EA/6jBrfqb1nLAlbN1WHPabZ4vzhtJ6tMWk1/3BN77B
-	lvgG4GRNqTAbL3YVcym3FOyppVjR2pjUeURq2rqaSPmf/8Ul+l8yfiXcWdRsXmQOEpBeyywTk66Sn
-	wbKosTs3DzC2giJIoI1ihj5sSxHsd1WPNAn2No0RdJiOzOEaFbvkxs062PwWFB2H8/3jYyvMW+wba
-	R3OyIAjo61sTfxRLBm2A==;
+	List-Owner; bh=0MwfCJ8fVfjDyI0ZxwGvj2AgsmdTxz5FbGnh+lOAcow=; b=WBbujaFDE2W+6/
+	63a2YLQfP2ymW/lM0q+u2H6Rx0OkEUf+9FoAW0x6kkikaYptAjT8bta5iKi1uf7lr3ggO9H31TXUM
+	DHU6+7uc1H8z96WD6sD25T/1o/65Tph2So4TiGMtKe7iIFDO2dUo+JFAm1bbp6SnjGV/NZyPAEp10
+	YRs/Qxkp9ytmLcGnAf5UL5K/7Motgv8sPnbLT1dkR+cPa5LUrT6IYTV14VrDPJHdDhFQdn2QwExcS
+	hdHzx6q2KdjvF+XrUG3XqyfrE/dLH3qHYklGKyiNiRwR4jXmLXgFEpNzIM/DcVlwyFd/+S0l9/9Zw
+	PbA3meLrC4IAlBsVcCgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1neTIC-00GTv3-Kn; Wed, 13 Apr 2022 03:03:40 +0000
+	id 1neTIJ-00GU0z-5g; Wed, 13 Apr 2022 03:03:47 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1neTI3-00GTpP-Oo
- for linux-riscv@bombadil.infradead.org; Wed, 13 Apr 2022 03:03:31 +0000
+ id 1neTI5-00GTqE-3C
+ for linux-riscv@bombadil.infradead.org; Wed, 13 Apr 2022 03:03:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
  :References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
  Content-Type:Content-ID:Content-Description;
- bh=wqdeRl7jHofN4Z1alkv3hGslmUw1rjDMh2GLBbQfddQ=; b=qulGs1EaIF8l91xICWDgHCDqF9
- pJVkcL3Vr0qy3799/7aQO36IwP+kODzkWBcEccbvZcoehmP4mOOJo7vXZlPBHm7D/Qn6o1nXytshs
- c/VFRn3WA0delZW7GLXu9zVACJ7kWi3meFYpicBwSnT3U1JukYO7Epoahu/DJPNJo3jCSIu23msV9
- CX7J87MGv2KLeEieQpu4vvZfckUz1vwMQrhlMsF9w3182noOnShI1KM+gPO214M6DM7VfV7sKI4A8
- BzTbHrCDj6R/TCwtzONMxRrgUDqgmTm+GHfK+St1MivXRT2dr2LsdeC3g5C3htGqCUm5MTxzBhRBQ
- 4UpPB5Kw==;
+ bh=OJXAEJfNu5QyPWGPIvqek9SteMi6/OmHJroXibubk4Q=; b=jjSQ9wgs0X1asr62jGMRPUh1+N
+ gRi4Os8anBol02oHpBY0vGJItH2OWopgbpnaadeCqTwsufAlFaurbJHHRdwFGrJRv7bQ7ustWmtC9
+ ojdwxXkvndeL8QR+OFjwTwgLkjEJwPBm1UUIk/UjlRNSA+Ye7GThCfFTtkGG5T//qLVI8+98LZlQf
+ JXJZQTczHriA8Vzypd4hzMZARIZBN3MDfBdV0rtdudHi7G2SmFopFR9vYyRgu8vbvU8V4vZENhxxn
+ M9CfmxuiDpwn6/3OwafBrKQ6cbVIy6Ama9+VLfouHTjict7jRTDXCfhG+JKOFEi8b5MYAxD+9pCAL
+ hbyZ1HFQ==;
 Received: from gloria.sntech.de ([185.11.138.130])
  by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1neTHz-004WXf-Hv
- for linux-riscv@lists.infradead.org; Wed, 13 Apr 2022 03:03:29 +0000
+ id 1neTHz-004WXe-L8
+ for linux-riscv@lists.infradead.org; Wed, 13 Apr 2022 03:03:31 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
  helo=phil.fritz.box)
  by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
  (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1neTHr-0006sN-Ne; Wed, 13 Apr 2022 05:03:19 +0200
+ id 1neTHp-0006sN-9D; Wed, 13 Apr 2022 05:03:17 +0200
 From: Heiko Stuebner <heiko@sntech.de>
 To: palmer@dabbelt.com,
 	paul.walmsley@sifive.com,
@@ -57,16 +57,16 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  jscheid@ventanamicro.com, rtrauben@gmail.com, samuel@sholland.org,
  cmuellner@linux.com, philipp.tomsich@vrull.eu,
  Heiko Stuebner <heiko@sntech.de>
-Subject: [PATCH v9 07/12] riscv: move boot alternatives to after fill_hwcap
-Date: Wed, 13 Apr 2022 05:03:02 +0200
-Message-Id: <20220413030307.133807-8-heiko@sntech.de>
+Subject: [PATCH v9 04/12] riscv: implement ALTERNATIVE_2 macro
+Date: Wed, 13 Apr 2022 05:02:59 +0200
+Message-Id: <20220413030307.133807-5-heiko@sntech.de>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220413030307.133807-1-heiko@sntech.de>
 References: <20220413030307.133807-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220413_040327_687598_9558EF6C 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20220413_040328_383030_421E5B4C 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,58 +83,132 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move the application of boot alternatives to after the hw-capabilities
-are populated. This allows to check for available extensions when
-determining which alternatives to apply and also makes it actually
-work if CONFIG_SMP is disabled for whatever reason.
+When the alternatives were added the commit already provided a template
+on how to implement 2 different alternatives for one piece of code.
+
+Make this usable.
 
 Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-Reviewed-by: Christoph Hellwig <hch@lst.de>
 ---
- arch/riscv/kernel/setup.c   | 2 ++
- arch/riscv/kernel/smpboot.c | 2 --
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ arch/riscv/include/asm/alternative-macros.h | 78 +++++++++++++++------
+ 1 file changed, 58 insertions(+), 20 deletions(-)
 
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index f4f4a64bc3a0..9162e9a824d2 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -21,6 +21,7 @@
- #include <linux/efi.h>
- #include <linux/crash_dump.h>
+diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
+index 5dd8d03a13da..9e04cd53afc8 100644
+--- a/arch/riscv/include/asm/alternative-macros.h
++++ b/arch/riscv/include/asm/alternative-macros.h
+@@ -39,6 +39,24 @@
+ #define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k) \
+ 	__ALTERNATIVE_CFG old_c, new_c, vendor_id, errata_id, IS_ENABLED(CONFIG_k)
  
-+#include <asm/alternative.h>
- #include <asm/cpu_ops.h>
- #include <asm/early_ioremap.h>
- #include <asm/pgtable.h>
-@@ -295,6 +296,7 @@ void __init setup_arch(char **cmdline_p)
++.macro __ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, enable_1, \
++				  new_c_2, vendor_id_2, errata_id_2, enable_2
++886 :
++	\old_c
++887 :
++	ALT_NEW_CONTENT \vendor_id_1, \errata_id_1, \enable_1, \new_c_1
++	ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
++.endm
++
++#define _ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1,	\
++					CONFIG_k_1,			\
++				  new_c_2, vendor_id_2, errata_id_2,	\
++					CONFIG_k_2)			\
++	__ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1,	\
++					IS_ENABLED(CONFIG_k_1),		\
++				   new_c_2, vendor_id_2, errata_id_2,	\
++					IS_ENABLED(CONFIG_k_2)
++
+ #else /* !__ASSEMBLY__ */
+ 
+ #include <asm/asm.h>
+@@ -74,6 +92,25 @@
+ #define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k)	\
+ 	__ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, IS_ENABLED(CONFIG_k))
+ 
++#define __ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1,	\
++					enable_1,			\
++				   new_c_2, vendor_id_2, errata_id_2,	\
++					enable_2)			\
++	"886 :\n"							\
++	old_c "\n"							\
++	"887 :\n"							\
++	ALT_NEW_CONTENT(vendor_id_1, errata_id_1, enable_1, new_c_1)	\
++	ALT_NEW_CONTENT(vendor_id_2, errata_id_2, enable_2, new_c_2)
++
++#define _ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1,	\
++					CONFIG_k_1,			\
++				  new_c_2, vendor_id_2, errata_id_2,	\
++					CONFIG_k_2)			\
++	__ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1,	\
++					IS_ENABLED(CONFIG_k_1),		\
++				   new_c_2, vendor_id_2, errata_id_2,	\
++					IS_ENABLED(CONFIG_k_2))
++
+ #endif /* __ASSEMBLY__ */
+ 
+ #else /* CONFIG_RISCV_ALTERNATIVE */
+@@ -86,6 +123,12 @@
+ #define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k) \
+ 	__ALTERNATIVE_CFG old_c
+ 
++#define _ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1,	\
++					CONFIG_k_1,			\
++				  new_c_2, vendor_id_2, errata_id_2,	\
++					CONFIG_k_2)			\
++       __ALTERNATIVE_CFG old_c
++
+ #else /* !__ASSEMBLY__ */
+ 
+ #define __ALTERNATIVE_CFG(old_c)  \
+@@ -94,6 +137,12 @@
+ #define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k) \
+ 	__ALTERNATIVE_CFG(old_c)
+ 
++#define _ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1,	\
++					CONFIG_k_1,			\
++				  new_c_2, vendor_id_2, errata_id_2,	\
++					CONFIG_k_2) \
++       __ALTERNATIVE_CFG(old_c)
++
+ #endif /* __ASSEMBLY__ */
+ #endif /* CONFIG_RISCV_ALTERNATIVE */
+ 
+@@ -119,25 +168,14 @@
+  * this case, this vendor can create a new macro ALTERNATIVE_2() based
+  * on the following sample code and then replace ALTERNATIVE() with
+  * ALTERNATIVE_2() to append its customized content.
+- *
+- * .macro __ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, enable_1, \
+- *                                   new_c_2, vendor_id_2, errata_id_2, enable_2
+- * 886 :
+- *      \old_c
+- * 887 :
+- *      ALT_NEW_CONTENT \vendor_id_1, \errata_id_1, \enable_1, \new_c_1
+- *      ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
+- * .endm
+- *
+- * #define _ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1, CONFIG_k_1, \
+- *                                   new_c_2, vendor_id_2, errata_id_2, CONFIG_k_2) \
+- *        __ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, IS_ENABLED(CONFIG_k_1), \
+- *                                   new_c_2, vendor_id_2, errata_id_2, IS_ENABLED(CONFIG_k_2) \
+- *
+- * #define ALTERNATIVE_2(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1, \
+- *                                    new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2) \
+- *         _ALTERNATIVE_CFG_2(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1, \
+- *                                         new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2)
+- *
+  */
++#define ALTERNATIVE_2(old_content, new_content_1, vendor_id_1,		\
++					errata_id_1, CONFIG_k_1,	\
++				   new_content_2, vendor_id_2,		\
++					errata_id_2, CONFIG_k_2)	\
++	_ALTERNATIVE_CFG_2(old_content, new_content_1, vendor_id_1,	\
++					    errata_id_1, CONFIG_k_1,	\
++					new_content_2, vendor_id_2,	\
++					    errata_id_2, CONFIG_k_2)
++
  #endif
- 
- 	riscv_fill_hwcap();
-+	apply_boot_alternatives();
- }
- 
- static int __init topology_init(void)
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index a6d13dca1403..f1e4948a4b52 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -32,7 +32,6 @@
- #include <asm/sections.h>
- #include <asm/sbi.h>
- #include <asm/smp.h>
--#include <asm/alternative.h>
- 
- #include "head.h"
- 
-@@ -41,7 +40,6 @@ static DECLARE_COMPLETION(cpu_running);
- void __init smp_prepare_boot_cpu(void)
- {
- 	init_cpu_topology();
--	apply_boot_alternatives();
- }
- 
- void __init smp_prepare_cpus(unsigned int max_cpus)
 -- 
 2.35.1
 
