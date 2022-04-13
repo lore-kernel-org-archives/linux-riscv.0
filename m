@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12A0CC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Apr 2022 14:33:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64F13C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Apr 2022 14:40:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Uf9xt6gpNECnkdfrzv3fyKrM8zQW1Qf15dkVuBEc4g4=; b=0Hv3HzLh4NuRyE
-	tTzl6fwubL+0qskTojTkY3Ngcf9yEiQUEIqXGxRz/IBIwhZkAlzx8y2Y6ZCdz0bsCTQT1KkaDgCs4
-	Pf78nflRO01/FNLk+NcIX88en2Ar9QDEx53sKrp9G4BbLg4K5Zl7lPXL3bK9aJLptqPATISs6THk/
-	eTM6QT8d/3vQ4aE0/tUQ2FDHkr48N9MKv1cLCnmZCGhlW+xUekad/Ip2n645Ae6Wijk+PxRC4oh6Q
-	y6g3o1/KLe76LTVYop/2q0N6YQPJHMdEMM1loKUVKlwGjv58DN+Hatvi4s55pizu32q+JR+QOM4sJ
-	TAKc8F7SQx0sHxpUiT8g==;
+	List-Owner; bh=yU8TCQsiHMg6A+1Fb93ErLWXBCuXpKVI7HYyDxp3tB0=; b=NIUM5xGeQSxBzr
+	bfwamunn/2IGq50MvWAPoQ+BomzoXLQxtxuEsAarLg82HqndI2g018Fbb7Re74KJODySznWspDfSq
+	5eLCCMUra3e1BqBCOssLX48YZ/JJRxXyOx30DaimxmsO1Ii7X3ysYLgYpsdrdYwqKhaj9WEzQh8xe
+	XIdC1U78uS6gOGMu3KXWnGRFx2h0ggfNuOnRGAVatx6HSdvfy+rpu22mswCot537bTFZBfpJghexL
+	9zm4AtbYptEsYEfWguIVZVxAWARdOVBLZ0V7OrLnl685aoMRpa+lgvepVP/sApl7LnDj9bOK66Eg6
+	6gNF5JZgNSqpcWKOtZHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nee3V-001Pnk-K8; Wed, 13 Apr 2022 14:33:13 +0000
+	id 1neeAs-001RVu-GJ; Wed, 13 Apr 2022 14:40:50 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nee3I-001Pju-QK; Wed, 13 Apr 2022 14:33:02 +0000
+ id 1neeAf-001RTn-TT; Wed, 13 Apr 2022 14:40:39 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 677EEB824FB;
- Wed, 13 Apr 2022 14:32:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B5B3C385A3;
- Wed, 13 Apr 2022 14:32:57 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 69B62B824F9;
+ Wed, 13 Apr 2022 14:40:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 207FDC385A3;
+ Wed, 13 Apr 2022 14:40:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1649860377;
- bh=y/gFQs+hgHZ3/vvOq41ylGPCtjhP53O/JBKcPRIcQfg=;
+ s=k20201202; t=1649860835;
+ bh=78m64rXl3BqnnR/vfXtui5J5LLZFfkI1NSRN1fS+Ck0=;
  h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=j9z9yWf8zEBxpTdwXTBA42xlV0Br6pgBatJ9sZ+YFz9LeI2saNhT1Bt0zi1X0urlL
- CI5liYogMUqvV61ey99QW3McYhlY26REm9v2P/huS84KMGI/k9oIyLs8IlEM/0Iovs
- lj1JN/763Sr2cWqDd3F8GuvqDOU6tjFxjvUJqP8iW1M3p1zSdZLc72xZJgACvgsla4
- mtjhKV2l+be+xhGxib4Epqg0KtTxytIlXBxXkybu3Mv8hFLnjnnC38OEhpdvJlPRJa
- NGtK3aKDybE/aad/0SbJcOL8d4+sP+GaiPIe5izEZKuzZg7b/ZSqROZkcmhqVzhfO8
- BvzDu2yEGHOgA==
-Received: by mail-qt1-f174.google.com with SMTP id a11so1454620qtb.12;
- Wed, 13 Apr 2022 07:32:57 -0700 (PDT)
-X-Gm-Message-State: AOAM532LN92xES5oZslGVCgjIydVomRs1QyXeasU2lpNppUGsjTbv+jX
- 6md+wvANeD6fT25mA3mJ1RHLe9uvWortti2orw==
-X-Google-Smtp-Source: ABdhPJztV5+8KEJ74WCQvEE2mueV1uP9FdDpJontci3NKw8uFVcyU1+ScsVCAwrzKj/88xIwClDnzYiNbkHkece/VFk=
-X-Received: by 2002:a05:6638:24d0:b0:326:34d2:5c22 with SMTP id
- y16-20020a05663824d000b0032634d25c22mr6761858jat.91.1649860365852; Wed, 13
- Apr 2022 07:32:45 -0700 (PDT)
+ b=mBloTi80NCaNPxXcwcRvo8wyFdlQMZCqyt+qQA90W9fNmHUAzaiOuprMwuzvpsxMk
+ YcLi2wOjr4XpHl6X+XRYZ0WZQqU5k1x62zj+5sVyG0Jlk8evP3rvZpvEzOdJksUFOj
+ LY4BUyne6tOFbpV/GUNZBBafSr9j+yiHZVAnXEg7WkroShW/BxW6USkdfv+RLfi5fA
+ +rJMsX2moMxKIH3oc7TKuw8PRT1E4rfmo9GPcCFQM+RcNjrFHQenVHrac3luK73yqC
+ qeYswip5BzTciW78mineRnxf9WLHZZNQidRz7jCtUe+DkxHv0sNSswpjhqJ5wnolEH
+ 0sy3bYxeJMutw==
+Received: by mail-pg1-f169.google.com with SMTP id q12so1969387pgj.13;
+ Wed, 13 Apr 2022 07:40:35 -0700 (PDT)
+X-Gm-Message-State: AOAM533jIv9ZUytvxcJVFkj0E0da/+8XB+odOAkrn8pZRGtljpTNFMWO
+ fh5dgq9DGIzmoe3ys1/mD0s8LswszpsfolpnSQ==
+X-Google-Smtp-Source: ABdhPJwPF0VHE9D8w/oeESIlTTrvwO1gVXfb+xfx+0hNhkJEN+zqgaOI+EWicwhkoM5T8fMAkoGBIRO6Tom03sqTu+o=
+X-Received: by 2002:a92:dd86:0:b0:2bc:805c:23c7 with SMTP id
+ g6-20020a92dd86000000b002bc805c23c7mr17523118iln.279.1649860824300; Wed, 13
+ Apr 2022 07:40:24 -0700 (PDT)
 MIME-Version: 1.0
 References: <20220413115411.21489-1-Jason@zx2c4.com>
- <20220413115411.21489-2-Jason@zx2c4.com>
-In-Reply-To: <20220413115411.21489-2-Jason@zx2c4.com>
+ <20220413115411.21489-4-Jason@zx2c4.com>
+In-Reply-To: <20220413115411.21489-4-Jason@zx2c4.com>
 From: Rob Herring <robh@kernel.org>
-Date: Wed, 13 Apr 2022 09:32:34 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqJYq5Oe_zBbcwYNMpfpqGLGCyaSfGqOrPjZ_Pj=nF73mA@mail.gmail.com>
-Message-ID: <CAL_JsqJYq5Oe_zBbcwYNMpfpqGLGCyaSfGqOrPjZ_Pj=nF73mA@mail.gmail.com>
-Subject: Re: [PATCH v4 01/11] timekeeping: add raw clock fallback for
- random_get_entropy()
+Date: Wed, 13 Apr 2022 09:40:13 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqJ86vZKZQO+9_Kva-EbZrRPMbcgDm+UvjJdnR=GL-qHSw@mail.gmail.com>
+Message-ID: <CAL_JsqJ86vZKZQO+9_Kva-EbZrRPMbcgDm+UvjJdnR=GL-qHSw@mail.gmail.com>
+Subject: Re: [PATCH v4 03/11] riscv: use fallback for random_get_entropy()
+ instead of zero
 To: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
  "open list:HARDWARE RANDOM NUMBER GENERATOR CORE"
@@ -86,8 +86,8 @@ Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
  sparclinux <sparclinux@vger.kernel.org>, linux-um@lists.infradead.org, 
  X86 ML <x86@kernel.org>, linux-xtensa@linux-xtensa.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220413_073301_176665_BE9E5FBA 
-X-CRM114-Status: GOOD (  28.55  )
+X-CRM114-CacheID: sfid-20220413_074038_273112_22EA6FB2 
+X-CRM114-Status: GOOD (  24.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,60 +104,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 13, 2022 at 6:55 AM Jason A. Donenfeld <Jason@zx2c4.com> wrote:
+On Wed, Apr 13, 2022 at 6:56 AM Jason A. Donenfeld <Jason@zx2c4.com> wrote:
 >
-> The addition of random_get_entropy_fallback() provides access to
-> whichever time source has the highest frequency, which is useful for
-> gathering entropy on platforms without available cycle counters. It's
-> not necessarily as good as being able to quickly access a cycle counter
-> that the CPU has, but it's still something, even when it falls back to
-> being jiffies-based.
->
-> In the event that a given arch does not define get_cycles(), falling
-> back to the get_cycles() default implementation that returns 0 is really
-> not the best we can do. Instead, at least calling
-> random_get_entropy_fallback() would be preferable, because that always
-> needs to return _something_, even falling back to jiffies eventually.
-> It's not as though random_get_entropy_fallback() is super high precision
-> or guaranteed to be entropic, but basically anything that's not zero all
-> the time is better than returning zero all the time.
+> In the event that random_get_entropy() can't access a cycle counter or
+> similar, falling back to returning 0 is really not the best we can do.
+> Instead, at least calling random_get_entropy_fallback() would be
+> preferable, because that always needs to return _something_, even
+> falling back to jiffies eventually. It's not as though
+> random_get_entropy_fallback() is super high precision or guaranteed to
+> be entropic, but basically anything that's not zero all the time is
+> better than returning zero all the time.
 >
 > Cc: Thomas Gleixner <tglx@linutronix.de>
 > Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Theodore Ts'o <tytso@mit.edu>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
 > Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
 > ---
->  include/linux/timex.h     |  8 ++++++++
->  kernel/time/timekeeping.c | 10 ++++++++++
->  2 files changed, 18 insertions(+)
+>  arch/riscv/include/asm/timex.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> diff --git a/include/linux/timex.h b/include/linux/timex.h
-> index 5745c90c8800..fbbe34226044 100644
-> --- a/include/linux/timex.h
-> +++ b/include/linux/timex.h
-> @@ -62,6 +62,8 @@
->  #include <linux/types.h>
->  #include <linux/param.h>
->
-> +extern unsigned long random_get_entropy_fallback(void);
-> +
->  #include <asm/timex.h>
->
->  #ifndef random_get_entropy
-> @@ -74,8 +76,14 @@
->   *
->   * By default we use get_cycles() for this purpose, but individual
->   * architectures may override this in their asm/timex.h header file.
-> + * If a given arch does not have get_cycles(), then we fallback to
+> diff --git a/arch/riscv/include/asm/timex.h b/arch/riscv/include/asm/timex.h
+> index 507cae273bc6..d6a7428f6248 100644
+> --- a/arch/riscv/include/asm/timex.h
+> +++ b/arch/riscv/include/asm/timex.h
+> @@ -41,7 +41,7 @@ static inline u32 get_cycles_hi(void)
+>  static inline unsigned long random_get_entropy(void)
+>  {
+>         if (unlikely(clint_time_val == NULL))
 
-'does not have a usable get_cycles(), ...' as clearly some arches have
-get_cycles() and yet still need a fallback.
+Moving this check to get_cycles() implementation would eliminate the
+RiscV implementation of random_get_entropy() if you follow my other
+suggestion.
 
-Why not handle the 'if get_cycles() returns 0 do the fallback' within
-a weak random_get_entropy() function? Then more arches don't need any
-random_get_entropy() implementation.
+I guess there's some advantage to skipping a NULL check every time for
+get_cycles(), but really the register read time will be much slower
+than an added check.
 
-Rob
+> -               return 0;
+> +               return random_get_entropy_fallback();
+>         return get_cycles();
+>  }
+>  #define random_get_entropy()   random_get_entropy()
 
 _______________________________________________
 linux-riscv mailing list
