@@ -4,101 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2447AC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Apr 2022 15:46:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF633C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Apr 2022 18:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WoFqlktXZJRdR60H+YOV9QiReTMYYGP7W7vk410zMSc=; b=dyArDQmvt+6HDHMLW+9PDRd66g
-	0Dz8je1x0U98tubl9WHBjityYT0uWgsf1zs0cPjdtIzumi+GyAGTCxmtTNVhJMbk5OSZ6qbrMsoLr
-	gRPtjRxkqNft6P7oeeElMwJHgPgQumz/yEEng2ipMU0Pg4G4FfLWdQiWn46yfrO9YbV17Bm6JKcm5
-	8wiBHqH4RCsFnAf/23wY3wsPIRK54g69pweR+Hh9FKSCoWqlS8Se1yL7UJCsiEoG6zWQeFAf+D0Pm
-	6ZvPFVwZE7r1txEcfZ/rmvbMiTq3nW9vJD0iG5c+/LOhhOqvzsVBqw+vaPEU+wDecMBau2bhaxCW2
-	WY0A62jw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=NOTzMFPD/b/MHigOyP5opHbDM4Z+oRJV9EInzQErOg0=; b=lTk/0bibiBFhkX
+	GZYjuBdzUAmmWCp+lScsIOVTqT23YdfNs8RN92uQ76zduktJzPyBBoFsfPy+cdhxFgIOKQORqPUvG
+	TN7JUEstE30ZPkJqBH+z3TWPfcL8qknUDtElHYPOZ4S+ZQGHqz+AWHOCOlRPhNPWHUwrYRkBsxtdH
+	lHgkuSAJwQFPyFz6FC5p4iHypCO5dThcTFZFWATgFGqbtrjC5I9DCzSw5D0LsEFDiFtgBJm4cfIIt
+	JN9Mc8C3TGmk1zYlLuDspUx/lGOGhTwwx8ShANgO0vgLD9kuMyBLQ3nP5GJ7K/q2lLInXvwOcH3/K
+	RhdgPNr/HbFAsgkjz2ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nefCE-001eUr-39; Wed, 13 Apr 2022 15:46:18 +0000
-Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
+	id 1nehUf-0022WM-Ng; Wed, 13 Apr 2022 18:13:29 +0000
+Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nefCB-001eSC-Ey
- for linux-riscv@lists.infradead.org; Wed, 13 Apr 2022 15:46:17 +0000
-Received: by mail-qk1-x730.google.com with SMTP id j6so1721990qkp.9
- for <linux-riscv@lists.infradead.org>; Wed, 13 Apr 2022 08:46:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=1YdLQXxMOH03x0SbnGmKpWrPU6dm2R7TxKypWUEVbgQ=;
- b=N/5+rE05+wJmxX89f5a2Dz/r6Gp205oy9BOnTqiTZF7l9Y5vVpWcvsfpxfraZ/Y7Xt
- 3MROOCvvSLcekz4PRkWNLWGxUl4YCX8xD3sKvNMse3NTnPFyPa/gEaMbEUVAiSwXupJc
- dqttYsb+nzr4FRMNrBwXwd3hz4Br4LuKqgbR+L/yAg1bIvPn8FErdyW9aU/vMdds9ZX1
- Ij5xEPKixKBlkp8BqT2K641J2keHtI8bfjq9iULbWq3FzNv6MqsYN7ehORgGUzhEuFAv
- 8gf8uLCNXroOVEE2gl9eMggstv2bmY0Z9By7PIrFSZChD8kiEKJ4E16YYaDYutzVVvfQ
- hJGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=1YdLQXxMOH03x0SbnGmKpWrPU6dm2R7TxKypWUEVbgQ=;
- b=x3MrAFsETjqBml8uPsyDdXOP0g3pNDnl84QiMx8w1DQbe5wzc73NX4ph3mjHavyQLS
- ySbaUTYv/CFWLAt9LIZrVLTanHG9Kpsdaexequx6VLpXwLNLYUc722p8R9A1hjQzGaBI
- lisOt5DyFH7EV+rUBSzQ6MMXKCJtSWjdtcq3JSTYpzoP2rjqK7/cMhOKhDYx5C6i7roS
- H2Wstvg9SW7HvJ0X6V2xluLnqYMP3ughywLo77XTcok3DrBQErxuyjlqeT5nRPSE41H9
- lda3JCguVS3vBwoV7sE83D9tIsoSq4J10X4Lyyrdb6nnX+ZB4HA73BbB1nxupk4cowh5
- DW7Q==
-X-Gm-Message-State: AOAM533P6sJJLp0p+ckkdzgnowCfjHAR3W191Fje9RgDFQJYvM003rQM
- lXGkUz+DM+5oIVenpfNgD+o=
-X-Google-Smtp-Source: ABdhPJwucGmNCNzNG5RX1VXPuLCdwMFZeNJYY+st3YU+BqtTMgL90GMQoqUyb8tpFQO3S5dXc/Bcjw==
-X-Received: by 2002:a37:389:0:b0:69b:f56e:1672 with SMTP id
- 131-20020a370389000000b0069bf56e1672mr7463010qkd.614.1649864770825; 
- Wed, 13 Apr 2022 08:46:10 -0700 (PDT)
-Received: from auth2-smtp.messagingengine.com (auth2-smtp.messagingengine.com.
- [66.111.4.228]) by smtp.gmail.com with ESMTPSA id
- 2-20020a05620a070200b0069c231ab4a9sm5351832qkc.16.2022.04.13.08.46.08
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 13 Apr 2022 08:46:09 -0700 (PDT)
-Received: from compute2.internal (compute2.nyi.internal [10.202.2.46])
- by mailauth.nyi.internal (Postfix) with ESMTP id 9B8BD27C005A;
- Wed, 13 Apr 2022 11:46:08 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
- by compute2.internal (MEProxy); Wed, 13 Apr 2022 11:46:08 -0400
-X-ME-Sender: <xms:P_BWYiQedrJBlnrkpQdIcsCc7hFTsPI0L7yWwa4BV7HIb4YG4CIQhQ>
- <xme:P_BWYnxJhWRjCWjO6KLRlldt_tZ5c67hmLXR5DaQ5TsF3PLCQ3OWS0exShUpuWrmQ
- 941FaZ6ztTOFRAhaA>
-X-ME-Received: <xmr:P_BWYv0Jdsrpiy41epwEZa6weK_4rZPLqwKgaq8eWkSDRQ_nOb2Hp0entQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvvddrudeluddgieeiucetufdoteggodetrfdotf
- fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
- uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
- cujfgurhepfffhvffukfhfgggtuggjsehgtderredttddvnecuhfhrohhmpeeuohhquhhn
- ucfhvghnghcuoegsohhquhhnrdhfvghnghesghhmrghilhdrtghomheqnecuggftrfgrth
- htvghrnhepheefudejueffjeelkedtgeelleelgfffhffhvdehtdekveehjeeivdejgedu
- udegnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepsg
- hoqhhunhdomhgvshhmthhprghuthhhphgvrhhsohhnrghlihhthidqieelvdeghedtieeg
- qddujeejkeehheehvddqsghoqhhunhdrfhgvnhhgpeepghhmrghilhdrtghomhesfhhigi
- hmvgdrnhgrmhgv
-X-ME-Proxy: <xmx:P_BWYuD6WiFuchiGBVOVEkc3jIF5jJtpq-YT7juylSfnP0EXIyeSog>
- <xmx:P_BWYrjV5bPEaPU14ER2Q6kh3yMOu3DqAf-qgL1yUdcLo4FloLDDKQ>
- <xmx:P_BWYqrrZS3ZbYKqR54cNSrrP2v528-Jxxm5MLK6Pq1cqso_liHivQ>
- <xmx:QPBWYgZGzeB2-jB3xuemWJbTtBt6WL_jAwARAn7XOLwOV3JlTL16VQ>
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 13 Apr 2022 11:46:04 -0400 (EDT)
-Date: Wed, 13 Apr 2022 23:46:00 +0800
-From: Boqun Feng <boqun.feng@gmail.com>
-To: guoren@kernel.org
-Cc: arnd@arndb.de, palmer@dabbelt.com, mark.rutland@arm.com,
- will@kernel.org, peterz@infradead.org, linux-arch@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Guo Ren <guoren@linux.alibaba.com>, Andrea Parri <parri.andrea@gmail.com>
-Subject: Re: [PATCH V2 0/3] riscv: atomic: Optimize AMO instructions usage
-Message-ID: <YlbwOG46mCR8Q5tJ@tardis>
-References: <20220412034957.1481088-1-guoren@kernel.org>
+ id 1nehUc-0022Uk-8a
+ for linux-riscv@lists.infradead.org; Wed, 13 Apr 2022 18:13:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1649873606; x=1681409606;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-id:content-transfer-encoding: mime-version;
+ bh=SzB0d7WiTUY/MZqJdvQr5qlPZZd6DRvWRXimBhv/lF4=;
+ b=l+ClWEGzOMJMRrD1lcuYHCGkLJB/XEfObCIIgPO+f26wp8bo6LHS/U3W
+ oO34nWBHXxbL0ifqtFxxO4S79OBGRlFISNnI4m+hA+OspJ0pTcSDFvDMT
+ pWNkOkCDh5V2Jiq8Ike/HdJeilt8Vw6MeaLQydebe016UTq10qHMSj2+A
+ Ug4pSwFLK0xm0CmSOAHLDDcRtHpmy0i2fRcdYgHRV/EVe4MWdICl+xXtE
+ RZEgr9uN96tKqDvdijpavS3z+CUKdhes7i1CxGELjhpYPm0iIHjE2MOq+
+ jPwDI/C6ylXrbDiqD6KmBUwrWzFkY/VbNfheq8E2JTJZgzhZbdkH6glbi Q==;
+X-IronPort-AV: E=Sophos;i="5.90,257,1643644800"; d="scan'208";a="198744309"
+Received: from mail-dm6nam12lp2168.outbound.protection.outlook.com (HELO
+ NAM12-DM6-obe.outbound.protection.outlook.com) ([104.47.59.168])
+ by ob1.hgst.iphmx.com with ESMTP; 14 Apr 2022 02:13:22 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=CWE3NZhBtNNRkXa1dRdrlwuflsTHFq2eGD8NfC9/JKr+RyrDSpec/YgTwYz1cnBGK2S2UJXQcfViaNBNFwmvg/INjV2mW01IgIIuqxbnFOXse6ClAiTc8U9BHLa3BqBCAHmfnxJbxKQeXHapzCjqzQy2tD+FOssJ27fNpk8q0hnttH0H2krxR97bWl44XNI5H9D/4Rzh3H6IECL/2aWVt18r2m9ZXXjGaHM7ep4Mlvmn0kdUYaU4zk9mLk/ESRpbY1MZTA95atE4jvYcElyxdkAfIJ2H5N3Zv0XD3jIRT3FWfd2PaV5RH3jW+PnOyenRZ8+VybVYqQrrQ5e2QB7eFg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=toPTeenVBUQtMhwQiRzhPLrdlAoAMDY56IgBu3dDXUI=;
+ b=Tv/8A33QJs5FG1oGhqmmFSG7C6hB4xNKK360YWuiVBw+bqEEmv3XO3pZUUECFZWpbcgeFlAbzjkFI7yleW2y7I/yNgg+xxm/EL2k57UhH9/yF4sBNTiod2rwySzKqISJKLHbHfrWQdywFxO4rIc9Rki3g0TMPxp7EBoxsMMql8KZG8CFPtocGq/m9t7PK7ZAvqrSF8s1NtpySvJw6KUWzpUPMKjvv64zyTMIAWno1V8cvJUJTjY+ZSMpM7CbY+VXG7mC4Y4LIgs/ucsTtnXXRmkUPz37ezgNdoMbS7b5JsSsqSr5qatO3XGYKkbW5kSwUOMdcs1sfhIG5MXb4IPcvw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=toPTeenVBUQtMhwQiRzhPLrdlAoAMDY56IgBu3dDXUI=;
+ b=U5dk9dF1QAG9X7dvcBQoPa9GfsW0ggeTdD6e5+8/WiVyX6h8sfjxRLFq9FSoI6yOF5a2aZoIErUm++Kz2oZjdcMXQ8sCQagL8RgFGugPUY/6vFwean96DdaLbpK+tjK/D5dQ7/ZpF66cMlTKHDADTlDuqv4iaOEH4fc8+xtD604=
+Received: from PH0PR04MB7158.namprd04.prod.outlook.com (2603:10b6:510:8::18)
+ by BN8PR04MB5476.namprd04.prod.outlook.com (2603:10b6:408:58::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5164.18; Wed, 13 Apr
+ 2022 18:13:20 +0000
+Received: from PH0PR04MB7158.namprd04.prod.outlook.com
+ ([fe80::995b:363e:8d1c:49af]) by PH0PR04MB7158.namprd04.prod.outlook.com
+ ([fe80::995b:363e:8d1c:49af%8]) with mapi id 15.20.5164.018; Wed, 13 Apr 2022
+ 18:13:19 +0000
+From: Niklas Cassel <Niklas.Cassel@wdc.com>
+To: "Eric W. Biederman" <ebiederm@xmission.com>
+CC: Damien Le Moal <damien.lemoal@opensource.wdc.com>, Alexander Viro
+ <viro@zeniv.linux.org.uk>, Kees Cook <keescook@chromium.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Greg Ungerer <gerg@linux-m68k.org>, Mike Frysinger
+ <vapier@gentoo.org>, "stable@vger.kernel.org" <stable@vger.kernel.org>,
+ "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
+ "linux-mm@kvack.org" <linux-mm@kvack.org>, "linux-riscv@lists.infradead.org"
+ <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH] binfmt_flat: do not stop relocating GOT entries
+ prematurely
+Thread-Topic: [PATCH] binfmt_flat: do not stop relocating GOT entries
+ prematurely
+Thread-Index: AQHYTlSbKHqZCw+JvEK9UT79JBm95qzsJ4yAgAAMu4CAACkDVIABylkA
+Date: Wed, 13 Apr 2022 18:13:19 +0000
+Message-ID: <YlcSvhXeUD89XEYn@x1-carbon>
+References: <20220412100338.437308-1-niklas.cassel@wdc.com>
+ <9437ce7f-0553-3688-5695-69add6b2971c@opensource.wdc.com>
+ <YlVv2Z5y9qhzu7X9@x1-carbon> <878rsatkv6.fsf@email.froward.int.ebiederm.org>
+In-Reply-To: <878rsatkv6.fsf@email.froward.int.ebiederm.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=wdc.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 7119a920-f70c-40af-40a3-08da1d794a29
+x-ms-traffictypediagnostic: BN8PR04MB5476:EE_
+x-microsoft-antispam-prvs: <BN8PR04MB5476D92381C9C38B4A17991AF2EC9@BN8PR04MB5476.namprd04.prod.outlook.com>
+wdcipoutbound: EOP-TRUE
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: EnAhIukfqVllW8oQgm8fjG9kjPIdMoLpLYNq9dg8gg2ylXaA5I/Sht07gz8E06q81D+S9zAyLbOTZXmjo8pZ58JHxn6KYw9lMwK+g14H6W99tZ3HwALO1kXM4R3kHwxQk3D4wlDVJbXFJoAc04N+93AZiLrzVRcxtqdBpI5edFV6kD0QbPZ5Hbsmq1fI+IjM0aPfCVd97FCzMNyPXnqmTyvoIpBsxAYwt971VeKt7/+66Oqr+OX0DxLGPiaqK4jVo9p1pH1YAqW3MWf6CqqUgfXbW2uYs9GXEPM8S29XSb5ELP9XkpJVZbE9Qcqi5D5TxaN0JHAtX7EyVTOvlrAcYorfrqfWYcImMRd4K7Sohjl00X0rk2x2vl+rtJXmrFiDK4p6WUmmr2Pz4NNhxt5NkaPowiAjc17/s5Pzn0EH5MzTTr8Sx4hLFaAJo1a/qAafelaitPEDcKWGmGG42x1XjKSQ4i1EcF6/mKnR27OHMDCvLsVuK2gfitOY77j8eSP5L+GFv+eJexe2QiJYDty4MRBh3xFzmz+4uvCNtuenZXlfICB+eSQhBRTDGDHbtoDuDQbcq4AEqHeJoRWTQF5L/q4e1wUIVrwg/sHT9o1XX5mgPYHeJGS71EL+e/BETqd2h34KK3S12ZfKglJ1BJM9W4LCuLdLpSzMuBHZLBKxLoRocep9774BpFnQgKa9qz8dtYpQmd5v+J2u0JWHBLjLhFTXB2ERMQAWMAvSOgGeXNhIEdGhvBCkDPHv+pkCy/vqp/S9jzebXDNssdRiTNGaMfdytPRf/+WaeAEBqX3Lzi63W5eyT5PI2Su9+sdqiCQBGjpdCS6kaidh8/bWADfdZg==
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:PH0PR04MB7158.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(13230001)(7916004)(4636009)(366004)(83380400001)(9686003)(6512007)(2906002)(4326008)(33716001)(26005)(82960400001)(38100700002)(122000001)(186003)(86362001)(38070700005)(5660300002)(508600001)(66556008)(66446008)(66476007)(316002)(71200400001)(64756008)(966005)(6486002)(7416002)(54906003)(6916009)(76116006)(6506007)(91956017)(8936002)(66946007)(8676002);
+ DIR:OUT; SFP:1102; 
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?gGakjFyGIG1qOjcsWcv/f9tgpNLO2NT6Xo18ifS2VGpPw0EzpSoqL971WEND?=
+ =?us-ascii?Q?khcq9sER00ZYPTj9PiTmSTphDNmeyqDwTybxtiJJsxUnweB8nIa6YX2ibar8?=
+ =?us-ascii?Q?U2mcHaLSIuOg3dwL6d8CNsZAPgP9dkuNDi2oRSlsFRcyI92+0ObKWZscT3uL?=
+ =?us-ascii?Q?CnOGZDF4P0UhDwYgolFZGJ8kAc9KO11hABl1A/LUjczB+QBbDu+B5ZVMfIbc?=
+ =?us-ascii?Q?bqio4n7YR6wBoEgEW2hWtX8JSWfhSj18m6m+y5u+2VWwe2cPkLTF8YpS/E8i?=
+ =?us-ascii?Q?DhXo3WEyufbKv0jhCJFNMOwxqj04yfZ4EUcvHtoiGFQIRXSiHrq0cuOGhcVD?=
+ =?us-ascii?Q?y0OxDBBZAFSgyjthrZGed3ilIhN4InXNmwDsaX+G3/g//6X5YVYvaLxmVlCI?=
+ =?us-ascii?Q?Nz01sv4zHkUrCqkYX42C+TYOUHY6E4COfXJ9GyhUjzq1JYtenQ7Ueik+SYt3?=
+ =?us-ascii?Q?SQcT6jyEtpzft6ZBB15aeoQ9Q6DL9sLDrs+YXhmOxiOOeDPLicPwHZjXFcuF?=
+ =?us-ascii?Q?t5LBZ3goCJn6PtgYooLtcZHf67NTzpD43aiB2inGFYh4MPLfUm3r6MdOjpD4?=
+ =?us-ascii?Q?8Qd8PE5pGh21RWJWLoNA98jeHkaUmpNNkDRzeGvUBHE+olC/d54KE5vdgusC?=
+ =?us-ascii?Q?xYAqsvQdUajr4AJT3IHiUK0T82sJhRfg807lh9o0RY/H1/Pe6EodQwdRBo3R?=
+ =?us-ascii?Q?Pyf09WaJwYA0L+TWyUGqLzdkxdeNNvuVPEPynGAOZNEsnh2hfSul80u5edGL?=
+ =?us-ascii?Q?4VCJ8xFFNusMN569DamL0zABM8s8576UCqdeoZVGR20Chjel8QdU+DoHX/F+?=
+ =?us-ascii?Q?MnoMNPlidgPMuolgcQuqSZFcAHfNms96QVbc1Q6gghBLq7yeyfynYnJCLOMr?=
+ =?us-ascii?Q?G7GGn4vjCgdiplmIL9QzoxqjtqDT7UEmem0pDR8EyGosladmQdC0QWD1Snok?=
+ =?us-ascii?Q?ED5mB+Pi40G/iRXsI/2SUBjyzcgBrcyI1fvNp7R6ssaPYgN61SJt05z7I4gh?=
+ =?us-ascii?Q?bcWMGtFakMa3gJGMQPDRV++WQ5eaHVyk5A8MxGwNxsmhVfL/1LyJuEnjD80j?=
+ =?us-ascii?Q?SpNr3N2kUXnvQ6j/AcONh0RbCJJJm8h8dhKq9UTWScSbMgs/khjOvo5WQ4lc?=
+ =?us-ascii?Q?BO1irHFjxojApq8AsEPmZOLkV3zw7vneikrDJPQtf8meCUj3qshiT9e5P31W?=
+ =?us-ascii?Q?ERRI6SrUAvffEojkm3RlXUt827V0EBVANgBh26NPpfbfTAHenBgjaSUyFCJ5?=
+ =?us-ascii?Q?cDvBkUE3pPC7O1nI+E6FQMS7pRW2C1RJ1Mlut3mpqJQY52IjvalG1UuJUZO+?=
+ =?us-ascii?Q?KHSMxd7Owks4qmKzJBAHcoGp/FPT8T9qeddgi8Fo+gOs5z+hhKc+3kThkBze?=
+ =?us-ascii?Q?xiFiHXcSOefZmM2CQXLQ9k/KqAcZCRmzpdDaalKsuCOhXwwdssv9CunzvYBY?=
+ =?us-ascii?Q?M5EZ/5hU6DMGT/oGU2hHF/Klps36gA8xBA/GZu3OE3YZANHn1E1GR+jmbzQs?=
+ =?us-ascii?Q?vnvfLUiMTsqUW+Hazy8NpYxgKVQ9hWHjAMNQrib8eNiCgInmz6ka4c8T/+Zx?=
+ =?us-ascii?Q?LWmGPYReOYIo2g12tWw/gGtvV/shpfX32sgmGlI0fjH5NrMDD2kxmcS6rHoS?=
+ =?us-ascii?Q?LcbSPlAFUwW8wiOGXe2jaJ8sbIfSxZxE39VDoNyhvRrTmWOMEtGCBJ8c+Tkz?=
+ =?us-ascii?Q?1cYiWlge4So75h0HXAuqOtpR/ipFhyFUADcDdA7VmRaobvR+fHJIj3ZBSMMW?=
+ =?us-ascii?Q?NbApHV1Ha+T9rQtOG/GZFZc4MrTVFoM=3D?=
+Content-ID: <D025504C4E004C438899B35B148A3A79@namprd04.prod.outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <20220412034957.1481088-1-guoren@kernel.org>
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR04MB7158.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7119a920-f70c-40af-40a3-08da1d794a29
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Apr 2022 18:13:19.7250 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: fHbLa9FLz6uKfZ+n6mH22nJcI4Y69pcGMrpqPNMsIvW3i2pFusoA5bQUIEALj71f68KKqJiovm9w7Rrlg5mwOg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN8PR04MB5476
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220413_084615_546584_95DEFEB4 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20220413_111326_642310_C5EF01A2 
+X-CRM114-Status: GOOD (  46.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,87 +162,189 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0885980989260931833=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Apr 12, 2022 at 09:52:13AM -0500, Eric W. Biederman wrote:
+> Niklas Cassel <Niklas.Cassel@wdc.com> writes:
 
---===============0885980989260931833==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="3IglbufFOlP6AShH"
-Content-Disposition: inline
+(snip)
 
+> >> Would it be safer to check that the following rp_val is also -1 ? Also,
+> >> does this work with 32-bits arch ? Shouldn't the "< 2" be "< 1" for
+> >> 32-bits arch ?
+> >
+> > I think that checking that the previous entry is also -1 will not work,
+> > as it will just be a single entry for 32-bit.
+> > And I don't see the need to complicate this logic by having a 64-bit
+> > and a 32-bit version of the check.
+> 
+> Handling 64bit in this binfmt_flat appears wrong.  The code is
+> aggressively 32bit, and in at least some places does not have fields
+> large enough to handle a 64bit address.  I expect it would take
+> a significant rewrite to support 64bit.
 
---3IglbufFOlP6AShH
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Running "file" on the ELF supplied to elf2flt shows:
+ELF 64-bit LSB executable, UCB RISC-V, RVC, double-float ABI, version 1 (SYSV)
+(The code was compiled with -melf64lriscv.)
 
-[Cc Andrea]
+And the resulting bFLT works perfectly fine with the existing fs/binfmt_flat.c
+(with the minor fix in $subject applied).
 
-On Tue, Apr 12, 2022 at 11:49:54AM +0800, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
->=20
-> These patch series contain one cleanup and some optimizations for
-> atomic operations.
->=20
-
-Seems to me that you are basically reverting 5ce6c1f3535f
-("riscv/atomic: Strengthen implementations with fences"). That commit
-fixed an memory ordering issue, could you explain why the issue no
-longer needs a fix?
-
-Regards,
-Boqun
-
-> Changes in V2:
->  - Fixup LR/SC memory barrier semantic problems which pointed by
->    Rutland
->  - Combine patches into one patchset series
->  - Separate AMO optimization & LRSC optimization for convenience
->    patch review
->=20
-> Guo Ren (3):
->   riscv: atomic: Cleanup unnecessary definition
->   riscv: atomic: Optimize acquire and release for AMO operations
->   riscv: atomic: Optimize memory barrier semantics of LRSC-pairs
->=20
->  arch/riscv/include/asm/atomic.h  | 70 ++++++++++++++++++++++++++++++--
->  arch/riscv/include/asm/cmpxchg.h | 42 +++++--------------
->  2 files changed, 76 insertions(+), 36 deletions(-)
->=20
-> --=20
-> 2.25.1
->=20
-
---3IglbufFOlP6AShH
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCAAdFiEEj5IosQTPz8XU1wRHSXnow7UH+rgFAmJW8DMACgkQSXnow7UH
-+rj7oQf+M4BWYub6wHMeoa6yx+iNDGo5x5qEHT1XmIZjZUrpk3Nl3YNVCrZq9oaf
-6IwoRm1XKJhmlrkqUcrp0P8Bm/mq6PZ1mOTdSRtW3cp6mmjl+y6zhidet3KOJJFp
-gZz8CquT+PbQaNsnUMwWoosE85hL8FG/XYTQhoiCFVKF7PeqyFix2doCw66nRzvY
-Wdj458el5Yf+XrEIzEBsrBHCeSdBRiqjulU+SHBbtivfhoaIvpjKdvBOBxF9CC7+
-DI0HuLWz38I6coBeHOmo64WoC8amPCi8xVUZvUgFdUGMSRT25elqoS0qSbq9Afm2
-npRG/rZbHDLvSC1t4rCiN+HS1lVQYw==
-=lcp2
------END PGP SIGNATURE-----
-
---3IglbufFOlP6AShH--
+The current relocation code probably won't work on systems where it needs to
+relocate something to an address > 4 GB, but the systems running bFLT rarely
+have that much memory. The k210 I'm testing on has 8 MB of memory.
 
 
---===============0885980989260931833==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+So I'm not arguing that we should change the u32 pointers to something else,
+my point was that:
+https://sourceware.org/git/?p=binutils-gdb.git;a=blob;f=bfd/elfnn-riscv.c;hb=binutils-2_38#l3275
 
+bfd_put_NN (output_bfd, (bfd_vma) -1, htab->elf.sgotplt->contents);
+bfd_put_NN (output_bfd, (bfd_vma) 0,
+            htab->elf.sgotplt->contents + GOT_ENTRY_SIZE);
+
+Where NN will be 64 for elf64-riscv and 32 for elf32-riscv:
+https://sourceware.org/git/?p=binutils-gdb.git;a=blob;f=bfd/Makefile.am;hb=binutils-2_38#l878
+
+So while the GOTPLT header will always be two words,
+it will be 16 bytes ([0xffffffff 0xffffffff] [0x0 0x0]) on elf64-riscv
+and 8 bytes ([0xffffffff] [0x0]) on elf32-riscv.
+
+Both words are reserved for the dynamic linker (ld.so).
+
+
+> 
+> 
+> I think it would be better all-around if instead of applying the
+> adjustment in the loop, there was a test before the loop.
+> 
+> Something like:
+> 
+> static inline u32 __user *skip_got_header(u32 __user *rp)
+> {
+> 	if (IS_ENABLED(CONFIG_RISCV)) {
+> 	        /* RISCV has a 2 word GOT PLT header */
+> 		u32 rp_val;
+> 		if (get_user(rp_val, rp) == 0) {
+>         		if (rp_val == 0xffffffff)
+>                 		rp += 2;
+> 		}
+>         }
+> 	return rp;
+> }
+
+I like your suggestion, but perhaps change skip_got_header() to:
+
+static inline u32 __user *skip_got_header(u32 __user *rp)
+{
+	if (IS_ENABLED(CONFIG_RISCV)) {
+		/*
+		 * RISCV has a 16 byte GOT PLT header for elf64-riscv
+		 * and 8 byte GOT PLT header for elf32-riscv.
+		 * Skip the whole GOT PLT header, since it is reserved
+		 * for the dynamic linker (ld.so).
+		 */
+		u32 rp_val0, rp_val1;
+
+		if (get_user(rp_val0, rp))
+			return rp;
+		if (get_user(rp_val1, rp + 1))
+			return rp;
+
+		if (rp_val0 == 0xffffffff && rp_val1 == 0xffffffff)
+			rp += 4;
+		else if (rp_val0 == 0xffffffff)
+			rp += 2;
+	}
+	return rp;
+}
+
+What do you guys think?
+
+
+> 
+> ....
+> 
+> 	if (flags & FLAT_FLAG_GOTPIC) {
+> 		rp = skip_got_header((u32 * __user) datapos);
+> 		for (; ; rp++) {
+> 			u32 addr, rp_val;
+> 			if (get_user(rp_val, rp))
+> 				return -EFAULT;
+> 			if (rp_val == 0xffffffff)
+> 				break;
+> 			if (rp_val) {
+> 
+> 
+> Alternately if nothing in the binary uses the header it would probably
+> be a good idea for elf2flt to simply remove the header.
+
+It is used by the dynamic linker (ld.so), so I don't think that we can
+remove it.
+
+The bFLT format only supports shared libraries when CONFIG_BINFMT_SHARED_FLAT.
+Looking at e.g. buildroot:
+https://github.com/buildroot/buildroot/blob/2022.02.1/arch/Config.in#L418
+it seems that perhaps only m68k supports shared libraries for bFLT, but I
+suppose that elf2flt wants to keep the linker script the same for all archs.
+
+
+> Looking at the references you have given the only active architecture
+> supporting this header is riscv.  So I think it would be good
+> documentation to have the functionality conditional upon RISCV.
+
+Fine by me.
+
+
+> 
+> There is the very strange thing I see happening in the code.
+> Looking at the ordinary relocation code it appears that if
+> FLAT_FLAG_GOTPIC is set that first the address to relocate
+> is computed, then the address to relocate is read converted
+> from big endian to native endian (little endian on riscv?)
+> adjusted and written back.
+
+The relocation entries in the GOT are not converted using ntohl():
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/fs/binfmt_flat.c?h=v5.18-rc2#n799
+
+The extra relocation entries tacked after the image's data segment
+are only converted using ntohl() if FLAT_FLAG_GOTPIC is _not_ set:
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/fs/binfmt_flat.c?h=v5.18-rc2#n851
+
+
+> 
+> Does elf2flt really change all of these values to big-endian on
+> little-endian platforms?
+
+Short answer, yes, but only for non-PIC code:
+https://github.com/uclinux-dev/elf2flt/blob/v2021.08/elf2flt.c#L826
+
+The code is horrible to read because of all the ifdefs,
+I had to compile it with -E to actually see anything.
+
+Basically the code ends up looking like this:
+
+	if (!pic_with_got) {
+		switch (q->howto->type) {
+		default:
+			/* The alignment of the build host
+			   might be stricter than that of the
+			   target, so be careful.  We store in
+			   network byte order. */
+			r_mem[0] = (sym_addr >> 24) & 0xff;
+			r_mem[1] = (sym_addr >> 16) & 0xff;
+			r_mem[2] = (sym_addr >> 8) & 0xff;
+			r_mem[3] = sym_addr & 0xff;
+		}
+	}
+
+
+Kind regards,
+Niklas
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0885980989260931833==--
-
