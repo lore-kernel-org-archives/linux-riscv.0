@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 139F7C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Apr 2022 11:56:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB23C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Apr 2022 11:57:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=22Ouvg9+sSWXBDdaY06Jty8dZIfX9bRrLcq6xOxkof8=; b=cuFKeI3fafDf5v
-	T/ZUO1sqW2zBGN/uuYWGCdSXSytpYgbivV+VVztAwtuF+W+XrLyaNbGRJYUmUBnb2RXbl57UZW/Qn
-	my023GHlztUcV2cZrLRYCQUOaFhKCVWzngKRPTvg/fbjGDp6srexk0nryc1kbxGHZU0sqsULzNf4Y
-	ElUfs3g6n+TiiuqUUicgYKyX/dRfRQH7IC3gSS4tdb1gzArCki0D1hDVY/zIpJIWB0F0ln5HuK10N
-	4Fxk+xSCY3zz9puwghNMHEt7vDfF+n/5qFNzn4r4HZ7DGcxz3sJKrLBIpioz57IjGAYub2GDjMRyX
-	po1STfN1NMZ+Yyqn8QXQ==;
+	List-Owner; bh=OjXqQleSMa5CCB6WPb7I5m5SsnQm4pRHl2chOfcMMgs=; b=TI6BGDJmEcq8D2
+	vI5niDbWfn7yZ6l+9eQgmaPfecj/7QrHhnixhzapdqAfnUGUSEVgNj54lXKi5Igwpx/iWZUrqisKC
+	qlMtcsb5c4YzOUtbDT48niBhmlo3HctuYIKhlVWRDSuzZEKlEDS4QFF40+vLRpcupnK+6s19iwdNR
+	Hn3e/VGco3Xp5jJdmiGai0q56f1XgVbHqXoEy9ct9cHd1XThHZm2oo6V3a5epVS/p8AsRvJQVcDcD
+	634lv55cz5z+h3JHX4p7Y7O/lv1ki0wgRSBZcS9PmoFAIphbGuPFts6NLJ7Zg1AJ57YeIqW5Pg0zh
+	BlMHJRit9L0SOKcj7Z2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nebbz-000pu7-Sr; Wed, 13 Apr 2022 11:56:39 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1nebcX-000qBu-N1; Wed, 13 Apr 2022 11:57:13 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nebaQ-000oy9-Eq; Wed, 13 Apr 2022 11:55:04 +0000
+ id 1nebaZ-000p36-3U; Wed, 13 Apr 2022 11:55:12 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 0F5A0B82365;
- Wed, 13 Apr 2022 11:55:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86599C385A6;
- Wed, 13 Apr 2022 11:54:56 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 9767561E02;
+ Wed, 13 Apr 2022 11:55:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27237C385A4;
+ Wed, 13 Apr 2022 11:55:06 +0000 (UTC)
 Authentication-Results: smtp.kernel.org;
  dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com
- header.b="czxC0zmj"
+ header.b="C2i/j6CO"
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105; 
- t=1649850895;
+ t=1649850905;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:
  content-transfer-encoding:content-transfer-encoding:
  in-reply-to:in-reply-to:references:references;
- bh=WiAJXmLxknq3UKqF4V8mtGGXug0zyNtyNRbkPHgA0JU=;
- b=czxC0zmjd3WzSt0lO7bQeHQWRnvFHwtRrwli92OjwYOz0Xv6wtPWJFireW/R4DqLkGnk54
- uXSIatFAe5Tm2zo+n9V6SCP/4DLvvO/O6N7USUo23jvMu+GJLbJkHEaX5CZIBuF1epwH7s
- upVfFd2OFAcW54n1ZrLxyqK/GOgUi6g=
-Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 17eced68
+ bh=IHzRJmPvA7OgZjJx+ZTbqcYHIM/uCZIijqXsNo6FZ2U=;
+ b=C2i/j6COYrH2Ir/9YfejGPtCEir9fLD3flKTNzWxM3qtFKGfSSvDfd7Id1ygvKepoM/pol
+ Ki+JEztNXLkml4iO4CuGyueab/W/2Sh2YlsHRyldHvXhCd9zlKZyZklBEK6Qj8S9W7+Lc6
+ 9hBIabkwBgsudPJcl+vU3Bd5hRFaD68=
+Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 5b8e3e5e
  (TLSv1.3:AEAD-AES256-GCM-SHA384:256:NO); 
- Wed, 13 Apr 2022 11:54:54 +0000 (UTC)
+ Wed, 13 Apr 2022 11:55:04 +0000 (UTC)
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 To: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
  tglx@linutronix.de, arnd@arndb.de
@@ -70,16 +70,16 @@ Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>, Theodore Ts'o <tytso@mit.edu>,
  linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
  sparclinux@vger.kernel.org, linux-um@lists.infradead.org, x86@kernel.org,
  linux-xtensa@linux-xtensa.org
-Subject: [PATCH v4 03/11] riscv: use fallback for random_get_entropy() instead
+Subject: [PATCH v4 04/11] mips: use fallback for random_get_entropy() instead
  of zero
-Date: Wed, 13 Apr 2022 13:54:03 +0200
-Message-Id: <20220413115411.21489-4-Jason@zx2c4.com>
+Date: Wed, 13 Apr 2022 13:54:04 +0200
+Message-Id: <20220413115411.21489-5-Jason@zx2c4.com>
 In-Reply-To: <20220413115411.21489-1-Jason@zx2c4.com>
 References: <20220413115411.21489-1-Jason@zx2c4.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220413_045502_849658_6A1B5355 
-X-CRM114-Status: GOOD (  17.22  )
+X-CRM114-CacheID: sfid-20220413_045511_292645_7CE64976 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,26 +107,25 @@ better than returning zero all the time.
 
 Cc: Thomas Gleixner <tglx@linutronix.de>
 Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
 Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
 ---
- arch/riscv/include/asm/timex.h | 2 +-
+ arch/mips/include/asm/timex.h | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/timex.h b/arch/riscv/include/asm/timex.h
-index 507cae273bc6..d6a7428f6248 100644
---- a/arch/riscv/include/asm/timex.h
-+++ b/arch/riscv/include/asm/timex.h
-@@ -41,7 +41,7 @@ static inline u32 get_cycles_hi(void)
- static inline unsigned long random_get_entropy(void)
- {
- 	if (unlikely(clint_time_val == NULL))
--		return 0;
-+		return random_get_entropy_fallback();
- 	return get_cycles();
+diff --git a/arch/mips/include/asm/timex.h b/arch/mips/include/asm/timex.h
+index b05bb70a2e46..abc60a6395e3 100644
+--- a/arch/mips/include/asm/timex.h
++++ b/arch/mips/include/asm/timex.h
+@@ -94,7 +94,7 @@ static inline unsigned long random_get_entropy(void)
+ 	else if (likely(imp != PRID_IMP_R6000 && imp != PRID_IMP_R6000A))
+ 		return read_c0_random();
+ 	else
+-		return 0;	/* no usable register */
++		return random_get_entropy_fallback();	/* no usable register */
  }
- #define random_get_entropy()	random_get_entropy()
+ #define random_get_entropy random_get_entropy
+ 
 -- 
 2.35.1
 
