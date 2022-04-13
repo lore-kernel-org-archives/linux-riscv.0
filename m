@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3462EC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Apr 2022 11:59:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB296C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Apr 2022 12:00:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XOKfeZ2k6EGmzawEw2ZwbpygzjImR3cMh43mLb/55ss=; b=IUhoIdfr1d0ERK
-	C+MaHg3rfWZeyx3gntAaLfhObX86dKi687+4p+98kvLm99Pa7RZXs3tNE+eJSogPuQJwvzEBW/PKV
-	2p1rJ+Be05GnHaB0yLfus1H1pWYuoMUDLnJpkAyPqSOew6a2BSkF56SdGb2e6vXruWqnSafYfbmfj
-	/KEgUtmlqXa5lS2V/qky/lLOTNg8Yn15UcgiuKX8TSzPy8zsPs4g+JY8Dmi7Uv/wd4VjzWvEzuvV4
-	SEMfLhbvprYumyKuYs3ugVr58W6m0ZzUsJI/GCMpsYtdJdfTwfXqD1jxrCGeSZQ091HQ+o95zUMig
-	UWhioJ7tGxHQY9aLnUYQ==;
+	List-Owner; bh=sqXuVhbTDqdEc8RQDbTq55XKgXD+jxBl0X/uulFU0b0=; b=wz1xUlubZbzQmB
+	BPMTPuK33lHkpn09/ibfOpwaUqaG1uR4QjfhQHnKE5C1LGwmZxSgdAE29NzbP0odYWnvIZ0Z1LVEO
+	xLlMlglkMjf02XEP89VXyBG1k7aFcf2RVGVszgSlzL7nyESBzbtVpmQ3FnzX5rX1VGp1EYz4ECpWJ
+	u+p3+amG7pq+mpQGXDLg6xz/R4OPA9SLtXLzi3+QDPKwmXgDQPh98fKxtrAfVzpzDe1wlChBlsnUl
+	fZXKSufzip59/4p48jBkmObJL8JFcak7QH90JZTuBaCe43c4JEvxnPnOn3EBc63n94gq7fv7FL89e
+	JochE1m2DtnB8WlJvbSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nebeo-000rRQ-M9; Wed, 13 Apr 2022 11:59:34 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1nebfU-000rkj-RM; Wed, 13 Apr 2022 12:00:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nebb3-000pJV-63; Wed, 13 Apr 2022 11:55:43 +0000
+ id 1nebbC-000pP1-DA; Wed, 13 Apr 2022 11:55:52 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id B6E7461DFA;
- Wed, 13 Apr 2022 11:55:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9C7AC385A4;
- Wed, 13 Apr 2022 11:55:36 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id EB5B561DFD;
+ Wed, 13 Apr 2022 11:55:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77BE8C385A4;
+ Wed, 13 Apr 2022 11:55:46 +0000 (UTC)
 Authentication-Results: smtp.kernel.org;
  dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com
- header.b="Qbr1HyxP"
+ header.b="cNRrvj+O"
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105; 
- t=1649850935;
+ t=1649850945;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:
  content-transfer-encoding:content-transfer-encoding:
  in-reply-to:in-reply-to:references:references;
- bh=1SCIlaTYECgCpPXVpMnwLBKZKJGtzqWWNHI4gd2ZOSg=;
- b=Qbr1HyxPpK1Jk6LXaWUjIHe7FhaN9uj+d9iYhEp9piiCgouV+BfX8a53gU3TCt/gj87iUV
- GtG60EozAugmP5xG6fUVpzRAWSQ8wf4RI/hSzHqwt7YOGHGuOCjSn2oSw6Iu7vjMgpPgG+
- Y+UjbraJGy9Z44gbSanHwh63EaKh5V4=
-Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id f482efdb
+ bh=0AODITKYyJtEle+S4cX8w6pvyuCOHjrS7aFRmGybDo8=;
+ b=cNRrvj+OHP8TIAgbpphFdAlGJ2gZ3RT0Y6msoDztzpSaAprtyjw1gUz6xAsym8KBCe9Boy
+ aRAM7s86BDMOEcB+Q1VyRNgtz50crRDhmxMI3EkzGGt3A5meZ09jc9avxxwWdzTuu1kRB8
+ Fg2pO36e+u5qb7Uie3inGTl/9GCTM7E=
+Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id becf7c91
  (TLSv1.3:AEAD-AES256-GCM-SHA384:256:NO); 
- Wed, 13 Apr 2022 11:55:35 +0000 (UTC)
+ Wed, 13 Apr 2022 11:55:45 +0000 (UTC)
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 To: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
  tglx@linutronix.de, arnd@arndb.de
@@ -70,16 +70,16 @@ Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>, Theodore Ts'o <tytso@mit.edu>,
  linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
  sparclinux@vger.kernel.org, linux-um@lists.infradead.org, x86@kernel.org,
  linux-xtensa@linux-xtensa.org
-Subject: [PATCH v4 07/11] x86: use fallback for random_get_entropy() instead
- of zero
-Date: Wed, 13 Apr 2022 13:54:07 +0200
-Message-Id: <20220413115411.21489-8-Jason@zx2c4.com>
+Subject: [PATCH v4 08/11] um: use fallback for random_get_entropy() instead of
+ zero
+Date: Wed, 13 Apr 2022 13:54:08 +0200
+Message-Id: <20220413115411.21489-9-Jason@zx2c4.com>
 In-Reply-To: <20220413115411.21489-1-Jason@zx2c4.com>
 References: <20220413115411.21489-1-Jason@zx2c4.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220413_045541_339134_B5A6E834 
-X-CRM114-Status: GOOD (  15.63  )
+X-CRM114-CacheID: sfid-20220413_045550_609842_F4E6C194 
+X-CRM114-Status: GOOD (  15.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,38 +105,40 @@ random_get_entropy_fallback() is super high precision or guaranteed to
 be entropic, but basically anything that's not zero all the time is
 better than returning zero all the time.
 
-If CONFIG_X86_TSC=n, then it's possible that we're running on a 486 with
-no RDTSC, so we only need the fallback code for that case.
+This is accomplished by just including the asm-generic code like on
+other architectures, which means we can get rid of the empty stub
+function here.
 
 Cc: Thomas Gleixner <tglx@linutronix.de>
 Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: x86@kernel.org
+Cc: Richard Weinberger <richard@nod.at>
+Cc: Anton Ivanov <anton.ivanov@cambridgegreys.com>
+Cc: Johannes Berg <johannes@sipsolutions.net>
 Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
 ---
- arch/x86/include/asm/tsc.h | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ arch/um/include/asm/timex.h | 9 ++-------
+ 1 file changed, 2 insertions(+), 7 deletions(-)
 
-diff --git a/arch/x86/include/asm/tsc.h b/arch/x86/include/asm/tsc.h
-index 01a300a9700b..194dc1e3f77c 100644
---- a/arch/x86/include/asm/tsc.h
-+++ b/arch/x86/include/asm/tsc.h
-@@ -28,6 +28,16 @@ static inline cycles_t get_cycles(void)
- 	return rdtsc();
- }
+diff --git a/arch/um/include/asm/timex.h b/arch/um/include/asm/timex.h
+index e392a9a5bc9b..9f27176adb26 100644
+--- a/arch/um/include/asm/timex.h
++++ b/arch/um/include/asm/timex.h
+@@ -2,13 +2,8 @@
+ #ifndef __UM_TIMEX_H
+ #define __UM_TIMEX_H
  
-+static inline unsigned long random_get_entropy(void)
-+{
-+#ifndef CONFIG_X86_TSC
-+	if (!boot_cpu_has(X86_FEATURE_TSC))
-+		return random_get_entropy_fallback();
-+#endif
-+	return rdtsc();
-+}
-+#define random_get_entropy random_get_entropy
+-typedef unsigned long cycles_t;
+-
+-static inline cycles_t get_cycles (void)
+-{
+-	return 0;
+-}
+-
+ #define CLOCK_TICK_RATE (HZ)
+ 
++#include <asm-generic/timex.h>
 +
- extern struct system_counterval_t convert_art_to_tsc(u64 art);
- extern struct system_counterval_t convert_art_ns_to_tsc(u64 art_ns);
- 
+ #endif
 -- 
 2.35.1
 
