@@ -4,93 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04D58C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Apr 2022 21:17:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E05A2C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Apr 2022 03:03:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9fQAWMzuHftEGGFX8A58g0YFLJeCCBv1/mTM9w4FaV4=; b=Hw1wsHDz5wx7Yq
-	ziJwJZgD0dMUFwGsX4jh513xCcVkBMUUXpUh9OS3JacmcdSrxt3ijXFiGaQ0Y1wBsFyWwvGoHIL8r
-	TEvzbPJSsMOcRcMlkjXF92WXhY3g/BvFjwZpcF03gXagVKhFY9eMIUFH7PJCbi3Lw4wQluvjvDlzG
-	AvsuQ8zF5xMF5I+TByUt5X78XCm6pH9jwDB9eGLhKD4FDWo+TxyHRgxcEChCEkfQrnH1JFDYk9uUm
-	exysTlSdsSowhBjvsbrwFy87jS6fU06bIfwbfe4ymnocrBYDT3GikXqKIYs7H+Ryz7kiHvPpSVcpR
-	A605Ufj7fvQsAvDKk6RA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fnmb7TkuJHe9fT+q1MoRP5qlcdTYvbKqUis+jvsL/S4=; b=piwhmqVmXlfYtZ
+	c/LOPjYD69rgFLcms+sYE3MFTj8Z3l7Zz8a36vrAsMvTn7U2fayU3c0IOAwAlx435XL6+XkFoiuxi
+	rwiF8nlPKDuVtl5TLiXxTiTGM0HD89IEoClSxOfJ0vXLDBSBohlMUR3HNVgrgPxl88fpx0ZE2AADY
+	XKktEyRNANOlzsz0PeAx2g0p3ug/EXWp0v4tr1uqTbLcwuVzPINlZ60jwOdK1M12ab/SvjZukAxnU
+	fVoQLLF4fxw0dbtFHOl/DDsfbpotk36qMcQFMtHhrfY0mUPgMs1hey/veEymwveEaeEaENt8Bpmr8
+	/0a/Zb4WAxV2b4ujrh2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1neNtN-00Fo3s-TM; Tue, 12 Apr 2022 21:17:41 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1neTHy-00GTnk-Gg; Wed, 13 Apr 2022 03:03:26 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1neNtC-00Fo2F-NC; Tue, 12 Apr 2022 21:17:32 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id EA70E61B74;
- Tue, 12 Apr 2022 21:17:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5361C385A6;
- Tue, 12 Apr 2022 21:17:28 +0000 (UTC)
-Authentication-Results: smtp.kernel.org;
- dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com
- header.b="PN66lJ9U"
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105; 
- t=1649798247;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=7RYqiP9nhX0rKf7m7FCUHmIMWi5HqXJa2wb5GRUCRN4=;
- b=PN66lJ9Ucajbvf2VVHjWPG1FJUFASZDmOYitMzqJBqTCLQXHhFBshwjiwR+Mg/UydgTKlL
- Jbn7/unSYJoKGR5pvsqrEXiau7+ImngUEYdhw6Zr1FpdNhIofmZljw0weE4T09fWhYikum
- FXFLf6Z984cSQ7hS160SW4xM1RbeJ/8=
-Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 7459c086
- (TLSv1.3:AEAD-AES256-GCM-SHA384:256:NO); 
- Tue, 12 Apr 2022 21:17:27 +0000 (UTC)
-Received: by mail-yb1-f178.google.com with SMTP id e71so293740ybf.8;
- Tue, 12 Apr 2022 14:17:26 -0700 (PDT)
-X-Gm-Message-State: AOAM531wCA35U/IytrIVpC1sWtaVmRUX4DbQ6rk3yEB04eLsAprNykhA
- D8GB7CSDRY6uAIgNOojP7w0d921Rc43p8Lsx7GA=
-X-Google-Smtp-Source: ABdhPJyzoWPsFnF8ik/yAzlm3KPNzdj5Txo6RqIWYvjdGUg1ERYyQK8PArA04S/85l5pbLiU/ZXjCNxyEog+/ToSU0U=
-X-Received: by 2002:a81:4a55:0:b0:2ef:3ef1:def7 with SMTP id
- x82-20020a814a55000000b002ef3ef1def7mr1543639ywa.2.1649798234768; Tue, 12 Apr
- 2022 14:17:14 -0700 (PDT)
+ id 1neTHv-00GTlm-2F
+ for linux-riscv@lists.infradead.org; Wed, 13 Apr 2022 03:03:24 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
+ helo=phil.fritz.box)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1neTHl-0006sN-VP; Wed, 13 Apr 2022 05:03:14 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	aou@eecs.berkeley.edu
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ wefu@redhat.com, liush@allwinnertech.com, guoren@kernel.org,
+ atishp@atishpatra.org, anup@brainfault.org, drew@beagleboard.org,
+ hch@lst.de, arnd@arndb.de, wens@csie.org, maxime@cerno.tech,
+ gfavor@ventanamicro.com, andrea.mondelli@huawei.com, behrensj@mit.edu,
+ xinhaoqu@huawei.com, mick@ics.forth.gr, allen.baum@esperantotech.com,
+ jscheid@ventanamicro.com, rtrauben@gmail.com, samuel@sholland.org,
+ cmuellner@linux.com, philipp.tomsich@vrull.eu,
+ Heiko Stuebner <heiko@sntech.de>
+Subject: [PATCH v9 00/12] riscv: support for Svpbmt and D1 memory types
+Date: Wed, 13 Apr 2022 05:02:55 +0200
+Message-Id: <20220413030307.133807-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.35.1
 MIME-Version: 1.0
-References: <20220412172754.149498-1-Jason@zx2c4.com>
- <20220412172754.149498-2-Jason@zx2c4.com> <87bkx6f29b.ffs@tglx>
-In-Reply-To: <87bkx6f29b.ffs@tglx>
-From: "Jason A. Donenfeld" <Jason@zx2c4.com>
-Date: Tue, 12 Apr 2022 23:17:03 +0200
-X-Gmail-Original-Message-ID: <CAHmME9pVhO24V8V3YdeHfz6q1nmSgqXocUtn=+zu5Wh-OWrSRA@mail.gmail.com>
-Message-ID: <CAHmME9pVhO24V8V3YdeHfz6q1nmSgqXocUtn=+zu5Wh-OWrSRA@mail.gmail.com>
-Subject: Re: [PATCH v3 01/10] timekeeping: add raw clock fallback for
- random_get_entropy()
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: LKML <linux-kernel@vger.kernel.org>, 
- Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, 
- "Theodore Ts'o" <tytso@mit.edu>, Dominik Brodowski <linux@dominikbrodowski.net>,
- Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- "David S . Miller" <davem@davemloft.net>, Richard Weinberger <richard@nod.at>, 
- Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Johannes Berg <johannes@sipsolutions.net>, 
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
- Dave Hansen <dave.hansen@linux.intel.com>, "H . Peter Anvin" <hpa@zytor.com>, 
- Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>, 
- John Stultz <john.stultz@linaro.org>, Stephen Boyd <sboyd@kernel.org>, 
- Dinh Nguyen <dinguyen@kernel.org>, 
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
- linux-m68k <linux-m68k@lists.linux-m68k.org>, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>, 
- sparclinux@vger.kernel.org, linux-um@lists.infradead.org, 
- X86 ML <x86@kernel.org>, linux-xtensa@linux-xtensa.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220412_141730_857359_E1B1E937 
-X-CRM114-Status: GOOD (  15.00  )
+X-CRM114-CacheID: sfid-20220412_200323_150200_8A89753B 
+X-CRM114-Status: GOOD (  24.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,26 +67,143 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas,
+Svpbmt is an extension defining "Supervisor-mode: page-based memory types"
+for things like non-cacheable pages or I/O memory pages.
 
-On Tue, Apr 12, 2022 at 10:57 PM Thomas Gleixner <tglx@linutronix.de> wrote:
->
-> On Tue, Apr 12 2022 at 19:27, Jason A. Donenfeld wrote:
-> > +/**
-> > + * random_get_entropy_fallback - Returns the raw clock source value,
-> > + * used by random.c for platforms with no valid random_get_entropy().
-> > + */
-> > +unsigned long random_get_entropy_fallback(void)
-> > +{
-> > +     return tk_clock_read(&tk_core.timekeeper.tkr_mono);
-> > +}
-> > +EXPORT_SYMBOL(random_get_entropy_fallback);
->
-> EXPORT_SYMBOL_GPL() please.
 
-Okay, will do.
+So this is my 2nd try at implementing Svpbmt (and the diverging D1 memory
+types) using the alternatives framework.
 
-Jason
+This includes a number of changes to the alternatives mechanism itself.
+The biggest one being the move to a more central location, as I expect
+in the future, nearly every chip needing some sort of patching, be it
+either for erratas or for optional features (svpbmt or others).
+
+Detection of the svpbmt functionality is done via Atish's isa extension
+handling series [0] and thus does not need any dt-parsing of its own
+anymore.
+
+The series also introduces support for the memory types of the D1
+which are implemented differently to svpbmt. But when patching anyway
+it's pretty clean to add the D1 variant via ALTERNATIVE_2 to the same
+location.
+
+The only slightly bigger difference is that the "normal" type is not 0
+as with svpbmt, so kernel patches for this PMA type need to be applied
+even before the MMU is brought up, so the series introduces a separate
+stage for that.
+
+
+In theory this series is 2 parts:
+- alternatives improvements
+- svpbmt+d1
+
+I picked the recipient list from the previous versions, hopefully
+I didn't forget anybody.
+
+I tested the series on:
+- qemu-rv32 + buildroot rootfs
+- qemu-rv64 + debian roots
+- Allwinner D1-Nezha
+- BeagleV - it at least reached the same point as without the series
+
+
+changes in v9:
+- rebase onto 5.18-rc1
+- drop the sbi null-ptr patch
+  While I still think this to be non-ideal as is, it isn't really
+  necessary for svpbmt support anymore
+- merge cpufeature + svpbmt patch, as otherwise some empty shells
+  cause build warnings when a bisection stops between these two
+  patches
+- address review comments from Christoph Hellwig:
+  - keep alternatives optional, they now get selected by its
+    users (erratas and also the newly introduced svpbmt kconfig)
+  - wrap long lines and keep things below 80 characters
+  - restyle svpbmt + thead errata assembly
+  - introduce a helper for the repeated calls to
+    (val & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT
+
+changes in v8:
+- rebase onto 5.17-final + isa extension series
+  We're halfway through the merge-window, so this series
+  should be merge after that
+- adapt to fix limiting alternatives to non-xip-kernels
+- add .norelax option for alternatives
+- fix unused cpu_apply_errata in thead errata
+- don't use static globals to store cpu-manufacturer data
+  as it makes machines hang if done too early
+
+changes in v7:
+- fix typo in patch1 (Atish)
+- moved to Atish's isa-extension framework
+- and therefore move regular boot-alternatives directly behind fill_hwcaps
+- change T-Head errata Kconfig text (Atish)
+
+changes in v6:
+- rebase onto 5.17-rc1
+- handle sbi null-ptr differently
+- improve commit messages
+- use riscv,mmu as property name
+
+changes in v5:
+- move to use alternatives for runtime-patching
+- add D1 variant
+
+
+[0] https://lore.kernel.org/r/20220222204811.2281949-2-atishp@rivosinc.com
+
+Heiko Stuebner (12):
+  riscv: integrate alternatives better into the main architecture
+  riscv: allow different stages with alternatives
+  riscv: implement module alternatives
+  riscv: implement ALTERNATIVE_2 macro
+  riscv: extend concatenated alternatives-lines to the same length
+  riscv: prevent compressed instructions in alternatives
+  riscv: move boot alternatives to after fill_hwcap
+  riscv: Fix accessing pfn bits in PTEs for non-32bit variants
+  riscv: add RISC-V Svpbmt extension support
+  riscv: remove FIXMAP_PAGE_IO and fall back to its default value
+  riscv: don't use global static vars to store alternative data
+  riscv: add memory-type errata for T-Head
+
+ arch/riscv/Kconfig                          |  22 ++++
+ arch/riscv/Kconfig.erratas                  |  33 +++--
+ arch/riscv/Kconfig.socs                     |   1 -
+ arch/riscv/Makefile                         |   2 +-
+ arch/riscv/errata/Makefile                  |   2 +-
+ arch/riscv/errata/alternative.c             |  75 ------------
+ arch/riscv/errata/sifive/errata.c           |  20 ++-
+ arch/riscv/errata/thead/Makefile            |   1 +
+ arch/riscv/errata/thead/errata.c            |  82 +++++++++++++
+ arch/riscv/include/asm/alternative-macros.h | 129 +++++++++++++++-----
+ arch/riscv/include/asm/alternative.h        |  25 +++-
+ arch/riscv/include/asm/errata_list.h        |  59 +++++++++
+ arch/riscv/include/asm/fixmap.h             |   2 -
+ arch/riscv/include/asm/hwcap.h              |   1 +
+ arch/riscv/include/asm/pgtable-32.h         |  17 +++
+ arch/riscv/include/asm/pgtable-64.h         |  79 +++++++++++-
+ arch/riscv/include/asm/pgtable-bits.h       |  10 --
+ arch/riscv/include/asm/pgtable.h            |  55 +++++++--
+ arch/riscv/include/asm/vendorid_list.h      |   1 +
+ arch/riscv/kernel/Makefile                  |   1 +
+ arch/riscv/kernel/alternative.c             | 104 ++++++++++++++++
+ arch/riscv/kernel/cpu.c                     |   1 +
+ arch/riscv/kernel/cpufeature.c              |  80 +++++++++++-
+ arch/riscv/kernel/module.c                  |  29 +++++
+ arch/riscv/kernel/setup.c                   |   2 +
+ arch/riscv/kernel/smpboot.c                 |   4 -
+ arch/riscv/kernel/traps.c                   |   2 +-
+ arch/riscv/mm/init.c                        |   1 +
+ 28 files changed, 679 insertions(+), 161 deletions(-)
+ delete mode 100644 arch/riscv/errata/alternative.c
+ create mode 100644 arch/riscv/errata/thead/Makefile
+ create mode 100644 arch/riscv/errata/thead/errata.c
+ create mode 100644 arch/riscv/kernel/alternative.c
+
+-- 
+2.35.1
+
 
 _______________________________________________
 linux-riscv mailing list
