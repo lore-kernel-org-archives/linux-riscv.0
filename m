@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58F2BC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Apr 2022 09:15:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B3FBC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Apr 2022 09:15:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+TuJX6Ng9HXg/jnFobgEJEGOmEfDB7XtwGfBkb31tck=; b=UdRDFJ8SCd4IHw
-	hJyCd9s/1vNLQN0IK9K1iCQU7DmPdzbcVaKV71WanfZp7r2ECrlOU+ZElbffjX3XpJcvhkMgNvWjb
-	cSS+1wfQ5bLbGQpv6prJSx49TQVUukK7S8RgC+VBOaiyNYTLKxN+CA+phn7qJvfsx9TZ9cMWd0YTP
-	iDVpWHF/Y8r8TfjOT0eIBmLpUha50vDPPlbDCNcqQditOXYc9w35aPs6JoRGaTy3e6S4abd5W0fFA
-	t5iyCyJxjeEhrHFh+4Motlr/llmp4ntj/pmCSJXTVU7Wx0C/RDqo/hmkwbIkdfXv3TneoCAOq3XPp
-	zb8hnrkOVY2HCysr9PuA==;
+	List-Owner; bh=Vsdguwio52Xh5VtePT4f66LXGWa2nUMQZC7DcA4fPnE=; b=Mn/6/uMPGmG/jR
+	EKOssS/oobHbC3/gKy5OZrU5PCfkDaA5sZytb3IcWYTeHZIWQEyAHKaIFz+ejFjBGdL8tsci6cUwF
+	/Ohdtgcu9Y/d2QPcgTjSbvq/IfSUa6xJ2VB1psH8nBWwLp1bTfvYDudURrX1WhH1J3q7PmMEMfO+t
+	p2f79eEyMYG+/0f40YYRxREjHqrnioO5kyu1qmcDavbGSUufuGxHToSzpdI5oA8kYtuk1TW8T7RSM
+	9hxmxSSkThi4OAGbGE0Atgs8RfN4PLy5rna8mXcg7ilO2YLdvk/S0ZSZ89lu/p5z8z8JmhfR/Nxvc
+	glMFhTciAo30A+eGYPAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1neZ5O-000GgM-Bs; Wed, 13 Apr 2022 09:14:50 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1neZ5q-000Gou-A1; Wed, 13 Apr 2022 09:15:18 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1neZ5L-000Gf8-Ou
- for linux-riscv@lists.infradead.org; Wed, 13 Apr 2022 09:14:49 +0000
-Received: by mail-wr1-x431.google.com with SMTP id p18so844930wru.5
- for <linux-riscv@lists.infradead.org>; Wed, 13 Apr 2022 02:14:47 -0700 (PDT)
+ id 1neZ5o-000Gnm-A1
+ for linux-riscv@lists.infradead.org; Wed, 13 Apr 2022 09:15:17 +0000
+Received: by mail-wr1-x433.google.com with SMTP id t1so1675224wra.4
+ for <linux-riscv@lists.infradead.org>; Wed, 13 Apr 2022 02:15:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vrull.eu; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=K3wssubFNSH7PhBBCoCTd/2JMEvbfGH2Qx2/SYbOnME=;
- b=nz8vYJU3FhQmjoV7Y8KclGI8GnSjXDec3FDL3g1rX5pofcO/KvkzzyTHQDXGDHYnph
- Ua0QxEZmhNmjNprfDUWQwcy6537deH/arJYaGceRm6jBXL92DcMmVflhOdGCuDDTSBT4
- M2SxpThCS3VmQFUbGJFOvqawKqsT4GBPVDeEQUmX1JZUypCcDKCMCNcB4Ho+3d5fViD1
- s6tbqC8oGDFAROfHZsDTZc+bvH4CFVJuyMm0MDz6X1zq7cG05qExNJtkZn/sHiS9JBjh
- cDZIrYdDzoxJP+8Dj6TxBKIMznMRrYAs1ValFnfuuRJo+BT+bMU38p2DZSQj+4RlJKyh
- IUKA==
+ :cc; bh=vnj/mfXyw3X9KuyzrqC4TpOmshoDLe2fxPgBUJq8rEw=;
+ b=OLiTP5KTzX2EMQRMyuZQT6agCOB3/2yrnTe+Ik9ZxL7u/LI4YqoTK9b+9w/hoTCHtW
+ BAPtK2aVG4wxs4Uos7Q+IdMKHnf+gBRXR7sn4HgBcLEoqme+PPD4qIUFCRI2ln0Yo26L
+ hEnBUOoqJesrXatPPw06xQdIliL1PCuQwZlt0N4dUDVIV7X1nPNnDMoxEt2gVPylMh9Q
+ /73M9Clg+zrCQi45/Hxb2ttjKQmnockYXBgF41WzV3WtkJ7aTw7TNtNVndCc51+2ZWhA
+ Gx6Nq/BAqvZes2RzBJJf75nM6G5itbbYDlUZ7M4nscat2VciVx3lok8ACDCjkeZM4I4Q
+ oGig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=K3wssubFNSH7PhBBCoCTd/2JMEvbfGH2Qx2/SYbOnME=;
- b=jgWBeT/tbWOaeDpBVrQRn0AhqJakyhpCyTfeUyzXLcL/HyF02rfNpJ5ZUF28EvErEf
- +w/crmx9PqNrcIv+/xv9dfL7w15yse7TTJYdgnt/Xqz1tsfo//1JH9uSpGhOMeQhGcsM
- iRl5E71prnxggbuFrLzHNMAD7rs4760gsvyG3hNjlsgPrK7RBTSZLa0vdCFthStDQOAF
- gmUJO5RNJ65wYjpMMQkLd+rXMhxZpnSUv97TuTFizKPrpazQIOnNnGgBfUB3d6oEZkjt
- PA+uoouspiZaqTWfi+ZJBnnckF4VHnZhuKkzioLmyHQu31UUvnEWrybsSA5frR2vKZnh
- FfOw==
-X-Gm-Message-State: AOAM531yDy1dT2pUIoNd8xMMRF5jXF8vx0it4Kp4+f/FrVwr4otyyrn6
- DzdS5IJfxnB739wtelP73nDLzkAs2F7EqBnGdZy9Jw==
-X-Google-Smtp-Source: ABdhPJwa1Z41m1QvtVzrKDmKI/ngC+L9la6nwqhud5QEuhIRlRUZ8acL6wKbDnw3aTqQ55EF4dZSO1sKMY26X6t52tc=
-X-Received: by 2002:adf:e84a:0:b0:207:a697:462c with SMTP id
- d10-20020adfe84a000000b00207a697462cmr11108107wrn.312.1649841286170; Wed, 13
- Apr 2022 02:14:46 -0700 (PDT)
+ bh=vnj/mfXyw3X9KuyzrqC4TpOmshoDLe2fxPgBUJq8rEw=;
+ b=w+NvojJDIj+ypRdSOfyaWOtZB5fDf5C2iLSv2u+o8ZWXoU8trwGcHDwEs/X9sMH7ju
+ LYPzIDxRmz2z5vAZUf1tpWTglUzKLC3n8K0kXUN0zkJxj3eOKE1cFkOxxNW6S6t5Zpp8
+ CaVFwbeRgXIaxXj7y+BKeyXcbbRJrUZYv37cRt4sDiMgzlz97ZRrWvOnseoYxcDYlLKe
+ uJ6cdLfdePlB6zdeVHNkOGSmobEe8A846fskhpMKzE5UePDywxLPl0n1Sn8UIrYGLFg+
+ 2Xgail2TZFizmPSc9qUoIvf7ePCOWmV4Gzv7c/vOkbq8WfIm8X+12WqK1u2jSjK2bAz0
+ Y4pA==
+X-Gm-Message-State: AOAM533GBcKkXtEt4t9LiQ9ZVRj5Lrc/CNv/Axo0HkVwPicOtYSOyBBu
+ No1KsCQka5SjPXplHUGXQMTH1gQA7jJBO2LIJXZdcQ==
+X-Google-Smtp-Source: ABdhPJx8DruPa2vSEAy/3SFqU1sX90/qigxx5j4L1ib/z1Wj8i0Vy+rDVHfazCrISW9FG0MytXPj0Ml4Q7klFXyK9gU=
+X-Received: by 2002:adf:de81:0:b0:207:a65c:d895 with SMTP id
+ w1-20020adfde81000000b00207a65cd895mr11371461wrl.647.1649841314677; Wed, 13
+ Apr 2022 02:15:14 -0700 (PDT)
 MIME-Version: 1.0
 References: <20220413030307.133807-1-heiko@sntech.de>
- <20220413030307.133807-11-heiko@sntech.de>
-In-Reply-To: <20220413030307.133807-11-heiko@sntech.de>
+ <20220413030307.133807-8-heiko@sntech.de>
+In-Reply-To: <20220413030307.133807-8-heiko@sntech.de>
 From: Philipp Tomsich <philipp.tomsich@vrull.eu>
-Date: Wed, 13 Apr 2022 11:14:34 +0200
-Message-ID: <CAAeLtUDtv+Xh_A1G_cyWEGayrAhY3vQ6WaE09NjJL+vmJc6GLw@mail.gmail.com>
-Subject: Re: [PATCH v9 10/12] riscv: remove FIXMAP_PAGE_IO and fall back to
- its default value
+Date: Wed, 13 Apr 2022 11:15:03 +0200
+Message-ID: <CAAeLtUA2icAJSUD-cc8+xnx7Vmmd3ehn2ieB4_DuzOu2_dFvrA@mail.gmail.com>
+Subject: Re: [PATCH v9 07/12] riscv: move boot alternatives to after fill_hwcap
 To: Heiko Stuebner <heiko@sntech.de>
 Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, 
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
@@ -72,8 +71,8 @@ Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
  mick@ics.forth.gr, allen.baum@esperantotech.com, jscheid@ventanamicro.com, 
  rtrauben@gmail.com, samuel@sholland.org, cmuellner@linux.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220413_021447_849886_260A080B 
-X-CRM114-Status: UNSURE (   8.05  )
+X-CRM114-CacheID: sfid-20220413_021516_380971_F17908F9 
+X-CRM114-Status: UNSURE (   8.29  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,12 +90,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 Apr 2022 at 05:05, Heiko Stuebner <heiko@sntech.de> wrote:
+On Wed, 13 Apr 2022 at 05:03, Heiko Stuebner <heiko@sntech.de> wrote:
 >
-> If not defined in the arch, FIXMAP_PAGE_IO defaults to PAGE_KERNEL_IO,
-> which we defined when adding the svpbmt implementation.
->
-> So drop the FIXMAP_PAGE_IO riscv define.
+> Move the application of boot alternatives to after the hw-capabilities
+> are populated. This allows to check for available extensions when
+> determining which alternatives to apply and also makes it actually
+> work if CONFIG_SMP is disabled for whatever reason.
 >
 > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 > Reviewed-by: Christoph Hellwig <hch@lst.de>
