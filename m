@@ -4,153 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF633C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Apr 2022 18:13:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDAA3C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Apr 2022 18:48:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NOTzMFPD/b/MHigOyP5opHbDM4Z+oRJV9EInzQErOg0=; b=lTk/0bibiBFhkX
-	GZYjuBdzUAmmWCp+lScsIOVTqT23YdfNs8RN92uQ76zduktJzPyBBoFsfPy+cdhxFgIOKQORqPUvG
-	TN7JUEstE30ZPkJqBH+z3TWPfcL8qknUDtElHYPOZ4S+ZQGHqz+AWHOCOlRPhNPWHUwrYRkBsxtdH
-	lHgkuSAJwQFPyFz6FC5p4iHypCO5dThcTFZFWATgFGqbtrjC5I9DCzSw5D0LsEFDiFtgBJm4cfIIt
-	JN9Mc8C3TGmk1zYlLuDspUx/lGOGhTwwx8ShANgO0vgLD9kuMyBLQ3nP5GJ7K/q2lLInXvwOcH3/K
-	RhdgPNr/HbFAsgkjz2ww==;
+	List-Owner; bh=7INRpcE9fFDBFMwGEVVAx5FJyoYyFMO4ihma1UJUx04=; b=haUlCETDK+RZqt
+	yfnYLJKg3kJNa0UYIeEKQQl+linK3gZl0E46uYse65zL2MoJKYgQKNYptRapDVlxzPhd2YGwRZM6V
+	E5ch2ViF2AsWM6g7xFosX0Ef6qBEJDs9J5L4OAFe3ovWQzX7nPm0PR1TrcqZvxt6Y4FkcWGo4oDHm
+	BRAKCssOi41wWMS8v+c/+ki8fjC9Y0qVS+WZ0LU79UYjEWWqvdAmNWD7/pP5pALLfh6GmGrKWFaTg
+	mF1VMFWB2/QYkhVD8H1unjqJeq+JaGobI+6xdncuTpGW/pnZfkutWH7Oe3vNU4jB3n1l4nA7o0tRn
+	LZn5b3oSRtMpSNTyn5tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nehUf-0022WM-Ng; Wed, 13 Apr 2022 18:13:29 +0000
-Received: from esa6.hgst.iphmx.com ([216.71.154.45])
+	id 1nei2g-0029s3-Sh; Wed, 13 Apr 2022 18:48:38 +0000
+Received: from mail-yw1-f180.google.com ([209.85.128.180])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nehUc-0022Uk-8a
- for linux-riscv@lists.infradead.org; Wed, 13 Apr 2022 18:13:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1649873606; x=1681409606;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-id:content-transfer-encoding: mime-version;
- bh=SzB0d7WiTUY/MZqJdvQr5qlPZZd6DRvWRXimBhv/lF4=;
- b=l+ClWEGzOMJMRrD1lcuYHCGkLJB/XEfObCIIgPO+f26wp8bo6LHS/U3W
- oO34nWBHXxbL0ifqtFxxO4S79OBGRlFISNnI4m+hA+OspJ0pTcSDFvDMT
- pWNkOkCDh5V2Jiq8Ike/HdJeilt8Vw6MeaLQydebe016UTq10qHMSj2+A
- Ug4pSwFLK0xm0CmSOAHLDDcRtHpmy0i2fRcdYgHRV/EVe4MWdICl+xXtE
- RZEgr9uN96tKqDvdijpavS3z+CUKdhes7i1CxGELjhpYPm0iIHjE2MOq+
- jPwDI/C6ylXrbDiqD6KmBUwrWzFkY/VbNfheq8E2JTJZgzhZbdkH6glbi Q==;
-X-IronPort-AV: E=Sophos;i="5.90,257,1643644800"; d="scan'208";a="198744309"
-Received: from mail-dm6nam12lp2168.outbound.protection.outlook.com (HELO
- NAM12-DM6-obe.outbound.protection.outlook.com) ([104.47.59.168])
- by ob1.hgst.iphmx.com with ESMTP; 14 Apr 2022 02:13:22 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=CWE3NZhBtNNRkXa1dRdrlwuflsTHFq2eGD8NfC9/JKr+RyrDSpec/YgTwYz1cnBGK2S2UJXQcfViaNBNFwmvg/INjV2mW01IgIIuqxbnFOXse6ClAiTc8U9BHLa3BqBCAHmfnxJbxKQeXHapzCjqzQy2tD+FOssJ27fNpk8q0hnttH0H2krxR97bWl44XNI5H9D/4Rzh3H6IECL/2aWVt18r2m9ZXXjGaHM7ep4Mlvmn0kdUYaU4zk9mLk/ESRpbY1MZTA95atE4jvYcElyxdkAfIJ2H5N3Zv0XD3jIRT3FWfd2PaV5RH3jW+PnOyenRZ8+VybVYqQrrQ5e2QB7eFg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=toPTeenVBUQtMhwQiRzhPLrdlAoAMDY56IgBu3dDXUI=;
- b=Tv/8A33QJs5FG1oGhqmmFSG7C6hB4xNKK360YWuiVBw+bqEEmv3XO3pZUUECFZWpbcgeFlAbzjkFI7yleW2y7I/yNgg+xxm/EL2k57UhH9/yF4sBNTiod2rwySzKqISJKLHbHfrWQdywFxO4rIc9Rki3g0TMPxp7EBoxsMMql8KZG8CFPtocGq/m9t7PK7ZAvqrSF8s1NtpySvJw6KUWzpUPMKjvv64zyTMIAWno1V8cvJUJTjY+ZSMpM7CbY+VXG7mC4Y4LIgs/ucsTtnXXRmkUPz37ezgNdoMbS7b5JsSsqSr5qatO3XGYKkbW5kSwUOMdcs1sfhIG5MXb4IPcvw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=toPTeenVBUQtMhwQiRzhPLrdlAoAMDY56IgBu3dDXUI=;
- b=U5dk9dF1QAG9X7dvcBQoPa9GfsW0ggeTdD6e5+8/WiVyX6h8sfjxRLFq9FSoI6yOF5a2aZoIErUm++Kz2oZjdcMXQ8sCQagL8RgFGugPUY/6vFwean96DdaLbpK+tjK/D5dQ7/ZpF66cMlTKHDADTlDuqv4iaOEH4fc8+xtD604=
-Received: from PH0PR04MB7158.namprd04.prod.outlook.com (2603:10b6:510:8::18)
- by BN8PR04MB5476.namprd04.prod.outlook.com (2603:10b6:408:58::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5164.18; Wed, 13 Apr
- 2022 18:13:20 +0000
-Received: from PH0PR04MB7158.namprd04.prod.outlook.com
- ([fe80::995b:363e:8d1c:49af]) by PH0PR04MB7158.namprd04.prod.outlook.com
- ([fe80::995b:363e:8d1c:49af%8]) with mapi id 15.20.5164.018; Wed, 13 Apr 2022
- 18:13:19 +0000
-From: Niklas Cassel <Niklas.Cassel@wdc.com>
-To: "Eric W. Biederman" <ebiederm@xmission.com>
-CC: Damien Le Moal <damien.lemoal@opensource.wdc.com>, Alexander Viro
- <viro@zeniv.linux.org.uk>, Kees Cook <keescook@chromium.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Greg Ungerer <gerg@linux-m68k.org>, Mike Frysinger
- <vapier@gentoo.org>, "stable@vger.kernel.org" <stable@vger.kernel.org>,
- "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH] binfmt_flat: do not stop relocating GOT entries
- prematurely
-Thread-Topic: [PATCH] binfmt_flat: do not stop relocating GOT entries
- prematurely
-Thread-Index: AQHYTlSbKHqZCw+JvEK9UT79JBm95qzsJ4yAgAAMu4CAACkDVIABylkA
-Date: Wed, 13 Apr 2022 18:13:19 +0000
-Message-ID: <YlcSvhXeUD89XEYn@x1-carbon>
-References: <20220412100338.437308-1-niklas.cassel@wdc.com>
- <9437ce7f-0553-3688-5695-69add6b2971c@opensource.wdc.com>
- <YlVv2Z5y9qhzu7X9@x1-carbon> <878rsatkv6.fsf@email.froward.int.ebiederm.org>
-In-Reply-To: <878rsatkv6.fsf@email.froward.int.ebiederm.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=wdc.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 7119a920-f70c-40af-40a3-08da1d794a29
-x-ms-traffictypediagnostic: BN8PR04MB5476:EE_
-x-microsoft-antispam-prvs: <BN8PR04MB5476D92381C9C38B4A17991AF2EC9@BN8PR04MB5476.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: EnAhIukfqVllW8oQgm8fjG9kjPIdMoLpLYNq9dg8gg2ylXaA5I/Sht07gz8E06q81D+S9zAyLbOTZXmjo8pZ58JHxn6KYw9lMwK+g14H6W99tZ3HwALO1kXM4R3kHwxQk3D4wlDVJbXFJoAc04N+93AZiLrzVRcxtqdBpI5edFV6kD0QbPZ5Hbsmq1fI+IjM0aPfCVd97FCzMNyPXnqmTyvoIpBsxAYwt971VeKt7/+66Oqr+OX0DxLGPiaqK4jVo9p1pH1YAqW3MWf6CqqUgfXbW2uYs9GXEPM8S29XSb5ELP9XkpJVZbE9Qcqi5D5TxaN0JHAtX7EyVTOvlrAcYorfrqfWYcImMRd4K7Sohjl00X0rk2x2vl+rtJXmrFiDK4p6WUmmr2Pz4NNhxt5NkaPowiAjc17/s5Pzn0EH5MzTTr8Sx4hLFaAJo1a/qAafelaitPEDcKWGmGG42x1XjKSQ4i1EcF6/mKnR27OHMDCvLsVuK2gfitOY77j8eSP5L+GFv+eJexe2QiJYDty4MRBh3xFzmz+4uvCNtuenZXlfICB+eSQhBRTDGDHbtoDuDQbcq4AEqHeJoRWTQF5L/q4e1wUIVrwg/sHT9o1XX5mgPYHeJGS71EL+e/BETqd2h34KK3S12ZfKglJ1BJM9W4LCuLdLpSzMuBHZLBKxLoRocep9774BpFnQgKa9qz8dtYpQmd5v+J2u0JWHBLjLhFTXB2ERMQAWMAvSOgGeXNhIEdGhvBCkDPHv+pkCy/vqp/S9jzebXDNssdRiTNGaMfdytPRf/+WaeAEBqX3Lzi63W5eyT5PI2Su9+sdqiCQBGjpdCS6kaidh8/bWADfdZg==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:PH0PR04MB7158.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(13230001)(7916004)(4636009)(366004)(83380400001)(9686003)(6512007)(2906002)(4326008)(33716001)(26005)(82960400001)(38100700002)(122000001)(186003)(86362001)(38070700005)(5660300002)(508600001)(66556008)(66446008)(66476007)(316002)(71200400001)(64756008)(966005)(6486002)(7416002)(54906003)(6916009)(76116006)(6506007)(91956017)(8936002)(66946007)(8676002);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?gGakjFyGIG1qOjcsWcv/f9tgpNLO2NT6Xo18ifS2VGpPw0EzpSoqL971WEND?=
- =?us-ascii?Q?khcq9sER00ZYPTj9PiTmSTphDNmeyqDwTybxtiJJsxUnweB8nIa6YX2ibar8?=
- =?us-ascii?Q?U2mcHaLSIuOg3dwL6d8CNsZAPgP9dkuNDi2oRSlsFRcyI92+0ObKWZscT3uL?=
- =?us-ascii?Q?CnOGZDF4P0UhDwYgolFZGJ8kAc9KO11hABl1A/LUjczB+QBbDu+B5ZVMfIbc?=
- =?us-ascii?Q?bqio4n7YR6wBoEgEW2hWtX8JSWfhSj18m6m+y5u+2VWwe2cPkLTF8YpS/E8i?=
- =?us-ascii?Q?DhXo3WEyufbKv0jhCJFNMOwxqj04yfZ4EUcvHtoiGFQIRXSiHrq0cuOGhcVD?=
- =?us-ascii?Q?y0OxDBBZAFSgyjthrZGed3ilIhN4InXNmwDsaX+G3/g//6X5YVYvaLxmVlCI?=
- =?us-ascii?Q?Nz01sv4zHkUrCqkYX42C+TYOUHY6E4COfXJ9GyhUjzq1JYtenQ7Ueik+SYt3?=
- =?us-ascii?Q?SQcT6jyEtpzft6ZBB15aeoQ9Q6DL9sLDrs+YXhmOxiOOeDPLicPwHZjXFcuF?=
- =?us-ascii?Q?t5LBZ3goCJn6PtgYooLtcZHf67NTzpD43aiB2inGFYh4MPLfUm3r6MdOjpD4?=
- =?us-ascii?Q?8Qd8PE5pGh21RWJWLoNA98jeHkaUmpNNkDRzeGvUBHE+olC/d54KE5vdgusC?=
- =?us-ascii?Q?xYAqsvQdUajr4AJT3IHiUK0T82sJhRfg807lh9o0RY/H1/Pe6EodQwdRBo3R?=
- =?us-ascii?Q?Pyf09WaJwYA0L+TWyUGqLzdkxdeNNvuVPEPynGAOZNEsnh2hfSul80u5edGL?=
- =?us-ascii?Q?4VCJ8xFFNusMN569DamL0zABM8s8576UCqdeoZVGR20Chjel8QdU+DoHX/F+?=
- =?us-ascii?Q?MnoMNPlidgPMuolgcQuqSZFcAHfNms96QVbc1Q6gghBLq7yeyfynYnJCLOMr?=
- =?us-ascii?Q?G7GGn4vjCgdiplmIL9QzoxqjtqDT7UEmem0pDR8EyGosladmQdC0QWD1Snok?=
- =?us-ascii?Q?ED5mB+Pi40G/iRXsI/2SUBjyzcgBrcyI1fvNp7R6ssaPYgN61SJt05z7I4gh?=
- =?us-ascii?Q?bcWMGtFakMa3gJGMQPDRV++WQ5eaHVyk5A8MxGwNxsmhVfL/1LyJuEnjD80j?=
- =?us-ascii?Q?SpNr3N2kUXnvQ6j/AcONh0RbCJJJm8h8dhKq9UTWScSbMgs/khjOvo5WQ4lc?=
- =?us-ascii?Q?BO1irHFjxojApq8AsEPmZOLkV3zw7vneikrDJPQtf8meCUj3qshiT9e5P31W?=
- =?us-ascii?Q?ERRI6SrUAvffEojkm3RlXUt827V0EBVANgBh26NPpfbfTAHenBgjaSUyFCJ5?=
- =?us-ascii?Q?cDvBkUE3pPC7O1nI+E6FQMS7pRW2C1RJ1Mlut3mpqJQY52IjvalG1UuJUZO+?=
- =?us-ascii?Q?KHSMxd7Owks4qmKzJBAHcoGp/FPT8T9qeddgi8Fo+gOs5z+hhKc+3kThkBze?=
- =?us-ascii?Q?xiFiHXcSOefZmM2CQXLQ9k/KqAcZCRmzpdDaalKsuCOhXwwdssv9CunzvYBY?=
- =?us-ascii?Q?M5EZ/5hU6DMGT/oGU2hHF/Klps36gA8xBA/GZu3OE3YZANHn1E1GR+jmbzQs?=
- =?us-ascii?Q?vnvfLUiMTsqUW+Hazy8NpYxgKVQ9hWHjAMNQrib8eNiCgInmz6ka4c8T/+Zx?=
- =?us-ascii?Q?LWmGPYReOYIo2g12tWw/gGtvV/shpfX32sgmGlI0fjH5NrMDD2kxmcS6rHoS?=
- =?us-ascii?Q?LcbSPlAFUwW8wiOGXe2jaJ8sbIfSxZxE39VDoNyhvRrTmWOMEtGCBJ8c+Tkz?=
- =?us-ascii?Q?1cYiWlge4So75h0HXAuqOtpR/ipFhyFUADcDdA7VmRaobvR+fHJIj3ZBSMMW?=
- =?us-ascii?Q?NbApHV1Ha+T9rQtOG/GZFZc4MrTVFoM=3D?=
-Content-ID: <D025504C4E004C438899B35B148A3A79@namprd04.prod.outlook.com>
+ id 1nei2c-0029qu-TZ
+ for linux-riscv@lists.infradead.org; Wed, 13 Apr 2022 18:48:36 +0000
+Received: by mail-yw1-f180.google.com with SMTP id
+ 00721157ae682-2ebd70a4cf5so32833137b3.3
+ for <linux-riscv@lists.infradead.org>; Wed, 13 Apr 2022 11:48:32 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=J1rErWVySlUxlEFN2u18NGS5Qm0qvXYHGlMsYpGhhEY=;
+ b=XzNn4TgQ5Zo7v/BteSuAmgKUM4MzhfdEeL8oVfj6JVxWRXdes7lJWw8Z81Id8pF3mg
+ ohy1dqvj3V5uZgE5/nu2mgllDrSFCMJkOmCFIFYM2QzO1y+Qxu/JoN5w8xSisE0TF9dg
+ pJWdW5C91Vtzi9kiAhF6Y/TWPm28bnCyL9V3e7Jxc4/yRg7sbLwXckKqb06nNdiyCx/E
+ 8Vg1v2HaCmdrxmCO+/pZjKxcBhypMla80nd5knHEUafotcb6qSXQVyL8UJZtZFYNGIRX
+ BT6wGlISLubIefsi0u4P35DXR2vZCs5FZRcUtA0SaPEdimxG4wRjOP35Q09tLkuT61bf
+ IQKQ==
+X-Gm-Message-State: AOAM530hydfS824OgGgYfnX0mqhnDiQ9aqn3nuYNDwtkanBunX5c0onr
+ kchB3/9SMZI7zPDEHJCmyoXrJZOvdTYnEzGo3CI=
+X-Google-Smtp-Source: ABdhPJz9BfsA7QIGi43YRDlzzrWhVjbeGEMJOs01j9nA3vXXWXOOPKhq5d8EhdtGHqqQ5dYXQmK91VGL/RQnfnI1jKs=
+X-Received: by 2002:a81:7c45:0:b0:2eb:4759:cc32 with SMTP id
+ x66-20020a817c45000000b002eb4759cc32mr224284ywc.515.1649875711933; Wed, 13
+ Apr 2022 11:48:31 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR04MB7158.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7119a920-f70c-40af-40a3-08da1d794a29
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Apr 2022 18:13:19.7250 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: fHbLa9FLz6uKfZ+n6mH22nJcI4Y69pcGMrpqPNMsIvW3i2pFusoA5bQUIEALj71f68KKqJiovm9w7Rrlg5mwOg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN8PR04MB5476
+References: <20220411233832.391817-1-dmitry.osipenko@collabora.com>
+ <20220411233832.391817-4-dmitry.osipenko@collabora.com>
+In-Reply-To: <20220411233832.391817-4-dmitry.osipenko@collabora.com>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Wed, 13 Apr 2022 20:48:20 +0200
+Message-ID: <CAJZ5v0gf1J+yPW14TAdLGLGfO+-2s=r0DDP7d+Rgop3=dB0gaQ@mail.gmail.com>
+Subject: Re: [PATCH v7 03/20] reboot: Print error message if restart handler
+ has duplicated priority
+To: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+Cc: Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, 
+ Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, Greg Ungerer <gerg@linux-m68k.org>, 
+ Joshua Thompson <funaho@jurai.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Sebastian Reichel <sre@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Greentime Hu <green.hu@gmail.com>, 
+ Vincent Chen <deanbo422@gmail.com>, 
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
+ Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "the arch/x86 maintainers" <x86@kernel.org>, 
+ "H. Peter Anvin" <hpa@zytor.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+ Juergen Gross <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+ Santosh Shilimkar <ssantosh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Pavel Machek <pavel@ucw.cz>, 
+ Lee Jones <lee.jones@linaro.org>, Andrew Morton <akpm@linux-foundation.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, 
+ =?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org, 
+ linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ linux-parisc@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, Linux-sh list <linux-sh@vger.kernel.org>, 
+ xen-devel@lists.xenproject.org, 
+ ACPI Devel Maling List <linux-acpi@vger.kernel.org>,
+ Linux PM <linux-pm@vger.kernel.org>, 
+ linux-tegra <linux-tegra@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220413_111326_642310_C5EF01A2 
-X-CRM114-Status: GOOD (  46.68  )
+X-CRM114-CacheID: sfid-20220413_114835_590243_6D8636B2 
+X-CRM114-Status: GOOD (  24.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,183 +114,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 12, 2022 at 09:52:13AM -0500, Eric W. Biederman wrote:
-> Niklas Cassel <Niklas.Cassel@wdc.com> writes:
+On Tue, Apr 12, 2022 at 1:39 AM Dmitry Osipenko
+<dmitry.osipenko@collabora.com> wrote:
+>
+> Add sanity check which ensures that there are no two restart handlers
+> registered using the same priority. This requirement will become mandatory
+> once all drivers will be converted to the new API and such errors will be
+> fixed.
+>
+> Signed-off-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 
-(snip)
+The first two patches in the series are fine with me and there's only
+one minor nit regarding this one (below).
 
-> >> Would it be safer to check that the following rp_val is also -1 ? Also,
-> >> does this work with 32-bits arch ? Shouldn't the "< 2" be "< 1" for
-> >> 32-bits arch ?
-> >
-> > I think that checking that the previous entry is also -1 will not work,
-> > as it will just be a single entry for 32-bit.
-> > And I don't see the need to complicate this logic by having a 64-bit
-> > and a 32-bit version of the check.
-> 
-> Handling 64bit in this binfmt_flat appears wrong.  The code is
-> aggressively 32bit, and in at least some places does not have fields
-> large enough to handle a 64bit address.  I expect it would take
-> a significant rewrite to support 64bit.
+> ---
+>  kernel/reboot.c | 15 +++++++++++++++
+>  1 file changed, 15 insertions(+)
+>
+> diff --git a/kernel/reboot.c b/kernel/reboot.c
+> index ed4e6dfb7d44..acdae4e95061 100644
+> --- a/kernel/reboot.c
+> +++ b/kernel/reboot.c
+> @@ -182,6 +182,21 @@ static ATOMIC_NOTIFIER_HEAD(restart_handler_list);
+>   */
+>  int register_restart_handler(struct notifier_block *nb)
+>  {
+> +       int ret;
+> +
+> +       ret = atomic_notifier_chain_register_unique_prio(&restart_handler_list, nb);
+> +       if (ret != -EBUSY)
+> +               return ret;
+> +
+> +       /*
+> +        * Handler must have unique priority. Otherwise call order is
+> +        * determined by registration order, which is unreliable.
+> +        *
+> +        * This requirement will become mandatory once all drivers
+> +        * will be converted to use new sys-off API.
+> +        */
+> +       pr_err("failed to register restart handler using unique priority\n");
 
-Running "file" on the ELF supplied to elf2flt shows:
-ELF 64-bit LSB executable, UCB RISC-V, RVC, double-float ABI, version 1 (SYSV)
-(The code was compiled with -melf64lriscv.)
+I would use pr_info() here, because this is not a substantial error AFAICS.
 
-And the resulting bFLT works perfectly fine with the existing fs/binfmt_flat.c
-(with the minor fix in $subject applied).
+> +
+>         return atomic_notifier_chain_register(&restart_handler_list, nb);
+>  }
+>  EXPORT_SYMBOL(register_restart_handler);
+> --
 
-The current relocation code probably won't work on systems where it needs to
-relocate something to an address > 4 GB, but the systems running bFLT rarely
-have that much memory. The k210 I'm testing on has 8 MB of memory.
-
-
-So I'm not arguing that we should change the u32 pointers to something else,
-my point was that:
-https://sourceware.org/git/?p=binutils-gdb.git;a=blob;f=bfd/elfnn-riscv.c;hb=binutils-2_38#l3275
-
-bfd_put_NN (output_bfd, (bfd_vma) -1, htab->elf.sgotplt->contents);
-bfd_put_NN (output_bfd, (bfd_vma) 0,
-            htab->elf.sgotplt->contents + GOT_ENTRY_SIZE);
-
-Where NN will be 64 for elf64-riscv and 32 for elf32-riscv:
-https://sourceware.org/git/?p=binutils-gdb.git;a=blob;f=bfd/Makefile.am;hb=binutils-2_38#l878
-
-So while the GOTPLT header will always be two words,
-it will be 16 bytes ([0xffffffff 0xffffffff] [0x0 0x0]) on elf64-riscv
-and 8 bytes ([0xffffffff] [0x0]) on elf32-riscv.
-
-Both words are reserved for the dynamic linker (ld.so).
-
-
-> 
-> 
-> I think it would be better all-around if instead of applying the
-> adjustment in the loop, there was a test before the loop.
-> 
-> Something like:
-> 
-> static inline u32 __user *skip_got_header(u32 __user *rp)
-> {
-> 	if (IS_ENABLED(CONFIG_RISCV)) {
-> 	        /* RISCV has a 2 word GOT PLT header */
-> 		u32 rp_val;
-> 		if (get_user(rp_val, rp) == 0) {
->         		if (rp_val == 0xffffffff)
->                 		rp += 2;
-> 		}
->         }
-> 	return rp;
-> }
-
-I like your suggestion, but perhaps change skip_got_header() to:
-
-static inline u32 __user *skip_got_header(u32 __user *rp)
-{
-	if (IS_ENABLED(CONFIG_RISCV)) {
-		/*
-		 * RISCV has a 16 byte GOT PLT header for elf64-riscv
-		 * and 8 byte GOT PLT header for elf32-riscv.
-		 * Skip the whole GOT PLT header, since it is reserved
-		 * for the dynamic linker (ld.so).
-		 */
-		u32 rp_val0, rp_val1;
-
-		if (get_user(rp_val0, rp))
-			return rp;
-		if (get_user(rp_val1, rp + 1))
-			return rp;
-
-		if (rp_val0 == 0xffffffff && rp_val1 == 0xffffffff)
-			rp += 4;
-		else if (rp_val0 == 0xffffffff)
-			rp += 2;
-	}
-	return rp;
-}
-
-What do you guys think?
-
-
-> 
-> ....
-> 
-> 	if (flags & FLAT_FLAG_GOTPIC) {
-> 		rp = skip_got_header((u32 * __user) datapos);
-> 		for (; ; rp++) {
-> 			u32 addr, rp_val;
-> 			if (get_user(rp_val, rp))
-> 				return -EFAULT;
-> 			if (rp_val == 0xffffffff)
-> 				break;
-> 			if (rp_val) {
-> 
-> 
-> Alternately if nothing in the binary uses the header it would probably
-> be a good idea for elf2flt to simply remove the header.
-
-It is used by the dynamic linker (ld.so), so I don't think that we can
-remove it.
-
-The bFLT format only supports shared libraries when CONFIG_BINFMT_SHARED_FLAT.
-Looking at e.g. buildroot:
-https://github.com/buildroot/buildroot/blob/2022.02.1/arch/Config.in#L418
-it seems that perhaps only m68k supports shared libraries for bFLT, but I
-suppose that elf2flt wants to keep the linker script the same for all archs.
-
-
-> Looking at the references you have given the only active architecture
-> supporting this header is riscv.  So I think it would be good
-> documentation to have the functionality conditional upon RISCV.
-
-Fine by me.
-
-
-> 
-> There is the very strange thing I see happening in the code.
-> Looking at the ordinary relocation code it appears that if
-> FLAT_FLAG_GOTPIC is set that first the address to relocate
-> is computed, then the address to relocate is read converted
-> from big endian to native endian (little endian on riscv?)
-> adjusted and written back.
-
-The relocation entries in the GOT are not converted using ntohl():
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/fs/binfmt_flat.c?h=v5.18-rc2#n799
-
-The extra relocation entries tacked after the image's data segment
-are only converted using ntohl() if FLAT_FLAG_GOTPIC is _not_ set:
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/fs/binfmt_flat.c?h=v5.18-rc2#n851
-
-
-> 
-> Does elf2flt really change all of these values to big-endian on
-> little-endian platforms?
-
-Short answer, yes, but only for non-PIC code:
-https://github.com/uclinux-dev/elf2flt/blob/v2021.08/elf2flt.c#L826
-
-The code is horrible to read because of all the ifdefs,
-I had to compile it with -E to actually see anything.
-
-Basically the code ends up looking like this:
-
-	if (!pic_with_got) {
-		switch (q->howto->type) {
-		default:
-			/* The alignment of the build host
-			   might be stricter than that of the
-			   target, so be careful.  We store in
-			   network byte order. */
-			r_mem[0] = (sym_addr >> 24) & 0xff;
-			r_mem[1] = (sym_addr >> 16) & 0xff;
-			r_mem[2] = (sym_addr >> 8) & 0xff;
-			r_mem[3] = sym_addr & 0xff;
-		}
-	}
-
-
-Kind regards,
-Niklas
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
