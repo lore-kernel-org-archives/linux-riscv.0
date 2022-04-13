@@ -4,76 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B06CCC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Apr 2022 21:52:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCCB3C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Apr 2022 22:30:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=LQf03XZezyyo5eZkc7s0ULR58nqpk4kzieLmQAyw3/I=; b=aDF/MY9FEEjWOhgZyzJJ2QeyAd
-	uNWSfPFedlNg/6h8CMMlzWhE09ri76oMOx+Rv/JkXlNRiJFJSNImONyl7xaOTfOFI6paMFilYNhWW
-	NlvDeJUMNJ+La9P9e2fKZdl1kX0S0sOZtQCkGUGW3m7KUw6/RUTj7Z//Sik8BOzEb/GfWGdVGEG+7
-	/ocCTjxbQrMp+nq1AO8BeXAQFNqBhdSOgyLNzOCeI6/pfJVBQXHtB2blLuAWeMtlvdTIO2qQ4tduL
-	6HOGtdG9uMHgZcBtTfUDKjjv0JL3vYoiQvaXQHGpzkzRK8M/rZ2H8H42gla+nj7jyIWAlGiYY29Wo
-	ydkAENmQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=V21+hL1dIi+Z8mM1SA2F8UBSxyZ+XZllfScxL2ul/Lw=; b=szUVNwaDmAu/y9
+	JojBC9oEGwHDglzT5wsoFyfwq7IV9FFVWHRpMXAGqfhfaPOCRiHbo8SDyHXTYjpIXOPJnSo/tFcn9
+	ykrFsJn12aQPVHKrUjlEF4Hc6qvdvHNdoXoaTT5mV+rUZ4nGoTOc8VjASB4GXNvwNMWivnR/BjCNw
+	mBmixTJfGnLgqGP8vafNYuyeuLqlxqgndf4hBRRFsKBKNpDayFX9/QekQRHxqhwJh5lPsdv/gqhhb
+	xZsSicFI48uw2+pJ164yusvLM2tJuhDbvN82KyWn3IixAQZ5ukQyI6nICnZ4CXpAAc4S4jyKvEgOz
+	UVV5IQrRH3RKEZD5dSPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nekuh-002nhX-VE; Wed, 13 Apr 2022 21:52:35 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1nelVH-002uxL-7s; Wed, 13 Apr 2022 22:30:24 +0000
+Received: from bhuna.collabora.co.uk ([46.235.227.227])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nekue-002nfx-Ep
- for linux-riscv@lists.infradead.org; Wed, 13 Apr 2022 21:52:34 +0000
-Received: by mail-pl1-x631.google.com with SMTP id n18so3081577plg.5
- for <linux-riscv@lists.infradead.org>; Wed, 13 Apr 2022 14:52:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=5II3n/+h3pivxbaF4Zlsk6J/11Tk5zgxZni781mRMks=;
- b=vfNOMQF23PUUYhslMTsPc88fGqI/w/7RwE3Y+rQbjASYPl1JRZYkjCyiqvR+MlNzjz
- fs2BJzp2MtxsYq0rjo9jR3eolql9ISfdEKQYRfPMxgEdaE4ykzR81x9JJxc3ZmQVfTy/
- +Kl+ROe0ehO9bvmvKH6Z7EmRt1BzTnkuD+jte2bv9VSUZ3h/KYJMKSG8njJfZtK2WdeG
- z8+4B2CWJ+qjrPf8He1vdE9f0rTayzBgPLWqKP4Iem19hdierTtX1G45FwqOcebVuZhw
- NvMGsTlw3Ihv93OUD9UtUxgKAeb4QgFul2h4JTVPIdfoJ6c+uU1bWQvj2Au486LKCU1+
- Eqng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=5II3n/+h3pivxbaF4Zlsk6J/11Tk5zgxZni781mRMks=;
- b=HGfaorMlPVINNT9FEApl7u6QBsxfuQhCljc+080wjkyxEl7UeyGWTI3NsFFWYiAVXR
- ovZt86NEqWau6cwhUMxeAoUV7MazAatxIG875PycJZeteeaQ5XtlvY+++IJly0VAAuFV
- i5WmMXPamPAJfbMOiVRuYKsMx2fcm2/V8PGr7ZLroHxJZtd4Rxc8kqlOaePusuzAOASi
- RtpTIKapw2g2USwvNlpesa9l9KL8m58KkmMI4td8T75u9yNWAMRYoqWsebHncr3vTVnh
- f+qP/RRkcO9Zc83LMGdrZnZOdgv7/dE9b0Kb1EsN9J3K2+Y08dLP60yT/EdAYLIf2GaM
- Nyrg==
-X-Gm-Message-State: AOAM530dGJgbGJtEklDZ8vremsL78zS9RM3R2sX66zusoUsYucnRG1mK
- dS/IxITF6NJK1FRbIVrMyLTNGA==
-X-Google-Smtp-Source: ABdhPJzH9INoE7i/6xgm6BLOYIKln7WffJZnT0GLl47dO+VUcGZI8dfFW0KpRsmGzjOhjaom6Cr93Q==
-X-Received: by 2002:a17:902:7006:b0:156:3cbe:6b04 with SMTP id
- y6-20020a170902700600b001563cbe6b04mr43467020plk.68.1649886748497; 
- Wed, 13 Apr 2022 14:52:28 -0700 (PDT)
-Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
- k6-20020a056a00134600b004faba67f9d4sm37928pfu.197.2022.04.13.14.52.27
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 13 Apr 2022 14:52:27 -0700 (PDT)
-Date: Wed, 13 Apr 2022 14:52:27 -0700 (PDT)
-X-Google-Original-Date: Wed, 13 Apr 2022 14:52:19 PDT (-0700)
-Subject: Re: [PATCH 00/12] Initial support for Nuclei DemoSoC w/ UX600
-In-Reply-To: <mhng-b11934a9-100f-457b-a35e-46bdcd7f43f4@palmer-ri-x1c9>
-CC: robh+dt@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org,
- linux-spi@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: icenowy@nucleisys.com
-Message-ID: <mhng-aeb81250-47b1-4189-a668-695c410d2450@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+ id 1nelP9-002s55-OI
+ for linux-riscv@lists.infradead.org; Wed, 13 Apr 2022 22:24:05 +0000
+Received: from [IPV6:2a00:5f00:102:0:10b3:10ff:fe5d:4ec1] (unknown
+ [IPv6:2a00:5f00:102:0:10b3:10ff:fe5d:4ec1])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ (Authenticated sender: dmitry.osipenko)
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 16B2A1F47620;
+ Wed, 13 Apr 2022 23:23:55 +0100 (BST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+ s=mail; t=1649888639;
+ bh=EkR5aP9YXjDV++4Mm3vdM0ntQFHoUFn8du5hNEWzcVU=;
+ h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+ b=j1A1c0tVlfMHwkO7ph7+BXecjl3zjCSCuFY4mjDRsMmEMUiSRn2BdhdRX28bqNwRd
+ 0kArRjhlR3IJGzxnsIsIV55CLgmFFI2NSRANmlAgGh9kCXVIhjheVEf98HAY8hRICr
+ de+NRfs0/E1u09npw7AvIBnHJ1RV4t8z84ccFmlq2rh+QRMZrOxIOsnFLQ8+zt1Kd4
+ qKUl7Umpny+Mkmr77FYSLFjlQUix00R1aWWELoW4IA9Fdi4ygNsJKyHTTDcHL21FER
+ 5mHsl6TGS0ii5K5AIMCobu3OluHXcov5Vb4ZmIfOFm8YTbDv+QPwuKnXvhZ8Xql3Cd
+ iLKh0vklwzMtQ==
+Message-ID: <af51d9d0-26ba-fc66-05f1-d92ef7172730@collabora.com>
+Date: Thu, 14 Apr 2022 01:23:52 +0300
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.7.0
+Subject: Re: [PATCH v7 03/20] reboot: Print error message if restart handler
+ has duplicated priority
+Content-Language: en-US
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Russell King
+ <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Greg Ungerer
+ <gerg@linux-m68k.org>, Joshua Thompson <funaho@jurai.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Sebastian Reichel <sre@kernel.org>, Linus Walleij
+ <linus.walleij@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ the arch/x86 maintainers <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Juergen Gross
+ <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>,
+ Len Brown <lenb@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, Pavel Machek <pavel@ucw.cz>,
+ Lee Jones <lee.jones@linaro.org>, Andrew Morton <akpm@linux-foundation.org>,
+ Guenter Roeck <linux@roeck-us.net>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ =?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org, linux-ia64@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org,
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Linux-sh list <linux-sh@vger.kernel.org>, xen-devel@lists.xenproject.org,
+ ACPI Devel Maling List <linux-acpi@vger.kernel.org>,
+ Linux PM <linux-pm@vger.kernel.org>,
+ linux-tegra <linux-tegra@vger.kernel.org>
+References: <20220411233832.391817-1-dmitry.osipenko@collabora.com>
+ <20220411233832.391817-4-dmitry.osipenko@collabora.com>
+ <CAJZ5v0gf1J+yPW14TAdLGLGfO+-2s=r0DDP7d+Rgop3=dB0gaQ@mail.gmail.com>
+From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+In-Reply-To: <CAJZ5v0gf1J+yPW14TAdLGLGfO+-2s=r0DDP7d+Rgop3=dB0gaQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220413_145232_528825_D7FF34DE 
-X-CRM114-Status: GOOD (  27.25  )
+X-CRM114-CacheID: sfid-20220413_152404_246049_DA2060ED 
+X-CRM114-Status: GOOD (  23.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,99 +109,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyMSBNYXIgMjAyMiAxNzowNTo0NSBQRFQgKC0wNzAwKSwgUGFsbWVyIERhYmJlbHQg
-d3JvdGU6Cj4gT24gVHVlLCAyMiBGZWIgMjAyMiAwODo1Njo0MiBQU1QgKC0wODAwKSwgUGFsbWVy
-IERhYmJlbHQgd3JvdGU6Cj4+IE9uIFNhdCwgMTkgRmViIDIwMjIgMDY6NDU6NDMgUFNUICgtMDgw
-MCksIGljZW5vd3lAbnVjbGVpc3lzLmNvbSB3cm90ZToKPj4+IOWcqCAyMDIyLTAxLTI35pif5pyf
-5Zub55qEIDIzOjE2ICswODAw77yMSWNlbm93eSBaaGVuZ+WGmemBk++8mgo+Pj4+IFRoaXMgcGF0
-Y2hzZXQgYWRkcyBzdXBwb3J0IGZvciBOdWNsZWkgRGVtb1NvQyAod2hpY2ggaXMgYW4gZXZhbHVh
-dGlvbgo+Pj4+IHBsYXRmb3JtIG1hZGUgd2l0aCBOdWNsZWkgQ1BVIGNvcmVzIGFuZCBtYWlubHkg
-cGVyaXBoZXJhbHMgaW4KPj4+PiBvcmlnaW5hbAo+Pj4+IEh1bW1pbmdiaXJkIEUyMDMgcHJvamVj
-dCwgcnVubmluZyBvbiBGUEdBKSB3aXRoIFVYNjAwIENQVSBjb3Jlcy4KPj4+Pgo+Pj4+IE1vc3Qg
-cGF0Y2hlcyBhcmUgZm9yIERUIGJpbmRpbmdzLCB0aGUgcmVtYWluaW5nIG9uZXMgYXJlIGFkZGlu
-ZyBhCj4+Pj4gS2NvbmZpZyBvcHRpb24gYW5kIHNvbWUgRFRTL0RUU0kgZmlsZXMuIFRoZSBsYXN0
-IG9uZSBpcyBhIHdvcmthcm91bmQKPj4+PiBmb3IKPj4+PiBhIHNldmVyZSBidWcgaW4gY3VycmVu
-dGx5IHJlbGVhc2VkIHZlcnNpb25zIG9mIFVYNjAwLCB3aGljaCBpcyBmb3VuZAo+Pj4+IGluIDUu
-MTcga2VybmVsLCBpbiB3aGljaCBTdjQ4IHN1cHBvcnQgaXMgYWRkZWQgdG8gTGludXguCj4+Pj4K
-Pj4+PiBUd28gbm9uLXRlY2huaWNhbCBwYXRjaGVzIGFyZSBpbiB0aGlzIHBhdGNoc2V0IHRvbywg
-Zm9yIE1BSU5UQUlORVJTCj4+Pj4gYW5kIC5tYWlsbWFwIGl0ZW1zLgo+Pj4KPj4+IFBpbmcsIGNv
-dWxkIGFueSBSSVNDLVYgbWFpbnRhaW5lcnMgcmV2aWV3IHRoZXNlIHBhdGNoZXMsIGVzcGVjaWFs
-bHkgdGhlCj4+PiBTQVRQIHdvcmthcm91bmQgb25lPwo+Pgo+PiBTb3JyeSwgSSByZW1lbWJlciBo
-YXZpbmcgd3JpdHRlbiB0aGlzIGJ1dCBJIGd1ZXNzIGl0IGdvdCBsb3N0LiAgSUlSQyBteQo+PiBt
-YWluIHdvcnJ5IGhlcmUgd2FzIHRoYXQsIGF0IGxlYXN0IGFzIGZhciBhcyBJIGNhbiB0ZWxsLCBE
-ZW1vU09DIGlzIGFuCj4+IEZQR0EgZGV2ZWxvcG1lbnQgYm9hcmQuICBJZiB0aGlzIGlzIGFjdHVh
-bGx5IGluIHByb2R1Y3Rpb24gc29tZXdoZXJlCj4+IHRoZW4gaXQncyBhIGRpZmZlcmVudCBzdG9y
-eSwgYnV0IElJVUMgdGhlIGdlbmVyYWwgcnVsZSBpcyBub3QgdG8gYWNjZXB0Cj4+IGNvZGUgZm9y
-IGRldmVsb3BtZW50IGhhcmR3YXJlIHRoYXQgY2FuIGJlIHVwZGF0ZWQuCj4+Cj4+IEFzc3VtaW5n
-IERlbW9TT0MgY2FuIGJlIHVwZGF0ZWQsIEknZCBhbHNvIGFyZ3VlIHRoYXQgd2Ugc2hvdWxkIGhh
-dmUgc29tZQo+PiBzb3J0IG9mIHZlcnNpb24gYXR0YWNoZWQgdG8gaXQgaW4gRFQgZW50cmllcy4g
-IFdpdGhvdXQgc29tZSB2ZXJzaW9uaW5nCj4+IHdlJ2xsIGVuZCB1cCBsb3N0IHdoZW4gdHJ5aW5n
-IHRvIGxhdGVyIGRldGVybWluZSB3aGF0IHdlJ3JlIGFjdHVhbGx5Cj4+IHJ1bm5pbmcgb24uCj4+
-Cj4+IEFzIGZhciBhcyB0aGUgZXJyYXRhIGdvZXM6IGl0IGxvb2tzIGZpbmUgdG8gbWUsIGJ1dCBJ
-J2QgbGlrZSB0byBzZWUgc29tZQo+PiBzb3J0IG9mIGRlc2NyaXB0aW9uIG9mIHdoYXQgdGhlIGVy
-cmF0YSBhY3R1YWxseSBpcyAoaWUsIHNvbWUKPj4gZG9jdW1lbnRhdGlvbiBmcm9tIHRoZSBtYW51
-ZmFjdHVyZXIpLiAgSSBrbm93IHRoYXQncyBub3QgYWx3YXlzCj4+IHBvc3NpYmxlLCBidXQgd2l0
-aG91dCBzb21lIGRlc2NpcHRpb24gb2Ygd2hhdCB0aGUgYnVnIGlzIGl0IGdldHMgdHJpY2t5Cj4+
-IHRvIG1haW5haW4gdGhpcyBzb3J0IG9mIHN0dWZmLiAgRm9yIGV4YW1wbGU6IHdlJ3ZlIGdvdCBz
-djU3IHBhdGNoZXMKPj4gbm93LCBzbyBob3cgZG8gSSBrbm93IHdoYXQgdG8gZG8gd2l0aCB0aGVt
-IG9uIHRoaXMgdGFyZ2V0Pwo+Cj4gSnVzdCBmb2xsb3dpbmcgdXAgb24gdGhpcyBvbmUuICBOb3Qg
-c3VyZSBpZiBJIG1pc3NlZCBpdCwgYnV0IEkgY2FuJ3QKPiBmaW5kIGEgcmVwbHkuCgpDaGVja2lu
-ZyB1cCBvbiB0aGlzIG9uZSBtb3JlIHRpbWUsIEkgc3RpbGwgY2FuJ3QgZmluZCBhbnkgcmVwbGll
-cy4gIEl0J3MgCmF0IHRoZSB0b3Agb2YgbXkgcXVldWUsIGJ1dCBJJ20gZ29pbmcgdG8gZHJvcCBp
-dCB1bnRpbCB0aGUgcXVlc3Rpb25zIGdldCAKcmVzb2x2ZWQuCgo+Cj4+Cj4+Pgo+Pj4+Cj4+Pj4g
-SWNlbm93eSBaaGVuZyAoMTIpOgo+Pj4+IMKgIGR0LWJpbmRpbmdzOiB2ZW5kb3ItcHJlZml4ZXM6
-IGFkZCBOdWNsZWkKPj4+PiDCoCBSSVNDLVY6IGFkZCBOdWNsZWkgU29DIEtjb25maWcgb3B0aW9u
-Cj4+Pj4gwqAgZHQtYmluZGluZ3M6IHJpc2N2OiBhZGQgY29tcGF0aWJsZSBzdHJpbmdzIGZvciBO
-dWNsZWkgVVg2MDAgc2VyaWVzCj4+Pj4gwqAgZHQtYmluZGluZ3M6IHRpbWVyOiBhZGQgY29tcGF0
-aWJsZSBmb3IgTnVjbGVpIFVYNjAwIENMSU5ULWNvbXBhdAo+Pj4+IHRpbWVyCj4+Pj4gwqAgZHQt
-YmluZGluZ3M6IGludGVycnVwdC1jb250cm9sbGVyOiBhZGQgY29tcGF0aWJsZSBzdHJpbmcgZm9y
-IFVYNjAwCj4+Pj4gwqDCoMKgIFBMSUMKPj4+PiDCoCBkdC1iaW5kaW5nczogc2VyaWFsOiBhZGQg
-Y29tcGF0aWJsZSBzdHJpbmcgZm9yIE51Y2xlaSBEZW1vU29DIFVBUlQKPj4+PiDCoCBkdC1iaW5k
-aW5nczogc3BpOiBhZGQgY29tcGF0aWJsZSBzdHJpbmcgZm9yIE51Y2xlaSBEZW1vU29DIFNQSQo+
-Pj4+IMKgIGR0LWJpbmRpbmdzOiByaXNjdjogYWRkIGJpbmRpbmcgZm9yIE51Y2xlaSBwbGF0Zm9y
-bSBib2FyZHMKPj4+PiDCoCByaXNjdjogZHRzOiBhZGQgZGV2aWNlIHRyZWUgZm9yIE51Y2xlaSBE
-ZW1vU29DIHcvIFVYNjAwIG9uIEREUjIwMFQKPj4+PiDCoCBSSVNDLVY6IHdvcmthcm91bmQgTnVj
-bGVpIFVYNjAwIGNvcmVzIHdpdGggYnJva2VuIFNBVFAgQ1NSCj4+Pj4gwqAgTUFJTlRBSU5FUlM6
-IGFkZCBteXNlbGYgYXMgTnVjbGVpIFNvQ3MvQ1BVcyBzdXBwb3J0ZXIKPj4+PiDCoCBtYWlsbWFw
-OiBhZGQgSWNlbm93eSBaaGVuZydzIE51Y2xlaSBtYWlsIGFkZHJlc3Nlcwo+Pj4+Cj4+Pj4gwqAu
-bWFpbG1hcMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoCAxICsKPj4+PiDCoC4uLi9zaWZpdmUscGxpYy0x
-LjAuMC55YW1swqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgIDEgKwo+
-Pj4+IMKgLi4uL2RldmljZXRyZWUvYmluZGluZ3MvcmlzY3YvY3B1cy55YW1swqDCoMKgwqDCoMKg
-IHzCoCA3ICsrCj4+Pj4gwqAuLi4vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9udWNsZWkueWFt
-bMKgwqDCoMKgIHwgMjcgKysrKysrKysKPj4+PiDCoC4uLi9iaW5kaW5ncy9zZXJpYWwvc2lmaXZl
-LXNlcmlhbC55YW1swqDCoMKgwqDCoMKgwqAgfMKgIDEgKwo+Pj4+IMKgLi4uL2RldmljZXRyZWUv
-YmluZGluZ3Mvc3BpL3NwaS1zaWZpdmUueWFtbMKgwqAgfMKgIDEgKwo+Pj4+IMKgLi4uL2JpbmRp
-bmdzL3RpbWVyL3NpZml2ZSxjbGludC55YW1swqDCoMKgwqDCoMKgwqDCoMKgIHzCoCAxICsKPj4+
-PiDCoC4uLi9kZXZpY2V0cmVlL2JpbmRpbmdzL3ZlbmRvci1wcmVmaXhlcy55YW1swqAgfMKgIDIg
-Kwo+Pj4+IMKgTUFJTlRBSU5FUlPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgNyArKwo+Pj4+IMKgYXJjaC9yaXNj
-di9LY29uZmlnLnNvY3PCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oCB8wqAgNiArKwo+Pj4+IMKgYXJjaC9yaXNjdi9ib290L2R0cy9NYWtlZmlsZcKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgIDEgKwo+Pj4+IMKgYXJjaC9yaXNjdi9ib290L2R0
-cy9udWNsZWkvTWFrZWZpbGXCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgMiArCj4+Pj4gwqAuLi4v
-ZHRzL251Y2xlaS9udWNsZWktZGVtb3NvYy1kZHIyMDB0LmR0c2nCoMKgwqAgfCA0MSArKysrKysr
-KysrKysKPj4+PiDCoC4uLi9udWNsZWkvbnVjbGVpLWRlbW9zb2MtdXg2MDAtZGRyMjAwdC5kdHPC
-oMKgIHwgMTMgKysrKwo+Pj4+IMKgLi4uL2Jvb3QvZHRzL251Y2xlaS9udWNsZWktZGVtb3NvYy11
-eDYwMC5kdHNpIHwgNDkgKysrKysrKysrKysrKysKPj4+PiDCoC4uLi9yaXNjdi9ib290L2R0cy9u
-dWNsZWkvbnVjbGVpLWRlbW9zb2MuZHRzaSB8IDY3Cj4+Pj4gKysrKysrKysrKysrKysrKysrKwo+
-Pj4+IMKgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZW5kb3JpZF9saXN0LmjCoMKgwqDCoMKgwqDC
-oCB8wqAgMSArCj4+Pj4gwqBhcmNoL3Jpc2N2L21tL2luaXQuY8KgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwgMTcgKysrKysKPj4+PiDCoDE4IGZpbGVz
-IGNoYW5nZWQsIDI0NSBpbnNlcnRpb25zKCspCj4+Pj4gwqBjcmVhdGUgbW9kZSAxMDA2NDQKPj4+
-PiBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcmlzY3YvbnVjbGVpLnlhbWwKPj4+
-PiDCoGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2Jvb3QvZHRzL251Y2xlaS9NYWtlZmls
-ZQo+Pj4+IMKgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvYm9vdC9kdHMvbnVjbGVpL251
-Y2xlaS1kZW1vc29jLQo+Pj4+IGRkcjIwMHQuZHRzaQo+Pj4+IMKgY3JlYXRlIG1vZGUgMTAwNjQ0
-IGFyY2gvcmlzY3YvYm9vdC9kdHMvbnVjbGVpL251Y2xlaS1kZW1vc29jLXV4NjAwLQo+Pj4+IGRk
-cjIwMHQuZHRzCj4+Pj4gwqBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9ib290L2R0cy9u
-dWNsZWkvbnVjbGVpLWRlbW9zb2MtCj4+Pj4gdXg2MDAuZHRzaQo+Pj4+IMKgY3JlYXRlIG1vZGUg
-MTAwNjQ0IGFyY2gvcmlzY3YvYm9vdC9kdHMvbnVjbGVpL251Y2xlaS1kZW1vc29jLmR0c2kKPj4+
-PgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 4/13/22 21:48, Rafael J. Wysocki wrote:
+> On Tue, Apr 12, 2022 at 1:39 AM Dmitry Osipenko
+> <dmitry.osipenko@collabora.com> wrote:
+>>
+>> Add sanity check which ensures that there are no two restart handlers
+>> registered using the same priority. This requirement will become mandatory
+>> once all drivers will be converted to the new API and such errors will be
+>> fixed.
+>>
+>> Signed-off-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+> 
+> The first two patches in the series are fine with me and there's only
+> one minor nit regarding this one (below).
+> 
+>> ---
+>>  kernel/reboot.c | 15 +++++++++++++++
+>>  1 file changed, 15 insertions(+)
+>>
+>> diff --git a/kernel/reboot.c b/kernel/reboot.c
+>> index ed4e6dfb7d44..acdae4e95061 100644
+>> --- a/kernel/reboot.c
+>> +++ b/kernel/reboot.c
+>> @@ -182,6 +182,21 @@ static ATOMIC_NOTIFIER_HEAD(restart_handler_list);
+>>   */
+>>  int register_restart_handler(struct notifier_block *nb)
+>>  {
+>> +       int ret;
+>> +
+>> +       ret = atomic_notifier_chain_register_unique_prio(&restart_handler_list, nb);
+>> +       if (ret != -EBUSY)
+>> +               return ret;
+>> +
+>> +       /*
+>> +        * Handler must have unique priority. Otherwise call order is
+>> +        * determined by registration order, which is unreliable.
+>> +        *
+>> +        * This requirement will become mandatory once all drivers
+>> +        * will be converted to use new sys-off API.
+>> +        */
+>> +       pr_err("failed to register restart handler using unique priority\n");
+> 
+> I would use pr_info() here, because this is not a substantial error AFAICS.
+
+It's indeed not a substantial error so far, but it will become
+substantial later on once only unique priorities will be allowed. The
+pr_warn() could be a good compromise here, pr_info() is too mild, IMO.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
