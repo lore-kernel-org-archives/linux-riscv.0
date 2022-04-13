@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A57A2C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Apr 2022 09:09:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAE3AC433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Apr 2022 09:09:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ivL17Z4EJv8H5RfcbZAdLkzj21NeOL8/hVB3MESsHNs=; b=Gtl8DWpsxCwX78
-	Y01jzMxV+nP0aWL7ClgBjVnlHJ3ahUnKBtHAcyBOSAHxHqfTIz5Sam9hj1RxufNCq23hP4jd4PUNx
-	HCBT+29pDB+3syZHBmzdMWy9U7BimJRO7rJ6Kxj+tt0j1AR24+8BsIiKQ1MkqUM5Ho4LDGlZxlnIj
-	2hdmo4K0VhKaoN4TQbvXaxp4s8OYSMPqapFQypM/oSe4SCudcLScfua+sdrvd5dbmeYp506c0+ajC
-	XRroTCvDjZ0hsPGsfGYo3a3N6b5m9/PHsd4WjCFfkgAqXeyG3crfPqae8FLfsL3PyhOPUs69BMEY7
-	AICPXmmi5dZhUFXFeXXg==;
+	List-Owner; bh=0UVQGgtgkoCwPxjcjuObrIIFd19giVmDqVSNJ0ALH8w=; b=SbJ2INSutrwWQ6
+	0c53+Hfn1dTDtbAfbPwgyIZhlGHgJoAhg3HjllI0/QNCmbjlc1wk1SzF7/y4ZsIZBPH0zyvXEsyZO
+	I19HAioZNh/Bb2pbKeKhglxIlUSy3kTWg2+4YZB4d2vE7lP12SQ5AMyHp7JufXNeA0vHxdazftUpN
+	je410aAT4GUVY79cSCYSZJSKhHHd0VEymat6D4Dl1PuB25OJKI28SBFJdlm78/73hDu1WX4kaKnY5
+	PL2n8hTp+pkOciO7FjFhCVqZoaF8YvUET/kFlj3du3SfhF5LFriypNDjaMhPdbdkqmjWDSieYPE5+
+	1bItquNKm1T21lyisdAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1neZ09-000Er0-AH; Wed, 13 Apr 2022 09:09:25 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1neZ0V-000F0n-A6; Wed, 13 Apr 2022 09:09:47 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1neZ06-000Enr-82
- for linux-riscv@lists.infradead.org; Wed, 13 Apr 2022 09:09:23 +0000
-Received: by mail-wr1-x430.google.com with SMTP id e21so1637677wrc.8
- for <linux-riscv@lists.infradead.org>; Wed, 13 Apr 2022 02:09:20 -0700 (PDT)
+ id 1neZ0S-000Eyz-IP
+ for linux-riscv@lists.infradead.org; Wed, 13 Apr 2022 09:09:45 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id
+ n126-20020a1c2784000000b0038e8af3e788so752839wmn.1
+ for <linux-riscv@lists.infradead.org>; Wed, 13 Apr 2022 02:09:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vrull.eu; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=n2RfiU2yQ6Q5lZlNdTxAqM838LrNlHbSns2UR/xnZyg=;
- b=Bv9hcFImSBg1Wy9cSJnbpSHCywcPKdXI4iis2Lx7CwApVkjO4RXQVhuhKO8Vm5Yv2D
- 0ziSbEulKjoblVYKI4v00wh69NZC4DAkXpL+oizYx61S3MRO6TmfUCfDpg/p4DbJB1Cz
- n3xK6ap0qp/GdBPdhznXce1Lkba/bQOSfLPQeS15qf0aYBgu6zz80qCoYI8St/DhjbM5
- hXZawCoOCGnMyoivcSIGTbHcrQsPAwbslEIZaQj2CTmm/UG2/gQtl2/aYFo8Oti43GVX
- HgkgDF9HtPhMRUvZHFnDSfonwNp4GXhEjUaSMwsEfrxBEnKMB5h3fvzRqnJ9Ks0K6Yrt
- 0ypQ==
+ :cc; bh=gwwGHu/kUMtzWbNVENzqf/cbed0N54Cas9skXOt024o=;
+ b=XPnqVjG6h0UqhmNIPxikuceAuDekilIJ8T7vPpT4es4yah+70QMaFq1ZJgjKjC0ysb
+ /OOCXveVq7AxK8PP3+X9/cJWZSEhjvknXaHwbtZWvECzXTwhiz8RvRR9n9gJ8JKJq0ij
+ Ec4lCA0rRcVHxI2+LlU9084ORpwvoSfBzhz+dC/h5+ytDlWeihmcpiEA8WjcO63Uc7LX
+ MQULtqO6+f51msdsVyPA9QpbR8k+PVyG5EPW48DOs6jbZTNSM060mNbJNLi8pJ9f4z5q
+ 8KuSwphoN8QK5WZFEYW3bK62hb9rf7Mdg/7gJPj6I5/4xN7hrNKKNgl7C5cyUuj4hTPS
+ B3vQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=n2RfiU2yQ6Q5lZlNdTxAqM838LrNlHbSns2UR/xnZyg=;
- b=jYINzp3VNs4Pq3AUBzphrNkHAa4I4oQgRcAu5bHyalXaodeBDQrdONlO+gOWem8phu
- g5qo1hLm3gHAoM8nQX/0iJpIeICnnyPOvQDfoTW3ZEqqJ9/dwukAFIAjjF8DF2DecWvk
- gRNl3zKjx7Mj2fYNB5OYdq4ZzSDtTAJOmVu29CCGP7h9hFQ2YPSRDziykqkya2QsOMHK
- xoKiaMiPX/ZoIzUggeX8hqwvoRMUYsJFOoTIEk5ZMz3TcQY6hb/V0OROJjeti33lbC1d
- /kZpD6r3lKDSYOxIvSFtRCzq44de4NdhR8pb+tYfGQWXGyl5A06S+M+RgntPJPpl6ysX
- MPrg==
-X-Gm-Message-State: AOAM531t9ch7SLsfh48E//U16ByKQxO/FawLIan/hif+mrOfP90HDhfc
- /JmwQprNGmVqYDVo+51DzVUu+107zXdUAH6sJsEsOA==
-X-Google-Smtp-Source: ABdhPJzJWfeDgw9z8zOfbk5VeVHE1qpmguwgSezKzsXwCVMGKLhcOhgFUMawAcm9xUFFN0C4OvgnSkf7iyasGSnP80M=
-X-Received: by 2002:adf:de81:0:b0:207:a65c:d895 with SMTP id
- w1-20020adfde81000000b00207a65cd895mr11352594wrl.647.1649840959334; Wed, 13
- Apr 2022 02:09:19 -0700 (PDT)
+ bh=gwwGHu/kUMtzWbNVENzqf/cbed0N54Cas9skXOt024o=;
+ b=Pb/GABeXqPlplU02DDNHvvvaad3LgZCkiXrm3N+1o3EeVdU+j93S5kCdCor5ecxrxQ
+ uqOllg9WJiJcE5DBp2VIsXl/dhgNee/OqXoNgrHt7u6m/Qgf3eWP9PClgl3nEjQRqGHU
+ NNdI0pfzpB2wJUW07dVe6EBZ3tcOaB2BWDiMpGAok/WE159SrKbdr19MoNVWuKZZvva5
+ HtY1s79MnWrsNFMuJ5p3xI74lYGhkzsrL22Lr26rqMmSWLYhiRqHLxgz57zLAan4QzQx
+ gkgidGpMcy0pUI6nj9Xe3QJU+kbxkrtxNiczdpaLalYkgQSKADpDJsVpUwa3Ji+fEwC1
+ ZZ8w==
+X-Gm-Message-State: AOAM530Y8mZ62JmmSLj9ikYUbzH0cYVwVlWykmK1V5NZYnbGJcUdsVew
+ 4r9OQFZVFp0t2kueJlv6JmTR0yWoy/wYv1tbnTpGBw==
+X-Google-Smtp-Source: ABdhPJxxa6HPTIn07pYdJ/EeVtDrpC/qaoIRKLB3HdORWATBXFu5XeDq8MFROb7IVg/gNg3daadJJezwX0cOlwNnhsM=
+X-Received: by 2002:a05:600c:35d4:b0:38f:6799:a386 with SMTP id
+ r20-20020a05600c35d400b0038f6799a386mr664904wmq.196.1649840982912; Wed, 13
+ Apr 2022 02:09:42 -0700 (PDT)
 MIME-Version: 1.0
 References: <20220413030307.133807-1-heiko@sntech.de>
- <20220413030307.133807-7-heiko@sntech.de>
-In-Reply-To: <20220413030307.133807-7-heiko@sntech.de>
+ <20220413030307.133807-9-heiko@sntech.de>
+In-Reply-To: <20220413030307.133807-9-heiko@sntech.de>
 From: Philipp Tomsich <philipp.tomsich@vrull.eu>
-Date: Wed, 13 Apr 2022 11:09:07 +0200
-Message-ID: <CAAeLtUCTpfnVM_e4vgYwpBDjbN24Vj-iZY8Nne6qLNTy9UeAEA@mail.gmail.com>
-Subject: Re: [PATCH v9 06/12] riscv: prevent compressed instructions in
- alternatives
+Date: Wed, 13 Apr 2022 11:09:31 +0200
+Message-ID: <CAAeLtUDdRTuehHFi576tpzEo0QV9=qQtU8BOarAb4OF-Bizdow@mail.gmail.com>
+Subject: Re: [PATCH v9 08/12] riscv: Fix accessing pfn bits in PTEs for
+ non-32bit variants
 To: Heiko Stuebner <heiko@sntech.de>
 Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, 
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
@@ -72,8 +73,9 @@ Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
  mick@ics.forth.gr, allen.baum@esperantotech.com, jscheid@ventanamicro.com, 
  rtrauben@gmail.com, samuel@sholland.org, cmuellner@linux.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220413_020922_414539_4564CC22 
-X-CRM114-Status: GOOD (  10.27  )
+X-CRM114-CacheID: sfid-20220413_020944_672450_560BA7CF 
+X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,23 +92,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 Apr 2022 at 05:03, Heiko Stuebner <heiko@sntech.de> wrote:
+On Wed, 13 Apr 2022 at 05:04, Heiko Stuebner <heiko@sntech.de> wrote:
 >
-> Instructions are opportunistically compressed by the RISC-V assembler
-> when possible, but in alternatives-blocks both the old and new content
-> need to be the same size, so having the toolchain do somewhat random
-> optimizations will cause strange side-effects like
-> "attempt to move .org backwards" compile-time errors.
+> On rv32 the PFN part of PTEs is defined to use bits [xlen-1:10]
+> while on rv64 it is defined to use bits [53:10], leaving [63:54]
+> as reserved.
 >
-> Already a simple "and" used in alternatives assembly will cause these
-> mismatched code sizes.
+> With upcoming optional extensions like svpbmt these previously
+> reserved bits will get used so simply right-shifting the PTE
+> to get the PFN won't be enough.
 >
-> So prevent compressed instructions to be generated in alternatives-
-> code and use option-push and -pop to only limit this to the relevant
-> code blocks
+> So introduce a _PAGE_PFN_MASK constant to mask the correct bits
+> for both rv32 and rv64 before shifting.
 >
 > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-> Reviewed-by: Christoph Hellwig <hch@lst.de>
 
 Reviewed-by: Philipp Tomsich <philipp.tomsich@vrull.eu>
 
