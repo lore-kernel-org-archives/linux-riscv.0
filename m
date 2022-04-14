@@ -4,87 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1146C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Apr 2022 22:05:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 512F5C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Apr 2022 23:06:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
-	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PYWQEuUHs3Pukk3PHqZgC6M847ldf3cMTuhKdAy8vQY=; b=TB+MkHKiHFbtc9
-	AKS1+67qMhAUzkVF1PRLcOhFI6O3fcd38hKB8UL1jgLe3Bosn3udrdrx7CZlBgD293TlOqPd2RK+h
-	E3vrsadqFrc//2eoKaa9KITsLQSwZeE6lkLZrw2BTBsyCSb3lboJUnCd5T1UcP1fqZ0YFizplCq6T
-	XikCzKdi+3aSjaIMuOE4FwesHN0vuYbQajVDLaQlW5muDGWmeOweRMXbK/mx4o3OTMNXz38JWN2UA
-	B43R4DxRTXJdH0IBvz/uVYaVslGJULIx+X2iTSmer73mS5pfLbMXoyJm5KPDBwOi5SYKuwbKVtFIa
-	agv/tN11oPCOmtleqSqA==;
+	List-Owner; bh=/XZqCLt/xi2h1esetrf4ScihxbWJ44PgNJLTjIlsRUE=; b=BazNS4rVHhL6yQ
+	29jI867S6lFXjN++1atCRIxZKG0loprFact70crfsuxxx63BqV74vHuGUtaT2L4C4S8v8dpBpfH2T
+	egfA+xDtAJTWzxPBEGXHStmBVOd30ieBJrDclllStxpzg5vrPmFyzJw1VwZ8JQV9PDcfDicQjW5Z6
+	JIsdddG7hqElru2MtUpUJKk7QWlPtR8k0xjAK7+C1EmSXzEi0SG3dR1gvBfgPB/nERqZiyauCZ38J
+	xbXvxhVTCFmU/LcCXgDOcXOEnoPSXR2U4ZsPi8sjf9M825UHUohhoKxOSSGwz74ZNuWdzVCpxtXho
+	mytzVDAyBZvRKIhqZEyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nf7ar-007RQL-Al; Thu, 14 Apr 2022 22:05:37 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1nf8XK-007chd-DY; Thu, 14 Apr 2022 23:06:02 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nf7af-007RG0-WC
- for linux-riscv@lists.infradead.org; Thu, 14 Apr 2022 22:05:27 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id
- o5-20020a17090ad20500b001ca8a1dc47aso10452701pju.1
- for <linux-riscv@lists.infradead.org>; Thu, 14 Apr 2022 15:05:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
- h=subject:date:message-id:in-reply-to:references:mime-version
- :content-transfer-encoding:cc:from:to;
- bh=uLn9nEAVfqfhF99bZmCoDyMs8/O9emD7jJiMXxYFAyY=;
- b=aCpk+hiR1i6NQteJMGoSFJLdn5Rgm8st+ic8YTNlQHLfaUlgHtMcfuGAfhQl3K+6g4
- UmI+PZBc6djUKQNDbQ28uCRN+kmDtOXIVTEKtwMumAnydxR3HnsqPH3DA0sbMlbQAwrU
- jpy7qcIA5R2RjbhZPPRb0MbiE3lAy7OS3Iwj1cDXaC4TvcQoItO9lj4SSCoUz8N2T03c
- am9CxRoIA8kWRn5kdkC7F60d0pSGRFKNubmWK4iNXouTAsvDUaX7fSzOK0gKgvqKwaub
- Qi9xqMYtyCJ43ckr4k2sI2wGmYCS0qBvDvWN1moO+kJfRhoTr4apwv5ff6foANjKKm0d
- vijA==
+ id 1nf8XH-007cgJ-AT
+ for linux-riscv@lists.infradead.org; Thu, 14 Apr 2022 23:06:01 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id bg24so6395623pjb.1
+ for <linux-riscv@lists.infradead.org>; Thu, 14 Apr 2022 16:05:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=t/xzl4CC6q3fF8ZREHk6T5s/dNCqsFXU8yyibaCwPAI=;
+ b=hUoc9BC3+lrQPcBPwwRPuykgAGUg5NNx/VXvF0dsxuwVD4+Z61j7QrENS8wPhwyKoy
+ x0/11k/Z8KfZdx4Ub0Z++QG3KUcEtYe0dWfETRX1894Yke991afqwysx7Xdo6hRrffUs
+ HO3q++A49sWT/YGk/J+BfRrU4GDdvqYR37xFU=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding:cc:from:to;
- bh=uLn9nEAVfqfhF99bZmCoDyMs8/O9emD7jJiMXxYFAyY=;
- b=XtZJo2lmvHxZ4HPNuTt+sMTqw3YA2gDykWdD0pIb1FC7EyxhGnDnmlNWpRPIa4q/b3
- CpAeJnuLVzIwB3hN9RY9rbrF2Xq0Nmpa/BBPtEPhD4rdg7vo1QxwfgU1Tbt+6e1L65Kx
- 7y9559h3pG8atB8NsZLJA+Fckc2dxxH/cgaWa0o5ZZLBnZ3pv6V2cA0ebdtSnvCa8GaM
- zwpFbviYfZj9RzzHZJIXomZ01IjjJlzRQHtf35lkkPG7qJ81GKzV6uAroojTZ80oRnCy
- wU0BIMcMieO/B6fchtKz+rrdMK4esyioEjWtLMWYA7IQZOrJrvXqnSWnm5gDYUsbPUZR
- qgIA==
-X-Gm-Message-State: AOAM531XM452SiuWAUxK0cNCW4kb/IxXnFQ8HsyzaZX/4AUx47ee0D7V
- thyBDo58o9wyIzuPBszqhaAwYQ==
-X-Google-Smtp-Source: ABdhPJzhfrbMDiR890Mvpaf1KfA0KcEG1o/qsHftMGK/3W28SItjuhSFgVLfw1qtTLZgABu0T8DOAQ==
-X-Received: by 2002:a17:90a:a78f:b0:1bc:8042:9330 with SMTP id
- f15-20020a17090aa78f00b001bc80429330mr685887pjq.229.1649973923305; 
- Thu, 14 Apr 2022 15:05:23 -0700 (PDT)
-Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
- r8-20020a17090a0ac800b001c9e35d3a3asm2852568pje.24.2022.04.14.15.05.22
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=t/xzl4CC6q3fF8ZREHk6T5s/dNCqsFXU8yyibaCwPAI=;
+ b=cQTj8hqm5NJXgRjvb8/s0t/K5LAs4rfyzpXdL9ApbxnASjLLYbGAvVLWfvBTzYC1s+
+ ch0z/a0PvaybgM/o432al6XNhwslI4CK6q4bs7sffQwjyQ3b37b4Lwy5osGQIP5o7YiF
+ JS3gql+mZHI6R43M5H0fwsNUkS4ZiOozRfJYzI4H5kMAEkpzDAlTHuw4f2J2goyfhRRC
+ 3vYec6wyUKMV7yQxTIdYUDtTJLZXgmV9s6/4UWSiCpNBKPKzkYxMp7sGjZ3bLIALmJrZ
+ unl4GhzfnyQvhorA3DaqK+d0+rDv6tqNssGlsp8K/zLSUINlzrd1XjCvITjeFwOjQWoM
+ ERpA==
+X-Gm-Message-State: AOAM531vJXHC5OVQ0gxVIOHT+yigAIYMU4NV8jW3yyIt/ctvOXn1YABy
+ CLC/OM7hBhp3JjvmrJIJPeQxOQ==
+X-Google-Smtp-Source: ABdhPJxLI/UcvHhesCPMUZJk9mn1rjPfjc/tnLUhgF8BCBG8VuRuoATUUin7bDXQ4ks1YJNA2Zcnug==
+X-Received: by 2002:a17:902:f652:b0:156:701b:9a2a with SMTP id
+ m18-20020a170902f65200b00156701b9a2amr49324926plg.14.1649977555864; 
+ Thu, 14 Apr 2022 16:05:55 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+ by smtp.gmail.com with ESMTPSA id
+ l18-20020a056a00141200b004f75395b2cesm856359pfu.150.2022.04.14.16.05.55
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 14 Apr 2022 15:05:22 -0700 (PDT)
-Subject: [PATCH v3 7/7] csky: Move to generic ticket-spinlock
-Date: Thu, 14 Apr 2022 15:02:14 -0700
-Message-Id: <20220414220214.24556-8-palmer@rivosinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220414220214.24556-1-palmer@rivosinc.com>
-References: <20220414220214.24556-1-palmer@rivosinc.com>
+ Thu, 14 Apr 2022 16:05:55 -0700 (PDT)
+Date: Thu, 14 Apr 2022 16:05:54 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Niklas Cassel <niklas.cassel@wdc.com>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
+ Eric Biederman <ebiederm@xmission.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Greg Ungerer <gerg@linux-m68k.org>, Mike Frysinger <vapier@gentoo.org>,
+ Damien Le Moal <damien.lemoal@opensource.wdc.com>,
+ stable@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2] binfmt_flat: do not stop relocating GOT entries
+ prematurely on riscv
+Message-ID: <202204141559.B2A0EB4F7@keescook>
+References: <20220414091018.896737-1-niklas.cassel@wdc.com>
 MIME-Version: 1.0
-Cc: peterz@infradead.org, mingo@redhat.com, Will Deacon <will@kernel.org>,
- longman@redhat.com, boqun.feng@gmail.com, jonas@southpole.se,
- stefan.kristiansson@saunalahti.fi, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- aou@eecs.berkeley.edu, Arnd Bergmann <arnd@arndb.de>, macro@orcam.me.uk,
- Greg KH <gregkh@linuxfoundation.org>, 
- sudipm.mukherjee@gmail.com, wangkefeng.wang@huawei.com, jszhang@kernel.org,
- linux-csky@vger.kernel.org, 
- linux-kernel@vger.kernel.org, openrisc@lists.librecores.org,
- linux-riscv@lists.infradead.org, 
- linux-arch@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>,
- Palmer Dabbelt <palmer@rivosinc.com>
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Arnd Bergmann <arnd@arndb.de>, heiko@sntech.de, guoren@kernel.org,
- shorne@gmail.com
+Content-Disposition: inline
+In-Reply-To: <20220414091018.896737-1-niklas.cassel@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220414_150526_081389_6D511F31 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20220414_160559_419573_868D4773 
+X-CRM114-Status: GOOD (  37.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,167 +93,142 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+On Thu, Apr 14, 2022 at 11:10:18AM +0200, Niklas Cassel wrote:
+> bFLT binaries are usually created using elf2flt.
+> 
+> The linker script used by elf2flt has defined the .data section like the
+> following for the last 19 years:
+> 
+> .data : {
+> 	_sdata = . ;
+> 	__data_start = . ;
+> 	data_start = . ;
+> 	*(.got.plt)
+> 	*(.got)
+> 	FILL(0) ;
+> 	. = ALIGN(0x20) ;
+> 	LONG(-1)
+> 	. = ALIGN(0x20) ;
+> 	...
+> }
+> 
+> It places the .got.plt input section before the .got input section.
+> The same is true for the default linker script (ld --verbose) on most
+> architectures except x86/x86-64.
+> 
+> The binfmt_flat loader should relocate all GOT entries until it encounters
+> a -1 (the LONG(-1) in the linker script).
+> 
+> The problem is that the .got.plt input section starts with a GOTPLT header
+> (which has size 16 bytes on elf64-riscv and 8 bytes on elf32-riscv), where
+> the first word is set to -1. See the binutils implementation for riscv [1].
+> 
+> This causes the binfmt_flat loader to stop relocating GOT entries
+> prematurely and thus causes the application to crash when running.
+> 
+> Fix this by skipping the whole GOTPLT header, since the whole GOTPLT header
+> is reserved for the dynamic linker.
+> 
+> The GOTPLT header will only be skipped for bFLT binaries with flag
+> FLAT_FLAG_GOTPIC set. This flag is unconditionally set by elf2flt if the
+> supplied ELF binary has the symbol _GLOBAL_OFFSET_TABLE_ defined.
+> ELF binaries without a .got input section should thus remain unaffected.
+> 
+> Tested on RISC-V Canaan Kendryte K210 and RISC-V QEMU nommu_virt_defconfig.
+> 
+> [1] https://sourceware.org/git/?p=binutils-gdb.git;a=blob;f=bfd/elfnn-riscv.c;hb=binutils-2_38#l3275
+> 
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Niklas Cassel <niklas.cassel@wdc.com>
+> ---
+> Changes since v1:
+> -Incorporated review comments from Eric Biederman.
 
-There is no benefit from custom implementation for ticket-spinlock,
-so move to generic ticket-spinlock for easy maintenance.
+Thanks! nit: please include a link to the archive so it's easier for
+people (and b4) to track earlier versions. i.e.:
+https://lore.kernel.org/linux-mm/20220412100338.437308-1-niklas.cassel@wdc.com/
 
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
----
- arch/csky/include/asm/Kbuild           |  3 +
- arch/csky/include/asm/spinlock.h       | 89 --------------------------
- arch/csky/include/asm/spinlock_types.h | 27 --------
- 3 files changed, 3 insertions(+), 116 deletions(-)
- delete mode 100644 arch/csky/include/asm/spinlock.h
- delete mode 100644 arch/csky/include/asm/spinlock_types.h
+> RISC-V elf2flt patches are still not merged, they can be found here:
+> https://github.com/floatious/elf2flt/tree/riscv
+> 
+> buildroot branch for k210 nommu (including this patch and elf2flt patches):
+> https://github.com/floatious/buildroot/tree/k210-v14
+> 
+>  fs/binfmt_flat.c | 27 ++++++++++++++++++++++++++-
+>  1 file changed, 26 insertions(+), 1 deletion(-)
+> 
+> diff --git a/fs/binfmt_flat.c b/fs/binfmt_flat.c
+> index 626898150011..e5e2a03b39c1 100644
+> --- a/fs/binfmt_flat.c
+> +++ b/fs/binfmt_flat.c
+> @@ -440,6 +440,30 @@ static void old_reloc(unsigned long rl)
+>  
+>  /****************************************************************************/
+>  
+> +static inline u32 __user *skip_got_header(u32 __user *rp)
+> +{
+> +	if (IS_ENABLED(CONFIG_RISCV)) {
+> +		/*
+> +		 * RISC-V has a 16 byte GOT PLT header for elf64-riscv
+> +		 * and 8 byte GOT PLT header for elf32-riscv.
+> +		 * Skip the whole GOT PLT header, since it is reserved
+> +		 * for the dynamic linker (ld.so).
+> +		 */
+> +		u32 rp_val0, rp_val1;
+> +
+> +		if (get_user(rp_val0, rp))
+> +			return rp;
+> +		if (get_user(rp_val1, rp + 1))
+> +			return rp;
+> +
+> +		if (rp_val0 == 0xffffffff && rp_val1 == 0xffffffff)
+> +			rp += 4;
+> +		else if (rp_val0 == 0xffffffff)
+> +			rp += 2;
 
-diff --git a/arch/csky/include/asm/Kbuild b/arch/csky/include/asm/Kbuild
-index 888248235c23..103207a58f97 100644
---- a/arch/csky/include/asm/Kbuild
-+++ b/arch/csky/include/asm/Kbuild
-@@ -3,7 +3,10 @@ generic-y += asm-offsets.h
- generic-y += extable.h
- generic-y += gpio.h
- generic-y += kvm_para.h
-+generic-y += spinlock.h
-+generic-y += spinlock_types.h
- generic-y += qrwlock.h
-+generic-y += qrwlock_types.h
- generic-y += parport.h
- generic-y += user.h
- generic-y += vmlinux.lds.h
-diff --git a/arch/csky/include/asm/spinlock.h b/arch/csky/include/asm/spinlock.h
-deleted file mode 100644
-index 69f5aa249c5f..000000000000
---- a/arch/csky/include/asm/spinlock.h
-+++ /dev/null
-@@ -1,89 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--
--#ifndef __ASM_CSKY_SPINLOCK_H
--#define __ASM_CSKY_SPINLOCK_H
--
--#include <linux/spinlock_types.h>
--#include <asm/barrier.h>
--
--/*
-- * Ticket-based spin-locking.
-- */
--static inline void arch_spin_lock(arch_spinlock_t *lock)
--{
--	arch_spinlock_t lockval;
--	u32 ticket_next = 1 << TICKET_NEXT;
--	u32 *p = &lock->lock;
--	u32 tmp;
--
--	asm volatile (
--		"1:	ldex.w		%0, (%2) \n"
--		"	mov		%1, %0	 \n"
--		"	add		%0, %3	 \n"
--		"	stex.w		%0, (%2) \n"
--		"	bez		%0, 1b   \n"
--		: "=&r" (tmp), "=&r" (lockval)
--		: "r"(p), "r"(ticket_next)
--		: "cc");
--
--	while (lockval.tickets.next != lockval.tickets.owner)
--		lockval.tickets.owner = READ_ONCE(lock->tickets.owner);
--
--	smp_mb();
--}
--
--static inline int arch_spin_trylock(arch_spinlock_t *lock)
--{
--	u32 tmp, contended, res;
--	u32 ticket_next = 1 << TICKET_NEXT;
--	u32 *p = &lock->lock;
--
--	do {
--		asm volatile (
--		"	ldex.w		%0, (%3)   \n"
--		"	movi		%2, 1	   \n"
--		"	rotli		%1, %0, 16 \n"
--		"	cmpne		%1, %0     \n"
--		"	bt		1f         \n"
--		"	movi		%2, 0	   \n"
--		"	add		%0, %0, %4 \n"
--		"	stex.w		%0, (%3)   \n"
--		"1:				   \n"
--		: "=&r" (res), "=&r" (tmp), "=&r" (contended)
--		: "r"(p), "r"(ticket_next)
--		: "cc");
--	} while (!res);
--
--	if (!contended)
--		smp_mb();
--
--	return !contended;
--}
--
--static inline void arch_spin_unlock(arch_spinlock_t *lock)
--{
--	smp_mb();
--	WRITE_ONCE(lock->tickets.owner, lock->tickets.owner + 1);
--}
--
--static inline int arch_spin_value_unlocked(arch_spinlock_t lock)
--{
--	return lock.tickets.owner == lock.tickets.next;
--}
--
--static inline int arch_spin_is_locked(arch_spinlock_t *lock)
--{
--	return !arch_spin_value_unlocked(READ_ONCE(*lock));
--}
--
--static inline int arch_spin_is_contended(arch_spinlock_t *lock)
--{
--	struct __raw_tickets tickets = READ_ONCE(lock->tickets);
--
--	return (tickets.next - tickets.owner) > 1;
--}
--#define arch_spin_is_contended	arch_spin_is_contended
--
--#include <asm/qrwlock.h>
--
--#endif /* __ASM_CSKY_SPINLOCK_H */
-diff --git a/arch/csky/include/asm/spinlock_types.h b/arch/csky/include/asm/spinlock_types.h
-deleted file mode 100644
-index db87a12c3827..000000000000
---- a/arch/csky/include/asm/spinlock_types.h
-+++ /dev/null
-@@ -1,27 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--
--#ifndef __ASM_CSKY_SPINLOCK_TYPES_H
--#define __ASM_CSKY_SPINLOCK_TYPES_H
--
--#ifndef __LINUX_SPINLOCK_TYPES_RAW_H
--# error "please don't include this file directly"
--#endif
--
--#define TICKET_NEXT	16
--
--typedef struct {
--	union {
--		u32 lock;
--		struct __raw_tickets {
--			/* little endian */
--			u16 owner;
--			u16 next;
--		} tickets;
--	};
--} arch_spinlock_t;
--
--#define __ARCH_SPIN_LOCK_UNLOCKED	{ { 0 } }
--
--#include <asm-generic/qrwlock_types.h>
--
--#endif /* __ASM_CSKY_SPINLOCK_TYPES_H */
+Just so I understand; due to the FILL(0) and the ALIGN, val1 will be 0
+(or more specifically, not -1) in all other cases, yes?
+
+I probably would have written this as:
+
+		if (rp_val0 == 0xffffffff)
+			rp += 2;
+		if (rp_val1 == 0xffffffff)
+			rp += 2;
+
+But no need to change it. I expect the compiler would optimize it in the
+same thing anyway. :)
+
+> +	}
+> +	return rp;
+> +}
+> +
+>  static int load_flat_file(struct linux_binprm *bprm,
+>  		struct lib_info *libinfo, int id, unsigned long *extra_stack)
+>  {
+> @@ -789,7 +813,8 @@ static int load_flat_file(struct linux_binprm *bprm,
+>  	 * image.
+>  	 */
+>  	if (flags & FLAT_FLAG_GOTPIC) {
+> -		for (rp = (u32 __user *)datapos; ; rp++) {
+> +		rp = skip_got_header((u32 * __user) datapos);
+> +		for (; ; rp++) {
+>  			u32 addr, rp_val;
+>  			if (get_user(rp_val, rp))
+>  				return -EFAULT;
+> -- 
+> 2.35.1
+> 
+
+Eric and Damien, does this look good to you? I'll take this into the
+execve tree unless you'd like to see further changes.
+
+Thanks!
+
+-Kees
+
 -- 
-2.34.1
-
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
