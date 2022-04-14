@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 512F5C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Apr 2022 23:06:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 461B1C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Apr 2022 23:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/XZqCLt/xi2h1esetrf4ScihxbWJ44PgNJLTjIlsRUE=; b=BazNS4rVHhL6yQ
-	29jI867S6lFXjN++1atCRIxZKG0loprFact70crfsuxxx63BqV74vHuGUtaT2L4C4S8v8dpBpfH2T
-	egfA+xDtAJTWzxPBEGXHStmBVOd30ieBJrDclllStxpzg5vrPmFyzJw1VwZ8JQV9PDcfDicQjW5Z6
-	JIsdddG7hqElru2MtUpUJKk7QWlPtR8k0xjAK7+C1EmSXzEi0SG3dR1gvBfgPB/nERqZiyauCZ38J
-	xbXvxhVTCFmU/LcCXgDOcXOEnoPSXR2U4ZsPi8sjf9M825UHUohhoKxOSSGwz74ZNuWdzVCpxtXho
-	mytzVDAyBZvRKIhqZEyg==;
+	List-Owner; bh=EqZ3eAEwzDfY4lPhMPiVRoU1Ai1S3xCEHJNvxGDYxBI=; b=1lYJAZuIP8XvhZ
+	F+7Q81n7fp+ijKuM2LLNiqz/NKgbRP6PoD6ba9pfavaiRK7/Ra6Nw0UhvEBfgzi7x930nFVHtnwnQ
+	R6jVD+9a1ZRVXi5hCjukyiM/F9VstMMvDfqKLqvjacJEJhRwXddp+CVKgxWigcr6E6VK5xZx+0DDF
+	TBw2usiYgJAEBxN43zuxGb3eoXCz5ouhq2k/8ucWAEuL22+bfgjnGclUL57cyTPSBgJ0GawMf5b0K
+	uFQKVWGGQmdLg6Gvs8MqQBZq2HIvnYfh8mubbSWmigOBU+D3696vt3ofMkzNq/u0bd+YqQBGQy0oi
+	5pPYRctCRO0PVVWdQYcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nf8XK-007chd-DY; Thu, 14 Apr 2022 23:06:02 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1nf8sK-007mqR-19; Thu, 14 Apr 2022 23:27:44 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nf8XH-007cgJ-AT
- for linux-riscv@lists.infradead.org; Thu, 14 Apr 2022 23:06:01 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id bg24so6395623pjb.1
- for <linux-riscv@lists.infradead.org>; Thu, 14 Apr 2022 16:05:56 -0700 (PDT)
+ id 1nf8sH-007mq7-87
+ for linux-riscv@lists.infradead.org; Thu, 14 Apr 2022 23:27:42 +0000
+Received: by mail-pf1-x430.google.com with SMTP id j17so6100426pfi.9
+ for <linux-riscv@lists.infradead.org>; Thu, 14 Apr 2022 16:27:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
  h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=t/xzl4CC6q3fF8ZREHk6T5s/dNCqsFXU8yyibaCwPAI=;
- b=hUoc9BC3+lrQPcBPwwRPuykgAGUg5NNx/VXvF0dsxuwVD4+Z61j7QrENS8wPhwyKoy
- x0/11k/Z8KfZdx4Ub0Z++QG3KUcEtYe0dWfETRX1894Yke991afqwysx7Xdo6hRrffUs
- HO3q++A49sWT/YGk/J+BfRrU4GDdvqYR37xFU=
+ :content-disposition:content-transfer-encoding:in-reply-to;
+ bh=HmZzQaJcWVmRJdxQhHXzNCOEJRKn8oL9PGuKLwC4Vpk=;
+ b=d1VKqQJQtATMIHplVI4UJ3GOGV6h5gR9y1TJbLwrVNFwoDKD6c3KLTeTwWyhfX1b6/
+ bn2wbRksRbvFqps2Uu35fOeZnbu5K9rKtmY+viXPnznVSB3PctbOWHhOOVKsQHaCEU7B
+ I4T6uDq4ftL4iKujE5TZsbCs9tuSrg5t8Ve7Y=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=t/xzl4CC6q3fF8ZREHk6T5s/dNCqsFXU8yyibaCwPAI=;
- b=cQTj8hqm5NJXgRjvb8/s0t/K5LAs4rfyzpXdL9ApbxnASjLLYbGAvVLWfvBTzYC1s+
- ch0z/a0PvaybgM/o432al6XNhwslI4CK6q4bs7sffQwjyQ3b37b4Lwy5osGQIP5o7YiF
- JS3gql+mZHI6R43M5H0fwsNUkS4ZiOozRfJYzI4H5kMAEkpzDAlTHuw4f2J2goyfhRRC
- 3vYec6wyUKMV7yQxTIdYUDtTJLZXgmV9s6/4UWSiCpNBKPKzkYxMp7sGjZ3bLIALmJrZ
- unl4GhzfnyQvhorA3DaqK+d0+rDv6tqNssGlsp8K/zLSUINlzrd1XjCvITjeFwOjQWoM
- ERpA==
-X-Gm-Message-State: AOAM531vJXHC5OVQ0gxVIOHT+yigAIYMU4NV8jW3yyIt/ctvOXn1YABy
- CLC/OM7hBhp3JjvmrJIJPeQxOQ==
-X-Google-Smtp-Source: ABdhPJxLI/UcvHhesCPMUZJk9mn1rjPfjc/tnLUhgF8BCBG8VuRuoATUUin7bDXQ4ks1YJNA2Zcnug==
-X-Received: by 2002:a17:902:f652:b0:156:701b:9a2a with SMTP id
- m18-20020a170902f65200b00156701b9a2amr49324926plg.14.1649977555864; 
- Thu, 14 Apr 2022 16:05:55 -0700 (PDT)
+ :mime-version:content-disposition:content-transfer-encoding
+ :in-reply-to;
+ bh=HmZzQaJcWVmRJdxQhHXzNCOEJRKn8oL9PGuKLwC4Vpk=;
+ b=tDGSHi5D7AzjPw3P5jl8fRgjj7ddiL64gf4o4jyN1LRYnKJ4au4OZI7xzLmmPeF+E/
+ Kdj7cwty2zodJGtEFyi+/04n/vBogV+bndDrYIbY5umcMKJtYZUAHYlNXQ27NjPUG+nf
+ ySJvPkm3X78/pXPz5REVHAw2F4KopN1t6UO0xue1RL74adtoEd7T0MlYA6E8EB3SSj2R
+ RInIRrtarDCiyG3RgItodrJ5+Ek1XE/qwebDo+MAG3UJrJy4181S830WiQXCSBLgHuBf
+ U5zsqmNcbyBXO/lNQFzyLG+lUVWGGLhK0si9Kz6SSDwXEG6qbm5XkBqwPiX7So8UcESB
+ iaRA==
+X-Gm-Message-State: AOAM533xyP+YzezlzJHhFKGDfd2XNfgngv8KtJC7VhyXTGBygSUotkmf
+ 9PvQnAuavXrX1bHy4NNWWsOryg==
+X-Google-Smtp-Source: ABdhPJzq0A/ZN73+dcU0JnfCl1TVr6vkBK+NJGz++LvwQCH3lxWX0dgKyG5WwEKfaEtKzf1QfZl+4w==
+X-Received: by 2002:a63:3e88:0:b0:39d:ae86:237d with SMTP id
+ l130-20020a633e88000000b0039dae86237dmr4132709pga.360.1649978859862; 
+ Thu, 14 Apr 2022 16:27:39 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
  by smtp.gmail.com with ESMTPSA id
- l18-20020a056a00141200b004f75395b2cesm856359pfu.150.2022.04.14.16.05.55
+ e12-20020a056a0000cc00b00508343a6f9esm902728pfj.5.2022.04.14.16.27.39
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 14 Apr 2022 16:05:55 -0700 (PDT)
-Date: Thu, 14 Apr 2022 16:05:54 -0700
+ Thu, 14 Apr 2022 16:27:39 -0700 (PDT)
+Date: Thu, 14 Apr 2022 16:27:38 -0700
 From: Kees Cook <keescook@chromium.org>
-To: Niklas Cassel <niklas.cassel@wdc.com>
+To: Niklas Cassel <niklas.cassel@wdc.com>,
+ Konstantin Ryabitsev <konstantin@linuxfoundation.org>
 Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
  Eric Biederman <ebiederm@xmission.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
@@ -69,14 +71,15 @@ Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
  linux-mm@kvack.org, linux-riscv@lists.infradead.org
 Subject: Re: [PATCH v2] binfmt_flat: do not stop relocating GOT entries
  prematurely on riscv
-Message-ID: <202204141559.B2A0EB4F7@keescook>
+Message-ID: <202204141624.6689D6B@keescook>
 References: <20220414091018.896737-1-niklas.cassel@wdc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
 In-Reply-To: <20220414091018.896737-1-niklas.cassel@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220414_160559_419573_868D4773 
-X-CRM114-Status: GOOD (  37.74  )
+X-CRM114-CacheID: sfid-20220414_162741_343586_8E0DC755 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,149 +91,19 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 14, 2022 at 11:10:18AM +0200, Niklas Cassel wrote:
-> bFLT binaries are usually created using elf2flt.
-> 
-> The linker script used by elf2flt has defined the .data section like the
-> following for the last 19 years:
-> 
-> .data : {
-> 	_sdata = . ;
-> 	__data_start = . ;
-> 	data_start = . ;
-> 	*(.got.plt)
-> 	*(.got)
-> 	FILL(0) ;
-> 	. = ALIGN(0x20) ;
-> 	LONG(-1)
-> 	. = ALIGN(0x20) ;
-> 	...
-> }
-> 
-> It places the .got.plt input section before the .got input section.
-> The same is true for the default linker script (ld --verbose) on most
-> architectures except x86/x86-64.
-> 
-> The binfmt_flat loader should relocate all GOT entries until it encounters
-> a -1 (the LONG(-1) in the linker script).
-> 
-> The problem is that the .got.plt input section starts with a GOTPLT header
-> (which has size 16 bytes on elf64-riscv and 8 bytes on elf32-riscv), where
-> the first word is set to -1. See the binutils implementation for riscv [1].
-> 
-> This causes the binfmt_flat loader to stop relocating GOT entries
-> prematurely and thus causes the application to crash when running.
-> 
-> Fix this by skipping the whole GOTPLT header, since the whole GOTPLT header
-> is reserved for the dynamic linker.
-> 
-> The GOTPLT header will only be skipped for bFLT binaries with flag
-> FLAT_FLAG_GOTPIC set. This flag is unconditionally set by elf2flt if the
-> supplied ELF binary has the symbol _GLOBAL_OFFSET_TABLE_ defined.
-> ELF binaries without a .got input section should thus remain unaffected.
-> 
-> Tested on RISC-V Canaan Kendryte K210 and RISC-V QEMU nommu_virt_defconfig.
-> 
-> [1] https://sourceware.org/git/?p=binutils-gdb.git;a=blob;f=bfd/elfnn-riscv.c;hb=binutils-2_38#l3275
-> 
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Niklas Cassel <niklas.cassel@wdc.com>
-> ---
-> Changes since v1:
-> -Incorporated review comments from Eric Biederman.
-
-Thanks! nit: please include a link to the archive so it's easier for
-people (and b4) to track earlier versions. i.e.:
-https://lore.kernel.org/linux-mm/20220412100338.437308-1-niklas.cassel@wdc.com/
-
-> RISC-V elf2flt patches are still not merged, they can be found here:
-> https://github.com/floatious/elf2flt/tree/riscv
-> 
-> buildroot branch for k210 nommu (including this patch and elf2flt patches):
-> https://github.com/floatious/buildroot/tree/k210-v14
-> 
->  fs/binfmt_flat.c | 27 ++++++++++++++++++++++++++-
->  1 file changed, 26 insertions(+), 1 deletion(-)
-> 
-> diff --git a/fs/binfmt_flat.c b/fs/binfmt_flat.c
-> index 626898150011..e5e2a03b39c1 100644
-> --- a/fs/binfmt_flat.c
-> +++ b/fs/binfmt_flat.c
-> @@ -440,6 +440,30 @@ static void old_reloc(unsigned long rl)
->  
->  /****************************************************************************/
->  
-> +static inline u32 __user *skip_got_header(u32 __user *rp)
-> +{
-> +	if (IS_ENABLED(CONFIG_RISCV)) {
-> +		/*
-> +		 * RISC-V has a 16 byte GOT PLT header for elf64-riscv
-> +		 * and 8 byte GOT PLT header for elf32-riscv.
-> +		 * Skip the whole GOT PLT header, since it is reserved
-> +		 * for the dynamic linker (ld.so).
-> +		 */
-> +		u32 rp_val0, rp_val1;
-> +
-> +		if (get_user(rp_val0, rp))
-> +			return rp;
-> +		if (get_user(rp_val1, rp + 1))
-> +			return rp;
-> +
-> +		if (rp_val0 == 0xffffffff && rp_val1 == 0xffffffff)
-> +			rp += 4;
-> +		else if (rp_val0 == 0xffffffff)
-> +			rp += 2;
-
-Just so I understand; due to the FILL(0) and the ALIGN, val1 will be 0
-(or more specifically, not -1) in all other cases, yes?
-
-I probably would have written this as:
-
-		if (rp_val0 == 0xffffffff)
-			rp += 2;
-		if (rp_val1 == 0xffffffff)
-			rp += 2;
-
-But no need to change it. I expect the compiler would optimize it in the
-same thing anyway. :)
-
-> +	}
-> +	return rp;
-> +}
-> +
->  static int load_flat_file(struct linux_binprm *bprm,
->  		struct lib_info *libinfo, int id, unsigned long *extra_stack)
->  {
-> @@ -789,7 +813,8 @@ static int load_flat_file(struct linux_binprm *bprm,
->  	 * image.
->  	 */
->  	if (flags & FLAT_FLAG_GOTPIC) {
-> -		for (rp = (u32 __user *)datapos; ; rp++) {
-> +		rp = skip_got_header((u32 * __user) datapos);
-> +		for (; ; rp++) {
->  			u32 addr, rp_val;
->  			if (get_user(rp_val, rp))
->  				return -EFAULT;
-> -- 
-> 2.35.1
-> 
-
-Eric and Damien, does this look good to you? I'll take this into the
-execve tree unless you'd like to see further changes.
-
-Thanks!
-
--Kees
-
--- 
-Kees Cook
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBBcHIgMTQsIDIwMjIgYXQgMTE6MTA6MThBTSArMDIwMCwgTmlrbGFzIENhc3NlbCB3
+cm90ZToKPiBiRkxUIGJpbmFyaWVzIGFyZSB1c3VhbGx5IGNyZWF0ZWQgdXNpbmcgZWxmMmZsdC4K
+PiBbLi4uXQoKSG0sIHNvbWV0aGluZyBpbiB0aGUgY2hhaW4gYnJva2UgREtJTSwgYnV0IEkgY2Fu
+J3Qgc2VlIHdoYXQ6CgogIOKclyBbUEFUQ0ggdjJdIGJpbmZtdF9mbGF0OiBkbyBub3Qgc3RvcCBy
+ZWxvY2F0aW5nIEdPVCBlbnRyaWVzIHByZW1hdHVyZWx5IG9uIHJpc2N2CiAgICDinJcgQkFEU0lH
+OiBES0lNL3dkYy5jb20KCktvbnN0YW50aW4sIGRvIHlvdSBoYXZlIGEgcHJvY2VzcyBmb3IgZGVi
+dWdnaW5nIHRoZXNlPyBJIGRvbid0IHNlZSB0aGUKIm5vcm1hbCIgc3R1ZmYgdGhhdCBicmVha3Mg
+REtJTSAoaS5lLiBhIHRyYWlsaW5nIG1haWxpbmcgbGlzdCBmb290ZXIsIGV0YykKCi0tIApLZWVz
+IENvb2sKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
