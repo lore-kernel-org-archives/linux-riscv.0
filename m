@@ -4,82 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4B35C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Apr 2022 10:13:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7D30C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Apr 2022 10:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jVbqkRSioV9qWyK3yNsDo1o5BBXPm6fP56tX7KjtlvE=; b=ZmLT4h8VNFRqjN
-	u456Cr1IgiSu/lyVP99fEIgc0WnWNxN5yjRmfBZMrV2tDgHgLshurGHn2k1uXUKhoMGMtIW6YGfIn
-	TTgs05LXf7DH7sQgPyYe9cyW/iRV7XxbMYaFy3CXwNl+iPEGA6dmeJF7hLFMvHXtJ/NSrK84qA5Nz
-	Bc5J9coaom/EoeMdTwubh91HvoNxz+IW0tIc8cjN1gt4iWQliBWlbXzcYnmwnpSweo/NW2KcGpLHA
-	keQGweEjUcI1YXJgxQy93Yesphx8vvgDAUwLG+59isLUf+NAFjDKOFWXilJcPK0tpnaSN2uih4/7L
-	pR6hoVM4whg74jReGh0Q==;
+	List-Owner; bh=9VyFcYo7Y3iID6ub/Nd5bkVKzhxHE5AMZbymwD5V/Qo=; b=dt1KJEwjBaKgnl
+	+pwiTB8+0KO4qnybwLfRgGjwp+xk6BT7RBW08pItSkQl5B9/SXGnMLsM17YlUt5AqeI1OXzWCrezh
+	U6FevI2AElwwtQGUQX5r2r7kQeyFdcB6S5Hs4laQ38i2sZSXptrTRGkcshEiQygRGfyBnB7i34LH0
+	9WDoM4w4AS46CpV3dqORu5oLuiS99dt7xaqU12MlqZI+Z3ybEF26TeImBCo+JIGp0x7zKaM6vaqOW
+	OzvQ7Zp/T3YLxi9HKo2QzwDe7BgdyxpRZlqv/Tb+rPBBXsGxaJ1bF3AjDtPRL0fqSE0uOOhKpBr6V
+	eHVFwR13Gyl/qWV7bmLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1newTl-00558u-0G; Thu, 14 Apr 2022 10:13:33 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1nexA5-005Dmr-3x; Thu, 14 Apr 2022 10:57:17 +0000
+Received: from smtp-out2.suse.de ([195.135.220.29])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1newTX-00555u-G5; Thu, 14 Apr 2022 10:13:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
- MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=upqcvBN0c/2twwWoHUne//eX4ki0XQTMtmfsi6ArAXU=; b=HjGPsWLJY1Ur/Qd9SaLg0YiKnR
- 95tjp26+YgI/HwEOdRqvSlAROO2sO63Z/uXu1t6/V5/PtASP1IW3k8kj55+7tgoHxaUyNfpLnuymj
- G+Nuireb4o2uAs9tgNLn8PCnmIvfeYm/3imhJXibehEvAyy2bcpTUxyuVWUQ0H1lRVoogDYJt+XGn
- +JXGGLKSFLPO1NgiG/h6Ou0ERgDMxxK3z39Afa9Ihp7G2oki6nDRlwzM4i7qfs+r/iBEJYNjoTAgZ
- nYexjH0hGr4I1XQ6yy/K0FsGtjU27thDPBNsh2vJZf5a5imdfgQbx4As5XreqUcbwl+Pi+VE00syg
- bbEnVKOQ==;
-Received: from shell.armlinux.org.uk
- ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58256)
- by pandora.armlinux.org.uk with esmtpsa (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <linux@armlinux.org.uk>)
- id 1newSp-0004M9-DZ; Thu, 14 Apr 2022 11:12:35 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
- (envelope-from <linux@shell.armlinux.org.uk>)
- id 1newSh-0004Du-6v; Thu, 14 Apr 2022 11:12:27 +0100
-Date: Thu, 14 Apr 2022 11:12:27 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: "Jason A. Donenfeld" <Jason@zx2c4.com>
-Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
- tglx@linutronix.de, arnd@arndb.de, Theodore Ts'o <tytso@mit.edu>,
- Dominik Brodowski <linux@dominikbrodowski.net>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ id 1nex9u-005Djr-0v; Thu, 14 Apr 2022 10:57:07 +0000
+Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+ (No client certificate requested)
+ by smtp-out2.suse.de (Postfix) with ESMTPS id A59F21F746;
+ Thu, 14 Apr 2022 10:56:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+ t=1649933816; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=qHwXlFiPhb+8uq3WbY4A9X/xnSchmkHO2lazKJa/1C0=;
+ b=xTC5BJvI3EIrrso3wUf3g1Nr7SOacNh0j7iO37GlzhLh9dS93gEQUQ7+pC7UTv3Yxp9HHo
+ 7a95Me/ooKHX3mLKAkBbwlwnRM4Z11xTG3FPMqFZy85xh1nplyN07tFTpohWc1Q3zZHx3G
+ SZ6KliHB8WrlgfICPUQ5iTNTJ5bMMH8=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+ s=susede2_ed25519; t=1649933816;
+ h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=qHwXlFiPhb+8uq3WbY4A9X/xnSchmkHO2lazKJa/1C0=;
+ b=HSr8JiCOgkenIg7wB2Xon9FwkRKUvHaA6puuu4B3JMM3Ug4KlPFkmiOeosnWoqQEzSxbJN
+ ziYtJKRIz8IMNDDw==
+Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+ (No client certificate requested)
+ by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 8533E132C0;
+ Thu, 14 Apr 2022 10:56:56 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([192.168.254.65])
+ by imap2.suse-dmz.suse.de with ESMTPSA id NbhsIPj9V2JxCQAAMHmgww
+ (envelope-from <iivanov@suse.de>); Thu, 14 Apr 2022 10:56:56 +0000
+Date: Thu, 14 Apr 2022 13:56:56 +0300
+From: "Ivan T. Ivanov" <iivanov@suse.de>
+To: Stefan Wahren <stefan.wahren@i2se.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>,
+ Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Florian Fainelli <f.fainelli@gmail.com>,
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "David S . Miller" <davem@davemloft.net>,
- Richard Weinberger <richard@nod.at>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Johannes Berg <johannes@sipsolutions.net>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "H . Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
- Max Filippov <jcmvbkbc@gmail.com>, John Stultz <john.stultz@linaro.org>,
- Stephen Boyd <sboyd@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>,
- linux-arm-kernel@lists.infradead.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org, x86@kernel.org, linux-xtensa@linux-xtensa.org
-Subject: Re: [PATCH v4 01/11] timekeeping: add raw clock fallback for
- random_get_entropy()
-Message-ID: <Ylfzi1lNWTH1wjLA@shell.armlinux.org.uk>
-References: <20220413115411.21489-1-Jason@zx2c4.com>
- <20220413115411.21489-2-Jason@zx2c4.com>
+ Phil Elwell <phil@raspberrypi.org>, kernel test robot <lkp@intel.com>,
+ bcm-kernel-feedback-list@broadcom.com, linux-clk@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2] clk: bcm2835: Round UART input clock up
+Message-ID: <20220414105656.qt52zmr5vjmjdcxc@suse>
+References: <20220404125113.80239-1-iivanov@suse.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220413115411.21489-2-Jason@zx2c4.com>
+In-Reply-To: <20220404125113.80239-1-iivanov@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220414_031319_564078_E375B46D 
-X-CRM114-Status: GOOD (  22.50  )
+X-CRM114-CacheID: sfid-20220414_035706_237354_09B08F2B 
+X-CRM114-Status: GOOD (  26.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,56 +95,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 13, 2022 at 01:54:01PM +0200, Jason A. Donenfeld wrote:
-> The addition of random_get_entropy_fallback() provides access to
-> whichever time source has the highest frequency, which is useful for
-> gathering entropy on platforms without available cycle counters. It's
-> not necessarily as good as being able to quickly access a cycle counter
-> that the CPU has, but it's still something, even when it falls back to
-> being jiffies-based.
-> 
-> In the event that a given arch does not define get_cycles(), falling
-> back to the get_cycles() default implementation that returns 0 is really
-> not the best we can do. Instead, at least calling
-> random_get_entropy_fallback() would be preferable, because that always
-> needs to return _something_, even falling back to jiffies eventually.
-> It's not as though random_get_entropy_fallback() is super high precision
-> or guaranteed to be entropic, but basically anything that's not zero all
-> the time is better than returning zero all the time.
-> 
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Theodore Ts'o <tytso@mit.edu>
-> Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
-> ---
->  include/linux/timex.h     |  8 ++++++++
->  kernel/time/timekeeping.c | 10 ++++++++++
->  2 files changed, 18 insertions(+)
-> 
-> diff --git a/include/linux/timex.h b/include/linux/timex.h
-> index 5745c90c8800..fbbe34226044 100644
-> --- a/include/linux/timex.h
-> +++ b/include/linux/timex.h
-> @@ -62,6 +62,8 @@
->  #include <linux/types.h>
->  #include <linux/param.h>
->  
-> +extern unsigned long random_get_entropy_fallback(void);
+Hi Stefan,
 
-Hi
-
-I'm surprised this didn't trigger checkpatch to warn. From
-coding-style:
-
-6.1) Function prototypes
-Do not use the ``extern`` keyword with function declarations as this makes
-lines longer and isn't strictly necessary.
+Please, could you take a look into following patch?
 
 Thanks!
+Ivan
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
+On 04-04 15:51, Ivan T. Ivanov wrote:
+> Subject: [PATCH v2] clk: bcm2835: Round UART input clock up
+> Message-Id: <20220404125113.80239-1-iivanov@suse.de>
+> 
+> The UART clock is initialised to be as close to the requested
+> frequency as possible without exceeding it. Now that there is a
+> clock manager that returns the actual frequencies, an expected
+> 48MHz clock is reported as 47999625. If the requested baudrate
+> == requested clock/16, there is no headroom and the slight
+> reduction in actual clock rate results in failure.
+> 
+> If increasing a clock by less than 0.1% changes it from ..999..
+> to ..000.., round it up.
+> 
+> This is reworked version of a downstream fix:
+> https://github.com/raspberrypi/linux/commit/ab3f1b39537f6d3825b8873006fbe2fc5ff057b7
+> 
+> Cc: Phil Elwell <phil@raspberrypi.org>
+> Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
+> ---
+> Changes since v1
+> Make bcm2835_clock_round() static to fix following warning
+> when compiling for riscv:
+> drivers/clk/bcm/clk-bcm2835.c:997:15: warning: no previous prototype for 'bcm2835_clock_round' [-Wmissing-prototypes]
+> Reported-by: kernel test robot <lkp@intel.com>
+> 
+>  drivers/clk/bcm/clk-bcm2835.c | 30 ++++++++++++++++++++++++++++--
+>  1 file changed, 28 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/clk/bcm/clk-bcm2835.c b/drivers/clk/bcm/clk-bcm2835.c
+> index 3ad20e75fd23..c29b643d1bf5 100644
+> --- a/drivers/clk/bcm/clk-bcm2835.c
+> +++ b/drivers/clk/bcm/clk-bcm2835.c
+> @@ -502,6 +502,8 @@ struct bcm2835_clock_data {
+>  	bool low_jitter;
+>  
+>  	u32 tcnt_mux;
+> +
+> +	bool round_up;
+>  };
+>  
+>  struct bcm2835_gate_data {
+> @@ -992,12 +994,30 @@ static long bcm2835_clock_rate_from_divisor(struct bcm2835_clock *clock,
+>  	return temp;
+>  }
+>  
+> +static unsigned long bcm2835_clock_round(unsigned long clk)
+> +{
+> +	unsigned long scaler;
+> +
+> +	/*
+> +	 * If increasing a clock by less than 0.1% changes it
+> +	 * from ..999.. to ..000.., round up.
+> +	 */
+> +	scaler = 1;
+> +	while (scaler * 100000 < clk)
+> +		scaler *= 10;
+> +	if ((clk + scaler - 1) / scaler % 1000 == 0)
+> +		clk = (clk / scaler + 1) * scaler;
+> +
+> +	return clk;
+> +}
+> +
+>  static unsigned long bcm2835_clock_get_rate(struct clk_hw *hw,
+>  					    unsigned long parent_rate)
+>  {
+>  	struct bcm2835_clock *clock = bcm2835_clock_from_hw(hw);
+>  	struct bcm2835_cprman *cprman = clock->cprman;
+>  	const struct bcm2835_clock_data *data = clock->data;
+> +	unsigned long rate;
+>  	u32 div;
+>  
+>  	if (data->int_bits == 0 && data->frac_bits == 0)
+> @@ -1005,7 +1025,12 @@ static unsigned long bcm2835_clock_get_rate(struct clk_hw *hw,
+>  
+>  	div = cprman_read(cprman, data->div_reg);
+>  
+> -	return bcm2835_clock_rate_from_divisor(clock, parent_rate, div);
+> +	rate = bcm2835_clock_rate_from_divisor(clock, parent_rate, div);
+> +
+> +	if (data->round_up)
+> +		rate = bcm2835_clock_round(rate);
+> +
+> +	return rate;
+>  }
+>  
+>  static void bcm2835_clock_wait_busy(struct bcm2835_clock *clock)
+> @@ -2142,7 +2167,8 @@ static const struct bcm2835_clk_desc clk_desc_array[] = {
+>  		.div_reg = CM_UARTDIV,
+>  		.int_bits = 10,
+>  		.frac_bits = 12,
+> -		.tcnt_mux = 28),
+> +		.tcnt_mux = 28,
+> +		.round_up = true),
+>  
+>  	/* TV encoder clock.  Only operating frequency is 108Mhz.  */
+>  	[BCM2835_CLOCK_VEC]	= REGISTER_PER_CLK(
+> -- 
+> 2.26.2
 
 _______________________________________________
 linux-riscv mailing list
