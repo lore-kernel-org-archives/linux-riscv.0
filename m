@@ -4,81 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7D30C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Apr 2022 10:57:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C925BC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Apr 2022 11:20:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9VyFcYo7Y3iID6ub/Nd5bkVKzhxHE5AMZbymwD5V/Qo=; b=dt1KJEwjBaKgnl
-	+pwiTB8+0KO4qnybwLfRgGjwp+xk6BT7RBW08pItSkQl5B9/SXGnMLsM17YlUt5AqeI1OXzWCrezh
-	U6FevI2AElwwtQGUQX5r2r7kQeyFdcB6S5Hs4laQ38i2sZSXptrTRGkcshEiQygRGfyBnB7i34LH0
-	9WDoM4w4AS46CpV3dqORu5oLuiS99dt7xaqU12MlqZI+Z3ybEF26TeImBCo+JIGp0x7zKaM6vaqOW
-	OzvQ7Zp/T3YLxi9HKo2QzwDe7BgdyxpRZlqv/Tb+rPBBXsGxaJ1bF3AjDtPRL0fqSE0uOOhKpBr6V
-	eHVFwR13Gyl/qWV7bmLw==;
+	List-Owner; bh=NJ3XoF1pKzEfK7mByzMFV13iIP0iqE/LiXQ2H33efss=; b=ypmQ6yysK40Mwo
+	DdYvCKZd36KZdt95Y/7PqV3gsKTLLzoWTp7fsT78GBYJG/g9d6BNoEEkkW+fXv++9fx0jt/5YVFH7
+	kvxpKy2u0gpzeZ/34hLp3XVjlxs1pk9asrJUq4engwIj1Ue35S7t5C5+Nqq00OqLWtMAo8ZEWSZJ9
+	HAa79viis1MyMzlqgjHiKoJZBpAZcWqaYfhdp4wE5ONMjfpognNLlxVgl0dz22nz/2rBMGu2SaQyA
+	cUQPWas+8zO1zF3nPLjd8bMxUHe0aR4kG0FpZZZOZcEsoOx382RO267vo9WxQcUdkwmCh2UoyFN/N
+	tXkbG/ahCLZial49CyMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nexA5-005Dmr-3x; Thu, 14 Apr 2022 10:57:17 +0000
-Received: from smtp-out2.suse.de ([195.135.220.29])
+	id 1nexVt-005Ga7-B6; Thu, 14 Apr 2022 11:19:49 +0000
+Received: from mail-yb1-f175.google.com ([209.85.219.175])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nex9u-005Djr-0v; Thu, 14 Apr 2022 10:57:07 +0000
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
- (No client certificate requested)
- by smtp-out2.suse.de (Postfix) with ESMTPS id A59F21F746;
- Thu, 14 Apr 2022 10:56:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
- t=1649933816; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=qHwXlFiPhb+8uq3WbY4A9X/xnSchmkHO2lazKJa/1C0=;
- b=xTC5BJvI3EIrrso3wUf3g1Nr7SOacNh0j7iO37GlzhLh9dS93gEQUQ7+pC7UTv3Yxp9HHo
- 7a95Me/ooKHX3mLKAkBbwlwnRM4Z11xTG3FPMqFZy85xh1nplyN07tFTpohWc1Q3zZHx3G
- SZ6KliHB8WrlgfICPUQ5iTNTJ5bMMH8=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
- s=susede2_ed25519; t=1649933816;
- h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=qHwXlFiPhb+8uq3WbY4A9X/xnSchmkHO2lazKJa/1C0=;
- b=HSr8JiCOgkenIg7wB2Xon9FwkRKUvHaA6puuu4B3JMM3Ug4KlPFkmiOeosnWoqQEzSxbJN
- ziYtJKRIz8IMNDDw==
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
- (No client certificate requested)
- by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 8533E132C0;
- Thu, 14 Apr 2022 10:56:56 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([192.168.254.65])
- by imap2.suse-dmz.suse.de with ESMTPSA id NbhsIPj9V2JxCQAAMHmgww
- (envelope-from <iivanov@suse.de>); Thu, 14 Apr 2022 10:56:56 +0000
-Date: Thu, 14 Apr 2022 13:56:56 +0300
-From: "Ivan T. Ivanov" <iivanov@suse.de>
-To: Stefan Wahren <stefan.wahren@i2se.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>,
- Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Florian Fainelli <f.fainelli@gmail.com>,
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Phil Elwell <phil@raspberrypi.org>, kernel test robot <lkp@intel.com>,
- bcm-kernel-feedback-list@broadcom.com, linux-clk@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2] clk: bcm2835: Round UART input clock up
-Message-ID: <20220414105656.qt52zmr5vjmjdcxc@suse>
-References: <20220404125113.80239-1-iivanov@suse.de>
+ id 1nexVq-005GZM-T1
+ for linux-riscv@lists.infradead.org; Thu, 14 Apr 2022 11:19:48 +0000
+Received: by mail-yb1-f175.google.com with SMTP id g34so8845379ybj.1
+ for <linux-riscv@lists.infradead.org>; Thu, 14 Apr 2022 04:19:44 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=dY83H0aPEfDTdUo23MndvBRZZwuNuwRYnVKAWx3MFcc=;
+ b=h2nZvBz21pFa3r6l49Wr4oUyT64kPQQ/jn/n3CMTu8QWJqWwbn6x+jSlYBk9wM4PhG
+ 1BxbafFs+RGhAqdnEDfHpFulazobNQqQPNBGg9ltlkN+HPYh8RHm0PFf6ZqpXTGFyJRK
+ DryHmAlYDBp+0KnjubfXAf1ySYtUmOhAytMRERHxqeg/jWbyEKHrYKVgjlqGs9UwiXGZ
+ jK279hzHMF6OMhh13/wgf7lMuZNi7T4a4/a8cgsHmDszOLqJKtMipShvohOqZmLWxDQt
+ Pnfo3dg+wTB5K+mwgQ4NBSFItVWnCcb8TLYB88G1WJCXQdBIx4ULjo9sWcZW2PEXAxw1
+ jhpg==
+X-Gm-Message-State: AOAM533VgpP4147qGdbgPNtFUjj9jOdNNRKI8lh1KLo+kh4AxOp92eHh
+ dvPyGTCGbF6hFiZYnZf0qQP1Zk3qyxbKhk5O39g=
+X-Google-Smtp-Source: ABdhPJyXV07maZap62IutTg/mwVDj/CfiQiLME5IwIFkAJnTY85PIrUap0WcF7eity1wAkpRDD0UVobPG71n48VtbjA=
+X-Received: by 2002:a05:6902:187:b0:63d:9c95:edca with SMTP id
+ t7-20020a056902018700b0063d9c95edcamr1246534ybh.81.1649935183962; Thu, 14 Apr
+ 2022 04:19:43 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220404125113.80239-1-iivanov@suse.de>
+References: <20220411233832.391817-1-dmitry.osipenko@collabora.com>
+ <20220411233832.391817-4-dmitry.osipenko@collabora.com>
+ <CAJZ5v0gf1J+yPW14TAdLGLGfO+-2s=r0DDP7d+Rgop3=dB0gaQ@mail.gmail.com>
+ <af51d9d0-26ba-fc66-05f1-d92ef7172730@collabora.com>
+In-Reply-To: <af51d9d0-26ba-fc66-05f1-d92ef7172730@collabora.com>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Thu, 14 Apr 2022 13:19:32 +0200
+Message-ID: <CAJZ5v0jFQi1x1Fnfk04n+HTTirz19-_xW2NgJtpOYyPgVh3Afw@mail.gmail.com>
+Subject: Re: [PATCH v7 03/20] reboot: Print error message if restart handler
+ has duplicated priority
+To: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+ Thierry Reding <thierry.reding@gmail.com>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, Russell King <linux@armlinux.org.uk>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Guo Ren <guoren@kernel.org>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, Greg Ungerer <gerg@linux-m68k.org>, 
+ Joshua Thompson <funaho@jurai.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Sebastian Reichel <sre@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Greentime Hu <green.hu@gmail.com>, 
+ Vincent Chen <deanbo422@gmail.com>, 
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
+ Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "the arch/x86 maintainers" <x86@kernel.org>, 
+ "H. Peter Anvin" <hpa@zytor.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+ Juergen Gross <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>,
+ Len Brown <lenb@kernel.org>, 
+ Santosh Shilimkar <ssantosh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Pavel Machek <pavel@ucw.cz>, 
+ Lee Jones <lee.jones@linaro.org>, Andrew Morton <akpm@linux-foundation.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, 
+ =?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org, 
+ linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ linux-parisc@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, Linux-sh list <linux-sh@vger.kernel.org>, 
+ xen-devel@lists.xenproject.org, 
+ ACPI Devel Maling List <linux-acpi@vger.kernel.org>,
+ Linux PM <linux-pm@vger.kernel.org>, 
+ linux-tegra <linux-tegra@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220414_035706_237354_09B08F2B 
-X-CRM114-Status: GOOD (  26.13  )
+X-CRM114-CacheID: sfid-20220414_041946_973702_6FF45B3E 
+X-CRM114-Status: GOOD (  31.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,112 +116,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
+On Thu, Apr 14, 2022 at 12:24 AM Dmitry Osipenko
+<dmitry.osipenko@collabora.com> wrote:
+>
+> On 4/13/22 21:48, Rafael J. Wysocki wrote:
+> > On Tue, Apr 12, 2022 at 1:39 AM Dmitry Osipenko
+> > <dmitry.osipenko@collabora.com> wrote:
+> >>
+> >> Add sanity check which ensures that there are no two restart handlers
+> >> registered using the same priority. This requirement will become mandatory
+> >> once all drivers will be converted to the new API and such errors will be
+> >> fixed.
+> >>
+> >> Signed-off-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+> >
+> > The first two patches in the series are fine with me and there's only
+> > one minor nit regarding this one (below).
+> >
+> >> ---
+> >>  kernel/reboot.c | 15 +++++++++++++++
+> >>  1 file changed, 15 insertions(+)
+> >>
+> >> diff --git a/kernel/reboot.c b/kernel/reboot.c
+> >> index ed4e6dfb7d44..acdae4e95061 100644
+> >> --- a/kernel/reboot.c
+> >> +++ b/kernel/reboot.c
+> >> @@ -182,6 +182,21 @@ static ATOMIC_NOTIFIER_HEAD(restart_handler_list);
+> >>   */
+> >>  int register_restart_handler(struct notifier_block *nb)
+> >>  {
+> >> +       int ret;
+> >> +
+> >> +       ret = atomic_notifier_chain_register_unique_prio(&restart_handler_list, nb);
+> >> +       if (ret != -EBUSY)
+> >> +               return ret;
+> >> +
+> >> +       /*
+> >> +        * Handler must have unique priority. Otherwise call order is
+> >> +        * determined by registration order, which is unreliable.
+> >> +        *
+> >> +        * This requirement will become mandatory once all drivers
+> >> +        * will be converted to use new sys-off API.
+> >> +        */
+> >> +       pr_err("failed to register restart handler using unique priority\n");
+> >
+> > I would use pr_info() here, because this is not a substantial error AFAICS.
+>
+> It's indeed not a substantial error so far, but it will become
+> substantial later on once only unique priorities will be allowed. The
+> pr_warn() could be a good compromise here, pr_info() is too mild, IMO.
 
-Please, could you take a look into following patch?
+Well, I'm still unconvinced about requiring all of the users of this
+interface to use unique priorities.
 
-Thanks!
-Ivan
+Arguably, there are some of them who don't really care about the
+ordering, so could there be an option for them to specify the lack of
+care by, say, passing 0 as the priority that would be regarded as a
+special case?
 
-On 04-04 15:51, Ivan T. Ivanov wrote:
-> Subject: [PATCH v2] clk: bcm2835: Round UART input clock up
-> Message-Id: <20220404125113.80239-1-iivanov@suse.de>
-> 
-> The UART clock is initialised to be as close to the requested
-> frequency as possible without exceeding it. Now that there is a
-> clock manager that returns the actual frequencies, an expected
-> 48MHz clock is reported as 47999625. If the requested baudrate
-> == requested clock/16, there is no headroom and the slight
-> reduction in actual clock rate results in failure.
-> 
-> If increasing a clock by less than 0.1% changes it from ..999..
-> to ..000.., round it up.
-> 
-> This is reworked version of a downstream fix:
-> https://github.com/raspberrypi/linux/commit/ab3f1b39537f6d3825b8873006fbe2fc5ff057b7
-> 
-> Cc: Phil Elwell <phil@raspberrypi.org>
-> Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
-> ---
-> Changes since v1
-> Make bcm2835_clock_round() static to fix following warning
-> when compiling for riscv:
-> drivers/clk/bcm/clk-bcm2835.c:997:15: warning: no previous prototype for 'bcm2835_clock_round' [-Wmissing-prototypes]
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
->  drivers/clk/bcm/clk-bcm2835.c | 30 ++++++++++++++++++++++++++++--
->  1 file changed, 28 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/clk/bcm/clk-bcm2835.c b/drivers/clk/bcm/clk-bcm2835.c
-> index 3ad20e75fd23..c29b643d1bf5 100644
-> --- a/drivers/clk/bcm/clk-bcm2835.c
-> +++ b/drivers/clk/bcm/clk-bcm2835.c
-> @@ -502,6 +502,8 @@ struct bcm2835_clock_data {
->  	bool low_jitter;
->  
->  	u32 tcnt_mux;
-> +
-> +	bool round_up;
->  };
->  
->  struct bcm2835_gate_data {
-> @@ -992,12 +994,30 @@ static long bcm2835_clock_rate_from_divisor(struct bcm2835_clock *clock,
->  	return temp;
->  }
->  
-> +static unsigned long bcm2835_clock_round(unsigned long clk)
-> +{
-> +	unsigned long scaler;
-> +
-> +	/*
-> +	 * If increasing a clock by less than 0.1% changes it
-> +	 * from ..999.. to ..000.., round up.
-> +	 */
-> +	scaler = 1;
-> +	while (scaler * 100000 < clk)
-> +		scaler *= 10;
-> +	if ((clk + scaler - 1) / scaler % 1000 == 0)
-> +		clk = (clk / scaler + 1) * scaler;
-> +
-> +	return clk;
-> +}
-> +
->  static unsigned long bcm2835_clock_get_rate(struct clk_hw *hw,
->  					    unsigned long parent_rate)
->  {
->  	struct bcm2835_clock *clock = bcm2835_clock_from_hw(hw);
->  	struct bcm2835_cprman *cprman = clock->cprman;
->  	const struct bcm2835_clock_data *data = clock->data;
-> +	unsigned long rate;
->  	u32 div;
->  
->  	if (data->int_bits == 0 && data->frac_bits == 0)
-> @@ -1005,7 +1025,12 @@ static unsigned long bcm2835_clock_get_rate(struct clk_hw *hw,
->  
->  	div = cprman_read(cprman, data->div_reg);
->  
-> -	return bcm2835_clock_rate_from_divisor(clock, parent_rate, div);
-> +	rate = bcm2835_clock_rate_from_divisor(clock, parent_rate, div);
-> +
-> +	if (data->round_up)
-> +		rate = bcm2835_clock_round(rate);
-> +
-> +	return rate;
->  }
->  
->  static void bcm2835_clock_wait_busy(struct bcm2835_clock *clock)
-> @@ -2142,7 +2167,8 @@ static const struct bcm2835_clk_desc clk_desc_array[] = {
->  		.div_reg = CM_UARTDIV,
->  		.int_bits = 10,
->  		.frac_bits = 12,
-> -		.tcnt_mux = 28),
-> +		.tcnt_mux = 28,
-> +		.round_up = true),
->  
->  	/* TV encoder clock.  Only operating frequency is 108Mhz.  */
->  	[BCM2835_CLOCK_VEC]	= REGISTER_PER_CLK(
-> -- 
-> 2.26.2
+IOW, if you pass 0, you'll be run along the others who've also passed
+0, but if you pass anything different from 0, it must be unique.  What
+do you think?
 
 _______________________________________________
 linux-riscv mailing list
