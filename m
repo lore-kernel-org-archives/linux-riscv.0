@@ -4,117 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 522BFC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Apr 2022 02:15:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FD51C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Apr 2022 04:48:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Tcc03foF+YROptThN5/Cb3G0dNll3M0lh0sNebaM6cA=; b=IdvLmTdN2YU5Ea
-	3ixBMQw4RcJNCSUHKJJlhFNlAVJgLCFYbxMhT09PLHShkhTJlinINq1euKme9ZSezYi4xW4OCr6eP
-	q2/rqC6+qMHemmEJoILEbrCm0RNdA3o0CZWR3xycZaISrNLz9P0Dqi6i5hYoOfOYuCG00M8S65UII
-	tWEIFOeEJaFKVxQM9YFVove3RcLM+eqEH2huuwH+GJrWUzuvAtw7W40yoL4ZL/JTdHsyIhs+cZwV0
-	lD0u8FDrTtI9gt839JWcfn9L2dn5KqjHcG8vClvyHHFNZECU6ptDY2xyNJOudhaqu1PU8yNptUmGW
-	qENY0zv4ze8xdj7W/HgA==;
+	List-Owner; bh=n//aFUuegCz2TuyfXaq11STHcuIwlO1fG4cSKEL15g4=; b=xtV2rl2YmV4+PE
+	aDCmcLvEVHgzidRWhpmmh/NEg8kyWKUBPC55i34o5D3SRc4u7KN5bQsrl/z7Qo9bAgxxmu7vZ66j0
+	I4gadfMOsjccozAs+QhmLVeY/kCoKm76XYk2rT08d16PEa2uz0YgVSTQ8yXrRyWHNOsjmy1pxJ/aS
+	pFPdiiM+pngH/e18TpFJ3ntuzU3vE9b0KjraBPa7TBQSGKtBTgLsMTSygAhvZ1ZM8AbxlEgBAJjXO
+	717IIj2bYdwN9BetzYZI6zRnTep0ItnDp4bXmc1vjl4+ZQuW+4QxseKjePja+YrNSP9MdfxbdumEX
+	x1wwqs0aihF1KNLuVlyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nfBUC-0085BI-S9; Fri, 15 Apr 2022 02:15:00 +0000
-Received: from esa2.hgst.iphmx.com ([68.232.143.124])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nfBU8-00859k-9b
- for linux-riscv@lists.infradead.org; Fri, 15 Apr 2022 02:14:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1649988896; x=1681524896;
- h=message-id:date:mime-version:subject:to:cc:references:
- from:in-reply-to:content-transfer-encoding;
- bh=WhFCPjpcY73NOr+2vy/xILbKOpm8U3lMJb79Q6mDq7Q=;
- b=ngzHZJjEhdtLKqz4rITWWoTPqfsQFN4buZLet0NzdAlO5Vfi4RZn640e
- W/ZMQl4dR3C0PFJKyoUO5QhmW+hSUaORePGyzajALHsvCR1uYW5jFQdGw
- XcJeceS++Hi4i7S0xLjc6EN0+tHL9Wh0VGpKmjWAY2v5ELsCM3gfIekFn
- ca65Z1oG90GI++q7m6bzP9ZauLJgRelHqk7vzTATT23//LoOJ6UcCB+lj
- 4nlUjC8BBptW8PXf1P4b8rOiSZDAgxuvekST+VOkjx/HBa8PJWbrXShM3
- FcO4K6Wvs0pbqE7akFmNQfN4gQRXCp1YpCSb8OUUKGcuK5ov2aI5mkgZ0 Q==;
-X-IronPort-AV: E=Sophos;i="5.90,261,1643644800"; d="scan'208";a="302152819"
-Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 15 Apr 2022 10:14:52 +0800
-IronPort-SDR: mqALAGFMVdHevuLEvSpltn6yqR2LKbcdlip5v+27lqSE9lKo7HkvROTS5pX9KMPmQK3fD5pDP4
- 5139O8QRs/DMVpXalH91pDUoc7RNwrPKKa5Ca1xcA/1jXK/+WpMjV/I8C15AOGWJbTxclfAOCE
- +qHm43NAZDAsKxoEK0jWD71bqZ36szbNAWP2sN8FFQOsZu2EX5VZjisnEgJM19A+gza2Bh/lji
- UOauFGcccaSXpX3cLYYgOzgXIqDP0niyVbYmYBNXD3e2MhQ3Cb/H2hAyKAS+RzpDWKKlKuwXFB
- QvUW1zqb2JD9MGYkGXlgOAQJ
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;
- 14 Apr 2022 18:46:03 -0700
-IronPort-SDR: KJoVoqzTmTH3EPpa4lwbcTrivBbXrEQGRgBvq8dgV9fFkmb3R+6QR/FoJL28yY4HwcEU6XmebN
- 1t8XBjBo3t5umyeghbRqid4H3i6FkQIYSytIhxXCJCU/WBKmXLYCvSLO2g9tpB4KGPGW4O6pKE
- rgeWz/wgD0C3N5em0QxdEYM6BGfH9Me759ocZmqXRiMq3BqqXtwdzlIoYlCnoHR0uKamYUhg/F
- ZVS+8dLtzrUV7JO3nnTPLhkvU8jkyFYkAMJEYKP9AuzCbMSBmuX+sUaUGH67h8Q5wpbHLeN/+a
- xpA=
-WDCIronportException: Internal
-Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
- by uls-op-cesaip02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;
- 14 Apr 2022 19:14:53 -0700
-Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
- by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4Kffzb3jvVz1SVnx
- for <linux-riscv@lists.infradead.org>; Thu, 14 Apr 2022 19:14:51 -0700 (PDT)
-Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
- reason="pass (just generated, assumed good)"
- header.d=opensource.wdc.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
- opensource.wdc.com; h=content-transfer-encoding:content-type
- :in-reply-to:organization:from:references:to:content-language
- :subject:user-agent:mime-version:date:message-id; s=dkim; t=
- 1649988890; x=1652580891; bh=WhFCPjpcY73NOr+2vy/xILbKOpm8U3lMJb7
- 9Q6mDq7Q=; b=Je/KTCSORMEIBsQ9wzBGLn5Wo3UMd7sE2lFIN5Rq985Iji1IXPo
- iCJAyaGCoha060/PbFVDMlRHJdhkSml8b/ir9aQH0DW7YizZa4FJ8QHNCOYppqNh
- jQlNFP3Xr0a0A/TeSI4Ho9yv9ik71juA9gPCZuqPfgjxiQk1HuRcSJHExbup/3rQ
- vUvoOoSHzb37h6QKTl1KAxr5rWJR97jWSIwd3cllkfiVUVboU+58h0RwM9e4gH2Y
- PZ5Ft3VsQheRqzXZAu0A8Ri+FeNfH1qm5fjisfcTFrSmit2G6RwzCUgXvyBEzhoB
- HCjDVfmcMu9bKJ8hWcwmN7thSnoedePTA9g==
-X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
-Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
- by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new,
- port 10026)
- with ESMTP id plsGFvjbLJTD for <linux-riscv@lists.infradead.org>;
- Thu, 14 Apr 2022 19:14:50 -0700 (PDT)
-Received: from [10.225.163.9] (unknown [10.225.163.9])
- by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4KffzX2zWTz1Rvlx;
- Thu, 14 Apr 2022 19:14:48 -0700 (PDT)
-Message-ID: <1ad275e2-8c7b-4b13-06f2-e2be13155185@opensource.wdc.com>
-Date: Fri, 15 Apr 2022 11:14:47 +0900
+	id 1nfDsY-008OPK-Li; Fri, 15 Apr 2022 04:48:18 +0000
+Received: from smtp83.cstnet.cn ([159.226.251.83] helo=cstnet.cn)
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nfDsU-008ONH-HJ
+ for linux-riscv@lists.infradead.org; Fri, 15 Apr 2022 04:48:17 +0000
+Received: by ajax-webmail-APP-09 (Coremail) ; Fri, 15 Apr 2022 12:47:22
+ +0800 (GMT+08:00)
+X-Originating-IP: [124.16.96.42]
+Date: Fri, 15 Apr 2022 12:47:22 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?5r2Y5bqG6ZyW?= <panqinglin2020@iscas.ac.cn>
+To: "Anup Patel" <apatel@ventanamicro.com>
+Cc: "Palmer Dabbelt" <palmer@dabbelt.com>, 
+ "Paul Walmsley" <paul.walmsley@sifive.com>, 
+ "Alexandre Ghiti" <alexandre.ghiti@canonical.com>, 
+ "Atish Patra" <atishp@atishpatra.org>, 
+ "Alistair Francis" <Alistair.Francis@wdc.com>, 
+ "Anup Patel" <anup@brainfault.org>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ "Mayuresh Chitale" <mchitale@ventanamicro.com>
+Subject: Re: [PATCH] RISC-V: mm: Fix set_satp_mode() for platform not having
+ Sv57
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version XT5.0.13 build 20210104(ab8c30b6)
+ Copyright (c) 2002-2022 www.mailtech.cn cnic.cn
+In-Reply-To: <20220412033335.1384230-1-apatel@ventanamicro.com>
+References: <20220412033335.1384230-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.7.0
-Subject: Re: [PATCH v2] binfmt_flat: do not stop relocating GOT entries
- prematurely on riscv
-Content-Language: en-US
-To: Niklas Cassel <Niklas.Cassel@wdc.com>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
- Eric Biederman <ebiederm@xmission.com>, Kees Cook <keescook@chromium.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Greg Ungerer <gerg@linux-m68k.org>, Mike Frysinger <vapier@gentoo.org>,
- "stable@vger.kernel.org" <stable@vger.kernel.org>,
- "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-References: <20220414091018.896737-1-niklas.cassel@wdc.com>
- <f379cb56-6ff5-f256-d5f2-3718a47e976d@opensource.wdc.com>
- <Yli8voX7hw3EZ7E/@x1-carbon>
- <6ee62ced-7a49-be56-442d-ba012782b8e2@opensource.wdc.com>
- <YljFiLqPHemB/u77@x1-carbon>
- <9a9a4dcf-0ea1-01ac-d599-16c10b547beb@opensource.wdc.com>
- <YljUWpq42t1gQFRf@x1-carbon>
-From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
-Organization: Western Digital Research
-In-Reply-To: <YljUWpq42t1gQFRf@x1-carbon>
+Message-ID: <4c4c7a.17284.1802b8c14cc.Coremail.panqinglin2020@iscas.ac.cn>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: swCowADX38_b+FhiWqMBAA--.17675W
+X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiCQoRDF02bFOQ6AAA
+	sy
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+ CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+ daVFxhVjvjDU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220414_191456_423777_8C04626C 
-X-CRM114-Status: GOOD (  29.75  )
+X-CRM114-CacheID: sfid-20220414_214814_985298_B213392D 
+X-CRM114-Status: UNSURE (   4.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,64 +76,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/15/22 11:11, Niklas Cassel wrote:
-> On Fri, Apr 15, 2022 at 10:13:31AM +0900, Damien Le Moal wrote:
->> On 4/15/22 10:08, Niklas Cassel wrote:
->>> On Fri, Apr 15, 2022 at 09:56:38AM +0900, Damien Le Moal wrote:
->>>> On 4/15/22 09:30, Niklas Cassel wrote:
->>>>> On Fri, Apr 15, 2022 at 08:51:27AM +0900, Damien Le Moal wrote:
->>>>>> On 4/14/22 18:10, Niklas Cassel wrote:
->>>
->>> (snip)
->>>
->>>> So if we are sure that we can just skip the first 16B/8B for riscv, I
->>>> would not bother checking the header content. But as mentioned, the
->>>> current code is fine too.
->>>
->>> That was my point, I'm not sure that we can be sure that we can always
->>> skip it in the future. E.g. if the elf2flt linker script decides to swap
->>> the order of .got and .got.plt for some random reason in the future,
->>> we would skip data that really should have been relocated.
->>
->> Good point. Your current patch is indeed better then. BUT that would also
->> mean that the skip header function needs to be called inside the loop
->> then, no ? If the section orders are reversed, we would still need to skip
->> that header in the middle of the relocation loop...
-> 
-> So this is theoretical, but if the sections were swapped in the linker
-> script, and we have the patch in $subject applied, we will not skip data
-> that needs to be relocated. But after relocating all the entries in the
-> .got section we will still break too early, if we actually had any
-> .got.plt entries after the .got.plt header. The .got.plt entries would
-> not get relocated.
-> 
-> However, the elf2flt maintainer explicitly asked ut to fix the kernel or
-> binutils, so that they can continue using the exact same linker script
-> that it has been using forever. (And we shouldn't need to change binutils
-> just for the bFLT format.)
-> 
-> So the chance that the linker script changes in practice is really small.
-> (This .got.plt vs .got hasn't changed in 19 years.)
-> 
-> But if it does, we will just have one problem instead of two :)
-> However, I think that applying this patch is sufficient for now,
-> since it makes the code work with the existing elf2flt linker script.
-> 
-> Adapting the code to also handle this theoretical layout of the linker
-> script would just complicate things even more. I'm not even sure if we
-> would be able to handle this case, since the information about the .got
-> and .got.plt section sizes is lost once the ELF has been converted to
-> bFLT.
+Hi Anup,
 
-OK. All good then.
-I maintain my reviewed-by tag :)
+&gt; 
+&gt; When Sv57 is not available the satp.MODE test in set_satp_mode() will
+&gt; fail and lead to pgdir re-programming for Sv48. The pgdir re-programming
+&gt; will fail as well due to pre-existing pgdir entry used for Sv57 and as
+&gt; a result kernel fails to boot on RISC-V platform not having Sv57.
+&gt; 
+&gt; To fix above issue, we should clear the pgdir memory in set_satp_mode()
+&gt; before re-programming.
+&gt; 
+&gt; Fixes: 011f09d12052 ("riscv: mm: Set sv57 on defaultly")
+&gt; Reported-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+&gt; Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+&gt; ---
+&gt;  arch/riscv/mm/init.c | 1 +
+&gt;  1 file changed, 1 insertion(+)
+&gt; 
+&gt; diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+&gt; index 9535bea8688c..b0793dc0c291 100644
+&gt; --- a/arch/riscv/mm/init.c
+&gt; +++ b/arch/riscv/mm/init.c
+&gt; @@ -718,6 +718,7 @@ static __init void set_satp_mode(void)
+&gt;  		if (!check_l4) {
+&gt;  			disable_pgtable_l5();
+&gt;  			check_l4 = true;
+&gt; +			memset(early_pg_dir, 0, PAGE_SIZE);
+&gt;  			goto retry;
+&gt;  		}
+&gt;  		disable_pgtable_l4();
+&gt; -- 
 
 
-
--- 
-Damien Le Moal
-Western Digital Research
-
+I find it that the set_satp_mode function is in .init.text section which begins at 0x80800000.
+And its pgd_index in both Sv48 and Sv57 will be 0. So it may not be necessary to clear the 
+early_pg_dir when the kernel find Sv57 is not supported? And may I get the steps of reproduction
+from you?
+ 
+Yours,
+Qinglin
+</apatel@ventanamicro.com></mchitale@ventanamicro.com>
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
