@@ -4,115 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9872DC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Apr 2022 01:13:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C258C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Apr 2022 01:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/qR5r6WHR46VkU/3Ni07ZzFEpLsT1/CMP7v32aX+3Ck=; b=owWCZyAu6Aoop/
-	cAGDOHvE2R6prht2ptQJaVxSYb7RWu/3KYJggCSdQMkN1GvYkaIxjrGVDkB/VMCSMobrDNPeKnOhD
-	voIWlpICUAPOutS1sT2TKSF2AFuJWqb55nw+lirpWCHXvDB2xH7dM3kU3KV+QbADLJS6FzwHTbV2+
-	HMTNHFiTcFJmZZD2kLH33HTvDuOcdfJs7zk0ZWUemAY5dAVzFVd/GL3dxp75RdRfhK/rEOop3iHnh
-	af9EoJV9JFjpDd6N1psZu6srzB0ALxtnua/WHpfwqeDsUFItKZwzwImHyRqOR8MrZIID4morxq098
-	hmvT631wUKgng+oFlj5g==;
+	List-Owner; bh=PtK4k17iEhPX6KlXtKiWJH49cIEAv2AZ9c45m/ImHpI=; b=C5VnhX3L8Aunbr
+	dXBLG5pE0TA+vA3bZXzK5u1Lr1XaMHKNJeeqSHPOuPHOnE/q4fq26F/3ZMmkeGlHFmsUWnE6Z7S+o
+	a0iORRhX3UueRs0/5sylGkDS6Oq/yevrtqhVHJYxx7rOewbb3uLsK4U/z6sTKIZijHG2RLK5J94sv
+	fljQrLfEkHTrcOBCpUj+ZKpTyaLdmJ2V3Ejwm36mKY2+8O6Ds0j2qB63hefPmuj/zgYxOK7GsgAFb
+	6F+lgaQpQRp/zGXGaHVCkE2zEMX2xVU2TAJhSRWAuEGuPqawvhm9/XXsYMIL59FYOoUVcXhkLrS9O
+	jwFwhZ3LYAAdiUTtRHog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nfAWw-007xhq-2l; Fri, 15 Apr 2022 01:13:46 +0000
+	id 1nfAhp-007zcK-2E; Fri, 15 Apr 2022 01:25:01 +0000
 Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nfAWs-007xfk-UQ
- for linux-riscv@lists.infradead.org; Fri, 15 Apr 2022 01:13:44 +0000
+ id 1nfAhm-007zbx-8g
+ for linux-riscv@lists.infradead.org; Fri, 15 Apr 2022 01:24:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1649985222; x=1681521222;
- h=message-id:date:mime-version:subject:to:cc:references:
- from:in-reply-to:content-transfer-encoding;
- bh=2o3hbZhROctTrf9/YEdToCbep6cUQhIveDuZAWOBAjM=;
- b=HCWv8xiHZaG9My9oWJ4ON+UJyo+PjfmwBMuJqUPY2QgwiN5kEqtUJaex
- tWIjeMu4IHrPMQcfM0j6jW0yV6YCELPCgffft/56JAneNQ+IKcVWs14s+
- 7yAwOq17NVwdrPDsy/4hn1eZeLyfJD29uXzL552kMQW8+Oy7KW5cZJM2I
- 3P6YC6OGhCsXRg5Ze0ZfTEyajRv3yy9QKK7pZMgv+4nzK6WnvYRPar5qA
- x28JHz4tiRoUFDTX71bNQxbKqGyOe6xjUgUL9Q00DEE3qmiQAKAz/ooHb
- xIIPcXNVqNv/VES1Yh6XfLVArY2QzumHelZj5Je3/JqMIRmZtMGsabaFL Q==;
-X-IronPort-AV: E=Sophos;i="5.90,261,1643644800"; d="scan'208";a="302149921"
-Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 15 Apr 2022 09:13:36 +0800
-IronPort-SDR: tpxWFlPxvnsJ62SxZ1k7dSr35e9xxgA7cbR/vihfnLJ1HGxN+8KaeTvSDtcZf5pTWTJjpY84tB
- 0D1nHM94hg5Gf6+R6UzQScXtVHkqFlntlHgf15pX6Q/wpy6KUsuIdb8FIT+qlbg3Ac+D302Rf0
- MlJfCPgPbkvbkjQWtAPj0JvY3J/fJZmd8Azg1srKRV6PiBK3gsAyRz2UUDIUcGnq6p69jUer/E
- nyWmL97SFndyhDMGPZ9g4TCzeZxyQ5OGYFgPTBjGZA0dXojQHi81sfBeSgokqK/UyXvias4upx
- X6Bf3VGqn53lgUhDLFHpMUy9
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;
- 14 Apr 2022 17:44:47 -0700
-IronPort-SDR: tF/z7AFLcOzkrS/VxzyPotO3vPqC9Q5xkElMikW+J7M0dnKR1z+dal/rLDL3qankBhPtOx18pH
- DivE+6dEBtJV9Jj+gMqstZs37/MEwcq++VMb1aFn8zuuYaL17wBnJ0fIhm4DU3DbtycLBXwpfQ
- DM9AlSrXiPmFykK6QccO4j4sn32Jm88HT4kZRyYY3WX6ZumfX5eQlfpfZzaIToRXc2LE8Mjrtz
- +dWZ548cUvv/qUlJqjbG5+CmkG+jCV8pTmLKSDDUY/+2nEJyB/w0eWYK9H3NrcSFnffeqR7Tq/
- r0Q=
-WDCIronportException: Internal
-Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
- by uls-op-cesaip01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;
- 14 Apr 2022 18:13:36 -0700
-Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
- by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4Kfdcv3YDjz1SVp3
- for <linux-riscv@lists.infradead.org>; Thu, 14 Apr 2022 18:13:35 -0700 (PDT)
-Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
- reason="pass (just generated, assumed good)"
- header.d=opensource.wdc.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
- opensource.wdc.com; h=content-transfer-encoding:content-type
- :in-reply-to:organization:from:references:to:content-language
- :subject:user-agent:mime-version:date:message-id; s=dkim; t=
- 1649985214; x=1652577215; bh=2o3hbZhROctTrf9/YEdToCbep6cUQhIveDu
- ZAWOBAjM=; b=mWJ7/209jF5f6cH7UXv/Nyw7kMvCcMKmosSacEyi84ORPLbeYJQ
- MtUB3jAAFeHPNpA8o+sWbphgyyUNQYB8OZ5diOrgk9B7KoXA2yecdJ4CPlqgi0zL
- X7gNmQToLzBFQR8a23dn9UnxA7nz1U3gm4qx6SZyK+2/dHZc0je0n5KbV/l9B2xH
- gK4Kfaqn7Nwu1VunDYoDJD7KwWLLKzn9IQqxk0vKWAbRtNdVl1uDlsiv/0jNo8cv
- xCYXVwG3tp64CBUPTC1Qyl37g2PHLfG3O0Xz5HzP+cChYa98sC49qe95xjj26W74
- 5xSEMLfkgGl/VvMtJsCUkoM/fpFgWzarxOA==
-X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
-Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
- by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new,
- port 10026)
- with ESMTP id e1wXUtYoh8E8 for <linux-riscv@lists.infradead.org>;
- Thu, 14 Apr 2022 18:13:34 -0700 (PDT)
-Received: from [10.225.163.9] (unknown [10.225.163.9])
- by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4Kfdcr4SBfz1Rvlx;
- Thu, 14 Apr 2022 18:13:32 -0700 (PDT)
-Message-ID: <9a9a4dcf-0ea1-01ac-d599-16c10b547beb@opensource.wdc.com>
-Date: Fri, 15 Apr 2022 10:13:31 +0900
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.7.0
+ t=1649985898; x=1681521898;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-id:content-transfer-encoding: mime-version;
+ bh=oQ4WMNd78vefdve9alwAZCSYPR8NImEphaWC3zKWV9Q=;
+ b=Kz32fe4yYXh6nI9NV5Tt27UH20939JLT2Sv8pCqmXa0RgJJD2zi9MoGh
+ RqjpMsEYxqveNNxGZ+MYmcntkoBipscXdKtYoqCEpIL9LJvZgFONljpIZ
+ fOb1S+gjDYuvKC0H2sm622nKHvufzdQQGWxTRQMUvlmtNVJnwSKAnBzLU
+ z/pJBispWAMbdnWuBmlX9+1TgcRaAuREqpKDNhc/fBnkduyR4GowtkKNm
+ 8k0opIg4AjqfBgXJuMbqCZd7ucQrA45W5XsbCwopJTTCAJmeeo13xGj3X
+ sWNS3eSdHYowbyD7QopuKcAdi2bdMXiIExJUBcTlGx4jiCOHhb4axtWLi g==;
+X-IronPort-AV: E=Sophos;i="5.90,261,1643644800"; d="scan'208";a="302150494"
+Received: from mail-dm6nam10lp2108.outbound.protection.outlook.com (HELO
+ NAM10-DM6-obe.outbound.protection.outlook.com) ([104.47.58.108])
+ by ob1.hgst.iphmx.com with ESMTP; 15 Apr 2022 09:24:56 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=XQHXA/BLQgiYJVx7TQ1XBGNGRtegvJsAmp/4m5eAZnj6h6Urbj2Gt9SVuwQXDxN3q87s/Ykg48JfGdkkzGhV90VQPh5wgY1DmsGDNRzPXPuDuQMjwmaCMKMrrvCLIHmZmDfFjGUDx/lCushX3m1NMxNfctRtc49boPUptJdUkl+na3qKDAY3UoAeGR9tUYpwJigvZ+NyEkdHLZ3zhfi1tLtQ+MVMZi+eUrFXDx7uwi4dh4g7BRGhDgsU+vAFljpEBSBIW6TCBtX+XtuP/jApn6hp6BeW6DTN22fXpErqUW1fr9C01sWXzvLARsg89xVFhnQWUrDNHxap9MaB2AloCQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sH1nvU3rTJQ76p8h0rWDB0qun67TvG+pOaVCpLY6AbE=;
+ b=FWQO8N/QuCJ8y0rIFMYlUBsAP+gUcD74fIwGn+sokCU9tVgXW+6L7JbwMGpxIeD9QTiTY7tCOY+BETWgv0K11kVAtE7f7mdIuBuXzRNmWvTx4snS+cFagZVxguEmh3wXCS9dv7R0VTZTDxlD6hDXB1zzKWPIq8mu0aUFW+B5iX2bTupCXb4M+GhywOkQhFFuZ/xy2Bma39UGi/Gs5Q33p3xFPEjhPCG/sjv/YzoWamMz9fFPa1k+iuiVsl7dB5ZWB+zBfpaolhspeHKpes7gL1ryTJgywFNRP2nGDGsEghm5Ke5OtCKDOYhqZ1o8+cPwbWB0SQ+rZAurIZA86XGjlw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sH1nvU3rTJQ76p8h0rWDB0qun67TvG+pOaVCpLY6AbE=;
+ b=scfn12Itygpj3ugbpohhDMvVrjPo90ZO+SibLuiyAVAouVRM6Lr14Ts2NgTLn5gISJn4iqRcCbXh4qOF3J6r2xNmigvhG7TyId3wQNxE+LzZzmx0Ke7jTZrgqXBInBLCklGJRm9s0/vYWQIzmhMz7OeyOiIbYUOzb1hNrehe0S8=
+Received: from PH0PR04MB7158.namprd04.prod.outlook.com (2603:10b6:510:8::18)
+ by SN6PR04MB4591.namprd04.prod.outlook.com (2603:10b6:805:ae::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5144.29; Fri, 15 Apr
+ 2022 01:24:54 +0000
+Received: from PH0PR04MB7158.namprd04.prod.outlook.com
+ ([fe80::995b:363e:8d1c:49af]) by PH0PR04MB7158.namprd04.prod.outlook.com
+ ([fe80::995b:363e:8d1c:49af%8]) with mapi id 15.20.5164.021; Fri, 15 Apr 2022
+ 01:24:54 +0000
+From: Niklas Cassel <Niklas.Cassel@wdc.com>
+To: Kees Cook <keescook@chromium.org>
+CC: Alexander Viro <viro@zeniv.linux.org.uk>, Eric Biederman
+ <ebiederm@xmission.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Greg Ungerer
+ <gerg@linux-m68k.org>, Mike Frysinger <vapier@gentoo.org>, Damien Le Moal
+ <damien.lemoal@opensource.wdc.com>, "stable@vger.kernel.org"
+ <stable@vger.kernel.org>, "linux-fsdevel@vger.kernel.org"
+ <linux-fsdevel@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Subject: Re: [PATCH v2] binfmt_flat: do not stop relocating GOT entries
  prematurely on riscv
-Content-Language: en-US
-To: Niklas Cassel <Niklas.Cassel@wdc.com>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
- Eric Biederman <ebiederm@xmission.com>, Kees Cook <keescook@chromium.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Greg Ungerer <gerg@linux-m68k.org>, Mike Frysinger <vapier@gentoo.org>,
- "stable@vger.kernel.org" <stable@vger.kernel.org>,
- "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Thread-Topic: [PATCH v2] binfmt_flat: do not stop relocating GOT entries
+ prematurely on riscv
+Thread-Index: AQHYT9+B/BNFs63JH02JGuF3zm1OJqzwCKMAgAAm1YA=
+Date: Fri, 15 Apr 2022 01:24:54 +0000
+Message-ID: <YljJZYNWXeWsT6HW@x1-carbon>
 References: <20220414091018.896737-1-niklas.cassel@wdc.com>
- <f379cb56-6ff5-f256-d5f2-3718a47e976d@opensource.wdc.com>
- <Yli8voX7hw3EZ7E/@x1-carbon>
- <6ee62ced-7a49-be56-442d-ba012782b8e2@opensource.wdc.com>
- <YljFiLqPHemB/u77@x1-carbon>
-From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
-Organization: Western Digital Research
-In-Reply-To: <YljFiLqPHemB/u77@x1-carbon>
+ <202204141559.B2A0EB4F7@keescook>
+In-Reply-To: <202204141559.B2A0EB4F7@keescook>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=wdc.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 53e1a702-0919-49cc-6074-08da1e7ebef4
+x-ms-traffictypediagnostic: SN6PR04MB4591:EE_
+x-microsoft-antispam-prvs: <SN6PR04MB4591DB8750E096BB92381663F2EE9@SN6PR04MB4591.namprd04.prod.outlook.com>
+wdcipoutbound: EOP-TRUE
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 1PLSmtgs25ZTlMb0i/yQoQZj5bBX7eIXFsEVfkO3tIf0X6mQVZeDWj5ilyumuLDl4kR2Rt+r3kRP2IceeGk4y7wCVl0KO1YWfTZ+lWD4rczwUgOXOy6PMqQOXHoZzRfqqCc53dx9vOEdYeABhkOrL9bKDzdV9GcOKZrauQ6zB/zojlbZE5iuQN0mUWUd30P70VJrDiJI4Qr5lAvaIXCRbnGNUHQ56QI4iRxD7SNnnPVm6L55neb5HBHpfgnHWuQaDIHkASHFBtsE0Pochns++R7UujiIfXZy/joYafR4FPrnLRElO6zKfN9JmwTJ8QVNY6OK15KhK165D9Dj4tj4CXHAotVBySWM6W+RS2Hl+b4Tuw+cdiaK/kKWIMGvUrIckW8nMCx52tlF9eer9WMHsQUhcFui/tOiwPc9Sk5w0VZluf0LPss/rAc/KztHbWDwAY72s2B49JKZCDGMG/MHM+V5oNv1WNrAFxTAW/LcFSQeFDVgoJ4uCGEA9A9jWB/IloiG4mYGFQcIE0qhalVfbNjfrIfhWvtcTvLb1/Qamk6oBNMvwr2PUJXNjVHiD2DWcuFPnXcmwKYzz5cVhBuskn7wvpJydGd068vcQTwn7SD+EG1tEFOBBP2QWtMw8XEGIbs6jaDysXm9X3F0fBhq9PuTy7v5jvSmv2r84fGM/gosotnagc0XBLfdyn3+qFJBXNehCAgKvN6nl+45E6Q/7w==
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:PH0PR04MB7158.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(13230001)(4636009)(7916004)(366004)(54906003)(6916009)(33716001)(316002)(82960400001)(71200400001)(6486002)(38070700005)(122000001)(91956017)(38100700002)(9686003)(2906002)(6512007)(5660300002)(7416002)(8936002)(86362001)(6506007)(66946007)(76116006)(8676002)(26005)(66556008)(66446008)(4326008)(66476007)(186003)(64756008)(508600001);
+ DIR:OUT; SFP:1102; 
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?mDUr0mb2FsjiMZhOav4o/qr/a7WWvWX64+5qtKRb+QTQ1JqQDYcgXSR0pwZc?=
+ =?us-ascii?Q?LA8GiU22Cf/D6iqjrrj2ZcyY4eKCxNfDm/laG4STAj7C4dlSrdMar57/PEpl?=
+ =?us-ascii?Q?4ZiP4VuL7cNsxYP9tcYIhmjn/4htxagVSqUsL+2iWSyGUJ1mnCzxYycO0A6v?=
+ =?us-ascii?Q?CZNs3wHY2PSODGvClgl+glZNs8hRNxF+nLolW4pgcWznCSEg1Z1ca5k2snBd?=
+ =?us-ascii?Q?cIkzVQIZ/hBPo31e1rWa1OsegNVXMHHBK9SFqsRhR3H8mA2KvigpyRwc3f/6?=
+ =?us-ascii?Q?QRLVPZBUpmADcuZKk1MUghY3qhniXew+amBdmb/eL2iJo9W2kjnpaSBxoapY?=
+ =?us-ascii?Q?zVvxcxneX3A1mvWW+pKx1sPQfoHDkEl+ACQNiAlKZVNdBEIt00a7SAPlr6P5?=
+ =?us-ascii?Q?fKW8g5f6ea+LyXm2lPYuSJjBKhrOMBSt+Api8jG8H11ATjxHgLVMUEX8R7VD?=
+ =?us-ascii?Q?j+mHdqvYuCRRu6z4cRpxgqYljVhWYyAYJe2RLHsUbyNWICuaBiSukwn9cW6t?=
+ =?us-ascii?Q?XujrtilDwdHDLRSCX+bpE7tumYAqf69fguB/0uEAz8eBOzOtpqa1GgAOjJHA?=
+ =?us-ascii?Q?eAK4qaM5h9NoiznrOhldOZ2j9uc1HeJRjiN3W69qXABMhAeojYHVYavpGsSw?=
+ =?us-ascii?Q?j0GVReG2tFYsHbH+HuqNRyDoEfb60KhVRwCtxn4FDToNo315wwkyG8/P5ZVi?=
+ =?us-ascii?Q?Td7aRq8TUIoKVwcX9GxT4t6ezfCB6Rgdos8rcoD3Bwnit6mWwwUI3mPKLoUn?=
+ =?us-ascii?Q?2h/F4qRVeMefn5/ov17AzeNqrj+ibOqzpdN82DAXrB1fxwwFnPTuFRw/o67K?=
+ =?us-ascii?Q?2MLKQWNLL8GemJFXx7HGlVL3M4cgc6uJRGu1x6SFj8nz/7RlslE4qp7Ew/KV?=
+ =?us-ascii?Q?YBrL36zsBx+DKnABrrjnF3Z0khQ+AqmavXjwS6XWEanZQVFDyw8iSmJuzVu0?=
+ =?us-ascii?Q?Ep5//eBBtG/Vd0NkwRXqGqUN0Of7Ji4QikpTwTdLGN44krj/xOF3FL4RdvhQ?=
+ =?us-ascii?Q?m9BJ7pZ4YBSUb75/wasQKONquzWwceq7BCRA4uvIFntLTGffU8fB7tvllLhR?=
+ =?us-ascii?Q?FortRxBO5QQW81D4C3+81HlxkLKq4mUz+EstWmfy0jSd3fN79VYB0RuNQEap?=
+ =?us-ascii?Q?49levyprQqyUV8V0bSb+NqzHeBbwT8nxhj8YQcdhB3530HTeKHE8DcfpfpfT?=
+ =?us-ascii?Q?Oh+FRbkCHxoqH66bpjt2GxhXITZHgc2w5cvcTHZrZks8RiaTqQw7tShWxb+p?=
+ =?us-ascii?Q?R/OdlXPlNyH2jNxcEt2qOlm0qj8C3vyAdEOJIx3JiJ5yrmyT/Xm1LEJC7ddl?=
+ =?us-ascii?Q?NoaVLXAnFfOr9/7dL/hXXMi4l953MLelAcd06TUWFqgPVMaazEAxeM03/8Fs?=
+ =?us-ascii?Q?aqT7uD9zoElKi+e7S6g7PHQuOS8+/0fuQPgt0Xh47GzomE/V8iCjLVdrLf5f?=
+ =?us-ascii?Q?MyG1X23r6D7Lkh1zBdfRTSdR9IA/2CWRuNnZLh6Scma05f/LPc1Rs/d9rot/?=
+ =?us-ascii?Q?5SZnQah6zWR9vhzf51budHx/ZB0BAmTkuPlxRQDOlniSwVZakuKq2KXTILT4?=
+ =?us-ascii?Q?9nU64hStuTpWkMPmpejMqvoZiZtdYrqwV19QLiEB4eKBAod8AOxjo9iEM4Fa?=
+ =?us-ascii?Q?xksGgg4VAd3yNSckS4UVvcUnUp3KAea8QSVw2mbOaQ+VXCsnAvkEooqHbxEg?=
+ =?us-ascii?Q?FozMZISZ7TUE3Dvob7p9mGQwotIvuKG1ogK3YyqX1/Sgr+Nyk0RIxZI74m+0?=
+ =?us-ascii?Q?ISnRT9palg7TrrUeUb1pDk+tEQg3bgs=3D?=
+Content-ID: <13FC1BAC5C4FA34A8BCEA24F98F46511@namprd04.prod.outlook.com>
+MIME-Version: 1.0
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR04MB7158.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 53e1a702-0919-49cc-6074-08da1e7ebef4
+X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Apr 2022 01:24:54.3183 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: XHeF6GZX01fKhIMvVX0KhndHAdrvQjjTgutgZPv2BkrWX5y4N3gIew3tHCf4GNyr3ciwHSaKB0wapEP3FVT00Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN6PR04MB4591
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220414_181343_074207_40F84869 
-X-CRM114-Status: GOOD (  20.61  )
+X-CRM114-CacheID: sfid-20220414_182458_408721_8367EF81 
+X-CRM114-Status: GOOD (  20.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,40 +166,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/15/22 10:08, Niklas Cassel wrote:
-> On Fri, Apr 15, 2022 at 09:56:38AM +0900, Damien Le Moal wrote:
->> On 4/15/22 09:30, Niklas Cassel wrote:
->>> On Fri, Apr 15, 2022 at 08:51:27AM +0900, Damien Le Moal wrote:
->>>> On 4/14/22 18:10, Niklas Cassel wrote:
-> 
-> (snip)
-> 
->> So if we are sure that we can just skip the first 16B/8B for riscv, I
->> would not bother checking the header content. But as mentioned, the
->> current code is fine too.
-> 
-> That was my point, I'm not sure that we can be sure that we can always
-> skip it in the future. E.g. if the elf2flt linker script decides to swap
-> the order of .got and .got.plt for some random reason in the future,
-> we would skip data that really should have been relocated.
+On Thu, Apr 14, 2022 at 04:05:54PM -0700, Kees Cook wrote:
+> On Thu, Apr 14, 2022 at 11:10:18AM +0200, Niklas Cassel wrote:
 
-Good point. Your current patch is indeed better then. BUT that would also
-mean that the skip header function needs to be called inside the loop
-then, no ? If the section orders are reversed, we would still need to skip
-that header in the middle of the relocation loop...
+(snip)
 
+> > +static inline u32 __user *skip_got_header(u32 __user *rp)
+> > +{
+> > +	if (IS_ENABLED(CONFIG_RISCV)) {
+> > +		/*
+> > +		 * RISC-V has a 16 byte GOT PLT header for elf64-riscv
+> > +		 * and 8 byte GOT PLT header for elf32-riscv.
+> > +		 * Skip the whole GOT PLT header, since it is reserved
+> > +		 * for the dynamic linker (ld.so).
+> > +		 */
+> > +		u32 rp_val0, rp_val1;
+> > +
+> > +		if (get_user(rp_val0, rp))
+> > +			return rp;
+> > +		if (get_user(rp_val1, rp + 1))
+> > +			return rp;
+> > +
+> > +		if (rp_val0 == 0xffffffff && rp_val1 == 0xffffffff)
+> > +			rp += 4;
+> > +		else if (rp_val0 == 0xffffffff)
+> > +			rp += 2;
 > 
-> So I think that it is better to keep it, even if it is a bit verbose.
-> 
-> 
-> Kind regards,
-> Niklas
+> Just so I understand; due to the FILL(0) and the ALIGN, val1 will be 0
+> (or more specifically, not -1) in all other cases, yes?
+
+For elf64-riscv with a .got.plt header:
+rp+0: -1, rp+1: -1, rp+2: 0, rp+3: 0
+
+For elf32-riscv with a .got.plt header:
+rp+0: -1, rp+1: 0
+
+At least riscv binutils 2.32, 2.37 and 2.38 all create a .got.plt header
+even when there are no .got.plt entries following the header.
+
+Even if the .got.plt section was empty, there will still be data in the
+.got section, so rp+0 will still not be -1.
+
+If there is no data in the .got section, then the _GLOBAL_OFFSET_TABLE_
+symbol will not be defined, so elf2flt will not set the FLAT_FLAG_GOTPIC
+flag. (This code is only executed if that flag is set.)
 
 
--- 
-Damien Le Moal
-Western Digital Research
-
+Kind regards,
+Niklas
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
