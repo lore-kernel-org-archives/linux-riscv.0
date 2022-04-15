@@ -4,80 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6215DC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Apr 2022 11:26:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BC0DC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Apr 2022 12:28:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HcMgzN6Dh7TjMPxCDVuG2uqhF7fsE7QiPt2quJQa29g=; b=mGsYjw3as7Yj5w
-	Ykjl0sOxqTzonmaEbbV72bulSQe1X6QBeUuItS0ZBPu5ZvGcC9CpKBwPGI6R9HvVTORQ0vVKz4yRQ
-	AP/RVHGL/K2TT3T3uWjhbAu7lvynAHV1S6lSmSThHjFUglwh2FgVeF6q1AFXY7MbxQ5kapJ3cpHfJ
-	e6xm/HlfDVAeRBE/A+XYTLLOvPaphtRU2wo3uS7QDngA4RoOV1INpPpcCtAcufc/5DKxoCmP7vq4x
-	85lzt0So+hqRq0H/nY5Q36uyR38qvKMYxgEj7mBxjDhjFmY5ps/CW4Gg3RW45CIc560SDkX37JsNf
-	l5SRkjPbFZZzhleZXSGA==;
+	List-Owner; bh=z64PAMYufop4ITj3gy8HSNAMhGsjhDWgZNXHi9mIebs=; b=O+BUG8BM5MwLrs
+	u+zcIO+Qq6DTy2D65ZnHUCkJopge+klSMPyRpZ5U3L0xu9Ju8AqrqLxoJJM8vbRqpw5+yQcLC8aEL
+	AsKNOxK+Id72OQ3BBj9patLnB4j7Ul0ut0roiXgxzB7I5kL7rfVb7H+21NfMACx9f44Yw11v3CN/L
+	axrC1wht+mE9dEqzJ5yEIi+k1mDDp7NDNHrziAXa6BqCvFdlJ5wfnWWINPs/VzR7rjxH+rtBmr/yg
+	kDJi94/tohcJWEPilkhW9Z5B65WMpkvMJIhOj1ri5+Rt5iE/+rV0fP+uRjIW1T4x/S4D/vCQ7qxv5
+	XqvMeSuiSHC87HxgJYEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nfK5j-009p0y-LU; Fri, 15 Apr 2022 11:26:19 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nfK5c-009oxw-Gv
- for linux-riscv@lists.infradead.org; Fri, 15 Apr 2022 11:26:14 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id k22so10344716wrd.2
- for <linux-riscv@lists.infradead.org>; Fri, 15 Apr 2022 04:26:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:content-transfer-encoding:in-reply-to;
- bh=JEwBbnSv4wy8BjMA4tVtRE4HEbh8Klb/JEyZ0qGQGEM=;
- b=lHNQR8bOCTyJ+udwv0kNNIQuWIfcelZdA7qCYzeh/hfp1PGUUju3szcLwobmWjlG+D
- nd0gbdBgA+U/G9MwTm6EwcybEYhz9O7zcuGb+XquO85Cnt3zAnRGSOozeRkelx+Dl5iy
- Zd1kypx1KsUUlc7kim/LpcGrnp2xsx7hzQBG/i9AToI6iucVECFhibyYCMZ9Hn/abBQs
- RYYcuLDe6al/DRJa9I4lwCgCdG83QErLqu6AJeyceCHJL7SbVd0fLrGL7VmFqALstkvY
- bDZ9UIiWlLF66dUri7slTgwOOZnJ8JSVJWFhPE5BC+kVnEgmI4Xok/PyCKyW1WOL8t+E
- OdRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:content-transfer-encoding
- :in-reply-to;
- bh=JEwBbnSv4wy8BjMA4tVtRE4HEbh8Klb/JEyZ0qGQGEM=;
- b=Bzf3Gi9oLyIOaqIQBwK/AyugofF8ZJI5Ri8KeML939H1AaafQhPCSUSfp4V27gaae2
- IZWWdmo5Hyj6zrtmexlm+OwXVW3upZL5FLBYSEH3qWsic1j+vDW2v8h/GTecRb4MvfTK
- gUGGMxadRIJppDx4ls5YtnJdnaWisAVJvK5n/z0R6hNARrmrRi/UNQHpDjCJvGuVV3rJ
- g3obgFkPrazJLmPGXQZ48DJpl2J82dmJ6Dsf+WbkvHIdejCMmcWR8QrP1nXRYqfd4zfP
- CXQrtEkiYN49paeFDCiCRhIincQDK2yznEjjl5R68xZ5XL6wLcIpfBF6yCQbueu/RFn1
- j70Q==
-X-Gm-Message-State: AOAM532PATBlGkrYqo1ntW8xv+zYUrooGLIyYwClQVLFAIcwKYPMQoFG
- nN9ZVMWSS/CZiP5gD4LZ4wc=
-X-Google-Smtp-Source: ABdhPJwXbN5EDaBIeTHDhxBCGKD6+A4UtWqBM0PcYmjyQnQruTkfe96lqckZZFEVlN2ZGc/B8znUZw==
-X-Received: by 2002:a5d:47cc:0:b0:204:1c9d:2157 with SMTP id
- o12-20020a5d47cc000000b002041c9d2157mr5084367wrc.294.1650021966801; 
- Fri, 15 Apr 2022 04:26:06 -0700 (PDT)
-Received: from Red ([2a01:cb1d:3d5:a100:264b:feff:fe03:2806])
- by smtp.googlemail.com with ESMTPSA id
- bg8-20020a05600c3c8800b0038e4c5967besm5255924wmb.3.2022.04.15.04.26.06
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 15 Apr 2022 04:26:06 -0700 (PDT)
-Date: Fri, 15 Apr 2022 13:26:04 +0200
-From: Corentin Labbe <clabbe.montjoie@gmail.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- wefu@redhat.com, guoren@kernel.org, atishp@atishpatra.org,
- anup@brainfault.org, mick@ics.forth.gr, samuel@sholland.org,
- cmuellner@linux.com, philipp.tomsich@vrull.eu
-Subject: Re: [PATCH 0/2] riscv: implement Zicbom-based CMO instructions + the
- t-head variant
-Message-ID: <YllWTN+15CoskNBt@Red>
-References: <20220307224620.1933061-1-heiko@sntech.de>
+	id 1nfL3b-009ytF-Ck; Fri, 15 Apr 2022 12:28:11 +0000
+Received: from angie.orcam.me.uk ([78.133.224.34])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nfL2U-009y4P-M0; Fri, 15 Apr 2022 12:27:05 +0000
+Received: by angie.orcam.me.uk (Postfix, from userid 500)
+ id 4C8D392009C; Fri, 15 Apr 2022 14:26:48 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+ by angie.orcam.me.uk (Postfix) with ESMTP id 4517592009B;
+ Fri, 15 Apr 2022 13:26:48 +0100 (BST)
+Date: Fri, 15 Apr 2022 13:26:48 +0100 (BST)
+From: "Maciej W. Rozycki" <macro@orcam.me.uk>
+To: "Jason A. Donenfeld" <Jason@zx2c4.com>
+cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ LKML <linux-kernel@vger.kernel.org>, 
+ Linux Crypto Mailing List <linux-crypto@vger.kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Arnd Bergmann <arnd@arndb.de>, 
+ Theodore Ts'o <tytso@mit.edu>, 
+ Dominik Brodowski <linux@dominikbrodowski.net>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ "David S . Miller" <davem@davemloft.net>, 
+ Richard Weinberger <richard@nod.at>, 
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+ Johannes Berg <johannes@sipsolutions.net>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ "H . Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>, 
+ Max Filippov <jcmvbkbc@gmail.com>, John Stultz <john.stultz@linaro.org>, 
+ Stephen Boyd <sboyd@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>, 
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+ linux-m68k <linux-m68k@lists.linux-m68k.org>, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, sparclinux@vger.kernel.org, 
+ linux-um@lists.infradead.org, X86 ML <x86@kernel.org>, 
+ linux-xtensa@linux-xtensa.org
+Subject: Re: [PATCH v4 04/11] mips: use fallback for random_get_entropy()
+ instead of zero
+In-Reply-To: <YlfoeGRM6w2O+eXA@zx2c4.com>
+Message-ID: <alpine.DEB.2.21.2204142349180.9383@angie.orcam.me.uk>
+References: <20220413115411.21489-1-Jason@zx2c4.com>
+ <20220413115411.21489-5-Jason@zx2c4.com>
+ <20220413122546.GA11860@alpha.franken.de>
+ <alpine.DEB.2.21.2204131331450.9383@angie.orcam.me.uk>
+ <CAHmME9pQ4xdeTUDxAdrOu=S9NRTonYzJVk50fa0Zfz4knZt5WA@mail.gmail.com>
+ <alpine.DEB.2.21.2204140014580.9383@angie.orcam.me.uk>
+ <YlfoeGRM6w2O+eXA@zx2c4.com>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220307224620.1933061-1-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220415_042612_613968_0E5503FB 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20220415_052702_912330_D25CA74C 
+X-CRM114-Status: GOOD (  33.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,94 +84,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Le Mon, Mar 07, 2022 at 11:46:18PM +0100, Heiko Stuebner a =E9crit :
-> This series is based on the alternatives changes done in my svpbmt series
-> and thus also depends on Atish's isa-extension parsing series.
-> =
+Hi Jason,
 
-> It implements using the cache-management instructions from the  Zicbom-
-> extension to handle cache flush, etc actions on platforms needing them.
-> =
+> >  It depends on the exact system.  Some have a 32-bit high-resolution 
+> > counter in the chipset (arch/mips/kernel/csrc-ioasic.c) giving like 25MHz 
+> > resolution, some have nothing but jiffies.
+> 
+> Alright, so there _are_ machines with no c0 cycles but with a good
+> clock. Yet, 25MHz is still less than the cpu cycle, so this c0 random
+> ORing trick remains useful perhaps.
 
-> SoCs using cpu cores from T-Head like the Allwinne D1 implement a
-> different set of cache instructions. But while they are different,
-> instructions they provide the same functionality, so a variant can
-> easly hook into the existing alternatives mechanism on those.
-> =
+ It's not much less than the CPU cycle really, given that the R3k CPUs are 
+clocked at up to 40MHz in the systems concerned and likewise the buggy R4k 
+CPUs run at up to 60MHz (and mind that their CP0 Count register increments 
+at half the clock rate, so the rate is up to 30MHz anyway).  The overhead 
+of the calculation is more than that, let alone the latency and issue rate 
+of an uncached MMIO access to the chipset register.
 
-> =
+ Also the systems I have in mind and that lack a counter in the chipset 
+actually can make use of the buggy CP0 timer, because it's only when CP0 
+timer interrupts are used that the erratum matters, but they use a DS1287 
+RTC interrupt instead unconditionally as the clock event (see the comment 
+at the bottom of arch/mips/dec/time.c).  But this has not been factored in 
+with `can_use_mips_counter' (should it just check for `mips_hpt_frequency' 
+being zero perhaps, meaning the timer interrupt not being used?).
 
+ Thomas, do you happen to know if any of the SGI systems that we support 
+had buggy early R4k chips?
 
-Hello
+> >  It seems like a reasonable idea to me, but the details would have to be 
+> > sorted out, because where a chipset high-resolution counter is available 
+> > we want to factor it in, and otherwise we need to extract the right bits 
+> > from the CP0 Random register, either 13:8 for the R3k or 5:0 for the R4k.
+> 
+> One thing we could do here that would seemingly cover all the cases
+> without losing _that_ much would be:
+> 
+>     return (random_get_entropy_fallback() << 13) | ((1<<13) - read_c0_random());
 
-I am testing https://github.com/smaeul/linux.git branch:origin/riscv/d1-wip=
- which contain this serie.
+ Except this would have to be:
 
-I am hitting a buffer corruption problem with DMA.
-The sun8i-ce crypto driver fail self tests due to "device overran destinati=
-on buffer".
-In fact the buffer is not overran by device but by dma_map_single() operati=
-on.
+    return (random_get_entropy_fallback() << 14) | ((1<<14) - read_c0_random());
 
-The following small code show the problem:
+of course, as bit 13 is still one of the active ones in the R3k CP0 Random 
+register.
 
-dma_addr_t dma;
-u8 *buf;
-#define BSIZE 2048
-#define DMASIZE 16
+> Or in case the 13 turns out to be wrong on some hardware, we could
+> mitigate the effect with:
+> 
+>     return (random_get_entropy_fallback() << 13) ^ ((1<<13) - read_c0_random());
 
-buf =3D kmalloc(BSIZE, GFP_KERNEL | GFP_DMA);
-for (i =3D 0; i < BSIZE; i++)
-    buf[i] =3D 0xFE;
-print_hex_dump(KERN_INFO, "DMATEST1:", DUMP_PREFIX_NONE, 16, 4, buf, 256, f=
-alse);
-dma =3D dma_map_single(ce->dev, buf, DMASIZE, DMA_FROM_DEVICE);
-dma_unmap_single(ce->dev, dma, DMASIZE, DMA_FROM_DEVICE);
-print_hex_dump(KERN_INFO, "DMATEST3:", DUMP_PREFIX_NONE, 16, 4, buf, 256, f=
-alse);
+ There are two variants only of the CP0 Random register that we can ever 
+encounter, as it's been de-facto standardised in early 1990s already and 
+then written down in the MIPSr1 architecture specification ~2000.  So I 
+think it may make sense to actually handle them both explictitly with 
+individual calculations, possibly conditionalised on a CONFIG setting or 
+`cpu_has_3kex', because kernels that support the two variants of the MMU 
+architecture are mutually incompatible.
 
-Will lead to:
-[    2.960040] DMATEST1:fefefefe fefefefe fefefefe fefefefe
-[    2.965354] DMATEST1:fefefefe fefefefe fefefefe fefefefe
-[    2.970709] DMATEST1:fefefefe fefefefe fefefefe fefefefe
-[    2.976069] DMATEST1:fefefefe fefefefe fefefefe fefefefe
-[    2.981440] DMATEST1:fefefefe fefefefe fefefefe fefefefe
-[    2.986814] DMATEST1:fefefefe fefefefe fefefefe fefefefe
-[    2.992188] DMATEST1:fefefefe fefefefe fefefefe fefefefe
-[    2.997560] DMATEST1:fefefefe fefefefe fefefefe fefefefe
-[    3.002934] DMATEST1:fefefefe fefefefe fefefefe fefefefe
-[    3.008307] DMATEST1:fefefefe fefefefe fefefefe fefefefe
-[    3.013680] DMATEST1:fefefefe fefefefe fefefefe fefefefe
-[    3.019054] DMATEST1:fefefefe fefefefe fefefefe fefefefe
-[    3.024427] DMATEST1:fefefefe fefefefe fefefefe fefefefe
-[    3.029802] DMATEST1:fefefefe fefefefe fefefefe fefefefe
-[    3.035175] DMATEST1:fefefefe fefefefe fefefefe fefefefe
-[    3.040546] DMATEST1:fefefefe fefefefe fefefefe fefefefe
-[    3.401647] DMATEST3:a9c3a9c3 a9c3a9c3 a9c3a9c3 a9c3a9c3
-[    3.406982] DMATEST3:a9c3a9c3 a9c3a9c3 a9c3a9c3 a9c3a9c3
-[    3.412350] DMATEST3:a9c3a9c3 a9c3a9c3 a9c3a9c3 a9c3a9c3
-[    3.417720] DMATEST3:a9c3a9c3 a9c3a9c3 a9c3a9c3 a9c3a9c3
-[    3.423094] DMATEST3:fefefefe fefefefe fefefefe fefefefe
-[    3.428468] DMATEST3:fefefefe fefefefe fefefefe fefefefe
-[    3.433841] DMATEST3:fefefefe fefefefe fefefefe fefefefe
-[    3.439213] DMATEST3:fefefefe fefefefe fefefefe fefefefe
-[    3.444588] DMATEST3:fefefefe fefefefe fefefefe fefefefe
-[    3.449962] DMATEST3:fefefefe fefefefe fefefefe fefefefe
-[    3.455334] DMATEST3:fefefefe fefefefe fefefefe fefefefe
-[    3.460707] DMATEST3:fefefefe fefefefe fefefefe fefefefe
-[    3.466081] DMATEST3:fefefefe fefefefe fefefefe fefefefe
-[    3.471454] DMATEST3:fefefefe fefefefe fefefefe fefefefe
-[    3.476828] DMATEST3:fefefefe fefefefe fefefefe fefefefe
-[    3.482200] DMATEST3:fefefefe fefefefe fefefefe fefefefe
+ Ah, there's that buggy non-compliant JZ4740 chip too.  I guess we can 
+figure out how many CP0 Random bits it implements, though it may be worth 
+noting that architecturally the register is not required to decrement, so 
+again it may be good to double-check how the JZ4740 selects the values 
+there.
 
-Even with no DMA action, the buffer is corrupted.
+ I think the check for a buggy CP0 timer in `can_use_mips_counter' should 
+also be qualified with !(CONFIG_CPU_MIPS32 || CONFIG_CPU_MIPS64), which 
+will reduce the function to a constant 1 for the overwhelming majority of 
+systems out there, without a need to refer to CP0 PRId every time.
 
-Regards
+> As mentioned in the 1/xx patch of this series,
+> random_get_entropy_fallback() should call the highest resolution thing.
+> We then shave off the least-changing bits and stuff in the
+> faster-changing bits from read_c0_random(). Then, in order to keep it
+> counting up instead of down, we do the subtraction there.
+
+ Isn't it going to be an issue for an entropy source that the distribution 
+of values obtained from the CP0 Random bit-field is not even, that is some 
+values from the 6-bit range will never appear?
+
+> What do you think of this plan?
+
+ Otherwise it makes absolute sense to me.
+
+  Maciej
 
 _______________________________________________
 linux-riscv mailing list
