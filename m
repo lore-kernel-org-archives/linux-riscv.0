@@ -4,110 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D14E4C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Apr 2022 01:09:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9872DC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Apr 2022 01:13:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xJqwFhI1oOnouoWpEK9U+vtcgkqfge1UPi70b/Y5dj0=; b=yNWiSe6zJdPKgdaVk65l5ajCx3
-	DTetbsTYzNdrF1Inz9XgrazntaUUEYyt2s6q2pUXSXNuKtKavNnoMI7xflQvKPYHHQcC5QS0kQM5L
-	RfuPPmxzny2zk5Rj8o4p4LlqbaKjquBL/2HZQbSlmrj0RxUkiwq67B+Q5qr1/t2+ahwrW/2lRSO9b
-	3ovnski/rtggbG+Ro4ahrVQMLkQWzqT8BNvYoLnmbCqitpzBTXZKh6LTMGR/2jud+HA1zG6U6Ajkd
-	gDvreQqa31k4yrfUPJvNgroQ/EwMCDP3E5wYFrXqeJ2QTjZ66uK5YlyH9wwC2Xjbt8CcZp0epQn4r
-	iVWJikww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/qR5r6WHR46VkU/3Ni07ZzFEpLsT1/CMP7v32aX+3Ck=; b=owWCZyAu6Aoop/
+	cAGDOHvE2R6prht2ptQJaVxSYb7RWu/3KYJggCSdQMkN1GvYkaIxjrGVDkB/VMCSMobrDNPeKnOhD
+	voIWlpICUAPOutS1sT2TKSF2AFuJWqb55nw+lirpWCHXvDB2xH7dM3kU3KV+QbADLJS6FzwHTbV2+
+	HMTNHFiTcFJmZZD2kLH33HTvDuOcdfJs7zk0ZWUemAY5dAVzFVd/GL3dxp75RdRfhK/rEOop3iHnh
+	af9EoJV9JFjpDd6N1psZu6srzB0ALxtnua/WHpfwqeDsUFItKZwzwImHyRqOR8MrZIID4morxq098
+	hmvT631wUKgng+oFlj5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nfAT4-007x4w-PW; Fri, 15 Apr 2022 01:09:46 +0000
-Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
+	id 1nfAWw-007xhq-2l; Fri, 15 Apr 2022 01:13:46 +0000
+Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nfAT1-007x32-Ef
- for linux-riscv@lists.infradead.org; Fri, 15 Apr 2022 01:09:45 +0000
-Received: by mail-qv1-xf2b.google.com with SMTP id b17so5652778qvp.6
- for <linux-riscv@lists.infradead.org>; Thu, 14 Apr 2022 18:09:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=f7S9Nf0iOB82baXteCdpXugH6eTdDEypH4RQLkPdzMA=;
- b=m4BT/K/0yJDzWkiBmM5y4I2etTUOAhnNFnHc1jDMHcc/IJ8ioruOoc/NbNgbkzhA5v
- XuduPHH2yTBaxzrLm++6WtL0LxrwFnnM3GaJGS64OgFN1FWUH3oTCEylxd2oEsiLLM3Q
- 2qhHdt6QOrVuFjj/JjwMktFia5+Iv66P5yM8mJSXMuGEKHpJZ5+WfEuOLPRSPFH6tpch
- SoCnbuA0qIXQjhex2DdHaPZFKwDUpS1PURP9nwdydJRNNm94sMLuuKFlT0fLxdP3DjSY
- jkSTmCtZHY0ZMJH63+cVzrEWanJgpr2cHep+AAWv+GLw0r5fXALJfJxJAeLx4LkjbO6W
- tVfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=f7S9Nf0iOB82baXteCdpXugH6eTdDEypH4RQLkPdzMA=;
- b=Ruq5EjBJacrtpAgrUo774MArPu2ZWMMRbfT2d0whYLS6iFxbpiS8RlSGH7BpWidx8U
- Cva6Mti780hHZ7/2Ydj2Bsv3xqhpLJG0Av4QrRNaDZDSHF8zhV4IhgeL/GPBd+RF8iAD
- cb4E44IEDslqbiW7m74GoZ3dbAsTUGhb6OcBTBHoDkchknYxwcJ1FFfU7tW81KRKxCAU
- nB6f2UI6hbo6Z9JFA+RtDfhF8sRbHxcqKfsxXdCZ4YPybyF6BYhm/PyRj6qNTpx3yV2f
- pItxsRmit49eT0XxPwJmzyHLLV55gr7Y4p1mX3ZAc5C5VLnHiQawy64LVt2i+amHo+HL
- ZzXw==
-X-Gm-Message-State: AOAM532Ocay/F2CIoooG5UzCndm0TAI9WjzxhhLxPvS2eV9we9PyTe4o
- ajS5i+iqWIr+179eg3ksVJY=
-X-Google-Smtp-Source: ABdhPJxZaCk2t3Z2mAVbMOl1k3tozE+aw0NygrHYGlnKCqc3bDs8ZvhmLdhGi60f+KClyCxX+RpTpw==
-X-Received: by 2002:a05:6214:5188:b0:446:23f5:1483 with SMTP id
- kl8-20020a056214518800b0044623f51483mr4871615qvb.19.1649984981121; 
- Thu, 14 Apr 2022 18:09:41 -0700 (PDT)
-Received: from auth1-smtp.messagingengine.com (auth1-smtp.messagingengine.com.
- [66.111.4.227]) by smtp.gmail.com with ESMTPSA id
- b126-20020a37b284000000b0069a11927e57sm1683932qkf.101.2022.04.14.18.09.39
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 14 Apr 2022 18:09:40 -0700 (PDT)
-Received: from compute2.internal (compute2.nyi.internal [10.202.2.46])
- by mailauth.nyi.internal (Postfix) with ESMTP id 56D2A27C0054;
- Thu, 14 Apr 2022 21:09:39 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
- by compute2.internal (MEProxy); Thu, 14 Apr 2022 21:09:39 -0400
-X-ME-Sender: <xms:0cVYYvEVRk05lqcQuaQgszGcrKLff809n50Kk33Q3BxhQYSltIbWVA>
- <xme:0cVYYsX5r17r0tVf-BmCxeZi0qozEZp_NCNNLMmN1bFcFJeoKKXp4aDp62X7x3qKA
- iKVuQo-Chx2vsv7sw>
-X-ME-Received: <xmr:0cVYYhKvUHrBHqaa6d6RO44OIP_FUSTk3Jyucfqwz1AlzOuVWvkrYjXKBQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvvddrudelgedggeefucetufdoteggodetrfdotf
- fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
- uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
- cujfgurhepfffhvffukfhfgggtuggjsehgtderredttddvnecuhfhrohhmpeeuohhquhhn
- ucfhvghnghcuoegsohhquhhnrdhfvghnghesghhmrghilhdrtghomheqnecuggftrfgrth
- htvghrnhepueehjeejieevueeuteeileeuvddvvedvieeltddtudekgeegueelvddtkeet
- tdevnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpe
- dtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegsohhquhhnodhmvghsmhhtphgruhhthhhp
- vghrshhonhgrlhhithihqdeiledvgeehtdeigedqudejjeekheehhedvqdgsohhquhhnrd
- hfvghngheppehgmhgrihhlrdgtohhmsehfihigmhgvrdhnrghmvg
-X-ME-Proxy: <xmx:0cVYYtEiINehftBfnsWz51MZ3a_LWDix7mCuUt_KvEZgNO8nTXq8rg>
- <xmx:0cVYYlVd5goVUJGEXIcjpEfwpEEUbf3oBMFntPZI-xwqVu5v40pkxQ>
- <xmx:0cVYYoO3Mt2xz6lZeNqIlpkPrwp3_e1TCisBV6zZVeJmzBkEZHmY1g>
- <xmx:08VYYj0wViiy6PaRet8aHnSm0agVsfRSRC3NM2gjVf6MrMEgqxZNmEovS7U>
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 14 Apr 2022 21:09:35 -0400 (EDT)
-Date: Fri, 15 Apr 2022 09:09:29 +0800
-From: Boqun Feng <boqun.feng@gmail.com>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, heiko@sntech.de, guoren@kernel.org,
- shorne@gmail.com, peterz@infradead.org, mingo@redhat.com,
- Will Deacon <will@kernel.org>, longman@redhat.com,
- jonas@southpole.se, stefan.kristiansson@saunalahti.fi,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu,
- macro@orcam.me.uk, Greg KH <gregkh@linuxfoundation.org>,
- sudipm.mukherjee@gmail.com, wangkefeng.wang@huawei.com,
- jszhang@kernel.org, linux-csky@vger.kernel.org,
- linux-kernel@vger.kernel.org, openrisc@lists.librecores.org,
- linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org
-Subject: Re: [PATCH v3 1/7] asm-generic: ticket-lock: New generic
- ticket-based spinlock
-Message-ID: <YljFyY7acyRDBmK7@tardis>
-References: <20220414220214.24556-1-palmer@rivosinc.com>
- <20220414220214.24556-2-palmer@rivosinc.com>
+ id 1nfAWs-007xfk-UQ
+ for linux-riscv@lists.infradead.org; Fri, 15 Apr 2022 01:13:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1649985222; x=1681521222;
+ h=message-id:date:mime-version:subject:to:cc:references:
+ from:in-reply-to:content-transfer-encoding;
+ bh=2o3hbZhROctTrf9/YEdToCbep6cUQhIveDuZAWOBAjM=;
+ b=HCWv8xiHZaG9My9oWJ4ON+UJyo+PjfmwBMuJqUPY2QgwiN5kEqtUJaex
+ tWIjeMu4IHrPMQcfM0j6jW0yV6YCELPCgffft/56JAneNQ+IKcVWs14s+
+ 7yAwOq17NVwdrPDsy/4hn1eZeLyfJD29uXzL552kMQW8+Oy7KW5cZJM2I
+ 3P6YC6OGhCsXRg5Ze0ZfTEyajRv3yy9QKK7pZMgv+4nzK6WnvYRPar5qA
+ x28JHz4tiRoUFDTX71bNQxbKqGyOe6xjUgUL9Q00DEE3qmiQAKAz/ooHb
+ xIIPcXNVqNv/VES1Yh6XfLVArY2QzumHelZj5Je3/JqMIRmZtMGsabaFL Q==;
+X-IronPort-AV: E=Sophos;i="5.90,261,1643644800"; d="scan'208";a="302149921"
+Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 15 Apr 2022 09:13:36 +0800
+IronPort-SDR: tpxWFlPxvnsJ62SxZ1k7dSr35e9xxgA7cbR/vihfnLJ1HGxN+8KaeTvSDtcZf5pTWTJjpY84tB
+ 0D1nHM94hg5Gf6+R6UzQScXtVHkqFlntlHgf15pX6Q/wpy6KUsuIdb8FIT+qlbg3Ac+D302Rf0
+ MlJfCPgPbkvbkjQWtAPj0JvY3J/fJZmd8Azg1srKRV6PiBK3gsAyRz2UUDIUcGnq6p69jUer/E
+ nyWmL97SFndyhDMGPZ9g4TCzeZxyQ5OGYFgPTBjGZA0dXojQHi81sfBeSgokqK/UyXvias4upx
+ X6Bf3VGqn53lgUhDLFHpMUy9
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+ by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;
+ 14 Apr 2022 17:44:47 -0700
+IronPort-SDR: tF/z7AFLcOzkrS/VxzyPotO3vPqC9Q5xkElMikW+J7M0dnKR1z+dal/rLDL3qankBhPtOx18pH
+ DivE+6dEBtJV9Jj+gMqstZs37/MEwcq++VMb1aFn8zuuYaL17wBnJ0fIhm4DU3DbtycLBXwpfQ
+ DM9AlSrXiPmFykK6QccO4j4sn32Jm88HT4kZRyYY3WX6ZumfX5eQlfpfZzaIToRXc2LE8Mjrtz
+ +dWZ548cUvv/qUlJqjbG5+CmkG+jCV8pTmLKSDDUY/+2nEJyB/w0eWYK9H3NrcSFnffeqR7Tq/
+ r0Q=
+WDCIronportException: Internal
+Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
+ by uls-op-cesaip01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;
+ 14 Apr 2022 18:13:36 -0700
+Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4Kfdcv3YDjz1SVp3
+ for <linux-riscv@lists.infradead.org>; Thu, 14 Apr 2022 18:13:35 -0700 (PDT)
+Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
+ reason="pass (just generated, assumed good)"
+ header.d=opensource.wdc.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
+ opensource.wdc.com; h=content-transfer-encoding:content-type
+ :in-reply-to:organization:from:references:to:content-language
+ :subject:user-agent:mime-version:date:message-id; s=dkim; t=
+ 1649985214; x=1652577215; bh=2o3hbZhROctTrf9/YEdToCbep6cUQhIveDu
+ ZAWOBAjM=; b=mWJ7/209jF5f6cH7UXv/Nyw7kMvCcMKmosSacEyi84ORPLbeYJQ
+ MtUB3jAAFeHPNpA8o+sWbphgyyUNQYB8OZ5diOrgk9B7KoXA2yecdJ4CPlqgi0zL
+ X7gNmQToLzBFQR8a23dn9UnxA7nz1U3gm4qx6SZyK+2/dHZc0je0n5KbV/l9B2xH
+ gK4Kfaqn7Nwu1VunDYoDJD7KwWLLKzn9IQqxk0vKWAbRtNdVl1uDlsiv/0jNo8cv
+ xCYXVwG3tp64CBUPTC1Qyl37g2PHLfG3O0Xz5HzP+cChYa98sC49qe95xjj26W74
+ 5xSEMLfkgGl/VvMtJsCUkoM/fpFgWzarxOA==
+X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
+Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
+ by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new,
+ port 10026)
+ with ESMTP id e1wXUtYoh8E8 for <linux-riscv@lists.infradead.org>;
+ Thu, 14 Apr 2022 18:13:34 -0700 (PDT)
+Received: from [10.225.163.9] (unknown [10.225.163.9])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4Kfdcr4SBfz1Rvlx;
+ Thu, 14 Apr 2022 18:13:32 -0700 (PDT)
+Message-ID: <9a9a4dcf-0ea1-01ac-d599-16c10b547beb@opensource.wdc.com>
+Date: Fri, 15 Apr 2022 10:13:31 +0900
 MIME-Version: 1.0
-In-Reply-To: <20220414220214.24556-2-palmer@rivosinc.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.7.0
+Subject: Re: [PATCH v2] binfmt_flat: do not stop relocating GOT entries
+ prematurely on riscv
+Content-Language: en-US
+To: Niklas Cassel <Niklas.Cassel@wdc.com>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
+ Eric Biederman <ebiederm@xmission.com>, Kees Cook <keescook@chromium.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Greg Ungerer <gerg@linux-m68k.org>, Mike Frysinger <vapier@gentoo.org>,
+ "stable@vger.kernel.org" <stable@vger.kernel.org>,
+ "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
+ "linux-mm@kvack.org" <linux-mm@kvack.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+References: <20220414091018.896737-1-niklas.cassel@wdc.com>
+ <f379cb56-6ff5-f256-d5f2-3718a47e976d@opensource.wdc.com>
+ <Yli8voX7hw3EZ7E/@x1-carbon>
+ <6ee62ced-7a49-be56-442d-ba012782b8e2@opensource.wdc.com>
+ <YljFiLqPHemB/u77@x1-carbon>
+From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+Organization: Western Digital Research
+In-Reply-To: <YljFiLqPHemB/u77@x1-carbon>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220414_180943_538291_B5BBD67A 
-X-CRM114-Status: GOOD (  28.54  )
+X-CRM114-CacheID: sfid-20220414_181343_074207_40F84869 
+X-CRM114-Status: GOOD (  20.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,160 +124,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4753929597722401310=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 4/15/22 10:08, Niklas Cassel wrote:
+> On Fri, Apr 15, 2022 at 09:56:38AM +0900, Damien Le Moal wrote:
+>> On 4/15/22 09:30, Niklas Cassel wrote:
+>>> On Fri, Apr 15, 2022 at 08:51:27AM +0900, Damien Le Moal wrote:
+>>>> On 4/14/22 18:10, Niklas Cassel wrote:
+> 
+> (snip)
+> 
+>> So if we are sure that we can just skip the first 16B/8B for riscv, I
+>> would not bother checking the header content. But as mentioned, the
+>> current code is fine too.
+> 
+> That was my point, I'm not sure that we can be sure that we can always
+> skip it in the future. E.g. if the elf2flt linker script decides to swap
+> the order of .got and .got.plt for some random reason in the future,
+> we would skip data that really should have been relocated.
 
---===============4753929597722401310==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="vliStJTlDzun4Idq"
-Content-Disposition: inline
+Good point. Your current patch is indeed better then. BUT that would also
+mean that the skip header function needs to be called inside the loop
+then, no ? If the section orders are reversed, we would still need to skip
+that header in the middle of the relocation loop...
 
-
---vliStJTlDzun4Idq
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hi,
-
-On Thu, Apr 14, 2022 at 03:02:08PM -0700, Palmer Dabbelt wrote:
-> From: Peter Zijlstra <peterz@infradead.org>
->=20
-> This is a simple, fair spinlock.  Specifically it doesn't have all the
-> subtle memory model dependencies that qspinlock has, which makes it more
-> suitable for simple systems as it is more likely to be correct.  It is
-> implemented entirely in terms of standard atomics and thus works fine
-> without any arch-specific code.
->=20
-> This replaces the existing asm-generic/spinlock.h, which just errored
-> out on SMP systems.
->=20
-> Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> ---
->  include/asm-generic/spinlock.h       | 85 +++++++++++++++++++++++++---
->  include/asm-generic/spinlock_types.h | 17 ++++++
->  2 files changed, 94 insertions(+), 8 deletions(-)
->  create mode 100644 include/asm-generic/spinlock_types.h
->=20
-> diff --git a/include/asm-generic/spinlock.h b/include/asm-generic/spinloc=
-k.h
-> index adaf6acab172..ca829fcb9672 100644
-> --- a/include/asm-generic/spinlock.h
-> +++ b/include/asm-generic/spinlock.h
-> @@ -1,12 +1,81 @@
->  /* SPDX-License-Identifier: GPL-2.0 */
-> -#ifndef __ASM_GENERIC_SPINLOCK_H
-> -#define __ASM_GENERIC_SPINLOCK_H
-> +
->  /*
-> - * You need to implement asm/spinlock.h for SMP support. The generic
-> - * version does not handle SMP.
-> + * 'Generic' ticket-lock implementation.
-> + *
-> + * It relies on atomic_fetch_add() having well defined forward progress
-> + * guarantees under contention. If your architecture cannot provide this=
-, stick
-> + * to a test-and-set lock.
-> + *
-> + * It also relies on atomic_fetch_add() being safe vs smp_store_release(=
-) on a
-> + * sub-word of the value. This is generally true for anything LL/SC alth=
-ough
-> + * you'd be hard pressed to find anything useful in architecture specifi=
-cations
-> + * about this. If your architecture cannot do this you might be better o=
-ff with
-> + * a test-and-set.
-> + *
-> + * It further assumes atomic_*_release() + atomic_*_acquire() is RCpc an=
-d hence
-> + * uses atomic_fetch_add() which is SC to create an RCsc lock.
-> + *
-> + * The implementation uses smp_cond_load_acquire() to spin, so if the
-> + * architecture has WFE like instructions to sleep instead of poll for w=
-ord
-> + * modifications be sure to implement that (see ARM64 for example).
-> + *
->   */
-> -#ifdef CONFIG_SMP
-> -#error need an architecture specific asm/spinlock.h
-> -#endif
-> =20
-> -#endif /* __ASM_GENERIC_SPINLOCK_H */
-> +#ifndef __ASM_GENERIC_TICKET_LOCK_H
-> +#define __ASM_GENERIC_TICKET_LOCK_H
-> +
-> +#include <linux/atomic.h>
-> +#include <asm-generic/spinlock_types.h>
-> +
-> +static __always_inline void arch_spin_lock(arch_spinlock_t *lock)
-> +{
-> +	u32 val =3D atomic_fetch_add(1<<16, lock); /* SC, gives us RCsc */
-> +	u16 ticket =3D val >> 16;
-> +
-> +	if (ticket =3D=3D (u16)val)
-> +		return;
-> +
-> +	atomic_cond_read_acquire(lock, ticket =3D=3D (u16)VAL);
-
-Looks like my follow comment is missing:
-
-	https://lore.kernel.org/lkml/YjM+P32I4fENIqGV@boqun-archlinux/
-
-Basically, I suggested that 1) instead of "SC", use "fully-ordered" as
-that's a complete definition in our atomic API ("RCsc" is fine), 2)
-introduce a RCsc atomic_cond_read_acquire() or add a full barrier here
-to make arch_spin_lock() RCsc otherwise arch_spin_lock() is RCsc on
-fastpath but RCpc on slowpath.
-
-Regards,
-Boqun
-
-> +}
-> +
-> +static __always_inline bool arch_spin_trylock(arch_spinlock_t *lock)
-> +{
-> +	u32 old =3D atomic_read(lock);
-> +
-> +	if ((old >> 16) !=3D (old & 0xffff))
-> +		return false;
-> +
-> +	return atomic_try_cmpxchg(lock, &old, old + (1<<16)); /* SC, for RCsc */
-> +}
-> +
-[...]
-
---vliStJTlDzun4Idq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCAAdFiEEj5IosQTPz8XU1wRHSXnow7UH+rgFAmJYxcUACgkQSXnow7UH
-+rihtgf/QlwBFoAeUTlH4MhKKy3Fr6WrwXq/WIgA71uyveBP8XeJF92iatARzevG
-wKLiIQzO4VzrpLJ8Ydy+o4ia1xb+nCqwVE0MD2oqPjxwvvyi/7HxZFBI4iq3PZHm
-3FRwaGPnNrQGfFmyjM/byXc6uQ/NlPY65rZJcR5wS5j14F5NXAUjOBXrWVQT8nBU
-livaSZhbWwyn5oEnzsy/G/oAeD16LIJbjF2pQyX3FPtd1sIlIdOCjWN3TSIM2e2+
-enFK5X7w489U+pKfVIOygTWHe95dd9JNsEsSyDmXkTJQnn/cCbYNfI+BR/H2Hc9G
-HyLCBV1KDHETDNQ25uo2WoTdfceyNQ==
-=T3Uh
------END PGP SIGNATURE-----
-
---vliStJTlDzun4Idq--
+> 
+> So I think that it is better to keep it, even if it is a bit verbose.
+> 
+> 
+> Kind regards,
+> Niklas
 
 
---===============4753929597722401310==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Damien Le Moal
+Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4753929597722401310==--
-
