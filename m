@@ -4,79 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7F19C433F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Apr 2022 04:26:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DEA4C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Apr 2022 07:35:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NPw8TC4AB+7aJhE3pgDRBwUHGLIiTo6w4lfEHyYxILI=; b=NYv9k7FM4OPx3r
-	raUsA4q2iaUAeNd8iaJ75/9Ub1/knuVoK39CyOGGQB48jXU882hIhAxl77SXRHhKd+0SHFfh4jo7f
-	kY1zr+AEyWuE4aBuH3RLGEDWoXkdfu7+kh4VO0Z6k+zkEyfzgclubS2tz0awC6UyMfeyedz/HSgGy
-	+gcVOfJNDpz6EI5fi+td86HCBn4pf6Ur49+eNZ4n+FV9ikJLCZFoT/g8nDZkSIgkR9o+JGcPrhY2O
-	y+x5MRDVkstIR6Ufpm28sVHJR0YgTsGj0FFy0z8n3RgqjG8oN1oYvo9aqy2fG5JJFD4SaAOCAWzPW
-	xK5COh9zc7VlOWKikZBQ==;
+	List-Owner; bh=RzVYWBFPTd3icMze7s8L763MvGf0PXn/foBn2s0cOYY=; b=KkIBRjjs/A6jx/
+	P7qdVnFtQoaibLlLOreYGSF/cfzGhCIP43oeDvjvqWahVoSLngHAgMufFQ8ZVPXIyt8he1DS3ePCf
+	V86vgKeDiv21VLv+nrSqbryISoHvVZuYZiYPpsnZt8XaGlaEyvI+oKEWuv5Iuskb9p0sdah9re4Pr
+	qs3wNr4QSutO4pVKMNaDv5WZRxTIZsIPTp37a6OaIP5EKd8GzxNLb0y6rmi9C8c6ONU67yM9mMQ91
+	gEyTjneQXH2IiDEkXE5UIzXGaPA+4d8SaBwh5wgMeFtuMgBUCN/5ZaOHRgw+hcOYA8KmdLKeYlw0k
+	UdY1T2yQG/t3f4B6xXxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nfa0U-00CDd5-BR; Sat, 16 Apr 2022 04:25:58 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1nfcxm-00CQg9-EU; Sat, 16 Apr 2022 07:35:22 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nfa0Q-00CDc2-Pe
- for linux-riscv@lists.infradead.org; Sat, 16 Apr 2022 04:25:56 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id
- s14-20020a17090a880e00b001caaf6d3dd1so13142721pjn.3
- for <linux-riscv@lists.infradead.org>; Fri, 15 Apr 2022 21:25:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=fwjZWUK23SDc9f6Fzho9lbrW12rtjQaU86s3X7g7WA8=;
- b=F34psi04KzHnYMusfXO0+Sf3dJ+pbADOBfrHzkAjvESdbhKsZSm2ygbl4eJ8nzig2M
- 6I4LRslXFzO0BGeOnKyUp9HRJeF5QPCuHXGQNSY4rw5MVk8II4OdX1w478l05XQxHCaj
- ltrcULTumO2g2mcppqt0GiQ9OCt++92abzFh4=
+ id 1nfcxj-00CQfo-3s
+ for linux-riscv@lists.infradead.org; Sat, 16 Apr 2022 07:35:20 +0000
+Received: by mail-wr1-x436.google.com with SMTP id i20so12863093wrb.13
+ for <linux-riscv@lists.infradead.org>; Sat, 16 Apr 2022 00:35:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:content-transfer-encoding:in-reply-to;
+ bh=n3udlrmFRG5gOrbFNhXLisVJVRQDIPelDEgRxtU6UwA=;
+ b=RA8I9Cdr3AKi1lYngqd/bphEz2n7JJWcnyCNtKEpfArKxgIc+8PRyHMpMh12dE6t0M
+ gAj8j4is59ks+20l8jN9jnFhNbu+cOQ9K1LQsotipfxEi4MxvsuogVF6t4A++4mbdo1a
+ RQ2p7Wc0mJukYm6jyRIeCxwmbxtSFNGzzwodbssHLJ2/SRd8g3kOha92ZvTBNr03epFF
+ Qbfjtx0gDPcCVCDZ9lJ2gqmbh8yBgR78MUt3j7Nz1mfExrbexbiez8a/SznHxtY6kmp9
+ PqJzgpGoaYE3XplfaqGiKk3B6NY0+V4vbftGba4vBGvIetTv8opxaYRGtUMGgROF/fkc
+ y7WA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=fwjZWUK23SDc9f6Fzho9lbrW12rtjQaU86s3X7g7WA8=;
- b=ByFN7JniBfQhl9ZEGYdeuZ/x1YqoRA6RhrMBbKE4++rlxODieQaBNyV8KD46XRB9VX
- 1IYxi6CshnTOEByvs1b9AzNWr+VBGd4/zcBc7SkqTafH+JTn5VzcImL8abHukbiVe1Cc
- zmlQWA1rbcahy66P+K9oQLgm8KULoQ3VIC15jwEejWK/+SkXnrTIhLz587QkxP46XStj
- w6NaNI4ip27/PXv1aigQlLSbxBvcJGxxYf1NnaEOh059w54leqyr/XjN58jfw4UZInr0
- WrHVXDvhcfkVs170kCu7bwHoxvSUFU/TJmGBcFck/NTk/vYNwRxoZX+fsvFy1IUjNsEx
- k35A==
-X-Gm-Message-State: AOAM533qOnx0TlLUKo+fJYjLvYlx9guFVgMVZeEPEW1yfu5m5dc8EtHs
- YySUqn13v0IaDOfq06mz6zxApw==
-X-Google-Smtp-Source: ABdhPJzuch/i5PtXeUfpilPZbG0Ojdf8xS0zPST9o6TFZXb4i9S7hdqyz7HtmT5xcBIsyArbi7vBqw==
-X-Received: by 2002:a17:90b:4f91:b0:1cd:3a73:3a5d with SMTP id
- qe17-20020a17090b4f9100b001cd3a733a5dmr2216377pjb.98.1650083153061; 
- Fri, 15 Apr 2022 21:25:53 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
- by smtp.gmail.com with ESMTPSA id
- h5-20020a17090a648500b001cd5137217fsm6115627pjj.47.2022.04.15.21.25.52
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:content-transfer-encoding
+ :in-reply-to;
+ bh=n3udlrmFRG5gOrbFNhXLisVJVRQDIPelDEgRxtU6UwA=;
+ b=xLkZ+7kCNjWw+sXr7p062cXadDPyjw8twzmDBuobo1E5mJ+YUeONJAJp3z2Q5NaTT0
+ F1+x7CmOTqx5CQhrBuRjmvaMQZk/5XjjamnjQIZJ+SE3OQH5IXfmD4yGMWZhDtg9SYKT
+ H4732jTTXhd6l2SsPxpfjipwSK59EMomj1Sqip5Vc2S+3sBlTlXqARvAQpodiJgB5Gur
+ YSlI7dXz54PeDsvkoepoSGjoMS0s9xwgUsSoI5W/P+yuF7yptQg2GLBg7iTdq1iYscOC
+ lrZ74fKG6iHlyZUZrG7ygHi8cYltTjqWsZ/cQUImDIb2v67NecYffKHzLS74/4+WRaUC
+ lmug==
+X-Gm-Message-State: AOAM531+U82x8j8lNp2XRy8XGL2DTQY0wmlxeGp8TrkXbkNfWYIc5bfB
+ SfWGnt9AZtsgLOBIdfeVvE0=
+X-Google-Smtp-Source: ABdhPJyv8ehPti8tRf6o2sqU7F//aIHeAkOa/ls1y1ClnrI6aBDeG2kUvsM6Mic5Yq4tWHGMGdgKWA==
+X-Received: by 2002:adf:ed43:0:b0:207:ac79:84ee with SMTP id
+ u3-20020adfed43000000b00207ac7984eemr1733242wro.321.1650094516563; 
+ Sat, 16 Apr 2022 00:35:16 -0700 (PDT)
+Received: from Red ([2a01:cb1d:3d5:a100:264b:feff:fe03:2806])
+ by smtp.googlemail.com with ESMTPSA id
+ 205-20020a1c02d6000000b003928c42d02asm800268wmc.23.2022.04.16.00.35.15
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 15 Apr 2022 21:25:52 -0700 (PDT)
-From: Kees Cook <keescook@chromium.org>
-To: palmer@dabbelt.com, Al Viro <viro@zeniv.linux.org.uk>,
- ebiederm@xmission.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
- niklas.cassel@wdc.com
-Cc: Kees Cook <keescook@chromium.org>, linux-fsdevel@vger.kernel.org,
- vapier@gentoo.org, gerg@linux-m68k.org, linux-mm@kvack.org,
- stable@vger.kernel.org, damien.lemoal@opensource.wdc.com,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2] binfmt_flat: do not stop relocating GOT entries
- prematurely on riscv
-Date: Fri, 15 Apr 2022 21:25:07 -0700
-Message-Id: <165008310452.2715005.9013061971753495821.b4-ty@chromium.org>
-X-Mailer: git-send-email 2.32.0
-In-Reply-To: <20220414091018.896737-1-niklas.cassel@wdc.com>
-References: <20220414091018.896737-1-niklas.cassel@wdc.com>
+ Sat, 16 Apr 2022 00:35:16 -0700 (PDT)
+Date: Sat, 16 Apr 2022 09:35:13 +0200
+From: Corentin Labbe <clabbe.montjoie@gmail.com>
+To: Samuel Holland <samuel@sholland.org>
+Cc: Heiko Stuebner <heiko@sntech.de>, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, wefu@redhat.com, guoren@kernel.org,
+ atishp@atishpatra.org, anup@brainfault.org, mick@ics.forth.gr,
+ cmuellner@linux.com, philipp.tomsich@vrull.eu
+Subject: Re: [PATCH 0/2] riscv: implement Zicbom-based CMO instructions + the
+ t-head variant
+Message-ID: <YlpxsYREWv/LQ+HY@Red>
+References: <20220307224620.1933061-1-heiko@sntech.de> <YllWTN+15CoskNBt@Red>
+ <70da24dd-2d03-fc49-151d-daabb315a5f6@sholland.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <70da24dd-2d03-fc49-151d-daabb315a5f6@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220415_212554_882738_FB31F8F6 
-X-CRM114-Status: UNSURE (   8.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220416_003519_199884_2742E605 
+X-CRM114-Status: GOOD (  19.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,40 +90,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 14 Apr 2022 11:10:18 +0200, Niklas Cassel wrote:
-> bFLT binaries are usually created using elf2flt.
-> 
-> The linker script used by elf2flt has defined the .data section like the
-> following for the last 19 years:
-> 
-> .data : {
-> 	_sdata = . ;
-> 	__data_start = . ;
-> 	data_start = . ;
-> 	*(.got.plt)
-> 	*(.got)
-> 	FILL(0) ;
-> 	. = ALIGN(0x20) ;
-> 	LONG(-1)
-> 	. = ALIGN(0x20) ;
-> 	...
-> }
-> 
-> [...]
+Le Fri, Apr 15, 2022 at 09:19:23PM -0500, Samuel Holland a =E9crit :
+> On 4/15/22 6:26 AM, Corentin Labbe wrote:
+> > Le Mon, Mar 07, 2022 at 11:46:18PM +0100, Heiko Stuebner a =E9crit :
+> >> This series is based on the alternatives changes done in my svpbmt ser=
+ies
+> >> and thus also depends on Atish's isa-extension parsing series.
+> >>
+> >> It implements using the cache-management instructions from the  Zicbom-
+> >> extension to handle cache flush, etc actions on platforms needing them.
+> >>
+> >> SoCs using cpu cores from T-Head like the Allwinne D1 implement a
+> >> different set of cache instructions. But while they are different,
+> >> instructions they provide the same functionality, so a variant can
+> >> easly hook into the existing alternatives mechanism on those.
+> >>
+> >>
+> > =
 
-Applied to for-next/execve, thanks!
+> > Hello
+> > =
 
-[1/1] binfmt_flat: do not stop relocating GOT entries prematurely on riscv
-      https://git.kernel.org/kees/c/a767e6fd68d2
+> > I am testing https://github.com/smaeul/linux.git branch:origin/riscv/d1=
+-wip which contain this serie.
+> > =
 
--- 
-Kees Cook
+> > I am hitting a buffer corruption problem with DMA.
+> > The sun8i-ce crypto driver fail self tests due to "device overran desti=
+nation buffer".
+> > In fact the buffer is not overran by device but by dma_map_single() ope=
+ration.
+> > =
 
+> > The following small code show the problem:
+> > =
+
+> > dma_addr_t dma;
+> > u8 *buf;
+> > #define BSIZE 2048
+> > #define DMASIZE 16
+> > =
+
+> > buf =3D kmalloc(BSIZE, GFP_KERNEL | GFP_DMA);
+> > for (i =3D 0; i < BSIZE; i++)
+> >     buf[i] =3D 0xFE;
+> > print_hex_dump(KERN_INFO, "DMATEST1:", DUMP_PREFIX_NONE, 16, 4, buf, 25=
+6, false);
+> > dma =3D dma_map_single(ce->dev, buf, DMASIZE, DMA_FROM_DEVICE);
+> =
+
+> This function (through dma_direct_map_page()) ends up calling
+> arch_sync_dma_for_device(..., ..., DMA_FROM_DEVICE), which invalidates th=
+e CPU's
+> cache. This is the same thing other architectures do (at least arm, arm64,
+> openrisc, and powerpc). So this appears to be working as intended.
+> =
+
+> Regards,
+> Samuel
+> =
+
+
+This behavour is not present at least on ARM and ARM64.
+The sample code I provided does not corrupt the buffer on them.
+
+Regards
 
 _______________________________________________
 linux-riscv mailing list
