@@ -4,97 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01428C433F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Apr 2022 17:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB7CC433F5
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Apr 2022 19:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=lW1DRCn+UQKm6/10sj01KlbM9rcKcCgLtBG1HLoRbzg=; b=dsbC8yiuAu7Xc7hJN1ULWRUpLr
-	LB4zvZ5ZlYzRG58mOAVyVZ2HtJWMPHPAnjAhlJ4t8vUI+QpwV0R9n8Hd/OuWnm2sO6S26/Um8Vfek
-	paMAgbKpRpz5VJ+Qk1nQ88htxa6NzdjAB/G9Jkk3vqQ9E5jHI9Nb/PDeqEdkQpsLuJECgGk8YrKrG
-	fw/DRv+4c1c2d8MfHu2N3K2qy3+9Rbxko6NwaZOc6W+AE1F4+5+r7ZI0P47KpoVH5wefCp6T+8xhf
-	Y3xVkaXaKwfsw7nQMirC7W/kcuiBJfTyhRAZIo7YdVoT5P2MpD2PHqAddRAujUl3m+VIhIAa4WW6B
-	WlPJq9lg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jgkv85klWmBerjIOd1lkbmm3bDiw1d2ostA+EmSCiTA=; b=s/Qc5XyKwwxLw0
+	ooFoI2+Sd6E6w31g9eC78cTG42R3kXp79bX5JSxbT/sD6wc9LGoL5aME0HviDjZVXGOd/uY2w5S+M
+	PiW4UD80l598T45kAwYuyf06d5l2Oeay+7VrEbMTxN1SpcZ/hM8tZtFejJ9wWdzVVBbE8K9WH/NZ9
+	w0aK6DIP7oOPOfxo196hXyLXloOB37gFQYVst3pQd+TyM033K9Ya2gVOFmLLjH5Pbhb5NrfgfcGF4
+	1vOTE1cStYn5PxuGPIGpUABIwSWu3R4FkBwR+Elnv6uvL05cP9ooCTdowKvoy1BGTSLMAMnvtUJ6y
+	UWKgWacWw0muAsfIUxDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nfmWL-00DMSq-7E; Sat, 16 Apr 2022 17:47:41 +0000
-Received: from wout5-smtp.messagingengine.com ([64.147.123.21])
+	id 1nfo9o-00DQZB-4R; Sat, 16 Apr 2022 19:32:32 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nfmWH-00DMSQ-N3
- for linux-riscv@lists.infradead.org; Sat, 16 Apr 2022 17:47:39 +0000
-Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
- by mailout.west.internal (Postfix) with ESMTP id DD21D320100E;
- Sat, 16 Apr 2022 13:47:31 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
- by compute3.internal (MEProxy); Sat, 16 Apr 2022 13:47:33 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
- cc:cc:content-transfer-encoding:content-type:date:date:from:from
- :in-reply-to:in-reply-to:message-id:mime-version:references
- :reply-to:sender:subject:subject:to:to; s=fm2; t=1650131251; x=
- 1650217651; bh=QzHqO3qBPfISWOnlbh83TMK3WpZoHmvC2YIjH+rKF78=; b=X
- qYFGHB+RVrC494RYE04j3twORzmRPRWHFHmUNtG/F3S7lKlXwbg8y3rlKsc/HgMH
- nTCT45Jjk201BGpPWmaEI/nasFGalXwPA3SJH9d/udRj7S3WHunnPkeeNBVJvc6n
- iuFt2IICMx+g7xwOI2Oxs1Ur6l/VYS2yT5WFFAAaY1iIvmftFP7H99hIpNJiwWra
- cVLd13xCyjY3d7hovH3XtR4j8R91tiAK5vObr4WWCMe7WdKTiVFZ744b7oS4vg6G
- hmxTCcAsSlObAZF7bQ06hhWsX3ES7VkHDGzb5c1tB38E2Z5PnZqa8bqI/MBot1RL
- alD2gAiS8TvWSFjCvyZuQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:cc:content-transfer-encoding
- :content-type:date:date:from:from:in-reply-to:in-reply-to
- :message-id:mime-version:references:reply-to:sender:subject
- :subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
- :x-sasl-enc; s=fm1; t=1650131251; x=1650217651; bh=QzHqO3qBPfISW
- Onlbh83TMK3WpZoHmvC2YIjH+rKF78=; b=t3hTVxaxhK+qcHEB+DRYNqb8Dg3zu
- JjSpBrAVuTDqxFqWDvZdEhLXeMieAVeOZ/cR0w9eO9Zk03ewwb7tFf0BrkrbrJBH
- x0dthUc46+ftxYA6UgjFD6CqmnGc+ClVYuHjLrbXaW/Ikbk5s1tBuf5+VJaa0tNP
- Sejgd42AJJBhq4IifIIBLVESfFF3pxckG74YiHb5ZWXR8DMToewv3khBBhP2ds75
- VS12elzJ/K4BZVqkDR5+gML1pteEe+dbC5eL6DiDcWVM3VYQwdVciozQFokwJu1d
- tKpbivZ+VVKcOd6dz/l6f8yF48w3CsvioUenJ2XKlJMDGSeu7eAPblVMw==
-X-ME-Sender: <xms:MgFbYnQSnsFiCpK8yrPGMEu22Tg86COCm56Xq5uoaCxzCT8PFfYBoA>
- <xme:MgFbYowvyFe7Sp-fj8j_dXjiYZ9r429dkc_zT-fXWf_lPr6pQItfDTMYsLVPtisot
- jSDl-_w8_YzV2Wwhg>
-X-ME-Received: <xmr:MgFbYs1eZG8-osXH3PG48gEWvwwXw5BrrBw-gOi_WrhjGIdDx5W-y4t4NVm7oE9neilVmpYumx6iUw83O5gGVjwryd14IGR2WO7j3-Ee5rq7_c3v12urBULNlQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvvddrudeljedguddukecutefuodetggdotefrod
- ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
- necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
- enucfjughrpefuvfhfhffkffgfgggjtgfgsehtkeertddtfeejnecuhfhrohhmpefurghm
- uhgvlhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenuc
- ggtffrrghtthgvrhhnpeduvdelffekjefhudeileehjeetheelfeeiieekgfetueeghfdt
- veekfeevgfehieenucffohhmrghinhepghhithhhuhgsrdgtohhmnecuvehluhhsthgvrh
- fuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepshgrmhhuvghlsehshhholhhl
- rghnugdrohhrgh
-X-ME-Proxy: <xmx:MgFbYnD3xwpEQVkZ6-Uvq23JIMkjoaoA91tUW_gHXh2AaUigocCwVw>
- <xmx:MgFbYgi_9rZ-BaEb2caweWEPcw_ctH05v_UCHBEVoo4PeaNww12b3w>
- <xmx:MgFbYroi9yKuzJhO7BAOjsr-u2g8S0kU-9qH-pR6qRx6nrJxcARCJw>
- <xmx:MwFbYvpX44nV_uY4dVEDK-kF3jxlOSmUOnegGv2pbKhal3n1vzqXTw>
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 16 Apr 2022 13:47:29 -0400 (EDT)
-Subject: Re: [PATCH 0/2] riscv: implement Zicbom-based CMO instructions + the
- t-head variant
-To: Corentin Labbe <clabbe.montjoie@gmail.com>
+ id 1nfo9k-00DQYc-Lz
+ for linux-riscv@lists.infradead.org; Sat, 16 Apr 2022 19:32:30 +0000
+Received: by mail-wr1-x436.google.com with SMTP id x18so6395443wrc.0
+ for <linux-riscv@lists.infradead.org>; Sat, 16 Apr 2022 12:32:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:content-transfer-encoding:in-reply-to;
+ bh=zKq3t9+WVckk287gJXVdTxBsvDIgk8B6FZnSS1BTPL4=;
+ b=hFNxStPk6ljDQwSVsjzOkbywBaCgUHFTMhRf8KLzWQKkAK634TFpEv/iqqflmNmc+4
+ H5nPQkWkiCU5YeKVCZyn9zW2a0IzF5fciuEckFnKEkxcMmv/IliYbvr7PY0OQC8wO1J7
+ D5duSREpTHMOB/N5dyAEucbZIv8PnD3VrVhYI1hMKM8jNKMBLBmrtXkpuLAJsMzQUJHx
+ kpO7aJeENbJYmrwewNwsbiwZirIGezWs9INOqa0rj/PUxb3hridsT8SLJtx94UvJ+/Ps
+ B7zYWz90bX9w/cGmPrCiyYRos0wXG13wi8iUXmqdoaEhqNEpJqz/StjpZHP4ZnK7rHKI
+ p4Xg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:content-transfer-encoding
+ :in-reply-to;
+ bh=zKq3t9+WVckk287gJXVdTxBsvDIgk8B6FZnSS1BTPL4=;
+ b=P9ZL6f5yI0+nP+01vqX565EwNLWq1lXs8snCJByUSDrJzodpOEaGdsp5SQvPxhAYK1
+ ZvD1UomRrfulGC3zgAHtj4+xwWcmz6OlUxjKTuCQkswwQ1ZnGwekz/uCmFV9QsJrhD4c
+ 3jDE7trhKUdXyC3miG6jJWJjvVNCdbJDdinS+5BcYEJPOaK/x0rdx5xgwysEur9B3DFV
+ nTSPOXk0pfRjlsRF11PMT3gtRVKr9w08ktDlG4YYorPExEmKE3f7OUeLSQFvH9NuvvBD
+ 4SAW+a2XhAq08l95uwshHNXveX/SXWN6ol2MrSiSuegx6PpaB2+ghlXswYuExN21Ro+z
+ gpyA==
+X-Gm-Message-State: AOAM530aFFtXJtI2HIpY3n6V47Klx5SszVFr391VGHPzuO2NZplNJHWq
+ cDZnmfs43diEn+g8V280NWQ=
+X-Google-Smtp-Source: ABdhPJwXXdg4aIH03y8wvyozMGxucmhHV8S1YG4lSMDVE8AYMR7NHA91JGYnlXTGTd4gigMfa1nlvQ==
+X-Received: by 2002:a05:6000:1568:b0:1f0:250a:d3ef with SMTP id
+ 8-20020a056000156800b001f0250ad3efmr3322201wrz.402.1650137543384; 
+ Sat, 16 Apr 2022 12:32:23 -0700 (PDT)
+Received: from Red ([2a01:cb1d:3d5:a100:264b:feff:fe03:2806])
+ by smtp.googlemail.com with ESMTPSA id
+ p18-20020adfba92000000b001e4ae791663sm6798423wrg.62.2022.04.16.12.32.22
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sat, 16 Apr 2022 12:32:22 -0700 (PDT)
+Date: Sat, 16 Apr 2022 21:32:21 +0200
+From: Corentin Labbe <clabbe.montjoie@gmail.com>
+To: Samuel Holland <samuel@sholland.org>
 Cc: Heiko Stuebner <heiko@sntech.de>, palmer@dabbelt.com,
  paul.walmsley@sifive.com, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, wefu@redhat.com, guoren@kernel.org,
  atishp@atishpatra.org, anup@brainfault.org, mick@ics.forth.gr,
- cmuellner@linux.com, philipp.tomsich@vrull.eu
+ cmuellner@linux.com, philipp.tomsich@vrull.eu,
+ herbert@gondor.apana.org.au, linux-crypto@vger.kernel.org
+Subject: Re: [PATCH 0/2] riscv: implement Zicbom-based CMO instructions + the
+ t-head variant
+Message-ID: <YlsZxVjgt3ZNQ7Ub@Red>
 References: <20220307224620.1933061-1-heiko@sntech.de> <YllWTN+15CoskNBt@Red>
  <70da24dd-2d03-fc49-151d-daabb315a5f6@sholland.org>
  <YlpxsYREWv/LQ+HY@Red>
-From: Samuel Holland <samuel@sholland.org>
-Message-ID: <849a3728-7e84-4f26-0c73-4d68eae9ae01@sholland.org>
-Date: Sat, 16 Apr 2022 12:47:29 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+ <849a3728-7e84-4f26-0c73-4d68eae9ae01@sholland.org>
 MIME-Version: 1.0
-In-Reply-To: <YlpxsYREWv/LQ+HY@Red>
-Content-Language: en-US
+Content-Disposition: inline
+In-Reply-To: <849a3728-7e84-4f26-0c73-4d68eae9ae01@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220416_104738_237060_ED03F3BE 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20220416_123228_761828_E19F8BB4 
+X-CRM114-Status: GOOD (  25.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,57 +93,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNC8xNi8yMiAyOjM1IEFNLCBDb3JlbnRpbiBMYWJiZSB3cm90ZToKPiBMZSBGcmksIEFwciAx
-NSwgMjAyMiBhdCAwOToxOToyM1BNIC0wNTAwLCBTYW11ZWwgSG9sbGFuZCBhIMOpY3JpdCA6Cj4+
-IE9uIDQvMTUvMjIgNjoyNiBBTSwgQ29yZW50aW4gTGFiYmUgd3JvdGU6Cj4+PiBMZSBNb24sIE1h
-ciAwNywgMjAyMiBhdCAxMTo0NjoxOFBNICswMTAwLCBIZWlrbyBTdHVlYm5lciBhIMOpY3JpdCA6
-Cj4+Pj4gVGhpcyBzZXJpZXMgaXMgYmFzZWQgb24gdGhlIGFsdGVybmF0aXZlcyBjaGFuZ2VzIGRv
-bmUgaW4gbXkgc3ZwYm10IHNlcmllcwo+Pj4+IGFuZCB0aHVzIGFsc28gZGVwZW5kcyBvbiBBdGlz
-aCdzIGlzYS1leHRlbnNpb24gcGFyc2luZyBzZXJpZXMuCj4+Pj4KPj4+PiBJdCBpbXBsZW1lbnRz
-IHVzaW5nIHRoZSBjYWNoZS1tYW5hZ2VtZW50IGluc3RydWN0aW9ucyBmcm9tIHRoZSAgWmljYm9t
-LQo+Pj4+IGV4dGVuc2lvbiB0byBoYW5kbGUgY2FjaGUgZmx1c2gsIGV0YyBhY3Rpb25zIG9uIHBs
-YXRmb3JtcyBuZWVkaW5nIHRoZW0uCj4+Pj4KPj4+PiBTb0NzIHVzaW5nIGNwdSBjb3JlcyBmcm9t
-IFQtSGVhZCBsaWtlIHRoZSBBbGx3aW5uZSBEMSBpbXBsZW1lbnQgYQo+Pj4+IGRpZmZlcmVudCBz
-ZXQgb2YgY2FjaGUgaW5zdHJ1Y3Rpb25zLiBCdXQgd2hpbGUgdGhleSBhcmUgZGlmZmVyZW50LAo+
-Pj4+IGluc3RydWN0aW9ucyB0aGV5IHByb3ZpZGUgdGhlIHNhbWUgZnVuY3Rpb25hbGl0eSwgc28g
-YSB2YXJpYW50IGNhbgo+Pj4+IGVhc2x5IGhvb2sgaW50byB0aGUgZXhpc3RpbmcgYWx0ZXJuYXRp
-dmVzIG1lY2hhbmlzbSBvbiB0aG9zZS4KPj4+Pgo+Pj4+Cj4+Pgo+Pj4gSGVsbG8KPj4+Cj4+PiBJ
-IGFtIHRlc3RpbmcgaHR0cHM6Ly9naXRodWIuY29tL3NtYWV1bC9saW51eC5naXQgYnJhbmNoOm9y
-aWdpbi9yaXNjdi9kMS13aXAgd2hpY2ggY29udGFpbiB0aGlzIHNlcmllLgo+Pj4KPj4+IEkgYW0g
-aGl0dGluZyBhIGJ1ZmZlciBjb3JydXB0aW9uIHByb2JsZW0gd2l0aCBETUEuCj4+PiBUaGUgc3Vu
-OGktY2UgY3J5cHRvIGRyaXZlciBmYWlsIHNlbGYgdGVzdHMgZHVlIHRvICJkZXZpY2Ugb3ZlcnJh
-biBkZXN0aW5hdGlvbiBidWZmZXIiLgo+Pj4gSW4gZmFjdCB0aGUgYnVmZmVyIGlzIG5vdCBvdmVy
-cmFuIGJ5IGRldmljZSBidXQgYnkgZG1hX21hcF9zaW5nbGUoKSBvcGVyYXRpb24uCj4+Pgo+Pj4g
-VGhlIGZvbGxvd2luZyBzbWFsbCBjb2RlIHNob3cgdGhlIHByb2JsZW06Cj4+Pgo+Pj4gZG1hX2Fk
-ZHJfdCBkbWE7Cj4+PiB1OCAqYnVmOwo+Pj4gI2RlZmluZSBCU0laRSAyMDQ4Cj4+PiAjZGVmaW5l
-IERNQVNJWkUgMTYKPj4+Cj4+PiBidWYgPSBrbWFsbG9jKEJTSVpFLCBHRlBfS0VSTkVMIHwgR0ZQ
-X0RNQSk7Cj4+PiBmb3IgKGkgPSAwOyBpIDwgQlNJWkU7IGkrKykKPj4+ICAgICBidWZbaV0gPSAw
-eEZFOwo+Pj4gcHJpbnRfaGV4X2R1bXAoS0VSTl9JTkZPLCAiRE1BVEVTVDE6IiwgRFVNUF9QUkVG
-SVhfTk9ORSwgMTYsIDQsIGJ1ZiwgMjU2LCBmYWxzZSk7Cj4+PiBkbWEgPSBkbWFfbWFwX3Npbmds
-ZShjZS0+ZGV2LCBidWYsIERNQVNJWkUsIERNQV9GUk9NX0RFVklDRSk7Cj4+Cj4+IFRoaXMgZnVu
-Y3Rpb24gKHRocm91Z2ggZG1hX2RpcmVjdF9tYXBfcGFnZSgpKSBlbmRzIHVwIGNhbGxpbmcKPj4g
-YXJjaF9zeW5jX2RtYV9mb3JfZGV2aWNlKC4uLiwgLi4uLCBETUFfRlJPTV9ERVZJQ0UpLCB3aGlj
-aCBpbnZhbGlkYXRlcyB0aGUgQ1BVJ3MKPj4gY2FjaGUuIFRoaXMgaXMgdGhlIHNhbWUgdGhpbmcg
-b3RoZXIgYXJjaGl0ZWN0dXJlcyBkbyAoYXQgbGVhc3QgYXJtLCBhcm02NCwKPj4gb3BlbnJpc2Ms
-IGFuZCBwb3dlcnBjKS4gU28gdGhpcyBhcHBlYXJzIHRvIGJlIHdvcmtpbmcgYXMgaW50ZW5kZWQu
-Cj4gCj4gVGhpcyBiZWhhdm91ciBpcyBub3QgcHJlc2VudCBhdCBsZWFzdCBvbiBBUk0gYW5kIEFS
-TTY0Lgo+IFRoZSBzYW1wbGUgY29kZSBJIHByb3ZpZGVkIGRvZXMgbm90IGNvcnJ1cHQgdGhlIGJ1
-ZmZlciBvbiB0aGVtLgoKVGhhdCBjYW4gYmUgZXhwbGFpbmVkIGJ5IHRoZSAweEZFIGJ5dGVzIGhh
-dmluZyBiZWVuIGZsdXNoZWQgdG8gRFJBTSBhbHJlYWR5IGluCnlvdXIgQVJNL0FSTTY0IHRlc3Rz
-LCB3aGVyZWFzIGluIHlvdXIgcmlzY3Y2NCBjYXNlLCB0aGUgMHhGRSBieXRlcyB3ZXJlIHN0aWxs
-IGluCmEgZGlydHkgY2FjaGUgbGluZS4gVGhlIGNhY2hlIHRvcG9sb2d5IGFuZCBpbXBsZW1lbnRh
-dGlvbiBpcyB0b3RhbGx5IGRpZmZlcmVudAphY3Jvc3MgdGhlIFNvQ3MsIHNvIHRoaXMgaXMgbm90
-IHRvbyBzdXJwcmlzaW5nLgoKU2VtYW50aWNhbGx5LCBkbWFfbWFwX3NpbmdsZSguLi4sIERNQV9G
-Uk9NX0RFVklDRSkgbWVhbnMgeW91IGFyZSBkb2luZyBhCnVuaWRpcmVjdGlvbmFsIERNQSB0cmFu
-c2ZlciBmcm9tIHRoZSBkZXZpY2UgaW50byB0aGF0IGJ1ZmZlci4gU28gdGhlIGNvbnRlbnRzIG9m
-CnRoZSBidWZmZXIgYXJlICJ1bmRlZmluZWQiIHVudGlsIHRoZSBETUEgdHJhbnNmZXIgY29tcGxl
-dGVzLiBJZiB5b3UgYXJlIGFsc28Kd3JpdGluZyBkYXRhIGludG8gdGhlIGJ1ZmZlciBmcm9tIHRo
-ZSBDUFUgc2lkZSwgdGhlbiB5b3UgbmVlZCBETUFfQklESVJFQ1RJT05BTC4KClJlZ2FyZHMsClNh
-bXVlbAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Le Sat, Apr 16, 2022 at 12:47:29PM -0500, Samuel Holland a =E9crit :
+> On 4/16/22 2:35 AM, Corentin Labbe wrote:
+> > Le Fri, Apr 15, 2022 at 09:19:23PM -0500, Samuel Holland a =E9crit :
+> >> On 4/15/22 6:26 AM, Corentin Labbe wrote:
+> >>> Le Mon, Mar 07, 2022 at 11:46:18PM +0100, Heiko Stuebner a =E9crit :
+> >>>> This series is based on the alternatives changes done in my svpbmt s=
+eries
+> >>>> and thus also depends on Atish's isa-extension parsing series.
+> >>>>
+> >>>> It implements using the cache-management instructions from the  Zicb=
+om-
+> >>>> extension to handle cache flush, etc actions on platforms needing th=
+em.
+> >>>>
+> >>>> SoCs using cpu cores from T-Head like the Allwinne D1 implement a
+> >>>> different set of cache instructions. But while they are different,
+> >>>> instructions they provide the same functionality, so a variant can
+> >>>> easly hook into the existing alternatives mechanism on those.
+> >>>>
+> >>>>
+> >>>
+> >>> Hello
+> >>>
+> >>> I am testing https://github.com/smaeul/linux.git branch:origin/riscv/=
+d1-wip which contain this serie.
+> >>>
+> >>> I am hitting a buffer corruption problem with DMA.
+> >>> The sun8i-ce crypto driver fail self tests due to "device overran des=
+tination buffer".
+> >>> In fact the buffer is not overran by device but by dma_map_single() o=
+peration.
+> >>>
+> >>> The following small code show the problem:
+> >>>
+> >>> dma_addr_t dma;
+> >>> u8 *buf;
+> >>> #define BSIZE 2048
+> >>> #define DMASIZE 16
+> >>>
+> >>> buf =3D kmalloc(BSIZE, GFP_KERNEL | GFP_DMA);
+> >>> for (i =3D 0; i < BSIZE; i++)
+> >>>     buf[i] =3D 0xFE;
+> >>> print_hex_dump(KERN_INFO, "DMATEST1:", DUMP_PREFIX_NONE, 16, 4, buf, =
+256, false);
+> >>> dma =3D dma_map_single(ce->dev, buf, DMASIZE, DMA_FROM_DEVICE);
+> >>
+> >> This function (through dma_direct_map_page()) ends up calling
+> >> arch_sync_dma_for_device(..., ..., DMA_FROM_DEVICE), which invalidates=
+ the CPU's
+> >> cache. This is the same thing other architectures do (at least arm, ar=
+m64,
+> >> openrisc, and powerpc). So this appears to be working as intended.
+> > =
+
+> > This behavour is not present at least on ARM and ARM64.
+> > The sample code I provided does not corrupt the buffer on them.
+> =
+
+> That can be explained by the 0xFE bytes having been flushed to DRAM alrea=
+dy in
+> your ARM/ARM64 tests, whereas in your riscv64 case, the 0xFE bytes were s=
+till in
+> a dirty cache line. The cache topology and implementation is totally diff=
+erent
+> across the SoCs, so this is not too surprising.
+> =
+
+> Semantically, dma_map_single(..., DMA_FROM_DEVICE) means you are doing a
+> unidirectional DMA transfer from the device into that buffer. So the cont=
+ents of
+> the buffer are "undefined" until the DMA transfer completes. If you are a=
+lso
+> writing data into the buffer from the CPU side, then you need DMA_BIDIREC=
+TIONAL.
+> =
+
+> Regards,
+> Samuel
+
++CC crypto mailing list + maintainer
+
+My problem is that crypto selftest, for each buffer where I need to do a ci=
+pher operation,
+concat a poison buffer to check that device does write beyond buffer.
+
+But the dma_map_sg(FROM_DEVICE) corrupts this poison buffer and crypto self=
+tests fails thinking my device did a buffer overrun.
+
+So you mean that on SoC D1, this crypto API check strategy is impossible ?
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
