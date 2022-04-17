@@ -4,109 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54539C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 Apr 2022 02:45:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4A24C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 Apr 2022 04:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c++qDDY7mFo71IMkDxhQVEKL1j9cXtaGVUHkC6hw5K4=; b=bO1dbPxzCkmQ3n/oKwGsbjJ1Hf
-	+JSA637mVffcI1Ifur0eyi4HzJ9a68Lllb3UF/rDhwyQWAgcH8uph//rKEBUL2BBdn5R35YhWhDZr
-	uvQmKiQ3baNLRZff8GAPv4SBen7OtvbLgT7bS17ViDskczUovRh9om2BePtr5C2A+0y4g0tid52a5
-	TnzjuL1xNPMYPOqJVDlDKN1pQDTZxfAqoZLVNMgwBWjsB97lR33GXCEkUOnFPvt23yaQaMr+NMeLL
-	epYUSGcac5QEk3MLWLn1ehl+LIjuPCPct1XGIOdguusBp+kLt2/O2ayo5ZvoVPis0gKV5ASNbpqJp
-	1gO1WhRA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pcFcUp7hPqhWxFG/W8fEVrgkyDRoAFffJEmMmBTaRhw=; b=DBIQAPY9eUCVyo
+	SQHned+/rvD8cUhd6ZLyxLzmhyzOxsUfk9zdlWbMikWXDdFeYqvpQpVC1VrN2igMIV81toX7JKXxT
+	68qqPhdQLCSax+uq1Ns6eEWNdvV/1/Gzm2XKQo+BEbeSbeK4l1Tvfg/i17elX1HP30fqUhqABe6/X
+	h3cpPV2lK6tzcy8bbbCjhRa1yQv+eEY6J9qW5uW5bihjEhHQlHDv9oyfqAYtaufGBlsgtIslOcR90
+	ChlVopulwjqn+eHO7+O/GWM6CuHjBktH2j3YQ/JI95SJ45iSdgR6X4Bqo3yHu+gaViVlxiytVISpa
+	8NpFjkeksyYSO1af0bzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nfuuG-00DpHI-Ra; Sun, 17 Apr 2022 02:44:56 +0000
-Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
+	id 1nfwtC-00Dvsm-DX; Sun, 17 Apr 2022 04:51:58 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nfuuD-00DpFt-Ea
- for linux-riscv@lists.infradead.org; Sun, 17 Apr 2022 02:44:55 +0000
-Received: by mail-qk1-x72d.google.com with SMTP id a186so6430924qkc.10
- for <linux-riscv@lists.infradead.org>; Sat, 16 Apr 2022 19:44:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=7mdFWtuENoyEeQKLi9pz/FoEj4NZtEiJmOWjGV0tYyw=;
- b=dq9RfRoU07XvXAS4D2QXJeExVcMH++x+jD0rOvPn+fZOcqFnSkifPsgNtsCo826T2O
- OAcFw7c47C7wo2kzuuLa5Vw12VFv2OcoMu9qPqfCozZp6tt2r5UXZQqAJp5btXYNKtaF
- 0eS3GqdPcEiqOIvf05yDughS2acWXE2JR2l0k89BtdlFUk6EqKX9grPnDmd2+dhw5fbC
- fzUZV/Cy63E1zCoRFbQ5j2x4wy6lsGmxmT8yPnBjjm8AxWJzsURM4vaOSSle00+g54lm
- W1ATYnOlyvuPYB9SrLwwDM9inZ1VZVQNpmhVpdWqzf0XfAKvhE2fO1FG5nGabX+XMRvX
- /O/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=7mdFWtuENoyEeQKLi9pz/FoEj4NZtEiJmOWjGV0tYyw=;
- b=SN6vJ79CIJKlm34LoiHE31EPagbKpDL/nzmC3G0ILKEs7qqXHN+J8QLOQzC0fqU7zv
- LepQ5ylGVN4cz/hza5MGtZVzbsSqKbUpn4OeDPNCmpmgr61sLD0+NRb3z1lFJL9OFvor
- SbCiGtNC7sFHww9UVqef6JO+1gKHPm7OqZxcaq5IwfXl/1wt//VZqg8UxfkTfDt7y7mt
- 0xAGBm+0mFwp83n1lXyZQZxLJviKtfJSbnJyH985wJyKWRFYfNM6Sp3c1wJ2Gbv+ODHT
- OmSvGKmR/MAPPJw9dEdQMmJ0gKwFAtuSzgblDmkG84Kx7GEh+dj0wBbF2Ghimgz+IatA
- Q3Ig==
-X-Gm-Message-State: AOAM530VvBUyB3RiAtNsZI3NQty91qZo6def8wcYiYxohzorbryXnG+A
- NSwGpx6lmtxEXzME0z3+4k0=
-X-Google-Smtp-Source: ABdhPJz6oSZlRnLl8WKyhx9BIW+lU1hM8aOw9Y3ybSzNsRupCKwp5nrPtxY0rF3CVYcXl6KvW0qs0A==
-X-Received: by 2002:a37:aec7:0:b0:69b:f27b:8784 with SMTP id
- x190-20020a37aec7000000b0069bf27b8784mr3422770qke.464.1650163491097; 
- Sat, 16 Apr 2022 19:44:51 -0700 (PDT)
-Received: from auth2-smtp.messagingengine.com (auth2-smtp.messagingengine.com.
- [66.111.4.228]) by smtp.gmail.com with ESMTPSA id
- r7-20020ac85c87000000b002e234014a1fsm5570726qta.81.2022.04.16.19.44.49
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 16 Apr 2022 19:44:50 -0700 (PDT)
-Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
- by mailauth.nyi.internal (Postfix) with ESMTP id 5040527C0054;
- Sat, 16 Apr 2022 22:44:49 -0400 (EDT)
-Received: from mailfrontend2 ([10.202.2.163])
- by compute4.internal (MEProxy); Sat, 16 Apr 2022 22:44:49 -0400
-X-ME-Sender: <xms:H39bYgD82w7KnuskfhJMaZtiRteaDAeGofpwMPtq-l4RjgIHdf9Reg>
- <xme:H39bYihoCJAc9YyR_pZqvi4O5X-lkvO6-3VMkPJCqst2JkTlxL1GNEtj9MLCK0d9S
- M_Y7aCSEuwcwKABfQ>
-X-ME-Received: <xmr:H39bYjmhaI13nH4jM6CSFQ7g_bw7YC1D31bokWWOABPaTX-RbZ-uKRBc8w>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvvddrudelkedgieehucetufdoteggodetrfdotf
- fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
- uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
- cujfgurhepfffhvffukfhfgggtuggjsehgtderredttddvnecuhfhrohhmpeeuohhquhhn
- ucfhvghnghcuoegsohhquhhnrdhfvghnghesghhmrghilhdrtghomheqnecuggftrfgrth
- htvghrnhepueehjeejieevueeuteeileeuvddvvedvieeltddtudekgeegueelvddtkeet
- tdevnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpe
- dtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegsohhquhhnodhmvghsmhhtphgruhhthhhp
- vghrshhonhgrlhhithihqdeiledvgeehtdeigedqudejjeekheehhedvqdgsohhquhhnrd
- hfvghngheppehgmhgrihhlrdgtohhmsehfihigmhgvrdhnrghmvg
-X-ME-Proxy: <xmx:H39bYmxH1Ym3XKaAk4bLIWpjNBQmYqf5CmDkxgEIsHS9zE4-h5vQDA>
- <xmx:H39bYlQ1zgn78rWrTn0MFA2E-TdqPdRfxVnVWgBARWlHgkeSuGt5Iw>
- <xmx:H39bYhbJDPPvwOoOg3gGVzOUDtZRW-VgUylpxR4uHaYmp8GAvlBLtw>
- <xmx:IX9bYkAWf4QBuQqGV30YOxDixOI_Do6kOzPt6slF1NWQacX1vhcv8Mrl07w>
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 16 Apr 2022 22:44:45 -0400 (EDT)
-Date: Sun, 17 Apr 2022 10:44:25 +0800
-From: Boqun Feng <boqun.feng@gmail.com>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, heiko@sntech.de, guoren@kernel.org,
- shorne@gmail.com, peterz@infradead.org, mingo@redhat.com,
- Will Deacon <will@kernel.org>, longman@redhat.com,
- jonas@southpole.se, stefan.kristiansson@saunalahti.fi,
- Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- macro@orcam.me.uk, Greg KH <gregkh@linuxfoundation.org>,
- sudipm.mukherjee@gmail.com, wangkefeng.wang@huawei.com,
- jszhang@kernel.org, linux-csky@vger.kernel.org,
- linux-kernel@vger.kernel.org, openrisc@lists.librecores.org,
- linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org
-Subject: Re: [PATCH v3 1/7] asm-generic: ticket-lock: New generic
- ticket-based spinlock
-Message-ID: <Ylt/CdbB9vF9dXjo@tardis>
-References: <YljFyY7acyRDBmK7@tardis>
- <mhng-78fec320-bd16-4774-9e24-2e5c0ce33121@palmer-ri-x1c9>
+ id 1nfwt9-00DvrV-9s
+ for linux-riscv@lists.infradead.org; Sun, 17 Apr 2022 04:51:57 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id E99E7B808C5
+ for <linux-riscv@lists.infradead.org>; Sun, 17 Apr 2022 04:51:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8257EC385AD
+ for <linux-riscv@lists.infradead.org>; Sun, 17 Apr 2022 04:51:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1650171110;
+ bh=q9fcztGM71+vCsZD2N4sUtaABxXR93vfr2R7Ii6mFC8=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=jUbXnBi9aMXK60wnUJjnyZw58Q3GYnhe/dy+0o6GJtQhO+IUFN0Dury2JuSnsaH2D
+ 21iHpkdwKQgjRAzcOahPeVVcCl4QYLXr1JwQcJ0TDZgo8Z3ccQAz4Ca/aq0vRGV4PS
+ FhzFZdXkU7apPFJYQ2hW/+Y7ugiY7vezx1YyDsrZKU3n3+rCe0ZwwdA1lrckuRzpPD
+ K9WO3KbWWNbEOAptuVga4h1/rXgfNejideMJiOQQ9ZuS+F3D4+R8EGi4uSWP1x/5Qb
+ J9CYsLtiYDIIF8PDufa5skqzfYGR33WScBQsxzeM4Ps8mmalNQNZmJa8xc6rGeLOGq
+ ctsnD/hOJLjfw==
+Received: by mail-vs1-f46.google.com with SMTP id r1so10148779vsi.12
+ for <linux-riscv@lists.infradead.org>; Sat, 16 Apr 2022 21:51:50 -0700 (PDT)
+X-Gm-Message-State: AOAM533libZ2N/LkmagOaqgq5dsEkETpHYuceYfDxVm7sQbU/xv7Ixnq
+ 3ySi554i6j7rfCmUYhARvwIis/wLNXB4wrh8e7k=
+X-Google-Smtp-Source: ABdhPJwe8VaBJyEULUgbn9Rxjc0N2mB5BdM3ji3bpONwyvqfGaJOdzxm8o3/Qi4EIqs0qE0oejXEmKnFqtUwR+buu3o=
+X-Received: by 2002:a67:e181:0:b0:32a:335c:4ac1 with SMTP id
+ e1-20020a67e181000000b0032a335c4ac1mr1455751vsl.2.1650171109426; Sat, 16 Apr
+ 2022 21:51:49 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <mhng-78fec320-bd16-4774-9e24-2e5c0ce33121@palmer-ri-x1c9>
+References: <20220412034957.1481088-1-guoren@kernel.org>
+ <YlbwOG46mCR8Q5tJ@tardis>
+ <CAJF2gTRws6RqKmJHBdKsycWSkFgYna_MocJ+qp3Z9r1v7mQzsg@mail.gmail.com>
+ <Ylt6zqPgimmKpJzg@tardis>
+In-Reply-To: <Ylt6zqPgimmKpJzg@tardis>
+From: Guo Ren <guoren@kernel.org>
+Date: Sun, 17 Apr 2022 12:51:38 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTZnBh_z31VK81cYiBrTt5NRVpSahoPh35Zo4Ns5hCv7A@mail.gmail.com>
+Message-ID: <CAJF2gTTZnBh_z31VK81cYiBrTt5NRVpSahoPh35Zo4Ns5hCv7A@mail.gmail.com>
+Subject: Re: [PATCH V2 0/3] riscv: atomic: Optimize AMO instructions usage
+To: Boqun Feng <boqun.feng@gmail.com>
+Cc: Andrea Parri <parri.andrea@gmail.com>, Daniel Lustig <dlustig@nvidia.com>, 
+ "Paul E. McKenney" <paulmck@linux.vnet.ibm.com>,
+ Arnd Bergmann <arnd@arndb.de>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Mark Rutland <mark.rutland@arm.com>,
+ Will Deacon <will@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, linux-arch <linux-arch@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220416_194453_557272_0E840429 
-X-CRM114-Status: GOOD (  56.30  )
+X-CRM114-CacheID: sfid-20220416_215155_671094_5DE52A59 
+X-CRM114-Status: GOOD (  19.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,314 +85,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5878083881170623896=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Boqun & Andrea,
 
---===============5878083881170623896==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="8ytG0UcqI/Y9WwWb"
-Content-Disposition: inline
+On Sun, Apr 17, 2022 at 10:26 AM Boqun Feng <boqun.feng@gmail.com> wrote:
+>
+> On Sun, Apr 17, 2022 at 12:49:44AM +0800, Guo Ren wrote:
+> [...]
+> >
+> > If both the aq and rl bits are set, the atomic memory operation is
+> > sequentially consistent and cannot be observed to happen before any
+> > earlier memory operations or after any later memory operations in the
+> > same RISC-V hart and to the same address domain.
+> >                 "0:     lr.w     %[p],  %[c]\n"
+> >                 "       sub      %[rc], %[p], %[o]\n"
+> >                 "       bltz     %[rc], 1f\n".
+> > -               "       sc.w.rl  %[rc], %[rc], %[c]\n"
+> > +               "       sc.w.aqrl %[rc], %[rc], %[c]\n"
+> >                 "       bnez     %[rc], 0b\n"
+> > -               "       fence    rw, rw\n"
+> >                 "1:\n"
+> > So .rl + fence rw, rw is over constraints, only using sc.w.aqrl is more proper.
+> >
+>
+> Can .aqrl order memory accesses before and after it (not against itself,
+> against each other), i.e. act as a full memory barrier? For example, can
+From the RVWMO spec description, the .aqrl annotation appends the same
+effect with "fence rw, rw" to the AMO instruction, so it's RCsc.
 
+Not only .aqrl, and I think the below also could be an RCsc when
+sc.w.aq is executed:
+A: Pre-Access
+B: lr.w.rl ADDR-0
+...
+C: sc.w.aq ADDR-0
+D: Post-Acess
+Because sc.w.aq has overlap address & data dependency on lr.w.rl, the
+global memory order should be A->B->C->D when sc.w.aq is executed. For
+the amoswap
 
---8ytG0UcqI/Y9WwWb
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The purpose of the whole patchset is to reduce the usage of
+independent fence rw, rw instructions, and maximize the usage of the
+.aq/.rl/.aqrl aonntation of RISC-V.
 
-On Thu, Apr 14, 2022 at 10:20:04PM -0700, Palmer Dabbelt wrote:
-> On Thu, 14 Apr 2022 18:09:29 PDT (-0700), boqun.feng@gmail.com wrote:
-> > Hi,
-> >=20
-> > On Thu, Apr 14, 2022 at 03:02:08PM -0700, Palmer Dabbelt wrote:
-> > > From: Peter Zijlstra <peterz@infradead.org>
-> > >=20
-> > > This is a simple, fair spinlock.  Specifically it doesn't have all the
-> > > subtle memory model dependencies that qspinlock has, which makes it m=
-ore
-> > > suitable for simple systems as it is more likely to be correct.  It is
-> > > implemented entirely in terms of standard atomics and thus works fine
-> > > without any arch-specific code.
-> > >=20
-> > > This replaces the existing asm-generic/spinlock.h, which just errored
-> > > out on SMP systems.
-> > >=20
-> > > Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> > > Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> > > ---
-> > >  include/asm-generic/spinlock.h       | 85 +++++++++++++++++++++++++-=
---
-> > >  include/asm-generic/spinlock_types.h | 17 ++++++
-> > >  2 files changed, 94 insertions(+), 8 deletions(-)
-> > >  create mode 100644 include/asm-generic/spinlock_types.h
-> > >=20
-> > > diff --git a/include/asm-generic/spinlock.h b/include/asm-generic/spi=
-nlock.h
-> > > index adaf6acab172..ca829fcb9672 100644
-> > > --- a/include/asm-generic/spinlock.h
-> > > +++ b/include/asm-generic/spinlock.h
-> > > @@ -1,12 +1,81 @@
-> > >  /* SPDX-License-Identifier: GPL-2.0 */
-> > > -#ifndef __ASM_GENERIC_SPINLOCK_H
-> > > -#define __ASM_GENERIC_SPINLOCK_H
-> > > +
-> > >  /*
-> > > - * You need to implement asm/spinlock.h for SMP support. The generic
-> > > - * version does not handle SMP.
-> > > + * 'Generic' ticket-lock implementation.
-> > > + *
-> > > + * It relies on atomic_fetch_add() having well defined forward progr=
-ess
-> > > + * guarantees under contention. If your architecture cannot provide =
-this, stick
-> > > + * to a test-and-set lock.
-> > > + *
-> > > + * It also relies on atomic_fetch_add() being safe vs smp_store_rele=
-ase() on a
-> > > + * sub-word of the value. This is generally true for anything LL/SC =
-although
-> > > + * you'd be hard pressed to find anything useful in architecture spe=
-cifications
-> > > + * about this. If your architecture cannot do this you might be bett=
-er off with
-> > > + * a test-and-set.
-> > > + *
-> > > + * It further assumes atomic_*_release() + atomic_*_acquire() is RCp=
-c and hence
-> > > + * uses atomic_fetch_add() which is SC to create an RCsc lock.
-> > > + *
-> > > + * The implementation uses smp_cond_load_acquire() to spin, so if the
-> > > + * architecture has WFE like instructions to sleep instead of poll f=
-or word
-> > > + * modifications be sure to implement that (see ARM64 for example).
-> > > + *
-> > >   */
-> > > -#ifdef CONFIG_SMP
-> > > -#error need an architecture specific asm/spinlock.h
-> > > -#endif
-> > > -#endif /* __ASM_GENERIC_SPINLOCK_H */
-> > > +#ifndef __ASM_GENERIC_TICKET_LOCK_H
-> > > +#define __ASM_GENERIC_TICKET_LOCK_H
-> > > +
-> > > +#include <linux/atomic.h>
-> > > +#include <asm-generic/spinlock_types.h>
-> > > +
-> > > +static __always_inline void arch_spin_lock(arch_spinlock_t *lock)
-> > > +{
-> > > +	u32 val =3D atomic_fetch_add(1<<16, lock); /* SC, gives us RCsc */
-> > > +	u16 ticket =3D val >> 16;
-> > > +
-> > > +	if (ticket =3D=3D (u16)val)
-> > > +		return;
-> > > +
-> > > +	atomic_cond_read_acquire(lock, ticket =3D=3D (u16)VAL);
-> >=20
-> > Looks like my follow comment is missing:
-> >=20
-> > 	https://lore.kernel.org/lkml/YjM+P32I4fENIqGV@boqun-archlinux/
-> >=20
-> > Basically, I suggested that 1) instead of "SC", use "fully-ordered" as
-> > that's a complete definition in our atomic API ("RCsc" is fine), 2)
-> > introduce a RCsc atomic_cond_read_acquire() or add a full barrier here
-> > to make arch_spin_lock() RCsc otherwise arch_spin_lock() is RCsc on
-> > fastpath but RCpc on slowpath.
->=20
-> Sorry about that, now that you mention it I remember seeing that comment =
-but
-> I guess I dropped it somehow -- I've been down a bunch of other RISC-V
-> memory model rabbit holes lately, so I guess this just got lost in the
-> shuffle.
->=20
-> I'm not really a memory model person, so I'm a bit confused here, but IIUC
-> the issue is that there's only an RCpc ordering between the store_release
-> that publishes the baker's ticket and the customer's spin to obtain a
-> contested lock.  Thus we could see RCpc-legal accesses before the
-> atomic_cond_read_acquire().
->=20
-> That's where I get a bit lost: the atomic_fetch_add() is RCsc, so the
-> offending accesses are bounded to remain within arch_spin_lock().  I'm not
-> sure how that lines up with the LKMM requirements, which I always see
-> expressed in terms of the entire lock being RCsc (specifically with
-> unlock->lock reordering weirdness, which the fully ordered AMO seems to
-> prevent here).
->=20
+                __asm__ __volatile__ (                                  \
+                        "0:     lr.w %0, %2\n"                          \
+                        "       bne  %0, %z3, 1f\n"                     \
+                        "       sc.w.rl %1, %z4, %2\n"                  \
+                        "       bnez %1, 0b\n"                          \
+                        "       fence rw, rw\n"                         \
+                        "1:\n"                                          \
 
-The case that I had in mind is as follow:
-
-	CPU 0 			CPU 1
-	=3D=3D=3D=3D=3D			=3D=3D=3D=3D=3D
-	arch_spin_lock();
-	// CPU 0 owns the lock
-				arch_spin_lock():
-				  atomic_fetch_add(); // fully-ordered
-				  if (ticket =3D=3D (u16)val) // didn't get the ticket yet.=20
-				  ...
-				  atomic_cond_read_acquire():
-				    while (true) {
-	arch_spin_unlock(); // release
-				    	atomic_read_acquire(); // RCpc
-					// get the ticket
-				    }
-
-In that case the lock is RCpc not RCsc because our atomics are RCpc. So
-you will need to enfore the ordering if you want to make generic ticket
-lock RCsc.
-
-> That's kind of just a curiosity, though, so assuming we need some stronger
-> ordering here I sort of considered this
->=20
->    diff --git a/include/asm-generic/spinlock.h b/include/asm-generic/spin=
-lock.h
->    index ca829fcb9672..bf4e6050b9b2 100644
->    --- a/include/asm-generic/spinlock.h
->    +++ b/include/asm-generic/spinlock.h
->    @@ -14,7 +14,7 @@
->      * a test-and-set.
->      *
->      * It further assumes atomic_*_release() + atomic_*_acquire() is RCpc=
- and hence
->    - * uses atomic_fetch_add() which is SC to create an RCsc lock.
->    + * uses atomic_fetch_add_rcsc() which is RCsc to create an RCsc lock.
->      *
->      * The implementation uses smp_cond_load_acquire() to spin, so if the
->      * architecture has WFE like instructions to sleep instead of poll fo=
-r word
->    @@ -30,13 +30,13 @@
->     static __always_inline void arch_spin_lock(arch_spinlock_t *lock)
+> we end up with u == 1, v == 1, r1 on P0 is 0 and r1 on P1 is 0, for the
+> following litmus test?
+>
+>     C lr-sc-aqrl-pair-vs-full-barrier
+>
+>     {}
+>
+>     P0(int *x, int *y, atomic_t *u)
 >     {
->    	u32 val =3D atomic_fetch_add(1<<16, lock);
->     	u16 ticket =3D val >> 16;
->     	if (ticket =3D=3D (u16)val)
->     		return;
->    -	atomic_cond_read_acquire(lock, ticket =3D=3D (u16)VAL);
->    +	atomic_cond_read_rcsc(lock, ticket =3D=3D (u16)VAL);
+>             int r0;
+>             int r1;
+>
+>             WRITE_ONCE(*x, 1);
+>             r0 = atomic_cmpxchg(u, 0, 1);
+>             r1 = READ_ONCE(*y);
 >     }
->     static __always_inline bool arch_spin_trylock(arch_spinlock_t *lock)
->=20
-> but that smells a bit awkward: it's not really that the access is RCsc, i=
-t's
-
-Yeah, agreed.
-
-> that the whole lock is, and the RCsc->branch->RCpc is just kind of scream=
-ing
-> for arch-specific optimizations.  I think we either end up with some sort=
- of
-> "atomic_*_for_tspinlock" or a "mb_*_for_tspinlock", both of which seem ve=
-ry
-> specific.
->=20
-> That, or we just run with the fence until someone has a concrete way to do
-> it faster.  I don't know OpenRISC or C-SKY, but IIUC the full fence is fr=
-ee
-> on RISC-V: our smp_cond_read_acquire() only emits read accesses, ends in a
-> "fence r,r", and is proceeded by a full smp_mb() from atomic_fetch_add().
-> So I'd lean towards the much simpler
->=20
->    diff --git a/include/asm-generic/spinlock.h b/include/asm-generic/spin=
-lock.h
->    index ca829fcb9672..08e3400a104f 100644
->    --- a/include/asm-generic/spinlock.h
->    +++ b/include/asm-generic/spinlock.h
->    @@ -14,7 +14,9 @@
->      * a test-and-set.
->      *
->      * It further assumes atomic_*_release() + atomic_*_acquire() is RCpc=
- and hence
->    - * uses atomic_fetch_add() which is SC to create an RCsc lock.
->    + * uses atomic_fetch_add() which is RCsc to create an RCsc hot path, =
-along with
->    + * a full fence after the spin to upgrade the otherwise-RCpc
->    + * atomic_cond_read_acquire().
->      *
->      * The implementation uses smp_cond_load_acquire() to spin, so if the
->      * architecture has WFE like instructions to sleep instead of poll fo=
-r word
->    @@ -30,13 +32,22 @@
->     static __always_inline void arch_spin_lock(arch_spinlock_t *lock)
+>
+>     P1(int *x, int *y, atomic_t *v)
 >     {
->    -	u32 val =3D atomic_fetch_add(1<<16, lock); /* SC, gives us RCsc */
->    +	u32 val =3D atomic_fetch_add(1<<16, lock);
->     	u16 ticket =3D val >> 16;
->     	if (ticket =3D=3D (u16)val)
->     		return;
->    +	/*
->    +	 * atomic_cond_read_acquire() is RCpc, but rather than defining a
->    +	 * custom cond_read_rcsc() here we just emit a full fence.  We only
->    +	 * need the prior reads before subsequent writes ordering from
->    +	 * smb_mb(), but as atomic_cond_read_acquire() just emits reads and =
-we
->    +	 * have no outstanding writes due to the atomic_fetch_add() the extra
->    +	 * orderings are free.
->    +	 */
->     	atomic_cond_read_acquire(lock, ticket =3D=3D (u16)VAL);
->    +	smp_mb();
+>             int r0;
+>             int r1;
+>
+>             WRITE_ONCE(*y, 1);
+>             r0 = atomic_cmpxchg(v, 0, 1);
+>             r1 = READ_ONCE(*x);
 >     }
->     static __always_inline bool arch_spin_trylock(arch_spinlock_t *lock)
->=20
-
-I like this version ;-)
-
-> I'm also now worried about trylock, but am too far down this rabbit hole =
-to
-> try and figure out how try maps between locks and cmpxchg.  This is all w=
-ay
-> too complicated to squash in, though, so I'll definitely plan on a v4.
->=20
-
-trylock should be fine, since no one will use a failed trylock to
-ordering something (famous last word though ;-)).
-
-Regards,
-Boqun
-
-> > Regards,
-> > Boqun
-> >=20
-> > > +}
-> > > +
-> > > +static __always_inline bool arch_spin_trylock(arch_spinlock_t *lock)
-> > > +{
-> > > +	u32 old =3D atomic_read(lock);
-> > > +
-> > > +	if ((old >> 16) !=3D (old & 0xffff))
-> > > +		return false;
-> > > +
-> > > +	return atomic_try_cmpxchg(lock, &old, old + (1<<16)); /* SC, for RC=
-sc */
-> > > +}
-> > > +
-> > [...]
-
---8ytG0UcqI/Y9WwWb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCAAdFiEEj5IosQTPz8XU1wRHSXnow7UH+rgFAmJbfwYACgkQSXnow7UH
-+rguVQgAl40ofgshQ0i+SHItgMtdovBr8xhK/HC+Fu1GrbgpJ9bnUeNWRf6koiVW
-2m04qNU4n2inQVqG8QntgoKIBduqtn+uk4jbCw65pcU+1vfcb4/SS2Yi0gfpPpUM
-CSlkkxkgOUMu/IUkIqeSesRCE4TjeKsEkNokgBOvbmXttc7QKFcRPjsbBn/ZPWTp
-01cLz/1gvcpa73rmloFa5cjcLDu3se1OeV1o8d0aSfcJHfEL4ugg7qdKO38Lx/tU
-j5ZrMYl0kAPUl7yMfOtfDWHo41cA57ZAjj556XYO27PTY3vXLCCfi3ECMCtYvaQy
-3wqYE0+KODnRUwJJNE4iJ3W7NNUiSA==
-=sBlA
------END PGP SIGNATURE-----
-
---8ytG0UcqI/Y9WwWb--
+>
+>     exists (u=1 /\ v=1 /\ 0:r1=0 /\ 1:r1=0)
+I think my patchset won't affect the above sequence guarantee. Current
+RISC-V implementation only gives RCsc when the original value is the
+same at least once. So I prefer RISC-V cmpxchg should be:
 
 
---===============5878083881170623896==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-                       "0:     lr.w %0, %2\n"                          \
++                      "0:     lr.w.rl %0, %2\n"                          \
+                        "       bne  %0, %z3, 1f\n"                     \
+                        "       sc.w.rl %1, %z4, %2\n"                  \
+                        "       bnez %1, 0b\n"                          \
+-                       "       fence rw, rw\n"                         \
+                        "1:\n"                                          \
++                        "       fence w, rw\n"                    \
+
+To give an unconditional RSsc for atomic_cmpxchg.
+
+>
+> Regards,
+> Boqun
+
+
+
+-- 
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5878083881170623896==--
-
