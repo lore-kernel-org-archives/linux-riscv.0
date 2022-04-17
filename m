@@ -4,76 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4A24C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 Apr 2022 04:52:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90CE1C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 Apr 2022 06:31:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pcFcUp7hPqhWxFG/W8fEVrgkyDRoAFffJEmMmBTaRhw=; b=DBIQAPY9eUCVyo
-	SQHned+/rvD8cUhd6ZLyxLzmhyzOxsUfk9zdlWbMikWXDdFeYqvpQpVC1VrN2igMIV81toX7JKXxT
-	68qqPhdQLCSax+uq1Ns6eEWNdvV/1/Gzm2XKQo+BEbeSbeK4l1Tvfg/i17elX1HP30fqUhqABe6/X
-	h3cpPV2lK6tzcy8bbbCjhRa1yQv+eEY6J9qW5uW5bihjEhHQlHDv9oyfqAYtaufGBlsgtIslOcR90
-	ChlVopulwjqn+eHO7+O/GWM6CuHjBktH2j3YQ/JI95SJ45iSdgR6X4Bqo3yHu+gaViVlxiytVISpa
-	8NpFjkeksyYSO1af0bzw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GFXxXmTZHjLmXnhQ+jVrhcDJuPzGJRqty6+mTXqCQHM=; b=Nx/r/5UB/Y60GmmhqYxMvTB+Ge
+	UvSeRXAfU7uoo3g5HPDO5Kjz8oZBUpNiZxmEZ7PldMTw8quVqHvYcjOfdi/chZ1oDcqTL/UJTaWw2
+	CN6m8KvjcFWh03jBGBfGCDMtKZ4zp9yuPW4lo3ovYCiAbS5jPiTJpRKG6xll6ldUg8XdQwqOchR16
+	If02wxGg3Q/T22d3e+daLd08SeOH5yT4oQPUIDDeaL00JwqQLt0lM31Wrxa9yX4u/vLQQiZcriVaM
+	a5z+iNyOJAnJS45ZKAeuLthBkvcrE1HFr0JIYMGreSOvNb44tdhsDjla24eaI+1Rgdu+2HAhIwtLQ
+	9eAOViPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nfwtC-00Dvsm-DX; Sun, 17 Apr 2022 04:51:58 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1nfyR6-00DzlC-6E; Sun, 17 Apr 2022 06:31:04 +0000
+Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nfwt9-00DvrV-9s
- for linux-riscv@lists.infradead.org; Sun, 17 Apr 2022 04:51:57 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id E99E7B808C5
- for <linux-riscv@lists.infradead.org>; Sun, 17 Apr 2022 04:51:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8257EC385AD
- for <linux-riscv@lists.infradead.org>; Sun, 17 Apr 2022 04:51:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1650171110;
- bh=q9fcztGM71+vCsZD2N4sUtaABxXR93vfr2R7Ii6mFC8=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=jUbXnBi9aMXK60wnUJjnyZw58Q3GYnhe/dy+0o6GJtQhO+IUFN0Dury2JuSnsaH2D
- 21iHpkdwKQgjRAzcOahPeVVcCl4QYLXr1JwQcJ0TDZgo8Z3ccQAz4Ca/aq0vRGV4PS
- FhzFZdXkU7apPFJYQ2hW/+Y7ugiY7vezx1YyDsrZKU3n3+rCe0ZwwdA1lrckuRzpPD
- K9WO3KbWWNbEOAptuVga4h1/rXgfNejideMJiOQQ9ZuS+F3D4+R8EGi4uSWP1x/5Qb
- J9CYsLtiYDIIF8PDufa5skqzfYGR33WScBQsxzeM4Ps8mmalNQNZmJa8xc6rGeLOGq
- ctsnD/hOJLjfw==
-Received: by mail-vs1-f46.google.com with SMTP id r1so10148779vsi.12
- for <linux-riscv@lists.infradead.org>; Sat, 16 Apr 2022 21:51:50 -0700 (PDT)
-X-Gm-Message-State: AOAM533libZ2N/LkmagOaqgq5dsEkETpHYuceYfDxVm7sQbU/xv7Ixnq
- 3ySi554i6j7rfCmUYhARvwIis/wLNXB4wrh8e7k=
-X-Google-Smtp-Source: ABdhPJwe8VaBJyEULUgbn9Rxjc0N2mB5BdM3ji3bpONwyvqfGaJOdzxm8o3/Qi4EIqs0qE0oejXEmKnFqtUwR+buu3o=
-X-Received: by 2002:a67:e181:0:b0:32a:335c:4ac1 with SMTP id
- e1-20020a67e181000000b0032a335c4ac1mr1455751vsl.2.1650171109426; Sat, 16 Apr
- 2022 21:51:49 -0700 (PDT)
-MIME-Version: 1.0
+ id 1nfyR3-00DzkG-IO
+ for linux-riscv@lists.infradead.org; Sun, 17 Apr 2022 06:31:03 +0000
+Received: by mail-qv1-xf2f.google.com with SMTP id x20so9064933qvl.10
+ for <linux-riscv@lists.infradead.org>; Sat, 16 Apr 2022 23:31:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=Vfmh10AIjKhxbv0qitn8kLvuk+Cu75U8u1UgKPRnj9Y=;
+ b=PZXa7U1As9//OVTHp6l3Oy8K28hLO82xDGAtXw8wM5HfB+XFJ7jThau3k40bb5Sr16
+ gjTzXJKLzp4B53OdD04OofHerzOxRXw18S7unz3EBkY0x2EfeMy0LEyi5+TIgXDH/qiG
+ 45AYfEgPAHAtFp4lCVqnmM67lVrF2ydoAZB6wCnLZUaGSpcrJ725eymTorimq2x/3JUX
+ ss5G4xchV2sNS+1NG58DDDK+jr02md8Z9/OC9XEvOiVOGWoN3Cf5jsq2/YiR+PM5sG62
+ 4lg1KB4a9X84fdEobAAWIenuz8+qWyReWIRXXt2b+jufl4NJW0ajQ67qYH/baw0y5k7a
+ heAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=Vfmh10AIjKhxbv0qitn8kLvuk+Cu75U8u1UgKPRnj9Y=;
+ b=qzDLcJAoQElrPr51qzeP2z8iD8LumefkckJS/SecZ8nt3Olip7Jfo/BCGHo/a5Uh2t
+ iGRubFaXsuq/l9xtUcchF5nTFV3Mp7hP7SyqSuYjMApHGixLSY8PTWoJWB0lIWmc+NxA
+ 9jas48QRXOyIpVWgn04ezZv6xeNRE0RwI3YpiyLIeuY0Vf95kYSpSWTL35BlN67t3zJe
+ vWcXQhvAtDljoiHg8F1WCZlYtRA1cH9zNUPiYzqs8fBa0FOvyWZOU91yvljsu6slGkis
+ +oyaGYXlMJtui6jsWhE/Ff1mtVe2nbFV/2Tun/bOWyGL0ZxVDpa3Vt2Baut7x2XGuYGy
+ ckkA==
+X-Gm-Message-State: AOAM530YdCyBntX5OBXMuA/AchbrndHQXdFlxSHCaSwLgPwpYlH4VdXf
+ xqsVXLfjNCoYJ8ntHkPoKSc=
+X-Google-Smtp-Source: ABdhPJw5kru0ZzWwBoz0EiP7bnB0qBsfZYqWwUQ20W1IwiFlov9NAQNt7XqQ/Us3KbHNjzsg3OKpeA==
+X-Received: by 2002:a05:6214:260e:b0:446:4518:7445 with SMTP id
+ gu14-20020a056214260e00b0044645187445mr4059905qvb.101.1650177059720; 
+ Sat, 16 Apr 2022 23:30:59 -0700 (PDT)
+Received: from auth2-smtp.messagingengine.com (auth2-smtp.messagingengine.com.
+ [66.111.4.228]) by smtp.gmail.com with ESMTPSA id
+ t198-20020a3746cf000000b0069c51337badsm4857876qka.45.2022.04.16.23.30.58
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sat, 16 Apr 2022 23:30:58 -0700 (PDT)
+Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
+ by mailauth.nyi.internal (Postfix) with ESMTP id 0106827C0054;
+ Sun, 17 Apr 2022 02:30:57 -0400 (EDT)
+Received: from mailfrontend2 ([10.202.2.163])
+ by compute4.internal (MEProxy); Sun, 17 Apr 2022 02:30:58 -0400
+X-ME-Sender: <xms:ILRbYtSo2K2vhL94n_CFsnqBGYxWOIOMJ73__0Cd6GQbIIisObVQpg>
+ <xme:ILRbYmx2VHAMuEje92BJ7g15alNTmZDSUaqNQJctEmkrZouFRTaAF2RJjbOmod8MK
+ Ovmd-cPQiyNEcBAaA>
+X-ME-Received: <xmr:ILRbYi3MS4HpDJgoUIPpiKUC20-sf8UgVSShU82FyHWLqtbC19R3p9SKXQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvvddrudelkedguddutdcutefuodetggdotefrod
+ ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
+ necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
+ enucfjughrpeffhffvuffkfhggtggujgesghdtreertddtvdenucfhrhhomhepuehoqhhu
+ nhcuhfgvnhhguceosghoqhhunhdrfhgvnhhgsehgmhgrihhlrdgtohhmqeenucggtffrrg
+ htthgvrhhnpeeuveegvdfgleegjeefjeevuddtjeehtddvgfdthfdtkeevledvuedtfefh
+ fedugeenucffohhmrghinhepthhhvgdrrghqpdhkvghrnhgvlhdrohhrghenucevlhhush
+ htvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegsohhquhhnodhmvghs
+ mhhtphgruhhthhhpvghrshhonhgrlhhithihqdeiledvgeehtdeigedqudejjeekheehhe
+ dvqdgsohhquhhnrdhfvghngheppehgmhgrihhlrdgtohhmsehfihigmhgvrdhnrghmvg
+X-ME-Proxy: <xmx:ILRbYlDJFauU92YO2D0vX1XpXk-mTdMMOQUg7mcKOnY9dVLrj17mZw>
+ <xmx:ILRbYmhbKJ2O6kVdiTBQ7D0eCImMLtf3llmmEfi577VMFWApztXkwg>
+ <xmx:ILRbYpr3FCG2I6gRVZumAoFSMUnA1zPY_oMCEvBuAZa8tl-GGDiqSg>
+ <xmx:IbRbYnYQDtNAYtxXM6ugRPBGXAPsEOkQ5vZ6fXusiZqcONgNMYfW6w>
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 17 Apr 2022 02:30:54 -0400 (EDT)
+Date: Sun, 17 Apr 2022 14:30:50 +0800
+From: Boqun Feng <boqun.feng@gmail.com>
+To: Guo Ren <guoren@kernel.org>
+Cc: Andrea Parri <parri.andrea@gmail.com>, Daniel Lustig <dlustig@nvidia.com>,
+ "Paul E. McKenney" <paulmck@linux.vnet.ibm.com>,
+ Arnd Bergmann <arnd@arndb.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ linux-arch <linux-arch@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH V2 0/3] riscv: atomic: Optimize AMO instructions usage
+Message-ID: <Ylu0GqNmYmCnpv9Z@tardis>
 References: <20220412034957.1481088-1-guoren@kernel.org>
  <YlbwOG46mCR8Q5tJ@tardis>
  <CAJF2gTRws6RqKmJHBdKsycWSkFgYna_MocJ+qp3Z9r1v7mQzsg@mail.gmail.com>
  <Ylt6zqPgimmKpJzg@tardis>
-In-Reply-To: <Ylt6zqPgimmKpJzg@tardis>
-From: Guo Ren <guoren@kernel.org>
-Date: Sun, 17 Apr 2022 12:51:38 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTZnBh_z31VK81cYiBrTt5NRVpSahoPh35Zo4Ns5hCv7A@mail.gmail.com>
-Message-ID: <CAJF2gTTZnBh_z31VK81cYiBrTt5NRVpSahoPh35Zo4Ns5hCv7A@mail.gmail.com>
-Subject: Re: [PATCH V2 0/3] riscv: atomic: Optimize AMO instructions usage
-To: Boqun Feng <boqun.feng@gmail.com>
-Cc: Andrea Parri <parri.andrea@gmail.com>, Daniel Lustig <dlustig@nvidia.com>, 
- "Paul E. McKenney" <paulmck@linux.vnet.ibm.com>,
- Arnd Bergmann <arnd@arndb.de>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Mark Rutland <mark.rutland@arm.com>,
- Will Deacon <will@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, linux-arch <linux-arch@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Guo Ren <guoren@linux.alibaba.com>
+ <CAJF2gTTZnBh_z31VK81cYiBrTt5NRVpSahoPh35Zo4Ns5hCv7A@mail.gmail.com>
+MIME-Version: 1.0
+In-Reply-To: <CAJF2gTTZnBh_z31VK81cYiBrTt5NRVpSahoPh35Zo4Ns5hCv7A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220416_215155_671094_5DE52A59 
-X-CRM114-Status: GOOD (  19.51  )
+X-CRM114-CacheID: sfid-20220416_233101_675893_F5572255 
+X-CRM114-Status: GOOD (  26.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,118 +119,171 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5236515140317318338=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Boqun & Andrea,
 
-On Sun, Apr 17, 2022 at 10:26 AM Boqun Feng <boqun.feng@gmail.com> wrote:
->
-> On Sun, Apr 17, 2022 at 12:49:44AM +0800, Guo Ren wrote:
-> [...]
+--===============5236515140317318338==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="eKl0vpmQLAWLx6Dq"
+Content-Disposition: inline
+
+
+--eKl0vpmQLAWLx6Dq
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sun, Apr 17, 2022 at 12:51:38PM +0800, Guo Ren wrote:
+> Hi Boqun & Andrea,
+>=20
+> On Sun, Apr 17, 2022 at 10:26 AM Boqun Feng <boqun.feng@gmail.com> wrote:
 > >
-> > If both the aq and rl bits are set, the atomic memory operation is
-> > sequentially consistent and cannot be observed to happen before any
-> > earlier memory operations or after any later memory operations in the
-> > same RISC-V hart and to the same address domain.
-> >                 "0:     lr.w     %[p],  %[c]\n"
-> >                 "       sub      %[rc], %[p], %[o]\n"
-> >                 "       bltz     %[rc], 1f\n".
-> > -               "       sc.w.rl  %[rc], %[rc], %[c]\n"
-> > +               "       sc.w.aqrl %[rc], %[rc], %[c]\n"
-> >                 "       bnez     %[rc], 0b\n"
-> > -               "       fence    rw, rw\n"
-> >                 "1:\n"
-> > So .rl + fence rw, rw is over constraints, only using sc.w.aqrl is more proper.
+> > On Sun, Apr 17, 2022 at 12:49:44AM +0800, Guo Ren wrote:
+> > [...]
+> > >
+> > > If both the aq and rl bits are set, the atomic memory operation is
+> > > sequentially consistent and cannot be observed to happen before any
+> > > earlier memory operations or after any later memory operations in the
+> > > same RISC-V hart and to the same address domain.
+> > >                 "0:     lr.w     %[p],  %[c]\n"
+> > >                 "       sub      %[rc], %[p], %[o]\n"
+> > >                 "       bltz     %[rc], 1f\n".
+> > > -               "       sc.w.rl  %[rc], %[rc], %[c]\n"
+> > > +               "       sc.w.aqrl %[rc], %[rc], %[c]\n"
+> > >                 "       bnez     %[rc], 0b\n"
+> > > -               "       fence    rw, rw\n"
+> > >                 "1:\n"
+> > > So .rl + fence rw, rw is over constraints, only using sc.w.aqrl is mo=
+re proper.
+> > >
 > >
->
-> Can .aqrl order memory accesses before and after it (not against itself,
-> against each other), i.e. act as a full memory barrier? For example, can
-From the RVWMO spec description, the .aqrl annotation appends the same
-effect with "fence rw, rw" to the AMO instruction, so it's RCsc.
+> > Can .aqrl order memory accesses before and after it (not against itself,
+> > against each other), i.e. act as a full memory barrier? For example, can
+> From the RVWMO spec description, the .aqrl annotation appends the same
+> effect with "fence rw, rw" to the AMO instruction, so it's RCsc.
+>=20
 
-Not only .aqrl, and I think the below also could be an RCsc when
-sc.w.aq is executed:
-A: Pre-Access
-B: lr.w.rl ADDR-0
-...
-C: sc.w.aq ADDR-0
-D: Post-Acess
-Because sc.w.aq has overlap address & data dependency on lr.w.rl, the
-global memory order should be A->B->C->D when sc.w.aq is executed. For
-the amoswap
+Thanks for the confirmation, btw, where can I find the RVWMO spec?
 
-The purpose of the whole patchset is to reduce the usage of
-independent fence rw, rw instructions, and maximize the usage of the
-.aq/.rl/.aqrl aonntation of RISC-V.
+> Not only .aqrl, and I think the below also could be an RCsc when
+> sc.w.aq is executed:
+> A: Pre-Access
+> B: lr.w.rl ADDR-0
+> ...
+> C: sc.w.aq ADDR-0
+> D: Post-Acess
+> Because sc.w.aq has overlap address & data dependency on lr.w.rl, the
+> global memory order should be A->B->C->D when sc.w.aq is executed. For
+> the amoswap
+>=20
+> The purpose of the whole patchset is to reduce the usage of
+> independent fence rw, rw instructions, and maximize the usage of the
+> .aq/.rl/.aqrl aonntation of RISC-V.
+>=20
+>                 __asm__ __volatile__ (                                  \
+>                         "0:     lr.w %0, %2\n"                          \
+>                         "       bne  %0, %z3, 1f\n"                     \
+>                         "       sc.w.rl %1, %z4, %2\n"                  \
+>                         "       bnez %1, 0b\n"                          \
+>                         "       fence rw, rw\n"                         \
+>                         "1:\n"                                          \
+>=20
+> > we end up with u =3D=3D 1, v =3D=3D 1, r1 on P0 is 0 and r1 on P1 is 0,=
+ for the
+> > following litmus test?
+> >
+> >     C lr-sc-aqrl-pair-vs-full-barrier
+> >
+> >     {}
+> >
+> >     P0(int *x, int *y, atomic_t *u)
+> >     {
+> >             int r0;
+> >             int r1;
+> >
+> >             WRITE_ONCE(*x, 1);
+> >             r0 =3D atomic_cmpxchg(u, 0, 1);
+> >             r1 =3D READ_ONCE(*y);
+> >     }
+> >
+> >     P1(int *x, int *y, atomic_t *v)
+> >     {
+> >             int r0;
+> >             int r1;
+> >
+> >             WRITE_ONCE(*y, 1);
+> >             r0 =3D atomic_cmpxchg(v, 0, 1);
+> >             r1 =3D READ_ONCE(*x);
+> >     }
+> >
+> >     exists (u=3D1 /\ v=3D1 /\ 0:r1=3D0 /\ 1:r1=3D0)
+> I think my patchset won't affect the above sequence guarantee. Current
+> RISC-V implementation only gives RCsc when the original value is the
+> same at least once. So I prefer RISC-V cmpxchg should be:
+>=20
+>=20
+> -                       "0:     lr.w %0, %2\n"                          \
+> +                      "0:     lr.w.rl %0, %2\n"                         =
+ \
+>                         "       bne  %0, %z3, 1f\n"                     \
+>                         "       sc.w.rl %1, %z4, %2\n"                  \
+>                         "       bnez %1, 0b\n"                          \
+> -                       "       fence rw, rw\n"                         \
+>                         "1:\n"                                          \
+> +                        "       fence w, rw\n"                    \
+>=20
+> To give an unconditional RSsc for atomic_cmpxchg.
+>=20
 
-                __asm__ __volatile__ (                                  \
-                        "0:     lr.w %0, %2\n"                          \
-                        "       bne  %0, %z3, 1f\n"                     \
-                        "       sc.w.rl %1, %z4, %2\n"                  \
-                        "       bnez %1, 0b\n"                          \
-                        "       fence rw, rw\n"                         \
-                        "1:\n"                                          \
+Note that Linux kernel doesn't require cmpxchg() to provide any order if
+cmpxchg() fails to update the memory location. So you won't need to
+strengthen the atomic_cmpxchg().
 
-> we end up with u == 1, v == 1, r1 on P0 is 0 and r1 on P1 is 0, for the
-> following litmus test?
->
->     C lr-sc-aqrl-pair-vs-full-barrier
->
->     {}
->
->     P0(int *x, int *y, atomic_t *u)
->     {
->             int r0;
->             int r1;
->
->             WRITE_ONCE(*x, 1);
->             r0 = atomic_cmpxchg(u, 0, 1);
->             r1 = READ_ONCE(*y);
->     }
->
->     P1(int *x, int *y, atomic_t *v)
->     {
->             int r0;
->             int r1;
->
->             WRITE_ONCE(*y, 1);
->             r0 = atomic_cmpxchg(v, 0, 1);
->             r1 = READ_ONCE(*x);
->     }
->
->     exists (u=1 /\ v=1 /\ 0:r1=0 /\ 1:r1=0)
-I think my patchset won't affect the above sequence guarantee. Current
-RISC-V implementation only gives RCsc when the original value is the
-same at least once. So I prefer RISC-V cmpxchg should be:
+Regards,
+Boqun
+
+> >
+> > Regards,
+> > Boqun
+>=20
+>=20
+>=20
+> --=20
+> Best Regards
+>  Guo Ren
+>=20
+> ML: https://lore.kernel.org/linux-csky/
+
+--eKl0vpmQLAWLx6Dq
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCAAdFiEEj5IosQTPz8XU1wRHSXnow7UH+rgFAmJbtBcACgkQSXnow7UH
++rhsSgf/Yes71uP9q+qTNbrCUmjS5/wiBJPUbWlgx7JKTXgawyX72Raimw4rjlFo
+9UT8KiZPQ76BEEd74fq8paTgy4GHu8XzAdtOQBPJ/CbAkfuDc0Z9/4e4ZwsXDaBc
+/a6krWcGbouzS+2RVi/k0G6+EXbz8cBY6ORQ//7nseylrzaDcZtA7oAEx09PpVUq
+7C8p/O+JLlCRj+W/CgOew3j1yK10HZ6BGkohfIM92r6GA3ArlHvuGmgYMrO0xuzZ
+PZTx3HDwZbh98wiwBc3/xL+CnH8R7ffS9eTHvNO2GWebwIAiP7a/iQPbvGvyhwrf
+xGcVLQRVB3NzKuTCASxcpR91L+r9FA==
+=pKCs
+-----END PGP SIGNATURE-----
+
+--eKl0vpmQLAWLx6Dq--
 
 
--                       "0:     lr.w %0, %2\n"                          \
-+                      "0:     lr.w.rl %0, %2\n"                          \
-                        "       bne  %0, %z3, 1f\n"                     \
-                        "       sc.w.rl %1, %z4, %2\n"                  \
-                        "       bnez %1, 0b\n"                          \
--                       "       fence rw, rw\n"                         \
-                        "1:\n"                                          \
-+                        "       fence w, rw\n"                    \
-
-To give an unconditional RSsc for atomic_cmpxchg.
-
->
-> Regards,
-> Boqun
-
-
-
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+--===============5236515140317318338==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5236515140317318338==--
+
