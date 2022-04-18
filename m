@@ -4,58 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BB50C433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Apr 2022 09:28:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D42C4C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Apr 2022 10:54:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9M6VWHas1XC11WKavUn9DeJ0ckj5clBIJBinFBGbCYo=; b=bYsrlTT8ile+6X
-	iw1DzAyCUHyxDmplBicxEuFDwqh8FWNUYCO8JLA7S8YMNf8YVK4JPdAtwvnh8s4H+6uL00ZgQCCHc
-	gSLKF3tW7mGz0Pf+GYkGf9B2p6tWedDrbP5wNxNhh/IkUwfAjBfXU6zbcQYsB5SwBCk+rDIJSq0fv
-	fDX2fpUouXXNJ25Z+vnJvK4sAqWOplNnu71VKvTNvel8rAHpLKAkrLZc/gm8C9Fwcjbh/S2ToMQHt
-	CMdVeac+s3eMgHwWbznnMKqAd+j5TzauldY7yPjcXjG25AmSc0XTobmr9Dt3gVSf7BYyv/SPMIdZp
-	8JLwaCdb0dod0dzrZPfA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=h+Kj7ddUxNYguVZWb78p4+3JyyDSURXC4etnTAwQW70=; b=DjmMAp2wU4bEe9
+	/Y3qa9B2QQ177PhldGvYRjCxAAsUX3DGFJl/hudaupxBLpzPrS1Gj/lysR8Fy4dUUxYa593xAW7ML
+	h45KTH0faLTE6LXHdjOuyBeFebonisb7VFOsWbKR1GkoDxfRVpVFgpzlvXjORhSFW0uJfNGiGQ41U
+	zuOyRbnDO+oxBepibllON932/+8vKOQvGbuSb4Joc2TeczBgB9SHgZYTKU0kIHLPBFa88Q9MYRjUR
+	FurumRFQ6zBrTYf4D1kfgzjqN9s0zDnDqtS+WvGtUX0NUlkOLigF9zR6ZQ2nM8DM/kkkIBrZzOMPv
+	pB+AzUjtreed6r/fMaXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ngNft-00GBVe-Ba; Mon, 18 Apr 2022 09:28:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ngNfg-00GBRE-Kw; Mon, 18 Apr 2022 09:27:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E67F5ED1;
- Mon, 18 Apr 2022 02:27:45 -0700 (PDT)
-Received: from [10.163.37.247] (unknown [10.163.37.247])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D84413F7B4;
- Mon, 18 Apr 2022 02:27:37 -0700 (PDT)
-Message-ID: <1c314feb-cd78-2bb3-462e-4ea3cefe122e@arm.com>
-Date: Mon, 18 Apr 2022 14:58:20 +0530
+	id 1ngP0x-00GNOX-38; Mon, 18 Apr 2022 10:53:51 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1ngP0t-00GNNC-AN
+ for linux-riscv@lists.infradead.org; Mon, 18 Apr 2022 10:53:48 +0000
+Received: by mail-pg1-x536.google.com with SMTP id t13so18224159pgn.8
+ for <linux-riscv@lists.infradead.org>; Mon, 18 Apr 2022 03:53:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ventanamicro.com; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=her0KFXUz9ZM0eej9Tysz7JCVsy+0ZU1+POTkCVRJPk=;
+ b=BTMPZTQ6i3UnKiuixUwA9qpCyzIB/p/mZE8778CnegoWieKLJqqpZfXpqkP0LqOWmi
+ nQkwXeT+QlIdkJFiXcsZ6B7rh5fcmDRCMgRRI+vcernAOKt7BtmzCZEl9ThkyGehDvEL
+ 0stXaNy9UWBh+iKF6si6AbPtjpUBajNPUPOM6yOSwRIqeQDIiHSACwZ7/Sed5z12J/Kg
+ cNdX8KDQiqbQy9Cq+zstlFwhrS3EewCTs96+HaYKVeIBkndydKJoGrBO8nX/k+z2gXiq
+ LC8NhSuaVjazf15cqhWQc4QBYYFxsnGaUf7gV5Pxj6j7H+CIbopx80AT2cq+tmuDaAQe
+ qoQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=her0KFXUz9ZM0eej9Tysz7JCVsy+0ZU1+POTkCVRJPk=;
+ b=0WUDCCOYXkgKz9ablTsg0m7MpCmyrsq42kHUHgDBOfcUGjZXcdEnCZDoIbxd0MwJq1
+ gBocgOQU9kQSD+6v/wSEQwMxJ30cIVs3OvuttRtbhqia78Stl+iVpLnpNa85WxEx/MID
+ YMRrcFk+5ImRVW0+6YaYHHwMlOmOZTItbMUMCLdWVRkXJ12rpJz5aeU5fZ6m5S4skgmQ
+ SP8rnGhrH1RZnq9uI97o4g3hU16WUmBHBpxNdteqq0VSwnswdIR2Er42N1pUsNimPf+p
+ np6ilbD8td5aldhoGuPjPj7wrNg98yoBLUe3ZRq/fwEX6QZ/xfMSdpmhekFEXdxUZqhN
+ U3xg==
+X-Gm-Message-State: AOAM531b3Yf7fg6qvJo48VIasPE8NNg7ubOsoFjJ3WCZa8avZqvJ7sy3
+ J5rH3UafLBM9pzMr+rb+zY5c4A==
+X-Google-Smtp-Source: ABdhPJysT7CWdPdJ4dp09F7+iT+mxn/7CeeF09kO5aewy36J0xFI6mTXW+GLV3EJYhltb8j2V35j/w==
+X-Received: by 2002:a65:6a07:0:b0:39d:8c35:426b with SMTP id
+ m7-20020a656a07000000b0039d8c35426bmr9750747pgu.171.1650279222665; 
+ Mon, 18 Apr 2022 03:53:42 -0700 (PDT)
+Received: from localhost.localdomain ([122.172.241.223])
+ by smtp.gmail.com with ESMTPSA id
+ j13-20020a056a00130d00b004f1025a4361sm12986278pfu.202.2022.04.18.03.53.38
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 18 Apr 2022 03:53:41 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: Atish Patra <atishp@atishpatra.org>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH v6 0/7] RISC-V IPI Improvements
+Date: Mon, 18 Apr 2022 16:22:58 +0530
+Message-Id: <20220418105305.1196665-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.5.0
-Subject: Re: [PATCH -next v4 3/4] arm64: mm: add support for page table check
-Content-Language: en-US
-To: Tong Tiangen <tongtiangen@huawei.com>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- Kefeng Wang <wangkefeng.wang@huawei.com>, Guohanjun <guohanjun@huawei.com>
-References: <20220418034444.520928-1-tongtiangen@huawei.com>
- <20220418034444.520928-4-tongtiangen@huawei.com>
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20220418034444.520928-4-tongtiangen@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220418_022749_774582_E7B13CF1 
-X-CRM114-Status: GOOD (  26.19  )
+X-CRM114-CacheID: sfid-20220418_035347_383897_1C0C1B99 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,256 +93,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/18/22 09:14, Tong Tiangen wrote:
-> From: Kefeng Wang <wangkefeng.wang@huawei.com>
-> 
-> As commit d283d422c6c4 ("x86: mm: add x86_64 support for page table
-> check"), add some necessary page table check hooks into routines that
-> modify user page tables.
-> 
-> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
-> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
-> Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
-> ---
->  arch/arm64/Kconfig               |  1 +
->  arch/arm64/include/asm/pgtable.h | 65 +++++++++++++++++++++++++++++---
->  2 files changed, 61 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index e80fd2372f02..7114d2d5155e 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -92,6 +92,7 @@ config ARM64
->  	select ARCH_SUPPORTS_ATOMIC_RMW
->  	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128
->  	select ARCH_SUPPORTS_NUMA_BALANCING
-> +	select ARCH_SUPPORTS_PAGE_TABLE_CHECK
->  	select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
->  	select ARCH_WANT_DEFAULT_BPF_JIT
->  	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index 930077f7b572..9f8f97a7cc7c 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -33,6 +33,7 @@
->  #include <linux/mmdebug.h>
->  #include <linux/mm_types.h>
->  #include <linux/sched.h>
-> +#include <linux/page_table_check.h>
->  
->  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
->  #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
-> @@ -96,6 +97,7 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
->  #define pte_young(pte)		(!!(pte_val(pte) & PTE_AF))
->  #define pte_special(pte)	(!!(pte_val(pte) & PTE_SPECIAL))
->  #define pte_write(pte)		(!!(pte_val(pte) & PTE_WRITE))
-> +#define pte_user(pte)		(!!(pte_val(pte) & PTE_USER))
->  #define pte_user_exec(pte)	(!(pte_val(pte) & PTE_UXN))
->  #define pte_cont(pte)		(!!(pte_val(pte) & PTE_CONT))
->  #define pte_devmap(pte)		(!!(pte_val(pte) & PTE_DEVMAP))
-> @@ -312,7 +314,7 @@ static inline void __check_racy_pte_update(struct mm_struct *mm, pte_t *ptep,
->  		     __func__, pte_val(old_pte), pte_val(pte));
->  }
->  
-> -static inline void set_pte_at(struct mm_struct *mm, unsigned long addr,
-> +static inline void __set_pte_at(struct mm_struct *mm, unsigned long addr,
->  			      pte_t *ptep, pte_t pte)
->  {
->  	if (pte_present(pte) && pte_user_exec(pte) && !pte_special(pte))
-> @@ -343,6 +345,13 @@ static inline void set_pte_at(struct mm_struct *mm, unsigned long addr,
->  	set_pte(ptep, pte);
->  }
->  
-> +static inline void set_pte_at(struct mm_struct *mm, unsigned long addr,
-> +			      pte_t *ptep, pte_t pte)
-> +{
-> +	page_table_check_pte_set(mm, addr, ptep, pte);
-> +	return __set_pte_at(mm, addr, ptep, pte);
-> +}
-> +
->  /*
->   * Huge pte definitions.
->   */
-> @@ -454,6 +463,8 @@ static inline int pmd_trans_huge(pmd_t pmd)
->  #define pmd_dirty(pmd)		pte_dirty(pmd_pte(pmd))
->  #define pmd_young(pmd)		pte_young(pmd_pte(pmd))
->  #define pmd_valid(pmd)		pte_valid(pmd_pte(pmd))
-> +#define pmd_user(pmd)		pte_user(pmd_pte(pmd))
-> +#define pmd_user_exec(pmd)	pte_user_exec(pmd_pte(pmd))
->  #define pmd_cont(pmd)		pte_cont(pmd_pte(pmd))
->  #define pmd_wrprotect(pmd)	pte_pmd(pte_wrprotect(pmd_pte(pmd)))
->  #define pmd_mkold(pmd)		pte_pmd(pte_mkold(pmd_pte(pmd)))
-> @@ -501,8 +512,19 @@ static inline pmd_t pmd_mkdevmap(pmd_t pmd)
->  #define pud_pfn(pud)		((__pud_to_phys(pud) & PUD_MASK) >> PAGE_SHIFT)
->  #define pfn_pud(pfn,prot)	__pud(__phys_to_pud_val((phys_addr_t)(pfn) << PAGE_SHIFT) | pgprot_val(prot))
->  
-> -#define set_pmd_at(mm, addr, pmdp, pmd)	set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd))
-> -#define set_pud_at(mm, addr, pudp, pud)	set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud))
-> +static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
-> +			      pmd_t *pmdp, pmd_t pmd)
-> +{
-> +	page_table_check_pmd_set(mm, addr, pmdp, pmd);
-> +	return __set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd));
-> +}
-> +
-> +static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
-> +			      pud_t *pudp, pud_t pud)
-> +{
-> +	page_table_check_pud_set(mm, addr, pudp, pud);
-> +	return __set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud));
-> +}
->  
->  #define __p4d_to_phys(p4d)	__pte_to_phys(p4d_pte(p4d))
->  #define __phys_to_p4d_val(phys)	__phys_to_pte_val(phys)
-> @@ -643,6 +665,24 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
->  #define pud_present(pud)	pte_present(pud_pte(pud))
->  #define pud_leaf(pud)		pud_sect(pud)
->  #define pud_valid(pud)		pte_valid(pud_pte(pud))
-> +#define pud_user(pud)		pte_user(pud_pte(pud))
-> +
-> +#ifdef CONFIG_PAGE_TABLE_CHECK
-> +static inline bool pte_user_accessible_page(pte_t pte)
-> +{
-> +	return pte_present(pte) && (pte_user(pte) || pte_user_exec(pte));
-> +}
-> +
-> +static inline bool pmd_user_accessible_page(pmd_t pmd)
-> +{
-> +	return pmd_present(pmd) && (pmd_user(pmd) || pmd_user_exec(pmd));
-> +}
-> +
-> +static inline bool pud_user_accessible_page(pud_t pud)
-> +{
-> +	return pud_present(pud) && pud_user(pud);
-> +}
-> +#endif
->  
->  static inline void set_pud(pud_t *pudp, pud_t pud)
->  {
-> @@ -872,11 +912,21 @@ static inline int pmdp_test_and_clear_young(struct vm_area_struct *vma,
->  }
->  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
->  
-> +static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
-> +				       unsigned long address, pte_t *ptep)
-> +{
-> +	return __pte(xchg_relaxed(&pte_val(*ptep), 0));
-> +}
-> +
->  #define __HAVE_ARCH_PTEP_GET_AND_CLEAR
->  static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
->  				       unsigned long address, pte_t *ptep)
->  {
-> -	return __pte(xchg_relaxed(&pte_val(*ptep), 0));
-> +	pte_t pte = __ptep_get_and_clear(mm, address, ptep);
-> +
-> +	page_table_check_pte_clear(mm, address, pte);
-> +
-> +	return pte;
->  }
->  
->  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-> @@ -884,7 +934,11 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
->  static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
->  					    unsigned long address, pmd_t *pmdp)
->  {
-> -	return pte_pmd(ptep_get_and_clear(mm, address, (pte_t *)pmdp));
-> +	pmd_t pmd = pte_pmd(__ptep_get_and_clear(mm, address, (pte_t *)pmdp));
-> +
-> +	page_table_check_pmd_clear(mm, address, pmd);
-> +
-> +	return pmd;
->  }
->  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
->  
-> @@ -918,6 +972,7 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
->  static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
->  		unsigned long address, pmd_t *pmdp, pmd_t pmd)
->  {
-> +	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
->  	return __pmd(xchg_relaxed(&pmd_val(*pmdp), pmd_val(pmd)));
->  }
->  #endif
+This series aims to improve IPI support in Linux RISC-V in following ways:
+ 1) Treat IPIs as normal per-CPU interrupts instead of having custom RISC-V
+    specific hooks. This also makes Linux RISC-V IPI support aligned with
+    other architectures.
+ 2) Remote TLB flushes and icache flushes should prefer local IPIs instead
+    of SBI calls whenever we have specialized hardware (such as RISC-V AIA
+    IMSIC and RISC-V SWI) which allows S-mode software to directly inject
+    IPIs without any assistance from M-mode runtime firmware.
 
-Ran this series on arm64 platform after enabling
+These patches were originally part of the "Linux RISC-V ACLINT Support"
+series but this now a separate series so that it can be merged independently
+of the "Linux RISC-V ACLINT Support" series.
+(Refer, https://lore.kernel.org/lkml/20211007123632.697666-1-anup.patel@wdc.com/)
 
-- CONFIG_PAGE_TABLE_CHECK
-- CONFIG_PAGE_TABLE_CHECK_ENFORCED (avoiding kernel command line option)
+These patches are also a preparatory patches for the up-coming:
+ 1) Linux RISC-V AIA support
+ 2) KVM RISC-V TLB flush improvements
+ 3) Linux RISC-V SWI support
 
-After some time, the following error came up
+These patches can also be found in riscv_ipi_imp_v6 branch at:
+https://github.com/avpatel/linux.git
 
-[   23.266013] ------------[ cut here ]------------
-[   23.266807] kernel BUG at mm/page_table_check.c:90!
-[   23.267609] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
-[   23.268503] Modules linked in:                                                                    
-[   23.269012] CPU: 1 PID: 30 Comm: khugepaged Not tainted 5.18.0-rc3-00004-g60aa8e363a91 #2
-[   23.270383] Hardware name: linux,dummy-virt (DT)
-[   23.271210] pstate: 40400005 (nZcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[   23.272445] pc : page_table_check_clear.isra.6+0x114/0x148
-[   23.273429] lr : page_table_check_clear.isra.6+0x64/0x148
-[   23.274395] sp : ffff80000afb3ca0
-[   23.274994] x29: ffff80000afb3ca0 x28: fffffc00022558e8 x27: ffff80000a27f628
-[   23.276260] x26: ffff800009f9f2b0 x25: ffff00008a8d5000 x24: ffff800009f09fa0                     
-[   23.277527] x23: 0000ffff89e00000 x22: ffff800009f09fb8 x21: ffff000089414cc0
-[   23.278798] x20: 0000000000000200 x19: fffffc00022a0000 x18: 0000000000000001
-[   23.280066] x17: 0000000000000001 x16: 0000000000000000 x15: 0000000000000003
-[   23.281331] x14: 0000000000000068 x13: 00000000000000c0 x12: 0000000000000010
-[   23.282602] x11: fffffc0002320008 x10: fffffc0002320000 x9 : ffff800009fa1000
-[   23.283868] x8 : 00000000ffffffff x7 : 0000000000000001 x6 : ffff800009fa1f08
-[   23.285135] x5 : 0000000000000000 x4 : 0000000000000000 x3 : 0000000000000000
-[   23.286406] x2 : 00000000ffffffff x1 : ffff000080f2800c x0 : ffff000080f28000
-[   23.287673] Call trace:
-[   23.288123]  page_table_check_clear.isra.6+0x114/0x148
-[   23.289043]  __page_table_check_pmd_clear+0x3c/0x50
-[   23.289918]  pmdp_collapse_flush+0x114/0x370
-[   23.290692]  khugepaged+0x1170/0x19e0
-[   23.291356]  kthread+0x110/0x120
-[   23.291945]  ret_from_fork+0x10/0x20
-[   23.292596] Code: 91001041 b8e80024 51000482 36fffd62 (d4210000) 
-[   23.293678] ---[ end trace 0000000000000000 ]---
-[   23.294511] note: khugepaged[30] exited with preempt_count 2
+Changes since v5:
+ - Rebased on Linux-5.18-rc3
+ - Used kernel doc style in PATCH3
+ - Removed redundant loop in ipi_mux_process() of PATCH3
+ - Removed "RISC-V" prefix form ipi_mux_chip.name of PATCH3
+ - Removed use of "this patch" in PATCH3 commit description
+ - Addressed few other nit comments in PATCH3
 
-Looking into file mm/page_table_check.c where this problem occured.
+Changes since v4:
+ - Rebased on Linux-5.17
+ - Includes new PATCH3 which adds mechanism to multiplex a single HW IPI
 
-/*
- * An enty is removed from the page table, decrement the counters for that page
- * verify that it is of correct type and counters do not become negative.
- */
-static void page_table_check_clear(struct mm_struct *mm, unsigned long addr,
-                                   unsigned long pfn, unsigned long pgcnt)
-{
-        struct page_ext *page_ext;
-        struct page *page;
-        unsigned long i;
-        bool anon;
+Changes since v3:
+ - Rebased on Linux-5.17-rc6
+ - Updated PATCH2 to not export riscv_set_intc_hwnode_fn()
+ - Simplified riscv_intc_hwnode() in PATCH2
 
-        if (!pfn_valid(pfn))
-                return;
+Changes since v2:
+ - Rebased on Linux-5.17-rc4
+ - Updated PATCH2 to not create synthetic INTC fwnode and instead provide
+   a function which allows drivers to directly discover INTC fwnode
 
-        page = pfn_to_page(pfn);
-        page_ext = lookup_page_ext(page);
-        anon = PageAnon(page);
+Changes since v1:
+ - Use synthetic fwnode for INTC instead of irq_set_default_host() in PATCH2
 
-        for (i = 0; i < pgcnt; i++) {
-                struct page_table_check *ptc = get_page_table_check(page_ext);
+Anup Patel (7):
+  RISC-V: Clear SIP bit only when using SBI IPI operations
+  irqchip/riscv-intc: Allow drivers to directly discover INTC hwnode
+  genirq: Add mechanism to multiplex a single HW IPI
+  RISC-V: Treat IPIs as normal Linux IRQs
+  RISC-V: Allow marking IPIs as suitable for remote FENCEs
+  RISC-V: Use IPIs for remote TLB flush when possible
+  RISC-V: Use IPIs for remote icache flush when possible
 
-                if (anon) {
-                        BUG_ON(atomic_read(&ptc->file_map_count));
-                        BUG_ON(atomic_dec_return(&ptc->anon_map_count) < 0);
-                } else {
-                        BUG_ON(atomic_read(&ptc->anon_map_count));
- Triggered here ====>>  BUG_ON(atomic_dec_return(&ptc->file_map_count) < 0);
-                }
-                page_ext = page_ext_next(page_ext);
-        }
-}
+ arch/riscv/Kconfig                |   2 +
+ arch/riscv/include/asm/irq.h      |   4 +
+ arch/riscv/include/asm/sbi.h      |   2 +
+ arch/riscv/include/asm/smp.h      |  49 +++++---
+ arch/riscv/kernel/Makefile        |   1 +
+ arch/riscv/kernel/cpu-hotplug.c   |   3 +-
+ arch/riscv/kernel/irq.c           |  21 +++-
+ arch/riscv/kernel/sbi-ipi.c       |  60 +++++++++
+ arch/riscv/kernel/sbi.c           |  11 --
+ arch/riscv/kernel/smp.c           | 164 +++++++++++++------------
+ arch/riscv/kernel/smpboot.c       |   5 +-
+ arch/riscv/mm/cacheflush.c        |   5 +-
+ arch/riscv/mm/tlbflush.c          |  93 +++++++++++---
+ drivers/clocksource/timer-clint.c |  41 +++++--
+ drivers/irqchip/irq-riscv-intc.c  |  60 ++++-----
+ include/linux/irq.h               |  11 ++
+ kernel/irq/Kconfig                |   4 +
+ kernel/irq/Makefile               |   1 +
+ kernel/irq/ipi-mux.c              | 197 ++++++++++++++++++++++++++++++
+ 19 files changed, 567 insertions(+), 167 deletions(-)
+ create mode 100644 arch/riscv/kernel/sbi-ipi.c
+ create mode 100644 kernel/irq/ipi-mux.c
 
-Could you explain what was expected during pmdp_collapse_flush() which when
-failed, triggered this BUG_ON() ? This counter seems to be page table check
-specific, could it just go wrong ? I have not looked into the details about
-page table check mechanism.
+-- 
+2.25.1
 
-- Anshuman
 
 _______________________________________________
 linux-riscv mailing list
