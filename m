@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53910C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Apr 2022 03:26:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91311C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Apr 2022 03:27:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kSydkuaWu9DPAI7QCbEfJY58dJzcuY1WcBUXas+7oKc=; b=kN5UuBze4Un59y
-	jlFfrFHqc/oalbAY4T6lVZ2q5Ymf6xsWT1N5wexOP37NsZDWLFVHLvgnS2WNrSdaU9CRhMbO32XIM
-	OTuAQHyEWKNZh8Ukiq5YkisnhOpeu1J7t4sJ/J6JYFs/wYq4ConcMVDSPcfHKbps5ECoGDofbhQ4h
-	MwtAffxrpo/MQVaPlsDdZOiXP/5zlFdcRQrlsma3NeAROIIErDIPqLHSn2epIf41XNlBRoPtGgDEc
-	er9R7viW26/90j718L592/gXnmQ9+ArLSsiUFDYlq5U9dGZPhcuyZeg3kOk+FwcovkBjQdftEqAB3
-	1TgfQ0qVfWRyhj6MLUVQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eJ7NbUvQeoRPLCKfVNTRHepf+mFLwb/Tl4obXZRQHmM=; b=LXYRR5bjB6Ym8q
+	So7XWuir+6BNe0RNcnKhHz679FwrEvHpZKB8gd9RzN4Pryr2nIU6o6HUpth7VmTZc+Mx6FFevbDtm
+	H/p5UDvhC4GgkaI9iGU6LLtYnXvIsFc7u6HOEeBDyXaWi/XhpJ3yYs3YjfH8+G09bLUJfKIWFYhQs
+	UbW532nxe3N8yfD2T8rHO2Osr//HrgBPCpdPRFT10Z/aiXPEEXOJxARvlfYw62zDycDdUtDIjf6n3
+	qSJXzFjecK487BOdCdbSVGfWeTcBmwSaoNm0pQ/Z3SkU34B8JGBDpZvqY/B+VkEUnhvcyqXOf/b63
+	PWMzGLECj+w+dnhH4ynA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ngI27-00FPe3-Kq; Mon, 18 Apr 2022 03:26:35 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1ngI2T-00FPoZ-MZ; Mon, 18 Apr 2022 03:26:57 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ngI1k-00FPTT-Kb; Mon, 18 Apr 2022 03:26:14 +0000
-Received: from kwepemi100003.china.huawei.com (unknown [172.30.72.54])
- by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4KhXQC3fHczgYsv;
- Mon, 18 Apr 2022 11:25:55 +0800 (CST)
+ id 1ngI1m-00FPUu-FJ; Mon, 18 Apr 2022 03:26:16 +0000
+Received: from kwepemi100002.china.huawei.com (unknown [172.30.72.54])
+ by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4KhXKP69wVzCr70;
+ Mon, 18 Apr 2022 11:21:45 +0800 (CST)
 Received: from kwepemm600017.china.huawei.com (7.193.23.234) by
- kwepemi100003.china.huawei.com (7.221.188.122) with Microsoft SMTP Server
+ kwepemi100002.china.huawei.com (7.221.188.188) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Mon, 18 Apr 2022 11:25:59 +0800
+ 15.1.2375.24; Mon, 18 Apr 2022 11:26:08 +0800
 Received: from localhost.localdomain (10.175.112.125) by
  kwepemm600017.china.huawei.com (7.193.23.234) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Mon, 18 Apr 2022 11:25:57 +0800
+ 15.1.2375.24; Mon, 18 Apr 2022 11:26:06 +0800
 From: Tong Tiangen <tongtiangen@huawei.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
  Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
@@ -47,20 +47,20 @@ CC: <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
  <linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
  Tong Tiangen <tongtiangen@huawei.com>, Kefeng Wang
  <wangkefeng.wang@huawei.com>, Guohanjun <guohanjun@huawei.com>
-Subject: [PATCH -next v4 0/4]mm: page_table_check: add support on arm64 and
- riscv
-Date: Mon, 18 Apr 2022 03:44:40 +0000
-Message-ID: <20220418034444.520928-1-tongtiangen@huawei.com>
+Subject: [PATCH -next v4 2/4] mm: page_table_check: add hooks to public helpers
+Date: Mon, 18 Apr 2022 03:44:42 +0000
+Message-ID: <20220418034444.520928-3-tongtiangen@huawei.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20220418034444.520928-1-tongtiangen@huawei.com>
+References: <20220418034444.520928-1-tongtiangen@huawei.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.175.112.125]
 X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
  kwepemm600017.china.huawei.com (7.193.23.234)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220417_202612_868216_3DDF976D 
-X-CRM114-Status: UNSURE (   7.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220417_202614_929970_88E59431 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,45 +77,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Page table check performs extra verifications at the time when new
-pages become accessible from the userspace by getting their page
-table entries (PTEs PMDs etc.) added into the table. It is supported
-on X86[1].
+Move ptep_clear() to the include/linux/pgtable.h and add page table check
+relate hooks to some helpers, it's prepare for support page table check
+feature on new architecture.
 
-This patchset made some simple changes and make it easier to support
-new architecture, then we support this feature on ARM64 and RISCV.
+Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
+Acked-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+---
+ arch/x86/include/asm/pgtable.h | 10 ----------
+ include/linux/pgtable.h        | 26 ++++++++++++++++++--------
+ 2 files changed, 18 insertions(+), 18 deletions(-)
 
-[1]https://lore.kernel.org/lkml/20211123214814.3756047-1-pasha.tatashin@soleen.com/
-
-v3 -> v4:
- 1. Adapt to next-20220414
-
-v2 -> v3:
-  1. Modify ptep_clear() in include/linux/pgtable.h, using IS_ENABLED 
-     according to the suggestions of Pasha.
-
-v1 -> v2:
-  1. Fix arm64's pte/pmd/pud_user_accessible_page() according to the
-     suggestions of Catalin.
-  2. Also fix riscv's pte_pmd_pud_user_accessible_page().
-
-Kefeng Wang (2):
-  mm: page_table_check: move pxx_user_accessible_page into x86
-  arm64: mm: add support for page table check
-
-Tong Tiangen (2):
-  mm: page_table_check: add hooks to public helpers
-  riscv: mm: add support for page table check
-
- arch/arm64/Kconfig               |  1 +
- arch/arm64/include/asm/pgtable.h | 65 ++++++++++++++++++++++++---
- arch/riscv/Kconfig               |  1 +
- arch/riscv/include/asm/pgtable.h | 77 +++++++++++++++++++++++++++++---
- arch/x86/include/asm/pgtable.h   | 29 +++++++-----
- include/linux/pgtable.h          | 26 +++++++----
- mm/page_table_check.c            | 25 ++++-------
- 7 files changed, 178 insertions(+), 46 deletions(-)
-
+diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
+index 564abe42b0f7..51cd39858f81 100644
+--- a/arch/x86/include/asm/pgtable.h
++++ b/arch/x86/include/asm/pgtable.h
+@@ -1073,16 +1073,6 @@ static inline pte_t ptep_get_and_clear_full(struct mm_struct *mm,
+ 	return pte;
+ }
+ 
+-#define __HAVE_ARCH_PTEP_CLEAR
+-static inline void ptep_clear(struct mm_struct *mm, unsigned long addr,
+-			      pte_t *ptep)
+-{
+-	if (IS_ENABLED(CONFIG_PAGE_TABLE_CHECK))
+-		ptep_get_and_clear(mm, addr, ptep);
+-	else
+-		pte_clear(mm, addr, ptep);
+-}
+-
+ #define __HAVE_ARCH_PTEP_SET_WRPROTECT
+ static inline void ptep_set_wrprotect(struct mm_struct *mm,
+ 				      unsigned long addr, pte_t *ptep)
+diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+index 49ab8ee2d6d7..10d2d91edf20 100644
+--- a/include/linux/pgtable.h
++++ b/include/linux/pgtable.h
+@@ -12,6 +12,7 @@
+ #include <linux/bug.h>
+ #include <linux/errno.h>
+ #include <asm-generic/pgtable_uffd.h>
++#include <linux/page_table_check.h>
+ 
+ #if 5 - defined(__PAGETABLE_P4D_FOLDED) - defined(__PAGETABLE_PUD_FOLDED) - \
+ 	defined(__PAGETABLE_PMD_FOLDED) != CONFIG_PGTABLE_LEVELS
+@@ -272,14 +273,6 @@ static inline bool arch_has_hw_pte_young(void)
+ }
+ #endif
+ 
+-#ifndef __HAVE_ARCH_PTEP_CLEAR
+-static inline void ptep_clear(struct mm_struct *mm, unsigned long addr,
+-			      pte_t *ptep)
+-{
+-	pte_clear(mm, addr, ptep);
+-}
+-#endif
+-
+ #ifndef __HAVE_ARCH_PTEP_GET_AND_CLEAR
+ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
+ 				       unsigned long address,
+@@ -287,10 +280,22 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
+ {
+ 	pte_t pte = *ptep;
+ 	pte_clear(mm, address, ptep);
++	page_table_check_pte_clear(mm, address, pte);
+ 	return pte;
+ }
+ #endif
+ 
++#ifndef __HAVE_ARCH_PTEP_CLEAR
++static inline void ptep_clear(struct mm_struct *mm, unsigned long addr,
++			      pte_t *ptep)
++{
++	if (IS_ENABLED(CONFIG_PAGE_TABLE_CHECK))
++		ptep_get_and_clear(mm, addr, ptep);
++	else
++		pte_clear(mm, addr, ptep);
++}
++#endif
++
+ #ifndef __HAVE_ARCH_PTEP_GET
+ static inline pte_t ptep_get(pte_t *ptep)
+ {
+@@ -360,7 +365,10 @@ static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
+ 					    pmd_t *pmdp)
+ {
+ 	pmd_t pmd = *pmdp;
++
+ 	pmd_clear(pmdp);
++	page_table_check_pmd_clear(mm, address, pmd);
++
+ 	return pmd;
+ }
+ #endif /* __HAVE_ARCH_PMDP_HUGE_GET_AND_CLEAR */
+@@ -372,6 +380,8 @@ static inline pud_t pudp_huge_get_and_clear(struct mm_struct *mm,
+ 	pud_t pud = *pudp;
+ 
+ 	pud_clear(pudp);
++	page_table_check_pud_clear(mm, address, pud);
++
+ 	return pud;
+ }
+ #endif /* __HAVE_ARCH_PUDP_HUGE_GET_AND_CLEAR */
 -- 
 2.25.1
 
