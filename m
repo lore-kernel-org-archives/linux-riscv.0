@@ -4,63 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76358C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Apr 2022 03:27:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CF21C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Apr 2022 03:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=44sHn4bYrKVtkO+GbAv7K/KmqYxi9MN2WONRO9N1f0M=; b=DN2x3vxM8tYcLE
-	DjIxAlIsrYLkNd7zpT7FlyRZLgiRIbx92/54unv2L+SYPNpsSQmYD55VYERIToqxkbXlN58esWyRa
-	fxCyS8wyOEwI5krRkxOVV82sx8V99LVtJ3r1OnGA4i0v8ggUwPBec3Vfb9ZhNP64XXI9ZYmT7++hy
-	Y1IELJM67LZYf03Ci/3nObRmqms3kuRbfgOqJHCDRBzuakkoCCKgx0U5Bgyzz8j8330I8S7486v1M
-	2psQuZ/k3AS2U+F85yaBQaE1m1BMqzhzuA0x/9HXxWmakdUy47NTfukXDbrO48QlUAzELjytjwQoB
-	3rxOZf8503qCbOUuezew==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bGDiXOCT9Fd7HCvjgnpeS8aLzJYtIUmQvVxOM8wb06M=; b=BKWqdJOzplBCTJ
+	LhgHvpKEsiHTRcFGpAgasKNFLrqDervkmMSbDkLeqSPgLAuwPGWZNx2INw8wazjvgdHqK2EmKwu96
+	P3HArHhJqKWaAVeRjwoQLZnHycViXy+pLnslABta6zAT0Nij0Rk4S+bgnQ5LEFfQVsff89C1fygnQ
+	OFzHKJ+yo09JiwoM3cabcn+ALXizeCmajq6QlErlbJ86zKx18Qz4WHxusbXvkfviVOLt3lKvM2XZ9
+	viQ3wvcolKbwLLyTPWjw8MZ76ZdqHRc9Qwf6SeU0VUFCDTvOfV0d4swq01zAmOuCCr12CIml6NwMg
+	MVniu7dvO094NQn1/uvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ngI2Y-00FPrS-LW; Mon, 18 Apr 2022 03:27:02 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1ngISQ-00FU0y-OH; Mon, 18 Apr 2022 03:53:46 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ngI1q-00FPWv-Tr; Mon, 18 Apr 2022 03:26:21 +0000
-Received: from kwepemi100001.china.huawei.com (unknown [172.30.72.57])
- by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4KhXMk2LyhzFq1W;
- Mon, 18 Apr 2022 11:23:46 +0800 (CST)
-Received: from kwepemm600017.china.huawei.com (7.193.23.234) by
- kwepemi100001.china.huawei.com (7.221.188.215) with Microsoft SMTP Server
+ id 1ngISN-00FTyt-9r
+ for linux-riscv@lists.infradead.org; Mon, 18 Apr 2022 03:53:45 +0000
+Received: from dggpemm500022.china.huawei.com (unknown [172.30.72.56])
+ by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4KhY203xDLzgYv6;
+ Mon, 18 Apr 2022 11:53:28 +0800 (CST)
+Received: from dggpemm500019.china.huawei.com (7.185.36.180) by
+ dggpemm500022.china.huawei.com (7.185.36.162) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Mon, 18 Apr 2022 11:26:15 +0800
-Received: from localhost.localdomain (10.175.112.125) by
- kwepemm600017.china.huawei.com (7.193.23.234) with Microsoft SMTP Server
+ 15.1.2375.24; Mon, 18 Apr 2022 11:53:26 +0800
+Received: from k04.huawei.com (10.67.174.115) by
+ dggpemm500019.china.huawei.com (7.185.36.180) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Mon, 18 Apr 2022 11:26:13 +0800
-From: Tong Tiangen <tongtiangen@huawei.com>
-To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Pasha Tatashin
- <pasha.tatashin@soleen.com>, Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-CC: <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
- Tong Tiangen <tongtiangen@huawei.com>, Kefeng Wang
- <wangkefeng.wang@huawei.com>, Guohanjun <guohanjun@huawei.com>
-Subject: [PATCH -next v4 4/4] riscv: mm: add support for page table check
-Date: Mon, 18 Apr 2022 03:44:44 +0000
-Message-ID: <20220418034444.520928-5-tongtiangen@huawei.com>
+ 15.1.2375.24; Mon, 18 Apr 2022 11:53:26 +0800
+From: Pu Lehui <pulehui@huawei.com>
+To: <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <netdev@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+CC: <andrii@kernel.org>, <ast@kernel.org>, <daniel@iogearbox.net>,
+ <kafai@fb.com>, <songliubraving@fb.com>, <yhs@fb.com>,
+ <john.fastabend@gmail.com>, <kpsingh@kernel.org>, <paul.walmsley@sifive.com>, 
+ <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <pulehui@huawei.com>
+Subject: [PATCH bpf-next] libbpf: Support riscv USDT argument parsing logic
+Date: Mon, 18 Apr 2022 12:22:22 +0800
+Message-ID: <20220418042222.2464199-1-pulehui@huawei.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220418034444.520928-1-tongtiangen@huawei.com>
-References: <20220418034444.520928-1-tongtiangen@huawei.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.175.112.125]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- kwepemm600017.china.huawei.com (7.193.23.234)
+X-Originating-IP: [10.67.174.115]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ dggpemm500019.china.huawei.com (7.185.36.180)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220417_202619_353113_24BB394F 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20220417_205343_714128_E1D0AB9B 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,194 +71,148 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As commit d283d422c6c4 ("x86: mm: add x86_64 support for page table
-check"), add some necessary page table check hooks into routines that
-modify user page tables.
+Add riscv-specific USDT argument specification parsing logic.
+riscv USDT argument format is shown below:
+- Memory dereference case:
+  "size@off(reg)", e.g. "-8@-88(s0)"
+- Constant value case:
+  "size@val", e.g. "4@5"
+- Register read case:
+  "size@reg", e.g. "-8@a1"
 
-Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
-Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+s8 will be marked as poison while it's a reg of riscv, we need
+to alias it in advance.
+
+Signed-off-by: Pu Lehui <pulehui@huawei.com>
 ---
- arch/riscv/Kconfig               |  1 +
- arch/riscv/include/asm/pgtable.h | 77 +++++++++++++++++++++++++++++---
- 2 files changed, 72 insertions(+), 6 deletions(-)
+ tools/lib/bpf/usdt.c | 107 +++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 107 insertions(+)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 63f7258984f3..66d241cee52c 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -38,6 +38,7 @@ config RISCV
- 	select ARCH_SUPPORTS_ATOMIC_RMW
- 	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
- 	select ARCH_SUPPORTS_HUGETLBFS if MMU
-+	select ARCH_SUPPORTS_PAGE_TABLE_CHECK
- 	select ARCH_USE_MEMTEST
- 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
- 	select ARCH_WANT_FRAME_POINTERS
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 046b44225623..6f22d9580658 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -114,6 +114,8 @@
- #include <asm/pgtable-32.h>
- #endif /* CONFIG_64BIT */
+diff --git a/tools/lib/bpf/usdt.c b/tools/lib/bpf/usdt.c
+index 934c25301ac1..b8af409cc763 100644
+--- a/tools/lib/bpf/usdt.c
++++ b/tools/lib/bpf/usdt.c
+@@ -10,6 +10,11 @@
+ #include <linux/ptrace.h>
+ #include <linux/kernel.h>
  
-+#include <linux/page_table_check.h>
-+
- #ifdef CONFIG_XIP_KERNEL
- #define XIP_FIXUP(addr) ({							\
- 	uintptr_t __a = (uintptr_t)(addr);					\
-@@ -315,6 +317,11 @@ static inline int pte_exec(pte_t pte)
- 	return pte_val(pte) & _PAGE_EXEC;
- }
- 
-+static inline int pte_user(pte_t pte)
-+{
-+	return pte_val(pte) & _PAGE_USER;
-+}
-+
- static inline int pte_huge(pte_t pte)
- {
- 	return pte_present(pte) && (pte_val(pte) & _PAGE_LEAF);
-@@ -446,7 +453,7 @@ static inline void set_pte(pte_t *ptep, pte_t pteval)
- 
- void flush_icache_pte(pte_t pte);
- 
--static inline void set_pte_at(struct mm_struct *mm,
-+static inline void __set_pte_at(struct mm_struct *mm,
- 	unsigned long addr, pte_t *ptep, pte_t pteval)
- {
- 	if (pte_present(pteval) && pte_exec(pteval))
-@@ -455,10 +462,17 @@ static inline void set_pte_at(struct mm_struct *mm,
- 	set_pte(ptep, pteval);
- }
- 
-+static inline void set_pte_at(struct mm_struct *mm,
-+	unsigned long addr, pte_t *ptep, pte_t pteval)
-+{
-+	page_table_check_pte_set(mm, addr, ptep, pteval);
-+	__set_pte_at(mm, addr, ptep, pteval);
-+}
-+
- static inline void pte_clear(struct mm_struct *mm,
- 	unsigned long addr, pte_t *ptep)
- {
--	set_pte_at(mm, addr, ptep, __pte(0));
-+	__set_pte_at(mm, addr, ptep, __pte(0));
- }
- 
- #define __HAVE_ARCH_PTEP_SET_ACCESS_FLAGS
-@@ -475,11 +489,21 @@ static inline int ptep_set_access_flags(struct vm_area_struct *vma,
- 	return true;
- }
- 
-+static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
-+				       unsigned long address, pte_t *ptep)
-+{
-+	return __pte(atomic_long_xchg((atomic_long_t *)ptep, 0));
-+}
-+
- #define __HAVE_ARCH_PTEP_GET_AND_CLEAR
- static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
- 				       unsigned long address, pte_t *ptep)
- {
--	return __pte(atomic_long_xchg((atomic_long_t *)ptep, 0));
-+	pte_t pte = __ptep_get_and_clear(mm, address, ptep);
-+
-+	page_table_check_pte_clear(mm, address, pte);
-+
-+	return pte;
- }
- 
- #define __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG
-@@ -546,6 +570,13 @@ static inline unsigned long pmd_pfn(pmd_t pmd)
- 	return ((__pmd_to_phys(pmd) & PMD_MASK) >> PAGE_SHIFT);
- }
- 
-+#define __pud_to_phys(pud)  (pud_val(pud) >> _PAGE_PFN_SHIFT << PAGE_SHIFT)
-+
-+static inline unsigned long pud_pfn(pud_t pud)
-+{
-+	return ((__pud_to_phys(pud) & PUD_MASK) >> PAGE_SHIFT);
-+}
-+
- static inline pmd_t pmd_modify(pmd_t pmd, pgprot_t newprot)
- {
- 	return pte_pmd(pte_modify(pmd_pte(pmd), newprot));
-@@ -567,6 +598,11 @@ static inline int pmd_young(pmd_t pmd)
- 	return pte_young(pmd_pte(pmd));
- }
- 
-+static inline int pmd_user(pmd_t pmd)
-+{
-+	return pte_user(pmd_pte(pmd));
-+}
-+
- static inline pmd_t pmd_mkold(pmd_t pmd)
- {
- 	return pte_pmd(pte_mkold(pmd_pte(pmd)));
-@@ -600,15 +636,39 @@ static inline pmd_t pmd_mkdirty(pmd_t pmd)
- static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
- 				pmd_t *pmdp, pmd_t pmd)
- {
--	return set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd));
-+	page_table_check_pmd_set(mm, addr, pmdp, pmd);
-+	return __set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd));
-+}
-+
-+static inline int pud_user(pud_t pud)
-+{
-+	return pte_user(pud_pte(pud));
- }
- 
- static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
- 				pud_t *pudp, pud_t pud)
- {
--	return set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud));
-+	page_table_check_pud_set(mm, addr, pudp, pud);
-+	return __set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud));
-+}
-+
-+#ifdef CONFIG_PAGE_TABLE_CHECK
-+static inline bool pte_user_accessible_page(pte_t pte)
-+{
-+	return pte_present(pte) && pte_user(pte);
- }
- 
-+static inline bool pmd_user_accessible_page(pmd_t pmd)
-+{
-+	return pmd_leaf(pmd) && pmd_user(pmd);
-+}
-+
-+static inline bool pud_user_accessible_page(pud_t pud)
-+{
-+	return pud_leaf(pud) && pud_user(pud);
-+}
++/* s8 will be marked as poison while it's a reg of riscv */
++#if defined(__riscv)
++#define rv_s8 s8
 +#endif
 +
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
- static inline int pmd_trans_huge(pmd_t pmd)
- {
-@@ -634,7 +694,11 @@ static inline int pmdp_test_and_clear_young(struct vm_area_struct *vma,
- static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
- 					unsigned long address, pmd_t *pmdp)
- {
--	return pte_pmd(ptep_get_and_clear(mm, address, (pte_t *)pmdp));
-+	pmd_t pmd = pte_pmd(__ptep_get_and_clear(mm, address, (pte_t *)pmdp));
-+
-+	page_table_check_pmd_clear(mm, address, pmd);
-+
-+	return pmd;
+ #include "bpf.h"
+ #include "libbpf.h"
+ #include "libbpf_common.h"
+@@ -1400,6 +1405,108 @@ static int parse_usdt_arg(const char *arg_str, int arg_num, struct usdt_arg_spec
+ 	return len;
  }
  
- #define __HAVE_ARCH_PMDP_SET_WRPROTECT
-@@ -648,6 +712,7 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
- static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
- 				unsigned long address, pmd_t *pmdp, pmd_t pmd)
- {
-+	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
- 	return __pmd(atomic_long_xchg((atomic_long_t *)pmdp, pmd_val(pmd)));
- }
- #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
++#elif defined(__riscv)
++
++static int calc_pt_regs_off(const char *reg_name)
++{
++	static struct {
++		const char *name;
++		size_t pt_regs_off;
++	} reg_map[] = {
++		{ "ra", offsetof(struct user_regs_struct, ra) },
++		{ "sp", offsetof(struct user_regs_struct, sp) },
++		{ "gp", offsetof(struct user_regs_struct, gp) },
++		{ "tp", offsetof(struct user_regs_struct, tp) },
++		{ "t0", offsetof(struct user_regs_struct, t0) },
++		{ "t1", offsetof(struct user_regs_struct, t1) },
++		{ "t2", offsetof(struct user_regs_struct, t2) },
++		{ "s0", offsetof(struct user_regs_struct, s0) },
++		{ "s1", offsetof(struct user_regs_struct, s1) },
++		{ "a0", offsetof(struct user_regs_struct, a0) },
++		{ "a1", offsetof(struct user_regs_struct, a1) },
++		{ "a2", offsetof(struct user_regs_struct, a2) },
++		{ "a3", offsetof(struct user_regs_struct, a3) },
++		{ "a4", offsetof(struct user_regs_struct, a4) },
++		{ "a5", offsetof(struct user_regs_struct, a5) },
++		{ "a6", offsetof(struct user_regs_struct, a6) },
++		{ "a7", offsetof(struct user_regs_struct, a7) },
++		{ "s2", offsetof(struct user_regs_struct, s2) },
++		{ "s3", offsetof(struct user_regs_struct, s3) },
++		{ "s4", offsetof(struct user_regs_struct, s4) },
++		{ "s5", offsetof(struct user_regs_struct, s5) },
++		{ "s6", offsetof(struct user_regs_struct, s6) },
++		{ "s7", offsetof(struct user_regs_struct, s7) },
++		{ "s8", offsetof(struct user_regs_struct, rv_s8) },
++		{ "s9", offsetof(struct user_regs_struct, s9) },
++		{ "s10", offsetof(struct user_regs_struct, s10) },
++		{ "s11", offsetof(struct user_regs_struct, s11) },
++		{ "t3", offsetof(struct user_regs_struct, t3) },
++		{ "t4", offsetof(struct user_regs_struct, t4) },
++		{ "t5", offsetof(struct user_regs_struct, t5) },
++		{ "t6", offsetof(struct user_regs_struct, t6) },
++	};
++	int i;
++
++	for (i = 0; i < ARRAY_SIZE(reg_map); i++) {
++		if (strcmp(reg_name, reg_map[i].name) == 0)
++			return reg_map[i].pt_regs_off;
++	}
++
++	pr_warn("usdt: unrecognized register '%s'\n", reg_name);
++	return -ENOENT;
++}
++
++static int parse_usdt_arg(const char *arg_str, int arg_num, struct usdt_arg_spec *arg)
++{
++	char *reg_name = NULL;
++	int arg_sz, len, reg_off;
++	long off;
++
++	if (sscanf(arg_str, " %d @ %ld ( %m[a-z0-9] ) %n", &arg_sz, &off, &reg_name, &len) == 3) {
++		/* Memory dereference case, e.g., -8@-88(s0) */
++		arg->arg_type = USDT_ARG_REG_DEREF;
++		arg->val_off = off;
++		reg_off = calc_pt_regs_off(reg_name);
++		free(reg_name);
++		if (reg_off < 0)
++			return reg_off;
++		arg->reg_off = reg_off;
++	} else if (sscanf(arg_str, " %d @ %ld %n", &arg_sz, &off, &len) == 2) {
++		/* Constant value case, e.g., 4@5 */
++		arg->arg_type = USDT_ARG_CONST;
++		arg->val_off = off;
++		arg->reg_off = 0;
++	} else if (sscanf(arg_str, " %d @ %m[a-z0-9] %n", &arg_sz, &reg_name, &len) == 2) {
++		/* Register read case, e.g., -8@a1 */
++		arg->arg_type = USDT_ARG_REG;
++		arg->val_off = 0;
++		reg_off = calc_pt_regs_off(reg_name);
++		free(reg_name);
++		if (reg_off < 0)
++			return reg_off;
++		arg->reg_off = reg_off;
++	} else {
++		pr_warn("usdt: unrecognized arg #%d spec '%s'\n", arg_num, arg_str);
++		return -EINVAL;
++	}
++
++	arg->arg_signed = arg_sz < 0;
++	if (arg_sz < 0)
++		arg_sz = -arg_sz;
++
++	switch (arg_sz) {
++	case 1: case 2: case 4: case 8:
++		arg->arg_bitshift = 64 - arg_sz * 8;
++		break;
++	default:
++		pr_warn("usdt: unsupported arg #%d (spec '%s') size: %d\n",
++			arg_num, arg_str, arg_sz);
++		return -EINVAL;
++	}
++
++	return len;
++}
++
+ #else
+ 
+ static int parse_usdt_arg(const char *arg_str, int arg_num, struct usdt_arg_spec *arg)
 -- 
 2.25.1
 
