@@ -4,81 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE6BBC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Apr 2022 10:54:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4F0CC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Apr 2022 13:28:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0t6yYvdgy6W7BSgkjM8X1unm1IoT8v7iDaOOFBuRkQg=; b=rAfxZA7CakG8it
-	R0j3K7s7ptwoXOu86l0Ri/quaDooAZ6oAwN5YwnSXFJGKiYMEMLuTkh0IAzgO0YaczNA9ePex+0fX
-	BbKLXeFw6QJS4OJUXGi94UvwEZcDQakJ2HDelBa03QkTdnwTNnUOmWHsTh6E+A9mE51hlxaArSZol
-	ifbSWMXI6WIXbUS0fvA0glaESORLByWY6MHPhQgJtYSCq2tuXlaRIfUpN3O+TKwiNIGyY/f/+aJ6u
-	rEWN72l21Em0RGSixlG/1ALOQax41VijD10zj3T93HFT3vmlpBtX6AZqNjar21X8KtKa+voudx0Tq
-	9IEQPwXPkJPabEkjMmvg==;
+	List-Owner; bh=dnpSQuwN7r6g2g/ZOVcWOTEUYTsRiY/7PXHsYYesUH0=; b=kIl84d4psEcqZ5
+	l9EIR0Diolyi+zssR2nmEKQ9BDRrb1P8PGmnA8EbO1zCLZj5dsTixriVAHn10kAYgzCBBV5g2CiL6
+	0sK8kKcAMTu7dt+vxKRCEBn1ZGUsszU8Qwzadc3NbXz6teWzl10CAr3NlD2UgsFfSTO6ikfE3smiT
+	wB/d0mJXinFaqEbK9xbuDwwFFS6kBqJjMLGOAz0fne7oWPsdMTp9Xs6ocdUN63rrVQQ60bo9EqE05
+	zaEaxAyNqNTuXRnwPyDYHKnhFDzourYo7WatekNqw6vurwbucVeK/Gzm9FwFBHFdeuW+BKq5HEYtv
+	oBxvChg962kW7v1dHy8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ngP1Q-00GNdy-HB; Mon, 18 Apr 2022 10:54:20 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1ngRQE-00H2ki-W8; Mon, 18 Apr 2022 13:28:07 +0000
+Received: from mx0b-0064b401.pphosted.com ([205.220.178.238])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ngP1O-00GNax-0d
- for linux-riscv@lists.infradead.org; Mon, 18 Apr 2022 10:54:19 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id k29so18200614pgm.12
- for <linux-riscv@lists.infradead.org>; Mon, 18 Apr 2022 03:54:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ventanamicro.com; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=sX9W0jJI3V+TTQxrILZfbGus1iz/Yao2DvXh0KaNAVk=;
- b=dfq5nxRHRr6Vx5qEgX57IF65zgE2vVmhCiwB5zffgAqsMWTu6wr1CGxCNlu8DTUa0t
- DTvlRdOymlFXFt06/SzX29Vm8lZvm8Pyu8QrvBgX56wA4ds/WDOAaihVGK5qGPG2dxvb
- nGv2r6YjuIsulVRF2Q6Og5Ftk5FeuGQOMDjWH08IexikHcBNlJ1gdPuUMuJnka7VRbek
- mmYv5dNZCLa0qClq4I3MTTY/MOP2gRYD6vVe7Or1sjkxeOGGw3bMtD1mH6Pj5F+EDtwG
- mVFSMv/wt7jILCuDfg/yqBLjcL8UTqcNejXS4SbEFzmMni5ubNGpfLvQVDXVxjNaq1AI
- QjRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=sX9W0jJI3V+TTQxrILZfbGus1iz/Yao2DvXh0KaNAVk=;
- b=slfi1SFvOXpwy6bxDUfOVF2p885KPw9ZyKeUz4FvTCKD9D+GTQyN65mBUzqZETRebz
- WOGr1P1MWmxF9Tj3mWRKh4wa1BMpIX/WJvZwKMS7AmRGTXmHULQJDoJ3InwZXnNRFozq
- 3vyNh0h5P2vE06zx+n5e84UflBSz154xHJm09UAN215eOIJ6VcEH1yxLeIfK1RAKGe0u
- jCTUmX6lrctgFpAu9lrbdktPlNXky3JYd9BdwgY5S0nUOnFD8EuP/HEViWir3sUCYAHU
- mYOtwU/gRe0rSEPAR/VcEv2nP3ivNYn9qVHRMvgV8nRoXZ1lQypuroyrZ68aiEYjHL+w
- DgqQ==
-X-Gm-Message-State: AOAM5339za9bTMTvD10HadHUPKrenOcd7oru6mIhtUDDOIcoXH/FrEZO
- Y1nlMLXJ/gTDTRQ2fGuOT/ZNFw==
-X-Google-Smtp-Source: ABdhPJwLL+wp8GjQBIxTmwnulmQuTS6sDMH8dVFmsKsJdWwsnXB7OAisEOQpLEWJBpXDRZiR9Rbvgw==
-X-Received: by 2002:a05:6a00:1ad2:b0:50a:8181:fed4 with SMTP id
- f18-20020a056a001ad200b0050a8181fed4mr1628046pfv.16.1650279255667; 
- Mon, 18 Apr 2022 03:54:15 -0700 (PDT)
-Received: from localhost.localdomain ([122.172.241.223])
- by smtp.gmail.com with ESMTPSA id
- j13-20020a056a00130d00b004f1025a4361sm12986278pfu.202.2022.04.18.03.54.11
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 18 Apr 2022 03:54:15 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: Atish Patra <atishp@atishpatra.org>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH v6 7/7] RISC-V: Use IPIs for remote icache flush when possible
-Date: Mon, 18 Apr 2022 16:23:05 +0530
-Message-Id: <20220418105305.1196665-8-apatel@ventanamicro.com>
+ id 1ngRLg-00H0I1-7i; Mon, 18 Apr 2022 13:23:27 +0000
+Received: from pps.filterd (m0250812.ppops.net [127.0.0.1])
+ by mx0a-0064b401.pphosted.com (8.17.1.5/8.17.1.5) with ESMTP id 23ICwbRE025232;
+ Mon, 18 Apr 2022 13:22:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=windriver.com;
+ h=from : to : cc :
+ subject : date : message-id : in-reply-to : references :
+ content-transfer-encoding : content-type : mime-version; s=PPS06212021;
+ bh=ftnAEPg6j9NnJafF63j580R9jqMTcER28Lpds1cKwVc=;
+ b=Uq7P3lxIaXU02QF3STbt8YyXPx1kVZclZjwrdCxriEcSjHM1fULlBvgCEGx+ZmadsCJr
+ yEJLuvWQEVTSlfnAcFH+1dh33MbP9HxhBYiO1OXJjpjpQUxf55EXxgnGiUvukqWOyE6a
+ R7nCzF4oVDOiYv84l7A01T58BS9Znb2UtfD4H0ielWBdvJqCY0Pg6h0Rc/+S8mT2m6to
+ oJ2vSLbPvvuQGtLO3hevonY5lBf3D24zETnT0GvM57qvUkNofu5goLA+zXB+7ipYeC5P
+ I3A1DyAOuEr1pcKULhD4JriEmt0zmN3rb16zhyGGP1Yz3gckBZ09xyKjNlRYhOf890/W bw== 
+Received: from nam02-dm3-obe.outbound.protection.outlook.com
+ (mail-dm3nam07lp2047.outbound.protection.outlook.com [104.47.56.47])
+ by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 3ffpj2sav6-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Mon, 18 Apr 2022 13:22:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=U3L4cn8/iN76FQZOLZhfMj/RQSFAXMLNNYTXbKP8f3m1FVKf7DriTWRrbMXmHtInHNgGDewWXlhcOW1nDlargKFPxIhV+0vU8k0qrkKKZ/jkjUIjpsb41s5vbo0flVJOsTn+ARicGjV735tg5YZ9Ean80sEeMDr17GlcfL8jxqvqIAcIK0yIybTt52zSAGy/QYxDoLgy49OgaPM3hMVilpPO5YtmGhgMGQrLyTkVMEm28CfZd+44NSYAcDTNKaV+eluN9OZzbkw0d0Ofr5eXmFFjULPyEwuhwqQL5tldyZ4VQMlGgVjtnDt/ROhpnJfjtDDiw4OZLwX4MrczD5ZOGg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ftnAEPg6j9NnJafF63j580R9jqMTcER28Lpds1cKwVc=;
+ b=Kq1LlS1bSXArds7+KXWKJOWW4j/PtwFrT63szOjiyMcGKIK6H7UqrPcbCdMOJr5gDjyaATK+stA4w6upFxjWBHFkvghASGFxPYkT50v/VAQTMnFRxU+K8N1cvptJpSZ/seGy81zV5qViQRsje8H2mFpBJg3SqEXffbdT5UlFADancfVwbzY3Hc5y9gCmqKmKaW43ZAa89FG3eWJRTSKWvm0c+aZlhwvuRHzcq7ILlJmeAIDL6JHaiMCpn3p23Tt4G+4Nu9Pnok5QcNnmqFXOSkyiOp5S7pivozSQ2+NueQb92zNQKqwDvYWlUPgFGpLWGLr0N2qNzlDeJF1XDz56xA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=windriver.com; dmarc=pass action=none
+ header.from=windriver.com; dkim=pass header.d=windriver.com; arc=none
+Received: from MWHPR11MB1358.namprd11.prod.outlook.com (2603:10b6:300:23::8)
+ by DM6PR11MB2857.namprd11.prod.outlook.com (2603:10b6:5:cb::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5164.20; Mon, 18 Apr
+ 2022 13:22:41 +0000
+Received: from MWHPR11MB1358.namprd11.prod.outlook.com
+ ([fe80::1cd4:125:344:9fc]) by MWHPR11MB1358.namprd11.prod.outlook.com
+ ([fe80::1cd4:125:344:9fc%7]) with mapi id 15.20.5164.025; Mon, 18 Apr 2022
+ 13:22:41 +0000
+From: He Zhe <zhe.he@windriver.com>
+To: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+ tglx@linutronix.de, bp@alien8.de, dave.hansen@linux.intel.com,
+ keescook@chromium.org, alexander.shishkin@linux.intel.com,
+ jolsa@kernel.org, namhyung@kernel.org, benh@kernel.crashing.org,
+ paulus@samba.org, borntraeger@linux.ibm.com, svens@linux.ibm.com,
+ hpa@zytor.com
+Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, zhe.he@windriver.com
+Subject: [PATCH RFC 1/8] stacktrace: Change callback prototype to pass more
+ information
+Date: Mon, 18 Apr 2022 21:22:10 +0800
+Message-Id: <20220418132217.1573072-2-zhe.he@windriver.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220418105305.1196665-1-apatel@ventanamicro.com>
-References: <20220418105305.1196665-1-apatel@ventanamicro.com>
+In-Reply-To: <20220418132217.1573072-1-zhe.he@windriver.com>
+References: <20220418132217.1573072-1-zhe.he@windriver.com>
+X-ClientProxiedBy: HK2PR02CA0133.apcprd02.prod.outlook.com
+ (2603:1096:202:16::17) To MWHPR11MB1358.namprd11.prod.outlook.com
+ (2603:10b6:300:23::8)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 8e16a17b-10ad-4b7b-2073-08da213e83ed
+X-MS-TrafficTypeDiagnostic: DM6PR11MB2857:EE_
+X-Microsoft-Antispam-PRVS: <DM6PR11MB2857495DED66E1143723EE278FF39@DM6PR11MB2857.namprd11.prod.outlook.com>
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: VAPL1TNZfmyLt15PqYvr9hk9MmZhq9HfJBfQDmFmBagLDKTqMhlYYp7xKNEUFYJG8gxbyRx0jH4IayMYGesaGf4Ki8y6fROeY9kolB3p/63FbqKIzOKt1GGLvlqNANpJjL0DwDjYXA3tEoB97afDMarrWc5xIdBiEAQQ7tf9NeeU4ktgHELi9dPdfkWqHVtC7VEX05ZwzOONvZyc9HJHbGplLk3AywN54PlfV/X0lccSyphes1ze8IytFJ8G2baphWUW0ZZjdaX/OQkl04iQN9l76/TyRM4+3debSKPW8IpT9d4XCOEdUBbwzwbAZnQ09H7mr61kvk7pR08QXKGF+o21NJltyNEBwk3UTUMz6HIrW3konV/Soh60Ig2mOKIjZ1Ba0hlBBKtpOd6UgRz9JhX3XQstd1re40d+n4ENKRdnYsaTUYm61cJE6GAwGDMVELIEjQUJ2mj6AP7EukfQ1bYKwBjRu9Gv6F77iIKi6WjlAbyJUk6jQpZ5cYt7b6kCelK2FOIuk6X6PEqJuA4EdDfAxwfl3agGn+UUwLB2qaPWdBwIVtT4KFy5h3mVnPw85Cgg31YM7Qct8LBJV8iGwawtQzfzYygtDj9tkLrdk4mw7ihbaam5PVKnEaXnlsoCTgfL3vqgGGuXGWRQ0Vb20FXj531HZdsz7XR+QJsotUjqUi6K/yFjO7HbrwT9kANIAns7ZTWUsdZ0XawaLnuQAE4Zt1ZsPzecwSwXrNC8VB0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:MWHPR11MB1358.namprd11.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(13230001)(4636009)(366004)(66556008)(2616005)(186003)(86362001)(83380400001)(1076003)(38100700002)(66946007)(316002)(66476007)(7416002)(107886003)(8936002)(2906002)(4326008)(6506007)(38350700002)(5660300002)(508600001)(36756003)(52116002)(8676002)(26005)(6486002)(921005)(6512007)(6666004);
+ DIR:OUT; SFP:1101; 
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1G5vd0Ybv8HM3FCPYqjd9mXiVer/C+fKv23CbNha6wgswBx2dhFPDYVhM5dE?=
+ =?us-ascii?Q?PTrwnx11XiSvy9GIBxthzV8A13e0FI+HnDYIp0U9fQbY8Z9pozkAQQlE36eM?=
+ =?us-ascii?Q?5LFV9+TYkY5HyHh/dA4SWUzEdHQ6nmK6idP0aaVh19ipjaYuPDiz99T/YO4H?=
+ =?us-ascii?Q?2tDWbZ/iVVFY7WohVwVH0aSPVaSlBQIEvZSxola3Fze70s6wyXvlwqYrvhsZ?=
+ =?us-ascii?Q?eDfqbFN396OyfqjZe2uV1azSW4RtZaHKahdSiB34TkidvAIQgJz6RtoHg2Bk?=
+ =?us-ascii?Q?AisFTQOTERGYWb3SsuoeMcDnKIEojaeoXoJqL7m46rt7zzahLqTeIHsgT4Hr?=
+ =?us-ascii?Q?Q2b3reMBOir9usPJ6uRluAWoN1ZZ63nz7txidDifkFSJ+D88m6CkQylPOq+l?=
+ =?us-ascii?Q?cpU3jQZdNz44K6CUpxRstoGJDo1U7CiWEr0Wkgh5qoLoXeL4QhKFswwV4AI+?=
+ =?us-ascii?Q?VpY57tDQk9SYMkapd0fRXg8i4TdqJGBx5rtqEisGvZioz25XcLXbG6vmFIFx?=
+ =?us-ascii?Q?cS3DYvIitYLFGSR1AhZhc/uzf3poM9LUjFjo6Va8kDTiS2RnLnPEjfgxjFQL?=
+ =?us-ascii?Q?ljlOxC/IxHKmKyIqmEAuvwOyNYyYQB04vzy3C1SlDxpqEnR3PsWWz7OSJmGp?=
+ =?us-ascii?Q?lVyeOGnAs3djdQgWi5utP7g48dtPNiLXL2jQ55pnoxoEu1HnFrNu6uDotJxv?=
+ =?us-ascii?Q?U5SadwYdhDdm2dVdw7Mk3Mj+/7zRoeBA9pIz5NPornzYJ0lmtBi4pnNcdwaA?=
+ =?us-ascii?Q?Oe3hc4CFhVzlVHprL7ptfam684doBv8/MrBmYSlrCHVouWxR5D4B4fNLcxg/?=
+ =?us-ascii?Q?NXFE1Tukh3cxQanAMN0nNNtF/tCSeGJJjyKDqqyRj27csw4sRdYbswu40fX+?=
+ =?us-ascii?Q?17QW1EWQ4p2Hv6DQBQIle4SdPVcXTbdFiT2xvAuIMsmnGHy4ZnM8FuzxumCb?=
+ =?us-ascii?Q?mFyka8DpIEbpOXA/b6yqZx0n2VLAL0jJUjRvxieqTNbt0WVdkh2BRUoVM5Xa?=
+ =?us-ascii?Q?MKnBEI/nQ6k/fYpryGjE7kJi+wd+oFr0cY9em4ntk5pDst5PWo5NfKduS5Bj?=
+ =?us-ascii?Q?8urjf049BRGMKhARPnbtRZvFas7+d/q3MOO7g4bbevOic0TFQZc8UR4a6r67?=
+ =?us-ascii?Q?WOSQx/Z97dwR/oLXRWk/72VBWoKoEatBX9kP+Qp7M1SHOLhyvWgJqIh2HQDE?=
+ =?us-ascii?Q?dxxcQxgTtfJbzxj/cejN/jjQwyGFDJEmewkx8LuL8td3jcW8S3AzzZl/WjEj?=
+ =?us-ascii?Q?7e0NIt/9lNnyyft0AxVEexMu+Uktw7eNHHo4EHABs+dnaMUQkF8E/Ysz00Xm?=
+ =?us-ascii?Q?a6vElLNvuIRmchW4mwW3nNhXwgOescuYzKvfJRMvRDO9oNcNMUy/aB/2ClSZ?=
+ =?us-ascii?Q?5+cuO8ixdF+iX+Dg6nHwqlFS8+jrYX8jfkAP+S8NL3uLW/WVNfj36sQt1f6G?=
+ =?us-ascii?Q?BQUQX6wb0Hv+aXT/NEjZjhn+1oeka1SEPPGe7ygOEpHfH1BMoebbJ1imjlgT?=
+ =?us-ascii?Q?Q23zusfwFKuQ9lIu3d335n9UDbWrVxu+GcLiR87W/XSLp2XzN9joL6+jBpT0?=
+ =?us-ascii?Q?FGLKsUvjXNgYo2XhP/B135cX+NHAVFFNuAcC6Yi8S6cZwASGmOkyqQvvpg0S?=
+ =?us-ascii?Q?Pwxnx07irWiL0aoWzXifSHnSt56vDxVjRT3ROLxOjNS6fhi/nyNPmE74Eve0?=
+ =?us-ascii?Q?3NBxaugq9RVXjLN9ft7H9ZB9gs563MvMOhJR2G/BMq+2Li65Pg2vS9rzW+In?=
+ =?us-ascii?Q?Neb3G9WRpQ=3D=3D?=
+X-OriginatorOrg: windriver.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8e16a17b-10ad-4b7b-2073-08da213e83ed
+X-MS-Exchange-CrossTenant-AuthSource: MWHPR11MB1358.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Apr 2022 13:22:41.2797 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8ddb2873-a1ad-4a18-ae4e-4644631433be
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +lstCnSzfGIOGe6KYoiIR1ao/Ad0x2Ed4qqeFO//mtX0/f+P2UccQL8rsfVQTW8WyIc+xSV1tt8KYutGX5mSgg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR11MB2857
+X-Proofpoint-ORIG-GUID: SIdr9PT7NXeP8IqkC7E_0A_OlAie3zR2
+X-Proofpoint-GUID: SIdr9PT7NXeP8IqkC7E_0A_OlAie3zR2
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.205,Aquarius:18.0.858,Hydra:6.0.486,FMLib:17.11.64.514
+ definitions=2022-04-18_02,2022-04-15_01,2022-02-23_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0
+ suspectscore=0 bulkscore=0 spamscore=0 mlxscore=0 malwarescore=0
+ mlxlogscore=984 clxscore=1015 phishscore=0 impostorscore=0 adultscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2202240000 definitions=main-2204180078
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220418_035418_083270_BEBC8989 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20220418_062324_452980_8264FD4C 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,44 +166,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If we have specialized interrupt controller (such as AIA IMSIC) which
-allows supervisor mode to directly inject IPIs without any assistance
-from M-mode or HS-mode then using such specialized interrupt controller,
-we can do remote icache flushe directly from supervisor mode instead of
-using the SBI RFENCE calls.
+Currently stack_trace_consume_fn can only have pc of each frame of the
+stack. Copying-beyond-the-frame-detection also needs fp of current and
+previous frame. Other detection algorithm in the future may need more
+information of the frame.
 
-This patch extends remote icache flush functions to use supervisor mode
-IPIs whenever direct supervisor mode IPIs.are supported by interrupt
-controller.
+We define a frame_info to include them all.
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+
+Signed-off-by: He Zhe <zhe.he@windriver.com>
 ---
- arch/riscv/mm/cacheflush.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ include/linux/stacktrace.h |  9 ++++++++-
+ kernel/stacktrace.c        | 10 +++++-----
+ 2 files changed, 13 insertions(+), 6 deletions(-)
 
-diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-index 6cb7d96ad9c7..7c7e44aaf791 100644
---- a/arch/riscv/mm/cacheflush.c
-+++ b/arch/riscv/mm/cacheflush.c
-@@ -18,7 +18,7 @@ void flush_icache_all(void)
- {
- 	local_flush_icache_all();
+diff --git a/include/linux/stacktrace.h b/include/linux/stacktrace.h
+index 97455880ac41..5a61bfafe6f0 100644
+--- a/include/linux/stacktrace.h
++++ b/include/linux/stacktrace.h
+@@ -10,15 +10,22 @@ struct pt_regs;
  
--	if (IS_ENABLED(CONFIG_RISCV_SBI))
-+	if (IS_ENABLED(CONFIG_RISCV_SBI) && !riscv_use_ipi_for_rfence())
- 		sbi_remote_fence_i(NULL);
- 	else
- 		on_each_cpu(ipi_remote_fence_i, NULL, 1);
-@@ -66,7 +66,8 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
- 		 * with flush_icache_deferred().
- 		 */
- 		smp_mb();
--	} else if (IS_ENABLED(CONFIG_RISCV_SBI)) {
-+	} else if (IS_ENABLED(CONFIG_RISCV_SBI) &&
-+		   !riscv_use_ipi_for_rfence()) {
- 		sbi_remote_fence_i(&others);
- 	} else {
- 		on_each_cpu_mask(&others, ipi_remote_fence_i, NULL, 1);
+ #ifdef CONFIG_ARCH_STACKWALK
+ 
++struct frame_info {
++	unsigned long pc;
++	unsigned long fp;
++	unsigned long prev_fp;
++};
++
+ /**
+  * stack_trace_consume_fn - Callback for arch_stack_walk()
+  * @cookie:	Caller supplied pointer handed back by arch_stack_walk()
+  * @addr:	The stack entry address to consume
++ * @fi:	The frame information to consume
+  *
+  * Return:	True, if the entry was consumed or skipped
+  *		False, if there is no space left to store
+  */
+-typedef bool (*stack_trace_consume_fn)(void *cookie, unsigned long addr);
++typedef bool (*stack_trace_consume_fn)(void *cookie, struct frame_info *fi);
+ /**
+  * arch_stack_walk - Architecture specific function to walk the stack
+  * @consume_entry:	Callback which is invoked by the architecture code for
+diff --git a/kernel/stacktrace.c b/kernel/stacktrace.c
+index 9ed5ce989415..2d0a2812e92b 100644
+--- a/kernel/stacktrace.c
++++ b/kernel/stacktrace.c
+@@ -79,7 +79,7 @@ struct stacktrace_cookie {
+ 	unsigned int	len;
+ };
+ 
+-static bool stack_trace_consume_entry(void *cookie, unsigned long addr)
++static bool stack_trace_consume_entry(void *cookie, struct frame_info *fi)
+ {
+ 	struct stacktrace_cookie *c = cookie;
+ 
+@@ -90,15 +90,15 @@ static bool stack_trace_consume_entry(void *cookie, unsigned long addr)
+ 		c->skip--;
+ 		return true;
+ 	}
+-	c->store[c->len++] = addr;
++	c->store[c->len++] = fi->pc;
+ 	return c->len < c->size;
+ }
+ 
+-static bool stack_trace_consume_entry_nosched(void *cookie, unsigned long addr)
++static bool stack_trace_consume_entry_nosched(void *cookie, struct frame_info *fi)
+ {
+-	if (in_sched_functions(addr))
++	if (in_sched_functions(fi->pc))
+ 		return true;
+-	return stack_trace_consume_entry(cookie, addr);
++	return stack_trace_consume_entry(cookie, fi);
+ }
+ 
+ /**
 -- 
 2.25.1
 
