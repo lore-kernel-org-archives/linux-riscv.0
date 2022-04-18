@@ -4,80 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 099ECC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Apr 2022 22:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2670EC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Apr 2022 23:42:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kiRylnIa/VJdlY0Dz1t+n18wjFRyw4bEMys+1nTX2II=; b=NavWtgDXA5/0aR
-	LNTI8KSgjq8eCxVdIqrgnWtMQMSBaUVfidVWehVSzaiPim7OxEXOyj4WVsg4DcrSk+AYbOOcS43IH
-	gf9rx7JAc1EXs4dUxBYRvV5Wk29V7lgqjsq6TqSgKaYbCEQZ4Vr6UAVkr3xkk68HHIHnC5d/iCclK
-	qZjV6GiA2K/0hSc0wHO4GGxvkCaQ6h3DVHCUiRPvGYP2PzcI0nOVrMQafvjMIsUrxh0LnaWeSoMiE
-	H4/44avhzQnILXv+dU6xw9SaDuxlr/5CVoyj7z8kjXvTIJeLmbqAkMJG8WWEgb17tFF2GRGvKPUMy
-	a+HsQv8ivS6z4TASQnRw==;
+	List-Owner; bh=47QdMnwQbOFtkYdLXBzaFyzRXxLolXCWLAALH9/RJ7E=; b=lEdcx5AR2aQnqD
+	Ln1claqOZsidDBT+tJqSEqyp9dOm78flSO6HV3IWoXNqPf0okDLseeNkwSt5MK8dvIQ/KZiqhdCw5
+	gucEA60hxgljJ/QDZR3+zAlN06VSFcvEWPpIWWF7R/p9vdg5c6WrUgmqzUooYlYKhkyZHdMc+/Xb8
+	asYSuyKXFp6ZZCc5+2ABeAMOTis7c+JrJPdGiesDkwpJfstYNyTybh4CIoH1RklHsl7vOf5NsWVx5
+	2bOVONmxLhKWSy3fzn5Vbszgzu9lWQETzvgrVVVvrFFShTalGP5kdoXxYmxZoOs1u/7UJpDL5wnAS
+	DFO+YDhjir76dEzx6Zpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ngZPe-000g2o-Qi; Mon, 18 Apr 2022 22:00:02 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1ngb0I-000r9r-9O; Mon, 18 Apr 2022 23:41:58 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ngZPU-000fzr-IH
- for linux-riscv@lists.infradead.org; Mon, 18 Apr 2022 21:59:53 +0000
-Received: by mail-pl1-x635.google.com with SMTP id b7so3772005plh.2
- for <linux-riscv@lists.infradead.org>; Mon, 18 Apr 2022 14:59:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
+ id 1ngb0F-000r6w-Dx
+ for linux-riscv@lists.infradead.org; Mon, 18 Apr 2022 23:41:56 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id s18so29692504ejr.0
+ for <linux-riscv@lists.infradead.org>; Mon, 18 Apr 2022 16:41:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=cLLWAAHArn9WgPwOUwNflPPJDgjsRY1O3bHGAhIDsQw=;
- b=LTURonE53ti9q/GT1aK7iRoPMpGAeCy1e4EeYMoQ5ND31pPzYRrBIuxOtS32aAiFM+
- 1XHlY0ymuxtf7KP5zzxh8j9ip4/ZkYqKkInt8TY5JnA0taa6ag1p6HhrtkPYOmL/X1BS
- 68H/ZEsyd88OXRqhJx4ed+KaxwMRzhvwF+Q30=
+ :content-disposition:content-transfer-encoding:in-reply-to;
+ bh=oMbj/ngB4Xh3u5slAt5+IUuTIHe0QYck6hgIDhGGZyI=;
+ b=Lw0HPpmEilJ7jamzGeotijctF5AHV80XNoUo8pNNvFpfqAW9qsRPm/r+bOi2tkAhr5
+ 1PPUiSSvi4JLJnb9CzZWaBxulsm8Sf5AnLlXUK54WZ1QIKpqyoLBl5i3HtqNle0zAKCs
+ PNZvloGV6FslYHe8ECOL+8639jNU4zYpipxNpzmepXt8UtaovU3gsMifDRRnI3Z/1TuS
+ f5p9a2xttlhYAVQQwRKk2KNF/TfO5BZ0qAIRJICKYXfuYmqphH3CzycrqYKxf8tSFDzG
+ UPAHPqRub1d99fqAz2wFuB2Tf7s+HgWh/KGq2VGpMF8bcCgBhK1bmbrjyaya8b/kdHqU
+ wgaw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=cLLWAAHArn9WgPwOUwNflPPJDgjsRY1O3bHGAhIDsQw=;
- b=iT9xEfbbvKr2tSFcitX+sU+SzXdU1OJMfe8GlxJlwDrO0lLkzeUl1q+EJBQyxaaL+Z
- SwQDxWz1AOyvKyMJ8gA0BmFOIOGBFFcginMNfMPYcIJBj2mZGhht0Sth/V/J3nkUgkCk
- ApUc8WgQvEOn5R05sojVuPSVNAM1bNUADewgxsunyxDugnDJw176VMD9VyAUUpaEttin
- 03X2lMtLzQr9n4jGvi6mfyn7P9WBVdRwE/kaTtM/4/gaGWq/bvM8WtTVlcumV1l5Rp7B
- brO85PK5O14/tG1AdtSjbVTzE9M1AO/xmLKi505iOeHR2hCzpEtaeb7r5Ok1Fw1JH7lH
- US/w==
-X-Gm-Message-State: AOAM531nItlAHkP5FGdYA0xI7s9Nq/Iov7q7qq1kqG9wZCunUMJfPzrT
- 6OgvvyXGkTQK8i6dFdqnlWYN4Q==
-X-Google-Smtp-Source: ABdhPJysM2kkydsu6S512r9sNHn81bBvZQZwemOKp8WmD7sADc0kfHvR6/TUHLqhcn1MQ99fL/O1Og==
-X-Received: by 2002:a17:902:6bc2:b0:158:a26b:5884 with SMTP id
- m2-20020a1709026bc200b00158a26b5884mr12917161plt.38.1650319190427; 
- Mon, 18 Apr 2022 14:59:50 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+ :mime-version:content-disposition:content-transfer-encoding
+ :in-reply-to;
+ bh=oMbj/ngB4Xh3u5slAt5+IUuTIHe0QYck6hgIDhGGZyI=;
+ b=lHms4l3HYN+wK7zSPMxR4jxETk9MoVA3ruIoLmro6IVaIGSyxdO0YhwvEvOC36EXHF
+ ylj5FyPlTBoBGSR8t3SKiBRhE1TNC/ujs8bvfMk1JVCu05WMJRZykQQwAWaT2RYgmgeL
+ GDaqFx1/cgwiW3UUdTTwoi8Nti7o48+ThSvZRxBoi15HNs7KLIqotplvkZ7Hn1pBgAiI
+ e4DBCGAV60tqZUzOC+0MsWQgymSeD3IGMZ6m3yDZxP39oF0JDf/LAnglp7XAKfB7L0d2
+ /doALd0ls6LxLkfEgaBLZ9A2J7+RW/AmfIgDBETst5/qreOl7ErcppTWgyQuNG4n4x78
+ BFMw==
+X-Gm-Message-State: AOAM532rGB7qvXol58CNhhdrprUI/m/FAuJDNBb8t7FJadQj0yJ2fbI8
+ djlBXqtWEWF9M2CyNrRQ1Cw=
+X-Google-Smtp-Source: ABdhPJzskXbKBYI3v3yN/vt7djM1RFhBYN1rxNho2kAMhgGvPFd+6Xbx3xvzUB2PB+xvJucZdZvvcQ==
+X-Received: by 2002:a17:906:1194:b0:6ec:8197:e892 with SMTP id
+ n20-20020a170906119400b006ec8197e892mr10660456eja.84.1650325306122; 
+ Mon, 18 Apr 2022 16:41:46 -0700 (PDT)
+Received: from anparri (host-82-53-3-95.retail.telecomitalia.it. [82.53.3.95])
  by smtp.gmail.com with ESMTPSA id
- z15-20020a056a001d8f00b004fda37855ddsm12953099pfw.168.2022.04.18.14.59.49
+ fq6-20020a1709069d8600b006e891c0b7e0sm4979497ejc.129.2022.04.18.16.41.43
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 18 Apr 2022 14:59:50 -0700 (PDT)
-Date: Mon, 18 Apr 2022 14:59:49 -0700
-From: Kees Cook <keescook@chromium.org>
-To: He Zhe <zhe.he@windriver.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
- tglx@linutronix.de, bp@alien8.de, dave.hansen@linux.intel.com,
- alexander.shishkin@linux.intel.com, jolsa@kernel.org,
- namhyung@kernel.org, benh@kernel.crashing.org, paulus@samba.org,
- borntraeger@linux.ibm.com, svens@linux.ibm.com, hpa@zytor.com,
- x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC 2/8] arm64: stacktrace: Add arch_within_stack_frames
-Message-ID: <202204181457.9DE190CE@keescook>
-References: <20220418132217.1573072-1-zhe.he@windriver.com>
- <20220418132217.1573072-3-zhe.he@windriver.com>
+ Mon, 18 Apr 2022 16:41:45 -0700 (PDT)
+Date: Tue, 19 Apr 2022 01:41:37 +0200
+From: Andrea Parri <parri.andrea@gmail.com>
+To: Guo Ren <guoren@kernel.org>
+Cc: Boqun Feng <boqun.feng@gmail.com>, Daniel Lustig <dlustig@nvidia.com>,
+ "Paul E. McKenney" <paulmck@linux.vnet.ibm.com>,
+ Arnd Bergmann <arnd@arndb.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ linux-arch <linux-arch@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH V2 0/3] riscv: atomic: Optimize AMO instructions usage
+Message-ID: <20220418234137.GA444607@anparri>
+References: <20220412034957.1481088-1-guoren@kernel.org>
+ <YlbwOG46mCR8Q5tJ@tardis>
+ <CAJF2gTRws6RqKmJHBdKsycWSkFgYna_MocJ+qp3Z9r1v7mQzsg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220418132217.1573072-3-zhe.he@windriver.com>
+In-Reply-To: <CAJF2gTRws6RqKmJHBdKsycWSkFgYna_MocJ+qp3Z9r1v7mQzsg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220418_145952_629058_CBE08455 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20220418_164155_498239_864A2818 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,36 +94,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 18, 2022 at 09:22:11PM +0800, He Zhe wrote:
-> This function checks if the given address range crosses frame boundary.
-> It is based on the existing x86 algorithm, but implemented via stacktrace.
-> This can be tested by USERCOPY_STACK_FRAME_FROM and
-> USERCOPY_STACK_FRAME_TO in lkdtm.
-
-Hi,
-
-Thanks for doing this implementation! One reason usercopy hardening
-didn't persue doing a "full" stacktrace was because it seemed relatively
-expensive. Did you do any usercopy-heavily workload testing to see if
-there was a noticeable performance impact?
-
-It would be nice to block the exposure of canaries and PAC bits, though,
-so I'm not opposed, but I'd like to get a better sense of how "heavy"
-this might be.
-
-Thanks!
-
--Kees
-
--- 
-Kees Cook
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+PiA+IFNlZW1zIHRvIG1lIHRoYXQgeW91IGFyZSBiYXNpY2FsbHkgcmV2ZXJ0aW5nIDVjZTZjMWYz
+NTM1Zgo+ID4gKCJyaXNjdi9hdG9taWM6IFN0cmVuZ3RoZW4gaW1wbGVtZW50YXRpb25zIHdpdGgg
+ZmVuY2VzIikuIFRoYXQgY29tbWl0Cj4gPiBmaXhlZCBhbiBtZW1vcnkgb3JkZXJpbmcgaXNzdWUs
+IGNvdWxkIHlvdSBleHBsYWluIHdoeSB0aGUgaXNzdWUgbm8KPiA+IGxvbmdlciBuZWVkcyBhIGZp
+eD8KPiAKPiBJJ20gbm90IHJldmVydGluZyB0aGUgcHJpb3IgcGF0Y2gsIGp1c3Qgb3B0aW1pemlu
+ZyBpdC4KPiAKPiBJbiBSSVNDLVYg4oCcQeKAnSBTdGFuZGFyZCBFeHRlbnNpb24gZm9yIEF0b21p
+YyBJbnN0cnVjdGlvbnMgc3BlYywgaXQgc2FpZDoKCldpdGggcmVmZXJlbmNlIHRvIHRoZSBSSVND
+LVYgaGVyZCBzcGVjaWZpY2F0aW9uIGF0OgoKICBodHRwczovL2dpdGh1Yi5jb20vcmlzY3Yvcmlz
+Y3YtaXNhLW1hbnVhbC5naXQKCnRoZSBpc3N1ZSwgYmV0dGVyLCBsci1zYy1hcXJsLXBhaXItdnMt
+ZnVsbC1iYXJyaWVyIHNlZW1zIHRvIF9ubyBsb25nZXJfCm5lZWQgYSBmaXggc2luY2UgY29tbWl0
+OgoKICAwM2E1ZTcyMmZjMGYgKCJVcGRhdGVzIHRvIHRoZSBtZW1vcnkgY29uc2lzdGVuY3kgbW9k
+ZWwgc3BlYyIpCgooaGVyZSBhIHRlbXBsYXRlLCB0byBkb3VibGUgY2hlY2s6CgogIGh0dHBzOi8v
+Z2l0aHViLmNvbS9saXRtdXMtdGVzdHMvbGl0bXVzLXRlc3RzLXJpc2N2L2Jsb2IvbWFzdGVyL3Rl
+c3RzL25vbi1taXhlZC1zaXplL0hBTkQvTFItU0MtTk9ULUZFTkNFLmxpdG11cyApCgpJIGRlZmVy
+IHRvIERhbmllbC9vdGhlcnMgZm9yIGEgImJpLXNlY3Rpb24iIG9mIHRoZSBwcm9zZSBzcGVjaWZp
+Y2F0aW9uLgo7LSkKCiAgQW5kcmVhCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
