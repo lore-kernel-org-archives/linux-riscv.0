@@ -4,86 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A506C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Apr 2022 10:09:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76B02C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Apr 2022 10:22:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tAE/BcKFbEfhM9ZkLncUK+G2nw689mpzMgntpIf1iyg=; b=Xlv5Xm19YqEr3g
-	SUhfHeK49LJvW2L1LDg6IBZesR5l48RvKxGepGB4xkepzCBiCgGc1M6LjFjk9W/MlVAh62yROe7bM
-	Dk/4zDGjYOTwzBymAXEq2M2YQvKduHsH2Ek71selQbtnP4rdEYVvm/m++HVEEYm+00BbX09BrStko
-	LUtZZTUwPukZS8Rk3V+CVHi2Pw2bW9CnjU5DnKW2hjxWe4rEURWJw+4w+Q9OJmpNg9H+gySBhFylP
-	eEUx9Ea33rcwrVQio9FTDja7BtPWl+idyA9mYhSIZgXb/xl0vcbTdU4mDhfIwzGG+QYNRseNl1f7O
-	xnUAqxZVWzwWpxEcF3wA==;
+	List-Owner; bh=HNXwtmrIESgXB1mJdsGb9XTzHTLUYf320KT9HhWXA98=; b=zuBTC1lghK2o0p
+	uSjNw2Q4zVmzOrOl/R30i9ExI2Iw327qkGHWA25RNzo4fww6HKSrOK0cemE6hzotqYhm+DY9rd9Ai
+	pOJxZ7mp/0XupOS/ScxlhzMc7Pv2R0tqv3lmt3kUZEiVqpp9hbGx8oriYJkhU+fCglKLqQU0ZCOVM
+	Sz3sy1/hb8CylgGWuVa4r8zguERd+nWs6JAn5jpq2CW41i71Jz9gIH9zb6xGtrewTJugL4zVOXlvM
+	CZZMnqJWXd0s1gGlg0J1SlUPY+Wf6LYVOeuyWcBIVsrwAYuOLfzT0IFMPJskNN6mhG1GV8tsxykKa
+	LhmC4m5NWNc5vz6QtX7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ngknu-002izn-2j; Tue, 19 Apr 2022 10:09:50 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ngknq-002iz6-NG
- for linux-riscv@lists.infradead.org; Tue, 19 Apr 2022 10:09:47 +0000
-Received: by mail-ej1-x630.google.com with SMTP id y10so14428636ejw.8
- for <linux-riscv@lists.infradead.org>; Tue, 19 Apr 2022 03:09:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=message-id:date:mime-version:user-agent:subject:content-language:to
- :references:from:in-reply-to:content-transfer-encoding;
- bh=YFDNhide2XsUmvM8LDTWVfeOwV1KO1o2ZUWzKE5/SFk=;
- b=G7EcWbpYoSAE1Lcg+xSOON5dxTvgUD2Cvatu5KLZxziEhw8eZ7euCX8hhBvjFbPwhK
- 4se+dIuQNzJefYfAaLJhnTR34wRRUZjdVjUMMFhJsspcddrm3uTXTJUH0DYrfVSurYYW
- detDS7NDqTpiI4zcm/9kgSqk7kbchNED0Lw1OiiKdWDK/y+rqTrs6WwjGFnJHabOOxl3
- mCr4WOEmAgcsQ1/RyRGcEa6wO9wNbfX/pCw7xlNuo1JgmXDEtdrOgfUo6ULqlojWG0i4
- +VX/24ZNb3W5Qw1LMRt1nbx0j8bKlIRx2SX+/LgiQcTs+juP3b+rktTC6oJ34rGGPBEH
- f2FA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:references:from:in-reply-to
- :content-transfer-encoding;
- bh=YFDNhide2XsUmvM8LDTWVfeOwV1KO1o2ZUWzKE5/SFk=;
- b=P6wI1f43rupj7WKhiCwUwn8rE8Roz8G4ZGJ0R8X1fQCSmKvw+P/WEK6vQl2Z+teCfB
- /vDUyCwFuxGm1WwoNyQO2VYdXWLynMRRfXRFwrQQyppzsZ6QTcFU97bJyQRcpT3XjTI4
- JzZy53ugmYdXRjhZvBQNgKtglzr0Gt8c2MPYICCHKP5hOae7lOFkCM6RUkQdaCGRHRI+
- 1u8XYMF3h/JuHsKgwuJUHzfCdxnRG4f+JVLOouwWInkCUDZDHQdmJG9WjLLWE87F8bkq
- FKrllakQgwYJP7IhewgMxWhFhKw/11SQh7LT10gpxfHh7hUkTZuZZWD1KNUnPmV2NrfM
- ih4w==
-X-Gm-Message-State: AOAM5304F4Z7kz6YC+Ssl1dtmVdSIP91X7ukecavzsndKMn2KKfh6mNo
- 8xtbGNE3djnpLBmCRvjv3eW/cg==
-X-Google-Smtp-Source: ABdhPJwMaBWKax5gcTKNS0foupA/Zto/4d9xR3glykA1o5QTs+rB8WGba9q/yqz8HLsoqqCfAt3N6w==
-X-Received: by 2002:a17:906:4cd8:b0:6db:372:c4ba with SMTP id
- q24-20020a1709064cd800b006db0372c4bamr12385934ejt.57.1650362984517; 
- Tue, 19 Apr 2022 03:09:44 -0700 (PDT)
-Received: from [192.168.0.217] (xdsl-188-155-176-92.adslplus.ch.
- [188.155.176.92]) by smtp.gmail.com with ESMTPSA id
- i22-20020a1709063c5600b006e8a8a48baesm5569260ejg.99.2022.04.19.03.09.42
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 19 Apr 2022 03:09:42 -0700 (PDT)
-Message-ID: <a8c5d574-c050-bbc3-efa6-9b45f5f27524@linaro.org>
-Date: Tue, 19 Apr 2022 12:09:41 +0200
+	id 1ngl09-002mJC-DG; Tue, 19 Apr 2022 10:22:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1ngkzw-002mFm-QH; Tue, 19 Apr 2022 10:22:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1555D23A;
+ Tue, 19 Apr 2022 03:22:14 -0700 (PDT)
+Received: from [10.163.40.223] (unknown [10.163.40.223])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B4DDA3F73B;
+ Tue, 19 Apr 2022 03:22:05 -0700 (PDT)
+Message-ID: <073cb6a6-3dbc-75d4-dbfe-a5299a6b0510@arm.com>
+Date: Tue, 19 Apr 2022 15:52:49 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.7.0
-Subject: Re: [PATCH 2/2] riscv: dts: sifive: fu540-c000: align dma node name
- with dtschema
+ Thunderbird/91.5.0
+Subject: Re: [PATCH -next v4 3/4] arm64: mm: add support for page table check
 Content-Language: en-US
-To: Green Wan <green.wan@sifive.com>, Vinod Koul <vkoul@kernel.org>,
- Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+To: Tong Tiangen <tongtiangen@huawei.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Alexandre Ghiti <alexandre.ghiti@canonical.com>,
- Palmer Debbelt <palmer@sifive.com>, dmaengine@vger.kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20220318162044.169350-1-krzysztof.kozlowski@canonical.com>
- <20220318162044.169350-2-krzysztof.kozlowski@canonical.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20220318162044.169350-2-krzysztof.kozlowski@canonical.com>
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ Kefeng Wang <wangkefeng.wang@huawei.com>, Guohanjun <guohanjun@huawei.com>
+References: <20220418034444.520928-1-tongtiangen@huawei.com>
+ <20220418034444.520928-4-tongtiangen@huawei.com>
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20220418034444.520928-4-tongtiangen@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220419_030946_810465_0D4C7DF6 
-X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-CacheID: sfid-20220419_032216_964851_0B125157 
+X-CRM114-Status: UNSURE (   7.88  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,20 +73,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 18/03/2022 17:20, Krzysztof Kozlowski wrote:
-> Fixes dtbs_check warnings like:
-> 
->   dma@3000000: $nodename:0: 'dma@3000000' does not match '^dma-controller(@.*)?$'
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-> ---
->  arch/riscv/boot/dts/sifive/fu540-c000.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
 
-Any comments here?
-
-Best regards,
-Krzysztof
+On 4/18/22 09:14, Tong Tiangen wrote:
+> +#ifdef CONFIG_PAGE_TABLE_CHECK
+> +static inline bool pte_user_accessible_page(pte_t pte)
+> +{
+> +	return pte_present(pte) && (pte_user(pte) || pte_user_exec(pte));
+> +}
+> +
+> +static inline bool pmd_user_accessible_page(pmd_t pmd)
+> +{
+> +	return pmd_present(pmd) && (pmd_user(pmd) || pmd_user_exec(pmd));
+> +}
+> +
+> +static inline bool pud_user_accessible_page(pud_t pud)
+> +{
+> +	return pud_present(pud) && pud_user(pud);
+> +}
+> +#endif
+Wondering why check for these page table entry states when init_mm
+has already being excluded ? Should not user page tables be checked
+for in entirety for all updates ? what is the rationale for filtering
+out only pxx_user_access_page entries ?
 
 _______________________________________________
 linux-riscv mailing list
