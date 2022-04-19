@@ -4,62 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED6C9C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Apr 2022 07:38:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44164C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Apr 2022 07:48:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lfkc2fOu3hBxIpID7gQAKjyMsNC1RJY3Q+pQ9To1x5o=; b=zeVfqP6Npx7tbN
-	XM0Maa9Wr5AZt8v9CIxZhhLzHvIBQgLAHupuigKQNtZyZsefDus0zINGrUbEMdEOe2/osR3aR2xtL
-	+cfqZToMKSlxN7oiPoaxqw4ZU58AyjkDkbIKOXRYDWvCoNvT77lsOJb4z7SNW9tc4R/n9jNUQnDJA
-	mQgnVx6xbkJf1CbkS+Oq8TFXwesnHlu4nOJy2JxerVjO2OamnJ6j8WXC7kJNu+t8pnPlZ+u/SdliO
-	kD70q5nHoXg2cmQk4y1Eig9v8Nxy6CnPiBmSDoxALBhpb8ter56oUHvZd8sgPK0bEKRFO3bQpfgSe
-	G/xLj5uydhhULMBaec1A==;
+	List-Owner; bh=viDy3nxNF4XJZlct1NyM5NPTaI0JYhhW8D0DO6Yg1Og=; b=zVOldF5mz9zo/6
+	4vfpXWSEzPMJPgc+/5CKdyh2mJKUG2CrevL+amLDgPp/1A2zpaJraS3YlWUi1J5CmPDDUpAfG0SNh
+	EZFCEYxb0V6UBhciTrHlEJknr0uAvhvPo1Nj2V4RzXe9WK0QxyGQod1+O9PyB1vFMNBfsMkhPIED1
+	ueKT0nHUSLvlUXf31J3wXuCB0qx/PPdK0S1jnvaAU+hqg0hEOd2QS2mq7jY0oY8wtEvf+wHTujVic
+	EhUaTzqpqsfVbGF2m2OEd9/tVUqKQo2vxpxKDPt34qndK1RckCq6EfFTsNRqOdiAOpRwCLqUEiLo9
+	LYWt7xH6HC4CU+wYjfVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ngiRQ-002420-L6; Tue, 19 Apr 2022 07:38:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ngiDr-001xnt-2X; Tue, 19 Apr 2022 07:24:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 78E55106F;
- Tue, 19 Apr 2022 00:24:25 -0700 (PDT)
-Received: from [10.163.40.223] (unknown [10.163.40.223])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C1E7D3F766;
- Tue, 19 Apr 2022 00:24:17 -0700 (PDT)
-Message-ID: <99df7899-1820-d5b0-a72a-97dab1364075@arm.com>
-Date: Tue, 19 Apr 2022 12:55:01 +0530
+	id 1ngiai-0028p7-TF; Tue, 19 Apr 2022 07:48:04 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1ngiWx-0026bk-Ac
+ for linux-riscv@lists.infradead.org; Tue, 19 Apr 2022 07:44:15 +0000
+Received: by mail-wr1-x429.google.com with SMTP id w4so21204547wrg.12
+ for <linux-riscv@lists.infradead.org>; Tue, 19 Apr 2022 00:44:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:content-transfer-encoding:in-reply-to;
+ bh=Td4Hy43R6SEG1pSO6X3vGzswl7vCz1dgDqCHGi0vEko=;
+ b=amXfhlUYJ0+KM8IxEq4FT8n4km/zvVadqRbfTjwrztbRO8AjAy9ooKFJu1tnjVihT5
+ bNW2u/auAZA6P2JiXMtrqZsk9sN73gFbu6/60Ls4TV0dm1xmqSEy6ouZ2Q75O8byGRQW
+ 6caopDBH0jU7rXoaf/3OXByzjLbC/UmnEJUkGl+3qFDw7clw2haCYusMnkmFH8tnyBcc
+ tcQ4Bus1Nk2FSeEUUGyx/V9lHEJSKO9IYx1hgRshvUZ0bspAaH/FdX6EfmH7Wt5yqTpu
+ Nq8i9BdrOq01JnXs1TQK6oCGq0KED0opFguEMn0wJ0/1ByIF9DuIhlN/g+DoRBlVWPu7
+ xRrw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:content-transfer-encoding
+ :in-reply-to;
+ bh=Td4Hy43R6SEG1pSO6X3vGzswl7vCz1dgDqCHGi0vEko=;
+ b=HZnAQvzouDjWS6w05Cn3N4kWKjgMw7GiGYAE7mFtsElZqMXJCmzseZydgIVUKwkhV0
+ nBBe54Mv0LOHMELMKZxFwsTBK6N+0SvmBKLKy/ZlKuXRldUU894eWoWqg0C2ewIVs8gx
+ 87kXlZTV00tFxK+hhxcS6fh8SRuWTx+7Gq5+6nxsZTJQcQHB+MgNgE+ViJLE9aJOiacj
+ CDowC7Dtvasy4Wl2th2HsPS1i5fFmKMyAwgJ0ktuBFMoSbm75w52Uk/xEkbAg7XnB5GV
+ OmfcBvUGgJzPBJPGT7e1pYZ83xdW9E5tlusD7SqWfUtcnZhtgQZ9O+hkU1d8n1A5qNfC
+ 4eyg==
+X-Gm-Message-State: AOAM5302x7s8Fuuaoy5KhMu7AQl0tPgfMtBuA0lvP1ALW19bVYcyXEP7
+ 87l1o0pzQKudS3Hwh3FLYRI=
+X-Google-Smtp-Source: ABdhPJyPmfPsbf+yNodLgTbvOFCNxRsuD75a/3auxzXxSukB3FUe2LejoxHw+cdrH2+O79tXHPG8Ow==
+X-Received: by 2002:a5d:6650:0:b0:207:ac24:a825 with SMTP id
+ f16-20020a5d6650000000b00207ac24a825mr10545728wrw.97.1650354246817; 
+ Tue, 19 Apr 2022 00:44:06 -0700 (PDT)
+Received: from Red ([2a01:cb1d:3d5:a100:264b:feff:fe03:2806])
+ by smtp.googlemail.com with ESMTPSA id
+ l8-20020a5d5608000000b00207ab405d15sm11882256wrv.42.2022.04.19.00.44.05
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 19 Apr 2022 00:44:06 -0700 (PDT)
+Date: Tue, 19 Apr 2022 09:44:04 +0200
+From: Corentin Labbe <clabbe.montjoie@gmail.com>
+To: Guo Ren <guoren@kernel.org>
+Cc: Samuel Holland <samuel@sholland.org>, Heiko Stuebner <heiko@sntech.de>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Wei Fu <wefu@redhat.com>, Atish Patra <atishp@atishpatra.org>,
+ Anup Patel <anup@brainfault.org>, Nick Kossifidis <mick@ics.forth.gr>,
+ Christoph Muellner <cmuellner@linux.com>,
+ Philipp Tomsich <philipp.tomsich@vrull.eu>,
+ Herbert Xu <herbert@gondor.apana.org.au>, linux-crypto@vger.kernel.org
+Subject: Re: [PATCH 0/2] riscv: implement Zicbom-based CMO instructions + the
+ t-head variant
+Message-ID: <Yl5oRPuNC3w+UI0q@Red>
+References: <YllWTN+15CoskNBt@Red>
+ <70da24dd-2d03-fc49-151d-daabb315a5f6@sholland.org>
+ <YlpxsYREWv/LQ+HY@Red>
+ <849a3728-7e84-4f26-0c73-4d68eae9ae01@sholland.org>
+ <YlsZxVjgt3ZNQ7Ub@Red>
+ <CAJF2gTSNzLfon7yH3zvOJfYwQnVRvNWW7KygShLqcagRfbyAkg@mail.gmail.com>
+ <YlvTkfIO9Oz3ib5i@Red>
+ <CAJF2gTQ5rYATTHj2UtwxKw0dpvdHBUAih1RJf0XuGM8b6euZwQ@mail.gmail.com>
+ <YlxP26dklDj2y+cP@Red>
+ <CAJF2gTQNBVBGqbtHckwtB59wjrPoN-Li32BcUJpLahaYDnU3WQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.5.0
-Subject: Re: [PATCH -next v4 3/4] arm64: mm: add support for page table check
-Content-Language: en-US
-To: Pasha Tatashin <pasha.tatashin@soleen.com>,
- Tong Tiangen <tongtiangen@huawei.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- LKML <linux-kernel@vger.kernel.org>, linux-mm <linux-mm@kvack.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- linux-riscv@lists.infradead.org, Kefeng Wang <wangkefeng.wang@huawei.com>,
- Guohanjun <guohanjun@huawei.com>
-References: <20220418034444.520928-1-tongtiangen@huawei.com>
- <20220418034444.520928-4-tongtiangen@huawei.com>
- <1c314feb-cd78-2bb3-462e-4ea3cefe122e@arm.com>
- <ca13a4ec-17a6-8e29-e29e-39f9b47e78df@huawei.com>
- <CA+CK2bDntHyMGg_R2m9WYovmxjYSHmZP1=pCxt-uVkTvD79oZw@mail.gmail.com>
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <CA+CK2bDntHyMGg_R2m9WYovmxjYSHmZP1=pCxt-uVkTvD79oZw@mail.gmail.com>
+Content-Disposition: inline
+In-Reply-To: <CAJF2gTQNBVBGqbtHckwtB59wjrPoN-Li32BcUJpLahaYDnU3WQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220419_002427_263847_89E08F7A 
-X-CRM114-Status: GOOD (  28.54  )
+X-CRM114-CacheID: sfid-20220419_004411_409959_FE42C880 
+X-CRM114-Status: GOOD (  51.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,120 +103,192 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiA0LzE4LzIyIDIxOjUwLCBQYXNoYSBUYXRhc2hpbiB3cm90ZToKPiBPbiBNb24sIEFwciAx
-OCwgMjAyMiBhdCAxMTo0NyBBTSBUb25nIFRpYW5nZW4gPHRvbmd0aWFuZ2VuQGh1YXdlaS5jb20+
-IHdyb3RlOgo+Pgo+Pgo+Pgo+PiDlnKggMjAyMi80LzE4IDE3OjI4LCBBbnNodW1hbiBLaGFuZHVh
-bCDlhpnpgZM6Cj4+PiBPbiA0LzE4LzIyIDA5OjE0LCBUb25nIFRpYW5nZW4gd3JvdGU6Cj4+Pj4g
-RnJvbTogS2VmZW5nIFdhbmcgPHdhbmdrZWZlbmcud2FuZ0BodWF3ZWkuY29tPgo+Pj4+Cj4+IFsu
-Li5dCj4+Pj4gICAjZW5kaWYKPj4+Cj4+PiBSYW4gdGhpcyBzZXJpZXMgb24gYXJtNjQgcGxhdGZv
-cm0gYWZ0ZXIgZW5hYmxpbmcKPj4+Cj4+PiAtIENPTkZJR19QQUdFX1RBQkxFX0NIRUNLCj4+PiAt
-IENPTkZJR19QQUdFX1RBQkxFX0NIRUNLX0VORk9SQ0VEIChhdm9pZGluZyBrZXJuZWwgY29tbWFu
-ZCBsaW5lIG9wdGlvbikKPj4+Cj4+PiBBZnRlciBzb21lIHRpbWUsIHRoZSBmb2xsb3dpbmcgZXJy
-b3IgY2FtZSB1cAo+Pj4KPj4+IFsgICAyMy4yNjYwMTNdIC0tLS0tLS0tLS0tLVsgY3V0IGhlcmUg
-XS0tLS0tLS0tLS0tLQo+Pj4gWyAgIDIzLjI2NjgwN10ga2VybmVsIEJVRyBhdCBtbS9wYWdlX3Rh
-YmxlX2NoZWNrLmM6OTAhCj4+PiBbICAgMjMuMjY3NjA5XSBJbnRlcm5hbCBlcnJvcjogT29wcyAt
-IEJVRzogMCBbIzFdIFBSRUVNUFQgU01QCj4+PiBbICAgMjMuMjY4NTAzXSBNb2R1bGVzIGxpbmtl
-ZCBpbjoKPj4+IFsgICAyMy4yNjkwMTJdIENQVTogMSBQSUQ6IDMwIENvbW06IGtodWdlcGFnZWQg
-Tm90IHRhaW50ZWQgNS4xOC4wLXJjMy0wMDAwNC1nNjBhYThlMzYzYTkxICMyCj4+PiBbICAgMjMu
-MjcwMzgzXSBIYXJkd2FyZSBuYW1lOiBsaW51eCxkdW1teS12aXJ0IChEVCkKPj4+IFsgICAyMy4y
-NzEyMTBdIHBzdGF0ZTogNDA0MDAwMDUgKG5aY3YgZGFpZiArUEFOIC1VQU8gLVRDTyAtRElUIC1T
-U0JTIEJUWVBFPS0tKQo+Pj4gWyAgIDIzLjI3MjQ0NV0gcGMgOiBwYWdlX3RhYmxlX2NoZWNrX2Ns
-ZWFyLmlzcmEuNisweDExNC8weDE0OAo+Pj4gWyAgIDIzLjI3MzQyOV0gbHIgOiBwYWdlX3RhYmxl
-X2NoZWNrX2NsZWFyLmlzcmEuNisweDY0LzB4MTQ4Cj4+PiBbICAgMjMuMjc0Mzk1XSBzcCA6IGZm
-ZmY4MDAwMGFmYjNjYTAKPj4+IFsgICAyMy4yNzQ5OTRdIHgyOTogZmZmZjgwMDAwYWZiM2NhMCB4
-Mjg6IGZmZmZmYzAwMDIyNTU4ZTggeDI3OiBmZmZmODAwMDBhMjdmNjI4Cj4+PiBbICAgMjMuMjc2
-MjYwXSB4MjY6IGZmZmY4MDAwMDlmOWYyYjAgeDI1OiBmZmZmMDAwMDhhOGQ1MDAwIHgyNDogZmZm
-ZjgwMDAwOWYwOWZhMAo+Pj4gWyAgIDIzLjI3NzUyN10geDIzOiAwMDAwZmZmZjg5ZTAwMDAwIHgy
-MjogZmZmZjgwMDAwOWYwOWZiOCB4MjE6IGZmZmYwMDAwODk0MTRjYzAKPj4+IFsgICAyMy4yNzg3
-OThdIHgyMDogMDAwMDAwMDAwMDAwMDIwMCB4MTk6IGZmZmZmYzAwMDIyYTAwMDAgeDE4OiAwMDAw
-MDAwMDAwMDAwMDAxCj4+PiBbICAgMjMuMjgwMDY2XSB4MTc6IDAwMDAwMDAwMDAwMDAwMDEgeDE2
-OiAwMDAwMDAwMDAwMDAwMDAwIHgxNTogMDAwMDAwMDAwMDAwMDAwMwo+Pj4gWyAgIDIzLjI4MTMz
-MV0geDE0OiAwMDAwMDAwMDAwMDAwMDY4IHgxMzogMDAwMDAwMDAwMDAwMDBjMCB4MTI6IDAwMDAw
-MDAwMDAwMDAwMTAKPj4+IFsgICAyMy4yODI2MDJdIHgxMTogZmZmZmZjMDAwMjMyMDAwOCB4MTA6
-IGZmZmZmYzAwMDIzMjAwMDAgeDkgOiBmZmZmODAwMDA5ZmExMDAwCj4+PiBbICAgMjMuMjgzODY4
-XSB4OCA6IDAwMDAwMDAwZmZmZmZmZmYgeDcgOiAwMDAwMDAwMDAwMDAwMDAxIHg2IDogZmZmZjgw
-MDAwOWZhMWYwOAo+Pj4gWyAgIDIzLjI4NTEzNV0geDUgOiAwMDAwMDAwMDAwMDAwMDAwIHg0IDog
-MDAwMDAwMDAwMDAwMDAwMCB4MyA6IDAwMDAwMDAwMDAwMDAwMDAKPj4+IFsgICAyMy4yODY0MDZd
-IHgyIDogMDAwMDAwMDBmZmZmZmZmZiB4MSA6IGZmZmYwMDAwODBmMjgwMGMgeDAgOiBmZmZmMDAw
-MDgwZjI4MDAwCj4+PiBbICAgMjMuMjg3NjczXSBDYWxsIHRyYWNlOgo+Pj4gWyAgIDIzLjI4ODEy
-M10gIHBhZ2VfdGFibGVfY2hlY2tfY2xlYXIuaXNyYS42KzB4MTE0LzB4MTQ4Cj4+PiBbICAgMjMu
-Mjg5MDQzXSAgX19wYWdlX3RhYmxlX2NoZWNrX3BtZF9jbGVhcisweDNjLzB4NTAKPj4+IFsgICAy
-My4yODk5MThdICBwbWRwX2NvbGxhcHNlX2ZsdXNoKzB4MTE0LzB4MzcwCj4+PiBbICAgMjMuMjkw
-NjkyXSAga2h1Z2VwYWdlZCsweDExNzAvMHgxOWUwCj4+PiBbICAgMjMuMjkxMzU2XSAga3RocmVh
-ZCsweDExMC8weDEyMAo+Pj4gWyAgIDIzLjI5MTk0NV0gIHJldF9mcm9tX2ZvcmsrMHgxMC8weDIw
-Cj4+PiBbICAgMjMuMjkyNTk2XSBDb2RlOiA5MTAwMTA0MSBiOGU4MDAyNCA1MTAwMDQ4MiAzNmZm
-ZmQ2MiAoZDQyMTAwMDApCj4+PiBbICAgMjMuMjkzNjc4XSAtLS1bIGVuZCB0cmFjZSAwMDAwMDAw
-MDAwMDAwMDAwIF0tLS0KPj4+IFsgICAyMy4yOTQ1MTFdIG5vdGU6IGtodWdlcGFnZWRbMzBdIGV4
-aXRlZCB3aXRoIHByZWVtcHRfY291bnQgMgo+Pj4KPj4+IExvb2tpbmcgaW50byBmaWxlIG1tL3Bh
-Z2VfdGFibGVfY2hlY2suYyB3aGVyZSB0aGlzIHByb2JsZW0gb2NjdXJlZC4KPj4+Cj4+PiAvKgo+
-Pj4gICAqIEFuIGVudHkgaXMgcmVtb3ZlZCBmcm9tIHRoZSBwYWdlIHRhYmxlLCBkZWNyZW1lbnQg
-dGhlIGNvdW50ZXJzIGZvciB0aGF0IHBhZ2UKPj4+ICAgKiB2ZXJpZnkgdGhhdCBpdCBpcyBvZiBj
-b3JyZWN0IHR5cGUgYW5kIGNvdW50ZXJzIGRvIG5vdCBiZWNvbWUgbmVnYXRpdmUuCj4+PiAgICov
-Cj4+PiBzdGF0aWMgdm9pZCBwYWdlX3RhYmxlX2NoZWNrX2NsZWFyKHN0cnVjdCBtbV9zdHJ1Y3Qg
-Km1tLCB1bnNpZ25lZCBsb25nIGFkZHIsCj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICB1bnNpZ25lZCBsb25nIHBmbiwgdW5zaWduZWQgbG9uZyBwZ2NudCkKPj4+IHsKPj4+
-ICAgICAgICAgIHN0cnVjdCBwYWdlX2V4dCAqcGFnZV9leHQ7Cj4+PiAgICAgICAgICBzdHJ1Y3Qg
-cGFnZSAqcGFnZTsKPj4+ICAgICAgICAgIHVuc2lnbmVkIGxvbmcgaTsKPj4+ICAgICAgICAgIGJv
-b2wgYW5vbjsKPj4+Cj4+PiAgICAgICAgICBpZiAoIXBmbl92YWxpZChwZm4pKQo+Pj4gICAgICAg
-ICAgICAgICAgICByZXR1cm47Cj4+Pgo+Pj4gICAgICAgICAgcGFnZSA9IHBmbl90b19wYWdlKHBm
-bik7Cj4+PiAgICAgICAgICBwYWdlX2V4dCA9IGxvb2t1cF9wYWdlX2V4dChwYWdlKTsKPj4+ICAg
-ICAgICAgIGFub24gPSBQYWdlQW5vbihwYWdlKTsKPj4+Cj4+PiAgICAgICAgICBmb3IgKGkgPSAw
-OyBpIDwgcGdjbnQ7IGkrKykgewo+Pj4gICAgICAgICAgICAgICAgICBzdHJ1Y3QgcGFnZV90YWJs
-ZV9jaGVjayAqcHRjID0gZ2V0X3BhZ2VfdGFibGVfY2hlY2socGFnZV9leHQpOwo+Pj4KPj4+ICAg
-ICAgICAgICAgICAgICAgaWYgKGFub24pIHsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICBC
-VUdfT04oYXRvbWljX3JlYWQoJnB0Yy0+ZmlsZV9tYXBfY291bnQpKTsKPj4+ICAgICAgICAgICAg
-ICAgICAgICAgICAgICBCVUdfT04oYXRvbWljX2RlY19yZXR1cm4oJnB0Yy0+YW5vbl9tYXBfY291
-bnQpIDwgMCk7Cj4+PiAgICAgICAgICAgICAgICAgIH0gZWxzZSB7Cj4+PiAgICAgICAgICAgICAg
-ICAgICAgICAgICAgQlVHX09OKGF0b21pY19yZWFkKCZwdGMtPmFub25fbWFwX2NvdW50KSk7Cj4+
-PiAgIFRyaWdnZXJlZCBoZXJlID09PT0+PiAgQlVHX09OKGF0b21pY19kZWNfcmV0dXJuKCZwdGMt
-PmZpbGVfbWFwX2NvdW50KSA8IDApOwo+Pj4gICAgICAgICAgICAgICAgICB9Cj4+PiAgICAgICAg
-ICAgICAgICAgIHBhZ2VfZXh0ID0gcGFnZV9leHRfbmV4dChwYWdlX2V4dCk7Cj4+PiAgICAgICAg
-ICB9Cj4+PiB9Cj4+Pgo+Pj4gQ291bGQgeW91IGV4cGxhaW4gd2hhdCB3YXMgZXhwZWN0ZWQgZHVy
-aW5nIHBtZHBfY29sbGFwc2VfZmx1c2goKSB3aGljaCB3aGVuCj4+PiBmYWlsZWQsIHRyaWdnZXJl
-ZCB0aGlzIEJVR19PTigpID8gVGhpcyBjb3VudGVyIHNlZW1zIHRvIGJlIHBhZ2UgdGFibGUgY2hl
-Y2sKPj4+IHNwZWNpZmljLCBjb3VsZCBpdCBqdXN0IGdvIHdyb25nID8gSSBoYXZlIG5vdCBsb29r
-ZWQgaW50byB0aGUgZGV0YWlscyBhYm91dAo+Pj4gcGFnZSB0YWJsZSBjaGVjayBtZWNoYW5pc20u
-Cj4+Pgo+Pj4gLSBBbnNodW1hbgo+Pj4gLgo+Pgo+PiBIaSBBbnNodW1hbjoKPj4KPj4gVGhhbmtz
-IGZvciB5b3VyIGpvYi4KPj4KPj4gTGV0IG1lIGJyaWVmbHkgZXhwbGFpbiB0aGUgcHJpbmNpcGxl
-IG9mIHBhZ2UgdGFibGUgY2hlY2soUFRDKS4KPj4KPj4gUFRDIGludHJvZHVjZXMgdGhlIGZvbGxv
-d2luZyBzdHJ1Y3QgZm9yIHBhZ2UgbWFwcGluZyB0eXBlIGNvdW50Ogo+PiBzdHJ1Y3QgcGFnZV90
-YWJsZV9jaGVjayB7Cj4+ICAgICAgICAgIGF0b21pY190IGFub25fbWFwX2NvdW50Owo+PiAgICAg
-ICAgICBhdG9taWNfdCBmaWxlX21hcF9jb3VudDsKPj4gfTsKPj4gVGhpcyBzdHJ1Y3R1cmUgY2Fu
-IGJlIG9idGFpbmVkIGJ5ICJsb29rdXBfcGFnZV9leHQocGFnZSkiCj4+Cj4+IFdoZW4gcGFnZSB0
-YWJsZSBlbnRyaWVzIGFyZSBzZXQocHVkL3BtZC9wdGUpLCBwYWdlX3RhYmxlX2NoZWNrX3NldCgp
-ICBpcwo+PiBjYWxsZWQgdG8gaW5jcmVhc2UgdGhlIHBhZ2UgbWFwcGluZyBjb3VudCwgQWxzbyBj
-aGVjayBmb3IgZXJyb3JzIChlZzppZgo+PiBhIHBhZ2UgaXMgdXNlZCBmb3IgYW5vbnltb3VzIG1h
-cHBpbmcsIHRoZW4gdGhlIHBhZ2UgY2Fubm90IGJlIHVzZWQgZm9yCj4+IGZpbGUgbWFwcGluZyBh
-dCB0aGUgc2FtZSB0aW1lKS4KPj4KPj4gV2hlbiBwYWdlIHRhYmxlIGVudHJpZXMgYXJlIGNsZWFy
-KHB1ZC9wbWQvcHRlKSwgcGFnZV90YWJsZV9jaGVja19jbGVhcigpCj4+ICAgaXMgY2FsbGVkIHRv
-IGRlY3JlYXNlIHRoZSBwYWdlIG1hcHBpbmcgY291bnQsIEFsc28gY2hlY2sgZm9yIGVycm9ycy4K
-Pj4KPj4gVGhlIGVycm9yIGNoZWNrIHJ1bGVzIGFyZSBkZXNjcmliZWQgaW4gdGhlIGZvbGxvd2lu
-ZyBkb2N1bWVudHM6Cj4+IERvY3VtZW50YXRpb24vdm0vcGFnZV90YWJsZV9jaGVjay5yc3QKPj4K
-Pj4gVGhlIHNldHRpbmcgYW5kIGNsZWFyaW5nIG9mIHBhZ2UgdGFibGUgZW50cmllcyBhcmUgc3lt
-bWV0cmljYWwuCj4+Cj4+IEhlcmUgX19wYWdlX3RhYmxlX2NoZWNrX3BtZF9jbGVhcigpIHRyaWdn
-ZXIgQlVHT04gd2hpY2ggaW5kaWNhdGVzIHRoYXQKPj4gdGhlIHBtZCBlbnRyeSBmaWxlIG1hcHBp
-bmcgY291bnQgaGFzIGJlY29tZSBuZWdhdGl2ZS4KPj4KPj4gSSBndWVzcyBpZiBQVEMgZGlkbid0
-IGRldGVjdCB0aGlzIGV4Y2VwdGlvbiwgd291bGQgdGhlcmUgaGF2ZSBiZWVuIGFueQo+PiBwcm9i
-bGVtcz8KPiAKPiBJdCBpcyBoYXJkIHRvIHRlbGwgd2hhdCBzb3J0IG9mIHByb2JsZW0gaGFzIGJl
-ZW4gZGV0ZWN0ZWQuIE1vcmUKPiBkZWJ1Z2dpbmcgaXMgbmVlZGVkIGluIG9yZGVyIHRvIHVuZGVy
-c3RhbmQgaXQuIEEgaHVnZSBmaWxlIGVudHJ5IGlzCj4gYmVpbmcgcmVtb3ZlZCBmcm9tIHRoZSBw
-YWdlIHRhYmxlLiBIb3dldmVyLCBhdCBsZWFzdCBvbmUgc3ViIHBhZ2Ugb2YKPiB0aGF0IGVudHJ5
-IGRvZXMgbm90IGhhdmUgYSByZWNvcmQgdGhhdCBpdCB3YXMgYWRkZWQgYXMgYSBmaWxlIGVudHJ5
-IHRvCgpJIGd1ZXNzIFBNRCBzcGxpdHRpbmcgc2NlbmFyaW9zIHNob3VsZCBhbHNvIGJlIHRha2Vu
-IGNhcmUgYXMgc3ViIHBhZ2VzCndpbGwgYWxzbyBnbyB2aWEgYXBwcm9wcmlhdGUgWFhYX3NldF9h
-dCgpIGhlbHBlcnMgPwoKPiB0aGUgcGFnZSB0YWJsZS4gQXQgR29vZ2xlIHdlIGZvdW5kIGEgZmV3
-IGludGVybmFsIHNlY3VyaXR5IGJ1Z3MgdXNpbmcKPiBQVENzLiBIb3dldmVyLCB0aGlzIGJlaW5n
-IG5ldyBvbiBBUk02NCwgaXQgaXMgcG9zc2libGUgdGhhdCB0aGUgYnVnIGlzCj4gaW4gUFRDL2to
-dWdlcGFnZWQgaXRzZWxmLgo+IAo+IEFuc2h1bWFuIGlzIGl0IHBvc3NpYmxlIHRvIHJlcHJvIHlv
-dXIgc2NlbmFyaW8gaW4gUUVNVT8KCkkgaGF2ZSBiZWVuIHVuYWJsZSB0byByZXByb2R1Y2UgdGhp
-cyByZXBvcnRlZCBwcm9ibGVtLiBMYXN0IHRpbWUgaXQganVzdApoYXBwZW5lZCBhZnRlciBhIGZy
-ZXNoIGJvb3Qgd2l0aG91dCBhbnl0aGluZyBpbiBwYXJ0aWN1bGFyIHJ1bm5pbmcuIFdpbGwKY29u
-dGludWUgZXhwZXJpbWVudGluZy4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+Le Mon, Apr 18, 2022 at 06:50:57AM +0800, Guo Ren a =E9crit :
+> On Mon, Apr 18, 2022 at 1:35 AM Corentin Labbe
+> <clabbe.montjoie@gmail.com> wrote:
+> >
+> > Le Sun, Apr 17, 2022 at 04:49:34PM +0800, Guo Ren a =E9crit :
+> > > On Sun, Apr 17, 2022 at 4:45 PM Corentin Labbe
+> > > <clabbe.montjoie@gmail.com> wrote:
+> > > >
+> > > > Le Sun, Apr 17, 2022 at 10:17:34AM +0800, Guo Ren a =E9crit :
+> > > > > On Sun, Apr 17, 2022 at 3:32 AM Corentin Labbe
+> > > > > <clabbe.montjoie@gmail.com> wrote:
+> > > > > >
+> > > > > > Le Sat, Apr 16, 2022 at 12:47:29PM -0500, Samuel Holland a =E9c=
+rit :
+> > > > > > > On 4/16/22 2:35 AM, Corentin Labbe wrote:
+> > > > > > > > Le Fri, Apr 15, 2022 at 09:19:23PM -0500, Samuel Holland a =
+=E9crit :
+> > > > > > > >> On 4/15/22 6:26 AM, Corentin Labbe wrote:
+> > > > > > > >>> Le Mon, Mar 07, 2022 at 11:46:18PM +0100, Heiko Stuebner =
+a =E9crit :
+> > > > > > > >>>> This series is based on the alternatives changes done in=
+ my svpbmt series
+> > > > > > > >>>> and thus also depends on Atish's isa-extension parsing s=
+eries.
+> > > > > > > >>>>
+> > > > > > > >>>> It implements using the cache-management instructions fr=
+om the  Zicbom-
+> > > > > > > >>>> extension to handle cache flush, etc actions on platform=
+s needing them.
+> > > > > > > >>>>
+> > > > > > > >>>> SoCs using cpu cores from T-Head like the Allwinne D1 im=
+plement a
+> > > > > > > >>>> different set of cache instructions. But while they are =
+different,
+> > > > > > > >>>> instructions they provide the same functionality, so a v=
+ariant can
+> > > > > > > >>>> easly hook into the existing alternatives mechanism on t=
+hose.
+> > > > > > > >>>>
+> > > > > > > >>>>
+> > > > > > > >>>
+> > > > > > > >>> Hello
+> > > > > > > >>>
+> > > > > > > >>> I am testing https://github.com/smaeul/linux.git branch:o=
+rigin/riscv/d1-wip which contain this serie.
+> > > > > > > >>>
+> > > > > > > >>> I am hitting a buffer corruption problem with DMA.
+> > > > > > > >>> The sun8i-ce crypto driver fail self tests due to "device=
+ overran destination buffer".
+> > > > > > > >>> In fact the buffer is not overran by device but by dma_ma=
+p_single() operation.
+> > > > > > > >>>
+> > > > > > > >>> The following small code show the problem:
+> > > > > > > >>>
+> > > > > > > >>> dma_addr_t dma;
+> > > > > > > >>> u8 *buf;
+> > > > > > > >>> #define BSIZE 2048
+> > > > > > > >>> #define DMASIZE 16
+> > > > > > > >>>
+> > > > > > > >>> buf =3D kmalloc(BSIZE, GFP_KERNEL | GFP_DMA);
+> > > > > > > >>> for (i =3D 0; i < BSIZE; i++)
+> > > > > > > >>>     buf[i] =3D 0xFE;
+> > > > > > > >>> print_hex_dump(KERN_INFO, "DMATEST1:", DUMP_PREFIX_NONE, =
+16, 4, buf, 256, false);
+> > > > > > > >>> dma =3D dma_map_single(ce->dev, buf, DMASIZE, DMA_FROM_DE=
+VICE);
+> > > > > > > >>
+> > > > > > > >> This function (through dma_direct_map_page()) ends up call=
+ing
+> > > > > > > >> arch_sync_dma_for_device(..., ..., DMA_FROM_DEVICE), which=
+ invalidates the CPU's
+> > > > > > > >> cache. This is the same thing other architectures do (at l=
+east arm, arm64,
+> > > > > > > >> openrisc, and powerpc). So this appears to be working as i=
+ntended.
+> > > > > > > >
+> > > > > > > > This behavour is not present at least on ARM and ARM64.
+> > > > > > > > The sample code I provided does not corrupt the buffer on t=
+hem.
+> > > > > > >
+> > > > > > > That can be explained by the 0xFE bytes having been flushed t=
+o DRAM already in
+> > > > > > > your ARM/ARM64 tests, whereas in your riscv64 case, the 0xFE =
+bytes were still in
+> > > > > > > a dirty cache line. The cache topology and implementation is =
+totally different
+> > > > > > > across the SoCs, so this is not too surprising.
+> > > > > > >
+> > > > > > > Semantically, dma_map_single(..., DMA_FROM_DEVICE) means you =
+are doing a
+> > > > > > > unidirectional DMA transfer from the device into that buffer.=
+ So the contents of
+> > > > > > > the buffer are "undefined" until the DMA transfer completes. =
+If you are also
+> > > > > > > writing data into the buffer from the CPU side, then you need=
+ DMA_BIDIRECTIONAL.
+> > > > > > >
+> > > > > > > Regards,
+> > > > > > > Samuel
+> > > > > >
+> > > > > > +CC crypto mailing list + maintainer
+> > > > > >
+> > > > > > My problem is that crypto selftest, for each buffer where I nee=
+d to do a cipher operation,
+> > > > > > concat a poison buffer to check that device does write beyond b=
+uffer.
+> > > > > >
+> > > > > > But the dma_map_sg(FROM_DEVICE) corrupts this poison buffer and=
+ crypto selftests fails thinking my device did a buffer overrun.
+> > > > > >
+> > > > > > So you mean that on SoC D1, this crypto API check strategy is i=
+mpossible ?
+> > > > >
+> > > > > I think you could try to replace all CLEAN & INVAL ops with FLUSH=
+ ops
+> > > > > for the testing. (All cache block-aligned data from the device fo=
+r the
+> > > > > CPU should be invalided.)
+> > > > >
+> > > >
+> > > > With:
+> > > > diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-no=
+ncoherent.c
+> > > > index 2c124bcc1932..608483522e05 100644
+> > > > --- a/arch/riscv/mm/dma-noncoherent.c
+> > > > +++ b/arch/riscv/mm/dma-noncoherent.c
+> > > > @@ -21,7 +21,7 @@ void arch_sync_dma_for_device(phys_addr_t paddr, =
+size_t size, enum dma_data_dire
+> > > >                 ALT_CMO_OP(CLEAN, (unsigned long)phys_to_virt(paddr=
+), size);
+> > > >                 break;
+> > > >         case DMA_FROM_DEVICE:
+> > > > -               ALT_CMO_OP(INVAL, (unsigned long)phys_to_virt(paddr=
+), size);
+> > > > +               ALT_CMO_OP(FLUSH, (unsigned long)phys_to_virt(paddr=
+), size);
+> > > >                 break;
+> > > >         case DMA_BIDIRECTIONAL:
+> > > >                 ALT_CMO_OP(FLUSH, (unsigned long)phys_to_virt(paddr=
+), size);
+> > > >
+> > > >
+> > > > The crypto self test works and I got no more buffer corruption.
+> > > No, No ... it's not a solution. That means your driver has a problem.
+> > > From device, we only need INVAL enough.
+> > >
+> >
+> > For me, my driver works fine, the problem came from dma_map_sg(), proba=
+bly I didnt explain right, I restart.
+> >
+> > Example:
+> > crypto self test send to my driver an AES cipher operation of 16 bytes =
+inside a SG, but the original buffer is greater (said 32 for the example).
+> > So the first 16 bytes are used by the SG and the last 16 bytes are a po=
+isoned buffer (with value 0xFE) to check driver do not write beyong the nor=
+mal operation of 16 bytes (and beyond the SG length).
+> >
+> > Doing the dma_map_sg(FROM_DEVICE) on the SG corrupt the whole buffer.
+> > My driver write normally via DMA the first 16 bytes.
+> > Crypto API check the last bytes, no more 0xFE, so it fail believing my =
+driver wrote beyond the first 16 bytes.
+> >
+> > But even If I disable my hardware operation, the buffer is still corrup=
+ted. (See my sample code which just do dma_map/dma_unmap)
+> >
+> > So the problem is the dma_map(FROM_DEVICE) which change buffer content.
+> >
+> > So if this behavour is normal on D1 SoC, how to fix the crypto self tes=
+ts ?
+> Actually, FLUSH is safe for all, but more expensive. Can you tell me
+> which arm SOC are you using? And which version of linux is running on
+> your arm SOC?
+> =
+
+
+The SOC is Allwinner D1 (RiscV).
+I am testing linux from https://github.com/smaeul/linux.git branch:origin/r=
+iscv/d1-wip
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
