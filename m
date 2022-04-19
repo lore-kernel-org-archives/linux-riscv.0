@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83F15C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Apr 2022 13:30:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 843D4C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Apr 2022 13:48:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vrZ65gcWbDmOz4LCG021BqdY2To150/DOBBv1UOr8jE=; b=RQ4Dx6yXFfgqwk
-	xi7v34WzTnsV42G2QdVODkCi27EuETXivRKHeBM52NBRg0wNfboPv6LwTmhTfJGMKJ2Qsoag8htYW
-	X4Po6yO6xVgiRWE4Ns1kSb/Eg8uyRHC0jt8+v3La07tLoOzHh/eREZIC5XQZ6xnEOIfx5xAoxRmPj
-	wRoo/6ASes08XaRjc37Go5d/RBP+eF+N9bFN6+aJbo7pjUx3Vz21EWO2kQrdqS9nhVeWtBsIQT8MZ
-	2l9+J8MvJT0xE+J3jB3wBAjphLMCAvNfk8i7kUY6WKMd8jG6pSe36iRwMSNQZIM0smLIEdKkHwFyA
-	DrjCHLObb8f0MIxnldtw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:CC:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AHDOIkM3KFHON35iDNK2lu0wv73c2MqEePQHh+EmT4Y=; b=Da5FzlAZqEFg0ca+EP3PivcmqG
+	EEb63CNEMUJa2ZFWAvIg0ZRPCpkzMCRkbCZdrG4ZIqh2m/qMBMl6DqCiAbtMRDAT/kuzucGsrvIIf
+	0OsFRtiFfemNkS1Felc+HquShPL+PWzwk9R2vSconPrm0OJA5eSNGWoieCjkJKdOZLdcBXqlpDi9c
+	XeyRk9q+zs3pnopGoFJtuMXINXI1P64NdSFwpjiJvoOJi+M4ylF5xRQGC/bl6W3rc92WVclzpvn/U
+	ta7OV9fliQM2zu8n3NIB13Vh3NKMiMIpXBreDhS7jUJ84rbc8+hNFV2gmaul61gN0wlmP4vSMte0j
+	UxaExFGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ngnvd-003qzl-HP; Tue, 19 Apr 2022 13:30:01 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	id 1ngoDU-003zsj-Uu; Tue, 19 Apr 2022 13:48:29 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ngmow-003QHe-JY
- for linux-riscv@lists.infradead.org; Tue, 19 Apr 2022 12:19:04 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id q22so2029106ljh.10
- for <linux-riscv@lists.infradead.org>; Tue, 19 Apr 2022 05:19:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=nDrFtjiljqpCw2clA2M5Q4tAXBJlxJuWExBZE6ls7cE=;
- b=P01RsUocGzItJ2X501OWco/fT+uRAR+g65SjiSrgvpeADPdW+g493uazX7iSGAowan
- Nnf5rwEqvMlpwyvBd7g4GUn12AEA44LyB8b2gThooOn+q3JtBdH+o5vMsAECyMppHqAm
- q4Cjr6I6+KYOoWKIOXVzyekOkheFdw5q9Vz6c4Jhcc5faaxu25gRw6gpzIi/eOzpEHWm
- nmcwSpkLAJqTqnrmSNNdIug4ldD+K7BsYekT5qS9tQDJtW1MVKhYUvFJzrHA2afvwkzr
- 1dH3A0fe8gmMefvR1wmdrYs1Y1+D4Y+dVbUtyozWQjV4gZsFTmrc40nwmtLTwZ9rp4N6
- Dx1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=nDrFtjiljqpCw2clA2M5Q4tAXBJlxJuWExBZE6ls7cE=;
- b=U1QyEFGStQroIyVcWw5Nl/RM9PsBxOwU1uG9mSgYqDF3z8jvy6mEWeNZAbAwzasdQq
- 5Zwx7XLcfTZfwKGH3s0euGCxkMNeGI75D8W1GXF2wscx1Pj9O1YqRjP5BUtSQ5OtF40x
- q+Xy+jv9MTO1KywD63heJy9lHdZXa3ulMpY5DVLqli/F4xZR5wJtWlyszGE7ucNaItu7
- 7E6reTwJH3FwP47jhCIduCYN//mOsZE+FRfZYylhVCIY9YA5vFFR2wcD/Gfuxd6TXB49
- O1CuS1ISpbZQwft2/jw1XFQ8UO8gaUMGytRfL48E2qFCXE1nHVW85TWsmv5YLG9kMck6
- EzPg==
-X-Gm-Message-State: AOAM530F0yU1aCndL+U9oqCqw7RceamkyeroAZoLji1t7YegNc2L5M6l
- rwQ2f/+HppmKpYVeRHCLbpxKFj3iODpXI3ysNOc=
-X-Google-Smtp-Source: ABdhPJz4Xtzx+VFMw5LihUTv1eNyt+O9C1i9E/JkHh8cB0K/2OpE96/2uAbv1KDSvg5bjnlDblfCvgeQwTwY3zYitqc=
-X-Received: by 2002:a2e:302:0:b0:24d:9eb6:8ae8 with SMTP id
- 2-20020a2e0302000000b0024d9eb68ae8mr10240086ljd.77.1650370739301; Tue, 19 Apr
- 2022 05:18:59 -0700 (PDT)
+ id 1ngnT0-003g3F-2x
+ for linux-riscv@lists.infradead.org; Tue, 19 Apr 2022 13:00:28 +0000
+Received: from dggpemm500023.china.huawei.com (unknown [172.30.72.57])
+ by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4KjP3Y51FgzFq1G;
+ Tue, 19 Apr 2022 20:57:45 +0800 (CST)
+Received: from dggpemm500019.china.huawei.com (7.185.36.180) by
+ dggpemm500023.china.huawei.com (7.185.36.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Tue, 19 Apr 2022 21:00:15 +0800
+Received: from [10.67.109.184] (10.67.109.184) by
+ dggpemm500019.china.huawei.com (7.185.36.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Tue, 19 Apr 2022 21:00:15 +0800
+Subject: Re: [PATCH bpf-next] libbpf: Support riscv USDT argument parsing logic
+To: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+CC: bpf <bpf@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>,
+ Networking <netdev@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ Andrii Nakryiko <andrii@kernel.org>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Martin Lau <kafai@fb.com>, Song Liu
+ <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, john fastabend
+ <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>
+References: <20220418042222.2464199-1-pulehui@huawei.com>
+ <CAEf4BzbavSC=JN=sowFY3t4yOUfe8QtVXhdG+y7a-T1YtfRqXQ@mail.gmail.com>
+From: Pu Lehui <pulehui@huawei.com>
+Message-ID: <ef4ffe1f-1f3b-e98e-fc5f-26150e22871f@huawei.com>
+Date: Tue, 19 Apr 2022 21:00:15 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.1
 MIME-Version: 1.0
-References: <20220318162044.169350-1-krzysztof.kozlowski@canonical.com>
- <20220318162044.169350-2-krzysztof.kozlowski@canonical.com>
- <a8c5d574-c050-bbc3-efa6-9b45f5f27524@linaro.org>
- <03e28a55-d3bd-f3e1-f418-557306d65505@microchip.com>
- <61923e45-6594-6dfc-5e2f-e808af99e7c1@linaro.org>
- <9f8faffa-0b0e-2fba-7f2c-56c82ec7936f@microchip.com>
- <20b63bd8-b527-43e0-884d-bf9fe3cacb19@linaro.org>
-In-Reply-To: <20b63bd8-b527-43e0-884d-bf9fe3cacb19@linaro.org>
-From: Zong Li <zongbox@gmail.com>
-Date: Tue, 19 Apr 2022 20:18:47 +0800
-Message-ID: <CA+ZOyaiWPZm6TQ0H7mvOS6UqBtCy7R1GSJrZg1AmC=4xwVWxfg@mail.gmail.com>
-Subject: Re: [PATCH 2/2] riscv: dts: sifive: fu540-c000: align dma node name
- with dtschema
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Conor.Dooley@microchip.com, green.wan@sifive.com, vkoul@kernel.org, 
- robh+dt@kernel.org, krzk+dt@kernel.org, paul.walmsley@sifive.com, 
- palmer@dabbelt.com, aou@eecs.berkeley.edu, geert@linux-m68k.org, 
- alexandre.ghiti@canonical.com, palmer@sifive.com, dmaengine@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org
+In-Reply-To: <CAEf4BzbavSC=JN=sowFY3t4yOUfe8QtVXhdG+y7a-T1YtfRqXQ@mail.gmail.com>
+Content-Language: en-US
+X-Originating-IP: [10.67.109.184]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ dggpemm500019.china.huawei.com (7.185.36.180)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220419_051902_695075_9645126E 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20220419_060026_504558_6593048A 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,36 +74,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-S3J6eXN6dG9mIEtvemxvd3NraSA8a3J6eXN6dG9mLmtvemxvd3NraUBsaW5hcm8ub3JnPiDmlrwg
-MjAyMuW5tDTmnIgxOeaXpSDpgLHkuowg5LiL5Y2INjo1OeWvq+mBk++8mgo+Cj4gT24gMTkvMDQv
-MjAyMiAxMjo1NywgQ29ub3IuRG9vbGV5QG1pY3JvY2hpcC5jb20gd3JvdGU6Cj4gPj4+IE5vdCBz
-dXJlIHRoYXQgdGhpcyBvbmUgaXMgYWN0dWFsbHkgbmVlZGVkIEtyenlzenRvZiwgWm9uZyBMaSBo
-YXMgYSBmaXgKPiA+Pj4gZm9yIHRoaXMgaW4gaGlzIHNlcmllcyBvZiBmaXhlcyBmb3IgdGhlIHNp
-Zml2ZSBwZG1hOgo+ID4+PiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi9lZGQ3
-MmMwY2NhMWViY2VkZGMwMzJmZjZlYzIyODRlM2Y0OGM1YWQzLjE2NDg0NjEwOTYuZ2l0Lnpvbmcu
-bGlAc2lmaXZlLmNvbS8KPiA+Pj4KPiA+Pj4gTWF5YmUgeW91IGNvdWxkIGFkZCB5b3VyIHJldmll
-dyB0byBoaXMgdmVyc2lvbj8KPiA+Pgo+ID4+IFpvbmcncyBMaSBwYXRjaCB3YXMgc2VudCAxMCBk
-YXlzIGFmdGVyIG15IHBhdGNoLi4uIFsxXSBXaHkgcmlzY3YgRFRTCj4gPj4gcGF0Y2hlcyB0YWtl
-IHNvIG11Y2ggdGltZSB0byBwaWNrIHVwPwo+ID4+Cj4gPgo+ID4gT2gsIG15IGJhZC4gSSBpbmNv
-cnJlY3RseSBhc3N1bWVkIHRoYXQgdGhhdCBwYXRjaCB3YXMgcHJlc2VudCBiZWZvcmUgdjgsCj4g
-PiBJIHNob3VsZCd2ZSBjaGVja2VkIGZ1cnRoZXIgYmFjayAtIHNvcnJ5IQo+Cj4gTm8gcHJvYmxl
-bSA6KQo+Cj4gSSBkb24ndCBtaW5kIFpvbmcncyBwYXRjaCB0byBiZSB0YWtlbiBhbHRob3VnaCBp
-biBnZW5lcmFsIEkgYmVsaWV2ZSBtb3JlCj4gaW4gRklGTyAob3IgRklGIFNlcnZlZCkgc3R5bGUu
-Cj4KCkhpIGFsbCwKVGhhbmtzIENvbm9yIGJyaW5ncyBtZSBoZXJlLiBUaGUgcGF0Y2ggMSBhbmQg
-NCBpbiBteSBzZXJpZXMgaGFzIGJlZW4KYXBwbGllZCBpbnRvIGRtYWVuZ2luZS9uZXh0LCBidXQg
-cGF0Y2ggMiBhbmQgMyBzaG91bGQgZ28gYnkgcmlzY3YKdHJlZSwgc28gSSBndWVzcyB0aGF0IEkg
-Y291bGQgcmUtc2VuZCB0aGUgcGF0Y2ggMiBiYXNlZCBvbiB0b3Agb2YKS3J6eXN6dG9mJ3MgcGF0
-Y2gsIHRoZW4gbGV0J3MgZHJvcCB0aGUgcGF0Y2ggMiAmIDMgb2YgYW5vdGhlcgpwYXRjaHNldC4g
-SSB3aWxsIGtlZXAgZm9sbG93IHVwIGhlcmUuIFRoYW5rcyBhbGwuCgo+IEJlc3QgcmVnYXJkcywK
-PiBLcnp5c3p0b2YKPgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwo+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+
+
+On 2022/4/19 12:33, Andrii Nakryiko wrote:
+> On Sun, Apr 17, 2022 at 8:53 PM Pu Lehui <pulehui@huawei.com> wrote:
+>>
+>> Add riscv-specific USDT argument specification parsing logic.
+>> riscv USDT argument format is shown below:
+>> - Memory dereference case:
+>>    "size@off(reg)", e.g. "-8@-88(s0)"
+>> - Constant value case:
+>>    "size@val", e.g. "4@5"
+>> - Register read case:
+>>    "size@reg", e.g. "-8@a1"
+>>
+>> s8 will be marked as poison while it's a reg of riscv, we need
+>> to alias it in advance.
+>>
+>> Signed-off-by: Pu Lehui <pulehui@huawei.com>
+>> ---
+> 
+> Can you please mention briefly the testing you performed as I'm not
+> able to test this locally.
+> 
+Both RV32 and RV64 have been tested. I will attach the test result in 
+v2. Meanwhile, I found a small problem with libbpf USDT, and will be 
+post in v2.
+>>   tools/lib/bpf/usdt.c | 107 +++++++++++++++++++++++++++++++++++++++++++
+>>   1 file changed, 107 insertions(+)
+>>
+>> diff --git a/tools/lib/bpf/usdt.c b/tools/lib/bpf/usdt.c
+>> index 934c25301ac1..b8af409cc763 100644
+>> --- a/tools/lib/bpf/usdt.c
+>> +++ b/tools/lib/bpf/usdt.c
+>> @@ -10,6 +10,11 @@
+>>   #include <linux/ptrace.h>
+>>   #include <linux/kernel.h>
+>>
+>> +/* s8 will be marked as poison while it's a reg of riscv */
+>> +#if defined(__riscv)
+>> +#define rv_s8 s8
+>> +#endif
+>> +
+>>   #include "bpf.h"
+>>   #include "libbpf.h"
+>>   #include "libbpf_common.h"
+>> @@ -1400,6 +1405,108 @@ static int parse_usdt_arg(const char *arg_str, int arg_num, struct usdt_arg_spec
+>>          return len;
+>>   }
+>>
+>> +#elif defined(__riscv)
+>> +
+>> +static int calc_pt_regs_off(const char *reg_name)
+>> +{
+>> +       static struct {
+>> +               const char *name;
+>> +               size_t pt_regs_off;
+>> +       } reg_map[] = {
+>> +               { "ra", offsetof(struct user_regs_struct, ra) },
+>> +               { "sp", offsetof(struct user_regs_struct, sp) },
+>> +               { "gp", offsetof(struct user_regs_struct, gp) },
+>> +               { "tp", offsetof(struct user_regs_struct, tp) },
+>> +               { "t0", offsetof(struct user_regs_struct, t0) },
+>> +               { "t1", offsetof(struct user_regs_struct, t1) },
+>> +               { "t2", offsetof(struct user_regs_struct, t2) },
+>> +               { "s0", offsetof(struct user_regs_struct, s0) },
+>> +               { "s1", offsetof(struct user_regs_struct, s1) },
+>> +               { "a0", offsetof(struct user_regs_struct, a0) },
+>> +               { "a1", offsetof(struct user_regs_struct, a1) },
+>> +               { "a2", offsetof(struct user_regs_struct, a2) },
+>> +               { "a3", offsetof(struct user_regs_struct, a3) },
+>> +               { "a4", offsetof(struct user_regs_struct, a4) },
+>> +               { "a5", offsetof(struct user_regs_struct, a5) },
+>> +               { "a6", offsetof(struct user_regs_struct, a6) },
+>> +               { "a7", offsetof(struct user_regs_struct, a7) },
+>> +               { "s2", offsetof(struct user_regs_struct, s2) },
+>> +               { "s3", offsetof(struct user_regs_struct, s3) },
+>> +               { "s4", offsetof(struct user_regs_struct, s4) },
+>> +               { "s5", offsetof(struct user_regs_struct, s5) },
+>> +               { "s6", offsetof(struct user_regs_struct, s6) },
+>> +               { "s7", offsetof(struct user_regs_struct, s7) },
+>> +               { "s8", offsetof(struct user_regs_struct, rv_s8) },
+>> +               { "s9", offsetof(struct user_regs_struct, s9) },
+>> +               { "s10", offsetof(struct user_regs_struct, s10) },
+>> +               { "s11", offsetof(struct user_regs_struct, s11) },
+>> +               { "t3", offsetof(struct user_regs_struct, t3) },
+>> +               { "t4", offsetof(struct user_regs_struct, t4) },
+>> +               { "t5", offsetof(struct user_regs_struct, t5) },
+>> +               { "t6", offsetof(struct user_regs_struct, t6) },
+> 
+> would it make sense to order registers a bit more "logically"? Like
+> s0-s11, t0-t6, etc. Right now it looks very random and it's hard to
+> see if all the registers from some range of registers are defined.
+> 
+I code it according to the RISCV specification, and for sure, we can 
+make it more intuitive.
+
+Thanks,
+Lehui
+>> +       };
+>> +       int i;
+>> +
+> 
+> [...]
+> .
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
