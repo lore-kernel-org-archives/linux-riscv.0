@@ -4,88 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27303C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Apr 2022 10:59:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B390BC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Apr 2022 11:17:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5F9Ttf7jBaGCrApFrQBfakaUavj3adbq7NKwG5MAwSg=; b=pQ9h5g78+ax979
-	hbHZnGJuaEmTwxPzhPaWxJF8fzKY/0Z7RFjxJQkqWVHFh2k2OZCZY8phPYZQACMa7UQODCjLyniep
-	xUEOR40oV4aJDop+Egj+4AzdQqdk9sa4LfOjw4X4qO5JOITNpmAPxmIAsO53gPV6DPrh2oXG5Or2M
-	VMjsksVeILrXEzotT4Q1NvcwMMefWWoBpXJN8jLDOxd/xozqpUDZE5XnNvSJt2To7H483okVfDUqE
-	Yz45j6CYR5E9EIhsdINSvERxGvBFzq9CEW2pdK1vY5h8h2QKqV8MVeU/TKOydqgEXBA9oB7tBZDxm
-	Tr5rviAkuxdtG/XETy0w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=zGI7qdi1xUxkl7NgqqWe2k8NGQqpsq/EXSB1utqJyVs=; b=01hTKiOd0jG4Ay
+	YyM1TJm1LrxGmwM/tUzOATgCmS2ciO19uh5pQLKOzM7dEiFFCM/1j+JhpVl2KzqLNBINT7UYUQqpq
+	B43ejZStOkUl2hpgz9y+3cNEVBNOBcyo/q7QbwqxNK9xRx9AH2PwWaJ47DAr8NwecEjqVO1U1KXme
+	R87hFAk/Ug+OXVQQ7/y/ZnOIPEjN/TWy9c/qyyaaPVJrTXQFcuYQG31ibogszOU3+INz32wKjCY82
+	sY5q3bc8h03q2hujOAXN+v2FWxgX8bv6i9ltPn8Pm1psOES7IiZ2sADga14G85rCzesnDYpGeuTiU
+	INTEtdOQajXZ+pm3lbFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nglZn-002xqI-40; Tue, 19 Apr 2022 10:59:19 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1nglrh-00324q-9Y; Tue, 19 Apr 2022 11:17:49 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nglZi-002xoO-1P
- for linux-riscv@lists.infradead.org; Tue, 19 Apr 2022 10:59:15 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id t25so20742699edt.9
- for <linux-riscv@lists.infradead.org>; Tue, 19 Apr 2022 03:59:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=message-id:date:mime-version:user-agent:subject:content-language:to
- :references:from:in-reply-to:content-transfer-encoding;
- bh=O5CBBgo2XmuqRHrX5N+WoSNjs6N4HhMETq+ywg7Z0Yg=;
- b=GwQsMWFyaKqitOw2K4ERs71CebQ9j1lhJey/Ao6nQts3Wc6SMEgn4CdC0WON4y0Vrm
- i0yLF+4KbXWY7wiXOwo5nwO1XBJHRDKbNCdT9k2sQw7zbLTdP5rHacXzTeEcXBmkkh7g
- LxOftPR7vhQqeOA/C/0Mxj9IrFGcP7MUx298tHlp5QiSf2M8rCwHc+TVL1A2oqF2aQrZ
- b4pPubgl+bMvC1s/E4Y9g03d3nwBBmm/KSCdcNoQCO2cP43OFyK1UUKzvc/meCcBFg+i
- 2/fTeTRXNzm4KPH9ZUAt7CG4JI+lDp4IAjPYS8jJJWr+28pRQWHEdHfPu/R3RxtLoFZQ
- XQhw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:references:from:in-reply-to
- :content-transfer-encoding;
- bh=O5CBBgo2XmuqRHrX5N+WoSNjs6N4HhMETq+ywg7Z0Yg=;
- b=UfJET68HTbb3vKFBCSyT0hLE8l0Wf7hq8dkeaqrPVx4t8mPGKIBtf47yqyjUYgEHzt
- mKTo2yMOhJNmzJCUR2b430z1s4ngXqgj61ecfxLHpSxpBVJBMFL1FFjexFhhSTkoKC6F
- xvy65tDaYDycerwjqEetjPSNwizB5IYieeOoui1qWdoqMA4b9vGDkSSe/1Q+hGOoHmCg
- ru0gG39LeryPROrXrXhTHAW9lkttzsb7N8yRdxDIzebKypEqLJOGGtHAviXCZb8dIgqL
- gXi9wr3pVGvPE4aatL/eiYC3y+CUfRtv3OQSugWD1FdRnymXm0R+nNpShPuEkLM8+6Z2
- myFA==
-X-Gm-Message-State: AOAM531P5+sogot1gwaSv8YiZUkvvWVrUfawujdYpfY+OXaBF72ahagV
- NvtUpT+M3k9XKoNSV59kk/BsIw==
-X-Google-Smtp-Source: ABdhPJwtQ1BLQn620Xz+U8W+fow3tkpwQwbmB9aa9f+Wmx3sMsqJkjgv/5hgcw5cHgx5EnIoTMeDAw==
-X-Received: by 2002:a05:6402:1e8c:b0:424:1d6:1b71 with SMTP id
- f12-20020a0564021e8c00b0042401d61b71mr2007309edf.211.1650365951850; 
- Tue, 19 Apr 2022 03:59:11 -0700 (PDT)
-Received: from [192.168.0.217] (xdsl-188-155-176-92.adslplus.ch.
- [188.155.176.92]) by smtp.gmail.com with ESMTPSA id
- k15-20020aa7c04f000000b004229daeaf37sm6311685edo.40.2022.04.19.03.59.10
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 19 Apr 2022 03:59:11 -0700 (PDT)
-Message-ID: <20b63bd8-b527-43e0-884d-bf9fe3cacb19@linaro.org>
-Date: Tue, 19 Apr 2022 12:59:10 +0200
+ id 1nglrR-0031xF-QK; Tue, 19 Apr 2022 11:17:36 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 9F134612DF;
+ Tue, 19 Apr 2022 11:17:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0E8EC385A7;
+ Tue, 19 Apr 2022 11:17:28 +0000 (UTC)
+Authentication-Results: smtp.kernel.org;
+ dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com
+ header.b="eKu71o/w"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105; 
+ t=1650367046;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:
+ content-transfer-encoding:content-transfer-encoding;
+ bh=0EoN7tnN1LCPqubEUIru3BR6P29FWyCRZEgkgRKqrIs=;
+ b=eKu71o/wuLb8HMfrlfRkyKaK3L3SGE3X4RYEu0LRXYWKWx//EBIj6NogsRI1FlmFf/WRDb
+ KY7tvUqrgUIPUY2sMJPkRYudWOx36rh7R+nR0QmtE8WSLPjSn46Y+Jyp+wJaVp7f6O9o9O
+ YBM8ta6GUXOcD1Fk09CXNIL2XCb+2Mc=
+Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 0623ad04
+ (TLSv1.3:AEAD-AES256-GCM-SHA384:256:NO); 
+ Tue, 19 Apr 2022 11:17:26 +0000 (UTC)
+From: "Jason A. Donenfeld" <Jason@zx2c4.com>
+To: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+ tglx@linutronix.de, arnd@arndb.de
+Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>, Theodore Ts'o <tytso@mit.edu>,
+ Dominik Brodowski <linux@dominikbrodowski.net>,
+ Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "David S . Miller" <davem@davemloft.net>,
+ Richard Weinberger <richard@nod.at>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Johannes Berg <johannes@sipsolutions.net>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "H . Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
+ Max Filippov <jcmvbkbc@gmail.com>, Stephen Boyd <sboyd@kernel.org>,
+ Dinh Nguyen <dinguyen@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, x86@kernel.org, linux-xtensa@linux-xtensa.org
+Subject: [PATCH v5 00/11] archs/random: fallback to best raw ktime when no
+ cycle counter
+Date: Tue, 19 Apr 2022 13:16:39 +0200
+Message-Id: <20220419111650.1582274-1-Jason@zx2c4.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.7.0
-Subject: Re: [PATCH 2/2] riscv: dts: sifive: fu540-c000: align dma node name
- with dtschema
-Content-Language: en-US
-To: Conor.Dooley@microchip.com, green.wan@sifive.com, vkoul@kernel.org,
- robh+dt@kernel.org, krzk+dt@kernel.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, geert@linux-m68k.org,
- alexandre.ghiti@canonical.com, palmer@sifive.com, dmaengine@vger.kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20220318162044.169350-1-krzysztof.kozlowski@canonical.com>
- <20220318162044.169350-2-krzysztof.kozlowski@canonical.com>
- <a8c5d574-c050-bbc3-efa6-9b45f5f27524@linaro.org>
- <03e28a55-d3bd-f3e1-f418-557306d65505@microchip.com>
- <61923e45-6594-6dfc-5e2f-e808af99e7c1@linaro.org>
- <9f8faffa-0b0e-2fba-7f2c-56c82ec7936f@microchip.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <9f8faffa-0b0e-2fba-7f2c-56c82ec7936f@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220419_035914_131191_59200A25 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220419_041734_193804_567F8E98 
+X-CRM114-Status: GOOD (  25.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,27 +92,146 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 19/04/2022 12:57, Conor.Dooley@microchip.com wrote:
->>> Not sure that this one is actually needed Krzysztof, Zong Li has a fix
->>> for this in his series of fixes for the sifive pdma:
->>> https://lore.kernel.org/linux-riscv/edd72c0cca1ebceddc032ff6ec2284e3f48c5ad3.1648461096.git.zong.li@sifive.com/
->>>
->>> Maybe you could add your review to his version?
->>
->> Zong's Li patch was sent 10 days after my patch... [1] Why riscv DTS
->> patches take so much time to pick up?
->>
-> 
-> Oh, my bad. I incorrectly assumed that that patch was present before v8,
-> I should've checked further back - sorry!
+Hi folks,
 
-No problem :)
+The RNG uses a function called random_get_entropy() basically anytime
+that it needs to timestamp an event. For example, an interrupt comes in,
+and we mix a random_get_entropy() into the entropy pool somehow.
+Somebody mashes their keyboard or moves their mouse around? We mix a
+random_get_entropy() into the entropy pool. It's one of the main
+varieties of input.
 
-I don't mind Zong's patch to be taken although in general I believe more
-in FIFO (or FIF Served) style.
+Unfortunately, it's always 0 on a few platforms. The RNG has accumulated
+various hacks to deal with this, but in general it's not great. Surely
+we can do better than 0. In fact, *anything* that's not the same exact
+value all the time would be better than 0. Even a counter that
+increments once per hour would be better than 0! I think you get the
+idea.
 
-Best regards,
-Krzysztof
+On most platforms, random_get_entropy() is aliased to get_cycles(),
+which makes sense for platforms where get_cycles() is defined. RDTSC,
+for example, has all the characteristics we care about for this
+function: it's fast to acquire (i.e. acceptable in an irq handler),
+pretty high precision, available, forms a 2-monotone distribution, etc.
+But for platforms without that, what is the next best thing?
+
+Sometimes the next best thing is architecture-defined. For example,
+really old MIPS has the C0 random register, which isn't quite a cycle
+counter, but is at least something. However, some platforms don't even
+have an architecture-defined fallback.
+
+Fortunately, the timekeeping subsystem has already solved this problem
+of trying to determine what the least bad clock is on constrained
+systems, falling back to jiffies in the worst case. By exporting the raw
+clock, we can get a decent fallback function for when there's no cycle
+counter or architecture-specific function.
+
+This series makes the RNG more useful on: m68k, RISC-V, MIPS, ARM32,
+NIOS II, SPARC32, Xtensa, and Usermode Linux. Previously these platforms
+would, in certain circumstances, but out of luck with regards to having
+any type of event timestamping source in the RNG.
+
+Finally, note that this series isn't about "jitter entropy" or other
+ways of initializing the RNG. That's a different topic for a different
+thread. Please don't let this discussion veer off into that. Here, I'm
+just trying to find a good fallback counter/timer for platforms without
+get_cycles(), a question with limited scope.
+
+If this (or a future revision) looks good to you all and receives the
+requisite acks, my plan was to take these through the random.git tree
+for 5.19, so that I can then build on top of it.
+
+Thanks,
+Jason
+
+Changes v4->v5:
+- Do not prototype symbol with 'extern', according to style guide.
+- On MIPS, combine random_get_entropy_fallback() with the c0 random
+  register in a way that matches the format of the c0 random value, so
+  that we get the best of a high precision cycle counter and of larger
+  period timer, joined together. As a result, Thomas Bogendoerfer's
+  ack on v4 of patch 4 has been dropped, since this is a substantial
+  change.
+
+Changes v3->v4:
+- Use EXPORT_SYMBOL_GPL instead of EXPORT_SYMBOL.
+
+Changes v2->v3:
+- Name the fallback function random_get_entropy_fallback(), so that it
+  can be changed out as needed.
+- Include header with prototype in timekeeping.c to avoid compiler
+  warning.
+- Export fallback function symbol.
+
+Changes v1->v2:
+- Use ktime_read_raw_clock() instead of sched_clock(), per Thomas'
+  suggestion.
+- Drop arm64 change.
+- Cleanup header inclusion ordering problem.
+
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Theodore Ts'o <tytso@mit.edu>
+Cc: Dominik Brodowski <linux@dominikbrodowski.net>
+Cc: Russell King <linux@armlinux.org.uk>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: David S. Miller <davem@davemloft.net>
+Cc: Richard Weinberger <richard@nod.at>
+Cc: Anton Ivanov <anton.ivanov@cambridgegreys.com>
+Cc: Johannes Berg <johannes@sipsolutions.net>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: H. Peter Anvin <hpa@zytor.com>
+Cc: Chris Zankel <chris@zankel.net>
+Cc: Max Filippov <jcmvbkbc@gmail.com>
+Cc: Stephen Boyd <sboyd@kernel.org>
+Cc: Dinh Nguyen <dinguyen@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-m68k@lists.linux-m68k.org
+Cc: linux-mips@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: sparclinux@vger.kernel.org
+Cc: linux-um@lists.infradead.org
+Cc: x86@kernel.org
+Cc: linux-xtensa@linux-xtensa.org
+
+Jason A. Donenfeld (11):
+  timekeeping: add raw clock fallback for random_get_entropy()
+  m68k: use fallback for random_get_entropy() instead of zero
+  riscv: use fallback for random_get_entropy() instead of zero
+  mips: use fallback for random_get_entropy() instead of just c0 random
+  arm: use fallback for random_get_entropy() instead of zero
+  nios2: use fallback for random_get_entropy() instead of zero
+  x86: use fallback for random_get_entropy() instead of zero
+  um: use fallback for random_get_entropy() instead of zero
+  sparc: use fallback for random_get_entropy() instead of zero
+  xtensa: use fallback for random_get_entropy() instead of zero
+  random: insist on random_get_entropy() existing in order to simplify
+
+ arch/arm/include/asm/timex.h      |  1 +
+ arch/m68k/include/asm/timex.h     |  2 +-
+ arch/mips/include/asm/timex.h     | 16 +++---
+ arch/nios2/include/asm/timex.h    |  2 +
+ arch/riscv/include/asm/timex.h    |  2 +-
+ arch/sparc/include/asm/timex_32.h |  4 +-
+ arch/um/include/asm/timex.h       |  9 +---
+ arch/x86/include/asm/timex.h      | 10 ++++
+ arch/xtensa/include/asm/timex.h   |  6 +--
+ drivers/char/random.c             | 89 ++++++++++---------------------
+ include/linux/timex.h             |  8 +++
+ kernel/time/timekeeping.c         | 10 ++++
+ 12 files changed, 74 insertions(+), 85 deletions(-)
+
+-- 
+2.35.1
+
 
 _______________________________________________
 linux-riscv mailing list
