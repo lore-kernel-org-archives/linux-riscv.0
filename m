@@ -4,59 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76B02C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Apr 2022 10:22:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B599FC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Apr 2022 10:47:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HNXwtmrIESgXB1mJdsGb9XTzHTLUYf320KT9HhWXA98=; b=zuBTC1lghK2o0p
-	uSjNw2Q4zVmzOrOl/R30i9ExI2Iw327qkGHWA25RNzo4fww6HKSrOK0cemE6hzotqYhm+DY9rd9Ai
-	pOJxZ7mp/0XupOS/ScxlhzMc7Pv2R0tqv3lmt3kUZEiVqpp9hbGx8oriYJkhU+fCglKLqQU0ZCOVM
-	Sz3sy1/hb8CylgGWuVa4r8zguERd+nWs6JAn5jpq2CW41i71Jz9gIH9zb6xGtrewTJugL4zVOXlvM
-	CZZMnqJWXd0s1gGlg0J1SlUPY+Wf6LYVOeuyWcBIVsrwAYuOLfzT0IFMPJskNN6mhG1GV8tsxykKa
-	LhmC4m5NWNc5vz6QtX7w==;
+	List-Owner; bh=SZvEcOLtUYlnXNLT8/iLoGfkbIVMC6BXjMLdvnrwL1o=; b=BFSI1gvDtOrnbv
+	RnkCUpcEFE6041toVF+w5jJ9zhwiNXpbM9kB6O6sdiW5L0S3A5MANt8az/CdQ3Lc4jasjRjuiTQux
+	5miFigped+A+9RYCOkcBCp6plii5osmLPTj7+tHruPMfpRQw6XazPnyqyYVblS0vVMv0tQ0UsUo0E
+	ZzaEgdv+i8kDGrRYymz4NFphii448Wc49/2BH2SBp0MDBLU0YEUsbehx8WzKYyWbJeb2ST/FDlEEY
+	uW6VlsePBaY8CrXDlvKXyzXiEIDiz3Dk3u5JO7NQAu8arRFz0Ar+b4qvvIDq3au2Ig0t7zwE8HWvA
+	NzIwCd2OjZ8AnA6eN99Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ngl09-002mJC-DG; Tue, 19 Apr 2022 10:22:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ngkzw-002mFm-QH; Tue, 19 Apr 2022 10:22:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1555D23A;
- Tue, 19 Apr 2022 03:22:14 -0700 (PDT)
-Received: from [10.163.40.223] (unknown [10.163.40.223])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B4DDA3F73B;
- Tue, 19 Apr 2022 03:22:05 -0700 (PDT)
-Message-ID: <073cb6a6-3dbc-75d4-dbfe-a5299a6b0510@arm.com>
-Date: Tue, 19 Apr 2022 15:52:49 +0530
+	id 1nglOU-002tJS-QV; Tue, 19 Apr 2022 10:47:38 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nglMk-002s9a-Fk
+ for linux-riscv@lists.infradead.org; Tue, 19 Apr 2022 10:45:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1650365150; x=1681901150;
+ h=from:to:subject:date:message-id:references:in-reply-to:
+ content-id:content-transfer-encoding:mime-version;
+ bh=VO28EpyKOAMAOHhZNDlzthLZwLAjDslbPO8x6HMunjY=;
+ b=1V4js5VNn4BxHNEDjXTzeEAzdZeGoeODc0iiCue+NLiI7R4pxowqOVkB
+ 4j9fi8F8hX72pROYHjaFwc9nJhiOo9qE4DMglMjyaiAxsGBQWjl/ZFv68
+ tk5tKbJigcmyGLF3mjyo1nTlCDb/ubXxlTEt96iTCO6Be1nYAtX0lydPD
+ wwUgkpTkbK20bZvdvubM4FprYIlK/UExN31jHtHqEax/xlQg9np72oxK9
+ oWfsCNSI9nGgq0Nb0ldmOYPHHbwAQvef9jEgoEL+k+q6uRsiGojnL/er9
+ 9psVCmPiTXijVTTDX03cQy8AcxBBWXYoFBwrlzAnQdQ/Ek5JsnQdet2Ba A==;
+X-IronPort-AV: E=Sophos;i="5.90,272,1643698800"; d="scan'208";a="160522641"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 19 Apr 2022 03:45:46 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Tue, 19 Apr 2022 03:45:46 -0700
+Received: from NAM10-MW2-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17 via Frontend Transport; Tue, 19 Apr 2022 03:45:45 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=ciHuuH652JLKPmbBDVmKzlEL1y2bZLQDnqSTE7QrcOQcXqUcZXtNQI4wLMl4eFCbZkF0JQCtVcE2YJonTSEQRrvxKMe76qqqKW5fP/DcZWfkrWBmgT1fgXvngZyg49lr40TO1KTVO2GL9MGGpIlVd5pERgeA6eCKgvmnhwOPnnV76mTtvcwAD/kyj02SRIqVCPz/RcakeGJmpcXSS9XT/kU8josI4mlwk6DCqW8uSGdUgARs8njyNzroPPzyjPL227A3ePPz/UTFG/H6eKAo/Ju/R9w7yHonRLBuiYmQSIIVcGYZ9KVk2kWyGLLIr0b6waWxKvmeHKoMs9aY7S2F/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VO28EpyKOAMAOHhZNDlzthLZwLAjDslbPO8x6HMunjY=;
+ b=Ksjlt+qNQtotBaPathfTM7PAUP1E9rz+0JPpsqxfW38fR1u4XbN++h5MFJmV7xZzf9KRcYkcG+Rd00HjHCyASP/2DgTJ0MW3GdVhonFVEQAwksa+3xG2SPAi/hRI8VxkB7cowlC32f7eW4YNBFndsDPFQavpM+7fkEGqH8t8c67ICM+Ate++tRtjiJZfgp56Y9rmInLGtEW8Ro/4N1ooBRKfXYDMogCON2sZM6JhdDR6MZWWLTZOGly0ULF2x3vDUC96M+eRexPXZPJYMCu37vqV8ZO1ky8ptPpC8oJ3LnEjx4J+tRBKothl77bynnooRZStzOj88z9QGLE/4jgP1Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VO28EpyKOAMAOHhZNDlzthLZwLAjDslbPO8x6HMunjY=;
+ b=NByEr+hwfuCA+ICbZSM1QCLF+Sbjl6MLYYRuEtppu46zpFbQti/pgqnvXtXgF7CUT43xf+E6LM9RvDy7FxydXEYxjBaIIrDZ0pUEvfDrMi7stzB10Wcye5DiYMx5Ya/cRVJ8cGLIWffIUbqp6EfA2iVBaNDBuS00hp0JnUhxqzo=
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:95::7)
+ by BY5PR11MB3991.namprd11.prod.outlook.com (2603:10b6:a03:186::26) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5186.13; Tue, 19 Apr
+ 2022 10:45:38 +0000
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::dc95:437b:6564:f220]) by CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::dc95:437b:6564:f220%8]) with mapi id 15.20.5164.025; Tue, 19 Apr 2022
+ 10:45:38 +0000
+From: <Conor.Dooley@microchip.com>
+To: <krzysztof.kozlowski@linaro.org>, <green.wan@sifive.com>,
+ <vkoul@kernel.org>, <robh+dt@kernel.org>, <krzk+dt@kernel.org>,
+ <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+ <geert@linux-m68k.org>, <alexandre.ghiti@canonical.com>, <palmer@sifive.com>, 
+ <dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 2/2] riscv: dts: sifive: fu540-c000: align dma node name
+ with dtschema
+Thread-Topic: [PATCH 2/2] riscv: dts: sifive: fu540-c000: align dma node name
+ with dtschema
+Thread-Index: AQHYOuRQqw5OBaULxkWhWo/jlioa5az3NWKAgAAJ9YA=
+Date: Tue, 19 Apr 2022 10:45:38 +0000
+Message-ID: <03e28a55-d3bd-f3e1-f418-557306d65505@microchip.com>
+References: <20220318162044.169350-1-krzysztof.kozlowski@canonical.com>
+ <20220318162044.169350-2-krzysztof.kozlowski@canonical.com>
+ <a8c5d574-c050-bbc3-efa6-9b45f5f27524@linaro.org>
+In-Reply-To: <a8c5d574-c050-bbc3-efa6-9b45f5f27524@linaro.org>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.7.0
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: b2740b16-55f4-4bda-52dd-08da21f1bdfa
+x-ms-traffictypediagnostic: BY5PR11MB3991:EE_
+x-microsoft-antispam-prvs: <BY5PR11MB399109EC6C5A5ACA2E0ECF4D98F29@BY5PR11MB3991.namprd11.prod.outlook.com>
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: zI4fhoYamFR7CeWHdS/j/BKNlsf3QrGlAIwPbwQPV+nMklPG6JQT9f8MqewCKDVqZsbekCv6Od50ev48UQLyY0d7rU+L8caGl5Im/B7yCmQ6AnW32IJR5F0acoWXDQcyi97B9aQmEfrrzGzJ0D/uiJwAg2HVc5R+8SP/V7HmIGbRG9YwVoZ0myoKZhGuDQ31beeVJF5xEJGgSP+/lozg2Bd0XMiGfG7HyarzZNUMgdexckDqAbWit4dAEDhURzKz21rtWH8P/okkQh58HB9sIfeHe3ISRivndAoGj46tASnyU6rdDOaekFwGYUvTQdAF9p0qNzKqu9TJD31TTxfj92/xRMENDLpgzvM4SL3VLcSGaX/3qAb1xjgFFCGImWZjFJZnwQe4PhWEeNlXKpPXGz/wSlQDaXmzFnktQUz5BPkW/CAFG8+ZrzA2lhZAyTxA8VWG29xoXtv42tzXfaCgLw3k4U8cxmMOixTHRi7VWNZht7x3nBsill+Z16JySo58m+HTXPU6HNXGcw8Izxms+fVn0IF1fNn6BWrzFkatiWg1GmpP8sEdfAU+xh/sO9/yOJaZUz7pppkL+sxJHn0QT9BCRaCWfjye7inzBrcrgtKo3/VZxI1ckqTmRcwEnOjUOfnxYkndWi+HmMm0YtqBTNLgCDU+dK9jC3mSmnC6Hxsc6Vcc01i7ZOngiPfRvjfq0GAlDG66omXb6LHG8/Z0NexkADuoR0l6BAcEAxsUDqqTureL8v36tDHawadWArU4N+k0D/GHdJYPkhXTrrjMmiKDVX5x00jyyNFo0teZXtwoocOn/Eg5OOrOyAVhWsULEWDx8g87sC/azDL277wxRgwit7aayX4uAb3W0ag+khAQ2RcUKJC426PjmVqy+SwB
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:CO1PR11MB5154.namprd11.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(13230001)(366004)(53546011)(110136005)(6512007)(38070700005)(26005)(186003)(2616005)(6506007)(83380400001)(31686004)(36756003)(71200400001)(316002)(6486002)(966005)(66446008)(122000001)(8936002)(921005)(38100700002)(7416002)(4744005)(64756008)(66556008)(66476007)(8676002)(76116006)(91956017)(31696002)(66946007)(86362001)(508600001)(5660300002)(2906002)(45980500001)(43740500002);
+ DIR:OUT; SFP:1101; 
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?alJUUmJoVklMczQrS0FFVExDdWZSTWlPOUJQUnFPTjM0VGlkTjc2eWJ5aGlK?=
+ =?utf-8?B?WklwS2VYTUExaVhUalJ4UlIvN0pYR3U2ZWJuczQxWmM4WVJ6cmU5dzZaSkJQ?=
+ =?utf-8?B?TEN3UitDNitxM3B3UUo3djVvb05rSEhYbUx2d2ZUaU9mQ0FqRmtxWDNxNzZZ?=
+ =?utf-8?B?RVZ0aHE0aGM5aUN4WjN2R0FRVWRkRUVySnYyaS9BMHRLZTZCc0xUY2xyWXJU?=
+ =?utf-8?B?TjVpc0Z3NGkwVEpZR2tzOEM3VHlKQzJGR3A2UG9Od2xvZE03cjQ2YlFoWVdr?=
+ =?utf-8?B?dEZPbTFhVEhTTXJOb0tUKzkySFk0YUYvSVRMbmhvRmhBVHlkdGVjTHR2MEs2?=
+ =?utf-8?B?bUxpa3ZJS0loOWtpZEJ5Qk12UzVLT3NZb2RxWDRqQ2VMMTlCam01U0RjTUtO?=
+ =?utf-8?B?NjZoV0JNNHlDaTBjSDR2TExjOGhxcU1BbmFSMSt0SlE2YlVqYmwwM2d2VDJm?=
+ =?utf-8?B?NkZrVmZhVXd5aGFPWVNaYTlqSzAxQVVJY1YyMFZlbnRWSGgrTlYyaXMwcFEr?=
+ =?utf-8?B?RkdwZGFQWDlMRVFFMkJheWJxOUgxME5GNGFJS0hZeEpTekpROTdtSTJZT2pB?=
+ =?utf-8?B?Wis3MlF1ckZJVXFJNmJXNHNjczU5S1FaUEhFUVNWNml0Nm1tT3dBQWtLRXJG?=
+ =?utf-8?B?OTR5cWR1aUVZdngrMDlKUU9ET3U2WVU1L21OU0FQbThPeFlJek56TVNpUElX?=
+ =?utf-8?B?ZUI5Ymk1REROcEt0UHRrOVloMzRKdS9yMGYydUtmRWhSZnZKK1lRQ2pWOHpo?=
+ =?utf-8?B?T2dpRC9ldWg3RHRBNHFqVTVUL1JIT2wzUUJNc1BHbTlENFZDaXcza3ZWeUZ6?=
+ =?utf-8?B?TGd3U3pjK09kSmFuOFFlcG1qWG4zRXBRckUrRUxVeStDNUovMjNtZEo2RjNZ?=
+ =?utf-8?B?K3RsMmVzU0R1WUxUcW9aNkhjR0Vsb1FyenpmUUxrS0ttUkZBWWFwVjBFZDZn?=
+ =?utf-8?B?SGJGTGpaTU03T04xbWtTWDB1Y1V0d1U3RUJwNXJreG81eWZyYWxxdVZUaDFq?=
+ =?utf-8?B?MU45RnRzQjJZeHdHTnJubHFjbkRyVC9yNXFpTW1RWGZlM1IxTm9TbFZQZU1T?=
+ =?utf-8?B?QXBIMm5hQWRseG82aXBFREsrOHhVRldpZjJRZjl4c1ZGb1Z2WVZoa2N2Mmx3?=
+ =?utf-8?B?ZGZ0ZUZmbW9KNXd4R1IwUHVSd3ZieU1KcWhFcSt5Rk14UmgxTENjcC96dDVx?=
+ =?utf-8?B?eUlkek11Y0VJTThjNHBCWk5zeGQyNEFERFlVNWJKSnY4UXRYTzFSUnd0bDVa?=
+ =?utf-8?B?bWpFcmJLUmJ6cUs0QldjWTVvZVpiUmlHMHM5ODhwYlcxR28vaE5STlpaV2ZL?=
+ =?utf-8?B?RlZVbDJBMWdwNVZKOVIxV3QzNysxNlY1TGFRQ3NZUVA1REhIUVJFcTRyWDIv?=
+ =?utf-8?B?a0VOVU9xYkorM01iajJidmp4dkNhUHRBNzc5Y0ZiT2RHOTJSNThzbXF1eGtW?=
+ =?utf-8?B?M0RIZlRpQ1k5dnExdEZkakNWMmx2ZTdCdXRmNGNkQXN0Zk02SldPSTRDY0pl?=
+ =?utf-8?B?TzZMekZBb3FNSVg3d3NRTEFzaUZyU2UvR1BnWnBoNitKTkpjRVBRb2RYR1JU?=
+ =?utf-8?B?bjZXZGlqZHQvdkFVNkJ4eWlsS0RSektoMHlWZ1lRcDhFanVDV0NWelk3cldv?=
+ =?utf-8?B?SjloZ0lDQ3lJcUt4U0ZBYjk5RHBVekY2UDlHTTJXLzJYTWR0Yi91L1k3QXl4?=
+ =?utf-8?B?a0NIMGRzQU1OaDN6R211OS9yNmxNdUovSThTdFB2Vk9vTTNsNGFqaVk3bW1o?=
+ =?utf-8?B?d0puVUM5TXBMN053WjJZRFpreXhJL0l0by9CZWFCMGpLMU85NGtLRURoVUk3?=
+ =?utf-8?B?Z3g2NlBiZnYzZStiOGJzV3Z1N3NoWTNFelBBOXJmK0hYQ0JLQklwcmh3ZWp5?=
+ =?utf-8?B?TG5oSkM2eFYxN1lCVVhjbkNqSWhaZk9CS1d5N3FpeXZKRUh6enpqWjBBWUt6?=
+ =?utf-8?B?R1p3eDRHWkdFNDFnWS9xbmUvZDVjMzdSRkxvOThSb2EzMXVUSkpvNDBLYjh3?=
+ =?utf-8?B?V2YzWEovSmtSYWMzcTArUks4TmtYQnJ4N1V5T3BXU2FucnhlOHJ6b1d0QzJr?=
+ =?utf-8?B?QlZQZGc2OTRyc2ZQSFlmSG1DVDBwYmFiaytKckVMSGJoekZlVTZ2bysvVjJS?=
+ =?utf-8?B?VFI4OGNZSmFxZVJLcTQ4cm5qVTRySkxhb0FnMHlGYWVLc094azZwaXpUcEww?=
+ =?utf-8?B?bHdYaW9EdkpvSXVXMWE1VEVuYm9EVWg0Mms2dVJwNm9oZ1lNMnluTXhCM3Nx?=
+ =?utf-8?B?dFF3bkJtZ0RtTjNBb0k5MjE4dVVuNlJpNHZFSG00NmtWelpDSkdkT1lsbWk0?=
+ =?utf-8?B?dlI2djc2MlBhVThCY1NlcEJJTWdzZnJqekh0L01qSmRxdytVUnB6dz09?=
+Content-ID: <C2CF1CCAC7CB8049866648EE6002F468@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.5.0
-Subject: Re: [PATCH -next v4 3/4] arm64: mm: add support for page table check
-Content-Language: en-US
-To: Tong Tiangen <tongtiangen@huawei.com>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- Kefeng Wang <wangkefeng.wang@huawei.com>, Guohanjun <guohanjun@huawei.com>
-References: <20220418034444.520928-1-tongtiangen@huawei.com>
- <20220418034444.520928-4-tongtiangen@huawei.com>
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20220418034444.520928-4-tongtiangen@huawei.com>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b2740b16-55f4-4bda-52dd-08da21f1bdfa
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Apr 2022 10:45:38.3230 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: BLm2hlJuTssTgQykFepEvI42YsGFTXXnyaYH2t6kIPQed9+K3+kbbHLShonCOyx96tf6rMi60JW0wfunqMxw/khyI1wPhKRdXG4GG7vxY54=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR11MB3991
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220419_032216_964851_0B125157 
-X-CRM114-Status: UNSURE (   7.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220419_034550_817207_96D2691E 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,28 +183,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 19/04/2022 10:09, Krzysztof Kozlowski wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> 
+> On 18/03/2022 17:20, Krzysztof Kozlowski wrote:
+>> Fixes dtbs_check warnings like:
+>>
+>>    dma@3000000: $nodename:0: 'dma@3000000' does not match '^dma-controller(@.*)?$'
+>>
+>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+>> ---
+>>   arch/riscv/boot/dts/sifive/fu540-c000.dtsi | 2 +-
+>>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> Any comments here?
 
-On 4/18/22 09:14, Tong Tiangen wrote:
-> +#ifdef CONFIG_PAGE_TABLE_CHECK
-> +static inline bool pte_user_accessible_page(pte_t pte)
-> +{
-> +	return pte_present(pte) && (pte_user(pte) || pte_user_exec(pte));
-> +}
-> +
-> +static inline bool pmd_user_accessible_page(pmd_t pmd)
-> +{
-> +	return pmd_present(pmd) && (pmd_user(pmd) || pmd_user_exec(pmd));
-> +}
-> +
-> +static inline bool pud_user_accessible_page(pud_t pud)
-> +{
-> +	return pud_present(pud) && pud_user(pud);
-> +}
-> +#endif
-Wondering why check for these page table entry states when init_mm
-has already being excluded ? Should not user page tables be checked
-for in entirety for all updates ? what is the rationale for filtering
-out only pxx_user_access_page entries ?
+Not sure that this one is actually needed Krzysztof, Zong Li has a fix
+for this in his series of fixes for the sifive pdma:
+https://lore.kernel.org/linux-riscv/edd72c0cca1ebceddc032ff6ec2284e3f48c5ad3.1648461096.git.zong.li@sifive.com/
+
+Maybe you could add your review to his version?
+
 
 _______________________________________________
 linux-riscv mailing list
