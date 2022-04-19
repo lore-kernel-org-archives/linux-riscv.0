@@ -4,77 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CDDFC433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Apr 2022 09:05:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EFBBC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Apr 2022 09:29:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KNPXhmbcs9+whApcHuAMqgvNig7ui9vPV9Rl4C9g4pA=; b=xkAo4UXAkDZSfH
-	7z4wnVdDlGDQDyySs2z4eUdKNas+8YTb6exeMMcdOsNsDke/yk6sd+OrCyIiygr6Bpq3mrZsTY/qQ
-	AeJX/SopJl4Z4+hE6DlSv1ipIUPeXdNlvRP0fS6Ste7V+D/KdfXtQx0BX/lGOXC2MF8WvtbT3dJP9
-	pkcXKZgmbEwoQei3SnkyEIg2RBGJbhI821jjzpJXbtQRANwZ6XtqK/d3XPUTnWPrSds4MTHQEpUb9
-	PU9+e60Gw23dPowGZBhEhsjm4UW3iAo08M5AJpRGBqdyOgholJt38KhQ8Rtbn013DWv7Q5efxYKNP
-	nTAeDhTt6yI8qKCcy0ZQ==;
+	List-Owner; bh=we1S4+Jg6r8vySDJXqcHj0WWoaaAs4wbyLyYiXF7BNA=; b=13upOFZTupxOyj
+	rdSGbnoOoCSYB3VbZYfpaMiWJM3JhrNWVgizjXS4N8VPnHk142Bb6lYkyj06IuqN2UEoG9D5v70jp
+	9J2Or6t+nhpEEshZsUlTw0eMTMditKmotzXRWD/gHo99wETSwgWTDsp9/LRUa2X6t0E3pquk5bjrG
+	Dr+ZCYy91iiHyPR3j3F8EkWMQSSjBTtRXpSLqxWfPel6MKoeS0tuF9LaZ6fKMmnA3QokvyHGsecCW
+	zAolsUOOErm7BfFxsKB9u5GT9kmMeKZj0N26hB4QgJRFXhhtKrF/+Cn9u3NTe435iP/rFvWS0V+jP
+	o5YzcOemOrQFAm8UQQFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ngjnH-002U5b-Ba; Tue, 19 Apr 2022 09:05:07 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ngjnB-002U23-T5
- for linux-riscv@lists.infradead.org; Tue, 19 Apr 2022 09:05:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1650359099;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=yqO09B1A/EFyjs8MfHYQckn4mGJK2hdYIeHKcD/gwMM=;
- b=fwByg2DhHYTZa7RBMvQTJPnJSEAa8yn4oBXnnBv9u1YjFnLek4YU59uUwYD5yboTDQZjrr
- DkIVpRYUSOWegd+gxc4GM5nIw69PoPDKdTzABPwB1MN8y7QOpCB4AtB7CDk2NT0HkEEV+V
- YUKwHUL7x4yVIlEL4bG3yN2GMoN65Yo=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-269-nz1r3vZENlKDAlESY9AEqA-1; Tue, 19 Apr 2022 05:04:56 -0400
-X-MC-Unique: nz1r3vZENlKDAlESY9AEqA-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com
- [10.11.54.1])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx02.redhat.com (Postfix) with ESMTPS id F24E23C14842;
- Tue, 19 Apr 2022 09:04:55 +0000 (UTC)
-Received: from starship (unknown [10.40.194.231])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 8CFCC400E57B;
- Tue, 19 Apr 2022 09:04:51 +0000 (UTC)
-Message-ID: <5b561bf1a0bbf140ea09d516f946a4e8fee8dd2d.camel@redhat.com>
-Subject: Re: [PATCH 3/3] KVM: Add helpers to wrap vcpu->srcu_idx and yell if
- it's abused
-From: Maxim Levitsky <mlevitsk@redhat.com>
-To: Sean Christopherson <seanjc@google.com>, Anup Patel
- <anup@brainfault.org>,  Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,  Christian
- Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank
- <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo
- Bonzini <pbonzini@redhat.com>
-Cc: Atish Patra <atishp@atishpatra.org>, David Hildenbrand
- <david@redhat.com>,  Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li
- <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,  Joerg Roedel
- <joro@8bytes.org>, linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-Date: Tue, 19 Apr 2022 12:04:50 +0300
-In-Reply-To: <20220415004343.2203171-4-seanjc@google.com>
-References: <20220415004343.2203171-1-seanjc@google.com>
- <20220415004343.2203171-4-seanjc@google.com>
-User-Agent: Evolution 3.36.5 (3.36.5-2.fc32) 
+	id 1ngkAe-002YZH-2e; Tue, 19 Apr 2022 09:29:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1ngkAS-002YUA-01; Tue, 19 Apr 2022 09:29:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 317031042;
+ Tue, 19 Apr 2022 02:29:01 -0700 (PDT)
+Received: from [10.163.40.223] (unknown [10.163.40.223])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 708A43F5A1;
+ Tue, 19 Apr 2022 02:28:52 -0700 (PDT)
+Message-ID: <1671baf7-046e-7c52-183f-fd654125fd67@arm.com>
+Date: Tue, 19 Apr 2022 14:59:34 +0530
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.5.0
+Subject: Re: [PATCH -next v4 1/4] mm: page_table_check: move
+ pxx_user_accessible_page into x86
+Content-Language: en-US
+To: Tong Tiangen <tongtiangen@huawei.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ Kefeng Wang <wangkefeng.wang@huawei.com>, Guohanjun <guohanjun@huawei.com>
+References: <20220418034444.520928-1-tongtiangen@huawei.com>
+ <20220418034444.520928-2-tongtiangen@huawei.com>
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20220418034444.520928-2-tongtiangen@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220419_020502_167953_64053C3B 
-X-CRM114-Status: GOOD (  29.13  )
+X-CRM114-CacheID: sfid-20220419_022904_129271_747D1AEE 
+X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,485 +74,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2022-04-15 at 00:43 +0000, Sean Christopherson wrote:
-> Add wrappers to acquire/release KVM's SRCU lock when stashing the index
-> in vcpu->src_idx, along with rudimentary detection of illegal usage,
-> e.g. re-acquiring SRCU and thus overwriting vcpu->src_idx.  Because the
-> SRCU index is (currently) either 0 or 1, illegal nesting bugs can go
-> unnoticed for quite some time and only cause problems when the nested
-> lock happens to get a different index.
-> 
-> Wrap the WARNs in PROVE_RCU=y, and make them ONCE, otherwise KVM will
-> likely yell so loudly that it will bring the kernel to its knees.
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  arch/powerpc/kvm/book3s_64_mmu_radix.c |  9 +++++----
->  arch/powerpc/kvm/book3s_hv_nested.c    | 16 +++++++--------
->  arch/powerpc/kvm/book3s_rtas.c         |  4 ++--
->  arch/powerpc/kvm/powerpc.c             |  4 ++--
->  arch/riscv/kvm/vcpu.c                  | 16 +++++++--------
->  arch/riscv/kvm/vcpu_exit.c             |  4 ++--
->  arch/s390/kvm/interrupt.c              |  4 ++--
->  arch/s390/kvm/kvm-s390.c               |  8 ++++----
->  arch/s390/kvm/vsie.c                   |  4 ++--
->  arch/x86/kvm/x86.c                     | 28 ++++++++++++--------------
->  include/linux/kvm_host.h               | 24 +++++++++++++++++++++-
->  11 files changed, 71 insertions(+), 50 deletions(-)
-> 
-> diff --git a/arch/powerpc/kvm/book3s_64_mmu_radix.c b/arch/powerpc/kvm/book3s_64_mmu_radix.c
-> index e4ce2a35483f..42851c32ff3b 100644
-> --- a/arch/powerpc/kvm/book3s_64_mmu_radix.c
-> +++ b/arch/powerpc/kvm/book3s_64_mmu_radix.c
-> @@ -168,9 +168,10 @@ int kvmppc_mmu_walk_radix_tree(struct kvm_vcpu *vcpu, gva_t eaddr,
->  			return -EINVAL;
->  		/* Read the entry from guest memory */
->  		addr = base + (index * sizeof(rpte));
-> -		vcpu->srcu_idx = srcu_read_lock(&kvm->srcu);
-> +
-> +		kvm_vcpu_srcu_read_lock(vcpu);
->  		ret = kvm_read_guest(kvm, addr, &rpte, sizeof(rpte));
-> -		srcu_read_unlock(&kvm->srcu, vcpu->srcu_idx);
-> +		kvm_vcpu_srcu_read_unlock(vcpu);
->  		if (ret) {
->  			if (pte_ret_p)
->  				*pte_ret_p = addr;
-> @@ -246,9 +247,9 @@ int kvmppc_mmu_radix_translate_table(struct kvm_vcpu *vcpu, gva_t eaddr,
+
+
+On 4/18/22 09:14, Tong Tiangen wrote:
+> --- a/mm/page_table_check.c
+> +++ b/mm/page_table_check.c
+> @@ -10,6 +10,14 @@
+>  #undef pr_fmt
+>  #define pr_fmt(fmt)	"page_table_check: " fmt
 >  
->  	/* Read the table to find the root of the radix tree */
->  	ptbl = (table & PRTB_MASK) + (table_index * sizeof(entry));
-> -	vcpu->srcu_idx = srcu_read_lock(&kvm->srcu);
-> +	kvm_vcpu_srcu_read_lock(vcpu);
->  	ret = kvm_read_guest(kvm, ptbl, &entry, sizeof(entry));
-> -	srcu_read_unlock(&kvm->srcu, vcpu->srcu_idx);
-> +	kvm_vcpu_srcu_read_unlock(vcpu);
->  	if (ret)
->  		return ret;
->  
-> diff --git a/arch/powerpc/kvm/book3s_hv_nested.c b/arch/powerpc/kvm/book3s_hv_nested.c
-> index 9d373f8963ee..c943a051c6e7 100644
-> --- a/arch/powerpc/kvm/book3s_hv_nested.c
-> +++ b/arch/powerpc/kvm/book3s_hv_nested.c
-> @@ -306,10 +306,10 @@ long kvmhv_enter_nested_guest(struct kvm_vcpu *vcpu)
->  	/* copy parameters in */
->  	hv_ptr = kvmppc_get_gpr(vcpu, 4);
->  	regs_ptr = kvmppc_get_gpr(vcpu, 5);
-> -	vcpu->srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-> +	kvm_vcpu_srcu_read_lock(vcpu);
->  	err = kvmhv_read_guest_state_and_regs(vcpu, &l2_hv, &l2_regs,
->  					      hv_ptr, regs_ptr);
-> -	srcu_read_unlock(&vcpu->kvm->srcu, vcpu->srcu_idx);
-> +	kvm_vcpu_srcu_read_unlock(vcpu);
->  	if (err)
->  		return H_PARAMETER;
->  
-> @@ -410,10 +410,10 @@ long kvmhv_enter_nested_guest(struct kvm_vcpu *vcpu)
->  		byteswap_hv_regs(&l2_hv);
->  		byteswap_pt_regs(&l2_regs);
->  	}
-> -	vcpu->srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-> +	kvm_vcpu_srcu_read_lock(vcpu);
->  	err = kvmhv_write_guest_state_and_regs(vcpu, &l2_hv, &l2_regs,
->  					       hv_ptr, regs_ptr);
-> -	srcu_read_unlock(&vcpu->kvm->srcu, vcpu->srcu_idx);
-> +	kvm_vcpu_srcu_read_unlock(vcpu);
->  	if (err)
->  		return H_AUTHORITY;
->  
-> @@ -600,16 +600,16 @@ long kvmhv_copy_tofrom_guest_nested(struct kvm_vcpu *vcpu)
->  			goto not_found;
->  
->  		/* Write what was loaded into our buffer back to the L1 guest */
-> -		vcpu->srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-> +		kvm_vcpu_srcu_read_lock(vcpu);
->  		rc = kvm_vcpu_write_guest(vcpu, gp_to, buf, n);
-> -		srcu_read_unlock(&vcpu->kvm->srcu, vcpu->srcu_idx);
-> +		kvm_vcpu_srcu_read_unlock(vcpu);
->  		if (rc)
->  			goto not_found;
->  	} else {
->  		/* Load the data to be stored from the L1 guest into our buf */
-> -		vcpu->srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-> +		kvm_vcpu_srcu_read_lock(vcpu);
->  		rc = kvm_vcpu_read_guest(vcpu, gp_from, buf, n);
-> -		srcu_read_unlock(&vcpu->kvm->srcu, vcpu->srcu_idx);
-> +		kvm_vcpu_srcu_read_unlock(vcpu);
->  		if (rc)
->  			goto not_found;
->  
-> diff --git a/arch/powerpc/kvm/book3s_rtas.c b/arch/powerpc/kvm/book3s_rtas.c
-> index 0f847f1e5ddd..6808bda0dbc1 100644
-> --- a/arch/powerpc/kvm/book3s_rtas.c
-> +++ b/arch/powerpc/kvm/book3s_rtas.c
-> @@ -229,9 +229,9 @@ int kvmppc_rtas_hcall(struct kvm_vcpu *vcpu)
->  	 */
->  	args_phys = kvmppc_get_gpr(vcpu, 4) & KVM_PAM;
->  
-> -	vcpu->srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-> +	kvm_vcpu_srcu_read_lock(vcpu);
->  	rc = kvm_read_guest(vcpu->kvm, args_phys, &args, sizeof(args));
-> -	srcu_read_unlock(&vcpu->kvm->srcu, vcpu->srcu_idx);
-> +	kvm_vcpu_srcu_read_unlock(vcpu);
->  	if (rc)
->  		goto fail;
->  
-> diff --git a/arch/powerpc/kvm/powerpc.c b/arch/powerpc/kvm/powerpc.c
-> index 9772b176e406..fd88c2412e83 100644
-> --- a/arch/powerpc/kvm/powerpc.c
-> +++ b/arch/powerpc/kvm/powerpc.c
-> @@ -425,9 +425,9 @@ int kvmppc_ld(struct kvm_vcpu *vcpu, ulong *eaddr, int size, void *ptr,
->  		return EMULATE_DONE;
->  	}
->  
-> -	vcpu->srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-> +	kvm_vcpu_srcu_read_lock(vcpu);
->  	rc = kvm_read_guest(vcpu->kvm, pte.raddr, ptr, size);
-> -	srcu_read_unlock(&vcpu->kvm->srcu, vcpu->srcu_idx);
-> +	kvm_vcpu_srcu_read_unlock(vcpu);
->  	if (rc)
->  		return EMULATE_DO_MMIO;
->  
-> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> index 2f1caf23eed4..256cf04ec01e 100644
-> --- a/arch/riscv/kvm/vcpu.c
-> +++ b/arch/riscv/kvm/vcpu.c
-> @@ -724,13 +724,13 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->  	/* Mark this VCPU ran at least once */
->  	vcpu->arch.ran_atleast_once = true;
->  
-> -	vcpu->srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-> +	kvm_vcpu_srcu_read_lock(vcpu);
->  
->  	/* Process MMIO value returned from user-space */
->  	if (run->exit_reason == KVM_EXIT_MMIO) {
->  		ret = kvm_riscv_vcpu_mmio_return(vcpu, vcpu->run);
->  		if (ret) {
-> -			srcu_read_unlock(&vcpu->kvm->srcu, vcpu->srcu_idx);
-> +			kvm_vcpu_srcu_read_unlock(vcpu);
->  			return ret;
->  		}
->  	}
-> @@ -739,13 +739,13 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->  	if (run->exit_reason == KVM_EXIT_RISCV_SBI) {
->  		ret = kvm_riscv_vcpu_sbi_return(vcpu, vcpu->run);
->  		if (ret) {
-> -			srcu_read_unlock(&vcpu->kvm->srcu, vcpu->srcu_idx);
-> +			kvm_vcpu_srcu_read_unlock(vcpu);
->  			return ret;
->  		}
->  	}
->  
->  	if (run->immediate_exit) {
-> -		srcu_read_unlock(&vcpu->kvm->srcu, vcpu->srcu_idx);
-> +		kvm_vcpu_srcu_read_unlock(vcpu);
->  		return -EINTR;
->  	}
->  
-> @@ -784,7 +784,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->  		 */
->  		vcpu->mode = IN_GUEST_MODE;
->  
-> -		srcu_read_unlock(&vcpu->kvm->srcu, vcpu->srcu_idx);
-> +		kvm_vcpu_srcu_read_unlock(vcpu);
->  		smp_mb__after_srcu_read_unlock();
->  
->  		/*
-> @@ -802,7 +802,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->  			vcpu->mode = OUTSIDE_GUEST_MODE;
->  			local_irq_enable();
->  			preempt_enable();
-> -			vcpu->srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-> +			kvm_vcpu_srcu_read_lock(vcpu);
->  			continue;
->  		}
->  
-> @@ -846,7 +846,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->  
->  		preempt_enable();
->  
-> -		vcpu->srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-> +		kvm_vcpu_srcu_read_lock(vcpu);
->  
->  		ret = kvm_riscv_vcpu_exit(vcpu, run, &trap);
->  	}
-> @@ -855,7 +855,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->  
->  	vcpu_put(vcpu);
->  
-> -	srcu_read_unlock(&vcpu->kvm->srcu, vcpu->srcu_idx);
-> +	kvm_vcpu_srcu_read_unlock(vcpu);
->  
->  	return ret;
->  }
-> diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
-> index 2d56faddb9d1..a72c15d4b42a 100644
-> --- a/arch/riscv/kvm/vcpu_exit.c
-> +++ b/arch/riscv/kvm/vcpu_exit.c
-> @@ -456,9 +456,9 @@ static int stage2_page_fault(struct kvm_vcpu *vcpu, struct kvm_run *run,
->  void kvm_riscv_vcpu_wfi(struct kvm_vcpu *vcpu)
->  {
->  	if (!kvm_arch_vcpu_runnable(vcpu)) {
-> -		srcu_read_unlock(&vcpu->kvm->srcu, vcpu->srcu_idx);
-> +		kvm_vcpu_srcu_read_unlock(vcpu);
->  		kvm_vcpu_halt(vcpu);
-> -		vcpu->srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-> +		kvm_vcpu_srcu_read_lock(vcpu);
->  		kvm_clear_request(KVM_REQ_UNHALT, vcpu);
->  	}
->  }
-> diff --git a/arch/s390/kvm/interrupt.c b/arch/s390/kvm/interrupt.c
-> index 9b30beac904d..af96dc0549a4 100644
-> --- a/arch/s390/kvm/interrupt.c
-> +++ b/arch/s390/kvm/interrupt.c
-> @@ -1334,11 +1334,11 @@ int kvm_s390_handle_wait(struct kvm_vcpu *vcpu)
->  	hrtimer_start(&vcpu->arch.ckc_timer, sltime, HRTIMER_MODE_REL);
->  	VCPU_EVENT(vcpu, 4, "enabled wait: %llu ns", sltime);
->  no_timer:
-> -	srcu_read_unlock(&vcpu->kvm->srcu, vcpu->srcu_idx);
-> +	kvm_vcpu_srcu_read_unlock(vcpu);
->  	kvm_vcpu_halt(vcpu);
->  	vcpu->valid_wakeup = false;
->  	__unset_cpu_idle(vcpu);
-> -	vcpu->srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-> +	kvm_vcpu_srcu_read_lock(vcpu);
->  
->  	hrtimer_cancel(&vcpu->arch.ckc_timer);
->  	return 0;
-> diff --git a/arch/s390/kvm/kvm-s390.c b/arch/s390/kvm/kvm-s390.c
-> index 156d1c25a3c1..da3dabda1a12 100644
-> --- a/arch/s390/kvm/kvm-s390.c
-> +++ b/arch/s390/kvm/kvm-s390.c
-> @@ -4237,14 +4237,14 @@ static int __vcpu_run(struct kvm_vcpu *vcpu)
->  	 * We try to hold kvm->srcu during most of vcpu_run (except when run-
->  	 * ning the guest), so that memslots (and other stuff) are protected
->  	 */
-> -	vcpu->srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-> +	kvm_vcpu_srcu_read_lock(vcpu);
->  
->  	do {
->  		rc = vcpu_pre_run(vcpu);
->  		if (rc)
->  			break;
->  
-> -		srcu_read_unlock(&vcpu->kvm->srcu, vcpu->srcu_idx);
-> +		kvm_vcpu_srcu_read_unlock(vcpu);
->  		/*
->  		 * As PF_VCPU will be used in fault handler, between
->  		 * guest_enter and guest_exit should be no uaccess.
-> @@ -4281,12 +4281,12 @@ static int __vcpu_run(struct kvm_vcpu *vcpu)
->  		__enable_cpu_timer_accounting(vcpu);
->  		guest_exit_irqoff();
->  		local_irq_enable();
-> -		vcpu->srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-> +		kvm_vcpu_srcu_read_lock(vcpu);
->  
->  		rc = vcpu_post_run(vcpu, exit_reason);
->  	} while (!signal_pending(current) && !guestdbg_exit_pending(vcpu) && !rc);
->  
-> -	srcu_read_unlock(&vcpu->kvm->srcu, vcpu->srcu_idx);
-> +	kvm_vcpu_srcu_read_unlock(vcpu);
->  	return rc;
->  }
->  
-> diff --git a/arch/s390/kvm/vsie.c b/arch/s390/kvm/vsie.c
-> index acda4b6fc851..dada78b92691 100644
-> --- a/arch/s390/kvm/vsie.c
-> +++ b/arch/s390/kvm/vsie.c
-> @@ -1091,7 +1091,7 @@ static int do_vsie_run(struct kvm_vcpu *vcpu, struct vsie_page *vsie_page)
->  
->  	handle_last_fault(vcpu, vsie_page);
->  
-> -	srcu_read_unlock(&vcpu->kvm->srcu, vcpu->srcu_idx);
-> +	kvm_vcpu_srcu_read_unlock(vcpu);
->  
->  	/* save current guest state of bp isolation override */
->  	guest_bp_isolation = test_thread_flag(TIF_ISOLATE_BP_GUEST);
-> @@ -1133,7 +1133,7 @@ static int do_vsie_run(struct kvm_vcpu *vcpu, struct vsie_page *vsie_page)
->  	if (!guest_bp_isolation)
->  		clear_thread_flag(TIF_ISOLATE_BP_GUEST);
->  
-> -	vcpu->srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-> +	kvm_vcpu_srcu_read_lock(vcpu);
->  
->  	if (rc == -EINTR) {
->  		VCPU_EVENT(vcpu, 3, "%s", "machine check");
-> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-> index f35fe09de59d..bc24b35c4e80 100644
-> --- a/arch/x86/kvm/x86.c
-> +++ b/arch/x86/kvm/x86.c
-> @@ -10157,7 +10157,7 @@ static int vcpu_enter_guest(struct kvm_vcpu *vcpu)
->  	/* Store vcpu->apicv_active before vcpu->mode.  */
->  	smp_store_release(&vcpu->mode, IN_GUEST_MODE);
->  
-> -	srcu_read_unlock(&vcpu->kvm->srcu, vcpu->srcu_idx);
-> +	kvm_vcpu_srcu_read_unlock(vcpu);
->  
->  	/*
->  	 * 1) We should set ->mode before checking ->requests.  Please see
-> @@ -10188,7 +10188,7 @@ static int vcpu_enter_guest(struct kvm_vcpu *vcpu)
->  		smp_wmb();
->  		local_irq_enable();
->  		preempt_enable();
-> -		vcpu->srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-> +		kvm_vcpu_srcu_read_lock(vcpu);
->  		r = 1;
->  		goto cancel_injection;
->  	}
-> @@ -10314,7 +10314,7 @@ static int vcpu_enter_guest(struct kvm_vcpu *vcpu)
->  	local_irq_enable();
->  	preempt_enable();
->  
-> -	vcpu->srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-> +	kvm_vcpu_srcu_read_lock(vcpu);
->  
->  	/*
->  	 * Profile KVM exit RIPs:
-> @@ -10344,7 +10344,7 @@ static int vcpu_enter_guest(struct kvm_vcpu *vcpu)
->  }
->  
->  /* Called within kvm->srcu read side.  */
-> -static inline int vcpu_block(struct kvm *kvm, struct kvm_vcpu *vcpu)
-> +static inline int vcpu_block(struct kvm_vcpu *vcpu)
->  {
->  	bool hv_timer;
->  
-> @@ -10360,12 +10360,12 @@ static inline int vcpu_block(struct kvm *kvm, struct kvm_vcpu *vcpu)
->  		if (hv_timer)
->  			kvm_lapic_switch_to_sw_timer(vcpu);
->  
-> -		srcu_read_unlock(&kvm->srcu, vcpu->srcu_idx);
-> +		kvm_vcpu_srcu_read_unlock(vcpu);
->  		if (vcpu->arch.mp_state == KVM_MP_STATE_HALTED)
->  			kvm_vcpu_halt(vcpu);
->  		else
->  			kvm_vcpu_block(vcpu);
-> -		vcpu->srcu_idx = srcu_read_lock(&kvm->srcu);
-> +		kvm_vcpu_srcu_read_lock(vcpu);
->  
->  		if (hv_timer)
->  			kvm_lapic_switch_to_hv_timer(vcpu);
-> @@ -10407,7 +10407,6 @@ static inline bool kvm_vcpu_running(struct kvm_vcpu *vcpu)
->  static int vcpu_run(struct kvm_vcpu *vcpu)
->  {
->  	int r;
-> -	struct kvm *kvm = vcpu->kvm;
->  
->  	vcpu->arch.l1tf_flush_l1d = true;
->  
-> @@ -10415,7 +10414,7 @@ static int vcpu_run(struct kvm_vcpu *vcpu)
->  		if (kvm_vcpu_running(vcpu)) {
->  			r = vcpu_enter_guest(vcpu);
->  		} else {
-> -			r = vcpu_block(kvm, vcpu);
-> +			r = vcpu_block(vcpu);
->  		}
->  
->  		if (r <= 0)
-> @@ -10437,9 +10436,9 @@ static int vcpu_run(struct kvm_vcpu *vcpu)
->  		}
->  
->  		if (__xfer_to_guest_mode_work_pending()) {
-> -			srcu_read_unlock(&kvm->srcu, vcpu->srcu_idx);
-> +			kvm_vcpu_srcu_read_unlock(vcpu);
->  			r = xfer_to_guest_mode_handle_work(vcpu);
-> -			vcpu->srcu_idx = srcu_read_lock(&kvm->srcu);
-> +			kvm_vcpu_srcu_read_lock(vcpu);
->  			if (r)
->  				return r;
->  		}
-> @@ -10542,7 +10541,6 @@ static void kvm_put_guest_fpu(struct kvm_vcpu *vcpu)
->  int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->  {
->  	struct kvm_run *kvm_run = vcpu->run;
-> -	struct kvm *kvm = vcpu->kvm;
->  	int r;
->  
->  	vcpu_load(vcpu);
-> @@ -10550,7 +10548,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->  	kvm_run->flags = 0;
->  	kvm_load_guest_fpu(vcpu);
->  
-> -	vcpu->srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-> +	kvm_vcpu_srcu_read_lock(vcpu);
->  	if (unlikely(vcpu->arch.mp_state == KVM_MP_STATE_UNINITIALIZED)) {
->  		if (kvm_run->immediate_exit) {
->  			r = -EINTR;
-> @@ -10562,9 +10560,9 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->  		 */
->  		WARN_ON_ONCE(kvm_lapic_hv_timer_in_use(vcpu));
->  
-> -		srcu_read_unlock(&kvm->srcu, vcpu->srcu_idx);
-> +		kvm_vcpu_srcu_read_unlock(vcpu);
->  		kvm_vcpu_block(vcpu);
-> -		vcpu->srcu_idx = srcu_read_lock(&kvm->srcu);
-> +		kvm_vcpu_srcu_read_lock(vcpu);
->  
->  		if (kvm_apic_accept_events(vcpu) < 0) {
->  			r = 0;
-> @@ -10625,7 +10623,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->  	if (kvm_run->kvm_valid_regs)
->  		store_regs(vcpu);
->  	post_kvm_run_save(vcpu);
-> -	srcu_read_unlock(&kvm->srcu, vcpu->srcu_idx);
-> +	kvm_vcpu_srcu_read_unlock(vcpu);
->  
->  	kvm_sigset_deactivate(vcpu);
->  	vcpu_put(vcpu);
-> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-> index 252ee4a61b58..76fc7233bd6a 100644
-> --- a/include/linux/kvm_host.h
-> +++ b/include/linux/kvm_host.h
-> @@ -315,7 +315,10 @@ struct kvm_vcpu {
->  	int cpu;
->  	int vcpu_id; /* id given by userspace at creation */
->  	int vcpu_idx; /* index in kvm->vcpus array */
-> -	int srcu_idx;
-> +	int ____srcu_idx; /* Don't use this directly.  You've been warned. */
-> +#ifdef CONFIG_PROVE_RCU
-> +	int srcu_depth;
+> +#ifndef PMD_PAGE_SIZE
+> +#define PMD_PAGE_SIZE	PMD_SIZE
 > +#endif
->  	int mode;
->  	u64 requests;
->  	unsigned long guest_debug;
-> @@ -841,6 +844,25 @@ static inline void kvm_vm_bugged(struct kvm *kvm)
->  	unlikely(__ret);					\
->  })
->  
-> +static inline void kvm_vcpu_srcu_read_lock(struct kvm_vcpu *vcpu)
-> +{
-> +#ifdef CONFIG_PROVE_RCU
-> +	WARN_ONCE(vcpu->srcu_depth++,
-> +		  "KVM: Illegal vCPU srcu_idx LOCK, depth=%d", vcpu->srcu_depth - 1);
+> +
+> +#ifndef PUD_PAGE_SIZE
+> +#define PUD_PAGE_SIZE	PUD_SIZE
 > +#endif
-> +	vcpu->____srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-> +}
-> +
-> +static inline void kvm_vcpu_srcu_read_unlock(struct kvm_vcpu *vcpu)
-> +{
-> +	srcu_read_unlock(&vcpu->kvm->srcu, vcpu->____srcu_idx);
-> +
-> +#ifdef CONFIG_PROVE_RCU
-> +	WARN_ONCE(--vcpu->srcu_depth,
-> +		  "KVM: Illegal vCPU srcu_idx UNLOCK, depth=%d", vcpu->srcu_depth);
-> +#endif
-> +}
-> +
->  static inline bool kvm_dirty_log_manual_protect_and_init_set(struct kvm *kvm)
->  {
->  	return !!(kvm->manual_dirty_log_protect & KVM_DIRTY_LOG_INITIALLY_SET);
 
-
-Looks good to me overall.
-
-Note that there are still places that acquire the lock and store the idx into
-a local variable, for example kvm_xen_vcpu_set_attr and such.
-I didn't check yet if these should be converted as well.
-
-Best regards,
-	Maxim Levitsky
-
-
-
+Why cannot PMD_SIZE/PUD_SIZE be used on every platform instead ? What is the
+need for using PUD_PAGE_SIZE/PMD_PAGE_SIZE ? Are they different on x86 ?
 
 _______________________________________________
 linux-riscv mailing list
