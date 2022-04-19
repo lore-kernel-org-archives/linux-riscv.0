@@ -4,55 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18402C43217
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Apr 2022 13:56:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6170C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Apr 2022 13:58:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yPCyd7JwHAFFM5jYg0C9PwjwgEMDCNH4NG2A5JrHXEc=; b=ITtH0ZagBALcaS
-	cZN8RFNzNMoTjWAKxhmkr264bm40obbX18n7DkfQ72+BzmfiRUhxE3ZZtJUjpq7IstPH93V8/6OMj
-	KPkrkd20MvZ/smuH96l7cMMKotYWI35JpogvY2okx8jKhZfBwL8Ko1L6OkDYY564keS9myBFP8h7f
-	oKXN/CQ9vOaXhEOy9hAMP3UTdecthsb0z04EtYe8l+c6Exr0Ur6sLDsrplWjv5yzqHt3JFPoYblQ/
-	WD1gDpLUb1bvHC8iQj0b4Rn7Pl6Xu9miVACT62BVGb0Jdkbn2V5f8ioYbu5GhXDG9BfoGx4Hx3L3f
-	FTynQxXL9Mszeim1lWyg==;
+	List-Owner; bh=Z586/6jsU8CUG5iSm+OTndTCvghttTk2fyLHmwZCB9E=; b=c20jDvBeyMhqq5
+	ZrFhLuiesRgV0le719gwc8nG/ePFHihSSp1iOSumKAJLju5ECUrcEySucJLbXwennzMEPVTnw1Yif
+	+itrlwEetK2ksS/RLnQNBdl0AlLE+h9l2O7vIRn+G5+xd5F0O9OP4mRgJL5y3h2anAHtI9w/UydYv
+	4D1kyOkBdtWZU/9hPZNDH3fniK08fAVNfkNMYvyttJ+GRO4W5ttuD5a/N/UjJ5EVwtSm06lpbjX2m
+	p0TmTh8X66NbteqiqcRG4CDMgUfaUjojA/elEp/TEJ3hFO0O5V9ua0ftl+K6lqnZ6wtWh5+EZ6i3L
+	5pUnss3kIsTsxJ4bM3AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ngoLI-0043NA-OH; Tue, 19 Apr 2022 13:56:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ngnbi-003j0q-CR; Tue, 19 Apr 2022 13:09:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 92A48106F;
- Tue, 19 Apr 2022 06:09:22 -0700 (PDT)
-Received: from FVFF77S0Q05N (unknown [10.57.75.72])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4A73B3F766;
- Tue, 19 Apr 2022 06:09:19 -0700 (PDT)
-Date: Tue, 19 Apr 2022 14:09:14 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: He Zhe <zhe.he@windriver.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, tglx@linutronix.de,
- bp@alien8.de, dave.hansen@linux.intel.com, keescook@chromium.org,
- alexander.shishkin@linux.intel.com, jolsa@kernel.org,
- namhyung@kernel.org, benh@kernel.crashing.org, paulus@samba.org,
- borntraeger@linux.ibm.com, svens@linux.ibm.com, hpa@zytor.com,
- x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC 1/8] stacktrace: Change callback prototype to pass
- more information
-Message-ID: <Yl60euwfis+u92cA@FVFF77S0Q05N>
-References: <20220418132217.1573072-1-zhe.he@windriver.com>
- <20220418132217.1573072-2-zhe.he@windriver.com>
+	id 1ngoMZ-00444B-R7; Tue, 19 Apr 2022 13:57:51 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1ngnlu-003n0O-Mq
+ for linux-riscv@lists.infradead.org; Tue, 19 Apr 2022 13:20:01 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id g18so32843899ejc.10
+ for <linux-riscv@lists.infradead.org>; Tue, 19 Apr 2022 06:19:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=soleen.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=cWoWgEcXIMYRuEsZLERLpvc6D4fQ6dZb3dEHGDCcqIs=;
+ b=fY6TQpn2KPv+1NlQy1Jow9T1OohAsjrB3oV9ppqNtHvd0r+4OW08v/avNwv1G8Odjm
+ D/2GsdfYMSvjtxG1P4B7SzmR2XTR5xS2bZ0XXxMVMHNciSyV6R5MO6AkQwLdeFk1lHfh
+ Cgt7v30oEPEsJbmsWTr9+ULhOcR1ribWin+0SWBgoc1mhBYRwOlMDx37E219LP/c8iur
+ e8Jl67Cq3yYNgZHQHPlunLvMK0ujRMh0wPaA5jNKhTst45qBNw6ujFZl8BZe81KmcSAw
+ S+BsJt8ItH1FzOurK6u7x4BM44CcrZpOkFaSvq0vaqehD0L+SUhwh2c75xAXXhRm0fg5
+ rMMQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=cWoWgEcXIMYRuEsZLERLpvc6D4fQ6dZb3dEHGDCcqIs=;
+ b=pBDCEO5ouq6EEpRGU32+NHOfWsxXZbhv9buzYUE7fEYDZ/v/FrF2I1i8WlWUAwt3ch
+ HxWB6WpJQNDqqmilZQ48CLpv5B4BXxJOpOxvqcUwPYGTiJnBVYqy2ul7NyMaz8B+YohM
+ jAx5pZSqqyAevMWYxssXRSNMxeAegCtCGS6PckLnYfByX3JyXZjvAKbHnTmzR4KzSvr4
+ P1yuH3i/EU3efz6leN2I6TXj9oIjgmKisY5m1ZExcvyV+8e4egp+uh5zw50VlOgg8/vs
+ +LepT0aGeojop42rF7epBxxMhkcFLW4BTZOjwWH4JjVvLz4rXtJF4kkX6RccZguR4BTc
+ Kuug==
+X-Gm-Message-State: AOAM533jtcBLMONkZSCMx3M2Y9uencLVgLi7CcEVbtbUwiOAUCr5xm/c
+ joI9Vsw4kk+TfpJb4oq30D2tMh2N81WY9YjLIpd+jw==
+X-Google-Smtp-Source: ABdhPJwnqnEl1PogZpbrEzxXO0aXN+psYbjJRFm+NSGmxo/x2WJ/ZC6/8hzNHXDDrwtWHaCSyZ4gF5RFiYFl5n9G5cc=
+X-Received: by 2002:a17:907:1c8a:b0:6e9:2a0d:d7b7 with SMTP id
+ nb10-20020a1709071c8a00b006e92a0dd7b7mr13404246ejc.572.1650374394669; Tue, 19
+ Apr 2022 06:19:54 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220418132217.1573072-2-zhe.he@windriver.com>
+References: <20220418034444.520928-1-tongtiangen@huawei.com>
+ <20220418034444.520928-4-tongtiangen@huawei.com>
+ <073cb6a6-3dbc-75d4-dbfe-a5299a6b0510@arm.com>
+In-Reply-To: <073cb6a6-3dbc-75d4-dbfe-a5299a6b0510@arm.com>
+From: Pasha Tatashin <pasha.tatashin@soleen.com>
+Date: Tue, 19 Apr 2022 09:19:16 -0400
+Message-ID: <CA+CK2bCPrQ=F0jNRxcVZ9f18Rm-kAATO3xFE79TZDoWQ99GC4Q@mail.gmail.com>
+Subject: Re: [PATCH -next v4 3/4] arm64: mm: add support for page table check
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Tong Tiangen <tongtiangen@huawei.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, 
+ Andrew Morton <akpm@linux-foundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ LKML <linux-kernel@vger.kernel.org>, linux-mm <linux-mm@kvack.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ linux-riscv@lists.infradead.org, 
+ Kefeng Wang <wangkefeng.wang@huawei.com>, Guohanjun <guohanjun@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220419_060926_561694_A08C85F6 
-X-CRM114-Status: GOOD (  23.59  )
+X-CRM114-CacheID: sfid-20220419_061959_066614_D6CB9CDD 
+X-CRM114-Status: GOOD (  12.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,99 +95,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 18, 2022 at 09:22:10PM +0800, He Zhe wrote:
-> Currently stack_trace_consume_fn can only have pc of each frame of the
-> stack. Copying-beyond-the-frame-detection also needs fp of current and
-> previous frame. Other detection algorithm in the future may need more
-> information of the frame.
-> 
-> We define a frame_info to include them all.
-> 
-> 
-> Signed-off-by: He Zhe <zhe.he@windriver.com>
-> ---
->  include/linux/stacktrace.h |  9 ++++++++-
->  kernel/stacktrace.c        | 10 +++++-----
->  2 files changed, 13 insertions(+), 6 deletions(-)
-> 
-> diff --git a/include/linux/stacktrace.h b/include/linux/stacktrace.h
-> index 97455880ac41..5a61bfafe6f0 100644
-> --- a/include/linux/stacktrace.h
-> +++ b/include/linux/stacktrace.h
-> @@ -10,15 +10,22 @@ struct pt_regs;
->  
->  #ifdef CONFIG_ARCH_STACKWALK
->  
-> +struct frame_info {
-> +	unsigned long pc;
-> +	unsigned long fp;
-> +	unsigned long prev_fp;
-> +};
+On Tue, Apr 19, 2022 at 6:22 AM Anshuman Khandual
+<anshuman.khandual@arm.com> wrote:
+>
+>
+> On 4/18/22 09:14, Tong Tiangen wrote:
+> > +#ifdef CONFIG_PAGE_TABLE_CHECK
+> > +static inline bool pte_user_accessible_page(pte_t pte)
+> > +{
+> > +     return pte_present(pte) && (pte_user(pte) || pte_user_exec(pte));
+> > +}
+> > +
+> > +static inline bool pmd_user_accessible_page(pmd_t pmd)
+> > +{
+> > +     return pmd_present(pmd) && (pmd_user(pmd) || pmd_user_exec(pmd));
+> > +}
+> > +
+> > +static inline bool pud_user_accessible_page(pud_t pud)
+> > +{
+> > +     return pud_present(pud) && pud_user(pud);
+> > +}
+> > +#endif
+> Wondering why check for these page table entry states when init_mm
+> has already being excluded ? Should not user page tables be checked
+> for in entirety for all updates ? what is the rationale for filtering
+> out only pxx_user_access_page entries ?
 
-I don't think this should be exposed through a generic interface; the `fp` and
-`prev_fp` values are only meaningful with arch-specific knowledge, and they're
-*very* easy to misuse (e.g. when transitioning from one stack to another).
-There's also a bunch of other information one may or may not want, depending on
-what you're trying to achieve.
+The point is to prevent false sharing and memory corruption issues.
+The idea of PTC to be simple and relatively independent  from the MM
+state machine that catches invalid page sharing. I.e. if an R/W anon
+page is accessible by user land, that page can never be mapped into
+another process (internally shared anons are treated as named
+mappings).
 
-I am happy to have an arch-specific internal unwinder where we can access this
-information, and *maybe* it makes sense to have a generic API that passes some
-opaque token, but I don't think we should make the structure generic.
+Therefore, we try not to rely on MM states, and ensure that when a
+page-table entry is accessible by user it meets the required
+assumptions: no false sharing, etc.
 
-Thanks,
-Mark.
+For example, one bug that was caught with PTC was where a driver on an
+unload would put memory on a freelist but memory is still mapped in
+user page table.
 
-> +
->  /**
->   * stack_trace_consume_fn - Callback for arch_stack_walk()
->   * @cookie:	Caller supplied pointer handed back by arch_stack_walk()
->   * @addr:	The stack entry address to consume
-> + * @fi:	The frame information to consume
->   *
->   * Return:	True, if the entry was consumed or skipped
->   *		False, if there is no space left to store
->   */
-> -typedef bool (*stack_trace_consume_fn)(void *cookie, unsigned long addr);
-> +typedef bool (*stack_trace_consume_fn)(void *cookie, struct frame_info *fi);
->  /**
->   * arch_stack_walk - Architecture specific function to walk the stack
->   * @consume_entry:	Callback which is invoked by the architecture code for
-> diff --git a/kernel/stacktrace.c b/kernel/stacktrace.c
-> index 9ed5ce989415..2d0a2812e92b 100644
-> --- a/kernel/stacktrace.c
-> +++ b/kernel/stacktrace.c
-> @@ -79,7 +79,7 @@ struct stacktrace_cookie {
->  	unsigned int	len;
->  };
->  
-> -static bool stack_trace_consume_entry(void *cookie, unsigned long addr)
-> +static bool stack_trace_consume_entry(void *cookie, struct frame_info *fi)
->  {
->  	struct stacktrace_cookie *c = cookie;
->  
-> @@ -90,15 +90,15 @@ static bool stack_trace_consume_entry(void *cookie, unsigned long addr)
->  		c->skip--;
->  		return true;
->  	}
-> -	c->store[c->len++] = addr;
-> +	c->store[c->len++] = fi->pc;
->  	return c->len < c->size;
->  }
->  
-> -static bool stack_trace_consume_entry_nosched(void *cookie, unsigned long addr)
-> +static bool stack_trace_consume_entry_nosched(void *cookie, struct frame_info *fi)
->  {
-> -	if (in_sched_functions(addr))
-> +	if (in_sched_functions(fi->pc))
->  		return true;
-> -	return stack_trace_consume_entry(cookie, addr);
-> +	return stack_trace_consume_entry(cookie, fi);
->  }
->  
->  /**
-> -- 
-> 2.25.1
-> 
+Pasha
 
 _______________________________________________
 linux-riscv mailing list
