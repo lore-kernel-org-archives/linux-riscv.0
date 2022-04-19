@@ -4,71 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92561C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Apr 2022 18:25:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98F36C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Apr 2022 18:32:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K2rrpVvFOal9V6yjgZtoyZZG4SN1yXorEcYoGnoVGUA=; b=SDJEuxfpF+6Dcr
-	Ao8r/IvyzC4BTXN2r4e0klzvQMAAJnZa4rYiF9USK3cdYwphQ75/u5bxZ2G8seGQK+cCCHo40xinZ
-	FG7mfs9aYj3TAa2de2wPQBsl67SH0bi66aAcGzN1y/ZxdsupdTS/ZGLJqTlUHEKb4+HKsKjoKKWg5
-	U8eQzbKhIGfuLsg0JcDqB/KvPQr/kAvNvRM7EZpcq2R6yboJOxIvyaUYa0GdUmrGpSQatBE1ciXy8
-	6HcBmhPp2jB7Rmw4Hvsy2aMRB8TCU3w5o0V2NVI4oCGcO4h9m16d0gR/cp189AgLTSGHfiATajFXQ
-	EJROjleGb9DrIjCDAsng==;
+	List-Owner; bh=JmrnBsIIMA7/RRdI3hWtBUwayWulZ1LBErRSiqLBGN4=; b=E8i/tlLHU+/CFq
+	HkFt7W+s11kC3Zmx//HHTp56m53FSV4krFrFzc0Ql5v3RJAn1XXm8soJxhtr4SgdUu+wbaG7KqviG
+	ftIpqF4ZJJ47B1sbBZunV78SlsS3Wkm74nsgTeB6o5Bp8M7l3lQCBxENpF9aWjLGm9Bh6mJgapH1w
+	MPX6xuP2eaqxBnUHNybMC2ygMbnyicl4BzwuF63PqIkGRN7ZaNvbyCKc5laOgJBkYM3u+sYF7PoN1
+	HGx71cDii3ACg8+ZvHBo2U/tvK6OX5ssL9rHdjW39B/04vi4Iw4GuP/EjGho3WJEfYSoo95WdSRj7
+	tqKVQH7QR2Z2dStR8msQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ngsXj-005eSO-Kq; Tue, 19 Apr 2022 18:25:39 +0000
-Received: from mail-oa1-f41.google.com ([209.85.160.41])
+	id 1ngsdx-005hKB-Vw; Tue, 19 Apr 2022 18:32:06 +0000
+Received: from mail.skyhub.de ([5.9.137.197])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ngsNY-005Z5y-Uz
- for linux-riscv@lists.infradead.org; Tue, 19 Apr 2022 18:15:10 +0000
-Received: by mail-oa1-f41.google.com with SMTP id
- 586e51a60fabf-e2afb80550so18414390fac.1
- for <linux-riscv@lists.infradead.org>; Tue, 19 Apr 2022 11:15:06 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=0f5ESvk5no91Evc+VlvCmzhRMl9OaSk9/2vAcz9fKzU=;
- b=VYOKEJHBjpPZEQEEZT4XrGlhlnmoFS+gyNul+ekn0ZJ3Fdf4MCQZAkauv3HPCJ5TYw
- iy6Zo4OXth5lt2hjQJI7vJnC7Pwgs6pZJSl+e2xRYxM9NWqkk3xHWdtURire20ruU4EX
- aIQgt/27CSC5pA9uVbSvNbfieM7F9M4qEAvpraEJia8eZ0dRmK7hS7WNLf+1lS5oGHC5
- oY3o8ZNXU10/OWbVYHlMWuuS3tURAykmemiXNiKJ3WKKi/zvaURS0ItObbXEol5T8egY
- 7ytUmhZDCwonPRdnm6PDQ6jGVt4ZC5KrAD35Yx/SAdxPReWfntvNiH0pTMDsDlq15mZv
- XVtA==
-X-Gm-Message-State: AOAM531FZMHGs+PfSsXvPWm89dbCXjRVuFtC8kEfbNX/tZiUt8ymlWLC
- 24W5uh3NttV4jsliC+Q4BPvGFKDVxQ==
-X-Google-Smtp-Source: ABdhPJx2f2P2BP0Gu7JNPZo5Y3Y1oiwvqFlWJ5xIXkYbqjgRJvbsWsN4AozuJdoJQCM/Km1ZXLDIXw==
-X-Received: by 2002:a05:6870:51c9:b0:da:b3f:2b75 with SMTP id
- b9-20020a05687051c900b000da0b3f2b75mr9133260oaj.276.1650392106357; 
- Tue, 19 Apr 2022 11:15:06 -0700 (PDT)
-Received: from robh.at.kernel.org (66-90-144-107.dyn.grandenetworks.net.
- [66.90.144.107]) by smtp.gmail.com with ESMTPSA id
- j5-20020a4a9445000000b00329dab1a07fsm5694911ooi.17.2022.04.19.11.15.05
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 19 Apr 2022 11:15:05 -0700 (PDT)
-Received: (nullmailer pid 3086196 invoked by uid 1000);
- Tue, 19 Apr 2022 18:15:05 -0000
-Date: Tue, 19 Apr 2022 13:15:05 -0500
-From: Rob Herring <robh@kernel.org>
-To: Niklas Cassel <niklas.cassel@wdc.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
- devicetree@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Subject: Re: [PATCH] dt-bindings: riscv: Add mmu-type riscv,sv57
-Message-ID: <Yl78KUfJcu40U5Fj@robh.at.kernel.org>
-References: <20220414151639.1359969-1-niklas.cassel@wdc.com>
+ id 1ngsP4-005Zw4-GZ; Tue, 19 Apr 2022 18:16:45 +0000
+Received: from zn.tnic (p200300ea971b5839329c23fffea6a903.dip0.t-ipconnect.de
+ [IPv6:2003:ea:971b:5839:329c:23ff:fea6:a903])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.skyhub.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 2F71F1EC056A;
+ Tue, 19 Apr 2022 20:16:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=dkim;
+ t=1650392195;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:in-reply-to:in-reply-to:  references:references;
+ bh=UoJkiPpVHwxIF95pounRIe0Bw7VF4LrYgBjTdnaLh4M=;
+ b=TSOc8IYhoBaLvKhqpez3H0jtLDK8Eseo4q06zwIlkbjmkVhCwgTpQznSaGHr4tJI5mPOVm
+ DtWKis1fu5W+gNxL/sbpwYLcLQW53nl+zraOpDLEzLeassVwhpGIPTCrFfe75/3S+78kjs
+ hPtr3FvTE+KH1mPoULDw9muY288aKXQ=
+Date: Tue, 19 Apr 2022 20:16:32 +0200
+From: Borislav Petkov <bp@alien8.de>
+To: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+ tglx@linutronix.de, arnd@arndb.de, Theodore Ts'o <tytso@mit.edu>,
+ Dominik Brodowski <linux@dominikbrodowski.net>,
+ Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "David S . Miller" <davem@davemloft.net>,
+ Richard Weinberger <richard@nod.at>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Johannes Berg <johannes@sipsolutions.net>, Ingo Molnar <mingo@redhat.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "H . Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
+ Max Filippov <jcmvbkbc@gmail.com>, Stephen Boyd <sboyd@kernel.org>,
+ Dinh Nguyen <dinguyen@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, x86@kernel.org, linux-xtensa@linux-xtensa.org
+Subject: Re: [PATCH v5 07/11] x86: use fallback for random_get_entropy()
+ instead of zero
+Message-ID: <Yl78gLLcSb3EHv0B@zn.tnic>
+References: <20220419111650.1582274-1-Jason@zx2c4.com>
+ <20220419111650.1582274-8-Jason@zx2c4.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220414151639.1359969-1-niklas.cassel@wdc.com>
+In-Reply-To: <20220419111650.1582274-8-Jason@zx2c4.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220419_111509_046807_792C87FF 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220419_111642_728189_08756442 
+X-CRM114-Status: GOOD (  20.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,21 +89,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 14 Apr 2022 17:16:38 +0200, Niklas Cassel wrote:
-> sv57 is defined in the RISC-V Privileged Specification document.
+On Tue, Apr 19, 2022 at 01:16:46PM +0200, Jason A. Donenfeld wrote:
+> In the event that random_get_entropy() can't access a cycle counter or
+> similar, falling back to returning 0 is really not the best we can do.
+> Instead, at least calling random_get_entropy_fallback() would be
+> preferable, because that always needs to return _something_, even
+> falling back to jiffies eventually. It's not as though
+> random_get_entropy_fallback() is super high precision or guaranteed to
+> be entropic, but basically anything that's not zero all the time is
+> better than returning zero all the time.
 > 
-> Additionally, commit 011f09d12052 ("riscv: mm: Set sv57 on defaultly")
-> changed the default MMU mode to sv57, if supported by current hardware.
+> If CONFIG_X86_TSC=n, then it's possible that we're running on a 486 with
+> no RDTSC, so we only need the fallback code for that case.
 > 
-> Add riscv,sv57 to the list of valid mmu-type values.
-> 
-> Signed-off-by: Niklas Cassel <niklas.cassel@wdc.com>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: x86@kernel.org
+> Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
 > ---
->  Documentation/devicetree/bindings/riscv/cpus.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  arch/x86/include/asm/timex.h | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
 > 
+> diff --git a/arch/x86/include/asm/timex.h b/arch/x86/include/asm/timex.h
+> index a4a8b1b16c0c..fac180359693 100644
+> --- a/arch/x86/include/asm/timex.h
+> +++ b/arch/x86/include/asm/timex.h
+> @@ -5,6 +5,16 @@
+>  #include <asm/processor.h>
+>  #include <asm/tsc.h>
+>  
+> +static inline unsigned long random_get_entropy(void)
+> +{
+> +#ifndef CONFIG_X86_TSC
+> +	if (!boot_cpu_has(X86_FEATURE_TSC))
 
-Acked-by: Rob Herring <robh@kernel.org>
+cpu_feature_enabled() pls.
+
+-- 
+Regards/Gruss,
+    Boris.
+
+https://people.kernel.org/tglx/notes-about-netiquette
 
 _______________________________________________
 linux-riscv mailing list
