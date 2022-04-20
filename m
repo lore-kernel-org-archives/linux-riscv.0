@@ -4,96 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6EC0C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 23:37:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8306CC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 23:54:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LzE/EKQWxrb0BxKnc75ksHDvxB2It9H13PWvGP75Quk=; b=2NyfLgsZI4cRz8
-	yZf1UJQ7sRedTm5pdIxZFWgxPWu1RO2tZA6me9GaYEOyO902Va9rAShwlNU5XLNv3RtWTLgrH7U5N
-	KTq5JpdohV6Yh4LcY9uTj0WTX4IzcUlpHxE8jahf/2++qyS26CmfyogYILCLykX6d9JRwvCzwmIii
-	rMXKoN71QAVbJtxWjsJ+kW68DwsGhHlIkuyu2JQlkHQMSSMyEvb8kYs5Px56Vw+UWlPKBY30F2FA6
-	vjxHRvNMewLLOve3c+Skdl1gmWsdADv4Gg8apiYEycP/PBwQBQ/UhWq3kPMZkepskvu1kaskGcyE7
-	edUXAB5PFiH6lhP/prSA==;
+	List-Owner; bh=SI0WFHOxM6hHx/jDHSf7+Y3JGZixYikqXNQFuSnUdFw=; b=EXBBHmcey3B8t5
+	DdJVQm4Qc+6faGMtfBV5RhkQ6alh6M3rDADwS4MgDJsl+5hZA7loYiaAhDQB6FZjUSS+fVF1EVQFF
+	uj+4EBD/65uN9ycq8tauvPquWwDro4fbmk0caEWdAm75aQCeMJdJ1CVd6MM4YcHZEPwI0Czv4+Q1g
+	5yXzCGwEbJ8tE13YcR49+j3qlAIAasajhgwUNHnVyCQr7Uz5+5XhttHsa7/L0B5EKnyZvEDUHtOn2
+	r2SDLA61GsKTjaeGZuP2NZ0UtqhnAL3iCg6h+OK0I7hCo/yAZm8hfk7TnHpuH9KxRWqosq2RrLanZ
+	xy1gLyMpVHQ//0rcMfSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nhJsZ-00Ary6-06; Wed, 20 Apr 2022 23:36:59 +0000
-Received: from esa6.hgst.iphmx.com ([216.71.154.45])
+	id 1nhK93-00Aul1-Rp; Wed, 20 Apr 2022 23:54:01 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nhJsP-00ArwQ-Ij
- for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 23:36:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1650497810; x=1682033810;
- h=message-id:date:mime-version:subject:to:cc:references:
- from:in-reply-to:content-transfer-encoding;
- bh=oUq23ZI+H0ZHpivnHwVNTyuTAqIQFJ/X9QPgm5vov2I=;
- b=R4AR6KDHo9fhjCcH+EkrSSggxXLlXVBimvnLGaUozyRObFnEle9aUdi/
- GysCsIlw8kDXH1u2K9re9HSrK2FSquO1ESQmekaQzRR3HmyZtrbOj+/4G
- 0/Sgy2VXeWE0So93bm7tNFpVJof5YkKLfDBJgaBzlNNsgGZkxrugvq5eE
- nOl7nk7GvkdmcLAFdsLAhp6W7ZNbZEyq8GDjQkigzwkIGe/2qUtRfXdKW
- F5mfpdl4hhN2/dN+jkHXWhJgycwcvIW+/8K1rQkG2uRIukY5k4T0rz2JA
- htnPlgnBuaQE88WQ2WYH6tUdDVzLn4C+CgG8DWjVMAkqlJfwHIiE6ORyO Q==;
-X-IronPort-AV: E=Sophos;i="5.90,277,1643644800"; d="scan'208";a="199305287"
-Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 21 Apr 2022 07:36:45 +0800
-IronPort-SDR: SrwhDoAV2lGyAnj3N3oOMKlNumhpLGFUVaTxaiLIdkvlyrjFLgWGF4AhVnLF9qsb4pCyvF3/0C
- mLWFTIzdvxWkSNcsHwZhb6q/T3IpDzHOD1Tt5uvk6yWCraHuZaNitgWmZHCGEyXny4j/9CwZ9z
- at7ItYcjWkqfOolXKBnO/2O+3qAeJxKYcfH9AOXlIicW1yOU45cB/edxEmUK+H9VLZd1peEQRP
- Ij/FUMMjIUI+d5uyyU1rfeqMjDz0MLaxd+whMsrJ50wy3uTiombQJdHdHaJ2jscH8f2ZPTEpqe
- JKCdH2ahUpn4Z4QcG2CskTll
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;
- 20 Apr 2022 16:07:47 -0700
-IronPort-SDR: GPG0g+m/19ozYpk0ZeCZIUn1nBpKe2+3uKW79460vyXQhzzgbmSB8IgRNKzyKb2Wwa/WIcRnCL
- EIWmH3wBAdMQRJK4Qvz7BkdOz/p0T11OQ4InE588uln4Kz25FPrT6n6IbAzCe5MSJRIxGzWhQO
- 1X5DXHxjRPe9SWNo4WRzsIO/i7DFmeoQCeqvDKo9LaIFdO5bnsmI/ZH+IZG5r+bC7rkhEJ6MFr
- pg5/umIUcF+GQ94UOfgU19fon2rB8cbyWaDoihwtkDSu+hGuy7avB04LhNhXRFUidMnjWvwz25
- bQQ=
-WDCIronportException: Internal
-Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
- by uls-op-cesaip02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;
- 20 Apr 2022 16:36:44 -0700
-Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
- by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4KkHBM223tz1SVp0
- for <linux-riscv@lists.infradead.org>; Wed, 20 Apr 2022 16:36:43 -0700 (PDT)
-Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
- reason="pass (just generated, assumed good)"
- header.d=opensource.wdc.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
- opensource.wdc.com; h=content-transfer-encoding:content-type
- :in-reply-to:organization:from:references:to:content-language
- :subject:user-agent:mime-version:date:message-id; s=dkim; t=
- 1650497799; x=1653089800; bh=oUq23ZI+H0ZHpivnHwVNTyuTAqIQFJ/X9QP
- gm5vov2I=; b=TCdKZsesoPdnNx9Tnpe/cQzzbKM4Evd+Gu2zswBg7bwySTbxBXz
- Ef4t0htPd1CNR5pARansjteHVzvO/CH8RphwEHXev10QROr774K/MAAFEPOVtav+
- +XK70KHcR7/JU4p75kiisw8AFFiNvU4OoEErv/E4vKdX5w9kAOekI/cMelBFR2XM
- ms6NfpLyEm24YMQH4dUVMWNLUzLX8wA50dPgXxS60wL3d3pkNmWG1qohxvqcl1+1
- DRmPXsgtZJGUSR1Ok7P1YtHCUwCE9TSM6icw4XU5TZxNdc5eNuX+0Jgluu81sGnP
- Rj4YhNtk4JplEyRtGHFI91SQVYYxpuzU3kQ==
-X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
-Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
- by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new,
- port 10026)
- with ESMTP id T-A6TbQm2bjY for <linux-riscv@lists.infradead.org>;
- Wed, 20 Apr 2022 16:36:39 -0700 (PDT)
-Received: from [10.225.163.14] (unknown [10.225.163.14])
- by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4KkHBC5CZpz1Rvlx;
- Wed, 20 Apr 2022 16:36:35 -0700 (PDT)
-Message-ID: <26b6e3d5-eb8a-f154-12e8-52b777c6c010@opensource.wdc.com>
-Date: Thu, 21 Apr 2022 08:36:34 +0900
+ id 1nhK8q-00AuhT-Cq; Wed, 20 Apr 2022 23:53:51 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id E5A78B80E19;
+ Wed, 20 Apr 2022 23:53:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09EFBC385A0;
+ Wed, 20 Apr 2022 23:53:40 +0000 (UTC)
+Message-ID: <01b063d7-d5c2-8af0-ad90-ed6c069252c5@linux-m68k.org>
+Date: Thu, 21 Apr 2022 09:53:38 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.0
+ Thunderbird/91.7.0
 Subject: Re: [PATCH] binfmt_flat: Remove shared library support
 Content-Language: en-US
 To: "Eric W. Biederman" <ebiederm@xmission.com>,
  Kees Cook <keescook@chromium.org>
 Cc: Niklas Cassel <Niklas.Cassel@wdc.com>,
+ Damien Le Moal <damien.lemoal@opensource.wdc.com>,
  Alexander Viro <viro@zeniv.linux.org.uk>,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -103,20 +51,19 @@ Cc: Niklas Cassel <Niklas.Cassel@wdc.com>,
  "linux-mm@kvack.org" <linux-mm@kvack.org>,
  "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
  linux-arch@vger.kernel.org, Geert Uytterhoeven <geert@linux-m68k.org>,
- linux-m68k@lists.linux-m68k.org, Greg Ungerer <gerg@linux-m68k.org>,
- linux-arm-kernel@lists.infradead.org, linux-sh@vger.kernel.org,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>
+ linux-m68k@lists.linux-m68k.org, linux-arm-kernel@lists.infradead.org,
+ linux-sh@vger.kernel.org, Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Rich Felker <dalias@libc.org>
 References: <20220414091018.896737-1-niklas.cassel@wdc.com>
  <f379cb56-6ff5-f256-d5f2-3718a47e976d@opensource.wdc.com>
  <Yli8voX7hw3EZ7E/@x1-carbon>
  <81788b56-5b15-7308-38c7-c7f2502c4e15@linux-m68k.org>
  <87levzzts4.fsf_-_@email.froward.int.ebiederm.org>
-From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
-Organization: Western Digital Research
+From: Greg Ungerer <gerg@linux-m68k.org>
 In-Reply-To: <87levzzts4.fsf_-_@email.froward.int.ebiederm.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220420_163649_698154_BB76CF4E 
-X-CRM114-Status: GOOD (  46.47  )
+X-CRM114-CacheID: sfid-20220420_165348_778236_B1771D17 
+X-CRM114-Status: GOOD (  50.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,31 +75,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/20/22 23:58, Eric W. Biederman wrote:
-> 
+Hi Eric,
 
-Nit: extra blank line here.
-
+On 21/4/22 00:58, Eric W. Biederman wrote:
 > In a recent discussion[1] it was reported that the binfmt_flat library
 > support was only ever used on m68k and even on m68k has not been used
 > in a very long time.
 > 
 > The structure of binfmt_flat is different from all of the other binfmt
 > implementations becasue of this shared library support and it made
-
-s/becasue/because
-
 > life and code review more effort when I refactored the code in fs/exec.c.
 > 
 > Since in practice the code is dead remove the binfmt_flat shared libarary
-
-s/libarary/library
-
 > support and make maintenance of the code easier.
 > 
 > [1] https://lkml.kernel.org/r/81788b56-5b15-7308-38c7-c7f2502c4e15@linux-m68k.org
@@ -162,166 +101,184 @@ s/libarary/library
 > Can the binfmt_flat folks please verify that the shared library support
 > really isn't used?
 
-As mentioned in a different email, it is not supported by the toolchains
-for riscv.
+I can definitely confirm I don't use it on m68k. And I don't know of
+anyone that has used it in many years.
 
-> 
+
 > Was binfmt_flat being enabled on arm and sh the mistake it looks like?
 > 
->  arch/arm/configs/lpc18xx_defconfig |   1 -
->  arch/arm/configs/mps2_defconfig    |   1 -
->  arch/arm/configs/stm32_defconfig   |   1 -
->  arch/arm/configs/vf610m4_defconfig |   1 -
->  arch/sh/configs/rsk7201_defconfig  |   1 -
->  arch/sh/configs/rsk7203_defconfig  |   1 -
->  arch/sh/configs/se7206_defconfig   |   1 -
->  fs/Kconfig.binfmt                  |   6 -
->  fs/binfmt_flat.c                   | 190 ++++++-----------------------
->  9 files changed, 40 insertions(+), 163 deletions(-)
+>   arch/arm/configs/lpc18xx_defconfig |   1 -
+>   arch/arm/configs/mps2_defconfig    |   1 -
+>   arch/arm/configs/stm32_defconfig   |   1 -
+>   arch/arm/configs/vf610m4_defconfig |   1 -
+
+binfmt_flat works on ARM. I use it all the time.
+According to those defconfigs those are all non-MMU systems, so
+having binfmt_flat enabled makes some sense there.
+
+
+>   arch/sh/configs/rsk7201_defconfig  |   1 -
+>   arch/sh/configs/rsk7203_defconfig  |   1 -
+>   arch/sh/configs/se7206_defconfig   |   1 -
+
+Those are all SH2 systems if I am reading the defconfigs correctly.
+SH2 is non-MMU according to the Kconfig setup. So it makes sense that
+binfmt_flat is enabled on those too.
+
+Don't forget that binfmt_flat works on many MMU enabled systems too.
+I regularly test/check it on MMU enabled m68k systems for example.
+
+Regards
+Greg
+
+
+>   fs/Kconfig.binfmt                  |   6 -
+>   fs/binfmt_flat.c                   | 190 ++++++-----------------------
+>   9 files changed, 40 insertions(+), 163 deletions(-)
 > 
 > diff --git a/arch/arm/configs/lpc18xx_defconfig b/arch/arm/configs/lpc18xx_defconfig
 > index be882ea0eee4..688c9849eec8 100644
 > --- a/arch/arm/configs/lpc18xx_defconfig
 > +++ b/arch/arm/configs/lpc18xx_defconfig
 > @@ -30,7 +30,6 @@ CONFIG_ARM_APPENDED_DTB=y
->  # CONFIG_BLK_DEV_BSG is not set
->  CONFIG_BINFMT_FLAT=y
->  CONFIG_BINFMT_ZFLAT=y
+>   # CONFIG_BLK_DEV_BSG is not set
+>   CONFIG_BINFMT_FLAT=y
+>   CONFIG_BINFMT_ZFLAT=y
 > -CONFIG_BINFMT_SHARED_FLAT=y
->  # CONFIG_COREDUMP is not set
->  CONFIG_NET=y
->  CONFIG_PACKET=y
+>   # CONFIG_COREDUMP is not set
+>   CONFIG_NET=y
+>   CONFIG_PACKET=y
 > diff --git a/arch/arm/configs/mps2_defconfig b/arch/arm/configs/mps2_defconfig
 > index 89f4a6ff30bd..c1e98e33a348 100644
 > --- a/arch/arm/configs/mps2_defconfig
 > +++ b/arch/arm/configs/mps2_defconfig
 > @@ -23,7 +23,6 @@ CONFIG_PREEMPT_VOLUNTARY=y
->  CONFIG_ZBOOT_ROM_TEXT=0x0
->  CONFIG_ZBOOT_ROM_BSS=0x0
->  CONFIG_BINFMT_FLAT=y
+>   CONFIG_ZBOOT_ROM_TEXT=0x0
+>   CONFIG_ZBOOT_ROM_BSS=0x0
+>   CONFIG_BINFMT_FLAT=y
 > -CONFIG_BINFMT_SHARED_FLAT=y
->  # CONFIG_COREDUMP is not set
->  # CONFIG_SUSPEND is not set
->  CONFIG_NET=y
+>   # CONFIG_COREDUMP is not set
+>   # CONFIG_SUSPEND is not set
+>   CONFIG_NET=y
 > diff --git a/arch/arm/configs/stm32_defconfig b/arch/arm/configs/stm32_defconfig
 > index 551db328009d..71d6bfcf4551 100644
 > --- a/arch/arm/configs/stm32_defconfig
 > +++ b/arch/arm/configs/stm32_defconfig
 > @@ -28,7 +28,6 @@ CONFIG_ZBOOT_ROM_BSS=0x0
->  CONFIG_XIP_KERNEL=y
->  CONFIG_XIP_PHYS_ADDR=0x08008000
->  CONFIG_BINFMT_FLAT=y
+>   CONFIG_XIP_KERNEL=y
+>   CONFIG_XIP_PHYS_ADDR=0x08008000
+>   CONFIG_BINFMT_FLAT=y
 > -CONFIG_BINFMT_SHARED_FLAT=y
->  # CONFIG_COREDUMP is not set
->  CONFIG_DEVTMPFS=y
->  CONFIG_DEVTMPFS_MOUNT=y
+>   # CONFIG_COREDUMP is not set
+>   CONFIG_DEVTMPFS=y
+>   CONFIG_DEVTMPFS_MOUNT=y
 > diff --git a/arch/arm/configs/vf610m4_defconfig b/arch/arm/configs/vf610m4_defconfig
 > index a89f035c3b01..70fdbfd83484 100644
 > --- a/arch/arm/configs/vf610m4_defconfig
 > +++ b/arch/arm/configs/vf610m4_defconfig
 > @@ -18,7 +18,6 @@ CONFIG_XIP_KERNEL=y
->  CONFIG_XIP_PHYS_ADDR=0x0f000080
->  CONFIG_BINFMT_FLAT=y
->  CONFIG_BINFMT_ZFLAT=y
+>   CONFIG_XIP_PHYS_ADDR=0x0f000080
+>   CONFIG_BINFMT_FLAT=y
+>   CONFIG_BINFMT_ZFLAT=y
 > -CONFIG_BINFMT_SHARED_FLAT=y
->  # CONFIG_SUSPEND is not set
->  # CONFIG_UEVENT_HELPER is not set
->  # CONFIG_STANDALONE is not set
+>   # CONFIG_SUSPEND is not set
+>   # CONFIG_UEVENT_HELPER is not set
+>   # CONFIG_STANDALONE is not set
 > diff --git a/arch/sh/configs/rsk7201_defconfig b/arch/sh/configs/rsk7201_defconfig
 > index e41526120be1..619c18699459 100644
 > --- a/arch/sh/configs/rsk7201_defconfig
 > +++ b/arch/sh/configs/rsk7201_defconfig
 > @@ -25,7 +25,6 @@ CONFIG_CMDLINE_OVERWRITE=y
->  CONFIG_CMDLINE="console=ttySC0,115200 earlyprintk=serial ignore_loglevel"
->  CONFIG_BINFMT_FLAT=y
->  CONFIG_BINFMT_ZFLAT=y
+>   CONFIG_CMDLINE="console=ttySC0,115200 earlyprintk=serial ignore_loglevel"
+>   CONFIG_BINFMT_FLAT=y
+>   CONFIG_BINFMT_ZFLAT=y
 > -CONFIG_BINFMT_SHARED_FLAT=y
->  CONFIG_PM=y
->  CONFIG_CPU_IDLE=y
->  # CONFIG_STANDALONE is not set
+>   CONFIG_PM=y
+>   CONFIG_CPU_IDLE=y
+>   # CONFIG_STANDALONE is not set
 > diff --git a/arch/sh/configs/rsk7203_defconfig b/arch/sh/configs/rsk7203_defconfig
 > index 6af08fa1ddf8..5a54e2b883f0 100644
 > --- a/arch/sh/configs/rsk7203_defconfig
 > +++ b/arch/sh/configs/rsk7203_defconfig
 > @@ -30,7 +30,6 @@ CONFIG_CMDLINE_OVERWRITE=y
->  CONFIG_CMDLINE="console=ttySC0,115200 earlyprintk=serial ignore_loglevel"
->  CONFIG_BINFMT_FLAT=y
->  CONFIG_BINFMT_ZFLAT=y
+>   CONFIG_CMDLINE="console=ttySC0,115200 earlyprintk=serial ignore_loglevel"
+>   CONFIG_BINFMT_FLAT=y
+>   CONFIG_BINFMT_ZFLAT=y
 > -CONFIG_BINFMT_SHARED_FLAT=y
->  CONFIG_PM=y
->  CONFIG_CPU_IDLE=y
->  CONFIG_NET=y
+>   CONFIG_PM=y
+>   CONFIG_CPU_IDLE=y
+>   CONFIG_NET=y
 > diff --git a/arch/sh/configs/se7206_defconfig b/arch/sh/configs/se7206_defconfig
 > index 601d062250d1..122216123e63 100644
 > --- a/arch/sh/configs/se7206_defconfig
 > +++ b/arch/sh/configs/se7206_defconfig
 > @@ -40,7 +40,6 @@ CONFIG_CMDLINE_OVERWRITE=y
->  CONFIG_CMDLINE="console=ttySC3,115200 ignore_loglevel earlyprintk=serial"
->  CONFIG_BINFMT_FLAT=y
->  CONFIG_BINFMT_ZFLAT=y
+>   CONFIG_CMDLINE="console=ttySC3,115200 ignore_loglevel earlyprintk=serial"
+>   CONFIG_BINFMT_FLAT=y
+>   CONFIG_BINFMT_ZFLAT=y
 > -CONFIG_BINFMT_SHARED_FLAT=y
->  CONFIG_BINFMT_MISC=y
->  CONFIG_NET=y
->  CONFIG_PACKET=y
+>   CONFIG_BINFMT_MISC=y
+>   CONFIG_NET=y
+>   CONFIG_PACKET=y
 > diff --git a/fs/Kconfig.binfmt b/fs/Kconfig.binfmt
 > index 21c6332fa785..32dff7ba3dda 100644
 > --- a/fs/Kconfig.binfmt
 > +++ b/fs/Kconfig.binfmt
 > @@ -142,12 +142,6 @@ config BINFMT_ZFLAT
->  	help
->  	  Support FLAT format compressed binaries
->  
+>   	help
+>   	  Support FLAT format compressed binaries
+>   
 > -config BINFMT_SHARED_FLAT
 > -	bool "Enable shared FLAT support"
 > -	depends on BINFMT_FLAT
 > -	help
 > -	  Support FLAT shared libraries
 > -
->  config HAVE_AOUT
->         def_bool n
->  
+>   config HAVE_AOUT
+>          def_bool n
+>   
 > diff --git a/fs/binfmt_flat.c b/fs/binfmt_flat.c
 > index 0ad2c7bbaddd..82e4412a9665 100644
 > --- a/fs/binfmt_flat.c
 > +++ b/fs/binfmt_flat.c
 > @@ -68,11 +68,7 @@
->  #define RELOC_FAILED 0xff00ff01		/* Relocation incorrect somewhere */
->  #define UNLOADED_LIB 0x7ff000ff		/* Placeholder for unused library */
->  
+>   #define RELOC_FAILED 0xff00ff01		/* Relocation incorrect somewhere */
+>   #define UNLOADED_LIB 0x7ff000ff		/* Placeholder for unused library */
+>   
 > -#ifdef CONFIG_BINFMT_SHARED_FLAT
 > -#define	MAX_SHARED_LIBS			(4)
 > -#else
 > -#define	MAX_SHARED_LIBS			(1)
 > -#endif
 > +#define MAX_SHARED_LIBS			(1)
->  
->  #ifdef CONFIG_BINFMT_FLAT_NO_DATA_START_OFFSET
->  #define DATA_START_OFFSET_WORDS		(0)
+>   
+>   #ifdef CONFIG_BINFMT_FLAT_NO_DATA_START_OFFSET
+>   #define DATA_START_OFFSET_WORDS		(0)
 > @@ -92,10 +88,6 @@ struct lib_info {
->  	} lib_list[MAX_SHARED_LIBS];
->  };
->  
+>   	} lib_list[MAX_SHARED_LIBS];
+>   };
+>   
 > -#ifdef CONFIG_BINFMT_SHARED_FLAT
 > -static int load_flat_shared_library(int id, struct lib_info *p);
 > -#endif
 > -
->  static int load_flat_binary(struct linux_binprm *);
->  
->  static struct linux_binfmt flat_format = {
+>   static int load_flat_binary(struct linux_binprm *);
+>   
+>   static struct linux_binfmt flat_format = {
 > @@ -307,51 +299,18 @@ static int decompress_exec(struct linux_binprm *bprm, loff_t fpos, char *dst,
->  /****************************************************************************/
->  
->  static unsigned long
+>   /****************************************************************************/
+>   
+>   static unsigned long
 > -calc_reloc(unsigned long r, struct lib_info *p, int curid, int internalp)
 > +calc_reloc(unsigned long r, struct lib_info *p)
->  {
->  	unsigned long addr;
+>   {
+>   	unsigned long addr;
 > -	int id;
->  	unsigned long start_brk;
->  	unsigned long start_data;
->  	unsigned long text_len;
->  	unsigned long start_code;
->  
+>   	unsigned long start_brk;
+>   	unsigned long start_data;
+>   	unsigned long text_len;
+>   	unsigned long start_code;
+>   
 > -#ifdef CONFIG_BINFMT_SHARED_FLAT
 > -	if (r == 0)
 > -		id = curid;	/* Relocs of 0 are always self referring */
@@ -362,22 +319,22 @@ for riscv.
 > +	start_data = p->lib_list[0].start_data;
 > +	start_code = p->lib_list[0].start_code;
 > +	text_len = p->lib_list[0].text_len;
->  
->  	if (r > start_brk - start_data + text_len) {
->  		pr_err("reloc outside program 0x%lx (0 - 0x%lx/0x%lx)",
+>   
+>   	if (r > start_brk - start_data + text_len) {
+>   		pr_err("reloc outside program 0x%lx (0 - 0x%lx/0x%lx)",
 > @@ -419,7 +378,7 @@ static void old_reloc(unsigned long rl)
->  /****************************************************************************/
->  
->  static int load_flat_file(struct linux_binprm *bprm,
+>   /****************************************************************************/
+>   
+>   static int load_flat_file(struct linux_binprm *bprm,
 > -		struct lib_info *libinfo, int id, unsigned long *extra_stack)
 > +		struct lib_info *libinfo, unsigned long *extra_stack)
->  {
->  	struct flat_hdr *hdr;
->  	unsigned long textpos, datapos, realdatastart;
+>   {
+>   	struct flat_hdr *hdr;
+>   	unsigned long textpos, datapos, realdatastart;
 > @@ -471,14 +430,6 @@ static int load_flat_file(struct linux_binprm *bprm,
->  		goto err;
->  	}
->  
+>   		goto err;
+>   	}
+>   
 > -	/* Don't allow old format executables to use shared libraries */
 > -	if (rev == OLD_FLAT_VERSION && id != 0) {
 > -		pr_err("shared libraries are not available before rev 0x%lx\n",
@@ -386,13 +343,13 @@ for riscv.
 > -		goto err;
 > -	}
 > -
->  	/*
->  	 * fix up the flags for the older format,  there were all kinds
->  	 * of endian hacks,  this only works for the simple cases
+>   	/*
+>   	 * fix up the flags for the older format,  there were all kinds
+>   	 * of endian hacks,  this only works for the simple cases
 > @@ -529,15 +480,13 @@ static int load_flat_file(struct linux_binprm *bprm,
->  	}
->  
->  	/* Flush all traces of the currently running executable */
+>   	}
+>   
+>   	/* Flush all traces of the currently running executable */
 > -	if (id == 0) {
 > -		ret = begin_new_exec(bprm);
 > -		if (ret)
@@ -400,7 +357,7 @@ for riscv.
 > +	ret = begin_new_exec(bprm);
 > +	if (ret)
 > +		goto err;
->  
+>   
 > -		/* OK, This is the point of no return */
 > -		set_personality(PER_LINUX_32BIT);
 > -		setup_new_exec(bprm);
@@ -408,13 +365,13 @@ for riscv.
 > +	/* OK, This is the point of no return */
 > +	set_personality(PER_LINUX_32BIT);
 > +	setup_new_exec(bprm);
->  
->  	/*
->  	 * calculate the extra space we need to map in
+>   
+>   	/*
+>   	 * calculate the extra space we need to map in
 > @@ -717,42 +666,40 @@ static int load_flat_file(struct linux_binprm *bprm,
->  	text_len -= sizeof(struct flat_hdr); /* the real code len */
->  
->  	/* The main program needs a little extra setup in the task structure */
+>   	text_len -= sizeof(struct flat_hdr); /* the real code len */
+>   
+>   	/* The main program needs a little extra setup in the task structure */
 > -	if (id == 0) {
 > -		current->mm->start_code = start_code;
 > -		current->mm->end_code = end_code;
@@ -442,23 +399,23 @@ for riscv.
 > +	 */
 > +	current->mm->start_brk = datapos + data_len + bss_len;
 > +	current->mm->brk = (current->mm->start_brk + 3) & ~3;
->  #ifndef CONFIG_MMU
+>   #ifndef CONFIG_MMU
 > -		current->mm->context.end_brk = memp + memp_size - stack_len;
 > +	current->mm->context.end_brk = memp + memp_size - stack_len;
->  #endif
+>   #endif
 > -	}
->  
->  	if (flags & FLAT_FLAG_KTRACE) {
->  		pr_info("Mapping is %lx, Entry point is %x, data_start is %x\n",
->  			textpos, 0x00ffffff&ntohl(hdr->entry), ntohl(hdr->data_start));
->  		pr_info("%s %s: TEXT=%lx-%lx DATA=%lx-%lx BSS=%lx-%lx\n",
+>   
+>   	if (flags & FLAT_FLAG_KTRACE) {
+>   		pr_info("Mapping is %lx, Entry point is %x, data_start is %x\n",
+>   			textpos, 0x00ffffff&ntohl(hdr->entry), ntohl(hdr->data_start));
+>   		pr_info("%s %s: TEXT=%lx-%lx DATA=%lx-%lx BSS=%lx-%lx\n",
 > -			id ? "Lib" : "Load", bprm->filename,
 > +			"Load", bprm->filename,
->  			start_code, end_code, datapos, datapos + data_len,
->  			datapos + data_len, (datapos + data_len + bss_len + 3) & ~3);
->  	}
->  
->  	/* Store the current module values into the global library structure */
+>   			start_code, end_code, datapos, datapos + data_len,
+>   			datapos + data_len, (datapos + data_len + bss_len + 3) & ~3);
+>   	}
+>   
+>   	/* Store the current module values into the global library structure */
 > -	libinfo->lib_list[id].start_code = start_code;
 > -	libinfo->lib_list[id].start_data = datapos;
 > -	libinfo->lib_list[id].start_brk = datapos + data_len + bss_len;
@@ -473,49 +430,49 @@ for riscv.
 > +	libinfo->lib_list[0].loaded = 1;
 > +	libinfo->lib_list[0].entry = (0x00ffffff & ntohl(hdr->entry)) + textpos;
 > +	libinfo->lib_list[0].build_date = ntohl(hdr->build_date);
->  
->  	/*
->  	 * We just load the allocations into some temporary memory to
+>   
+>   	/*
+>   	 * We just load the allocations into some temporary memory to
 > @@ -774,7 +721,7 @@ static int load_flat_file(struct linux_binprm *bprm,
->  			if (rp_val == 0xffffffff)
->  				break;
->  			if (rp_val) {
+>   			if (rp_val == 0xffffffff)
+>   				break;
+>   			if (rp_val) {
 > -				addr = calc_reloc(rp_val, libinfo, id, 0);
 > +				addr = calc_reloc(rp_val, libinfo);
->  				if (addr == RELOC_FAILED) {
->  					ret = -ENOEXEC;
->  					goto err;
+>   				if (addr == RELOC_FAILED) {
+>   					ret = -ENOEXEC;
+>   					goto err;
 > @@ -810,7 +757,7 @@ static int load_flat_file(struct linux_binprm *bprm,
->  				return -EFAULT;
->  			relval = ntohl(tmp);
->  			addr = flat_get_relocate_addr(relval);
+>   				return -EFAULT;
+>   			relval = ntohl(tmp);
+>   			addr = flat_get_relocate_addr(relval);
 > -			rp = (u32 __user *)calc_reloc(addr, libinfo, id, 1);
 > +			rp = (u32 __user *)calc_reloc(addr, libinfo);
->  			if (rp == (u32 __user *)RELOC_FAILED) {
->  				ret = -ENOEXEC;
->  				goto err;
+>   			if (rp == (u32 __user *)RELOC_FAILED) {
+>   				ret = -ENOEXEC;
+>   				goto err;
 > @@ -833,7 +780,7 @@ static int load_flat_file(struct linux_binprm *bprm,
->  					 */
->  					addr = ntohl((__force __be32)addr);
->  				}
+>   					 */
+>   					addr = ntohl((__force __be32)addr);
+>   				}
 > -				addr = calc_reloc(addr, libinfo, id, 0);
 > +				addr = calc_reloc(addr, libinfo);
->  				if (addr == RELOC_FAILED) {
->  					ret = -ENOEXEC;
->  					goto err;
+>   				if (addr == RELOC_FAILED) {
+>   					ret = -ENOEXEC;
+>   					goto err;
 > @@ -861,7 +808,7 @@ static int load_flat_file(struct linux_binprm *bprm,
->  	/* zero the BSS,  BRK and stack areas */
->  	if (clear_user((void __user *)(datapos + data_len), bss_len +
->  		       (memp + memp_size - stack_len -		/* end brk */
+>   	/* zero the BSS,  BRK and stack areas */
+>   	if (clear_user((void __user *)(datapos + data_len), bss_len +
+>   		       (memp + memp_size - stack_len -		/* end brk */
 > -		       libinfo->lib_list[id].start_brk) +	/* start brk */
 > +		       libinfo->lib_list[0].start_brk) +	/* start brk */
->  		       stack_len))
->  		return -EFAULT;
->  
+>   		       stack_len))
+>   		return -EFAULT;
+>   
 > @@ -871,49 +818,6 @@ static int load_flat_file(struct linux_binprm *bprm,
->  }
->  
->  
+>   }
+>   
+>   
 > -/****************************************************************************/
 > -#ifdef CONFIG_BINFMT_SHARED_FLAT
 > -
@@ -559,22 +516,22 @@ for riscv.
 > -}
 > -
 > -#endif /* CONFIG_BINFMT_SHARED_FLAT */
->  /****************************************************************************/
->  
->  /*
+>   /****************************************************************************/
+>   
+>   /*
 > @@ -946,7 +850,7 @@ static int load_flat_binary(struct linux_binprm *bprm)
->  	stack_len += (bprm->envc + 1) * sizeof(char *);   /* the envp array */
->  	stack_len = ALIGN(stack_len, FLAT_STACK_ALIGN);
->  
+>   	stack_len += (bprm->envc + 1) * sizeof(char *);   /* the envp array */
+>   	stack_len = ALIGN(stack_len, FLAT_STACK_ALIGN);
+>   
 > -	res = load_flat_file(bprm, &libinfo, 0, &stack_len);
 > +	res = load_flat_file(bprm, &libinfo, &stack_len);
->  	if (res < 0)
->  		return res;
->  
+>   	if (res < 0)
+>   		return res;
+>   
 > @@ -991,20 +895,6 @@ static int load_flat_binary(struct linux_binprm *bprm)
->  	 */
->  	start_addr = libinfo.lib_list[0].entry;
->  
+>   	 */
+>   	start_addr = libinfo.lib_list[0].entry;
+>   
 > -#ifdef CONFIG_BINFMT_SHARED_FLAT
 > -	for (i = MAX_SHARED_LIBS-1; i > 0; i--) {
 > -		if (libinfo.lib_list[i].loaded) {
@@ -589,17 +546,9 @@ for riscv.
 > -	}
 > -#endif
 > -
->  #ifdef FLAT_PLAT_INIT
->  	FLAT_PLAT_INIT(regs);
->  #endif
-
-Apart from the typos mentioned above, looks OK to me.
-
-Reviewed-by: Damien Le Moal <damien.lemoal@opensource.wdc.com>
-
--- 
-Damien Le Moal
-Western Digital Research
+>   #ifdef FLAT_PLAT_INIT
+>   	FLAT_PLAT_INIT(regs);
+>   #endif
 
 _______________________________________________
 linux-riscv mailing list
