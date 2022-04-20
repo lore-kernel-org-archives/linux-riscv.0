@@ -4,75 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D218FC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 14:26:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EA28C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 14:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wG5leig50k3gvPRqV+Sk1ebWBbiRPN9O9NaaRAcX2WY=; b=t7g91sTeVfwAW9
-	Cc8DryBFgrTH7cLKfyg+LyZMajWaU6i6P8NcWgLwPKAI11c+r95KAUp9wj61MeSZcSDVL6FOs6RZw
-	pjExfc+xq8IOO8hryhhxY/tLUmL6AEvCniVhV8NDWUd155fnVh/0iSNs+KNupcDLujh1r+7uzz+ea
-	mBwHjfc5JrsmuISLvK9QXKRQRHTcCIOfYB9BcXSwBJHxpbrKVquYZJPKeEkO5AoODVAsejyRIJMOe
-	h/+lJybDQTTs5O5h17Umiti3NdG/0nM0SbwBDhps7Rx1cv67nlZopJaar0twd2lTxiPh7Y1sQedk4
-	GcnGpP/66FVcyvHAjv3A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=trAviUpL37J8oe6/Rany/r3EfUsQW3moVHRL6Yec9fQ=; b=TO/m846XlOsTiz
+	v0N8FM7TyVh9lgf8NGbwaxbs+NaHZ/ZlVfow4oJruKSyc2BEZQQQ4VI3gT+k8waL7UgDxkYrcxx6R
+	6cKSG7Ecr+6mTisyQ/gSlo7uh+FUBIMLz9GSyali9dLft8IoShvo2mHdvJjxldpkPLay3rx5TBOOl
+	o39fqpExZ1Pca6JKVP2rjdl2npNOPpdDD9XrP9suDeLLhyJ8pE0b9MaWpFgV1Kl0zB7iADlCnfc3s
+	V/EMQBQrSixPUMmtyJoki8OF7UPGMjUHZWxLnPfiwsqXvSNTpOfEDf0+JB1q5tJj63HXbYSuq7rop
+	LiivRYzxZg0qrCtubPMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nhBHY-009OVf-C2; Wed, 20 Apr 2022 14:26:12 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1nhBZO-009RFA-2F; Wed, 20 Apr 2022 14:44:38 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nhBHU-009OTq-Mv
- for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 14:26:10 +0000
+ id 1nhBZL-009RDR-CF
+ for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 14:44:36 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 8751A61797
- for <linux-riscv@lists.infradead.org>; Wed, 20 Apr 2022 14:26:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB514C385AE
- for <linux-riscv@lists.infradead.org>; Wed, 20 Apr 2022 14:26:05 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id D2DB1B81F16;
+ Wed, 20 Apr 2022 14:44:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B81AC385A0;
+ Wed, 20 Apr 2022 14:44:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1650464765;
- bh=VBenOZQnhKSaKTDnmTU7YPn2Kk85+5G1iSKwpEyGiww=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=m7rZBwv9aWdNJd6Loy0eH5cEhgp+IzTLxDZNPLz2lHP3oHFa5kNcf6/YxolvF1KxG
- z7U/uiM2NQS1fZGGrbOAnLb1vts3dQpamCubqiMxPflwZAUrQ4ecKNnnZ7ysQJTnFh
- KmjPa7Ev/p/Q1/A5nrP+oMpyC41Suc8EDjKknK2oqNfcWcUAmbXEC2wl1ygieoWE7w
- eES15iHNN/CLXTq66bL2zyCiR5So+Zz0H2UjqvItPYVIPWxmFjv9jkPYDwM0JFk6qe
- Ccu+jIsxbEp37nootcADrepZ2FZsh82W4B+EpGpKmfMt1OTSWwj94cJKKGZ7HzX2S5
- pIw0f4X2L8SCQ==
-Received: by mail-pg1-f173.google.com with SMTP id k29so1741684pgm.12
- for <linux-riscv@lists.infradead.org>; Wed, 20 Apr 2022 07:26:05 -0700 (PDT)
-X-Gm-Message-State: AOAM531O2tZJOyZol6MbGAT9TJ6YacXr0OwUqrEIZBYE91LT2NWLFpgl
- 1BEjiRzrUkkaDzkmc8QFSeegvuGaKcXz5fX6TQ==
-X-Google-Smtp-Source: ABdhPJxoI0QtEfC8n4+Ln+gp0b3QXWDDvTicJkjQ1klYrRPpw4OnJYVmtCTwaMTxb74RYk3qNMBwj0W1ciQ/08DtuWU=
-X-Received: by 2002:a63:e70e:0:b0:3a9:eb7f:96c9 with SMTP id
- b14-20020a63e70e000000b003a9eb7f96c9mr15011577pgi.85.1650464765346; Wed, 20
- Apr 2022 07:26:05 -0700 (PDT)
+ s=k20201202; t=1650465872;
+ bh=BJxtalf9Zs0yPnSPPVBN7503uk3AMK3IvHLCi2cAlLE=;
+ h=From:To:Cc:Subject:Date:From;
+ b=Cuhm4C+Fa6dviUDglNCm/8TyKK6NfQD7flxTILDwzI286WtwozK+tcR8hv+54Og/H
+ TeziLf/5kWa0FwTuYC4Tdvq7aWiRf3TiwrIKopqR3gGU+mHMx7OcxQZfH4L8PypO/d
+ kEXdHkNbW7whFULqddKLuwzIYS4kRMbOQfF4yfVuaWWbZ+ooFYWCedMlj+hILBdlCs
+ mplvrcsCV48vq6dfUMfWehbzkxrYQh/LGc5bfhi+3s+pGxrgWWcyteP6TSTxQAzD4J
+ GVPh2tXct1MsIM4bnHBPDv/F0QMSZY60ZKFpYG2oFPt8h7i7S30B6EvV9gRKdbiH+o
+ 4dZzBLeWVxaqg==
+From: guoren@kernel.org
+To: guoren@kernel.org, arnd@arndb.de, palmer@dabbelt.com, mark.rutland@arm.com,
+ will@kernel.org, peterz@infradead.org, boqun.feng@gmail.com,
+ dlustig@nvidia.com, parri.andrea@gmail.com
+Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH V3 0/5] riscv: atomic: Optimize AMO instructions usage
+Date: Wed, 20 Apr 2022 22:44:12 +0800
+Message-Id: <20220420144417.2453958-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <CANXhq0r15Z9NZj+xr7K_2Tt5VbK2r4+f7Fpg-f9BY98ufgKxcw@mail.gmail.com>
- <mhng-75e55594-c878-4fad-9ffc-dc552111208e@palmer-ri-x1c9>
-In-Reply-To: <mhng-75e55594-c878-4fad-9ffc-dc552111208e@palmer-ri-x1c9>
-From: Rob Herring <robh+dt@kernel.org>
-Date: Wed, 20 Apr 2022 09:25:53 -0500
-X-Gmail-Original-Message-ID: <CAL_Jsq+5TbfFxD3p4ckvNw=jFweuvjQPRQfjmvPqZJga25o0pA@mail.gmail.com>
-Message-ID: <CAL_Jsq+5TbfFxD3p4ckvNw=jFweuvjQPRQfjmvPqZJga25o0pA@mail.gmail.com>
-Subject: Re: [PATCH v8 0/4] Determine the number of DMA channels by
- 'dma-channels' property
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Zong Li <zong.li@sifive.com>, Vinod <vkoul@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Conor Dooley <conor.dooley@microchip.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>, 
- Bin Meng <bin.meng@windriver.com>, Green Wan <green.wan@sifive.com>, 
- "open list:DMA GENERIC OFFLOAD ENGINE SUBSYSTEM" <dmaengine@vger.kernel.org>,
- devicetree@vger.kernel.org, 
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220420_072608_859936_CB9C56BD 
-X-CRM114-Status: GOOD (  24.14  )
+X-CRM114-CacheID: sfid-20220420_074435_583453_2697CB69 
+X-CRM114-Status: UNSURE (   6.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,64 +73,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 19, 2022 at 7:18 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->
-> On Mon, 11 Apr 2022 04:43:35 PDT (-0700), zong.li@sifive.com wrote:
-> > On Mon, Apr 11, 2022 at 6:48 PM Vinod Koul <vkoul@kernel.org> wrote:
-> >>
-> >> On 11-04-22, 10:51, Zong Li wrote:
-> >> > On Fri, Apr 8, 2022 at 9:13 PM Vinod Koul <vkoul@kernel.org> wrote:
-> >> > >
-> >> > > On 28-03-22, 17:52, Zong Li wrote:
-> >> > > > The PDMA driver currently assumes there are four channels by default, it
-> >> > > > might cause the error if there is actually less than four channels.
-> >> > > > Change that by getting number of channel dynamically from device tree.
-> >> > > > For backwards-compatible, it uses the default value (i.e. 4) when there
-> >> > > > is no 'dma-channels' information in dts.
-> >> > >
-> >> > > Applied patch 1 & 4 to dmaengine-next, thanks
-> >> >
-> >> > Hi Vinod,
-> >> > Thanks for your help and review. For patch 2 and 3, does it mean that
-> >> > we should go through the riscv tree?
-> >>
-> >> Yes
-> >>
-> >
-> > Hi Palmer,
-> > Could you please help me to pick up the patch 2 and 3. Thanks :)
->
-> Sorry about that, I forgot about this one.  I just put them on for-next,
-> there was a minor merge conflict but it looks pretty simple.
+From: Guo Ren <guoren@linux.alibaba.com>
 
-Looks like you applied patch 1 too which Vinod already applied to the
-dmaengine tree. And you changed the 1st line removing the "# " before
-the SPDX tag which results in:
+These patch series contain one cleanup and some optimizations for
+atomic operations.
 
-make[1]: *** Deleting file
-'Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.example.dts'
-Traceback (most recent call last):
-  File "/usr/local/bin/dt-extract-example", line 52, in <module>
-    binding = yaml.load(open(args.yamlfile, encoding='utf-8').read())
-  File "/usr/local/lib/python3.8/dist-packages/ruamel/yaml/main.py",
-line 434, in load
-    return constructor.get_single_data()
-  File "/usr/local/lib/python3.8/dist-packages/ruamel/yaml/constructor.py",
-line 119, in get_single_data
-    node = self.composer.get_single_node()
-  File "_ruamel_yaml.pyx", line 718, in _ruamel_yaml.CParser.get_single_node
-ruamel.yaml.composer.ComposerError: expected a single document in the stream
-  in "<unicode string>", line 1, column 1
-but found another document
-  in "<unicode string>", line 2, column 1
-make[1]: *** [Documentation/devicetree/bindings/Makefile:26:
-Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.example.dts]
-Error 1
-./Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml:1:1:
-[error] missing document start "---" (document-start)
+Changes in V3:
+ - Fixup usage of lr.rl & sc.aq with violation of ISA
+ - Add Optimize dec_if_positive functions
+ - Add conditional atomic operations' optimization
 
+Changes in V2:
+ - Fixup LR/SC memory barrier semantic problems which pointed by
+   Rutland
+ - Combine patches into one patchset series
+ - Separate AMO optimization & LRSC optimization for convenience
+   patch review
 
-Rob
+Guo Ren (5):
+  riscv: atomic: Cleanup unnecessary definition
+  riscv: atomic: Optimize acquire and release for AMO operations
+  riscv: atomic: Optimize memory barrier semantics of LRSC-pairs
+  riscv: atomic: Optimize dec_if_positive functions
+  riscv: atomic: Add conditional atomic operations' optimization
+
+ arch/riscv/include/asm/atomic.h  | 168 ++++++++++++++++++++++++++++---
+ arch/riscv/include/asm/cmpxchg.h |  30 ++----
+ 2 files changed, 160 insertions(+), 38 deletions(-)
+
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
