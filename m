@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37DFAC433EF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A82C3C433FE
 	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 18:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,57 +12,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
 	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NsQeglm7wAecDEf5HgQVrui8rrD9uB2Lg38OoGc4rM4=; b=BVWCElxX9eCJli
-	GE2sDwZOcnygfS4kkQkF/hJgBI7ULKOV9mZSSJ575O1KoxaK5sdLeF9MKcsNTx7FRaZiCMr+HBdVW
-	dQ9FR7tz3iUkhBNv0gS4iVhW7Evk8E3iqw3Bl2ghs4Z5UJs+Scdzj3s6aw5dGBT6UN+6ZVld3M4QY
-	71VzeXlZtA67Y6vRIHZXa69yYrT+zJva4BaddZ7EYNlmEPcFltXzuen2dG9E1qmKfO2MCONGR4/QF
-	XwKMnRHlJp2T0R4+etn0KjYsSeoC80GNolAKIf6uf2zVlmIkhuzV1STE7LrTC6lpBMNOGKY3hyDhu
-	NNIXinCw1W4IopYguA9A==;
+	List-Owner; bh=ayEjH6eqVX2YeQwEEerRnMQ7N8bGICuZXnr0h/KIQRQ=; b=krnWEFXQapomBg
+	GlmjSzA1kZqBWd2H+ypml8l0n7JoPjLAf3V9RY6HEHr85kR4opdCdn7pz/EbzxyP2Jfy3guseCKEj
+	LTxfK58WwLkbZnUl+K0xFfRnh3CG6WaO/WfQT4kTE3z3gyGAwdurlrgPgkWmdzYiYxoWSiL92nIO8
+	y7jPnpSo+lsAXno14evtaxX88hPiNAaUP9j7crO/TUwMdMikqND5raifzKMlNCaXxnUzJw7sv0dKA
+	4PPvKh5TcKpK+nU9uDjZBrtyxvBjIT2vgK/2/VOxqpd0AENNSW+NIYKm9rqtAfHjhqwmrgiujKaSA
+	OrGsGRi5Qrwo8SfYzxRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nhFNE-00A6DW-Uk; Wed, 20 Apr 2022 18:48:20 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1nhFNG-00A6Ek-LO; Wed, 20 Apr 2022 18:48:22 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nhFN8-00A68c-U7
- for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 18:48:16 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id
- md20-20020a17090b23d400b001cb70ef790dso5699200pjb.5
- for <linux-riscv@lists.infradead.org>; Wed, 20 Apr 2022 11:48:14 -0700 (PDT)
+ id 1nhFNA-00A69c-4q
+ for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 18:48:17 +0000
+Received: by mail-pg1-x533.google.com with SMTP id s137so2438272pgs.5
+ for <linux-riscv@lists.infradead.org>; Wed, 20 Apr 2022 11:48:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
  h=subject:date:message-id:in-reply-to:references:mime-version
  :content-transfer-encoding:cc:from:to;
- bh=SoH+rXIkHfn2tDchhhZbSJ+crMNxbZGozRfYvpl+XoE=;
- b=juiLZLej55jZaTBjD9xwVIR/YAR4i7cO0bpHr89TY+dz1ORy2ejFFIdrCOQXcP2D8H
- cIxDjtw4zoR/+O/+Cz7gJVkbmHNOFMtnczcO1N4hDW2YNoDdFy7kJvt4NocRNaWc0rrK
- rDxA4wJWcdvspC6ywEgV5rv2Z03Jb9GhkEjoFsHw1t6EhYernuYtCEVUod4KD52lB5iP
- s/aDAOti+/mtT0ZCn/3oAcvuMjjaJ6zzBso+eeSET7y8Nwo2WVkVUSMAt3YlM6JRpRZD
- BvFtCMyG1ZheaQ4dagFcdUGWYCLZ3BHz7skwKmfSnGeYNrdPtlsudMgmLO3FdKIT+CFZ
- SurQ==
+ bh=UGpQa9Z2U55MjYUDsvGvuFzYMVtZARYuOzPYtbUizPg=;
+ b=6rfdm/phCRlmO8Ct/g6arSMLvjyQ+UArCdCgU2d60t/F49+e8zW9hVbe0Hw+/6auz8
+ 0smG66pG/9D7UcRw9gX9si6y6NvYkgsIezoJskMu1TuSK+aiSONGS9esu5svctCYwycs
+ zy/DbrDagPCD6MWiRgjfG/1SHvaO15wkNDoUpyA8uxDBpOIZNjhiiQIbshZmfbNLbAZ6
+ K0wOBieQ++3HSV2zjACVh9DwCHCYxumykHQ+9uX1l+MYsJ/d3koVe32FE4ThTDttjd4t
+ +cG0lApXd9/8MkrFy5CCYjjb/EMIcrfBtlvGGtw4/ZxtWBEMpGYveainQmNzAiPJLESC
+ ZT8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding:cc:from:to;
- bh=SoH+rXIkHfn2tDchhhZbSJ+crMNxbZGozRfYvpl+XoE=;
- b=Gm3hUQScz+48aOshoAr0b5u+0UxtPALQT063z5tpaHko5zH11x9eG/S2eWZSgEHCfQ
- kX2JPaKG4EJ3mrUobTlIpVWNAi2OxYIU6eHnyT4RLdz0VZZ7iwUUsP0l9YngMtFhLrz9
- ykmZ6Ysnhhpcd8Yt7J6uLuCTFeLWpCbh/OwQxFxGXgYXlCqCo4EN3lvGSTdaWHiwlE5r
- +o9wJeByL6L38jwFZlgNu2fJi1yDUAUIzOPm7YAKgGuvSRFeqjveLXqVqf3fjobfxhHp
- Vb50kndAsKLCWBSXktTCxecIxzzP0bZ+MBG/nRIH+Hox508zv3oWKkbIpZr4aaCvFDgE
- zObQ==
-X-Gm-Message-State: AOAM531jKQvxr/Q8mM6QK59lHp0so2WRmaqXGayESYX8OJUUpe6MNiin
- fFzob95O1v0FzhR98hoCSglTSQ==
-X-Google-Smtp-Source: ABdhPJxdrixrp+jfH8hvzdp/Eg4oHxPBPiHlreQAn5N+O4widmijdWQO8V5yAwiXQNEjtkHlm2bdxQ==
-X-Received: by 2002:a17:90b:4acb:b0:1d1:efc:39bd with SMTP id
- mh11-20020a17090b4acb00b001d10efc39bdmr6085138pjb.49.1650480493464; 
- Wed, 20 Apr 2022 11:48:13 -0700 (PDT)
+ bh=UGpQa9Z2U55MjYUDsvGvuFzYMVtZARYuOzPYtbUizPg=;
+ b=fTuGu39UyA/KkgnOfvP1Xynv4lLDQ5l0oZvaqvhS+iu3cuMtndq8ynxZJyDdxts1P2
+ IxvDDlCiZBeLjJSf9Hk/GTV6K+3myZvzl67pdgMzRtCdPMpiTughFicRkb5S9JXL0LsJ
+ YC10cNPl3ivfhQGSZgCwNfuhB7y27UL6eF+2hMrbQAxrGpHkUAztFHWr2uaV+QdqFPo6
+ CnyrWT/7iFoaBocZCpA+03Rc2J+4cDDKWrQjqcR4yZ1n6briWfwYwP8Ee8jgcfXeflEt
+ 1xM8G5OcgeBjKoBWDerhHcKe+ax8fTOJejrhOI5Vtw7CmIxUuZ0A/b7y397XjApR9Jcg
+ e3qQ==
+X-Gm-Message-State: AOAM532BkE1zxJ84Y/wQGO7ADN8NwQcq5YBNBd0FhCABo9myaWXHsK0S
+ 9GDSsE+euDhZBHh5TGiEq3kDfg==
+X-Google-Smtp-Source: ABdhPJyQtvhwqEgVVnVRRdlklc0eCKG6jyhiAA/OuM6Vae1V/BWG9miXV/9kwjPjjDrjfrYbblnoIw==
+X-Received: by 2002:a63:e452:0:b0:3a9:fd43:fd10 with SMTP id
+ i18-20020a63e452000000b003a9fd43fd10mr14420896pgk.541.1650480494575; 
+ Wed, 20 Apr 2022 11:48:14 -0700 (PDT)
 Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
- i11-20020a654d0b000000b0039d82c3e68csm20741715pgt.55.2022.04.20.11.48.13
+ n20-20020a634d54000000b0039d18bf7864sm20229604pgl.20.2022.04.20.11.48.14
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 20 Apr 2022 11:48:13 -0700 (PDT)
-Subject: [PATCH v2 2/4] RISC-V: ignore xipImage
-Date: Wed, 20 Apr 2022 11:40:54 -0700
-Message-Id: <20220420184056.7886-3-palmer@rivosinc.com>
+ Wed, 20 Apr 2022 11:48:14 -0700 (PDT)
+Subject: [PATCH v2 3/4] RISC-V: Split out the XIP fixups into their own file
+Date: Wed, 20 Apr 2022 11:40:55 -0700
+Message-Id: <20220420184056.7886-4-palmer@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20220420184056.7886-1-palmer@rivosinc.com>
 References: <20220420184056.7886-1-palmer@rivosinc.com>
@@ -80,9 +79,8 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 From: Palmer Dabbelt <palmer@rivosinc.com>
 To: linux-riscv@lists.infradead.org, rdunlap@infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220420_114815_008962_D6F96EA8 
-X-CRM114-Status: UNSURE (   7.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220420_114816_228876_F1C3103D 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,22 +99,119 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Palmer Dabbelt <palmer@rivosinc.com>
 
-This built file shows up in "git status" without an explicit ignore.
+This was broken by the original refactoring (as the XIP definitions
+depend on <asm/pgtable.h>) and then more broken by the merge (as I
+accidentally took the old version).  This fixes both breakages, while
+also pulling this out of <asm/asm.h> to avoid polluting most assembly
+files with the XIP fixups.
 
+Fixes: bee7fbc38579 ("RISC-V CPU Idle Support")
+Fixes: 63b13e64a829 ("RISC-V: Add arch functions for non-retentive suspend entry/exit")
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- arch/riscv/boot/.gitignore | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/include/asm/asm.h       | 26 ------------------------
+ arch/riscv/include/asm/xip_fixup.h | 32 ++++++++++++++++++++++++++++++
+ arch/riscv/kernel/head.S           |  1 +
+ arch/riscv/kernel/suspend_entry.S  |  1 +
+ 4 files changed, 34 insertions(+), 26 deletions(-)
+ create mode 100644 arch/riscv/include/asm/xip_fixup.h
 
-diff --git a/arch/riscv/boot/.gitignore b/arch/riscv/boot/.gitignore
-index 90e66adb7de5..0cea9f7fa9d5 100644
---- a/arch/riscv/boot/.gitignore
-+++ b/arch/riscv/boot/.gitignore
-@@ -4,3 +4,4 @@ Image.*
- loader
- loader.lds
- loader.bin
-+xipImage
+diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
+index 8c2549b16ac0..618d7c5af1a2 100644
+--- a/arch/riscv/include/asm/asm.h
++++ b/arch/riscv/include/asm/asm.h
+@@ -67,30 +67,4 @@
+ #error "Unexpected __SIZEOF_SHORT__"
+ #endif
+ 
+-#ifdef __ASSEMBLY__
+-
+-/* Common assembly source macros */
+-
+-#ifdef CONFIG_XIP_KERNEL
+-.macro XIP_FIXUP_OFFSET reg
+-	REG_L t0, _xip_fixup
+-	add \reg, \reg, t0
+-.endm
+-.macro XIP_FIXUP_FLASH_OFFSET reg
+-	la t1, __data_loc
+-	REG_L t1, _xip_phys_offset
+-	sub \reg, \reg, t1
+-	add \reg, \reg, t0
+-.endm
+-_xip_fixup: .dword CONFIG_PHYS_RAM_BASE - CONFIG_XIP_PHYS_ADDR - XIP_OFFSET
+-_xip_phys_offset: .dword CONFIG_XIP_PHYS_ADDR + XIP_OFFSET
+-#else
+-.macro XIP_FIXUP_OFFSET reg
+-.endm
+-.macro XIP_FIXUP_FLASH_OFFSET reg
+-.endm
+-#endif /* CONFIG_XIP_KERNEL */
+-
+-#endif /* __ASSEMBLY__ */
+-
+ #endif /* _ASM_RISCV_ASM_H */
+diff --git a/arch/riscv/include/asm/xip_fixup.h b/arch/riscv/include/asm/xip_fixup.h
+new file mode 100644
+index 000000000000..0d0754305324
+--- /dev/null
++++ b/arch/riscv/include/asm/xip_fixup.h
+@@ -0,0 +1,32 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * XIP fixup macros, only useful in assembly.
++ */
++#ifndef _ASM_RISCV_XIP_FIXUP_H
++#define _ASM_RISCV_XIP_FIXUP_H
++
++#include <linux/pgtable.h>
++
++#ifdef CONFIG_XIP_KERNEL
++.macro XIP_FIXUP_OFFSET reg
++        REG_L t0, _xip_fixup
++        add \reg, \reg, t0
++.endm
++.macro XIP_FIXUP_FLASH_OFFSET reg
++        la t1, __data_loc
++        li t0, XIP_OFFSET_MASK
++        and t1, t1, t0
++        li t1, XIP_OFFSET
++        sub t0, t0, t1
++        sub \reg, \reg, t0
++.endm
++
++_xip_fixup: .dword CONFIG_PHYS_RAM_BASE - CONFIG_XIP_PHYS_ADDR - XIP_OFFSET
++#else
++.macro XIP_FIXUP_OFFSET reg
++.endm
++.macro XIP_FIXUP_FLASH_OFFSET reg
++.endm
++#endif /* CONFIG_XIP_KERNEL */
++
++#endif
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index 893b8bb69391..822c33aa7f45 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -14,6 +14,7 @@
+ #include <asm/hwcap.h>
+ #include <asm/image.h>
++#include <asm/xip_fixup.h>
+ #include "efi-header.S"
+ 
+ __HEAD
+diff --git a/arch/riscv/kernel/suspend_entry.S b/arch/riscv/kernel/suspend_entry.S
+index 4b07b809a2b8..aafcca58c19d 100644
+--- a/arch/riscv/kernel/suspend_entry.S
++++ b/arch/riscv/kernel/suspend_entry.S
+@@ -8,6 +8,7 @@
+ #include <asm/asm.h>
+ #include <asm/asm-offsets.h>
+ #include <asm/csr.h>
++#include <asm/xip_fixup.h>
+ 
+ 	.text
+ 	.altmacro
 -- 
 2.34.1
 
