@@ -4,67 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AABFAC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 06:44:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74267C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 07:33:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P8k3FAfpn5OXsTQsvGKyjOo6IDTd2SHGR5BSOPtvDBQ=; b=iaquaDvMZ50tgj
-	Ugpdz8Ct36+X5ZvCsi0g1E8iYaclZ+rmBSTTDTgPONIjnoB4RxwNy4kMMp3CX5FydxgR+MxLOyJf3
-	ZP7Sr+jyTW4JSHxq7Y+O+lPW+x4QWICtWvvr3oxeJHZDG0a7JGGXCk29k4tS/d37qXI9eF6K7Fo19
-	wSJIJK+1DbgBcRsmSOpJ9KOvrQaGJK3OqFFfTEd9S6HDYOsfSIzKYRpO+LuZaIfA/+Pqq9FYwUIaR
-	dd5phGsRVXXZea20i0cAuH3gsVaED3KbdPGkaxlcd/tbgZTKB4U3wukk+ocv7G+WoNpeELgTTUeTe
-	GL3X+F6CEwCuZii/JWLQ==;
+	List-Owner; bh=SO0z9sBOgczWdXshTT2mD+E63v5CWWOpNS7gKgNXSRE=; b=SyBNJmU/BYeHD+
+	Tk0tyzq6UWU0MnWCsfoeLuwyeuzR34f4cIJv2qheyGHAq18IFsvGI2WSpOQefNmorLiw/b3IDRDdl
+	lDsiTQezi8iVAzelrYoB6iFb9LOEKxOlPwCkv2XMaaIA1Nst2kRQXE12uMxlTZ4CoUmcjP2xaILn3
+	cs4LN+eqJ5HzHKArmATPC92n8jsVb38P8bC8fZTTJfoxj1bXm+Kd7Bm1DLdeSbx1qg+olnHX/CEmf
+	Pd56ZwhPis4eusSGKLWDDFCJdC6KUWVEit1o/YQ39q0AN9pQ8Dh9SLY4DmnrEd2XmYIoNXOmTWcYE
+	KBqss+ITDHoeBVES76Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nh44n-007ban-Ut; Wed, 20 Apr 2022 06:44:33 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+	id 1nh4pX-007mx7-9g; Wed, 20 Apr 2022 07:32:51 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nh44Z-007bVo-A2; Wed, 20 Apr 2022 06:44:21 +0000
-Received: from kwepemi500007.china.huawei.com (unknown [172.30.72.56])
- by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4KjrjC5Hypz1J9qf;
- Wed, 20 Apr 2022 14:43:27 +0800 (CST)
-Received: from kwepemm600017.china.huawei.com (7.193.23.234) by
- kwepemi500007.china.huawei.com (7.221.188.207) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Wed, 20 Apr 2022 14:44:12 +0800
-Received: from [10.174.179.234] (10.174.179.234) by
- kwepemm600017.china.huawei.com (7.193.23.234) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Wed, 20 Apr 2022 14:44:10 +0800
-Message-ID: <c376877e-53a7-d471-61bc-e7f9dd400d60@huawei.com>
-Date: Wed, 20 Apr 2022 14:44:10 +0800
+ id 1nh4os-007mcM-Gc
+ for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 07:32:12 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ uk-mta-165-jcx-0iaIPGatONrL5yGJ_Q-1; Wed, 20 Apr 2022 08:32:04 +0100
+X-MC-Unique: jcx-0iaIPGatONrL5yGJ_Q-1
+Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
+ AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
+ Server (TLS) id 15.0.1497.32; Wed, 20 Apr 2022 08:32:02 +0100
+Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
+ AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
+ 15.00.1497.033; Wed, 20 Apr 2022 08:32:02 +0100
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'He Zhe' <zhe.he@windriver.com>, Kees Cook <keescook@chromium.org>
+CC: "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org"
+ <will@kernel.org>, "mark.rutland@arm.com" <mark.rutland@arm.com>,
+ "tglx@linutronix.de" <tglx@linutronix.de>, "bp@alien8.de" <bp@alien8.de>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "alexander.shishkin@linux.intel.com" <alexander.shishkin@linux.intel.com>,
+ "jolsa@kernel.org" <jolsa@kernel.org>, "namhyung@kernel.org"
+ <namhyung@kernel.org>, "benh@kernel.crashing.org" <benh@kernel.crashing.org>, 
+ "paulus@samba.org" <paulus@samba.org>, "borntraeger@linux.ibm.com"
+ <borntraeger@linux.ibm.com>, "svens@linux.ibm.com" <svens@linux.ibm.com>,
+ "hpa@zytor.com" <hpa@zytor.com>, "x86@kernel.org" <x86@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linuxppc-dev@lists.ozlabs.org"
+ <linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
+ <linux-riscv@lists.infradead.org>, "linux-s390@vger.kernel.org"
+ <linux-s390@vger.kernel.org>, "linux-perf-users@vger.kernel.org"
+ <linux-perf-users@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH RFC 2/8] arm64: stacktrace: Add arch_within_stack_frames
+Thread-Topic: [PATCH RFC 2/8] arm64: stacktrace: Add arch_within_stack_frames
+Thread-Index: AQHYU/YpuaYuTiSSXEqj2VkDLnuG5qz4aD5A
+Date: Wed, 20 Apr 2022 07:32:01 +0000
+Message-ID: <9e5c394e82ec44e1887ebebe777a97f2@AcuMS.aculab.com>
+References: <20220418132217.1573072-1-zhe.he@windriver.com>
+ <20220418132217.1573072-3-zhe.he@windriver.com>
+ <202204181457.9DE190CE@keescook>
+ <b328bed3-ebb9-6fba-9585-79946262c40f@windriver.com>
+In-Reply-To: <b328bed3-ebb9-6fba-9585-79946262c40f@windriver.com>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.0
-Subject: Re: [PATCH -next v4 1/4] mm: page_table_check: move
- pxx_user_accessible_page into x86
-To: Anshuman Khandual <anshuman.khandual@arm.com>, Thomas Gleixner
- <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
- <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, <x86@kernel.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Pasha Tatashin <pasha.tatashin@soleen.com>, 
- Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>
-CC: <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
- Kefeng Wang <wangkefeng.wang@huawei.com>, Guohanjun <guohanjun@huawei.com>
-References: <20220418034444.520928-1-tongtiangen@huawei.com>
- <20220418034444.520928-2-tongtiangen@huawei.com>
- <1671baf7-046e-7c52-183f-fd654125fd67@arm.com>
-From: Tong Tiangen <tongtiangen@huawei.com>
-In-Reply-To: <1671baf7-046e-7c52-183f-fd654125fd67@arm.com>
-X-Originating-IP: [10.174.179.234]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemm600017.china.huawei.com (7.193.23.234)
-X-CFilter-Loop: Reflected
+Authentication-Results: relay.mimecast.com;
+ auth=pass smtp.auth=C51A453 smtp.mailfrom=david.laight@aculab.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220419_234419_548363_52CCABE1 
-X-CRM114-Status: UNSURE (   6.76  )
+X-CRM114-CacheID: sfid-20220420_003210_861284_D318D572 
+X-CRM114-Status: UNSURE (   8.11  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,26 +91,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgrlnKggMjAyMi80LzE5IDE3OjI5LCBBbnNodW1hbiBLaGFuZHVhbCDlhpnpgZM6Cj4gCj4gCj4g
-T24gNC8xOC8yMiAwOToxNCwgVG9uZyBUaWFuZ2VuIHdyb3RlOgo+PiAtLS0gYS9tbS9wYWdlX3Rh
-YmxlX2NoZWNrLmMKPj4gKysrIGIvbW0vcGFnZV90YWJsZV9jaGVjay5jCj4+IEBAIC0xMCw2ICsx
-MCwxNCBAQAo+PiAgICN1bmRlZiBwcl9mbXQKPj4gICAjZGVmaW5lIHByX2ZtdChmbXQpCSJwYWdl
-X3RhYmxlX2NoZWNrOiAiIGZtdAo+PiAgIAo+PiArI2lmbmRlZiBQTURfUEFHRV9TSVpFCj4+ICsj
-ZGVmaW5lIFBNRF9QQUdFX1NJWkUJUE1EX1NJWkUKPj4gKyNlbmRpZgo+PiArCj4+ICsjaWZuZGVm
-IFBVRF9QQUdFX1NJWkUKPj4gKyNkZWZpbmUgUFVEX1BBR0VfU0laRQlQVURfU0laRQo+PiArI2Vu
-ZGlmCj4gCj4gV2h5IGNhbm5vdCBQTURfU0laRS9QVURfU0laRSBiZSB1c2VkIG9uIGV2ZXJ5IHBs
-YXRmb3JtIGluc3RlYWQgPyBXaGF0IGlzIHRoZQo+IG5lZWQgZm9yIHVzaW5nIFBVRF9QQUdFX1NJ
-WkUvUE1EX1BBR0VfU0laRSA/IEFyZSB0aGV5IGRpZmZlcmVudCBvbiB4ODYgPwo+IC4KCkhpLCBQ
-YXNoYe+8mgpJIGNoZWNrZWQgdGhlIGRlZmluaXRpb25zIG9mIFBNRF9TSVpFL1BVRF9TSVpFIGFu
-ZCAKUFVEX1BBR0VfU0laRS9QTURfUEFHRV9TSVpFIGluIHg4NiBhcmNoaXRlY3R1cmUgYW5kIHRo
-ZWlyIHVzZSBvdXRzaWRlIAp0aGUgYXJjaGl0ZWN0dXJlKGVnOiBpbiBtbS8sIGFsbCB1c2VkIFBN
-RF9TSVpFL1BVRF9TSVpFKSwgV291bGQgaXQgYmUgCmJldHRlciB0byB1c2UgYSB1bmlmaWVkIFBN
-RF9TSVpFL1BVRF9TSVpFIGhlcmU/CgpUaGFua3MsClRvbmcuCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+> > Thanks for doing this implementation! One reason usercopy hardening
+> > didn't persue doing a "full" stacktrace was because it seemed relatively
+> > expensive. Did you do any usercopy-heavily workload testing to see if
+> > there was a noticeable performance impact?
+
+Look at anything that uses sendmsg().
+It is noticeably more expensive than sendto().
+All the extra copy_from_user() cause measurable slow slowdowns.
+Using __copy_from_user()(to avoid 'hardending') in the socket code
+and when reading the iov[] gives a measurable improvement.
+
+	David
+
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
