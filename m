@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31339C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 01:33:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18A95C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 01:33:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PMrw7jE8wqGtzmX7nm/zP731Xr3nSU9MAgZzn6gNErw=; b=lmy0iQAODWd9a5
-	EICoE8c+GOWBo0hmriqoq7eDVB6UtAoF+aUTXpUvcj/Mh3VYI+YTDcvpDodDITqFVHw0iFLCfzr1d
-	pTkB0SzOI5/O9ApqtImUu1QJ1AQB6YjWeicAGH/eTts1nuNml8CONeeWEbHMwo/Yg1nMZJHHFiyfy
-	3SkzAbdwP6+kKC+3nsEXxzUpXhu38SS2ayLU/opP8i5kSRDR89vGqrepS7QxmtP7DkST5Q8oa45F1
-	ThM4fLxAFYeq8lvMBAGKuzTBoxHquHcfbYuknNjwD81oE/eMAMN8dDMD69qmZ5qgEft3s3mLpuIke
-	ezPpWFVhJw++X2+TsbzQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0riZjetaatDcCIc+EPzwU0bBwhoROClPzuAgcLIMJX4=; b=EZTd+EUb24M0R1
+	UQcPtCdJxEokWqIpHFdD0vUfIcbDk1TAHttW2nGJLrx0ebP7OyejCtXloj7oPC27KrWGEYWy30hvJ
+	hUJSzNIfqTb0PWJJrl4ckETsXRrFUn8hmj7ju1LjJIc1k30qe4t1jcv9FW3odBNtZKRK1JpyfYwTT
+	hQZHF8Q1sCzWOTy+hbYtsWem5gkHJAt4B5zl1kpk7J5uuuSoVNvK5I2DA1m4zCRrDVz4PILtBfdDP
+	Gdtf0+xaOn4PdztlLrnW8FHDzshKbtPVVkK5f7cae6oVqmypOlIkeRyrxYJEqHWhWye9MGGAxI64F
+	qPz0jWaKFaRW1MngHtJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ngzDa-006rdl-Vo; Wed, 20 Apr 2022 01:33:19 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1ngzDZ-006rcn-6A; Wed, 20 Apr 2022 01:33:17 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ngzDS-006rYO-V9
- for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 01:33:14 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id q12so128712pgj.13
- for <linux-riscv@lists.infradead.org>; Tue, 19 Apr 2022 18:33:07 -0700 (PDT)
+ id 1ngzDS-006rYH-Ey
+ for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 01:33:13 +0000
+Received: by mail-pg1-x530.google.com with SMTP id x191so159283pgd.4
+ for <linux-riscv@lists.infradead.org>; Tue, 19 Apr 2022 18:33:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=FoHTOogFtEFyi2gNo6Vrdy4zpvF5IOVfK5C2C7jCsAQ=;
- b=MZELzdB6m/N+Tx2B2ifqHAoQt0o7GPvWBNxirhKoqDbWPYy3pyvqNwH5vc4KKtHimo
- tIJgCsRmVYwVmJq8AqCt1MbKzPF50nYZVIZKSgpuF0Uc3lsa5Mpl1BjvcEmtVfBzjcLT
- MJZfUrZY80AGXx+8axdjdEPU3FXBT6/aQosj0HVepLz6DaJjqhD24X6n5EahYw0oXaD1
- y/ryXYBtJjPVSADimqPZXceX6fXJOeNoQRUGdZzzBeIU+iqkZbypTBw7BHWUiyQoSZf2
- r9g4wdgg3jG0s2CtfZ3aHi7Ismv8AcqI/lZpZ7Nke/lZ0o1owmZOKKOgpniMEVM1yiaM
- 3oRQ==
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=hGbEx1dzzctQaZO6zjtNFZl0KqYSt48iblytT444Gms=;
+ b=SjCVVtY0aKCrFTPVmvuyyFfg8de9NyeYizpAZtyjK5jdPNqfzdywWT9CQmGplWOxUm
+ 0qdgei8vKZR+0kZkD4zLbEJQ7u0/Moqtt3Kk8ItD5V8Zmezp91kaqIhfzJdj0IdRhf6f
+ M6QBKd6z5E9ltQeXCTtfIozmJ5xZpkl5ox83M3pHqCJ7SuSQ/2rHRlt5yYvwBPpvhq3p
+ M3D8dK///smktVIuQth5Cnl0fBM7VAZGg/HocmuA0+u1LF1M9UeNdvqCgSYaomwubHxX
+ hv1lIHU1fb/E59ykz3LqKs6JlOGKXw2WCQNwCnSebkVx0y/lQXxg9zTt3ULmLfRw8K/H
+ lKzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=FoHTOogFtEFyi2gNo6Vrdy4zpvF5IOVfK5C2C7jCsAQ=;
- b=tB6rD9iBtJBZ7RDBaVn0bG0nLJzLXI2iE+xWfmPYZ9cX9aRkLwkIvjFUqUV0NU5PxS
- OCDjff0E1SB24YGkhE0pe7t7UvZfkImO/VZnCfXonFtxw0mMMAmWulZem7gdEH2yIFRc
- 35kEaZ3TDYAADS7hCluuavwYyNMJe1uE7Ny9mSxCJ+xeJe3zyHlNGc5LCPUfjYVKGL6a
- 8pihv1XvEFwcTdYkABz9Iwngu62nqAUtj5A4eG3OnO4YiKXji/Hdelosy1s0BvU3Av+H
- PewGxAETprN/0f4+KgGz+56dtv4N8VuRY4DaiKFpdDrl4F9EvNjk1/aZI3L9b4hLD8Pi
- UbkQ==
-X-Gm-Message-State: AOAM533KLTqnCM574PoG1QAehemkmU1HWu3hfqtjqhZzU6nIhASCGMKb
- YR18w0kVqcV5c6KA59K66XxuJA==
-X-Google-Smtp-Source: ABdhPJxubNniBJ0qcUnSZUXfvxlKrtRZAvi6X+saBuEJcQjBtqfiHGpD3lEIBbsx8g8XamIAwcIrLQ==
-X-Received: by 2002:a63:e912:0:b0:39d:f8f:ca7 with SMTP id
- i18-20020a63e912000000b0039d0f8f0ca7mr16851234pgh.121.1650418387455; 
- Tue, 19 Apr 2022 18:33:07 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=hGbEx1dzzctQaZO6zjtNFZl0KqYSt48iblytT444Gms=;
+ b=sAnt4rn2VAMCuBPq6MS2aKFfgg+jBDl2wFSU67uBWwwknNNY7P6OppJpLs+Co3CHGC
+ Nisg4K+JXVPg+paTqJmjrbxcuoRMjeqBau7XBMd3P4fLIVaTivKW2cBUxxHAT6hw9v6T
+ /5/b+fdDtTJkOsdA2dM2+IehJhZW5KnkPm+oiwMEKfQn38d19FGQperqIzLg6odmc6w5
+ AAYJGDJ54J+X5/G6uT4S0xc9k8YXLxWthBG5ICuMmqtykgXATBVedM1n6N441t5agRbq
+ W52883kppDIF4ZZqsWWtF25cKsl5ZmXoRpIPhSLe8/jrM2u4OXeWaOU+po6h+U8QckLN
+ Gr/g==
+X-Gm-Message-State: AOAM533EVRKWt/Jb7bM6kkD5oiDi8DhuKGieYxvYt/aTMuSoTdRASMyx
+ wRdWp0Hz3tU4CdNiWoqrM5XdBg==
+X-Google-Smtp-Source: ABdhPJxBDNTKQrAD4xKiy6UUsQwEmiOFM9cxlkWFjMfR7qBNOIxAdUiGsdhQlvhD2GVnYSM1rWZrMQ==
+X-Received: by 2002:a63:e70f:0:b0:380:d919:beb with SMTP id
+ b15-20020a63e70f000000b00380d9190bebmr17057166pgi.58.1650418385970; 
+ Tue, 19 Apr 2022 18:33:05 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([66.220.2.162])
  by smtp.gmail.com with ESMTPSA id
- r13-20020a635d0d000000b003aa482388dbsm2484863pgb.9.2022.04.19.18.33.06
+ r13-20020a635d0d000000b003aa482388dbsm2484863pgb.9.2022.04.19.18.33.04
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 19 Apr 2022 18:33:07 -0700 (PDT)
+ Tue, 19 Apr 2022 18:33:05 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: kvm@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>, Atish Patra <atishp@atishpatra.org>,
@@ -70,16 +70,15 @@ Cc: Atish Patra <atishp@rivosinc.com>, Atish Patra <atishp@atishpatra.org>,
  Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
  kvm-riscv@lists.infradead.org
-Subject: [PATCH 1/2] RISC-V: KVM: Remove 's' & 'u' as valid ISA extension
-Date: Tue, 19 Apr 2022 18:32:57 -0700
-Message-Id: <20220420013258.3639264-2-atishp@rivosinc.com>
+Subject: [PATCH 0/2] Miscellenous ISA string fixup
+Date: Tue, 19 Apr 2022 18:32:56 -0700
+Message-Id: <20220420013258.3639264-1-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220420013258.3639264-1-atishp@rivosinc.com>
-References: <20220420013258.3639264-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220419_183311_034108_066E1C5A 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20220419_183310_561600_C1E1BA96 
+X-CRM114-Status: UNSURE (   7.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,33 +95,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There are no ISA extension defined as 's' & 'u' in RISC-V specifications.
-The misa register defines 's' & 'u' bit as Supervisor/User privilege mode
-enabled. But it should not appear in the ISA extension in the device tree.
+This series fixes few issues around ISA string generations for guests.
+Earlier these patches were part of the sstc series[1] but I created
+a separate series for these fixes as they can be applied separately
+as a part of rc fixes.
 
-Remove those from the allowed ISA extension for kvm.
+[1] https://lore.kernel.org/lkml/20220304201020.810380-1-atishp@rivosinc.com/
 
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- arch/riscv/kvm/vcpu.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+Atish Patra (2):
+RISC-V: KVM: Remove 's' & 'u' as valid ISA extension
+RISC-V: KVM: Restrict the extensions that can be disabled
 
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index 6785aef4cbd4..2e25a7b83a1b 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -43,9 +43,7 @@ const struct kvm_stats_header kvm_vcpu_stats_header = {
- 				 riscv_isa_extension_mask(d) | \
- 				 riscv_isa_extension_mask(f) | \
- 				 riscv_isa_extension_mask(i) | \
--				 riscv_isa_extension_mask(m) | \
--				 riscv_isa_extension_mask(s) | \
--				 riscv_isa_extension_mask(u))
-+				 riscv_isa_extension_mask(m))
- 
- static void kvm_riscv_reset_vcpu(struct kvm_vcpu *vcpu)
- {
--- 
+arch/riscv/kvm/vcpu.c | 23 +++++++++++++----------
+1 file changed, 13 insertions(+), 10 deletions(-)
+
+--
 2.25.1
 
 
