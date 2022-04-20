@@ -4,83 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25645C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 17:09:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3428C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 17:19:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JDPZV0qFQvz5aEuC/U0E9Omf6/T+Ua5D8pxSKTMBbIc=; b=cz43hTAcfgCrzl
-	SbQOU5+PI1r2MRuAxVYIaad+Jwcvt8S2T+Bmuy+hTaK2UffZxis3Z+1hKQhKclcguOoWvSzIJnEHG
-	DLpZBxsR4gcvd+ZSir0b9QJjvY79T0Lx1SAESk4kOOeALqWNNhzXjiVJ0TdckLj1khKwcKm7pL998
-	9pKt/KUX0ZhYGE7GDIL9vebhbs7fKOoJ2cmQOcv0wCnzLcvTf+MdP/goZ2FU6iioCHkDCC4+U3IZp
-	ZHGp06M5pPhXOAzezkFztTll7QP0/LzbjljKMs+qOVoh4XGmcQJ5eLrZ68yVij8yTbzLeQVNnmjZH
-	nhTF/MEAvbELW0wHsrHg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
+	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=0l4w5QPoxrOh4zOsvF4XTo4yZnQZEMM0KVnccT1ptJA=; b=Cnvhqi/RkZKp0xj53ZjckN0NmD
+	YdKYs8ae//ubeVI/g2thurMrK97LCLdgKfBvUb79rxbCo9HXP6GFz5fMcqMnmQI+mnD6RDR4R8K0G
+	fLeTFyfwKUnIBSMLJQBzZVe3QuNxYFHMnVnZCFpuGv/kiEBWmBrR2MhousxQJZmhMEps0yr00E6/9
+	wspV6+u2UIltbYFoqumjXI9hrtXEvVWpJSr1/MpUpmAXrvctEnyuXhz/lBPCejVxjqAOcJxVkQGhs
+	ETcGF287gdSFM/s9ONoIoPSR+PGOxWM0hAiUujvXMUzSCrire+eNI1ZTfo+ID0zpUA2kI878tLXRU
+	isDZCieQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nhDpn-009qrv-RF; Wed, 20 Apr 2022 17:09:43 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1nhDyx-009try-09; Wed, 20 Apr 2022 17:19:11 +0000
+Received: from mail-dm6nam10on20615.outbound.protection.outlook.com
+ ([2a01:111:f400:7e88::615]
+ helo=NAM10-DM6-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nhDpZ-009qji-ST
- for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 17:09:31 +0000
-Received: by mail-ej1-x630.google.com with SMTP id bv19so4862123ejb.6
- for <linux-riscv@lists.infradead.org>; Wed, 20 Apr 2022 10:09:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=soleen.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=AAgH39aqYNkZFEmodz4sdJEW8mfR6G5OOFNZA9oagFY=;
- b=Qakj4tsgGstygvOiA9O5uUiBRICg8fcpw/1UHUJrVZbFOhFCY0TdFI1pvox2kHpZgH
- JSzFyfkKv3KQLl1eyfhgd31h1VFGLKj9W2N5FNE4Kcj9UoxMgvXJLLBEqqVzwmdYbd9K
- AGPuZhTJW91gSkIGkaT46ezQqI3t2yyIfZUpbYiYay9oonrQOZgK7DTxYF1Ei0q0eyvt
- JHMswMR1rslz6HHA4TrJgDw2A5tzuAcJZt+1E2kCRnEIojalj0MUOYBF9ZlGDB3lvFnh
- FZrlwygxooC5bPWiA5moln7z2YrRO/koHDOPaG3aph3BreOUNXqGGpDm3CAjBhODORn0
- cxEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=AAgH39aqYNkZFEmodz4sdJEW8mfR6G5OOFNZA9oagFY=;
- b=OWOLJNeyHlBqihjtAqj0DIxw0fOiIucpyb1QpybmAPDyk6Q2clS/Jf3k5Nyve3t+Cr
- F8wyToSPDP4zI8Z2/ZNPMYzKf/4WPJNwTUbO+5AKzI91TSKJe9Z1uXY1wxgK4++k5Y5k
- 8TXsBZ1cQmMERm+ygvxzWlWgmegfeYwhVJ2/O0nr30nuiFOgMJQ+Y1b/M6gg7Rwo+C9t
- H5vaSCVimwaHRPqfricu3mU0AMHqNogL6Ga1mHu5D0Q5Z2rNJrB1SmXxxO5MlW07r/Op
- CiGZYkt5JFvt3XV8lr8u9Gf3A3Qbzk+EpnHzYsi10MIIMWHkazX0Kw+RI+tw2LU1RmYv
- Gb0w==
-X-Gm-Message-State: AOAM530ROVF5AsagKLBmSoQYOMsTbVUPBlHYpUV9oRyKbdiJTDp3Qpds
- 4vT2H2psrQrNguTlcxN20EEbQGjH2rhIGmExlbv33g==
-X-Google-Smtp-Source: ABdhPJyY9jAsgVicM8NGt7TWLzng0j4SkCK0Eh+NgNRIs5YdqcuU/etlcZJHfeXkYbVjr1I5apItKjFwDo3ZegsFvbI=
-X-Received: by 2002:a17:906:4cd8:b0:6db:372:c4ba with SMTP id
- q24-20020a1709064cd800b006db0372c4bamr18923831ejt.57.1650474566609; Wed, 20
- Apr 2022 10:09:26 -0700 (PDT)
+ id 1nhDyt-009tqt-FD
+ for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 17:19:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=X0TzPnB0dKOWy1ER6/e8SqP033y3pov2ZmXRAo0bwnD0qPFn37WmcUWyL2POpUt/5r6YcsWhQYg6Kjzw2llg5Zjh+fSKvz51LnCS/u4v3aMCpdjPwzLwG3576CpuNQRJj7M4lw04tazRuXrhjeG5x3Z95a/3jpCOH2pnvNcB3/7m1paFxBLpRmbIocvAonlj2gJkEO53ZIfqtyKDxyoAgfhYNy4eQlfAkQxywcofuyjyOSzU7iJh3xl1MtU4It5JUvJBJEIp2NeSE8TI6j2U+/RUPfVJ1C3HlwIuTDKiGjWyiOBKQyYG9BQVzFlzJ9lj1N3RqxqgPsIjcWKyd9wS7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RGsXbb788akZUdPEAeEI3YpjZ84YVuexN1dvmcPjKb4=;
+ b=CtLvf+scsHuIGXGJfhLFwoK9t0VLI7bw3F8TeV70g71Kz/qrWOUTCb93sXaZOePIpkWtMaygL25JrxFgKARPf1SS6Z5YOwy2SaqHRMU/vebcMyktEdYbaljt6wOn20hg0cXA91tlI/3bbtTlal7DrXzLza1hNNfxwyOXUt6SIvcuIu0z3Fv7DjVdWU9Sxdby0YzZMR4W3MWD3/1ybYbfgmfYIhqsjcaBH/l8PXcJZRpiH6OW5sz8CgOAVAwEMM69xl9IsOuCQt8H5qglrt+hkpooNavfgo9UecGj4Eqmdfbi4mLvoQKzp+50lsJuNDOY3NHqfHcytkUyF+CfBEUEEg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RGsXbb788akZUdPEAeEI3YpjZ84YVuexN1dvmcPjKb4=;
+ b=A9p+aokFBngKmPq4rH6Z0KC7zNkXuDeUQek/NpWPFkoSp945xWnmsmz2r36niNfpcw3XtqI8nWIachELg0uI+AauHCLAokYHqLGwaF5jDYR0cndXnnJwPcjKjeJo8mVWSVGxed9841aFMnR4RaLORUl5eXM9rkOmfA2T1IDIiW2/qwGtRPwAv/GKPx/jte+0rK9L8aBnAc5WD9q5zPbrK6lJDDp2+irOICsu8roHmF5a4SyKQzp/vah9ZsvC+6LT7xsSH8WWgIpIQ4um9zXYTaNlUfMHPWn26xUrjZipEInAMfAxS7ob9A9Xp7EC6KtxUjCO3BVDOHDQcNOKA7uWxg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from MN2PR12MB3437.namprd12.prod.outlook.com (2603:10b6:208:c3::20)
+ by PH0PR12MB5678.namprd12.prod.outlook.com (2603:10b6:510:14e::22)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5186.14; Wed, 20 Apr
+ 2022 17:03:21 +0000
+Received: from MN2PR12MB3437.namprd12.prod.outlook.com
+ ([fe80::18b1:f463:cb9b:82f0]) by MN2PR12MB3437.namprd12.prod.outlook.com
+ ([fe80::18b1:f463:cb9b:82f0%6]) with mapi id 15.20.5164.025; Wed, 20 Apr 2022
+ 17:03:21 +0000
+Message-ID: <41e01514-74ca-84f2-f5cc-2645c444fd8e@nvidia.com>
+Date: Wed, 20 Apr 2022 13:03:12 -0400
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.0
+Subject: Re: [PATCH V2 0/3] riscv: atomic: Optimize AMO instructions usage
+Content-Language: en-US
+To: Guo Ren <guoren@kernel.org>
+Cc: Boqun Feng <boqun.feng@gmail.com>, Andrea Parri <parri.andrea@gmail.com>, 
+ "Paul E. McKenney" <paulmck@linux.vnet.ibm.com>,
+ Arnd Bergmann <arnd@arndb.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ linux-arch <linux-arch@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Guo Ren <guoren@linux.alibaba.com>
+References: <20220412034957.1481088-1-guoren@kernel.org>
+ <YlbwOG46mCR8Q5tJ@tardis>
+ <CAJF2gTRws6RqKmJHBdKsycWSkFgYna_MocJ+qp3Z9r1v7mQzsg@mail.gmail.com>
+ <Ylt6zqPgimmKpJzg@tardis>
+ <CAJF2gTTZnBh_z31VK81cYiBrTt5NRVpSahoPh35Zo4Ns5hCv7A@mail.gmail.com>
+ <3f7dd397-2ccd-dfa3-a0ec-dcce6cbc0476@nvidia.com>
+ <CAJF2gTQzPsM0X-gib3V0EYYU=weMFXMQZCEbru9y+dDbV+9eXQ@mail.gmail.com>
+From: Dan Lustig <dlustig@nvidia.com>
+In-Reply-To: <CAJF2gTQzPsM0X-gib3V0EYYU=weMFXMQZCEbru9y+dDbV+9eXQ@mail.gmail.com>
+X-ClientProxiedBy: BL1PR13CA0067.namprd13.prod.outlook.com
+ (2603:10b6:208:2b8::12) To MN2PR12MB3437.namprd12.prod.outlook.com
+ (2603:10b6:208:c3::20)
 MIME-Version: 1.0
-References: <20220418034444.520928-1-tongtiangen@huawei.com>
- <20220418034444.520928-4-tongtiangen@huawei.com>
- <073cb6a6-3dbc-75d4-dbfe-a5299a6b0510@arm.com>
- <CA+CK2bCPrQ=F0jNRxcVZ9f18Rm-kAATO3xFE79TZDoWQ99GC4Q@mail.gmail.com>
- <16a2620e-986a-6a8f-24eb-d0f7e9c91f24@arm.com>
-In-Reply-To: <16a2620e-986a-6a8f-24eb-d0f7e9c91f24@arm.com>
-From: Pasha Tatashin <pasha.tatashin@soleen.com>
-Date: Wed, 20 Apr 2022 13:08:50 -0400
-Message-ID: <CA+CK2bAmaweQoiBmo_igEzeKdsPmT-xzCtar36iNzaiFMEJB+w@mail.gmail.com>
-Subject: Re: [PATCH -next v4 3/4] arm64: mm: add support for page table check
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Tong Tiangen <tongtiangen@huawei.com>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
- "H. Peter Anvin" <hpa@zytor.com>, 
- Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- LKML <linux-kernel@vger.kernel.org>, linux-mm <linux-mm@kvack.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- linux-riscv@lists.infradead.org, 
- Kefeng Wang <wangkefeng.wang@huawei.com>, Guohanjun <guohanjun@huawei.com>
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 4fb4e6b3-f7c0-496a-a7b4-08da22efac60
+X-MS-TrafficTypeDiagnostic: PH0PR12MB5678:EE_
+X-Microsoft-Antispam-PRVS: <PH0PR12MB5678FF04F463DFC276F4774FDCF59@PH0PR12MB5678.namprd12.prod.outlook.com>
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: F4jkN1BLhjICuSq0uuVTvtQYtwt7xEybP5Tmf2H7TtR6es3ipjL0MONUveGaBrQwrUgyKki9FbiPBdrAn1SFlYGJefvI5R2KOWJM7QyZgqeOT5tb2G+dWrP3cQrsAG7ou6Gbw49SOUKLNnpd45LhZBMiMnhzg7LLxQtbn2auFMlHqA1uekEaVok2OuqsBaxmQhdCFDb5aSp9+Bs80wHdA1hVYYoJG5UHRtXy05fV5E2F8HeIoLuRg50WjXdXttymqW80lll7+nH5pt75MU5TwSBFCabwTzhIdC5eD4rUgowIol9t4mnRW2eAnTPB9DNolDWy61OzpGNTZdtBFyJx2bfMVg0Uf6evbzFDjfHUjGnx+KRMlTQnHB1MY/GJPI5ut2Cj9rV/sXm5SDjN4nL/p5Z8WXls1E09Rma00CESftf5TvmjpmLc/PM35ZxXYYI4b1lNZLI015mOhWXOerYfQ8ZeDAYLsDnWeRFISYAAPhGjnpREkwA9ioDJOguxrwxuv1fLgAr+6ECfSU+QfZKMdQ+BlKwWEfl80g9aRb0+Q+jGzvIIr+Kv0z5chOcg5ZWXjI4soBN4pCUrviDgs2uUIUYCHlgw8ioSurSUnGH56Hc7uxoSaOIC/n4G1Txg4Go2s0sddQYOXiaQLenaBT0YBbdE0+MEpHElqor0g3ZmBysUaLSmXcLYUEvBiFQjcbaib3b2zudDZt6yxgKcxnIHI5Dv4Lb0tEX5QYXktEbyZYc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:MN2PR12MB3437.namprd12.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(13230001)(4636009)(366004)(6916009)(54906003)(38100700002)(36756003)(316002)(31686004)(83380400001)(6506007)(53546011)(8936002)(6666004)(508600001)(5660300002)(7416002)(2906002)(6486002)(66556008)(66476007)(186003)(26005)(66946007)(6512007)(31696002)(86362001)(2616005)(8676002)(4326008)(45980500001)(43740500002);
+ DIR:OUT; SFP:1101; 
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q05KV2FJQWwrNU5ob3lQdWZUbHFzbVRsSlMyb0dGOHRHN3Ywd1lqcW83dTNr?=
+ =?utf-8?B?by92bEZvbXpiZ1VpNVJOdVB0NXVqNWNkcXVyb3lUclVSZnBxNlFzZG5uRjZP?=
+ =?utf-8?B?OUhEMHpqQ0JRVG9WMGhjQ2dmbm5qdmFaSVBDdDFBL0VROG1zb1BQVW10N1Mw?=
+ =?utf-8?B?OFRFNzZNejZIWHRaZ1FGNFljdzR4bzRlZS9wbTZ6QmFTOU9VVzVFNFcvN3E0?=
+ =?utf-8?B?TTQxb3hrMTFVZ285bzdtZkZUNTU4c0x5a2JTYnRObklPZTd5S1hCTWlRM2pQ?=
+ =?utf-8?B?ZEQ2em44WGdYMkg5ZWxGTVZCajg5WE90dXJ5NExxd0pCSlF3ZGt2Nzdya0lV?=
+ =?utf-8?B?WUFDclprLzhXYjRxS25TMy9OT2VzMHlnSU81R25tV3hsOHl1RlB0K00zWDNx?=
+ =?utf-8?B?RmRmcmdNNkhlV3RCcTNTOE5lYUpsOXhEY21nT3pqUGU5dWU3aE9vRFBTbld1?=
+ =?utf-8?B?R0dHT1NNTTRGaUNRMGZJNzZ3V3ArN3dQR2RXNFdiQW5pL0c1ekhzRC9hdHdw?=
+ =?utf-8?B?OU44cXI2S1U5eTF3QWhvZGFDSDVLRHlSSHd3c0N4cVk4Vm92a0VkRDVCbXhM?=
+ =?utf-8?B?aG1HZ0VlTmc0ZmxBNitvdFhXYXpkNmtGTmUxYnBFR3RYUUg4UWZFSU0reGlF?=
+ =?utf-8?B?WTZOcUNUcjZtV0dma0xjWEhiSXV1MlAzYjhKbXE0dlJ3NW9oZE1TekhYbjVB?=
+ =?utf-8?B?V08ycFlBWHJIREQ3Ukd2U2djRUVJV0F4QUdSZ3ROZXBJZlE2OE5WeG9ROStX?=
+ =?utf-8?B?b25CQzdJUTVPQUVvNFIyV1lhcWYzbzFUM043UE94WjU5dFZldmwrdTcxaFYx?=
+ =?utf-8?B?ZHFLU3JsektmK1dIbDF3NEptRUxxZEVyaVkzL0hqMnkxbHZDYzdwMFhSY0Q4?=
+ =?utf-8?B?RDVwNXhGa3ZpUHdKNlM4c2UyN1kxUDVJVm1lWGFUQUYrZ2dNcTNER2R6RFVk?=
+ =?utf-8?B?NjRpOTRQMms2eFlWby9YbUtwejkzMGxqQklwbHpHRnlud05IYitlL21Fb3ZP?=
+ =?utf-8?B?YU91MnZGMWVIS2g2OUpPYnJzK2ovSitUZDdiRDBVbWt0dmhyV0RibnBqSFVI?=
+ =?utf-8?B?SVQ0cXA0MzE1VHZZc1RqMyt5UVU5M0U2STliTjliWDFpaHJMMURuaWlCaDBv?=
+ =?utf-8?B?bWhFRlF1a0krUHJsY3lrbXM5RUprcHdtcnZ3TzJhQlhHN2NEV3FSMlBPb0th?=
+ =?utf-8?B?MGhicTdtT2VZSjZ1ZXZFWUMrN3RBd09qZ2cvWTVRaThOQW9LMHlyOHkyZEc1?=
+ =?utf-8?B?ZnBrajNEZmExTCszV0NFZDg4WEFJUXpKekdQRVF0ek05cWdPLzBzYnRxai94?=
+ =?utf-8?B?OE1URnJya3BTOXFpM2UwUEVGaEoyZFF3M1N1c2FoVllFVm9yQUlMb3dPemtp?=
+ =?utf-8?B?K0JFU0Jaa2FEOUFmSjFqZlJaUWtINDMxT29JSk9oK21GYWt3Ym5UV2ZrdmNF?=
+ =?utf-8?B?OVU4ZXNWQ0F4aEZpVkhsd1ZiTE5tdXBUWVA1QUw4VzFiTnA2NXVweHV0NVBN?=
+ =?utf-8?B?STQ1SjFZTVY1b1Z1WHVJY1VlQVV3MjFRcjFPMm5jL1FpeXZkbU5HZHo4M1pO?=
+ =?utf-8?B?alMvRnZFTC9RZDQzcUJleS9NNGlnRkQwaGVMT2E5Rm5ZaFNsTVh1VCtLNy9E?=
+ =?utf-8?B?VGVCdjVlRTQvMXBRZjI1WHQ3ZUZhbGx6bzlaTldiYk9mQzJjbENhcHoyR09K?=
+ =?utf-8?B?VXVDdTV4YjFmeXJZajBoYTgxN29NSG9WbXZESmcvTmhOSkRtakNEc3Zab29B?=
+ =?utf-8?B?dFFvVGhzYlg5NXdLOHBVdTh3QWxuOE5ZV3prTDl0YnhkbnVrM29HcGVQRkhN?=
+ =?utf-8?B?K1VIYlV2R0VCdDh6dXpwdEpSWUpkaFF1dXUrTmR5VkRoZXpncStVcmdWRTBU?=
+ =?utf-8?B?ZGl3UjUybUVvVXVVNDliZE1JeUdDMW9wZjNadis2Zk0xYUlreUs1aWt5YUlC?=
+ =?utf-8?B?Y0R1VTVYajlNMGxuYnZZV2hxVTBReGdlYXdjWDl3U3VpcCt3b256YzlVR1Iv?=
+ =?utf-8?B?aGZ4em1DSk4wVDRCa0JQbDNiYzV6WWNwVS9jelo5YXI0dkp1THAwU1dMajJu?=
+ =?utf-8?B?R2RXcitHdFZkRUp2NnVZZUE3Ym9TeXhkWDE4OVBDK1dzTXVqam4xY0QwMFZL?=
+ =?utf-8?B?UkRzQTRDZ1RYdkgzb2FaSWJGNXFERzFvaWN5YXZ3QlZrVjFYRmIxK1lNSTYw?=
+ =?utf-8?B?Yk9YaUJiaXBlbzNKc09veTBzdyt6a1VGVGc4S1hhZ2IySmRIVzZQZkl5dnhG?=
+ =?utf-8?B?ZEFJcjBJaDRCZXRtZ01jbklJL1RrRk1FS05XUUkzWGZFMFM0ZTBJczRvV2pG?=
+ =?utf-8?B?aHI3eTdsR2tWRGtXbDl2TXZLNUV0V3VVUy9ZYXU1R3hybkwzdWI5UT09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4fb4e6b3-f7c0-496a-a7b4-08da22efac60
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3437.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Apr 2022 17:03:21.2608 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VLb3MMV15MP1rOkUVeKxcpFaVNMuBpZyo7nKxMf9KhWaX9b98Ps05vGU5CKg7QcyomfGufczI/QnVDPM3kpfSQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB5678
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220420_100929_945413_AA7A2093 
-X-CRM114-Status: GOOD (  32.75  )
+X-CRM114-CacheID: sfid-20220420_101907_585205_CBC6793D 
+X-CRM114-Status: GOOD (  16.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,103 +164,146 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 20, 2022 at 1:05 AM Anshuman Khandual
-<anshuman.khandual@arm.com> wrote:
->
->
->
-> On 4/19/22 18:49, Pasha Tatashin wrote:
-> > On Tue, Apr 19, 2022 at 6:22 AM Anshuman Khandual
-> > <anshuman.khandual@arm.com> wrote:
-> >>
-> >>
-> >> On 4/18/22 09:14, Tong Tiangen wrote:
-> >>> +#ifdef CONFIG_PAGE_TABLE_CHECK
-> >>> +static inline bool pte_user_accessible_page(pte_t pte)
-> >>> +{
-> >>> +     return pte_present(pte) && (pte_user(pte) || pte_user_exec(pte));
-> >>> +}
-> >>> +
-> >>> +static inline bool pmd_user_accessible_page(pmd_t pmd)
-> >>> +{
-> >>> +     return pmd_present(pmd) && (pmd_user(pmd) || pmd_user_exec(pmd));
-> >>> +}
-> >>> +
-> >>> +static inline bool pud_user_accessible_page(pud_t pud)
-> >>> +{
-> >>> +     return pud_present(pud) && pud_user(pud);
-> >>> +}
-> >>> +#endif
-> >> Wondering why check for these page table entry states when init_mm
-> >> has already being excluded ? Should not user page tables be checked
-> >> for in entirety for all updates ? what is the rationale for filtering
-> >> out only pxx_user_access_page entries ?
-> >
-> > The point is to prevent false sharing and memory corruption issues.
-> > The idea of PTC to be simple and relatively independent  from the MM
-> > state machine that catches invalid page sharing. I.e. if an R/W anon
->
-> Right, this mechanism here is truly interdependent validation, which is
-> orthogonal to other MM states. Although I was curious, if mm_struct is
-> not 'init_mm', what percentage of its total page table mapped entries
-> will be user accessible ? These new helpers only filter out entries that
-> could potentially create false sharing leading upto memory corruption ?
+On 4/20/2022 1:33 AM, Guo Ren wrote:
+> Thx Dan,
+> 
+> On Wed, Apr 20, 2022 at 1:12 AM Dan Lustig <dlustig@nvidia.com> wrote:
+>>
+>> On 4/17/2022 12:51 AM, Guo Ren wrote:
+>>> Hi Boqun & Andrea,
+>>>
+>>> On Sun, Apr 17, 2022 at 10:26 AM Boqun Feng <boqun.feng@gmail.com> wrote:
+>>>>
+>>>> On Sun, Apr 17, 2022 at 12:49:44AM +0800, Guo Ren wrote:
+>>>> [...]
+>>>>>
+>>>>> If both the aq and rl bits are set, the atomic memory operation is
+>>>>> sequentially consistent and cannot be observed to happen before any
+>>>>> earlier memory operations or after any later memory operations in the
+>>>>> same RISC-V hart and to the same address domain.
+>>>>>                 "0:     lr.w     %[p],  %[c]\n"
+>>>>>                 "       sub      %[rc], %[p], %[o]\n"
+>>>>>                 "       bltz     %[rc], 1f\n".
+>>>>> -               "       sc.w.rl  %[rc], %[rc], %[c]\n"
+>>>>> +               "       sc.w.aqrl %[rc], %[rc], %[c]\n"
+>>>>>                 "       bnez     %[rc], 0b\n"
+>>>>> -               "       fence    rw, rw\n"
+>>>>>                 "1:\n"
+>>>>> So .rl + fence rw, rw is over constraints, only using sc.w.aqrl is more proper.
+>>>>>
+>>>>
+>>>> Can .aqrl order memory accesses before and after it (not against itself,
+>>>> against each other), i.e. act as a full memory barrier? For example, can
+>>> From the RVWMO spec description, the .aqrl annotation appends the same
+>>> effect with "fence rw, rw" to the AMO instruction, so it's RCsc.
+>>>
+>>> Not only .aqrl, and I think the below also could be an RCsc when
+>>> sc.w.aq is executed:
+>>> A: Pre-Access
+>>> B: lr.w.rl ADDR-0
+>>> ...
+>>> C: sc.w.aq ADDR-0
+>>> D: Post-Acess
+>>> Because sc.w.aq has overlap address & data dependency on lr.w.rl, the
+>>> global memory order should be A->B->C->D when sc.w.aq is executed. For
+>>> the amoswap
+>>
+>> These opcodes aren't actually meaningful, unfortunately.
+>>
+>> Quoting the ISA manual chapter 10.2: "Software should not set the rl bit
+>> on an LR instruction unless the aq bit is also set, nor should software
+>> set the aq bit on an SC instruction unless the rl bit is also set."
+> 1. Oh, I've missed the behind half of the ISA manual. But why can't we
+> utilize lr.rl & sc.aq in software programming to guarantee the
+> sequence?
 
-Yes, the intention is to filter out the false sharing scenarios.
-Allows crashing the system prior to memory corruption or memory
-leaking.
+lr.aq and sc.rl map more naturally to hardware than lr.rl and sc.aq.
+Plus, they just aren't common operations to begin with, e.g., there
+is no smp_store_acquire() or smp_load_release(), nor are there
+equivalents in C/C++ atomics.
 
->
-> I am wondering if there is any other way such filtering could have been
-> applied without adding all these new page table helpers just for page
-> table check purpose.
->
-> > page is accessible by user land, that page can never be mapped into
-> > another process (internally shared anons are treated as named
-> > mappings).
->
-> Right.
->
-> >
-> > Therefore, we try not to rely on MM states, and ensure that when a
-> > page-table entry is accessible by user it meets the required
-> > assumptions: no false sharing, etc.
->
-> Right, filtering reduces the page table entries that needs interception
-> during update (set/clear), but was just curious is there another way of
-> doing it, without adding page table check specific helpers on platforms
-> subscribing PAGE_TABLE_CHECK ?
->
+> 2. Using .aqrl to replace the fence rw, rw is okay to ISA manual,
+> right? And reducing a fence instruction to gain better performance:
+>                 "0:     lr.w     %[p],  %[c]\n"
+>                  "       sub      %[rc], %[p], %[o]\n"
+>                  "       bltz     %[rc], 1f\n".
+>  -               "       sc.w.rl  %[rc], %[rc], %[c]\n"
+>  +              "       sc.w.aqrl %[rc], %[rc], %[c]\n"
+>                  "       bnez     %[rc], 0b\n"
+>  -               "       fence    rw, rw\n"
 
-It makes sense to limit the scope of PTC only to user accessible
-pages, and not try to catch other bugs. This keeps it reasonably
-small, and also lowers runtime overhead so it can be used in
-production as well. IMO the extra helpers are not very intrusive, and
-generic enough that in the future might be used elsewhere as well.
+Yes, using .aqrl is valid.
 
+Dan
 
-> >
-> > For example, one bug that was caught with PTC was where a driver on an
-> > unload would put memory on a freelist but memory is still mapped in
-> > user page table.
->
-> Should not page's refcount (that it is being used else where) prevented
-> releases into free list ? But page table check here might just detect
-> such scenarios even before page gets released.
-
-Usually yes. However, there are a number of recent bugs related to
-refcount [1][2][3]. This is why we need a stronger checker.
-
-The particular bug, however, did not rely on refcount. The driver
-allocated a kernel page for a ringbuffer, upon request shared it with
-a userspace by mapping it into the user address space, and later when
-the driver was unloaded, it never removed the mapping from the user
-address space. Thus, even though the page was freed when the driver
-was unloaded, the mapping stayed in the user page table.
-
-[1] https://lore.kernel.org/all/xr9335nxwc5y.fsf@gthelen2.svl.corp.google.com
-[2] https://lore.kernel.org/all/1582661774-30925-2-git-send-email-akaher@vmware.com
-[3] https://lore.kernel.org/all/20210622021423.154662-3-mike.kravetz@oracle.com
+>>
+>> Dan
+>>
+>>> The purpose of the whole patchset is to reduce the usage of
+>>> independent fence rw, rw instructions, and maximize the usage of the
+>>> .aq/.rl/.aqrl aonntation of RISC-V.
+>>>
+>>>                 __asm__ __volatile__ (                                  \
+>>>                         "0:     lr.w %0, %2\n"                          \
+>>>                         "       bne  %0, %z3, 1f\n"                     \
+>>>                         "       sc.w.rl %1, %z4, %2\n"                  \
+>>>                         "       bnez %1, 0b\n"                          \
+>>>                         "       fence rw, rw\n"                         \
+>>>                         "1:\n"                                          \
+>>>
+>>>> we end up with u == 1, v == 1, r1 on P0 is 0 and r1 on P1 is 0, for the
+>>>> following litmus test?
+>>>>
+>>>>     C lr-sc-aqrl-pair-vs-full-barrier
+>>>>
+>>>>     {}
+>>>>
+>>>>     P0(int *x, int *y, atomic_t *u)
+>>>>     {
+>>>>             int r0;
+>>>>             int r1;
+>>>>
+>>>>             WRITE_ONCE(*x, 1);
+>>>>             r0 = atomic_cmpxchg(u, 0, 1);
+>>>>             r1 = READ_ONCE(*y);
+>>>>     }
+>>>>
+>>>>     P1(int *x, int *y, atomic_t *v)
+>>>>     {
+>>>>             int r0;
+>>>>             int r1;
+>>>>
+>>>>             WRITE_ONCE(*y, 1);
+>>>>             r0 = atomic_cmpxchg(v, 0, 1);
+>>>>             r1 = READ_ONCE(*x);
+>>>>     }
+>>>>
+>>>>     exists (u=1 /\ v=1 /\ 0:r1=0 /\ 1:r1=0)
+>>> I think my patchset won't affect the above sequence guarantee. Current
+>>> RISC-V implementation only gives RCsc when the original value is the
+>>> same at least once. So I prefer RISC-V cmpxchg should be:
+>>>
+>>>
+>>> -                       "0:     lr.w %0, %2\n"                          \
+>>> +                      "0:     lr.w.rl %0, %2\n"                          \
+>>>                         "       bne  %0, %z3, 1f\n"                     \
+>>>                         "       sc.w.rl %1, %z4, %2\n"                  \
+>>>                         "       bnez %1, 0b\n"                          \
+>>> -                       "       fence rw, rw\n"                         \
+>>>                         "1:\n"                                          \
+>>> +                        "       fence w, rw\n"                    \
+>>>
+>>> To give an unconditional RSsc for atomic_cmpxchg.
+>>>
+>>>>
+>>>> Regards,
+>>>> Boqun
+>>>
+>>>
+>>>
+> 
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
