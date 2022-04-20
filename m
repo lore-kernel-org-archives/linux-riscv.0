@@ -4,150 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3428C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 17:19:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73807C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 17:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=0l4w5QPoxrOh4zOsvF4XTo4yZnQZEMM0KVnccT1ptJA=; b=Cnvhqi/RkZKp0xj53ZjckN0NmD
-	YdKYs8ae//ubeVI/g2thurMrK97LCLdgKfBvUb79rxbCo9HXP6GFz5fMcqMnmQI+mnD6RDR4R8K0G
-	fLeTFyfwKUnIBSMLJQBzZVe3QuNxYFHMnVnZCFpuGv/kiEBWmBrR2MhousxQJZmhMEps0yr00E6/9
-	wspV6+u2UIltbYFoqumjXI9hrtXEvVWpJSr1/MpUpmAXrvctEnyuXhz/lBPCejVxjqAOcJxVkQGhs
-	ETcGF287gdSFM/s9ONoIoPSR+PGOxWM0hAiUujvXMUzSCrire+eNI1ZTfo+ID0zpUA2kI878tLXRU
-	isDZCieQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8li18SPoMLbGORH/8tpocBLc6zENU6E7YdCYsaTNuok=; b=l/V5sB4BW5LiZc
+	1N0RyDw+QyyLR/4aQxzgUNU5MXgFYy5vqPxGIndjaZ6KEIiqZKIig56r2owXH2XIUfHX27S1BF5aB
+	xHYysTjKk6LiM7g9adWYyQGzEzdrkiQqx6G0HLwonKSPnzVetREFdavtP3XsHGI529w0ey4/XMgFt
+	ZPbbX9FJY7C/XhOY+Edlvrvex3AsFHDYXlZ0n9iDqHKTCxWvsSEjPO0GQCi9XQ9sePO8u65QGygHl
+	6CZW4lP2Z0G2wCK+ZQ+8HzvTkl5x7ZOXjCdDN/qAyW+PR7V5k1d5lb26yFiMZJxbzU89EmUNUAdAa
+	MyjVlWh++a7uoDZyOPkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nhDyx-009try-09; Wed, 20 Apr 2022 17:19:11 +0000
-Received: from mail-dm6nam10on20615.outbound.protection.outlook.com
- ([2a01:111:f400:7e88::615]
- helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1nhEFt-009xUt-7Z; Wed, 20 Apr 2022 17:36:41 +0000
+Received: from mail-yw1-f176.google.com ([209.85.128.176])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nhDyt-009tqt-FD
- for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 17:19:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=X0TzPnB0dKOWy1ER6/e8SqP033y3pov2ZmXRAo0bwnD0qPFn37WmcUWyL2POpUt/5r6YcsWhQYg6Kjzw2llg5Zjh+fSKvz51LnCS/u4v3aMCpdjPwzLwG3576CpuNQRJj7M4lw04tazRuXrhjeG5x3Z95a/3jpCOH2pnvNcB3/7m1paFxBLpRmbIocvAonlj2gJkEO53ZIfqtyKDxyoAgfhYNy4eQlfAkQxywcofuyjyOSzU7iJh3xl1MtU4It5JUvJBJEIp2NeSE8TI6j2U+/RUPfVJ1C3HlwIuTDKiGjWyiOBKQyYG9BQVzFlzJ9lj1N3RqxqgPsIjcWKyd9wS7w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RGsXbb788akZUdPEAeEI3YpjZ84YVuexN1dvmcPjKb4=;
- b=CtLvf+scsHuIGXGJfhLFwoK9t0VLI7bw3F8TeV70g71Kz/qrWOUTCb93sXaZOePIpkWtMaygL25JrxFgKARPf1SS6Z5YOwy2SaqHRMU/vebcMyktEdYbaljt6wOn20hg0cXA91tlI/3bbtTlal7DrXzLza1hNNfxwyOXUt6SIvcuIu0z3Fv7DjVdWU9Sxdby0YzZMR4W3MWD3/1ybYbfgmfYIhqsjcaBH/l8PXcJZRpiH6OW5sz8CgOAVAwEMM69xl9IsOuCQt8H5qglrt+hkpooNavfgo9UecGj4Eqmdfbi4mLvoQKzp+50lsJuNDOY3NHqfHcytkUyF+CfBEUEEg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RGsXbb788akZUdPEAeEI3YpjZ84YVuexN1dvmcPjKb4=;
- b=A9p+aokFBngKmPq4rH6Z0KC7zNkXuDeUQek/NpWPFkoSp945xWnmsmz2r36niNfpcw3XtqI8nWIachELg0uI+AauHCLAokYHqLGwaF5jDYR0cndXnnJwPcjKjeJo8mVWSVGxed9841aFMnR4RaLORUl5eXM9rkOmfA2T1IDIiW2/qwGtRPwAv/GKPx/jte+0rK9L8aBnAc5WD9q5zPbrK6lJDDp2+irOICsu8roHmF5a4SyKQzp/vah9ZsvC+6LT7xsSH8WWgIpIQ4um9zXYTaNlUfMHPWn26xUrjZipEInAMfAxS7ob9A9Xp7EC6KtxUjCO3BVDOHDQcNOKA7uWxg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MN2PR12MB3437.namprd12.prod.outlook.com (2603:10b6:208:c3::20)
- by PH0PR12MB5678.namprd12.prod.outlook.com (2603:10b6:510:14e::22)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5186.14; Wed, 20 Apr
- 2022 17:03:21 +0000
-Received: from MN2PR12MB3437.namprd12.prod.outlook.com
- ([fe80::18b1:f463:cb9b:82f0]) by MN2PR12MB3437.namprd12.prod.outlook.com
- ([fe80::18b1:f463:cb9b:82f0%6]) with mapi id 15.20.5164.025; Wed, 20 Apr 2022
- 17:03:21 +0000
-Message-ID: <41e01514-74ca-84f2-f5cc-2645c444fd8e@nvidia.com>
-Date: Wed, 20 Apr 2022 13:03:12 -0400
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.0
-Subject: Re: [PATCH V2 0/3] riscv: atomic: Optimize AMO instructions usage
-Content-Language: en-US
-To: Guo Ren <guoren@kernel.org>
-Cc: Boqun Feng <boqun.feng@gmail.com>, Andrea Parri <parri.andrea@gmail.com>, 
- "Paul E. McKenney" <paulmck@linux.vnet.ibm.com>,
- Arnd Bergmann <arnd@arndb.de>, Palmer Dabbelt <palmer@dabbelt.com>,
- Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- linux-arch <linux-arch@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Guo Ren <guoren@linux.alibaba.com>
-References: <20220412034957.1481088-1-guoren@kernel.org>
- <YlbwOG46mCR8Q5tJ@tardis>
- <CAJF2gTRws6RqKmJHBdKsycWSkFgYna_MocJ+qp3Z9r1v7mQzsg@mail.gmail.com>
- <Ylt6zqPgimmKpJzg@tardis>
- <CAJF2gTTZnBh_z31VK81cYiBrTt5NRVpSahoPh35Zo4Ns5hCv7A@mail.gmail.com>
- <3f7dd397-2ccd-dfa3-a0ec-dcce6cbc0476@nvidia.com>
- <CAJF2gTQzPsM0X-gib3V0EYYU=weMFXMQZCEbru9y+dDbV+9eXQ@mail.gmail.com>
-From: Dan Lustig <dlustig@nvidia.com>
-In-Reply-To: <CAJF2gTQzPsM0X-gib3V0EYYU=weMFXMQZCEbru9y+dDbV+9eXQ@mail.gmail.com>
-X-ClientProxiedBy: BL1PR13CA0067.namprd13.prod.outlook.com
- (2603:10b6:208:2b8::12) To MN2PR12MB3437.namprd12.prod.outlook.com
- (2603:10b6:208:c3::20)
+ id 1nhEFq-009xU7-2B
+ for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 17:36:39 +0000
+Received: by mail-yw1-f176.google.com with SMTP id
+ 00721157ae682-2eafabbc80aso26003667b3.11
+ for <linux-riscv@lists.infradead.org>; Wed, 20 Apr 2022 10:36:35 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=aSRYCi9Gu592mc1yy2JGCfSHyy3Om8/ZMl9fXbJ4VAk=;
+ b=y8f6ML7wa1WBOK0ZUKPoQzm/r/AeRhyi0Mzd2O8aL6mv5WOuUaenRczKIiFYqb3GOT
+ X2Pm1NxlosfZbh45CFnLiJLL8sx5uxsdqHwJI5a1gG/zfSPhYvG/fmjzMwPSI62QAXVh
+ cKs2e+8NcINtnopFnWOb9SSYsfPhLKqwHEXjXgri/9gGva+s1jOj8ePzLY1RpjyasZxv
+ iT4C1zE3PnF3CrNAfyEnpiO+UOzymmaj+qcP5e+YnqhxlvqEXiEZPUAIMjgJUqMtRFA3
+ AnrddFkh8dfw7J3pS2lNss0pqUG1VKn7tYB/4CQw2UQWAb/FoTeSFHH3CZPnqSCOhsiT
+ a/TA==
+X-Gm-Message-State: AOAM531qhs4ulFcUlkHYY+xyxPo/0jDjXGTIfHcjicQiKzdefMjcoqQD
+ a3HIVbJufkdv2kyJz++hKjVh9fH/aaW3+BWhycQ=
+X-Google-Smtp-Source: ABdhPJzNeFf91aJ2AcO4HxwsyceUmkMGZe3BT/sKo5s3TT3nCPguaeHFtXhd48Duxnk7AG97fF2bO/GqS3ZkGsIQMYE=
+X-Received: by 2002:a81:260a:0:b0:2f4:ca82:a42f with SMTP id
+ m10-20020a81260a000000b002f4ca82a42fmr1985644ywm.149.1650476194968; Wed, 20
+ Apr 2022 10:36:34 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 4fb4e6b3-f7c0-496a-a7b4-08da22efac60
-X-MS-TrafficTypeDiagnostic: PH0PR12MB5678:EE_
-X-Microsoft-Antispam-PRVS: <PH0PR12MB5678FF04F463DFC276F4774FDCF59@PH0PR12MB5678.namprd12.prod.outlook.com>
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: F4jkN1BLhjICuSq0uuVTvtQYtwt7xEybP5Tmf2H7TtR6es3ipjL0MONUveGaBrQwrUgyKki9FbiPBdrAn1SFlYGJefvI5R2KOWJM7QyZgqeOT5tb2G+dWrP3cQrsAG7ou6Gbw49SOUKLNnpd45LhZBMiMnhzg7LLxQtbn2auFMlHqA1uekEaVok2OuqsBaxmQhdCFDb5aSp9+Bs80wHdA1hVYYoJG5UHRtXy05fV5E2F8HeIoLuRg50WjXdXttymqW80lll7+nH5pt75MU5TwSBFCabwTzhIdC5eD4rUgowIol9t4mnRW2eAnTPB9DNolDWy61OzpGNTZdtBFyJx2bfMVg0Uf6evbzFDjfHUjGnx+KRMlTQnHB1MY/GJPI5ut2Cj9rV/sXm5SDjN4nL/p5Z8WXls1E09Rma00CESftf5TvmjpmLc/PM35ZxXYYI4b1lNZLI015mOhWXOerYfQ8ZeDAYLsDnWeRFISYAAPhGjnpREkwA9ioDJOguxrwxuv1fLgAr+6ECfSU+QfZKMdQ+BlKwWEfl80g9aRb0+Q+jGzvIIr+Kv0z5chOcg5ZWXjI4soBN4pCUrviDgs2uUIUYCHlgw8ioSurSUnGH56Hc7uxoSaOIC/n4G1Txg4Go2s0sddQYOXiaQLenaBT0YBbdE0+MEpHElqor0g3ZmBysUaLSmXcLYUEvBiFQjcbaib3b2zudDZt6yxgKcxnIHI5Dv4Lb0tEX5QYXktEbyZYc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:MN2PR12MB3437.namprd12.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(13230001)(4636009)(366004)(6916009)(54906003)(38100700002)(36756003)(316002)(31686004)(83380400001)(6506007)(53546011)(8936002)(6666004)(508600001)(5660300002)(7416002)(2906002)(6486002)(66556008)(66476007)(186003)(26005)(66946007)(6512007)(31696002)(86362001)(2616005)(8676002)(4326008)(45980500001)(43740500002);
- DIR:OUT; SFP:1101; 
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q05KV2FJQWwrNU5ob3lQdWZUbHFzbVRsSlMyb0dGOHRHN3Ywd1lqcW83dTNr?=
- =?utf-8?B?by92bEZvbXpiZ1VpNVJOdVB0NXVqNWNkcXVyb3lUclVSZnBxNlFzZG5uRjZP?=
- =?utf-8?B?OUhEMHpqQ0JRVG9WMGhjQ2dmbm5qdmFaSVBDdDFBL0VROG1zb1BQVW10N1Mw?=
- =?utf-8?B?OFRFNzZNejZIWHRaZ1FGNFljdzR4bzRlZS9wbTZ6QmFTOU9VVzVFNFcvN3E0?=
- =?utf-8?B?TTQxb3hrMTFVZ285bzdtZkZUNTU4c0x5a2JTYnRObklPZTd5S1hCTWlRM2pQ?=
- =?utf-8?B?ZEQ2em44WGdYMkg5ZWxGTVZCajg5WE90dXJ5NExxd0pCSlF3ZGt2Nzdya0lV?=
- =?utf-8?B?WUFDclprLzhXYjRxS25TMy9OT2VzMHlnSU81R25tV3hsOHl1RlB0K00zWDNx?=
- =?utf-8?B?RmRmcmdNNkhlV3RCcTNTOE5lYUpsOXhEY21nT3pqUGU5dWU3aE9vRFBTbld1?=
- =?utf-8?B?R0dHT1NNTTRGaUNRMGZJNzZ3V3ArN3dQR2RXNFdiQW5pL0c1ekhzRC9hdHdw?=
- =?utf-8?B?OU44cXI2S1U5eTF3QWhvZGFDSDVLRHlSSHd3c0N4cVk4Vm92a0VkRDVCbXhM?=
- =?utf-8?B?aG1HZ0VlTmc0ZmxBNitvdFhXYXpkNmtGTmUxYnBFR3RYUUg4UWZFSU0reGlF?=
- =?utf-8?B?WTZOcUNUcjZtV0dma0xjWEhiSXV1MlAzYjhKbXE0dlJ3NW9oZE1TekhYbjVB?=
- =?utf-8?B?V08ycFlBWHJIREQ3Ukd2U2djRUVJV0F4QUdSZ3ROZXBJZlE2OE5WeG9ROStX?=
- =?utf-8?B?b25CQzdJUTVPQUVvNFIyV1lhcWYzbzFUM043UE94WjU5dFZldmwrdTcxaFYx?=
- =?utf-8?B?ZHFLU3JsektmK1dIbDF3NEptRUxxZEVyaVkzL0hqMnkxbHZDYzdwMFhSY0Q4?=
- =?utf-8?B?RDVwNXhGa3ZpUHdKNlM4c2UyN1kxUDVJVm1lWGFUQUYrZ2dNcTNER2R6RFVk?=
- =?utf-8?B?NjRpOTRQMms2eFlWby9YbUtwejkzMGxqQklwbHpHRnlud05IYitlL21Fb3ZP?=
- =?utf-8?B?YU91MnZGMWVIS2g2OUpPYnJzK2ovSitUZDdiRDBVbWt0dmhyV0RibnBqSFVI?=
- =?utf-8?B?SVQ0cXA0MzE1VHZZc1RqMyt5UVU5M0U2STliTjliWDFpaHJMMURuaWlCaDBv?=
- =?utf-8?B?bWhFRlF1a0krUHJsY3lrbXM5RUprcHdtcnZ3TzJhQlhHN2NEV3FSMlBPb0th?=
- =?utf-8?B?MGhicTdtT2VZSjZ1ZXZFWUMrN3RBd09qZ2cvWTVRaThOQW9LMHlyOHkyZEc1?=
- =?utf-8?B?ZnBrajNEZmExTCszV0NFZDg4WEFJUXpKekdQRVF0ek05cWdPLzBzYnRxai94?=
- =?utf-8?B?OE1URnJya3BTOXFpM2UwUEVGaEoyZFF3M1N1c2FoVllFVm9yQUlMb3dPemtp?=
- =?utf-8?B?K0JFU0Jaa2FEOUFmSjFqZlJaUWtINDMxT29JSk9oK21GYWt3Ym5UV2ZrdmNF?=
- =?utf-8?B?OVU4ZXNWQ0F4aEZpVkhsd1ZiTE5tdXBUWVA1QUw4VzFiTnA2NXVweHV0NVBN?=
- =?utf-8?B?STQ1SjFZTVY1b1Z1WHVJY1VlQVV3MjFRcjFPMm5jL1FpeXZkbU5HZHo4M1pO?=
- =?utf-8?B?alMvRnZFTC9RZDQzcUJleS9NNGlnRkQwaGVMT2E5Rm5ZaFNsTVh1VCtLNy9E?=
- =?utf-8?B?VGVCdjVlRTQvMXBRZjI1WHQ3ZUZhbGx6bzlaTldiYk9mQzJjbENhcHoyR09K?=
- =?utf-8?B?VXVDdTV4YjFmeXJZajBoYTgxN29NSG9WbXZESmcvTmhOSkRtakNEc3Zab29B?=
- =?utf-8?B?dFFvVGhzYlg5NXdLOHBVdTh3QWxuOE5ZV3prTDl0YnhkbnVrM29HcGVQRkhN?=
- =?utf-8?B?K1VIYlV2R0VCdDh6dXpwdEpSWUpkaFF1dXUrTmR5VkRoZXpncStVcmdWRTBU?=
- =?utf-8?B?ZGl3UjUybUVvVXVVNDliZE1JeUdDMW9wZjNadis2Zk0xYUlreUs1aWt5YUlC?=
- =?utf-8?B?Y0R1VTVYajlNMGxuYnZZV2hxVTBReGdlYXdjWDl3U3VpcCt3b256YzlVR1Iv?=
- =?utf-8?B?aGZ4em1DSk4wVDRCa0JQbDNiYzV6WWNwVS9jelo5YXI0dkp1THAwU1dMajJu?=
- =?utf-8?B?R2RXcitHdFZkRUp2NnVZZUE3Ym9TeXhkWDE4OVBDK1dzTXVqam4xY0QwMFZL?=
- =?utf-8?B?UkRzQTRDZ1RYdkgzb2FaSWJGNXFERzFvaWN5YXZ3QlZrVjFYRmIxK1lNSTYw?=
- =?utf-8?B?Yk9YaUJiaXBlbzNKc09veTBzdyt6a1VGVGc4S1hhZ2IySmRIVzZQZkl5dnhG?=
- =?utf-8?B?ZEFJcjBJaDRCZXRtZ01jbklJL1RrRk1FS05XUUkzWGZFMFM0ZTBJczRvV2pG?=
- =?utf-8?B?aHI3eTdsR2tWRGtXbDl2TXZLNUV0V3VVUy9ZYXU1R3hybkwzdWI5UT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4fb4e6b3-f7c0-496a-a7b4-08da22efac60
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3437.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Apr 2022 17:03:21.2608 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VLb3MMV15MP1rOkUVeKxcpFaVNMuBpZyo7nKxMf9KhWaX9b98Ps05vGU5CKg7QcyomfGufczI/QnVDPM3kpfSQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB5678
+References: <20220411233832.391817-1-dmitry.osipenko@collabora.com>
+ <20220411233832.391817-4-dmitry.osipenko@collabora.com>
+ <CAJZ5v0gf1J+yPW14TAdLGLGfO+-2s=r0DDP7d+Rgop3=dB0gaQ@mail.gmail.com>
+ <af51d9d0-26ba-fc66-05f1-d92ef7172730@collabora.com>
+ <CAJZ5v0jFQi1x1Fnfk04n+HTTirz19-_xW2NgJtpOYyPgVh3Afw@mail.gmail.com>
+ <fa20ae2f-e265-c713-493d-5b2ebcdf7f0a@collabora.com>
+In-Reply-To: <fa20ae2f-e265-c713-493d-5b2ebcdf7f0a@collabora.com>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Wed, 20 Apr 2022 19:36:23 +0200
+Message-ID: <CAJZ5v0iA6St_J5C6+Efygu25g9g-_tLBPc0qQoHbFqfrdT6azQ@mail.gmail.com>
+Subject: Re: [PATCH v7 03/20] reboot: Print error message if restart handler
+ has duplicated priority
+To: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+ Thierry Reding <thierry.reding@gmail.com>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, Russell King <linux@armlinux.org.uk>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Guo Ren <guoren@kernel.org>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, Greg Ungerer <gerg@linux-m68k.org>, 
+ Joshua Thompson <funaho@jurai.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Sebastian Reichel <sre@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Greentime Hu <green.hu@gmail.com>, 
+ Vincent Chen <deanbo422@gmail.com>, 
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
+ Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "the arch/x86 maintainers" <x86@kernel.org>, 
+ "H. Peter Anvin" <hpa@zytor.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+ Juergen Gross <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>,
+ Len Brown <lenb@kernel.org>, 
+ Santosh Shilimkar <ssantosh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Pavel Machek <pavel@ucw.cz>, 
+ Lee Jones <lee.jones@linaro.org>, Andrew Morton <akpm@linux-foundation.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, 
+ =?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org, 
+ linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ linux-parisc@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, Linux-sh list <linux-sh@vger.kernel.org>, 
+ xen-devel@lists.xenproject.org, 
+ ACPI Devel Maling List <linux-acpi@vger.kernel.org>,
+ Linux PM <linux-pm@vger.kernel.org>, 
+ linux-tegra <linux-tegra@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220420_101907_585205_CBC6793D 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20220420_103638_123531_8AF8D0B8 
+X-CRM114-Status: GOOD (  40.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,146 +119,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/20/2022 1:33 AM, Guo Ren wrote:
-> Thx Dan,
-> 
-> On Wed, Apr 20, 2022 at 1:12 AM Dan Lustig <dlustig@nvidia.com> wrote:
->>
->> On 4/17/2022 12:51 AM, Guo Ren wrote:
->>> Hi Boqun & Andrea,
->>>
->>> On Sun, Apr 17, 2022 at 10:26 AM Boqun Feng <boqun.feng@gmail.com> wrote:
->>>>
->>>> On Sun, Apr 17, 2022 at 12:49:44AM +0800, Guo Ren wrote:
->>>> [...]
->>>>>
->>>>> If both the aq and rl bits are set, the atomic memory operation is
->>>>> sequentially consistent and cannot be observed to happen before any
->>>>> earlier memory operations or after any later memory operations in the
->>>>> same RISC-V hart and to the same address domain.
->>>>>                 "0:     lr.w     %[p],  %[c]\n"
->>>>>                 "       sub      %[rc], %[p], %[o]\n"
->>>>>                 "       bltz     %[rc], 1f\n".
->>>>> -               "       sc.w.rl  %[rc], %[rc], %[c]\n"
->>>>> +               "       sc.w.aqrl %[rc], %[rc], %[c]\n"
->>>>>                 "       bnez     %[rc], 0b\n"
->>>>> -               "       fence    rw, rw\n"
->>>>>                 "1:\n"
->>>>> So .rl + fence rw, rw is over constraints, only using sc.w.aqrl is more proper.
->>>>>
->>>>
->>>> Can .aqrl order memory accesses before and after it (not against itself,
->>>> against each other), i.e. act as a full memory barrier? For example, can
->>> From the RVWMO spec description, the .aqrl annotation appends the same
->>> effect with "fence rw, rw" to the AMO instruction, so it's RCsc.
->>>
->>> Not only .aqrl, and I think the below also could be an RCsc when
->>> sc.w.aq is executed:
->>> A: Pre-Access
->>> B: lr.w.rl ADDR-0
->>> ...
->>> C: sc.w.aq ADDR-0
->>> D: Post-Acess
->>> Because sc.w.aq has overlap address & data dependency on lr.w.rl, the
->>> global memory order should be A->B->C->D when sc.w.aq is executed. For
->>> the amoswap
->>
->> These opcodes aren't actually meaningful, unfortunately.
->>
->> Quoting the ISA manual chapter 10.2: "Software should not set the rl bit
->> on an LR instruction unless the aq bit is also set, nor should software
->> set the aq bit on an SC instruction unless the rl bit is also set."
-> 1. Oh, I've missed the behind half of the ISA manual. But why can't we
-> utilize lr.rl & sc.aq in software programming to guarantee the
-> sequence?
+On Mon, Apr 18, 2022 at 3:29 AM Dmitry Osipenko
+<dmitry.osipenko@collabora.com> wrote:
+>
+> On 4/14/22 14:19, Rafael J. Wysocki wrote:
+> > On Thu, Apr 14, 2022 at 12:24 AM Dmitry Osipenko
+> > <dmitry.osipenko@collabora.com> wrote:
+> >>
+> >> On 4/13/22 21:48, Rafael J. Wysocki wrote:
+> >>> On Tue, Apr 12, 2022 at 1:39 AM Dmitry Osipenko
+> >>> <dmitry.osipenko@collabora.com> wrote:
+> >>>>
+> >>>> Add sanity check which ensures that there are no two restart handlers
+> >>>> registered using the same priority. This requirement will become mandatory
+> >>>> once all drivers will be converted to the new API and such errors will be
+> >>>> fixed.
+> >>>>
+> >>>> Signed-off-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+> >>>
+> >>> The first two patches in the series are fine with me and there's only
+> >>> one minor nit regarding this one (below).
+> >>>
+> >>>> ---
+> >>>>  kernel/reboot.c | 15 +++++++++++++++
+> >>>>  1 file changed, 15 insertions(+)
+> >>>>
+> >>>> diff --git a/kernel/reboot.c b/kernel/reboot.c
+> >>>> index ed4e6dfb7d44..acdae4e95061 100644
+> >>>> --- a/kernel/reboot.c
+> >>>> +++ b/kernel/reboot.c
+> >>>> @@ -182,6 +182,21 @@ static ATOMIC_NOTIFIER_HEAD(restart_handler_list);
+> >>>>   */
+> >>>>  int register_restart_handler(struct notifier_block *nb)
+> >>>>  {
+> >>>> +       int ret;
+> >>>> +
+> >>>> +       ret = atomic_notifier_chain_register_unique_prio(&restart_handler_list, nb);
+> >>>> +       if (ret != -EBUSY)
+> >>>> +               return ret;
+> >>>> +
+> >>>> +       /*
+> >>>> +        * Handler must have unique priority. Otherwise call order is
+> >>>> +        * determined by registration order, which is unreliable.
+> >>>> +        *
+> >>>> +        * This requirement will become mandatory once all drivers
+> >>>> +        * will be converted to use new sys-off API.
+> >>>> +        */
+> >>>> +       pr_err("failed to register restart handler using unique priority\n");
+> >>>
+> >>> I would use pr_info() here, because this is not a substantial error AFAICS.
+> >>
+> >> It's indeed not a substantial error so far, but it will become
+> >> substantial later on once only unique priorities will be allowed. The
+> >> pr_warn() could be a good compromise here, pr_info() is too mild, IMO.
+> >
+> > Well, I'm still unconvinced about requiring all of the users of this
+> > interface to use unique priorities.
+> >
+> > Arguably, there are some of them who don't really care about the
+> > ordering, so could there be an option for them to specify the lack of
+> > care by, say, passing 0 as the priority that would be regarded as a
+> > special case?
+> >
+> > IOW, if you pass 0, you'll be run along the others who've also passed
+> > 0, but if you pass anything different from 0, it must be unique.  What
+> > do you think?
+>
+> There are indeed cases where ordering is unimportant. Like a case of
+> PMIC and watchdog restart handlers for example, both handlers will
+> produce equal effect from a user's perspective. Perhaps indeed it's more
+> practical to have at least one shared level.
+>
+> In this patchset the level 0 is specified as an alias to the default
+> level 128. If one user registers handler using unique level 128 and the
+> other user uses non-unique level 0, then we have ambiguity.
+>
+> One potential option is to make the whole default level 128 non-unique.
+> This will allow users to not care about the uniqueness by default like
+> they always did it previously, but it will hide potential problems for
+> users who actually need unique level and don't know about it yet due to
+> a lucky registration ordering that they have today. Are you okay with
+> this option?
 
-lr.aq and sc.rl map more naturally to hardware than lr.rl and sc.aq.
-Plus, they just aren't common operations to begin with, e.g., there
-is no smp_store_acquire() or smp_load_release(), nor are there
-equivalents in C/C++ atomics.
-
-> 2. Using .aqrl to replace the fence rw, rw is okay to ISA manual,
-> right? And reducing a fence instruction to gain better performance:
->                 "0:     lr.w     %[p],  %[c]\n"
->                  "       sub      %[rc], %[p], %[o]\n"
->                  "       bltz     %[rc], 1f\n".
->  -               "       sc.w.rl  %[rc], %[rc], %[c]\n"
->  +              "       sc.w.aqrl %[rc], %[rc], %[c]\n"
->                  "       bnez     %[rc], 0b\n"
->  -               "       fence    rw, rw\n"
-
-Yes, using .aqrl is valid.
-
-Dan
-
->>
->> Dan
->>
->>> The purpose of the whole patchset is to reduce the usage of
->>> independent fence rw, rw instructions, and maximize the usage of the
->>> .aq/.rl/.aqrl aonntation of RISC-V.
->>>
->>>                 __asm__ __volatile__ (                                  \
->>>                         "0:     lr.w %0, %2\n"                          \
->>>                         "       bne  %0, %z3, 1f\n"                     \
->>>                         "       sc.w.rl %1, %z4, %2\n"                  \
->>>                         "       bnez %1, 0b\n"                          \
->>>                         "       fence rw, rw\n"                         \
->>>                         "1:\n"                                          \
->>>
->>>> we end up with u == 1, v == 1, r1 on P0 is 0 and r1 on P1 is 0, for the
->>>> following litmus test?
->>>>
->>>>     C lr-sc-aqrl-pair-vs-full-barrier
->>>>
->>>>     {}
->>>>
->>>>     P0(int *x, int *y, atomic_t *u)
->>>>     {
->>>>             int r0;
->>>>             int r1;
->>>>
->>>>             WRITE_ONCE(*x, 1);
->>>>             r0 = atomic_cmpxchg(u, 0, 1);
->>>>             r1 = READ_ONCE(*y);
->>>>     }
->>>>
->>>>     P1(int *x, int *y, atomic_t *v)
->>>>     {
->>>>             int r0;
->>>>             int r1;
->>>>
->>>>             WRITE_ONCE(*y, 1);
->>>>             r0 = atomic_cmpxchg(v, 0, 1);
->>>>             r1 = READ_ONCE(*x);
->>>>     }
->>>>
->>>>     exists (u=1 /\ v=1 /\ 0:r1=0 /\ 1:r1=0)
->>> I think my patchset won't affect the above sequence guarantee. Current
->>> RISC-V implementation only gives RCsc when the original value is the
->>> same at least once. So I prefer RISC-V cmpxchg should be:
->>>
->>>
->>> -                       "0:     lr.w %0, %2\n"                          \
->>> +                      "0:     lr.w.rl %0, %2\n"                          \
->>>                         "       bne  %0, %z3, 1f\n"                     \
->>>                         "       sc.w.rl %1, %z4, %2\n"                  \
->>>                         "       bnez %1, 0b\n"                          \
->>> -                       "       fence rw, rw\n"                         \
->>>                         "1:\n"                                          \
->>> +                        "       fence w, rw\n"                    \
->>>
->>> To give an unconditional RSsc for atomic_cmpxchg.
->>>
->>>>
->>>> Regards,
->>>> Boqun
->>>
->>>
->>>
-> 
-> 
-> 
+Yes, I am.
 
 _______________________________________________
 linux-riscv mailing list
