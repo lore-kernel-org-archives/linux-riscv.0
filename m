@@ -4,72 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B021C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 22:40:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23B93C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 23:01:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UFu2bsAtTHyvUwDF73ftFQxACO5DGW2jfIwWKkfY/hc=; b=LztbOrC0OchcCg
-	3Gk2ZTUpHYTgvXpeHoiJrFhtDvXrSDBsaAo633hIPGsxqOc/fADCGOofwRNSpmAKM0sRgGR+sGmnr
-	QgpIRR0wfnwr3JfmMEfyh0p/vpTuZ4lIc4mGOdPieWEBvkw//oJ4mS3OTo7Oc49gK+zTmniaLDOgA
-	QGlorOvatwQYhDOTx7w2D8a6h1ypw+IrPoDn8r1JVbpdBGJhh/ho96HZc+Ly68Xplc7d/c6erkBpm
-	7xmZED1QBARZYy47vx55i3BBcCOZHPjej7oWXJWkJDcsje+W13VqkE7wQv+cr6nFbAhlUhTgCyY35
-	PHYz1fszWRUNKW4KPifw==;
+	List-Owner; bh=pwyNjUkxYl9xZ8JvpiyQZzI/IYZ9m8cAaZy4pZIFxDk=; b=RwjFkqJumcz6fT
+	RWKVOIwcKOfOHCg11YkCbONfZbq0YWaIPTU5v0b20Nc0rnE/E/N7MdHKvsnh3hU4DMG4fe4Z3ILAf
+	xRynox4MFumuwC1rFo4y4a6FYK6RM6sdsJxTG351TFEcgrJ0BVo1wXD295BPiwzr6thmtBQFm1/7L
+	fEY+O9W698IVrAl0BEh5z74noXuIIPYWK1Kgyw4ZbD7ppBWeOXtKNujgfjLE3UrYP1GO2+XvOBx0I
+	E81nMNEuJUWeRtsA4MuLqbnllJ4IZTe0/bXezjsJTAJxbC+8aU6G7K2RQHV8w985Zvx0gLQ29OhRm
+	f0znFRLYw0A1jAZ305EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nhIzz-00Al3G-Ml; Wed, 20 Apr 2022 22:40:35 +0000
-Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
+	id 1nhJJk-00Annv-2n; Wed, 20 Apr 2022 23:01:00 +0000
+Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nhIzv-00Al1D-Dq
- for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 22:40:34 +0000
-Received: by mail-yw1-x1133.google.com with SMTP id
- 00721157ae682-2ec05db3dfbso34098147b3.7
- for <linux-riscv@lists.infradead.org>; Wed, 20 Apr 2022 15:40:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=PDPlXpgyHO1Tq+DlJ+vKmZK0ZbHm1vtqTlycnJ11XBg=;
- b=Dn+4m5dtOR/5x0ftZIEEPPVYLsvmQYOjxJ6Xlp3Q1t276cM/5suHQYH5tWuSZJt9O5
- o1arHx+QUZK4NKk8pfNvhluOVPFGwxeDa+BMQxAeuLkdKdhq2KErXBx2lVUTaMWSeUYR
- neCYw+sDGhSdylTr5u/99pcgJXsZKyzSbyYI0i0tM4K8zQ/o7KRr1VBY5PhFl0qDuaY6
- VSvUjS3IqHWz1DPh8pU2Uk4rlzCHKnky3r9hM/35yFts7L+mxyMxJ+MvqzIQdlhSWnNQ
- 5ZUMLcSn8orGjbmuhan6BjXfDQ+ELPaiIPUZf+RBfSxMCfD5a4MBt1ZhD/X7F7WT4ZXl
- zSAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=PDPlXpgyHO1Tq+DlJ+vKmZK0ZbHm1vtqTlycnJ11XBg=;
- b=ztG0jaL9WLikXuFKUZsh57LmoTGjbJnc08m9G0jLmm1hoJ+EPoLwzUvcvl9nfbb5Ws
- 9Nc1+6CaplzLFL4Qlv/q71zPCs9R8aKisdwKhP0lWp0OASjkxVIwf8Anfntwb2l2vPV/
- KNxuxlRI2yTi/9lRW3oxzRJhfEPNjv3hMXVxdcQfU+Mpcgf74sYPE+WwAF2EG/VcmIdX
- q3x2eRD4ZlU7Ph1CPV2cXkzSMFAckjVnDOXCErhzJpn+tXXrAde9ZrD0JgYFR0a35Y1y
- IBE4ff62BtXLOUOm2S2dgmBjtL58FpvCdruXQM/L0C9F/kQtSJ401uTMFvMALCqmgitW
- GhrA==
-X-Gm-Message-State: AOAM531iXSlolRpLkCNEapq2h4x1V+JwCh+QpXhYIRPd5N3p+zfCscO5
- xZ9dkaJoFtpJ1fGiTabgHcATh2vVTFwm66Ff0KSKJw==
-X-Google-Smtp-Source: ABdhPJxKqQxuNMwOvKvwxEZwWGkVMHh3ibxCcHJ1MBT1TdSljeiKict+Cq2u1J1geuVROj3r9zFVBxAHWlaeHPH2CmQ=
-X-Received: by 2002:a81:1cd5:0:b0:2f4:c3fc:2174 with SMTP id
- c204-20020a811cd5000000b002f4c3fc2174mr3985288ywc.512.1650494424156; Wed, 20
- Apr 2022 15:40:24 -0700 (PDT)
+ id 1nhJJa-00Anlb-1a
+ for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 23:00:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1650495649; x=1682031649;
+ h=message-id:date:mime-version:subject:to:cc:references:
+ from:in-reply-to:content-transfer-encoding;
+ bh=S3wrcHUGdl9LcKznCHJjFCjAB1oU2LwvM5QjcZA34fY=;
+ b=aaMpig3V0AQFRjEzKlg48BxoJQw+GESBf9BdgszUyTT1PQWGCdho4BH0
+ iEUYj2vz4Hg0On1WZk/KwK7hzdfb77Q1s7jK3mooJSJabZQJLWA8tSQSf
+ LaL6xK1VsVJLedl4KyI/pqETMKydmSGiRcPR+5GvClEdjJBYK0khkjhS8
+ 6fK1VnzYDuMEkdEHD5T1Ub9hLToQgKvw8Z2p7zninsHFVG0MRDrBCW66X
+ cXrGEnQ9gnba4FxjzBw5Zg63WDaFavLiM8C1Zi+4IJeSFZodtSETt7CFd
+ i1JcMn0pK+rPpdoUIjP8VvgCYVEsPoi4ShWLZv4qzL3Ywvs6+f9HPiH2q Q==;
+X-IronPort-AV: E=Sophos;i="5.90,276,1643644800"; d="scan'208";a="310377890"
+Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 21 Apr 2022 07:00:44 +0800
+IronPort-SDR: tZcRqGuN3cY9/ZdaxbG9vEFN3Ox6RLUoFeTr75sKyHo8uC2q+qCRAjJDODRgCu/YN38Qe6zCVy
+ AlS2hR4arw2Uca30jrBtRy2OcEZyKAU8OIL5lahCs5EiQtpWNAhL8z2Jeesd0qL5mPavxOhUof
+ k11fYkzugxFC0PRr0e5WcEWU+TJpG+F0B3o6K4RgRh+BKcpshTySKw+RvcEMqCI4SIrKCNRzuq
+ lD1AqnTeVueRN7lOd0noG/gWOKQoglNnS/aUt013Rjig4++Vq+IHo83mzqACgWE6HzGZmbtpea
+ a8zau4REcgA5jYHUxVfso/Ob
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;
+ 20 Apr 2022 15:31:02 -0700
+IronPort-SDR: xQ2a5d76O4Mf1H/PWk9PFrG8Am9Wm4vldQVkoZ7uaPilLGT6AwIdUTe3D/60HCsqjAEOQLzDZO
+ hoSrVKfEVnG4zZKdOboqA+gxEISac+KQnju1S3eM86QSgO0H3knlp94TiCtrZo4y0b/pz+eHLx
+ hyXUwl4JMmpHPL0HIv+naBvpVgtQa1zmQjJWukVLdkLuYhhPKRRY6C5SmS+u+s4pdZWi1RZmog
+ /ATrfpIGNbiVWUV83RmV5LNRVwxzyvS+QLsstl6I+93hbuwaRba+ST6tnDAMdUctps/vj9C1X+
+ mlQ=
+WDCIronportException: Internal
+Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
+ by uls-op-cesaip02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;
+ 20 Apr 2022 16:00:45 -0700
+Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4KkGNr4sn1z1SHwl
+ for <linux-riscv@lists.infradead.org>; Wed, 20 Apr 2022 16:00:44 -0700 (PDT)
+Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
+ reason="pass (just generated, assumed good)"
+ header.d=opensource.wdc.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
+ opensource.wdc.com; h=content-transfer-encoding:content-type
+ :in-reply-to:organization:from:references:to:content-language
+ :subject:user-agent:mime-version:date:message-id; s=dkim; t=
+ 1650495643; x=1653087644; bh=S3wrcHUGdl9LcKznCHJjFCjAB1oU2LwvM5Q
+ jcZA34fY=; b=D2NS7tuk1+iRdP2LXEmtP9/6hn5ZwQNV8bhVAXHTm6qx3RZWyL5
+ c6jousROa5m5iDPz8KDFGCCqKUQ14/8fXxb+x5u4wqoE3FKSjF+IWh2fzArJDGlV
+ kMXNdZ+1bffcohH0WCo3xmyWq10jH8WKZiiMcbDew14H68pdOjH/l9dBXXQK7cp7
+ 2qRoMSDlhBuTMnFp12RR8hWOc8ro6TqIrFTwNh/5ewrdZ40NPlO35+HNySdfJD5t
+ X2iefhTMwwiq2uiGXQOqpmYE8heVo/dam/Wd9BPmhLhdH3v2+kulsKEIZ/XInTdm
+ pGPF6aGbXgmmA+zSgg/E4dJvjGh1pWJXsLw==
+X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
+Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
+ by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new,
+ port 10026)
+ with ESMTP id JTz9KjloVwFA for <linux-riscv@lists.infradead.org>;
+ Wed, 20 Apr 2022 16:00:43 -0700 (PDT)
+Received: from [10.225.163.14] (unknown [10.225.163.14])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4KkGNl5hPQz1Rvlx;
+ Wed, 20 Apr 2022 16:00:39 -0700 (PDT)
+Message-ID: <ff01a3d8-3248-b0cb-2276-6438b995dfea@opensource.wdc.com>
+Date: Thu, 21 Apr 2022 08:00:38 +0900
 MIME-Version: 1.0
-References: <0000000000009054b205dd1bbcd5@google.com>
-In-Reply-To: <0000000000009054b205dd1bbcd5@google.com>
-From: Marco Elver <elver@google.com>
-Date: Thu, 21 Apr 2022 00:39:47 +0200
-Message-ID: <CANpmjNNJQ6gorxVg4trf_CKut5ZVDwpePHQaSDVLYyEMCAKDKw@mail.gmail.com>
-Subject: Re: [syzbot] KASAN: slab-out-of-bounds Read in __bfs (2)
-To: syzbot <syzbot+a7de825fb004b4dced19@syzkaller.appspotmail.com>, 
- linux-riscv <linux-riscv@lists.infradead.org>
-Cc: arnd@arndb.de, dinguyen@kernel.org, dvyukov@google.com, 
- ebiederm@xmission.com, linux-kernel@vger.kernel.org, shorne@gmail.com, 
- syzkaller-bugs@googlegroups.com, 
- Alexandre Ghiti <alexandre.ghiti@canonical.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.0
+Subject: Re: [PATCH] binfmt_flat: Remove shared library support
+Content-Language: en-US
+To: Rich Felker <dalias@libc.org>, Arnd Bergmann <arnd@arndb.de>
+Cc: Kees Cook <keescook@chromium.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ "Eric W . Biederman" <ebiederm@xmission.com>, Niklas.Cassel@wdc.com,
+ Al Viro <viro@zeniv.linux.org.uk>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Mike Frysinger <vapier@gentoo.org>,
+ "# 3.4.x" <stable@vger.kernel.org>,
+ Linux FS-devel Mailing List <linux-fsdevel@vger.kernel.org>,
+ Linux-MM <linux-mm@kvack.org>, linux-riscv
+ <linux-riscv@lists.infradead.org>, linux-arch <linux-arch@vger.kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ linux-m68k <linux-m68k@lists.linux-m68k.org>,
+ Greg Ungerer <gerg@linux-m68k.org>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ Linux-sh list <linux-sh@vger.kernel.org>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>
+References: <87levzzts4.fsf_-_@email.froward.int.ebiederm.org>
+ <mhng-32cab6aa-87a3-4a5c-bf83-836c25432fdd@palmer-ri-x1c9>
+ <20220420165935.GA12207@brightrain.aerifal.cx>
+ <202204201044.ACFEB0C@keescook>
+ <CAK8P3a2KvK78bbW_5DWKsrxLvKxYDqoCkii-kxi-mB7W9DCvNA@mail.gmail.com>
+ <20220420202321.GD7074@brightrain.aerifal.cx>
+From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+Organization: Western Digital Research
+In-Reply-To: <20220420202321.GD7074@brightrain.aerifal.cx>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220420_154031_516121_87A67D81 
-X-CRM114-Status: GOOD (  13.79  )
+X-CRM114-CacheID: sfid-20220420_160050_101601_6C8C1838 
+X-CRM114-Status: GOOD (  16.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,267 +134,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-[Cc riscv]
+On 4/21/22 05:23, Rich Felker wrote:
+> On Wed, Apr 20, 2022 at 10:04:32PM +0200, Arnd Bergmann wrote:
+>> On Wed, Apr 20, 2022 at 7:47 PM Kees Cook <keescook@chromium.org> wrote:
+>>>
+>>> Yeah, I was trying to understand why systems were using binfmt_flat and
+>>> not binfmt_elf, given the mention of elf2flat -- is there really such a
+>>> large kernel memory footprint savings to be had from removing
+>>> binfmt_elf?
+>>
+>> I think the main reason for using flat binaries is nommu support on
+>> m68k, xtensa and risc-v. The regular binfmt_elf support requires
+>> an MMU, and the elf-fdpic variant is only available for arm and sh
+>> at this point (the other nommu architectures got removed over time).
+> 
+> I believe I made the elf-fdpic loader so that it's capable of loading
+> normal non-fdpic elf files on nommu (1bde925d23), unless somebody
+> broke that. I also seem to recall that capability being added to the
+> main elf loader later.
 
-On Wed, 20 Apr 2022 at 22:21, syzbot
-<syzbot+a7de825fb004b4dced19@syzkaller.appspotmail.com> wrote:
->
-> Hello,
->
-> syzbot found the following issue on:
->
-> HEAD commit:    0966d385830d riscv: Fix auipc+jalr relocation range checks
-> git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
-> console output: https://syzkaller.appspot.com/x/log.txt?x=10bc68e8f00000
-> kernel config:  https://syzkaller.appspot.com/x/.config?x=6295d67591064921
-> dashboard link: https://syzkaller.appspot.com/bug?extid=a7de825fb004b4dced19
-> compiler:       riscv64-linux-gnu-gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU Binutils for Debian) 2.35.2
-> userspace arch: riscv64
->
-> Unfortunately, I don't have any reproducer for this issue yet.
->
-> IMPORTANT: if you fix the issue, please add the following tag to the commit:
-> Reported-by: syzbot+a7de825fb004b4dced19@syzkaller.appspotmail.com
->
-> ==================================================================
-> BUG: KASAN: slab-out-of-bounds in __bfs+0x154/0x394 kernel/locking/lockdep.c:1708
-> Read of size 8 at addr ffffaf801145fed0 by task syz-executor.1/6775
->
-> CPU: 1 PID: 6775 Comm: syz-executor.1 Not tainted 5.17.0-rc1-syzkaller-00002-g0966d385830d #0
-> Hardware name: riscv-virtio,qemu (DT)
-> Call Trace:
-> [<ffffffff8000a228>] dump_backtrace+0x2e/0x3c arch/riscv/kernel/stacktrace.c:113
-> [<ffffffff831668cc>] show_stack+0x34/0x40 arch/riscv/kernel/stacktrace.c:119
-> [<ffffffff831756ba>] __dump_stack lib/dump_stack.c:88 [inline]
-> [<ffffffff831756ba>] dump_stack_lvl+0xe4/0x150 lib/dump_stack.c:106
-> [<ffffffff8047479e>] print_address_description.constprop.0+0x2a/0x330 mm/kasan/report.c:255
-> [<ffffffff80474d4c>] __kasan_report mm/kasan/report.c:442 [inline]
-> [<ffffffff80474d4c>] kasan_report+0x184/0x1e0 mm/kasan/report.c:459
-> [<ffffffff80475b20>] check_region_inline mm/kasan/generic.c:183 [inline]
-> [<ffffffff80475b20>] __asan_load8+0x6e/0x96 mm/kasan/generic.c:256
-> [<ffffffff8010dd9a>] __bfs+0x154/0x394 kernel/locking/lockdep.c:1708
-> [<ffffffff8010e52a>] __bfs_forwards kernel/locking/lockdep.c:1803 [inline]
-> [<ffffffff8010e52a>] check_path.constprop.0+0x24/0x46 kernel/locking/lockdep.c:2104
-> [<ffffffff8010f95c>] check_noncircular+0x11a/0x1fe kernel/locking/lockdep.c:2131
-> [<ffffffff80113c26>] check_prev_add kernel/locking/lockdep.c:3063 [inline]
-> [<ffffffff80113c26>] check_prevs_add kernel/locking/lockdep.c:3186 [inline]
-> [<ffffffff80113c26>] validate_chain kernel/locking/lockdep.c:3801 [inline]
-> [<ffffffff80113c26>] __lock_acquire+0x19a4/0x333e kernel/locking/lockdep.c:5027
->
-> Allocated by task 1102416563:
-> (stack is not available)
->
-> Freed by task 6724:
->  stack_trace_save+0xa6/0xd8 kernel/stacktrace.c:122
->  kasan_save_stack+0x2c/0x58 mm/kasan/common.c:38
->  kasan_set_track+0x1a/0x26 mm/kasan/common.c:45
->  kasan_set_free_info+0x1e/0x3a mm/kasan/generic.c:370
->  ____kasan_slab_free mm/kasan/common.c:366 [inline]
->  ____kasan_slab_free+0x15e/0x180 mm/kasan/common.c:328
->  __kasan_slab_free+0x10/0x18 mm/kasan/common.c:374
->  kasan_slab_free include/linux/kasan.h:236 [inline]
->  slab_free_hook mm/slub.c:1728 [inline]
->  slab_free_freelist_hook+0x8e/0x1cc mm/slub.c:1754
->  slab_free mm/slub.c:3509 [inline]
->  kmem_cache_free+0xca/0x482 mm/slub.c:3526
->  free_task_struct kernel/fork.c:176 [inline]
->  free_task+0xac/0xd6 kernel/fork.c:472
->  __put_task_struct+0x160/0x242 kernel/fork.c:760
->  put_task_struct include/linux/sched/task.h:115 [inline]
->  delayed_put_task_struct+0x2f0/0x394 kernel/exit.c:174
->  rcu_do_batch kernel/rcu/tree.c:2527 [inline]
->  rcu_core+0x63c/0xf36 kernel/rcu/tree.c:2778
->  rcu_core_si+0xc/0x14 kernel/rcu/tree.c:2795
->  __do_softirq+0x274/0x8fc kernel/softirq.c:558
->
-> Last potentially related work creation:
-> ------------[ cut here ]------------
-> slab index 1181800 out of bounds (419) for stack id 84520868
-> WARNING: CPU: 1 PID: 6775 at lib/stackdepot.c:304 stack_depot_fetch lib/stackdepot.c:304 [inline]
-> WARNING: CPU: 1 PID: 6775 at lib/stackdepot.c:304 stack_depot_print+0x66/0x70 lib/stackdepot.c:276
-> Modules linked in:
-> CPU: 1 PID: 6775 Comm: syz-executor.1 Not tainted 5.17.0-rc1-syzkaller-00002-g0966d385830d #0
-> Hardware name: riscv-virtio,qemu (DT)
-> epc : stack_depot_fetch lib/stackdepot.c:304 [inline]
-> epc : stack_depot_print+0x66/0x70 lib/stackdepot.c:276
->  ra : stack_depot_fetch lib/stackdepot.c:304 [inline]
->  ra : stack_depot_print+0x66/0x70 lib/stackdepot.c:276
-> epc : ffffffff80c00b8a ra : ffffffff80c00b8a sp : ffffaf801145fc60
->  gp : ffffffff85863ac0 tp : ffffaf800e583080 t0 : ffffffff86bcb657
->  t1 : fffff5ef0b53c90c t2 : 0000000000000000 s0 : ffffaf801145fc70
->  s1 : ffffaf807ab248c0 a0 : 000000000000003c a1 : 00000000000f0000
->  a2 : 0000000000000104 a3 : ffffffff8012252a a4 : 36206938ade05e00
->  a5 : 36206938ade05e00 a6 : 0000000000f00000 a7 : ffffaf805a9e4863
->  s2 : ffffaf801145fed0 s3 : ffffaf800723ea00 s4 : ffffaf801145e100
->  s5 : ffffaf801145f840 s6 : ffffffff8588bb20 s7 : ffffffff85e09180
->  s8 : ffffaf801145fde0 s9 : ffffaf800e583bd8 s10: ffffffff85899680
->  s11: ffffaf800e583080 t3 : ffffffff801163b2 t4 : fffff5ef0b53c90c
->  t5 : fffff5ef0b53c90d t6 : ffffaf801145f758
-> status: 0000000000000100 badaddr: 0000000000000000 cause: 0000000000000003
-> [<ffffffff80474a70>] describe_object_stacks mm/kasan/report.c:216 [inline]
-> [<ffffffff80474a70>] describe_object mm/kasan/report.c:231 [inline]
-> [<ffffffff80474a70>] print_address_description.constprop.0+0x2fc/0x330 mm/kasan/report.c:263
-> [<ffffffff80474d4c>] __kasan_report mm/kasan/report.c:442 [inline]
-> [<ffffffff80474d4c>] kasan_report+0x184/0x1e0 mm/kasan/report.c:459
-> [<ffffffff80475b20>] check_region_inline mm/kasan/generic.c:183 [inline]
-> [<ffffffff80475b20>] __asan_load8+0x6e/0x96 mm/kasan/generic.c:256
-> [<ffffffff8010dd9a>] __bfs+0x154/0x394 kernel/locking/lockdep.c:1708
-> [<ffffffff8010e52a>] __bfs_forwards kernel/locking/lockdep.c:1803 [inline]
-> [<ffffffff8010e52a>] check_path.constprop.0+0x24/0x46 kernel/locking/lockdep.c:2104
-> [<ffffffff8010f95c>] check_noncircular+0x11a/0x1fe kernel/locking/lockdep.c:2131
-> [<ffffffff80113c26>] check_prev_add kernel/locking/lockdep.c:3063 [inline]
-> [<ffffffff80113c26>] check_prevs_add kernel/locking/lockdep.c:3186 [inline]
-> [<ffffffff80113c26>] validate_chain kernel/locking/lockdep.c:3801 [inline]
-> [<ffffffff80113c26>] __lock_acquire+0x19a4/0x333e kernel/locking/lockdep.c:5027
-> irq event stamp: 435
-> hardirqs last  enabled at (434): [<ffffffff8041714a>] rmqueue_pcplist mm/page_alloc.c:3671 [inline]
-> hardirqs last  enabled at (434): [<ffffffff8041714a>] rmqueue mm/page_alloc.c:3698 [inline]
-> hardirqs last  enabled at (434): [<ffffffff8041714a>] get_page_from_freelist+0xfc8/0x12d8 mm/page_alloc.c:4162
-> hardirqs last disabled at (435): [<ffffffff80417140>] rmqueue_pcplist mm/page_alloc.c:3660 [inline]
-> hardirqs last disabled at (435): [<ffffffff80417140>] rmqueue mm/page_alloc.c:3698 [inline]
-> hardirqs last disabled at (435): [<ffffffff80417140>] get_page_from_freelist+0xfbe/0x12d8 mm/page_alloc.c:4162
-> softirqs last  enabled at (376): [<ffffffff82af5e6e>] rcu_read_unlock_bh include/linux/rcupdate.h:760 [inline]
-> softirqs last  enabled at (376): [<ffffffff82af5e6e>] ip_finish_output2+0x540/0x1720 net/ipv4/ip_output.c:222
-> softirqs last disabled at (377): [<ffffffff80060ea0>] do_softirq_own_stack include/asm-generic/softirq_stack.h:10 [inline]
-> softirqs last disabled at (377): [<ffffffff80060ea0>] do_softirq kernel/softirq.c:459 [inline]
-> softirqs last disabled at (377): [<ffffffff80060ea0>] do_softirq+0x158/0x15a kernel/softirq.c:446
-> ---[ end trace 0000000000000000 ]---
->
-> Second to last potentially related work creation:
-> ------------[ cut here ]------------
-> slab index 2097151 out of bounds (419) for stack id ffffffff
-> WARNING: CPU: 1 PID: 6775 at lib/stackdepot.c:304 stack_depot_fetch lib/stackdepot.c:304 [inline]
-> WARNING: CPU: 1 PID: 6775 at lib/stackdepot.c:304 stack_depot_print+0x66/0x70 lib/stackdepot.c:276
-> Modules linked in:
-> CPU: 1 PID: 6775 Comm: syz-executor.1 Tainted: G        W         5.17.0-rc1-syzkaller-00002-g0966d385830d #0
-> Hardware name: riscv-virtio,qemu (DT)
-> epc : stack_depot_fetch lib/stackdepot.c:304 [inline]
-> epc : stack_depot_print+0x66/0x70 lib/stackdepot.c:276
->  ra : stack_depot_fetch lib/stackdepot.c:304 [inline]
->  ra : stack_depot_print+0x66/0x70 lib/stackdepot.c:276
-> epc : ffffffff80c00b8a ra : ffffffff80c00b8a sp : ffffaf801145fc60
->  gp : ffffffff85863ac0 tp : ffffaf800e583080 t0 : ffffffff86bcb657
->  t1 : fffff5ef0b53c90c t2 : 0000000000000000 s0 : ffffaf801145fc70
->  s1 : ffffaf807ab248c0 a0 : 000000000000003c a1 : 00000000000f0000
->  a2 : 0000000000000104 a3 : ffffffff8012252a a4 : 36206938ade05e00
->  a5 : 36206938ade05e00 a6 : 0000000000f00000 a7 : ffffaf805a9e4863
->  s2 : ffffaf801145fed0 s3 : ffffaf800723ea00 s4 : ffffaf801145e100
->  s5 : ffffaf801145f840 s6 : ffffffff8588bb20 s7 : ffffffff85e09180
->  s8 : ffffaf801145fde0 s9 : ffffaf800e583bd8 s10: ffffffff85899680
->  s11: ffffaf800e583080 t3 : ffffffff801163b2 t4 : fffff5ef0b53c90c
->  t5 : fffff5ef0b53c90d t6 : ffffaf801145f758
-> status: 0000000000000100 badaddr: 0000000000000000 cause: 0000000000000003
-> [<ffffffff80474a22>] describe_object_stacks mm/kasan/report.c:221 [inline]
-> [<ffffffff80474a22>] describe_object mm/kasan/report.c:231 [inline]
-> [<ffffffff80474a22>] print_address_description.constprop.0+0x2ae/0x330 mm/kasan/report.c:263
-> [<ffffffff80474d4c>] __kasan_report mm/kasan/report.c:442 [inline]
-> [<ffffffff80474d4c>] kasan_report+0x184/0x1e0 mm/kasan/report.c:459
-> [<ffffffff80475b20>] check_region_inline mm/kasan/generic.c:183 [inline]
-> [<ffffffff80475b20>] __asan_load8+0x6e/0x96 mm/kasan/generic.c:256
-> [<ffffffff8010dd9a>] __bfs+0x154/0x394 kernel/locking/lockdep.c:1708
-> [<ffffffff8010e52a>] __bfs_forwards kernel/locking/lockdep.c:1803 [inline]
-> [<ffffffff8010e52a>] check_path.constprop.0+0x24/0x46 kernel/locking/lockdep.c:2104
-> [<ffffffff8010f95c>] check_noncircular+0x11a/0x1fe kernel/locking/lockdep.c:2131
-> [<ffffffff80113c26>] check_prev_add kernel/locking/lockdep.c:3063 [inline]
-> [<ffffffff80113c26>] check_prevs_add kernel/locking/lockdep.c:3186 [inline]
-> [<ffffffff80113c26>] validate_chain kernel/locking/lockdep.c:3801 [inline]
-> [<ffffffff80113c26>] __lock_acquire+0x19a4/0x333e kernel/locking/lockdep.c:5027
-> irq event stamp: 435
-> hardirqs last  enabled at (434): [<ffffffff8041714a>] rmqueue_pcplist mm/page_alloc.c:3671 [inline]
-> hardirqs last  enabled at (434): [<ffffffff8041714a>] rmqueue mm/page_alloc.c:3698 [inline]
-> hardirqs last  enabled at (434): [<ffffffff8041714a>] get_page_from_freelist+0xfc8/0x12d8 mm/page_alloc.c:4162
-> hardirqs last disabled at (435): [<ffffffff80417140>] rmqueue_pcplist mm/page_alloc.c:3660 [inline]
-> hardirqs last disabled at (435): [<ffffffff80417140>] rmqueue mm/page_alloc.c:3698 [inline]
-> hardirqs last disabled at (435): [<ffffffff80417140>] get_page_from_freelist+0xfbe/0x12d8 mm/page_alloc.c:4162
-> softirqs last  enabled at (376): [<ffffffff82af5e6e>] rcu_read_unlock_bh include/linux/rcupdate.h:760 [inline]
-> softirqs last  enabled at (376): [<ffffffff82af5e6e>] ip_finish_output2+0x540/0x1720 net/ipv4/ip_output.c:222
-> softirqs last disabled at (377): [<ffffffff80060ea0>] do_softirq_own_stack include/asm-generic/softirq_stack.h:10 [inline]
-> softirqs last disabled at (377): [<ffffffff80060ea0>] do_softirq kernel/softirq.c:459 [inline]
-> softirqs last disabled at (377): [<ffffffff80060ea0>] do_softirq+0x158/0x15a kernel/softirq.c:446
-> ---[ end trace 0000000000000000 ]---
->
-> The buggy address belongs to the object at ffffaf801145e100
->  which belongs to the cache task_struct of size 5952
-> The buggy address is located 1680 bytes to the right of
->  5952-byte region [ffffaf801145e100, ffffaf801145f840)
-> The buggy address belongs to the page:
-> page:ffffaf807ab248c0 refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x91658
-> head:ffffaf807ab248c0 order:3 compound_mapcount:0 compound_pincount:0
-> memcg:ffffaf8021359281
-> flags: 0x9000010200(slab|head|section=18|node=0|zone=0)
-> raw: 0000009000010200 ffffaf807aaad940 0000000000000003 ffffaf800723ea00
-> raw: 0000000000000000 0000000000050005 00000001ffffffff ffffaf8021359281
-> raw: 00000000000007ff
-> page dumped because: kasan: bad access detected
-> page_owner tracks the page as allocated
-> page last allocated via order 3, migratetype Unmovable, gfp_mask 0x1d20c0(__GFP_IO|__GFP_FS|__GFP_NOWARN|__GFP_NORETRY|__GFP_COMP|__GFP_NOMEMALLOC|__GFP_HARDWALL), pid 3072, ts 1369164483600, free_ts 1354406359600
->  __set_page_owner+0x48/0x136 mm/page_owner.c:183
->  set_page_owner include/linux/page_owner.h:31 [inline]
->  post_alloc_hook+0xd0/0x10a mm/page_alloc.c:2427
->  prep_new_page mm/page_alloc.c:2434 [inline]
->  get_page_from_freelist+0x8da/0x12d8 mm/page_alloc.c:4165
->  __alloc_pages+0x150/0x3b6 mm/page_alloc.c:5389
->  alloc_pages+0x132/0x2a6 mm/mempolicy.c:2271
->  alloc_slab_page.constprop.0+0xc2/0xfa mm/slub.c:1799
->  allocate_slab mm/slub.c:1944 [inline]
->  new_slab+0x25a/0x2cc mm/slub.c:2004
->  ___slab_alloc+0x56e/0x918 mm/slub.c:3018
->  __slab_alloc.constprop.0+0x50/0x8c mm/slub.c:3105
->  slab_alloc_node mm/slub.c:3196 [inline]
->  kmem_cache_alloc_node+0x1f2/0x41c mm/slub.c:3266
->  alloc_task_struct_node kernel/fork.c:171 [inline]
->  dup_task_struct kernel/fork.c:883 [inline]
->  copy_process+0x203e/0x3c34 kernel/fork.c:1998
->  kernel_clone+0xee/0x920 kernel/fork.c:2555
->  __do_sys_clone+0xf2/0x12e kernel/fork.c:2672
->  sys_clone+0x32/0x44 kernel/fork.c:2640
->  ret_from_syscall+0x0/0x2
-> page last free stack trace:
->  __reset_page_owner+0x4a/0xea mm/page_owner.c:142
->  reset_page_owner include/linux/page_owner.h:24 [inline]
->  free_pages_prepare mm/page_alloc.c:1352 [inline]
->  free_pcp_prepare+0x29c/0x45e mm/page_alloc.c:1404
->  free_unref_page_prepare mm/page_alloc.c:3325 [inline]
->  free_unref_page+0x6a/0x31e mm/page_alloc.c:3404
->  free_the_page mm/page_alloc.c:706 [inline]
->  __free_pages+0xe2/0x112 mm/page_alloc.c:5474
->  __free_slab+0x122/0x27c mm/slub.c:2028
->  free_slab mm/slub.c:2043 [inline]
->  discard_slab+0x4c/0x7a mm/slub.c:2049
->  __slab_free+0x20a/0x29c mm/slub.c:3414
->  do_slab_free mm/slub.c:3497 [inline]
->  ___cache_free+0x17c/0x354 mm/slub.c:3516
->  qlink_free mm/kasan/quarantine.c:157 [inline]
->  qlist_free_all+0x7c/0x132 mm/kasan/quarantine.c:176
->  kasan_quarantine_reduce+0x14c/0x1c8 mm/kasan/quarantine.c:283
->  __kasan_slab_alloc+0x5c/0x98 mm/kasan/common.c:446
->  kasan_slab_alloc include/linux/kasan.h:260 [inline]
->  slab_post_alloc_hook mm/slab.h:732 [inline]
->  slab_alloc_node mm/slub.c:3230 [inline]
->  kmem_cache_alloc_node+0x368/0x41c mm/slub.c:3266
->  __alloc_skb+0x234/0x2e4 net/core/skbuff.c:414
->  alloc_skb_fclone include/linux/skbuff.h:1208 [inline]
->  tcp_stream_alloc_skb+0x70/0x4c0 net/ipv4/tcp.c:861
->  tcp_sendmsg_locked+0x880/0x1d9e net/ipv4/tcp.c:1281
->  tcp_sendmsg+0x32/0x4e net/ipv4/tcp.c:1440
->
-> Memory state around the buggy address:
->  ffffaf801145fd80: f1 f1 f1 f1 00 f3 f3 f3 fc fc fc fc fc fc fc fc
->  ffffaf801145fe00: fc fc fc fc fc fc fc fc fc fc fc fc 00 00 00 00
-> >ffffaf801145fe80: f1 f1 f1 f1 00 f2 f2 f2 fc fc fc fc 00 00 00 f3
->                                                  ^
->  ffffaf801145ff00: f3 f3 f3 f3 fc fc fc fc fc fc fc fc fc fc fc fc
->  ffffaf801145ff80: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
-> ==================================================================
->
->
-> ---
-> This report is generated by a bot. It may contain errors.
-> See https://goo.gl/tpsmEJ for more information about syzbot.
-> syzbot engineers can be reached at syzkaller@googlegroups.com.
->
-> syzbot will keep track of this issue. See:
-> https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+Last time I checked, building shared libraries usable with nommu riscv
+required gcc/ld options that were not supported for riscv (PIE related
+stuff). So removing the kernel support for shared flat libs is fine with me.
+
+
+-- 
+Damien Le Moal
+Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
