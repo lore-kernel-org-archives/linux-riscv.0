@@ -4,76 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A144DC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 10:01:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61309C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 11:24:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q+gV6cQCiE13UVwlxMxVJ+Tk9EWr1cze6OsiKpzsg4o=; b=JBiO58yUIQ7Y0Y
-	TnN7SCXgnbQ9ON3SkATC1v7wt9kmFkUO4bBbVbO9QbdCR3iSUwG0FnsdTFB+Zg845ricJYs+xEt8O
-	Y6DjnaDhH590YA2ehuZUmAd4w88fNrZODkR6xPAqJqPKBM+gysbAnfUcYBPUwt514r0Pw9ZyDUU8N
-	m6cPsktfeLPe81r+gCSLq/GWlF8V8B+w6rNOsJQzkPfFocHsgDKq2UkaFDX5/BvqKXBKn4x4ywQay
-	JHydDHIVYOgFlzdPLNlvuvuRkHs+KWHV/LgeC6r623BqkWMoagA2BnG+lX6BlivTrvJVfHYZm5umY
-	NTHxwAFx5fL5BUBnTcSg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lrVr+zwiAy0YHqNC7XqeQH9doEpTQ3DQGvy2SeRP/bM=; b=AJvISN7HLa8o4H
+	S49GqPoNju1DyajF29zX2MhWXJBBmAogG2s2pNtrSdTPm9bdc6S8SZLwWFOGqKuZAoFCo9uS8dKHS
+	Bmugh1osugr0mCSvzk916YcuCDlVH5sWtQXTzUuvp/SskUf+6xLL2lsZfQbrMszffW2FJJ9imyrSm
+	Qeaec1jRgt/54NkK0yV8qfGJoEmtkewTbbMgkOw717e7SArCDx/VeMkYUaXtsgwk2dwgq5D8ZCqWU
+	mz5uVSj+AYJEphJ0x22wxpbaHpIuWFaQszo4GfWjnUWXv+82zRJENCA1qzGL6W+ZQh1OOzaYPuawj
+	meIfGbDuzm8sGPCH/X4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nh794-008STD-If; Wed, 20 Apr 2022 10:01:10 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1nh8Rb-008kQ3-HS; Wed, 20 Apr 2022 11:24:23 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nh792-008SRY-As
- for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 10:01:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1650448865;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=cyh9GNwkSeiWX8VVWJet6cmrStrv1Y1BhHYKMAKCy08=;
- b=HnfJ5WI8aCu645MavRcL49CHWuz3riDPucxoHm78uRe6z+5Quz1Vsm5WWADRh7YmByIvTM
- QQSkwhqfhc0Oc5JqiqUzEMROMqJMzLZlHZUFGmRvdQ9r5uJY3Zbo1H1M8iBWVPM+mdnzuD
- WLSLXwY5P2562H6A0wy9J/55oQQAnZY=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-428-y5X5w6yUMmmiKMMUH8qTcg-1; Wed, 20 Apr 2022 06:00:59 -0400
-X-MC-Unique: y5X5w6yUMmmiKMMUH8qTcg-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com
- [10.11.54.7])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A9093811E80;
- Wed, 20 Apr 2022 10:00:58 +0000 (UTC)
-Received: from virtlab701.virt.lab.eng.bos.redhat.com
- (virtlab701.virt.lab.eng.bos.redhat.com [10.19.152.228])
- by smtp.corp.redhat.com (Postfix) with ESMTP id F20EF141511F;
- Wed, 20 Apr 2022 10:00:57 +0000 (UTC)
-From: Paolo Bonzini <pbonzini@redhat.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Atish Patra <atishp@atishpatra.org>, David Hildenbrand <david@redhat.com>,
- Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
- Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
- linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/3] KVM: x86 SRCU bug fix and SRCU hardening
-Date: Wed, 20 Apr 2022 06:00:48 -0400
-Message-Id: <20220420100048.1093018-1-pbonzini@redhat.com>
-In-Reply-To: <20220415004343.2203171-1-seanjc@google.com>
-References: 
+ id 1nh8RY-008kPO-W2
+ for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 11:24:22 +0000
+Received: by mail-pl1-x635.google.com with SMTP id v12so1503761plv.4
+ for <linux-riscv@lists.infradead.org>; Wed, 20 Apr 2022 04:24:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ventanamicro.com; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=qOcKsvlhkYOH6DURGCa3GxXMgwg70eEyugu305Hx/i4=;
+ b=huQStEUgrnTLqHQcUVA47DLBVrjhRp8/5ooQIcVS/8VOTw2v7UkspwQK1F5mHJtRn+
+ sKTazcqIsPoEyQWgGsL4xjnBB4ggKKLQlVrFCGSSASgstQ8GxPdRXPIPSSYqM6X+BJD/
+ CjMNlZJQ6oILFY8f8vYnge/n0FMUaKLjG8YvtsFan0ZB/1LmuExXj14da32mDyl6ftWf
+ PuR9vCc39qC6/gaDqF+WNahOZAUUI2XepCDQSa+U0oFcraBdJt/17pbNfNY82qUnJZ2x
+ hXDiN2P2lw684VdyX08UCSdFaox9esIBTZPyPqRH2niJiQan2u9omItP/YrlYSrEbKoG
+ s9qQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=qOcKsvlhkYOH6DURGCa3GxXMgwg70eEyugu305Hx/i4=;
+ b=CBHFdYg9kNdRWa1X1+P4w+6+xm01dgpbbCgvQzLRSmNm66qHMu4IkXgA/CzzOo7f9Y
+ 5KMwqYtdR5/1q8dL0HJlULEtRrewSgE0Xqut8cw7CQvTn59DgUSScFr9sS7eJ7eczNJS
+ yNPTaR5btiwKje31EZ1Dize0GCChjUUR1P4V/WwORWNC3NAliFDubMzQk3RTXKldx19t
+ LAfxdEEunGnWVb56SnMlJrE0tKfiJz2I18+JhEVyZbEn/g+oftS8tcHSCDBBEiOHTgee
+ eHhWoqoNKALH04E0GQ5/lwFOVaViHTS6QkoQyOT1L5cOO69zFzRy+CJczUKpSVeAGq9Z
+ q8KA==
+X-Gm-Message-State: AOAM5325tg7SWVCKhp1LLW53Gtbm9tmWJOSeirS4zamHGItP/dDBmymc
+ WOqH7NgBCZ1VaRFT8gzju5t6EQ==
+X-Google-Smtp-Source: ABdhPJzl3XTlnh4BpULoaWgL0FpnqMN+W7u1X3uwNeAxuOqev46qNnJVPCiu+w89eCRxGJ3fhrBbrw==
+X-Received: by 2002:a17:902:f787:b0:152:157:eb7 with SMTP id
+ q7-20020a170902f78700b0015201570eb7mr19337488pln.109.1650453858367; 
+ Wed, 20 Apr 2022 04:24:18 -0700 (PDT)
+Received: from localhost.localdomain ([122.167.88.101])
+ by smtp.gmail.com with ESMTPSA id
+ m17-20020a17090a859100b001bc20ddcc67sm22273743pjn.34.2022.04.20.04.24.14
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 20 Apr 2022 04:24:17 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Atish Patra <atishp@atishpatra.org>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+ Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH v3] RISC-V: Increase range and default value of NR_CPUS
+Date: Wed, 20 Apr 2022 16:54:08 +0530
+Message-Id: <20220420112408.155561-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220420_030108_483645_B656C4C2 
-X-CRM114-Status: UNSURE (   5.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220420_042421_069035_3801DEB1 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,10 +92,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Queued, thanks.
+Currently, the range and default value of NR_CPUS is too restrictive
+for high-end RISC-V systems with large number of HARTs. The latest
+QEMU virt machine supports upto 512 CPUs so the current NR_CPUS is
+restrictive for QEMU as well. Other major architectures (such as
+ARM64, x86_64, MIPS, etc) have a much higher range and default
+value of NR_CPUS.
 
-Paolo
+This patch increases NR_CPUS range to 2-512 and default value to
+XLEN (i.e. 32 for RV32 and 64 for RV64).
 
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+Changes since v2:
+ - Rebased on Linux-5.18-rc3
+ - Use a different range when SBI v0.1 is enabled
+Changes since v1:
+ - Updated NR_CPUS range to 2-512 which reflects maximum number of
+   CPUs supported by QEMU virt machine.
+---
+ arch/riscv/Kconfig | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 00fd9c548f26..1823f281069f 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -275,10 +275,13 @@ config SMP
+ 	  If you don't know what to do here, say N.
+ 
+ config NR_CPUS
+-	int "Maximum number of CPUs (2-32)"
+-	range 2 32
++	int "Maximum number of CPUs (2-512)"
+ 	depends on SMP
+-	default "8"
++	range 2 512 if !SBI_V01
++	range 2 32 if SBI_V01 && 32BIT
++	range 2 64 if SBI_V01 && 64BIT
++	default "32" if 32BIT
++	default "64" if 64BIT
+ 
+ config HOTPLUG_CPU
+ 	bool "Support for hot-pluggable CPUs"
+-- 
+2.25.1
 
 
 _______________________________________________
