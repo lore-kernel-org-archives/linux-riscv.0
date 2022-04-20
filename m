@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C165CC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 18:48:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37DFAC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 18:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
 	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iMnHv4niGKu8WZYxB6uHMiredYst7x1JhNRh/aRPAY0=; b=WREZ9oePe+rnZd
-	oOmdU+pQ7pa476ViCYEaIIf0Rc7HKPicvNDehW3faFQCVXBza3J0FzaIDp+LPxGSZvMRZayahASlC
-	/IgEtC6A8j47AUoX8gj2DLix2TYTU6pZ37VpaFhkFBqxun9Y6rMU0RzaoBIkAbTkIJV3xRriwy7fL
-	9OqjFKssShZdK0vWjVS6q++rv8O4XO1J0SFLl/AIvsOilbXdcUilkEAXRtPauruX+rsdatg26Bc7E
-	82rhN3SYHB03GPf+laVWHLikVqzmMNFgmGWKRgg94awZ7G1iOwMOZDgnCb6Qxyqaj5Jhmt5lybLPk
-	bsvTJVox/f5UD2i3k+Hg==;
+	List-Owner; bh=NsQeglm7wAecDEf5HgQVrui8rrD9uB2Lg38OoGc4rM4=; b=BVWCElxX9eCJli
+	GE2sDwZOcnygfS4kkQkF/hJgBI7ULKOV9mZSSJ575O1KoxaK5sdLeF9MKcsNTx7FRaZiCMr+HBdVW
+	dQ9FR7tz3iUkhBNv0gS4iVhW7Evk8E3iqw3Bl2ghs4Z5UJs+Scdzj3s6aw5dGBT6UN+6ZVld3M4QY
+	71VzeXlZtA67Y6vRIHZXa69yYrT+zJva4BaddZ7EYNlmEPcFltXzuen2dG9E1qmKfO2MCONGR4/QF
+	XwKMnRHlJp2T0R4+etn0KjYsSeoC80GNolAKIf6uf2zVlmIkhuzV1STE7LrTC6lpBMNOGKY3hyDhu
+	NNIXinCw1W4IopYguA9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nhFND-00A6Cv-Ex; Wed, 20 Apr 2022 18:48:19 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1nhFNE-00A6DW-Uk; Wed, 20 Apr 2022 18:48:20 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nhFN7-00A686-QE
- for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 18:48:15 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id j8so2592496pll.11
- for <linux-riscv@lists.infradead.org>; Wed, 20 Apr 2022 11:48:12 -0700 (PDT)
+ id 1nhFN8-00A68c-U7
+ for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 18:48:16 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id
+ md20-20020a17090b23d400b001cb70ef790dso5699200pjb.5
+ for <linux-riscv@lists.infradead.org>; Wed, 20 Apr 2022 11:48:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
  h=subject:date:message-id:in-reply-to:references:mime-version
  :content-transfer-encoding:cc:from:to;
- bh=dGeAOCT6r5MCsaaONz+vK0DLEKteGUlMarNKYZRrUPE=;
- b=3DPUa2Vpp9GY71EMMBzT6vukuP1h7Mh1qSwctxVlOMqU2UrCl9zuFahzP1szIXX6JP
- +oGAyKYhhah/seZxnMyfudLk7ktQMOGReYKJAwqGSiWJomCJ6tV1k3jMPmrpTlPOtdQW
- kJRC/sx8oC23TRYHOJxOV0QJoQrwmZ0nlCC7vOzpxq3sjENQOgDOxC9U8MlJRYCijp3X
- XkACjOJY/fWnJpMHcU5hiv/g6rX4WMuwoudIiCd7VVJOnrLNQvI3lOfJlQ7+mItlv0ou
- VvWCbxS3lmCJH69vxwECf49ur9p2gkktQCU/g3ezMq4gFJAtIgzB5/OFWA4IP12tcw8N
- Apsg==
+ bh=SoH+rXIkHfn2tDchhhZbSJ+crMNxbZGozRfYvpl+XoE=;
+ b=juiLZLej55jZaTBjD9xwVIR/YAR4i7cO0bpHr89TY+dz1ORy2ejFFIdrCOQXcP2D8H
+ cIxDjtw4zoR/+O/+Cz7gJVkbmHNOFMtnczcO1N4hDW2YNoDdFy7kJvt4NocRNaWc0rrK
+ rDxA4wJWcdvspC6ywEgV5rv2Z03Jb9GhkEjoFsHw1t6EhYernuYtCEVUod4KD52lB5iP
+ s/aDAOti+/mtT0ZCn/3oAcvuMjjaJ6zzBso+eeSET7y8Nwo2WVkVUSMAt3YlM6JRpRZD
+ BvFtCMyG1ZheaQ4dagFcdUGWYCLZ3BHz7skwKmfSnGeYNrdPtlsudMgmLO3FdKIT+CFZ
+ SurQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding:cc:from:to;
- bh=dGeAOCT6r5MCsaaONz+vK0DLEKteGUlMarNKYZRrUPE=;
- b=2/hb0E4DHdnnhuKjfYRsJfQtUtfEKZ4wnqqo359x5SkQSwnMVLTSZQcD4hYXlDDMIe
- l0qS7A2mGqEWQjzbzDxXw5jCFfZ6H5b6q829/eBzdrHAPs03SYfk35tUZvn6hNqP66+T
- IF0C99WuarLWDdi3O5QtGReAsAqR67JZrjA/se9b3aYYd6wdOQ3ISav0mR8/z8yyvPbm
- xDFprXyZ88R3SBALNHLfoUdx6x9VkgIoUHIyac4HDMfpjnHigxMgVbl6ets+r7UqTdrC
- 2GGgdMz0h8TZcDhGtOGwG08OxYCQPHxwdV18Zvw7KPm2gzTbdHv7ISp/LhYsIfe4e9/1
- It7w==
-X-Gm-Message-State: AOAM532yPe15t8LIuXfdXrgxJbvRM+fi0u+w6bVGBZrH8vAAS05gPzYT
- ZSKpFsfDsz6sd8wK2zBIwxiTxQ==
-X-Google-Smtp-Source: ABdhPJy51U92hAStdVI18w60yzTLPW9PlcbYe4Ark6awPA/Y9+hbDDPc6f0OMhgjrOvin5aqSs7Y0A==
-X-Received: by 2002:a17:90b:4f82:b0:1d1:b8fd:7e36 with SMTP id
- qe2-20020a17090b4f8200b001d1b8fd7e36mr6060236pjb.194.1650480492240; 
- Wed, 20 Apr 2022 11:48:12 -0700 (PDT)
+ bh=SoH+rXIkHfn2tDchhhZbSJ+crMNxbZGozRfYvpl+XoE=;
+ b=Gm3hUQScz+48aOshoAr0b5u+0UxtPALQT063z5tpaHko5zH11x9eG/S2eWZSgEHCfQ
+ kX2JPaKG4EJ3mrUobTlIpVWNAi2OxYIU6eHnyT4RLdz0VZZ7iwUUsP0l9YngMtFhLrz9
+ ykmZ6Ysnhhpcd8Yt7J6uLuCTFeLWpCbh/OwQxFxGXgYXlCqCo4EN3lvGSTdaWHiwlE5r
+ +o9wJeByL6L38jwFZlgNu2fJi1yDUAUIzOPm7YAKgGuvSRFeqjveLXqVqf3fjobfxhHp
+ Vb50kndAsKLCWBSXktTCxecIxzzP0bZ+MBG/nRIH+Hox508zv3oWKkbIpZr4aaCvFDgE
+ zObQ==
+X-Gm-Message-State: AOAM531jKQvxr/Q8mM6QK59lHp0so2WRmaqXGayESYX8OJUUpe6MNiin
+ fFzob95O1v0FzhR98hoCSglTSQ==
+X-Google-Smtp-Source: ABdhPJxdrixrp+jfH8hvzdp/Eg4oHxPBPiHlreQAn5N+O4widmijdWQO8V5yAwiXQNEjtkHlm2bdxQ==
+X-Received: by 2002:a17:90b:4acb:b0:1d1:efc:39bd with SMTP id
+ mh11-20020a17090b4acb00b001d10efc39bdmr6085138pjb.49.1650480493464; 
+ Wed, 20 Apr 2022 11:48:13 -0700 (PDT)
 Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
- bc11-20020a656d8b000000b0039cc4dbb295sm19485492pgb.60.2022.04.20.11.48.11
+ i11-20020a654d0b000000b0039d82c3e68csm20741715pgt.55.2022.04.20.11.48.13
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 20 Apr 2022 11:48:11 -0700 (PDT)
-Subject: [PATCH v2 1/4] RISC-V: Avoid empty create_*_mapping definitions
-Date: Wed, 20 Apr 2022 11:40:53 -0700
-Message-Id: <20220420184056.7886-2-palmer@rivosinc.com>
+ Wed, 20 Apr 2022 11:48:13 -0700 (PDT)
+Subject: [PATCH v2 2/4] RISC-V: ignore xipImage
+Date: Wed, 20 Apr 2022 11:40:54 -0700
+Message-Id: <20220420184056.7886-3-palmer@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20220420184056.7886-1-palmer@rivosinc.com>
 References: <20220420184056.7886-1-palmer@rivosinc.com>
@@ -75,13 +76,13 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  gatecat@ds0.me, wangkefeng.wang@huawei.com, mick@ics.forth.gr,
  panqinglin2020@iscas.ac.cn, 
  rppt@kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux@rivosinc.com, Palmer Dabbelt <palmer@rivosinc.com>,
- kernel test robot <lkp@intel.com>
+ linux@rivosinc.com, Palmer Dabbelt <palmer@rivosinc.com>
 From: Palmer Dabbelt <palmer@rivosinc.com>
 To: linux-riscv@lists.infradead.org, rdunlap@infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220420_114813_927683_84079F1C 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20220420_114815_008962_D6F96EA8 
+X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,34 +101,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Palmer Dabbelt <palmer@rivosinc.com>
 
-At least one use of these, that in create_fdt_early_page_table(),
-triggers warnings and should cause a real error (create_pmd_mpping()
-ends up skipped on XIP_KERNEL).
+This built file shows up in "git status" without an explicit ignore.
 
-Reported-by: kernel test robot <lkp@intel.com>
-Fixes: 677b9eb8810e ("riscv: mm: Prepare pt_ops helper functions for sv57")
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- arch/riscv/mm/init.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/riscv/boot/.gitignore | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 9535bea8688c..7bc9a21e29fb 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -567,9 +567,9 @@ static void __init create_p4d_mapping(p4d_t *p4dp,
- 	create_pte_mapping(__nextp, __va, __pa, __sz, __prot)
- #define fixmap_pgd_next		((uintptr_t)fixmap_pte)
- #define early_dtb_pgd_next	((uintptr_t)early_dtb_pmd)
--#define create_p4d_mapping(__pmdp, __va, __pa, __sz, __prot)
--#define create_pud_mapping(__pmdp, __va, __pa, __sz, __prot)
--#define create_pmd_mapping(__pmdp, __va, __pa, __sz, __prot)
-+#define create_p4d_mapping(__pmdp, __va, __pa, __sz, __prot) do {} while(0)
-+#define create_pud_mapping(__pmdp, __va, __pa, __sz, __prot) do {} while(0)
-+#define create_pmd_mapping(__pmdp, __va, __pa, __sz, __prot) do {} while(0)
- #endif /* __PAGETABLE_PMD_FOLDED */
- 
- void __init create_pgd_mapping(pgd_t *pgdp,
+diff --git a/arch/riscv/boot/.gitignore b/arch/riscv/boot/.gitignore
+index 90e66adb7de5..0cea9f7fa9d5 100644
+--- a/arch/riscv/boot/.gitignore
++++ b/arch/riscv/boot/.gitignore
+@@ -4,3 +4,4 @@ Image.*
+ loader
+ loader.lds
+ loader.bin
++xipImage
 -- 
 2.34.1
 
