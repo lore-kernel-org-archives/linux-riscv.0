@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D39F1C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 18:48:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34092C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 18:49:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
-	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ghcdxjlUI5A6y2cyZSWuDtvmXoyfK+VY2l9oAGciovY=; b=u82w6nTBJQBgX8
-	S53vO4cuGqV5XaucLKE8a3CT8UwGwhREWZ/8JG/6AAA2J+kGwyfi6/WRjk3TIP2TFOvg+FJIEQA/1
-	xl4kWPF+L+kMzz4ldkFBqsmv3UG+jDDBFu23I7ECXjpVxMJ1uNp7EE8v3yLMFx5wjxyXCuI9ynCYX
-	E5nCvT+Z4vSaITFvK1gEB3yuZWOexDjhWt8wCoD4a8ezXe1VcO7+wlWjLOTmxSD0X9nUO5GoyfnG2
-	ltPjxdtcWTIBj2toIHXbpV+uDDc5+PaDRzFGmaSwIq3wS/mzB4dGR+uKVIhAbEdMNE8EGh+4roRMC
-	hPlm5dVYebCVKwcPp47Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=RUsCw19euIuGiQ0MoS/1LsJ8Ha03eJYHWAlXY4LZwPw=; b=FB0TdAjnAKhT3cQuHo836nb2qV
+	D6OJSEcI2k3rckiJE1L2OjB4y0zDbt3tjtU0v7HkDA7SKlJrmcRNie6IiM5gdZtHgO14SD8VsxFyx
+	K5kynMW66f6B1C+Q3+dnuSZafizgjwhnUGT6zK1vtdBSod/O6FovhwkhIRfXkosnojLUYWQbEDhIf
+	telHIVrqoofd78mwQhl1ukawM6ft4tJVSIWVZU0z28J55vfaeoQhvXiJ2n8LWaItBjMI9uE9XId35
+	k6QXiHp5ycztuEMKY9w+PP5IqpToKwbo4RwlP0kNonilCgpIDWKiD+eNOEpxspmU7V+0wCTXP/TZU
+	2RpE08MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nhFNI-00A6Fm-EN; Wed, 20 Apr 2022 18:48:24 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1nhFO5-00A6iJ-Rm; Wed, 20 Apr 2022 18:49:13 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nhFNB-00A6AJ-Az
- for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 18:48:18 +0000
-Received: by mail-pl1-x634.google.com with SMTP id q3so2621540plg.3
- for <linux-riscv@lists.infradead.org>; Wed, 20 Apr 2022 11:48:16 -0700 (PDT)
+ id 1nhFO2-00A6gQ-Kj
+ for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 18:49:12 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id
+ d23-20020a17090a115700b001d2bde6c234so3986406pje.1
+ for <linux-riscv@lists.infradead.org>; Wed, 20 Apr 2022 11:49:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
- h=subject:date:message-id:in-reply-to:references:mime-version
- :content-transfer-encoding:cc:from:to;
- bh=LErP8U/PzejnwsS9KxvOA1A5d+doq+yW06k2+06H9yw=;
- b=SrUq1R9xL5OZEC4Ze67UAVTlCaR8u01nNPPk8oP1eppqz7PD0gBzsRZXnuhDevMwsl
- JKPcgMqhBle7UJ1lQpjq81l3IaPYq1YfYIuc22hlfQe+sJEpAGeTpitbhg0M9FoMS6Eb
- JWh7O5Qk/dz8TgOSvZTVv8rfk+D9uarBySHEo1zK+XMILDSzBxe93kfQ/D3iNRSmWyHv
- MrUz5aeweAEgbOxEYUVYklujxkRgWZAP2UNLy2aImjJR3QZW2LwyKanqf0piJX1tCQxW
- p6gg7IVLhUVllO4RYluFhedDiovafl5YmzL0213rDk5ywouSLj4h86NRtxyqUbjVmbcm
- hyGQ==
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=Nk2NSwsu8i6rTINc46A+r9NE/5YNi7JyHO9FbngN7p8=;
+ b=TYs6nRRwUQOFf0gtOjWDh1j18vGSYUtK/5FrQeZVyfc+LVCQdKOhbVjQZZHNUsscec
+ GNgdiEnj4ZM4kRz7ic/Mul+yJsrVlfaOlC4WQKe6QJtGkXCpWSlpSlLeXhOo44sehCZj
+ 5zmAUgRw3YmXiB9ErQ5mzGNIBs/39+GtIY4gL3nMYDeExzMHPqq8rvAcU6RbK5le3vAg
+ AlrUwjB5dfhamDuwH6PjpxKTkmH3/+SIo6HuuJrQ5k/pLSyczcEChBfZnzVNh8MlDH23
+ 3u/2w+5bV/Ff9W1CVHbLsENkaR69HAvIXR1yC4dKEli4yiyIkGeEkf3FouQDwP7zixfV
+ bTEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding:cc:from:to;
- bh=LErP8U/PzejnwsS9KxvOA1A5d+doq+yW06k2+06H9yw=;
- b=0MD5+FC4HnKPCJg9/RAFi8udgx8a3E6xivHNvkNI9gw3qqs07cOakj5kV1tTslHMW1
- TiUm54qRKVSUu26MyLp0RLH2RJCwEhoVKtSS3s3fHTnHclFMHphp+aw2/VT0cR9WK/PP
- 4O4vgleFY3Aagsp/YiMhYjBgzvA7v1HIE6VeoSQdMSUFYmrfbhiXNS57AQZXu0YCE9Jn
- fTQkghpLdQf32HWH70M7gw6X5g88T9kkVgyg1mmex9ou/D68x5XSPoFbHE+TTclU+rCa
- 7+snKlA1T7tz5WBDJHi+UvCzY+RWygDiO4hTjBdkjIHSqll+4KxG02LLRinhU79aWMPa
- lfeg==
-X-Gm-Message-State: AOAM533vfLQ8xeVcadye0ii1xm4jHnRAn0mR+pyrhxC5wqE7w9jt9ST0
- ZXY3MfuHYHqr5XJzEwtzDBHUPg==
-X-Google-Smtp-Source: ABdhPJwMcgsPdT/Mfw3ofmgGrcnyzn6fQu1hFzXbYaHfj+5RimVQrPpgk9LKR0TuPR+a5veVzb58Yg==
-X-Received: by 2002:a17:902:b590:b0:153:a243:3331 with SMTP id
- a16-20020a170902b59000b00153a2433331mr22836465pls.129.1650480495784; 
- Wed, 20 Apr 2022 11:48:15 -0700 (PDT)
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=Nk2NSwsu8i6rTINc46A+r9NE/5YNi7JyHO9FbngN7p8=;
+ b=wUjv7oI+uvKTG4tO129yUgfV/W5JbvcXYsLacwG+ptc8bDlxBtjE1kY58ZBYZnx8Rg
+ RUiktkDKTwiBlSWQI4b40GbDRPGExXpnAxxeTgnmBnfUqb7xDFslLIYEuwRJsTSpDsNV
+ f7dMDd8kKi8v1BCrvcLONpuz+vmTPxRDv1G2uOid9XDsAWmGmT8Pcg4vNZEfl6z6ItC6
+ lGlYwKpPKQGoRV5AAki4S3qWZ7cJqJH/PePSsz/xJhYRQhjL8dccucjyAHJqPWZe3MbN
+ 9YO68MUIfeflsw0Wi2i615fxjOr1uYL6LyNIJn5LIgills7Ds4T/0f0ZxR3Xy7HN2Qbd
+ XTtg==
+X-Gm-Message-State: AOAM533pbi97IahJ0oIwXTOouoxq4kIzp6CbxAuHDBaZ+1S2zKChpAhm
+ rzsNvYWL1PkUK8WuefkZlInl3Q==
+X-Google-Smtp-Source: ABdhPJyBGG/7rUjTp4Rg2EZ9aERkWzpgr4mXMyWyplzUjaZ3YGB+GbK8sEX3Uh8uTKo/s29LimuFgA==
+X-Received: by 2002:a17:902:a581:b0:154:8c7d:736a with SMTP id
+ az1-20020a170902a58100b001548c7d736amr21954623plb.74.1650480549886; 
+ Wed, 20 Apr 2022 11:49:09 -0700 (PDT)
 Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
- g14-20020a63200e000000b0039d9816238fsm20335794pgg.81.2022.04.20.11.48.15
+ d16-20020a056a00245000b004f771b48736sm22080232pfj.194.2022.04.20.11.49.09
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 20 Apr 2022 11:48:15 -0700 (PDT)
-Subject: [PATCH v2 4/4] RISC-V: Fix the XIP build
-Date: Wed, 20 Apr 2022 11:40:56 -0700
-Message-Id: <20220420184056.7886-5-palmer@rivosinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220420184056.7886-1-palmer@rivosinc.com>
-References: <20220420184056.7886-1-palmer@rivosinc.com>
-MIME-Version: 1.0
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- aou@eecs.berkeley.edu, anup@brainfault.org, vincent.chen@sifive.com,
- guoren@kernel.org, 
- Atish Patra <atishp@rivosinc.com>, alexandre.ghiti@canonical.com,
- jszhang@kernel.org, vitaly.wool@konsulko.com, 
- gatecat@ds0.me, wangkefeng.wang@huawei.com, mick@ics.forth.gr,
- panqinglin2020@iscas.ac.cn, 
- rppt@kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux@rivosinc.com, Palmer Dabbelt <palmer@rivosinc.com>
+ Wed, 20 Apr 2022 11:49:09 -0700 (PDT)
+Date: Wed, 20 Apr 2022 11:49:09 -0700 (PDT)
+X-Google-Original-Date: Wed, 20 Apr 2022 11:49:06 PDT (-0700)
+Subject: Re: [PATCH v1] RISC-V: Add braces around an empty if statement bodies
+In-Reply-To: <814ae1e7-297f-102f-972f-ae6130128e7a@infradead.org>
+CC: panqinglin2020@iscas.ac.cn, Paul Walmsley <paul.walmsley@sifive.com>,
+ aou@eecs.berkeley.edu, alexandre.ghiti@canonical.com, jszhang@kernel.org,
+ wangkefeng.wang@huawei.com, 
+ mick@ics.forth.gr, vitaly.wool@konsulko.com, rppt@kernel.org,
+ linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, lkp@intel.com
 From: Palmer Dabbelt <palmer@rivosinc.com>
-To: linux-riscv@lists.infradead.org, rdunlap@infradead.org
+To: rdunlap@infradead.org
+Message-ID: <mhng-9b719623-5ae6-4f10-bb76-58d42260bd03@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220420_114817_440891_5B66B4B6 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20220420_114910_716335_C1F8098F 
+X-CRM114-Status: GOOD (  21.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,39 +88,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Palmer Dabbelt <palmer@rivosinc.com>
+On Tue, 19 Apr 2022 13:38:42 PDT (-0700), rdunlap@infradead.org wrote:
+> Hi,
+>
+> On 4/19/22 12:48, Palmer Dabbelt wrote:
+>> From: Palmer Dabbelt <palmer@rivosinc.com>
+>>
+>> This triggers -Wempty-body, which will cause the next statement (eventually
+>> create_pmd_mapping) to be dropped.  Both of these were introduced by the same
+>> commit.  This is safe for the reporting config (which is 32-bit), but IIUC
+>> could result in breakages for 64-bit configs without 4/5 level paging like the
+>> XIP configs.
+>>
+>> Reported-by: kernel test robot <lkp@intel.com>
+>> Fixes: 677b9eb8810e ("riscv: mm: Prepare pt_ops helper functions for sv57")
+>> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+>> ---
+>> Might be better to define these to functions that are empty, but that's
+>> slightly different than just fixing the commit/warning in question.
+>
+> Yes, we usually fix this type of problem by changing these to have empty bodies:
+>
+> #else
+> ...
+> #define create_pud_mapping(__pmdp, __va, __pa, __sz, __prot)
+> #define create_pmd_mapping(__pmdp, __va, __pa, __sz, __prot)
+> #endif /* __PAGETABLE_PMD_FOLDED */
+>
+> etc.
 
-A handful of functions unused functions were enabled during XIP builds,
-which themselves didn't build correctly.  This just disables the
-functions entirely.
+Ya, that's the right way to do it -- not sure why I was being lazy here.  
+Turns out there was a bunch of other XIP breakage, I sent a v2 that's a 
+whole series.
 
-Fixes: e8a62cc26ddf ("riscv: Implement sv48 support")
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
----
- arch/riscv/mm/init.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Thanks!
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 7bc9a21e29fb..d2054a6cd791 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -660,7 +660,7 @@ static __init pgprot_t pgprot_from_va(uintptr_t va)
- }
- #endif /* CONFIG_STRICT_KERNEL_RWX */
- 
--#ifdef CONFIG_64BIT
-+#if defined(CONFIG_64BIT) && !defined(CONFIG_XIP_KERNEL)
- static void __init disable_pgtable_l5(void)
- {
- 	pgtable_l5_enabled = false;
--- 
-2.34.1
-
+>
+>> ---
+>>  arch/riscv/mm/init.c | 6 ++++--
+>>  1 file changed, 4 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+>> index 9535bea8688c..637916857c4d 100644
+>> --- a/arch/riscv/mm/init.c
+>> +++ b/arch/riscv/mm/init.c
+>> @@ -798,13 +798,15 @@ static void __init create_fdt_early_page_table(pgd_t *pgdir, uintptr_t dtb_pa)
+>>  			   PGDIR_SIZE,
+>>  			   IS_ENABLED(CONFIG_64BIT) ? PAGE_TABLE : PAGE_KERNEL);
+>>
+>> -	if (pgtable_l5_enabled)
+>> +	if (pgtable_l5_enabled) {
+>>  		create_p4d_mapping(early_dtb_p4d, DTB_EARLY_BASE_VA,
+>>  				   (uintptr_t)early_dtb_pud, P4D_SIZE, PAGE_TABLE);
+>> +	}
+>>
+>> -	if (pgtable_l4_enabled)
+>> +	if (pgtable_l4_enabled) {
+>>  		create_pud_mapping(early_dtb_pud, DTB_EARLY_BASE_VA,
+>>  				   (uintptr_t)early_dtb_pmd, PUD_SIZE, PAGE_TABLE);
+>> +	}
+>>
+>>  	if (IS_ENABLED(CONFIG_64BIT)) {
+>>  		create_pmd_mapping(early_dtb_pmd, DTB_EARLY_BASE_VA,
 
 _______________________________________________
 linux-riscv mailing list
