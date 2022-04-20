@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 441F4C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 07:44:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCEA2C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Apr 2022 08:47:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RyEVlt2dEeOhrtgTT4BseedsTV+4UEMgATfM9LxAZik=; b=KxK3/uY3PIxvJd
-	gWSIcOLJs6Yp1JXVmLwT+2JpB9uSX32LPzQzf2jyuOV+yOz/M94zdiXn9E1Xvgjo9CeBQ/sIn0wZT
-	aCHyH/ISFFZeMGbA85wSS9xfMA9GbfIi9PKUK6hrY8ZnbUf+lY1psYBZUwftS6l262Tv1a9T/E+qt
-	i/EfxslLa+6jxfoXg/3UuMi7lo6MOoMe3Td7TOQoAOCd+gRPB0qDm1GAsh2gsFOS5WQkpMRFLw7Ab
-	iUGxvgi3sKvzCSGxSHm/k27yck7PLfHL7pVVO+jpPpt3l8FYRXQmGiAL58BN7jHgBNpKnboOtaLew
-	xPJI/VFKBWcpUyZV4H3A==;
+	List-Owner; bh=LBw/9zyCKhjACz3uVLJ5Af3J38UKNEJdieQCn2Mgk64=; b=xHqfd4OG+KRG7w
+	Cq5pstyIUvcEZ7N1xnuN/g37158nXPlQCtRgGtIBU2oPhT6lgn3xOFKy5KS7zb9rJn9N8t/MyjE0M
+	5QgQDfdz6+R1MNDneiOF9tTQ73Vt8CCar1ojb2uhWFAdNqOKE8eiu+BgHtupLuKRx9KxJMcmi/jDI
+	cFXF5a67nS7rKEeKiar26BxhVCQ0YktOin/h0WCslaDcYlanaWSjrhbfLvSKX9W8fhrMo3Rod5uuk
+	UFy7h2pTxzNsCktncnHCOnrkDN+tN4sqkYZjDgdpJZne22rx57E0VHGy63yJkD+EwYm6I2fsrNOgE
+	L442RNc0MPlC9JLMUrVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nh50t-007r7F-6A; Wed, 20 Apr 2022 07:44:35 +0000
-Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
+	id 1nh5zN-00893G-Ck; Wed, 20 Apr 2022 08:47:05 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nh50F-007qhB-K1
- for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 07:43:57 +0000
-Received: by mail-yw1-x1129.google.com with SMTP id
- 00721157ae682-2ebf4b91212so9070477b3.8
- for <linux-riscv@lists.infradead.org>; Wed, 20 Apr 2022 00:43:54 -0700 (PDT)
+ id 1nh5zJ-00891v-Pe
+ for linux-riscv@lists.infradead.org; Wed, 20 Apr 2022 08:47:04 +0000
+Received: by mail-lj1-x235.google.com with SMTP id q22so1087028ljh.10
+ for <linux-riscv@lists.infradead.org>; Wed, 20 Apr 2022 01:46:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
+ d=ventanamicro.com; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=4rECfG0J0jcZuxwrgwhg30CvDbd+wKJQrKHF5lEEWz8=;
- b=JJ84zEuWmJdIZ7TstEV8XP6tov0sYCEo450P8hEILZNpuvqlc8LvmWDw8vMK9BIzyx
- p80wG38wyBCDllGZ8kRIEVtDhjYvl5nJhws3qJnrkrbECz8bby3fQzPYKA5RPVLCLzfJ
- eni5YMWY7Iu1XUrIumWZfAM5TinCUnaEoTBPI=
+ :cc; bh=JjwgVR25fOpo94MrJPZVArRITLkolD2RuuKCBdYhNzY=;
+ b=RZ+ikrgo+BjsNGw26e+go2LbMbf96IPh2LW4clRqX8E2MnxFpzoFF8JiPsOQv5xAy7
+ NZwc3XyJEvUe8gJ/3QsBAwWl/Di4ditGXZ6zJTARZOj8GMVpycdsO8rAu0uK4/a+DbgB
+ Pbc20OzJRVV3LjHumKVHbdWO1V6a0/Bfa1EtfsUob3C/viSfnSxaxBCKnNmLEbR23NfM
+ 9NSe+IOUfKbNfsd/vL5KRU9w6TSEzm+Z4oxXnCjyldFCHQ4HcQgS30evggmpLC9WprTh
+ /4X0G38pPFj0fV0e8yHy1xg8HJds0Rk4riqcssz5CwJD7TmiQb4l3dUJO6ZpSlCyvgVw
+ O7tQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=4rECfG0J0jcZuxwrgwhg30CvDbd+wKJQrKHF5lEEWz8=;
- b=5S4Aw3tgwVBl4I3lAD+N742QyIUM9HPu2x4IaGbSPA5zj32kkMF72orw4LbAAKSHWb
- 57Pp+xe1/+AS3QJ363j1kYF8OoEej+r4BzDBArzZUA5+zzT7w1Dkl7xHXiKyby4DXqie
- q/7GEhji/lgy14AQfGV5QdWlxs8rbo3nceo/AKhmzjykYZbLOX9dlBsRsfmKYvhyjnrB
- ivz1Vyu9Yu6lgdXk3m4ZBXf/RK/2UkjZT7Vjb4ztGg4s80pQPDoKO7V1CWyDKoXlfpUu
- nFJksVikPdxsoGG1A/Vz/KpcdVNztK9hf+IVGVXHYT3B5w4eAMI7hOvbZMU+IiuiTGwZ
- Wmjg==
-X-Gm-Message-State: AOAM532S+c0pZPaVTuCE1eHgJuDxC2Sz49PWFojp1rt2i8tOPdw6aHdB
- cH/IQx+42Z0W0RAaOMtV8TJ22e2PShU8BbJqnky2
-X-Google-Smtp-Source: ABdhPJwC6ND2mFoDrO8/LZH+VaOdsYNDA7F6jKsenEvyVuoe+DYFot+AtDlzxrI+mCwBEaCI0C4EwGHyNVH1lr+kPjQ=
-X-Received: by 2002:a81:5285:0:b0:2ec:471:e745 with SMTP id
- g127-20020a815285000000b002ec0471e745mr19863668ywb.443.1650440633909; Wed, 20
- Apr 2022 00:43:53 -0700 (PDT)
+ bh=JjwgVR25fOpo94MrJPZVArRITLkolD2RuuKCBdYhNzY=;
+ b=AtyEvPQRML2DrMDMzmBVJEb0Posrbo2ScWlt23gtsQ5HtI+jvezIAmnv7pM+fk2vTw
+ nS2aZzxgMuYADA4HRcP3CsLdX7TqD9AYE/lnWuir5Ct22YK42U8fHwko1QvqvR45AA99
+ P/EsT71L7kIj0B8VKw7yNnRbD5aGFof7rWSKfptaSNQ3W6zl9TZyw+LqkcssrB+P7S6F
+ nPPF37FMI5PpERlrGoqUq5sREmByvvwVyC52W49ZtdpFMH21U+KzvyqrfPZrfH1iP6fY
+ xlnPWbNieiIxrpUVpzMOeNWOMi7yAKhY49L3PrkRSweSCrcvmNp2AXagh/6OgQxpZ9WT
+ RolA==
+X-Gm-Message-State: AOAM533vw8oriXTwvmDj+ZZT0zKzJobWp0r3imW6MNgPS/0nVb3j31c0
+ VfiuexUwlHeHS2Wpksqko5lanfF9uELwJOXb9cu6mA==
+X-Google-Smtp-Source: ABdhPJz+h1GX4XLudNgrwSIEdojpi93OmucwSzatZwTI4giwColnNsRBurf+uc0IKVn49/2aHe9h3XLzaMebnRm9LS4=
+X-Received: by 2002:a05:651c:1784:b0:24b:ce8:528a with SMTP id
+ bn4-20020a05651c178400b0024b0ce8528amr12675701ljb.364.1650444417868; Wed, 20
+ Apr 2022 01:46:57 -0700 (PDT)
 MIME-Version: 1.0
 References: <20220420013258.3639264-1-atishp@rivosinc.com>
  <20220420013258.3639264-2-atishp@rivosinc.com>
-In-Reply-To: <20220420013258.3639264-2-atishp@rivosinc.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Wed, 20 Apr 2022 00:43:43 -0700
-Message-ID: <CAOnJCU+r8KhhQP-LZN+oGGCDkdQt9ZbF+LCTtZWY8r=qwmSOng@mail.gmail.com>
+ <CAOnJCU+r8KhhQP-LZN+oGGCDkdQt9ZbF+LCTtZWY8r=qwmSOng@mail.gmail.com>
+In-Reply-To: <CAOnJCU+r8KhhQP-LZN+oGGCDkdQt9ZbF+LCTtZWY8r=qwmSOng@mail.gmail.com>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Wed, 20 Apr 2022 14:16:45 +0530
+Message-ID: <CAK9=C2WHwRLyRHw4AVFpZcYJsDdGwaza_cpQsaMz-4qVamc+VQ@mail.gmail.com>
 Subject: Re: [PATCH 1/2] RISC-V: KVM: Remove 's' & 'u' as valid ISA extension
-To: Atish Patra <atishp@rivosinc.com>
-Cc: KVM General <kvm@vger.kernel.org>, Anup Patel <anup@brainfault.org>, 
- Damien Le Moal <damien.lemoal@wdc.com>, devicetree <devicetree@vger.kernel.org>,
- Jisheng Zhang <jszhang@kernel.org>, 
+To: Atish Patra <atishp@atishpatra.org>
+Cc: Atish Patra <atishp@rivosinc.com>, KVM General <kvm@vger.kernel.org>, 
+ Anup Patel <anup@brainfault.org>, Damien Le Moal <damien.lemoal@wdc.com>, 
+ devicetree <devicetree@vger.kernel.org>, Jisheng Zhang <jszhang@kernel.org>, 
  Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, 
  "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
  linux-riscv <linux-riscv@lists.infradead.org>,
@@ -71,8 +74,8 @@ Cc: KVM General <kvm@vger.kernel.org>, Anup Patel <anup@brainfault.org>,
  Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
  kvm-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220420_004355_730807_36F6F5B5 
-X-CRM114-Status: GOOD (  17.04  )
+X-CRM114-CacheID: sfid-20220420_014701_880887_98E51692 
+X-CRM114-Status: GOOD (  20.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,46 +92,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 19, 2022 at 6:33 PM Atish Patra <atishp@rivosinc.com> wrote:
+On Wed, Apr 20, 2022 at 1:14 PM Atish Patra <atishp@atishpatra.org> wrote:
 >
-> There are no ISA extension defined as 's' & 'u' in RISC-V specifications.
-> The misa register defines 's' & 'u' bit as Supervisor/User privilege mode
-> enabled. But it should not appear in the ISA extension in the device tree.
+> On Tue, Apr 19, 2022 at 6:33 PM Atish Patra <atishp@rivosinc.com> wrote:
+> >
+> > There are no ISA extension defined as 's' & 'u' in RISC-V specifications.
+> > The misa register defines 's' & 'u' bit as Supervisor/User privilege mode
+> > enabled. But it should not appear in the ISA extension in the device tree.
+> >
+> > Remove those from the allowed ISA extension for kvm.
+> >
+> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> > ---
+> >  arch/riscv/kvm/vcpu.c | 4 +---
+> >  1 file changed, 1 insertion(+), 3 deletions(-)
+> >
+> > diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+> > index 6785aef4cbd4..2e25a7b83a1b 100644
+> > --- a/arch/riscv/kvm/vcpu.c
+> > +++ b/arch/riscv/kvm/vcpu.c
+> > @@ -43,9 +43,7 @@ const struct kvm_stats_header kvm_vcpu_stats_header = {
+> >                                  riscv_isa_extension_mask(d) | \
+> >                                  riscv_isa_extension_mask(f) | \
+> >                                  riscv_isa_extension_mask(i) | \
+> > -                                riscv_isa_extension_mask(m) | \
+> > -                                riscv_isa_extension_mask(s) | \
+> > -                                riscv_isa_extension_mask(u))
+> > +                                riscv_isa_extension_mask(m))
+> >
+> >  static void kvm_riscv_reset_vcpu(struct kvm_vcpu *vcpu)
+> >  {
+> > --
+> > 2.25.1
+> >
 >
-> Remove those from the allowed ISA extension for kvm.
+> Sorry. Forgot to add the fixes tag.
 >
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
->  arch/riscv/kvm/vcpu.c | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
+> Fixes: a33c72faf2d7 (RISC-V: KVM: Implement VCPU create, init and
+> destroy functions)
+
+I have queued this for fixes.
+
+Thanks,
+Anup
+
 >
-> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> index 6785aef4cbd4..2e25a7b83a1b 100644
-> --- a/arch/riscv/kvm/vcpu.c
-> +++ b/arch/riscv/kvm/vcpu.c
-> @@ -43,9 +43,7 @@ const struct kvm_stats_header kvm_vcpu_stats_header = {
->                                  riscv_isa_extension_mask(d) | \
->                                  riscv_isa_extension_mask(f) | \
->                                  riscv_isa_extension_mask(i) | \
-> -                                riscv_isa_extension_mask(m) | \
-> -                                riscv_isa_extension_mask(s) | \
-> -                                riscv_isa_extension_mask(u))
-> +                                riscv_isa_extension_mask(m))
->
->  static void kvm_riscv_reset_vcpu(struct kvm_vcpu *vcpu)
->  {
 > --
-> 2.25.1
+> Regards,
+> Atish
 >
-
-Sorry. Forgot to add the fixes tag.
-
-Fixes: a33c72faf2d7 (RISC-V: KVM: Implement VCPU create, init and
-destroy functions)
-
--- 
-Regards,
-Atish
+> --
+> kvm-riscv mailing list
+> kvm-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/kvm-riscv
 
 _______________________________________________
 linux-riscv mailing list
