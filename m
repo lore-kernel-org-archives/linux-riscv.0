@@ -4,94 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CC9AC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Apr 2022 07:05:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D86F7C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Apr 2022 07:12:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FKzaf+cPKFxEkCU0S0VUD2thhFF9UHw8ZS02sKheELA=; b=3NS9Ij8izbPFhr
-	9PVequE0s8VxIj7SiFuvOIA6E3l9K8QBE8MfKyClLEIiH4frksopdbXgXEsln8n3hseXhiztr3iwT
-	zOfDlecfI7f3ACKCSAu3wkj+cLPP/KnaiI2wIw/nRkoOHshwbKIsH1Yhhz0aARVWsQ0Z9Glawf5nj
-	uO74gCd/rwRmgQ4A9IonPh4CCs59lCIrTRXmjtftYEiEvo/WcnoZjF1F1bwiEO6nJ17ixdFBiiTV8
-	2K0JLxYvKopLLIRPPeO4bN8l4CNQ1j4TWdmj8VKfZrY01SEEcXXVAdt1pR3SHtTiPZKdSXSTE0Br2
-	AF7C+VDB5d4Izi9VAyCg==;
+	List-Owner; bh=0E6pcqZnletpGyxXsPHxpYE6wscWYm6sB23xDipqFaU=; b=IBlqeEeQrNkNNt
+	J51h9I4Mk/agwexc8Z4dxJXKJ9RJrV+CbmdPqNPMgARc7eX/nU3Eq2Mg6N2HuNwzsK64ij6AohgKe
+	ThrWrVwKW/kiatOEJ0WclHyam8HdKi+jws9yDKrrxm4jOLzqoJ48szriFLTQwgigEnkyCN6M9Shhk
+	lhcr7RajLbq7CT0BI0cSlyS2QAb5fv6ilBy0oJPyg3K0+9kzhRBU/ahsjRXR6k0mbfHdKtIU6XY7g
+	bAGmTsV2UEqsVygKw8E8iRaEr+SLahUcDELet9Yfj97ts5RPhWrt6pgwjLUa+5haxEMpxQ/EMRbKg
+	xAmW8NZnxU/mrzYeA8EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nhQsC-00BwO8-RB; Thu, 21 Apr 2022 07:05:04 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1nhQzY-00BxmZ-Kf; Thu, 21 Apr 2022 07:12:40 +0000
+Received: from mout.kundenserver.de ([212.227.126.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nhQs9-00BwMI-U5
- for linux-riscv@lists.infradead.org; Thu, 21 Apr 2022 07:05:03 +0000
-Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com
- [209.85.218.72])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 8A2213F1BA
- for <linux-riscv@lists.infradead.org>; Thu, 21 Apr 2022 07:04:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1650524697;
- bh=6HdSC5MBPOMufV6HBiKEeWBhFc9GPRC0t6FN09g0Ni0=;
- h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
- In-Reply-To:Content-Type;
- b=Cw2hKVUc6XGwBB+Gjih/0VWVNIVc7Dp0qKge0i9JpzERau/+WbW88f6qq58S2RJlD
- 3qjXktxUjy4B2y60soDW/Kkm1I8bU2kHWTAYO0F69gAIN3Mk44KWa/kF5CVwulr1Et
- FJfPUQ/jqGSBAqCj8ClZAzT9Ln3uI8qBQ8JMRWCIrKOY6q3aw0VNcnWOI7mwC767/J
- JdnC0xjrZxEgeQedGIW3bEULykCJBPFYsPSxCeJ0Y/MdUg0RcKSit9bSuufsNWSh4H
- jl9EtmHZKmzej+6HXTvx6dW8k3iDYXkOIIsYltEM2o8RBXqKjgCBsoHyGyuvtltfaA
- p6krUlgwd9e5w==
-Received: by mail-ej1-f72.google.com with SMTP id
- jg25-20020a170907971900b006f010192c19so1288425ejc.21
- for <linux-riscv@lists.infradead.org>; Thu, 21 Apr 2022 00:04:57 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:cc:references:from:in-reply-to
- :content-transfer-encoding;
- bh=6HdSC5MBPOMufV6HBiKEeWBhFc9GPRC0t6FN09g0Ni0=;
- b=3EgO+j92KwfeIxnNzFHROao1yLQHt3qknFyH2ElOZiruuXhZvLFgXnDcBoIwKCS1ge
- HoXpf9hpX/G2+GDIU1LYBya3Rn+I+Kozo/uwSFyWIxYYXksQ7IfrdLkrjr9bSfONQXgL
- URPzBV0QSz17aVMUCQkm3Ox9BFmdtK6gFo3+4PMEOQi9AHkVNr7qZS8fSWTrtTUYQFZq
- kqAqL7QY94xhUTyRSE6HNt11JZKD2b0IxOP7X+RmynrEOKB0oFGEzkM//p3AumYi4m7t
- eZhK86raUqKS8MVbkO7nh/9NNMp8aLdw92FlOeWV80Z0fUnaNnOxZDiyFso0DvOngPWS
- 2naA==
-X-Gm-Message-State: AOAM533rIKSH1gpq02Dr1dfEoFAxzhF0zSg/zMvq6hFaR6pUImnKdLi3
- NE9p/Dyo08Iaup+OixrKkjVLDYsQYoPo0mMnRIBZsCyz1LquEP+A5P+FtH4KmPXIXd9isU25iZl
- rDKtUm2qI9I+x+9ovIU81bBqj7kTQz/5xTv/8z/PpUIvy6Q==
-X-Received: by 2002:a17:906:5d04:b0:6db:7262:570e with SMTP id
- g4-20020a1709065d0400b006db7262570emr21773801ejt.8.1650524697228; 
- Thu, 21 Apr 2022 00:04:57 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJynJjrtS0hF16SVmG5l/ZQENi4TBpgJyFKjQc4HjrAuWcJ+5tpAdnARz6DxwRaPkxDgvSHyjw==
-X-Received: by 2002:a17:906:5d04:b0:6db:7262:570e with SMTP id
- g4-20020a1709065d0400b006db7262570emr21773783ejt.8.1650524697000; 
- Thu, 21 Apr 2022 00:04:57 -0700 (PDT)
-Received: from [192.168.123.94] (ip-088-152-144-107.um26.pools.vodafone-ip.de.
- [88.152.144.107]) by smtp.gmail.com with ESMTPSA id
- kb28-20020a1709070f9c00b006d5d8bf1b72sm7465162ejc.78.2022.04.21.00.04.56
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Thu, 21 Apr 2022 00:04:56 -0700 (PDT)
-Message-ID: <3fa5215b-84c3-5e4c-cb53-6c05d05e4350@canonical.com>
-Date: Thu, 21 Apr 2022 09:04:55 +0200
+ id 1nhQzV-00Bxl0-E8; Thu, 21 Apr 2022 07:12:39 +0000
+Received: from mail-wm1-f54.google.com ([209.85.128.54]) by
+ mrelayeu.kundenserver.de (mreue012 [213.165.67.97]) with ESMTPSA (Nemesis) id
+ 1Mkn8B-1oBaXO1GEJ-00mOTt; Thu, 21 Apr 2022 09:12:33 +0200
+Received: by mail-wm1-f54.google.com with SMTP id y21so2605059wmi.2;
+ Thu, 21 Apr 2022 00:12:33 -0700 (PDT)
+X-Gm-Message-State: AOAM530piPBxi3FyUXptuyqBQ9I2bwkR25sxRCDQCA4SF+7UodcK2yQv
+ 4U1icYpBi9twmL3KJsQbWtbHXMruDomOQUL/XmY=
+X-Google-Smtp-Source: ABdhPJyiDq8vDuHIbY6D8eienOMlm5JvlAwo2YuDKmIos2MBFwy3hSQ+D3GAoUjwkE1kjA32vI2wLWEQWYui85aMEb4=
+X-Received: by 2002:a1c:f219:0:b0:38c:782c:3bb with SMTP id
+ s25-20020a1cf219000000b0038c782c03bbmr6996684wmc.94.1650525152760; Thu, 21
+ Apr 2022 00:12:32 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.1
-Subject: Re: [PATCH v3] RISC-V: Increase range and default value of NR_CPUS
-Content-Language: en-US
-To: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Atish Patra <atishp@atishpatra.org>,
- Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel
- <anup@brainfault.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20220420112408.155561-1-apatel@ventanamicro.com>
-From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-In-Reply-To: <20220420112408.155561-1-apatel@ventanamicro.com>
+References: <20220414091018.896737-1-niklas.cassel@wdc.com>
+ <f379cb56-6ff5-f256-d5f2-3718a47e976d@opensource.wdc.com>
+ <Yli8voX7hw3EZ7E/@x1-carbon>
+ <81788b56-5b15-7308-38c7-c7f2502c4e15@linux-m68k.org>
+ <87levzzts4.fsf_-_@email.froward.int.ebiederm.org>
+ <01b063d7-d5c2-8af0-ad90-ed6c069252c5@linux-m68k.org>
+ <CAMuHMdXd94L=766usN4WG-hK2MpQLy50mJZ=9G9NGv03kx8V8Q@mail.gmail.com>
+In-Reply-To: <CAMuHMdXd94L=766usN4WG-hK2MpQLy50mJZ=9G9NGv03kx8V8Q@mail.gmail.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Thu, 21 Apr 2022 09:12:16 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a3Cjna7H_YxFvg6UEOqQf9ZqLp9EVOCFFewzWBHVT4nWg@mail.gmail.com>
+Message-ID: <CAK8P3a3Cjna7H_YxFvg6UEOqQf9ZqLp9EVOCFFewzWBHVT4nWg@mail.gmail.com>
+Subject: Re: [PATCH] binfmt_flat: Remove shared library support
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Greg Ungerer <gerg@linux-m68k.org>,
+ "Eric W. Biederman" <ebiederm@xmission.com>, 
+ Kees Cook <keescook@chromium.org>, Niklas Cassel <Niklas.Cassel@wdc.com>, 
+ Damien Le Moal <damien.lemoal@opensource.wdc.com>,
+ Alexander Viro <viro@zeniv.linux.org.uk>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Mike Frysinger <vapier@gentoo.org>, 
+ "stable@vger.kernel.org" <stable@vger.kernel.org>, 
+ "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
+ "linux-mm@kvack.org" <linux-mm@kvack.org>, 
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Linux-Arch <linux-arch@vger.kernel.org>, 
+ linux-m68k <linux-m68k@lists.linux-m68k.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+ Linux-sh list <linux-sh@vger.kernel.org>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, 
+ Rich Felker <dalias@libc.org>, Sudeep Holla <sudeep.holla@arm.com>, 
+ Vladimir Murzin <vladimir.murzin@arm.com>,
+ Jesse Taube <Mr.Bossman075@gmail.com>, 
+ Giulio Benetti <giulio.benetti@benettiengineering.com>, 
+ Patrice Chotard <patrice.chotard@st.com>,
+ Pierre-Yves MORDRET <pierre-yves.mordret@st.com>, 
+ Alexandre Torgue <alexandre.torgue@st.com>
+X-Provags-ID: V03:K1:vXiOoo6HoFuLj8erP6SRp8RTaWYtF+e+dOLADnfFYvsFbovfab2
+ 9gEZWrVpk2oZsTrUiDGuHiJiJXmKFk54yjLsWlsHecleBY3aYth/WmaaJJHFZNRfFyWJAdt
+ zcR0dHaZvAgrC3Sp2uGWG/dRSQ1XJCMrAmle+eyKWaH6riKkHQ2eXcH1tufI1XrARN8hp/t
+ XHjQBivaKhD6FIQHbcoTw==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:IHtkTw2utv8=:zUc7HsgtdvxuCU1lJbhK+d
+ 4fJPzdm0JUbdGJNHR9pbAQlG6O5wM0nunB5Owtb07X1fCeYYZWNBNAz7/zsaJotd1WPGm0CcF
+ hsH7kDA5acg+E582O5IzfMuNgYHTUH0/Hv2WEbt6/dglSwrpXZ0DUmj9AJoi74XgXvtKAQT8t
+ fljp38WjCb3Vp3Ybcu4JXgnhvrSnBOOgnRDfO8lHFN8aXLpkAqJIouE19r3eWdm38qrXC62U3
+ aKtJ53xqpd5FkIOpg0JQDngzkZ7cUWOyLKZJB+K+Bl691ETWXEiFTg1TXIKN3xTLsvNjllgOF
+ bfUYlY9dlwwa3Kx4RGoDw8UTmXIcTSt6s4TFWKVxAmfzdw4uQfTK/cDdoK2nBndkaEc3PQv1D
+ BzysLGHw7IXjlnwb8Kfk2Fn23qVDzyKJwC5QPerpuJHNICWxmX/PxiRPIIn7TWxNiaKTPUAkf
+ J/XLdclT9LAP2viMdgT4GhKD+jXSBNzsKsM9vAUTLYNohyS/CjkXyP/Sv/XuXkc7RJMzcqdIG
+ t/YEBQgKvrD3EHUibQObmzbJA3DlDUPv5PMY1G9KfaKeiKprO1iq3j8jT/Dx//xrjOkGWzJd8
+ 2VUnzhvtdnhLM93GxDmCHThkFgH9WlP6NOo8KHUjWGeWVVfNtZiSHjNJWD0oe5vH2GGu0YpKb
+ t9hlycViHGv9ymkeLuFzmwpDmEolXJc/zNI/CzHUxp9a0lralo4PX3xo3y+UVNRQmQExW3Tio
+ E6VBKcushz1S5XFfHBUbfxocJFkJCO5rt6IS/u2hpeNIyh6siwBZ3IlWY2wbNoIkxJJGa5B59
+ RYxt79nk7hoLI2w6YjxgNOVxmii9H4J7xEtoG8lllKXTENNXxg=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220421_000502_298358_912F5DB1 
-X-CRM114-Status: GOOD (  20.03  )
+X-CRM114-CacheID: sfid-20220421_001237_798417_E3032F5E 
+X-CRM114-Status: GOOD (  26.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,60 +104,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Apr 21, 2022 at 8:52 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> On Thu, Apr 21, 2022 at 1:53 AM Greg Ungerer <gerg@linux-m68k.org> wrote:
+> > On 21/4/22 00:58, Eric W. Biederman wrote:
+> > > In a recent discussion[1] it was reported that the binfmt_flat library
+> > > support was only ever used on m68k and even on m68k has not been used
+> > > in a very long time.
+> > >
+> > > The structure of binfmt_flat is different from all of the other binfmt
+> > > implementations becasue of this shared library support and it made
+> > > life and code review more effort when I refactored the code in fs/exec.c.
+> > >
+> > > Since in practice the code is dead remove the binfmt_flat shared libarary
+> > > support and make maintenance of the code easier.
+> > >
+> > > [1] https://lkml.kernel.org/r/81788b56-5b15-7308-38c7-c7f2502c4e15@linux-m68k.org
+> > > Signed-off-by: "Eric W. Biederman" <ebiederm@xmission.com>
+> > > ---
+> > >
+> > > Can the binfmt_flat folks please verify that the shared library support
+> > > really isn't used?
+> >
+> > I can definitely confirm I don't use it on m68k. And I don't know of
+> > anyone that has used it in many years.
+> >
+> >
+> > > Was binfmt_flat being enabled on arm and sh the mistake it looks like?
+>
+> I think the question was intended to be
+>
+>     Was *binfmt_flat_shared_flat* being enabled on arm and sh the
+>     mistake it looks like?
+>
+> > >
+> > >   arch/arm/configs/lpc18xx_defconfig |   1 -
+> > >   arch/arm/configs/mps2_defconfig    |   1 -
+> > >   arch/arm/configs/stm32_defconfig   |   1 -
+> > >   arch/arm/configs/vf610m4_defconfig |   1 -
 
+Adding stm32, mps2 and imxrt maintainers to Cc, they are the most active
+armv7-m users and should know if the shared library support is used anywhere.
 
-On 4/20/22 13:24, Anup Patel wrote:
-> Currently, the range and default value of NR_CPUS is too restrictive
-> for high-end RISC-V systems with large number of HARTs. The latest
-> QEMU virt machine supports upto 512 CPUs so the current NR_CPUS is
-> restrictive for QEMU as well. Other major architectures (such as
-> ARM64, x86_64, MIPS, etc) have a much higher range and default
-> value of NR_CPUS.
-> 
-> This patch increases NR_CPUS range to 2-512 and default value to
-> XLEN (i.e. 32 for RV32 and 64 for RV64).
-> 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-
-Reviewed-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-
-> ---
-> Changes since v2:
->   - Rebased on Linux-5.18-rc3
->   - Use a different range when SBI v0.1 is enabled
-> Changes since v1:
->   - Updated NR_CPUS range to 2-512 which reflects maximum number of
->     CPUs supported by QEMU virt machine.
-> ---
->   arch/riscv/Kconfig | 9 ++++++---
->   1 file changed, 6 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 00fd9c548f26..1823f281069f 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -275,10 +275,13 @@ config SMP
->   	  If you don't know what to do here, say N.
->   
->   config NR_CPUS
-> -	int "Maximum number of CPUs (2-32)"
-> -	range 2 32
-> +	int "Maximum number of CPUs (2-512)"
->   	depends on SMP
-> -	default "8"
-> +	range 2 512 if !SBI_V01
-> +	range 2 32 if SBI_V01 && 32BIT
-> +	range 2 64 if SBI_V01 && 64BIT
-> +	default "32" if 32BIT
-> +	default "64" if 64BIT
->   
->   config HOTPLUG_CPU
->   	bool "Support for hot-pluggable CPUs"
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
