@@ -4,81 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73AC0C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Apr 2022 15:29:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89DA9C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Apr 2022 15:33:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x3j0vF+TJgDSZneaWBYmT90QBwd+tv9hR+FT3MEcj+8=; b=NG8hq8lZYo627S
-	vzonJL/qj0/uJgQCCKVeA7HEZ5mo7431n5G/C0ZkpkO4+DpbZMzTCxgJ1VobrRwz13QmC6TbvlFXf
-	R9neA76WCv+CY5eOWDhrzTKaCcfA1wcHUaFyx9SpqDxqRsgAA1CSZnm8b73SePzflb3nWlWT3hSfk
-	k6v1uGiIumyp0jEkEc96di2Q29dlT2nQMI3Kpto5x2n8Z2Q4t/7Wx3WT+1gRDjAbWJ8D6ktF6tA4p
-	+s98RkXCaejc0nPGlyoCXg3laJnfl0fFgSq3HYVBhke1IyziUbVohpmlK8b74pFHY1SBUS56b4CsP
-	RwPUbP3ngHj6+fZWBMPQ==;
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rjoqhoBAwQOWTzaxBAQTxurrctdldfH+SpAyyKSrSlE=; b=VOCzqZyCA53KxU
+	nakFHgBxZ/xWRhxEXSd2Zei2QnDNCYcTNqN8kl6USxVL071tYx6ZqE5M3HBQGuGqTBzPTUCckKVO6
+	6rSVI45aUaPqR+hUvICQL1f35U4HWkuluxuxfS32a347ZQIgh0nlOP8a5lO8sLr/ZbIV3ZNmW01z+
+	F3dsfgj5wwllMYXAR6CbvM9qSrQ9jyltIErIqd2Uw+dPvSDt6trDfc31OVDsYvMBonzhhgkWzb2oF
+	SeXsfsj9uN9GsS+IALqqofOSNetdTAFAueVI2Co28m7pyc44pjnHqZrQPT76FmF4j0F6epF+iCuCS
+	7ivcoW46uF70z5+30OWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nhYk2-00E0Zc-F0; Thu, 21 Apr 2022 15:29:10 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1nhYnf-00E26x-ED; Thu, 21 Apr 2022 15:32:55 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nhYk0-00E0Y0-66
- for linux-riscv@lists.infradead.org; Thu, 21 Apr 2022 15:29:09 +0000
-Received: by mail-ej1-x630.google.com with SMTP id u15so10735487ejf.11
- for <linux-riscv@lists.infradead.org>; Thu, 21 Apr 2022 08:29:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=soleen.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=QrA9XZmQJ3pzwkzftPloH2yboFwnXRie+CWHLphliSk=;
- b=Goof91mBcka2VgETshL668shaAzHbdRfpyNvrN5YOcp4rhboXwZMtZDVAaWyLyahuQ
- CdaDmp2jWbyV5OJCLb9mFBtn8VUpNhEqnHvKmW2rmbiU81mufV28MWCU1u7VvAeUZEd9
- 2u4xZXMNL1TOKfntRmdjyFc8vFUQU+K2rPooY6bMN8zqt91QKzhS2BhSAUFJld7m2EPZ
- SNq/Kb9bmfpSLvL0klMqmIih/kL/HnekghPnIjYHA8OSyGeGTmeuiE0Bbf9JhAQLARJc
- zOgCs57NF6H9sId258Pbwyy2EVsOsG9tO9VANSYUVqeN94X01agrIHg1uGNe6d7B1uaw
- /r6w==
+ id 1nhYna-00E24K-NM
+ for linux-riscv@lists.infradead.org; Thu, 21 Apr 2022 15:32:53 +0000
+Received: by mail-wr1-x436.google.com with SMTP id x18so7263346wrc.0
+ for <linux-riscv@lists.infradead.org>; Thu, 21 Apr 2022 08:32:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:from:date:message-id:subject:to:cc;
+ bh=7saXZ0wD/Eiz7Q0Lij9LYsBuK9XeQWJt4sfDjnXCwG4=;
+ b=kWjl4CCPwIixJSgXB9ws/rkGP08rPz7GqBRiC/x5Zq28CKoLC2pNNSTAOU7uifTtiT
+ MHADrMrPWSik9D+shnVD8R3BuqQLEI/06tU42iUWv11J0l8P8vCZYn2gGq/llzZuv4w2
+ JnADsQMCNMyWwKSRQR/fjDXs8ADSVTz2jbrlnkh59111TLWEZdXEsXJhTg1m0g+bzfFn
+ 8Q69XpA9bqxqx7qAkEZA2uiotTgspyE340Bo7prGw0O1QURv7OnLBswXP/AV0+AF94gi
+ hEJNNNI+xsWsLiY9mxWwvCb8m/b1+T7i4lgvkWsncOeNd5ICYKde5b0FfXNzAFzE85ko
+ l2iA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=QrA9XZmQJ3pzwkzftPloH2yboFwnXRie+CWHLphliSk=;
- b=2CXrBslQzk+R8Tkl3aNS5m1eQRUEgWHSFb8SHh/rGI3cXf+xHP4zeQsZmbppmmcycY
- ZbV0L8a2D13fgtgXRcDDqhXZKq1VgFvIETlJ03pgAJ7E1EtB18HwoJ56m5Cs8pdNjYkx
- RToRqYsd7DqHFWmFxIkO4c2U97S0RwKnrc56fNB1cuB/YAO0hnwy4xOBXMvNF8ffX5zM
- BlS11Phs3EFnNRlS4z4G9LmnuFWItPoBFzQ4u3W6+e0vg2TrB6JjxWzPhClTT4gNusnC
- UWOLTwUU6PHHdpsIDlsrPyU8MHHD0AhcLauOwPDauACGWq3sTpnKwwShbNLiC0Lm/7Se
- ++Xg==
-X-Gm-Message-State: AOAM530w9S3jrcp3hNG1PrNv2wsAYpiAC50sHJhDLZkj4yy/aBy1WanT
- pJTwXbh4Gkp6QLE/EOIAilxYMjp4Yir77vlb3g4bag==
-X-Google-Smtp-Source: ABdhPJwdgR44vtT8cq3DFzLTy4Q7GdhPWMlulCx49QBzEtRNAYLnPLMlOP09qRIzOTf6f3uQrAGXR9/c5PPBDTovPvs=
-X-Received: by 2002:a17:907:1c8a:b0:6e9:2a0d:d7b7 with SMTP id
- nb10-20020a1709071c8a00b006e92a0dd7b7mr85739ejc.572.1650554944449; Thu, 21
- Apr 2022 08:29:04 -0700 (PDT)
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc;
+ bh=7saXZ0wD/Eiz7Q0Lij9LYsBuK9XeQWJt4sfDjnXCwG4=;
+ b=uE7w8UgLNkQtbJ3/iX5Q9YCHtYgzI74R71g4E3tGWLXgsGEZFH0cCNtlYFDmD9nmA5
+ cPL+BPB+Z8xnKjuyO2sKCFXEDBL1M0Kg7CBPVAXJuuofu0PILD0nwCBMgq9mph8rfSdn
+ kZq90Q3YK5EtaSBV8NVt0kR8UnYqhiBKcISb31SohUEe7XPSOnWQBfCpadX/80A3rObY
+ y2VeBniQVFw7L9MDY/HG+TDbr0m8ipbySAYDlU2d1ByQE1ZhRDvF529KluO6st7dq5pq
+ u5usEBA/dTZXBcXhXDrz2lTzYFkCdUNj/gOqa3EprvCrdDsMNK2Tv+ulwvjIVnq3CGt/
+ pjhQ==
+X-Gm-Message-State: AOAM533Z2BEmNPAoWqkVMR1CrCX3HmXE0QnHZj5sQImIE9pnQCtL6ngR
+ CFyuT4zUkd2xug+ikuJoPH6RrU13rI69Tjm01n0mfcihD9TX/4un
+X-Google-Smtp-Source: ABdhPJxTYUyl/g+eiiAqhsKTukCWfkqpWCDJv5k8bbK0tXT6TfssjfdJoR7ALTaKcKSn4TNsP/Gg7e10uIM9LsHO7OE=
+X-Received: by 2002:a05:6000:1e0a:b0:20a:be21:a20 with SMTP id
+ bj10-20020a0560001e0a00b0020abe210a20mr251438wrb.214.1650555166230; Thu, 21
+ Apr 2022 08:32:46 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220421082042.1167967-1-tongtiangen@huawei.com>
- <20220421082042.1167967-2-tongtiangen@huawei.com>
-In-Reply-To: <20220421082042.1167967-2-tongtiangen@huawei.com>
-From: Pasha Tatashin <pasha.tatashin@soleen.com>
-Date: Thu, 21 Apr 2022 11:28:27 -0400
-Message-ID: <CA+CK2bCWRL_vXW1BUhxb-zLiywXTCQdaa+9feEwQytYW=K46-g@mail.gmail.com>
-Subject: Re: [PATCH -next v5 1/5] mm: page_table_check: using PxD_SIZE instead
- of PxD_PAGE_SIZE
-To: Tong Tiangen <tongtiangen@huawei.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
- "H. Peter Anvin" <hpa@zytor.com>, 
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Andrew Morton <akpm@linux-foundation.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, LKML <linux-kernel@vger.kernel.org>, 
- linux-mm <linux-mm@kvack.org>, Linux ARM <linux-arm-kernel@lists.infradead.org>,
- linux-riscv@lists.infradead.org, Kefeng Wang <wangkefeng.wang@huawei.com>, 
- Guohanjun <guohanjun@huawei.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 21 Apr 2022 21:02:03 +0530
+Message-ID: <CAAhSdy3io3CdxTDGRVCijO-R2V=GBOukOEs+BH6wYnkT2_iPMw@mail.gmail.com>
+Subject: [GIT PULL] KVM/riscv fixes for 5.18, take #2
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, 
+ KVM General <kvm@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)"
+ <kvm-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220421_082908_318055_6614DCC4 
-X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-CacheID: sfid-20220421_083251_002735_6CF2CBAF 
+X-CRM114-Status: UNSURE (   5.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,17 +84,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 21, 2022 at 4:02 AM Tong Tiangen <tongtiangen@huawei.com> wrote:
->
-> Macro PUD_SIZE/PMD_SIZE is more general in various architectures. Using
-> PUD_SIZE/PMD_SIZE instead of PUD_PAGE_SIZE/PMD_PAGE_SIZE can better
-> support page table check in architectures other than x86 and it is no
-> functional impact on x86.
->
-> Suggested-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
+Hi Paolo,
 
-Acked-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+This is the second set of fixes for 5.18. We only have two fixes related to
+extensions that can be enabled/disabled in the isa ONE_REG register.
+
+Please pull.
+
+Regards,
+Anup
+
+The following changes since commit b2d229d4ddb17db541098b83524d901257e93845:
+
+  Linux 5.18-rc3 (2022-04-17 13:57:31 -0700)
+
+are available in the Git repository at:
+
+  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-fixes-5.18-2
+
+for you to fetch changes up to 38d9a4ac65f204f264b33b966f0af4366f5518a8:
+
+  RISC-V: KVM: Restrict the extensions that can be disabled
+(2022-04-20 14:24:32 +0530)
+
+----------------------------------------------------------------
+ KVM/riscv fixes for 5.18, take #2
+
+ - Remove 's' & 'u' as valid ISA extension
+
+ - Restrict the extensions that can be disabled
+
+----------------------------------------------------------------
+Atish Patra (2):
+      RISC-V: KVM: Remove 's' & 'u' as valid ISA extension
+      RISC-V: KVM: Restrict the extensions that can be disabled
+
+ arch/riscv/kvm/vcpu.c | 21 ++++++++++++---------
+ 1 file changed, 12 insertions(+), 9 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
