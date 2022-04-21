@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16B56C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Apr 2022 21:06:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41951C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Apr 2022 21:13:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=waziPdM4pV2RWHm5mkd4H8dns0Tcu//N/GN2kNYc7W8=; b=3GfRHpG2QghziU
-	HYrJZfmiRWd/6ypNYOp/SXUvz2Fc37QhjWGfIg9g7xXYgkos2neZUpsiWY9uRiD7Yz0ajXCsJ+/nN
-	LycfjLyHKlukZtf7XiVMTdfdz6IMgL9YCZIVz7PoxV3A1/nFIOg/LqaM+QdOzWhJ61z0lpNCgrDsE
-	RR5MAoeFL1+QdBhhqe9dbGqHGEfW5TMpxZxwJd/8BttgGH0c0HKJ64e1HbdK5k0Qzp21F5X6PSBGL
-	lhu7VOmfwYAGsD3S9kdN7eDpAY3iy3MO3/qYgO5npNXXmBj0K5F24pq2ureuVJ7w+mFhwW0uH6cEP
-	6mNGL/EGJjaiek5RzpbA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=pgIfpS/pa/g8qW1YETK7CytntURhMEd50MAQTGvQfio=; b=Zw96+b+TzLqVcz0P8jtmgCyeQI
+	6z/JXF7xvvvAj8NgwYdV7aZ6+US/2iSKPkq0h9y0K1x2L5ykLxAqUnpWRBGsD/m40qYMtJT/J0+rH
+	qKMd5S0U92d0TfU3y+oOZEwjPg0CM3OCAuP7qFilDrveIiKCk9wXCjOOWCv52ucasW9Tgol10RceA
+	9W0XqHox0+58RmMtv8CEABy1yXHNBW7aAQamR3adi0vUgN6uJVulWFdaEKn35s/q1JO6ncdJ20AVb
+	YTmvdvslPWtzCwOkMCoThOjEBgu9jQzq1cdZ+Xg65NJ+0koquUvY2ztvGEBB83N0pK6pHaGl12KTy
+	1xJqw5KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nhe0d-00EzDI-Og; Thu, 21 Apr 2022 21:06:39 +0000
-Received: from elvis.franken.de ([193.175.24.41])
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nhe0Z-00EzAt-EV; Thu, 21 Apr 2022 21:06:37 +0000
-Received: from uucp (helo=alpha)
- by elvis.franken.de with local-bsmtp (Exim 3.36 #1)
- id 1nhe01-0007Hb-00; Thu, 21 Apr 2022 23:06:01 +0200
-Received: by alpha.franken.de (Postfix, from userid 1000)
- id 79792C01A0; Thu, 21 Apr 2022 23:05:25 +0200 (CEST)
-Date: Thu, 21 Apr 2022 23:05:25 +0200
-From: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-To: "Jason A. Donenfeld" <Jason@zx2c4.com>
-Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
- tglx@linutronix.de, arnd@arndb.de, Theodore Ts'o <tytso@mit.edu>,
- Dominik Brodowski <linux@dominikbrodowski.net>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "David S . Miller" <davem@davemloft.net>,
- Richard Weinberger <richard@nod.at>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Johannes Berg <johannes@sipsolutions.net>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "H . Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
- Max Filippov <jcmvbkbc@gmail.com>, Stephen Boyd <sboyd@kernel.org>,
- Dinh Nguyen <dinguyen@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org, x86@kernel.org,
- linux-xtensa@linux-xtensa.org, "Maciej W . Rozycki" <macro@orcam.me.uk>
-Subject: Re: [PATCH v5 04/11] mips: use fallback for random_get_entropy()
- instead of just c0 random
-Message-ID: <20220421210525.GA16228@alpha.franken.de>
-References: <20220419111650.1582274-1-Jason@zx2c4.com>
- <20220419111650.1582274-5-Jason@zx2c4.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220419111650.1582274-5-Jason@zx2c4.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+	id 1nhe6h-00EzvQ-Fz; Thu, 21 Apr 2022 21:12:55 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nhe6e-00Ezun-RP
+ for linux-riscv@lists.infradead.org; Thu, 21 Apr 2022 21:12:54 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id q3so6491865plg.3
+ for <linux-riscv@lists.infradead.org>; Thu, 21 Apr 2022 14:12:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=Av/ziOvsBe24F2oAdgKNQqRde9/UDT0IRqk3LqZYlqs=;
+ b=S6Q8xGgqM2kfoIUPKvTDKebAdhxR75QL9mtWQP3WR5Jm3lbnjbvaiVV6Br7rZy+pzt
+ 5cRgVtohDq1YlQvWSplyA61T3eO/4DPMCQ/Fbdw4pCvXJyutRP0j64EnFN14wvCedz5r
+ lHxF76La2CJL8tCvUeZdTPU14bKLgyBykRINW/78Ldd/6OYbJEKYfBNfYjOcoWULuMnr
+ 3I5B46xF9AZ+F/xUhnJ0b/zSNlLUXiLb3odiOHZJfsYIEQnXn2q2uEzZdDldP8IGAsp5
+ b0wokV7PIGRjQg40xvtCh/aUweT6Rl6ffS/02fBvhaBFsOu+epFmnXwzdKusJBuC08R6
+ fklw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=Av/ziOvsBe24F2oAdgKNQqRde9/UDT0IRqk3LqZYlqs=;
+ b=QtTeCzVDQ8SsW454dEqTLU1a/yyEgh5G5Ob2VLSLVhTSS17m5etpqcs1mNSLdzX5k2
+ vVAxhJ8t13Rkml8QhSYFgRVvUxvBHawIl0E2G0+I8oecqVnFfiEiFXHlLqme0/muFVnW
+ 65pitr4xUtMSoundhgQVMe2KgX+fZhl1bTFXwSWueiRZGvKyAP5p9IZHO2yASaHOMgpf
+ rG3bduFiDCJ3U5sWBQAQ1ZlrGVc2ZN/q+tqQ1PsTVsZc7QaiCL/C0SwI+IPvLDatbny0
+ tdC19o5YiiHRrqeeqof6a1yVn6s6zXh+5GSQJd2WutGLMXQ3NbnCSDiPQbHNvKFNlzO8
+ mQMw==
+X-Gm-Message-State: AOAM530EdYCwytftdpRepkRoCMX7z2btXjWF2PFHooj7d2V4zuh46aF1
+ ZzDbNdSoY1GAAOlJG3aGNy+uMg==
+X-Google-Smtp-Source: ABdhPJyx2PWRx3w0ZujjulplgxOwGoryhsFics0FxSW0K1o19/akULPWPf5g9n8TC6i+DmteyWnUQw==
+X-Received: by 2002:a17:90b:4d01:b0:1d0:f39f:6073 with SMTP id
+ mw1-20020a17090b4d0100b001d0f39f6073mr1628253pjb.175.1650575570116; 
+ Thu, 21 Apr 2022 14:12:50 -0700 (PDT)
+Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
+ m23-20020a17090a7f9700b001cd4989feedsm3697189pjl.57.2022.04.21.14.12.48
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 21 Apr 2022 14:12:49 -0700 (PDT)
+Date: Thu, 21 Apr 2022 14:12:49 -0700 (PDT)
+X-Google-Original-Date: Thu, 21 Apr 2022 14:12:46 PDT (-0700)
+Subject: Re: [PATCH] RISC-V: mm: Fix set_satp_mode() for platform not having
+ Sv57
+In-Reply-To: <CAK9=C2UB-SKcb2Lf=m9VQZnOmkoY1W=kNeSJ40VcVXfr5WuPZQ@mail.gmail.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, alexandre.ghiti@canonical.com,
+ atishp@atishpatra.org, Alistair Francis <Alistair.Francis@wdc.com>,
+ anup@brainfault.org, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ mchitale@ventanamicro.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: apatel@ventanamicro.com
+Message-ID: <mhng-95003209-d4f2-4394-be70-d041a44af77b@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220421_140635_870587_3FD925EE 
-X-CRM114-Status: GOOD (  30.11  )
+X-CRM114-CacheID: sfid-20220421_141253_140878_A7943D59 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,79 +87,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 19, 2022 at 01:16:43PM +0200, Jason A. Donenfeld wrote:
-> For situations in which we don't have a c0 counter register available,
-> we've been falling back to reading the c0 "random" register, which is
-> usually bounded by the amount of TLB entries and changes every other
-> cycle or so. This means it wraps extremely often. We can do better by
-> combining this fast-changing counter with a potentially slower-changing
-> counter from random_get_entropy_fallback() in the more significant bits.
-> This commit combines the two, taking into account that the changing bits
-> are in a different bit position depending on the CPU model. In addition,
-> we previously were falling back to 0 for ancient CPUs that Linux does
-> not support anyway; remove that dead path entirely.
-> 
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-> Cc: Maciej W. Rozycki <macro@orcam.me.uk>
-> Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
-> ---
-> ThomasB - I dropped your Ack from v4, because this is pretty different
-> from v4 now.
-> 
-> Maciej - you mentioned you had a test rig. Think you could provide a
-> "Tested-by" if this approach works?
-> 
->  arch/mips/include/asm/timex.h | 16 +++++++---------
->  1 file changed, 7 insertions(+), 9 deletions(-)
-> 
-> diff --git a/arch/mips/include/asm/timex.h b/arch/mips/include/asm/timex.h
-> index b05bb70a2e46..e3f5460a923b 100644
-> --- a/arch/mips/include/asm/timex.h
-> +++ b/arch/mips/include/asm/timex.h
-> @@ -80,21 +80,19 @@ static inline cycles_t get_cycles(void)
->  /*
->   * Like get_cycles - but where c0_count is not available we desperately
->   * use c0_random in an attempt to get at least a little bit of entropy.
-> - *
-> - * R6000 and R6000A neither have a count register nor a random register.
-> - * That leaves no entropy source in the CPU itself.
->   */
->  static inline unsigned long random_get_entropy(void)
->  {
-> -	unsigned int prid = read_c0_prid();
-> -	unsigned int imp = prid & PRID_IMP_MASK;
-> +	unsigned int c0_random;
->  
-> -	if (can_use_mips_counter(prid))
-> +	if (can_use_mips_counter(read_c0_prid()))
->  		return read_c0_count();
-> -	else if (likely(imp != PRID_IMP_R6000 && imp != PRID_IMP_R6000A))
-> -		return read_c0_random();
-> +
-> +	if (cpu_has_3kex)
-> +		c0_random = (read_c0_random() >> 8) & 0x3f;
->  	else
-> -		return 0;	/* no usable register */
-> +		c0_random = read_c0_random() & 0x3f;
-> +	return (random_get_entropy_fallback() << 6) | (0x3f - c0_random);
->  }
->  #define random_get_entropy random_get_entropy
->  
-> -- 
-> 2.35.1
+On Thu, 21 Apr 2022 02:30:05 PDT (-0700), apatel@ventanamicro.com wrote:
+> Hi Palmer,
+>
+> On Tue, Apr 12, 2022 at 9:04 AM Anup Patel <apatel@ventanamicro.com> wrote:
+>>
+>> When Sv57 is not available the satp.MODE test in set_satp_mode() will
+>> fail and lead to pgdir re-programming for Sv48. The pgdir re-programming
+>> will fail as well due to pre-existing pgdir entry used for Sv57 and as
+>> a result kernel fails to boot on RISC-V platform not having Sv57.
+>>
+>> To fix above issue, we should clear the pgdir memory in set_satp_mode()
+>> before re-programming.
+>>
+>> Fixes: 011f09d12052 ("riscv: mm: Set sv57 on defaultly")
+>> Reported-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+>> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+>
+> Can this be considered for 5.18-rcX ?
 
-Acked-by: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+Sorry, there's a queue but I just say this one at the top and it's super 
+simple so I'm going to take it now -- IRC is good to ping this sort of 
+stuff.
 
--- 
-Crap can work. Given enough thrust pigs will fly, but it's not necessarily a
-good idea.                                                [ RFC1925, 2.3 ]
+It's in fixes.
+
+Thanks!
+
+>
+> Regards,
+> Anup
+>
+>> ---
+>>  arch/riscv/mm/init.c | 1 +
+>>  1 file changed, 1 insertion(+)
+>>
+>> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+>> index 9535bea8688c..b0793dc0c291 100644
+>> --- a/arch/riscv/mm/init.c
+>> +++ b/arch/riscv/mm/init.c
+>> @@ -718,6 +718,7 @@ static __init void set_satp_mode(void)
+>>                 if (!check_l4) {
+>>                         disable_pgtable_l5();
+>>                         check_l4 = true;
+>> +                       memset(early_pg_dir, 0, PAGE_SIZE);
+>>                         goto retry;
+>>                 }
+>>                 disable_pgtable_l4();
+>> --
+>> 2.25.1
+>>
 
 _______________________________________________
 linux-riscv mailing list
