@@ -4,78 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41951C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Apr 2022 21:13:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DF6CC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Apr 2022 21:16:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=pgIfpS/pa/g8qW1YETK7CytntURhMEd50MAQTGvQfio=; b=Zw96+b+TzLqVcz0P8jtmgCyeQI
-	6z/JXF7xvvvAj8NgwYdV7aZ6+US/2iSKPkq0h9y0K1x2L5ykLxAqUnpWRBGsD/m40qYMtJT/J0+rH
-	qKMd5S0U92d0TfU3y+oOZEwjPg0CM3OCAuP7qFilDrveIiKCk9wXCjOOWCv52ucasW9Tgol10RceA
-	9W0XqHox0+58RmMtv8CEABy1yXHNBW7aAQamR3adi0vUgN6uJVulWFdaEKn35s/q1JO6ncdJ20AVb
-	YTmvdvslPWtzCwOkMCoThOjEBgu9jQzq1cdZ+Xg65NJ+0koquUvY2ztvGEBB83N0pK6pHaGl12KTy
-	1xJqw5KQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XnrMAC+xexgSwgroaMHKvn+gz/OI2PZcqMI5mw4dFE8=; b=NRYlVP0TUQtFGJ
+	LPZ09HdQIrmtV6qy6RAwQ2EjJqRU5wIk/6r7yGeQffFzfU03EiZPQzlD4GA/wJhYsZk4b2OQAYlW0
+	RHCHI1mrxP+sytjo2/EGswfgD0nUyu/MhPSyO+Bud3mvvwhv6+j258sWjbrN0oHeIic/A8CMsmxm6
+	p6Gwe+o7/kW1isoXubPX/JiuzZcDmK1yuGFDJjzd086ZzIRvqnwR6q3qRXfNTACrOA7PtqqwisgjM
+	yxO9ebMclhvN0F2yYDuCo+qSeRqE0Mdi1iAk40M6zAi/fNvQi2vHWto2FYs48HIS6DF8boC2afegU
+	ufhT/MbB+8rFkx7kdgHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nhe6h-00EzvQ-Fz; Thu, 21 Apr 2022 21:12:55 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1nheAQ-00F0Uu-Vn; Thu, 21 Apr 2022 21:16:47 +0000
+Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nhe6e-00Ezun-RP
- for linux-riscv@lists.infradead.org; Thu, 21 Apr 2022 21:12:54 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id q3so6491865plg.3
- for <linux-riscv@lists.infradead.org>; Thu, 21 Apr 2022 14:12:50 -0700 (PDT)
+ id 1nheA7-00F0Qf-3Y
+ for linux-riscv@lists.infradead.org; Thu, 21 Apr 2022 21:16:29 +0000
+Received: by mail-yw1-x1135.google.com with SMTP id
+ 00721157ae682-2ec05db3dfbso65896787b3.7
+ for <linux-riscv@lists.infradead.org>; Thu, 21 Apr 2022 14:16:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=Av/ziOvsBe24F2oAdgKNQqRde9/UDT0IRqk3LqZYlqs=;
- b=S6Q8xGgqM2kfoIUPKvTDKebAdhxR75QL9mtWQP3WR5Jm3lbnjbvaiVV6Br7rZy+pzt
- 5cRgVtohDq1YlQvWSplyA61T3eO/4DPMCQ/Fbdw4pCvXJyutRP0j64EnFN14wvCedz5r
- lHxF76La2CJL8tCvUeZdTPU14bKLgyBykRINW/78Ldd/6OYbJEKYfBNfYjOcoWULuMnr
- 3I5B46xF9AZ+F/xUhnJ0b/zSNlLUXiLb3odiOHZJfsYIEQnXn2q2uEzZdDldP8IGAsp5
- b0wokV7PIGRjQg40xvtCh/aUweT6Rl6ffS/02fBvhaBFsOu+epFmnXwzdKusJBuC08R6
- fklw==
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=TBOLYdFLXPu73TVN7CymFowM0QIrUj97zla05FMsFmw=;
+ b=X3/DiqjRlQU/pF0tYaTzm6xYDxBl9BJtrdHnRKE13u1Wz2URA7HF19ckJ4zY647Qvm
+ 6wTQcD6ddhubt2kFOzm9no+X1AlTHyHDDtrC9T6TSxQo4GUjadqSGOiqm1IoicWf53Wn
+ sC2JBvaICqD2kCfdIapD1e7pAPqkl51MTFGVE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=Av/ziOvsBe24F2oAdgKNQqRde9/UDT0IRqk3LqZYlqs=;
- b=QtTeCzVDQ8SsW454dEqTLU1a/yyEgh5G5Ob2VLSLVhTSS17m5etpqcs1mNSLdzX5k2
- vVAxhJ8t13Rkml8QhSYFgRVvUxvBHawIl0E2G0+I8oecqVnFfiEiFXHlLqme0/muFVnW
- 65pitr4xUtMSoundhgQVMe2KgX+fZhl1bTFXwSWueiRZGvKyAP5p9IZHO2yASaHOMgpf
- rG3bduFiDCJ3U5sWBQAQ1ZlrGVc2ZN/q+tqQ1PsTVsZc7QaiCL/C0SwI+IPvLDatbny0
- tdC19o5YiiHRrqeeqof6a1yVn6s6zXh+5GSQJd2WutGLMXQ3NbnCSDiPQbHNvKFNlzO8
- mQMw==
-X-Gm-Message-State: AOAM530EdYCwytftdpRepkRoCMX7z2btXjWF2PFHooj7d2V4zuh46aF1
- ZzDbNdSoY1GAAOlJG3aGNy+uMg==
-X-Google-Smtp-Source: ABdhPJyx2PWRx3w0ZujjulplgxOwGoryhsFics0FxSW0K1o19/akULPWPf5g9n8TC6i+DmteyWnUQw==
-X-Received: by 2002:a17:90b:4d01:b0:1d0:f39f:6073 with SMTP id
- mw1-20020a17090b4d0100b001d0f39f6073mr1628253pjb.175.1650575570116; 
- Thu, 21 Apr 2022 14:12:50 -0700 (PDT)
-Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
- m23-20020a17090a7f9700b001cd4989feedsm3697189pjl.57.2022.04.21.14.12.48
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 21 Apr 2022 14:12:49 -0700 (PDT)
-Date: Thu, 21 Apr 2022 14:12:49 -0700 (PDT)
-X-Google-Original-Date: Thu, 21 Apr 2022 14:12:46 PDT (-0700)
-Subject: Re: [PATCH] RISC-V: mm: Fix set_satp_mode() for platform not having
- Sv57
-In-Reply-To: <CAK9=C2UB-SKcb2Lf=m9VQZnOmkoY1W=kNeSJ40VcVXfr5WuPZQ@mail.gmail.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, alexandre.ghiti@canonical.com,
- atishp@atishpatra.org, Alistair Francis <Alistair.Francis@wdc.com>,
- anup@brainfault.org, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- mchitale@ventanamicro.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: apatel@ventanamicro.com
-Message-ID: <mhng-95003209-d4f2-4394-be70-d041a44af77b@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=TBOLYdFLXPu73TVN7CymFowM0QIrUj97zla05FMsFmw=;
+ b=XUJLVmfd/sNqG7kj3vO5SLDyeVf+txRl2a+2PeSIONyGIULvHD1M7yk4uVTjoCdxvE
+ xHKgubxXu9enmDnQ6sokdDbLD5SKT8E33tyNwPZEweyupj6Qh18RVlesSdseUuOQtRzS
+ 7zfHnRFg/9JqmzZjlvNgMn4lxRsxWVEhlybyNDIZJC1C9N6mZZnfucuMO/Uys9ExTjaK
+ 3/0ZYGV9KrThjo+fZWfJWaYGdCD8hLKd87wxOAry/HEcSypky0Z/Xudt5KR0SZnef1Gx
+ 8iiS9S2BaCJj0+b9il8LQcJcqiheHoBKHiiOeCpIMCBDki1EIpdwp6zE/UCYk8Nw4PPo
+ P57w==
+X-Gm-Message-State: AOAM532SsmI1G4L6x3CdULuQ1rXEsQjnERyVSDmGO8z/XbmWVtA61dws
+ A9KgKgSYzhfDTHMUwMciO1uTRlDUBMtG/XbfC+jP
+X-Google-Smtp-Source: ABdhPJzFo0EHc3hgRUGRSf40BDuaLTDCUGRjMcvgkSfCbwsEa0mAJD3OVPnMyv3BFEcQCEs3N1OuASUGW0KklcABQmg=
+X-Received: by 2002:a05:690c:16:b0:2db:cfed:de0e with SMTP id
+ bc22-20020a05690c001600b002dbcfedde0emr1788900ywb.271.1650575780073; Thu, 21
+ Apr 2022 14:16:20 -0700 (PDT)
+MIME-Version: 1.0
+References: <20220421170354.10555-1-palmer@rivosinc.com>
+In-Reply-To: <20220421170354.10555-1-palmer@rivosinc.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Thu, 21 Apr 2022 14:16:09 -0700
+Message-ID: <CAOnJCUJp3f2v_ZOy_YxrGOWu-E0k-NZMvDuiP4NykaT0H5nBrw@mail.gmail.com>
+Subject: Re: [PATCH v1] RISC-V: Only default to spinwait on SBI-0.1 and M-mode
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
+ Will Deacon <will@kernel.org>, "mark.rutland@arm.com" <mark.rutland@arm.com>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ linux@rivosinc.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220421_141253_140878_A7943D59 
-X-CRM114-Status: GOOD (  18.14  )
+X-CRM114-CacheID: sfid-20220421_141627_356133_51A7E668 
+X-CRM114-Status: GOOD (  24.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,61 +81,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 21 Apr 2022 02:30:05 PDT (-0700), apatel@ventanamicro.com wrote:
-> Hi Palmer,
+On Thu, Apr 21, 2022 at 10:05 AM Palmer Dabbelt <palmer@rivosinc.com> wrote:
 >
-> On Tue, Apr 12, 2022 at 9:04 AM Anup Patel <apatel@ventanamicro.com> wrote:
->>
->> When Sv57 is not available the satp.MODE test in set_satp_mode() will
->> fail and lead to pgdir re-programming for Sv48. The pgdir re-programming
->> will fail as well due to pre-existing pgdir entry used for Sv57 and as
->> a result kernel fails to boot on RISC-V platform not having Sv57.
->>
->> To fix above issue, we should clear the pgdir memory in set_satp_mode()
->> before re-programming.
->>
->> Fixes: 011f09d12052 ("riscv: mm: Set sv57 on defaultly")
->> Reported-by: Mayuresh Chitale <mchitale@ventanamicro.com>
->> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> From: Palmer Dabbelt <palmer@rivosinc.com>
 >
-> Can this be considered for 5.18-rcX ?
-
-Sorry, there's a queue but I just say this one at the top and it's super 
-simple so I'm going to take it now -- IRC is good to ping this sort of 
-stuff.
-
-It's in fixes.
-
-Thanks!
-
+> The spinwait boot method has been superseeded by the SBI HSM extension
+> for some time now, but it still enabled by default.  This causes some
+> issues on large hart count systems, which will hang if a physical hart
+> exists that is larger than NR_CPUS.
 >
-> Regards,
-> Anup
+> Users on modern SBI implemenation don't need spinwait, and while it's
+> probably possible to deal with some of the spinwait issues let's just
+> restrict the default to systems that are likely to actually use it.
 >
->> ---
->>  arch/riscv/mm/init.c | 1 +
->>  1 file changed, 1 insertion(+)
->>
->> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
->> index 9535bea8688c..b0793dc0c291 100644
->> --- a/arch/riscv/mm/init.c
->> +++ b/arch/riscv/mm/init.c
->> @@ -718,6 +718,7 @@ static __init void set_satp_mode(void)
->>                 if (!check_l4) {
->>                         disable_pgtable_l5();
->>                         check_l4 = true;
->> +                       memset(early_pg_dir, 0, PAGE_SIZE);
->>                         goto retry;
->>                 }
->>                 disable_pgtable_l4();
->> --
->> 2.25.1
->>
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> ---
+> This seems to be the source of many of my new hangs when trying to test
+> the NR_CPUS=512 support.  It's not really related, just fallout from
+> testing different setups.
+> ---
+>  arch/riscv/Kconfig | 8 +++++++-
+>  1 file changed, 7 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 00fd9c548f26..dd5e975abe37 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -359,7 +359,7 @@ config RISCV_SBI_V01
+>  config RISCV_BOOT_SPINWAIT
+>         bool "Spinwait booting method"
+>         depends on SMP
+> -       default y
+> +       default y if RISCV_SBI_V01 || RISCV_M_MODE
+>         help
+>           This enables support for booting Linux via spinwait method. In the
+>           spinwait method, all cores randomly jump to Linux. One of the cores
+> @@ -370,6 +370,12 @@ config RISCV_BOOT_SPINWAIT
+>           rely on ordered booting via SBI HSM extension which gets chosen
+>           dynamically at runtime if the firmware supports it.
+>
+> +         Since spinwait is incompatible with sparse hart IDs, it requires
+> +         NR_CPUS be large enough to contain the physical hart ID of the first
+> +         hart to enter Linux.
+> +
+> +         If unsure what to do here, say N.
+> +
+>  config KEXEC
+>         bool "Kexec system call"
+>         select KEXEC_CORE
+> --
+> 2.34.1
+>
+
+
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
+
+
+-- 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
