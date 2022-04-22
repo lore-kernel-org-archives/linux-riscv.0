@@ -4,67 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 239F5C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Apr 2022 06:33:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C5A5C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Apr 2022 06:45:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MANwdvXNdYVma04nF4FolMkDu/AEPGhAWyXprUc67EY=; b=JXe1anY0Px+Oqf
-	QNOKkL42ONxBGz571jl3gu2XX8uX3i2cF7opv/8Z1DgKU5ckZBuhG+pVrbwSnjRKRY+pEZhhxRdmA
-	nncQDhb7Qj8gkaIXRQkuGGj/vjx9fRrq/0YJQ+sQIA3WyP8TykcNXQssTJBI+zKzPWHmHxzb1wapU
-	mc8cgAru2Retv0/VDPwU1I9EiJf2SlqHCsU4XwwNvO0D5jIJR//PBdUEU1IKeMV2RSwhzkiH4ZjSY
-	zwNJM97ElsOEeYPMrhztOI0HTYShej4TpXJe5M3lxyURyCwnFxGt01uaD0U9oi2c1V/SG9ccaQfnU
-	1oQqf2F52uHK8nhLVMBg==;
+	List-Owner; bh=EgevnBmWDheyfuGCrznDNIZI7hYbtYi2+Vu8YEhegao=; b=1jZxUw65n/NA5l
+	ual2+dj/96JlUua2ZX+ZkyrmfRTLiJ8xK9KW08OJw/ZBi/Euz/NmEaN45t6k9HS/c2ajcWmxU9wJ4
+	ByHrJf5STZoNLLwGDZafp3lJfd4Aq7sgdcreYjhtSEvo1d8sUQ4ddcfmLUF57JWd3jI3AgRx7b5VM
+	4jq9A5zfJnrKtmThRmFVCixqJfOptgxz7a/52RdEfha5MOifloWfdDo0EI46LKZ0lPOKko/RhMGQs
+	Rcycb6SZqoyyPpJE8DT2G1/AYRSu8xIb87YANsF6+yVK4LfM6qMDjbVQO+n1qTmLjjKRRDWgp2Gh7
+	KMCfagRfb7Ld/rdW2T8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nhmqn-00GZol-RX; Fri, 22 Apr 2022 06:33:06 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nhmo1-00GYSZ-Uc; Fri, 22 Apr 2022 06:30:16 +0000
-Received: from kwepemi100023.china.huawei.com (unknown [172.30.72.54])
- by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4Kl4Hy5T8mz1J9m3;
- Fri, 22 Apr 2022 14:29:18 +0800 (CST)
-Received: from kwepemm600017.china.huawei.com (7.193.23.234) by
- kwepemi100023.china.huawei.com (7.221.188.59) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Fri, 22 Apr 2022 14:30:05 +0800
-Received: from [10.174.179.234] (10.174.179.234) by
- kwepemm600017.china.huawei.com (7.193.23.234) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Fri, 22 Apr 2022 14:30:04 +0800
-Message-ID: <10215555-5eb6-d53d-5949-d603ce346d6f@huawei.com>
-Date: Fri, 22 Apr 2022 14:30:03 +0800
+	id 1nhn2X-00GeN6-H4; Fri, 22 Apr 2022 06:45:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nhn2J-00GeIw-4m; Fri, 22 Apr 2022 06:45:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 007EF1570;
+ Thu, 21 Apr 2022 23:44:58 -0700 (PDT)
+Received: from [10.163.40.48] (unknown [10.163.40.48])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AD6A93F5A1;
+ Thu, 21 Apr 2022 23:44:47 -0700 (PDT)
+Message-ID: <89ec03a9-5fee-7f4f-d189-67eb2aad24a3@arm.com>
+Date: Fri, 22 Apr 2022 12:15:35 +0530
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.0
-Subject: Re: [PATCH -next v5 2/5] mm: page_table_check: move
- pxx_user_accessible_page into x86
-To: Anshuman Khandual <anshuman.khandual@arm.com>, Thomas Gleixner
- <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
- <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, <x86@kernel.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Pasha Tatashin <pasha.tatashin@soleen.com>, 
- Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>
-CC: <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.5.0
+Subject: Re: [PATCH -next v5 4/5] arm64: mm: add support for page table check
+Content-Language: en-US
+To: Tong Tiangen <tongtiangen@huawei.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
  Kefeng Wang <wangkefeng.wang@huawei.com>, Guohanjun <guohanjun@huawei.com>
 References: <20220421082042.1167967-1-tongtiangen@huawei.com>
- <20220421082042.1167967-3-tongtiangen@huawei.com>
- <905f22d6-0671-21b2-a341-bdc5ba02e59c@arm.com>
-From: Tong Tiangen <tongtiangen@huawei.com>
-In-Reply-To: <905f22d6-0671-21b2-a341-bdc5ba02e59c@arm.com>
-X-Originating-IP: [10.174.179.234]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemm600017.china.huawei.com (7.193.23.234)
-X-CFilter-Loop: Reflected
+ <20220421082042.1167967-5-tongtiangen@huawei.com>
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20220421082042.1167967-5-tongtiangen@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220421_233014_389012_A486FC30 
-X-CRM114-Status: GOOD (  15.24  )
+X-CRM114-CacheID: sfid-20220421_234459_321247_1B086654 
+X-CRM114-Status: GOOD (  19.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,72 +67,203 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgrlnKggMjAyMi80LzIyIDEzOjExLCBBbnNodW1hbiBLaGFuZHVhbCDlhpnpgZM6Cj4gU2ltaWxh
-ciB0byBwcmV2aW91cyBjb21taXRzIG9uIHRoZSBzYW1lIGZpbGUsIHRoZSBmb2xsb3dpbmcgc3Vi
-amVjdAo+IGxpbmUgZm9ybWF0LCB3b3VsZCBoYXZlIGJlZW4gcHJlZmVycmVkLgo+IAo+IG1tL3Bh
-Z2VfdGFibGVfY2hlY2s6IDxkZXNjcmlwdGlvbj4KPiAKPiBPbiA0LzIxLzIyIDEzOjUwLCBUb25n
-IFRpYW5nZW4gd3JvdGU6Cj4+IEZyb206IEtlZmVuZyBXYW5nIDx3YW5na2VmZW5nLndhbmdAaHVh
-d2VpLmNvbT4KPj4KPj4gVGhlIHB4eF91c2VyX2FjY2Vzc2libGVfcGFnZSgpIGNoZWNrIHRoZSBQ
-VEUgYml0LCBpdCdzCj4gCj4gcy9jaGVjay9jaGVja3MJCQkgXl5eXgo+IAo+PiBhcmNoaXRlY3R1
-cmUtc3BlY2lmaWMgY29kZSwgbW92ZSB0aGVtIGludG8geDg2J3MgcGd0YWJsZS5oCj4gVGhlIGNv
-bW1pdCBtZXNzYWdlIHNob3VsZCBoYXZlIGJlZW4gbW9yZSBjbGVhciwgYXRsZWFzdCBjb21wbGV0
-ZSBpbgo+IHNlbnRlbmNlcy4gSSBkb250IHdhbnQgdG8gYmUgYmlrZSBzaGVkZGluZyBoZXJlIGJ1
-dCB0aGlzIGlzIGRlZmluaXRlbHkKPiBpbmNvbXBsZXRlLiBUaGVzZSBoZWxwZXJzIGFyZSBiZWlu
-ZyBtb3ZlZCBvdXQgdG8gbWFrZSB0aGUgcGFnZSB0YWJsZQo+IGNoZWNrIGZyYW1ld29yaywgcGxh
-dGZvcm0gaW5kZXBlbmRlbnQuIEhlbmNlIHRoZSBjb21taXQgbWVzc2FnZSBzaG91bGQKPiBtZW50
-aW9uIHRoaXMuCgpUaGUgY29tbWl0IG1lc3NhZ2UgaXMgbm90IHZlcnkgY2xlYXIgYW5kIGl0IGlz
-IHRvbyBzaW1wbGUuCgpUaGFua3MuCgo+IAo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBLZWZlbmcgV2Fu
-ZyA8d2FuZ2tlZmVuZy53YW5nQGh1YXdlaS5jb20+Cj4+IFNpZ25lZC1vZmYtYnk6IFRvbmcgVGlh
-bmdlbiA8dG9uZ3RpYW5nZW5AaHVhd2VpLmNvbT4KPj4gQWNrZWQtYnk6IFBhc2hhIFRhdGFzaGlu
-IDxwYXNoYS50YXRhc2hpbkBzb2xlZW4uY29tPgo+PiAtLS0KPj4gICBhcmNoL3g4Ni9pbmNsdWRl
-L2FzbS9wZ3RhYmxlLmggfCAxOSArKysrKysrKysrKysrKysrKysrCj4+ICAgbW0vcGFnZV90YWJs
-ZV9jaGVjay5jICAgICAgICAgIHwgMTcgLS0tLS0tLS0tLS0tLS0tLS0KPj4gICAyIGZpbGVzIGNo
-YW5nZWQsIDE5IGluc2VydGlvbnMoKyksIDE3IGRlbGV0aW9ucygtKQo+Pgo+PiBkaWZmIC0tZ2l0
-IGEvYXJjaC94ODYvaW5jbHVkZS9hc20vcGd0YWJsZS5oIGIvYXJjaC94ODYvaW5jbHVkZS9hc20v
-cGd0YWJsZS5oCj4+IGluZGV4IGI3NDY0ZjEzZTQxNi4uNTY0YWJlNDJiMGY3IDEwMDY0NAo+PiAt
-LS0gYS9hcmNoL3g4Ni9pbmNsdWRlL2FzbS9wZ3RhYmxlLmgKPj4gKysrIGIvYXJjaC94ODYvaW5j
-bHVkZS9hc20vcGd0YWJsZS5oCj4+IEBAIC0xNDQ3LDYgKzE0NDcsMjUgQEAgc3RhdGljIGlubGlu
-ZSBib29sIGFyY2hfaGFzX2h3X3B0ZV95b3VuZyh2b2lkKQo+PiAgIAlyZXR1cm4gdHJ1ZTsKPj4g
-ICB9Cj4+ICAgCj4+ICsjaWZkZWYgQ09ORklHX1BBR0VfVEFCTEVfQ0hFQ0sKPj4gK3N0YXRpYyBp
-bmxpbmUgYm9vbCBwdGVfdXNlcl9hY2Nlc3NpYmxlX3BhZ2UocHRlX3QgcHRlKQo+PiArewo+PiAr
-CXJldHVybiAocHRlX3ZhbChwdGUpICYgX1BBR0VfUFJFU0VOVCkgJiYgKHB0ZV92YWwocHRlKSAm
-IF9QQUdFX1VTRVIpOwo+PiArfQo+PiArCj4+ICtzdGF0aWMgaW5saW5lIGJvb2wgcG1kX3VzZXJf
-YWNjZXNzaWJsZV9wYWdlKHBtZF90IHBtZCkKPj4gK3sKPj4gKwlyZXR1cm4gcG1kX2xlYWYocG1k
-KSAmJiAocG1kX3ZhbChwbWQpICYgX1BBR0VfUFJFU0VOVCkgJiYKPj4gKwkJKHBtZF92YWwocG1k
-KSAmIF9QQUdFX1VTRVIpOwo+PiArfQo+PiArCj4+ICtzdGF0aWMgaW5saW5lIGJvb2wgcHVkX3Vz
-ZXJfYWNjZXNzaWJsZV9wYWdlKHB1ZF90IHB1ZCkKPj4gK3sKPj4gKwlyZXR1cm4gcHVkX2xlYWYo
-cHVkKSAmJiAocHVkX3ZhbChwdWQpICYgX1BBR0VfUFJFU0VOVCkgJiYKPj4gKwkJKHB1ZF92YWwo
-cHVkKSAmIF9QQUdFX1VTRVIpOwo+IAo+IEEgbGluZSBicmVhayBpcyBub3QgcmVhbGx5IHJlcXVp
-cmVkIGhlcmUgKGFuZCBhYm92ZSBhcyB3ZWxsKS4gQXMgc2luZ2xlCj4gY29tcGxldGUgbGluZSB3
-b3VsZCBzdGlsbCBiZSB3aXRoaW4gMTAwIGNoYXJhY3RlcnMuCj4gClJpZ2h0LCBub3cgb25lIGxp
-bmUgY2FuIGhhdmUgMTAwIGNoYXJhY3RlcnMuCgpUaGFua3MuCgo+PiArfQo+PiArI2VuZGlmCj4+
-ICsKPj4gICAjZW5kaWYJLyogX19BU1NFTUJMWV9fICovCj4+ICAgCj4+ICAgI2VuZGlmIC8qIF9B
-U01fWDg2X1BHVEFCTEVfSCAqLwo+PiBkaWZmIC0tZ2l0IGEvbW0vcGFnZV90YWJsZV9jaGVjay5j
-IGIvbW0vcGFnZV90YWJsZV9jaGVjay5jCj4+IGluZGV4IGViMGQwYjcxY2RmNi4uMzY5MmJlYTJl
-YTJjIDEwMDY0NAo+PiAtLS0gYS9tbS9wYWdlX3RhYmxlX2NoZWNrLmMKPj4gKysrIGIvbW0vcGFn
-ZV90YWJsZV9jaGVjay5jCj4+IEBAIC01MiwyMyArNTIsNiBAQCBzdGF0aWMgc3RydWN0IHBhZ2Vf
-dGFibGVfY2hlY2sgKmdldF9wYWdlX3RhYmxlX2NoZWNrKHN0cnVjdCBwYWdlX2V4dCAqcGFnZV9l
-eHQpCj4+ICAgCXJldHVybiAodm9pZCAqKShwYWdlX2V4dCkgKyBwYWdlX3RhYmxlX2NoZWNrX29w
-cy5vZmZzZXQ7Cj4+ICAgfQo+PiAgIAo+PiAtc3RhdGljIGlubGluZSBib29sIHB0ZV91c2VyX2Fj
-Y2Vzc2libGVfcGFnZShwdGVfdCBwdGUpCj4+IC17Cj4+IC0JcmV0dXJuIChwdGVfdmFsKHB0ZSkg
-JiBfUEFHRV9QUkVTRU5UKSAmJiAocHRlX3ZhbChwdGUpICYgX1BBR0VfVVNFUik7Cj4+IC19Cj4+
-IC0KPj4gLXN0YXRpYyBpbmxpbmUgYm9vbCBwbWRfdXNlcl9hY2Nlc3NpYmxlX3BhZ2UocG1kX3Qg
-cG1kKQo+PiAtewo+PiAtCXJldHVybiBwbWRfbGVhZihwbWQpICYmIChwbWRfdmFsKHBtZCkgJiBf
-UEFHRV9QUkVTRU5UKSAmJgo+PiAtCQkocG1kX3ZhbChwbWQpICYgX1BBR0VfVVNFUik7Cj4+IC19
-Cj4+IC0KPj4gLXN0YXRpYyBpbmxpbmUgYm9vbCBwdWRfdXNlcl9hY2Nlc3NpYmxlX3BhZ2UocHVk
-X3QgcHVkKQo+PiAtewo+PiAtCXJldHVybiBwdWRfbGVhZihwdWQpICYmIChwdWRfdmFsKHB1ZCkg
-JiBfUEFHRV9QUkVTRU5UKSAmJgo+PiAtCQkocHVkX3ZhbChwdWQpICYgX1BBR0VfVVNFUik7Cj4+
-IC19Cj4+IC0KPj4gICAvKgo+PiAgICAqIEFuIGVudHkgaXMgcmVtb3ZlZCBmcm9tIHRoZSBwYWdl
-IHRhYmxlLCBkZWNyZW1lbnQgdGhlIGNvdW50ZXJzIGZvciB0aGF0IHBhZ2UKPj4gICAgKiB2ZXJp
-ZnkgdGhhdCBpdCBpcyBvZiBjb3JyZWN0IHR5cGUgYW5kIGNvdW50ZXJzIGRvIG5vdCBiZWNvbWUg
-bmVnYXRpdmUuCj4gCj4gV2l0aCBhYm92ZSBtZW50aW9uZWQgY29kZSBjbGVhbnVwIGFuZCBjb21t
-aXQgbWVzc2FnZSBjaGFuZ2VzIGluIHBsYWNlLgo+IAo+IFJldmlld2VkLWJ5OiBBbnNodW1hbiBL
-aGFuZHVhbCA8YW5zaHVtYW4ua2hhbmR1YWxAYXJtLmNvbT4KPiAuCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Please change the subject line as
+
+arm64/mm: Enable ARCH_SUPPORTS_PAGE_TABLE_CHECK
+
+OR
+
+arm64/mm: Subscribe ARCH_SUPPORTS_PAGE_TABLE_CHECK
+
+On 4/21/22 13:50, Tong Tiangen wrote:
+> From: Kefeng Wang <wangkefeng.wang@huawei.com>
+> 
+> As commit d283d422c6c4 ("x86: mm: add x86_64 support for page table
+> check"), add some necessary page table check hooks into routines that
+> modify user page tables.
+
+Please make the commit message comprehensive, which should include
+
+- Enabling ARCH_SUPPORTS_PAGE_TABLE_CHECK on arm64
+- Adding all additional page table helpers required for PAGE_TABLE_CHECK
+- Instrumenting existing page table helpers with page table check hooks
+
+> 
+> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
+> Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+> ---
+>  arch/arm64/Kconfig               |  1 +
+>  arch/arm64/include/asm/pgtable.h | 65 +++++++++++++++++++++++++++++---
+>  2 files changed, 61 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 18a18a0e855d..c1509525ab8e 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -92,6 +92,7 @@ config ARM64
+>  	select ARCH_SUPPORTS_ATOMIC_RMW
+>  	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128
+>  	select ARCH_SUPPORTS_NUMA_BALANCING
+> +	select ARCH_SUPPORTS_PAGE_TABLE_CHECK
+>  	select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
+>  	select ARCH_WANT_DEFAULT_BPF_JIT
+>  	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 930077f7b572..9f8f97a7cc7c 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -33,6 +33,7 @@
+>  #include <linux/mmdebug.h>
+>  #include <linux/mm_types.h>
+>  #include <linux/sched.h>
+> +#include <linux/page_table_check.h>
+>  
+>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+>  #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
+> @@ -96,6 +97,7 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
+>  #define pte_young(pte)		(!!(pte_val(pte) & PTE_AF))
+>  #define pte_special(pte)	(!!(pte_val(pte) & PTE_SPECIAL))
+>  #define pte_write(pte)		(!!(pte_val(pte) & PTE_WRITE))
+> +#define pte_user(pte)		(!!(pte_val(pte) & PTE_USER))
+>  #define pte_user_exec(pte)	(!(pte_val(pte) & PTE_UXN))
+>  #define pte_cont(pte)		(!!(pte_val(pte) & PTE_CONT))
+>  #define pte_devmap(pte)		(!!(pte_val(pte) & PTE_DEVMAP))
+> @@ -312,7 +314,7 @@ static inline void __check_racy_pte_update(struct mm_struct *mm, pte_t *ptep,
+>  		     __func__, pte_val(old_pte), pte_val(pte));
+>  }
+>  
+> -static inline void set_pte_at(struct mm_struct *mm, unsigned long addr,
+> +static inline void __set_pte_at(struct mm_struct *mm, unsigned long addr,
+>  			      pte_t *ptep, pte_t pte)
+>  {
+>  	if (pte_present(pte) && pte_user_exec(pte) && !pte_special(pte))
+> @@ -343,6 +345,13 @@ static inline void set_pte_at(struct mm_struct *mm, unsigned long addr,
+>  	set_pte(ptep, pte);
+>  }
+>  
+> +static inline void set_pte_at(struct mm_struct *mm, unsigned long addr,
+> +			      pte_t *ptep, pte_t pte)
+> +{
+> +	page_table_check_pte_set(mm, addr, ptep, pte);
+> +	return __set_pte_at(mm, addr, ptep, pte);
+> +}
+> +
+>  /*
+>   * Huge pte definitions.
+>   */
+> @@ -454,6 +463,8 @@ static inline int pmd_trans_huge(pmd_t pmd)
+>  #define pmd_dirty(pmd)		pte_dirty(pmd_pte(pmd))
+>  #define pmd_young(pmd)		pte_young(pmd_pte(pmd))
+>  #define pmd_valid(pmd)		pte_valid(pmd_pte(pmd))
+> +#define pmd_user(pmd)		pte_user(pmd_pte(pmd))
+> +#define pmd_user_exec(pmd)	pte_user_exec(pmd_pte(pmd))
+>  #define pmd_cont(pmd)		pte_cont(pmd_pte(pmd))
+>  #define pmd_wrprotect(pmd)	pte_pmd(pte_wrprotect(pmd_pte(pmd)))
+>  #define pmd_mkold(pmd)		pte_pmd(pte_mkold(pmd_pte(pmd)))
+> @@ -501,8 +512,19 @@ static inline pmd_t pmd_mkdevmap(pmd_t pmd)
+>  #define pud_pfn(pud)		((__pud_to_phys(pud) & PUD_MASK) >> PAGE_SHIFT)
+>  #define pfn_pud(pfn,prot)	__pud(__phys_to_pud_val((phys_addr_t)(pfn) << PAGE_SHIFT) | pgprot_val(prot))
+>  
+> -#define set_pmd_at(mm, addr, pmdp, pmd)	set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd))
+> -#define set_pud_at(mm, addr, pudp, pud)	set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud))
+> +static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+> +			      pmd_t *pmdp, pmd_t pmd)
+> +{
+> +	page_table_check_pmd_set(mm, addr, pmdp, pmd);
+> +	return __set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd));
+> +}
+> +
+> +static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
+> +			      pud_t *pudp, pud_t pud)
+> +{
+> +	page_table_check_pud_set(mm, addr, pudp, pud);
+> +	return __set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud));
+> +}
+>  
+>  #define __p4d_to_phys(p4d)	__pte_to_phys(p4d_pte(p4d))
+>  #define __phys_to_p4d_val(phys)	__phys_to_pte_val(phys)
+> @@ -643,6 +665,24 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
+>  #define pud_present(pud)	pte_present(pud_pte(pud))
+>  #define pud_leaf(pud)		pud_sect(pud)
+>  #define pud_valid(pud)		pte_valid(pud_pte(pud))
+> +#define pud_user(pud)		pte_user(pud_pte(pud))
+> +
+> +#ifdef CONFIG_PAGE_TABLE_CHECK
+> +static inline bool pte_user_accessible_page(pte_t pte)
+> +{
+> +	return pte_present(pte) && (pte_user(pte) || pte_user_exec(pte));
+> +}
+> +
+> +static inline bool pmd_user_accessible_page(pmd_t pmd)
+> +{
+> +	return pmd_present(pmd) && (pmd_user(pmd) || pmd_user_exec(pmd));
+> +}
+> +
+> +static inline bool pud_user_accessible_page(pud_t pud)
+> +{
+> +	return pud_present(pud) && pud_user(pud);
+> +}
+> +#endif
+>  
+>  static inline void set_pud(pud_t *pudp, pud_t pud)
+>  {
+> @@ -872,11 +912,21 @@ static inline int pmdp_test_and_clear_young(struct vm_area_struct *vma,
+>  }
+>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+>  
+> +static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
+> +				       unsigned long address, pte_t *ptep)
+> +{
+> +	return __pte(xchg_relaxed(&pte_val(*ptep), 0));
+> +}
+> +
+>  #define __HAVE_ARCH_PTEP_GET_AND_CLEAR
+>  static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
+>  				       unsigned long address, pte_t *ptep)
+>  {
+> -	return __pte(xchg_relaxed(&pte_val(*ptep), 0));
+> +	pte_t pte = __ptep_get_and_clear(mm, address, ptep);
+>
+
+__ptep_get_and_clear() is not required. Please keep the __pte(xchg_relaxed(..),..)
+unchanged as in the case with pmdp_huge_get_and_clear() helper below.
+
+ +
+> +	page_table_check_pte_clear(mm, address, pte);
+> +
+> +	return pte;
+>  }
+>  
+>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+> @@ -884,7 +934,11 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
+>  static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
+>  					    unsigned long address, pmd_t *pmdp)
+>  {
+> -	return pte_pmd(ptep_get_and_clear(mm, address, (pte_t *)pmdp));
+> +	pmd_t pmd = pte_pmd(__ptep_get_and_clear(mm, address, (pte_t *)pmdp));
+> +
+> +	page_table_check_pmd_clear(mm, address, pmd);
+> +
+> +	return pmd;
+>  }
+>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+>  
+> @@ -918,6 +972,7 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
+>  static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
+>  		unsigned long address, pmd_t *pmdp, pmd_t pmd)
+>  {
+> +	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
+>  	return __pmd(xchg_relaxed(&pmd_val(*pmdp), pmd_val(pmd)));
+>  }
+>  #endif
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
