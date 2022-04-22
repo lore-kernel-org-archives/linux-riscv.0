@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39C17C433FE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 895D1C4332F
 	for <linux-riscv@archiver.kernel.org>; Fri, 22 Apr 2022 07:26:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,43 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hEm1pbM594Z/YBlAlQ/ZgR7/RSDO27Vv4Voqg5nvhA8=; b=sratNBt8+vZLoP
-	yscQVKbZ1xi+0Ds6MV4dTkB2XXH5hFystoL5zrN9iC6ZtvxQyH1FaLfwKNE6Ja+KdB6aSRBc4noCY
-	uedOqhR0/ir2CpiKpx8w48lF/iMVdHh96rXG2Puh3ZW+l7ipsei0pj31mEFFZhQLnKXDvBa3zS1vC
-	14AkMmnBmShg1TMe6in514JjQfjqozVT7U2P3pPZv2K2EdB4RKXacszMLuHXXVJsF+Z1YIWSLyF+9
-	//X1OWnBpLHI31FEWj8gJPVcuWllib6kHgQxfoiqb2Us6Xx894N5y5t0Hl9ZZ3T75Y/weFZc5/KgR
-	yWOp8mJj+JtMDXekdMEg==;
+	List-Owner; bh=+vtoPr4APFmdtotrsQ5JtZtpuckRwqaBHfK8IQeD8XI=; b=VAb+EPdVAyFl5n
+	rGcZKYa/Pvy4RXn8pX1+ORgR62EFMrPpfathJGH81Edjl6Xhq/itL/dQZQLa/r/hAwvBpLeMCuE9v
+	6Tbn655H/ubzFe+rpJrRblClCr1L+Bl3O6jOANHDaMzqrsINbWtAoh54K5O25NpOIkfWwLzbgtB1F
+	Sdecpze50RFpjK5/huSmqnKV2enE3LSqgev6DKoThR77+m+PZ8AkChapucxYY/PftsHOZn2R5RbEx
+	uAl4MoK/GSapq+ttnQiLNrSlQ+D+u/b88bYRfspDjU6vT5kk/ksiqlsuaAdiTM979an8/z4EplQZN
+	QBmBeKAdaTOLD7rbqvAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nhngB-00Gn93-Au; Fri, 22 Apr 2022 07:26:11 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1nhngG-00GnC4-JB; Fri, 22 Apr 2022 07:26:16 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nhng3-00Gn5b-3z
- for linux-riscv@lists.infradead.org; Fri, 22 Apr 2022 07:26:08 +0000
+ id 1nhngA-00Gn7S-Oh
+ for linux-riscv@lists.infradead.org; Fri, 22 Apr 2022 07:26:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1650612364; x=1682148364;
+ t=1650612370; x=1682148370;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=jpQn21lfBJqxHASJ0XDepMTCjpzWE4fmKlR+6b/wZig=;
- b=rGqsSPmVKnYwWHkeWkO4SmRAQZpF8Pw4Ye7RUKuci6jngm/r4s+GqTo8
- /1h0aChTFVd4weZNwwuw5TE4i/zDJSrxsRuCaGWS8csCdFqgtRO/fk4YQ
- mcxEOzYGUXXJWHFo+DbPrN11eoiEdtwOvpndcY5E5gUSEXuBRGtZEk443
- ezdfWfxdxdUv7zmYqIyRcQOUxqjhNfWerJgdKh3jW3EU72u9Bhmqitne1
- 0EKnLm+BLxLIUWJOS12qyBXliUO9o23yGxHDg48xgXopzkqSU50erK0k4
- H2K31ZUFxT5UyNcdzsskQxPFcR+3CmKKDZ/dzvYP8/AsmpbfMeFnF75qh w==;
-X-IronPort-AV: E=Sophos;i="5.90,281,1643698800"; d="scan'208";a="153462798"
+ bh=xA3N4B1Oq7NN/T+qdPN5HDE/pIMyStNJQREGSATatw4=;
+ b=NSYq3DZY8H4GhGIfBRY9DUJ8o15vLy3QVGejWJLBu7MyTQ86j9r3jm2M
+ jcHRDZ4E9KdgJaRmexNXv6HYcFDVwsM1nXEl9kZFJRSfPOSf7a60Q+WQb
+ qwqBrG22gQVVWOPJyjTxIbrQRUalR43gnltKfg9ArrNCih7/V/S7HUNgM
+ 2hKpfBRSxEG4MazBSBDQDLgLgIUNAGeb4UWawKweaIyoBs/EaMZMncZUI
+ nWnpbfrhQ6Q8F1nTULStK9/qMOGnlSo3MdcwLvvcO2QKBImGP4B3gkj3r
+ 20HtIRONPmFiZagy7vIUwRCEW8G5s2y86sq+G3nF4Uog+YnnMhaETzC1G Q==;
+X-IronPort-AV: E=Sophos;i="5.90,281,1643698800"; d="scan'208";a="170537731"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
- by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 22 Apr 2022 00:26:01 -0700
+ by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 22 Apr 2022 00:26:07 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Fri, 22 Apr 2022 00:26:00 -0700
+ 15.1.2375.17; Fri, 22 Apr 2022 00:26:07 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
  (10.10.85.151) with Microsoft SMTP Server id 15.1.2375.17 via
- Frontend Transport; Fri, 22 Apr 2022 00:25:58 -0700
+ Frontend Transport; Fri, 22 Apr 2022 00:26:05 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>
 CC: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
@@ -56,17 +56,16 @@ CC: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
  <linux-riscv@lists.infradead.org>, <daire.mcnamara@microchip.com>,
  <lewis.hanly@microchip.com>, <cyril.jean@microchip.com>, Conor Dooley
  <conor.dooley@microchip.com>
-Subject: [PATCH v3 1/4] riscv: select peripheral drivers for polarfire soc
-Date: Fri, 22 Apr 2022 08:25:30 +0100
-Message-ID: <20220422072533.2582084-2-conor.dooley@microchip.com>
+Subject: [PATCH v3 4/4] MAINTAINERS: add polarfire rng, pci and clock drivers
+Date: Fri, 22 Apr 2022 08:25:33 +0100
+Message-ID: <20220422072533.2582084-5-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.35.2
 In-Reply-To: <20220422072533.2582084-1-conor.dooley@microchip.com>
 References: <20220422072533.2582084-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220422_002603_306533_CAE945B5 
-X-CRM114-Status: UNSURE (   8.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220422_002610_857641_CB085455 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,29 +82,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Update the SOC_MICROCHIP_POLARFIRE kconfig entry to select, where
-applicable, the supported drivers for the SoC.
+Hardware random, PCI and clock drivers for the PolarFire SoC have been
+upstreamed but are not covered by the MAINTAINERS entry, so add them.
+Daire is the author of the clock & PCI drivers, so add him as a
+maintainer in place of Lewis.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/Kconfig.socs | 4 ++++
- 1 file changed, 4 insertions(+)
+ MAINTAINERS | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index 34592d00dde8..7f93c729d51c 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -3,6 +3,10 @@ menu "SoC selection"
- config SOC_MICROCHIP_POLARFIRE
- 	bool "Microchip PolarFire SoCs"
- 	select MCHP_CLK_MPFS
-+	select POLARFIRE_SOC_MAILBOX if MAILBOX
-+	select POLARFIRE_SOC_SYS_CTRL if MAILBOX
-+	select HW_RANDOM_POLARFIRE_SOC if POLARFIRE_SOC_SYS_CTRL
-+	select PCIE_MICROCHIP_HOST if PCI_MSI && OF
- 	select SIFIVE_PLIC
- 	help
- 	  This enables support for Microchip PolarFire SoC platforms.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index fd768d43e048..d7602658b0a5 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -16939,12 +16939,15 @@ N:	riscv
+ K:	riscv
+ 
+ RISC-V/MICROCHIP POLARFIRE SOC SUPPORT
+-M:	Lewis Hanly <lewis.hanly@microchip.com>
+ M:	Conor Dooley <conor.dooley@microchip.com>
++M:	Daire McNamara <daire.mcnamara@microchip.com>
+ L:	linux-riscv@lists.infradead.org
+ S:	Supported
+ F:	arch/riscv/boot/dts/microchip/
++F:	drivers/char/hw_random/mpfs-rng.c
++F:	drivers/clk/microchip/clk-mpfs.c
+ F:	drivers/mailbox/mailbox-mpfs.c
++F:	drivers/pci/controller/pcie-microchip-host.c
+ F:	drivers/soc/microchip/
+ F:	include/soc/microchip/mpfs.h
+ 
 -- 
 2.35.2
 
