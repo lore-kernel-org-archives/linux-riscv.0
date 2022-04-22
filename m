@@ -4,59 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E38E4C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Apr 2022 06:07:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73A4EC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Apr 2022 06:31:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6v9oquvIwhxpsQlVKi0Q4ZdQb8Ps0S3+lL6zXBqkt70=; b=VsvYMrucDST3Qz
-	waHLU+lfY4Qei5LGD4IfMlyw7/MgMaZXGtzK8redzgcXvc8AOWrTvmoqjvupaCosbfNlZM3JhlbPu
-	BEFVfP4dlpq8AF4pZh90nEZbjZ0ijW9atjgnbWk4/AR2haHHSbXMOpafQpZ16p7OBGXHqHOOBqU7r
-	HHLhiMGI8LCo4P/1SqBa2Dfe+OvQeqWZFm8nwcqwoWhyoifXnkzdZWAKaGSrpRNlvunkUlj4k5dS5
-	h80VQI9OCvZ3qGwcLe93fEID1k6I9RIcCSC+gX6VnoV3HIx7/B49FDX2FbNnyoj/wHrOEAsFznwTp
-	gUTXFQModZ2k2iwTuEjw==;
+	List-Owner; bh=DWKO8OSoSLOFZSXuTM4T+Y1OzDkBSQd5wX5hMmnE4M4=; b=j0Qtqqigg82dUL
+	cWaEoateTNV0PrFcQq+BZgr/mlyPsmchpB9spArgQFuu2aZ1KhbU80U3jQSfsMtJzp2KyTOICOaG6
+	hRO4B73Rqk7HQX+vy9wey9D/KXdhJ5iyHGGfauJSfJbAijNXdSrwcEj2g+rRRVFFldiuKhGcKxu0Y
+	wcw6bL/lvRSjg2QX1uwVc6AYYU1WurIpFUPcUr91mTJ/yh6GEKomRxqDR4/BcBpMNRT2xyASKqQlm
+	45fMXjkTsUNaEP0YyTw67JPEuxu0GzMuRJ95hM+rKnjDTalrpYnrXYLvKBhYYWfbXfvhnL6++UQI0
+	O2ylEwPaLWNE9672eEUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nhmRj-00GNn3-5i; Fri, 22 Apr 2022 06:07:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nhmPJ-00GMcb-19; Fri, 22 Apr 2022 06:04:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C4B1D1576;
- Thu, 21 Apr 2022 23:04:36 -0700 (PDT)
-Received: from [10.163.40.48] (unknown [10.163.40.48])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 595F83F5A1;
- Thu, 21 Apr 2022 23:04:27 -0700 (PDT)
-Message-ID: <7fc56f41-a3c2-76be-7a20-dda392f3c4fc@arm.com>
-Date: Fri, 22 Apr 2022 11:35:13 +0530
+	id 1nhmpU-00GZ8I-BY; Fri, 22 Apr 2022 06:31:44 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nhmkF-00GWn0-Tu
+ for linux-riscv@lists.infradead.org; Fri, 22 Apr 2022 06:26:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1650608779; x=1682144779;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-id:content-transfer-encoding: mime-version;
+ bh=Esh9f3CKp16dv8TEasYWPNEWPdi693e1FRg8izniT/o=;
+ b=QlhGg9Lkm7jAiBfWDUQ1c4tcqTpTYVjasN6IwhrQiZdKXPSWbFlc5QcZ
+ 7hUgAfjO1ABijBcMHZkIjbDoPWKKAO+Wc4EMatQTwCTedVa3JJJBjpZzb
+ ko9iXUcJJs2/LjMWeQw1AInU1VXHxAyIzX16/xcMy4gvJChnqyZtOzoxD
+ kRlgbm5v5gN6FWReWHbou6WYKa9Qfk4MkOw8IewyQL+5cEYvaLRQQDQlJ
+ G2BA/w0xPZrKo8NNeo5E5OBzS0oOYnxfzMKc6ZV3vpCdBsJjPgmPEdOCg
+ XzIUmpIzA+hgUUfJGOFNz6Oef99k2kYqGNLgb3tLpPn7poJJW+PQUnUF3 w==;
+X-IronPort-AV: E=Sophos;i="5.90,280,1643698800"; d="scan'208";a="161360112"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 21 Apr 2022 23:26:19 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Thu, 21 Apr 2022 23:26:19 -0700
+Received: from NAM10-BN7-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17 via Frontend Transport; Thu, 21 Apr 2022 23:26:19 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=mpu9PSHTIe9Am7hlIJmzZge2GLimrNnfSo9zmjFnbr8w4mkE4zzad1h4G+a6Dtc8DoQCLaTw/IAu9OhYybBWto89zO/sPL7MgesWEOr5eoHd1td4P5apF4mpiuqCpXB+EOjJ+DTzR2Yyt5Hioz6OyyNgm6h70bSEeTd8L3lmNbjvz0J5BsDZZUDB5LiUdyH9ZFmh67Imy4wZH9nILx4ERGkXE0FzRHrVc/WSuX5j6UkL3R8xKhtd98D69DKyTk1za5O42nROjdGo5r/2HNv9DAW54QSB23XnCFrKcJQTIBqWNb2p20jFqXU0w2BgdaNDJJI54t1i3LfkvSa+GARTcg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Esh9f3CKp16dv8TEasYWPNEWPdi693e1FRg8izniT/o=;
+ b=LsaYwsKPfAbsorUEcjr+4bOyeamZzaYh7IcOLSWdElStTmhp0Lx1VRM9v9ZNIkRbDUcUT5mbYggSYaY/6eyuglEI/5bDCy2EQgUK9hiBRnw+368qyqbT5QXEu5TqYl4/H0b4MJgmVQi8gTIi/W3OAkd/Tkl8p7/FTTPEscKPyY6K88KxrentzfXmJetaTWDLVzeMXv8ViQZ+DSrNrqX09RPDx3kNZxwl0rMmCaD3tTrEEf15MkMyEMBdTWTweOwYwAVBV0KSTlhgEv1oo8ghgQ1aJjaH3xxAiZIHzQVTX1K/9EbuQZUHSZOshMgdSzhNum84xhqY2aYiH1QLVGTvKg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Esh9f3CKp16dv8TEasYWPNEWPdi693e1FRg8izniT/o=;
+ b=mj8aEY/8iW9pHRbQbh9OifAhcoLpW/b/qyutlKt78va+P/GUTJAkn9HU1CThBh2rqh7BVsyQBwSa+frDF876lLw1bhsyZEuumKD1FjWG6aB3gfRWBFi96bh1q1gPoWxwR9GXoGqL9Wv1W60tZcvdlGmfTRFFk6DHIJy3Z544Cmw=
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:95::7)
+ by DM4PR11MB5392.namprd11.prod.outlook.com (2603:10b6:5:397::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5186.14; Fri, 22 Apr
+ 2022 06:26:17 +0000
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::fcd4:8f8a:f0e9:8b18]) by CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::fcd4:8f8a:f0e9:8b18%7]) with mapi id 15.20.5186.014; Fri, 22 Apr 2022
+ 06:26:17 +0000
+From: <Conor.Dooley@microchip.com>
+To: <sboyd@kernel.org>, <linux-clk@vger.kernel.org>, <mturquette@baylibre.com>
+CC: <Daire.McNamara@microchip.com>, <linux-riscv@lists.infradead.org>,
+ <palmer@rivosinc.com>, <andrew@lunn.ch>, <linux@armlinux.org.uk>
+Subject: Re: [PATCH v2] clk: microchip: mpfs: don't reset disabled peripherals
+Thread-Topic: [PATCH v2] clk: microchip: mpfs: don't reset disabled peripherals
+Thread-Index: AQHYTXUqUwj85ug6GUGm/HR3eE1wGaz7SEEAgABAe4A=
+Date: Fri, 22 Apr 2022 06:26:17 +0000
+Message-ID: <b22df610-f36f-5eed-d223-986cfd03e3ca@microchip.com>
+References: <20220411072340.740981-1-conor.dooley@microchip.com>
+ <20220422023512.C01EEC385A7@smtp.kernel.org>
+In-Reply-To: <20220422023512.C01EEC385A7@smtp.kernel.org>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.7.0
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 6e7d6bfe-27f9-4eb6-862b-08da24290210
+x-ms-traffictypediagnostic: DM4PR11MB5392:EE_
+x-microsoft-antispam-prvs: <DM4PR11MB5392F66D63404C48110EA87898F79@DM4PR11MB5392.namprd11.prod.outlook.com>
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: S2Dx9Daclu/Z5i2+9+eyR68fYnLXHnJrdd85/3JnbHE0giM/OWsGmxHhuem08qGad7cUOEwyL6yeQMxZQCFfu9pBSis9qut6Qfd8OUPQnoRcN0FsAD3Enwl7ohwKFp1R562zJivhUvwPmZy/QIHb7dq7oloMHO/c21RVTa1VR7xtL1awI/iVpuBglflAggbrgkuAr7Dor0L2wPWS44Ml6FDxzp23jLgIEf721KjCGzLUuw3QkY0xl+fVr3HLgt15GoaH08J2ezu5p4ixZunlXsargDO7w0cWrGXFBHJ1Y/ajbWRA8n+LPYGdLmcokABCTpSaslNpPTT8K1izEQ6M3stm/M7duwYZK/xTtUcRRQOIFzVdzyZ/tyPSZgc4pRZ2QpcuVknS0LHPn1n+ueYij1DiqCZTZHTW+Zymacjybrm7qcQENjIqThz4xmp+cxgp24eyaIoTtmxOug+9sqX4yy1zRWMe1g7bNLO0LqcfD7g9Y3T+tLzm324P/+Cem+MSxSoEH9nSx+EdnBC1ata4epXdAFq7dva9pIv1ADWVzyQlJmSlhTizUd1YrneSBTgBD+xi2YnP0vUl15gxQqr1kvHfDBfbRWUTbAD1oxq/RIj2Cns5vGpD+PshUQ3gnfMUW8vd1M2O+q1mXxlc1kYfidVYth6QE3lzQxwHNahAxf0ral/ZaBjqnePgUCjF3JKtRHUTQpBa26qAHTJzaCnOxP406aMPUcNVzdPktt5GrGMlH7PS2OvqIJlROhoQy/ZD0YY9sU1WoC8MiMqlJ1pYDcBlz4Zm1NJ0Y60zjSUmAy+4Q3+3gcZDq2+uH5v/2UdbLYWczZLZPZxXD85dtRORw4k+1dVLXYIRWVQz8EpaS1M=
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:CO1PR11MB5154.namprd11.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(13230001)(366004)(38070700005)(26005)(6512007)(6506007)(71200400001)(53546011)(8676002)(8936002)(91956017)(316002)(4326008)(31686004)(122000001)(36756003)(66946007)(76116006)(38100700002)(64756008)(66476007)(66446008)(66556008)(110136005)(54906003)(4744005)(5660300002)(508600001)(2616005)(86362001)(31696002)(83380400001)(2906002)(186003)(6486002)(966005)(45980500001)(43740500002);
+ DIR:OUT; SFP:1101; 
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?U085L0F4S2IxdmpCNmVlaUlSVFlVOFBOaUxOUFJSSnpkODdpclhQMGdVT1VE?=
+ =?utf-8?B?dm1tcmFOcHBlTWtNK3VvMlZuaUY5bGhOSFZ5ZHJTSTVYMVdjOWpaUnovWFZr?=
+ =?utf-8?B?MkE0TUxFck5iaGxLUE9yc2tpOTU0MEN4NEtDQ3NrZXMyaUlUVy85QWlnQVJJ?=
+ =?utf-8?B?bW0wdlFrclJ2TEJZUjEvNkhCT1BreTN4dFNRVWFCMnplT1l1NFZKTitKVFN1?=
+ =?utf-8?B?a0VPaDFGL24yakpOc01ydlhwdHhLL3ZVcVpwOXlVTHFyeHFCK1lkZDFvQnZy?=
+ =?utf-8?B?a3h0cDdwenh0WGQ0NTJTZFJLRm4xaGV5eW0wT1NDNy93WjlDeW1nSEVkQk5p?=
+ =?utf-8?B?d2JucXFLcmdDZUVGTjJzUFBIM2dHcHhXZjNFeUh0aW1vRHA0VEJpQmJDNUpH?=
+ =?utf-8?B?UG5idS94bE9UY2JDTThDYVU2WmdhT1ltUWR0N3o3KzQ4YlNMQVExVnJSZFRY?=
+ =?utf-8?B?dUluTEFNWk54dTdqTlAvRnZEa1VXSHFKbTRncitNMFlWVmlWOFNqRjh2TUtl?=
+ =?utf-8?B?aW5KUUdXRWJvME9hYjFId3lpUmhqY1MzOEdLcXJqQjZWeFcvekhJemJuZ1My?=
+ =?utf-8?B?TVlXNi9OSmZMcDh1RUVURGt0aUxKVnBQbUMvam1UdFRUOTBxcmtGeEpEZ2hi?=
+ =?utf-8?B?ZDlydU1HZkF4c3RkWTFvVW92QkZpakVVTHNCZVVmSVZBOVpTT05VYmo2ODFJ?=
+ =?utf-8?B?ajBKYjVxUU1BWUptQmZTNEl1K2xhS1F4THp1bFBDNmdBVlpEOFBzYlVLeENO?=
+ =?utf-8?B?emJuTFZZZ3VoT05wb1hONHNxQ2JUUlJwbU9ibE9nN2pRNURvNklyMDJSMjJV?=
+ =?utf-8?B?UlpnZVNXdkUyUHgvVllzVEx3bEtaNlZ4R0hrUjYwSXNCN2VaUkRhWEJWYk1T?=
+ =?utf-8?B?OURSMjNwY0RmckdPU3hzdGFrRkZ4TURiNkp5SGZiZkZ4TEVkbUVoVUJwY2Ez?=
+ =?utf-8?B?b1FxWnpWUmdDNGtVSHJodnl0bG5FS2VIMDl5WG5WNEVHcW1zMVV1bEZoQzNX?=
+ =?utf-8?B?YXJURjV3SS9qVFJNbVhGaG5Hd2Y2YlE2ZXNzdjFxdzVXQXRyZWljdFVPaldP?=
+ =?utf-8?B?bVF2VmxaZFlLTFdob1FtMHUxa1Y4QXlJNDVrNzVXUXlNUGp0VkpoTmZadnRG?=
+ =?utf-8?B?ODZEVE9vVmlXaDVpbURDTm5xZ3RBZUljYnlPKzVNdmxSbDJwdXlNVDFnYUFJ?=
+ =?utf-8?B?UkxMZUtNZGZnNHJ3dGpRV1RFajRRMnZWSzFzUlBPZUJreTc3T05sTE01SlFM?=
+ =?utf-8?B?K2Foc0JmUFN4OU1DWmUrcEFqVUkzM1F0VjNGMWZ1VGZJTzZwdE5wMndSdGpM?=
+ =?utf-8?B?RWY4dkRIOGhRMEZxUXdkZkZ6bU9xTjNlZUNvRndCYzNtcHNiUUxTaHNPc0ll?=
+ =?utf-8?B?aElpSmJ2NGdYQjJiOWVjRUxVSGtjRnlScHk1Q3JERGtocGVqdUZLendrQWJI?=
+ =?utf-8?B?UjF1aXhGYmVzaG9WNUlMWG03cXZtbVVLNkdadUY4VnZaNmJIUVBRMGY3QTdF?=
+ =?utf-8?B?QWJSbjc4TjNnRmRhT2JUWFFTMWdubHhSRXBPLzdpcTJMY0F4bHVDN3g4bGFm?=
+ =?utf-8?B?ZG5xS0Q3N3Z0Qi9uY3FWNHNNOVErcDBGWWFLUkZPbnJFRnM2eWFrdGdlT2t3?=
+ =?utf-8?B?WE5vZkFNSzlCUGx2WWxEUXRNQ29hVHdsTC9nQVdtcE5rcnhDWXRGVkt4OFpi?=
+ =?utf-8?B?QTk0UzA2OWp3c25LN0YwRmpRczJVUmVBYWhmN0dmWUViSGQ5VjV2eXdWbVBO?=
+ =?utf-8?B?LzJreVFyaXlpYzdMcytwbnN4VVdMd2RRQWsra1NRMDBZaG9PRGh2aWlMb0p5?=
+ =?utf-8?B?MUIxUmlLSkl1RzhKM0dGUTNob0xmRHZnT2xnT1JYYXdTV3d0Q1poa01Wd1Js?=
+ =?utf-8?B?dytZSHU3amFNS0RoaVduMEpSTFh6RWY3T3E2THorM1R5bTFCQTJ6aGRHUkJu?=
+ =?utf-8?B?ZTcxVGtZZ0MweEZ2dnhLS0VsazZKK0pyUFBzR0c4WHoycS9SQm83bDNSc3Zs?=
+ =?utf-8?B?N04rMW1mRTdLeXd2S09PeEVKaldQS1JjZGNlSm5QYm1QcUd1TlhrZFUyZFVU?=
+ =?utf-8?B?WURzS0VBQm04Y1cxaGkyckxuMWlydWc0UGYrS1NtUDdSbVp3SGxqb1EvZzJl?=
+ =?utf-8?B?TkliMy8yMlpKL3N4alZOYUc0Witwb0FMK2RSYVhSS1d2ZlVETVZZZk50TERn?=
+ =?utf-8?B?bmFYaFhqN3IvMU1YWWhKT2g1MExCZWxudWdNeE5ibzlyWi9nRTR4S1c1KzV3?=
+ =?utf-8?B?ZmpsSGErRE02cTVucTcwcnFDRngzTXlUbko1ZXdtRjJXYVVLeEVXNURWQWNz?=
+ =?utf-8?B?Y0pmZ1EvZ3dUQUtsRWtVSHdoOGdlQnRNOEVXbUJBYndzOUtvbTdpd20xQlZ1?=
+ =?utf-8?Q?M8/BzyW14hBi2v+s=3D?=
+Content-ID: <27E02CBDE66BE540AD217AB5A87923E7@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.5.0
-Subject: Re: [PATCH -next v5 3/5] mm: page_table_check: add hooks to public
- helpers
-Content-Language: en-US
-To: Tong Tiangen <tongtiangen@huawei.com>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- Kefeng Wang <wangkefeng.wang@huawei.com>, Guohanjun <guohanjun@huawei.com>
-References: <20220421082042.1167967-1-tongtiangen@huawei.com>
- <20220421082042.1167967-4-tongtiangen@huawei.com>
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20220421082042.1167967-4-tongtiangen@huawei.com>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6e7d6bfe-27f9-4eb6-862b-08da24290210
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Apr 2022 06:26:17.2618 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Lwt6v+WFSFhUs1Ku/Ef8CBlK9CgYYyDccX9dOIbyvNUAkBWWEV/aO79y0rEqeduNxTT0+G9AKTLXoVCVLEsn4T9YGWLz/WFz8el7POX2KIo=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR11MB5392
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220421_230441_230406_74220681 
-X-CRM114-Status: GOOD (  20.48  )
+X-CRM114-CacheID: sfid-20220421_232620_029605_214FB488 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,136 +178,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 4/21/22 13:50, Tong Tiangen wrote:
-> Move ptep_clear() to the include/linux/pgtable.h and add page table check
-> relate hooks to some helpers, it's prepare for support page table check
-> feature on new architecture.
-
-Could instrumenting generic page table helpers (fallback instances when its
-corresponding __HAVE_ARCH_XXX is not defined on the platform), might add all
-the page table check hooks into paths on platforms which have not subscribed
-ARCH_SUPPORTS_PAGE_TABLE_CHECK in the first place ? Although these looks have
-!CONFIG_PAGE_TABLE_CHECK fallback stubs in the header, hence a build problem
-gets avoided.
-
+On 22/04/2022 02:35, Stephen Boyd wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
 > 
-> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
-> Acked-by: Pasha Tatashin <pasha.tatashin@soleen.com>
-> ---
->  arch/x86/include/asm/pgtable.h | 10 ----------
->  include/linux/pgtable.h        | 26 ++++++++++++++++++--------
->  2 files changed, 18 insertions(+), 18 deletions(-)
+> Quoting Conor Dooley (2022-04-11 00:23:41)
+>> The current clock driver for PolarFire SoC puts the hardware behind
+>> "periph" clocks into reset if their clock is disabled. CONFIG_PM was
+>> recently added to the riscv defconfig and exposed issues caused by this
+>> behaviour, where the Cadence GEM was being put into reset between its
+>> bringup & the PHY bringup:
+>>
+>> https://lore.kernel.org/linux-riscv/9f4b057d-1985-5fd3-65c0-f944161c7792@microchip.com/
+>>
+>> Fix this (for now) by removing the reset from mpfs_periph_clk_disable.
+>>
+>> Fixes: 635e5e73370e ("clk: microchip: Add driver for Microchip PolarFire SoC")
+>> Reviewed-by: Daire McNamara <daire.mcnamara@microchip.com>
+>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+>> ---
 > 
-> diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
-> index 564abe42b0f7..51cd39858f81 100644
-> --- a/arch/x86/include/asm/pgtable.h
-> +++ b/arch/x86/include/asm/pgtable.h
-> @@ -1073,16 +1073,6 @@ static inline pte_t ptep_get_and_clear_full(struct mm_struct *mm,
->  	return pte;
->  }
->  
-> -#define __HAVE_ARCH_PTEP_CLEAR
+> Applied to clk-fixes
 
-AFICS X86 is the only platform subscribing __HAVE_ARCH_PTEP_CLEAR. Hence if
-this is getting dropped for generic ptep_clear(), then no need to add back
-#ifnded __HAVE_ARCH_PTEP_CLEAR construct. Generic ptep_clear() is the only
-definition for all platforms ?
-
-Also if this patch is trying to drop off __HAVE_ARCH_PTEP_CLEAR along with
-other page table check related changes, it needs to be done via a separate
-patch instead.
-
-> -static inline void ptep_clear(struct mm_struct *mm, unsigned long addr,
-> -			      pte_t *ptep)
-> -{
-> -	if (IS_ENABLED(CONFIG_PAGE_TABLE_CHECK))
-> -		ptep_get_and_clear(mm, addr, ptep);
-> -	else
-> -		pte_clear(mm, addr, ptep);
-> -}
-> -
->  #define __HAVE_ARCH_PTEP_SET_WRPROTECT
->  static inline void ptep_set_wrprotect(struct mm_struct *mm,
->  				      unsigned long addr, pte_t *ptep)
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index 49ab8ee2d6d7..10d2d91edf20 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -12,6 +12,7 @@
->  #include <linux/bug.h>
->  #include <linux/errno.h>
->  #include <asm-generic/pgtable_uffd.h>
-> +#include <linux/page_table_check.h>
->  
->  #if 5 - defined(__PAGETABLE_P4D_FOLDED) - defined(__PAGETABLE_PUD_FOLDED) - \
->  	defined(__PAGETABLE_PMD_FOLDED) != CONFIG_PGTABLE_LEVELS
-> @@ -272,14 +273,6 @@ static inline bool arch_has_hw_pte_young(void)
->  }
->  #endif
->  
-> -#ifndef __HAVE_ARCH_PTEP_CLEAR
-> -static inline void ptep_clear(struct mm_struct *mm, unsigned long addr,
-> -			      pte_t *ptep)
-> -{
-> -	pte_clear(mm, addr, ptep);
-> -}
-> -#endif
-> -
->  #ifndef __HAVE_ARCH_PTEP_GET_AND_CLEAR
->  static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
->  				       unsigned long address,
-> @@ -287,10 +280,22 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
->  {
->  	pte_t pte = *ptep;
->  	pte_clear(mm, address, ptep);
-> +	page_table_check_pte_clear(mm, address, pte);
->  	return pte;
->  }
->  #endif
->  
-> +#ifndef __HAVE_ARCH_PTEP_CLEAR
-> +static inline void ptep_clear(struct mm_struct *mm, unsigned long addr,
-> +			      pte_t *ptep)
-> +{
-> +	if (IS_ENABLED(CONFIG_PAGE_TABLE_CHECK))
-> +		ptep_get_and_clear(mm, addr, ptep);
-> +	else
-> +		pte_clear(mm, addr, ptep);
-
-Could not this be reworked to avoid IS_ENABLED() ? This is confusing. If the page
-table hooks can be added to all potential page table paths via generic helpers,
-irrespective of CONFIG_PAGE_TABLE_CHECK option, there is no rationale for doing
-a IS_ENABLED() check here.
-
-> +}
-> +#endif
-> +
->  #ifndef __HAVE_ARCH_PTEP_GET
->  static inline pte_t ptep_get(pte_t *ptep)
->  {
-> @@ -360,7 +365,10 @@ static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
->  					    pmd_t *pmdp)
->  {
->  	pmd_t pmd = *pmdp;
-> +
->  	pmd_clear(pmdp);
-> +	page_table_check_pmd_clear(mm, address, pmd);
-> +
->  	return pmd;
->  }
->  #endif /* __HAVE_ARCH_PMDP_HUGE_GET_AND_CLEAR */
-> @@ -372,6 +380,8 @@ static inline pud_t pudp_huge_get_and_clear(struct mm_struct *mm,
->  	pud_t pud = *pudp;
->  
->  	pud_clear(pudp);
-> +	page_table_check_pud_clear(mm, address, pud);
-> +
->  	return pud;
->  }
->  #endif /* __HAVE_ARCH_PUDP_HUGE_GET_AND_CLEAR */
-
+thanks!
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
