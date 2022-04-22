@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFEC6C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Apr 2022 05:11:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E38E4C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Apr 2022 06:07:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=edK8blAbPoHRXKekQtWQnHr1cbUEr6lWsfuKJfXaBWo=; b=jJAHDVkEngxTDj
-	R0uXi484L0XNafe5hgHWAnyCv+YtdtVAhFS8LMPr+FafUj6YOSplDS26ZkSftMIaOgZyfI0g+dInX
-	8sMQpyNmtNb4cxmeh4yUtqFaJSWW9DdAhwpicUCVQJvlOHZI/uca8FhvbNogtfr3RrIx9fBGmcca4
-	ZF775ThxNjbNbtEGAhiN6FAF48kFkwOlx1NG9Pf8Xr8kOUKNlCHZWC/4YHVoIYgUTmbeV/jtSNucm
-	sWgzmHq+0TYWIGPc1DoqIZBcpDeH/V5jjjsCKsBsCKL+gkjO9LHe8Zj0UiWBru7mRZGVlToGmJOIY
-	g33LVGRcVw+QT/pqsc2Q==;
+	List-Owner; bh=6v9oquvIwhxpsQlVKi0Q4ZdQb8Ps0S3+lL6zXBqkt70=; b=VsvYMrucDST3Qz
+	waHLU+lfY4Qei5LGD4IfMlyw7/MgMaZXGtzK8redzgcXvc8AOWrTvmoqjvupaCosbfNlZM3JhlbPu
+	BEFVfP4dlpq8AF4pZh90nEZbjZ0ijW9atjgnbWk4/AR2haHHSbXMOpafQpZ16p7OBGXHqHOOBqU7r
+	HHLhiMGI8LCo4P/1SqBa2Dfe+OvQeqWZFm8nwcqwoWhyoifXnkzdZWAKaGSrpRNlvunkUlj4k5dS5
+	h80VQI9OCvZ3qGwcLe93fEID1k6I9RIcCSC+gX6VnoV3HIx7/B49FDX2FbNnyoj/wHrOEAsFznwTp
+	gUTXFQModZ2k2iwTuEjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nhla1-00GBTN-P2; Fri, 22 Apr 2022 05:11:41 +0000
+	id 1nhmRj-00GNn3-5i; Fri, 22 Apr 2022 06:07:11 +0000
 Received: from foss.arm.com ([217.140.110.172])
  by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nhlZK-00GB8t-8b; Fri, 22 Apr 2022 05:11:00 +0000
+ id 1nhmPJ-00GMcb-19; Fri, 22 Apr 2022 06:04:43 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B38E11570;
- Thu, 21 Apr 2022 22:10:56 -0700 (PDT)
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C4B1D1576;
+ Thu, 21 Apr 2022 23:04:36 -0700 (PDT)
 Received: from [10.163.40.48] (unknown [10.163.40.48])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AD00C3F5A1;
- Thu, 21 Apr 2022 22:10:47 -0700 (PDT)
-Message-ID: <905f22d6-0671-21b2-a341-bdc5ba02e59c@arm.com>
-Date: Fri, 22 Apr 2022 10:41:34 +0530
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 595F83F5A1;
+ Thu, 21 Apr 2022 23:04:27 -0700 (PDT)
+Message-ID: <7fc56f41-a3c2-76be-7a20-dda392f3c4fc@arm.com>
+Date: Fri, 22 Apr 2022 11:35:13 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.5.0
-Subject: Re: [PATCH -next v5 2/5] mm: page_table_check: move
- pxx_user_accessible_page into x86
+Subject: Re: [PATCH -next v5 3/5] mm: page_table_check: add hooks to public
+ helpers
 Content-Language: en-US
 To: Tong Tiangen <tongtiangen@huawei.com>,
  Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
@@ -51,12 +51,12 @@ Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
  linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
  Kefeng Wang <wangkefeng.wang@huawei.com>, Guohanjun <guohanjun@huawei.com>
 References: <20220421082042.1167967-1-tongtiangen@huawei.com>
- <20220421082042.1167967-3-tongtiangen@huawei.com>
+ <20220421082042.1167967-4-tongtiangen@huawei.com>
 From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20220421082042.1167967-3-tongtiangen@huawei.com>
+In-Reply-To: <20220421082042.1167967-4-tongtiangen@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220421_221058_530746_E7A8E75A 
-X-CRM114-Status: GOOD (  18.58  )
+X-CRM114-CacheID: sfid-20220421_230441_230406_74220681 
+X-CRM114-Status: GOOD (  20.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,100 +73,135 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Similar to previous commits on the same file, the following subject
-line format, would have been preferred.
 
-mm/page_table_check: <description>
 
 On 4/21/22 13:50, Tong Tiangen wrote:
-> From: Kefeng Wang <wangkefeng.wang@huawei.com>
-> 
-> The pxx_user_accessible_page() check the PTE bit, it's
+> Move ptep_clear() to the include/linux/pgtable.h and add page table check
+> relate hooks to some helpers, it's prepare for support page table check
+> feature on new architecture.
 
-s/check/checks			 ^^^^
-
-> architecture-specific code, move them into x86's pgtable.h
-The commit message should have been more clear, atleast complete in
-sentences. I dont want to be bike shedding here but this is definitely
-incomplete. These helpers are being moved out to make the page table
-check framework, platform independent. Hence the commit message should
-mention this.
+Could instrumenting generic page table helpers (fallback instances when its
+corresponding __HAVE_ARCH_XXX is not defined on the platform), might add all
+the page table check hooks into paths on platforms which have not subscribed
+ARCH_SUPPORTS_PAGE_TABLE_CHECK in the first place ? Although these looks have
+!CONFIG_PAGE_TABLE_CHECK fallback stubs in the header, hence a build problem
+gets avoided.
 
 > 
-> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 > Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
 > Acked-by: Pasha Tatashin <pasha.tatashin@soleen.com>
 > ---
->  arch/x86/include/asm/pgtable.h | 19 +++++++++++++++++++
->  mm/page_table_check.c          | 17 -----------------
->  2 files changed, 19 insertions(+), 17 deletions(-)
+>  arch/x86/include/asm/pgtable.h | 10 ----------
+>  include/linux/pgtable.h        | 26 ++++++++++++++++++--------
+>  2 files changed, 18 insertions(+), 18 deletions(-)
 > 
 > diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
-> index b7464f13e416..564abe42b0f7 100644
+> index 564abe42b0f7..51cd39858f81 100644
 > --- a/arch/x86/include/asm/pgtable.h
 > +++ b/arch/x86/include/asm/pgtable.h
-> @@ -1447,6 +1447,25 @@ static inline bool arch_has_hw_pte_young(void)
->  	return true;
+> @@ -1073,16 +1073,6 @@ static inline pte_t ptep_get_and_clear_full(struct mm_struct *mm,
+>  	return pte;
 >  }
 >  
-> +#ifdef CONFIG_PAGE_TABLE_CHECK
-> +static inline bool pte_user_accessible_page(pte_t pte)
-> +{
-> +	return (pte_val(pte) & _PAGE_PRESENT) && (pte_val(pte) & _PAGE_USER);
-> +}
-> +
-> +static inline bool pmd_user_accessible_page(pmd_t pmd)
-> +{
-> +	return pmd_leaf(pmd) && (pmd_val(pmd) & _PAGE_PRESENT) &&
-> +		(pmd_val(pmd) & _PAGE_USER);
-> +}
-> +
-> +static inline bool pud_user_accessible_page(pud_t pud)
-> +{
-> +	return pud_leaf(pud) && (pud_val(pud) & _PAGE_PRESENT) &&
-> +		(pud_val(pud) & _PAGE_USER);
+> -#define __HAVE_ARCH_PTEP_CLEAR
 
-A line break is not really required here (and above as well). As single
-complete line would still be within 100 characters.
+AFICS X86 is the only platform subscribing __HAVE_ARCH_PTEP_CLEAR. Hence if
+this is getting dropped for generic ptep_clear(), then no need to add back
+#ifnded __HAVE_ARCH_PTEP_CLEAR construct. Generic ptep_clear() is the only
+definition for all platforms ?
+
+Also if this patch is trying to drop off __HAVE_ARCH_PTEP_CLEAR along with
+other page table check related changes, it needs to be done via a separate
+patch instead.
+
+> -static inline void ptep_clear(struct mm_struct *mm, unsigned long addr,
+> -			      pte_t *ptep)
+> -{
+> -	if (IS_ENABLED(CONFIG_PAGE_TABLE_CHECK))
+> -		ptep_get_and_clear(mm, addr, ptep);
+> -	else
+> -		pte_clear(mm, addr, ptep);
+> -}
+> -
+>  #define __HAVE_ARCH_PTEP_SET_WRPROTECT
+>  static inline void ptep_set_wrprotect(struct mm_struct *mm,
+>  				      unsigned long addr, pte_t *ptep)
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index 49ab8ee2d6d7..10d2d91edf20 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -12,6 +12,7 @@
+>  #include <linux/bug.h>
+>  #include <linux/errno.h>
+>  #include <asm-generic/pgtable_uffd.h>
+> +#include <linux/page_table_check.h>
+>  
+>  #if 5 - defined(__PAGETABLE_P4D_FOLDED) - defined(__PAGETABLE_PUD_FOLDED) - \
+>  	defined(__PAGETABLE_PMD_FOLDED) != CONFIG_PGTABLE_LEVELS
+> @@ -272,14 +273,6 @@ static inline bool arch_has_hw_pte_young(void)
+>  }
+>  #endif
+>  
+> -#ifndef __HAVE_ARCH_PTEP_CLEAR
+> -static inline void ptep_clear(struct mm_struct *mm, unsigned long addr,
+> -			      pte_t *ptep)
+> -{
+> -	pte_clear(mm, addr, ptep);
+> -}
+> -#endif
+> -
+>  #ifndef __HAVE_ARCH_PTEP_GET_AND_CLEAR
+>  static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
+>  				       unsigned long address,
+> @@ -287,10 +280,22 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
+>  {
+>  	pte_t pte = *ptep;
+>  	pte_clear(mm, address, ptep);
+> +	page_table_check_pte_clear(mm, address, pte);
+>  	return pte;
+>  }
+>  #endif
+>  
+> +#ifndef __HAVE_ARCH_PTEP_CLEAR
+> +static inline void ptep_clear(struct mm_struct *mm, unsigned long addr,
+> +			      pte_t *ptep)
+> +{
+> +	if (IS_ENABLED(CONFIG_PAGE_TABLE_CHECK))
+> +		ptep_get_and_clear(mm, addr, ptep);
+> +	else
+> +		pte_clear(mm, addr, ptep);
+
+Could not this be reworked to avoid IS_ENABLED() ? This is confusing. If the page
+table hooks can be added to all potential page table paths via generic helpers,
+irrespective of CONFIG_PAGE_TABLE_CHECK option, there is no rationale for doing
+a IS_ENABLED() check here.
 
 > +}
 > +#endif
 > +
->  #endif	/* __ASSEMBLY__ */
->  
->  #endif /* _ASM_X86_PGTABLE_H */
-> diff --git a/mm/page_table_check.c b/mm/page_table_check.c
-> index eb0d0b71cdf6..3692bea2ea2c 100644
-> --- a/mm/page_table_check.c
-> +++ b/mm/page_table_check.c
-> @@ -52,23 +52,6 @@ static struct page_table_check *get_page_table_check(struct page_ext *page_ext)
->  	return (void *)(page_ext) + page_table_check_ops.offset;
+>  #ifndef __HAVE_ARCH_PTEP_GET
+>  static inline pte_t ptep_get(pte_t *ptep)
+>  {
+> @@ -360,7 +365,10 @@ static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
+>  					    pmd_t *pmdp)
+>  {
+>  	pmd_t pmd = *pmdp;
+> +
+>  	pmd_clear(pmdp);
+> +	page_table_check_pmd_clear(mm, address, pmd);
+> +
+>  	return pmd;
 >  }
+>  #endif /* __HAVE_ARCH_PMDP_HUGE_GET_AND_CLEAR */
+> @@ -372,6 +380,8 @@ static inline pud_t pudp_huge_get_and_clear(struct mm_struct *mm,
+>  	pud_t pud = *pudp;
 >  
-> -static inline bool pte_user_accessible_page(pte_t pte)
-> -{
-> -	return (pte_val(pte) & _PAGE_PRESENT) && (pte_val(pte) & _PAGE_USER);
-> -}
-> -
-> -static inline bool pmd_user_accessible_page(pmd_t pmd)
-> -{
-> -	return pmd_leaf(pmd) && (pmd_val(pmd) & _PAGE_PRESENT) &&
-> -		(pmd_val(pmd) & _PAGE_USER);
-> -}
-> -
-> -static inline bool pud_user_accessible_page(pud_t pud)
-> -{
-> -	return pud_leaf(pud) && (pud_val(pud) & _PAGE_PRESENT) &&
-> -		(pud_val(pud) & _PAGE_USER);
-> -}
-> -
->  /*
->   * An enty is removed from the page table, decrement the counters for that page
->   * verify that it is of correct type and counters do not become negative.
-
-With above mentioned code cleanup and commit message changes in place.
-
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>  	pud_clear(pudp);
+> +	page_table_check_pud_clear(mm, address, pud);
+> +
+>  	return pud;
+>  }
+>  #endif /* __HAVE_ARCH_PUDP_HUGE_GET_AND_CLEAR */
 
 _______________________________________________
 linux-riscv mailing list
