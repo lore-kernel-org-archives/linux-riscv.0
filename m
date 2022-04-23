@@ -4,92 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72A2AC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Apr 2022 22:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD765C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Apr 2022 00:17:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ucIoTNMXNiXuhN1dGkVU2QTlPAjBcBmpuum7ppcrvTY=; b=ZaxdKc7IRL8N1l
-	hLMInqE/03Ou0R8ZeV8yJmO3PWWX6ebbVIfz45JgXKOkyFAtCzxgI6jD/wl4pz+84+b4tdqZOgIyf
-	iv5YB8ux3ZFVFXkbmDSwU2IhRu8Pw8dnuo2S+gMtnNWz2GqglJmJL/ry2xZHtRFD3ROUY0kaMzNtj
-	duaav/Dk15SSLK46QE5FuetLGUh7UGBi9zEbZ7dc2vefguMITydoOLkrHRXIhfQP8++WVYXTksipO
-	zVeMjcbpRmLPUSAiR9ysMsX0/rC8ja8aoVJLyLRu5gZmJfq1tsa4kUMugMI8LRzszu2xDiAeE8lPl
-	eaFoad9ex7cMtoMx932w==;
+	List-Owner; bh=ex2OLCJzYIQ5ho7YpuO3UvKFME7YYS+ol4Y2ZvdrrFE=; b=dE8nKFQtFnIYr/
+	+oPx0VFZCzsW9Y2vyf5bdAYa4F+h3XYA1MyPZ3sBJpuu3I3zt88O4J+CDEnxqtWr0yONvUc1E19zn
+	qB7FJtS0MyMQOshYeVgOScZRClgeDPzG3805QHuBiEvuIwSnXV752vBiy5tGZTy8bBdfSACWBhSJM
+	3c28cZzzx6oyXJQlV3RhPIT4ALux3bygE75TlUyViy2KkP2esib+9CrsBYE+oeIHmLPDw2oeb+fP4
+	QJHXsCPVDrNPWL8nVMh38ZUAugSJJREM8AypwHC7s4bw5Y2DUr+1zoenb8Dpq3WMkkw2W9I/A4TGt
+	GvamXUS70PTCalY15K0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ni1pa-002jLw-TG; Fri, 22 Apr 2022 22:32:51 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1ni3SX-002zrI-LT; Sat, 23 Apr 2022 00:17:09 +0000
+Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ni1pW-002jKm-Kh
- for linux-riscv@lists.infradead.org; Fri, 22 Apr 2022 22:32:48 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id
- u17-20020a05600c211100b0038eaf4cdaaeso8853698wml.1
- for <linux-riscv@lists.infradead.org>; Fri, 22 Apr 2022 15:32:45 -0700 (PDT)
+ id 1ni3SU-002zqr-3H
+ for linux-riscv@lists.infradead.org; Sat, 23 Apr 2022 00:17:07 +0000
+Received: by mail-yw1-x1132.google.com with SMTP id
+ 00721157ae682-2f7bb893309so21020957b3.12
+ for <linux-riscv@lists.infradead.org>; Fri, 22 Apr 2022 17:17:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=conchuod-ie.20210112.gappssmtp.com; s=20210112;
- h=message-id:date:mime-version:user-agent:subject:content-language:to
- :cc:references:from:in-reply-to:content-transfer-encoding;
- bh=QjDGFJQ5+1+ljveXxjlk6iDPqQSULywPpuzcwSFf81I=;
- b=GzBxg70l/bOHPRVWxgyL2QxnrcNVvHr2+e8esQjVjta19VNcNKBIYPwA6HNkPep8z3
- Z3xQoYeA6gLP4hM5bFKR8V8U1RChQXKTgc6tVLccT2QDWkZqgBSRqN65rNxQcuKbF0HP
- dgAoSDRlqrv/3vq+DUN50Nh7LS3ZZoDN2dMhr3dsknagGLrRS6u3xJgyP7IeUcgWelin
- voZAHwBeV+N+4o43re+HKF8SgDrzhNYUS6We95HjmUxW2V6qG7TR4W/Op2JFU9AjMU6c
- j1PCgHLP4uTp6geEHSoC2ZRP8z3nLoVJ3CL69t1BpgHeLgDE7cL+8a3jFwScZdfDjnaV
- F1+Q==
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=MoSOk7aiSsrTsFED04ppyU9PqkK13gebDi+J9ftgEjs=;
+ b=ZOQ5EjKoIj6frB25e/g+fvJ1PDdhmnKNWUV6ChlD92WFm3A3X/bhOBJx6Y0lGxzAxX
+ bC55qm14OQ6BI71mEOhg/9I481wslmOus55fjNPH+2cN9lvEOg7rwSW30zZvpXhoB3sS
+ 8kB6MY6EjYEDHMbp+1MaRQMa2z1AfztCpS99k=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:cc:references:from:in-reply-to
- :content-transfer-encoding;
- bh=QjDGFJQ5+1+ljveXxjlk6iDPqQSULywPpuzcwSFf81I=;
- b=4S+eTUZId+HkEaVFjmtl3mDIVy+9w6Ox9aPdlEb2pc56YzbdHhpTQzGyAXd00J1nho
- ZJHhdRg/NyiKbN+pTJECIhFeizEzzLmNRYAazJxzthfMjk5IxTyScqHmFMjuxSpTwT6E
- D0HrSdSmF4SNmjAj94K8UufX2edt9OCrRIr+vMAlbJZA6aX2DFrHurIJ0HJuOW4yx85M
- zjj7R0qNpqq7hLDHHxpXCmW5PDD/o8w5f/cex5UF6bX73+ommqeiyORUor3y2Ol9Pc1T
- M5cMulgDXdY11Q59ZTLP1oxGJ5mbaYuFa7odeTybYx7hSXJgLJ1//N6Q8Ea4NWW2ZI5o
- WGCQ==
-X-Gm-Message-State: AOAM532OxKvyWJeH/ie2FYxidC4XjeAK4h0I/XwFZLuTIbJgXK3RlEma
- MIoWEDxk0hIze+2vJMKGCrXYwA==
-X-Google-Smtp-Source: ABdhPJwPi/GQDOa8NP7gyEDIAvUeuE6yGVBDKV31z32nXAT4dfyCH+cdIGbkqNxLyDROau+EGU45gw==
-X-Received: by 2002:a05:600c:1584:b0:38e:c80e:b8b5 with SMTP id
- r4-20020a05600c158400b0038ec80eb8b5mr14901989wmf.99.1650666763976; 
- Fri, 22 Apr 2022 15:32:43 -0700 (PDT)
-Received: from [192.168.2.222] ([51.37.209.28])
- by smtp.gmail.com with ESMTPSA id
- f11-20020a7bcc0b000000b0037e0c362b6dsm2572514wmh.31.2022.04.22.15.32.42
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Fri, 22 Apr 2022 15:32:43 -0700 (PDT)
-Message-ID: <c12b44ae-9d8a-c0dc-880e-fd960715e519@conchuod.ie>
-Date: Fri, 22 Apr 2022 23:32:41 +0100
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=MoSOk7aiSsrTsFED04ppyU9PqkK13gebDi+J9ftgEjs=;
+ b=SsEUA447WymTMdam+RrlOuIY62grAM/thvtm43FHCXlEYiWfLzfaXBkybJXa8+bpXt
+ 98X0lo/lUQWBOZGA0AiiAtW97S/c+DWjvsS0bzYEUihFPpbRe6DUnOt+ba8ObBz0ZF4F
+ 7gDpdy3tA55D4H5OWmYy5RnN66KGfPquV4xjotxXn2OXhceU5aE/sR7WGSGX+eKUTM4F
+ 9q9v30ScZDoXiOSqO0F0WBE3SYeSP3G7T1TzKw3DbfVaeiags9m+eWFDd9/QGssQeC6f
+ qJ2/bjXlxbgf2L6ueBsF8LXXjw4TY1DoyckB5l3UGOnAUDHzwfN+MI6V+GrVE/RGC4ZJ
+ r7lA==
+X-Gm-Message-State: AOAM533FsCyH1KiCCDN1nGXqUg+fUjWA3GCe8rCchyKaM5rYTiHRs0Dv
+ I8YyPWZe6n8MOuDGZIxaIo5+wRsYnkwmVXVa6803
+X-Google-Smtp-Source: ABdhPJw9bzlBvX7MnRZTUkY+yabryAq+Aj4BLIPm1GIu7cklg4UTowuZEcE85B6lKf5JpX4IRCuMrhLOUP2TYJYMQ2A=
+X-Received: by 2002:a81:1f84:0:b0:2f4:d37b:a25f with SMTP id
+ f126-20020a811f84000000b002f4d37ba25fmr7567853ywf.443.1650673022196; Fri, 22
+ Apr 2022 17:17:02 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.7.0
-Subject: Re: [PATCH v3 0/9] More PolarFire SoC Fixes for 5.18
-Content-Language: en-US
-To: Rob Herring <robh+dt@kernel.org>
-Cc: atulkhare@rivosinc.com, Palmer Dabbelt <palmer@rivosinc.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Alessandro Zummo <a.zummo@towertech.it>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Daire McNamara <daire.mcnamara@microchip.com>,
- "open list:REAL TIME CLOCK (RTC) SUBSYSTEM" <linux-rtc@vger.kernel.org>,
- devicetree@vger.kernel.org, linux-clk <linux-clk@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Conor Dooley <conor.dooley@microchip.com>
-References: <mhng-185e3a61-0634-4671-adfd-a1cc223920cf@palmer-ri-x1c9>
- <0f99ec7b-0c2f-cf6c-162d-af615eb73373@conchuod.ie>
- <CAL_JsqJpd1dBNmWcsbLQZAWj=0am_98ztonOxEgGjXBGddfiNA@mail.gmail.com>
-From: Conor Dooley <mail@conchuod.ie>
-In-Reply-To: <CAL_JsqJpd1dBNmWcsbLQZAWj=0am_98ztonOxEgGjXBGddfiNA@mail.gmail.com>
+References: <20220420112408.155561-1-apatel@ventanamicro.com>
+ <3fa5215b-84c3-5e4c-cb53-6c05d05e4350@canonical.com>
+In-Reply-To: <3fa5215b-84c3-5e4c-cb53-6c05d05e4350@canonical.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Fri, 22 Apr 2022 17:16:51 -0700
+Message-ID: <CAOnJCUJrN4frY_OdQzO-yr5CrDLvj=ge9KY2d=XnGvAF-uQNvQ@mail.gmail.com>
+Subject: Re: [PATCH v3] RISC-V: Increase range and default value of NR_CPUS
+To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Arnd Bergmann <arnd@arndb.de>, 
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Anup Patel <anup@brainfault.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220422_153246_729366_3491BA0B 
-X-CRM114-Status: GOOD (  33.89  )
+X-CRM114-CacheID: sfid-20220422_171706_268391_25D98DF9 
+X-CRM114-Status: GOOD (  21.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,122 +87,110 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 22/04/2022 22:52, Rob Herring wrote:
-> On Fri, Apr 22, 2022 at 2:59 PM Conor Dooley <mail@conchuod.ie> wrote:
->> On 22/04/2022 20:39, Palmer Dabbelt wrote:
->>> On Wed, 13 Apr 2022 00:58:27 PDT (-0700), conor.dooley@microchip.com wrote:
->>>> Hey all,
->>>> After the clock driver for the PolarFire SoC was accepted I started work
->>>> on the onboard RTC & found out that the reference clock for the rtc was
->>>> actually missing from the clock driver.
->>>>
->>>> While restructuring the clock driver to add support for the rtc
->>>> reference, I also noticed that there were some problems with how the FIC
->>>> clocks were being used. The FIC clocks are the cpu side inputs to the
->>>> AXI fabric interconnections & are not the clocks for any peripherals.
->>>>
->>>> This first three patches in this series fixes the problems with the FICs:
->>>> - the fic clocks incorrectly had the AHB clock as their parents
->>>> - the last fic, named differently to the others, had not been set as
->>>>   a critical clock
->>>> - some peripherals on the fabric side were incorrectly using the cpu
->>>>   side fic clocks, resulting in incorrect rates.
->>>>
->>>> The second part of the series fixes the missing rtc reference clock.
->>>> There are three main changes:
->>>> - Changing the reference clock in the dt to the external 125 MHz
->>>>   oscillator rather than using the output of an internal pll. This has
->>>>   the added benefit of not requiring changes to the device tree if this
->>>>   part of the bitstream changes.
->>>> - Adding a new clock into the driver that sits above the existing
->>>>   configurable clocks & has the external reference as a parent. The new
->>>>   clock provides the parent for the AHB/AXI clocks which formerly came
->>>>   from the device tree.
->>>> - Adding the rtc reference clock to the dt bindings, device tree and
->>>>   clock driver at the configurable clock level, alongside AXI and AHB.
->>>>
->>>> I kept series separate from [0] since that's tied to the CONFIG_PM stuff
->>>> & fixes a specific problem.
->>>>
->>>> Changes since v1:
->>>> After speaking with Krzysztof, I have merged the rtc reference changes
->>>> [1] with these fixes for 5.18. This was done since the relevant drivers
->>>> and bindings only arrived in v5.18 & there'll now be no issue with
->>>> breaking the ABI.
->>>> Backwards compatiblity with the device tree from before 5.18 will be
->>>> broken by these changes, but the board did not boot then anyway... If
->>>> that is not okay, please lmk.
->>>>
->>>> The patch renaming sys_base was dropped since that's not a fix.
->>>>
->>>> Version 1 would not apply without [0] & that should be fixed too.
->>>>
->>>> Thanks,
->>>> Conor.
->>>>
->>>> Changes since v2:
->>>> - Wrapped text in dt-binding changes at 80 cols
->>>> - Ordered the clock defines numerically in the binding header
->>>> - Fixed the Fixes tag on the last patch and added the second tag
->>>>
->>>> [0] https://lore.kernel.org/linux-riscv/20220408143646.3693104-1-conor.dooley@microchip.com
->>>> [1] https://lore.kernel.org/linux-riscv/20220411072340.740981-1-conor.dooley@microchip.com
->>>>
->>>> Conor Dooley (9):
->>>>   clk: microchip: mpfs: fix parents for FIC clocks
->>>>   clk: microchip: mpfs: mark CLK_ATHENA as critical
->>>>   riscv: dts: microchip: fix usage of fic clocks on mpfs
->>>>   dt-bindings: clk: mpfs document msspll dri registers
->>>>   dt-bindings: clk: mpfs: add defines for two new clocks
->>>>   dt-bindings: rtc: add refclk to mpfs-rtc
->>>>   clk: microchip: mpfs: re-parent the configurable clocks
->>>>   clk: microchip: mpfs: add RTCREF clock control
->>>>   riscv: dts: microchip: reparent mpfs clocks
->>>>
->>>>  .../bindings/clock/microchip,mpfs.yaml        |  13 +-
->>>>  .../bindings/rtc/microchip,mfps-rtc.yaml      |  15 +-
->>>>  .../dts/microchip/microchip-mpfs-fabric.dtsi  |  16 +-
->>>>  .../microchip/microchip-mpfs-icicle-kit.dts   |   2 +-
->>>>  .../boot/dts/microchip/microchip-mpfs.dtsi    |  10 +-
->>>>  drivers/clk/microchip/clk-mpfs.c              | 191 +++++++++++++++---
->>>>  .../dt-bindings/clock/microchip,mpfs-clock.h  |   5 +-
->>>>  7 files changed, 211 insertions(+), 41 deletions(-)
->>>
->>> Thanks.  These generally look good to me, but I don't see acks from everyone.  I'm perfectly fine treating these as fixes and taking them through the RISC-V tree, but looks like it's mostly clk stuff so
->>>
->>> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
->>
->> Ye, hopefully they go via clk. Stephen replied to v1 or 2 so
->> I figure they're in his queue :)
->>
->>>
->>> in case someone else wants to take it.  I've put these over at palmer/riscv-pfsoc-clk but haven't merged that anywhere, I'll hold off until at least next week to give everyone time to chime in.
->>>
->>> On a somewhat related note, I'm getting some DT schema failures
->>>    /scratch/riscv-systems-ci-fixes/check/dt_check/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dtb: /: memory@80000000: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
->>>            From schema: /home/palmer/.local/lib/python3.8/site-packages/dtschema-2022.3.2-py3.8.egg/dtschema/schemas/memory.yaml
->>>    /scratch/riscv-systems-ci-fixes/check/dt_check/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dtb: /: memory@1000000000: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
->>>            From schema: /home/palmer/.local/lib/python3.8/site-packages/dtschema-2022.3.2-py3.8.egg/dtschema/schemas/memory.yaml
->>>    /scratch/riscv-systems-ci-fixes/check/dt_check/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dtb: soc: syscontroller: {'compatible': ['microchip,mpfs-sys-controller'], 'mboxes': [[15, 0]], 'status': ['okay']} should not be valid under {'type': 'object'}
->>>            From schema: /home/palmer/.local/lib/python3.8/site-packages/dtschema-2022.3.2-py3.8.egg/dtschema/schemas/simple-bus.yaml
->>>    Looks like none of them are new from this patch set, though.  Atul's been chasing down various DT schema failures so they might be fixed already.
->>
->> Ye, I do know about those. I meant to try deleting the clocks
->> property but didn't get a chance, just been busy. It's not
->> related to this series nor does it matter if it makes it prior
->> to 5.18 so I was going to submit it on its own.
->> The other is in my list-of-things-to-ask-Rob/Krzk-when-I-know-
->> for-sure-what-my-question-actually-is...
-> 
-> microchip,mpfs-sys-controller doesn't have MMIO registers, so it's not
-> on a MMIO bus (aka simple-bus). Move it to an appropriate location
-> (top level if not part of something else).
+On Thu, Apr 21, 2022 at 12:05 AM Heinrich Schuchardt
+<heinrich.schuchardt@canonical.com> wrote:
+>
+>
+>
+> On 4/20/22 13:24, Anup Patel wrote:
+> > Currently, the range and default value of NR_CPUS is too restrictive
+> > for high-end RISC-V systems with large number of HARTs. The latest
+> > QEMU virt machine supports upto 512 CPUs so the current NR_CPUS is
+> > restrictive for QEMU as well. Other major architectures (such as
+> > ARM64, x86_64, MIPS, etc) have a much higher range and default
+> > value of NR_CPUS.
+> >
+> > This patch increases NR_CPUS range to 2-512 and default value to
+> > XLEN (i.e. 32 for RV32 and 64 for RV64).
+> >
+> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+>
 
-sys controller is meant to have a qspi flash too, which I hadn't added
-yet as it does not work with sample silicon.
-I'll send a fix for both warnings Monday.
-Thanks,
-Conor.
+This works upto 207 harts in upstream Qemu + OpenSBI. Beyond that,
+firmware size becomes > 2MB and PMP protection
+kicks in for the kernel boot address (0x80200000)
+
+Here is the OpenSBI boot prints for 256 harts with some hacks around
+sanitize_domain to disable sbi_domain_check_addr
+
+Platform Name             : riscv-virtio,qemu
+Platform Features         : medeleg
+Platform HART Count       : 208
+Platform IPI Device       : aclint-mswi
+Platform Timer Device     : aclint-mtimer @ 10000000Hz
+Platform Console Device   : uart8250
+Platform HSM Device       : ---
+Platform Reboot Device    : sifive_test
+Platform Shutdown Device  : sifive_test
+Firmware Base             : 0x80000000
+Firmware Size             : 2052 KB ---------->>> Firmware size is
+greater than 2MB where
+Runtime SBI Version       : 0.3
+
+Domain0 Name              : root
+Domain0 Boot HART         : 122
+Domain0 HARTs             :
+0*,1*,2*,3*,4*,5*,6*,7*,8*,9*,10*,11*,12*,13*,14*,15*,16*,17*,18*,19*,20*,21*,22*,23*,24*,25*,26*,27*,28*,29*,30*,31*,32*,33*,34*,35*,36*,37*,38*,39*,40*,41*,42*,43*,44*,45*,46*,47*,48*,49*,50*,51*,52*,53*,54*,55*,56*,57*,58*,59*,60*,61*,62*,63*,64*,65*,66*,67*,68*,69*,70*,71*,72*,73*,74*,75*,76*,77*,78*,79*,80*,81*,82*,83*,84*,85*,86*,87*,88*,89*,90*,91*,92*,93*,94*,95*,96*,97*,98*,99*,100*,101*,102*,103*,104*,105*,106*,107*,108*,109*,110*,111*,112*,113*,114*,115*,116*,117*,118*,119*,120*,121*,122*,123*,124*,125*,126*,127*,128*,129*,130*,131*,132*,133*,134*,135*,136*,137*,138*,139*,140*,141*,142*,143*,144*,145*,146*,147*,148*,149*,150*,151*,152*,153*,154*,155*,156*,157*,158*,159*,160*,161*,162*,163*,164*,165*,166*,167*,168*,169*,170*,171*,172*,173*,174*,175*,176*,177*,178*,179*,180*,181*,182*,183*,184*,185*,186*,187*,188*,189*,190*,191*,192*,193*,194*,195*,196*,197*,198*,199*,200*,201*,202*,203*,204*,205*,206*,207*
+Domain0 Region00          : 0x0000000002000000-0x000000000200ffff (I)
+Domain0 Region01          : 0x0000000080000000-0x00000000803fffff ()
+Domain0 Region02          : 0x0000000000000000-0xffffffffffffffff (R,W,X)
+Domain0 Next Address      : 0x0000000080200000
+Domain0 Next Arg1         : 0x00000000bf000000
+Domain0 Next Mode         : S-mode
+Domain0 SysReset          : yes
+
+Boot HART ID              : 122
+Boot HART Domain          : root
+Boot HART ISA             : rv64imafdcsuh
+Boot HART Features        : scounteren,mcounteren,time
+Boot HART PMP Count       : 16
+Boot HART PMP Granularity : 4
+Boot HART PMP Address Bits: 54
+Boot HART MHPM Count      : 0
+Boot HART MIDELEG         : 0x0000000000001666
+Boot HART MEDELEG         : 0x0000000000f0b509
+
+
+> Reviewed-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+>
+> > ---
+> > Changes since v2:
+> >   - Rebased on Linux-5.18-rc3
+> >   - Use a different range when SBI v0.1 is enabled
+> > Changes since v1:
+> >   - Updated NR_CPUS range to 2-512 which reflects maximum number of
+> >     CPUs supported by QEMU virt machine.
+> > ---
+> >   arch/riscv/Kconfig | 9 ++++++---
+> >   1 file changed, 6 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index 00fd9c548f26..1823f281069f 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -275,10 +275,13 @@ config SMP
+> >         If you don't know what to do here, say N.
+> >
+> >   config NR_CPUS
+> > -     int "Maximum number of CPUs (2-32)"
+> > -     range 2 32
+> > +     int "Maximum number of CPUs (2-512)"
+> >       depends on SMP
+> > -     default "8"
+> > +     range 2 512 if !SBI_V01
+> > +     range 2 32 if SBI_V01 && 32BIT
+> > +     range 2 64 if SBI_V01 && 64BIT
+> > +     default "32" if 32BIT
+> > +     default "64" if 64BIT
+> >
+> >   config HOTPLUG_CPU
+> >       bool "Support for hot-pluggable CPUs"
+
+
+
+-- 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
