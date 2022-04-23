@@ -4,85 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA402C433F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Apr 2022 01:51:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5875C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Apr 2022 02:24:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=uadRrOzjeEbXduytN9+60Ats4sVghxwQ46JCvoiQww0=; b=0uBt7hViJPeEZ91SBOmyYAy8hU
-	0bOmLErsdHMygMM84FutM7yRWOBs9DK8xqf17gyoBO8cWextOlsTtaaRswEGIsf9mxxusCngE0cL/
-	PYZ6pyltvq+GQqz8kLh3SCGl/wPCCwY0Y6rv8SbleYE1AKMo5nOQpL1/fZB9gnprhOFJsChQSN1w7
-	JQ3mZHdaes2XWrgn+08ZUQ1PQjz9Wxw/Tv/BcGeTuNLqAScEby0c9iPAeQi7GCrzhiEOfhn05OIH+
-	kuH30ycweNrGehonDy4yX2l/bu/VYsFGJ1Ib5/ujxn3PIP8C5wjFXq3al/vXPkyJ91jIwghy8FMqT
-	FjsAuYig==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ga/vQZws4J0pCU6elOMBkX+PLqCe5npaDuOQcy0dY00=; b=HZmwMnTZuR6/BF
+	/iZjgNjGxTNH8XeI/TtNJVRCJIYS+7YcZNyWr5noQoljqdNrIpsxuyFd8CPi8/myQU2F0bkyeW5cM
+	0iylie6C5DhBkEo1Zm8mly3k8vMGjcLzu5HJNPPl5pj4DdOwIzaPcs1UGeopWmgD+AJUnrsGGNMCm
+	QOJXpY9T2N1RuUvVzdAnhlClgjEPACNCvfVSHlnQr++h4poxi1VTuShY/fJo1SN1QXq117Tk6E1ub
+	qV6KGbXOr/xTJ9d8i/lkjKoqYqfX7CnHyisLJEVpNepZBpT9dYjzxg2ZwyCPK4FsEcb/UAi5DX1B7
+	Xu6CxCuJdQYXD7r4A96w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ni4vG-003Cl1-6e; Sat, 23 Apr 2022 01:50:54 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1ni5Rr-003Gub-LY; Sat, 23 Apr 2022 02:24:35 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ni4vB-003Cjc-4f
- for linux-riscv@lists.infradead.org; Sat, 23 Apr 2022 01:50:51 +0000
-Received: by mail-pf1-x436.google.com with SMTP id x80so9587705pfc.1
- for <linux-riscv@lists.infradead.org>; Fri, 22 Apr 2022 18:50:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=iuHt4Iz4FeZBvfTekgoBxhqf7wWZiBSKlKE/b+2tuYo=;
- b=goIqv8VMZbjl/c21Jd/hdMFrKYsyG7ZmdvPyMP0a/LfpPFogQ2pz0rqGGlL/AbTqAs
- 9pSaiVPXATwgYFD5N5J3yDUb/pSsg0GPEKelq16yimQnW972dgloHJe65mdFFqD9Do1K
- rfbVg7wta3owfIXNgtPf9exTJ5PLWsXRn7YHotwHXiR3Lkj659kCquaRDrj310oN7KKB
- jMZM6HpvA98IESGZVPUiQud4tbPccE2u3eNVzqTqrXy3s0yTKF6yVKnJ7iGeA60/fd96
- +GWnu5/SHFOm3yjfGlSdAu7G7dd4BdX/igL9srOjG3lvbYLAaHSMkweQg27Zn7pzyHq/
- VUDA==
+ id 1ni5Rg-003Gqz-84; Sat, 23 Apr 2022 02:24:25 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id lc2so19507580ejb.12;
+ Fri, 22 Apr 2022 19:24:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=qqZdE0u9CYPlQ6MQcqOeN4oZEKzgzl5ZlEVKxJ+FAHk=;
+ b=OE7s3CPe37nMb1dGmVaIey7JbUtRJ7f6vav2gncQroL5ziOpNrqKAczdsVbRdftZTp
+ lvDGoua7DfR0a3ih2mXvBGp/pr8YIwFWvJ7rYtm1KItJ7lzb7bsnCbr0XO6Al/bLSqmY
+ wShQ3Q4PeDbaGhthAQmvyUaYMWSIREyHdWzLfIHLlO4xqjeROrsWMsY/13vozvUovkD1
+ TOAKaEV8j7EP/9ImivPEP7f9+9yBUR0jy0QdxfQqm1cDoP57+Iq+yV30nc+nepkuJNn4
+ 1e6bTF9LZV27/+Lsu7KDZ5aSI6QmdhEq2BG3Q9STkKqaymG9HXWUrXc+hO38EBpNkLCd
+ yQnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=iuHt4Iz4FeZBvfTekgoBxhqf7wWZiBSKlKE/b+2tuYo=;
- b=kgZ70Bqd8INVm4Vfk8yhErUwrKknAwjWzk5KZphyBefBjm98SzgC86FFkTHPqDrZ6T
- 76GTvpEVuOPyLf/8naMqlTNM22iNr3ixrNPYyRQq62qZyTK1CRetMtZLycyPmA9Ct/uK
- 2ji0tw0QYW6Q8B9E9PIRo7o3II/Xd+kewoUsupy+N63hmLKadHZX0Or9Ta3pTleqiKpF
- KmOQuLexx2NdYdlLcCLKFQd/oYIzaCdvPw9Q0l3lsFDBTWUvUe6jhCVO19dxJPgvF74V
- 1D9DoQwJM2cFxXGwhyvdb+wqPWCkE/rUH2gdiiLfvX38zF2UNVxuDWahAdMwSwuBTOdf
- +Ceg==
-X-Gm-Message-State: AOAM530WP2sQ3rxvll9DVgSuhIvwaBdFaMFYgOqmWX9NJc74mYEGKSfI
- /efWkJxlE9E0Ns5tAsQDS6lmLg==
-X-Google-Smtp-Source: ABdhPJxJGqglrviMvw8Swe1RM63k2IYS5w00YAqVduQcH5u9WbhL2yia4TEU96zrIIxxdu1APdK0XA==
-X-Received: by 2002:a63:c5:0:b0:3aa:9882:9f91 with SMTP id
- 188-20020a6300c5000000b003aa98829f91mr6164187pga.574.1650678648423; 
- Fri, 22 Apr 2022 18:50:48 -0700 (PDT)
-Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
- 123-20020a620681000000b004fa7c20d732sm3684931pfg.133.2022.04.22.18.50.47
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 22 Apr 2022 18:50:47 -0700 (PDT)
-Date: Fri, 22 Apr 2022 18:50:47 -0700 (PDT)
-X-Google-Original-Date: Fri, 22 Apr 2022 18:50:27 PDT (-0700)
-Subject: Re: [PATCH v3 00/13] Introduce sv48 support without relocatable kernel
-In-Reply-To: <CA+zEjCuyEsB0cHoL=zepejcRbn9Rwg9nRXLMZCOXe_daSWbvig@mail.gmail.com>
-CC: corbet@lwn.net, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, 
- zong.li@sifive.com, anup@brainfault.org, Atish.Patra@rivosinc.com,
- Christoph Hellwig <hch@lst.de>, 
- ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
- dvyukov@google.com, ardb@kernel.org, 
- Arnd Bergmann <arnd@arndb.de>, keescook@chromium.org, guoren@linux.alibaba.com,
- heinrich.schuchardt@canonical.com, mchitale@ventanamicro.com,
- panqinglin2020@iscas.ac.cn, 
- linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, 
- kasan-dev@googlegroups.com, linux-efi@vger.kernel.org,
- linux-arch@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: alexandre.ghiti@canonical.com
-Message-ID: <mhng-f386a42e-77d9-4644-914f-552a8e721f5c@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=qqZdE0u9CYPlQ6MQcqOeN4oZEKzgzl5ZlEVKxJ+FAHk=;
+ b=RgPwdMrjETWV+wt44TCC48bPq6i0ieIvfetZ9C6cxgAI5YPJxy6pv8q8PCpkBiqyJB
+ Mu1pU8BYFn/eGcwQzhc+G1f07V8OJrur3Nv/0QYQj5DnlUB4rvclCh+J8O7DvqrI3IFW
+ QdsT6qfbOU292+2DNnizAyTQKJbwmRMNwLEnAG1orQ1CrkIDvts2h+ZmAgdNvSodBm/0
+ m0JxkVRpnMmQgEDXCaFWhhu5kvpolPbUd+SuwosUeLqCK1tg81q/Y39wEGGntfzyKhyb
+ VQHgpMlds2PqH087EBy/rEzMrf8uAH9fgN77Ub50Sr7XBjUuR34WQmjFBH93e+lesS0y
+ kHCA==
+X-Gm-Message-State: AOAM532ZUrb9dpDPhNigUEQRD8KTPWh1FUajRFFeuvOUrmH/kF27Qygv
+ Rsuf7+/N+g5zzj2Uwnchl9IBr1JlIc8/UkimWMc=
+X-Google-Smtp-Source: ABdhPJzcIFiqsw8tqvA51BF/kojpRX8faca/GR9O0BKNi3Ttrspe1sgBeJ1OHPMIBfTzzBlAO8IBPBsJXGKx+2s4Z5Y=
+X-Received: by 2002:a17:906:d108:b0:6e8:7765:a70b with SMTP id
+ b8-20020a170906d10800b006e87765a70bmr6585155ejz.436.1650680660905; Fri, 22
+ Apr 2022 19:24:20 -0700 (PDT)
+MIME-Version: 1.0
+References: <20220419111650.1582274-1-Jason@zx2c4.com>
+ <20220419111650.1582274-12-Jason@zx2c4.com>
+In-Reply-To: <20220419111650.1582274-12-Jason@zx2c4.com>
+From: Sandy Harris <sandyinchina@gmail.com>
+Date: Sat, 23 Apr 2022 10:24:07 +0800
+Message-ID: <CACXcFmksd3cw+xa-c2gEdd4=96PO8GCCMF6q2d6JHnJum2LjiA@mail.gmail.com>
+Subject: Re: [PATCH v5 11/11] random: insist on random_get_entropy() existing
+ in order to simplify
+To: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Cc: LKML <linux-kernel@vger.kernel.org>, 
+ Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Arnd Bergmann <arnd@arndb.de>, "Theodore Ts'o" <tytso@mit.edu>, 
+ Dominik Brodowski <linux@dominikbrodowski.net>,
+ Russell King <linux@armlinux.org.uk>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, "David S . Miller" <davem@davemloft.net>, 
+ Richard Weinberger <richard@nod.at>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+ Johannes Berg <johannes@sipsolutions.net>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ "H . Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
+ Max Filippov <jcmvbkbc@gmail.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, linux-m68k@lists.linux-m68k.org, 
+ linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ sparclinux@vger.kernel.org, linux-um@lists.infradead.org, x86@kernel.org, 
+ linux-xtensa@linux-xtensa.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220422_185049_416388_2E18582C 
-X-CRM114-Status: GOOD (  62.61  )
+X-CRM114-CacheID: sfid-20220422_192424_330241_E6E23853 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,193 +98,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 01 Apr 2022 05:56:30 PDT (-0700), alexandre.ghiti@canonical.com wrote:
-> On Fri, Feb 18, 2022 at 11:45 AM Alexandre Ghiti
-> <alexandre.ghiti@canonical.com> wrote:
->>
->> Hi Palmer,
->>
->> On Thu, Jan 20, 2022 at 11:05 AM Alexandre Ghiti
->> <alexandre.ghiti@canonical.com> wrote:
->> >
->> > On Thu, Jan 20, 2022 at 8:30 AM Alexandre Ghiti
->> > <alexandre.ghiti@canonical.com> wrote:
->> > >
->> > > On Thu, Jan 20, 2022 at 5:18 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->> > > >
->> > > > On Mon, 06 Dec 2021 02:46:44 PST (-0800), alexandre.ghiti@canonical.com wrote:
->> > > > > * Please note notable changes in memory layouts and kasan population *
->> > > > >
->> > > > > This patchset allows to have a single kernel for sv39 and sv48 without
->> > > > > being relocatable.
->> > > > >
->> > > > > The idea comes from Arnd Bergmann who suggested to do the same as x86,
->> > > > > that is mapping the kernel to the end of the address space, which allows
->> > > > > the kernel to be linked at the same address for both sv39 and sv48 and
->> > > > > then does not require to be relocated at runtime.
->> > > > >
->> > > > > This implements sv48 support at runtime. The kernel will try to
->> > > > > boot with 4-level page table and will fallback to 3-level if the HW does not
->> > > > > support it. Folding the 4th level into a 3-level page table has almost no
->> > > > > cost at runtime.
->> > > > >
->> > > > > Note that kasan region had to be moved to the end of the address space
->> > > > > since its location must be known at compile-time and then be valid for
->> > > > > both sv39 and sv48 (and sv57 that is coming).
->> > > > >
->> > > > > Tested on:
->> > > > >   - qemu rv64 sv39: OK
->> > > > >   - qemu rv64 sv48: OK
->> > > > >   - qemu rv64 sv39 + kasan: OK
->> > > > >   - qemu rv64 sv48 + kasan: OK
->> > > > >   - qemu rv32: OK
->> > > > >
->> > > > > Changes in v3:
->> > > > >   - Fix SZ_1T, thanks to Atish
->> > > > >   - Fix warning create_pud_mapping, thanks to Atish
->> > > > >   - Fix k210 nommu build, thanks to Atish
->> > > > >   - Fix wrong rebase as noted by Samuel
->> > > > >   - * Downgrade to sv39 is only possible if !KASAN (see commit changelog) *
->> > > > >   - * Move KASAN next to the kernel: virtual layouts changed and kasan population *
->> > > > >
->> > > > > Changes in v2:
->> > > > >   - Rebase onto for-next
->> > > > >   - Fix KASAN
->> > > > >   - Fix stack canary
->> > > > >   - Get completely rid of MAXPHYSMEM configs
->> > > > >   - Add documentation
->> > > > >
->> > > > > Alexandre Ghiti (13):
->> > > > >   riscv: Move KASAN mapping next to the kernel mapping
->> > > > >   riscv: Split early kasan mapping to prepare sv48 introduction
->> > > > >   riscv: Introduce functions to switch pt_ops
->> > > > >   riscv: Allow to dynamically define VA_BITS
->> > > > >   riscv: Get rid of MAXPHYSMEM configs
->> > > > >   asm-generic: Prepare for riscv use of pud_alloc_one and pud_free
->> > > > >   riscv: Implement sv48 support
->> > > > >   riscv: Use pgtable_l4_enabled to output mmu_type in cpuinfo
->> > > > >   riscv: Explicit comment about user virtual address space size
->> > > > >   riscv: Improve virtual kernel memory layout dump
->> > > > >   Documentation: riscv: Add sv48 description to VM layout
->> > > > >   riscv: Initialize thread pointer before calling C functions
->> > > > >   riscv: Allow user to downgrade to sv39 when hw supports sv48 if !KASAN
->> > > > >
->> > > > >  Documentation/riscv/vm-layout.rst             |  48 ++-
->> > > > >  arch/riscv/Kconfig                            |  37 +-
->> > > > >  arch/riscv/configs/nommu_k210_defconfig       |   1 -
->> > > > >  .../riscv/configs/nommu_k210_sdcard_defconfig |   1 -
->> > > > >  arch/riscv/configs/nommu_virt_defconfig       |   1 -
->> > > > >  arch/riscv/include/asm/csr.h                  |   3 +-
->> > > > >  arch/riscv/include/asm/fixmap.h               |   1
->> > > > >  arch/riscv/include/asm/kasan.h                |  11 +-
->> > > > >  arch/riscv/include/asm/page.h                 |  20 +-
->> > > > >  arch/riscv/include/asm/pgalloc.h              |  40 ++
->> > > > >  arch/riscv/include/asm/pgtable-64.h           | 108 ++++-
->> > > > >  arch/riscv/include/asm/pgtable.h              |  47 +-
->> > > > >  arch/riscv/include/asm/sparsemem.h            |   6 +-
->> > > > >  arch/riscv/kernel/cpu.c                       |  23 +-
->> > > > >  arch/riscv/kernel/head.S                      |   4 +-
->> > > > >  arch/riscv/mm/context.c                       |   4 +-
->> > > > >  arch/riscv/mm/init.c                          | 408 ++++++++++++++----
->> > > > >  arch/riscv/mm/kasan_init.c                    | 250 ++++++++---
->> > > > >  drivers/firmware/efi/libstub/efi-stub.c       |   2
->> > > > >  drivers/pci/controller/pci-xgene.c            |   2 +-
->> > > > >  include/asm-generic/pgalloc.h                 |  24 +-
->> > > > >  include/linux/sizes.h                         |   1
->> > > > >  22 files changed, 833 insertions(+), 209 deletions(-)
->> > > >
->> > > > Sorry this took a while.  This is on for-next, with a bit of juggling: a
->> > > > handful of trivial fixes for configs that were failing to build/boot and
->> > > > some merge issues.  I also pulled out that MAXPHYSMEM fix to the top, so
->> > > > it'd be easier to backport.  This is bigger than something I'd normally like to
->> > > > take late in the cycle, but given there's a lot of cleanups, likely some fixes,
->> > > > and it looks like folks have been testing this I'm just going to go with it.
->> > > >
->> > >
->> > > Yes yes yes! That's fantastic news :)
->> > >
->> > > > Let me know if there's any issues with the merge, it was a bit hairy.
->> > > > Probably best to just send along a fixup patch at this point.
->> > >
->> > > I'm going to take a look at that now, and I'll fix anything that comes
->> > > up quickly :)
->> >
->> > I see in for-next that you did not take the following patches:
->> >
->> >   riscv: Improve virtual kernel memory layout dump
->> >   Documentation: riscv: Add sv48 description to VM layout
->> >   riscv: Initialize thread pointer before calling C functions
->> >   riscv: Allow user to downgrade to sv39 when hw supports sv48 if !KASAN
->> >
->> > I'm not sure this was your intention. If it was, I believe that at
->> > least the first 2 patches are needed in this series, the 3rd one is a
->> > useful fix and we can discuss the 4th if that's an issue for you.
->>
->> Can you confirm that this was intentional and maybe explain the
->> motivation behind it? Because I see value in those patches.
+On Sat, Apr 23, 2022 at 6:37 AM Jason A. Donenfeld <Jason@zx2c4.com> wrote:
 >
-> Palmer,
->
-> I read that you were still taking patches for 5.18, so I confirm again
-> that the patches above are needed IMO.
+> All platforms are now guaranteed to provide some value for
+> random_get_entropy(). In case some bug leads to this not being so, we
+> print a warning, ...
 
-It was too late for this when it was sent (I saw it then, but just got 
-around to actually doing the work to sort it out).
-
-It took me a while to figure out exactly what was going on here, but I 
-think I remember now: that downgrade patch (and the follow-on I just 
-sent) is broken for medlow, because mm/init.c must be built medany 
-(which we're using for the mostly-PIC qualities).  I remember being in 
-the middle of rebasing/debugging this a while ago, I must have forgotten 
-I was in the middle of that and accidentally merged the branch as-is.  
-Certainly wasn't trying to silently take half the patch set and leave 
-the rest in limbo, that's the wrong way to do things. 
-
-I'm not sure what the right answer is here, but I just sent a patch to 
-drop support for medlow.  We'll have to talk about that, for now I 
-cleaned up some other minor issues, rearranged that docs and fix to come 
-first, and put this at palmer/riscv-sv48.  I think that fix is 
-reasonable to take the doc and fix into fixes, then the dump improvement 
-on for-next.  We'll have to see what folks think about the medany-only 
-kernels, the other option would be to build FDT as medany which seems a 
-bit awkward.  
-
-> Maybe even the relocatable series?
-
-Do you mind giving me a pointer?  I'm not sure why I'm so drop-prone 
-with your patches, I promise I'm not doing it on purpose.
-
->
-> Thanks,
->
-> Alex
->
->>
->> Thanks,
->>
->> Alex
->>
->> >
->> > I tested for-next on both sv39 and sv48 successfully, I took a glance
->> > at the code and noticed you fixed the PTRS_PER_PGD error, thanks for
->> > that. Otherwise nothing obvious has popped.
->> >
->> > Thanks again,
->> >
->> > Alex
->> >
->> > >
->> > > Thanks!
->> > >
->> > > Alex
->> > >
->> > > >
->> > > > Thanks!
+Would it make sense to test at compile time? If there is no hardware
+RNG nor a cycle counter, then the kernel should be compiled with
+the gcc latent entropy plugin. Generate a warning suggesting that,
+or even an error insisting on it.
 
 _______________________________________________
 linux-riscv mailing list
