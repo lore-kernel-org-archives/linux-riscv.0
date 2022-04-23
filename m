@@ -4,73 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38660C433F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Apr 2022 01:49:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C10EC433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Apr 2022 01:51:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vLzsEvQ6x8aePdOFTwN++nbcvNRJPY7Aqb0ZDOgdIzo=; b=dZavpjQdPEKrMm
-	wTu3JVO9owz+IJhsWY6wwPgfOhJDvkoyrl72457J3Ii3F6QAvhMGGUp8eMvlatpQf6+moOCvuNquz
-	LBITQCfGwJ7OfxEl6P0bXCvN6WeuT6I39S6Q54INlbfro85fiAQZDaY5bKYh/U6o9Wq3GbjjxPwJw
-	64tqXAN4NgOiFbc3t8ENkNDPHFRqltkJyZbdyUkhhQhpuBLti9KHjjYOswcHTAUCsxnUC/kiRHMmc
-	VSVuUQpIQEY+PlcKTTvaQFC1FZhfNI4MOPp2wDrNpqLaqrXPIVoWvI1g02DcUVQAbG3Grv0oPWg/5
-	1vmrcRjNZ2xGJehnc0Gw==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rO2S/3SAcLFMGqonpqK2zoMeto2U72MSoKXddYj+eSE=; b=H00QiM8UaOstGv
+	N7mgQnFkapQUMJVFZpkQxAyQTkiO5e3eNbHRhiO27UOpO75tdblAkbDu3a01r8MyMi+FZxS5XXtxN
+	AuouAcc3h3VIQB460T2EBPD9wppXQXmDhLuXjs9ioOfSugFNWqHZJ9SYMaBAE8OqXjRMv7G7N4YD8
+	bJUQIrXw38mgTqkKx/cU7urOJM62PUXJtKTmjM/eMr948oNn4iR3i62KQDXwkfOqEP68L3MVO26c9
+	9q4AjpyHcr7mEzNObEcd4CMf4T7xatwWcGw0r4+FLfJWB9U+vosY3/ejDJm+z6ZQvE/lQOp9+xGmz
+	n6E2pawANlRe6KcC3peQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ni4tn-003Cap-Nk; Sat, 23 Apr 2022 01:49:23 +0000
-Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
+	id 1ni4vD-003Ck6-PC; Sat, 23 Apr 2022 01:50:51 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ni4tk-003CZ7-6F
- for linux-riscv@lists.infradead.org; Sat, 23 Apr 2022 01:49:21 +0000
-Received: by mail-yb1-xb2e.google.com with SMTP id p65so17459884ybp.9
- for <linux-riscv@lists.infradead.org>; Fri, 22 Apr 2022 18:49:12 -0700 (PDT)
+ id 1ni4v9-003CjJ-S5
+ for linux-riscv@lists.infradead.org; Sat, 23 Apr 2022 01:50:49 +0000
+Received: by mail-pf1-x436.google.com with SMTP id j17so9562819pfi.9
+ for <linux-riscv@lists.infradead.org>; Fri, 22 Apr 2022 18:50:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=EXzY+UzgBA4CY//ySgkNNk++mmPT2Q7lGPNdGhvpS3k=;
- b=KQjOWOuGdM2d8vnXhq62QM4DYVCKd+WiOQ5XcRXxeDej1fuhlOfKyLkXXmvh5v6qd0
- k22F7HjbfBdDj2nGswhBmz6ipOnP7fcHVUpSI1MUusXUjdPAjntnr9bpwiIh/avOImuz
- Tv7jzaxvtnvenIYxTpUroNFypfhzA0hHYntzM=
+ d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+ h=subject:date:message-id:mime-version:content-transfer-encoding:cc
+ :from:to; bh=YJyfrQ50lUQluVZGs/0t4KiqUkLmfhT3vxofh4iqMmg=;
+ b=EYdIzhrCqijyunKNF96WKyVnWHCAg8VLYNTbEfQVvowBPq5poWnnz6guqKFrXQekCP
+ FbKP3ybD+k8gDFGNHSNS4Bryhq/72zT9vMISljRBAAO1vudPIKGvQ/s8WyRTZCphEsJ5
+ GqcmtSKB4hPVU3+bIZaNXkiLNxFdsyd+sBolKkYL8iQDXIfe0e5jX+51HzzltK8d06Yw
+ +UdOdA5ImHGTMpWEwkZ7o00yL74Wc1fMNlU9kN5AghfdphEjoBVltMlVi9PRvj7+jlJC
+ GDX+O/U+sfXIdtHd4kcmmPs6NiE6Zdwm72C7FJQ6M48G4/o2M9ujuReTnt/sRfn/hcFj
+ d2kg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=EXzY+UzgBA4CY//ySgkNNk++mmPT2Q7lGPNdGhvpS3k=;
- b=2DK/d+RMtknaZ16PQHMTQlzKVVSAC7NuRbWDl6uD7RyHc9vzRtFZAX3d9RHamRHasZ
- SL9qc/Knwk+cmo12iPDDHGnMS0Bu2crmvYaJEOwA9b/E7CY5cRt4tJiD8avCeMpG9Q3V
- mvmBC7CaOfRuFmM5nhzsAWZrU6MGB5c7Z+V1dH+YL8oeQu1G2V6iDwTmF6TUC6CK8GPh
- taOF7fZ8+nyy1Iq8iJU0cH5Ln2tB1w3BtnflTZ3QXxKBgxX4g7FPVNXUVlzI3HbUL8sv
- qu4yhS5CwyrAEKCT4lOqj62myJmFnvePF7Qw860XmWhDB4b9GwXe+dAe0Mhzw8g/bnKW
- Afrw==
-X-Gm-Message-State: AOAM531bNX+ryYyCngq72jcdhA4Ozb0qogSpw90VHgaw3ZFP7uk50xny
- 2pztsLzxToIj7vQEvAVXDv4hldTWSpJuvMTnuYkp
-X-Google-Smtp-Source: ABdhPJxiVqXIABuDkaacxe8g2z9oY63ATrv3RWNbgC6ZqrWg3gx+2hRc+pki0UDz6nLSiqkK5aJvkH+pVIR8k+KsbCM=
-X-Received: by 2002:a25:a0c9:0:b0:647:36b4:d149 with SMTP id
- i9-20020a25a0c9000000b0064736b4d149mr1617034ybm.405.1650678551920; Fri, 22
- Apr 2022 18:49:11 -0700 (PDT)
+ h=x-gm-message-state:subject:date:message-id:mime-version
+ :content-transfer-encoding:cc:from:to;
+ bh=YJyfrQ50lUQluVZGs/0t4KiqUkLmfhT3vxofh4iqMmg=;
+ b=ho7cBCnLRPxv/3HmmUjbj/X7Df2g2dfap3mM+XUehGxzHkYyk2rXRvRNVqPOTAVyDY
+ hv4mZHB7RUM5Gtxu+gv+qd0BScfRP18e0VXm/4hWQUhW8rU5urJzx2sOzitB6vUINa+3
+ hX6EObdkjmQR5Cnr7YKK1szD0eS7TtJbUVjFRKSVDIhQ6g/MuKGxkbwweyWU5bIIAaH6
+ 5fKL8ycOBdZXsaVwdp0S775BWq3e3+AgxoLT3M6uETURwLFd3SYmTCKjs6w1gid99hHA
+ aexZSljKGYgDBfBL3ushE0KSKRadPHhMQ927eQXwMyGL8lBR9Ucy3g9d/Ljk7FNQKWoi
+ Zvtw==
+X-Gm-Message-State: AOAM533tHhXbyB/imKnjbndtCJFWL9M9e9RHly43iXM22LMJqPN17fcG
+ n6BO3F5ShERE0hifRrQo+Emsu68H2diAlw==
+X-Google-Smtp-Source: ABdhPJwKXGX0fOFtEl0/NkF++Tz5TguZ3bL9dV/oasO6LZtRxeoA5hvNCLv/m2skomZ5Is1begD8ZQ==
+X-Received: by 2002:a63:6bc6:0:b0:39d:966d:2791 with SMTP id
+ g189-20020a636bc6000000b0039d966d2791mr6261238pgc.407.1650678646700; 
+ Fri, 22 Apr 2022 18:50:46 -0700 (PDT)
+Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
+ w9-20020a056a0014c900b004fb2ca5f6d7sm3657380pfu.136.2022.04.22.18.50.46
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 22 Apr 2022 18:50:46 -0700 (PDT)
+Subject: [PATCH] RISC-V: Drop support for medlow
+Date: Fri, 22 Apr 2022 18:38:14 -0700
+Message-Id: <20220423013814.1281-1-palmer@rivosinc.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20220420112408.155561-1-apatel@ventanamicro.com>
- <3fa5215b-84c3-5e4c-cb53-6c05d05e4350@canonical.com>
- <CAOnJCUJrN4frY_OdQzO-yr5CrDLvj=ge9KY2d=XnGvAF-uQNvQ@mail.gmail.com>
-In-Reply-To: <CAOnJCUJrN4frY_OdQzO-yr5CrDLvj=ge9KY2d=XnGvAF-uQNvQ@mail.gmail.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Fri, 22 Apr 2022 18:49:01 -0700
-Message-ID: <CAOnJCUK5q0k1qKD0fM4NtbP6KAGcaBBknkCKLBXxcC=EPGVu1Q@mail.gmail.com>
-Subject: Re: [PATCH v3] RISC-V: Increase range and default value of NR_CPUS
-To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Arnd Bergmann <arnd@arndb.de>, 
- Alistair Francis <Alistair.Francis@wdc.com>,
- Anup Patel <anup@brainfault.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: linux-riscv@lists.infradead.org, alexandre.ghiti@canonical.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220422_184920_258277_AFCBD407 
-X-CRM114-Status: GOOD (  27.60  )
+X-CRM114-CacheID: sfid-20220422_185048_168536_7CB92CB8 
+X-CRM114-Status: GOOD (  18.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,132 +85,113 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 22, 2022 at 5:16 PM Atish Patra <atishp@atishpatra.org> wrote:
->
-> On Thu, Apr 21, 2022 at 12:05 AM Heinrich Schuchardt
-> <heinrich.schuchardt@canonical.com> wrote:
-> >
-> >
-> >
-> > On 4/20/22 13:24, Anup Patel wrote:
-> > > Currently, the range and default value of NR_CPUS is too restrictive
-> > > for high-end RISC-V systems with large number of HARTs. The latest
-> > > QEMU virt machine supports upto 512 CPUs so the current NR_CPUS is
-> > > restrictive for QEMU as well. Other major architectures (such as
-> > > ARM64, x86_64, MIPS, etc) have a much higher range and default
-> > > value of NR_CPUS.
-> > >
-> > > This patch increases NR_CPUS range to 2-512 and default value to
-> > > XLEN (i.e. 32 for RV32 and 64 for RV64).
-> > >
-> > > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> >
->
-> This works upto 207 harts in upstream Qemu + OpenSBI. Beyond that,
-> firmware size becomes > 2MB and PMP protection
-> kicks in for the kernel boot address (0x80200000)
->
+medlow affords slightly better generated code, which is nice, but can
+only run on a fairly restrictive set of systems.  That includes all
+32-bit systems (where medlow is the default), but there don't appear to
+be any in production, so this removes support for medlow on rv32 as
+well.
 
-Just wanted to clarify that this is as per the current configuration
-in OpenSBI. The boot address
-is configured to be 0x80000000 for the generic platform. Thus, it can
-support a maximum of 207 harts.
+Supporting medlow is a bit of a burden: some early boot bits only work
+medany, but there's no way to enforce that in the toolchain so we're
+stuck with finding bugs at runtime.  This moves the kernel to always be
+built as medany.
 
-If anybody wishes to boot more than that, the boot address should be
-changed to a valid DRAM address such that
-it doesn't step on kernel/DT or other resident boot loaders (e.g. U-Boot).
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-It should be changed per platform (if supporting more than 128 harts)
-rather than changing
-to a common address for all platforms.
+---
 
-> Here is the OpenSBI boot prints for 256 harts with some hacks around
-> sanitize_domain to disable sbi_domain_check_addr
->
-> Platform Name             : riscv-virtio,qemu
-> Platform Features         : medeleg
-> Platform HART Count       : 208
-> Platform IPI Device       : aclint-mswi
-> Platform Timer Device     : aclint-mtimer @ 10000000Hz
-> Platform Console Device   : uart8250
-> Platform HSM Device       : ---
-> Platform Reboot Device    : sifive_test
-> Platform Shutdown Device  : sifive_test
-> Firmware Base             : 0x80000000
-> Firmware Size             : 2052 KB ---------->>> Firmware size is
-> greater than 2MB where
-> Runtime SBI Version       : 0.3
->
-> Domain0 Name              : root
-> Domain0 Boot HART         : 122
-> Domain0 HARTs             :
-> 0*,1*,2*,3*,4*,5*,6*,7*,8*,9*,10*,11*,12*,13*,14*,15*,16*,17*,18*,19*,20*,21*,22*,23*,24*,25*,26*,27*,28*,29*,30*,31*,32*,33*,34*,35*,36*,37*,38*,39*,40*,41*,42*,43*,44*,45*,46*,47*,48*,49*,50*,51*,52*,53*,54*,55*,56*,57*,58*,59*,60*,61*,62*,63*,64*,65*,66*,67*,68*,69*,70*,71*,72*,73*,74*,75*,76*,77*,78*,79*,80*,81*,82*,83*,84*,85*,86*,87*,88*,89*,90*,91*,92*,93*,94*,95*,96*,97*,98*,99*,100*,101*,102*,103*,104*,105*,106*,107*,108*,109*,110*,111*,112*,113*,114*,115*,116*,117*,118*,119*,120*,121*,122*,123*,124*,125*,126*,127*,128*,129*,130*,131*,132*,133*,134*,135*,136*,137*,138*,139*,140*,141*,142*,143*,144*,145*,146*,147*,148*,149*,150*,151*,152*,153*,154*,155*,156*,157*,158*,159*,160*,161*,162*,163*,164*,165*,166*,167*,168*,169*,170*,171*,172*,173*,174*,175*,176*,177*,178*,179*,180*,181*,182*,183*,184*,185*,186*,187*,188*,189*,190*,191*,192*,193*,194*,195*,196*,197*,198*,199*,200*,201*,202*,203*,204*,205*,206*,207*
-> Domain0 Region00          : 0x0000000002000000-0x000000000200ffff (I)
-> Domain0 Region01          : 0x0000000080000000-0x00000000803fffff ()
-> Domain0 Region02          : 0x0000000000000000-0xffffffffffffffff (R,W,X)
-> Domain0 Next Address      : 0x0000000080200000
-> Domain0 Next Arg1         : 0x00000000bf000000
-> Domain0 Next Mode         : S-mode
-> Domain0 SysReset          : yes
->
-> Boot HART ID              : 122
-> Boot HART Domain          : root
-> Boot HART ISA             : rv64imafdcsuh
-> Boot HART Features        : scounteren,mcounteren,time
-> Boot HART PMP Count       : 16
-> Boot HART PMP Granularity : 4
-> Boot HART PMP Address Bits: 54
-> Boot HART MHPM Count      : 0
-> Boot HART MIDELEG         : 0x0000000000001666
-> Boot HART MEDELEG         : 0x0000000000f0b509
->
->
-> > Reviewed-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-> >
-> > > ---
-> > > Changes since v2:
-> > >   - Rebased on Linux-5.18-rc3
-> > >   - Use a different range when SBI v0.1 is enabled
-> > > Changes since v1:
-> > >   - Updated NR_CPUS range to 2-512 which reflects maximum number of
-> > >     CPUs supported by QEMU virt machine.
-> > > ---
-> > >   arch/riscv/Kconfig | 9 ++++++---
-> > >   1 file changed, 6 insertions(+), 3 deletions(-)
-> > >
-> > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > > index 00fd9c548f26..1823f281069f 100644
-> > > --- a/arch/riscv/Kconfig
-> > > +++ b/arch/riscv/Kconfig
-> > > @@ -275,10 +275,13 @@ config SMP
-> > >         If you don't know what to do here, say N.
-> > >
-> > >   config NR_CPUS
-> > > -     int "Maximum number of CPUs (2-32)"
-> > > -     range 2 32
-> > > +     int "Maximum number of CPUs (2-512)"
-> > >       depends on SMP
-> > > -     default "8"
-> > > +     range 2 512 if !SBI_V01
-> > > +     range 2 32 if SBI_V01 && 32BIT
-> > > +     range 2 64 if SBI_V01 && 64BIT
-> > > +     default "32" if 32BIT
-> > > +     default "64" if 64BIT
-> > >
-> > >   config HOTPLUG_CPU
-> > >       bool "Support for hot-pluggable CPUs"
->
->
->
-> --
-> Regards,
-> Atish
+If people are still using this then I'm happy to keep it, but I'm not
+sure it's worth the headache any more: the generated code is slightly
+faster, which is nice, but as our feature set has grown I've started to
+get a feeling that the somewhat restricted set of systems medlow runs on
+means it's not actually getting used.  I'm testing it and regularly find
+bugs in patches, but I don't really have much of a use for it so if it's
+just me keeping this alive then that's a bit silly.
 
+If we have any users then please speak up, as once this goes in the
+medlow support will quickly bitrot.  I'll try and circulate this around
+as widely as I can.
+---
+ arch/riscv/Kconfig         | 14 --------------
+ arch/riscv/Makefile        | 12 ++----------
+ arch/riscv/kernel/Makefile |  2 +-
+ 3 files changed, 3 insertions(+), 25 deletions(-)
 
-
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 00fd9c548f26..132e0a4020c9 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -243,20 +243,6 @@ config ARCH_RV64I
+ 
+ endchoice
+ 
+-# We must be able to map all physical memory into the kernel, but the compiler
+-# is still a bit more efficient when generating code if it's setup in a manner
+-# such that it can only map 2GiB of memory.
+-choice
+-	prompt "Kernel Code Model"
+-	default CMODEL_MEDLOW if 32BIT
+-	default CMODEL_MEDANY if 64BIT
+-
+-	config CMODEL_MEDLOW
+-		bool "medium low code model"
+-	config CMODEL_MEDANY
+-		bool "medium any code model"
+-endchoice
+-
+ config MODULE_SECTIONS
+ 	bool
+ 	select HAVE_MOD_ARCH_SPECIFIC
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 7d81102cffd4..34ef14543803 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -14,10 +14,6 @@ ifeq ($(CONFIG_DYNAMIC_FTRACE),y)
+ 	CC_FLAGS_FTRACE := -fpatchable-function-entry=8
+ endif
+ 
+-ifeq ($(CONFIG_CMODEL_MEDLOW),y)
+-KBUILD_CFLAGS_MODULE += -mcmodel=medany
+-endif
+-
+ export BITS
+ ifeq ($(CONFIG_ARCH_RV64I),y)
+ 	BITS := 64
+@@ -58,16 +54,12 @@ riscv-march-$(toolchain-need-zicsr-zifencei) := $(riscv-march-y)_zicsr_zifencei
+ 
+ KBUILD_CFLAGS += -march=$(subst fd,,$(riscv-march-y))
+ KBUILD_AFLAGS += -march=$(riscv-march-y)
++KBUILD_CFLAGS += -mcmodel=medany
+ 
+ KBUILD_CFLAGS += -mno-save-restore
+ KBUILD_CFLAGS += -DCONFIG_PAGE_OFFSET=$(CONFIG_PAGE_OFFSET)
+ 
+-ifeq ($(CONFIG_CMODEL_MEDLOW),y)
+-	KBUILD_CFLAGS += -mcmodel=medlow
+-endif
+-ifeq ($(CONFIG_CMODEL_MEDANY),y)
+-	KBUILD_CFLAGS += -mcmodel=medany
+-endif
++
+ ifeq ($(CONFIG_PERF_EVENTS),y)
+         KBUILD_CFLAGS += -fno-omit-frame-pointer
+ endif
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 87adbe47bc15..62474e8b1074 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -11,7 +11,7 @@ endif
+ CFLAGS_syscall_table.o	+= $(call cc-option,-Wno-override-init,)
+ 
+ ifdef CONFIG_KEXEC
+-AFLAGS_kexec_relocate.o := -mcmodel=medany $(call cc-option,-mno-relax)
++AFLAGS_kexec_relocate.o := $(call cc-option,-mno-relax)
+ endif
+ 
+ extra-y += head.o
 -- 
-Regards,
-Atish
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
