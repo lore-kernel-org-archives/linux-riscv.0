@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A89C8C433F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Apr 2022 01:41:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B4BFC433F5
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Apr 2022 01:41:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:To:Cc:From:Subject:
 	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z/A1At5088dZbSiNR760FnEPlAhLFinqgoZMC7jYJAY=; b=VE0gBccnGWOxwS
-	UclKBHLjyYVp8/GXuEqNB6EJ6GZuXTEaD8zDRRk0zlDXczf7+DspwZ60jGikhmWOqCkmXjlhILYB1
-	+WrJuVMFOYWt8uQGB0qSaA22kXXupHuP9+iiA87RvmKJB9tVWTsENeB58CxFXG9xHzCB3nCVJmI51
-	g3xOtznPgNXwkqLO5g7PDuFin4jEMGJAoghFlvLL4+Hh50+uveNoYfYdByKLaikebN1XNs3UT06LW
-	SXUITgLyjG8aQLzfoHUAcK5seYrRNGDiSd75JbtAq34jr89O4As+HklWo7B8EF53m9xWQtT2xvbni
-	QJ30FZq85Lt5/O4aO72Q==;
+	List-Owner; bh=LobVDS8cikQT3jEcd4XSN5f9k/9aS4aCiwERuCsIQC8=; b=dBIIFsiM+IAvLN
+	KATL4QvWW03h3TID4o2VOjvThP/dKLYdqXf9K8jWNO144CE7BWih0Ae+vAJuOt1dthjjqvt38nIxy
+	n4PNK0XKt1seFFjB8UAxkbh6WRgvTQ+e5tBti4aSr13uwZqMZmTCl4yM4q5lCFaC5D/ywiRxP/K+O
+	oazEGC4Sfm3CC/spvRBy9jF5KhRe/1Njtiwbc0QrkwrdimtZZJ2HORxXSzDByPA1aEXRd2fZ5bpfc
+	+DGNfA/1q2ekYFYprYPhJp0jeIoZyrcXlQjeIvS1gApgbmZwIGY3puObTnSTMji4HYCuyv5V3hT55
+	efbncPnIwSMvvGLLk1kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ni4ly-003API-S5; Sat, 23 Apr 2022 01:41:18 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1ni4m7-003ARX-84; Sat, 23 Apr 2022 01:41:27 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ni4lv-003AOc-Ij
- for linux-riscv@lists.infradead.org; Sat, 23 Apr 2022 01:41:16 +0000
+ id 1ni4m3-003AQ7-NR
+ for linux-riscv@lists.infradead.org; Sat, 23 Apr 2022 01:41:25 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id F220EB831BC;
- Sat, 23 Apr 2022 01:41:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B56BFC385A0;
- Sat, 23 Apr 2022 01:41:11 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 8AAFDB83351;
+ Sat, 23 Apr 2022 01:41:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 272F8C385A4;
+ Sat, 23 Apr 2022 01:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1650678071;
- bh=qrzYzxe8RPq/FTFvyHvEQiLMHVcoU2W9jDATI7yqDs4=;
+ s=k20201202; t=1650678080;
+ bh=amRBwJdjQuLgD+Pi20DhdLXO2pAUbgdtM9M0hZkENgA=;
  h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
- b=poTLwV7Fn6eVR3x528X6sZX8AfskaAnoyD8sY4EXsXurxN+orGD10wRNQ4tROykQf
- rr77fmDf/rPv7dlOxcgPYX5KrxZgFFDMskwj0WiG9E4jetllWLzEYJTmNxzCiQttXa
- wVRCSRtHEYigTh6bc+rONd1QLAAEy0ynCHYmf7wHs2t5voAQpHajFI6o6uwFq6m1II
- HrKmPTJBL5og0tD4HDDLwuQceFV+hPErLO2ygY5LGbBVXaVSS0uNyILXorha7/8X3q
- Q0OakPmgJ0N40WJyaFqJnuF/tGmepYqy0KdgrxSTcqv5Un9nhQkEClnWLWsN4Ep0Qt
- poVxeL4j0hcEw==
+ b=lCcwsPaJzn+XsS5jL9t0HCv2GCWG5TWpjP6bhGuRmx9DdjLlXZ6xrg1iKzIaOl9C8
+ 7DBIDuEsxBpmDZTNtWawbvjvRT+QlfC4RyCvSEreNFCxewWMWtmK3LhA4wyYTXHqGX
+ 5tFWTocNFYw2o3QT3DRE5BLxF3LgihbeDtTMieTB2m5d3DRuHAIWqo4P+bRxj8hOkP
+ ZFTiFWvMn6mqdkGSEVKY8jkhcxEie3WBEE228etXpU4NUzOe5R+55TnhU0duFdRQlJ
+ oTQg97DhU13s3x9pZtYnbC2+pZ1DHU6uC3LCD1dRpp0ginQ/8YsL4MDC/+MNEMZwNv
+ wMejMWliJN7Bw==
 MIME-Version: 1.0
-In-Reply-To: <20220413075835.3354193-3-conor.dooley@microchip.com>
+In-Reply-To: <20220413075835.3354193-4-conor.dooley@microchip.com>
 References: <20220413075835.3354193-1-conor.dooley@microchip.com>
- <20220413075835.3354193-3-conor.dooley@microchip.com>
-Subject: Re: [PATCH v3 2/9] clk: microchip: mpfs: mark CLK_ATHENA as critical
+ <20220413075835.3354193-4-conor.dooley@microchip.com>
+Subject: Re: [PATCH v3 3/9] riscv: dts: microchip: fix usage of fic clocks on
+ mpfs
 From: Stephen Boyd <sboyd@kernel.org>
 Cc: daire.mcnamara@microchip.com, linux-rtc@vger.kernel.org,
  devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
@@ -55,13 +56,12 @@ To: Conor Dooley <conor.dooley@microchip.com>, a.zummo@towertech.it,
  alexandre.belloni@bootlin.com, aou@eecs.berkeley.edu, krzk+dt@kernel.org,
  mturquette@baylibre.com, palmer@rivosinc.com, paul.walmsley@sifive.com,
  robh+dt@kernel.org
-Date: Fri, 22 Apr 2022 18:41:09 -0700
+Date: Fri, 22 Apr 2022 18:41:18 -0700
 User-Agent: alot/0.10
-Message-Id: <20220423014111.B56BFC385A0@smtp.kernel.org>
+Message-Id: <20220423014120.272F8C385A4@smtp.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220422_184115_795337_B75BCB57 
-X-CRM114-Status: UNSURE (   6.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220422_184123_942765_EC4CB2A4 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,12 +78,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Conor Dooley (2022-04-13 00:58:29)
-> CLK_ATHENA is another fabric interconnect and should be marked as critical
-> as with FIC0-3, since disabling it will cause part of the fabric to go
-> into reset.
+Quoting Conor Dooley (2022-04-13 00:58:30)
+> The fic clocks passed to the pcie controller and other peripherals in
+> the device tree are not the clocks they actually run on. The fics are
+> actually clock domain crossers & the clock config blocks output is the
+> mss/cpu side input to the interconnect. The peripherals are actually
+> clocked by fixed frequency clocks embedded in the fpga fabric.
 > 
-> Fixes: 635e5e73370e ("clk: microchip: Add driver for Microchip PolarFire SoC")
+> Fix the device tree so that these peripherals use the correct clocks.
+> The fabric side FIC0 & FIC1 inputs both use the same 125 MHz, so only
+> one clock is created for them.
+> 
+> Fixes: 528a5b1f2556 ("riscv: dts: microchip: add new peripherals to icicle kit device tree")
 > Reviewed-by: Daire McNamara <daire.mcnamara@microchip.com>
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
