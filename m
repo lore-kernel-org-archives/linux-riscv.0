@@ -4,82 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 935A7C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 Apr 2022 07:52:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C996C433F5
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 Apr 2022 08:15:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0oVeOhKWpDGgHXQgdGk68fPWCop2WyaGN5lZgA1fIUc=; b=F9zvNK6Ar7JWPD
-	N+FOIwnDKz68kFoKUi3gN/ybGUk7I3Nk71tFEIOm3jfDcYRthhmM10P63cGuzJj8jn+Ny931KwIvv
-	jvgaB1p3mo8WFuZ6GN9yIZdohFw4y2e94lQYrbPCpmh7QZS5mTPglbvF//beuWOqx3fRrTEtfD2Al
-	DummmczsEJvo30+OnX6Sf83lLi9J7vtb3KJW1PVrarilOFevY3v3gtg64tBFk1OqJte2FfP8rsU3y
-	YGR+Pe25Lw2/o2AivBpXSP8hMJQNtBThpNOZ4NXU/lp31PK/EomgtQ7CDdF/y7lP2nsNW43oeb0IQ
-	fvLZumMdMU3pffOFLfXg==;
+	List-Owner; bh=pykS8C+mDmdbF2KIzeeFkWqR3VhiCPzGbsShVoSAV2c=; b=SVC5WvIq73k69U
+	mUFwU69wMUX4bg0wcQVkzXWyLp458NsY3MyTW/zmCo2TvWIXSvcopcoAj/F2YJxIXTSpPkc35c8W8
+	U3LID/gdhGeEaLNCHlGwh/vo5QC6kbrrSfWOY+ZsOQqqA5LfXrCrMSeRs3avuCmhT7ju+RKpOCtow
+	TFAE2+mM3/39dpO8h0coBP2FCDL7MUUEOGZ81sPGwHKJkZJX3SkW/XpNEubhPB8k5f4A8uSPVJ0bt
+	lzO4gf2Zr5bDxaBzN/MtKDfa/AMzuKXpoD+J9ZCme32vOygbe6KYPkkOud8nx641UrwubM3D4UZIo
+	hAlqoXSaw9E0MjfOh+Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1niX2j-0065Oj-D8; Sun, 24 Apr 2022 07:52:29 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1niXOv-0066vh-QG; Sun, 24 Apr 2022 08:15:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1niX2d-0065NE-Qp
- for linux-riscv@lists.infradead.org; Sun, 24 Apr 2022 07:52:27 +0000
+ id 1niXOk-0066u1-9n; Sun, 24 Apr 2022 08:15:15 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 24B37B80E03
- for <linux-riscv@lists.infradead.org>; Sun, 24 Apr 2022 07:52:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35D6AC385B3
- for <linux-riscv@lists.infradead.org>; Sun, 24 Apr 2022 07:52:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1650786740;
- bh=RWb7DOXzFvOQCeyxYs1hApMGKdRf9Qsep7TiwZpIx0U=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=agVTAWUWSKXMvOKG4DXnDCOIKpVl8uRrkJaoKqr0mTF7Rf4BzwQSUrcJUw/Sn/zBB
- WKiABd2/hBhCnk6uXD2iUvaC/0FmpeARWAAdXMhIF4yJ+Ec+BsUQlPq3N28X2Jop24
- XXhm7glhG20Zvtl3DT0q8EAVP01Xu8YP9WT8vriTANZcAOrNjVuUDZAiIDoIYeHewH
- +c2mNY5NNWGMR5OYaqj1pvXb+6eC3AgRa1/ExRi9WvYiSA+1vJs+5uP/pEBjTA3GD8
- 3tOAHLrKUipocfXTfcm7YsnTDPho4ro/gLgu/jZclyLUYTyfEognPsplq2jjkXTZFt
- 1DySQQo5kAxJg==
-Received: by mail-vk1-f180.google.com with SMTP id m203so5806851vke.13
- for <linux-riscv@lists.infradead.org>; Sun, 24 Apr 2022 00:52:20 -0700 (PDT)
-X-Gm-Message-State: AOAM5324St/90JQuMK4Yi0M4Ckid9vLX+vZQ51fg8A8QFlyef1kAdPCU
- WqCpuWPur3LEwDP4cRqlCpchaKz8LNHea5UufCM=
-X-Google-Smtp-Source: ABdhPJwWBmk5gXNGNnMmDzY+xXonhpWHkntpc2E5Di9jIzfwUPUpqL9aBkJxLuQj9OHqNFsB8nORgJ0Y19c2RSu7YvQ=
-X-Received: by 2002:a1f:3085:0:b0:348:e0b6:bd89 with SMTP id
- w127-20020a1f3085000000b00348e0b6bd89mr3731670vkw.2.1650786738940; Sun, 24
- Apr 2022 00:52:18 -0700 (PDT)
-MIME-Version: 1.0
-References: <YlbwOG46mCR8Q5tJ@tardis>
- <CAJF2gTRws6RqKmJHBdKsycWSkFgYna_MocJ+qp3Z9r1v7mQzsg@mail.gmail.com>
- <Ylt6zqPgimmKpJzg@tardis>
- <CAJF2gTTZnBh_z31VK81cYiBrTt5NRVpSahoPh35Zo4Ns5hCv7A@mail.gmail.com>
- <3f7dd397-2ccd-dfa3-a0ec-dcce6cbc0476@nvidia.com>
- <CAJF2gTQzPsM0X-gib3V0EYYU=weMFXMQZCEbru9y+dDbV+9eXQ@mail.gmail.com>
- <41e01514-74ca-84f2-f5cc-2645c444fd8e@nvidia.com>
- <CAJF2gTSD1CsMf2uFXbv4qekh72r6iY-0BVaBwA8Ntu0L6WcEPA@mail.gmail.com>
- <YmHhEY56jYXh68Q/@tardis>
- <CAJF2gTS2pqgb+0b3ug2wSEXkkbOb=jN2-2QzahZf0n2=ihESOg@mail.gmail.com>
- <YmIcyAIXG+JLnU7e@tardis>
-In-Reply-To: <YmIcyAIXG+JLnU7e@tardis>
-From: Guo Ren <guoren@kernel.org>
-Date: Sun, 24 Apr 2022 15:52:07 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQiQMdtRVf2xiD_LavxZVTHgY92d0BPhr47W47vEN0MhA@mail.gmail.com>
-Message-ID: <CAJF2gTQiQMdtRVf2xiD_LavxZVTHgY92d0BPhr47W47vEN0MhA@mail.gmail.com>
-Subject: Re: [PATCH V2 0/3] riscv: atomic: Optimize AMO instructions usage
-To: Boqun Feng <boqun.feng@gmail.com>
-Cc: Dan Lustig <dlustig@nvidia.com>, Andrea Parri <parri.andrea@gmail.com>, 
- "Paul E. McKenney" <paulmck@linux.vnet.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
- Palmer Dabbelt <palmer@dabbelt.com>, Mark Rutland <mark.rutland@arm.com>,
- Will Deacon <will@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, linux-arch <linux-arch@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 964646129B;
+ Sun, 24 Apr 2022 08:15:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B901C385A9;
+ Sun, 24 Apr 2022 08:15:08 +0000 (UTC)
+Authentication-Results: smtp.kernel.org;
+ dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com
+ header.b="QQ7PQLbi"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105; 
+ t=1650788106;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=zz5BWAECMqgYeyzIQatgn1YdaIX48xI6Btjx4R/QQM8=;
+ b=QQ7PQLbiv6h5RMKfyhPz+0uFS/QEk6cKxIFEdT/4w1vomvJYaek1ix2z1YnXUltNn4JNWs
+ ns72gMmUvnu2yAgEipWd73LYk7yThx0ACLC9UkoUd4mMs7onmV4qUH+mMgtRSeZCBhTJ5t
+ iZcOlpmCAAcVo/uGzHHPVJkmoTKoYzY=
+Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id a4e3a24b
+ (TLSv1.3:AEAD-AES256-GCM-SHA384:256:NO); 
+ Sun, 24 Apr 2022 08:15:06 +0000 (UTC)
+Date: Sun, 24 Apr 2022 10:15:00 +0200
+From: "Jason A. Donenfeld" <Jason@zx2c4.com>
+To: "Maciej W. Rozycki" <macro@orcam.me.uk>
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ LKML <linux-kernel@vger.kernel.org>,
+ Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Arnd Bergmann <arnd@arndb.de>,
+ Theodore Ts'o <tytso@mit.edu>,
+ Dominik Brodowski <linux@dominikbrodowski.net>,
+ Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "David S . Miller" <davem@davemloft.net>,
+ Richard Weinberger <richard@nod.at>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "H . Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
+ Max Filippov <jcmvbkbc@gmail.com>, John Stultz <john.stultz@linaro.org>,
+ Stephen Boyd <sboyd@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ linux-m68k <linux-m68k@lists.linux-m68k.org>,
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
  linux-riscv <linux-riscv@lists.infradead.org>,
- Guo Ren <guoren@linux.alibaba.com>
+ sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+ X86 ML <x86@kernel.org>, linux-xtensa@linux-xtensa.org
+Subject: Re: [PATCH v4 04/11] mips: use fallback for random_get_entropy()
+ instead of zero
+Message-ID: <YmUHBKPC0bAbs4Vj@zx2c4.com>
+References: <20220413115411.21489-1-Jason@zx2c4.com>
+ <20220413115411.21489-5-Jason@zx2c4.com>
+ <20220413122546.GA11860@alpha.franken.de>
+ <alpine.DEB.2.21.2204131331450.9383@angie.orcam.me.uk>
+ <CAHmME9pQ4xdeTUDxAdrOu=S9NRTonYzJVk50fa0Zfz4knZt5WA@mail.gmail.com>
+ <alpine.DEB.2.21.2204140014580.9383@angie.orcam.me.uk>
+ <YlfoeGRM6w2O+eXA@zx2c4.com>
+ <alpine.DEB.2.21.2204142349180.9383@angie.orcam.me.uk>
+ <20220418071005.GA4075@alpha.franken.de>
+ <alpine.DEB.2.21.2204220029590.9383@angie.orcam.me.uk>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <alpine.DEB.2.21.2204220029590.9383@angie.orcam.me.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220424_005225_562701_68F7B586 
-X-CRM114-Status: GOOD (  55.86  )
+X-CRM114-CacheID: sfid-20220424_011514_637542_6A55D914 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,388 +110,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 22, 2022 at 11:11 AM Boqun Feng <boqun.feng@gmail.com> wrote:
->
-> On Fri, Apr 22, 2022 at 09:56:21AM +0800, Guo Ren wrote:
-> > On Fri, Apr 22, 2022 at 6:56 AM Boqun Feng <boqun.feng@gmail.com> wrote:
-> > >
-> > > On Thu, Apr 21, 2022 at 05:39:09PM +0800, Guo Ren wrote:
-> > > > Hi Dan,
-> > > >
-> > > > On Thu, Apr 21, 2022 at 1:03 AM Dan Lustig <dlustig@nvidia.com> wrote:
-> > > > >
-> > > > > On 4/20/2022 1:33 AM, Guo Ren wrote:
-> > > > > > Thx Dan,
-> > > > > >
-> > > > > > On Wed, Apr 20, 2022 at 1:12 AM Dan Lustig <dlustig@nvidia.com> wrote:
-> > > > > >>
-> > > > > >> On 4/17/2022 12:51 AM, Guo Ren wrote:
-> > > > > >>> Hi Boqun & Andrea,
-> > > > > >>>
-> > > > > >>> On Sun, Apr 17, 2022 at 10:26 AM Boqun Feng <boqun.feng@gmail.com> wrote:
-> > > > > >>>>
-> > > > > >>>> On Sun, Apr 17, 2022 at 12:49:44AM +0800, Guo Ren wrote:
-> > > > > >>>> [...]
-> > > > > >>>>>
-> > > > > >>>>> If both the aq and rl bits are set, the atomic memory operation is
-> > > > > >>>>> sequentially consistent and cannot be observed to happen before any
-> > > > > >>>>> earlier memory operations or after any later memory operations in the
-> > > > > >>>>> same RISC-V hart and to the same address domain.
-> > > > > >>>>>                 "0:     lr.w     %[p],  %[c]\n"
-> > > > > >>>>>                 "       sub      %[rc], %[p], %[o]\n"
-> > > > > >>>>>                 "       bltz     %[rc], 1f\n".
-> > > > > >>>>> -               "       sc.w.rl  %[rc], %[rc], %[c]\n"
-> > > > > >>>>> +               "       sc.w.aqrl %[rc], %[rc], %[c]\n"
-> > > > > >>>>>                 "       bnez     %[rc], 0b\n"
-> > > > > >>>>> -               "       fence    rw, rw\n"
-> > > > > >>>>>                 "1:\n"
-> > > > > >>>>> So .rl + fence rw, rw is over constraints, only using sc.w.aqrl is more proper.
-> > > > > >>>>>
-> > > > > >>>>
-> > > > > >>>> Can .aqrl order memory accesses before and after it (not against itself,
-> > > > > >>>> against each other), i.e. act as a full memory barrier? For example, can
-> > > > > >>> From the RVWMO spec description, the .aqrl annotation appends the same
-> > > > > >>> effect with "fence rw, rw" to the AMO instruction, so it's RCsc.
-> > > > > >>>
-> > > > > >>> Not only .aqrl, and I think the below also could be an RCsc when
-> > > > > >>> sc.w.aq is executed:
-> > > > > >>> A: Pre-Access
-> > > > > >>> B: lr.w.rl ADDR-0
-> > > > > >>> ...
-> > > > > >>> C: sc.w.aq ADDR-0
-> > > > > >>> D: Post-Acess
-> > > > > >>> Because sc.w.aq has overlap address & data dependency on lr.w.rl, the
-> > > > > >>> global memory order should be A->B->C->D when sc.w.aq is executed. For
-> > > > > >>> the amoswap
-> > > > > >>
-> > > > > >> These opcodes aren't actually meaningful, unfortunately.
-> > > > > >>
-> > > > > >> Quoting the ISA manual chapter 10.2: "Software should not set the rl bit
-> > > > > >> on an LR instruction unless the aq bit is also set, nor should software
-> > > > > >> set the aq bit on an SC instruction unless the rl bit is also set."
-> > > > > > 1. Oh, I've missed the behind half of the ISA manual. But why can't we
-> > > > > > utilize lr.rl & sc.aq in software programming to guarantee the
-> > > > > > sequence?
-> > > > >
-> > > > > lr.aq and sc.rl map more naturally to hardware than lr.rl and sc.aq.
-> > > > > Plus, they just aren't common operations to begin with, e.g., there
-> > > > > is no smp_store_acquire() or smp_load_release(), nor are there
-> > > > > equivalents in C/C++ atomics.
-> > > > First, thx for pointing out that my patch violates the rules defined
-> > > > in the ISA manual. I've abandoned these parts in v3.
-> > > >
-> > > > It's easy to let hw support lr.rl & sc.aq (eg: our hardware supports
-> > > > them). I agree there are no equivalents in C/C++ atomics. But they are
-> > > > useful for LR/SC pairs to implement atomic_acqurie/release semantics.
-> > > > Compare below:
-> > > > A): fence rw, r; lr
-> > > > B): lr.rl
-> > > > The A has another "fence ,r" effect in semantics, it's over commit
-> > > > from a software design view.
-> > > >
-> > > > ps: Current definition has problems:
-> > > > #define RISCV_ACQUIRE_BARRIER           "\tfence r , rw\n"
-> > > > #define RISCV_RELEASE_BARRIER           "\tfence rw,  w\n"
-> > > >
-> > > > #define __cmpxchg_release(ptr, old, new, size)                          \
-> > > > ...
-> > > >                 __asm__ __volatile__ (                                  \
-> > > >                         RISCV_RELEASE_BARRIER                           \
-> > > >                         "0:     lr.w %0, %2\n"                          \
-> > > >
-> > > > That means "fence rw, w" can't prevent lr.w beyond the fence, we need
-> > > > a "fence.rw. r" here. Here is the Fixup patch which I'm preparing:
-> > > >
-> > >
-> > > That's not true. Note that RELEASE semantics only applies to the
-> > > write/store part of a read-modify-write atomic, similarly, ACQUIRE only
-> > I just want to point out that the "atomic" mentioned here is only for
-> > RISC-V LR/SC AMO instructions. It has been clarified to tread AMO
-> > instruction as the whole part for other AMO instructions.
-> >
-> >      - .aq:   If the aq bit is set, then no later memory operations
-> >               in this RISC-V hart can be observed to take place
-> >               before the AMO.
-> >      - .rl:   If the rl bit is set, then other RISC-V harts will not
-> >               observe the AMO before memory accesses preceding the
-> >               AMO in this RISC-V hart.
-> >      - .aqrl: Setting both the aq and the rl bit on an AMO makes the
-> >               sequence sequentially consistent, meaning that it cannot
-> >               be reordered with earlier or later memory operations
-> >               from the same hart.
-> >
-> > > applies to the read/load part. For example, the following litmus test
-> > > can observe the exists clause being true.
-> > Thx for pointing out, that means changing "fence rw, w" to "fence rw.
-> > r" is more strict and it would lower performance, right?
->
-> Yes, I think it's more strict but honestly I don't know the performance
-> impact ;-)
->
-> >
-> > >
-> > >         {}
-> > >
-> > >         P0(int *x, int *y)
-> > >         {
-> > >                 int r0;
-> > >                 int r1;
-> > >
-> > >                 r0 = cmpxchg_acquire(x, 0, 1);
-> > >                 r1 = READ_ONCE(*y);
-> > Oh, READ_ONCE could be beyond the write/store part of cmpxchg_acquire,
-> > right? We shouldn't prevent it.
->
-> Right, the reordering is allowed by the API of Linux atomics and you
-> don't have to prevent it.
-Thx, you are right, I got it.
+On Sun, Apr 24, 2022 at 12:33:44AM +0100, Maciej W. Rozycki wrote:
+> unconditionally.  I think this discovery asks for code optimisation, which 
+> I'll try to cook up sometime.
 
->
-> Regards,
-> Boqun
->
-> >
-> > >         }
-> > >
-> > >         P1(int *x, int *y)
-> > >         {
-> > >                 int r0;
-> > >
-> > >                 WRITE_ONCE(*y, 1);
-> > >                 smp_mb();
-> > >                 r0 = READ_ONCE(*x);
-> > >         }
-> > >
-> > >         exists (0:r0=0 /\ 0:r1=0 /\ 1:r0=0)
-> > >
-> > > Regards,
-> > > Boqun
-> > >
-> > > > From 14c93aca0c3b10cf134791cf491b459972a36ec4 Mon Sep 17 00:00:00 2001
-> > > > From: Guo Ren <guoren@linux.alibaba.com>
-> > > > Date: Thu, 21 Apr 2022 16:44:48 +0800
-> > > > Subject: [PATCH] riscv: atomic: Fixup wrong __atomic_acquire/release_fence
-> > > >  implementation
-> > > >
-> > > > Current RISCV_ACQUIRE/RELEASE_BARRIER is for spin_lock not atomic.
-> > > >
-> > > > __cmpxchg_release(ptr, old, new, size)
-> > > > ...
-> > > >         __asm__ __volatile__ (
-> > > >                         RISCV_RELEASE_BARRIER
-> > > >                         "0:     lr.w %0, %2\n"
-> > > >
-> > > > The "fence rw, w -> lr.w" is invalid and lr would beyond fence, so
-> > > > we need "fence rw, r -> lr.w" here. Atomic acquire is the same.
-> > > >
-> > > > Fixes: 0123f4d76ca6 ("riscv/spinlock: Strengthen implementations with fences")
-> > > > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > > > Signed-off-by: Guo Ren <guoren@kernel.org>
-> > > > Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> > > > Cc: Mark Rutland <mark.rutland@arm.com>
-> > > > Cc: Andrea Parri <parri.andrea@gmail.com>
-> > > > Cc: Dan Lustig <dlustig@nvidia.com>
-> > > > Cc: stable@vger.kernel.org
-> > > > ---
-> > > >  arch/riscv/include/asm/atomic.h  | 4 ++--
-> > > >  arch/riscv/include/asm/cmpxchg.h | 8 ++++----
-> > > >  arch/riscv/include/asm/fence.h   | 4 ++++
-> > > >  3 files changed, 10 insertions(+), 6 deletions(-)
-> > > >
-> > > > diff --git a/arch/riscv/include/asm/atomic.h b/arch/riscv/include/asm/atomic.h
-> > > > index aef8aa9ac4f4..7cd66eba6ec3 100644
-> > > > --- a/arch/riscv/include/asm/atomic.h
-> > > > +++ b/arch/riscv/include/asm/atomic.h
-> > > > @@ -20,10 +20,10 @@
-> > > >  #include <asm/barrier.h>
-> > > >
-> > > >  #define __atomic_acquire_fence()                                       \
-> > > > -       __asm__ __volatile__(RISCV_ACQUIRE_BARRIER "" ::: "memory")
-> > > > +       __asm__ __volatile__(RISCV_ATOMIC_ACQUIRE_BARRIER "":::"memory")
-> > > >
-> > > >  #define __atomic_release_fence()                                       \
-> > > > -       __asm__ __volatile__(RISCV_RELEASE_BARRIER "" ::: "memory");
-> > > > +       __asm__ __volatile__(RISCV_ATOMIC_RELEASE_BARRIER"" ::: "memory");
-> > > >
-> > > >  static __always_inline int arch_atomic_read(const atomic_t *v)
-> > > >  {
-> > > > diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
-> > > > index 9269fceb86e0..605edc2fca3b 100644
-> > > > --- a/arch/riscv/include/asm/cmpxchg.h
-> > > > +++ b/arch/riscv/include/asm/cmpxchg.h
-> > > > @@ -217,7 +217,7 @@
-> > > >                         "       bne  %0, %z3, 1f\n"                     \
-> > > >                         "       sc.w %1, %z4, %2\n"                     \
-> > > >                         "       bnez %1, 0b\n"                          \
-> > > > -                       RISCV_ACQUIRE_BARRIER                           \
-> > > > +                       RISCV_ATOMIC_ACQUIRE_BARRIER                    \
-> > > >                         "1:\n"                                          \
-> > > >                         : "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)    \
-> > > >                         : "rJ" ((long)__old), "rJ" (__new)              \
-> > > > @@ -229,7 +229,7 @@
-> > > >                         "       bne %0, %z3, 1f\n"                      \
-> > > >                         "       sc.d %1, %z4, %2\n"                     \
-> > > >                         "       bnez %1, 0b\n"                          \
-> > > > -                       RISCV_ACQUIRE_BARRIER                           \
-> > > > +                       RISCV_ATOMIC_ACQUIRE_BARRIER                    \
-> > > >                         "1:\n"                                          \
-> > > >                         : "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)    \
-> > > >                         : "rJ" (__old), "rJ" (__new)                    \
-> > > > @@ -259,7 +259,7 @@
-> > > >         switch (size) {                                                 \
-> > > >         case 4:                                                         \
-> > > >                 __asm__ __volatile__ (                                  \
-> > > > -                       RISCV_RELEASE_BARRIER                           \
-> > > > +                       RISCV_ATOMIC_RELEASE_BARRIER                    \
-> > > >                         "0:     lr.w %0, %2\n"                          \
-> > > >                         "       bne  %0, %z3, 1f\n"                     \
-> > > >                         "       sc.w %1, %z4, %2\n"                     \
-> > > > @@ -271,7 +271,7 @@
-> > > >                 break;                                                  \
-> > > >         case 8:                                                         \
-> > > >                 __asm__ __volatile__ (                                  \
-> > > > -                       RISCV_RELEASE_BARRIER                           \
-> > > > +                       RISCV_ATOMIC_RELEASE_BARRIER                    \
-> > > >                         "0:     lr.d %0, %2\n"                          \
-> > > >                         "       bne %0, %z3, 1f\n"                      \
-> > > >                         "       sc.d %1, %z4, %2\n"                     \
-> > > > diff --git a/arch/riscv/include/asm/fence.h b/arch/riscv/include/asm/fence.h
-> > > > index 2b443a3a487f..4e446d64f04f 100644
-> > > > --- a/arch/riscv/include/asm/fence.h
-> > > > +++ b/arch/riscv/include/asm/fence.h
-> > > > @@ -4,9 +4,13 @@
-> > > >  #ifdef CONFIG_SMP
-> > > >  #define RISCV_ACQUIRE_BARRIER          "\tfence r , rw\n"
-> > > >  #define RISCV_RELEASE_BARRIER          "\tfence rw,  w\n"
-> > > > +#define RISCV_ATOMIC_ACQUIRE_BARRIER   "\tfence w , rw\n"
-> > > > +#define RISCV_ATOMIC_RELEASE_BARRIER   "\tfence rw,  r\n"
-> > > >  #else
-> > > >  #define RISCV_ACQUIRE_BARRIER
-> > > >  #define RISCV_RELEASE_BARRIER
-> > > > +#define RISCV_ATOMIC_ACQUIRE_BARRIER
-> > > > +#define RISCV_ATOMIC_RELEASE_BARRIER
-> > > >  #endif
-> > > >
-> > > >  #endif /* _ASM_RISCV_FENCE_H */
-> > > >
-> > > >
-> > > > >
-> > > > > > 2. Using .aqrl to replace the fence rw, rw is okay to ISA manual,
-> > > > > > right? And reducing a fence instruction to gain better performance:
-> > > > > >                 "0:     lr.w     %[p],  %[c]\n"
-> > > > > >                  "       sub      %[rc], %[p], %[o]\n"
-> > > > > >                  "       bltz     %[rc], 1f\n".
-> > > > > >  -               "       sc.w.rl  %[rc], %[rc], %[c]\n"
-> > > > > >  +              "       sc.w.aqrl %[rc], %[rc], %[c]\n"
-> > > > > >                  "       bnez     %[rc], 0b\n"
-> > > > > >  -               "       fence    rw, rw\n"
-> > > > >
-> > > > > Yes, using .aqrl is valid.
-> > > > Thx and I think the below is also valid, right?
-> > > >
-> > > > -                       RISCV_RELEASE_BARRIER                           \
-> > > > -                       "       amoswap.w %0, %2, %1\n"                 \
-> > > > +                       "       amoswap.w.rl %0, %2, %1\n"              \
-> > > >
-> > > > -                       "       amoswap.d %0, %2, %1\n"                 \
-> > > > -                       RISCV_ACQUIRE_BARRIER                           \
-> > > > +                       "       amoswap.d.aq %0, %2, %1\n"              \
-> > > >
-> > > > >
-> > > > > Dan
-> > > > >
-> > > > > >>
-> > > > > >> Dan
-> > > > > >>
-> > > > > >>> The purpose of the whole patchset is to reduce the usage of
-> > > > > >>> independent fence rw, rw instructions, and maximize the usage of the
-> > > > > >>> .aq/.rl/.aqrl aonntation of RISC-V.
-> > > > > >>>
-> > > > > >>>                 __asm__ __volatile__ (                                  \
-> > > > > >>>                         "0:     lr.w %0, %2\n"                          \
-> > > > > >>>                         "       bne  %0, %z3, 1f\n"                     \
-> > > > > >>>                         "       sc.w.rl %1, %z4, %2\n"                  \
-> > > > > >>>                         "       bnez %1, 0b\n"                          \
-> > > > > >>>                         "       fence rw, rw\n"                         \
-> > > > > >>>                         "1:\n"                                          \
-> > > > > >>>
-> > > > > >>>> we end up with u == 1, v == 1, r1 on P0 is 0 and r1 on P1 is 0, for the
-> > > > > >>>> following litmus test?
-> > > > > >>>>
-> > > > > >>>>     C lr-sc-aqrl-pair-vs-full-barrier
-> > > > > >>>>
-> > > > > >>>>     {}
-> > > > > >>>>
-> > > > > >>>>     P0(int *x, int *y, atomic_t *u)
-> > > > > >>>>     {
-> > > > > >>>>             int r0;
-> > > > > >>>>             int r1;
-> > > > > >>>>
-> > > > > >>>>             WRITE_ONCE(*x, 1);
-> > > > > >>>>             r0 = atomic_cmpxchg(u, 0, 1);
-> > > > > >>>>             r1 = READ_ONCE(*y);
-> > > > > >>>>     }
-> > > > > >>>>
-> > > > > >>>>     P1(int *x, int *y, atomic_t *v)
-> > > > > >>>>     {
-> > > > > >>>>             int r0;
-> > > > > >>>>             int r1;
-> > > > > >>>>
-> > > > > >>>>             WRITE_ONCE(*y, 1);
-> > > > > >>>>             r0 = atomic_cmpxchg(v, 0, 1);
-> > > > > >>>>             r1 = READ_ONCE(*x);
-> > > > > >>>>     }
-> > > > > >>>>
-> > > > > >>>>     exists (u=1 /\ v=1 /\ 0:r1=0 /\ 1:r1=0)
-> > > > > >>> I think my patchset won't affect the above sequence guarantee. Current
-> > > > > >>> RISC-V implementation only gives RCsc when the original value is the
-> > > > > >>> same at least once. So I prefer RISC-V cmpxchg should be:
-> > > > > >>>
-> > > > > >>>
-> > > > > >>> -                       "0:     lr.w %0, %2\n"                          \
-> > > > > >>> +                      "0:     lr.w.rl %0, %2\n"                          \
-> > > > > >>>                         "       bne  %0, %z3, 1f\n"                     \
-> > > > > >>>                         "       sc.w.rl %1, %z4, %2\n"                  \
-> > > > > >>>                         "       bnez %1, 0b\n"                          \
-> > > > > >>> -                       "       fence rw, rw\n"                         \
-> > > > > >>>                         "1:\n"                                          \
-> > > > > >>> +                        "       fence w, rw\n"                    \
-> > > > > >>>
-> > > > > >>> To give an unconditional RSsc for atomic_cmpxchg.
-> > > > > >>>
-> > > > > >>>>
-> > > > > >>>> Regards,
-> > > > > >>>> Boqun
-> > > > > >>>
-> > > > > >>>
-> > > > > >>>
-> > > > > >
-> > > > > >
-> > > > > >
-> > > >
-> > > >
-> > > >
-> > > > --
-> > > > Best Regards
-> > > >  Guo Ren
-> > > >
-> > > > ML: https://lore.kernel.org/linux-csky/
-> >
-> >
-> >
-> > --
-> > Best Regards
-> >  Guo Ren
-> >
-> > ML: https://lore.kernel.org/linux-csky/
+At some point too, by the way, we might also consider putting that into
+a .c file rather than a static inline in the .h, since that function is
+starting to get sort of big.
 
-
-
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+Jason
 
 _______________________________________________
 linux-riscv mailing list
