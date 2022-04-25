@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEBBAC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Apr 2022 07:41:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D3B5C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Apr 2022 10:47:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D5+psay0fzpdqErHHYf+rHxVLPNG1Fnc0lnaBaV7lEU=; b=jpZ2kw/M838BYL
-	hlcSq1ZxsxP9m62/PNnygxafnf757FBbwiYjmURY1kWUCpSGqJ6j8JxXYlj8ktosA2UpabGGvNJib
-	Og0wDXLD4CmpTO8vmi0L4urinjPMVo/B3ZK9gMd+wdLNXSSPIYmTnaWrCbXl08LnCoeyKrZxhtl6D
-	bpfjM5qKizmKrYDeiGos6uzh0cADiMpZpqJMreDVTDOw8JCaKsFPXpD8MOlbfHTQKnKIqViS5/k94
-	qEAuWTfZetsuYeCgjIBzcsmmqUvwwjK1z8iqsFnho5GMSIWmrgq1ztfVVrNvrI/Ad3uN2dGDGVxRv
-	rFNhCUp8UfxgAQQA8pVA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IA6aKP61AI6TcKWghsp8iuCidytT+9fZAoh5cFt9KLQ=; b=baLykLjlxSwrHK
+	sQwOqV34FHeUKMFzLrYpJPIuS+7TByVdNT6Eo8iYsRW6X/nv4SfjkNPcGjaDGo0Wqc9ywSLttBFSO
+	AEfPn0+Rgs5lS+kfZRQY1Exijf3NpoUzKsqX33MW0c8NX/Y2i6+JKmpMMeBKGWP76WYvu67yZf2qX
+	sH9gTEjyN6cV6Dbx05I8YfHsWeP5V1kIs7DDnkp3F7NCCdvVwoLWIF/KLw28kWyj8rXrROCXvl5rN
+	CiMSTxHvy9tVTYSbIUH+Wsp+nDwsDLwCZ3q/cq+o28et9RglQm99UsDjtfYCTRI0rZxtWbMnNMujN
+	7nHr7RtpBxYEOxKOx37Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nitLI-008dhC-G9; Mon, 25 Apr 2022 07:41:08 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1niwEy-009AiC-Cs; Mon, 25 Apr 2022 10:46:48 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nitL5-008dfM-TQ; Mon, 25 Apr 2022 07:40:57 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 8DD9E612FB;
- Mon, 25 Apr 2022 07:40:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39F0AC385A4;
- Mon, 25 Apr 2022 07:40:49 +0000 (UTC)
-Message-ID: <ee410d9d-25dc-3b87-08d2-c4c8e71575a3@linux-m68k.org>
-Date: Mon, 25 Apr 2022 17:40:46 +1000
+ id 1niwEq-009Afw-C1
+ for linux-riscv@lists.infradead.org; Mon, 25 Apr 2022 10:46:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1650883600; x=1682419600;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=bxea3VVS+O9YCfhPSCWoWw7e2Q1KcEUmpVYcG83zJEA=;
+ b=Ja9FpWMDI3q5bUtIUCGmm24+xxbO03rE7ImhY8MkixMFL1Ajeqgvk2u6
+ xk//0NiGgnmYI0+GgBJP0H3qKagHxLYdkRE4yrpGQrWoTyj64DIM4JhTK
+ RPSCLUicufuyOCMenvJHmqrEAjs+/6U7R651gJkBlk2E//grvbJfFSIrC
+ eZ0WwB0c1RFkHTHh0Iloxb3l/ZNUqC+wwAcfQLEQj/TN8sQq/cJEausex
+ 8K5MF0kMQ4N7Bx9ZZ8a6SF3SWVJ18Ik6UJJ0KXF7HIbRsJx2S/G4pTIst
+ eian+wjm3OdGUdBPfND6NpFvewUm0e5Hkk3xOzN2tEjvrvMfcdoJg3N2P w==;
+X-IronPort-AV: E=Sophos;i="5.90,287,1643698800"; d="scan'208";a="93428160"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 25 Apr 2022 03:46:33 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Mon, 25 Apr 2022 03:46:33 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2375.17 via
+ Frontend Transport; Mon, 25 Apr 2022 03:46:31 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>, <robh+dt@kernel.org>,
+ <krzk+dt@kernel.org>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>,
+ <devicetree@vger.kernel.org>, Conor Dooley <conor.dooley@microchip.com>,
+ Palmer Dabbelt <palmer@rivosinc.com>
+Subject: [PATCH 1/2] riscv: dts: microchip: remove icicle memory clocks
+Date: Mon, 25 Apr 2022 11:45:21 +0100
+Message-ID: <20220425104521.132538-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.35.2
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.7.0
-Subject: Re: [PATCH] binfmt_flat: Remove shared library support
-Content-Language: en-US
-To: Rob Landley <rob@landley.net>, Kees Cook <keescook@chromium.org>,
- Rich Felker <dalias@libc.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, ebiederm@xmission.com,
- damien.lemoal@opensource.wdc.com, Niklas.Cassel@wdc.com,
- viro@zeniv.linux.org.uk, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, vapier@gentoo.org, stable@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
- geert@linux-m68k.org, linux-m68k@lists.linux-m68k.org,
- linux-arm-kernel@lists.infradead.org, linux-sh@vger.kernel.org,
- ysato@users.sourceforge.jp
-References: <87levzzts4.fsf_-_@email.froward.int.ebiederm.org>
- <mhng-32cab6aa-87a3-4a5c-bf83-836c25432fdd@palmer-ri-x1c9>
- <20220420165935.GA12207@brightrain.aerifal.cx>
- <202204201044.ACFEB0C@keescook>
- <ab454879-5506-fe7d-cd59-812a6bc9d193@landley.net>
-From: Greg Ungerer <gerg@linux-m68k.org>
-In-Reply-To: <ab454879-5506-fe7d-cd59-812a6bc9d193@landley.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220425_004056_077080_418DF0C5 
-X-CRM114-Status: GOOD (  20.96  )
+X-CRM114-CacheID: sfid-20220425_034644_168646_92E5A696 
+X-CRM114-Status: UNSURE (   6.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,68 +76,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The clock properties in the icicle kit's memory entries cause dtbs_check
+errors:
+arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dtb: /: memory@80000000: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
 
-On 25/4/22 13:38, Rob Landley wrote:
-> On 4/20/22 12:47, Kees Cook wrote:
->>> For what it's worth, bimfmt_flat (with or without shared library
->>> support) should be simple to implement as a binfmt_misc handler if
->>> anyone needs the old shared library support (or if kernel wanted to
->>> drop it entirely, which I would be in favor of). That's how I handled
->>> old aout binaries I wanted to run after aout was removed: trivial
->>> binfmt_misc loader.
->>
->> Yeah, I was trying to understand why systems were using binfmt_flat and
->> not binfmt_elf, given the mention of elf2flat -- is there really such a
->> large kernel memory footprint savings to be had from removing
->> binfmt_elf?
-> 
-> elf2flat is a terrible name: it doesn't take an executable as input, it takes a
-> .o file as input. (I mean it's an elf format .o file, but... misleading.)
+Get rid of the clocks to avoid the errors.
 
-No, not at all. "elf2flt" is exactly what it does. Couldn't get a
-more accurate name.
+Reported-by: Palmer Dabbelt <palmer@rivosinc.com>
+Fixes: 0fa6107eca41 ("RISC-V: Initial DTS for Microchip ICICLE board")
+Fixes: 5b28df37d311 ("riscv: dts: microchip: update peripherals in icicle kit device tree")
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts | 2 --
+ 1 file changed, 2 deletions(-)
 
-
->> But regardless, yes, it seems like if you're doing anything remotely
->> needing shared libraries with binfmt_flat, such a system could just use
->> ELF instead.
-> 
-> A) The binfmt_elf.c loader won't run on nommu systems. The fdpic loader will,
-> and in theory can handle normal ELF binaries (it's ELF with _more_
-> capabilities), but sadly it's not supported on most architectures for reasons
-> that are unclear to me.
-
-Inertia. Flat format has been around a very long time.
-And for most people it just works. Flat format works on MMU systems
-as well, though you would have to be crazy to choose to do that.
-
-
-> B) You can't run conventional ELF on nommu, because everything is offset from 0
-> so PID 1 eats that address range and you can't run exec program.
-> 
-> You can run PIE binaries on nommu (the symbols offset from a base pointer which
-> can point anywhere), but they're inefficient (can't share text or rodata
-> sections between instances because every symbol is offset from a single shared
-> base pointer), and highly vulnerable to fragmentation (because it needs a
-> contiguous blob of memory for text, rodata, bss, and data: see single base
-> pointer everything has an integer offset from).
-> 
-> All fdpic really does is give you 4 base pointers, one for each section. That
-> way you can share text and rodata, and put bss and data into smaller independent
-> fragments of memory. Various security guys use this as super-aslr even on mmu
-> systems, but tend not to advertise that they're doing so. :)
-
-Well flat got half way there. You can have separate text/rodata and data/bss,
-used a lot back in the day for execute-in-place of the code.
-
-Regards
-Greg
-
+diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
+index cd2fe80fa81a..ffe683d3f528 100644
+--- a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
++++ b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
+@@ -32,14 +32,12 @@ cpus {
+ 	ddrc_cache_lo: memory@80000000 {
+ 		device_type = "memory";
+ 		reg = <0x0 0x80000000 0x0 0x2e000000>;
+-		clocks = <&clkcfg CLK_DDRC>;
+ 		status = "okay";
+ 	};
+ 
+ 	ddrc_cache_hi: memory@1000000000 {
+ 		device_type = "memory";
+ 		reg = <0x10 0x0 0x0 0x40000000>;
+-		clocks = <&clkcfg CLK_DDRC>;
+ 		status = "okay";
+ 	};
+ };
+-- 
+2.35.2
 
 
 _______________________________________________
