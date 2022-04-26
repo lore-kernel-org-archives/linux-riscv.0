@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84472C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Apr 2022 07:54:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46138C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Apr 2022 07:55:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I7JqrVmoLpjCCE6aY8yWlWQdBFw8eqIFxQVVTkBJbd0=; b=p6fp7txO+KNx77
-	WFvTkl6oQiOgBVOTLXo0cqyCMYtSzQE87dHagWazBZ7YVdZUXJO9lPK4H+QgBEebFTM8C6NTDMX3S
-	e7A4zskq2wlQ5HaYVmbo44Ts/E0gMACPgInWWGAc5NtjPKLBo8Kd41oQO2C8H9/RfC0ZXbLLyghgv
-	rIkpPgVoJ2M4d8JC99y6tVMICQ682R+IRYbNfHmjDY3T1otswLxIOMXjq9V1Y2KeCXjbJaFsqMLDV
-	tabiH5w98pROiTKEfmLA3ST0o0TViMGZ7b5ELYxUuwaLXpQl9cF1R9a76qule5/tqMwXDGYZBH97/
-	CeYihhY9AG68od5+Tjng==;
+	List-Owner; bh=AeSFXi55mZaiM/qT4xix5jHFoyc6qptWZ3z46ro8ORw=; b=WGtlYu9iFEA8TX
+	VQM0ASMgLBX2GbGH4+4sFPxYOOPNlV+qBIoZUD93FAKygMx0m2wS44DNIXqWqpd33HLA2moHBkHyo
+	xVEl7o/LOzBvfy14nxTcIQTr6zoaVB89im5jKBOiGQtIS4zRhqYjmSAb/IWsVuTfBEgzbvJe7TLgi
+	/t/amUMbnZXpJbctEsHJEQZrqCpX7BVO5MEc7Z24E7MfwaW+t2+jZmox9WZ4QudNmZOhlDXZy5rW+
+	tItiRV5MlJV5Fior6yzmmcU0ChhVR1SiSF6Io+gfQqZH3aKBFWfc65+23Dcprspn4MQpmkeYcCYig
+	9ZSkE2x7dFCVsTpDHoyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1njG1h-00D7Bm-S5; Tue, 26 Apr 2022 07:54:25 +0000
+	id 1njG2t-00D7xS-Fz; Tue, 26 Apr 2022 07:55:39 +0000
 Received: from szxga03-in.huawei.com ([45.249.212.189])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1njFzT-00D68w-TN; Tue, 26 Apr 2022 07:52:10 +0000
-Received: from kwepemi500014.china.huawei.com (unknown [172.30.72.54])
- by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4KnYrQ2C6pzCsL1;
- Tue, 26 Apr 2022 15:47:34 +0800 (CST)
+ id 1njFzV-00D6AI-B8; Tue, 26 Apr 2022 07:52:12 +0000
+Received: from kwepemi500017.china.huawei.com (unknown [172.30.72.57])
+ by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4KnYrR4hkmzCsQH;
+ Tue, 26 Apr 2022 15:47:35 +0800 (CST)
 Received: from kwepemm600017.china.huawei.com (7.193.23.234) by
- kwepemi500014.china.huawei.com (7.221.188.232) with Microsoft SMTP Server
+ kwepemi500017.china.huawei.com (7.221.188.110) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Tue, 26 Apr 2022 15:52:05 +0800
+ 15.1.2375.24; Tue, 26 Apr 2022 15:52:07 +0800
 Received: from localhost.localdomain (10.175.112.125) by
  kwepemm600017.china.huawei.com (7.193.23.234) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Tue, 26 Apr 2022 15:52:04 +0800
+ 15.1.2375.24; Tue, 26 Apr 2022 15:52:05 +0800
 From: Tong Tiangen <tongtiangen@huawei.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
  Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
@@ -48,9 +48,9 @@ CC: <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
  <linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
  Tong Tiangen <tongtiangen@huawei.com>, Kefeng Wang
  <wangkefeng.wang@huawei.com>, Guohanjun <guohanjun@huawei.com>
-Subject: [PATCH -next v6 5/6] arm64/mm: Enable ARCH_SUPPORTS_PAGE_TABLE_CHECK
-Date: Tue, 26 Apr 2022 08:10:35 +0000
-Message-ID: <20220426081036.1374452-6-tongtiangen@huawei.com>
+Subject: [PATCH -next v6 6/6] riscv/mm: Enable ARCH_SUPPORTS_PAGE_TABLE_CHECK
+Date: Tue, 26 Apr 2022 08:10:36 +0000
+Message-ID: <20220426081036.1374452-7-tongtiangen@huawei.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220426081036.1374452-1-tongtiangen@huawei.com>
 References: <20220426081036.1374452-1-tongtiangen@huawei.com>
@@ -60,8 +60,8 @@ X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
  kwepemm600017.china.huawei.com (7.193.23.234)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220426_005208_367190_3A41B3DF 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20220426_005209_785754_499B89E5 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,167 +78,186 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-
 As commit d283d422c6c4 ("x86: mm: add x86_64 support for page table check")
-, enable ARCH_SUPPORTS_PAGE_TABLE_CHECK on arm64.
+, enable ARCH_SUPPORTS_PAGE_TABLE_CHECK on riscv.
 
 Add additional page table check stubs for page table helpers, these stubs
 can be used to check the existing page table entries.
 
-Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
 Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
 ---
- arch/arm64/Kconfig               |  1 +
- arch/arm64/include/asm/pgtable.h | 59 +++++++++++++++++++++++++++++---
- 2 files changed, 55 insertions(+), 5 deletions(-)
+ arch/riscv/Kconfig               |  1 +
+ arch/riscv/include/asm/pgtable.h | 71 +++++++++++++++++++++++++++++---
+ 2 files changed, 66 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 18a18a0e855d..c1509525ab8e 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -92,6 +92,7 @@ config ARM64
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 63f7258984f3..66d241cee52c 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -38,6 +38,7 @@ config RISCV
  	select ARCH_SUPPORTS_ATOMIC_RMW
- 	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128
- 	select ARCH_SUPPORTS_NUMA_BALANCING
+ 	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
+ 	select ARCH_SUPPORTS_HUGETLBFS if MMU
 +	select ARCH_SUPPORTS_PAGE_TABLE_CHECK
- 	select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
- 	select ARCH_WANT_DEFAULT_BPF_JIT
- 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index ad9b221963d4..fe17788a6885 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -33,6 +33,7 @@
- #include <linux/mmdebug.h>
- #include <linux/mm_types.h>
- #include <linux/sched.h>
+ 	select ARCH_USE_MEMTEST
+ 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+ 	select ARCH_WANT_FRAME_POINTERS
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 046b44225623..5af8aebbdd92 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -114,6 +114,8 @@
+ #include <asm/pgtable-32.h>
+ #endif /* CONFIG_64BIT */
+ 
 +#include <linux/page_table_check.h>
- 
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
- #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
-@@ -96,6 +97,7 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
- #define pte_young(pte)		(!!(pte_val(pte) & PTE_AF))
- #define pte_special(pte)	(!!(pte_val(pte) & PTE_SPECIAL))
- #define pte_write(pte)		(!!(pte_val(pte) & PTE_WRITE))
-+#define pte_user(pte)		(!!(pte_val(pte) & PTE_USER))
- #define pte_user_exec(pte)	(!(pte_val(pte) & PTE_UXN))
- #define pte_cont(pte)		(!!(pte_val(pte) & PTE_CONT))
- #define pte_devmap(pte)		(!!(pte_val(pte) & PTE_DEVMAP))
-@@ -312,7 +314,7 @@ static inline void __check_racy_pte_update(struct mm_struct *mm, pte_t *ptep,
- 		     __func__, pte_val(old_pte), pte_val(pte));
++
+ #ifdef CONFIG_XIP_KERNEL
+ #define XIP_FIXUP(addr) ({							\
+ 	uintptr_t __a = (uintptr_t)(addr);					\
+@@ -315,6 +317,11 @@ static inline int pte_exec(pte_t pte)
+ 	return pte_val(pte) & _PAGE_EXEC;
  }
  
--static inline void set_pte_at(struct mm_struct *mm, unsigned long addr,
-+static inline void __set_pte_at(struct mm_struct *mm, unsigned long addr,
- 			      pte_t *ptep, pte_t pte)
++static inline int pte_user(pte_t pte)
++{
++	return pte_val(pte) & _PAGE_USER;
++}
++
+ static inline int pte_huge(pte_t pte)
  {
- 	if (pte_present(pte) && pte_user_exec(pte) && !pte_special(pte))
-@@ -343,6 +345,13 @@ static inline void set_pte_at(struct mm_struct *mm, unsigned long addr,
- 	set_pte(ptep, pte);
+ 	return pte_present(pte) && (pte_val(pte) & _PAGE_LEAF);
+@@ -446,7 +453,7 @@ static inline void set_pte(pte_t *ptep, pte_t pteval)
+ 
+ void flush_icache_pte(pte_t pte);
+ 
+-static inline void set_pte_at(struct mm_struct *mm,
++static inline void __set_pte_at(struct mm_struct *mm,
+ 	unsigned long addr, pte_t *ptep, pte_t pteval)
+ {
+ 	if (pte_present(pteval) && pte_exec(pteval))
+@@ -455,10 +462,17 @@ static inline void set_pte_at(struct mm_struct *mm,
+ 	set_pte(ptep, pteval);
  }
  
-+static inline void set_pte_at(struct mm_struct *mm, unsigned long addr,
-+			      pte_t *ptep, pte_t pte)
++static inline void set_pte_at(struct mm_struct *mm,
++	unsigned long addr, pte_t *ptep, pte_t pteval)
 +{
-+	page_table_check_pte_set(mm, addr, ptep, pte);
-+	return __set_pte_at(mm, addr, ptep, pte);
++	page_table_check_pte_set(mm, addr, ptep, pteval);
++	__set_pte_at(mm, addr, ptep, pteval);
 +}
 +
- /*
-  * Huge pte definitions.
-  */
-@@ -454,6 +463,8 @@ static inline int pmd_trans_huge(pmd_t pmd)
- #define pmd_dirty(pmd)		pte_dirty(pmd_pte(pmd))
- #define pmd_young(pmd)		pte_young(pmd_pte(pmd))
- #define pmd_valid(pmd)		pte_valid(pmd_pte(pmd))
-+#define pmd_user(pmd)		pte_user(pmd_pte(pmd))
-+#define pmd_user_exec(pmd)	pte_user_exec(pmd_pte(pmd))
- #define pmd_cont(pmd)		pte_cont(pmd_pte(pmd))
- #define pmd_wrprotect(pmd)	pte_pmd(pte_wrprotect(pmd_pte(pmd)))
- #define pmd_mkold(pmd)		pte_pmd(pte_mkold(pmd_pte(pmd)))
-@@ -501,8 +512,19 @@ static inline pmd_t pmd_mkdevmap(pmd_t pmd)
- #define pud_pfn(pud)		((__pud_to_phys(pud) & PUD_MASK) >> PAGE_SHIFT)
- #define pfn_pud(pfn,prot)	__pud(__phys_to_pud_val((phys_addr_t)(pfn) << PAGE_SHIFT) | pgprot_val(prot))
- 
--#define set_pmd_at(mm, addr, pmdp, pmd)	set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd))
--#define set_pud_at(mm, addr, pudp, pud)	set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud))
-+static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
-+			      pmd_t *pmdp, pmd_t pmd)
-+{
-+	page_table_check_pmd_set(mm, addr, pmdp, pmd);
-+	return __set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd));
-+}
-+
-+static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
-+			      pud_t *pudp, pud_t pud)
-+{
-+	page_table_check_pud_set(mm, addr, pudp, pud);
-+	return __set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud));
-+}
- 
- #define __p4d_to_phys(p4d)	__pte_to_phys(p4d_pte(p4d))
- #define __phys_to_p4d_val(phys)	__phys_to_pte_val(phys)
-@@ -643,6 +665,24 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
- #define pud_present(pud)	pte_present(pud_pte(pud))
- #define pud_leaf(pud)		pud_sect(pud)
- #define pud_valid(pud)		pte_valid(pud_pte(pud))
-+#define pud_user(pud)		pte_user(pud_pte(pud))
-+
-+#ifdef CONFIG_PAGE_TABLE_CHECK
-+static inline bool pte_user_accessible_page(pte_t pte)
-+{
-+	return pte_present(pte) && (pte_user(pte) || pte_user_exec(pte));
-+}
-+
-+static inline bool pmd_user_accessible_page(pmd_t pmd)
-+{
-+	return pmd_present(pmd) && (pmd_user(pmd) || pmd_user_exec(pmd));
-+}
-+
-+static inline bool pud_user_accessible_page(pud_t pud)
-+{
-+	return pud_present(pud) && pud_user(pud);
-+}
-+#endif
- 
- static inline void set_pud(pud_t *pudp, pud_t pud)
+ static inline void pte_clear(struct mm_struct *mm,
+ 	unsigned long addr, pte_t *ptep)
  {
-@@ -876,7 +916,11 @@ static inline int pmdp_test_and_clear_young(struct vm_area_struct *vma,
+-	set_pte_at(mm, addr, ptep, __pte(0));
++	__set_pte_at(mm, addr, ptep, __pte(0));
+ }
+ 
+ #define __HAVE_ARCH_PTEP_SET_ACCESS_FLAGS
+@@ -479,7 +493,11 @@ static inline int ptep_set_access_flags(struct vm_area_struct *vma,
  static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
  				       unsigned long address, pte_t *ptep)
  {
--	return __pte(xchg_relaxed(&pte_val(*ptep), 0));
-+	pte_t pte = __pte(xchg_relaxed(&pte_val(*ptep), 0));
+-	return __pte(atomic_long_xchg((atomic_long_t *)ptep, 0));
++	pte_t pte = __pte(atomic_long_xchg((atomic_long_t *)ptep, 0));
 +
 +	page_table_check_pte_clear(mm, address, pte);
 +
 +	return pte;
  }
  
+ #define __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG
+@@ -546,6 +564,13 @@ static inline unsigned long pmd_pfn(pmd_t pmd)
+ 	return ((__pmd_to_phys(pmd) & PMD_MASK) >> PAGE_SHIFT);
+ }
+ 
++#define __pud_to_phys(pud)  (pud_val(pud) >> _PAGE_PFN_SHIFT << PAGE_SHIFT)
++
++static inline unsigned long pud_pfn(pud_t pud)
++{
++	return ((__pud_to_phys(pud) & PUD_MASK) >> PAGE_SHIFT);
++}
++
+ static inline pmd_t pmd_modify(pmd_t pmd, pgprot_t newprot)
+ {
+ 	return pte_pmd(pte_modify(pmd_pte(pmd), newprot));
+@@ -567,6 +592,11 @@ static inline int pmd_young(pmd_t pmd)
+ 	return pte_young(pmd_pte(pmd));
+ }
+ 
++static inline int pmd_user(pmd_t pmd)
++{
++	return pte_user(pmd_pte(pmd));
++}
++
+ static inline pmd_t pmd_mkold(pmd_t pmd)
+ {
+ 	return pte_pmd(pte_mkold(pmd_pte(pmd)));
+@@ -600,15 +630,39 @@ static inline pmd_t pmd_mkdirty(pmd_t pmd)
+ static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+ 				pmd_t *pmdp, pmd_t pmd)
+ {
+-	return set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd));
++	page_table_check_pmd_set(mm, addr, pmdp, pmd);
++	return __set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd));
++}
++
++static inline int pud_user(pud_t pud)
++{
++	return pte_user(pud_pte(pud));
+ }
+ 
+ static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
+ 				pud_t *pudp, pud_t pud)
+ {
+-	return set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud));
++	page_table_check_pud_set(mm, addr, pudp, pud);
++	return __set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud));
++}
++
++#ifdef CONFIG_PAGE_TABLE_CHECK
++static inline bool pte_user_accessible_page(pte_t pte)
++{
++	return pte_present(pte) && pte_user(pte);
++}
++
++static inline bool pmd_user_accessible_page(pmd_t pmd)
++{
++	return pmd_leaf(pmd) && pmd_user(pmd);
+ }
+ 
++static inline bool pud_user_accessible_page(pud_t pud)
++{
++	return pud_leaf(pud) && pud_user(pud);
++}
++#endif
++
  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-@@ -884,7 +928,11 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
+ static inline int pmd_trans_huge(pmd_t pmd)
+ {
+@@ -634,7 +688,11 @@ static inline int pmdp_test_and_clear_young(struct vm_area_struct *vma,
  static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
- 					    unsigned long address, pmd_t *pmdp)
+ 					unsigned long address, pmd_t *pmdp)
  {
 -	return pte_pmd(ptep_get_and_clear(mm, address, (pte_t *)pmdp));
-+	pmd_t pmd = pte_pmd(__pte(xchg_relaxed(&pte_val(*(pte_t *)pmdp), 0)));
++	pmd_t pmd = pte_pmd(__pte(atomic_long_xchg((atomic_long_t *)(pte_t *)pmdp, 0)));
 +
 +	page_table_check_pmd_clear(mm, address, pmd);
 +
 +	return pmd;
  }
- #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
  
-@@ -918,6 +966,7 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
+ #define __HAVE_ARCH_PMDP_SET_WRPROTECT
+@@ -648,6 +706,7 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
  static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
- 		unsigned long address, pmd_t *pmdp, pmd_t pmd)
+ 				unsigned long address, pmd_t *pmdp, pmd_t pmd)
  {
 +	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
- 	return __pmd(xchg_relaxed(&pmd_val(*pmdp), pmd_val(pmd)));
+ 	return __pmd(atomic_long_xchg((atomic_long_t *)pmdp, pmd_val(pmd)));
  }
- #endif
+ #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
 -- 
 2.25.1
 
