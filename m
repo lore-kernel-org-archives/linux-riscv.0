@@ -4,125 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37253C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Apr 2022 22:08:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 756A4C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Apr 2022 01:59:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ad0KFVahnOW5Cmd5hhDgOigdl+zBuLdO6eOQN+2AOMc=; b=FJ6XohzbetMf3g
-	nh0uVJ6WKQCR1h7pBHsCh2gMbnGFdAwZ6LwIXrU2klhDMJxFAmoprELs1fN/tIi4+6FWctStL94K0
-	cgrN+CqorymUS76ttwXF/nuwoicEY98J9RGO+GnK0VklUE+LxxHM8zZVxt6g808vpjAwGmUayotzb
-	XUGEkhjWKk84f+pYCMPjqY0OLlvCGhNz3xN7dzoPQihHAWCm3gh64zyvVIm3qLcbZ0R3A3+mEEDhu
-	XM6ih2EQDZU8tC99xi9TZyvxNAOyG7Byrk47n8pIlqAs3bTZ1LsjIiqgubpqGXuZjEU4iIiwaRyGF
-	R0NIv61LBbDondT7lHPg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cHHdvffnT4rEwhA8ee98yU5g85MlVm/smQM/ONT4h7s=; b=DCFRGS/uAfawY1
+	c+zWb2/pbn4i0DvIoGdncAM4qW4Mo6kvMxmLLdRnibZ2tA4/GBr5BLvJnfI2g2Y7dKxDvCt0nifSk
+	RgQ4l0/3x6hZlLHFh3PshB3sCYmPaLnsKN3/BtT3xYi7qD1ndmRVPgzpg+dUmlXDT5+dyy+XurYk8
+	zIYN7MnQXCVe6r22GS7NHfg0mn89hjY/ObVOt5md3T+wehJIRTMTD6iRSX4PSL/AGBtSr0Gnc+duY
+	Y2kcw0lt9dTN3OeWJDdvkCr5JLOfo3nulMWUGoQWksjw8ElJuBh4PlHB83JH8DesOqljIs9NMkfA8
+	KQgCVWTCOhONPpzraV2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nj6sb-00Bajy-MY; Mon, 25 Apr 2022 22:08:25 +0000
-Received: from mail-tycjpn01on2070d.outbound.protection.outlook.com
- ([2a01:111:f403:7010::70d]
- helo=JPN01-TYC-obe.outbound.protection.outlook.com)
+	id 1njATx-00C8Bi-Gc; Tue, 26 Apr 2022 01:59:13 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nj6sY-00Badr-34
- for linux-riscv@lists.infradead.org; Mon, 25 Apr 2022 22:08:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=fuDDmrsliRqCokPWHH8/nfoA+r9cgaEeAX4KrL/6U9a2BEBpgtGIKbxHLojQelE5Kx5fbxPMP8w2qtd0FL/HgxutYiVvc6D6tt08oZ6W2gme/PGcxt2KFp/Wwzbr8aweDFC06GHFwbXMaI7pwpSy/AdoSHnL4QckwI4b5bAlnjp56Pk+FoS0FXHgtS90a/ZQBg4tnP6PS1blEf/Z2BQCxicOaN21STzxX9l7oDRuZx9T5cbO8w34YtVVAOJeUg65T3+YT1DZypXf4J1UHJNxTt4K3JHpMqiAb6nhaPjQQ2mOqjgaZJLHyJTFthaRifSOU4TOsZU/Y8AzGFqtfG2hRQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hvcgZRKWV4Dxym+Sij7bWePHm5TCOVDlS63YrEoeSl8=;
- b=NypPCg8MdHZ0+MqU4dxBgYJKYCqVDsaMsA1YuuwySXOrnTOctw309FFfBSh3wXoUsRjt9Bp1BOgtHE3jE5oZUzuo51K+r3WlZYGJgWm+HRNdLgbM4m4t8vUKoIdA/otW1SOA+jkU1nsv+Hdq6Ng0T4f23iCEJHSWMaCedl0aikNkluvEv1n196KYdzzeSAGjGf/RhZO18ZHQzm89xApRoijIcims0sn9dnE9Pkzbt/348PZcKESoI/nG4E9/nef29F2IrsG9okGoMK+cuu9ydZJxSDFLCgVDgjdH+s8QxXgaie4jzM/bGUhqMAs3Y7UotpRMAl7lkaxRXcl1IoBtsA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=zenithal.me; dmarc=pass action=none header.from=zenithal.me;
- dkim=pass header.d=zenithal.me; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zenithal.me;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hvcgZRKWV4Dxym+Sij7bWePHm5TCOVDlS63YrEoeSl8=;
- b=a8suYXZhmULc7aB7BC6ButguQsWt+CDGT0PjSxMXK5AlyrJXJiLaUA+8NhuqllNUlB1dvH9LaU2HJI1e3+sB0MURfCJ1a6gR3Gz+XAYlBE/DQEnU248sJq9i9bEzeGX8teMiRnEawTEPCW9jYJ/MpsJXuU2h9rsf+x2si8OT6vY=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=zenithal.me;
-Received: from TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:c0::6) by
- OS3P286MB0996.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:10e::7) with
- Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.5186.13; Mon, 25 Apr 2022 22:08:09 +0000
-Received: from TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
- ([fe80::bd99:5c83:e2dc:a8f7]) by TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
- ([fe80::bd99:5c83:e2dc:a8f7%7]) with mapi id 15.20.5186.021; Mon, 25 Apr 2022
- 22:08:08 +0000
-Date: Tue, 26 Apr 2022 06:08:01 +0800
-From: "Hongren (Zenithal) Zheng" <i@zenithal.me>
-To: Atish Patra <atishp@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH] RISC-V: cpu.c: remove nonexistent ext from cpuinfo
-Message-ID: <YmcbwYcSzwLSepWZ@Sun>
-Content-Disposition: inline
-X-Operating-System: Linux Sun 5.15.26 
-X-Mailer: Mutt 2.2.1 (2022-02-19)
-X-ClientProxiedBy: BYAPR02CA0022.namprd02.prod.outlook.com
- (2603:10b6:a02:ee::35) To TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:c0::6)
+ id 1njATs-00C87i-AF
+ for linux-riscv@lists.infradead.org; Tue, 26 Apr 2022 01:59:11 +0000
+Received: from kwepemi100024.china.huawei.com (unknown [172.30.72.55])
+ by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4KnQ5D0q66z1JBmX;
+ Tue, 26 Apr 2022 09:58:08 +0800 (CST)
+Received: from kwepemm600010.china.huawei.com (7.193.23.86) by
+ kwepemi100024.china.huawei.com (7.221.188.87) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Tue, 26 Apr 2022 09:59:00 +0800
+Received: from ubuntu1804.huawei.com (10.67.174.174) by
+ kwepemm600010.china.huawei.com (7.193.23.86) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Tue, 26 Apr 2022 09:58:59 +0800
+From: Li Huafei <lihuafei1@huawei.com>
+To: <guoren@kernel.org>, <mhiramat@kernel.org>, <palmer@dabbelt.com>
+CC: <rostedt@goodmis.org>, <mingo@redhat.com>, <paul.walmsley@sifive.com>,
+ <aou@eecs.berkeley.edu>, <naveen.n.rao@linux.ibm.com>,
+ <anil.s.keshavamurthy@intel.com>, <davem@davemloft.net>,
+ <jszhang@kernel.org>, <peterz@infradead.org>, <liaochang1@huawei.com>,
+ <me@packi.ch>, <penberg@kernel.org>, <lihuafei1@huawei.com>,
+ <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH 2/2] riscv: kprobe: Allow coexistence of ftrace and kprobe
+Date: Tue, 26 Apr 2022 09:57:51 +0800
+Message-ID: <20220426015751.88582-2-lihuafei1@huawei.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20220426015751.88582-1-lihuafei1@huawei.com>
+References: <20220426015751.88582-1-lihuafei1@huawei.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 866e2b10-7b60-48d4-09db-08da270814b4
-X-MS-TrafficTypeDiagnostic: OS3P286MB0996:EE_
-X-Microsoft-Antispam-PRVS: <OS3P286MB0996FC9A44664C0A5C00894DBCF89@OS3P286MB0996.JPNP286.PROD.OUTLOOK.COM>
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 5yMSBp4cKv0CuV0BU4N3CxWIULR0O5LzHKTAQs6J1TzNkAwpySp3BokZ0YZR14CvAG/ehxcytbsnGFnvabWoOrMReQmhS2Id3bj/pxXHcMZDm+3Xbe+HOXC0M+fO+yBeXjsNmuh5nutj+WOQF5kh0KE62qStsh2mZxlWlg+xyOHxkPxVp+CKs4s1x5x0F+Qa2zEQPeNUItsXfNO+o8MOEyEt/XT6I9cnqKhzfBJuuGy7reYQSQ92un9ibRqn4C3E+FFkND+yce1223F2wIK6cV+JrlDwmIk1/X8WRUfuuZv/xrOjpEDeaBYUMWZNzRzcMPx47UJav02TrwmaZ2LNsE3Obu95yFrt1iY838J5F2VgdcoRfgzq273tfVzWTs5lF/IukvxsNHJ7ZhtY+JpLSQKXpMeVpqRqUUQ5wvL+YXbUSTESiqnwP8yRB4O898qnChFxcM+Jmbi6RjNTzSRvWgLHWmWPaXtrVXicHyC7TSM2eMtHcjXKeAlEMXhKbaZccZZoVJf8ARbCLZLFmTLnceblsSnMeRJ0B3Ps1l8w9rI81XJ38HAslwZkaBVKWdTC2Udm2m7/CSPAkmKASQlF4kUg0daVqwnEhQiLVROGXU8U0gXa6/2qMvDk37MFlZnXN0idVLD5nimwTY76CB1cHtD96zmFvQ9z7hwHxei2a2KVDy1eGjcGvyuTRW9kglKzEXknMwBhWesXWQ1C1nPwDA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM; PTR:; CAT:NONE;
- SFS:(13230001)(7916004)(366004)(396003)(136003)(376002)(39830400003)(346002)(4326008)(508600001)(186003)(66946007)(33716001)(66556008)(6512007)(52116002)(66476007)(316002)(786003)(6506007)(6666004)(110136005)(9686003)(8676002)(6486002)(2906002)(86362001)(8936002)(5660300002)(83380400001)(38100700002)(49092004);
- DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NMJ6S6N1NrNF37027fyG/lWUJEK21bPuZIIhSB9EFJMrzUr2MmJSvlMmj8RJ?=
- =?us-ascii?Q?krGU1fvyA9yX7NokDUFJMx0bgOcRX1s+l38oE1w53v5d/lwA4mExSQ8dmzs3?=
- =?us-ascii?Q?4WegCuSzx0oQCw9t/OoEltPbFlC6qu7gWv73gLyyTeI8Mc/39n+GtDrizHl+?=
- =?us-ascii?Q?iqC/3GhCFc4wJEoG/wwinw0vj5gvdiAoj0MiZldfVE0PHqf/34NA3EwAxM8u?=
- =?us-ascii?Q?/Bmv6Zoaf3GG89DoWl2m72Q46NlCXbQIAw57bo6jUicy+lnQVcP7xbCm/iI1?=
- =?us-ascii?Q?gPQes/HhncywaFDAopW4bgM8T3gCJ8xFH37yMQRUUbEPxjnIGmI3UVxdd6hT?=
- =?us-ascii?Q?uwkvvQxz7AQT8pcOzqMF4lu+aD3qnMdEy25ZJI+ANU+lLovcmKgDGp1GqPSs?=
- =?us-ascii?Q?hLIoaT8ejA5OGHL7DZD7e8V40Cc2JT/qGQCIxVGtFwPZ3/XnXhv/MMagAhDw?=
- =?us-ascii?Q?ndX6MLzf/DWdT+CQlI3OI9gPP5K8Gp77urB2wXVwMaoe43s4Lk8I/+4YzdKI?=
- =?us-ascii?Q?+d++yKQUPAmIZWVOsqoBkVz0HsVD8qu1zqxfY46ZQ8WnRORFoYQyCtwb8QES?=
- =?us-ascii?Q?Bc/n6xdVI/2AmCTmq99bjWM9S57m5yKwyHukZ1UpeSPJwutivYllscjHjIku?=
- =?us-ascii?Q?hmhKr8s2dypn3eFDBef3zqgxHh6UtyeJvfJdmEJSeAGWtofz5UJ8Asoq8ZB3?=
- =?us-ascii?Q?bYYv0ZB+dJoQoF6vnbpJ+6Vzfe31L4yLymw/otmlac6/+ymldIXhf9JBYgFH?=
- =?us-ascii?Q?BzwklquM7SWTlaNMqh8pnss30kbaGcA0pwcYpkudD0ZL00JAPl/1PVJGooHX?=
- =?us-ascii?Q?Zf2yHkvLaEvnkfXuTaf7mCsd9aUnzFTOS2lx6XVjdvKin5yKEDFq7HHXOgMO?=
- =?us-ascii?Q?Esn/Jz+5NSJBmJN/otTnCJrf46Ms2l94KbkQwHverIJas/c0Z21/SKZrOf4k?=
- =?us-ascii?Q?F2Ko9RlInV8MVCqNboQPYc+CwgO04xgtsreJrvz4p/EBzbm9ujgB42EPLSJy?=
- =?us-ascii?Q?V4Og68nFDuVlXd74C2FkQ/08QbU4Oh42grujQtKvmyuugGA/9izkmr3Ojbch?=
- =?us-ascii?Q?PYQw8lQeWwksfG1c/Jqce76dUIgl+LZ/E7/uHYkRftsjo+FUk4ryvxUnlFII?=
- =?us-ascii?Q?z373bmuvmhisaoPM8Mg4JWbOIwbWLsJUmxAwBf3FFvSWgVsiXt1PX6t6N5fE?=
- =?us-ascii?Q?lqGQ7Usz3awT7yj6z+c76w+fiXKJTYAI4F1s/c4DMes7Tqo3dJo2wi3mvB8M?=
- =?us-ascii?Q?zyojTOBbeu29oEWFHHI31bjyLj0N0DBrR57ybDhXbX+lvxfLdTSTtPFn34P/?=
- =?us-ascii?Q?09eKwtWj5QxV8FJ/T1vQPI5GqwEdfLvGy3RmqH5do/+DPbbNadWyN3KuJipm?=
- =?us-ascii?Q?GgyOK+EirHpQFeN7rgejx3dkotiPgDvOssr14kIF+Nb+/4afqCkkJz+JcbQG?=
- =?us-ascii?Q?MQ88TNlXBb3kGHP8Fx0aNqvomEytkVaO8bdpYOYBqw/SmkLogz2+CODwhz00?=
- =?us-ascii?Q?TkwmhcSzXvyzSZ3MJTFPWUezEWPwj2pq9OZARWjlNvRmQUsLaHQLwwISPksc?=
- =?us-ascii?Q?JZOBFDbjJQg2WxA9K+gk9gXE2HtFmFSXDVIQOlvNqf0GMGqqYobNtZHr39Cy?=
- =?us-ascii?Q?iOqlQHA6ahdhE8KBD3bR5AmXOUGyb8GUq+X/Vn+BPlWyhlj8RTj35xBuMckH?=
- =?us-ascii?Q?5I0JDwT7S2tL8WYYJYk09zK6B+0g+icIu1e7cp+6E+cQQBPOEcR0C6srOKkq?=
- =?us-ascii?Q?lzGCXq/0eg=3D=3D?=
-X-OriginatorOrg: zenithal.me
-X-MS-Exchange-CrossTenant-Network-Message-Id: 866e2b10-7b60-48d4-09db-08da270814b4
-X-MS-Exchange-CrossTenant-AuthSource: TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Apr 2022 22:08:08.8942 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 436d481c-43b1-4418-8d7f-84c1e4887cf0
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HsoxQOQeD046QkejsMWGajcfS8EFLm/QRNVmf59MQBE4Pd8wgeEomxPR2EnZBlOV
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS3P286MB0996
+X-Originating-IP: [10.67.174.174]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemm600010.china.huawei.com (7.193.23.86)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220425_150822_376280_9CAD34DF 
-X-CRM114-Status: UNSURE (   9.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220425_185908_717951_E5CA6547 
+X-CRM114-Status: GOOD (  19.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,37 +74,218 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There are no single-letter B/K/J extentions,
-as they are never ratified. For P, it is still in
-progress and not ratified.
+When using ftrace and kprobe at the same time, it was found that one
+might cause the other to be unavailable. This can be reproduced by the
+following steps.
 
-The ordering constraint of these placerholders is now removed
-from the spec. By commit ("Delete more nonexistent
-extensions from the naming constraints") of riscv/riscv-isa-manual
+  # cd /sys/kernel/debug/tracing/
+  # echo cmdline_proc_show > set_ftrace_filter
+  # echo function > current_tracer
+  # echo 'p cmdline_proc_show' > kprobe_events
+  # echo 'p cmdline_proc_show+4' >> kprobe_events
+  # ls events/kprobes/
+  enable                 p_cmdline_proc_show_0
+  filter                 p_cmdline_proc_show_4
+  # echo 1 > events/kprobes/p_cmdline_proc_show_4/enable
+  # echo 1 > events/kprobes/p_cmdline_proc_show_0/enable
+  [  129.830108] 00000000ebed457d: expected (ffdb0097 4f0080e7) but got (00100073 4f0080e7)
+  [  129.835990] ------------[ ftrace bug ]------------
+  [  129.839510] ftrace failed to modify
+  [  129.839536] [<ffffffff80258910>] cmdline_proc_show+0x0/0x46
+  [  129.845831]  actual:   23:3c:11:fe:73:00:10:00
+  [  129.849299] Updating ftrace call site to call a different ftrace function
+  [  129.853998] ftrace record flags: e0000002
+  [  129.856771]  (2) R
+  [  129.856771]  expected tramp: ffffffff80008e60
+  [  129.861688] ------------[ cut here ]------------
+  [  129.865092] WARNING: CPU: 0 PID: 14 at kernel/trace/ftrace.c:2085 ftrace_bug+0x21a/0x24c
+  [  129.870949] Modules linked in:
+  [  129.873301] CPU: 0 PID: 14 Comm: migration/0 Not tainted 5.18.0-rc3-00002-gd8bfcd250f58 #6
+  [  129.879217] Hardware name: riscv-virtio,qemu (DT)
+  [  129.882666] Stopper: multi_cpu_stop+0x0/0x168 <- stop_machine_cpuslocked+0xfa/0x12e
+  [  129.888430] epc : ftrace_bug+0x21a/0x24c
+  [  129.891254]  ra : ftrace_bug+0x21a/0x24c
+  [  129.894057] epc : ffffffff807c3bee ra : ffffffff807c3bee sp : ff20000000283c80
+  [  129.899144]  gp : ffffffff813a83b8 tp : ff60000080021600 t0 : ffffffff804155c0
+  [  129.904257]  t1 : 0720072007200720 t2 : 7420646574636570 s0 : ff20000000283cb0
+  [  129.909402]  s1 : ff6000007fe622a0 a0 : 0000000000000022 a1 : c0000000ffffefff
+  [  129.914472]  a2 : 0000000000000001 a3 : 0000000000000000 a4 : 341adec112294700
+  [  129.919487]  a5 : 341adec112294700 a6 : 0000000000000730 a7 : 0000000000000030
+  [  129.924595]  s2 : ffffffff80258910 s3 : ffffffffffffffea s4 : 0000000000000000
+  [  129.929776]  s5 : 0000000000000a35 s6 : ffffffff80d667c8 s7 : ff6000007fe04000
+  [  129.934892]  s8 : 0000000000000004 s9 : 0000000000000002 s10: 0000000000000001
+  [  129.939992]  s11: 0000000000000003 t3 : ff6000007ff20f00 t4 : ff6000007ff20f00
+  [  129.945134]  t5 : ff6000007ff20000 t6 : ff200000002839c8
+  [  129.948838] status: 0000000000000100 badaddr: 0000000000000000 cause: 0000000000000003
+  [  129.954580] [<ffffffff800bf110>] ftrace_replace_code+0xce/0xd0
+  [  129.958771] [<ffffffff800bf280>] ftrace_modify_all_code+0xb4/0x12c
+  [  129.964420] [<ffffffff800bf30a>] __ftrace_modify_code+0x12/0x1c
+  [  129.969163] [<ffffffff800b4ea4>] multi_cpu_stop+0x9a/0x168
+  [  129.973035] [<ffffffff800b4b1c>] cpu_stopper_thread+0xb4/0x15e
+  [  129.977205] [<ffffffff8003457a>] smpboot_thread_fn+0x106/0x1e4
+  [  129.981277] [<ffffffff80030ca6>] kthread+0xee/0x108
+  [  129.984763] [<ffffffff800039ba>] ret_from_exception+0x0/0xc
+  [  129.988809] ---[ end trace 0000000000000000 ]---
+  # cat trace
+  # tracer: function
+  #
+  # WARNING: FUNCTION TRACING IS CORRUPTED
+  #          MAY BE MISSING FUNCTION EVENTS
+  # entries-in-buffer/entries-written: 0/0   #P:4
+  #
+  #                                _-----=> irqs-off/BH-disabled
+  #                               / _----=> need-resched
+  #                              | / _---=> hardirq/softirq
+  #                              || / _--=> preempt-depth
+  #                              ||| / _-=> migrate-disable
+  #                              |||| /     delay
+  #           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
+  #              | |         |   |||||     |         |
 
-Signed-off-by: Hongren (Zenithal) Zheng <i@zenithal.me>
+As you can see, the ftrace functionality is broken. This is because
+DYNAMIC_FTRACE uses 4 instructions to make the jump from the function
+entry to the ftrace trampoline.
+
+After 'echo function > current_tracer':
+
+  <cmdline_proc_show>:
+    0xffffffff80258910 <+0>:     sd      ra,-8(sp)
+    0xffffffff80258914 <+4>:     auipc   ra,0xffdb0
+    0xffffffff80258918 <+8>:     jalr    1264(ra) # 0xffffffff80008e04 <ftrace_caller>
+    0xffffffff8025891c <+12>:    ld      ra,-8(sp)
+
+After 'echo 1 > events/kprobes/p_cmdline_proc_show_4/enable':
+
+  <cmdline_proc_show>:
+    0xffffffff80258910 <+0>:     sd      ra,-8(sp)
+    0xffffffff80258914 <+4>:     ebreak
+    0xffffffff80258918 <+8>:     jalr    1264(ra)
+    0xffffffff8025891c <+12>:    ld      ra,-8(sp)
+
+This time the second instruction is replaced with a breakpoint
+instruction and the ftrace-related instructions are broken. Then, when
+enabling 'p_cmdline_proc_show_0', a regs ftrace handler is registered
+based on KPROBES_ON_FTRACE, ftrace_modify_call() changes 'ftrace_caller'
+to 'ftrace_regs_caller', and checks for ftrace-related instructions is
+modified or not. Here it has been modified, causing ftrace to report a
+warning and disable itself.
+
+In turn, the breakpoints inserted by kprobe may be overwritten by
+ftrace.
+
+The problem is that we think that only the first instruction address at
+the function entry is needed for ftrace, but it is actually the first 4.
+As Masami mentioned in [1], we can treat the first 4 instructions as a
+16-byte virtual instruction, and we can probe func+0 based on
+KPROBES_ON_FTRACE, but not func+4, func+8 and func+12. This way, ftrace
+and kprobe do not bother each other and can coexist.
+
+After this patch:
+
+  # cd /sys/kernel/debug/tracing/
+  # echo cmdline_proc_show > set_ftrace_filter
+  # echo function > current_tracer
+  # echo 'p cmdline_proc_show' > kprobe_events
+  # echo 'p cmdline_proc_show' > kprobe_events
+  # echo 'p cmdline_proc_show+4' >> kprobe_events
+  sh: write error: Invalid or incomplete multibyte or wide character
+  # echo 'p cmdline_proc_show+8' >> kprobe_events
+  sh: write error: Invalid or incomplete multibyte or wide character
+  # echo 'p cmdline_proc_show+12' >> kprobe_events
+  sh: write error: Invalid or incomplete multibyte or wide character
+  # echo 'p cmdline_proc_show+16' >> kprobe_events
+  # ls events/kprobes/
+  enable                  p_cmdline_proc_show_0
+  filter                  p_cmdline_proc_show_16
+  # echo 1 > events/kprobes/enable
+  # cat ../kprobes/list
+  ffffffff80258b14  k  cmdline_proc_show+0x0    [FTRACE]
+  ffffffff80258b24  k  cmdline_proc_show+0x10
+  # cat /proc/cmdline
+  nokaslr rootwait root=/dev/vda rw
+  # cat trace
+  # tracer: function
+  #
+  # entries-in-buffer/entries-written: 3/3   #P:4
+  #
+  #                                _-----=> irqs-off/BH-disabled
+  #                               / _----=> need-resched
+  #                              | / _---=> hardirq/softirq
+  #                              || / _--=> preempt-depth
+  #                              ||| / _-=> migrate-disable
+  #                              |||| /     delay
+  #           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
+  #              | |         |   |||||     |         |
+               cat-142     [000] ...2.   181.493233: p_cmdline_proc_show_0: (cmdline_proc_show+0x0/0x46)
+               cat-142     [000] ...2.   181.494271: cmdline_proc_show <-seq_read_iter
+               cat-142     [000] d....   181.494573: p_cmdline_proc_show_16: (cmdline_proc_show+0x10/0x46)
+
+[1] https://patchwork.kernel.org/project/linux-arm-kernel/patch/20191218140622.57bbaca5@xhacker.debian/
+
+Fixes: c22b0bcb1dd0 ("riscv: Add kprobes supported")
+Signed-off-by: Li Huafei <lihuafei1@huawei.com>
 ---
- arch/riscv/kernel/cpu.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ arch/riscv/kernel/probes/kprobes.c | 31 ++++++++++++++++++++++++++++++
+ kernel/kprobes.c                   |  2 +-
+ 2 files changed, 32 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index ccb617791e56..53a061ab0743 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -113,10 +113,8 @@ static void print_isa_ext(struct seq_file *f)
- /*
-  * These are the only valid base (single letter) ISA extensions as per the spec.
-  * It also specifies the canonical order in which it appears in the spec.
-- * Some of the extension may just be a place holder for now (B, K, P, J).
-- * This should be updated once corresponding extensions are ratified.
-  */
--static const char base_riscv_exts[13] = "imafdqcbkjpvh";
-+static const char base_riscv_exts[9] = "imafdqcvh";
+diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+index e6e950b7cf32..ebe32eb6c349 100644
+--- a/arch/riscv/kernel/probes/kprobes.c
++++ b/arch/riscv/kernel/probes/kprobes.c
+@@ -21,6 +21,37 @@ DEFINE_PER_CPU(struct kprobe_ctlblk, kprobe_ctlblk);
+ static void __kprobes
+ post_kprobe_handler(struct kprobe *, struct kprobe_ctlblk *, struct pt_regs *);
  
- static void print_isa(struct seq_file *f, const char *isa)
++#ifdef CONFIG_DYNAMIC_FTRACE
++kprobe_opcode_t *arch_adjust_kprobe_addr(unsigned long addr, unsigned long offset,
++					 bool *on_func_entry)
++{
++	unsigned long faddr = ftrace_location(addr);
++
++	/*
++	 * The first 4 instructions at the beginning of the ftraced function
++	 * are used as a jump to ftrace trampoline, which we can think of as
++	 * a 16-byte virtual instruction. This allows the function entry to be
++	 * probed with the help of KPROBES_ON_FTRACE and does not break ftrace
++	 * functionality.
++	 */
++	if (faddr && offset <= 12) {
++		/*
++		 * As mentioned above, we treat the first 4 instructions of
++		 * the ftraced function as a virtual instruction, so that we
++		 * can only probe func+0, not func+4, func+8 and func+12.
++		 */
++		if (offset)
++			return ERR_PTR(-EILSEQ);
++
++		*on_func_entry = true;
++		return (kprobe_opcode_t *)faddr;
++	}
++
++	*on_func_entry = !offset;
++	return (kprobe_opcode_t *)(addr + offset);
++}
++#endif
++
+ static void __kprobes arch_prepare_ss_slot(struct kprobe *p)
  {
+ 	unsigned long offset = GET_INSN_LENGTH(p->opcode);
+diff --git a/kernel/kprobes.c b/kernel/kprobes.c
+index dbe57df2e199..b41de7ce8bff 100644
+--- a/kernel/kprobes.c
++++ b/kernel/kprobes.c
+@@ -1553,7 +1553,7 @@ _kprobe_addr(kprobe_opcode_t *addr, const char *symbol_name,
+ 	 * at the start of the function.
+ 	 */
+ 	addr = arch_adjust_kprobe_addr((unsigned long)addr, offset, on_func_entry);
+-	if (addr)
++	if (IS_ERR(addr) || addr)
+ 		return addr;
+ 
+ invalid:
 -- 
-2.35.1
+2.17.1
 
 
 _______________________________________________
