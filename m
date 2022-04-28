@@ -4,69 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70963C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Apr 2022 10:00:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E643DC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Apr 2022 11:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:References:
-	CC:To:Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S0n4BS110WLoc/X1Uj50Liheu8pzHwCAqySOGVy0qlE=; b=LRXqC4Y+xFaEwilh7PiuvpBxzq
-	fAt9bagiMsxNiXpmr/NIY95jO7fCxQ4X2S1/y1kCSqYNKvaair2pX/vfo4bQSpbBNIkljX6dZZENc
-	bjSpXf/oA3FZFwpfIB1wtBNDTnl1sNG5Lbxq/VaCaojOpZ+bbc+KBJpos9i8h3uGcGHUa/j8YyeFb
-	ZkAHH21tCA3zZR/7sPN4IAC6GP3ip1/vP31JQzxQ5WU4fYqEFQ41byf+EOBg6S3BCaj2J0arOa7zL
-	ntgbB7HZQzTXJQ2mKJ2ucsrZCARHYYqAwyUg8ghGZphP0LhuMgIMkW4I/ubxnr1K23CbCHmWy+Wmj
-	0A49Nsxw==;
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=NhrC1F9W0e26VVslpmbeiZJL4+NInCeQ30D5blFDqrI=; b=qpx/oZvdKI1HPi
+	C0agSBbYPA7QynVvs7YiXMgUy4K0AzzxWHwH57aZk5Nlee1FQc3GSY+VeIbEPA7umz21oyh31O8DS
+	qeOCOPtu9UbgPv7CSwj8gqgyQ8/Fu5GGNULURelot7+7frGx/0mGZvstcRQhyjhUmdOWp1nBssoYx
+	/r9N9ZXtbNO1o7aTu6gEeFFF6TilAE3nKlI1yThDdemgh1uj7T12IgYJr8aGS8xm/b7lDYIZK378B
+	ZBkXhwhIWCWalr41Ci6ooO0y9Cs/0oJIpJL0SngvbkRuhoN3kwSPmSVig4BYGZRqmKFxTdrLow4I0
+	VaNQkI5rrM3Op76xewVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nk0wD-005vhL-VP; Thu, 28 Apr 2022 09:59:54 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nk0kc-005qF2-6G
- for linux-riscv@lists.infradead.org; Thu, 28 Apr 2022 09:47:56 +0000
-Received: from dggpemm500021.china.huawei.com (unknown [172.30.72.53])
- by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4KprP91b4JzfZwj;
- Thu, 28 Apr 2022 17:46:53 +0800 (CST)
-Received: from dggpemm500019.china.huawei.com (7.185.36.180) by
- dggpemm500021.china.huawei.com (7.185.36.109) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Thu, 28 Apr 2022 17:47:48 +0800
-Received: from [10.67.109.184] (10.67.109.184) by
- dggpemm500019.china.huawei.com (7.185.36.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Thu, 28 Apr 2022 17:47:48 +0800
-From: Pu Lehui <pulehui@huawei.com>
-Subject: Re: [PATCH -next 1/2] bpf: Unify data extension operation of
- jited_ksyms and jited_linfo
-To: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-CC: bpf <bpf@vger.kernel.org>, <linux-riscv@lists.infradead.org>, Networking
- <netdev@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Luke Nelson
- <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, Alexei Starovoitov
- <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko
- <andrii@kernel.org>, Martin Lau <kafai@fb.com>, Song Liu
- <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, john fastabend
- <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>
-References: <20220426140924.3308472-1-pulehui@huawei.com>
- <20220426140924.3308472-2-pulehui@huawei.com>
- <CAEf4BzYvGaskrquK1hsKv6h7iz0NXWCNYn_zJEHvYUBYC=2UoA@mail.gmail.com>
-Message-ID: <f1777267-7904-e993-24f9-8071cd4b5bf7@huawei.com>
-Date: Thu, 28 Apr 2022 17:47:48 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.1
+	id 1nk26A-006Sbb-5k; Thu, 28 Apr 2022 11:14:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nk24o-006RvE-DH; Thu, 28 Apr 2022 11:12:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1EB2B1474;
+ Thu, 28 Apr 2022 04:12:49 -0700 (PDT)
+Received: from [10.57.80.98] (unknown [10.57.80.98])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8DF4F3F774;
+ Thu, 28 Apr 2022 04:12:45 -0700 (PDT)
+Message-ID: <7b09e989-0aa1-a557-485e-572f69caf881@arm.com>
+Date: Thu, 28 Apr 2022 12:12:39 +0100
 MIME-Version: 1.0
-In-Reply-To: <CAEf4BzYvGaskrquK1hsKv6h7iz0NXWCNYn_zJEHvYUBYC=2UoA@mail.gmail.com>
-Content-Language: en-US
-X-Originating-IP: [10.67.109.184]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- dggpemm500019.china.huawei.com (7.185.36.180)
-X-CFilter-Loop: Reflected
+User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.1
+Subject: Re: [PATCH 5/5] iommu/sun50i: Ensure the IOMMU can be used for DMA
+Content-Language: en-GB
+To: Samuel Holland <samuel@sholland.org>, Joerg Roedel <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>, iommu@lists.linux-foundation.org
+Cc: devicetree@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>,
+ linux-kernel@vger.kernel.org, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Chen-Yu Tsai <wens@csie.org>, Rob Herring <robh+dt@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Maxime Ripard <mripard@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-riscv@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20220428010401.11323-1-samuel@sholland.org>
+ <20220428010401.11323-6-samuel@sholland.org>
+From: Robin Murphy <robin.murphy@arm.com>
+In-Reply-To: <20220428010401.11323-6-samuel@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220428_024754_649235_8A99B7B1 
-X-CRM114-Status: GOOD (  27.97  )
+X-CRM114-CacheID: sfid-20220428_041250_632893_2CBB232A 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,216 +69,44 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andrii,
+On 2022-04-28 02:04, Samuel Holland wrote:
+> So far, the driver has relied on arch/arm64/Kconfig to select IOMMU_DMA.
+> Unsurprisingly, this does not work on RISC-V, so the driver must select
+> IOMMU_DMA itself.
 
-On 2022/4/28 6:33, Andrii Nakryiko wrote:
-> On Tue, Apr 26, 2022 at 6:40 AM Pu Lehui <pulehui@huawei.com> wrote:
->>
->> We found that 32-bit environment can not print bpf line info due
->> to data inconsistency between jited_ksyms[0] and jited_linfo[0].
->>
->> For example:
->> jited_kyms[0] = 0xb800067c, jited_linfo[0] = 0xffffffffb800067c
->>
->> We know that both of them store bpf func address, but due to the
->> different data extension operations when extended to u64, they may
->> not be the same. We need to unify the data extension operations of
->> them.
->>
->> Signed-off-by: Pu Lehui <pulehui@huawei.com>
->> ---
->>   kernel/bpf/syscall.c                         |  5 ++++-
->>   tools/lib/bpf/bpf_prog_linfo.c               |  8 ++++----
->>   tools/testing/selftests/bpf/prog_tests/btf.c | 18 +++++++++---------
-> 
-> please split kernel changes, libbpf changes, and selftests/bpf changes
-> into separate patches
-Thanks for your review. Alright, I will split it next time.
+No, IOMMU_DMA should only be selected by the architecture code that's 
+also responsible for calling iommu_setup_dma_ops(). Without that, this 
+select will do nothing other than add some unused code to the kernel image.
 
-> 
->>   3 files changed, 17 insertions(+), 14 deletions(-)
->>
->> diff --git a/kernel/bpf/syscall.c b/kernel/bpf/syscall.c
->> index e9621cfa09f2..4c417c806d92 100644
->> --- a/kernel/bpf/syscall.c
->> +++ b/kernel/bpf/syscall.c
->> @@ -3868,13 +3868,16 @@ static int bpf_prog_get_info_by_fd(struct file *file,
->>                  info.nr_jited_line_info = 0;
->>          if (info.nr_jited_line_info && ulen) {
->>                  if (bpf_dump_raw_ok(file->f_cred)) {
->> +                       unsigned long jited_linfo_addr;
->>                          __u64 __user *user_linfo;
->>                          u32 i;
->>
->>                          user_linfo = u64_to_user_ptr(info.jited_line_info);
->>                          ulen = min_t(u32, info.nr_jited_line_info, ulen);
->>                          for (i = 0; i < ulen; i++) {
->> -                               if (put_user((__u64)(long)prog->aux->jited_linfo[i],
->> +                               jited_linfo_addr = (unsigned long)
->> +                                       prog->aux->jited_linfo[i];
->> +                               if (put_user((__u64) jited_linfo_addr,
->>                                               &user_linfo[i]))
->>                                          return -EFAULT;
->>                          }
-Please let me to explain more detail, sorry if I'm wordy.
-The main reason that 32-bit env does not print bpf line info is here:
-
-kernel/bpf/syscall.c:
-bpf_prog_get_info_by_fd {
-	...
-	user_ksyms = u64_to_user_ptr(info.jited_ksyms);
-	ksym_addr = (unsigned long)prog->aux->func[i]->bpf_func;
-	if (put_user((u64) ksym_addr, &user_ksyms[i]))
-	...
-
-	user_linfo = u64_to_user_ptr(info.jited_line_info);
-	if (put_user((__u64)(long)prog->aux->jited_linfo[i],
-		     &user_linfo[i]))
-	...
-}
-
-In 32-bit env, ksym_addr and prog->aux->jited_linfo[0] both store the 
-32-bit address of bpf_func, but the first one is zero-extension to u64, 
-while the other is sign-extension to u64.
-For example:
-	prog->aux->func[0]->bpf_func = 0xb800067c
-	user_ksyms[0] = 0xb800067c, user_linfo[0] = 0xffffffffb800067c
-
-Both zero-extension and sign-extension are fine, but if operating 
-directly between them without casting in 32-bit env, there will have 
-some potential problems. Such as:
-
-tools/lib/bpf/bpf_prog_linfo.c:
-dissect_jited_func {
-	...
-	if (ksym_func[0] != *jited_linfo) //always missmatch in 32 env
-		goto errout;
-	...
-	if (ksym_func[f] == *jited_linfo) {
-	...
-	last_jited_linfo = *jited_linfo;
-	if (last_jited_linfo - ksym_func[f - 1] + 1 >
-	    ksym_len[f - 1])
-	...
-}
-
-We could cast them to 32-bit data type, but I think unify data extension 
-operation will be better.
-
->> diff --git a/tools/lib/bpf/bpf_prog_linfo.c b/tools/lib/bpf/bpf_prog_linfo.c
->> index 5c503096ef43..5cf41a563ef5 100644
->> --- a/tools/lib/bpf/bpf_prog_linfo.c
->> +++ b/tools/lib/bpf/bpf_prog_linfo.c
->> @@ -127,7 +127,7 @@ struct bpf_prog_linfo *bpf_prog_linfo__new(const struct bpf_prog_info *info)
->>          prog_linfo->raw_linfo = malloc(data_sz);
->>          if (!prog_linfo->raw_linfo)
->>                  goto err_free;
->> -       memcpy(prog_linfo->raw_linfo, (void *)(long)info->line_info, data_sz);
->> +       memcpy(prog_linfo->raw_linfo, (void *)(unsigned long)info->line_info, data_sz);
->>
->>          nr_jited_func = info->nr_jited_ksyms;
->>          if (!nr_jited_func ||
->> @@ -148,7 +148,7 @@ struct bpf_prog_linfo *bpf_prog_linfo__new(const struct bpf_prog_info *info)
->>          if (!prog_linfo->raw_jited_linfo)
->>                  goto err_free;
->>          memcpy(prog_linfo->raw_jited_linfo,
->> -              (void *)(long)info->jited_line_info, data_sz);
->> +              (void *)(unsigned long)info->jited_line_info, data_sz);
->>
->>          /* Number of jited_line_info per jited func */
->>          prog_linfo->nr_jited_linfo_per_func = malloc(nr_jited_func *
->> @@ -166,8 +166,8 @@ struct bpf_prog_linfo *bpf_prog_linfo__new(const struct bpf_prog_info *info)
->>                  goto err_free;
->>
->>          if (dissect_jited_func(prog_linfo,
->> -                              (__u64 *)(long)info->jited_ksyms,
->> -                              (__u32 *)(long)info->jited_func_lens))
->> +                              (__u64 *)(unsigned long)info->jited_ksyms,
->> +                              (__u32 *)(unsigned long)info->jited_func_lens))
-> 
-> so I'm trying to understand how this is changing anything for 32-bit
-> architecture and I must be missing something, sorry if I'm being
-> dense. The example you used below
-> 
-> jited_kyms[0] = 0xb800067c, jited_linfo[0] = 0xffffffffb800067c
-> 
-> Wouldn't (unsigned long)0xffffffffb800067c == (long)0xffffffffb800067c
-> == 0xb800067c ?
-If I understand correctly, info->jited_ksyms or info->jited_func_lens is 
-just a u64 address that point to the corresponding space. The bpf_func 
-address is stored in the item of info->jited_ksyms but not 
-info->jited_ksyms.
-
-And here, I may have misled you. Both (__u64 *)(long)info->jited_ksyms 
-and (__u64 *)(unsigned long)info->jited_ksyms are the same, I just want 
-to unify the style. I will remove them in v2.
-
-Please let me know if there is any problem with my understanding.
+I appreciate that the current state of the x86 IOMMU drivers being 
+tightly-coupled to the x86 arch code might be confusing (which reminds 
+me I'd totally forgotten about [1]). I'm about to start reworking the 
+whole area anyway, but for now please just follow the existing intent.
 
 Thanks,
-Lehui
+Robin.
+
+[1] 
+https://lore.kernel.org/linux-iommu/9ba6f2e8568a3ff6a94fade66668d99705433c44.1631536879.git.robin.murphy@arm.com/
+
+> Signed-off-by: Samuel Holland <samuel@sholland.org>
+> ---
 > 
-> isn't sizeof(long) == sizeof(void*) == 4?
+>   drivers/iommu/Kconfig | 1 +
+>   1 file changed, 1 insertion(+)
 > 
-> It would be nice if you could elaborate a bit more on what problems
-> did you see in practice?
-> 
->>                  goto err_free;
->>
->>          return prog_linfo;
->> diff --git a/tools/testing/selftests/bpf/prog_tests/btf.c b/tools/testing/selftests/bpf/prog_tests/btf.c
->> index 84aae639ddb5..d9ba1ec1d5b3 100644
->> --- a/tools/testing/selftests/bpf/prog_tests/btf.c
->> +++ b/tools/testing/selftests/bpf/prog_tests/btf.c
->> @@ -6451,8 +6451,8 @@ static int test_get_linfo(const struct prog_info_raw_test *test,
->>                    info.nr_jited_line_info, jited_cnt,
->>                    info.line_info_rec_size, rec_size,
->>                    info.jited_line_info_rec_size, jited_rec_size,
->> -                 (void *)(long)info.line_info,
->> -                 (void *)(long)info.jited_line_info)) {
->> +                 (void *)(unsigned long)info.line_info,
->> +                 (void *)(unsigned long)info.jited_line_info)) {
->>                  err = -1;
->>                  goto done;
->>          }
->> @@ -6500,8 +6500,8 @@ static int test_get_linfo(const struct prog_info_raw_test *test,
->>          }
->>
->>          if (CHECK(jited_linfo[0] != jited_ksyms[0],
->> -                 "jited_linfo[0]:%lx != jited_ksyms[0]:%lx",
->> -                 (long)(jited_linfo[0]), (long)(jited_ksyms[0]))) {
->> +                 "jited_linfo[0]:%llx != jited_ksyms[0]:%llx",
->> +                 jited_linfo[0], jited_ksyms[0])) {
->>                  err = -1;
->>                  goto done;
->>          }
->> @@ -6519,16 +6519,16 @@ static int test_get_linfo(const struct prog_info_raw_test *test,
->>                  }
->>
->>                  if (CHECK(jited_linfo[i] <= jited_linfo[i - 1],
->> -                         "jited_linfo[%u]:%lx <= jited_linfo[%u]:%lx",
->> -                         i, (long)jited_linfo[i],
->> -                         i - 1, (long)(jited_linfo[i - 1]))) {
->> +                         "jited_linfo[%u]:%llx <= jited_linfo[%u]:%llx",
->> +                         i, jited_linfo[i],
->> +                         i - 1, (jited_linfo[i - 1]))) {
->>                          err = -1;
->>                          goto done;
->>                  }
->>
->>                  if (CHECK(jited_linfo[i] - cur_func_ksyms > cur_func_len,
->> -                         "jited_linfo[%u]:%lx - %lx > %u",
->> -                         i, (long)jited_linfo[i], (long)cur_func_ksyms,
->> +                         "jited_linfo[%u]:%llx - %llx > %u",
->> +                         i, jited_linfo[i], cur_func_ksyms,
->>                            cur_func_len)) {
->>                          err = -1;
->>                          goto done;
->> --
->> 2.25.1
->>
-> .
-> 
+> diff --git a/drivers/iommu/Kconfig b/drivers/iommu/Kconfig
+> index c79a0df090c0..70a0bfa6d907 100644
+> --- a/drivers/iommu/Kconfig
+> +++ b/drivers/iommu/Kconfig
+> @@ -223,6 +223,7 @@ config SUN50I_IOMMU
+>   	depends on ARCH_SUNXI || COMPILE_TEST
+>   	select ARM_DMA_USE_IOMMU
+>   	select IOMMU_API
+> +	select IOMMU_DMA
+>   	help
+>   	  Support for the IOMMU introduced in the Allwinner H6 SoCs.
+>   
 
 _______________________________________________
 linux-riscv mailing list
