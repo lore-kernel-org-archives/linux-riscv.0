@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DCE7C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Apr 2022 01:04:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76F6DC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Apr 2022 01:04:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/3OI6DLXbkOlgmEYY2Wzls+hTUhmjXzFg2I6kRPsDHM=; b=YqM3kIzYNi7cvM
-	3sF/Y2pVKqCkHQkltdRQZ0Bi48HUGxh0tnl/EV/QXL5anvFZghRlXvgL8M5GMXdNiXYA9A9IBz59t
-	YDlQRqsxJLtRGKIzggPcbsVw8YjeSKp//FZ5TI8JrZ5wG+bDg2LKF58uN8yQiVkznQzGNWCEsCDnF
-	pm6XS8Ic9Rdkj7x2KA0XZrjNOb/AZ2/iyXqyLNPOz1Xvz4Do/hTsigY/28lJMjp2VJOAQr86FFAEX
-	fK9CdFXxNcVgBB8N1jT7RP4XH2WDkrv2ZCKPC8XYENJ1KGUUR6JHXGeL8RJMTOf6mFzdpZ5/tDzIh
-	M1jtW6wrjjWU8JtTvnVg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MdgBJjbasgwFeunz1AxQZ4L8/K1u/MWOseYz+0P5wKo=; b=i+oMUz2VC8S5lT
+	w5r+k/Ith3daHevrvjpCLZlywfFC+BwkFnC08Wo+eRvv4rCKymksuuxQgkMdhje5QNpByISp1KCHc
+	YcgXo1o0y/2TDgeVc51gWdMSKzIgXXdeCt8jr8CVEiBASRQIGepJMLg2qOWj1wzkc2YTyFiq3D1Lt
+	K58Km5080yVHUG/Zzdq0XKctcagbGsa1gURS94h/K+zKwuIuAhOnY/xKQ9YKT2ST751TMMFnRMZZG
+	kRIxBjhXTTsM+hlqavztk91ykK7msxyHpJN2RoU8da1ky5B/CPWgAyu8PZMNHDdg5nji/M0b0YTs1
+	3wuLIYUv7gNfi6f9vhHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1njsaK-004EN3-4V; Thu, 28 Apr 2022 01:04:44 +0000
+	id 1njsaI-004EMb-Jv; Thu, 28 Apr 2022 01:04:42 +0000
 Received: from out5-smtp.messagingengine.com ([66.111.4.29])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1njsZw-004EC5-Ex; Thu, 28 Apr 2022 01:04:22 +0000
-Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
- by mailout.nyi.internal (Postfix) with ESMTP id 33D725C01FE;
- Wed, 27 Apr 2022 21:04:14 -0400 (EDT)
+ id 1njsZw-004EC9-Dh; Thu, 28 Apr 2022 01:04:22 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+ by mailout.nyi.internal (Postfix) with ESMTP id 4B3E55C00CF;
+ Wed, 27 Apr 2022 21:04:16 -0400 (EDT)
 Received: from mailfrontend2 ([10.202.2.163])
- by compute4.internal (MEProxy); Wed, 27 Apr 2022 21:04:14 -0400
+ by compute5.internal (MEProxy); Wed, 27 Apr 2022 21:04:16 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
  cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
- :message-id:mime-version:reply-to:sender:subject:subject:to:to;
- s=fm2; t=1651107854; x=1651194254; bh=0qHdH/aUtGspfDKe2hAdz5hp/
- F+OiM7JmLMvDU3bPw4=; b=Qa28EnWDuDVWE2ISFELEF+hZAOOuNnx4LInuXphKn
- H1tjGCJMYJ0jM/tdY9JPWkv4EEXHipesTIpusxShqL5Lopwb0PXAU145bMomsQcV
- Tj6TeXWwGyIY+rbKE+ESln/OoadnhFtIv1YNhF7PlifvZ23JCBBdjQ9KNeWe1QNf
- 9XUy88nvNi0nOSHLpynCXXITZ+0LsDoEtOwOGUgUIFpughHOz/kQJTrbB53H5LHZ
- 7YV4Ms6ryf9DMCIYHflnD2nCOdGQzHiGfMRC8scneBfqwGsI87apyefWfE85in+e
- SgWpryrnxXYG3BzRnAMvn7nUtzymaekqmATypbmMZSZ+w==
+ :in-reply-to:message-id:mime-version:references:reply-to:sender
+ :subject:subject:to:to; s=fm2; t=1651107856; x=1651194256; bh=kp
+ LZSWY5pulSybgy+J3BHvwPqsyKhKZy8Hob8bLRgSg=; b=eaVtCutJFC89h8TSye
+ kLgrAxKv7mv8BB3RX8FsQV7YUJ2RC/w2St56QIpWTwuaKQqVt3pY3LcqpBkjCpTT
+ ykj3Q6ICT5Vr+U7/uxidw+apIT6qLv4EqbgmLYViSzNEfj0iPRHuNv8uLW2bKywN
+ owiGCwiX9PP7aAXvm7RNZ+oLgUW9014iZ6QNK7bbHIdr6ADen10qKr4sFZh3l4FP
+ +mXooRjN9vX9IpXnsrwOHbtJ1vc5DiwXsHmUyuTxBy0x2gEF5uUZxfJvXZPEJn5O
+ oF89vHZzwRwlo2ZlS5EQC6S2qPOuo1a7fYSJbrdVYw6vK6ME9GpfuMASXFIc/jNT
+ 8y1A==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
  messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
- :from:from:in-reply-to:message-id:mime-version:reply-to:sender
- :subject:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender
- :x-me-sender:x-sasl-enc; s=fm1; t=1651107854; x=1651194254; bh=0
- qHdH/aUtGspfDKe2hAdz5hp/F+OiM7JmLMvDU3bPw4=; b=Ctd+nXjDrJF93m8q9
- 4884fI2HuMUVHTvS6OtjPjdMMxeb0mEmgV+TPRLvLGtsNoMHC24RE20Q/TEGsSoY
- QFfblIOpzH/qMYi5r3gfDnm3PmPX6XpUsDamHP+avlKHe4j9XcWJN2FWi4k+Mq0j
- Jo5YlPsa7Ir6PrLSU6UDHIj8fARHn+K7jhmKduNWNgq7JM1enqBIVXtwBLGxjHji
- Go30TSjwQdbzeWCc7ImiTjnnBXpPyPpYZwaj5SXmaDLNYqYwzm9X5mWC3ItSxd4s
- Pw6m9R86aXO7vTHKkaMiN+XSwdY6UM4snaHfMlkE/u1/mhoGVDnDPI5N/2ke9gSY
- prpOw==
-X-ME-Sender: <xms:DehpYgeX_6qKGPT47LkRTAxskuWuvflZBFo8DTLOIZ-wqmhlam6w4g>
- <xme:DehpYiO07QSZn8XPFn0EvZb7XC4Qi6XFx6zmqkGJ6xUrfUZgPgv9zs8-XIBGdBy1k
- pjW5SuWE-tIoXJgHQ>
-X-ME-Received: <xmr:DehpYhh9sQrossGblUCj8_sceKYCBQz42FGoOTKrRbV4nznjL6SWjCxThwgAaAPy3U5mQ-7yfnqvOy_K6G5vMgyBw2WHvhc3Mhk_vvQtKVcNndjCOYPigrF5yF8Bma6PUKM5Mw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrudeigdegfecutefuodetggdotefrodftvf
+ :from:from:in-reply-to:in-reply-to:message-id:mime-version
+ :references:reply-to:sender:subject:subject:to:to:x-me-proxy
+ :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
+ 1651107856; x=1651194256; bh=kpLZSWY5pulSybgy+J3BHvwPqsyKhKZy8Ho
+ b8bLRgSg=; b=S1i8lZN3lIqHPk2XZ+Jri1eBBAk0E5/ClkcJX4vi6nXmiPEVGZn
+ TQe2QXLlGpBd71gc65+nXhUnTGXeq4f+3u0Mf5+vSPI5+pyEckyVg/YS4qfxP+GB
+ EpzNx+cqUe/zzyxn7mChk8CU9LlrjeTd+jRHqcTmcZEktbGnDZAx6rvvO37+DbDx
+ PS7ZN+D3NZoMRLc2o8ym+jst1ifJaUGBicHLvih4siw6clmK1j4/oadezgB2H29X
+ OI+NvchmEfRxmmtCP+hFWjR/0BDIdwh2Ykc7vomhEBEJPgCDYHbg3+YJqPy8HiZS
+ g8D/dz06+SXrsJhp+btgN0E/UH+yM4s8SdQ==
+X-ME-Sender: <xms:EOhpYu5rICuAfhOyvhG3zBn6SsmosX9sa0QwBgkEGzgIVwutKwsCpw>
+ <xme:EOhpYn7kI6lE-vmIDGjcCVFPEyCQyEptO7JZzaFPXy9zVq_mco20xBjT61625nrbI
+ -F14DwV2cL1ssV7jw>
+X-ME-Received: <xmr:EOhpYtfVGSM7evT-89FyD_wca4youZjNuT6WKzxWqty_q_y6GGHN5HE-eAMvtepPioOvRUK72_5KuYtch4XYvVEiwwLpjzvy2TvQugkWadzLXrdtQAhJmGn4CGVhD8GHIEAN6A>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrudeigdegvdcutefuodetggdotefrodftvf
  curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
  uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
- fjughrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpefurghmuhgvlhcu
- jfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenucggtffrrg
- htthgvrhhnpeekheffteehtdetfffgfeetteejvdefleeuvedufffguedtjedvheelvddv
- fffhveenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivg
- eptdenucfrrghrrghmpehmrghilhhfrhhomhepshgrmhhuvghlsehshhholhhlrghnugdr
- ohhrgh
-X-ME-Proxy: <xmx:DehpYl8_-WowG7fkI6O-QXUCLtoSPUeqfwvx8KHTQSYsO4MaDGM6UA>
- <xmx:DehpYssZ54RJ-1okNWK10aSS7CN9KCr8SDVPpimMJoicfMXN6PY26w>
- <xmx:DehpYsH5nIk5ujCBidCy3LPs5K6a206BePOBxlCcgNme2XlsqWsTuA>
- <xmx:DuhpYgN-GY3Ca7ikOxOHItuiVkzGBL_JVDGjnAqDaVj1oL-3ZbcVAA>
+ fjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpefurghmuhgv
+ lhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenucggtf
+ frrghtthgvrhhnpedukeetueduhedtleetvefguddvvdejhfefudelgfduveeggeehgfdu
+ feeitdevteenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhroh
+ hmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
+X-ME-Proxy: <xmx:EOhpYrKiNgGyGRcR3093GrJAZecRwQTXKAhNGkHpj6jKimrQYutSuw>
+ <xmx:EOhpYiL2yi74IQfBWUPtp7H7fZnFwVKJ2DUrSNOHFRItvIROIq7ifQ>
+ <xmx:EOhpYsz0yymD3QJ07hXzkWy5mfkGQvCL7QgIYtQjpHLxs5GA_MMscw>
+ <xmx:EOhpYn7jcvmGpZ7QiIF9HAPNh4dg0GCA_nU8OqiAJg5uBL8Myr4nsQ>
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 27 Apr 2022 21:04:12 -0400 (EDT)
+ 27 Apr 2022 21:04:15 -0400 (EDT)
 From: Samuel Holland <samuel@sholland.org>
 To: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
  iommu@lists.linux-foundation.org
@@ -81,14 +81,18 @@ Cc: Heiko Stuebner <heiko@sntech.de>, Palmer Dabbelt <palmer@dabbelt.com>,
  Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-sunxi@lists.linux.dev
-Subject: [PATCH 0/5] iommu/sun50i: Allwinner D1 support
-Date: Wed, 27 Apr 2022 20:03:55 -0500
-Message-Id: <20220428010401.11323-1-samuel@sholland.org>
+Subject: [PATCH 1/5] dt-bindings: iommu: sun50i: Add compatible for Allwinner
+ D1
+Date: Wed, 27 Apr 2022 20:03:56 -0500
+Message-Id: <20220428010401.11323-2-samuel@sholland.org>
 X-Mailer: git-send-email 2.35.1
+In-Reply-To: <20220428010401.11323-1-samuel@sholland.org>
+References: <20220428010401.11323-1-samuel@sholland.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220427_180420_785833_9AA56F5D 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20220427_180420_785841_7CB9F79C 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,53 +109,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-D1 is a RISC-V SoC from Allwinner's sunxi family. This series adds IOMMU
-binding and driver support.
+D1 contains an IOMMU similar to the one in the H6 SoC, but the D1
+variant has no external reset signal.
 
-One piece is still missing to use the IOMMU for DMA allocations: a call
-to iommu_setup_dma_ops(). On ARM64 this is handled by the architecture's
-code. RISC-V does not currently select ARCH_HAS_SETUP_DMA_OPS, but it
-will once Zicbom support[1] is merged.
+Signed-off-by: Samuel Holland <samuel@sholland.org>
+---
 
-[1]: https://lore.kernel.org/lkml/20220307224620.1933061-2-heiko@sntech.de/
+ .../iommu/allwinner,sun50i-h6-iommu.yaml         | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
 
-So I cannot follow virtio-iommu.c and call iommu_setup_dma_ops() when
-ARCH_HAS_SETUP_DMA_OPS=n. However, if I apply the following patch on top
-of Heiko's non-coherent DMA series, the display engine successfully uses
-the IOMMU to allocate its framebuffer:
-
---- a/arch/riscv/mm/dma-noncoherent.c
-+++ b/arch/riscv/mm/dma-noncoherent.c
-@@ -6,6 +6,7 @@
-  */
-
- #include <linux/dma-direct.h>
-+#include <linux/dma-iommu.h>
- #include <linux/dma-map-ops.h>
- #include <linux/mm.h>
-
-@@ -53,4 +54,7 @@
- {
- 	/* If a specific device is dma-coherent, set it here */
- 	dev->dma_coherent = coherent;
+diff --git a/Documentation/devicetree/bindings/iommu/allwinner,sun50i-h6-iommu.yaml b/Documentation/devicetree/bindings/iommu/allwinner,sun50i-h6-iommu.yaml
+index 5e125cf2a88b..18d3451d4dd5 100644
+--- a/Documentation/devicetree/bindings/iommu/allwinner,sun50i-h6-iommu.yaml
++++ b/Documentation/devicetree/bindings/iommu/allwinner,sun50i-h6-iommu.yaml
+@@ -17,7 +17,9 @@ properties:
+       The content of the cell is the master ID.
+ 
+   compatible:
+-    const: allwinner,sun50i-h6-iommu
++    enum:
++      - allwinner,sun20i-d1-iommu
++      - allwinner,sun50i-h6-iommu
+ 
+   reg:
+     maxItems: 1
+@@ -37,7 +39,17 @@ required:
+   - reg
+   - interrupts
+   - clocks
+-  - resets
 +
-+	if (iommu)
-+		iommu_setup_dma_ops(dev, dma_base, dma_base + size - 1);
- }
-
-
-Samuel Holland (5):
-  dt-bindings: iommu: sun50i: Add compatible for Allwinner D1
-  iommu/sun50i: Support variants without an external reset
-  iommu/sun50i: Ensure bypass is disabled
-  iommu/sun50i: Add support for the D1 variant
-  iommu/sun50i: Ensure the IOMMU can be used for DMA
-
- .../iommu/allwinner,sun50i-h6-iommu.yaml      | 16 +++++++++++--
- drivers/iommu/Kconfig                         |  1 +
- drivers/iommu/sun50i-iommu.c                  | 24 +++++++++++++++++--
- 3 files changed, 37 insertions(+), 4 deletions(-)
-
++if:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - allwinner,sun50i-h6-iommu
++
++then:
++  required:
++    - resets
+ 
+ additionalProperties: false
+ 
 -- 
 2.35.1
 
