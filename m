@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50756C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Apr 2022 10:42:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37C0BC433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Apr 2022 10:42:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q/CW2m29Dkqp/O4DxJaPpbljXcEHYjOinqFygrOQwT0=; b=qFhdb9wPTopvL+
-	WtiITg2f7rIQQpVaoRDvpxytLcmZNcu62GoFu0ip65BeDiL+cnERJXKcgWEPB5DODR5w/a4cHcEjH
-	3XGH5Tz0XIvHB4UiXcomfVdzFzKMLAlp/sZDyLHzNJgmzR35mGfe/eZ2oUJ9vsZaH/B0YDcOdq8+z
-	cveu84RUo0PpYSkvyjMb6hryB71eckAjV5HocinNPzpvfJyG4LThBI4fXcSv3Vf1/UzDGxPTvbr0r
-	F0TdVDAPWNLkurpIqSx2AnhdVOQgBZZPQbZ4HQpAc3fqT+or1iqOwe9ExF6yKJJm4hGOTH9HKSrlm
-	0/rAm7UMrGzQJR+zvzzg==;
+	List-Owner; bh=0UbP2+h5Ui5Ema3kw6+oR2uhJr87Gi7DKPcv2UUvQ90=; b=ae1VvBo0H7nyEA
+	xiP083Bpkv5+q4Z7tJbVa4bGz5x3RW21bPgaMgMmcSKxtXMJYl8P++D1p9eMgjNNPB2cb1iDUnsFx
+	qXoZuieGadeaevoxegxher80oBnQlL1ijkOpTiu2NK6724+N0p2izumYu6XVPMXVK+vWCXDVVPe/p
+	9Ych+YJL8vgCE+iSZHlpg+G/Lb3M3xLloDgacw2KKnQWLFbcGgEugbftftTF7kuHgYa9bzzZmsml9
+	SKxS5H0n9m4tukGniKhywsRo0x1MiU+9gxMhYRU97hjNmGcOpZTjyVwjy6A7wuy5amZCy5TvkdCzv
+	ftYGdpAcGDiImbrMS4VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nkO4Q-00ArPV-2e; Fri, 29 Apr 2022 10:41:54 +0000
+	id 1nkO4S-00ArS7-Q5; Fri, 29 Apr 2022 10:41:56 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nkO4H-00ArGn-HK
- for linux-riscv@lists.infradead.org; Fri, 29 Apr 2022 10:41:47 +0000
+ id 1nkO4J-00ArKe-Of
+ for linux-riscv@lists.infradead.org; Fri, 29 Apr 2022 10:41:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1651228906; x=1682764906;
+ t=1651228909; x=1682764909;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=ZIx9dKuH/3orJrOjJjxDcAuttBoqSt/MgnaZFFvvMus=;
- b=CQLbk7GnxPODdSTZcfDVXnDFE/aw/UbzRdlVlGIUg9Z7AZK+3y2fKQVL
- SRSmBWDyisTgWjUc44+K+vTsgzrP9zIlsMhcLDKlQHiPlF6mL7e4APxke
- 8fuN5QnwKBjnXp/UuIi70Vu59nbzgopfP9c3te+0jkbdWolf9e/HZ2OMG
- nkcgfqy7zk5NGY/4ICMZIy7UEdKSkzgPkZtcDNV2SZOk3IaPjI0BXrjwm
- ScH0qBxPWcOgp96pmkOyN4skzHOL99/vJI5iSIv84JP/vy/JdEY/UTMLV
- vLrbDNdJNUF6M/II+djdhfJRaEM4A/421lk3+KAv1/rotQASprpSUZhDU Q==;
-X-IronPort-AV: E=Sophos;i="5.91,298,1647327600"; d="scan'208";a="161799773"
+ bh=2K4Cj/6H3P1EYlVHdrvWMRjc7qbuEecaire9pzMT7ws=;
+ b=sTSsVMottt1PInuvl1U8n0oyt8lf8RjGV44VCgl+NUExwNeBQyYBD+4U
+ P6nfSoInyzS5+idHLi7kxhyvJkSvM0+CK/OW5hLmndnLdXslJ9NiGaEtU
+ y3QD+AeRhnClzyApMzcDBYd+oQjVyFOPJjD0mj7MOtA55afQDB3ZdhVz6
+ 79KX2Gqtob4GCGsE7Tjxk4ResWiuZ7Rw4ThJDSzJ5VDoOhGSCZ1PKTa+R
+ LX2zYECMeBWf5xQxetBGFOTJggBakPG69fv+5LTcpzzx0Hl0DhfTbNTmu
+ wekV3+rNQzX3zZ9fNlsw2/p+GCP+NkWXQ6yhGwqT+kThxMa2JIhRNpZi2 A==;
+X-IronPort-AV: E=Sophos;i="5.91,298,1647327600"; d="scan'208";a="161799776"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 29 Apr 2022 03:41:42 -0700
+ 29 Apr 2022 03:41:48 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Fri, 29 Apr 2022 03:41:41 -0700
+ 15.1.2375.17; Fri, 29 Apr 2022 03:41:46 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
  (10.10.85.152) with Microsoft SMTP Server id 15.1.2375.17 via
- Frontend Transport; Fri, 29 Apr 2022 03:41:38 -0700
+ Frontend Transport; Fri, 29 Apr 2022 03:41:44 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
  <krzk+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>
@@ -58,17 +58,18 @@ CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  Cyril Jean <Cyril.Jean@microchip.com>, <devicetree@vger.kernel.org>,
  <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Arnd
  Bergmann" <arnd@arndb.de>
-Subject: [PATCH v1 5/8] riscv: dts: microchip: make the fabric dtsi board
- specific
-Date: Fri, 29 Apr 2022 11:40:38 +0100
-Message-ID: <20220429104040.197161-6-conor.dooley@microchip.com>
+Subject: [PATCH v1 7/8] dt-bindings: riscv: microchip: add polarberry
+ compatible string
+Date: Fri, 29 Apr 2022 11:40:40 +0100
+Message-ID: <20220429104040.197161-8-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.35.2
 In-Reply-To: <20220429104040.197161-1-conor.dooley@microchip.com>
 References: <20220429104040.197161-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220429_034145_621961_EBA87A98 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20220429_034147_832777_48A4DF28 
+X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,62 +86,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently mpfs-fabric.dtsi is included by mpfs.dtsi - which is fine
-currently since there is only one board with this SoC upstream.
-
-However if another board was added, it would include the fabric contents
-of the Icicle Kit's reference design. To avoid this, rename
-mpfs-fabric.dtsi to mpfs-icicle-kit-fabric.dtsi & include it in the dts
-rather than mpfs.dtsi.
+Add a binding for the Sundance Polarberry board.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../microchip/{mpfs-fabric.dtsi => mpfs-icicle-kit-fabric.dtsi} | 2 ++
- arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts               | 1 +
- arch/riscv/boot/dts/microchip/mpfs.dtsi                         | 1 -
- 3 files changed, 3 insertions(+), 1 deletion(-)
- rename arch/riscv/boot/dts/microchip/{mpfs-fabric.dtsi => mpfs-icicle-kit-fabric.dtsi} (93%)
+ Documentation/devicetree/bindings/riscv/microchip.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
-similarity index 93%
-rename from arch/riscv/boot/dts/microchip/mpfs-fabric.dtsi
-rename to arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
-index ccaac3371cf9..7ee592e78c05 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-fabric.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
-@@ -2,6 +2,8 @@
- /* Copyright (c) 2020-2021 Microchip Technology Inc */
- 
- / {
-+	compatible = "microchip,mpfs-icicle-reference-rtlv2203";
-+
- 	core_pwm0: pwm@41000000 {
- 		compatible = "microchip,corepwm-rtl-v4";
- 		reg = <0x0 0x41000000 0x0 0xF0>;
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-index 84b0015dfd47..739dfa52bed1 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-+++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-@@ -4,6 +4,7 @@
- /dts-v1/;
- 
- #include "mpfs.dtsi"
-+#include "mpfs-icicle-kit-fabric.dtsi"
- 
- /* Clock frequency (in Hz) of the rtcclk */
- #define RTCCLK_FREQ		1000000
-diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-index cc3386068c2d..695c4e2807f5 100644
---- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-@@ -3,7 +3,6 @@
- 
- /dts-v1/;
- #include "dt-bindings/clock/microchip,mpfs-clock.h"
--#include "mpfs-fabric.dtsi"
- 
- / {
- 	#address-cells = <2>;
+diff --git a/Documentation/devicetree/bindings/riscv/microchip.yaml b/Documentation/devicetree/bindings/riscv/microchip.yaml
+index c9d8fcc7a69e..7f9296991a56 100644
+--- a/Documentation/devicetree/bindings/riscv/microchip.yaml
++++ b/Documentation/devicetree/bindings/riscv/microchip.yaml
+@@ -21,6 +21,7 @@ properties:
+       - items:
+           - enum:
+               - microchip,mpfs-icicle-kit
++              - sundance,polarberry
+           - const: microchip,mpfs
+       - items:
+           - const: microchip,mpfs-icicle-reference-rtlv2203
 -- 
 2.35.2
 
