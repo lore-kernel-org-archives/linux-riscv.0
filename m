@@ -4,128 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23215C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Apr 2022 13:52:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75BFBC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Apr 2022 15:28:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xPkfn3b38gsrtHRu4td15oW7bpYD2/5HaRuWF2u4UZk=; b=RsvyzUNBZXQB5E
-	sK+0toko02dPe9ESKKNt/kB1C+7//NMMN5j6IB2dNRyykf+x3rsr+PT/6r0pAH21UMRY8cMNcxvAo
-	dqetads8JIDoobp2OBqJBjaaolizma1t2TuT4Qxm0vGtoKkOFZGOEBtBBHxQFkwnSCpAa6O411la2
-	9czRbR2DhPBxP5QQjU1s8ZEONhTlw8ZnJxazc0n1hdrd++SZatuqdYJwcRrPcMXq+Vp6HU8XXKs6H
-	to70DGSo0VQjTO2lJaQd5D4PpE4o9CdnWqxIoGNBkOIweC2SOqXMqHlRmzDqNuB6LsYR4Qfr+msSi
-	mt2wwaxiTsO6swL/ep/w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=EZbetuxMEE/V6QUzMiNk15kUj3iJ2iL0BCU5YjDlIUU=; b=biz/Bz0f1viT+NGcOqtiIc7AyB
+	IqxsoR36kaPOOirHIA1s9k394n34JetAV2J/GDUQlMY23FCwdQQeyH/IeiHxx5Cw0gto3BFMtkAoz
+	AS7OW39jTCAWedXvysXyNQFY+woNlWg/MTAXOObkuVE+iptnDbk/282XuMYeQgcwOy7XsWHtziJDO
+	LFbmgXFzFnK7yPRa+LOn/QfHJ34R3hEqqGblCr7xhRGr2bZ6rRI8mIGaMY8HhdzesODI4/97l86yo
+	ZyZlrBQSiBJ9cM9xXenZ3lcxA00Cw46MsS6ysAYPIpcHQ6PAVimyjNAmXEGSMLOMR2cYMJJ0YM84K
+	qxPdEw9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nkR2n-00BRiY-GM; Fri, 29 Apr 2022 13:52:25 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
- helo=mx0a-001b2d01.pphosted.com)
+	id 1nkSXy-00BmGk-UG; Fri, 29 Apr 2022 15:28:42 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nkR2Z-00BRdC-0j; Fri, 29 Apr 2022 13:52:14 +0000
-Received: from pps.filterd (m0098416.ppops.net [127.0.0.1])
- by mx0b-001b2d01.pphosted.com (8.17.1.5/8.17.1.5) with ESMTP id 23TBDTcs021204;
- Fri, 29 Apr 2022 13:51:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
- h=from : to : cc : subject
- : date : message-id : in-reply-to : references : mime-version :
- content-transfer-encoding; s=pp1;
- bh=DSYmU2KyqXgcAYYRjyeArvgju810FAKBNpHnSvEJAOk=;
- b=VSKE1evyZCC76igMGiQhDdrXgKlUgBp9E4rGzJEMpEl+r+FtKKRfe0GPBelcbfDoI0OA
- pRQpK3XIySZFZUERD0SEKUK0/vB45gjEvQzoPFu4j8SW7xV1PjEbwCmpWf2Xz8p1mFnX
- 5VN3qOC/XfXyoYEdC2S9NAubnSDDwSluJP+FTgGde/6/pnY15+3EcfzeIY+PqXq0RBSp
- fieeTMm7OY5w9Ex+S0DzS95m9wLf3d5YarZBjvL6Eo4T8UhJmzoQJFAGizulSJF0DArR
- KwLnXgutqDPaWsvAYuiCMR24XDxm2ycWIVax7pwi3QMgnfd0T2bWQ7Ablex/adugEKiH jQ== 
-Received: from pps.reinject (localhost [127.0.0.1])
- by mx0b-001b2d01.pphosted.com (PPS) with ESMTPS id 3fr27h15yk-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Fri, 29 Apr 2022 13:51:17 +0000
-Received: from m0098416.ppops.net (m0098416.ppops.net [127.0.0.1])
- by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 23TDm9iZ018377;
- Fri, 29 Apr 2022 13:51:16 GMT
-Received: from ppma05fra.de.ibm.com (6c.4a.5195.ip4.static.sl-reverse.com
- [149.81.74.108])
- by mx0b-001b2d01.pphosted.com (PPS) with ESMTPS id 3fr27h15xf-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Fri, 29 Apr 2022 13:51:16 +0000
-Received: from pps.filterd (ppma05fra.de.ibm.com [127.0.0.1])
- by ppma05fra.de.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 23TDS7M1025989;
- Fri, 29 Apr 2022 13:51:14 GMT
-Received: from b06avi18626390.portsmouth.uk.ibm.com
- (b06avi18626390.portsmouth.uk.ibm.com [9.149.26.192])
- by ppma05fra.de.ibm.com with ESMTP id 3fm938yafv-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Fri, 29 Apr 2022 13:51:13 +0000
-Received: from d06av22.portsmouth.uk.ibm.com (d06av22.portsmouth.uk.ibm.com
- [9.149.105.58])
- by b06avi18626390.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP
- id 23TDc24F51577340
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Fri, 29 Apr 2022 13:38:02 GMT
-Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 418974C044;
- Fri, 29 Apr 2022 13:51:11 +0000 (GMT)
-Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 32F8D4C040;
- Fri, 29 Apr 2022 13:51:10 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.152.85.9])
- by d06av22.portsmouth.uk.ibm.com (Postfix) with ESMTP;
- Fri, 29 Apr 2022 13:51:10 +0000 (GMT)
-From: Niklas Schnelle <schnelle@linux.ibm.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-pci@vger.kernel.org, Arnd Bergmann <arnd@kernel.org>,
- Richard Henderson <rth@twiddle.net>,
- Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
- Matt Turner <mattst88@gmail.com>, Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Yoshinori Sato <ysato@users.sourceforge.jp>,
- Rich Felker <dalias@libc.org>, "David S. Miller" <davem@davemloft.net>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org (maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)),
- linux-alpha@vger.kernel.org (open list:ALPHA PORT),
- linux-arm-kernel@lists.infradead.org (moderated list:ARM PORT),
- linux-ia64@vger.kernel.org (open list:IA64 (Itanium) PLATFORM),
- linux-m68k@lists.linux-m68k.org (open list:M68K ARCHITECTURE),
- linux-mips@vger.kernel.org (open list:MIPS),
- linux-parisc@vger.kernel.org (open list:PARISC ARCHITECTURE),
- linuxppc-dev@lists.ozlabs.org (open list:LINUX FOR POWERPC (32-BIT AND
- 64-BIT)), linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE),
- linux-sh@vger.kernel.org (open list:SUPERH),
- sparclinux@vger.kernel.org (open list:SPARC + UltraSPARC (sparc/sparc64))
-Subject: [RFC v2 01/39] Kconfig: introduce HAS_IOPORT option and select it as
- necessary
-Date: Fri, 29 Apr 2022 15:49:59 +0200
-Message-Id: <20220429135108.2781579-2-schnelle@linux.ibm.com>
-X-Mailer: git-send-email 2.32.0
-In-Reply-To: <20220429135108.2781579-1-schnelle@linux.ibm.com>
-References: <20220429135108.2781579-1-schnelle@linux.ibm.com>
-MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: -P9J6AB2n6AMBUugkA7mMRpNV34BmBS_
-X-Proofpoint-GUID: RcRk9MDBXbun4qDsErZKbZJh7zT5Xep-
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.205,Aquarius:18.0.858,Hydra:6.0.486,FMLib:17.11.64.514
- definitions=2022-04-29_06,2022-04-28_01,2022-02-23_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 mlxscore=0
- clxscore=1011 adultscore=0 priorityscore=1501 mlxlogscore=804
- suspectscore=0 malwarescore=0 spamscore=0 phishscore=0 bulkscore=0
- lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2202240000 definitions=main-2204290078
+ id 1nkSXt-00BmFF-Ms
+ for linux-riscv@lists.infradead.org; Fri, 29 Apr 2022 15:28:41 +0000
+Received: by mail-pg1-x529.google.com with SMTP id bg9so6783234pgb.9
+ for <linux-riscv@lists.infradead.org>; Fri, 29 Apr 2022 08:28:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=e37KpWOvnJl8DV6RpvFm8R8ciIf9e11j1e98qdA+nR0=;
+ b=CQH14jLE8Ms+j8J1oP8clFORtMf0mx0Gh4b+0HDNYIdpNqAe7n8P3wKFp+gPmBt4C2
+ XGh14y7IZWaD/d1rfA5DQcS1OJMA/A89Ahx765rBST+rLzMPQKxuGe47JP9qORF7tHsu
+ 0vLmqZAjh4Z4o4FaPUwFm3n74p6oo5io3GYhFz8FjY1dsOISjYDkrBzh72QbOfO3q3+R
+ tnq81POYf+Q1TKbz/w6ZQ3lVKILKwFfBsLJPMqOrTbYtPEgJ87ITuyvw3V0UMTCBPojD
+ gLqEgErM/FJraX1LagRCx1d20ZNyakv3/QZlO8Z+a1+Gbat/3H6QYtbAtIzAokzNNuL7
+ EHIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=e37KpWOvnJl8DV6RpvFm8R8ciIf9e11j1e98qdA+nR0=;
+ b=106QajanyqP/1xligRM504MjsAHUhjH1MObXsMCCV3k70oeUcjn3+xseaVhNgG6QdC
+ zP06lVfq7qYPnBU5PHyxX0CKKAw64jM58dAP030cS7eBWtDKEOR3VVa50Vua9KJt18YH
+ rb40JwpxLXPDfuWKHNCXHp+45YvbJ9evx9QhpZG0I3R1d2/nlBZaWe4xdDd42+Nx9w8m
+ lqGHmkqtxqvXt/aNejAVDtLCWOHP1mJL9VHpKycQBRlyGp/qiLpq+5qSBboS9UmBtP8v
+ g8rtkNQqiO6i2jfNlCse/kBvsv/mDJ/QjcI6MLFsNSMYU1O/9k9VLfTtKfIUHXc3ahdw
+ tqCA==
+X-Gm-Message-State: AOAM533W64iILETby2WZ9nPgn8HUQUNcT5sGbbLrGIoS3ddxOeAxDjIY
+ DkMqQImkhPtxhGZvfLSeH+A/aQ==
+X-Google-Smtp-Source: ABdhPJzo5Fg9L/6IHNj66qUgf0n1g8y00zwYhwFSYEOwGBZ58KZH+MxD4trY5ygLoSvgdmUYu2btMg==
+X-Received: by 2002:a63:e513:0:b0:3ab:a3fb:f100 with SMTP id
+ r19-20020a63e513000000b003aba3fbf100mr13900099pgh.70.1651246115507; 
+ Fri, 29 Apr 2022 08:28:35 -0700 (PDT)
+Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
+ m1-20020a637d41000000b003c14af5063esm6628648pgn.86.2022.04.29.08.28.34
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 29 Apr 2022 08:28:34 -0700 (PDT)
+Date: Fri, 29 Apr 2022 08:28:34 -0700 (PDT)
+X-Google-Original-Date: Fri, 29 Apr 2022 08:12:57 PDT (-0700)
+Subject: Re: [PATCH] RISC-V-fixes: relocate DTB if it's outside memory region
+In-Reply-To: <mhng-9aafbd90-eb33-4f43-afa3-b9f9338c2a70@palmer-ri-x1c9>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: mick@ics.forth.gr
+Message-ID: <mhng-6c123e84-9530-46f6-a5ec-6b908bb92f95@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220429_065211_210674_C93E4E9B 
-X-CRM114-Status: GOOD (  23.33  )
+X-CRM114-CacheID: sfid-20220429_082837_973970_83F236A4 
+X-CRM114-Status: GOOD (  24.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,246 +83,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We introduce a new HAS_IOPORT Kconfig option to indicate support for
-I/O Port access. In a future patch HAS_IOPORT=n will disable compilation
-of the I/O accessor functions inb()/outb() and friends on architectures
-which can not meaningfully support legacy I/O spaces such as s390 or
-where such support is optional. The "depends on" relations on HAS_IOPORT
-in drivers as well as ifdefs for HAS_IOPORT specific sections will be
-added in subsequent patches on a per subsystem basis.
+On Thu, 28 Apr 2022 14:48:14 PDT (-0700), Palmer Dabbelt wrote:
+> On Mon, 25 Apr 2022 23:11:23 PDT (-0700), mick@ics.forth.gr wrote:
+>> Hello Palmer,
+>>
+>> Any updates on this ?
+>
+> Sorry about that, it's on fixes.
 
-Co-developed-by: Arnd Bergmann <arnd@kernel.org>
-Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
----
- arch/alpha/Kconfig      | 1 +
- arch/arm/Kconfig        | 1 +
- arch/arm64/Kconfig      | 1 +
- arch/ia64/Kconfig       | 1 +
- arch/m68k/Kconfig       | 1 +
- arch/microblaze/Kconfig | 1 +
- arch/mips/Kconfig       | 1 +
- arch/parisc/Kconfig     | 1 +
- arch/powerpc/Kconfig    | 1 +
- arch/riscv/Kconfig      | 1 +
- arch/sh/Kconfig         | 1 +
- arch/sparc/Kconfig      | 1 +
- arch/x86/Kconfig        | 1 +
- drivers/bus/Kconfig     | 2 +-
- lib/Kconfig             | 4 ++++
- lib/Kconfig.kgdb        | 1 +
- 16 files changed, 19 insertions(+), 1 deletion(-)
+Not sure if I just wasn't paying attention yesterday or if I'm grumpier 
+this morning, but that "RISC-V-fixes: " prefix is just a bit too odd -- 
+I know we've got a split between "RISC-V" and "riscv" so maybe it 
+doesn't matter, but even that is kind of ugly.
 
-diff --git a/arch/alpha/Kconfig b/arch/alpha/Kconfig
-index 7d0d26b5b3f5..2b9cf1b0bdb8 100644
---- a/arch/alpha/Kconfig
-+++ b/arch/alpha/Kconfig
-@@ -27,6 +27,7 @@ config ALPHA
- 	select AUDIT_ARCH
- 	select GENERIC_CPU_VULNERABILITIES
- 	select GENERIC_SMP_IDLE_THREAD
-+	select HAS_IOPORT
- 	select HAVE_ARCH_AUDITSYSCALL
- 	select HAVE_MOD_ARCH_SPECIFIC
- 	select MODULES_USE_ELF_RELA
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index 2e8091e2d8a8..603ce00033a5 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -69,6 +69,7 @@ config ARM
- 	select GENERIC_SCHED_CLOCK
- 	select GENERIC_SMP_IDLE_THREAD
- 	select HARDIRQS_SW_RESEND
-+	select HAS_IOPORT
- 	select HAVE_ARCH_AUDITSYSCALL if AEABI && !OABI_COMPAT
- 	select HAVE_ARCH_BITREVERSE if (CPU_32v7M || CPU_32v7) && !CPU_32v6
- 	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL && !CPU_ENDIAN_BE32 && MMU
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 20ea89d9ac2f..234dc89a7654 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -136,6 +136,7 @@ config ARM64
- 	select GENERIC_GETTIMEOFDAY
- 	select GENERIC_VDSO_TIME_NS
- 	select HARDIRQS_SW_RESEND
-+	select HAS_IOPORT
- 	select HAVE_MOVE_PMD
- 	select HAVE_MOVE_PUD
- 	select HAVE_PCI
-diff --git a/arch/ia64/Kconfig b/arch/ia64/Kconfig
-index cb93769a9f2a..0fffe5130a80 100644
---- a/arch/ia64/Kconfig
-+++ b/arch/ia64/Kconfig
-@@ -25,6 +25,7 @@ config IA64
- 	select PCI_DOMAINS if PCI
- 	select PCI_MSI
- 	select PCI_SYSCALL if PCI
-+	select HAS_IOPORT
- 	select HAVE_ASM_MODVERSIONS
- 	select HAVE_UNSTABLE_SCHED_CLOCK
- 	select HAVE_EXIT_THREAD
-diff --git a/arch/m68k/Kconfig b/arch/m68k/Kconfig
-index 936cce42ae9a..54bf0a40c2f0 100644
---- a/arch/m68k/Kconfig
-+++ b/arch/m68k/Kconfig
-@@ -18,6 +18,7 @@ config M68K
- 	select GENERIC_CPU_DEVICES
- 	select GENERIC_IOMAP
- 	select GENERIC_IRQ_SHOW
-+	select HAS_IOPORT if PCI || ISA || ATARI_ROM_ISA
- 	select HAVE_ASM_MODVERSIONS
- 	select HAVE_DEBUG_BUGVERBOSE
- 	select HAVE_EFFICIENT_UNALIGNED_ACCESS if !CPU_HAS_NO_UNALIGNED
-diff --git a/arch/microblaze/Kconfig b/arch/microblaze/Kconfig
-index 8cf429ad1c84..966a6682f1fc 100644
---- a/arch/microblaze/Kconfig
-+++ b/arch/microblaze/Kconfig
-@@ -21,6 +21,7 @@ config MICROBLAZE
- 	select GENERIC_IRQ_SHOW
- 	select GENERIC_PCI_IOMAP
- 	select GENERIC_SCHED_CLOCK
-+	select HAS_IOPORT if PCI
- 	select HAVE_ARCH_HASH
- 	select HAVE_ARCH_KGDB
- 	select HAVE_ARCH_SECCOMP
-diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-index de3b32a507d2..4c55df08d6f1 100644
---- a/arch/mips/Kconfig
-+++ b/arch/mips/Kconfig
-@@ -47,6 +47,7 @@ config MIPS
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_TIME_VSYSCALL
- 	select GUP_GET_PTE_LOW_HIGH if CPU_MIPS32 && PHYS_ADDR_T_64BIT
-+	select HAS_IOPORT
- 	select HAVE_ARCH_COMPILER_H
- 	select HAVE_ARCH_JUMP_LABEL
- 	select HAVE_ARCH_KGDB if MIPS_FP_SUPPORT
-diff --git a/arch/parisc/Kconfig b/arch/parisc/Kconfig
-index 52e550b45692..741c5c64c173 100644
---- a/arch/parisc/Kconfig
-+++ b/arch/parisc/Kconfig
-@@ -46,6 +46,7 @@ config PARISC
- 	select MODULES_USE_ELF_RELA
- 	select CLONE_BACKWARDS
- 	select TTY # Needed for pdc_cons.c
-+	select HAS_IOPORT if PCI || EISA
- 	select HAVE_DEBUG_STACKOVERFLOW
- 	select HAVE_ARCH_AUDITSYSCALL
- 	select HAVE_ARCH_HASH
-diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-index 174edabb74fa..7133cc35b777 100644
---- a/arch/powerpc/Kconfig
-+++ b/arch/powerpc/Kconfig
-@@ -182,6 +182,7 @@ config PPC
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_TIME_VSYSCALL
- 	select GENERIC_VDSO_TIME_NS
-+	select HAS_IOPORT			if PCI
- 	select HAVE_ARCH_AUDITSYSCALL
- 	select HAVE_ARCH_HUGE_VMALLOC		if HAVE_ARCH_HUGE_VMAP
- 	select HAVE_ARCH_HUGE_VMAP		if PPC_RADIX_MMU || PPC_8xx
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 00fd9c548f26..27fc8a450478 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -67,6 +67,7 @@ config RISCV
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_TIME_VSYSCALL if MMU && 64BIT
- 	select GENERIC_VDSO_TIME_NS if HAVE_GENERIC_VDSO
-+	select HAS_IOPORT if MMU
- 	select HAVE_ARCH_AUDITSYSCALL
- 	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL
- 	select HAVE_ARCH_JUMP_LABEL_RELATIVE if !XIP_KERNEL
-diff --git a/arch/sh/Kconfig b/arch/sh/Kconfig
-index 5f220e903e5a..6c1694e82b89 100644
---- a/arch/sh/Kconfig
-+++ b/arch/sh/Kconfig
-@@ -25,6 +25,7 @@ config SUPERH
- 	select GENERIC_SCHED_CLOCK
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GUP_GET_PTE_LOW_HIGH if X2TLB
-+	select HAS_IOPORT if HAS_IOPORT_MAP
- 	select HAVE_ARCH_AUDITSYSCALL
- 	select HAVE_ARCH_KGDB
- 	select HAVE_ARCH_SECCOMP_FILTER
-diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
-index 9200bc04701c..64736476dde8 100644
---- a/arch/sparc/Kconfig
-+++ b/arch/sparc/Kconfig
-@@ -32,6 +32,7 @@ config SPARC
- 	select GENERIC_IRQ_SHOW
- 	select ARCH_WANT_IPC_PARSE_VERSION
- 	select GENERIC_PCI_IOMAP
-+	select HAS_IOPORT
- 	select HAVE_NMI_WATCHDOG if SPARC64
- 	select HAVE_CBPF_JIT if SPARC32
- 	select HAVE_EBPF_JIT if SPARC64
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index b0142e01002e..9ef0438d1b7d 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -155,6 +155,7 @@ config X86
- 	select GUP_GET_PTE_LOW_HIGH		if X86_PAE
- 	select HARDIRQS_SW_RESEND
- 	select HARDLOCKUP_CHECK_TIMESTAMP	if X86_64
-+	select HAS_IOPORT
- 	select HAVE_ACPI_APEI			if ACPI
- 	select HAVE_ACPI_APEI_NMI		if ACPI
- 	select HAVE_ALIGNED_STRUCT_PAGE		if SLUB
-diff --git a/drivers/bus/Kconfig b/drivers/bus/Kconfig
-index 3c68e174a113..a61285100224 100644
---- a/drivers/bus/Kconfig
-+++ b/drivers/bus/Kconfig
-@@ -81,7 +81,7 @@ config MOXTET
- config HISILICON_LPC
- 	bool "Support for ISA I/O space on HiSilicon Hip06/7"
- 	depends on (ARM64 && ARCH_HISI) || (COMPILE_TEST && !ALPHA && !HEXAGON && !PARISC)
--	depends on HAS_IOMEM
-+	depends on HAS_IOPORT
- 	select INDIRECT_PIO if ARM64
- 	help
- 	  Driver to enable I/O access to devices attached to the Low Pin
-diff --git a/lib/Kconfig b/lib/Kconfig
-index 087e06b4cdfd..177fed9cf20a 100644
---- a/lib/Kconfig
-+++ b/lib/Kconfig
-@@ -91,6 +91,7 @@ config ARCH_USE_SYM_ANNOTATIONS
- config INDIRECT_PIO
- 	bool "Access I/O in non-MMIO mode"
- 	depends on ARM64
-+	depends on HAS_IOPORT
- 	help
- 	  On some platforms where no separate I/O space exists, there are I/O
- 	  hosts which can not be accessed in MMIO mode. Using the logical PIO
-@@ -493,6 +494,9 @@ config HAS_IOMEM
- 	depends on !NO_IOMEM
- 	default y
- 
-+config HAS_IOPORT
-+	def_bool ISA
-+
- config HAS_IOPORT_MAP
- 	bool
- 	depends on HAS_IOMEM && !NO_IOPORT_MAP
-diff --git a/lib/Kconfig.kgdb b/lib/Kconfig.kgdb
-index 05dae05b6cc9..c68e4d9dcecb 100644
---- a/lib/Kconfig.kgdb
-+++ b/lib/Kconfig.kgdb
-@@ -121,6 +121,7 @@ config KDB_DEFAULT_ENABLE
- 
- config KDB_KEYBOARD
- 	bool "KGDB_KDB: keyboard as input device"
-+	depends on HAS_IOPORT
- 	depends on VT && KGDB_KDB
- 	default n
- 	help
--- 
-2.32.0
+I re-wrote it, but I'm going to let it round trip through linux-next so 
+I'll send it up next time.
 
+Sorry, I know this happened twice recently but I'll try not to make a 
+habit of it.
+
+>
+>>
+>> Regards,
+>> Nick
+>>
+>> On 3/22/22 15:28, Nick Kossifidis wrote:
+>>> In case the DTB provided by the bootloader/BootROM is before the kernel
+>>> image or outside /memory, we won't be able to access it through the
+>>> linear mapping, and get a segfault on setup_arch(). Currently OpenSBI
+>>> relocates DTB but that's not always the case (e.g. if FW_JUMP_FDT_ADDR
+>>> is not specified), and it's also not the most portable approach since
+>>> the default FW_JUMP_FDT_ADDR of the generic platform relocates the DTB
+>>> at a specific offset that may not be available. To avoid this situation
+>>> copy DTB so that it's visible through the linear mapping.
+>>>
+>>> Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
+>>> ---
+>>>   arch/riscv/mm/init.c | 21 +++++++++++++++++++--
+>>>   1 file changed, 19 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+>>> index 0d588032d..697a9aed4 100644
+>>> --- a/arch/riscv/mm/init.c
+>>> +++ b/arch/riscv/mm/init.c
+>>> @@ -206,8 +206,25 @@ static void __init setup_bootmem(void)
+>>>   	 * early_init_fdt_reserve_self() since __pa() does
+>>>   	 * not work for DTB pointers that are fixmap addresses
+>>>   	 */
+>>> -	if (!IS_ENABLED(CONFIG_BUILTIN_DTB))
+>>> -		memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
+>>> +	if (!IS_ENABLED(CONFIG_BUILTIN_DTB)) {
+>>> +		/*
+>>> +		 * In case the DTB is not located in a memory region we won't
+>>> +		 * be able to locate it later on via the linear mapping and
+>>> +		 * get a segfault when accessing it via __va(dtb_early_pa).
+>>> +		 * To avoid this situation copy DTB to a memory region.
+>>> +		 * Note that memblock_phys_alloc will also reserve DTB region.
+>>> +		 */
+>>> +		if (!memblock_is_memory(dtb_early_pa)) {
+>>> +			size_t fdt_size = fdt_totalsize(dtb_early_va);
+>>> +			phys_addr_t new_dtb_early_pa = memblock_phys_alloc(fdt_size, PAGE_SIZE);
+>>> +			void *new_dtb_early_va = early_memremap(new_dtb_early_pa, fdt_size);
+>>> +
+>>> +			memcpy(new_dtb_early_va, dtb_early_va, fdt_size);
+>>> +			early_memunmap(new_dtb_early_va, fdt_size);
+>>> +			_dtb_early_pa = new_dtb_early_pa;
+>>> +		} else
+>>> +			memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
+>>> +	}
+>>>
+>>>   	early_init_fdt_scan_reserved_mem();
+>>>   	dma_contiguous_reserve(dma32_phys_limit);
 
 _______________________________________________
 linux-riscv mailing list
