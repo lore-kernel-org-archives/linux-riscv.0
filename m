@@ -4,163 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3708FC433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Apr 2022 10:44:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B1E9C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Apr 2022 13:51:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i5LLVwMe/yMkMXzXmzhDJx0pvlhQ+tL6nlMo5Nj0X64=; b=kWJGWAgZN7Rva0
-	wyTzaJZ3EDStONWN411mTQd+Qab8lv8js92D7Asa7GG9ZxxphmKuwmYY2DH1px/ICWnfBTtFbAy62
-	oHooYDeHjggpwq2VgM35sGkq/cvJVZO4pVKu0kxx+Ou8MMA2jjQ1TbLqzyZB2g5qpPzlvxi/c+9yC
-	jqLMA93G+ofQDikgYVcoXwH0DrzMaJOPSBy/KLWCZxX0clN6yuDvqdvwXIWV0q2SizJDgwfZEBtzY
-	XUXLxWYhwGNT78D9AcOroy0Nm75riQ/yyPZIFPY/1MWmmkwfSCYB92fE8GhDl2mnjpVENkSA48H6M
-	jqugr1tTkVFufKwpIxAA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0r1xJhdUNWZclW1w9SmwynfTD/I1WUqqw4XhLTf2uNY=; b=abC5hjGcT8N9F9
+	xDN3492hPW2ZWLKDHdmA9vTfBGShS/tbZRZ77Z3Czsy+M9RZJoeKuCjsUI0eyN1bYcKMHMQyhbGaj
+	mK0LdxEMSHcs8ASh7mGE4PmE/Mg5dwnjfxFf14ntrznwrAfJNT8oaCh3w2MLSxYd9qxU5IIw85VUK
+	MczjsqFbN/xXEUNmtfqP2wlDcycQwRfriG2d5//T4U25AVXzj3s8WQtZMQwQHPxuoRVLYE0o98W8z
+	HIGnumJvz+JA3njkqNpTF4FRuhRpJRAWSVbYmAy5Qg6L4a3JIE8Tt51KIc25qeMXihimt8DJo9nc/
+	eHw2IznYXuTi6XsnJpUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nkO6V-00AsZm-9F; Fri, 29 Apr 2022 10:44:03 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1nkR1u-00BRMa-1X; Fri, 29 Apr 2022 13:51:30 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
+ helo=mx0a-001b2d01.pphosted.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nkO6Q-00AsXR-0i
- for linux-riscv@lists.infradead.org; Fri, 29 Apr 2022 10:44:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1651229037; x=1682765037;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-id:content-transfer-encoding: mime-version;
- bh=9r2f8XwLAqgr6J7v5jactrjsIPbFf0owJpCVw26mgw8=;
- b=WEax5V+Bw7qEiN7DtWEkejvj3k9mwLW0pHyxKo1vkYPbkcuUwYUOOD0C
- V7jI51a74Sdq3lBOMZsJ3iTs0F0rZh7awMSUl00Fpiyn4KWwuj7ZhiHtM
- G0qjWuPGt9BKzN60yepmq7Q7OEE5IQYEf9ot7KnKs/ZmB9CdATRYSXArw
- BN8hjjYGfUbp/GFDPWSzQO29bqJOWrEmTRm4watRWTQ07/sq6ZqqnlViU
- 8VbbJkNnBZTfpsrNOqHTChzFkCXkIFRYSQ15b+6ei6GYI938wO0hUD/QT
- Sr5oJlzqo7G7TOJFeotUGJP+tISINF6YXTkOJyDGDGRDFj0hPQxnM1VN9 w==;
-X-IronPort-AV: E=Sophos;i="5.91,298,1647327600"; d="scan'208";a="94031995"
-Received: from smtpout.microchip.com (HELO email.microchip.com)
- ([198.175.253.82])
- by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 29 Apr 2022 03:43:56 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Fri, 29 Apr 2022 03:43:57 -0700
-Received: from NAM10-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17 via Frontend Transport; Fri, 29 Apr 2022 03:43:56 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=mqtv4flsOBBMi9bnpNvpoKAMoaTvMR9bdTn0d1PgtvLeXWrsjB8dyOEpV0u1GOkf1VcuJuG1fJdgjAueuJVZ/NnuOMOe4Y3OQbBw0df/0tEbjFL0QeDgQj61E65YGB8jZdLmoUF9wKy0peJg5BH2XrkIcsYy9/lLWZQsoA5dcuB9H9dIiGZ7tLPAVAY3hpZlu07uXYnbJ63qlMDNHg3EnKya2ZL+TarX9ZLUAJ+Y5OJD9tPlBWdPmnP4nmW0ZFVz3bh6fOo3nNc/xLA2g/kIXRQrVQVkkbhEr34JmAYrPfGuf4uF3OJkMotxzWVdleJt+k/VgnWW6SQf6QsYnlMUsw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9r2f8XwLAqgr6J7v5jactrjsIPbFf0owJpCVw26mgw8=;
- b=GSZwDUjVruHjdtu8j9i18R0mUBHHIVEdLjzrvzIIAZG/CREp7Z2G2DpNVXD4p8+VvH7ubg4/dhVLE1Gzj90Vp38TPG9McDsa/oKuSuGO8BDB1+bEROnp9C0nNgwFhy73rATGdPdLFC/xNvjtmAn8CRMtd4e4gr4rZPq1UmWJqzSoFp1pl6H9O2/ajARp8ntzgxs9etVE5Ce9MYTv4TDR3nLZFhoHzTfzt0rebDaLCMLUPS5CA2DVZKnINqUWq82zl5hwdsccI3VqbpKa+FS1zqpW7PKfSNvEO/+ZEjxsfuznHeO6FBi23tvaBTU6MwsP430e18a6o/LAg+z0BnXU6Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9r2f8XwLAqgr6J7v5jactrjsIPbFf0owJpCVw26mgw8=;
- b=lrJnBgU9/UePSK6KAYvkykeys+QtOgFdP8PjVeiaUajJ8ltPHF7ICrHv4aFTCWYqwMlE9Uh9+NXDxw9Mo2n38QhyudMgadeo7Bkhb/0/zrozdMxiS+AuSfhgiLae0kZ0wc2CDTpJP02QrTd42s12Elj66yxRDbmlrKv2omo5sI0=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:95::7)
- by LV2PR11MB5975.namprd11.prod.outlook.com (2603:10b6:408:17d::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5186.21; Fri, 29 Apr
- 2022 10:43:51 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::fcd4:8f8a:f0e9:8b18]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::fcd4:8f8a:f0e9:8b18%9]) with mapi id 15.20.5206.013; Fri, 29 Apr 2022
- 10:43:51 +0000
-From: <Conor.Dooley@microchip.com>
-To: <palmer@dabbelt.com>, <robh+dt@kernel.org>, <krzk+dt@kernel.org>
-CC: <paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>,
- <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <palmer@rivosinc.com>
-Subject: Re: [PATCH 1/2] riscv: dts: microchip: remove icicle memory clocks
-Thread-Topic: [PATCH 1/2] riscv: dts: microchip: remove icicle memory clocks
-Thread-Index: AQHYWJG8GvSm7kgmekeJAuwxkHZm5K0GusuA
-Date: Fri, 29 Apr 2022 10:43:50 +0000
-Message-ID: <78d063d7-a75f-3a36-5bd9-11f610a44ee2@microchip.com>
-References: <20220425104521.132538-1-conor.dooley@microchip.com>
-In-Reply-To: <20220425104521.132538-1-conor.dooley@microchip.com>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.1
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: af68c131-25df-46ff-53f1-08da29cd2617
-x-ms-traffictypediagnostic: LV2PR11MB5975:EE_
-x-microsoft-antispam-prvs: <LV2PR11MB5975E861A026811709770DB198FC9@LV2PR11MB5975.namprd11.prod.outlook.com>
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: Kj9c+CbMm/of3E6c/ZIL6fwoi7l9/Sp8EW08ipc8DnQiNdyaSUGafdruxdnsX0imH6fZngb+aKutO/sSDgqrzlVhMNxoD0d0Gt5jZotx7jFozZmE67pcWskutKcIwSRlv77Rr+rYi686db2k3iT5sDTeJa/DNWQMgkZXcX9r7LZodvuV/4wzvoFG38hSsoXDTsWFCu9RcDm9kr2pvMITEOuXwyn7eWp/Ja4IQDr7epZiJjkzU5qZ2SOmVRdgKmGjqAgzNv9vDKt+Wqiy1Qkx9LMErGfVIZBu/+D9URr6m0cHb0fDggY2mWfqQj0g7SQ2cq/ARyJBOcDKdpao5IDYpS02pvWQHdSuAPMhxhyG59EIhFfzqjC35N0iSewAqzauneeDzz6M43L0Zu9MJTM2Ekd887ZNivnByuNlth/D7OyJC7XaODJj9wqOWoHaocx9gCR6XVsZ+8AW3BnNISRU/MF6WiwT/T2rUU5wXM2qF/29wfj/WW/j4vAouytsTePPQJvSLEo4yBN3+pVIgBE/c/gAcvMzgWOqQHqCaI/tGu3ulat6EayMfhzMo21Q77BmmB1m/RNgz8YNdsTsCyopi0XafpfKiw+InWJ4MwtpiJ6jwbUUZdV0Bao9Xq9EQVBNZ8x+OrhU3BRVGGBRVL2QyCYNCIJw66GDs+u8UFrubMtEUram/pIZ4stVaLICj6x32l++18CFo6jJ5bKusF59FOdIJEJp2Iw//p0zEQlTblQ5RGRjL5O7AB6N9aUUcSZKa91dUtsJS5WXuEskmzY8ibt2dPRkUwLeZIbLsKcvStwgL38BgQOwHWFmZiko+GgYMspIMgzh6H8pNy4u2utf0/acsoou4tQ/NC1kklVRxBc=
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:CO1PR11MB5154.namprd11.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(13230001)(366004)(53546011)(186003)(316002)(2616005)(38100700002)(6512007)(26005)(31696002)(122000001)(86362001)(38070700005)(5660300002)(508600001)(6486002)(966005)(36756003)(71200400001)(8936002)(76116006)(64756008)(54906003)(110136005)(8676002)(66446008)(66556008)(66476007)(2906002)(4326008)(66946007)(31686004)(91956017)(83380400001)(6506007)(45980500001)(43740500002);
- DIR:OUT; SFP:1101; 
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?ZDd6UDZSMmhtanpqSjV3aXozQVVDVGU4bVM2d0dHNENSdE1SMVlqdXFWZjRF?=
- =?utf-8?B?RzMyOHZNcElsVk9MRS93cm9CVWlZZzdMWklkUGRFQVRqLzNVN2M5a2F4eG9n?=
- =?utf-8?B?ZGV6czFnTnBZVkdiVlVVL3UzWno5blBuazFzaHk0YjNrYUZLTzI5UEtiS1Jr?=
- =?utf-8?B?a0NTZncvT0J3NnZyRTVUMHZ2Qmp3N3BmNlBEd2FIOXAxWkFQNFgxWlIwaS9S?=
- =?utf-8?B?NVFnbldFdUVDYWh6Z2VVa2ZhWUIrRVFiVlU1WHhGTzFPeHVoWlNYbFVNcm92?=
- =?utf-8?B?cVNRNUo2d0FOUmZodVdYa2FlMGg4WDI1Rzl6bVQwWUU0RVZScjhIZkVxajla?=
- =?utf-8?B?TXQvZ1FIdjk4ZHpscjVUT0RxV2xsWnJsZTFtd2FiMkZ3b2ZQYlFRQmtTODZt?=
- =?utf-8?B?dzg2R2EvVk1OSG1KTEp0UjExVWxVdjdxejEzWWNrdC9mclB3ejJJNWgzeklG?=
- =?utf-8?B?TGtZeE0xRGtFWlhTOW43ODd1enpEcHR5Nm1JWGdFTUY4RE12em1IeVhNb0Y0?=
- =?utf-8?B?QWpwZUNkYnZmSWNDOXJNb0Fsa1ZQTkhnZ1d3cEVTT1RsODFoZmtYVzJBSm4r?=
- =?utf-8?B?a1dmbkI1aGRGWGtybGdPSjBEUkVleGNkVUZ4c2p6Qlprb2FvTm1Rb2VFcXdr?=
- =?utf-8?B?c1hRUnU5VW0zaU5TT05BaUJPVTVxZFlub1VXQ0VyZ1J5Nk5NR21aKzRaRXRr?=
- =?utf-8?B?N25yTTVNL3ZKZTVod1lSSk4wN0NJeXpDdXN1QUF6ckNHRmtua3N4VlNyb3NJ?=
- =?utf-8?B?enN6dnlaa3Fpc0Z4YmpXQkIxVk5ja2hXVTZLWTNQTXlGcHdKQm8vZlNYTGlh?=
- =?utf-8?B?NVBFTm5sRG0zT3U0QjJ3U3NiQ1dtVnppZDN0RzBZNzViMjhBZWwyb0ZGQ1lu?=
- =?utf-8?B?cGptcGo5SnNaWlVCeXZlaUpIdkNKWkRxaWhjUXp2cGw3cE1vRDdnM1ZHbW5S?=
- =?utf-8?B?eFZTNzZSQVI3UDV2OS90TnB6NklXdFJtbFo4TnJ2bWhDWFZZbFluVUxlTUk5?=
- =?utf-8?B?Qkd6aGhpVzQ0NnlwRTFkN0d3eGNML3FTbU5DUmhjUFpYendIS3hNVkRGR2l3?=
- =?utf-8?B?VXdyaXR2WllyelYzMTNKRGorZ1h1U28vQVVqVUVuVkRteCtVbCtyR0xUeTlz?=
- =?utf-8?B?aWNLcUQwUnFtWmNDRnprUUxxMFB0L1c2eVVrdWozZSt0b0svbFpqMjZsbHJl?=
- =?utf-8?B?Ty9iRjNGNEVSaFlWRDduUHlhVGZGN2NSM1B3Rmxja25qRzFwcUNERmUvYjRn?=
- =?utf-8?B?V3B2Ukg1QlkzTDgrb0ZDWmVGTEtyUy9mRFlaWkdYcG92b3RCTEFwbDJvNzUx?=
- =?utf-8?B?Q2FZQ09DS25ZekVNWUN3alpSbWUrOTAyMkN0b3hDVEZ1anhUNzVMaUZZYlpk?=
- =?utf-8?B?S1RMdEpncVk5YXp6YnF3N1dtRXZaaFNaNUxLcGNLT3lWVDl1aEZldWtGYlBz?=
- =?utf-8?B?WWRiQWtPOGo2bGdvT2tUb0l4QWZtVVJYRlB1M0FxTTZCWFVlV3FXZXBBVy9t?=
- =?utf-8?B?NHczMmwzd3ZsQlNWa2dndTNRalZUQXdEMnNLZmdGbUNSRmp2L0tWSHM5RHov?=
- =?utf-8?B?dVFaMVdBQTBxTVVEUzdJQ2pJMy9GdFk2VnNVN1pyWVgvbzU2QjdTRkxSUG02?=
- =?utf-8?B?QTM4TXJ2b3ZnajZSSTRXZzB6ZVFjQzIrYU84dVRZcVJDUnhSTURkQ3UySGg2?=
- =?utf-8?B?dUU5YnFnZkRXaXlnVWRhbWdtWDNYSnNWS0pLMTBtQTh4YXdSa1V2NmE1cFE4?=
- =?utf-8?B?Z202dnc5T21pQUdzb2ZDT3AydFd1V05Ib2dsQVhraVBCR3ROTXpHck5GSzU0?=
- =?utf-8?B?QjF1c012bnVLdEdVMWgxU2VncUJYS0tJSXJzWkpxYjBlcHB4MUl0WmhlRmNr?=
- =?utf-8?B?WURtK2dPS2V3MmNRUkJ5azMxcm9qcWh0cHpLREZtWlhQaXJVMkk4ODNZNEVJ?=
- =?utf-8?B?czVIaFFmRHZNSk5UUk9pSEdYWTdBLzJETG51SWgxNWlPOHFmK0N4ZFRPSml5?=
- =?utf-8?B?QUVIdUxrMERZaEhPWWliMjVsdTlKNFBpbUNVWTJDUmE1KzgxWVFkamZTMEpB?=
- =?utf-8?B?eE9jVUxTdWp1ZzJENHMzQlpvMmNRUTgwUm9waTJXbmNKc003bURoT2JJWkFw?=
- =?utf-8?B?aklRUlRTWURxNjNwQll6Z21reEh2b3NYbHdCYk9xZXFTUmZmK21mZ3A2SkNt?=
- =?utf-8?B?ZWx2b2lLSmRrQldsNVBlTGZjRXBtMmhFY25oZ09aeDRzQWE0WkJBRDRYci8v?=
- =?utf-8?B?RXZrdVhJVU9ORmhaUk5rK0J0TzQ0MjR2UWozYUpvejZSL1poRUlMdk83cFZT?=
- =?utf-8?B?VTlJV0hCUXBMVGxmRU5tZXNJYXJMNFgwNzF0Q0I1cFJvNXhFTmw0dz09?=
-Content-ID: <953194B428B9884EAAAD7635636E903C@namprd11.prod.outlook.com>
+ id 1nkR1q-00BRKq-1M
+ for linux-riscv@lists.infradead.org; Fri, 29 Apr 2022 13:51:28 +0000
+Received: from pps.filterd (m0098414.ppops.net [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com (8.17.1.5/8.17.1.5) with ESMTP id 23TDE3dH026919;
+ Fri, 29 Apr 2022 13:51:14 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
+ h=from : to : cc : subject
+ : date : message-id : content-transfer-encoding : mime-version; s=pp1;
+ bh=xH1H+dZpcnkoXjkucpaq6JJ/BxwCu2uILw7KNDy7aWQ=;
+ b=fpHIhE2wzCp/GSgwGsPiSJYIr2PtveG5Iz59hrxWkSf8C2XadyMUH6iCl2BIkscBsviH
+ bMs0kjoTouaEfvPpLBtn/02HDov4kpHi91QLo5zxNYdxZixe0/OTMgryMIWDQjawPbVb
+ 5a429a/xVpTjRciOyQ0UtFYxdJibkBbFHqEwMwH1xWXDHPdnOjJAN/h7CmSevCuypgQe
+ Jh4SnoKvS6VBQHbE7N+m1J2VM+b1lYcxnkvzwxEuLDD5X7N7MHWCQdCTnozg5GWY62G/
+ Aq5tCCd4krFcIBBg23QFx0d3l3CRkv97Y1SzqYAmmDp8vXQcQG0lO9O3wGbEpWVIHG27 VQ== 
+Received: from pps.reinject (localhost [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com (PPS) with ESMTPS id 3fqtvxmna3-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Fri, 29 Apr 2022 13:51:14 +0000
+Received: from m0098414.ppops.net (m0098414.ppops.net [127.0.0.1])
+ by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 23TDgvAe001380;
+ Fri, 29 Apr 2022 13:51:14 GMT
+Received: from ppma03ams.nl.ibm.com (62.31.33a9.ip4.static.sl-reverse.com
+ [169.51.49.98])
+ by mx0b-001b2d01.pphosted.com (PPS) with ESMTPS id 3fqtvxmn91-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Fri, 29 Apr 2022 13:51:13 +0000
+Received: from pps.filterd (ppma03ams.nl.ibm.com [127.0.0.1])
+ by ppma03ams.nl.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 23TDQlIW021539;
+ Fri, 29 Apr 2022 13:51:11 GMT
+Received: from b06cxnps4076.portsmouth.uk.ibm.com
+ (d06relay13.portsmouth.uk.ibm.com [9.149.109.198])
+ by ppma03ams.nl.ibm.com with ESMTP id 3fm93917qm-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Fri, 29 Apr 2022 13:51:11 +0000
+Received: from d06av22.portsmouth.uk.ibm.com (d06av22.portsmouth.uk.ibm.com
+ [9.149.105.58])
+ by b06cxnps4076.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ 23TDp9Lj46596356
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Fri, 29 Apr 2022 13:51:09 GMT
+Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 535344C040;
+ Fri, 29 Apr 2022 13:51:09 +0000 (GMT)
+Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id D8ADA4C04E;
+ Fri, 29 Apr 2022 13:51:08 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.152.85.9])
+ by d06av22.portsmouth.uk.ibm.com (Postfix) with ESMTP;
+ Fri, 29 Apr 2022 13:51:08 +0000 (GMT)
+From: Niklas Schnelle <schnelle@linux.ibm.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-pci@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Alan Stern <stern@rowland.harvard.edu>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE)
+Subject: [RFC v2 00/39] Kconfig: Introduce HAS_IOPORT config option
+Date: Fri, 29 Apr 2022 15:49:58 +0200
+Message-Id: <20220429135108.2781579-1-schnelle@linux.ibm.com>
+X-Mailer: git-send-email 2.32.0
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: cdpDh2WxnvzULvYFTeuMjjLEezvDLJdH
+X-Proofpoint-GUID: BkVAUnkRbGdJvgwI2KccZfGC2t9XHEzz
+X-Proofpoint-UnRewURL: 0 URL was un-rewritten
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: af68c131-25df-46ff-53f1-08da29cd2617
-X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Apr 2022 10:43:50.9808 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: cW+cIYXzHUkndNkB4eWLv7iKeGZ6mz0pylCGuK7uLHnX6Ibd+Z+/mq8DB0ueDW3mFn9n/aqMbq1nYWpq8i2ZvN/cOtssJeNml96nRYW+Tng=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR11MB5975
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.205,Aquarius:18.0.858,Hydra:6.0.486,FMLib:17.11.64.514
+ definitions=2022-04-29_06,2022-04-28_01,2022-02-23_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0
+ lowpriorityscore=0 priorityscore=1501 spamscore=0 suspectscore=0
+ clxscore=1011 mlxscore=0 impostorscore=0 mlxlogscore=999 adultscore=0
+ phishscore=0 bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2202240000 definitions=main-2204290078
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220429_034358_494251_EB0C247D 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20220429_065126_231148_09A8F662 
+X-CRM114-Status: GOOD (  29.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,48 +122,208 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey Palmer,
+Hello Kernel Hackers,
 
-Please consider this superseded by today's patchset:
-https://lore.kernel.org/linux-riscv/20220429104040.197161-1-conor.dooley@microchip.com/T/#t
+Some platforms such as s390 do not support PCI I/O spaces. On such platforms
+I/O space accessors like inb()/outb() are stubs that can never actually work.
+The way these stubs are implemented in asm-generic/io.h leads to compiler
+warnings because any use will cause a NULL pointer access. In a previous patch
+we tried handling this with a run-time warning on access. This approach however
+was rejected by Linus[0] with the argument that this really should be
+a compile-time check and, though a much more invasive change, we believe that
+is indeed the right approach.
+
+This patch series aims to do exactly that by introducing a HAS_IOPORT config
+option akin to the existing HAS_IOMEM. When this is unset inb()/outb() and
+friends may not be defined.
+
+This series builts heavily on an original patch for demonstating the concept by
+Arnd Bergmann[1] and is a stripped down version of a previous RFC[2]. The most
+important change being that we dropped the LEGACY_PCI config option in favor of
+using HAS_IOPORT regardless of whether the device is a legacy PCI device.
+As this is a significant change to the overall series I did not carry over
+previous R-bs.
+
+This version is based on v5.18-rc4 and is also available on my kernel.org tree
+in the has_ioport branch with the PGP signed tag has_ioport_rfc_v2:
+
+https://git.kernel.org/pub/scm/linux/kernel/git/niks/linux.git
 
 Thanks,
-Conor.
+Niklas Schnelle
 
-On 25/04/2022 11:45, Conor Dooley wrote:
-> The clock properties in the icicle kit's memory entries cause dtbs_check
-> errors:
-> arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dtb: /: memory@80000000: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
-> 
-> Get rid of the clocks to avoid the errors.
-> 
-> Reported-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Fixes: 0fa6107eca41 ("RISC-V: Initial DTS for Microchip ICICLE board")
-> Fixes: 5b28df37d311 ("riscv: dts: microchip: update peripherals in icicle kit device tree")
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->   arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts | 2 --
->   1 file changed, 2 deletions(-)
-> 
-> diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
-> index cd2fe80fa81a..ffe683d3f528 100644
-> --- a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
-> +++ b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
-> @@ -32,14 +32,12 @@ cpus {
->   	ddrc_cache_lo: memory@80000000 {
->   		device_type = "memory";
->   		reg = <0x0 0x80000000 0x0 0x2e000000>;
-> -		clocks = <&clkcfg CLK_DDRC>;
->   		status = "okay";
->   	};
->   
->   	ddrc_cache_hi: memory@1000000000 {
->   		device_type = "memory";
->   		reg = <0x10 0x0 0x0 0x40000000>;
-> -		clocks = <&clkcfg CLK_DDRC>;
->   		status = "okay";
->   	};
->   };
+Changes from RFC v1:
+- Completely dropped the LEGACY_PCI option and replaced its dependencies with
+  HAS_IOPORT as appropriate
+- In the usb subsystem patch I incorporated the feedback from v1 by Alan Stern:
+  - Used a local macro to nop in*()/out*() in the helpers
+  - Removed an unnecessary further restriction on CONFIG_USB_UHCI_HCD
+- Added a few more subsystems including wireless, ptp, and, mISDN that I had
+  previously missed due to a blanket !S390.
+- Removed blanket !S390 dependencies where they are added due to the I/O port
+  problem
+- In the sound system SND_OPL3_LIB needed to use "depends on" instead of
+  "select" because of its added HAS_IOPORT dependency
+- In the drm subsystem the bochs driver gets #ifdefs instead of a blanket
+  dependency because its MMIO capable device variant should work without
+  HAS_IOPORT.
+
+[0] https://lore.kernel.org/lkml/CAHk-=wg80je=K7madF4e7WrRNp37e3qh6y10Svhdc7O8SZ_-8g@mail.gmail.com/
+[1] https://lore.kernel.org/lkml/CAK8P3a0MNbx-iuzW_-=0ab6-TTZzwV-PT_6gAC1Gp5PgYyHcrA@mail.gmail.com/
+[2] https://yhbt.net/lore/all/20211227164317.4146918-1-schnelle@linux.ibm.com/
+
+Niklas Schnelle (39):
+  Kconfig: introduce HAS_IOPORT option and select it as necessary
+  ACPI: add dependency on HAS_IOPORT
+  ata: add HAS_IOPORT dependencies
+  char: impi, tpm: depend on HAS_IOPORT
+  comedi: add HAS_IOPORT dependencies
+  counter: add HAS_IOPORT dependencies
+  /dev/port: don't compile file operations without CONFIG_DEVPORT
+  drm: handle HAS_IOPORT dependencies
+  firmware: dmi-sysfs: handle HAS_IOPORT=n
+  gpio: add HAS_IOPORT dependencies
+  hwmon: add HAS_IOPORT dependencies
+  i2c: add HAS_IOPORT dependencies
+  iio: adc: Kconfig: add HAS_IOPORT dependencies
+  Input: add HAS_IOPORT dependencies
+  Input: gameport: add ISA and HAS_IOPORT dependencies
+  leds: add HAS_IOPORT dependencies
+  media: add HAS_IOPORT dependencies
+  misc: add HAS_IOPORT dependencies
+  mISDN: add HAS_IOPORT dependencies
+  mpt fusion: add HAS_IOPORT dependencies
+  net: add HAS_IOPORT dependencies
+  parport: PC style parport depends on HAS_IOPORT
+  PCI: make quirk using inw() depend on HAS_IOPORT
+  PCI/sysfs: make I/O resource depend on HAS_IOPORT
+  pcmcia: add HAS_IOPORT dependencies
+  platform: add HAS_IOPORT dependencies
+  pnp: add HAS_IOPORT dependencies
+  power: add HAS_IOPORT dependencies
+  rtc: add HAS_IOPORT dependencies
+  scsi: add HAS_IOPORT dependencies
+  sound: add HAS_IOPORT dependencies
+  speakup: add HAS_IOPORT dependency for SPEAKUP_SERIALIO
+  staging: add HAS_IOPORT dependencies
+  tty: serial: add HAS_IOPORT dependencies
+  usb: handle HAS_IOPORT dependencies
+  video: handle HAS_IOPORT dependencies
+  watchdog: add HAS_IOPORT dependencies
+  wireless: add HAS_IOPORT dependencies
+  asm-generic/io.h: drop inb() etc for HAS_IOPORT=n
+
+ arch/alpha/Kconfig                           |   1 +
+ arch/arm/Kconfig                             |   1 +
+ arch/arm64/Kconfig                           |   1 +
+ arch/ia64/Kconfig                            |   1 +
+ arch/m68k/Kconfig                            |   1 +
+ arch/microblaze/Kconfig                      |   1 +
+ arch/mips/Kconfig                            |   1 +
+ arch/parisc/Kconfig                          |   1 +
+ arch/powerpc/Kconfig                         |   1 +
+ arch/riscv/Kconfig                           |   1 +
+ arch/sh/Kconfig                              |   1 +
+ arch/sparc/Kconfig                           |   1 +
+ arch/x86/Kconfig                             |   1 +
+ drivers/accessibility/speakup/Kconfig        |   1 +
+ drivers/acpi/Kconfig                         |   1 +
+ drivers/ata/Kconfig                          |   1 +
+ drivers/bus/Kconfig                          |   2 +-
+ drivers/char/Kconfig                         |   3 +-
+ drivers/char/ipmi/Makefile                   |  11 +-
+ drivers/char/ipmi/ipmi_si_intf.c             |   3 +-
+ drivers/char/ipmi/ipmi_si_pci.c              |   3 +
+ drivers/char/mem.c                           |   6 +-
+ drivers/char/tpm/Kconfig                     |   1 +
+ drivers/char/tpm/tpm_infineon.c              |  14 +-
+ drivers/char/tpm/tpm_tis_core.c              |  19 ++-
+ drivers/comedi/Kconfig                       |  33 ++++-
+ drivers/counter/Kconfig                      |   1 +
+ drivers/firmware/dmi-sysfs.c                 |   4 +
+ drivers/gpio/Kconfig                         |   2 +-
+ drivers/gpu/drm/qxl/Kconfig                  |   1 +
+ drivers/gpu/drm/tiny/bochs.c                 |  19 +++
+ drivers/gpu/drm/tiny/cirrus.c                |   2 +
+ drivers/hwmon/Kconfig                        |  21 ++-
+ drivers/i2c/busses/Kconfig                   |  31 +++--
+ drivers/iio/adc/Kconfig                      |   2 +-
+ drivers/input/gameport/Kconfig               |   4 +-
+ drivers/input/serio/Kconfig                  |   2 +
+ drivers/input/touchscreen/Kconfig            |   1 +
+ drivers/isdn/Kconfig                         |   1 -
+ drivers/isdn/hardware/mISDN/Kconfig          |  12 +-
+ drivers/leds/Kconfig                         |   2 +-
+ drivers/media/pci/dm1105/Kconfig             |   2 +-
+ drivers/media/radio/Kconfig                  |  14 +-
+ drivers/media/rc/Kconfig                     |   6 +
+ drivers/message/fusion/Kconfig               |   2 +-
+ drivers/misc/altera-stapl/Makefile           |   3 +-
+ drivers/misc/altera-stapl/altera.c           |   6 +-
+ drivers/net/Kconfig                          |   2 +-
+ drivers/net/arcnet/Kconfig                   |   2 +-
+ drivers/net/can/cc770/Kconfig                |   1 +
+ drivers/net/can/sja1000/Kconfig              |   1 +
+ drivers/net/ethernet/8390/Kconfig            |   2 +-
+ drivers/net/ethernet/amd/Kconfig             |   2 +-
+ drivers/net/ethernet/intel/Kconfig           |   2 +-
+ drivers/net/ethernet/sis/Kconfig             |   4 +-
+ drivers/net/ethernet/ti/Kconfig              |   2 +-
+ drivers/net/ethernet/via/Kconfig             |   1 +
+ drivers/net/fddi/Kconfig                     |   2 +-
+ drivers/net/hamradio/Kconfig                 |   6 +-
+ drivers/net/wan/Kconfig                      |   2 +-
+ drivers/net/wireless/atmel/Kconfig           |   2 +-
+ drivers/net/wireless/intersil/hostap/Kconfig |   2 +-
+ drivers/parport/Kconfig                      |   4 +-
+ drivers/pci/pci-sysfs.c                      |  16 +++
+ drivers/pci/quirks.c                         |   2 +
+ drivers/pcmcia/Kconfig                       |   2 +-
+ drivers/platform/chrome/Kconfig              |   1 +
+ drivers/platform/chrome/wilco_ec/Kconfig     |   1 +
+ drivers/pnp/isapnp/Kconfig                   |   2 +-
+ drivers/power/reset/Kconfig                  |   1 +
+ drivers/rtc/Kconfig                          |   4 +-
+ drivers/scsi/Kconfig                         |  19 +--
+ drivers/scsi/aic7xxx/Kconfig.aic79xx         |   2 +-
+ drivers/scsi/aic7xxx/Kconfig.aic7xxx         |   2 +-
+ drivers/scsi/aic94xx/Kconfig                 |   2 +-
+ drivers/scsi/megaraid/Kconfig.megaraid       |   6 +-
+ drivers/scsi/mvsas/Kconfig                   |   2 +-
+ drivers/scsi/qla2xxx/Kconfig                 |   2 +-
+ drivers/staging/sm750fb/Kconfig              |   2 +-
+ drivers/staging/vt6655/Kconfig               |   2 +-
+ drivers/tty/Kconfig                          |   2 +-
+ drivers/tty/serial/8250/Kconfig              |   2 +-
+ drivers/tty/serial/Kconfig                   |   2 +-
+ drivers/usb/core/hcd-pci.c                   |   2 +
+ drivers/usb/host/Kconfig                     |   4 +-
+ drivers/usb/host/pci-quirks.c                | 128 ++++++++++---------
+ drivers/usb/host/pci-quirks.h                |  31 +++--
+ drivers/usb/host/uhci-hcd.c                  |   2 +-
+ drivers/usb/host/uhci-hcd.h                  |  33 +++--
+ drivers/video/fbdev/Kconfig                  |  25 ++--
+ drivers/watchdog/Kconfig                     |   6 +-
+ include/asm-generic/io.h                     |   5 +
+ include/linux/gameport.h                     |   9 +-
+ include/linux/parport.h                      |   2 +-
+ include/video/vga.h                          |   8 ++
+ lib/Kconfig                                  |   4 +
+ lib/Kconfig.kgdb                             |   1 +
+ net/ax25/Kconfig                             |   2 +-
+ sound/drivers/Kconfig                        |   5 +
+ sound/isa/Kconfig                            |  44 +++----
+ sound/pci/Kconfig                            |  64 +++++++---
+ 101 files changed, 489 insertions(+), 246 deletions(-)
+
+Cc: Bjorn Helgaas <bhelgaas@google.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: Alan Stern <stern@rowland.harvard.edu>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>
+-- 
+2.32.0
+
 
 _______________________________________________
 linux-riscv mailing list
