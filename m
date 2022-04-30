@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60482C433EF
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Apr 2022 05:44:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1EB0C433F5
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Apr 2022 07:09:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RZ83cuDKkdrvt9kVBlgWrgfopEzZMuGYksftptZMOkM=; b=mELRREBB5JQboP
-	1vhkIm3tBs2igasgN+xOaDW+zKWcadjTRnORFsamwEU8BIPPMYrwAN6pLSyFV4ptJBy/i5XDaPshS
-	8k8CLfOZdEGCUR4JFZlkhVUPpA8ndxPF2M5bX5KiSDJTL3ezF9DgMmorSPIpK7jUqwYbAkcsQzoCp
-	swFFOef4gY5IxXgAx7KJmLcoArAUy7LFfYoFmUP5SLfJ1oM3hQ2pEJyNXpR5+1yOEWwUzctJFoL8p
-	2uLrjynQ0nQLli6WHYF58XDo+IQAiuPk5CXUL/rDHE9a4aDj8r6BY3v/qTA3TE7ZrFiQeT8plHaeV
-	Igzh7+rTVZyH86jdgiBw==;
+	List-Owner; bh=46nKLaPVbLzGfTr2FcFsUgKmEXWkUXkmnsnU0+ewJbk=; b=h7U4Zpa0XzTEn2
+	Xi2cCFx7jk/gKHFrXOdg/iNSLNmthiVZPIeQuAHIUTSmMnJUNV+sNwyRY3re5t5UbVAchSKnDom+a
+	8TMk+ZMbUJ9lKq5zE9jWnYtwxI4iL0u/yetwWpixDwtBHkSGrA36+4HtN85Q1ZuAwjztEA4L8prSY
+	EBOmwxRrjSg0rli4n0buDNEuW8dGiV97N9BiZPlNlTZyY9e5xXJpaErhdQgUW1MZ8xMxnsvCFDs0i
+	4WhtAzSgwjL81RwQeh+jMng2z9o+hz0Cfv33JKukzMpIahrS99fZnUxAyhfsfUUWCyZ2p9SPVpHjH
+	+S4kjw4W8bEP4q3O5PBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nkftu-00DiR0-2y; Sat, 30 Apr 2022 05:44:15 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1nkhDt-00Do7B-Tl; Sat, 30 Apr 2022 07:08:57 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nkftf-00DiNV-Sm; Sat, 30 Apr 2022 05:44:03 +0000
+ id 1nkhDp-00Do6a-Hk
+ for linux-riscv@lists.infradead.org; Sat, 30 Apr 2022 07:08:56 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 9FFACB80EBF;
- Sat, 30 Apr 2022 05:43:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E42EC385B1;
- Sat, 30 Apr 2022 05:43:54 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 05A6760B59
+ for <linux-riscv@lists.infradead.org>; Sat, 30 Apr 2022 07:08:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1DC3C385B5
+ for <linux-riscv@lists.infradead.org>; Sat, 30 Apr 2022 07:08:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1651297434;
- bh=jmjo6c7GDrjQDwLBv3CokiAASofKpzV3l7G7zlSixd0=;
+ s=k20201202; t=1651302530;
+ bh=XfMH5BUu5dLhULtzuPTKCufWiIoJk4IfEwdZodYsz3g=;
  h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=NefgRm5cqPmK+GF/bAjO0rDFqHHHclWBOaY3lK3UWDmLP/nfyo1cb0QRcaOXPtTiR
- ZgSJxYdM7Wg+x4Pzjrar1qQqZRIwSzReV3FxoV5S2DsQU3OnXP31nWfL1w+I/AFnV2
- cJUeCcKAm7U/Y5xBd4ZA3PCssxyti1fqQozyjdU6DnYibb+eTBDPbYlPcKc4NBfp0j
- HCLKPn4tKlvOOqGqFCG91gqoF+PkIL+ZWlEGFR4jjEew+tModqNU+qxhbA7JFZloRW
- 6qo+2ZfSTOESMKiqz0dySFJ3m61YxXmShrlW0eYp8LAfw5w2i63hiVz1PH0fwrHMGO
- 6Z/gJ3E+yqSFw==
-Received: by mail-vs1-f47.google.com with SMTP id a127so9382699vsa.3;
- Fri, 29 Apr 2022 22:43:54 -0700 (PDT)
-X-Gm-Message-State: AOAM533Fe0FJ575P93fHwEkebLkTW2JZN5rfjVYD2n3j+BwTnLgifeBk
- gXk7HiZNRq0yGp0U3b64WZtGZlZqzu4WBys9piA=
-X-Google-Smtp-Source: ABdhPJwG9SJ5PON9aay7RhhJl+yUPxuh1YNAYGRuiEuxxuMDNMJhhJbbsG26r/Vo3Lywc6uGAG+wlanl33uhT/J7/4A=
+ b=nzRtVLT3TyLVHkc52o4yobgjtRyf3Z/Hm2Pf3LVTOrOrUhzd55Y+avT67ck0eb8P0
+ xXS4/X1yeJ7BsaAEWVi9z9cI4kY9jjEPLYi6/m5lIKcOcRB7d1WzMmy6UEt+WFNxN2
+ r3jg3XxT2praOfEVWlK+DlDEPco+I8WEwH72UxsfpIzIXx2MRXLuWarYs2UprhYzlp
+ NUCgVxn7DbnzJC2DykDlv/Km+yPbjebqCmKhdWhNtNZa5r0vHiK7s9DkteQDYVtvVL
+ m6Wb0KwjPhy61bfLBB7CRdkzVtOJiXM8mUH8BCVzD9sxpWeXTgj+twQhyhd0RnJ8xh
+ NFKZT2I8coV1w==
+Received: by mail-vs1-f52.google.com with SMTP id bl31so1974197vsb.12
+ for <linux-riscv@lists.infradead.org>; Sat, 30 Apr 2022 00:08:50 -0700 (PDT)
+X-Gm-Message-State: AOAM530apLtOy8Tet2XKtDcffptjbzkTv4VNTLQLumvKC9Hb7FKUxj5v
+ 15mHp774q22dsb7SxMsnbe4ylokKhgZEM1Cvi3M=
+X-Google-Smtp-Source: ABdhPJyVWt5eKfW8ehNJNUCCsEf046KhyogdtBodECeMRLErqDlkSJJ7HlhOGvnUs/HYdBtyPZpTNb16sNmGKZfM7zA=
 X-Received: by 2002:a67:fc86:0:b0:32d:18ed:e71b with SMTP id
- x6-20020a67fc86000000b0032d18ede71bmr669175vsp.51.1651297432765; Fri, 29 Apr
- 2022 22:43:52 -0700 (PDT)
+ x6-20020a67fc86000000b0032d18ede71bmr719351vsp.51.1651302529500; Sat, 30 Apr
+ 2022 00:08:49 -0700 (PDT)
 MIME-Version: 1.0
-References: <CAJF2gTR6=RGJgcYT_yBHep0=zdpU_M7OfsV=d9_DxPeacKN=Gw@mail.gmail.com>
- <mhng-ab858def-1533-4cec-9ee9-f6c3f712fd93@palmer-ri-x1c9>
-In-Reply-To: <mhng-ab858def-1533-4cec-9ee9-f6c3f712fd93@palmer-ri-x1c9>
+References: <20220426015751.88582-1-lihuafei1@huawei.com>
+ <20220426015751.88582-2-lihuafei1@huawei.com>
+ <CAJF2gTRSBcxr3+f86PSiy706dkvxEWA+90JCA4658ZwVf7sB5w@mail.gmail.com>
+ <CAJF2gTR+EgsgCOuRbEGwpjRcAmbdqOGw9KK6AuDnyHQy95v9mA@mail.gmail.com>
+ <022b5310-0084-0327-721a-49ee8bcde346@huawei.com>
+In-Reply-To: <022b5310-0084-0327-721a-49ee8bcde346@huawei.com>
 From: Guo Ren <guoren@kernel.org>
-Date: Sat, 30 Apr 2022 13:43:41 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTT3Uo6wtGs8g-iOEAULE5X4chEtg1eYsZuuPsm6_B-j-w@mail.gmail.com>
-Message-ID: <CAJF2gTT3Uo6wtGs8g-iOEAULE5X4chEtg1eYsZuuPsm6_B-j-w@mail.gmail.com>
-Subject: Re: [PATCH V12 00/20] riscv: Add COMPAT mode support for 64BIT
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Greg KH <gregkh@linuxfoundation.org>, 
- Christoph Hellwig <hch@lst.de>, Nathan Chancellor <nathan@kernel.org>, 
- Naresh Kamboju <naresh.kamboju@linaro.org>,
- linux-arch <linux-arch@vger.kernel.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- linux-s390 <linux-s390@vger.kernel.org>, 
- sparclinux <sparclinux@vger.kernel.org>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
- Parisc List <linux-parisc@vger.kernel.org>, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- "the arch/x86 maintainers" <x86@kernel.org>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Guo Ren <guoren@linux.alibaba.com>
+Date: Sat, 30 Apr 2022 15:08:38 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRj1xhUz4f847zx7B1w1enUCKcVqoVF5EdpZN9govMX8w@mail.gmail.com>
+Message-ID: <CAJF2gTRj1xhUz4f847zx7B1w1enUCKcVqoVF5EdpZN9govMX8w@mail.gmail.com>
+Subject: Re: [PATCH 2/2] riscv: kprobe: Allow coexistence of ftrace and kprobe
+To: Li Huafei <lihuafei1@huawei.com>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Ingo Molnar <mingo@redhat.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ "Naveen N . Rao" <naveen.n.rao@linux.ibm.com>, 
+ Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
+ David Miller <davem@davemloft.net>, jszhang@kernel.org, 
+ Peter Zijlstra <peterz@infradead.org>, liaochang1@huawei.com, 
+ =?UTF-8?Q?Patrick_St=C3=A4hlin?= <me@packi.ch>, 
+ Pekka Enberg <penberg@kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220429_224400_252855_026EE80F 
-X-CRM114-Status: GOOD (  27.38  )
+X-CRM114-CacheID: sfid-20220430_000853_723755_F63CF339 
+X-CRM114-Status: GOOD (  41.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,458 +93,466 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 29, 2022 at 2:22 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+On Fri, Apr 29, 2022 at 5:15 PM Li Huafei <lihuafei1@huawei.com> wrote:
 >
-> On Thu, 28 Apr 2022 05:25:19 PDT (-0700), guoren@kernel.org wrote:
-> > Hi Palmer,
-> >
-> > I see you have taken v12 into your riscv-compat branch and added
-> > asm/signal32.h. Do you need me help put compat_sigcontext &
-> > compat_ucontext & compat_rt_sigframe into signal32.h? And could we
-> > rename signal32.h to compat_signal.h to match compat_signal.c?
-> >
-> > In the end, thx for taking care of compat patch series.
+> Hi Guo Ren,
 >
-> No problem.  I was just trying to get something clean through all the
-> autobuilders before making it look good, I think it didn't fail this
-> time so I'll do a bit more refactoring.  Shouldn't be too much longer at
-> this point.
-Cool, thank you. Hope it could be in v5.19.
+> On 2022/4/26 16:16, Guo Ren wrote:
+> > On Tue, Apr 26, 2022 at 4:01 PM Guo Ren <guoren@kernel.org> wrote:
+> >> On Tue, Apr 26, 2022 at 9:59 AM Li Huafei <lihuafei1@huawei.com> wrote:
+> >>> When using ftrace and kprobe at the same time, it was found that one
+> >>> might cause the other to be unavailable. This can be reproduced by the
+> >>> following steps.
+> >>>
+> >>>    # cd /sys/kernel/debug/tracing/
+> >>>    # echo cmdline_proc_show > set_ftrace_filter
+> >>>    # echo function > current_tracer
+> >>>    # echo 'p cmdline_proc_show' > kprobe_events
+> >>>    # echo 'p cmdline_proc_show+4' >> kprobe_events
+> >>>    # ls events/kprobes/
+> >>>    enable                 p_cmdline_proc_show_0
+> >>>    filter                 p_cmdline_proc_show_4
+> >>>    # echo 1 > events/kprobes/p_cmdline_proc_show_4/enable
+> >>>    # echo 1 > events/kprobes/p_cmdline_proc_show_0/enable
+> >>>    [  129.830108] 00000000ebed457d: expected (ffdb0097 4f0080e7) but got (00100073 4f0080e7)
+> >>>    [  129.835990] ------------[ ftrace bug ]------------
+> >>>    [  129.839510] ftrace failed to modify
+> >>>    [  129.839536] [<ffffffff80258910>] cmdline_proc_show+0x0/0x46
+> >>>    [  129.845831]  actual:   23:3c:11:fe:73:00:10:00
+> >>>    [  129.849299] Updating ftrace call site to call a different ftrace function
+> >>>    [  129.853998] ftrace record flags: e0000002
+> >>>    [  129.856771]  (2) R
+> >>>    [  129.856771]  expected tramp: ffffffff80008e60
+> >>>    [  129.861688] ------------[ cut here ]------------
+> >>>    [  129.865092] WARNING: CPU: 0 PID: 14 at kernel/trace/ftrace.c:2085 ftrace_bug+0x21a/0x24c
+> >>>    [  129.870949] Modules linked in:
+> >>>    [  129.873301] CPU: 0 PID: 14 Comm: migration/0 Not tainted 5.18.0-rc3-00002-gd8bfcd250f58 #6
+> >>>    [  129.879217] Hardware name: riscv-virtio,qemu (DT)
+> >>>    [  129.882666] Stopper: multi_cpu_stop+0x0/0x168 <- stop_machine_cpuslocked+0xfa/0x12e
+> >>>    [  129.888430] epc : ftrace_bug+0x21a/0x24c
+> >>>    [  129.891254]  ra : ftrace_bug+0x21a/0x24c
+> >>>    [  129.894057] epc : ffffffff807c3bee ra : ffffffff807c3bee sp : ff20000000283c80
+> >>>    [  129.899144]  gp : ffffffff813a83b8 tp : ff60000080021600 t0 : ffffffff804155c0
+> >>>    [  129.904257]  t1 : 0720072007200720 t2 : 7420646574636570 s0 : ff20000000283cb0
+> >>>    [  129.909402]  s1 : ff6000007fe622a0 a0 : 0000000000000022 a1 : c0000000ffffefff
+> >>>    [  129.914472]  a2 : 0000000000000001 a3 : 0000000000000000 a4 : 341adec112294700
+> >>>    [  129.919487]  a5 : 341adec112294700 a6 : 0000000000000730 a7 : 0000000000000030
+> >>>    [  129.924595]  s2 : ffffffff80258910 s3 : ffffffffffffffea s4 : 0000000000000000
+> >>>    [  129.929776]  s5 : 0000000000000a35 s6 : ffffffff80d667c8 s7 : ff6000007fe04000
+> >>>    [  129.934892]  s8 : 0000000000000004 s9 : 0000000000000002 s10: 0000000000000001
+> >>>    [  129.939992]  s11: 0000000000000003 t3 : ff6000007ff20f00 t4 : ff6000007ff20f00
+> >>>    [  129.945134]  t5 : ff6000007ff20000 t6 : ff200000002839c8
+> >>>    [  129.948838] status: 0000000000000100 badaddr: 0000000000000000 cause: 0000000000000003
+> >>>    [  129.954580] [<ffffffff800bf110>] ftrace_replace_code+0xce/0xd0
+> >>>    [  129.958771] [<ffffffff800bf280>] ftrace_modify_all_code+0xb4/0x12c
+> >>>    [  129.964420] [<ffffffff800bf30a>] __ftrace_modify_code+0x12/0x1c
+> >>>    [  129.969163] [<ffffffff800b4ea4>] multi_cpu_stop+0x9a/0x168
+> >>>    [  129.973035] [<ffffffff800b4b1c>] cpu_stopper_thread+0xb4/0x15e
+> >>>    [  129.977205] [<ffffffff8003457a>] smpboot_thread_fn+0x106/0x1e4
+> >>>    [  129.981277] [<ffffffff80030ca6>] kthread+0xee/0x108
+> >>>    [  129.984763] [<ffffffff800039ba>] ret_from_exception+0x0/0xc
+> >>>    [  129.988809] ---[ end trace 0000000000000000 ]---
+> >>>    # cat trace
+> >>>    # tracer: function
+> >>>    #
+> >>>    # WARNING: FUNCTION TRACING IS CORRUPTED
+> >>>    #          MAY BE MISSING FUNCTION EVENTS
+> >>>    # entries-in-buffer/entries-written: 0/0   #P:4
+> >>>    #
+> >>>    #                                _-----=> irqs-off/BH-disabled
+> >>>    #                               / _----=> need-resched
+> >>>    #                              | / _---=> hardirq/softirq
+> >>>    #                              || / _--=> preempt-depth
+> >>>    #                              ||| / _-=> migrate-disable
+> >>>    #                              |||| /     delay
+> >>>    #           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
+> >>>    #              | |         |   |||||     |         |
+> >>>
+> >>> As you can see, the ftrace functionality is broken. This is because
+> >>> DYNAMIC_FTRACE uses 4 instructions to make the jump from the function
+> >>> entry to the ftrace trampoline.
+> >>>
+> >>> After 'echo function > current_tracer':
+> >>>
+> >>>    <cmdline_proc_show>:
+> >>>      0xffffffff80258910 <+0>:     sd      ra,-8(sp)
+> >>>      0xffffffff80258914 <+4>:     auipc   ra,0xffdb0
+> >>>      0xffffffff80258918 <+8>:     jalr    1264(ra) # 0xffffffff80008e04 <ftrace_caller>
+> >>>      0xffffffff8025891c <+12>:    ld      ra,-8(sp)
+> >>>
+> >>> After 'echo 1 > events/kprobes/p_cmdline_proc_show_4/enable':
+> >>>
+> >>>    <cmdline_proc_show>:
+> >>>      0xffffffff80258910 <+0>:     sd      ra,-8(sp)
+> >>>      0xffffffff80258914 <+4>:     ebreak
+> >>>      0xffffffff80258918 <+8>:     jalr    1264(ra)
+> >>>      0xffffffff8025891c <+12>:    ld      ra,-8(sp)
+> >>>
+> >>> This time the second instruction is replaced with a breakpoint
+> >>> instruction and the ftrace-related instructions are broken. Then, when
+> >>> enabling 'p_cmdline_proc_show_0', a regs ftrace handler is registered
+> >>> based on KPROBES_ON_FTRACE, ftrace_modify_call() changes 'ftrace_caller'
+> >>> to 'ftrace_regs_caller', and checks for ftrace-related instructions is
+> >>> modified or not. Here it has been modified, causing ftrace to report a
+> >>> warning and disable itself.
+> >>>
+> >>> In turn, the breakpoints inserted by kprobe may be overwritten by
+> >>> ftrace.
+> >>>
+> >>> The problem is that we think that only the first instruction address at
+> >>> the function entry is needed for ftrace, but it is actually the first 4.
+> >>> As Masami mentioned in [1], we can treat the first 4 instructions as a
+> >>> 16-byte virtual instruction, and we can probe func+0 based on
+> >>> KPROBES_ON_FTRACE, but not func+4, func+8 and func+12. This way, ftrace
+> >>> and kprobe do not bother each other and can coexist.
+> >>>
+> >>> After this patch:
+> >>>
+> >>>    # cd /sys/kernel/debug/tracing/
+> >>>    # echo cmdline_proc_show > set_ftrace_filter
+> >>>    # echo function > current_tracer
+> >>>    # echo 'p cmdline_proc_show' > kprobe_events
+> >>>    # echo 'p cmdline_proc_show' > kprobe_events
+> >>>    # echo 'p cmdline_proc_show+4' >> kprobe_events
+> >>>    sh: write error: Invalid or incomplete multibyte or wide character
+> >>>    # echo 'p cmdline_proc_show+8' >> kprobe_events
+> >>>    sh: write error: Invalid or incomplete multibyte or wide character
+> >>>    # echo 'p cmdline_proc_show+12' >> kprobe_events
+> >>>    sh: write error: Invalid or incomplete multibyte or wide character
+> >>>    # echo 'p cmdline_proc_show+16' >> kprobe_events
+> >>>    # ls events/kprobes/
+> >>>    enable                  p_cmdline_proc_show_0
+> >>>    filter                  p_cmdline_proc_show_16
+> >>>    # echo 1 > events/kprobes/enable
+> >>>    # cat ../kprobes/list
+> >>>    ffffffff80258b14  k  cmdline_proc_show+0x0    [FTRACE]
+> >>>    ffffffff80258b24  k  cmdline_proc_show+0x10
+> >>>    # cat /proc/cmdline
+> >>>    nokaslr rootwait root=/dev/vda rw
+> >>>    # cat trace
+> >>>    # tracer: function
+> >>>    #
+> >>>    # entries-in-buffer/entries-written: 3/3   #P:4
+> >>>    #
+> >>>    #                                _-----=> irqs-off/BH-disabled
+> >>>    #                               / _----=> need-resched
+> >>>    #                              | / _---=> hardirq/softirq
+> >>>    #                              || / _--=> preempt-depth
+> >>>    #                              ||| / _-=> migrate-disable
+> >>>    #                              |||| /     delay
+> >>>    #           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
+> >>>    #              | |         |   |||||     |         |
+> >>>                 cat-142     [000] ...2.   181.493233: p_cmdline_proc_show_0: (cmdline_proc_show+0x0/0x46)
+> >>>                 cat-142     [000] ...2.   181.494271: cmdline_proc_show <-seq_read_iter
+> >>>                 cat-142     [000] d....   181.494573: p_cmdline_proc_show_16: (cmdline_proc_show+0x10/0x46)
+> >>>
+> >>> [1] https://patchwork.kernel.org/project/linux-arm-kernel/patch/20191218140622.57bbaca5@xhacker.debian/
+> >>>
+> >>> Fixes: c22b0bcb1dd0 ("riscv: Add kprobes supported")
+> >>> Signed-off-by: Li Huafei <lihuafei1@huawei.com>
+> >>> ---
+> >>>   arch/riscv/kernel/probes/kprobes.c | 31 ++++++++++++++++++++++++++++++
+> >>>   kernel/kprobes.c                   |  2 +-
+> >>>   2 files changed, 32 insertions(+), 1 deletion(-)
+> >>>
+> >>> diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+> >>> index e6e950b7cf32..ebe32eb6c349 100644
+> >>> --- a/arch/riscv/kernel/probes/kprobes.c
+> >>> +++ b/arch/riscv/kernel/probes/kprobes.c
+> >>> @@ -21,6 +21,37 @@ DEFINE_PER_CPU(struct kprobe_ctlblk, kprobe_ctlblk);
+> >>>   static void __kprobes
+> >>>   post_kprobe_handler(struct kprobe *, struct kprobe_ctlblk *, struct pt_regs *);
+> >>>
+> >>> +#ifdef CONFIG_DYNAMIC_FTRACE
+> >>> +kprobe_opcode_t *arch_adjust_kprobe_addr(unsigned long addr, unsigned long offset,
+> >>> +                                        bool *on_func_entry)
+> >>> +{
+> >>> +       unsigned long faddr = ftrace_location(addr);
+> >>> +
+> >>> +       /*
+> >>> +        * The first 4 instructions at the beginning of the ftraced function
+> >>> +        * are used as a jump to ftrace trampoline, which we can think of as
+> >>> +        * a 16-byte virtual instruction. This allows the function entry to be
+> >>> +        * probed with the help of KPROBES_ON_FTRACE and does not break ftrace
+> >>> +        * functionality.
+> >>> +        */
+> >>> +       if (faddr && offset <= 12) {
+> >>> +               /*
+> >>> +                * As mentioned above, we treat the first 4 instructions of
+> >>> +                * the ftraced function as a virtual instruction, so that we
+> >>> +                * can only probe func+0, not func+4, func+8 and func+12.
+> >>> +                */
+> >>> +               if (offset)
+> >>> +                       return ERR_PTR(-EILSEQ);
+> >> Nak, we should change API in the patch.
+> > Typo: we shouldn't change API in the patch.
+>
+>
+> You are right, can't change API in this patch.  If here let
+> func+offs(<16) be equivalent to func+0, then there will be:
+>
+>      # echo 'p cmdline_proc_show' > kprobe_events
+>      # echo 'p cmdline_proc_show+4' >> kprobe_events
+>      # echo 'p cmdline_proc_show+8' >> kprobe_events
+>      # echo 'p cmdline_proc_show+12' >> kprobe_events
+>      # ls events/kprobes/
+>      enable                  p_cmdline_proc_show_0 p_cmdline_proc_show_4
+>      filter                  p_cmdline_proc_show_12 p_cmdline_proc_show_8
+>      # cat ../kprobes/list
+>      ffffffff80258b08  k  cmdline_proc_show+0x0 [DISABLED][FTRACE]
+>      ffffffff80258b08  k  cmdline_proc_show+0x0 [DISABLED][FTRACE]
+>      ffffffff80258b08  k  cmdline_proc_show+0x0 [DISABLED][FTRACE]
+>      ffffffff80258b08  k  cmdline_proc_show+0x0 [DISABLED][FTRACE]
+>
+> While it may be a bit confusing for the user, it has no functional
+> impact and usually we only probe for func+0. Making func+offs(<16) equal
+> to func+0 seems acceptable.
+>
+>
+> >
+> >> Reference below:
+> >>
+> >> diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
+> >> index 04dad3380041..4fbab6b89be3 100644
+> >> --- a/arch/riscv/include/asm/ftrace.h
+> >> +++ b/arch/riscv/include/asm/ftrace.h
+> >> @@ -77,6 +77,32 @@ do {
+> >>                   \
+> >>    */
+> >>   #define MCOUNT_INSN_SIZE 8
+> >>
+> >> +/*
+> >> + * Put16 bytes at the front of function within patchable function entry
+> >> + * nops' area.
+> >> + *
+> >> + * 0: REG_S  ra, -SZREG(sp)
+> >> + * 1: auipc  ra, 0x?
+> >> + * 2: jalr   -?(ra)
+> >> + * 3: REG_L  ra, -SZREG(sp)
+> >> + *
+> >> + * So the opcodes is:
+> >> + * 0: 0xfe113c23 (sd)/0xfe112e23 (sw)
+> >> + * 1: 0x???????? -> auipc
+> >> + * 2: 0x???????? -> jalr
+> >> + * 3: 0xff813083 (ld)/0xffc12083 (lw)
+> >> + */
+> >> +#if __riscv_xlen == 64
+> >> +#define INSN0  0xfe113c23
+> >> +#define INSN3  0xff813083
+> >> +#elif __riscv_xlen == 32
+> >> +#define INSN0  0xfe112e23
+> >> +#define INSN3  0xffc12083
+> >> +#endif
+> >> +
+> >> +#define FUNC_ENTRY_SIZE        16
+> >> +#define FUNC_ENTRY_JMP 4
+> >> +
+> >>   #ifndef __ASSEMBLY__
+> >>   struct dyn_ftrace;
+> >>   int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec);
+> >> diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+> >> index 4716f4cdc038..be51aa87134e 100644
+> >> --- a/arch/riscv/kernel/ftrace.c
+> >> +++ b/arch/riscv/kernel/ftrace.c
+> >> @@ -72,32 +72,6 @@ static int __ftrace_modify_call(unsigned long
+> >> hook_pos, unsigned long target,
+> >>          return 0;
+> >>   }
+> >>
+> >> -/*
+> >> - * Put 5 instructions with 16 bytes at the front of function within
+> >> - * patchable function entry nops' area.
+> >> - *
+> >> - * 0: REG_S  ra, -SZREG(sp)
+> >> - * 1: auipc  ra, 0x?
+> >> - * 2: jalr   -?(ra)
+> >> - * 3: REG_L  ra, -SZREG(sp)
+> >> - *
+> >> - * So the opcodes is:
+> >> - * 0: 0xfe113c23 (sd)/0xfe112e23 (sw)
+> >> - * 1: 0x???????? -> auipc
+> >> - * 2: 0x???????? -> jalr
+> >> - * 3: 0xff813083 (ld)/0xffc12083 (lw)
+> >> - */
+> >> -#if __riscv_xlen == 64
+> >> -#define INSN0  0xfe113c23
+> >> -#define INSN3  0xff813083
+> >> -#elif __riscv_xlen == 32
+> >> -#define INSN0  0xfe112e23
+> >> -#define INSN3  0xffc12083
+> >> -#endif
+> >> -
+> >> -#define FUNC_ENTRY_SIZE        16
+> >> -#define FUNC_ENTRY_JMP 4
+> >> -
+> >>   int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
+> >>   {
+> >>          unsigned int call[4] = {INSN0, 0, 0, INSN3};
+> >> @@ -124,7 +98,6 @@ int ftrace_make_nop(struct module *mod, struct
+> >> dyn_ftrace *rec,
+> >>          return 0;
+> >>   }
+> >>
+> >> -
+> >>   /*
+> >>    * This is called early on, and isn't wrapped by
+> >>    * ftrace_arch_code_modify_{prepare,post_process}() and therefor doesn't hold
+> >> diff --git a/arch/riscv/kernel/probes/kprobes.c
+> >> b/arch/riscv/kernel/probes/kprobes.c
+> >> index e6e950b7cf32..c16a819a81c1 100644
+> >> --- a/arch/riscv/kernel/probes/kprobes.c
+> >> +++ b/arch/riscv/kernel/probes/kprobes.c
+> >> @@ -21,6 +21,33 @@ DEFINE_PER_CPU(struct kprobe_ctlblk, kprobe_ctlblk);
+> >>   static void __kprobes
+> >>   post_kprobe_handler(struct kprobe *, struct kprobe_ctlblk *, struct pt_regs *);
+> >>
+> >> +#ifdef CONFIG_DYNAMIC_FTRACE
+> >> +kprobe_opcode_t *arch_adjust_kprobe_addr(unsigned long addr, unsigned
+> >> long offset,
+> >> +                                        bool *on_func_entry)
+> >> +{
+> >> +       /*
+> >> +        * The first 4 instructions at the beginning of the ftraced function
+> >> +        * are used as a jump to ftrace trampoline, which we can think of as
+> >> +        * a 16-byte virtual instruction. This allows the function entry to be
+> >> +        * probed with the help of KPROBES_ON_FTRACE and does not break ftrace
+> >> +        * functionality.
+> >> +        */
+> >> +       if (offset < FUNC_ENTRY_SIZE) {
+> >> +               /*
+> >> +                * As mentioned above, we treat the first 4 instructions of
+> >> +                * the ftraced function as a virtual instruction, so that we
+> >> +                * can only probe func+0, and func+4, func+8 and func+12
+> >> +                * would be changed to func+0.
+> >> +                */
+> >> +               *on_func_entry = true;
+> >> +               return (kprobe_opcode_t *)ftrace_location(addr);
+> >> +       } else {
+> >> +               *on_func_entry = false;
+> >> +               return (kprobe_opcode_t *)(addr + offset);
+> >> +       }
+> >> +}
+> > Another better implementation:
+> > +kprobe_opcode_t *arch_adjust_kprobe_addr(unsigned long addr, unsigned
+> > long offset,
+> > +                                        bool *on_func_entry)
+> > +{
+> > +       /*
+> > +        * The first 4 instructions at the beginning of the ftraced function
+> > +        * are used as a jump to ftrace trampoline, which we can think of as
+> > +        * a 16-byte virtual instruction. This allows the function entry to be
+> > +        * probed with the help of KPROBES_ON_FTRACE and does not break ftrace
+> > +        * functionality.
+> > +        */
+> > +       if (offset < FUNC_ENTRY_SIZE) {,
+> Thanks a lot for providing such a detailed implementation. Yes, it is
+> better to use these macro definitions. But I think we first need to use
+> ftrace_location(addr) to determine if the function can be traced. no
+> special handling here is needed for notrace functions.
+>
+> +kprobe_opcode_t *arch_adjust_kprobe_addr(unsigned long addr, unsigned
+> long offset,
+> +                                        bool *on_func_entry)
+> +{
+> +       unsigned long faddr = ftrace_location(addr);
+Seems x86 & powerpc also need that check? I don't think
+ftrace_location is necessary, or the solution should be more common.
 
+
+> +
+> +       /*
+> +        * The first 4 instructions at the beginning of the ftraced function
+> +        * are used as a jump to ftrace trampoline, which we can think of as
+> +        * a 16-byte virtual instruction. This allows the function entry
+> to be
+> +        * probed with the help of KPROBES_ON_FTRACE and does not break
+> ftrace
+> +        * functionality.
+> +        */
+> +       if (faddr && offset < FUNC_ENTRY_SIZE) {
+> +               /*
+> +                * As mentioned above, we treat the first 4 instructions of
+> +                * the ftraced function as a virtual instruction, so that we
+> +                * can only probe func+0, and func+4, func+8 and func+12
+> would
+> +                * be changed to func+0.
+> +                */
+> +               *on_func_entry = true;
+> +               return (kprobe_opcode_t *)faddr;
+> +       } else {
+> +               *on_func_entry = !offset;
+> +               return (kprobe_opcode_t *)(addr + offset);
+> +       }
+> +}
 >
+> Is this ok?
+>
+>
+> Thanks,
+>
+> Huafei
+>
+>
+> > +               /*
+> > +                * As mentioned above, we treat the first 4 instructions of
+> > +                * the ftraced function as a virtual instruction, so that we
+> > +                * can only probe func+0, and func+4, func+8 and func+12
+> > +                * would be changed to func+0.
+> > +                */
+> > +               offset = 0;
+> > +       }
+> > +
+> > +       *on_func_entry = !offset;
+> > +       return (kprobe_opcode_t *)(addr + offset);
+> > +}
 > >
-> >
-> > On Tue, Apr 5, 2022 at 3:13 PM <guoren@kernel.org> wrote:
+> >> +#endif
+> >> +
+> >>   static void __kprobes arch_prepare_ss_slot(struct kprobe *p)
+> >>   {
+> >>          unsigned long offset = GET_INSN_LENGTH(p->opcode);
 > >>
-> >> From: Guo Ren <guoren@linux.alibaba.com>
+> >>> +
+> >>> +               *on_func_entry = true;
+> >>> +               return (kprobe_opcode_t *)faddr;
+> >>> +       }
+> >>> +
+> >>> +       *on_func_entry = !offset;
+> >>> +       return (kprobe_opcode_t *)(addr + offset);
+> >>> +}
+> >>> +#endif
+> >>> +
+> >>>   static void __kprobes arch_prepare_ss_slot(struct kprobe *p)
+> >>>   {
+> >>>          unsigned long offset = GET_INSN_LENGTH(p->opcode);
+> >>> diff --git a/kernel/kprobes.c b/kernel/kprobes.c
+> >>> index dbe57df2e199..b41de7ce8bff 100644
+> >>> --- a/kernel/kprobes.c
+> >>> +++ b/kernel/kprobes.c
+> >>> @@ -1553,7 +1553,7 @@ _kprobe_addr(kprobe_opcode_t *addr, const char *symbol_name,
+> >>>           * at the start of the function.
+> >>>           */
+> >>>          addr = arch_adjust_kprobe_addr((unsigned long)addr, offset, on_func_entry);
+> >>> -       if (addr)
+> >>> +       if (IS_ERR(addr) || addr)
+> >> Nak, If you really want to change API, please send another patch and
+> >> add ftrace_location(addr) in x86 & powerpc, firstly.
 > >>
-> >> Currently, most 64-bit architectures (x86, parisc, powerpc, arm64,
-> >> s390, mips, sparc) have supported COMPAT mode. But they all have
-> >> history issues and can't use standard linux unistd.h. RISC-V would
-> >> be first standard __SYSCALL_COMPAT user of include/uapi/asm-generic
-> >> /unistd.h.
+> >>>                  return addr;
+> >>>
+> >>>   invalid:
+> >>> --
+> >>> 2.17.1
+> >>>
 > >>
-> >> The patchset are based on v5.18-rc1, you can compare rv64-compat
-> >> v.s. rv32-native in qemu with following steps:
-> >>
-> >>  - Prepare rv32 rootfs & fw_jump.bin by buildroot.org
-> >>    $ git clone git://git.busybox.net/buildroot
-> >>    $ cd buildroot
-> >>    $ make qemu_riscv32_virt_defconfig O=qemu_riscv32_virt_defconfig
-> >>    $ make -C qemu_riscv32_virt_defconfig
-> >>    $ make qemu_riscv64_virt_defconfig O=qemu_riscv64_virt_defconfig
-> >>    $ make -C qemu_riscv64_virt_defconfig
-> >>    (Got fw_jump.bin & rootfs.ext2 in qemu_riscvXX_virt_defconfig/images)
-> >>
-> >>  - Prepare Linux rv32 & rv64 Image
-> >>    $ git clone git@github.com:c-sky/csky-linux.git -b riscv_compat_v12 linux
-> >>    $ cd linux
-> >>    $ echo "CONFIG_STRICT_KERNEL_RWX=n" >> arch/riscv/configs/defconfig
-> >>    $ echo "CONFIG_STRICT_MODULE_RWX=n" >> arch/riscv/configs/defconfig
-> >>    $ make ARCH=riscv CROSS_COMPILE=riscv32-buildroot-linux-gnu- O=../build-rv32/ rv32_defconfig
-> >>    $ make ARCH=riscv CROSS_COMPILE=riscv32-buildroot-linux-gnu- O=../build-rv32/ Image
-> >>    $ make ARCH=riscv CROSS_COMPILE=riscv64-buildroot-linux-gnu- O=../build-rv64/ defconfig
-> >>    $ make ARCH=riscv CROSS_COMPILE=riscv64-buildroot-linux-gnu- O=../build-rv64/ Image
-> >>
-> >>  - Prepare Qemu:
-> >>    $ git clone https://gitlab.com/qemu-project/qemu.git -b master linux
-> >>    $ cd qemu
-> >>    $ ./configure --target-list="riscv64-softmmu riscv32-softmmu"
-> >>    $ make
-> >>
-> >> Now let's compare rv64-compat with rv32-native memory footprint with almost the same
-> >> defconfig, rootfs, opensbi in one qemu.
-> >>
-> >>  - Run rv64 with rv32 rootfs in compat mode:
-> >>    $ ./build/qemu-system-riscv64 -cpu rv64 -M virt -m 64m -nographic -bios qemu_riscv64_virt_defconfig/images/fw_jump.bin -kernel build-rv64/Image -drive file qemu_riscv32_virt_defconfig/images/rootfs.ext2,format=raw,id=hd0 -device virtio-blk-device,drive=hd0 -append "rootwait root=/dev/vda ro console=ttyS0 earlycon=sbi" -netdev user,id=net0 -device virtio-net-device,netdev=net0
-> >>
-> >> QEMU emulator version 6.2.50 (v6.2.0-29-g196d7182c8)
-> >> OpenSBI v0.9
-> >> [    0.000000] Linux version 5.16.0-rc6-00017-g750f87086bdd-dirty (guoren@guoren-Z87-HD3) (riscv64-unknown-linux-gnu-gcc (GCC) 10.2.0, GNU ld (GNU Binutils) 2.37) #96 SMP Tue Dec 28 21:01:55 CST 2021
-> >> [    0.000000] OF: fdt: Ignoring memory range 0x80000000 - 0x80200000
-> >> [    0.000000] Machine model: riscv-virtio,qemu
-> >> [    0.000000] earlycon: sbi0 at I/O port 0x0 (options '')
-> >> [    0.000000] printk: bootconsole [sbi0] enabled
-> >> [    0.000000] efi: UEFI not found.
-> >> [    0.000000] Zone ranges:
-> >> [    0.000000]   DMA32    [mem 0x0000000080200000-0x0000000083ffffff]
-> >> [    0.000000]   Normal   empty
-> >> [    0.000000] Movable zone start for each node
-> >> [    0.000000] Early memory node ranges
-> >> [    0.000000]   node   0: [mem 0x0000000080200000-0x0000000083ffffff]
-> >> [    0.000000] Initmem setup node 0 [mem 0x0000000080200000-0x0000000083ffffff]
-> >> [    0.000000] SBI specification v0.2 detected
-> >> [    0.000000] SBI implementation ID=0x1 Version=0x9
-> >> [    0.000000] SBI TIME extension detected
-> >> [    0.000000] SBI IPI extension detected
-> >> [    0.000000] SBI RFENCE extension detected
-> >> [    0.000000] SBI v0.2 HSM extension detected
-> >> [    0.000000] riscv: ISA extensions acdfhimsu
-> >> [    0.000000] riscv: ELF capabilities acdfim
-> >> [    0.000000] percpu: Embedded 17 pages/cpu s30696 r8192 d30744 u69632
-> >> [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 15655
-> >> [    0.000000] Kernel command line: rootwait root=/dev/vda ro console=ttyS0 earlycon=sbi
-> >> [    0.000000] Dentry cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
-> >> [    0.000000] Inode-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
-> >> [    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
-> >> [    0.000000] Virtual kernel memory layout:
-> >> [    0.000000]       fixmap : 0xffffffcefee00000 - 0xffffffceff000000   (2048 kB)
-> >> [    0.000000]       pci io : 0xffffffceff000000 - 0xffffffcf00000000   (  16 MB)
-> >> [    0.000000]      vmemmap : 0xffffffcf00000000 - 0xffffffcfffffffff   (4095 MB)
-> >> [    0.000000]      vmalloc : 0xffffffd000000000 - 0xffffffdfffffffff   (65535 MB)
-> >> [    0.000000]       lowmem : 0xffffffe000000000 - 0xffffffe003e00000   (  62 MB)
-> >> [    0.000000]       kernel : 0xffffffff80000000 - 0xffffffffffffffff   (2047 MB)
-> >> [    0.000000] Memory: 52788K/63488K available (6184K kernel code, 888K rwdata, 1917K rodata, 294K init, 297K bss, 10700K reserved, 0K cma-reserved)
-> >> [    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
-> >> [    0.000000] rcu: Hierarchical RCU implementation.
-> >> [    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=1.
-> >> [    0.000000] rcu:     RCU debug extended QS entry/exit.
-> >> [    0.000000]  Tracing variant of Tasks RCU enabled.
-> >> [    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
-> >> [    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
-> >> [    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
-> >> [    0.000000] riscv-intc: 64 local interrupts mapped
-> >> [    0.000000] plic: plic@c000000: mapped 53 interrupts with 1 handlers for 2 contexts.
-> >> ...
-> >> Welcome to Buildroot
-> >> buildroot login: root
-> >> # cat /proc/cpuinfo
-> >> processor       : 0
-> >> hart            : 0
-> >> isa             : rv64imafdcsuh
-> >> mmu             : sv48
-> >>
-> >> # file /bin/busybox
-> >> /bin/busybox: setuid ELF 32-bit LSB shared object, UCB RISC-V, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-riscv32-ilp32d.so.1, for GNU/Linux 5.15.0, stripped
-> >> # ca[   78.386630] random: fast init done
-> >> # cat /proc/meminfo
-> >> MemTotal:          53076 kB
-> >> MemFree:           40264 kB
-> >> MemAvailable:      40244 kB
-> >> Buffers:             236 kB
-> >> Cached:             1560 kB
-> >> SwapCached:            0 kB
-> >> Active:             1700 kB
-> >> Inactive:            516 kB
-> >> Active(anon):         40 kB
-> >> Inactive(anon):      424 kB
-> >> Active(file):       1660 kB
-> >> Inactive(file):       92 kB
-> >> Unevictable:           0 kB
-> >> Mlocked:               0 kB
-> >> SwapTotal:             0 kB
-> >> SwapFree:              0 kB
-> >> Dirty:                 0 kB
-> >> Writeback:             0 kB
-> >> AnonPages:           444 kB
-> >> Mapped:             1188 kB
-> >> Shmem:                44 kB
-> >> KReclaimable:        952 kB
-> >> Slab:               5744 kB
-> >> SReclaimable:        952 kB
-> >> SUnreclaim:         4792 kB
-> >> KernelStack:         624 kB
-> >> PageTables:          156 kB
-> >> NFS_Unstable:          0 kB
-> >> Bounce:                0 kB
-> >> WritebackTmp:          0 kB
-> >> CommitLimit:       26536 kB
-> >> Committed_AS:       1748 kB
-> >> VmallocTotal:   67108863 kB
-> >> VmallocUsed:         652 kB
-> >> VmallocChunk:          0 kB
-> >> Percpu:               80 kB
-> >> #
-> >>
-> >>  - Run rv32 with rv32 rootfs:
-> >>    $ ./build/qemu-system-riscv32 -cpu rv32 -M virt -m 64m -nographic -bios qemu_riscv32_virt_defconfig/images/fw_jump.bin -kernel build-rv32/Image -drive file qemu_riscv32_virt_defconfig/images/rootfs.ext2,format=raw,id=hd0 -device virtio-blk-device,drive=hd0 -append "rootwait root=/dev/vda ro console=ttyS0 earlycon=sbi" -netdev user,id=net0 -device virtio-net-device,netdev=net0
-> >>
-> >> QEMU emulator version 6.2.50 (v6.2.0-29-g196d7182c8)
-> >> OpenSBI v0.9
-> >> [    0.000000] Linux version 5.16.0-rc6-00017-g750f87086bdd-dirty (guoren@guoren-Z87-HD3) (riscv32-buildroot-linux-gnu-gcc.br_real (Buildroot 2021.11-201-g7600ca7960-dirty) 10.3.0, GNU ld (GNU Binutils) 2.36.1) #7 SMP Tue Dec 28 21:02:21 CST 2021
-> >> [    0.000000] OF: fdt: Ignoring memory range 0x80000000 - 0x80400000
-> >> [    0.000000] Machine model: riscv-virtio,qemu
-> >> [    0.000000] earlycon: sbi0 at I/O port 0x0 (options '')
-> >> [    0.000000] printk: bootconsole [sbi0] enabled
-> >> [    0.000000] efi: UEFI not found.
-> >> [    0.000000] Zone ranges:
-> >> [    0.000000]   Normal   [mem 0x0000000080400000-0x0000000083ffffff]
-> >> [    0.000000] Movable zone start for each node
-> >> [    0.000000] Early memory node ranges
-> >> [    0.000000]   node   0: [mem 0x0000000080400000-0x0000000083ffffff]
-> >> [    0.000000] Initmem setup node 0 [mem 0x0000000080400000-0x0000000083ffffff]
-> >> [    0.000000] SBI specification v0.2 detected
-> >> [    0.000000] SBI implementation ID=0x1 Version=0x9
-> >> [    0.000000] SBI TIME extension detected
-> >> [    0.000000] SBI IPI extension detected
-> >> [    0.000000] SBI RFENCE extension detected
-> >> [    0.000000] SBI v0.2 HSM extension detected
-> >> [    0.000000] riscv: ISA extensions acdfhimsu
-> >> [    0.000000] riscv: ELF capabilities acdfim
-> >> [    0.000000] percpu: Embedded 12 pages/cpu s16600 r8192 d24360 u49152
-> >> [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 15240
-> >> [    0.000000] Kernel command line: rootwait root=/dev/vda ro console=ttyS0 earlycon=sbi
-> >> [    0.000000] Dentry cache hash table entries: 8192 (order: 3, 32768 bytes, linear)
-> >> [    0.000000] Inode-cache hash table entries: 4096 (order: 2, 16384 bytes, linear)
-> >> [    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
-> >> [    0.000000] Virtual kernel memory layout:
-> >> [    0.000000]       fixmap : 0x9dc00000 - 0x9e000000   (4096 kB)
-> >> [    0.000000]       pci io : 0x9e000000 - 0x9f000000   (  16 MB)
-> >> [    0.000000]      vmemmap : 0x9f000000 - 0x9fffffff   (  15 MB)
-> >> [    0.000000]      vmalloc : 0xa0000000 - 0xbfffffff   ( 511 MB)
-> >> [    0.000000]       lowmem : 0xc0000000 - 0xc3c00000   (  60 MB)
-> >> [    0.000000] Memory: 51924K/61440K available (6117K kernel code, 695K rwdata, 1594K rodata, 255K init, 241K bss, 9516K reserved, 0K cma-reserved)
-> >> [    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
-> >> [    0.000000] rcu: Hierarchical RCU implementation.
-> >> [    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=1.
-> >> [    0.000000] rcu:     RCU debug extended QS entry/exit.
-> >> [    0.000000]  Tracing variant of Tasks RCU enabled.
-> >> [    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
-> >> [    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
-> >> [    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
-> >> [    0.000000] riscv-intc: 32 local interrupts mapped
-> >> [    0.000000] plic: plic@c000000: mapped 53 interrupts with 1 handlers for 2 contexts.
-> >> ...
-> >> Welcome to Buildroot
-> >> buildroot login: root
-> >> # cat /proc/cpuinfo
-> >> processor       : 0
-> >> hart            : 0
-> >> isa             : rv32imafdcsuh
-> >> mmu             : sv32
-> >>
-> >> # file /bin/busybox
-> >> /bin/busybox: setuid ELF 32-bit LSB shared object, UCB RISC-V, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-riscv32-ilp32d.so.1, for GNU/Linux 5.15.0, stripped
-> >> [   79.320589] random: fast init done
-> >> # cat /proc/meminfo
-> >> MemTotal:          52176 kB
-> >> MemFree:           41012 kB
-> >> MemAvailable:      42176 kB
-> >> Buffers:             644 kB
-> >> Cached:             2724 kB
-> >> SwapCached:            0 kB
-> >> Active:             3128 kB
-> >> Inactive:            752 kB
-> >> Active(anon):         40 kB
-> >> Inactive(anon):      516 kB
-> >> Active(file):       3088 kB
-> >> Inactive(file):      236 kB
-> >> Unevictable:           0 kB
-> >> Mlocked:               0 kB
-> >> SwapTotal:             0 kB
-> >> SwapFree:              0 kB
-> >> Dirty:                 4 kB
-> >> Writeback:             0 kB
-> >> AnonPages:           556 kB
-> >> Mapped:             2172 kB
-> >> Shmem:                44 kB
-> >> KReclaimable:        656 kB
-> >> Slab:               3684 kB
-> >> SReclaimable:        656 kB
-> >> SUnreclaim:         3028 kB
-> >> KernelStack:         312 kB
-> >> PageTables:           88 kB
-> >> NFS_Unstable:          0 kB
-> >> Bounce:                0 kB
-> >> WritebackTmp:          0 kB
-> >> CommitLimit:       26088 kB
-> >> Committed_AS:       2088 kB
-> >> VmallocTotal:     524287 kB
-> >> VmallocUsed:          12 kB
-> >> VmallocChunk:          0 kB
-> >> Percpu:               60 kB
-> >> #
-> >>
-> >>  Some conclusions:
-> >>  - kernel statics:
-> >>    64: Memory: 52788K/63488K available (6184K kernel code, 888K rwdata, 1917K rodata, 294K init, 297K bss, 10700K reserved)
-> >>    32: Memory: 51924K/61440K available (6117K kernel code, 695K rwdata, 1594K rodata, 255K init, 241K bss,  9516K reserved)
-> >>    rv32 better than rv64:                  1%               22%           17%          13%        19%         11%
-> >>    The code size is very similar, but data size rv32 would be better.
-> >>
-> >>  - rv32 kernel runtime KernelStack, Slab... are smaller,
-> >>    rv64: MemTotal: 53076 kB,        MemFree: 40264 kB
-> >>    rv32: MemTotal: 52176 + 2048 kB, MemFree: 41012  + 2048 kB
-> >>    rv32 better than rv64:       2%                         6%
-> >>
-> >>    (Because opensbi problem, we could add another 2MB for rv32.)
-> >>    Overall in 64MB memory situation, rv64-compat is 6% worse than rv32-native
-> >>    at memory footprint. If the userspace memory usage increases, I think
-> >>    the gap will be further reduced.
-> >>
-> >> Changes in v12:
-> >>  - Rebase on 5.18-rc1
-> >>  - Fixup compile conflicts with 5.18-rc1
-> >>  - Fixup $(srctree) == $(objtree) compile error reported by Nathan
-> >>
-> >> Changes in v11:
-> >>  - Using arch instead of kconfig for commit subject by Masahiro Yamada
-> >>
-> >> Changes in v10:
-> >>  - Fixup arm64 compile error with compat_statfs definition
-> >>  - Fixup compat_sys_fadvise64_64 function arguments error cause ltp failure
-> >>
-> >> Changes in v9:
-> >>  - Fixup rv32 call rv64 segment fault
-> >>  - Ready for 5.18
-> >>
-> >> Changes in v8:
-> >>  - Enhanced elf_check_arch with EI_CLASS
-> >>  - Fixup SR_UXL doesn't exist in CONFIG_32BIT
-> >>  - Add Tested-by with Heiko
-> >>  - Update qemu compile tips with upstream repo
-> >>
-> >> Changes in v7:
-> >>  - Re-construct compat_vdso/Makefile
-> >>  - Fixup disable COMPAT compile error by csr.h's macro.
-> >>  - Optimize coding convention for lo/hi in compat.h
-> >>
-> >> Changes in v6:
-> >>  - Rebase on linux-5.17-rc5
-> >>  - Optimize hw capability check for elf
-> >>  - Optimize comment in thread_info.h
-> >>  - Optimize start_thread with SR_UXL setting
-> >>  - Optimize vdso.c with direct panic
-> >>
-> >> Changes in v5:
-> >>  - Rebase on linux-5.17-rc2
-> >>  - Include consolidate the fcntl patches by Christoph Hellwig
-> >>  - Remove F_GETLK64/F_SETLK64/F_SETLKW64 from asm/compat.h
-> >>  - Change COMPAT_RLIM_INFINITY from 0x7fffffff to 0xffffffff
-> >>  - Bring back "Add hw-cap detect in setup_arch patch" in v1
-> >>
-> >> Changes in v4:
-> >>  - Rebase on linux-5.17-rc1
-> >>  - Optimize compat_sys_call_table implementation with Arnd's advice
-> >>  - Add reviewed-by for Arnd. Thx :)
-> >>  - Remove FIXME comment in elf.h
-> >>  - Optimize Cleanup duplicate definitions in compat.h with Arnd's advice
-> >>
-> >> Changes in v3:
-> >>  - Rebase on newest master (pre linux-5.17-rc1)
-> >>  - Using newest qemu version v7 for test
-> >>  - Remove fcntl common modification
-> >>  - Fixup SET_PERSONALITY in elf.h by Arnd
-> >>  - Fixup KVM Kconfig
-> >>  - Update Acked-by & Reviewed-by
-> >>
-> >> Changes in v2:
-> >>  - Add __ARCH_WANT_COMPAT_STAT suggested
-> >>  - Cleanup fcntl compatduplicate definitions
-> >>  - Cleanup compat.h
-> >>  - Move rv32_defconfig into Makefile
-> >>  - Fixup rv64 rootfs boot failed, remove hw_compat_mode_detect
-> >>  - Move SYSVIPC_COMPAT into init/Kconfig
-> >>  - Simplify compat_elf_check
-> >>
-> >> Christoph Hellwig (3):
-> >>   uapi: simplify __ARCH_FLOCK{,64}_PAD a little
-> >>   uapi: always define F_GETLK64/F_SETLK64/F_SETLKW64 in fcntl.h
-> >>   compat: consolidate the compat_flock{,64} definition
-> >>
-> >> Guo Ren (17):
-> >>   arch: Add SYSVIPC_COMPAT for all architectures
-> >>   fs: stat: compat: Add __ARCH_WANT_COMPAT_STAT
-> >>   asm-generic: compat: Cleanup duplicate definitions
-> >>   syscalls: compat: Fix the missing part for __SYSCALL_COMPAT
-> >>   riscv: Fixup difference with defconfig
-> >>   riscv: compat: Add basic compat data type implementation
-> >>   riscv: compat: Support TASK_SIZE for compat mode
-> >>   riscv: compat: syscall: Add compat_sys_call_table implementation
-> >>   riscv: compat: syscall: Add entry.S implementation
-> >>   riscv: compat: process: Add UXL_32 support in start_thread
-> >>   riscv: compat: Add elf.h implementation
-> >>   riscv: compat: Add hw capability check for elf
-> >>   riscv: compat: vdso: Add COMPAT_VDSO base code implementation
-> >>   riscv: compat: vdso: Add setup additional pages implementation
-> >>   riscv: compat: signal: Add rt_frame implementation
-> >>   riscv: compat: ptrace: Add compat_arch_ptrace implement
-> >>   riscv: compat: Add COMPAT Kbuild skeletal support
-> >>
-> >>  arch/arm64/Kconfig                            |   4 -
-> >>  arch/arm64/include/asm/compat.h               |  93 +------
-> >>  arch/arm64/include/asm/unistd.h               |   1 +
-> >>  arch/mips/Kconfig                             |   5 -
-> >>  arch/mips/include/asm/compat.h                |  41 +--
-> >>  arch/mips/include/asm/unistd.h                |   2 +
-> >>  arch/mips/include/uapi/asm/fcntl.h            |  30 +--
-> >>  arch/parisc/Kconfig                           |   4 -
-> >>  arch/parisc/include/asm/compat.h              |  45 +---
-> >>  arch/parisc/include/asm/unistd.h              |   1 +
-> >>  arch/powerpc/Kconfig                          |   5 -
-> >>  arch/powerpc/include/asm/compat.h             |  50 +---
-> >>  arch/powerpc/include/asm/unistd.h             |   1 +
-> >>  arch/riscv/Kconfig                            |  19 ++
-> >>  arch/riscv/Makefile                           |   9 +
-> >>  arch/riscv/include/asm/compat.h               | 129 ++++++++++
-> >>  arch/riscv/include/asm/csr.h                  |   7 +
-> >>  arch/riscv/include/asm/elf.h                  |  50 +++-
-> >>  arch/riscv/include/asm/mmu.h                  |   1 +
-> >>  arch/riscv/include/asm/pgtable.h              |  13 +-
-> >>  arch/riscv/include/asm/processor.h            |   6 +-
-> >>  arch/riscv/include/asm/syscall.h              |   1 +
-> >>  arch/riscv/include/asm/thread_info.h          |   1 +
-> >>  arch/riscv/include/asm/unistd.h               |  11 +
-> >>  arch/riscv/include/asm/vdso.h                 |   9 +
-> >>  arch/riscv/include/uapi/asm/unistd.h          |   2 +-
-> >>  arch/riscv/kernel/Makefile                    |   3 +
-> >>  arch/riscv/kernel/compat_signal.c             | 242 ++++++++++++++++++
-> >>  arch/riscv/kernel/compat_syscall_table.c      |  19 ++
-> >>  arch/riscv/kernel/compat_vdso/.gitignore      |   2 +
-> >>  arch/riscv/kernel/compat_vdso/Makefile        |  78 ++++++
-> >>  arch/riscv/kernel/compat_vdso/compat_vdso.S   |   8 +
-> >>  .../kernel/compat_vdso/compat_vdso.lds.S      |   3 +
-> >>  arch/riscv/kernel/compat_vdso/flush_icache.S  |   3 +
-> >>  .../compat_vdso/gen_compat_vdso_offsets.sh    |   5 +
-> >>  arch/riscv/kernel/compat_vdso/getcpu.S        |   3 +
-> >>  arch/riscv/kernel/compat_vdso/note.S          |   3 +
-> >>  arch/riscv/kernel/compat_vdso/rt_sigreturn.S  |   3 +
-> >>  arch/riscv/kernel/entry.S                     |  18 +-
-> >>  arch/riscv/kernel/process.c                   |  37 +++
-> >>  arch/riscv/kernel/ptrace.c                    |  87 ++++++-
-> >>  arch/riscv/kernel/signal.c                    |  13 +-
-> >>  arch/riscv/kernel/sys_riscv.c                 |   6 +-
-> >>  arch/riscv/kernel/vdso.c                      | 105 +++++---
-> >>  arch/riscv/kernel/vdso/vdso.S                 |   6 +-
-> >>  arch/s390/Kconfig                             |   3 -
-> >>  arch/s390/include/asm/compat.h                |  99 +------
-> >>  arch/s390/include/asm/unistd.h                |   1 +
-> >>  arch/sparc/Kconfig                            |   5 -
-> >>  arch/sparc/include/asm/compat.h               |  61 ++---
-> >>  arch/sparc/include/asm/unistd.h               |   1 +
-> >>  arch/x86/Kconfig                              |   4 -
-> >>  arch/x86/include/asm/compat.h                 | 104 ++------
-> >>  arch/x86/include/asm/unistd.h                 |   1 +
-> >>  fs/open.c                                     |  24 ++
-> >>  fs/read_write.c                               |  16 ++
-> >>  fs/stat.c                                     |   2 +-
-> >>  fs/sync.c                                     |   9 +
-> >>  include/asm-generic/compat.h                  | 113 ++++++++
-> >>  include/linux/compat.h                        |  68 +++++
-> >>  include/uapi/asm-generic/fcntl.h              |  23 +-
-> >>  include/uapi/asm-generic/unistd.h             |   4 +-
-> >>  init/Kconfig                                  |   4 +
-> >>  mm/fadvise.c                                  |  11 +
-> >>  mm/readahead.c                                |   7 +
-> >>  tools/include/uapi/asm-generic/fcntl.h        |  21 +-
-> >>  tools/include/uapi/asm-generic/unistd.h       |   4 +-
-> >>  67 files changed, 1206 insertions(+), 563 deletions(-)
-> >>  create mode 100644 arch/riscv/include/asm/compat.h
-> >>  create mode 100644 arch/riscv/kernel/compat_signal.c
-> >>  create mode 100644 arch/riscv/kernel/compat_syscall_table.c
-> >>  create mode 100644 arch/riscv/kernel/compat_vdso/.gitignore
-> >>  create mode 100644 arch/riscv/kernel/compat_vdso/Makefile
-> >>  create mode 100644 arch/riscv/kernel/compat_vdso/compat_vdso.S
-> >>  create mode 100644 arch/riscv/kernel/compat_vdso/compat_vdso.lds.S
-> >>  create mode 100644 arch/riscv/kernel/compat_vdso/flush_icache.S
-> >>  create mode 100755 arch/riscv/kernel/compat_vdso/gen_compat_vdso_offsets.sh
-> >>  create mode 100644 arch/riscv/kernel/compat_vdso/getcpu.S
-> >>  create mode 100644 arch/riscv/kernel/compat_vdso/note.S
-> >>  create mode 100644 arch/riscv/kernel/compat_vdso/rt_sigreturn.S
 > >>
 > >> --
-> >> 2.25.1
+> >> Best Regards
+> >>   Guo Ren
 > >>
+> >> ML: https://lore.kernel.org/linux-csky/
+> >
+> >
 
 
 
