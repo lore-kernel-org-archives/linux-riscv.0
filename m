@@ -4,81 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F2AAC433EF
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Apr 2022 13:13:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F30BC433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Apr 2022 13:48:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yQ0SZ8hfSgj+SgGfYHvCGUu4RqNd1si0VOS2s1QBPZY=; b=LvcVBNYCRtAKcL
-	FcoTZaqIbEpGFde5TFo/RvL9ClZ/tSDnmercK7Kv1fvobuOwy0sn1BADk5m1Iv5a9q2iT9m8M5UOB
-	qc1guH9zpdE2emz99F48Bpm2UZ31o4gmUOQnzWmRP1oCoeHw8UgwvScMNetLxc5HniqiaYIHPczhG
-	ow/NfC6xnxqjk5A0PCatMYVtificbLI+G2l4CeXap1hu0SBbsY+RBU8dpO8AuumZYYf6Q4eWy5yKQ
-	aCjUB2WmAkhSjlNUtARxOZZagzcn5JF5ek/I6QT5DEW0LyN7xI8AzoD1knPdOIZ71CRSW3gV54yFA
-	jSDPtj1Qc5Zb0ZhV8jZw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=y9UtVgGWckqFlGOQ3SEUICUjQOdkDotgRZZc0ueliB8=; b=UJ7dzuFo54yWRZ
+	0nHtgOyNar7xX1/cD7mqlG667ZTEU4QTj8pPVAxEafXzz0Fhs7BedTXAS4pKojLEiUBqgoqxfoBjz
+	d35BLRV0lRqyIcFjutbirQAWpCtwfIIxvMkWg+MtwZMSIvNRzx4StKEks2cX/WOnh4nJG8GEw6j8+
+	FiYVyAGEVV9SI/Ru0b6yCa59LSJQVZ1I2CjchT1CHR5U6t34YNyK/HaumDhTVxWeRzmZOZqzALeBt
+	TqtcY0QPTLrDC48mc+T1YnSNrKisRddlLemiYmJ5Htj7na+2ZUm9lqqHGwD8R+nLrWZS8IO7q4h38
+	AOkZQs76Zn64oMI5YfCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nkmuS-00EJWY-7s; Sat, 30 Apr 2022 13:13:16 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1nknSV-00EMpB-UQ; Sat, 30 Apr 2022 13:48:27 +0000
+Received: from mail-os0jpn01on2072a.outbound.protection.outlook.com
+ ([2a01:111:f403:700c::72a]
+ helo=JPN01-OS0-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nkmuG-00EJML-Jb
- for linux-riscv@lists.infradead.org; Sat, 30 Apr 2022 13:13:08 +0000
-Received: by mail-wr1-x431.google.com with SMTP id c11so4219013wrn.8
- for <linux-riscv@lists.infradead.org>; Sat, 30 Apr 2022 06:12:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=conchuod-ie.20210112.gappssmtp.com; s=20210112;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=l7Rc5OS3t5jH6ZKfP/hcCEMnf9UpuWYMdCo25UYCckg=;
- b=X9thXVlmcxmH1PE12wviFkCqeB+MZYit8NQzf7UG+cKxQdSXGYfNvp7epUsMhphPqw
- dgI0WpBh0Q16kC+ZyLeT3gTwo77RcBTLZdMSrV2LfXYUCnDCz9trJlWx4B6qkjb3UKcH
- /kwL7Y3RvEE71ZY7lCZrSxmxURm6ziJ/ptAjeQSh8WkExAGRC2DdTIw6RyuHUA0qIUQD
- aeDj/HfU6moCSAkfL+R0hj+IeFufhNBoyleaw0kmPvK2aA4eotgsq+ljwATz/XNDZBJO
- KyekhtyA4ptf7zq5UJYpNJUJHZB3KjExiMKo8fb/9Cidq4B5IFsDPeuwpSZ5mq6zs5zH
- vwag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=l7Rc5OS3t5jH6ZKfP/hcCEMnf9UpuWYMdCo25UYCckg=;
- b=1N9iLpZ23rN5vGgnEBcb38fxP8J6X3ZZQC2ugOrYFU2xdsd6iK2raDqH69wfwiwC8W
- /8b+W9cyGO0YtfOiuuAZvums6TLwIg0cuxoUc9GUfCNdsVaGQN7bfdYSzwzgW4Bk0V81
- +aUGNxHXnJNad6HQM7/9wFU/iZKGCuHatTVs/EYIO6V9dUcTh9+HIk/CzEmiDUbYftXG
- RRTFLjvE9rA1O/9bKAk2m9jcDBZPQnruCn4XWHNqI3dYEg6En8KbXgbyvml2cAc1KCm4
- 8oBU/JSjlr9xMqzJ5t9yU/G3uyhjfQSjkjmqXUEGJZlNNKU86wxsZpqYEp5VnQN/VDbN
- ZQEQ==
-X-Gm-Message-State: AOAM531RfXEN3XJr3PeN5Ky/CXTO5n7mPxNdlvApu+Ca+lKg96mCZP7D
- WqAdOZj5rctCNF28UxmYAbWprA==
-X-Google-Smtp-Source: ABdhPJwfVdzniLJsxd2OkH7C13/Hxoma+jQxRAs+vM3HMP4eVaImC/GGXFNkSLzzDuWaaC2VqGfS6A==
-X-Received: by 2002:adf:e942:0:b0:20a:c907:90d6 with SMTP id
- m2-20020adfe942000000b0020ac90790d6mr3047537wrn.163.1651324378647; 
- Sat, 30 Apr 2022 06:12:58 -0700 (PDT)
-Received: from henark71.. ([109.77.36.132]) by smtp.gmail.com with ESMTPSA id
- p9-20020adfa209000000b0020c5253d8ebsm2004439wra.55.2022.04.30.06.12.57
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 30 Apr 2022 06:12:58 -0700 (PDT)
-From: Conor Dooley <mail@conchuod.ie>
-To: krzk+dt@kernel.org,
-	palmer@dabbelt.com,
-	robh+dt@kernel.org
-Cc: conor.dooley@microchip.com, Cyril.Jean@microchip.com,
- daire.mcnamara@microchip.com, paul.walmsley@sifive.com,
- aou@eecs.berkeley.edu, palmer@rivosinc.com, arnd@arndb.de,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Conor Dooley <mail@conchuod.ie>
-Subject: [PATCH v2 5/8] riscv: dts: microchip: make the fabric dtsi board
- specific
-Date: Sat, 30 Apr 2022 14:09:20 +0100
-Message-Id: <20220430130922.3504268-6-mail@conchuod.ie>
-X-Mailer: git-send-email 2.36.0
-In-Reply-To: <20220430130922.3504268-1-mail@conchuod.ie>
-References: <20220430130922.3504268-1-mail@conchuod.ie>
+ id 1nknSS-00EMmr-HG
+ for linux-riscv@lists.infradead.org; Sat, 30 Apr 2022 13:48:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=WPtH588ARqhvA8o2TkarAYyNEAjqMG2LcWiZAKfc3tYqS3xCN/62N1sm9q7D1sptsxWLGAKy4v8hoAKZBetRtpSNrXriJLu0S8veOJ2ZFifn9hXUhN9a0fpoXjZ94pm5c3RVvrGUJORW5V4WstXt4PhFiryd8UtTvmVzvWtYa3wFRTJdgiXGIngUgXt+Hcth51WrxfRyhe4JaltqKm3AjE9dxoW1gfJI83IhVs3xAglpD7LLcZiAfsVBEldDLaWSnm0OBZlA/aJBfyTDoVFaWObB90AbjbsmkddVn4SgjhDfptu8UB9POEctYLEWOpttPDw3MLfPwSKGcGXIfDBArg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=M+gKlK7myVKHZqyCWusQle6tdHd9gd6nwgEnmnydETQ=;
+ b=nY/N6+Be/WflNql5UrioUkKf9h9lHZY2zd5oHKgLZDCeowo4pXYSQ9o1YMv89FbXAiUNndbZsvoGesL0qXfuMeZ0/diRsxTl4nehmNZkMkrDdRdfoIOOVH25Aw5+xTWrk2tFbHHxgP0tFsT5km6UvoLNK4V2L+o/DZrFa225HN1T9g8fDBWwmGQcwvGZdvyTO/V+1t0xFvRqdgys+RKw0SwDfJJxI1m+JA6MzofemhzU/A5TZmbS8YmD2c/VafC5MZllYLdrhkMnqwRnM6dpZ1Mryz5zsvUoc3BQnFF1veCq6v2iad9nEVAdzKSDB+6Ows89OUAF/sbOY0/MBZW16w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=zenithal.me; dmarc=pass action=none header.from=zenithal.me;
+ dkim=pass header.d=zenithal.me; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zenithal.me;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=M+gKlK7myVKHZqyCWusQle6tdHd9gd6nwgEnmnydETQ=;
+ b=G3qgDSmEblQgtvpDbcOFIV7y5eclXC4HIdzuU2oYPjFOGcLggcmg22tv8Hwh1KEaDhv1sRzGkU/4vTAqMpUpeFtagkHr1WhGLgvlLJSU+qFUlYhkYULQgjXRemtCgEmM80uWeYmRBrsadCAB8VpEuBWwS/1YGcuhLkSjqc9RwMk=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=zenithal.me;
+Received: from TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:c0::6) by
+ TYCP286MB1706.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:187::8) with
+ Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5206.13; Sat, 30 Apr 2022 13:48:11 +0000
+Received: from TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::bd99:5c83:e2dc:a8f7]) by TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::bd99:5c83:e2dc:a8f7%6]) with mapi id 15.20.5206.012; Sat, 30 Apr 2022
+ 13:48:10 +0000
+Date: Sat, 30 Apr 2022 21:48:02 +0800
+From: "Hongren (Zenithal) Zheng" <i@zenithal.me>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Atish Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>,
+ Eric Biederman <ebiederm@xmission.com>,
+ Kees Cook <keescook@chromium.org>, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-api@vger.kernel.org, Michael Kerrisk <mtk.manpages@gmail.com>,
+ linux-man@vger.kernel.org, Jiatai He <jiatai2021@iscas.ac.cn>
+Subject: [PATCH 0/3] RISC-V: Add Bitmanip/Scalar Crypto HWCAP
+Message-ID: <Ym0+Erz5DEnB78vu@Sun>
+Content-Disposition: inline
+X-Operating-System: Linux Sun 5.15.26
+X-Mailer: Mutt 2.2.1 (2022-02-19)
+X-ClientProxiedBy: SJ0PR05CA0208.namprd05.prod.outlook.com
+ (2603:10b6:a03:330::33) To TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:c0::6)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 853486b2-3137-4a52-36e2-08da2ab01077
+X-MS-TrafficTypeDiagnostic: TYCP286MB1706:EE_
+X-Microsoft-Antispam-PRVS: <TYCP286MB1706816689531A38448334A2BCFF9@TYCP286MB1706.JPNP286.PROD.OUTLOOK.COM>
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: G+eJOJ/Mj/awsD9vY2W5x1MDQdI91DefWCy2qd3jfPcYjVff1difs36b1kHDbW1vRObiEj4URKC4HXLpEJWNKp4M/DHiEZ71lLWfGB3DhaMZtBJ85roZxCwx3ivfvvqamIBho04k2t2DcY6CvXE4+YLEsStnhfRBrQkYySnNatP+R2T8tk5ZRXbgd6TvkWYcVIwLWiTjtRGoh/xKtF6NqKzinnYTnkiRdq0yc9SjDxMZOC37Pw1m5RBPvApUPIVxARS0XOCyDIOaAxaGztDYR4/W/FgQdfrKejiEzs2wjdZg1CydYYEY8xW799FFTSmLIbXxZ+S0Uq52E3jB+W+pZuZU2M3+LZqB8W7t9XDQ1qHUylHPgGPyCq+MBvyaut8pwPL1lBooeB1KqNCZ1hY3KpHU84xtfSiQGCaciqgLEysAeOYYPdG21EqJHhCTxKW6fF7aY/dRBqGWqahVWtssHGbLm0vDKTLoLuuMPuu9qeguC2PVMVONCzWhy7DERUQmcfStp3OBLvo1M9IXmBNXA2Azc0RzUUTbLzXddpeTORlrtPr9v+VQfjU3fjAIHn1AQOhfKuTdTxTsmClYpsGVhtb99ppEfq40xDtEWNYll/IZZ2RRdq1+KFQ79GB7TrLARqhs6ajgpcP3HhHl6ifcCMe4ZaEGHk95kzCDcV8uSFBOgmLzU7DRwAXkgOMe4KomHUu+r6eOfdhWnMK+wppUHqYuYWWL6LsAX8KNyfgjqDoXsa5S3F70PX5GySkZGBzFBW4IqpB4Jifzh+t181zVXzHZUc2hHyTYQrVCdsTU4CI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM; PTR:; CAT:NONE;
+ SFS:(13230001)(7916004)(366004)(376002)(346002)(396003)(136003)(39830400003)(6506007)(83380400001)(86362001)(966005)(6666004)(52116002)(6486002)(38100700002)(508600001)(6512007)(9686003)(186003)(8936002)(2906002)(316002)(786003)(33716001)(7416002)(66946007)(54906003)(66476007)(66556008)(110136005)(5660300002)(8676002)(4326008)(49092004)(67856001);
+ DIR:OUT; SFP:1102; 
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fB7sDSH+cjlQIyzSiYme9UR9dMrVtO4h67CQgqbDsY/PvX5WvhU8I+x08nZP?=
+ =?us-ascii?Q?OmbiaRtR9M6zFVNJRj8n6M8jN4YJ1IsLhUrqT/ioFQEkQlZwls5MnIS+82GT?=
+ =?us-ascii?Q?b7RMZFXpUHaAKtG/UUMiRDT90G8evzneo7GptHK0+aSXPk3DSyB2m4We+JKj?=
+ =?us-ascii?Q?PWMBJOH1z5B/bCgCAEPPrv9fYiqVIwnwEDpTmM02keGYg1ccbuQ+3cwk09Nu?=
+ =?us-ascii?Q?J9oTxlyhO1okRWo7AtO5sa5hO2UkrTxgrvrXn5xk+8A3R/xg6SzWqxUfvibg?=
+ =?us-ascii?Q?a8NhgXR4WPux/2QAntFinkoc8uEu91p+8xjar2mrYW+1sl10bAYtf7lbHJyC?=
+ =?us-ascii?Q?YhC0uYekijDwglC0tqD7eqBxTgeNQdQ/EJt3oI3fAaHTWNE8Vp5Alcu5tgoU?=
+ =?us-ascii?Q?yzyshBQcMuVfbRKI93crVqPX+2vPdZ54Zq1u+oTSeWnR+i8VH8nFrjAsOuYk?=
+ =?us-ascii?Q?rf+hbV0rsnyb61Ap/RZC30HfnRJ7IXjQBSY7uKwlAed8piPP6Ly2FMKjiE1F?=
+ =?us-ascii?Q?gX/nc7tqQZPDCc7yJKP2B5g23PCCZtCUsEXBr/Ggm/Jvs+Q3U2l9lM3PEfDZ?=
+ =?us-ascii?Q?Zi16fDIsIDItva+boLdrrBPj71W+XI+/WTqsiEW1O3iEGSt/BLuQUIlE7dud?=
+ =?us-ascii?Q?CS1aXWdtw3R5AnQzK7pL3KYzkA1xpzHpdsg5OyNWKop26gXbTiGD/ufg5wJ8?=
+ =?us-ascii?Q?0NHjvfHHfxtKCzaGfp5RE6DU+gRGnHdUYur1aus0rfWs9HcslviAyKfY4/iW?=
+ =?us-ascii?Q?+hEJ+ExndBoIrCg4oaUP2dwUk3o9pQVhUrPcSiGxsR0jdS/Bcmw2D4qU952O?=
+ =?us-ascii?Q?Mf6UiGKrCE6z0rWKWKec8GF86t6Wp18dZ8X5Ag2TkfwzRBnWgDCPbYUtAkbo?=
+ =?us-ascii?Q?LEDmO72PLBBtx9h6lfKfnizamx9rcYrN6mcWJPHVYTAlpGual2tR3C17UMD7?=
+ =?us-ascii?Q?RPdHQ8G92GDhQmZ7k7fWOiTaho65BMw+DuFabj0aZr109450rxthEjtNWVBf?=
+ =?us-ascii?Q?gCdHwfN2QcG2wBQvRpCIIoLSchYe8JmP0GJNCkiIHKt998JEBoUrdGYGHfFx?=
+ =?us-ascii?Q?3QDDEFz1gi5KkxTVTUQsvTHfdmNgAa3SYgdvnUSh4HYwMNHt0a4o+Nar7XWn?=
+ =?us-ascii?Q?0G3uJJ9GCXbpW2G+rsm47Btz+Vfl/7a4Kg07ptYQ6lF8+xZtwvNjRlYdj6sK?=
+ =?us-ascii?Q?fyIeYEndh1EBesCsEYbcUkvSlcFzs420cnpNOhfnpKFQXR0JWqbWb/jJnHrp?=
+ =?us-ascii?Q?POz/ScjJ5cZcXCKrH3IPyWHzaOBYyllKhjwoq40v6ly9kRedlWPSyAoiUQYe?=
+ =?us-ascii?Q?T+LpCkgYbxDCPwyrERPW/GPKCOBjOyhmWNj+H9aTbzkzSYOp8Yh0V61Yx/Tf?=
+ =?us-ascii?Q?XJ54j1dL92P7LPtjrOKkb03gMM4orTuT201nIKHqfGGDuI0rW+ZSyKRjF7Yp?=
+ =?us-ascii?Q?sITx3HXSDya5ekQBPSN4932YeaszaeX1W9E2AVRnylh7I7CCtgeTlCXW13e9?=
+ =?us-ascii?Q?7nyNQB8zlc8058Ig3OYhA10UZZt3Jx09E6b7npGNfQ3i3I1/TR6KmwLXuyMD?=
+ =?us-ascii?Q?1IA4Dsw6+Se7c1NwTBole+EAIpr8JuZlZsBSAHGllyt/VR63rwk9QXuzvqbD?=
+ =?us-ascii?Q?cYkxwcyljqg6nuj2MIny+QImLVM2KBqfMSK4cIi5foR+Ank0dF7jb8kFeEKR?=
+ =?us-ascii?Q?fVVrCkeh63oO2clOF5mgOjZ8OE2VFfNJeqxmhIk9XptcF6H9e0yNhT6aoPue?=
+ =?us-ascii?Q?hLEbhQZUZQ=3D=3D?=
+X-OriginatorOrg: zenithal.me
+X-MS-Exchange-CrossTenant-Network-Message-Id: 853486b2-3137-4a52-36e2-08da2ab01077
+X-MS-Exchange-CrossTenant-AuthSource: TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2022 13:48:10.8955 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 436d481c-43b1-4418-8d7f-84c1e4887cf0
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: x3uNWMGI8dHouC7NVlLOmpQsuontxGVcNQcluuIsdfjWDXXRIavnaidhB0HVT1HK
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCP286MB1706
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220430_061304_706525_1A75B84A 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20220430_064824_580045_EAF0B385 
+X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,67 +145,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+This patchset proposes a currently viable and forward
+compatible way to expose the bitmanip/scalar crypto
+capability of the platform to the userspace.
 
-Currently mpfs-fabric.dtsi is included by mpfs.dtsi - which is fine
-currently since there is only one board with this SoC upstream.
+Currently viable refers to the property that hardware
+platforms can easily modify the riscv,isa field in DT to
+tell the kernel it has the capability. Note that QEMU
+has already done so in its device tree.
 
-However if another board was added, it would include the fabric contents
-of the Icicle Kit's reference design. To avoid this, rename
-mpfs-fabric.dtsi to mpfs-icicle-kit-fabric.dtsi & include it in the dts
-rather than mpfs.dtsi.
+Forward compatible refers to the property that userspace
+can still detect the capability of the environment by
+using HWCAP regardless of how the mechanism changes
+below kernel in the future. I do know that it has not
+been settled how to discover a capability, but I think
+kernel has to offer some API after all, and HWCAP
+is the preferred way among other mechanisms for now.
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Conor Dooley <mail@conchuod.ie>
----
- .../microchip/{mpfs-fabric.dtsi => mpfs-icicle-kit-fabric.dtsi} | 2 ++
- arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts               | 1 +
- arch/riscv/boot/dts/microchip/mpfs.dtsi                         | 1 -
- 3 files changed, 3 insertions(+), 1 deletion(-)
- rename arch/riscv/boot/dts/microchip/{mpfs-fabric.dtsi => mpfs-icicle-kit-fabric.dtsi} (93%)
+More discussion on userspace discovering
+can be found on my PR to openssl
+https://github.com/openssl/openssl/pull/18197
 
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
-similarity index 93%
-rename from arch/riscv/boot/dts/microchip/mpfs-fabric.dtsi
-rename to arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
-index ccaac3371cf9..7ee592e78c05 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-fabric.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
-@@ -2,6 +2,8 @@
- /* Copyright (c) 2020-2021 Microchip Technology Inc */
- 
- / {
-+	compatible = "microchip,mpfs-icicle-reference-rtlv2203";
-+
- 	core_pwm0: pwm@41000000 {
- 		compatible = "microchip,corepwm-rtl-v4";
- 		reg = <0x0 0x41000000 0x0 0xF0>;
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-index 84b0015dfd47..739dfa52bed1 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-+++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-@@ -4,6 +4,7 @@
- /dts-v1/;
- 
- #include "mpfs.dtsi"
-+#include "mpfs-icicle-kit-fabric.dtsi"
- 
- /* Clock frequency (in Hz) of the rtcclk */
- #define RTCCLK_FREQ		1000000
-diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-index cc3386068c2d..695c4e2807f5 100644
---- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-@@ -3,7 +3,6 @@
- 
- /dts-v1/;
- #include "dt-bindings/clock/microchip,mpfs-clock.h"
--#include "mpfs-fabric.dtsi"
- 
- / {
- 	#address-cells = <2>;
+Hongren (Zenithal) Zheng (3):
+  RISC-V: add Bitmanip/Scalar Crypto parsing from DT
+  RISC-V: uapi: add HWCAP for Bitmanip/Scalar Crypto
+  RISC-V: HWCAP: parse Bitmanip/Scalar Crypto HWCAP from DT
+
+ arch/riscv/include/asm/elf.h        |  2 +
+ arch/riscv/include/asm/hwcap.h      | 16 ++++++
+ arch/riscv/include/uapi/asm/hwcap.h | 22 ++++++++
+ arch/riscv/kernel/cpu.c             | 14 +++++
+ arch/riscv/kernel/cpufeature.c      | 79 +++++++++++++++++++++++++----
+ 5 files changed, 123 insertions(+), 10 deletions(-)
+
 -- 
-2.36.0
+2.35.1
 
 
 _______________________________________________
