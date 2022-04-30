@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEBB0C43217
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Apr 2022 15:38:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB95FC433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Apr 2022 15:38:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
 	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FcCrXP5XQUj4oKtEqeVZqgN9oVOVdtHPy9tC5jnfV8I=; b=zDQPvEZXZU3glU
-	7OKx94ZOC+guPjEN85hBug/WAA27/ll7Vm9NDhpREJYNgRK4HhXmOH2KFMw3fk5KyjGcz5+NMESW1
-	3Nx/G0q/F90CBuTXjY7fuzXM9agwvmVZmVJ42X21r0u/8IjW61SzYOco8eWx0H/BNBMRicnQvpUG9
-	lUWZ1WPsF3nd+coFT0gKYTpZaMlHNl0IQOVQp/N5Bs5VNcgFZjFZf/Ej5gtLIQmkCFsAq/ATeUW78
-	I0TO2h2lRwAKX2Og3dO1bgWYu77E0HbIvDCWEJu6zCfqMAzLdSGHFHAn5wysQdz+JwTMzN8l0wa4r
-	dxPOgDT2M5dAONrJYP3A==;
+	List-Owner; bh=ZiEYjRflyHCNEGh6ZDCy0WOGzay+0JUwEMyU8vm8tMo=; b=WTPH+WVzbpAnGp
+	PN8mLh7pp2dmmD7EcyykYJEUy2Fa9IF5h7oXI3cKLleRZfrGD7eXiGRdHv/rviYV4qN5l8zzC84Gs
+	NTs3BDTsL4vswFeJx4SGOnSME+RHAWEPP4xqMelC98WgXdq6sOIDEtTYZnbw8KOjqrssQ+91U98/w
+	RZlKO8Nfe882i29kBeftI4DEum018xeazYSTV13kGJBBxYbRn7p2Ez7Gg1wnEpS8ueRsgRtx4+cQk
+	6W5C4cdh9CgtgFxTMPZHGXAokPsXDPU4gLw8N9RzlPLp9uWg3mJcG5nWRCSoQdi67S76r0AWoZDjm
+	UyXoHqJcInFL2H+OHVaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nkpAe-00EZFe-78; Sat, 30 Apr 2022 15:38:08 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1nkpAf-00EZGn-VU; Sat, 30 Apr 2022 15:38:10 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nkpAW-00EZ9E-5J
- for linux-riscv@lists.infradead.org; Sat, 30 Apr 2022 15:38:01 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id o69so8082198pjo.3
- for <linux-riscv@lists.infradead.org>; Sat, 30 Apr 2022 08:37:59 -0700 (PDT)
+ id 1nkpAX-00EZA0-4A
+ for linux-riscv@lists.infradead.org; Sat, 30 Apr 2022 15:38:03 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id n18so9455400plg.5
+ for <linux-riscv@lists.infradead.org>; Sat, 30 Apr 2022 08:38:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
  h=subject:date:message-id:in-reply-to:references:mime-version
  :content-transfer-encoding:cc:from:to;
- bh=vsFDZUB/84NzhX1Z1IP0W5vQn6O0PaUxSIdB0QjeUDc=;
- b=r9PDVKcgm65Yi4vII/nk4Hbo/0VBC0YV7rdeo8wYExc1mL5i9iTQrvolkp1GVFLke7
- +vCF/A5uqEZvh2csjfLPm8RWQsuHbKJX5kwLzm78bw0kFy42B6J4nK8MD/fKN48dI4bG
- 523x+G8tMmvMFwvBTnJ9CHVBhnmsDko/gzea7i1d/e4C2uq1pHJ2kE0F23EmSkojAL3L
- fd201kWeiUl5qiV4l0f1gNZUR0QSWEbHO12tcQN0BazqIjtOLG62PJBWmQZP4OcuE4Eb
- RxvgdLj+WdYFMnxwj+PMOBWi7eBUZ7BBl2ku0KO40Vcvdzu19+9wALmnOJee6SEHdHxN
- toNA==
+ bh=PhfY9SC+wYhs3i/pCnS1F0qe7XGea8rOjY/kEhC+LrE=;
+ b=sCDHVOiLVN32Y8ICH+ZkCKw/InoCrY43xa27irUukeSvGPghb/JBYOw6oTCkeIBkNa
+ +H/XBYvBx7CV0nBuiGA7CSeqpBzMXbIkhHwzR01gcHQLnmqthIK6PG5GbP5QbH/LT2af
+ 9Em8Bhs6r45/fJ462zBxoDeJfmyc3zQOXCJQOLKUa7NZyWoNpE+p5rq+evLX48Wxqz7Z
+ 8QuGzNeewDVFwR94Xv+ACR39i3XWraOwk4MmDN7l7tVP+OXZvX8sxAPK4yys2j11psjV
+ Aa1jdjYTmV+9Er+vvhIB/vTozu0gkGHHg2IByGGcQHC5KnFPIj4uZM2dHaqz/yWVmr+t
+ 6dBg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding:cc:from:to;
- bh=vsFDZUB/84NzhX1Z1IP0W5vQn6O0PaUxSIdB0QjeUDc=;
- b=fyYNKhRzOdljenEW4nSISBTIZejPhvB3e8SkY/0MX8n42K7eIMZN36iqo/P8BvccJk
- 6Rzl5zQU85/DnFDTkNGERiNQ+2PC71PrMpkqTIPMM2kLmRICWWsfrqtvGHl2yTAw2xV1
- c9jyf6ugM9AOWlY58SEehDmLiMJBUqxmfsPjYIrmR1pr9TSJE2O2geM6ioti6Ji+Czvv
- LJuhdB2bq/OMHVX8sb+glK40UxFpVc/Lsu/6JPoNDLTWMedzzell3J+3GsCEQ/1N8dwA
- 8S7B2j6fxIz2TFkVuNX0JJgcXZchThv9erirPsk0q+ETEtr46cXyvg/hko5o/WYYd9FZ
- KBYw==
-X-Gm-Message-State: AOAM532OK+Qu0CPbQjd4wgBEirYpVOZ7QV+wq8mLW/uLH+/UT5zh5JGI
- p6fyy7o3kUi0PVzD/6FcbNjhlg==
-X-Google-Smtp-Source: ABdhPJw/hFbzhIhDKerSo/xxSkM2N2Ke32oM0UbAy8C7RthY2xSvx/irL3sI6rRGhR1JZDHiupHHjA==
-X-Received: by 2002:a17:902:8b8a:b0:158:fbd0:45ab with SMTP id
- ay10-20020a1709028b8a00b00158fbd045abmr4283114plb.110.1651333078732; 
- Sat, 30 Apr 2022 08:37:58 -0700 (PDT)
+ bh=PhfY9SC+wYhs3i/pCnS1F0qe7XGea8rOjY/kEhC+LrE=;
+ b=6MlS8Fhldf+O/ohvtsW2iOYhgJajIXllvB5j79Aybka7dn891NXc9AG4So/BmZ/d8R
+ GrIP44GlZXxHeDXR5xTBxlR6zRbftEA203ebjfT906y39iQN/he2Lm9jqa0Zy9uxJL+j
+ xYzRzXLTb0uX/2sJDfSDuP6xO5I44HFVr37rFJqKZkZFv/GzVWSk0ryJYXDE5FcGlnhF
+ UCm0U2NwpIsjdpnBWlJ8csrbHa8gtj2bCJ/y+WwRYZx7ODyuNTCqMDKZ0nX+GZIEqq6S
+ BU8UE7xX5cj4a1Mzlx6RP1cUIn3obdyNbNhl6BLnz4n2aNy260IUeX+Eo+HAvHhLiZAA
+ BtIw==
+X-Gm-Message-State: AOAM530hyc1BA9Jvg+WNseaz74MosAYqJRZR7nkbmRzha1ly7jOxtQS2
+ 9q7aiFx8UlPWY1FKX+7MVPquoA==
+X-Google-Smtp-Source: ABdhPJyQzZr23BkCwG1+xSArqcEmCk72rbg9rU3h9fy701WXzCXMfDWtm+qk2uXLdC5yg4y6n4z3Nw==
+X-Received: by 2002:a17:902:b789:b0:15b:5d52:7542 with SMTP id
+ e9-20020a170902b78900b0015b5d527542mr4396814pls.26.1651333079791; 
+ Sat, 30 Apr 2022 08:37:59 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223]) by smtp.gmail.com with ESMTPSA id
- i1-20020a17090332c100b0015e8d4eb1f4sm1630983plr.62.2022.04.30.08.37.58
+ x5-20020aa793a5000000b0050dc7628201sm1677478pff.219.2022.04.30.08.37.59
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 30 Apr 2022 08:37:58 -0700 (PDT)
-Subject: [PATCH v4 5/7] RISC-V: Move to generic spinlocks
-Date: Sat, 30 Apr 2022 08:36:24 -0700
-Message-Id: <20220430153626.30660-6-palmer@rivosinc.com>
+ Sat, 30 Apr 2022 08:37:59 -0700 (PDT)
+Subject: [PATCH v4 6/7] RISC-V: Move to queued RW locks
+Date: Sat, 30 Apr 2022 08:36:25 -0700
+Message-Id: <20220430153626.30660-7-palmer@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20220430153626.30660-1-palmer@rivosinc.com>
 References: <20220430153626.30660-1-palmer@rivosinc.com>
@@ -83,8 +83,8 @@ Cc: guoren@kernel.org, peterz@infradead.org, mingo@redhat.com,
 From: Palmer Dabbelt <palmer@rivosinc.com>
 To: Arnd Bergmann <arnd@arndb.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220430_083800_227737_0091AC36 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20220430_083801_276036_5F26CAFE 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,119 +103,179 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Palmer Dabbelt <palmer@rivosinc.com>
 
-Our existing spinlocks aren't fair and replacing them has been on the
-TODO list for a long time.  This moves to the recently-introduced ticket
-spinlocks, which are simple enough that they are likely to be correct
-and fast on the vast majority of extant implementations.
-
-This introduces a horrible hack that allows us to split out the spinlock
-conversion from the rwlock conversion.  We have to do the spinlocks
-first because qrwlock needs fair spinlocks, but we don't want to pollute
-the asm-generic code to support the generic spinlocks without qrwlocks.
-Thus we pollute the RISC-V code, but just until the next commit as it's
-all going away.
+Now that we have fair spinlocks we can use the generic queued rwlocks,
+so we might as well do so.
 
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- arch/riscv/include/asm/Kbuild           |  2 ++
- arch/riscv/include/asm/spinlock.h       | 44 +++----------------------
- arch/riscv/include/asm/spinlock_types.h |  9 +++--
- 3 files changed, 10 insertions(+), 45 deletions(-)
+ arch/riscv/Kconfig                      |  1 +
+ arch/riscv/include/asm/Kbuild           |  2 +
+ arch/riscv/include/asm/spinlock.h       | 99 -------------------------
+ arch/riscv/include/asm/spinlock_types.h | 24 ------
+ 4 files changed, 3 insertions(+), 123 deletions(-)
+ delete mode 100644 arch/riscv/include/asm/spinlock.h
+ delete mode 100644 arch/riscv/include/asm/spinlock_types.h
 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 00fd9c548f26..f8a55d94016d 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -39,6 +39,7 @@ config RISCV
+ 	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
+ 	select ARCH_SUPPORTS_HUGETLBFS if MMU
+ 	select ARCH_USE_MEMTEST
++	select ARCH_USE_QUEUED_RWLOCKS
+ 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+ 	select ARCH_WANT_FRAME_POINTERS
+ 	select ARCH_WANT_GENERAL_HUGETLB
 diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
-index 5edf5b8587e7..c3f229ae8033 100644
+index c3f229ae8033..504f8b7e72d4 100644
 --- a/arch/riscv/include/asm/Kbuild
 +++ b/arch/riscv/include/asm/Kbuild
-@@ -3,5 +3,7 @@ generic-y += early_ioremap.h
+@@ -3,6 +3,8 @@ generic-y += early_ioremap.h
  generic-y += flat.h
  generic-y += kvm_para.h
  generic-y += parport.h
-+generic-y += qrwlock.h
-+generic-y += qrwlock_types.h
++generic-y += spinlock.h
++generic-y += spinlock_types.h
+ generic-y += qrwlock.h
+ generic-y += qrwlock_types.h
  generic-y += user.h
- generic-y += vmlinux.lds.h
 diff --git a/arch/riscv/include/asm/spinlock.h b/arch/riscv/include/asm/spinlock.h
-index f4f7fa1b7ca8..88a4d5d0d98a 100644
+deleted file mode 100644
+index 88a4d5d0d98a..000000000000
 --- a/arch/riscv/include/asm/spinlock.h
-+++ b/arch/riscv/include/asm/spinlock.h
-@@ -7,49 +7,13 @@
- #ifndef _ASM_RISCV_SPINLOCK_H
- #define _ASM_RISCV_SPINLOCK_H
- 
-+/* This is horible, but the whole file is going away in the next commit. */
-+#define __ASM_GENERIC_QRWLOCK_H
-+
- #include <linux/kernel.h>
- #include <asm/current.h>
- #include <asm/fence.h>
--
++++ /dev/null
+@@ -1,99 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-only */
 -/*
-- * Simple spin lock operations.  These provide no fairness guarantees.
+- * Copyright (C) 2015 Regents of the University of California
+- * Copyright (C) 2017 SiFive
 - */
 -
--/* FIXME: Replace this with a ticket lock, like MIPS. */
+-#ifndef _ASM_RISCV_SPINLOCK_H
+-#define _ASM_RISCV_SPINLOCK_H
 -
--#define arch_spin_is_locked(x)	(READ_ONCE((x)->lock) != 0)
+-/* This is horible, but the whole file is going away in the next commit. */
+-#define __ASM_GENERIC_QRWLOCK_H
 -
--static inline void arch_spin_unlock(arch_spinlock_t *lock)
+-#include <linux/kernel.h>
+-#include <asm/current.h>
+-#include <asm/fence.h>
+-#include <asm-generic/spinlock.h>
+-
+-static inline void arch_read_lock(arch_rwlock_t *lock)
 -{
--	smp_store_release(&lock->lock, 0);
+-	int tmp;
+-
+-	__asm__ __volatile__(
+-		"1:	lr.w	%1, %0\n"
+-		"	bltz	%1, 1b\n"
+-		"	addi	%1, %1, 1\n"
+-		"	sc.w	%1, %1, %0\n"
+-		"	bnez	%1, 1b\n"
+-		RISCV_ACQUIRE_BARRIER
+-		: "+A" (lock->lock), "=&r" (tmp)
+-		:: "memory");
 -}
 -
--static inline int arch_spin_trylock(arch_spinlock_t *lock)
+-static inline void arch_write_lock(arch_rwlock_t *lock)
 -{
--	int tmp = 1, busy;
+-	int tmp;
 -
--	__asm__ __volatile__ (
--		"	amoswap.w %0, %2, %1\n"
+-	__asm__ __volatile__(
+-		"1:	lr.w	%1, %0\n"
+-		"	bnez	%1, 1b\n"
+-		"	li	%1, -1\n"
+-		"	sc.w	%1, %1, %0\n"
+-		"	bnez	%1, 1b\n"
 -		RISCV_ACQUIRE_BARRIER
--		: "=r" (busy), "+A" (lock->lock)
--		: "r" (tmp)
--		: "memory");
+-		: "+A" (lock->lock), "=&r" (tmp)
+-		:: "memory");
+-}
+-
+-static inline int arch_read_trylock(arch_rwlock_t *lock)
+-{
+-	int busy;
+-
+-	__asm__ __volatile__(
+-		"1:	lr.w	%1, %0\n"
+-		"	bltz	%1, 1f\n"
+-		"	addi	%1, %1, 1\n"
+-		"	sc.w	%1, %1, %0\n"
+-		"	bnez	%1, 1b\n"
+-		RISCV_ACQUIRE_BARRIER
+-		"1:\n"
+-		: "+A" (lock->lock), "=&r" (busy)
+-		:: "memory");
 -
 -	return !busy;
 -}
 -
--static inline void arch_spin_lock(arch_spinlock_t *lock)
+-static inline int arch_write_trylock(arch_rwlock_t *lock)
 -{
--	while (1) {
--		if (arch_spin_is_locked(lock))
--			continue;
+-	int busy;
 -
--		if (arch_spin_trylock(lock))
--			break;
--	}
+-	__asm__ __volatile__(
+-		"1:	lr.w	%1, %0\n"
+-		"	bnez	%1, 1f\n"
+-		"	li	%1, -1\n"
+-		"	sc.w	%1, %1, %0\n"
+-		"	bnez	%1, 1b\n"
+-		RISCV_ACQUIRE_BARRIER
+-		"1:\n"
+-		: "+A" (lock->lock), "=&r" (busy)
+-		:: "memory");
+-
+-	return !busy;
 -}
 -
--/***********************************************************/
-+#include <asm-generic/spinlock.h>
- 
- static inline void arch_read_lock(arch_rwlock_t *lock)
- {
+-static inline void arch_read_unlock(arch_rwlock_t *lock)
+-{
+-	__asm__ __volatile__(
+-		RISCV_RELEASE_BARRIER
+-		"	amoadd.w x0, %1, %0\n"
+-		: "+A" (lock->lock)
+-		: "r" (-1)
+-		: "memory");
+-}
+-
+-static inline void arch_write_unlock(arch_rwlock_t *lock)
+-{
+-	smp_store_release(&lock->lock, 0);
+-}
+-
+-#endif /* _ASM_RISCV_SPINLOCK_H */
 diff --git a/arch/riscv/include/asm/spinlock_types.h b/arch/riscv/include/asm/spinlock_types.h
-index 5a35a49505da..f2f9b5d7120d 100644
+deleted file mode 100644
+index f2f9b5d7120d..000000000000
 --- a/arch/riscv/include/asm/spinlock_types.h
-+++ b/arch/riscv/include/asm/spinlock_types.h
-@@ -6,15 +6,14 @@
- #ifndef _ASM_RISCV_SPINLOCK_TYPES_H
- #define _ASM_RISCV_SPINLOCK_TYPES_H
- 
-+/* This is horible, but the whole file is going away in the next commit. */
-+#define __ASM_GENERIC_QRWLOCK_TYPES_H
-+
- #ifndef __LINUX_SPINLOCK_TYPES_RAW_H
- # error "please don't include this file directly"
- #endif
- 
++++ /dev/null
+@@ -1,24 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-only */
+-/*
+- * Copyright (C) 2015 Regents of the University of California
+- */
+-
+-#ifndef _ASM_RISCV_SPINLOCK_TYPES_H
+-#define _ASM_RISCV_SPINLOCK_TYPES_H
+-
+-/* This is horible, but the whole file is going away in the next commit. */
+-#define __ASM_GENERIC_QRWLOCK_TYPES_H
+-
+-#ifndef __LINUX_SPINLOCK_TYPES_RAW_H
+-# error "please don't include this file directly"
+-#endif
+-
+-#include <asm-generic/spinlock_types.h>
+-
 -typedef struct {
 -	volatile unsigned int lock;
--} arch_spinlock_t;
+-} arch_rwlock_t;
 -
--#define __ARCH_SPIN_LOCK_UNLOCKED	{ 0 }
-+#include <asm-generic/spinlock_types.h>
- 
- typedef struct {
- 	volatile unsigned int lock;
+-#define __ARCH_RW_LOCK_UNLOCKED		{ 0 }
+-
+-#endif /* _ASM_RISCV_SPINLOCK_TYPES_H */
 -- 
 2.34.1
 
