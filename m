@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 634E7C4332F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90A8BC433F5
 	for <linux-riscv@archiver.kernel.org>; Sat, 30 Apr 2022 13:13:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A0vqs832+Va2UOFKYUcy3Wd0X2300iJngrJZrWorO/U=; b=1smsIlUqdScwOp
-	p2QF3X/18cna8qMz2HpkieON5Ud6ctOp80nfQaKfNX4U2z0bTJo1xqdCXzdzq+EYvwxg9SKJoM0r6
-	vKWA/Io+Md/ZhJPEHr2zqP19Mj99Lqrr+2N5ARwgNNL/H8iv61Yc+AUNM0hni0fV6JOILCPA8oTMR
-	e9VVl7UIoRVMg4BGqVvktZz4tF2EiJHbi+zY5b9REA4NDO06QNjue/BmbQkn5ke5P+vIpZlUlJPWw
-	F6UlMZIDw6iIpp52EHcLPwiX/uc72W+aTJzJXlv+pIKuW9sdXuLBEs7DZZQ1VUU0LPDNM/rfHkv1A
-	dYI6GNca/45B31uFgeww==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XxhS3XhBB2PtaLRuN4UVorOQQG/TI5jjpzeFVzFq3v0=; b=tPK4QzXg3D2C53
+	fwVQ4HUmdp5SSlPLo5IiGQjMw10coNI9SrOeYOoRfsJracItg6sIkhB3YRpAS21Tc6pqmbsqeHSOQ
+	1PeU30r5FR7npyX6cd3xlEU0QphMbU6ahMXaNsNMvSiMZjJHDTPPYHbumpOOGYeIgdbBFBq2wWBBU
+	DvTkaUrewYKTmBuJZIS4slChE7d26m1ak7S7l6hQmJXo58xnF8nV7gpLH+1Z76vhIfoDjL3bCiBh/
+	PAEPTg28GaGwpfWix0/jP4eJHByjpsFSaDf2erQj9ZlC1Emg0uKoZFE6EReVB0a3LqbZdQFk0dSKp
+	G159n40iBnseRLh4eDmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nkmuE-00EJNV-LX; Sat, 30 Apr 2022 13:13:02 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1nkmuC-00EJMc-4o; Sat, 30 Apr 2022 13:13:00 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nkmuA-00EJKv-BO
+ id 1nkmu9-00EJKp-8R
  for linux-riscv@lists.infradead.org; Sat, 30 Apr 2022 13:12:59 +0000
-Received: by mail-wr1-x435.google.com with SMTP id q23so14061858wra.1
- for <linux-riscv@lists.infradead.org>; Sat, 30 Apr 2022 06:12:55 -0700 (PDT)
+Received: by mail-wr1-x42e.google.com with SMTP id c11so4218832wrn.8
+ for <linux-riscv@lists.infradead.org>; Sat, 30 Apr 2022 06:12:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=conchuod-ie.20210112.gappssmtp.com; s=20210112;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=4vCDZDxNF7ZpqCxnRxrYAOyYCsp207pYkROFjiHem+g=;
- b=XvSKxvLpEQjAkw8/ypM8c3YYtSSYtdpoJSa1Ww30x9aLc74D0KOsMl+k30OnNyQ9K1
- vQD+hhGLkeWvpJUbcaH1pWIvAovINFPJY3/oTaPq/yJ16EmdeD/w4K0fBJeTsui55YYy
- inTHM0Bp8+7apN2m/AVJQQ8YGOXdG9NCDv8PVXdmkkxiovBgh5aBJpsKqnUAyQrsDbMq
- uz3YiOSKYBrlQIJesPeuoA0FxDQS+mVow1cs86E4Pz3dfqoDIT1SQnfxHv6gr9szD1fh
- DbgJG6BR0cd5EAV/Cee2G6xGOWVv10cgoLrRaGoii9oiyrJAFz4NTz24zAa5rQcCcn+8
- 6g9g==
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=wVWCR05ZRCnz9WBLjzE6WX4F3rgPdcPSc5sIdW/BRc8=;
+ b=Fuq8dDB473Duj1wOyKi9RIB5oacDfg2lZPXFYJBTmv3oql34YpY1yy/TR1JDQVyHbz
+ AGXoa+ixLrNEqDiLuTwDWDV+HedCDxWVkJ9MqI+9F5p3goGeGicJJGujfDPkBtO/X8d5
+ iKCaVZF9KVSlcC8N9+h3fgQcKo7Lvtt2dqRwp9NvZf3gCfAEjvd8E4BS3CORXaGdzzZi
+ HHbcMIMixGJ667kl25mSQjC+S6AdjkUkG1zmAfIa+NUkSc5Kc2E8+NQLRTFItAbX3ho+
+ 3FO9qm+MbWmM/712rCErZ6OKNkA7v2/XxaYS9JJIsn6szqeKoz8VeDD5yYFuyRzzJuJL
+ hnYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=4vCDZDxNF7ZpqCxnRxrYAOyYCsp207pYkROFjiHem+g=;
- b=smkhJ873XdU4K30jERlwQHe1oeQ7W0RnpJdJse3DrJcc7dIIv18BfSwGZlWt4A7NYy
- eEuluYDRW0Y+E32ICPA4D6nK3Ho8wD36/7GbDpeNo2O6io5NSjfYJZc0Odo8Rijs0yL2
- hcYeRYJmDl//r5TZRYZpLwF81OqAIsWmXRgMQPshrn5Au2//Ed/12UIpSRRgIPSZy0O/
- Ht+4pZ4vP85Nf57M6iVJ8TnQ5hZqLPICsGVADVu9orNHBtzbDfPdPxamCLSaBZCVTbi/
- YrqKaNsk+sZnQq5f/hNmtysSt2QY2EirUsSxrYVh6GQJvjOGMycYN+GvEuUiQWS+qzH1
- 7Uig==
-X-Gm-Message-State: AOAM530+1oyKK2d9uc8d4ui5cXT2Iesr2Utr5yHBC7a/7pL2mn8NWyX2
- n2lOj2CyzWv1E0lYRnovNddZ9Q==
-X-Google-Smtp-Source: ABdhPJyhk6sNyn6PYT8mUPpuoHYBQRyblDmpRGPqmY7TVB139oqJYZ2QO/EfyGQOU0BmMjp+TJTM8Q==
-X-Received: by 2002:a5d:40cf:0:b0:20a:e0cf:2a47 with SMTP id
- b15-20020a5d40cf000000b0020ae0cf2a47mr2989078wrq.575.1651324373826; 
- Sat, 30 Apr 2022 06:12:53 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=wVWCR05ZRCnz9WBLjzE6WX4F3rgPdcPSc5sIdW/BRc8=;
+ b=6FSY8UHxzor49spqiS/07uP6bqUYOim5BjOFJ5GIYlBiD/XfBHWbJB04WT5wnhoa/6
+ 9bX23MNV2tY497xrJ4NFAMoRqqDBbJrtDbMHdkP/V4k2psKp3YtRy/e3MkhAzkhff7md
+ VvP18WXKtxOcw1OLnBAjIwRARKyfGYYkKbFYZRB9oln9B1Xk9rw3PCbZmLbT33A6f3OZ
+ l3gvJBRn/wxpNf8gTRVLzPcJZ6y2WaOe5xSNSnzNzQP5uB3HM2VR3m1PpwxwOtco1ZDu
+ j16B7WmXvD6Q5iyY6qbFCLb/JkrtThd0msVT+CrGN3cKOVkyf4+hneaBoEfuF8Apb9sC
+ lTcA==
+X-Gm-Message-State: AOAM532OOJbGf1cIoZUa/SiXTuznpiz657lxGmKXeKsOdwsCGm2EmUI6
+ sKe+M7OUMSxMuPEUzvQMHhvymDZWuDg5VUo+
+X-Google-Smtp-Source: ABdhPJyl2s3fwLi7RIfq04FmLzyI9JYAxA0nKnSPYZExKssylLd4kz/NODo167kGwIs2TOt+YwwEOQ==
+X-Received: by 2002:a5d:4e92:0:b0:20a:cafc:ebf1 with SMTP id
+ e18-20020a5d4e92000000b0020acafcebf1mr2938721wru.17.1651324372658; 
+ Sat, 30 Apr 2022 06:12:52 -0700 (PDT)
 Received: from henark71.. ([109.77.36.132]) by smtp.gmail.com with ESMTPSA id
- p9-20020adfa209000000b0020c5253d8ebsm2004439wra.55.2022.04.30.06.12.52
+ p9-20020adfa209000000b0020c5253d8ebsm2004439wra.55.2022.04.30.06.12.51
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 30 Apr 2022 06:12:53 -0700 (PDT)
+ Sat, 30 Apr 2022 06:12:52 -0700 (PDT)
 From: Conor Dooley <mail@conchuod.ie>
 To: krzk+dt@kernel.org,
 	palmer@dabbelt.com,
@@ -68,17 +68,14 @@ Cc: conor.dooley@microchip.com, Cyril.Jean@microchip.com,
  aou@eecs.berkeley.edu, palmer@rivosinc.com, arnd@arndb.de,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, Conor Dooley <mail@conchuod.ie>
-Subject: [PATCH v2 1/8] riscv: dts: microchip: remove icicle memory clocks
-Date: Sat, 30 Apr 2022 14:09:16 +0100
-Message-Id: <20220430130922.3504268-2-mail@conchuod.ie>
+Subject: [PATCH v2 0/8] PolarFire SoC dt for 5.19
+Date: Sat, 30 Apr 2022 14:09:15 +0100
+Message-Id: <20220430130922.3504268-1-mail@conchuod.ie>
 X-Mailer: git-send-email 2.36.0
-In-Reply-To: <20220430130922.3504268-1-mail@conchuod.ie>
-References: <20220430130922.3504268-1-mail@conchuod.ie>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220430_061258_449475_6B59A5C7 
-X-CRM114-Status: UNSURE (   9.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220430_061257_535273_0020BC89 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,42 +92,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+Hey all,
+Got a few PolarFire SoC device tree related changes here for 5.19.
 
-The clock properties in the icicle kit's memory entries cause dtbs_check
-errors:
-arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dtb: /: memory@80000000: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+Firstly, patches 1 & 2 of this series supersede [0] & are unchanged
+compared to that submission, figured it would just be easier to keep
+all the changes in one series.
 
-Get rid of the clocks to avoid the errors.
+As discussed on irc, patch 3 removes the duplicated "microchip" from
+the device tree files so that they follow a soc-board.dts & a
+soc{,-fabric}.dtsi format.
 
-Reported-by: Palmer Dabbelt <palmer@rivosinc.com>
-Fixes: 0fa6107eca41 ("RISC-V: Initial DTS for Microchip ICICLE board")
-Fixes: 5b28df37d311 ("riscv: dts: microchip: update peripherals in icicle kit device tree")
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Conor Dooley <mail@conchuod.ie>
----
- arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts | 2 --
- 1 file changed, 2 deletions(-)
+Patch 5 makes the fabric dtsi board specific by renaming the file to
+mpfs-icicle-kit-fabric.dtsi & including it in the dts rather than
+mpfs.dtsi. Additionally this will allow other boards to define their
+own reference fabric design. A revision specific compatible, added in
+patch 4, is added to the dt also.
 
-diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
-index 3392153dd0f1..c71d6aa6137a 100644
---- a/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
-+++ b/arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
-@@ -32,14 +32,12 @@ cpus {
- 	ddrc_cache_lo: memory@80000000 {
- 		device_type = "memory";
- 		reg = <0x0 0x80000000 0x0 0x2e000000>;
--		clocks = <&clkcfg CLK_DDRC>;
- 		status = "okay";
- 	};
- 
- 	ddrc_cache_hi: memory@1000000000 {
- 		device_type = "memory";
- 		reg = <0x10 0x0 0x0 0x40000000>;
--		clocks = <&clkcfg CLK_DDRC>;
- 		status = "okay";
- 	};
- };
+The remainder of the series adds a bare minimum devicetree for the
+Sundance Polarberry.
+
+Thanks,
+Conor.
+
+Changes since v1:
+- fixed whitespace problems in the polarberry dts
+- disabled mac0 for the polarberry as its port is on the optional
+  carrier board
+
+[0] - https://lore.kernel.org/linux-riscv/20220425104521.132538-1-conor.dooley@microchip.com/
+
+Conor Dooley (8):
+  riscv: dts: microchip: remove icicle memory clocks
+  riscv: dts: microchip: move sysctrlr out of soc bus
+  riscv: dts: microchip: remove soc vendor from filenames
+  dt-bindings: riscv: microchip: document icicle reference design
+  riscv: dts: microchip: make the fabric dtsi board specific
+  dt-bindings: vendor-prefixes: add Sundance DSP
+  dt-bindings: riscv: microchip: add polarberry compatible string
+  riscv: dts: microchip: add the sundance polarberry
+
+ .../devicetree/bindings/riscv/microchip.yaml  | 12 ++-
+ .../devicetree/bindings/vendor-prefixes.yaml  |  2 +
+ arch/riscv/boot/dts/microchip/Makefile        |  3 +-
+ ...abric.dtsi => mpfs-icicle-kit-fabric.dtsi} |  2 +
+ ...pfs-icicle-kit.dts => mpfs-icicle-kit.dts} |  5 +-
+ .../dts/microchip/mpfs-polarberry-fabric.dtsi | 16 ++++
+ .../boot/dts/microchip/mpfs-polarberry.dts    | 95 +++++++++++++++++++
+ .../{microchip-mpfs.dtsi => mpfs.dtsi}        | 11 +--
+ 8 files changed, 132 insertions(+), 14 deletions(-)
+ rename arch/riscv/boot/dts/microchip/{microchip-mpfs-fabric.dtsi => mpfs-icicle-kit-fabric.dtsi} (93%)
+ rename arch/riscv/boot/dts/microchip/{microchip-mpfs-icicle-kit.dts => mpfs-icicle-kit.dts} (95%)
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
+ rename arch/riscv/boot/dts/microchip/{microchip-mpfs.dtsi => mpfs.dtsi} (98%)
+
+
+base-commit: a91b05f6b928e8fab750fc953d7df0aa6dc43547
 -- 
 2.36.0
 
