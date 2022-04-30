@@ -4,133 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29262C433EF
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Apr 2022 14:05:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C81C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Apr 2022 15:38:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SxsJy73Jq4wgenaQua+ki77SEfM0GdBdOFAb0KKWt14=; b=p+RNm3grgrAa0t
-	HZrvP7zXq3zRWPaBGQNwRvl0m7BiXqZfUWfD9Yqo/nHrwg8q9RZwWl5rxU/VC1c+IIrNoaYg5saPD
-	4ZDB4YDVuPdO3okjGlv3NV31dUvrsEh2vZmUZp168S5UhKGbd79zbK3F7vjsB/L2n4W1fpUI9DQZs
-	2dHx7V3F1D2ytHLadO1BacB8rfx/l/258KbegMuXkLBsoTsqjucDVCjnErAWMzTAsK/QsuoKdMOKB
-	o0n7nfEH4SHW+xseB+ASGbpyJQDW4kGh5Nu5KeVR8pbb8iLw9czcxebFQgZRa2kSmbnH+Ys2rmuJ5
-	rCVNSouqpaNXqtr18onA==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SiNu6uWWFd9x0X8+NialSCXTi9SkWCCUEKSwCBK0OZc=; b=wNEZetlEKo13N2
+	9OkUUy6ZOujUMIQUHMRXqFh6+A/chhIYWSMZwlrmdahwt0cK3uMGqTiZQCMXNb2201oBn141NvcF+
+	br2A8A4fG9U9WaLDwsnS+xsv/G1lReQ25Z41o0x9qaGXVCLgxNCuxtnJqf8xDeKEHOVijHixHgcRG
+	JuikOplczqDIUcJYEqFJAewmicR8//+xl7GKQGv1J2fNkaIxtAUu5So4sHpStsFjl2+hOeR0Cp3PT
+	glmybiLHuG9CC2/GZsXF+d5xD8nJ4Q5PQzhokj11iVbADYqWDW8Lk+CQMRJGTI4MIU1Ly9xFs2/Sc
+	WGRiSa4BHYWMR+YUTrvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nknj8-00EQMI-VJ; Sat, 30 Apr 2022 14:05:38 +0000
-Received: from mail-os0jpn01on20716.outbound.protection.outlook.com
- ([2a01:111:f403:700c::716]
- helo=JPN01-OS0-obe.outbound.protection.outlook.com)
+	id 1nkpAT-00EZ74-8g; Sat, 30 Apr 2022 15:37:57 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nknj1-00EQJz-Rk
- for linux-riscv@lists.infradead.org; Sat, 30 Apr 2022 14:05:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=ACqt7cNqGiwvcVCX81aMt+Q7EXAV25y9Y6XMWRNfgNw62cMNjy7AoNLV0d1stAL3i2PEXWwzzzdFc0QSeOyo/he/d1lbpFKY05LmDeDz3/KCTAUYvRBk3+QY1W98hCXRYpulSZ6kOagDIEcm9ghmhV1BuZzXEPPom7ToZCwM1a6sfNO/1xgGzovD9i1e+rkeIoidlDFdY0Bgooz81/3T6DjzXYKzkrrSYm54W2d17EDh7auGFPHiZJHQngmtrnat8OWpkEJdC0uqVVtHPmBaEYwfBNIWSqf6qNGDiJoRZgbrYuu7Um9PLuUw9runzedEHbb/rwY5xJmbN2I9Gj7JHQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BV7LJ5grIlE3aOHlv60sVa47Qy4odXuKHBATm9XJom8=;
- b=cnmywO0oipw/qQQWUmfFIOygQxuEC65iC1qZyQ+GKnPMjpmazI0GDePJcJAHLZeFc6yrqmgwRjbyegYzwGjt6ujA9WFEKOp+daohYYwAd4No8Yg4vRXCDOvvEzGYLJkeh5QQ8Hf8U0/wrXo/QRRLgc+c4lwrWOQJsxDGfOwrixsWQ83lTWDt+PjSQZnJHWiJD2zOfNaiAycjcXBo6vfzsV8wXtmGhgh96lA7pefb3IXz4CRtV27jJx7uocdqvAfBMXuIwOraJYKnpc28SAQkZBJ3vZJgP2B+Q2LblY2wXtFP1ydHnHTCoQq5QBLWW8PhuouzpYIPttd5qCdIrW2+4w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=zenithal.me; dmarc=pass action=none header.from=zenithal.me;
- dkim=pass header.d=zenithal.me; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zenithal.me;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BV7LJ5grIlE3aOHlv60sVa47Qy4odXuKHBATm9XJom8=;
- b=YyVmvvuBm/CsoD/oNC3zI1AiRGklWHiwvIKB8sbgOyYikN9teGromgW2dwhWb1PLPfAf+2tf7RDi7VCfL/7gADOW8Pr7qasm+8W0QmR7gRN86r1pPZ5ySQ+OWtncapKutHon2lh/NV0Enrxgo9qH0E2fcxlYKN6gR8ElTLhr128=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=zenithal.me;
-Received: from TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:c0::6) by
- TYCP286MB1706.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:187::8) with
- Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.5206.13; Sat, 30 Apr 2022 13:50:30 +0000
-Received: from TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
- ([fe80::bd99:5c83:e2dc:a8f7]) by TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
- ([fe80::bd99:5c83:e2dc:a8f7%6]) with mapi id 15.20.5206.012; Sat, 30 Apr 2022
- 13:50:30 +0000
-Date: Sat, 30 Apr 2022 21:50:22 +0800
-From: "Hongren (Zenithal) Zheng" <i@zenithal.me>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Atish Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>,
- Eric Biederman <ebiederm@xmission.com>,
- Kees Cook <keescook@chromium.org>, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-api@vger.kernel.org, Michael Kerrisk <mtk.manpages@gmail.com>,
- linux-man@vger.kernel.org, Jiatai He <jiatai2021@iscas.ac.cn>
-Subject: [PATCH 1/3] RISC-V: add Bitmanip/Scalar Crypto parsing from DT
-Message-ID: <Ym0+nr9KZBO118Dx@Sun>
-References: <Ym0+Erz5DEnB78vu@Sun>
-Content-Disposition: inline
-In-Reply-To: <Ym0+Erz5DEnB78vu@Sun>
-X-Operating-System: Linux Sun 5.15.26
-X-Mailer: Mutt 2.2.1 (2022-02-19)
-X-ClientProxiedBy: BY3PR10CA0006.namprd10.prod.outlook.com
- (2603:10b6:a03:255::11) To TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:c0::6)
+ id 1nkpAQ-00EZ5e-Fm
+ for linux-riscv@lists.infradead.org; Sat, 30 Apr 2022 15:37:56 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id p12so9266733pfn.0
+ for <linux-riscv@lists.infradead.org>; Sat, 30 Apr 2022 08:37:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+ h=subject:date:message-id:mime-version:content-transfer-encoding:cc
+ :from:to; bh=np4HtbwGSB6iapeRruj8GZIUHuBuKuckcGYZnwyb7bo=;
+ b=InNn+tkdTs6CYKbpqgE/Kt+T2kH9K4dNAnuziT6CNc1awAKVpLsBeXBEdSF55QM/8k
+ udH4gEcsFOVPawephKUVFL/54PfXCMPmAorXXpszoBfjsIKvSI3jL3yHoCz/uqq1IJn+
+ kVWFjf9c9lRBSJV5yXZBkvE8w4q0dL/oOu8lTnq28UsvEJQY0CH45LEYkuv+wRNYsTLP
+ Eyvd+DTwR/Od3TwiXZX3NEqkZmEX32Za9+ZkVKeQEHjNlAk+KM4nrwQUJ54ndJvbu69L
+ pGF/VGp+Zznm318sUZMvZlp/aR/nsxWR0vlR5TvJIrQjJvM+dt17gI1NbWJzGbD5zNqR
+ 3vVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:subject:date:message-id:mime-version
+ :content-transfer-encoding:cc:from:to;
+ bh=np4HtbwGSB6iapeRruj8GZIUHuBuKuckcGYZnwyb7bo=;
+ b=cXuJUpwc7NqcTsQZr30oagJvnY/8GiBTdFLxRjnKwv3IV6o1zwqxEbqYLho+mcUkZ/
+ m3s6EseOINmva0kVGmkdW3yjqIOH9qhOoXLTB6DclzOM75BCbG5dSNHHBO/70gQFs54x
+ 26iA2HRwxo+D5Kya1p9k/BVc5N4LW2LYTjjGbbA56NiBrQt41SSnVpA0jZy2c2tmGJQx
+ TttipLQaze7w7FlXIyLQToKfWDtjbjwmDxuuE4MO++WinK5BeL0jKK5mSOUfEbaAQ2vp
+ 22jNuHVqJFsnLeJ+nJG80/OIC439mjFcWmYhaEGFdifZakJQ015vpHLm7VG+RMjJO40b
+ hF9g==
+X-Gm-Message-State: AOAM530NUHVLv8PyZP7Lm5769Z1OlKr0c//chKR0PPOsNfOgNg7ZeIQG
+ jvn1nKR45agDfZsS0e18qqtnfw==
+X-Google-Smtp-Source: ABdhPJyY6PFEoD09nOYm4tiKmrVzmrmKd1omAejHwAiMVanwvGm+TKpg7gHnHCqyfyt/42onKskybA==
+X-Received: by 2002:a63:5606:0:b0:3ab:84d3:cfbe with SMTP id
+ k6-20020a635606000000b003ab84d3cfbemr3521738pgb.191.1651333072975; 
+ Sat, 30 Apr 2022 08:37:52 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223]) by smtp.gmail.com with ESMTPSA id
+ p2-20020a17090ad30200b001cd4989feb7sm17264343pju.3.2022.04.30.08.37.52
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sat, 30 Apr 2022 08:37:52 -0700 (PDT)
+Subject: [PATCH v4 0/7] Generic Ticket Spinlocks
+Date: Sat, 30 Apr 2022 08:36:19 -0700
+Message-Id: <20220430153626.30660-1-palmer@rivosinc.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 7b238793-026a-4525-b3e8-08da2ab0636a
-X-MS-TrafficTypeDiagnostic: TYCP286MB1706:EE_
-X-Microsoft-Antispam-PRVS: <TYCP286MB1706E7E52B2429995D387CC5BCFF9@TYCP286MB1706.JPNP286.PROD.OUTLOOK.COM>
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: iifNFFkGZbDWnoJGS0XR4/a0Z3E0NNQJp3LlVqrSg6njYB/ZiDXF8PmsAmp0Fm+ULm7mQxAOAmcs/oPysKpM5psiZvrKyW80PtYkIuOZCzaO/Wk1vWgW7leg2uhKZLOPqhQVb1Z/k0K9wJxq8eDACryhHrh7hUdDyfis+mqYnJ7eKsX7tAUXbRkisVJmxvJlTZSpW3wm7mV6yQiZr/xDbQc6u2ikmHR58bZkDCTv0pz2LNB0kLrxHfSXqWiW3KJF6EEkhR9Gs50Q5fTZ7ejrB/DYY/fyv2hTIqz32OBYVcGQwG6uByz4sBK6FxMG0EMBuwSjv7kbsCCt5t+eoT0X4EUbXS29gXWLfsrq7eKzF3CG5jlgtQs2qUR2dKDlAlaI8wk1raMWFTpXfKw+edZbUZzeuZ16TilZ5JlmadkHQNrJ3fnzigZoWB8zv7OIjlBDVADdJozC3+b5dKgEjDDpgEkr/4c03uACbZaiAyQH3Qf53qGkLRyyIVhJT/zpOqqZsS6Wk+S7MbZSmXZKcY1BOqiwBrhXhUqCEHtyYAU2OPRPVKhaYEE3YeQKwQaJYeCqsUgSckWKXZR5T3K1HBwBz+BXmsD2lRPOZrylk9dpidbRoSdhHSNXEuUrSJGxhMMgMgTJtkK16AFZYKWVF8/zhKdgbO1t48e/XP4fkPrXO4is1WAVI3z+gSpOK0KMZbtkFY908vbsULNhtEouyZVb7Q==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM; PTR:; CAT:NONE;
- SFS:(13230001)(7916004)(366004)(376002)(346002)(396003)(136003)(39830400003)(6506007)(86362001)(6666004)(52116002)(6486002)(38100700002)(508600001)(6512007)(9686003)(186003)(8936002)(2906002)(316002)(786003)(33716001)(7416002)(66946007)(54906003)(66476007)(66556008)(110136005)(5660300002)(8676002)(4326008)(49092004)(67856001);
- DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vpaIyHZUxQM8EwYT2S93ZUHjzMjQXZ19P6L8di5Ses1bdkAZ9olGzllYtc9Y?=
- =?us-ascii?Q?3BwgHSEc4aWuijGIr1MAlTAxMpl8vf/jCYCdtY1/eSuLPJE0nkCA2zlwvT75?=
- =?us-ascii?Q?akU7/vlCiAHVzu24zF+cv7oqxeWLNEyTiRp6kmfWI/H49CD3FF0IKTpdEXY9?=
- =?us-ascii?Q?1Zd784F/ybpETSXqhMZy2ci9qpbnb7tbWs1xh2S1sNLM4LPC0zIdagxdQVVc?=
- =?us-ascii?Q?WxLyfFLAhHAUxppl211mFMu7wcOYw+yarvUnLTkbdbjRENzJGedXVPq/BXUG?=
- =?us-ascii?Q?a4MWCEU8CbtebeI1dH6EXX4V1xgwSgfUH+JZMcUjK4vmhqXLKNnq1NS9DmUk?=
- =?us-ascii?Q?Xw/88Ll5X2FaLRes0W8B8dFzq8vLZs9B2P9YKn0jCrmI/mJdI4B+0mD47iT+?=
- =?us-ascii?Q?2VwCbcWMcZR3ZTfxqx08GOVGhcR11HOG+c3DkbvXERQRWa9yqWqZ8rVi6wWO?=
- =?us-ascii?Q?GYO9A38oju5zKYdrzWR61zYYBgKLoRHouW2TcPZNOCi4GlNu3TR9xe/F78Fp?=
- =?us-ascii?Q?rCAo1SDtqVdaq/ulsTdsQ+nHipsYRp3PsK3GznIl8Z39uVB5F4kjCz6+gj4M?=
- =?us-ascii?Q?j7iBTfgT5W4KDJqw4ZYEX5jzV83dJNY6o3Pem/FRBS7DdIYmU5fOLFEGInWV?=
- =?us-ascii?Q?KfQAYoB2gz+bCO1TB1CgUsD9W0FYedWhsKyGtuiBnyI0pg4Q8MxUkg5unLQU?=
- =?us-ascii?Q?e7GePlnrcuV9FPNXmDl0ftWIyrwOsdpRQQm+BsjN3zoac2t7Pnw3ZHUdQ294?=
- =?us-ascii?Q?RA6bvtcf3bU11YtgVS+0Xodoir0PqesU4dUbpmtO/a6/HicHO55g1IMXCtFY?=
- =?us-ascii?Q?XeyqBxrSugiBhTBzzadvkVrY2GBZqlwDrkkYk8PvHpO09cJMpYbh10qfb9Tl?=
- =?us-ascii?Q?+2ElpiPN8z7schdS2vKzLqo+R5k/Hgm+QQNewRO9h5J1K2xF8dCbNIgIL7Pi?=
- =?us-ascii?Q?1B2glfDbFrpiuCt9eUdBa/cWk7KzrgOCzXGbAwvVt6vECFvN36pi1wub+Oul?=
- =?us-ascii?Q?QxNnX2yARbwx9V7FDMhUsrY9SbB+UKKPjlvvzhUAo1+hDE0zBepmCnY2Bof7?=
- =?us-ascii?Q?8lrsA7vHD3KE42ZoBtzTFDP549jhmVLF95rVht/ifr7M3jaqrMtaPrOgX0VB?=
- =?us-ascii?Q?luRaYIiFtESraOBaqog+Gr+YsrrnzCvQrlKtsV/O5Buys7s32vLdFNNPa0ZU?=
- =?us-ascii?Q?gaYhUxmf9xjHcU2O+RJyTAZSHMV1l1I47MEVKOQHzYwhMJQsBAsEiNDbcN6+?=
- =?us-ascii?Q?2Zv6AJGNEPUJyk1AHBaGsxpQjFxbUl7b5bjvK35naOFivrv2F1qBKzLlgAs+?=
- =?us-ascii?Q?ZYpxoEJso1d+xwuwx1ghKiBhrr4/VAQ77qgj6SFr4/7HZucTvsuqA0jCQ+9T?=
- =?us-ascii?Q?Ra+TbhMCcgKFFYfIia69zH08VIkpqHbB465mStucRi1+a+hCB2Vrb1kIsKzD?=
- =?us-ascii?Q?+/E5nsa7/5QTtoCH/cgqZCFpGA31EPU/bE4LIqifPfp5yoCNdlWMv2PVpqLm?=
- =?us-ascii?Q?He3v5ioDqqhxTAFuHmKIw2UgZpbu4qMRbOyNcQ5bOYUjvIeJydUWRaLHEsqB?=
- =?us-ascii?Q?GmmC8V7q0cAQmxVaQySnffYI7C0mtOuC3o/7HlnNe+CUQAyeqN3UDT+7M7tg?=
- =?us-ascii?Q?dJUNTuL3QX+BJPVYuGpC5QBnn3i6WBh4yMFbmTpGOSsr4ktrlhaHYcqNgyd0?=
- =?us-ascii?Q?bzGosGijQbvxsls18e7Lzx57UiL0RRVKl8a2VDy4EIziOp1+IRA28/mKFABh?=
- =?us-ascii?Q?cq5kaljW1g=3D=3D?=
-X-OriginatorOrg: zenithal.me
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7b238793-026a-4525-b3e8-08da2ab0636a
-X-MS-Exchange-CrossTenant-AuthSource: TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2022 13:50:30.1100 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 436d481c-43b1-4418-8d7f-84c1e4887cf0
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xTpi7Q+Cjk5EF9TdqbZqutIxORbGYyh2UDfHKzq/WBx7kcTdwhQzILQVlwKPoA0T
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCP286MB1706
+Cc: guoren@kernel.org, peterz@infradead.org, mingo@redhat.com,
+ Will Deacon <will@kernel.org>, longman@redhat.com, boqun.feng@gmail.com,
+ jonas@southpole.se, stefan.kristiansson@saunalahti.fi, shorne@gmail.com,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu,
+ Arnd Bergmann <arnd@arndb.de>, 
+ Greg KH <gregkh@linuxfoundation.org>, sudipm.mukherjee@gmail.com,
+ macro@orcam.me.uk, jszhang@kernel.org, 
+ linux-csky@vger.kernel.org, linux-kernel@vger.kernel.org,
+ openrisc@lists.librecores.org, 
+ linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Arnd Bergmann <arnd@arndb.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220430_070531_943384_010477B6 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220430_083754_787643_3D88243F 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,125 +97,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This commit parses Zb/Zk related string from DT and
-output them in cpuinfo
+Comments on the v3 looked pretty straight-forward, essentially just that
+RCsc issue I'd missed from the v2 and some cleanups.  A part of the
+discussion some additional possible cleanups came up related to the
+qrwlock headers, but I hadn't looked at those yet and I had already
+handled everything else.  This went on the back burner, but given that
+LoongArch appears to want to use it for their new port I think it's best
+to just run with this and defer the other cleanups until later.
 
-One thing worth noting is that if DT provides zk,
-all zbkb, zbkc, zbkx and zkn, zkr, zkt would be enabled.
+I've placed the whole patch set at palmer/tspinlock-v4, and also tagged
+the asm-generic bits as generic-ticket-spinlocks-v4.  Ideally I'd like
+to take that, along with the RISC-V patches, into my tree as there's
+some RISC-V specific testing before things land in linux-next.  This
+passes all my testing, but I'll hold off until merging things anywhere
+else to make sure everyone has time to look.  There's no rush on my end
+for this one, but I don't want to block LoongArch so I'll try to stay a
+bit more on top of this one.
 
-Note that zk is a valid extension name and the current
-DT binding spec allows this.
+Changes since v3 <20220414220214.24556-1-palmer@rivosinc.com>:
+* Added a smp_mb() in the lock slow-path, to make sure that is RCsc.
+* Fixed the header guards.
 
-There currently lacks a mechanism to merge them when
-producing cpuinfo. Namely if you provide a riscv,isa
-"rv64imafdc_zk_zks", the cpuinfo output would be
-"rv64imafdc_zbkb_zbkc_zbkx_zknd_zkne_zknh_zkr_zksed
-_zksh_zkt"
+Changes since v2 <20220319035457.2214979-1-guoren@kernel.org>:
+* Picked up Peter's SOBs, which were posted on the v1.
+* Re-ordered the first two patches, as they
+* Re-worded the RISC-V qrwlock patch, as it was a bit mushy.  I also
+  added a blurb in the qrwlock's top comment about this dependency.
+* Picked up Stafford's fix for big-endian systems, which I have not
+  tested as I don't have one (at least easily availiable, I think the BE
+  MIPS systems are still in that pile in my garage).
+* Call the generic version <asm-genenic/spinlock{_types}.h>, as there's
+  really no utility to the version that only errors out.
 
-Tested-by: Jiatai He <jiatai2021@iscas.ac.cn>
-Signed-off-by: Hongren (Zenithal) Zheng <i@zenithal.me>
----
- arch/riscv/include/asm/hwcap.h | 14 ++++++++++++++
- arch/riscv/kernel/cpu.c        | 14 ++++++++++++++
- arch/riscv/kernel/cpufeature.c | 33 +++++++++++++++++++++++++++++++++
- 3 files changed, 61 insertions(+)
+Changes since v1 <20220316232600.20419-1-palmer@rivosinc.com>:
+* Follow Arnd suggestion to make the patch series more generic.
+* Add csky in the series.
+* Combine RISC-V's two patches into one.
+* Modify openrisc's patch to suit the new generic version.
 
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index 0734e42f74f2..199eda39e0b8 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -52,6 +52,20 @@ extern unsigned long elf_hwcap;
-  */
- enum riscv_isa_ext_id {
- 	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
-+	RISCV_ISA_EXT_ZBA,
-+	RISCV_ISA_EXT_ZBB,
-+	RISCV_ISA_EXT_ZBC,
-+	RISCV_ISA_EXT_ZBS,
-+	RISCV_ISA_EXT_ZBKB,
-+	RISCV_ISA_EXT_ZBKC,
-+	RISCV_ISA_EXT_ZBKX,
-+	RISCV_ISA_EXT_ZKNE,
-+	RISCV_ISA_EXT_ZKND,
-+	RISCV_ISA_EXT_ZKNH,
-+	RISCV_ISA_EXT_ZKSED,
-+	RISCV_ISA_EXT_ZKSH,
-+	RISCV_ISA_EXT_ZKR,
-+	RISCV_ISA_EXT_ZKT,
- 	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
- };
- 
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index ccb617791e56..7251336969c1 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -87,6 +87,20 @@ int riscv_of_parent_hartid(struct device_node *node)
-  *    extensions by an underscore.
-  */
- static struct riscv_isa_ext_data isa_ext_arr[] = {
-+	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
-+	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
-+	__RISCV_ISA_EXT_DATA(zbc, RISCV_ISA_EXT_ZBC),
-+	__RISCV_ISA_EXT_DATA(zbkb, RISCV_ISA_EXT_ZBKB),
-+	__RISCV_ISA_EXT_DATA(zbkc, RISCV_ISA_EXT_ZBKC),
-+	__RISCV_ISA_EXT_DATA(zbkx, RISCV_ISA_EXT_ZBKX),
-+	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
-+	__RISCV_ISA_EXT_DATA(zknd, RISCV_ISA_EXT_ZKND),
-+	__RISCV_ISA_EXT_DATA(zkne, RISCV_ISA_EXT_ZKNE),
-+	__RISCV_ISA_EXT_DATA(zknh, RISCV_ISA_EXT_ZKNH),
-+	__RISCV_ISA_EXT_DATA(zkr, RISCV_ISA_EXT_ZKR),
-+	__RISCV_ISA_EXT_DATA(zksed, RISCV_ISA_EXT_ZKSED),
-+	__RISCV_ISA_EXT_DATA(zksh, RISCV_ISA_EXT_ZKSH),
-+	__RISCV_ISA_EXT_DATA(zkt, RISCV_ISA_EXT_ZKT),
- 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
- 	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
- };
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 1b2d42d7f589..10f9daf3734e 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -192,6 +192,39 @@ void __init riscv_fill_hwcap(void)
- 				set_bit(*ext - 'a', this_isa);
- 			} else {
- 				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
-+				SET_ISA_EXT_MAP("zba"     , RISCV_ISA_EXT_ZBA     );
-+				SET_ISA_EXT_MAP("zbb"     , RISCV_ISA_EXT_ZBB     );
-+				SET_ISA_EXT_MAP("zbc"     , RISCV_ISA_EXT_ZBC     );
-+				SET_ISA_EXT_MAP("zbs"     , RISCV_ISA_EXT_ZBS     );
-+				SET_ISA_EXT_MAP("zbkb"    , RISCV_ISA_EXT_ZBKB    );
-+				SET_ISA_EXT_MAP("zbkc"    , RISCV_ISA_EXT_ZBKC    );
-+				SET_ISA_EXT_MAP("zbks"    , RISCV_ISA_EXT_ZBKX    );
-+				SET_ISA_EXT_MAP("zknd"    , RISCV_ISA_EXT_ZKND    );
-+				SET_ISA_EXT_MAP("zkne"    , RISCV_ISA_EXT_ZKNE    );
-+				SET_ISA_EXT_MAP("zknh"    , RISCV_ISA_EXT_ZKNH    );
-+				SET_ISA_EXT_MAP("zksed"   , RISCV_ISA_EXT_ZKSED   );
-+				SET_ISA_EXT_MAP("zksh"    , RISCV_ISA_EXT_ZKSH    );
-+				SET_ISA_EXT_MAP("zkr"     , RISCV_ISA_EXT_ZKR     );
-+				SET_ISA_EXT_MAP("zkt"     , RISCV_ISA_EXT_ZKT     );
-+				SET_ISA_EXT_MAP("zkn"     , RISCV_ISA_EXT_ZBKB    );
-+				SET_ISA_EXT_MAP("zkn"     , RISCV_ISA_EXT_ZBKC    );
-+				SET_ISA_EXT_MAP("zkn"     , RISCV_ISA_EXT_ZBKX    );
-+				SET_ISA_EXT_MAP("zkn"     , RISCV_ISA_EXT_ZKND    );
-+				SET_ISA_EXT_MAP("zkn"     , RISCV_ISA_EXT_ZKNE    );
-+				SET_ISA_EXT_MAP("zkn"     , RISCV_ISA_EXT_ZKNH    );
-+				SET_ISA_EXT_MAP("zks"     , RISCV_ISA_EXT_ZBKB    );
-+				SET_ISA_EXT_MAP("zks"     , RISCV_ISA_EXT_ZBKC    );
-+				SET_ISA_EXT_MAP("zks"     , RISCV_ISA_EXT_ZBKX    );
-+				SET_ISA_EXT_MAP("zks"     , RISCV_ISA_EXT_ZKSED   );
-+				SET_ISA_EXT_MAP("zks"     , RISCV_ISA_EXT_ZKSH    );
-+				SET_ISA_EXT_MAP("zk"      , RISCV_ISA_EXT_ZBKB    );
-+				SET_ISA_EXT_MAP("zk"      , RISCV_ISA_EXT_ZBKC    );
-+				SET_ISA_EXT_MAP("zk"      , RISCV_ISA_EXT_ZBKX    );
-+				SET_ISA_EXT_MAP("zk"      , RISCV_ISA_EXT_ZKND    );
-+				SET_ISA_EXT_MAP("zk"      , RISCV_ISA_EXT_ZKNE    );
-+				SET_ISA_EXT_MAP("zk"      , RISCV_ISA_EXT_ZKNH    );
-+				SET_ISA_EXT_MAP("zk"      , RISCV_ISA_EXT_ZKR     );
-+				SET_ISA_EXT_MAP("zk"      , RISCV_ISA_EXT_ZKT     );
- 			}
- #undef SET_ISA_EXT_MAP
- 		}
--- 
-2.35.1
 
 
 _______________________________________________
