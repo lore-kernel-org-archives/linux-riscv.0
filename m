@@ -4,82 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E94D3C433F5
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 May 2022 19:27:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35F99C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 May 2022 22:41:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=weO2u1LMGuPZTmxhBRPQjCOlwk6o44Gy06hfWEQLuW8=; b=h+OL68/vZVIhGe
-	ib5fHqQV8zf/INOu5Ba9UrRs21E4Eak39SSPwbyZvj71kA8Pe4NW5QelZT9sRoKzMOmHx6Bz/ATDP
-	Ica0k+/PB4m9kg9UizSXE5C10POaYipNkL6sSrF6HrVauaHwo+RwR+3e0vKDUyAE89twmi325Ob5d
-	HQZ0iNuJkn3fvpoTGsGB2xrsTEvT0QVIzrY7GFrivmBnrMh/Inj172+Lz6lSEWAieRvgFqVfRvIxO
-	OUHCk6XGS5lLSG2X0vgupFYuLkP70Av9lRkEF93gdUVNcJwLym8xr5qD2cqzNNLTyFqvszv8uapsM
-	kg3JSKfE/WhNzro0rPLQ==;
+	List-Owner; bh=J+N+aZqGpAiGCmoIBcF8oZYhpxc6L+xZNWjy/qgXJWo=; b=Qu9NSSha3FSE4/
+	whZUO5uTTjeMIC3KVNOGLFNI0/Jis7w/zwaEWPPnk/rPGaZVP7lVhpcNb+SvedWkVngu2qGjPIhRM
+	vFNLSD73/lBE7/IE/fRigCrhyOnaPV8AJTwOmP2J43W9SGe8J2ZzHkOyZ976i92jb4FR4vuqjsh8J
+	uqwDOPnj5OcOyYpstRowk/1HO7zSVFkx5SBLsslglBZVl4wNOs3l01V6qer2Lv2/Hb0GN8NVsS33e
+	GTng2r0nxTT2ECZ7gz0xfMMt6Bca9eB6hRuIwHNCbhLapHx2kX3iGPKXkzs8Oihul+Uv6tK1baPpf
+	JnRzbld26gogczYHoEgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nlFDP-00GnKb-Sp; Sun, 01 May 2022 19:26:43 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nlFDK-00GnGq-Ba
- for linux-riscv@lists.infradead.org; Sun, 01 May 2022 19:26:39 +0000
-Received: by mail-wm1-x335.google.com with SMTP id p189so7289893wmp.3
- for <linux-riscv@lists.infradead.org>; Sun, 01 May 2022 12:26:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=conchuod-ie.20210112.gappssmtp.com; s=20210112;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=/kez/qpsFQ+IZamV7zrV7LTtRW1TdlvsPTX0KFg6YaM=;
- b=zYcbbbn6x8nFqBJNcTo5K10m1fVCPAbmzI4EEiqB19Dt0CtN4YfZ+n3eRJUrEUrmG3
- 4GQuYluEbb4bGxzAJFOVTQpx6wM/O2xCVrJnUb2dpktdkLrqiH/Ox6Av5VE71LGANb5p
- enO1+LaDy0ieC4/r8HrZy0GpqbFnPqzoGHreSD6/rHVFNHSPh+mlI86BlfOQlPj3tGAL
- yUpREufCVhnuseHLb6prpzQeIJfWvkoawrO/gw6d9/iWGp5FWBubzO2VaHeFijKlLj9/
- lMeN3FdAHsO66Tv9w8FClrjFdeoH3s6srPsX69bA0pDoprHSvxGZhcDojB8LJdJX9q4I
- 810Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=/kez/qpsFQ+IZamV7zrV7LTtRW1TdlvsPTX0KFg6YaM=;
- b=yAJixVN/bp2ua+4yayjdb6h8/YSeo8QiXRz8Va1n5ix5Q5KvjEU466o3Y/XO+ocwE0
- QT/d8yvPbY/Q/rr4IKd9gu4J9NysK4AYV69wVNz2pzsJ5qUkar/CaKKDmAyUGBuJWLIY
- 5WGr4hEG4EG8fpnPAjEArbPE64pAbugU8ZAKZMHTW7yKekB4KJDPXzZ0gOgA7FYuILTO
- 2hvlXlV9HPo4GcTPx5vy3wc2D4tTiPGUI9vGqTZMK9qZDlvTXsaRcP9JEJ9YSOE4VUOp
- 9h7be9tVk8a666Q1Ro6ISITQolfRqO34GfOwNINRsD5euxgRAOEEKfLTRQOSL4tFvVq8
- 0iEQ==
-X-Gm-Message-State: AOAM533hAqYG+pIAudk3GpZjdTEZU+KpvY7e1rlZrhu/mWaB80uugEdi
- yAMwesRJVx8QHeUOces1uLJJdQ==
-X-Google-Smtp-Source: ABdhPJwMWJCsRKRMZtX/Ja6xQmgBBzodM0Qb3tBUl6fsvsA0sjo0C3BxIcXqpeX6QRnynN5mejc5Dg==
-X-Received: by 2002:a05:600c:3492:b0:392:97ba:9581 with SMTP id
- a18-20020a05600c349200b0039297ba9581mr12598465wmq.163.1651433196187; 
- Sun, 01 May 2022 12:26:36 -0700 (PDT)
-Received: from henark71.. ([109.77.36.132]) by smtp.gmail.com with ESMTPSA id
- i14-20020adfa50e000000b0020c5253d8c6sm6448105wrb.18.2022.05.01.12.26.35
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 01 May 2022 12:26:35 -0700 (PDT)
-From: Conor Dooley <mail@conchuod.ie>
-To: krzk+dt@kernel.org,
-	palmer@dabbelt.com,
-	robh+dt@kernel.org
-Cc: conor.dooley@microchip.com, Cyril.Jean@microchip.com,
- daire.mcnamara@microchip.com, paul.walmsley@sifive.com,
- aou@eecs.berkeley.edu, palmer@rivosinc.com, arnd@arndb.de,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v3 6/8] dt-bindings: vendor-prefixes: add Sundance DSP
-Date: Sun,  1 May 2022 20:25:57 +0100
-Message-Id: <20220501192557.2631936-7-mail@conchuod.ie>
-X-Mailer: git-send-email 2.36.0
-In-Reply-To: <20220501192557.2631936-1-mail@conchuod.ie>
-References: <20220501192557.2631936-1-mail@conchuod.ie>
+	id 1nlIFP-00H3fk-33; Sun, 01 May 2022 22:40:59 +0000
+Received: from angie.orcam.me.uk ([78.133.224.34])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nlIFC-00H3cN-JZ; Sun, 01 May 2022 22:40:48 +0000
+Received: by angie.orcam.me.uk (Postfix, from userid 500)
+ id 2E01592009C; Mon,  2 May 2022 00:40:39 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+ by angie.orcam.me.uk (Postfix) with ESMTP id 2645D92009B;
+ Sun,  1 May 2022 23:40:39 +0100 (BST)
+Date: Sun, 1 May 2022 23:40:39 +0100 (BST)
+From: "Maciej W. Rozycki" <macro@orcam.me.uk>
+To: Niklas Schnelle <schnelle@linux.ibm.com>
+cc: Arnd Bergmann <arnd@arndb.de>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
+ linux-pci@vger.kernel.org, Arnd Bergmann <arnd@kernel.org>, 
+ Ivan Kokshaysky <ink@jurassic.park.msu.ru>, 
+ Matt Turner <mattst88@gmail.com>, Russell King <linux@armlinux.org.uk>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, Michal Simek <monstr@monstr.eu>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+ "David S. Miller" <davem@davemloft.net>, 
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, 
+ "open list:ALPHA PORT" <linux-alpha@vger.kernel.org>, 
+ "moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>, 
+ "open list:IA64 (Itanium) PLATFORM" <linux-ia64@vger.kernel.org>, 
+ "open list:M68K ARCHITECTURE" <linux-m68k@lists.linux-m68k.org>, 
+ "open list:MIPS" <linux-mips@vger.kernel.org>, 
+ "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>, 
+ "open list:LINUX FOR POWERPC (32-BIT AND 64-BIT)"
+ <linuxppc-dev@lists.ozlabs.org>, 
+ "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>, 
+ "open list:SUPERH" <linux-sh@vger.kernel.org>, 
+ "open list:SPARC + UltraSPARC (sparc/sparc64)" <sparclinux@vger.kernel.org>
+Subject: Re: [RFC v2 01/39] Kconfig: introduce HAS_IOPORT option and select
+ it as necessary
+In-Reply-To: <20220429135108.2781579-2-schnelle@linux.ibm.com>
+Message-ID: <alpine.DEB.2.21.2205012335020.9383@angie.orcam.me.uk>
+References: <20220429135108.2781579-1-schnelle@linux.ibm.com>
+ <20220429135108.2781579-2-schnelle@linux.ibm.com>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220501_122638_436635_F936F7E9 
-X-CRM114-Status: UNSURE (   7.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220501_154046_859720_656FD526 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,33 +88,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On Fri, 29 Apr 2022, Niklas Schnelle wrote:
 
-Sundance DSP Inc. (https://www.sundancedsp.com/) is a supplier of
-high-performance DSP and FPGA processor boards and I/O modules.
+> We introduce a new HAS_IOPORT Kconfig option to indicate support for
+> I/O Port access. In a future patch HAS_IOPORT=n will disable compilation
+> of the I/O accessor functions inb()/outb() and friends on architectures
+> which can not meaningfully support legacy I/O spaces such as s390 or
+> where such support is optional. The "depends on" relations on HAS_IOPORT
+> in drivers as well as ifdefs for HAS_IOPORT specific sections will be
+> added in subsequent patches on a per subsystem basis.
+[...]
+> diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+> index de3b32a507d2..4c55df08d6f1 100644
+> --- a/arch/mips/Kconfig
+> +++ b/arch/mips/Kconfig
+> @@ -47,6 +47,7 @@ config MIPS
+>  	select GENERIC_SMP_IDLE_THREAD
+>  	select GENERIC_TIME_VSYSCALL
+>  	select GUP_GET_PTE_LOW_HIGH if CPU_MIPS32 && PHYS_ADDR_T_64BIT
+> +	select HAS_IOPORT
+>  	select HAVE_ARCH_COMPILER_H
+>  	select HAVE_ARCH_JUMP_LABEL
+>  	select HAVE_ARCH_KGDB if MIPS_FP_SUPPORT
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ NAK, not all MIPS systems have the port I/O space, and we have it already 
+handled via the NO_IOPORT_MAP option.  We'll need to have HAS_IOPORT set 
+to !NO_IOPORT_MAP (or vice versa) for the MIPS architecture.
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index 01430973ecec..1d47a38c2a2e 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -1197,6 +1197,8 @@ patternProperties:
-     description: Summit microelectronics
-   "^sunchip,.*":
-     description: Shenzhen Sunchip Technology Co., Ltd
-+  "^sundance,.*":
-+    description: Sundance DSP Inc.
-   "^sunplus,.*":
-     description: Sunplus Technology Co., Ltd.
-   "^SUNW,.*":
--- 
-2.36.0
-
+  Maciej
 
 _______________________________________________
 linux-riscv mailing list
