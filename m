@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 598DBC433F5
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 May 2022 19:26:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FEFFC433FE
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 May 2022 19:26:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FmIt/eeeDb7ES3KsicdOdXK4BsYij+PitUgcbvJ9m6g=; b=WF3zMWNiXd/7Hs
-	Jz7b5j4Mv8rKwai7AYdnouRLnOK9LBciNPQ0tA3u585zdBs9yYzMtdfm5BXfQiZZ0VT1rjvqjPamD
-	ZXN+mApu4t0PLJZUXO8wH1vYIlAYjmIbScN15QdRFcPwGvoTifvq/v7rFwW2QLD+4+tQAmuoj+NFE
-	KZOwwBR2Le8wjoyI3NINGsOeEei3BmX21Ag1kHOmnxqcjTzNuX414PpCIEJmsQBZD4fU9GYrhYvVN
-	T19U65CnCOZu3tYUfQHKSyKIcPrA1ZfLFh1ELANfjTgTo/oAx3zxtUmWBfakNNDR3euiKYcyuokmW
-	AZKNrS76sTvAO6CCLTfg==;
+	List-Owner; bh=rm5ASMHMHobCZ6uP0vTwpAKfcI7wIT3T675Va+wxNkw=; b=Thk7k3pSG1j8j4
+	p29KLrBXYRMk8w4zjg8mUY6xEiPM3Eqkdxn9eXYhaUAeYpI2E8fMxjoTRvfOyfA2UPcrm/bKjlw0M
+	xq8vGidGOc4YGjvlHU46rxks8/o6Dcq9WJm+9K32KWfxFvITj5sPOBR+Pj217gexln3+nOtMaPU/A
+	Fo4XTA9perQaXH1wTWrm/s+bidlh8DVhUUVctzW8wHt8R9iB/HwQxXwYOhB6xKcV23L3dF1IB0+UZ
+	ibsN+LBVPdk4Wpw+xCpq9Dejp/KpPGPDIkCQOvvRUVUIXEIqP8g+f71I2nIypHRWafA5+O22ZYluo
+	gKKOTChahYyYbfOyC8YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nlFDT-00GnO2-OO; Sun, 01 May 2022 19:26:47 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1nlFDR-00GnLg-LH; Sun, 01 May 2022 19:26:45 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nlFDL-00GnHt-HS
+ id 1nlFDL-00GnHH-MW
  for linux-riscv@lists.infradead.org; Sun, 01 May 2022 19:26:41 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id c11so7388967wrn.8
- for <linux-riscv@lists.infradead.org>; Sun, 01 May 2022 12:26:39 -0700 (PDT)
+Received: by mail-wr1-x433.google.com with SMTP id j15so17253615wrb.2
+ for <linux-riscv@lists.infradead.org>; Sun, 01 May 2022 12:26:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=conchuod-ie.20210112.gappssmtp.com; s=20210112;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=rfHaik7/2US1P/NFRRn4iUnlONPLqG6WILHOUefbBUo=;
- b=mVdv9kcwOOIpX2quM/vp3HTG42F5lFQfkJxhE6lBERhLVc7FEwAM/Tn4kD+7r62ie8
- nvlAX46+VaiPTnF/vylOd4xI+lScf0samo6C4eeA/GEJ3KrbWWyOJe7OmoW+Vwii6HqG
- rWf8UXEHyGB2/s4ROjXXjewRBx1w/DyfWoz+chilBzG6ESM3ictgX6QuwAPWgZtrAMQt
- FBKns7Y1C/TbqWVRqL+8qkARg7ZrKNKNotJc+/nTWOdUs1fWwCOXM1WFnsji800uqj9Z
- YYMK7gooIH4sy+NV0qHp8CYytcOcOL/cVgfLYrvALtxEAKAJgLccYTYoodR9xMVbF2ES
- Y6vg==
+ bh=AwbBgF2BBmn2/d5GaBoLnqmBoCcWn7LCRN6pKIxnqBg=;
+ b=5Tmp/7ZCksQfQfYzi1RBTW83DljZezcq0OcxLFdDEygvSFIlH+qCeZR2eKH7Vem1Qd
+ Jm1an2hVugwVK8XRpETiqSvFEfKJG5518qrxStFhIhvz+PsJEvvwC1NbbRto2q4O6jF1
+ 1EvtFiBotHydVmKpUv/NYsOHm9rFl+2vtAHgkoR2Rcy2+uB3C9pk1UNeIQN9AzY+0s35
+ foCr2ISHskiY1ff8Bj7BLsh8i8Q4JRXdabTaLA5ewAqKBe4xCuJFtZXTnBflwgmAiFHp
+ fnhN4GN0UFhbSMwweTuibOnyQGagX5T9HoQ/pFRHFdGJjUmsCbYqg1lg9pSgSC5lOXza
+ SMWw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=rfHaik7/2US1P/NFRRn4iUnlONPLqG6WILHOUefbBUo=;
- b=Ryab56jTJowRS2b22RtcakymJ5fdNj8dP/OQpQsnQwLD0wmSzJ/Bqo0vgkdRNDlSMP
- kZXPjqmOe2fStzbwECHnEmxpECXz+e5wZKYXf2ugB7M1qHz14H6AThsmieUd4LL4Y1eS
- EuRWZDDdTE4vKRimXOVPQVID3Bv79HamvbMfJru8qP0e5vSvu7jEzt2IaYDIhjeJa9fp
- G30cCK/IXSSHUJMya2eoPG/VFGhBUb7rLqxcn1BbybdopWA2ZgqV9kPZTOwj3o78Mnwx
- OIGrcrV8kcNbdhfKcJO/zS+0BwMCYhn9rPsjCh4LaNaP999kJ2vzbnHSt6BsBiHGuHpj
- Xa8Q==
-X-Gm-Message-State: AOAM5324WuYnCO5plbKzrGiqKMmKorLZ5PMctjsFx/2F1V32U6G6veY3
- ZNe69ZiQM+23QyHzGcWk2CrNwg==
-X-Google-Smtp-Source: ABdhPJx2i0mes1PmcgvFU5xWJ4TRUZY/DT1oIlVE5UY3f+NAzTWLdIkcmmjjxXaExuxvVcYoCFsCag==
-X-Received: by 2002:a5d:5012:0:b0:20a:d9a9:44dc with SMTP id
- e18-20020a5d5012000000b0020ad9a944dcmr7113624wrt.627.1651433198331; 
- Sun, 01 May 2022 12:26:38 -0700 (PDT)
-Received: from henark71.. ([109.77.36.132]) by smtp.gmail.com with ESMTPSA id
- i14-20020adfa50e000000b0020c5253d8c6sm6448105wrb.18.2022.05.01.12.26.37
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ bh=AwbBgF2BBmn2/d5GaBoLnqmBoCcWn7LCRN6pKIxnqBg=;
+ b=dLV6ODOuQ3gYL3/TnNvo0lmZ7PT6hIAiHK0VsiK51FirvQtvxii5BhVTOKqIm3gTY1
+ Tf5BqZQUxBkUx3fBEtgMBFlnl5iGw2fKB/iPpljPvCOqWtP3LUKLzlrZkQiGuRRwVDfS
+ gAr+exQWLM5FfTwb3qhoAj7qxtnIZYYa0gVryQFEvzLYmxEAKdSefA8o4i4aTr+N6Tg+
+ NPto2TkvdomRFVog2CUrzhtu11NUo0S6Q/sfMwxXoM6rIW6g34GHcVolcsIsMGlNVhH8
+ fTAQmocRFUT9l2OHFNkV5NHf+2rRCd6/EPHqtXMFQ/1U+OQb7+oD6/0D47PKtP2vL/i/
+ q0HQ==
+X-Gm-Message-State: AOAM530Rucic+SVLnAoIH1dz2Bc5xgJVsii0wE3KloouyZHHm6lI5oIB
+ P+k3Wad82pmTbnUIxY+N2qCc2g==
+X-Google-Smtp-Source: ABdhPJyEezBHT102gjya0WaiBuQc9VkqGSxGDbobxFzp1NmbTTgUdU8zC5QFP8x+mu0WwhtpG5KvEA==
+X-Received: by 2002:adf:f350:0:b0:20a:dfc8:f8bf with SMTP id
+ e16-20020adff350000000b0020adfc8f8bfmr7181943wrp.377.1651433197294; 
  Sun, 01 May 2022 12:26:37 -0700 (PDT)
+Received: from henark71.. ([109.77.36.132]) by smtp.gmail.com with ESMTPSA id
+ i14-20020adfa50e000000b0020c5253d8c6sm6448105wrb.18.2022.05.01.12.26.36
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 01 May 2022 12:26:36 -0700 (PDT)
 From: Conor Dooley <mail@conchuod.ie>
 To: krzk+dt@kernel.org,
 	palmer@dabbelt.com,
@@ -67,17 +67,20 @@ Cc: conor.dooley@microchip.com, Cyril.Jean@microchip.com,
  daire.mcnamara@microchip.com, paul.walmsley@sifive.com,
  aou@eecs.berkeley.edu, palmer@rivosinc.com, arnd@arndb.de,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: [PATCH v3 8/8] riscv: dts: microchip: add the sundance polarberry
-Date: Sun,  1 May 2022 20:25:59 +0100
-Message-Id: <20220501192557.2631936-9-mail@conchuod.ie>
+ linux-riscv@lists.infradead.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v3 7/8] dt-bindings: riscv: microchip: add polarberry
+ compatible string
+Date: Sun,  1 May 2022 20:25:58 +0100
+Message-Id: <20220501192557.2631936-8-mail@conchuod.ie>
 X-Mailer: git-send-email 2.36.0
 In-Reply-To: <20220501192557.2631936-1-mail@conchuod.ie>
 References: <20220501192557.2631936-1-mail@conchuod.ie>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220501_122639_661502_DBD7C02A 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20220501_122639_779765_1BD4BB65 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,150 +99,26 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Add a minimal device tree for the PolarFire SoC based Sundance
-PolarBerry.
+Add a binding for the Sundance Polarberry board.
 
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/boot/dts/microchip/Makefile        |  1 +
- .../dts/microchip/mpfs-polarberry-fabric.dtsi | 16 ++++
- .../boot/dts/microchip/mpfs-polarberry.dts    | 95 +++++++++++++++++++
- 3 files changed, 112 insertions(+)
- create mode 100644 arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi
- create mode 100644 arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
+ Documentation/devicetree/bindings/riscv/microchip.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/boot/dts/microchip/Makefile b/arch/riscv/boot/dts/microchip/Makefile
-index af3a5059b350..39aae7b04f1c 100644
---- a/arch/riscv/boot/dts/microchip/Makefile
-+++ b/arch/riscv/boot/dts/microchip/Makefile
-@@ -1,3 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
- dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += mpfs-icicle-kit.dtb
-+dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += mpfs-polarberry.dtb
- obj-$(CONFIG_BUILTIN_DTB) += $(addsuffix .o, $(dtb-y))
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi
-new file mode 100644
-index 000000000000..49380c428ec9
---- /dev/null
-+++ b/arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi
-@@ -0,0 +1,16 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/* Copyright (c) 2020-2022 Microchip Technology Inc */
-+
-+/ {
-+	fabric_clk3: fabric-clk3 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <62500000>;
-+	};
-+
-+	fabric_clk1: fabric-clk1 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <125000000>;
-+	};
-+};
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts b/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
-new file mode 100644
-index 000000000000..96ec589d1571
---- /dev/null
-+++ b/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
-@@ -0,0 +1,95 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/* Copyright (c) 2020-2022 Microchip Technology Inc */
-+
-+/dts-v1/;
-+
-+#include "mpfs.dtsi"
-+#include "mpfs-polarberry-fabric.dtsi"
-+
-+/* Clock frequency (in Hz) of the rtcclk */
-+#define MTIMER_FREQ	1000000
-+
-+/ {
-+	model = "Sundance PolarBerry";
-+	compatible = "sundance,polarberry", "microchip,mpfs";
-+
-+	aliases {
-+		serial0 = &mmuart0;
-+		ethernet0 = &mac1;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	cpus {
-+		timebase-frequency = <MTIMER_FREQ>;
-+	};
-+
-+	ddrc_cache_lo: memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x0 0x2e000000>;
-+		status = "okay";
-+	};
-+
-+	ddrc_cache_hi: memory@1000000000 {
-+		device_type = "memory";
-+		reg = <0x10 0x00000000 0x0 0xC0000000>;
-+		status = "okay";
-+	};
-+};
-+
-+&refclk {
-+	clock-frequency = <125000000>;
-+};
-+
-+&mmuart0 {
-+	status = "okay";
-+};
-+
-+&mmc {
-+	status = "okay";
-+	bus-width = <4>;
-+	disable-wp;
-+	cap-sd-highspeed;
-+	cap-mmc-highspeed;
-+	card-detect-delay = <200>;
-+	mmc-ddr-1_8v;
-+	mmc-hs200-1_8v;
-+	sd-uhs-sdr12;
-+	sd-uhs-sdr25;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+};
-+
-+&mac1 {
-+	status = "okay";
-+	phy-mode = "sgmii";
-+	phy-handle = <&phy1>;
-+	phy1: ethernet-phy@5 {
-+		reg = <5>;
-+		ti,fifo-depth = <0x01>;
-+	};
-+	phy0: ethernet-phy@4 {
-+		reg = <4>;
-+		ti,fifo-depth = <0x01>;
-+	};
-+};
-+
-+&mac0 {
-+	status = "disabled";
-+	phy-mode = "sgmii";
-+	phy-handle = <&phy0>;
-+};
-+
-+&rtc {
-+	status = "okay";
-+};
-+
-+&mbox {
-+	status = "okay";
-+};
-+
-+&syscontroller {
-+	status = "okay";
-+};
+diff --git a/Documentation/devicetree/bindings/riscv/microchip.yaml b/Documentation/devicetree/bindings/riscv/microchip.yaml
+index 7a1f883a39b5..3ac611689441 100644
+--- a/Documentation/devicetree/bindings/riscv/microchip.yaml
++++ b/Documentation/devicetree/bindings/riscv/microchip.yaml
+@@ -21,6 +21,7 @@ properties:
+       - enum:
+           - microchip,mpfs-icicle-kit
+           - microchip,mpfs-icicle-reference-rtlv2203
++          - sundance,polarberry
+       - const: microchip,mpfs
+ 
+ 
 -- 
 2.36.0
 
