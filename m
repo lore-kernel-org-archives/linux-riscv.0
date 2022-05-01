@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D23B1C433F5
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 May 2022 09:00:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F1BC433F5
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 May 2022 09:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gXaPdzUySYlQYwBubW2BU5ebeKRZ2mqT9OuDux4R6Fk=; b=bzg74TMmt2VFLT
-	h9hDCVc79zmVUKohgh62leZ11/5uQyqi3TPt01vXH5FcbeumnLN7nIsR63gXPZmuEjbGGjpQWEj8T
-	VwDtp716EhOy8r2LRll5AIQ7sM8uw1gVs600YDml7ek+ypu1YvOqcYomA8qc5l0E3piNxQd1n4RHf
-	tVR+ZQCy49rS0s4nr03MWxa5ytEpXQyoNakWQLHNtGlmlSerGbcEfqUEm/15O2Iof1C060U5fLRhR
-	qnYjqtgUhlirGxtNAw9fCcNf6o+jAwIqiUUreZDjBRwMpfN7n/vG9OYkBlndl4L1BmOgirly+MVD8
-	rCY2ju4JQzGZ1Yt+7sEQ==;
+	List-Owner; bh=NbHQ6LnplM9vC1T/id5hJiFbaNQN+cE2SptPxN6cn9E=; b=Xf4f31C7DUvkVG
+	cJlvUONBfcfTJUz19dl/sL60ENAqSGnyIsVOrCpHSEWaAZpoVTu0k7kQtLGXGWb6wWZmJ9fNffuRN
+	OrvmZw0VxPb/YUh3Sllcyt/Fh7NSnBdwBpouJfqTtDoDW1bmMTgj9qYh1oiZPXYjITFv7FPauedZC
+	s0IMCNB/MBB7y0dbgmGT/NoROeWuv74PzgRh2UmNhTJttW/hzPCdtdGNR5GuXAJZt3N5qiMxFvIKj
+	mCIg6drzMQwk5LQ9NGnVz7Dtlik2irWMGEovTINjRGtDwOUpOyMPl9pMWr2BxaMIbWD1Z4q0NrT/r
+	3q8aosj85c6XPnVNDFuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nl5Qv-00FxvQ-7K; Sun, 01 May 2022 09:00:01 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1nl5RQ-00Fy28-Vm; Sun, 01 May 2022 09:00:33 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nl5Qt-00Fxuu-5M
- for linux-riscv@lists.infradead.org; Sun, 01 May 2022 09:00:00 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id n10so5425442ejk.5
- for <linux-riscv@lists.infradead.org>; Sun, 01 May 2022 01:59:58 -0700 (PDT)
+ id 1nl5RN-00Fy0k-Vx
+ for linux-riscv@lists.infradead.org; Sun, 01 May 2022 09:00:31 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id z19so13542797edx.9
+ for <linux-riscv@lists.infradead.org>; Sun, 01 May 2022 02:00:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
  h=message-id:date:mime-version:user-agent:subject:content-language:to
  :cc:references:from:in-reply-to:content-transfer-encoding;
- bh=zwZnSMoUMvauA0DcB2/3Hy6f11CAi3VR9h+0N7gLNIQ=;
- b=kO9jPewaYdfydQqL1tUmSCmn4EE8jzK7YR/xbVqpF/OIzONlX2IHxiNyYZS3gy1wV1
- gEOPAGLbKKecFS4/ikwmb8fJ/mEp0NnjBBHWRbxMgml/WfAD+fUo4PbFFVjhwYNMcJ+B
- aAkGZdx+dNp14n9IXBgSjOVVwsQjgOwczbjlWx1v3yZCw9PirCpiC1d1Oaply7ODH9mj
- D8INuP5q+cJ1BMRuqcUCQ84dK5CEKEdCQbGWfUb8MnLUqB3hEOBO5NZ77oFOuylp7Q6g
- QDxvDa7WA7KdaABXHOgNODiebnufDvJuuZytAuOfB7dx7M5Y2SsM9aL/P+q/iklDh2ed
- FtyA==
+ bh=6PJYh3sqWCa2tY+xYmHfq4tYwHtME+g6YPSvwa+jv18=;
+ b=iYnEeSkcA8rwx9awPjZp4TwwrB9ShZpaik4sjxmebuZm3eYl9jJwYfh/oU+Olt3R5v
+ ZWRtvxXkKsgDPNb+tl1CohYbxWwxADiSrsbTr8Y3yGBb1rU7Hyy6y/9zf2H5iyeKHa3E
+ Y4glAe6N96lOOxJg49nS/hxtAKHv6kwsdsHc24VLud5RSLhOmH2c4e2mAliIuBqHC+7q
+ 8p5NSHOPetKtEmG0eMJV0+ZtJ1oXhiNSwEilHZTsUxN+xokeZF4yZ2wvPfSL3Ai4HoO+
+ pUCz9zgAy+6YgpUrFNY4e6NMIrts98JwLfdcTZ9mXvxYZaY5/2EHoeVDrksoEqxdVJyH
+ aKiA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
  :content-language:to:cc:references:from:in-reply-to
  :content-transfer-encoding;
- bh=zwZnSMoUMvauA0DcB2/3Hy6f11CAi3VR9h+0N7gLNIQ=;
- b=bmXLRigC5TNYlP7hr6cDXZQw3tcXgPeEHtppf/4VZe3xkWoYqgKttm3PdjHNsn0K3N
- 0+RPqqiKsQwPPGPFYnYTMAKo891kSnjcDwmaQGINHb75T/86PBPzlcgVjpBQ9S0rafiQ
- KCCppU5gaK2YSm7b0uFoC7nD4IboGOSGQU5pAxA5yrZbFoDVNRuvNmp3Wf9EhK32Yjsb
- Np4i3MvsEsbg6EFlJsgX44Zs4qkrbV+Q/JEJ6in3im20iiELCII4ROwHq2h/dhO5allw
- N70AkarBoUtc3uVA9U3D6BC9DzTp3Y4mWDmGMvuCrjKdXSAqfxOd2rv+4fbtO1RYOfq2
- Qt4g==
-X-Gm-Message-State: AOAM530VnogF3kAk+7iyXxBTnKvwCN+lCW5zUKc0wBpJlzaLbJStIdXZ
- 1F2oGxggdlfzPmvT6pIYCJSUxA==
-X-Google-Smtp-Source: ABdhPJyudPfACSahB9C2aeEr9XfA8BESuGiedIMyik3JFnuTR2Cj6JKCtjMyIMKnue+s4bSlKkMrmQ==
-X-Received: by 2002:a17:907:94d6:b0:6eb:6a12:df60 with SMTP id
- dn22-20020a17090794d600b006eb6a12df60mr7093766ejc.68.1651395597696; 
- Sun, 01 May 2022 01:59:57 -0700 (PDT)
+ bh=6PJYh3sqWCa2tY+xYmHfq4tYwHtME+g6YPSvwa+jv18=;
+ b=eOVLhigjT9tCxyv7s+ahbTKJe0YN+8aJVnCLRUQuH3mKDdFG/Y6QUH0YvfgUxWF9eR
+ 4zn/oaGbJrTP07n9nEEw9bzJK2MZv4oerdB15PaagjnIyTHs0bSHzraTbCBhlh+b3IA6
+ c1bPu22PvPd00blhpkF63eKWqI/v/NrzmtVTjo7Z/0Y7nCG0U46BJSGui8NEQUzhLJpD
+ MLH5StHG+ihjm3Uu5mqw6AjQm8TOh3ldsRB/um14f1VypnToe1S5E+5/7PtZz8Qm/s20
+ ssh8rfoAuLd326hUoKfm6XN9ERTFAsjkSGD58VHDdQTtRaGgTepciDH0tsYCQbCDQ4gA
+ ev/g==
+X-Gm-Message-State: AOAM531U0dUbxnJ4RAQPnJsMi2F7Aed4xKJ9HOB1Vm8ln1/uOiubW+L4
+ 7DNpv2/2Jr+D3jA/DXLJvTY/3g==
+X-Google-Smtp-Source: ABdhPJxYiFTtEL0B6CFg5y01ly+P2Zt5fKvhJ4uNpRacgPB2/Ls81VKRj5S1Po2G/xoB8RyNM+DVNA==
+X-Received: by 2002:aa7:d549:0:b0:425:fc06:60d4 with SMTP id
+ u9-20020aa7d549000000b00425fc0660d4mr8058735edr.300.1651395621804; 
+ Sun, 01 May 2022 02:00:21 -0700 (PDT)
 Received: from [192.168.0.182] (xdsl-188-155-176-92.adslplus.ch.
  [188.155.176.92]) by smtp.gmail.com with ESMTPSA id
- gv11-20020a1709072bcb00b006f3ef214e5dsm2369828ejc.195.2022.05.01.01.59.56
+ ig11-20020a1709072e0b00b006f3ef214e2csm2504094ejc.146.2022.05.01.02.00.20
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Sun, 01 May 2022 01:59:57 -0700 (PDT)
-Message-ID: <6fdc6da4-3a34-e67c-cab8-1c9570501a8a@linaro.org>
-Date: Sun, 1 May 2022 10:59:56 +0200
+ Sun, 01 May 2022 02:00:21 -0700 (PDT)
+Message-ID: <884d9546-4e5a-df04-bf03-eba2fe0188ba@linaro.org>
+Date: Sun, 1 May 2022 11:00:20 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.7.0
-Subject: Re: [PATCH v2 6/8] dt-bindings: vendor-prefixes: add Sundance DSP
+Subject: Re: [PATCH v2 7/8] dt-bindings: riscv: microchip: add polarberry
+ compatible string
 Content-Language: en-US
 To: Conor Dooley <mail@conchuod.ie>, krzk+dt@kernel.org, palmer@dabbelt.com,
  robh+dt@kernel.org
@@ -75,12 +76,13 @@ Cc: conor.dooley@microchip.com, Cyril.Jean@microchip.com,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org
 References: <20220430130922.3504268-1-mail@conchuod.ie>
- <20220430130922.3504268-7-mail@conchuod.ie>
+ <20220430130922.3504268-8-mail@conchuod.ie>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20220430130922.3504268-7-mail@conchuod.ie>
+In-Reply-To: <20220430130922.3504268-8-mail@conchuod.ie>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220501_015959_257682_1E208BEE 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20220501_020030_097162_067483D2 
+X-CRM114-Status: UNSURE (   6.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,37 +102,14 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 30/04/2022 15:09, Conor Dooley wrote:
 > From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> Sundance DSP Inc. (https://www.sundancedsp.com/) is a supplier of
-> high-performance DSP and FPGA processor boards and I/O modules.
+> Add a binding for the Sundance Polarberry board.
 > 
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > Signed-off-by: Conor Dooley <mail@conchuod.ie>
 
-If your @microchip.com email still works, then there is no need to
-double-sign it. At the end you are still the same person... unless
-you're not. :)
-
-This applies to your other patches as well.
+With stripped SoB:
 
 Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-> ---
->  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> index 01430973ecec..1d47a38c2a2e 100644
-> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> @@ -1197,6 +1197,8 @@ patternProperties:
->      description: Summit microelectronics
->    "^sunchip,.*":
->      description: Shenzhen Sunchip Technology Co., Ltd
-> +  "^sundance,.*":
-> +    description: Sundance DSP Inc.
->    "^sunplus,.*":
->      description: Sunplus Technology Co., Ltd.
->    "^SUNW,.*":
 
 
 Best regards,
