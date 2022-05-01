@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F1BC433F5
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 May 2022 09:00:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB98EC433F5
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 May 2022 10:40:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NbHQ6LnplM9vC1T/id5hJiFbaNQN+cE2SptPxN6cn9E=; b=Xf4f31C7DUvkVG
-	cJlvUONBfcfTJUz19dl/sL60ENAqSGnyIsVOrCpHSEWaAZpoVTu0k7kQtLGXGWb6wWZmJ9fNffuRN
-	OrvmZw0VxPb/YUh3Sllcyt/Fh7NSnBdwBpouJfqTtDoDW1bmMTgj9qYh1oiZPXYjITFv7FPauedZC
-	s0IMCNB/MBB7y0dbgmGT/NoROeWuv74PzgRh2UmNhTJttW/hzPCdtdGNR5GuXAJZt3N5qiMxFvIKj
-	mCIg6drzMQwk5LQ9NGnVz7Dtlik2irWMGEovTINjRGtDwOUpOyMPl9pMWr2BxaMIbWD1Z4q0NrT/r
-	3q8aosj85c6XPnVNDFuw==;
+	List-Owner; bh=OuFD50Jj5kGVafp4ofRNGZ6ou8fCloqxA6bKkqhYvxM=; b=k5He1scTgNfFmb
+	tKQ2HPFwBHpdD1FvOfMFJPxIEAfHNqw0ZIJ31+NAVfsS2JImhNEy7PyyxhLq82mFD/aQUNr0gWg7d
+	bkRn1Tgzub9ul5EkYXxfmESV81eCf2ZJ12LrxNilCAeL2CiIn08Kevl8W6wYEbuE6V9M3Eylg2gsl
+	X4c17ZapfoTwsBzSCynh9tiRttV4+fgqh/x+4cF/Vq0p+Yus0f0eqes16p052RFfT2EiHloqsQuTV
+	ipdvB/h3Gf4xut+v5AwjKErih1IGgqYHW+RV3agTkdwwy3t7D0+SdPIw5WrDE2K0pxFrbrd54g/oi
+	FMWUrrFYOu5gzA++kvaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nl5RQ-00Fy28-Vm; Sun, 01 May 2022 09:00:33 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1nl6zj-00G4JK-2X; Sun, 01 May 2022 10:40:03 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nl5RN-00Fy0k-Vx
- for linux-riscv@lists.infradead.org; Sun, 01 May 2022 09:00:31 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id z19so13542797edx.9
- for <linux-riscv@lists.infradead.org>; Sun, 01 May 2022 02:00:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ id 1nl6zg-00G4I4-7S
+ for linux-riscv@lists.infradead.org; Sun, 01 May 2022 10:40:01 +0000
+Received: by mail-wm1-x334.google.com with SMTP id bg25so6877138wmb.4
+ for <linux-riscv@lists.infradead.org>; Sun, 01 May 2022 03:39:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=conchuod-ie.20210112.gappssmtp.com; s=20210112;
  h=message-id:date:mime-version:user-agent:subject:content-language:to
  :cc:references:from:in-reply-to:content-transfer-encoding;
- bh=6PJYh3sqWCa2tY+xYmHfq4tYwHtME+g6YPSvwa+jv18=;
- b=iYnEeSkcA8rwx9awPjZp4TwwrB9ShZpaik4sjxmebuZm3eYl9jJwYfh/oU+Olt3R5v
- ZWRtvxXkKsgDPNb+tl1CohYbxWwxADiSrsbTr8Y3yGBb1rU7Hyy6y/9zf2H5iyeKHa3E
- Y4glAe6N96lOOxJg49nS/hxtAKHv6kwsdsHc24VLud5RSLhOmH2c4e2mAliIuBqHC+7q
- 8p5NSHOPetKtEmG0eMJV0+ZtJ1oXhiNSwEilHZTsUxN+xokeZF4yZ2wvPfSL3Ai4HoO+
- pUCz9zgAy+6YgpUrFNY4e6NMIrts98JwLfdcTZ9mXvxYZaY5/2EHoeVDrksoEqxdVJyH
- aKiA==
+ bh=RTGIJr8n1HnWrIYz7FUX3oY+TZmLoliMXiiWkrwJcVc=;
+ b=oOIYfmAJY8had1t3RSEMLF2NflkyowPvGVXM/UsXmwKV3bceP2QAdefPgIizOfbf0R
+ aHcSEKfgtGV0oUrp2xyhXCkj6oqVkfrtBRlwVkNZ3S5ztDMTQ1+1E++LjxLTHYzbFIQU
+ VAVFbHu6thS9m73XJlYUF+YkHfcJDOfRyX6FCQWoWTCVe8i2EzXappopj835Qx6sB5Nf
+ DJb0Mdys2jzIVoJpC7INbiEgU+hNJPP2H+58DG16/N+0Lv4Ol88HpjuYQTBbD49huGBt
+ rEFN31ugFE+eTt52cH3Co8so7mpZPY95/AVkj/gWMnfsbB0xd+mX8LqrYGgKwMCVq1ai
+ 5b+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
  :content-language:to:cc:references:from:in-reply-to
  :content-transfer-encoding;
- bh=6PJYh3sqWCa2tY+xYmHfq4tYwHtME+g6YPSvwa+jv18=;
- b=eOVLhigjT9tCxyv7s+ahbTKJe0YN+8aJVnCLRUQuH3mKDdFG/Y6QUH0YvfgUxWF9eR
- 4zn/oaGbJrTP07n9nEEw9bzJK2MZv4oerdB15PaagjnIyTHs0bSHzraTbCBhlh+b3IA6
- c1bPu22PvPd00blhpkF63eKWqI/v/NrzmtVTjo7Z/0Y7nCG0U46BJSGui8NEQUzhLJpD
- MLH5StHG+ihjm3Uu5mqw6AjQm8TOh3ldsRB/um14f1VypnToe1S5E+5/7PtZz8Qm/s20
- ssh8rfoAuLd326hUoKfm6XN9ERTFAsjkSGD58VHDdQTtRaGgTepciDH0tsYCQbCDQ4gA
- ev/g==
-X-Gm-Message-State: AOAM531U0dUbxnJ4RAQPnJsMi2F7Aed4xKJ9HOB1Vm8ln1/uOiubW+L4
- 7DNpv2/2Jr+D3jA/DXLJvTY/3g==
-X-Google-Smtp-Source: ABdhPJxYiFTtEL0B6CFg5y01ly+P2Zt5fKvhJ4uNpRacgPB2/Ls81VKRj5S1Po2G/xoB8RyNM+DVNA==
-X-Received: by 2002:aa7:d549:0:b0:425:fc06:60d4 with SMTP id
- u9-20020aa7d549000000b00425fc0660d4mr8058735edr.300.1651395621804; 
- Sun, 01 May 2022 02:00:21 -0700 (PDT)
-Received: from [192.168.0.182] (xdsl-188-155-176-92.adslplus.ch.
- [188.155.176.92]) by smtp.gmail.com with ESMTPSA id
- ig11-20020a1709072e0b00b006f3ef214e2csm2504094ejc.146.2022.05.01.02.00.20
+ bh=RTGIJr8n1HnWrIYz7FUX3oY+TZmLoliMXiiWkrwJcVc=;
+ b=ffP2GCFoAuEA/CZd+qKdYHTy6NCab/VVCoSmLQFJJuMi9uozGD7qsgqJjAea9TRfpt
+ UmB8wNQULCIXeejQHhTl9Px1niGiQCYndefahs14I5YL+JnWSEYpeWUDM41NkpVEqjE9
+ 8Wx6Km0BVd2ofIkazce9GyZf1/IdlluIV6IyniiwcYBhRasis8vndn0SNW9VU+qn+Vx8
+ QKe2o2UgD8kgjoc61/GVcjR6wqBH/ZjrAOkXwRm5ozbvbTJsdzjcJTMQeMBMFedjvz9h
+ Q/+U6squUYa/RDRllLlRTS36J7UKNcR2Mqu52XheIiPUXPJ1UNwP1fvHKo+NZF7nq0ob
+ gZQg==
+X-Gm-Message-State: AOAM530qKgZK/bFmIifPrM7NaRJgCCUKLMuLE0iN8mVqbADlZjn9ccc+
+ 6guO7hU6ldFoW1LKa17gSH07oA==
+X-Google-Smtp-Source: ABdhPJxqjmcGta0K+qX3qvW017jiTDcRJd5RI/21DEtcW/tWJ74Bm5KsRvxS39O4Z9lahd3YbKc5aw==
+X-Received: by 2002:a7b:cb84:0:b0:382:a9b9:2339 with SMTP id
+ m4-20020a7bcb84000000b00382a9b92339mr11156660wmi.91.1651401597453; 
+ Sun, 01 May 2022 03:39:57 -0700 (PDT)
+Received: from [192.168.2.222] ([109.77.36.132])
+ by smtp.gmail.com with ESMTPSA id
+ y20-20020a7bc194000000b003942a244f48sm3660528wmi.33.2022.05.01.03.39.56
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Sun, 01 May 2022 02:00:21 -0700 (PDT)
-Message-ID: <884d9546-4e5a-df04-bf03-eba2fe0188ba@linaro.org>
-Date: Sun, 1 May 2022 11:00:20 +0200
+ Sun, 01 May 2022 03:39:57 -0700 (PDT)
+Message-ID: <f49b1d52-11e3-1c8b-bb1f-324318a7f669@conchuod.ie>
+Date: Sun, 1 May 2022 11:39:55 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.7.0
-Subject: Re: [PATCH v2 7/8] dt-bindings: riscv: microchip: add polarberry
- compatible string
+ Thunderbird/91.8.0
+Subject: Re: [PATCH v2 6/8] dt-bindings: vendor-prefixes: add Sundance DSP
 Content-Language: en-US
-To: Conor Dooley <mail@conchuod.ie>, krzk+dt@kernel.org, palmer@dabbelt.com,
- robh+dt@kernel.org
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, krzk+dt@kernel.org, 
+ palmer@dabbelt.com, robh+dt@kernel.org
 Cc: conor.dooley@microchip.com, Cyril.Jean@microchip.com,
  daire.mcnamara@microchip.com, paul.walmsley@sifive.com,
  aou@eecs.berkeley.edu, palmer@rivosinc.com, arnd@arndb.de,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org
 References: <20220430130922.3504268-1-mail@conchuod.ie>
- <20220430130922.3504268-8-mail@conchuod.ie>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20220430130922.3504268-8-mail@conchuod.ie>
+ <20220430130922.3504268-7-mail@conchuod.ie>
+ <6fdc6da4-3a34-e67c-cab8-1c9570501a8a@linaro.org>
+From: Conor Dooley <mail@conchuod.ie>
+In-Reply-To: <6fdc6da4-3a34-e67c-cab8-1c9570501a8a@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220501_020030_097162_067483D2 
-X-CRM114-Status: UNSURE (   6.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220501_034000_534696_576D30B6 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,21 +99,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 30/04/2022 15:09, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+On 01/05/2022 09:59, Krzysztof Kozlowski wrote:
+> On 30/04/2022 15:09, Conor Dooley wrote:
+>> From: Conor Dooley <conor.dooley@microchip.com>
+>>
+>> Sundance DSP Inc. (https://www.sundancedsp.com/) is a supplier of
+>> high-performance DSP and FPGA processor boards and I/O modules.
+>>
+>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+>> Signed-off-by: Conor Dooley <mail@conchuod.ie>
 > 
-> Add a binding for the Sundance Polarberry board.
+> If your @microchip.com email still works, then there is no need to
+> double-sign it. At the end you are still the same person... unless
+> you're not. :)
 > 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Conor Dooley <mail@conchuod.ie>
+> This applies to your other patches as well.
 
-With stripped SoB:
+I thought that the last SoB had to match the email it was sent from?
+If that's not the case, my bad. The @microchip email still works, but
+it would've meant waiting til Tuesday to resend.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-
-Best regards,
-Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
