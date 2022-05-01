@@ -4,81 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E354C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 May 2022 06:36:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA480C433F5
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 May 2022 08:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0t1D0q+lT44l7hS32Lxtp61bX2jNIMhnLuG+22/DxWk=; b=ivlKRvMp7p9kVr
-	dbbDAKOIuWyz/ofTuyIJm9Dxb4tmGz+7auKGHxhVTPLH8jHI5zzdUkl8/OlqHEDay49/btTmUBHc/
-	tCtC1TdGqVqTO1fmWXmhgwkzeg/rFUV3137yQZlTcuRWgdWaQCxKM6zhxmki9RWTY0243jO3u24AB
-	SrFWJFPd0XhonL/e4rcGc7WuoPVPP0+wkbtRfaEhF3W1yAMyc3KMsUARi/VOM1wc3svBWzW0sOKcW
-	l9ZuzQXYMRZmY1gtCV9ShpiIBaiWnEGgjbzBFzrAfohqfFOaAlxVzZrtzh/gkbjwtQoqLlBTtT4ib
-	jlPlgDvhjvpcsYp+EvEA==;
+	List-Owner; bh=tMIYFae2fIda7paFbMlRSsVcQ2C5gPeC3JY8gX0JLGg=; b=xGcuTrP5drUaP1
+	BBvDmdJU7zYd9pAL/VVI3VeYBTXwLxa5J7lAAS1TfbqYfzr5+EBJrJyGAeI3gEN13sJqWFo/7Rhvs
+	a095ZqxbJpUrdgWx+Kzfi+gN11cqdrHNiwlEtEwWC5Yampj5qWCXnnn2LaqSGlsfMX7RuIccxrG45
+	8zGhRnR4dHsaL/vxGpGgyt+5YRNPt9PD7DEEKvFBtMSWFIFPebyS0kiv64arWvq21iGWqoxnzRxuy
+	k5bNQd/L8hect1OUkmvo/TfgeM1MMjOC67YbZIGrsIopnD7e/kL9S6lD+AjT10sGX3ONNTEdFKByB
+	51xkA9+wCxreHph4E3Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nl3Bv-00Ffi0-9G; Sun, 01 May 2022 06:36:23 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1nl51f-00FuYY-12; Sun, 01 May 2022 08:33:55 +0000
+Received: from mout.kundenserver.de ([212.227.17.10])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nl3Bk-00Ffev-52; Sun, 01 May 2022 06:36:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
- MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=zMD4l/5Yp5noATOxsomtn9uqwj1ijFkZXxY4PadNJEc=; b=DiBgExZ2aFk1+wh8QtkKwZo18+
- RILXrbmHMSW20x90e8CQKMMcK950wv7VWUDausJJR3sIyNzeuYfaT6NBhDS6NeduoWG6F+AzvDicO
- R1GD5P5bEe2zf4x0paq0m4WyzGB+efA6zUIx3WXoKQXj50r5svCBeNq1Sctg3PDzQF9HYS7QRc8x3
- 3RcbAeFOOOybNT5og/ZfN2hDEghLVDRryTrjdPhn9UXDJipkaSa9TxQ8Xj/7L6ertd1a3Wao1xd3x
- PnnhEDUs07YOwTmQKOgql7SpyA/BNv2ObJs58rDZnghi59En/6A29x/linm2u4pcrU1GhQhRLbAjg
- edmDqv2g==;
-Received: from shell.armlinux.org.uk
- ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58470)
- by pandora.armlinux.org.uk with esmtpsa (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <linux@armlinux.org.uk>)
- id 1nl3BG-0005zM-7z; Sun, 01 May 2022 07:35:41 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
- (envelope-from <linux@shell.armlinux.org.uk>)
- id 1nl3B6-0003fQ-IU; Sun, 01 May 2022 07:35:32 +0100
-Date: Sun, 1 May 2022 07:35:32 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Huacai Chen <chenhuacai@gmail.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Huacai Chen <chenhuacai@loongson.cn>,
- Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Peter Zijlstra <peterz@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Airlie <airlied@linux.ie>, Jonathan Corbet <corbet@lwn.net>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- linux-arch <linux-arch@vger.kernel.org>,
- "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Xuefeng Li <lixuefeng@loongson.cn>,
- Yanteng Si <siyanteng@loongson.cn>, Guo Ren <guoren@kernel.org>,
- Xuerui Wang <kernel@xen0n.name>, Jiaxun Yang <jiaxun.yang@flygoat.com>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Ard Biesheuvel <ardb@kernel.org>,
- linux-efi <linux-efi@vger.kernel.org>
-Subject: Re: [PATCH V9 21/24] LoongArch: Add zboot (compressed kernel) support
-Message-ID: <Ym4qNILcz+W7dC9i@shell.armlinux.org.uk>
+ id 1nl51b-00FuWU-O3; Sun, 01 May 2022 08:33:53 +0000
+Received: from mail-yw1-f181.google.com ([209.85.128.181]) by
+ mrelayeu.kundenserver.de (mreue109 [213.165.67.113]) with ESMTPSA (Nemesis)
+ id 1MhlCg-1oOpcx0C5g-00dlDK; Sun, 01 May 2022 10:33:47 +0200
+Received: by mail-yw1-f181.google.com with SMTP id
+ 00721157ae682-2f7d621d1caso121987007b3.11; 
+ Sun, 01 May 2022 01:33:46 -0700 (PDT)
+X-Gm-Message-State: AOAM530xjGufpN5v6yTqQeVxcvuwqn7jz76wVpC1t/jKzC/mr6m6bD9k
+ fw3Xvj5IZtzn2+ySRtI1/xTDrsK9iTr28oamx9Y=
+X-Google-Smtp-Source: ABdhPJx7EkELZrBAmPjNc/73odhjEgqgTI5PwY7c4bA/A+enkyNER6K6fXqCt4wvYWQxX6D6K32sBvkhhAy1mpKvnE4=
+X-Received: by 2002:a81:5594:0:b0:2f8:f39c:4cfc with SMTP id
+ j142-20020a815594000000b002f8f39c4cfcmr3827327ywb.495.1651394025779; Sun, 01
+ May 2022 01:33:45 -0700 (PDT)
+MIME-Version: 1.0
 References: <20220430090518.3127980-1-chenhuacai@loongson.cn>
  <20220430090518.3127980-22-chenhuacai@loongson.cn>
  <CAK8P3a0LwJ3mMQMFkxGxr+umCMM3dKGRnLF+dMCmD5j43hq2sA@mail.gmail.com>
  <CAAhV-H6vPdLeup38YTj64Xxxk+PTact=DMJTs9efsa1b3t-y2A@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
 In-Reply-To: <CAAhV-H6vPdLeup38YTj64Xxxk+PTact=DMJTs9efsa1b3t-y2A@mail.gmail.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Sun, 1 May 2022 10:33:29 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a0E7P_TOJsT9=+O56L2=oyeMGckTvkb4OnK1MPcETLdtg@mail.gmail.com>
+Message-ID: <CAK8P3a0E7P_TOJsT9=+O56L2=oyeMGckTvkb4OnK1MPcETLdtg@mail.gmail.com>
+Subject: Re: [PATCH V9 21/24] LoongArch: Add zboot (compressed kernel) support
+To: Huacai Chen <chenhuacai@gmail.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Huacai Chen <chenhuacai@loongson.cn>, 
+ Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+ Peter Zijlstra <peterz@infradead.org>,
+ Andrew Morton <akpm@linux-foundation.org>, 
+ David Airlie <airlied@linux.ie>, Jonathan Corbet <corbet@lwn.net>, 
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ linux-arch <linux-arch@vger.kernel.org>, 
+ "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Xuefeng Li <lixuefeng@loongson.cn>, 
+ Yanteng Si <siyanteng@loongson.cn>, Guo Ren <guoren@kernel.org>, 
+ Xuerui Wang <kernel@xen0n.name>, Jiaxun Yang <jiaxun.yang@flygoat.com>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Ard Biesheuvel <ardb@kernel.org>, linux-efi <linux-efi@vger.kernel.org>
+X-Provags-ID: V03:K1:L6VoyogA8lan4uBMcnDuKwVkYgCZapJP9yl53I5usgtNuw7FXg+
+ 2sGlBMhqVrWC+VBMbuSBWkyEJIjiaMN4GG8LlIbaUnsni7DM3qx0eM3oKQ+KERI/TVkUE8o
+ Asyo94qNf1E9pfcmhbAtisXIZdZ6F2pSoh7Ll4o5wM0NJIYC3N7Nxk5D/dDl4pYxSyaHsDT
+ PmwnTxtbvzb2pkabvts/w==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:hjg6jd/29dY=:zu9VKsxOq5W3nKO0cfznGe
+ fodXNz35O8Cbv+/JPfZSodG/1KYaBilZl1xHLmmY/Qjcgyu8C4yVEABQzgDiDTfyIgJq3Eu3p
+ nVsJk4Uw3QcMK7KtMNq94gsX9+KeLtrNez/9QE7Qe7PDhrhiEtSR+98zr3rA+dCouEqh7khz/
+ 18ffQMu2hPXb1PDmnkAwHrobAoYoxillB35B/ru3vtiAtBxI3ZWwpEsQNglJFvumtiAZaf5P4
+ BPLYbn9uY/Pn748qYRAjKR8RneuvtovM+si1rVyvaI2rZdyPf2LmY1nzwv/lseAqxftQSyDrW
+ 9Ohurj2aeTYTFRVy8WD6jYGWRdyRmYpPz2UsSGHs6yCaIeHqsdw942YcsPLZMabY0kig7WFQw
+ D8vwr6gGDCni6KjxXNTIv4L9AsDb3PEdGVlIRC349Y430XzglgeWKgWJ/JHQ4TFqJwIBo+qXD
+ 3Xt9OAW1/GP06PLWNUHmP43s8xa837gL6Ya1POPj1WVLhhRRnjvi58R5z8O29ElUGdcn1XMqc
+ W41N/NOITOnCdUD+vKeDjfWd/3YMcM8YjNTmoQFu4FhFmdbILQz8QxXUgtjUsq8+bhGM1Mnyl
+ O8DK1N/lBg7Sh+xx2VVl8J9XX8N9ENWC7cOVQdhMD5FFMBdqsCNSIlFBIJYsvEKj0tkpN1UY/
+ nMwA4+bWFwJLUfOlZ134NNVLBihVFM6A21PGDBLzIUJhWTAgdMUkKvZAD57XGxR2SKIk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220430_233612_217499_E8F89772 
-X-CRM114-Status: GOOD (  22.33  )
+X-CRM114-CacheID: sfid-20220501_013352_103152_5B1B463C 
+X-CRM114-Status: GOOD (  25.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,11 +100,8 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 01, 2022 at 01:22:25PM +0800, Huacai Chen wrote:
-> Hi, Arnd,
-> 
+On Sun, May 1, 2022 at 7:22 AM Huacai Chen <chenhuacai@gmail.com> wrote:
 > On Sat, Apr 30, 2022 at 7:02 PM Arnd Bergmann <arnd@arndb.de> wrote:
-> >
 > > On Sat, Apr 30, 2022 at 11:05 AM Huacai Chen <chenhuacai@loongson.cn> wrote:
 > > >
 > > > This patch adds zboot (self-extracting compressed kernel) support, all
@@ -112,18 +114,27 @@ On Sun, May 01, 2022 at 01:22:25PM +0800, Huacai Chen wrote:
 > > be consistent between architectures. On both arm64 and riscv, the
 > > maintainers decided to not include a decompressor and instead leave
 > > it up to the boot loader to decompress the kernel and enter it from there.
+>
 > X86, ARM32 and MIPS already support self-extracting kernel, and in
 > 5.17 we even support self-extracting modules. So I think a
 > self-extracting kernel is better than a pure compressed kernel.
 
-FYI, kernel modules are not self-extracting. They don't contain the code
-to do the decompression - that is contained within the kernel, and it is
-the kernel that does the decompression. The userspace tooling tells the
-kernel that the module is compressed.
+These three support it because they always have and it's hard to
+remove features later because it breaks user setups. Among the
+architectures we merged since the start of the git history in 2005, only
+xtensa supports compressed kernels, the rest rely on the boot loader.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
+> > Adding the arm64, risc-v and uefi maintainers for further discussion here,
+> > see full below.
+>
+> Keeping consistency across architectures (support self-extracting for
+> all modern architectures) looks good to me, but can we do that after
+> this series? I think that needs a long time to discuss and develop.
+
+Right, just drop this patch then, and we can get back to doing it for
+all UEFI users after loongarch is merged.
+
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
