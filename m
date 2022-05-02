@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE8D6C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 May 2022 12:58:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 468CCC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 May 2022 12:58:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qtipYUq5KQifSeZgpwne8FFHdNFQNW7qxm/K+FkQrVw=; b=noryF5Xbd/s1js
-	mg0gchuiA73v01lsCFeB0Kss9mFpx36N6xtf4M0SVd5z8z6nFBT3NK4yZuWJ/DhHfKgIVAIrGtkda
-	QW7puaY28LmWGfr3Gj6t8HCKgJx2IN53nRniIozOypMpKNCRZMgllZxbrSfxSvLvdXeRRZmdoJIfW
-	E5UPSAx3ExGrha22Gg5v22YCKhpzsYneQchVck5KBYs12L64oDEJE9MLlh/xzf0Yed2HtiD48lFfu
-	wejLSa1wSHHRsl2pzUcGbOfAWQuyqRK0YjgLwC+6cuI8YzR7WaRkGtOdxEraZOVAz26dyn5WP4G2S
-	raxDzxXJKodHPzDCFxFA==;
+	List-Owner; bh=pozNv/b4jxkaylaBRHlyqzy1q/43C5SwZgswgDzFeec=; b=Ln4xKqh983LAKe
+	y2yGUsQulCpQ4kIo/79vmtRGeFgxMCtcyjDYC+Q7jpiCaKrcT+t+twZYFl903WOZQxAl+mcgH9yOt
+	/jUYaQqVfMe+M8l/Dc6huDeqja4uyi/Olobo4yeT5PIGdu1MrDbsHvK5bkU1a5kR0lJEVVjjQ68B2
+	J1if+IfZGg76Fkz3gqYDAtbht6NJLih4s61aRx1otb7BTrLhczFo9cNUnxKhG8FUnO/xvRT85xGl6
+	rmC7ptUJbfm9pJfU/SkvAAM1Fi5H7WPwMfdM7itlPCrMNkvmRkgTeNcIWPHx9ma2nTiKsjRR4HIaz
+	A8xECwWlBjn0ZldIq7Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nlVd2-001CDv-Tg; Mon, 02 May 2022 12:58:16 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1nlVd4-001CEP-G9; Mon, 02 May 2022 12:58:18 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nlVd0-001C8J-2d
- for linux-riscv@lists.infradead.org; Mon, 02 May 2022 12:58:15 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id
- m2-20020a1ca302000000b003943bc63f98so1313665wme.4
- for <linux-riscv@lists.infradead.org>; Mon, 02 May 2022 05:57:48 -0700 (PDT)
+ id 1nlVd0-001CBf-JN
+ for linux-riscv@lists.infradead.org; Mon, 02 May 2022 12:58:16 +0000
+Received: by mail-wr1-x433.google.com with SMTP id t6so19505386wra.4
+ for <linux-riscv@lists.infradead.org>; Mon, 02 May 2022 05:58:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20210112.gappssmtp.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=/oxxwZu+bujgmZ0WqvFB4CIjaE6g3QCDr/7SdNoyaHk=;
- b=VvfStjBWybuvJaTN7Q8kOcgNpUxyufiIHFyNjfyXIGTH0wmMPUtG6wA2D/WD1T3wS7
- PnNLVyDdFX93ywHIFEOYEFqAVmySXl2SicG5lP8zzRnzcEFPbE+sGbqrBZVGiDRIvVZo
- WXX5RWlY8YXWUM7+CKw4UQtgzaN6V6SbDqAD2sMTNGNnbJ3s1UzEtEhR9yp7EVTM+Qaa
- THsM71bj6I6HzVC68+K/ZRa1WpD9AmEcMnhETCtv3m5/ZJVTkww/vIQMrGvdWhuzB75s
- bnplIlemCILH8LHmD5hDyro52c2bUJotB5VzXFIK/2OJ2hPCfn/Pr+wjHz3fC/daceMG
- yleQ==
+ :cc; bh=LGTpKyhSR7OzEqxyLhvzEvcqb2OZLN4taRRVLhqfpFA=;
+ b=kaFAgp8VAqMt4byoj/r82wU0Wb5c3RcJvQM/f81UlrLowfA24Q54JVX0oyKcfNVPC9
+ uqbXja7VyulwmaXkV0om/o8tq7MDoHhMQJgLZrOKHC2rLUrlw8RmFzVj8ZII7ALHOfk+
+ YbJ9OUpzHaFG8SZXRFHvj8h7aKqlvhY7C09lKbQiCFEUAdCvz6UqIbJQ8/AgSG68iULD
+ Hglr2xUxCqn1sg4Wa2aQzaGM+7ZeZkjZs6/0L/V/ghUQrpMb4YffVBBogKh+xjuQ5Rb7
+ 2Z1hKHoWcFr2BLcLNg0aMwvvRBpQMXufPDygty+A4/83wcRL2uaCKxwFnxSUxWcdMNbc
+ sXjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=/oxxwZu+bujgmZ0WqvFB4CIjaE6g3QCDr/7SdNoyaHk=;
- b=Qw7CUOL3rwSrIx/ImhxBhXlrnIc9tccWFHGaoXXdBvjjIdL60bMSIrzfoYYSmOvaBR
- pCfM9QBGaRqsP+78kBEcHrjv3vnGJGVcE1TX5ryoqK6HUJEVjdKw7c0SHmVNBOEWDVIq
- 5reN176DuZcvjhkoEiGDhVb0TJni9vkkO+qUpz/IbdLiR7i3jjv8JR1sL/2PqfF7Ut4S
- 5z/WJuVAL9txNB8eGdsh5T71fH9h7MVCYcd0wO+COIfRbka6KMtUx80c15EbypWOYc4y
- NiTVf1mgNg9OwLsu90xv/j3H5hl2dbz+l0jnDqRNkWMPOi8hklYUngjdE8CVRHqlWRgf
- vy6A==
-X-Gm-Message-State: AOAM532OvuCbKIZqwMxAtlZU0R1sqifaSkn9JDcY+yvcJrTqxBq7z0VF
- wFT2AQBBWeWknb6G1guP13Q9K4guUhm/iPcNAGnjNw==
-X-Google-Smtp-Source: ABdhPJxnolsj9BVAydioN0xjjlxrG0HC8ksApATCHpDRdJuKFrryI9K0ei6M60/rOuukgzpIp0AWFp/U7X+73SpDaFQ=
-X-Received: by 2002:a7b:c190:0:b0:394:116d:5e0b with SMTP id
- y16-20020a7bc190000000b00394116d5e0bmr14726680wmi.108.1651496266692; Mon, 02
- May 2022 05:57:46 -0700 (PDT)
+ bh=LGTpKyhSR7OzEqxyLhvzEvcqb2OZLN4taRRVLhqfpFA=;
+ b=kKJ+f+7huYYkoXH3JOqSCQ0ghVYh34TUTHkiYPg6Qd6EyR16Hu6MHvakhIzRvROSsy
+ 7Q/dPa1heJ6yZNkjxSzdRso0QZ1QhMp0B9me3dCoUCnHaZmM7MTR+x65uifq3joQJtPj
+ 9TeEYfUANy9P+UNREkRLO6b6q1e4XpvYB6amTvWrQjOuzMsJ0e9jM776JTfkjl/EKGwd
+ YkmS/obRw2TpNxySiY47sbJ9crq6MvKu+q0mqmg65AJLzQYxdJyU4PbiFJ7IEkO3w0Th
+ WEAH2K0J/Ctk2x7G3gLvpsj9ITJKXttSOBZFV90loOcp5jOVc/xv0v87zhVtOTl0eHMs
+ vWgQ==
+X-Gm-Message-State: AOAM533CWsAF2Tg++mvL0k25dJ0bChYJj56dQ3slu+NGnmM3Sy1wAfG6
+ 8Q23EtRP2roSufq2iLBknG5sMRBNB5GblOttpzlr3Q==
+X-Google-Smtp-Source: ABdhPJzgRZaZslgwPVZ/ses9J+LKKtlj3nMYfxqKjEpqYuRD5INOsLa9/EHdJRwdFF4nt8DypKGsgBzs+HoAHf3sxdY=
+X-Received: by 2002:a5d:6c6b:0:b0:1ea:77ea:dde8 with SMTP id
+ r11-20020a5d6c6b000000b001ea77eadde8mr9295283wrz.690.1651496288984; Mon, 02
+ May 2022 05:58:08 -0700 (PDT)
 MIME-Version: 1.0
 References: <20220502125015.1345312-1-niklas.cassel@wdc.com>
- <20220502125015.1345312-2-niklas.cassel@wdc.com>
-In-Reply-To: <20220502125015.1345312-2-niklas.cassel@wdc.com>
+ <20220502125015.1345312-3-niklas.cassel@wdc.com>
+In-Reply-To: <20220502125015.1345312-3-niklas.cassel@wdc.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Mon, 2 May 2022 18:27:34 +0530
-Message-ID: <CAAhSdy3wKn1FoKyq+O_n_iWXSLxq_EZXrxTD99fb+ABFfKc0NA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] dt-bindings: riscv: Add mmu-type riscv,sv57
+Date: Mon, 2 May 2022 18:27:57 +0530
+Message-ID: <CAAhSdy10S3M+EySUBfq13TVqv3N2B5ihYE50tbNWz3NmH0XzUg@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] riscv: Don't output a bogus mmu-type on a no MMU
+ kernel
 To: Niklas Cassel <niklas.cassel@wdc.com>
-Cc: Rob Herring <robh+dt@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>, 
- DTML <devicetree@vger.kernel.org>,
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220502_055814_147083_18AF33A1 
-X-CRM114-Status: GOOD (  16.71  )
+X-CRM114-CacheID: sfid-20220502_055814_764294_4B534033 
+X-CRM114-Status: GOOD (  21.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,15 +88,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Mon, May 2, 2022 at 6:20 PM Niklas Cassel <niklas.cassel@wdc.com> wrote:
 >
-> sv57 is defined in the RISC-V Privileged Specification document.
+> Currently on a 64-bit kernel built without CONFIG_MMU, /proc/cpuinfo will
+> show the current MMU mode as sv57.
 >
-> Additionally, commit 011f09d12052 ("riscv: mm: Set sv57 on defaultly")
-> changed the default MMU mode to sv57, if supported by current hardware.
+> While the device tree property "mmu-type" does have a value "riscv,none" to
+> describe a CPU without a MMU, since commit 73c7c8f68e72 ("riscv: Use
+> pgtable_l4_enabled to output mmu_type in cpuinfo"), we no longer rely on
+> device tree to output the MMU mode. (Not even for CONFIG_32BIT.)
 >
-> Add riscv,sv57 to the list of valid mmu-type values.
+> Therefore, instead of readding code to look at the "mmu-type" device tree
+> property, let's continue with the existing convention to use fixed values
+> for configurations where we don't determine the MMU mode at runtime.
+>
+> Add a new fixed value for !CONFIG_MMU in order to output the correct
+> MMU mode in cpuinfo.
 >
 > Signed-off-by: Niklas Cassel <niklas.cassel@wdc.com>
-> Acked-by: Rob Herring <robh@kernel.org>
 
 Looks good to me.
 
@@ -109,21 +113,31 @@ Regards,
 Anup
 
 > ---
->  Documentation/devicetree/bindings/riscv/cpus.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  arch/riscv/kernel/cpu.c | 4 ++++
+>  1 file changed, 4 insertions(+)
 >
-> diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> index d632ac76532e..3100fa233ca4 100644
-> --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> @@ -61,6 +61,7 @@ properties:
->        - riscv,sv32
->        - riscv,sv39
->        - riscv,sv48
-> +      - riscv,sv57
->        - riscv,none
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index ccb617791e56..ecfb3e85ffb2 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -138,6 +138,7 @@ static void print_mmu(struct seq_file *f)
+>  {
+>         char sv_type[16];
 >
->    riscv,isa:
+> +#ifdef CONFIG_MMU
+>  #if defined(CONFIG_32BIT)
+>         strncpy(sv_type, "sv32", 5);
+>  #elif defined(CONFIG_64BIT)
+> @@ -148,6 +149,9 @@ static void print_mmu(struct seq_file *f)
+>         else
+>                 strncpy(sv_type, "sv39", 5);
+>  #endif
+> +#else
+> +       strncpy(sv_type, "none", 5);
+> +#endif /* CONFIG_MMU */
+>         seq_printf(f, "mmu\t\t: %s\n", sv_type);
+>  }
+>
 > --
 > 2.35.1
 >
