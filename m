@@ -4,50 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A8FFC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 May 2022 23:56:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13631C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 May 2022 01:31:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6WpeYV0Z5GBRfDsC06TliqWPNUZ+VL/ynX7srQcbKjo=; b=1AI87k5+0vVTk4
-	8bQkUeibaa9wan1D4GKl7EC409yJNZlaJk509oZmuEDtpEBPCsJbECaL2IyqU2W5N56YT3hNJPjtR
-	8YQEqdQsbxsquZTGtA3l7s/RdU6z0N6W7REXw+//wlyaMUZfAggx5eB981uzBU0huwunuj/tuFr5Z
-	3Zd79TjgrkE3tgLvlVASwMu9OWUbIJH1j99M7EbNaWZEsWMqpSLxht2+kbQFvsfQp4IgVCjN1+/Eo
-	WdsO05i7wG9/U9eDX/yDWRvsXA9J7ZP6Ka+YXsG2QiGjU1u3L/GZMTHXgYTTAfxN7wHxLbKwJUW55
-	fBJIPufseXwMBoPazbeQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=B05C4Y5PtGe6iTxxyFwe402S4woizqesFNhluTXcx/o=; b=jY8lDIk67d1CfU
+	ufZYUmKDPhHi7zYm/MHnlwgiEQmI7IOUYoofJhKUJTRykwQB7PAKq5fgjk0ZT4UYjNXLRS2JEqGu9
+	HyUTqk7wNVDKpBcW+l6uWjrtLBAMzjolscTDGmnyTb7/BvVIJdjZD7YdLXoBL2SGXfVgDV+7N670H
+	NxuBlaLc6CcV+V3M7cP8XOXG+lQ555kSRr4VnJaxAgZlepMKST1y5vn8W6hhNADBHqHw6GQyRfBdG
+	DNliFZM/K0b9DvDBM6HkC1YqQ5ptv44nT90PkEIyt89WQzEWkCU0n3b+8GGw14G991j5jHGM5sojm
+	NrN5krZgFR63FJIcjBAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nm2N0-0086Kx-4S; Tue, 03 May 2022 23:55:54 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1nm3r5-008Lb7-1I; Wed, 04 May 2022 01:31:03 +0000
+Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nm2Mx-0086Jd-DT
- for linux-riscv@lists.infradead.org; Tue, 03 May 2022 23:55:52 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
- helo=phil.localnet)
- by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1nm2Mp-0004gB-UB; Wed, 04 May 2022 01:55:43 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: krzk+dt@kernel.org, palmer@dabbelt.com, robh+dt@kernel.org,
- linux-riscv@lists.infradead.org
-Cc: conor.dooley@microchip.com, Cyril.Jean@microchip.com,
- daire.mcnamara@microchip.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
- palmer@rivosinc.com, arnd@arndb.de, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Conor Dooley <mail@conchuod.ie>
-Subject: Re: [PATCH v3 8/8] riscv: dts: microchip: add the sundance polarberry
-Date: Wed, 04 May 2022 01:55:42 +0200
-Message-ID: <3101012.5fSG56mABF@phil>
-In-Reply-To: <20220501192557.2631936-9-mail@conchuod.ie>
-References: <20220501192557.2631936-1-mail@conchuod.ie>
- <20220501192557.2631936-9-mail@conchuod.ie>
+ id 1nm3r1-008LaQ-1l
+ for linux-riscv@lists.infradead.org; Wed, 04 May 2022 01:31:00 +0000
+Received: by mail-yw1-x112d.google.com with SMTP id
+ 00721157ae682-2f16645872fso1292937b3.4
+ for <linux-riscv@lists.infradead.org>; Tue, 03 May 2022 18:30:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=atishpatra.org; s=google;
+ h=mime-version:from:date:message-id:subject:to:cc;
+ bh=dHwaVxq93hYLQygfvs2cv0JNSxw4/sjH10kGM95wEsY=;
+ b=eQcBP0/2I03phLuCUByQDweNItowsdpSaXNxKGuKdb91LF5j7x23v8zrBjK6wIK3aI
+ 0sBMfpZxE/Y1UkQfFuiVy+KnuZKyJ5FWuW9Lq6ttWMg4Yi3OQHLh1kMQ7qGheyyzFaL5
+ QVpAB/r4P0d7bBCbWDGsNYrrohInqSC14r2NM=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc;
+ bh=dHwaVxq93hYLQygfvs2cv0JNSxw4/sjH10kGM95wEsY=;
+ b=uP3BtoQYIBEGS5AvshT8k0wIiKsqLvKuw1mDNBKBjahnSAS/HUGLLfaXP9RfLgabBR
+ e6KDmpTyUjtcjZgeAXNi7iea7Sdss1roVjTl/R1+6kGCaswjCCNxwGjC0jnOsfOWr6hu
+ 5uQQhNOkUAKcoLBlqo9JXXMhH/Kiq2OTDa1WL7cJFut6tQr2D/Wc62ebNAWjcUCpxfXC
+ u5Jwmvtiw2agNNuTpnhI803OlidAtwMo65p5IbQGwnW419POfujE9QASuaGFH1+XQYbo
+ tvLnc1bCH2xLmEVwL01l6vRGtqOFV1Gu6Dg2nvrGrDSbAkJ46zlIjouKdgd2/tEllnZA
+ IITA==
+X-Gm-Message-State: AOAM531+l2tm0WTBbc3/xxpERbc1cQb2RrNqn1M4Bb7XTnPzCdtNxneq
+ Aw3aCNbsGLXqSCG5AGCbIXumxbIU5fSnAHlNVriLz/PzU234
+X-Google-Smtp-Source: ABdhPJyTcJFbo6EqmJfVav7wCRmm1DyV/+4PX8ja/HUIDWGMqn4lxaz9XK9GiB/9KwaqmhUZx02p1Tt1nsUpSm/QaJA=
+X-Received: by 2002:a81:20c1:0:b0:2f8:5dcd:91d4 with SMTP id
+ g184-20020a8120c1000000b002f85dcd91d4mr17895820ywg.443.1651627857321; Tue, 03
+ May 2022 18:30:57 -0700 (PDT)
 MIME-Version: 1.0
+From: Atish Patra <atishp@atishpatra.org>
+Date: Tue, 3 May 2022 18:30:46 -0700
+Message-ID: <CAOnJCUKjSCrRNT4841MzO3vWmYszX5CSmvtPoRLydzG7FFm7kA@mail.gmail.com>
+Subject: CFP open for RISC-V MC at Linux Plumbers Conference 2022
+To: linux-riscv <linux-riscv@lists.infradead.org>,
+ OpenSBI <opensbi@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ RISC-V SW Dev <sw-dev@groups.riscv.org>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220503_165551_506111_239CBB38 
-X-CRM114-Status: GOOD (  16.50  )
+X-CRM114-CacheID: sfid-20220503_183059_314112_1DCC155D 
+X-CRM114-Status: UNSURE (   2.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,151 +81,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Sonntag, 1. Mai 2022, 21:25:59 CEST schrieb Conor Dooley:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Add a minimal device tree for the PolarFire SoC based Sundance
-> PolarBerry.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+The CFP for topic proposals for the RISC-V micro conference[1] is open now.
+Please submit your proposal before it's too late!
 
-[...]
+Here is the announcement[2].
+https://lpc.events/blog/2022/index.php/2022/02/04/cfp-open-microconferences/
 
-> diff --git a/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts b/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
-> new file mode 100644
-> index 000000000000..96ec589d1571
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
-> @@ -0,0 +1,95 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/* Copyright (c) 2020-2022 Microchip Technology Inc */
-> +
-> +/dts-v1/;
-> +
-> +#include "mpfs.dtsi"
-> +#include "mpfs-polarberry-fabric.dtsi"
-> +
-> +/* Clock frequency (in Hz) of the rtcclk */
-> +#define MTIMER_FREQ	1000000
-> +
-> +/ {
-> +	model = "Sundance PolarBerry";
-> +	compatible = "sundance,polarberry", "microchip,mpfs";
-> +
-> +	aliases {
-> +		serial0 = &mmuart0;
-> +		ethernet0 = &mac1;
+The Linux plumbers event will be both in person and remote
+(hybrid)virtual this year. More details can be found here [3].
 
-I guess you could sort them alphabetically (ethernet above serial0)
+[1] https://lpc.events/event/16/contributions/1148/
+[2] https://lpc.events/blog/2022/index.php/2022/02/04/cfp-open-microconferences/
+[3] https://lpc.events/
 
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial0:115200n8";
-> +	};
-> +
-> +	cpus {
-> +		timebase-frequency = <MTIMER_FREQ>;
-> +	};
-> +
-> +	ddrc_cache_lo: memory@80000000 {
-> +		device_type = "memory";
-> +		reg = <0x0 0x80000000 0x0 0x2e000000>;
-> +		status = "okay";
-
-"okay" is implied I think, so when you only add the node
-here, you probably don't need to specify the status.
-
-> +	};
-> +
-> +	ddrc_cache_hi: memory@1000000000 {
-> +		device_type = "memory";
-> +		reg = <0x10 0x00000000 0x0 0xC0000000>;
-> +		status = "okay";
-> +	};
-> +};
-> +
-> +&refclk {
-> +	clock-frequency = <125000000>;
-> +};
-> +
-> +&mmuart0 {
-> +	status = "okay";
-> +};
-> +
-> +&mmc {
-> +	status = "okay";
-
-having the status property last (below sd-uhssdr104) can be helpful
-for readability, as readers would know where to expect it.
-
-> +	bus-width = <4>;
-> +	disable-wp;
-> +	cap-sd-highspeed;
-> +	cap-mmc-highspeed;
-> +	card-detect-delay = <200>;
-> +	mmc-ddr-1_8v;
-> +	mmc-hs200-1_8v;
-> +	sd-uhs-sdr12;
-> +	sd-uhs-sdr25;
-> +	sd-uhs-sdr50;
-> +	sd-uhs-sdr104;
-> +};
-> +
-> +&mac1 {
-> +	status = "okay";
-> +	phy-mode = "sgmii";
-> +	phy-handle = <&phy1>;
-> +	phy1: ethernet-phy@5 {
-> +		reg = <5>;
-> +		ti,fifo-depth = <0x01>;
-> +	};
-> +	phy0: ethernet-phy@4 {
-> +		reg = <4>;
-> +		ti,fifo-depth = <0x01>;
-> +	};
-> +};
-> +
-> +&mac0 {
-> +	status = "disabled";
-
-mac0 is already disabled in the mpfs.dtsi, so you either don't
-need to duplicate it here, or if it's a reminder of something,
-I guess a comment for the "why" would be helpful.
-
-> +	phy-mode = "sgmii";
-> +	phy-handle = <&phy0>;
-> +};
-> +
-> +&rtc {
-> +	status = "okay";
-> +};
-> +
-> +&mbox {
-> +	status = "okay";
-> +};
-> +
-> +&syscontroller {
-> +	status = "okay";
-> +};
-
-My personal preference would be alphabetical sorting also for
-phandles, so
-
-&mac0 {}
-&mac1 {}
-&mbox {}
-&refclk {}
-&rtc {}
-
-etc - makes finding things a lot easier in the long run
-especially when files get longer.
-
-
-Heiko
-
-
-
+-- 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
