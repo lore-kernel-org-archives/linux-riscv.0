@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39403C43217
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04E73C433EF
 	for <linux-riscv@archiver.kernel.org>; Wed,  4 May 2022 20:35:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,52 +12,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HUcL4wrkapMQxuf4TBX2iNcfH+asIDBV1OE6gDsV80M=; b=oJol8eFalDP3gg
-	B50/r7tHGLMKi/PMiFCQAr1FwyNawOnNdvwpeijzB+iJHTojavmeLBq9Uwne+/kHD7H3a6oRg9VxI
-	ttsJ+hAleCmUlGWnCBWotZ4Y8L59gs8T0O6tWESWsSV/lkyGZxbyJ0vq0lD/ML/tuksVoOtMB5+Ol
-	ULHRkY6QT4140flmKiJ/ZllCFyEfubjZN0tjT65XsHePpiyWOR6AiGqxe15+d9PCehAXcTIVuPWUj
-	TVeAixaiZIwaNlPld3fujfOWnL+eiCtx96xfHAJBFiqamTu5j3bPDtGZZJIXjlmS1TPhMogUfPTS/
-	oGExRN7UlogHHJ0Yd1Ew==;
+	List-Owner; bh=weO2u1LMGuPZTmxhBRPQjCOlwk6o44Gy06hfWEQLuW8=; b=CP1CTh3TYAu4tT
+	Q2QtN/Xcnq5eOH4tmCweScO5C8BlkSUuXNYl37VFP9QpgNgEjj4+scAwTMgQjRPLigIwKrX4Oh4c3
+	lZ5Zdb0cTjiAP2Yug6uUTFKvccWCfWSOW839SGrBnzoMxe4pNrVSw7NU8I4S9uIoKcYQFSAr7PH0y
+	IO1OqFDghVhiqmpUJEjd+2v9J/6OilsM7g3o1qffvXfDHIWrf6A/h1LbnfIWybvW2p7Un1mn2eyY/
+	bEwJ3wtyNyE460Y1j4bqeThc06vJ4lfcg1IDF5vauyXOAsOJWelbgPI2CY0nh5mFU5NVw1l7Q6yaP
+	PnYYkEyHYXjyq0eeY9hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nmLib-00CaAR-OL; Wed, 04 May 2022 20:35:29 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1nmLie-00CaCw-UF; Wed, 04 May 2022 20:35:33 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nmLiV-00Ca4x-Ad
- for linux-riscv@lists.infradead.org; Wed, 04 May 2022 20:35:24 +0000
-Received: by mail-wr1-x436.google.com with SMTP id j15so3536048wrb.2
- for <linux-riscv@lists.infradead.org>; Wed, 04 May 2022 13:35:19 -0700 (PDT)
+ id 1nmLiW-00Ca5l-Ew
+ for linux-riscv@lists.infradead.org; Wed, 04 May 2022 20:35:26 +0000
+Received: by mail-wm1-x332.google.com with SMTP id
+ r1-20020a1c2b01000000b00394398c5d51so1511489wmr.2
+ for <linux-riscv@lists.infradead.org>; Wed, 04 May 2022 13:35:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=conchuod.ie; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=RprtUxA8LLqon8+v6D8C02QlLfkROjmGkz+QRU7rBDI=;
- b=aDLMYf06Nnx6e/HeHuwHBam2WaPjC9EAVu1x5UdXLNi9+1AQ1ryhQgRhiMsk6xEwhj
- Q5VvcUsbCQNBgFc/hLKCKjiuy2wSPw2+teFGRZgielDG1jF4sb20dFDeXmj/9KTur4zn
- 1rdc7SuZyzTadFWSgIVlUtg9cfJwihJEgkBdpATxIETghw2304yVE5O8g7wry3E0PicG
- eNHmqdQeXu4EVh9I3qkC6FquyINd6WEs5Qsn6FCxjggGSHxo/X4TjQ+q/guHnN26gEkU
- ATI68RDc9b5+DEJFVvhLhXV3XU63jtndtN+uTXlrLrB6yZOSvvY0vCemtmyEu/ujuyT3
- Fwyw==
+ bh=/kez/qpsFQ+IZamV7zrV7LTtRW1TdlvsPTX0KFg6YaM=;
+ b=OzZyx1llwNQhvtNr3EhzufY2pfeGAnTQZ8980mXd99emptugndbzow05J7OXa8m8Xu
+ nqP+vnqzlOc8kFKMq/iHrWMedvjQ0wRUG+S6H4wF7jl0Za89CZBcRF4J5wksf86kGhMj
+ KrIvfuB1e62wN7PxM6tUfql2MvRjusCaH8FUy4WoNLxv1xPZsxlUOaOjz0eN4iMqdeeg
+ mkaG14zpKOLYsIheTbsOJqXU3Kj4mOfQNxRjiFvz9zmvBAKMTPGk8x/owLYrzK1Y9nts
+ 1Ts50BdFx8cFdgu/qKUZoQVP75gO+N4ac/cN7jK+IUdqCbCasA2zIH60wWTZoHtf6qwh
+ 2H6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=RprtUxA8LLqon8+v6D8C02QlLfkROjmGkz+QRU7rBDI=;
- b=zoTA9nmKAQgQ9ptBeNJmHRH2sQgJfAEtx9Ncg4kbxJBeFpKgGAxzpijhTXCra3P2g4
- Ge+skTAcQ7Uby5kmOPJK46ZTfPVTZ1Foq4w4WE3MVAXunncPUdRFvsfRqoRvjLTlKVov
- 6rlpGLGK5KcXJNTWNLrp6HAIIsLGqGmJIgWXSCWSAUlgKUIZED0AXEIZERQ3GjYZ7jXN
- 0So055yUPFdCJso2+CBAcM0GItSOMK1dqu2Q3EMu3VTzNdvIJkA6tbluXSB5mphuwOAo
- ZzkZFN8MdM7KF1PO3GhpbKOhlYLT8VdRcvB33uErl0l15Xd9fl2kiyzxBlcVIPkkatt1
- tlZQ==
-X-Gm-Message-State: AOAM53325IuDYyExTwfc3wG+/rkZ9Jbb0c0rFbU3YIaIj3lUIKH4MHAl
- 20scs4k15cqwPIC8ORVyteeBUQ==
-X-Google-Smtp-Source: ABdhPJxteJVJs+X9m1ttN+KqKFgEscJRioMfV5WffwO+tTjBvwM5rUsFtEO24U/iKXSoIxw0gw+YLA==
-X-Received: by 2002:a05:6000:1d8b:b0:20c:54e6:1659 with SMTP id
- bk11-20020a0560001d8b00b0020c54e61659mr16780999wrb.169.1651696518687; 
- Wed, 04 May 2022 13:35:18 -0700 (PDT)
+ bh=/kez/qpsFQ+IZamV7zrV7LTtRW1TdlvsPTX0KFg6YaM=;
+ b=MP4MTL9CDZM73JiqwXoOg7/QmVJXbghc0DToXcvYwgrBUYVgaS8LUF3M74KvufMV5C
+ XAS19XXbOavk5XmuUBlscyz1N/2Y90OJhTO5X/wgRFo/SLZC/vVuDOAxnEUcg0npegk0
+ TRkfgnOuj5qaQ8PrWIyBp+RHB4DvUvTYAllTF3AWu+0+xqQsslw0szgP/QZDT71urnX2
+ +0/iXCZrRTHjWcMmZkusmstyCNT+c6jYsLHMoS66JqvMc1tF+yqjegO1N2p/d/8KXk5Y
+ CfZqginJYmoOCuN4VOndeAtfoSuaix8w4WCuL6uws10bLSA96HpbZPP7xhCw8I0e+hEF
+ YY7g==
+X-Gm-Message-State: AOAM533vNvgmq8VTTKp7k+JGGv43jRVc4HXBJmhY1jiYOKO2NTH0LW6Y
+ G0Y30c/PN1ffKUCL6L8TJ0UMkA==
+X-Google-Smtp-Source: ABdhPJwTP+LGkjMrAS/D90kMOMXTYP/hJZZwmXwXPYgDQ3kVDjSRRrJF5JOfWaxcbNwZKXmG/pVgEQ==
+X-Received: by 2002:a1c:5459:0:b0:394:1191:a1ff with SMTP id
+ p25-20020a1c5459000000b003941191a1ffmr1086431wmi.96.1651696519959; 
+ Wed, 04 May 2022 13:35:19 -0700 (PDT)
 Received: from henark71.. ([109.77.36.132]) by smtp.gmail.com with ESMTPSA id
- l20-20020adfc794000000b0020c5253d8dfsm13330101wrg.43.2022.05.04.13.35.17
+ l20-20020adfc794000000b0020c5253d8dfsm13330101wrg.43.2022.05.04.13.35.18
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 04 May 2022 13:35:18 -0700 (PDT)
+ Wed, 04 May 2022 13:35:19 -0700 (PDT)
 From: Conor Dooley <mail@conchuod.ie>
 To: krzk+dt@kernel.org,
 	palmer@dabbelt.com,
@@ -66,18 +67,19 @@ Cc: conor.dooley@microchip.com, Cyril.Jean@microchip.com,
  daire.mcnamara@microchip.com, paul.walmsley@sifive.com,
  aou@eecs.berkeley.edu, palmer@rivosinc.com, arnd@arndb.de, heiko@sntech.de,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: [PATCH v4 5/8] riscv: dts: microchip: make the fabric dtsi board
- specific
-Date: Wed,  4 May 2022 21:30:49 +0100
-Message-Id: <20220504203051.1210355-6-mail@conchuod.ie>
+ linux-riscv@lists.infradead.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v4 6/8] dt-bindings: vendor-prefixes: add Sundance DSP
+Date: Wed,  4 May 2022 21:30:50 +0100
+Message-Id: <20220504203051.1210355-7-mail@conchuod.ie>
 X-Mailer: git-send-email 2.36.0
 In-Reply-To: <20220504203051.1210355-1-mail@conchuod.ie>
 References: <20220504203051.1210355-1-mail@conchuod.ie>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220504_133523_410575_CB8F863F 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20220504_133524_572039_602A614B 
+X-CRM114-Status: UNSURE (   7.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,68 +98,28 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Currently mpfs-fabric.dtsi is included by mpfs.dtsi - which is fine
-currently since there is only one board with this SoC upstream.
+Sundance DSP Inc. (https://www.sundancedsp.com/) is a supplier of
+high-performance DSP and FPGA processor boards and I/O modules.
 
-However if another board was added, it would include the fabric contents
-of the Icicle Kit's reference design. To avoid this, rename
-mpfs-fabric.dtsi to mpfs-icicle-kit-fabric.dtsi & include it in the dts
-rather than mpfs.dtsi.
-
-mpfs-icicle-kit-fabric.dtsi specifically matches the 22.03 reference
-design for the icicle kit's FPGA fabric & an older version of the
-design may not have the i2c or pwm devices - so add the compatible
-string to document this.
-
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../microchip/{mpfs-fabric.dtsi => mpfs-icicle-kit-fabric.dtsi} | 2 ++
- arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts               | 1 +
- arch/riscv/boot/dts/microchip/mpfs.dtsi                         | 1 -
- 3 files changed, 3 insertions(+), 1 deletion(-)
- rename arch/riscv/boot/dts/microchip/{mpfs-fabric.dtsi => mpfs-icicle-kit-fabric.dtsi} (91%)
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
-similarity index 91%
-rename from arch/riscv/boot/dts/microchip/mpfs-fabric.dtsi
-rename to arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
-index ccaac3371cf9..0d28858b83f2 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-fabric.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
-@@ -2,6 +2,8 @@
- /* Copyright (c) 2020-2021 Microchip Technology Inc */
- 
- / {
-+	compatible = "microchip,mpfs-icicle-reference-rtlv2203", "microchip,mpfs";
-+
- 	core_pwm0: pwm@41000000 {
- 		compatible = "microchip,corepwm-rtl-v4";
- 		reg = <0x0 0x41000000 0x0 0xF0>;
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-index 84b0015dfd47..739dfa52bed1 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-+++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-@@ -4,6 +4,7 @@
- /dts-v1/;
- 
- #include "mpfs.dtsi"
-+#include "mpfs-icicle-kit-fabric.dtsi"
- 
- /* Clock frequency (in Hz) of the rtcclk */
- #define RTCCLK_FREQ		1000000
-diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-index cc3386068c2d..695c4e2807f5 100644
---- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-@@ -3,7 +3,6 @@
- 
- /dts-v1/;
- #include "dt-bindings/clock/microchip,mpfs-clock.h"
--#include "mpfs-fabric.dtsi"
- 
- / {
- 	#address-cells = <2>;
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 01430973ecec..1d47a38c2a2e 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1197,6 +1197,8 @@ patternProperties:
+     description: Summit microelectronics
+   "^sunchip,.*":
+     description: Shenzhen Sunchip Technology Co., Ltd
++  "^sundance,.*":
++    description: Sundance DSP Inc.
+   "^sunplus,.*":
+     description: Sunplus Technology Co., Ltd.
+   "^SUNW,.*":
 -- 
 2.36.0
 
