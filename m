@@ -4,84 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E0D3C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 May 2022 11:10:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93E06C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 May 2022 13:00:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pPMMkOPDDKAEvbv6vg/dP8P/N9YI1D8U+9UYlOuwiEM=; b=szNM8HVJ0l58o4
-	gG7IRrjJnRnic5iwisO51iCK8cv9iuKkqFgSQgMEE+sElLTMkpuaeB6EcCcsVhJzO+5S87/hh4jIJ
-	9NI7vrfTpGIyS5yaqJRkOEa2wXYippuZdT7VHxtjBZP1484z31q6UZxlOqSL6jDIC1KRKqcdYp8Xd
-	0wGgOpNlTMxe/iQkUQZrHGnXMdgtFz9ezncK/WIrBZOQOdrTGYFOIXKD5VaZnl383cU5l2y+KYS/Q
-	WNuiq4huzlw7L7KD7/ZxN4vwl+mo8rBYhKUCzMuCeC+bGU18QVJH2OKXLIKzXXncGIH9fu7ejIGQd
-	WM7uXIRypJ4i4cb7vbEA==;
+	List-Owner; bh=VNHl0JDyhZHDRDYZp/Ii5lQCb7EzHcCR2N14QrJNjtE=; b=GaMr01RhS2H7H7
+	Vr4XqmODQdLZdLAvYf0yU5Ox8EmrwSAGJ5DfndyXcnDi2ABriQxjcSoNaz9Avn79HqV5xg6CSeCLb
+	S9dDflN4kSiAcFFXjTG67eJGl9VgnWNGI8DNaehcDeGxnBFxLtj/RUfrDiL9ZBTR8rH3EL2V0JtiZ
+	ScOv6qiwI2RpfX4IshWoNr+y3Y6Pywdz8zV9SOEneYUGu/Lajr8Kvj/W2wL1J98z048FECdm43yxs
+	SEhFmQqH4s0MoTHwcm97lu0fvBXZ+A7mHvY5xuAG689kFsd6mH4NRv04v7JbVhBf6JwIPV/QY1kgH
+	L053u9m9Up3VfzCxy6LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nmZN2-00FONa-Hy; Thu, 05 May 2022 11:10:08 +0000
-Received: from mout.kundenserver.de ([217.72.192.73])
+	id 1nmb5i-00FvgZ-00; Thu, 05 May 2022 13:00:22 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nmZMz-00FOMX-J7
- for linux-riscv@lists.infradead.org; Thu, 05 May 2022 11:10:07 +0000
-Received: from mail-wr1-f42.google.com ([209.85.221.42]) by
- mrelayeu.kundenserver.de (mreue106 [213.165.67.113]) with ESMTPSA (Nemesis)
- id 1MjSsm-1oESLB056Y-00kvpv for <linux-riscv@lists.infradead.org>; Thu, 05
- May 2022 13:10:03 +0200
-Received: by mail-wr1-f42.google.com with SMTP id q23so5645348wra.1
- for <linux-riscv@lists.infradead.org>; Thu, 05 May 2022 04:10:02 -0700 (PDT)
-X-Gm-Message-State: AOAM5321OBWsxs0eiOnAF2dU8SierPlMd98pKBxUn7062rqjEUuyvUff
- 8hwf1/6moZUcs1lwYkdJHTL56bgvIBZ8gCoUofs=
-X-Google-Smtp-Source: ABdhPJy3sZItdcfe17y+S/VnaEhqFhXcQF66aoZmv1r68aZfE+8weQM2Hae0G8znhhQS8eBb/xXeQCqA+DvrYRMKHic=
-X-Received: by 2002:a5d:49cb:0:b0:20a:cee3:54fc with SMTP id
- t11-20020a5d49cb000000b0020acee354fcmr19600892wrs.12.1651749002633; Thu, 05
- May 2022 04:10:02 -0700 (PDT)
-MIME-Version: 1.0
+ id 1nmb5d-00Fvdh-Ls
+ for linux-riscv@lists.infradead.org; Thu, 05 May 2022 13:00:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1651755618; x=1683291618;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-id:content-transfer-encoding: mime-version;
+ bh=cTeyf05McYWxzfsiFZIE7L+zG1+RvIX8z7YD2chl9us=;
+ b=XN4cCK9JYVCmsnYp6AnVDyqir2JP1Ts/14+yLbJJJZGF2YWjoWAQdHT5
+ 5IZ8imrtAkfWDMBEYM1LQfE/flIHe/H2R/hKgcsGsSPfSuVXtErfSay47
+ MnYrO+t5M68je1MMTS0owX/K8DNVCA9/4Jp5eSUFVQCt/Qnhi3LVPuXb/
+ 5vfdfiInp+nr7RHkymiB/GAY+f7mtVj0qzYblVsS0t/70xoXM5zBCP0Wp
+ LQwaKrCWctjQ/pBk3aUXYk/eFSqa0r+K3fvZf5Qhu5AZy1lUXnTrln9m4
+ nbHGok79ixYogPp3T7M2bZzsZ+oJ20548qOTlj7/x19gXFazwW7cu94/8 g==;
+X-IronPort-AV: E=Sophos;i="5.91,201,1647327600"; d="scan'208";a="162437038"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 05 May 2022 06:00:13 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Thu, 5 May 2022 06:00:12 -0700
+Received: from NAM11-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17 via Frontend Transport; Thu, 5 May 2022 06:00:12 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=UWrzxgArt9PNHC0Ekn9Y9H/cuDUDMwsexwTDHWO4lbSxThNcvIm/qMgtxCWs3ryvmaubeyuMzB7zxeyPYXLS/8/Gbk6gzEAVzlZaqXnhcMhpADhDqLr+VNCA9GVyCLEN4MMfWfPd2OXtJYSr0XO5LBT1TNwQGEZRW6+ZFrEwBsSS7n/+pOwfPqfraE5qHBJRxxmiicOzXv4GjVzHxWjkITz4+ewO+fySMzzyGtlELRb8HC6QWeD3Q+CG84WsrAALir2QO3hJJsOEfbGFACAIohg0hIjyMKG4w4rQkMWkU9AUoYP8i+0/asDVoHunydDJyIycJQCJWcefsp7P5t8Xcw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cTeyf05McYWxzfsiFZIE7L+zG1+RvIX8z7YD2chl9us=;
+ b=izH8U6swh3+XS8SVSVFPoHBwfY131k3rSfEYXhmq8Nb5ZRMbZHHKqYmYf4liYTdvzeXbeT/WzW2ytFmjofdPnihWbu/UmgaQ+IKsEXjwbizMURh77WhCj+yL219y+IUn4/2BvVqZETjkENHt8rKwk3plZq6JmVZk+3O10jNOjxYjguIEZge3qr49Xngr6zX06VuhIZuWAz6PxWMEoDHwuYSnjLqrSFXjk9x2Xp18AY6rJFkhIzMBdsZXq4UNheTXlGr+lJhqE4HmmROgLabfFlQRKkOcEUTfHxbNdbm6Tfj2k16SSFLTHSbioewclbTC2D61ssMxA10B39ofdSSMgA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cTeyf05McYWxzfsiFZIE7L+zG1+RvIX8z7YD2chl9us=;
+ b=j0+ZPODradhj/6o9SHCY2uLY7Yav8bccRK2PxP5QkJbeTQt617610KPOEY9J6YxLrwOl1ZadaYu9/YwBw5e8zOV+fMq1+5zBuZggR+w5+ZifufaLDGOtIGwjzsil0dW+MQcUBILy0EIx9LVlZ/sHRtwIiXIqPggAYlI1YndJaU4=
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:95::7)
+ by BN6PR11MB4116.namprd11.prod.outlook.com (2603:10b6:405:83::36) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5206.12; Thu, 5 May
+ 2022 13:00:07 +0000
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::fcd4:8f8a:f0e9:8b18]) by CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::fcd4:8f8a:f0e9:8b18%9]) with mapi id 15.20.5206.025; Thu, 5 May 2022
+ 13:00:07 +0000
+From: <Conor.Dooley@microchip.com>
+To: <palmer@rivosinc.com>, <arnd@arndb.de>
+CC: <guoren@kernel.org>, <peterz@infradead.org>, <mingo@redhat.com>,
+ <will@kernel.org>, <longman@redhat.com>, <boqun.feng@gmail.com>,
+ <jonas@southpole.se>, <stefan.kristiansson@saunalahti.fi>,
+ <shorne@gmail.com>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+ <aou@eecs.berkeley.edu>, <gregkh@linuxfoundation.org>,
+ <sudipm.mukherjee@gmail.com>, <macro@orcam.me.uk>, <jszhang@kernel.org>,
+ <linux-csky@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <openrisc@lists.librecores.org>, <linux-riscv@lists.infradead.org>,
+ <linux-arch@vger.kernel.org>
+Subject: Re: [PATCH v4 5/7] RISC-V: Move to generic spinlocks
+Thread-Topic: [PATCH v4 5/7] RISC-V: Move to generic spinlocks
+Thread-Index: AQHYXKhYtH/vI/1B5Ea5aV8nenoVOa0QRqwA
+Date: Thu, 5 May 2022 13:00:06 +0000
+Message-ID: <49b08c9a-8898-98ed-9b2c-9cf21d24497a@microchip.com>
 References: <20220430153626.30660-1-palmer@rivosinc.com>
-In-Reply-To: <20220430153626.30660-1-palmer@rivosinc.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Thu, 5 May 2022 13:09:46 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a1VjunJE5zAm96pkQX7EvVDcN6VGT8usedeO709KQnB_g@mail.gmail.com>
-Message-ID: <CAK8P3a1VjunJE5zAm96pkQX7EvVDcN6VGT8usedeO709KQnB_g@mail.gmail.com>
-Subject: Re: [PATCH v4 0/7] Generic Ticket Spinlocks
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Guo Ren <guoren@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Will Deacon <will@kernel.org>, 
- Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>, 
- Jonas Bonn <jonas@southpole.se>, 
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Stafford Horne <shorne@gmail.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Greg KH <gregkh@linuxfoundation.org>, 
- Sudip Mukherjee <sudipm.mukherjee@gmail.com>,
- "Maciej W. Rozycki" <macro@orcam.me.uk>, 
- Jisheng Zhang <jszhang@kernel.org>, linux-csky@vger.kernel.org, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Openrisc <openrisc@lists.librecores.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- linux-arch <linux-arch@vger.kernel.org>
-X-Provags-ID: V03:K1:2yD5I5xh/tb0q09LlFHdCCcdWfwyt4CBW89P3EXPCzpwPC7vIJw
- G5ldgzLS0hxhOlLSFJP5pf+PYRzhOXCFSCIYg1nuk4EJbKxsqY4ywyI1b8B3f+LS5m6q8Jl
- uwMX5WvE4Crnq+SPqXIp/kFLn6a//isxeiZbnc6osXnvrDAbvU+tc65RYcqYnKVuz4Tl4vv
- 9ixDIbg7BnTlpe0puMkNQ==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:2Hc39MZZAtA=:mcXCw57nwTAvyzCj0KXaqa
- L4NbPoUlguppo4XGQ6uSSaX5S190Pk1Mu9YSZHMPzLxWzbn0ANkuoFf6xeEZGxKiMIRhaCpOO
- qdcY+duShW7Dzx4wn6NSQWifmru04w3l+O5S1D+sGgf87T+UIhpk+8DbpTBJo9tliBYDwm8tt
- 9u8Z+43jTjXyCLn8Hk4kkAb7OIPQb02XLtIsT3MyfZW9jsV+mtQQ7xxoIjmLTdmJHNersV21H
- 8vhEA9BG1fjL8YUytvYxl2bbqmGAPlL82W1WKJHX1sU3/iJQZWXjpu5BYtHG6TvuTycOb4B98
- 4pg2djBTgrFjsmzTT027l2MTVQ5RuW4oVklWo0qm/z17VOq6XKuqz2IXrxsUEVFUz6k3TnvcK
- cRVNZNGaToSnMAAAFVAKAPrpPQDGvFoWm+uS7GtpX0auuoDcb/KjUWp+pN7YmYKJORFMUxVs5
- Pgh3zCsxK2fHddGN4AUgd6Z73StmkmB9nptMbldUkp0bbqmBY7tYrV2fwJFk/ghgrM5a1RXjq
- o1mzz0QIyNLRYQGbvC77v3f0TYGTvXnlpInUhKdS2wHVLyPgGVfuG86JTKxnZVHUub+Xh6BjA
- vesut5oFUJ30zMne5t+Vi+s2qsg15uMIHfG2z+EpAXz4msSYWvrIOje/JEEWoOM56GX3Nbg3Y
- DXMgh8ynetJbG8rgrwCcj2ia0kGZhZyjvohcEnup9m+IdvUIHmYZ22MsUQdVcp+Q45Q93wLhH
- AoI4wlTWb+VYq8jqjKAtIDR1xQbSq0uQhYXEFmVKXf/WsvGYyptx2+yJPiB11tjOU37/e6B8x
- TYyyxHjW9fPz17j1kYz1ot9Kdp+cRfLlZdRyVBtjLq8VlFty7I=
+ <20220430153626.30660-6-palmer@rivosinc.com>
+In-Reply-To: <20220430153626.30660-6-palmer@rivosinc.com>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.1
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: abcceb82-3bbb-4113-5ddf-08da2e972dd9
+x-ms-traffictypediagnostic: BN6PR11MB4116:EE_
+x-microsoft-antispam-prvs: <BN6PR11MB41167655BD1CA6B1C331DBE398C29@BN6PR11MB4116.namprd11.prod.outlook.com>
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: sIzXHpN3YzAOrlCjcd/LqHvxtTvGgLW/4s9gfchG8a7vza/Lbt7IA9ybYdxNuNyHZPKsEt5KgFN2HJcPRdaRvezqBGgBkBEM9frITYaFLk5b8etP9Rtp4VYkaF55Rnv4ZIIoXFvKQZSE1rdmrWNvf0flV/BGg5mVvWmRFPW5mUgNVVudmuRvT9XNHM6EGp4cJTAuOMvBBcT1ujDTeGW6PhZCJJJCeAGgi6s+IdRy7d+kuhu4j9O5+G6wqNQhhYLQMNZhyliLaIxSVZlVUUUd/WpEXMGBWEH92zExzrQhih53GjQUOD433+0shnSGw1z/1xt5qmGSAJ8o9b+INUO2Mp16Gb9tk9rgWrC0dXbsgapPdMLz74G4uIq/2uMSai5nKpYPo+RZflL61J5PloLqYH5RULqZ6Zsbc77yM7Mx/hN5Y4eo2f1LHiiIXQFdT1mPxpfa0G/obKWXU2oQ5jiwRLNbWTAWSttHMnSiil1vap1sRTMnWLUTwFEAjJglO4p0uKgV1yxFmTdgEBUZRt7yMOL1xbUM1PQ9RCeWYlwsRFRiJEF6KK52F10eL8jYn1R6u1tb4t7RF65gokUKGP9qE+eki034FpRWd37HlYOOrNIWKlS0qNU+6pDY/uOvFAFtRGcccdBTPDSmrjrSa9LxiNOaeqvKQnW4LMQyuOTBfYYW5FAAPLloMX7JQAPTrByBE2muotsg7I0oBsDz7Ik1yGKiaGthew9fEb9xxkch52Xd8/8G9j4z9zIYSyX9sjltiZcenYmIXbjOhEVXni0H4KTdVm4NONJae3TBirOmMGE=
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:CO1PR11MB5154.namprd11.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(13230001)(366004)(186003)(31686004)(31696002)(122000001)(508600001)(38100700002)(38070700005)(8936002)(83380400001)(316002)(53546011)(36756003)(54906003)(6506007)(110136005)(64756008)(91956017)(66946007)(7416002)(76116006)(66446008)(66556008)(66476007)(86362001)(5660300002)(2906002)(71200400001)(8676002)(6512007)(4326008)(26005)(6486002)(2616005)(41533002)(43740500002)(45980500001);
+ DIR:OUT; SFP:1101; 
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?dVhSSkZ6N0ZGajdzejhwSWVJRjBlVnJuZjM2clNYeG85WS91VkRNaS9XNzdj?=
+ =?utf-8?B?T3ZlM2NCVlA0RTBOTTEvK2FqS0lVUzk4UVplWDFXV2F6bStwUnpWa0lqdVls?=
+ =?utf-8?B?SHBqdTVoc2o1aEdrb3QwVm83NHpNVlZIWFl6QXZHTjZPTUVWVHNPbkhScFlF?=
+ =?utf-8?B?MU9xZGdvcXpTaG5Uc0VUVTlpQ1c0eWkxRnRsSUNlQTE4dXVTSnd3YW5GNkZW?=
+ =?utf-8?B?bEpvQWY3blpLSk50bmVpNVYzNE9kK3k2T3UyN1pJNEhoV1plNHpHajNWT1BJ?=
+ =?utf-8?B?NURDWld1bnZJM0FBMTRhWHdMaXFQSm9Ld3YwYU54OHQ0ZlpuUXJMbDlGT0Zq?=
+ =?utf-8?B?NXN2TXdkVTZnUy8rNksvQlVjSlJKWjgyVnJMQjVVaHU3OWwyK1dFUWFTMFJp?=
+ =?utf-8?B?TDdGSE41T3cxbWYySW1sd3lUYmpMU1V2K1VrTjNvSmJTK0xsem9LRFhCbzlH?=
+ =?utf-8?B?V05WUlNjc1BXV2o4ZHVKUGZ0UUc4NE1QY1luM3c4ZTBOdXpZMEJMRnhjOTF2?=
+ =?utf-8?B?dXM3RkRrS0Q5ZFdHajlPcGZQU2x3ZWtFRFF2N2h1WklPWGlqdGhDNE5kclJT?=
+ =?utf-8?B?NEZ1L0FYSy82eW5UQm1Ec2txT1p6OGJOT0lnRGJWdGFhM0FQLzJkZDMweVli?=
+ =?utf-8?B?a0FXaDE5NHltZmJWVkErSjhEd0czb29XYTQ0b09DK09uT0xxd0hGd3k5cGdS?=
+ =?utf-8?B?OVdrTG1XNC9mbXo4ZkR1OGlnZzJSWkd6a1JsU2VsQlZ4WXdTd2FOdUhWR0tS?=
+ =?utf-8?B?SCttMkovR2dITzVmcExPMTN2WVhzY0JMd1BXaXZhMFh2cmFRaFRnQi9LS2Nx?=
+ =?utf-8?B?U1UraEluNDNDUERjMkRTWnZma2hFM2FmaXpMWXZFUUloK2pLN3FRVzF0VlZh?=
+ =?utf-8?B?MG5HbEkvTDJtZDJ2TEVrdEkxbEhzRjNvWXdDTHlVRk41QWEzTzVtaFE4c2x4?=
+ =?utf-8?B?elpGejBEVm1XKzEzbkdpRmZRekZzS2wxZlZBUmVoWkVCNytaT2JkOUhXZklG?=
+ =?utf-8?B?YWhkNVBQQjd3WnZuT3ZML1V1ekhneWFZcUxHNGpnb3QyM05sMTdqVTk1elIw?=
+ =?utf-8?B?eUV3TXI3dVJCSlhWL0dzZ2NUajJ5anl5Zk5sUzdrajNISStna1luODBWL1hJ?=
+ =?utf-8?B?eXFpMThzN1JpcEpaTXdWcjVIaVhUa3ZRQ0pPb2krWmlIdHBmK1JiVVdkVXE5?=
+ =?utf-8?B?N1pTZmdNTWR3Q1lVcmRscDhaRnR6ekt6ZDh4K0V0eXJrZGdaekt3Z0FJZ3pC?=
+ =?utf-8?B?c2oranFpSmM4U3RLYmdQTitUY09QdEJKbTlXWHhjVitTcGRlSzRXem9uZERZ?=
+ =?utf-8?B?SFEwL1d0TW9ObHUxZ2V5TzZTR25xMkRtTEZMS08vNDN0WTE5MHJEbFlCbmsz?=
+ =?utf-8?B?eEdBYVdFbktTVzJRa1FaSU90SUZKNkVrRmZCTGI4TEJ5NUJlSVB2enNmTFFI?=
+ =?utf-8?B?Zk5yd1VhQStyZk4xdi9yUHdJSVpETWVBbzVjaFprajZVbmFKMWpXWXR2eEFj?=
+ =?utf-8?B?L3pVMCtOTlRHcUZsYXkxUkdRMkNPbDFpaWpXdXQ0dVdyRXZxdUdQTjQycXBl?=
+ =?utf-8?B?Ukcwd1owVVVhWWFNWE44a0paaWlCaXB6TTJid0RsOThKdXBMSk5laHRmL1d3?=
+ =?utf-8?B?MFpoWGlIb3hyeHZzcTNpeTBIV1lheWhiY1NVV2hYQlo5bUdvRk9FcWhESUNG?=
+ =?utf-8?B?Vmp6cDZIa2QwOEQ2RHJJL0s4bXhWOVNJdDc4c0M5a0ZRSWpNb1JhTStXYk9i?=
+ =?utf-8?B?VGJ1NFZmTzV2YVpIUlkvM0VBS1dLOTV3K0JrL2liQjkxMldwcFo4MzVGSlYv?=
+ =?utf-8?B?TmUycWo2M3puekpkU3JtdU1vdkN3K0dLdkVWbEd0RThKT0gvWFN1RE1RTE0v?=
+ =?utf-8?B?ZlZYUDMzN1M3VW5TTDNhSHU3Q0lHdjdRREFvRFV4L0pmMC9EOWhQVktWNTBq?=
+ =?utf-8?B?YjRmL0dtb0pZeXArTU5TZXI5QTdwdG0wQnVCb2xORlRtd0c3UmdXZ1V2NVVX?=
+ =?utf-8?B?NWxkZlFRZm1Za1djcGJtRG13a0h5Y0lRb3BzRkZJbjdnT29LcFh6TFIrM21G?=
+ =?utf-8?B?MUFSYldLdmxqejllcVlXT2pmSlhyeFM2dnhLSU14cGZRNnJnS3lLbS9idExR?=
+ =?utf-8?B?QmowNmxscXkzUkFTcEZmU1JsVTlkK2RaY2tteGx6eU12blo5N0gwMDk5Q0hn?=
+ =?utf-8?B?THEwRzVqSGFLdlFFMFpGN0JmTUVQb0ZOOGEwck4za3ZubVhVc1kyOURUZWhC?=
+ =?utf-8?B?T0NXTlF4bCtlc1cwaGx3U2JOOVVBc3kzVWUzVWU4NCtvMVZvcUcxdVJvZWIy?=
+ =?utf-8?B?LzRNcDNuMGZpOUdsY1BwZmdEam5Kem5PNmZjZ2NobnBMSnJjNmgyM2RvK1pV?=
+ =?utf-8?Q?D6hGCf2ylTfXi90Y=3D?=
+Content-ID: <F4E2EC605ABFE74D9A189F07357A74D4@namprd11.prod.outlook.com>
+MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: abcceb82-3bbb-4113-5ddf-08da2e972dd9
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 May 2022 13:00:07.0037 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: P/ZGdasDFfIUv7/1khWTluuzr1jcv50uCy9I6z6Ox8pypuPRYjlzNgKDMZ0VbvaqBLB4gK6J1sWhSu9BYur+9g+t5RvQXPnxzHROrcUj6Ns=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN6PR11MB4116
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220505_041005_960065_B342B4EA 
-X-CRM114-Status: GOOD (  22.51  )
+X-CRM114-CacheID: sfid-20220505_060017_987862_A40EFDD8 
+X-CRM114-Status: GOOD (  24.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,36 +185,135 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 30, 2022 at 5:36 PM Palmer Dabbelt <palmer@rivosinc.com> wrote:
->
-> Comments on the v3 looked pretty straight-forward, essentially just that
-> RCsc issue I'd missed from the v2 and some cleanups.  A part of the
-> discussion some additional possible cleanups came up related to the
-> qrwlock headers, but I hadn't looked at those yet and I had already
-> handled everything else.  This went on the back burner, but given that
-> LoongArch appears to want to use it for their new port I think it's best
-> to just run with this and defer the other cleanups until later.
->
-> I've placed the whole patch set at palmer/tspinlock-v4, and also tagged
-> the asm-generic bits as generic-ticket-spinlocks-v4.  Ideally I'd like
-> to take that, along with the RISC-V patches, into my tree as there's
-> some RISC-V specific testing before things land in linux-next.  This
-> passes all my testing, but I'll hold off until merging things anywhere
-> else to make sure everyone has time to look.  There's no rush on my end
-> for this one, but I don't want to block LoongArch so I'll try to stay a
-> bit more on top of this one.
 
-I took another look as well and everything seems fine. I had expected
-that I would merge it into the asm-generic tree first and did not bother
-sending a separate Reviewed-by tag, but I agree that it's best if you
-create the branch.
+On 30/04/2022 16:36, Palmer Dabbelt wrote:
+> From: Palmer Dabbelt <palmer@rivosinc.com>
+> 
+> Our existing spinlocks aren't fair and replacing them has been on the
+> TODO list for a long time.  This moves to the recently-introduced ticket
+> spinlocks, which are simple enough that they are likely to be correct
+> and fast on the vast majority of extant implementations.
+> 
+> This introduces a horrible hack that allows us to split out the spinlock
+> conversion from the rwlock conversion.  We have to do the spinlocks
+> first because qrwlock needs fair spinlocks, but we don't want to pollute
+> the asm-generic code to support the generic spinlocks without qrwlocks.
+> Thus we pollute the RISC-V code, but just until the next commit as it's
+> all going away.
+> 
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-Can you add 'Reviewed-by: Arnd Bergmann <arnd@arndb.de>'
-to each patch and send me a pull request for a v5 tag so we can
-merge that into both the riscv and the asm-generic trees?
+I am loathe to add a TB tag since I have not done much by way of testing
+any realistic use cases - but I have put it in our CI and have had a play
+around with it locally & nothing obviously broke for me.
 
-       Arnd
+If you think that is sufficient:
+Tested-by: Conor Dooley <conor.dooley@microchip.com>
+Otherwise feel free to ignore the tag.
 
+Thanks,
+Conor.
+
+> ---
+>   arch/riscv/include/asm/Kbuild           |  2 ++
+>   arch/riscv/include/asm/spinlock.h       | 44 +++----------------------
+>   arch/riscv/include/asm/spinlock_types.h |  9 +++--
+>   3 files changed, 10 insertions(+), 45 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
+> index 5edf5b8587e7..c3f229ae8033 100644
+> --- a/arch/riscv/include/asm/Kbuild
+> +++ b/arch/riscv/include/asm/Kbuild
+> @@ -3,5 +3,7 @@ generic-y += early_ioremap.h
+>   generic-y += flat.h
+>   generic-y += kvm_para.h
+>   generic-y += parport.h
+> +generic-y += qrwlock.h
+> +generic-y += qrwlock_types.h
+>   generic-y += user.h
+>   generic-y += vmlinux.lds.h
+> diff --git a/arch/riscv/include/asm/spinlock.h b/arch/riscv/include/asm/spinlock.h
+> index f4f7fa1b7ca8..88a4d5d0d98a 100644
+> --- a/arch/riscv/include/asm/spinlock.h
+> +++ b/arch/riscv/include/asm/spinlock.h
+> @@ -7,49 +7,13 @@
+>   #ifndef _ASM_RISCV_SPINLOCK_H
+>   #define _ASM_RISCV_SPINLOCK_H
+>   
+> +/* This is horible, but the whole file is going away in the next commit. */
+> +#define __ASM_GENERIC_QRWLOCK_H
+> +
+>   #include <linux/kernel.h>
+>   #include <asm/current.h>
+>   #include <asm/fence.h>
+> -
+> -/*
+> - * Simple spin lock operations.  These provide no fairness guarantees.
+> - */
+> -
+> -/* FIXME: Replace this with a ticket lock, like MIPS. */
+> -
+> -#define arch_spin_is_locked(x)	(READ_ONCE((x)->lock) != 0)
+> -
+> -static inline void arch_spin_unlock(arch_spinlock_t *lock)
+> -{
+> -	smp_store_release(&lock->lock, 0);
+> -}
+> -
+> -static inline int arch_spin_trylock(arch_spinlock_t *lock)
+> -{
+> -	int tmp = 1, busy;
+> -
+> -	__asm__ __volatile__ (
+> -		"	amoswap.w %0, %2, %1\n"
+> -		RISCV_ACQUIRE_BARRIER
+> -		: "=r" (busy), "+A" (lock->lock)
+> -		: "r" (tmp)
+> -		: "memory");
+> -
+> -	return !busy;
+> -}
+> -
+> -static inline void arch_spin_lock(arch_spinlock_t *lock)
+> -{
+> -	while (1) {
+> -		if (arch_spin_is_locked(lock))
+> -			continue;
+> -
+> -		if (arch_spin_trylock(lock))
+> -			break;
+> -	}
+> -}
+> -
+> -/***********************************************************/
+> +#include <asm-generic/spinlock.h>
+>   
+>   static inline void arch_read_lock(arch_rwlock_t *lock)
+>   {
+> diff --git a/arch/riscv/include/asm/spinlock_types.h b/arch/riscv/include/asm/spinlock_types.h
+> index 5a35a49505da..f2f9b5d7120d 100644
+> --- a/arch/riscv/include/asm/spinlock_types.h
+> +++ b/arch/riscv/include/asm/spinlock_types.h
+> @@ -6,15 +6,14 @@
+>   #ifndef _ASM_RISCV_SPINLOCK_TYPES_H
+>   #define _ASM_RISCV_SPINLOCK_TYPES_H
+>   
+> +/* This is horible, but the whole file is going away in the next commit. */
+> +#define __ASM_GENERIC_QRWLOCK_TYPES_H
+> +
+>   #ifndef __LINUX_SPINLOCK_TYPES_RAW_H
+>   # error "please don't include this file directly"
+>   #endif
+>   
+> -typedef struct {
+> -	volatile unsigned int lock;
+> -} arch_spinlock_t;
+> -
+> -#define __ARCH_SPIN_LOCK_UNLOCKED	{ 0 }
+> +#include <asm-generic/spinlock_types.h>
+>   
+>   typedef struct {
+>   	volatile unsigned int lock;
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
