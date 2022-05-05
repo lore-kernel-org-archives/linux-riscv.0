@@ -4,61 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5CA7C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 May 2022 03:56:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54F64C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 May 2022 06:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QVLzXR2cmluch7BrNPA5ElXT4n/k3AZ6crL5LEXdIVM=; b=IuhZUnocH8GiOs
-	udkvcKGlVKYB6lZk5xNY4MgpJiBHm4Qo9pRUqIRAnLsxtX/Nzjnq03ImGsaeSs/6uYTce+ViGdR7z
-	9+cWqyxsevXQWCS5Am2htK+tSA13qU0WHsE5mQJ+7UcborcIWcbl7TV6e5QhYFLA3c3YY7dJzQjxf
-	kfyYj73AxB+wnOXjd8Bp9SO1V+/S4k34jX8ZJHXuyoIqO4jFt9i48eWQIfQmLCEmFXbes0/oxs4pB
-	AhpK7Hr1IuFsCfGwIoniggKPpKtQt1WqT3iQ0HRvSGUEPPerm6sK3Ky4IfTiUH2dIhaFk0byQMKoh
-	xDQLlrSg+xApa3oJO8vg==;
+	List-Owner; bh=+0s76qHOW51lvS54bMVqkBDtBjMpAPQQ5NE2QaVAo/0=; b=pR7Ht4xzsa+W/1
+	mUszeiTPV51MOiugANR5bM2lSJW9mUhi+XpxAkcGAx0pkM2frI29+l9fIWrIsSYNeTnk8yXlO1ZWN
+	d87sR1ttuzoA2SpZYmUksGlOwVsnJfQFzWthe/JICrNeIeWeDn4vpODdsWAHBUnpd+BZRr0h2Zuld
+	WsXndilI/GI06Fm51gUAh8x8StFRYTGjWW7B5TityGzjpr5qCWijvXSbTkTuU9kIysBvT/itn2gGQ
+	88L8T/d1firT/Qjb2KRlqaGH5wUbPDOukEMjN+wMdMXeK/OKaW7zdVY0A36hxZHTUWdTx3WGN4B+E
+	ny8fwNrq4g6Ub0+sU7rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nmSaz-00DqzT-P4; Thu, 05 May 2022 03:56:05 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1nmVGb-00EGtW-Hi; Thu, 05 May 2022 06:47:13 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nmSav-00DqwN-Pm
- for linux-riscv@lists.infradead.org; Thu, 05 May 2022 03:56:03 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 58C5761A8E;
- Thu,  5 May 2022 03:56:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87B7BC385C0;
- Thu,  5 May 2022 03:55:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1651722960;
- bh=8XLEMSuEe89wrb20sD10ke+Ufm9VTkGQ/8AZQEqbL1Q=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=SAOvY8AOQbg9Fkt4GKHWZwvjDVyZth4XTpkBlu7cdANQnyoPfHGm6lKzfSPxdZFbd
- OfFvnz4UvYVkFe3qMLHVNzU/QldmY9Ofhrg54ObsCi/ENdC44elYAVuPvYsUPA3DVU
- 5qwr5qO+SjE1A4tVF9k/G6TX0zFT22l3CUxCFulcTWFSDf00JsHrcIrd5raTsss9SJ
- CCb+bNTe+5YrOSJYsdIi7Nf6EhOV6eKGnkU4MzZG8gDaMnCtX1GmMB2vqRvQ3i/IXp
- iHmmJZQb6/VyV3mgeG0K6bDyBFhMZUYeDvXqUbQDBwWZO/s/jyM8CxxBMSgd3/vjSJ
- EQGYxHmGS4xfQ==
-From: guoren@kernel.org
-To: guoren@kernel.org, arnd@arndb.de, palmer@dabbelt.com, mark.rutland@arm.com,
- will@kernel.org, peterz@infradead.org, boqun.feng@gmail.com,
- dlustig@nvidia.com, parri.andrea@gmail.com
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH V4 5/5] riscv: atomic: Optimize LRSC-pairs atomic ops with
- .aqrl annotation
-Date: Thu,  5 May 2022 11:55:26 +0800
-Message-Id: <20220505035526.2974382-6-guoren@kernel.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220505035526.2974382-1-guoren@kernel.org>
-References: <20220505035526.2974382-1-guoren@kernel.org>
+ id 1nmVGQ-00EGp8-Kc; Thu, 05 May 2022 06:47:04 +0000
+Received: from kwepemi500012.china.huawei.com (unknown [172.30.72.57])
+ by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4Kv4310yQ8zfbF5;
+ Thu,  5 May 2022 14:45:49 +0800 (CST)
+Received: from kwepemm600017.china.huawei.com (7.193.23.234) by
+ kwepemi500012.china.huawei.com (7.221.188.12) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Thu, 5 May 2022 14:46:53 +0800
+Received: from [10.174.179.234] (10.174.179.234) by
+ kwepemm600017.china.huawei.com (7.193.23.234) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Thu, 5 May 2022 14:46:52 +0800
+Message-ID: <3f0439c7-9c25-b83a-58dd-9c3d638b9236@huawei.com>
+Date: Thu, 5 May 2022 14:46:51 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.0
+Subject: Re: [PATCH -next v6 5/6] arm64/mm: Enable
+ ARCH_SUPPORTS_PAGE_TABLE_CHECK
+To: Catalin Marinas <catalin.marinas@arm.com>
+CC: Anshuman Khandual <anshuman.khandual@arm.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
+ <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, <x86@kernel.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, Pasha Tatashin <pasha.tatashin@soleen.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, Will Deacon <will@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>, Guohanjun <guohanjun@huawei.com>
+References: <20220426081036.1374452-1-tongtiangen@huawei.com>
+ <20220426081036.1374452-6-tongtiangen@huawei.com>
+ <ae74ea7c-9014-b162-f1e7-a66f402aee49@arm.com>
+ <80f6c347-db5d-8836-bc79-60c7b2a6eed8@huawei.com> <YnK3U3qDhhgwaULb@arm.com>
+From: Tong Tiangen <tongtiangen@huawei.com>
+In-Reply-To: <YnK3U3qDhhgwaULb@arm.com>
+X-Originating-IP: [10.174.179.234]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ kwepemm600017.china.huawei.com (7.193.23.234)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220504_205601_994256_D2C4DCD0 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20220504_234702_876712_6A1C24D8 
+X-CRM114-Status: UNSURE (   7.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,175 +78,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
-
-The current implementation is the same with 8e86f0b409a4
-("arm64: atomics: fix use of acquire + release for full barrier
-semantics"). RISC-V could combine acquire and release into the SC
-instructions and it could reduce a fence instruction to gain better
-performance. Here is related descriptio from RISC-V ISA 10.2
-Load-Reserved/Store-Conditional Instructions:
-
- - .aq:   The LR/SC sequence can be given acquire semantics by
-          setting the aq bit on the LR instruction.
- - .rl:   The LR/SC sequence can be given release semantics by
-          setting the rl bit on the SC instruction.
- - .aqrl: Setting the aq bit on the LR instruction, and setting
-          both the aq and the rl bit on the SC instruction makes
-          the LR/SC sequence sequentially consistent, meaning that
-          it cannot be reordered with earlier or later memory
-          operations from the same hart.
-
- Software should not set the rl bit on an LR instruction unless
- the aq bit is also set, nor should software set the aq bit on an
- SC instruction unless the rl bit is also set. LR.rl and SC.aq
- instructions are not guaranteed to provide any stronger ordering
- than those with both bits clear, but may result in lower
- performance.
-
-The only difference is when sc.w/d.aqrl failed, it would cause .aq
-effect than before. But it's okay for sematic because overlap
-address LR couldn't beyond relating SC.
-
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Dan Lustig <dlustig@nvidia.com>
-Cc: Andrea Parri <parri.andrea@gmail.com>
----
- arch/riscv/include/asm/atomic.h  | 24 ++++++++----------------
- arch/riscv/include/asm/cmpxchg.h |  6 ++----
- 2 files changed, 10 insertions(+), 20 deletions(-)
-
-diff --git a/arch/riscv/include/asm/atomic.h b/arch/riscv/include/asm/atomic.h
-index 34f757dfc8f2..aef8aa9ac4f4 100644
---- a/arch/riscv/include/asm/atomic.h
-+++ b/arch/riscv/include/asm/atomic.h
-@@ -269,9 +269,8 @@ static __always_inline int arch_atomic_fetch_add_unless(atomic_t *v, int a, int
- 		"0:	lr.w     %[p],  %[c]\n"
- 		"	beq      %[p],  %[u], 1f\n"
- 		"	add      %[rc], %[p], %[a]\n"
--		"	sc.w.rl  %[rc], %[rc], %[c]\n"
-+		"	sc.w.aqrl  %[rc], %[rc], %[c]\n"
- 		"	bnez     %[rc], 0b\n"
--		"	fence    rw, rw\n"
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		: [a]"r" (a), [u]"r" (u)
-@@ -290,9 +289,8 @@ static __always_inline s64 arch_atomic64_fetch_add_unless(atomic64_t *v, s64 a,
- 		"0:	lr.d     %[p],  %[c]\n"
- 		"	beq      %[p],  %[u], 1f\n"
- 		"	add      %[rc], %[p], %[a]\n"
--		"	sc.d.rl  %[rc], %[rc], %[c]\n"
-+		"	sc.d.aqrl  %[rc], %[rc], %[c]\n"
- 		"	bnez     %[rc], 0b\n"
--		"	fence    rw, rw\n"
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		: [a]"r" (a), [u]"r" (u)
-@@ -382,9 +380,8 @@ static __always_inline bool arch_atomic_inc_unless_negative(atomic_t *v)
- 		"0:	lr.w      %[p],  %[c]\n"
- 		"	bltz      %[p],  1f\n"
- 		"	addi      %[rc], %[p], 1\n"
--		"	sc.w.rl   %[rc], %[rc], %[c]\n"
-+		"	sc.w.aqrl %[rc], %[rc], %[c]\n"
- 		"	bnez      %[rc], 0b\n"
--		"	fence     rw, rw\n"
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		:
-@@ -402,9 +399,8 @@ static __always_inline bool arch_atomic_dec_unless_positive(atomic_t *v)
- 		"0:	lr.w      %[p],  %[c]\n"
- 		"	bgtz      %[p],  1f\n"
- 		"	addi      %[rc], %[p], -1\n"
--		"	sc.w.rl   %[rc], %[rc], %[c]\n"
-+		"	sc.w.aqrl %[rc], %[rc], %[c]\n"
- 		"	bnez      %[rc], 0b\n"
--		"	fence     rw, rw\n"
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		:
-@@ -422,9 +418,8 @@ static __always_inline int arch_atomic_dec_if_positive(atomic_t *v)
- 		"0:	lr.w     %[p],  %[c]\n"
- 		"	addi     %[rc], %[p], -1\n"
- 		"	bltz     %[rc], 1f\n"
--		"	sc.w.rl  %[rc], %[rc], %[c]\n"
-+		"	sc.w.aqrl %[rc], %[rc], %[c]\n"
- 		"	bnez     %[rc], 0b\n"
--		"	fence    rw, rw\n"
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		:
-@@ -444,9 +439,8 @@ static __always_inline bool arch_atomic64_inc_unless_negative(atomic64_t *v)
- 		"0:	lr.d      %[p],  %[c]\n"
- 		"	bltz      %[p],  1f\n"
- 		"	addi      %[rc], %[p], 1\n"
--		"	sc.d.rl   %[rc], %[rc], %[c]\n"
-+		"	sc.d.aqrl %[rc], %[rc], %[c]\n"
- 		"	bnez      %[rc], 0b\n"
--		"	fence     rw, rw\n"
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		:
-@@ -465,9 +459,8 @@ static __always_inline bool arch_atomic64_dec_unless_positive(atomic64_t *v)
- 		"0:	lr.d      %[p],  %[c]\n"
- 		"	bgtz      %[p],  1f\n"
- 		"	addi      %[rc], %[p], -1\n"
--		"	sc.d.rl   %[rc], %[rc], %[c]\n"
-+		"	sc.d.aqrl %[rc], %[rc], %[c]\n"
- 		"	bnez      %[rc], 0b\n"
--		"	fence     rw, rw\n"
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		:
-@@ -486,9 +479,8 @@ static __always_inline s64 arch_atomic64_dec_if_positive(atomic64_t *v)
- 		"0:	lr.d     %[p],  %[c]\n"
- 		"	addi      %[rc], %[p], -1\n"
- 		"	bltz     %[rc], 1f\n"
--		"	sc.d.rl  %[rc], %[rc], %[c]\n"
-+		"	sc.d.aqrl %[rc], %[rc], %[c]\n"
- 		"	bnez     %[rc], 0b\n"
--		"	fence    rw, rw\n"
- 		"1:\n"
- 		: [p]"=&r" (prev), [rc]"=&r" (rc), [c]"+A" (v->counter)
- 		:
-diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
-index 1af8db92250b..9269fceb86e0 100644
---- a/arch/riscv/include/asm/cmpxchg.h
-+++ b/arch/riscv/include/asm/cmpxchg.h
-@@ -307,9 +307,8 @@
- 		__asm__ __volatile__ (					\
- 			"0:	lr.w %0, %2\n"				\
- 			"	bne  %0, %z3, 1f\n"			\
--			"	sc.w.rl %1, %z4, %2\n"			\
-+			"	sc.w.aqrl %1, %z4, %2\n"		\
- 			"	bnez %1, 0b\n"				\
--			"	fence rw, rw\n"				\
- 			"1:\n"						\
- 			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
- 			: "rJ" ((long)__old), "rJ" (__new)		\
-@@ -319,9 +318,8 @@
- 		__asm__ __volatile__ (					\
- 			"0:	lr.d %0, %2\n"				\
- 			"	bne %0, %z3, 1f\n"			\
--			"	sc.d.rl %1, %z4, %2\n"			\
-+			"	sc.d.aqrl %1, %z4, %2\n"		\
- 			"	bnez %1, 0b\n"				\
--			"	fence rw, rw\n"				\
- 			"1:\n"						\
- 			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
- 			: "rJ" (__old), "rJ" (__new)			\
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgrlnKggMjAyMi81LzUgMToyNiwgQ2F0YWxpbiBNYXJpbmFzIOWGmemBkzoKPiBPbiBUdWUsIE1h
+eSAwMywgMjAyMiBhdCAwOToxMzoyMEFNICswODAwLCBUb25nIFRpYW5nZW4gd3JvdGU6Cj4+IOWc
+qCAyMDIyLzQvMjkgMTQ6MTgsIEFuc2h1bWFuIEtoYW5kdWFsIOWGmemBkzoKPj4+IE9uIDQvMjYv
+MjIgMTM6NDAsIFRvbmcgVGlhbmdlbiB3cm90ZToKPj4+PiBAQCAtODg0LDcgKzkyOCwxMSBAQCBz
+dGF0aWMgaW5saW5lIHB0ZV90IHB0ZXBfZ2V0X2FuZF9jbGVhcihzdHJ1Y3QgbW1fc3RydWN0ICpt
+bSwKPj4+PiAgICBzdGF0aWMgaW5saW5lIHBtZF90IHBtZHBfaHVnZV9nZXRfYW5kX2NsZWFyKHN0
+cnVjdCBtbV9zdHJ1Y3QgKm1tLAo+Pj4+ICAgIAkJCQkJICAgIHVuc2lnbmVkIGxvbmcgYWRkcmVz
+cywgcG1kX3QgKnBtZHApCj4+Pj4gICAgewo+Pj4+IC0JcmV0dXJuIHB0ZV9wbWQocHRlcF9nZXRf
+YW5kX2NsZWFyKG1tLCBhZGRyZXNzLCAocHRlX3QgKilwbWRwKSk7Cj4+Pj4gKwlwbWRfdCBwbWQg
+PSBwdGVfcG1kKF9fcHRlKHhjaGdfcmVsYXhlZCgmcHRlX3ZhbCgqKHB0ZV90ICopcG1kcCksIDAp
+KSk7Cj4+Pgo+Pj4gV2h5IHRoZXJlIGlzIGFueSBjaGFuZ2UgaGVyZSA/IFdoeSBub3QganVzdCB0
+aGUgZm9sbG93aW5nIGluc3RlYWQsIGxpa2Ugd2hhdCB5b3UgZGlkCj4+PiBpbiBwdGVwX2dldF9h
+bmRfY2xlYXIoKSBhYm92ZS4gVGhlIHBhZ2UgdGFibGUgZW50cnkgcmV0dXJuIHZhbHVlIGhlcmUg
+anVzdCBuZWVkcyB0bwo+Pj4gYmUgcHJlc2VydmVkIGZvciBzdWJzZXF1ZW50IHBhZ2UgdGFibGUg
+Y2hlY2sgaGVscGVycy4KPj4+Cj4+PiAJcG1kX3QgcG1kID0gcHRlX3BtZChwdGVwX2dldF9hbmRf
+Y2xlYXIobW0sIGFkZHJlc3MsIChwdGVfdCAqKXBtZHApKTsKPj4KPj4gVGhlIHB1cnBvc2Ugb2Yg
+d2hhdCBJIGRvIGhlcmUgaXMgdG8gYXZvaWQgZG9pbmcgcGFnZV90YWJsZV9jaGVja19wdGVfY2xl
+YXIoKQo+PiBpbiBwdGVwX2dldF9hbmRfY2xlYXIoKS4gdGhlcmUgaXMgbm8gZnVuY3Rpb25hbCBj
+aGFuZ2UgaGVyZS4KPiAKPiBJJ20gZmluZSB3aXRoIHVzaW5nIHhjaGcgaGVyZSBidXQgSSdkIGdv
+IGZvciBwbWRfdmFsIGRpcmVjdGx5LCBubyBuZWVkCj4gZm9yIGNvbnZlcnNpb24gdG8gcHRlX3Q6
+Cj4gCj4gCXBtZF90IHBtZCA9IF9fcG1kKHhjaGdfcmVsYXhlZCgmcG1kX3ZhbCgqcG1kcCksIDAp
+KTsKPiAKCk9LLCBUaGlzIGltcGxlbWVudGF0aW9uIGlzIGdvb2QgYW5kIGF2b2lkcyByZWR1bmRh
+bnQgY29udmVyc2lvbiwgd2lsbCAKZml4IGl0IG5leHQgdmVyc2lvbi4KClRoYW5rcywKVG9uZy4K
+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
+aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
+bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
