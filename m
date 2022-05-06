@@ -4,97 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36198C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 May 2022 15:30:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 426AAC43217
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 May 2022 16:37:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/NeC9EhZM43neW42ZziuBsl3fE+yVhv9nNs5UxDW50I=; b=TbtswkaVMlzHlw
-	UMo7/Cwnel8hn0oL1M2lEgmaYjeMOFwK/KkoBMM0bZ2xLJMkrTTHquqAbwcuq42RwHEHqd0M+c53T
-	K7omNFWRgwYVUQaJFvgv6QszaBtoR/NtLtkHkXEl2ixH4/Hg8A4XamgBletTYOe8xGPhq8Ek6sj6H
-	JX81RAY9H16IxV7GEFEB+/D8YdaN50h71SQrKV/ZTotbzen/ugH0ddfq4bJOOL1mmUVGEyYUu/UxD
-	8VyvMdEvoafiMLH+XcmF6/okv+HQe0DQY8STzLZr+7PwxP/BPgWzmoLbyxJt5Be8twWDyO86bGr+l
-	nW5PoEjk20DT4OuZVP8g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=SdD+TXYYKdExcSRyPfANIYeeviDeBWp6WQysrW1YF+E=; b=GwYuHnUKRUZsq6eEyazRSogFBU
+	7EibyPaLWmPrSQR0JEkEuuxnm2QLVJ9K/7kRsGtdBkEXy0y0KJFP2QYzdvOdyWWJLBjPWth4r8F2z
+	XVHaYDKa94Cw0WHA8F+gmzdTOJ2hjISgAZim0fn0nHF5X6HgxOmri3c1TQULEVNyDjn3r0yDA2M5C
+	0xyFJo+DWN7OIIWVZlUM9/iT6SpJtJ3fBGlZr5QRiLwmoqe6TgxT1lstn742aSwLwlXljj3fd1wfk
+	HY8kgNMcMouWYF90ax2lq1gTCDmjsTsps5yKkEz7YtU0l/8L1BpN0hiFraSBaLn2xOQhLy4gSqny5
+	fMEpoWyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nmzub-00445u-3u; Fri, 06 May 2022 15:30:33 +0000
-Received: from bhuna.collabora.co.uk ([46.235.227.227])
+	id 1nn0wu-004QBW-Ak; Fri, 06 May 2022 16:37:00 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nmzt5-00437r-1Q
- for linux-riscv@lists.infradead.org; Fri, 06 May 2022 15:29:02 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1])
- (Authenticated sender: dmitry.osipenko) with ESMTPSA id A73061F46AFF
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
- s=mail; t=1651850936;
- bh=36GvcdSB/pf30ZP9RtiH75vOy9s3MxY1/p1dsQRCX00=;
- h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
- b=j4PWvQ+KBo4etBUy0FbW/p7HgcgQKy32GPpN6vjoThFzS1+RGmcEmteL2lFd/bVBT
- AknDobZqw5O4tK0BEn0jni1jZ1Y8w81F2B2OWV3FF7FrvJT7Y7bQUJJnPaIFMtFHn0
- reKyy4wB8Xbrn+puiesHuayZefx8p/F1dSlMuhF2rKVyTgZW8aR+4U0aGftdyXJz/m
- 3XXXthcoiK77QOv1j4fPfZKN7nj7ru6E9U9WMrpUGrEUEDI35YvC+Jqrddc9aKOX41
- 7IjiAmfXml1CMKMBOqZ8jj6SNKFVNBjY8WGAT41UAfMzpF3zkqjQi1yQ9WbfUjIX3x
- 36sMhgh0cdItw==
-Message-ID: <296e6f6f-e96d-2db1-77b9-288dc47d1b98@collabora.com>
-Date: Fri, 6 May 2022 18:28:49 +0300
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.0
-Subject: Re: [PATCH v7 04/20] kernel: Add combined power-off+restart handler
- call chain API
-Content-Language: en-US
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, Russell King
- <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Greg Ungerer
- <gerg@linux-m68k.org>, Joshua Thompson <funaho@jurai.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Sebastian Reichel <sre@kernel.org>, Linus Walleij
- <linus.walleij@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- the arch/x86 maintainers <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Juergen Gross
- <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>,
- Len Brown <lenb@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Pavel Machek <pavel@ucw.cz>,
- Lee Jones <lee.jones@linaro.org>, Andrew Morton <akpm@linux-foundation.org>,
- Guenter Roeck <linux@roeck-us.net>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Ulf Hansson <ulf.hansson@linaro.org>,
- =?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-csky@vger.kernel.org, linux-ia64@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org,
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
- linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- Linux-sh list <linux-sh@vger.kernel.org>, xen-devel@lists.xenproject.org,
- ACPI Devel Maling List <linux-acpi@vger.kernel.org>,
- Linux PM <linux-pm@vger.kernel.org>,
- linux-tegra <linux-tegra@vger.kernel.org>
-References: <20220411233832.391817-1-dmitry.osipenko@collabora.com>
- <20220411233832.391817-5-dmitry.osipenko@collabora.com>
- <CAJZ5v0gnTSoeNP+QXwrZ45FQY4howVkJMuCjM=j+_-2BngJdQg@mail.gmail.com>
- <990621e7-9f8a-8b4a-02ec-fd6c1e1f48ff@collabora.com>
- <CAJZ5v0jxXtwot0qpib4UG8Tz8Hd1dEbgo58tEdPFboU8xwKHNw@mail.gmail.com>
-From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
-In-Reply-To: <CAJZ5v0jxXtwot0qpib4UG8Tz8Hd1dEbgo58tEdPFboU8xwKHNw@mail.gmail.com>
+ id 1nn0wr-004QAb-3B
+ for linux-riscv@lists.infradead.org; Fri, 06 May 2022 16:36:58 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id 204so3897715pfx.3
+ for <linux-riscv@lists.infradead.org>; Fri, 06 May 2022 09:36:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=IxfEVaIASIXkXL8knX1ujN2Jx8pBG0nLkRjrhRCWVrA=;
+ b=StYX5UPicuaF9n0QU9myK3qk5p3hczv1u9hC/nV0vUJuDQT5HdcagM7KezGdbpgHM/
+ ObU2BvvQ/dPpoUVp3R/oQQ4jbYfufwT1B8VABslQ6hzNB3LIibSgMWLIx/e/C8P+r/iC
+ 2mZ6egIUiVnweCr8Jn9w6GA9EgKFha23YCwTzRtoMQl7lBb8maqmA1kA1dkQgqfuZrBr
+ SsXy7B54ypA/G4EECcjIyPsyuum9NCFCqiZ1CVFojPooYkUmReUr/uhqLO5BxWPz+Bfl
+ 1arzZCQtQXzzuNZXwqKKxkf9gdjcFJlgCAJRxVCel7SWZ1nDE4c0hfMI410FlDabjAEo
+ zOoA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=IxfEVaIASIXkXL8knX1ujN2Jx8pBG0nLkRjrhRCWVrA=;
+ b=OgQe4U1gQqjkiU9WrW/oLEtfOV5WxURxhBBnMSWTOU+q+ei3i6M5WVdusyifbXQCQ0
+ jf7OG67uqZkd6d1HMnwm0MpGUrCtSAHXttT6ABEJfPCW7JZ1MjHWXfjQAzBGW5NoARW5
+ u/uIXBgNi9hrU3mpOV7U1ht4VCthFjsq3Oyh8tSKypqQWpKjfl9vrLu0uBkfsTZnEHlA
+ TpxwdJPJj2jeMITIrM15PDE0vezrS9CDSB9yu9Yr/eiMpLkbjAaBtcgmZalrRRrDRSeN
+ oh7M9ixq2ZDxZd5hFISUETRbjTW4NSe9I5qfyJMv0XwU7rR3DGUgHHUxct0qrq+CaMle
+ pqHA==
+X-Gm-Message-State: AOAM5308qIjgYkWFGRdPzsKA7w3BG219aQvjFRIgIzeqDUs3veAVFGPf
+ TZVp7vkQwZhp8/r9s1UEec6AKg==
+X-Google-Smtp-Source: ABdhPJwm7eczUYFnvi1topoIWQleGXBPYrCKhjccEQ4CcjUe1kwpr7NaCnWnS8JPl6j9DdL5rUsdVg==
+X-Received: by 2002:a62:6d47:0:b0:4fe:15fa:301d with SMTP id
+ i68-20020a626d47000000b004fe15fa301dmr4357053pfc.29.1651855013607; 
+ Fri, 06 May 2022 09:36:53 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223]) by smtp.gmail.com with ESMTPSA id
+ d1-20020a170903230100b0015e8d4eb210sm2097789plh.90.2022.05.06.09.36.52
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 06 May 2022 09:36:52 -0700 (PDT)
+Date: Fri, 06 May 2022 09:36:52 -0700 (PDT)
+X-Google-Original-Date: Fri, 06 May 2022 09:36:49 PDT (-0700)
+Subject: Re: [PATCH] RISC-V-fixes: relocate DTB if it's outside memory region
+In-Reply-To: <e3b6a7ed7dc612d7338bc95d8fbbfdfc@mailhost.ics.forth.gr>
+CC: mick@ics.forth.gr, Paul Walmsley <paul.walmsley@sifive.com>,
+ aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: mick@ics.forth.gr
+Message-ID: <mhng-506fb56e-9288-4a73-b984-91a54e11081c@palmer-mbp2014>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220506_082859_439160_FEE5B34A 
-X-CRM114-Status: GOOD (  14.87  )
+X-CRM114-CacheID: sfid-20220506_093657_386672_EB329457 
+X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,118 +85,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/20/22 21:47, Rafael J. Wysocki wrote:
->>>> +       spin_unlock(&platform_power_off_lock);
->>>> +
->>>> +       if (ret)
->>>> +               return ret;
->>>> +
->>>> +       ret = register_power_off_handler(&priv->power_off_nb);
->>>> +       if (ret)
->>>> +               priv->platform_power_off_cb = NULL;
->>>> +
->>>> +       return ret;
->>>> +}
->>>> +EXPORT_SYMBOL_GPL(register_platform_power_off);
->>>> +
->>>> +/**
->>>> + *     unregister_platform_power_off - Unregister platform-level power-off callback
->>>> + *     @power_off: Power-off callback
->>>> + *
->>>> + *     Unregisters previously registered platform power-off callback.
->>>> + *
->>>> + *     Returns zero on success, or error code on failure.
->>>> + */
->>>> +int unregister_platform_power_off(void (*power_off)(void))
->>>> +{
->>>> +       struct sys_off_handler_private_data *priv;
->>>> +       int ret;
->>>> +
->>>> +       priv = sys_off_handler_private_data(&platform_power_off_handler);
->>>> +
->>>> +       if (priv->platform_power_off_cb != power_off)
->>>> +               return -EINVAL;
->>>> +
->>>> +       ret = unregister_power_off_handler(&priv->power_off_nb);
->>>> +       priv->platform_power_off_cb = NULL;
->>>> +
->>>> +       return ret;
->>>> +}
->>>> +EXPORT_SYMBOL_GPL(unregister_platform_power_off);
->>>> +
->>>> +/**
->>>> + *     do_kernel_power_off - Execute kernel power-off handler call chain
->>>> + *
->>>> + *     Calls functions registered with register_power_off_handler.
->>>> + *
->>>> + *     Expected to be called as last step of the power-off sequence.
->>>> + *
->>>> + *     Powers off the system immediately if a power-off handler function has
->>>> + *     been registered. Otherwise does nothing.
->>>> + */
->>>> +void do_kernel_power_off(void)
->>>> +{
->>>> +       /* legacy pm_power_off() is unchained and has highest priority */
->>>> +       if (pm_power_off && pm_power_off != dummy_pm_power_off)
->>>> +               return pm_power_off();
->>>> +
->>>> +       blocking_notifier_call_chain(&power_off_handler_list, POWEROFF_NORMAL,
->>>> +                                    NULL);
->>>> +}
->>>> +
->>>> +static void do_kernel_power_off_prepare(void)
->>>> +{
->>>> +       /* legacy pm_power_off_prepare() is unchained and has highest priority */
->>>> +       if (pm_power_off_prepare)
->>>> +               return pm_power_off_prepare();
->>>> +
->>>> +       blocking_notifier_call_chain(&power_off_handler_list, POWEROFF_PREPARE,
->>>> +                                    NULL);
->>>> +}
->>>> +
->>>>  /**
->>>>   *     kernel_power_off - power_off the system
->>>>   *
->>>> @@ -304,8 +893,7 @@ EXPORT_SYMBOL_GPL(kernel_halt);
->>>>  void kernel_power_off(void)
->>>>  {
->>>>         kernel_shutdown_prepare(SYSTEM_POWER_OFF);
->>>> -       if (pm_power_off_prepare)
->>>> -               pm_power_off_prepare();
->>>> +       do_kernel_power_off_prepare();
->>>>         migrate_to_reboot_cpu();
->>>>         syscore_shutdown();
->>>>         pr_emerg("Power down\n");
->>>> @@ -314,6 +902,16 @@ void kernel_power_off(void)
->>>>  }
->>>>  EXPORT_SYMBOL_GPL(kernel_power_off);
->>>>
->>>> +bool kernel_can_power_off(void)
->>>> +{
->>>> +       if (!pm_power_off &&
->>>> +           blocking_notifier_call_chain_is_empty(&power_off_handler_list))
->>>> +               return false;
->>>> +
->>>> +       return true;
->>> return pm_power_off ||
->>> blocking_notifier_call_chain_is_empty(&power_off_handler_list);
->> Thank you for the thorough review!
-> You're very welcome!
-
-Thanks again for taking a look at the patches. I don't have strong
-preferences about the names and etc, so I'll update it all in v8 like
-you suggested.
-
--- 
-Best regards,
-Dmitry
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCAyOSBBcHIgMjAyMiAxMjoxODoxNCBQRFQgKC0wNzAwKSwgbWlja0BpY3MuZm9ydGgu
+Z3Igd3JvdGU6Cj4gzqPPhM65z4IgMjAyMi0wNC0yOSAxODoyOCwgUGFsbWVyIERhYmJlbHQgzq3O
+s8+BzrHPiM61Ogo+PiBPbiBUaHUsIDI4IEFwciAyMDIyIDE0OjQ4OjE0IFBEVCAoLTA3MDApLCBQ
+YWxtZXIgRGFiYmVsdCB3cm90ZToKPj4+IE9uIE1vbiwgMjUgQXByIDIwMjIgMjM6MTE6MjMgUERU
+ICgtMDcwMCksIG1pY2tAaWNzLmZvcnRoLmdyIHdyb3RlOgo+Pj4+IEhlbGxvIFBhbG1lciwKPj4+
+Pgo+Pj4+IEFueSB1cGRhdGVzIG9uIHRoaXMgPwo+Pj4KPj4+IFNvcnJ5IGFib3V0IHRoYXQsIGl0
+J3Mgb24gZml4ZXMuCj4+Cj4+IE5vdCBzdXJlIGlmIEkganVzdCB3YXNuJ3QgcGF5aW5nIGF0dGVu
+dGlvbiB5ZXN0ZXJkYXkgb3IgaWYgSSdtCj4+IGdydW1waWVyIHRoaXMgbW9ybmluZywgYnV0IHRo
+YXQgIlJJU0MtVi1maXhlczogIiBwcmVmaXggaXMganVzdCBhIGJpdAo+PiB0b28gb2RkIC0tIEkg
+a25vdyB3ZSd2ZSBnb3QgYSBzcGxpdCBiZXR3ZWVuICJSSVNDLVYiIGFuZCAicmlzY3YiIHNvCj4+
+IG1heWJlIGl0IGRvZXNuJ3QgbWF0dGVyLCBidXQgZXZlbiB0aGF0IGlzIGtpbmQgb2YgdWdseS4K
+Pj4KPj4gSSByZS13cm90ZSBpdCwgYnV0IEknbSBnb2luZyB0byBsZXQgaXQgcm91bmQgdHJpcCB0
+aHJvdWdoIGxpbnV4LW5leHQKPj4gc28gSSdsbCBzZW5kIGl0IHVwIG5leHQgdGltZS4KPj4KPj4g
+U29ycnksIEkga25vdyB0aGlzIGhhcHBlbmVkIHR3aWNlIHJlY2VudGx5IGJ1dCBJJ2xsIHRyeSBu
+b3QgdG8gbWFrZSBhCj4+IGhhYml0IG9mIGl0Lgo+Pgo+Cj4gRG9uJ3Qgd29ycnkgYWJvdXQgaXQs
+IGp1c3QgbGV0IG1lIGtub3cgd2hhdCB3b3JrcyBiZXR0ZXIgZm9yIHlvdSwgd291bGQKPiAiW1BB
+VENIIC1maXhlc10gcmlzY3Y6IiBiZSBvayBuZXh0IHRpbWUgPwoKVGhhdCdzIGdlbmVyYWxseSBo
+b3cgZm9sa3MgZG8gaXQsIGJ1dCBJIGp1c3QgbG9vayBmb3IgImZpeCIgYW55d2hlcmUgaW4gCnRo
+ZSBzdWJqZWN0IGxpbmUuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
