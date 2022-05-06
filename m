@@ -4,74 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D284C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 May 2022 12:53:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC835C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 May 2022 12:54:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=isiIWHJDM1h7QJvCpYrj+O31aFpUHckZsmD0ETRUU5s=; b=nCRKsbJ2Sd0/fP
-	dbDCbBTArNGyzgrECnvZwqsNc3fwWiLsGqldsozP5G7CP+ExeWvP7mLlhZOQWbijcR57EkDLX9xNj
-	mru6DDnWbSzqrOFCilM3gBr5nYh7Z8bOWe9IwF6HGb1tEJ7KIyIsmHVoa+5LySGfWU5+yRkln6U6D
-	8Z1eRsygTcOVPCtQnFNCAB0vhIR81vPC9eIZTvZDHVH2Agu57NbOX1bPXWzGAfYWR27bU4kfN3LNu
-	U67BD8EOIBYzuaSCmNYu82yIGlXERSVZcBhfoqJpDT7xpNRjAazh7uah34kd2arKGHfHJkC/rjsqn
-	aRuCUMQjmDDYZ90JAJog==;
+	List-Owner; bh=wWAzGX7KR0RKXdAzDuKtOnEjIrMXHGWQRAuYkLL7xbQ=; b=45IqcnpDExlDM5
+	JyFwgbMa0L6O8eUHaylNj/3hboUTqQU3d6RCM5IWfVU8C94SOXqggyzTkRqeIqC7uvZKxqIM8be1Z
+	6126AkbC9euqOJYnG6jr/Gzh64FYQaoxHrA9HedgQwKbQnb/8+QR46eyUAooQ5avci3JT1AMf7SQf
+	voardnN52pieLJJAiYvemCTglF6JGpQWkN+iUJlUMVIGHF/jYfKKDWDi1CMeHcXmAxyjmCOeiIp6w
+	qVcnUFyTln+I3fAShxjVsfn/dxOmgpI/xalvRva/ydKe3P0EA2aQz8+CxomsT7x1neBd0kwb9ctwT
+	Sy5Jpd1mF6qDySjk349A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nmxSs-003JHt-Dj; Fri, 06 May 2022 12:53:46 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
+	id 1nmxTf-003Jae-LH; Fri, 06 May 2022 12:54:35 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nmxSo-003JD1-8X
- for linux-riscv@lists.infradead.org; Fri, 06 May 2022 12:53:44 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-209-ZJ1dDxuMNtSxZCO0jLpoxQ-1; Fri, 06 May 2022 13:53:34 +0100
-X-MC-Unique: ZJ1dDxuMNtSxZCO0jLpoxQ-1
-Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
- AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
- Server (TLS) id 15.0.1497.32; Fri, 6 May 2022 13:53:32 +0100
-Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
- AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
- 15.00.1497.033; Fri, 6 May 2022 13:53:32 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: "'Maciej W. Rozycki'" <macro@orcam.me.uk>, Arnd Bergmann <arnd@kernel.org>
-CC: Rich Felker <dalias@libc.org>, "open list:IA64 (Itanium) PLATFORM"
- <linux-ia64@vger.kernel.org>, "open list:SUPERH" <linux-sh@vger.kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen
- <dave.hansen@linux.intel.com>, "open list:MIPS" <linux-mips@vger.kernel.org>, 
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, "open
- list:SPARC + UltraSPARC (sparc/sparc64)" <sparclinux@vger.kernel.org>, "open
- list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>, Will Deacon
- <will@kernel.org>, linux-arch <linux-arch@vger.kernel.org>, Yoshinori Sato
- <ysato@users.sourceforge.jp>, Helge Deller <deller@gmx.de>, "maintainer:X86
- ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, Russell King
- <linux@armlinux.org.uk>, Ingo Molnar <mingo@redhat.com>, Geert Uytterhoeven
- <geert@linux-m68k.org>, linux-pci <linux-pci@vger.kernel.org>, Bjorn Helgaas
- <helgaas@kernel.org>, Matt Turner <mattst88@gmail.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, Niklas Schnelle
- <schnelle@linux.ibm.com>, "open list:M68K ARCHITECTURE"
- <linux-m68k@lists.linux-m68k.org>, Ivan Kokshaysky
- <ink@jurassic.park.msu.ru>, Paul Walmsley <paul.walmsley@sifive.com>, "Thomas
- Gleixner" <tglx@linutronix.de>, "moderated list:ARM PORT"
- <linux-arm-kernel@lists.infradead.org>, Richard Henderson <rth@twiddle.net>,
- Michal Simek <monstr@monstr.eu>, Thomas Bogendoerfer
- <tsbogend@alpha.franken.de>, "open list:PARISC ARCHITECTURE"
- <linux-parisc@vger.kernel.org>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Linux Kernel Mailing List
- <linux-kernel@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "open
- list:ALPHA PORT" <linux-alpha@vger.kernel.org>, Borislav Petkov
- <bp@alien8.de>, "open list:LINUX FOR POWERPC (32-BIT AND 64-BIT)"
- <linuxppc-dev@lists.ozlabs.org>, "David S. Miller" <davem@davemloft.net>
-Subject: RE: [RFC v2 01/39] Kconfig: introduce HAS_IOPORT option and select it
- as necessary
-Thread-Topic: [RFC v2 01/39] Kconfig: introduce HAS_IOPORT option and select
- it as necessary
-Thread-Index: AQHYYUSwX3QwDKjE7kKG/gGNt1cnA60Rx6Pg
-Date: Fri, 6 May 2022 12:53:32 +0000
-Message-ID: <5239892986c94239a122ab2f7a18a7a5@AcuMS.aculab.com>
+ id 1nmxTR-003JWD-Fz; Fri, 06 May 2022 12:54:23 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 16295B835B9;
+ Fri,  6 May 2022 12:54:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CCAFC385B5;
+ Fri,  6 May 2022 12:54:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1651841658;
+ bh=YEsptMS5NZ5sU5R8sBoFFmT8HhhJmSMOqqqMD1wS+1Y=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=maE6/GoVFXRZNf7dfZPTVoMAWc6wGTVVX44qiwcwuwtsWpQr1FqM/jmMrvvkc1w0m
+ /fdrsFTDKxwRvNHNK/1DjgM5J06h70STrSIQAvZkM2OfQAHM0wNC1NP2CMvk75VZVN
+ fLTHzZWHgk6Ekdl8uTqjvomjFVgaGddUTcd5lXXPSGhuZCW4nb8nI7JlnC3De74LHw
+ WbtQuRK6IFfQaU8R1z+FNZAwJdGy2thD1f0VJD8T7C7xV2945L8kQS1Sga76wR3MHB
+ DhKSaRYVUK6746o5RiRAERN5HNbHvcEPu7PKSGLVz3w/nrBuDtObHLXaQUIxo+NIPv
+ Ke+TQ+7Lj2NdQ==
+Received: by mail-ot1-f52.google.com with SMTP id
+ m6-20020a05683023a600b0060612720715so4844634ots.10; 
+ Fri, 06 May 2022 05:54:18 -0700 (PDT)
+X-Gm-Message-State: AOAM5317QkjAXS1n25UI9hkwJOF7Hp4Fjd/UXKeD3VuwbQeTQ2UcuGYt
+ jmnV+wEZipwUgJaGWbiBmxaF5fNjztV5pxLpQAA=
+X-Google-Smtp-Source: ABdhPJxL4gNLQQDFM+BNVTidCF+FJnD2lH7XZl8gBNCvdOYlAoSJ9hsbhzdM2mtB2NzLIM7z6wH6YyxJ1/r4G1eT6xU=
+X-Received: by 2002:a81:9213:0:b0:2f6:eaae:d22f with SMTP id
+ j19-20020a819213000000b002f6eaaed22fmr2535695ywg.249.1651841647017; Fri, 06
+ May 2022 05:54:07 -0700 (PDT)
+MIME-Version: 1.0
 References: <CAK8P3a0sJgMSpZB_Butx2gO0hapYZy-Dm_QH-hG5rOaq_ZgsXg@mail.gmail.com>
  <20220505161028.GA492600@bhelgaas>
  <CAK8P3a3fmPExr70+fVb564hZdGAuPtYa-QxgMMe5KLpnY_sTrQ@mail.gmail.com>
@@ -79,20 +58,47 @@ References: <CAK8P3a0sJgMSpZB_Butx2gO0hapYZy-Dm_QH-hG5rOaq_ZgsXg@mail.gmail.com>
  <CAK8P3a0NzG=3tDLCdPj2=A__2r_+xiiUTW=WJCBNp29x_A63Og@mail.gmail.com>
  <alpine.DEB.2.21.2205061314110.52331@angie.orcam.me.uk>
 In-Reply-To: <alpine.DEB.2.21.2205061314110.52331@angie.orcam.me.uk>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
-MIME-Version: 1.0
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=C51A453 smtp.mailfrom=david.laight@aculab.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Fri, 6 May 2022 14:53:49 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a0EMK0gHOmb-jvtfVLb1dun72kYUMKpb11T_GgXiuR9Mw@mail.gmail.com>
+Message-ID: <CAK8P3a0EMK0gHOmb-jvtfVLb1dun72kYUMKpb11T_GgXiuR9Mw@mail.gmail.com>
+Subject: Re: [RFC v2 01/39] Kconfig: introduce HAS_IOPORT option and select it
+ as necessary
+To: "Maciej W. Rozycki" <macro@orcam.me.uk>
+Cc: Bjorn Helgaas <helgaas@kernel.org>,
+ Niklas Schnelle <schnelle@linux.ibm.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-arch <linux-arch@vger.kernel.org>, 
+ linux-pci <linux-pci@vger.kernel.org>, Richard Henderson <rth@twiddle.net>, 
+ Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Matt Turner <mattst88@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Michal Simek <monstr@monstr.eu>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+ "David S. Miller" <davem@davemloft.net>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
+ "open list:ALPHA PORT" <linux-alpha@vger.kernel.org>, 
+ "moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>, 
+ "open list:IA64 (Itanium) PLATFORM" <linux-ia64@vger.kernel.org>, 
+ "open list:M68K ARCHITECTURE" <linux-m68k@lists.linux-m68k.org>, 
+ "open list:MIPS" <linux-mips@vger.kernel.org>, 
+ "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>, 
+ "open list:LINUX FOR POWERPC (32-BIT AND 64-BIT)"
+ <linuxppc-dev@lists.ozlabs.org>, 
+ "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>, 
+ "open list:SUPERH" <linux-sh@vger.kernel.org>, 
+ "open list:SPARC + UltraSPARC (sparc/sparc64)" <sparclinux@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220506_055342_651310_871CC07D 
-X-CRM114-Status: GOOD (  31.33  )
+X-CRM114-CacheID: sfid-20220506_055421_902985_14ECCFF9 
+X-CRM114-Status: GOOD (  23.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,11 +115,10 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Maciej W. Rozycki
-> Sent: 06 May 2022 13:27
-> 
+On Fri, May 6, 2022 at 2:27 PM Maciej W. Rozycki <macro@orcam.me.uk> wrote:
+>
 > On Fri, 6 May 2022, Arnd Bergmann wrote:
-> 
+>
 > > >  If this is PCI/PCIe indeed, then an I/O access is just a different bit
 > > > pattern put on the bus/in the TLP in the address phase.  So what is there
 > > > inherent to the s390 architecture that prevents that different bit pattern
@@ -124,69 +129,21 @@ From: Maciej W. Rozycki
 > > access as pointer dereference, this is a separate CPU instruction that
 > > takes a device/bar plus offset as arguments rather than a pointer, and
 > > Linux encodes this back into a fake __iomem token.
-> 
+>
 >  OK, that seems to me like a reasonable and quite a clean design (on the
 > hardware side).
-> 
+>
 >  So what happens if the instruction is given an I/O rather than memory BAR
 > as the relevant argument?  Is the address space indicator bit (bit #0)
 > simply ignored or what?
 
-You don't understand something...
+Not sure. My best guess is that it would actually work as you'd expect,
+but is deliberately left out of the architecture specification so they don't
+have to to validate the correctness.  Note that only a small number of
+PCIe cards are actually supported by IBM, and I think the firmware
+only passes devices to the OS if they are whitelisted.
 
-For a memory BAR pci_ioremap() returns a token that can be used with readl().
-On most architectures readl() is just a memory access.
-This all fails on an I/O BAR.
-
-For an I/O BAR you want a similar pair of functions.
-On x86 the access function would need to use the 'in/out' instructions but
-there is no requirement for the token to be the native io port number.
-On many non-x86 architectures the access function would be a simple memory
-access - but a specific system (eg many ppc) may never actually allow
-such mappings to succeed.
-
-You might also want a third PCI mapping function that can map a memory
-BAR or an I/O BAR - with a suitable access function.
-On x86 this would need something like ioread8() for accesses.
-Except that function uses small integers for io port numbers
-(which is inherently dangerous).
-
-Nothing except the architecture specific implementation of the function
-to access an io BAR would ever go near a function called inb().
-
-The same is really true for other bus type - including ISA and EISA.
-(Ignoring the horrid of probing ISI bus devices - hopefully they
-are in the ACPI tables??_
-If a driver is probed on a ISA bus there ought to be functions
-equivalent to pci_ioremap() (for both memory and IO addresses)
-that return tokens appropriate for the specific bus.
-
-That is all a different load of churn.
-
-
-> > >  But that has nothing to do with the presence or absence of any specific
-> > > processor instructions.  It's just a limitation of bus glue.  So I guess
-> > > it's just that all PCI/PCIe glue logic implementations for s390 have such
-> > > a limitation, right?
-> >
-> > There are separate instructions for PCI memory and config space, but
-> > no instructions for I/O space, or for non-PCI MMIO that it could be mapped
-> > into.
-> 
->  The PCI configuration space was retrofitted into x86 systems (and is
-> accessed in an awkward manner with them), but with a new design such a
-> clean approach is most welcome IMHO.  Thank you for your explanation.
-
-Actually I think x86 was the initial system for PCI.
-The PCI config space 'mess' is all about trying to make
-something that wouldn't break existing memory maps.
-
-	David
-
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
-
+        Arnd
 
 _______________________________________________
 linux-riscv mailing list
