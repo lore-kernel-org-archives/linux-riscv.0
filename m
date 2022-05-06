@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 426AAC43217
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F4F8C4332F
 	for <linux-riscv@archiver.kernel.org>; Fri,  6 May 2022 16:37:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=SdD+TXYYKdExcSRyPfANIYeeviDeBWp6WQysrW1YF+E=; b=GwYuHnUKRUZsq6eEyazRSogFBU
-	7EibyPaLWmPrSQR0JEkEuuxnm2QLVJ9K/7kRsGtdBkEXy0y0KJFP2QYzdvOdyWWJLBjPWth4r8F2z
-	XVHaYDKa94Cw0WHA8F+gmzdTOJ2hjISgAZim0fn0nHF5X6HgxOmri3c1TQULEVNyDjn3r0yDA2M5C
-	0xyFJo+DWN7OIIWVZlUM9/iT6SpJtJ3fBGlZr5QRiLwmoqe6TgxT1lstn742aSwLwlXljj3fd1wfk
-	HY8kgNMcMouWYF90ax2lq1gTCDmjsTsps5yKkEz7YtU0l/8L1BpN0hiFraSBaLn2xOQhLy4gSqny5
-	fMEpoWyQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=F56Gp/lryuUEQNTPV6H+jd5Rz1Vjb1tHv3iUp4QpaaE=; b=zeeOCY65HgAJM3
+	I7fXHU+So3bUeRfXvQL/SXCkQLpIuWC+k3TSdAEs9emyqb10UIz2jvhZHZjyTGmAwIUOhMuC9Ojlc
+	4hyp3C87sabMLxzMKxJoA54X/i+M7DxmDul8TCJoLHtV7/JFVXdtULXKBsMJO9klMwyZc8LM3+KBW
+	fInZy6nTZsDdhc/Dnfqaz+9Z4sx0U98QVCJOHoGYMmfH2D2Q98IuhTSp0VBdwHJpaPemlPhf/U/gn
+	vrRLUG9i63wXtbZ6D8YL/0VmzsEEW5GMUfVR7Dd608sM1fIL6cWHsUz6RSBi9gDI2OSfXWuxOXP9D
+	wTukMfb8aaHdn1evYX7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nn0wu-004QBW-Ak; Fri, 06 May 2022 16:37:00 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1nn0wr-004QB9-SF; Fri, 06 May 2022 16:36:57 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nn0wr-004QAb-3B
- for linux-riscv@lists.infradead.org; Fri, 06 May 2022 16:36:58 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id 204so3897715pfx.3
- for <linux-riscv@lists.infradead.org>; Fri, 06 May 2022 09:36:54 -0700 (PDT)
+ id 1nn0wo-004QAa-Ln
+ for linux-riscv@lists.infradead.org; Fri, 06 May 2022 16:36:56 +0000
+Received: by mail-pg1-x529.google.com with SMTP id e5so6530624pgc.5
+ for <linux-riscv@lists.infradead.org>; Fri, 06 May 2022 09:36:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=IxfEVaIASIXkXL8knX1ujN2Jx8pBG0nLkRjrhRCWVrA=;
- b=StYX5UPicuaF9n0QU9myK3qk5p3hczv1u9hC/nV0vUJuDQT5HdcagM7KezGdbpgHM/
- ObU2BvvQ/dPpoUVp3R/oQQ4jbYfufwT1B8VABslQ6hzNB3LIibSgMWLIx/e/C8P+r/iC
- 2mZ6egIUiVnweCr8Jn9w6GA9EgKFha23YCwTzRtoMQl7lBb8maqmA1kA1dkQgqfuZrBr
- SsXy7B54ypA/G4EECcjIyPsyuum9NCFCqiZ1CVFojPooYkUmReUr/uhqLO5BxWPz+Bfl
- 1arzZCQtQXzzuNZXwqKKxkf9gdjcFJlgCAJRxVCel7SWZ1nDE4c0hfMI410FlDabjAEo
- zOoA==
+ d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:cc:from:to:message-id;
+ bh=qEVz08vvf0VIHBcvKAlc53ZhzOaZzAfXKDFQQpcAtv4=;
+ b=lgRamTQd2O9lDl1x9NNyFEsZ6+OhPg0g9CVw4BrS31nsXQ1KXBn03r/1OzbZ//upQO
+ gSakyor/ca1sM+pP/i4SiUfiZ/7aNp+aE5vrwr1NUBH8J004nMjdUIFOATKmEQtR2QCh
+ Qr6eKKKliygkzmswa+mwDUQh4lHDgkri9QHRmcoNGgSodIPRbDDlTwZ9ykROh0fF1sPQ
+ HJhtsW8YCDjEpBh5eDw72l6FrpmsBn+veC3LaHcv/u2RxAK+JqPC6z1vphiCChQK368n
+ aFINi3jv4V8LFKZsMuHQQUhh9IXHj/oxSkRo/UjEwB/8jXPDxnFIORK7V4UlaS6eJrQs
+ wApw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=IxfEVaIASIXkXL8knX1ujN2Jx8pBG0nLkRjrhRCWVrA=;
- b=OgQe4U1gQqjkiU9WrW/oLEtfOV5WxURxhBBnMSWTOU+q+ei3i6M5WVdusyifbXQCQ0
- jf7OG67uqZkd6d1HMnwm0MpGUrCtSAHXttT6ABEJfPCW7JZ1MjHWXfjQAzBGW5NoARW5
- u/uIXBgNi9hrU3mpOV7U1ht4VCthFjsq3Oyh8tSKypqQWpKjfl9vrLu0uBkfsTZnEHlA
- TpxwdJPJj2jeMITIrM15PDE0vezrS9CDSB9yu9Yr/eiMpLkbjAaBtcgmZalrRRrDRSeN
- oh7M9ixq2ZDxZd5hFISUETRbjTW4NSe9I5qfyJMv0XwU7rR3DGUgHHUxct0qrq+CaMle
- pqHA==
-X-Gm-Message-State: AOAM5308qIjgYkWFGRdPzsKA7w3BG219aQvjFRIgIzeqDUs3veAVFGPf
- TZVp7vkQwZhp8/r9s1UEec6AKg==
-X-Google-Smtp-Source: ABdhPJwm7eczUYFnvi1topoIWQleGXBPYrCKhjccEQ4CcjUe1kwpr7NaCnWnS8JPl6j9DdL5rUsdVg==
-X-Received: by 2002:a62:6d47:0:b0:4fe:15fa:301d with SMTP id
- i68-20020a626d47000000b004fe15fa301dmr4357053pfc.29.1651855013607; 
- Fri, 06 May 2022 09:36:53 -0700 (PDT)
+ h=x-gm-message-state:date:subject:cc:from:to:message-id;
+ bh=qEVz08vvf0VIHBcvKAlc53ZhzOaZzAfXKDFQQpcAtv4=;
+ b=NurYldKmnS1OrqQuMNbvGl/HvBt4AFhMrw0vNBPLyBNODjeroEQMfctYjyTeX2QYU1
+ NqChtd7DkXVZPdE5SMwvTChhzHExUBT4YHGQL/LUXr/c9mUieDh8BagTRGUCR+zFdIpu
+ 9Cd6XiuNftNYxT4LBXtojctjcwW/fufDujAkgUKoGFMLJP++0QkOmFXaEBj0aSvo0TXm
+ N+I8ClNO6gUHGrWCIpW5BOhrtrvmHH6g2ll0y7niNSqVHC+gxq9ouzy+vs2F8vrk2CKF
+ x3C6Vglhibvd/W+KOgiAM9eanN+Rrvc7hgytpiSnpJ92ZQmLctsffH2wCzHMqzbp+yco
+ 0wsw==
+X-Gm-Message-State: AOAM531Pkugo9zVSsMQw+xgjFxXDBHACfyIBJEiOJd2kFwFwIKgQwuUS
+ Tw87oexzPXpRSBq21pOESZ/VIYpIPsDJeg==
+X-Google-Smtp-Source: ABdhPJzjEu3WfJZwCDhm62TWNxO8ndiU3Gx+YKY2ev0GNpx4ajYDUw+tIOLYoQQPMOL+3rFk1tMcuQ==
+X-Received: by 2002:a63:6cca:0:b0:3ab:892e:bfa4 with SMTP id
+ h193-20020a636cca000000b003ab892ebfa4mr3444656pgc.494.1651855012002; 
+ Fri, 06 May 2022 09:36:52 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223]) by smtp.gmail.com with ESMTPSA id
- d1-20020a170903230100b0015e8d4eb210sm2097789plh.90.2022.05.06.09.36.52
+ b3-20020a1709027e0300b0015e8d4eb1d3sm1968731plm.29.2022.05.06.09.36.51
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 06 May 2022 09:36:52 -0700 (PDT)
-Date: Fri, 06 May 2022 09:36:52 -0700 (PDT)
-X-Google-Original-Date: Fri, 06 May 2022 09:36:49 PDT (-0700)
-Subject: Re: [PATCH] RISC-V-fixes: relocate DTB if it's outside memory region
-In-Reply-To: <e3b6a7ed7dc612d7338bc95d8fbbfdfc@mailhost.ics.forth.gr>
-CC: mick@ics.forth.gr, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: mick@ics.forth.gr
-Message-ID: <mhng-506fb56e-9288-4a73-b984-91a54e11081c@palmer-mbp2014>
-Mime-Version: 1.0 (MHng)
+ Fri, 06 May 2022 09:36:51 -0700 (PDT)
+Date: Fri, 06 May 2022 09:36:51 -0700 (PDT)
+X-Google-Original-Date: Fri, 06 May 2022 09:36:06 PDT (-0700)
+Subject: [GIT PULL] RISC-V Fix for 5.18-rc6
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-93e651e7-8975-4f60-8fab-31f695d9af2b@palmer-mbp2014>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220506_093657_386672_EB329457 
-X-CRM114-Status: GOOD (  14.47  )
+X-CRM114-CacheID: sfid-20220506_093654_973728_2891EAB8 
+X-CRM114-Status: UNSURE (   6.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,30 +80,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCAyOSBBcHIgMjAyMiAxMjoxODoxNCBQRFQgKC0wNzAwKSwgbWlja0BpY3MuZm9ydGgu
-Z3Igd3JvdGU6Cj4gzqPPhM65z4IgMjAyMi0wNC0yOSAxODoyOCwgUGFsbWVyIERhYmJlbHQgzq3O
-s8+BzrHPiM61Ogo+PiBPbiBUaHUsIDI4IEFwciAyMDIyIDE0OjQ4OjE0IFBEVCAoLTA3MDApLCBQ
-YWxtZXIgRGFiYmVsdCB3cm90ZToKPj4+IE9uIE1vbiwgMjUgQXByIDIwMjIgMjM6MTE6MjMgUERU
-ICgtMDcwMCksIG1pY2tAaWNzLmZvcnRoLmdyIHdyb3RlOgo+Pj4+IEhlbGxvIFBhbG1lciwKPj4+
-Pgo+Pj4+IEFueSB1cGRhdGVzIG9uIHRoaXMgPwo+Pj4KPj4+IFNvcnJ5IGFib3V0IHRoYXQsIGl0
-J3Mgb24gZml4ZXMuCj4+Cj4+IE5vdCBzdXJlIGlmIEkganVzdCB3YXNuJ3QgcGF5aW5nIGF0dGVu
-dGlvbiB5ZXN0ZXJkYXkgb3IgaWYgSSdtCj4+IGdydW1waWVyIHRoaXMgbW9ybmluZywgYnV0IHRo
-YXQgIlJJU0MtVi1maXhlczogIiBwcmVmaXggaXMganVzdCBhIGJpdAo+PiB0b28gb2RkIC0tIEkg
-a25vdyB3ZSd2ZSBnb3QgYSBzcGxpdCBiZXR3ZWVuICJSSVNDLVYiIGFuZCAicmlzY3YiIHNvCj4+
-IG1heWJlIGl0IGRvZXNuJ3QgbWF0dGVyLCBidXQgZXZlbiB0aGF0IGlzIGtpbmQgb2YgdWdseS4K
-Pj4KPj4gSSByZS13cm90ZSBpdCwgYnV0IEknbSBnb2luZyB0byBsZXQgaXQgcm91bmQgdHJpcCB0
-aHJvdWdoIGxpbnV4LW5leHQKPj4gc28gSSdsbCBzZW5kIGl0IHVwIG5leHQgdGltZS4KPj4KPj4g
-U29ycnksIEkga25vdyB0aGlzIGhhcHBlbmVkIHR3aWNlIHJlY2VudGx5IGJ1dCBJJ2xsIHRyeSBu
-b3QgdG8gbWFrZSBhCj4+IGhhYml0IG9mIGl0Lgo+Pgo+Cj4gRG9uJ3Qgd29ycnkgYWJvdXQgaXQs
-IGp1c3QgbGV0IG1lIGtub3cgd2hhdCB3b3JrcyBiZXR0ZXIgZm9yIHlvdSwgd291bGQKPiAiW1BB
-VENIIC1maXhlc10gcmlzY3Y6IiBiZSBvayBuZXh0IHRpbWUgPwoKVGhhdCdzIGdlbmVyYWxseSBo
-b3cgZm9sa3MgZG8gaXQsIGJ1dCBJIGp1c3QgbG9vayBmb3IgImZpeCIgYW55d2hlcmUgaW4gCnRo
-ZSBzdWJqZWN0IGxpbmUuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+The following changes since commit ac0280a9ca106c5501257e79d165f968712b5899:
+
+  RISC-V: configs: Configs that had RPMSG_CHAR now get RPMSG_CTRL (2022-04-26 08:19:53 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.18-rc6
+
+for you to fetch changes up to c6fe81191bd74f7e6ae9ce96a4837df9485f3ab8:
+
+  RISC-V: relocate DTB if it's outside memory region (2022-04-29 07:59:18 -0700)
+
+----------------------------------------------------------------
+RISC-V Fix for 5.18-rc6
+
+* A fix to relocate the DTB early in boot, in cases where the bootloader
+  doesn't put the DTB in a region that will end up mapped by the kernel.
+  This manifests as a crash early in boot on a handful of
+  configurations.
+
+----------------------------------------------------------------
+Nick Kossifidis (1):
+      RISC-V: relocate DTB if it's outside memory region
+
+ arch/riscv/mm/init.c | 21 +++++++++++++++++++--
+ 1 file changed, 19 insertions(+), 2 deletions(-)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
