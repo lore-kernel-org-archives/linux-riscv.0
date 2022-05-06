@@ -4,99 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0F88C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 May 2022 11:33:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDCB7C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 May 2022 12:18:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rOJp8QTKsK4mluyRcS7v33pagGBFYL3b2XUPZKhT0sw=; b=U3u/lHAvz/eWtS
-	2PJCsX+B3cCl4ImwZ45x4w2QO9K+n7S6wVd0tDfis0A+M1a6MmuxkMAXs50hcvs2VXhOxWZSOMhj4
-	HcR51qZ3l0ojhESU3YnzHrdxQtLQpjFzj6IyI9d2lpIvJ4inPCpfE0L5v9ADYXVK+H3XPfEpsXLY5
-	UabSOVpOpnCGYacIy79IUc2FbzNUc61cJqRPPMmTNn4K0atXd1sMcfLzI1cd4q72cMWx/xWwRImd9
-	15NlZt/cP284YWFKrSfyxksskNvVxw0IjA3CZFqJUcw5DzolxeHK8WpS/+nQowmx0xg2u75LD8BbW
-	deJnhSYk/+Yz11FqrPug==;
+	List-Owner; bh=ExVDfV3rgPIIapHNRIk26F6T6AQlXJV1tl9uXz/jZ/M=; b=iXF6vCR/fhbDjG
+	7KIR2TWT+Qk3A8xUWGxSUK2gy9RbdAz0tUWzpcQVXsHiwya7l6mtDJ/FbWsZ1kAsxvzg8HwU+XiHa
+	gh9sTiF7AVfk/W709j/lo9D8Xdba5azKK9nFuKUGKepKN6evjKrwHONo0Cus9ZtZ1g+0MV1st9W0D
+	UBof2j8QMazG/+BGIyXN6dTTTxqP9q7YUFrqIjb8ufLYhPmAUwbFW5zIYhErJZrOSPhOJQI62RBTg
+	a6zXXcWEcDZVhjXSlACY0+HJb4nIk2WwfbPoSI3APl2aeT4yODl6EfH3iwUTGpQvGb6A3cr8BaWvg
+	cWjobN3UKR8038g+8XTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nmwDU-002vIG-2K; Fri, 06 May 2022 11:33:48 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1nmwui-0037tS-Gn; Fri, 06 May 2022 12:18:28 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nmwDI-002vDy-6j; Fri, 06 May 2022 11:33:37 +0000
+ id 1nmwuV-0037no-ER; Fri, 06 May 2022 12:18:17 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 52C1061EF9;
- Fri,  6 May 2022 11:33:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B70C1C385A8;
- Fri,  6 May 2022 11:33:30 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 0DF0361F92;
+ Fri,  6 May 2022 12:18:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D44AEC385A9;
+ Fri,  6 May 2022 12:18:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1651836810;
- bh=mPb8Q8Ok2oNk7WAjedaRk8DoRYKS47EIw5ypxOHVuLY=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=WWSZiZ6Av+Csqa/4o5LVEuZFS3DJz7bi5gem/5b+fSqMF/bztOWB7Uv0UN6PKf1iR
- bIkeemtz1+eEPJSsxwshNfqV0neFGBEsrkdriS1XVQTfHCon4dlnzVssO79rvne83V
- WEsdFGEqAfFTTia1860HjAAZDFTA2MG5xtW85SdHUVN4/302qVZ7mV7/1f5rOoeLF7
- 3Ib23+tQfIklwvq/B0nmy0PEdT9DYV74TS5IrYAW2P7K9UHk4o/CsMa0XoA2T/Z/sM
- FFRO2q3aPyOcC9hEPgHvpgVc8ahqS97LC9PLDio9DDKV6tmaNDNbmA/BFYZm1jQ8cK
- dteb9336iWplA==
-Received: by mail-ot1-f44.google.com with SMTP id
- g11-20020a9d648b000000b00605e4278793so4727176otl.7; 
- Fri, 06 May 2022 04:33:30 -0700 (PDT)
-X-Gm-Message-State: AOAM531nrYkgTMMXwipGpEnqDvr24UBA9Pfw8ZCiTC2xCemsqkyOT3kN
- +jjok0xkFfvKglCu3xPVsvwQfnTYBBojidjrOOY=
-X-Google-Smtp-Source: ABdhPJy5Vv8YTgA/+Yk25Xv8xMKQhcEw8LiqaQy/3bb0wg6KVBd/5y4hLeqVF7Zu5FslZtdBqz1tOtNTiterOIoDfDE=
-X-Received: by 2002:a25:d3c2:0:b0:645:74df:f43d with SMTP id
- e185-20020a25d3c2000000b0064574dff43dmr1886331ybf.394.1651836798896; Fri, 06
- May 2022 04:33:18 -0700 (PDT)
-MIME-Version: 1.0
-References: <CAK8P3a0sJgMSpZB_Butx2gO0hapYZy-Dm_QH-hG5rOaq_ZgsXg@mail.gmail.com>
- <20220505161028.GA492600@bhelgaas>
- <CAK8P3a3fmPExr70+fVb564hZdGAuPtYa-QxgMMe5KLpnY_sTrQ@mail.gmail.com>
- <alpine.DEB.2.21.2205061058540.52331@angie.orcam.me.uk>
-In-Reply-To: <alpine.DEB.2.21.2205061058540.52331@angie.orcam.me.uk>
-From: Arnd Bergmann <arnd@kernel.org>
-Date: Fri, 6 May 2022 13:33:02 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a0NzG=3tDLCdPj2=A__2r_+xiiUTW=WJCBNp29x_A63Og@mail.gmail.com>
-Message-ID: <CAK8P3a0NzG=3tDLCdPj2=A__2r_+xiiUTW=WJCBNp29x_A63Og@mail.gmail.com>
-Subject: Re: [RFC v2 01/39] Kconfig: introduce HAS_IOPORT option and select it
- as necessary
-To: "Maciej W. Rozycki" <macro@orcam.me.uk>
-Cc: Bjorn Helgaas <helgaas@kernel.org>,
- Niklas Schnelle <schnelle@linux.ibm.com>, 
- Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-arch <linux-arch@vger.kernel.org>, 
- linux-pci <linux-pci@vger.kernel.org>, Richard Henderson <rth@twiddle.net>, 
- Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Matt Turner <mattst88@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Michal Simek <monstr@monstr.eu>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, 
- Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
- "David S. Miller" <davem@davemloft.net>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
- "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
- "open list:ALPHA PORT" <linux-alpha@vger.kernel.org>, 
- "moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>, 
- "open list:IA64 (Itanium) PLATFORM" <linux-ia64@vger.kernel.org>, 
- "open list:M68K ARCHITECTURE" <linux-m68k@lists.linux-m68k.org>, 
- "open list:MIPS" <linux-mips@vger.kernel.org>, 
- "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>, 
- "open list:LINUX FOR POWERPC (32-BIT AND 64-BIT)"
- <linuxppc-dev@lists.ozlabs.org>, 
- "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>, 
- "open list:SUPERH" <linux-sh@vger.kernel.org>, 
- "open list:SPARC + UltraSPARC (sparc/sparc64)" <sparclinux@vger.kernel.org>
+ s=k20201202; t=1651839494;
+ bh=qUnhz1XHUq2kA7L9Sznlg2QA2+DOGvJOkZsfKs8hOR4=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+ b=k/7WbNBLn1QTlWhHPOJ82NF/Jfx1gi0f9XCR8YctoEre4ufZlVkqHp+3nCqWWRHm9
+ hHowR7HFpNLUYOf9CB8QhvRkBX0FW4jPYPGyKzgEZiRx6t/3Y0aplkSHvgaV2tneUP
+ kVeWS7e2gGMVqMf/lzVkDcx6V9ioYmJ+f7sXcFX5KVOkAQscF22Bp4qOt2hmg+aoV/
+ vjA+Pru3Hkv2eAyBqMYiyodK7pqanvMvQDIQU1HJMiPOEBW5QVAgHkEzK2VGsYdt1z
+ U1in26yIWc13e15V0ck7PBt09y7q2a+gSXJJBivhKHS9sVJ1GEfJkYVx/QyqLWBCZH
+ IQvUTQZPKDw2A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
+ by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
+ (envelope-from <maz@kernel.org>)
+ id 1nmwuS-009SFZ-GK; Fri, 06 May 2022 13:18:12 +0100
+Date: Fri, 06 May 2022 13:18:12 +0100
+Message-ID: <87o80a7t2z.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
+ linux-riscv@lists.infradead.org, LAK <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [QUERY]: Acknowledgment of edge triggered interrupts
+In-Reply-To: <CA+V-a8s80shYtUsJZSu7vz_S6ZXtxGkHVi5cgBWO9tr_n+XiJA@mail.gmail.com>
+References: <CA+V-a8va6YCtjswPVZvwBxZigpHfFpGOi5C2R7e5H49LpNWCYw@mail.gmail.com>
+ <87levki7zh.wl-maz@kernel.org>
+ <CA+V-a8s80shYtUsJZSu7vz_S6ZXtxGkHVi5cgBWO9tr_n+XiJA@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: prabhakar.csengg@gmail.com, geert+renesas@glider.be,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
+ SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220506_043336_355949_E31FDC1A 
-X-CRM114-Status: GOOD (  23.02  )
+X-CRM114-CacheID: sfid-20220506_051815_601469_609E79A9 
+X-CRM114-Status: GOOD (  38.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,48 +81,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 6, 2022 at 12:20 PM Maciej W. Rozycki <macro@orcam.me.uk> wrote:
-> On Thu, 5 May 2022, Arnd Bergmann wrote:
->  I think I'm missing something here.  IIUC we're talking about a PCI/PCIe
-> bus used with s390 hardware, right?
->
->  (It has to be PCI/PCIe, because other than x86/IA-64 host buses there are
-> only PCI/PCIe and EISA/ISA buses out there that define I/O access cycles
-> and EISA/ISA have long been obsoleted except perhaps from some niche use.)
->
->  If this is PCI/PCIe indeed, then an I/O access is just a different bit
-> pattern put on the bus/in the TLP in the address phase.  So what is there
-> inherent to the s390 architecture that prevents that different bit pattern
-> from being used?
-
-The hardware design for PCI on s390 is very different from any other
-architecture, and more abstract. Rather than implementing MMIO register
-access as pointer dereference, this is a separate CPU instruction that
-takes a device/bar plus offset as arguments rather than a pointer, and
-Linux encodes this back into a fake __iomem token.
-
->  If anything, I could imagine the same limitation as with current POWER9
-> implementations, that is whatever glue is used to wire PCI/PCIe to the
-> rest of the system does not implement a way to use said bit pattern (which
-> has nothing to do with the POWER9 processor instruction set).
->
->  But that has nothing to do with the presence or absence of any specific
-> processor instructions.  It's just a limitation of bus glue.  So I guess
-> it's just that all PCI/PCIe glue logic implementations for s390 have such
-> a limitation, right?
-
-There are separate instructions for PCI memory and config space, but
-no instructions for I/O space, or for non-PCI MMIO that it could be mapped
-into.
-
-       Arnd
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCAwNiBNYXkgMjAyMiAxMjoyNDozNCArMDEwMCwKIkxhZCwgUHJhYmhha2FyIiA8cHJh
+Ymhha2FyLmNzZW5nZ0BnbWFpbC5jb20+IHdyb3RlOgo+IAo+IEhpIE1hcmMsCj4gCj4gU29ycnkg
+Zm9yIHRoZSBsYXRlIHJlcGx5Lgo+IAo+IE9uIE1vbiwgTWF5IDIsIDIwMjIgYXQgMTA6NDQgQU0g
+TWFyYyBaeW5naWVyIDxtYXpAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPgo+ID4gT24gU2F0LCAzMCBB
+cHIgMjAyMiAxOTo0MToyNCArMDEwMCwKPiA+ICJMYWQsIFByYWJoYWthciIgPHByYWJoYWthci5j
+c2VuZ2dAZ21haWwuY29tPiB3cm90ZToKPiA+ID4KPiA+ID4gSGkgTWFyYywKPiA+ID4KPiA+ID4g
+SSBhbSBjdXJyZW50bHkgd29ya2luZyBvbiB0aGUgaXJxLXNpZml2ZS1wbGljLmMgZHJpdmVyLiBU
+aGUKPiA+ID4gaXJxLXNpZml2ZS1wbGljLmMgZHJpdmVyIGlzIGN1cnJlbnRseSBpbXBsZW1lbnRl
+ZCBhcyBhIGNoYWluZWQgZG9tYWluLgo+ID4gPiBPbiBvdXIgU29DIHdoaWNoIHVzZXMgdGhpcyBi
+bG9jayBmb3IgRURHRSBpbnRlcnJ1cHRzIHdlIG5lZWQgdG8gZmlyc3QKPiA+ID4gYWNrbm93bGVk
+Z2UgdGhlIGludGVycnVwdCBiZWZvcmUgaGFuZGxpbmcgaXQuCj4gPgo+ID4gSXNuJ3QgdGhhdCB3
+aGF0IHRoZSBDTEFJTSByZWdpc3RlciBkb2VzIG9uIHRoZSBQTElDPyBBRkFJQ1QsIHRoaXMKPiA+
+IGludGVycnVwdCBjb250cm9sbGVyIGlzIGFibGUgdG8gaW1wbGVtZW50IHRoZSB3aG9sZSBmbG93
+LCBpcnJlc3BlY3RpdmUKPiA+IG9mIHRoZSB0cmlnZ2VyIG1lY2hhbmlzbS4KPiA+Cj4gWWVzLCB0
+aGUgQ0xBSU0gcmVnaXN0ZXIgaXMgdXNlZCB0byBBQ0sgaW50ZXJydXB0cy4KPiAKPiA+IFRoZSBz
+cGVjIHN0cm9uZ2x5IGhpbnRzIGF0IHRoYXQsIHNlZSBbMV0gKCJJbnRlcnJ1cHQgZ2F0ZXdheXMi
+KSwgYW5kCj4gPiB0aGUgdW5pZm9ybSBoYW5kbGluZyB0aGF0IHJlc3VsdHMgb2YgaXQuIEluIGEg
+d2F5LCB0aGlzIGlzIHN0cmlraW5nbHkKPiA+IHNpbWlsYXIgdG8gd2hhdCB0aGUgb3JpZ2luYWwg
+QVJNIEdJQyBkb2VzLgo+ID4KPiBUaGUgQVJNIEdJQyBhbGxvd3MgdGhlIG5leHQgaW50ZXJydXB0
+cyB0byBiZSBwZW5kaW5nLCB0aGF0IGlzIGl0IGNhbgo+IHN0b2NrIGludGVycnVwdHMgKHBlbmRp
+bmcgaW50ZXJydXB0IGNvdW50ZXIpLgoKV2VsbCwgaWYgeW91IGNvbnNpZGVyIGEgc2luZ2xlIGJp
+dCBhIGNvdW50ZXIsIHllcy4KCj4gCj4gPiBbMV0gaHR0cHM6Ly9naXRodWIuY29tL3Jpc2N2L3Jp
+c2N2LXBsaWMtc3BlYy9ibG9iL21hc3Rlci9yaXNjdi1wbGljLmFkb2MKPiA+Cj4gPiA+Cj4gPiA+
+IEkgY2FtZSBhY3Jvc3MgYSBzaW1pbGFyIHNpdHVhdGlvbiBvbiBhIGRpZmZlcmVudCBkcml2ZXIg
+KHBhdGNoIFswXSkKPiA+ID4gYnV0IGl0IGlzbid0IGEgY2hhaW5lZCBoYW5kbGVyLgo+ID4gPgo+
+ID4gPiBXaGF0IGFwcHJvYWNoIHNob3VsZCBiZSB0YWtlbiBmb3IgY2hhaW5lZCBJUlEgZG9tYWlu
+cyB0byBoYW5kbGUgc3VjaCBjYXNlcz8KPiA+Cj4gPiBJIGRvbid0IHRoaW5rIHRoZXJlIGlzIGFu
+eXRoaW5nIHRvIGNoYW5nZS4gQXQgbGVhc3QsIGFzIGxvbmcgYXMgdGhlCj4gPiBJbnRlcnJ1cHQg
+R2F0ZXdheSBpcyBkb2luZyBpdHMgam9iIGNvcnJlY3RseS4gSG93IHRoaXMgZ2F0ZXdheSBpcwo+
+ID4gY29uZmlndXJlZCBpcyB1bmZvcnR1bmF0ZWx5IG91dCBvZiB0aGUgc2NvcGUgb2YgdGhlIGFy
+Y2hpdGVjdHVyZSwgaXQKPiA+IHNlZW1zLCBhbmQgSSdkIGV4cGVjdCB5b3VyIEhXIHRvIGhhdmUg
+c29tZSBzb3J0IG9mIGtub2JzIGZvciB0aGUKPiA+IHRyaWdnZXIgdHlwZSB0byBiZSBjb25maWd1
+cmVkLiBUaGlzIHdvdWxkIGJlIGRlYWx0IHdpdGggaW4gYSBzZXBhcmF0ZQo+ID4gc3RhY2tlZCBk
+cml2ZXIuCj4gPgo+IFJlbmVzYXMgUlovRml2ZSBTb2MgaGFzIGEgQVg0NU1QIEFuZGVzQ29yZSB3
+aGljaCBoYXMgTkNFUExJQzEwMC4KPiBRdW90aW5nIGZyb20gaHR0cHM6Ly9naXRodWIuY29tL3Jp
+c2N2L3Jpc2N2LXBsaWMtc3BlYy9ibG9iL21hc3Rlci9yaXNjdi1wbGljLmFkb2MjaW50ZXJydXB0
+LWdhdGV3YXlzCj4gCj4gIklmIHRoZSBnbG9iYWwgaW50ZXJydXB0IHNvdXJjZSB3YXMgZWRnZS10
+cmlnZ2VyZWQsIHRoZSBnYXRld2F5IHdpbGwKPiBjb252ZXJ0IHRoZSDvrIFyc3QgbWF0Y2hpbmcg
+c2lnbmFsIGVkZ2UgaW50byBhbiBpbnRlcnJ1cHQgcmVxdWVzdC4KPiBEZXBlbmRpbmcgb24gdGhl
+IGRlc2lnbiBvZiB0aGUgZGV2aWNlIGFuZCB0aGUgaW50ZXJydXB0IGhhbmRsZXIsIGluCj4gYmV0
+d2VlbiBzZW5kaW5nIGFuIGludGVycnVwdCByZXF1ZXN0IGFuZCByZWNlaXZpbmcgbm90aWNlIG9m
+IGl0cwo+IGhhbmRsZXLigJlzIGNvbXBsZXRpb24sIHRoZSBnYXRld2F5IG1pZ2h0IGVpdGhlciBp
+Z25vcmUgYWRkaXRpb25hbAo+IG1hdGNoaW5nIGVkZ2VzIG9yIGluY3JlbWVudCBhIGNvdW50ZXIg
+b2YgcGVuZGluZyBpbnRlcnJ1cHRzLiBJbiBlaXRoZXIKPiBjYXNlLCB0aGUgbmV4dCBpbnRlcnJ1
+cHQgcmVxdWVzdCB3aWxsIG5vdCBiZSBmb3J3YXJkZWQgdG8gdGhlIFBMSUMKPiBjb3JlIHVudGls
+IHRoZSBwcmV2aW91cyBjb21wbGV0aW9uIG1lc3NhZ2UgaGFzIGJlZW4gcmVjZWl2ZWQiCj4gCj4g
+QW5kZXMgTkNFUExJQzEwMCBpZ25vcmVzIHRoZSBuZXh0IGludGVycnVwdCBlZGdlIHVudGlsIHRo
+ZSBwcmV2aW91cwo+IGNvbXBsZXRpb24gbWVzc2FnZSBoYXMgYmVlbiByZWNlaXZlZCBhbmQgdG8g
+dG9wIGl0IHRoZSBnYXRld2F5IGRvZXNuJ3QKPiBoYXZlIGEgcGVuZGluZyBpbnRlcnJ1cHQgY291
+bnRlci4gU28gdGhlIG9ubHkgd29ya2Fyb3VuZCBmb3IgaGFuZGxpbmcKPiBlZGdlIGludGVycnVw
+dHMgaXMgdG8gZmlyc3QgYWNrbm93bGVkZ2UgaXQgYW5kIHRoZW4gcnVuIHRoZSBoYW5kbGVyIGFz
+Cj4gc2hvd24gaW4gdGhlIGF0dGFjaGVkIGltYWdlLgoKSHVoLiBJIHNlZSB3aGF0IHlvdSBtZWFu
+LiBUaGUgcHJvYmxlbSBpc24ndCB0aGUgQWNrLCBidXQgdGhlIEVPSS4gWW91Cm5lZWQgdG8gZW5z
+dXJlIGNvbXBsZXRpb24gb2YgdGhlIGludGVycnVwdCBiZWZvcmUgaXQgaXMgaGFuZGxlZCBzbwp0
+aGF0IHlvdSBhdm9pZCBsb3NpbmcgYml0cy4gVGhpcyBpcyBwcmVjaXNlbHkgd2hhdCBhIHJlYWQg
+b2YgQ0xBSU0Kc2hvdWxkIGhhdmUgZ3VhcmFudGVlZC4gV2hvIGNhbWUgdXAgd2l0aCB0aGlzIGlu
+c2FuZSBwaWVjZSBvZiBjcmFwPwpSZWFsbHksIHNvbWUgcGVvcGxlIHNob3VsZG4ndCBiZSBsZWZ0
+IGRlc2lnbmluZyBpbnRlcnJ1cHQgY29udHJvbGxlcnMuCgpJJ20gYWZyYWlkIHlvdSdsbCBoYXZl
+IHRvIHVzZSBhIHNlcGFyYXRlIGZsb3cgZm9yIGVkZ2UgaW50ZXJydXB0cywKcHJvYmFibHkgdXNp
+bmcgdGhlIGZhc3Rlb2lfYWNrIGZsb3csIGFuZCBwZXJmb3JtIHRoZSAqd3JpdGUqIHRvCkNPTVBM
+RVRFL0NMQUlNIGluIHRoZSBpcnFfYWNrKCkgY2FsbGJhY2suCgpJcyB0aGlzIGEgZmVhdHVyZSBv
+ZiB0aGlzIFBMSUMgaW1wbGVtZW50YXRpb24/IE9yIGlzIHRoYXQgY29tbW9uIHRvCmFsbCBQTElD
+cz8KCglNLgoKLS0gCldpdGhvdXQgZGV2aWF0aW9uIGZyb20gdGhlIG5vcm0sIHByb2dyZXNzIGlz
+IG5vdCBwb3NzaWJsZS4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
