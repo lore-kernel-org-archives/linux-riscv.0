@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77D9AC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 May 2022 15:11:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36198C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 May 2022 15:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p0PeMl/UKBaFVgnUlB99/KvhkZNTxCy5taQWuzDXLrI=; b=jvCXfqiVgPHQpx
-	xkrubpamKUzVNM89whCaWE9YE2Arcbnm8RjHrg7dd3WrLADCyseSjah227otuupNjqzGFbpSFdTW/
-	cS/4TTZ95ux2djYCdMd7cj4hs/1RTrAvI5nRkkitIYl5zUDmD714Xri0L+XFXplFGDd3I5duC8qhA
-	uQOjEnnwqjWZsLs93DecO6EEhsNQtI5e1qvPWGp+p2vu9YTP9lPal6QanOm9+38vwSzCrW67lYyCI
-	B7bBoz8TtVuv5PsEis9LbeoINLSaTFLD7H+fY72a6Js0ECFwDn36RutnX1/eX7i5JCeX9XYwNG884
-	VhkoJPa+vOLuuoYgRvNw==;
+	List-Owner; bh=/NeC9EhZM43neW42ZziuBsl3fE+yVhv9nNs5UxDW50I=; b=TbtswkaVMlzHlw
+	UMo7/Cwnel8hn0oL1M2lEgmaYjeMOFwK/KkoBMM0bZ2xLJMkrTTHquqAbwcuq42RwHEHqd0M+c53T
+	K7omNFWRgwYVUQaJFvgv6QszaBtoR/NtLtkHkXEl2ixH4/Hg8A4XamgBletTYOe8xGPhq8Ek6sj6H
+	JX81RAY9H16IxV7GEFEB+/D8YdaN50h71SQrKV/ZTotbzen/ugH0ddfq4bJOOL1mmUVGEyYUu/UxD
+	8VyvMdEvoafiMLH+XcmF6/okv+HQe0DQY8STzLZr+7PwxP/BPgWzmoLbyxJt5Be8twWDyO86bGr+l
+	nW5PoEjk20DT4OuZVP8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nmzbY-003zqF-IH; Fri, 06 May 2022 15:10:52 +0000
+	id 1nmzub-00445u-3u; Fri, 06 May 2022 15:30:33 +0000
 Received: from bhuna.collabora.co.uk ([46.235.227.227])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nmzbP-003zmI-2j
- for linux-riscv@lists.infradead.org; Fri, 06 May 2022 15:10:47 +0000
+ id 1nmzt5-00437r-1Q
+ for linux-riscv@lists.infradead.org; Fri, 06 May 2022 15:29:02 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
- (Authenticated sender: dmitry.osipenko) with ESMTPSA id 3BE091F46A77
+ (Authenticated sender: dmitry.osipenko) with ESMTPSA id A73061F46AFF
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
- s=mail; t=1651849840;
- bh=W4lTpGoqRDp9jGpQmSeg75zdqgDSf5NBF1xaIYSJv90=;
+ s=mail; t=1651850936;
+ bh=36GvcdSB/pf30ZP9RtiH75vOy9s3MxY1/p1dsQRCX00=;
  h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
- b=nzDQfSC0mATKPl7KMFojVZYi/BuoRw0OpfD54szXaDeylL+J+qQoXJUCJwPnICT/+
- I/8Sy9s84BogRpRojC6gImDJ92xHSdZ7FPiQMJZURPxR9roLC1xtjbIKIwiggwbDrJ
- UyaTMJ/2JU2bfO9WoTWZ2N7xEm7TpEz7ocN5RCxlOhvhrIBNeygJsGOPczykA2dH3Y
- ihMVuTbEr72h1fNuHXeA9KS5RWNyWO9XvwVu/QHvJStTZHleWev97ymTDjkKKIqCsB
- bhqNsJtDoTgZz1cxiqs29hp9q3R5MhFc8U2fUaOt4aKqtIuVwJRIWZP1u5mW0Ypayn
- BRUe8/CfvIiJQ==
-Message-ID: <3fc21eb5-218b-f783-a7ef-f805f13c66da@collabora.com>
-Date: Fri, 6 May 2022 18:10:33 +0300
+ b=j4PWvQ+KBo4etBUy0FbW/p7HgcgQKy32GPpN6vjoThFzS1+RGmcEmteL2lFd/bVBT
+ AknDobZqw5O4tK0BEn0jni1jZ1Y8w81F2B2OWV3FF7FrvJT7Y7bQUJJnPaIFMtFHn0
+ reKyy4wB8Xbrn+puiesHuayZefx8p/F1dSlMuhF2rKVyTgZW8aR+4U0aGftdyXJz/m
+ 3XXXthcoiK77QOv1j4fPfZKN7nj7ru6E9U9WMrpUGrEUEDI35YvC+Jqrddc9aKOX41
+ 7IjiAmfXml1CMKMBOqZ8jj6SNKFVNBjY8WGAT41UAfMzpF3zkqjQi1yQ9WbfUjIX3x
+ 36sMhgh0cdItw==
+Message-ID: <296e6f6f-e96d-2db1-77b9-288dc47d1b98@collabora.com>
+Date: Fri, 6 May 2022 18:28:49 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.8.0
@@ -93,8 +93,8 @@ References: <20220411233832.391817-1-dmitry.osipenko@collabora.com>
 From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 In-Reply-To: <CAJZ5v0jxXtwot0qpib4UG8Tz8Hd1dEbgo58tEdPFboU8xwKHNw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220506_081043_426605_97180343 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20220506_082859_439160_FEE5B34A 
+X-CRM114-Status: GOOD (  14.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,19 +112,106 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 4/20/22 21:47, Rafael J. Wysocki wrote:
->>>> +       void (*platform_power_off_cb)(void);
->>>> +       void (*simple_power_off_cb)(void *data);
->>>> +       void *simple_power_off_cb_data;
->>> Is there any particular reason to put these callbacks here and not
->>> directly into struct sys_off_handler?
->> They are used internally by reboot.c and shouldn't be touched by the
->> kernel API users, so I wanted to factor out and protect all the private
->> data.
-> But they come from these users anyway, don't they?
-> 
+>>>> +       spin_unlock(&platform_power_off_lock);
+>>>> +
+>>>> +       if (ret)
+>>>> +               return ret;
+>>>> +
+>>>> +       ret = register_power_off_handler(&priv->power_off_nb);
+>>>> +       if (ret)
+>>>> +               priv->platform_power_off_cb = NULL;
+>>>> +
+>>>> +       return ret;
+>>>> +}
+>>>> +EXPORT_SYMBOL_GPL(register_platform_power_off);
+>>>> +
+>>>> +/**
+>>>> + *     unregister_platform_power_off - Unregister platform-level power-off callback
+>>>> + *     @power_off: Power-off callback
+>>>> + *
+>>>> + *     Unregisters previously registered platform power-off callback.
+>>>> + *
+>>>> + *     Returns zero on success, or error code on failure.
+>>>> + */
+>>>> +int unregister_platform_power_off(void (*power_off)(void))
+>>>> +{
+>>>> +       struct sys_off_handler_private_data *priv;
+>>>> +       int ret;
+>>>> +
+>>>> +       priv = sys_off_handler_private_data(&platform_power_off_handler);
+>>>> +
+>>>> +       if (priv->platform_power_off_cb != power_off)
+>>>> +               return -EINVAL;
+>>>> +
+>>>> +       ret = unregister_power_off_handler(&priv->power_off_nb);
+>>>> +       priv->platform_power_off_cb = NULL;
+>>>> +
+>>>> +       return ret;
+>>>> +}
+>>>> +EXPORT_SYMBOL_GPL(unregister_platform_power_off);
+>>>> +
+>>>> +/**
+>>>> + *     do_kernel_power_off - Execute kernel power-off handler call chain
+>>>> + *
+>>>> + *     Calls functions registered with register_power_off_handler.
+>>>> + *
+>>>> + *     Expected to be called as last step of the power-off sequence.
+>>>> + *
+>>>> + *     Powers off the system immediately if a power-off handler function has
+>>>> + *     been registered. Otherwise does nothing.
+>>>> + */
+>>>> +void do_kernel_power_off(void)
+>>>> +{
+>>>> +       /* legacy pm_power_off() is unchained and has highest priority */
+>>>> +       if (pm_power_off && pm_power_off != dummy_pm_power_off)
+>>>> +               return pm_power_off();
+>>>> +
+>>>> +       blocking_notifier_call_chain(&power_off_handler_list, POWEROFF_NORMAL,
+>>>> +                                    NULL);
+>>>> +}
+>>>> +
+>>>> +static void do_kernel_power_off_prepare(void)
+>>>> +{
+>>>> +       /* legacy pm_power_off_prepare() is unchained and has highest priority */
+>>>> +       if (pm_power_off_prepare)
+>>>> +               return pm_power_off_prepare();
+>>>> +
+>>>> +       blocking_notifier_call_chain(&power_off_handler_list, POWEROFF_PREPARE,
+>>>> +                                    NULL);
+>>>> +}
+>>>> +
+>>>>  /**
+>>>>   *     kernel_power_off - power_off the system
+>>>>   *
+>>>> @@ -304,8 +893,7 @@ EXPORT_SYMBOL_GPL(kernel_halt);
+>>>>  void kernel_power_off(void)
+>>>>  {
+>>>>         kernel_shutdown_prepare(SYSTEM_POWER_OFF);
+>>>> -       if (pm_power_off_prepare)
+>>>> -               pm_power_off_prepare();
+>>>> +       do_kernel_power_off_prepare();
+>>>>         migrate_to_reboot_cpu();
+>>>>         syscore_shutdown();
+>>>>         pr_emerg("Power down\n");
+>>>> @@ -314,6 +902,16 @@ void kernel_power_off(void)
+>>>>  }
+>>>>  EXPORT_SYMBOL_GPL(kernel_power_off);
+>>>>
+>>>> +bool kernel_can_power_off(void)
+>>>> +{
+>>>> +       if (!pm_power_off &&
+>>>> +           blocking_notifier_call_chain_is_empty(&power_off_handler_list))
+>>>> +               return false;
+>>>> +
+>>>> +       return true;
+>>> return pm_power_off ||
+>>> blocking_notifier_call_chain_is_empty(&power_off_handler_list);
+>> Thank you for the thorough review!
+> You're very welcome!
 
-Yes, the point is that these callback pointers are owned by the kernel
-core while callbacks are registered.
+Thanks again for taking a look at the patches. I don't have strong
+preferences about the names and etc, so I'll update it all in v8 like
+you suggested.
 
 -- 
 Best regards,
