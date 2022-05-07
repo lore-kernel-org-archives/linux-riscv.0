@@ -4,64 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF478C433EF
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 May 2022 10:44:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20441C433F5
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 May 2022 13:15:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ekaYbeL63qHCZ5VRQZKhALSp+N4n35AbXnFnuVyEY8c=; b=yasri+U2jxC7qC
-	YCG6MX/Jo+E6Zte3izR33zUui1YRaG73ZqaOwh/Ka3YBRyDac9teMF4zZ+3td46m2BnIv69CSIHzh
-	Rpw/PQ9/nsCbFsSmpJOgcmrA6pG5iYwbMsv03waCd14gUNIq7+mHlnDZwbnHccbWC4GNwbV+j5AGf
-	k1Ox6DX87RxmksKu+OFCQAL52jTxxhuyKkwRphRNSfim0pp7ag/TTTnSNG0WFR1WCCWy8jIE8q9H1
-	RYkaJFF1ZXqRfPdr0NChM2bOZxLvqtjoL7FGgamAUHnWe87UjyGOa9SSYJ79rtv8WXAHEoGoYFlJh
-	qMHYQGxFqTvSSgs0rrAg==;
+	List-Owner; bh=lydorKhcVj0U0FgCIe+MSeKcsIk//1KUStOuXcMH8gU=; b=CYb1E/64gCBRS3
+	2r0FY4eXFBeFkgZaCdF94YGYkCNVSiMTE1yIgnx0cbTqShR2tp4p9to1ucXv7RfHSIrKMk2BlhR8W
+	/JEStLphOsdSoyMKjaUBwWyz070wG9uxWNl7hedf5nLkqQEEaFi6lCCrC+TGRZuQQ9Ejl7kB857fa
+	Ckt2STh8D+gFDKZUAZIFV2bXolZUp8BL8v2HwWUcfTwzOQRlsMXmO8KXuLRhVRAdmSWNrz0ews+fZ
+	mOxyid7m62GaxXc/4wuENtIrVavzfYFlqC8kDA4Cdtuh0C9e4cUZBV4ADXIL9gBGFbKJELxjzgwEd
+	CDz2gkzZ6wgTOGiXlOpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nnHvc-006rKe-8U; Sat, 07 May 2022 10:44:48 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+	id 1nnKGy-007FU5-Ao; Sat, 07 May 2022 13:15:00 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nnHtj-006q6N-Bv; Sat, 07 May 2022 10:42:55 +0000
-Received: from kwepemi100024.china.huawei.com (unknown [172.30.72.55])
- by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4KwPBB3zf9z1JBtb;
- Sat,  7 May 2022 18:41:38 +0800 (CST)
-Received: from kwepemm600017.china.huawei.com (7.193.23.234) by
- kwepemi100024.china.huawei.com (7.221.188.87) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Sat, 7 May 2022 18:42:45 +0800
-Received: from localhost.localdomain (10.175.112.125) by
- kwepemm600017.china.huawei.com (7.193.23.234) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Sat, 7 May 2022 18:42:44 +0800
-From: Tong Tiangen <tongtiangen@huawei.com>
-To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Pasha Tatashin
- <pasha.tatashin@soleen.com>, Anshuman Khandual <anshuman.khandual@arm.com>,
- Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>
-CC: <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
- Tong Tiangen <tongtiangen@huawei.com>, Kefeng Wang
- <wangkefeng.wang@huawei.com>, Guohanjun <guohanjun@huawei.com>
-Subject: [PATCH -next v7 5/6] arm64/mm: Enable ARCH_SUPPORTS_PAGE_TABLE_CHECK
-Date: Sat, 7 May 2022 11:01:13 +0000
-Message-ID: <20220507110114.4128854-6-tongtiangen@huawei.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220507110114.4128854-1-tongtiangen@huawei.com>
-References: <20220507110114.4128854-1-tongtiangen@huawei.com>
+ id 1nnKGm-007FQu-Hg; Sat, 07 May 2022 13:14:50 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id E33CEB80882;
+ Sat,  7 May 2022 13:14:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 216E9C385B1;
+ Sat,  7 May 2022 13:14:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1651929285;
+ bh=9uTgmNAvlTbzN50Cu5IwNYqzF7atwTKQUljfe2kjZUc=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=iDB5qYBiUdSDJDY3O1arHfq2ckrvDBaDIMlb7N58i6l8UufbIQONCWG8ZbwlwTljF
+ KyZo/hhehnk7kRManj/hXE/Xf6ablwp6uaz3H+cBB4vBVPeAgH732SRJbXPv9Dr4k0
+ S7zoxMWxBPrPYWsEJfLjGVmZbARPc6NzJX2LtXm+eLiMebx1S4KIEnelXP2SHvorOM
+ eK4JRw+FZBI1rgbtWeqvQmurUOzyYr1JkAmvNV2ZlZyNux/dZ4x1R7e4c8ddbBifDP
+ oQqQITpYOOXmUtpX0yuTadeMaMIgc907CguayKPAWLawKbG0wnf2Tss7SLDlp09t3c
+ SAr9UQSbLHl0Q==
+Received: by mail-yb1-f174.google.com with SMTP id y2so17288749ybi.7;
+ Sat, 07 May 2022 06:14:45 -0700 (PDT)
+X-Gm-Message-State: AOAM531f/lACT3F4nWFoWNsxrWmZXJV5ehRFFK8liGGqsiOzVHANAhIX
+ GGmHLXdMVA+FH6S1HB8jhz8N1XoW2snKMyI3tyM=
+X-Google-Smtp-Source: ABdhPJxbpJWGFV6icMBoxijo70JK/8WaaDtoVIOoN93PiTf8ADZqw87+hT03oX7HblceCPV66kg3inBF049Gp/XoA2E=
+X-Received: by 2002:a81:1697:0:b0:2fa:32f9:78c8 with SMTP id
+ 145-20020a811697000000b002fa32f978c8mr6670913yww.135.1651929273816; Sat, 07
+ May 2022 06:14:33 -0700 (PDT)
 MIME-Version: 1.0
-X-Originating-IP: [10.175.112.125]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- kwepemm600017.china.huawei.com (7.193.23.234)
-X-CFilter-Loop: Reflected
+References: <20220505195342.GA509942@bhelgaas>
+ <22bec167-241f-2cbe-829f-a3f65e40e71@linux-m68k.org>
+ <105ccec439f709846e82b69cb854ac825d7a6a49.camel@linux.ibm.com>
+ <7dfa7578-039-e132-c573-ad89bd3215@linux-m68k.org>
+In-Reply-To: <7dfa7578-039-e132-c573-ad89bd3215@linux-m68k.org>
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Sat, 7 May 2022 15:14:16 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a3tds8O+Gg2nF3MfrVVcmtLbtdQ2TnCJaDYz28cyhhWkg@mail.gmail.com>
+Message-ID: <CAK8P3a3tds8O+Gg2nF3MfrVVcmtLbtdQ2TnCJaDYz28cyhhWkg@mail.gmail.com>
+Subject: Re: [RFC v2 01/39] Kconfig: introduce HAS_IOPORT option and select it
+ as necessary
+To: Finn Thain <fthain@linux-m68k.org>
+Cc: Niklas Schnelle <schnelle@linux.ibm.com>,
+ Bjorn Helgaas <helgaas@kernel.org>, 
+ Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-arch <linux-arch@vger.kernel.org>, 
+ linux-pci <linux-pci@vger.kernel.org>, Richard Henderson <rth@twiddle.net>, 
+ Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Matt Turner <mattst88@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Michal Simek <monstr@monstr.eu>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+ "David S. Miller" <davem@davemloft.net>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
+ "open list:ALPHA PORT" <linux-alpha@vger.kernel.org>, 
+ "moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>, 
+ "open list:IA64 (Itanium) PLATFORM" <linux-ia64@vger.kernel.org>, 
+ "open list:M68K ARCHITECTURE" <linux-m68k@lists.linux-m68k.org>, 
+ "open list:MIPS" <linux-mips@vger.kernel.org>, 
+ "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>, 
+ "open list:LINUX FOR POWERPC (32-BIT AND 64-BIT)"
+ <linuxppc-dev@lists.ozlabs.org>, 
+ "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>, 
+ "open list:SUPERH" <linux-sh@vger.kernel.org>, 
+ "open list:SPARC + UltraSPARC (sparc/sparc64)" <sparclinux@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220507_034251_829156_7A5EC3CF 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20220507_061448_907872_14745F05 
+X-CRM114-Status: GOOD (  28.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,172 +112,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
+On Sat, May 7, 2022 at 2:01 AM Finn Thain <fthain@linux-m68k.org> wrote:
+> On Fri, 6 May 2022, Niklas Schnelle wrote:
+> > On Fri, 2022-05-06 at 19:12 +1000, Finn Thain wrote:
+> > > On Thu, 5 May 2022, Bjorn Helgaas wrote:
+> > > >
+> > > > I mooted a s390 inb() implementation like "return ~0" because that's
+> > > > what happens on most arches when there's no device to respond to the
+> > > > inb().
+> > > >
+> > > > The HAS_IOPORT dependencies are fairly ugly IMHO, and they clutter
+> > > > drivers that use I/O ports in some cases but not others.  But maybe
+> > > > it's the most practical way.
+> > > >
+> > >
+> > > Do you mean, "the most practical way to avoid a compiler warning on
+> > > s390"? What about "#pragma GCC diagnostic ignored"?
+> >
+> > This actually happens with clang.
+>
+> That suggests a clang bug to me. If you believe GCC should behave like
+> clang, then I guess the pragma above really is the one you want. If you
+> somehow feel that the kernel should cater to gcc and clang even where they
+> disagree then you would have to use "#pragma clang diagnostic ignored".
 
-As commit d283d422c6c4 ("x86: mm: add x86_64 support for page table check")
-, enable ARCH_SUPPORTS_PAGE_TABLE_CHECK on arm64.
+I don't see how you can blame the compiler for this. On architectures
+with a zero PCI_IOBASE, an inb(0x2f8) literally becomes
 
-Add additional page table check stubs for page table helpers, these stubs
-can be used to check the existing page table entries.
+        var = *(u8*)((NULL + 0x2f8);
 
-Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
-Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
-Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
----
- arch/arm64/Kconfig               |  1 +
- arch/arm64/include/asm/pgtable.h | 61 ++++++++++++++++++++++++++++----
- 2 files changed, 56 insertions(+), 6 deletions(-)
+If you run a driver that does this, the kernel gets a page fault for
+the NULL page
+and reports an Oops. clang tells you 'warning: performing pointer
+arithmetic on a null pointer has undefined behavior', which is not exactly
+spot on, but close enough to warn you that you probably shouldn't do this. gcc
+doesn't warn here, but it does warn about an array out-of-bounds access when
+you pass such a pointer into memcpy or another string function.
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 272c75af9302..3055fb5b3fb4 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -92,6 +92,7 @@ config ARM64
- 	select ARCH_SUPPORTS_ATOMIC_RMW
- 	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128
- 	select ARCH_SUPPORTS_NUMA_BALANCING
-+	select ARCH_SUPPORTS_PAGE_TABLE_CHECK
- 	select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
- 	select ARCH_WANT_DEFAULT_BPF_JIT
- 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 8ebf1cec5d90..4e61cde27f9f 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -33,6 +33,7 @@
- #include <linux/mmdebug.h>
- #include <linux/mm_types.h>
- #include <linux/sched.h>
-+#include <linux/page_table_check.h>
- 
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
- #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
-@@ -96,6 +97,7 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
- #define pte_young(pte)		(!!(pte_val(pte) & PTE_AF))
- #define pte_special(pte)	(!!(pte_val(pte) & PTE_SPECIAL))
- #define pte_write(pte)		(!!(pte_val(pte) & PTE_WRITE))
-+#define pte_user(pte)		(!!(pte_val(pte) & PTE_USER))
- #define pte_user_exec(pte)	(!(pte_val(pte) & PTE_UXN))
- #define pte_cont(pte)		(!!(pte_val(pte) & PTE_CONT))
- #define pte_devmap(pte)		(!!(pte_val(pte) & PTE_DEVMAP))
-@@ -312,8 +314,8 @@ static inline void __check_racy_pte_update(struct mm_struct *mm, pte_t *ptep,
- 		     __func__, pte_val(old_pte), pte_val(pte));
- }
- 
--static inline void set_pte_at(struct mm_struct *mm, unsigned long addr,
--			      pte_t *ptep, pte_t pte)
-+static inline void __set_pte_at(struct mm_struct *mm, unsigned long addr,
-+				pte_t *ptep, pte_t pte)
- {
- 	if (pte_present(pte) && pte_user_exec(pte) && !pte_special(pte))
- 		__sync_icache_dcache(pte);
-@@ -343,6 +345,13 @@ static inline void set_pte_at(struct mm_struct *mm, unsigned long addr,
- 	set_pte(ptep, pte);
- }
- 
-+static inline void set_pte_at(struct mm_struct *mm, unsigned long addr,
-+			      pte_t *ptep, pte_t pte)
-+{
-+	page_table_check_pte_set(mm, addr, ptep, pte);
-+	return __set_pte_at(mm, addr, ptep, pte);
-+}
-+
- /*
-  * Huge pte definitions.
-  */
-@@ -454,6 +463,8 @@ static inline int pmd_trans_huge(pmd_t pmd)
- #define pmd_dirty(pmd)		pte_dirty(pmd_pte(pmd))
- #define pmd_young(pmd)		pte_young(pmd_pte(pmd))
- #define pmd_valid(pmd)		pte_valid(pmd_pte(pmd))
-+#define pmd_user(pmd)		pte_user(pmd_pte(pmd))
-+#define pmd_user_exec(pmd)	pte_user_exec(pmd_pte(pmd))
- #define pmd_cont(pmd)		pte_cont(pmd_pte(pmd))
- #define pmd_wrprotect(pmd)	pte_pmd(pte_wrprotect(pmd_pte(pmd)))
- #define pmd_mkold(pmd)		pte_pmd(pte_mkold(pmd_pte(pmd)))
-@@ -501,8 +512,19 @@ static inline pmd_t pmd_mkdevmap(pmd_t pmd)
- #define pud_pfn(pud)		((__pud_to_phys(pud) & PUD_MASK) >> PAGE_SHIFT)
- #define pfn_pud(pfn,prot)	__pud(__phys_to_pud_val((phys_addr_t)(pfn) << PAGE_SHIFT) | pgprot_val(prot))
- 
--#define set_pmd_at(mm, addr, pmdp, pmd)	set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd))
--#define set_pud_at(mm, addr, pudp, pud)	set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud))
-+static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
-+			      pmd_t *pmdp, pmd_t pmd)
-+{
-+	page_table_check_pmd_set(mm, addr, pmdp, pmd);
-+	return __set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd));
-+}
-+
-+static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
-+			      pud_t *pudp, pud_t pud)
-+{
-+	page_table_check_pud_set(mm, addr, pudp, pud);
-+	return __set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud));
-+}
- 
- #define __p4d_to_phys(p4d)	__pte_to_phys(p4d_pte(p4d))
- #define __phys_to_p4d_val(phys)	__phys_to_pte_val(phys)
-@@ -643,6 +665,24 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
- #define pud_present(pud)	pte_present(pud_pte(pud))
- #define pud_leaf(pud)		(pud_present(pud) && !pud_table(pud))
- #define pud_valid(pud)		pte_valid(pud_pte(pud))
-+#define pud_user(pud)		pte_user(pud_pte(pud))
-+
-+#ifdef CONFIG_PAGE_TABLE_CHECK
-+static inline bool pte_user_accessible_page(pte_t pte)
-+{
-+	return pte_present(pte) && (pte_user(pte) || pte_user_exec(pte));
-+}
-+
-+static inline bool pmd_user_accessible_page(pmd_t pmd)
-+{
-+	return pmd_present(pmd) && (pmd_user(pmd) || pmd_user_exec(pmd));
-+}
-+
-+static inline bool pud_user_accessible_page(pud_t pud)
-+{
-+	return pud_present(pud) && pud_user(pud);
-+}
-+#endif
- 
- static inline void set_pud(pud_t *pudp, pud_t pud)
- {
-@@ -876,7 +916,11 @@ static inline int pmdp_test_and_clear_young(struct vm_area_struct *vma,
- static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
- 				       unsigned long address, pte_t *ptep)
- {
--	return __pte(xchg_relaxed(&pte_val(*ptep), 0));
-+	pte_t pte = __pte(xchg_relaxed(&pte_val(*ptep), 0));
-+
-+	page_table_check_pte_clear(mm, address, pte);
-+
-+	return pte;
- }
- 
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-@@ -884,7 +928,11 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
- static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
- 					    unsigned long address, pmd_t *pmdp)
- {
--	return pte_pmd(ptep_get_and_clear(mm, address, (pte_t *)pmdp));
-+	pmd_t pmd = __pmd(xchg_relaxed(&pmd_val(*pmdp), 0));
-+
-+	page_table_check_pmd_clear(mm, address, pmd);
-+
-+	return pmd;
- }
- #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
- 
-@@ -918,6 +966,7 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
- static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
- 		unsigned long address, pmd_t *pmdp, pmd_t pmd)
- {
-+	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
- 	return __pmd(xchg_relaxed(&pmd_val(*pmdp), pmd_val(pmd)));
- }
- #endif
--- 
-2.25.1
+> > Apart from that, I think this would also fall under the same argument as
+> > the original patch Linus unpulled. We would just paint over someting
+> > that we know at compile time won't work:
+> >
+> > https://lore.kernel.org/lkml/CAHk-=wg80je=K7madF4e7WrRNp37e3qh6y10Svhdc7O8SZ_-8g@mail.gmail.com/
+> >
+>
+> I wasn't advocating adding any warnings.
+>
+> If you know at compile time that a driver won't work, the usual solution
+> is scripts/config -d CONFIG_SOME_UNDESIRED_DRIVER. Why is that no
+> longer appropriate for drivers that use IO ports?
 
+This was never an option, we rely on 'make allmodconfig' to build without
+warnings on all architectures for finding regressions. Any driver that depends
+on architecture specific interfaces must not get selected on architectures that
+don't have those interfaces.
+
+         Arnd
 
 _______________________________________________
 linux-riscv mailing list
